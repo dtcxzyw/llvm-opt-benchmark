@@ -282,12 +282,12 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %for.b
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom14.i.i
   %12 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %12, null
-  %.pre150 = load i32, ptr %stride.i.i, align 4
+  %.pre145 = load i32, ptr %stride.i.i, align 4
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %conv22.i.i = zext i32 %9 to i64
-  %conv23.i.i = zext i32 %.pre150 to i64
+  %conv23.i.i = zext i32 %.pre145 to i64
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 5
   %call24.i.i = call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #18
   store ptr %call24.i.i, ptr %arrayidx15.i.i, align 8
@@ -295,7 +295,7 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
 
 bb_data_at.exit:                                  ; preds = %if.end12.i.i, %if.end20.i.i
   %13 = phi ptr [ %12, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
-  %mul33.i.i = mul i32 %.pre150, %rem.i.i
+  %mul33.i.i = mul i32 %.pre145, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds %struct.bb_commit, ptr %13, i64 %idxprom34.i.i
   %bitmap.i = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 16
@@ -900,14 +900,14 @@ while.body:                                       ; preds = %if.end17, %if.end36
   %rem.i.i65 = urem i32 %call18.val, %113
   %114 = load i32, ptr %slab_count.i.i, align 8
   %cmp.not.i.i45 = icmp ugt i32 %114, %div.i.i43
-  %.pre151 = load ptr, ptr %slab.i.i, align 8
+  %.pre146 = load ptr, ptr %slab.i.i, align 8
   br i1 %cmp.not.i.i45, label %if.end12.i.i60, label %if.end.i.i46
 
 if.end.i.i46:                                     ; preds = %while.body
   %add.i.i48 = add i32 %div.i.i43, 1
   %conv.i.i49 = zext i32 %add.i.i48 to i64
   %mul.i.i.i50 = shl nuw nsw i64 %conv.i.i49, 3
-  %call4.i.i51 = call ptr @xrealloc(ptr noundef %.pre151, i64 noundef %mul.i.i.i50) #18
+  %call4.i.i51 = call ptr @xrealloc(ptr noundef %.pre146, i64 noundef %mul.i.i.i50) #18
   store ptr %call4.i.i51, ptr %slab.i.i, align 8
   br label %for.body.i.i53
 
@@ -925,17 +925,17 @@ for.end.i.i59:                                    ; preds = %for.body.i.i53
   br label %if.end12.i.i60
 
 if.end12.i.i60:                                   ; preds = %for.end.i.i59, %while.body
-  %115 = phi ptr [ %call4.i.i51, %for.end.i.i59 ], [ %.pre151, %while.body ]
+  %115 = phi ptr [ %call4.i.i51, %for.end.i.i59 ], [ %.pre146, %while.body ]
   %idxprom14.i.i62 = zext i32 %div.i.i43 to i64
   %arrayidx15.i.i63 = getelementptr inbounds ptr, ptr %115, i64 %idxprom14.i.i62
   %116 = load ptr, ptr %arrayidx15.i.i63, align 8
   %tobool16.not.i.i64 = icmp eq ptr %116, null
-  %.pre152 = load i32, ptr %stride.i.i, align 4
+  %.pre147 = load i32, ptr %stride.i.i, align 4
   br i1 %tobool16.not.i.i64, label %if.end20.i.i70, label %bb_data_at.exit80
 
 if.end20.i.i70:                                   ; preds = %if.end12.i.i60
   %conv22.i.i71 = zext i32 %113 to i64
-  %conv23.i.i73 = zext i32 %.pre152 to i64
+  %conv23.i.i73 = zext i32 %.pre147 to i64
   %mul.i.i74 = shl nuw nsw i64 %conv23.i.i73, 5
   %call24.i.i75 = call ptr @xcalloc(i64 noundef %conv22.i.i71, i64 noundef %mul.i.i74) #18
   store ptr %call24.i.i75, ptr %arrayidx15.i.i63, align 8
@@ -943,7 +943,7 @@ if.end20.i.i70:                                   ; preds = %if.end12.i.i60
 
 bb_data_at.exit80:                                ; preds = %if.end12.i.i60, %if.end20.i.i70
   %117 = phi ptr [ %116, %if.end12.i.i60 ], [ %call24.i.i75, %if.end20.i.i70 ]
-  %mul33.i.i67 = mul i32 %.pre152, %rem.i.i65
+  %mul33.i.i67 = mul i32 %.pre147, %rem.i.i65
   %idxprom34.i.i68 = zext i32 %mul33.i.i67 to i64
   %bitmap = getelementptr inbounds %struct.bb_commit, ptr %117, i64 %idxprom34.i.i68, i32 2
   %118 = load ptr, ptr %bitmap, align 8
@@ -1001,7 +1001,7 @@ for.end:                                          ; preds = %if.end40, %while.bo
   br i1 %cmp3.not.i.i, label %for.end.bitmap_builder_clear.exit_crit_edge, label %for.body.lr.ph.i.i82
 
 for.end.bitmap_builder_clear.exit_crit_edge:      ; preds = %for.end
-  %.pre153 = load ptr, ptr %slab2.i.i.i.phi.trans.insert, align 8
+  %.pre148 = load ptr, ptr %slab2.i.i.i.phi.trans.insert, align 8
   br label %bitmap_builder_clear.exit
 
 for.body.lr.ph.i.i82:                             ; preds = %for.end
@@ -1046,8 +1046,8 @@ for.body3.i.i:                                    ; preds = %for.body.i.i85, %fo
 
 for.inc9.i.i:                                     ; preds = %for.body3.i.i, %for.body.i.i85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next.i.i, %126
-  br i1 %exitcond148.not, label %for.body.i.i.i.preheader, label %for.body.i.i85, !llvm.loop !17
+  %exitcond143.not = icmp eq i64 %indvars.iv.next.i.i, %126
+  br i1 %exitcond143.not, label %for.body.i.i.i.preheader, label %for.body.i.i85, !llvm.loop !17
 
 for.body.i.i.i.preheader:                         ; preds = %for.inc9.i.i, %for.body.lr.ph.i.i82
   br label %for.body.i.i.i
@@ -1058,11 +1058,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   %133 = load ptr, ptr %arrayidx.i.i.i91, align 8
   call void @free(ptr noundef %133) #18
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next.i.i.i, %126
-  br i1 %exitcond149.not, label %bitmap_builder_clear.exit, label %for.body.i.i.i, !llvm.loop !18
+  %exitcond144.not = icmp eq i64 %indvars.iv.next.i.i.i, %126
+  br i1 %exitcond144.not, label %bitmap_builder_clear.exit, label %for.body.i.i.i, !llvm.loop !18
 
 bitmap_builder_clear.exit:                        ; preds = %for.body.i.i.i, %for.end.bitmap_builder_clear.exit_crit_edge
-  %134 = phi ptr [ %.pre153, %for.end.bitmap_builder_clear.exit_crit_edge ], [ %123, %for.body.i.i.i ]
+  %134 = phi ptr [ %.pre148, %for.end.bitmap_builder_clear.exit_crit_edge ], [ %123, %for.body.i.i.i ]
   store i32 0, ptr %slab_count.i.i81, align 8
   %slab2.i.i.i = getelementptr inbounds i8, ptr %bb, i64 16
   call void @free(ptr noundef %134) #18

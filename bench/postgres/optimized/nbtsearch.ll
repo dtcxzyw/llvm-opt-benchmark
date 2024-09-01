@@ -2359,8 +2359,8 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %187, %BTreeTupleIsP
   %229 = getelementptr [0 x %struct.ItemIdData], ptr %220, i64 0, i64 %228
   %230 = load i32, ptr %229, align 4
   %231 = and i32 %230, 98304
-  %.not271.not = icmp ne i32 %231, 98304
-  br i1 %.not271.not, label %.split.us, label %232
+  %.not271.not.not = icmp ne i32 %231, 98304
+  br i1 %.not271.not.not, label %.split.us, label %232
 
 232:                                              ; preds = %.lr.ph.split.us
   %233 = zext i16 %.1211.us to i32
@@ -2385,7 +2385,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %187, %BTreeTupleIsP
 .split.us:                                        ; preds = %.lr.ph.split.us, %232, %.lr.ph.split
   %.val = phi i32 [ %.val.pre, %.lr.ph.split ], [ %230, %232 ], [ %230, %.lr.ph.split.us ]
   %.us-phi213 = phi i16 [ %.1.ph226, %.lr.ph.split ], [ %.1211.us, %232 ], [ %.1211.us, %.lr.ph.split.us ]
-  %.us-phi214 = phi i1 [ true, %.lr.ph.split ], [ %.not271.not, %232 ], [ %.not271.not, %.lr.ph.split.us ]
+  %.us-phi214 = phi i1 [ true, %.lr.ph.split ], [ %.not271.not.not, %232 ], [ %.not271.not.not, %.lr.ph.split.us ]
   %242 = and i32 %.val, 32767
   %243 = zext nneg i32 %242 to i64
   %244 = getelementptr i8, ptr %.0.i.i, i64 %243

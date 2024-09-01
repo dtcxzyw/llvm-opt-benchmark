@@ -1012,19 +1012,19 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %192, %189
 ._crit_edge192.i:                                 ; preds = %.noexc126
   %putchar.i = call i32 @putchar(i32 10)
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 155, ptr noundef %194)
-          to label %.lr.ph199.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc127 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph199.i:                                      ; preds = %._crit_edge192.i
+.noexc127:                                        ; preds = %._crit_edge192.i
   %315 = add nsw i32 %.1131.i, -1
   %316 = uitofp nneg i32 %315 to double
   br label %317
 
-317:                                              ; preds = %326, %.lr.ph199.i
-  %indvars.iv262.i = phi i64 [ 0, %.lr.ph199.i ], [ %indvars.iv.next263.i, %326 ]
-  %.0113197.i = phi double [ 0.000000e+00, %.lr.ph199.i ], [ %327, %326 ]
-  %.0114196.i = phi double [ 0x47EFFFFFE0000000, %.lr.ph199.i ], [ %.1.i, %326 ]
-  %.0118195.i = phi float [ -1.000000e+00, %.lr.ph199.i ], [ %.1119.i, %326 ]
-  %.0120194.i = phi i32 [ -1, %.lr.ph199.i ], [ %.1121.i, %326 ]
+317:                                              ; preds = %326, %.noexc127
+  %indvars.iv262.i = phi i64 [ 0, %.noexc127 ], [ %indvars.iv.next263.i, %326 ]
+  %.0113197.i = phi double [ 0.000000e+00, %.noexc127 ], [ %327, %326 ]
+  %.0114196.i = phi double [ 0x47EFFFFFE0000000, %.noexc127 ], [ %.1.i, %326 ]
+  %.0118195.i = phi float [ -1.000000e+00, %.noexc127 ], [ %.1119.i, %326 ]
+  %.0120194.i = phi i32 [ -1, %.noexc127 ], [ %.1121.i, %326 ]
   %318 = getelementptr inbounds double, ptr %261, i64 %indvars.iv262.i
   %319 = load double, ptr %318, align 8
   %320 = fdiv double %319, %316

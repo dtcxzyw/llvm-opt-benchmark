@@ -275,27 +275,27 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %120 = load i64, ptr %23, align 16
   %121 = and i64 %120, 16777216
   %122 = icmp eq i64 %121, 0
-  br i1 %122, label %.preheader41.split.preheader, label %.thread36
+  br i1 %122, label %.preheader41.preheader, label %.thread36
 
-.preheader41.split.preheader:                     ; preds = %.loopexit44
+.preheader41.preheader:                           ; preds = %.loopexit44
   %.pre = load i32, ptr %25, align 8
-  br label %.preheader41.split
+  br label %.preheader41
 
 .thread36:                                        ; preds = %.loopexit44
   call fastcc void @sata_pmp_detach(ptr noundef %13)
   br label %341
 
-.preheader41.split:                               ; preds = %.preheader41.split.preheader, %323
-  %123 = phi i32 [ %325, %323 ], [ %.pre, %.preheader41.split.preheader ]
-  %124 = phi i1 [ false, %323 ], [ true, %.preheader41.split.preheader ]
-  %125 = phi i32 [ %317, %323 ], [ 0, %.preheader41.split.preheader ]
-  %126 = phi i32 [ %318, %323 ], [ 5, %.preheader41.split.preheader ]
+.preheader41:                                     ; preds = %.preheader41.preheader, %323
+  %123 = phi i32 [ %325, %323 ], [ %.pre, %.preheader41.preheader ]
+  %124 = phi i1 [ false, %323 ], [ true, %.preheader41.preheader ]
+  %125 = phi i32 [ %317, %323 ], [ 0, %.preheader41.preheader ]
+  %126 = phi i32 [ %318, %323 ], [ 5, %.preheader41.preheader ]
   store i32 0, ptr %24, align 8
   %127 = and i32 %123, 6
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %.thread28, label %129
 
-129:                                              ; preds = %.preheader41.split
+129:                                              ; preds = %.preheader41
   %130 = call i32 @ata_eh_reset(ptr noundef %12, i32 noundef 0, ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119) #9
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %150, label %132
@@ -345,7 +345,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.thread28, label %.preheader39, !llvm.loop !11
 
-.thread28:                                        ; preds = %.preheader39, %150, %.preheader41.split
+.thread28:                                        ; preds = %.preheader39, %150, %.preheader41
   %162 = load i32, ptr %25, align 8
   %163 = and i32 %162, 1
   %164 = icmp eq i32 %163, 0
@@ -601,7 +601,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %324 = load i32, ptr %25, align 8
   %325 = or i32 %324, 6
   store i32 %325, ptr %25, align 8
-  br label %.preheader41.split
+  br label %.preheader41
 
 326:                                              ; preds = %316
   %327 = load ptr, ptr %13, align 64
@@ -1423,12 +1423,12 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %90 = load i32, ptr %35, align 8
   %91 = add i32 %90, %89
   %92 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %87, i32 noundef %91, i32 noundef %67, i32 noundef %82) #10
-  br label %268
+  br label %267
 
 93:                                               ; preds = %58
   %94 = tail call fastcc i32 @sata_pmp_configure(ptr noundef %0, i32 noundef 1)
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %268
+  br i1 %95, label %96, label %267
 
 96:                                               ; preds = %93
   %97 = getelementptr i8, ptr %0, i64 904
@@ -1525,7 +1525,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %151 = load i32, ptr %35, align 8
   %152 = add i32 %151, %150
   %153 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %148, i32 noundef %152) #10
-  br label %268
+  br label %267
 
 .thread:                                          ; preds = %127, %.loopexit39
   %154 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1553,24 +1553,26 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %167 = freeze i32 %166
   %168 = lshr i32 %167, 16
   %trunc = trunc i32 %167 to i16
-  switch i16 %trunc, label %236 [
+  switch i16 %trunc, label %235 [
     i16 4245, label %169
-    i16 6523, label %225
+    i16 6523, label %224
   ]
 
 169:                                              ; preds = %161
   %170 = trunc nuw i32 %168 to i16
-  switch i16 %170, label %187 [
+  switch i16 %170, label %212 [
     i16 14374, label %171
     i16 14118, label %171
+    i16 18211, label %187
+    i16 18214, label %196
   ]
 
 171:                                              ; preds = %169, %169
   %172 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %.thread28, label %.preheader32
+  br i1 %173, label %.thread28, label %.preheader34
 
-.preheader32:                                     ; preds = %171, %184
+.preheader34:                                     ; preds = %171, %184
   %174 = phi ptr [ %185, %184 ], [ %172, %171 ]
   %175 = getelementptr inbounds i8, ptr %174, i64 752
   %176 = load i32, ptr %175, align 16
@@ -1581,181 +1583,174 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %180 = icmp slt i32 %179, 5
   br i1 %180, label %.sink.split, label %181
 
-181:                                              ; preds = %.preheader32
+181:                                              ; preds = %.preheader34
   %182 = icmp eq i32 %179, 5
   br i1 %182, label %.sink.split, label %184
 
-.sink.split:                                      ; preds = %181, %.preheader32
-  %.sink70 = phi i32 [ 268, %.preheader32 ], [ 276, %181 ]
-  %183 = or i32 %176, %.sink70
+.sink.split:                                      ; preds = %181, %.preheader34
+  %.sink71 = phi i32 [ 268, %.preheader34 ], [ 276, %181 ]
+  %183 = or i32 %176, %.sink71
   store i32 %183, ptr %175, align 16
   br label %184
 
 184:                                              ; preds = %.sink.split, %181
   %185 = tail call ptr @ata_link_next(ptr noundef nonnull %174, ptr noundef %4, i32 noundef 0) #9
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread28, label %.preheader32, !llvm.loop !28
+  br i1 %186, label %.thread28, label %.preheader34, !llvm.loop !28
 
 187:                                              ; preds = %169
-  %trunc73 = trunc nuw i32 %168 to i16
-  switch i16 %trunc73, label %213 [
-    i16 18211, label %188
-    i16 18214, label %197
-  ]
+  %188 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %.thread28, label %.preheader30
 
-188:                                              ; preds = %187
-  %189 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
-  %190 = icmp eq ptr %189, null
-  br i1 %190, label %.thread28, label %.preheader29
+.preheader30:                                     ; preds = %187, %.preheader30
+  %190 = phi ptr [ %194, %.preheader30 ], [ %188, %187 ]
+  %191 = getelementptr inbounds i8, ptr %190, i64 752
+  %192 = load i32, ptr %191, align 16
+  %193 = or i32 %192, 268
+  store i32 %193, ptr %191, align 16
+  %194 = tail call ptr @ata_link_next(ptr noundef nonnull %190, ptr noundef %4, i32 noundef 0) #9
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %.thread28, label %.preheader30, !llvm.loop !29
 
-.preheader29:                                     ; preds = %188, %.preheader29
-  %191 = phi ptr [ %195, %.preheader29 ], [ %189, %188 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 752
-  %193 = load i32, ptr %192, align 16
-  %194 = or i32 %193, 268
-  store i32 %194, ptr %192, align 16
-  %195 = tail call ptr @ata_link_next(ptr noundef nonnull %191, ptr noundef %4, i32 noundef 0) #9
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %.thread28, label %.preheader29, !llvm.loop !29
+196:                                              ; preds = %169
+  %197 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %.thread28, label %.preheader32
 
-197:                                              ; preds = %187
-  %198 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
-  %199 = icmp eq ptr %198, null
-  br i1 %199, label %.thread28, label %.preheader30
+.preheader32:                                     ; preds = %196, %209
+  %199 = phi ptr [ %210, %209 ], [ %197, %196 ]
+  %200 = getelementptr inbounds i8, ptr %199, i64 752
+  %201 = load i32, ptr %200, align 16
+  %202 = or i32 %201, 256
+  store i32 %202, ptr %200, align 16
+  %203 = getelementptr inbounds i8, ptr %199, i64 8
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp slt i32 %204, 6
+  br i1 %205, label %.sink.split72, label %206
 
-.preheader30:                                     ; preds = %197, %210
-  %200 = phi ptr [ %211, %210 ], [ %198, %197 ]
-  %201 = getelementptr inbounds i8, ptr %200, i64 752
-  %202 = load i32, ptr %201, align 16
-  %203 = or i32 %202, 256
-  store i32 %203, ptr %201, align 16
-  %204 = getelementptr inbounds i8, ptr %200, i64 8
-  %205 = load i32, ptr %204, align 8
-  %206 = icmp slt i32 %205, 6
-  br i1 %206, label %.sink.split71, label %207
+206:                                              ; preds = %.preheader32
+  %207 = icmp eq i32 %204, 6
+  br i1 %207, label %.sink.split72, label %209
 
-207:                                              ; preds = %.preheader30
-  %208 = icmp eq i32 %205, 6
-  br i1 %208, label %.sink.split71, label %210
+.sink.split72:                                    ; preds = %206, %.preheader32
+  %.sink73 = phi i32 [ 268, %.preheader32 ], [ 276, %206 ]
+  %208 = or i32 %201, %.sink73
+  store i32 %208, ptr %200, align 16
+  br label %209
 
-.sink.split71:                                    ; preds = %207, %.preheader30
-  %.sink72 = phi i32 [ 268, %.preheader30 ], [ 276, %207 ]
-  %209 = or i32 %202, %.sink72
-  store i32 %209, ptr %201, align 16
-  br label %210
+209:                                              ; preds = %.sink.split72, %206
+  %210 = tail call ptr @ata_link_next(ptr noundef nonnull %199, ptr noundef %4, i32 noundef 0) #9
+  %211 = icmp eq ptr %210, null
+  br i1 %211, label %.thread28, label %.preheader32, !llvm.loop !30
 
-210:                                              ; preds = %.sink.split71, %207
-  %211 = tail call ptr @ata_link_next(ptr noundef nonnull %200, ptr noundef %4, i32 noundef 0) #9
-  %212 = icmp eq ptr %211, null
-  br i1 %212, label %.thread28, label %.preheader30, !llvm.loop !30
+212:                                              ; preds = %169
+  %213 = and i32 %167, -1114112
+  %214 = icmp eq i32 %213, 1461911552
+  br i1 %214, label %216, label %215
 
-213:                                              ; preds = %187
-  %214 = and i32 %167, -1114112
-  %215 = icmp eq i32 %214, 1461911552
-  br i1 %215, label %217, label %216
-
-216:                                              ; preds = %213
+215:                                              ; preds = %212
   switch i16 %170, label %.thread28 [
-    i16 22340, label %217
-    i16 22324, label %217
+    i16 22340, label %216
+    i16 22324, label %216
   ]
 
-217:                                              ; preds = %216, %216, %213
-  %218 = load ptr, ptr %100, align 16
-  %219 = load i32, ptr %157, align 8
-  %220 = add i32 %219, -1
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr %struct.ata_link, ptr %218, i64 %221, i32 5
-  %223 = load i32, ptr %222, align 16
-  %224 = or i32 %223, 32
-  store i32 %224, ptr %222, align 16
+216:                                              ; preds = %215, %215, %212
+  %217 = load ptr, ptr %100, align 16
+  %218 = load i32, ptr %157, align 8
+  %219 = add i32 %218, -1
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr %struct.ata_link, ptr %217, i64 %220, i32 5
+  %222 = load i32, ptr %221, align 16
+  %223 = or i32 %222, 32
+  store i32 %223, ptr %221, align 16
   br label %.thread28
 
-225:                                              ; preds = %161
-  %226 = trunc nuw i32 %168 to i16
-  switch i16 %226, label %.thread28 [
-    i16 9042, label %227
-    i16 805, label %227
+224:                                              ; preds = %161
+  %225 = trunc nuw i32 %168 to i16
+  switch i16 %225, label %.thread28 [
+    i16 9042, label %226
+    i16 805, label %226
   ]
 
-227:                                              ; preds = %225, %225
-  %228 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %.thread28, label %.preheader34
+226:                                              ; preds = %224, %224
+  %227 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %.thread28, label %.preheader36
 
-.preheader34:                                     ; preds = %227, %.preheader34
-  %230 = phi ptr [ %234, %.preheader34 ], [ %228, %227 ]
-  %231 = getelementptr inbounds i8, ptr %230, i64 752
-  %232 = load i32, ptr %231, align 16
-  %233 = or i32 %232, 268
-  store i32 %233, ptr %231, align 16
-  %234 = tail call ptr @ata_link_next(ptr noundef nonnull %230, ptr noundef %4, i32 noundef 0) #9
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %.thread28, label %.preheader34, !llvm.loop !31
+.preheader36:                                     ; preds = %226, %.preheader36
+  %229 = phi ptr [ %233, %.preheader36 ], [ %227, %226 ]
+  %230 = getelementptr inbounds i8, ptr %229, i64 752
+  %231 = load i32, ptr %230, align 16
+  %232 = or i32 %231, 268
+  store i32 %232, ptr %230, align 16
+  %233 = tail call ptr @ata_link_next(ptr noundef nonnull %229, ptr noundef %4, i32 noundef 0) #9
+  %234 = icmp eq ptr %233, null
+  br i1 %234, label %.thread28, label %.preheader36, !llvm.loop !31
 
-236:                                              ; preds = %161
-  %237 = and i32 %167, 65535
-  %238 = icmp eq i32 %237, 4523
-  %239 = icmp eq i32 %168, 16704
-  %240 = and i1 %238, %239
-  br i1 %240, label %241, label %.thread28
+235:                                              ; preds = %161
+  %236 = and i32 %167, 65535
+  %237 = icmp eq i32 %236, 4523
+  %238 = icmp eq i32 %168, 16704
+  %239 = and i1 %237, %238
+  br i1 %239, label %240, label %.thread28
 
-241:                                              ; preds = %236
-  %242 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
-  %243 = icmp eq ptr %242, null
-  br i1 %243, label %.thread28, label %.preheader36
+240:                                              ; preds = %235
+  %241 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %.thread28, label %.preheader29
 
-.preheader36:                                     ; preds = %241, %252
-  %244 = phi ptr [ %253, %252 ], [ %242, %241 ]
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
-  %246 = load i32, ptr %245, align 8
-  %247 = icmp eq i32 %246, 4
-  br i1 %247, label %248, label %252
+.preheader29:                                     ; preds = %240, %251
+  %243 = phi ptr [ %252, %251 ], [ %241, %240 ]
+  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %245 = load i32, ptr %244, align 8
+  %246 = icmp eq i32 %245, 4
+  br i1 %246, label %247, label %251
 
-248:                                              ; preds = %.preheader36
-  %249 = getelementptr inbounds i8, ptr %244, i64 752
-  %250 = load i32, ptr %249, align 16
-  %251 = or i32 %250, 64
-  store i32 %251, ptr %249, align 16
-  br label %252
+247:                                              ; preds = %.preheader29
+  %248 = getelementptr inbounds i8, ptr %243, i64 752
+  %249 = load i32, ptr %248, align 16
+  %250 = or i32 %249, 64
+  store i32 %250, ptr %248, align 16
+  br label %251
 
-252:                                              ; preds = %248, %.preheader36
-  %253 = tail call ptr @ata_link_next(ptr noundef nonnull %244, ptr noundef %4, i32 noundef 0) #9
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %.thread28, label %.preheader36, !llvm.loop !32
+251:                                              ; preds = %247, %.preheader29
+  %252 = tail call ptr @ata_link_next(ptr noundef nonnull %243, ptr noundef %4, i32 noundef 0) #9
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %.thread28, label %.preheader29, !llvm.loop !32
 
-.thread28:                                        ; preds = %.preheader34, %184, %210, %.preheader29, %252, %216, %225, %241, %236, %227, %217, %197, %188, %171
-  %255 = getelementptr inbounds i8, ptr %4, i64 8
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 240
-  %258 = load ptr, ptr %257, align 8
-  %259 = icmp eq ptr %258, null
-  br i1 %259, label %261, label %260
+.thread28:                                        ; preds = %.preheader36, %209, %.preheader30, %184, %251, %215, %224, %240, %235, %226, %216, %196, %187, %171
+  %254 = getelementptr inbounds i8, ptr %4, i64 8
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 240
+  %257 = load ptr, ptr %256, align 8
+  %258 = icmp eq ptr %257, null
+  br i1 %258, label %260, label %259
 
-260:                                              ; preds = %.thread28
-  tail call void %258(ptr noundef %4) #9
-  br label %261
+259:                                              ; preds = %.thread28
+  tail call void %257(ptr noundef %4) #9
+  br label %260
 
-261:                                              ; preds = %260, %.thread28
-  %262 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
-  %263 = icmp eq ptr %262, null
-  br i1 %263, label %.loopexit, label %.preheader
+260:                                              ; preds = %259, %.thread28
+  %261 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %4, i32 noundef 0) #9
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %261, %.preheader
-  %264 = phi ptr [ %266, %.preheader ], [ %262, %261 ]
-  %265 = tail call i32 @sata_link_init_spd(ptr noundef nonnull %264) #9
-  %266 = tail call ptr @ata_link_next(ptr noundef nonnull %264, ptr noundef %4, i32 noundef 0) #9
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %.loopexit, label %.preheader, !llvm.loop !33
+.preheader:                                       ; preds = %260, %.preheader
+  %263 = phi ptr [ %265, %.preheader ], [ %261, %260 ]
+  %264 = tail call i32 @sata_link_init_spd(ptr noundef nonnull %263) #9
+  %265 = tail call ptr @ata_link_next(ptr noundef nonnull %263, ptr noundef %4, i32 noundef 0) #9
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %.loopexit, label %.preheader, !llvm.loop !33
 
-268:                                              ; preds = %sata_pmp_read_gscr.exit, %.thread19, %93
-  %269 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %94, %93 ], [ %144, %.thread19 ]
+267:                                              ; preds = %sata_pmp_read_gscr.exit, %.thread19, %93
+  %268 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %94, %93 ], [ %144, %.thread19 ]
   store i32 0, ptr %46, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %268, %261, %38, %25, %9
-  %270 = phi i32 [ -22, %38 ], [ %269, %268 ], [ -22, %25 ], [ -22, %9 ], [ 0, %261 ], [ 0, %.preheader ]
-  ret i32 %270
+.loopexit:                                        ; preds = %.preheader, %267, %260, %38, %25, %9
+  %269 = phi i32 [ -22, %38 ], [ %268, %267 ], [ -22, %25 ], [ -22, %9 ], [ 0, %260 ], [ 0, %.preheader ]
+  ret i32 %269
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

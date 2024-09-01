@@ -638,11 +638,11 @@ define internal range(i32 -16, 1) i32 @component_available() #0 {
   %15 = getelementptr inbounds i8, ptr %.03653, i64 412
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 8
-  %.not44.not = icmp ne i32 %17, 0
-  br i1 %.not44.not, label %13, label %.loopexit
+  %.not44.not.not = icmp ne i32 %17, 0
+  br i1 %.not44.not.not, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.lr.ph, %10
-  %.0 = phi i1 [ false, %10 ], [ %.not44.not, %.lr.ph ], [ %.not44.not, %13 ]
+  %.0 = phi i1 [ false, %10 ], [ %.not44.not.not, %.lr.ph ], [ %.not44.not.not, %13 ]
   %.not4557 = icmp eq ptr %.156.pre, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not4557, label %._crit_edge, label %.lr.ph59
 

@@ -1892,8 +1892,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   unreachable
 
 92:                                               ; preds = %86
-  %93 = icmp slt i32 %88, 0
-  br i1 %93, label %_ZNSt10unique_ptrI34cmOrderDirectoriesConstraintSONameSt14default_deleteIS0_EED2Ev.exit.thread, label %94
+  %93 = icmp sgt i32 %88, -1
+  br i1 %93, label %94, label %_ZNSt10unique_ptrI34cmOrderDirectoriesConstraintSONameSt14default_deleteIS0_EED2Ev.exit.thread
 
 94:                                               ; preds = %92
   %95 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
@@ -2272,8 +2272,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   unreachable
 
 30:                                               ; preds = %24
-  %31 = icmp slt i32 %26, 0
-  br i1 %31, label %_ZNSt10unique_ptrI35cmOrderDirectoriesConstraintLibrarySt14default_deleteIS0_EED2Ev.exit.thread, label %32
+  %31 = icmp sgt i32 %26, -1
+  br i1 %31, label %32, label %_ZNSt10unique_ptrI35cmOrderDirectoriesConstraintLibrarySt14default_deleteIS0_EED2Ev.exit.thread
 
 32:                                               ; preds = %30
   %33 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25

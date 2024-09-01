@@ -1306,7 +1306,7 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %121 = add nuw nsw i32 %.mux189, 4
   %122 = and i32 %9, 2048
   %.not173 = icmp eq i32 %122, 0
-  br i1 %.not173, label %.thread214, label %135
+  br i1 %.not173, label %.thread213, label %135
 
 .critedge.thread:                                 ; preds = %118, %114
   %.1163.ph = phi i32 [ 4, %118 ], [ 2, %114 ]
@@ -1335,12 +1335,12 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %.not174 = icmp eq i32 %137, 0
   br i1 %.not174, label %160, label %142
 
-.thread214:                                       ; preds = %.critedge
+.thread213:                                       ; preds = %.critedge
   %138 = and i32 %9, 512
-  %.not174216 = icmp eq i32 %138, 0
-  br i1 %.not174216, label %.thread225, label %.thread218
+  %.not174215 = icmp eq i32 %138, 0
+  br i1 %.not174215, label %.thread224, label %.thread217
 
-.thread218:                                       ; preds = %.thread214
+.thread217:                                       ; preds = %.thread213
   %139 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %121) #8
   br label %144
 
@@ -1357,13 +1357,13 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %143 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %136) #8
   br i1 %.not172, label %.thread209, label %144
 
-144:                                              ; preds = %.thread218, %142
-  %145 = phi i16 [ %139, %.thread218 ], [ %143, %142 ]
-  %.2217220 = phi i32 [ %121, %.thread218 ], [ %136, %142 ]
-  %146 = add nuw nsw i32 %.2217220, 2
+144:                                              ; preds = %.thread217, %142
+  %145 = phi i16 [ %139, %.thread217 ], [ %143, %142 ]
+  %.2216219 = phi i32 [ %121, %.thread217 ], [ %136, %142 ]
+  %146 = add nuw nsw i32 %.2216219, 2
   %147 = zext i16 %145 to i32
   %.not175 = icmp eq i16 %145, 0
-  br i1 %.not175, label %.thread225, label %156
+  br i1 %.not175, label %.thread224, label %156
 
 .thread209:                                       ; preds = %142, %.thread205
   %148 = phi i16 [ %141, %.thread205 ], [ %143, %142 ]
@@ -1401,39 +1401,39 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 166:                                              ; preds = %163, %160
   br i1 %.not170, label %167, label %174
 
-.thread225:                                       ; preds = %144, %.thread214
-  %.3.ph = phi i32 [ %121, %.thread214 ], [ %146, %144 ]
-  br i1 %.not170, label %.thread229, label %174
+.thread224:                                       ; preds = %144, %.thread213
+  %.3.ph = phi i32 [ %121, %.thread213 ], [ %146, %144 ]
+  br i1 %.not170, label %.thread228, label %174
 
 167:                                              ; preds = %166
-  br i1 %.not172, label %168, label %.thread229
+  br i1 %.not172, label %168, label %.thread228
 
 168:                                              ; preds = %167
   tail call void @proto_item_set_len(ptr noundef %111, i32 noundef %.3) #8
-  br label %.thread229
+  br label %.thread228
 
-.thread229:                                       ; preds = %.thread225, %168, %167
-  %.3224228231 = phi i32 [ %.3, %168 ], [ %.3, %167 ], [ %.3.ph, %.thread225 ]
-  %169 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.3224228231) #8
+.thread228:                                       ; preds = %.thread224, %168, %167
+  %.3223227230 = phi i32 [ %.3, %168 ], [ %.3, %167 ], [ %.3.ph, %.thread224 ]
+  %169 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.3223227230) #8
   %.not176 = icmp eq i32 %169, 0
   br i1 %.not176, label %.sink.split, label %170
 
-170:                                              ; preds = %.thread229
-  %171 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3224228231) #8
+170:                                              ; preds = %.thread228
+  %171 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3223227230) #8
   %172 = load ptr, ptr @ppp_hdlc_handle, align 8
   %173 = tail call i32 @call_dissector(ptr noundef %172, ptr noundef %171, ptr noundef nonnull %1, ptr noundef %2) #8
   br label %.sink.split
 
-174:                                              ; preds = %.thread225, %166
-  %.3224227 = phi i32 [ %.3.ph, %.thread225 ], [ %.3, %166 ]
+174:                                              ; preds = %.thread224, %166
+  %.3223226 = phi i32 [ %.3.ph, %.thread224 ], [ %.3, %166 ]
   br i1 %72, label %175, label %.sink.split
 
 175:                                              ; preds = %174
   %176 = zext i16 %.0165 to i32
-  tail call fastcc void @process_control_avps(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %113, i32 noundef %.3224227, i32 noundef %176, i32 noundef -1, ptr noundef null)
+  tail call fastcc void @process_control_avps(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %113, i32 noundef %.3223226, i32 noundef %176, i32 noundef -1, ptr noundef null)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %174, %175, %.thread229, %170, %55, %.split.i, %.split16.i
+.sink.split:                                      ; preds = %174, %175, %.thread228, %170, %55, %.split.i, %.split16.i
   %177 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   br label %178
 

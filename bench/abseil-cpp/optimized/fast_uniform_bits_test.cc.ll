@@ -8235,7 +8235,11 @@ _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %if.end153, %_ZNKSt1
   %.fr.i.i306 = freeze i8 %96
   %tobool.i.i.i307 = trunc i8 %.fr.i.i306 to i1
   %calls.i.promoted2.i.i = load i64, ptr %calls.i88, align 8
-  br i1 %tobool.i.i.i307, label %do.body.preheader.us.i.i, label %do.body8.preheader.preheader.i.i
+  br i1 %tobool.i.i.i307, label %do.body.preheader.us.i.i, label %for.cond4.preheader.thread.i.i
+
+for.cond4.preheader.thread.i.i:                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit304
+  %97 = add i64 %calls.i.promoted2.i.i, 3
+  br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit311
 
 do.body.preheader.us.i.i:                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit304, %do.end.split.us.i.i
   %cmp.us.i.i = phi i1 [ false, %do.end.split.us.i.i ], [ true, %_ZN7testing15AssertionResultD2Ev.exit304 ]
@@ -8245,16 +8249,12 @@ do.body.preheader.us.i.i:                         ; preds = %_ZN7testing15Assert
 do.body.us.i.i:                                   ; preds = %do.body.us.i.i, %do.body.preheader.us.i.i
   %inc.i1.us.i.i = phi i64 [ %.us-phi34.us.i.i, %do.body.preheader.us.i.i ], [ %inc.i.us7.i.i, %do.body.us.i.i ]
   %inc.i.us7.i.i = add i64 %inc.i1.us.i.i, 1
-  %97 = and i64 %inc.i1.us.i.i, 1
-  %cmp.not.not.i.us.i.i = icmp eq i64 %97, 0
+  %98 = and i64 %inc.i1.us.i.i, 1
+  %cmp.not.not.i.us.i.i = icmp eq i64 %98, 0
   br i1 %cmp.not.not.i.us.i.i, label %do.body.us.i.i, label %do.end.split.us.i.i, !llvm.loop !61
 
 do.end.split.us.i.i:                              ; preds = %do.body.us.i.i
   br i1 %cmp.us.i.i, label %do.body.preheader.us.i.i, label %do.body8.us.i.i, !llvm.loop !62
-
-do.body8.preheader.preheader.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit304
-  %98 = add i64 %calls.i.promoted2.i.i, 3
-  br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit311
 
 do.body8.us.i.i:                                  ; preds = %do.end.split.us.i.i, %do.body8.us.i.i
   %inc.i911.us.i.i = phi i64 [ %inc.i9.us18.i.i, %do.body8.us.i.i ], [ %inc.i.us7.i.i, %do.end.split.us.i.i ]
@@ -8263,8 +8263,8 @@ do.body8.us.i.i:                                  ; preds = %do.end.split.us.i.i
   %cmp.not.not.i10.us.i.i = icmp eq i64 %99, 0
   br i1 %cmp.not.not.i10.us.i.i, label %do.body8.us.i.i, label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit311, !llvm.loop !63
 
-_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit311: ; preds = %do.body8.us.i.i, %do.body8.preheader.preheader.i.i
-  %.us-phi20.i.i = phi i64 [ %98, %do.body8.preheader.preheader.i.i ], [ %inc.i9.us18.i.i, %do.body8.us.i.i ]
+_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit311: ; preds = %do.body8.us.i.i, %for.cond4.preheader.thread.i.i
+  %.us-phi20.i.i = phi i64 [ %97, %for.cond4.preheader.thread.i.i ], [ %inc.i9.us18.i.i, %do.body8.us.i.i ]
   store i64 %.us-phi20.i.i, ptr %calls.i88, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar155)
   %100 = load i8, ptr %gtest_ar155, align 8
@@ -8682,7 +8682,11 @@ _ZN7testing15AssertionResultD2Ev.exit415:         ; preds = %if.end235, %_ZNKSt1
   %.fr.i.i417 = freeze i8 %145
   %tobool.i.i.i418 = trunc i8 %.fr.i.i417 to i1
   %calls.i.promoted2.i.i419 = load i64, ptr %calls.i90, align 8
-  br i1 %tobool.i.i.i418, label %do.body.preheader.us.i.i422, label %do.body8.preheader.preheader.i.i420
+  br i1 %tobool.i.i.i418, label %do.body.preheader.us.i.i422, label %for.cond4.preheader.thread.i.i420
+
+for.cond4.preheader.thread.i.i420:                ; preds = %_ZN7testing15AssertionResultD2Ev.exit415
+  %146 = add i64 %calls.i.promoted2.i.i419, 3
+  br label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit437
 
 do.body.preheader.us.i.i422:                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit415, %do.end.split.us.i.i429
   %cmp.us.i.i423 = phi i1 [ false, %do.end.split.us.i.i429 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit415 ]
@@ -8692,16 +8696,12 @@ do.body.preheader.us.i.i422:                      ; preds = %_ZN7testing15Assert
 do.body.us.i.i425:                                ; preds = %do.body.us.i.i425, %do.body.preheader.us.i.i422
   %inc.i1.us.i.i426 = phi i64 [ %.us-phi34.us.i.i424, %do.body.preheader.us.i.i422 ], [ %inc.i.us7.i.i427, %do.body.us.i.i425 ]
   %inc.i.us7.i.i427 = add i64 %inc.i1.us.i.i426, 1
-  %146 = and i64 %inc.i1.us.i.i426, 1
-  %cmp.not.not.i.us.i.i428 = icmp eq i64 %146, 0
+  %147 = and i64 %inc.i1.us.i.i426, 1
+  %cmp.not.not.i.us.i.i428 = icmp eq i64 %147, 0
   br i1 %cmp.not.not.i.us.i.i428, label %do.body.us.i.i425, label %do.end.split.us.i.i429, !llvm.loop !74
 
 do.end.split.us.i.i429:                           ; preds = %do.body.us.i.i425
   br i1 %cmp.us.i.i423, label %do.body.preheader.us.i.i422, label %do.body8.us.i.i430, !llvm.loop !75
-
-do.body8.preheader.preheader.i.i420:              ; preds = %_ZN7testing15AssertionResultD2Ev.exit415
-  %147 = add i64 %calls.i.promoted2.i.i419, 3
-  br label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit437
 
 do.body8.us.i.i430:                               ; preds = %do.end.split.us.i.i429, %do.body8.us.i.i430
   %inc.i911.us.i.i431 = phi i64 [ %inc.i9.us18.i.i432, %do.body8.us.i.i430 ], [ %inc.i.us7.i.i427, %do.end.split.us.i.i429 ]
@@ -8710,8 +8710,8 @@ do.body8.us.i.i430:                               ; preds = %do.end.split.us.i.i
   %cmp.not.not.i10.us.i.i433 = icmp eq i64 %148, 0
   br i1 %cmp.not.not.i10.us.i.i433, label %do.body8.us.i.i430, label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit437, !llvm.loop !76
 
-_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit437: ; preds = %do.body8.us.i.i430, %do.body8.preheader.preheader.i.i420
-  %.us-phi20.i.i421 = phi i64 [ %147, %do.body8.preheader.preheader.i.i420 ], [ %inc.i9.us18.i.i432, %do.body8.us.i.i430 ]
+_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit437: ; preds = %do.body8.us.i.i430, %for.cond4.preheader.thread.i.i420
+  %.us-phi20.i.i421 = phi i64 [ %146, %for.cond4.preheader.thread.i.i420 ], [ %inc.i9.us18.i.i432, %do.body8.us.i.i430 ]
   store i64 %.us-phi20.i.i421, ptr %calls.i90, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar237)
   %149 = load i8, ptr %gtest_ar237, align 8
@@ -9776,7 +9776,11 @@ _ZN7testing15AssertionResultD2Ev.exit739:         ; preds = %if.end444, %_ZNKSt1
   %.fr.i.i741 = freeze i8 %261
   %tobool.i.i.i742 = trunc i8 %.fr.i.i741 to i1
   %calls.i.promoted2.i.i743 = load i64, ptr %calls.i662, align 8
-  br i1 %tobool.i.i.i742, label %do.body.preheader.us.i.i746, label %do.body8.preheader.preheader.i.i744
+  br i1 %tobool.i.i.i742, label %do.body.preheader.us.i.i746, label %for.cond4.preheader.thread.i.i744
+
+for.cond4.preheader.thread.i.i744:                ; preds = %_ZN7testing15AssertionResultD2Ev.exit739
+  %262 = add i64 %calls.i.promoted2.i.i743, 3
+  br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit762
 
 do.body.preheader.us.i.i746:                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit739, %do.end.split.us.i.i753
   %cmp.us.i.i747 = phi i1 [ false, %do.end.split.us.i.i753 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit739 ]
@@ -9786,16 +9790,12 @@ do.body.preheader.us.i.i746:                      ; preds = %_ZN7testing15Assert
 do.body.us.i.i749:                                ; preds = %do.body.us.i.i749, %do.body.preheader.us.i.i746
   %inc.i1.us.i.i750 = phi i64 [ %.us-phi34.us.i.i748, %do.body.preheader.us.i.i746 ], [ %inc.i.us7.i.i751, %do.body.us.i.i749 ]
   %inc.i.us7.i.i751 = add i64 %inc.i1.us.i.i750, 1
-  %262 = and i64 %inc.i1.us.i.i750, 1
-  %cmp.not.not.i.us.i.i752 = icmp eq i64 %262, 0
+  %263 = and i64 %inc.i1.us.i.i750, 1
+  %cmp.not.not.i.us.i.i752 = icmp eq i64 %263, 0
   br i1 %cmp.not.not.i.us.i.i752, label %do.body.us.i.i749, label %do.end.split.us.i.i753, !llvm.loop !61
 
 do.end.split.us.i.i753:                           ; preds = %do.body.us.i.i749
   br i1 %cmp.us.i.i747, label %do.body.preheader.us.i.i746, label %do.body8.us.i.i754, !llvm.loop !62
-
-do.body8.preheader.preheader.i.i744:              ; preds = %_ZN7testing15AssertionResultD2Ev.exit739
-  %263 = add i64 %calls.i.promoted2.i.i743, 3
-  br label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit762
 
 do.body8.us.i.i754:                               ; preds = %do.end.split.us.i.i753, %do.body8.us.i.i754
   %inc.i911.us.i.i755 = phi i64 [ %inc.i9.us18.i.i756, %do.body8.us.i.i754 ], [ %inc.i.us7.i.i751, %do.end.split.us.i.i753 ]
@@ -9804,8 +9804,8 @@ do.body8.us.i.i754:                               ; preds = %do.end.split.us.i.i
   %cmp.not.not.i10.us.i.i757 = icmp eq i64 %264, 0
   br i1 %cmp.not.not.i10.us.i.i757, label %do.body8.us.i.i754, label %_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit762, !llvm.loop !63
 
-_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit762: ; preds = %do.body8.us.i.i754, %do.body8.preheader.preheader.i.i744
-  %.us-phi20.i.i745 = phi i64 [ %263, %do.body8.preheader.preheader.i.i744 ], [ %inc.i9.us18.i.i756, %do.body8.us.i.i754 ]
+_ZN7testing8internal8EqHelper7CompareIlmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit762: ; preds = %do.body8.us.i.i754, %for.cond4.preheader.thread.i.i744
+  %.us-phi20.i.i745 = phi i64 [ %262, %for.cond4.preheader.thread.i.i744 ], [ %inc.i9.us18.i.i756, %do.body8.us.i.i754 ]
   store i64 %.us-phi20.i.i745, ptr %calls.i662, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar446)
   %265 = load i8, ptr %gtest_ar446, align 8
@@ -10006,7 +10006,11 @@ _ZN7testing15AssertionResultD2Ev.exit809:         ; preds = %if.end485, %_ZNKSt1
   %.fr.i.i811 = freeze i8 %286
   %tobool.i.i.i812 = trunc i8 %.fr.i.i811 to i1
   %calls.i.promoted2.i.i813 = load i64, ptr %calls.i663, align 8
-  br i1 %tobool.i.i.i812, label %do.body.preheader.us.i.i816, label %do.body8.preheader.preheader.i.i814
+  br i1 %tobool.i.i.i812, label %do.body.preheader.us.i.i816, label %for.cond4.preheader.thread.i.i814
+
+for.cond4.preheader.thread.i.i814:                ; preds = %_ZN7testing15AssertionResultD2Ev.exit809
+  %287 = add i64 %calls.i.promoted2.i.i813, 3
+  br label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit832
 
 do.body.preheader.us.i.i816:                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit809, %do.end.split.us.i.i823
   %cmp.us.i.i817 = phi i1 [ false, %do.end.split.us.i.i823 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit809 ]
@@ -10016,16 +10020,12 @@ do.body.preheader.us.i.i816:                      ; preds = %_ZN7testing15Assert
 do.body.us.i.i819:                                ; preds = %do.body.us.i.i819, %do.body.preheader.us.i.i816
   %inc.i1.us.i.i820 = phi i64 [ %.us-phi34.us.i.i818, %do.body.preheader.us.i.i816 ], [ %inc.i.us7.i.i821, %do.body.us.i.i819 ]
   %inc.i.us7.i.i821 = add i64 %inc.i1.us.i.i820, 1
-  %287 = and i64 %inc.i1.us.i.i820, 1
-  %cmp.not.not.i.us.i.i822 = icmp eq i64 %287, 0
+  %288 = and i64 %inc.i1.us.i.i820, 1
+  %cmp.not.not.i.us.i.i822 = icmp eq i64 %288, 0
   br i1 %cmp.not.not.i.us.i.i822, label %do.body.us.i.i819, label %do.end.split.us.i.i823, !llvm.loop !74
 
 do.end.split.us.i.i823:                           ; preds = %do.body.us.i.i819
   br i1 %cmp.us.i.i817, label %do.body.preheader.us.i.i816, label %do.body8.us.i.i824, !llvm.loop !75
-
-do.body8.preheader.preheader.i.i814:              ; preds = %_ZN7testing15AssertionResultD2Ev.exit809
-  %288 = add i64 %calls.i.promoted2.i.i813, 3
-  br label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit832
 
 do.body8.us.i.i824:                               ; preds = %do.end.split.us.i.i823, %do.body8.us.i.i824
   %inc.i911.us.i.i825 = phi i64 [ %inc.i9.us18.i.i826, %do.body8.us.i.i824 ], [ %inc.i.us7.i.i821, %do.end.split.us.i.i823 ]
@@ -10034,8 +10034,8 @@ do.body8.us.i.i824:                               ; preds = %do.end.split.us.i.i
   %cmp.not.not.i10.us.i.i827 = icmp eq i64 %289, 0
   br i1 %cmp.not.not.i10.us.i.i827, label %do.body8.us.i.i824, label %_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit832, !llvm.loop !76
 
-_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit832: ; preds = %do.body8.us.i.i824, %do.body8.preheader.preheader.i.i814
-  %.us-phi20.i.i815 = phi i64 [ %288, %do.body8.preheader.preheader.i.i814 ], [ %inc.i9.us18.i.i826, %do.body8.us.i.i824 ]
+_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit832: ; preds = %do.body8.us.i.i824, %for.cond4.preheader.thread.i.i814
+  %.us-phi20.i.i815 = phi i64 [ %287, %for.cond4.preheader.thread.i.i814 ], [ %inc.i9.us18.i.i826, %do.body8.us.i.i824 ]
   store i64 %.us-phi20.i.i815, ptr %calls.i663, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar487)
   %290 = load i8, ptr %gtest_ar487, align 8

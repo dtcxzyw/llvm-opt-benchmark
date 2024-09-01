@@ -681,10 +681,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %51 = getelementptr i8, ptr %.val91.pre, i64 8
   br label %.lr.ph113
 
-.preheader100:                                    ; preds = %.critedge2
-  br i1 %47, label %.lr.ph124, label %._crit_edge
-
-.lr.ph124:                                        ; preds = %.preheader100
+.lr.ph124:                                        ; preds = %.critedge2
   %.val90 = load ptr, ptr %14, align 8
   %52 = getelementptr i8, ptr %.val90, i64 8
   %.val90.val = load ptr, ptr %52, align 8
@@ -776,7 +773,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %.165 = phi i32 [ %.064110, %55 ], [ %.064110, %.lr.ph113 ], [ %66, %65 ], [ %66, %94 ]
   %.162 = phi i32 [ %.061111, %55 ], [ %.061111, %.lr.ph113 ], [ %.061111, %65 ], [ %.3, %94 ]
   %102 = icmp sgt i64 %indvars.iv131, 2
-  br i1 %102, label %.lr.ph113, label %.preheader100, !llvm.loop !13
+  br i1 %102, label %.lr.ph113, label %.lr.ph124, !llvm.loop !13
 
 103:                                              ; preds = %.lr.ph124, %.critedge4
   %indvars.iv137 = phi i64 [ 1, %.lr.ph124 ], [ %indvars.iv.next138, %.critedge4 ]
@@ -833,11 +830,11 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %._crit_edge, label %103, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.critedge4, %.critedge, %.preheader100
-  %.061.lcssa154 = phi i32 [ %.162, %.preheader100 ], [ 0, %.critedge ], [ %.162, %.critedge4 ]
-  %.064.lcssa153 = phi i32 [ %.165, %.preheader100 ], [ 0, %.critedge ], [ %.165, %.critedge4 ]
-  %.066.lcssa152 = phi i32 [ %.167, %.preheader100 ], [ 0, %.critedge ], [ %.167, %.critedge4 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader100 ], [ 0, %.critedge ], [ %.2, %.critedge4 ]
+._crit_edge:                                      ; preds = %.critedge4, %.critedge
+  %.061.lcssa154 = phi i32 [ 0, %.critedge ], [ %.162, %.critedge4 ]
+  %.064.lcssa153 = phi i32 [ 0, %.critedge ], [ %.165, %.critedge4 ]
+  %.066.lcssa152 = phi i32 [ 0, %.critedge ], [ %.167, %.critedge4 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.2, %.critedge4 ]
   %129 = load ptr, ptr %2, align 8
   %.not74 = icmp eq ptr %129, null
   br i1 %.not74, label %131, label %130

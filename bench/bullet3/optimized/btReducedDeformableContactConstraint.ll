@@ -1699,16 +1699,13 @@ for.end:                                          ; preds = %for.body
   %arrayidx7.i32 = getelementptr inbounds i8, ptr %18, i64 16
   %35 = load float, ptr %arrayidx7.i32, align 4
   %mul8.i = fmul float %32, %35
-  br i1 %cmp98, label %for.body37.preheader, label %for.end44
-
-for.body37.preheader:                             ; preds = %for.end
   %smax115 = tail call i32 @llvm.smax.i32(i32 %add, i32 1)
   %wide.trip.count116 = zext nneg i32 %smax115 to i64
   br label %for.body37
 
-for.body37:                                       ; preds = %for.body37.preheader, %for.body37
-  %indvars.iv112 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next113, %for.body37 ]
-  %vel.1102 = phi float [ 0.000000e+00, %for.body37.preheader ], [ %38, %for.body37 ]
+for.body37:                                       ; preds = %for.end, %for.body37
+  %indvars.iv112 = phi i64 [ 0, %for.end ], [ %indvars.iv.next113, %for.body37 ]
+  %vel.1102 = phi float [ 0.000000e+00, %for.end ], [ %38, %for.body37 ]
   %arrayidx39 = getelementptr inbounds float, ptr %26, i64 %indvars.iv112
   %36 = load float, ptr %arrayidx39, align 4
   %arrayidx41 = getelementptr inbounds float, ptr %24, i64 %indvars.iv112
@@ -1718,11 +1715,11 @@ for.body37:                                       ; preds = %for.body37.preheade
   %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
   br i1 %exitcond117.not, label %for.end44, label %for.body37, !llvm.loop !11
 
-for.end44:                                        ; preds = %for.body37, %for.end.thread, %for.end
-  %mul8.i133 = phi float [ %mul8.i, %for.end ], [ %mul8.i130, %for.end.thread ], [ %mul8.i, %for.body37 ]
-  %mul4.i132 = phi float [ %mul4.i, %for.end ], [ %mul4.i128, %for.end.thread ], [ %mul4.i, %for.body37 ]
-  %mul.i131 = phi float [ %mul.i, %for.end ], [ %mul.i126, %for.end.thread ], [ %mul.i, %for.body37 ]
-  %vel.1.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %38, %for.body37 ]
+for.end44:                                        ; preds = %for.body37, %for.end.thread
+  %mul8.i133 = phi float [ %mul8.i130, %for.end.thread ], [ %mul8.i, %for.body37 ]
+  %mul4.i132 = phi float [ %mul4.i128, %for.end.thread ], [ %mul4.i, %for.body37 ]
+  %mul.i131 = phi float [ %mul.i126, %for.end.thread ], [ %mul.i, %for.body37 ]
+  %vel.1.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %38, %for.body37 ]
   %t1 = getelementptr inbounds i8, ptr %18, i64 816
   %39 = load float, ptr %t1, align 4
   %mul.i38 = fmul float %vel.1.lcssa, %39

@@ -9197,19 +9197,16 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr nocapture
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %._crit_edge, label %.lr.ph46
 
-._crit_edge:                                      ; preds = %.critedge2
-  br i1 %22, label %._crit_edge.thread, label %46
-
-._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge
+._crit_edge.thread:                               ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %4, ptr noundef nonnull align 1 dereferenceable(21) @.str.78, i64 noundef 21, i1 false) #28
   br label %.loopexit
 
-46:                                               ; preds = %._crit_edge
+._crit_edge:                                      ; preds = %.critedge2
   store ptr %.2.lcssa, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %46, %._crit_edge.thread, %26
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %46 ], [ -1, %26 ], [ -1, %27 ]
+.loopexit:                                        ; preds = %27, %._crit_edge, %._crit_edge.thread, %26
+  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %._crit_edge ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 

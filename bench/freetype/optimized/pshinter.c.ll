@@ -2100,12 +2100,9 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
 
 31:                                               ; preds = %25, %27
   %.0 = phi ptr [ %29, %27 ], [ %3, %25 ]
-  br i1 %.not149, label %._crit_edge148, label %.lr.ph137
+  br label %.lr.ph137
 
-.preheader:                                       ; preds = %53
-  br i1 %.not149, label %._crit_edge148, label %.lr.ph147
-
-.lr.ph147:                                        ; preds = %.preheader
+.lr.ph147:                                        ; preds = %53
   %.not153 = icmp eq i32 %.3, 0
   %sext120 = shl i64 %10, 32
   %32 = ashr exact i64 %sext120, 32
@@ -2159,7 +2156,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
   %.3 = phi i32 [ %52, %._crit_edge130 ], [ %.2104134, %.lr.ph137 ]
   %54 = getelementptr inbounds i8, ptr %.1101135, i64 72
   %55 = icmp ult ptr %54, %17
-  br i1 %55, label %.lr.ph137, label %.preheader, !llvm.loop !46
+  br i1 %55, label %.lr.ph137, label %.lr.ph147, !llvm.loop !46
 
 56:                                               ; preds = %.lr.ph147, %173
   %.2146 = phi ptr [ %14, %.lr.ph147 ], [ %174, %173 ]
@@ -2358,7 +2355,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
   %175 = icmp ult ptr %174, %17
   br i1 %175, label %56, label %._crit_edge148, !llvm.loop !49
 
-._crit_edge148:                                   ; preds = %173, %31, %.preheader
+._crit_edge148:                                   ; preds = %173
   %.not110 = icmp eq ptr %.0, %3
   br i1 %.not110, label %._crit_edge.thread, label %176
 
@@ -2448,7 +2445,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
 
 45:                                               ; preds = %32, %30
   %.1 = phi i64 [ %44, %32 ], [ %.086152, %30 ]
-  br i1 %.not156, label %.loopexit, label %.lr.ph148
+  br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %45, %58
   %.195146 = phi ptr [ %59, %58 ], [ %18, %45 ]
@@ -2611,8 +2608,8 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
   %.not117 = icmp eq ptr %71, %.2100
   br i1 %.not117, label %.loopexit, label %.preheader136.backedge
 
-.loopexit:                                        ; preds = %132, %.preheader136, %58, %17, %45
-  %.2 = phi i64 [ %.1, %45 ], [ %.086152, %17 ], [ %.1, %58 ], [ %.086152, %.preheader136 ], [ %.086152, %132 ]
+.loopexit:                                        ; preds = %132, %.preheader136, %58, %17
+  %.2 = phi i64 [ %.086152, %17 ], [ %.1, %58 ], [ %.086152, %.preheader136 ], [ %.086152, %132 ]
   %133 = add i32 %.0101150, -1
   %134 = getelementptr inbounds i8, ptr %.087151, i64 16
   %.not = icmp eq i32 %133, 0

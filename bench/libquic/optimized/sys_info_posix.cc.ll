@@ -209,8 +209,8 @@ cond.end23:                                       ; preds = %if.then15, %cond.fa
   store i64 %cond24, ptr %total_bytes, align 8
   br label %return
 
-return:                                           ; preds = %land.rhs, %do.body, %if.end13.thread, %if.end13, %cond.end23
-  %cmp5.not7 = phi i1 [ true, %if.end13 ], [ true, %cond.end23 ], [ true, %if.end13.thread ], [ false, %do.body ], [ false, %land.rhs ]
+return:                                           ; preds = %do.body, %land.rhs, %if.end13.thread, %if.end13, %cond.end23
+  %cmp5.not7 = phi i1 [ true, %if.end13 ], [ true, %cond.end23 ], [ true, %if.end13.thread ], [ false, %land.rhs ], [ false, %do.body ]
   ret i1 %cmp5.not7
 }
 

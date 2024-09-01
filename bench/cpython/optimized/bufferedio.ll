@@ -2208,7 +2208,7 @@ if.end72:                                         ; preds = %land.lhs.true65
 if.then74:                                        ; preds = %if.end72
   %call75 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr, i64 noundef %n.0) #10
   %cmp76 = icmp eq ptr %call75, null
-  br i1 %cmp76, label %end_unlocked.thread, label %if.end78
+  br i1 %cmp76, label %if.then.i153, label %if.end78
 
 if.end78:                                         ; preds = %if.then74
   %call79 = tail call i32 @PyList_Append(ptr noundef nonnull %call69, ptr noundef nonnull %call75) #10
@@ -2219,17 +2219,17 @@ if.end78:                                         ; preds = %if.then74
   br i1 %cmp80, label %if.then83, label %if.then90
 
 if.then83:                                        ; preds = %if.end78
-  br i1 %cmp.i244.not, label %if.end.i237, label %end_unlocked.thread
+  br i1 %cmp.i244.not, label %if.end.i237, label %if.then.i153
 
 if.end.i237:                                      ; preds = %if.then83
   %dec.i238 = add i64 %23, -1
   store i64 %dec.i238, ptr %call75, align 8
   %cmp.i239 = icmp eq i64 %dec.i238, 0
-  br i1 %cmp.i239, label %if.then1.i240, label %end_unlocked.thread
+  br i1 %cmp.i239, label %if.then1.i240, label %if.then.i153
 
 if.then1.i240:                                    ; preds = %if.end.i237
   tail call void @_Py_Dealloc(ptr noundef nonnull %call75) #10
-  br label %end_unlocked.thread
+  br label %if.then.i153
 
 if.then90:                                        ; preds = %if.end78
   br i1 %cmp.i244.not, label %if.end.i228, label %do.end92
@@ -2262,7 +2262,7 @@ if.end99:                                         ; preds = %do.end92, %if.end72
 if.then101:                                       ; preds = %if.end99
   %call.i126 = tail call fastcc ptr @_bufferedwriter_flush_unlocked(ptr noundef nonnull %self)
   %cmp.i127 = icmp eq ptr %call.i126, null
-  br i1 %cmp.i127, label %end_unlocked.thread, label %if.end.i128
+  br i1 %cmp.i127, label %if.then.i153, label %if.end.i128
 
 if.end.i128:                                      ; preds = %if.then101
   %27 = load i64, ptr %call.i126, align 8
@@ -2318,7 +2318,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %land.
   %call12.i = tail call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i, i32 noundef 1)
   store i64 -1, ptr %read_end.i, align 8
   %cmp13.i = icmp eq i64 %call12.i, -1
-  br i1 %cmp13.i, label %end_unlocked.thread, label %if.end105
+  br i1 %cmp13.i, label %if.then.i153, label %if.end105
 
 if.end105:                                        ; preds = %cond.end.i, %Py_DECREF.exit.i
   %35 = load i64, ptr @_Py_NoneStruct, align 8
@@ -2353,7 +2353,7 @@ if.end113.lr.ph:                                  ; preds = %if.end106
 _bufferedreader_fill_buffer.exit:                 ; preds = %do.end168, %if.end106
   %call.i141.lcssa = phi i64 [ %call.i141188, %if.end106 ], [ %call.i141, %do.end168 ]
   %cmp108 = icmp eq i64 %call.i141.lcssa, -1
-  br i1 %cmp108, label %end_unlocked, label %found.split
+  br i1 %cmp108, label %if.then.i153, label %found.split
 
 if.end113:                                        ; preds = %if.end113.lr.ph, %do.end168
   %call.i141191 = phi i64 [ %call.i141188, %if.end113.lr.ph ], [ %call.i141, %do.end168 ]
@@ -2382,12 +2382,12 @@ if.then124:                                       ; preds = %while.body
   %sub.ptr.sub127 = sub i64 %sub.ptr.lhs.cast125, %sub.ptr.rhs.cast126
   %call128 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %39, i64 noundef %sub.ptr.sub127) #10
   %cmp129 = icmp eq ptr %call128, null
-  br i1 %cmp129, label %end_unlocked, label %land.lhs.true176
+  br i1 %cmp129, label %if.then.i153, label %land.lhs.true176
 
 while.end:                                        ; preds = %while.cond
   %call138 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %39, i64 noundef %n.1) #10
   %cmp139 = icmp eq ptr %call138, null
-  br i1 %cmp139, label %end_unlocked, label %if.end142
+  br i1 %cmp139, label %if.then.i153, label %if.end142
 
 if.end142:                                        ; preds = %while.end
   %cmp143.not = icmp ugt i64 %limit.addr.1190, %call.i141191
@@ -2402,17 +2402,17 @@ if.end147:                                        ; preds = %if.end142
   br i1 %cmp149, label %if.then157, label %if.then166
 
 if.then157:                                       ; preds = %if.end147
-  br i1 %cmp.i255.not, label %if.end.i210, label %end_unlocked
+  br i1 %cmp.i255.not, label %if.end.i210, label %if.then.i153
 
 if.end.i210:                                      ; preds = %if.then157
   %dec.i211 = add i64 %41, -1
   store i64 %dec.i211, ptr %call138, align 8
   %cmp.i212 = icmp eq i64 %dec.i211, 0
-  br i1 %cmp.i212, label %if.then1.i213, label %end_unlocked
+  br i1 %cmp.i212, label %if.then1.i213, label %if.then.i153
 
 if.then1.i213:                                    ; preds = %if.end.i210
   tail call void @_Py_Dealloc(ptr noundef nonnull %call138) #10
-  br label %end_unlocked
+  br label %if.then.i153
 
 if.then166:                                       ; preds = %if.end147
   br i1 %cmp.i255.not, label %if.end.i201, label %do.end168
@@ -2440,7 +2440,7 @@ do.end168:                                        ; preds = %if.then166, %if.the
 
 found.split:                                      ; preds = %_bufferedreader_fill_buffer.exit
   %call191120 = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr noundef nonnull %call69) #10
-  br label %end_unlocked
+  br label %if.then.i153
 
 land.lhs.true176:                                 ; preds = %if.end142, %if.then124
   %storemerge = phi i64 [ %sub.ptr.sub127, %if.then124 ], [ %n.1, %if.end142 ]
@@ -2455,56 +2455,46 @@ if.then.i146:                                     ; preds = %land.lhs.true176
   %45 = load i64, ptr %res.4.ph, align 8
   %46 = and i64 %45, 2147483648
   %cmp.i2.not.i = icmp eq i64 %46, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i148, label %end_unlocked
+  br i1 %cmp.i2.not.i, label %if.end.i.i148, label %if.then.i153
 
 if.end.i.i148:                                    ; preds = %if.then.i146
   %dec.i.i149 = add i64 %45, -1
   store i64 %dec.i.i149, ptr %res.4.ph, align 8
   %cmp.i.i150 = icmp eq i64 %dec.i.i149, 0
-  br i1 %cmp.i.i150, label %if.then1.i.i151, label %end_unlocked
+  br i1 %cmp.i.i150, label %if.then1.i.i151, label %if.then.i153
 
 if.then1.i.i151:                                  ; preds = %if.end.i.i148
   tail call void @_Py_Dealloc(ptr noundef nonnull %res.4.ph) #10
-  br label %end_unlocked
+  br label %if.then.i153
 
 if.then186:                                       ; preds = %land.lhs.true176
   %47 = load i64, ptr %res.4.ph, align 8
   %48 = and i64 %47, 2147483648
   %cmp.i263.not = icmp eq i64 %48, 0
-  br i1 %cmp.i263.not, label %if.end.i, label %end_unlocked
+  br i1 %cmp.i263.not, label %if.end.i, label %if.then.i153
 
 if.end.i:                                         ; preds = %if.then186
   %dec.i = add i64 %47, -1
   store i64 %dec.i, ptr %res.4.ph, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %end_unlocked
+  br i1 %cmp.i, label %if.then1.i, label %if.then.i153
 
 if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %res.4.ph) #10
-  br label %end_unlocked
+  br label %if.then.i153
 
-end_unlocked.thread:                              ; preds = %cond.end.i, %if.then101, %if.end.i237, %if.then1.i240, %if.then83, %if.then74
+if.then.i153:                                     ; preds = %while.end, %if.then1.i.i151, %if.end.i.i148, %if.then.i146, %found.split, %_bufferedreader_fill_buffer.exit, %if.then124, %if.then157, %if.then1.i213, %if.end.i210, %if.then186, %if.then1.i, %if.end.i, %if.then74, %if.then83, %if.then1.i240, %if.end.i237, %if.then101, %cond.end.i
+  %res.6205 = phi ptr [ null, %cond.end.i ], [ null, %if.then101 ], [ null, %if.end.i237 ], [ null, %if.then1.i240 ], [ null, %if.then83 ], [ null, %if.then74 ], [ null, %_bufferedreader_fill_buffer.exit ], [ null, %if.then186 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then124 ], [ null, %if.then157 ], [ null, %if.then1.i213 ], [ null, %if.end.i210 ], [ %call191120, %found.split ], [ %call191119, %if.then.i146 ], [ %call191119, %if.end.i.i148 ], [ %call191119, %if.then1.i.i151 ], [ null, %while.end ]
   store volatile i64 0, ptr %owner, align 8
   %49 = load ptr, ptr %lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %49) #10
-  br label %if.then.i153
-
-end_unlocked:                                     ; preds = %while.end, %if.end.i, %if.then1.i, %if.then186, %if.end.i210, %if.then1.i213, %if.then157, %if.then124, %_bufferedreader_fill_buffer.exit, %found.split, %if.then.i146, %if.end.i.i148, %if.then1.i.i151
-  %res.6 = phi ptr [ null, %_bufferedreader_fill_buffer.exit ], [ null, %if.then186 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then124 ], [ null, %if.then157 ], [ null, %if.then1.i213 ], [ null, %if.end.i210 ], [ %call191120, %found.split ], [ %call191119, %if.then.i146 ], [ %call191119, %if.end.i.i148 ], [ %call191119, %if.then1.i.i151 ], [ null, %while.end ]
-  store volatile i64 0, ptr %owner, align 8
-  %50 = load ptr, ptr %lock, align 8
-  tail call void @PyThread_release_lock(ptr noundef %50) #10
-  br i1 %cmp70, label %return, label %if.then.i153
-
-if.then.i153:                                     ; preds = %end_unlocked.thread, %end_unlocked
-  %res.6205 = phi ptr [ null, %end_unlocked.thread ], [ %res.6, %end_unlocked ]
-  %51 = load i64, ptr %call69, align 8
-  %52 = and i64 %51, 2147483648
-  %cmp.i2.not.i154 = icmp eq i64 %52, 0
+  %50 = load i64, ptr %call69, align 8
+  %51 = and i64 %50, 2147483648
+  %cmp.i2.not.i154 = icmp eq i64 %51, 0
   br i1 %cmp.i2.not.i154, label %if.end.i.i156, label %return
 
 if.end.i.i156:                                    ; preds = %if.then.i153
-  %dec.i.i157 = add i64 %51, -1
+  %dec.i.i157 = add i64 %50, -1
   store i64 %dec.i.i157, ptr %call69, align 8
   %cmp.i.i158 = icmp eq i64 %dec.i.i157, 0
   br i1 %cmp.i.i158, label %if.then1.i.i159, label %return
@@ -2513,8 +2503,8 @@ if.then1.i.i159:                                  ; preds = %if.end.i.i156
   tail call void @_Py_Dealloc(ptr noundef nonnull %call69) #10
   br label %return
 
-return:                                           ; preds = %end_unlocked.thread206, %cond.false62, %if.then51, %if.then54, %if.then38, %if.then41, %if.then1.i.i159, %if.end.i.i156, %if.then.i153, %end_unlocked, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %res.6, %end_unlocked ], [ %res.6205, %if.then.i153 ], [ %res.6205, %if.end.i.i156 ], [ %res.6205, %if.then1.i.i159 ], [ null, %cond.false62 ], [ null, %if.then51 ], [ %call52, %if.then54 ], [ null, %if.then38 ], [ %call39, %if.then41 ], [ null, %end_unlocked.thread206 ]
+return:                                           ; preds = %end_unlocked.thread206, %cond.false62, %if.then51, %if.then54, %if.then38, %if.then41, %if.then1.i.i159, %if.end.i.i156, %if.then.i153, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %res.6205, %if.then.i153 ], [ %res.6205, %if.end.i.i156 ], [ %res.6205, %if.then1.i.i159 ], [ null, %cond.false62 ], [ null, %if.then51 ], [ %call52, %if.then54 ], [ null, %if.then38 ], [ %call39, %if.then41 ], [ null, %end_unlocked.thread206 ]
   ret ptr %retval.0
 }
 

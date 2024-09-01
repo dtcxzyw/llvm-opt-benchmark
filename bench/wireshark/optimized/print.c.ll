@@ -4512,8 +4512,8 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
   %.058.i = phi ptr [ %47, %45 ], [ %13, %34 ]
   %43 = load ptr, ptr %.058.i, align 8
   %44 = load ptr, ptr %43, align 8
-  %.not6.i68.not = icmp ne ptr %44, null
-  br i1 %.not6.i68.not, label %any_has_children.exit, label %45
+  %.not6.i68.not.not.not.not.not = icmp ne ptr %44, null
+  br i1 %.not6.i68.not.not.not.not.not, label %any_has_children.exit, label %45
 
 45:                                               ; preds = %.lr.ph.i
   %46 = getelementptr inbounds i8, ptr %.058.i, i64 8
@@ -4638,7 +4638,7 @@ proto_node_to_json_key.exit.i:                    ; preds = %75, %72
   br label %write_json_proto_node.exit
 
 write_json_proto_node.exit:                       ; preds = %60, %._crit_edge.i.i, %83, %62
-  br i1 %.not6.i68.not, label %108, label %174
+  br i1 %.not6.i68.not.not.not.not.not, label %108, label %174
 
 108:                                              ; preds = %write_json_proto_node.exit
   %109 = select i1 %48, ptr @.str.88, ptr @.str.60
@@ -4798,7 +4798,7 @@ write_json_proto_node.exit82:                     ; preds = %148, %write_json_pr
   br label %174
 
 174:                                              ; preds = %173, %write_json_proto_node.exit82, %write_json_proto_node.exit
-  %or.cond7 = or i1 %48, %.not6.i68.not
+  %or.cond7 = or i1 %48, %.not6.i68.not.not.not.not.not
   br i1 %or.cond7, label %181, label %175
 
 175:                                              ; preds = %174

@@ -170,8 +170,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hd465086b
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i64 32, i1 false)
   store ptr null, ptr %1, align 8
-  %.not.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not, label %11, label %8
+  %.not = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -317,8 +317,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hf4f74b98
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i64 32, i1 false)
   store ptr null, ptr %1, align 8
-  %.not.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not, label %11, label %8
+  %.not = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -2776,8 +2776,8 @@ common.resume:                                    ; preds = %300, %262
 
 277:                                              ; preds = %.thread260
   %.sroa.0.0.copyload = load i64, ptr %25, align 8
-  %.not139.not = icmp eq i64 %.sroa.0.0.copyload, 3
-  br i1 %.not139.not, label %294, label %.thread278
+  %.not139 = icmp eq i64 %.sroa.0.0.copyload, 3
+  br i1 %.not139, label %294, label %.thread278
 
 278:                                              ; preds = %.thread260
   %279 = getelementptr inbounds i8, ptr %25, i64 8

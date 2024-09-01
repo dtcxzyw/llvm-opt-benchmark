@@ -598,9 +598,9 @@ for.inc118.i:                                     ; preds = %if.then114.i, %sw.e
 
 for.end120.i:                                     ; preds = %for.inc118.i
   %tobool121.not.i = icmp eq i32 %errors.7.i, 0
-  br i1 %tobool121.not.i, label %for.body128.lr.ph.i, label %if.then122.i
+  br i1 %tobool121.not.i, label %for.cond125.preheader.i, label %if.then122.i
 
-for.body128.lr.ph.i:                              ; preds = %for.end120.i
+for.cond125.preheader.i:                          ; preds = %for.end120.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call20 to i64
   br label %for.body128.i
 
@@ -608,8 +608,8 @@ if.then122.i:                                     ; preds = %for.end120.i
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
-for.body128.i:                                    ; preds = %for.body128.i, %for.body128.lr.ph.i
-  %indvars.iv178.i = phi i64 [ 0, %for.body128.lr.ph.i ], [ %indvars.iv.next179.i, %for.body128.i ]
+for.body128.i:                                    ; preds = %for.body128.i, %for.cond125.preheader.i
+  %indvars.iv178.i = phi i64 [ 0, %for.cond125.preheader.i ], [ %indvars.iv.next179.i, %for.body128.i ]
   %arrayidx130.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv178.i
   %p_vaddr131.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %p_vaddr131.i to i64
@@ -1028,7 +1028,7 @@ for.inc27.i:                                      ; preds = %sw.bb26.i, %sw.bb.i
   %exitcond165.not.i = icmp eq i64 %indvars.iv.next162.i, %wide.trip.count164.i
   br i1 %exitcond165.not.i, label %for.cond31.preheader.i, label %for.body25.i, !llvm.loop !17
 
-for.body89.lr.ph.i:                               ; preds = %for.inc82.i
+for.cond86.preheader.i:                           ; preds = %for.inc82.i
   %conv105.i = zext i32 %first_segsz.1.i66 to i64
   br label %for.body89.i
 
@@ -1113,13 +1113,13 @@ for.inc82.i:                                      ; preds = %if.then78.i, %if.en
   %errors.1.i67 = phi i32 [ %errors.0139.i, %for.body34.i ], [ %inc80.i, %if.then78.i ], [ %errors.5.i123, %if.end73.i ]
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next167.i, %conv67.i
-  br i1 %exitcond170.not.i, label %for.body89.lr.ph.i, label %for.body34.i, !llvm.loop !18
+  br i1 %exitcond170.not.i, label %for.cond86.preheader.i, label %for.body34.i, !llvm.loop !18
 
-for.body89.i:                                     ; preds = %for.inc119.i, %for.body89.lr.ph.i
-  %indvars.iv171.i = phi i64 [ 0, %for.body89.lr.ph.i ], [ %indvars.iv.next172.i, %for.inc119.i ]
-  %dynamic_ofs.0147.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_ofs.2.i74, %for.inc119.i ]
-  %dynamic_addr.0146.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_addr.2.i73, %for.inc119.i ]
-  %errors.6144.i = phi i32 [ %errors.1.i67, %for.body89.lr.ph.i ], [ %errors.7.i72, %for.inc119.i ]
+for.body89.i:                                     ; preds = %for.inc119.i, %for.cond86.preheader.i
+  %indvars.iv171.i = phi i64 [ 0, %for.cond86.preheader.i ], [ %indvars.iv.next172.i, %for.inc119.i ]
+  %dynamic_ofs.0147.i = phi i32 [ 0, %for.cond86.preheader.i ], [ %dynamic_ofs.2.i74, %for.inc119.i ]
+  %dynamic_addr.0146.i = phi i32 [ 0, %for.cond86.preheader.i ], [ %dynamic_addr.2.i73, %for.inc119.i ]
+  %errors.6144.i = phi i32 [ %errors.1.i67, %for.cond86.preheader.i ], [ %errors.7.i72, %for.inc119.i ]
   %arrayidx91.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i
   %224 = load i32, ptr %arrayidx91.i, align 8
   switch i32 %224, label %for.inc119.i [
@@ -1168,9 +1168,9 @@ for.inc119.i:                                     ; preds = %if.then115.i, %sw.e
 
 for.end121.i:                                     ; preds = %for.inc119.i
   %tobool122.not.i = icmp eq i32 %errors.7.i72, 0
-  br i1 %tobool122.not.i, label %for.body129.lr.ph.i, label %if.then123.i
+  br i1 %tobool122.not.i, label %for.cond126.preheader.i, label %if.then123.i
 
-for.body129.lr.ph.i:                              ; preds = %for.end121.i
+for.cond126.preheader.i:                          ; preds = %for.end121.i
   %sub.ptr.rhs.cast.i.i75 = ptrtoint ptr %call20 to i64
   br label %for.body129.i
 
@@ -1178,8 +1178,8 @@ if.then123.i:                                     ; preds = %for.end121.i
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
-for.body129.i:                                    ; preds = %for.body129.i, %for.body129.lr.ph.i
-  %indvars.iv176.i = phi i64 [ 0, %for.body129.lr.ph.i ], [ %indvars.iv.next177.i, %for.body129.i ]
+for.body129.i:                                    ; preds = %for.body129.i, %for.cond126.preheader.i
+  %indvars.iv176.i = phi i64 [ 0, %for.cond126.preheader.i ], [ %indvars.iv.next177.i, %for.body129.i ]
   %arrayidx131.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv176.i
   %p_vaddr132.i = getelementptr inbounds i8, ptr %arrayidx131.i, i64 16
   %sub.ptr.lhs.cast.i.i76 = ptrtoint ptr %p_vaddr132.i to i64

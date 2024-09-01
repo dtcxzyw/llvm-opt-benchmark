@@ -133,12 +133,9 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %startFace.i.i, i8 0, i64 18, i1 false), !noalias !5
   %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 40
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
-  br i1 %arrayctor.done.i, label %_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit, label %invoke.cont.i
+  br i1 %arrayctor.done.i, label %for.body.lr.ph, label %invoke.cont.i
 
-_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit: ; preds = %invoke.cont.i
-  br i1 %isempty.i, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit
+for.body.lr.ph:                                   ; preds = %invoke.cont.i
   %ref.tmp.sroa.0.16.startFace.i.sroa_idx3630 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0, i64 16
   br label %for.body
 
@@ -240,9 +237,9 @@ ehcleanup951.thread2187:                          ; preds = %ehcleanup951.thread
   tail call void @_ZdaPv(ptr noundef nonnull %call.i193) #20
   br label %_ZNSt6vectorIPN4pbrt6SDFaceESaIS2_EED2Ev.exit1624
 
-for.end:                                          ; preds = %for.inc, %entry, %_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit
-  %vertices.sroa.9.0.lcssa = phi ptr [ null, %_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ], [ null, %entry ], [ %vertices.sroa.9.1, %for.inc ]
-  %vertices.sroa.0.0.lcssa = phi ptr [ null, %_ZSt11make_uniqueIA_N4pbrt8SDVertexEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit ], [ null, %entry ], [ %vertices.sroa.0.2, %for.inc ]
+for.end:                                          ; preds = %for.inc, %entry
+  %vertices.sroa.9.0.lcssa = phi ptr [ null, %entry ], [ %vertices.sroa.9.1, %for.inc ]
+  %vertices.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %vertices.sroa.0.2, %for.inc ]
   %div = udiv i64 %vertexIndices.coerce1, 3
   %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div, i64 80)
   %9 = extractvalue { i64, i1 } %8, 1
@@ -261,9 +258,6 @@ for.body24.preheader:                             ; preds = %call.i.noexc201
   %14 = sub i64 %10, %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i202, i8 0, i64 %14, i1 false), !noalias !10
   br label %for.body24
-
-for.cond37.preheader:                             ; preds = %for.inc31
-  br i1 %isempty.i199, label %for.end54.thread, label %for.body39
 
 for.body24:                                       ; preds = %for.body24.preheader, %for.inc31
   %indvars.iv2936 = phi i64 [ 0, %for.body24.preheader ], [ %indvars.iv.next2937, %for.inc31 ]
@@ -338,7 +332,7 @@ for.inc31:                                        ; preds = %_ZNSt6vectorIPN4pbr
   %faces.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i225.pn, i64 8
   %indvars.iv.next2937 = add nuw nsw i64 %indvars.iv2936, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next2937, %div
-  br i1 %exitcond.not, label %for.cond37.preheader, label %for.body24, !llvm.loop !13
+  br i1 %exitcond.not, label %for.body39, label %for.body24, !llvm.loop !13
 
 lpad27.loopexit:                                  ; preds = %cond.true.i.i.i.i220
   %lpad.loopexit2230 = landingpad { ptr, i32 }
@@ -350,9 +344,9 @@ lpad27.loopexit.split-lp:                         ; preds = %if.then.i.i.i.i231
           cleanup
   br label %ehcleanup951
 
-for.body39:                                       ; preds = %for.cond37.preheader, %for.inc52
-  %vp.02620 = phi ptr [ %add.ptr, %for.inc52 ], [ %vertexIndices.coerce0, %for.cond37.preheader ]
-  %i36.02619 = phi i64 [ %inc53, %for.inc52 ], [ 0, %for.cond37.preheader ]
+for.body39:                                       ; preds = %for.inc31, %for.inc52
+  %vp.02620 = phi ptr [ %add.ptr, %for.inc52 ], [ %vertexIndices.coerce0, %for.inc31 ]
+  %i36.02619 = phi i64 [ %inc53, %for.inc52 ], [ 0, %for.inc31 ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %faces.sroa.0.3, i64 %i36.02619
   %16 = load ptr, ptr %add.ptr.i, align 8
   br label %for.body43
@@ -378,9 +372,7 @@ for.inc52:                                        ; preds = %for.body43
   %exitcond2943.not = icmp eq i64 %inc53, %div
   br i1 %exitcond2943.not, label %for.end54, label %for.body39, !llvm.loop !15
 
-for.end54.thread:                                 ; preds = %for.cond37.preheader, %call.i.noexc201
-  %faces.sroa.0.2.lcssa3022.ph = phi ptr [ %faces.sroa.0.3, %for.cond37.preheader ], [ null, %call.i.noexc201 ]
-  %faces.sroa.9.0.lcssa3021.ph = phi ptr [ %faces.sroa.9.1, %for.cond37.preheader ], [ null, %call.i.noexc201 ]
+for.end54.thread:                                 ; preds = %call.i.noexc201
   %19 = getelementptr inbounds i8, ptr %edges, i64 8
   store i32 0, ptr %19, align 8
   %_M_parent.i.i.i.i.i3034 = getelementptr inbounds i8, ptr %edges, i64 16
@@ -404,12 +396,12 @@ for.end54:                                        ; preds = %for.inc52
   store ptr %20, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %edges, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  br i1 %isempty.i199, label %for.cond111.preheader, label %for.body59
+  br label %for.body59
 
-for.cond111.preheader:                            ; preds = %for.inc107, %for.end54.thread, %for.end54
-  %_M_parent.i.i.i.i.i3041 = phi ptr [ %_M_parent.i.i.i.i.i3034, %for.end54.thread ], [ %_M_parent.i.i.i.i.i, %for.end54 ], [ %_M_parent.i.i.i.i.i, %for.inc107 ]
-  %faces.sroa.9.0.lcssa30213039 = phi ptr [ %faces.sroa.9.0.lcssa3021.ph, %for.end54.thread ], [ %faces.sroa.9.1, %for.end54 ], [ %faces.sroa.9.1, %for.inc107 ]
-  %faces.sroa.0.2.lcssa30223038 = phi ptr [ %faces.sroa.0.2.lcssa3022.ph, %for.end54.thread ], [ %faces.sroa.0.3, %for.end54 ], [ %faces.sroa.0.3, %for.inc107 ]
+for.cond111.preheader:                            ; preds = %for.inc107, %for.end54.thread
+  %_M_parent.i.i.i.i.i3041 = phi ptr [ %_M_parent.i.i.i.i.i3034, %for.end54.thread ], [ %_M_parent.i.i.i.i.i, %for.inc107 ]
+  %faces.sroa.9.0.lcssa30213039 = phi ptr [ null, %for.end54.thread ], [ %faces.sroa.9.1, %for.inc107 ]
+  %faces.sroa.0.2.lcssa30223038 = phi ptr [ null, %for.end54.thread ], [ %faces.sroa.0.3, %for.inc107 ]
   %21 = load i64, ptr %n.i, align 8
   %cmp1142627.not = icmp eq i64 %21, 0
   br i1 %cmp1142627.not, label %for.end147, label %for.body115
@@ -2327,9 +2319,6 @@ invoke.cont412:                                   ; preds = %for.body.i724
   %cmp.i723.not = icmp eq ptr %incdec.ptr.i732, %v150.sroa.23.02674
   br i1 %cmp.i723.not, label %for.cond430.preheader, label %for.body408
 
-for.cond516.preheader:                            ; preds = %for.inc506
-  br i1 %cmp.i323.not2641, label %for.end574, label %for.body518
-
 for.body432:                                      ; preds = %for.cond430.preheader, %for.inc506
   %__begin2424.sroa.0.02667 = phi ptr [ %incdec.ptr.i757, %for.inc506 ], [ %f148.sroa.0.02678, %for.cond430.preheader ]
   %176 = load ptr, ptr %__begin2424.sroa.0.02667, align 8
@@ -2438,10 +2427,10 @@ cond.end493:                                      ; preds = %cond.end, %invoke.c
 for.inc506:                                       ; preds = %cond.end493
   %incdec.ptr.i757 = getelementptr inbounds i8, ptr %__begin2424.sroa.0.02667, i64 8
   %cmp.i734.not = icmp eq ptr %incdec.ptr.i757, %f148.sroa.14.02677
-  br i1 %cmp.i734.not, label %for.cond516.preheader, label %for.body432
+  br i1 %cmp.i734.not, label %for.body518, label %for.body432
 
-for.body518:                                      ; preds = %for.cond516.preheader, %for.inc572
-  %__begin2510.sroa.0.02671 = phi ptr [ %incdec.ptr.i803, %for.inc572 ], [ %f148.sroa.0.02678, %for.cond516.preheader ]
+for.body518:                                      ; preds = %for.inc506, %for.inc572
+  %__begin2510.sroa.0.02671 = phi ptr [ %incdec.ptr.i803, %for.inc572 ], [ %f148.sroa.0.02678, %for.inc506 ]
   %195 = load ptr, ptr %__begin2510.sroa.0.02671, align 8
   %children529 = getelementptr inbounds i8, ptr %195, i64 48
   %arrayidx565 = getelementptr inbounds i8, ptr %195, i64 72
@@ -2592,7 +2581,7 @@ for.inc572:                                       ; preds = %invoke.cont546
   %cmp.i759.not = icmp eq ptr %incdec.ptr.i803, %f148.sroa.14.02677
   br i1 %cmp.i759.not, label %for.end574, label %for.body518
 
-for.end574:                                       ; preds = %for.inc572, %for.cond430.preheader, %for.cond516.preheader
+for.end574:                                       ; preds = %for.inc572, %for.cond430.preheader
   %sub.ptr.lhs.cast.i.i807 = ptrtoint ptr %newFaces.sroa.7.1.lcssa to i64
   %sub.ptr.rhs.cast.i.i808 = ptrtoint ptr %newFaces.sroa.0.3.lcssa to i64
   %sub.ptr.sub.i.i809 = sub i64 %sub.ptr.lhs.cast.i.i807, %sub.ptr.rhs.cast.i.i808
@@ -2859,10 +2848,7 @@ for.body592.lr.ph:                                ; preds = %for.body.preheader.
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body592
 
-for.cond623.preheader:                            ; preds = %for.inc619
-  br i1 %cmp.not.i.i.i.i897, label %if.end.i, label %for.body626.preheader
-
-for.body626.preheader:                            ; preds = %for.cond623.preheader
+for.body626.preheader:                            ; preds = %for.inc619
   %umax2972 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body626
 
@@ -3181,7 +3167,7 @@ for.inc619:                                       ; preds = %invoke.cont600, %in
   store float %add6.i34.i961.sink, ptr %ref.tmp597.sroa.2.0.call604.sroa_idx, align 4
   %inc620 = add nuw i64 %i588.02685, 1
   %exitcond2971.not = icmp eq i64 %inc620, %umax
-  br i1 %exitcond2971.not, label %for.cond623.preheader, label %for.body592, !llvm.loop !38
+  br i1 %exitcond2971.not, label %for.body626.preheader, label %for.body592, !llvm.loop !38
 
 for.body626:                                      ; preds = %for.body626.preheader, %for.body626
   %i622.02687 = phi i64 [ %inc631, %for.body626 ], [ 0, %for.body626.preheader ]
@@ -3194,7 +3180,7 @@ for.body626:                                      ; preds = %for.body626.prehead
   %exitcond2973.not = icmp eq i64 %inc631, %umax2972
   br i1 %exitcond2973.not, label %if.end.i, label %for.body626, !llvm.loop !39
 
-if.end.i:                                         ; preds = %for.body626, %for.cond623.preheader.thread, %for.cond623.preheader
+if.end.i:                                         ; preds = %for.body626, %for.cond623.preheader.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Ns, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i1101 = getelementptr inbounds i8, ptr %Ns, i64 16
   %cmp3.i1106.not = icmp eq ptr %v150.sroa.23.0.lcssa, %v150.sroa.0.0.lcssa

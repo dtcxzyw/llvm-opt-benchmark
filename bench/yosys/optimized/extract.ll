@@ -18217,8 +18217,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i526: ; preds = %_ZN5Yosys7hashl
   store ptr %1229, ptr %171, align 8, !alias.scope !188
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %163, i8 0, i64 24, i1 false), !noalias !188
   %1235 = load i32, ptr %29, align 8
-  %.not41.i = icmp eq i32 %1235, 0
-  br i1 %.not41.i, label %_ZN5Yosys6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS4_EE3hasERKNS2_7SigSpecE.exit, label %.lr.ph.i182
+  %.not31.i = icmp eq i32 %1235, 0
+  br i1 %.not31.i, label %_ZN5Yosys6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS4_EE3hasERKNS2_7SigSpecE.exit, label %.lr.ph.i182
 
 .lr.ph.i182:                                      ; preds = %.loopexit935
   %1236 = zext i32 %1235 to i64
@@ -18497,8 +18497,8 @@ _ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bi
 
 .critedge.i:                                      ; preds = %1385, %._crit_edge.i.i.i, %1251, %_ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit.i186
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i183, 1
-  %.not42.i = icmp eq i64 %indvars.iv.next.i188, %1236
-  br i1 %.not42.i, label %_ZN5Yosys6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS4_EE3hasERKNS2_7SigSpecE.exit, label %1237
+  %.not32.i = icmp eq i64 %indvars.iv.next.i188, %1236
+  br i1 %.not32.i, label %_ZN5Yosys6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS4_EE3hasERKNS2_7SigSpecE.exit, label %1237
 
 .critedge.thread:                                 ; preds = %903, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %918
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25

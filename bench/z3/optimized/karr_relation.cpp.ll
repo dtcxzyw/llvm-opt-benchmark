@@ -10414,8 +10414,8 @@ if.end.i.i53:                                     ; preds = %for.cond.i
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i:        ; preds = %if.end.i.i53, %for.cond.i
   %retval.0.i.i55 = phi i32 [ %18, %if.end.i.i53 ], [ 0, %for.cond.i ]
   %19 = zext i32 %retval.0.i.i55 to i64
-  %cmp.not.i.not = icmp ult i64 %indvars.iv.i, %19
-  br i1 %cmp.not.i.not, label %for.body.i, label %land.lhs.true
+  %cmp.not.not.not.i.not = icmp ult i64 %indvars.iv.i, %19
+  br i1 %cmp.not.not.not.i.not, label %for.body.i, label %land.lhs.true
 
 for.body.i:                                       ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i
   %arrayidx.i5.i = getelementptr inbounds %class.rational, ptr %17, i64 %indvars.iv.i

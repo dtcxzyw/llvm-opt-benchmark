@@ -3832,11 +3832,11 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr nocapture noundef readonly 
 
 44:                                               ; preds = %39, %34
   tail call void @pfree(ptr noundef nonnull %35) #15
-  %.pre20 = load ptr, ptr @TwoPhaseState, align 8
+  %.pre18 = load ptr, ptr @TwoPhaseState, align 8
   br label %45
 
 45:                                               ; preds = %.lr.ph, %19, %44
-  %46 = phi ptr [ %12, %.lr.ph ], [ %12, %19 ], [ %.pre20, %44 ]
+  %46 = phi ptr [ %12, %.lr.ph ], [ %12, %19 ], [ %.pre18, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8

@@ -4175,7 +4175,7 @@ while.body.i.i.i.i:                               ; preds = %while.end, %while.b
 
 _ZSt8distanceINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb0EEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i20 = icmp ugt i64 %__n.05.i.i.i.i, 1152921504606846974
-  br i1 %cmp.i.i.i20, label %if.then.i.i.i26, label %for.inc.i.i.i.i.preheader.i.i
+  br i1 %cmp.i.i.i20, label %if.then.i.i.i26, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i26:                                  ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb0EEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #21
@@ -4184,12 +4184,12 @@ if.then.i.i.i26:                                  ; preds = %_ZSt8distanceINSt8_
 .noexc.i:                                         ; preds = %if.then.i.i.i26
   unreachable
 
-for.inc.i.i.i.i.preheader.i.i:                    ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb0EEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
+_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb0EEELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit.i.i
   %mul.i.i.i.i.i21 = shl nuw nsw i64 %inc.i.i.i.i, 3
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i21) #20
           to label %call5.i.i.i.i.noexc.i unwind label %lpad.i
 
-call5.i.i.i.i.noexc.i:                            ; preds = %for.inc.i.i.i.i.preheader.i.i
+call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i1.i, ptr %children, align 8
   %add.ptr.i.i23 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call5.i.i.i.i1.i, i64 %inc.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %children, i64 16
@@ -4207,7 +4207,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.i.not.i.i.i.i.i.i, label %invoke.cont37, label %for.inc.i.i.i.i.i.i, !llvm.loop !105
 
-lpad.i:                                           ; preds = %for.inc.i.i.i.i.preheader.i.i, %if.then.i.i.i26
+lpad.i:                                           ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit.i.i, %if.then.i.i.i26
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup42

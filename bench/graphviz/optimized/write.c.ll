@@ -1782,8 +1782,8 @@ has_no_edges.exit.thread:                         ; preds = %.loopexit, %has_no_
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %.02.i, i64 24
   %41 = load ptr, ptr %40, align 8
-  %.not14.not.i.not = icmp ne ptr %39, %41
-  br i1 %.not14.not.i.not, label %not_default_attrs.exit, label %42
+  %.not14.not.i.not.not = icmp ne ptr %39, %41
+  br i1 %.not14.not.i.not.not, label %not_default_attrs.exit, label %42
 
 42:                                               ; preds = %.lr.ph.i11
   %43 = load ptr, ptr %29, align 8
@@ -1793,7 +1793,7 @@ has_no_edges.exit.thread:                         ; preds = %.loopexit, %has_no_
   br i1 %.not13.i, label %not_default_attrs.exit, label %.lr.ph.i11
 
 not_default_attrs.exit:                           ; preds = %6, %.lr.ph.i9, %42, %.lr.ph.i11, %28, %has_no_edges.exit.thread, %.loopexit17, %has_no_edges.exit
-  %.0 = phi i1 [ true, %has_no_edges.exit ], [ false, %.loopexit17 ], [ false, %has_no_edges.exit.thread ], [ false, %28 ], [ %.not14.not.i.not, %.lr.ph.i11 ], [ %.not14.not.i.not, %42 ], [ false, %.lr.ph.i9 ], [ false, %6 ]
+  %.0 = phi i1 [ true, %has_no_edges.exit ], [ false, %.loopexit17 ], [ false, %has_no_edges.exit.thread ], [ false, %28 ], [ %.not14.not.i.not.not, %.lr.ph.i11 ], [ %.not14.not.i.not.not, %42 ], [ false, %.lr.ph.i9 ], [ false, %6 ]
   ret i1 %.0
 }
 

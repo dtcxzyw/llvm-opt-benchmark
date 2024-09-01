@@ -284,8 +284,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i
   %111 = getelementptr inbounds i8, ptr %calloc115, i64 48
   store ptr %100, ptr %111, align 8
   %112 = icmp sgt i32 %.val.val, 0
-  %or.cond = and i1 %75, %112
-  br i1 %or.cond, label %.preheader, label %._crit_edge104
+  br i1 %112, label %.preheader, label %._crit_edge104
 
 .preheader:                                       ; preds = %Vec_VecStart.exit, %._crit_edge102
   %113 = phi i32 [ %196, %._crit_edge102 ], [ %.val61.val, %Vec_VecStart.exit ]

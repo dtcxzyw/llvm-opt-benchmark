@@ -7309,8 +7309,8 @@ _ZN17cranelift_codegen8machinst3abi15gen_stack_limit17h47cd17233b933dd5E.exit.i.
           to label %.noexc302 unwind label %155
 
 .noexc302:                                        ; preds = %172
-  %.not.not.i.not.i = icmp eq ptr %173, null
-  br i1 %.not.not.i.not.i, label %180, label %174
+  %.not.not.not.not.i.not.i = icmp eq ptr %173, null
+  br i1 %.not.not.not.not.i.not.i, label %180, label %174
 
 174:                                              ; preds = %.noexc302
   %175 = load i8, ptr %173, align 8, !range !266, !alias.scope !1041, !noalias !1035, !noundef !4
@@ -7324,7 +7324,7 @@ _ZN17cranelift_codegen8machinst3abi15gen_stack_limit17h47cd17233b933dd5E.exit.i.
 180:                                              ; preds = %174, %.noexc302
   %.not.i = icmp eq i64 %165, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1035
-  %.0.i = and i1 %.not.i, %.not.not.i.not.i
+  %.0.i = and i1 %.not.i, %.not.not.not.not.i.not.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6145, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7146, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
@@ -40157,8 +40157,8 @@ switch.lookup4800:                                ; preds = %4328
   %4663 = getelementptr inbounds i8, ptr %4, i64 48
   %.sroa.0.0.copyload4612 = load i64, ptr %4663, align 8, !alias.scope !5617
   store i64 -9223372036854775808, ptr %4663, align 8, !alias.scope !5619, !noalias !5614
-  %.not1393.not = icmp eq i64 %.sroa.0.0.copyload4612, -9223372036854775808
-  br i1 %.not1393.not, label %.thread3630, label %4664
+  %.not1393 = icmp eq i64 %.sroa.0.0.copyload4612, -9223372036854775808
+  br i1 %.not1393, label %.thread3630, label %4664
 
 4664:                                             ; preds = %4659
   %.sroa.5.0..sroa_idx4613 = getelementptr inbounds i8, ptr %4, i64 56
@@ -40248,8 +40248,8 @@ switch.lookup4800:                                ; preds = %4328
   %4697 = getelementptr inbounds i8, ptr %4, i64 48
   %.sroa.04614.0.copyload4615 = load i64, ptr %4697, align 8, !alias.scope !5628
   store i64 -9223372036854775808, ptr %4697, align 8, !alias.scope !5630, !noalias !5625
-  %.not1390.not = icmp eq i64 %.sroa.04614.0.copyload4615, -9223372036854775808
-  br i1 %.not1390.not, label %.thread3634, label %4698
+  %.not1390 = icmp eq i64 %.sroa.04614.0.copyload4615, -9223372036854775808
+  br i1 %.not1390, label %.thread3634, label %4698
 
 4698:                                             ; preds = %4696
   %.sroa.54616.0..sroa_idx4617 = getelementptr inbounds i8, ptr %4, i64 56
@@ -40858,8 +40858,8 @@ switch.lookup4800:                                ; preds = %4328
   %4931 = getelementptr inbounds i8, ptr %4, i64 48
   %.sroa.04618.0.copyload4619 = load i64, ptr %4931, align 8, !alias.scope !5729
   store i64 -9223372036854775808, ptr %4931, align 8, !alias.scope !5731, !noalias !5726
-  %.not1382.not = icmp eq i64 %.sroa.04618.0.copyload4619, -9223372036854775808
-  br i1 %.not1382.not, label %.thread3648, label %4932
+  %.not1382 = icmp eq i64 %.sroa.04618.0.copyload4619, -9223372036854775808
+  br i1 %.not1382, label %.thread3648, label %4932
 
 4932:                                             ; preds = %4930
   %.sroa.54620.0..sroa_idx4621 = getelementptr inbounds i8, ptr %4, i64 56
@@ -41744,8 +41744,8 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x644inst4emit32emit_retu
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
   %37 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %.not.i.not.i = icmp eq ptr %37, %36
-  br i1 %.not.i.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i", label %38
+  %.not.not.i.i = icmp eq ptr %37, %36
+  br i1 %.not.not.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i", label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds i8, ptr %37, i64 4
@@ -41814,8 +41814,8 @@ _ZN17cranelift_codegen8machinst3reg18AllocationConsumer13next_writable17hf38d818
   %63 = phi ptr [ %85, %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit ], [ %.promoted, %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer13next_writable17hf38d8184eda66e12E.exit ]
   %64 = getelementptr inbounds i8, ptr %.sroa.0.087, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5856)
-  %.not.i.not = icmp eq ptr %63, %36
-  br i1 %.not.i.not, label %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit, label %77
+  %.not.not.i = icmp eq ptr %63, %36
+  br i1 %.not.not.i, label %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit, label %77
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2461a70d7da99d56E.exit.thread": ; preds = %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit, %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer13next_writable17hf38d8184eda66e12E.exit
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %21)
@@ -43034,8 +43034,8 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4regs16pretty_print_reg17
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !6128, !nonnull !4, !noundef !4
   %7 = load ptr, ptr %3, align 8, !alias.scope !6128, !nonnull !4, !noundef !4
-  %.not.i.not = icmp eq ptr %7, %6
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i", label %8
+  %.not.not.i = icmp eq ptr %7, %6
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i", label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %7, i64 4

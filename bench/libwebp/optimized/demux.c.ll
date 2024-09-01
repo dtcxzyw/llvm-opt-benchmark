@@ -797,8 +797,8 @@ define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i3
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 88
   %.011.i = load ptr, ptr %12, align 8
-  %.not12.i.not = icmp eq ptr %.011.i, null
-  br i1 %.not12.i.not, label %ChunkCount.exit.thread, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %.011.i, null
+  br i1 %.not12.i, label %ChunkCount.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.014.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.011.i, %9 ]
@@ -822,45 +822,45 @@ ChunkCount.exit:                                  ; preds = %.lr.ph.i
   %19 = icmp eq i32 %1, 0
   %spec.select = select i1 %19, i32 %spec.select.i, i32 %1
   %.not = icmp sgt i32 %spec.select, %spec.select.i
-  br i1 %.not, label %ChunkCount.exit.thread, label %20
+  br i1 %.not, label %ChunkCount.exit.thread, label %.lr.ph.i32.preheader
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr %.011.i, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 %21
-  %bcmp.i3339 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %22, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+.lr.ph.i32.preheader:                             ; preds = %18
+  %20 = load i64, ptr %.011.i, align 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 %20
+  %bcmp.i3339 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %21, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not12.i3440 = icmp eq i32 %bcmp.i3339, 0
-  %23 = zext i1 %.not12.i3440 to i32
-  %24 = icmp eq i32 %spec.select, %23
-  br i1 %24, label %GetChunk.exit, label %.lr.ph.i32
+  %22 = zext i1 %.not12.i3440 to i32
+  %23 = icmp eq i32 %spec.select, %22
+  br i1 %23, label %GetChunk.exit, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %20, %.lr.ph.i32
-  %spec.select.i3542 = phi i32 [ %spec.select.i35, %.lr.ph.i32 ], [ %23, %20 ]
-  %.016.i41 = phi ptr [ %.0.i36, %.lr.ph.i32 ], [ %.011.i, %20 ]
-  %25 = getelementptr inbounds i8, ptr %.016.i41, i64 16
-  %.0.i36 = load ptr, ptr %25, align 8, !nonnull !10, !noundef !10
-  %26 = load i64, ptr %.0.i36, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 %26
-  %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+.lr.ph.i32:                                       ; preds = %.lr.ph.i32.preheader, %.lr.ph.i32
+  %spec.select.i3542 = phi i32 [ %spec.select.i35, %.lr.ph.i32 ], [ %22, %.lr.ph.i32.preheader ]
+  %.016.i41 = phi ptr [ %.0.i36, %.lr.ph.i32 ], [ %.011.i, %.lr.ph.i32.preheader ]
+  %24 = getelementptr inbounds i8, ptr %.016.i41, i64 16
+  %.0.i36 = load ptr, ptr %24, align 8, !nonnull !10, !noundef !10
+  %25 = load i64, ptr %.0.i36, align 8
+  %26 = getelementptr inbounds i8, ptr %11, i64 %25
+  %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %26, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not12.i34 = icmp eq i32 %bcmp.i33, 0
-  %28 = zext i1 %.not12.i34 to i32
-  %spec.select.i35 = add nuw nsw i32 %spec.select.i3542, %28
-  %29 = icmp eq i32 %spec.select.i35, %spec.select
-  br i1 %29, label %GetChunk.exit, label %.lr.ph.i32
+  %27 = zext i1 %.not12.i34 to i32
+  %spec.select.i35 = add nuw nsw i32 %spec.select.i3542, %27
+  %28 = icmp eq i32 %spec.select.i35, %spec.select
+  br i1 %28, label %GetChunk.exit, label %.lr.ph.i32
 
-GetChunk.exit:                                    ; preds = %.lr.ph.i32, %20
-  %30 = phi i64 [ %21, %20 ], [ %26, %.lr.ph.i32 ]
-  %.016.i.lcssa = phi ptr [ %.011.i, %20 ], [ %.0.i36, %.lr.ph.i32 ]
-  %31 = getelementptr inbounds i8, ptr %11, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.016.i.lcssa, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = add i64 %35, -8
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %spec.select.i, ptr %38, align 4
+GetChunk.exit:                                    ; preds = %.lr.ph.i32, %.lr.ph.i32.preheader
+  %29 = phi i64 [ %20, %.lr.ph.i32.preheader ], [ %25, %.lr.ph.i32 ]
+  %.016.i.lcssa = phi ptr [ %.011.i, %.lr.ph.i32.preheader ], [ %.0.i36, %.lr.ph.i32 ]
+  %30 = getelementptr inbounds i8, ptr %11, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %.016.i.lcssa, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, -8
+  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %spec.select.i, ptr %37, align 4
   store i32 %spec.select, ptr %2, align 8
   br label %ChunkCount.exit.thread
 

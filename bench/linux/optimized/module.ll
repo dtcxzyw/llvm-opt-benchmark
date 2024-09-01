@@ -383,8 +383,8 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br label %108
 
 108:                                              ; preds = %101, %.thread
-  %.not23 = icmp eq ptr %66, null
-  br i1 %.not23, label %122, label %.thread11
+  %.not = icmp eq ptr %66, null
+  br i1 %.not, label %122, label %.thread11
 
 .thread11:                                        ; preds = %108
   %109 = getelementptr inbounds i8, ptr %66, i64 16
@@ -394,10 +394,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr i8, ptr %111, i64 %113
   tail call void @apply_alternatives(ptr noundef %111, ptr noundef %114) #10
-  %.not = icmp eq ptr %59, null
+  %.not16 = icmp eq ptr %59, null
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br i1 %.not, label %.thread12, label %.thread14
+  br i1 %.not16, label %.thread12, label %.thread14
 
 .thread14:                                        ; preds = %.thread11
   %115 = getelementptr inbounds i8, ptr %59, i64 16
@@ -412,8 +412,8 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br label %.thread12
 
 122:                                              ; preds = %108
-  %.not24 = icmp eq ptr %59, null
-  br i1 %.not24, label %135, label %123
+  %.not15 = icmp eq ptr %59, null
+  br i1 %.not15, label %135, label %123
 
 123:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10

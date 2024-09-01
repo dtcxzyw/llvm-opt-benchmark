@@ -32656,8 +32656,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split", label %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge"
 
 "_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge": ; preds = %8, %.lr.ph
-  %.not16 = icmp eq ptr %5, %3
-  br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split", label %.lr.ph
+  %.not11 = icmp eq ptr %5, %3
+  br i1 %.not11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split": ; preds = %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge", %8
   %.lcssa.ph = phi i1 [ true, %8 ], [ false, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge" ]
@@ -32678,8 +32678,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 4:                                                ; preds = %6, %1
   %5 = phi ptr [ %7, %6 ], [ %.promoted, %1 ]
-  %.not8 = icmp ne ptr %5, %3
-  br i1 %.not8, label %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43ba6be1b6c96e49E.llvm.3663151438746104753.exit"
+  %.not8.not.not.not.not = icmp ne ptr %5, %3
+  br i1 %.not8.not.not.not.not, label %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43ba6be1b6c96e49E.llvm.3663151438746104753.exit"
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 72
@@ -32689,7 +32689,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not, label %4, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43ba6be1b6c96e49E.llvm.3663151438746104753.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43ba6be1b6c96e49E.llvm.3663151438746104753.exit": ; preds = %4, %6
-  ret i1 %.not8
+  ret i1 %.not8.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -38370,8 +38370,8 @@ define void @_ZN13rust_analyzer4caps19server_capabilities17h89e1162e5d8f0f94E(pt
   br i1 %135, label %_ZN13rust_analyzer4caps28completions_resolve_provider17hdd3e060a061cb3e1E.exit, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i.i"
 
 "_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i.i": ; preds = %133, %.lr.ph.i.i.i.i
-  %.not17.i.i.i.i = icmp eq ptr %131, %129
-  br i1 %.not17.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i
+  %.not12.i.i.i.i = icmp eq ptr %131, %129
+  br i1 %.not12.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i
 
 .loopexit.i:                                      ; preds = %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i.i", %124, %118, %114
   %136 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !7099
@@ -40542,8 +40542,8 @@ define hidden void @_ZN13rust_analyzer8dispatch17RequestDispatcher6finish17he47b
   %.sroa.5.0..sroa_idx79 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5.0..sroa_idx79, i64 112, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %.not.not, label %74, label %12
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %.not, label %74, label %12
 
 11:                                               ; preds = %46
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -49011,8 +49011,8 @@ define void @_ZN13rust_analyzer6config6Config10completion17he39d69d5119f3e3dE(pt
   br i1 %50, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
 
 "_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i": ; preds = %48, %.lr.ph.i.i.i
-  %.not17.i.i.i = icmp eq ptr %46, %44
-  br i1 %.not17.i.i.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq ptr %46, %44
+  br i1 %.not12.i.i.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %.lr.ph.i.i.i
 
 _ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit: ; preds = %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i", %48, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge, %39, %33, %29
   %51 = phi i64 [ %.pre, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge ], [ -9223372036854775807, %29 ], [ %31, %39 ], [ %31, %33 ], [ %31, %48 ], [ %31, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ]
@@ -49875,8 +49875,8 @@ define void @_ZN13rust_analyzer6config6Config5hover17hdf3af9a4375c4db1E(ptr noal
 
 70:                                               ; preds = %72, %"_ZN13rust_analyzer6config6Config5hover28_$u7b$$u7b$closure$u7d$$u7d$17h8ff84c1e60a7b6e9E.exit"
   %71 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97f31291cf58b0ddE.llvm.13625555649392560756"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !8710
-  %.not.not.i.not.i.not = icmp eq ptr %71, null
-  br i1 %.not.not.i.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2deaf29a1dddac1fE.exit", label %72
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %71, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2deaf29a1dddac1fE.exit", label %72
 
 72:                                               ; preds = %70
   %73 = load i8, ptr %71, align 1, !range !2696, !alias.scope !8713, !noalias !8718, !noundef !4
@@ -49940,7 +49940,7 @@ define void @_ZN13rust_analyzer6config6Config5hover17hdf3af9a4375c4db1E(ptr noal
   %106 = getelementptr inbounds i8, ptr %0, i64 38
   store i8 %83, ptr %106, align 2
   %107 = getelementptr inbounds i8, ptr %0, i64 39
-  %108 = zext i1 %.not.not.i.not.i.not to i8
+  %108 = zext i1 %.not.not.not.not.i.not.not.not.i.not to i8
   store i8 %108, ptr %107, align 1
   store i64 %91, ptr %0, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 8
@@ -50794,8 +50794,8 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config24has_linked_project_
 
 14:                                               ; preds = %16, %1
   %15 = phi ptr [ %17, %16 ], [ %10, %1 ]
-  %.not8.i.not = icmp ne ptr %15, %13
-  br i1 %.not8.i.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf83de94057a87de7E.llvm.3663151438746104753.exit"
+  %.not8.not.not.i.not.not.not.not.not = icmp ne ptr %15, %13
+  br i1 %.not8.not.not.i.not.not.not.not.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf83de94057a87de7E.llvm.3663151438746104753.exit"
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %15, i64 72
@@ -50804,7 +50804,7 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config24has_linked_project_
   br i1 %.not.i, label %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf83de94057a87de7E.llvm.3663151438746104753.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf83de94057a87de7E.llvm.3663151438746104753.exit": ; preds = %14, %16
-  ret i1 %.not8.i.not
+  ret i1 %.not8.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -51145,8 +51145,8 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config19code_action_resolve
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd525b9b69debe437E.llvm.3663151438746104753.exit", label %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge.i"
 
 "_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge.i": ; preds = %19, %.lr.ph.i
-  %.not16.i = icmp eq ptr %16, %14
-  br i1 %.not16.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd525b9b69debe437E.llvm.3663151438746104753.exit", label %.lr.ph.i
+  %.not11.i = icmp eq ptr %16, %14
+  br i1 %.not11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd525b9b69debe437E.llvm.3663151438746104753.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd525b9b69debe437E.llvm.3663151438746104753.exit": ; preds = %19, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge.i", %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17hf47c44b236739460E.llvm.3663151438746104753.exit"
   %.lcssa.i = phi i1 [ false, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17hf47c44b236739460E.llvm.3663151438746104753.exit" ], [ false, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge.i" ], [ true, %19 ]
@@ -54924,7 +54924,9 @@ common.resume:                                    ; preds = %37, %59
   store i64 0, ptr %70, align 8
   %71 = trunc nuw i8 %68 to i1
   store i64 0, ptr %4, align 8
-  br i1 %71, label %.loopexit.i71.thread, label %.loopexit.i60.thread
+  %spec.select = select i1 %71, i40 65536, i40 0
+  %spec.select235 = select i1 %71, i40 256, i40 0
+  br i1 %71, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86", label %.loopexit.i82
 
 72:                                               ; preds = %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h0e6278d7cd684ffcE.llvm.3663151438746104753.exit"
   %.sroa.020.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
@@ -54956,12 +54958,12 @@ common.resume:                                    ; preds = %37, %59
   br i1 %79, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit", label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i"
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i": ; preds = %77, %.lr.ph.i.i
-  %.not18.i.i = icmp eq ptr %75, %73
-  br i1 %.not18.i.i, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit", label %.lr.ph.i.i
+  %.not13.i.i = icmp eq ptr %75, %73
+  br i1 %.not13.i.i, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit", label %.lr.ph.i.i
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit": ; preds = %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i", %77
   %.0.i42 = phi i1 [ true, %77 ], [ false, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i" ]
-  br i1 %.not.i.i, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86", label %.lr.ph.i.i44
+  br label %.lr.ph.i.i44
 
 .lr.ph.i.i44:                                     ; preds = %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit", %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47"
   %80 = phi ptr [ %81, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47" ], [ %.pre, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ]
@@ -54976,20 +54978,14 @@ common.resume:                                    ; preds = %37, %59
   %.val3.i.i51 = load ptr, ptr %84, align 8, !noalias !9819, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i52 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %.val3.i.i51, ptr noundef nonnull readonly dereferenceable(25) @anon.91380dbf7fcc3cee666491d632c78d8e.553, i64 25), !alias.scope !9825, !noalias !9829
   %85 = icmp eq i32 %bcmp.i.i.i.i52, 0
-  br i1 %85, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53", label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47"
+  br i1 %85, label %.lr.ph.i.i55.preheader, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47"
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47": ; preds = %83, %.lr.ph.i.i44
-  %.not18.i.i48 = icmp eq ptr %81, %73
-  br i1 %.not18.i.i48, label %.loopexit.i49, label %.lr.ph.i.i44
+  %.not13.i.i48 = icmp eq ptr %81, %73
+  br i1 %.not13.i.i48, label %.lr.ph.i.i55.preheader, label %.lr.ph.i.i44
 
-.loopexit.i49:                                    ; preds = %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47"
-  br i1 %.not.i.i, label %.loopexit.i60.thread, label %.lr.ph.i.i55.preheader
-
-"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53": ; preds = %83
-  br i1 %.not.i.i, label %.loopexit.i60.thread, label %.lr.ph.i.i55.preheader
-
-.lr.ph.i.i55.preheader:                           ; preds = %.loopexit.i49, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53"
-  %.0.i50126 = phi i40 [ 256, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53" ], [ 0, %.loopexit.i49 ]
+.lr.ph.i.i55.preheader:                           ; preds = %83, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47"
+  %.0.i50126 = phi i40 [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i47" ], [ 256, %83 ]
   br label %.lr.ph.i.i55
 
 .lr.ph.i.i55:                                     ; preds = %.lr.ph.i.i55.preheader, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i58"
@@ -55008,14 +55004,8 @@ common.resume:                                    ; preds = %37, %59
   br i1 %91, label %.lr.ph.i.i66.preheader, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i58"
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i58": ; preds = %89, %.lr.ph.i.i55
-  %.not18.i.i59 = icmp eq ptr %87, %73
-  br i1 %.not18.i.i59, label %.lr.ph.i.i66.preheader, label %.lr.ph.i.i55
-
-.loopexit.i60.thread:                             ; preds = %.loopexit.i49, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53", %.thread100
-  %.0.i50127.ph = phi i40 [ 256, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53" ], [ 0, %.thread100 ], [ 0, %.loopexit.i49 ]
-  %storemerge9094104112121.ph = phi i1 [ false, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53" ], [ %71, %.thread100 ], [ false, %.loopexit.i49 ]
-  %.0.i42114118.ph = phi i1 [ %.0.i42, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit53" ], [ %71, %.thread100 ], [ %.0.i42, %.loopexit.i49 ]
-  br i1 %storemerge9094104112121.ph, label %.loopexit.i82, label %.loopexit.i71.thread
+  %.not13.i.i59 = icmp eq ptr %87, %73
+  br i1 %.not13.i.i59, label %.lr.ph.i.i66.preheader, label %.lr.ph.i.i55
 
 .lr.ph.i.i66.preheader:                           ; preds = %89, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i58"
   %.0.i61141 = phi i40 [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i58" ], [ 65536, %89 ]
@@ -55037,15 +55027,8 @@ common.resume:                                    ; preds = %37, %59
   br i1 %97, label %.lr.ph.i.i77.preheader, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i69"
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i69": ; preds = %95, %.lr.ph.i.i66
-  %.not18.i.i70 = icmp eq ptr %93, %73
-  br i1 %.not18.i.i70, label %.lr.ph.i.i77.preheader, label %.lr.ph.i.i66
-
-.loopexit.i71.thread:                             ; preds = %.thread100, %.loopexit.i60.thread
-  %.0.i61142.ph = phi i40 [ 0, %.loopexit.i60.thread ], [ 65536, %.thread100 ]
-  %.0.i42114116139.ph = phi i1 [ %.0.i42114118.ph, %.loopexit.i60.thread ], [ %71, %.thread100 ]
-  %storemerge9094104112119136.ph = phi i1 [ %storemerge9094104112121.ph, %.loopexit.i60.thread ], [ %71, %.thread100 ]
-  %.0.i50125130.ph = phi i40 [ %.0.i50127.ph, %.loopexit.i60.thread ], [ 256, %.thread100 ]
-  br i1 %storemerge9094104112119136.ph, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86", label %.loopexit.i82
+  %.not13.i.i70 = icmp eq ptr %93, %73
+  br i1 %.not13.i.i70, label %.lr.ph.i.i77.preheader, label %.lr.ph.i.i66
 
 .lr.ph.i.i77.preheader:                           ; preds = %95, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i69"
   %.0.i72155 = phi i40 [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i69" ], [ 16777216, %95 ]
@@ -55067,24 +55050,18 @@ common.resume:                                    ; preds = %37, %59
   br i1 %103, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86", label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80"
 
 "_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80": ; preds = %101, %.lr.ph.i.i77
-  %.not18.i.i81 = icmp eq ptr %99, %73
-  br i1 %.not18.i.i81, label %.loopexit.i82, label %.lr.ph.i.i77
+  %.not13.i.i81 = icmp eq ptr %99, %73
+  br i1 %.not13.i.i81, label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86", label %.lr.ph.i.i77
 
-.loopexit.i82:                                    ; preds = %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80", %.loopexit.i60.thread, %.loopexit.i71.thread
-  %.0.i72156 = phi i40 [ 0, %.loopexit.i71.thread ], [ 16777216, %.loopexit.i60.thread ], [ %.0.i72155, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
-  %.0.i50125128153 = phi i40 [ %.0.i50125130.ph, %.loopexit.i71.thread ], [ %.0.i50127.ph, %.loopexit.i60.thread ], [ %.0.i50126, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
-  %storemerge9094104112119134150 = phi i1 [ %storemerge9094104112119136.ph, %.loopexit.i71.thread ], [ %storemerge9094104112121.ph, %.loopexit.i60.thread ], [ false, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
-  %.0.i42114116137148 = phi i1 [ %.0.i42114116139.ph, %.loopexit.i71.thread ], [ %.0.i42114118.ph, %.loopexit.i60.thread ], [ %.0.i42, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
-  %.0.i61140145 = phi i40 [ %.0.i61142.ph, %.loopexit.i71.thread ], [ 65536, %.loopexit.i60.thread ], [ %.0.i61141, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
-  %spec.select = select i1 %storemerge9094104112119134150, i40 4294967296, i40 0
+.loopexit.i82:                                    ; preds = %.thread100
   br label %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86"
 
-"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86": ; preds = %101, %.loopexit.i82, %.loopexit.i71.thread, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit", %72
-  %.0.i72154 = phi i40 [ 0, %72 ], [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ], [ 16777216, %.loopexit.i71.thread ], [ %.0.i72156, %.loopexit.i82 ], [ %.0.i72155, %101 ]
-  %.0.i50125128151 = phi i40 [ 0, %72 ], [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ], [ %.0.i50125130.ph, %.loopexit.i71.thread ], [ %.0.i50125128153, %.loopexit.i82 ], [ %.0.i50126, %101 ]
-  %.0.i42114116137146 = phi i1 [ false, %72 ], [ %.0.i42, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ], [ %.0.i42114116139.ph, %.loopexit.i71.thread ], [ %.0.i42114116137148, %.loopexit.i82 ], [ %.0.i42, %101 ]
-  %.0.i61140143 = phi i40 [ 0, %72 ], [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ], [ %.0.i61142.ph, %.loopexit.i71.thread ], [ %.0.i61140145, %.loopexit.i82 ], [ %.0.i61141, %101 ]
-  %.0.i83 = phi i40 [ 0, %72 ], [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit" ], [ 4294967296, %.loopexit.i71.thread ], [ %spec.select, %.loopexit.i82 ], [ 4294967296, %101 ]
+"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$17h7febb2dd7bb29f1bE.exit86": ; preds = %101, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80", %.loopexit.i82, %.thread100, %72
+  %.0.i72154 = phi i40 [ 0, %72 ], [ 16777216, %.thread100 ], [ 0, %.loopexit.i82 ], [ %.0.i72155, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ], [ %.0.i72155, %101 ]
+  %.0.i50125128151 = phi i40 [ 0, %72 ], [ %spec.select235, %.thread100 ], [ %spec.select235, %.loopexit.i82 ], [ %.0.i50126, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ], [ %.0.i50126, %101 ]
+  %.0.i42114116137146 = phi i1 [ false, %72 ], [ true, %.thread100 ], [ false, %.loopexit.i82 ], [ %.0.i42, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ], [ %.0.i42, %101 ]
+  %.0.i61140143 = phi i40 [ 0, %72 ], [ %spec.select, %.thread100 ], [ %spec.select, %.loopexit.i82 ], [ %.0.i61141, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ], [ %.0.i61141, %101 ]
+  %.0.i83 = phi i40 [ 0, %72 ], [ 4294967296, %.thread100 ], [ 0, %.loopexit.i82 ], [ 4294967296, %101 ], [ 0, %"_ZN13rust_analyzer6config6Config15client_commands28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he96a705afe007758E.exit.backedge.i.i80" ]
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.sroa.0.0.insert.ext = zext i1 %.0.i42114116137146 to i40

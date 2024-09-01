@@ -1854,7 +1854,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 3
   %17 = icmp eq i8 %16, 1
-  br i1 %17, label %18, label %.loopexit19
+  br i1 %17, label %18, label %.loopexit20
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %1, i64 156
@@ -1862,18 +1862,18 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %21 = call i32 @llvm.smin.i32(i32 %20, i32 128)
   %22 = call i32 @llvm.smax.i32(i32 %21, i32 0)
   %23 = icmp eq i8 %2, 67
-  br i1 %23, label %24, label %.loopexit19
+  br i1 %23, label %24, label %.loopexit20
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %1, i64 92
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 512
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.loopexit19, label %29
+  br i1 %28, label %.loopexit20, label %29
 
 29:                                               ; preds = %24
   %30 = icmp slt i32 %20, 1
-  br i1 %30, label %.loopexit19, label %31
+  br i1 %30, label %.loopexit20, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %1, i64 184
@@ -1899,9 +1899,9 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %46 = phi i32 [ %35, %33 ], [ %44, %41 ]
   %47 = getelementptr i8, ptr %36, i64 16
   %48 = icmp eq i32 %37, 0
-  br i1 %48, label %.loopexit19, label %33, !llvm.loop !34
+  br i1 %48, label %.loopexit20, label %33, !llvm.loop !34
 
-.loopexit19:                                      ; preds = %45, %29, %24, %18, %4
+.loopexit20:                                      ; preds = %45, %29, %24, %18, %4
   %49 = phi i32 [ %13, %24 ], [ %13, %18 ], [ %13, %4 ], [ 0, %29 ], [ %46, %45 ]
   %50 = phi i32 [ %22, %24 ], [ %22, %18 ], [ 0, %4 ], [ %22, %29 ], [ %22, %45 ]
   %51 = shl nuw nsw i32 %50, 4
@@ -1917,12 +1917,12 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %65, label %62
 
-62:                                               ; preds = %.loopexit19
+62:                                               ; preds = %.loopexit20
   %63 = select i1 %9, i32 0, i32 %57
   %64 = select i1 %9, i8 60, i8 0
   br label %69
 
-65:                                               ; preds = %.loopexit19
+65:                                               ; preds = %.loopexit20
   %66 = icmp eq i8 %2, 67
   %67 = select i1 %66, i32 0, i32 %57
   %68 = select i1 %66, i8 62, i8 0
@@ -2214,7 +2214,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %256 = getelementptr inbounds i8, ptr %1, i64 96
   %257 = load ptr, ptr %256, align 8
   %258 = icmp eq ptr %257, null
-  br i1 %258, label %.loopexit23.thread, label %.preheader
+  br i1 %258, label %.loopexit19.thread, label %.preheader
 
 .preheader:                                       ; preds = %255, %.preheader
   %259 = phi i32 [ %278, %.preheader ], [ %70, %255 ]
@@ -2246,8 +2246,8 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %282 = and i32 %281, 4194304
   %283 = icmp ne i32 %282, 0
   %284 = icmp slt i32 %253, 1
-  %or.cond = or i1 %283, %284
-  br i1 %or.cond, label %.loopexit23.thread, label %285
+  %or.cond = or i1 %284, %283
+  br i1 %or.cond, label %.loopexit19.thread, label %285
 
 285:                                              ; preds = %280
   %286 = getelementptr inbounds i8, ptr %1, i64 112
@@ -2314,19 +2314,19 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %337 = icmp sge i32 %334, %336
   %338 = icmp eq i32 %333, 0
   %339 = select i1 %337, i1 true, i1 %338
-  br i1 %339, label %.loopexit23, label %288, !llvm.loop !37
+  br i1 %339, label %.loopexit19, label %288, !llvm.loop !37
 
-.loopexit23.thread:                               ; preds = %255, %280
+.loopexit19.thread:                               ; preds = %255, %280
   %340 = phi i8 [ 90, %255 ], [ 68, %280 ]
   store i8 %340, ptr %250, align 1
   br label %342
 
-.loopexit23:                                      ; preds = %.loopexit
+.loopexit19:                                      ; preds = %.loopexit
   %341 = icmp eq i32 %333, 0
   br i1 %341, label %.thread18, label %342
 
-342:                                              ; preds = %.loopexit23.thread, %.loopexit23
-  %343 = phi i32 [ %70, %.loopexit23.thread ], [ %333, %.loopexit23 ]
+342:                                              ; preds = %.loopexit19.thread, %.loopexit19
+  %343 = phi i32 [ %70, %.loopexit19.thread ], [ %333, %.loopexit19 ]
   %344 = load i32, ptr %174, align 4
   %345 = add i32 %344, 63
   %346 = and i32 %345, -64
@@ -2358,7 +2358,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   store i8 %72, ptr %250, align 1
   br label %.thread18
 
-.thread18:                                        ; preds = %.preheader, %362, %359, %.loopexit23
+.thread18:                                        ; preds = %.preheader, %362, %359, %.loopexit19
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %8) #12
   %363 = getelementptr inbounds i8, ptr %0, i64 32
   %364 = call i32 @__wake_up(ptr noundef %363, i32 noundef 3, i32 noundef 1, ptr noundef null) #12

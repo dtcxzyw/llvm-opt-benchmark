@@ -30216,8 +30216,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %8, %3
   %7 = phi ptr [ %9, %8 ], [ %.promoted, %3 ]
-  %.not = icmp ne ptr %7, %5
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29a3d20ec68297e7E.llvm.11948190557966450743.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %5
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29a3d20ec68297e7E.llvm.11948190557966450743.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -30231,7 +30231,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29a3d20ec68297e7E.llvm.11948190557966450743.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29a3d20ec68297e7E.llvm.11948190557966450743.exit": ; preds = %6, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -40788,8 +40788,8 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate13grammar_files14
 
 3:                                                ; preds = %4, %2
   %.idx = phi i64 [ %.add, %4 ], [ 0, %2 ]
-  %.not.i.not = icmp ne i64 %.idx, 160
-  br i1 %.not.i.not, label %4, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1e3998329f6edf58E.llvm.11948190557966450743.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne i64 %.idx, 160
+  br i1 %.not.not.not.i.not.not.not.not.not, label %4, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1e3998329f6edf58E.llvm.11948190557966450743.exit"
 
 4:                                                ; preds = %3
   %.ptr = getelementptr inbounds i8, ptr @anon.a1c908188362716657f0a41b2015bf97.265.llvm.11948190557966450743, i64 %.idx
@@ -40803,7 +40803,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate13grammar_files14
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1e3998329f6edf58E.llvm.11948190557966450743.exit", label %3
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1e3998329f6edf58E.llvm.11948190557966450743.exit": ; preds = %3, %4
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

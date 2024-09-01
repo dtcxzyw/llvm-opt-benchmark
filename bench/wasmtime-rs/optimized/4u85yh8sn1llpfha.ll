@@ -3078,7 +3078,7 @@ common.resume:                                    ; preds = %72, %51, %33
 84:                                               ; preds = %.thread161, %80
   %.sroa.523.0160 = phi i32 [ %.sroa.523.0159165, %.thread161 ], [ undef, %80 ]
   %.sroa.322.0158 = phi i32 [ %.sroa.322.0157166, %.thread161 ], [ undef, %80 ]
-  %.not31.not150156 = phi i1 [ %.not31.not150155167, %.thread161 ], [ %.not31.not, %80 ]
+  %.not31.not150156 = phi i1 [ %.not31.not150155167, %.thread161 ], [ true, %80 ]
   br i1 %.not31.not150156, label %.thread168, label %.thread202
 
 85:                                               ; preds = %.thread

@@ -1087,8 +1087,8 @@ if.end30.i:                                       ; preds = %qobject_type.exit.i
   %call32.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %i.046.i) #13
   %call33.i = call ptr @qemu_opts_create(ptr noundef nonnull %2, ptr noundef %call32.i, i32 noundef 1, ptr noundef %errp) #13
   call void @g_free(ptr noundef %call32.i) #13
-  %tobool34.not.not.i.not = icmp ne ptr %call33.i, null
-  br i1 %tobool34.not.not.i.not, label %if.end36.i, label %cleanup.i
+  %tobool34.not.not.i.not.not = icmp ne ptr %call33.i, null
+  br i1 %tobool34.not.not.i.not.not, label %if.end36.i, label %cleanup.i
 
 if.end36.i:                                       ; preds = %if.end30.i
   %call37.i = call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef nonnull %call33.i, ptr noundef nonnull %list_entry.0.val.i, ptr noundef %errp) #13
@@ -1112,7 +1112,7 @@ if.then42.i:                                      ; preds = %if.end39.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %for.cond.i, %if.end30.i, %for.body, %if.end.i, %if.end5.i, %if.then11.i, %if.end14.i, %if.then19.i, %if.then28.i, %if.then38.i, %if.then42.i
-  %retval.0.ph.i = phi i1 [ true, %if.end14.i ], [ false, %if.end5.i ], [ false, %if.end.i ], [ true, %for.body ], [ false, %if.then28.i ], [ false, %if.then38.i ], [ false, %if.then42.i ], [ false, %if.then19.i ], [ false, %if.then11.i ], [ %tobool34.not.not.i.not, %if.end30.i ], [ %tobool34.not.not.i.not, %for.cond.i ]
+  %retval.0.ph.i = phi i1 [ true, %if.end14.i ], [ false, %if.end5.i ], [ false, %if.end.i ], [ true, %for.body ], [ false, %if.then28.i ], [ false, %if.then38.i ], [ false, %if.then42.i ], [ false, %if.then19.i ], [ false, %if.then11.i ], [ %tobool34.not.not.i.not.not, %if.end30.i ], [ %tobool34.not.not.i.not.not, %for.cond.i ]
   %list.val.pr.i = load ptr, ptr %list.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %list.val.pr.i, null
   br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_QList.exit.i, label %if.then.i.i.i

@@ -1534,10 +1534,7 @@ define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture n
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %4, label %.lr.ph18.preheader, label %._crit_edge
-
-.lr.ph18.preheader:                               ; preds = %.preheader
+.lr.ph18.preheader:                               ; preds = %.lr.ph
   %wide.trip.count23 = zext nneg i32 %2 to i64
   br label %.lr.ph18
 
@@ -1553,7 +1550,7 @@ define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture n
   %11 = add nsw i32 %10, %.01315
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph18.preheader, label %.lr.ph, !llvm.loop !13
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
@@ -1567,8 +1564,8 @@ define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture n
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph18, %3, %.preheader
-  %.013.lcssa26 = phi i32 [ %11, %.preheader ], [ 0, %3 ], [ %11, %.lr.ph18 ]
+._crit_edge:                                      ; preds = %.lr.ph18, %3
+  %.013.lcssa26 = phi i32 [ 0, %3 ], [ %11, %.lr.ph18 ]
   ret i32 %.013.lcssa26
 }
 

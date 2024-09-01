@@ -994,14 +994,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %323, %321
 
 ._crit_edge.i:                                    ; preds = %355
   %357 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.53, i32 noundef 365, i64 noundef %308, i64 noundef 8)
-          to label %.lr.ph175.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph175.i:                                      ; preds = %._crit_edge.i
+.noexc223:                                        ; preds = %._crit_edge.i
   %358 = getelementptr inbounds i8, ptr %20, i64 32
   br label %359
 
-359:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit100.i, %.lr.ph175.i
-  %.077173.i = phi i64 [ 0, %.lr.ph175.i ], [ %367, %_ZNSt10filesystem7__cxx114pathD2Ev.exit100.i ]
+359:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit100.i, %.noexc223
+  %.077173.i = phi i64 [ 0, %.noexc223 ], [ %367, %_ZNSt10filesystem7__cxx114pathD2Ev.exit100.i ]
   %360 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %298, i64 %.077173.i
   %361 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %360) #19
   store ptr %361, ptr %21, align 8

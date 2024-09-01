@@ -13781,8 +13781,8 @@ land.rhs.lr.ph:                                   ; preds = %if.end
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %it.sroa.0.0220 = phi ptr [ %4, %land.rhs.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %cmp.i.not = icmp ne ptr %it.sroa.0.0220, %2
-  br i1 %cmp.i.not, label %for.body, label %return
+  %cmp.i.not.not = icmp eq ptr %it.sroa.0.0220, %2
+  br i1 %cmp.i.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %d_triggerSetRef = getelementptr inbounds i8, ptr %it.sroa.0.0220, i64 4
@@ -13817,7 +13817,7 @@ for.body:                                         ; preds = %land.rhs
   %14 = load i8, ptr %d_data.i.i15, align 8
   %tobool.i26 = trunc i8 %14 to i1
   %brmerge = select i1 %cmp, i1 true, i1 %tobool.i26
-  br i1 %brmerge, label %return.loopexit272.split.loop.exit293, label %land.rhs33.lr.ph
+  br i1 %brmerge, label %return.loopexit268.split.loop.exit281, label %land.rhs33.lr.ph
 
 land.rhs33.lr.ph:                                 ; preds = %for.body
   %d_triggers.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 4
@@ -14302,13 +14302,13 @@ for.inc:                                          ; preds = %land.rhs33
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0220, i64 12
   br i1 %.pre236, label %return, label %land.rhs, !llvm.loop !294
 
-return.loopexit272.split.loop.exit293:            ; preds = %for.body
+return.loopexit268.split.loop.exit281:            ; preds = %for.body
   %not.cmp.le = xor i1 %cmp, true
   %tobool.i26.mux.le = select i1 %not.cmp.le, i1 true, i1 %tobool.i26
   br label %return
 
-return:                                           ; preds = %return.loopexit272.split.loop.exit293, %land.rhs, %for.inc, %if.end64, %if.end, %if.then
-  %retval.0.in = phi i1 [ %tobool.i, %if.then ], [ true, %if.end ], [ %cmp.i.not, %if.end64 ], [ %tobool.i26.mux.le, %return.loopexit272.split.loop.exit293 ], [ false, %land.rhs ], [ %cmp.i.not, %for.inc ]
+return:                                           ; preds = %return.loopexit268.split.loop.exit281, %land.rhs, %for.inc, %if.end64, %if.end, %if.then
+  %retval.0.in = phi i1 [ %tobool.i, %if.then ], [ true, %if.end ], [ true, %if.end64 ], [ %tobool.i26.mux.le, %return.loopexit268.split.loop.exit281 ], [ false, %land.rhs ], [ true, %for.inc ]
   %retval.0 = xor i1 %retval.0.in, true
   ret i1 %retval.0
 }

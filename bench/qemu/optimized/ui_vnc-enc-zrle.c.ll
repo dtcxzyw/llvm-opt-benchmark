@@ -4810,19 +4810,19 @@ if.else17:                                        ; preds = %if.end14
   %conv23 = trunc i64 %or to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
   %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
-  %cmp26116.not = icmp eq i64 %call18, 0
-  br i1 %cmp26116.not, label %if.end29, label %for.body
+  %cmp26118.not = icmp eq i64 %call18, 0
+  br i1 %cmp26118.not, label %if.end29, label %for.body
 
 for.body:                                         ; preds = %if.else17, %for.body
-  %conv25118 = phi i64 [ %conv25, %for.body ], [ 0, %if.else17 ]
-  %i.0117 = phi i32 [ %inc28, %for.body ], [ 0, %if.else17 ]
-  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25118
+  %conv25120 = phi i64 [ %conv25, %for.body ], [ 0, %if.else17 ]
+  %i.0119 = phi i32 [ %inc28, %for.body ], [ 0, %if.else17 ]
+  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25120
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
-  %inc28 = add i32 %i.0117, 1
+  %inc28 = add i32 %i.0119, 1
   %conv25 = sext i32 %inc28 to i64
   %cmp26 = icmp ugt i64 %call18, %conv25
   br i1 %cmp26, label %for.body, label %if.end29, !llvm.loop !149
@@ -5000,13 +5000,13 @@ if.then137:                                       ; preds = %if.else132
   br label %tailrecurse
 
 for.body148:                                      ; preds = %for.cond142.preheader, %for.body148
-  %ptr.7120 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
-  %17 = load i32, ptr %ptr.7120, align 4
+  %ptr.7117 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
+  %17 = load i32, ptr %ptr.7117, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %17, ptr %value.addr.i101, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
-  %incdec.ptr150 = getelementptr i8, ptr %ptr.7120, i64 4
+  %incdec.ptr150 = getelementptr i8, ptr %ptr.7117, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
   br i1 %cmp146, label %for.body148, label %if.end154, !llvm.loop !155
 
@@ -5620,19 +5620,19 @@ if.else17:                                        ; preds = %if.end14
   %conv23 = trunc i64 %or to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
   %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
-  %cmp26116.not = icmp eq i64 %call18, 0
-  br i1 %cmp26116.not, label %if.end29, label %for.body
+  %cmp26118.not = icmp eq i64 %call18, 0
+  br i1 %cmp26118.not, label %if.end29, label %for.body
 
 for.body:                                         ; preds = %if.else17, %for.body
-  %conv25118 = phi i64 [ %conv25, %for.body ], [ 0, %if.else17 ]
-  %i.0117 = phi i32 [ %inc28, %for.body ], [ 0, %if.else17 ]
-  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25118
+  %conv25120 = phi i64 [ %conv25, %for.body ], [ 0, %if.else17 ]
+  %i.0119 = phi i32 [ %inc28, %for.body ], [ 0, %if.else17 ]
+  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25120
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
-  %inc28 = add i32 %i.0117, 1
+  %inc28 = add i32 %i.0119, 1
   %conv25 = sext i32 %inc28 to i64
   %cmp26 = icmp ugt i64 %call18, %conv25
   br i1 %cmp26, label %for.body, label %if.end29, !llvm.loop !176
@@ -5810,13 +5810,13 @@ if.then137:                                       ; preds = %if.else132
   br label %tailrecurse
 
 for.body148:                                      ; preds = %for.cond142.preheader, %for.body148
-  %ptr.7120 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
-  %17 = load i32, ptr %ptr.7120, align 4
+  %ptr.7117 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
+  %17 = load i32, ptr %ptr.7117, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %17, ptr %value.addr.i101, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
-  %incdec.ptr150 = getelementptr i8, ptr %ptr.7120, i64 4
+  %incdec.ptr150 = getelementptr i8, ptr %ptr.7117, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
   br i1 %cmp146, label %for.body148, label %if.end154, !llvm.loop !182
 
@@ -6426,23 +6426,23 @@ if.else17:                                        ; preds = %if.end14
   %conv23 = trunc i64 %or to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
   %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
-  %cmp26120.not = icmp eq i64 %call18, 0
-  br i1 %cmp26120.not, label %if.end29, label %for.body.lr.ph
+  %cmp26122.not = icmp eq i64 %call18, 0
+  br i1 %cmp26122.not, label %if.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else17
   %add.ptr.i100 = getelementptr inbounds i8, ptr %value.addr.i99, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %conv25122 = phi i64 [ 0, %for.body.lr.ph ], [ %conv25, %for.body ]
-  %i.0121 = phi i32 [ 0, %for.body.lr.ph ], [ %inc28, %for.body ]
-  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25122
+  %conv25124 = phi i64 [ 0, %for.body.lr.ph ], [ %conv25, %for.body ]
+  %i.0123 = phi i32 [ 0, %for.body.lr.ph ], [ %inc28, %for.body ]
+  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25124
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
-  %inc28 = add i32 %i.0121, 1
+  %inc28 = add i32 %i.0123, 1
   %conv25 = sext i32 %inc28 to i64
   %cmp26 = icmp ugt i64 %call18, %conv25
   br i1 %cmp26, label %for.body, label %if.end29, !llvm.loop !203
@@ -6628,13 +6628,13 @@ if.then137:                                       ; preds = %if.else132
   br label %tailrecurse
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.body148
-  %ptr.7124 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
-  %17 = load i32, ptr %ptr.7124, align 4
+  %ptr.7121 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
+  %17 = load i32, ptr %ptr.7121, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
   store i32 %17, ptr %value.addr.i103, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
-  %incdec.ptr150 = getelementptr i8, ptr %ptr.7124, i64 4
+  %incdec.ptr150 = getelementptr i8, ptr %ptr.7121, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
   br i1 %cmp146, label %for.body148, label %if.end154, !llvm.loop !209
 
@@ -6736,23 +6736,23 @@ if.else17:                                        ; preds = %if.end14
   %conv23 = trunc i64 %or to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
   %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
-  %cmp26120.not = icmp eq i64 %call18, 0
-  br i1 %cmp26120.not, label %if.end29, label %for.body.lr.ph
+  %cmp26122.not = icmp eq i64 %call18, 0
+  br i1 %cmp26122.not, label %if.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else17
   %add.ptr.i100 = getelementptr inbounds i8, ptr %value.addr.i99, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %conv25122 = phi i64 [ 0, %for.body.lr.ph ], [ %conv25, %for.body ]
-  %i.0121 = phi i32 [ 0, %for.body.lr.ph ], [ %inc28, %for.body ]
-  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25122
+  %conv25124 = phi i64 [ 0, %for.body.lr.ph ], [ %conv25, %for.body ]
+  %i.0123 = phi i32 [ 0, %for.body.lr.ph ], [ %inc28, %for.body ]
+  %arrayidx = getelementptr [256 x i32], ptr %colors, i64 0, i64 %conv25124
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
-  %inc28 = add i32 %i.0121, 1
+  %inc28 = add i32 %i.0123, 1
   %conv25 = sext i32 %inc28 to i64
   %cmp26 = icmp ugt i64 %call18, %conv25
   br i1 %cmp26, label %for.body, label %if.end29, !llvm.loop !212
@@ -6938,13 +6938,13 @@ if.then137:                                       ; preds = %if.else132
   br label %tailrecurse
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.body148
-  %ptr.7124 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
-  %17 = load i32, ptr %ptr.7124, align 4
+  %ptr.7121 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
+  %17 = load i32, ptr %ptr.7121, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
   store i32 %17, ptr %value.addr.i103, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
-  %incdec.ptr150 = getelementptr i8, ptr %ptr.7124, i64 4
+  %incdec.ptr150 = getelementptr i8, ptr %ptr.7121, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
   br i1 %cmp146, label %for.body148, label %if.end154, !llvm.loop !218
 

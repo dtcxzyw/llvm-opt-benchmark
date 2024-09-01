@@ -667,18 +667,13 @@ retransmission_indicator.exit:                    ; preds = %46, %49
 
 209:                                              ; preds = %207, %208
   %.not387 = icmp sgt i8 %7, -1
-  br i1 %.not387, label %.loopexit, label %.preheader
+  br i1 %.not387, label %.loopexit, label %.preheader.split
 
 .thread:                                          ; preds = %100
   %.not387408 = icmp sgt i8 %7, -1
   br i1 %.not387408, label %.loopexit._crit_edge, label %.preheader.split.us
 
-.preheader:                                       ; preds = %209
-  br i1 %.not386, label %.preheader.split.us, label %.preheader.split
-
-.preheader.split.us:                              ; preds = %.thread, %.preheader
-  %.1375409416 = phi ptr [ %105, %.preheader ], [ null, %.thread ]
-  %.1367411415 = phi ptr [ %103, %.preheader ], [ null, %.thread ]
+.preheader.split.us:                              ; preds = %.thread
   %invariant.op = add nuw nsw i32 %.0361, 1
   br label %210
 
@@ -709,8 +704,8 @@ wtp_handle_tpi.exit.us:                           ; preds = %219, %215
   %.not389.us = icmp sgt i8 %212, -1
   br i1 %.not389.us, label %.loopexit, label %210, !llvm.loop !7
 
-.preheader.split:                                 ; preds = %.preheader, %wtp_handle_tpi.exit
-  %.0362 = phi i32 [ %267, %wtp_handle_tpi.exit ], [ 0, %.preheader ]
+.preheader.split:                                 ; preds = %209, %wtp_handle_tpi.exit
+  %.0362 = phi i32 [ %267, %wtp_handle_tpi.exit ], [ 0, %209 ]
   %223 = add i32 %.0362, %.0361
   %224 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %223) #4
   %225 = zext i8 %224 to i32
@@ -790,8 +785,8 @@ wtp_handle_tpi.exit:                              ; preds = %264, %256, %252, %2
   br i1 %.not389, label %.loopexit, label %.preheader.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %wtp_handle_tpi.exit, %wtp_handle_tpi.exit.us, %209
-  %.1367412 = phi ptr [ %103, %209 ], [ %.1367411415, %wtp_handle_tpi.exit.us ], [ %103, %wtp_handle_tpi.exit ]
-  %.1375410 = phi ptr [ %105, %209 ], [ %.1375409416, %wtp_handle_tpi.exit.us ], [ %105, %wtp_handle_tpi.exit ]
+  %.1367412 = phi ptr [ %103, %209 ], [ null, %wtp_handle_tpi.exit.us ], [ %103, %wtp_handle_tpi.exit ]
+  %.1375410 = phi ptr [ %105, %209 ], [ null, %wtp_handle_tpi.exit.us ], [ %105, %wtp_handle_tpi.exit ]
   %.1363 = phi i32 [ 0, %209 ], [ %222, %wtp_handle_tpi.exit.us ], [ %267, %wtp_handle_tpi.exit ]
   br i1 %.not386, label %.loopexit._crit_edge, label %268
 

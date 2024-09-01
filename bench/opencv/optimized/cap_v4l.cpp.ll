@@ -1441,8 +1441,8 @@ _ZN2cvL17decode_ioctl_codeEm.exit103:             ; preds = %117, %118, %119, %1
   br label %298
 
 167:                                              ; preds = %102, %161
-  %.not88.not.not = icmp ne i32 %99, -1
-  br i1 %.not88.not.not, label %.loopexit, label %168
+  %.not88.not.not.not.not.not.not = icmp ne i32 %99, -1
+  br i1 %.not88.not.not.not.not.not.not, label %.loopexit, label %168
 
 168:                                              ; preds = %167
   %169 = icmp eq i32 %100, 16
@@ -1734,7 +1734,8 @@ _ZN2cvL17decode_ioctl_codeEm.exit103:             ; preds = %117, %118, %119, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %296, %199, %196, %167, %.loopexit.sink.split, %231, %172
-  ret i1 %.not88.not.not
+  %.not88.not.not.not.not.not140 = phi i1 [ false, %.loopexit.sink.split ], [ false, %231 ], [ false, %172 ], [ %.not88.not.not.not.not.not.not, %167 ], [ %.not88.not.not.not.not.not.not, %196 ], [ %.not88.not.not.not.not.not.not, %199 ], [ %.not88.not.not.not.not.not.not, %296 ]
+  ret i1 %.not88.not.not.not.not.not140
 
 298:                                              ; preds = %295, %253, %228, %194, %166, %89, %28
   %.pn97.pn = phi { ptr, i32 } [ %.pn97, %194 ], [ %.pn94, %253 ], [ %.pn91, %295 ], [ %229, %228 ], [ %.pn86, %166 ], [ %.pn83, %89 ], [ %.pn, %28 ]
@@ -4406,7 +4407,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
 68:                                               ; preds = %66, %64
   %.pn43 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #26
-  br label %152
+  br label %149
 
 69:                                               ; preds = %21
   %70 = load i32, ptr %2, align 8
@@ -4441,7 +4442,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
 81:                                               ; preds = %79, %77
   %.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
-  br label %152
+  br label %149
 
 82:                                               ; preds = %69
   %83 = load i32, ptr %12, align 4
@@ -4456,8 +4457,10 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
   br i1 %.not60, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre = zext i32 %70 to i64
-  br label %.loopexit73
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 64
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre73 = zext i32 %70 to i64
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %86 = getelementptr inbounds i8, ptr %0, i64 240
@@ -4471,7 +4474,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
 91:                                               ; preds = %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit73, label %92, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !17
 
 92:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
@@ -4509,7 +4512,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
 106:                                              ; preds = %104, %102
   %.pn40 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  br label %152
+  br label %149
 
 107:                                              ; preds = %82
   %108 = getelementptr inbounds i8, ptr %0, i64 240
@@ -4520,102 +4523,100 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev(pt
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
   %115 = icmp eq i64 %111, %114
-  br i1 %115, label %141, label %116
+  br i1 %115, label %.thread, label %122
 
-116:                                              ; preds = %107
+.thread:                                          ; preds = %107
+  %116 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %108, i64 0, i64 %109, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %116, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
+  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %70, ptr %117, align 8
+  %118 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %108, i64 0, i64 %109
+  %119 = getelementptr inbounds i8, ptr %118, i64 656
+  %120 = load i32, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %118, i64 640
+  store i32 %120, ptr %121, align 8
+  br label %146
+
+122:                                              ; preds = %107
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %117 unwind label %119
+          to label %123 unwind label %125
 
-117:                                              ; preds = %116
+123:                                              ; preds = %122
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv16CvCaptureCAM_V4L15read_frame_v4l2Ev, ptr noundef nonnull @.str.1, i32 noundef 1061) #29
-          to label %118 unwind label %121
+          to label %124 unwind label %127
 
-118:                                              ; preds = %117
+124:                                              ; preds = %123
   unreachable
 
-119:                                              ; preds = %116
-  %120 = landingpad { ptr, i32 }
+125:                                              ; preds = %122
+  %126 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %129
 
-121:                                              ; preds = %117
-  %122 = landingpad { ptr, i32 }
+127:                                              ; preds = %123
+  %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
-  br label %123
+  br label %129
 
-123:                                              ; preds = %121, %119
-  %.pn38 = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ]
+129:                                              ; preds = %127, %125
+  %.pn38 = phi { ptr, i32 } [ %128, %127 ], [ %126, %125 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #26
-  br label %152
+  br label %149
 
-.loopexit73:                                      ; preds = %91, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %87, %91 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 240
-  %125 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %124, i64 0, i64 %.pre-phi, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %125, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %70, ptr %126, align 8
-  %127 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %124, i64 0, i64 %.pre-phi
-  %128 = getelementptr inbounds i8, ptr %127, i64 128
-  %129 = getelementptr inbounds i8, ptr %127, i64 712
-  store ptr %128, ptr %129, align 8
-  %130 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %124, i64 0, i64 %.pre-phi, i32 1
-  %131 = getelementptr inbounds i8, ptr %2, i64 64
-  %132 = load ptr, ptr %131, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %130, ptr noundef nonnull align 8 dereferenceable(512) %132, i64 512, i1 false)
-  %133 = load i8, ptr %84, align 8
-  %.not61 = icmp eq i8 %133, 0
+._crit_edge:                                      ; preds = %91, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre73, %.preheader.._crit_edge_crit_edge ], [ %87, %91 ]
+  %130 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %90, %91 ]
+  %131 = getelementptr inbounds i8, ptr %0, i64 240
+  %132 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %131, i64 0, i64 %.pre-phi, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %132, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
+  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %70, ptr %133, align 8
+  %134 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %131, i64 0, i64 %.pre-phi
+  %135 = getelementptr inbounds i8, ptr %134, i64 128
+  %136 = getelementptr inbounds i8, ptr %134, i64 712
+  store ptr %135, ptr %136, align 8
+  %137 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %131, i64 0, i64 %.pre-phi, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %137, ptr noundef nonnull align 8 dereferenceable(512) %130, i64 512, i1 false)
+  %138 = load i8, ptr %84, align 8
+  %.not61 = icmp eq i8 %138, 0
   br i1 %.not61, label %._crit_edge59, label %.lr.ph58.preheader
 
-.lr.ph58.preheader:                               ; preds = %.loopexit73
-  %wide.trip.count71 = zext i8 %133 to i64
+.lr.ph58.preheader:                               ; preds = %._crit_edge
+  %wide.trip.count71 = zext i8 %138 to i64
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv68 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next69, %.lr.ph58 ]
-  %.02455 = phi i32 [ 0, %.lr.ph58.preheader ], [ %139, %.lr.ph58 ]
-  %134 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %124, i64 0, i64 %.pre-phi, i32 1, i64 %indvars.iv68
-  %135 = load i32, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %134, i64 16
-  %137 = load i32, ptr %136, align 8
-  %138 = add i32 %135, %.02455
-  %139 = sub i32 %138, %137
+  %.02455 = phi i32 [ 0, %.lr.ph58.preheader ], [ %144, %.lr.ph58 ]
+  %139 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %131, i64 0, i64 %.pre-phi, i32 1, i64 %indvars.iv68
+  %140 = load i32, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %139, i64 16
+  %142 = load i32, ptr %141, align 8
+  %143 = add i32 %140, %.02455
+  %144 = sub i32 %143, %142
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !18
 
-._crit_edge59:                                    ; preds = %.lr.ph58, %.loopexit73
-  %.024.lcssa = phi i32 [ 0, %.loopexit73 ], [ %139, %.lr.ph58 ]
-  %140 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %124, i64 0, i64 %.pre-phi, i32 2
-  store i32 %.024.lcssa, ptr %140, align 8
-  br label %149
+._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
+  %.024.lcssa = phi i32 [ 0, %._crit_edge ], [ %144, %.lr.ph58 ]
+  %145 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %131, i64 0, i64 %.pre-phi, i32 2
+  store i32 %.024.lcssa, ptr %145, align 8
+  br label %146
 
-141:                                              ; preds = %107
-  %142 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %108, i64 0, i64 %109, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %142, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
-  %143 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %70, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 240
-  %145 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %144, i64 0, i64 %109
-  %146 = getelementptr inbounds i8, ptr %145, i64 656
-  %147 = load i32, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %145, i64 640
-  store i32 %147, ptr %148, align 8
-  br label %149
-
-149:                                              ; preds = %141, %._crit_edge59
-  %150 = getelementptr inbounds i8, ptr %2, i64 24
-  %151 = getelementptr inbounds i8, ptr %0, i64 8760
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false)
+146:                                              ; preds = %.thread, %._crit_edge59
+  %147 = getelementptr inbounds i8, ptr %2, i64 24
+  %148 = getelementptr inbounds i8, ptr %0, i64 8760
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %63, %35, %149
+.loopexit:                                        ; preds = %30, %63, %35, %146
   ret i1 %22
 
-152:                                              ; preds = %123, %106, %81, %68
-  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %68 ], [ %.pn40, %106 ], [ %.pn38, %123 ], [ %.pn, %81 ]
+149:                                              ; preds = %129, %106, %81, %68
+  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %68 ], [ %.pn40, %106 ], [ %.pn38, %129 ], [ %.pn, %81 ]
   resume { ptr, i32 } %.pn43.pn
 }
 

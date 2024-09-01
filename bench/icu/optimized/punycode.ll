@@ -715,12 +715,11 @@ if.end42:                                         ; preds = %if.then29, %if.end2
 
 while.end:                                        ; preds = %if.end42, %if.end42.us
   %add = add nuw nsw i32 %4, 1
-  %spec.select237 = select i1 %cmp20161, i32 %add, i32 0
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %if.end15, %for.end
   %j.1207212 = phi i32 [ %4, %for.end ], [ %srcLength.addr.0, %if.end15 ], [ %4, %while.end ]
-  %11 = phi i32 [ 0, %for.end ], [ 0, %if.end15 ], [ %spec.select237, %while.end ]
+  %11 = phi i32 [ 0, %for.end ], [ 0, %if.end15 ], [ %add, %while.end ]
   %cmp45172 = icmp slt i32 %11, %srcLength.addr.0
   br i1 %cmp45172, label %for.cond47.preheader.lr.ph, label %for.end218
 

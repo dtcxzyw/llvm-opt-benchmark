@@ -428,102 +428,94 @@ define noundef zeroext i1 @_ZN4pkpy5Lexer13match_n_charsEic(ptr nocapture nounde
 
 .lr.ph.preheader:                                 ; preds = %3
   %6 = load ptr, ptr %4, align 8
-  %7 = load i8, ptr %6, align 1
-  %8 = icmp ne i8 %7, 0
-  %.not34 = icmp eq i8 %7, %2
-  %or.cond35 = and i1 %8, %.not34
-  br i1 %or.cond35, label %.lr.ph38, label %.loopexit
+  br label %.lr.ph
 
-.lr.ph21:                                         ; preds = %.lr.ph38
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %15
+.lr.ph21:                                         ; preds = %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %14
 
-.lr.ph:                                           ; preds = %.lr.ph38
-  %11 = getelementptr inbounds i8, ptr %.0121837, i64 1
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp ne i8 %12, 0
-  %.not = icmp eq i8 %12, %2
-  %or.cond = and i1 %13, %.not
-  br i1 %or.cond, label %.lr.ph38, label %.loopexit.loopexit39, !llvm.loop !7
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %.01119 = phi i32 [ %13, %11 ], [ 0, %.lr.ph.preheader ]
+  %.01218 = phi ptr [ %12, %11 ], [ %6, %.lr.ph.preheader ]
+  %9 = load i8, ptr %.01218, align 1
+  %10 = icmp ne i8 %9, 0
+  %.not = icmp eq i8 %9, %2
+  %or.cond = and i1 %10, %.not
+  br i1 %or.cond, label %11, label %.loopexit
 
-.lr.ph38:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0121837 = phi ptr [ %11, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.0111936 = phi i32 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %14 = add nuw nsw i32 %.0111936, 1
-  %exitcond = icmp eq i32 %14, %1
-  br i1 %exitcond, label %.lr.ph21, label %.lr.ph, !llvm.loop !7
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds i8, ptr %.01218, i64 1
+  %13 = add nuw nsw i32 %.01119, 1
+  %exitcond.not = icmp eq i32 %13, %1
+  br i1 %exitcond.not, label %.lr.ph21, label %.lr.ph, !llvm.loop !7
 
-15:                                               ; preds = %.lr.ph21, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit
-  %.020 = phi i32 [ 0, %.lr.ph21 ], [ %47, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit ]
-  %16 = load ptr, ptr %4, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %18, ptr %4, align 8
-  %19 = icmp eq i8 %17, 10
-  br i1 %19, label %20, label %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit
+14:                                               ; preds = %.lr.ph21, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit
+  %.020 = phi i32 [ 0, %.lr.ph21 ], [ %46, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit ]
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %17, ptr %4, align 8
+  %18 = icmp eq i8 %16, 10
+  br i1 %18, label %19, label %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %9, align 8
-  %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %9, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 76
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %25, %27
-  br i1 %28, label %29, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
+19:                                               ; preds = %14
+  %20 = load i32, ptr %7, align 8
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 72
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 76
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
 
-29:                                               ; preds = %20
-  %30 = shl nsw i32 %25, 1
-  %.not.i.i.i = icmp sgt i32 %30, %25
-  br i1 %.not.i.i.i, label %31, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
+28:                                               ; preds = %19
+  %29 = shl nsw i32 %24, 1
+  %.not.i.i.i = icmp sgt i32 %29, %24
+  br i1 %.not.i.i.i, label %30, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
 
-31:                                               ; preds = %29
-  store i32 %30, ptr %26, align 4
-  %32 = getelementptr inbounds i8, ptr %23, i64 80
-  %33 = load ptr, ptr %32, align 8
-  %34 = shl nsw i32 %25, 4
-  %35 = sext i32 %34 to i64
-  %36 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %35) #27
-  store ptr %36, ptr %32, align 8
-  %.not6.i.i.i = icmp eq ptr %33, null
-  %.pre2.i.i = load i32, ptr %24, align 8
-  br i1 %.not6.i.i.i, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i, label %37
+30:                                               ; preds = %28
+  store i32 %29, ptr %25, align 4
+  %31 = getelementptr inbounds i8, ptr %22, i64 80
+  %32 = load ptr, ptr %31, align 8
+  %33 = shl nsw i32 %24, 4
+  %34 = sext i32 %33 to i64
+  %35 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %34) #27
+  store ptr %35, ptr %31, align 8
+  %.not6.i.i.i = icmp eq ptr %32, null
+  %.pre2.i.i = load i32, ptr %23, align 8
+  br i1 %.not6.i.i.i, label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i, label %36
 
-37:                                               ; preds = %31
-  %38 = shl nsw i32 %.pre2.i.i, 3
-  %39 = sext i32 %38 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr nonnull align 8 %33, i64 %39, i1 false)
-  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %33) #27
-  %.pre.i.i = load i32, ptr %24, align 8
+36:                                               ; preds = %30
+  %37 = shl nsw i32 %.pre2.i.i, 3
+  %38 = sext i32 %37 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr nonnull align 8 %32, i64 %38, i1 false)
+  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %32) #27
+  %.pre.i.i = load i32, ptr %23, align 8
   br label %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
 
-_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i: ; preds = %37, %31, %29, %20
-  %40 = phi i32 [ %.pre.i.i, %37 ], [ %.pre2.i.i, %31 ], [ %25, %29 ], [ %25, %20 ]
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %23, i64 80
-  %43 = load ptr, ptr %42, align 8
-  %44 = add nsw i32 %40, 1
-  store i32 %44, ptr %24, align 8
-  %45 = sext i32 %40 to i64
-  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
-  store ptr %41, ptr %46, align 8
+_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i: ; preds = %36, %30, %28, %19
+  %39 = phi i32 [ %.pre.i.i, %36 ], [ %.pre2.i.i, %30 ], [ %24, %28 ], [ %24, %19 ]
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds i8, ptr %22, i64 80
+  %42 = load ptr, ptr %41, align 8
+  %43 = add nsw i32 %39, 1
+  store i32 %43, ptr %23, align 8
+  %44 = sext i32 %39 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  store ptr %40, ptr %45, align 8
   br label %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit
 
-_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit:   ; preds = %15, %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
-  %47 = add nuw nsw i32 %.020, 1
-  %exitcond26.not = icmp eq i32 %47, %1
-  br i1 %exitcond26.not, label %.loopexit, label %15, !llvm.loop !8
+_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit:   ; preds = %14, %_ZN4pkpy10pod_vectorIPKcLi2EE9push_backIRS2_EEvOT_.exit.i
+  %46 = add nuw nsw i32 %.020, 1
+  %exitcond24.not = icmp eq i32 %46, %1
+  br i1 %exitcond24.not, label %.loopexit, label %14, !llvm.loop !8
 
-.loopexit.loopexit39:                             ; preds = %.lr.ph
-  %48 = icmp sge i32 %14, %1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit, %.loopexit.loopexit39, %.lr.ph.preheader, %3
-  %49 = phi i1 [ true, %3 ], [ false, %.lr.ph.preheader ], [ %48, %.loopexit.loopexit39 ], [ true, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit ]
-  ret i1 %49
+.loopexit:                                        ; preds = %.lr.ph, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit, %3
+  %47 = phi i1 [ true, %3 ], [ true, %_ZN4pkpy5Lexer23eatchar_include_newlineEv.exit ], [ false, %.lr.ph ]
+  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

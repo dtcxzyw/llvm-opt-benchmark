@@ -1845,8 +1845,8 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a946f8da4ef5f74E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i"
 
 "_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i": ; preds = %18, %.lr.ph.i
-  %.not16.i = icmp eq ptr %16, %14
-  br i1 %.not16.i, label %.loopexit56, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %16, %14
+  br i1 %.not11.i, label %.loopexit56, label %.lr.ph.i
 
 21:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -1912,8 +1912,8 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i"
 
 "_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i": ; preds = %42, %.lr.ph.i12
-  %.not16.i15 = icmp eq ptr %40, %38
-  br i1 %.not16.i15, label %.loopexit, label %.lr.ph.i12
+  %.not11.i15 = icmp eq ptr %40, %38
+  br i1 %.not11.i15, label %.loopexit, label %.lr.ph.i12
 
 45:                                               ; preds = %27
   %.sroa.463.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 440

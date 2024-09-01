@@ -7819,8 +7819,8 @@ common.ret:                                       ; preds = %317, %271, %202, %8
   br i1 %160, label %161, label %198
 
 161:                                              ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h2c05270f1adbd442E.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %201, label %162
+  %.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
+  br i1 %.not.i, label %201, label %162
 
 162:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !1230
@@ -9138,8 +9138,8 @@ common.ret:                                       ; preds = %134, %22
   br i1 %92, label %93, label %130
 
 93:                                               ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h2c05270f1adbd442E.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %133, label %94
+  %.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
+  br i1 %.not.i, label %133, label %94
 
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1418
@@ -10744,8 +10744,8 @@ common.ret:                                       ; preds = %326, %288, %195, %8
   br i1 %158, label %159, label %191
 
 159:                                              ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h2c05270f1adbd442E.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %194, label %160
+  %.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
+  br i1 %.not.i, label %194, label %160
 
 160:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !1637
@@ -11944,8 +11944,8 @@ common.ret:                                       ; preds = %129, %23
   br i1 %92, label %93, label %125
 
 93:                                               ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h2c05270f1adbd442E.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %128, label %94
+  %.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
+  br i1 %.not.i, label %128, label %94
 
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !1817

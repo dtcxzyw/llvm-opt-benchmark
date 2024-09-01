@@ -516,9 +516,9 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
   store double %62, ptr %63, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph53.preheader.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
-.lr.ph53.preheader.i:                             ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %64 = getelementptr inbounds i32, ptr %52, i64 %wide.trip.count.i
   store i32 0, ptr %64, align 4
   %65 = shl nuw nsw i64 %wide.trip.count.i, 3
@@ -526,9 +526,9 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
   %load_initial = load double, ptr %scevgep, align 8
   br label %.lr.ph53.i
 
-.lr.ph53.i:                                       ; preds = %.lr.ph53.i, %.lr.ph53.preheader.i
-  %store_forwarded = phi double [ %load_initial, %.lr.ph53.preheader.i ], [ %68, %.lr.ph53.i ]
-  %indvars.iv57.i = phi i64 [ %wide.trip.count.i, %.lr.ph53.preheader.i ], [ %indvars.iv.next58.i, %.lr.ph53.i ]
+.lr.ph53.i:                                       ; preds = %.lr.ph53.i, %._crit_edge.i
+  %store_forwarded = phi double [ %load_initial, %._crit_edge.i ], [ %68, %.lr.ph53.i ]
+  %indvars.iv57.i = phi i64 [ %wide.trip.count.i, %._crit_edge.i ], [ %indvars.iv.next58.i, %.lr.ph53.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
   %66 = getelementptr inbounds double, ptr %53, i64 %indvars.iv.next58.i
   %67 = load double, ptr %66, align 8

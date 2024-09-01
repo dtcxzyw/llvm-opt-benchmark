@@ -32399,8 +32399,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %curr.0 = phi ptr [ %add.ptr, %entry ], [ %add.ptr.i, %for.body ]
   %4 = load i64, ptr %curr.0, align 8, !tbaa !17
-  %cmp.not.not.not = icmp ne i64 %4, -1
-  br i1 %cmp.not.not.not, label %for.body, label %cleanup
+  %cmp.not.not.not.not.not.not.not = icmp ne i64 %4, -1
+  br i1 %cmp.not.not.not.not.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %for.cond
   %add.ptr.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %3, i64 %4
@@ -32459,7 +32459,7 @@ _ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE12move_and_popEm.e
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond, %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE12move_and_popEm.exit
-  %spec.select = zext i1 %cmp.not.not.not to i64
+  %spec.select = zext i1 %cmp.not.not.not.not.not.not.not to i64
   ret i64 %spec.select
 }
 

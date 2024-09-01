@@ -1007,12 +1007,10 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.cond.i:                                       ; preds = %if.end17.i
   %inc.i = add nuw i64 %i.027.i, 1
-  %cmp1.i = icmp uge i64 %inc.i, %num
-  %exitcond.i = icmp eq i64 %inc.i, %num
-  br i1 %exitcond.i, label %vhost_svq_translate_addr.exit, label %for.body.i, !llvm.loop !17
+  %exitcond.not.i = icmp eq i64 %inc.i, %num
+  br i1 %exitcond.not.i, label %vhost_svq_translate_addr.exit, label %for.body.i, !llvm.loop !17
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %cmp128.i = phi i1 [ false, %for.body.lr.ph.i ], [ %cmp1.i, %for.cond.i ]
   %i.027.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   store i64 0, ptr %needle.i, align 8
   %arrayidx.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.027.i
@@ -1032,13 +1030,12 @@ do.body.i:                                        ; preds = %for.body.i
   %6 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i = and i32 %6, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %vhost_svq_translate_addr.exit, label %if.then14.i
+  br i1 %cmp.i.not.i, label %vhost_svq_translate_addr.exit.thread, label %if.then14.i
 
 if.then14.i:                                      ; preds = %do.body.i
   %7 = load i64, ptr %translated_addr.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %7) #11
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %needle.i)
-  br i1 %cmp128.i, label %for.cond.preheader, label %return
+  br label %vhost_svq_translate_addr.exit.thread
 
 if.end17.i:                                       ; preds = %for.body.i
   %8 = load i64, ptr %translated_addr.i, align 8
@@ -1072,29 +1069,28 @@ do.body48.i:                                      ; preds = %if.end17.i
   %15 = load i32, ptr @qemu_loglevel, align 4
   %and.i20.i = and i32 %15, 2048
   %cmp.i21.not.i = icmp eq i32 %and.i20.i, 0
-  br i1 %cmp.i21.not.i, label %vhost_svq_translate_addr.exit, label %if.then56.i
+  br i1 %cmp.i21.not.i, label %vhost_svq_translate_addr.exit.thread, label %if.then56.i
 
 if.then56.i:                                      ; preds = %do.body48.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #11
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %needle.i)
-  br i1 %cmp128.i, label %for.cond.preheader, label %return
+  br label %vhost_svq_translate_addr.exit.thread
 
-vhost_svq_translate_addr.exit:                    ; preds = %for.cond.i, %do.body.i, %do.body48.i
-  %cmp124.i = phi i1 [ %cmp128.i, %do.body48.i ], [ %cmp128.i, %do.body.i ], [ %cmp1.i, %for.cond.i ]
+vhost_svq_translate_addr.exit.thread:             ; preds = %if.then56.i, %do.body48.i, %if.then14.i, %do.body.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %needle.i)
-  br i1 %cmp124.i, label %for.cond.preheader, label %return
+  br label %return
 
-for.cond.preheader:                               ; preds = %vhost_svq_translate_addr.exit, %if.then56.i, %if.then14.i
+vhost_svq_translate_addr.exit:                    ; preds = %for.cond.i
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %needle.i)
   %or29 = or disjoint i16 %spec.select, 1
   %desc_next = getelementptr inbounds i8, ptr %svq, i64 120
   br i1 %more_descs, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
-  %conv1434.us = phi i64 [ %conv14.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %i.033.us = phi i16 [ %21, %for.body.us ], [ %0, %for.cond.preheader ]
-  %n.032.us = phi i32 [ %add.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %add.us = add i32 %n.032.us, 1
-  %idxprom.us = zext i16 %i.033.us to i64
+for.body.us:                                      ; preds = %vhost_svq_translate_addr.exit, %for.body.us
+  %conv1433.us = phi i64 [ %conv14.us, %for.body.us ], [ 0, %vhost_svq_translate_addr.exit ]
+  %i.032.us = phi i16 [ %21, %for.body.us ], [ %0, %vhost_svq_translate_addr.exit ]
+  %n.031.us = phi i32 [ %add.us, %for.body.us ], [ 0, %vhost_svq_translate_addr.exit ]
+  %add.us = add i32 %n.031.us, 1
+  %idxprom.us = zext i16 %i.032.us to i64
   %arrayidx.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us
   %flags27.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 12
   store i16 %or29, ptr %flags27.us, align 4
@@ -1103,10 +1099,10 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %17 = load i16, ptr %arrayidx29.us, align 2
   %next.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 14
   store i16 %17, ptr %next.us, align 2
-  %arrayidx38.us = getelementptr i64, ptr %sg, i64 %conv1434.us
+  %arrayidx38.us = getelementptr i64, ptr %sg, i64 %conv1433.us
   %18 = load i64, ptr %arrayidx38.us, align 8
   store i64 %18, ptr %arrayidx.us, align 16
-  %iov_len.us = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434.us, i32 1
+  %iov_len.us = getelementptr %struct.iovec, ptr %iovec, i64 %conv1433.us, i32 1
   %19 = load i64, ptr %iov_len.us, align 8
   %conv44.us = trunc i64 %19 to i32
   %len.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
@@ -1118,14 +1114,14 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %cmp15.us = icmp ugt i64 %num, %conv14.us
   br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !18
 
-for.body:                                         ; preds = %for.cond.preheader, %if.end36
-  %conv1434 = phi i64 [ %conv19, %if.end36 ], [ 0, %for.cond.preheader ]
-  %i.033 = phi i16 [ %27, %if.end36 ], [ %0, %for.cond.preheader ]
-  %n.032 = phi i32 [ %add, %if.end36 ], [ 0, %for.cond.preheader ]
-  %add = add i32 %n.032, 1
+for.body:                                         ; preds = %vhost_svq_translate_addr.exit, %if.end36
+  %conv1433 = phi i64 [ %conv19, %if.end36 ], [ 0, %vhost_svq_translate_addr.exit ]
+  %i.032 = phi i16 [ %27, %if.end36 ], [ %0, %vhost_svq_translate_addr.exit ]
+  %n.031 = phi i32 [ %add, %if.end36 ], [ 0, %vhost_svq_translate_addr.exit ]
+  %add = add i32 %n.031, 1
   %conv19 = zext i32 %add to i64
   %cmp20 = icmp ugt i64 %num, %conv19
-  %idxprom = zext i16 %i.033 to i64
+  %idxprom = zext i16 %i.032 to i64
   br i1 %cmp20, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body
@@ -1145,11 +1141,11 @@ if.else:                                          ; preds = %for.body
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then22
-  %arrayidx38 = getelementptr i64, ptr %sg, i64 %conv1434
+  %arrayidx38 = getelementptr i64, ptr %sg, i64 %conv1433
   %24 = load i64, ptr %arrayidx38, align 8
   %arrayidx41 = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom
   store i64 %24, ptr %arrayidx41, align 16
-  %iov_len = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434, i32 1
+  %iov_len = getelementptr %struct.iovec, ptr %iovec, i64 %conv1433, i32 1
   %25 = load i64, ptr %iov_len, align 8
   %conv44 = trunc i64 %25 to i32
   %len = getelementptr inbounds i8, ptr %arrayidx41, i64 8
@@ -1164,8 +1160,8 @@ for.end:                                          ; preds = %if.end36, %for.body
   store i16 %28, ptr %free_head, align 2
   br label %return
 
-return:                                           ; preds = %if.then14.i, %if.then56.i, %vhost_svq_translate_addr.exit, %entry, %for.end
-  %retval.0 = phi i1 [ true, %for.end ], [ true, %entry ], [ false, %vhost_svq_translate_addr.exit ], [ false, %if.then56.i ], [ false, %if.then14.i ]
+return:                                           ; preds = %vhost_svq_translate_addr.exit.thread, %entry, %for.end
+  %retval.0 = phi i1 [ true, %for.end ], [ true, %entry ], [ false, %vhost_svq_translate_addr.exit.thread ]
   ret i1 %retval.0
 }
 

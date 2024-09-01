@@ -1878,8 +1878,8 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp sge i32 %6, %.sroa.speculated
-  br i1 %22, label %._crit_edge90, label %.lr.ph.preheader
+  %22 = icmp slt i32 %6, %.sroa.speculated
+  br i1 %22, label %.lr.ph.preheader, label %._crit_edge90
 
 .lr.ph.preheader:                                 ; preds = %2
   %23 = tail call i32 @llvm.smin.i32(i32 %8, i32 %6)
@@ -1893,8 +1893,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %26 = getelementptr inbounds i8, ptr %.pre, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %27, 2
-  %brmerge = or i1 %28, %22
-  br i1 %brmerge, label %._crit_edge90, label %.lr.ph81.us.preheader
+  br i1 %28, label %._crit_edge90, label %.lr.ph81.us.preheader
 
 .lr.ph81.us.preheader:                            ; preds = %.preheader
   %29 = tail call i32 @llvm.smin.i32(i32 %8, i32 %6)
@@ -2002,8 +2001,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
 
 ._crit_edge84:                                    ; preds = %._crit_edge.us
   %104 = icmp slt i32 %89, 2
-  %brmerge121 = or i1 %104, %22
-  br i1 %brmerge121, label %._crit_edge90, label %.lr.ph86.us.preheader
+  br i1 %104, label %._crit_edge90, label %.lr.ph86.us.preheader
 
 .lr.ph86.us.preheader:                            ; preds = %._crit_edge84
   %105 = add nsw i32 %89, -2
@@ -2599,14 +2597,11 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, -1
   %33 = icmp sgt i32 %31, 2
-  br i1 %33, label %.lr.ph62, label %._crit_edge
+  br i1 %33, label %.lr.ph60.us, label %.lr.ph67.preheader
 
-.lr.ph62:                                         ; preds = %.preheader
-  br i1 %20, label %.lr.ph60.us, label %._crit_edge68
-
-.lr.ph60.us:                                      ; preds = %.lr.ph62, %..loopexit_crit_edge.us
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %..loopexit_crit_edge.us ], [ 1, %.lr.ph62 ]
-  %34 = phi ptr [ %67, %..loopexit_crit_edge.us ], [ %.pre, %.lr.ph62 ]
+.lr.ph60.us:                                      ; preds = %.preheader, %..loopexit_crit_edge.us
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %..loopexit_crit_edge.us ], [ 1, %.preheader ]
+  %34 = phi ptr [ %67, %..loopexit_crit_edge.us ], [ %.pre, %.preheader ]
   %35 = load ptr, ptr %18, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -2658,7 +2653,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %70 = add nsw i32 %69, -1
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next77, %71
-  br i1 %72, label %.lr.ph60.us, label %._crit_edge, !llvm.loop !32
+  br i1 %72, label %.lr.ph60.us, label %.lr.ph67.preheader, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2682,12 +2677,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %exitcond.not = icmp eq i32 %.sroa.speculated, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader
+.lr.ph67.preheader:                               ; preds = %..loopexit_crit_edge.us, %.preheader
   %.lcssa53 = phi ptr [ %.pre, %.preheader ], [ %67, %..loopexit_crit_edge.us ]
   %.lcssa = phi i32 [ %32, %.preheader ], [ %70, %..loopexit_crit_edge.us ]
-  br i1 %20, label %.lr.ph67.preheader, label %._crit_edge68
-
-.lr.ph67.preheader:                               ; preds = %._crit_edge
   %85 = getelementptr inbounds i8, ptr %.lcssa53, i64 304
   %86 = load ptr, ptr %85, align 8
   %87 = load i64, ptr %86, align 8
@@ -2706,7 +2698,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %98, i1 false)
   br label %._crit_edge68
 
-._crit_edge68:                                    ; preds = %2, %.lr.ph62, %.lr.ph67.preheader, %._crit_edge
+._crit_edge68:                                    ; preds = %2, %.lr.ph67.preheader
   ret void
 }
 
@@ -2912,12 +2904,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, -1
   %37 = icmp sgt i32 %35, 2
-  br i1 %37, label %.lr.ph62, label %._crit_edge
+  br i1 %37, label %.lr.ph60.us.preheader, label %.lr.ph67.preheader
 
-.lr.ph62:                                         ; preds = %.preheader
-  br i1 %21, label %.lr.ph60.us.preheader, label %._crit_edge68
-
-.lr.ph60.us.preheader:                            ; preds = %.lr.ph62
+.lr.ph60.us.preheader:                            ; preds = %.preheader
   %38 = tail call i32 @llvm.smin.i32(i32 %8, i32 %6)
   %smin72 = sext i32 %38 to i64
   %39 = add i32 %.sroa.speculated, %38
@@ -2996,7 +2985,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %95 = add nsw i32 %94, -1
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next78, %96
-  br i1 %97, label %.lr.ph60.us, label %._crit_edge, !llvm.loop !37
+  br i1 %97, label %.lr.ph60.us, label %.lr.ph67.preheader, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %smin, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -3038,12 +3027,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader
+.lr.ph67.preheader:                               ; preds = %..loopexit_crit_edge.us, %.preheader
   %.lcssa53 = phi ptr [ %.pre, %.preheader ], [ %92, %..loopexit_crit_edge.us ]
   %.lcssa = phi i32 [ %36, %.preheader ], [ %95, %..loopexit_crit_edge.us ]
-  br i1 %21, label %.lr.ph67.preheader, label %._crit_edge68
-
-.lr.ph67.preheader:                               ; preds = %._crit_edge
   %128 = getelementptr inbounds i8, ptr %.lcssa53, i64 304
   %129 = load ptr, ptr %128, align 8
   %130 = load i64, ptr %129, align 8
@@ -3064,7 +3050,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %142, i1 false)
   br label %._crit_edge68
 
-._crit_edge68:                                    ; preds = %2, %.lr.ph62, %.lr.ph67.preheader, %._crit_edge
+._crit_edge68:                                    ; preds = %2, %.lr.ph67.preheader
   ret void
 }
 

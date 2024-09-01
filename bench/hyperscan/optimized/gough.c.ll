@@ -3775,12 +3775,9 @@ sw.epilog.i48:                                    ; preds = %if.then.i66, %if.th
 for.inc:                                          ; preds = %while.body.i35
   %inc = add nuw nsw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %while.body.i.preheader.lr.ph, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp137.not, label %if.end, label %while.body.i.preheader.lr.ph
-
-while.body.i.preheader.lr.ph:                     ; preds = %for.end
+while.body.i.preheader.lr.ph:                     ; preds = %for.inc
   %invariant.op9 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast10
   br label %while.body.i.preheader
 
@@ -3853,7 +3850,7 @@ for.inc26:                                        ; preds = %while.body.i
   %exitcond16.not = icmp eq i64 %inc27, %conv
   br i1 %exitcond16.not, label %if.end, label %while.body.i.preheader, !llvm.loop !13
 
-if.end:                                           ; preds = %run_prog_i.exit140, %for.inc26, %if.else, %while.cond.preheader, %for.end
+if.end:                                           ; preds = %run_prog_i.exit140, %for.inc26, %if.else, %while.cond.preheader
   ret void
 }
 

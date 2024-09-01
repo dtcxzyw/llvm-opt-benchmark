@@ -943,8 +943,8 @@ define dso_local noundef zeroext i1 @ipv6_chk_acast_addr(ptr noundef readonly %0
   %23 = phi ptr [ %25, %26 ], [ %12, %13 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not13.not = icmp ne ptr %25, null
-  br i1 %.not13.not, label %26, label %.loopexit19, !llvm.loop !44
+  %.not13.not.not = icmp ne ptr %25, null
+  br i1 %.not13.not.not, label %26, label %.loopexit19, !llvm.loop !44
 
 26:                                               ; preds = %.preheader18
   %27 = load i64, ptr %25, align 8
@@ -956,7 +956,7 @@ define dso_local noundef zeroext i1 @ipv6_chk_acast_addr(ptr noundef readonly %0
   br i1 %32, label %.loopexit19, label %.preheader18, !llvm.loop !44
 
 .loopexit19:                                      ; preds = %26, %.preheader18, %13, %9
-  %33 = phi i1 [ false, %9 ], [ true, %13 ], [ %.not13.not, %.preheader18 ], [ %.not13.not, %26 ]
+  %33 = phi i1 [ false, %9 ], [ true, %13 ], [ %.not13.not.not, %.preheader18 ], [ %.not13.not.not, %26 ]
   tail call void @_raw_read_unlock_bh(ptr noundef %10) #6
   br label %.loopexit
 

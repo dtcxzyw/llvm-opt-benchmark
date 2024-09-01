@@ -837,16 +837,13 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %400 = phi i32 [ %396, %sub_1 ], [ %399, %sub_2 ]
   %401 = icmp eq i32 %400, 0
-  br i1 %401, label %402, label %sub_0212
+  br i1 %401, label %402, label %sub_1213
 
 402:                                              ; preds = %.tail
   %403 = and i32 %.0128276, -33
   br label %481
 
-sub_0212:                                         ; preds = %.tail
-  br i1 %.not283, label %sub_1213, label %.tail211
-
-sub_1213:                                         ; preds = %sub_0212
+sub_1213:                                         ; preds = %.tail
   %404 = getelementptr inbounds i8, ptr %225, i64 1
   %405 = load i8, ptr %404, align 1
   %406 = zext i8 %405 to i32
@@ -860,8 +857,8 @@ sub_2214:                                         ; preds = %sub_1213
   %410 = zext i8 %409 to i32
   br label %.tail211
 
-.tail211:                                         ; preds = %sub_0, %sub_0212, %sub_1213, %sub_2214
-  %411 = phi i32 [ %392, %sub_0212 ], [ %407, %sub_1213 ], [ %410, %sub_2214 ], [ %392, %sub_0 ]
+.tail211:                                         ; preds = %sub_0, %sub_1213, %sub_2214
+  %411 = phi i32 [ %407, %sub_1213 ], [ %410, %sub_2214 ], [ %392, %sub_0 ]
   %412 = icmp eq i32 %411, 0
   br i1 %412, label %422, label %sub_0217
 
@@ -885,16 +882,13 @@ sub_2219:                                         ; preds = %sub_1218
 .tail216:                                         ; preds = %sub_1218, %sub_2219
   %420 = phi i32 [ %416, %sub_1218 ], [ %419, %sub_2219 ]
   %421 = icmp eq i32 %420, 0
-  br i1 %421, label %422, label %sub_0222
+  br i1 %421, label %422, label %sub_1223
 
 422:                                              ; preds = %.tail216, %.tail211
   %423 = and i32 %.0128276, -49
   br label %481
 
-sub_0222:                                         ; preds = %.tail216
-  br i1 %.not283, label %sub_1223, label %.tail221
-
-sub_1223:                                         ; preds = %sub_0222
+sub_1223:                                         ; preds = %.tail216
   %424 = getelementptr inbounds i8, ptr %225, i64 1
   %425 = load i8, ptr %424, align 1
   %426 = zext i8 %425 to i32
@@ -908,8 +902,8 @@ sub_2224:                                         ; preds = %sub_1223
   %430 = zext i8 %429 to i32
   br label %.tail221
 
-.tail221:                                         ; preds = %sub_0217, %sub_0222, %sub_1223, %sub_2224
-  %431 = phi i32 [ %392, %sub_0222 ], [ %427, %sub_1223 ], [ %430, %sub_2224 ], [ %392, %sub_0217 ]
+.tail221:                                         ; preds = %sub_0217, %sub_1223, %sub_2224
+  %431 = phi i32 [ %427, %sub_1223 ], [ %430, %sub_2224 ], [ %392, %sub_0217 ]
   %432 = icmp eq i32 %431, 0
   br i1 %432, label %433, label %435
 
@@ -1772,18 +1766,18 @@ define internal void @data_callback(ptr nocapture readnone %0, i32 %1, ptr nocap
   br i1 %.not.i, label %expand_flags.exit.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 expand_flags.exit.loopexit:                       ; preds = %79
-  %.pre104 = load ptr, ptr @options_data, align 8
-  %.pre105 = load i32, ptr @parse_options_idx, align 4
-  %.phi.trans.insert106 = sext i32 %.pre105 to i64
-  %.phi.trans.insert107 = getelementptr inbounds %struct.options_data_t, ptr %.pre104, i64 %.phi.trans.insert106, i32 8
-  %.pre108 = load ptr, ptr %.phi.trans.insert107, align 8
+  %.pre107 = load ptr, ptr @options_data, align 8
+  %.pre108 = load i32, ptr @parse_options_idx, align 4
+  %.phi.trans.insert109 = sext i32 %.pre108 to i64
+  %.phi.trans.insert110 = getelementptr inbounds %struct.options_data_t, ptr %.pre107, i64 %.phi.trans.insert109, i32 8
+  %.pre111 = load ptr, ptr %.phi.trans.insert110, align 8
   br label %expand_flags.exit
 
 expand_flags.exit:                                ; preds = %expand_flags.exit.loopexit, %59
-  %.pre-phi109 = phi i64 [ %.phi.trans.insert106, %expand_flags.exit.loopexit ], [ %70, %59 ]
-  %82 = phi ptr [ %.pre108, %expand_flags.exit.loopexit ], [ %72, %59 ]
-  %83 = phi ptr [ %.pre104, %expand_flags.exit.loopexit ], [ %68, %59 ]
-  %84 = getelementptr inbounds %struct.options_data_t, ptr %83, i64 %.pre-phi109, i32 8
+  %.pre-phi112 = phi i64 [ %.phi.trans.insert109, %expand_flags.exit.loopexit ], [ %70, %59 ]
+  %82 = phi ptr [ %.pre111, %expand_flags.exit.loopexit ], [ %72, %59 ]
+  %83 = phi ptr [ %.pre107, %expand_flags.exit.loopexit ], [ %68, %59 ]
+  %84 = getelementptr inbounds %struct.options_data_t, ptr %83, i64 %.pre-phi112, i32 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %85 = tail call i32 @PMIx_Argv_count(ptr noundef %82) #16
   store i32 %85, ptr %6, align 4
@@ -1809,8 +1803,8 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
   %95 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #18
-  %.not111 = icmp ne i32 %97, 0
-  br i1 %.not111, label %92, label %98
+  %.not.not22.i.not.not.not.not.not = icmp ne i32 %97, 0
+  br i1 %.not.not22.i.not.not.not.not.not, label %92, label %98
 
 98:                                               ; preds = %94
   %99 = call i32 @pmix_argv_delete(ptr noundef nonnull %6, ptr noundef nonnull %84, i32 noundef %.01218.i, i32 noundef 1) #16
@@ -1819,7 +1813,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
 
 .loopexit.i:                                      ; preds = %92, %98
   %100 = phi i32 [ %.pre.i, %98 ], [ %87, %92 ]
-  %101 = zext i1 %.not111 to i32
+  %101 = zext i1 %.not.not22.i.not.not.not.not.not to i32
   %spec.select.i = add nuw nsw i32 %.01218.i, %101
   %102 = icmp slt i32 %spec.select.i, %100
   br i1 %102, label %.lr.ph.i79, label %filter_flags.exit, !llvm.loop !15
@@ -1875,26 +1869,26 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
 
 expand_flags.exit86.loopexit:                     ; preds = %126
   %.pre = load ptr, ptr @options_data, align 8
-  %.pre101 = load i32, ptr @parse_options_idx, align 4
-  %.phi.trans.insert = sext i32 %.pre101 to i64
-  %.phi.trans.insert102 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert, i32 9
-  %.pre103 = load ptr, ptr %.phi.trans.insert102, align 8
+  %.pre104 = load i32, ptr @parse_options_idx, align 4
+  %.phi.trans.insert = sext i32 %.pre104 to i64
+  %.phi.trans.insert105 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert, i32 9
+  %.pre106 = load ptr, ptr %.phi.trans.insert105, align 8
   br label %expand_flags.exit86
 
 expand_flags.exit86:                              ; preds = %expand_flags.exit86.loopexit, %106
   %.pre-phi = phi i64 [ %.phi.trans.insert, %expand_flags.exit86.loopexit ], [ %117, %106 ]
-  %129 = phi ptr [ %.pre103, %expand_flags.exit86.loopexit ], [ %119, %106 ]
+  %129 = phi ptr [ %.pre106, %expand_flags.exit86.loopexit ], [ %119, %106 ]
   %130 = phi ptr [ %.pre, %expand_flags.exit86.loopexit ], [ %115, %106 ]
   %131 = getelementptr inbounds %struct.options_data_t, ptr %130, i64 %.pre-phi, i32 9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %132 = tail call i32 @PMIx_Argv_count(ptr noundef %129) #16
   store i32 %132, ptr %5, align 4
   %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %.lr.ph.i87, label %filter_flags.exit94
+  br i1 %133, label %.lr.ph.i87, label %filter_flags.exit95
 
-.lr.ph.i87:                                       ; preds = %expand_flags.exit86, %.loopexit.i91
-  %134 = phi i32 [ %147, %.loopexit.i91 ], [ %132, %expand_flags.exit86 ]
-  %.01218.i88 = phi i32 [ %spec.select.i92, %.loopexit.i91 ], [ 0, %expand_flags.exit86 ]
+.lr.ph.i87:                                       ; preds = %expand_flags.exit86, %.loopexit.i92
+  %134 = phi i32 [ %147, %.loopexit.i92 ], [ %132, %expand_flags.exit86 ]
+  %.01218.i88 = phi i32 [ %spec.select.i93, %.loopexit.i92 ], [ 0, %expand_flags.exit86 ]
   %135 = load ptr, ptr %131, align 8
   %136 = zext nneg i32 %.01218.i88 to i64
   %137 = getelementptr inbounds ptr, ptr %135, i64 %136
@@ -1903,30 +1897,30 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
 
 139:                                              ; preds = %141
   %140 = add nuw nsw i64 %.01116.i89, 1
-  %.not.not.i93 = icmp eq i64 %140, 3
-  br i1 %.not.not.i93, label %.loopexit.i91, label %141, !llvm.loop !14
+  %.not.not.i94 = icmp eq i64 %140, 3
+  br i1 %.not.not.i94, label %.loopexit.i92, label %141, !llvm.loop !14
 
 141:                                              ; preds = %139, %.lr.ph.i87
   %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %140, %139 ]
   %142 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i89
   %143 = load ptr, ptr %142, align 8
   %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %143) #18
-  %.not110 = icmp ne i32 %144, 0
-  br i1 %.not110, label %139, label %145
+  %.not.not22.i90.not.not.not.not.not = icmp ne i32 %144, 0
+  br i1 %.not.not22.i90.not.not.not.not.not, label %139, label %145
 
 145:                                              ; preds = %141
   %146 = call i32 @pmix_argv_delete(ptr noundef nonnull %5, ptr noundef nonnull %131, i32 noundef %.01218.i88, i32 noundef 1) #16
-  %.pre.i90 = load i32, ptr %5, align 4
-  br label %.loopexit.i91
+  %.pre.i91 = load i32, ptr %5, align 4
+  br label %.loopexit.i92
 
-.loopexit.i91:                                    ; preds = %139, %145
-  %147 = phi i32 [ %.pre.i90, %145 ], [ %134, %139 ]
-  %148 = zext i1 %.not110 to i32
-  %spec.select.i92 = add nuw nsw i32 %.01218.i88, %148
-  %149 = icmp slt i32 %spec.select.i92, %147
-  br i1 %149, label %.lr.ph.i87, label %filter_flags.exit94, !llvm.loop !15
+.loopexit.i92:                                    ; preds = %139, %145
+  %147 = phi i32 [ %.pre.i91, %145 ], [ %134, %139 ]
+  %148 = zext i1 %.not.not22.i90.not.not.not.not.not to i32
+  %spec.select.i93 = add nuw nsw i32 %.01218.i88, %148
+  %149 = icmp slt i32 %spec.select.i93, %147
+  br i1 %149, label %.lr.ph.i87, label %filter_flags.exit95, !llvm.loop !15
 
-filter_flags.exit94:                              ; preds = %.loopexit.i91, %expand_flags.exit86
+filter_flags.exit95:                              ; preds = %.loopexit.i92, %expand_flags.exit86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @PMIx_Argv_free(ptr noundef %107) #16
   br label %313
@@ -2186,7 +2180,7 @@ filter_flags.exit94:                              ; preds = %.loopexit.i91, %exp
   store ptr %308, ptr %312, align 8
   br label %313
 
-313:                                              ; preds = %20, %19, %40, %39, %filter_flags.exit, %153, %191, %224, %247, %246, %267, %266, %287, %286, %303, %307, %296, %297, %276, %277, %256, %257, %236, %237, %212, %170, %filter_flags.exit94, %49, %50, %29, %30, %15
+313:                                              ; preds = %20, %19, %40, %39, %filter_flags.exit, %153, %191, %224, %247, %246, %267, %266, %287, %286, %303, %307, %296, %297, %276, %277, %256, %257, %236, %237, %212, %170, %filter_flags.exit95, %49, %50, %29, %30, %15
   ret void
 }
 
@@ -2312,7 +2306,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.loopexit
-  %6 = phi i32 [ %20, %.loopexit ], [ %4, %1 ]
+  %6 = phi i32 [ %19, %.loopexit ], [ %4, %1 ]
   %.01218 = phi i32 [ %spec.select, %.loopexit ], [ 0, %1 ]
   %7 = load ptr, ptr %0, align 8
   %8 = zext nneg i32 %.01218 to i64
@@ -2330,20 +2324,20 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %15) #18
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %11, label %18
+  %.not.not22.not.not = icmp ne i32 %16, 0
+  br i1 %.not.not22.not.not, label %11, label %17
 
-18:                                               ; preds = %13
-  %19 = call i32 @pmix_argv_delete(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %.01218, i32 noundef 1) #16
+17:                                               ; preds = %13
+  %18 = call i32 @pmix_argv_delete(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %.01218, i32 noundef 1) #16
   %.pre = load i32, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %18
-  %20 = phi i32 [ %.pre, %18 ], [ %6, %11 ]
-  %21 = zext i1 %17 to i32
-  %spec.select = add nuw nsw i32 %.01218, %21
-  %22 = icmp slt i32 %spec.select, %20
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+.loopexit:                                        ; preds = %11, %17
+  %19 = phi i32 [ %.pre, %17 ], [ %6, %11 ]
+  %20 = zext i1 %.not.not22.not.not to i32
+  %spec.select = add nuw nsw i32 %.01218, %20
+  %21 = icmp slt i32 %spec.select, %19
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void

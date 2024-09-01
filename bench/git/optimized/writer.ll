@@ -1611,10 +1611,7 @@ for.body.preheader:                               ; preds = %writer_reinit_block
   %wide.trip.count = and i64 %11, 2147483647
   br label %for.body
 
-for.cond28.preheader:                             ; preds = %for.inc
-  br i1 %cmp866, label %for.body31.preheader, label %for.end36
-
-for.body31.preheader:                             ; preds = %for.cond28.preheader
+for.body31.preheader:                             ; preds = %for.inc
   %wide.trip.count83 = and i64 %11, 2147483647
   br label %for.body31
 
@@ -1669,7 +1666,7 @@ if.then25:                                        ; preds = %writer_reinit_block
 for.inc:                                          ; preds = %writer_reinit_block_writer.exit56, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond28.preheader, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.body31.preheader, label %for.body, !llvm.loop !10
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.body31
   %indvars.iv80 = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next81, %for.body31 ]
@@ -1679,7 +1676,7 @@ for.body31:                                       ; preds = %for.body31.preheade
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %for.end36, label %for.body31, !llvm.loop !11
 
-for.end36:                                        ; preds = %for.body31, %writer_reinit_block_writer.exit, %for.cond28.preheader
+for.end36:                                        ; preds = %for.body31, %writer_reinit_block_writer.exit
   call void @reftable_free(ptr noundef %10) #13
   %19 = load i64, ptr %index_len, align 8
   %cmp2 = icmp ugt i64 %19, %conv

@@ -789,7 +789,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 ._crit_edge:                                      ; preds = %62
   %.pre = load ptr, ptr %51, align 8
-  %.pre91 = load ptr, ptr %7, align 8
+  %.pre89 = load ptr, ptr %7, align 8
   br label %72
 
 63:                                               ; preds = %62
@@ -813,7 +813,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 69:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
-  %.pre92 = load ptr, ptr %7, align 8
+  %.pre90 = load ptr, ptr %7, align 8
   br label %.loopexit
 
 .loopexit82:                                      ; preds = %60
@@ -833,7 +833,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.body68
 
 72:                                               ; preds = %._crit_edge, %.lr.ph
-  %73 = phi ptr [ %.pre91, %._crit_edge ], [ %54, %.lr.ph ]
+  %73 = phi ptr [ %.pre89, %._crit_edge ], [ %54, %.lr.ph ]
   %74 = phi ptr [ %.pre, %._crit_edge ], [ %55, %.lr.ph ]
   %75 = add nuw i64 %.04887, 1
   %76 = ptrtoint ptr %74 to i64
@@ -844,7 +844,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %.not81, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %72, %.preheader, %69
-  %80 = phi ptr [ %.pre92, %69 ], [ %53, %.preheader ], [ %73, %72 ]
+  %80 = phi ptr [ %.pre90, %69 ], [ %53, %.preheader ], [ %73, %72 ]
   %.not8185 = phi i1 [ true, %69 ], [ false, %.preheader ], [ false, %72 ]
   %.3 = phi i1 [ %68, %69 ], [ undef, %.preheader ], [ undef, %72 ]
   %.not.i.i.i = icmp eq ptr %80, null

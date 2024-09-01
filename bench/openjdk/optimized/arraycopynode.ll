@@ -4134,51 +4134,50 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14MergeMemStream15next_non_emp
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.thread5.us.i, %.lr.ph.i
-  %16 = phi i1 [ %35, %.thread5.us.i ], [ true, %.lr.ph.i ]
-  %17 = phi i32 [ %34, %.thread5.us.i ], [ %5, %.lr.ph.i ]
-  %18 = load ptr, ptr %8, align 8
-  %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %9, align 8
-  %22 = icmp slt i32 %17, %13
-  %spec.select.i.us.i = select i1 %22, i32 %17, i32 1
-  %23 = load ptr, ptr %14, align 8
-  %24 = zext i32 %spec.select.i.us.i to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %29, label %33, label %.split.us.i
+  %16 = phi i32 [ %32, %.thread5.us.i ], [ %5, %.lr.ph.i ]
+  %17 = load ptr, ptr %8, align 8
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %9, align 8
+  %21 = icmp slt i32 %16, %13
+  %spec.select.i.us.i = select i1 %21, i32 %16, i32 1
+  %22 = load ptr, ptr %14, align 8
+  %23 = zext i32 %spec.select.i.us.i to i64
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %15, align 8
+  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  %29 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = load ptr, ptr %29, align 8
+  br i1 %28, label %31, label %.split.us.i
 
-33:                                               ; preds = %.lr.ph.split.us.i
-  br i1 %32, label %.thread5.us.i, label %_ZN14MergeMemStream14next_non_emptyEb.exit
+31:                                               ; preds = %.lr.ph.split.us.i
+  %.not.i.not.not = icmp ne ptr %30, null
+  br i1 %.not.i.not.not, label %_ZN14MergeMemStream14next_non_emptyEb.exit, label %.thread5.us.i
 
-.thread5.us.i:                                    ; preds = %33
-  %34 = add nsw i32 %17, 1
-  store i32 %34, ptr %2, align 8
-  %35 = icmp slt i32 %34, %4
-  %exitcond15.not.i = icmp eq i32 %34, %4
-  br i1 %exitcond15.not.i, label %_ZN14MergeMemStream14next_non_emptyEb.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+.thread5.us.i:                                    ; preds = %31
+  %32 = add nsw i32 %16, 1
+  store i32 %32, ptr %2, align 8
+  %exitcond14.not.i = icmp eq i32 %32, %4
+  br i1 %exitcond14.not.i, label %_ZN14MergeMemStream14next_non_emptyEb.exit, label %.lr.ph.split.us.i, !llvm.loop !12
 
 .split.us.i:                                      ; preds = %.lr.ph.split.us.i
-  br i1 %32, label %36, label %_ZN14MergeMemStream14next_non_emptyEb.exit
+  %33 = icmp eq ptr %30, null
+  br i1 %33, label %34, label %_ZN14MergeMemStream14next_non_emptyEb.exit
 
-36:                                               ; preds = %.split.us.i
-  %37 = load ptr, ptr %14, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %15, align 8
+34:                                               ; preds = %.split.us.i
+  %35 = load ptr, ptr %14, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %15, align 8
   br label %_ZN14MergeMemStream14next_non_emptyEb.exit
 
-_ZN14MergeMemStream14next_non_emptyEb.exit:       ; preds = %33, %.thread5.us.i, %1, %.split.us.i, %36
-  %40 = phi i1 [ %16, %.split.us.i ], [ %16, %36 ], [ false, %1 ], [ %35, %.thread5.us.i ], [ %16, %33 ]
-  ret i1 %40
+_ZN14MergeMemStream14next_non_emptyEb.exit:       ; preds = %31, %.thread5.us.i, %1, %.split.us.i, %34
+  %38 = phi i1 [ true, %.split.us.i ], [ true, %34 ], [ false, %1 ], [ %.not.i.not.not, %.thread5.us.i ], [ %.not.i.not.not, %31 ]
+  ret i1 %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

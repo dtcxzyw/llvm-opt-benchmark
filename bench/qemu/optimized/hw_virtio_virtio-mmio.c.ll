@@ -736,9 +736,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   store i8 0, ptr %enabled.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
-  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %virtio_mmio_soft_reset.exit, label %for.body.i, !llvm.loop !8
 
-if.then:                                          ; preds = %for.body.i
+virtio_mmio_soft_reset.exit:                      ; preds = %for.body.i
   %host_features_sel = getelementptr inbounds i8, ptr %call.i, i64 1104
   store i32 0, ptr %host_features_sel, align 16
   %guest_features_sel = getelementptr inbounds i8, ptr %call.i, i64 1108
@@ -751,8 +751,8 @@ if.then:                                          ; preds = %for.body.i
   store i32 0, ptr %guest_features, align 4
   br label %for.body
 
-for.body:                                         ; preds = %if.then, %for.body
-  %indvars.iv = phi i64 [ 0, %if.then ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %virtio_mmio_soft_reset.exit, %for.body
+  %indvars.iv = phi i64 [ 0, %virtio_mmio_soft_reset.exit ], [ %indvars.iv.next, %for.body ]
   %arrayidx3 = getelementptr [1024 x %struct.VirtIOMMIOQueue], ptr %vqs.i, i64 0, i64 %indvars.iv
   store i16 0, ptr %arrayidx3, align 4
   %desc = getelementptr inbounds i8, ptr %arrayidx3, i64 4

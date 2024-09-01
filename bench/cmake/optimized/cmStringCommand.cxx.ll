@@ -1840,7 +1840,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %49
+  br label %48
 
 24:                                               ; preds = %2
   %25 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
@@ -1848,61 +1848,61 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %27 = extractvalue { i64, ptr } %25, 1
   call void @_ZN12cmCryptoHash3NewESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.161") align 8 %5, i64 %26, ptr %27)
   %28 = load ptr, ptr %5, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit
+  %.not21 = icmp eq ptr %28, null
+  br i1 %.not21, label %_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit, label %29
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 64
-  %33 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
-  %34 = extractvalue { i64, ptr } %33, 0
-  %35 = extractvalue { i64, ptr } %33, 1
-  invoke void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 %34, ptr %35)
-          to label %36 unwind label %43
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 64
+  %32 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
+  %33 = extractvalue { i64, ptr } %32, 0
+  %34 = extractvalue { i64, ptr } %32, 1
+  invoke void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 %33, ptr %34)
+          to label %35 unwind label %42
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %1, align 8
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  %41 = extractvalue { i64, ptr } %40, 0
-  %42 = extractvalue { i64, ptr } %40, 1
-  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %37, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 %41, ptr %42)
-          to label %47 unwind label %45
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %1, align 8
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  %40 = extractvalue { i64, ptr } %39, 0
+  %41 = extractvalue { i64, ptr } %39, 1
+  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %36, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 %40, ptr %41)
+          to label %46 unwind label %44
 
-43:                                               ; preds = %30
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %29
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-45:                                               ; preds = %36
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %35
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br label %48
+  br label %47
 
-47:                                               ; preds = %36
+46:                                               ; preds = %35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   %.pr = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i
 
-_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i: ; preds = %47
+_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i: ; preds = %46
   call void @_ZN12cmCryptoHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #22
   call void @_ZdlPv(ptr noundef nonnull %.pr) #24
   br label %_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit
 
-48:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
+47:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %49
+  br label %48
 
-_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i, %47, %24, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %29, %24 ], [ %29, %47 ], [ %29, %_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i ]
+_ZNSt10unique_ptrI12cmCryptoHashSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i, %46, %24, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %24 ], [ true, %46 ], [ true, %_ZNKSt14default_deleteI12cmCryptoHashEclEPS0_.exit.i ]
   ret i1 %.0
 
-49:                                               ; preds = %48, %22
-  %.pn18 = phi { ptr, i32 } [ %23, %22 ], [ %.pn, %48 ]
+48:                                               ; preds = %47, %22
+  %.pn18 = phi { ptr, i32 } [ %23, %22 ], [ %.pn, %47 ]
   resume { ptr, i32 } %.pn18
 }
 

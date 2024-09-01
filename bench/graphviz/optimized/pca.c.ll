@@ -148,10 +148,7 @@ gv_calloc.exit95.preheader135:                    ; preds = %gv_calloc.exit95.pr
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
-.preheader100:                                    ; preds = %gv_calloc.exit95
-  br i1 %.not128, label %._crit_edge, label %.preheader99.lr.ph
-
-.preheader99.lr.ph:                               ; preds = %.preheader100
+.preheader99.lr.ph:                               ; preds = %gv_calloc.exit95
   %59 = icmp sgt i32 %2, 0
   %smax184 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count185 = zext nneg i32 %smax184 to i64
@@ -215,7 +212,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
   %79 = getelementptr inbounds double, ptr %.0104, i64 %39
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.preheader100, label %gv_calloc.exit95
+  br i1 %exitcond148.not, label %.preheader99.lr.ph, label %gv_calloc.exit95
 
 .preheader99:                                     ; preds = %.preheader99.lr.ph, %.split
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.split ], [ 0, %.preheader99.lr.ph ]
@@ -242,7 +239,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
   %exitcond164.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count185
   br i1 %exitcond164.not, label %._crit_edge, label %.preheader99
 
-._crit_edge:                                      ; preds = %.split, %.split.us.us, %gv_calloc.exit95.preheader, %.preheader100
+._crit_edge:                                      ; preds = %.split, %.split.us.us, %gv_calloc.exit95.preheader
   %85 = tail call zeroext i1 @power_iteration(ptr noundef %45, i32 noundef %1, i32 noundef %4, ptr noundef %12, ptr noundef %38) #12
   br i1 %.not126, label %._crit_edge125, label %.preheader97.lr.ph
 
@@ -304,7 +301,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
 ._crit_edge116.split.us.us.us:                    ; preds = %._crit_edge114.us.us.us
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count202
-  br i1 %exitcond203.not, label %.preheader, label %.preheader97.us.us
+  br i1 %exitcond203.not, label %.lr.ph124.preheader, label %.preheader97.us.us
 
 .preheader97.us:                                  ; preds = %.preheader97.us.preheader, %._crit_edge116.split.us120
   %indvars.iv209 = phi i64 [ 0, %.preheader97.us.preheader ], [ %indvars.iv.next210, %._crit_edge116.split.us120 ]
@@ -323,12 +320,9 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
 ._crit_edge116.split.us120:                       ; preds = %.preheader96.us118
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count213
-  br i1 %exitcond214.not, label %.preheader, label %.preheader97.us
+  br i1 %exitcond214.not, label %.lr.ph124.preheader, label %.preheader97.us
 
-.preheader:                                       ; preds = %._crit_edge116.split.us.us.us, %._crit_edge116.split.us120
-  br i1 %.not126, label %._crit_edge125, label %.lr.ph124.preheader
-
-.lr.ph124.preheader:                              ; preds = %.preheader97.lr.ph, %.preheader
+.lr.ph124.preheader:                              ; preds = %._crit_edge116.split.us.us.us, %._crit_edge116.split.us120, %.preheader97.lr.ph
   %smax218 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count219 = zext nneg i32 %smax218 to i64
   br label %.lr.ph124
@@ -342,7 +336,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
   %exitcond220.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count219
   br i1 %exitcond220.not, label %._crit_edge125, label %.lr.ph124
 
-._crit_edge125:                                   ; preds = %.lr.ph124, %._crit_edge, %.preheader
+._crit_edge125:                                   ; preds = %.lr.ph124, %._crit_edge
   tail call void @free(ptr noundef %12) #12
   tail call void @free(ptr noundef %38) #12
   %106 = load ptr, ptr %45, align 8

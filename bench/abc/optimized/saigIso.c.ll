@@ -597,10 +597,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %10
   %41 = icmp slt i64 %indvars.iv.next, %40
   br i1 %41, label %30, label %.critedge.preheader, !llvm.loop !8
 
-.critedge2.preheader:                             ; preds = %.critedge
-  br i1 %26, label %.lr.ph80, label %.critedge4
-
-.lr.ph80:                                         ; preds = %.critedge2.preheader
+.lr.ph80:                                         ; preds = %.critedge
   %42 = getelementptr i8, ptr %4, i64 8
   %.val45 = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %0, i64 24
@@ -625,7 +622,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %10
   tail call void @Saig_ManDupIsoCanonical_rec(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef %53)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2.preheader, label %.critedge, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph80, label %.critedge, !llvm.loop !9
 
 54:                                               ; preds = %.lr.ph80, %Aig_ObjChild0Copy.exit
   %indvars.iv85 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next86, %Aig_ObjChild0Copy.exit ]
@@ -661,7 +658,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %54, %64
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %.critedge4, label %54, !llvm.loop !10
 
-.critedge4:                                       ; preds = %Aig_ObjChild0Copy.exit, %.critedge2.preheader
+.critedge4:                                       ; preds = %Aig_ObjChild0Copy.exit
   %74 = getelementptr i8, ptr %0, i64 104
   %.val58 = load i32, ptr %74, align 8
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %8, i32 noundef %.val58) #23

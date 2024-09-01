@@ -390,8 +390,8 @@ while.body:                                       ; preds = %invoke.cont35, %whi
 
 invoke.cont44:                                    ; preds = %while.body
   %5 = load i32, ptr %localStatus, align 4
-  %cmp46 = icmp ne i32 %5, 7
-  br i1 %cmp46, label %if.end48, label %if.then47
+  %cmp46.not.not.not.not = icmp eq i32 %5, 7
+  br i1 %cmp46.not.not.not.not, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %invoke.cont44
   store i32 7, ptr %status, align 4
@@ -454,7 +454,7 @@ if.then73:                                        ; preds = %if.else69
   br label %while.body.backedge
 
 cleanup:                                          ; preds = %if.else69, %if.then47, %if.end56, %if.then37
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %if.end56 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.else69 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ true, %if.end56 ], [ false, %if.then47 ], [ true, %if.else69 ]
   %usingFallback.1 = phi i1 [ true, %if.then37 ], [ true, %if.end56 ], [ true, %if.then47 ], [ false, %if.else69 ]
   %cmp.not.i = icmp eq ptr %call34, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
@@ -913,12 +913,12 @@ lpad:                                             ; preds = %new.notnull
 lpad1.loopexit:                                   ; preds = %while.cond, %while.body
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup59
+  br label %delete.notnull.i42
 
 lpad1.loopexit.split-lp:                          ; preds = %if.end, %invoke.cont4, %if.then11, %while.end
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup59
+  br label %delete.notnull.i42
 
 if.end:                                           ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   store i32 0, ptr %rbstatus, align 4
@@ -1029,7 +1029,7 @@ _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit34: ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad37, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit34, %lpad28
   %.pn = phi { ptr, i32 } [ %11, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit34 ], [ %9, %lpad28 ], [ %10, %lpad37 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nsCurrent) #17
-  br label %ehcleanup59
+  br label %delete.notnull.i42
 
 while.end:                                        ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %invoke.cont16
   invoke void @ures_close_75(ptr noundef %call7)
@@ -1038,38 +1038,32 @@ while.end:                                        ; preds = %_ZN6icu_7527LocalUR
 invoke.cont50:                                    ; preds = %while.end
   %12 = load i32, ptr %status, align 4
   %cmp.i35 = icmp sgt i32 %12, 0
-  br i1 %cmp.i35, label %cleanup58, label %cleanup58.thread
+  br i1 %cmp.i35, label %delete.notnull.i38, label %cleanup58.thread
 
 cleanup58.thread:                                 ; preds = %invoke.cont50
   store ptr %call, ptr @_ZN6icu_7512_GLOBAL__N_112gNumsysNamesE, align 8
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
 
-cleanup58:                                        ; preds = %invoke.cont50
-  br i1 %new.isnull, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, label %delete.notnull.i38
-
-delete.notnull.i38:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %if.then11, %cleanup58
+delete.notnull.i38:                               ; preds = %invoke.cont50, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %if.then11
   %vtable.i39 = load ptr, ptr %call, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
   %13 = load ptr, ptr %vfn.i40, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(40) %call) #17
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
 
-_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %new.cont, %if.then.i, %cleanup58.thread, %cleanup58, %delete.notnull.i38
+_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %new.cont, %if.then.i, %cleanup58.thread, %delete.notnull.i38
   ret void
 
-ehcleanup59:                                      ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %ehcleanup
+delete.notnull.i42:                               ; preds = %ehcleanup, %lpad1.loopexit.split-lp, %lpad1.loopexit
   %.pn17 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i42
-
-delete.notnull.i42:                               ; preds = %ehcleanup59
   %vtable.i43 = load ptr, ptr %call, align 8
   %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 8
   %14 = load ptr, ptr %vfn.i44, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %call) #17
   br label %eh.resume
 
-eh.resume:                                        ; preds = %delete.notnull.i42, %ehcleanup59, %lpad
-  %.pn17.pn = phi { ptr, i32 } [ %2, %lpad ], [ %.pn17, %ehcleanup59 ], [ %.pn17, %delete.notnull.i42 ]
+eh.resume:                                        ; preds = %delete.notnull.i42, %lpad
+  %.pn17.pn = phi { ptr, i32 } [ %2, %lpad ], [ %.pn17, %delete.notnull.i42 ]
   resume { ptr, i32 } %.pn17.pn
 }
 

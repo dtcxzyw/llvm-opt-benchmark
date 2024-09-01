@@ -4329,8 +4329,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond17 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -4348,30 +4348,30 @@ if.end:                                           ; preds = %cond.end, %cond.end
 skip_optional_pos.thread:                         ; preds = %if.end
   %call.i.i25 = call ptr @PyModule_GetState(ptr noundef %module) #5
   %field_limit.i26 = getelementptr inbounds i8, ptr %call.i.i25, i64 40
-  %3 = load i64, ptr %field_limit.i26, align 8
+  %2 = load i64, ptr %field_limit.i26, align 8
   br label %if.end13.i
 
 skip_optional_pos:                                ; preds = %if.end
-  %4 = load ptr, ptr %cond1023, align 8
+  %3 = load ptr, ptr %cond1023, align 8
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #5
   %field_limit.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
-  %5 = load i64, ptr %field_limit.i, align 8
-  %cmp.not.i = icmp eq ptr %4, null
+  %4 = load i64, ptr %field_limit.i, align 8
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.end13.i, label %if.then.i
 
 if.then.i:                                        ; preds = %skip_optional_pos
-  %6 = getelementptr i8, ptr %4, i64 8
-  %new_limit.val.i = load ptr, ptr %6, align 8
+  %5 = getelementptr i8, ptr %3, i64 8
+  %new_limit.val.i = load ptr, ptr %5, align 8
   %cmp.i.not.i = icmp eq ptr %new_limit.val.i, @PyLong_Type
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.61) #5
+  %6 = load ptr, ptr @PyExc_TypeError, align 8
+  %call3.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.61) #5
   br label %exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %call4.i = call i64 @PyLong_AsLong(ptr noundef nonnull %4) #5
+  %call4.i = call i64 @PyLong_AsLong(ptr noundef nonnull %3) #5
   store i64 %call4.i, ptr %field_limit.i, align 8
   %cmp7.i = icmp eq i64 %call4.i, -1
   br i1 %cmp7.i, label %land.lhs.true.i, label %if.end13.i
@@ -4382,12 +4382,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool9.not.i, label %if.end13.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  store i64 %5, ptr %field_limit.i, align 8
+  store i64 %4, ptr %field_limit.i, align 8
   br label %exit
 
 if.end13.i:                                       ; preds = %skip_optional_pos.thread, %land.lhs.true.i, %if.end.i, %skip_optional_pos
-  %8 = phi i64 [ %3, %skip_optional_pos.thread ], [ %5, %land.lhs.true.i ], [ %5, %if.end.i ], [ %5, %skip_optional_pos ]
-  %call14.i = call ptr @PyLong_FromLong(i64 noundef %8) #5
+  %7 = phi i64 [ %2, %skip_optional_pos.thread ], [ %4, %land.lhs.true.i ], [ %4, %if.end.i ], [ %4, %skip_optional_pos ]
+  %call14.i = call ptr @PyLong_FromLong(i64 noundef %7) #5
   br label %exit
 
 exit:                                             ; preds = %if.end13.i, %if.then10.i, %if.then2.i, %cond.end9

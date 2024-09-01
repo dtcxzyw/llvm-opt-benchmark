@@ -2411,17 +2411,17 @@ define internal fastcc i64 @loop_rw_iter(i32 noundef %0, ptr noundef %1, ptr nou
 define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 64
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %.pre4 = zext i8 %.pre to i64
+  %.pre3 = zext i8 %.pre to i64
   br i1 %3, label %._crit_edge, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre4, i32 2
+  %6 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre3, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %5
-  %9 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre4
+  %9 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre3
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %67, label %12

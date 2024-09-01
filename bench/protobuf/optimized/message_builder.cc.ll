@@ -2480,11 +2480,11 @@ for.body35.lr.ph:                                 ; preds = %invoke.cont28
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc44
-  %indvars.iv905 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next906, %for.inc44 ]
+  %indvars.iv906 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next907, %for.inc44 ]
   %19 = phi ptr [ %17, %for.body35.lr.ph ], [ %39, %for.inc44 ]
   %fields_.i84 = getelementptr inbounds i8, ptr %19, i64 56
   %20 = load ptr, ptr %fields_.i84, align 8
-  %add.ptr.i86 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %20, i64 %indvars.iv905
+  %add.ptr.i86 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %20, i64 %indvars.iv906
   %call38 = call noundef zeroext i1 @_ZN6google8protobuf8compiler4java11IsRealOneofEPKNS0_15FieldDescriptorE(ptr noundef %add.ptr.i86)
   br i1 %call38, label %for.inc44, label %if.then39
 
@@ -2492,7 +2492,7 @@ if.then39:                                        ; preds = %for.body35
   %21 = load ptr, ptr %descriptor_, align 8
   %fields_.i87 = getelementptr inbounds i8, ptr %21, i64 56
   %22 = load ptr, ptr %fields_.i87, align 8
-  %add.ptr.i89 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %22, i64 %indvars.iv905
+  %add.ptr.i89 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %22, i64 %indvars.iv906
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %containing_type_.i.i = getelementptr inbounds i8, ptr %add.ptr.i89, i64 32
   %23 = load ptr, ptr %containing_type_.i.i, align 8
@@ -2584,12 +2584,12 @@ lpad27:                                           ; preds = %if.then24
   br label %common.resume
 
 for.inc44:                                        ; preds = %for.body35, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit
-  %indvars.iv.next906 = add nuw nsw i64 %indvars.iv905, 1
+  %indvars.iv.next907 = add nuw nsw i64 %indvars.iv906, 1
   %39 = load ptr, ptr %descriptor_, align 8
   %field_count_.i83 = getelementptr inbounds i8, ptr %39, i64 4
   %40 = load i32, ptr %field_count_.i83, align 4
   %41 = sext i32 %40 to i64
-  %cmp34 = icmp slt i64 %indvars.iv.next906, %41
+  %cmp34 = icmp slt i64 %indvars.iv.next907, %41
   br i1 %cmp34, label %for.body35, label %for.end46, !llvm.loop !63
 
 for.end46:                                        ; preds = %for.inc44, %invoke.cont28
@@ -2686,14 +2686,14 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
 
 for.body55.preheader:                             ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit108
   %add = add nuw nsw i32 %55, 31
-  %div923960 = lshr i32 %add, 5
+  %div924961 = lshr i32 %add, 5
   br label %for.body55
 
 for.cond65.preheader:                             ; preds = %invoke.cont59
-  %.pre917 = load ptr, ptr %descriptor_, align 8
-  %field_count_.i115844.phi.trans.insert = getelementptr inbounds i8, ptr %.pre917, i64 4
-  %.pre918 = load i32, ptr %field_count_.i115844.phi.trans.insert, align 4
-  %cmp68845 = icmp sgt i32 %.pre918, 0
+  %.pre918 = load ptr, ptr %descriptor_, align 8
+  %field_count_.i115844.phi.trans.insert = getelementptr inbounds i8, ptr %.pre918, i64 4
+  %.pre919 = load i32, ptr %field_count_.i115844.phi.trans.insert, align 4
+  %cmp68845 = icmp sgt i32 %.pre919, 0
   br i1 %cmp68845, label %for.body69.lr.ph, label %for.end78
 
 for.body69.lr.ph:                                 ; preds = %for.cond65.preheader
@@ -2710,7 +2710,7 @@ for.body55:                                       ; preds = %for.body55.preheade
 invoke.cont59:                                    ; preds = %for.body55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #25
   %inc62 = add nuw nsw i32 %i52.0843, 1
-  %exitcond.not = icmp eq i32 %inc62, %div923960
+  %exitcond.not = icmp eq i32 %inc62, %div924961
   br i1 %exitcond.not, label %for.cond65.preheader, label %for.body55, !llvm.loop !64
 
 lpad58:                                           ; preds = %for.body55
@@ -2720,11 +2720,11 @@ lpad58:                                           ; preds = %for.body55
   br label %common.resume
 
 for.body69:                                       ; preds = %for.body69.lr.ph, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147
-  %indvars.iv908 = phi i64 [ 0, %for.body69.lr.ph ], [ %indvars.iv.next909, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147 ]
-  %57 = phi ptr [ %.pre917, %for.body69.lr.ph ], [ %71, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147 ]
+  %indvars.iv909 = phi i64 [ 0, %for.body69.lr.ph ], [ %indvars.iv.next910, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147 ]
+  %57 = phi ptr [ %.pre918, %for.body69.lr.ph ], [ %71, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147 ]
   %fields_.i116 = getelementptr inbounds i8, ptr %57, i64 56
   %58 = load ptr, ptr %fields_.i116, align 8
-  %add.ptr.i118 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %58, i64 %indvars.iv908
+  %add.ptr.i118 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %58, i64 %indvars.iv909
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i119)
   %containing_type_.i.i120 = getelementptr inbounds i8, ptr %add.ptr.i118, i64 32
   %59 = load ptr, ptr %containing_type_.i.i120, align 8
@@ -2785,12 +2785,12 @@ _ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGenera
   %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 80
   %70 = load ptr, ptr %vfn75, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %printer)
-  %indvars.iv.next909 = add nuw nsw i64 %indvars.iv908, 1
+  %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
   %71 = load ptr, ptr %descriptor_, align 8
   %field_count_.i115 = getelementptr inbounds i8, ptr %71, i64 4
   %72 = load i32, ptr %field_count_.i115, align 4
   %73 = sext i32 %72 to i64
-  %cmp68 = icmp slt i64 %indvars.iv.next909, %73
+  %cmp68 = icmp slt i64 %indvars.iv.next910, %73
   br i1 %cmp68, label %for.body69, label %for.end78, !llvm.loop !65
 
 for.end78:                                        ; preds = %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit147, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit108, %for.cond65.preheader
@@ -3082,11 +3082,11 @@ for.body159.lr.ph:                                ; preds = %invoke.cont152
   br label %for.body159
 
 for.body159:                                      ; preds = %for.body159.lr.ph, %for.inc171
-  %indvars.iv911 = phi i64 [ 0, %for.body159.lr.ph ], [ %indvars.iv.next912, %for.inc171 ]
+  %indvars.iv912 = phi i64 [ 0, %for.body159.lr.ph ], [ %indvars.iv.next913, %for.inc171 ]
   %129 = phi ptr [ %127, %for.body159.lr.ph ], [ %147, %for.inc171 ]
   %fields_.i205 = getelementptr inbounds i8, ptr %129, i64 56
   %130 = load ptr, ptr %fields_.i205, align 8
-  %add.ptr.i207 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %130, i64 %indvars.iv911
+  %add.ptr.i207 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %130, i64 %indvars.iv912
   %call162 = call noundef zeroext i1 @_ZN6google8protobuf8compiler4java11IsRealOneofEPKNS0_15FieldDescriptorE(ptr noundef %add.ptr.i207)
   br i1 %call162, label %for.inc171, label %if.then163
 
@@ -3094,7 +3094,7 @@ if.then163:                                       ; preds = %for.body159
   %131 = load ptr, ptr %descriptor_, align 8
   %fields_.i208 = getelementptr inbounds i8, ptr %131, i64 56
   %132 = load ptr, ptr %fields_.i208, align 8
-  %add.ptr.i210 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %132, i64 %indvars.iv911
+  %add.ptr.i210 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %132, i64 %indvars.iv912
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i211)
   %containing_type_.i.i212 = getelementptr inbounds i8, ptr %add.ptr.i210, i64 32
   %133 = load ptr, ptr %containing_type_.i.i212, align 8
@@ -3170,12 +3170,12 @@ lpad151:                                          ; preds = %invoke.cont145
   br label %common.resume
 
 for.inc171:                                       ; preds = %for.body159, %_ZNK6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEE3getEPKNS0_15FieldDescriptorE.exit239
-  %indvars.iv.next912 = add nuw nsw i64 %indvars.iv911, 1
+  %indvars.iv.next913 = add nuw nsw i64 %indvars.iv912, 1
   %147 = load ptr, ptr %descriptor_, align 8
   %field_count_.i204 = getelementptr inbounds i8, ptr %147, i64 4
   %148 = load i32, ptr %field_count_.i204, align 4
   %149 = sext i32 %148 to i64
-  %cmp158 = icmp slt i64 %indvars.iv.next912, %149
+  %cmp158 = icmp slt i64 %indvars.iv.next913, %149
   br i1 %cmp158, label %for.body159, label %for.end173, !llvm.loop !66
 
 for.end173:                                       ; preds = %for.inc171, %invoke.cont152
@@ -3273,9 +3273,9 @@ for.body189.lr.ph:                                ; preds = %for.body179
   br label %for.body189
 
 for.body189:                                      ; preds = %for.body189.lr.ph, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit346
-  %indvars.iv914 = phi i64 [ 0, %for.body189.lr.ph ], [ %indvars.iv.next915, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit346 ]
+  %indvars.iv915 = phi i64 [ 0, %for.body189.lr.ph ], [ %indvars.iv.next916, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit346 ]
   %166 = load ptr, ptr %fields_.i264, align 8
-  %add.ptr.i266 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %166, i64 %indvars.iv914
+  %add.ptr.i266 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %166, i64 %indvars.iv915
   %all_names_.i = getelementptr inbounds i8, ptr %add.ptr.i266, i64 8
   %167 = load ptr, ptr %all_names_.i, align 8
   %call195 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %167) #25
@@ -3345,14 +3345,14 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i.i488) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i.i488)
   %179 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i273, align 8
-  %.pre919 = load ptr, ptr %map.i271, align 8
-  %.pre920 = load i64, ptr %capacity_.i.i, align 8, !noalias !70
+  %.pre920 = load ptr, ptr %map.i271, align 8
+  %.pre921 = load i64, ptr %capacity_.i.i, align 8, !noalias !70
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge, %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %180 = phi ptr [ %179, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge ], [ null, %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %181 = phi i64 [ %.pre920, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge ], [ 0, %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %182 = phi ptr [ %.pre919, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %181 = phi i64 [ %.pre921, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge ], [ 0, %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %182 = phi ptr [ %.pre920, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE16initialize_slotsEv.exit.i.for.body.i_crit_edge ], [ getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), %_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
   call void @llvm.prefetch.p0(ptr %182, i32 0, i32 1, i32 1)
   %183 = ptrtoint ptr %182 to i64
   %shr.i.i.i.i.i = lshr i64 %183, 12
@@ -4052,10 +4052,10 @@ invoke.cont13.i.i.i7.i344:                        ; preds = %invoke.cont5.i341
 
 _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit346: ; preds = %invoke.cont5.i341, %invoke.cont13.i.i.i7.i344
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %map.i333)
-  %indvars.iv.next915 = add nuw nsw i64 %indvars.iv914, 1
+  %indvars.iv.next916 = add nuw nsw i64 %indvars.iv915, 1
   %258 = load i32, ptr %field_count_.i263, align 4
   %259 = sext i32 %258 to i64
-  %cmp188 = icmp slt i64 %indvars.iv.next915, %259
+  %cmp188 = icmp slt i64 %indvars.iv.next916, %259
   br i1 %cmp188, label %for.body189, label %for.end207, !llvm.loop !124
 
 lpad196.body:                                     ; preds = %lpad.i275, %invoke.cont13.i.i.i.i278
@@ -6094,7 +6094,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad.i46, 
   br label %common.resume
 
 if.end27:                                         ; preds = %invoke.cont23, %for.end.thread, %for.end
-  %cmp13180222 = phi i1 [ false, %for.end.thread ], [ false, %for.end ], [ %cmp13180, %invoke.cont23 ]
+  %cmp13180222 = phi i1 [ false, %for.end.thread ], [ false, %for.end ], [ true, %invoke.cont23 ]
   %div221 = phi i32 [ %div218, %for.end.thread ], [ %div, %for.end ], [ %div, %invoke.cont23 ]
   %cmp175220 = phi i1 [ false, %for.end.thread ], [ %call5, %for.end ], [ %call5, %invoke.cont23 ]
   %oneofs_ = getelementptr inbounds i8, ptr %this, i64 64

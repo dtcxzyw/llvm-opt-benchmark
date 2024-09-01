@@ -853,10 +853,7 @@ display_pivots.exit:                              ; preds = %230, %225
   %wide.trip.count179 = zext nneg i32 %294 to i64
   br label %305
 
-.preheader:                                       ; preds = %327
-  br i1 %302, label %.lr.ph165.preheader, label %._crit_edge166
-
-.lr.ph165.preheader:                              ; preds = %.preheader
+.lr.ph165.preheader:                              ; preds = %327
   %wide.trip.count184 = zext nneg i32 %294 to i64
   br label %.lr.ph165
 
@@ -901,7 +898,7 @@ display_pivots.exit:                              ; preds = %230, %225
   %328 = trunc nuw nsw i64 %indvars.iv176 to i32
   %329 = tail call i32 @tm_submit_work(ptr noundef %321, i32 noundef %328) #16
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %.preheader, label %305, !llvm.loop !20
+  br i1 %exitcond180.not, label %.lr.ph165.preheader, label %305, !llvm.loop !20
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv181 = phi i64 [ 0, %.lr.ph165.preheader ], [ %indvars.iv.next182, %.lr.ph165 ]
@@ -920,8 +917,8 @@ display_pivots.exit:                              ; preds = %230, %225
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !21
 
-._crit_edge166:                                   ; preds = %.lr.ph165, %293, %.preheader
-  %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %293 ], [ %334, %.lr.ph165 ]
+._crit_edge166:                                   ; preds = %.lr.ph165, %293
+  %.0.lcssa = phi double [ 0.000000e+00, %293 ], [ %334, %.lr.ph165 ]
   tail call void @free(ptr noundef %299) #16
   tail call void @free(ptr noundef %300) #16
   tail call void @free(ptr noundef %301) #16

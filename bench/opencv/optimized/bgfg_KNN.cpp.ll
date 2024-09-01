@@ -1915,8 +1915,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
 ._crit_edge.i.us:                                 ; preds = %103, %136
   %.088.lcssa.i.us = phi i32 [ %.1.us.i.us, %136 ], [ %.1.us131.i.us, %103 ]
   %.not.i.us = icmp sge i32 %.088.lcssa.i.us, %79
-  %or.cond167.i.us = and i1 %84, %82
-  br i1 %or.cond167.i.us, label %.lr.ph161.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
+  br i1 %82, label %.lr.ph161.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
 
 .lr.ph161.i.us:                                   ; preds = %._crit_edge.i.us
   %smax211.i.us = tail call i32 @llvm.smax.i32(i32 %83, i32 1)

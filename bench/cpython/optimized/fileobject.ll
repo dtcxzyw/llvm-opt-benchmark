@@ -1098,7 +1098,7 @@ if.then1.i101:                                    ; preds = %if.end.i98
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end13.thread, %do.end29, %if.then37, %if.end.i98, %if.then1.i101, %if.else40, %if.else30, %land.lhs.true17, %if.end13
-  %cmp1450 = phi i1 [ %cmp1447, %if.end13.thread ], [ %cmp14, %do.end29 ], [ %cmp14, %if.then37 ], [ %cmp14, %if.end.i98 ], [ %cmp14, %if.then1.i101 ], [ %cmp14, %if.else40 ], [ %cmp14, %if.else30 ], [ %cmp14, %land.lhs.true17 ], [ %cmp14, %if.end13 ]
+  %cmp1450 = phi i1 [ %cmp1447, %if.end13.thread ], [ true, %do.end29 ], [ true, %if.then37 ], [ true, %if.end.i98 ], [ true, %if.then1.i101 ], [ true, %if.else40 ], [ true, %if.else30 ], [ true, %land.lhs.true17 ], [ false, %if.end13 ]
   %17 = load ptr, ptr %result, align 8
   %cmp54 = icmp ne ptr %17, null
   %or.cond1 = select i1 %cmp1450, i1 %cmp54, i1 false

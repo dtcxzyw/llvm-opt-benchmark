@@ -536,8 +536,8 @@ define hidden void @_ZNK5osgeo4proj4util10BaseObject16shared_from_thisEv(ptr dea
 
 10:                                               ; preds = %11, %7
   %.06.i.i.i.i.i = phi i32 [ %9, %7 ], [ %15, %11 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNKSt8weak_ptrIN5osgeo4proj4util10BaseObjectEE4lockEv.exit.thread, label %11
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNKSt8weak_ptrIN5osgeo4proj4util10BaseObjectEE4lockEv.exit.thread, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -2952,8 +2952,8 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj4util11PropertyMap14getStringVa
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %0, align 8
   %.sroa.020.034 = load ptr, ptr %5, align 8
-  %.not39 = icmp eq ptr %.sroa.020.034, %5
-  br i1 %.not39, label %.loopexit, label %.lr.ph
+  %.not36 = icmp eq ptr %.sroa.020.034, %5
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23
   %.sroa.020.035 = phi ptr [ %.sroa.020.0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23 ], [ %.sroa.020.034, %3 ]
@@ -3035,8 +3035,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.sroa.020.0 = load ptr, ptr %.sroa.020.035, align 8
-  %.not40 = icmp eq ptr %.sroa.020.0, %5
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not37 = icmp eq ptr %.sroa.020.0, %5
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23, %3, %26
   %37 = phi i1 [ true, %26 ], [ false, %3 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23 ]
@@ -3100,8 +3100,8 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj4util11PropertyMap14getStringVa
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %0, align 8
   %.sroa.020.034 = load ptr, ptr %5, align 8
-  %.not39 = icmp eq ptr %.sroa.020.034, %5
-  br i1 %.not39, label %.loopexit, label %.lr.ph
+  %.not36 = icmp eq ptr %.sroa.020.034, %5
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23
   %.sroa.020.035 = phi ptr [ %.sroa.020.0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23 ], [ %.sroa.020.034, %3 ]
@@ -3185,8 +3185,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %.sroa.020.0 = load ptr, ptr %.sroa.020.035, align 8
-  %.not40 = icmp eq ptr %.sroa.020.0, %5
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not37 = icmp eq ptr %.sroa.020.0, %5
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23, %3, %26
   %38 = phi i1 [ true, %26 ], [ false, %3 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23 ]

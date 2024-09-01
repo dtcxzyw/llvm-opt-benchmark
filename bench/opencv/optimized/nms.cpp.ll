@@ -1859,19 +1859,19 @@ define void @_ZN2cv3dnn14dnn4_v2024052115NMSBoxesBatchedERKSt6vectorINS_5Rect_Ii
   %.sroa.speculated.i = select i1 %95, double %.sroa.speculated55.i, double %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
-  br i1 %exitcond.not.i, label %.lr.ph73.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
-.lr.ph73.i:                                       ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %96 = fadd double %.sroa.speculated.i, 1.000000e+00
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %97 = getelementptr inbounds i8, ptr %9, i64 8
   %98 = getelementptr inbounds i8, ptr %9, i64 16
   br label %99
 
-99:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i, %.lr.ph73.i
-  %100 = phi ptr [ null, %.lr.ph73.i ], [ %147, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
-  %indvars.iv77.i = phi i64 [ 0, %.lr.ph73.i ], [ %indvars.iv.next78.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
-  %101 = phi ptr [ %20, %.lr.ph73.i ], [ %149, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
+99:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i, %._crit_edge.i
+  %100 = phi ptr [ null, %._crit_edge.i ], [ %147, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
+  %indvars.iv77.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next78.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
+  %101 = phi ptr [ %20, %._crit_edge.i ], [ %149, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i ]
   %102 = load ptr, ptr %2, align 8
   %103 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv77.i
   %104 = load i32, ptr %103, align 4
@@ -2226,19 +2226,19 @@ define void @_ZN2cv3dnn14dnn4_v2024052115NMSBoxesBatchedERKSt6vectorINS_5Rect_Id
   %.sroa.speculated.i = select i1 %91, double %.sroa.speculated55.i, double %87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
-  br i1 %exitcond.not.i, label %.lr.ph73.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
-.lr.ph73.i:                                       ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %92 = fadd double %.sroa.speculated.i, 1.000000e+00
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %93 = getelementptr inbounds i8, ptr %9, i64 8
   %94 = getelementptr inbounds i8, ptr %9, i64 16
   br label %95
 
-95:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i, %.lr.ph73.i
-  %96 = phi ptr [ null, %.lr.ph73.i ], [ %139, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
-  %indvars.iv77.i = phi i64 [ 0, %.lr.ph73.i ], [ %indvars.iv.next78.i, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
-  %97 = phi ptr [ %20, %.lr.ph73.i ], [ %141, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
+95:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i, %._crit_edge.i
+  %96 = phi ptr [ null, %._crit_edge.i ], [ %139, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
+  %indvars.iv77.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next78.i, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
+  %97 = phi ptr [ %20, %._crit_edge.i ], [ %141, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit.i ]
   %98 = load ptr, ptr %2, align 8
   %99 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv77.i
   %100 = load i32, ptr %99, align 4
@@ -2602,12 +2602,9 @@ _ZNSt12_Vector_baseISt4pairIfmESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %92 = add i64 %.01012.i.i.i.i.i, -1
   %93 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i64 %92, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
-_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit:   ; preds = %.lr.ph.i.i.i.i.i
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
   %umax = tail call i64 @llvm.umax.i64(i64 %87, i64 1)
   br label %.lr.ph
 
@@ -2623,9 +2620,9 @@ _ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit:   ; preds = %.lr.ph.i.i.i.i.i
   %exitcond.not = icmp eq i64 %98, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit
-  %.0.lcssa.i.i.i.i.i132 = phi ptr [ %93, %_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit ], [ null, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %93, %.lr.ph ]
-  %.sroa.098.0128 = phi ptr [ %90, %_ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit ], [ null, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %90, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %.0.lcssa.i.i.i.i.i132 = phi ptr [ null, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %93, %.lr.ph ]
+  %.sroa.098.0128 = phi ptr [ null, %_ZNSt6vectorISt4pairIfmESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %90, %.lr.ph ]
   %99 = icmp eq i64 %6, 0
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %87, i64 %6)
   %100 = select i1 %99, i64 %87, i64 %.sroa.speculated

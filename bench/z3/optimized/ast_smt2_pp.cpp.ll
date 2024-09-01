@@ -19587,18 +19587,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !110
 
-_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit: ; preds = %for.body.i.i.i.i.i.i
-  br i1 %cmp.i, label %_ZN6vectorISt4pairIj6symbolELb0EjE7destroyEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNK6vectorISt4pairIj6symbolELb0EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit
+if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIj6symbolELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIj6symbolELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIj6symbolELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit.thread, %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit.thread ], [ %add.ptr28, %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit ], [ %add.ptr28, %if.then.i ]
+_ZN6vectorISt4pairIj6symbolELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit.thread, %if.then.i
+  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIj6symbolEjS3_ES0_IT_T1_ES4_T0_S5_.exit.thread ], [ %add.ptr28, %if.then.i ]
   store ptr %add.ptr282832, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32
@@ -19990,23 +19987,23 @@ while.cond.backedge:                              ; preds = %sw.bb, %if.then12, 
   br i1 %cmp.not, label %while.body, label %return, !llvm.loop !113
 
 return.sink.split.sink.split:                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18, %lor.lhs.false.i.i21, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %lor.lhs.false.i.i
-  %m_frame_stack.i13.sink62 = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
-  %.sink60.ph = phi i8 [ %5, %lor.lhs.false.i.i ], [ %5, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %11, %lor.lhs.false.i.i21 ], [ %11, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
+  %m_frame_stack.i13.sink59 = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
+  %.sink57.ph = phi i8 [ %5, %lor.lhs.false.i.i ], [ %5, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %11, %lor.lhs.false.i.i21 ], [ %11, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
   %retval.0.i.i.i19.sink.ph = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i19, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
-  tail call void @_ZN6vectorIN12smt2_printer5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_frame_stack.i13.sink62)
-  %.pre.i.i34 = load ptr, ptr %m_frame_stack.i13.sink62, align 8
+  tail call void @_ZN6vectorIN12smt2_printer5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_frame_stack.i13.sink59)
+  %.pre.i.i34 = load ptr, ptr %m_frame_stack.i13.sink59, align 8
   %arrayidx8.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %.pre.i.i34, i64 -4
   %.pre1.i.i36 = load i32, ptr %arrayidx8.phi.trans.insert.i.i35, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i.i21, %lor.lhs.false.i.i
-  %.sink60 = phi i8 [ %5, %lor.lhs.false.i.i ], [ %11, %lor.lhs.false.i.i21 ], [ %.sink60.ph, %return.sink.split.sink.split ]
-  %.sink59 = phi i32 [ %9, %lor.lhs.false.i.i ], [ %15, %lor.lhs.false.i.i21 ], [ %.pre1.i.i36, %return.sink.split.sink.split ]
+  %.sink57 = phi i8 [ %5, %lor.lhs.false.i.i ], [ %11, %lor.lhs.false.i.i21 ], [ %.sink57.ph, %return.sink.split.sink.split ]
+  %.sink56 = phi i32 [ %9, %lor.lhs.false.i.i ], [ %15, %lor.lhs.false.i.i21 ], [ %.pre1.i.i36, %return.sink.split.sink.split ]
   %.sink = phi ptr [ %8, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i.i21 ], [ %.pre.i.i34, %return.sink.split.sink.split ]
   %retval.0.i.i.i19.sink = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i19.sink.ph, %return.sink.split.sink.split ]
-  %m_frame_stack.i13.sink = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13.sink62, %return.sink.split.sink.split ]
-  %frombool.i.i25 = and i8 %.sink60, 1
-  %idx.ext.i.i26 = zext i32 %.sink59 to i64
+  %m_frame_stack.i13.sink = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13.sink59, %return.sink.split.sink.split ]
+  %frombool.i.i25 = and i8 %.sink57, 1
+  %idx.ext.i.i26 = zext i32 %.sink56 to i64
   %add.ptr.i.i27 = getelementptr inbounds %"struct.smt2_printer::frame", ptr %.sink, i64 %idx.ext.i.i26
   store ptr %3, ptr %add.ptr.i.i27, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i27, i64 8

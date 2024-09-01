@@ -3939,8 +3939,8 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.i.i: ; pr
 
 .noexc11:                                         ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h401e49cd355a94deE.exit.i"
   %1228 = load i8, ptr %91, align 8, !range !59, !noalias !58, !noundef !5
-  %.not281.i = icmp eq i8 %1228, 7
-  br i1 %.not281.i, label %.loopexit25, label %422
+  %.not257.i = icmp eq i8 %1228, 7
+  br i1 %.not257.i, label %.loopexit25, label %422
 
 .loopexit24:                                      ; preds = %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h401e49cd355a94deE.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }

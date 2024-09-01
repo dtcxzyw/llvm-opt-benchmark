@@ -643,7 +643,7 @@ if.then19:                                        ; preds = %if.then15
 
 if.else:                                          ; preds = %for.inc.i, %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit58
   %cmp.i60 = icmp eq i32 %i.0140, 1
-  br i1 %cmp.i60, label %_ZN7min_cut16compute_distanceEj.exit.thread, label %if.else.i
+  br i1 %cmp.i60, label %_ZN7min_cut16compute_distanceEj.exit.thread, label %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63
 
 if.else.thread147:                                ; preds = %while.body
   %cmp.i60148 = icmp eq i32 %i.0140, 1
@@ -658,10 +658,7 @@ _ZN7min_cut16compute_distanceEj.exit.thread:      ; preds = %if.else.thread147, 
   store i32 0, ptr %arrayidx.i.i75, align 4
   br label %if.then22
 
-if.else.i:                                        ; preds = %if.else
-  br i1 %cmp.i.i.i, label %_ZN7min_cut16compute_distanceEj.exit, label %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63
-
-_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63:  ; preds = %if.else.thread, %if.else.i
+_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63:  ; preds = %if.else, %if.else.thread
   %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %25, i64 -4
   %33 = load i32, ptr %arrayidx.i.i.i64, align 4
   %34 = zext i32 %33 to i64
@@ -692,8 +689,8 @@ for.inc.i70:                                      ; preds = %if.then8.i, %for.bo
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i71, %add.ptr.i.i65
   br i1 %cmp6.not.i, label %_ZN7min_cut16compute_distanceEj.exit, label %for.body.i67
 
-_ZN7min_cut16compute_distanceEj.exit:             ; preds = %for.inc.i70, %if.else.thread147, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63, %if.else.i
-  %min.0.lcssa.i = phi i32 [ -1, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63 ], [ -1, %if.else.i ], [ -1, %if.else.thread147 ], [ %min.1.i, %for.inc.i70 ]
+_ZN7min_cut16compute_distanceEj.exit:             ; preds = %for.inc.i70, %if.else.thread147, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63
+  %min.0.lcssa.i = phi i32 [ -1, %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i63 ], [ -1, %if.else.thread147 ], [ %min.1.i, %for.inc.i70 ]
   %arrayidx.i11.i73 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i.i
   store i32 %min.0.lcssa.i, ptr %arrayidx.i11.i73, align 4
   %cmp21.not = icmp eq i32 %i.0140, 0

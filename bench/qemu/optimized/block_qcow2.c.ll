@@ -10874,13 +10874,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %next = getelementptr inbounds i8, ptr %m.042, i64 80
   %m.0 = load ptr, ptr %next, align 8
   %cmp10.not = icmp eq ptr %m.0, null
-  br i1 %cmp10.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %cmp10.not, label %while.body.us.i, label %for.body, !llvm.loop !31
 
-for.end:                                          ; preds = %for.body
-  br i1 %cmp10.not41, label %qcow2_handle_l2meta.exit.thread, label %while.body.us.i
-
-while.body.us.i:                                  ; preds = %for.end, %if.end11.us.i
-  %l2meta.018.us.i = phi ptr [ %5, %if.end11.us.i ], [ %m.040, %for.end ]
+while.body.us.i:                                  ; preds = %for.body, %if.end11.us.i
+  %l2meta.018.us.i = phi ptr [ %5, %if.end11.us.i ], [ %m.040, %for.body ]
   %call.us.i = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr noundef nonnull %l2meta.018.us.i) #23
   %tobool1.not.us.i = icmp eq i32 %call.us.i, 0
   br i1 %tobool1.not.us.i, label %do.body.us.i, label %qcow2_handle_l2meta.exit
@@ -10911,7 +10908,7 @@ if.end11.us.i:                                    ; preds = %if.then5.us.i, %do.
   %cmp.not.us.i = icmp eq ptr %5, null
   br i1 %cmp.not.us.i, label %qcow2_handle_l2meta.exit.thread, label %while.body.us.i, !llvm.loop !15
 
-qcow2_handle_l2meta.exit.thread:                  ; preds = %if.end11.us.i, %for.cond.preheader, %for.end
+qcow2_handle_l2meta.exit.thread:                  ; preds = %if.end11.us.i, %for.cond.preheader
   store ptr null, ptr %meta, align 8
   br label %if.end17
 

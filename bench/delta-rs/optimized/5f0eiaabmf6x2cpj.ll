@@ -2943,8 +2943,8 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   %9 = phi ptr [ %.0.i.i, %12 ], [ %5, %1 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 8968
   %11 = load atomic i64, ptr %10 acquire, align 8
-  %.not = icmp ne i64 %11, 0
-  br i1 %.not, label %12, label %._crit_edge
+  %.not.not = icmp ne i64 %11, 0
+  br i1 %.not.not, label %12, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph
   %.0.i.i = inttoptr i64 %11 to ptr
@@ -2956,7 +2956,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ], [ %.not, %12 ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %12 ]
   ret i1 %.lcssa
 }
 

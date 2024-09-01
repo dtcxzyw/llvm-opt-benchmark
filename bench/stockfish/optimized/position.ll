@@ -289,8 +289,8 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   br label %.preheader31
 
 .preheader31:                                     ; preds = %33, %2
-  %indvars.iv36 = phi i64 [ 7, %2 ], [ %indvars.iv.next37, %33 ]
-  %8 = shl i64 %indvars.iv36, 3
+  %indvars.iv38 = phi i64 [ 7, %2 ], [ %indvars.iv.next39, %33 ]
+  %8 = shl i64 %indvars.iv38, 3
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader31, %29
@@ -304,16 +304,16 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %11 = add nsw i64 %indvars.iv, %8
   %12 = getelementptr inbounds [64 x i32], ptr %1, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %.not50 = icmp eq i32 %13, 0
-  br i1 %.not50, label %14, label %.critedge
+  %.not36 = icmp eq i32 %13, 0
+  br i1 %.not36, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = add nuw nsw i32 %.0833, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %16 = icmp slt i64 %indvars.iv, 7
-  br i1 %16, label %10, label %.thread61, !llvm.loop !9
+  br i1 %16, label %10, label %.thread62, !llvm.loop !9
 
-.thread61:                                        ; preds = %14
+.thread62:                                        ; preds = %14
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %15) #18
   br label %29
 
@@ -338,19 +338,19 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %27) #18
   br label %29
 
-29:                                               ; preds = %.thread61, %.thread
-  %.1.lcssa5660 = phi i32 [ %18, %.thread ], [ 8, %.thread61 ]
-  %30 = add nsw i32 %.1.lcssa5660, 1
-  %31 = icmp slt i32 %.1.lcssa5660, 7
+29:                                               ; preds = %.thread62, %.thread
+  %.1.lcssa5761 = phi i32 [ %18, %.thread ], [ 8, %.thread62 ]
+  %30 = add nsw i32 %.1.lcssa5761, 1
+  %31 = icmp slt i32 %.1.lcssa5761, 7
   br i1 %31, label %.preheader, label %32, !llvm.loop !10
 
 32:                                               ; preds = %29
-  %.not30 = icmp eq i64 %indvars.iv36, 0
+  %.not30 = icmp eq i64 %indvars.iv38, 0
   br i1 %.not30, label %35, label %33
 
 33:                                               ; preds = %32
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 47) #18
-  %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
+  %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
   br label %.preheader31, !llvm.loop !11
 
 35:                                               ; preds = %32
@@ -380,11 +380,11 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %54) #18
   %.pre = load ptr, ptr %40, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
-  %.pre39 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre41 = load i32, ptr %.phi.trans.insert, align 8
   br label %56
 
 56:                                               ; preds = %45, %35
-  %57 = phi i32 [ %.pre39, %45 ], [ %43, %35 ]
+  %57 = phi i32 [ %.pre41, %45 ], [ %43, %35 ]
   %58 = phi ptr [ %.pre, %45 ], [ %41, %35 ]
   %59 = and i32 %57, 2
   %.not26 = icmp eq i32 %59, 0
@@ -401,14 +401,14 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %68 = add nuw nsw i8 %67, 65
   %69 = select i1 %63, i8 %68, i8 81
   %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %69) #18
-  %.pre40 = load ptr, ptr %40, align 8
-  %.phi.trans.insert41 = getelementptr inbounds i8, ptr %.pre40, i64 24
-  %.pre42 = load i32, ptr %.phi.trans.insert41, align 8
+  %.pre42 = load ptr, ptr %40, align 8
+  %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.pre42, i64 24
+  %.pre44 = load i32, ptr %.phi.trans.insert43, align 8
   br label %71
 
 71:                                               ; preds = %60, %56
-  %72 = phi i32 [ %.pre42, %60 ], [ %57, %56 ]
-  %73 = phi ptr [ %.pre40, %60 ], [ %58, %56 ]
+  %72 = phi i32 [ %.pre44, %60 ], [ %57, %56 ]
+  %73 = phi ptr [ %.pre42, %60 ], [ %58, %56 ]
   %74 = and i32 %72, 4
   %.not27 = icmp eq i32 %74, 0
   br i1 %.not27, label %86, label %75
@@ -424,14 +424,14 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %83 = add nuw nsw i8 %82, 97
   %84 = select i1 %78, i8 %83, i8 107
   %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %84) #18
-  %.pre43 = load ptr, ptr %40, align 8
-  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %.pre43, i64 24
-  %.pre45 = load i32, ptr %.phi.trans.insert44, align 8
+  %.pre45 = load ptr, ptr %40, align 8
+  %.phi.trans.insert46 = getelementptr inbounds i8, ptr %.pre45, i64 24
+  %.pre47 = load i32, ptr %.phi.trans.insert46, align 8
   br label %86
 
 86:                                               ; preds = %75, %71
-  %87 = phi i32 [ %.pre45, %75 ], [ %72, %71 ]
-  %88 = phi ptr [ %.pre43, %75 ], [ %73, %71 ]
+  %87 = phi i32 [ %.pre47, %75 ], [ %72, %71 ]
+  %88 = phi ptr [ %.pre45, %75 ], [ %73, %71 ]
   %89 = and i32 %87, 8
   %.not28 = icmp eq i32 %89, 0
   br i1 %.not28, label %101, label %90
@@ -447,25 +447,25 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   %98 = add nuw nsw i8 %97, 97
   %99 = select i1 %93, i8 %98, i8 113
   %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %99) #18
-  %.pre46 = load ptr, ptr %40, align 8
-  %.phi.trans.insert47 = getelementptr inbounds i8, ptr %.pre46, i64 24
-  %.pre48 = load i32, ptr %.phi.trans.insert47, align 8
+  %.pre48 = load ptr, ptr %40, align 8
+  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %.pre48, i64 24
+  %.pre50 = load i32, ptr %.phi.trans.insert49, align 8
   br label %101
 
 101:                                              ; preds = %90, %86
-  %102 = phi i32 [ %.pre48, %90 ], [ %87, %86 ]
-  %103 = phi ptr [ %.pre46, %90 ], [ %88, %86 ]
+  %102 = phi i32 [ %.pre50, %90 ], [ %87, %86 ]
+  %103 = phi ptr [ %.pre48, %90 ], [ %88, %86 ]
   %104 = and i32 %102, 15
   %.not29 = icmp eq i32 %104, 0
   br i1 %.not29, label %105, label %107
 
 105:                                              ; preds = %101
   %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 45) #18
-  %.pre49 = load ptr, ptr %40, align 8
+  %.pre51 = load ptr, ptr %40, align 8
   br label %107
 
 107:                                              ; preds = %105, %101
-  %108 = phi ptr [ %.pre49, %105 ], [ %103, %101 ]
+  %108 = phi ptr [ %.pre51, %105 ], [ %103, %101 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 36
   %110 = load i32, ptr %109, align 4
   %.not = icmp eq i32 %110, 64
@@ -4724,8 +4724,8 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr
   %.047 = phi ptr [ %15, %12 ], [ %3, %1 ]
   %10 = getelementptr inbounds i8, ptr %.047, i64 164
   %11 = load i32, ptr %10, align 4
-  %.not.not = icmp ne i32 %11, 0
-  br i1 %.not.not, label %._crit_edge, label %12
+  %.not.not.not = icmp ne i32 %11, 0
+  br i1 %.not.not.not, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = add nsw i32 %.in, -1
@@ -4735,7 +4735,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %12 ], [ %.not.not, %.lr.ph ]
+  %.lcssa = phi i1 [ false, %1 ], [ %.not.not.not, %12 ], [ %.not.not.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

@@ -1469,7 +1469,7 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit.thread100, label %.lr.ph
+  br i1 %25, label %.loopexit.thread99, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1618,9 +1618,9 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %111 = and i32 %108, %110
   %112 = icmp eq i32 %111, 0
   %113 = icmp ne i32 %105, 0
-  %.not126 = select i1 %112, i1 %113, i1 false
+  %.not123 = select i1 %112, i1 %113, i1 false
   %114 = zext i1 %112 to i32
-  br i1 %.not126, label %.loopexit, label %.backedge.us54
+  br i1 %.not123, label %.loopexit, label %.backedge.us54
 
 .backedge.us54:                                   ; preds = %102, %104
   %115 = phi i32 [ %114, %104 ], [ 1, %102 ]
@@ -1663,8 +1663,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %141 = and i32 %138, %140
   %142 = icmp eq i32 %141, 0
   %143 = icmp ne i32 %135, 0
-  %.not93 = select i1 %142, i1 %143, i1 false
-  br i1 %.not93, label %144, label %.backedge
+  %.not67 = select i1 %142, i1 %143, i1 false
+  br i1 %.not67, label %144, label %.backedge
 
 144:                                              ; preds = %.thread
   %145 = xor i32 %137, %135
@@ -1678,14 +1678,14 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
 
 .split.us:                                        ; preds = %148, %65
   %.us-phi24 = phi ptr [ %26, %65 ], [ %120, %148 ]
-  %.us-phi25 = phi i1 [ %56, %65 ], [ %142, %148 ]
+  %.us-phi25 = phi i1 [ %56, %65 ], [ true, %148 ]
   %150 = getelementptr inbounds i8, ptr %.us-phi24, i64 48
   %151 = load i32, ptr %150, align 8
   br label %.thread8
 
 .thread8:                                         ; preds = %144, %129, %98, %82, %61, %40, %.split.us
-  %.ph6 = phi i1 [ %.us-phi25, %.split.us ], [ true, %40 ], [ %56, %61 ], [ true, %82 ], [ true, %98 ], [ true, %129 ], [ %142, %144 ]
-  %.ph7 = phi i32 [ %151, %.split.us ], [ %2, %40 ], [ %44, %61 ], [ %84, %82 ], [ %100, %98 ], [ %131, %129 ], [ %135, %144 ]
+  %.ph6 = phi i1 [ %.us-phi25, %.split.us ], [ true, %40 ], [ %56, %61 ], [ true, %82 ], [ true, %98 ], [ true, %129 ], [ true, %144 ]
+  %.ph7 = phi i32 [ %151, %.split.us ], [ %2, %40 ], [ %44, %61 ], [ %84, %82 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
   %152 = zext i1 %.ph6 to i32
   br label %.loopexit
 
@@ -1703,13 +1703,13 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %160 = phi i32 [ %.ph7, %.thread8 ], [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %116, %.backedge.us54 ], [ %105, %104 ], [ %154, %.backedge ]
   %.fr = freeze i32 %159
   %161 = icmp eq i32 %.fr, 0
-  br i1 %161, label %.loopexit.thread100, label %.loopexit.thread
+  br i1 %161, label %.loopexit.thread99, label %.loopexit.thread
 
-.loopexit.thread100:                              ; preds = %18, %.loopexit
+.loopexit.thread99:                               ; preds = %18, %.loopexit
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.backedge.us34, %.thread.us32, %.loopexit, %.loopexit.thread100
-  %162 = phi i32 [ 0, %.loopexit.thread100 ], [ %160, %.loopexit ], [ %84, %.thread.us32 ], [ 0, %.backedge.us34 ]
+.loopexit.thread:                                 ; preds = %.backedge.us34, %.thread.us32, %.loopexit, %.loopexit.thread99
+  %162 = phi i32 [ 0, %.loopexit.thread99 ], [ %160, %.loopexit ], [ %84, %.thread.us32 ], [ 0, %.backedge.us34 ]
   ret i32 %162
 }
 

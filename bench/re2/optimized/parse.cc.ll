@@ -4210,12 +4210,12 @@ entry:
 land.rhs.preheader:                               ; preds = %entry
   %1 = load i8, ptr %0, align 8
   %cmp.i87 = icmp ugt i8 %1, 21
-  br i1 %cmp.i87, label %for.end, label %for.body
+  br i1 %cmp.i87, label %land.lhs.true, label %for.body
 
 land.rhs:                                         ; preds = %for.inc
   %2 = load i8, ptr %4, align 8
   %cmp.i = icmp ugt i8 %2, 21
-  br i1 %cmp.i, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %cmp.i, label %land.lhs.true, label %for.body, !llvm.loop !43
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %3 = phi i8 [ %2, %land.rhs ], [ %1, %land.rhs.preheader ]
@@ -4237,24 +4237,18 @@ for.inc:                                          ; preds = %for.body, %if.then
   %conv4.pn = phi i32 [ %conv4, %if.then ], [ 1, %for.body ]
   %n.1 = add nuw nsw i32 %conv4.pn, %n.05788
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !43
+  br i1 %cmp.not, label %land.lhs.true, label %land.rhs, !llvm.loop !43
 
-for.end:                                          ; preds = %for.inc, %land.rhs, %land.rhs.preheader
+land.lhs.true:                                    ; preds = %land.rhs, %for.inc, %land.rhs.preheader
   %next.0.lcssa = phi ptr [ null, %land.rhs.preheader ], [ null, %for.inc ], [ %4, %land.rhs ]
-  %n.0.lcssa = phi i32 [ 0, %land.rhs.preheader ], [ %n.1, %land.rhs ], [ %n.1, %for.inc ]
-  br i1 %cmp.not54, label %if.end11.thread, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %for.end
+  %n.0.lcssa = phi i32 [ 0, %land.rhs.preheader ], [ %n.1, %for.inc ], [ %n.1, %land.rhs ]
   %down_8 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %down_8, align 8
   %cmp9 = icmp eq ptr %6, %next.0.lcssa
   br i1 %cmp9, label %return, label %land.rhs15.preheader
 
-if.end11.thread:                                  ; preds = %for.end, %entry
-  %n.0.lcssa79.ph = phi i32 [ %n.0.lcssa, %for.end ], [ 0, %entry ]
-  %conv.i2881 = zext nneg i32 %n.0.lcssa79.ph to i64
-  %mul.i.i82 = shl nuw nsw i64 %conv.i2881, 3
-  %call5.i3.i83 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i82) #30
+if.end11.thread:                                  ; preds = %entry
+  %call5.i3.i83 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef 0) #30
   br label %for.end50
 
 land.rhs15.preheader:                             ; preds = %land.lhs.true
@@ -4391,7 +4385,7 @@ for.inc49:                                        ; preds = %invoke.cont46, %for
 
 for.end50:                                        ; preds = %for.inc49, %land.rhs15, %land.rhs15.preheader, %if.end11.thread
   %call5.i3.i85 = phi ptr [ %call5.i3.i83, %if.end11.thread ], [ %call5.i3.i, %land.rhs15.preheader ], [ %call5.i3.i, %land.rhs15 ], [ %call5.i3.i, %for.inc49 ]
-  %n.0.lcssa7984 = phi i32 [ %n.0.lcssa79.ph, %if.end11.thread ], [ %n.0.lcssa, %land.rhs15.preheader ], [ %n.0.lcssa, %land.rhs15 ], [ %n.0.lcssa, %for.inc49 ]
+  %n.0.lcssa7984 = phi i32 [ 0, %if.end11.thread ], [ %n.0.lcssa, %land.rhs15.preheader ], [ %n.0.lcssa, %land.rhs15 ], [ %n.0.lcssa, %for.inc49 ]
   %next.1.lcssa = phi ptr [ null, %if.end11.thread ], [ null, %land.rhs15.preheader ], [ null, %for.inc49 ], [ %10, %land.rhs15 ]
   %23 = load i32, ptr %this, align 8
   %call54 = invoke noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef %op, ptr noundef nonnull %call5.i3.i85, i32 noundef %n.0.lcssa7984, i32 noundef %23, i1 noundef zeroext true)
@@ -5067,7 +5061,8 @@ _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.ex
   br i1 %cmp, label %return, label %while.cond, !llvm.loop !48
 
 return:                                           ; preds = %while.cond, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %if.end13.i, %if.then15.i
-  ret i1 %cmp.i
+  %cmp.i25 = phi i1 [ false, %if.end13.i ], [ false, %if.then15.i ], [ %cmp.i, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ %cmp.i, %while.cond ]
+  ret i1 %cmp.i25
 }
 
 ; Function Attrs: mustprogress uwtable

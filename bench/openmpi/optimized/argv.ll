@@ -276,7 +276,7 @@ define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr nocapture nounde
   %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.preheader.i.i19, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.lr.ph.i.i21, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
@@ -296,20 +296,17 @@ define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr nocapture nounde
   store ptr %20, ptr %22, align 8
   br label %opal_argv_append_nosize.exit
 
-.preheader.i.i19:                                 ; preds = %12
-  br i1 %.not35, label %opal_argv_count.exit.i25, label %.lr.ph.i.i21
-
-.lr.ph.i.i21:                                     ; preds = %.preheader.i.i19, %.lr.ph.i.i21
-  %.011.i.i22 = phi i32 [ %23, %.lr.ph.i.i21 ], [ 0, %.preheader.i.i19 ]
-  %.0610.i.i23 = phi ptr [ %24, %.lr.ph.i.i21 ], [ %4, %.preheader.i.i19 ]
+.lr.ph.i.i21:                                     ; preds = %12, %.lr.ph.i.i21
+  %.011.i.i22 = phi i32 [ %23, %.lr.ph.i.i21 ], [ 0, %12 ]
+  %.0610.i.i23 = phi ptr [ %24, %.lr.ph.i.i21 ], [ %4, %12 ]
   %23 = add nuw nsw i32 %.011.i.i22, 1
   %24 = getelementptr inbounds i8, ptr %.0610.i.i23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i24 = icmp eq ptr %25, null
   br i1 %.not.i.i24, label %opal_argv_count.exit.i25, label %.lr.ph.i.i21, !llvm.loop !4
 
-opal_argv_count.exit.i25:                         ; preds = %.lr.ph.i.i21, %.preheader, %.preheader.i.i19
-  %.07.i.i26 = phi i32 [ 0, %.preheader.i.i19 ], [ 0, %.preheader ], [ %23, %.lr.ph.i.i21 ]
+opal_argv_count.exit.i25:                         ; preds = %.lr.ph.i.i21, %.preheader
+  %.07.i.i26 = phi i32 [ 0, %.preheader ], [ %23, %.lr.ph.i.i21 ]
   %26 = add nsw i32 %.07.i.i26, 2
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
@@ -1266,26 +1263,23 @@ define range(i32 -5, 1) i32 @opal_argv_insert_element(ptr noundef %0, i32 nounde
 
 opal_argv_count.exit:                             ; preds = %.lr.ph.i
   %15 = icmp sgt i32 %1, %12
-  br i1 %15, label %.preheader.i.i.i, label %30
+  br i1 %15, label %.lr.ph.i.i.i, label %30
 
 opal_argv_count.exit.thread:                      ; preds = %.preheader.i
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %30, label %opal_argv_count.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %opal_argv_count.exit
-  br i1 %.not9.i, label %opal_argv_count.exit.i.i, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.011.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %.0610.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %6, %.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %opal_argv_count.exit, %.lr.ph.i.i.i
+  %.011.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i ], [ 0, %opal_argv_count.exit ]
+  %.0610.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %6, %opal_argv_count.exit ]
   %16 = add nuw nsw i32 %.011.i.i.i, 1
   %17 = getelementptr inbounds i8, ptr %.0610.i.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %opal_argv_count.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal_argv_count.exit.thread, %.preheader.i.i.i
-  %.07.i.i.i = phi i32 [ 0, %.preheader.i.i.i ], [ 0, %opal_argv_count.exit.thread ], [ %16, %.lr.ph.i.i.i ]
+opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal_argv_count.exit.thread
+  %.07.i.i.i = phi i32 [ 0, %opal_argv_count.exit.thread ], [ %16, %.lr.ph.i.i.i ]
   %19 = add nsw i32 %.07.i.i.i, 2
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3

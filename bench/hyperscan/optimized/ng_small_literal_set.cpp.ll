@@ -410,15 +410,15 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.i: ; preds =
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.i
   %.pre.i = load ptr, ptr %nocase3.i.i.us.i, align 8
-  %.pre388.i = load ptr, ptr %_M_finish.i.i.i.i.i.us.i, align 8
-  %.pre389.i = ptrtoint ptr %.pre388.i to i64
-  %.pre390.i = ptrtoint ptr %.pre.i to i64
-  %.pre391.i = sub i64 %.pre389.i, %.pre390.i
+  %.pre372.i = load ptr, ptr %_M_finish.i.i.i.i.i.us.i, align 8
+  %.pre373.i = ptrtoint ptr %.pre372.i to i64
+  %.pre374.i = ptrtoint ptr %.pre.i to i64
+  %.pre375.i = sub i64 %.pre373.i, %.pre374.i
   br label %invoke.cont.i.i.i.i.us.i
 
 invoke.cont.i.i.i.i.us.i:                         ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i, %.noexc103.us.i
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.us.pre-phi.i = phi i64 [ %.pre391.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %sub.ptr.sub.i.i.i.i.i.us.i, %.noexc103.us.i ]
-  %26 = phi ptr [ %.pre388.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %24, %.noexc103.us.i ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.us.pre-phi.i = phi i64 [ %.pre375.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %sub.ptr.sub.i.i.i.i.i.us.i, %.noexc103.us.i ]
+  %26 = phi ptr [ %.pre372.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %24, %.noexc103.us.i ]
   %27 = phi ptr [ %.pre.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %25, %.noexc103.us.i ]
   %cond.i.i.i.i.i.i.i.us.i = phi ptr [ %call5.i.i.i.i2.i6.i.i2.i.i.us.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ null, %.noexc103.us.i ]
   store ptr %cond.i.i.i.i.i.i.i.us.i, ptr %nocase.i.i102.i, align 8

@@ -3797,11 +3797,11 @@ if.then.i.i.i245:                                 ; preds = %while.body44
   %bf.clear7.i.i.i248 = and i32 %bf.load.i.i.i242, -1024
   %bf.set.i.i.i249 = or disjoint i32 %bf.value.i.i.i247, %bf.clear7.i.i.i248
   store i32 %bf.set.i.i.i249, ptr %arrayidx.i.i.i.i241, align 4, !noalias !44
-  %.pre550 = load ptr, ptr %79, align 8
+  %.pre547 = load ptr, ptr %79, align 8
   br label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %while.body44, %if.then.i.i.i245
-  %85 = phi ptr [ %81, %while.body44 ], [ %.pre550, %if.then.i.i.i245 ]
+  %85 = phi ptr [ %81, %while.body44 ], [ %.pre547, %if.then.i.i.i245 ]
   %m_values.i.i253 = getelementptr inbounds i8, ptr %79, i64 8
   %m_lo.i.i.i255 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %85, i64 %idxprom.i.i.i.i240, i32 1
   %86 = load i32, ptr %m_lo.i.i.i255, align 4

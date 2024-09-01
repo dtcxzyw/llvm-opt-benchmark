@@ -198,7 +198,7 @@ define ptr @Java_sun_awt_FcFontManager_getFontPathNative(ptr noundef %0, ptr noc
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr @Java_sun_awt_FcFontManager_getFontPathNative.ptr, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %256
+  br i1 %8, label %9, label %257
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -792,90 +792,90 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %240 = zext nneg i32 %237 to i64
   %241 = call noalias ptr @malloc(i64 noundef %240) #16
   %.not115.i.i = icmp eq ptr %241, null
-  br i1 %.not115.i.i, label %.loopexit.i.i, label %.lr.ph50.preheader.i.i
+  br i1 %.not115.i.i, label %.loopexit.i.i, label %242
 
-.lr.ph50.preheader.i.i:                           ; preds = %239
+242:                                              ; preds = %239
   store i8 0, ptr %241, align 1
   br label %.lr.ph50.i.i
 
-.lr.ph50.i.i:                                     ; preds = %243, %.lr.ph50.preheader.i.i
-  %indvars.iv92.i.i = phi i64 [ 0, %.lr.ph50.preheader.i.i ], [ %indvars.iv.next93.i.i, %243 ]
+.lr.ph50.i.i:                                     ; preds = %244, %242
+  %indvars.iv92.i.i = phi i64 [ 0, %242 ], [ %indvars.iv.next93.i.i, %244 ]
   %.not116.i.i = icmp eq i64 %indvars.iv92.i.i, 0
-  br i1 %.not116.i.i, label %243, label %242
+  br i1 %.not116.i.i, label %244, label %243
 
-242:                                              ; preds = %.lr.ph50.i.i
+243:                                              ; preds = %.lr.ph50.i.i
   %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %241)
   %endptr.i.i = getelementptr inbounds i8, ptr %241, i64 %strlen.i.i
   store i16 58, ptr %endptr.i.i, align 1
-  br label %243
+  br label %244
 
-243:                                              ; preds = %242, %.lr.ph50.i.i
-  %244 = getelementptr inbounds ptr, ptr %197, i64 %indvars.iv92.i.i
-  %245 = load ptr, ptr %244, align 8
-  %246 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %241, ptr noundef nonnull dereferenceable(1) %245) #13
+244:                                              ; preds = %243, %.lr.ph50.i.i
+  %245 = getelementptr inbounds ptr, ptr %197, i64 %indvars.iv92.i.i
+  %246 = load ptr, ptr %245, align 8
+  %247 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %241, ptr noundef nonnull dereferenceable(1) %246) #13
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %exitcond96.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, %wide.trip.count90.i.i
   br i1 %exitcond96.not.i.i, label %.loopexit.i.i, label %.lr.ph50.i.i, !llvm.loop !19
 
-.loopexit.i.i:                                    ; preds = %243, %239, %._crit_edge46.i.i, %.preheader.i72.i
-  %.0.i73.i = phi ptr [ null, %239 ], [ null, %._crit_edge46.i.i ], [ null, %.preheader.i72.i ], [ %241, %243 ]
+.loopexit.i.i:                                    ; preds = %244, %239, %._crit_edge46.i.i, %.preheader.i72.i
+  %.0.i73.i = phi ptr [ null, %239 ], [ null, %._crit_edge46.i.i ], [ null, %.preheader.i72.i ], [ %241, %244 ]
   call void @free(ptr noundef %197) #13
   br label %mergePaths.exit.i
 
 mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._crit_edge.i68.i
   %.084.i.i = phi ptr [ %.0.i73.i, %.loopexit.i.i ], [ null, %._crit_edge.i68.i ]
-  br i1 %.not.i66.i, label %251, label %.preheader75.i
+  br i1 %.not.i66.i, label %252, label %.preheader75.i
 
 .preheader75.i:                                   ; preds = %mergePaths.exit.i
-  %247 = load ptr, ptr %.0.i.i, align 8
-  %.not5379.i = icmp eq ptr %247, null
+  %248 = load ptr, ptr %.0.i.i, align 8
+  %.not5379.i = icmp eq ptr %248, null
   br i1 %.not5379.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader75.i, %.lr.ph.i
-  %248 = phi ptr [ %250, %.lr.ph.i ], [ %247, %.preheader75.i ]
-  %.04080.i = phi ptr [ %249, %.lr.ph.i ], [ %.0.i.i, %.preheader75.i ]
-  %249 = getelementptr inbounds i8, ptr %.04080.i, i64 8
-  call void @free(ptr noundef nonnull %248) #13
-  %250 = load ptr, ptr %249, align 8
-  %.not53.i = icmp eq ptr %250, null
+  %249 = phi ptr [ %251, %.lr.ph.i ], [ %248, %.preheader75.i ]
+  %.04080.i = phi ptr [ %250, %.lr.ph.i ], [ %.0.i.i, %.preheader75.i ]
+  %250 = getelementptr inbounds i8, ptr %.04080.i, i64 8
+  call void @free(ptr noundef nonnull %249) #13
+  %251 = load ptr, ptr %250, align 8
+  %.not53.i = icmp eq ptr %251, null
   br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader75.i
   call void @free(ptr noundef %.0.i.i) #13
-  br label %251
+  br label %252
 
-251:                                              ; preds = %._crit_edge.i, %mergePaths.exit.i
+252:                                              ; preds = %._crit_edge.i, %mergePaths.exit.i
   br i1 %.not112.i.i, label %getPlatformFontPathChars.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %251
-  %252 = load ptr, ptr %.041.i, align 8
-  %.not5581.i = icmp eq ptr %252, null
+.preheader.i:                                     ; preds = %252
+  %253 = load ptr, ptr %.041.i, align 8
+  %.not5581.i = icmp eq ptr %253, null
   br i1 %.not5581.i, label %._crit_edge84.i, label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %.preheader.i, %.lr.ph83.i
-  %253 = phi ptr [ %255, %.lr.ph83.i ], [ %252, %.preheader.i ]
-  %.082.i = phi ptr [ %254, %.lr.ph83.i ], [ %.041.i, %.preheader.i ]
-  %254 = getelementptr inbounds i8, ptr %.082.i, i64 8
-  call void @free(ptr noundef nonnull %253) #13
-  %255 = load ptr, ptr %254, align 8
-  %.not55.i = icmp eq ptr %255, null
+  %254 = phi ptr [ %256, %.lr.ph83.i ], [ %253, %.preheader.i ]
+  %.082.i = phi ptr [ %255, %.lr.ph83.i ], [ %.041.i, %.preheader.i ]
+  %255 = getelementptr inbounds i8, ptr %.082.i, i64 8
+  call void @free(ptr noundef nonnull %254) #13
+  %256 = load ptr, ptr %255, align 8
+  %.not55.i = icmp eq ptr %256, null
   br i1 %.not55.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !21
 
 ._crit_edge84.i:                                  ; preds = %.lr.ph83.i, %.preheader.i
   call void @free(ptr noundef %.041.i) #13
   br label %getPlatformFontPathChars.exit
 
-getPlatformFontPathChars.exit:                    ; preds = %251, %._crit_edge84.i
+getPlatformFontPathChars.exit:                    ; preds = %252, %._crit_edge84.i
   store ptr %.084.i.i, ptr @Java_sun_awt_FcFontManager_getFontPathNative.ptr, align 8
-  br label %256
+  br label %257
 
-256:                                              ; preds = %getPlatformFontPathChars.exit, %4
-  %257 = phi ptr [ %.084.i.i, %getPlatformFontPathChars.exit ], [ %7, %4 ]
-  %258 = load ptr, ptr %0, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 1336
-  %260 = load ptr, ptr %259, align 8
-  %261 = call ptr %260(ptr noundef nonnull %0, ptr noundef %257) #13
-  ret ptr %261
+257:                                              ; preds = %getPlatformFontPathChars.exit, %4
+  %258 = phi ptr [ %.084.i.i, %getPlatformFontPathChars.exit ], [ %7, %4 ]
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 1336
+  %261 = load ptr, ptr %260, align 8
+  %262 = call ptr %261(ptr noundef nonnull %0, ptr noundef %258) #13
+  ret ptr %262
 }
 
 ; Function Attrs: nounwind uwtable

@@ -4257,7 +4257,7 @@ if.end.i9.i:                                      ; preds = %for.inc.i.i, %if.en
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %val.0.i.i, i64 0
   br label %for.body.i13.i
 
-for.body.i13.i:                                   ; preds = %if.end.i9.i, %for.inc.i20.i
+for.body.i13.i:                                   ; preds = %for.inc.i20.i, %if.end.i9.i
   %i.08.i14.i = phi ptr [ %i.0.i22.i, %for.inc.i20.i ], [ %i.06.i.i, %if.end.i9.i ]
   %name.i15.i = getelementptr inbounds i8, ptr %i.08.i14.i, i64 8
   %14 = load ptr, ptr %name.i15.i, align 8
@@ -4303,7 +4303,7 @@ if.end.i38.i:                                     ; preds = %for.inc.i20.i, %if.
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %val.0.i35.i, i64 1
   br label %for.body.i42.i
 
-for.body.i42.i:                                   ; preds = %if.end.i38.i, %for.inc.i49.i
+for.body.i42.i:                                   ; preds = %for.inc.i49.i, %if.end.i38.i
   %i.08.i43.i = phi ptr [ %i.0.i51.i, %for.inc.i49.i ], [ %i.06.i.i, %if.end.i38.i ]
   %name.i44.i = getelementptr inbounds i8, ptr %i.08.i43.i, i64 8
   %24 = load ptr, ptr %name.i44.i, align 8

@@ -453,9 +453,9 @@ for.body.cont.i:                                  ; preds = %for.body.else.i, %f
   %retval.sroa.4.sroa.3.1.i = phi i32 [ %retval.sroa.4.sroa.3.039.i, %for.body.then.i ], [ %conv7.i, %for.body.else.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.040.i, i64 40
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %49
-  br i1 %cmp.i.not.i, label %if.then.i.i, label %for.body.i
+  br i1 %cmp.i.not.i, label %_ZN3ue2L15analyzeLongLitsERKSt6vectorINS_15ue2_case_stringESaIS1_EEm.exit, label %for.body.i
 
-if.then.i.i:                                      ; preds = %for.body.cont.i
+_ZN3ue2L15analyzeLongLitsERKSt6vectorINS_15ue2_case_stringESaIS1_EEm.exit: ; preds = %for.body.cont.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %litToOffsetVal) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %litToOffsetVal, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lit_blob) #26
@@ -470,7 +470,7 @@ if.then.i.i:                                      ; preds = %for.body.cont.i
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %litToOffsetVal, ptr null, i64 noundef %sub.ptr.div.i.i308, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !26
 
-invoke.cont.i:                                    ; preds = %if.then.i.i
+invoke.cont.i:                                    ; preds = %_ZN3ue2L15analyzeLongLitsERKSt6vectorINS_15ue2_case_stringESaIS1_EEm.exit
   %.pre634 = load ptr, ptr %lits, align 8, !noalias !26
   %.pre635 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i) #26, !noalias !26
@@ -481,7 +481,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %_M_finish.i47.i = getelementptr inbounds i8, ptr %lit_blob, i64 8
   br label %for.body.i315
 
-lpad.i:                                           ; preds = %if.then.i.i
+lpad.i:                                           ; preds = %_ZN3ue2L15analyzeLongLitsERKSt6vectorINS_15ue2_case_stringESaIS1_EEm.exit
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i) #26, !noalias !26

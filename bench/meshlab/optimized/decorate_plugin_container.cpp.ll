@@ -487,7 +487,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %82, %_ZN9QtPrivate8
   br i1 %83, label %_ZN7QStringD2Ev.exit._crit_edge.loopexit, label %75
 
 _ZN7QStringD2Ev.exit._crit_edge.loopexit:         ; preds = %_ZN7QStringD2Ev.exit, %75
-  %.1.ph = phi ptr [ %.046, %75 ], [ %10, %_ZN7QStringD2Ev.exit ]
+  %.1.ph = phi ptr [ %10, %_ZN7QStringD2Ev.exit ], [ %.046, %75 ]
   %.not36.lcssa.ph = xor i1 %83, true
   %.pre = load ptr, ptr %3, align 8
   br label %_ZN7QStringD2Ev.exit._crit_edge

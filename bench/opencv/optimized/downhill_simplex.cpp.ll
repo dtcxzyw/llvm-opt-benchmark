@@ -1847,8 +1847,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   %91 = icmp ne i32 %.1163, %.2170
   %92 = icmp ne i32 %.1163, %.2167
   %or.cond192.not303 = and i1 %91, %92
-  %brmerge = or i1 %or.cond192.not303, %.not258
-  br i1 %brmerge, label %.loopexit235, label %.lr.ph272
+  br i1 %or.cond192.not303, label %.loopexit235, label %.lr.ph272
 
 .lr.ph272:                                        ; preds = %90
   %93 = sext i32 %.1163 to i64

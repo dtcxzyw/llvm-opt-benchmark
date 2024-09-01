@@ -1450,7 +1450,7 @@ xdl_simplify_non_conflicts.exit:                  ; preds = %if.end18.i, %if.end
   %cmp272 = icmp slt i32 %retval.0.i454, 0
   br i1 %cmp272, label %for.body.i464.preheader, label %if.end277
 
-for.body.i464.preheader:                          ; preds = %xdl_simplify_non_conflicts.exit, %xdl_refine_conflicts.exit.thread
+for.body.i464.preheader:                          ; preds = %xdl_refine_conflicts.exit.thread, %xdl_simplify_non_conflicts.exit
   br label %for.body.i464
 
 for.body.i464:                                    ; preds = %for.body.i464.preheader, %for.body.i464

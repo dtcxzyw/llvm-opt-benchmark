@@ -401,10 +401,7 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.preheader220:                                    ; preds = %.lr.ph
-  br i1 %14, label %.lr.ph233, label %.loopexit206
-
-.lr.ph233:                                        ; preds = %.preheader220
+.lr.ph233:                                        ; preds = %.lr.ph
   %15 = add nsw i32 %1, -1
   %16 = icmp ult i32 %1, 7
   %17 = add nsw i32 %1, -6
@@ -433,7 +430,7 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
   store i32 %31, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader220, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph233, label %.lr.ph, !llvm.loop !17
 
 .loopexit219:                                     ; preds = %.loopexit218, %95
   %.1.lcssa = phi i32 [ %.078232, %95 ], [ %.2.lcssa, %.loopexit218 ]
@@ -1427,8 +1424,8 @@ If_Dec08CofCount2.exit.thread:                    ; preds = %442, %460
   %exitcond321.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count325
   br i1 %exitcond321.not, label %.loopexit, label %470, !llvm.loop !20
 
-.loopexit206:                                     ; preds = %.loopexit.us245, %90, %86, %.loopexit.us, %58, %.loopexit, %488, %495, %3, %.preheader220, %.preheader
-  %.085 = phi i32 [ 0, %.preheader ], [ 0, %.preheader220 ], [ 0, %3 ], [ 1, %495 ], [ 1, %488 ], [ 0, %.loopexit ], [ 1, %58 ], [ 0, %.loopexit.us ], [ 1, %86 ], [ 1, %90 ], [ 0, %.loopexit.us245 ]
+.loopexit206:                                     ; preds = %.loopexit.us245, %90, %86, %.loopexit.us, %58, %.loopexit, %488, %495, %3, %.preheader
+  %.085 = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ 1, %495 ], [ 1, %488 ], [ 0, %.loopexit ], [ 1, %58 ], [ 0, %.loopexit.us ], [ 1, %86 ], [ 1, %90 ], [ 0, %.loopexit.us245 ]
   ret i32 %.085
 }
 

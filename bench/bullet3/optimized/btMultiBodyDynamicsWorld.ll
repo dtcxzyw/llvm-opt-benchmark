@@ -3744,15 +3744,12 @@ for.body8.i696:                                   ; preds = %for.body8.i696, %fo
 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731: ; preds = %for.body8.i696
   store i32 %add159, ptr %m_size.i.i683858, align 4
-  br i1 %cmp250932, label %for.body368.lr.ph, label %for.end400
-
-for.body368.lr.ph:                                ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731
   %div = fdiv float %115, 6.000000e+00
   %wide.trip.count970 = zext i32 %add159 to i64
   br label %for.body368
 
-for.body368:                                      ; preds = %for.body368.lr.ph, %for.body368
-  %indvars.iv967 = phi i64 [ 0, %for.body368.lr.ph ], [ %indvars.iv.next968, %for.body368 ]
+for.body368:                                      ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731, %for.body368
+  %indvars.iv967 = phi i64 [ 0, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731 ], [ %indvars.iv.next968, %for.body368 ]
   %arrayidx370 = getelementptr inbounds float, ptr %add.ptr172, i64 %indvars.iv967
   %178 = load float, ptr %arrayidx370, align 4
   %arrayidx372 = getelementptr inbounds float, ptr %add.ptr174, i64 %indvars.iv967
@@ -3805,9 +3802,9 @@ lpad363:                                          ; preds = %lpad363.loopexit.sp
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %delta_qd) #17
   br label %ehcleanup
 
-for.end400:                                       ; preds = %for.body368, %invoke.cont357.thread, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731
-  %191 = phi ptr [ null, %invoke.cont357.thread ], [ %call.i.i.i.i678, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731 ], [ %call.i.i.i.i678, %for.body368 ]
-  %192 = phi ptr [ null, %invoke.cont357.thread ], [ %call.i.i.i.i729, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit731 ], [ %call.i.i.i.i729, %for.body368 ]
+for.end400:                                       ; preds = %for.body368, %invoke.cont357.thread
+  %191 = phi ptr [ null, %invoke.cont357.thread ], [ %call.i.i.i.i678, %for.body368 ]
+  %192 = phi ptr [ null, %invoke.cont357.thread ], [ %call.i.i.i.i729, %for.body368 ]
   %193 = load ptr, ptr %m_data.i.i.i508, align 8
   %194 = load i32, ptr %m_dofCount.i, align 4
   %cmp2.i740 = icmp sgt i32 %194, -6

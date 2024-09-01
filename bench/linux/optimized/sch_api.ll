@@ -4607,7 +4607,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef %0, ptr noundef %1, ptr noun
   call void @qdisc_put(ptr noundef %134) #19
   %135 = add nuw nsw i64 %131, 1
   %136 = icmp eq i64 %135, %130
-  br i1 %136, label %.loopexit.thread, label %.split.us, !llvm.loop !65
+  br i1 %136, label %.thread33, label %.split.us, !llvm.loop !65
 
 .split:                                           ; preds = %126, %154
   %137 = phi i64 [ %155, %154 ], [ 0, %126 ]
@@ -4656,10 +4656,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef %0, ptr noundef %1, ptr noun
 .loopexit:                                        ; preds = %154, %113
   br i1 %52, label %161, label %201
 
-.loopexit.thread:                                 ; preds = %.split.us
-  br i1 %52, label %.thread33, label %201
-
-.thread33:                                        ; preds = %.loopexit.thread
+.thread33:                                        ; preds = %.split.us
   %159 = getelementptr inbounds i8, ptr %0, i64 1064
   %160 = load ptr, ptr %159, align 8
   store ptr %160, ptr %10, align 8
@@ -4739,7 +4736,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef %0, ptr noundef %1, ptr noun
   call void @qdisc_put(ptr noundef nonnull %197) #19
   br label %201
 
-201:                                              ; preds = %.loopexit.thread, %.thread24, %200, %196, %195, %190, %.loopexit
+201:                                              ; preds = %.thread24, %200, %196, %195, %190, %.loopexit
   %202 = load i32, ptr %54, align 8
   %203 = and i32 %202, 1
   %204 = icmp eq i32 %203, 0

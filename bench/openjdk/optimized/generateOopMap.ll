@@ -3533,64 +3533,58 @@ define hidden void @_ZN14GenerateOopMap19add_to_ref_init_setEi(ptr nocapture nou
   %5 = sext i32 %1 to i64
   %6 = load i32, ptr %4, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread
+  br i1 %7, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = zext nneg i32 %6 to i64
-  %11 = load i64, ptr %9, align 8
-  %12 = icmp eq i64 %11, %5
-  br i1 %12, label %.critedge, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %6 to i64
+  br label %11
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %13
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i4, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit, label %13, !llvm.loop !33
+10:                                               ; preds = %11
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %11, !llvm.loop !33
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.next.i
-  %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit, label %.lr.ph, !llvm.loop !33
+11:                                               ; preds = %10, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
+  %12 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, %5
+  br i1 %14, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit, label %10
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit:     ; preds = %13, %.lr.ph
-  %17 = icmp ult i64 %indvars.iv.next.i, %10
-  br i1 %17, label %.critedge, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread
+.loopexit:                                        ; preds = %10, %2
+  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %6, %16
+  br i1 %17, label %18, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread: ; preds = %2, %_ZNK17GrowableArrayViewIlE8containsERKl.exit
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %6, %19
-  br i1 %20, label %21, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
-
-21:                                               ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread
-  %22 = add nsw i32 %6, 1
-  %23 = icmp sgt i32 %6, -1
-  %24 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %22)
-  %25 = icmp ult i32 %24, 2
-  %or.cond.i.i.i.i = select i1 %23, i1 %25, i1 false
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %22, i32 %28
+18:                                               ; preds = %.loopexit
+  %19 = add nsw i32 %6, 1
+  %20 = icmp sgt i32 %6, -1
+  %21 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
+  %22 = icmp ult i32 %21, 2
+  %or.cond.i.i.i.i = select i1 %20, i1 %22, i1 false
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %24 = sub nuw nsw i32 32, %23
+  %25 = shl nuw i32 1, %24
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %19, i32 %25
   tail call void @_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %4, align 8
   br label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
 
-_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit: ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread, %21
-  %29 = phi i32 [ %.pre.i, %21 ], [ %6, %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread ]
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds i64, ptr %32, i64 %33
-  store i64 %5, ptr %34, align 8
-  br label %.critedge
+_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit: ; preds = %.loopexit, %18
+  %26 = phi i32 [ %.pre.i, %18 ], [ %6, %.loopexit ]
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %4, align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = sext i32 %26 to i64
+  %31 = getelementptr inbounds i64, ptr %29, i64 %30
+  store i64 %5, ptr %31, align 8
+  br label %_ZNK17GrowableArrayViewIlE8containsERKl.exit
 
-.critedge:                                        ; preds = %.lr.ph.i, %_ZNK17GrowableArrayViewIlE8containsERKl.exit, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
+_ZNK17GrowableArrayViewIlE8containsERKl.exit:     ; preds = %11, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit
   ret void
 }
 
@@ -6242,7 +6236,7 @@ define hidden void @_ZN14GenerateOopMap6pploadEP13CellTypeStatei(ptr nocapture n
 
 15:                                               ; preds = %.lr.ph, %_ZN14GenerateOopMap4pushE13CellTypeState.exit
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %_ZN14GenerateOopMap4pushE13CellTypeState.exit ]
-  %16 = phi i32 [ %4, %.lr.ph ], [ %128, %_ZN14GenerateOopMap4pushE13CellTypeState.exit ]
+  %16 = phi i32 [ %4, %.lr.ph ], [ %125, %_ZN14GenerateOopMap4pushE13CellTypeState.exit ]
   %.022 = phi ptr [ %1, %.lr.ph ], [ %17, %_ZN14GenerateOopMap4pushE13CellTypeState.exit ]
   %17 = getelementptr inbounds i8, ptr %.022, i64 4
   %18 = icmp slt i64 %indvars.iv, 0
@@ -6266,207 +6260,201 @@ _ZN14GenerateOopMap7get_varEi.exit:               ; preds = %22, %23
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4
   %26 = and i32 %16, -268435456
   %27 = icmp eq i32 %26, 1073741824
-  br i1 %27, label %28, label %116
+  br i1 %27, label %28, label %113
 
 28:                                               ; preds = %_ZN14GenerateOopMap7get_varEi.exit
   %29 = and i32 %.sroa.0.0.i, -268435456
   %30 = icmp eq i32 %29, 1073741824
-  br i1 %30, label %104, label %31
+  br i1 %30, label %101, label %31
 
 31:                                               ; preds = %28
   store i8 1, ptr %10, align 8
   %32 = icmp slt i32 %.sroa.0.0.i, 0
-  br i1 %32, label %33, label %64
+  br i1 %32, label %33, label %61
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %13, align 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i
+  br i1 %36, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %33
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = zext nneg i32 %35 to i64
-  %40 = load i64, ptr %38, align 8
-  %41 = icmp eq i64 %40, %indvars.iv
-  br i1 %41, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %35 to i64
+  br label %40
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %42
-  %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i.i, %42 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i4.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %39
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i, label %42, !llvm.loop !33
+39:                                               ; preds = %40
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %40, !llvm.loop !33
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv.next.i.i
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp eq i64 %44, %indvars.iv
-  br i1 %45, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.i, label %.lr.ph.i, !llvm.loop !33
+40:                                               ; preds = %39, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %39 ]
+  %41 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv.i.i
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp eq i64 %42, %indvars.iv
+  br i1 %43, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit, label %39
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit.i:   ; preds = %42
-  %46 = icmp ult i64 %indvars.iv.next.i.i, %39
-  br i1 %46, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i
+.loopexit.i:                                      ; preds = %39, %33
+  %44 = getelementptr inbounds i8, ptr %34, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %35, %45
+  br i1 %46, label %47, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i: ; preds = %.lr.ph.i, %_ZNK17GrowableArrayViewIlE8containsERKl.exit.i, %33
-  %47 = getelementptr inbounds i8, ptr %34, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %35, %48
-  br i1 %49, label %50, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i
-
-50:                                               ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i
-  %51 = add nsw i32 %35, 1
-  %52 = icmp sgt i32 %35, -1
-  %53 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %51)
-  %54 = icmp ult i32 %53, 2
-  %or.cond.i.i.i.i.i = select i1 %52, i1 %54, i1 false
-  %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
-  %56 = sub nuw nsw i32 32, %55
-  %57 = shl nuw i32 1, %56
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %51, i32 %57
+47:                                               ; preds = %.loopexit.i
+  %48 = add nsw i32 %35, 1
+  %49 = icmp sgt i32 %35, -1
+  %50 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %48)
+  %51 = icmp ult i32 %50, 2
+  %or.cond.i.i.i.i.i = select i1 %49, i1 %51, i1 false
+  %52 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
+  %53 = sub nuw nsw i32 32, %52
+  %54 = shl nuw i32 1, %53
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %48, i32 %54
   tail call void @_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %34, align 8
   br label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i
 
-_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i: ; preds = %50, %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i
-  %58 = phi i32 [ %.pre.i.i, %50 ], [ %35, %_ZNK17GrowableArrayViewIlE8containsERKl.exit.thread.i ]
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %34, align 8
-  %60 = getelementptr inbounds i8, ptr %34, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = sext i32 %58 to i64
-  %63 = getelementptr inbounds i64, ptr %61, i64 %62
-  store i64 %indvars.iv, ptr %63, align 8
+_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i: ; preds = %47, %.loopexit.i
+  %55 = phi i32 [ %.pre.i.i, %47 ], [ %35, %.loopexit.i ]
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %34, align 8
+  %57 = getelementptr inbounds i8, ptr %34, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = sext i32 %55 to i64
+  %60 = getelementptr inbounds i64, ptr %58, i64 %59
+  store i64 %indvars.iv, ptr %60, align 8
   br label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
 
-64:                                               ; preds = %31
-  %65 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %66, label %.loopexit.i
+61:                                               ; preds = %31
+  %62 = load ptr, ptr %11, align 8
+  %.not.i = icmp eq ptr %62, null
+  br i1 %.not.i, label %63, label %.loopexit.i9
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr %6, align 8
-  %68 = sext i32 %67 to i64
-  %69 = shl nsw i64 %68, 2
-  %70 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %69, i32 noundef 0) #18
-  store ptr %70, ptr %11, align 8
-  %71 = load i32, ptr %6, align 8
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.i9, label %.loopexit.i
+63:                                               ; preds = %61
+  %64 = load i32, ptr %6, align 8
+  %65 = sext i32 %64 to i64
+  %66 = shl nsw i64 %65, 2
+  %67 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %66, i32 noundef 0) #18
+  store ptr %67, ptr %11, align 8
+  %68 = load i32, ptr %6, align 8
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph.i, label %.loopexit.i9
 
-.lr.ph.i9:                                        ; preds = %66, %.lr.ph.i9
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i9 ], [ 0, %66 ]
-  %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv.i
-  %75 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %75, ptr %74, align 4
+.lr.ph.i:                                         ; preds = %63, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %63 ]
+  %70 = load ptr, ptr %11, align 8
+  %71 = getelementptr inbounds i32, ptr %70, i64 %indvars.iv.i
+  %72 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %72, ptr %71, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %76 = load i32, ptr %6, align 8
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next.i, %77
-  br i1 %78, label %.lr.ph.i9, label %.loopexit.loopexit.i, !llvm.loop !42
+  %73 = load i32, ptr %6, align 8
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next.i, %74
+  br i1 %75, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !42
 
-.loopexit.loopexit.i:                             ; preds = %.lr.ph.i9
+.loopexit.loopexit.i:                             ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %11, align 8
-  br label %.loopexit.i
+  br label %.loopexit.i9
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %66, %64
-  %79 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %70, %66 ], [ %65, %64 ]
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4
-  %82 = trunc nsw i64 %indvars.iv to i32
-  %83 = icmp eq i32 %81, %82
-  br i1 %83, label %84, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
+.loopexit.i9:                                     ; preds = %.loopexit.loopexit.i, %63, %61
+  %76 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %67, %63 ], [ %62, %61 ]
+  %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
+  %78 = load i32, ptr %77, align 4
+  %79 = trunc nsw i64 %indvars.iv to i32
+  %80 = icmp eq i32 %78, %79
+  br i1 %80, label %81, label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
 
-84:                                               ; preds = %.loopexit.i
-  %85 = load i32, ptr %6, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = add nsw i32 %86, %85
-  %88 = icmp sgt i32 %87, 65535
-  br i1 %88, label %89, label %90
+81:                                               ; preds = %.loopexit.i9
+  %82 = load i32, ptr %6, align 8
+  %83 = load i32, ptr %12, align 4
+  %84 = add nsw i32 %83, %82
+  %85 = icmp sgt i32 %84, 65535
+  br i1 %85, label %86, label %87
 
-89:                                               ; preds = %84
+86:                                               ; preds = %81
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79)
   br label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
 
-90:                                               ; preds = %84
-  store i32 %87, ptr %80, align 4
-  %91 = load i32, ptr %12, align 4
-  %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %12, align 4
+87:                                               ; preds = %81
+  store i32 %84, ptr %77, align 4
+  %88 = load i32, ptr %12, align 4
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %12, align 4
   br label %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
 
-_ZN14GenerateOopMap19add_to_ref_init_setEi.exit:  ; preds = %90, %89, %.loopexit.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i, %_ZNK17GrowableArrayViewIlE8containsERKl.exit.i, %.lr.ph.i.i
-  %93 = load i32, ptr %8, align 8
-  %94 = load i32, ptr %9, align 4
-  %.not.i10 = icmp slt i32 %93, %94
-  br i1 %.not.i10, label %96, label %95
+_ZN14GenerateOopMap19add_to_ref_init_setEi.exit:  ; preds = %40, %87, %86, %.loopexit.i9, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i
+  %90 = load i32, ptr %8, align 8
+  %91 = load i32, ptr %9, align 4
+  %.not.i10 = icmp slt i32 %90, %91
+  br i1 %.not.i10, label %93, label %92
 
-95:                                               ; preds = %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
+92:                                               ; preds = %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-96:                                               ; preds = %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
-  %97 = load ptr, ptr %7, align 8
-  %98 = load i32, ptr %6, align 8
-  %99 = sext i32 %98 to i64
+93:                                               ; preds = %_ZN14GenerateOopMap19add_to_ref_init_setEi.exit
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %6, align 8
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds %class.CellTypeState, ptr %94, i64 %96
+  %98 = add nsw i32 %90, 1
+  store i32 %98, ptr %8, align 8
+  %99 = sext i32 %90 to i64
   %100 = getelementptr inbounds %class.CellTypeState, ptr %97, i64 %99
-  %101 = add nsw i32 %93, 1
-  store i32 %101, ptr %8, align 8
-  %102 = sext i32 %93 to i64
-  %103 = getelementptr inbounds %class.CellTypeState, ptr %100, i64 %102
-  store i32 %16, ptr %103, align 4
+  store i32 %16, ptr %100, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-104:                                              ; preds = %28
-  %105 = load i32, ptr %8, align 8
-  %106 = load i32, ptr %9, align 4
-  %.not.i11 = icmp slt i32 %105, %106
-  br i1 %.not.i11, label %108, label %107
+101:                                              ; preds = %28
+  %102 = load i32, ptr %8, align 8
+  %103 = load i32, ptr %9, align 4
+  %.not.i11 = icmp slt i32 %102, %103
+  br i1 %.not.i11, label %105, label %104
 
-107:                                              ; preds = %104
+104:                                              ; preds = %101
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i32, ptr %6, align 8
-  %111 = sext i32 %110 to i64
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr %6, align 8
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %class.CellTypeState, ptr %106, i64 %108
+  %110 = add nsw i32 %102, 1
+  store i32 %110, ptr %8, align 8
+  %111 = sext i32 %102 to i64
   %112 = getelementptr inbounds %class.CellTypeState, ptr %109, i64 %111
-  %113 = add nsw i32 %105, 1
-  store i32 %113, ptr %8, align 8
-  %114 = sext i32 %105 to i64
-  %115 = getelementptr inbounds %class.CellTypeState, ptr %112, i64 %114
-  store i32 %.sroa.0.0.i, ptr %115, align 4
+  store i32 %.sroa.0.0.i, ptr %112, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-116:                                              ; preds = %_ZN14GenerateOopMap7get_varEi.exit
-  %117 = load i32, ptr %8, align 8
-  %118 = load i32, ptr %9, align 4
-  %.not.i13 = icmp slt i32 %117, %118
-  br i1 %.not.i13, label %120, label %119
+113:                                              ; preds = %_ZN14GenerateOopMap7get_varEi.exit
+  %114 = load i32, ptr %8, align 8
+  %115 = load i32, ptr %9, align 4
+  %.not.i13 = icmp slt i32 %114, %115
+  br i1 %.not.i13, label %117, label %116
 
-119:                                              ; preds = %116
+116:                                              ; preds = %113
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %7, align 8
-  %122 = load i32, ptr %6, align 8
-  %123 = sext i32 %122 to i64
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %6, align 8
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %class.CellTypeState, ptr %118, i64 %120
+  %122 = add nsw i32 %114, 1
+  store i32 %122, ptr %8, align 8
+  %123 = sext i32 %114 to i64
   %124 = getelementptr inbounds %class.CellTypeState, ptr %121, i64 %123
-  %125 = add nsw i32 %117, 1
-  store i32 %125, ptr %8, align 8
-  %126 = sext i32 %117 to i64
-  %127 = getelementptr inbounds %class.CellTypeState, ptr %124, i64 %126
-  store i32 %16, ptr %127, align 4
+  store i32 %16, ptr %124, align 4
   br label %_ZN14GenerateOopMap4pushE13CellTypeState.exit
 
-_ZN14GenerateOopMap4pushE13CellTypeState.exit:    ; preds = %120, %119, %108, %107, %96, %95
+_ZN14GenerateOopMap4pushE13CellTypeState.exit:    ; preds = %117, %116, %105, %104, %93, %92
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %128 = load i32, ptr %17, align 4
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %._crit_edge, label %15, !llvm.loop !43
+  %125 = load i32, ptr %17, align 4
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %._crit_edge, label %15, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %_ZN14GenerateOopMap4pushE13CellTypeState.exit, %3
   ret void
@@ -9157,8 +9145,8 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i10: ; preds = %_ZN9Bytecode
 _ZN9Bytecodes9length_atEP6MethodPh.exit.i11:      ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i10, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i13
   %130 = phi i32 [ %129, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i10 ], [ %128, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i13 ]
   %131 = icmp eq i32 %130, 4
-  %.not30 = or i1 %15, %131
-  %.not26 = or i1 %131, %23
+  %.not27 = or i1 %15, %131
+  %.not24 = or i1 %131, %23
   %.028.i = select i1 %131, i32 4, i32 %.mux20
   %.not = icmp eq i32 %.028.i, %130
   br i1 %.not, label %132, label %136
@@ -9171,7 +9159,7 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.i11:      ; preds = %_ZN9Bytecodes10leng
 
 136:                                              ; preds = %132, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i11
   %.0.i12 = phi ptr [ %135, %132 ], [ %4, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i11 ]
-  br i1 %.not30, label %138, label %137
+  br i1 %.not27, label %138, label %137
 
 137:                                              ; preds = %136
   store i8 %20, ptr %.0.i12, align 1
@@ -9179,7 +9167,7 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.i11:      ; preds = %_ZN9Bytecodes10leng
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %.0.i12, i64 1
-  br i1 %.not26, label %141, label %140
+  br i1 %.not24, label %141, label %140
 
 140:                                              ; preds = %138
   store i8 25, ptr %.0.i12, align 1
@@ -9295,35 +9283,29 @@ _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14Bytec
 .lr.ph.i.i:                                       ; preds = %181
   %185 = getelementptr inbounds i8, ptr %182, i64 8
   %186 = load ptr, ptr %185, align 8
-  %187 = zext nneg i32 %183 to i64
-  %188 = load i32, ptr %186, align 4
-  %189 = icmp eq i32 %188, %65
-  br i1 %189, label %.critedge19.backedge, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %183 to i64
+  br label %188
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %190
-  %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i.i, %190 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i34.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %187
-  br i1 %exitcond.not.i.i, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, label %190, !llvm.loop !56
+187:                                              ; preds = %188
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, label %188, !llvm.loop !56
 
-190:                                              ; preds = %.lr.ph.i
-  %191 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv.next.i.i
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, %65
-  br i1 %193, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.i, label %.lr.ph.i, !llvm.loop !56
+188:                                              ; preds = %187, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %187 ]
+  %189 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv.i.i
+  %190 = load i32, ptr %189, align 4
+  %191 = icmp eq i32 %190, %65
+  br i1 %191, label %.critedge19.backedge, label %187
 
-_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.i: ; preds = %190
-  %194 = icmp ult i64 %indvars.iv.next.i.i, %187
-  br i1 %194, label %.critedge19.backedge, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit
+_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit: ; preds = %187, %181
+  %192 = call noundef zeroext i1 @_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly %5, i32 noundef 58, i32 noundef 75, i32 noundef %2)
+  br i1 %192, label %.loopexit, label %.critedge19.backedge
 
-_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit: ; preds = %.lr.ph.i, %181, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.i
-  %195 = call noundef zeroext i1 @_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly %5, i32 noundef 58, i32 noundef 75, i32 noundef %2)
-  br i1 %195, label %.loopexit, label %.critedge19.backedge
-
-.critedge19.backedge:                             ; preds = %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit, %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, %.lr.ph.i.i, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.i
-  %196 = load i8, ptr %7, align 8
-  %197 = trunc i8 %196 to i1
-  br i1 %197, label %.critedge, label %.lr.ph
+.critedge19.backedge:                             ; preds = %188, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit, %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i
+  %193 = load i8, ptr %7, align 8
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.critedge18, %.critedge19.backedge, %_ZN14BytecodeStream4nextEv.exit.thread
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
@@ -9331,9 +9313,9 @@ _ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit: ; pr
 
 .loopexit:                                        ; preds = %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit.thread
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
-  %198 = load i8, ptr %7, align 8
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %.critedge2, label %.critedge18, !llvm.loop !57
+  %195 = load i8, ptr %7, align 8
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %.critedge2, label %.critedge18, !llvm.loop !57
 
 .critedge2:                                       ; preds = %.loopexit, %.critedge
   ret void
@@ -9411,7 +9393,7 @@ _ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit: ; preds = %9, %_ZNK14Byte
 
 41:                                               ; preds = %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit
   %42 = tail call noundef zeroext i1 @_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 noundef 25, i32 noundef 42, i32 noundef %3)
-  br label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread
+  br label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
 
 thread-pre-split:                                 ; preds = %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit
   %.pr = load i32, ptr %5, align 4
@@ -9419,7 +9401,7 @@ thread-pre-split:                                 ; preds = %_ZN14GenerateOopMap
 
 _ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread: ; preds = %4, %thread-pre-split
   %43 = phi i32 [ %.pr, %thread-pre-split ], [ %8, %4 ]
-  switch i32 %43, label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread [
+  switch i32 %43, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit [
     i32 75, label %44
     i32 76, label %44
     i32 77, label %44
@@ -9482,45 +9464,39 @@ _ZNK14BytecodeStream9get_indexEv.exit.i15:        ; preds = %70, %_ZNK18BaseByte
 _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit: ; preds = %44, %_ZNK14BytecodeStream9get_indexEv.exit.i15
   %.1 = phi i32 [ %75, %_ZNK14BytecodeStream9get_indexEv.exit.i15 ], [ %45, %44 ]
   %76 = icmp eq i32 %.1, %2
-  br i1 %76, label %77, label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread
+  br i1 %76, label %77, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
 
 77:                                               ; preds = %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit
   %78 = getelementptr inbounds i8, ptr %0, i64 168
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph.i, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.thread
+  br i1 %81, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %77
   %82 = getelementptr inbounds i8, ptr %79, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = zext nneg i32 %80 to i64
-  %85 = load i32, ptr %83, align 4
-  %86 = icmp eq i32 %85, %7
-  br i1 %86, label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %80 to i64
+  br label %85
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %87
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i, %87 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i34, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %84
-  br i1 %exitcond.not.i, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit, label %87, !llvm.loop !56
+84:                                               ; preds = %85
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %85, !llvm.loop !56
 
-87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv.next.i
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, %7
-  br i1 %90, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit, label %.lr.ph, !llvm.loop !56
+85:                                               ; preds = %84, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
+  %86 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv.i
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, %7
+  br i1 %88, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit, label %84
 
-_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit: ; preds = %87, %.lr.ph
-  %91 = icmp ult i64 %indvars.iv.next.i, %84
-  br i1 %91, label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.thread
+.loopexit:                                        ; preds = %84, %77
+  %89 = tail call noundef zeroext i1 @_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 noundef 58, i32 noundef 75, i32 noundef %3)
+  br label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
 
-_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.thread: ; preds = %77, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
-  %92 = tail call noundef zeroext i1 @_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 noundef 58, i32 noundef 75, i32 noundef %3)
-  br label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread
-
-_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.thread: ; preds = %.lr.ph.i, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.thread, %41
-  %.0 = phi i1 [ %42, %41 ], [ %92, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit.thread ], [ false, %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread ], [ false, %.lr.ph.i ]
+_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit: ; preds = %85, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit, %.loopexit, %41
+  %.0 = phi i1 [ %42, %41 ], [ %89, %.loopexit ], [ false, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit ], [ false, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread ], [ false, %85 ]
   ret i1 %.0
 }
 
@@ -9807,30 +9783,21 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap24stack_top_holds_ret_addrE
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp eq i32 %10, %1
-  br i1 %11, label %._crit_edge, label %.lr.ph10
+  br label %9
 
-.lr.ph10:                                         ; preds = %.lr.ph, %12
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
+9:                                                ; preds = %9, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !56
+  %or.cond = select i1 %12, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %9, !llvm.loop !56
 
-12:                                               ; preds = %.lr.ph10
-  %13 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, %1
-  br i1 %15, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !56
-
-._crit_edge.loopexit:                             ; preds = %12, %.lr.ph10
-  %16 = icmp ult i64 %indvars.iv.next, %9
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %16, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %9, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %12, %9 ]
   ret i1 %.lcssa
 }
 

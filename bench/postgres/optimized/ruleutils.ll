@@ -18970,7 +18970,7 @@ list_length.exit:                                 ; preds = %5
 75:                                               ; preds = %76
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond.not, label %.thread83, label %76
+  br i1 %exitcond.not, label %.thread83.thread116, label %76
 
 76:                                               ; preds = %.lr.ph107, %75
   %indvars.iv113 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next114, %75 ]
@@ -18998,10 +18998,7 @@ list_length.exit:                                 ; preds = %5
   call fastcc void @get_rule_windowspec(ptr noundef nonnull %78, ptr noundef %88, ptr noundef nonnull %1)
   br label %93
 
-.thread83:                                        ; preds = %75
-  br i1 %.not71, label %.thread83.thread, label %.thread83.thread116
-
-.thread83.thread116:                              ; preds = %.lr.ph103, %.thread83
+.thread83.thread116:                              ; preds = %75, %.lr.ph103
   %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds i8, ptr %0, i64 40
@@ -19010,7 +19007,7 @@ list_length.exit:                                 ; preds = %5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 10310, ptr noundef nonnull @__func__.get_windowfunc_expr_helper) #11
   unreachable
 
-.thread83.thread:                                 ; preds = %65, %.thread83
+.thread83.thread:                                 ; preds = %65
   call void @appendStringInfoString(ptr noundef %7, ptr noundef nonnull @.str.193) #11
   br label %93
 

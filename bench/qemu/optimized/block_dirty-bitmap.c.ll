@@ -1515,11 +1515,11 @@ for.body:                                         ; preds = %entry, %for.cond
   %bm.05 = phi ptr [ %bm.0, %for.cond ], [ %bm.03, %entry ]
   %name.i = getelementptr inbounds i8, ptr %bm.05, i64 32
   %0 = load ptr, ptr %name.i, align 8
-  %tobool1.not.not = icmp ne ptr %0, null
-  br i1 %tobool1.not.not, label %return, label %for.cond
+  %tobool1.not.not.not = icmp ne ptr %0, null
+  br i1 %tobool1.not.not.not, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %for.cond, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1.not.not, %for.cond ], [ %tobool1.not.not, %for.body ]
+  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1.not.not.not, %for.cond ], [ %tobool1.not.not.not, %for.body ]
   ret i1 %tobool.not.lcssa
 }
 

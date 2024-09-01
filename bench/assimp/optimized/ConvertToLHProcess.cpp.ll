@@ -1573,14 +1573,11 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
 
 if.end100:                                        ; preds = %for.body82, %for.end76
   %mColors.i = getelementptr inbounds i8, ptr %16, i64 1064
-  br i1 %cmp5790.not, label %for.inc128, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us.preheader
-
-_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us.preheader: ; preds = %if.end100
   %wide.trip.count135 = zext i32 %.fr to i64
   br label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us
 
-_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us.preheader, %for.inc125.us
-  %indvars.iv137 = phi i64 [ 0, %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us.preheader ], [ %indvars.iv.next138, %for.inc125.us ]
+_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %if.end100, %for.inc125.us
+  %indvars.iv137 = phi i64 [ 0, %if.end100 ], [ %indvars.iv.next138, %for.inc125.us ]
   %arrayidx.i77.us = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv137
   %35 = load ptr, ptr %arrayidx.i77.us, align 8
   %cmp2.i78.not.us = icmp eq ptr %35, null
@@ -1609,7 +1606,7 @@ for.inc125.us:                                    ; preds = %for.body109.us, %_Z
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 8
   br i1 %exitcond140.not, label %for.inc128, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, !llvm.loop !36
 
-for.inc128:                                       ; preds = %for.inc125.us, %if.end49, %if.end100
+for.inc128:                                       ; preds = %for.inc125.us, %if.end49
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %39 = load i32, ptr %mNumAnimMeshes, align 8
   %40 = zext i32 %39 to i64

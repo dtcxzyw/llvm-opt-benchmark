@@ -1927,33 +1927,28 @@ land.lhs.true64:                                  ; preds = %land.lhs.true
   %_M_finish.i.i.i195 = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load ptr, ptr %_M_finish.i.i.i195, align 8
   %2 = load ptr, ptr %d_list.i.i194, align 8
-  %sub.ptr.lhs.cast.i.i.i196 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i197 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i.i.i198 = sub i64 %sub.ptr.lhs.cast.i.i.i196, %sub.ptr.rhs.cast.i.i.i197
-  %sub.ptr.div.i.i.i199 = sdiv exact i64 %sub.ptr.sub.i.i.i198, 24
-  %cmp3.not.i200 = icmp eq ptr %1, %2
-  br i1 %cmp3.not.i200, label %land.lhs.true66, label %for.body.preheader.i201
+  %cmp3.not.i196 = icmp eq ptr %1, %2
+  br i1 %cmp3.not.i196, label %land.lhs.true66, label %for.body.preheader.i197
 
-for.body.preheader.i201:                          ; preds = %land.lhs.true64
-  %umax.i202 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i199, i64 1)
-  %call2.i206219 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef 0, i64 noundef %t)
-  br i1 %call2.i206219, label %land.end, label %for.cond.i207
+for.body.preheader.i197:                          ; preds = %land.lhs.true64
+  %sub.ptr.lhs.cast.i.i.i198 = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i199 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i.i.i200 = sub i64 %sub.ptr.lhs.cast.i.i.i198, %sub.ptr.rhs.cast.i.i.i199
+  %sub.ptr.div.i.i.i201 = sdiv exact i64 %sub.ptr.sub.i.i.i200, 24
+  %umax.i202 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i201, i64 1)
+  br label %for.body.i203
 
-for.cond.i207:                                    ; preds = %for.body.preheader.i201, %for.body.i203
-  %subIter.04.i205220 = phi i64 [ %inc.i208, %for.body.i203 ], [ 0, %for.body.preheader.i201 ]
-  %inc.i208 = add nuw i64 %subIter.04.i205220, 1
-  %exitcond.not.i210 = icmp eq i64 %inc.i208, %umax.i202
-  br i1 %exitcond.not.i210, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212, label %for.body.i203, !llvm.loop !10
+for.cond.i206:                                    ; preds = %for.body.i203
+  %inc.i207 = add nuw i64 %subIter.04.i204, 1
+  %exitcond.not.i208 = icmp eq i64 %inc.i207, %umax.i202
+  br i1 %exitcond.not.i208, label %land.lhs.true66, label %for.body.i203, !llvm.loop !10
 
-for.body.i203:                                    ; preds = %for.cond.i207
-  %call2.i206 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef %inc.i208, i64 noundef %t)
-  br i1 %call2.i206, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212, label %for.cond.i207, !llvm.loop !10
+for.body.i203:                                    ; preds = %for.cond.i206, %for.body.preheader.i197
+  %subIter.04.i204 = phi i64 [ %inc.i207, %for.cond.i206 ], [ 0, %for.body.preheader.i197 ]
+  %call2.i205 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef %subIter.04.i204, i64 noundef %t)
+  br i1 %call2.i205, label %land.end, label %for.cond.i206
 
-_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212: ; preds = %for.body.i203, %for.cond.i207
-  %cmp.i209.le = icmp ult i64 %inc.i208, %sub.ptr.div.i.i.i199
-  br i1 %cmp.i209.le, label %land.end, label %land.lhs.true66
-
-land.lhs.true66:                                  ; preds = %land.lhs.true64, %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212
+land.lhs.true66:                                  ; preds = %for.cond.i206, %land.lhs.true64
   %call67 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver12triviallySatEm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %t)
   br i1 %call67, label %land.end, label %land.rhs
 
@@ -1962,8 +1957,8 @@ land.rhs:                                         ; preds = %land.lhs.true66
   %lnot69 = xor i1 %call68, true
   br label %land.end
 
-land.end:                                         ; preds = %for.body.preheader.i201, %land.rhs, %land.lhs.true66, %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212, %land.lhs.true, %cond.end61
-  %3 = phi i1 [ false, %land.lhs.true66 ], [ false, %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit212 ], [ false, %land.lhs.true ], [ false, %cond.end61 ], [ %lnot69, %land.rhs ], [ false, %for.body.preheader.i201 ]
+land.end:                                         ; preds = %for.body.i203, %land.rhs, %land.lhs.true66, %land.lhs.true, %cond.end61
+  %3 = phi i1 [ false, %land.lhs.true66 ], [ false, %land.lhs.true ], [ false, %cond.end61 ], [ %lnot69, %land.rhs ], [ false, %for.body.i203 ]
   ret i1 %3
 }
 
@@ -2052,34 +2047,27 @@ entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %d_list.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp3.not = icmp eq ptr %0, %1
   br i1 %cmp3.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %call27 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef 0, i64 noundef %i)
-  br i1 %call27, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %subIter.048 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i64 %subIter.048, 1
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %subIter.04 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.body ]
+  %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %subIter.04, i64 noundef %i)
+  %inc = add nuw i64 %subIter.04, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !10
+  %or.cond = select i1 %call2, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !10
 
-for.body:                                         ; preds = %for.cond
-  %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %inc, i64 noundef %i)
-  br i1 %call2, label %return.loopexit, label %for.cond, !llvm.loop !10
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %inc, %sub.ptr.div.i.i
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %call2, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -8128,9 +8116,9 @@ terminate.lpad.i.i111:                            ; preds = %cleanup69.critedge
   call void @__clang_call_terminate(ptr %122) #25
   unreachable
 
-cleanup69:                                        ; preds = %cleanup, %cleanup69.critedge, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit
-  %nrvo.2 = phi i1 [ false, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit ], [ true, %cleanup69.critedge ], [ false, %cleanup ]
-  %cond2 = phi i1 [ true, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit ], [ false, %cleanup69.critedge ], [ true, %cleanup ]
+cleanup69:                                        ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit, %cleanup, %cleanup69.critedge
+  %nrvo.2 = phi i1 [ true, %cleanup69.critedge ], [ false, %cleanup ], [ false, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit ]
+  %cond2 = phi i1 [ false, %cleanup69.critedge ], [ true, %cleanup ], [ true, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_7IntegerEED2Ev.exit ]
   invoke void @__gmpz_clear(ptr noundef nonnull %zc)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit114 unwind label %terminate.lpad.i.i113
 

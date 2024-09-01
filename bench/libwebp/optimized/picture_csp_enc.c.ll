@@ -922,7 +922,7 @@ CheckNonOpaque.exit:                              ; preds = %31, %28, %24, %21, 
   store i32 0, ptr %8, align 8
   %38 = tail call i32 @WebPPictureAllocYUVA(ptr noundef nonnull %8) #9
   %.not196 = icmp eq i32 %38, 0
-  br i1 %.not196, label %364, label %39
+  br i1 %.not196, label %363, label %39
 
 39:                                               ; preds = %CheckNonOpaque.exit
   %40 = icmp slt i32 %12, 4
@@ -962,7 +962,7 @@ PreprocessARGB.exit:                              ; preds = %42, %58
   %brmerge = or i1 %.not299, %.0.i208
   %not..0.i208 = xor i1 %.0.i208, true
   %.mux = zext i1 %not..0.i208 to i32
-  br i1 %brmerge, label %364, label %61
+  br i1 %brmerge, label %363, label %61
 
 61:                                               ; preds = %PreprocessARGB.exit
   %62 = load ptr, ptr @WebPExtractAlpha, align 8
@@ -971,7 +971,7 @@ PreprocessARGB.exit:                              ; preds = %42, %58
   %65 = getelementptr inbounds i8, ptr %8, i64 56
   %66 = load i32, ptr %65, align 8
   %67 = tail call i32 %62(ptr noundef %3, i32 noundef %5, i32 noundef %12, i32 noundef %14, ptr noundef %64, i32 noundef %66) #9
-  br label %364
+  br label %363
 
 68:                                               ; preds = %39
   %69 = add nsw i32 %12, 1
@@ -1084,18 +1084,18 @@ InitGammaTables.exit:                             ; preds = %86, %InitGammaTable
 
 122:                                              ; preds = %InitGammaTables.exit
   %123 = call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #9
-  br label %364
+  br label %363
 
-124:                                              ; preds = %.lr.ph, %279
-  %.0180280 = phi ptr [ %83, %.lr.ph ], [ %.1264, %279 ]
-  %.0181279 = phi ptr [ %81, %.lr.ph ], [ %283, %279 ]
-  %.0182278 = phi ptr [ %79, %.lr.ph ], [ %282, %279 ]
-  %.0183277 = phi ptr [ %77, %.lr.ph ], [ %264, %279 ]
-  %.0186276 = phi ptr [ %0, %.lr.ph ], [ %284, %279 ]
-  %.0187275 = phi ptr [ %1, %.lr.ph ], [ %286, %279 ]
-  %.0188274 = phi ptr [ %2, %.lr.ph ], [ %285, %279 ]
-  %.0189273 = phi ptr [ %3, %.lr.ph ], [ %spec.select206, %279 ]
-  %.0192272 = phi i32 [ 0, %.lr.ph ], [ %287, %279 ]
+124:                                              ; preds = %.lr.ph, %278
+  %.0180280 = phi ptr [ %83, %.lr.ph ], [ %.1264, %278 ]
+  %.0181279 = phi ptr [ %81, %.lr.ph ], [ %282, %278 ]
+  %.0182278 = phi ptr [ %79, %.lr.ph ], [ %281, %278 ]
+  %.0183277 = phi ptr [ %77, %.lr.ph ], [ %263, %278 ]
+  %.0186276 = phi ptr [ %0, %.lr.ph ], [ %283, %278 ]
+  %.0187275 = phi ptr [ %1, %.lr.ph ], [ %285, %278 ]
+  %.0188274 = phi ptr [ %2, %.lr.ph ], [ %284, %278 ]
+  %.0189273 = phi ptr [ %3, %.lr.ph ], [ %spec.select206, %278 ]
+  %.0192272 = phi i32 [ 0, %.lr.ph ], [ %286, %278 ]
   br i1 %.not202, label %131, label %ConvertRowToY.exit227.sink.split
 
 ConvertRowToY.exit227.sink.split:                 ; preds = %124
@@ -1198,314 +1198,310 @@ RGBToY.exit.i:                                    ; preds = %.lr.ph.i210, %RGBTo
   br i1 %exitcond.not.i, label %ConvertRowToY.exit.thread, label %RGBToY.exit.i, !llvm.loop !15
 
 ConvertRowToY.exit.thread:                        ; preds = %RGBToY.exit.i
-  %190 = load i32, ptr %114, align 8
-  %191 = sext i32 %190 to i64
-  br label %RGBToY.exit.i213.preheader
+  %190 = getelementptr inbounds i8, ptr %.0186276, i64 %113
+  %191 = getelementptr inbounds i8, ptr %.0187275, i64 %113
+  %192 = getelementptr inbounds i8, ptr %.0188274, i64 %113
+  %193 = load i32, ptr %114, align 8
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %.0183277, i64 %194
+  br label %RGBToY.exit.i213
 
 ConvertRowToY.exit:                               ; preds = %RGBToY.exit.us.i
-  %192 = getelementptr inbounds i8, ptr %.0186276, i64 %113
-  %193 = getelementptr inbounds i8, ptr %.0187275, i64 %113
-  %194 = getelementptr inbounds i8, ptr %.0188274, i64 %113
-  %195 = load i32, ptr %114, align 8
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i8, ptr %.0183277, i64 %196
-  br i1 %116, label %RGBToY.exit.us.i221, label %RGBToY.exit.i213.preheader
-
-RGBToY.exit.i213.preheader:                       ; preds = %ConvertRowToY.exit.thread, %ConvertRowToY.exit
-  %198 = phi i64 [ %191, %ConvertRowToY.exit.thread ], [ %196, %ConvertRowToY.exit ]
-  %199 = getelementptr inbounds i8, ptr %.0183277, i64 %198
-  %200 = getelementptr inbounds i8, ptr %.0188274, i64 %113
-  %201 = getelementptr inbounds i8, ptr %.0187275, i64 %113
-  %202 = getelementptr inbounds i8, ptr %.0186276, i64 %113
-  br label %RGBToY.exit.i213
+  %196 = getelementptr inbounds i8, ptr %.0186276, i64 %113
+  %197 = getelementptr inbounds i8, ptr %.0187275, i64 %113
+  %198 = getelementptr inbounds i8, ptr %.0188274, i64 %113
+  %199 = load i32, ptr %114, align 8
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds i8, ptr %.0183277, i64 %200
+  br label %RGBToY.exit.us.i221
 
 RGBToY.exit.us.i221:                              ; preds = %ConvertRowToY.exit, %RGBToY.exit.us.i221
   %indvars.iv24.i222 = phi i64 [ %indvars.iv.next25.i224, %RGBToY.exit.us.i221 ], [ 0, %ConvertRowToY.exit ]
   %indvars.iv22.i223 = phi i64 [ %indvars.iv.next23.i225, %RGBToY.exit.us.i221 ], [ 0, %ConvertRowToY.exit ]
-  %203 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv22.i223
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = getelementptr inbounds i8, ptr %193, i64 %indvars.iv22.i223
-  %207 = load i8, ptr %206, align 1
-  %208 = zext i8 %207 to i32
-  %209 = getelementptr inbounds i8, ptr %194, i64 %indvars.iv22.i223
-  %210 = load i8, ptr %209, align 1
-  %211 = zext i8 %210 to i32
-  %212 = mul nuw nsw i32 %205, 16839
-  %213 = mul nuw nsw i32 %208, 33059
-  %214 = mul nuw nsw i32 %211, 6420
-  %215 = add nuw nsw i32 %212, 1081344
+  %202 = getelementptr inbounds i8, ptr %196, i64 %indvars.iv22.i223
+  %203 = load i8, ptr %202, align 1
+  %204 = zext i8 %203 to i32
+  %205 = getelementptr inbounds i8, ptr %197, i64 %indvars.iv22.i223
+  %206 = load i8, ptr %205, align 1
+  %207 = zext i8 %206 to i32
+  %208 = getelementptr inbounds i8, ptr %198, i64 %indvars.iv22.i223
+  %209 = load i8, ptr %208, align 1
+  %210 = zext i8 %209 to i32
+  %211 = mul nuw nsw i32 %204, 16839
+  %212 = mul nuw nsw i32 %207, 33059
+  %213 = mul nuw nsw i32 %210, 6420
+  %214 = add nuw nsw i32 %211, 1081344
+  %215 = add nuw nsw i32 %214, %212
   %216 = add nuw nsw i32 %215, %213
-  %217 = add nuw nsw i32 %216, %214
-  %218 = lshr i32 %217, 16
-  %219 = trunc nuw i32 %218 to i8
-  %220 = getelementptr inbounds i8, ptr %197, i64 %indvars.iv24.i222
-  store i8 %219, ptr %220, align 1
+  %217 = lshr i32 %216, 16
+  %218 = trunc nuw i32 %217 to i8
+  %219 = getelementptr inbounds i8, ptr %201, i64 %indvars.iv24.i222
+  store i8 %218, ptr %219, align 1
   %indvars.iv.next25.i224 = add nuw nsw i64 %indvars.iv24.i222, 1
   %indvars.iv.next23.i225 = add nsw i64 %indvars.iv22.i223, %117
   %exitcond30.not.i226 = icmp eq i64 %indvars.iv.next25.i224, %wide.trip.count29.i
   br i1 %exitcond30.not.i226, label %ConvertRowToY.exit227, label %RGBToY.exit.us.i221, !llvm.loop !15
 
-RGBToY.exit.i213:                                 ; preds = %RGBToY.exit.i213.preheader, %RGBToY.exit.i213
-  %indvars.iv17.i214 = phi i64 [ %indvars.iv.next18.i218, %RGBToY.exit.i213 ], [ 0, %RGBToY.exit.i213.preheader ]
-  %indvars.iv.i215 = phi i64 [ %indvars.iv.next.i219, %RGBToY.exit.i213 ], [ 0, %RGBToY.exit.i213.preheader ]
-  %221 = getelementptr inbounds i8, ptr %202, i64 %indvars.iv.i215
-  %222 = load i8, ptr %221, align 1
-  %223 = zext i8 %222 to i32
-  %224 = getelementptr inbounds i8, ptr %201, i64 %indvars.iv.i215
-  %225 = load i8, ptr %224, align 1
-  %226 = zext i8 %225 to i32
-  %227 = getelementptr inbounds i8, ptr %200, i64 %indvars.iv.i215
-  %228 = load i8, ptr %227, align 1
-  %229 = zext i8 %228 to i32
-  %230 = load i32, ptr %.0179.sroa.phi, align 4
-  %231 = load i32, ptr %.0179, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %232
-  %234 = load i32, ptr %233, align 4
-  %235 = load i32, ptr %.0179.sroa.phi247, align 4
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %236
-  %238 = load i32, ptr %237, align 4
-  %239 = sub i32 %234, %238
-  %240 = and i32 %239, 2147483647
-  store i32 %240, ptr %233, align 4
-  %241 = load i32, ptr %.0179, align 4
-  %242 = add nsw i32 %241, 1
-  %243 = icmp eq i32 %242, 55
-  %storemerge.i.i.i.i216 = select i1 %243, i32 0, i32 %242
+RGBToY.exit.i213:                                 ; preds = %ConvertRowToY.exit.thread, %RGBToY.exit.i213
+  %indvars.iv17.i214 = phi i64 [ %indvars.iv.next18.i218, %RGBToY.exit.i213 ], [ 0, %ConvertRowToY.exit.thread ]
+  %indvars.iv.i215 = phi i64 [ %indvars.iv.next.i219, %RGBToY.exit.i213 ], [ 0, %ConvertRowToY.exit.thread ]
+  %220 = getelementptr inbounds i8, ptr %190, i64 %indvars.iv.i215
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i32
+  %223 = getelementptr inbounds i8, ptr %191, i64 %indvars.iv.i215
+  %224 = load i8, ptr %223, align 1
+  %225 = zext i8 %224 to i32
+  %226 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv.i215
+  %227 = load i8, ptr %226, align 1
+  %228 = zext i8 %227 to i32
+  %229 = load i32, ptr %.0179.sroa.phi, align 4
+  %230 = load i32, ptr %.0179, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %231
+  %233 = load i32, ptr %232, align 4
+  %234 = load i32, ptr %.0179.sroa.phi247, align 4
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %235
+  %237 = load i32, ptr %236, align 4
+  %238 = sub i32 %233, %237
+  %239 = and i32 %238, 2147483647
+  store i32 %239, ptr %232, align 4
+  %240 = load i32, ptr %.0179, align 4
+  %241 = add nsw i32 %240, 1
+  %242 = icmp eq i32 %241, 55
+  %storemerge.i.i.i.i216 = select i1 %242, i32 0, i32 %241
   store i32 %storemerge.i.i.i.i216, ptr %.0179, align 4
-  %244 = load i32, ptr %.0179.sroa.phi247, align 4
-  %245 = add nsw i32 %244, 1
-  %246 = icmp eq i32 %245, 55
-  %storemerge20.i.i.i.i217 = select i1 %246, i32 0, i32 %245
+  %243 = load i32, ptr %.0179.sroa.phi247, align 4
+  %244 = add nsw i32 %243, 1
+  %245 = icmp eq i32 %244, 55
+  %storemerge20.i.i.i.i217 = select i1 %245, i32 0, i32 %244
   store i32 %storemerge20.i.i.i.i217, ptr %.0179.sroa.phi247, align 4
-  %247 = shl nuw i32 %240, 1
-  %248 = ashr i32 %247, 16
-  %249 = mul nsw i32 %248, %230
-  %250 = lshr i32 %249, 8
-  %251 = mul nuw nsw i32 %223, 16839
-  %252 = mul nuw nsw i32 %226, 33059
-  %253 = mul nuw nsw i32 %229, 6420
-  %254 = add nuw nsw i32 %251, 1081344
+  %246 = shl nuw i32 %239, 1
+  %247 = ashr i32 %246, 16
+  %248 = mul nsw i32 %247, %229
+  %249 = lshr i32 %248, 8
+  %250 = mul nuw nsw i32 %222, 16839
+  %251 = mul nuw nsw i32 %225, 33059
+  %252 = mul nuw nsw i32 %228, 6420
+  %253 = add nuw nsw i32 %250, 1081344
+  %254 = add nuw nsw i32 %253, %251
   %255 = add nuw nsw i32 %254, %252
-  %256 = add nuw nsw i32 %255, %253
-  %257 = add nuw nsw i32 %256, %250
-  %258 = lshr i32 %257, 16
-  %259 = trunc i32 %258 to i8
-  %260 = getelementptr inbounds i8, ptr %199, i64 %indvars.iv17.i214
-  store i8 %259, ptr %260, align 1
+  %256 = add nuw nsw i32 %255, %249
+  %257 = lshr i32 %256, 16
+  %258 = trunc i32 %257 to i8
+  %259 = getelementptr inbounds i8, ptr %195, i64 %indvars.iv17.i214
+  store i8 %258, ptr %259, align 1
   %indvars.iv.next18.i218 = add nuw nsw i64 %indvars.iv17.i214, 1
   %indvars.iv.next.i219 = add nsw i64 %indvars.iv.i215, %117
   %exitcond.not.i220 = icmp eq i64 %indvars.iv.next18.i218, %wide.trip.count29.i
   br i1 %exitcond.not.i220, label %ConvertRowToY.exit227, label %RGBToY.exit.i213, !llvm.loop !15
 
 ConvertRowToY.exit227:                            ; preds = %RGBToY.exit.i213, %RGBToY.exit.us.i221, %ConvertRowToY.exit227.sink.split, %131
-  %261 = load i32, ptr %114, align 8
-  %262 = shl nsw i32 %261, 1
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i8, ptr %.0183277, i64 %263
-  br i1 %.not299, label %273, label %265
+  %260 = load i32, ptr %114, align 8
+  %261 = shl nsw i32 %260, 1
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds i8, ptr %.0183277, i64 %262
+  br i1 %.not299, label %272, label %264
 
-265:                                              ; preds = %ConvertRowToY.exit227
-  %266 = load ptr, ptr @WebPExtractAlpha, align 8
-  %267 = load i32, ptr %118, align 8
-  %268 = call i32 %266(ptr noundef %.0189273, i32 noundef %5, i32 noundef %12, i32 noundef 2, ptr noundef %.0180280, i32 noundef %267) #9
-  %.not203 = icmp eq i32 %268, 0
-  %269 = load i32, ptr %118, align 8
-  %270 = shl nsw i32 %269, 1
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i8, ptr %.0180280, i64 %271
-  br i1 %.not203, label %274, label %273
+264:                                              ; preds = %ConvertRowToY.exit227
+  %265 = load ptr, ptr @WebPExtractAlpha, align 8
+  %266 = load i32, ptr %118, align 8
+  %267 = call i32 %265(ptr noundef %.0189273, i32 noundef %5, i32 noundef %12, i32 noundef 2, ptr noundef %.0180280, i32 noundef %266) #9
+  %.not203 = icmp eq i32 %267, 0
+  %268 = load i32, ptr %118, align 8
+  %269 = shl nsw i32 %268, 1
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds i8, ptr %.0180280, i64 %270
+  br i1 %.not203, label %273, label %272
 
-273:                                              ; preds = %265, %ConvertRowToY.exit227
-  %.1.ph = phi ptr [ %.0180280, %ConvertRowToY.exit227 ], [ %272, %265 ]
+272:                                              ; preds = %264, %ConvertRowToY.exit227
+  %.1.ph = phi ptr [ %.0180280, %ConvertRowToY.exit227 ], [ %271, %264 ]
   call fastcc void @AccumulateRGB(ptr noundef %.0186276, ptr noundef %.0187275, ptr noundef %.0188274, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %75, i32 noundef %12)
-  br label %275
+  br label %274
 
-274:                                              ; preds = %265
+273:                                              ; preds = %264
   call fastcc void @AccumulateRGBA(ptr noundef %.0186276, ptr noundef %.0187275, ptr noundef %.0188274, ptr noundef %.0189273, i32 noundef %5, ptr noundef nonnull %75, i32 noundef %12)
-  br label %275
+  br label %274
 
-275:                                              ; preds = %274, %273
-  %.1264 = phi ptr [ %272, %274 ], [ %.1.ph, %273 ]
-  br i1 %116, label %276, label %278
+274:                                              ; preds = %273, %272
+  %.1264 = phi ptr [ %271, %273 ], [ %.1.ph, %272 ]
+  br i1 %116, label %275, label %277
 
-276:                                              ; preds = %275
-  %277 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8
-  call void %277(ptr noundef nonnull %75, ptr noundef %.0182278, ptr noundef %.0181279, i32 noundef %70) #9
-  br label %279
+275:                                              ; preds = %274
+  %276 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8
+  call void %276(ptr noundef nonnull %75, ptr noundef %.0182278, ptr noundef %.0181279, i32 noundef %70) #9
+  br label %278
 
-278:                                              ; preds = %275
+277:                                              ; preds = %274
   call fastcc void @ConvertRowsToUV(ptr noundef nonnull %75, ptr noundef %.0182278, ptr noundef %.0181279, i32 noundef %70, ptr noundef nonnull %.0179)
-  br label %279
+  br label %278
 
-279:                                              ; preds = %278, %276
-  %280 = load i32, ptr %119, align 4
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds i8, ptr %.0182278, i64 %281
-  %283 = getelementptr inbounds i8, ptr %.0181279, i64 %281
-  %284 = getelementptr inbounds i8, ptr %.0186276, i64 %121
-  %285 = getelementptr inbounds i8, ptr %.0188274, i64 %121
-  %286 = getelementptr inbounds i8, ptr %.0187275, i64 %121
+278:                                              ; preds = %277, %275
+  %279 = load i32, ptr %119, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds i8, ptr %.0182278, i64 %280
+  %282 = getelementptr inbounds i8, ptr %.0181279, i64 %280
+  %283 = getelementptr inbounds i8, ptr %.0186276, i64 %121
+  %284 = getelementptr inbounds i8, ptr %.0188274, i64 %121
+  %285 = getelementptr inbounds i8, ptr %.0187275, i64 %121
   %spec.select206 = getelementptr inbounds i8, ptr %.0189273, i64 %spec.select206.idx
-  %287 = add nuw nsw i32 %.0192272, 1
-  %exitcond.not = icmp eq i32 %287, %111
+  %286 = add nuw nsw i32 %.0192272, 1
+  %exitcond.not = icmp eq i32 %286, %111
   br i1 %exitcond.not, label %._crit_edge, label %124, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %279, %.preheader
-  %.0189.lcssa = phi ptr [ %3, %.preheader ], [ %spec.select206, %279 ]
-  %.0188.lcssa = phi ptr [ %2, %.preheader ], [ %285, %279 ]
-  %.0187.lcssa = phi ptr [ %1, %.preheader ], [ %286, %279 ]
-  %.0186.lcssa = phi ptr [ %0, %.preheader ], [ %284, %279 ]
-  %.0183.lcssa = phi ptr [ %77, %.preheader ], [ %264, %279 ]
-  %.0182.lcssa = phi ptr [ %79, %.preheader ], [ %282, %279 ]
-  %.0181.lcssa = phi ptr [ %81, %.preheader ], [ %283, %279 ]
-  %.0180.lcssa = phi ptr [ %83, %.preheader ], [ %.1264, %279 ]
-  %288 = and i32 %14, 1
-  %.not198 = icmp eq i32 %288, 0
-  br i1 %.not198, label %363, label %289
+._crit_edge:                                      ; preds = %278, %.preheader
+  %.0189.lcssa = phi ptr [ %3, %.preheader ], [ %spec.select206, %278 ]
+  %.0188.lcssa = phi ptr [ %2, %.preheader ], [ %284, %278 ]
+  %.0187.lcssa = phi ptr [ %1, %.preheader ], [ %285, %278 ]
+  %.0186.lcssa = phi ptr [ %0, %.preheader ], [ %283, %278 ]
+  %.0183.lcssa = phi ptr [ %77, %.preheader ], [ %263, %278 ]
+  %.0182.lcssa = phi ptr [ %79, %.preheader ], [ %281, %278 ]
+  %.0181.lcssa = phi ptr [ %81, %.preheader ], [ %282, %278 ]
+  %.0180.lcssa = phi ptr [ %83, %.preheader ], [ %.1264, %278 ]
+  %287 = and i32 %14, 1
+  %.not198 = icmp eq i32 %287, 0
+  br i1 %.not198, label %362, label %288
 
-289:                                              ; preds = %._crit_edge
+288:                                              ; preds = %._crit_edge
   %.not199 = icmp eq i32 %.0185, 0
-  br i1 %.not199, label %292, label %ConvertRowToY.exit244.sink.split
+  br i1 %.not199, label %291, label %ConvertRowToY.exit244.sink.split
 
-ConvertRowToY.exit244.sink.split:                 ; preds = %289
-  %290 = icmp ult ptr %.0186.lcssa, %.0188.lcssa
-  %.0186.lcssa..0188.lcssa = select i1 %290, ptr %.0186.lcssa, ptr %.0188.lcssa
+ConvertRowToY.exit244.sink.split:                 ; preds = %288
+  %289 = icmp ult ptr %.0186.lcssa, %.0188.lcssa
+  %.0186.lcssa..0188.lcssa = select i1 %289, ptr %.0186.lcssa, ptr %.0188.lcssa
   %WebPConvertRGB24ToY.val = load ptr, ptr @WebPConvertRGB24ToY, align 8
   %WebPConvertBGR24ToY.val = load ptr, ptr @WebPConvertBGR24ToY, align 8
-  %291 = select i1 %290, ptr %WebPConvertRGB24ToY.val, ptr %WebPConvertBGR24ToY.val
-  call void %291(ptr noundef %.0186.lcssa..0188.lcssa, ptr noundef %.0183.lcssa, i32 noundef %12) #9
+  %290 = select i1 %289, ptr %WebPConvertRGB24ToY.val, ptr %WebPConvertBGR24ToY.val
+  call void %290(ptr noundef %.0186.lcssa..0188.lcssa, ptr noundef %.0183.lcssa, i32 noundef %12) #9
   br label %ConvertRowToY.exit244
 
-292:                                              ; preds = %289
-  %293 = icmp sgt i32 %12, 0
-  br i1 %293, label %.lr.ph.i228, label %ConvertRowToY.exit244
+291:                                              ; preds = %288
+  %292 = icmp sgt i32 %12, 0
+  br i1 %292, label %.lr.ph.i228, label %ConvertRowToY.exit244
 
-.lr.ph.i228:                                      ; preds = %292
-  %294 = icmp eq ptr %.0179, null
-  %295 = sext i32 %4 to i64
+.lr.ph.i228:                                      ; preds = %291
+  %293 = icmp eq ptr %.0179, null
+  %294 = sext i32 %4 to i64
   %wide.trip.count29.i229 = zext nneg i32 %12 to i64
-  br i1 %294, label %RGBToY.exit.us.i238, label %RGBToY.exit.i230
+  br i1 %293, label %RGBToY.exit.us.i238, label %RGBToY.exit.i230
 
 RGBToY.exit.us.i238:                              ; preds = %.lr.ph.i228, %RGBToY.exit.us.i238
   %indvars.iv24.i239 = phi i64 [ %indvars.iv.next25.i241, %RGBToY.exit.us.i238 ], [ 0, %.lr.ph.i228 ]
   %indvars.iv22.i240 = phi i64 [ %indvars.iv.next23.i242, %RGBToY.exit.us.i238 ], [ 0, %.lr.ph.i228 ]
-  %296 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv22.i240
-  %297 = load i8, ptr %296, align 1
-  %298 = zext i8 %297 to i32
-  %299 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv22.i240
-  %300 = load i8, ptr %299, align 1
-  %301 = zext i8 %300 to i32
-  %302 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv22.i240
-  %303 = load i8, ptr %302, align 1
-  %304 = zext i8 %303 to i32
-  %305 = mul nuw nsw i32 %298, 16839
-  %306 = mul nuw nsw i32 %301, 33059
-  %307 = mul nuw nsw i32 %304, 6420
-  %308 = add nuw nsw i32 %305, 1081344
+  %295 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv22.i240
+  %296 = load i8, ptr %295, align 1
+  %297 = zext i8 %296 to i32
+  %298 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv22.i240
+  %299 = load i8, ptr %298, align 1
+  %300 = zext i8 %299 to i32
+  %301 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv22.i240
+  %302 = load i8, ptr %301, align 1
+  %303 = zext i8 %302 to i32
+  %304 = mul nuw nsw i32 %297, 16839
+  %305 = mul nuw nsw i32 %300, 33059
+  %306 = mul nuw nsw i32 %303, 6420
+  %307 = add nuw nsw i32 %304, 1081344
+  %308 = add nuw nsw i32 %307, %305
   %309 = add nuw nsw i32 %308, %306
-  %310 = add nuw nsw i32 %309, %307
-  %311 = lshr i32 %310, 16
-  %312 = trunc nuw i32 %311 to i8
-  %313 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv24.i239
-  store i8 %312, ptr %313, align 1
+  %310 = lshr i32 %309, 16
+  %311 = trunc nuw i32 %310 to i8
+  %312 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv24.i239
+  store i8 %311, ptr %312, align 1
   %indvars.iv.next25.i241 = add nuw nsw i64 %indvars.iv24.i239, 1
-  %indvars.iv.next23.i242 = add nsw i64 %indvars.iv22.i240, %295
+  %indvars.iv.next23.i242 = add nsw i64 %indvars.iv22.i240, %294
   %exitcond30.not.i243 = icmp eq i64 %indvars.iv.next25.i241, %wide.trip.count29.i229
   br i1 %exitcond30.not.i243, label %ConvertRowToY.exit244, label %RGBToY.exit.us.i238, !llvm.loop !15
 
 RGBToY.exit.i230:                                 ; preds = %.lr.ph.i228, %RGBToY.exit.i230
   %indvars.iv17.i231 = phi i64 [ %indvars.iv.next18.i235, %RGBToY.exit.i230 ], [ 0, %.lr.ph.i228 ]
   %indvars.iv.i232 = phi i64 [ %indvars.iv.next.i236, %RGBToY.exit.i230 ], [ 0, %.lr.ph.i228 ]
-  %314 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv.i232
-  %315 = load i8, ptr %314, align 1
-  %316 = zext i8 %315 to i32
-  %317 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv.i232
-  %318 = load i8, ptr %317, align 1
-  %319 = zext i8 %318 to i32
-  %320 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv.i232
-  %321 = load i8, ptr %320, align 1
-  %322 = zext i8 %321 to i32
-  %323 = load i32, ptr %.0179.sroa.phi, align 4
-  %324 = load i32, ptr %.0179, align 4
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %325
-  %327 = load i32, ptr %326, align 4
-  %328 = load i32, ptr %.0179.sroa.phi247, align 4
-  %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %329
-  %331 = load i32, ptr %330, align 4
-  %332 = sub i32 %327, %331
-  %333 = and i32 %332, 2147483647
-  store i32 %333, ptr %326, align 4
-  %334 = load i32, ptr %.0179, align 4
-  %335 = add nsw i32 %334, 1
-  %336 = icmp eq i32 %335, 55
-  %storemerge.i.i.i.i233 = select i1 %336, i32 0, i32 %335
+  %313 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv.i232
+  %314 = load i8, ptr %313, align 1
+  %315 = zext i8 %314 to i32
+  %316 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv.i232
+  %317 = load i8, ptr %316, align 1
+  %318 = zext i8 %317 to i32
+  %319 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv.i232
+  %320 = load i8, ptr %319, align 1
+  %321 = zext i8 %320 to i32
+  %322 = load i32, ptr %.0179.sroa.phi, align 4
+  %323 = load i32, ptr %.0179, align 4
+  %324 = sext i32 %323 to i64
+  %325 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %324
+  %326 = load i32, ptr %325, align 4
+  %327 = load i32, ptr %.0179.sroa.phi247, align 4
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr inbounds [55 x i32], ptr %.0179.sroa.phi245, i64 0, i64 %328
+  %330 = load i32, ptr %329, align 4
+  %331 = sub i32 %326, %330
+  %332 = and i32 %331, 2147483647
+  store i32 %332, ptr %325, align 4
+  %333 = load i32, ptr %.0179, align 4
+  %334 = add nsw i32 %333, 1
+  %335 = icmp eq i32 %334, 55
+  %storemerge.i.i.i.i233 = select i1 %335, i32 0, i32 %334
   store i32 %storemerge.i.i.i.i233, ptr %.0179, align 4
-  %337 = load i32, ptr %.0179.sroa.phi247, align 4
-  %338 = add nsw i32 %337, 1
-  %339 = icmp eq i32 %338, 55
-  %storemerge20.i.i.i.i234 = select i1 %339, i32 0, i32 %338
+  %336 = load i32, ptr %.0179.sroa.phi247, align 4
+  %337 = add nsw i32 %336, 1
+  %338 = icmp eq i32 %337, 55
+  %storemerge20.i.i.i.i234 = select i1 %338, i32 0, i32 %337
   store i32 %storemerge20.i.i.i.i234, ptr %.0179.sroa.phi247, align 4
-  %340 = shl nuw i32 %333, 1
-  %341 = ashr i32 %340, 16
-  %342 = mul nsw i32 %341, %323
-  %343 = lshr i32 %342, 8
-  %344 = mul nuw nsw i32 %316, 16839
-  %345 = mul nuw nsw i32 %319, 33059
-  %346 = mul nuw nsw i32 %322, 6420
-  %347 = add nuw nsw i32 %344, 1081344
+  %339 = shl nuw i32 %332, 1
+  %340 = ashr i32 %339, 16
+  %341 = mul nsw i32 %340, %322
+  %342 = lshr i32 %341, 8
+  %343 = mul nuw nsw i32 %315, 16839
+  %344 = mul nuw nsw i32 %318, 33059
+  %345 = mul nuw nsw i32 %321, 6420
+  %346 = add nuw nsw i32 %343, 1081344
+  %347 = add nuw nsw i32 %346, %344
   %348 = add nuw nsw i32 %347, %345
-  %349 = add nuw nsw i32 %348, %346
-  %350 = add nuw nsw i32 %349, %343
-  %351 = lshr i32 %350, 16
-  %352 = trunc i32 %351 to i8
-  %353 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv17.i231
-  store i8 %352, ptr %353, align 1
+  %349 = add nuw nsw i32 %348, %342
+  %350 = lshr i32 %349, 16
+  %351 = trunc i32 %350 to i8
+  %352 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv17.i231
+  store i8 %351, ptr %352, align 1
   %indvars.iv.next18.i235 = add nuw nsw i64 %indvars.iv17.i231, 1
-  %indvars.iv.next.i236 = add nsw i64 %indvars.iv.i232, %295
+  %indvars.iv.next.i236 = add nsw i64 %indvars.iv.i232, %294
   %exitcond.not.i237 = icmp eq i64 %indvars.iv.next18.i235, %wide.trip.count29.i229
   br i1 %exitcond.not.i237, label %ConvertRowToY.exit244, label %RGBToY.exit.i230, !llvm.loop !15
 
-ConvertRowToY.exit244:                            ; preds = %RGBToY.exit.i230, %RGBToY.exit.us.i238, %ConvertRowToY.exit244.sink.split, %292
-  br i1 %.not299, label %.critedge, label %354
+ConvertRowToY.exit244:                            ; preds = %RGBToY.exit.i230, %RGBToY.exit.us.i238, %ConvertRowToY.exit244.sink.split, %291
+  br i1 %.not299, label %.critedge, label %353
 
-354:                                              ; preds = %ConvertRowToY.exit244
-  %355 = load ptr, ptr @WebPExtractAlpha, align 8
-  %356 = call i32 %355(ptr noundef %.0189.lcssa, i32 noundef 0, i32 noundef %12, i32 noundef 1, ptr noundef %.0180.lcssa, i32 noundef 0) #9
-  %.not200.not = icmp eq i32 %356, 0
-  br i1 %.not200.not, label %357, label %.critedge
+353:                                              ; preds = %ConvertRowToY.exit244
+  %354 = load ptr, ptr @WebPExtractAlpha, align 8
+  %355 = call i32 %354(ptr noundef %.0189.lcssa, i32 noundef 0, i32 noundef %12, i32 noundef 1, ptr noundef %.0180.lcssa, i32 noundef 0) #9
+  %.not200.not = icmp eq i32 %355, 0
+  br i1 %.not200.not, label %356, label %.critedge
 
-.critedge:                                        ; preds = %ConvertRowToY.exit244, %354
+.critedge:                                        ; preds = %ConvertRowToY.exit244, %353
   call fastcc void @AccumulateRGB(ptr noundef %.0186.lcssa, ptr noundef %.0187.lcssa, ptr noundef %.0188.lcssa, i32 noundef %4, i32 noundef 0, ptr noundef nonnull %75, i32 noundef %12)
-  br label %358
+  br label %357
 
-357:                                              ; preds = %354
+356:                                              ; preds = %353
   call fastcc void @AccumulateRGBA(ptr noundef %.0186.lcssa, ptr noundef %.0187.lcssa, ptr noundef %.0188.lcssa, ptr noundef %.0189.lcssa, i32 noundef 0, ptr noundef nonnull %75, i32 noundef %12)
-  br label %358
+  br label %357
 
-358:                                              ; preds = %357, %.critedge
-  %359 = icmp eq ptr %.0179, null
-  br i1 %359, label %360, label %362
+357:                                              ; preds = %356, %.critedge
+  %358 = icmp eq ptr %.0179, null
+  br i1 %358, label %359, label %361
 
-360:                                              ; preds = %358
-  %361 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8
-  call void %361(ptr noundef nonnull %75, ptr noundef %.0182.lcssa, ptr noundef %.0181.lcssa, i32 noundef %70) #9
-  br label %363
+359:                                              ; preds = %357
+  %360 = load ptr, ptr @WebPConvertRGBA32ToUV, align 8
+  call void %360(ptr noundef nonnull %75, ptr noundef %.0182.lcssa, ptr noundef %.0181.lcssa, i32 noundef %70) #9
+  br label %362
 
-362:                                              ; preds = %358
+361:                                              ; preds = %357
   call fastcc void @ConvertRowsToUV(ptr noundef nonnull %75, ptr noundef %.0182.lcssa, ptr noundef %.0181.lcssa, i32 noundef %70, ptr noundef nonnull %.0179)
+  br label %362
+
+362:                                              ; preds = %359, %361, %._crit_edge
+  call void @WebPSafeFree(ptr noundef nonnull %75) #9
   br label %363
 
-363:                                              ; preds = %360, %362, %._crit_edge
-  call void @WebPSafeFree(ptr noundef nonnull %75) #9
-  br label %364
-
-364:                                              ; preds = %PreprocessARGB.exit, %363, %61, %CheckNonOpaque.exit, %122
-  %.0184 = phi i32 [ %123, %122 ], [ 0, %CheckNonOpaque.exit ], [ %.mux, %PreprocessARGB.exit ], [ 1, %61 ], [ 1, %363 ]
+363:                                              ; preds = %PreprocessARGB.exit, %362, %61, %CheckNonOpaque.exit, %122
+  %.0184 = phi i32 [ %123, %122 ], [ 0, %CheckNonOpaque.exit ], [ %.mux, %PreprocessARGB.exit ], [ 1, %61 ], [ 1, %362 ]
   ret i32 %.0184
 }
 

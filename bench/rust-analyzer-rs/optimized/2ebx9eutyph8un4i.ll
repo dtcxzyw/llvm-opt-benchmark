@@ -21953,8 +21953,8 @@ _ZN4core4hash4Hash10hash_slice17hb912843435fcf9b6E.exit.i: ; preds = %"_ZN73_$LT
   %.0.copyload.i27.i.i = load <16 x i8>, ptr %143, align 1, !noalias !5190
   %144 = icmp eq <16 x i8> %.0.copyload.i27.i.i, %.15.vec.insert.i.i.i
   %145 = bitcast <16 x i1> %144 to i16
-  %.not.i.not32.i.i = icmp eq i16 %145, 0
-  br i1 %.not.i.not32.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit._crit_edge.i.i", label %.lr.ph.i.i5
+  %.not.i.not33.i.i = icmp eq i16 %145, 0
+  br i1 %.not.i.not33.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit._crit_edge.i.i", label %.lr.ph.i.i5
 
 .lr.ph.i.i5:                                      ; preds = %142
   %146 = add i16 %145, -1
@@ -21969,8 +21969,8 @@ _ZN4core4hash4Hash10hash_slice17hb912843435fcf9b6E.exit.i: ; preds = %"_ZN73_$LT
 
 151:                                              ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2df7f6e3b0a62d3E.exit.i.i", %.lr.ph.i.i5
   %152 = phi i16 [ %147, %.lr.ph.i.i5 ], [ %178, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2df7f6e3b0a62d3E.exit.i.i" ]
-  %.02033.i.i = phi i16 [ %145, %.lr.ph.i.i5 ], [ %152, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2df7f6e3b0a62d3E.exit.i.i" ]
-  %153 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02033.i.i, i1 true)
+  %.02034.i.i = phi i16 [ %145, %.lr.ph.i.i5 ], [ %152, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2df7f6e3b0a62d3E.exit.i.i" ]
+  %153 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02034.i.i, i1 true)
   %154 = zext nneg i16 %153 to i64
   %155 = add i64 %.sroa.01.0.i.i.i, %154
   %156 = and i64 %155, %139

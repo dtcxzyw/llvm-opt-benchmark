@@ -3886,24 +3886,21 @@ if.end13:                                         ; preds = %if.end8
 while.cond:                                       ; preds = %if.end13, %while.body
   %o.0 = phi i32 [ %call25, %while.body ], [ %call17, %if.end13 ]
   %cmp21 = icmp ult i32 %o.0, 65536
-  br i1 %cmp21, label %while.body, label %cleanup
+  br i1 %cmp21, label %while.body, label %delete.notnull.i
 
 while.body:                                       ; preds = %while.cond
   %call25 = invoke noundef i32 @_ZN6icu_7524CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %call9, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !17
 
-cleanup:                                          ; preds = %while.cond
+delete.notnull.i:                                 ; preds = %while.cond
   %cmp18.not = icmp eq i32 %o.0, -1
-  br i1 %cmp.i.not, label %return, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %cleanup
+  %conv = zext i1 %cmp18.not to i8
   call void @_ZN6icu_7524CollationElementIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %call9) #8
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call9) #8
   br label %return
 
-return:                                           ; preds = %cleanup.thread, %delete.notnull.i, %cleanup, %if.end, %entry, %if.then7
-  %retval.0.shrunk = phi i1 [ false, %if.then7 ], [ true, %entry ], [ false, %if.end ], [ %cmp18.not, %cleanup ], [ %cmp18.not, %delete.notnull.i ], [ false, %cleanup.thread ]
-  %retval.0 = zext i1 %retval.0.shrunk to i8
+return:                                           ; preds = %cleanup.thread, %delete.notnull.i, %if.end, %entry, %if.then7
+  %retval.0 = phi i8 [ 0, %if.then7 ], [ 1, %entry ], [ 0, %if.end ], [ %conv, %delete.notnull.i ], [ 0, %cleanup.thread ]
   ret i8 %retval.0
 }
 

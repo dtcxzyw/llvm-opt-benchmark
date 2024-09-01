@@ -4011,12 +4011,9 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %2
   store i32 %15, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %13, !llvm.loop !57
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %13, !llvm.loop !57
 
-Vec_IntStartNatural.exit:                         ; preds = %13
-  br i1 %12, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %Vec_IntStartNatural.exit
+.lr.ph.preheader:                                 ; preds = %13
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
@@ -4035,7 +4032,7 @@ Vec_IntStartNatural.exit:                         ; preds = %13
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntAlloc.exit.i, %Vec_IntStartNatural.exit
+._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntAlloc.exit.i
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %1)
   %24 = icmp sgt i32 %1, 0
   br i1 %24, label %.lr.ph40, label %._crit_edge41

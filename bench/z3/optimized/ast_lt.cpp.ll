@@ -1247,33 +1247,28 @@ entry:
   br i1 %cmp5, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext i32 %num to i64
-  %1 = load ptr, ptr %ns, align 8
-  %arrayidx211 = getelementptr inbounds i8, ptr %ns, i64 8
-  %2 = load ptr, ptr %arrayidx211, align 8
-  %call12 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %2, ptr noundef %1)
-  br i1 %call12, label %return, label %for.cond
+  %wide.trip.count = zext i32 %num to i64
+  %invariant.gep = getelementptr i8, ptr %ns, i64 -8
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !12
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %0 = load ptr, ptr %gep, align 8
+  %arrayidx2 = getelementptr inbounds ptr, ptr %ns, i64 %indvars.iv
+  %1 = load ptr, ptr %arrayidx2, align 8
+  %call = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %1, ptr noundef %0)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %call, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return.loopexit, label %for.body, !llvm.loop !12
 
-for.body:                                         ; preds = %for.cond
-  %gep = getelementptr ptr, ptr %ns, i64 %indvars.iv13
-  %3 = load ptr, ptr %gep, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %ns, i64 %indvars.iv.next
-  %4 = load ptr, ptr %arrayidx2, align 8
-  %call = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %4, ptr noundef %3)
-  br i1 %call, label %return.loopexit, label %for.cond, !llvm.loop !12
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i64 %indvars.iv.next, %0
+return.loopexit:                                  ; preds = %for.body
+  %cmp.lcssa.ph = xor i1 %call, true
   br label %return
 
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %return.loopexit, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp.lcssa.ph, %return.loopexit ]
   ret i1 %cmp.lcssa
 }
 

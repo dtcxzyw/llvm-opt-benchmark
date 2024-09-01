@@ -686,8 +686,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.17240031465424135546.exit": ; preds = %18, %11
   %.0 = phi i16 [ %14, %11 ], [ %22, %18 ]
-  %.not.i.not = icmp ne i16 %.0, 0
-  br i1 %.not.i.not, label %18, label %15
+  %.not.i.not.not.not.not.not = icmp ne i16 %.0, 0
+  br i1 %.not.i.not.not.not.not.not, label %18, label %15
 
 15:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.17240031465424135546.exit"
   %16 = icmp eq <16 x i8> %.0.copyload.i29, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -713,7 +713,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
 
 .loopexit:                                        ; preds = %15, %18
   %.sroa.3.0 = phi i64 [ %24, %18 ], [ undef, %15 ]
-  %.sroa.0.0.i = zext i1 %.not.i.not to i64
+  %.sroa.0.0.i = zext i1 %.not.i.not.not.not.not.not to i64
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %31 = insertvalue { i64, i64 } %30, i64 %.sroa.3.0, 1
   ret { i64, i64 } %31
@@ -2551,8 +2551,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h2005
   %27 = getelementptr inbounds { { [24 x i8], i8, [23 x i8] }, {} }, ptr %8, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = load i8, ptr %28, align 8, !range !28, !alias.scope !539, !noalias !546, !noundef !4
-  %.not45 = icmp eq i8 %29, 26
-  br i1 %.not45, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.17240031465424135546.exit.backedge.us.us", label %30
+  %.not40 = icmp eq i8 %29, 26
+  br i1 %.not40, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.17240031465424135546.exit.backedge.us.us", label %30
 
 30:                                               ; preds = %.lr.ph.us
   %31 = getelementptr inbounds i8, ptr %27, i64 -48

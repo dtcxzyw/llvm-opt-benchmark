@@ -153,43 +153,43 @@ define noundef zeroext i1 @ompi_seq_tracker_check_duplicate(ptr noundef %0, i32 
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %17
-  %.035 = phi i32 [ %.1, %17 ], [ 0, %2 ]
-  %.02634 = phi ptr [ %.127, %17 ], [ %5, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.02634, i64 40
+  %.036 = phi i32 [ %.1, %17 ], [ 0, %2 ]
+  %.02635 = phi ptr [ %.127, %17 ], [ %5, %2 ]
+  %7 = getelementptr inbounds i8, ptr %.02635, i64 40
   %8 = load i32, ptr %7, align 8
   %.not = icmp ult i32 %8, %1
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02634, i64 44
+  %10 = getelementptr inbounds i8, ptr %.02635, i64 44
   %11 = load i32, ptr %10, align 4
   %.not29 = icmp ugt i32 %11, %1
   br i1 %.not29, label %.thread, label %12
 
 12:                                               ; preds = %9
-  store ptr %.02634, ptr %4, align 8
+  store ptr %.02635, ptr %4, align 8
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph
-  %.not36 = icmp eq i32 %.035, -1
-  br i1 %.not36, label %..thread_crit_edge, label %17
+  %.not33 = icmp eq i32 %.036, -1
+  br i1 %.not33, label %..thread_crit_edge, label %17
 
 ..thread_crit_edge:                               ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.02634, i64 44
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.02635, i64 44
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %9
   %14 = phi i32 [ %.pre, %..thread_crit_edge ], [ %11, %9 ]
   %15 = icmp ult i32 %1, %14
-  %16 = icmp ne i32 %.035, 1
+  %16 = icmp ne i32 %.036, 1
   %or.cond5 = and i1 %16, %15
   br i1 %or.cond5, label %17, label %.loopexit
 
 17:                                               ; preds = %.thread, %13
   %.sink = phi i64 [ 16, %13 ], [ 24, %.thread ]
   %.1 = phi i32 [ 1, %13 ], [ -1, %.thread ]
-  %18 = getelementptr inbounds i8, ptr %.02634, i64 %.sink
+  %18 = getelementptr inbounds i8, ptr %.02635, i64 %.sink
   %.127 = load volatile ptr, ptr %18, align 8
   %19 = icmp eq ptr %3, %.127
   br i1 %19, label %.loopexit, label %.lr.ph

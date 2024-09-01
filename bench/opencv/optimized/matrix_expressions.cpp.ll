@@ -10088,7 +10088,7 @@ define hidden void @_ZNK2cv9MatOp_Bin6assignERKNS_7MatExprERNS_3MatEi(ptr nocapt
   ]
 
 109:                                              ; preds = %106
-  br i1 %.not117183, label %.thread186, label %110
+  br i1 %.not117183, label %.critedge, label %110
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds i8, ptr %1, i64 112
@@ -10124,7 +10124,7 @@ define hidden void @_ZNK2cv9MatOp_Bin6assignERKNS_7MatExprERNS_3MatEi(ptr nocapt
           cleanup
   br label %285
 
-.thread186:                                       ; preds = %109
+.critedge:                                        ; preds = %109
   %125 = getelementptr inbounds i8, ptr %1, i64 16
   %126 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 0, ptr %126, align 8
@@ -10147,17 +10147,17 @@ define hidden void @_ZNK2cv9MatOp_Bin6assignERKNS_7MatExprERNS_3MatEi(ptr nocapt
   %134 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %135 unwind label %136
 
-135:                                              ; preds = %.thread186
+135:                                              ; preds = %.critedge
   invoke void @_ZN2cv11bitwise_andERKNS_11_InputArrayES2_RKNS_12_OutputArrayES2_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %134)
           to label %276 unwind label %136
 
-136:                                              ; preds = %135, %.thread186
+136:                                              ; preds = %135, %.critedge
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %285
 
 138:                                              ; preds = %106
-  br i1 %.not117183, label %.thread193, label %139
+  br i1 %.not117183, label %.critedge207, label %139
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds i8, ptr %1, i64 112
@@ -10193,7 +10193,7 @@ define hidden void @_ZNK2cv9MatOp_Bin6assignERKNS_7MatExprERNS_3MatEi(ptr nocapt
           cleanup
   br label %285
 
-.thread193:                                       ; preds = %138
+.critedge207:                                     ; preds = %138
   %154 = getelementptr inbounds i8, ptr %1, i64 16
   %155 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 0, ptr %155, align 8
@@ -10216,11 +10216,11 @@ define hidden void @_ZNK2cv9MatOp_Bin6assignERKNS_7MatExprERNS_3MatEi(ptr nocapt
   %163 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %164 unwind label %165
 
-164:                                              ; preds = %.thread193
+164:                                              ; preds = %.critedge207
   invoke void @_ZN2cv10bitwise_orERKNS_11_InputArrayES2_RKNS_12_OutputArrayES2_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %163)
           to label %276 unwind label %165
 
-165:                                              ; preds = %164, %.thread193
+165:                                              ; preds = %164, %.critedge207
   %166 = landingpad { ptr, i32 }
           cleanup
   br label %285

@@ -1446,8 +1446,8 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   %.in = phi i64 [ %48, %57 ], [ %1, %12 ]
   %48 = add nsw i64 %.in, -1
   %49 = call fastcc ptr @tuplestore_gettuple(ptr noundef nonnull %0, i1 noundef zeroext %2, ptr noundef nonnull %4)
-  %.not37 = icmp ne ptr %49, null
-  br i1 %.not37, label %50, label %.loopexit
+  %.not37.not = icmp ne ptr %49, null
+  br i1 %.not37.not, label %50, label %.loopexit
 
 50:                                               ; preds = %.lr.ph
   %51 = load i8, ptr %4, align 1
@@ -1472,7 +1472,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %57, %18, %3, %47, %44, %29, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %29 ], [ true, %44 ], [ false, %47 ], [ true, %3 ], [ false, %18 ], [ %.not37, %57 ], [ %.not37, %.lr.ph ]
+  %.0 = phi i1 [ true, %26 ], [ false, %29 ], [ true, %44 ], [ false, %47 ], [ true, %3 ], [ false, %18 ], [ %.not37.not, %57 ], [ %.not37.not, %.lr.ph ]
   ret i1 %.0
 }
 

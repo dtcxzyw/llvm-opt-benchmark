@@ -1981,8 +1981,8 @@ _ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit: ; pre
   %call11.i.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.i, ptr noundef %6, i32 noundef 0, i32 noundef %conv.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %str.i)
-  %cmp.i.i = icmp ne ptr %call11.i.i, null
-  br i1 %cmp.i.i, label %if.end18, label %return
+  %cmp.i.i.not.not = icmp ne ptr %call11.i.i, null
+  br i1 %cmp.i.i.not.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit
   %7 = load ptr, ptr %_M_finish.i, align 8
@@ -2068,7 +2068,7 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backERKS3_.exit: ; preds = %i
   br i1 %cmp.i4.not, label %return, label %for.body
 
 return:                                           ; preds = %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backERKS3_.exit, %if.end, %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit.thread, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit.thread ], [ true, %if.end ], [ false, %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit ], [ %cmp.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backERKS3_.exit ]
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit.thread ], [ true, %if.end ], [ %cmp.i.i.not.not, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backERKS3_.exit ], [ %cmp.i.i.not.not, %_ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit ]
   ret i1 %retval.0
 }
 

@@ -298,22 +298,20 @@ entry:
   %cmp17 = icmp ult i64 %spec.select, %pos
   br i1 %cmp17, label %while.body, label %return
 
-while.body:                                       ; preds = %entry, %if.else
-  %start.addr.18 = phi i64 [ %inc2, %if.else ], [ %spec.select, %entry ]
+while.body:                                       ; preds = %entry, %while.body
+  %start.addr.18 = phi i64 [ %inc2, %while.body ], [ %spec.select, %entry ]
   %call3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %target, i64 noundef %start.addr.18) #17
   %1 = load i8, ptr %call3, align 1
   %conv4 = sext i8 %1 to i32
   %isdigittmp = add nsw i32 %conv4, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  br i1 %isdigit, label %if.else, label %return
-
-if.else:                                          ; preds = %while.body
   %inc2 = add nuw i64 %start.addr.18, 1
   %cmp1 = icmp ult i64 %inc2, %pos
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !4
+  %or.cond = select i1 %isdigit, i1 %cmp1, i1 false
+  br i1 %or.cond, label %while.body, label %return, !llvm.loop !4
 
-return:                                           ; preds = %while.body, %if.else, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %while.body ], [ %cmp17, %if.else ]
+return:                                           ; preds = %while.body, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %isdigit, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1898,8 +1896,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.then16
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %12, %land.lhs.true.i.i.i.i ], [ %15, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %_ZNKSt8weak_ptrIN7rocksdb12CustomizableEE4lockEv.exit, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %_ZNKSt8weak_ptrIN7rocksdb12CustomizableEE4lockEv.exit, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i13 = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -2358,12 +2356,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont3.thread:                              ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8weak_ptrIN7rocksdb12CustomizableEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
-  br label %cleanup.cont
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit.thread
 
 invoke.cont3:                                     ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
-  br i1 %cmp.i.i.i.i, label %cleanup.cont, label %if.then
+  br i1 %cmp.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.thread, label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
@@ -2382,8 +2380,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.then
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %8, %land.lhs.true.i.i.i.i ], [ %11, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -2417,21 +2415,21 @@ lpad:                                             ; preds = %_ZNSt11unique_lockI
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
+_ZNSt11unique_lockISt5mutexED2Ev.exit.thread:     ; preds = %invoke.cont3.thread, %invoke.cont3
+  %call1.i.i.i.i621 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %objects_mutex_) #17
+  %parent_ = getelementptr inbounds i8, ptr %this, i64 96
+  %15 = load ptr, ptr %parent_, align 8
+  %cmp.i.i.not = icmp eq ptr %15, null
+  br i1 %cmp.i.i.not, label %if.else, label %if.then11
+
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  %15 = phi ptr [ null, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i ], [ %13, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i ]
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !32
+  %16 = phi ptr [ null, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i ], [ %13, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i ]
+  store ptr %16, ptr %agg.result, align 8, !alias.scope !32
   %call1.i.i.i.i6 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %objects_mutex_) #17
   br label %return
 
-cleanup.cont:                                     ; preds = %invoke.cont3, %invoke.cont3.thread
-  %call1.i.i.i.i621 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %objects_mutex_) #17
-  %parent_ = getelementptr inbounds i8, ptr %this, i64 96
-  %16 = load ptr, ptr %parent_, align 8
-  %cmp.i.i.not = icmp eq ptr %16, null
-  br i1 %cmp.i.i.not, label %if.else, label %if.then11
-
-if.then11:                                        ; preds = %cleanup.cont
-  call void @_ZNK7rocksdb14ObjectRegistry16GetManagedObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr sret(%"class.std::shared_ptr.78") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef nonnull align 8 dereferenceable(32) %id)
+if.then11:                                        ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.thread
+  call void @_ZNK7rocksdb14ObjectRegistry16GetManagedObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr sret(%"class.std::shared_ptr.78") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef nonnull align 8 dereferenceable(32) %id)
   br label %return
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %common.resume.i, %lpad
@@ -2439,7 +2437,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %common.resume.i, %l
   %call1.i.i.i.i12 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %objects_mutex_) #17
   resume { ptr, i32 } %.pn
 
-if.else:                                          ; preds = %cleanup.cont
+if.else:                                          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   br label %return
 
@@ -2705,8 +2703,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %6, %land.lhs.true.i.i.i.i ], [ %9, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1

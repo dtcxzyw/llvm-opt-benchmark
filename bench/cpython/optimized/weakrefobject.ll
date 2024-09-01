@@ -3292,10 +3292,7 @@ if.then33:                                        ; preds = %if.else
   tail call void @_PyErr_ChainExceptions1(ptr noundef %call19) #7
   br label %if.end63
 
-for.cond47.preheader:                             ; preds = %if.end45
-  br i1 %cmp3563, label %for.body49.lr.ph, label %for.end61
-
-for.body49.lr.ph:                                 ; preds = %for.cond47.preheader
+for.body49.lr.ph:                                 ; preds = %if.end45
   %ob_item = getelementptr inbounds i8, ptr %call31, i64 24
   br label %for.body49
 
@@ -3353,7 +3350,7 @@ if.end45:                                         ; preds = %if.end.i67, %if.the
   tail call fastcc void @clear_weakref(ptr noundef nonnull %current.065)
   %inc = add nuw nsw i64 %i.064, 1
   %exitcond.not = icmp eq i64 %inc, %indvars.iv
-  br i1 %exitcond.not, label %for.cond47.preheader, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.body49.lr.ph, label %for.body, !llvm.loop !7
 
 for.body49:                                       ; preds = %for.body49.lr.ph, %for.inc59
   %i.167 = phi i64 [ 0, %for.body49.lr.ph ], [ %inc60, %for.inc59 ]
@@ -3396,7 +3393,7 @@ for.inc59:                                        ; preds = %if.then1.i.i, %if.e
   %exitcond69.not = icmp eq i64 %inc60, %indvars.iv
   br i1 %exitcond69.not, label %for.end61, label %for.body49, !llvm.loop !8
 
-for.end61:                                        ; preds = %for.inc59, %for.cond.preheader, %for.cond47.preheader
+for.end61:                                        ; preds = %for.inc59, %for.cond.preheader
   %25 = load i64, ptr %call31, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i90.not = icmp eq i64 %26, 0

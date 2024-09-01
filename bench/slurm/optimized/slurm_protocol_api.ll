@@ -314,42 +314,35 @@ define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
   %7 = load i8, ptr %6, align 1
   %8 = sext i8 %7 to i32
   %9 = tail call i32 @toupper(i32 noundef %8) #22
-  %10 = icmp eq i32 %9, 75
-  br i1 %10, label %.split.loop.exit23, label %.lr.ph
+  br label %10
 
-11:                                               ; preds = %.lr.ph
-  %12 = sext i8 %15 to i32
-  %13 = icmp eq i32 %9, %12
-  br i1 %13, label %..split.loop.exit_crit_edge, label %.lr.ph, !llvm.loop !11
+10:                                               ; preds = %2, %13
+  %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %13 ]
+  %11 = phi i8 [ 75, %2 ], [ %15, %13 ]
+  %12 = sext i8 %11 to i32
+  %.not23 = icmp eq i32 %9, %12
+  br i1 %.not23, label %.split.loop.exit, label %13
 
-.lr.ph:                                           ; preds = %2, %11
-  %indvars.iv29 = phi i64 [ %indvars.iv.next, %11 ], [ 1, %2 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
+13:                                               ; preds = %10
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds i8, ptr @.str.72, i64 %indvars.iv.next
   %15 = load i8, ptr %14, align 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.split.loop.exit23.loopexit, label %11, !llvm.loop !11
+  br i1 %exitcond, label %.split.loop.exit24, label %10, !llvm.loop !11
 
-..split.loop.exit_crit_edge:                      ; preds = %11
-  %.not19.le = icmp eq i8 %15, 0
-  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
+.split.loop.exit:                                 ; preds = %10
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = shl nsw i32 %16, 10
-  br label %.split.loop.exit23
+  br label %.split.loop.exit24
 
-.split.loop.exit23.loopexit:                      ; preds = %.lr.ph
-  %.not19.le37 = icmp eq i8 %15, 0
-  br label %.split.loop.exit23
-
-.split.loop.exit23:                               ; preds = %.split.loop.exit23.loopexit, %2, %..split.loop.exit_crit_edge
-  %.015.lcssa = phi i32 [ %17, %..split.loop.exit_crit_edge ], [ 1024, %2 ], [ 6144, %.split.loop.exit23.loopexit ]
-  %.not19.lcssa = phi i1 [ %.not19.le, %..split.loop.exit_crit_edge ], [ false, %2 ], [ %.not19.le37, %.split.loop.exit23.loopexit ]
-  %18 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #22
-  %19 = select i1 %.not19.lcssa, i32 1, i32 %.015.lcssa
-  %.0 = mul nsw i32 %18, %19
+.split.loop.exit24:                               ; preds = %13, %.split.loop.exit
+  %18 = phi i32 [ %17, %.split.loop.exit ], [ 1, %13 ]
+  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %0) #22
+  %.0 = mul nsw i32 %19, %18
   br label %20
 
-20:                                               ; preds = %1, %.split.loop.exit23
-  %.016 = phi i32 [ %.0, %.split.loop.exit23 ], [ -1, %1 ]
+20:                                               ; preds = %1, %.split.loop.exit24
+  %.016 = phi i32 [ %.0, %.split.loop.exit24 ], [ -1, %1 ]
   ret i32 %.016
 }
 

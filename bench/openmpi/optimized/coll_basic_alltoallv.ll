@@ -60,10 +60,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %67
-  br i1 %32, label %._crit_edge, label %.lr.ph100.preheader
-
-.lr.ph100.preheader:                              ; preds = %.preheader
+.lr.ph100.preheader:                              ; preds = %67
   %33 = zext nneg i32 %19 to i64
   br label %.lr.ph100
 
@@ -136,7 +133,7 @@ ompi_request_cancel.exit.i:                       ; preds = %58, %55
 67:                                               ; preds = %.lr.ph, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph100.preheader, label %.lr.ph, !llvm.loop !6
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %104
   %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %104 ]
@@ -215,7 +212,7 @@ ompi_request_cancel.exit.i77:                     ; preds = %95, %92
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %33
   br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %104, %.preheader94, %.preheader
+._crit_edge:                                      ; preds = %104, %.preheader94
   %105 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %106 = tail call i32 %105(i64 noundef %27, ptr noundef nonnull %30, ptr noundef null) #2
   %.not = icmp eq i32 %106, 0

@@ -1124,17 +1124,17 @@ print_io_api.exit.i:                              ; preds = %350, %348
   call fastcc void @recover_size_and_print(i64 noundef %362)
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i14
-  br i1 %exitcond.not.i17, label %.lr.ph54.i, label %360
+  br i1 %exitcond.not.i17, label %._crit_edge.i18, label %360
 
-.lr.ph54.i:                                       ; preds = %360
+._crit_edge.i18:                                  ; preds = %360
   %363 = load ptr, ptr @output, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %363)
   %364 = load ptr, ptr @output, align 8
   %365 = call i64 @fwrite(ptr nonnull @.str.36, i64 21, i64 1, ptr %364)
   br label %366
 
-366:                                              ; preds = %366, %.lr.ph54.i
-  %indvars.iv65.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next66.i, %366 ]
+366:                                              ; preds = %366, %._crit_edge.i18
+  %indvars.iv65.i = phi i64 [ 0, %._crit_edge.i18 ], [ %indvars.iv.next66.i, %366 ]
   %367 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %indvars.iv65.i
   %368 = load i64, ptr %367, align 8
   call fastcc void @recover_size_and_print(i64 noundef %368)

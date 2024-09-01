@@ -264,54 +264,51 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
   store i32 %76, ptr %83, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   store volatile ptr %33, ptr %3, align 8
-  br i1 %5, label %.thread, label %84
+  %84 = icmp ult i32 %75, %28
+  br i1 %84, label %85, label %.loopexit
 
-84:                                               ; preds = %.split14.us
-  %85 = icmp ult i32 %75, %28
-  br i1 %85, label %86, label %.loopexit
+85:                                               ; preds = %.split14.us
+  %86 = zext i32 %75 to i64
+  br label %87
 
-86:                                               ; preds = %84
-  %87 = zext i32 %75 to i64
-  br label %88
+87:                                               ; preds = %.thread11, %85
+  %88 = phi i64 [ %86, %85 ], [ %100, %.thread11 ]
+  %89 = getelementptr [0 x ptr], ptr %42, i64 0, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.thread11, label %92
 
-88:                                               ; preds = %.thread11, %86
-  %89 = phi i64 [ %87, %86 ], [ %101, %.thread11 ]
-  %90 = getelementptr [0 x ptr], ptr %42, i64 0, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread11, label %93
+92:                                               ; preds = %87
+  %93 = getelementptr inbounds i8, ptr %90, i64 56
+  %94 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93, i32 -1, ptr elementtype(i32) %93) #9, !srcloc !5
+  %95 = icmp eq i32 %94, 1
+  br i1 %95, label %99, label %96
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %91, i64 56
-  %95 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %94, i32 -1, ptr elementtype(i32) %94) #9, !srcloc !5
-  %96 = icmp eq i32 %95, 1
-  br i1 %96, label %100, label %97
+96:                                               ; preds = %92
+  %97 = icmp sgt i32 %94, 0
+  br i1 %97, label %.thread11, label %98, !prof !6
 
-97:                                               ; preds = %93
-  %98 = icmp sgt i32 %95, 0
-  br i1 %98, label %.thread11, label %99, !prof !6
-
-99:                                               ; preds = %97
-  tail call void @refcount_warn_saturate(ptr noundef %94, i32 noundef 3) #9
+98:                                               ; preds = %96
+  tail call void @refcount_warn_saturate(ptr noundef %93, i32 noundef 3) #9
   br label %.thread11
 
-100:                                              ; preds = %93
+99:                                               ; preds = %92
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  tail call void @dma_fence_release(ptr noundef %94) #9
+  tail call void @dma_fence_release(ptr noundef %93) #9
   br label %.thread11
 
-.thread11:                                        ; preds = %97, %99, %100, %88
-  %101 = add nuw nsw i64 %89, 1
-  %102 = icmp eq i64 %101, %29
-  br i1 %102, label %.loopexit, label %88, !llvm.loop !14
+.thread11:                                        ; preds = %96, %98, %99, %87
+  %100 = add nuw nsw i64 %88, 1
+  %101 = icmp eq i64 %100, %29
+  br i1 %101, label %.loopexit, label %87, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.thread11, %.thread27, %84
+.loopexit:                                        ; preds = %.thread11, %.thread27, %.split14.us
   tail call void @kvfree_call_rcu(ptr noundef nonnull %4, ptr noundef nonnull %4) #9
   br label %.thread
 
-.thread:                                          ; preds = %.split14.us.thread, %27, %.loopexit, %.split14.us, %10
-  %103 = phi i32 [ 0, %.loopexit ], [ 0, %10 ], [ 0, %.split14.us ], [ -12, %27 ], [ 0, %.split14.us.thread ]
-  ret i32 %103
+.thread:                                          ; preds = %.split14.us.thread, %27, %.loopexit, %10
+  %102 = phi i32 [ 0, %.loopexit ], [ 0, %10 ], [ -12, %27 ], [ 0, %.split14.us.thread ]
+  ret i32 %102
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

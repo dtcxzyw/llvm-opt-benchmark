@@ -900,12 +900,9 @@ if.end38:                                         ; preds = %for.end
 
 if.then45:                                        ; preds = %if.end38
   %tobool46.not = icmp eq ptr %b_i, null
-  br i1 %tobool46.not, label %for.cond83.preheader, label %if.then47
+  br i1 %tobool46.not, label %for.body85.preheader, label %if.then47
 
-for.cond83.preheader:                             ; preds = %if.then45
-  br i1 %cmp56.not, label %if.end99, label %for.body85.preheader
-
-for.body85.preheader:                             ; preds = %for.cond83.preheader
+for.body85.preheader:                             ; preds = %if.then45
   %wide.trip.count71 = zext i32 %n to i64
   br label %for.body85
 
@@ -915,12 +912,9 @@ if.then47:                                        ; preds = %if.then45
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %if.then47
-  br i1 %call53, label %for.cond56.preheader, label %if.else76
+  br i1 %call53, label %for.body58.preheader, label %if.else76
 
-for.cond56.preheader:                             ; preds = %invoke.cont52
-  br i1 %cmp56.not, label %for.end70, label %for.body58.preheader
-
-for.body58.preheader:                             ; preds = %for.cond56.preheader
+for.body58.preheader:                             ; preds = %invoke.cont52
   %wide.trip.count66 = zext i32 %n to i64
   br label %for.body58
 
@@ -936,7 +930,7 @@ for.inc68:                                        ; preds = %for.body58
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %for.end70, label %for.body58, !llvm.loop !14
 
-for.end70:                                        ; preds = %for.inc68, %for.cond56.preheader
+for.end70:                                        ; preds = %for.inc68
   %16 = load ptr, ptr %this, align 8
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %16, ptr noundef nonnull align 8 dereferenceable(16) %b_i, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i, ptr noundef nonnull align 8 dereferenceable(16) %b_i)
           to label %if.end99 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -956,7 +950,7 @@ for.inc95:                                        ; preds = %for.body85
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %if.end99, label %for.body85, !llvm.loop !15
 
-if.end99:                                         ; preds = %for.inc95, %for.cond83.preheader, %if.else76, %for.end70, %if.end38
+if.end99:                                         ; preds = %for.inc95, %if.else76, %for.end70, %if.end38
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end27, %entry, %if.else76, %for.end, %if.end99
@@ -1203,11 +1197,11 @@ invoke.cont112:                                   ; preds = %if.end
   br i1 %call113, label %invoke.cont112.for.inc117_crit_edge, label %cleanup.loopexit
 
 invoke.cont112.for.inc117_crit_edge:              ; preds = %invoke.cont112
-  %.pre131 = load i32, ptr %A, align 8
+  %.pre132 = load i32, ptr %A, align 8
   br label %for.inc117
 
 for.inc117:                                       ; preds = %invoke.cont112.for.inc117_crit_edge, %invoke.cont22
-  %29 = phi i32 [ %.pre131, %invoke.cont112.for.inc117_crit_edge ], [ %5, %invoke.cont22 ]
+  %29 = phi i32 [ %.pre132, %invoke.cont112.for.inc117_crit_edge ], [ %5, %invoke.cont22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
   %cmp.not = icmp ult i64 %indvars.iv.next, %30
@@ -1215,11 +1209,11 @@ for.inc117:                                       ; preds = %invoke.cont112.for.
 
 cleanup.loopexit:                                 ; preds = %for.inc117, %invoke.cont112
   %cmp.lcssa.ph = phi i1 [ false, %invoke.cont112 ], [ true, %for.inc117 ]
-  %.pre132 = load ptr, ptr %lcm_a_kk_a_ik, align 8
+  %.pre133 = load ptr, ptr %lcm_a_kk_a_ik, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %invoke.cont12
-  %31 = phi ptr [ %2, %invoke.cont12 ], [ %.pre132, %cleanup.loopexit ]
+  %31 = phi ptr [ %2, %invoke.cont12 ], [ %.pre133, %cleanup.loopexit ]
   %cmp.lcssa = phi i1 [ true, %invoke.cont12 ], [ %cmp.lcssa.ph, %cleanup.loopexit ]
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i56)
           to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %terminate.lpad.i
@@ -1359,7 +1353,7 @@ while.body.us:                                    ; preds = %while.cond89.while.
           to label %invoke.cont45.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
 invoke.cont45.us:                                 ; preds = %while.body.us
-  br i1 %call46.us, label %if.then47.us, label %if.else
+  br i1 %call46.us, label %if.then47.us, label %cleanup
 
 if.then47.us:                                     ; preds = %invoke.cont45.us
   %14 = load ptr, ptr %this, align 8
@@ -1599,16 +1593,11 @@ if.then47:                                        ; preds = %invoke.cont45
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %41, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx44, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i71, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx44)
           to label %if.end83 unwind label %lpad.loopexit.split-lp.loopexit.split
 
-if.else:                                          ; preds = %invoke.cont45.us
-  br i1 %int_solver, label %cleanup, label %if.end64
-
-if.end64:                                         ; preds = %invoke.cont45, %if.else
-  %.us-phi149181 = phi ptr [ %arrayidx44.us, %if.else ], [ %arrayidx44, %invoke.cont45 ]
-  %.us-phi146180 = phi i32 [ %indvars174, %if.else ], [ %8, %invoke.cont45 ]
+if.end64:                                         ; preds = %invoke.cont45
   %44 = load ptr, ptr %a_ij.i.i60, align 8
   %45 = load i32, ptr %n.i.i61, align 4
   %mul.i.i80110 = add i32 %45, 1
-  %add.i.i81 = mul i32 %mul.i.i80110, %.us-phi146180
+  %add.i.i81 = mul i32 %mul.i.i80110, %8
   %idxprom.i.i82 = zext i32 %add.i.i81 to i64
   %arrayidx.i.i83 = getelementptr inbounds %class.mpz, ptr %44, i64 %idxprom.i.i82
   %46 = load i32, ptr %arrayidx.i.i83, align 8
@@ -1622,7 +1611,7 @@ if.then71:                                        ; preds = %if.end64
 
 invoke.cont76:                                    ; preds = %if.then71
   %48 = load ptr, ptr %this, align 8
-  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %48, ptr noundef nonnull align 8 dereferenceable(16) %.us-phi149181)
+  invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %48, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx44)
           to label %if.then85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end83:                                         ; preds = %if.then47
@@ -1647,8 +1636,8 @@ invoke.cont86:                                    ; preds = %if.then85
   call void @exit(i32 noundef 107) #19
   unreachable
 
-cleanup:                                          ; preds = %invoke.cont28, %for.end, %if.end83.us, %for.cond.preheader, %while.cond.preheader, %if.else
-  %retval.0 = phi i1 [ false, %if.else ], [ true, %while.cond.preheader ], [ true, %for.cond.preheader ], [ true, %if.end83.us ], [ false, %for.end ], [ false, %invoke.cont28 ]
+cleanup:                                          ; preds = %invoke.cont28, %for.end, %if.end83.us, %invoke.cont45.us, %for.cond.preheader, %while.cond.preheader
+  %retval.0 = phi i1 [ true, %while.cond.preheader ], [ true, %for.cond.preheader ], [ %call46.us, %invoke.cont45.us ], [ %call46.us, %if.end83.us ], [ false, %for.end ], [ false, %invoke.cont28 ]
   %51 = load ptr, ptr %A, align 8
   %a_ij.i.i107 = getelementptr inbounds i8, ptr %A, i64 16
   %52 = load ptr, ptr %a_ij.i.i107, align 8

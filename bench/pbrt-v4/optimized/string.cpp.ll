@@ -790,8 +790,8 @@ land.rhs.preheader:                               ; preds = %while.cond
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body6
   %end.018 = phi ptr [ %incdec.ptr, %while.body6 ], [ %begin.0, %land.rhs.preheader ]
   %2 = load i8, ptr %end.018, align 1
-  %cmp5.not.not = icmp ne i8 %2, %ch
-  br i1 %cmp5.not.not, label %while.body6, label %while.end
+  %cmp5.not.not.not = icmp ne i8 %2, %ch
+  br i1 %cmp5.not.not.not, label %while.body6, label %while.end
 
 while.body6:                                      ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %end.018, i64 1
@@ -800,7 +800,7 @@ while.body6:                                      ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body6, %while.cond
   %end.0.lcssa = phi ptr [ %add.ptr.i, %while.cond ], [ %scevgep25, %while.body6 ], [ %end.018, %land.rhs ]
-  %cmp.not.lcssa = phi i1 [ true, %while.cond ], [ %cmp5.not.not, %while.body6 ], [ %cmp5.not.not, %land.rhs ]
+  %cmp.not.lcssa = phi i1 [ true, %while.cond ], [ %cmp5.not.not.not, %while.body6 ], [ %cmp5.not.not.not, %land.rhs ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #20
   %call.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad

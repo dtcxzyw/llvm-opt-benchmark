@@ -2285,8 +2285,8 @@ define void @_ZN3nix6Worker24makeDerivationGoalCommonERKNS_9StorePathERKNS_11Out
 
 16:                                               ; preds = %17, %13
   %.06.i.i.i.i.i = phi i32 [ %15, %13 ], [ %21, %17 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
 
 17:                                               ; preds = %16
   %18 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -3195,8 +3195,8 @@ define void @_ZN3nix6Worker24makePathSubstitutionGoalERKNS_9StorePathENS_10Repai
 
 15:                                               ; preds = %16, %12
   %.06.i.i.i.i.i = phi i32 [ %14, %12 ], [ %20, %16 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -3765,8 +3765,8 @@ define void @_ZN3nix6Worker29makeDrvOutputSubstitutionGoalERKNS_9DrvOutputENS_10
 
 15:                                               ; preds = %16, %12
   %.06.i.i.i.i.i = phi i32 [ %14, %12 ], [ %20, %16 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -4559,8 +4559,8 @@ _ZNSt10shared_ptrIN3nix14DerivationGoalEEC2ERKS2_.exit: ; preds = %_ZSt20dynamic
 
 49:                                               ; preds = %50, %46
   %.06.i.i.i.i.i.i = phi i32 [ %48, %46 ], [ %54, %50 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNKSt8weak_ptrIN3nix14DerivationGoalEE4lockEv.exit.thread.i, label %50
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNKSt8weak_ptrIN3nix14DerivationGoalEE4lockEv.exit.thread.i, label %50
 
 50:                                               ; preds = %49
   %51 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -4818,8 +4818,8 @@ _ZNSt10shared_ptrIN3nix20PathSubstitutionGoalEEC2ERKS2_.exit: ; preds = %_ZSt20d
 
 167:                                              ; preds = %168, %164
   %.06.i.i.i.i.i.i27 = phi i32 [ %166, %164 ], [ %172, %168 ]
-  %.not.i.not.i.i.i.i.i28 = icmp eq i32 %.06.i.i.i.i.i.i27, 0
-  br i1 %.not.i.not.i.i.i.i.i28, label %_ZNKSt8weak_ptrIN3nix20PathSubstitutionGoalEE4lockEv.exit.thread.i, label %168
+  %.not.not.not.i.not.i.i.i.i.i28 = icmp eq i32 %.06.i.i.i.i.i.i27, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i28, label %_ZNKSt8weak_ptrIN3nix20PathSubstitutionGoalEE4lockEv.exit.thread.i, label %168
 
 168:                                              ; preds = %167
   %169 = add nsw i32 %.06.i.i.i.i.i.i27, 1
@@ -5077,8 +5077,8 @@ _ZNSt10shared_ptrIN3nix25DrvOutputSubstitutionGoalEEC2ERKS2_.exit: ; preds = %_Z
 
 285:                                              ; preds = %286, %282
   %.06.i.i.i.i.i.i55 = phi i32 [ %284, %282 ], [ %290, %286 ]
-  %.not.i.not.i.i.i.i.i56 = icmp eq i32 %.06.i.i.i.i.i.i55, 0
-  br i1 %.not.i.not.i.i.i.i.i56, label %_ZNKSt8weak_ptrIN3nix25DrvOutputSubstitutionGoalEE4lockEv.exit.thread.i, label %286
+  %.not.not.not.i.not.i.i.i.i.i56 = icmp eq i32 %.06.i.i.i.i.i.i55, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i56, label %_ZNKSt8weak_ptrIN3nix25DrvOutputSubstitutionGoalEE4lockEv.exit.thread.i, label %286
 
 286:                                              ; preds = %285
   %287 = add nsw i32 %.06.i.i.i.i.i.i55, 1
@@ -5597,8 +5597,8 @@ _ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EE4findERKS3_.e
 
 521:                                              ; preds = %522, %518
   %.06.i.i.i.i.i = phi i32 [ %520, %518 ], [ %526, %522 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %522
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %522
 
 522:                                              ; preds = %521
   %523 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -6255,8 +6255,8 @@ _ZNSt7__cxx114listIN3nix5ChildESaIS2_EE5eraseESt20_List_const_iteratorIS2_E.exit
 
 74:                                               ; preds = %75, %71
   %.06.i.i.i.i.i = phi i32 [ %73, %71 ], [ %79, %75 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %75
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %75
 
 75:                                               ; preds = %74
   %76 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -7839,8 +7839,8 @@ _ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EED2Ev.exit: ; 
 
 269:                                              ; preds = %270, %266
   %.06.i.i.i.i.i = phi i32 [ %268, %266 ], [ %274, %270 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %270
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %270
 
 270:                                              ; preds = %269
   %271 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -9604,8 +9604,8 @@ _ZN3nix14checkInterruptEv.exit:                   ; preds = %.noexc155, %.noexc1
 
 355:                                              ; preds = %356, %352
   %.06.i.i.i.i.i = phi i32 [ %354, %352 ], [ %360, %356 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %356
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %356
 
 356:                                              ; preds = %355
   %357 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -11023,8 +11023,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit245:                 ; preds = %.loopexit, %.loopex
 
 791:                                              ; preds = %792, %788
   %.06.i.i.i.i.i250 = phi i32 [ %790, %788 ], [ %796, %792 ]
-  %.not.i.not.i.i.i.i251 = icmp eq i32 %.06.i.i.i.i.i250, 0
-  br i1 %.not.i.not.i.i.i.i251, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i259, label %792
+  %.not.not.not.i.not.i.i.i.i251 = icmp eq i32 %.06.i.i.i.i.i250, 0
+  br i1 %.not.not.not.i.not.i.i.i.i251, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i259, label %792
 
 792:                                              ; preds = %791
   %793 = add nsw i32 %.06.i.i.i.i.i250, 1
@@ -18680,17 +18680,17 @@ _ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcE
   %85 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i.i.i73, i64 136
   %86 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i72, i64 136
   %87 = icmp eq ptr %85, %35
-  br i1 %87, label %.lr.ph.i.i.i77, label %.lr.ph.i.i.i.i.i71, !llvm.loop !177
+  br i1 %87, label %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75, label %.lr.ph.i.i.i.i.i71, !llvm.loop !177
 
-.lr.ph.i.i.i77:                                   ; preds = %.lr.ph.i.i.i.i.i71
+_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i71
   %88 = load ptr, ptr %9, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 %38
   store ptr %89, ptr %9, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 120
   br label %91
 
-91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %.lr.ph.i.i.i77
-  %.06.i.i.i78 = phi ptr [ %1, %.lr.ph.i.i.i77 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
+91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75
+  %.06.i.i.i78 = phi ptr [ %1, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
   %92 = load i32, ptr %16, align 8
   store i32 %92, ptr %.06.i.i.i78, align 8
   %93 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 8

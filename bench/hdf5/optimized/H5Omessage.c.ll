@@ -1210,7 +1210,7 @@ H5O_msg_exists_oh.exit.thread:                    ; preds = %2
   br i1 %27, label %H5O_msg_exists_oh.exit.thread14, label %19
 
 H5O_msg_exists_oh.exit.thread14:                  ; preds = %19, %23, %11
-  %.016 = phi i32 [ 0, %11 ], [ 1, %23 ], [ 0, %19 ]
+  %.016 = phi i32 [ 0, %11 ], [ 0, %19 ], [ 1, %23 ]
   %28 = call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0) #6
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %34

@@ -5671,8 +5671,8 @@ if.then22.i:                                      ; preds = %land.lhs.true16.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %if.then.i29
-  %cmp30.i.not = icmp eq i32 %22, 9
-  br i1 %cmp30.i.not, label %land.lhs.true32.i, label %for.inc.i
+  %cmp30.i = icmp eq i32 %22, 9
+  br i1 %cmp30.i, label %land.lhs.true32.i, label %for.inc.i
 
 land.lhs.true32.i:                                ; preds = %if.else.i
   %t35.i = getelementptr inbounds i8, ptr %lh.addr.02.i, i64 18

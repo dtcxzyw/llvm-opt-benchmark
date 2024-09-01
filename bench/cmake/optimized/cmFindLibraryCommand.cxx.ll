@@ -730,19 +730,16 @@ define dso_local void @_ZN20cmFindLibraryCommand20AddArchitecturePathsEPKc(ptr n
 48:                                               ; preds = %31, %43
   %49 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 32
   %.not = icmp eq ptr %49, %12
-  br i1 %.not, label %._crit_edge, label %30
+  br i1 %.not, label %.lr.ph.i.i.i.i, label %30
 
-._crit_edge:                                      ; preds = %48
-  br i1 %.not12, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %10, %._crit_edge ]
+.lr.ph.i.i.i.i:                                   ; preds = %48, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %10, %48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #18
   %50 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %50, %12
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %2, %._crit_edge
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %2
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %51
 
@@ -1935,8 +1932,8 @@ define dso_local noundef zeroext i1 @_ZN19cmFindLibraryHelper14HasValidSuffixERK
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %.not32 = icmp eq ptr %6, %8
-  br i1 %.not32, label %.loopexit, label %.lr.ph
+  %.not29 = icmp eq ptr %6, %8
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %31
   %.sroa.012.026 = phi ptr [ %32, %31 ], [ %6, %2 ]
@@ -2006,8 +2003,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 31:                                               ; preds = %.thread19, %29
   %32 = getelementptr inbounds i8, ptr %.sroa.012.026, i64 32
-  %.not33 = icmp eq ptr %32, %8
-  br i1 %.not33, label %.loopexit, label %.lr.ph
+  %.not30 = icmp eq ptr %32, %8
+  br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %29, %31, %2, %.thread
   %33 = phi i1 [ true, %.thread ], [ false, %2 ], [ true, %29 ], [ false, %31 ]

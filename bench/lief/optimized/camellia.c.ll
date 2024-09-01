@@ -2196,12 +2196,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %2, i8 0, i64 276, i1 false)
   %101 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull readonly %4, i32 noundef %99)
   %.not.i103 = icmp eq i32 %101, 0
-  br i1 %.not.i103, label %102, label %.thread174
-
-.thread174:                                       ; preds = %100
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 276) #11
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %2)
-  br label %.split82.us.preheader
+  br i1 %.not.i103, label %102, label %.split82.us.preheader
 
 102:                                              ; preds = %100
   %103 = load i32, ptr %2, align 4
@@ -2246,7 +2241,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
 
 .thread173:                                       ; preds = %91
   %125 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %99)
-  br label %.split84.preheader
+  br label %.split84
 
 126:                                              ; preds = %118
   %127 = getelementptr inbounds i8, ptr %.039.i105, i64 -16
@@ -2263,18 +2258,15 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   store i32 %134, ptr %132, align 4
   %136 = load i32, ptr %133, align 4
   store i32 %136, ptr %135, align 4
+  br label %.split82.us.preheader
+
+.split82.us.preheader:                            ; preds = %100, %126
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 276) #11
   call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %2)
-  br i1 %97, label %.split82.us.preheader, label %.split84.preheader
-
-.split84.preheader:                               ; preds = %.thread173, %126
-  br label %.split84
-
-.split82.us.preheader:                            ; preds = %.thread174, %126
   br label %.split82.us
 
 .split82.us:                                      ; preds = %.split82.us.preheader, %140
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %140 ], [ 0, %.split82.us.preheader ]
+  %indvars.iv163 = phi i64 [ 0, %.split82.us.preheader ], [ %indvars.iv.next164, %140 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %137 = getelementptr inbounds [3 x [3 x [16 x i8]]], ptr @camellia_test_cbc_cipher, i64 0, i64 %92, i64 %indvars.iv163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %137, i64 16, i1 false)
@@ -2311,8 +2303,8 @@ mbedtls_camellia_crypt_cbc.exit.us:               ; preds = %141
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 3
   br i1 %exitcond162.not, label %.split145.us, label %.split84, !llvm.loop !32
 
-.split84:                                         ; preds = %.split84.preheader, %147
-  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %147 ], [ 0, %.split84.preheader ]
+.split84:                                         ; preds = %.thread173, %147
+  %indvars.iv159 = phi i64 [ 0, %.thread173 ], [ %indvars.iv.next160, %147 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %148 = getelementptr inbounds [3 x [16 x i8]], ptr @camellia_test_cbc_plain, i64 0, i64 %indvars.iv159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %148, i64 16, i1 false)

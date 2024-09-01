@@ -11584,17 +11584,14 @@ if.end21:                                         ; preds = %if.end14
 for.end:                                          ; preds = %if.end21
   %call30 = tail call ptr @PyTuple_New(i64 noundef %.val33) #8
   %tobool31.not = icmp eq ptr %call30, null
-  br i1 %tobool31.not, label %return, label %for.cond34.preheader
+  br i1 %tobool31.not, label %return, label %for.body36.lr.ph
 
 for.end.thread:                                   ; preds = %for.cond.preheader
   %call3041 = tail call ptr @PyTuple_New(i64 noundef %.val33) #8
   %tobool31.not42 = icmp eq ptr %call3041, null
   br i1 %tobool31.not42, label %return, label %do.body
 
-for.cond34.preheader:                             ; preds = %for.end
-  br i1 %cmp836, label %for.body36.lr.ph, label %do.body
-
-for.body36.lr.ph:                                 ; preds = %for.cond34.preheader
+for.body36.lr.ph:                                 ; preds = %for.end
   %indices42 = getelementptr inbounds i8, ptr %lz, i64 24
   %ob_item.i = getelementptr inbounds i8, ptr %call30, i64 24
   br label %for.body36
@@ -11627,8 +11624,8 @@ Py_INCREF.exit:                                   ; preds = %for.body36, %if.end
   %exitcond40.not = icmp eq i64 %inc46, %.val33
   br i1 %exitcond40.not, label %do.body, label %for.body36, !llvm.loop !41
 
-do.body:                                          ; preds = %Py_INCREF.exit, %for.end.thread, %for.cond34.preheader
-  %call304345 = phi ptr [ %call30, %for.cond34.preheader ], [ %call3041, %for.end.thread ], [ %call30, %Py_INCREF.exit ]
+do.body:                                          ; preds = %Py_INCREF.exit, %for.end.thread
+  %call304345 = phi ptr [ %call3041, %for.end.thread ], [ %call30, %Py_INCREF.exit ]
   %result48 = getelementptr inbounds i8, ptr %lz, i64 32
   %19 = load ptr, ptr %result48, align 8
   store ptr %call304345, ptr %result48, align 8
@@ -14040,17 +14037,14 @@ if.end25:                                         ; preds = %for.body
 for.end:                                          ; preds = %if.end25
   %call26 = tail call ptr @PyTuple_New(i64 noundef %args.val) #8
   %cmp27 = icmp eq ptr %call26, null
-  br i1 %cmp27, label %if.then28, label %for.cond30.preheader
+  br i1 %cmp27, label %if.then28, label %for.body32.lr.ph
 
 for.end.thread:                                   ; preds = %for.cond.preheader
   %call2656 = tail call ptr @PyTuple_New(i64 noundef %args.val) #8
   %cmp2757 = icmp eq ptr %call2656, null
   br i1 %cmp2757, label %if.then28, label %for.end35
 
-for.cond30.preheader:                             ; preds = %for.end
-  br i1 %cmp2151, label %for.body32.lr.ph, label %for.end35
-
-for.body32.lr.ph:                                 ; preds = %for.cond30.preheader
+for.body32.lr.ph:                                 ; preds = %for.end
   %ob_item.i47 = getelementptr inbounds i8, ptr %call26, i64 24
   br label %for.body32
 
@@ -14088,8 +14082,8 @@ Py_INCREF.exit:                                   ; preds = %for.body32, %if.end
   %exitcond55.not = icmp eq i64 %inc34, %args.val
   br i1 %exitcond55.not, label %for.end35, label %for.body32, !llvm.loop !50
 
-for.end35:                                        ; preds = %Py_INCREF.exit, %for.end.thread, %for.cond30.preheader
-  %call265860 = phi ptr [ %call26, %for.cond30.preheader ], [ %call2656, %for.end.thread ], [ %call26, %Py_INCREF.exit ]
+for.end35:                                        ; preds = %Py_INCREF.exit, %for.end.thread
+  %call265860 = phi ptr [ %call2656, %for.end.thread ], [ %call26, %Py_INCREF.exit ]
   %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %10 = load ptr, ptr %tp_alloc, align 8
   %call36 = tail call ptr %10(ptr noundef %type, i64 noundef 0) #8

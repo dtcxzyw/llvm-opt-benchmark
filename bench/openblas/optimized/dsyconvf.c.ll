@@ -292,10 +292,6 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
   store double 0.000000e+00, ptr %176, align 8, !tbaa !7
   br label %.preheader32
 
-.preheader30:                                     ; preds = %195
-  %invariant.op = add i32 %10, 1
-  br label %200
-
 .preheader32:                                     ; preds = %.preheader32.preheader, %195
   %177 = phi i32 [ %198, %195 ], [ 1, %.preheader32.preheader ]
   %178 = icmp slt i32 %177, %28
@@ -333,6 +329,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
   %198 = add nsw i32 %197, 1
   %199 = icmp slt i32 %197, %28
   br i1 %199, label %.preheader32, label %.preheader30, !llvm.loop !15
+
+.preheader30:                                     ; preds = %195
+  %invariant.op = add i32 %10, 1
+  br label %200
 
 200:                                              ; preds = %.preheader30, %232
   %201 = phi i32 [ %234, %232 ], [ 1, %.preheader30 ]

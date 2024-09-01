@@ -741,9 +741,10 @@ default.unreachable:                              ; preds = %230
   br label %.body.i
 
 .body.i:                                          ; preds = %258, %.loopexit.split-lp.i, %.loopexit184.i
+  %trunc88.i188 = phi i1 [ false, %258 ], [ false, %.loopexit184.i ], [ %trunc88.i, %.loopexit.split-lp.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %259, %258 ], [ %lpad.loopexit.i, %.loopexit184.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %.not93.i = icmp eq i64 %225, 0
-  %brmerge.i = or i1 %.not93.i, %trunc88.i
+  %brmerge.i = or i1 %.not93.i, %trunc88.i188
   br i1 %brmerge.i, label %219, label %278
 
 246:                                              ; preds = %239

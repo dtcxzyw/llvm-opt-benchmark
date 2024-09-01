@@ -41,17 +41,17 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   store i32 1, ptr %12, align 8
   %13 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.preheader75, label %94
+  br i1 %.not, label %.preheader75, label %93
 
 .preheader75:                                     ; preds = %4
-  %.05483 = load ptr, ptr %6, align 8
-  %.not6084 = icmp eq ptr %.05483, null
-  br i1 %.not6084, label %.thread.thread, label %.lr.ph
+  %.05479 = load ptr, ptr %6, align 8
+  %.not6080 = icmp eq ptr %.05479, null
+  br i1 %.not6080, label %.thread.thread, label %.lr.ph
 
 .thread.thread:                                   ; preds = %.preheader75
   %14 = load ptr, ptr %6, align 8
   call void @freeaddrinfo(ptr noundef %14) #9
-  br label %94
+  br label %93
 
 .lr.ph:                                           ; preds = %.preheader75
   %.not61 = icmp eq i32 %3, 0
@@ -60,21 +60,21 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br i1 %.not61, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
-  %.05486.us = phi ptr [ %.054.us, %33 ], [ %.05483, %.lr.ph ]
-  %17 = getelementptr inbounds i8, ptr %.05486.us, i64 4
+  %.05482.us = phi ptr [ %.054.us, %33 ], [ %.05479, %.lr.ph ]
+  %17 = getelementptr inbounds i8, ptr %.05482.us, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %.05486.us, i64 8
+  %19 = getelementptr inbounds i8, ptr %.05482.us, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.05486.us, i64 12
+  %21 = getelementptr inbounds i8, ptr %.05482.us, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @socket(i32 noundef %18, i32 noundef %20, i32 noundef %22) #9
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
-  %26 = getelementptr inbounds i8, ptr %.05486.us, i64 24
+  %26 = getelementptr inbounds i8, ptr %.05482.us, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.05486.us, i64 16
+  %28 = getelementptr inbounds i8, ptr %.05482.us, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = call i32 @connect(i32 noundef %23, ptr %27, i32 noundef %29) #9
   store i32 %30, ptr %7, align 4
@@ -86,18 +86,18 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %33
 
 33:                                               ; preds = %31, %.lr.ph.split.us
-  %34 = getelementptr inbounds i8, ptr %.05486.us, i64 40
+  %34 = getelementptr inbounds i8, ptr %.05482.us, i64 40
   %.054.us = load ptr, ptr %34, align 8
   %.not60.us = icmp eq ptr %.054.us, null
   br i1 %.not60.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %81
-  %.05486 = phi ptr [ %.054, %81 ], [ %.05483, %.lr.ph ]
-  %35 = getelementptr inbounds i8, ptr %.05486, i64 4
+  %.05482 = phi ptr [ %.054, %81 ], [ %.05479, %.lr.ph ]
+  %35 = getelementptr inbounds i8, ptr %.05482, i64 4
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %.05486, i64 8
+  %37 = getelementptr inbounds i8, ptr %.05482, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.05486, i64 12
+  %39 = getelementptr inbounds i8, ptr %.05482, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @socket(i32 noundef %36, i32 noundef %38, i32 noundef %40) #9
   %42 = icmp slt i32 %41, 0
@@ -111,9 +111,9 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br i1 %47, label %.sink.split, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %.05486, i64 24
+  %49 = getelementptr inbounds i8, ptr %.05482, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.05486, i64 16
+  %51 = getelementptr inbounds i8, ptr %.05482, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = call i32 @connect(i32 noundef %41, ptr %50, i32 noundef %52) #9
   store i32 %53, ptr %7, align 4
@@ -173,7 +173,7 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %81
 
 81:                                               ; preds = %.sink.split, %.lr.ph.split
-  %82 = getelementptr inbounds i8, ptr %.05486, i64 40
+  %82 = getelementptr inbounds i8, ptr %.05482, i64 40
   %.054 = load ptr, ptr %82, align 8
   %.not60 = icmp eq ptr %.054, null
   br i1 %.not60, label %.thread, label %.lr.ph.split
@@ -183,30 +183,30 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %83 = load ptr, ptr %6, align 8
   call void @freeaddrinfo(ptr noundef %83) #9
   %84 = icmp sgt i32 %.052.lcssa, -1
-  br i1 %84, label %85, label %94
+  br i1 %84, label %85, label %93
 
 85:                                               ; preds = %.thread
   %86 = call i32 @close(i32 noundef %.052.lcssa) #9
-  br label %94
+  br label %93
 
 .thread69:                                        ; preds = %48, %77, %25
-  %.380 = phi i32 [ 0, %25 ], [ %44, %77 ], [ %44, %48 ]
-  %87 = phi i32 [ %23, %25 ], [ %41, %77 ], [ %41, %48 ]
-  %88 = load ptr, ptr %6, align 8
-  call void @freeaddrinfo(ptr noundef %88) #9
-  br i1 %.not61, label %94, label %89
+  %.us-phi = phi i32 [ 0, %25 ], [ %44, %77 ], [ %44, %48 ]
+  %.us-phi83 = phi i32 [ %23, %25 ], [ %41, %77 ], [ %41, %48 ]
+  %87 = load ptr, ptr %6, align 8
+  call void @freeaddrinfo(ptr noundef %87) #9
+  br i1 %.not61, label %93, label %88
 
-89:                                               ; preds = %.thread69
-  %90 = call i32 (i32, i32, ...) @fcntl(i32 noundef %87, i32 noundef 4, i32 noundef %.380) #9
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %92, label %94
+88:                                               ; preds = %.thread69
+  %89 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.us-phi83, i32 noundef 4, i32 noundef %.us-phi) #9
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %91, label %93
 
-92:                                               ; preds = %89
-  %93 = call i32 @close(i32 noundef %87) #9
-  br label %94
+91:                                               ; preds = %88
+  %92 = call i32 @close(i32 noundef %.us-phi83) #9
+  br label %93
 
-94:                                               ; preds = %.thread.thread, %.thread69, %89, %.thread, %85, %4, %92
-  %.0 = phi i32 [ -1, %92 ], [ -1, %4 ], [ -1, %85 ], [ -1, %.thread ], [ %87, %89 ], [ %87, %.thread69 ], [ -1, %.thread.thread ]
+93:                                               ; preds = %.thread.thread, %.thread69, %88, %.thread, %85, %4, %91
+  %.0 = phi i32 [ -1, %91 ], [ -1, %4 ], [ -1, %85 ], [ -1, %.thread ], [ %.us-phi83, %88 ], [ %.us-phi83, %.thread69 ], [ -1, %.thread.thread ]
   ret i32 %.0
 }
 

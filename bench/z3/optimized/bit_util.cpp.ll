@@ -199,29 +199,21 @@ entry:
   br i1 %cmp3, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext i32 %sz to i64
-  %1 = load i32, ptr %data, align 4
-  %tobool.not7 = icmp eq i32 %1, 0
-  br i1 %tobool.not7, label %for.cond, label %return
+  %wide.trip.count = zext i32 %sz to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv8 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !9
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
+  %0 = load i32, ptr %arrayidx, align 4
+  %tobool.not = icmp eq i32 %0, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %tobool.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !9
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
-  %2 = load i32, ptr %arrayidx, align 4
-  %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %for.cond, label %return.loopexit, !llvm.loop !9
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i64 %indvars.iv.next, %0
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %tobool.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -766,33 +758,23 @@ entry:
   br i1 %cmp5.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext i32 %sz to i64
-  %1 = load i32, ptr %data, align 4
-  %inc9 = add i32 %1, 1
-  store i32 %inc9, ptr %data, align 4
-  %cmp3.not10 = icmp eq i32 %inc9, 0
-  br i1 %cmp3.not10, label %for.cond, label %return
+  %wide.trip.count = zext i32 %sz to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !20
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
-  %2 = load i32, ptr %arrayidx, align 4
-  %inc = add i32 %2, 1
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
+  %0 = load i32, ptr %arrayidx, align 4
+  %inc = add i32 %0, 1
   store i32 %inc, ptr %arrayidx, align 4
-  %cmp3.not = icmp eq i32 %inc, 0
-  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !20
+  %cmp3.not.not = icmp ne i32 %inc, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp3.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !20
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %0
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp3.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -803,33 +785,23 @@ entry:
   br i1 %cmp5.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext i32 %sz to i64
-  %1 = load i32, ptr %data, align 4
-  %dec9 = add i32 %1, -1
-  store i32 %dec9, ptr %data, align 4
-  %cmp3.not10 = icmp eq i32 %1, 0
-  br i1 %cmp3.not10, label %for.cond, label %return
+  %wide.trip.count = zext i32 %sz to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !21
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv.next
-  %2 = load i32, ptr %arrayidx, align 4
-  %dec = add i32 %2, -1
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
+  %0 = load i32, ptr %arrayidx, align 4
+  %dec = add i32 %0, -1
   store i32 %dec, ptr %arrayidx, align 4
-  %cmp3.not = icmp eq i32 %2, 0
-  br i1 %cmp3.not, label %for.cond, label %return.loopexit, !llvm.loop !21
+  %cmp3.not.not = icmp ne i32 %0, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp3.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !21
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %0
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp3.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 

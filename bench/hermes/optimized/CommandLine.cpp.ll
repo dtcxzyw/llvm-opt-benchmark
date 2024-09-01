@@ -14471,8 +14471,8 @@ if.end9.i:                                        ; preds = %if.then.i.i73, %if.
   br label %return
 
 if.end34:                                         ; preds = %sw.epilog
-  %tobool36.not = icmp ne ptr %Value.promoted, null
-  br i1 %tobool36.not, label %if.then37, label %while.body.preheader
+  %tobool36.not.not = icmp ne ptr %Value.promoted, null
+  br i1 %tobool36.not.not, label %if.then37, label %while.body.preheader
 
 if.then37:                                        ; preds = %if.end34
   %9 = load i32, ptr %i, align 4
@@ -14544,7 +14544,7 @@ while.body.preheader:                             ; preds = %if.end34, %if.end44
 
 while.body:                                       ; preds = %while.body.preheader, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163
   %NumAdditionalVals.1188 = phi i32 [ %dec64, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ %NumAdditionalVals.1188.ph, %while.body.preheader ]
-  %MultiArg.1187 = phi i1 [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ %tobool36.not, %while.body.preheader ]
+  %MultiArg.1187 = phi i1 [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ %tobool36.not.not, %while.body.preheader ]
   %13 = load i32, ptr %i, align 4
   %add46 = add nsw i32 %13, 1
   %cmp47.not = icmp slt i32 %add46, %argc

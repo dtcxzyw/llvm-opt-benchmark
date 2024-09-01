@@ -485,10 +485,10 @@ mca_bml_base_btl_array_get_next.exit.us:          ; preds = %24, %18
   %41 = select i1 %38, i1 %40, i1 false
   br i1 %41, label %.lr.ph.split.us, label %._crit_edge43, !llvm.loop !10
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %71
-  %.041 = phi double [ %.1, %71 ], [ 0.000000e+00, %.lr.ph.split.preheader ]
-  %.02940 = phi i32 [ %.130, %71 ], [ 0, %.lr.ph.split.preheader ]
-  %.03139 = phi i32 [ %72, %71 ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %._crit_edge
+  %.041 = phi double [ %.1, %._crit_edge ], [ 0.000000e+00, %.lr.ph.split.preheader ]
+  %.02940 = phi i32 [ %.130, %._crit_edge ], [ 0, %.lr.ph.split.preheader ]
+  %.03139 = phi i32 [ %71, %._crit_edge ], [ 0, %.lr.ph.split.preheader ]
   %42 = load i64, ptr %4, align 8
   %43 = icmp eq i64 %42, 1
   br i1 %43, label %44, label %46
@@ -534,10 +534,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_ar
   %62 = icmp eq ptr %61, %57
   br i1 %62, label %.thread, label %58
 
-._crit_edge:                                      ; preds = %58
-  br i1 %53, label %.thread, label %71
-
-.thread:                                          ; preds = %mca_bml_base_btl_array_get_index.exit, %mca_bml_base_btl_array_get_next.exit, %._crit_edge
+.thread:                                          ; preds = %mca_bml_base_btl_array_get_index.exit, %mca_bml_base_btl_array_get_next.exit
   %63 = sext i32 %.02940 to i64
   %64 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %2, i64 %63
   store ptr %.0.i, ptr %64, align 8
@@ -548,91 +545,91 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_ar
   %68 = load float, ptr %67, align 4
   %69 = fpext float %68 to double
   %70 = fadd double %.041, %69
-  br label %71
+  br label %._crit_edge
 
-71:                                               ; preds = %._crit_edge, %.thread
-  %.130 = phi i32 [ %.02940, %._crit_edge ], [ %65, %.thread ]
-  %.1 = phi double [ %.041, %._crit_edge ], [ %70, %.thread ]
-  %72 = add nuw nsw i32 %.03139, 1
-  %73 = icmp slt i32 %72, %5
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
-  %75 = icmp slt i32 %72, %74
-  %76 = select i1 %73, i1 %75, i1 false
-  br i1 %76, label %.lr.ph.split, label %._crit_edge43, !llvm.loop !10
+._crit_edge:                                      ; preds = %58, %.thread
+  %.130 = phi i32 [ %65, %.thread ], [ %.02940, %58 ]
+  %.1 = phi double [ %70, %.thread ], [ %.041, %58 ]
+  %71 = add nuw nsw i32 %.03139, 1
+  %72 = icmp slt i32 %71, %5
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
+  %74 = icmp slt i32 %71, %73
+  %75 = select i1 %72, i1 %74, i1 false
+  br i1 %75, label %.lr.ph.split, label %._crit_edge43, !llvm.loop !10
 
-._crit_edge43:                                    ; preds = %71, %36
-  %.029.lcssa = phi i32 [ %.130.us, %36 ], [ %.130, %71 ]
-  %.0.lcssa = phi double [ %.1.us, %36 ], [ %.1, %71 ]
-  %77 = icmp eq i32 %.029.lcssa, 1
-  br i1 %77, label %78, label %80
+._crit_edge43:                                    ; preds = %._crit_edge, %36
+  %.029.lcssa = phi i32 [ %.130.us, %36 ], [ %.130, %._crit_edge ]
+  %.0.lcssa = phi double [ %.1.us, %36 ], [ %.1, %._crit_edge ]
+  %76 = icmp eq i32 %.029.lcssa, 1
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %._crit_edge43
-  %79 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %1, ptr %79, align 8
+77:                                               ; preds = %._crit_edge43
+  %78 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %1, ptr %78, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
-80:                                               ; preds = %._crit_edge43
-  %81 = sext i32 %.029.lcssa to i64
-  tail call void @qsort(ptr noundef %2, i64 noundef %81, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #7
-  %82 = icmp sgt i32 %.029.lcssa, 0
-  br i1 %82, label %.lr.ph.i, label %._crit_edge.i
+79:                                               ; preds = %._crit_edge43
+  %80 = sext i32 %.029.lcssa to i64
+  tail call void @qsort(ptr noundef %2, i64 noundef %80, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #7
+  %81 = icmp sgt i32 %.029.lcssa, 0
+  br i1 %81, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %80
-  %83 = uitofp i64 %1 to double
+.lr.ph.i:                                         ; preds = %79
+  %82 = uitofp i64 %1 to double
   %wide.trip.count.i = zext nneg i32 %.029.lcssa to i64
-  br label %84
+  br label %83
 
-84:                                               ; preds = %103, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
-  %.02832.i = phi i64 [ %1, %.lr.ph.i ], [ %.129.i, %103 ]
-  %85 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %2, i64 %indvars.iv.i
-  %86 = load ptr, ptr %85, align 8
+83:                                               ; preds = %102, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
+  %.02832.i = phi i64 [ %1, %.lr.ph.i ], [ %.129.i, %102 ]
+  %84 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %2, i64 %indvars.iv.i
+  %85 = load ptr, ptr %84, align 8
   %.not.i = icmp eq i64 %.02832.i, 0
-  br i1 %.not.i, label %103, label %87
+  br i1 %.not.i, label %102, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp ugt i64 %.02832.i, %91
-  br i1 %92, label %93, label %100
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp ugt i64 %.02832.i, %90
+  br i1 %91, label %92, label %99
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %86, i64 4
-  %95 = load float, ptr %94, align 4
-  %96 = fpext float %95 to double
-  %97 = fdiv double %96, %.0.lcssa
-  %98 = fmul double %97, %83
-  %99 = fptoui double %98 to i64
-  br label %100
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds i8, ptr %85, i64 4
+  %94 = load float, ptr %93, align 4
+  %95 = fpext float %94 to double
+  %96 = fdiv double %95, %.0.lcssa
+  %97 = fmul double %96, %82
+  %98 = fptoui double %97 to i64
+  br label %99
 
-100:                                              ; preds = %93, %87
-  %101 = phi i64 [ %99, %93 ], [ %.02832.i, %87 ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %101, i64 %.02832.i)
-  %102 = sub i64 %.02832.i, %spec.select.i
-  br label %103
+99:                                               ; preds = %92, %86
+  %100 = phi i64 [ %98, %92 ], [ %.02832.i, %86 ]
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %100, i64 %.02832.i)
+  %101 = sub i64 %.02832.i, %spec.select.i
+  br label %102
 
-103:                                              ; preds = %100, %84
-  %.129.i = phi i64 [ %102, %100 ], [ 0, %84 ]
-  %.0.i35 = phi i64 [ %spec.select.i, %100 ], [ 0, %84 ]
-  %104 = getelementptr inbounds i8, ptr %85, i64 16
-  store i64 %.0.i35, ptr %104, align 8
+102:                                              ; preds = %99, %83
+  %.129.i = phi i64 [ %101, %99 ], [ 0, %83 ]
+  %.0.i35 = phi i64 [ %spec.select.i, %99 ], [ 0, %83 ]
+  %103 = getelementptr inbounds i8, ptr %84, i64 16
+  store i64 %.0.i35, ptr %103, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %84, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %83, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %103, %.thread53, %80
-  %105 = phi i64 [ %81, %80 ], [ 0, %.thread53 ], [ %81, %103 ]
-  %.028.lcssa.i = phi i64 [ %1, %80 ], [ %1, %.thread53 ], [ %.129.i, %103 ]
-  %106 = getelementptr inbounds i8, ptr %2, i64 16
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %107, %.028.lcssa.i
-  store i64 %108, ptr %106, align 8
+._crit_edge.i:                                    ; preds = %102, %.thread53, %79
+  %104 = phi i64 [ %80, %79 ], [ 0, %.thread53 ], [ %80, %102 ]
+  %.028.lcssa.i = phi i64 [ %1, %79 ], [ %1, %.thread53 ], [ %.129.i, %102 ]
+  %105 = getelementptr inbounds i8, ptr %2, i64 16
+  %106 = load i64, ptr %105, align 8
+  %107 = add i64 %106, %.028.lcssa.i
+  store i64 %107, ptr %105, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
-mca_pml_ob1_calc_weighted_length.exit:            ; preds = %78, %._crit_edge.i
-  %.pre-phi = phi i64 [ 1, %78 ], [ %105, %._crit_edge.i ]
+mca_pml_ob1_calc_weighted_length.exit:            ; preds = %77, %._crit_edge.i
+  %.pre-phi = phi i64 [ 1, %77 ], [ %104, %._crit_edge.i ]
   ret i64 %.pre-phi
 }
 

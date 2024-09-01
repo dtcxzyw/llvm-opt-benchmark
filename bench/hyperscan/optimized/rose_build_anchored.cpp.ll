@@ -1731,8 +1731,8 @@ while.body.lr.ph.split.i.i.i:                     ; preds = %if.then17.i.i.i, %w
   %sit.sroa.0.0.ph62.i.i.i = phi ptr [ %call.i.i.i.i, %if.then17.i.i.i ], [ %80, %while.body.lr.ph.preheader.i.i.i ]
   %bit.sroa.0.0.ph61.i.i.i = phi ptr [ %call.i11.i.i.i, %if.then17.i.i.i ], [ %81, %while.body.lr.ph.preheader.i.i.i ]
   %agg.tmp22.sroa.2.0.call23.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i.i.i, i64 40
-  %cmp.i838.i.not.i.i = icmp eq ptr %bit.sroa.0.0.ph61.i.i.i, %61
-  br i1 %cmp.i838.i.not.i.i, label %cleanup191.i.i, label %if.end13.lr.ph.i.i.i
+  %cmp.i838.not.i.i.i = icmp eq ptr %bit.sroa.0.0.ph61.i.i.i, %61
+  br i1 %cmp.i838.not.i.i.i, label %cleanup191.i.i, label %if.end13.lr.ph.i.i.i
 
 if.end13.lr.ph.i.i.i:                             ; preds = %while.body.lr.ph.split.i.i.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i.i.i, i64 32
@@ -12219,8 +12219,8 @@ while.body.lr.ph.split:                           ; preds = %if.then17, %while.b
   %sit.sroa.0.0.ph62 = phi ptr [ %call.i, %if.then17 ], [ %2, %while.body.lr.ph.preheader ]
   %bit.sroa.0.0.ph61 = phi ptr [ %call.i11, %if.then17 ], [ %3, %while.body.lr.ph.preheader ]
   %agg.tmp22.sroa.2.0.call23.sroa_idx = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62, i64 40
-  %cmp.i838 = icmp ne ptr %bit.sroa.0.0.ph61, %add.ptr.i.i7
-  br i1 %cmp.i838, label %if.end13.lr.ph, label %return
+  %cmp.i838.not = icmp eq ptr %bit.sroa.0.0.ph61, %add.ptr.i.i7
+  br i1 %cmp.i838.not, label %return, label %if.end13.lr.ph
 
 if.end13.lr.ph:                                   ; preds = %while.body.lr.ph.split
   %_M_storage.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62, i64 32
@@ -12266,7 +12266,7 @@ if.then25:                                        ; preds = %if.end20, %if.then.
   br i1 %cmp.i8, label %return, label %if.end13
 
 return:                                           ; preds = %if.then17, %while.body.lr.ph.split, %if.end13.us42, %if.then25, %if.then.i, %while.cond.preheader, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %while.cond.preheader ], [ false, %if.then.i ], [ false, %if.then25 ], [ %cmp.i838, %if.then17 ], [ false, %while.body.lr.ph.split ], [ false, %if.end13.us42 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %while.cond.preheader ], [ false, %if.then.i ], [ false, %if.then25 ], [ true, %if.then17 ], [ false, %while.body.lr.ph.split ], [ false, %if.end13.us42 ]
   ret i1 %retval.0
 }
 

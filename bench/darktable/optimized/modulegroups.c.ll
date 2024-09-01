@@ -3547,11 +3547,11 @@ define internal noundef range(i32 0, 2) i32 @_lib_modulegroups_test_visible(ptr 
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = tail call ptr @g_list_find_custom(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @_iop_compare) #16
-  %.not = icmp ne ptr %16, null
-  br i1 %.not, label %17, label %8
+  %.not.not.not.not.not = icmp ne ptr %16, null
+  br i1 %.not.not.not.not.not, label %17, label %8
 
 17:                                               ; preds = %.preheader, %8
-  %18 = zext i1 %.not to i32
+  %18 = zext i1 %.not.not.not.not.not to i32
   br label %19
 
 19:                                               ; preds = %17, %2

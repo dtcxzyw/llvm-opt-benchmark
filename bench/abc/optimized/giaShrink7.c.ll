@@ -2334,18 +2334,18 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 96:                                               ; preds = %92
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntFind.exit, label %92, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.lr.ph.i87, label %92, !llvm.loop !21
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %92
   %97 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %Vec_IntFind.exit
+  br label %.lr.ph.i87
 
-Vec_IntFind.exit:                                 ; preds = %96, %._crit_edge.loopexit.split.loop.exit12.i
+.lr.ph.i87:                                       ; preds = %96, %._crit_edge.loopexit.split.loop.exit12.i
   %.07.i = phi i32 [ %97, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %96 ]
   br label %98
 
-98:                                               ; preds = %102, %Vec_IntFind.exit
-  %indvars.iv.i89 = phi i64 [ 0, %Vec_IntFind.exit ], [ %indvars.iv.next.i90, %102 ]
+98:                                               ; preds = %102, %.lr.ph.i87
+  %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i90, %102 ]
   %99 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv.i89
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, %85

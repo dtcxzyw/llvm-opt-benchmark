@@ -113,7 +113,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
 23:                                               ; preds = %19
   %24 = icmp ne i32 %20, 0
   %25 = zext i1 %24 to i32
-  %.not91 = icmp eq i32 %20, 1
+  %.not90 = icmp eq i32 %20, 1
   %26 = getelementptr inbounds i8, ptr %0, i64 328
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
@@ -154,7 +154,7 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
   br label %106
 
 49:                                               ; preds = %44, %39
-  br i1 %.not91, label %50, label %55
+  br i1 %.not90, label %50, label %55
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds i8, ptr %40, i64 16
@@ -214,11 +214,11 @@ define range(i32 -8, 1) i32 @KINSetLinearSolver(ptr noundef %0, ptr noundef %1, 
   %73 = getelementptr inbounds i8, ptr %calloc, i64 32
   store ptr %1, ptr %73, align 8
   %.not84 = icmp ne ptr %2, null
-  %.sink90 = zext i1 %.not84 to i32
+  %.sink91 = zext i1 %.not84 to i32
   %kinLsDQJac.sink = select i1 %.not84, ptr @kinLsDQJac, ptr null
   %.sink = select i1 %.not84, ptr %0, ptr null
   %74 = getelementptr inbounds i8, ptr %calloc, i64 8
-  store i32 %.sink90, ptr %74, align 8
+  store i32 %.sink91, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %calloc, i64 16
   store ptr %kinLsDQJac.sink, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %calloc, i64 24

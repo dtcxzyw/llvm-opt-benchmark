@@ -215,8 +215,8 @@ if.end29:                                         ; preds = %invoke.cont11
 for.cond.i:                                       ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, %if.end29
   %__begin1.sroa.0.0.in.i = phi ptr [ %m_header.i.i.i.i.i.i.i, %if.end29 ], [ %__begin1.sroa.0.0.i, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
   %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.0.in.i, align 8
-  %cmp.i.i.i.i.i.i.i.not.i.not = icmp eq ptr %__begin1.sroa.0.0.i, %m_header.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.not.i.not, label %if.end37, label %for.body.i
+  %cmp.i.i.i.i.i.i.i.not.not.not.i.not = icmp eq ptr %__begin1.sroa.0.0.i, %m_header.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.not.not.not.i.not, label %if.end37, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %source.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0.i, i64 16

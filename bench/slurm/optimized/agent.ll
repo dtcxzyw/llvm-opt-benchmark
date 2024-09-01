@@ -515,7 +515,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
 34:                                               ; preds = %30, %33, %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %35 = call zeroext i1 @in_stepd() #10
-  br i1 %35, label %.lr.ph.i, label %80
+  br i1 %35, label %.lr.ph.i, label %81
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i.backedge
   %.020.ph81.i = phi ptr [ %69, %.lr.ph.i.backedge ], [ %3, %34 ]
@@ -633,35 +633,35 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   br label %.lr.ph.i, !llvm.loop !8
 
 .outer._crit_edge.i:                              ; preds = %.split36.us.i
-  %.pre.i = load i32, ptr %3, align 4
-  %76 = call i32 @slurm_get_log_level() #10
-  %77 = icmp sgt i32 %76, 6
-  br i1 %77, label %78, label %80
+  %76 = load i32, ptr %3, align 4
+  %77 = call i32 @slurm_get_log_level() #10
+  %78 = icmp sgt i32 %77, 6
+  br i1 %78, label %79, label %81
 
-78:                                               ; preds = %.outer._crit_edge.i
-  %79 = call i32 @ntohl(i32 noundef %.pre.i) #11
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.22, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_tree_request, i32 noundef %79) #10
-  br label %80
+79:                                               ; preds = %.outer._crit_edge.i
+  %80 = call i32 @ntohl(i32 noundef %76) #11
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.22, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_tree_request, i32 noundef %80) #10
+  br label %81
 
-80:                                               ; preds = %78, %.outer._crit_edge.i, %34
-  %81 = call i32 @handle_tree_cmd(i32 noundef %21) #10
+81:                                               ; preds = %79, %.outer._crit_edge.i, %34
+  %82 = call i32 @handle_tree_cmd(i32 noundef %21) #10
   br label %_handle_tree_request.exit
 
-_handle_tree_request.exit:                        ; preds = %.split43.us.i, %61, %.split.us.i, %64, %.split40.us.i, %67, %80
+_handle_tree_request.exit:                        ; preds = %.split43.us.i, %61, %.split.us.i, %64, %.split40.us.i, %67, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %82 = call i32 @close(i32 noundef %21) #10
-  %83 = load i32, ptr %0, align 8
+  %83 = call i32 @close(i32 noundef %21) #10
+  %84 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 %83, ptr %4, align 4
+  store i32 %84, ptr %4, align 4
   store i16 1, ptr %11, align 4
-  %84 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef 10) #10
-  %85 = icmp eq i32 %84, 1
-  %86 = load i16, ptr %15, align 2
-  %87 = and i16 %86, 1
-  %88 = icmp ne i16 %87, 0
-  %89 = select i1 %85, i1 %88, i1 false
+  %85 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef 10) #10
+  %86 = icmp eq i32 %85, 1
+  %87 = load i16, ptr %15, align 2
+  %88 = and i16 %87, 1
+  %89 = icmp ne i16 %88, 0
+  %90 = select i1 %86, i1 %89, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %89, label %.preheader.backedge, label %.loopexit
+  br i1 %90, label %.preheader.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %_handle_tree_request.exit, %23, %23, %10, %26
   ret i32 0

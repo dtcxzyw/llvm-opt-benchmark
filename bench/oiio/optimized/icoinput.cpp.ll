@@ -3312,7 +3312,7 @@ for.inc301:                                       ; preds = %for.body272
   br i1 %cmp267, label %for.cond270.preheader, label %for.cond254.loopexit, !llvm.loop !31
 
 cleanup308:                                       ; preds = %invoke.cont44, %invoke.cont259, %for.cond254.loopexit, %if.then150.invoke, %invoke.cont249, %for.end232
-  %retval.3 = phi i1 [ true, %for.end232 ], [ true, %invoke.cont249 ], [ false, %if.then150.invoke ], [ false, %invoke.cont259 ], [ %call260, %for.cond254.loopexit ], [ false, %invoke.cont44 ]
+  %retval.3 = phi i1 [ true, %for.end232 ], [ true, %invoke.cont249 ], [ false, %if.then150.invoke ], [ %call260, %for.cond254.loopexit ], [ %call260, %invoke.cont259 ], [ false, %invoke.cont44 ]
   %88 = load ptr, ptr %scanline, align 8
   %tobool.not.i.i.i125 = icmp eq ptr %88, null
   br i1 %tobool.not.i.i.i125, label %cleanup309, label %if.then.i.i.i126

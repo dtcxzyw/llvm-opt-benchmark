@@ -3195,16 +3195,16 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef %0) #0 align 16 {
 .lr.ph.preheader:                                 ; preds = %8
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %._crit_edge, label %.lr.ph47
+  br i1 %12, label %._crit_edge, label %.lr.ph41
 
-.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph41:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %262, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   %14 = phi ptr [ %255, %.lr.ph ], [ null, %.lr.ph.preheader ]
   %15 = phi i32 [ %259, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   br label %16
 
-16:                                               ; preds = %.lr.ph47, %182
-  %17 = phi ptr [ %13, %.lr.ph47 ], [ %183, %182 ]
+16:                                               ; preds = %.lr.ph41, %182
+  %17 = phi ptr [ %13, %.lr.ph41 ], [ %183, %182 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %0, align 8
@@ -3615,12 +3615,12 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef %0) #0 align 16 {
   store i32 %258, ptr %261, align 4
   %262 = load ptr, ptr %0, align 8
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %._crit_edge, label %.lr.ph47
+  br i1 %263, label %._crit_edge, label %.lr.ph41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %182, %.lr.ph.preheader
-  %.lcssa46 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %182 ], [ %259, %.lr.ph ]
+  %.lcssa40 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %182 ], [ %259, %.lr.ph ]
   %.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %14, %182 ], [ %255, %.lr.ph ]
-  %264 = icmp eq i32 %.lcssa46, 0
+  %264 = icmp eq i32 %.lcssa40, 0
   br i1 %264, label %._crit_edge.thread, label %265
 
 265:                                              ; preds = %._crit_edge
@@ -3639,20 +3639,20 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef %0) #0 align 16 {
 
 275:                                              ; preds = %272
   %276 = getelementptr inbounds i8, ptr %267, i64 392
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %276, i32 %.lcssa46, ptr elementtype(i32) %276) #22, !srcloc !42
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %276, i32 %.lcssa40, ptr elementtype(i32) %276) #22, !srcloc !42
   br label %279
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds i8, ptr %.lcssa, i64 344
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %278, i32 %.lcssa46, ptr elementtype(i32) %278) #22, !srcloc !42
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %278, i32 %.lcssa40, ptr elementtype(i32) %278) #22, !srcloc !42
   br label %279
 
 279:                                              ; preds = %277, %275, %265
   %280 = getelementptr inbounds i8, ptr %.lcssa, i64 320
   %281 = load ptr, ptr %280, align 64
-  call void @blk_mq_put_tags(ptr noundef %281, ptr noundef nonnull %2, i32 noundef %.lcssa46) #22
+  call void @blk_mq_put_tags(ptr noundef %281, ptr noundef nonnull %2, i32 noundef %.lcssa40) #22
   %282 = getelementptr inbounds i8, ptr %267, i64 72
-  %283 = sext i32 %.lcssa46 to i64
+  %283 = sext i32 %.lcssa40 to i64
   call void @__rcu_read_lock() #22
   %284 = load volatile i64, ptr %282, align 8
   %285 = and i64 %284, 3
@@ -10077,7 +10077,7 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit8, label %8
+  br i1 %7, label %.loopexit9, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10090,9 +10090,9 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
   %14 = trunc i64 %13 to i32
   %15 = load i32, ptr %10, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %34, label %.preheader7
+  br i1 %16, label %34, label %.preheader8
 
-.preheader7:                                      ; preds = %12, %28
+.preheader8:                                      ; preds = %12, %28
   %17 = phi i32 [ %29, %28 ], [ 0, %12 ]
   %18 = sext i32 %17 to i64
   %19 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %9, i64 0, i64 %18
@@ -10101,17 +10101,17 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
   %22 = icmp ugt i32 %21, %14
   br i1 %22, label %28, label %23
 
-23:                                               ; preds = %.preheader7
+23:                                               ; preds = %.preheader8
   %24 = getelementptr inbounds i8, ptr %19, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, %21
   %27 = icmp ugt i32 %26, %14
   br i1 %27, label %31, label %28
 
-28:                                               ; preds = %23, %.preheader7
+28:                                               ; preds = %23, %.preheader8
   %29 = add nuw i32 %17, 1
   %30 = icmp eq i32 %29, %15
-  br i1 %30, label %31, label %.preheader7, !llvm.loop !195
+  br i1 %30, label %31, label %.preheader8, !llvm.loop !195
 
 31:                                               ; preds = %28, %23
   %32 = phi i32 [ 0, %28 ], [ %17, %23 ]
@@ -10128,20 +10128,20 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %34
   %40 = tail call fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %37)
-  %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.thread..loopexit8.loopexit_crit_edge, label %50
+  %.not7 = icmp eq ptr %40, null
+  br i1 %.not7, label %.thread..loopexit9.loopexit_crit_edge, label %50
 
-.thread..loopexit8.loopexit_crit_edge:            ; preds = %.thread
+.thread..loopexit9.loopexit_crit_edge:            ; preds = %.thread
   %.pre.pre = load i32, ptr %5, align 4
-  br label %.loopexit8
+  br label %.loopexit9
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %38, i64 336
   %43 = load i32, ptr %42, align 16
   tail call fastcc void @blk_mq_exit_hctx(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %38, i32 noundef %14)
   %44 = tail call fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %37)
-  %.not9 = icmp eq ptr %44, null
-  br i1 %.not9, label %45, label %50
+  %.not = icmp eq ptr %44, null
+  br i1 %.not, label %45, label %50
 
 45:                                               ; preds = %41
   %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %37, i32 noundef %43) #25
@@ -10160,22 +10160,22 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
   %52 = load i32, ptr %5, align 4
   %53 = zext i32 %52 to i64
   %54 = icmp ult i64 %51, %53
-  br i1 %54, label %12, label %.loopexit8, !llvm.loop !223
+  br i1 %54, label %12, label %.loopexit9, !llvm.loop !223
 
-.loopexit8:                                       ; preds = %50, %.thread..loopexit8.loopexit_crit_edge, %2
-  %55 = phi i32 [ 0, %2 ], [ %.pre.pre, %.thread..loopexit8.loopexit_crit_edge ], [ %52, %50 ]
-  %56 = phi i64 [ 0, %2 ], [ %13, %.thread..loopexit8.loopexit_crit_edge ], [ %51, %50 ]
+.loopexit9:                                       ; preds = %50, %.thread..loopexit9.loopexit_crit_edge, %2
+  %55 = phi i32 [ 0, %2 ], [ %.pre.pre, %.thread..loopexit9.loopexit_crit_edge ], [ %52, %50 ]
+  %56 = phi i64 [ 0, %2 ], [ %13, %.thread..loopexit9.loopexit_crit_edge ], [ %51, %50 ]
   %57 = zext i32 %55 to i64
   %58 = icmp eq i64 %56, %57
   %59 = getelementptr inbounds i8, ptr %1, i64 52
   br i1 %58, label %63, label %60
 
-60:                                               ; preds = %.loopexit8
+60:                                               ; preds = %.loopexit9
   %61 = load i32, ptr %59, align 4
   %62 = zext i32 %61 to i64
   br label %64
 
-63:                                               ; preds = %.loopexit8
+63:                                               ; preds = %.loopexit9
   store i32 %55, ptr %59, align 4
   br label %64
 

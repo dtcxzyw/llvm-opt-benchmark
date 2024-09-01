@@ -396,38 +396,25 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController24Dec
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
+  br label %10
+
+10:                                               ; preds = %10, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
-  br i1 %16, label %.lr.ph11, label %._crit_edge
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %17, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %10, label %._crit_edge, !llvm.loop !14
 
-.lr.ph11:                                         ; preds = %.lr.ph, %17
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %17, !llvm.loop !14
-
-17:                                               ; preds = %.lr.ph11
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %18, i64 %indvars.iv.next
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
-  br i1 %24, label %.lr.ph11, label %._crit_edge.loopexit, !llvm.loop !14
-
-._crit_edge.loopexit:                             ; preds = %17, %.lr.ph11
-  %25 = icmp uge i64 %indvars.iv.next, %10
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ %25, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %10, %2
+  %.lcssa = phi i1 [ true, %2 ], [ %17, %10 ]
   ret i1 %.lcssa
 }
 
@@ -443,38 +430,25 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController36Dec
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
+  br label %10
+
+10:                                               ; preds = %10, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
-  br i1 %16, label %.lr.ph11, label %._crit_edge
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %17, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %10, label %._crit_edge, !llvm.loop !15
 
-.lr.ph11:                                         ; preds = %.lr.ph, %17
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %17, !llvm.loop !15
-
-17:                                               ; preds = %.lr.ph11
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %18, i64 %indvars.iv.next
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %1)
-  br i1 %24, label %.lr.ph11, label %._crit_edge.loopexit, !llvm.loop !15
-
-._crit_edge.loopexit:                             ; preds = %17, %.lr.ph11
-  %25 = icmp uge i64 %indvars.iv.next, %10
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ %25, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %10, %2
+  %.lcssa = phi i1 [ true, %2 ], [ %17, %10 ]
   ret i1 %.lcssa
 }
 
@@ -493,112 +467,109 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController35Tra
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = zext nneg i32 %8 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %14 = phi i1 [ false, %.lr.ph ], [ %59, %58 ]
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.critedge.thread, label %21
+12:                                               ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.critedge.thread, label %19
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %22, i64 %indvars.iv
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %20, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = call noundef ptr @_ZN5draco26SequentialAttributeDecoder20GetPortableAttributeEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
-  %.not22.not = icmp eq ptr %27, null
-  br i1 %.not22.not, label %.critedge.thread, label %28
+  %25 = call noundef ptr @_ZN5draco26SequentialAttributeDecoder20GetPortableAttributeEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
+  %.not22.not = icmp eq ptr %25, null
+  br i1 %.not22.not, label %.critedge.thread, label %26
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 56
-  %36 = load i32, ptr %35, align 8
-  store i32 %36, ptr %2, align 4
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %24, i64 56
+  %34 = load i32, ptr %33, align 8
+  store i32 %34, ptr %2, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
-  %37 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc unwind label %47
+  %35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %.noexc unwind label %45
 
-.noexc:                                           ; preds = %28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %.noexc24 unwind label %47
+.noexc:                                           ; preds = %26
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %.noexc24 unwind label %45
 
 .noexc24:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 24))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %38
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %36
 
-38:                                               ; preds = %.noexc24
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %.noexc24
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc24
-  %40 = invoke noundef zeroext i1 @_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE16GetAttributeBoolERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
-          to label %.critedge unwind label %49
+  %38 = invoke noundef zeroext i1 @_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE16GetAttributeBoolERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
+          to label %.critedge unwind label %47
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
-  br i1 %40, label %41, label %.critedge.thread
+  br i1 %38, label %39, label %.critedge.thread
 
-41:                                               ; preds = %.critedge
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %42, i64 %indvars.iv
+39:                                               ; preds = %.critedge
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %40, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8
-  call void @_ZN5draco14PointAttribute8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull align 8 dereferenceable(112) %27)
-  br label %58
+  call void @_ZN5draco14PointAttribute8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %25)
+  br label %56
 
-47:                                               ; preds = %.noexc, %28
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %.noexc, %26
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br label %.body
 
-.body:                                            ; preds = %47, %38, %49
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %39, %38 ]
+.body:                                            ; preds = %45, %36, %47
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %37, %36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   resume { ptr, i32 } %.pn
 
-.critedge.thread:                                 ; preds = %21, %.critedge, %13
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %51, i64 %indvars.iv
-  %53 = load ptr, ptr %52, align 8
+.critedge.thread:                                 ; preds = %19, %.critedge, %12
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %49, i64 %indvars.iv
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  br i1 %57, label %58, label %._crit_edge
+  %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  br i1 %55, label %56, label %._crit_edge
 
-58:                                               ; preds = %.critedge.thread, %41
+56:                                               ; preds = %.critedge.thread, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = icmp uge i64 %indvars.iv.next, %12
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %13, !llvm.loop !16
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.critedge.thread, %58, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %59, %58 ], [ %14, %.critedge.thread ]
+._crit_edge:                                      ; preds = %.critedge.thread, %56, %1
+  %.lcssa = phi i1 [ true, %1 ], [ true, %56 ], [ false, %.critedge.thread ]
   ret i1 %.lcssa
 }
 

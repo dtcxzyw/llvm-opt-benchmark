@@ -4665,18 +4665,15 @@ if.end:                                           ; preds = %ldbLogSourceLine.ex
   %inc = add nuw nsw i32 %level.09, 1
   %call = call i32 @lua_getstack(ptr noundef %lua, i32 noundef %inc, ptr noundef nonnull %ar) #17
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !31
+  br i1 %tobool.not, label %if.end12, label %while.body, !llvm.loop !31
 
-while.end:                                        ; preds = %if.end
-  br i1 %tobool.not8, label %if.then10, label %if.end12
-
-if.then10:                                        ; preds = %entry, %while.end
+if.then10:                                        ; preds = %entry
   %call11 = call ptr @sdsnew(ptr noundef nonnull @.str.130) #17
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ldb, i64 16), align 8
   %call.i5 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %call11) #17
   br label %if.end12
 
-if.end12:                                         ; preds = %if.then10, %while.end
+if.end12:                                         ; preds = %if.end, %if.then10
   ret void
 }
 

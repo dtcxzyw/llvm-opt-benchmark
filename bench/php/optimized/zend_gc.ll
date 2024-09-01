@@ -2676,16 +2676,13 @@ gc_stack_free.exit:                               ; preds = %.lr.ph.i232, %981
   br i1 %.not137, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %1016
-  br i1 %.not137390, label %._crit_edge409, label %.lr.ph408.preheader
-
-.lr.ph408.preheader:                              ; preds = %._crit_edge
   %.pre516 = load ptr, ptr @gc_globals, align 8
   br label %.lr.ph408
 
-.lr.ph408:                                        ; preds = %.lr.ph408.preheader, %1249
-  %.1118406.pn = phi ptr [ %.1118406, %1249 ], [ %.pre516, %.lr.ph408.preheader ]
-  %.1405 = phi i32 [ %1250, %1249 ], [ 1, %.lr.ph408.preheader ]
-  %.1121404 = phi i32 [ %.2122, %1249 ], [ %.026.lcssa.i, %.lr.ph408.preheader ]
+.lr.ph408:                                        ; preds = %._crit_edge, %1249
+  %.1118406.pn = phi ptr [ %.1118406, %1249 ], [ %.pre516, %._crit_edge ]
+  %.1405 = phi i32 [ %1250, %1249 ], [ 1, %._crit_edge ]
+  %.1121404 = phi i32 [ %.2122, %1249 ], [ %.026.lcssa.i, %._crit_edge ]
   %.1118406 = getelementptr inbounds i8, ptr %.1118406.pn, i64 8
   %1018 = load ptr, ptr %.1118406, align 8
   %1019 = ptrtoint ptr %1018 to i64
@@ -3244,8 +3241,8 @@ gc_remove_nested_data_from_buffer.exit:           ; preds = %1239, %1247
   %.not138 = icmp eq i32 %1250, %985
   br i1 %.not138, label %._crit_edge409, label %.lr.ph408
 
-._crit_edge409:                                   ; preds = %1249, %987, %._crit_edge
-  %.1121.lcssa = phi i32 [ %.026.lcssa.i, %._crit_edge ], [ %.026.lcssa.i, %987 ], [ %.2122, %1249 ]
+._crit_edge409:                                   ; preds = %1249, %987
+  %.1121.lcssa = phi i32 [ %.026.lcssa.i, %987 ], [ %.2122, %1249 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %1251 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #15
   %1252 = icmp eq i32 %1251, 0
@@ -3479,14 +3476,11 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   %1373 = zext i32 %985 to i64
   %.idx = shl nuw nsw i64 %1373, 3
   %1374 = getelementptr inbounds i8, ptr %1372, i64 %.idx
-  br i1 %.not140416, label %._crit_edge426, label %.lr.ph425.preheader
-
-.lr.ph425.preheader:                              ; preds = %._crit_edge420
   %.2119421 = getelementptr inbounds i8, ptr %1372, i64 8
   br label %.lr.ph425
 
-.lr.ph425:                                        ; preds = %.lr.ph425.preheader, %1395
-  %.2119423 = phi ptr [ %.2119, %1395 ], [ %.2119421, %.lr.ph425.preheader ]
+.lr.ph425:                                        ; preds = %._crit_edge420, %1395
+  %.2119423 = phi ptr [ %.2119, %1395 ], [ %.2119421, %._crit_edge420 ]
   %1375 = load ptr, ptr %.2119423, align 8
   %1376 = ptrtoint ptr %1375 to i64
   %1377 = and i64 %1376, 3
@@ -3520,7 +3514,7 @@ gc_stack_free.exit256:                            ; preds = %.lr.ph.i252, %1304
   %.not141 = icmp eq ptr %.2119, %1374
   br i1 %.not141, label %._crit_edge426, label %.lr.ph425
 
-._crit_edge426:                                   ; preds = %1395, %1312, %._crit_edge420
+._crit_edge426:                                   ; preds = %1395, %1312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %1396 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #15
   %1397 = icmp eq i32 %1396, 0

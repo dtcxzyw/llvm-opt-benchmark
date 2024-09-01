@@ -1689,12 +1689,9 @@ opal_obj_run_destructors.exit87.i:                ; preds = %.lr.ph.i84.i, %194
 ompi_osc_rdma_btl_op.exit:                        ; preds = %opal_obj_run_destructors.exit87.i, %opal_thread_add_fetch_32.exit82.i, %116, %202
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %94, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %ompi_osc_rdma_btl_op.exit
-  br i1 %91, label %.lr.ph.preheader.i, label %ompi_osc_rdma_release_peers.exit
-
-.lr.ph.preheader.i:                               ; preds = %._crit_edge
+.lr.ph.preheader.i:                               ; preds = %ompi_osc_rdma_btl_op.exit
   %wide.trip.count.i = zext nneg i32 %11 to i64
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i50
@@ -1760,7 +1757,7 @@ opal_obj_run_destructors.exit.i56:                ; preds = %opal_obj_run_destru
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ompi_osc_rdma_release_peers.exit, label %.lr.ph.i50, !llvm.loop !11
 
-ompi_osc_rdma_release_peers.exit:                 ; preds = %228, %ompi_osc_rdma_sync_rdma_complete.exit, %._crit_edge
+ompi_osc_rdma_release_peers.exit:                 ; preds = %228, %ompi_osc_rdma_sync_rdma_complete.exit
   tail call void @free(ptr noundef %33) #13
   br label %230
 

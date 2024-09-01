@@ -23834,8 +23834,8 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter26parallel_blocks
 
 72:                                               ; preds = %74, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i.i"
   %73 = phi ptr [ %75, %74 ], [ %.sink3.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.i.i" ]
-  %.not8.i.not.i.not.i.not = icmp ne ptr %73, %71
-  br i1 %.not8.i.not.i.not.i.not, label %74, label %77
+  %.not8.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %73, %71
+  br i1 %.not8.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %74, label %77
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds i8, ptr %73, i64 1424
@@ -23846,7 +23846,7 @@ define internal fastcc void @_ZN3exr5block6writer12ChunksWriter26parallel_blocks
 
 77:                                               ; preds = %74, %72
   %.val.i14.i.i = load i64, ptr %48, align 8, !noalias !4915, !noundef !4
-  %78 = zext i1 %.not8.i.not.i.not.i.not to i8
+  %78 = zext i1 %.not8.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not to i8
   store i64 2, ptr %0, align 8, !alias.scope !4861, !noalias !4891
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4861, !noalias !4891
@@ -24777,8 +24777,8 @@ define internal fastcc void @"_ZN3exr5block6writer20ChunkWriter$LT$W$GT$18comple
   br i1 %.not.i.i18.i.i, label %.loopexit94, label %.lr.ph.i.i.i.i
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbcab07ce6940f487E.exit.loopexit.i.i.i.i": ; preds = %31
-  %.not31.i.i.i.i = icmp eq ptr %27, %25
-  br i1 %.not31.i.i.i.i, label %.loopexit94, label %.lr.ph.i.i.i.i
+  %.not22.i.i.i.i = icmp eq ptr %27, %25
+  br i1 %.not22.i.i.i.i, label %.loopexit94, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %24, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbcab07ce6940f487E.exit.loopexit.i.i.i.i"
   %26 = phi ptr [ %27, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbcab07ce6940f487E.exit.loopexit.i.i.i.i" ], [ %.sink3.i, %24 ]
@@ -24792,8 +24792,8 @@ define internal fastcc void @"_ZN3exr5block6writer20ChunkWriter$LT$W$GT$18comple
 
 31:                                               ; preds = %33, %.lr.ph.i.i.i.i
   %32 = phi ptr [ %34, %33 ], [ %.val4.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.not9.i.not.i.not.i.not.i.not.i.not.i.i = icmp eq ptr %32, %30
-  br i1 %.not9.i.not.i.not.i.not.i.not.i.not.i.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbcab07ce6940f487E.exit.loopexit.i.i.i.i", label %33
+  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.i.not.i.not.i.i = icmp eq ptr %32, %30
+  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.i.not.i.not.i.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hbcab07ce6940f487E.exit.loopexit.i.i.i.i", label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %32, i64 8
@@ -29123,8 +29123,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 .split.us:                                        ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us"
   %6 = phi ptr [ %9, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us" ], [ %.promoted12, %1 ]
   %7 = phi i64 [ %8, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us" ], [ %.promoted, %1 ]
-  %.not15.not = icmp ule i64 %3, %7
-  br i1 %.not15.not, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us", label %.split14.us
+  %.not15.not.not = icmp ule i64 %3, %7
+  br i1 %.not15.not.not, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us", label %.split14.us
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us": ; preds = %.split.us
   %8 = add i64 %7, -1
@@ -29153,7 +29153,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   unreachable
 
 .split14.us:                                      ; preds = %.split.us, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us", %.split
-  %.us-phi = phi i1 [ false, %.split ], [ %.not15.not, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us" ], [ %.not15.not, %.split.us ]
+  %.us-phi = phi i1 [ false, %.split ], [ %.not15.not.not, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h88e8810f6048b674E.exit.us" ], [ %.not15.not.not, %.split.us ]
   ret i1 %.us-phi
 }
 
@@ -29170,8 +29170,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 .split.us:                                        ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us"
   %6 = phi ptr [ %9, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us" ], [ %.promoted12, %1 ]
   %7 = phi i64 [ %8, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us" ], [ %.promoted, %1 ]
-  %.not15.not = icmp ule i64 %3, %7
-  br i1 %.not15.not, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us", label %.split14.us
+  %.not15.not.not = icmp ule i64 %3, %7
+  br i1 %.not15.not.not, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us", label %.split14.us
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us": ; preds = %.split.us
   %8 = add i64 %7, -1
@@ -29200,7 +29200,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   unreachable
 
 .split14.us:                                      ; preds = %.split.us, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us", %.split
-  %.us-phi = phi i1 [ false, %.split ], [ %.not15.not, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us" ], [ %.not15.not, %.split.us ]
+  %.us-phi = phi i1 [ false, %.split ], [ %.not15.not.not, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hab4682e95b31545bE.exit.us" ], [ %.not15.not.not, %.split.us ]
   ret i1 %.us-phi
 }
 
@@ -33066,7 +33066,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
   %122 = mul nuw i64 %111, %16
   %123 = zext i32 %.0.sroa.speculated.i to i64
   %factor.op.mul = mul nuw nsw i64 %.085, %123
-  %factor.op.mul131 = mul i64 %122, %.085
+  %factor.op.mul130 = mul i64 %122, %.085
   %124 = getelementptr inbounds i8, ptr %1, i64 288
   %125 = getelementptr inbounds i8, ptr %5, i64 8
   %126 = getelementptr inbounds i8, ptr %5, i64 16
@@ -33086,14 +33086,14 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
   br label %136
 
 132:                                              ; preds = %.lr.ph, %157
-  %.sroa.033.0130 = phi i64 [ 0, %.lr.ph ], [ %133, %157 ]
-  %133 = add nuw i64 %.sroa.033.0130, 1
+  %.sroa.033.0129 = phi i64 [ 0, %.lr.ph ], [ %133, %157 ]
+  %133 = add nuw i64 %.sroa.033.0129, 1
   %.val101 = load i64, ptr %115, align 8, !noundef !4
-  %134 = icmp ult i64 %.sroa.033.0130, %.val101
+  %134 = icmp ult i64 %.sroa.033.0129, %.val101
   br i1 %134, label %137, label %135, !prof !25
 
 135:                                              ; preds = %132
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.sroa.033.0130, i64 noundef %.val101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.118) #42
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.sroa.033.0129, i64 noundef %.val101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.118) #42
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %135
@@ -33105,7 +33105,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
 
 137:                                              ; preds = %132
   %.val = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  %138 = getelementptr inbounds [0 x i64], ptr %.val, i64 0, i64 %.sroa.033.0130
+  %138 = getelementptr inbounds [0 x i64], ptr %.val, i64 0, i64 %.sroa.033.0129
   %139 = load i64, ptr %138, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -33129,11 +33129,11 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
   br label %.thread105
 
 144:                                              ; preds = %140
-  %145 = urem i64 %.sroa.033.0130, %110
-  %146 = udiv i64 %.sroa.033.0130, %110
-  %.reass132 = mul i64 %factor.op.mul131, %146
+  %145 = urem i64 %.sroa.033.0129, %110
+  %146 = udiv i64 %.sroa.033.0129, %110
+  %.reass131 = mul i64 %factor.op.mul130, %146
   %.reass = mul i64 %145, %factor.op.mul
-  %reass.add = add i64 %.reass132, %.reass
+  %reass.add = add i64 %.reass131, %.reass
   %147 = load i8, ptr %124, align 8, !range !361, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -33151,7 +33151,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
   store ptr %151, ptr %127, align 8, !alias.scope !6391, !noalias !6394
   store i64 %152, ptr %128, align 8, !alias.scope !6391, !noalias !6394
   store i64 %150, ptr %6, align 8, !alias.scope !6391, !noalias !6394
-  %153 = trunc i64 %.sroa.033.0130 to i32
+  %153 = trunc i64 %.sroa.033.0129 to i32
   invoke void @_ZN4tiff7decoder5image5Image12expand_chunk17hdad818f34c0e107dE(ptr noalias nocapture noundef nonnull sret({ i16, [19 x i16] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %120, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %16, i1 noundef zeroext %149, i32 noundef %153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %129)
           to label %154 unwind label %.loopexit
 
@@ -36200,8 +36200,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
 
 48:                                               ; preds = %50, %44
   %.022.i.i = phi i16 [ %47, %44 ], [ %52, %50 ]
-  %.not.not.i.i.i.not = icmp ne i16 %.022.i.i, 0
-  br i1 %.not.not.i.i.i.not, label %50, label %49
+  %.not.not.i.i.i.not.not.not.not.not = icmp ne i16 %.022.i.i, 0
+  br i1 %.not.not.i.i.i.not.not.not.not.not, label %50, label %49
 
 49:                                               ; preds = %48
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -36293,7 +36293,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h1f2743d4de70bed7E.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h1f2743d4de70bed7E.exit": ; preds = %50, %83
-  ret i1 %.not.not.i.i.i.not
+  ret i1 %.not.not.i.i.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable

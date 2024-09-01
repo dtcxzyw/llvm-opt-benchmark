@@ -4039,8 +4039,8 @@ define internal fastcc ptr @_find_assoc_rec(ptr nocapture noundef readonly %0) u
   %48 = getelementptr inbounds i8, ptr %0, i64 272
   br label %49
 
-49:                                               ; preds = %.lr.ph, %140
-  %.04285 = phi ptr [ %.04283, %.lr.ph ], [ %.042, %140 ]
+49:                                               ; preds = %.lr.ph, %139
+  %.04285 = phi ptr [ %.04283, %.lr.ph ], [ %.042, %139 ]
   %50 = load ptr, ptr %44, align 8
   %.not52 = icmp eq ptr %50, null
   br i1 %.not52, label %51, label %.thread74
@@ -4065,11 +4065,11 @@ define internal fastcc ptr @_find_assoc_rec(ptr nocapture noundef readonly %0) u
 60:                                               ; preds = %57, %56
   %61 = tail call i32 @get_log_level() #20
   %62 = icmp sgt i32 %61, 6
-  br i1 %62, label %63, label %140
+  br i1 %62, label %63, label %139
 
 63:                                               ; preds = %60
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._find_assoc_rec) #20
-  br label %140
+  br label %139
 
 64:                                               ; preds = %51
   %65 = getelementptr inbounds i8, ptr %.04285, i64 304
@@ -4088,7 +4088,7 @@ define internal fastcc ptr @_find_assoc_rec(ptr nocapture noundef readonly %0) u
   %70 = getelementptr inbounds i8, ptr %.04285, i64 304
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, -2
-  br i1 %72, label %76, label %.thread
+  br i1 %72, label %.thread.thread, label %.thread
 
 .thread76:                                        ; preds = %.thread74
   %73 = getelementptr inbounds i8, ptr %.04285, i64 304
@@ -4100,149 +4100,146 @@ define internal fastcc ptr @_find_assoc_rec(ptr nocapture noundef readonly %0) u
   %.pre95 = load i32, ptr %45, align 8
   br label %.thread
 
-76:                                               ; preds = %.thread98
-  br i1 %53, label %.thread.thread, label %.thread77
+.thread77:                                        ; preds = %64, %.thread76
+  %76 = tail call i32 @get_log_level() #20
+  %77 = icmp sgt i32 %76, 6
+  br i1 %77, label %78, label %139
 
-.thread77:                                        ; preds = %64, %.thread76, %76
-  %77 = tail call i32 @get_log_level() #20
-  %78 = icmp sgt i32 %77, 6
-  br i1 %78, label %79, label %140
-
-79:                                               ; preds = %.thread77
+78:                                               ; preds = %.thread77
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.147, ptr noundef nonnull @__func__._find_assoc_rec) #20
-  br label %140
+  br label %139
 
 .thread72.thread:                                 ; preds = %.thread74
-  %80 = load i32, ptr %45, align 8
-  %81 = icmp eq i32 %80, -2
-  br i1 %81, label %86, label %82
+  %79 = load i32, ptr %45, align 8
+  %80 = icmp eq i32 %79, -2
+  br i1 %80, label %85, label %81
 
-82:                                               ; preds = %.thread72.thread
-  %83 = getelementptr inbounds i8, ptr %.04285, i64 304
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp eq i32 %84, -2
-  br i1 %85, label %86, label %.thread
+81:                                               ; preds = %.thread72.thread
+  %82 = getelementptr inbounds i8, ptr %.04285, i64 304
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp eq i32 %83, -2
+  br i1 %84, label %85, label %.thread
 
-86:                                               ; preds = %82, %.thread72.thread
-  %87 = tail call i32 @xstrcasecmp(ptr noundef nonnull %50, ptr noundef nonnull %69) #20
-  %.not61 = icmp eq i32 %87, 0
-  br i1 %.not61, label %.thread.thread, label %88
+85:                                               ; preds = %81, %.thread72.thread
+  %86 = tail call i32 @xstrcasecmp(ptr noundef nonnull %50, ptr noundef nonnull %69) #20
+  %.not61 = icmp eq i32 %86, 0
+  br i1 %.not61, label %.thread.thread, label %87
 
-88:                                               ; preds = %86
-  %89 = tail call i32 @get_log_level() #20
-  %90 = icmp sgt i32 %89, 6
-  br i1 %90, label %91, label %140
+87:                                               ; preds = %85
+  %88 = tail call i32 @get_log_level() #20
+  %89 = icmp sgt i32 %88, 6
+  br i1 %89, label %90, label %139
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %45, align 8
-  %93 = getelementptr inbounds i8, ptr %.04285, i64 304
-  %94 = load i32, ptr %93, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.148, ptr noundef nonnull @__func__._find_assoc_rec, i32 noundef %92, i32 noundef %94) #20
-  br label %140
+90:                                               ; preds = %87
+  %91 = load i32, ptr %45, align 8
+  %92 = getelementptr inbounds i8, ptr %.04285, i64 304
+  %93 = load i32, ptr %92, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.148, ptr noundef nonnull @__func__._find_assoc_rec, i32 noundef %91, i32 noundef %93) #20
+  br label %139
 
-.thread:                                          ; preds = %64, %.thread76..thread_crit_edge, %.thread98, %82
-  %95 = phi i32 [ %74, %.thread76..thread_crit_edge ], [ %71, %.thread98 ], [ %84, %82 ], [ %66, %64 ]
-  %96 = phi i32 [ %.pre95, %.thread76..thread_crit_edge ], [ %52, %.thread98 ], [ %80, %82 ], [ %52, %64 ]
-  %97 = getelementptr inbounds i8, ptr %.04285, i64 304
-  %.not60 = icmp eq i32 %96, %95
-  br i1 %.not60, label %.thread.thread, label %98
+.thread:                                          ; preds = %64, %.thread76..thread_crit_edge, %.thread98, %81
+  %94 = phi i32 [ %74, %.thread76..thread_crit_edge ], [ %71, %.thread98 ], [ %83, %81 ], [ %66, %64 ]
+  %95 = phi i32 [ %.pre95, %.thread76..thread_crit_edge ], [ %52, %.thread98 ], [ %79, %81 ], [ %52, %64 ]
+  %96 = getelementptr inbounds i8, ptr %.04285, i64 304
+  %.not60 = icmp eq i32 %95, %94
+  br i1 %.not60, label %.thread.thread, label %97
 
-98:                                               ; preds = %.thread
-  %99 = tail call i32 @get_log_level() #20
-  %100 = icmp sgt i32 %99, 6
-  br i1 %100, label %101, label %140
+97:                                               ; preds = %.thread
+  %98 = tail call i32 @get_log_level() #20
+  %99 = icmp sgt i32 %98, 6
+  br i1 %99, label %100, label %139
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %45, align 8
-  %103 = load i32, ptr %97, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.149, ptr noundef nonnull @__func__._find_assoc_rec, i32 noundef %102, i32 noundef %103) #20
-  br label %140
+100:                                              ; preds = %97
+  %101 = load i32, ptr %45, align 8
+  %102 = load i32, ptr %96, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.149, ptr noundef nonnull @__func__._find_assoc_rec, i32 noundef %101, i32 noundef %102) #20
+  br label %139
 
-.thread.thread:                                   ; preds = %76, %.thread, %86
-  %104 = load ptr, ptr %46, align 8
-  %.not62 = icmp eq ptr %104, null
-  br i1 %.not62, label %116, label %105
+.thread.thread:                                   ; preds = %.thread98, %.thread, %85
+  %103 = load ptr, ptr %46, align 8
+  %.not62 = icmp eq ptr %103, null
+  br i1 %.not62, label %115, label %104
 
-105:                                              ; preds = %.thread.thread
-  %106 = getelementptr inbounds i8, ptr %.04285, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %.not63 = icmp eq ptr %107, null
-  br i1 %.not63, label %110, label %108
+104:                                              ; preds = %.thread.thread
+  %105 = getelementptr inbounds i8, ptr %.04285, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %.not63 = icmp eq ptr %106, null
+  br i1 %.not63, label %109, label %107
 
-108:                                              ; preds = %105
-  %109 = tail call i32 @xstrcasecmp(ptr noundef nonnull %104, ptr noundef nonnull %107) #20
-  %.not64 = icmp eq i32 %109, 0
-  br i1 %.not64, label %116, label %110
+107:                                              ; preds = %104
+  %108 = tail call i32 @xstrcasecmp(ptr noundef nonnull %103, ptr noundef nonnull %106) #20
+  %.not64 = icmp eq i32 %108, 0
+  br i1 %.not64, label %115, label %109
 
-110:                                              ; preds = %108, %105
-  %111 = tail call i32 @get_log_level() #20
-  %112 = icmp sgt i32 %111, 6
-  br i1 %112, label %113, label %140
+109:                                              ; preds = %107, %104
+  %110 = tail call i32 @get_log_level() #20
+  %111 = icmp sgt i32 %110, 6
+  br i1 %111, label %112, label %139
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %46, align 8
-  %115 = load ptr, ptr %106, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.150, ptr noundef nonnull @__func__._find_assoc_rec, ptr noundef %114, ptr noundef %115) #20
-  br label %140
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %46, align 8
+  %114 = load ptr, ptr %105, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.150, ptr noundef nonnull @__func__._find_assoc_rec, ptr noundef %113, ptr noundef %114) #20
+  br label %139
 
-116:                                              ; preds = %108, %.thread.thread
-  %117 = load ptr, ptr @slurmdbd_conf, align 8
-  %.not65 = icmp eq ptr %117, null
-  br i1 %.not65, label %129, label %118
+115:                                              ; preds = %107, %.thread.thread
+  %116 = load ptr, ptr @slurmdbd_conf, align 8
+  %.not65 = icmp eq ptr %116, null
+  br i1 %.not65, label %128, label %117
 
-118:                                              ; preds = %116
-  %119 = load ptr, ptr %47, align 8
-  %.not66 = icmp eq ptr %119, null
-  br i1 %.not66, label %129, label %120
+117:                                              ; preds = %115
+  %118 = load ptr, ptr %47, align 8
+  %.not66 = icmp eq ptr %118, null
+  br i1 %.not66, label %128, label %119
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %.04285, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %.not67 = icmp eq ptr %122, null
-  br i1 %.not67, label %125, label %123
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds i8, ptr %.04285, i64 40
+  %121 = load ptr, ptr %120, align 8
+  %.not67 = icmp eq ptr %121, null
+  br i1 %.not67, label %124, label %122
 
-123:                                              ; preds = %120
-  %124 = tail call i32 @xstrcasecmp(ptr noundef nonnull %119, ptr noundef nonnull %122) #20
-  %.not68 = icmp eq i32 %124, 0
-  br i1 %.not68, label %129, label %125
+122:                                              ; preds = %119
+  %123 = tail call i32 @xstrcasecmp(ptr noundef nonnull %118, ptr noundef nonnull %121) #20
+  %.not68 = icmp eq i32 %123, 0
+  br i1 %.not68, label %128, label %124
 
-125:                                              ; preds = %123, %120
-  %126 = tail call i32 @get_log_level() #20
-  %127 = icmp sgt i32 %126, 6
-  br i1 %127, label %128, label %140
+124:                                              ; preds = %122, %119
+  %125 = tail call i32 @get_log_level() #20
+  %126 = icmp sgt i32 %125, 6
+  br i1 %126, label %127, label %139
 
-128:                                              ; preds = %125
+127:                                              ; preds = %124
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.151, ptr noundef nonnull @__func__._find_assoc_rec) #20
-  br label %140
+  br label %139
 
-129:                                              ; preds = %123, %118, %116
-  %130 = load ptr, ptr %48, align 8
-  %.not69 = icmp eq ptr %130, null
-  br i1 %.not69, label %_find_assoc_rec_id.exit, label %131
+128:                                              ; preds = %122, %117, %115
+  %129 = load ptr, ptr %48, align 8
+  %.not69 = icmp eq ptr %129, null
+  br i1 %.not69, label %_find_assoc_rec_id.exit, label %130
 
-131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %.04285, i64 272
-  %133 = load ptr, ptr %132, align 8
-  %.not70 = icmp eq ptr %133, null
-  br i1 %.not70, label %136, label %134
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds i8, ptr %.04285, i64 272
+  %132 = load ptr, ptr %131, align 8
+  %.not70 = icmp eq ptr %132, null
+  br i1 %.not70, label %135, label %133
 
-134:                                              ; preds = %131
-  %135 = tail call i32 @xstrcasecmp(ptr noundef nonnull %130, ptr noundef nonnull %133) #20
-  %.not71 = icmp eq i32 %135, 0
-  br i1 %.not71, label %_find_assoc_rec_id.exit, label %136
+133:                                              ; preds = %130
+  %134 = tail call i32 @xstrcasecmp(ptr noundef nonnull %129, ptr noundef nonnull %132) #20
+  %.not71 = icmp eq i32 %134, 0
+  br i1 %.not71, label %_find_assoc_rec_id.exit, label %135
 
-136:                                              ; preds = %134, %131
-  %137 = tail call i32 @get_log_level() #20
-  %138 = icmp sgt i32 %137, 6
-  br i1 %138, label %139, label %140
+135:                                              ; preds = %133, %130
+  %136 = tail call i32 @get_log_level() #20
+  %137 = icmp sgt i32 %136, 6
+  br i1 %137, label %138, label %139
 
-139:                                              ; preds = %136
+138:                                              ; preds = %135
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.152, ptr noundef nonnull @__func__._find_assoc_rec) #20
-  br label %140
+  br label %139
 
-140:                                              ; preds = %136, %139, %125, %128, %110, %113, %98, %101, %88, %91, %.thread77, %79, %60, %63
-  %141 = getelementptr inbounds i8, ptr %.04285, i64 16
-  %.042 = load ptr, ptr %141, align 8
+139:                                              ; preds = %135, %138, %124, %127, %109, %112, %97, %100, %87, %90, %.thread77, %78, %60, %63
+  %140 = getelementptr inbounds i8, ptr %.04285, i64 16
+  %.042 = load ptr, ptr %140, align 8
   %.not51 = icmp eq ptr %.042, null
   br i1 %.not51, label %_find_assoc_rec_id.exit, label %49, !llvm.loop !33
 
@@ -4251,8 +4248,8 @@ _find_assoc_rec_id.exit.sink.split:               ; preds = %37, %8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull %__func__._find_assoc_rec_id.sink) #20
   br label %_find_assoc_rec_id.exit
 
-_find_assoc_rec_id.exit:                          ; preds = %32, %27, %20, %.lr.ph.split.us.i, %129, %134, %140, %_find_assoc_rec_id.exit.sink.split, %40, %11, %8, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %8 ], [ null, %11 ], [ null, %40 ], [ null, %_find_assoc_rec_id.exit.sink.split ], [ %.04285, %129 ], [ %.04285, %134 ], [ null, %140 ], [ null, %20 ], [ %.015.us.i, %.lr.ph.split.us.i ], [ null, %32 ], [ %.015.i, %27 ]
+_find_assoc_rec_id.exit:                          ; preds = %32, %27, %20, %.lr.ph.split.us.i, %128, %133, %139, %_find_assoc_rec_id.exit.sink.split, %40, %11, %8, %37
+  %.0 = phi ptr [ null, %37 ], [ null, %8 ], [ null, %11 ], [ null, %40 ], [ null, %_find_assoc_rec_id.exit.sink.split ], [ %.04285, %128 ], [ %.04285, %133 ], [ null, %139 ], [ null, %20 ], [ %.015.us.i, %.lr.ph.split.us.i ], [ null, %32 ], [ %.015.i, %27 ]
   ret ptr %.0
 }
 
@@ -10094,7 +10091,6 @@ _set_qos_norm_priority.exit:                      ; preds = %71, %65, %64, %22, 
   br label %474
 
 474:                                              ; preds = %._crit_edge440, %._crit_edge444, %._crit_edge432
-  %.0296.lcssa466 = phi i1 [ %.1297, %._crit_edge440 ], [ %.1297, %._crit_edge444 ], [ false, %._crit_edge432 ]
   switch i32 %.1291, label %.loopexit [
     i32 1, label %475
     i32 2, label %495
@@ -10149,7 +10145,7 @@ _set_qos_norm_priority.exit417:                   ; preds = %.lr.ph447, %485
 
 .loopexit:                                        ; preds = %_set_qos_norm_priority.exit417, %6, %475, %474, %495
   %.0299.lcssa465479 = phi i32 [ %.1300, %475 ], [ %.1300, %474 ], [ %.1300, %495 ], [ 0, %6 ], [ %.1300, %_set_qos_norm_priority.exit417 ]
-  %.0296.lcssa466478 = phi i1 [ %.0296.lcssa466, %475 ], [ %.0296.lcssa466, %474 ], [ %.0296.lcssa466, %495 ], [ false, %6 ], [ %.0296.lcssa466, %_set_qos_norm_priority.exit417 ]
+  %.0296.lcssa466478 = phi i1 [ %.1297, %475 ], [ %.1297, %474 ], [ %.1297, %495 ], [ false, %6 ], [ %.1297, %_set_qos_norm_priority.exit417 ]
   %.0286.lcssa468477 = phi ptr [ %.1287, %475 ], [ %.1287, %474 ], [ %.1287, %495 ], [ null, %6 ], [ %.1287, %_set_qos_norm_priority.exit417 ]
   %.0283.lcssa469476 = phi ptr [ %.1284, %475 ], [ %.1284, %474 ], [ %.1284, %495 ], [ null, %6 ], [ %.1284, %_set_qos_norm_priority.exit417 ]
   tail call void @list_iterator_destroy(ptr noundef %8) #20
@@ -10824,8 +10820,8 @@ define noundef i32 @assoc_mgr_update_tres(ptr nocapture noundef readonly %0, i1 
   %10 = tail call ptr @list_iterator_create(ptr noundef %.023) #20
   %11 = load ptr, ptr %0, align 8
   %12 = tail call ptr @list_pop(ptr noundef %11) #20
-  %.not2833 = icmp eq ptr %12, null
-  br i1 %.not2833, label %.critedge, label %.lr.ph
+  %.not2834 = icmp eq ptr %12, null
+  br i1 %.not2834, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10833,15 +10829,15 @@ define noundef i32 @assoc_mgr_update_tres(ptr nocapture noundef readonly %0, i1 
 
 14:                                               ; preds = %.lr.ph, %.thread
   %15 = phi ptr [ %12, %.lr.ph ], [ %32, %.thread ]
-  %.02234 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
+  %.02235 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
   tail call void @list_iterator_reset(ptr noundef %10) #20
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   br label %17
 
 17:                                               ; preds = %19, %14
   %18 = tail call ptr @list_next(ptr noundef %10) #20
-  %.not35 = icmp eq ptr %18, null
-  br i1 %.not35, label %24, label %19
+  %.not33 = icmp eq ptr %18, null
+  br i1 %.not33, label %24, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %16, align 8
@@ -10870,7 +10866,7 @@ define noundef i32 @assoc_mgr_update_tres(ptr nocapture noundef readonly %0, i1 
 
 .thread:                                          ; preds = %19, %24, %30, %28
   %.024 = phi ptr [ %15, %24 ], [ null, %30 ], [ %15, %28 ], [ %15, %19 ]
-  %.1 = phi i1 [ %.02234, %24 ], [ true, %30 ], [ %.02234, %28 ], [ %.02234, %19 ]
+  %.1 = phi i1 [ %.02235, %24 ], [ true, %30 ], [ %.02235, %28 ], [ %.02235, %19 ]
   tail call void @slurmdb_destroy_tres_rec(ptr noundef %.024) #20
   %31 = load ptr, ptr %0, align 8
   %32 = tail call ptr @list_pop(ptr noundef %31) #20
@@ -12431,8 +12427,8 @@ define range(i32 -1, 1) i32 @assoc_mgr_validate_assoc_id(ptr noundef %0, i32 nou
   %.015.us.i = phi ptr [ %.0.us.i, %30 ], [ %.013.i, %.lr.ph.i ]
   %28 = getelementptr inbounds i8, ptr %.015.us.i, i64 132
   %29 = load i32, ptr %28, align 4
-  %.not19 = icmp ne i32 %29, %1
-  br i1 %.not19, label %30, label %_find_assoc_rec_id.exit
+  %.not19.not = icmp ne i32 %29, %1
+  br i1 %.not19.not, label %30, label %_find_assoc_rec_id.exit
 
 30:                                               ; preds = %.lr.ph.split.us.i
   %31 = getelementptr inbounds i8, ptr %.015.us.i, i64 24
@@ -12469,7 +12465,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_validate_assoc_id(ptr noundef %0, i32 nou
   br i1 %.not10.i, label %_find_assoc_rec_id.exit, label %.lr.ph.split.i, !llvm.loop !31
 
 _find_assoc_rec_id.exit:                          ; preds = %37, %42, %.lr.ph.split.us.i, %30, %18, %21, %22
-  %.08.i.not = phi i1 [ true, %21 ], [ true, %18 ], [ true, %22 ], [ %.not19, %30 ], [ %.not19, %.lr.ph.split.us.i ], [ true, %42 ], [ false, %37 ]
+  %.08.i.not = phi i1 [ true, %21 ], [ true, %18 ], [ true, %22 ], [ %.not19.not, %30 ], [ %.not19.not, %.lr.ph.split.us.i ], [ true, %42 ], [ false, %37 ]
   tail call void @assoc_mgr_unlock(ptr noundef nonnull @__const.assoc_mgr_validate_assoc_id.locks)
   %45 = and i32 %2, 1
   %.not10 = icmp ne i32 %45, 0

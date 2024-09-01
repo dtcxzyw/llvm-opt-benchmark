@@ -684,7 +684,7 @@ opal_convertor_set_position.exit:                 ; preds = %294, %293, %283, %2
   %.val48 = load i64, ptr %298, align 8
   %299 = trunc i64 %.val48 to i32
   %.not2949 = icmp sgt i32 %299, 0
-  br i1 %.not2949, label %.lr.ph, label %.thread.loopexit
+  br i1 %.not2949, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %opal_convertor_set_position.exit
   %300 = getelementptr inbounds i8, ptr %297, i64 104
@@ -704,7 +704,7 @@ opal_convertor_set_position.exit:                 ; preds = %294, %293, %283, %2
   %.val = load i64, ptr %298, align 8
   %312 = trunc i64 %.val to i32
   %.not29 = icmp slt i32 %311, %312
-  br i1 %.not29, label %313, label %.thread.loopexit, !llvm.loop !9
+  br i1 %.not29, label %313, label %.thread, !llvm.loop !9
 
 313:                                              ; preds = %.lr.ph, %310
   %.val51 = phi i64 [ %.val48, %.lr.ph ], [ %.val, %310 ]
@@ -898,18 +898,18 @@ mca_pml_ob1_send_request_start_btl.exit:          ; preds = %331, %333, %335, %3
   %403 = add nsw i32 %.02652, 1
   br label %add_request_to_send_pending.exit
 
-.thread.loopexit:                                 ; preds = %310, %opal_convertor_set_position.exit
+.thread:                                          ; preds = %310, %opal_convertor_set_position.exit
   %404 = load i8, ptr @opal_uses_threads, align 1
   %405 = trunc i8 %404 to i1
   br i1 %405, label %406, label %408
 
-406:                                              ; preds = %.thread.loopexit
+406:                                              ; preds = %.thread
   %407 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #6
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %408
 
-408:                                              ; preds = %406, %.thread.loopexit
-  %409 = phi i8 [ %404, %.thread.loopexit ], [ %.pre.i, %406 ]
+408:                                              ; preds = %406, %.thread
+  %409 = phi i8 [ %404, %.thread ], [ %.pre.i, %406 ]
   %410 = getelementptr inbounds i8, ptr %.0.i7.i, i64 588
   store i32 2, ptr %410, align 4
   %411 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2168), align 8

@@ -3458,9 +3458,6 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %28 = icmp sgt i32 %23, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %28, label %.lr.ph38, label %._crit_edge
-
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.02634 = phi ptr [ %29, %.lr.ph ], [ %26, %22 ]
   %.02933 = phi i32 [ %36, %.lr.ph ], [ 0, %22 ]
@@ -3474,12 +3471,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %35 = fadd float %.03032, %34
   %36 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %36, %23
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !19
 
-.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
-  %.137 = phi ptr [ %37, %.lr.ph38 ], [ %26, %.preheader ]
-  %.02736 = phi i32 [ %57, %.lr.ph38 ], [ 0, %.preheader ]
-  %.02835 = phi ptr [ %56, %.lr.ph38 ], [ %27, %.preheader ]
+.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
+  %.137 = phi ptr [ %37, %.lr.ph38 ], [ %26, %.lr.ph ]
+  %.02736 = phi i32 [ %57, %.lr.ph38 ], [ 0, %.lr.ph ]
+  %.02835 = phi ptr [ %56, %.lr.ph38 ], [ %27, %.lr.ph ]
   %37 = getelementptr inbounds i8, ptr %.137, i64 1
   %38 = load i8, ptr %.137, align 1
   %39 = xor i8 %38, -128
@@ -3506,8 +3503,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %59 = icmp slt i32 %57, %58
   br i1 %59, label %.lr.ph38, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.lr.ph38, %22, %.preheader
-  %60 = phi i32 [ %23, %.preheader ], [ %23, %22 ], [ %58, %.lr.ph38 ]
+._crit_edge:                                      ; preds = %.lr.ph38, %22
+  %60 = phi i32 [ %23, %22 ], [ %58, %.lr.ph38 ]
   %61 = add nsw i32 %.039, 1
   %exitcond43.not = icmp eq i32 %61, %5
   br i1 %exitcond43.not, label %._crit_edge42, label %22, !llvm.loop !21
@@ -3578,9 +3575,6 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %28 = icmp sgt i32 %23, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %28, label %.lr.ph38, label %._crit_edge
-
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.02634 = phi ptr [ %29, %.lr.ph ], [ %26, %22 ]
   %.02933 = phi i32 [ %36, %.lr.ph ], [ 0, %22 ]
@@ -3594,12 +3588,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %35 = fadd float %.03032, %34
   %36 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %36, %23
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !22
 
-.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
-  %.137 = phi ptr [ %37, %.lr.ph38 ], [ %26, %.preheader ]
-  %.02736 = phi i32 [ %56, %.lr.ph38 ], [ 0, %.preheader ]
-  %.02835 = phi ptr [ %55, %.lr.ph38 ], [ %27, %.preheader ]
+.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
+  %.137 = phi ptr [ %37, %.lr.ph38 ], [ %26, %.lr.ph ]
+  %.02736 = phi i32 [ %56, %.lr.ph38 ], [ 0, %.lr.ph ]
+  %.02835 = phi ptr [ %55, %.lr.ph38 ], [ %27, %.lr.ph ]
   %37 = getelementptr inbounds i8, ptr %.137, i64 1
   %38 = load i8, ptr %.137, align 1
   %39 = xor i8 %38, -128
@@ -3625,8 +3619,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl18SoftmaxInt8I
   %58 = icmp slt i32 %56, %57
   br i1 %58, label %.lr.ph38, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.lr.ph38, %22, %.preheader
-  %59 = phi i32 [ %23, %.preheader ], [ %23, %22 ], [ %57, %.lr.ph38 ]
+._crit_edge:                                      ; preds = %.lr.ph38, %22
+  %59 = phi i32 [ %23, %22 ], [ %57, %.lr.ph38 ]
   %60 = add nsw i32 %.039, 1
   %exitcond43.not = icmp eq i32 %60, %5
   br i1 %exitcond43.not, label %._crit_edge42, label %22, !llvm.loop !24
@@ -3683,9 +3677,6 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %26 = icmp sgt i32 %21, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %26, label %.lr.ph38, label %._crit_edge
-
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.02634 = phi ptr [ %27, %.lr.ph ], [ %24, %20 ]
   %.02933 = phi i32 [ %34, %.lr.ph ], [ 0, %20 ]
@@ -3699,12 +3690,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %33 = fadd float %.03032, %32
   %34 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %34, %21
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !25
 
-.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
-  %.137 = phi ptr [ %35, %.lr.ph38 ], [ %24, %.preheader ]
-  %.02736 = phi i32 [ %44, %.lr.ph38 ], [ 0, %.preheader ]
-  %.02835 = phi ptr [ %43, %.lr.ph38 ], [ %25, %.preheader ]
+.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
+  %.137 = phi ptr [ %35, %.lr.ph38 ], [ %24, %.lr.ph ]
+  %.02736 = phi i32 [ %44, %.lr.ph38 ], [ 0, %.lr.ph ]
+  %.02835 = phi ptr [ %43, %.lr.ph38 ], [ %25, %.lr.ph ]
   %35 = getelementptr inbounds i8, ptr %.137, i64 1
   %36 = load i8, ptr %.137, align 1
   %37 = xor i8 %36, -128
@@ -3720,8 +3711,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %46 = icmp slt i32 %44, %45
   br i1 %46, label %.lr.ph38, label %._crit_edge, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph38, %20, %.preheader
-  %47 = phi i32 [ %21, %.preheader ], [ %21, %20 ], [ %45, %.lr.ph38 ]
+._crit_edge:                                      ; preds = %.lr.ph38, %20
+  %47 = phi i32 [ %21, %20 ], [ %45, %.lr.ph38 ]
   %48 = add nsw i32 %.039, 1
   %exitcond43.not = icmp eq i32 %48, %5
   br i1 %exitcond43.not, label %._crit_edge42, label %20, !llvm.loop !27
@@ -3778,9 +3769,6 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %26 = icmp sgt i32 %21, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %26, label %.lr.ph38, label %._crit_edge
-
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.02634 = phi ptr [ %27, %.lr.ph ], [ %24, %20 ]
   %.02933 = phi i32 [ %34, %.lr.ph ], [ 0, %20 ]
@@ -3794,12 +3782,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %33 = fadd float %.03032, %32
   %34 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %34, %21
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !28
 
-.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
-  %.137 = phi ptr [ %35, %.lr.ph38 ], [ %24, %.preheader ]
-  %.02736 = phi i32 [ %43, %.lr.ph38 ], [ 0, %.preheader ]
-  %.02835 = phi ptr [ %42, %.lr.ph38 ], [ %25, %.preheader ]
+.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
+  %.137 = phi ptr [ %35, %.lr.ph38 ], [ %24, %.lr.ph ]
+  %.02736 = phi i32 [ %43, %.lr.ph38 ], [ 0, %.lr.ph ]
+  %.02835 = phi ptr [ %42, %.lr.ph38 ], [ %25, %.lr.ph ]
   %35 = getelementptr inbounds i8, ptr %.137, i64 1
   %36 = load i8, ptr %.137, align 1
   %37 = xor i8 %36, -128
@@ -3814,8 +3802,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20SoftMaxLayerInt8Impl29SoftmaxInt8O
   %45 = icmp slt i32 %43, %44
   br i1 %45, label %.lr.ph38, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph38, %20, %.preheader
-  %46 = phi i32 [ %21, %.preheader ], [ %21, %20 ], [ %44, %.lr.ph38 ]
+._crit_edge:                                      ; preds = %.lr.ph38, %20
+  %46 = phi i32 [ %21, %20 ], [ %44, %.lr.ph38 ]
   %47 = add nsw i32 %.039, 1
   %exitcond43.not = icmp eq i32 %47, %5
   br i1 %exitcond43.not, label %._crit_edge42, label %20, !llvm.loop !30

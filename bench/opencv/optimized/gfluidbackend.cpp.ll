@@ -1981,8 +1981,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 229:                                              ; preds = %229, %225
   %.06.i.i.i.i.i.i.i = phi i32 [ %228, %225 ], [ %233, %229 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %230 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %231 = cmpxchg weak ptr %227, i32 %.06.i.i.i.i.i.i.i, i32 %230 acq_rel monotonic, align 8, !noalias !17
   %232 = extractvalue { i32, i1 } %231, 1
@@ -5134,8 +5134,8 @@ _ZNSt5stackIN3ade6HandleINS0_4NodeEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds =
 
 504:                                              ; preds = %504, %_ZNSt5stackIN3ade6HandleINS0_4NodeEEESt5dequeIS3_SaIS3_EEE3popEv.exit
   %.06.i.i.i.i.i.i.i = phi i32 [ %503, %_ZNSt5stackIN3ade6HandleINS0_4NodeEEESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ %508, %504 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %505 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %506 = cmpxchg weak ptr %502, i32 %.06.i.i.i.i.i.i.i, i32 %505 acq_rel monotonic, align 8, !noalias !67
   %507 = extractvalue { i32, i1 } %506, 1
@@ -5231,8 +5231,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 550:                                              ; preds = %550, %548
   %.06.i.i.i.i.i.i.i173 = phi i32 [ %549, %548 ], [ %554, %550 ]
-  %.not.i.not.i.i.i.i.i.i174 = icmp ne i32 %.06.i.i.i.i.i.i.i173, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i174)
+  %.not.not.not.i.not.i.i.i.i.i.i174 = icmp ne i32 %.06.i.i.i.i.i.i.i173, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i174)
   %551 = add nsw i32 %.06.i.i.i.i.i.i.i173, 1
   %552 = cmpxchg weak ptr %502, i32 %.06.i.i.i.i.i.i.i173, i32 %551 acq_rel monotonic, align 8, !noalias !70
   %553 = extractvalue { i32, i1 } %552, 1
@@ -5364,8 +5364,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 609:                                              ; preds = %609, %607
   %.06.i.i.i.i.i.i.i186 = phi i32 [ %608, %607 ], [ %613, %609 ]
-  %.not.i.not.i.i.i.i.i.i187 = icmp ne i32 %.06.i.i.i.i.i.i.i186, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i187)
+  %.not.not.not.i.not.i.i.i.i.i.i187 = icmp ne i32 %.06.i.i.i.i.i.i.i186, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i187)
   %610 = add nsw i32 %.06.i.i.i.i.i.i.i186, 1
   %611 = cmpxchg weak ptr %502, i32 %.06.i.i.i.i.i.i.i186, i32 %610 acq_rel monotonic, align 8, !noalias !73
   %612 = extractvalue { i32, i1 } %611, 1
@@ -5731,8 +5731,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 771:                                              ; preds = %771, %767
   %.06.i.i.i.i.i.i.i241 = phi i32 [ %770, %767 ], [ %775, %771 ]
-  %.not.i.not.i.i.i.i.i.i242 = icmp ne i32 %.06.i.i.i.i.i.i.i241, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i242)
+  %.not.not.not.i.not.i.i.i.i.i.i242 = icmp ne i32 %.06.i.i.i.i.i.i.i241, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i242)
   %772 = add nsw i32 %.06.i.i.i.i.i.i.i241, 1
   %773 = cmpxchg weak ptr %769, i32 %.06.i.i.i.i.i.i.i241, i32 %772 acq_rel monotonic, align 8, !noalias !85
   %774 = extractvalue { i32, i1 } %773, 1
@@ -5853,8 +5853,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 827:                                              ; preds = %827, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit
   %.06.i.i.i.i.i.i.i255 = phi i32 [ %826, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit ], [ %831, %827 ]
-  %.not.i.not.i.i.i.i.i.i256 = icmp ne i32 %.06.i.i.i.i.i.i.i255, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i256)
+  %.not.not.not.i.not.i.i.i.i.i.i256 = icmp ne i32 %.06.i.i.i.i.i.i.i255, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i256)
   %828 = add nsw i32 %.06.i.i.i.i.i.i.i255, 1
   %829 = cmpxchg weak ptr %825, i32 %.06.i.i.i.i.i.i.i255, i32 %828 acq_rel monotonic, align 8, !noalias !96
   %830 = extractvalue { i32, i1 } %829, 1
@@ -7274,8 +7274,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 1399:                                             ; preds = %1399, %1395
   %.06.i.i.i.i.i.i.i425 = phi i32 [ %1398, %1395 ], [ %1403, %1399 ]
-  %.not.i.not.i.i.i.i.i.i426 = icmp ne i32 %.06.i.i.i.i.i.i.i425, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i426)
+  %.not.not.not.i.not.i.i.i.i.i.i426 = icmp ne i32 %.06.i.i.i.i.i.i.i425, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i426)
   %1400 = add nsw i32 %.06.i.i.i.i.i.i.i425, 1
   %1401 = cmpxchg weak ptr %1397, i32 %.06.i.i.i.i.i.i.i425, i32 %1400 acq_rel monotonic, align 8, !noalias !114
   %1402 = extractvalue { i32, i1 } %1401, 1
@@ -7374,8 +7374,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 1448:                                             ; preds = %1448, %1444
   %.06.i.i.i.i.i.i.i438 = phi i32 [ %1447, %1444 ], [ %1452, %1448 ]
-  %.not.i.not.i.i.i.i.i.i439 = icmp ne i32 %.06.i.i.i.i.i.i.i438, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i439)
+  %.not.not.not.i.not.i.i.i.i.i.i439 = icmp ne i32 %.06.i.i.i.i.i.i.i438, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i439)
   %1449 = add nsw i32 %.06.i.i.i.i.i.i.i438, 1
   %1450 = cmpxchg weak ptr %1446, i32 %.06.i.i.i.i.i.i.i438, i32 %1449 acq_rel monotonic, align 8, !noalias !117
   %1451 = extractvalue { i32, i1 } %1450, 1
@@ -10044,8 +10044,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %555, %553, %551, %5
 
 559:                                              ; preds = %559, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   %.06.i.i.i.i.i.i.i = phi i32 [ %558, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %563, %559 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %560 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %561 = cmpxchg weak ptr %557, i32 %.06.i.i.i.i.i.i.i, i32 %560 acq_rel monotonic, align 8, !noalias !145
   %562 = extractvalue { i32, i1 } %561, 1
@@ -10164,8 +10164,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 613:                                              ; preds = %613, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit
   %.06.i.i.i.i.i.i.i164 = phi i32 [ %612, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit ], [ %617, %613 ]
-  %.not.i.not.i.i.i.i.i.i165 = icmp ne i32 %.06.i.i.i.i.i.i.i164, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i165)
+  %.not.not.not.i.not.i.i.i.i.i.i165 = icmp ne i32 %.06.i.i.i.i.i.i.i164, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i165)
   %614 = add nsw i32 %.06.i.i.i.i.i.i.i164, 1
   %615 = cmpxchg weak ptr %611, i32 %.06.i.i.i.i.i.i.i164, i32 %614 acq_rel monotonic, align 8, !noalias !156
   %616 = extractvalue { i32, i1 } %615, 1
@@ -10655,8 +10655,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 835:                                              ; preds = %835, %.loopexit547
   %.06.i.i.i.i.i.i.i240 = phi i32 [ %834, %.loopexit547 ], [ %839, %835 ]
-  %.not.i.not.i.i.i.i.i.i241 = icmp ne i32 %.06.i.i.i.i.i.i.i240, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i241)
+  %.not.not.not.i.not.i.i.i.i.i.i241 = icmp ne i32 %.06.i.i.i.i.i.i.i240, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i241)
   %836 = add nsw i32 %.06.i.i.i.i.i.i.i240, 1
   %837 = cmpxchg weak ptr %833, i32 %.06.i.i.i.i.i.i.i240, i32 %836 acq_rel monotonic, align 8, !noalias !165
   %838 = extractvalue { i32, i1 } %837, 1
@@ -10967,8 +10967,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit287:            ; preds = %.loopexit539, %966,
 
 979:                                              ; preds = %979, %_ZN3ade6HandleINS_4NodeEED2Ev.exit287
   %.06.i.i.i.i.i.i.i289 = phi i32 [ %978, %_ZN3ade6HandleINS_4NodeEED2Ev.exit287 ], [ %983, %979 ]
-  %.not.i.not.i.i.i.i.i.i290 = icmp ne i32 %.06.i.i.i.i.i.i.i289, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i290)
+  %.not.not.not.i.not.i.i.i.i.i.i290 = icmp ne i32 %.06.i.i.i.i.i.i.i289, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i290)
   %980 = add nsw i32 %.06.i.i.i.i.i.i.i289, 1
   %981 = cmpxchg weak ptr %977, i32 %.06.i.i.i.i.i.i.i289, i32 %980 acq_rel monotonic, align 8, !noalias !171
   %982 = extractvalue { i32, i1 } %981, 1
@@ -11328,8 +11328,8 @@ _ZN3ade6HandleINS_4EdgeEED2Ev.exit:               ; preds = %_ZN3ade6HandleINS_4
 
 1124:                                             ; preds = %1124, %._crit_edge
   %.06.i.i.i.i.i.i.i325 = phi i32 [ %1123, %._crit_edge ], [ %1128, %1124 ]
-  %.not.i.not.i.i.i.i.i.i326 = icmp ne i32 %.06.i.i.i.i.i.i.i325, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i326)
+  %.not.not.not.i.not.i.i.i.i.i.i326 = icmp ne i32 %.06.i.i.i.i.i.i.i325, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i326)
   %1125 = add nsw i32 %.06.i.i.i.i.i.i.i325, 1
   %1126 = cmpxchg weak ptr %1122, i32 %.06.i.i.i.i.i.i.i325, i32 %1125 acq_rel monotonic, align 8, !noalias !174
   %1127 = extractvalue { i32, i1 } %1126, 1
@@ -11459,8 +11459,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit339:         ; preds = %1187, %1185, %1183,
 
 1191:                                             ; preds = %1191, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit339
   %.06.i.i.i.i.i.i.i341 = phi i32 [ %1190, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit339 ], [ %1195, %1191 ]
-  %.not.i.not.i.i.i.i.i.i342 = icmp ne i32 %.06.i.i.i.i.i.i.i341, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i342)
+  %.not.not.not.i.not.i.i.i.i.i.i342 = icmp ne i32 %.06.i.i.i.i.i.i.i341, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i342)
   %1192 = add nsw i32 %.06.i.i.i.i.i.i.i341, 1
   %1193 = cmpxchg weak ptr %1189, i32 %.06.i.i.i.i.i.i.i341, i32 %1192 acq_rel monotonic, align 8, !noalias !177
   %1194 = extractvalue { i32, i1 } %1193, 1
@@ -11579,8 +11579,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 1245:                                             ; preds = %1245, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit355
   %.06.i.i.i.i.i.i.i357 = phi i32 [ %1244, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit355 ], [ %1249, %1245 ]
-  %.not.i.not.i.i.i.i.i.i358 = icmp ne i32 %.06.i.i.i.i.i.i.i357, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i358)
+  %.not.not.not.i.not.i.i.i.i.i.i358 = icmp ne i32 %.06.i.i.i.i.i.i.i357, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i358)
   %1246 = add nsw i32 %.06.i.i.i.i.i.i.i357, 1
   %1247 = cmpxchg weak ptr %1243, i32 %.06.i.i.i.i.i.i.i357, i32 %1246 acq_rel monotonic, align 8, !noalias !188
   %1248 = extractvalue { i32, i1 } %1247, 1
@@ -12077,8 +12077,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 1473:                                             ; preds = %1473, %1469
   %.06.i.i.i.i.i.i.i437 = phi i32 [ %1472, %1469 ], [ %1477, %1473 ]
-  %.not.i.not.i.i.i.i.i.i438 = icmp ne i32 %.06.i.i.i.i.i.i.i437, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i438)
+  %.not.not.not.i.not.i.i.i.i.i.i438 = icmp ne i32 %.06.i.i.i.i.i.i.i437, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i438)
   %1474 = add nsw i32 %.06.i.i.i.i.i.i.i437, 1
   %1475 = cmpxchg weak ptr %1471, i32 %.06.i.i.i.i.i.i.i437, i32 %1474 acq_rel monotonic, align 8, !noalias !197
   %1476 = extractvalue { i32, i1 } %1475, 1
@@ -15383,8 +15383,8 @@ _ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS1_9Ite
 
 864:                                              ; preds = %864, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEEEEE8iteratorneERKSH_.exit
   %.06.i.i.i.i.i.i.i = phi i32 [ %863, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEEEEE8iteratorneERKSH_.exit ], [ %868, %864 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %865 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %866 = cmpxchg weak ptr %862, i32 %.06.i.i.i.i.i.i.i, i32 %865 acq_rel monotonic, align 8, !noalias !226
   %867 = extractvalue { i32, i1 } %866, 1
@@ -16737,8 +16737,8 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc132_crit_edge
 
 301:                                              ; preds = %301, %298
   %.06.i.i.i.i.i.i.i = phi i32 [ %300, %298 ], [ %305, %301 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %302 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %303 = cmpxchg weak ptr %299, i32 %.06.i.i.i.i.i.i.i, i32 %302 acq_rel monotonic, align 8, !noalias !239
   %304 = extractvalue { i32, i1 } %303, 1
@@ -16834,8 +16834,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 347:                                              ; preds = %347, %345
   %.06.i.i.i.i.i.i.i137 = phi i32 [ %346, %345 ], [ %351, %347 ]
-  %.not.i.not.i.i.i.i.i.i138 = icmp ne i32 %.06.i.i.i.i.i.i.i137, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i138)
+  %.not.not.not.i.not.i.i.i.i.i.i138 = icmp ne i32 %.06.i.i.i.i.i.i.i137, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i138)
   %348 = add nsw i32 %.06.i.i.i.i.i.i.i137, 1
   %349 = cmpxchg weak ptr %299, i32 %.06.i.i.i.i.i.i.i137, i32 %348 acq_rel monotonic, align 8, !noalias !242
   %350 = extractvalue { i32, i1 } %349, 1
@@ -19711,8 +19711,8 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 106:                                              ; preds = %107, %103
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %105, %103 ], [ %111, %107 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %107
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %107
 
 107:                                              ; preds = %106
   %108 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
@@ -20020,8 +20020,8 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i:         ; preds = %_ZN3ade6HandleINS_4
 
 256:                                              ; preds = %256, %253
   %.06.i.i.i.i.i.i.i = phi i32 [ %255, %253 ], [ %260, %256 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %257 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %258 = cmpxchg weak ptr %254, i32 %.06.i.i.i.i.i.i.i, i32 %257 acq_rel monotonic, align 8, !noalias !306
   %259 = extractvalue { i32, i1 } %258, 1
@@ -20616,8 +20616,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit119:            ; preds = %_ZNSt3setIiSt4lessI
 
 487:                                              ; preds = %487, %._crit_edge
   %.06.i.i.i.i.i.i.i121 = phi i32 [ %486, %._crit_edge ], [ %491, %487 ]
-  %.not.i.not.i.i.i.i.i.i122 = icmp ne i32 %.06.i.i.i.i.i.i.i121, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i122)
+  %.not.not.not.i.not.i.i.i.i.i.i122 = icmp ne i32 %.06.i.i.i.i.i.i.i121, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i122)
   %488 = add nsw i32 %.06.i.i.i.i.i.i.i121, 1
   %489 = cmpxchg weak ptr %254, i32 %.06.i.i.i.i.i.i.i121, i32 %488 acq_rel monotonic, align 8, !noalias !324
   %490 = extractvalue { i32, i1 } %489, 1
@@ -21673,8 +21673,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %930, %928, %926, %9
 
 942:                                              ; preds = %942, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   %.06.i.i.i.i.i.i.i301 = phi i32 [ %941, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %946, %942 ]
-  %.not.i.not.i.i.i.i.i.i302 = icmp ne i32 %.06.i.i.i.i.i.i.i301, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i302)
+  %.not.not.not.i.not.i.i.i.i.i.i302 = icmp ne i32 %.06.i.i.i.i.i.i.i301, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i302)
   %943 = add nsw i32 %.06.i.i.i.i.i.i.i301, 1
   %944 = cmpxchg weak ptr %254, i32 %.06.i.i.i.i.i.i.i301, i32 %943 acq_rel monotonic, align 8, !noalias !348
   %945 = extractvalue { i32, i1 } %944, 1
@@ -21795,8 +21795,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 997:                                              ; preds = %997, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit
   %.06.i.i.i.i.i.i.i315 = phi i32 [ %996, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit ], [ %1001, %997 ]
-  %.not.i.not.i.i.i.i.i.i316 = icmp ne i32 %.06.i.i.i.i.i.i.i315, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i316)
+  %.not.not.not.i.not.i.i.i.i.i.i316 = icmp ne i32 %.06.i.i.i.i.i.i.i315, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i316)
   %998 = add nsw i32 %.06.i.i.i.i.i.i.i315, 1
   %999 = cmpxchg weak ptr %995, i32 %.06.i.i.i.i.i.i.i315, i32 %998 acq_rel monotonic, align 8, !noalias !359
   %1000 = extractvalue { i32, i1 } %999, 1
@@ -23303,8 +23303,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit469:            ; preds = %_ZNSt3setIiSt4lessI
 
 1636:                                             ; preds = %1637, %1633
   %.06.i.i.i.i.i.i.i.i.i480 = phi i32 [ %1635, %1633 ], [ %1641, %1637 ]
-  %.not.i.not.i.i.i.i.i.i.i.i481 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i480, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i481, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i489, label %1637
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i481 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i480, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i481, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i489, label %1637
 
 1637:                                             ; preds = %1636
   %1638 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i480, 1
@@ -23837,8 +23837,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 192:                                              ; preds = %192, %.loopexit289
   %.06.i.i.i.i.i.i.i = phi i32 [ %191, %.loopexit289 ], [ %196, %192 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %193 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %194 = cmpxchg weak ptr %190, i32 %.06.i.i.i.i.i.i.i, i32 %193 acq_rel monotonic, align 8, !noalias !403
   %195 = extractvalue { i32, i1 } %194, 1
@@ -23964,8 +23964,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 248:                                              ; preds = %248, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit
   %.06.i.i.i.i.i.i.i69 = phi i32 [ %247, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit ], [ %252, %248 ]
-  %.not.i.not.i.i.i.i.i.i70 = icmp ne i32 %.06.i.i.i.i.i.i.i69, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i70)
+  %.not.not.not.i.not.i.i.i.i.i.i70 = icmp ne i32 %.06.i.i.i.i.i.i.i69, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i70)
   %249 = add nsw i32 %.06.i.i.i.i.i.i.i69, 1
   %250 = cmpxchg weak ptr %246, i32 %.06.i.i.i.i.i.i.i69, i32 %249 acq_rel monotonic, align 8, !noalias !414
   %251 = extractvalue { i32, i1 } %250, 1
@@ -25653,8 +25653,8 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 82:                                               ; preds = %83, %79
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %81, %79 ], [ %87, %83 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %83
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %83
 
 83:                                               ; preds = %82
   %84 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
@@ -26167,8 +26167,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit75:             ; preds = %_ZN3ade6HandleINS_4
 
 317:                                              ; preds = %317, %_ZN3ade6HandleINS_4NodeEED2Ev.exit75
   %.06.i.i.i.i.i.i.i = phi i32 [ %316, %_ZN3ade6HandleINS_4NodeEED2Ev.exit75 ], [ %321, %317 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %318 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %319 = cmpxchg weak ptr %315, i32 %.06.i.i.i.i.i.i.i, i32 %318 acq_rel monotonic, align 8, !noalias !450
   %320 = extractvalue { i32, i1 } %319, 1
@@ -26468,8 +26468,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 455:                                              ; preds = %455, %.loopexit321
   %.06.i.i.i.i.i.i.i105 = phi i32 [ %454, %.loopexit321 ], [ %459, %455 ]
-  %.not.i.not.i.i.i.i.i.i106 = icmp ne i32 %.06.i.i.i.i.i.i.i105, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i106)
+  %.not.not.not.i.not.i.i.i.i.i.i106 = icmp ne i32 %.06.i.i.i.i.i.i.i105, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i106)
   %456 = add nsw i32 %.06.i.i.i.i.i.i.i105, 1
   %457 = cmpxchg weak ptr %453, i32 %.06.i.i.i.i.i.i.i105, i32 %456 acq_rel monotonic, align 8, !noalias !464
   %458 = extractvalue { i32, i1 } %457, 1
@@ -26983,8 +26983,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit157:            ; preds = %615, %626, %628
 
 673:                                              ; preds = %673, %._crit_edge
   %.06.i.i.i.i.i.i.i171 = phi i32 [ %672, %._crit_edge ], [ %677, %673 ]
-  %.not.i.not.i.i.i.i.i.i172 = icmp ne i32 %.06.i.i.i.i.i.i.i171, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i172)
+  %.not.not.not.i.not.i.i.i.i.i.i172 = icmp ne i32 %.06.i.i.i.i.i.i.i171, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i172)
   %674 = add nsw i32 %.06.i.i.i.i.i.i.i171, 1
   %675 = cmpxchg weak ptr %671, i32 %.06.i.i.i.i.i.i.i171, i32 %674 acq_rel monotonic, align 8, !noalias !470
   %676 = extractvalue { i32, i1 } %675, 1
@@ -27746,8 +27746,8 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
 
 1010:                                             ; preds = %1011, %1007
   %.06.i.i.i.i.i.i.i.i.i251 = phi i32 [ %1009, %1007 ], [ %1015, %1011 ]
-  %.not.i.not.i.i.i.i.i.i.i.i252 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i251, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i252, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i260, label %1011
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i252 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i251, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i252, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i260, label %1011
 
 1011:                                             ; preds = %1010
   %1012 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i251, 1
@@ -27981,8 +27981,8 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 74:                                               ; preds = %75, %71
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %73, %71 ], [ %79, %75 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %75
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i, label %75
 
 75:                                               ; preds = %74
   %76 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
@@ -28224,8 +28224,8 @@ _ZN3ade10TypedGraphIJN2cv5gimpl9FluidUnitENS2_9FluidDataENS2_8ProtocolENS2_23Flu
 
 187:                                              ; preds = %187, %183
   %.06.i.i.i.i.i.i.i = phi i32 [ %186, %183 ], [ %191, %187 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %188 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %189 = cmpxchg weak ptr %185, i32 %.06.i.i.i.i.i.i.i, i32 %188 acq_rel monotonic, align 8, !noalias !506
   %190 = extractvalue { i32, i1 } %189, 1
@@ -28671,8 +28671,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %.loopexit218, %354,
 
 378:                                              ; preds = %378, %._crit_edge
   %.06.i.i.i.i.i.i.i68 = phi i32 [ %377, %._crit_edge ], [ %382, %378 ]
-  %.not.i.not.i.i.i.i.i.i69 = icmp ne i32 %.06.i.i.i.i.i.i.i68, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i69)
+  %.not.not.not.i.not.i.i.i.i.i.i69 = icmp ne i32 %.06.i.i.i.i.i.i.i68, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i69)
   %379 = add nsw i32 %.06.i.i.i.i.i.i.i68, 1
   %380 = cmpxchg weak ptr %376, i32 %.06.i.i.i.i.i.i.i68, i32 %379 acq_rel monotonic, align 8, !noalias !524
   %381 = extractvalue { i32, i1 } %380, 1
@@ -29455,8 +29455,8 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
 
 723:                                              ; preds = %724, %720
   %.06.i.i.i.i.i.i.i.i.i157 = phi i32 [ %722, %720 ], [ %728, %724 ]
-  %.not.i.not.i.i.i.i.i.i.i.i158 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i157, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i158, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i166, label %724
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i158 = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i157, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i158, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i166, label %724
 
 724:                                              ; preds = %723
   %725 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i157, 1
@@ -46092,8 +46092,8 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i.i:       ; preds = %582, %579, %573
 
 655:                                              ; preds = %655, %652
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %654, %652 ], [ %659, %655 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i)
   %656 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
   %657 = cmpxchg weak ptr %653, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %656 acq_rel monotonic, align 8, !noalias !736
   %658 = extractvalue { i32, i1 } %657, 1
@@ -46183,8 +46183,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 697:                                              ; preds = %697, %695
   %.06.i.i.i.i.i.i.i170.i.i = phi i32 [ %696, %695 ], [ %701, %697 ]
-  %.not.i.not.i.i.i.i.i.i171.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i170.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i171.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i171.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i170.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i171.i.i)
   %698 = add nsw i32 %.06.i.i.i.i.i.i.i170.i.i, 1
   %699 = cmpxchg weak ptr %653, i32 %.06.i.i.i.i.i.i.i170.i.i, i32 %698 acq_rel monotonic, align 8, !noalias !739
   %700 = extractvalue { i32, i1 } %699, 1
@@ -48685,8 +48685,8 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 130:                                              ; preds = %131, %127
   %.06.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %129, %127 ], [ %135, %131 ]
-  %.not.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i.i.i, label %131
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i.i.i, label %131
 
 131:                                              ; preds = %130
   %132 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -49641,8 +49641,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit102.i.i:        ; preds = %506, %504, %_ZNSt6v
 
 516:                                              ; preds = %517, %513
   %.06.i.i.i.i.i.i.i.i.i110.i.i = phi i32 [ %515, %513 ], [ %521, %517 ]
-  %.not.i.not.i.i.i.i.i.i.i.i111.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i110.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i111.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i119.i.i, label %517
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i111.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i110.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i111.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i119.i.i, label %517
 
 517:                                              ; preds = %516
   %518 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i110.i.i, 1
@@ -50939,8 +50939,8 @@ _ZNK3ade13TypedMetadataILb0EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 142:                                              ; preds = %143, %139
   %.06.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %141, %139 ], [ %147, %143 ]
-  %.not.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i.i.i, label %143
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i.i.i, label %143
 
 143:                                              ; preds = %142
   %144 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -51392,8 +51392,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 345:                                              ; preds = %345, %342
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %344, %342 ], [ %349, %345 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i)
   %346 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
   %347 = cmpxchg weak ptr %343, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %346 acq_rel monotonic, align 8, !noalias !823
   %348 = extractvalue { i32, i1 } %347, 1
@@ -52616,6 +52616,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit134.i.i:        ; preds = %825, %823, %812
   br label %.body117.i.i
 
 .body117.i.i:                                     ; preds = %829, %764
+  %.not.i.i.i.i25.i.i135 = phi i1 [ %.not.i.i.i.i25.i.i, %829 ], [ true, %764 ]
   %.pn19.pn.i.i = phi { ptr, i32 } [ %.pn19.i.i, %829 ], [ %765, %764 ]
   %830 = load ptr, ptr %202, align 8
   %.not.i.i.i.i135.i.i = icmp eq ptr %830, null
@@ -52647,7 +52648,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit134.i.i:        ; preds = %825, %823, %812
   %843 = getelementptr inbounds i8, ptr %842, i64 24
   %844 = load ptr, ptr %843, align 8
   call void %844(ptr noundef nonnull align 8 dereferenceable(16) %830) #29
-  br i1 %.not.i.i.i.i25.i.i, label %.body.thread.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit146.i.i
+  br i1 %.not.i.i.i.i25.i.i135, label %.body.thread.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit146.i.i
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit130.i.i:        ; preds = %806, %804, %_ZN3ade6HandleINS_4NodeEED2Ev.exit126.i.i, %748, %261
   br i1 %.not.i.i.i.i25.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit130.thread.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit142.i.i
@@ -52700,8 +52701,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit142.i.i:        ; preds = %854, %852, %_ZN3ade
 
 864:                                              ; preds = %865, %861
   %.06.i.i.i.i.i.i.i.i.i154.i.i = phi i32 [ %863, %861 ], [ %869, %865 ]
-  %.not.i.not.i.i.i.i.i.i.i.i155.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i154.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i155.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i163.i.i, label %865
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i155.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i154.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i155.i.i, label %_ZNK3ade6passes19TopologicalSortData11NodesFilterclERKNS_6HandleINS_4NodeEEE.exit.thread.i163.i.i, label %865
 
 865:                                              ; preds = %864
   %866 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i154.i.i, 1
@@ -52797,8 +52798,9 @@ _ZN3ade4util5Range11FilterRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPK
   br i1 %905, label %"_ZNK3ade15ExecutionEngine11PassWrapperIZN12_GLOBAL__N_117GFluidBackendImpl29addMetaSensitiveBackendPassesERNS_27ExecutionEngineSetupContextEE3$_6EclERNS_6passes11PassContextE.exit", label %204
 
 .body.i.i:                                        ; preds = %839, %.body117.i.i, %301, %290, %253, %242
+  %.not.i.i.i.i25.i.i134 = phi i1 [ %.not.i.i.i.i25.i.i, %253 ], [ %.not.i.i.i.i25.i.i, %242 ], [ %.not.i.i.i.i25.i.i, %301 ], [ %.not.i.i.i.i25.i.i, %290 ], [ %.not.i.i.i.i25.i.i135, %.body117.i.i ], [ %.not.i.i.i.i25.i.i135, %839 ]
   %.pn19.pn.pn.i.i = phi { ptr, i32 } [ %243, %253 ], [ %243, %242 ], [ %291, %301 ], [ %291, %290 ], [ %.pn19.pn.i.i, %.body117.i.i ], [ %.pn19.pn.i.i, %839 ]
-  br i1 %.not.i.i.i.i25.i.i, label %.body.thread.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit146.i.i
+  br i1 %.not.i.i.i.i25.i.i134, label %.body.thread.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit146.i.i
 
 .body.thread.i.i:                                 ; preds = %.body.i.i, %841, %744, %742, %.body83.i.i, %618, %616, %605, %586, %573, %.body.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i, %419, %408, %.loopexit.split-lp46.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp46.loopexit.split-lp.loopexit.split-lp.thread.i.i, %.loopexit.split-lp46.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp46.loopexit.i.i, %.loopexit45.i.i, %303, %255
   %.pn19.pn.pn298.i.i = phi { ptr, i32 } [ %.pn19.pn.pn.i.i, %.body.i.i ], [ %243, %255 ], [ %291, %303 ], [ %.pn19.pn.i.i, %841 ], [ %lpad.loopexit49.i.i, %.loopexit.split-lp46.loopexit.i.i ], [ %lpad.loopexit53.i.i, %.loopexit.split-lp46.loopexit.split-lp.loopexit.i.i ], [ %lpad.thr_comm.split-lp.i.i, %.loopexit.split-lp46.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.thr_comm.i.i, %.loopexit.split-lp46.loopexit.split-lp.loopexit.split-lp.thread.i.i ], [ %lpad.loopexit47.i.i, %.loopexit45.i.i ], [ %eh.lpad-body84.i.i, %744 ], [ %eh.lpad-body84.i.i, %742 ], [ %eh.lpad-body84.i.i, %.body83.i.i ], [ %606, %605 ], [ %606, %616 ], [ %606, %618 ], [ %common.resume.op.ph.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %573 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %409, %408 ], [ %409, %419 ], [ %.pn.i.i, %586 ]
@@ -53464,8 +53466,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 249:                                              ; preds = %249, %.loopexit50.i.i
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %248, %.loopexit50.i.i ], [ %253, %249 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i)
   %250 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
   %251 = cmpxchg weak ptr %247, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %250 acq_rel monotonic, align 8, !noalias !888
   %252 = extractvalue { i32, i1 } %251, 1
@@ -53591,8 +53593,8 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 305:                                              ; preds = %305, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit.i.i
   %.06.i.i.i.i.i.i.i54.i.i = phi i32 [ %304, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit.i.i ], [ %309, %305 ]
-  %.not.i.not.i.i.i.i.i.i55.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i54.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i55.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i55.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i54.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i55.i.i)
   %306 = add nsw i32 %.06.i.i.i.i.i.i.i54.i.i, 1
   %307 = cmpxchg weak ptr %303, i32 %.06.i.i.i.i.i.i.i54.i.i, i32 %306 acq_rel monotonic, align 8, !noalias !899
   %308 = extractvalue { i32, i1 } %307, 1

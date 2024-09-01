@@ -677,8 +677,8 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
 
 14:                                               ; preds = %16, %8
   %15 = phi ptr [ %17, %16 ], [ %10, %8 ]
-  %.not.i.not.not = icmp ne ptr %15, %13
-  br i1 %.not.i.not.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit"
+  %.not.not.not.i.not.not.not = icmp ne ptr %15, %13
+  br i1 %.not.not.not.i.not.not.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit"
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %15, i64 24
@@ -740,7 +740,7 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit": ; preds = %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i.i", %16, %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit.i", %25
-  %.0.in = phi i1 [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit.i" ], [ false, %25 ], [ %.not.i.not.not, %14 ], [ %.not.i.not.not, %16 ], [ false, %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i.i" ]
+  %.0.in = phi i1 [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h84b127af6bb77997E.exit.i" ], [ false, %25 ], [ %.not.not.not.i.not.not.not, %14 ], [ %.not.not.not.i.not.not.not, %16 ], [ false, %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i.i" ]
   ret i1 %.0.in
 }
 

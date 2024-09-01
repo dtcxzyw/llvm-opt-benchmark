@@ -2303,8 +2303,8 @@ call6.i.noexc:                                    ; preds = %call2.i.noexc, %if.
 
 while.cond.i:                                     ; preds = %call11.i.noexc, %call6.i.noexc
   %hits.i.sroa.0.0 = phi i32 [ %and.i55, %call6.i.noexc ], [ %and.i58, %call11.i.noexc ]
-  %cmp.i.not109.not = icmp ne i32 %hits.i.sroa.0.0, 0
-  br i1 %cmp.i.not109.not, label %call11.i.noexc, label %while.end.i
+  %cmp.i.not109.not.not.not.not = icmp ne i32 %hits.i.sroa.0.0, 0
+  br i1 %cmp.i.not109.not.not.not.not, label %call11.i.noexc, label %while.end.i
 
 call11.i.noexc:                                   ; preds = %while.cond.i
   %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i.sroa.0.0, i1 true)
@@ -2407,7 +2407,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i95
   unreachable
 
 _ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit:  ; preds = %if.then.i.i.i95
-  ret i1 %cmp.i.not109.not
+  ret i1 %cmp.i.not109.not.not.not.not
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %15, %lpad4 ], [ %14, %lpad ]

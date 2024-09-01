@@ -31267,23 +31267,20 @@ _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %1, %11, %16, %27
   br i1 %.not, label %47, label %.loopexit
 
 ._crit_edge:                                      ; preds = %47
-  br i1 %.not6, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %54
-
-54:                                               ; preds = %._crit_edge
   store ptr %41, ptr %39, align 8
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
-_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %.preheader, %._crit_edge, %54
-  %55 = getelementptr inbounds i8, ptr %0, i64 552
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %.loopexit
+_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %.preheader, %._crit_edge
+  %54 = getelementptr inbounds i8, ptr %0, i64 552
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %.loopexit
 
-58:                                               ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
+57:                                               ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
   store i32 0, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZNK3spv7Builder20getNumTypeComponentsEj.exit, %58, %_ZNSt6vectorIjSaIjEE5clearEv.exit
+.loopexit:                                        ; preds = %.lr.ph, %_ZNK3spv7Builder20getNumTypeComponentsEj.exit, %57, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   ret void
 }
 

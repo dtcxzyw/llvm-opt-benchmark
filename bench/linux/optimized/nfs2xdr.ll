@@ -598,31 +598,31 @@ define internal i32 @nfs2_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1
 5:                                                ; preds = %3
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread, label %.preheader, !prof !8
+  br i1 %7, label %.thread, label %8, !prof !8
 
-.preheader:                                       ; preds = %5
-  %8 = tail call i32 @llvm.bswap.i32(i32 %6)
-  tail call fastcc void @trace_nfs_xdr_status(ptr noundef %1, i32 noundef %8)
-  br label %9
+8:                                                ; preds = %5
+  %9 = tail call i32 @llvm.bswap.i32(i32 %6)
+  tail call fastcc void @trace_nfs_xdr_status(ptr noundef %1, i32 noundef %9)
+  br label %10
 
-9:                                                ; preds = %.preheader, %9
-  %10 = phi i64 [ %16, %9 ], [ 0, %.preheader ]
-  %11 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, -1
-  %14 = icmp eq i32 %12, %8
-  %15 = or i1 %13, %14
-  %16 = add nuw nsw i64 %10, 1
-  br i1 %15, label %17, label %9, !llvm.loop !9
+10:                                               ; preds = %8, %10
+  %11 = phi i64 [ %17, %10 ], [ 0, %8 ]
+  %12 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %11
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, -1
+  %15 = icmp eq i32 %13, %9
+  %16 = or i1 %14, %15
+  %17 = add nuw nsw i64 %11, 1
+  br i1 %16, label %18, label %10, !llvm.loop !9
 
-17:                                               ; preds = %9
-  %18 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %10, i32 1
-  %19 = load i32, ptr %18, align 4
+18:                                               ; preds = %10
+  %19 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %11, i32 1
+  %20 = load i32, ptr %19, align 4
   br label %.thread
 
-.thread:                                          ; preds = %5, %3, %17
-  %20 = phi i32 [ %19, %17 ], [ 0, %5 ], [ -5, %3 ]
-  ret i32 %20
+.thread:                                          ; preds = %5, %3, %18
+  %21 = phi i32 [ %20, %18 ], [ 0, %5 ], [ -5, %3 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

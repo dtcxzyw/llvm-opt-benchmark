@@ -283,7 +283,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   store i32 -9998, ptr %54, align 8
-  br label %392
+  br label %388
 
 55:                                               ; preds = %5
   br i1 %.not506, label %56, label %.thread
@@ -307,7 +307,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
-  br label %392
+  br label %388
 
 66:                                               ; preds = %56
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %12, ptr noundef %12) #12
@@ -334,7 +334,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8
-  br label %392
+  br label %388
 
 78:                                               ; preds = %67
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %12, ptr noundef %26) #12
@@ -374,7 +374,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 24
   %95 = load i32, ptr %94, align 8
-  br label %392
+  br label %388
 
 96:                                               ; preds = %87
   br i1 %.not, label %98, label %97
@@ -406,7 +406,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load i32, ptr %108, align 8
-  br label %392
+  br label %388
 
 110:                                              ; preds = %99, %100
   %111 = tail call i32 %40(ptr noundef %36, ptr noundef %26, ptr noundef %18) #12
@@ -423,7 +423,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %117 = load ptr, ptr %0, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 24
   %119 = load i32, ptr %118, align 8
-  br label %392
+  br label %388
 
 120:                                              ; preds = %110
   switch i32 %48, label %131 [
@@ -446,7 +446,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load i32, ptr %129, align 8
-  br label %392
+  br label %388
 
 131:                                              ; preds = %120
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %18, ptr noundef %26) #12
@@ -492,534 +492,530 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %146 = getelementptr inbounds i8, ptr %7, i64 16
   br label %147
 
-147:                                              ; preds = %.lr.ph, %361
-  %148 = phi i1 [ true, %.lr.ph ], [ %365, %361 ]
-  %.0437636 = phi double [ %88, %.lr.ph ], [ %235, %361 ]
-  %.0438635 = phi double [ 0.000000e+00, %.lr.ph ], [ %237, %361 ]
-  %.0441634 = phi double [ 0.000000e+00, %.lr.ph ], [ %229, %361 ]
-  %.sroa.0.0633 = phi double [ %83, %.lr.ph ], [ %318, %361 ]
-  %.0448632 = phi double [ -1.000000e+00, %.lr.ph ], [ %.3451, %361 ]
-  %.0455631 = phi i32 [ 0, %.lr.ph ], [ %.4459, %361 ]
-  %.0460630 = phi i32 [ 0, %.lr.ph ], [ %364, %361 ]
-  %149 = load i32, ptr %44, align 4
-  %150 = add nsw i32 %149, 1
-  store i32 %150, ptr %44, align 4
-  %151 = call double @N_VDotProd(ptr noundef %12, ptr noundef %18) #12
-  %152 = fdiv double %.sroa.0.0633, %151
-  %153 = fneg double %152
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %24, double noundef %153, ptr noundef %18, ptr noundef %14) #12
-  %154 = load ptr, ptr %142, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %24, double noundef 1.000000e+00, ptr noundef %14, ptr noundef %154) #12
-  br i1 %.not, label %157, label %155
+147:                                              ; preds = %.lr.ph, %360
+  %.0437636 = phi double [ %88, %.lr.ph ], [ %234, %360 ]
+  %.0438635 = phi double [ 0.000000e+00, %.lr.ph ], [ %236, %360 ]
+  %.0441634 = phi double [ 0.000000e+00, %.lr.ph ], [ %228, %360 ]
+  %.sroa.0.0633 = phi double [ %83, %.lr.ph ], [ %317, %360 ]
+  %.0448632 = phi double [ -1.000000e+00, %.lr.ph ], [ %.3451, %360 ]
+  %.0455631 = phi i32 [ 0, %.lr.ph ], [ %.4459, %360 ]
+  %.0460630 = phi i32 [ 0, %.lr.ph ], [ %363, %360 ]
+  %148 = load i32, ptr %44, align 4
+  %149 = add nsw i32 %148, 1
+  store i32 %149, ptr %44, align 4
+  %150 = call double @N_VDotProd(ptr noundef %12, ptr noundef %18) #12
+  %151 = fdiv double %.sroa.0.0633, %150
+  %152 = fneg double %151
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %24, double noundef %152, ptr noundef %18, ptr noundef %14) #12
+  %153 = load ptr, ptr %142, align 8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %24, double noundef 1.000000e+00, ptr noundef %14, ptr noundef %153) #12
+  br i1 %.not, label %156, label %154
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %142, align 8
-  call void @N_VDiv(ptr noundef %156, ptr noundef nonnull %34, ptr noundef %156) #12
-  br label %157
+154:                                              ; preds = %147
+  %155 = load ptr, ptr %142, align 8
+  call void @N_VDiv(ptr noundef %155, ptr noundef nonnull %34, ptr noundef %155) #12
+  br label %156
 
-157:                                              ; preds = %155, %147
-  br i1 %switch538, label %158, label %170
+156:                                              ; preds = %154, %147
+  br i1 %switch538, label %157, label %169
 
-158:                                              ; preds = %157
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %142, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %158, ptr noundef %26) #12
   %159 = load ptr, ptr %142, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %159, ptr noundef %26) #12
-  %160 = load ptr, ptr %142, align 8
-  %161 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %160, double noundef %4, i32 noundef 2) #12
-  %.not514 = icmp eq i32 %161, 0
-  br i1 %.not514, label %170, label %162
+  %160 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %159, double noundef %4, i32 noundef 2) #12
+  %.not514 = icmp eq i32 %160, 0
+  br i1 %.not514, label %169, label %161
 
-162:                                              ; preds = %158
+161:                                              ; preds = %157
   store i32 0, ptr %43, align 4
-  %163 = icmp slt i32 %161, 0
-  %164 = select i1 %163, i32 -808, i32 805
-  %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 24
-  store i32 %164, ptr %166, align 8
-  %167 = load ptr, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
-  %169 = load i32, ptr %168, align 8
-  br label %392
+  %162 = icmp slt i32 %160, 0
+  %163 = select i1 %162, i32 -808, i32 805
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 24
+  store i32 %163, ptr %165, align 8
+  %166 = load ptr, ptr %0, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 24
+  %168 = load i32, ptr %167, align 8
+  br label %388
 
-170:                                              ; preds = %157, %158
-  %171 = load ptr, ptr %142, align 8
-  %172 = call i32 %40(ptr noundef %36, ptr noundef %171, ptr noundef %26) #12
-  %.not515 = icmp eq i32 %172, 0
-  br i1 %.not515, label %181, label %173
+169:                                              ; preds = %156, %157
+  %170 = load ptr, ptr %142, align 8
+  %171 = call i32 %40(ptr noundef %36, ptr noundef %170, ptr noundef %26) #12
+  %.not515 = icmp eq i32 %171, 0
+  br i1 %.not515, label %180, label %172
 
-173:                                              ; preds = %170
+172:                                              ; preds = %169
   store i32 0, ptr %43, align 4
-  %174 = icmp slt i32 %172, 0
-  %175 = select i1 %174, i32 -805, i32 803
-  %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 24
-  store i32 %175, ptr %177, align 8
-  %178 = load ptr, ptr %0, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
-  %180 = load i32, ptr %179, align 8
-  br label %392
+  %173 = icmp slt i32 %171, 0
+  %174 = select i1 %173, i32 -805, i32 803
+  %175 = load ptr, ptr %0, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 24
+  store i32 %174, ptr %176, align 8
+  %177 = load ptr, ptr %0, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 24
+  %179 = load i32, ptr %178, align 8
+  br label %388
 
-181:                                              ; preds = %170
-  switch i32 %48, label %193 [
-    i32 3, label %182
-    i32 1, label %182
+180:                                              ; preds = %169
+  switch i32 %48, label %192 [
+    i32 3, label %181
+    i32 1, label %181
   ]
 
-182:                                              ; preds = %181, %181
-  %183 = load ptr, ptr %142, align 8
-  %184 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %183, double noundef %4, i32 noundef 1) #12
-  %.not516 = icmp eq i32 %184, 0
-  br i1 %.not516, label %195, label %185
+181:                                              ; preds = %180, %180
+  %182 = load ptr, ptr %142, align 8
+  %183 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %182, double noundef %4, i32 noundef 1) #12
+  %.not516 = icmp eq i32 %183, 0
+  br i1 %.not516, label %194, label %184
 
-185:                                              ; preds = %182
+184:                                              ; preds = %181
   store i32 0, ptr %43, align 4
-  %186 = icmp slt i32 %184, 0
-  %187 = select i1 %186, i32 -808, i32 805
-  %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 24
-  store i32 %187, ptr %189, align 8
-  %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 24
-  %192 = load i32, ptr %191, align 8
-  br label %392
+  %185 = icmp slt i32 %183, 0
+  %186 = select i1 %185, i32 -808, i32 805
+  %187 = load ptr, ptr %0, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  store i32 %186, ptr %188, align 8
+  %189 = load ptr, ptr %0, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 24
+  %191 = load i32, ptr %190, align 8
+  br label %388
 
-193:                                              ; preds = %181
-  %194 = load ptr, ptr %142, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %194) #12
-  br label %195
+192:                                              ; preds = %180
+  %193 = load ptr, ptr %142, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %193) #12
+  br label %194
 
-195:                                              ; preds = %182, %193
-  %196 = load ptr, ptr %142, align 8
-  br i1 %.not505, label %198, label %197
+194:                                              ; preds = %181, %192
+  %195 = load ptr, ptr %142, align 8
+  br i1 %.not505, label %197, label %196
 
-197:                                              ; preds = %195
-  call void @N_VProd(ptr noundef nonnull %32, ptr noundef %196, ptr noundef %26) #12
-  br label %199
+196:                                              ; preds = %194
+  call void @N_VProd(ptr noundef nonnull %32, ptr noundef %195, ptr noundef %26) #12
+  br label %198
 
-198:                                              ; preds = %195
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %196, ptr noundef %26) #12
-  br label %199
+197:                                              ; preds = %194
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %195, ptr noundef %26) #12
+  br label %198
 
-199:                                              ; preds = %198, %197
-  %200 = load ptr, ptr %22, align 8
-  %201 = load ptr, ptr %142, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %200, double noundef %153, ptr noundef %26, ptr noundef %201) #12
-  br label %202
+198:                                              ; preds = %197, %196
+  %199 = load ptr, ptr %22, align 8
+  %200 = load ptr, ptr %142, align 8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %199, double noundef %152, ptr noundef %26, ptr noundef %200) #12
+  br label %201
 
-202:                                              ; preds = %199, %315
-  %.1629 = phi double [ %.0437636, %199 ], [ %235, %315 ]
-  %.1439628 = phi double [ %.0438635, %199 ], [ %237, %315 ]
-  %.1442627 = phi double [ %.0441634, %199 ], [ %229, %315 ]
-  %.1449626 = phi double [ %.0448632, %199 ], [ %.3451, %315 ]
-  %.1456625 = phi i32 [ %.0455631, %199 ], [ %.4459, %315 ]
-  %203 = phi i1 [ true, %199 ], [ false, %315 ]
-  %.0461624 = phi i32 [ 0, %199 ], [ 1, %315 ]
-  br i1 %203, label %204, label %225
+201:                                              ; preds = %198, %314
+  %.1629 = phi double [ %.0437636, %198 ], [ %234, %314 ]
+  %.1439628 = phi double [ %.0438635, %198 ], [ %236, %314 ]
+  %.1442627 = phi double [ %.0441634, %198 ], [ %228, %314 ]
+  %.1449626 = phi double [ %.0448632, %198 ], [ %.3451, %314 ]
+  %.1456625 = phi i32 [ %.0455631, %198 ], [ %.4459, %314 ]
+  %202 = phi i1 [ true, %198 ], [ false, %314 ]
+  %.0461624 = phi i32 [ 0, %198 ], [ 1, %314 ]
+  br i1 %202, label %203, label %224
 
-204:                                              ; preds = %202
-  %205 = load ptr, ptr %142, align 8
-  %206 = call double @N_VDotProd(ptr noundef %205, ptr noundef %205) #12
-  %207 = fcmp ugt double %206, 0.000000e+00
-  br i1 %207, label %208, label %210
+203:                                              ; preds = %201
+  %204 = load ptr, ptr %142, align 8
+  %205 = call double @N_VDotProd(ptr noundef %204, ptr noundef %204) #12
+  %206 = fcmp ugt double %205, 0.000000e+00
+  br i1 %206, label %207, label %209
 
-208:                                              ; preds = %204
-  %209 = call double @sqrt(double noundef %206) #12
-  br label %210
+207:                                              ; preds = %203
+  %208 = call double @sqrt(double noundef %205) #12
+  br label %209
 
-210:                                              ; preds = %204, %208
-  %211 = phi double [ %209, %208 ], [ 0.000000e+00, %204 ]
-  %212 = load ptr, ptr %22, align 8
-  %213 = call double @N_VDotProd(ptr noundef %212, ptr noundef %212) #12
-  %214 = fcmp ugt double %213, 0.000000e+00
-  br i1 %214, label %.thread540, label %215
+209:                                              ; preds = %203, %207
+  %210 = phi double [ %208, %207 ], [ 0.000000e+00, %203 ]
+  %211 = load ptr, ptr %22, align 8
+  %212 = call double @N_VDotProd(ptr noundef %211, ptr noundef %211) #12
+  %213 = fcmp ugt double %212, 0.000000e+00
+  br i1 %213, label %.thread540, label %214
 
-215:                                              ; preds = %210
-  %216 = fmul double %211, 0.000000e+00
-  %217 = fcmp ugt double %216, 0.000000e+00
-  br i1 %217, label %223, label %225
+214:                                              ; preds = %209
+  %215 = fmul double %210, 0.000000e+00
+  %216 = fcmp ugt double %215, 0.000000e+00
+  br i1 %216, label %222, label %224
 
-.thread540:                                       ; preds = %210
-  %218 = call double @sqrt(double noundef %213) #12
-  %219 = fmul double %211, %218
-  %220 = fcmp ugt double %219, 0.000000e+00
-  br i1 %220, label %221, label %225
+.thread540:                                       ; preds = %209
+  %217 = call double @sqrt(double noundef %212) #12
+  %218 = fmul double %210, %217
+  %219 = fcmp ugt double %218, 0.000000e+00
+  br i1 %219, label %220, label %224
 
-221:                                              ; preds = %.thread540
-  %222 = call double @sqrt(double noundef %213) #12
-  %.pre = fmul double %211, %222
-  br label %223
+220:                                              ; preds = %.thread540
+  %221 = call double @sqrt(double noundef %212) #12
+  %.pre = fmul double %210, %221
+  br label %222
 
-223:                                              ; preds = %215, %221
-  %.pre-phi = phi double [ %216, %215 ], [ %.pre, %221 ]
-  %224 = call double @sqrt(double noundef %.pre-phi) #12
-  br label %225
+222:                                              ; preds = %214, %220
+  %.pre-phi = phi double [ %215, %214 ], [ %.pre, %220 ]
+  %223 = call double @sqrt(double noundef %.pre-phi) #12
+  br label %224
 
-225:                                              ; preds = %202, %223, %215, %.thread540
-  %.sink = phi ptr [ %24, %.thread540 ], [ %24, %215 ], [ %24, %223 ], [ %14, %202 ]
-  %.3451 = phi double [ %211, %.thread540 ], [ %211, %215 ], [ %211, %223 ], [ %.1449626, %202 ]
-  %.0444 = phi double [ 0.000000e+00, %.thread540 ], [ 0.000000e+00, %215 ], [ %224, %223 ], [ %.1449626, %202 ]
-  %226 = fmul double %.1442627, %.1442627
-  %227 = fmul double %226, %.1439628
-  %228 = fdiv double %227, %152
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %.sink, double noundef %228, ptr noundef %16, ptr noundef %16) #12
-  %229 = fdiv double %.0444, %.1629
-  %230 = call double @llvm.fmuladd.f64(double %229, double %229, double 1.000000e+00)
-  %231 = fcmp ugt double %230, 0.000000e+00
-  %sqrt = call double @llvm.sqrt.f64(double %230)
-  %232 = fdiv double 1.000000e+00, %sqrt
-  %233 = select i1 %231, double %232, double 0x7FF0000000000000
-  %234 = fmul double %.1629, %229
-  %235 = fmul double %234, %233
-  %236 = fmul double %233, %233
-  %237 = fmul double %152, %236
-  %238 = or i32 %.0461624, %.0460630
-  %or.cond = icmp eq i32 %238, 0
-  br i1 %or.cond, label %239, label %242
+224:                                              ; preds = %201, %222, %214, %.thread540
+  %.sink = phi ptr [ %24, %.thread540 ], [ %24, %214 ], [ %24, %222 ], [ %14, %201 ]
+  %.3451 = phi double [ %210, %.thread540 ], [ %210, %214 ], [ %210, %222 ], [ %.1449626, %201 ]
+  %.0444 = phi double [ 0.000000e+00, %.thread540 ], [ 0.000000e+00, %214 ], [ %223, %222 ], [ %.1449626, %201 ]
+  %225 = fmul double %.1442627, %.1442627
+  %226 = fmul double %225, %.1439628
+  %227 = fdiv double %226, %151
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %.sink, double noundef %227, ptr noundef %16, ptr noundef %16) #12
+  %228 = fdiv double %.0444, %.1629
+  %229 = call double @llvm.fmuladd.f64(double %228, double %228, double 1.000000e+00)
+  %230 = fcmp ugt double %229, 0.000000e+00
+  %sqrt = call double @llvm.sqrt.f64(double %229)
+  %231 = fdiv double 1.000000e+00, %sqrt
+  %232 = select i1 %230, double %231, double 0x7FF0000000000000
+  %233 = fmul double %.1629, %228
+  %234 = fmul double %233, %232
+  %235 = fmul double %232, %232
+  %236 = fmul double %151, %235
+  %237 = or i32 %.0461624, %.0460630
+  %or.cond = icmp eq i32 %237, 0
+  br i1 %or.cond, label %238, label %241
 
-239:                                              ; preds = %225
-  %240 = load i32, ptr %43, align 4
-  %.not517 = icmp eq i32 %240, 0
-  br i1 %.not517, label %242, label %241
+238:                                              ; preds = %224
+  %239 = load i32, ptr %43, align 4
+  %.not517 = icmp eq i32 %239, 0
+  br i1 %.not517, label %241, label %240
 
-241:                                              ; preds = %239
-  call void @N_VScale(double noundef %237, ptr noundef %16, ptr noundef %2) #12
-  br label %243
+240:                                              ; preds = %238
+  call void @N_VScale(double noundef %236, ptr noundef %16, ptr noundef %2) #12
+  br label %242
 
-242:                                              ; preds = %239, %225
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef %237, ptr noundef %16, ptr noundef %2) #12
-  br label %243
+241:                                              ; preds = %238, %224
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef %236, ptr noundef %16, ptr noundef %2) #12
+  br label %242
 
-243:                                              ; preds = %242, %241
-  %244 = add nuw nsw i32 %.0461624, 1
-  %245 = uitofp nneg i32 %244 to double
-  %sqrt549 = call double @llvm.sqrt.f64(double %245)
-  %246 = fmul double %sqrt549, %235
-  store double %246, ptr %45, align 8
-  %247 = load ptr, ptr %8, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
-  %249 = load ptr, ptr %248, align 8
-  %250 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %249, i32 noundef 3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0, double noundef %246) #12
-  %251 = fcmp ugt double %246, %4
-  br i1 %251, label %252, label %.thread542
+242:                                              ; preds = %241, %240
+  %243 = add nuw nsw i32 %.0461624, 1
+  %244 = uitofp nneg i32 %243 to double
+  %sqrt549 = call double @llvm.sqrt.f64(double %244)
+  %245 = fmul double %sqrt549, %234
+  store double %245, ptr %45, align 8
+  %246 = load ptr, ptr %8, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 16
+  %248 = load ptr, ptr %247, align 8
+  %249 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %248, i32 noundef 3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0, double noundef %245) #12
+  %250 = fcmp ugt double %245, %4
+  br i1 %250, label %251, label %.thread542.thread
 
-252:                                              ; preds = %243
-  %253 = fcmp ogt double %246, %4
-  br i1 %253, label %254, label %315
+251:                                              ; preds = %242
+  %252 = fcmp ogt double %245, %4
+  br i1 %252, label %253, label %314
 
-254:                                              ; preds = %252
-  br i1 %.not, label %256, label %255
+253:                                              ; preds = %251
+  br i1 %.not, label %255, label %254
 
-255:                                              ; preds = %254
+254:                                              ; preds = %253
   call void @N_VDiv(ptr noundef %2, ptr noundef nonnull %34, ptr noundef %26) #12
-  br label %257
+  br label %256
 
-256:                                              ; preds = %254
+255:                                              ; preds = %253
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %26) #12
-  br label %257
+  br label %256
 
-257:                                              ; preds = %256, %255
-  br i1 %switch538, label %258, label %267
+256:                                              ; preds = %255, %254
+  br i1 %switch538, label %257, label %266
 
-258:                                              ; preds = %257
-  %259 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %28, double noundef %4, i32 noundef 2) #12
-  %.not518 = icmp eq i32 %259, 0
-  br i1 %.not518, label %266, label %260
+257:                                              ; preds = %256
+  %258 = call i32 %42(ptr noundef %38, ptr noundef %26, ptr noundef %28, double noundef %4, i32 noundef 2) #12
+  %.not518 = icmp eq i32 %258, 0
+  br i1 %.not518, label %265, label %259
 
-260:                                              ; preds = %258
+259:                                              ; preds = %257
   store i32 0, ptr %43, align 4
-  %261 = load ptr, ptr %0, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 24
-  store i32 -808, ptr %262, align 8
-  %263 = load ptr, ptr %0, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 24
-  %265 = load i32, ptr %264, align 8
-  br label %392
+  %260 = load ptr, ptr %0, align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 24
+  store i32 -808, ptr %261, align 8
+  %262 = load ptr, ptr %0, align 8
+  %263 = getelementptr inbounds i8, ptr %262, i64 24
+  %264 = load i32, ptr %263, align 8
+  br label %388
 
-266:                                              ; preds = %258
+265:                                              ; preds = %257
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %28, ptr noundef %26) #12
-  br label %267
+  br label %266
 
-267:                                              ; preds = %257, %266
-  %268 = call i32 %40(ptr noundef %36, ptr noundef %26, ptr noundef %28) #12
-  %.not519 = icmp eq i32 %268, 0
-  br i1 %.not519, label %277, label %269
+266:                                              ; preds = %256, %265
+  %267 = call i32 %40(ptr noundef %36, ptr noundef %26, ptr noundef %28) #12
+  %.not519 = icmp eq i32 %267, 0
+  br i1 %.not519, label %276, label %268
 
-269:                                              ; preds = %267
+268:                                              ; preds = %266
   store i32 0, ptr %43, align 4
-  %270 = icmp slt i32 %268, 0
-  %271 = select i1 %270, i32 -805, i32 803
-  %272 = load ptr, ptr %0, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 24
-  store i32 %271, ptr %273, align 8
-  %274 = load ptr, ptr %0, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 24
-  %276 = load i32, ptr %275, align 8
-  br label %392
+  %269 = icmp slt i32 %267, 0
+  %270 = select i1 %269, i32 -805, i32 803
+  %271 = load ptr, ptr %0, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 24
+  store i32 %270, ptr %272, align 8
+  %273 = load ptr, ptr %0, align 8
+  %274 = getelementptr inbounds i8, ptr %273, i64 24
+  %275 = load i32, ptr %274, align 8
+  br label %388
 
-277:                                              ; preds = %267
-  switch i32 %48, label %288 [
-    i32 3, label %278
-    i32 1, label %278
+276:                                              ; preds = %266
+  switch i32 %48, label %287 [
+    i32 3, label %277
+    i32 1, label %277
   ]
 
-278:                                              ; preds = %277, %277
-  %279 = call i32 %42(ptr noundef %38, ptr noundef %28, ptr noundef %26, double noundef %4, i32 noundef 1) #12
-  %.not520 = icmp eq i32 %279, 0
-  br i1 %.not520, label %289, label %280
+277:                                              ; preds = %276, %276
+  %278 = call i32 %42(ptr noundef %38, ptr noundef %28, ptr noundef %26, double noundef %4, i32 noundef 1) #12
+  %.not520 = icmp eq i32 %278, 0
+  br i1 %.not520, label %288, label %279
 
-280:                                              ; preds = %278
+279:                                              ; preds = %277
   store i32 0, ptr %43, align 4
-  %281 = icmp slt i32 %279, 0
-  %282 = select i1 %281, i32 -808, i32 805
-  %283 = load ptr, ptr %0, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 24
-  store i32 %282, ptr %284, align 8
-  %285 = load ptr, ptr %0, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 24
-  %287 = load i32, ptr %286, align 8
-  br label %392
+  %280 = icmp slt i32 %278, 0
+  %281 = select i1 %280, i32 -808, i32 805
+  %282 = load ptr, ptr %0, align 8
+  %283 = getelementptr inbounds i8, ptr %282, i64 24
+  store i32 %281, ptr %283, align 8
+  %284 = load ptr, ptr %0, align 8
+  %285 = getelementptr inbounds i8, ptr %284, i64 24
+  %286 = load i32, ptr %285, align 8
+  br label %388
 
-288:                                              ; preds = %277
+287:                                              ; preds = %276
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %28, ptr noundef %26) #12
-  br label %289
+  br label %288
 
-289:                                              ; preds = %278, %288
-  br i1 %.not505, label %291, label %290
+288:                                              ; preds = %277, %287
+  br i1 %.not505, label %290, label %289
 
-290:                                              ; preds = %289
+289:                                              ; preds = %288
   call void @N_VProd(ptr noundef nonnull %32, ptr noundef %26, ptr noundef %28) #12
-  br label %292
+  br label %291
 
-291:                                              ; preds = %289
+290:                                              ; preds = %288
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %28) #12
-  br label %292
+  br label %291
 
-292:                                              ; preds = %291, %290
+291:                                              ; preds = %290, %289
   %.not521 = icmp eq i32 %.1456625, 0
-  br i1 %.not521, label %293, label %307
+  br i1 %.not521, label %292, label %306
 
-293:                                              ; preds = %292
-  switch i32 %48, label %304 [
-    i32 3, label %294
-    i32 1, label %294
+292:                                              ; preds = %291
+  switch i32 %48, label %303 [
+    i32 3, label %293
+    i32 1, label %293
   ]
 
-294:                                              ; preds = %293, %293
-  %295 = call i32 %42(ptr noundef %38, ptr noundef %3, ptr noundef %30, double noundef %4, i32 noundef 1) #12
-  %.not522 = icmp eq i32 %295, 0
-  br i1 %.not522, label %305, label %296
+293:                                              ; preds = %292, %292
+  %294 = call i32 %42(ptr noundef %38, ptr noundef %3, ptr noundef %30, double noundef %4, i32 noundef 1) #12
+  %.not522 = icmp eq i32 %294, 0
+  br i1 %.not522, label %304, label %295
 
-296:                                              ; preds = %294
+295:                                              ; preds = %293
   store i32 0, ptr %43, align 4
-  %297 = icmp slt i32 %295, 0
-  %298 = select i1 %297, i32 -808, i32 805
-  %299 = load ptr, ptr %0, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 24
-  store i32 %298, ptr %300, align 8
-  %301 = load ptr, ptr %0, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 24
-  %303 = load i32, ptr %302, align 8
-  br label %392
+  %296 = icmp slt i32 %294, 0
+  %297 = select i1 %296, i32 -808, i32 805
+  %298 = load ptr, ptr %0, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i64 24
+  store i32 %297, ptr %299, align 8
+  %300 = load ptr, ptr %0, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 24
+  %302 = load i32, ptr %301, align 8
+  br label %388
 
-304:                                              ; preds = %293
+303:                                              ; preds = %292
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %3, ptr noundef %30) #12
-  br label %305
+  br label %304
 
-305:                                              ; preds = %294, %304
-  br i1 %.not505, label %307, label %306
+304:                                              ; preds = %293, %303
+  br i1 %.not505, label %306, label %305
 
-306:                                              ; preds = %305
+305:                                              ; preds = %304
   call void @N_VProd(ptr noundef nonnull %32, ptr noundef %30, ptr noundef %30) #12
-  br label %307
+  br label %306
 
-307:                                              ; preds = %305, %306, %292
+306:                                              ; preds = %304, %305, %291
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %30, double noundef -1.000000e+00, ptr noundef %28, ptr noundef %26) #12
-  %308 = call double @N_VDotProd(ptr noundef %26, ptr noundef %26) #12
-  %309 = fcmp ugt double %308, 0.000000e+00
-  br i1 %309, label %310, label %312
+  %307 = call double @N_VDotProd(ptr noundef %26, ptr noundef %26) #12
+  %308 = fcmp ugt double %307, 0.000000e+00
+  br i1 %308, label %309, label %311
 
-310:                                              ; preds = %307
-  %311 = call double @sqrt(double noundef %308) #12
-  br label %312
+309:                                              ; preds = %306
+  %310 = call double @sqrt(double noundef %307) #12
+  br label %311
 
-312:                                              ; preds = %307, %310
-  %313 = phi double [ %311, %310 ], [ 0.000000e+00, %307 ]
-  store double %313, ptr %45, align 8
-  %314 = fcmp ugt double %313, %4
-  br i1 %314, label %315, label %.thread542
+311:                                              ; preds = %306, %309
+  %312 = phi double [ %310, %309 ], [ 0.000000e+00, %306 ]
+  store double %312, ptr %45, align 8
+  %313 = fcmp ugt double %312, %4
+  br i1 %313, label %314, label %.thread542.thread
 
-315:                                              ; preds = %252, %312
-  %.4459 = phi i32 [ 1, %312 ], [ %.1456625, %252 ]
-  %.4 = phi double [ %313, %312 ], [ %246, %252 ]
-  br i1 %203, label %202, label %316
+314:                                              ; preds = %251, %311
+  %.4459 = phi i32 [ 1, %311 ], [ %.1456625, %251 ]
+  %.4 = phi double [ %312, %311 ], [ %245, %251 ]
+  br i1 %202, label %201, label %315
 
-316:                                              ; preds = %315
-  %317 = load ptr, ptr %142, align 8
-  %318 = call double @N_VDotProd(ptr noundef %12, ptr noundef %317) #12
-  %319 = fdiv double %318, %.sroa.0.0633
-  %320 = load ptr, ptr %142, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %320, double noundef %319, ptr noundef %14, ptr noundef %24) #12
-  %321 = fmul double %319, %319
-  store double %321, ptr %6, align 16
+315:                                              ; preds = %314
+  %316 = load ptr, ptr %142, align 8
+  %317 = call double @N_VDotProd(ptr noundef %12, ptr noundef %316) #12
+  %318 = fdiv double %317, %.sroa.0.0633
+  %319 = load ptr, ptr %142, align 8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %319, double noundef %318, ptr noundef %14, ptr noundef %24) #12
+  %320 = fmul double %318, %318
+  store double %320, ptr %6, align 16
   store ptr %20, ptr %7, align 16
-  store double %319, ptr %143, align 8
+  store double %318, ptr %143, align 8
   store ptr %14, ptr %144, align 8
   store double 1.000000e+00, ptr %145, align 16
   store ptr %24, ptr %146, align 16
-  %322 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %20) #12
-  br i1 %.not, label %324, label %323
+  %321 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %20) #12
+  br i1 %.not, label %323, label %322
 
-323:                                              ; preds = %316
+322:                                              ; preds = %315
   call void @N_VDiv(ptr noundef %20, ptr noundef nonnull %34, ptr noundef %26) #12
-  br label %325
+  br label %324
 
-324:                                              ; preds = %316
+323:                                              ; preds = %315
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %20, ptr noundef %26) #12
-  br label %325
+  br label %324
 
-325:                                              ; preds = %324, %323
-  br i1 %switch538, label %326, label %336
+324:                                              ; preds = %323, %322
+  br i1 %switch538, label %325, label %335
 
-326:                                              ; preds = %325
+325:                                              ; preds = %324
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %18) #12
-  %327 = call i32 %42(ptr noundef %38, ptr noundef %18, ptr noundef %26, double noundef %4, i32 noundef 2) #12
-  %.not523 = icmp eq i32 %327, 0
-  br i1 %.not523, label %336, label %328
+  %326 = call i32 %42(ptr noundef %38, ptr noundef %18, ptr noundef %26, double noundef %4, i32 noundef 2) #12
+  %.not523 = icmp eq i32 %326, 0
+  br i1 %.not523, label %335, label %327
 
-328:                                              ; preds = %326
+327:                                              ; preds = %325
   store i32 0, ptr %43, align 4
-  %329 = icmp slt i32 %327, 0
-  %330 = select i1 %329, i32 -808, i32 805
-  %331 = load ptr, ptr %0, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 24
-  store i32 %330, ptr %332, align 8
-  %333 = load ptr, ptr %0, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 24
-  %335 = load i32, ptr %334, align 8
-  br label %392
+  %328 = icmp slt i32 %326, 0
+  %329 = select i1 %328, i32 -808, i32 805
+  %330 = load ptr, ptr %0, align 8
+  %331 = getelementptr inbounds i8, ptr %330, i64 24
+  store i32 %329, ptr %331, align 8
+  %332 = load ptr, ptr %0, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 24
+  %334 = load i32, ptr %333, align 8
+  br label %388
 
-336:                                              ; preds = %325, %326
-  %337 = call i32 %40(ptr noundef %36, ptr noundef %26, ptr noundef %18) #12
-  %.not524 = icmp eq i32 %337, 0
-  br i1 %.not524, label %346, label %338
+335:                                              ; preds = %324, %325
+  %336 = call i32 %40(ptr noundef %36, ptr noundef %26, ptr noundef %18) #12
+  %.not524 = icmp eq i32 %336, 0
+  br i1 %.not524, label %345, label %337
 
-338:                                              ; preds = %336
+337:                                              ; preds = %335
   store i32 0, ptr %43, align 4
-  %339 = icmp slt i32 %337, 0
-  %340 = select i1 %339, i32 -805, i32 803
-  %341 = load ptr, ptr %0, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 24
-  store i32 %340, ptr %342, align 8
-  %343 = load ptr, ptr %0, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 24
-  %345 = load i32, ptr %344, align 8
-  br label %392
+  %338 = icmp slt i32 %336, 0
+  %339 = select i1 %338, i32 -805, i32 803
+  %340 = load ptr, ptr %0, align 8
+  %341 = getelementptr inbounds i8, ptr %340, i64 24
+  store i32 %339, ptr %341, align 8
+  %342 = load ptr, ptr %0, align 8
+  %343 = getelementptr inbounds i8, ptr %342, i64 24
+  %344 = load i32, ptr %343, align 8
+  br label %388
 
-346:                                              ; preds = %336
-  switch i32 %48, label %357 [
-    i32 3, label %347
-    i32 1, label %347
+345:                                              ; preds = %335
+  switch i32 %48, label %356 [
+    i32 3, label %346
+    i32 1, label %346
   ]
 
-347:                                              ; preds = %346, %346
-  %348 = call i32 %42(ptr noundef %38, ptr noundef %18, ptr noundef %26, double noundef %4, i32 noundef 1) #12
-  %.not525 = icmp eq i32 %348, 0
-  br i1 %.not525, label %358, label %349
+346:                                              ; preds = %345, %345
+  %347 = call i32 %42(ptr noundef %38, ptr noundef %18, ptr noundef %26, double noundef %4, i32 noundef 1) #12
+  %.not525 = icmp eq i32 %347, 0
+  br i1 %.not525, label %357, label %348
 
-349:                                              ; preds = %347
+348:                                              ; preds = %346
   store i32 0, ptr %43, align 4
-  %350 = icmp slt i32 %348, 0
-  %351 = select i1 %350, i32 -808, i32 805
-  %352 = load ptr, ptr %0, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 24
-  store i32 %351, ptr %353, align 8
-  %354 = load ptr, ptr %0, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 24
-  %356 = load i32, ptr %355, align 8
-  br label %392
+  %349 = icmp slt i32 %347, 0
+  %350 = select i1 %349, i32 -808, i32 805
+  %351 = load ptr, ptr %0, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 24
+  store i32 %350, ptr %352, align 8
+  %353 = load ptr, ptr %0, align 8
+  %354 = getelementptr inbounds i8, ptr %353, i64 24
+  %355 = load i32, ptr %354, align 8
+  br label %388
 
-357:                                              ; preds = %346
+356:                                              ; preds = %345
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %18, ptr noundef %26) #12
-  br label %358
+  br label %357
 
-358:                                              ; preds = %347, %357
-  br i1 %.not505, label %360, label %359
+357:                                              ; preds = %346, %356
+  br i1 %.not505, label %359, label %358
 
-359:                                              ; preds = %358
+358:                                              ; preds = %357
   call void @N_VProd(ptr noundef nonnull %32, ptr noundef %26, ptr noundef %18) #12
-  br label %361
+  br label %360
 
-360:                                              ; preds = %358
+359:                                              ; preds = %357
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %18) #12
-  br label %361
+  br label %360
 
-361:                                              ; preds = %360, %359
-  %362 = load ptr, ptr %142, align 8
-  %363 = load ptr, ptr %22, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %362, ptr noundef %363) #12
-  %364 = add nuw nsw i32 %.0460630, 1
-  %365 = icmp slt i32 %364, %10
-  %exitcond.not = icmp eq i32 %364, %10
+360:                                              ; preds = %359, %358
+  %361 = load ptr, ptr %142, align 8
+  %362 = load ptr, ptr %22, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %361, ptr noundef %362) #12
+  %363 = add nuw nsw i32 %.0460630, 1
+  %exitcond.not = icmp eq i32 %363, %10
   br i1 %exitcond.not, label %.thread542, label %147
 
-.thread542:                                       ; preds = %361, %243, %312, %140
-  %366 = phi i1 [ false, %140 ], [ %148, %312 ], [ %148, %243 ], [ %365, %361 ]
-  %.1446 = phi double [ -1.000000e+00, %140 ], [ %246, %243 ], [ %313, %312 ], [ %.4, %361 ]
-  %367 = fcmp olt double %.1446, %88
-  %or.cond528 = or i1 %366, %367
-  br i1 %or.cond528, label %368, label %386
+.thread542:                                       ; preds = %360, %140
+  %.1446 = phi double [ -1.000000e+00, %140 ], [ %.4, %360 ]
+  %364 = fcmp olt double %.1446, %88
+  br i1 %364, label %.thread542.thread, label %382
 
-368:                                              ; preds = %.thread542
-  br i1 %.not, label %370, label %369
+.thread542.thread:                                ; preds = %242, %311, %.thread542
+  %. = phi i32 [ 801, %.thread542 ], [ 0, %311 ], [ 0, %242 ]
+  br i1 %.not, label %366, label %365
 
-369:                                              ; preds = %368
+365:                                              ; preds = %.thread542.thread
   call void @N_VDiv(ptr noundef %2, ptr noundef nonnull %34, ptr noundef %2) #12
-  br label %370
+  br label %366
 
-370:                                              ; preds = %369, %368
-  br i1 %switch538, label %371, label %380
+366:                                              ; preds = %365, %.thread542.thread
+  br i1 %switch538, label %367, label %376
 
-371:                                              ; preds = %370
-  %372 = call i32 %42(ptr noundef %38, ptr noundef %2, ptr noundef %26, double noundef %4, i32 noundef 2) #12
-  %.not526 = icmp eq i32 %372, 0
-  br i1 %.not526, label %379, label %373
+367:                                              ; preds = %366
+  %368 = call i32 %42(ptr noundef %38, ptr noundef %2, ptr noundef %26, double noundef %4, i32 noundef 2) #12
+  %.not526 = icmp eq i32 %368, 0
+  br i1 %.not526, label %375, label %369
 
-373:                                              ; preds = %371
+369:                                              ; preds = %367
   store i32 0, ptr %43, align 4
-  %374 = load ptr, ptr %0, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 24
-  store i32 -808, ptr %375, align 8
-  %376 = load ptr, ptr %0, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 24
-  %378 = load i32, ptr %377, align 8
-  br label %392
+  %370 = load ptr, ptr %0, align 8
+  %371 = getelementptr inbounds i8, ptr %370, i64 24
+  store i32 -808, ptr %371, align 8
+  %372 = load ptr, ptr %0, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 24
+  %374 = load i32, ptr %373, align 8
+  br label %388
 
-379:                                              ; preds = %371
+375:                                              ; preds = %367
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %26, ptr noundef %2) #12
-  br label %380
+  br label %376
 
-380:                                              ; preds = %370, %379
+376:                                              ; preds = %366, %375
   store i32 0, ptr %43, align 4
-  %381 = load ptr, ptr %0, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 24
-  %. = select i1 %366, i32 0, i32 801
-  store i32 %., ptr %382, align 8
+  %377 = load ptr, ptr %0, align 8
+  %378 = getelementptr inbounds i8, ptr %377, i64 24
+  store i32 %., ptr %378, align 8
+  %379 = load ptr, ptr %0, align 8
+  %380 = getelementptr inbounds i8, ptr %379, i64 24
+  %381 = load i32, ptr %380, align 8
+  br label %388
+
+382:                                              ; preds = %.thread542
+  store i32 0, ptr %43, align 4
   %383 = load ptr, ptr %0, align 8
   %384 = getelementptr inbounds i8, ptr %383, i64 24
-  %385 = load i32, ptr %384, align 8
-  br label %392
+  store i32 802, ptr %384, align 8
+  %385 = load ptr, ptr %0, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 24
+  %387 = load i32, ptr %386, align 8
+  br label %388
 
-386:                                              ; preds = %.thread542
-  store i32 0, ptr %43, align 4
-  %387 = load ptr, ptr %0, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 24
-  store i32 802, ptr %388, align 8
-  %389 = load ptr, ptr %0, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
-  %391 = load i32, ptr %390, align 8
-  br label %392
-
-392:                                              ; preds = %386, %380, %373, %349, %338, %328, %296, %280, %269, %260, %185, %173, %162, %123, %112, %102, %90, %70, %58, %52
-  %.0 = phi i32 [ %77, %70 ], [ %95, %90 ], [ %109, %102 ], [ %119, %112 ], [ %130, %123 ], [ %169, %162 ], [ %180, %173 ], [ %192, %185 ], [ %378, %373 ], [ %385, %380 ], [ %391, %386 ], [ %335, %328 ], [ %345, %338 ], [ %356, %349 ], [ %265, %260 ], [ %276, %269 ], [ %287, %280 ], [ %303, %296 ], [ %65, %58 ], [ -9998, %52 ]
+388:                                              ; preds = %382, %376, %369, %348, %337, %327, %295, %279, %268, %259, %184, %172, %161, %123, %112, %102, %90, %70, %58, %52
+  %.0 = phi i32 [ %77, %70 ], [ %95, %90 ], [ %109, %102 ], [ %119, %112 ], [ %130, %123 ], [ %168, %161 ], [ %179, %172 ], [ %191, %184 ], [ %374, %369 ], [ %381, %376 ], [ %387, %382 ], [ %334, %327 ], [ %344, %337 ], [ %355, %348 ], [ %264, %259 ], [ %275, %268 ], [ %286, %279 ], [ %302, %295 ], [ %65, %58 ], [ -9998, %52 ]
   ret i32 %.0
 }
 

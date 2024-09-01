@@ -1667,22 +1667,22 @@ lpad113:                                          ; preds = %invoke.cont120, %in
 lpad128.loopexit:                                 ; preds = %for.body184, %invoke.cont187
   %lpad.loopexit330 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 lpad128.loopexit.split-lp.loopexit.loopexit:      ; preds = %while.cond, %if.end174, %if.end179
   %lpad.loopexit336 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 lpad128.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.then208, %if.then376, %invoke.cont377, %invoke.cont379, %invoke.cont381, %invoke.cont383, %invoke.cont387, %if.then392, %if.else413, %invoke.cont414, %invoke.cont416, %if.end455, %if.then459
   %lpad.loopexit.split-lp337 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 lpad128.loopexit.split-lp.loopexit.split-lp:      ; preds = %invoke.cont147, %invoke.cont143, %invoke.cont139, %for.body136
   %lpad.loopexit.split-lp334 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 for.body136:                                      ; preds = %for.cond134.preheader, %invoke.cont151
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %invoke.cont151 ], [ 0, %for.cond134.preheader ]
@@ -1749,7 +1749,7 @@ invoke.cont175:                                   ; preds = %if.end174
 
 if.then178:                                       ; preds = %invoke.cont175
   store i32 27, ptr %status, align 4
-  br label %cleanup477
+  br label %delete.notnull.i230
 
 if.end179:                                        ; preds = %invoke.cont175
   store double %call176, ptr %time, align 8
@@ -1790,7 +1790,7 @@ for.end197:                                       ; preds = %for.inc195, %invoke
 
 if.then199:                                       ; preds = %for.end197
   store i32 27, ptr %status, align 4
-  br label %cleanup477
+  br label %delete.notnull.i230
 
 if.end200:                                        ; preds = %for.end197
   %conv201 = zext nneg i32 %i.2.lcssa to i64
@@ -2119,12 +2119,12 @@ if.end366:                                        ; preds = %invoke.cont215, %_Z
 
 cleanup367:                                       ; preds = %for.end298, %_ZN6icu_7512LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit, %_ZN6icu_7511LocalMemoryIdED2Ev.exit
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt0) #11
-  br label %cleanup477
+  br label %delete.notnull.i230
 
 ehcleanup370:                                     ; preds = %lpad214.loopexit, %lpad214.loopexit.split-lp.loopexit.split-lp, %lpad214.loopexit.split-lp.loopexit, %ehcleanup, %_ZN6icu_7512LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit170
   %.pn108 = phi { ptr, i32 } [ %50, %_ZN6icu_7512LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit170 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit324, %lpad214.loopexit ], [ %lpad.loopexit327, %lpad214.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp328, %lpad214.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt0) #11
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 dynamic_cast.end374:                              ; preds = %dynamic_cast.end
   %65 = call ptr @__dynamic_cast(ptr nonnull %call181, ptr nonnull @_ZTIN6icu_7512TimeZoneRuleE, ptr nonnull @_ZTIN6icu_7518AnnualTimeZoneRuleE, i64 0) #11
@@ -2188,12 +2188,12 @@ invoke.cont397:                                   ; preds = %if.then.i199, %invo
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit: ; preds = %invoke.cont397
   %70 = load i32, ptr %status, align 4
   %cmp.i200 = icmp slt i32 %70, 1
-  br i1 %cmp.i200, label %if.end455, label %cleanup477
+  br i1 %cmp.i200, label %if.end455, label %delete.notnull.i230
 
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit210: ; preds = %invoke.cont397
   %71 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 if.else413:                                       ; preds = %invoke.cont389
   %call415 = invoke noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %tzt)
@@ -2249,18 +2249,18 @@ invoke.cont439:                                   ; preds = %invoke.cont431, %if
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit222: ; preds = %invoke.cont439
   %74 = load i32, ptr %status, align 4
   %cmp.i216 = icmp slt i32 %74, 1
-  br i1 %cmp.i216, label %if.end455, label %cleanup477
+  br i1 %cmp.i216, label %if.end455, label %delete.notnull.i230
 
 lpad424:                                          ; preds = %invoke.cont431, %invoke.cont429, %invoke.cont427, %invoke.cont425, %new.notnull421
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call419) #11
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit227: ; preds = %invoke.cont439
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup478
+  br label %delete.notnull.i234
 
 if.end455:                                        ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit222, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit
   %call457 = invoke noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule10getEndYearEv(ptr noundef nonnull align 8 dereferenceable(96) %65)
@@ -2294,49 +2294,37 @@ cleanup479.thread.split:                          ; preds = %if.end468, %invoke.
   store ptr %call86, ptr %transitionRules, align 8
   br label %cleanup481
 
-cleanup477:                                       ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit222, %cleanup367, %if.then199, %if.then178
-  br i1 %new.isnull109, label %cleanup479, label %delete.notnull.i230
-
-delete.notnull.i230:                              ; preds = %invoke.cont127, %cleanup477
+delete.notnull.i230:                              ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit222, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %if.then178, %if.then199, %cleanup367, %invoke.cont127
   %vtable.i231 = load ptr, ptr %call108, align 8
   %vfn.i232 = getelementptr inbounds i8, ptr %vtable.i231, i64 8
   %78 = load ptr, ptr %vfn.i232, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(80) %call108) #11
-  br label %cleanup479
+  br label %delete.notnull.i239
 
-ehcleanup478:                                     ; preds = %lpad128.loopexit, %lpad128.loopexit.split-lp.loopexit.loopexit, %lpad128.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad128.loopexit.split-lp.loopexit.split-lp, %lpad424, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit227, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit210, %ehcleanup370
+delete.notnull.i234:                              ; preds = %ehcleanup370, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit210, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit227, %lpad424, %lpad128.loopexit.split-lp.loopexit.split-lp, %lpad128.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad128.loopexit.split-lp.loopexit.loopexit, %lpad128.loopexit
   %.pn110 = phi { ptr, i32 } [ %.pn108, %ehcleanup370 ], [ %71, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit210 ], [ %76, %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit227 ], [ %75, %lpad424 ], [ %lpad.loopexit330, %lpad128.loopexit ], [ %lpad.loopexit.split-lp334, %lpad128.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit336, %lpad128.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp337, %lpad128.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  br i1 %new.isnull109, label %ehcleanup480, label %delete.notnull.i234
-
-delete.notnull.i234:                              ; preds = %ehcleanup478
   %vtable.i235 = load ptr, ptr %call108, align 8
   %vfn.i236 = getelementptr inbounds i8, ptr %vtable.i235, i64 8
   %79 = load ptr, ptr %vfn.i236, align 8
   call void %79(ptr noundef nonnull align 8 dereferenceable(80) %call108) #11
-  br label %ehcleanup480
+  br label %delete.notnull.i243
 
-cleanup479:                                       ; preds = %delete.notnull.i230, %cleanup477
-  br i1 %new.isnull87, label %cleanup481, label %delete.notnull.i239
-
-delete.notnull.i239:                              ; preds = %if.then.i151, %new.cont126, %invoke.cont97, %cleanup479
+delete.notnull.i239:                              ; preds = %delete.notnull.i230, %if.then.i151, %new.cont126, %invoke.cont97
   %vtable.i240 = load ptr, ptr %call86, align 8
   %vfn.i241 = getelementptr inbounds i8, ptr %vtable.i240, i64 8
   %80 = load ptr, ptr %vfn.i241, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(40) %call86) #11
   br label %cleanup481
 
-ehcleanup480:                                     ; preds = %delete.notnull.i234, %ehcleanup478
-  br i1 %new.isnull87, label %ehcleanup482, label %delete.notnull.i243
-
-delete.notnull.i243:                              ; preds = %lpad98, %lpad113, %ehcleanup480
-  %.pn110.pn396 = phi { ptr, i32 } [ %.pn110, %ehcleanup480 ], [ %28, %lpad113 ], [ %25, %lpad98 ]
+delete.notnull.i243:                              ; preds = %delete.notnull.i234, %lpad98, %lpad113
+  %.pn110.pn396 = phi { ptr, i32 } [ %.pn110, %delete.notnull.i234 ], [ %28, %lpad113 ], [ %25, %lpad98 ]
   %vtable.i244 = load ptr, ptr %call86, align 8
   %vfn.i245 = getelementptr inbounds i8, ptr %vtable.i244, i64 8
   %81 = load ptr, ptr %vfn.i245, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(40) %call86) #11
   br label %ehcleanup482
 
-cleanup481:                                       ; preds = %if.then.i144, %new.cont96, %delete.notnull.i239, %cleanup479, %cleanup479.thread.split, %if.then84
+cleanup481:                                       ; preds = %if.then.i144, %new.cont96, %delete.notnull.i239, %cleanup479.thread.split, %if.then84
   invoke void @uprv_free_75(ptr noundef %call78)
           to label %cleanup483 unwind label %terminate.lpad.i247
 
@@ -2347,8 +2335,8 @@ terminate.lpad.i247:                              ; preds = %cleanup481
   call void @__clang_call_terminate(ptr %83) #12
   unreachable
 
-ehcleanup482:                                     ; preds = %delete.notnull.i243, %ehcleanup480, %lpad91
-  %.pn110.pn.pn = phi { ptr, i32 } [ %24, %lpad91 ], [ %.pn110, %ehcleanup480 ], [ %.pn110.pn396, %delete.notnull.i243 ]
+ehcleanup482:                                     ; preds = %delete.notnull.i243, %lpad91
+  %.pn110.pn.pn = phi { ptr, i32 } [ %24, %lpad91 ], [ %.pn110.pn396, %delete.notnull.i243 ]
   invoke void @uprv_free_75(ptr noundef nonnull %call78)
           to label %ehcleanup484 unwind label %terminate.lpad.i248
 
@@ -2374,7 +2362,7 @@ terminate.lpad.i250:                              ; preds = %cleanup483
 ehcleanup484:                                     ; preds = %lpad23.loopexit, %lpad23.loopexit.split-lp, %ehcleanup482, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit138
   %.pn114 = phi { ptr, i32 } [ %18, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit138 ], [ %.pn110.pn.pn, %ehcleanup482 ], [ %lpad.loopexit339, %lpad23.loopexit ], [ %lpad.loopexit.split-lp340, %lpad23.loopexit.split-lp ]
   invoke void @uprv_free_75(ptr noundef nonnull %call21)
-          to label %ehcleanup486 unwind label %terminate.lpad.i251
+          to label %delete.notnull.i259 unwind label %terminate.lpad.i251
 
 terminate.lpad.i251:                              ; preds = %ehcleanup484
   %88 = landingpad { ptr, i32 }
@@ -2395,11 +2383,8 @@ delete.notnull.i254:                              ; preds = %invoke.cont13, %cle
   call void %90(ptr noundef nonnull align 8 dereferenceable(40) %orgRules.sroa.0.0402) #11
   br label %cleanup487
 
-ehcleanup486:                                     ; preds = %ehcleanup484
-  br i1 %new.isnull, label %ehcleanup488, label %delete.notnull.i259
-
-delete.notnull.i259:                              ; preds = %ehcleanup486.thread, %ehcleanup486
-  %.pn114.pn404 = phi { ptr, i32 } [ %7, %ehcleanup486.thread ], [ %.pn114, %ehcleanup486 ]
+delete.notnull.i259:                              ; preds = %ehcleanup484, %ehcleanup486.thread
+  %.pn114.pn404 = phi { ptr, i32 } [ %7, %ehcleanup486.thread ], [ %.pn114, %ehcleanup484 ]
   %vtable.i260 = load ptr, ptr %call10, align 8
   %vfn.i261 = getelementptr inbounds i8, ptr %vtable.i260, i64 8
   %91 = load ptr, ptr %vfn.i261, align 8
@@ -2411,8 +2396,8 @@ cleanup487:                                       ; preds = %if.then.i, %new.con
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
   br label %return
 
-ehcleanup488:                                     ; preds = %delete.notnull.i259, %ehcleanup486, %lpad11, %lpad2
-  %.pn114.pn.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %6, %lpad11 ], [ %.pn114, %ehcleanup486 ], [ %.pn114.pn404, %delete.notnull.i259 ]
+ehcleanup488:                                     ; preds = %delete.notnull.i259, %lpad11, %lpad2
+  %.pn114.pn.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %6, %lpad11 ], [ %.pn114.pn404, %delete.notnull.i259 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name) #11
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
   resume { ptr, i32 } %.pn114.pn.pn

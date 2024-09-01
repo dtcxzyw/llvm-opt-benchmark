@@ -930,7 +930,7 @@ while.body267:                                    ; preds = %while.cond247
   br label %while.cond247, !llvm.loop !15
 
 if.end270:                                        ; preds = %while.cond247, %while.cond247, %while.cond247, %while.cond247, %while.cond247, %while.end241
-  %quoted.1209 = phi i1 [ true, %while.end241 ], [ %quoted.0, %while.cond247 ], [ %quoted.0, %while.cond247 ], [ %quoted.0, %while.cond247 ], [ %quoted.0, %while.cond247 ], [ %quoted.0, %while.cond247 ]
+  %quoted.1209 = phi i1 [ true, %while.end241 ], [ false, %while.cond247 ], [ false, %while.cond247 ], [ false, %while.cond247 ], [ false, %while.cond247 ], [ false, %while.cond247 ]
   %p.9207 = phi ptr [ %p.9208, %while.end241 ], [ %storemerge, %while.cond247 ], [ %storemerge, %while.cond247 ], [ %storemerge, %while.cond247 ], [ %storemerge, %while.cond247 ], [ %storemerge, %while.cond247 ]
   %p.11 = phi ptr [ %incdec.ptr242, %while.end241 ], [ %p.12, %while.cond247 ], [ %p.12, %while.cond247 ], [ %p.12, %while.cond247 ], [ %p.12, %while.cond247 ], [ %p.12, %while.cond247 ]
   %call271 = call i64 @strtoul(ptr noundef nonnull %p.9207, ptr noundef nonnull %end_ptr, i32 noundef 10) #12

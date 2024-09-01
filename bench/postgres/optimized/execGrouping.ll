@@ -716,12 +716,12 @@ define dso_local noundef zeroext i1 @tuplehash_delete(ptr nocapture noundef %0, 
   %11 = getelementptr %struct.TupleHashEntryData, ptr %9, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
-  %.not85 = icmp eq i32 %13, 0
-  br i1 %.not85, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq i32 %13, 0
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %68
   %14 = phi ptr [ %69, %68 ], [ %9, %2 ]
-  %.val4283 = phi i32 [ %.val42, %68 ], [ %.val41, %2 ]
+  %.val4281 = phi i32 [ %.val42, %68 ], [ %.val41, %2 ]
   %15 = phi i32 [ %75, %68 ], [ %13, %2 ]
   %16 = phi ptr [ %73, %68 ], [ %11, %2 ]
   %.03663 = phi i32 [ %71, %68 ], [ %7, %2 ]
@@ -823,15 +823,15 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
 
 68:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %18, %.lr.ph
   %69 = phi ptr [ %.pre, %TupleHashTableMatch.exit._crit_edge ], [ %14, %18 ], [ %14, %.lr.ph ]
-  %.val42 = phi i32 [ %.val42.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val4283, %18 ], [ %.val4283, %.lr.ph ]
+  %.val42 = phi i32 [ %.val42.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val4281, %18 ], [ %.val4281, %.lr.ph ]
   %70 = add i32 %.03663, 1
   %71 = and i32 %.val42, %70
   %72 = zext i32 %71 to i64
   %73 = getelementptr %struct.TupleHashEntryData, ptr %69, i64 %72
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
-  %.not86 = icmp eq i32 %75, 0
-  br i1 %.not86, label %.loopexit, label %.lr.ph
+  %.not71 = icmp eq i32 %75, 0
+  br i1 %.not71, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %.lr.ph68, %60, %.loopexit48
   %.037.lcssa.sink = phi ptr [ %16, %.loopexit48 ], [ %55, %60 ], [ %.03766, %.lr.ph68 ]

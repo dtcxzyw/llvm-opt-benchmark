@@ -467,8 +467,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not6.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.5455346206542766164.exit.sink.split", label %.backedge
 
 .backedge:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.thread.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i", %14
-  %.not18 = icmp eq ptr %5, %3
-  br i1 %.not18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.5455346206542766164.exit.sink.split", label %.lr.ph
+  %.not13 = icmp eq ptr %5, %3
+  br i1 %.not13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.5455346206542766164.exit.sink.split", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.5455346206542766164.exit.sink.split": ; preds = %.backedge, %14
   %.lcssa.ph = phi i1 [ true, %14 ], [ false, %.backedge ]
@@ -2947,8 +2947,8 @@ define hidden void @_ZN12clap_builder7builder7command7Command26get_subcommands_c
   br i1 %36, label %37, label %"_ZN12clap_builder7builder7command7Command26get_subcommands_containing28_$u7b$$u7b$closure$u7d$$u7d$17hbe00b2fdffde7904E.exit.backedge.i"
 
 "_ZN12clap_builder7builder7command7Command26get_subcommands_containing28_$u7b$$u7b$closure$u7d$$u7d$17hbe00b2fdffde7904E.exit.backedge.i": ; preds = %34, %.lr.ph.i
-  %.not18.i = icmp eq ptr %32, %30
-  br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
+  %.not13.i = icmp eq ptr %32, %30
+  br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %"_ZN12clap_builder7builder7command7Command26get_subcommands_containing28_$u7b$$u7b$closure$u7d$$u7d$17hbe00b2fdffde7904E.exit.backedge.i", %24, %69
   %exitcond36.not = icmp eq i64 %22, %10
@@ -3664,8 +3664,8 @@ define void @_ZN12clap_builder7builder7command7Command9_do_parse17ha4d410d63c6c7
   br label %.body.thread
 
 18:                                               ; preds = %4
-  %.not.not = icmp eq ptr %16, null
-  br i1 %.not.not, label %44, label %19
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %44, label %19
 
 19:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -4386,8 +4386,8 @@ _ZN12clap_builder7builder3arg3Arg19get_possible_values17h04db2097373f6ec5E.exit.
 
 194:                                              ; preds = %196, %_ZN12clap_builder7builder3arg3Arg19get_possible_values17h04db2097373f6ec5E.exit.i.i.i.i
   %195 = phi ptr [ %197, %196 ], [ %192, %_ZN12clap_builder7builder3arg3Arg19get_possible_values17h04db2097373f6ec5E.exit.i.i.i.i ]
-  %.not.i.not.i.not.i.i.i = icmp eq ptr %195, %193
-  br i1 %.not.i.not.i.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbc185ae6a6a5351cE.exit.i.i.i.i", label %196
+  %.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %195, %193
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbc185ae6a6a5351cE.exit.i.i.i.i", label %196
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds i8, ptr %195, i64 72
@@ -4411,8 +4411,8 @@ _ZN12clap_builder7builder3arg3Arg19get_possible_values17h04db2097373f6ec5E.exit.
   br label %.backedge.i.i.i
 
 .backedge.i.i.i:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbc185ae6a6a5351cE.exit.i.i.i.i", %163, %152
-  %.not17.i.i.i = icmp eq ptr %154, %149
-  br i1 %.not17.i.i.i, label %_ZN12clap_builder7builder7command7Command17long_help_exists_17h15d4a383a6115f4eE.exit.i, label %152
+  %.not14.i.i.i = icmp eq ptr %154, %149
+  br i1 %.not14.i.i.i, label %_ZN12clap_builder7builder7command7Command17long_help_exists_17h15d4a383a6115f4eE.exit.i, label %152
 
 _ZN12clap_builder7builder7command7Command17long_help_exists_17h15d4a383a6115f4eE.exit.i: ; preds = %.backedge.i.i.i, %158, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbc185ae6a6a5351cE.exit.i.thread.i.i.i", %144, %_ZN12clap_builder7builder7command7Command10_propagate17h27f9508d07f54032E.exit
   %.0.i.i = phi i8 [ 1, %_ZN12clap_builder7builder7command7Command10_propagate17h27f9508d07f54032E.exit ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbc185ae6a6a5351cE.exit.i.thread.i.i.i" ], [ 0, %144 ], [ 1, %158 ], [ 0, %.backedge.i.i.i ]
@@ -6623,8 +6623,8 @@ define hidden noundef align 8 dereferenceable_or_null(712) ptr @_ZN12clap_builde
 
 .noexc.i:                                         ; preds = %109
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %110, 0
-  %.not.i.not.i = icmp eq ptr %.fca.0.extract.i.i, null
-  br i1 %.not.i.not.i, label %118, label %111
+  %.not.not.not.i.not.i = icmp eq ptr %.fca.0.extract.i.i, null
+  br i1 %.not.not.not.i.not.i, label %118, label %111
 
 111:                                              ; preds = %.noexc.i
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %110, 1
@@ -7619,8 +7619,8 @@ define hidden void @_ZN12clap_builder7builder7command7Command25_build_bin_names_
 
 .noexc.i:                                         ; preds = %110
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %111, 0
-  %.not.i.not.i = icmp eq ptr %.fca.0.extract.i.i, null
-  br i1 %.not.i.not.i, label %119, label %112
+  %.not.not.not.i.not.i = icmp eq ptr %.fca.0.extract.i.i, null
+  br i1 %.not.not.not.i.not.i, label %119, label %112
 
 112:                                              ; preds = %.noexc.i
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %111, 1
@@ -9084,8 +9084,8 @@ define hidden noundef zeroext i1 @_ZN12clap_builder7builder7command7Command23has
   br i1 %.not6.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8ae0dec90a59af5aE.llvm.5455346206542766164.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %17, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.thread.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i.i"
-  %.not18.i = icmp eq ptr %8, %6
-  br i1 %.not18.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8ae0dec90a59af5aE.llvm.5455346206542766164.exit", label %.lr.ph.i
+  %.not13.i = icmp eq ptr %8, %6
+  br i1 %.not13.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8ae0dec90a59af5aE.llvm.5455346206542766164.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8ae0dec90a59af5aE.llvm.5455346206542766164.exit": ; preds = %17, %.backedge.i, %1
   %.lcssa.i = phi i1 [ false, %1 ], [ false, %.backedge.i ], [ true, %17 ]

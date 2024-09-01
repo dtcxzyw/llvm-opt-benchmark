@@ -5137,8 +5137,8 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline7compile17hdd1452bc6f5
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %168
-  %.not.not.i.not.i.not = icmp ne ptr %169, null
-  br i1 %.not.not.i.not.i.not, label %170, label %175
+  %.not.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %169, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.not.not.not.not, label %170, label %175
 
 170:                                              ; preds = %.noexc21
   %171 = invoke noundef align 4 dereferenceable(40) ptr @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder16type_information17h51378c5e64d84cf3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %145, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %169)
@@ -5152,7 +5152,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline7compile17hdd1452bc6f5
 
 175:                                              ; preds = %.noexc22, %.noexc21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98), !noalias !755
-  %176 = zext i1 %.not.not.i.not.i.not to i8
+  %176 = zext i1 %.not.not.not.not.i.not.not.not.i.not.not.not.not.not to i8
   store i8 %176, ptr %104, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %103)
   %177 = load ptr, ptr %108, align 8, !nonnull !10, !align !11, !noundef !10
@@ -5205,8 +5205,8 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline7compile17hdd1452bc6f5
           to label %.noexc28 unwind label %.loopexit
 
 .noexc28:                                         ; preds = %203
-  %.not.not.i.not.i25.not = icmp ne ptr %204, null
-  br i1 %.not.not.i.not.i25.not, label %205, label %210
+  %.not.not.not.not.i.not.not.not.i25.not.not.not.not.not = icmp ne ptr %204, null
+  br i1 %.not.not.not.not.i.not.not.not.i25.not.not.not.not.not, label %205, label %210
 
 205:                                              ; preds = %.noexc28
   %206 = invoke noundef align 4 dereferenceable(40) ptr @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder16type_information17h51378c5e64d84cf3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %177, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %204)
@@ -5220,9 +5220,9 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline7compile17hdd1452bc6f5
 
 210:                                              ; preds = %.noexc29, %.noexc28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97), !noalias !773
-  %211 = zext i1 %.not.not.i.not.i25.not to i8
+  %211 = zext i1 %.not.not.not.not.i.not.not.not.i25.not.not.not.not.not to i8
   store i8 %211, ptr %103, align 1
-  %212 = xor i1 %.not.not.i.not.i25.not, %.not.not.i.not.i.not
+  %212 = xor i1 %.not.not.not.not.i.not.not.not.i25.not.not.not.not.not, %.not.not.not.not.i.not.not.not.i.not.not.not.not.not
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %210
@@ -6081,8 +6081,8 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %56), !noalias !831
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %57), !noalias !831
   %494 = load i64, ptr %61, align 8, !range !12, !noalias !831, !noundef !10
-  %.not100.not.i.i = icmp eq i64 %494, 0
-  br i1 %.not100.not.i.i, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i", label %498
+  %.not100.i.i = icmp eq i64 %494, 0
+  br i1 %.not100.i.i, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Memory$GT$17h1821acadfc544f87E.exit.i.i", label %498
 
 495:                                              ; preds = %490
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55), !noalias !831

@@ -6586,20 +6586,17 @@ define internal fastcc noundef zeroext i1 @"_ZZZL9getPlanesRKN2cv11_InputArrayER
   %41 = fdiv double %32, %40
   %42 = fdiv double %35, %40
   %43 = fdiv double %38, %40
-  br i1 %.not15, label %._crit_edge32, label %.lr.ph31
-
-.lr.ph31:                                         ; preds = %._crit_edge
   %44 = load ptr, ptr %.0.val, align 8
   br label %45
 
-45:                                               ; preds = %.lr.ph31, %45
-  %.010929 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %58, %45 ]
-  %.011028 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %59, %45 ]
-  %.011127 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %60, %45 ]
-  %.011226 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %61, %45 ]
-  %.011325 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %62, %45 ]
-  %.011424 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %63, %45 ]
-  %.sroa.04.023 = phi ptr [ %.0.val1, %.lr.ph31 ], [ %64, %45 ]
+45:                                               ; preds = %._crit_edge, %45
+  %.010929 = phi double [ 0.000000e+00, %._crit_edge ], [ %58, %45 ]
+  %.011028 = phi double [ 0.000000e+00, %._crit_edge ], [ %59, %45 ]
+  %.011127 = phi double [ 0.000000e+00, %._crit_edge ], [ %60, %45 ]
+  %.011226 = phi double [ 0.000000e+00, %._crit_edge ], [ %61, %45 ]
+  %.011325 = phi double [ 0.000000e+00, %._crit_edge ], [ %62, %45 ]
+  %.011424 = phi double [ 0.000000e+00, %._crit_edge ], [ %63, %45 ]
+  %.sroa.04.023 = phi ptr [ %.0.val1, %._crit_edge ], [ %64, %45 ]
   %46 = load i32, ptr %.sroa.04.023, align 4
   %47 = mul nsw i32 %46, 3
   %48 = sext i32 %47 to i64
@@ -6622,17 +6619,17 @@ define internal fastcc noundef zeroext i1 @"_ZZZL9getPlanesRKN2cv11_InputArrayER
   %.not11 = icmp eq ptr %64, %.8.val
   br i1 %.not11, label %._crit_edge32, label %45
 
-._crit_edge32:                                    ; preds = %45, %._crit_edge.thread, %._crit_edge
-  %65 = phi double [ %43, %._crit_edge ], [ %24, %._crit_edge.thread ], [ %43, %45 ]
-  %66 = phi double [ %42, %._crit_edge ], [ %23, %._crit_edge.thread ], [ %42, %45 ]
-  %67 = phi double [ %41, %._crit_edge ], [ %22, %._crit_edge.thread ], [ %41, %45 ]
-  %68 = phi double [ %40, %._crit_edge ], [ %21, %._crit_edge.thread ], [ %40, %45 ]
-  %.0114.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %63, %45 ]
-  %.0113.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %62, %45 ]
-  %.0112.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %61, %45 ]
-  %.0111.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %60, %45 ]
-  %.0110.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %59, %45 ]
-  %.0109.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %58, %45 ]
+._crit_edge32:                                    ; preds = %45, %._crit_edge.thread
+  %65 = phi double [ %24, %._crit_edge.thread ], [ %43, %45 ]
+  %66 = phi double [ %23, %._crit_edge.thread ], [ %42, %45 ]
+  %67 = phi double [ %22, %._crit_edge.thread ], [ %41, %45 ]
+  %68 = phi double [ %21, %._crit_edge.thread ], [ %40, %45 ]
+  %.0114.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %63, %45 ]
+  %.0113.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %62, %45 ]
+  %.0112.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %61, %45 ]
+  %.0111.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %60, %45 ]
+  %.0110.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %59, %45 ]
+  %.0109.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %58, %45 ]
   %69 = fdiv double %.0109.lcssa, %68
   %70 = fdiv double %.0110.lcssa, %68
   %71 = fdiv double %.0111.lcssa, %68

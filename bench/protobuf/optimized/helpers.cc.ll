@@ -7193,28 +7193,20 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %message_types_.i = getelementptr inbounds i8, ptr %file, i64 96
   %1 = load ptr, ptr %message_types_.i, align 8
-  %2 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
-  %call28 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL17HasRepeatedFieldsEPKNS0_10DescriptorE(ptr noundef %1)
-  br i1 %call28, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
+for.body:                                         ; preds = %for.body, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %add.ptr.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv
+  %call2 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL17HasRepeatedFieldsEPKNS0_10DescriptorE(ptr noundef %add.ptr.i)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !185
+  %or.cond = select i1 %call2, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !185
 
-for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv.next
-  %call2 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL17HasRepeatedFieldsEPKNS0_10DescriptorE(ptr noundef nonnull %add.ptr.i)
-  br i1 %call2, label %return.loopexit, label %for.cond, !llvm.loop !185
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %2
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.lr.ph, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.lr.ph ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %call2, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -11062,34 +11054,23 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %fields_.i = getelementptr inbounds i8, ptr %descriptor, i64 56
   %1 = load ptr, ptr %fields_.i, align 8
-  %2 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %options_.i.i12 = getelementptr inbounds i8, ptr %1, i64 56
-  %3 = load ptr, ptr %options_.i.i12, align 8
-  %weak_.i.i.i13 = getelementptr inbounds i8, ptr %3, i64 132
-  %4 = load i8, ptr %weak_.i.i.i13, align 4
-  %tobool.i.i.i14 = trunc i8 %4 to i1
-  br i1 %tobool.i.i.i14, label %if.then.i, label %for.inc
+  %options_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %1, i64 %indvars.iv, i32 11
+  %2 = load ptr, ptr %options_.i.i, align 8
+  %weak_.i.i.i = getelementptr inbounds i8, ptr %2, i64 132
+  %3 = load i8, ptr %weak_.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %3 to i1
+  br i1 %tobool.i.i.i, label %if.then.i, label %for.inc
 
-for.body:                                         ; preds = %for.inc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %options_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %1, i64 %indvars.iv.next, i32 11
-  %5 = load ptr, ptr %options_.i.i, align 8
-  %weak_.i.i.i = getelementptr inbounds i8, ptr %5, i64 132
-  %6 = load i8, ptr %weak_.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %6 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.loopexit, label %for.inc, !llvm.loop !274
-
-if.then.i.loopexit:                               ; preds = %for.body
-  %cmp.le = icmp ult i64 %indvars.iv.next, %2
-  br label %if.then.i
-
-if.then.i:                                        ; preds = %if.then.i.loopexit, %for.body.lr.ph
-  %cmp8.lcssa = phi i1 [ true, %for.body.lr.ph ], [ %cmp.le, %if.then.i.loopexit ]
+if.then.i:                                        ; preds = %for.body
   %opensource_runtime.i = getelementptr inbounds i8, ptr %options, i64 199
-  %7 = load i8, ptr %opensource_runtime.i, align 1
-  %tobool.i = trunc i8 %7 to i1
+  %4 = load i8, ptr %opensource_runtime.i, align 1
+  %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %cond.false.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread: ; preds = %if.then.i
@@ -11101,19 +11082,14 @@ cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i) #32
   unreachable
 
-for.inc:                                          ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
+for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !274
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !274
 
-return.loopexit:                                  ; preds = %for.inc
-  %cmp.le18 = icmp ult i64 %indvars.iv.next, %2
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread
-  %cmp5 = phi i1 [ %cmp8.lcssa, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread ], [ false, %entry ], [ %cmp.le18, %return.loopexit ]
+return:                                           ; preds = %for.inc, %entry, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread
+  %cmp5 = phi i1 [ true, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread ], [ false, %entry ], [ false, %for.inc ]
   ret i1 %cmp5
 }
 
@@ -11123,125 +11099,68 @@ entry:
   %ref.tmp3.i.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %message_type_count_.i = getelementptr inbounds i8, ptr %file, i64 60
   %0 = load i32, ptr %message_type_count_.i, align 4
-  %cmp11 = icmp sgt i32 %0, 0
-  br i1 %cmp11, label %for.body.lr.ph, label %return
+  %cmp7 = icmp sgt i32 %0, 0
+  br i1 %cmp7, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
   %message_types_.i = getelementptr inbounds i8, ptr %file, i64 96
   %1 = load ptr, ptr %message_types_.i, align 8
-  %opensource_runtime.i.i = getelementptr inbounds i8, ptr %options, i64 199
-  %2 = load i8, ptr %opensource_runtime.i.i, align 1
-  %.fr = freeze i8 %2
-  %tobool.i.i = trunc i8 %.fr to i1
-  %3 = zext nneg i32 %0 to i64
-  %wide.trip.count22 = zext nneg i32 %0 to i64
-  br i1 %tobool.i.i, label %for.body.us, label %for.body
-
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %add.ptr.i.us = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv19
-  %field_count_.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 4
-  %4 = load i32, ptr %field_count_.i.i.us, align 4
-  %cmp6.i.us = icmp sgt i32 %4, 0
-  br i1 %cmp6.i.us, label %for.body.lr.ph.i.us, label %for.inc.us
-
-for.body.lr.ph.i.us:                              ; preds = %for.body.us
-  %fields_.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 56
-  %5 = load ptr, ptr %fields_.i.i.us, align 8
-  %6 = zext nneg i32 %4 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %options_.i.i.i7.us = getelementptr inbounds i8, ptr %5, i64 56
-  %7 = load ptr, ptr %options_.i.i.i7.us, align 8
-  %weak_.i.i.i.i8.us = getelementptr inbounds i8, ptr %7, i64 132
-  %8 = load i8, ptr %weak_.i.i.i.i8.us, align 4
-  %tobool.i.i.i.i9.us = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i9.us, label %cond.false.i.i, label %for.inc.i.us
-
-for.body.i.us:                                    ; preds = %for.inc.i.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %options_.i.i.i.us = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %5, i64 %indvars.iv.next.i.us, i32 11
-  %9 = load ptr, ptr %options_.i.i.i.us, align 8
-  %weak_.i.i.i.i.us = getelementptr inbounds i8, ptr %9, i64 132
-  %10 = load i8, ptr %weak_.i.i.i.i.us, align 4
-  %tobool.i.i.i.i.us = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i.us, label %cond.false.i.i, label %for.inc.i.us, !llvm.loop !274
-
-for.inc.i.us:                                     ; preds = %for.body.lr.ph.i.us, %for.body.i.us
-  %indvars.iv.i10.us = phi i64 [ %indvars.iv.next.i.us, %for.body.i.us ], [ 0, %for.body.lr.ph.i.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i10.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %6
-  br i1 %exitcond.not.i.us, label %for.inc.us, label %for.body.i.us, !llvm.loop !274
-
-for.inc.us:                                       ; preds = %for.inc.i.us, %for.body.us
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %return.loopexit, label %for.body.us, !llvm.loop !275
+  %wide.trip.count = zext nneg i32 %0 to i64
+  br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
-  %cmp13 = phi i1 [ %cmp, %for.inc ], [ true, %for.body.lr.ph ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv
   %field_count_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  %11 = load i32, ptr %field_count_.i.i, align 4
-  %cmp6.i = icmp sgt i32 %11, 0
+  %2 = load i32, ptr %field_count_.i.i, align 4
+  %cmp6.i = icmp sgt i32 %2, 0
   br i1 %cmp6.i, label %for.body.lr.ph.i, label %for.inc
 
 for.body.lr.ph.i:                                 ; preds = %for.body
   %fields_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
-  %12 = load ptr, ptr %fields_.i.i, align 8
-  %13 = zext nneg i32 %11 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %options_.i.i.i7 = getelementptr inbounds i8, ptr %12, i64 56
-  %14 = load ptr, ptr %options_.i.i.i7, align 8
-  %weak_.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 132
-  %15 = load i8, ptr %weak_.i.i.i.i8, align 4
-  %tobool.i.i.i.i9 = trunc i8 %15 to i1
-  br i1 %tobool.i.i.i.i9, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.return_crit_edge.critedge, label %for.inc.i
+  %3 = load ptr, ptr %fields_.i.i, align 8
+  %wide.trip.count.i = zext nneg i32 %2 to i64
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %options_.i.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %12, i64 %indvars.iv.next.i, i32 11
-  %16 = load ptr, ptr %options_.i.i.i, align 8
-  %weak_.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 132
-  %17 = load i8, ptr %weak_.i.i.i.i, align 4
-  %tobool.i.i.i.i = trunc i8 %17 to i1
-  br i1 %tobool.i.i.i.i, label %if.then.i.i, label %for.inc.i, !llvm.loop !274
+  %options_.i.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %3, i64 %indvars.iv.i, i32 11
+  %4 = load ptr, ptr %options_.i.i.i, align 8
+  %weak_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 132
+  %5 = load i8, ptr %weak_.i.i.i.i, align 4
+  %tobool.i.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i, label %for.inc.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %cmp.i.le = icmp ult i64 %indvars.iv.next.i, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  br i1 %cmp.i.le, label %return, label %for.inc
+  %opensource_runtime.i.i = getelementptr inbounds i8, ptr %options, i64 199
+  %6 = load i8, ptr %opensource_runtime.i.i, align 1
+  %tobool.i.i = trunc i8 %6 to i1
+  br i1 %tobool.i.i, label %cond.false.i.i, label %_ZN6google8protobuf8compiler3cpp13HasWeakFieldsEPKNS0_10DescriptorERKNS2_7OptionsE.exit
 
-cond.false.i.i:                                   ; preds = %for.body.lr.ph.i.us, %for.body.i.us
+cond.false.i.i:                                   ; preds = %if.then.i.i
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull @.str.266, i32 noundef 324, i64 27, ptr nonnull @.str.267) #31
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i) #32
   unreachable
 
-for.inc.i:                                        ; preds = %for.body.lr.ph.i, %for.body.i
-  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
+for.inc.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i10, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !274
 
-for.inc:                                          ; preds = %for.inc.i, %for.body, %if.then.i.i
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %3
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !275
-
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.return_crit_edge.critedge: ; preds = %for.body.lr.ph.i
+_ZN6google8protobuf8compiler3cpp13HasWeakFieldsEPKNS0_10DescriptorERKNS2_7OptionsE.exit: ; preds = %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i)
   br label %return
 
-return.loopexit:                                  ; preds = %for.inc.us
-  %cmp.us = icmp ult i64 %indvars.iv.next20, %3
-  br label %return
+for.inc:                                          ; preds = %for.inc.i, %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !275
 
-return:                                           ; preds = %for.inc, %if.then.i.i, %return.loopexit, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.return_crit_edge.critedge, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp13, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.return_crit_edge.critedge ], [ %cmp.us, %return.loopexit ], [ %cmp13, %if.then.i.i ], [ %cmp, %for.inc ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %for.inc, %entry, %_ZN6google8protobuf8compiler3cpp13HasWeakFieldsEPKNS0_10DescriptorERKNS2_7OptionsE.exit
+  %cmp6 = phi i1 [ true, %_ZN6google8protobuf8compiler3cpp13HasWeakFieldsEPKNS0_10DescriptorERKNS2_7OptionsE.exit ], [ false, %entry ], [ false, %for.inc ]
+  ret i1 %cmp6
 }
 
 ; Function Attrs: mustprogress uwtable

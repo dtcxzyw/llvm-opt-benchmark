@@ -5107,8 +5107,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %127 = add nuw i64 %.03950, 1
   br i1 %126, label %.lr.ph, label %.critedge5, !llvm.loop !81
 
-.lr.ph55:                                         ; preds = %.lr.ph, %138
-  %.054 = phi i64 [ %152, %138 ], [ 0, %.lr.ph ]
+.lr.ph55:                                         ; preds = %.lr.ph, %137
+  %.054 = phi i64 [ %151, %137 ], [ 0, %.lr.ph ]
   %128 = load ptr, ptr %9, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 88
   %130 = getelementptr inbounds i8, ptr %128, i64 96
@@ -5118,29 +5118,29 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 4
-  %137 = icmp uge i64 %.054, %136
-  br i1 %137, label %.critedge5, label %138
+  %.not66 = icmp uge i64 %.054, %136
+  br i1 %.not66, label %.critedge5, label %137
 
-138:                                              ; preds = %.lr.ph55
-  %139 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %132, i64 %.054
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %12, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 88
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %143, i64 %.054
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  %147 = getelementptr inbounds i8, ptr %145, i64 16
-  %spec.select6 = select i1 %146, ptr null, ptr %147
-  %148 = load ptr, ptr %140, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8
-  %151 = tail call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef %spec.select6, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %152 = add nuw i64 %.054, 1
-  br i1 %151, label %.lr.ph55, label %.critedge5, !llvm.loop !82
+137:                                              ; preds = %.lr.ph55
+  %138 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %132, i64 %.054
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %12, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 88
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %142, i64 %.054
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  %146 = getelementptr inbounds i8, ptr %144, i64 16
+  %spec.select6 = select i1 %145, ptr null, ptr %146
+  %147 = load ptr, ptr %139, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %150 = tail call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef %spec.select6, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %151 = add nuw i64 %.054, 1
+  br i1 %150, label %.lr.ph55, label %.critedge5, !llvm.loop !82
 
-.critedge5:                                       ; preds = %88, %113, %138, %.lr.ph55, %17, %4, %6, %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %46, %62
-  %.041 = phi i1 [ false, %62 ], [ false, %46 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %17 ], [ %137, %.lr.ph55 ], [ %137, %138 ], [ false, %113 ], [ false, %88 ]
+.critedge5:                                       ; preds = %88, %113, %137, %.lr.ph55, %17, %4, %6, %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %46, %62
+  %.041 = phi i1 [ false, %62 ], [ false, %46 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %17 ], [ %.not66, %.lr.ph55 ], [ %.not66, %137 ], [ false, %113 ], [ false, %88 ]
   ret i1 %.041
 }
 

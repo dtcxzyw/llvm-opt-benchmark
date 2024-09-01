@@ -1753,10 +1753,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK5nlsat20interva
   %wide.trip.count = zext i32 %2 to i64
   br label %for.body
 
-for.cond21.preheader:                             ; preds = %for.inc
-  br i1 %cmp69.not, label %for.end35, label %for.body23.lr.ph
-
-for.body23.lr.ph:                                 ; preds = %for.cond21.preheader
+for.body23.lr.ph:                                 ; preds = %for.inc
   %m_intervals25 = getelementptr inbounds i8, ptr %s, i64 8
   %m_already_visited31 = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count77 = zext i32 %2 to i64
@@ -1982,7 +1979,7 @@ _ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit: ; preds = %lor.lhs.false.
 for.inc:                                          ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backEOS2_.exit, %_ZNK6vectorIcLb0EjE3getEjRKc.exit.cont
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond21.preheader, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.body23.lr.ph, label %for.body, !llvm.loop !17
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %indvars.iv74 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next75, %for.body23 ]
@@ -1996,7 +1993,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %for.end35, label %for.body23, !llvm.loop !18
 
-for.end35:                                        ; preds = %for.body23, %_ZN6vectorIPN5nlsat6clauseELb0EjE5resetEv.exit, %_ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit, %for.cond21.preheader
+for.end35:                                        ; preds = %for.body23, %_ZN6vectorIPN5nlsat6clauseELb0EjE5resetEv.exit, %_ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit
   ret void
 }
 

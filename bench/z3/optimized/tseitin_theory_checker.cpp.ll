@@ -446,7 +446,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %land.rhs.i.i172
 
 if.then30:                                        ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
   store ptr %this, ptr %sm, align 8
-  br i1 %cmp.not968, label %for.end41, label %for.body36
+  br label %for.body36
 
 for.body36:                                       ; preds = %if.then30, %for.inc39
   %__begin2.0973 = phi ptr [ %incdec.ptr40, %for.inc39 ], [ %m_args.i.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr, %if.then30 ]
@@ -465,7 +465,7 @@ lpad:                                             ; preds = %for.body36
   call void @_ZN7tseitin14theory_checker11scoped_markD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sm) #14
   br label %eh.resume
 
-for.end41:                                        ; preds = %for.inc39, %if.then30
+for.end41:                                        ; preds = %for.inc39
   %m_num_args.i187 = getelementptr inbounds i8, ptr %main_expr.2, i64 24
   %31 = load i32, ptr %m_num_args.i187, align 8
   %idx.ext.i188 = zext i32 %31 to i64
@@ -599,7 +599,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6i
 
 if.then69:                                        ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit
   store ptr %this, ptr %sm70, align 8
-  br i1 %cmp.not968, label %for.end86, label %for.body81
+  br label %for.body81
 
 for.body81:                                       ; preds = %if.then69, %for.inc84
   %__begin272.0980 = phi ptr [ %incdec.ptr85, %for.inc84 ], [ %m_args.i.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr.ptr, %if.then69 ]
@@ -618,7 +618,7 @@ lpad73:                                           ; preds = %for.body81
   call void @_ZN7tseitin14theory_checker11scoped_markD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sm70) #14
   br label %eh.resume
 
-for.end86:                                        ; preds = %for.inc84, %if.then69
+for.end86:                                        ; preds = %for.inc84
   %m_num_args.i223 = getelementptr inbounds i8, ptr %main_expr.2, i64 24
   %55 = load i32, ptr %m_num_args.i223, align 8
   %idx.ext.i224 = zext i32 %55 to i64

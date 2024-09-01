@@ -180,8 +180,8 @@ define hidden void @_ZN8XLiveMap13reset_segmentEm(ptr noundef nonnull align 8 de
 9:                                                ; preds = %18, %2
   %.017.i.i = phi i64 [ %8, %2 ], [ %19, %18 ]
   %10 = or i64 %.017.i.i, %7
-  %.not.i.not.i.not = icmp eq i64 %10, %.017.i.i
-  br i1 %.not.i.not.i.not, label %_ZN8XLiveMap13claim_segmentEm.exit.preheader, label %18
+  %.not.not.not.i.not.not.not.i.not = icmp eq i64 %10, %.017.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN8XLiveMap13claim_segmentEm.exit.preheader, label %18
 
 _ZN8XLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -259,8 +259,8 @@ _ZN8XLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8XLiveMap13claim
 45:                                               ; preds = %47, %41
   %.017.i.i11 = phi i64 [ %44, %41 ], [ %48, %47 ]
   %46 = or i64 %.017.i.i11, %7
-  %.not.i.not.i12.not = icmp eq i64 %46, %.017.i.i11
-  br i1 %.not.i.not.i12.not, label %_ZN8XLiveMap16set_segment_liveEm.exit, label %47
+  %.not.not.not.i.not.not.not.i12.not = icmp eq i64 %46, %.017.i.i11
+  br i1 %.not.not.not.i.not.not.not.i12.not, label %_ZN8XLiveMap16set_segment_liveEm.exit, label %47
 
 47:                                               ; preds = %45
   %48 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %.017.i.i11, ptr nonnull %43) #7, !srcloc !10

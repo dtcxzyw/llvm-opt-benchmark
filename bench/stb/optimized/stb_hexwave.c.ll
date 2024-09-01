@@ -999,10 +999,7 @@ for.body30.us:                                    ; preds = %for.cond27.preheade
   %exitcond147.not = icmp eq i32 %inc.us, 16
   br i1 %exitcond147.not, label %for.end, label %for.body30.us, !llvm.loop !16
 
-for.cond75.preheader:                             ; preds = %for.end
-  br i1 %cmp25.not112, label %for.cond103.preheader, label %for.body78.lr.ph
-
-for.body78.lr.ph:                                 ; preds = %for.cond75.preheader
+for.body78.lr.ph:                                 ; preds = %for.end
   %idxprom82 = zext nneg i32 %mul2 to i64
   %arrayidx83 = getelementptr inbounds float, ptr %cond102, i64 %idxprom82
   %conv92 = sitofp i32 %div to float
@@ -1047,9 +1044,9 @@ for.end:                                          ; preds = %for.body30, %for.bo
   store float %conv69, ptr %arrayidx71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond150.not, label %for.cond75.preheader, label %for.cond27.preheader, !llvm.loop !17
+  br i1 %exitcond150.not, label %for.body78.lr.ph, label %for.cond27.preheader, !llvm.loop !17
 
-for.cond103.preheader:                            ; preds = %for.body78, %if.end24, %for.cond75.preheader
+for.cond103.preheader:                            ; preds = %for.body78, %if.end24
   %cmp104.not120 = icmp slt i32 %oversample, 0
   br i1 %cmp104.not120, label %for.end169, label %for.cond107.preheader.lr.ph
 
@@ -1088,7 +1085,7 @@ for.body110.us:                                   ; preds = %for.cond107.prehead
 for.cond107.for.inc130_crit_edge.us:              ; preds = %for.body110.us
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
-  br i1 %exitcond170.not, label %for.cond133.preheader, label %for.cond107.preheader.us, !llvm.loop !19
+  br i1 %exitcond170.not, label %for.cond137.preheader.lr.ph, label %for.cond107.preheader.us, !llvm.loop !19
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
   %indvars.iv151 = phi i64 [ 0, %for.body78.lr.ph ], [ %indvars.iv.next152, %for.body78 ]
@@ -1108,10 +1105,7 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count155
   br i1 %exitcond156.not, label %for.cond103.preheader, label %for.body78, !llvm.loop !20
 
-for.cond133.preheader:                            ; preds = %for.cond107.for.inc130_crit_edge.us
-  br i1 %cmp104.not120, label %for.end169, label %for.cond137.preheader.lr.ph
-
-for.cond137.preheader.lr.ph:                      ; preds = %for.cond107.preheader.lr.ph, %for.cond133.preheader
+for.cond137.preheader.lr.ph:                      ; preds = %for.cond107.for.inc130_crit_edge.us, %for.cond107.preheader.lr.ph
   %cmp138122 = icmp slt i32 %div, %spec.store.select106
   %conv157 = uitofp nneg i32 %oversample to float
   %div158 = fdiv float 1.000000e+00, %conv157
@@ -1165,7 +1159,7 @@ for.cond149.for.inc167_crit_edge.us:              ; preds = %for.body152.us
   %exitcond190.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count189
   br i1 %exitcond190.not, label %for.end169, label %for.body140.lr.ph.us, !llvm.loop !23
 
-for.end169:                                       ; preds = %for.cond149.for.inc167_crit_edge.us, %for.cond103.preheader, %for.cond137.preheader.lr.ph, %for.cond133.preheader
+for.end169:                                       ; preds = %for.cond149.for.inc167_crit_edge.us, %for.cond103.preheader, %for.cond137.preheader.lr.ph
   store ptr %blep_buffer.0, ptr getelementptr inbounds (i8, ptr @hexblep, i64 8), align 8
   store ptr %blamp_buffer.0, ptr getelementptr inbounds (i8, ptr @hexblep, i64 16), align 8
   store i32 %spec.store.select106, ptr @hexblep, align 8

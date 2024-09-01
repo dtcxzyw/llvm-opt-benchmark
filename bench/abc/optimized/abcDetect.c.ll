@@ -1224,10 +1224,7 @@ Vec_PtrGrow.exit.i161:                            ; preds = %162, %Vec_PtrGrow.e
   %wide.trip.count = zext nneg i32 %.val114 to i64
   br label %174
 
-.critedge4.preheader:                             ; preds = %174
-  br i1 %173, label %.lr.ph187, label %.critedge6.preheader
-
-.lr.ph187:                                        ; preds = %.critedge4.preheader
+.lr.ph187:                                        ; preds = %174
   %.val117 = load ptr, ptr %19, align 8
   %wide.trip.count206 = zext nneg i32 %.val114 to i64
   br label %181
@@ -1239,9 +1236,9 @@ Vec_PtrGrow.exit.i161:                            ; preds = %162, %Vec_PtrGrow.e
   %177 = tail call ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %176, i32 noundef 0) #31
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4.preheader, label %174, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph187, label %174, !llvm.loop !12
 
-.critedge6.preheader:                             ; preds = %.critedge8, %.critedge2, %.critedge4.preheader
+.critedge6.preheader:                             ; preds = %.critedge8, %.critedge2
   %.val124188 = load ptr, ptr %4, align 8
   %178 = getelementptr i8, ptr %.val124188, i64 4
   %.val124.val189 = load i32, ptr %178, align 4

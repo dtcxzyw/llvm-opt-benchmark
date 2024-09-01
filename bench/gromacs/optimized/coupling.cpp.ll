@@ -5949,16 +5949,13 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   %117 = load double, ptr %87, align 8
   %118 = tail call double @llvm.fmuladd.f64(double %115, double %116, double %117)
   store double %118, ptr %87, align 8
-  br i1 %24, label %.lr.ph169, label %._crit_edge170
-
-.lr.ph169:                                        ; preds = %._crit_edge
   %119 = fmul double %93, -1.250000e-01
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %120
 
-120:                                              ; preds = %.lr.ph169, %120
-  %121 = phi double [ %.pre, %.lr.ph169 ], [ %130, %120 ]
-  %indvars.iv186 = phi i64 [ %28, %.lr.ph169 ], [ %indvars.iv.next187, %120 ]
+120:                                              ; preds = %._crit_edge, %120
+  %121 = phi double [ %.pre, %._crit_edge ], [ %130, %120 ]
+  %indvars.iv186 = phi i64 [ %28, %._crit_edge ], [ %indvars.iv.next187, %120 ]
   %122 = fmul double %119, %121
   %123 = tail call double @exp(double noundef %122) #21
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, -1
@@ -5973,8 +5970,8 @@ define internal fastcc void @_ZL11NHC_trotterPK9t_grpoptsiPK14gmx_ekindata_tfPdS
   %131 = icmp sgt i64 %indvars.iv186, 1
   br i1 %131, label %120, label %._crit_edge170, !llvm.loop !100
 
-._crit_edge170:                                   ; preds = %120, %._crit_edge.thread, %._crit_edge
-  %132 = phi double [ %97, %._crit_edge.thread ], [ %115, %._crit_edge ], [ %115, %120 ]
+._crit_edge170:                                   ; preds = %120, %._crit_edge.thread
+  %132 = phi double [ %97, %._crit_edge.thread ], [ %115, %120 ]
   %133 = fmul double %93, -5.000000e-01
   %134 = load double, ptr %31, align 8
   %135 = fmul double %133, %134

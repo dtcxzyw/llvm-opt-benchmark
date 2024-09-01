@@ -442,7 +442,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 if.end.tail.i:                                    ; preds = %sub_2.i, %sub_1.i
   %35 = phi i32 [ %31, %sub_1.i ], [ %34, %sub_2.i ]
   %tobool2.not.i = icmp eq i32 %35, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %sub_149.i
+  br i1 %tobool2.not.i, label %if.then3.i, label %sub_048.i
 
 if.then3.i:                                       ; preds = %if.end.tail.i
   %ap.i = getelementptr inbounds i8, ptr %ctxt, i64 24
@@ -472,19 +472,19 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   %41 = load ptr, ptr %vaarg.addr.i, align 8
   br label %return
 
-sub_149.i:                                        ; preds = %if.end.tail.i
+sub_048.i:                                        ; preds = %if.end.tail.i
   %42 = add nsw i32 %30, -105
   %.not70.i = icmp eq i32 %42, 0
   br i1 %.not70.i, label %sub_250.i, label %if.else5.tail.i
 
-sub_250.i:                                        ; preds = %sub_149.i
+sub_250.i:                                        ; preds = %sub_048.i
   %43 = getelementptr inbounds i8, ptr %call.i.i, i64 14
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   br label %if.else5.tail.i
 
-if.else5.tail.i:                                  ; preds = %sub_250.i, %sub_149.i
-  %46 = phi i32 [ %42, %sub_149.i ], [ %45, %sub_250.i ]
+if.else5.tail.i:                                  ; preds = %sub_250.i, %sub_048.i
+  %46 = phi i32 [ %42, %sub_048.i ], [ %45, %sub_250.i ]
   %tobool9.not.i = icmp eq i32 %46, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %sub_153.i
 

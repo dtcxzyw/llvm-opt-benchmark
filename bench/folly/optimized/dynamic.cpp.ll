@@ -12172,7 +12172,7 @@ for.inc.i.i47:                                    ; preds = %while.end.i.i44
 invoke.cont102:                                   ; preds = %for.inc.i.i47, %while.end.i.i44
   %61 = load i32, ptr %target, align 8, !tbaa !7
   %cmp.not.i.not.i.i.i240 = icmp eq i32 %61, 5
-  br i1 %cmp.not.i.not.i.i.i240, label %invoke.cont110, label %cleanup.cont.i.i.i241
+  br i1 %cmp.not.i.not.i.i.i240, label %if.then114, label %cleanup.cont.i.i.i241
 
 invoke.cont102.thread:                            ; preds = %call.i.i.i.i.noexc56
   %62 = load i32, ptr %target, align 8, !tbaa !7
@@ -12187,10 +12187,7 @@ cleanup.cont.i.i.i241:                            ; preds = %invoke.cont102.thre
 .noexc243:                                        ; preds = %cleanup.cont.i.i.i241
   unreachable
 
-invoke.cont110:                                   ; preds = %invoke.cont102
-  br i1 %cmp.i11.not.i33, label %if.then114, label %if.end119
-
-if.then114:                                       ; preds = %invoke.cont110
+if.then114:                                       ; preds = %invoke.cont102
   %64 = load i32, ptr %agg.result, align 8, !tbaa !7
   switch i32 %64, label %if.then.i256 [
     i32 5, label %_ZN5folly7dynamic3getINS0_10ObjectImplEEERT_v.exit.i250
@@ -12267,7 +12264,7 @@ lpad105:                                          ; preds = %cleanup.cont.i.i.i2
           cleanup
   br label %ehcleanup130
 
-if.end119:                                        ; preds = %invoke.cont102.thread, %if.else.i, %invoke.cont116, %invoke.cont110
+if.end119:                                        ; preds = %invoke.cont102.thread, %if.else.i, %invoke.cont116
   %add.ptr.i.i.i.i.i266 = getelementptr inbounds i8, ptr %__begin184.sroa.0.0344123, i64 -16
   %mul.neg.i.i.i.i.i267 = mul nsw i64 %__begin184.sroa.9.0345122, -8
   %add.ptr1.i.i.i.i.i268 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i266, i64 %mul.neg.i.i.i.i.i267

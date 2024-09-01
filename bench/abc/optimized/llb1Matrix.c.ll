@@ -332,17 +332,14 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.preheader.lr.ph, label %._crit_edge101
+  br i1 %15, label %.preheader.us.us.preheader, label %._crit_edge101
 
 .preheader74.thread:                              ; preds = %1
   %16 = getelementptr inbounds i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   br label %._crit_edge101
 
-.preheader.lr.ph:                                 ; preds = %.preheader74
-  br i1 %7, label %.preheader.us.us.preheader, label %._crit_edge101
-
-.preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
+.preheader.us.us.preheader:                       ; preds = %.preheader74
   %wide.trip.count143 = zext nneg i32 %3 to i64
   br label %.preheader.us.us
 
@@ -466,11 +463,11 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
   %exitcond138.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count137
   br i1 %exitcond138.not, label %.preheader74, label %28, !llvm.loop !16
 
-._crit_edge101:                                   ; preds = %._crit_edge96.us.us, %.preheader74.thread, %.preheader.lr.ph, %.preheader74
-  %60 = phi i32 [ %14, %.preheader74 ], [ %14, %.preheader.lr.ph ], [ %17, %.preheader74.thread ], [ %14, %._crit_edge96.us.us ]
-  %.060.lcssa153 = phi double [ %12, %.preheader74 ], [ %12, %.preheader.lr.ph ], [ 0.000000e+00, %.preheader74.thread ], [ %12, %._crit_edge96.us.us ]
-  %.058.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader74.thread ], [ %spec.select73.us.us, %._crit_edge96.us.us ]
-  %.0.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader74.thread ], [ %spec.select72.us.us, %._crit_edge96.us.us ]
+._crit_edge101:                                   ; preds = %._crit_edge96.us.us, %.preheader74.thread, %.preheader74
+  %60 = phi i32 [ %14, %.preheader74 ], [ %17, %.preheader74.thread ], [ %14, %._crit_edge96.us.us ]
+  %.060.lcssa153 = phi double [ %12, %.preheader74 ], [ 0.000000e+00, %.preheader74.thread ], [ %12, %._crit_edge96.us.us ]
+  %.058.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader74.thread ], [ %spec.select73.us.us, %._crit_edge96.us.us ]
+  %.0.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader74.thread ], [ %spec.select72.us.us, %._crit_edge96.us.us ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %62, label %61
 

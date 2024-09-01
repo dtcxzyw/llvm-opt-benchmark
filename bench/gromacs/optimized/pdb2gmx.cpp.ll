@@ -14579,17 +14579,14 @@ _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge: ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EED2Ev.exit
   %4848 = load ptr, ptr %303, align 8
   %4849 = icmp eq ptr %4848, null
-  br i1 %4849, label %.preheader1720, label %4871
+  br i1 %4849, label %.lr.ph2951, label %4871
 
 _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread: ; preds = %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833.preheader
   %4850 = load ptr, ptr %303, align 8
   %4851 = icmp eq ptr %4850, null
   br i1 %4851, label %.loopexit1721, label %4871
 
-.preheader1720:                                   ; preds = %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge
-  br i1 %.not.i.i.i.i77339003907392239413963, label %.loopexit1721, label %.lr.ph2951
-
-.lr.ph2951:                                       ; preds = %.preheader1720
+.lr.ph2951:                                       ; preds = %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge
   %.val666 = load ptr, ptr %175, align 8
   %smax3833 = call i32 @llvm.smax.i32(i32 %.0522.lcssa389238973910391939453957, i32 1)
   %wide.trip.count3834 = zext nneg i32 %smax3833 to i64
@@ -14823,10 +14820,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit1183:      ; preds = %4909, %4911
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %250) #28
   br label %.body856
 
-.loopexit1721:                                    ; preds = %4852, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread, %.preheader1720, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183
-  %.not.i.i.i.i7733900390739223942 = phi i1 [ true, %.preheader1720 ], [ %.not.i.i.i.i77339003907392239413963, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ true, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ %.not.i.i.i.i77339003907392239413963, %4852 ]
-  %.sroa.01524.1.lcssa3931 = phi ptr [ %.sroa.01524.4.lcssa, %.preheader1720 ], [ %.sroa.01524.1.lcssa3932, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ %.sroa.01524.4.lcssa, %4852 ]
-  %4913 = phi ptr [ null, %.preheader1720 ], [ %.pre3880, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ null, %4852 ]
+.loopexit1721:                                    ; preds = %4852, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183
+  %.not.i.i.i.i7733900390739223942 = phi i1 [ %.not.i.i.i.i77339003907392239413963, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ true, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ false, %4852 ]
+  %.sroa.01524.1.lcssa3931 = phi ptr [ %.sroa.01524.1.lcssa3932, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ %.sroa.01524.4.lcssa, %4852 ]
+  %4913 = phi ptr [ %.pre3880, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1183 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833._crit_edge.thread ], [ null, %4852 ]
   %4914 = load ptr, ptr %156, align 8
   %4915 = getelementptr inbounds i8, ptr %0, i64 4456
   %4916 = load ptr, ptr %4915, align 8

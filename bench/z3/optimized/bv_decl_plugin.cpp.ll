@@ -5379,43 +5379,37 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_family_id9.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = zext i32 %arity to i64
-  %1 = load ptr, ptr %domain, align 8
-  %m_info.i.i15 = getelementptr inbounds i8, ptr %1, i64 24
-  %2 = load ptr, ptr %m_info.i.i15, align 8
-  %cmp.i.i16 = icmp eq ptr %2, null
-  br i1 %cmp.i.i16, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i
+  %wide.trip.count = zext i32 %arity to i64
+  br label %for.body
 
-for.body:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds ptr, ptr %domain, i64 %indvars.iv.next
-  %3 = load ptr, ptr %arrayidx, align 8
-  %m_info.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %m_info.i.i, align 8
-  %cmp.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i, !llvm.loop !11
+for.body:                                         ; preds = %for.body.lr.ph, %if.end
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
+  %add79 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end ]
+  %arrayidx = getelementptr inbounds ptr, ptr %domain, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx, align 8
+  %m_info.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %1 = load ptr, ptr %m_info.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
+  br i1 %cmp.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i
 
-_ZNK4decl13get_family_idEv.exit.thread.i:         ; preds = %for.body.lr.ph, %for.body
-  %5 = phi ptr [ %4, %for.body ], [ %2, %for.body.lr.ph ]
-  %add7919 = phi i32 [ %add, %for.body ], [ 0, %for.body.lr.ph ]
-  %cmp1118 = phi i1 [ %cmp, %for.body ], [ false, %for.body.lr.ph ]
-  %indvars.iv17 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %6 = load i32, ptr %5, align 8
-  %7 = load i32, ptr %m_family_id9.i, align 8
-  %cmp10.i = icmp eq i32 %6, %7
+_ZNK4decl13get_family_idEv.exit.thread.i:         ; preds = %for.body
+  %2 = load i32, ptr %1, align 8
+  %3 = load i32, ptr %m_family_id9.i, align 8
+  %cmp10.i = icmp eq i32 %2, %3
   br i1 %cmp10.i, label %_ZNK4decl13get_decl_kindEv.exit.i, label %return
 
 _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  %8 = load i32, ptr %m_kind.i.i.i, align 4
-  %cmp3.i = icmp eq i32 %8, 0
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = load i32, ptr %m_kind.i.i.i, align 4
+  %cmp3.i = icmp eq i32 %4, 0
   br i1 %cmp3.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %_ZNK4decl13get_decl_kindEv.exit.i
-  %m_parameters.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load ptr, ptr %m_parameters.i.i.i, align 8
-  %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr %_M_index.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq i8 %10, 0
+  %m_parameters.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %m_parameters.i.i.i, align 8
+  %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i8, ptr %_M_index.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %cmp.not.i.i.i.i, label %if.end, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
@@ -5427,16 +5421,15 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
   unreachable
 
 if.end:                                           ; preds = %if.then.i
-  %11 = load i32, ptr %9, align 4
-  %add = add nsw i32 %add7919, %11
+  %7 = load i32, ptr %5, align 4
+  %add = add nsw i32 %add79, %7
   store i32 %add, ptr %result, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv17, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %0
-  %exitcond = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
 
-return:                                           ; preds = %for.body, %_ZNK4decl13get_family_idEv.exit.thread.i, %_ZNK4decl13get_decl_kindEv.exit.i, %if.end, %for.body.lr.ph, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.lr.ph ], [ %cmp, %if.end ], [ %cmp1118, %_ZNK4decl13get_decl_kindEv.exit.i ], [ %cmp1118, %_ZNK4decl13get_family_idEv.exit.thread.i ], [ %cmp, %for.body ]
+return:                                           ; preds = %if.end, %_ZNK4decl13get_decl_kindEv.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i, %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i ], [ false, %_ZNK4decl13get_decl_kindEv.exit.i ], [ true, %if.end ]
   ret i1 %cmp.lcssa
 }
 

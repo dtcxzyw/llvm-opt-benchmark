@@ -1938,9 +1938,9 @@ for.body.i:                                       ; preds = %if.end9.thread.i, %
 
 SetLength.exit:                                   ; preds = %for.body.i
   %3 = trunc nuw nsw i64 %indvars.iv.next26.i to i32
-  br i1 %tobool.not, label %if.end8, label %if.then5
+  br label %if.then5
 
-if.then5:                                         ; preds = %if.end9.thread.i, %if.then1.i, %SetLength.exit
+if.then5:                                         ; preds = %SetLength.exit, %if.end9.thread.i, %if.then1.i
   %i.0.i29 = phi i32 [ %3, %SetLength.exit ], [ 1, %if.then1.i ], [ 1, %if.end9.thread.i ]
   %add3 = add i32 %i.0.i29, 1
   %idxprom6 = zext i32 %add3 to i64
@@ -1948,8 +1948,8 @@ if.then5:                                         ; preds = %if.end9.thread.i, %
   store i8 %unusedBits, ptr %arrayidx7, align 1
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end, %for.body.us.preheader.i, %if.end9.i, %if.then5, %SetLength.exit
-  %i.0.i25 = phi i32 [ %i.0.i29, %if.then5 ], [ %3, %SetLength.exit ], [ %2, %for.body.us.preheader.i ], [ 1, %if.end9.i ], [ 1, %if.end ]
+if.end8:                                          ; preds = %if.end, %for.body.us.preheader.i, %if.end9.i, %if.then5
+  %i.0.i25 = phi i32 [ %i.0.i29, %if.then5 ], [ %2, %for.body.us.preheader.i ], [ 1, %if.end9.i ], [ 1, %if.end ]
   %inc = add i32 %i.0.i25, 2
   ret i32 %inc
 }
@@ -8833,8 +8833,8 @@ for.body.us.preheader.i.i.i:                      ; preds = %BytePrecision.exit.
   br label %SetCurve.exit
 
 SetCurve.exit:                                    ; preds = %for.inc.i.i.i.i, %if.end.i, %BytePrecision.exit.i.i.i, %for.body.us.preheader.i.i.i
-  %add2.i15.i = phi i32 [ 2, %if.end.i ], [ %6, %for.body.us.preheader.i.i.i ], [ 2, %BytePrecision.exit.i.i.i ], [ 2, %for.inc.i.i.i.i ]
-  %add.i = add nsw i32 %add2.i15.i, %2
+  %i.0.i.i.ph.i = phi i32 [ 2, %if.end.i ], [ %6, %for.body.us.preheader.i.i.i ], [ 2, %BytePrecision.exit.i.i.i ], [ 2, %for.inc.i.i.i.i ]
+  %add.i = add nsw i32 %i.0.i.i.ph.i, %2
   %cmp9 = icmp slt i32 %add.i, 1
   br i1 %cmp9, label %return, label %if.end11
 
@@ -9034,12 +9034,12 @@ if.end22.loopexit23.i.i.i:                        ; preds = %for.body.i.i.i98
   br label %lor.lhs.false.i112
 
 lor.lhs.false.i112:                               ; preds = %if.end9.thread.i.i.i.thread, %if.end.thread.i.i.thread, %if.end9.thread.i.i.i, %if.end22.loopexit23.i.i.i
-  %phi.call189 = phi i32 [ 2, %if.end.thread.i.i.thread ], [ %17, %if.end22.loopexit23.i.i.i ], [ 2, %if.end9.thread.i.i.i ], [ 2, %if.end9.thread.i.i.i.thread ]
-  %idx.ext = zext i32 %phi.call189 to i64
+  %i.0.i.i.i102 = phi i32 [ 2, %if.end.thread.i.i.thread ], [ %17, %if.end22.loopexit23.i.i.i ], [ 2, %if.end9.thread.i.i.i ], [ 2, %if.end9.thread.i.i.i.thread ]
+  %idx.ext = zext i32 %i.0.i.i.i102 to i64
   %add.ptr = getelementptr inbounds i8, ptr %output, i64 %idx.ext
   %conv = zext i32 %call12 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %algo, i64 %conv, i1 false)
-  %add36 = add i32 %phi.call189, %call12
+  %add36 = add i32 %i.0.i.i.i102, %call12
   %idx.ext39 = zext i32 %add36 to i64
   %add.ptr40 = getelementptr inbounds i8, ptr %output, i64 %idx.ext39
   %18 = load ptr, ptr %dp, align 8
@@ -11226,8 +11226,8 @@ if.end17.i:                                       ; preds = %if.end45.i.i.i.i40.
   store i32 %add47.i.i.i.i43.i, ptr %sigIndex.i, align 4
   %version.i = getelementptr inbounds i8, ptr %cert, i64 44
   %add.i.i.i = add i32 %idx.1.i.i.i.i42.i, 1
-  %cmp6.i.i.not.i = icmp ugt i32 %add.i.i.i, %add47.i.i.i.i43.i
-  br i1 %cmp6.i.i.not.i, label %return, label %if.end.i.i
+  %cmp6.i.i.i = icmp ugt i32 %add.i.i.i, %add47.i.i.i.i43.i
+  br i1 %cmp6.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end17.i
   %idxprom.i.i.i = zext i32 %idx.1.i.i.i.i42.i to i64
@@ -14824,14 +14824,14 @@ if.end53.i.i.i.i.i.i:                             ; preds = %if.end45.i.i.i.i.i.
 if.end21.i.i.i.i:                                 ; preds = %if.end53.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i.i, i8 0, i64 24, i1 false)
   %cond.i.i.i.i = icmp eq i32 %98, 265
-  br i1 %cond.i.i.i.i, label %if.then5.i44.i.i.i.i, label %if.end82.i.i.i.i
+  br i1 %cond.i.i.i.i, label %sw.bb.i.i.i.i, label %if.end82.i.i.i.i
 
-if.then5.i44.i.i.i.i:                             ; preds = %if.end21.i.i.i.i
+sw.bb.i.i.i.i:                                    ; preds = %if.end21.i.i.i.i
   %add.i45.i.i.i.i = add i32 %idx.1.i.i.i.i.i.i, 1
   %cmp6.i46.i.i.i.i = icmp ugt i32 %add.i45.i.i.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp6.i46.i.i.i.i, label %return.sink.split.i.i.i, label %101
 
-101:                                              ; preds = %if.then5.i44.i.i.i.i
+101:                                              ; preds = %sw.bb.i.i.i.i
   %idxprom.i48.i.i.i.i = zext i32 %idx.1.i.i.i.i.i.i to i64
   %arrayidx.i49.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i48.i.i.i.i
   %102 = load i8, ptr %arrayidx.i49.i.i.i.i, align 1
@@ -15046,9 +15046,9 @@ if.end323.i.i.i:                                  ; preds = %if.end53.i.i482.i.i
   %cmp6.i.i188.i = icmp sgt i32 %length.1.i.i187.i, 0
   br i1 %cmp6.i.i188.i, label %while.body.i.i184.i, label %DecodeAltNames.exit.i.i, !llvm.loop !20
 
-return.sink.split.i.i.i:                          ; preds = %if.end53.i.i63.i.i.i.i, %if.end45.i.i58.i.i.i.i, %while.end.i.i99.i.i.i.i, %if.end22.thread.i.i106.i.i.i.i, %if.end22.i.i78.i.i.i.i, %if.else12.i.i72.i.i.i.i, %land.lhs.true47.i.i.i.i, %101, %if.then5.i44.i.i.i.i, %if.end234.i.i.i, %if.end134.i.i.i, %if.end81.i.i.i, %if.end29.i.i.i
-  %call.i.i.lcssa.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end29.i.i.i ], [ %call.i216.i.i.i, %if.end81.i.i.i ], [ %call.i279.i.i.i, %if.end134.i.i.i ], [ %call.i342.i.i.i, %if.end234.i.i.i ], [ %call.i.i.i.i.i, %if.end53.i.i63.i.i.i.i ], [ %call.i.i.i.i.i, %if.end45.i.i58.i.i.i.i ], [ %call.i.i.i.i.i, %while.end.i.i99.i.i.i.i ], [ %call.i.i.i.i.i, %if.end22.thread.i.i106.i.i.i.i ], [ %call.i.i.i.i.i, %if.end22.i.i78.i.i.i.i ], [ %call.i.i.i.i.i, %if.else12.i.i72.i.i.i.i ], [ %call.i.i.i.i.i, %land.lhs.true47.i.i.i.i ], [ %call.i.i.i.i.i, %101 ], [ %call.i.i.i.i.i, %if.then5.i44.i.i.i.i ]
-  %retval.0.ph.i.i.i = phi i32 [ -125, %if.end29.i.i.i ], [ -125, %if.end81.i.i.i ], [ -125, %if.end134.i.i.i ], [ -125, %if.end234.i.i.i ], [ -140, %if.end53.i.i63.i.i.i.i ], [ -140, %if.end45.i.i58.i.i.i.i ], [ -140, %while.end.i.i99.i.i.i.i ], [ -140, %if.end22.thread.i.i106.i.i.i.i ], [ -140, %if.end22.i.i78.i.i.i.i ], [ -140, %if.else12.i.i72.i.i.i.i ], [ -140, %land.lhs.true47.i.i.i.i ], [ -140, %101 ], [ -140, %if.then5.i44.i.i.i.i ]
+return.sink.split.i.i.i:                          ; preds = %if.end53.i.i63.i.i.i.i, %if.end45.i.i58.i.i.i.i, %while.end.i.i99.i.i.i.i, %if.end22.thread.i.i106.i.i.i.i, %if.end22.i.i78.i.i.i.i, %if.else12.i.i72.i.i.i.i, %land.lhs.true47.i.i.i.i, %101, %sw.bb.i.i.i.i, %if.end234.i.i.i, %if.end134.i.i.i, %if.end81.i.i.i, %if.end29.i.i.i
+  %call.i.i.lcssa.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end29.i.i.i ], [ %call.i216.i.i.i, %if.end81.i.i.i ], [ %call.i279.i.i.i, %if.end134.i.i.i ], [ %call.i342.i.i.i, %if.end234.i.i.i ], [ %call.i.i.i.i.i, %if.end53.i.i63.i.i.i.i ], [ %call.i.i.i.i.i, %if.end45.i.i58.i.i.i.i ], [ %call.i.i.i.i.i, %while.end.i.i99.i.i.i.i ], [ %call.i.i.i.i.i, %if.end22.thread.i.i106.i.i.i.i ], [ %call.i.i.i.i.i, %if.end22.i.i78.i.i.i.i ], [ %call.i.i.i.i.i, %if.else12.i.i72.i.i.i.i ], [ %call.i.i.i.i.i, %land.lhs.true47.i.i.i.i ], [ %call.i.i.i.i.i, %101 ], [ %call.i.i.i.i.i, %sw.bb.i.i.i.i ]
+  %retval.0.ph.i.i.i = phi i32 [ -125, %if.end29.i.i.i ], [ -125, %if.end81.i.i.i ], [ -125, %if.end134.i.i.i ], [ -125, %if.end234.i.i.i ], [ -140, %if.end53.i.i63.i.i.i.i ], [ -140, %if.end45.i.i58.i.i.i.i ], [ -140, %while.end.i.i99.i.i.i.i ], [ -140, %if.end22.thread.i.i106.i.i.i.i ], [ -140, %if.end22.i.i78.i.i.i.i ], [ -140, %if.else12.i.i72.i.i.i.i ], [ -140, %land.lhs.true47.i.i.i.i ], [ -140, %101 ], [ -140, %sw.bb.i.i.i.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i.i.lcssa.sink.i.i.i) #22
   br label %DecodeAltNames.exit.i.i
 

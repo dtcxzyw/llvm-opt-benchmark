@@ -3480,8 +3480,8 @@ define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr no
   %35 = getelementptr inbounds i8, ptr %34, i64 6
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2
-  %.not96.not = icmp eq i16 %37, 0
-  br i1 %.not96.not, label %64, label %38
+  %.not96 = icmp eq i16 %37, 0
+  br i1 %.not96, label %64, label %38
 
 38:                                               ; preds = %33
   %39 = tail call i32 @fed_mgr_is_origin_job(ptr noundef %0) #16
@@ -5732,7 +5732,7 @@ define internal fastcc noundef zeroext i1 @_scan_depend(ptr noundef %0, ptr noun
 
 4:                                                ; preds = %2
   store i32 0, ptr @_scan_depend.job_counter, align 4
-  br label %56
+  br label %57
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @_scan_depend.job_counter, align 4
@@ -5740,7 +5740,7 @@ define internal fastcc noundef zeroext i1 @_scan_depend(ptr noundef %0, ptr noun
   store i32 %7, ptr @_scan_depend.job_counter, align 4
   %8 = load i32, ptr @max_depend_depth, align 4
   %.not = icmp slt i32 %6, %8
-  br i1 %.not, label %9, label %56
+  br i1 %.not, label %9, label %57
 
 9:                                                ; preds = %5
   %10 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #16
@@ -5764,7 +5764,7 @@ define internal fastcc noundef zeroext i1 @_scan_depend(ptr noundef %0, ptr noun
   br i1 %.not28, label %.critedge, label %.lr.ph53.backedge
 
 .lr.ph53.backedge:                                ; preds = %.backedge, %.outer.backedge
-  %.be = phi ptr [ %19, %.backedge ], [ %36, %.outer.backedge ]
+  %.be = phi ptr [ %19, %.backedge ], [ %37, %.outer.backedge ]
   br label %.lr.ph53
 
 20:                                               ; preds = %.lr.ph53
@@ -5774,83 +5774,83 @@ define internal fastcc noundef zeroext i1 @_scan_depend(ptr noundef %0, ptr noun
   br i1 %.not29, label %.backedge, label %.split.us
 
 .split.us:                                        ; preds = %20
-  %.pre = load i32, ptr %15, align 8
-  %23 = icmp eq i32 %.pre, -1
-  br i1 %23, label %24, label %_depends_on_same_job.exit
+  %23 = load i32, ptr %15, align 8
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %_depends_on_same_job.exit
 
-24:                                               ; preds = %.split.us
-  %25 = load i32, ptr %11, align 4
-  %.not.i = icmp eq i32 %25, -2
-  br i1 %.not.i, label %26, label %28
+25:                                               ; preds = %.split.us
+  %26 = load i32, ptr %11, align 4
+  %.not.i = icmp eq i32 %26, -2
+  br i1 %.not.i, label %27, label %29
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %12, align 8
-  %.not9.i = icmp eq ptr %27, null
-  br i1 %.not9.i, label %31, label %28
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %12, align 8
+  %.not9.i = icmp eq ptr %28, null
+  br i1 %.not9.i, label %32, label %29
 
-28:                                               ; preds = %26, %24
-  %29 = load i32, ptr %13, align 8
-  %30 = icmp eq i32 %29, %17
-  br i1 %30, label %.critedge, label %34
+29:                                               ; preds = %27, %25
+  %30 = load i32, ptr %13, align 8
+  %31 = icmp eq i32 %30, %17
+  br i1 %31, label %.critedge, label %35
 
-31:                                               ; preds = %26
-  %32 = icmp eq ptr %1, %22
-  br i1 %32, label %.critedge, label %34
+32:                                               ; preds = %27
+  %33 = icmp eq ptr %1, %22
+  br i1 %33, label %.critedge, label %35
 
 _depends_on_same_job.exit:                        ; preds = %.split.us
-  %33 = icmp eq ptr %1, %22
-  br i1 %33, label %.critedge, label %34
+  %34 = icmp eq ptr %1, %22
+  br i1 %34, label %.critedge, label %35
 
-34:                                               ; preds = %31, %28, %_depends_on_same_job.exit
-  %35 = load i32, ptr %22, align 8
-  %.not30 = icmp eq i32 %35, -256427732
-  br i1 %.not30, label %37, label %.outer.backedge
+35:                                               ; preds = %32, %29, %_depends_on_same_job.exit
+  %36 = load i32, ptr %22, align 8
+  %.not30 = icmp eq i32 %36, -256427732
+  br i1 %.not30, label %38, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %37, %42, %45, %48, %34
-  %36 = tail call ptr @list_next(ptr noundef %10) #16
-  %.not2852 = icmp eq ptr %36, null
+.outer.backedge:                                  ; preds = %38, %43, %46, %49, %35
+  %37 = tail call ptr @list_next(ptr noundef %10) #16
+  %.not2852 = icmp eq ptr %37, null
   br i1 %.not2852, label %.critedge, label %.lr.ph53.backedge
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %22, i64 448
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 255
-  %41 = icmp ugt i32 %40, 2
-  br i1 %41, label %.outer.backedge, label %42
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %22, i64 448
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, 255
+  %42 = icmp ugt i32 %41, 2
+  br i1 %42, label %.outer.backedge, label %43
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %22, i64 216
-  %44 = load ptr, ptr %43, align 8
-  %.not31 = icmp eq ptr %44, null
-  br i1 %.not31, label %.outer.backedge, label %45
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %22, i64 216
+  %45 = load ptr, ptr %44, align 8
+  %.not31 = icmp eq ptr %45, null
+  br i1 %.not31, label %.outer.backedge, label %46
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 120
-  %47 = load ptr, ptr %46, align 8
-  %.not32 = icmp eq ptr %47, null
-  br i1 %.not32, label %.outer.backedge, label %48
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %45, i64 120
+  %48 = load ptr, ptr %47, align 8
+  %.not32 = icmp eq ptr %48, null
+  br i1 %.not32, label %.outer.backedge, label %49
 
-48:                                               ; preds = %45
-  %49 = tail call fastcc zeroext i1 @_scan_depend(ptr noundef nonnull %47, ptr noundef %1)
-  br i1 %49, label %50, label %.outer.backedge
+49:                                               ; preds = %46
+  %50 = tail call fastcc zeroext i1 @_scan_depend(ptr noundef nonnull %48, ptr noundef %1)
+  br i1 %50, label %51, label %.outer.backedge
 
-50:                                               ; preds = %48
-  %51 = tail call i32 @get_log_level() #16
-  %52 = icmp sgt i32 %51, 2
-  br i1 %52, label %53, label %.critedge
+51:                                               ; preds = %49
+  %52 = tail call i32 @get_log_level() #16
+  %53 = icmp sgt i32 %52, 2
+  br i1 %53, label %54, label %.critedge
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %15, i64 24
-  %55 = load ptr, ptr %54, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.108, ptr noundef %55, ptr noundef %1) #16
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %15, i64 24
+  %56 = load ptr, ptr %55, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.108, ptr noundef %56, ptr noundef %1) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %.outer.backedge, %_depends_on_same_job.exit, %28, %31, %.backedge, %9, %50, %53
-  %.1 = phi i1 [ true, %53 ], [ true, %50 ], [ false, %9 ], [ true, %31 ], [ true, %28 ], [ true, %_depends_on_same_job.exit ], [ false, %.outer.backedge ], [ false, %.backedge ]
+.critedge:                                        ; preds = %.outer.backedge, %_depends_on_same_job.exit, %29, %32, %.backedge, %9, %51, %54
+  %.1 = phi i1 [ true, %54 ], [ true, %51 ], [ false, %9 ], [ true, %32 ], [ true, %29 ], [ true, %_depends_on_same_job.exit ], [ false, %.outer.backedge ], [ false, %.backedge ]
   tail call void @list_iterator_destroy(ptr noundef %10) #16
-  br label %56
+  br label %57
 
-56:                                               ; preds = %5, %.critedge, %4
+57:                                               ; preds = %5, %.critedge, %4
   %.0 = phi i1 [ false, %4 ], [ %.1, %.critedge ], [ false, %5 ]
   ret i1 %.0
 }

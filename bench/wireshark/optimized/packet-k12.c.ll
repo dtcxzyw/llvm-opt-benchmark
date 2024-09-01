@@ -804,7 +804,7 @@ define internal noundef ptr @k12_copy_cb(ptr noundef returned %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str.42, i32 noundef 0) #5
@@ -837,70 +837,59 @@ define internal zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr nocaptur
   br i1 %19, label %._crit_edge43, label %.lr.ph42.preheader
 
 .lr.ph42.preheader:                               ; preds = %._crit_edge
-  %20 = zext i32 %.029.lcssa to i64
-  %21 = load ptr, ptr %5, align 8
+  %wide.trip.count = zext i32 %.029.lcssa to i64
+  br label %.lr.ph42
+
+.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next, %36 ]
+  %20 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @find_dissector(ptr noundef %21) #5
   %23 = load ptr, ptr %14, align 8
-  store ptr %22, ptr %23, align 8
-  %.not3267 = icmp eq ptr %22, null
-  br i1 %.not3267, label %.lr.ph42._crit_edge, label %.lr.ph69
+  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
+  store ptr %22, ptr %24, align 8
+  %.not32 = icmp eq ptr %22, null
+  br i1 %.not32, label %25, label %36
 
-.lr.ph42:                                         ; preds = %.lr.ph69
-  %24 = getelementptr ptr, ptr %5, i64 %indvars.iv.next
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @find_dissector(ptr noundef %25) #5
-  %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv.next
-  store ptr %26, ptr %28, align 8
-  %.not32 = icmp eq ptr %26, null
-  br i1 %.not32, label %.lr.ph42._crit_edge.loopexit, label %.lr.ph69, !llvm.loop !12
-
-.lr.ph42._crit_edge.loopexit:                     ; preds = %.lr.ph42
-  %29 = icmp uge i64 %indvars.iv.next, %20
-  br label %.lr.ph42._crit_edge
-
-.lr.ph42._crit_edge:                              ; preds = %.lr.ph42._crit_edge.loopexit, %.lr.ph42.preheader
-  %indvars.iv.lcssa = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next, %.lr.ph42._crit_edge.loopexit ]
-  %.lcssa62 = phi i1 [ false, %.lr.ph42.preheader ], [ %29, %.lr.ph42._crit_edge.loopexit ]
-  %30 = getelementptr ptr, ptr %5, i64 %indvars.iv.lcssa
-  %31 = load ptr, ptr @data_handle, align 8
-  %32 = load ptr, ptr %14, align 8
-  %33 = getelementptr ptr, ptr %32, i64 %indvars.iv.lcssa
-  store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr %14, align 8
-  %35 = add nuw i64 %indvars.iv.lcssa, 1
-  %36 = and i64 %35, 4294967295
-  %37 = getelementptr ptr, ptr %34, i64 %36
-  store ptr null, ptr %37, align 8
-  %38 = load ptr, ptr %30, align 8
-  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef %38) #5
-  store ptr %39, ptr %1, align 8
+25:                                               ; preds = %.lr.ph42
+  %26 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %27 = load ptr, ptr @data_handle, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = getelementptr ptr, ptr %28, i64 %indvars.iv
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %14, align 8
+  %31 = add nuw i64 %indvars.iv, 1
+  %32 = and i64 %31, 4294967295
+  %33 = getelementptr ptr, ptr %30, i64 %32
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %26, align 8
+  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef %34) #5
+  store ptr %35, ptr %1, align 8
   tail call void @g_strfreev(ptr noundef nonnull %5) #5
-  br label %43
+  br label %40
 
-.lr.ph69:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
-  %indvars.iv68 = phi i64 [ %indvars.iv.next, %.lr.ph42 ], [ 0, %.lr.ph42.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond, label %._crit_edge43.loopexit, label %.lr.ph42, !llvm.loop !12
+36:                                               ; preds = %.lr.ph42
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge43.loopexit, label %.lr.ph42, !llvm.loop !12
 
-._crit_edge43.loopexit:                           ; preds = %.lr.ph69
+._crit_edge43.loopexit:                           ; preds = %36
   %.pre = load ptr, ptr %14, align 8
-  %40 = zext i32 %.029.lcssa to i64
+  %37 = zext i32 %.029.lcssa to i64
   br label %._crit_edge43
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %._crit_edge43.loopexit
-  %41 = phi ptr [ %.pre, %._crit_edge43.loopexit ], [ %18, %._crit_edge ]
-  %.0.lcssa = phi i64 [ %40, %._crit_edge43.loopexit ], [ 0, %._crit_edge ]
-  %42 = getelementptr ptr, ptr %41, i64 %.0.lcssa
-  store ptr null, ptr %42, align 8
+  %38 = phi ptr [ %.pre, %._crit_edge43.loopexit ], [ %18, %._crit_edge ]
+  %.0.lcssa = phi i64 [ %37, %._crit_edge43.loopexit ], [ 0, %._crit_edge ]
+  %39 = getelementptr ptr, ptr %38, i64 %.0.lcssa
+  store ptr null, ptr %39, align 8
   tail call void @g_strfreev(ptr noundef nonnull %5) #5
   store ptr null, ptr %1, align 8
-  br label %43
+  br label %40
 
-43:                                               ; preds = %._crit_edge43, %.lr.ph42._crit_edge
-  %44 = phi i1 [ true, %._crit_edge43 ], [ %.lcssa62, %.lr.ph42._crit_edge ]
-  ret i1 %44
+40:                                               ; preds = %._crit_edge43, %25
+  %41 = phi i1 [ true, %._crit_edge43 ], [ false, %25 ]
+  ret i1 %41
 }
 
 ; Function Attrs: nounwind uwtable

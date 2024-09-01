@@ -1122,15 +1122,15 @@ complete_tab_node.exit:                           ; preds = %tm_complete_obj_wei
   store ptr %192, ptr %193, align 8
   %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i119, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i120, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph69.preheader.i.i, label %.lr.ph.i.i118, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i118, !llvm.loop !21
 
-.lr.ph69.preheader.i.i:                           ; preds = %.lr.ph.i.i118
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i118
   %194 = tail call noalias ptr @calloc(i64 noundef %187, i64 noundef 8) #28
   br label %.lr.ph69.i.i
 
-.lr.ph69.i.i:                                     ; preds = %.lr.ph69.i.i, %.lr.ph69.preheader.i.i
-  %indvars.iv81.i.i = phi i64 [ 0, %.lr.ph69.preheader.i.i ], [ %indvars.iv.next82.i.i, %.lr.ph69.i.i ]
-  %.06266.i.i = phi double [ 0.000000e+00, %.lr.ph69.preheader.i.i ], [ %197, %.lr.ph69.i.i ]
+.lr.ph69.i.i:                                     ; preds = %.lr.ph69.i.i, %._crit_edge.i.i
+  %indvars.iv81.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next82.i.i, %.lr.ph69.i.i ]
+  %.06266.i.i = phi double [ 0.000000e+00, %._crit_edge.i.i ], [ %197, %.lr.ph69.i.i ]
   %195 = getelementptr inbounds double, ptr %.0164185, i64 %indvars.iv81.i.i
   %196 = load double, ptr %195, align 8
   %197 = fadd double %.06266.i.i, %196
@@ -2043,13 +2043,13 @@ select_independent_groups_by_largest_index.exit.thread233.i: ; preds = %567, %50
 597:                                              ; preds = %596, %593
   br i1 %437, label %.lr.ph.i195.i, label %compute_weighted_degree.exit.i
 
-.lr.ph42.i.i:                                     ; preds = %.lr.ph.i195.i
+.preheader.i199.i:                                ; preds = %.lr.ph.i195.i
   %wide.trip.count21.i.i.i = zext nneg i32 %2 to i64
   br i1 %240, label %.lr.ph42.split.us.i.i, label %.lr.ph42.split.i.i
 
-.lr.ph42.split.us.i.i:                            ; preds = %.lr.ph42.i.i, %613
-  %indvars.iv58.i201.i = phi i64 [ %indvars.iv.next59.i202.i, %613 ], [ 0, %.lr.ph42.i.i ]
-  %indvars.iv51.i.i = phi i64 [ %indvars.iv.next52.i.i, %613 ], [ 1, %.lr.ph42.i.i ]
+.lr.ph42.split.us.i.i:                            ; preds = %.preheader.i199.i, %613
+  %indvars.iv58.i201.i = phi i64 [ %indvars.iv.next59.i202.i, %613 ], [ 0, %.preheader.i199.i ]
+  %indvars.iv51.i.i = phi i64 [ %indvars.iv.next52.i.i, %613 ], [ 1, %.preheader.i199.i ]
   %indvars.iv.next59.i202.i = add nuw nsw i64 %indvars.iv58.i201.i, 1
   %598 = icmp ult i64 %indvars.iv.next59.i202.i, %423
   br i1 %598, label %.lr.ph40.us.i.i, label %._crit_edge.split.us.us.i.i
@@ -2152,10 +2152,10 @@ independent_tab.exit.thread.us.us.i.i:            ; preds = %._crit_edge.us.i.us
   store double 0.000000e+00, ptr %647, align 8
   %indvars.iv.next.i197.i = add nuw nsw i64 %indvars.iv.i196.i, 1
   %exitcond.not.i198.i = icmp eq i64 %indvars.iv.next.i197.i, %423
-  br i1 %exitcond.not.i198.i, label %.lr.ph42.i.i, label %.lr.ph.i195.i, !llvm.loop !41
+  br i1 %exitcond.not.i198.i, label %.preheader.i199.i, label %.lr.ph.i195.i, !llvm.loop !41
 
-.lr.ph42.split.i.i:                               ; preds = %.lr.ph42.i.i, %662
-  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %662 ], [ 0, %.lr.ph42.i.i ]
+.lr.ph42.split.i.i:                               ; preds = %.preheader.i199.i, %662
+  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %662 ], [ 0, %.preheader.i199.i ]
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %648 = getelementptr inbounds ptr, ptr %434, i64 %indvars.iv46.i.i
   %649 = load ptr, ptr %648, align 8
@@ -2706,7 +2706,7 @@ init_independent_group_mat.exit.i.i:              ; preds = %init_independent_gr
   %exitcond23.not.i.i.i = icmp eq i64 %indvars.iv.next20.i.i.i, %wide.trip.count.i.i219.i
   br i1 %exitcond23.not.i.i.i, label %tm_update_val.exit.i, label %.lr.ph5.us.i.i.i, !llvm.loop !9
 
-.lr.ph.i.i220.i:                                  ; preds = %._crit_edge273.i, %.lr.ph.i.i220.i
+.lr.ph.i.i220.i:                                  ; preds = %.lr.ph.i.i220.i, %._crit_edge273.i
   %indvars.iv.i.i221.i = phi i64 [ %indvars.iv.next.i.i222.i, %.lr.ph.i.i220.i ], [ 0, %._crit_edge273.i ]
   %.02.i.i.i = phi double [ %881, %.lr.ph.i.i220.i ], [ 0.000000e+00, %._crit_edge273.i ]
   %874 = getelementptr inbounds ptr, ptr %857, i64 %indvars.iv.i.i221.i
@@ -4257,12 +4257,9 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
 .loopexit:                                        ; preds = %81, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %.preheader, label %76, !llvm.loop !85
+  br i1 %exitcond125.not, label %.lr.ph105.preheader, label %76, !llvm.loop !85
 
-.preheader:                                       ; preds = %.loopexit
-  br i1 %73, label %.lr.ph105.preheader, label %._crit_edge106
-
-.lr.ph105.preheader:                              ; preds = %.preheader
+.lr.ph105.preheader:                              ; preds = %.loopexit
   %wide.trip.count129 = zext nneg i32 %72 to i64
   br label %.lr.ph105
 
@@ -4314,9 +4311,9 @@ define internal void @partial_exhaustive_search(i32 noundef %0, ptr nocapture no
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !87
 
-._crit_edge106:                                   ; preds = %.lr.ph105, %71, %.preheader
-  %.2.lcssa = phi i32 [ %.080.ph111, %.preheader ], [ %.080.ph111, %71 ], [ %92, %.lr.ph105 ]
-  %.079.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %71 ], [ %99, %.lr.ph105 ]
+._crit_edge106:                                   ; preds = %.lr.ph105, %71
+  %.2.lcssa = phi i32 [ %.080.ph111, %71 ], [ %92, %.lr.ph105 ]
+  %.079.lcssa = phi double [ 0.000000e+00, %71 ], [ %99, %.lr.ph105 ]
   br label %100
 
 100:                                              ; preds = %169, %._crit_edge106

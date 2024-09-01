@@ -604,8 +604,8 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %__begin1.08.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %0, %for.body.lr.ph.i ]
   %4 = load i8, ptr %__begin1.08.i, align 1
   %5 = add i8 %4, -33
-  %or.cond19.i = icmp ult i8 %5, 94
-  br i1 %or.cond19.i, label %for.cond.i, label %if.then6
+  %or.cond20.i = icmp ult i8 %5, 94
+  br i1 %or.cond20.i, label %for.cond.i, label %if.then6
 
 if.then6:                                         ; preds = %for.body.us.i, %for.body.i, %for.body.lr.ph.split.us.i
   %valid_7 = getelementptr inbounds i8, ptr %this, i64 146

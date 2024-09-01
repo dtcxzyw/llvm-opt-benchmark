@@ -1094,7 +1094,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
 
 35:                                               ; preds = %7
   %36 = and i32 %32, -65536
-  br label %191
+  br label %192
 
 37:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
@@ -1116,18 +1116,15 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %.085.lcssa = phi i32 [ %42, %._crit_edge.split.loop.exit174 ], [ %33, %41 ]
   %43 = zext i32 %.085.lcssa to i64
   %44 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %.pre, i64 %43
-  br i1 %.not141, label %._crit_edge138, label %.lr.ph137
-
-.lr.ph137:                                        ; preds = %._crit_edge
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   %46 = getelementptr inbounds i8, ptr %44, i64 8
   %47 = getelementptr i8, ptr %1, i64 8
   %48 = sext i8 %6 to i32
   br label %49
 
-49:                                               ; preds = %.lr.ph137, %173
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next158, %173 ]
-  %.086135 = phi i32 [ 0, %.lr.ph137 ], [ %.1, %173 ]
+49:                                               ; preds = %._crit_edge, %173
+  %indvars.iv157 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next158, %173 ]
+  %.086135 = phi i32 [ 0, %._crit_edge ], [ %.1, %173 ]
   %.not = icmp eq i64 %indvars.iv157, %43
   br i1 %.not, label %173, label %50
 
@@ -1372,30 +1369,29 @@ Vec_IntErase.exit:                                ; preds = %167, %170
 
 ._crit_edge138.loopexit:                          ; preds = %173
   %.pre164 = load ptr, ptr %30, align 8
+  %178 = xor i32 %.085.lcssa, -1
+  %179 = add nsw i32 %175, %178
+  %180 = sext i32 %179 to i64
+  %181 = mul nsw i64 %180, 12
   br label %._crit_edge138
 
-._crit_edge138:                                   ; preds = %.preheader114, %._crit_edge138.loopexit, %._crit_edge
-  %178 = phi i64 [ %43, %._crit_edge ], [ %43, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %.085.lcssa166 = phi i32 [ %.085.lcssa, %._crit_edge ], [ %.085.lcssa, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %179 = phi ptr [ %.pre, %._crit_edge ], [ %.pre164, %._crit_edge138.loopexit ], [ %.pre, %.preheader114 ]
-  %.086.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %.lcssa115 = phi i32 [ 0, %._crit_edge ], [ %175, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %180 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %179, i64 %178
-  %181 = getelementptr inbounds i8, ptr %180, i64 12
-  %182 = xor i32 %.085.lcssa166, -1
-  %183 = add nsw i32 %.lcssa115, %182
-  %184 = sext i32 %183 to i64
-  %185 = mul nsw i64 %184, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr nonnull align 4 %181, i64 %185, i1 false)
-  %186 = load i32, ptr %31, align 8
-  %187 = add i32 %186, 65535
-  %188 = and i32 %187, 65535
-  %189 = and i32 %186, -65536
-  %190 = or disjoint i32 %188, %189
-  br label %191
+._crit_edge138:                                   ; preds = %.preheader114, %._crit_edge138.loopexit
+  %182 = phi i64 [ %43, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
+  %183 = phi ptr [ %.pre164, %._crit_edge138.loopexit ], [ %.pre, %.preheader114 ]
+  %.086.lcssa = phi i32 [ %.1, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
+  %184 = phi i64 [ %181, %._crit_edge138.loopexit ], [ -12, %.preheader114 ]
+  %185 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %183, i64 %182
+  %186 = getelementptr inbounds i8, ptr %185, i64 12
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr nonnull align 4 %186, i64 %184, i1 false)
+  %187 = load i32, ptr %31, align 8
+  %188 = add i32 %187, 65535
+  %189 = and i32 %188, 65535
+  %190 = and i32 %187, -65536
+  %191 = or disjoint i32 %189, %190
+  br label %192
 
-191:                                              ; preds = %._crit_edge138, %35
-  %storemerge = phi i32 [ %190, %._crit_edge138 ], [ %36, %35 ]
+192:                                              ; preds = %._crit_edge138, %35
+  %storemerge = phi i32 [ %191, %._crit_edge138 ], [ %36, %35 ]
   %.084 = phi i32 [ %.086.lcssa, %._crit_edge138 ], [ 0, %35 ]
   store i32 %storemerge, ptr %31, align 8
   ret i32 %.084

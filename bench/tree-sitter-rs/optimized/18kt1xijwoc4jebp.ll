@@ -4639,8 +4639,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc387.i
 
 .noexc439.i:                                      ; preds = %1349
   %.fca.0.extract.i.i.i.i.i = extractvalue { i64, i64 } %1350, 0
-  %switch.i.i.i.not.i.not.i = icmp eq i64 %.fca.0.extract.i.i.i.i.i, 0
-  br i1 %switch.i.i.i.not.i.not.i, label %1351, label %1354
+  %switch.i.i.i.not.not.not.i.not.i = icmp eq i64 %.fca.0.extract.i.i.i.i.i, 0
+  br i1 %switch.i.i.i.not.not.not.i.not.i, label %1351, label %1354
 
 1351:                                             ; preds = %.noexc439.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %413), !noalias !956
@@ -10558,8 +10558,8 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
           to label %.noexc511 unwind label %.loopexit.split-lp1253.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc511:                                        ; preds = %3077
-  %.not.not.i.not.i.not.i = icmp eq ptr %3078, null
-  br i1 %.not.not.i.not.i.not.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb5247bb4b2da42ddE.exit.i", label %3079
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %3078, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb5247bb4b2da42ddE.exit.i", label %3079
 
 3079:                                             ; preds = %.noexc511
   %3080 = getelementptr inbounds i8, ptr %3078, i64 8
@@ -23172,8 +23172,8 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbo
           to label %.noexc17 unwind label %.loopexit
 
 .noexc17:                                         ; preds = %60
-  %.not.not.i.not.i.not = icmp eq ptr %61, null
-  br i1 %.not.not.i.not.i.not, label %65, label %62
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %61, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %65, label %62
 
 62:                                               ; preds = %.noexc17
   %63 = load i64, ptr %61, align 8, !alias.scope !4100, !noalias !4105, !noundef !5

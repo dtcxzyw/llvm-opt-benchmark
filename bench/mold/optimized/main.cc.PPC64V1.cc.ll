@@ -10993,8 +10993,8 @@ for.body:                                         ; preds = %sw.bb2, %for.cond
   %__begin0.sroa.0.0107 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %3, %sw.bb2 ]
   %5 = load ptr, ptr %__begin0.sroa.0.0107, align 8
   %call8 = call noundef i32 @_ZN4mold13get_file_typeINS_3elf7ContextINS1_7PPC64V1EEENS_10MappedFileIS4_EEEENS_8FileTypeERT_PT0_(ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %5)
-  %cmp = icmp ne i32 %call8, 2
-  br i1 %cmp, label %for.cond, label %if.then
+  %cmp.not.not = icmp ne i32 %call8, 2
+  br i1 %cmp.not.not, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
   %data9 = getelementptr inbounds i8, ptr %5, i64 32
@@ -11082,7 +11082,7 @@ cleanupthread-pre-split:                          ; preds = %for.cond, %if.then,
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %sw.bb2
   %9 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %3, %sw.bb2 ]
-  %cmp.i1699 = phi i1 [ %cmp, %cleanupthread-pre-split ], [ true, %sw.bb2 ]
+  %cmp.i1699 = phi i1 [ %cmp.not.not, %cleanupthread-pre-split ], [ true, %sw.bb2 ]
   %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.1.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
   %retval.sroa.8.1 = phi ptr [ %retval.sroa.8.1.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
@@ -11114,8 +11114,8 @@ for.body25:                                       ; preds = %sw.bb12, %for.cond2
   %__begin015.sroa.0.0104 = phi ptr [ %incdec.ptr.i83, %for.cond21 ], [ %10, %sw.bb12 ]
   %12 = load ptr, ptr %__begin015.sroa.0.0104, align 8
   %call28 = call noundef i32 @_ZN4mold13get_file_typeINS_3elf7ContextINS1_7PPC64V1EEENS_10MappedFileIS4_EEEENS_8FileTypeERT_PT0_(ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %12)
-  %cmp29 = icmp ne i32 %call28, 2
-  br i1 %cmp29, label %for.cond21, label %if.then30
+  %cmp29.not.not = icmp ne i32 %call28, 2
+  br i1 %cmp29.not.not, label %for.cond21, label %if.then30
 
 if.then30:                                        ; preds = %for.body25
   %data31 = getelementptr inbounds i8, ptr %12, i64 32
@@ -11198,12 +11198,12 @@ sw.default.i81:                                   ; preds = %if.then30
 cleanup36thread-pre-split:                        ; preds = %for.cond21, %if.then30, %sw.bb18.i80, %sw.bb19.i79, %sw.bb20.i78, %if.then23.i76, %if.end25.i74, %sw.bb31.i72, %sw.bb32.i70, %sw.bb38.i69, %sw.bb39.i68, %sw.bb40.i67, %sw.bb41.i66, %sw.bb42.i65, %sw.bb43.i59, %sw.default.i81
   %retval.sroa.0.2.ph = phi i64 [ 4, %if.then30 ], [ 6, %sw.bb18.i80 ], [ 5, %sw.bb19.i79 ], [ 5, %sw.bb20.i78 ], [ 9, %if.end25.i74 ], [ 7, %if.then23.i76 ], [ 5, %sw.bb31.i72 ], [ 7, %sw.bb32.i70 ], [ 5, %sw.bb38.i69 ], [ 7, %sw.bb39.i68 ], [ 4, %sw.bb40.i67 ], [ 3, %sw.bb41.i66 ], [ 5, %sw.bb42.i65 ], [ 11, %sw.bb43.i59 ], [ 0, %sw.default.i81 ], [ undef, %for.cond21 ]
   %retval.sroa.8.2.ph = phi ptr [ @.str.51, %if.then30 ], [ @.str.52, %sw.bb18.i80 ], [ @.str.53, %sw.bb19.i79 ], [ @.str.54, %sw.bb20.i78 ], [ %retval.sroa.16.0.copyload27.i75, %if.end25.i74 ], [ %retval.sroa.16.0.copyload26.i77, %if.then23.i76 ], [ @.str.59, %sw.bb31.i72 ], [ %retval.sroa.16.0.copyload29.i71, %sw.bb32.i70 ], [ @.str.62, %sw.bb38.i69 ], [ @.str.63, %sw.bb39.i68 ], [ @.str.64, %sw.bb40.i67 ], [ @.str.65, %sw.bb41.i66 ], [ @.str.66, %sw.bb42.i65 ], [ %retval.sroa.16.0.copyload35.i60, %sw.bb43.i59 ], [ @.str.22, %sw.default.i81 ], [ undef, %for.cond21 ]
-  %.pr115 = load ptr, ptr %ref.tmp14, align 8
+  %.pr113 = load ptr, ptr %ref.tmp14, align 8
   br label %cleanup36
 
 cleanup36:                                        ; preds = %cleanup36thread-pre-split, %sw.bb12
-  %16 = phi ptr [ %.pr115, %cleanup36thread-pre-split ], [ %10, %sw.bb12 ]
-  %cmp.i50101 = phi i1 [ %cmp29, %cleanup36thread-pre-split ], [ true, %sw.bb12 ]
+  %16 = phi ptr [ %.pr113, %cleanup36thread-pre-split ], [ %10, %sw.bb12 ]
+  %cmp.i50101 = phi i1 [ %cmp29.not.not, %cleanup36thread-pre-split ], [ true, %sw.bb12 ]
   %retval.sroa.0.2 = phi i64 [ %retval.sroa.0.2.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
   %retval.sroa.8.2 = phi ptr [ %retval.sroa.8.2.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
   %tobool.not.i.i.i84 = icmp eq ptr %16, null

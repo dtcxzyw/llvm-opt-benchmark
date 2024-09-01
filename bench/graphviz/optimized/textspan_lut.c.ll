@@ -141,13 +141,13 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %2 = alloca %struct.agxbuf, align 8
   br label %3
 
-3:                                                ; preds = %1, %font_in_list_permissive.exit.thread12
-  %.0830 = phi i64 [ 0, %1 ], [ %63, %font_in_list_permissive.exit.thread12 ]
-  %4 = getelementptr inbounds [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.0830
+3:                                                ; preds = %1, %font_in_list_permissive.exit
+  %.0826 = phi i64 [ 0, %1 ], [ %63, %font_in_list_permissive.exit ]
+  %4 = getelementptr inbounds [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.0826
   %5 = load ptr, ptr %4, align 16
   %6 = load ptr, ptr %5, align 8
   %.not19.not.i = icmp eq ptr %6, null
-  br i1 %.not19.not.i, label %font_in_list_permissive.exit.thread12, label %.lr.ph.i
+  br i1 %.not19.not.i, label %font_in_list_permissive.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
@@ -182,7 +182,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %19 = getelementptr inbounds ptr, ptr %5, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not.us.us.not.i = icmp eq ptr %20, null
-  br i1 %.not.us.us.not.i, label %font_in_list_permissive.exit.thread12, label %.preheader33.i.us.us.i
+  br i1 %.not.us.us.not.i, label %font_in_list_permissive.exit, label %.preheader33.i.us.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.loopexit.i
   %21 = phi ptr [ %62, %.loopexit.i ], [ %6, %.lr.ph.i ]
@@ -280,14 +280,14 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %61 = getelementptr inbounds ptr, ptr %5, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.not.i = icmp eq ptr %62, null
-  br i1 %.not.not.i, label %font_in_list_permissive.exit.thread12, label %.lr.ph.split.i
+  br i1 %.not.not.i, label %font_in_list_permissive.exit, label %.lr.ph.split.i
 
-font_in_list_permissive.exit.thread12:            ; preds = %.loopexit.i, %.loopexit.us.us.i, %3
-  %63 = add nuw nsw i64 %.0830, 1
+font_in_list_permissive.exit:                     ; preds = %.loopexit.i, %.loopexit.us.us.i, %3
+  %63 = add nuw nsw i64 %.0826, 1
   %exitcond.not = icmp eq i64 %63, 11
   br i1 %exitcond.not, label %agxbsizeof.exit.i.i, label %3
 
-agxbsizeof.exit.i.i:                              ; preds = %font_in_list_permissive.exit.thread12
+agxbsizeof.exit.i.i:                              ; preds = %font_in_list_permissive.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr nonnull poison, ptr noundef %0)
   %64 = getelementptr inbounds i8, ptr %2, i64 31

@@ -47,10 +47,10 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %6) #4, !srcloc !11
   br label %12
 
-12:                                               ; preds = %.backedge17, %11
-  %13 = phi i32 [ 24, %11 ], [ %.be18, %.backedge17 ]
-  %14 = phi ptr [ @cpuid_deps, %11 ], [ %.be19, %.backedge17 ]
-  %15 = phi i8 [ 0, %11 ], [ %.be20, %.backedge17 ]
+12:                                               ; preds = %.backedge13, %11
+  %13 = phi i32 [ 24, %11 ], [ %.be14, %.backedge13 ]
+  %14 = phi ptr [ @cpuid_deps, %11 ], [ %.be15, %.backedge13 ]
+  %15 = phi i8 [ 0, %11 ], [ %.be16, %.backedge13 ]
   %16 = getelementptr inbounds i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
@@ -77,17 +77,17 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %30 = getelementptr i8, ptr %14, i64 8
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %.backedge17
+  br i1 %32, label %33, label %.backedge13
 
 33:                                               ; preds = %28
   %34 = and i8 %29, 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %37, label %.backedge17
+  br i1 %35, label %38, label %.backedge13
 
-.backedge17:                                      ; preds = %33, %28
-  %.be18 = phi i32 [ %31, %28 ], [ 24, %33 ]
-  %.be19 = phi ptr [ %30, %28 ], [ @cpuid_deps, %33 ]
-  %.be20 = phi i8 [ %29, %28 ], [ 0, %33 ]
+.backedge13:                                      ; preds = %33, %28
+  %.be14 = phi i32 [ %31, %28 ], [ 24, %33 ]
+  %.be15 = phi ptr [ %30, %28 ], [ @cpuid_deps, %33 ]
+  %.be16 = phi i8 [ %29, %28 ], [ 0, %33 ]
   br label %12, !llvm.loop !14
 
 .thread:                                          ; preds = %9
@@ -95,23 +95,20 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %6) #4, !srcloc !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %6) #4, !srcloc !11
-  br label %.split.preheader
+  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %.split
 
-37:                                               ; preds = %33
+38:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #4
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %6) #4, !srcloc !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %6) #4, !srcloc !11
-  br i1 %10, label %.split.us, label %.split.preheader
+  br label %.split.us
 
-.split.preheader:                                 ; preds = %.thread, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %.split
-
-.split.us:                                        ; preds = %37, %.split.us.backedge
-  %39 = phi i32 [ %.be10, %.split.us.backedge ], [ 24, %37 ]
-  %40 = phi ptr [ %.be11, %.split.us.backedge ], [ @cpuid_deps, %37 ]
-  %41 = phi i8 [ %.be12, %.split.us.backedge ], [ 0, %37 ]
+.split.us:                                        ; preds = %.split.us.backedge, %38
+  %39 = phi i32 [ 24, %38 ], [ %.be10, %.split.us.backedge ]
+  %40 = phi ptr [ @cpuid_deps, %38 ], [ %.be11, %.split.us.backedge ]
+  %41 = phi i8 [ 0, %38 ], [ %.be12, %.split.us.backedge ]
   %42 = getelementptr inbounds i8, ptr %40, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
@@ -213,10 +210,10 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %.be12 = phi i8 [ %82, %81 ], [ 0, %86 ]
   br label %.split.us, !llvm.loop !14
 
-.split:                                           ; preds = %.split.backedge, %.split.preheader
-  %89 = phi i32 [ 24, %.split.preheader ], [ %.be14, %.split.backedge ]
-  %90 = phi ptr [ @cpuid_deps, %.split.preheader ], [ %.be15, %.split.backedge ]
-  %91 = phi i8 [ 0, %.split.preheader ], [ %.be16, %.split.backedge ]
+.split:                                           ; preds = %.split.backedge, %.thread
+  %89 = phi i32 [ 24, %.thread ], [ %.be18, %.split.backedge ]
+  %90 = phi ptr [ @cpuid_deps, %.thread ], [ %.be19, %.split.backedge ]
+  %91 = phi i8 [ 0, %.thread ], [ %.be20, %.split.backedge ]
   %92 = getelementptr inbounds i8, ptr %90, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
@@ -235,7 +232,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %98
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, i64 %99) #4, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %99) #4, !srcloc !10
   br label %104
 
 104:                                              ; preds = %103, %98, %.split
@@ -251,9 +248,9 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br i1 %111, label %.loopexit4, label %.split.backedge
 
 .split.backedge:                                  ; preds = %109, %104
-  %.be14 = phi i32 [ %107, %104 ], [ 24, %109 ]
-  %.be15 = phi ptr [ %106, %104 ], [ @cpuid_deps, %109 ]
-  %.be16 = phi i8 [ %105, %104 ], [ 0, %109 ]
+  %.be18 = phi i32 [ %107, %104 ], [ 24, %109 ]
+  %.be19 = phi ptr [ %106, %104 ], [ @cpuid_deps, %109 ]
+  %.be20 = phi i8 [ %105, %104 ], [ 0, %109 ]
   br label %.split, !llvm.loop !14
 
 .loopexit4:                                       ; preds = %109, %86, %8

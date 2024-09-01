@@ -2897,7 +2897,7 @@ define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr 
   %5 = alloca i32, align 4
   %6 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %56
+  br i1 %7, label %8, label %55
 
 8:                                                ; preds = %4
   %9 = call ptr @tvb_new_composite() #5
@@ -2941,59 +2941,59 @@ define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr 
   %35 = phi ptr [ %32, %29 ], [ %26, %23 ]
   %.017.i = phi i32 [ %30, %29 ], [ 0, %23 ]
   %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %36, %25
-  br i1 %37, label %29, label %my_try_val_to_str_idx.exit
+  %.not50 = icmp ne i32 %36, %25
+  br i1 %.not50, label %29, label %my_try_val_to_str_idx.exit
 
 my_try_val_to_str_idx.exit:                       ; preds = %29, %.lr.ph.i, %23, %19
-  %.not = phi i1 [ %22, %19 ], [ true, %23 ], [ %37, %.lr.ph.i ], [ %37, %29 ]
-  %38 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1) #5
-  call void @tvb_composite_append(ptr noundef %9, ptr noundef %38) #5
+  %.not = phi i1 [ %22, %19 ], [ true, %23 ], [ %.not50, %.lr.ph.i ], [ %.not50, %29 ]
+  %37 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1) #5
+  call void @tvb_composite_append(ptr noundef %9, ptr noundef %37) #5
   %.04047 = load i32, ptr %5, align 4
-  %39 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04047, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %38 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04047, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %my_try_val_to_str_idx.exit, %51
-  %41 = phi i32 [ %52, %51 ], [ %39, %my_try_val_to_str_idx.exit ]
-  %.04048 = phi i32 [ %.040, %51 ], [ %.04047, %my_try_val_to_str_idx.exit ]
-  %42 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.04048, i32 noundef %41, i8 noundef zeroext 61) #5
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %51
+.lr.ph:                                           ; preds = %my_try_val_to_str_idx.exit, %50
+  %40 = phi i32 [ %51, %50 ], [ %38, %my_try_val_to_str_idx.exit ]
+  %.04048 = phi i32 [ %.040, %50 ], [ %.04047, %my_try_val_to_str_idx.exit ]
+  %41 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.04048, i32 noundef %40, i8 noundef zeroext 61) #5
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %.lr.ph
-  %45 = add nuw i32 %42, 1
-  %46 = load ptr, ptr %10, align 8
-  %47 = add i32 %41, %.04048
-  %.neg = xor i32 %42, -1
-  %48 = add i32 %47, %.neg
-  %49 = call ptr @tvb_get_string_enc(ptr noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef %48, i32 noundef 0) #5
-  %50 = call ptr @base64_to_tvb(ptr noundef %0, ptr noundef %49) #5
-  call void @tvb_composite_append(ptr noundef %9, ptr noundef %50) #5
-  br label %51
+43:                                               ; preds = %.lr.ph
+  %44 = add nuw i32 %41, 1
+  %45 = load ptr, ptr %10, align 8
+  %46 = add i32 %40, %.04048
+  %.neg = xor i32 %41, -1
+  %47 = add i32 %46, %.neg
+  %48 = call ptr @tvb_get_string_enc(ptr noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef %47, i32 noundef 0) #5
+  %49 = call ptr @base64_to_tvb(ptr noundef %0, ptr noundef %48) #5
+  call void @tvb_composite_append(ptr noundef %9, ptr noundef %49) #5
+  br label %50
 
-51:                                               ; preds = %44, %.lr.ph
+50:                                               ; preds = %43, %.lr.ph
   %.040 = load i32, ptr %5, align 4
-  %52 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.040, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %51 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.040, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %51, %my_try_val_to_str_idx.exit
+._crit_edge:                                      ; preds = %50, %my_try_val_to_str_idx.exit
   call void @tvb_composite_finalize(ptr noundef %9) #5
-  br i1 %.not, label %55, label %54
+  br i1 %.not, label %54, label %53
 
-54:                                               ; preds = %._crit_edge
+53:                                               ; preds = %._crit_edge
   call void @add_new_data_source(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @.str.984) #5
   call fastcc void @dissect_dtap_common(ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef 1)
-  br label %56
+  br label %55
 
-55:                                               ; preds = %._crit_edge
+54:                                               ; preds = %._crit_edge
   call void @add_new_data_source(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @.str.981) #5
   call fastcc void @dissect_bsmap_common(ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef 1)
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %54, %4
-  %57 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %57
+55:                                               ; preds = %54, %53, %4
+  %56 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %56
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0

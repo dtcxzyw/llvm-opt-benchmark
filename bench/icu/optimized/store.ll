@@ -210,7 +210,7 @@ if.end71:                                         ; preds = %for.end, %if.then38
   %add73 = add nsw i32 %conv19, 1
   %conv74 = sext i32 %add73 to i64
   %call75 = tail call noalias ptr @uprv_calloc_75(i64 noundef %conv74, i64 noundef 2) #14
-  br i1 %cmp1250, label %do.body, label %for.end110
+  br label %do.body
 
 do.body:                                          ; preds = %if.end71, %for.inc108
   %j.055 = phi i16 [ %inc104, %for.inc108 ], [ 0, %if.end71 ]
@@ -251,7 +251,7 @@ for.inc108:                                       ; preds = %if.else92, %if.then
   %cmp78 = icmp sgt i32 %length, %conv77
   br i1 %cmp78, label %do.body, label %for.end110, !llvm.loop !7
 
-for.end110:                                       ; preds = %for.inc108, %if.end71
+for.end110:                                       ; preds = %for.inc108
   %call111 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #17
   store ptr %call75, ptr %call111, align 8
   %type113 = getelementptr inbounds i8, ptr %call111, i64 12

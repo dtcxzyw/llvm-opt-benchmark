@@ -1236,7 +1236,7 @@ for.end19:                                        ; preds = %for.body15
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call21, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.035, i64 64
   tail call void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull align 8 dereferenceable(64) %second, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %add)
-  br i1 %cmp28, label %for.body26, label %for.end30
+  br label %for.body26
 
 for.body26:                                       ; preds = %for.end19, %for.body26
   %i23.033 = phi i32 [ %inc29, %for.body26 ], [ 0, %for.end19 ]
@@ -1253,7 +1253,7 @@ for.end30.critedge:                               ; preds = %for.body10
   tail call void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull align 8 dereferenceable(64) %second.c, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %add)
   br label %for.end30
 
-for.end30:                                        ; preds = %for.body26, %for.end30.critedge, %for.end19
+for.end30:                                        ; preds = %for.body26, %for.end30.critedge
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.14)
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.035) #22
@@ -1282,7 +1282,7 @@ for.end44:                                        ; preds = %for.body40
   %4 = load ptr, ptr %fWildcard, align 8
   %add49 = add nuw nsw i32 %indent, 1
   tail call void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %add49)
-  br i1 %cmp28, label %for.body53, label %for.end57
+  br label %for.body53
 
 for.body53:                                       ; preds = %for.end44, %for.body53
   %i50.039 = phi i32 [ %inc56, %for.body53 ], [ 0, %for.end44 ]
@@ -1299,7 +1299,7 @@ for.end57.critedge:                               ; preds = %for.cond38.preheade
   tail call void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %add49.c)
   br label %for.end57
 
-for.end57:                                        ; preds = %for.body53, %for.end57.critedge, %for.end44
+for.end57:                                        ; preds = %for.body53, %for.end57.critedge
   %call58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.14)
   %call59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call58, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end

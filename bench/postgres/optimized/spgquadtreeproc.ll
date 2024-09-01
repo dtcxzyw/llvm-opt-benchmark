@@ -734,8 +734,8 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr nocapture nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %12, align 8
   %41 = sext i32 %40 to i64
-  %.not56 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %.not56, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %.not49 = icmp slt i64 %indvars.iv.next, %41
+  br i1 %.not49, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %39, %1
   %42 = getelementptr inbounds i8, ptr %4, i64 20

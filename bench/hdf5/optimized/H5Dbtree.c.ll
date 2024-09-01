@@ -1098,7 +1098,7 @@ H5VM_vector_cmp_u.exit.i:                         ; preds = %.lr.ph.i.i
 
 H5VM_vector_cmp_u.exit.thread32.i:                ; preds = %29
   %43 = icmp eq ptr %2, null
-  br i1 %43, label %H5VM_vector_cmp_u.exit, label %H5D__btree_cmp3.exit.thread49
+  br i1 %43, label %H5VM_vector_cmp_u.exit, label %H5D__btree_cmp3.exit.thread48
 
 .lr.ph.i24.i:                                     ; preds = %H5VM_vector_cmp_u.exit.i, %47
   %.in.i25.i = phi i32 [ %48, %47 ], [ %12, %H5VM_vector_cmp_u.exit.i ]
@@ -1107,7 +1107,7 @@ H5VM_vector_cmp_u.exit.thread32.i:                ; preds = %29
   %44 = load i64, ptr %.01219.i27.i, align 8
   %45 = load i64, ptr %.01120.i26.i, align 8
   %46 = icmp ult i64 %44, %45
-  br i1 %46, label %H5D__btree_cmp3.exit.thread49, label %47
+  br i1 %46, label %H5D__btree_cmp3.exit.thread48, label %47
 
 47:                                               ; preds = %.lr.ph.i24.i
   %48 = add i32 %.in.i25.i, -1
@@ -1121,13 +1121,13 @@ H5VM_vector_cmp_u.exit.thread32.i:                ; preds = %29
 H5D__btree_cmp3.exit:                             ; preds = %20, %22
   %52 = load i64, ptr %2, align 8
   %53 = icmp ult i64 %17, %52
-  br i1 %53, label %H5D__btree_cmp3.exit.thread49, label %H5D__btree_cmp3.exit.thread
+  br i1 %53, label %H5D__btree_cmp3.exit.thread48, label %H5D__btree_cmp3.exit.thread
 
-H5D__btree_cmp3.exit.thread49:                    ; preds = %.lr.ph.i24.i, %H5VM_vector_cmp_u.exit.thread32.i, %H5D__btree_cmp3.exit
+H5D__btree_cmp3.exit.thread48:                    ; preds = %.lr.ph.i24.i, %H5VM_vector_cmp_u.exit.thread32.i, %H5D__btree_cmp3.exit
   %54 = load i64, ptr @H5E_STORAGE_g, align 8
   %55 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
   %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 533, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.22) #15
-  br label %117
+  br label %112
 
 H5D__btree_cmp3.exit.thread:                      ; preds = %36, %47, %H5VM_vector_cmp_u.exit.i, %31, %27, %22, %16, %H5D__btree_cmp3.exit
   %57 = icmp eq ptr %15, %2
@@ -1149,8 +1149,8 @@ H5D__btree_cmp3.exit.thread:                      ; preds = %36, %47, %H5VM_vect
   %.01219.i = phi ptr [ %65, %63 ], [ %15, %.preheader.i ]
   %61 = load i64, ptr %.01219.i, align 8
   %62 = load i64, ptr %.01120.i, align 8
-  %or.cond53.not = icmp eq i64 %61, %62
-  br i1 %or.cond53.not, label %63, label %H5VM_vector_cmp_u.exit.thread
+  %or.cond52.not = icmp eq i64 %61, %62
+  br i1 %or.cond52.not, label %63, label %H5VM_vector_cmp_u.exit.thread
 
 63:                                               ; preds = %.lr.ph.i
   %64 = add i32 %.in.i, -1
@@ -1170,7 +1170,7 @@ H5VM_vector_cmp_u.exit:                           ; preds = %63, %H5VM_vector_cm
   %71 = getelementptr inbounds i8, ptr %5, i64 40
   %72 = load i64, ptr %71, align 8
   %.not41 = icmp eq i64 %72, %70
-  br i1 %.not41, label %117, label %73
+  br i1 %.not41, label %112, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1184,90 +1184,79 @@ H5VM_vector_cmp_u.exit:                           ; preds = %63, %H5VM_vector_cm
   %80 = getelementptr inbounds i8, ptr %2, i64 268
   store i32 %79, ptr %80, align 4
   store i8 1, ptr %3, align 1
-  br label %117
+  br label %112
 
 H5VM_vector_cmp_u.exit.thread:                    ; preds = %.lr.ph.i, %58, %H5VM_vector_cmp_u.exit
   %.not17.i = icmp eq i32 %12, 0
-  br i1 %.not17.i, label %H5D__chunk_disjoint.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not17.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %H5VM_vector_cmp_u.exit.thread
-  %81 = zext i32 %12 to i64
-  %82 = load i64, ptr %2, align 8
-  %83 = add i64 %82, 1
-  %84 = load i64, ptr %15, align 8
-  %.not.i4555 = icmp ugt i64 %83, %84
-  %85 = add i64 %84, 1
-  %.not13.i56 = icmp ugt i64 %85, %82
-  %or.cond.i4657 = and i1 %.not.i4555, %.not13.i56
-  br i1 %or.cond.i4657, label %.lr.ph, label %.critedge
+  %wide.trip.count.i = zext i32 %12 to i64
+  br label %.lr.ph.i44
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i44
-  %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i44 ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i58, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %81
-  br i1 %exitcond.not.i, label %H5D__chunk_disjoint.exit, label %.lr.ph.i44
+81:                                               ; preds = %.lr.ph.i44
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %.lr.ph
-  %86 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next.i
-  %87 = load i64, ptr %86, align 8
-  %88 = add i64 %87, 1
-  %89 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv.next.i
+.lr.ph.i44:                                       ; preds = %81, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
+  %82 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %83, 1
+  %85 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv.i
+  %86 = load i64, ptr %85, align 8
+  %.not.i45 = icmp ule i64 %84, %86
+  %87 = add i64 %86, 1
+  %.not13.i = icmp ule i64 %87, %83
+  %or.cond.not.i = or i1 %.not.i45, %.not13.i
+  br i1 %or.cond.not.i, label %H5D__chunk_disjoint.exit, label %81
+
+H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i44
+  %88 = getelementptr inbounds i8, ptr %5, i64 32
+  %89 = getelementptr inbounds i8, ptr %5, i64 40
   %90 = load i64, ptr %89, align 8
-  %.not.i45 = icmp ugt i64 %88, %90
-  %91 = add i64 %90, 1
-  %.not13.i = icmp ugt i64 %91, %87
-  %or.cond.i46 = and i1 %.not.i45, %.not13.i
-  br i1 %or.cond.i46, label %.lr.ph, label %H5D__chunk_disjoint.exit
+  %91 = trunc i64 %90 to i32
+  %92 = getelementptr inbounds i8, ptr %4, i64 264
+  store i32 %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %5, i64 48
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %4, i64 268
+  store i32 %94, ptr %95, align 4
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = load i32, ptr %97, align 8
+  %.not55 = icmp eq i32 %98, 0
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
-H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i44, %.lr.ph
-  %92 = icmp ult i64 %indvars.iv.next.i, %81
-  br i1 %92, label %.critedge, label %H5D__chunk_disjoint.exit.thread
-
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %H5D__chunk_disjoint.exit
-  %93 = getelementptr inbounds i8, ptr %5, i64 32
-  %94 = getelementptr inbounds i8, ptr %5, i64 40
-  %95 = load i64, ptr %94, align 8
-  %96 = trunc i64 %95 to i32
-  %97 = getelementptr inbounds i8, ptr %4, i64 264
-  store i32 %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %5, i64 48
-  %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %4, i64 268
-  store i32 %99, ptr %100, align 4
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  %103 = load i32, ptr %102, align 8
-  %.not62 = icmp eq i32 %103, 0
-  br i1 %.not62, label %._crit_edge, label %.lr.ph61
-
-.lr.ph61:                                         ; preds = %.critedge, %.lr.ph61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %.critedge ]
-  %104 = load ptr, ptr %14, align 8
-  %105 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds [33 x i64], ptr %4, i64 0, i64 %indvars.iv
-  store i64 %106, ptr %107, align 8
+.lr.ph:                                           ; preds = %H5D__chunk_disjoint.exit, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %H5D__chunk_disjoint.exit ]
+  %99 = load ptr, ptr %14, align 8
+  %100 = getelementptr inbounds i64, ptr %99, i64 %indvars.iv
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds [33 x i64], ptr %4, i64 0, i64 %indvars.iv
+  store i64 %101, ptr %102, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph61, label %._crit_edge
+  %103 = load ptr, ptr %5, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = zext i32 %105 to i64
+  %107 = icmp ult i64 %indvars.iv.next, %106
+  br i1 %107, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph61, %.critedge
-  %113 = load i64, ptr %93, align 8
-  store i64 %113, ptr %8, align 8
-  br label %117
+._crit_edge:                                      ; preds = %.lr.ph, %H5D__chunk_disjoint.exit
+  %108 = load i64, ptr %88, align 8
+  store i64 %108, ptr %8, align 8
+  br label %112
 
-H5D__chunk_disjoint.exit.thread:                  ; preds = %H5VM_vector_cmp_u.exit.thread, %H5D__chunk_disjoint.exit
-  %114 = load i64, ptr @H5E_IO_g, align 8
-  %115 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 572, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.22) #15
-  br label %117
+.loopexit:                                        ; preds = %81, %H5VM_vector_cmp_u.exit.thread
+  %109 = load i64, ptr @H5E_IO_g, align 8
+  %110 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %111 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 572, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.22) #15
+  br label %112
 
-117:                                              ; preds = %69, %73, %._crit_edge, %H5D__chunk_disjoint.exit.thread, %H5D__btree_cmp3.exit.thread49
-  %.0 = phi i32 [ -1, %H5D__btree_cmp3.exit.thread49 ], [ 3, %73 ], [ 2, %._crit_edge ], [ -1, %H5D__chunk_disjoint.exit.thread ], [ 0, %69 ]
+112:                                              ; preds = %69, %73, %._crit_edge, %.loopexit, %H5D__btree_cmp3.exit.thread48
+  %.0 = phi i32 [ -1, %H5D__btree_cmp3.exit.thread48 ], [ 3, %73 ], [ 2, %._crit_edge ], [ -1, %.loopexit ], [ 0, %69 ]
   ret i32 %.0
 }
 

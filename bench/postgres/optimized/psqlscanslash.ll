@@ -627,8 +627,8 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 .preheader.i:                                     ; preds = %250, %260
   %257 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 512, ptr noundef nonnull %256)
   %258 = call i32 @ferror(ptr noundef nonnull %256) #29
-  %.not27.not.i.not = icmp eq i32 %258, 0
-  br i1 %.not27.not.i.not, label %260, label %259
+  %.not27.not.not.not.i.not = icmp eq i32 %258, 0
+  br i1 %.not27.not.not.not.i.not, label %260, label %259
 
 259:                                              ; preds = %.preheader.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %254) #29
@@ -686,7 +686,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   %283 = load ptr, ptr %.val, align 8
   %284 = getelementptr i8, ptr %283, i64 %281
   store i8 0, ptr %284, align 1
-  br i1 %.not27.not.i.not, label %285, label %evaluate_backtick.exit
+  br i1 %.not27.not.not.not.i.not, label %285, label %evaluate_backtick.exit
 
 285:                                              ; preds = %279
   %286 = load i64, ptr %95, align 8

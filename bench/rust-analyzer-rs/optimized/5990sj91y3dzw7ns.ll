@@ -3777,8 +3777,8 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit60.i: ; preds = %.n
           to label %.noexc67.i unwind label %492, !noalias !583
 
 .noexc67.i:                                       ; preds = %488
-  %.not.not.i.not.i.not.i = icmp eq ptr %489, null
-  br i1 %.not.not.i.not.i.not.i, label %494, label %490
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %489, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %494, label %490
 
 490:                                              ; preds = %.noexc67.i
   %491 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2972139474370e7aE.llvm.14766313156815909311"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %489, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
@@ -5573,8 +5573,8 @@ define internal fastcc void @_ZN8flycheck13FlycheckActor20cancel_check_process17
   %.sroa.5.0..sroa_idx80 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx80, i64 144, i1 false)
   store i64 2, ptr %0, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, 2
-  br i1 %.not.not, label %51, label %11
+  %.not = icmp eq i64 %.sroa.0.0.copyload, 2
+  br i1 %.not, label %51, label %11
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %10)

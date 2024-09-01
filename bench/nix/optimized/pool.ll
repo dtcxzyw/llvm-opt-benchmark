@@ -2701,13 +2701,13 @@ _ZNKSt8functionIFbRKN3nix3refINS0_12TestResourceEEEEEclES5_.exit: ; preds = %128
 
 145:                                              ; preds = %138
   %146 = atomicrmw volatile add ptr %139, i32 1 acq_rel, align 4, !noalias !40
-  %.pre88 = load i8, ptr @__libc_single_threaded, align 1
+  %.pre82 = load i8, ptr @__libc_single_threaded, align 1
   store ptr %1, ptr %0, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %136, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %137, ptr %148, align 8
-  %.not.i.i.i.i.i25 = icmp eq i8 %.pre88, 0
+  %.not.i.i.i.i.i25 = icmp eq i8 %.pre82, 0
   br i1 %.not.i.i.i.i.i25, label %152, label %149
 
 149:                                              ; preds = %.thread, %145
@@ -2946,9 +2946,9 @@ _ZNKSt8functionIFN3nix3refINS0_12TestResourceEEEvEEclEv.exit: ; preds = %241
   %.not.i.i.i.i.i39 = icmp eq i8 %249, 0
   %250 = getelementptr inbounds i8, ptr %0, i64 8
   %251 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not.i.i.i.i.i39, label %254, label %.thread91
+  br i1 %.not.i.i.i.i.i39, label %254, label %.thread85
 
-.thread91:                                        ; preds = %247
+.thread85:                                        ; preds = %247
   %252 = load i32, ptr %248, align 4, !noalias !47
   %253 = add nsw i32 %252, 1
   store i32 %253, ptr %248, align 4, !noalias !47
@@ -2959,14 +2959,14 @@ _ZNKSt8functionIFN3nix3refINS0_12TestResourceEEEvEEclEv.exit: ; preds = %241
 
 254:                                              ; preds = %247
   %255 = atomicrmw volatile add ptr %248, i32 1 acq_rel, align 4, !noalias !47
-  %.pre89 = load i8, ptr @__libc_single_threaded, align 1
-  %256 = icmp eq i8 %.pre89, 0
+  %.pre83 = load i8, ptr @__libc_single_threaded, align 1
+  %256 = icmp eq i8 %.pre83, 0
   store ptr %1, ptr %0, align 8
   store ptr %244, ptr %250, align 8
   store ptr %246, ptr %251, align 8
   br i1 %256, label %260, label %257
 
-257:                                              ; preds = %.thread91, %254
+257:                                              ; preds = %.thread85, %254
   %258 = load i32, ptr %248, align 4
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr %248, align 4

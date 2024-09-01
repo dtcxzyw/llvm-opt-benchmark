@@ -1753,7 +1753,7 @@ DCMode.exit:                                      ; preds = %26
 VerticalPred.exit:                                ; preds = %.preheader.i11, %.preheader39
   %34 = getelementptr inbounds i8, ptr %0, i64 528
   %.not.i19 = icmp eq ptr %1, null
-  br i1 %.not.i19, label %.preheader38, label %.preheader.i20
+  br i1 %.not.i19, label %.preheader36, label %.preheader.i20
 
 .preheader.i20:                                   ; preds = %VerticalPred.exit, %.preheader.i20
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i23, %.preheader.i20 ], [ 0, %VerticalPred.exit ]
@@ -1770,16 +1770,16 @@ HorizontalPred.exit.thread:                       ; preds = %.preheader.i20
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %.not.i, label %.preheader.i.i, label %43
 
-.preheader38:                                     ; preds = %VerticalPred.exit, %.preheader38
-  %indvars.iv.i.i25 = phi i64 [ %indvars.iv.next.i.i26, %.preheader38 ], [ 0, %VerticalPred.exit ]
+.preheader36:                                     ; preds = %VerticalPred.exit, %.preheader36
+  %indvars.iv.i.i25 = phi i64 [ %indvars.iv.next.i.i26, %.preheader36 ], [ 0, %VerticalPred.exit ]
   %40 = shl nsw i64 %indvars.iv.i.i25, 5
   %41 = getelementptr inbounds i8, ptr %34, i64 %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, i8 -127, i64 16, i1 false)
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 16
-  br i1 %exitcond.not.i.i27, label %HorizontalPred.exit, label %.preheader38, !llvm.loop !21
+  br i1 %exitcond.not.i.i27, label %HorizontalPred.exit, label %.preheader36, !llvm.loop !21
 
-HorizontalPred.exit:                              ; preds = %.preheader38
+HorizontalPred.exit:                              ; preds = %.preheader36
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %.not.i, label %.preheader, label %.preheader.i34.i
 
@@ -1955,7 +1955,7 @@ DCMode.exit:                                      ; preds = %27
 VerticalPred.exit:                                ; preds = %.preheader.i31, %.preheader145
   %36 = getelementptr inbounds i8, ptr %0, i64 1296
   %.not.i39 = icmp eq ptr %1, null
-  br i1 %.not.i39, label %.preheader144, label %.preheader.i40
+  br i1 %.not.i39, label %.preheader142, label %.preheader.i40
 
 .preheader.i40:                                   ; preds = %VerticalPred.exit, %.preheader.i40
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %.preheader.i40 ], [ 0, %VerticalPred.exit ]
@@ -1972,16 +1972,16 @@ HorizontalPred.exit.thread:                       ; preds = %.preheader.i40
   %41 = getelementptr inbounds i8, ptr %0, i64 1040
   br i1 %.not.i, label %.preheader.i.i, label %45
 
-.preheader144:                                    ; preds = %VerticalPred.exit, %.preheader144
-  %indvars.iv.i.i45 = phi i64 [ %indvars.iv.next.i.i46, %.preheader144 ], [ 0, %VerticalPred.exit ]
+.preheader142:                                    ; preds = %VerticalPred.exit, %.preheader142
+  %indvars.iv.i.i45 = phi i64 [ %indvars.iv.next.i.i46, %.preheader142 ], [ 0, %VerticalPred.exit ]
   %42 = shl nsw i64 %indvars.iv.i.i45, 5
   %43 = getelementptr inbounds i8, ptr %36, i64 %42
   store i64 -9114861777597660799, ptr %43, align 1
   %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i45, 1
   %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 8
-  br i1 %exitcond.not.i.i47, label %HorizontalPred.exit, label %.preheader144, !llvm.loop !21
+  br i1 %exitcond.not.i.i47, label %HorizontalPred.exit, label %.preheader142, !llvm.loop !21
 
-HorizontalPred.exit:                              ; preds = %.preheader144
+HorizontalPred.exit:                              ; preds = %.preheader142
   %44 = getelementptr inbounds i8, ptr %0, i64 1040
   br i1 %.not.i, label %.preheader141, label %.preheader.i34.i
 

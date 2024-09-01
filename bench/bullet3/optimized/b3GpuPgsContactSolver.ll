@@ -1773,7 +1773,7 @@ for.inc27.us:                                     ; preds = %for.body7.us, %invo
 for.cond2.for.inc30_crit_edge.us:                 ; preds = %for.inc27.us
   %inc31.us = add nuw nsw i32 %iter.0413.us, 1
   %exitcond422.not = icmp eq i32 %inc31.us, %numIterations
-  br i1 %exitcond422.not, label %for.cond34.preheader, label %for.cond2.preheader.us, !llvm.loop !9
+  br i1 %exitcond422.not, label %for.cond38.preheader.lr.ph, label %for.cond2.preheader.us, !llvm.loop !9
 
 lpad.loopexit.split-lp.split.us:                  ; preds = %if.end.us
   %lpad.loopexit.split-lp409.us = landingpad { ptr, i32 }
@@ -1791,10 +1791,7 @@ for.cond38.preheader.lr.ph.thread:                ; preds = %for.cond2.preheader
   store i32 0, ptr %cellId37, align 4
   br label %for.end82
 
-for.cond34.preheader:                             ; preds = %for.cond2.for.inc30_crit_edge.us
-  br i1 %cmp412, label %for.cond38.preheader.lr.ph, label %for.end82
-
-for.cond38.preheader.lr.ph:                       ; preds = %for.cond34.preheader
+for.cond38.preheader.lr.ph:                       ; preds = %for.cond2.for.inc30_crit_edge.us
   %m_data.i81 = getelementptr inbounds i8, ptr %batchSizes, i64 16
   %m_data55 = getelementptr inbounds i8, ptr %this, i64 16
   %m_clBuffer.i84 = getelementptr inbounds i8, ptr %bodyBuf, i64 24
@@ -2281,7 +2278,7 @@ lpad59.split.us:                                  ; preds = %invoke.cont71.us, %
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher54) #21
   br label %ehcleanup
 
-for.end82:                                        ; preds = %for.cond38.for.inc80_crit_edge.us, %entry, %for.cond38.preheader.lr.ph.thread, %for.cond34.preheader
+for.end82:                                        ; preds = %for.cond38.for.inc80_crit_edge.us, %entry, %for.cond38.preheader.lr.ph.thread
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit unwind label %terminate.lpad.i
 

@@ -2962,26 +2962,26 @@ if.end86.thread:                                  ; preds = %cond.true65
   %54 = load i32, ptr %ak, align 4
   %55 = add i32 %54, -51
   %or.cond462 = icmp ult i32 %55, 2
-  br i1 %or.cond462, label %if.then94, label %if.else99
+  br i1 %or.cond462, label %if.then89.thread, label %if.else99
+
+if.then89.thread:                                 ; preds = %if.end86.thread
+  %cmp88463 = icmp eq i32 %54, 52
+  %tobool90464 = trunc nuw i8 %needPi.0488 to i1
+  %56 = or i1 %cmp88463, %tobool90464
+  %frombool92465 = zext i1 %56 to i8
+  %57 = load ptr, ptr %__begin4.sroa.0.0487, align 8
+  store ptr %57, ptr %agg.tmp, align 8
+  invoke void @_ZN4cvc58internal6theory5arith2nl14transcendental19TranscendentalState16ensureCongruenceENS0_12NodeTemplateILb0EEERSt3mapINS0_4kind6Kind_tENS3_7ArgTrieESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr noundef nonnull align 8 dereferenceable(696) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(48) %argTrie)
+          to label %for.inc112 unwind label %lpad96
 
 if.then89:                                        ; preds = %if.end86
   %cmp88 = icmp eq i32 %52, 52
   %tobool90 = trunc nuw i8 %needPi.0488 to i1
-  %56 = or i1 %cmp88, %tobool90
-  %frombool92 = zext i1 %56 to i8
+  %58 = or i1 %cmp88, %tobool90
+  %frombool92 = zext i1 %58 to i8
   br label %for.inc112
 
-if.then94:                                        ; preds = %if.end86.thread
-  %cmp88463 = icmp eq i32 %54, 52
-  %tobool90464 = trunc nuw i8 %needPi.0488 to i1
-  %57 = or i1 %cmp88463, %tobool90464
-  %frombool92465 = zext i1 %57 to i8
-  %58 = load ptr, ptr %__begin4.sroa.0.0487, align 8
-  store ptr %58, ptr %agg.tmp, align 8
-  invoke void @_ZN4cvc58internal6theory5arith2nl14transcendental19TranscendentalState16ensureCongruenceENS0_12NodeTemplateILb0EEERSt3mapINS0_4kind6Kind_tENS3_7ArgTrieESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr noundef nonnull align 8 dereferenceable(696) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(48) %argTrie)
-          to label %for.inc112 unwind label %lpad96
-
-lpad96:                                           ; preds = %if.then94
+lpad96:                                           ; preds = %if.then89.thread
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup218
@@ -3173,8 +3173,8 @@ if.else.i285:                                     ; preds = %invoke.cont107
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %second.i261, ptr %73, ptr noundef nonnull align 8 dereferenceable(8) %__begin4.sroa.0.0487)
           to label %for.inc112 unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc112:                                       ; preds = %if.then89, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i275, %if.else.i285, %if.then94, %if.else99, %invoke.cont12
-  %needPi.1 = phi i8 [ %frombool92, %if.then89 ], [ %needPi.0488, %if.else99 ], [ %needPi.0488, %invoke.cont12 ], [ %frombool92465, %if.then94 ], [ 1, %if.else.i285 ], [ 1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i275 ]
+for.inc112:                                       ; preds = %if.then89, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i275, %if.else.i285, %if.then89.thread, %if.else99, %invoke.cont12
+  %needPi.1 = phi i8 [ %frombool92, %if.then89 ], [ %needPi.0488, %if.else99 ], [ %needPi.0488, %invoke.cont12 ], [ %frombool92465, %if.then89.thread ], [ 1, %if.else.i285 ], [ 1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i275 ]
   %incdec.ptr.i289 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0487, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i289, %16
   br i1 %cmp.i.not, label %for.end114, label %invoke.cont10

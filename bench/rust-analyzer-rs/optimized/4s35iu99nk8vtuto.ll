@@ -8355,8 +8355,8 @@ _ZN6syntax3ast9generated5nodes7RefType2ty17ha1eb9c5096f42e10E.exit: ; preds = %2
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %4, align 8, !range !2141, !noundef !4
-  %.not.not = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.not, label %.thread, label %22
+  %.not = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -8497,8 +8497,8 @@ _ZN6syntax3ast9generated5nodes7PtrType2ty17h73f38a7317621b52E.exit: ; preds = %2
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %4, align 8, !range !2141, !noundef !4
-  %.not.not = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.not, label %.thread, label %22
+  %.not = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -8685,8 +8685,8 @@ _ZN6syntax3ast9generated5nodes7RetType2ty17h8c8b89e567554619E.exit.i: ; preds = 
 
 40:                                               ; preds = %36
   %41 = load i64, ptr %5, align 8, !range !2141, !noundef !4
-  %.not.not = icmp eq i64 %41, -9223372036854775808
-  br i1 %.not.not, label %.thread52, label %42
+  %.not = icmp eq i64 %41, -9223372036854775808
+  br i1 %.not, label %.thread52, label %42
 
 42:                                               ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)

@@ -152,30 +152,30 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader33
 
 .preheader33:                                     ; preds = %.preheader.i, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
-  %.sroa.0.064 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %.preheader.i ]
-  %.sroa.5.063 = phi i32 [ %.sroa.5.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ 0, %.preheader.i ]
-  %.sroa.9.062 = phi i32 [ %.sroa.9.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %.preheader.i ]
+  %.sroa.0.066 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %.preheader.i ]
+  %.sroa.5.065 = phi i32 [ %.sroa.5.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ 0, %.preheader.i ]
+  %.sroa.9.064 = phi i32 [ %.sroa.9.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %.preheader.i ]
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader33, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit
-  %indvars.iv54 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next55, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %.sroa.015.046 = phi ptr [ %.sroa.0.064, %.preheader33 ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %.sroa.13.045 = phi i32 [ %.sroa.5.063, %.preheader33 ], [ %.sroa.13.14153, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %29 = icmp eq i32 %.sroa.13.045, %.sroa.9.062
+  %indvars.iv56 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next57, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %.sroa.015.047 = phi ptr [ %.sroa.0.066, %.preheader33 ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %.sroa.13.046 = phi i32 [ %.sroa.5.065, %.preheader33 ], [ %.sroa.13.14354, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %29 = icmp eq i32 %.sroa.13.046, %.sroa.9.064
   br i1 %29, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %30 = sext i32 %.sroa.13.045 to i64
+  %30 = sext i32 %.sroa.13.046 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge.i
   %indvars.iv = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next, %.backedge.i ]
-  %.sroa.015.242 = phi ptr [ %.sroa.015.046, %.lr.ph.preheader ], [ null, %.backedge.i ]
+  %.sroa.015.244 = phi ptr [ %.sroa.015.047, %.lr.ph.preheader ], [ null, %.backedge.i ]
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %.sroa.015.242, null
+  %34 = icmp eq ptr %.sroa.015.244, null
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %.lr.ph
@@ -190,7 +190,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %41, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, label %42
 
 42:                                               ; preds = %38, %.lr.ph
-  %43 = phi ptr [ %36, %38 ], [ %.sroa.015.242, %.lr.ph ]
+  %43 = phi ptr [ %36, %38 ], [ %.sroa.015.244, %.lr.ph ]
   %44 = tail call noundef ptr @_ZN9CodeCache9next_blobEP8CodeHeapP8CodeBlob(ptr noundef %33, ptr noundef nonnull %43) #3
   %.not7.i.i = icmp eq ptr %44, null
   br i1 %.not7.i.i, label %.backedge.i, label %.lr.ph.i.i
@@ -210,23 +210,23 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .backedge.i:                                      ; preds = %48, %42, %35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %50 = trunc nsw i64 %indvars.iv.next to i32
-  %51 = icmp eq i32 %.sroa.9.062, %50
+  %51 = icmp eq i32 %.sroa.9.064, %50
   br i1 %51, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph, !llvm.loop !8
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %38, %.lr.ph.i.i
   %.sroa.015.6 = phi ptr [ %.sroa.015.3, %.lr.ph.i.i ], [ %36, %38 ]
-  %.sroa.13.14153 = trunc i64 %indvars.iv to i32
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv54
+  %.sroa.13.14354 = trunc i64 %indvars.iv to i32
+  %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv56
   store ptr %.sroa.015.6, ptr %52, align 8
   %53 = load i32, ptr %2, align 4
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %2, align 4
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next55, 16
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next57, 16
   br i1 %exitcond.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader, !llvm.loop !10
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, %.preheader, %.backedge.i, %8, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
-  %.sroa.015.1 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ null, %8 ], [ null, %.backedge.i ], [ %.sroa.015.046, %.preheader ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %.sroa.015.1 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ null, %8 ], [ null, %.backedge.i ], [ %.sroa.015.047, %.preheader ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
   %55 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.015.1, ptr %5, ptr nonnull %3) #3, !srcloc !11
   %.not10 = icmp eq ptr %55, %5
   br i1 %.not10, label %56, label %4, !llvm.loop !12

@@ -2495,18 +2495,18 @@ for.body.i30:                                     ; preds = %for.inc.i34, %for.b
 for.inc.i34:                                      ; preds = %for.body.i30
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i29
-  br i1 %exitcond.not.i36, label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38, label %for.body.i30, !llvm.loop !33
+  br i1 %exitcond.not.i36, label %for.body.lr.ph.i42, label %for.body.i30, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i37:             ; preds = %for.body.i30
   %21 = trunc nuw nsw i64 %indvars.iv.i31 to i32
-  br label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38
+  br label %for.body.lr.ph.i42
 
-_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38: ; preds = %for.inc.i34, %for.end.loopexit.split.loop.exit.i37
+for.body.lr.ph.i42:                               ; preds = %for.inc.i34, %for.end.loopexit.split.loop.exit.i37
   %index.0.i26 = phi i32 [ %21, %for.end.loopexit.split.loop.exit.i37 ], [ %11, %for.inc.i34 ]
   br label %for.body.i45
 
-for.body.i45:                                     ; preds = %for.inc.i49, %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38
-  %indvars.iv.i46 = phi i64 [ 0, %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit38 ], [ %indvars.iv.next.i50, %for.inc.i49 ]
+for.body.i45:                                     ; preds = %for.inc.i49, %for.body.lr.ph.i42
+  %indvars.iv.i46 = phi i64 [ 0, %for.body.lr.ph.i42 ], [ %indvars.iv.next.i50, %for.inc.i49 ]
   %arrayidx.i47 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i46
   %22 = load ptr, ptr %arrayidx.i47, align 8
   %cmp3.i48 = icmp eq ptr %22, %17

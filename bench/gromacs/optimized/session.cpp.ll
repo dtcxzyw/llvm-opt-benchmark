@@ -3314,8 +3314,8 @@ _ZNSt8weak_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit: ; preds = %161, %164
 
 168:                                              ; preds = %169, %_ZNSt8weak_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
   %.06.i.i.i.i.i = phi i32 [ %167, %_ZNSt8weak_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit ], [ %173, %169 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit.thread, label %169
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit.thread, label %169
 
 169:                                              ; preds = %168
   %170 = add nsw i32 %.06.i.i.i.i.i, 1

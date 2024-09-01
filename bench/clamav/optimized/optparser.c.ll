@@ -1165,7 +1165,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br label %.loopexit
 
 .split491.us:                                     ; preds = %127, %100, %20
-  %.not380617 = phi i1 [ true, %20 ], [ false, %100 ], [ %.not380616, %127 ]
+  %.not380617 = phi i1 [ true, %20 ], [ false, %100 ], [ false, %127 ]
   %.us-phi = phi i32 [ %.0273.us, %20 ], [ 0, %100 ], [ 0, %127 ]
   %.us-phi492 = phi i32 [ %.0271.us, %20 ], [ 1, %100 ], [ 1, %127 ]
   %140 = icmp ne ptr %0, null
@@ -2491,7 +2491,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not108, label %.preheader, label %56
 
 .preheader:                                       ; preds = %45, %15, %52, %22
-  %.not135197 = phi i1 [ true, %22 ], [ false, %52 ], [ %.not135196, %15 ], [ %.not135196, %45 ]
+  %.not135197 = phi i1 [ true, %22 ], [ false, %52 ], [ true, %15 ], [ false, %45 ]
   %.not109 = icmp eq ptr %0, null
   %.pre195.pre = load ptr, ptr %7, align 8
   br i1 %.not109, label %._crit_edge, label %.lr.ph

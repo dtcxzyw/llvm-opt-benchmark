@@ -464,7 +464,7 @@ init_primaries.exit:                              ; preds = %171
   %220 = zext nneg i32 %208 to i64
   br label %.lr.ph150.i
 
-.lr.ph166.i:                                      ; preds = %.lr.ph150.i
+.preheader.i122:                                  ; preds = %.lr.ph150.i
   %221 = uitofp nneg i32 %208 to double
   %222 = trunc i32 %spec.store.select.i to i8
   %223 = zext nneg i32 %spec.store.select.i to i64
@@ -474,11 +474,11 @@ init_primaries.exit:                              ; preds = %171
   %wide.trip.count189.i = zext nneg i32 %2 to i64
   br label %.lr.ph161.us.i
 
-.lr.ph161.us.i:                                   ; preds = %._crit_edge162.split.us.us.i, %.lr.ph166.i
-  %.pre193203.i = phi i32 [ %.pre193199.i, %._crit_edge162.split.us.us.i ], [ %179, %.lr.ph166.i ]
-  %.pre191198.i = phi ptr [ %.pre191194.i, %._crit_edge162.split.us.us.i ], [ %182, %.lr.ph166.i ]
-  %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %._crit_edge162.split.us.us.i ], [ 0, %.lr.ph166.i ]
-  %.0117164.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge162.split.us.us.i ], [ %182, %.lr.ph166.i ]
+.lr.ph161.us.i:                                   ; preds = %._crit_edge162.split.us.us.i, %.preheader.i122
+  %.pre193203.i = phi i32 [ %.pre193199.i, %._crit_edge162.split.us.us.i ], [ %179, %.preheader.i122 ]
+  %.pre191198.i = phi ptr [ %.pre191194.i, %._crit_edge162.split.us.us.i ], [ %182, %.preheader.i122 ]
+  %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %._crit_edge162.split.us.us.i ], [ 0, %.preheader.i122 ]
+  %.0117164.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge162.split.us.us.i ], [ %182, %.preheader.i122 ]
   %227 = trunc nuw nsw i64 %indvars.iv186.i to i32
   %228 = uitofp nneg i32 %227 to double
   %229 = fmul double %228, 2.550000e+02
@@ -719,7 +719,7 @@ LUV_convert.exit.us.us.i:                         ; preds = %306, %305, %291
   store i32 %spec.select.i, ptr %369, align 4
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, -1
   %.not204.i = icmp eq i64 %indvars.iv173.i, 0
-  br i1 %.not204.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
+  br i1 %.not204.i, label %.preheader.i122, label %.lr.ph150.i, !llvm.loop !20
 
 init_virt_cmap.exit:                              ; preds = %._crit_edge162.split.us.us.i, %186, %._crit_edge144.i
   %.pre248 = phi i32 [ %.pre248.pre, %186 ], [ %179, %._crit_edge144.i ], [ %.pre193199.i, %._crit_edge162.split.us.us.i ]

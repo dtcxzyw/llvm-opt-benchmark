@@ -2761,16 +2761,16 @@ if.else50.thread:                                 ; preds = %if.then25
   br i1 %or.cond56, label %return, label %if.else76
 
 if.end61:                                         ; preds = %if.else50
-  br i1 %cmp.not, label %if.then63, label %if.else76
+  %4 = trunc nuw i32 %call51 to i16
+  br label %if.then63
 
-if.then63:                                        ; preds = %land.lhs.true, %if.end7, %if.end61
-  %port.044 = phi i32 [ %call51, %if.end61 ], [ 0, %if.end7 ], [ 0, %land.lhs.true ]
+if.then63:                                        ; preds = %if.end61, %land.lhs.true, %if.end7
+  %port.044 = phi i16 [ %4, %if.end61 ], [ 0, %if.end7 ], [ 0, %land.lhs.true ]
   %addr_part.04042 = phi ptr [ %buf, %if.end61 ], [ %buf, %if.end7 ], [ %ip_as_string, %land.lhs.true ]
-  %4 = getelementptr inbounds i8, ptr %sin6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 20, i1 false)
+  %5 = getelementptr inbounds i8, ptr %sin6, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 20, i1 false)
   store i16 10, ptr %sin6, align 4
-  %conv64 = trunc nuw i32 %port.044 to i16
-  %call65 = tail call zeroext i16 @htons(i16 noundef zeroext %conv64) #31
+  %call65 = tail call zeroext i16 @htons(i16 noundef zeroext %port.044) #31
   %sin6_port = getelementptr inbounds i8, ptr %sin6, i64 2
   store i16 %call65, ptr %sin6_port, align 2
   %sin6_addr = getelementptr inbounds i8, ptr %sin6, i64 8
@@ -2779,25 +2779,25 @@ if.then63:                                        ; preds = %land.lhs.true, %if.
   br i1 %cmp67.not, label %if.end70, label %return
 
 if.end70:                                         ; preds = %if.then63
-  %5 = load i32, ptr %outlen, align 4
-  %cmp71 = icmp slt i32 %5, 28
+  %6 = load i32, ptr %outlen, align 4
+  %cmp71 = icmp slt i32 %6, 28
   br i1 %cmp71, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end70
-  %6 = load i32, ptr %if_index, align 4
+  %7 = load i32, ptr %if_index, align 4
   %sin6_scope_id = getelementptr inbounds i8, ptr %sin6, i64 24
-  store i32 %6, ptr %sin6_scope_id, align 4
-  %conv75 = zext nneg i32 %5 to i64
-  %7 = add nsw i64 %conv75, -28
-  %8 = getelementptr i8, ptr %out, i64 28
-  call void @llvm.memset.p0.i64(ptr align 2 %8, i8 0, i64 %7, i1 false)
+  store i32 %7, ptr %sin6_scope_id, align 4
+  %conv75 = zext nneg i32 %6 to i64
+  %8 = add nsw i64 %conv75, -28
+  %9 = getelementptr i8, ptr %out, i64 28
+  call void @llvm.memset.p0.i64(ptr align 2 %9, i8 0, i64 %8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(28) %out, ptr noundef nonnull align 4 dereferenceable(28) %sin6, i64 28, i1 false)
   store i32 28, ptr %outlen, align 4
   br label %return
 
-if.else76:                                        ; preds = %if.else50.thread, %if.else17, %if.end61
-  %port.045 = phi i32 [ %call51, %if.end61 ], [ 0, %if.else17 ], [ %call5155, %if.else50.thread ]
-  %addr_part.04043 = phi ptr [ %buf, %if.end61 ], [ %ip_as_string, %if.else17 ], [ %buf, %if.else50.thread ]
+if.else76:                                        ; preds = %if.else50.thread, %if.else17
+  %port.045 = phi i32 [ 0, %if.else17 ], [ %call5155, %if.else50.thread ]
+  %addr_part.04043 = phi ptr [ %ip_as_string, %if.else17 ], [ %buf, %if.else50.thread ]
   %conv77 = trunc nuw i32 %port.045 to i16
   %call78 = tail call zeroext i16 @htons(i16 noundef zeroext %conv77) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a.i)
@@ -2810,23 +2810,23 @@ if.else76:                                        ; preds = %if.else50.thread, %
   br i1 %cmp1.not.i, label %if.end.i, label %evutil_inet_pton.exit.thread
 
 if.end.i:                                         ; preds = %if.else76
-  %9 = load i32, ptr %a.i, align 4
-  %cmp3.i = icmp ugt i32 %9, 255
+  %10 = load i32, ptr %a.i, align 4
+  %cmp3.i = icmp ugt i32 %10, 255
   br i1 %cmp3.i, label %evutil_inet_pton.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %10 = load i32, ptr %b.i, align 4
-  %cmp6.i = icmp ugt i32 %10, 255
+  %11 = load i32, ptr %b.i, align 4
+  %cmp6.i = icmp ugt i32 %11, 255
   br i1 %cmp6.i, label %evutil_inet_pton.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %11 = load i32, ptr %c.i, align 4
-  %cmp9.i = icmp ugt i32 %11, 255
+  %12 = load i32, ptr %c.i, align 4
+  %cmp9.i = icmp ugt i32 %12, 255
   br i1 %cmp9.i, label %evutil_inet_pton.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %12 = load i32, ptr %d.i, align 4
-  %cmp12.i = icmp ugt i32 %12, 255
+  %13 = load i32, ptr %d.i, align 4
+  %cmp12.i = icmp ugt i32 %13, 255
   br i1 %cmp12.i, label %evutil_inet_pton.exit.thread, label %if.end83
 
 evutil_inet_pton.exit.thread:                     ; preds = %if.else76, %if.end.i, %if.end5.i, %if.end8.i, %if.end11.i
@@ -2843,19 +2843,19 @@ if.end83:                                         ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %c.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %more.i)
-  %13 = load i32, ptr %outlen, align 4
-  %cmp84 = icmp slt i32 %13, 16
+  %14 = load i32, ptr %outlen, align 4
+  %cmp84 = icmp slt i32 %14, 16
   br i1 %cmp84, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.end83
-  %shl15.i = shl nuw nsw i32 %10, 16
-  %shl.i = shl nuw i32 %9, 24
+  %shl15.i = shl nuw nsw i32 %11, 16
+  %shl.i = shl nuw i32 %10, 24
   %or.i = or disjoint i32 %shl15.i, %shl.i
-  %shl16.i = shl nuw nsw i32 %11, 8
+  %shl16.i = shl nuw nsw i32 %12, 8
   %or17.i = or disjoint i32 %or.i, %shl16.i
-  %or18.i = or disjoint i32 %or17.i, %12
+  %or18.i = or disjoint i32 %or17.i, %13
   %call19.i = call i32 @htonl(i32 noundef %or18.i) #31
-  %conv88 = zext nneg i32 %13 to i64
+  %conv88 = zext nneg i32 %14 to i64
   call void @llvm.memset.p0.i64(ptr align 2 %out, i8 0, i64 %conv88, i1 false)
   store i16 2, ptr %out, align 2
   %sin.sroa.3.0.out.sroa_idx = getelementptr inbounds i8, ptr %out, i64 2

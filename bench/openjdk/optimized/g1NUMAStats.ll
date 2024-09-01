@@ -824,24 +824,18 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
 ._crit_edge:                                      ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #11
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.10) #11
-  br i1 %.not42, label %._crit_edge37.thread, label %.lr.ph36
-
-._crit_edge37.thread.critedge:                    ; preds = %4
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #11
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.10) #11
-  br label %._crit_edge37.thread
-
-._crit_edge37.thread:                             ; preds = %._crit_edge37.thread.critedge, %._crit_edge
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #11
-  br label %._crit_edge41
-
-.lr.ph36:                                         ; preds = %._crit_edge
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %wide.trip.count55 = zext i32 %8 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph36, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next53, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit ]
+._crit_edge37.thread.critedge:                    ; preds = %4
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #11
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.10) #11
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #11
+  br label %._crit_edge41
+
+13:                                               ; preds = %._crit_edge, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
+  %indvars.iv52 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next53, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv52
   %16 = load i32, ptr %15, align 4
@@ -897,15 +891,12 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
 
 ._crit_edge37:                                    ; preds = %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #11
-  br i1 %.not42, label %._crit_edge41, label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %._crit_edge37
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = zext i32 %8 to i64
   br label %40
 
-40:                                               ; preds = %.lr.ph40, %40
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next58, %40 ]
+40:                                               ; preds = %._crit_edge37, %40
+  %indvars.iv57 = phi i64 [ 0, %._crit_edge37 ], [ %indvars.iv.next58, %40 ]
   %41 = load ptr, ptr %38, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -918,7 +909,7 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %39
   br i1 %exitcond61.not, label %._crit_edge41, label %40, !llvm.loop !21
 
-._crit_edge41:                                    ; preds = %40, %._crit_edge37.thread, %._crit_edge37
+._crit_edge41:                                    ; preds = %40, %._crit_edge37.thread.critedge
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8

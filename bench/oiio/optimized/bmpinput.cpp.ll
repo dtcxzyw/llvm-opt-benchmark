@@ -2008,49 +2008,35 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_colortable, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp6 = icmp eq ptr %0, %1
   br i1 %cmp6, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %2 = load i8, ptr %1, align 1
-  %g10 = getelementptr inbounds i8, ptr %1, i64 1
-  %3 = load i8, ptr %g10, align 1
-  %cmp5.not11 = icmp eq i8 %2, %3
-  %r12 = getelementptr inbounds i8, ptr %1, i64 2
-  %4 = load i8, ptr %r12, align 1
-  %cmp9.not13 = icmp eq i8 %3, %4
-  %or.cond14 = select i1 %cmp5.not11, i1 %cmp9.not13, i1 false
-  br i1 %or.cond14, label %for.cond, label %return
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %i.0715 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i64 %i.0715, 1
-  %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !23
-
-for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::bmp_pvt::color_table", ptr %1, i64 %inc
-  %5 = load i8, ptr %add.ptr.i, align 1
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %i.07 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.body ]
+  %add.ptr.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::bmp_pvt::color_table", ptr %1, i64 %i.07
+  %2 = load i8, ptr %add.ptr.i, align 1
   %g = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  %6 = load i8, ptr %g, align 1
-  %cmp5.not = icmp eq i8 %5, %6
+  %3 = load i8, ptr %g, align 1
+  %cmp5.not = icmp eq i8 %2, %3
   %r = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %7 = load i8, ptr %r, align 1
-  %cmp9.not = icmp eq i8 %6, %7
+  %4 = load i8, ptr %r, align 1
+  %cmp9.not = icmp eq i8 %3, %4
   %or.cond = select i1 %cmp5.not, i1 %cmp9.not, i1 false
-  br i1 %or.cond, label %for.cond, label %return.loopexit, !llvm.loop !23
+  %inc = add nuw i64 %i.07, 1
+  %exitcond.not = icmp ne i64 %inc, %umax
+  %or.cond10.not = select i1 %or.cond, i1 %exitcond.not, i1 false
+  br i1 %or.cond10.not, label %for.body, label %return, !llvm.loop !23
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i64 %inc, %sub.ptr.div.i
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %or.cond, %for.body ]
   ret i1 %cmp.lcssa
 }
 

@@ -612,7 +612,7 @@ define internal fastcc noundef ptr @ExecHashJoinImpl(ptr noundef %0, i1 noundef 
 
 71:                                               ; preds = %.backedge, %70
   %72 = load i32, ptr %37, align 8
-  switch i32 %72, label %669 [
+  switch i32 %72, label %664 [
     i32 1, label %73
     i32 2, label %187
     i32 3, label %348
@@ -682,7 +682,7 @@ ExecProcNode.exit:                                ; preds = %91, %93
 
 101:                                              ; preds = %97, %ExecProcNode.exit
   store i8 0, ptr %55, align 1
-  br label %ExecHashJoinNewBatch.exit.thread
+  br label %ExecHashJoinNewBatch.exit
 
 102:                                              ; preds = %97
   store i8 1, ptr %55, align 1
@@ -713,18 +713,18 @@ ExecProcNode.exit:                                ; preds = %91, %93
   br i1 %.not160, label %116, label %123
 
 116:                                              ; preds = %114
-  br i1 %1, label %117, label %ExecHashJoinNewBatch.exit.thread
+  br i1 %1, label %117, label %ExecHashJoinNewBatch.exit
 
 117:                                              ; preds = %116
   %118 = call i32 @BarrierPhase(ptr noundef nonnull %68) #6
   %119 = icmp slt i32 %118, 4
-  br i1 %119, label %.lr.ph, label %ExecHashJoinNewBatch.exit.thread
+  br i1 %119, label %.lr.ph, label %ExecHashJoinNewBatch.exit
 
 .lr.ph:                                           ; preds = %117, %.lr.ph
   %120 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %68, i32 noundef 0) #6
   %121 = call i32 @BarrierPhase(ptr noundef nonnull %68) #6
   %122 = icmp slt i32 %121, 4
-  br i1 %122, label %.lr.ph, label %ExecHashJoinNewBatch.exit.thread, !llvm.loop !5
+  br i1 %122, label %.lr.ph, label %ExecHashJoinNewBatch.exit, !llvm.loop !5
 
 123:                                              ; preds = %114, %104
   %124 = getelementptr inbounds i8, ptr %109, i64 64
@@ -758,7 +758,7 @@ ExecProcNode.exit:                                ; preds = %91, %93
   %140 = getelementptr inbounds i8, ptr %136, i64 256
   br label %141
 
-141:                                              ; preds = %.backedge340, %133
+141:                                              ; preds = %.backedge333, %133
   %142 = load ptr, ptr %137, align 8
   %.not.i.i = icmp eq ptr %142, null
   br i1 %.not.i.i, label %ExecProcNode.exit.i, label %143
@@ -809,13 +809,13 @@ ExecProcNode.exit.i:                              ; preds = %143, %141
 167:                                              ; preds = %166, %156, %151
   %168 = load volatile i32, ptr @InterruptPending, align 4
   %.not22.i = icmp eq i32 %168, 0
-  br i1 %.not22.i, label %.backedge340, label %169
+  br i1 %.not22.i, label %.backedge333, label %169
 
 169:                                              ; preds = %167
   call void @ProcessInterrupts() #6
-  br label %.backedge340
+  br label %.backedge333
 
-.backedge340:                                     ; preds = %169, %167
+.backedge333:                                     ; preds = %169, %167
   br label %141
 
 170:                                              ; preds = %147, %ExecProcNode.exit.i
@@ -850,7 +850,7 @@ ExecParallelHashJoinPartitionOuter.exit:          ; preds = %.lr.ph.i, %170
 182:                                              ; preds = %127
   %183 = call i32 @BarrierPhase(ptr noundef nonnull %68) #6
   %184 = icmp eq i32 %183, 5
-  br i1 %184, label %ExecHashJoinNewBatch.exit.thread, label %185
+  br i1 %184, label %ExecHashJoinNewBatch.exit, label %185
 
 185:                                              ; preds = %182, %180
   %186 = getelementptr inbounds i8, ptr %109, i64 68
@@ -860,18 +860,18 @@ ExecParallelHashJoinPartitionOuter.exit:          ; preds = %.lr.ph.i, %170
 
 .thread:                                          ; preds = %123
   store i32 2, ptr %37, align 8
-  %.pre284 = load ptr, ptr %29, align 8
+  %.pre281 = load ptr, ptr %29, align 8
   br label %235
 
 187:                                              ; preds = %71
-  %.pre285 = load ptr, ptr %29, align 8
+  %.pre282 = load ptr, ptr %29, align 8
   br i1 %1, label %188, label %235
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %.pre285, i64 68
+  %189 = getelementptr inbounds i8, ptr %.pre282, i64 68
   %190 = load i32, ptr %189, align 4
   %191 = icmp eq i32 %190, 0
-  %192 = getelementptr inbounds i8, ptr %.pre285, i64 64
+  %192 = getelementptr inbounds i8, ptr %.pre282, i64 64
   %193 = load i32, ptr %192, align 8
   %194 = icmp eq i32 %193, 1
   %or.cond.i = select i1 %191, i1 %194, i1 false
@@ -907,7 +907,7 @@ ExecProcNode.exit.i170:                           ; preds = %197, %195
   %207 = load ptr, ptr %51, align 8
   %208 = load ptr, ptr %38, align 8
   %209 = icmp ne ptr %208, null
-  %210 = call zeroext i1 @ExecHashGetHashValue(ptr noundef %.pre285, ptr noundef %205, ptr noundef %207, i1 noundef zeroext true, i1 noundef zeroext %209, ptr noundef nonnull %18) #6
+  %210 = call zeroext i1 @ExecHashGetHashValue(ptr noundef %.pre282, ptr noundef %205, ptr noundef %207, i1 noundef zeroext true, i1 noundef zeroext %209, ptr noundef nonnull %18) #6
   br i1 %210, label %ExecParallelHashJoinOuterGetTuple.exit.thread200, label %211
 
 211:                                              ; preds = %204
@@ -930,7 +930,7 @@ ExecProcNode.exit34.i:                            ; preds = %213, %211
   br i1 %217, label %218, label %.critedge.i
 
 218:                                              ; preds = %._crit_edge.i
-  %219 = getelementptr inbounds i8, ptr %.pre285, i64 256
+  %219 = getelementptr inbounds i8, ptr %.pre282, i64 256
   %220 = load ptr, ptr %219, align 8
   %221 = sext i32 %190 to i64
   %222 = getelementptr %struct.ParallelHashJoinBatchAccessor, ptr %220, i64 %221, i32 10
@@ -949,7 +949,7 @@ ExecProcNode.exit34.i:                            ; preds = %213, %211
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %ExecProcNode.exit34.i, %.lr.ph.i171, %226, %._crit_edge.i, %ExecProcNode.exit.i170
-  %231 = getelementptr inbounds i8, ptr %.pre285, i64 256
+  %231 = getelementptr inbounds i8, ptr %.pre282, i64 256
   %232 = load ptr, ptr %231, align 8
   %233 = sext i32 %190 to i64
   %234 = getelementptr %struct.ParallelHashJoinBatchAccessor, ptr %232, i64 %233, i32 7
@@ -957,7 +957,7 @@ ExecProcNode.exit34.i:                            ; preds = %213, %211
   br label %ExecParallelHashJoinOuterGetTuple.exit.thread
 
 235:                                              ; preds = %.thread, %187
-  %236 = phi ptr [ %.pre284, %.thread ], [ %.pre285, %187 ]
+  %236 = phi ptr [ %.pre281, %.thread ], [ %.pre282, %187 ]
   %.1194 = phi ptr [ %109, %.thread ], [ %.0141, %187 ]
   %237 = getelementptr inbounds i8, ptr %236, i64 68
   %238 = load i32, ptr %237, align 4
@@ -1329,7 +1329,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %327, %337
   %405 = getelementptr inbounds i8, ptr %387, i64 6
   store i16 %404, ptr %405, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %ExecHashJoinNewBatch.exit.thread
+  br label %ExecHashJoinNewBatch.exit
 
 406:                                              ; preds = %375
   %407 = load ptr, ptr %45, align 8
@@ -1415,7 +1415,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %327, %337
   %454 = getelementptr inbounds i8, ptr %436, i64 6
   store i16 %453, ptr %454, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %ExecHashJoinNewBatch.exit.thread
+  br label %ExecHashJoinNewBatch.exit
 
 455:                                              ; preds = %424
   %456 = load ptr, ptr %45, align 8
@@ -1494,7 +1494,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %327, %337
   %499 = getelementptr inbounds i8, ptr %481, i64 6
   store i16 %498, ptr %499, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %ExecHashJoinNewBatch.exit.thread
+  br label %ExecHashJoinNewBatch.exit
 
 500:                                              ; preds = %469
   %501 = load ptr, ptr %45, align 8
@@ -1607,7 +1607,7 @@ ExecParallelHashJoinNewBatch.exit.thread:         ; preds = %533, %._crit_edge.i
   %553 = load ptr, ptr %552, align 8
   call void @sts_begin_parallel_scan(ptr noundef %553) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %668
+  br label %ExecHashJoinNewBatch.exit.thread
 
 554:                                              ; preds = %533
   call void @ExecParallelHashTableSetCurrentBatch(ptr noundef nonnull %508, i32 noundef %.047.i) #6
@@ -1642,7 +1642,7 @@ ExecParallelHashJoinNewBatch.exit.thread:         ; preds = %533, %._crit_edge.i
 
 ExecParallelHashJoinNewBatch.exit:                ; preds = %565
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %ExecHashJoinNewBatch.exit.thread
+  br label %ExecHashJoinNewBatch.exit
 
 569:                                              ; preds = %506
   %570 = load ptr, ptr %29, align 8
@@ -1689,7 +1689,7 @@ ExecParallelHashJoinNewBatch.exit:                ; preds = %565
 592:                                              ; preds = %586, %583
   %.072104.i = add i32 %574, 1
   %593 = icmp slt i32 %.072104.i, %572
-  br i1 %593, label %.lr.ph.i183, label %ExecHashJoinNewBatch.exit.thread
+  br i1 %593, label %.lr.ph.i183, label %ExecHashJoinNewBatch.exit
 
 .lr.ph.i183:                                      ; preds = %592
   %594 = getelementptr inbounds i8, ptr %570, i64 120
@@ -1697,197 +1697,190 @@ ExecParallelHashJoinNewBatch.exit:                ; preds = %565
   %596 = getelementptr inbounds i8, ptr %570, i64 72
   %597 = getelementptr inbounds i8, ptr %570, i64 76
   %598 = sext i32 %.072104.i to i64
-  %599 = sext i32 %572 to i64
-  br label %600
+  br label %599
 
-600:                                              ; preds = %620, %.lr.ph.i183
-  %indvars.iv.i184 = phi i64 [ %598, %.lr.ph.i183 ], [ %indvars.iv.next.i190, %620 ]
-  %601 = phi i1 [ true, %.lr.ph.i183 ], [ %623, %620 ]
-  %602 = load ptr, ptr %594, align 8
-  %603 = getelementptr ptr, ptr %602, i64 %indvars.iv.i184
-  %604 = load ptr, ptr %603, align 8
-  %605 = icmp eq ptr %604, null
-  %.pre111.i = load ptr, ptr %595, align 8
-  %.phi.trans.insert.i = getelementptr ptr, ptr %.pre111.i, i64 %indvars.iv.i184
-  %.pre112.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.not83.i = icmp eq ptr %.pre112.i, null
-  br i1 %605, label %.critedge2.thread.i, label %606
+599:                                              ; preds = %618, %.lr.ph.i183
+  %indvars.iv.i184 = phi i64 [ %598, %.lr.ph.i183 ], [ %indvars.iv.next.i190, %618 ]
+  %600 = load ptr, ptr %594, align 8
+  %601 = getelementptr ptr, ptr %600, i64 %indvars.iv.i184
+  %602 = load ptr, ptr %601, align 8
+  %603 = icmp eq ptr %602, null
+  %.pre109.i = load ptr, ptr %595, align 8
+  %.phi.trans.insert.i = getelementptr ptr, ptr %.pre109.i, i64 %indvars.iv.i184
+  %.pre110.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.not83.i = icmp eq ptr %.pre110.i, null
+  br i1 %603, label %.critedge2.thread.i, label %604
 
-606:                                              ; preds = %600
-  br i1 %.not83.i, label %.critedge2.i, label %624
+604:                                              ; preds = %599
+  br i1 %.not83.i, label %.critedge2.i, label %621
 
-.critedge2.i:                                     ; preds = %606
-  %607 = load ptr, ptr %38, align 8
-  %.not82.i = icmp eq ptr %607, null
-  br i1 %.not82.i, label %.thread.i189, label %624
+.critedge2.i:                                     ; preds = %604
+  %605 = load ptr, ptr %38, align 8
+  %.not82.i = icmp eq ptr %605, null
+  br i1 %.not82.i, label %.thread.i189, label %621
 
-.critedge2.thread.i:                              ; preds = %600
-  br i1 %.not83.i, label %.thread121.i, label %608
+.critedge2.thread.i:                              ; preds = %599
+  br i1 %.not83.i, label %.thread119.i, label %606
 
-608:                                              ; preds = %.critedge2.thread.i
-  %609 = load ptr, ptr %39, align 8
-  %.not84.i = icmp eq ptr %609, null
-  br i1 %.not84.i, label %610, label %624
+606:                                              ; preds = %.critedge2.thread.i
+  %607 = load ptr, ptr %39, align 8
+  %.not84.i = icmp eq ptr %607, null
+  br i1 %.not84.i, label %608, label %621
 
-610:                                              ; preds = %608
-  %611 = load i32, ptr %596, align 8
-  %.not86.i = icmp eq i32 %572, %611
-  br i1 %.not86.i, label %613, label %624
+608:                                              ; preds = %606
+  %609 = load i32, ptr %596, align 8
+  %.not86.i = icmp eq i32 %572, %609
+  br i1 %.not86.i, label %611, label %621
 
 .thread.i189:                                     ; preds = %.critedge2.i
-  %612 = load i32, ptr %597, align 4
-  %.not88.i = icmp eq i32 %572, %612
-  br i1 %.not88.i, label %.thread121.i, label %624
+  %610 = load i32, ptr %597, align 4
+  %.not88.i = icmp eq i32 %572, %610
+  br i1 %.not88.i, label %.thread119.i, label %621
 
-613:                                              ; preds = %610
-  call void @BufFileClose(ptr noundef nonnull %.pre112.i) #6
-  %.pre113.i = load ptr, ptr %595, align 8
-  br label %.thread121.i
+611:                                              ; preds = %608
+  call void @BufFileClose(ptr noundef nonnull %.pre110.i) #6
+  %.pre111.i = load ptr, ptr %595, align 8
+  br label %.thread119.i
 
-.thread121.i:                                     ; preds = %613, %.thread.i189, %.critedge2.thread.i
-  %614 = phi ptr [ %.pre113.i, %613 ], [ %.pre111.i, %.critedge2.thread.i ], [ %.pre111.i, %.thread.i189 ]
+.thread119.i:                                     ; preds = %611, %.thread.i189, %.critedge2.thread.i
+  %612 = phi ptr [ %.pre111.i, %611 ], [ %.pre109.i, %.critedge2.thread.i ], [ %.pre109.i, %.thread.i189 ]
+  %613 = getelementptr ptr, ptr %612, i64 %indvars.iv.i184
+  store ptr null, ptr %613, align 8
+  %614 = load ptr, ptr %594, align 8
   %615 = getelementptr ptr, ptr %614, i64 %indvars.iv.i184
-  store ptr null, ptr %615, align 8
-  %616 = load ptr, ptr %594, align 8
-  %617 = getelementptr ptr, ptr %616, i64 %indvars.iv.i184
-  %618 = load ptr, ptr %617, align 8
-  %.not90.i = icmp eq ptr %618, null
-  br i1 %.not90.i, label %620, label %619
+  %616 = load ptr, ptr %615, align 8
+  %.not90.i = icmp eq ptr %616, null
+  br i1 %.not90.i, label %618, label %617
 
-619:                                              ; preds = %.thread121.i
-  call void @BufFileClose(ptr noundef nonnull %618) #6
-  %.pre114.i = load ptr, ptr %594, align 8
-  br label %620
+617:                                              ; preds = %.thread119.i
+  call void @BufFileClose(ptr noundef nonnull %616) #6
+  %.pre112.i = load ptr, ptr %594, align 8
+  br label %618
 
-620:                                              ; preds = %619, %.thread121.i
-  %621 = phi ptr [ %.pre114.i, %619 ], [ %616, %.thread121.i ]
-  %622 = getelementptr ptr, ptr %621, i64 %indvars.iv.i184
-  store ptr null, ptr %622, align 8
+618:                                              ; preds = %617, %.thread119.i
+  %619 = phi ptr [ %.pre112.i, %617 ], [ %614, %.thread119.i ]
+  %620 = getelementptr ptr, ptr %619, i64 %indvars.iv.i184
+  store ptr null, ptr %620, align 8
   %indvars.iv.next.i190 = add nsw i64 %indvars.iv.i184, 1
-  %623 = icmp slt i64 %indvars.iv.next.i190, %599
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i190 to i32
   %exitcond.not.i = icmp eq i32 %572, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %ExecHashJoinNewBatch.exit, label %600, !llvm.loop !13
+  br i1 %exitcond.not.i, label %ExecHashJoinNewBatch.exit, label %599, !llvm.loop !13
 
-624:                                              ; preds = %.thread.i189, %610, %608, %.critedge2.i, %606
-  %625 = trunc nsw i64 %indvars.iv.i184 to i32
-  store i32 %625, ptr %573, align 4
+621:                                              ; preds = %.thread.i189, %608, %606, %.critedge2.i, %604
+  %622 = trunc nsw i64 %indvars.iv.i184 to i32
+  store i32 %622, ptr %573, align 4
   call void @ExecHashTableReset(ptr noundef nonnull %570) #6
-  %626 = load ptr, ptr %595, align 8
+  %623 = load ptr, ptr %595, align 8
   %sext.i = shl i64 %indvars.iv.i184, 32
-  %627 = ashr exact i64 %sext.i, 32
-  %628 = getelementptr ptr, ptr %626, i64 %627
-  %629 = load ptr, ptr %628, align 8
-  %.not92.i = icmp eq ptr %629, null
-  br i1 %.not92.i, label %657, label %630
+  %624 = ashr exact i64 %sext.i, 32
+  %625 = getelementptr ptr, ptr %623, i64 %624
+  %626 = load ptr, ptr %625, align 8
+  %.not92.i = icmp eq ptr %626, null
+  br i1 %.not92.i, label %654, label %627
 
-630:                                              ; preds = %624
-  %631 = call i32 @BufFileSeek(ptr noundef nonnull %629, i32 noundef 0, i64 noundef 0, i32 noundef 0) #6
-  %.not93.i = icmp eq i32 %631, 0
-  br i1 %.not93.i, label %.preheader.i, label %632
+627:                                              ; preds = %621
+  %628 = call i32 @BufFileSeek(ptr noundef nonnull %626, i32 noundef 0, i64 noundef 0, i32 noundef 0) #6
+  %.not93.i = icmp eq i32 %628, 0
+  br i1 %.not93.i, label %.preheader.i, label %629
 
-632:                                              ; preds = %630
-  %633 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %633)
-  %634 = call i32 @errcode_for_file_access() #6
-  %635 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
+629:                                              ; preds = %627
+  %630 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %630)
+  %631 = call i32 @errcode_for_file_access() #6
+  %632 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1131, ptr noundef nonnull @__func__.ExecHashJoinNewBatch) #6
   unreachable
 
-.preheader.i:                                     ; preds = %630, %654
-  %636 = load ptr, ptr %40, align 8
+.preheader.i:                                     ; preds = %627, %651
+  %633 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %637 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i185 = icmp eq i32 %637, 0
-  br i1 %.not.i.i185, label %639, label %638
+  %634 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i185 = icmp eq i32 %634, 0
+  br i1 %.not.i.i185, label %636, label %635
 
-638:                                              ; preds = %.preheader.i
+635:                                              ; preds = %.preheader.i
   call void @ProcessInterrupts() #6
-  br label %639
+  br label %636
 
-639:                                              ; preds = %638, %.preheader.i
-  %640 = call i64 @BufFileReadMaybeEOF(ptr noundef nonnull %629, ptr noundef nonnull %3, i64 noundef 8, i1 noundef zeroext true) #6
-  %641 = icmp eq i64 %640, 0
-  br i1 %641, label %ExecHashJoinGetSavedTuple.exit.thread.i188, label %ExecHashJoinGetSavedTuple.exit.i186
+636:                                              ; preds = %635, %.preheader.i
+  %637 = call i64 @BufFileReadMaybeEOF(ptr noundef nonnull %626, ptr noundef nonnull %3, i64 noundef 8, i1 noundef zeroext true) #6
+  %638 = icmp eq i64 %637, 0
+  br i1 %638, label %ExecHashJoinGetSavedTuple.exit.thread.i188, label %ExecHashJoinGetSavedTuple.exit.i186
 
-ExecHashJoinGetSavedTuple.exit.thread.i188:       ; preds = %639
-  %642 = getelementptr inbounds i8, ptr %636, i64 8
-  %643 = load ptr, ptr %642, align 8
-  %644 = getelementptr inbounds i8, ptr %643, i64 24
-  %645 = load ptr, ptr %644, align 8
-  call void %645(ptr noundef %636) #6
+ExecHashJoinGetSavedTuple.exit.thread.i188:       ; preds = %636
+  %639 = getelementptr inbounds i8, ptr %633, i64 8
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds i8, ptr %640, i64 24
+  %642 = load ptr, ptr %641, align 8
+  call void %642(ptr noundef %633) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit.i187
 
-ExecHashJoinGetSavedTuple.exit.i186:              ; preds = %639
-  %646 = load i32, ptr %3, align 4
+ExecHashJoinGetSavedTuple.exit.i186:              ; preds = %636
+  %643 = load i32, ptr %3, align 4
+  %644 = load i32, ptr %41, align 4
+  %645 = zext i32 %644 to i64
+  %646 = call ptr @palloc(i64 noundef %645) #6
   %647 = load i32, ptr %41, align 4
-  %648 = zext i32 %647 to i64
-  %649 = call ptr @palloc(i64 noundef %648) #6
-  %650 = load i32, ptr %41, align 4
-  store i32 %650, ptr %649, align 4
-  %651 = getelementptr i8, ptr %649, i64 4
-  %652 = zext i32 %650 to i64
-  %653 = add nsw i64 %652, -4
-  call void @BufFileReadExact(ptr noundef nonnull %629, ptr noundef %651, i64 noundef %653) #6
-  call void @ExecForceStoreMinimalTuple(ptr noundef nonnull %649, ptr noundef %636, i1 noundef zeroext true) #6
+  store i32 %647, ptr %646, align 4
+  %648 = getelementptr i8, ptr %646, i64 4
+  %649 = zext i32 %647 to i64
+  %650 = add nsw i64 %649, -4
+  call void @BufFileReadExact(ptr noundef nonnull %626, ptr noundef %648, i64 noundef %650) #6
+  call void @ExecForceStoreMinimalTuple(ptr noundef nonnull %646, ptr noundef %633, i1 noundef zeroext true) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not94.i = icmp eq ptr %636, null
-  br i1 %.not94.i, label %.loopexit.i187, label %654
+  %.not94.i = icmp eq ptr %633, null
+  br i1 %.not94.i, label %.loopexit.i187, label %651
 
-654:                                              ; preds = %ExecHashJoinGetSavedTuple.exit.i186
-  call void @ExecHashTableInsert(ptr noundef %570, ptr noundef nonnull %636, i32 noundef %646) #6
+651:                                              ; preds = %ExecHashJoinGetSavedTuple.exit.i186
+  call void @ExecHashTableInsert(ptr noundef %570, ptr noundef nonnull %633, i32 noundef %643) #6
   br label %.preheader.i, !llvm.loop !14
 
 .loopexit.i187:                                   ; preds = %ExecHashJoinGetSavedTuple.exit.i186, %ExecHashJoinGetSavedTuple.exit.thread.i188
-  call void @BufFileClose(ptr noundef nonnull %629) #6
-  %655 = load ptr, ptr %595, align 8
-  %656 = getelementptr ptr, ptr %655, i64 %627
-  store ptr null, ptr %656, align 8
-  br label %657
+  call void @BufFileClose(ptr noundef nonnull %626) #6
+  %652 = load ptr, ptr %595, align 8
+  %653 = getelementptr ptr, ptr %652, i64 %624
+  store ptr null, ptr %653, align 8
+  br label %654
 
-657:                                              ; preds = %.loopexit.i187, %624
-  %658 = load ptr, ptr %594, align 8
-  %659 = getelementptr ptr, ptr %658, i64 %627
-  %660 = load ptr, ptr %659, align 8
-  %.not95.i = icmp eq ptr %660, null
-  br i1 %.not95.i, label %ExecHashJoinNewBatch.exit, label %661
+654:                                              ; preds = %.loopexit.i187, %621
+  %655 = load ptr, ptr %594, align 8
+  %656 = getelementptr ptr, ptr %655, i64 %624
+  %657 = load ptr, ptr %656, align 8
+  %.not95.i = icmp eq ptr %657, null
+  br i1 %.not95.i, label %ExecHashJoinNewBatch.exit.thread, label %658
 
-661:                                              ; preds = %657
-  %662 = call i32 @BufFileSeek(ptr noundef nonnull %660, i32 noundef 0, i64 noundef 0, i32 noundef 0) #6
-  %.not96.i = icmp eq i32 %662, 0
-  br i1 %.not96.i, label %ExecHashJoinNewBatch.exit, label %663
+658:                                              ; preds = %654
+  %659 = call i32 @BufFileSeek(ptr noundef nonnull %657, i32 noundef 0, i64 noundef 0, i32 noundef 0) #6
+  %.not96.i = icmp eq i32 %659, 0
+  br i1 %.not96.i, label %ExecHashJoinNewBatch.exit.thread, label %660
 
-663:                                              ; preds = %661
-  %664 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %664)
-  %665 = call i32 @errcode_for_file_access() #6
-  %666 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
+660:                                              ; preds = %658
+  %661 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %661)
+  %662 = call i32 @errcode_for_file_access() #6
+  %663 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1161, ptr noundef nonnull @__func__.ExecHashJoinNewBatch) #6
   unreachable
 
-ExecHashJoinNewBatch.exit:                        ; preds = %620, %657, %661
-  %667 = phi i1 [ %601, %657 ], [ %601, %661 ], [ %623, %620 ]
-  br i1 %667, label %668, label %ExecHashJoinNewBatch.exit.thread
-
-668:                                              ; preds = %ExecParallelHashJoinNewBatch.exit.thread, %ExecHashJoinNewBatch.exit
+ExecHashJoinNewBatch.exit.thread:                 ; preds = %658, %654, %ExecParallelHashJoinNewBatch.exit.thread
   store i32 2, ptr %37, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %668, %414, %412, %406, %408, %455, %457, %421, %418, %502, %500, %ExecHashJoinSaveTuple.exit, %346, %318, %315, %316, %317, %185, %351, %354, %369, %466, %367
-  %.0141.be = phi ptr [ %.0141, %466 ], [ %.2, %369 ], [ %.2, %351 ], [ %.2, %354 ], [ %109, %185 ], [ %.2, %367 ], [ %.1193197, %317 ], [ %.1193197209213, %316 ], [ %.1193197209213, %315 ], [ %.1193197210, %318 ], [ %.1193203, %346 ], [ %.1193203, %ExecHashJoinSaveTuple.exit ], [ %.0141, %668 ], [ %.0141, %502 ], [ %.0141, %500 ], [ %.0141, %418 ], [ %.0141, %457 ], [ %.0141, %455 ], [ %.0141, %421 ], [ %.2, %408 ], [ %.2, %406 ], [ %.2, %414 ], [ %.2, %412 ]
+.backedge.backedge:                               ; preds = %ExecHashJoinNewBatch.exit.thread, %414, %412, %406, %408, %455, %457, %421, %418, %502, %500, %ExecHashJoinSaveTuple.exit, %346, %318, %315, %316, %317, %185, %351, %354, %369, %466, %367
+  %.0141.be = phi ptr [ %.0141, %466 ], [ %.2, %369 ], [ %.2, %351 ], [ %.2, %354 ], [ %109, %185 ], [ %.2, %367 ], [ %.1193197, %317 ], [ %.1193197209213, %316 ], [ %.1193197209213, %315 ], [ %.1193197210, %318 ], [ %.1193203, %346 ], [ %.1193203, %ExecHashJoinSaveTuple.exit ], [ %.0141, %ExecHashJoinNewBatch.exit.thread ], [ %.0141, %502 ], [ %.0141, %500 ], [ %.0141, %418 ], [ %.0141, %457 ], [ %.0141, %455 ], [ %.0141, %421 ], [ %.2, %408 ], [ %.2, %406 ], [ %.2, %414 ], [ %.2, %412 ]
   br label %.backedge
 
-669:                                              ; preds = %71
-  %670 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %670)
-  %671 = load i32, ptr %37, align 8
-  %672 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %671) #6
+664:                                              ; preds = %71
+  %665 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %665)
+  %666 = load i32, ptr %37, align 8
+  %667 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %666) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 666, ptr noundef nonnull @__func__.ExecHashJoinImpl) #6
   unreachable
 
-ExecHashJoinNewBatch.exit.thread:                 ; preds = %592, %ExecHashJoinNewBatch.exit, %182, %.lr.ph, %117, %ExecParallelHashJoinNewBatch.exit, %116, %474, %429, %380, %101
-  %.0 = phi ptr [ %481, %474 ], [ %436, %429 ], [ %387, %380 ], [ null, %101 ], [ null, %116 ], [ null, %ExecParallelHashJoinNewBatch.exit ], [ null, %117 ], [ null, %.lr.ph ], [ null, %182 ], [ null, %ExecHashJoinNewBatch.exit ], [ null, %592 ]
+ExecHashJoinNewBatch.exit:                        ; preds = %592, %182, %618, %.lr.ph, %117, %ExecParallelHashJoinNewBatch.exit, %116, %474, %429, %380, %101
+  %.0 = phi ptr [ %481, %474 ], [ %436, %429 ], [ %387, %380 ], [ null, %101 ], [ null, %116 ], [ null, %ExecParallelHashJoinNewBatch.exit ], [ null, %117 ], [ null, %.lr.ph ], [ null, %618 ], [ null, %182 ], [ null, %592 ]
   ret ptr %.0
 }
 

@@ -607,13 +607,11 @@ define i64 @_ZNK3gmx10EnergyTerm13errorEstimateEj(ptr nocapture noundef nonnull 
   %3 = getelementptr inbounds i8, ptr %0, i64 129
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %.preheader, label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit
+  %.not50 = icmp ne i32 %1, 0
+  %or.cond.not = and i1 %.not50, %5
+  br i1 %or.cond.not, label %.lr.ph46, label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit
 
-.preheader:                                       ; preds = %2
-  %.not50 = icmp eq i32 %1, 0
-  br i1 %.not50, label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit, label %.lr.ph46
-
-.lr.ph46:                                         ; preds = %.preheader
+.lr.ph46:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = zext i32 %1 to i64
@@ -671,12 +669,9 @@ define i64 @_ZNK3gmx10EnergyTerm13errorEstimateEj(ptr nocapture noundef nonnull 
   %.126 = select i1 %38, double %42, double %.02543
   %.1 = select i1 %38, double %41, double %.02345
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge47, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i, label %9, !llvm.loop !12
 
-._crit_edge47:                                    ; preds = %._crit_edge
-  br i1 %.not50, label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit, label %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i
-
-_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i: ; preds = %._crit_edge47
+_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i: ; preds = %._crit_edge
   %43 = uitofp i32 %1 to double
   %44 = fdiv double %.126, %43
   %45 = fdiv double %.1, %43
@@ -686,12 +681,11 @@ _ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4ty
   %49 = fptrunc double %48 to float
   %50 = bitcast float %49 to i32
   %51 = zext i32 %50 to i64
+  %52 = or disjoint i64 %51, 4294967296
   br label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit
 
-_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit: ; preds = %.preheader, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i, %._crit_edge47, %2
-  %.sroa.034.0 = phi i64 [ 0, %2 ], [ %51, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
-  %.sroa.235.0 = phi i64 [ 0, %2 ], [ 4294967296, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
-  %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.235.0, %.sroa.034.0
+_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit: ; preds = %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i, %2
+  %.sroa.034.0.insert.insert = phi i64 [ 0, %2 ], [ %52, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ]
   ret i64 %.sroa.034.0.insert.insert
 }
 

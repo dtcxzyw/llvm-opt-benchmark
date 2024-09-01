@@ -112,12 +112,9 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %36 = phi i32 [ %32, %sub_1 ], [ %35, %sub_2 ]
   %.not102 = icmp eq i32 %36, 0
-  br i1 %.not102, label %57, label %sub_0105
+  br i1 %.not102, label %57, label %sub_1106
 
-sub_0105:                                         ; preds = %.tail
-  br i1 %.not139, label %sub_1106, label %.tail104
-
-sub_1106:                                         ; preds = %sub_0105
+sub_1106:                                         ; preds = %.tail
   %37 = getelementptr inbounds i8, ptr %16, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -131,8 +128,8 @@ sub_2107:                                         ; preds = %sub_1106
   %43 = zext i8 %42 to i32
   br label %.tail104
 
-.tail104:                                         ; preds = %sub_0, %sub_0105, %sub_1106, %sub_2107
-  %44 = phi i32 [ %28, %sub_0105 ], [ %40, %sub_1106 ], [ %43, %sub_2107 ], [ %28, %sub_0 ]
+.tail104:                                         ; preds = %sub_0, %sub_1106, %sub_2107
+  %44 = phi i32 [ %40, %sub_1106 ], [ %43, %sub_2107 ], [ %28, %sub_0 ]
   %.not103 = icmp eq i32 %44, 0
   br i1 %.not103, label %45, label %55
 

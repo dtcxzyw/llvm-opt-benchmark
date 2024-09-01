@@ -3443,11 +3443,11 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %29 = phi { i8, i64 } [ %25, %22 ], [ %10, %.lr.ph.split ]
   %30 = extractvalue { i8, i64 } %29, 1
   %31 = and i64 %30, 1
-  %.not.not = icmp ne i64 %31, 0
-  br i1 %.not.not, label %22, label %.thread, !llvm.loop !43
+  %.not.not.not = icmp ne i64 %31, 0
+  br i1 %.not.not.not, label %22, label %.thread, !llvm.loop !43
 
 .thread:                                          ; preds = %.lr.ph3, %22, %.lr.ph5, %.lr.ph.split.us, %.lr.ph.split, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ %.not.not, %22 ], [ %.not.not, %.lr.ph3 ]
+  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ %.not.not.not, %22 ], [ %.not.not.not, %.lr.ph3 ]
   ret i1 %.lcssa
 }
 

@@ -890,7 +890,7 @@ if.else:                                          ; preds = %invoke.cont123
   br i1 %cmp53, label %cond.true61, label %cleanup.loopexit, !llvm.loop !8
 
 cleanup.loopexit:                                 ; preds = %if.else, %invoke.cont123
-  %finished.3.lcssa.ph = phi i1 [ %finished.3646, %invoke.cont123 ], [ %spec.select, %if.else ]
+  %finished.3.lcssa.ph = phi i1 [ %spec.select, %if.else ], [ %finished.3646, %invoke.cont123 ]
   %switch.ph = xor i1 %call124, true
   br label %cleanup
 

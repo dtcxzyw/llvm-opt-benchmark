@@ -4649,33 +4649,21 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noun
 define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp17AllPrintableAsciiESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr nocapture readonly %text.coerce1) local_unnamed_addr #10 {
 entry:
   %cmp7 = icmp eq i64 %text.coerce0, 0
-  br i1 %cmp7, label %return, label %for.body.preheader
+  br i1 %cmp7, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %0 = load i8, ptr %text.coerce1, align 1
-  %1 = add i8 %0, -127
-  %or.cond12 = icmp ult i8 %1, -95
-  br i1 %or.cond12, label %return, label %for.cond
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %indvars.iv
+  %0 = load i8, ptr %add.ptr.i, align 1
+  %1 = add i8 %0, -32
+  %or.cond = icmp ult i8 %1, 95
+  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %text.coerce0
+  %or.cond13.not = select i1 %or.cond, i1 %exitcond.not, i1 false
+  br i1 %or.cond13.not, label %for.body, label %return, !llvm.loop !325
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw i64 %indvars.iv13, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %text.coerce0
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !325
-
-for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %indvars.iv.next
-  %2 = load i8, ptr %add.ptr.i, align 1
-  %3 = add i8 %2, -127
-  %or.cond = icmp ult i8 %3, -95
-  br i1 %or.cond, label %return.loopexit, label %for.cond, !llvm.loop !325
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ule i64 %text.coerce0, %indvars.iv.next
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %or.cond, %for.body ]
   ret i1 %cmp.lcssa
 }
 

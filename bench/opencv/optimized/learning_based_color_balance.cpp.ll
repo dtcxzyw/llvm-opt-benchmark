@@ -1425,7 +1425,7 @@ define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl17predictIlluminantESt6vec
   store float %41, ptr %26, align 4
   %80 = getelementptr inbounds i8, ptr %45, i64 %27
   %81 = getelementptr inbounds float, ptr %48, i64 %27
-  br i1 %54, label %.lr.ph.i77, label %.loopexit212
+  br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.loopexit213, %.lr.ph.i77
   %.012.i78 = phi i32 [ %94, %.lr.ph.i77 ], [ 0, %.loopexit213 ]
@@ -1447,10 +1447,10 @@ define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl17predictIlluminantESt6vec
   %exitcond.not.i81 = icmp eq i32 %94, %53
   br i1 %exitcond.not.i81, label %.loopexit212, label %.lr.ph.i77, !llvm.loop !26
 
-.loopexit212:                                     ; preds = %.lr.ph.i77, %.loopexit213.thread, %.loopexit213
-  %95 = phi float [ %79, %.loopexit213 ], [ %60, %.loopexit213.thread ], [ %79, %.lr.ph.i77 ]
-  %96 = phi i32 [ %74, %.loopexit213 ], [ %55, %.loopexit213.thread ], [ %74, %.lr.ph.i77 ]
-  %.010.lcssa.i76 = phi i32 [ 0, %.loopexit213 ], [ 0, %.loopexit213.thread ], [ %.1.i80, %.lr.ph.i77 ]
+.loopexit212:                                     ; preds = %.lr.ph.i77, %.loopexit213.thread
+  %95 = phi float [ %60, %.loopexit213.thread ], [ %79, %.lr.ph.i77 ]
+  %96 = phi i32 [ %55, %.loopexit213.thread ], [ %74, %.lr.ph.i77 ]
+  %.010.lcssa.i76 = phi i32 [ 0, %.loopexit213.thread ], [ %.1.i80, %.lr.ph.i77 ]
   %97 = getelementptr inbounds float, ptr %52, i64 %28
   %98 = sub nsw i32 %.010.lcssa.i76, %96
   %99 = sext i32 %98 to i64

@@ -328,10 +328,7 @@ for.body.preheader:                               ; preds = %entry
   %wide.trip.count45 = zext nneg i32 %N to i64
   br label %for.body
 
-for.cond21.preheader:                             ; preds = %for.inc16
-  br i1 %cmp33, label %for.cond25.preheader.preheader, label %for.end50
-
-for.cond25.preheader.preheader:                   ; preds = %for.cond21.preheader
+for.cond25.preheader.preheader:                   ; preds = %for.inc16
   %0 = zext nneg i32 %N to i64
   %1 = zext nneg i32 %N to i64
   br label %for.cond25.preheader
@@ -370,7 +367,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
 for.inc16:                                        ; preds = %for.body7, %for.body
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %for.cond21.preheader, label %for.body, !llvm.loop !12
+  br i1 %exitcond46.not, label %for.cond25.preheader.preheader, label %for.body, !llvm.loop !12
 
 for.cond25.preheader:                             ; preds = %for.cond25.preheader.preheader, %for.end40
   %indvars.iv47 = phi i64 [ %0, %for.cond25.preheader.preheader ], [ %indvars.iv.next48, %for.end40 ]
@@ -417,7 +414,7 @@ for.end40:                                        ; preds = %for.body27, %for.co
   %cmp22 = icmp sgt i64 %indvars.iv47, 1
   br i1 %cmp22, label %for.cond25.preheader, label %for.end50, !llvm.loop !14
 
-for.end50:                                        ; preds = %for.end40, %entry, %for.cond21.preheader
+for.end50:                                        ; preds = %for.end40, %entry
   ret void
 }
 

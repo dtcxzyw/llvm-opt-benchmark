@@ -235,24 +235,21 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph65, label %._crit_edge
-
 .lr.ph:                                           ; preds = %Abc_Base10Log.exit, %.lr.ph
   %.063 = phi i32 [ %11, %.lr.ph ], [ 0, %Abc_Base10Log.exit ]
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.09.i, i32 noundef %.063) #15
   %11 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %11, %1
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph65, label %.lr.ph, !llvm.loop !6
 
-.lr.ph65:                                         ; preds = %.preheader, %.lr.ph65
-  %.164 = phi i32 [ %13, %.lr.ph65 ], [ 0, %.preheader ]
+.lr.ph65:                                         ; preds = %.lr.ph, %.lr.ph65
+  %.164 = phi i32 [ %13, %.lr.ph65 ], [ 0, %.lr.ph ]
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %.09.i, i32 noundef %.164) #15
   %13 = add nuw nsw i32 %.164, 1
   %exitcond76.not = icmp eq i32 %13, %1
   br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph65, %Abc_Base10Log.exit, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph65, %Abc_Base10Log.exit
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %14 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
   %.not66 = icmp slt i32 %1, 0
@@ -363,18 +360,15 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
   %14 = icmp sgt i32 %1, 0
   br i1 %14, label %.lr.ph, label %._crit_edge132.thread.critedge
 
-.preheader124:                                    ; preds = %.lr.ph
-  br i1 %14, label %.lr.ph128, label %._crit_edge132.thread.critedge
-
 .lr.ph:                                           ; preds = %Abc_Base10Log.exit119, %.lr.ph
   %.0126 = phi i32 [ %16, %.lr.ph ], [ 0, %Abc_Base10Log.exit119 ]
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.09.i, i32 noundef %.0126) #15
   %16 = add nuw nsw i32 %.0126, 1
   %exitcond.not = icmp eq i32 %16, %1
-  br i1 %exitcond.not, label %.preheader124, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph128, label %.lr.ph, !llvm.loop !10
 
-.lr.ph128:                                        ; preds = %.preheader124, %.lr.ph128
-  %.1127 = phi i32 [ %18, %.lr.ph128 ], [ 0, %.preheader124 ]
+.lr.ph128:                                        ; preds = %.lr.ph, %.lr.ph128
+  %.1127 = phi i32 [ %18, %.lr.ph128 ], [ 0, %.lr.ph ]
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %.09.i, i32 noundef %.1127) #15
   %18 = add nuw nsw i32 %.1127, 1
   %exitcond154.not = icmp eq i32 %18, %1
@@ -383,23 +377,17 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
 ._crit_edge:                                      ; preds = %.lr.ph128
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %19 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
-  br i1 %14, label %.lr.ph131.preheader, label %._crit_edge132.thread
-
-._crit_edge132.thread.critedge:                   ; preds = %.preheader124, %Abc_Base10Log.exit119
-  %fputc.c = tail call i32 @fputc(i32 10, ptr %0)
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
-  br label %._crit_edge132.thread
-
-._crit_edge132.thread:                            ; preds = %._crit_edge132.thread.critedge, %._crit_edge
-  %fputc108169 = tail call i32 @fputc(i32 10, ptr %0)
-  br label %._crit_edge151
-
-.lr.ph131.preheader:                              ; preds = %._crit_edge
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph131
 
-.lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
-  %.2129 = phi i32 [ %22, %.lr.ph131 ], [ 0, %.lr.ph131.preheader ]
+._crit_edge132.thread.critedge:                   ; preds = %Abc_Base10Log.exit119
+  %fputc.c = tail call i32 @fputc(i32 10, ptr %0)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
+  %fputc108169 = tail call i32 @fputc(i32 10, ptr %0)
+  br label %._crit_edge151
+
+.lr.ph131:                                        ; preds = %._crit_edge, %.lr.ph131
+  %.2129 = phi i32 [ %22, %.lr.ph131 ], [ 0, %._crit_edge ]
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %.09.i118, i32 noundef %.2129) #15
   %22 = add nuw nsw i32 %.2129, 1
   %exitcond155.not = icmp eq i32 %22, %smax
@@ -407,36 +395,27 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
 
 ._crit_edge132:                                   ; preds = %.lr.ph131
   %fputc108 = tail call i32 @fputc(i32 10, ptr %0)
-  br i1 %14, label %.lr.ph135.preheader, label %._crit_edge151
-
-.lr.ph135.preheader:                              ; preds = %._crit_edge132
   %smax156 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph135
 
-.preheader123:                                    ; preds = %.lr.ph135
-  br i1 %14, label %.preheader122.lr.ph, label %._crit_edge151
-
-.preheader122.lr.ph:                              ; preds = %.preheader123
+.preheader122.lr.ph:                              ; preds = %.lr.ph135
   %smax158 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %smax164 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   br label %.lr.ph137
 
-.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
-  %.3133 = phi i32 [ %24, %.lr.ph135 ], [ 0, %.lr.ph135.preheader ]
+.lr.ph135:                                        ; preds = %._crit_edge132, %.lr.ph135
+  %.3133 = phi i32 [ %24, %.lr.ph135 ], [ 0, %._crit_edge132 ]
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %.09.i, i32 noundef 0, i32 noundef %.09.i118, i32 noundef %.3133) #15
   %24 = add nuw nsw i32 %.3133, 1
   %exitcond157.not = icmp eq i32 %24, %smax156
-  br i1 %exitcond157.not, label %.preheader123, label %.lr.ph135, !llvm.loop !13
+  br i1 %exitcond157.not, label %.preheader122.lr.ph, label %.lr.ph135, !llvm.loop !13
 
 .lr.ph137:                                        ; preds = %._crit_edge147, %.preheader122.lr.ph
   %.0105148 = phi i32 [ 0, %.preheader122.lr.ph ], [ %38, %._crit_edge147 ]
   %25 = add nuw nsw i32 %.0105148, %1
   br label %26
 
-.preheader:                                       ; preds = %._crit_edge147
-  br i1 %14, label %.lr.ph150.preheader, label %._crit_edge151
-
-.lr.ph150.preheader:                              ; preds = %.preheader
+.lr.ph150.preheader:                              ; preds = %._crit_edge147
   %smax167 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph150
 
@@ -493,7 +472,7 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
 ._crit_edge147:                                   ; preds = %41
   %fputc110 = tail call i32 @fputc(i32 10, ptr %0)
   %exitcond166.not = icmp eq i32 %38, %1
-  br i1 %exitcond166.not, label %.preheader, label %.lr.ph137, !llvm.loop !18
+  br i1 %exitcond166.not, label %.lr.ph150.preheader, label %.lr.ph137, !llvm.loop !18
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.lr.ph150
   %.8149 = phi i32 [ %45, %.lr.ph150 ], [ 0, %.lr.ph150.preheader ]
@@ -502,7 +481,7 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
   %exitcond168.not = icmp eq i32 %45, %smax167
   br i1 %exitcond168.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !19
 
-._crit_edge151:                                   ; preds = %.lr.ph150, %._crit_edge132, %._crit_edge132.thread, %.preheader123, %.preheader
+._crit_edge151:                                   ; preds = %.lr.ph150, %._crit_edge132.thread.critedge
   %46 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %0)
   %fputc109 = tail call i32 @fputc(i32 10, ptr %0)
   tail call void @Abc_WriteAdder(ptr noundef %0, i32 noundef %7)
@@ -551,7 +530,7 @@ define void @Abc_WriteLayer(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 ._crit_edge:                                      ; preds = %.lr.ph
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %9 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
-  br i1 %6, label %.lr.ph41, label %._crit_edge42
+  br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
   %.139 = phi i32 [ %11, %.lr.ph41 ], [ 0, %._crit_edge ]
@@ -565,7 +544,7 @@ define void @Abc_WriteLayer(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %12 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
   br label %._crit_edge42
 
-._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge42.critedge, %._crit_edge
+._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge42.critedge
   %fputc36 = tail call i32 @fputc(i32 10, ptr %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %16, label %13
@@ -626,7 +605,7 @@ define void @Abc_GenSorter(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 ._crit_edge:                                      ; preds = %.lr.ph
   %fputc = tail call i32 @fputc(i32 10, ptr %3)
   %11 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %3)
-  br i1 %8, label %.lr.ph104, label %._crit_edge105
+  br label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %._crit_edge, %.lr.ph104
   %.1102 = phi i32 [ %13, %.lr.ph104 ], [ 0, %._crit_edge ]
@@ -640,7 +619,7 @@ define void @Abc_GenSorter(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   %14 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %3)
   br label %._crit_edge105
 
-._crit_edge105:                                   ; preds = %.lr.ph104, %._crit_edge105.critedge, %._crit_edge
+._crit_edge105:                                   ; preds = %.lr.ph104, %._crit_edge105.critedge
   %fputc94 = tail call i32 @fputc(i32 10, ptr %3)
   %15 = add nsw i32 %1, -2
   %16 = mul nsw i32 %15, %1
@@ -672,24 +651,21 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %._crit_e
   %25 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 14, i64 1, ptr %3)
   br i1 %8, label %.lr.ph108, label %._crit_edge128.thread
 
-.preheader100:                                    ; preds = %.lr.ph108
-  br i1 %8, label %.lr.ph111, label %._crit_edge128.thread
-
 .lr.ph108:                                        ; preds = %24, %.lr.ph108
   %.088106 = phi i32 [ %27, %.lr.ph108 ], [ 0, %24 ]
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.65, i32 noundef %.088106, i32 noundef %.088106) #15
   %27 = add nuw nsw i32 %.088106, 1
   %exitcond144.not = icmp eq i32 %27, %1
-  br i1 %exitcond144.not, label %.preheader100, label %.lr.ph108, !llvm.loop !25
+  br i1 %exitcond144.not, label %.lr.ph111, label %.lr.ph108, !llvm.loop !25
 
-.lr.ph111:                                        ; preds = %.preheader100, %.lr.ph111
-  %.085110 = phi i32 [ %28, %.lr.ph111 ], [ 0, %.preheader100 ]
+.lr.ph111:                                        ; preds = %.lr.ph108, %.lr.ph111
+  %.085110 = phi i32 [ %28, %.lr.ph111 ], [ 0, %.lr.ph108 ]
   %28 = add nuw nsw i32 %.085110, 1
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.66, i32 noundef %.085110, i32 noundef %.09.i, i32 noundef %.085110) #15
   %exitcond145.not = icmp eq i32 %28, %1
   br i1 %exitcond145.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !26
 
-._crit_edge128.thread:                            ; preds = %24, %.preheader100
+._crit_edge128.thread:                            ; preds = %24
   %fputc95152 = tail call i32 @fputc(i32 10, ptr %3)
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.67, i32 noundef 1) #15
   br label %._crit_edge137
@@ -741,10 +717,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %._crit_e
   %.2.lcssa = phi i32 [ 1, %._crit_edge112 ], [ 0, %._crit_edge121 ]
   %.186.lcssa = phi i32 [ 0, %._crit_edge112 ], [ %.186, %._crit_edge121 ]
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.67, i32 noundef %.2.lcssa) #15
-  br i1 %8, label %.lr.ph134, label %._crit_edge137
-
-.preheader:                                       ; preds = %.lr.ph134
-  br i1 %8, label %.lr.ph136, label %._crit_edge137
+  br label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %._crit_edge128, %.lr.ph134
   %.4132 = phi i32 [ %43, %.lr.ph134 ], [ %.186.lcssa, %._crit_edge128 ]
@@ -753,16 +726,16 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %._crit_e
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.68, i32 noundef %.492131, i32 noundef %.09.i, i32 noundef %.4132) #15
   %45 = add nuw nsw i32 %.492131, 1
   %exitcond149.not = icmp eq i32 %45, %1
-  br i1 %exitcond149.not, label %.preheader, label %.lr.ph134, !llvm.loop !30
+  br i1 %exitcond149.not, label %.lr.ph136, label %.lr.ph134, !llvm.loop !30
 
-.lr.ph136:                                        ; preds = %.preheader, %.lr.ph136
-  %.5135 = phi i32 [ %47, %.lr.ph136 ], [ 0, %.preheader ]
+.lr.ph136:                                        ; preds = %.lr.ph134, %.lr.ph136
+  %.5135 = phi i32 [ %47, %.lr.ph136 ], [ 0, %.lr.ph134 ]
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.69, i32 noundef %.5135, i32 noundef %.5135) #15
   %47 = add nuw nsw i32 %.5135, 1
   %exitcond150.not = icmp eq i32 %47, %1
   br i1 %exitcond150.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !31
 
-._crit_edge137:                                   ; preds = %.lr.ph136, %._crit_edge128, %._crit_edge128.thread, %.preheader
+._crit_edge137:                                   ; preds = %.lr.ph136, %._crit_edge128.thread
   %fputc96 = tail call i32 @fputc(i32 10, ptr %3)
   br label %48
 
@@ -836,7 +809,7 @@ define void @Abc_GenMesh(ptr nocapture noundef readonly %0, i32 noundef %1) loca
 
 ._crit_edge94:                                    ; preds = %._crit_edge.us
   %17 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 7, i64 1, ptr %3)
-  br i1 %7, label %.lr.ph, label %._crit_edge101.critedge
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge94, %.lr.ph
   %.18395 = phi i32 [ %21, %.lr.ph ], [ 0, %._crit_edge94 ]
@@ -928,19 +901,12 @@ define void @Abc_GenMesh(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   %exitcond110.not = icmp eq i32 %.pre-phi, %1
   br i1 %exitcond110.not, label %._crit_edge98.us, label %.lr.ph97.split.us.us, !llvm.loop !35
 
-._crit_edge101.critedge:                          ; preds = %._crit_edge94
-  %fputc.c = tail call i32 @fputc(i32 10, ptr %3)
-  %58 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %3)
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 5, i64 1, ptr %3)
-  %fputc86.c = tail call i32 @fputc(i32 10, ptr %3)
-  br label %._crit_edge101
-
-._crit_edge101:                                   ; preds = %._crit_edge98.us, %._crit_edge101.critedge, %._crit_edge
-  %60 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %3)
+._crit_edge101:                                   ; preds = %._crit_edge98.us, %._crit_edge
+  %58 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %3)
   %fputc87 = tail call i32 @fputc(i32 10, ptr %3)
   %fputc88 = tail call i32 @fputc(i32 10, ptr %3)
   tail call void @Abc_WriteCell(ptr noundef %3)
-  %61 = tail call i32 @fclose(ptr noundef %3)
+  %59 = tail call i32 @fclose(ptr noundef %3)
   ret void
 }
 
@@ -1093,7 +1059,7 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.114, i32 noundef %7) #15
   %37 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 10, i64 1, ptr %16)
   %38 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 6, i64 1, ptr %16)
-  br i1 %29, label %.lr.ph168, label %._crit_edge169.thread
+  br label %.lr.ph168
 
 ._crit_edge169.thread.critedge:                   ; preds = %._crit_edge161
   %fputc147.c = tail call i32 @fputc(i32 10, ptr %16)
@@ -1105,9 +1071,6 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.114, i32 noundef %7) #15
   %44 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 10, i64 1, ptr %16)
   %45 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 6, i64 1, ptr %16)
-  br label %._crit_edge169.thread
-
-._crit_edge169.thread:                            ; preds = %._crit_edge169.thread.critedge, %._crit_edge165
   %46 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 6, i64 1, ptr %16)
   br label %._crit_edge173
 
@@ -1120,7 +1083,7 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
 
 ._crit_edge169:                                   ; preds = %.lr.ph168
   %49 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 6, i64 1, ptr %16)
-  br i1 %29, label %.lr.ph172, label %._crit_edge173
+  br label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %._crit_edge169, %.lr.ph172
   %.4170 = phi i32 [ %50, %.lr.ph172 ], [ 0, %._crit_edge169 ]
@@ -1129,7 +1092,7 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %exitcond220.not = icmp eq i32 %50, %3
   br i1 %exitcond220.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !44
 
-._crit_edge173:                                   ; preds = %.lr.ph172, %._crit_edge169.thread, %._crit_edge169
+._crit_edge173:                                   ; preds = %.lr.ph172, %._crit_edge169.thread.critedge
   %51 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 3, i64 1, ptr %16)
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %.lr.ph182, label %._crit_edge201
@@ -1140,10 +1103,7 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   br label %96
 
-.preheader155:                                    ; preds = %._crit_edge179
-  br i1 %52, label %.preheader154.lr.ph, label %._crit_edge201
-
-.preheader154.lr.ph:                              ; preds = %.preheader155
+.preheader154.lr.ph:                              ; preds = %._crit_edge179
   %54 = icmp sgt i32 %1, 0
   %.not212 = icmp eq i32 %.09.i.fr, 0
   br i1 %54, label %.preheader154.lr.ph.split.us, label %._crit_edge201
@@ -1312,9 +1272,9 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   %fputc151 = tail call i32 @fputc(i32 10, ptr %16)
   %110 = add nuw nsw i32 %.5180, 1
   %exitcond223.not = icmp eq i32 %110, %2
-  br i1 %exitcond223.not, label %.preheader155, label %96, !llvm.loop !51
+  br i1 %exitcond223.not, label %.preheader154.lr.ph, label %96, !llvm.loop !51
 
-._crit_edge201:                                   ; preds = %._crit_edge191.split.us.us.us, %._crit_edge191.split.split.us.us.us, %._crit_edge173, %.preheader154.lr.ph, %.preheader155
+._crit_edge201:                                   ; preds = %._crit_edge191.split.us.us.us, %._crit_edge191.split.split.us.us.us, %._crit_edge173, %.preheader154.lr.ph
   %111 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 5, i64 1, ptr %16)
   %fputc149 = tail call i32 @fputc(i32 10, ptr %16)
   tail call void @Abc_WriteKLut(ptr noundef %16, i32 noundef %1)
@@ -2412,14 +2372,11 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
 ._crit_edge81:                                    ; preds = %.preheader78, %._crit_edge.us
   %24 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 3, i64 1, ptr %0)
   %25 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %0)
-  br i1 %13, label %.lr.ph85, label %._crit_edge86
-
-.lr.ph85:                                         ; preds = %._crit_edge81
   %26 = icmp sgt i32 %1, 0
   br i1 %26, label %.lr.ph.us, label %.lr.ph85.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph85, %._crit_edge.us87
-  %.183.us = phi i32 [ %36, %._crit_edge.us87 ], [ 0, %.lr.ph85 ]
+.lr.ph.us:                                        ; preds = %._crit_edge81, %._crit_edge.us87
+  %.183.us = phi i32 [ %36, %._crit_edge.us87 ], [ 0, %._crit_edge81 ]
   %27 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 7, i64 1, ptr %0)
   %28 = xor i32 %.183.us, -1
   %29 = add nsw i32 %2, %28
@@ -2440,8 +2397,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
   %exitcond102.not = icmp eq i32 %36, %2
   br i1 %exitcond102.not, label %._crit_edge86, label %.lr.ph.us, !llvm.loop !74
 
-.lr.ph85.split:                                   ; preds = %.lr.ph85, %.lr.ph85.split
-  %.183 = phi i32 [ %39, %.lr.ph85.split ], [ 0, %.lr.ph85 ]
+.lr.ph85.split:                                   ; preds = %._crit_edge81, %.lr.ph85.split
+  %.183 = phi i32 [ %39, %.lr.ph85.split ], [ 0, %._crit_edge81 ]
   %37 = tail call i64 @fwrite(ptr nonnull @.str.161, i64 7, i64 1, ptr %0)
   %38 = tail call i64 @fwrite(ptr nonnull @.str.165, i64 2, i64 1, ptr %0)
   %39 = add nuw nsw i32 %.183, 1
@@ -2453,7 +2410,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
   %41 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 5, i64 1, ptr %0)
   br label %._crit_edge86
 
-._crit_edge86:                                    ; preds = %.lr.ph85.split, %._crit_edge.us87, %._crit_edge86.critedge, %._crit_edge81
+._crit_edge86:                                    ; preds = %.lr.ph85.split, %._crit_edge.us87, %._crit_edge86.critedge
   %42 = add i32 %2, -1
   %43 = add i32 %42, %.09.i77
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.166, i32 noundef %43) #15
@@ -3970,18 +3927,15 @@ Abc_Base10Log.exit98:                             ; preds = %.lr.ph.i93, %Abc_Ba
   %16 = icmp sgt i32 %1, 0
   br i1 %16, label %.lr.ph, label %._crit_edge110.critedge
 
-.preheader102:                                    ; preds = %.lr.ph
-  br i1 %16, label %.lr.ph106, label %._crit_edge110.critedge
-
 .lr.ph:                                           ; preds = %Abc_Base10Log.exit98, %.lr.ph
   %.0104 = phi i32 [ %18, %.lr.ph ], [ 0, %Abc_Base10Log.exit98 ]
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.09.i, i32 noundef %.0104) #15
   %18 = add nuw nsw i32 %.0104, 1
   %exitcond.not = icmp eq i32 %18, %1
-  br i1 %exitcond.not, label %.preheader102, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %.lr.ph106, label %.lr.ph, !llvm.loop !89
 
-.lr.ph106:                                        ; preds = %.preheader102, %.lr.ph106
-  %.1105 = phi i32 [ %20, %.lr.ph106 ], [ 0, %.preheader102 ]
+.lr.ph106:                                        ; preds = %.lr.ph, %.lr.ph106
+  %.1105 = phi i32 [ %20, %.lr.ph106 ], [ 0, %.lr.ph ]
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %.09.i, i32 noundef %.1105) #15
   %20 = add nuw nsw i32 %.1105, 1
   %exitcond131.not = icmp eq i32 %20, %1
@@ -3990,20 +3944,17 @@ Abc_Base10Log.exit98:                             ; preds = %.lr.ph.i93, %Abc_Ba
 ._crit_edge:                                      ; preds = %.lr.ph106
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %21 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
-  br i1 %16, label %.lr.ph109.preheader, label %.preheader101.critedge
-
-.lr.ph109.preheader:                              ; preds = %._crit_edge
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph109
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %.2107 = phi i32 [ %23, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
+.lr.ph109:                                        ; preds = %._crit_edge, %.lr.ph109
+  %.2107 = phi i32 [ %23, %.lr.ph109 ], [ 0, %._crit_edge ]
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %.09.i97, i32 noundef %.2107) #15
   %23 = add nuw nsw i32 %.2107, 1
   %exitcond132.not = icmp eq i32 %23, %smax
   br i1 %exitcond132.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !91
 
-._crit_edge110.critedge:                          ; preds = %.preheader102, %Abc_Base10Log.exit98
+._crit_edge110.critedge:                          ; preds = %Abc_Base10Log.exit98
   %fputc.c = tail call i32 @fputc(i32 10, ptr %0)
   %24 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 8, i64 1, ptr %0)
   br label %._crit_edge110
@@ -4017,12 +3968,7 @@ Abc_Base10Log.exit98:                             ; preds = %.lr.ph.i93, %Abc_Ba
   %smax133 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph113
 
-.preheader101.critedge:                           ; preds = %._crit_edge
-  %fputc88.c = tail call i32 @fputc(i32 10, ptr %0)
-  tail call void @Abc_WriteBoothPartialProducts(ptr noundef %0, i32 noundef %1)
-  br label %.preheader101
-
-.preheader101:                                    ; preds = %.lr.ph113, %.preheader101.critedge, %._crit_edge110
+.preheader101:                                    ; preds = %.lr.ph113, %._crit_edge110
   %.not123 = icmp slt i32 %1, -2
   br i1 %.not123, label %._crit_edge128, label %.lr.ph125
 
@@ -4053,22 +3999,19 @@ Abc_Base10Log.exit98:                             ; preds = %.lr.ph.i93, %Abc_Ba
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %7) #15
   br i1 %16, label %.lr.ph116, label %.preheader99
 
-.preheader100:                                    ; preds = %.lr.ph116
-  br i1 %16, label %.lr.ph118, label %.preheader99
-
 .lr.ph116:                                        ; preds = %28, %.lr.ph116
   %.4114 = phi i32 [ %31, %.lr.ph116 ], [ 0, %28 ]
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.09.i97, i32 noundef %.4114, i32 noundef %.09.i, i32 noundef %.085124, i32 noundef %.09.i97, i32 noundef %.4114) #15
   %31 = add nuw nsw i32 %.4114, 1
   %exitcond136.not = icmp eq i32 %31, %smax135
-  br i1 %exitcond136.not, label %.preheader100, label %.lr.ph116, !llvm.loop !93
+  br i1 %exitcond136.not, label %.lr.ph118, label %.lr.ph116, !llvm.loop !93
 
-.preheader99:                                     ; preds = %.lr.ph118, %28, %.preheader100
+.preheader99:                                     ; preds = %.lr.ph118, %28
   %.pre = add nuw nsw i32 %.085124, 1
   br i1 %.not90119, label %._crit_edge122, label %.lr.ph121
 
-.lr.ph118:                                        ; preds = %.preheader100, %.lr.ph118
-  %.5117 = phi i32 [ %33, %.lr.ph118 ], [ 0, %.preheader100 ]
+.lr.ph118:                                        ; preds = %.lr.ph116, %.lr.ph118
+  %.5117 = phi i32 [ %33, %.lr.ph118 ], [ 0, %.lr.ph116 ]
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %.09.i97, i32 noundef %.5117, i32 noundef %.09.i, i32 noundef %.085124, i32 noundef %.09.i97, i32 noundef %.5117) #15
   %33 = add nuw nsw i32 %.5117, 1
   %exitcond138.not = icmp eq i32 %33, %smax135

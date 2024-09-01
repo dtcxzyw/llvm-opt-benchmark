@@ -359,11 +359,11 @@ define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr
   %16 = select i1 %15, i64 8, i64 16
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %.not6.not = icmp ne ptr %18, null
-  br i1 %.not6.not, label %9, label %.loopexit, !prof !14, !llvm.loop !13
+  %.not6.not.not = icmp ne ptr %18, null
+  br i1 %.not6.not.not, label %9, label %.loopexit, !prof !14, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %9, %5, %2
-  %19 = phi i1 [ false, %2 ], [ true, %5 ], [ %.not6.not, %9 ], [ %.not6.not, %.preheader ]
+  %19 = phi i1 [ false, %2 ], [ true, %5 ], [ %.not6.not.not, %9 ], [ %.not6.not.not, %.preheader ]
   tail call void @_raw_read_unlock(ptr noundef %0) #5
   ret i1 %19
 }

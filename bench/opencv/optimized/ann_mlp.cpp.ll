@@ -7732,7 +7732,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit209.thread: ; preds = %_ZNSt6vectorIN2cv3
   %.099317 = phi i32 [ 0, %.lr.ph319 ], [ %269, %268 ]
   %.0100316 = phi double [ 0x7FDFFFFFFFFFFFFF, %.lr.ph319 ], [ %264, %268 ]
   store double 0.000000e+00, ptr %14, align 8
-  br i1 %55, label %.lr.ph301, label %._crit_edge302
+  br label %.lr.ph301
 
 .lr.ph301:                                        ; preds = %152, %158
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %158 ], [ 0, %152 ]
@@ -7759,7 +7759,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit209.thread: ; preds = %_ZNSt6vectorIN2cv3
           cleanup
   br label %.body
 
-._crit_edge302:                                   ; preds = %158, %152
+._crit_edge302:                                   ; preds = %158
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv2ml11ANN_MLPImpl9RPropLoopE, i64 16), ptr %17, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #19
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %143) #19

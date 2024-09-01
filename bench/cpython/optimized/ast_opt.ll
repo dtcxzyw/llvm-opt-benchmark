@@ -4101,22 +4101,22 @@ for.body.i22:                                     ; preds = %for.cond.i20
 cond.end11.i:                                     ; preds = %for.cond.i20
   %call.i = tail call ptr @PyTuple_New(i64 noundef %5) #7
   %cmp13.i = icmp eq ptr %call.i, null
-  br i1 %cmp13.i, label %if.then.i, label %for.cond18.preheader.split.i
+  br i1 %cmp13.i, label %if.then.i, label %for.cond18.preheader.i
 
 cond.end11.thread.i:                              ; preds = %if.then
   store i32 26, ptr %arg, align 8
   %call30.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
   br label %if.end23
 
-for.cond18.preheader.split.i:                     ; preds = %cond.end11.i
+for.cond18.preheader.i:                           ; preds = %cond.end11.i
   %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %8 = load i64, ptr %1, align 8
   %cmp2721.i = icmp sgt i64 %8, 0
   br i1 %cmp2721.i, label %for.body29.i, label %if.end2.i
 
-for.body29.i:                                     ; preds = %for.cond18.preheader.split.i, %_Py_NewRef.exit.i
-  %conv1923.i = phi i64 [ %conv19.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.split.i ]
-  %i17.022.i = phi i32 [ %inc38.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.split.i ]
+for.body29.i:                                     ; preds = %for.cond18.preheader.i, %_Py_NewRef.exit.i
+  %conv1923.i = phi i64 [ %conv19.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.i ]
+  %i17.022.i = phi i32 [ %inc38.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.i ]
   %arrayidx33.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv1923.i
   %9 = load ptr, ptr %arrayidx33.i, align 8
   %v34.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -4144,102 +4144,102 @@ if.then13:                                        ; preds = %entry
   %13 = load ptr, ptr %v14, align 8
   %cmp.i25 = icmp eq ptr %13, null
   %typed_elements.i26 = getelementptr inbounds i8, ptr %13, i64 16
-  br i1 %cmp.i25, label %make_const_tuple.exit59, label %entry.split.i27
+  br i1 %cmp.i25, label %make_const_tuple.exit58, label %entry.split.i27
 
 entry.split.i27:                                  ; preds = %if.then13
   %14 = load i64, ptr %13, align 8
   br label %for.cond.i28
 
-for.cond.i28:                                     ; preds = %for.body.i53, %entry.split.i27
-  %i.0.i29 = phi i32 [ 0, %entry.split.i27 ], [ %inc.i56, %for.body.i53 ]
+for.cond.i28:                                     ; preds = %for.body.i52, %entry.split.i27
+  %i.0.i29 = phi i32 [ 0, %entry.split.i27 ], [ %inc.i55, %for.body.i52 ]
   %conv.i30 = sext i32 %i.0.i29 to i64
   %cmp216.i31 = icmp sgt i64 %14, %conv.i30
-  br i1 %cmp216.i31, label %for.body.i53, label %cond.end11.i32
+  br i1 %cmp216.i31, label %for.body.i52, label %cond.end11.i32
 
-for.body.i53:                                     ; preds = %for.cond.i28
-  %arrayidx.i54 = getelementptr [1 x ptr], ptr %typed_elements.i26, i64 0, i64 %conv.i30
-  %15 = load ptr, ptr %arrayidx.i54, align 8
+for.body.i52:                                     ; preds = %for.cond.i28
+  %arrayidx.i53 = getelementptr [1 x ptr], ptr %typed_elements.i26, i64 0, i64 %conv.i30
+  %15 = load ptr, ptr %arrayidx.i53, align 8
   %16 = load i32, ptr %15, align 8
-  %cmp4.not.i55 = icmp eq i32 %16, 20
-  %inc.i56 = add i32 %i.0.i29, 1
-  br i1 %cmp4.not.i55, label %for.cond.i28, label %if.then.i, !llvm.loop !63
+  %cmp4.not.i54 = icmp eq i32 %16, 20
+  %inc.i55 = add i32 %i.0.i29, 1
+  br i1 %cmp4.not.i54, label %for.cond.i28, label %if.then.i, !llvm.loop !63
 
 cond.end11.i32:                                   ; preds = %for.cond.i28
   %call.i33 = tail call ptr @PyTuple_New(i64 noundef %14) #7
   %cmp13.i34 = icmp eq ptr %call.i33, null
-  br i1 %cmp13.i34, label %if.then.i, label %for.cond18.preheader.split.i37
+  br i1 %cmp13.i34, label %if.then.i, label %for.cond18.preheader.i35
 
-for.cond18.preheader.split.i37:                   ; preds = %cond.end11.i32
+for.cond18.preheader.i35:                         ; preds = %cond.end11.i32
   %ob_item.i.i36 = getelementptr inbounds i8, ptr %call.i33, i64 24
   %17 = load i64, ptr %13, align 8
-  %cmp2721.i38 = icmp sgt i64 %17, 0
-  br i1 %cmp2721.i38, label %for.body29.i40, label %do.body
+  %cmp2721.i37 = icmp sgt i64 %17, 0
+  br i1 %cmp2721.i37, label %for.body29.i39, label %do.body
 
-for.body29.i40:                                   ; preds = %for.cond18.preheader.split.i37, %_Py_NewRef.exit.i48
-  %conv1923.i41 = phi i64 [ %conv19.i51, %_Py_NewRef.exit.i48 ], [ 0, %for.cond18.preheader.split.i37 ]
-  %i17.022.i42 = phi i32 [ %inc38.i50, %_Py_NewRef.exit.i48 ], [ 0, %for.cond18.preheader.split.i37 ]
-  %arrayidx33.i43 = getelementptr [1 x ptr], ptr %typed_elements.i26, i64 0, i64 %conv1923.i41
-  %18 = load ptr, ptr %arrayidx33.i43, align 8
-  %v34.i44 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %v34.i44, align 8
+for.body29.i39:                                   ; preds = %for.cond18.preheader.i35, %_Py_NewRef.exit.i47
+  %conv1923.i40 = phi i64 [ %conv19.i50, %_Py_NewRef.exit.i47 ], [ 0, %for.cond18.preheader.i35 ]
+  %i17.022.i41 = phi i32 [ %inc38.i49, %_Py_NewRef.exit.i47 ], [ 0, %for.cond18.preheader.i35 ]
+  %arrayidx33.i42 = getelementptr [1 x ptr], ptr %typed_elements.i26, i64 0, i64 %conv1923.i40
+  %18 = load ptr, ptr %arrayidx33.i42, align 8
+  %v34.i43 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load ptr, ptr %v34.i43, align 8
   %20 = load i32, ptr %19, align 8
-  %add.i.i.i45 = add i32 %20, 1
-  %cmp.i.i.i46 = icmp eq i32 %add.i.i.i45, 0
-  br i1 %cmp.i.i.i46, label %_Py_NewRef.exit.i48, label %if.end.i.i.i47
+  %add.i.i.i44 = add i32 %20, 1
+  %cmp.i.i.i45 = icmp eq i32 %add.i.i.i44, 0
+  br i1 %cmp.i.i.i45, label %_Py_NewRef.exit.i47, label %if.end.i.i.i46
 
-if.end.i.i.i47:                                   ; preds = %for.body29.i40
-  store i32 %add.i.i.i45, ptr %19, align 8
-  br label %_Py_NewRef.exit.i48
+if.end.i.i.i46:                                   ; preds = %for.body29.i39
+  store i32 %add.i.i.i44, ptr %19, align 8
+  br label %_Py_NewRef.exit.i47
 
-_Py_NewRef.exit.i48:                              ; preds = %if.end.i.i.i47, %for.body29.i40
-  %arrayidx.i.i49 = getelementptr [1 x ptr], ptr %ob_item.i.i36, i64 0, i64 %conv1923.i41
-  store ptr %19, ptr %arrayidx.i.i49, align 8
-  %inc38.i50 = add i32 %i17.022.i42, 1
-  %conv19.i51 = sext i32 %inc38.i50 to i64
+_Py_NewRef.exit.i47:                              ; preds = %if.end.i.i.i46, %for.body29.i39
+  %arrayidx.i.i48 = getelementptr [1 x ptr], ptr %ob_item.i.i36, i64 0, i64 %conv1923.i40
+  store ptr %19, ptr %arrayidx.i.i48, align 8
+  %inc38.i49 = add i32 %i17.022.i41, 1
+  %conv19.i50 = sext i32 %inc38.i49 to i64
   %21 = load i64, ptr %13, align 8
-  %cmp27.i52 = icmp sgt i64 %21, %conv19.i51
-  br i1 %cmp27.i52, label %for.body29.i40, label %do.body, !llvm.loop !64
+  %cmp27.i51 = icmp sgt i64 %21, %conv19.i50
+  br i1 %cmp27.i51, label %for.body29.i39, label %do.body, !llvm.loop !64
 
-make_const_tuple.exit59:                          ; preds = %if.then13
-  %call30.i58 = tail call ptr @PyTuple_New(i64 noundef 0) #7
-  %tobool17.not = icmp eq ptr %call30.i58, null
+make_const_tuple.exit58:                          ; preds = %if.then13
+  %call30.i57 = tail call ptr @PyTuple_New(i64 noundef 0) #7
+  %tobool17.not = icmp eq ptr %call30.i57, null
   br i1 %tobool17.not, label %if.then.i, label %do.body
 
-do.body:                                          ; preds = %_Py_NewRef.exit.i48, %for.cond18.preheader.split.i37, %make_const_tuple.exit59
-  %retval.0.i3912 = phi ptr [ %call30.i58, %make_const_tuple.exit59 ], [ %call.i33, %for.cond18.preheader.split.i37 ], [ %call.i33, %_Py_NewRef.exit.i48 ]
-  %call19 = tail call ptr @PyFrozenSet_New(ptr noundef nonnull %retval.0.i3912) #7
-  %22 = load i64, ptr %retval.0.i3912, align 8
+do.body:                                          ; preds = %_Py_NewRef.exit.i47, %for.cond18.preheader.i35, %make_const_tuple.exit58
+  %retval.0.i3812 = phi ptr [ %call30.i57, %make_const_tuple.exit58 ], [ %call.i33, %for.cond18.preheader.i35 ], [ %call.i33, %_Py_NewRef.exit.i47 ]
+  %call19 = tail call ptr @PyFrozenSet_New(ptr noundef nonnull %retval.0.i3812) #7
+  %22 = load i64, ptr %retval.0.i3812, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i26.not = icmp eq i64 %23, 0
   br i1 %cmp.i26.not, label %if.end.i, label %if.end23
 
 if.end.i:                                         ; preds = %do.body
   %dec.i = add i64 %22, -1
-  store i64 %dec.i, ptr %retval.0.i3912, align 8
+  store i64 %dec.i, ptr %retval.0.i3812, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end23
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i3912) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i3812) #7
   br label %if.end23
 
 if.end23:                                         ; preds = %cond.end11.thread.i, %do.body, %if.then1.i, %if.end.i
   %newval.0 = phi ptr [ %call19, %do.body ], [ %call19, %if.then1.i ], [ %call19, %if.end.i ], [ %call30.i, %cond.end11.thread.i ]
-  %cmp.i60 = icmp eq ptr %newval.0, null
-  br i1 %cmp.i60, label %if.then.i, label %if.end2.i
+  %cmp.i59 = icmp eq ptr %newval.0, null
+  br i1 %cmp.i59, label %if.then.i, label %if.end2.i
 
-if.then.i:                                        ; preds = %for.body.i53, %for.body.i22, %cond.end11.i32, %cond.end11.i, %make_const_tuple.exit59, %if.end23
+if.then.i:                                        ; preds = %for.body.i52, %for.body.i22, %cond.end11.i32, %cond.end11.i, %make_const_tuple.exit58, %if.end23
   %24 = load ptr, ptr @PyExc_KeyboardInterrupt, align 8
-  %call.i62 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %24) #7
-  %tobool.not.i = icmp eq i32 %call.i62, 0
-  br i1 %tobool.not.i, label %if.end.i63, label %return
+  %call.i61 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %24) #7
+  %tobool.not.i = icmp eq i32 %call.i61, 0
+  br i1 %tobool.not.i, label %if.end.i62, label %return
 
-if.end.i63:                                       ; preds = %if.then.i
+if.end.i62:                                       ; preds = %if.then.i
   tail call void @PyErr_Clear() #7
   br label %return
 
-if.end2.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond18.preheader.split.i, %if.end23
-  %newval.019 = phi ptr [ %newval.0, %if.end23 ], [ %call.i, %for.cond18.preheader.split.i ], [ %call.i, %_Py_NewRef.exit.i ]
+if.end2.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond18.preheader.i, %if.end23
+  %newval.019 = phi ptr [ %newval.0, %if.end23 ], [ %call.i, %for.cond18.preheader.i ], [ %call.i, %_Py_NewRef.exit.i ]
   %call3.i = tail call i32 @_PyArena_AddPyObject(ptr noundef %arena, ptr noundef nonnull %newval.019) #7
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
@@ -4268,8 +4268,8 @@ if.end6.i:                                        ; preds = %if.end2.i
   store ptr %newval.019, ptr %v.i, align 8
   br label %return
 
-return:                                           ; preds = %for.body.i, %if.end6.i, %if.then1.i.i, %if.end.i.i, %if.then5.i, %if.end.i63, %if.then.i, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end.i63 ], [ 1, %if.end6.i ], [ 0, %if.then.i ], [ 0, %if.then5.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i ], [ 1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %if.end6.i, %if.then1.i.i, %if.end.i.i, %if.then5.i, %if.end.i62, %if.then.i, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end.i62 ], [ 1, %if.end6.i ], [ 0, %if.then.i ], [ 0, %if.then5.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i ], [ 1, %for.body.i ]
   ret i32 %retval.0
 }
 
@@ -5901,17 +5901,17 @@ for.body.i:                                       ; preds = %for.cond.i
 cond.end11.i:                                     ; preds = %for.cond.i
   %call.i = tail call ptr @PyTuple_New(i64 noundef %2) #7
   %cmp13.i = icmp eq ptr %call.i, null
-  br i1 %cmp13.i, label %if.then.i, label %for.cond18.preheader.split.i
+  br i1 %cmp13.i, label %if.then.i, label %for.cond18.preheader.i
 
-for.cond18.preheader.split.i:                     ; preds = %cond.end11.i
+for.cond18.preheader.i:                           ; preds = %cond.end11.i
   %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %5 = load i64, ptr %1, align 8
   %cmp2721.i = icmp sgt i64 %5, 0
   br i1 %cmp2721.i, label %for.body29.i, label %if.end2.i
 
-for.body29.i:                                     ; preds = %for.cond18.preheader.split.i, %_Py_NewRef.exit.i
-  %conv1923.i = phi i64 [ %conv19.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.split.i ]
-  %i17.022.i = phi i32 [ %inc38.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.split.i ]
+for.body29.i:                                     ; preds = %for.cond18.preheader.i, %_Py_NewRef.exit.i
+  %conv1923.i = phi i64 [ %conv19.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.i ]
+  %i17.022.i = phi i32 [ %inc38.i, %_Py_NewRef.exit.i ], [ 0, %for.cond18.preheader.i ]
   %arrayidx33.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv1923.i
   %6 = load ptr, ptr %arrayidx33.i, align 8
   %v34.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -5949,8 +5949,8 @@ if.end.i:                                         ; preds = %if.then.i
   tail call void @PyErr_Clear() #7
   br label %return
 
-if.end2.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond18.preheader.split.i, %make_const_tuple.exit
-  %retval.0.i7 = phi ptr [ %call30.i, %make_const_tuple.exit ], [ %call.i, %for.cond18.preheader.split.i ], [ %call.i, %_Py_NewRef.exit.i ]
+if.end2.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond18.preheader.i, %make_const_tuple.exit
+  %retval.0.i7 = phi ptr [ %call30.i, %make_const_tuple.exit ], [ %call.i, %for.cond18.preheader.i ], [ %call.i, %_Py_NewRef.exit.i ]
   %call3.i = tail call i32 @_PyArena_AddPyObject(ptr noundef %arena, ptr noundef nonnull %retval.0.i7) #7
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i

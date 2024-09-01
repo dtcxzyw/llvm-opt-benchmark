@@ -25043,13 +25043,10 @@ define internal fastcc void @colorcomplement(ptr nocapture noundef %0, ptr nocap
   %.0.in.i = getelementptr inbounds i8, ptr %.012.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %findarc.exit, label %.lr.ph.i, !llvm.loop !126
+  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !126
 
-findarc.exit:                                     ; preds = %19
-  br i1 %.not11.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %findarc.exit, %30
-  %.043 = phi ptr [ %.0, %30 ], [ %.010.i, %findarc.exit ]
+.lr.ph:                                           ; preds = %19, %30
+  %.043 = phi ptr [ %.0, %30 ], [ %.010.i, %19 ]
   %20 = load i32, ptr %.043, align 8
   %21 = icmp eq i32 %20, 112
   br i1 %21, label %22, label %30
@@ -25075,8 +25072,8 @@ findarc.exit:                                     ; preds = %19
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %6, %._crit_edge.loopexit, %findarc.exit
-  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %findarc.exit ], [ %8, %6 ]
+._crit_edge:                                      ; preds = %6, %._crit_edge.loopexit
+  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %6 ]
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = icmp ult ptr %31, %12
   br i1 %33, label %.lr.ph47, label %.critedge

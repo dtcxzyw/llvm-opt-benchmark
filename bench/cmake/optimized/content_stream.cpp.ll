@@ -1060,112 +1060,112 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   br label %37
 
-37:                                               ; preds = %.lr.ph, %94
-  %storemerge22 = phi i64 [ %34, %.lr.ph ], [ %95, %94 ]
+37:                                               ; preds = %.lr.ph, %93
+  %storemerge22 = phi i64 [ %34, %.lr.ph ], [ %94, %93 ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge22, i64 256)
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %3, i64 noundef %.sroa.speculated)
-  %43 = icmp ne i64 %42, 0
-  br i1 %43, label %.preheader.preheader, label %.loopexit
+  %.not25.not = icmp ne i64 %42, 0
+  br i1 %.not25.not, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %37
   %.pre = load ptr, ptr %5, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
-  %44 = phi ptr [ %storemerge16, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ %.pre, %.preheader.preheader ]
-  %.020 = phi i64 [ %93, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ 0, %.preheader.preheader ]
-  %45 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %.020
-  %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 -1
-  %.not.i = icmp eq ptr %44, %47
-  br i1 %.not.i, label %52, label %48
+  %43 = phi ptr [ %storemerge16, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ %.pre, %.preheader.preheader ]
+  %.020 = phi i64 [ %92, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ 0, %.preheader.preheader ]
+  %44 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %.020
+  %45 = load ptr, ptr %35, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 -1
+  %.not.i = icmp eq ptr %43, %46
+  br i1 %.not.i, label %51, label %47
 
-48:                                               ; preds = %.preheader
-  %49 = load i8, ptr %45, align 1
-  store i8 %49, ptr %44, align 1
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
+47:                                               ; preds = %.preheader
+  %48 = load i8, ptr %44, align 1
+  store i8 %48, ptr %43, align 1
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 1
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
-52:                                               ; preds = %.preheader
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %9, align 8
+51:                                               ; preds = %.preheader
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = ashr exact i64 %57, 3
-  %59 = icmp ne ptr %53, null
-  %.neg.i.i.i = sext i1 %59 to i64
-  %60 = add nsw i64 %58, %.neg.i.i.i
-  %61 = shl nsw i64 %60, 9
-  %62 = load ptr, ptr %19, align 8
-  %63 = ptrtoint ptr %44 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = load ptr, ptr %23, align 8
-  %66 = load ptr, ptr %6, align 8
+  %56 = sub i64 %54, %55
+  %57 = ashr exact i64 %56, 3
+  %58 = icmp ne ptr %52, null
+  %.neg.i.i.i = sext i1 %58 to i64
+  %59 = add nsw i64 %57, %.neg.i.i.i
+  %60 = shl nsw i64 %59, 9
+  %61 = load ptr, ptr %19, align 8
+  %62 = ptrtoint ptr %43 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = ptrtoint ptr %64 to i64
   %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
+  %68 = add i64 %62, %66
   %69 = add i64 %63, %67
-  %70 = add i64 %64, %68
-  %71 = sub i64 %69, %70
-  %72 = add i64 %71, %61
-  %73 = icmp eq i64 %72, 9223372036854775807
-  br i1 %73, label %74, label %75
+  %70 = sub i64 %68, %69
+  %71 = add i64 %70, %60
+  %72 = icmp eq i64 %71, 9223372036854775807
+  br i1 %72, label %73, label %74
 
-74:                                               ; preds = %52
+73:                                               ; preds = %51
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #19
   unreachable
 
-75:                                               ; preds = %52
-  %76 = load i64, ptr %36, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %55, %78
-  %80 = ashr exact i64 %79, 3
-  %81 = sub i64 %76, %80
-  %82 = icmp ult i64 %81, 2
-  br i1 %82, label %83, label %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit
+74:                                               ; preds = %51
+  %75 = load i64, ptr %36, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = sub i64 %54, %77
+  %79 = ashr exact i64 %78, 3
+  %80 = sub i64 %75, %79
+  %81 = icmp ult i64 %80, 2
+  br i1 %81, label %82, label %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit
 
-83:                                               ; preds = %75
+82:                                               ; preds = %74
   call void @_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 noundef 1, i1 noundef zeroext false)
   %.pre.i = load ptr, ptr %7, align 8
   br label %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit
 
-_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit: ; preds = %75, %83
-  %84 = phi ptr [ %53, %75 ], [ %.pre.i, %83 ]
-  %85 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
-  store ptr %85, ptr %86, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = load i8, ptr %45, align 1
-  store i8 %88, ptr %87, align 1
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  store ptr %90, ptr %7, align 8
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %19, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 512
-  store ptr %92, ptr %35, align 8
+_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit: ; preds = %74, %82
+  %83 = phi ptr [ %52, %74 ], [ %.pre.i, %82 ]
+  %84 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
+  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  store ptr %84, ptr %85, align 8
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i8, ptr %44, align 1
+  store i8 %87, ptr %86, align 1
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  store ptr %89, ptr %7, align 8
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %19, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 512
+  store ptr %91, ptr %35, align 8
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
-_ZNSt5dequeIhSaIhEE9push_backERKh.exit:           ; preds = %48, %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit
-  %storemerge16 = phi ptr [ %51, %48 ], [ %91, %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit ]
+_ZNSt5dequeIhSaIhEE9push_backERKh.exit:           ; preds = %47, %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit
+  %storemerge16 = phi ptr [ %50, %47 ], [ %90, %_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_.exit ]
   store ptr %storemerge16, ptr %5, align 8
-  %93 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %93, %42
-  br i1 %exitcond.not, label %94, label %.preheader, !llvm.loop !33
+  %92 = add nuw i64 %.020, 1
+  %exitcond.not = icmp eq i64 %92, %42
+  br i1 %exitcond.not, label %93, label %.preheader, !llvm.loop !33
 
-94:                                               ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
-  %95 = sub i64 %storemerge22, %42
-  %.not = icmp eq i64 %95, 0
+93:                                               ; preds = %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
+  %94 = sub i64 %storemerge22, %42
+  %.not = icmp eq i64 %94, 0
   br i1 %.not, label %.loopexit, label %37, !llvm.loop !34
 
-.loopexit:                                        ; preds = %37, %94, %33, %2
-  %.08 = phi i1 [ true, %2 ], [ true, %33 ], [ false, %37 ], [ %43, %94 ]
+.loopexit:                                        ; preds = %37, %93, %33, %2
+  %.08 = phi i1 [ true, %2 ], [ true, %33 ], [ %.not25.not, %93 ], [ %.not25.not, %37 ]
   ret i1 %.08
 }
 
@@ -1232,7 +1232,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit.us:          ; preds = %17, %15
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
   %24 = tail call noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef nonnull align 8 dereferenceable(100) %0, i64 noundef %2)
   %.pre = load ptr, ptr %5, align 8
-  %.pre28 = load ptr, ptr %6, align 8
+  %.pre23 = load ptr, ptr %6, align 8
   br i1 %24, label %.lr.ph.preheader.i, label %_ZN3dap13ContentReader5matchEPKhm.exit
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.split
@@ -1242,7 +1242,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit.us:          ; preds = %17, %15
 .lr.ph.i:                                         ; preds = %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i, %.lr.ph.preheader.i
   %.01019.i = phi i64 [ %30, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ], [ 0, %.lr.ph.preheader.i ]
   %.sroa.11.018.i = phi ptr [ %.sroa.11.1.i, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ], [ %25, %.lr.ph.preheader.i ]
-  %.sroa.8.017.i = phi ptr [ %.sroa.8.1.i, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ], [ %.pre28, %.lr.ph.preheader.i ]
+  %.sroa.8.017.i = phi ptr [ %.sroa.8.1.i, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ], [ %.pre23, %.lr.ph.preheader.i ]
   %.sroa.013.016.i = phi ptr [ %.sroa.013.1.i, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ], [ %.pre, %.lr.ph.preheader.i ]
   %26 = load i8, ptr %.sroa.013.016.i, align 1
   %27 = getelementptr inbounds i8, ptr %1, i64 %.01019.i
@@ -1270,7 +1270,7 @@ _ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i:         ; preds = %33, %29
   br i1 %exitcond.not.i, label %.lr.ph21.i, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph21.i:                                       ; preds = %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i
-  %37 = phi ptr [ %48, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i ], [ %.pre28, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ]
+  %37 = phi ptr [ %48, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i ], [ %.pre23, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ]
   %38 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i ], [ %.pre, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ]
   %.020.i = phi i64 [ %49, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i ], [ 0, %_ZNSt15_Deque_iteratorIhRhPhEppEi.exit.i ]
   %39 = getelementptr inbounds i8, ptr %37, i64 -1
@@ -1302,7 +1302,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit.i:           ; preds = %42, %40
   br i1 %exitcond25.not.i, label %_ZN3dap13ContentReader5matchEPKhm.exit.thread, label %.lr.ph21.i, !llvm.loop !14
 
 _ZN3dap13ContentReader5matchEPKhm.exit:           ; preds = %.lr.ph.i, %.lr.ph.split
-  %50 = getelementptr inbounds i8, ptr %.pre28, i64 -1
+  %50 = getelementptr inbounds i8, ptr %.pre23, i64 -1
   %.not.i4 = icmp eq ptr %.pre, %50
   br i1 %.not.i4, label %53, label %51
 

@@ -21075,9 +21075,6 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader88, label %.lr.ph
 
-.preheader87:                                     ; preds = %.lr.ph91
-  br i1 %21, label %.lr.ph93, label %._crit_edge
-
 .lr.ph91:                                         ; preds = %.preheader88, %.lr.ph91
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph91 ], [ 0, %.preheader88 ]
   %36 = load ptr, ptr %29, align 8
@@ -21085,23 +21082,20 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   store float 0.000000e+00, ptr %37, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %.preheader87, label %.lr.ph91
+  br i1 %exitcond111.not, label %.lr.ph93, label %.lr.ph91
 
-.preheader:                                       ; preds = %.lr.ph93
-  br i1 %21, label %.lr.ph96, label %._crit_edge
-
-.lr.ph93:                                         ; preds = %.preheader87, %.lr.ph93
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph93 ], [ 0, %.preheader87 ]
+.lr.ph93:                                         ; preds = %.lr.ph91, %.lr.ph93
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph93 ], [ 0, %.lr.ph91 ]
   %38 = load ptr, ptr %31, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv112
   store i8 0, ptr %39, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
-  br i1 %exitcond117.not, label %.preheader, label %.lr.ph93
+  br i1 %exitcond117.not, label %.lr.ph96, label %.lr.ph93
 
-.lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph96 ], [ 0, %.preheader ]
-  %.08194 = phi i32 [ %61, %.lr.ph96 ], [ 0, %.preheader ]
+.lr.ph96:                                         ; preds = %.lr.ph93, %.lr.ph96
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph96 ], [ 0, %.lr.ph93 ]
+  %.08194 = phi i32 [ %61, %.lr.ph96 ], [ 0, %.lr.ph93 ]
   %40 = shl nsw i32 %.08194, 2
   %41 = load ptr, ptr %33, align 8
   %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv118
@@ -21134,7 +21128,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %exitcond122.not = icmp eq i32 %.08194, %23
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph96
 
-._crit_edge:                                      ; preds = %.lr.ph96, %.preheader88, %.preheader87, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph96, %.preheader88
   store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -21142,9 +21136,6 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
 
 ._crit_edge100:                                   ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.38) #54
-  br i1 %8, label %.lr.ph103, label %._crit_edge104
-
-.lr.ph103:                                        ; preds = %._crit_edge100
   %62 = mul i32 %2, 12
   %63 = sext i32 %62 to i64
   %64 = shl nsw i64 %63, 2
@@ -21159,8 +21150,8 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %wide.trip.count131 = zext nneg i32 %1 to i64
   br label %73
 
-73:                                               ; preds = %.lr.ph103, %81
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next129, %81 ]
+73:                                               ; preds = %._crit_edge100, %81
+  %indvars.iv128 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next129, %81 ]
   %74 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %81
@@ -21247,7 +21238,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias nocapture writable wri
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge104, label %73
 
-._crit_edge104:                                   ; preds = %81, %._crit_edge100.thread, %._crit_edge100
+._crit_edge104:                                   ; preds = %81, %._crit_edge100.thread
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.39) #54
   %132 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
   %133 = trunc i8 %132 to i1
@@ -47023,7 +47014,7 @@ define internal fastcc void @sdefl_huff(ptr nocapture noundef %0, ptr nocapture 
 
 .preheader45.i:                                   ; preds = %12
   %.not59.i = icmp eq i32 %10, 0
-  br i1 %.not59.i, label %.lr.ph57.i, label %.lr.ph55.preheader.i
+  br i1 %.not59.i, label %.preheader.i, label %.lr.ph55.preheader.i
 
 .lr.ph55.preheader.i:                             ; preds = %.preheader45.i
   %wide.trip.count72.i = zext i32 %10 to i64
@@ -47043,7 +47034,7 @@ define internal fastcc void @sdefl_huff(ptr nocapture noundef %0, ptr nocapture 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader45.i, label %12
 
-.lr.ph57.i:                                       ; preds = %.lr.ph55.i, %.preheader45.i
+.preheader.i:                                     ; preds = %.lr.ph55.i, %.preheader45.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader45.i ], [ %21, %.lr.ph55.i ]
   br label %22
 
@@ -47056,10 +47047,10 @@ define internal fastcc void @sdefl_huff(ptr nocapture noundef %0, ptr nocapture 
   %21 = add i32 %20, %.054.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
-  br i1 %exitcond73.not.i, label %.lr.ph57.i, label %.lr.ph55.i
+  br i1 %exitcond73.not.i, label %.preheader.i, label %.lr.ph55.i
 
-22:                                               ; preds = %38, %.lr.ph57.i
-  %indvars.iv74.i = phi i64 [ 0, %.lr.ph57.i ], [ %indvars.iv.next75.i, %38 ]
+22:                                               ; preds = %38, %.preheader.i
+  %indvars.iv74.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next75.i, %38 ]
   %23 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv74.i
   %24 = load i32, ptr %23, align 4
   %.not.i = icmp eq i32 %24, 0
@@ -47501,14 +47492,11 @@ sdefl_gen_codes.exit.thread:                      ; preds = %.preheader.i53
 
 sdefl_gen_codes.exit:                             ; preds = %.lr.ph43.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br i1 %.not58.i, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %sdefl_gen_codes.exit
   %wide.trip.count = zext i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %sdefl_gen_codes.exit, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %sdefl_gen_codes.exit ], [ %indvars.iv.next, %.lr.ph ]
   %224 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %225 = load i32, ptr %224, align 4
   %226 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
@@ -47524,7 +47512,7 @@ sdefl_gen_codes.exit:                             ; preds = %.lr.ph43.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %sdefl_gen_codes.exit.thread, %sdefl_gen_codes.exit, %sdefl_sort_sym.exit, %101
+.loopexit:                                        ; preds = %.lr.ph, %sdefl_gen_codes.exit.thread, %sdefl_sort_sym.exit, %101
   ret void
 }
 

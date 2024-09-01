@@ -7923,7 +7923,7 @@ _ZN17AstUser2AllocatorI7AstNodeSt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4
 
 _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %20 = icmp ugt i64 %.06.i.i.i.i, 576460752303423486
-  br i1 %20, label %21, label %.lr.ph.i.i.i.i.preheader.i.i
+  br i1 %20, label %21, label %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i
 
 21:                                               ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.513) #28
@@ -7932,14 +7932,14 @@ _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15i
 .noexc.i:                                         ; preds = %21
   unreachable
 
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i
+_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit.i.i
   %22 = shl nuw nsw i64 %19, 4
   %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #24
           to label %.lr.ph.i.i.i.i.i.i unwind label %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EED2Ev.exit.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %.lr.ph.i.i.i.i.i.i
-  %.013.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %.sroa.08.012.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
+  %.013.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.08.012.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %17, %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i ]
   %24 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %.013.i.i.i.i.i.i, align 8
@@ -7952,7 +7952,7 @@ _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKP7AstNodemELb0ELb0EEEENSt15i
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIP7AstNodemESaIS3_EEC2INSt8__detail14_Node_iteratorIS0_IKS2_mELb0ELb0EEEvEET_SC_RKS4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !51
 
-_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EED2Ev.exit.i: ; preds = %21, %.lr.ph.i.i.i.i.preheader.i.i
+_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EED2Ev.exit.i: ; preds = %21, %_ZNSt12_Vector_baseISt4pairIP7AstNodemESaIS3_EE11_M_allocateEm.exit.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body14

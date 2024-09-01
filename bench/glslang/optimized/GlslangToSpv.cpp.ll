@@ -3324,8 +3324,8 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit442: ; preds = %850, %_ZNSt8
 
 865:                                              ; preds = %866
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %exitcond955 = icmp eq i64 %indvars.iv.next953, 3
-  br i1 %exitcond955, label %.thread767, label %866, !llvm.loop !14
+  %exitcond955.not = icmp eq i64 %indvars.iv.next953, 3
+  br i1 %exitcond955.not, label %.thread767, label %866, !llvm.loop !14
 
 866:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit442, %865
   %indvars.iv952 = phi i64 [ 0, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit442 ], [ %indvars.iv.next953, %865 ]
@@ -35246,7 +35246,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %2
   %bcmp.i = tail call i32 @bcmp(ptr %25, ptr nonnull @.str.78, i64 %.sroa.speculated.i.i)
   %.not.i.i = icmp eq i32 %bcmp.i, 0
   %26 = icmp eq i64 %23, 26
-  %or.cond195 = and i1 %.not.i.i, %26
+  %or.cond195 = and i1 %26, %.not.i.i
   br i1 %or.cond195, label %27, label %.critedge.thread
 
 27:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -35284,7 +35284,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %spec.select.i.i = select i1 %39, ptr %31, ptr %.19.i.i.i
   br label %.thread155
 
-.thread155:                                       ; preds = %36, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i
+.thread155:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, %36
   %.sroa.0.0.i.i = phi ptr [ %31, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i ], [ %spec.select.i.i, %36 ]
   %40 = icmp eq ptr %.sroa.0.0.i.i, %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
@@ -35308,7 +35308,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i55: ; preds = %.critedge.thread
   %bcmp.i56 = call i32 @bcmp(ptr %48, ptr nonnull @.str.80, i64 %.sroa.speculated.i.i54)
   %.not.i.i57 = icmp eq i32 %bcmp.i56, 0
   %49 = icmp eq i64 %46, 22
-  %or.cond196 = and i1 %.not.i.i57, %49
+  %or.cond196 = and i1 %49, %.not.i.i57
   br i1 %or.cond196, label %50, label %.critedge45.thread
 
 50:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i55
@@ -35346,7 +35346,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %spec.select.i.i71 = select i1 %62, ptr %54, ptr %.19.i.i.i65
   br label %.thread162
 
-.thread162:                                       ; preds = %59, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i70
+.thread162:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i70, %59
   %.sroa.0.0.i.i72 = phi ptr [ %54, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i70 ], [ %spec.select.i.i71, %59 ]
   %63 = icmp eq ptr %.sroa.0.0.i.i72, %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
@@ -35376,7 +35376,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i75: ; preds = %67
   %bcmp.i76 = call i32 @bcmp(ptr %75, ptr nonnull @.str.81, i64 %.sroa.speculated.i.i74)
   %.not.i.i77 = icmp eq i32 %bcmp.i76, 0
   %76 = icmp eq i64 %73, 26
-  %or.cond197 = and i1 %.not.i.i77, %76
+  %or.cond197 = and i1 %76, %.not.i.i77
   br i1 %or.cond197, label %77, label %.critedge47.thread
 
 77:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i75
@@ -35414,7 +35414,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %spec.select.i.i91 = select i1 %89, ptr %81, ptr %.19.i.i.i85
   br label %.thread169
 
-.thread169:                                       ; preds = %86, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i90
+.thread169:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i90, %86
   %.sroa.0.0.i.i92 = phi ptr [ %81, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i90 ], [ %spec.select.i.i91, %86 ]
   %90 = icmp eq ptr %.sroa.0.0.i.i92, %81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
@@ -35444,7 +35444,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i95: ; preds = %93
   %bcmp.i96 = call i32 @bcmp(ptr %101, ptr nonnull @.str.83, i64 %.sroa.speculated.i.i94)
   %.not.i.i97 = icmp eq i32 %bcmp.i96, 0
   %102 = icmp eq i64 %99, 15
-  %or.cond198 = and i1 %.not.i.i97, %102
+  %or.cond198 = and i1 %102, %.not.i.i97
   br i1 %or.cond198, label %103, label %.critedge49.thread
 
 103:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i95
@@ -35482,7 +35482,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %spec.select.i.i111 = select i1 %115, ptr %107, ptr %.19.i.i.i105
   br label %.thread176
 
-.thread176:                                       ; preds = %112, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i110
+.thread176:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i110, %112
   %.sroa.0.0.i.i112 = phi ptr [ %107, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i110 ], [ %spec.select.i.i111, %112 ]
   %116 = icmp eq ptr %.sroa.0.0.i.i112, %107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
@@ -35506,7 +35506,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i115: ; preds = %.critedge49.thread
   %bcmp.i116 = call i32 @bcmp(ptr %124, ptr nonnull @.str.85, i64 %.sroa.speculated.i.i114)
   %.not.i.i117 = icmp eq i32 %bcmp.i116, 0
   %125 = icmp eq i64 %122, 20
-  %or.cond199 = and i1 %.not.i.i117, %125
+  %or.cond199 = and i1 %125, %.not.i.i117
   br i1 %or.cond199, label %126, label %.critedge51.thread
 
 126:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i115
@@ -35544,7 +35544,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %spec.select.i.i131 = select i1 %138, ptr %130, ptr %.19.i.i.i125
   br label %.thread183
 
-.thread183:                                       ; preds = %135, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i130
+.thread183:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i130, %135
   %.sroa.0.0.i.i132 = phi ptr [ %130, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i130 ], [ %spec.select.i.i131, %135 ]
   %139 = icmp eq ptr %.sroa.0.0.i.i132, %130
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20

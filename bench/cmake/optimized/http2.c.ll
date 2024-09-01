@@ -2929,7 +2929,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %3, align 4
-  br label %103
+  br label %100
 
 25:                                               ; preds = %20, %2
   %26 = getelementptr inbounds i8, ptr %5, i64 200
@@ -2963,7 +2963,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   %.not66.us = icmp eq i32 %39, 0
   br i1 %.not66.us, label %.split.us, label %.split81.us, !llvm.loop !9
 
-.split.split:                                     ; preds = %25, %93
+.split.split:                                     ; preds = %25, %90
   %40 = load i8, ptr %26, align 8
   %41 = and i8 %40, 1
   %.not61 = icmp eq i8 %41, 0
@@ -3021,84 +3021,79 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   %67 = call ptr @curl_easy_strerror(i32 noundef %65) #11
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %65, ptr noundef %67) #11
   %68 = load i32, ptr %3, align 4
-  br label %103
+  br label %100
 
 69:                                               ; preds = %.thread
   %70 = icmp eq i64 %63, 0
-  br i1 %70, label %.split79.us.thread, label %84
-
-.split79.us:                                      ; preds = %36
-  br i1 %.not62, label %81, label %.split79.us.thread
-
-.split79.us.thread:                               ; preds = %69, %.split79.us
   %71 = load i64, ptr %29, align 2
   %72 = and i64 %71, 268435456
+  br i1 %70, label %.split79.us.thread, label %83
+
+.split79.us.thread:                               ; preds = %69
   %73 = icmp ne i64 %72, 0
   %74 = icmp ne ptr %0, null
   %or.cond3 = and i1 %74, %73
-  br i1 %or.cond3, label %75, label %81
+  br i1 %or.cond3, label %75, label %.split79.us
 
 75:                                               ; preds = %.split79.us.thread
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %81
+  br i1 %79, label %80, label %.split79.us
 
 80:                                               ; preds = %75
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #11
-  br label %81
+  br label %.split79.us
 
-81:                                               ; preds = %.split79.us, %.split79.us.thread, %75, %80
-  %82 = load i8, ptr %26, align 8
-  %83 = or i8 %82, 1
-  store i8 %83, ptr %26, align 8
+.split79.us:                                      ; preds = %36, %.split79.us.thread, %75, %80
+  %81 = load i8, ptr %26, align 8
+  %82 = or i8 %81, 1
+  store i8 %82, ptr %26, align 8
   br label %.critedge
 
-84:                                               ; preds = %69
-  %85 = load i64, ptr %29, align 2
-  %86 = and i64 %85, 268435456
-  %.not89 = icmp eq i64 %86, 0
-  br i1 %.not89, label %93, label %87
+83:                                               ; preds = %69
+  %.not89 = icmp eq i64 %72, 0
+  br i1 %.not89, label %90, label %84
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 12
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %93
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %90
 
-92:                                               ; preds = %87
+89:                                               ; preds = %84
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i64 noundef %63) #11
-  br label %93
+  br label %90
 
-93:                                               ; preds = %84, %87, %92
-  %94 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
-  %.not66 = icmp eq i32 %94, 0
+90:                                               ; preds = %83, %84, %89
+  %91 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %.not66 = icmp eq i32 %91, 0
   br i1 %.not66, label %.split.split, label %.split81.us, !llvm.loop !9
 
-.split81.us:                                      ; preds = %93, %38
-  %95 = load i32, ptr %3, align 4
-  br label %103
+.split81.us:                                      ; preds = %90, %38
+  %92 = load i32, ptr %3, align 4
+  br label %100
 
-.critedge:                                        ; preds = %.split.split, %56, %58, %42, %32, %.split.us, %.split77.us, %81
-  %96 = load i8, ptr %26, align 8
-  %97 = and i8 %96, 1
-  %.not68 = icmp eq i8 %97, 0
-  br i1 %.not68, label %103, label %98
+.critedge:                                        ; preds = %.split.split, %56, %58, %42, %32, %.split.us, %.split77.us, %.split79.us
+  %93 = load i8, ptr %26, align 8
+  %94 = and i8 %93, 1
+  %.not68 = icmp eq i8 %94, 0
+  br i1 %.not68, label %100, label %95
 
-98:                                               ; preds = %.critedge
-  %99 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #11
-  br i1 %99, label %100, label %103
+95:                                               ; preds = %.critedge
+  %96 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #11
+  br i1 %96, label %97, label %100
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  %102 = load ptr, ptr %101, align 8
-  call void @Curl_conncontrol(ptr noundef %102, i32 noundef 1) #11
-  br label %103
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = load ptr, ptr %98, align 8
+  call void @Curl_conncontrol(ptr noundef %99, i32 noundef 1) #11
+  br label %100
 
-103:                                              ; preds = %.critedge, %98, %100, %.split81.us, %66, %23
-  %.0 = phi i32 [ %68, %66 ], [ %95, %.split81.us ], [ %24, %23 ], [ 0, %100 ], [ 0, %98 ], [ 0, %.critedge ]
+100:                                              ; preds = %.critedge, %95, %97, %.split81.us, %66, %23
+  %.0 = phi i32 [ %68, %66 ], [ %92, %.split81.us ], [ %24, %23 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 

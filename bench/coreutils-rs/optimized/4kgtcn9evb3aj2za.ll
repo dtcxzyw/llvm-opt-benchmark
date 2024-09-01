@@ -219,8 +219,8 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
           to label %.noexc.i unwind label %.loopexit.i, !noalias !11
 
 .noexc.i:                                         ; preds = %56
-  %.not.not.i.not.i.not.i = icmp eq ptr %57, null
-  br i1 %.not.not.i.not.i.not.i, label %61, label %58
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %57, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %61, label %58
 
 58:                                               ; preds = %.noexc.i
   %59 = load i32, ptr %57, align 4, !alias.scope !19, !noalias !24, !noundef !4

@@ -3594,8 +3594,8 @@ common.resume:                                    ; preds = %103, %"_ZN4core3ptr
   br label %"_ZN4core3ptr150drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..RealSpanMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0ef6936607d3d381E.exit7"
 
 124:                                              ; preds = %108
-  %.not.not = icmp eq ptr %115, null
-  br i1 %.not.not, label %"_ZN4core3ptr150drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..RealSpanMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0ef6936607d3d381E.exit11", label %125
+  %.not = icmp eq ptr %115, null
+  br i1 %.not, label %"_ZN4core3ptr150drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..RealSpanMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0ef6936607d3d381E.exit11", label %125
 
 125:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -3954,8 +3954,8 @@ common.resume:                                    ; preds = %105, %101, %44, %49
   br label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..MacroArgQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h4360d75aec970b1cE.exit6"
 
 119:                                              ; preds = %110
-  %.not.not = icmp eq ptr %116, null
-  br i1 %.not.not, label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..MacroArgQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h4360d75aec970b1cE.exit10", label %120
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..MacroArgQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h4360d75aec970b1cE.exit10", label %120
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -4314,8 +4314,8 @@ common.resume:                                    ; preds = %105, %101, %44, %49
   br label %"_ZN4core3ptr154drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ExpandProcMacroQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h8531d9ab084280cdE.exit6"
 
 119:                                              ; preds = %110
-  %.not.not = icmp eq ptr %116, null
-  br i1 %.not.not, label %"_ZN4core3ptr154drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ExpandProcMacroQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h8531d9ab084280cdE.exit10", label %120
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %"_ZN4core3ptr154drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ExpandProcMacroQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h8531d9ab084280cdE.exit10", label %120
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -4741,8 +4741,8 @@ common.resume:                                    ; preds = %137, %"_ZN4core3ptr
   br label %"_ZN4core3ptr156drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..DeclMacroExpanderQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h37be7765827d8a68E.exit7"
 
 158:                                              ; preds = %142
-  %.not.not = icmp eq ptr %149, null
-  br i1 %.not.not, label %"_ZN4core3ptr156drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..DeclMacroExpanderQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h37be7765827d8a68E.exit11", label %159
+  %.not = icmp eq ptr %149, null
+  br i1 %.not, label %"_ZN4core3ptr156drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..DeclMacroExpanderQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h37be7765827d8a68E.exit11", label %159
 
 159:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5120,8 +5120,8 @@ common.resume:                                    ; preds = %121, %"_ZN4core3ptr
   br label %"_ZN4core3ptr152drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ProcMacroSpanQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdf307b231369ce50E.exit5"
 
 135:                                              ; preds = %126
-  %.not.not = icmp eq ptr %132, null
-  br i1 %.not.not, label %"_ZN4core3ptr152drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ProcMacroSpanQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdf307b231369ce50E.exit9", label %136
+  %.not = icmp eq ptr %132, null
+  br i1 %.not, label %"_ZN4core3ptr152drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ProcMacroSpanQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdf307b231369ce50E.exit9", label %136
 
 136:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5480,8 +5480,8 @@ common.resume:                                    ; preds = %105, %101, %44, %49
   br label %"_ZN4core3ptr158drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdc2bddf95ea4c44bE.exit6"
 
 119:                                              ; preds = %110
-  %.not.not = icmp eq ptr %116, null
-  br i1 %.not.not, label %"_ZN4core3ptr158drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdc2bddf95ea4c44bE.exit10", label %120
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %"_ZN4core3ptr158drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hdc2bddf95ea4c44bE.exit10", label %120
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5840,8 +5840,8 @@ common.resume:                                    ; preds = %105, %101, %44, %49
   br label %"_ZN4core3ptr163drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionErrorQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h47d34623012090e3E.exit6"
 
 119:                                              ; preds = %110
-  %.not.not = icmp eq ptr %116, null
-  br i1 %.not.not, label %"_ZN4core3ptr163drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionErrorQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h47d34623012090e3E.exit10", label %120
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %"_ZN4core3ptr163drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..ParseMacroExpansionErrorQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h47d34623012090e3E.exit10", label %120
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -6211,8 +6211,8 @@ common.resume:                                    ; preds = %103, %"_ZN4core3ptr
   br label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..AstIdMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h2c10e29e0926af76E.exit7"
 
 124:                                              ; preds = %108
-  %.not.not = icmp eq ptr %115, null
-  br i1 %.not.not, label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..AstIdMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h2c10e29e0926af76E.exit11", label %125
+  %.not = icmp eq ptr %115, null
+  br i1 %.not, label %"_ZN4core3ptr147drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$hir_expand..db..AstIdMapQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h2c10e29e0926af76E.exit11", label %125
 
 125:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -9865,8 +9865,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hb068e01b6
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %37
   %.sroa.01.0.i.i.i = phi i64 [ %38, %37 ], [ 0, %.preheader.split.preheader ]
-  %exitcond.not.not = icmp ne i64 %.sroa.01.0.i.i.i, %25
-  br i1 %exitcond.not.not, label %37, label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
+  %exitcond.not.not.not = icmp ne i64 %.sroa.01.0.i.i.i, %25
+  br i1 %exitcond.not.not.not, label %37, label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
 
 37:                                               ; preds = %.preheader.split
   %38 = add i64 %.sroa.01.0.i.i.i, 1
@@ -9903,7 +9903,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hb068e01b6
   br label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
 
 "_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit": ; preds = %.preheader.split, %37, %53, %42, %19, %2, %9, %14
-  %.0.shrunk.i = phi i1 [ true, %2 ], [ true, %9 ], [ true, %14 ], [ true, %19 ], [ true, %42 ], [ %56, %53 ], [ %exitcond.not.not, %37 ], [ %exitcond.not.not, %.preheader.split ]
+  %.0.shrunk.i = phi i1 [ true, %2 ], [ true, %9 ], [ true, %14 ], [ true, %19 ], [ true, %42 ], [ %56, %53 ], [ %exitcond.not.not.not, %37 ], [ %exitcond.not.not.not, %.preheader.split ]
   ret i1 %.0.shrunk.i
 }
 

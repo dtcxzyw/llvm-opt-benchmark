@@ -4905,8 +4905,8 @@ invoke.cont68:                                    ; preds = %for.cond
   %bf.clear.i.i = and i32 %bf.load.i.i, 67108863
   %sub.i.i = sext i1 %cmp.i.i279 to i32
   %cond.i.i = add nsw i32 %bf.clear.i.i, %sub.i.i
-  %cmp70.not = icmp ule i32 %cond.i.i, %i.0
-  br i1 %cmp70.not, label %cleanup, label %for.body
+  %cmp70.not.not = icmp ule i32 %cond.i.i, %i.0
+  br i1 %cmp70.not.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %invoke.cont68
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
@@ -4997,7 +4997,7 @@ lpad72:                                           ; preds = %invoke.cont71
 
 cleanup:                                          ; preds = %invoke.cont68, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %cond.true53
   %retval.0 = phi i1 [ %12, %cond.true53 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %invoke.cont68 ]
-  %switch = phi i1 [ false, %cond.true53 ], [ %cmp70.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %cmp70.not, %invoke.cont68 ]
+  %switch = phi i1 [ false, %cond.true53 ], [ %cmp70.not.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %cmp70.not.not, %invoke.cont68 ]
   %22 = load ptr, ptr %tn, align 8
   %bf.load.i.i295 = load i64, ptr %22, align 8
   %23 = and i64 %bf.load.i.i295, 1152920405095219200

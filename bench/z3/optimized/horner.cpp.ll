@@ -701,9 +701,8 @@ for.inc83.thread:                                 ; preds = %if.then74
 
 for.inc83:                                        ; preds = %invoke.cont72
   %inc84 = add nuw i32 %i62.050, 1
-  %cmp64 = icmp uge i32 %inc84, %33
-  %.not = or i1 %cmp64, %call73
-  br i1 %.not, label %for.end85, label %for.body65, !llvm.loop !6
+  %cmp64.not = icmp ult i32 %inc84, %33
+  br i1 %cmp64.not, label %for.body65, label %for.end85, !llvm.loop !6
 
 for.end85:                                        ; preds = %for.inc83, %for.inc83.thread
   %.pre52 = load ptr, ptr %rows, align 8
@@ -915,12 +914,9 @@ _ZNK3nla4core23active_var_set_containsEj.exit45:  ; preds = %land.lhs.true.i.i36
 for.inc:                                          ; preds = %for.body27, %land.lhs.true.i.i36, %_ZNK3nla4core23active_var_set_containsEj.exit45
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.074, i64 4
   %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr.i29
-  br i1 %cmp26.not, label %for.end, label %for.body27
+  br i1 %cmp26.not, label %_ZNK6vectorIjLb0EjE3endEv.exit52, label %for.body27
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.i.i25, label %for.inc46, label %_ZNK6vectorIjLb0EjE3endEv.exit52
-
-_ZNK6vectorIjLb0EjE3endEv.exit52:                 ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit, %for.body27.lr.ph, %for.end
+_ZNK6vectorIjLb0EjE3endEv.exit52:                 ; preds = %for.inc, %_ZNK6vectorIjLb0EjE3endEv.exit, %for.body27.lr.ph
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %23, i64 -4
   %33 = load i32, ptr %arrayidx.i.i49, align 4
   %34 = zext i32 %33 to i64
@@ -970,7 +966,7 @@ _ZNK3nla4core24insert_to_active_var_setEj.exit69: ; preds = %_ZNK16indexed_uint_
   %cmp39.not = icmp eq ptr %incdec.ptr44, %add.ptr.i51
   br i1 %cmp39.not, label %for.inc46, label %for.body40
 
-for.inc46:                                        ; preds = %_ZNK3nla4core24insert_to_active_var_setEj.exit69, %if.end18, %for.end, %_ZNK6vectorIjLb0EjE3endEv.exit52, %if.then.i.i, %_ZNK16indexed_uint_set8containsEj.exit.i.i
+for.inc46:                                        ; preds = %_ZNK3nla4core24insert_to_active_var_setEj.exit69, %if.end18, %_ZNK6vectorIjLb0EjE3endEv.exit52, %if.then.i.i, %_ZNK16indexed_uint_set8containsEj.exit.i.i
   %incdec.ptr47 = getelementptr inbounds i8, ptr %__begin0.078, i64 40
   %cmp8.not = icmp eq ptr %incdec.ptr47, %add.ptr.i
   br i1 %cmp8.not, label %return, label %for.body

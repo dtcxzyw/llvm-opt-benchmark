@@ -5175,8 +5175,8 @@ for.cond.i.i:                                     ; preds = %write_metadata_bloc
   %chain.pn.i.i = phi ptr [ %node.0.i.i, %write_metadata_block_data_cb_.exit.i ], [ %chain, %for.cond.preheader.i.i ]
   %node.0.in.i.i = getelementptr inbounds i8, ptr %chain.pn.i.i, i64 16
   %node.0.i.i = load ptr, ptr %node.0.in.i.i, align 8
-  %tobool.not.i.i = icmp ne ptr %node.0.i.i, null
-  br i1 %tobool.not.i.i, label %for.body.i.i, label %chain_rewrite_metadata_in_place_.exit
+  %tobool.not.i.i.not.not = icmp ne ptr %node.0.i.i, null
+  br i1 %tobool.not.i.i.not.not, label %for.body.i.i, label %chain_rewrite_metadata_in_place_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %33 = load ptr, ptr %node.0.i.i, align 8
@@ -6153,7 +6153,7 @@ write_metadata_block_data_cb_.exit.i:             ; preds = %sw.default.i.i, %wr
 
 chain_rewrite_metadata_in_place_.exit:            ; preds = %for.cond.i.i, %write_metadata_block_header_cb_.exit.i.i, %sw.bb4.i.i, %write_metadata_block_data_cb_.exit.i, %if.end.i, %write_metadata_block_header_cb_.exit.thread.i.i
   %.sink.i.i = phi i32 [ 7, %if.end.i ], [ 8, %write_metadata_block_header_cb_.exit.thread.i.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i ], [ 8, %write_metadata_block_data_cb_.exit.i ], [ 0, %for.cond.i.i ], [ 8, %sw.bb4.i.i ]
-  %tobool15.not = phi i1 [ true, %if.end.i ], [ true, %write_metadata_block_header_cb_.exit.thread.i.i ], [ %tobool.not.i.i, %write_metadata_block_header_cb_.exit.i.i ], [ %tobool.not.i.i, %write_metadata_block_data_cb_.exit.i ], [ false, %for.cond.i.i ], [ %tobool.not.i.i, %sw.bb4.i.i ]
+  %tobool15.not = phi i1 [ true, %if.end.i ], [ true, %write_metadata_block_header_cb_.exit.thread.i.i ], [ %tobool.not.i.i.not.not, %write_metadata_block_data_cb_.exit.i ], [ %tobool.not.i.i.not.not, %sw.bb4.i.i ], [ %tobool.not.i.i.not.not, %write_metadata_block_header_cb_.exit.i.i ], [ %tobool.not.i.i.not.not, %for.cond.i.i ]
   %status12.i.i = getelementptr inbounds i8, ptr %chain, i64 36
   store i32 %.sink.i.i, ptr %status12.i.i, align 4
   %call2.i = tail call i32 @fclose(ptr noundef nonnull %call.i20)

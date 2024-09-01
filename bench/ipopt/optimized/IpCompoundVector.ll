@@ -189,8 +189,8 @@ define void @_ZN5Ipopt14CompoundVectorC2EPKNS_19CompoundVectorSpaceEb(ptr nounde
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %_ZN5Ipopt12TaggedObjectC2Ev.exit.i unwind label %7
 
-common.resume:                                    ; preds = %144, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %.pn.pn.pn, %144 ]
+common.resume:                                    ; preds = %140, %7
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %.pn.pn.pn, %140 ]
   resume { ptr, i32 } %common.resume.op
 
 7:                                                ; preds = %3
@@ -424,12 +424,12 @@ _ZNK5Ipopt19CompoundVectorSpace12GetCompSpaceEi.exit.thread: ; preds = %.lr.ph
 98:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i, %42
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %140
 
 100:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i22, %53
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %139
 
 102:                                              ; preds = %72
   %103 = landingpad { ptr, i32 }
@@ -474,7 +474,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit32: ; preds = %_ZNK5Ipopt19Compou
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit32, %57
   %.lcssa = phi i32 [ %62, %57 ], [ %122, %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit32 ]
-  br i1 %2, label %125, label %142
+  br i1 %2, label %125, label %138
 
 125:                                              ; preds = %._crit_edge
   %126 = icmp slt i32 %.lcssa, 1
@@ -483,53 +483,46 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit32: ; preds = %_ZNK5Ipopt19Compou
 .lr.ph.i:                                         ; preds = %125
   %127 = load ptr, ptr %37, align 8
   %128 = load ptr, ptr %49, align 8
-  %129 = zext nneg i32 %.lcssa to i64
-  br label %130
+  %wide.trip.count.i = zext nneg i32 %.lcssa to i64
+  br label %129
 
-130:                                              ; preds = %139, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
-  %131 = phi i1 [ false, %.lr.ph.i ], [ %140, %139 ]
-  %132 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %127, i64 %indvars.iv.i
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %139
+129:                                              ; preds = %137, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %137 ]
+  %130 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %127, i64 %indvars.iv.i
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %133, label %137
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %128, i64 %indvars.iv.i
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %139
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %128, i64 %indvars.iv.i
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %137
 
-139:                                              ; preds = %135, %130
+137:                                              ; preds = %133, %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %140 = icmp uge i64 %indvars.iv.next.i, %129
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %129
-  br i1 %exitcond.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %130, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %129, !llvm.loop !9
 
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit: ; preds = %135, %139
-  %.lcssa.i.ph = phi i1 [ %131, %135 ], [ %140, %139 ]
-  %141 = zext i1 %.lcssa.i.ph to i8
-  br label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit
-
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, %125
-  %.lcssa.i = phi i8 [ 1, %125 ], [ %141, %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit ]
+_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %137, %133, %125
+  %.lcssa.i = phi i8 [ 1, %125 ], [ 1, %137 ], [ 0, %133 ]
   store i8 %.lcssa.i, ptr %61, align 8
-  br label %142
+  br label %138
 
-142:                                              ; preds = %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, %._crit_edge
+138:                                              ; preds = %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, %._crit_edge
   ret void
 
 _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %108, %102
   tail call void @_ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_6VectorEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #20
-  br label %143
+  br label %139
 
-143:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit, %100
+139:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit, %100
   %.pn.pn = phi { ptr, i32 } [ %103, %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit ], [ %101, %100 ]
   tail call void @_ZNSt6vectorIN5Ipopt8SmartPtrINS0_6VectorEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #20
-  br label %144
+  br label %140
 
-144:                                              ; preds = %143, %98
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %99, %98 ]
+140:                                              ; preds = %139, %98
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %139 ], [ %99, %98 ]
   tail call void @_ZN5Ipopt6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(205) %0) #20
   br label %common.resume
 }
@@ -572,32 +565,29 @@ define noundef zeroext i1 @_ZN5Ipopt14CompoundVector12VectorsValidEv(ptr nocaptu
   %8 = getelementptr inbounds i8, ptr %0, i64 208
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %12
+  br label %11
 
-12:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %13 = phi i1 [ false, %.lr.ph ], [ %22, %21 ]
-  %14 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %9, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %21
+11:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %12 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %9, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %19
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %10, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %._crit_edge, label %21
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %10, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %._crit_edge, label %19
 
-21:                                               ; preds = %12, %17
+19:                                               ; preds = %11, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp uge i64 %indvars.iv.next, %11
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %12, !llvm.loop !9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %21, %17, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %13, %17 ], [ %22, %21 ]
+._crit_edge:                                      ; preds = %19, %15, %1
+  %.lcssa = phi i1 [ true, %1 ], [ false, %15 ], [ true, %19 ]
   ret i1 %.lcssa
 }
 
@@ -874,38 +864,31 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit:     ; preds = %_ZN5Ipopt8SmartPtrI
 .lr.ph.i:                                         ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
   %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %21, align 8
-  %47 = zext nneg i32 %43 to i64
-  br label %48
+  %wide.trip.count.i = zext nneg i32 %43 to i64
+  br label %47
 
-48:                                               ; preds = %57, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %49 = phi i1 [ false, %.lr.ph.i ], [ %58, %57 ]
-  %50 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %45, i64 %indvars.iv.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %57
+47:                                               ; preds = %55, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
+  %48 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %45, i64 %indvars.iv.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %55
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %46, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %57
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %46, i64 %indvars.iv.i
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %55
 
-57:                                               ; preds = %53, %48
+55:                                               ; preds = %51, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = icmp uge i64 %indvars.iv.next.i, %47
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %47
-  br i1 %exitcond.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %48, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %47, !llvm.loop !9
 
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit: ; preds = %57, %53
-  %.lcssa.i.ph = phi i1 [ %49, %53 ], [ %58, %57 ]
-  %59 = zext i1 %.lcssa.i.ph to i8
-  br label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit
-
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
-  %.lcssa.i = phi i8 [ 1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ %59, %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 264
-  store i8 %.lcssa.i, ptr %60, align 8
+_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %51, %55, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
+  %.lcssa.i = phi i8 [ 1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ 1, %55 ], [ 0, %51 ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 264
+  store i8 %.lcssa.i, ptr %56, align 8
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }
@@ -983,38 +966,31 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit:     ; preds = %_ZN5Ipopt8SmartPtrI
 .lr.ph.i:                                         ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
   %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %24, align 8
-  %47 = zext nneg i32 %43 to i64
-  br label %48
+  %wide.trip.count.i = zext nneg i32 %43 to i64
+  br label %47
 
-48:                                               ; preds = %57, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %49 = phi i1 [ false, %.lr.ph.i ], [ %58, %57 ]
-  %50 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %45, i64 %indvars.iv.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %57
+47:                                               ; preds = %55, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
+  %48 = getelementptr inbounds %"class.Ipopt::SmartPtr.15", ptr %45, i64 %indvars.iv.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %55
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %46, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %57
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds %"class.Ipopt::SmartPtr.16", ptr %46, i64 %indvars.iv.i
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %55
 
-57:                                               ; preds = %53, %48
+55:                                               ; preds = %51, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = icmp uge i64 %indvars.iv.next.i, %47
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %47
-  br i1 %exitcond.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, label %48, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit, label %47, !llvm.loop !9
 
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit: ; preds = %57, %53
-  %.lcssa.i.ph = phi i1 [ %49, %53 ], [ %58, %57 ]
-  %59 = zext i1 %.lcssa.i.ph to i8
-  br label %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit
-
-_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
-  %.lcssa.i = phi i8 [ 1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ %59, %_ZN5Ipopt14CompoundVector12VectorsValidEv.exit.loopexit ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 264
-  store i8 %.lcssa.i, ptr %60, align 8
+_ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %51, %55, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
+  %.lcssa.i = phi i8 [ 1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ 1, %55 ], [ 0, %51 ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 264
+  store i8 %.lcssa.i, ptr %56, align 8
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }

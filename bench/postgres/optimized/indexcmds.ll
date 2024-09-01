@@ -397,26 +397,20 @@ list_length.exit:                                 ; preds = %5, %12
 ._crit_edge:                                      ; preds = %142
   %143 = shl nuw nsw i64 %77, 3
   %144 = tail call ptr @palloc(i64 noundef %143) #12
-  br i1 %86, label %.lr.ph185.preheader, label %._crit_edge186.thread
-
-.lr.ph185.preheader:                              ; preds = %._crit_edge
   %wide.trip.count200 = zext nneg i32 %72 to i64
   br label %.lr.ph185
 
-.lr.ph185:                                        ; preds = %.lr.ph185.preheader, %.lr.ph185
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph185.preheader ], [ %indvars.iv.next198, %.lr.ph185 ]
+.lr.ph185:                                        ; preds = %._crit_edge, %.lr.ph185
+  %indvars.iv197 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next198, %.lr.ph185 ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %145 = trunc nuw nsw i64 %indvars.iv.next198 to i16
   %146 = tail call i64 @get_attoptions(i32 noundef %0, i16 noundef signext %145) #12
   %147 = getelementptr i64, ptr %144, i64 %indvars.iv197
   store i64 %146, ptr %147, align 8
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %._crit_edge186, label %.lr.ph185, !llvm.loop !7
+  br i1 %exitcond201.not, label %.lr.ph.split.us.i, label %.lr.ph185, !llvm.loop !7
 
-._crit_edge186:                                   ; preds = %.lr.ph185
-  br i1 %86, label %.lr.ph.split.us.i, label %._crit_edge186.thread
-
-.lr.ph.split.us.i:                                ; preds = %._crit_edge186
+.lr.ph.split.us.i:                                ; preds = %.lr.ph185
   %.not215 = icmp eq ptr %46, null
   %wide.trip.count62.i = zext nneg i32 %72 to i64
   br i1 %.not215, label %.thread.us.i, label %.lr.ph.split.us.split.us.i
@@ -463,8 +457,8 @@ CompareOpclassOptions.exit:                       ; preds = %154, %155, %157, %.
   tail call void @pfree(ptr noundef nonnull %144) #12
   br label %.thread175
 
-._crit_edge186.thread:                            ; preds = %.thread22.us.us.i, %.thread22.us.i, %._crit_edge, %._crit_edge.thread, %._crit_edge186
-  %.ph209 = phi ptr [ %144, %._crit_edge186 ], [ %144, %._crit_edge ], [ %88, %._crit_edge.thread ], [ %144, %.thread22.us.i ], [ %144, %.thread22.us.us.i ]
+._crit_edge186.thread:                            ; preds = %.thread22.us.us.i, %.thread22.us.i, %._crit_edge.thread
+  %.ph209 = phi ptr [ %88, %._crit_edge.thread ], [ %144, %.thread22.us.i ], [ %144, %.thread22.us.us.i ]
   tail call void @pfree(ptr noundef %.ph209) #12
   %161 = getelementptr inbounds i8, ptr %39, i64 112
   %162 = load ptr, ptr %161, align 8
@@ -552,7 +546,7 @@ CompareOpclassOptions.exit:                       ; preds = %154, %155, %157, %.
   br i1 %exitcond206.not, label %.thread175, label %.lr.ph188, !llvm.loop !9
 
 .thread175:                                       ; preds = %135, %210, %203, %CompareOpclassOptions.exit, %.preheader, %163, %._crit_edge186.thread
-  %.2162 = phi i1 [ false, %163 ], [ true, %._crit_edge186.thread ], [ false, %CompareOpclassOptions.exit ], [ true, %.preheader ], [ %166, %210 ], [ false, %203 ], [ false, %135 ]
+  %.2162 = phi i1 [ false, %163 ], [ true, %._crit_edge186.thread ], [ false, %CompareOpclassOptions.exit ], [ true, %.preheader ], [ true, %210 ], [ false, %203 ], [ false, %135 ]
   call void @index_close(ptr noundef %85, i32 noundef 0) #12
   br label %211
 
@@ -4750,7 +4744,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   br i1 %53, label %.lr.ph549, label %._crit_edge
 
 .lr.ph549:                                        ; preds = %.lr.ph, %88
-  %.1300413548 = phi ptr [ %.2, %88 ], [ null, %.lr.ph ]
+  %.1300414548 = phi ptr [ %.2, %88 ], [ null, %.lr.ph ]
   %indvars.iv547 = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.lr.ph ]
   %54 = load ptr, ptr %51, align 8
   %55 = getelementptr %union.ListCell, ptr %54, i64 %indvars.iv547
@@ -4801,12 +4795,12 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %86 = call ptr @palloc(i64 noundef 16) #12
   store i32 %56, ptr %86, align 4
-  %87 = call ptr @lappend(ptr noundef %.1300413548, ptr noundef nonnull %86) #12
+  %87 = call ptr @lappend(ptr noundef %.1300414548, ptr noundef nonnull %86) #12
   store ptr %85, ptr @CurrentMemoryContext, align 8
   br label %88
 
 88:                                               ; preds = %84, %76, %78, %65, %63
-  %.2 = phi ptr [ %.1300413548, %78 ], [ %.1300413548, %76 ], [ %87, %84 ], [ %.1300413548, %65 ], [ %.1300413548, %63 ]
+  %.2 = phi ptr [ %.1300414548, %78 ], [ %.1300414548, %76 ], [ %87, %84 ], [ %.1300414548, %65 ], [ %.1300414548, %63 ]
   call void @index_close(ptr noundef nonnull %57, i32 noundef 0) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv547, 1
   %89 = load i32, ptr %50, align 4
@@ -4832,17 +4826,17 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %100 = call ptr @RelationGetIndexList(ptr noundef %97) #12
   %101 = getelementptr inbounds i8, ptr %100, i64 4
   %.not337 = icmp eq ptr %100, null
-  br i1 %.not337, label %._crit_edge420, label %.lr.ph419
+  br i1 %.not337, label %._crit_edge421, label %.lr.ph420
 
-.lr.ph419:                                        ; preds = %96
+.lr.ph420:                                        ; preds = %96
   %102 = getelementptr inbounds i8, ptr %100, i64 16
   %103 = load i32, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph427, label %._crit_edge420
+  br i1 %104, label %.lr.ph428, label %._crit_edge421
 
-.lr.ph427:                                        ; preds = %.lr.ph419, %127
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %127 ], [ 0, %.lr.ph419 ]
-  %.4417425 = phi ptr [ %.5, %127 ], [ %.1300.lcssa, %.lr.ph419 ]
+.lr.ph428:                                        ; preds = %.lr.ph420, %127
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %127 ], [ 0, %.lr.ph420 ]
+  %.4418426 = phi ptr [ %.5, %127 ], [ %.1300.lcssa, %.lr.ph420 ]
   %105 = load ptr, ptr %102, align 8
   %106 = getelementptr %union.ListCell, ptr %105, i64 %indvars.iv507
   %107 = load i32, ptr %106, align 8
@@ -4854,7 +4848,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %113 = trunc i8 %112 to i1
   br i1 %113, label %123, label %114
 
-114:                                              ; preds = %.lr.ph427
+114:                                              ; preds = %.lr.ph428
   %115 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
   br i1 %115, label %116, label %127
 
@@ -4868,32 +4862,32 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3701, ptr noundef nonnull @__func__.ReindexRelationConcurrently) #12
   br label %127
 
-123:                                              ; preds = %.lr.ph427
+123:                                              ; preds = %.lr.ph428
   %124 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %125 = call ptr @palloc(i64 noundef 16) #12
   store i32 %107, ptr %125, align 4
-  %126 = call ptr @lappend(ptr noundef %.4417425, ptr noundef nonnull %125) #12
+  %126 = call ptr @lappend(ptr noundef %.4418426, ptr noundef nonnull %125) #12
   store ptr %124, ptr @CurrentMemoryContext, align 8
   br label %127
 
 127:                                              ; preds = %116, %114, %123
-  %.5 = phi ptr [ %126, %123 ], [ %.4417425, %116 ], [ %.4417425, %114 ]
+  %.5 = phi ptr [ %126, %123 ], [ %.4418426, %116 ], [ %.4418426, %114 ]
   call void @index_close(ptr noundef nonnull %108, i32 noundef 0) #12
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %128 = load i32, ptr %101, align 4
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next508, %129
-  br i1 %130, label %.lr.ph427, label %._crit_edge420
+  br i1 %130, label %.lr.ph428, label %._crit_edge421
 
-._crit_edge420:                                   ; preds = %127, %.lr.ph419, %96
-  %.4.lcssa = phi ptr [ %.1300.lcssa, %96 ], [ %.1300.lcssa, %.lr.ph419 ], [ %.5, %127 ]
+._crit_edge421:                                   ; preds = %127, %.lr.ph420, %96
+  %.4.lcssa = phi ptr [ %.1300.lcssa, %96 ], [ %.1300.lcssa, %.lr.ph420 ], [ %.5, %127 ]
   call void @table_close(ptr noundef %97, i32 noundef 0) #12
   br label %131
 
-131:                                              ; preds = %._crit_edge420, %._crit_edge
-  %.3 = phi ptr [ %.4.lcssa, %._crit_edge420 ], [ %.1300.lcssa, %._crit_edge ]
-  %.1 = phi ptr [ %99, %._crit_edge420 ], [ %23, %._crit_edge ]
+131:                                              ; preds = %._crit_edge421, %._crit_edge
+  %.3 = phi ptr [ %.4.lcssa, %._crit_edge421 ], [ %.1300.lcssa, %._crit_edge ]
+  %.1 = phi ptr [ %99, %._crit_edge421 ], [ %23, %._crit_edge ]
   call void @table_close(ptr noundef %.0314, i32 noundef 0) #12
   br label %179
 
@@ -4993,22 +4987,22 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
 179:                                              ; preds = %169, %131
   %.0299 = phi ptr [ %174, %169 ], [ %.3, %131 ]
   %.0298 = phi ptr [ %172, %169 ], [ %.1, %131 ]
-  %.not502 = icmp eq ptr %.0299, null
-  br i1 %.not502, label %.thread369, label %180
+  %.not407 = icmp eq ptr %.0299, null
+  br i1 %.not407, label %.thread369, label %180
 
 180:                                              ; preds = %179
   %181 = getelementptr inbounds i8, ptr %2, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, 1664
-  br i1 %183, label %190, label %.preheader408
+  br i1 %183, label %190, label %.preheader409
 
-.preheader408:                                    ; preds = %180
+.preheader409:                                    ; preds = %180
   %184 = getelementptr inbounds i8, ptr %.0299, i64 4
   %185 = load i32, ptr %184, align 4
-  %.not340429 = icmp sgt i32 %185, 0
-  br i1 %.not340429, label %.lr.ph433, label %.preheader407
+  %.not340430 = icmp sgt i32 %185, 0
+  br i1 %.not340430, label %.lr.ph434, label %.preheader408
 
-.lr.ph433:                                        ; preds = %.preheader408
+.lr.ph434:                                        ; preds = %.preheader409
   %186 = getelementptr inbounds i8, ptr %.0299, i64 16
   %187 = getelementptr inbounds i8, ptr %6, i64 8
   %188 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5028,23 +5022,23 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3827, ptr noundef nonnull @__func__.ReindexRelationConcurrently) #12
   unreachable
 
-.preheader407:                                    ; preds = %290, %.preheader408
-  %.0302.lcssa = phi ptr [ null, %.preheader408 ], [ %286, %290 ]
-  %.0301.lcssa = phi ptr [ null, %.preheader408 ], [ %278, %290 ]
+.preheader408:                                    ; preds = %290, %.preheader409
+  %.0302.lcssa = phi ptr [ null, %.preheader409 ], [ %286, %290 ]
+  %.0301.lcssa = phi ptr [ null, %.preheader409 ], [ %278, %290 ]
   %196 = getelementptr inbounds i8, ptr %.0298, i64 4
   %.not341 = icmp eq ptr %.0298, null
-  br i1 %.not341, label %._crit_edge443, label %.lr.ph439
+  br i1 %.not341, label %._crit_edge444, label %.lr.ph440
 
-.lr.ph439:                                        ; preds = %.preheader407
+.lr.ph440:                                        ; preds = %.preheader408
   %197 = getelementptr inbounds i8, ptr %.0298, i64 16
   %198 = load i32, ptr %196, align 4
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %.lr.ph453, label %._crit_edge443
+  br i1 %199, label %.lr.ph454, label %._crit_edge444
 
-200:                                              ; preds = %.lr.ph433, %290
-  %indvars.iv510 = phi i64 [ 0, %.lr.ph433 ], [ %indvars.iv.next511, %290 ]
-  %.0301432 = phi ptr [ null, %.lr.ph433 ], [ %278, %290 ]
-  %.0302431 = phi ptr [ null, %.lr.ph433 ], [ %286, %290 ]
+200:                                              ; preds = %.lr.ph434, %290
+  %indvars.iv510 = phi i64 [ 0, %.lr.ph434 ], [ %indvars.iv.next511, %290 ]
+  %.0301433 = phi ptr [ null, %.lr.ph434 ], [ %278, %290 ]
+  %.0302432 = phi ptr [ null, %.lr.ph434 ], [ %286, %290 ]
   %201 = load ptr, ptr %186, align 8
   %202 = getelementptr %union.ListCell, ptr %201, i64 %indvars.iv510
   %203 = load ptr, ptr %202, align 8
@@ -5157,12 +5151,12 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %276 = load i32, ptr %236, align 4
   %277 = getelementptr inbounds i8, ptr %270, i64 8
   store i32 %276, ptr %277, align 4
-  %278 = call ptr @lappend(ptr noundef %.0301432, ptr noundef nonnull %270) #12
+  %278 = call ptr @lappend(ptr noundef %.0301433, ptr noundef nonnull %270) #12
   %279 = call ptr @palloc(i64 noundef 8) #12
   %280 = getelementptr inbounds i8, ptr %205, i64 76
   %281 = load i64, ptr %280, align 4
   store i64 %281, ptr %279, align 4
-  %282 = call ptr @lappend(ptr noundef %.0302431, ptr noundef nonnull %279) #12
+  %282 = call ptr @lappend(ptr noundef %.0302432, ptr noundef nonnull %279) #12
   %283 = call ptr @palloc(i64 noundef 8) #12
   %284 = getelementptr inbounds i8, ptr %268, i64 76
   %285 = load i64, ptr %284, align 4
@@ -5190,25 +5184,25 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %291 = load i32, ptr %184, align 4
   %292 = sext i32 %291 to i64
   %.not340 = icmp slt i64 %indvars.iv.next511, %292
-  br i1 %.not340, label %200, label %.preheader407, !llvm.loop !22
+  br i1 %.not340, label %200, label %.preheader408, !llvm.loop !22
 
-._crit_edge443:                                   ; preds = %.lr.ph453, %.lr.ph439, %.preheader407
-  %.0304.lcssa = phi ptr [ null, %.preheader407 ], [ null, %.lr.ph439 ], [ %315, %.lr.ph453 ]
-  %.1303.lcssa = phi ptr [ %.0302.lcssa, %.preheader407 ], [ %.0302.lcssa, %.lr.ph439 ], [ %305, %.lr.ph453 ]
+._crit_edge444:                                   ; preds = %.lr.ph454, %.lr.ph440, %.preheader408
+  %.0304.lcssa = phi ptr [ null, %.preheader408 ], [ null, %.lr.ph440 ], [ %315, %.lr.ph454 ]
+  %.1303.lcssa = phi ptr [ %.0302.lcssa, %.preheader408 ], [ %.0302.lcssa, %.lr.ph440 ], [ %305, %.lr.ph454 ]
   %293 = getelementptr inbounds i8, ptr %.1303.lcssa, i64 4
   %.not343 = icmp eq ptr %.1303.lcssa, null
-  br i1 %.not343, label %._crit_edge459, label %.lr.ph458
+  br i1 %.not343, label %._crit_edge460, label %.lr.ph459
 
-.lr.ph458:                                        ; preds = %._crit_edge443
+.lr.ph459:                                        ; preds = %._crit_edge444
   %294 = getelementptr inbounds i8, ptr %.1303.lcssa, i64 16
   %295 = load i32, ptr %293, align 4
   %296 = icmp sgt i32 %295, 0
-  br i1 %296, label %.lr.ph466, label %._crit_edge459
+  br i1 %296, label %.lr.ph467, label %._crit_edge460
 
-.lr.ph453:                                        ; preds = %.lr.ph439, %.lr.ph453
-  %indvars.iv513 = phi i64 [ %indvars.iv.next514, %.lr.ph453 ], [ 0, %.lr.ph439 ]
-  %.0304437451 = phi ptr [ %315, %.lr.ph453 ], [ null, %.lr.ph439 ]
-  %.1303438450 = phi ptr [ %305, %.lr.ph453 ], [ %.0302.lcssa, %.lr.ph439 ]
+.lr.ph454:                                        ; preds = %.lr.ph440, %.lr.ph454
+  %indvars.iv513 = phi i64 [ %indvars.iv.next514, %.lr.ph454 ], [ 0, %.lr.ph440 ]
+  %.0304438452 = phi ptr [ %315, %.lr.ph454 ], [ null, %.lr.ph440 ]
+  %.1303439451 = phi ptr [ %305, %.lr.ph454 ], [ %.0302.lcssa, %.lr.ph440 ]
   %297 = load ptr, ptr %197, align 8
   %298 = getelementptr %union.ListCell, ptr %297, i64 %indvars.iv513
   %299 = load i32, ptr %298, align 8
@@ -5219,7 +5213,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %303 = getelementptr inbounds i8, ptr %300, i64 76
   %304 = load i64, ptr %303, align 4
   store i64 %304, ptr %302, align 4
-  %305 = call ptr @lappend(ptr noundef %.1303438450, ptr noundef nonnull %302) #12
+  %305 = call ptr @lappend(ptr noundef %.1303439451, ptr noundef nonnull %302) #12
   %306 = call ptr @palloc(i64 noundef 16) #12
   %307 = getelementptr inbounds i8, ptr %302, i64 4
   %308 = load i32, ptr %307, align 4
@@ -5235,17 +5229,17 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   store i8 0, ptr %313, align 2
   %314 = getelementptr inbounds i8, ptr %306, i64 15
   store i8 1, ptr %314, align 1
-  %315 = call ptr @lappend(ptr noundef %.0304437451, ptr noundef nonnull %306) #12
+  %315 = call ptr @lappend(ptr noundef %.0304438452, ptr noundef nonnull %306) #12
   store ptr %301, ptr @CurrentMemoryContext, align 8
   call void @table_close(ptr noundef %300, i32 noundef 0) #12
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %316 = load i32, ptr %196, align 4
   %317 = sext i32 %316 to i64
   %318 = icmp slt i64 %indvars.iv.next514, %317
-  br i1 %318, label %.lr.ph453, label %._crit_edge443
+  br i1 %318, label %.lr.ph454, label %._crit_edge444
 
-.lr.ph466:                                        ; preds = %.lr.ph458, %.lr.ph466
-  %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph466 ], [ 0, %.lr.ph458 ]
+.lr.ph467:                                        ; preds = %.lr.ph459, %.lr.ph467
+  %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph467 ], [ 0, %.lr.ph459 ]
   %319 = load ptr, ptr %294, align 8
   %320 = getelementptr %union.ListCell, ptr %319, i64 %indvars.iv516
   %321 = load ptr, ptr %320, align 8
@@ -5254,9 +5248,9 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %322 = load i32, ptr %293, align 4
   %323 = sext i32 %322 to i64
   %324 = icmp slt i64 %indvars.iv.next517, %323
-  br i1 %324, label %.lr.ph466, label %._crit_edge459
+  br i1 %324, label %.lr.ph467, label %._crit_edge460
 
-._crit_edge459:                                   ; preds = %.lr.ph466, %.lr.ph458, %._crit_edge443
+._crit_edge460:                                   ; preds = %.lr.ph467, %.lr.ph459, %._crit_edge444
   call void @PopActiveSnapshot() #12
   call void @CommitTransactionCommand() #12
   call void @StartTransactionCommand() #12
@@ -5265,19 +5259,19 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   call void @CommitTransactionCommand() #12
   %325 = getelementptr inbounds i8, ptr %.0301.lcssa, i64 4
   %.not345 = icmp eq ptr %.0301.lcssa, null
-  br i1 %.not345, label %._crit_edge478.critedge, label %.lr.ph470
+  br i1 %.not345, label %._crit_edge479.critedge, label %.lr.ph471
 
-.lr.ph470:                                        ; preds = %._crit_edge459
+.lr.ph471:                                        ; preds = %._crit_edge460
   %326 = getelementptr inbounds i8, ptr %.0301.lcssa, i64 16
   %327 = getelementptr inbounds i8, ptr %6, i64 8
   %328 = getelementptr inbounds i8, ptr %6, i64 16
   %329 = getelementptr inbounds i8, ptr %6, i64 24
   %330 = load i32, ptr %325, align 4
   %331 = icmp sgt i32 %330, 0
-  br i1 %331, label %.lr.ph551, label %._crit_edge471
+  br i1 %331, label %.lr.ph551, label %._crit_edge472
 
-.lr.ph551:                                        ; preds = %.lr.ph470, %358
-  %indvars.iv519550 = phi i64 [ %indvars.iv.next520, %358 ], [ 0, %.lr.ph470 ]
+.lr.ph551:                                        ; preds = %.lr.ph471, %358
+  %indvars.iv519550 = phi i64 [ %indvars.iv.next520, %358 ], [ 0, %.lr.ph471 ]
   %332 = load ptr, ptr %326, align 8
   %333 = getelementptr %union.ListCell, ptr %332, i64 %indvars.iv519550
   %334 = load ptr, ptr %333, align 8
@@ -5343,26 +5337,23 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %369 = load i32, ptr %325, align 4
   %370 = sext i32 %369 to i64
   %371 = icmp slt i64 %indvars.iv.next520, %370
-  br i1 %371, label %.lr.ph551, label %._crit_edge471
+  br i1 %371, label %.lr.ph551, label %._crit_edge472
 
-._crit_edge471:                                   ; preds = %358, %.lr.ph470
+._crit_edge472:                                   ; preds = %358, %.lr.ph471
   call void @StartTransactionCommand() #12
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef 3) #12
   call void @WaitForLockersMultiple(ptr noundef %.0304.lcssa, i32 noundef 5, i1 noundef zeroext true) #12
   call void @CommitTransactionCommand() #12
-  br i1 %.not345, label %._crit_edge478, label %.lr.ph477
-
-.lr.ph477:                                        ; preds = %._crit_edge471
   %372 = getelementptr inbounds i8, ptr %.0301.lcssa, i64 16
   %373 = getelementptr inbounds i8, ptr %6, i64 8
   %374 = getelementptr inbounds i8, ptr %6, i64 16
   %375 = getelementptr inbounds i8, ptr %6, i64 24
   %376 = load i32, ptr %325, align 4
   %377 = icmp sgt i32 %376, 0
-  br i1 %377, label %.lr.ph553, label %._crit_edge478
+  br i1 %377, label %.lr.ph553, label %._crit_edge479
 
-.lr.ph553:                                        ; preds = %.lr.ph477, %404
-  %indvars.iv522552 = phi i64 [ %indvars.iv.next523, %404 ], [ 0, %.lr.ph477 ]
+.lr.ph553:                                        ; preds = %._crit_edge472, %404
+  %indvars.iv522552 = phi i64 [ %indvars.iv.next523, %404 ], [ 0, %._crit_edge472 ]
   %378 = load ptr, ptr %372, align 8
   %379 = getelementptr %union.ListCell, ptr %378, i64 %indvars.iv522552
   %380 = load ptr, ptr %379, align 8
@@ -5436,16 +5427,16 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %418 = load i32, ptr %325, align 4
   %419 = sext i32 %418 to i64
   %420 = icmp slt i64 %indvars.iv.next523, %419
-  br i1 %420, label %.lr.ph553, label %._crit_edge478
+  br i1 %420, label %.lr.ph553, label %._crit_edge479
 
-._crit_edge478.critedge:                          ; preds = %._crit_edge459
+._crit_edge479.critedge:                          ; preds = %._crit_edge460
   call void @StartTransactionCommand() #12
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef 3) #12
   call void @WaitForLockersMultiple(ptr noundef %.0304.lcssa, i32 noundef 5, i1 noundef zeroext true) #12
   call void @CommitTransactionCommand() #12
-  br label %._crit_edge478
+  br label %._crit_edge479
 
-._crit_edge478:                                   ; preds = %404, %.lr.ph477, %._crit_edge478.critedge, %._crit_edge471
+._crit_edge479:                                   ; preds = %404, %._crit_edge472, %._crit_edge479.critedge
   call void @StartTransactionCommand() #12
   %421 = load ptr, ptr @MainLWLockArray, align 8
   %422 = getelementptr i8, ptr %421, i64 512
@@ -5470,8 +5461,8 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %438 = getelementptr inbounds i8, ptr %.0301.lcssa, i64 16
   br i1 %.not345, label %.thread392, label %.split
 
-.split:                                           ; preds = %._crit_edge478, %461
-  %indvars.iv525 = phi i64 [ %indvars.iv.next526, %461 ], [ 0, %._crit_edge478 ]
+.split:                                           ; preds = %._crit_edge479, %461
+  %indvars.iv525 = phi i64 [ %indvars.iv.next526, %461 ], [ 0, %._crit_edge479 ]
   %439 = load i32, ptr %184, align 4
   %440 = sext i32 %439 to i64
   %441 = icmp slt i64 %indvars.iv525, %440
@@ -5524,16 +5515,16 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   br label %.split, !llvm.loop !23
 
-.thread392:                                       ; preds = %450, %445, %._crit_edge478
+.thread392:                                       ; preds = %450, %445, %._crit_edge479
   call void @CommitTransactionCommand() #12
   call void @StartTransactionCommand() #12
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef 8) #12
   call void @WaitForLockersMultiple(ptr noundef %.0304.lcssa, i32 noundef 8, i1 noundef zeroext true) #12
   %471 = load i32, ptr %184, align 4
-  %.not349480 = icmp sgt i32 %471, 0
-  br i1 %.not349480, label %.lr.ph482, label %._crit_edge483
+  %.not349481 = icmp sgt i32 %471, 0
+  br i1 %.not349481, label %.lr.ph483, label %._crit_edge484
 
-.lr.ph482:                                        ; preds = %.thread392, %477
+.lr.ph483:                                        ; preds = %.thread392, %477
   %indvars.iv528 = phi i64 [ %indvars.iv.next529, %477 ], [ 0, %.thread392 ]
   %472 = load ptr, ptr %437, align 8
   %473 = getelementptr %union.ListCell, ptr %472, i64 %indvars.iv528
@@ -5542,11 +5533,11 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %.not355 = icmp eq i32 %475, 0
   br i1 %.not355, label %477, label %476
 
-476:                                              ; preds = %.lr.ph482
+476:                                              ; preds = %.lr.ph483
   call void @ProcessInterrupts() #12
   br label %477
 
-477:                                              ; preds = %.lr.ph482, %476
+477:                                              ; preds = %.lr.ph483, %476
   %478 = getelementptr inbounds i8, ptr %474, i64 4
   %479 = load i32, ptr %478, align 4
   %480 = load i32, ptr %474, align 4
@@ -5555,9 +5546,9 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %481 = load i32, ptr %184, align 4
   %482 = sext i32 %481 to i64
   %.not349 = icmp slt i64 %indvars.iv.next529, %482
-  br i1 %.not349, label %.lr.ph482, label %._crit_edge483, !llvm.loop !24
+  br i1 %.not349, label %.lr.ph483, label %._crit_edge484, !llvm.loop !24
 
-._crit_edge483:                                   ; preds = %477, %.thread392
+._crit_edge484:                                   ; preds = %477, %.thread392
   call void @CommitTransactionCommand() #12
   call void @StartTransactionCommand() #12
   call void @pgstat_progress_update_param(i32 noundef 9, i64 noundef 9) #12
@@ -5566,16 +5557,16 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   call void @PushActiveSnapshot(ptr noundef %483) #12
   %484 = call ptr @new_object_addresses() #12
   %485 = load i32, ptr %184, align 4
-  %.not351484 = icmp sgt i32 %485, 0
-  br i1 %.not351484, label %.lr.ph487, label %._crit_edge488
+  %.not351485 = icmp sgt i32 %485, 0
+  br i1 %.not351485, label %.lr.ph488, label %._crit_edge489
 
-.lr.ph487:                                        ; preds = %._crit_edge483
+.lr.ph488:                                        ; preds = %._crit_edge484
   %486 = getelementptr inbounds i8, ptr %9, i64 4
   %487 = getelementptr inbounds i8, ptr %9, i64 8
   br label %488
 
-488:                                              ; preds = %.lr.ph487, %488
-  %indvars.iv531 = phi i64 [ 0, %.lr.ph487 ], [ %indvars.iv.next532, %488 ]
+488:                                              ; preds = %.lr.ph488, %488
+  %indvars.iv531 = phi i64 [ 0, %.lr.ph488 ], [ %indvars.iv.next532, %488 ]
   %489 = load ptr, ptr %437, align 8
   %490 = getelementptr %union.ListCell, ptr %489, i64 %indvars.iv531
   %491 = load ptr, ptr %490, align 8
@@ -5588,22 +5579,22 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %493 = load i32, ptr %184, align 4
   %494 = sext i32 %493 to i64
   %.not351 = icmp slt i64 %indvars.iv.next532, %494
-  br i1 %.not351, label %488, label %._crit_edge488, !llvm.loop !25
+  br i1 %.not351, label %488, label %._crit_edge489, !llvm.loop !25
 
-._crit_edge488:                                   ; preds = %488, %._crit_edge483
+._crit_edge489:                                   ; preds = %488, %._crit_edge484
   call void @performMultipleDeletions(ptr noundef %484, i32 noundef 0, i32 noundef 33) #12
   call void @PopActiveSnapshot() #12
   call void @CommitTransactionCommand() #12
-  br i1 %.not343, label %._crit_edge492, label %.lr.ph491
+  br i1 %.not343, label %._crit_edge493, label %.lr.ph492
 
-.lr.ph491:                                        ; preds = %._crit_edge488
+.lr.ph492:                                        ; preds = %._crit_edge489
   %495 = getelementptr inbounds i8, ptr %.1303.lcssa, i64 16
   %496 = load i32, ptr %293, align 4
   %497 = icmp sgt i32 %496, 0
-  br i1 %497, label %.lr.ph495, label %._crit_edge492
+  br i1 %497, label %.lr.ph496, label %._crit_edge493
 
-.lr.ph495:                                        ; preds = %.lr.ph491, %.lr.ph495
-  %indvars.iv534 = phi i64 [ %indvars.iv.next535, %.lr.ph495 ], [ 0, %.lr.ph491 ]
+.lr.ph496:                                        ; preds = %.lr.ph492, %.lr.ph496
+  %indvars.iv534 = phi i64 [ %indvars.iv.next535, %.lr.ph496 ], [ 0, %.lr.ph492 ]
   %498 = load ptr, ptr %495, align 8
   %499 = getelementptr %union.ListCell, ptr %498, i64 %indvars.iv534
   %500 = load ptr, ptr %499, align 8
@@ -5612,33 +5603,33 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %501 = load i32, ptr %293, align 4
   %502 = sext i32 %501 to i64
   %503 = icmp slt i64 %indvars.iv.next535, %502
-  br i1 %503, label %.lr.ph495, label %._crit_edge492
+  br i1 %503, label %.lr.ph496, label %._crit_edge493
 
-._crit_edge492:                                   ; preds = %.lr.ph495, %.lr.ph491, %._crit_edge488
+._crit_edge493:                                   ; preds = %.lr.ph496, %.lr.ph492, %._crit_edge489
   call void @StartTransactionCommand() #12
   %504 = load i32, ptr %2, align 4
   %505 = and i32 %504, 1
   %.not353 = icmp eq i32 %505, 0
   br i1 %.not353, label %530, label %506
 
-506:                                              ; preds = %._crit_edge492
+506:                                              ; preds = %._crit_edge493
   %507 = icmp eq i8 %20, 105
   br i1 %507, label %510, label %.preheader
 
 .preheader:                                       ; preds = %506
-  br i1 %.not345, label %._crit_edge498, label %.lr.ph497
+  br i1 %.not345, label %._crit_edge499, label %.lr.ph498
 
-.lr.ph497:                                        ; preds = %.preheader
+.lr.ph498:                                        ; preds = %.preheader
   %508 = load i32, ptr %325, align 4
   %509 = icmp sgt i32 %508, 0
-  br i1 %509, label %.lr.ph501, label %._crit_edge498
+  br i1 %509, label %.lr.ph502, label %._crit_edge499
 
 510:                                              ; preds = %506
   %511 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #12
   br i1 %511, label %.sink.split, label %530
 
-.lr.ph501:                                        ; preds = %.lr.ph497, %522
-  %indvars.iv537 = phi i64 [ %indvars.iv.next538, %522 ], [ 0, %.lr.ph497 ]
+.lr.ph502:                                        ; preds = %.lr.ph498, %522
+  %indvars.iv537 = phi i64 [ %indvars.iv.next538, %522 ], [ 0, %.lr.ph498 ]
   %512 = load ptr, ptr %438, align 8
   %513 = getelementptr %union.ListCell, ptr %512, i64 %indvars.iv537
   %514 = load ptr, ptr %513, align 8
@@ -5646,7 +5637,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   %516 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #12
   br i1 %516, label %517, label %522
 
-517:                                              ; preds = %.lr.ph501
+517:                                              ; preds = %.lr.ph502
   %518 = call i32 @get_rel_namespace(i32 noundef %515) #12
   %519 = call ptr @get_namespace_name(i32 noundef %518) #12
   %520 = call ptr @get_rel_name(i32 noundef %515) #12
@@ -5654,27 +5645,27 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4355, ptr noundef nonnull @__func__.ReindexRelationConcurrently) #12
   br label %522
 
-522:                                              ; preds = %517, %.lr.ph501
+522:                                              ; preds = %517, %.lr.ph502
   %indvars.iv.next538 = add nuw nsw i64 %indvars.iv537, 1
   %523 = load i32, ptr %325, align 4
   %524 = sext i32 %523 to i64
   %525 = icmp slt i64 %indvars.iv.next538, %524
-  br i1 %525, label %.lr.ph501, label %._crit_edge498
+  br i1 %525, label %.lr.ph502, label %._crit_edge499
 
-._crit_edge498:                                   ; preds = %522, %.lr.ph497, %.preheader
+._crit_edge499:                                   ; preds = %522, %.lr.ph498, %.preheader
   %526 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #12
   br i1 %526, label %.sink.split, label %530
 
-.sink.split:                                      ; preds = %._crit_edge498, %510
-  %.str.104.sink = phi ptr [ @.str.104, %510 ], [ @.str.91, %._crit_edge498 ]
-  %.sink = phi i32 [ 4344, %510 ], [ 4363, %._crit_edge498 ]
+.sink.split:                                      ; preds = %._crit_edge499, %510
+  %.str.104.sink = phi ptr [ @.str.104, %510 ], [ @.str.91, %._crit_edge499 ]
+  %.sink = phi i32 [ 4344, %510 ], [ 4363, %._crit_edge499 ]
   %527 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.104.sink, ptr noundef %.0313, ptr noundef %.0312) #12
   %528 = call ptr @pg_rusage_show(ptr noundef nonnull %4) #12
   %529 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.105, ptr noundef %528) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ReindexRelationConcurrently) #12
   br label %530
 
-530:                                              ; preds = %.sink.split, %510, %._crit_edge498, %._crit_edge492
+530:                                              ; preds = %.sink.split, %510, %._crit_edge499, %._crit_edge493
   call void @MemoryContextDelete(ptr noundef %11) #12
   call void @pgstat_progress_end_command() #12
   br label %.thread369

@@ -1146,8 +1146,8 @@ _ZN8rationalC2Ei.exit138:                         ; preds = %invoke.cont12
 
 invoke.cont16:                                    ; preds = %_ZN8rationalD2Ev.exit600, %_ZN8rationalC2Ei.exit138
   %46 = load i32, ptr %d, align 8
-  %cmp.i.i.i.i139.not = icmp ne i32 %46, 0
-  br i1 %cmp.i.i.i.i139.not, label %while.body, label %cleanup72
+  %cmp.i.i.i.i139.not.not.not.not.not = icmp ne i32 %46, 0
+  br i1 %cmp.i.i.i.i139.not.not.not.not.not, label %while.body, label %cleanup72
 
 while.body:                                       ; preds = %invoke.cont16
   %bf.load.i.i.i141 = load i8, ptr %m_kind.i.i.i140, align 4
@@ -2079,7 +2079,7 @@ ehcleanup79:                                      ; preds = %ehcleanup77, %lpad9
   br label %ehcleanup81
 
 cleanup80:                                        ; preds = %.noexc.i614, %call4.i.i.i.i.noexc, %if.then.i.i.i.i, %invoke.cont6
-  %retval.0 = phi i1 [ false, %invoke.cont6 ], [ false, %if.then.i.i.i.i ], [ false, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i139.not, %.noexc.i614 ]
+  %retval.0 = phi i1 [ false, %invoke.cont6 ], [ false, %if.then.i.i.i.i ], [ false, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i139.not.not.not.not.not, %.noexc.i614 ]
   %196 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %d)
           to label %.noexc.i618 unwind label %terminate.lpad.i617

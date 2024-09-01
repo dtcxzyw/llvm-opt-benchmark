@@ -485,8 +485,8 @@ php_sock_stream_wait_for_data.exit..thread65_crit_edge: ; preds = %php_sock_stre
   call void @php_stream_notification_notify(ptr noundef nonnull %98, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %103, i64 noundef %105, ptr noundef null) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit, %php_sock_stream_wait_for_data.exit.thread, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
-  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit.thread ], [ -1, %php_sock_stream_wait_for_data.exit ]
+.critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit.thread, %php_sock_stream_wait_for_data.exit, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
+  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit ], [ -1, %php_sock_stream_wait_for_data.exit.thread ]
   ret i64 %.0
 }
 

@@ -1849,7 +1849,7 @@ return.sink.split:                                ; preds = %land.lhs.true25, %i
   store i64 %sub.i, ptr %Length.i73, align 8
   br label %return
 
-return:                                           ; preds = %entry, %return.sink.split, %if.end21, %land.lhs.true25
+return:                                           ; preds = %return.sink.split, %entry, %if.end21, %land.lhs.true25
   %retval.0 = phi i32 [ 10, %land.lhs.true25 ], [ 10, %if.end21 ], [ 10, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }

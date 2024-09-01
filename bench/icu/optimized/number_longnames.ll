@@ -7777,7 +7777,7 @@ _ZN6icu_7512LocalPointerINS_6number4impl19LongNameMultiplexerEEC2EPS3_R10UErrorC
 lpad1.loopexit:                                   ; preds = %invoke.cont38, %invoke.cont46, %invoke.cont54, %invoke.cont65, %if.end.i, %if.end.i42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i56
 
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i30
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -7961,7 +7961,7 @@ arraydestroy.body:                                ; preds = %lpad23, %arraydestr
 
 cleanup.action30:                                 ; preds = %arraydestroy.body, %lpad23
   tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call16) #19
-  br label %ehcleanup
+  br label %delete.notnull.i56
 
 if.else:                                          ; preds = %invoke.cont48
   br i1 %cmp.i.i34, label %if.end.i42, label %invoke.cont65
@@ -8006,21 +8006,13 @@ _ZN6icu_7512LocalPointerINS_6number4impl19LongNameMultiplexerEED2Ev.exit: ; pred
   %retval.078 = phi ptr [ null, %delete.notnull.i53 ], [ %call, %_ZN6icu_7510LocalArrayINS_11MeasureUnitEE12adoptInsteadEPS1_.exit ], [ null, %new.cont ], [ null, %if.then.i ], [ %call, %for.cond ]
   ret ptr %retval.078
 
-ehcleanup:                                        ; preds = %lpad1.loopexit, %cleanup.action30
-  %.pn = phi { ptr, i32 } [ %23, %cleanup.action30 ], [ %lpad.loopexit, %lpad1.loopexit ]
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i56
-
-delete.notnull.i56:                               ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn92 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
+delete.notnull.i56:                               ; preds = %cleanup.action30, %lpad1.loopexit, %ehcleanup.thread
+  %.pn92 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %ehcleanup.thread ], [ %23, %cleanup.action30 ], [ %lpad.loopexit, %lpad1.loopexit ]
   %vtable.i57 = load ptr, ptr %call, align 8
   %vfn.i58 = getelementptr inbounds i8, ptr %vtable.i57, i64 8
   %28 = load ptr, ptr %vfn.i58, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(280) %call) #19
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %delete.notnull.i56, %ehcleanup
-  %.pn93 = phi { ptr, i32 } [ %.pn92, %delete.notnull.i56 ], [ %.pn, %ehcleanup ]
-  resume { ptr, i32 } %.pn93
+  resume { ptr, i32 } %.pn92
 }
 
 declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) local_unnamed_addr #6

@@ -1550,12 +1550,9 @@ for.body9.i72:                                    ; preds = %for.body9.i72.prehe
   store i32 0, ptr %arrayidx12.i74, align 4
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %conv.i.i.i
-  br i1 %exitcond.not.i76, label %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78, label %for.body9.i72, !llvm.loop !9
+  br i1 %exitcond.not.i76, label %for.body55.preheader, label %for.body9.i72, !llvm.loop !9
 
-_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78:  ; preds = %for.body9.i72
-  br i1 %cmp4.i, label %for.body55.preheader, label %for.end62
-
-for.body55.preheader:                             ; preds = %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78
+for.body55.preheader:                             ; preds = %for.body9.i72
   %wide.trip.count = zext nneg i32 %nDst to i64
   br label %for.body55
 
@@ -1580,13 +1577,13 @@ lpad50:                                           ; preds = %.noexc161, %_ZNK20b
   call void @_ZN20b3AlignedObjectArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %upper) #15
   br label %ehcleanup
 
-for.end62:                                        ; preds = %for.body55, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78
-  %m_ownsMemory.i.i62170222 = phi ptr [ %m_ownsMemory.i.i62166, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_ownsMemory.i.i62, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %m_ownsMemory.i.i62, %for.body55 ]
-  %m_data.i.i63171221 = phi ptr [ %m_data.i.i63167, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_data.i.i63, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %m_data.i.i63, %for.body55 ]
-  %m_size.i.i64172220 = phi ptr [ %m_size.i.i64168, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_size.i.i64, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %m_size.i.i64, %for.body55 ]
-  %m_capacity.i.i65173219 = phi ptr [ %m_capacity.i.i65169, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_capacity.i.i65, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %m_capacity.i.i65, %for.body55 ]
-  %14 = phi ptr [ null, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %call.i.i.i160, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %call.i.i.i160, %for.body55 ]
-  %15 = phi ptr [ null, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %call.i.i.i122, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78 ], [ %call.i.i.i122, %for.body55 ]
+for.end62:                                        ; preds = %for.body55, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread
+  %m_ownsMemory.i.i62170222 = phi ptr [ %m_ownsMemory.i.i62166, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_ownsMemory.i.i62, %for.body55 ]
+  %m_data.i.i63171221 = phi ptr [ %m_data.i.i63167, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_data.i.i63, %for.body55 ]
+  %m_size.i.i64172220 = phi ptr [ %m_size.i.i64168, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_size.i.i64, %for.body55 ]
+  %m_capacity.i.i65173219 = phi ptr [ %m_capacity.i.i65169, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %m_capacity.i.i65, %for.body55 ]
+  %14 = phi ptr [ null, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %call.i.i.i160, %for.body55 ]
+  %15 = phi ptr [ null, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit78.thread ], [ %call.i.i.i122, %for.body55 ]
   %cmp5.i177 = icmp sgt i32 %nSrc, 0
   br i1 %cmp5.i177, label %for.body6.i.lr.ph, label %for.cond66.preheader
 

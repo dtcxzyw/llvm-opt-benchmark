@@ -1692,8 +1692,8 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17hee3c7dbf187a4f68E.exit.i
           to label %62 unwind label %.thread34.i.i.i.i, !noalias !244
 
 62:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17hee3c7dbf187a4f68E.exit.i.i.i.i
-  %.not.not.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.not.i.i.i.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i", label %65
+  %.not.i.i.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i", label %65
 
 63:                                               ; preds = %65
   %64 = landingpad { ptr, i32 }
@@ -2088,8 +2088,8 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17hee3c7dbf187a4f68E.exit.i
           to label %62 unwind label %.thread34.i.i.i.i, !noalias !320
 
 62:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17hee3c7dbf187a4f68E.exit.i.i.i.i
-  %.not.not.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.not.i.i.i.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i", label %65
+  %.not.i.i.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i", label %65
 
 63:                                               ; preds = %65
   %64 = landingpad { ptr, i32 }

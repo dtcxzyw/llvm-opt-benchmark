@@ -11751,15 +11751,12 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
 
 .preheader.i145:                                  ; preds = %.lr.ph.i
   store i32 %209, ptr %36, align 4
-  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156, label %.lr.ph.preheader.i147
-
-.lr.ph.preheader.i147:                            ; preds = %.preheader.i145
   %wide.trip.count.i148 = and i64 %239, 2147483647
   br label %.lr.ph.i149
 
-.lr.ph.i149:                                      ; preds = %.lr.ph.i149, %.lr.ph.preheader.i147
-  %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.preheader.i147 ], [ %indvars.iv.next.i152, %.lr.ph.i149 ]
-  %.0231.i151 = phi i32 [ 1, %.lr.ph.preheader.i147 ], [ %248, %.lr.ph.i149 ]
+.lr.ph.i149:                                      ; preds = %.lr.ph.i149, %.preheader.i145
+  %indvars.iv.i150 = phi i64 [ 0, %.preheader.i145 ], [ %indvars.iv.next.i152, %.lr.ph.i149 ]
+  %.0231.i151 = phi i32 [ 1, %.preheader.i145 ], [ %248, %.lr.ph.i149 ]
   %246 = getelementptr inbounds i32, ptr %.sroa.0221.0306, i64 %indvars.iv.i150
   %247 = load i32, ptr %246, align 4
   %248 = mul nsw i32 %247, %.0231.i151
@@ -11772,9 +11769,9 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split: ; pr
   store i32 %209, ptr %36, align 4
   br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156: ; preds = %.lr.ph.i149, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, %.preheader.i145
-  %.024.i235 = phi i32 [ %245, %.preheader.i145 ], [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %245, %.lr.ph.i149 ]
-  %.024.i154 = phi i32 [ 1, %.preheader.i145 ], [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %248, %.lr.ph.i149 ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156: ; preds = %.lr.ph.i149, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split
+  %.024.i235 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %245, %.lr.ph.i149 ]
+  %.024.i154 = phi i32 [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %248, %.lr.ph.i149 ]
   %249 = mul nsw i32 %.024.i235, %209
   store i32 %.024.i154, ptr %97, align 4
   invoke void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 2, ptr noundef nonnull %36, i32 noundef 5)

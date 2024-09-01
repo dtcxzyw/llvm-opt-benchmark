@@ -1898,7 +1898,7 @@ _ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringL
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit570: ; preds = %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit222, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit579, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209
   %cmp.i298.not396407418 = phi i1 [ true, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209 ], [ false, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit579 ], [ false, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit222 ]
-  %cmp.i287.not390394409414 = phi i1 [ true, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209 ], [ %cmp.i287.not, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit579 ], [ %cmp.i287.not, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit222 ]
+  %cmp.i287.not390394409414 = phi i1 [ true, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209 ], [ false, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit579 ], [ true, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit222 ]
   %bcmp371 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %EnvironmentName.coerce0, ptr noundef nonnull dereferenceable(7) @.str.110, i64 7)
   %cmp5.i324 = icmp eq i32 %bcmp371, 0
   br i1 %cmp5.i324, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E7DefaultES2_.exit, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit561

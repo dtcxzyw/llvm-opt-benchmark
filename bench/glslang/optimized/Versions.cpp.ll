@@ -6956,12 +6956,9 @@ define noundef zeroext i1 @_ZN7glslang14TParseVersions24checkExtensionsRequested
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph44, label %.lr.ph, !llvm.loop !24
 
-.preheader:                                       ; preds = %11
-  br i1 %10, label %.lr.ph44, label %.loopexit
-
-.lr.ph44:                                         ; preds = %.preheader
+.lr.ph44:                                         ; preds = %11
   %12 = getelementptr inbounds i8, ptr %0, i64 208
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = getelementptr inbounds i8, ptr %9, i64 24
@@ -7164,8 +7161,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count49
   br i1 %exitcond50.not, label %.loopexit, label %33, !llvm.loop !28
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34, %5, %.preheader
-  %.024 = phi i1 [ false, %.preheader ], [ false, %5 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34 ], [ true, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34, %5
+  %.024 = phi i1 [ false, %5 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34 ], [ true, %.lr.ph ]
   ret i1 %.024
 }
 
@@ -7439,36 +7436,24 @@ define noundef zeroext i1 @_ZN7glslang14TParseVersions18extensionsTurnedOnEiPKPK
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %5 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %6 = load ptr, ptr %2, align 8
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %5 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %6) #15
-  br i1 %10, label %._crit_edge, label %.lr.ph11
-
-.lr.ph11:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
+  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %.lr.ph11
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %12) #15
-  br i1 %16, label %._crit_edge.loopexit, label %.lr.ph11, !llvm.loop !31
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph11
-  %17 = icmp ult i64 %indvars.iv.next, %5
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3
-  %.lcssa = phi i1 [ false, %3 ], [ true, %.lr.ph.preheader ], [ %17, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ false, %3 ], [ %10, %.lr.ph ]
   ret i1 %.lcssa
 }
 

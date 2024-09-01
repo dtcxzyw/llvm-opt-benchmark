@@ -4495,7 +4495,7 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt22PardisoSolverInterface13Factoriza
   br label %39
 
 39:                                               ; preds = %228, %5
-  %40 = phi i1 [ %38, %5 ], [ false, %228 ]
+  %40 = phi i1 [ false, %228 ], [ %38, %5 ]
   %.pre105 = load ptr, ptr %22, align 8
   br i1 %40, label %126, label %41
 
@@ -4632,7 +4632,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %69, %65, %_ZN5Ipopt
   br label %126
 
 126:                                              ; preds = %104, %39
-  %127 = phi ptr [ %.pre105, %39 ], [ %.pre104, %104 ]
+  %127 = phi ptr [ %.pre104, %104 ], [ %.pre105, %39 ]
   store i32 22, ptr %6, align 4
   %.not54 = icmp eq ptr %127, null
   br i1 %.not54, label %_ZN5Ipopt9TimedTask5StartEv.exit37, label %128

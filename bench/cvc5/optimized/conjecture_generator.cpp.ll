@@ -31628,7 +31628,7 @@ if.then282:                                       ; preds = %for.inc279
   %19 = load ptr, ptr %glhs, align 8
   %20 = load ptr, ptr %grhs, align 8
   %cmp.i928 = icmp eq ptr %19, %20
-  br i1 %cmp.i928, label %cond.true289, label %cleanup
+  br i1 %cmp.i928, label %cond.true321.lr.ph, label %cleanup
 
 if.then282.thread:                                ; preds = %cond.true245
   %21 = load ptr, ptr %glhs, align 8
@@ -31636,10 +31636,7 @@ if.then282.thread:                                ; preds = %cond.true245
   %cmp.i9281709 = icmp eq ptr %21, %22
   br i1 %cmp.i9281709, label %for.end387, label %cleanup
 
-cond.true289:                                     ; preds = %if.then282
-  br i1 %cmp.i895.not1680, label %for.end387, label %cond.true321.lr.ph
-
-cond.true321.lr.ph:                               ; preds = %cond.true289
+cond.true321.lr.ph:                               ; preds = %if.then282
   %d_subs_confirmWitnessDomain = getelementptr inbounds i8, ptr %this, i64 3656
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 3672
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 3664
@@ -32049,7 +32046,7 @@ for.inc385:                                       ; preds = %_ZNSt6vectorIN4cvc5
   %cmp.i1110.not = icmp eq ptr %call.i1393, %add.ptr.i.i894
   br i1 %cmp.i1110.not, label %for.end387, label %cond.true321, !llvm.loop !326
 
-for.end387:                                       ; preds = %for.inc385, %if.then282.thread, %cond.true289
+for.end387:                                       ; preds = %for.inc385, %if.then282.thread
   %d_subs_confirmCount = getelementptr inbounds i8, ptr %this, i64 3624
   %62 = load i32, ptr %d_subs_confirmCount, align 8
   %inc = add i32 %62, 1

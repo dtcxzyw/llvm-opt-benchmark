@@ -2367,7 +2367,7 @@ for.inc38:                                        ; preds = %for.cond20, %for.co
   br i1 %cmp10.not.not, label %for.body, label %return, !llvm.loop !61
 
 return:                                           ; preds = %for.inc38, %for.body, %for.body26, %for.cond.preheader, %if.end, %entry
-  %retval.4 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ false, %for.body26 ], [ %cmp17.not, %for.inc38 ], [ false, %for.body ]
+  %retval.4 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ false, %for.body26 ], [ %cmp17.not, %for.body ], [ %cmp17.not, %for.inc38 ]
   ret i1 %retval.4
 }
 

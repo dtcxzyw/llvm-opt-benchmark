@@ -62,8 +62,8 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr nocapture noundef %0,
 
 8:                                                ; preds = %26, %3
   %9 = tail call ptr @fgets(ptr noundef %6, i32 noundef %4, ptr noundef %0)
-  %.not.not = icmp ne ptr %9, null
-  br i1 %.not.not, label %11, label %10
+  %.not.not.not.not.not.not = icmp ne ptr %9, null
+  br i1 %.not.not.not.not.not.not, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef %6)
@@ -115,7 +115,7 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr nocapture noundef %0,
   br label %31
 
 31:                                               ; preds = %30, %10
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: nofree nounwind

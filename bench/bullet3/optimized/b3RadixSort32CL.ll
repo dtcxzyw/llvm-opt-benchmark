@@ -563,21 +563,14 @@ for.body9.i:                                      ; preds = %for.body9.i, %.noex
 invoke.cont4:                                     ; preds = %for.body9.i
   store i32 %0, ptr %m_size.i.i, align 4
   %cmp44 = icmp sgt i32 %sortBits, 0
-  br i1 %cmp44, label %for.cond7.preheader.lr.ph, label %if.then.i.i.i
+  br i1 %cmp44, label %for.cond7.preheader.us.preheader, label %if.then.i.i.i
 
 invoke.cont4.thread:                              ; preds = %entry
   store i32 %0, ptr %m_size.i.i, align 4
   %cmp44104 = icmp sgt i32 %sortBits, 0
-  br i1 %cmp44104, label %for.cond7.preheader.preheader, label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit
+  br i1 %cmp44104, label %for.cond7.preheader, label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit
 
-for.cond7.preheader.lr.ph:                        ; preds = %invoke.cont4
-  br i1 %cmp4.i, label %for.cond7.preheader.us.preheader, label %for.cond7.preheader.preheader
-
-for.cond7.preheader.preheader:                    ; preds = %invoke.cont4.thread, %for.cond7.preheader.lr.ph
-  %2 = phi ptr [ %call.i.i.i30, %for.cond7.preheader.lr.ph ], [ null, %invoke.cont4.thread ]
-  br label %for.cond7.preheader
-
-for.cond7.preheader.us.preheader:                 ; preds = %for.cond7.preheader.lr.ph
+for.cond7.preheader.us.preheader:                 ; preds = %invoke.cont4
   %wide.trip.count = zext nneg i32 %0 to i64
   %wide.trip.count102 = zext nneg i32 %0 to i64
   br label %for.body13.us.preheader
@@ -585,20 +578,20 @@ for.cond7.preheader.us.preheader:                 ; preds = %for.cond7.preheader
 for.body38.us:                                    ; preds = %for.body25.us, %for.body38.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %for.body38.us ], [ 0, %for.body25.us ]
   %arrayidx41.us = getelementptr inbounds %struct.b3SortData, ptr %src.045.us, i64 %indvars.iv99
-  %3 = load i32, ptr %arrayidx41.us, align 4
-  %shr42.us = lshr i32 %3, %startBit.047.us
+  %2 = load i32, ptr %arrayidx41.us, align 4
+  %shr42.us = lshr i32 %2, %startBit.047.us
   %and43.us = and i32 %shr42.us, 255
   %idxprom46.us = zext nneg i32 %and43.us to i64
   %arrayidx47.us = getelementptr inbounds [256 x i32], ptr %tables, i64 0, i64 %idxprom46.us
-  %4 = load i32, ptr %arrayidx47.us, align 4
+  %3 = load i32, ptr %arrayidx47.us, align 4
   %arrayidx49.us = getelementptr inbounds [256 x i32], ptr %counter, i64 0, i64 %idxprom46.us
-  %5 = load i32, ptr %arrayidx49.us, align 4
-  %add50.us = add nsw i32 %5, %4
+  %4 = load i32, ptr %arrayidx49.us, align 4
+  %add50.us = add nsw i32 %4, %3
   %idxprom51.us = sext i32 %add50.us to i64
   %arrayidx52.us = getelementptr inbounds %struct.b3SortData, ptr %dst.046.us, i64 %idxprom51.us
-  %6 = load i64, ptr %arrayidx41.us, align 4
-  store i64 %6, ptr %arrayidx52.us, align 4
-  %inc55.us = add nsw i32 %5, 1
+  %5 = load i64, ptr %arrayidx41.us, align 4
+  store i64 %5, ptr %arrayidx52.us, align 4
+  %inc55.us = add nsw i32 %4, 1
   store i32 %inc55.us, ptr %arrayidx49.us, align 4
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
@@ -608,9 +601,9 @@ for.body25.us:                                    ; preds = %for.cond23.preheade
   %indvars.iv95 = phi i64 [ 0, %for.cond23.preheader.us ], [ %indvars.iv.next96, %for.body25.us ]
   %sum.040.us = phi i32 [ 0, %for.cond23.preheader.us ], [ %add.us, %for.body25.us ]
   %arrayidx27.us = getelementptr inbounds [256 x i32], ptr %tables, i64 0, i64 %indvars.iv95
-  %7 = load i32, ptr %arrayidx27.us, align 4
+  %6 = load i32, ptr %arrayidx27.us, align 4
   store i32 %sum.040.us, ptr %arrayidx27.us, align 4
-  %add.us = add nsw i32 %7, %sum.040.us
+  %add.us = add nsw i32 %6, %sum.040.us
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 256
   br i1 %exitcond98.not, label %for.body38.us, label %for.body25.us, !llvm.loop !8
@@ -618,13 +611,13 @@ for.body25.us:                                    ; preds = %for.cond23.preheade
 for.body13.us:                                    ; preds = %for.body13.us.preheader, %for.body13.us
   %indvars.iv91 = phi i64 [ 0, %for.body13.us.preheader ], [ %indvars.iv.next92, %for.body13.us ]
   %arrayidx15.us = getelementptr inbounds %struct.b3SortData, ptr %src.045.us, i64 %indvars.iv91
-  %8 = load i32, ptr %arrayidx15.us, align 4
-  %shr.us = lshr i32 %8, %startBit.047.us
+  %7 = load i32, ptr %arrayidx15.us, align 4
+  %shr.us = lshr i32 %7, %startBit.047.us
   %and.us = and i32 %shr.us, 255
   %idxprom16.us = zext nneg i32 %and.us to i64
   %arrayidx17.us = getelementptr inbounds [256 x i32], ptr %tables, i64 0, i64 %idxprom16.us
-  %9 = load i32, ptr %arrayidx17.us, align 4
-  %inc18.us = add nsw i32 %9, 1
+  %8 = load i32, ptr %arrayidx17.us, align 4
+  %inc18.us = add nsw i32 %8, 1
   store i32 %inc18.us, ptr %arrayidx17.us, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
@@ -646,17 +639,17 @@ for.cond36.for.end58_crit_edge.us:                ; preds = %for.body38.us
   %cmp.us = icmp slt i32 %add62.us, %sortBits
   br i1 %cmp.us, label %for.body13.us.preheader, label %for.end63.loopexit, !llvm.loop !10
 
-for.cond7.preheader:                              ; preds = %for.cond7.preheader.preheader, %for.cond36.preheader
-  %startBit.047 = phi i32 [ %add62, %for.cond36.preheader ], [ 0, %for.cond7.preheader.preheader ]
+for.cond7.preheader:                              ; preds = %invoke.cont4.thread, %for.cond36.preheader
+  %startBit.047 = phi i32 [ %add62, %for.cond36.preheader ], [ 0, %invoke.cont4.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %tables, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %counter, i8 0, i64 1024, i1 false)
   br label %for.body25
 
 lpad:                                             ; preds = %.noexc31, %_ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI10b3SortDataE8allocateEi.exit.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %workbuffer) #16
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 for.cond36.preheader:                             ; preds = %for.body25
   %add62 = add nuw nsw i32 %startBit.047, 8
@@ -667,9 +660,9 @@ for.body25:                                       ; preds = %for.cond7.preheader
   %indvars.iv = phi i64 [ 0, %for.cond7.preheader ], [ %indvars.iv.next, %for.body25 ]
   %sum.040 = phi i32 [ 0, %for.cond7.preheader ], [ %add, %for.body25 ]
   %arrayidx27 = getelementptr inbounds [256 x i32], ptr %tables, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %arrayidx27, align 4
+  %10 = load i32, ptr %arrayidx27, align 4
   store i32 %sum.040, ptr %arrayidx27, align 4
-  %add = add nsw i32 %11, %sum.040
+  %add = add nsw i32 %10, %sum.040
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.cond36.preheader, label %for.body25, !llvm.loop !8
@@ -679,25 +672,25 @@ for.end63.loopexit:                               ; preds = %for.cond36.for.end5
   br label %for.end63
 
 for.end63:                                        ; preds = %for.cond36.preheader, %for.end63.loopexit
-  %12 = phi ptr [ %.pre, %for.end63.loopexit ], [ %2, %for.cond36.preheader ]
-  %tobool.not.i.i.i = icmp eq ptr %12, null
+  %11 = phi ptr [ %.pre, %for.end63.loopexit ], [ null, %for.cond36.preheader ]
+  %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4, %for.end63
-  %13 = phi ptr [ %12, %for.end63 ], [ %call.i.i.i30, %invoke.cont4 ]
-  %14 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %tobool2.i.i.i = trunc i8 %14 to i1
+  %12 = phi ptr [ %11, %for.end63 ], [ %call.i.i.i30, %invoke.cont4 ]
+  %13 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i.i = trunc i8 %13 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %13)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %12)
           to label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #17
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #17
   unreachable
 
 _ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit: ; preds = %invoke.cont4.thread, %for.end63, %if.then.i.i.i, %if.then3.i.i.i

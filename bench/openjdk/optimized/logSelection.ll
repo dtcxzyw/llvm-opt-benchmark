@@ -594,50 +594,44 @@ define hidden noundef zeroext i1 @_ZNK12LogSelection11consists_ofEPKN6LogTag4typ
   %3 = load i32, ptr %1, align 4
   %.not13 = icmp eq i32 %3, 0
   %.pre = load i64, ptr %0, align 8
-  br i1 %.not13, label %._crit_edge, label %.lr.ph15
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph15:                                         ; preds = %2
+.lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.i = icmp eq i64 %.pre, 0
-  %5 = load i32, ptr %4, align 8
   br i1 %.not.i, label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph15, %.critedge
-  %6 = phi i32 [ %15, %.critedge ], [ %3, %.lr.ph15 ]
-  %.014 = phi i64 [ %13, %.critedge ], [ 0, %.lr.ph15 ]
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %.critedge, label %.lr.ph
+.lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZL8containsN6LogTag4typeEPKS0_m.exit
+  %5 = phi i32 [ %13, %_ZL8containsN6LogTag4typeEPKS0_m.exit ], [ %3, %.lr.ph ]
+  %.014 = phi i64 [ %11, %_ZL8containsN6LogTag4typeEPKS0_m.exit ], [ 0, %.lr.ph ]
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.07.i11 = phi i64 [ %8, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %8 = add nuw i64 %.07.i11, 1
-  %exitcond.not.i = icmp eq i64 %8, %.pre
-  br i1 %exitcond.not.i, label %_ZL8containsN6LogTag4typeEPKS0_m.exit, label %.lr.ph.i, !llvm.loop !18
+6:                                                ; preds = %.lr.ph.i
+  %7 = add nuw i64 %.07.i, 1
+  %exitcond.not.i = icmp eq i64 %7, %.pre
+  br i1 %exitcond.not.i, label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %9 = getelementptr inbounds i32, ptr %4, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %6
-  br i1 %11, label %_ZL8containsN6LogTag4typeEPKS0_m.exit, label %.lr.ph, !llvm.loop !18
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %6
+  %.07.i = phi i64 [ %7, %6 ], [ 0, %.lr.ph.i.preheader ]
+  %8 = getelementptr inbounds i32, ptr %4, i64 %.07.i
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, %5
+  br i1 %10, label %_ZL8containsN6LogTag4typeEPKS0_m.exit, label %6
 
-_ZL8containsN6LogTag4typeEPKS0_m.exit:            ; preds = %.lr.ph.i, %.lr.ph
-  %12 = icmp ult i64 %8, %.pre
-  br i1 %12, label %.critedge, label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread
-
-.critedge:                                        ; preds = %.lr.ph.i.preheader, %_ZL8containsN6LogTag4typeEPKS0_m.exit
-  %13 = add i64 %.014, 1
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %.not = icmp eq i32 %15, 0
+_ZL8containsN6LogTag4typeEPKS0_m.exit:            ; preds = %.lr.ph.i
+  %11 = add i64 %.014, 1
+  %12 = getelementptr inbounds i32, ptr %1, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.critedge, %2
-  %.0.lcssa = phi i64 [ 0, %2 ], [ %13, %.critedge ]
-  %16 = icmp eq i64 %.0.lcssa, %.pre
+._crit_edge:                                      ; preds = %_ZL8containsN6LogTag4typeEPKS0_m.exit, %2
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %11, %_ZL8containsN6LogTag4typeEPKS0_m.exit ]
+  %14 = icmp eq i64 %.0.lcssa, %.pre
   br label %_ZL8containsN6LogTag4typeEPKS0_m.exit.thread
 
-_ZL8containsN6LogTag4typeEPKS0_m.exit.thread:     ; preds = %_ZL8containsN6LogTag4typeEPKS0_m.exit, %.lr.ph15, %._crit_edge
-  %.07 = phi i1 [ %16, %._crit_edge ], [ false, %.lr.ph15 ], [ false, %_ZL8containsN6LogTag4typeEPKS0_m.exit ]
+_ZL8containsN6LogTag4typeEPKS0_m.exit.thread:     ; preds = %6, %.lr.ph, %._crit_edge
+  %.07 = phi i1 [ %14, %._crit_edge ], [ false, %.lr.ph ], [ false, %6 ]
   ret i1 %.07
 }
 

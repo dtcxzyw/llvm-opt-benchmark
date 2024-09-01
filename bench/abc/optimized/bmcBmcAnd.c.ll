@@ -5742,9 +5742,9 @@ Abc_Clock.exit148:                                ; preds = %Gia_ManBmcFindFirst
   %indvars.iv.next.i158 = add nsw i64 %indvars.iv.i156, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i158 to i32
   %exitcond.not.i159 = icmp eq i32 %135, %lftr.wideiv.i
-  br i1 %exitcond.not.i159, label %Gia_ManBmcAddCnfNew.exit.loopexit, label %.lr.ph.i155, !llvm.loop !51
+  br i1 %exitcond.not.i159, label %Gia_ManBmcAddCnfNew.exit, label %.lr.ph.i155, !llvm.loop !51
 
-Gia_ManBmcAddCnfNew.exit.loopexit:                ; preds = %171
+Gia_ManBmcAddCnfNew.exit:                         ; preds = %171
   %.val125 = load i32, ptr %48, align 8
   %.val126 = load ptr, ptr %49, align 8
   %172 = getelementptr i8, ptr %.val126, i64 4
@@ -5755,7 +5755,7 @@ Gia_ManBmcAddCnfNew.exit.loopexit:                ; preds = %171
   %176 = icmp slt i32 %174, %175
   br i1 %176, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %Gia_ManBmcAddCnfNew.exit.loopexit
+.lr.ph.preheader:                                 ; preds = %Gia_ManBmcAddCnfNew.exit
   %177 = sext i32 %174 to i64
   br label %.lr.ph
 
@@ -5839,9 +5839,9 @@ Gia_ManBmcAddCnfNew.exit.loopexit:                ; preds = %171
   %221 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit173, %.loopexit173.thread, %.loopexit.loopexit, %Gia_ManBmcAddCnfNew.exit.loopexit
-  %.2177 = phi i32 [ %174, %Gia_ManBmcAddCnfNew.exit.loopexit ], [ %221, %.loopexit.loopexit ], [ %.2187196204, %.loopexit173.thread ], [ %.2187196, %.loopexit173 ]
-  %.3 = phi i32 [ -2, %Gia_ManBmcAddCnfNew.exit.loopexit ], [ -2, %.loopexit.loopexit ], [ 0, %.loopexit173.thread ], [ %spec.select, %.loopexit173 ]
+.loopexit:                                        ; preds = %.loopexit173, %.loopexit173.thread, %.loopexit.loopexit, %Gia_ManBmcAddCnfNew.exit
+  %.2177 = phi i32 [ %174, %Gia_ManBmcAddCnfNew.exit ], [ %221, %.loopexit.loopexit ], [ %.2187196204, %.loopexit173.thread ], [ %.2187196, %.loopexit173 ]
+  %.3 = phi i32 [ -2, %Gia_ManBmcAddCnfNew.exit ], [ -2, %.loopexit.loopexit ], [ 0, %.loopexit173.thread ], [ %spec.select, %.loopexit173 ]
   %222 = load i32, ptr %53, align 4
   %.not112 = icmp eq i32 %222, 0
   br i1 %.not112, label %263, label %223

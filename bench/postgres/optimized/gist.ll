@@ -1543,13 +1543,10 @@ BufferGetPage.exit271:                            ; preds = %189, %195
   br i1 %.not254, label %._crit_edge302, label %.lr.ph301, !llvm.loop !15
 
 ._crit_edge302:                                   ; preds = %.lr.ph301
-  br i1 %125, label %219, label %.preheader289
+  br i1 %125, label %219, label %.lr.ph305
 
 ._crit_edge302.thread:                            ; preds = %.preheader291
   br i1 %125, label %219, label %._crit_edge327
-
-.preheader289:                                    ; preds = %._crit_edge302
-  br i1 %.not252292, label %._crit_edge327, label %.lr.ph305
 
 219:                                              ; preds = %._crit_edge302.thread, %._crit_edge302
   %220 = getelementptr inbounds i8, ptr %16, i64 40
@@ -1602,7 +1599,7 @@ BufferGetPage.exit273:                            ; preds = %221, %227
   %244 = sext i32 %241 to i64
   %245 = shl nsw i64 %244, 3
   %246 = call ptr @palloc(i64 noundef %245) #8
-  br i1 %.not252292, label %.loopexit290.thread353, label %.lr.ph316
+  br label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %._crit_edge310, %.lr.ph316
   %.0231314 = phi i32 [ %249, %.lr.ph316 ], [ 0, %._crit_edge310 ]
@@ -1618,9 +1615,9 @@ BufferGetPage.exit273:                            ; preds = %221, %227
   %.not257 = icmp eq ptr %253, null
   br i1 %.not257, label %.loopexit290.thread353, label %.lr.ph316, !llvm.loop !17
 
-.loopexit290.thread353:                           ; preds = %.lr.ph316, %._crit_edge310, %._crit_edge310.thread
-  %254 = phi ptr [ %240, %._crit_edge310.thread ], [ %246, %._crit_edge310 ], [ %246, %.lr.ph316 ]
-  %.0232.lcssa347 = phi i32 [ 0, %._crit_edge310.thread ], [ %241, %._crit_edge310 ], [ %241, %.lr.ph316 ]
+.loopexit290.thread353:                           ; preds = %.lr.ph316, %._crit_edge310.thread
+  %254 = phi ptr [ %240, %._crit_edge310.thread ], [ %246, %.lr.ph316 ]
+  %.0232.lcssa347 = phi i32 [ 0, %._crit_edge310.thread ], [ %241, %.lr.ph316 ]
   store i32 0, ptr %16, align 8
   %255 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %.0232.lcssa347, ptr %255, align 4
@@ -1634,8 +1631,8 @@ BufferGetPage.exit273:                            ; preds = %221, %227
   store ptr %143, ptr %260, align 8
   br label %.lr.ph326
 
-.lr.ph305:                                        ; preds = %.preheader289, %.lr.ph305
-  %.6304 = phi ptr [ %270, %.lr.ph305 ], [ %143, %.preheader289 ]
+.lr.ph305:                                        ; preds = %._crit_edge302, %.lr.ph305
+  %.6304 = phi ptr [ %270, %.lr.ph305 ], [ %143, %._crit_edge302 ]
   %261 = call ptr @palloc(i64 noundef 16) #8
   %262 = getelementptr inbounds i8, ptr %.6304, i64 40
   %263 = load i32, ptr %262, align 8
@@ -1799,9 +1796,9 @@ BufferGetPage.exit273:                            ; preds = %221, %227
   %.not258 = icmp eq ptr %359, null
   br i1 %.not258, label %._crit_edge327, label %274, !llvm.loop !20
 
-._crit_edge327:                                   ; preds = %329, %._crit_edge302.thread, %.preheader289
-  %.not258323352 = phi i1 [ true, %.preheader289 ], [ true, %._crit_edge302.thread ], [ false, %329 ]
-  %.0233350 = phi ptr [ null, %.preheader289 ], [ null, %._crit_edge302.thread ], [ %.0233356, %329 ]
+._crit_edge327:                                   ; preds = %329, %._crit_edge302.thread
+  %.not258323352 = phi i1 [ true, %._crit_edge302.thread ], [ false, %329 ]
+  %.0233350 = phi ptr [ null, %._crit_edge302.thread ], [ %.0233356, %329 ]
   br i1 %12, label %380, label %360
 
 360:                                              ; preds = %._crit_edge327

@@ -2317,13 +2317,13 @@ proto_item_set_generated.exit51.i:                ; preds = %375, %372, %proto_i
 
 .preheader.i:                                     ; preds = %proto_item_set_generated.exit51.i
   %381 = call i32 @wmem_array_get_count(ptr noundef nonnull %380) #11
-  %.not68.i = icmp eq i32 %381, 0
-  br i1 %.not68.i, label %.loopexit580, label %.lr.ph.i
+  %.not70.i = icmp eq i32 %381, 0
+  br i1 %.not70.i, label %.loopexit580, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %proto_item_set_hidden.exit.i
-  %.067.i = phi i32 [ %421, %proto_item_set_hidden.exit.i ], [ 0, %.preheader.i ]
+  %.069.i = phi i32 [ %421, %proto_item_set_hidden.exit.i ], [ 0, %.preheader.i ]
   %382 = load ptr, ptr %379, align 8
-  %383 = call ptr @wmem_array_index(ptr noundef %382, i32 noundef %.067.i) #11
+  %383 = call ptr @wmem_array_index(ptr noundef %382, i32 noundef %.069.i) #11
   %384 = load i32, ptr %383, align 8
   %.not45.i = icmp eq i32 %384, 0
   br i1 %.not45.i, label %proto_item_set_hidden.exit.i, label %385
@@ -2359,8 +2359,8 @@ proto_item_set_generated.exit51.i:                ; preds = %375, %372, %proto_i
 proto_item_set_generated.exit54.i:                ; preds = %395, %392
   %399 = getelementptr inbounds i8, ptr %383, i64 8
   %400 = load i32, ptr %399, align 8
-  %.not70.i = icmp eq i32 %400, 1
-  br i1 %.not70.i, label %401, label %proto_item_set_hidden.exit.i
+  %.not68.i = icmp eq i32 %400, 1
+  br i1 %.not68.i, label %401, label %proto_item_set_hidden.exit.i
 
 401:                                              ; preds = %proto_item_set_generated.exit54.i
   %402 = load ptr, ptr %393, align 8
@@ -2390,8 +2390,8 @@ proto_item_set_generated.exit54.i:                ; preds = %395, %392
 proto_item_set_generated.exit59.i:                ; preds = %410, %407
   %414 = getelementptr inbounds i8, ptr %383, i64 8
   %415 = load i32, ptr %414, align 8
-  %.not69.i = icmp eq i32 %415, 1
-  br i1 %.not69.i, label %416, label %proto_item_set_hidden.exit.i
+  %.not67.i = icmp eq i32 %415, 1
+  br i1 %.not67.i, label %416, label %proto_item_set_hidden.exit.i
 
 416:                                              ; preds = %proto_item_set_generated.exit59.i
   %417 = load ptr, ptr %408, align 8
@@ -2407,7 +2407,7 @@ proto_item_set_hidden.exit.sink.split.i:          ; preds = %416, %401
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %proto_item_set_hidden.exit.sink.split.i, %416, %proto_item_set_generated.exit59.i, %403, %401, %proto_item_set_generated.exit54.i, %388, %385, %.lr.ph.i
-  %421 = add nuw i32 %.067.i, 1
+  %421 = add nuw i32 %.069.i, 1
   %422 = load ptr, ptr %379, align 8
   %423 = call i32 @wmem_array_get_count(ptr noundef %422) #11
   %424 = icmp ult i32 %421, %423

@@ -629,7 +629,7 @@ for.inc:                                          ; preds = %for.body
 cleanup:                                          ; preds = %for.inc, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit
   %storemerge = phi ptr [ %call.i4, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %for.inc ]
   store ptr %storemerge, ptr %agg.result, align 8
-  br i1 %cmp.i.not12, label %invoke.cont.i, label %for.body.i.i.i.i
+  br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %10, %cleanup ]
@@ -644,8 +644,8 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %descs, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %cleanup.thread, %invoke.contthread-pre-split.i, %cleanup
-  %14 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %10, %cleanup ], [ %10, %cleanup.thread ]
+invoke.cont.i:                                    ; preds = %cleanup.thread, %invoke.contthread-pre-split.i
+  %14 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %10, %cleanup.thread ]
   %tobool.not.i.i.i6 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit, label %if.then.i.i.i
 

@@ -206,9 +206,9 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %11, %.preheader.i.i.i
-  %.142.i.i.i = phi i32 [ %14, %.preheader.i.i.i ], [ %7, %11 ]
-  %12 = lshr i32 %.142.i.i.i, 1
-  %13 = add i32 %.142.i.i.i, 8
+  %.143.i.i.i = phi i32 [ %14, %.preheader.i.i.i ], [ %7, %11 ]
+  %12 = lshr i32 %.143.i.i.i, 1
+  %13 = add i32 %.143.i.i.i, 8
   %14 = add i32 %13, %12
   %15 = icmp ugt i32 %9, %14
   br i1 %15, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
@@ -223,8 +223,8 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3st
   %19 = zext nneg i32 %14 to i64
   %20 = mul nuw nsw i64 %19, 20
   %21 = tail call ptr @realloc(ptr noundef %18, i64 noundef %20) #10
-  %.not43.i.i.i = icmp eq ptr %21, null
-  br i1 %.not43.i.i.i, label %22, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i.i
+  %.not42.i.i.i = icmp eq ptr %21, null
+  br i1 %.not42.i.i.i, label %22, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i.i
 
 22:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i
   %23 = load i32, ptr %4, align 8
@@ -870,9 +870,9 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %42, %.preheader.i.i
-  %.142.i.i = phi i32 [ %45, %.preheader.i.i ], [ %38, %42 ]
-  %43 = lshr i32 %.142.i.i, 1
-  %44 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %45, %.preheader.i.i ], [ %38, %42 ]
+  %43 = lshr i32 %.143.i.i, 1
+  %44 = add i32 %.143.i.i, 8
   %45 = add i32 %44, %43
   %46 = icmp ugt i32 %40, %45
   br i1 %46, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !17
@@ -887,8 +887,8 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr
   %50 = zext nneg i32 %45 to i64
   %51 = mul nuw nsw i64 %50, 24
   %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #10
-  %.not43.i.i = icmp eq ptr %52, null
-  br i1 %.not43.i.i, label %53, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %52, null
+  br i1 %.not42.i.i, label %53, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.i
 
 53:                                               ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %54 = load i32, ptr %0, align 8
@@ -1071,9 +1071,9 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %64, %.preheader.i.i
-  %.142.i.i = phi i32 [ %67, %.preheader.i.i ], [ %60, %64 ]
-  %65 = lshr i32 %.142.i.i, 1
-  %66 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %67, %.preheader.i.i ], [ %60, %64 ]
+  %65 = lshr i32 %.143.i.i, 1
+  %66 = add i32 %.143.i.i, 8
   %67 = add i32 %66, %65
   %68 = icmp ugt i32 %62, %67
   br i1 %68, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1088,8 +1088,8 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3st
   %72 = zext nneg i32 %67 to i64
   %73 = mul nuw nsw i64 %72, 20
   %74 = tail call ptr @realloc(ptr noundef %71, i64 noundef %73) #10
-  %.not43.i.i = icmp eq ptr %74, null
-  br i1 %.not43.i.i, label %75, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %74, null
+  br i1 %.not42.i.i, label %75, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i
 
 75:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %76 = load i32, ptr %53, align 8

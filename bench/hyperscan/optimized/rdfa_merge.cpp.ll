@@ -2451,7 +2451,7 @@ cleanup25:                                        ; preds = %for.inc22, %cleanup
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont, %cleanup25
-  %cmp.i1431 = phi i1 [ %cmp.i14.ph, %cleanup25 ], [ false, %invoke.cont ]
+  %cmp.i1424 = phi i1 [ %cmp.i14.ph, %cleanup25 ], [ false, %invoke.cont ]
   %33 = load ptr, ptr %seen_reports, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i, %33
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2461,8 +2461,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit:      ; preds = %cleanup25, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i1432 = phi i1 [ %cmp.i14.ph, %cleanup25 ], [ %cmp.i1431, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i1431, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
-  ret i1 %cmp.i1432
+  %cmp.i1425 = phi i1 [ %cmp.i14.ph, %cleanup25 ], [ %cmp.i1424, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i1424, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  ret i1 %cmp.i1425
 
 ehcleanup:                                        ; preds = %lpad19, %lpad8
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad19 ], [ %2, %lpad8 ]

@@ -187,8 +187,6 @@ $_ZN7rocksdb13BlockContentsD2Ev = comdat any
 
 $_ZN7rocksdb16ParseInternalKeyERKNS_5SliceEPNS_17ParsedInternalKeyEb = comdat any
 
-$_ZNK7rocksdb17PlainTableBloomV114MayContainHashEj = comdat any
-
 $_ZN7rocksdb6StatusC2ERKS0_ = comdat any
 
 $_ZN7rocksdb21InternalKeyComparatorD0Ev = comdat any
@@ -5160,7 +5158,7 @@ declare void @_ZN7rocksdb20PlainTableKeyDecoder14NextKeyNoValueEjPNS_17ParsedInt
 declare noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZNK7rocksdb16PlainTableReader10MatchBloomEj(ptr noundef nonnull align 16 dereferenceable(2536) %this, i32 noundef %hash) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb16PlainTableReader10MatchBloomEj(ptr nocapture noundef nonnull readonly align 16 dereferenceable(2536) %this, i32 noundef %hash) unnamed_addr #0 align 2 {
 entry:
   %enable_bloom_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %enable_bloom_, align 8
@@ -5168,39 +5166,109 @@ entry:
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
+  %kNumBlocks.i = getelementptr inbounds i8, ptr %this, i64 116
+  %1 = load i32, ptr %kNumBlocks.i, align 4
+  %cmp.not.i = icmp eq i32 %1, 0
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.end
+  %kNumProbes.i = getelementptr inbounds i8, ptr %this, i64 120
+  %2 = load i32, ptr %kNumProbes.i, align 8
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %3 = load ptr, ptr %data_.i, align 16
+  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %hash, i32 %hash, i32 21)
+  %rem.i.i.i = urem i32 %or.i.i.i, %1
+  %shl.i.i = shl i32 %rem.i.i.i, 6
+  %idx.ext.i.i = zext i32 %shl.i.i to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i.i
+  %or.i3.i.i = tail call i32 @llvm.fshl.i32(i32 %hash, i32 %hash, i32 15)
+  %cmp11.i.i.i = icmp slt i32 %2, 1
+  br i1 %cmp11.i.i.i, label %if.then2, label %for.body.i.i.i
+
+for.body.i.i.i:                                   ; preds = %if.then.i, %if.end.i.i.i
+  %i.013.i.i.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ 0, %if.then.i ]
+  %h.addr.012.i.i.i = phi i32 [ %add9.i.i.i, %if.end.i.i.i ], [ %hash, %if.then.i ]
+  %and.i.i.i = lshr i32 %h.addr.012.i.i.i, 3
+  %div10.i.i.i = and i32 %and.i.i.i, 63
+  %idxprom.i.i.i = zext nneg i32 %div10.i.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom.i.i.i
+  %4 = load i8, ptr %arrayidx.i.i.i, align 1
+  %conv16.i.i.i = zext i8 %4 to i32
+  %rem.i4.i.i = and i32 %h.addr.012.i.i.i, 7
+  %shl2.i.i.i = shl nuw nsw i32 1, %rem.i4.i.i
+  %and3.i.i.i = and i32 %shl2.i.i.i, %conv16.i.i.i
+  %cmp4.not.i.not.i.not.i = icmp eq i32 %and3.i.i.i, 0
+  br i1 %cmp4.not.i.not.i.not.i, label %if.else, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %for.body.i.i.i
+  %or8.i.i.i = tail call i32 @llvm.fshl.i32(i32 %h.addr.012.i.i.i, i32 %h.addr.012.i.i.i, i32 23)
+  %add9.i.i.i = add i32 %or8.i.i.i, %or.i3.i.i
+  %inc.i.i.i = add nuw nsw i32 %i.013.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %2
+  br i1 %exitcond.not.i.i.i, label %if.then2, label %for.body.i.i.i, !llvm.loop !46
+
+if.else.i:                                        ; preds = %if.end
   %bloom_ = getelementptr inbounds i8, ptr %this, i64 112
-  %call = tail call noundef zeroext i1 @_ZNK7rocksdb17PlainTableBloomV114MayContainHashEj(ptr noundef nonnull align 8 dereferenceable(24) %bloom_, i32 noundef %hash)
+  %5 = load i32, ptr %bloom_, align 16
+  %kNumProbes3.i = getelementptr inbounds i8, ptr %this, i64 120
+  %6 = load i32, ptr %kNumProbes3.i, align 8
+  %data_4.i = getelementptr inbounds i8, ptr %this, i64 128
+  %7 = load ptr, ptr %data_4.i, align 16
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %hash, i32 %hash, i32 15)
+  %cmp7.i.i = icmp slt i32 %6, 1
+  br i1 %cmp7.i.i, label %if.then2, label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %if.else.i, %if.end.i.i
+  %i.09.i.i = phi i32 [ %inc.i.i, %if.end.i.i ], [ 0, %if.else.i ]
+  %h.addr.08.i.i = phi i32 [ %add.i.i, %if.end.i.i ], [ %hash, %if.else.i ]
+  %rem.i.i = urem i32 %h.addr.08.i.i, %5
+  %div6.i.i = lshr i32 %rem.i.i, 3
+  %idxprom.i.i = zext nneg i32 %div6.i.i to i64
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i
+  %8 = load i8, ptr %arrayidx.i.i, align 1
+  %conv12.i.i = zext i8 %8 to i32
+  %rem1.i.i = and i32 %rem.i.i, 7
+  %shl2.i.i = shl nuw nsw i32 1, %rem1.i.i
+  %and.i.i = and i32 %shl2.i.i, %conv12.i.i
+  %cmp3.not.i.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp3.not.i.not.i, label %if.else, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %for.body.i.i
+  %add.i.i = add i32 %h.addr.08.i.i, %or.i.i
+  %inc.i.i = add nuw nsw i32 %i.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %6
+  br i1 %exitcond.not.i.i, label %if.then2, label %for.body.i.i, !llvm.loop !47
+
+if.then2:                                         ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i, %if.else.i
   %.not.i = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
-  br i1 %call, label %if.then2, label %if.else
+  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit, label %9
 
-if.then2:                                         ; preds = %if.end
-  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit, label %1
-
-1:                                                ; preds = %if.then2
+9:                                                ; preds = %if.then2
   tail call void @_ZTHN7rocksdb10perf_levelE()
   br label %_ZTWN7rocksdb10perf_levelE.exit
 
-_ZTWN7rocksdb10perf_levelE.exit:                  ; preds = %if.then2, %1
-  %2 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  %3 = load i8, ptr %2, align 1
-  %cmp = icmp ugt i8 %3, 1
+_ZTWN7rocksdb10perf_levelE.exit:                  ; preds = %if.then2, %9
+  %10 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  %11 = load i8, ptr %10, align 1
+  %cmp = icmp ugt i8 %11, 1
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %_ZTWN7rocksdb10perf_levelE.exit
   %.not.i1 = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
   br i1 %.not.i1, label %return.sink.split, label %return.sink.split.sink.split
 
-if.else:                                          ; preds = %if.end
-  br i1 %.not.i, label %_ZTWN7rocksdb10perf_levelE.exit3, label %4
+if.else:                                          ; preds = %for.body.i.i.i, %for.body.i.i
+  %.not.i2 = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %.not.i2, label %_ZTWN7rocksdb10perf_levelE.exit3, label %12
 
-4:                                                ; preds = %if.else
+12:                                               ; preds = %if.else
   tail call void @_ZTHN7rocksdb10perf_levelE()
   br label %_ZTWN7rocksdb10perf_levelE.exit3
 
-_ZTWN7rocksdb10perf_levelE.exit3:                 ; preds = %if.else, %4
-  %5 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  %6 = load i8, ptr %5, align 1
-  %cmp6 = icmp ugt i8 %6, 1
+_ZTWN7rocksdb10perf_levelE.exit3:                 ; preds = %if.else, %12
+  %13 = tail call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  %14 = load i8, ptr %13, align 1
+  %cmp6 = icmp ugt i8 %14, 1
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %_ZTWN7rocksdb10perf_levelE.exit3
@@ -5208,137 +5276,23 @@ if.then7:                                         ; preds = %_ZTWN7rocksdb10perf
   br i1 %.not.i4, label %return.sink.split, label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.then7, %if.then3
-  %.sink7.ph = phi i64 [ 536, %if.then3 ], [ 544, %if.then7 ]
+  %.sink14.ph = phi i64 [ 536, %if.then3 ], [ 544, %if.then7 ]
+  %retval.0.ph.ph = phi i1 [ true, %if.then3 ], [ false, %if.then7 ]
   tail call void @_ZTHN7rocksdb12perf_contextE()
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then7, %if.then3
-  %.sink7 = phi i64 [ 536, %if.then3 ], [ 544, %if.then7 ], [ %.sink7.ph, %return.sink.split.sink.split ]
-  %retval.0.ph = phi i1 [ true, %if.then3 ], [ false, %if.then7 ], [ %call, %return.sink.split.sink.split ]
-  %7 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %7, i64 %.sink7
-  %8 = load i64, ptr %bloom_sst_miss_count, align 8
-  %add8 = add i64 %8, 1
+  %.sink14 = phi i64 [ 536, %if.then3 ], [ 544, %if.then7 ], [ %.sink14.ph, %return.sink.split.sink.split ]
+  %retval.0.ph = phi i1 [ true, %if.then3 ], [ false, %if.then7 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
+  %15 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %15, i64 %.sink14
+  %16 = load i64, ptr %bloom_sst_miss_count, align 8
+  %add8 = add i64 %16, 1
   store i64 %add8, ptr %bloom_sst_miss_count, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZTWN7rocksdb10perf_levelE.exit3, %_ZTWN7rocksdb10perf_levelE.exit, %entry
   %retval.0 = phi i1 [ true, %entry ], [ true, %_ZTWN7rocksdb10perf_levelE.exit ], [ false, %_ZTWN7rocksdb10perf_levelE.exit3 ], [ %retval.0.ph, %return.sink.split ]
-  ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb17PlainTableBloomV114MayContainHashEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %h) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %kNumBlocks = getelementptr inbounds i8, ptr %this, i64 4
-  %0 = load i32, ptr %kNumBlocks, align 4
-  %cmp.not = icmp eq i32 %0, 0
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %kNumProbes = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load i32, ptr %kNumProbes, align 8
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %data_, align 8
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %h, i32 %h, i32 21)
-  %rem.i.i = urem i32 %or.i.i, %0
-  %shl.i = shl i32 %rem.i.i, 6
-  %idx.ext.i = zext i32 %shl.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i
-  %or.i3.i = tail call i32 @llvm.fshl.i32(i32 %h, i32 %h, i32 15)
-  %cmp11.i.i = icmp slt i32 %1, 1
-  br i1 %cmp11.i.i, label %return, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %if.then
-  %and.i5.i = lshr i32 %h, 3
-  %div10.i6.i = and i32 %and.i5.i, 63
-  %idxprom.i7.i = zext nneg i32 %div10.i6.i to i64
-  %arrayidx.i8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i7.i
-  %3 = load i8, ptr %arrayidx.i8.i, align 1
-  %conv16.i9.i = zext i8 %3 to i32
-  %rem.i410.i = and i32 %h, 7
-  %shl2.i11.i = shl nuw nsw i32 1, %rem.i410.i
-  %and3.i12.i = and i32 %shl2.i11.i, %conv16.i9.i
-  %cmp4.i13.i = icmp eq i32 %and3.i12.i, 0
-  br i1 %cmp4.i13.i, label %return, label %if.end.i.i
-
-for.body.i.i:                                     ; preds = %if.end.i.i
-  %or8.i.i = tail call i32 @llvm.fshl.i32(i32 %h.addr.012.i15.i, i32 %h.addr.012.i15.i, i32 23)
-  %add9.i.i = add i32 %or8.i.i, %or.i3.i
-  %and.i.i = lshr i32 %add9.i.i, 3
-  %div10.i.i = and i32 %and.i.i, 63
-  %idxprom.i.i = zext nneg i32 %div10.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i.i
-  %4 = load i8, ptr %arrayidx.i.i, align 1
-  %conv16.i.i = zext i8 %4 to i32
-  %rem.i4.i = and i32 %add9.i.i, 7
-  %shl2.i.i = shl nuw nsw i32 1, %rem.i4.i
-  %and3.i.i = and i32 %shl2.i.i, %conv16.i.i
-  %cmp4.i.i = icmp eq i32 %and3.i.i, 0
-  br i1 %cmp4.i.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb1EE20HashMayMatchPreparedEjiPKci.exit.loopexit.i, label %if.end.i.i, !llvm.loop !46
-
-if.end.i.i:                                       ; preds = %for.body.lr.ph.i.i, %for.body.i.i
-  %h.addr.012.i15.i = phi i32 [ %add9.i.i, %for.body.i.i ], [ %h, %for.body.lr.ph.i.i ]
-  %i.013.i14.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.lr.ph.i.i ]
-  %inc.i.i = add nuw nsw i32 %i.013.i14.i, 1
-  %exitcond.i.i = icmp eq i32 %inc.i.i, %1
-  br i1 %exitcond.i.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb1EE20HashMayMatchPreparedEjiPKci.exit.loopexit.i, label %for.body.i.i, !llvm.loop !46
-
-_ZN7rocksdb23LegacyLocalityBloomImplILb1EE20HashMayMatchPreparedEjiPKci.exit.loopexit.i: ; preds = %if.end.i.i, %for.body.i.i
-  %inc.i.i.lcssa = phi i32 [ %1, %if.end.i.i ], [ %inc.i.i, %for.body.i.i ]
-  %cmp.i.le.i = icmp sge i32 %inc.i.i.lcssa, %1
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load i32, ptr %this, align 8
-  %kNumProbes3 = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i32, ptr %kNumProbes3, align 8
-  %data_4 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load ptr, ptr %data_4, align 8
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %h, i32 %h, i32 15)
-  %cmp7.i = icmp slt i32 %6, 1
-  br i1 %cmp7.i, label %return, label %for.body.i.preheader
-
-for.body.i.preheader:                             ; preds = %if.else
-  %rem.i2 = urem i32 %h, %5
-  %div6.i3 = lshr i32 %rem.i2, 3
-  %idxprom.i4 = zext nneg i32 %div6.i3 to i64
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %7, i64 %idxprom.i4
-  %8 = load i8, ptr %arrayidx.i5, align 1
-  %conv12.i6 = zext i8 %8 to i32
-  %rem1.i7 = and i32 %rem.i2, 7
-  %shl2.i8 = shl nuw nsw i32 1, %rem1.i7
-  %and.i9 = and i32 %shl2.i8, %conv12.i6
-  %cmp3.i10 = icmp eq i32 %and.i9, 0
-  br i1 %cmp3.i10, label %return, label %if.end.i
-
-for.body.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %h.addr.08.i12, %or.i
-  %rem.i = urem i32 %add.i, %5
-  %div6.i = lshr i32 %rem.i, 3
-  %idxprom.i = zext nneg i32 %div6.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i
-  %9 = load i8, ptr %arrayidx.i, align 1
-  %conv12.i = zext i8 %9 to i32
-  %rem1.i = and i32 %rem.i, 7
-  %shl2.i = shl nuw nsw i32 1, %rem1.i
-  %and.i = and i32 %shl2.i, %conv12.i
-  %cmp3.i = icmp eq i32 %and.i, 0
-  br i1 %cmp3.i, label %return.loopexit, label %if.end.i, !llvm.loop !47
-
-if.end.i:                                         ; preds = %for.body.i.preheader, %for.body.i
-  %h.addr.08.i12 = phi i32 [ %add.i, %for.body.i ], [ %h, %for.body.i.preheader ]
-  %i.09.i11 = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %inc.i = add nuw nsw i32 %i.09.i11, 1
-  %exitcond.i = icmp eq i32 %inc.i, %6
-  br i1 %exitcond.i, label %return.loopexit, label %for.body.i, !llvm.loop !47
-
-return.loopexit:                                  ; preds = %if.end.i, %for.body.i
-  %cmp.i.le = icmp sge i32 %inc.i, %6
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.i.preheader, %if.else, %_ZN7rocksdb23LegacyLocalityBloomImplILb1EE20HashMayMatchPreparedEjiPKci.exit.loopexit.i, %for.body.lr.ph.i.i, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ false, %for.body.lr.ph.i.i ], [ %cmp.i.le.i, %_ZN7rocksdb23LegacyLocalityBloomImplILb1EE20HashMayMatchPreparedEjiPKci.exit.loopexit.i ], [ true, %if.else ], [ false, %for.body.i.preheader ], [ %cmp.i.le, %return.loopexit ]
   ret i1 %retval.0
 }
 

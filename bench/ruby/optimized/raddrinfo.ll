@@ -2092,7 +2092,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
 
 103:                                              ; preds = %._crit_edge
   %104 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 4) #19
-  br i1 %84, label %.lr.ph216, label %.loopexit
+  br label %.lr.ph216
 
 .lr.ph216:                                        ; preds = %103, %.lr.ph216
   %.0164214 = phi ptr [ %105, %.lr.ph216 ], [ %11, %103 ]
@@ -2275,7 +2275,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
   %203 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %202) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph216, %103, %14, %197, %201, %99, %unixsocket_len.exit, %60, %75, %74, %55, %56, %191, %18, %7
+.loopexit:                                        ; preds = %.lr.ph216, %14, %197, %201, %99, %unixsocket_len.exit, %60, %75, %74, %55, %56, %191, %18, %7
   ret i64 %2
 }
 

@@ -11449,7 +11449,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau16LintFormatString15checkStri
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.078.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ %52, %.lr.ph ]
   %.177.lcssa = phi i64 [ %.06080, %.lr.ph.preheader ], [ %50, %.lr.ph ]
-  %.lcssa = phi i1 [ %42, %.lr.ph.preheader ], [ %47, %.lr.ph ]
+  %.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   br i1 %.lcssa, label %._crit_edge, label %.critedge71
 
 .critedge71:                                      ; preds = %.lr.ph115, %.critedge
@@ -11947,19 +11947,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16LintTableLiteral5vis
 ._crit_edge:                                      ; preds = %.lr.ph
   %14 = uitofp nneg i32 %spec.select to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  br i1 %.not121, label %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76, label %.lr.ph131
-
-.lr.ph131:                                        ; preds = %._crit_edge
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   br label %18
 
-18:                                               ; preds = %.lr.ph131, %149
-  %.052129 = phi ptr [ %6, %.lr.ph131 ], [ %150, %149 ]
-  %.sroa.0.1128 = phi ptr [ null, %.lr.ph131 ], [ %.sroa.0.2, %149 ]
-  %.sroa.10.1126 = phi i64 [ 0, %.lr.ph131 ], [ %.sroa.10.2, %149 ]
-  %.sroa.16.0125 = phi i64 [ 0, %.lr.ph131 ], [ %.sroa.16.1, %149 ]
+18:                                               ; preds = %._crit_edge, %149
+  %.052129 = phi ptr [ %6, %._crit_edge ], [ %150, %149 ]
+  %.sroa.0.1128 = phi ptr [ null, %._crit_edge ], [ %.sroa.0.2, %149 ]
+  %.sroa.10.1126 = phi i64 [ 0, %._crit_edge ], [ %.sroa.10.2, %149 ]
+  %.sroa.16.0125 = phi i64 [ 0, %._crit_edge ], [ %.sroa.16.1, %149 ]
   %19 = getelementptr inbounds i8, ptr %.052129, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not61 = icmp eq ptr %20, null
@@ -12283,8 +12280,8 @@ _ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76thread-pre-split: ;
   %.pr = load ptr, ptr %3, align 8
   br label %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76
 
-_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76: ; preds = %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76thread-pre-split, %._crit_edge.thread, %._crit_edge
-  %152 = phi ptr [ %.pr, %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76thread-pre-split ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76: ; preds = %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76thread-pre-split, %._crit_edge.thread
+  %152 = phi ptr [ %.pr, %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit76thread-pre-split ], [ null, %._crit_edge.thread ]
   %.not.i.i77 = icmp eq ptr %152, null
   br i1 %.not.i.i77, label %_ZN4Luau12DenseHashMapIPNS_8AstArrayIcEEiNS_16LintTableLiteral17AstArrayPredicateES5_ED2Ev.exit, label %153
 

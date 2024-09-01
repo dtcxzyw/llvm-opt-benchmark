@@ -525,8 +525,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly %0) local_unnam
   br i1 %exitcond58.not, label %._crit_edge51, label %.lr.ph.us
 
 ._crit_edge51:                                    ; preds = %._crit_edge.us
-  %or.cond = and i1 %.not, %18
-  br i1 %or.cond, label %.lr.ph, label %.loopexit
+  br i1 %.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge51
   %45 = getelementptr inbounds i8, ptr %9, i64 40
@@ -7274,7 +7273,7 @@ __dot.exit113:                                    ; preds = %43
 
 .split158:                                        ; preds = %..critedge_crit_edge.us, %53
   %.081143 = phi i32 [ %.081150.us, %53 ], [ 999, %..critedge_crit_edge.us ]
-  br i1 %35, label %.preheader133.us, label %.loopexit
+  br label %.preheader133.us
 
 .preheader133.us:                                 ; preds = %.split158, %..critedge92_crit_edge.split.us.us
   %.176160.us = phi i32 [ %90, %..critedge92_crit_edge.split.us.us ], [ 1, %.split158 ]
@@ -7330,9 +7329,9 @@ __dot.exit113:                                    ; preds = %43
   %exitcond194.not = icmp eq i32 %89, 999
   br i1 %exitcond194.not, label %.loopexit, label %.preheader133.us
 
-.loopexit:                                        ; preds = %..critedge92_crit_edge.split.us.us, %._crit_edge.us.us, %34, %.split158
-  %.081143197 = phi i32 [ %.081143, %.split158 ], [ 999, %34 ], [ %.081143, %._crit_edge.us.us ], [ %.081143, %..critedge92_crit_edge.split.us.us ]
-  %.080139 = phi i32 [ 999, %.split158 ], [ 999, %34 ], [ %.080159.us, %._crit_edge.us.us ], [ 999, %..critedge92_crit_edge.split.us.us ]
+.loopexit:                                        ; preds = %..critedge92_crit_edge.split.us.us, %._crit_edge.us.us, %34
+  %.081143197 = phi i32 [ 999, %34 ], [ %.081143, %._crit_edge.us.us ], [ %.081143, %..critedge92_crit_edge.split.us.us ]
+  %.080139 = phi i32 [ 999, %34 ], [ %.080159.us, %._crit_edge.us.us ], [ 999, %..critedge92_crit_edge.split.us.us ]
   %.not90163 = icmp eq i32 %.082.lcssa, 0
   br i1 %.not90163, label %._crit_edge, label %.lr.ph.preheader
 

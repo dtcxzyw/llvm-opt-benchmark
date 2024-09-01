@@ -7024,25 +7024,17 @@ if.end:                                           ; preds = %if.then
   %_M_finish.i = getelementptr inbounds i8, ptr %ns, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i14 = icmp ult ptr %2, %3
-  br i1 %cmp.i14, label %for.body.lr.ph, label %for.end
+  br i1 %cmp.i14, label %for.body.us, label %for.end
 
 if.end.thread:                                    ; preds = %invoke.cont
   %4 = load ptr, ptr %ns, align 8
   %_M_finish.i18 = getelementptr inbounds i8, ptr %ns, i64 8
   %5 = load ptr, ptr %_M_finish.i18, align 8
   %cmp.i1419 = icmp ult ptr %4, %5
-  br i1 %cmp.i1419, label %for.body.preheader, label %cond.false33
+  br i1 %cmp.i1419, label %for.body, label %cond.false33
 
-for.body.lr.ph:                                   ; preds = %if.end
-  br i1 %include_separator, label %for.body.us, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end.thread, %for.body.lr.ph
-  %6 = phi ptr [ %2, %for.body.lr.ph ], [ %4, %if.end.thread ]
-  %_M_finish.i2022 = phi ptr [ %_M_finish.i, %for.body.lr.ph ], [ %_M_finish.i18, %if.end.thread ]
-  br label %for.body
-
-for.body.us:                                      ; preds = %for.body.lr.ph, %invoke.cont20.us
-  %it.sroa.0.015.us = phi ptr [ %incdec.ptr.i.us, %invoke.cont20.us ], [ %2, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %if.end, %invoke.cont20.us
+  %it.sroa.0.015.us = phi ptr [ %incdec.ptr.i.us, %invoke.cont20.us ], [ %2, %if.end ]
   %call11.us = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.20)
           to label %cond.true.us unwind label %lpad1.loopexit.split.us
 
@@ -7057,8 +7049,8 @@ cond.end.us:                                      ; preds = %cond.true.us
 invoke.cont20.us:                                 ; preds = %cond.end.us
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #11
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %it.sroa.0.015.us, i64 32
-  %7 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %7
+  %6 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %6
   br i1 %cmp.i.us, label %for.body.us, label %for.end, !llvm.loop !22
 
 lpad1.loopexit.split.us:                          ; preds = %cond.true.us, %for.body.us
@@ -7067,12 +7059,12 @@ lpad1.loopexit.split.us:                          ; preds = %cond.true.us, %for.
   br label %ehcleanup
 
 lpad19.split.us:                                  ; preds = %cond.end.us
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %lpad19
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont20
-  %it.sroa.0.015 = phi ptr [ %incdec.ptr.i, %invoke.cont20 ], [ %6, %for.body.preheader ]
+for.body:                                         ; preds = %if.end.thread, %invoke.cont20
+  %it.sroa.0.015 = phi ptr [ %incdec.ptr.i, %invoke.cont20 ], [ %4, %if.end.thread ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.015)
           to label %.noexc9 unwind label %lpad1.loopexit.split
 
@@ -7081,7 +7073,7 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %cond.end unwind label %lpad.i8
 
 lpad.i8:                                          ; preds = %.noexc9
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #11
   br label %ehcleanup
@@ -7093,17 +7085,17 @@ cond.end:                                         ; preds = %.noexc9
 invoke.cont20:                                    ; preds = %cond.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #11
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.015, i64 32
-  %10 = load ptr, ptr %_M_finish.i2022, align 8
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %10
+  %9 = load ptr, ptr %_M_finish.i18, align 8
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %9
   br i1 %cmp.i, label %for.body, label %for.end, !llvm.loop !22
 
 lpad19.split:                                     ; preds = %cond.end
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad19
 
 lpad19:                                           ; preds = %lpad19.split.us, %lpad19.split
-  %.us-phi16 = phi { ptr, i32 } [ %11, %lpad19.split ], [ %8, %lpad19.split.us ]
+  %.us-phi16 = phi { ptr, i32 } [ %10, %lpad19.split ], [ %7, %lpad19.split.us ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #11
   br label %ehcleanup
 
@@ -7131,13 +7123,13 @@ invoke.cont37:                                    ; preds = %cond.end35
   ret void
 
 lpad36:                                           ; preds = %cond.end35
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1.loopexit.split-lp, %lpad1.loopexit.split.us, %lpad1.loopexit.split, %lpad.i8, %lpad36, %lpad19
-  %.pn = phi { ptr, i32 } [ %.us-phi16, %lpad19 ], [ %12, %lpad36 ], [ %9, %lpad.i8 ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ], [ %lpad.loopexit, %lpad1.loopexit.split ], [ %lpad.loopexit.us, %lpad1.loopexit.split.us ]
+  %.pn = phi { ptr, i32 } [ %.us-phi16, %lpad19 ], [ %11, %lpad36 ], [ %8, %lpad.i8 ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ], [ %lpad.loopexit, %lpad1.loopexit.split ], [ %lpad.loopexit.us, %lpad1.loopexit.split.us ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   br label %eh.resume
 

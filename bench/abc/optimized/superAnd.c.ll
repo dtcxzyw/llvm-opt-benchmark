@@ -99,15 +99,15 @@ define void @Super2_Precompute(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
 
 .preheader40.i:                                   ; preds = %.lr.ph.i
   %.not.i = icmp eq i32 %0, 31
-  br i1 %.not.i, label %Super2_LibFirst.exit, label %.preheader.us.preheader.i
+  br i1 %.not.i, label %Super2_LibFirst.exit, label %.preheader.lr.ph.i
 
-.preheader.us.preheader.i:                        ; preds = %.preheader40.i
+.preheader.lr.ph.i:                               ; preds = %.preheader40.i
   %invariant.gep.i = getelementptr inbounds i8, ptr %28, i64 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.044.us.i = phi i32 [ %42, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i
+  %.044.us.i = phi i32 [ %42, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
   %32 = shl nuw i32 1, %.044.us.i
   br label %33
 

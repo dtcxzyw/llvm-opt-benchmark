@@ -292,14 +292,11 @@ define dso_local i64 @HUF_readCTable(ptr nocapture noundef %0, ptr nocapture nou
 ._crit_edge:                                      ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %11, i8 0, i64 28, i1 false)
-  br i1 %.not, label %._crit_edge63, label %.lr.ph62.preheader
-
-.lr.ph62.preheader:                               ; preds = %._crit_edge
   %wide.trip.count83 = zext i32 %22 to i64
   br label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next81, %.lr.ph62 ]
+.lr.ph62:                                         ; preds = %._crit_edge, %.lr.ph62
+  %indvars.iv80 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next81, %.lr.ph62 ]
   %43 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv80
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 255
@@ -311,7 +308,7 @@ define dso_local i64 @HUF_readCTable(ptr nocapture noundef %0, ptr nocapture nou
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !11
 
-._crit_edge63:                                    ; preds = %.lr.ph62, %._crit_edge.thread, %._crit_edge
+._crit_edge63:                                    ; preds = %.lr.ph62, %._crit_edge.thread
   %49 = add nuw nsw i32 %19, 1
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds [14 x i16], ptr %11, i64 0, i64 %50
@@ -541,37 +538,37 @@ HUF_sort.exit:                                    ; preds = %64
   store i16 256, ptr %81, align 4
   %82 = add nsw i32 %74, -2
   %.not89.i = icmp slt i64 %indvars.iv.i24, 2
-  br i1 %.not89.i, label %._crit_edge97.thread.i, label %.lr.ph.preheader.i
+  br i1 %.not89.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+
+._crit_edge.thread.i:                             ; preds = %72
+  store i32 -2147483648, ptr %.0.i, align 4
+  %.pre.i29 = sext i32 %75 to i64
+  %83 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %.pre.i29, i32 3
+  store i8 0, ptr %83, align 1
+  br label %.preheader.i26
 
 .lr.ph.preheader.i:                               ; preds = %72
-  %83 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 257)
-  %narrow = add nuw i32 %83, 1
-  %84 = zext i32 %narrow to i64
+  %84 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 257)
+  %narrow = add nuw i32 %84, 1
+  %85 = zext i32 %narrow to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv107.i = phi i64 [ 257, %.lr.ph.preheader.i ], [ %indvars.iv.next108.i, %.lr.ph.i ]
-  %85 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv107.i
-  store i32 1073741824, ptr %85, align 4
+  %86 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %indvars.iv107.i
+  store i32 1073741824, ptr %86, align 4
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next108.i, %84
-  br i1 %exitcond.not, label %.lr.ph96.preheader.i, label %.lr.ph.i, !llvm.loop !19
+  %exitcond.not = icmp eq i64 %indvars.iv.next108.i, %85
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
-._crit_edge97.thread.i:                           ; preds = %72
-  store i32 -2147483648, ptr %.0.i, align 4
-  %.pre.i29 = sext i32 %75 to i64
-  %86 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %.pre.i29, i32 3
-  store i8 0, ptr %86, align 1
-  br label %.preheader.i26
-
-.lr.ph96.preheader.i:                             ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   store i32 -2147483648, ptr %.0.i, align 4
   br label %.lr.ph96.i
 
-.lr.ph96.i:                                       ; preds = %.lr.ph96.i, %.lr.ph96.preheader.i
-  %indvars.iv110.i = phi i64 [ 257, %.lr.ph96.preheader.i ], [ %indvars.iv.next111.i, %.lr.ph96.i ]
-  %.07394.i = phi i32 [ %82, %.lr.ph96.preheader.i ], [ %.2.i, %.lr.ph96.i ]
-  %.07493.i = phi i32 [ 256, %.lr.ph96.preheader.i ], [ %.276.i, %.lr.ph96.i ]
+.lr.ph96.i:                                       ; preds = %.lr.ph96.i, %._crit_edge.i
+  %indvars.iv110.i = phi i64 [ 257, %._crit_edge.i ], [ %indvars.iv.next111.i, %.lr.ph96.i ]
+  %.07394.i = phi i32 [ %82, %._crit_edge.i ], [ %.2.i, %.lr.ph96.i ]
+  %.07493.i = phi i32 [ 256, %._crit_edge.i ], [ %.276.i, %.lr.ph96.i ]
   %87 = sext i32 %.07394.i to i64
   %88 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %87
   %89 = load i32, ptr %88, align 4
@@ -613,7 +610,7 @@ HUF_sort.exit:                                    ; preds = %64
   %117 = getelementptr inbounds i8, ptr %108, i64 4
   store i16 %115, ptr %117, align 4
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next111.i, %84
+  %exitcond65.not = icmp eq i64 %indvars.iv.next111.i, %85
   br i1 %exitcond65.not, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !20
 
 ._crit_edge97.i:                                  ; preds = %.lr.ph96.i
@@ -623,7 +620,7 @@ HUF_sort.exit:                                    ; preds = %64
   %120 = zext i32 %indvars.iv113.i to i64
   br label %.lr.ph100.i
 
-.preheader.i26:                                   ; preds = %.lr.ph100.i, %._crit_edge97.thread.i
+.preheader.i26:                                   ; preds = %.lr.ph100.i, %._crit_edge.thread.i
   %.not84101.i = icmp slt i64 %indvars.iv.i24, 0
   br i1 %.not84101.i, label %HUF_buildTree.exit, label %.lr.ph103.preheader.i
 

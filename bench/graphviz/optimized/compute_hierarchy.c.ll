@@ -93,7 +93,7 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
 ._crit_edge87:                                    ; preds = %.lr.ph86
   store i32 %.166, ptr %7, align 4
   %47 = icmp eq i32 %.166, 0
-  br i1 %47, label %48, label %54
+  br i1 %47, label %48, label %.lr.ph91.preheader
 
 48:                                               ; preds = %._crit_edge87.thread, %._crit_edge87
   %49 = tail call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #10
@@ -111,57 +111,54 @@ gv_calloc.exit:                                   ; preds = %48
   store i32 %1, ptr %49, align 4
   br label %.loopexit
 
-54:                                               ; preds = %._crit_edge87
-  %55 = zext nneg i32 %.166 to i64
-  %56 = tail call fastcc ptr @gv_calloc(i64 noundef %55, i64 noundef 4)
-  store ptr %56, ptr %6, align 8
-  br i1 %33, label %.lr.ph91.preheader, label %.loopexit
-
-.lr.ph91.preheader:                               ; preds = %54
+.lr.ph91.preheader:                               ; preds = %._crit_edge87
+  %54 = zext nneg i32 %.166 to i64
+  %55 = tail call fastcc ptr @gv_calloc(i64 noundef %54, i64 noundef 4)
+  store ptr %55, ptr %6, align 8
   %wide.trip.count101 = zext nneg i32 %1 to i64
   br label %.lr.ph91
 
-.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %74
-  %indvars.iv98 = phi i64 [ 1, %.lr.ph91.preheader ], [ %indvars.iv.next99, %74 ]
-  %.089 = phi i32 [ 0, %.lr.ph91.preheader ], [ %.1, %74 ]
-  %57 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv98
-  %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds double, ptr %.067, i64 %59
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr i8, ptr %57, i64 -4
-  %63 = load i32, ptr %62, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds double, ptr %.067, i64 %64
-  %66 = load double, ptr %65, align 8
-  %67 = fsub double %61, %66
-  %68 = fcmp ogt double %67, %.
-  br i1 %68, label %69, label %74
+.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %73
+  %indvars.iv98 = phi i64 [ 1, %.lr.ph91.preheader ], [ %indvars.iv.next99, %73 ]
+  %.089 = phi i32 [ 0, %.lr.ph91.preheader ], [ %.1, %73 ]
+  %56 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv98
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds double, ptr %.067, i64 %58
+  %60 = load double, ptr %59, align 8
+  %61 = getelementptr i8, ptr %56, i64 -4
+  %62 = load i32, ptr %61, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds double, ptr %.067, i64 %63
+  %65 = load double, ptr %64, align 8
+  %66 = fsub double %60, %65
+  %67 = fcmp ogt double %66, %.
+  br i1 %67, label %68, label %73
 
-69:                                               ; preds = %.lr.ph91
-  %70 = add nsw i32 %.089, 1
-  %71 = sext i32 %.089 to i64
-  %72 = getelementptr inbounds i32, ptr %56, i64 %71
-  %73 = trunc nuw nsw i64 %indvars.iv98 to i32
-  store i32 %73, ptr %72, align 4
-  br label %74
+68:                                               ; preds = %.lr.ph91
+  %69 = add nsw i32 %.089, 1
+  %70 = sext i32 %.089 to i64
+  %71 = getelementptr inbounds i32, ptr %55, i64 %70
+  %72 = trunc nuw nsw i64 %indvars.iv98 to i32
+  store i32 %72, ptr %71, align 4
+  br label %73
 
-74:                                               ; preds = %.lr.ph91, %69
-  %.1 = phi i32 [ %70, %69 ], [ %.089, %.lr.ph91 ]
+73:                                               ; preds = %.lr.ph91, %68
+  %.1 = phi i32 [ %69, %68 ], [ %.089, %.lr.ph91 ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph91
 
-.loopexit:                                        ; preds = %74, %54, %gv_calloc.exit
-  br i1 %.not, label %.thread, label %75
+.loopexit:                                        ; preds = %73, %gv_calloc.exit
+  br i1 %.not, label %.thread, label %74
 
 .thread:                                          ; preds = %10, %.loopexit
   %.16881 = phi ptr [ %.067, %.loopexit ], [ %11, %10 ]
   %.07180 = phi i32 [ 0, %.loopexit ], [ 1, %10 ]
   tail call void @free(ptr noundef %.16881) #9
-  br label %75
+  br label %74
 
-75:                                               ; preds = %.thread, %.loopexit
+74:                                               ; preds = %.thread, %.loopexit
   %.07179 = phi i32 [ %.07180, %.thread ], [ 0, %.loopexit ]
   ret i32 %.07179
 }

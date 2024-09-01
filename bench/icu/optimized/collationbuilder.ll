@@ -3101,7 +3101,7 @@ cond.false3.i:                                    ; preds = %cond.false.i
 _ZN6icu_7516CollationBuilder10ceStrengthEl.exit:  ; preds = %cond.false.i, %cond.false3.i
   %cond13.i = phi i32 [ %cond9.i, %cond.false3.i ], [ 0, %cond.false.i ]
   %cmp9.not = icmp sgt i32 %cond13.i, %strength
-  br i1 %cmp9.not, label %for.inc, label %for.end
+  br i1 %cmp9.not, label %for.inc, label %if.end17
 
 _ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread: ; preds = %if.else
   %shr.i.i = lshr i32 %conv.i.i, 8
@@ -3115,10 +3115,7 @@ for.inc:                                          ; preds = %_ZN6icu_7516Collati
   %cmp = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp, label %if.end17.thread, label %if.else, !llvm.loop !20
 
-for.end:                                          ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit
-  br i1 %4, label %if.end17, label %if.then15
-
-if.then15:                                        ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread, %for.end
+if.then15:                                        ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread
   %sub.i = add nsw i64 %2, -4629700417037541376
   %shr.i = lshr i64 %sub.i, 43
   %conv.i9 = trunc nuw nsw i64 %shr.i to i32
@@ -3133,7 +3130,7 @@ if.then15:                                        ; preds = %_ZN6icu_7516Collati
   %or7.i = or disjoint i32 %or.i, %and6.i
   br label %return
 
-if.end17:                                         ; preds = %for.end
+if.end17:                                         ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit
   %shr.mask = and i64 %2, -72057594037927936
   %cmp19 = icmp eq i64 %shr.mask, -144115188075855872
   br i1 %cmp19, label %if.then20, label %if.end21
@@ -4713,8 +4710,8 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then8, %if.then7
 invoke.cont:                                      ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %sub = add i32 %call11, -1
   %13 = load i32, ptr %errorCode, align 4
-  %cmp.i35 = icmp slt i32 %13, 1
-  br i1 %cmp.i35, label %for.cond18.preheader, label %cleanup.thread
+  %cmp.i35 = icmp sgt i32 %13, 0
+  br i1 %cmp.i35, label %cleanup.thread, label %for.cond18.preheader
 
 for.cond18.preheader:                             ; preds = %invoke.cont
   %cmp1970 = icmp sgt i32 %call11, 1
@@ -5381,12 +5378,13 @@ cleanup:                                          ; preds = %invoke.cont27, %if.
   br label %for.cond
 
 cleanup35:                                        ; preds = %invoke.cont11, %invoke.cont27, %if.then25, %invoke.cont27.thread
+  %tobool15.not.not386 = phi i1 [ true, %if.then25 ], [ true, %invoke.cont27.thread ], [ %tobool15.not.not, %invoke.cont27 ], [ %tobool15.not.not, %invoke.cont11 ]
   %retval.3193 = phi i32 [ %ce32.addr.1, %if.then25 ], [ %ce32.addr.1, %invoke.cont27.thread ], [ %retval.0.i54.ph, %invoke.cont27 ], [ undef, %invoke.cont11 ]
   %ce32.addr.2192 = phi i32 [ %ce32.addr.1, %if.then25 ], [ %ce32.addr.1, %invoke.cont27.thread ], [ %retval.0.i54.ph, %invoke.cont27 ], [ %ce32.addr.1, %invoke.cont11 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #12
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #12
   call void @_ZN6icu_7517CanonicalIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %stringIter) #12
-  br i1 %tobool15.not.not, label %return, label %if.end110
+  br i1 %tobool15.not.not386, label %return, label %if.end110
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
   %.pn39 = phi { ptr, i32 } [ %5, %lpad12 ], [ %4, %lpad10 ]
@@ -5438,8 +5436,8 @@ for.cond48:                                       ; preds = %for.cond48.preheade
 invoke.cont50:                                    ; preds = %for.cond48
   %31 = load i16, ptr %fUnion.i62, align 8
   %conv2.i63238 = and i16 %31, 1
-  %tobool54.not = icmp ne i16 %conv2.i63238, 0
-  br i1 %tobool54.not, label %cleanup104.sink.split, label %if.end56
+  %tobool54.not.not.not = icmp ne i16 %conv2.i63238, 0
+  br i1 %tobool54.not.not.not, label %cleanup104.sink.split, label %if.end56
 
 lpad51.loopexit:                                  ; preds = %for.cond64
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5705,7 +5703,7 @@ cleanup104.sink.split:                            ; preds = %invoke.cont50, %cle
 
 cleanup104:                                       ; preds = %cleanup104.sink.split, %invoke.cont41
   %ce32.addr.4 = phi i32 [ %ce32, %invoke.cont41 ], [ %ce32.addr.4.ph, %cleanup104.sink.split ]
-  %switch44 = phi i1 [ false, %invoke.cont41 ], [ %tobool54.not, %cleanup104.sink.split ]
+  %switch44 = phi i1 [ false, %invoke.cont41 ], [ %tobool54.not.not.not, %cleanup104.sink.split ]
   %retval.4 = phi i32 [ %ce32, %invoke.cont41 ], [ %retval.4.ph, %cleanup104.sink.split ]
   call void @_ZN6icu_7517CanonicalIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %stringIter39) #12
   call void @_ZN6icu_7517CanonicalIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %prefixIter) #12

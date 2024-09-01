@@ -18786,8 +18786,8 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_fu
   %13 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %13)
   %.sroa.030.0.copyload = load i64, ptr %9, align 8, !noalias !3481
-  %.not.not.i = icmp eq i64 %.sroa.030.0.copyload, -9223372036854775808
-  br i1 %.not.not.i, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h52b2fd8867f746c5E.exit.thread", label %15
+  %.not.i = icmp eq i64 %.sroa.030.0.copyload, -9223372036854775808
+  br i1 %.not.i, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h52b2fd8867f746c5E.exit.thread", label %15
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h52b2fd8867f746c5E.exit.thread": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h15a8deca16b99236E.exit.i"
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -42641,8 +42641,8 @@ _ZN6ide_db7imports13import_assets20item_for_path_search17h68dec98b6edf4bbeE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9212)
   %39 = load i8, ptr %10, align 8, !range !1166, !alias.scope !9212, !noalias !9209, !noundef !4
-  %.not.not.i = icmp eq i8 %39, 5
-  br i1 %.not.not.i, label %42, label %40
+  %.not.i = icmp eq i8 %39, 5
+  br i1 %.not.i, label %42, label %40
 
 40:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !9214

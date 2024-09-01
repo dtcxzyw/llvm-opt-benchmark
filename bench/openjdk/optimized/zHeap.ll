@@ -979,8 +979,8 @@ define hidden void @_ZNK5ZHeap17print_extended_onEP12outputStream(ptr noundef no
   %10 = getelementptr inbounds i8, ptr %0, i64 624
   %11 = load ptr, ptr %10, align 16
   %12 = load i64, ptr %9, align 8
-  %.not14.i12 = icmp eq i64 %12, 0
-  br i1 %.not14.i12, label %.loopexit, label %.lr.ph.i.preheader
+  %.not10.i12 = icmp eq i64 %12, 0
+  br i1 %.not10.i12, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2, %_ZN18ZPageTableIterator4nextEPP5ZPage.exit
   %.sroa.0.014 = phi i64 [ %14, %_ZN18ZPageTableIterator4nextEPP5ZPage.exit ], [ 0, %2 ]
@@ -998,13 +998,13 @@ define hidden void @_ZNK5ZHeap17print_extended_onEP12outputStream(ptr noundef no
   br i1 %or.cond.i, label %17, label %_ZN18ZPageTableIterator4nextEPP5ZPage.exit
 
 17:                                               ; preds = %.lr.ph.i
-  %.not15.i = icmp eq i64 %14, %12
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  %.not11.i = icmp eq i64 %14, %12
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18ZPageTableIterator4nextEPP5ZPage.exit:       ; preds = %.lr.ph.i
   tail call void @_ZNK5ZPage8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull %1) #10
-  %.not14.i = icmp eq i64 %14, %12
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !9
+  %.not10.i = icmp eq i64 %14, %12
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN18ZPageTableIterator4nextEPP5ZPage.exit, %17, %2
   tail call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10

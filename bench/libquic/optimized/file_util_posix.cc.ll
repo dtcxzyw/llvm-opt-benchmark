@@ -1114,8 +1114,8 @@ do.body.preheader:                                ; preds = %if.end
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
   %call3 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %fd, i32 noundef 4, i32 noundef %or)
-  %cmp4.not.not = icmp ne i32 %call3, -1
-  br i1 %cmp4.not.not, label %return, label %land.rhs
+  %cmp4.not.not.not = icmp ne i32 %call3, -1
+  br i1 %cmp4.not.not.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
   %call5 = tail call ptr @__errno_location() #21
@@ -1124,7 +1124,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp6, label %do.body, label %return, !llvm.loop !22
 
 return:                                           ; preds = %land.rhs, %do.body, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %cmp4.not.not, %do.body ], [ %cmp4.not.not, %land.rhs ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %cmp4.not.not.not, %do.body ], [ %cmp4.not.not.not, %land.rhs ]
   ret i1 %retval.0
 }
 

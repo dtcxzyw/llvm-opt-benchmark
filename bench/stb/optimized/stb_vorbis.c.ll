@@ -4258,7 +4258,7 @@ for.inc:                                          ; preds = %for.body, %if.then
 for.end:                                          ; preds = %for.inc
   %cmp50 = icmp ne i32 %ch, 1
   %or.cond = and i1 %cmp50, %cmp
-  br i1 %or.cond, label %for.cond53.preheader, label %for.cond311.preheader
+  br i1 %or.cond, label %for.body56.preheader, label %for.cond311.preheader
 
 for.end.thread:                                   ; preds = %make_block_array.exit
   br i1 %cmp, label %for.end64, label %for.cond311.preheader
@@ -4663,10 +4663,7 @@ while.cond317.for.inc454_crit_edge.us:            ; preds = %for.end451.us
   %exitcond389.not = icmp eq i64 %indvars.iv.next387, 8
   br i1 %exitcond389.not, label %done, label %while.cond317.preheader.us, !llvm.loop !44
 
-for.cond53.preheader:                             ; preds = %for.end
-  br i1 %cmp39259, label %for.body56.preheader, label %for.end64
-
-for.body56.preheader:                             ; preds = %for.cond53.preheader
+for.body56.preheader:                             ; preds = %for.end
   %wide.trip.count393 = zext nneg i32 %ch to i64
   br label %for.body56
 
@@ -4686,8 +4683,8 @@ for.end64.loopexit:                               ; preds = %for.body56
   %80 = trunc nuw nsw i64 %indvars.iv390 to i32
   br label %for.end64
 
-for.end64:                                        ; preds = %for.end64.loopexit, %for.end.thread, %for.cond53.preheader
-  %j.0.lcssa = phi i32 [ 0, %for.cond53.preheader ], [ 0, %for.end.thread ], [ %80, %for.end64.loopexit ]
+for.end64:                                        ; preds = %for.end64.loopexit, %for.end.thread
+  %j.0.lcssa = phi i32 [ 0, %for.end.thread ], [ %80, %for.end64.loopexit ]
   %cmp65 = icmp eq i32 %j.0.lcssa, %ch
   br i1 %cmp65, label %done, label %for.cond69.preheader
 
@@ -15812,7 +15809,7 @@ for.body4.us.us.preheader:                        ; preds = %for.body.us
   %wide.trip.count = zext nneg i32 %spec.select.us.fr to i64
   br label %for.body4.us.us
 
-for.inc47.us:                                     ; preds = %for.body28.us, %for.body.us, %for.cond2.for.cond25.preheader_crit_edge.us
+for.inc47.us:                                     ; preds = %for.body28.us, %for.body.us
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 32
   %cmp.us = icmp ult i64 %indvars.iv.next70, %0
   br i1 %cmp.us, label %for.body.us, label %for.end49, !llvm.loop !159
@@ -15832,10 +15829,7 @@ for.body28.us:                                    ; preds = %for.body28.us.prehe
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count67
   br i1 %exitcond68.not, label %for.inc47.us, label %for.body28.us, !llvm.loop !160
 
-for.cond2.for.cond25.preheader_crit_edge.us:      ; preds = %for.inc22.us.us
-  br i1 %cmp924.us, label %for.body28.us.preheader, label %for.inc47.us
-
-for.body28.us.preheader:                          ; preds = %for.cond2.for.cond25.preheader_crit_edge.us
+for.body28.us.preheader:                          ; preds = %for.inc22.us.us
   %wide.trip.count67 = zext nneg i32 %spec.select.us.fr to i64
   %invariant.gep75 = getelementptr inbounds i16, ptr %output, i64 %indvars.iv69
   br label %for.body28.us
@@ -15864,7 +15858,7 @@ for.body11.us.us:                                 ; preds = %for.cond8.preheader
 for.inc22.us.us:                                  ; preds = %for.body11.us.us, %for.body4.us.us
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %for.cond2.for.cond25.preheader_crit_edge.us, label %for.body4.us.us, !llvm.loop !162
+  br i1 %exitcond62.not, label %for.body28.us.preheader, label %for.body4.us.us, !llvm.loop !162
 
 for.cond8.preheader.us.us:                        ; preds = %for.body4.us.us
   %arrayidx13.us.us = getelementptr inbounds ptr, ptr %data, i64 %indvars.iv58
@@ -16206,14 +16200,14 @@ for.body11.us.us.i.us.us:                         ; preds = %for.body11.us.us.i.
 for.inc22.us.us.i.us.us:                          ; preds = %for.body11.us.us.i.us.us, %for.body4.us.us.i.us.us
   %indvars.iv.next59.i.us.us = add nuw nsw i64 %indvars.iv58.i.us.us, 1
   %exitcond62.not.i.us.us = icmp eq i64 %indvars.iv.next59.i.us.us, %wide.trip.count61.i
-  br i1 %exitcond62.not.i.us.us, label %for.body28.us.preheader.i.us.us, label %for.body4.us.us.i.us.us, !llvm.loop !162
+  br i1 %exitcond62.not.i.us.us, label %for.cond2.for.cond25.preheader_crit_edge.us.i.us.us, label %for.body4.us.us.i.us.us, !llvm.loop !162
 
-for.body28.us.preheader.i.us.us:                  ; preds = %for.inc22.us.us.i.us.us
+for.cond2.for.cond25.preheader_crit_edge.us.i.us.us: ; preds = %for.inc22.us.us.i.us.us
   %invariant.gep75.i.us.us = getelementptr inbounds i16, ptr %add.ptr.us.us, i64 %indvars.iv69.i.us.us
   br label %for.body28.us.i.us.us
 
-for.body28.us.i.us.us:                            ; preds = %for.body28.us.i.us.us, %for.body28.us.preheader.i.us.us
-  %indvars.iv63.i.us.us = phi i64 [ 0, %for.body28.us.preheader.i.us.us ], [ %indvars.iv.next64.i.us.us, %for.body28.us.i.us.us ]
+for.body28.us.i.us.us:                            ; preds = %for.body28.us.i.us.us, %for.cond2.for.cond25.preheader_crit_edge.us.i.us.us
+  %indvars.iv63.i.us.us = phi i64 [ 0, %for.cond2.for.cond25.preheader_crit_edge.us.i.us.us ], [ %indvars.iv.next64.i.us.us, %for.body28.us.i.us.us ]
   %arrayidx30.us.i.us.us = getelementptr inbounds [32 x float], ptr %buffer.i, i64 0, i64 %indvars.iv63.i.us.us
   %11 = load float, ptr %arrayidx30.us.i.us.us, align 4
   %add31.us.i.us.us = fadd float %11, 3.840000e+02

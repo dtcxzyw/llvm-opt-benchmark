@@ -241,7 +241,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 1080
   store i16 1, ptr %31, align 8
-  br label %46
+  br label %45
 
 32:                                               ; preds = %25, %22
   %33 = load i8, ptr @cloud_dns, align 1
@@ -260,30 +260,27 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
 37:                                               ; preds = %.thread, %32
   %38 = getelementptr inbounds i8, ptr %0, i64 1080
   store i16 1, ptr %38, align 8
-  br label %46
+  br label %45
 
 39:                                               ; preds = %32
-  br i1 %.120, label %40, label %.thread45
+  %40 = call ptr @xstrdup(ptr noundef nonnull @.str) #13
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 1080
+  store i16 1, ptr %42, align 8
+  br label %45
 
-40:                                               ; preds = %39
-  %41 = call ptr @xstrdup(ptr noundef nonnull @.str) #13
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 1080
-  store i16 1, ptr %43, align 8
-  br label %46
-
-.thread45:                                        ; preds = %.thread, %39
+.thread45:                                        ; preds = %.thread
   call void @set_job_alias_list(ptr noundef nonnull %0)
-  br label %46
+  br label %45
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %44 = getelementptr inbounds i8, ptr %0, i64 624
-  %45 = load ptr, ptr %44, align 8
-  call void @set_job_node_addrs(ptr noundef nonnull %0, ptr noundef %45)
-  br label %46
+  %43 = getelementptr inbounds i8, ptr %0, i64 624
+  %44 = load ptr, ptr %43, align 8
+  call void @set_job_node_addrs(ptr noundef nonnull %0, ptr noundef %44)
+  br label %45
 
-46:                                               ; preds = %28, %40, %.thread45, %37, %._crit_edge.thread
+45:                                               ; preds = %28, %39, %.thread45, %37, %._crit_edge.thread
   ret void
 }
 

@@ -2356,7 +2356,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %13 = and i32 %9, 255
   %14 = getelementptr i8, ptr %0, i64 4
   %15 = icmp ult i64 %4, 2120
-  br i1 %15, label %395, label %16
+  br i1 %15, label %394, label %16
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %3, i64 676
@@ -2364,7 +2364,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %19 = getelementptr inbounds i8, ptr %3, i64 624
   %20 = icmp ugt i32 %13, 12
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(112) %19, i8 0, i64 112, i1 false)
-  br i1 %20, label %395, label %21
+  br i1 %20, label %394, label %21
 
 21:                                               ; preds = %16
   store i32 0, ptr %7, align 4, !annotation !23
@@ -2373,12 +2373,12 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %23 = getelementptr inbounds i8, ptr %3, i64 1248
   %24 = call i64 @HUF_readStats_wksp(ptr noundef %22, i64 noundef 256, ptr noundef %19, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %23, i64 noundef 872, i32 noundef %5) #17
   %25 = icmp ult i64 %24, -119
-  br i1 %25, label %26, label %395
+  br i1 %25, label %26, label %394
 
 26:                                               ; preds = %21
   %27 = load i32, ptr %7, align 4
   %28 = icmp ugt i32 %27, %13
-  br i1 %28, label %395, label %29
+  br i1 %28, label %394, label %29
 
 29:                                               ; preds = %26
   %30 = icmp eq i32 %13, 12
@@ -2486,492 +2486,489 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %100 = add nuw nsw i32 %48, 1
   %101 = sub i32 %100, %99
   %102 = icmp ult i32 %99, %101
-  br i1 %102, label %103, label %.loopexit25
+  br i1 %102, label %.split.us.preheader, label %.loopexit25
 
-103:                                              ; preds = %.loopexit26
-  %104 = zext i32 %35 to i64
-  br i1 %50, label %.split.us.preheader, label %.loopexit23
-
-.split.us.preheader:                              ; preds = %103
-  %105 = zext i32 %34 to i64
-  %106 = add i32 %48, %33
+.split.us.preheader:                              ; preds = %.loopexit26
+  %103 = zext i32 %35 to i64
+  %104 = zext i32 %34 to i64
+  %105 = add i32 %48, %33
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.loopexit24.us
-  %107 = phi i64 [ %118, %.loopexit24.us ], [ %105, %.split.us.preheader ]
-  %108 = getelementptr [12 x [13 x i32]], ptr %3, i64 0, i64 %107
-  %109 = trunc i64 %107 to i32
-  br label %110
+  %106 = phi i64 [ %117, %.loopexit24.us ], [ %104, %.split.us.preheader ]
+  %107 = getelementptr [12 x [13 x i32]], ptr %3, i64 0, i64 %106
+  %108 = trunc i64 %106 to i32
+  br label %109
 
-110:                                              ; preds = %110, %.split.us
-  %111 = phi i64 [ 1, %.split.us ], [ %116, %110 ]
-  %112 = getelementptr i32, ptr %3, i64 %111
-  %113 = load i32, ptr %112, align 4
-  %114 = lshr i32 %113, %109
-  %115 = getelementptr i32, ptr %108, i64 %111
-  store i32 %114, ptr %115, align 4
-  %116 = add nuw nsw i64 %111, 1
-  %117 = icmp eq i64 %116, %104
-  br i1 %117, label %.loopexit24.us, label %110, !llvm.loop !32
+109:                                              ; preds = %109, %.split.us
+  %110 = phi i64 [ 1, %.split.us ], [ %115, %109 ]
+  %111 = getelementptr i32, ptr %3, i64 %110
+  %112 = load i32, ptr %111, align 4
+  %113 = lshr i32 %112, %108
+  %114 = getelementptr i32, ptr %107, i64 %110
+  store i32 %113, ptr %114, align 4
+  %115 = add nuw nsw i64 %110, 1
+  %116 = icmp eq i64 %115, %103
+  br i1 %116, label %.loopexit24.us, label %109, !llvm.loop !32
 
-.loopexit24.us:                                   ; preds = %110
-  %118 = add nuw nsw i64 %107, 1
-  %lftr.wideiv = trunc i64 %118 to i32
-  %exitcond = icmp eq i32 %106, %lftr.wideiv
+.loopexit24.us:                                   ; preds = %109
+  %117 = add nuw nsw i64 %106, 1
+  %lftr.wideiv = trunc i64 %117 to i32
+  %exitcond = icmp eq i32 %105, %lftr.wideiv
   br i1 %exitcond, label %.loopexit25, label %.split.us, !llvm.loop !33
 
 .loopexit25:                                      ; preds = %.loopexit24.us, %.loopexit26
-  %119 = getelementptr inbounds i8, ptr %3, i64 736
-  %120 = sub nsw i32 %31, %48
-  %121 = icmp sgt i32 %49, 1
-  br i1 %121, label %.preheader22, label %.loopexit23
+  %118 = getelementptr inbounds i8, ptr %3, i64 736
+  %119 = sub nsw i32 %31, %48
+  %120 = icmp sgt i32 %49, 1
+  br i1 %120, label %.preheader22, label %.loopexit23
 
 .preheader22:                                     ; preds = %.loopexit25, %HUF_fillDTableX2ForWeight.exit10
-  %122 = phi i64 [ %125, %HUF_fillDTableX2ForWeight.exit10 ], [ 1, %.loopexit25 ]
-  %123 = getelementptr i32, ptr %17, i64 %122
-  %124 = load i32, ptr %123, align 4
-  %125 = add nuw nsw i64 %122, 1
-  %126 = getelementptr i32, ptr %17, i64 %125
-  %127 = load i32, ptr %126, align 4
-  %128 = trunc i64 %122 to i32
-  %129 = sub i32 %31, %128
-  %130 = sub i32 %48, %129
-  %131 = icmp ult i32 %130, %99
-  br i1 %131, label %297, label %132
+  %121 = phi i64 [ %124, %HUF_fillDTableX2ForWeight.exit10 ], [ 1, %.loopexit25 ]
+  %122 = getelementptr i32, ptr %17, i64 %121
+  %123 = load i32, ptr %122, align 4
+  %124 = add nuw nsw i64 %121, 1
+  %125 = getelementptr i32, ptr %17, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = trunc i64 %121 to i32
+  %128 = sub i32 %31, %127
+  %129 = sub i32 %48, %128
+  %130 = icmp ult i32 %129, %99
+  br i1 %130, label %296, label %131
 
-132:                                              ; preds = %.preheader22
-  %133 = and i32 %130, 31
-  %134 = shl nuw i32 1, %133
-  %135 = icmp eq i32 %124, %127
-  br i1 %135, label %HUF_fillDTableX2ForWeight.exit10, label %136
+131:                                              ; preds = %.preheader22
+  %132 = and i32 %129, 31
+  %133 = shl nuw i32 1, %132
+  %134 = icmp eq i32 %123, %126
+  br i1 %134, label %HUF_fillDTableX2ForWeight.exit10, label %135
 
-136:                                              ; preds = %132
-  %137 = add i32 %129, %120
-  %138 = call i32 @llvm.smax.i32(i32 %137, i32 1)
-  %139 = getelementptr i32, ptr %3, i64 %122
-  %140 = load i32, ptr %139, align 4
-  %141 = zext i32 %129 to i64
-  %142 = getelementptr [13 x i32], ptr %3, i64 %141
-  %143 = icmp sgt i32 %137, 1
-  %144 = shl i32 %129, 16
-  %145 = add i32 %144, 16777216
-  %146 = zext nneg i32 %138 to i64
-  %147 = getelementptr i32, ptr %142, i64 %146
-  %148 = icmp slt i32 %138, %49
-  %149 = add i32 %129, %31
-  br label %150
+135:                                              ; preds = %131
+  %136 = add i32 %128, %119
+  %137 = call i32 @llvm.smax.i32(i32 %136, i32 1)
+  %138 = getelementptr i32, ptr %3, i64 %121
+  %139 = load i32, ptr %138, align 4
+  %140 = zext i32 %128 to i64
+  %141 = getelementptr [13 x i32], ptr %3, i64 %140
+  %142 = icmp sgt i32 %136, 1
+  %143 = shl i32 %128, 16
+  %144 = add i32 %143, 16777216
+  %145 = zext nneg i32 %137 to i64
+  %146 = getelementptr i32, ptr %141, i64 %145
+  %147 = icmp slt i32 %137, %49
+  %148 = add i32 %128, %31
+  br label %149
 
-150:                                              ; preds = %.loopexit, %136
-  %151 = phi i32 [ %124, %136 ], [ %295, %.loopexit ]
-  %152 = phi i32 [ %140, %136 ], [ %294, %.loopexit ]
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %153
-  %155 = sext i32 %151 to i64
-  %156 = getelementptr %struct.sortedSymbol_t, ptr %119, i64 %155
-  %157 = load i8, ptr %156, align 1
-  br i1 %143, label %158, label %.loopexit16
+149:                                              ; preds = %.loopexit, %135
+  %150 = phi i32 [ %123, %135 ], [ %294, %.loopexit ]
+  %151 = phi i32 [ %139, %135 ], [ %293, %.loopexit ]
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %152
+  %154 = sext i32 %150 to i64
+  %155 = getelementptr %struct.sortedSymbol_t, ptr %118, i64 %154
+  %156 = load i8, ptr %155, align 1
+  br i1 %142, label %157, label %.loopexit16
 
-158:                                              ; preds = %150
-  %159 = zext i8 %157 to i32
-  %160 = or disjoint i32 %145, %159
-  %161 = zext i32 %160 to i64
-  %162 = mul nuw i64 %161, 4294967297
-  %163 = load i32, ptr %147, align 4
-  switch i32 %134, label %164 [
-    i32 2, label %178
-    i32 4, label %168
+157:                                              ; preds = %149
+  %158 = zext i8 %156 to i32
+  %159 = or disjoint i32 %144, %158
+  %160 = zext i32 %159 to i64
+  %161 = mul nuw i64 %160, 4294967297
+  %162 = load i32, ptr %146, align 4
+  switch i32 %133, label %163 [
+    i32 2, label %177
+    i32 4, label %167
   ]
 
-164:                                              ; preds = %158
-  %165 = icmp sgt i32 %163, 0
-  br i1 %165, label %166, label %.loopexit16
+163:                                              ; preds = %157
+  %164 = icmp sgt i32 %162, 0
+  br i1 %164, label %165, label %.loopexit16
 
-166:                                              ; preds = %164
-  %167 = zext nneg i32 %163 to i64
-  br label %170
+165:                                              ; preds = %163
+  %166 = zext nneg i32 %162 to i64
+  br label %169
 
-168:                                              ; preds = %158
-  store i64 %162, ptr %154, align 2
-  %169 = getelementptr i8, ptr %154, i64 8
-  br label %178
+167:                                              ; preds = %157
+  store i64 %161, ptr %153, align 2
+  %168 = getelementptr i8, ptr %153, i64 8
+  br label %177
 
-170:                                              ; preds = %170, %166
-  %171 = phi i64 [ 0, %166 ], [ %176, %170 ]
-  %172 = getelementptr %struct.HUF_DEltX2, ptr %154, i64 %171
-  store i64 %162, ptr %172, align 2
-  %173 = getelementptr i8, ptr %172, i64 8
-  store i64 %162, ptr %173, align 2
-  %174 = getelementptr i8, ptr %172, i64 16
-  store i64 %162, ptr %174, align 2
-  %175 = getelementptr i8, ptr %172, i64 24
-  store i64 %162, ptr %175, align 2
-  %176 = add nuw nsw i64 %171, 8
-  %177 = icmp ult i64 %176, %167
-  br i1 %177, label %170, label %.loopexit16, !llvm.loop !34
+169:                                              ; preds = %169, %165
+  %170 = phi i64 [ 0, %165 ], [ %175, %169 ]
+  %171 = getelementptr %struct.HUF_DEltX2, ptr %153, i64 %170
+  store i64 %161, ptr %171, align 2
+  %172 = getelementptr i8, ptr %171, i64 8
+  store i64 %161, ptr %172, align 2
+  %173 = getelementptr i8, ptr %171, i64 16
+  store i64 %161, ptr %173, align 2
+  %174 = getelementptr i8, ptr %171, i64 24
+  store i64 %161, ptr %174, align 2
+  %175 = add nuw nsw i64 %170, 8
+  %176 = icmp ult i64 %175, %166
+  br i1 %176, label %169, label %.loopexit16, !llvm.loop !34
 
-178:                                              ; preds = %168, %158
-  %179 = phi ptr [ %169, %168 ], [ %154, %158 ]
-  store i64 %162, ptr %179, align 2
+177:                                              ; preds = %167, %157
+  %178 = phi ptr [ %168, %167 ], [ %153, %157 ]
+  store i64 %161, ptr %178, align 2
   br label %.loopexit16
 
-.loopexit16:                                      ; preds = %170, %178, %164, %150
-  br i1 %148, label %.preheader, label %.loopexit
+.loopexit16:                                      ; preds = %169, %177, %163, %149
+  br i1 %147, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit16
-  %180 = zext i8 %157 to i32
-  br label %181
+  %179 = zext i8 %156 to i32
+  br label %180
 
-181:                                              ; preds = %.preheader, %HUF_fillDTableX2ForWeight.exit
-  %182 = phi i64 [ %185, %HUF_fillDTableX2ForWeight.exit ], [ %146, %.preheader ]
-  %183 = getelementptr i32, ptr %17, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %185 = add nuw nsw i64 %182, 1
-  %186 = getelementptr i32, ptr %17, i64 %185
-  %187 = load i32, ptr %186, align 4
-  %188 = trunc i64 %182 to i32
-  %189 = sub i32 %149, %188
-  %190 = getelementptr i32, ptr %142, i64 %182
-  %191 = load i32, ptr %190, align 4
-  %192 = zext i32 %191 to i64
-  %193 = getelementptr %struct.HUF_DEltX2, ptr %154, i64 %192
-  %194 = sext i32 %184 to i64
-  %195 = getelementptr i8, ptr %119, i64 %194
-  %196 = sext i32 %187 to i64
-  %197 = getelementptr i8, ptr %119, i64 %196
-  %198 = sub i32 %48, %189
-  %199 = and i32 %198, 31
-  %200 = shl nuw i32 1, %199
-  %201 = icmp eq i32 %184, %187
-  switch i32 %200, label %218 [
-    i32 1, label %214
-    i32 2, label %210
-    i32 4, label %206
-    i32 8, label %202
+180:                                              ; preds = %.preheader, %HUF_fillDTableX2ForWeight.exit
+  %181 = phi i64 [ %184, %HUF_fillDTableX2ForWeight.exit ], [ %145, %.preheader ]
+  %182 = getelementptr i32, ptr %17, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %184 = add nuw nsw i64 %181, 1
+  %185 = getelementptr i32, ptr %17, i64 %184
+  %186 = load i32, ptr %185, align 4
+  %187 = trunc i64 %181 to i32
+  %188 = sub i32 %148, %187
+  %189 = getelementptr i32, ptr %141, i64 %181
+  %190 = load i32, ptr %189, align 4
+  %191 = zext i32 %190 to i64
+  %192 = getelementptr %struct.HUF_DEltX2, ptr %153, i64 %191
+  %193 = sext i32 %183 to i64
+  %194 = getelementptr i8, ptr %118, i64 %193
+  %195 = sext i32 %186 to i64
+  %196 = getelementptr i8, ptr %118, i64 %195
+  %197 = sub i32 %48, %188
+  %198 = and i32 %197, 31
+  %199 = shl nuw i32 1, %198
+  %200 = icmp eq i32 %183, %186
+  switch i32 %199, label %217 [
+    i32 1, label %213
+    i32 2, label %209
+    i32 4, label %205
+    i32 8, label %201
   ]
 
-202:                                              ; preds = %181
-  br i1 %201, label %HUF_fillDTableX2ForWeight.exit, label %203
+201:                                              ; preds = %180
+  br i1 %200, label %HUF_fillDTableX2ForWeight.exit, label %202
 
-203:                                              ; preds = %202
-  %204 = shl i32 %189, 16
-  %205 = add i32 %204, 33554432
+202:                                              ; preds = %201
+  %203 = shl i32 %188, 16
+  %204 = add i32 %203, 33554432
   br label %.split.i
 
-206:                                              ; preds = %181
-  br i1 %201, label %HUF_fillDTableX2ForWeight.exit, label %207
+205:                                              ; preds = %180
+  br i1 %200, label %HUF_fillDTableX2ForWeight.exit, label %206
 
-207:                                              ; preds = %206
-  %208 = shl i32 %189, 16
-  %209 = add i32 %208, 33554432
+206:                                              ; preds = %205
+  %207 = shl i32 %188, 16
+  %208 = add i32 %207, 33554432
   br label %.split12.i
 
-210:                                              ; preds = %181
-  br i1 %201, label %HUF_fillDTableX2ForWeight.exit, label %211
+209:                                              ; preds = %180
+  br i1 %200, label %HUF_fillDTableX2ForWeight.exit, label %210
 
-211:                                              ; preds = %210
-  %212 = shl i32 %189, 16
-  %213 = add i32 %212, 33554432
+210:                                              ; preds = %209
+  %211 = shl i32 %188, 16
+  %212 = add i32 %211, 33554432
   br label %.split13.i
 
-214:                                              ; preds = %181
-  br i1 %201, label %HUF_fillDTableX2ForWeight.exit, label %215
+213:                                              ; preds = %180
+  br i1 %200, label %HUF_fillDTableX2ForWeight.exit, label %214
 
-215:                                              ; preds = %214
-  %216 = shl i32 %189, 16
-  %217 = add i32 %216, 33554432
+214:                                              ; preds = %213
+  %215 = shl i32 %188, 16
+  %216 = add i32 %215, 33554432
   br label %.split14.i
 
-218:                                              ; preds = %181
-  br i1 %201, label %HUF_fillDTableX2ForWeight.exit, label %219
+217:                                              ; preds = %180
+  br i1 %200, label %HUF_fillDTableX2ForWeight.exit, label %218
 
-219:                                              ; preds = %218
-  %220 = shl i32 %189, 16
-  %221 = add i32 %220, 33554432
-  %222 = zext i32 %200 to i64
-  br label %272
+218:                                              ; preds = %217
+  %219 = shl i32 %188, 16
+  %220 = add i32 %219, 33554432
+  %221 = zext i32 %199 to i64
+  br label %271
 
-.split14.i:                                       ; preds = %.split14.i, %215
-  %223 = phi ptr [ %230, %.split14.i ], [ %193, %215 ]
-  %224 = phi ptr [ %231, %.split14.i ], [ %195, %215 ]
-  %225 = load i8, ptr %224, align 1
-  %226 = zext i8 %225 to i32
-  %227 = shl nuw nsw i32 %226, 8
-  %228 = or disjoint i32 %227, %217
-  %229 = or disjoint i32 %228, %180
-  %230 = getelementptr i8, ptr %223, i64 4
-  store i32 %229, ptr %223, align 2
-  %231 = getelementptr i8, ptr %224, i64 1
-  %232 = icmp eq ptr %231, %197
-  br i1 %232, label %HUF_fillDTableX2ForWeight.exit, label %.split14.i, !llvm.loop !35
+.split14.i:                                       ; preds = %.split14.i, %214
+  %222 = phi ptr [ %229, %.split14.i ], [ %192, %214 ]
+  %223 = phi ptr [ %230, %.split14.i ], [ %194, %214 ]
+  %224 = load i8, ptr %223, align 1
+  %225 = zext i8 %224 to i32
+  %226 = shl nuw nsw i32 %225, 8
+  %227 = or disjoint i32 %226, %216
+  %228 = or disjoint i32 %227, %179
+  %229 = getelementptr i8, ptr %222, i64 4
+  store i32 %228, ptr %222, align 2
+  %230 = getelementptr i8, ptr %223, i64 1
+  %231 = icmp eq ptr %230, %196
+  br i1 %231, label %HUF_fillDTableX2ForWeight.exit, label %.split14.i, !llvm.loop !35
 
-.split13.i:                                       ; preds = %.split13.i, %211
-  %233 = phi ptr [ %241, %.split13.i ], [ %193, %211 ]
-  %234 = phi ptr [ %242, %.split13.i ], [ %195, %211 ]
-  %235 = load i8, ptr %234, align 1
-  %236 = zext i8 %235 to i32
-  %237 = shl nuw nsw i32 %236, 8
-  %238 = or disjoint i32 %237, %213
-  %239 = or disjoint i32 %238, %180
-  store i32 %239, ptr %233, align 2
-  %240 = getelementptr i8, ptr %233, i64 4
-  store i32 %239, ptr %240, align 2
-  %241 = getelementptr i8, ptr %233, i64 8
-  %242 = getelementptr i8, ptr %234, i64 1
-  %243 = icmp eq ptr %242, %197
-  br i1 %243, label %HUF_fillDTableX2ForWeight.exit, label %.split13.i, !llvm.loop !36
+.split13.i:                                       ; preds = %.split13.i, %210
+  %232 = phi ptr [ %240, %.split13.i ], [ %192, %210 ]
+  %233 = phi ptr [ %241, %.split13.i ], [ %194, %210 ]
+  %234 = load i8, ptr %233, align 1
+  %235 = zext i8 %234 to i32
+  %236 = shl nuw nsw i32 %235, 8
+  %237 = or disjoint i32 %236, %212
+  %238 = or disjoint i32 %237, %179
+  store i32 %238, ptr %232, align 2
+  %239 = getelementptr i8, ptr %232, i64 4
+  store i32 %238, ptr %239, align 2
+  %240 = getelementptr i8, ptr %232, i64 8
+  %241 = getelementptr i8, ptr %233, i64 1
+  %242 = icmp eq ptr %241, %196
+  br i1 %242, label %HUF_fillDTableX2ForWeight.exit, label %.split13.i, !llvm.loop !36
 
-.split12.i:                                       ; preds = %.split12.i, %207
-  %244 = phi ptr [ %254, %.split12.i ], [ %193, %207 ]
-  %245 = phi ptr [ %255, %.split12.i ], [ %195, %207 ]
-  %246 = load i8, ptr %245, align 1
-  %247 = zext i8 %246 to i32
-  %248 = shl nuw nsw i32 %247, 8
-  %249 = or disjoint i32 %248, %209
-  %250 = or disjoint i32 %249, %180
-  %251 = zext i32 %250 to i64
-  %252 = mul nuw i64 %251, 4294967297
-  store i64 %252, ptr %244, align 2
-  %253 = getelementptr i8, ptr %244, i64 8
-  store i64 %252, ptr %253, align 2
-  %254 = getelementptr i8, ptr %244, i64 16
-  %255 = getelementptr i8, ptr %245, i64 1
-  %256 = icmp eq ptr %255, %197
-  br i1 %256, label %HUF_fillDTableX2ForWeight.exit, label %.split12.i, !llvm.loop !37
+.split12.i:                                       ; preds = %.split12.i, %206
+  %243 = phi ptr [ %253, %.split12.i ], [ %192, %206 ]
+  %244 = phi ptr [ %254, %.split12.i ], [ %194, %206 ]
+  %245 = load i8, ptr %244, align 1
+  %246 = zext i8 %245 to i32
+  %247 = shl nuw nsw i32 %246, 8
+  %248 = or disjoint i32 %247, %208
+  %249 = or disjoint i32 %248, %179
+  %250 = zext i32 %249 to i64
+  %251 = mul nuw i64 %250, 4294967297
+  store i64 %251, ptr %243, align 2
+  %252 = getelementptr i8, ptr %243, i64 8
+  store i64 %251, ptr %252, align 2
+  %253 = getelementptr i8, ptr %243, i64 16
+  %254 = getelementptr i8, ptr %244, i64 1
+  %255 = icmp eq ptr %254, %196
+  br i1 %255, label %HUF_fillDTableX2ForWeight.exit, label %.split12.i, !llvm.loop !37
 
-.split.i:                                         ; preds = %.split.i, %203
-  %257 = phi ptr [ %269, %.split.i ], [ %193, %203 ]
-  %258 = phi ptr [ %270, %.split.i ], [ %195, %203 ]
-  %259 = load i8, ptr %258, align 1
-  %260 = zext i8 %259 to i32
-  %261 = shl nuw nsw i32 %260, 8
-  %262 = or disjoint i32 %261, %205
-  %263 = or disjoint i32 %262, %180
-  %264 = zext i32 %263 to i64
-  %265 = mul nuw i64 %264, 4294967297
-  store i64 %265, ptr %257, align 2
-  %266 = getelementptr i8, ptr %257, i64 8
-  store i64 %265, ptr %266, align 2
-  %267 = getelementptr i8, ptr %257, i64 16
-  store i64 %265, ptr %267, align 2
-  %268 = getelementptr i8, ptr %257, i64 24
-  store i64 %265, ptr %268, align 2
-  %269 = getelementptr i8, ptr %257, i64 32
-  %270 = getelementptr i8, ptr %258, i64 1
-  %271 = icmp eq ptr %270, %197
-  br i1 %271, label %HUF_fillDTableX2ForWeight.exit, label %.split.i, !llvm.loop !38
+.split.i:                                         ; preds = %.split.i, %202
+  %256 = phi ptr [ %268, %.split.i ], [ %192, %202 ]
+  %257 = phi ptr [ %269, %.split.i ], [ %194, %202 ]
+  %258 = load i8, ptr %257, align 1
+  %259 = zext i8 %258 to i32
+  %260 = shl nuw nsw i32 %259, 8
+  %261 = or disjoint i32 %260, %204
+  %262 = or disjoint i32 %261, %179
+  %263 = zext i32 %262 to i64
+  %264 = mul nuw i64 %263, 4294967297
+  store i64 %264, ptr %256, align 2
+  %265 = getelementptr i8, ptr %256, i64 8
+  store i64 %264, ptr %265, align 2
+  %266 = getelementptr i8, ptr %256, i64 16
+  store i64 %264, ptr %266, align 2
+  %267 = getelementptr i8, ptr %256, i64 24
+  store i64 %264, ptr %267, align 2
+  %268 = getelementptr i8, ptr %256, i64 32
+  %269 = getelementptr i8, ptr %257, i64 1
+  %270 = icmp eq ptr %269, %196
+  br i1 %270, label %HUF_fillDTableX2ForWeight.exit, label %.split.i, !llvm.loop !38
 
-272:                                              ; preds = %290, %219
-  %273 = phi ptr [ %193, %219 ], [ %282, %290 ]
-  %274 = phi ptr [ %195, %219 ], [ %291, %290 ]
-  %275 = load i8, ptr %274, align 1
-  %276 = zext i8 %275 to i32
-  %277 = shl nuw nsw i32 %276, 8
-  %278 = or disjoint i32 %277, %221
-  %279 = or disjoint i32 %278, %180
-  %280 = zext i32 %279 to i64
-  %281 = mul nuw i64 %280, 4294967297
-  %282 = getelementptr %struct.HUF_DEltX2, ptr %273, i64 %222
-  br label %283
+271:                                              ; preds = %289, %218
+  %272 = phi ptr [ %192, %218 ], [ %281, %289 ]
+  %273 = phi ptr [ %194, %218 ], [ %290, %289 ]
+  %274 = load i8, ptr %273, align 1
+  %275 = zext i8 %274 to i32
+  %276 = shl nuw nsw i32 %275, 8
+  %277 = or disjoint i32 %276, %220
+  %278 = or disjoint i32 %277, %179
+  %279 = zext i32 %278 to i64
+  %280 = mul nuw i64 %279, 4294967297
+  %281 = getelementptr %struct.HUF_DEltX2, ptr %272, i64 %221
+  br label %282
 
-283:                                              ; preds = %283, %272
-  %284 = phi ptr [ %288, %283 ], [ %273, %272 ]
-  store i64 %281, ptr %284, align 2
-  %285 = getelementptr i8, ptr %284, i64 8
-  store i64 %281, ptr %285, align 2
-  %286 = getelementptr i8, ptr %284, i64 16
-  store i64 %281, ptr %286, align 2
-  %287 = getelementptr i8, ptr %284, i64 24
-  store i64 %281, ptr %287, align 2
-  %288 = getelementptr i8, ptr %284, i64 32
-  %289 = icmp eq ptr %288, %282
-  br i1 %289, label %290, label %283, !llvm.loop !39
+282:                                              ; preds = %282, %271
+  %283 = phi ptr [ %287, %282 ], [ %272, %271 ]
+  store i64 %280, ptr %283, align 2
+  %284 = getelementptr i8, ptr %283, i64 8
+  store i64 %280, ptr %284, align 2
+  %285 = getelementptr i8, ptr %283, i64 16
+  store i64 %280, ptr %285, align 2
+  %286 = getelementptr i8, ptr %283, i64 24
+  store i64 %280, ptr %286, align 2
+  %287 = getelementptr i8, ptr %283, i64 32
+  %288 = icmp eq ptr %287, %281
+  br i1 %288, label %289, label %282, !llvm.loop !39
 
-290:                                              ; preds = %283
-  %291 = getelementptr i8, ptr %274, i64 1
-  %292 = icmp eq ptr %291, %197
-  br i1 %292, label %HUF_fillDTableX2ForWeight.exit, label %272, !llvm.loop !40
+289:                                              ; preds = %282
+  %290 = getelementptr i8, ptr %273, i64 1
+  %291 = icmp eq ptr %290, %196
+  br i1 %291, label %HUF_fillDTableX2ForWeight.exit, label %271, !llvm.loop !40
 
-HUF_fillDTableX2ForWeight.exit:                   ; preds = %.split.i, %.split12.i, %.split13.i, %.split14.i, %290, %202, %206, %210, %214, %218
-  %293 = icmp eq i64 %185, %63
-  br i1 %293, label %.loopexit, label %181, !llvm.loop !41
+HUF_fillDTableX2ForWeight.exit:                   ; preds = %.split.i, %.split12.i, %.split13.i, %.split14.i, %289, %201, %205, %209, %213, %217
+  %292 = icmp eq i64 %184, %63
+  br i1 %292, label %.loopexit, label %180, !llvm.loop !41
 
 .loopexit:                                        ; preds = %HUF_fillDTableX2ForWeight.exit, %.loopexit16
-  %294 = add i32 %152, %134
-  %295 = add i32 %151, 1
-  %296 = icmp eq i32 %295, %127
-  br i1 %296, label %HUF_fillDTableX2ForWeight.exit10, label %150, !llvm.loop !42
+  %293 = add i32 %151, %133
+  %294 = add i32 %150, 1
+  %295 = icmp eq i32 %294, %126
+  br i1 %295, label %HUF_fillDTableX2ForWeight.exit10, label %149, !llvm.loop !42
 
-297:                                              ; preds = %.preheader22
-  %298 = getelementptr i32, ptr %3, i64 %122
-  %299 = load i32, ptr %298, align 4
-  %300 = zext i32 %299 to i64
-  %301 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %300
-  %302 = sext i32 %124 to i64
-  %303 = getelementptr i8, ptr %119, i64 %302
-  %304 = sext i32 %127 to i64
-  %305 = getelementptr i8, ptr %119, i64 %304
-  %306 = and i32 %130, 31
-  %307 = shl nuw i32 1, %306
-  %308 = icmp eq i32 %124, %127
-  switch i32 %307, label %366 [
-    i32 1, label %354
-    i32 2, label %341
-    i32 4, label %326
-    i32 8, label %309
+296:                                              ; preds = %.preheader22
+  %297 = getelementptr i32, ptr %3, i64 %121
+  %298 = load i32, ptr %297, align 4
+  %299 = zext i32 %298 to i64
+  %300 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %299
+  %301 = sext i32 %123 to i64
+  %302 = getelementptr i8, ptr %118, i64 %301
+  %303 = sext i32 %126 to i64
+  %304 = getelementptr i8, ptr %118, i64 %303
+  %305 = and i32 %129, 31
+  %306 = shl nuw i32 1, %305
+  %307 = icmp eq i32 %123, %126
+  switch i32 %306, label %365 [
+    i32 1, label %353
+    i32 2, label %340
+    i32 4, label %325
+    i32 8, label %308
   ]
 
-309:                                              ; preds = %297
-  br i1 %308, label %HUF_fillDTableX2ForWeight.exit10, label %310
+308:                                              ; preds = %296
+  br i1 %307, label %HUF_fillDTableX2ForWeight.exit10, label %309
 
-310:                                              ; preds = %309
-  %311 = shl i32 %129, 16
-  %312 = add i32 %311, 16777216
+309:                                              ; preds = %308
+  %310 = shl i32 %128, 16
+  %311 = add i32 %310, 16777216
   br label %.split.us.i
 
-.split.us.i:                                      ; preds = %.split.us.i, %310
-  %313 = phi ptr [ %323, %.split.us.i ], [ %301, %310 ]
-  %314 = phi ptr [ %324, %.split.us.i ], [ %303, %310 ]
-  %315 = load i8, ptr %314, align 1
-  %316 = zext i8 %315 to i32
-  %317 = or disjoint i32 %312, %316
-  %318 = zext i32 %317 to i64
-  %319 = mul nuw i64 %318, 4294967297
-  store i64 %319, ptr %313, align 2
-  %320 = getelementptr i8, ptr %313, i64 8
-  store i64 %319, ptr %320, align 2
-  %321 = getelementptr i8, ptr %313, i64 16
-  store i64 %319, ptr %321, align 2
-  %322 = getelementptr i8, ptr %313, i64 24
-  store i64 %319, ptr %322, align 2
-  %323 = getelementptr i8, ptr %313, i64 32
-  %324 = getelementptr i8, ptr %314, i64 1
-  %325 = icmp eq ptr %324, %305
-  br i1 %325, label %HUF_fillDTableX2ForWeight.exit10, label %.split.us.i, !llvm.loop !38
+.split.us.i:                                      ; preds = %.split.us.i, %309
+  %312 = phi ptr [ %322, %.split.us.i ], [ %300, %309 ]
+  %313 = phi ptr [ %323, %.split.us.i ], [ %302, %309 ]
+  %314 = load i8, ptr %313, align 1
+  %315 = zext i8 %314 to i32
+  %316 = or disjoint i32 %311, %315
+  %317 = zext i32 %316 to i64
+  %318 = mul nuw i64 %317, 4294967297
+  store i64 %318, ptr %312, align 2
+  %319 = getelementptr i8, ptr %312, i64 8
+  store i64 %318, ptr %319, align 2
+  %320 = getelementptr i8, ptr %312, i64 16
+  store i64 %318, ptr %320, align 2
+  %321 = getelementptr i8, ptr %312, i64 24
+  store i64 %318, ptr %321, align 2
+  %322 = getelementptr i8, ptr %312, i64 32
+  %323 = getelementptr i8, ptr %313, i64 1
+  %324 = icmp eq ptr %323, %304
+  br i1 %324, label %HUF_fillDTableX2ForWeight.exit10, label %.split.us.i, !llvm.loop !38
 
-326:                                              ; preds = %297
-  br i1 %308, label %HUF_fillDTableX2ForWeight.exit10, label %327
+325:                                              ; preds = %296
+  br i1 %307, label %HUF_fillDTableX2ForWeight.exit10, label %326
 
-327:                                              ; preds = %326
-  %328 = shl i32 %129, 16
-  %329 = add i32 %328, 16777216
+326:                                              ; preds = %325
+  %327 = shl i32 %128, 16
+  %328 = add i32 %327, 16777216
   br label %.split12.us.i
 
-.split12.us.i:                                    ; preds = %.split12.us.i, %327
-  %330 = phi ptr [ %338, %.split12.us.i ], [ %301, %327 ]
-  %331 = phi ptr [ %339, %.split12.us.i ], [ %303, %327 ]
-  %332 = load i8, ptr %331, align 1
-  %333 = zext i8 %332 to i32
-  %334 = or disjoint i32 %329, %333
-  %335 = zext i32 %334 to i64
-  %336 = mul nuw i64 %335, 4294967297
-  store i64 %336, ptr %330, align 2
-  %337 = getelementptr i8, ptr %330, i64 8
-  store i64 %336, ptr %337, align 2
-  %338 = getelementptr i8, ptr %330, i64 16
-  %339 = getelementptr i8, ptr %331, i64 1
-  %340 = icmp eq ptr %339, %305
-  br i1 %340, label %HUF_fillDTableX2ForWeight.exit10, label %.split12.us.i, !llvm.loop !37
+.split12.us.i:                                    ; preds = %.split12.us.i, %326
+  %329 = phi ptr [ %337, %.split12.us.i ], [ %300, %326 ]
+  %330 = phi ptr [ %338, %.split12.us.i ], [ %302, %326 ]
+  %331 = load i8, ptr %330, align 1
+  %332 = zext i8 %331 to i32
+  %333 = or disjoint i32 %328, %332
+  %334 = zext i32 %333 to i64
+  %335 = mul nuw i64 %334, 4294967297
+  store i64 %335, ptr %329, align 2
+  %336 = getelementptr i8, ptr %329, i64 8
+  store i64 %335, ptr %336, align 2
+  %337 = getelementptr i8, ptr %329, i64 16
+  %338 = getelementptr i8, ptr %330, i64 1
+  %339 = icmp eq ptr %338, %304
+  br i1 %339, label %HUF_fillDTableX2ForWeight.exit10, label %.split12.us.i, !llvm.loop !37
 
-341:                                              ; preds = %297
-  br i1 %308, label %HUF_fillDTableX2ForWeight.exit10, label %342
+340:                                              ; preds = %296
+  br i1 %307, label %HUF_fillDTableX2ForWeight.exit10, label %341
 
-342:                                              ; preds = %341
-  %343 = shl i32 %129, 16
-  %344 = add i32 %343, 16777216
+341:                                              ; preds = %340
+  %342 = shl i32 %128, 16
+  %343 = add i32 %342, 16777216
   br label %.split13.us.i
 
-.split13.us.i:                                    ; preds = %.split13.us.i, %342
-  %345 = phi ptr [ %351, %.split13.us.i ], [ %301, %342 ]
-  %346 = phi ptr [ %352, %.split13.us.i ], [ %303, %342 ]
-  %347 = load i8, ptr %346, align 1
-  %348 = zext i8 %347 to i32
-  %349 = or disjoint i32 %344, %348
-  store i32 %349, ptr %345, align 2
-  %350 = getelementptr i8, ptr %345, i64 4
-  store i32 %349, ptr %350, align 2
-  %351 = getelementptr i8, ptr %345, i64 8
-  %352 = getelementptr i8, ptr %346, i64 1
-  %353 = icmp eq ptr %352, %305
-  br i1 %353, label %HUF_fillDTableX2ForWeight.exit10, label %.split13.us.i, !llvm.loop !36
+.split13.us.i:                                    ; preds = %.split13.us.i, %341
+  %344 = phi ptr [ %350, %.split13.us.i ], [ %300, %341 ]
+  %345 = phi ptr [ %351, %.split13.us.i ], [ %302, %341 ]
+  %346 = load i8, ptr %345, align 1
+  %347 = zext i8 %346 to i32
+  %348 = or disjoint i32 %343, %347
+  store i32 %348, ptr %344, align 2
+  %349 = getelementptr i8, ptr %344, i64 4
+  store i32 %348, ptr %349, align 2
+  %350 = getelementptr i8, ptr %344, i64 8
+  %351 = getelementptr i8, ptr %345, i64 1
+  %352 = icmp eq ptr %351, %304
+  br i1 %352, label %HUF_fillDTableX2ForWeight.exit10, label %.split13.us.i, !llvm.loop !36
 
-354:                                              ; preds = %297
-  br i1 %308, label %HUF_fillDTableX2ForWeight.exit10, label %355
+353:                                              ; preds = %296
+  br i1 %307, label %HUF_fillDTableX2ForWeight.exit10, label %354
 
-355:                                              ; preds = %354
-  %356 = shl i32 %129, 16
-  %357 = add i32 %356, 16777216
+354:                                              ; preds = %353
+  %355 = shl i32 %128, 16
+  %356 = add i32 %355, 16777216
   br label %.split14.us.i
 
-.split14.us.i:                                    ; preds = %.split14.us.i, %355
-  %358 = phi ptr [ %363, %.split14.us.i ], [ %301, %355 ]
-  %359 = phi ptr [ %364, %.split14.us.i ], [ %303, %355 ]
-  %360 = load i8, ptr %359, align 1
-  %361 = zext i8 %360 to i32
-  %362 = or disjoint i32 %357, %361
-  %363 = getelementptr i8, ptr %358, i64 4
-  store i32 %362, ptr %358, align 2
-  %364 = getelementptr i8, ptr %359, i64 1
-  %365 = icmp eq ptr %364, %305
-  br i1 %365, label %HUF_fillDTableX2ForWeight.exit10, label %.split14.us.i, !llvm.loop !35
+.split14.us.i:                                    ; preds = %.split14.us.i, %354
+  %357 = phi ptr [ %362, %.split14.us.i ], [ %300, %354 ]
+  %358 = phi ptr [ %363, %.split14.us.i ], [ %302, %354 ]
+  %359 = load i8, ptr %358, align 1
+  %360 = zext i8 %359 to i32
+  %361 = or disjoint i32 %356, %360
+  %362 = getelementptr i8, ptr %357, i64 4
+  store i32 %361, ptr %357, align 2
+  %363 = getelementptr i8, ptr %358, i64 1
+  %364 = icmp eq ptr %363, %304
+  br i1 %364, label %HUF_fillDTableX2ForWeight.exit10, label %.split14.us.i, !llvm.loop !35
 
-366:                                              ; preds = %297
-  br i1 %308, label %HUF_fillDTableX2ForWeight.exit10, label %367
+365:                                              ; preds = %296
+  br i1 %307, label %HUF_fillDTableX2ForWeight.exit10, label %366
 
-367:                                              ; preds = %366
-  %368 = shl i32 %129, 16
-  %369 = add i32 %368, 16777216
-  %370 = zext i32 %307 to i64
-  br label %371
+366:                                              ; preds = %365
+  %367 = shl i32 %128, 16
+  %368 = add i32 %367, 16777216
+  %369 = zext i32 %306 to i64
+  br label %370
 
-371:                                              ; preds = %387, %367
-  %372 = phi ptr [ %301, %367 ], [ %379, %387 ]
-  %373 = phi ptr [ %303, %367 ], [ %388, %387 ]
-  %374 = load i8, ptr %373, align 1
-  %375 = zext i8 %374 to i32
-  %376 = or disjoint i32 %369, %375
-  %377 = zext i32 %376 to i64
-  %378 = mul nuw i64 %377, 4294967297
-  %379 = getelementptr %struct.HUF_DEltX2, ptr %372, i64 %370
-  br label %380
+370:                                              ; preds = %386, %366
+  %371 = phi ptr [ %300, %366 ], [ %378, %386 ]
+  %372 = phi ptr [ %302, %366 ], [ %387, %386 ]
+  %373 = load i8, ptr %372, align 1
+  %374 = zext i8 %373 to i32
+  %375 = or disjoint i32 %368, %374
+  %376 = zext i32 %375 to i64
+  %377 = mul nuw i64 %376, 4294967297
+  %378 = getelementptr %struct.HUF_DEltX2, ptr %371, i64 %369
+  br label %379
 
-380:                                              ; preds = %380, %371
-  %381 = phi ptr [ %385, %380 ], [ %372, %371 ]
-  store i64 %378, ptr %381, align 2
-  %382 = getelementptr i8, ptr %381, i64 8
-  store i64 %378, ptr %382, align 2
-  %383 = getelementptr i8, ptr %381, i64 16
-  store i64 %378, ptr %383, align 2
-  %384 = getelementptr i8, ptr %381, i64 24
-  store i64 %378, ptr %384, align 2
-  %385 = getelementptr i8, ptr %381, i64 32
-  %386 = icmp eq ptr %385, %379
-  br i1 %386, label %387, label %380, !llvm.loop !39
+379:                                              ; preds = %379, %370
+  %380 = phi ptr [ %384, %379 ], [ %371, %370 ]
+  store i64 %377, ptr %380, align 2
+  %381 = getelementptr i8, ptr %380, i64 8
+  store i64 %377, ptr %381, align 2
+  %382 = getelementptr i8, ptr %380, i64 16
+  store i64 %377, ptr %382, align 2
+  %383 = getelementptr i8, ptr %380, i64 24
+  store i64 %377, ptr %383, align 2
+  %384 = getelementptr i8, ptr %380, i64 32
+  %385 = icmp eq ptr %384, %378
+  br i1 %385, label %386, label %379, !llvm.loop !39
 
-387:                                              ; preds = %380
-  %388 = getelementptr i8, ptr %373, i64 1
-  %389 = icmp eq ptr %388, %305
-  br i1 %389, label %HUF_fillDTableX2ForWeight.exit10, label %371, !llvm.loop !40
+386:                                              ; preds = %379
+  %387 = getelementptr i8, ptr %372, i64 1
+  %388 = icmp eq ptr %387, %304
+  br i1 %388, label %HUF_fillDTableX2ForWeight.exit10, label %370, !llvm.loop !40
 
-HUF_fillDTableX2ForWeight.exit10:                 ; preds = %.loopexit, %.split.us.i, %.split12.us.i, %.split13.us.i, %.split14.us.i, %387, %366, %354, %341, %326, %309, %132
-  %390 = icmp eq i64 %125, %63
-  br i1 %390, label %.loopexit23, label %.preheader22, !llvm.loop !43
+HUF_fillDTableX2ForWeight.exit10:                 ; preds = %.loopexit, %.split.us.i, %.split12.us.i, %.split13.us.i, %.split14.us.i, %386, %365, %353, %340, %325, %308, %131
+  %389 = icmp eq i64 %124, %63
+  br i1 %389, label %.loopexit23, label %.preheader22, !llvm.loop !43
 
-.loopexit23:                                      ; preds = %HUF_fillDTableX2ForWeight.exit10, %.loopexit27, %103, %.loopexit25
-  %391 = trunc nuw nsw i32 %48 to i8
+.loopexit23:                                      ; preds = %HUF_fillDTableX2ForWeight.exit10, %.loopexit27, %.loopexit25
+  %390 = trunc nuw nsw i32 %48 to i8
   store i8 %10, ptr %0, align 4
-  %392 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 1, ptr %392, align 1
-  %393 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %391, ptr %393, align 2
-  %394 = getelementptr inbounds i8, ptr %0, i64 3
-  store i8 %12, ptr %394, align 1
-  br label %395
+  %391 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 1, ptr %391, align 1
+  %392 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %390, ptr %392, align 2
+  %393 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 %12, ptr %393, align 1
+  br label %394
 
-395:                                              ; preds = %.loopexit23, %26, %21, %16, %6
-  %396 = phi i64 [ %24, %.loopexit23 ], [ -1, %6 ], [ -44, %16 ], [ %24, %21 ], [ -44, %26 ]
+394:                                              ; preds = %.loopexit23, %26, %21, %16, %6
+  %395 = phi i64 [ %24, %.loopexit23 ], [ -1, %6 ], [ -44, %16 ], [ %24, %21 ], [ -44, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  ret i64 %396
+  ret i64 %395
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)

@@ -1396,14 +1396,14 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit209.i:        ; preds = %.noexc.i, %_ZN2cv10
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %339, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph95.preheader.i.i, label %340, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %340, !llvm.loop !26
 
-.lr.ph95.preheader.i.i:                           ; preds = %340
+._crit_edge.i.i:                                  ; preds = %340
   %351 = fdiv double 1.000000e+00, %350
   br label %.lr.ph95.i.i
 
-.lr.ph95.i.i:                                     ; preds = %.lr.ph95.i.i, %.lr.ph95.preheader.i.i
-  %indvars.iv105.i.i = phi i64 [ %338, %.lr.ph95.preheader.i.i ], [ %indvars.iv.next106.i.i, %.lr.ph95.i.i ]
+.lr.ph95.i.i:                                     ; preds = %.lr.ph95.i.i, %._crit_edge.i.i
+  %indvars.iv105.i.i = phi i64 [ %338, %._crit_edge.i.i ], [ %indvars.iv.next106.i.i, %.lr.ph95.i.i ]
   %352 = getelementptr inbounds float, ptr %323, i64 %indvars.iv105.i.i
   %353 = load float, ptr %352, align 4
   %354 = fpext float %353 to double
@@ -2710,20 +2710,20 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc171, %948
 
 .preheader216.i:                                  ; preds = %991
   %976 = icmp sgt i32 %703, 3
-  br i1 %976, label %.lr.ph219.us.preheader.i, label %.preheader215.i
+  br i1 %976, label %.lr.ph221.i, label %.preheader215.i
 
 .preheader216.thread.i:                           ; preds = %_ZN2cv10AutoBufferIdLm136EEC2Em.exit.i
   %977 = icmp sgt i32 %703, 3
   br label %.preheader215.i
 
-.lr.ph219.us.preheader.i:                         ; preds = %.preheader216.i
+.lr.ph221.i:                                      ; preds = %.preheader216.i
   %978 = add nsw i32 %950, -1
   %smax263.i = call i32 @llvm.smax.i32(i32 %951, i32 2)
   %.pre.i170 = load ptr, ptr %226, align 8
   br label %.lr.ph219.us.i
 
-.lr.ph219.us.i:                                   ; preds = %._crit_edge.us.i, %.lr.ph219.us.preheader.i
-  %storemerge220.us.i = phi i32 [ %990, %._crit_edge.us.i ], [ 1, %.lr.ph219.us.preheader.i ]
+.lr.ph219.us.i:                                   ; preds = %._crit_edge.us.i, %.lr.ph221.i
+  %storemerge220.us.i = phi i32 [ %990, %._crit_edge.us.i ], [ 1, %.lr.ph221.i ]
   %.sroa.speculated196.us.i = call i32 @llvm.smin.i32(i32 %978, i32 %storemerge220.us.i)
   %979 = load i64, ptr %.pre.i170, align 8
   %980 = sext i32 %.sroa.speculated196.us.i to i64

@@ -469,7 +469,7 @@ do.cond.i.us.i:                                   ; preds = %do.body.i.us.i
   br i1 %cmp.i.us.i, label %do.body.i.us.i, label %skip_prefix.exit.us.i, !llvm.loop !7
 
 skip_prefix.exit.us.i:                            ; preds = %do.cond.i.us.i, %do.body.i.us.i
-  %p.1.us.i = phi ptr [ %p.028.us.i, %do.cond.i.us.i ], [ %scevgep49.i, %do.body.i.us.i ]
+  %p.1.us.i = phi ptr [ %scevgep49.i, %do.body.i.us.i ], [ %p.028.us.i, %do.cond.i.us.i ]
   %tobool.not.i.us.le.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i.us.le.i, label %for.cond19.preheader.us.i, label %while.cond.backedge.us.i
 
@@ -524,7 +524,7 @@ do.cond.i.i17:                                    ; preds = %do.body.i.i14
   br i1 %cmp.i.i19, label %do.body.i.i14, label %skip_prefix.exit.i, !llvm.loop !7
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i17, %do.body.i.i14
-  %p.1.i = phi ptr [ %p.028.i, %do.cond.i.i17 ], [ %scevgep.i13, %do.body.i.i14 ]
+  %p.1.i = phi ptr [ %scevgep.i13, %do.body.i.i14 ], [ %p.028.i, %do.cond.i.i17 ]
   %tobool.not.i.le.i = icmp eq i8 %27, 0
   br i1 %tobool.not.i.le.i, label %for.cond19.preheader.i, label %while.cond.backedge.i
 

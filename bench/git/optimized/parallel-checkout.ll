@@ -618,7 +618,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 for.cond.i:                                       ; preds = %if.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
-  br i1 %exitcond.not.i, label %for.body20.preheader.i, label %for.body.i8, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i8, !llvm.loop !7
 
 for.body.i8:                                      ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -651,15 +651,15 @@ if.then12.i:                                      ; preds = %if.end.i
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.22) #18
   unreachable
 
-for.body20.preheader.i:                           ; preds = %for.cond.i
+for.end.i:                                        ; preds = %for.cond.i
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
   %div.i = udiv i64 %10, %conv.i
   %rem.i = urem i64 %10, %conv.i
   br label %for.body20.i
 
-for.body20.i:                                     ; preds = %send_batch.exit.i, %for.body20.preheader.i
-  %indvars.iv35.i = phi i64 [ 0, %for.body20.preheader.i ], [ %indvars.iv.next36.i, %send_batch.exit.i ]
-  %batch_beginning.032.i = phi i64 [ 0, %for.body20.preheader.i ], [ %add.i, %send_batch.exit.i ]
+for.body20.i:                                     ; preds = %send_batch.exit.i, %for.end.i
+  %indvars.iv35.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next36.i, %send_batch.exit.i ]
+  %batch_beginning.032.i = phi i64 [ 0, %for.end.i ], [ %add.i, %send_batch.exit.i ]
   %arrayidx22.i = getelementptr inbounds %struct.pc_worker, ptr %call1.i, i64 %indvars.iv35.i
   %cmp23.i = icmp ult i64 %indvars.iv35.i, %rem.i
   %inc26.i = zext i1 %cmp23.i to i64

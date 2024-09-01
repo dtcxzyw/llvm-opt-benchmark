@@ -6782,7 +6782,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   br label %84
 
 84:                                               ; preds = %82, %.thread
-  %85 = phi i1 [ true, %.thread ], [ %83, %82 ]
+  %85 = phi i1 [ %83, %82 ], [ true, %.thread ]
   %86 = getelementptr inbounds i8, ptr %1, i64 40
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0

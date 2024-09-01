@@ -3842,8 +3842,7 @@ for.end39:                                        ; preds = %for.body24, %for.en
 for.cond61.preheader:                             ; preds = %for.body50
   %sub62 = sub i32 %0, %sub
   %cmp63.not54 = icmp ugt i32 %sub, %sub62
-  %brmerge = or i1 %cmp63.not54, %cmp13.not44
-  br i1 %brmerge, label %for.end82, label %for.body65
+  br i1 %cmp63.not54, label %for.end82, label %for.body65
 
 for.body50:                                       ; preds = %for.end39, %for.body50
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.body50 ], [ 1, %for.end39 ]

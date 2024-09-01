@@ -3455,8 +3455,8 @@ if.end77:                                         ; preds = %for.end72
   %call78 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.42, ptr noundef nonnull %call.i53, ptr noundef nonnull %call14, ptr noundef nonnull %call18) #12
   br label %if.then.i55
 
-if.then.i55:                                      ; preds = %if.end26, %Py_DECREF.exit87, %Py_DECREF.exit, %sw.epilog61, %sw.epilog61.us, %Py_DECREF.exit.us, %if.end77, %for.end72, %if.end17
-  %rtn_tuple.078 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
+if.then.i55:                                      ; preds = %if.end26, %Py_DECREF.exit87, %Py_DECREF.exit, %sw.epilog61, %Py_DECREF.exit.us, %sw.epilog61.us, %if.end77, %for.end72, %if.end17
+  %rtn_tuple.078 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %sw.epilog61.us ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
   %21 = load i64, ptr %call14, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i2.not.i = icmp eq i64 %22, 0
@@ -8800,8 +8800,8 @@ if.end119:                                        ; preds = %if.then109
   %23 = load ptr, ptr %data82, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %__cmsg_data.i, ptr align 1 %23, i64 %12, i1 false)
   %inc126 = add nuw nsw i64 %i.0121, 1
-  %exitcond141.not = icmp eq i64 %ncmsgs.091, %inc126
-  br i1 %exitcond141.not, label %if.end127, label %for.body, !llvm.loop !11
+  %exitcond138.not = icmp eq i64 %ncmsgs.091, %inc126
+  br i1 %exitcond138.not, label %if.end127, label %for.body, !llvm.loop !11
 
 if.end127:                                        ; preds = %if.end119, %while.end
   %controlbuf.1 = phi ptr [ null, %while.end ], [ %call75, %if.end119 ]
@@ -8839,31 +8839,31 @@ for.body139:                                      ; preds = %finally, %for.body1
   %data141 = getelementptr %struct.cmsginfo, ptr %cmsgs.1, i64 %i.1124, i32 2
   call void @PyBuffer_Release(ptr noundef %data141) #12
   %inc143 = add nuw nsw i64 %i.1124, 1
-  %exitcond142.not = icmp eq i64 %inc143, %ncmsgbufs.0
-  br i1 %exitcond142.not, label %for.end144, label %for.body139, !llvm.loop !12
+  %exitcond139.not = icmp eq i64 %inc143, %ncmsgbufs.0
+  br i1 %exitcond139.not, label %for.end144, label %for.body139, !llvm.loop !12
 
 for.end144:                                       ; preds = %for.body139, %finally.thread, %finally
-  %retval1.0153 = phi ptr [ null, %finally.thread ], [ %retval1.0, %finally ], [ %retval1.0, %for.body139 ]
-  %cmsg_fast.0152 = phi ptr [ %cmsg_fast.0.ph, %finally.thread ], [ %cmsg_fast.192, %finally ], [ %cmsg_fast.192, %for.body139 ]
-  %cmsgs.0151 = phi ptr [ null, %finally.thread ], [ %cmsgs.1, %finally ], [ %cmsgs.1, %for.body139 ]
-  call void @PyMem_Free(ptr noundef %cmsgs.0151) #12
-  %cmp.not.i = icmp eq ptr %cmsg_fast.0152, null
+  %retval1.0150 = phi ptr [ null, %finally.thread ], [ %retval1.0, %finally ], [ %retval1.0, %for.body139 ]
+  %cmsg_fast.0149 = phi ptr [ %cmsg_fast.0.ph, %finally.thread ], [ %cmsg_fast.192, %finally ], [ %cmsg_fast.192, %for.body139 ]
+  %cmsgs.0148 = phi ptr [ null, %finally.thread ], [ %cmsgs.1, %finally ], [ %cmsgs.1, %for.body139 ]
+  call void @PyMem_Free(ptr noundef %cmsgs.0148) #12
+  %cmp.not.i = icmp eq ptr %cmsg_fast.0149, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end144
-  %27 = load i64, ptr %cmsg_fast.0152, align 8
+  %27 = load i64, ptr %cmsg_fast.0149, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i2.not.i = icmp eq i64 %28, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
   %dec.i.i = add i64 %27, -1
-  store i64 %dec.i.i, ptr %cmsg_fast.0152, align 8
+  store i64 %dec.i.i, ptr %cmsg_fast.0149, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %cmsg_fast.0152) #12
+  call void @_Py_Dealloc(ptr noundef nonnull %cmsg_fast.0149) #12
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %for.end144, %if.then.i, %if.end.i.i, %if.then1.i.i
@@ -8880,15 +8880,15 @@ for.body148:                                      ; preds = %Py_XDECREF.exit, %f
   %arrayidx149 = getelementptr %struct.Py_buffer, ptr %.pre, i64 %i.2126
   call void @PyBuffer_Release(ptr noundef %arrayidx149) #12
   %inc151 = add nuw nsw i64 %i.2126, 1
-  %exitcond143.not = icmp eq i64 %inc151, %30
-  br i1 %exitcond143.not, label %for.end152, label %for.body148, !llvm.loop !13
+  %exitcond140.not = icmp eq i64 %inc151, %30
+  br i1 %exitcond140.not, label %for.end152, label %for.body148, !llvm.loop !13
 
 for.end152:                                       ; preds = %for.body148, %Py_XDECREF.exit
   call void @PyMem_Free(ptr noundef %.pre) #12
   br label %return
 
 return:                                           ; preds = %if.else, %if.end7, %entry, %for.end152
-  %retval.0 = phi ptr [ %retval1.0153, %for.end152 ], [ null, %entry ], [ null, %if.end7 ], [ null, %if.else ]
+  %retval.0 = phi ptr [ %retval1.0150, %for.end152 ], [ null, %entry ], [ null, %if.end7 ], [ null, %if.else ]
   ret ptr %retval.0
 }
 

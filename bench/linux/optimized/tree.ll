@@ -10470,6 +10470,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %52, %46, %41
+  %.lcssa = phi i1 [ false, %52 ], [ %39, %46 ], [ %39, %41 ]
   %57 = load ptr, ptr @rcu_start_this_gp.___tp_str.61, align 8
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3648), align 64
   %59 = getelementptr inbounds i8, ptr %38, i64 8
@@ -10481,7 +10482,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %65 = getelementptr inbounds i8, ptr %38, i64 116
   %66 = load i32, ptr %65, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_future_grace_period, i64 8), i32 2) #29
-          to label %250 [label %67], !srcloc !8
+          to label %251 [label %67], !srcloc !8
 
 67:                                               ; preds = %56
   %68 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !384
@@ -10490,7 +10491,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = icmp eq i8 %70, 0
-  br i1 %72, label %250, label %73
+  br i1 %72, label %251, label %73
 
 73:                                               ; preds = %67
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !11
@@ -10511,7 +10512,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %82 = icmp ult i8 %81, 2
   tail call void @llvm.assume(i1 %82)
   %83 = icmp eq i8 %81, 0
-  br i1 %83, label %250, label %84, !prof !15
+  br i1 %83, label %251, label %84, !prof !15
 
 84:                                               ; preds = %80
   %85 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -10540,7 +10541,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %99 = load i32, ptr %10, align 16
   %100 = load i32, ptr %12, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_future_grace_period, i64 8), i32 2) #29
-          to label %250 [label %101], !srcloc !8
+          to label %251 [label %101], !srcloc !8
 
 101:                                              ; preds = %94
   %102 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !384
@@ -10549,7 +10550,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %105 = icmp ult i8 %104, 2
   tail call void @llvm.assume(i1 %105)
   %106 = icmp eq i8 %104, 0
-  br i1 %106, label %250, label %107
+  br i1 %106, label %251, label %107
 
 107:                                              ; preds = %101
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !11
@@ -10570,7 +10571,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %116 = icmp ult i8 %115, 2
   tail call void @llvm.assume(i1 %116)
   %117 = icmp eq i8 %115, 0
-  br i1 %117, label %250, label %118, !prof !15
+  br i1 %117, label %251, label %118, !prof !15
 
 118:                                              ; preds = %114
   %119 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -10610,7 +10611,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %142 = load i32, ptr %136, align 16
   %143 = load i32, ptr %137, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_future_grace_period, i64 8), i32 2) #29
-          to label %250 [label %144], !srcloc !8
+          to label %251 [label %144], !srcloc !8
 
 144:                                              ; preds = %138
   %145 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !384
@@ -10619,7 +10620,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %148 = icmp ult i8 %147, 2
   tail call void @llvm.assume(i1 %148)
   %149 = icmp eq i8 %147, 0
-  br i1 %149, label %250, label %150
+  br i1 %149, label %251, label %150
 
 150:                                              ; preds = %144
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !11
@@ -10640,7 +10641,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %159 = icmp ult i8 %158, 2
   tail call void @llvm.assume(i1 %159)
   %160 = icmp eq i8 %158, 0
-  br i1 %160, label %250, label %161, !prof !15
+  br i1 %160, label %251, label %161, !prof !15
 
 161:                                              ; preds = %157
   %162 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -10710,7 +10711,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %201 = load i32, ptr %136, align 16
   %202 = load i32, ptr %137, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_future_grace_period, i64 8), i32 2) #29
-          to label %250 [label %203], !srcloc !8
+          to label %251 [label %203], !srcloc !8
 
 203:                                              ; preds = %196
   %204 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !384
@@ -10719,7 +10720,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %207 = icmp ult i8 %206, 2
   tail call void @llvm.assume(i1 %207)
   %208 = icmp eq i8 %206, 0
-  br i1 %208, label %250, label %209
+  br i1 %208, label %251, label %209
 
 209:                                              ; preds = %203
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !11
@@ -10740,7 +10741,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %218 = icmp ult i8 %217, 2
   tail call void @llvm.assume(i1 %218)
   %219 = icmp eq i8 %217, 0
-  br i1 %219, label %250, label %220, !prof !15
+  br i1 %219, label %251, label %220, !prof !15
 
 220:                                              ; preds = %216
   %221 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -10752,7 +10753,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %225 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3264), align 64
   %226 = load ptr, ptr @rcu_start_this_gp.___tp_str.71, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rcu_grace_period, i64 8), i32 2) #29
-          to label %250 [label %227], !srcloc !8
+          to label %251 [label %227], !srcloc !8
 
 227:                                              ; preds = %223
   %228 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !9
@@ -10761,7 +10762,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %231 = icmp ult i8 %230, 2
   tail call void @llvm.assume(i1 %231)
   %232 = icmp eq i8 %230, 0
-  br i1 %232, label %250, label %233
+  br i1 %232, label %251, label %233
 
 233:                                              ; preds = %227
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !11
@@ -10782,7 +10783,7 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   %242 = icmp ult i8 %241, 2
   tail call void @llvm.assume(i1 %242)
   %243 = icmp eq i8 %241, 0
-  br i1 %243, label %250, label %244, !prof !15
+  br i1 %243, label %251, label %244, !prof !15
 
 244:                                              ; preds = %240
   %245 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -10790,35 +10791,37 @@ define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr
   br label %247
 
 247:                                              ; preds = %244, %220, %161, %118, %84
-  %248 = phi i64 [ %246, %244 ], [ %222, %220 ], [ %163, %161 ], [ %120, %118 ], [ %86, %84 ]
-  %249 = phi i1 [ true, %244 ], [ false, %220 ], [ false, %161 ], [ false, %118 ], [ false, %84 ]
-  tail call void @llvm.write_register.i64(metadata !0, i64 %248)
-  br label %250
+  %248 = phi i1 [ %39, %244 ], [ %39, %220 ], [ %39, %161 ], [ %39, %118 ], [ %.lcssa, %84 ]
+  %249 = phi i64 [ %246, %244 ], [ %222, %220 ], [ %163, %161 ], [ %120, %118 ], [ %86, %84 ]
+  %250 = phi i1 [ true, %244 ], [ false, %220 ], [ false, %161 ], [ false, %118 ], [ false, %84 ]
+  tail call void @llvm.write_register.i64(metadata !0, i64 %249)
+  br label %251
 
-250:                                              ; preds = %247, %240, %227, %223, %216, %203, %196, %157, %144, %138, %114, %101, %94, %80, %67, %56
-  %251 = phi i1 [ false, %56 ], [ false, %67 ], [ false, %80 ], [ false, %94 ], [ false, %101 ], [ false, %114 ], [ false, %138 ], [ false, %144 ], [ false, %157 ], [ false, %196 ], [ false, %203 ], [ false, %216 ], [ true, %223 ], [ true, %227 ], [ true, %240 ], [ %249, %247 ]
-  %252 = load i64, ptr %42, align 16
-  %253 = sub i64 %2, %252
-  %254 = icmp slt i64 %253, 0
-  br i1 %254, label %255, label %259
+251:                                              ; preds = %247, %240, %227, %223, %216, %203, %196, %157, %144, %138, %114, %101, %94, %80, %67, %56
+  %252 = phi i1 [ %.lcssa, %56 ], [ %.lcssa, %67 ], [ %.lcssa, %80 ], [ %39, %94 ], [ %39, %101 ], [ %39, %114 ], [ %39, %138 ], [ %39, %144 ], [ %39, %157 ], [ %39, %196 ], [ %39, %203 ], [ %39, %216 ], [ %39, %223 ], [ %39, %227 ], [ %39, %240 ], [ %248, %247 ]
+  %253 = phi i1 [ false, %56 ], [ false, %67 ], [ false, %80 ], [ false, %94 ], [ false, %101 ], [ false, %114 ], [ false, %138 ], [ false, %144 ], [ false, %157 ], [ false, %196 ], [ false, %203 ], [ false, %216 ], [ true, %223 ], [ true, %227 ], [ true, %240 ], [ %250, %247 ]
+  %254 = load i64, ptr %42, align 16
+  %255 = sub i64 %2, %254
+  %256 = icmp slt i64 %255, 0
+  br i1 %256, label %257, label %261
 
-255:                                              ; preds = %250
-  %256 = getelementptr inbounds i8, ptr %0, i64 16
-  store volatile i64 %252, ptr %256, align 16
-  %257 = load i64, ptr %42, align 16
-  %258 = getelementptr inbounds i8, ptr %1, i64 8
-  store volatile i64 %257, ptr %258, align 8
-  br label %259
-
-259:                                              ; preds = %255, %250
-  br i1 %39, label %261, label %260
-
-260:                                              ; preds = %259
-  tail call void @_raw_spin_unlock(ptr noundef %38) #29
+257:                                              ; preds = %251
+  %258 = getelementptr inbounds i8, ptr %0, i64 16
+  store volatile i64 %254, ptr %258, align 16
+  %259 = load i64, ptr %42, align 16
+  %260 = getelementptr inbounds i8, ptr %1, i64 8
+  store volatile i64 %259, ptr %260, align 8
   br label %261
 
-261:                                              ; preds = %260, %259
-  ret i1 %251
+261:                                              ; preds = %257, %251
+  br i1 %252, label %263, label %262
+
+262:                                              ; preds = %261
+  tail call void @_raw_spin_unlock(ptr noundef %38) #29
+  br label %263
+
+263:                                              ; preds = %262, %261
+  ret i1 %253
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -222,7 +222,7 @@ define internal void @_ZN12_GLOBAL__N_115EquivStatusPass7executeESt6vectorINSt7_
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph171, %.lr.ph.preheader, %3
   %.035.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %20, %.lr.ph171 ], [ %20, %.lr.ph ]
-  %.0.lcssa = phi i1 [ false, %3 ], [ %16, %.lr.ph.preheader ], [ %16, %.lr.ph171 ], [ %16, %.lr.ph ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph171 ], [ true, %.lr.ph ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %4, i64 noundef %.035.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %28 unwind label %41

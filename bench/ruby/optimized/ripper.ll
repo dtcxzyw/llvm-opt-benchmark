@@ -21003,36 +21003,36 @@ define internal fastcc void @forwarding_arg_check(ptr noundef %0, i64 noundef %1
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.03388 = load ptr, ptr %6, align 8
-  %.03489 = load ptr, ptr %7, align 8
-  %.not90 = icmp eq ptr %.03489, null
-  br i1 %.not90, label %.critedge44, label %.lr.ph
+  %.03387 = load ptr, ptr %6, align 8
+  %.03488 = load ptr, ptr %7, align 8
+  %.not89 = icmp eq ptr %.03488, null
+  br i1 %.not89, label %.critedge44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not43 = icmp eq i64 %2, 0
   br i1 %.not43, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %vtable_included.exit.thread.us
-  %.03494.us = phi ptr [ %9, %vtable_included.exit.thread.us ], [ %.03489, %.lr.ph ]
-  %.03392.us = phi ptr [ %.033.us, %vtable_included.exit.thread.us ], [ %.03388, %.lr.ph ]
-  %.03591.us = phi i1 [ %20, %vtable_included.exit.thread.us ], [ false, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %.03494.us, i64 16
+  %.03493.us = phi ptr [ %9, %vtable_included.exit.thread.us ], [ %.03488, %.lr.ph ]
+  %.03391.us = phi ptr [ %.033.us, %vtable_included.exit.thread.us ], [ %.03387, %.lr.ph ]
+  %.03590.us = phi i1 [ %20, %vtable_included.exit.thread.us ], [ false, %.lr.ph ]
+  %8 = getelementptr inbounds i8, ptr %.03493.us, i64 16
   %9 = load ptr, ptr %8, align 8
   %switch.us = icmp ult ptr %9, inttoptr (i64 2 to ptr)
   br i1 %switch.us, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %switch.i.us = icmp ult ptr %.03392.us, inttoptr (i64 2 to ptr)
+  %switch.i.us = icmp ult ptr %.03391.us, inttoptr (i64 2 to ptr)
   br i1 %switch.i.us, label %vtable_included.exit.thread.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %.03392.us, i64 8
+  %11 = getelementptr inbounds i8, ptr %.03391.us, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i.us, label %vtable_included.exit.thread.us
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us
-  %14 = load ptr, ptr %.03392.us, align 8
+  %14 = load ptr, ptr %.03391.us, align 8
   %wide.trip.count.i.us = zext nneg i32 %12 to i64
   br label %15
 
@@ -21048,33 +21048,33 @@ define internal fastcc void @forwarding_arg_check(ptr noundef %0, i64 noundef %1
 
 vtable_included.exit.thread.us:                   ; preds = %15, %.preheader.i.us, %10
   %19 = phi i1 [ false, %10 ], [ false, %.preheader.i.us ], [ %18, %15 ]
-  %20 = or i1 %.03591.us, %19
-  %21 = getelementptr inbounds i8, ptr %.03392.us, i64 16
+  %20 = or i1 %.03590.us, %19
+  %21 = getelementptr inbounds i8, ptr %.03391.us, i64 16
   %.033.us = load ptr, ptr %21, align 8
   %.not.us = icmp eq ptr %9, null
   br i1 %.not.us, label %.critedge44, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %vtable_included.exit.thread
-  %.03494 = phi ptr [ %23, %vtable_included.exit.thread ], [ %.03489, %.lr.ph ]
-  %.03392 = phi ptr [ %.033, %vtable_included.exit.thread ], [ %.03388, %.lr.ph ]
-  %.03591 = phi i1 [ %37, %vtable_included.exit.thread ], [ false, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %.03494, i64 16
+  %.03493 = phi ptr [ %23, %vtable_included.exit.thread ], [ %.03488, %.lr.ph ]
+  %.03391 = phi ptr [ %.033, %vtable_included.exit.thread ], [ %.03387, %.lr.ph ]
+  %.03590 = phi i1 [ %37, %vtable_included.exit.thread ], [ false, %.lr.ph ]
+  %22 = getelementptr inbounds i8, ptr %.03493, i64 16
   %23 = load ptr, ptr %22, align 8
   %switch = icmp ult ptr %23, inttoptr (i64 2 to ptr)
   br i1 %switch, label %.critedge, label %24
 
 24:                                               ; preds = %.lr.ph.split
-  %switch.i = icmp ult ptr %.03392, inttoptr (i64 2 to ptr)
+  %switch.i = icmp ult ptr %.03391, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %vtable_included.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
-  %25 = getelementptr inbounds i8, ptr %.03392, i64 8
+  %25 = getelementptr inbounds i8, ptr %.03391, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph.i, label %vtable_included.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %28 = load ptr, ptr %.03392, align 8
+  %28 = load ptr, ptr %.03391, align 8
   %wide.trip.count.i = zext nneg i32 %26 to i64
   br label %29
 
@@ -21094,24 +21094,24 @@ vtable_included.exit.thread.us:                   ; preds = %15, %.preheader.i.u
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.lr.ph.i52 ], [ 0, %29 ]
   %34 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv.i54
   %35 = load i64, ptr %34, align 8
-  %.not127 = icmp ne i64 %35, %2
+  %.not126 = icmp ne i64 %35, %2
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp ne i64 %indvars.iv.next.i55, %wide.trip.count.i
-  %or.cond142.not = select i1 %.not127, i1 %exitcond.not.i56, i1 false
-  br i1 %or.cond142.not, label %.lr.ph.i52, label %vtable_included.exit.thread, !llvm.loop !16
+  %or.cond141.not = select i1 %.not126, i1 %exitcond.not.i56, i1 false
+  br i1 %or.cond141.not, label %.lr.ph.i52, label %vtable_included.exit.thread, !llvm.loop !16
 
 vtable_included.exit.thread:                      ; preds = %33, %.lr.ph.i52, %.preheader.i, %24
-  %36 = phi i1 [ false, %24 ], [ false, %.preheader.i ], [ %.not127, %.lr.ph.i52 ], [ false, %33 ]
-  %37 = or i1 %.03591, %36
-  %38 = getelementptr inbounds i8, ptr %.03392, i64 16
+  %36 = phi i1 [ false, %24 ], [ false, %.preheader.i ], [ %.not126, %.lr.ph.i52 ], [ false, %33 ]
+  %37 = or i1 %.03590, %36
+  %38 = getelementptr inbounds i8, ptr %.03391, i64 16
   %.033 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.critedge44, label %.lr.ph.split, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %9, %.lr.ph.split.us ], [ %23, %.lr.ph.split ]
-  %.us-phi96 = phi i1 [ %.03591.us, %.lr.ph.split.us ], [ %.03591, %.lr.ph.split ]
-  %.us-phi97 = phi ptr [ %.03392.us, %.lr.ph.split.us ], [ %.03392, %.lr.ph.split ]
+  %.us-phi95 = phi i1 [ %.03590.us, %.lr.ph.split.us ], [ %.03590, %.lr.ph.split ]
+  %.us-phi96 = phi ptr [ %.03391.us, %.lr.ph.split.us ], [ %.03391, %.lr.ph.split ]
   %39 = icmp eq ptr %.us-phi, inttoptr (i64 1 to ptr)
   br i1 %39, label %40, label %.critedge44
 
@@ -21132,19 +21132,19 @@ vtable_included.exit.thread:                      ; preds = %33, %.lr.ph.i52, %.
   br i1 %48, label %.critedge48, label %.sink.split
 
 .critedge44:                                      ; preds = %vtable_included.exit.thread, %vtable_included.exit.thread.us, %4, %.critedge
-  %.03587 = phi i1 [ %.us-phi96, %.critedge ], [ false, %4 ], [ %20, %vtable_included.exit.thread.us ], [ %37, %vtable_included.exit.thread ]
-  %.03384 = phi ptr [ %.us-phi97, %.critedge ], [ %.03388, %4 ], [ %.033.us, %vtable_included.exit.thread.us ], [ %.033, %vtable_included.exit.thread ]
-  %switch.i58 = icmp ult ptr %.03384, inttoptr (i64 2 to ptr)
+  %.03586 = phi i1 [ %.us-phi95, %.critedge ], [ false, %4 ], [ %20, %vtable_included.exit.thread.us ], [ %37, %vtable_included.exit.thread ]
+  %.03383 = phi ptr [ %.us-phi96, %.critedge ], [ %.03387, %4 ], [ %.033.us, %vtable_included.exit.thread.us ], [ %.033, %vtable_included.exit.thread ]
+  %switch.i58 = icmp ult ptr %.03383, inttoptr (i64 2 to ptr)
   br i1 %switch.i58, label %.sink.split, label %.preheader.i59
 
 .preheader.i59:                                   ; preds = %.critedge44
-  %49 = getelementptr inbounds i8, ptr %.03384, i64 8
+  %49 = getelementptr inbounds i8, ptr %.03383, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph.i61, label %.sink.split
 
 .lr.ph.i61:                                       ; preds = %.preheader.i59
-  %52 = load ptr, ptr %.03384, align 8
+  %52 = load ptr, ptr %.03383, align 8
   %wide.trip.count.i62 = zext nneg i32 %50 to i64
   br label %53
 
@@ -21177,8 +21177,8 @@ vtable_included.exit66:                           ; preds = %53
   br i1 %exitcond.not.i74, label %.critedge48, label %.lr.ph.i70, !llvm.loop !16
 
 .critedge48:                                      ; preds = %61, %vtable_included.exit66, %45, %44
-  %.03586 = phi i1 [ %.03587, %vtable_included.exit66 ], [ %.us-phi96, %45 ], [ %.us-phi96, %44 ], [ %.03587, %61 ]
-  br i1 %.03586, label %.sink.split, label %62
+  %.03585 = phi i1 [ %.03586, %vtable_included.exit66 ], [ %.us-phi95, %45 ], [ %.us-phi95, %44 ], [ %.03586, %61 ]
+  br i1 %.03585, label %.sink.split, label %62
 
 .sink.split:                                      ; preds = %57, %.lr.ph.i70, %.critedge48, %40, %45, %.critedge44, %.preheader.i59
   %.str.718.sink = phi ptr [ @.str.717, %.preheader.i59 ], [ @.str.717, %.critedge44 ], [ @.str.717, %45 ], [ @.str.717, %40 ], [ @.str.718, %.critedge48 ], [ @.str.717, %.lr.ph.i70 ], [ @.str.717, %57 ]

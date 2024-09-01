@@ -510,8 +510,8 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.loopexit
 
 61:                                               ; preds = %51
-  %cond = icmp ne i8 %53, 0
-  br i1 %cond, label %62, label %dissect_link_tlv.exit.thread
+  %cond.not = icmp eq i8 %53, 0
+  br i1 %cond.not, label %dissect_link_tlv.exit.thread, label %62
 
 62:                                               ; preds = %61
   %63 = zext i8 %53 to i32
@@ -974,12 +974,11 @@ dissect_esl_tlv.exit:                             ; preds = %.lr.ph.i, %273
 dissect_link_tlv.exit:                            ; preds = %406, %385, %409, %368, %345, %dissect_esl_tlv.exit, %229, %194, %dissect_vlan_tlv.exit, %84, %70
   %420 = add nuw nsw i32 %.0150, %56
   %421 = icmp ult i32 %420, %21
-  %422 = and i1 %421, %cond
-  br i1 %422, label %46, label %.loopexit, !llvm.loop !6
+  br i1 %421, label %46, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_link_tlv.exit, %dissect_link_tlv.exit.thread, %35, %59, %49
-  %423 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %423
+  %422 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %422
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

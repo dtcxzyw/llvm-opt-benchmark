@@ -2618,73 +2618,73 @@ cJSON_CreateNull.exit:                            ; preds = %2
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
   %7 = icmp eq ptr %0, %3
-  %8 = or i1 %or.cond.i, %7
-  br i1 %8, label %cJSON_CreateNull.exit.thread, label %9
+  %or.cond34.i = or i1 %or.cond.i, %7
+  br i1 %or.cond34.i, label %cJSON_CreateNull.exit.thread, label %8
 
-9:                                                ; preds = %cJSON_CreateNull.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %12(i64 noundef %11) #31
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %cJSON_CreateNull.exit.thread, label %15
+8:                                                ; preds = %cJSON_CreateNull.exit
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @global_hooks, align 8
+  %12 = tail call ptr %11(i64 noundef %10) #31
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %cJSON_CreateNull.exit.thread, label %14
 
-15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
-  %16 = load i32, ptr %4, align 8
-  %17 = and i32 %16, -513
-  %18 = and i32 %16, 512
-  %.not32.i = icmp eq i32 %18, 0
-  br i1 %.not32.i, label %19, label %24
+14:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
+  %15 = load i32, ptr %4, align 8
+  %16 = and i32 %15, -513
+  %17 = and i32 %15, 512
+  %.not32.i = icmp eq i32 %17, 0
+  br i1 %.not32.i, label %18, label %23
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %24, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not33.i = icmp eq ptr %20, null
+  br i1 %.not33.i, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %23(ptr noundef nonnull %21) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %22(ptr noundef nonnull %20) #31
+  br label %23
 
-24:                                               ; preds = %22, %19, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %13, ptr %25, align 8
-  store i32 %17, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %21, %18, %14
+  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %12, ptr %24, align 8
+  store i32 %16, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %24
-  store ptr %3, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %3, ptr %30, align 8
+28:                                               ; preds = %23
+  store ptr %3, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %34
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i6 = icmp eq ptr %32, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
-34:                                               ; preds = %31
-  store ptr %3, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %3, ptr %37, align 8
+33:                                               ; preds = %30
+  store ptr %3, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateNull.exit.thread:                     ; preds = %2, %cJSON_CreateNull.exit, %9
+cJSON_CreateNull.exit.thread:                     ; preds = %2, %cJSON_CreateNull.exit, %8
   tail call void @cJSON_Delete(ptr noundef %3)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %34, %31, %29, %cJSON_CreateNull.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateNull.exit.thread ], [ %3, %29 ], [ %3, %31 ], [ %3, %34 ]
+add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSON_CreateNull.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateNull.exit.thread ], [ %3, %28 ], [ %3, %30 ], [ %3, %33 ]
   ret ptr %.0
 }
 
@@ -2720,73 +2720,73 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
   %7 = icmp eq ptr %0, %3
-  %8 = or i1 %or.cond.i, %7
-  br i1 %8, label %cJSON_CreateTrue.exit.thread, label %9
+  %or.cond34.i = or i1 %or.cond.i, %7
+  br i1 %or.cond34.i, label %cJSON_CreateTrue.exit.thread, label %8
 
-9:                                                ; preds = %cJSON_CreateTrue.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %12(i64 noundef %11) #31
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %cJSON_CreateTrue.exit.thread, label %15
+8:                                                ; preds = %cJSON_CreateTrue.exit
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @global_hooks, align 8
+  %12 = tail call ptr %11(i64 noundef %10) #31
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %cJSON_CreateTrue.exit.thread, label %14
 
-15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
-  %16 = load i32, ptr %4, align 8
-  %17 = and i32 %16, -513
-  %18 = and i32 %16, 512
-  %.not32.i = icmp eq i32 %18, 0
-  br i1 %.not32.i, label %19, label %24
+14:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
+  %15 = load i32, ptr %4, align 8
+  %16 = and i32 %15, -513
+  %17 = and i32 %15, 512
+  %.not32.i = icmp eq i32 %17, 0
+  br i1 %.not32.i, label %18, label %23
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %24, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not33.i = icmp eq ptr %20, null
+  br i1 %.not33.i, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %23(ptr noundef nonnull %21) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %22(ptr noundef nonnull %20) #31
+  br label %23
 
-24:                                               ; preds = %22, %19, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %13, ptr %25, align 8
-  store i32 %17, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %21, %18, %14
+  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %12, ptr %24, align 8
+  store i32 %16, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %24
-  store ptr %3, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %3, ptr %30, align 8
+28:                                               ; preds = %23
+  store ptr %3, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %34
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i6 = icmp eq ptr %32, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
-34:                                               ; preds = %31
-  store ptr %3, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %3, ptr %37, align 8
+33:                                               ; preds = %30
+  store ptr %3, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateTrue.exit.thread:                     ; preds = %2, %cJSON_CreateTrue.exit, %9
+cJSON_CreateTrue.exit.thread:                     ; preds = %2, %cJSON_CreateTrue.exit, %8
   tail call void @cJSON_Delete(ptr noundef %3)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %34, %31, %29, %cJSON_CreateTrue.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateTrue.exit.thread ], [ %3, %29 ], [ %3, %31 ], [ %3, %34 ]
+add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSON_CreateTrue.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateTrue.exit.thread ], [ %3, %28 ], [ %3, %30 ], [ %3, %33 ]
   ret ptr %.0
 }
 
@@ -2822,73 +2822,73 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
   %7 = icmp eq ptr %0, %3
-  %8 = or i1 %or.cond.i, %7
-  br i1 %8, label %cJSON_CreateFalse.exit.thread, label %9
+  %or.cond34.i = or i1 %or.cond.i, %7
+  br i1 %or.cond34.i, label %cJSON_CreateFalse.exit.thread, label %8
 
-9:                                                ; preds = %cJSON_CreateFalse.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %12(i64 noundef %11) #31
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %cJSON_CreateFalse.exit.thread, label %15
+8:                                                ; preds = %cJSON_CreateFalse.exit
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @global_hooks, align 8
+  %12 = tail call ptr %11(i64 noundef %10) #31
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %cJSON_CreateFalse.exit.thread, label %14
 
-15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
-  %16 = load i32, ptr %4, align 8
-  %17 = and i32 %16, -513
-  %18 = and i32 %16, 512
-  %.not32.i = icmp eq i32 %18, 0
-  br i1 %.not32.i, label %19, label %24
+14:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
+  %15 = load i32, ptr %4, align 8
+  %16 = and i32 %15, -513
+  %17 = and i32 %15, 512
+  %.not32.i = icmp eq i32 %17, 0
+  br i1 %.not32.i, label %18, label %23
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %24, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not33.i = icmp eq ptr %20, null
+  br i1 %.not33.i, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %23(ptr noundef nonnull %21) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %22(ptr noundef nonnull %20) #31
+  br label %23
 
-24:                                               ; preds = %22, %19, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %13, ptr %25, align 8
-  store i32 %17, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %21, %18, %14
+  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %12, ptr %24, align 8
+  store i32 %16, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %24
-  store ptr %3, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %3, ptr %30, align 8
+28:                                               ; preds = %23
+  store ptr %3, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %34
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i6 = icmp eq ptr %32, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
-34:                                               ; preds = %31
-  store ptr %3, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %3, ptr %37, align 8
+33:                                               ; preds = %30
+  store ptr %3, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateFalse.exit.thread:                    ; preds = %2, %cJSON_CreateFalse.exit, %9
+cJSON_CreateFalse.exit.thread:                    ; preds = %2, %cJSON_CreateFalse.exit, %8
   tail call void @cJSON_Delete(ptr noundef %3)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %34, %31, %29, %cJSON_CreateFalse.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateFalse.exit.thread ], [ %3, %29 ], [ %3, %31 ], [ %3, %34 ]
+add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSON_CreateFalse.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateFalse.exit.thread ], [ %3, %28 ], [ %3, %30 ], [ %3, %33 ]
   ret ptr %.0
 }
 
@@ -2926,73 +2926,73 @@ cJSON_CreateBool.exit:                            ; preds = %3
   %8 = icmp eq ptr %1, null
   %or.cond.i = or i1 %7, %8
   %9 = icmp eq ptr %0, %4
-  %10 = or i1 %or.cond.i, %9
-  br i1 %10, label %cJSON_CreateBool.exit.thread, label %11
+  %or.cond34.i = or i1 %or.cond.i, %9
+  br i1 %or.cond34.i, label %cJSON_CreateBool.exit.thread, label %10
 
-11:                                               ; preds = %cJSON_CreateBool.exit
-  %12 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %13 = add i64 %12, 1
-  %14 = load ptr, ptr @global_hooks, align 8
-  %15 = tail call ptr %14(i64 noundef %13) #31
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %cJSON_CreateBool.exit.thread, label %17
+10:                                               ; preds = %cJSON_CreateBool.exit
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %12 = add i64 %11, 1
+  %13 = load ptr, ptr @global_hooks, align 8
+  %14 = tail call ptr %13(i64 noundef %12) #31
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %cJSON_CreateBool.exit.thread, label %16
 
-17:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %1, i64 %13, i1 false)
-  %18 = load i32, ptr %6, align 8
-  %19 = and i32 %18, -513
-  %20 = and i32 %18, 512
-  %.not32.i = icmp eq i32 %20, 0
-  br i1 %.not32.i, label %21, label %26
+16:                                               ; preds = %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %1, i64 %12, i1 false)
+  %17 = load i32, ptr %6, align 8
+  %18 = and i32 %17, -513
+  %19 = and i32 %17, 512
+  %.not32.i = icmp eq i32 %19, 0
+  br i1 %.not32.i, label %20, label %25
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %.not33.i = icmp eq ptr %23, null
-  br i1 %.not33.i, label %26, label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %22 = load ptr, ptr %21, align 8
+  %.not33.i = icmp eq ptr %22, null
+  br i1 %.not33.i, label %25, label %23
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %25(ptr noundef nonnull %23) #31
-  br label %26
+23:                                               ; preds = %20
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %24(ptr noundef nonnull %22) #31
+  br label %25
 
-26:                                               ; preds = %24, %21, %17
-  %27 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %15, ptr %27, align 8
-  store i32 %19, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
+25:                                               ; preds = %23, %20, %16
+  %26 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %14, ptr %26, align 8
+  store i32 %18, ptr %6, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %26
-  store ptr %4, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %4, ptr %32, align 8
+30:                                               ; preds = %25
+  store ptr %4, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %4, ptr %31, align 8
   store ptr null, ptr %4, align 8
   br label %add_item_to_object.exit
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not.i.i6 = icmp eq ptr %35, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %36
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %.not.i.i6 = icmp eq ptr %34, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %35
 
-36:                                               ; preds = %33
-  store ptr %4, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %4, ptr %39, align 8
+35:                                               ; preds = %32
+  store ptr %4, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %27, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %4, ptr %38, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateBool.exit.thread:                     ; preds = %3, %cJSON_CreateBool.exit, %11
+cJSON_CreateBool.exit.thread:                     ; preds = %3, %cJSON_CreateBool.exit, %10
   tail call void @cJSON_Delete(ptr noundef %4)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %36, %33, %31, %cJSON_CreateBool.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateBool.exit.thread ], [ %4, %31 ], [ %4, %33 ], [ %4, %36 ]
+add_item_to_object.exit:                          ; preds = %35, %32, %30, %cJSON_CreateBool.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateBool.exit.thread ], [ %4, %30 ], [ %4, %32 ], [ %4, %35 ]
   ret ptr %.0
 }
 
@@ -3047,73 +3047,73 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   %15 = icmp eq ptr %1, null
   %or.cond.i = or i1 %14, %15
   %16 = icmp eq ptr %0, %4
-  %17 = or i1 %or.cond.i, %16
-  br i1 %17, label %cJSON_CreateNumber.exit.thread, label %18
+  %or.cond34.i = or i1 %or.cond.i, %16
+  br i1 %or.cond34.i, label %cJSON_CreateNumber.exit.thread, label %17
 
-18:                                               ; preds = %cJSON_CreateNumber.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %20 = add i64 %19, 1
-  %21 = load ptr, ptr @global_hooks, align 8
-  %22 = tail call ptr %21(i64 noundef %20) #31
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %cJSON_CreateNumber.exit.thread, label %24
+17:                                               ; preds = %cJSON_CreateNumber.exit
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %19 = add i64 %18, 1
+  %20 = load ptr, ptr @global_hooks, align 8
+  %21 = tail call ptr %20(i64 noundef %19) #31
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %cJSON_CreateNumber.exit.thread, label %23
 
-24:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %20, i1 false)
-  %25 = load i32, ptr %6, align 8
-  %26 = and i32 %25, -513
-  %27 = and i32 %25, 512
-  %.not32.i = icmp eq i32 %27, 0
-  br i1 %.not32.i, label %28, label %33
+23:                                               ; preds = %17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
+  %24 = load i32, ptr %6, align 8
+  %25 = and i32 %24, -513
+  %26 = and i32 %24, 512
+  %.not32.i = icmp eq i32 %26, 0
+  br i1 %.not32.i, label %27, label %32
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %4, i64 56
-  %30 = load ptr, ptr %29, align 8
-  %.not33.i = icmp eq ptr %30, null
-  br i1 %.not33.i, label %33, label %31
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %.not33.i = icmp eq ptr %29, null
+  br i1 %.not33.i, label %32, label %30
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %32(ptr noundef nonnull %30) #31
-  br label %33
+30:                                               ; preds = %27
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %31(ptr noundef nonnull %29) #31
+  br label %32
 
-33:                                               ; preds = %31, %28, %24
-  %34 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %22, ptr %34, align 8
-  store i32 %26, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %40
+32:                                               ; preds = %30, %27, %23
+  %33 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %21, ptr %33, align 8
+  store i32 %25, ptr %6, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %33
-  store ptr %4, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %4, ptr %39, align 8
+37:                                               ; preds = %32
+  store ptr %4, ptr %34, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %4, ptr %38, align 8
   store ptr null, ptr %4, align 8
   br label %add_item_to_object.exit
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not.i.i7 = icmp eq ptr %42, null
-  br i1 %.not.i.i7, label %add_item_to_object.exit, label %43
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not.i.i7 = icmp eq ptr %41, null
+  br i1 %.not.i.i7, label %add_item_to_object.exit, label %42
 
-43:                                               ; preds = %40
-  store ptr %4, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %35, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %4, ptr %46, align 8
+42:                                               ; preds = %39
+  store ptr %4, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %34, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  store ptr %4, ptr %45, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateNumber.exit.thread:                   ; preds = %3, %cJSON_CreateNumber.exit, %18
+cJSON_CreateNumber.exit.thread:                   ; preds = %3, %cJSON_CreateNumber.exit, %17
   tail call void @cJSON_Delete(ptr noundef %4)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %43, %40, %38, %cJSON_CreateNumber.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateNumber.exit.thread ], [ %4, %38 ], [ %4, %40 ], [ %4, %43 ]
+add_item_to_object.exit:                          ; preds = %42, %39, %37, %cJSON_CreateNumber.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateNumber.exit.thread ], [ %4, %37 ], [ %4, %39 ], [ %4, %42 ]
   ret ptr %.0
 }
 
@@ -3470,73 +3470,73 @@ cJSON_CreateObject.exit:                          ; preds = %2
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
   %7 = icmp eq ptr %0, %3
-  %8 = or i1 %or.cond.i, %7
-  br i1 %8, label %cJSON_CreateObject.exit.thread, label %9
+  %or.cond34.i = or i1 %or.cond.i, %7
+  br i1 %or.cond34.i, label %cJSON_CreateObject.exit.thread, label %8
 
-9:                                                ; preds = %cJSON_CreateObject.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %12(i64 noundef %11) #31
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %cJSON_CreateObject.exit.thread, label %15
+8:                                                ; preds = %cJSON_CreateObject.exit
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @global_hooks, align 8
+  %12 = tail call ptr %11(i64 noundef %10) #31
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %cJSON_CreateObject.exit.thread, label %14
 
-15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
-  %16 = load i32, ptr %4, align 8
-  %17 = and i32 %16, -513
-  %18 = and i32 %16, 512
-  %.not32.i = icmp eq i32 %18, 0
-  br i1 %.not32.i, label %19, label %24
+14:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
+  %15 = load i32, ptr %4, align 8
+  %16 = and i32 %15, -513
+  %17 = and i32 %15, 512
+  %.not32.i = icmp eq i32 %17, 0
+  br i1 %.not32.i, label %18, label %23
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %24, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not33.i = icmp eq ptr %20, null
+  br i1 %.not33.i, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %23(ptr noundef nonnull %21) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %22(ptr noundef nonnull %20) #31
+  br label %23
 
-24:                                               ; preds = %22, %19, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %13, ptr %25, align 8
-  store i32 %17, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %21, %18, %14
+  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %12, ptr %24, align 8
+  store i32 %16, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %24
-  store ptr %3, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %3, ptr %30, align 8
+28:                                               ; preds = %23
+  store ptr %3, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %34
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i6 = icmp eq ptr %32, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
-34:                                               ; preds = %31
-  store ptr %3, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %3, ptr %37, align 8
+33:                                               ; preds = %30
+  store ptr %3, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateObject.exit.thread:                   ; preds = %2, %cJSON_CreateObject.exit, %9
+cJSON_CreateObject.exit.thread:                   ; preds = %2, %cJSON_CreateObject.exit, %8
   tail call void @cJSON_Delete(ptr noundef %3)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %34, %31, %29, %cJSON_CreateObject.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateObject.exit.thread ], [ %3, %29 ], [ %3, %31 ], [ %3, %34 ]
+add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSON_CreateObject.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateObject.exit.thread ], [ %3, %28 ], [ %3, %30 ], [ %3, %33 ]
   ret ptr %.0
 }
 
@@ -3572,73 +3572,73 @@ cJSON_CreateArray.exit:                           ; preds = %2
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
   %7 = icmp eq ptr %0, %3
-  %8 = or i1 %or.cond.i, %7
-  br i1 %8, label %cJSON_CreateArray.exit.thread, label %9
+  %or.cond34.i = or i1 %or.cond.i, %7
+  br i1 %or.cond34.i, label %cJSON_CreateArray.exit.thread, label %8
 
-9:                                                ; preds = %cJSON_CreateArray.exit
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %11 = add i64 %10, 1
-  %12 = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %12(i64 noundef %11) #31
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %cJSON_CreateArray.exit.thread, label %15
+8:                                                ; preds = %cJSON_CreateArray.exit
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @global_hooks, align 8
+  %12 = tail call ptr %11(i64 noundef %10) #31
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %cJSON_CreateArray.exit.thread, label %14
 
-15:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
-  %16 = load i32, ptr %4, align 8
-  %17 = and i32 %16, -513
-  %18 = and i32 %16, 512
-  %.not32.i = icmp eq i32 %18, 0
-  br i1 %.not32.i, label %19, label %24
+14:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
+  %15 = load i32, ptr %4, align 8
+  %16 = and i32 %15, -513
+  %17 = and i32 %15, 512
+  %.not32.i = icmp eq i32 %17, 0
+  br i1 %.not32.i, label %18, label %23
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %24, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %.not33.i = icmp eq ptr %20, null
+  br i1 %.not33.i, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %23(ptr noundef nonnull %21) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %22(ptr noundef nonnull %20) #31
+  br label %23
 
-24:                                               ; preds = %22, %19, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %13, ptr %25, align 8
-  store i32 %17, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %21, %18, %14
+  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %12, ptr %24, align 8
+  store i32 %16, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %24
-  store ptr %3, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %3, ptr %30, align 8
+28:                                               ; preds = %23
+  store ptr %3, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i6, label %add_item_to_object.exit, label %34
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i6 = icmp eq ptr %32, null
+  br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
-34:                                               ; preds = %31
-  store ptr %3, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %3, ptr %37, align 8
+33:                                               ; preds = %30
+  store ptr %3, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
-cJSON_CreateArray.exit.thread:                    ; preds = %2, %cJSON_CreateArray.exit, %9
+cJSON_CreateArray.exit.thread:                    ; preds = %2, %cJSON_CreateArray.exit, %8
   tail call void @cJSON_Delete(ptr noundef %3)
   br label %add_item_to_object.exit
 
-add_item_to_object.exit:                          ; preds = %34, %31, %29, %cJSON_CreateArray.exit.thread
-  %.0 = phi ptr [ null, %cJSON_CreateArray.exit.thread ], [ %3, %29 ], [ %3, %31 ], [ %3, %34 ]
+add_item_to_object.exit:                          ; preds = %33, %30, %28, %cJSON_CreateArray.exit.thread
+  %.0 = phi ptr [ null, %cJSON_CreateArray.exit.thread ], [ %3, %28 ], [ %3, %30 ], [ %3, %33 ]
   ret ptr %.0
 }
 
@@ -3724,7 +3724,7 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
 define ptr @cJSON_DetachItemFromArray(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
-  %or.cond = or i1 %3, %4
+  %or.cond = or i1 %4, %3
   br i1 %or.cond, label %cJSON_DetachItemViaPointer.exit, label %5
 
 5:                                                ; preds = %2
@@ -4173,7 +4173,7 @@ define range(i32 0, 2) i32 @cJSON_InsertItemInArray(ptr noundef %0, i32 noundef 
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
   %6 = icmp eq ptr %0, null
-  %or.cond29 = or i1 %or.cond, %6
+  %or.cond29 = or i1 %6, %or.cond
   br i1 %or.cond29, label %add_item_to_array.exit, label %7
 
 7:                                                ; preds = %3
@@ -4349,7 +4349,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
 define range(i32 0, 2) i32 @cJSON_ReplaceItemInArray(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = icmp slt i32 %1, 0
   %5 = icmp eq ptr %0, null
-  %or.cond = or i1 %4, %5
+  %or.cond = or i1 %5, %4
   br i1 %or.cond, label %cJSON_ReplaceItemViaPointer.exit, label %6
 
 6:                                                ; preds = %3

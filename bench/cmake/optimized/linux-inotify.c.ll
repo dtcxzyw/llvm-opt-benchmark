@@ -577,23 +577,23 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 
 split.i.i:                                        ; preds = %99
   %111 = getelementptr inbounds i8, ptr %97, i64 24
-  %.phi.trans.insert255.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %.pre256.i.i = load ptr, ptr %.phi.trans.insert255.i.i, align 8
-  %112 = icmp eq ptr %.pre256.i.i, null
+  %.phi.trans.insert254.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.pre255.i.i = load ptr, ptr %.phi.trans.insert254.i.i, align 8
+  %112 = icmp eq ptr %.pre255.i.i, null
   br i1 %112, label %116, label %split.thread.i.thread.i
 
 split.thread.i.thread.i:                          ; preds = %split.i.i
-  %113 = getelementptr inbounds i8, ptr %.pre256.i.i, i64 24
+  %113 = getelementptr inbounds i8, ptr %.pre255.i.i, i64 24
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %split.thread.i.i
 
 116:                                              ; preds = %split.thread.i.thread.i, %split.i.i
   store i32 0, ptr %111, align 8
-  %.pre257.i.i = load ptr, ptr %.0.i.i, align 8
+  %.pre256.i.i = load ptr, ptr %.0.i.i, align 8
   %117 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   store i32 1, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %.pre257.i.i, i64 8
+  %118 = getelementptr inbounds i8, ptr %.pre256.i.i, i64 8
   %119 = load ptr, ptr %118, align 8
   store ptr %119, ptr %.0.i.i, align 8
   %.not203.i.i = icmp eq ptr %119, null
@@ -607,7 +607,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
 122:                                              ; preds = %120, %116
   %123 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %.pre257.i.i, i64 16
+  %125 = getelementptr inbounds i8, ptr %.pre256.i.i, i64 16
   store ptr %124, ptr %125, align 8
   %.not204.i.i = icmp eq ptr %124, null
   br i1 %.not204.i.i, label %129, label %126
@@ -615,15 +615,15 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
 126:                                              ; preds = %122
   %127 = load ptr, ptr %124, align 8
   %128 = icmp eq ptr %.0.i.i, %127
-  %spec.select302.idx.i.i = select i1 %128, i64 0, i64 8
-  %spec.select302.i.i = getelementptr inbounds i8, ptr %124, i64 %spec.select302.idx.i.i
+  %spec.select301.idx.i.i = select i1 %128, i64 0, i64 8
+  %spec.select301.i.i = getelementptr inbounds i8, ptr %124, i64 %spec.select301.idx.i.i
   br label %129
 
 129:                                              ; preds = %126, %122
-  %.sink296.i.i = phi ptr [ %10, %122 ], [ %spec.select302.i.i, %126 ]
-  store ptr %.pre257.i.i, ptr %.sink296.i.i, align 8
+  %.sink295.i.i = phi ptr [ %10, %122 ], [ %spec.select301.i.i, %126 ]
+  store ptr %.pre256.i.i, ptr %.sink295.i.i, align 8
   store ptr %.0.i.i, ptr %118, align 8
-  store ptr %.pre257.i.i, ptr %123, align 8
+  store ptr %.pre256.i.i, ptr %123, align 8
   %130 = load ptr, ptr %76, align 8
   br label %split.thread.i.i
 
@@ -667,13 +667,13 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 147:                                              ; preds = %143
   %148 = load ptr, ptr %145, align 8
   %149 = icmp eq ptr %.0179.i.i, %148
-  %spec.select303.idx.i.i = select i1 %149, i64 0, i64 8
-  %spec.select303.i.i = getelementptr inbounds i8, ptr %145, i64 %spec.select303.idx.i.i
+  %spec.select302.idx.i.i = select i1 %149, i64 0, i64 8
+  %spec.select302.i.i = getelementptr inbounds i8, ptr %145, i64 %spec.select302.idx.i.i
   br label %150
 
 150:                                              ; preds = %147, %143
-  %.sink297.i.i = phi ptr [ %10, %143 ], [ %spec.select303.i.i, %147 ]
-  store ptr %139, ptr %.sink297.i.i, align 8
+  %.sink296.i.i = phi ptr [ %10, %143 ], [ %spec.select302.i.i, %147 ]
+  store ptr %139, ptr %.sink296.i.i, align 8
   store ptr %.0179.i.i, ptr %139, align 8
   store ptr %139, ptr %144, align 8
   br label %.critedge.sink.split.i.i
@@ -711,13 +711,13 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 166:                                              ; preds = %162
   %167 = load ptr, ptr %164, align 8
   %168 = icmp eq ptr %.0179.i.i, %167
-  %spec.select304.idx.i.i = select i1 %168, i64 0, i64 8
-  %spec.select304.i.i = getelementptr inbounds i8, ptr %164, i64 %spec.select304.idx.i.i
+  %spec.select303.idx.i.i = select i1 %168, i64 0, i64 8
+  %spec.select303.i.i = getelementptr inbounds i8, ptr %164, i64 %spec.select303.idx.i.i
   br label %169
 
 169:                                              ; preds = %166, %162
-  %.sink298.i.i = phi ptr [ %10, %162 ], [ %spec.select304.i.i, %166 ]
-  store ptr %157, ptr %.sink298.i.i, align 8
+  %.sink297.i.i = phi ptr [ %10, %162 ], [ %spec.select303.i.i, %166 ]
+  store ptr %157, ptr %.sink297.i.i, align 8
   store ptr %.0179.i.i, ptr %158, align 8
   store ptr %157, ptr %163, align 8
   %170 = load ptr, ptr %.0179.i.i, align 8
@@ -760,10 +760,10 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 
 190:                                              ; preds = %.thread.i.i, %186
   store i32 0, ptr %188, align 8
-  %.pre254.i.i = load ptr, ptr %187, align 8
+  %.pre253.i.i = load ptr, ptr %187, align 8
   %191 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
   store i32 1, ptr %191, align 8
-  %192 = load ptr, ptr %.pre254.i.i, align 8
+  %192 = load ptr, ptr %.pre253.i.i, align 8
   store ptr %192, ptr %187, align 8
   %.not195.i.i = icmp eq ptr %192, null
   br i1 %.not195.i.i, label %195, label %193
@@ -776,7 +776,7 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 195:                                              ; preds = %193, %190
   %196 = getelementptr inbounds i8, ptr %.2.i.i, i64 16
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %.pre254.i.i, i64 16
+  %198 = getelementptr inbounds i8, ptr %.pre253.i.i, i64 16
   store ptr %197, ptr %198, align 8
   %.not196.i.i = icmp eq ptr %197, null
   br i1 %.not196.i.i, label %202, label %199
@@ -784,15 +784,15 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 199:                                              ; preds = %195
   %200 = load ptr, ptr %197, align 8
   %201 = icmp eq ptr %.2.i.i, %200
-  %spec.select305.idx.i.i = select i1 %201, i64 0, i64 8
-  %spec.select305.i.i = getelementptr inbounds i8, ptr %197, i64 %spec.select305.idx.i.i
+  %spec.select304.idx.i.i = select i1 %201, i64 0, i64 8
+  %spec.select304.i.i = getelementptr inbounds i8, ptr %197, i64 %spec.select304.idx.i.i
   br label %202
 
 202:                                              ; preds = %199, %195
-  %.sink299.i.i = phi ptr [ %10, %195 ], [ %spec.select305.i.i, %199 ]
-  store ptr %.pre254.i.i, ptr %.sink299.i.i, align 8
-  store ptr %.2.i.i, ptr %.pre254.i.i, align 8
-  store ptr %.pre254.i.i, ptr %196, align 8
+  %.sink298.i.i = phi ptr [ %10, %195 ], [ %spec.select304.i.i, %199 ]
+  store ptr %.pre253.i.i, ptr %.sink298.i.i, align 8
+  store ptr %.2.i.i, ptr %.pre253.i.i, align 8
+  store ptr %.pre253.i.i, ptr %196, align 8
   %203 = load ptr, ptr %.0179.i.i, align 8
   br label %.thread.thread.i.i
 
@@ -836,13 +836,13 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
 220:                                              ; preds = %216
   %221 = load ptr, ptr %218, align 8
   %222 = icmp eq ptr %.0179.i.i, %221
-  %spec.select306.idx.i.i = select i1 %222, i64 0, i64 8
-  %spec.select306.i.i = getelementptr inbounds i8, ptr %218, i64 %spec.select306.idx.i.i
+  %spec.select305.idx.i.i = select i1 %222, i64 0, i64 8
+  %spec.select305.i.i = getelementptr inbounds i8, ptr %218, i64 %spec.select305.idx.i.i
   br label %223
 
 223:                                              ; preds = %220, %216
-  %.sink300.i.i = phi ptr [ %10, %216 ], [ %spec.select306.i.i, %220 ]
-  store ptr %211, ptr %.sink300.i.i, align 8
+  %.sink299.i.i = phi ptr [ %10, %216 ], [ %spec.select305.i.i, %220 ]
+  store ptr %211, ptr %.sink299.i.i, align 8
   store ptr %.0179.i.i, ptr %212, align 8
   store ptr %211, ptr %217, align 8
   br label %.critedge.sink.split.i.i

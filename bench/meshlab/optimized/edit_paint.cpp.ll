@@ -16827,16 +16827,13 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %24, %_ZNSt6vectorI
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit
   %50 = icmp sgt i32 %2, 1
-  br i1 %50, label %.preheader, label %_ZNSt6vectorI7QPointFSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EES7_.exit
+  br i1 %50, label %.lr.ph109, label %_ZNSt6vectorI7QPointFSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EES7_.exit
 
 ._crit_edge.thread:                               ; preds = %3
   %51 = icmp sgt i32 %2, 1
   br i1 %51, label %._crit_edge110, label %_ZNSt6vectorI7QPointFSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EES7_.exit
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %4, label %.lr.ph109, label %._crit_edge110
-
-.lr.ph109:                                        ; preds = %.preheader
+.lr.ph109:                                        ; preds = %._crit_edge
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = uitofp nneg i32 %2 to double
   %54 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17055,7 +17052,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit59: ; preds = %105, %_ZNSt6vec
   %exitcond126.not = icmp eq i32 %131, %2
   br i1 %exitcond126.not, label %.loopexit, label %.lr.ph107, !llvm.loop !209
 
-._crit_edge110:                                   ; preds = %.loopexit, %._crit_edge.thread, %.preheader
+._crit_edge110:                                   ; preds = %.loopexit, %._crit_edge.thread
   %132 = load ptr, ptr %0, align 8
   %133 = sext i32 %1 to i64
   %134 = getelementptr inbounds %class.QPointF, ptr %132, i64 %133

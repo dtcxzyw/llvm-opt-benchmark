@@ -2308,8 +2308,8 @@ do.body:                                          ; preds = %if.end, %land.rhs
 
 land.lhs.true:                                    ; preds = %do.body
   %4 = load i32, ptr %call8, align 4
-  %cmp9.not = icmp ne i32 %4, 4
-  br i1 %cmp9.not, label %do.end, label %land.rhs
+  %cmp9.not.not = icmp eq i32 %4, 4
+  br i1 %cmp9.not.not, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %land.lhs.true
   %call10 = call i32 @PyErr_CheckSignals() #16
@@ -2317,7 +2317,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool11.not, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %land.lhs.true, %land.rhs, %do.body
-  %async_err.1 = phi i1 [ true, %do.body ], [ %cmp9.not, %land.rhs ], [ %cmp9.not, %land.lhs.true ]
+  %async_err.1 = phi i1 [ true, %land.lhs.true ], [ false, %land.rhs ], [ true, %do.body ]
   %5 = load i32, ptr %call8, align 4
   %6 = load ptr, ptr %bytes, align 8
   %7 = load i64, ptr %6, align 8

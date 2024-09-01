@@ -22063,15 +22063,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %382 = call ptr @LLVMBuildBr(ptr noundef %381, ptr noundef %40) #16, !noalias !3016
   %383 = load ptr, ptr %132, align 8
   call void @LLVMPositionBuilderAtEnd(ptr noundef %383, ptr noundef %40) #16
-  br i1 %.not, label %._crit_edge272, label %.lr.ph271
-
-.lr.ph271:                                        ; preds = %.loopexit
   %384 = getelementptr inbounds i8, ptr %0, i64 56
   br label %385
 
-385:                                              ; preds = %.lr.ph271, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
-  %386 = phi i64 [ 0, %.lr.ph271 ], [ %403, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
-  %.0269 = phi i32 [ 0, %.lr.ph271 ], [ %402, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
+385:                                              ; preds = %.loopexit, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
+  %386 = phi i64 [ 0, %.loopexit ], [ %403, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
+  %.0269 = phi i32 [ 0, %.loopexit ], [ %402, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
   %387 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0203.0, i64 %386
   %388 = load ptr, ptr %387, align 8, !noalias !3019
   %389 = call ptr @LLVMTypeOf(ptr noundef %388) #16, !noalias !3019
@@ -22115,19 +22112,16 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   %406 = call ptr @LLVMBuildBr(ptr noundef %405, ptr noundef %40) #16, !noalias !3016
   %407 = load ptr, ptr %132, align 8
   call void @LLVMPositionBuilderAtEnd(ptr noundef %407, ptr noundef %40) #16
-  br label %._crit_edge272
-
-._crit_edge272:                                   ; preds = %._crit_edge272.critedge, %.loopexit
   %.not.i.i.i72 = icmp eq ptr %.sroa.0165.0, null
   br i1 %.not.i.i.i72, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit73, label %._crit_edge272.thread
 
-._crit_edge272.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge272
+._crit_edge272.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge272.critedge
   %408 = ptrtoint ptr %.sroa.0165.0 to i64
   %409 = sub i64 %.sink.i70, %408
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0165.0, i64 noundef %409) #18
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit73
 
-_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit73: ; preds = %._crit_edge272, %._crit_edge272.thread
+_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit73: ; preds = %._crit_edge272.critedge, %._crit_edge272.thread
   %.not.i.i.i74 = icmp eq ptr %.sroa.0203.0, null
   br i1 %.not.i.i.i74, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit77, label %410
 
@@ -23601,15 +23595,12 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
   %444 = call ptr @LLVMBuildBr(ptr noundef %443, ptr noundef %45) #16, !noalias !3432
   %445 = load ptr, ptr %46, align 8
   call void @LLVMPositionBuilderAtEnd(ptr noundef %445, ptr noundef %45) #16
-  br i1 %.not, label %._crit_edge289, label %.lr.ph288
-
-.lr.ph288:                                        ; preds = %.loopexit
   %446 = getelementptr inbounds i8, ptr %0, i64 56
   br label %447
 
-447:                                              ; preds = %.lr.ph288, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
-  %448 = phi i64 [ 0, %.lr.ph288 ], [ %465, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
-  %.0286 = phi i32 [ 0, %.lr.ph288 ], [ %464, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
+447:                                              ; preds = %.loopexit, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit
+  %448 = phi i64 [ 0, %.loopexit ], [ %465, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
+  %.0286 = phi i32 [ 0, %.loopexit ], [ %464, %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit ]
   %449 = getelementptr inbounds %"class.WasmEdge::LLVM::Value", ptr %.sroa.0200.0, i64 %448
   %450 = load ptr, ptr %449, align 8, !noalias !3435
   %451 = call ptr @LLVMTypeOf(ptr noundef %450) #16, !noalias !3435
@@ -23653,19 +23644,16 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   %468 = call ptr @LLVMBuildBr(ptr noundef %467, ptr noundef %45) #16, !noalias !3432
   %469 = load ptr, ptr %46, align 8
   call void @LLVMPositionBuilderAtEnd(ptr noundef %469, ptr noundef %45) #16
-  br label %._crit_edge289
-
-._crit_edge289:                                   ; preds = %._crit_edge289.critedge, %.loopexit
   %.not.i.i.i69 = icmp eq ptr %.sroa.0162.0, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit70, label %._crit_edge289.thread
 
-._crit_edge289.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge289
+._crit_edge289.thread:                            ; preds = %_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit, %._crit_edge289.critedge
   %470 = ptrtoint ptr %.sroa.0162.0 to i64
   %471 = sub i64 %.sink.i67, %470
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0162.0, i64 noundef %471) #18
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit70
 
-_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit70: ; preds = %._crit_edge289, %._crit_edge289.thread
+_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit70: ; preds = %._crit_edge289.critedge, %._crit_edge289.thread
   %.not.i.i.i71 = icmp eq ptr %.sroa.0200.0, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit74, label %472
 

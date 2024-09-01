@@ -97,35 +97,35 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [256 x ptr], align 16
   %7 = load i8, ptr %0, align 1
-  %.not54 = icmp eq i8 %7, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not53 = icmp eq i8 %7, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %.not176.i = icmp eq ptr %1, null
+  %.not125.i = icmp eq ptr %1, null
   %8 = icmp ne ptr %2, null
   %.not12.i = icmp eq ptr %3, null
   br label %9
 
 9:                                                ; preds = %.lr.ph, %nsvg__parseContent.exit
   %10 = phi i8 [ %7, %.lr.ph ], [ %84, %nsvg__parseContent.exit ]
-  %.057 = phi i32 [ 2, %.lr.ph ], [ %.1, %nsvg__parseContent.exit ]
-  %.02156 = phi ptr [ %0, %.lr.ph ], [ %.122, %nsvg__parseContent.exit ]
-  %.02355 = phi ptr [ %0, %.lr.ph ], [ %.124, %nsvg__parseContent.exit ]
+  %.056 = phi i32 [ 2, %.lr.ph ], [ %.1, %nsvg__parseContent.exit ]
+  %.02155 = phi ptr [ %0, %.lr.ph ], [ %.122, %nsvg__parseContent.exit ]
+  %.02354 = phi ptr [ %0, %.lr.ph ], [ %.124, %nsvg__parseContent.exit ]
   %11 = icmp eq i8 %10, 60
-  %12 = icmp eq i32 %.057, 2
+  %12 = icmp eq i32 %.056, 2
   %or.cond = select i1 %11, i1 %12, i1 false
   br i1 %or.cond, label %13, label %24
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %.02355, i64 1
-  store i8 0, ptr %.02355, align 1
-  %15 = load i8, ptr %.02156, align 1
+  %14 = getelementptr inbounds i8, ptr %.02354, i64 1
+  store i8 0, ptr %.02354, align 1
+  %15 = load i8, ptr %.02155, align 1
   %.not14.i = icmp eq i8 %15, 0
   br i1 %.not14.i, label %nsvg__parseContent.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %20
   %16 = phi i8 [ %22, %20 ], [ %15, %13 ]
-  %.015.i = phi ptr [ %21, %20 ], [ %.02156, %13 ]
+  %.015.i = phi ptr [ %21, %20 ], [ %.02155, %13 ]
   %17 = zext nneg i8 %16 to i64
   %memchr.bounds.i.i = icmp ugt i8 %16, 63
   %18 = shl nuw i64 1, %17
@@ -149,21 +149,21 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
 
 24:                                               ; preds = %9
   %25 = icmp eq i8 %10, 62
-  %26 = icmp eq i32 %.057, 1
+  %26 = icmp eq i32 %.056, 1
   %or.cond3 = select i1 %25, i1 %26, i1 false
-  %27 = getelementptr inbounds i8, ptr %.02355, i64 1
+  %27 = getelementptr inbounds i8, ptr %.02354, i64 1
   br i1 %or.cond3, label %28, label %nsvg__parseContent.exit
 
 28:                                               ; preds = %24
-  store i8 0, ptr %.02355, align 1
+  store i8 0, ptr %.02354, align 1
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
-  %29 = load i8, ptr %.02156, align 1
-  %.not139.i = icmp eq i8 %29, 0
-  br i1 %.not139.i, label %.critedge.i31, label %.lr.ph.i26
+  %29 = load i8, ptr %.02155, align 1
+  %.not140.i = icmp eq i8 %29, 0
+  br i1 %.not140.i, label %.critedge.i31, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %28, %34
   %30 = phi i8 [ %36, %34 ], [ %29, %28 ]
-  %.0140.i = phi ptr [ %35, %34 ], [ %.02156, %28 ]
+  %.0141.i = phi ptr [ %35, %34 ], [ %.02155, %28 ]
   %31 = zext nneg i8 %30 to i64
   %memchr.bounds.i.i27 = icmp ugt i8 %30, 63
   %32 = shl nuw i64 1, %31
@@ -173,26 +173,26 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %memchr1.i.not.i29, label %.critedge.i31, label %34
 
 34:                                               ; preds = %.lr.ph.i26
-  %35 = getelementptr inbounds i8, ptr %.0140.i, i64 1
+  %35 = getelementptr inbounds i8, ptr %.0141.i, i64 1
   %36 = load i8, ptr %35, align 1
   %.not.i30 = icmp eq i8 %36, 0
   br i1 %.not.i30, label %.critedge.i31, label %.lr.ph.i26, !llvm.loop !7
 
 .critedge.i31:                                    ; preds = %34, %.lr.ph.i26, %28
-  %.0.lcssa.i = phi ptr [ %.02156, %28 ], [ %.0140.i, %.lr.ph.i26 ], [ %35, %34 ]
+  %.0.lcssa.i = phi ptr [ %.02155, %28 ], [ %.0141.i, %.lr.ph.i26 ], [ %35, %34 ]
   %.lcssa.i = phi i8 [ 0, %28 ], [ %30, %.lr.ph.i26 ], [ 0, %34 ]
   %.not98.not.i = icmp eq i8 %.lcssa.i, 47
   %.1.idx.i = zext i1 %.not98.not.i to i64
   %.1.i = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.1.idx.i
   %37 = load i8, ptr %.1.i, align 1
-  switch i8 %37, label %.lr.ph147.i [
+  switch i8 %37, label %.lr.ph148.i [
     i8 0, label %nsvg__parseElement.exit
     i8 63, label %nsvg__parseElement.exit
     i8 33, label %nsvg__parseElement.exit
   ]
 
-.lr.ph147.i:                                      ; preds = %.critedge.i31, %43
-  %.2146.i = phi ptr [ %42, %43 ], [ %.1.i, %.critedge.i31 ]
+.lr.ph148.i:                                      ; preds = %.critedge.i31, %43
+  %.2147.i = phi ptr [ %42, %43 ], [ %.1.i, %.critedge.i31 ]
   %38 = phi i8 [ %.pr.i, %43 ], [ %37, %.critedge.i31 ]
   %39 = zext nneg i8 %38 to i64
   %memchr.bounds.i113.i = icmp ugt i8 %38, 63
@@ -200,39 +200,39 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %41 = and i64 %40, 4294983169
   %memchr.bits.i114.i = icmp eq i64 %41, 0
   %memchr1.i115.not.i = select i1 %memchr.bounds.i113.i, i1 true, i1 %memchr.bits.i114.i
-  %42 = getelementptr inbounds i8, ptr %.2146.i, i64 1
+  %42 = getelementptr inbounds i8, ptr %.2147.i, i64 1
   br i1 %memchr1.i115.not.i, label %43, label %.critedge2.i
 
-43:                                               ; preds = %.lr.ph147.i
+43:                                               ; preds = %.lr.ph148.i
   %.pr.i = load i8, ptr %42, align 1
   %.not94.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not94.i, label %.critedge2.thread.i, label %.lr.ph147.i, !llvm.loop !8
+  br i1 %.not94.i, label %.critedge2.thread.i, label %.lr.ph148.i, !llvm.loop !8
 
-.critedge2.i:                                     ; preds = %.lr.ph147.i
-  store i8 0, ptr %.2146.i, align 1
+.critedge2.i:                                     ; preds = %.lr.ph148.i
+  store i8 0, ptr %.2147.i, align 1
   br label %.critedge2.thread.i
 
 .critedge2.thread.i:                              ; preds = %43, %.critedge2.i
-  br i1 %.not98.not.i, label %.critedge4.thread.i, label %.lr.ph156.i.preheader
+  br i1 %.not98.not.i, label %.critedge4.thread.i, label %.lr.ph157.i.preheader
 
-.lr.ph156.i.preheader:                            ; preds = %.critedge2.thread.i
+.lr.ph157.i.preheader:                            ; preds = %.critedge2.thread.i
   %44 = load i8, ptr %42, align 1
-  %.not73 = icmp eq i8 %44, 0
-  br i1 %.not73, label %.critedge4.i, label %.preheader125.i.preheader
+  %.not57 = icmp eq i8 %44, 0
+  br i1 %.not57, label %.critedge4.i, label %.preheader126.i.preheader
 
 .critedge4.thread.i:                              ; preds = %.critedge2.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %81
 
-.preheader125.i.preheader:                        ; preds = %.lr.ph156.i.preheader, %.lr.ph156.i
-  %45 = phi i8 [ %72, %.lr.ph156.i ], [ %44, %.lr.ph156.i.preheader ]
-  %.4155.i49 = phi ptr [ %.10.i, %.lr.ph156.i ], [ %42, %.lr.ph156.i.preheader ]
-  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i, %.lr.ph156.i ], [ 0, %.lr.ph156.i.preheader ]
-  br label %.preheader125.i
+.preheader126.i.preheader:                        ; preds = %.lr.ph157.i.preheader, %.lr.ph157.i
+  %45 = phi i8 [ %72, %.lr.ph157.i ], [ %44, %.lr.ph157.i.preheader ]
+  %.4156.i49 = phi ptr [ %.10.i, %.lr.ph157.i ], [ %42, %.lr.ph157.i.preheader ]
+  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i, %.lr.ph157.i ], [ 0, %.lr.ph157.i.preheader ]
+  br label %.preheader126.i
 
-.preheader125.i:                                  ; preds = %.preheader125.i.preheader, %50
-  %.5149.i = phi ptr [ %51, %50 ], [ %.4155.i49, %.preheader125.i.preheader ]
-  %46 = phi i8 [ %.pr122.i, %50 ], [ %45, %.preheader125.i.preheader ]
+.preheader126.i:                                  ; preds = %.preheader126.i.preheader, %50
+  %.5150.i = phi ptr [ %51, %50 ], [ %.4156.i49, %.preheader126.i.preheader ]
+  %46 = phi i8 [ %.pr122.i, %50 ], [ %45, %.preheader126.i.preheader ]
   %47 = zext nneg i8 %46 to i64
   %memchr.bounds.i116.i = icmp ugt i8 %46, 63
   %48 = shl nuw i64 1, %47
@@ -241,19 +241,19 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %memchr1.i118.not.i = select i1 %memchr.bounds.i116.i, i1 true, i1 %memchr.bits.i117.i
   br i1 %memchr1.i118.not.i, label %.critedge6.i, label %50
 
-50:                                               ; preds = %.preheader125.i
-  %51 = getelementptr inbounds i8, ptr %.5149.i, i64 1
+50:                                               ; preds = %.preheader126.i
+  %51 = getelementptr inbounds i8, ptr %.5150.i, i64 1
   %.pr122.i = load i8, ptr %51, align 1
   %.not99.i = icmp eq i8 %.pr122.i, 0
-  br i1 %.not99.i, label %.critedge4.i, label %.preheader125.i, !llvm.loop !9
+  br i1 %.not99.i, label %.critedge4.i, label %.preheader126.i, !llvm.loop !9
 
-.critedge6.i:                                     ; preds = %.preheader125.i
+.critedge6.i:                                     ; preds = %.preheader126.i
   %cond.i = icmp eq i8 %46, 47
-  br i1 %cond.i, label %.critedge4.i, label %.lr.ph152.i
+  br i1 %cond.i, label %.critedge4.i, label %.lr.ph153.i
 
-.lr.ph152.i:                                      ; preds = %.critedge6.i, %57
+.lr.ph153.i:                                      ; preds = %.critedge6.i, %57
   %52 = phi i8 [ %58, %57 ], [ %46, %.critedge6.i ]
-  %.6151.i = phi ptr [ %56, %57 ], [ %.5149.i, %.critedge6.i ]
+  %.6152.i = phi ptr [ %56, %57 ], [ %.5150.i, %.critedge6.i ]
   %53 = zext nneg i8 %52 to i64
   %memchr.bounds.i119.i = icmp ult i8 %52, 64
   %54 = shl nuw i64 1, %53
@@ -262,16 +262,16 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %memchr1.i121.i = select i1 %memchr.bounds.i119.i, i1 %memchr.bits.i120.i, i1 false
   %.not104.i = icmp eq i8 %52, 61
   %or.cond124.i = or i1 %.not104.i, %memchr1.i121.i
-  %56 = getelementptr inbounds i8, ptr %.6151.i, i64 1
+  %56 = getelementptr inbounds i8, ptr %.6152.i, i64 1
   br i1 %or.cond124.i, label %59, label %57
 
-57:                                               ; preds = %.lr.ph152.i
+57:                                               ; preds = %.lr.ph153.i
   %58 = load i8, ptr %56, align 1
   %.not102.i = icmp eq i8 %58, 0
-  br i1 %.not102.i, label %.critedge8.i.preheader, label %.lr.ph152.i, !llvm.loop !10
+  br i1 %.not102.i, label %.critedge8.i.preheader, label %.lr.ph153.i, !llvm.loop !10
 
-59:                                               ; preds = %.lr.ph152.i
-  store i8 0, ptr %.6151.i, align 1
+59:                                               ; preds = %.lr.ph153.i
+  store i8 0, ptr %.6152.i, align 1
   br label %.critedge8.i.preheader
 
 .critedge8.i.preheader:                           ; preds = %57, %59
@@ -304,17 +304,17 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond.i, label %.critedge12.i, label %65, !llvm.loop !12
 
 .critedge12.i:                                    ; preds = %65
-  br i1 %.not110.i, label %.lr.ph156.i, label %68
+  br i1 %.not110.i, label %.lr.ph157.i, label %68
 
 68:                                               ; preds = %.critedge12.i
   store i8 0, ptr %.9.i, align 1
-  br label %.lr.ph156.i
+  br label %.lr.ph157.i
 
-.lr.ph156.i:                                      ; preds = %68, %.critedge12.i
+.lr.ph157.i:                                      ; preds = %68, %.critedge12.i
   %.10.i = phi ptr [ %67, %68 ], [ %.9.i, %.critedge12.i ]
   %69 = or disjoint i64 %indvars.iv.i48, 1
   %70 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %indvars.iv.i48
-  store ptr %.5149.i, ptr %70, align 16
+  store ptr %.5150.i, ptr %70, align 16
   %71 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %69
   store ptr %64, ptr %71, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i48, 2
@@ -322,18 +322,18 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   %73 = icmp ne i8 %72, 0
   %74 = icmp ult i64 %indvars.iv.i48, 251
   %or.cond19.i = select i1 %73, i1 %74, i1 false
-  br i1 %or.cond19.i, label %.preheader125.i.preheader, label %.critedge4.i
+  br i1 %or.cond19.i, label %.preheader126.i.preheader, label %.critedge4.i
 
-.critedge4.i:                                     ; preds = %.lr.ph156.i, %.critedge6.i, %50, %.critedge8.i, %.lr.ph156.i.preheader
-  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph156.i.preheader ], [ %indvars.iv.i48, %.critedge8.i ], [ %indvars.iv.i48, %50 ], [ %indvars.iv.next.i, %.lr.ph156.i ], [ %indvars.iv.i48, %.critedge6.i ]
-  %75 = phi i1 [ false, %.lr.ph156.i.preheader ], [ false, %.critedge8.i ], [ false, %50 ], [ %cond.i, %.lr.ph156.i ], [ true, %.critedge6.i ]
+.critedge4.i:                                     ; preds = %.lr.ph157.i, %.critedge6.i, %50, %.critedge8.i, %.lr.ph157.i.preheader
+  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph157.i.preheader ], [ %indvars.iv.i48, %.critedge8.i ], [ %indvars.iv.i48, %50 ], [ %indvars.iv.next.i, %.lr.ph157.i ], [ %indvars.iv.i48, %.critedge6.i ]
+  %75 = phi i1 [ false, %.lr.ph157.i.preheader ], [ false, %.critedge8.i ], [ false, %50 ], [ %cond.i, %.critedge6.i ], [ %cond.i, %.lr.ph157.i ]
   %76 = and i64 %indvars.iv.i46, 4294967294
   %77 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %76
   store ptr null, ptr %77, align 16
   %78 = or disjoint i64 %76, 1
   %79 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %78
   store ptr null, ptr %79, align 8
-  br i1 %.not176.i, label %81, label %80
+  br i1 %.not125.i, label %81, label %80
 
 80:                                               ; preds = %.critedge4.i
   call void %1(ptr noundef %4, ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull %6) #31
@@ -354,8 +354,8 @@ nsvg__parseElement.exit:                          ; preds = %.critedge.i31, %.cr
 
 nsvg__parseContent.exit:                          ; preds = %20, %24, %23, %.critedge.i, %13, %nsvg__parseElement.exit
   %.124 = phi ptr [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %.critedge.i ], [ %14, %23 ], [ %27, %24 ], [ %14, %20 ]
-  %.122 = phi ptr [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %.critedge.i ], [ %14, %23 ], [ %.02156, %24 ], [ %14, %20 ]
-  %.1 = phi i32 [ 2, %nsvg__parseElement.exit ], [ 1, %13 ], [ 1, %.critedge.i ], [ 1, %23 ], [ %.057, %24 ], [ 1, %20 ]
+  %.122 = phi ptr [ %27, %nsvg__parseElement.exit ], [ %14, %13 ], [ %14, %.critedge.i ], [ %14, %23 ], [ %.02155, %24 ], [ %14, %20 ]
+  %.1 = phi i32 [ 2, %nsvg__parseElement.exit ], [ 1, %13 ], [ 1, %.critedge.i ], [ 1, %23 ], [ %.056, %24 ], [ 1, %20 ]
   %84 = load i8, ptr %.124, align 1
   %.not = icmp eq i8 %84, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !13
@@ -7506,7 +7506,7 @@ sub_2128:                                         ; preds = %sub_1127
 .tail125:                                         ; preds = %sub_1127, %sub_2128
   %74 = phi i32 [ %70, %sub_1127 ], [ %73, %sub_2128 ]
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %sub_0131
+  br i1 %75, label %76, label %sub_1132
 
 76:                                               ; preds = %.tail125
   %77 = load ptr, ptr %43, align 8
@@ -7514,10 +7514,7 @@ sub_2128:                                         ; preds = %sub_1127
   store i64 %78, ptr %12, align 4
   br label %198
 
-sub_0131:                                         ; preds = %.tail125
-  br i1 %.not173, label %sub_1132, label %.tail130
-
-sub_1132:                                         ; preds = %sub_0131
+sub_1132:                                         ; preds = %.tail125
   %79 = getelementptr inbounds i8, ptr %50, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
@@ -7531,8 +7528,8 @@ sub_2133:                                         ; preds = %sub_1132
   %85 = zext i8 %84 to i32
   br label %.tail130
 
-.tail130:                                         ; preds = %sub_0126, %sub_0131, %sub_1132, %sub_2133
-  %86 = phi i32 [ %66, %sub_0131 ], [ %82, %sub_1132 ], [ %85, %sub_2133 ], [ %66, %sub_0126 ]
+.tail130:                                         ; preds = %sub_0126, %sub_1132, %sub_2133
+  %86 = phi i32 [ %82, %sub_1132 ], [ %85, %sub_2133 ], [ %66, %sub_0126 ]
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %sub_0136
 
@@ -7586,7 +7583,7 @@ sub_2142:                                         ; preds = %sub_1141
 .tail139:                                         ; preds = %sub_1141, %sub_2142
   %108 = phi i32 [ %104, %sub_1141 ], [ %107, %sub_2142 ]
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %sub_0145
+  br i1 %109, label %110, label %sub_1146
 
 110:                                              ; preds = %.tail139
   %111 = load ptr, ptr %43, align 8
@@ -7594,10 +7591,7 @@ sub_2142:                                         ; preds = %sub_1141
   store i64 %112, ptr %25, align 4
   br label %198
 
-sub_0145:                                         ; preds = %.tail139
-  br i1 %.not178, label %sub_1146, label %.tail144
-
-sub_1146:                                         ; preds = %sub_0145
+sub_1146:                                         ; preds = %.tail139
   %113 = getelementptr inbounds i8, ptr %50, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
@@ -7611,8 +7605,8 @@ sub_2147:                                         ; preds = %sub_1146
   %119 = zext i8 %118 to i32
   br label %.tail144
 
-.tail144:                                         ; preds = %sub_0140, %sub_0145, %sub_1146, %sub_2147
-  %120 = phi i32 [ %100, %sub_0145 ], [ %116, %sub_1146 ], [ %119, %sub_2147 ], [ %100, %sub_0140 ]
+.tail144:                                         ; preds = %sub_0140, %sub_1146, %sub_2147
+  %120 = phi i32 [ %116, %sub_1146 ], [ %119, %sub_2147 ], [ %100, %sub_0140 ]
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %sub_0150
 

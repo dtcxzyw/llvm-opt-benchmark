@@ -10760,191 +10760,184 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %3
 _ZNSt6vectorIcSaIcEE5clearEv.exit.i:              ; preds = %13, %_ZN7xgboost4JsonC2ERKS0_.exit
   %14 = and i32 %2, 4
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %35, label %18
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %.not.i, label %34, label %19
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread:       ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %15 = and i32 %2, 4
-  %.not.i21 = icmp eq i32 %15, 0
+  %16 = and i32 %2, 4
+  %.not.i21 = icmp eq i32 %16, 0
   br i1 %.not.i21, label %.thread22, label %.thread
 
 .thread22:                                        ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %6, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %17, align 8
   br label %_ZN7xgboost4JsonC2ERKS0_.exit16.i
 
 .thread:                                          ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %6, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %6, ptr %18, align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost9UBJWriterE, i64 16), ptr %4, align 8
   br label %_ZN7xgboost4JsonC2ERKS0_.exit.i
 
-18:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %6, ptr %19, align 8
+19:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %6, ptr %20, align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost9UBJWriterE, i64 16), ptr %4, align 8
-  br i1 %.not.i.i.i, label %_ZN7xgboost4JsonC2ERKS0_.exit.i, label %20
-
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = atomicrmw add ptr %21, i32 1 monotonic, align 4
+  %21 = atomicrmw add ptr %15, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit.i
 
-_ZN7xgboost4JsonC2ERKS0_.exit.i:                  ; preds = %.thread, %20, %18
-  %23 = phi ptr [ %8, %.thread ], [ %12, %20 ], [ %12, %18 ]
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %4)
-          to label %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i unwind label %30
+_ZN7xgboost4JsonC2ERKS0_.exit.i:                  ; preds = %.thread, %19
+  %22 = phi ptr [ %8, %.thread ], [ %12, %19 ]
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %4)
+          to label %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i unwind label %29
 
 _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i:      ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit.i
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = atomicrmw sub ptr %27, i32 1 release, align 4
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %59
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = atomicrmw sub ptr %26, i32 1 release, align 4
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %56
 
-30:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit.i
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit.i
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  %33 = atomicrmw sub ptr %32, i32 1 release, align 4
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %90
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = atomicrmw sub ptr %31, i32 1 release, align 4
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
 
-35:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
+34:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %6, ptr %36, align 8
-  br i1 %.not.i.i.i, label %_ZN7xgboost4JsonC2ERKS0_.exit16.i, label %37
-
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
-  %39 = atomicrmw add ptr %38, i32 1 monotonic, align 4
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %35, align 8
+  %36 = atomicrmw add ptr %15, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit16.i
 
-_ZN7xgboost4JsonC2ERKS0_.exit16.i:                ; preds = %.thread22, %37, %35
-  %40 = phi ptr [ %8, %.thread22 ], [ %12, %37 ], [ %12, %35 ]
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %5)
-          to label %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i unwind label %47
+_ZN7xgboost4JsonC2ERKS0_.exit16.i:                ; preds = %.thread22, %34
+  %37 = phi ptr [ %8, %.thread22 ], [ %12, %34 ]
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %5)
+          to label %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i unwind label %44
 
 _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i:    ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16.i
-  %44 = getelementptr inbounds i8, ptr %7, i64 8
-  %45 = atomicrmw sub ptr %44, i32 1 release, align 4
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %59
+  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = atomicrmw sub ptr %41, i32 1 release, align 4
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %56
 
-47:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16.i
-  %48 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16.i
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
-  %50 = atomicrmw sub ptr %49, i32 1 release, align 4
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %90
+  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = atomicrmw sub ptr %46, i32 1 release, align 4
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
 
 _ZN7xgboost4JsonD2Ev.exit.sink.split.i:           ; preds = %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i
-  %52 = phi ptr [ %40, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %23, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ]
+  %49 = phi ptr [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ]
+  fence acquire
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  br label %56
+
+_ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %44, %29
+  %.pn9.pn.ph.i = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ]
   fence acquire
   %53 = load ptr, ptr %7, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %59
+  br label %87
 
-_ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %47, %30
-  %.pn9.pn.ph.i = phi { ptr, i32 } [ %31, %30 ], [ %48, %47 ]
-  fence acquire
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %90
-
-59:                                               ; preds = %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i
-  %60 = phi ptr [ %23, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ], [ %40, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %52, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i ]
+56:                                               ; preds = %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i
+  %57 = phi ptr [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ], [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %49, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
-  %62 = atomicrmw sub ptr %61, i32 1 release, align 4
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %_ZN7xgboost4JsonD2Ev.exit
+  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %59 = atomicrmw sub ptr %58, i32 1 release, align 4
+  %60 = icmp eq i32 %59, 1
+  br i1 %60, label %61, label %_ZN7xgboost4JsonD2Ev.exit
 
-64:                                               ; preds = %59
+61:                                               ; preds = %56
   fence acquire
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
 
-_ZN7xgboost4JsonD2Ev.exit:                        ; preds = %59, %64
-  %68 = load ptr, ptr %60, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = ptrtoint ptr %68 to i64
-  %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %70, %71
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %72)
-          to label %73 unwind label %88
+_ZN7xgboost4JsonD2Ev.exit:                        ; preds = %56, %61
+  %65 = load ptr, ptr %57, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = ptrtoint ptr %65 to i64
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %69)
+          to label %70 unwind label %85
 
-73:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit
-  %74 = load ptr, ptr %6, align 8
-  %75 = load ptr, ptr %60, align 8
-  %76 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  %.not.i.i.i.i.i = icmp eq ptr %75, %74
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit, label %77
+70:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit
+  %71 = load ptr, ptr %6, align 8
+  %72 = load ptr, ptr %57, align 8
+  %73 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  %.not.i.i.i.i.i = icmp eq ptr %72, %71
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit, label %74
 
-77:                                               ; preds = %73
-  %78 = ptrtoint ptr %75 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %76, ptr align 1 %74, i64 %80, i1 false)
+74:                                               ; preds = %70
+  %75 = ptrtoint ptr %72 to i64
+  %76 = ptrtoint ptr %71 to i64
+  %77 = sub i64 %75, %76
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %73, ptr align 1 %71, i64 %77, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit: ; preds = %77, %73
-  %81 = load ptr, ptr %6, align 8
-  %.not.i.i.i11 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i11, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %82
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit: ; preds = %74, %70
+  %78 = load ptr, ptr %6, align 8
+  %.not.i.i.i11 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i11, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %79
 
-82:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit
-  %83 = getelementptr inbounds i8, ptr %6, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %86 = ptrtoint ptr %81 to i64
-  %87 = sub i64 %85, %86
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %87) #33
+79:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit
+  %80 = getelementptr inbounds i8, ptr %6, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %78 to i64
+  %84 = sub i64 %82, %83
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #33
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit, %82
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit, %79
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   ret void
 
-88:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit
-  %89 = landingpad { ptr, i32 }
+85:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7xgboost4JsonD2Ev.exit13
 
-90:                                               ; preds = %30, %47, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %.pn9.pn.ph.i, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i ], [ %48, %47 ], [ %31, %30 ]
-  %91 = getelementptr inbounds i8, ptr %7, i64 8
-  %92 = atomicrmw sub ptr %91, i32 1 release, align 4
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %94, label %_ZN7xgboost4JsonD2Ev.exit13
+87:                                               ; preds = %29, %44, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %.pn9.pn.ph.i, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i ], [ %45, %44 ], [ %30, %29 ]
+  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %89 = atomicrmw sub ptr %88, i32 1 release, align 4
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %_ZN7xgboost4JsonD2Ev.exit13
 
-94:                                               ; preds = %90
+91:                                               ; preds = %87
   fence acquire
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %92 = load ptr, ptr %7, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZN7xgboost4JsonD2Ev.exit13
 
-_ZN7xgboost4JsonD2Ev.exit13:                      ; preds = %94, %90, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %eh.lpad-body.ph, %90 ], [ %eh.lpad-body.ph, %94 ]
+_ZN7xgboost4JsonD2Ev.exit13:                      ; preds = %91, %87, %85
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body.ph, %87 ], [ %eh.lpad-body.ph, %91 ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   resume { ptr, i32 } %.pn
 }

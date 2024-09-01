@@ -183,14 +183,14 @@ for.body.i25:                                     ; preds = %_ZNK3sat3cutixEj.ex
 
 while.body.i44.preheader:                         ; preds = %for.body.i25
   %17 = add i32 %i.035.i26, 1
-  %umax77 = tail call i32 @llvm.umax.i32(i32 %13, i32 %17)
-  %18 = add i32 %umax77, -1
+  %umax74 = tail call i32 @llvm.umax.i32(i32 %13, i32 %17)
+  %18 = add i32 %umax74, -1
   br label %while.body.i44
 
 while.body.i44:                                   ; preds = %while.body.i44.preheader, %_ZNK3sat3cutixEj.exit20.i48
   %i.130.i45 = phi i32 [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %i.035.i26, %while.body.i44.preheader ]
-  %exitcond78.not = icmp eq i32 %i.130.i45, %18
-  br i1 %exitcond78.not, label %while.end.i30, label %_ZNK3sat3cutixEj.exit20.i48
+  %exitcond75.not = icmp eq i32 %i.130.i45, %18
+  br i1 %exitcond75.not, label %while.end.i30, label %_ZNK3sat3cutixEj.exit20.i48
 
 _ZNK3sat3cutixEj.exit20.i48:                      ; preds = %while.body.i44
   %inc.i46 = add i32 %i.130.i45, 1
@@ -202,7 +202,7 @@ _ZNK3sat3cutixEj.exit20.i48:                      ; preds = %while.body.i44
 
 while.end.i30:                                    ; preds = %_ZNK3sat3cutixEj.exit20.i48, %while.body.i44, %for.body.i25
   %other_id.1.lcssa.i31 = phi i32 [ %other_id.033.i28, %for.body.i25 ], [ %19, %_ZNK3sat3cutixEj.exit20.i48 ], [ -1, %while.body.i44 ]
-  %i.1.lcssa.i32 = phi i32 [ %i.035.i26, %for.body.i25 ], [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %umax77, %while.body.i44 ]
+  %i.1.lcssa.i32 = phi i32 [ %i.035.i26, %for.body.i25 ], [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %umax74, %while.body.i44 ]
   %cmp9.not.i33 = icmp eq i32 %16, %other_id.1.lcssa.i31
   br i1 %cmp9.not.i33, label %if.end11.i34, label %for.inc
 

@@ -11974,10 +11974,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052117RemoveIdentityOpsERN17opencv_ten
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %26
 
-.preheader:                                       ; preds = %91
-  br i1 %18, label %.lr.ph204, label %._crit_edge
-
-.lr.ph204:                                        ; preds = %.preheader
+.lr.ph204:                                        ; preds = %91
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   %22 = getelementptr inbounds i8, ptr %8, i64 16
@@ -12178,7 +12175,7 @@ _ZNK17opencv_tensorflow7NodeDef10input_sizeEv.exit: ; preds = %_ZNSt6vectorIiSaI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph204, label %26, !llvm.loop !8
 
 92:                                               ; preds = %.loopexit141, %.loopexit.split-lp142, %79
   %.sroa.0110.4 = phi ptr [ %.sroa.0110.5, %79 ], [ %.sroa.0110.1.ph, %.loopexit141 ], [ %.sroa.0110.0196, %.loopexit.split-lp142 ]
@@ -12597,9 +12594,9 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
   br i1 %exitcond230.not, label %._crit_edge, label %93, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %222, %1, %.preheader
-  %.sroa.0110.0.lcssa236 = phi ptr [ %.sroa.0110.2, %.preheader ], [ null, %1 ], [ %.sroa.0110.2, %222 ]
-  %.sroa.8.0.lcssa235 = phi ptr [ %.sroa.8.1, %.preheader ], [ null, %1 ], [ %.sroa.8.1, %222 ]
+._crit_edge:                                      ; preds = %222, %1
+  %.sroa.0110.0.lcssa236 = phi ptr [ null, %1 ], [ %.sroa.0110.2, %222 ]
+  %.sroa.8.0.lcssa235 = phi ptr [ null, %1 ], [ %.sroa.8.1, %222 ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %.sroa.0110.0.lcssa236, ptr %.sroa.8.0.lcssa235)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14336,7 +14333,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i48.i: ; preds = %.noexc52.
   %wide.trip.count.i = zext nneg i32 %319 to i64
   br label %.lr.ph.i
 
-.lr.ph91.i:                                       ; preds = %.lr.ph.i
+.preheader.i:                                     ; preds = %.lr.ph.i
   %343 = getelementptr inbounds i8, ptr %0, i64 32
   %smax98.i = call i32 @llvm.smax.i32(i32 %319, i32 1)
   %wide.trip.count99.i = zext nneg i32 %smax98.i to i64
@@ -14351,10 +14348,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i48.i: ; preds = %.noexc52.
   store i32 %345, ptr %346, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph91.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !26
 
-347:                                              ; preds = %368, %.lr.ph91.i
-  %indvars.iv95.i = phi i64 [ 0, %.lr.ph91.i ], [ %indvars.iv.next96.i, %368 ]
+347:                                              ; preds = %368, %.preheader.i
+  %indvars.iv95.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next96.i, %368 ]
   %348 = getelementptr inbounds i32, ptr %.sroa.0.1.lcssa, i64 %indvars.iv95.i
   %349 = load i32, ptr %348, align 4
   %350 = sext i32 %349 to i64

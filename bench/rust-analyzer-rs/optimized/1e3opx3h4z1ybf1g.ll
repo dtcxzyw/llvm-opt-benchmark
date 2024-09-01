@@ -60,8 +60,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %24 = load ptr, ptr %10, align 8, !noalias !23, !nonnull !4, !align !45, !noundef !4
   %25 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hc1ff09a5f0d94c6fE.llvm.10481666623736195641"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %20, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24), !noalias !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !13
-  %.not13.i = icmp eq ptr %19, %14
-  br i1 %.not13.i, label %.loopexit, label %17
+  %.not11.i = icmp eq ptr %19, %14
+  br i1 %.not11.i, label %.loopexit, label %17
 
 26:                                               ; preds = %.loopexit, %2
   %27 = getelementptr inbounds i8, ptr %0, i64 16
@@ -118,8 +118,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %42 = load ptr, ptr %6, align 8, !noalias !60, !nonnull !4, !align !45, !noundef !4
   %43 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hc1ff09a5f0d94c6fE.llvm.10481666623736195641"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %38, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %42), !noalias !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !55
-  %.not13.i10 = icmp eq ptr %37, %32
-  br i1 %.not13.i10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %35
+  %.not11.i10 = icmp eq ptr %37, %32
+  br i1 %.not11.i10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h400ca178bab250eeE.exit.thread, label %35
 
 44:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !55

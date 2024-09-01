@@ -3960,21 +3960,21 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br i1 %3, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %list_length.exit85.thread
-  br i1 %.not.i84, label %._crit_edge, label %.lr.ph
+  br i1 %.not.i84, label %._crit_edge93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %133 = getelementptr inbounds i8, ptr %.063, i64 4
   %134 = getelementptr inbounds i8, ptr %.063, i64 16
   %135 = load i32, ptr %133, align 4
   %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %.lr.ph95, label %._crit_edge
+  br i1 %136, label %.lr.ph95, label %._crit_edge93
 
 137:                                              ; preds = %.lr.ph95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr %133, align 4
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph95, label %._crit_edge
+  br i1 %140, label %.lr.ph95, label %._crit_edge93
 
 .lr.ph95:                                         ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
@@ -3993,7 +3993,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1743, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
-._crit_edge:                                      ; preds = %137, %.preheader, %.lr.ph
+._crit_edge93:                                    ; preds = %137, %.lr.ph, %.preheader
   %149 = call ptr @GetActiveSnapshot() #15
   br label %151
 
@@ -4002,8 +4002,8 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   %150 = call ptr @GetTransactionSnapshot() #15
   br label %151
 
-151:                                              ; preds = %.critedge, %._crit_edge
-  %.061 = phi ptr [ %149, %._crit_edge ], [ %150, %.critedge ]
+151:                                              ; preds = %.critedge, %._crit_edge93
+  %.061 = phi ptr [ %149, %._crit_edge93 ], [ %150, %.critedge ]
   %.not74 = icmp eq ptr %2, null
   br i1 %.not74, label %156, label %152
 

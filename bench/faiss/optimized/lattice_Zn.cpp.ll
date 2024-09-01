@@ -4745,8 +4745,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit95:             ; preds = %31, %33, %35, %37
 .preheader122:                                    ; preds = %.lr.ph
   %38 = load i32, ptr %15, align 8
   %.not86130 = icmp slt i32 %38, 1
-  %brmerge = or i1 %.not86130, %.not124
-  br i1 %brmerge, label %._crit_edge132, label %.preheader121.preheader
+  br i1 %.not86130, label %._crit_edge132, label %.preheader121.preheader
 
 .preheader122.thread:                             ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit95
   %39 = load i32, ptr %15, align 8

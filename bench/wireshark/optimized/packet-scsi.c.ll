@@ -3342,8 +3342,8 @@ define hidden void @dissect_spc_inquiry(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = alloca i32, align 4
   %12 = alloca %struct.except_stacknode, align 8
   %13 = alloca %struct.except_catch, align 8
-  %.not191 = icmp eq i32 %4, 0
-  br i1 %.not191, label %14, label %33
+  %.not178 = icmp eq i32 %4, 0
+  br i1 %.not178, label %14, label %33
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %7, null
@@ -3379,8 +3379,8 @@ define hidden void @dissect_spc_inquiry(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread
 
 33:                                               ; preds = %8
-  %.not192 = icmp eq i32 %5, 0
-  br i1 %.not192, label %dissect_scsi_evpd.exit, label %34
+  %.not180 = icmp eq i32 %5, 0
+  br i1 %.not180, label %dissect_scsi_evpd.exit, label %34
 
 34:                                               ; preds = %33
   %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
@@ -3889,14 +3889,14 @@ switch.lookup:                                    ; preds = %297
   br label %338
 
 338:                                              ; preds = %313, %338
-  %.0190 = phi i8 [ 0, %313 ], [ %342, %338 ]
+  %.0192 = phi i8 [ 0, %313 ], [ %342, %338 ]
   %339 = load i32, ptr @hf_scsi_inq_version_desc, align 4
   %.0..0..0..0.54 = load volatile i32, ptr %9, align 4
   %340 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %339, ptr noundef %285, i32 noundef %.0..0..0..0.54, i32 noundef 2, i32 noundef 0) #10
   %.0..0..0..0.55 = load volatile i32, ptr %9, align 4
   %341 = add i32 %.0..0..0..0.55, 2
   store volatile i32 %341, ptr %9, align 4
-  %342 = add nuw nsw i8 %.0190, 1
+  %342 = add nuw nsw i8 %.0192, 1
   %exitcond.not = icmp eq i8 %342, 8
   br i1 %exitcond.not, label %343, label %338, !llvm.loop !7
 

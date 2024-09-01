@@ -8815,13 +8815,13 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 180:                                              ; preds = %.backedge, %.loopexit50
   %181 = phi ptr [ %154, %.loopexit50 ], [ %.be, %.backedge ]
-  %182 = phi i1 [ true, %.loopexit50 ], [ %.not, %.backedge ]
+  %182 = phi i1 [ true, %.loopexit50 ], [ %.not.not.not.not.not, %.backedge ]
   br label %183
 
 183:                                              ; preds = %185, %180
   %184 = phi ptr [ %186, %185 ], [ %181, %180 ]
-  %.not = icmp ule ptr %184, %155
-  br i1 %.not, label %193, label %185
+  %.not.not.not.not.not = icmp ule ptr %184, %155
+  br i1 %.not.not.not.not.not, label %193, label %185
 
 185:                                              ; preds = %183
   %186 = getelementptr i8, ptr %184, i64 -8

@@ -59,14 +59,14 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   store double 0xC1DFFFFFFFC00000, ptr %40, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %38
-  br i1 %exitcond.not.i, label %.lr.ph63.us.preheader.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph63.us.preheader.i:                          ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   store double 0xC1E0000000000000, ptr %35, align 8
   br label %.lr.ph63.us.i
 
-.lr.ph63.us.i:                                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph63.us.preheader.i
-  %.05365.us.i = phi i32 [ %.2.us.i, %..loopexit_crit_edge.us.i ], [ %27, %.lr.ph63.us.preheader.i ]
+.lr.ph63.us.i:                                    ; preds = %..loopexit_crit_edge.us.i, %._crit_edge.i
+  %.05365.us.i = phi i32 [ %.2.us.i, %..loopexit_crit_edge.us.i ], [ %27, %._crit_edge.i ]
   %41 = sext i32 %.05365.us.i to i64
   %42 = getelementptr inbounds double, ptr %36, i64 %41
   %43 = load double, ptr %42, align 8

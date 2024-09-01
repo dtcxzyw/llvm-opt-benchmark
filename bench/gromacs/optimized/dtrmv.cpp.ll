@@ -322,7 +322,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %140 = sext i32 %10 to i64
   br label %141
 
-141:                                              ; preds = %.lr.ph364, %._crit_edge361
+141:                                              ; preds = %._crit_edge361, %.lr.ph364
   %indvars.iv438 = phi i64 [ %139, %.lr.ph364 ], [ %indvars.iv.next439, %._crit_edge361 ]
   %142 = getelementptr inbounds double, ptr %14, i64 %indvars.iv438
   %143 = load double, ptr %142, align 8
@@ -369,7 +369,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 ._crit_edge361:                                   ; preds = %154
   store double %158, ptr %142, align 8
   %indvars.iv.next439 = add nsw i64 %indvars.iv438, -1
-  br i1 %152, label %141, label %.loopexit, !llvm.loop !14
+  br label %141, !llvm.loop !14
 
 160:                                              ; preds = %135
   br i1 %137, label %.lr.ph356, label %.loopexit
@@ -381,7 +381,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %164 = sext i32 %10 to i64
   br label %165
 
-165:                                              ; preds = %.lr.ph356, %._crit_edge352
+165:                                              ; preds = %._crit_edge352, %.lr.ph356
   %indvars.iv432 = phi i64 [ %163, %.lr.ph356 ], [ %indvars.iv.next433, %._crit_edge352 ]
   %.2261354 = phi i32 [ %161, %.lr.ph356 ], [ %187, %._crit_edge352 ]
   %166 = sext i32 %.2261354 to i64
@@ -434,7 +434,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %185, ptr %167, align 8
   %187 = sub nsw i32 %.2261354, %11
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, -1
-  br i1 %177, label %165, label %.loopexit, !llvm.loop !16
+  br label %165, !llvm.loop !16
 
 188:                                              ; preds = %133
   %189 = icmp eq i32 %11, 1
@@ -571,7 +571,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %exitcond461.not = icmp eq i64 %indvars.iv.next457, %wide.trip.count
   br i1 %exitcond461.not, label %.loopexit, label %218, !llvm.loop !20
 
-.loopexit:                                        ; preds = %74, %54, %130, %100, %._crit_edge352, %._crit_edge361, %._crit_edge371, %._crit_edge382, %._crit_edge352.thread, %._crit_edge361.thread, %.preheader316, %.preheader313, %102, %.preheader308, %160, %.preheader304, %.preheader302, %.preheader, %8
+.loopexit:                                        ; preds = %74, %54, %130, %100, %._crit_edge371, %._crit_edge382, %._crit_edge352.thread, %._crit_edge361.thread, %.preheader316, %.preheader313, %102, %.preheader308, %160, %.preheader304, %.preheader302, %.preheader, %8
   ret void
 }
 

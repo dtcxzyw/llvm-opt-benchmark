@@ -2220,14 +2220,14 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   br label %26
 
-26:                                               ; preds = %.lr.ph, %99
-  %.01429 = phi i32 [ 0, %.lr.ph ], [ %100, %99 ]
-  %.01528 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %99 ]
-  %.01627 = phi i32 [ -1, %.lr.ph ], [ %.117, %99 ]
-  %27 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %13, i32 noundef %.01429)
+26:                                               ; preds = %.lr.ph, %97
+  %.01433 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01532 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %97 ]
+  %.01631 = phi i32 [ -1, %.lr.ph ], [ %.117, %97 ]
+  %27 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %13, i32 noundef %.01433)
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %99
+  br i1 %29, label %30, label %97
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %27, i64 416
@@ -2266,91 +2266,90 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noca
   store float %54, ptr %25, align 4
   br label %55
 
-55:                                               ; preds = %92, %30
-  %.024 = phi float [ 0.000000e+00, %30 ], [ %.226, %92 ]
-  %.022 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %.2, %92 ]
-  %56 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %93, %92 ]
-  %57 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %94, %92 ]
-  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %92 ]
-  %58 = phi i1 [ false, %30 ], [ %95, %92 ]
-  %59 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %60 = load float, ptr %59, align 4
-  %61 = tail call float @llvm.fabs.f32(float %60)
-  %62 = fcmp olt float %61, 0x3EB0C6F7A0000000
-  br i1 %62, label %63, label %73
+55:                                               ; preds = %91, %30
+  %.024 = phi float [ 0.000000e+00, %30 ], [ %.226, %91 ]
+  %.022 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %.2, %91 ]
+  %56 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %92, %91 ]
+  %57 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %93, %91 ]
+  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %91 ]
+  %58 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %59 = load float, ptr %58, align 4
+  %60 = tail call float @llvm.fabs.f32(float %59)
+  %61 = fcmp olt float %60, 0x3EB0C6F7A0000000
+  br i1 %61, label %62, label %72
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
-  %67 = load float, ptr %66, align 4
-  %68 = fcmp olt float %65, %67
-  br i1 %68, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %69
+62:                                               ; preds = %55
+  %63 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %64 = load float, ptr %63, align 4
+  %65 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
+  %66 = load float, ptr %65, align 4
+  %67 = fcmp olt float %64, %66
+  br i1 %67, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %68
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
-  %71 = load float, ptr %70, align 4
-  %72 = fcmp ogt float %65, %71
-  br i1 %72, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %92
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
+  %70 = load float, ptr %69, align 4
+  %71 = fcmp ogt float %64, %70
+  br i1 %71, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %91
 
-73:                                               ; preds = %55
-  %74 = fdiv float 1.000000e+00, %60
-  %75 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
-  %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %78 = load float, ptr %77, align 4
-  %79 = fsub float %76, %78
-  %80 = fmul float %74, %79
-  %81 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
-  %82 = load float, ptr %81, align 4
-  %83 = fsub float %82, %78
-  %84 = fmul float %74, %83
-  %85 = fcmp ogt float %80, %84
-  %.039.i = select i1 %85, float %84, float %80
-  %.0.i = select i1 %85, float %80, float %84
-  %86 = fcmp ogt float %.039.i, %.024
-  %.125 = select i1 %86, float %.039.i, float %.024
-  %87 = select i1 %86, float %.022, float %56
-  %88 = select i1 %86, float %.022, float %57
-  %89 = fcmp olt float %.0.i, %88
-  %.123 = select i1 %89, float %.0.i, float %.022
-  %90 = select i1 %89, float %.0.i, float %87
-  %91 = fcmp ogt float %.125, %90
-  br i1 %91, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %92
+72:                                               ; preds = %55
+  %73 = fdiv float 1.000000e+00, %59
+  %74 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
+  %75 = load float, ptr %74, align 4
+  %76 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %77 = load float, ptr %76, align 4
+  %78 = fsub float %75, %77
+  %79 = fmul float %73, %78
+  %80 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
+  %81 = load float, ptr %80, align 4
+  %82 = fsub float %81, %77
+  %83 = fmul float %73, %82
+  %84 = fcmp ogt float %79, %83
+  %.039.i = select i1 %84, float %83, float %79
+  %.0.i = select i1 %84, float %79, float %83
+  %85 = fcmp ogt float %.039.i, %.024
+  %.125 = select i1 %85, float %.039.i, float %.024
+  %86 = select i1 %85, float %.022, float %56
+  %87 = select i1 %85, float %.022, float %57
+  %88 = fcmp olt float %.0.i, %87
+  %.123 = select i1 %88, float %.0.i, float %.022
+  %89 = select i1 %88, float %.0.i, float %86
+  %90 = fcmp ogt float %.125, %89
+  br i1 %90, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %91
 
-92:                                               ; preds = %73, %69
-  %.226 = phi float [ %.024, %69 ], [ %.125, %73 ]
-  %.2 = phi float [ %.022, %69 ], [ %.123, %73 ]
-  %93 = phi float [ %56, %69 ], [ %90, %73 ]
-  %94 = phi float [ %57, %69 ], [ %90, %73 ]
+91:                                               ; preds = %72, %68
+  %.226 = phi float [ %.024, %68 ], [ %.125, %72 ]
+  %.2 = phi float [ %.022, %68 ], [ %.123, %72 ]
+  %92 = phi float [ %56, %68 ], [ %89, %72 ]
+  %93 = phi float [ %57, %68 ], [ %89, %72 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %95 = icmp ugt i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.i, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %55, !llvm.loop !32
 
-_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %63, %69, %73, %92
-  %.3 = phi float [ %.024, %63 ], [ %.024, %69 ], [ %.226, %92 ], [ %.125, %73 ]
-  %.lcssa.i = phi i1 [ %58, %63 ], [ %58, %69 ], [ %95, %92 ], [ %58, %73 ]
+_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %72, %62, %68
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %96 = fcmp ogt float %.3, 0.000000e+00
-  %or.cond = select i1 %.lcssa.i, i1 %96, i1 false
-  %97 = fcmp olt float %.3, %.01528
-  %or.cond20 = select i1 %or.cond, i1 %97, i1 false
-  br i1 %or.cond20, label %98, label %99
+  br label %97
 
-98:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit
-  br label %99
+_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %91
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  %94 = fcmp ogt float %.226, 0.000000e+00
+  %95 = fcmp olt float %.226, %.01532
+  %or.cond20 = select i1 %94, i1 %95, i1 false
+  br i1 %or.cond20, label %96, label %97
 
-99:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, %98, %26
-  %.117 = phi i32 [ %.01429, %98 ], [ %.01627, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01627, %26 ]
-  %.1 = phi float [ %.3, %98 ], [ %.01528, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01528, %26 ]
-  %100 = add nuw nsw i32 %.01429, 1
-  %101 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %13)
-  %102 = icmp slt i32 %100, %101
-  br i1 %102, label %26, label %.loopexit, !llvm.loop !33
+96:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit
+  br label %97
 
-.loopexit:                                        ; preds = %99, %9, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %9 ], [ %.117, %99 ]
+97:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, %96, %26
+  %.117 = phi i32 [ %.01433, %96 ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01631, %26 ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
+  %.1 = phi float [ %.226, %96 ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01532, %26 ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
+  %98 = add nuw nsw i32 %.01433, 1
+  %99 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %13)
+  %100 = icmp slt i32 %98, %99
+  br i1 %100, label %26, label %.loopexit, !llvm.loop !33
+
+.loopexit:                                        ; preds = %97, %9, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %9 ], [ %.117, %97 ]
   ret i32 %.0
 }
 

@@ -8343,7 +8343,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i563 = getelementptr inbounds i8, ptr %write_sw, i64 33
   %279 = load i8, ptr %stats_enabled_.i563, align 1
   %tobool21.i = trunc i8 %279 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
+  br i1 %tobool21.i, label %cond.true.i565, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
 if.end20.i.thread:                                ; preds = %cleanup356
   %stats_enabled_.i563797 = getelementptr inbounds i8, ptr %write_sw, i64 33
@@ -8351,14 +8351,11 @@ if.end20.i.thread:                                ; preds = %cleanup356
   %tobool21.i798 = trunc i8 %280 to i1
   br i1 %tobool21.i798, label %cond.false.i570, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i551, label %cond.false.i570, label %cond.true.i565
-
-cond.true.i565:                                   ; preds = %if.then22.i
+cond.true.i565:                                   ; preds = %if.end20.i
   %281 = load i64, ptr %269, align 8
   br label %cond.end.i566
 
-cond.false.i570:                                  ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i570:                                  ; preds = %if.end20.i.thread
   %282 = load ptr, ptr %write_sw, align 8
   %vtable26.i = load ptr, ptr %282, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -9135,7 +9132,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i96 = getelementptr inbounds i8, ptr %write_sw, i64 33
   %74 = load i8, ptr %stats_enabled_.i96, align 1
   %tobool21.i = trunc i8 %74 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
+  br i1 %tobool21.i, label %cond.true.i98, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb11WriteThread6WriterD2Ev.exit
   %stats_enabled_.i96165 = getelementptr inbounds i8, ptr %write_sw, i64 33
@@ -9143,14 +9140,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb11WriteT
   %tobool21.i166 = trunc i8 %75 to i1
   br i1 %tobool21.i166, label %cond.false.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i88, label %cond.false.i, label %cond.true.i98
-
-cond.true.i98:                                    ; preds = %if.then22.i
+cond.true.i98:                                    ; preds = %if.end20.i
   %76 = load i64, ptr %64, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %77 = load ptr, ptr %write_sw, align 8
   %vtable26.i = load ptr, ptr %77, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -11192,7 +11186,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i535 = getelementptr inbounds i8, ptr %write_sw, i64 33
   %270 = load i8, ptr %stats_enabled_.i535, align 1
   %tobool21.i = trunc i8 %270 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
+  br i1 %tobool21.i, label %cond.true.i537, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb11WriteThread6WriterD2Ev.exit
   %stats_enabled_.i535651 = getelementptr inbounds i8, ptr %write_sw, i64 33
@@ -11200,14 +11194,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb11WriteT
   %tobool21.i652 = trunc i8 %271 to i1
   br i1 %tobool21.i652, label %cond.false.i542, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i524, label %cond.false.i542, label %cond.true.i537
-
-cond.true.i537:                                   ; preds = %if.then22.i
+cond.true.i537:                                   ; preds = %if.end20.i
   %272 = load i64, ptr %260, align 8
   br label %cond.end.i538
 
-cond.false.i542:                                  ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i542:                                  ; preds = %if.end20.i.thread
   %273 = load ptr, ptr %write_sw, align 8
   %vtable26.i = load ptr, ptr %273, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -13777,7 +13768,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i116 = getelementptr inbounds i8, ptr %sw, i64 33
   %86 = load i8, ptr %stats_enabled_.i116, align 1
   %tobool21.i = trunc i8 %86 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %if.end93
+  br i1 %tobool21.i, label %cond.true.i, label %if.end93
 
 if.end20.i.thread:                                ; preds = %if.end91
   %stats_enabled_.i116167 = getelementptr inbounds i8, ptr %sw, i64 33
@@ -13785,14 +13776,11 @@ if.end20.i.thread:                                ; preds = %if.end91
   %tobool21.i168 = trunc i8 %87 to i1
   br i1 %tobool21.i168, label %cond.false.i, label %if.end93
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i109, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.then22.i
+cond.true.i:                                      ; preds = %if.end20.i
   %88 = load i64, ptr %76, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %89 = load ptr, ptr %sw, align 8
   %vtable26.i = load ptr, ptr %89, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -15077,7 +15065,7 @@ if.end20:                                         ; preds = %while.body.preheade
   br i1 %cmp.i, label %while.body, label %while.end, !llvm.loop !90
 
 while.end:                                        ; preds = %while.body, %if.end20, %while.body.preheader, %if.end9
-  %delayed.1.lcssa = phi i1 [ false, %if.end9 ], [ %cmp18.not254, %while.body.preheader ], [ %cmp18.not254, %if.end20 ], [ %cmp18.not254, %while.body ]
+  %delayed.1.lcssa = phi i1 [ false, %if.end9 ], [ false, %while.body.preheader ], [ true, %if.end20 ], [ true, %while.body ]
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_)
   tail call void @_ZN7rocksdb11WriteThread13EndWriteStallEv(ptr noundef nonnull align 16 dereferenceable(432) %write_thread)
   br label %if.end26

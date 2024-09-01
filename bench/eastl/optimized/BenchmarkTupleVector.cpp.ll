@@ -6810,20 +6810,17 @@ for.body.i.i.i.i92:                               ; preds = %for.body.i.i.i.i92.
 _ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit96: ; preds = %for.body.i.i.i.i92
   %27 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr57 = getelementptr inbounds %struct.PaddingStruct, ptr %27, i64 %add5
-  br i1 %cmp.i.not3.i.i.i.i91, label %if.end59, label %for.body.i.i.i.i98.preheader
-
-for.body.i.i.i.i98.preheader:                     ; preds = %_ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit96
   %add.ptr54 = getelementptr inbounds %struct.PaddingStruct, ptr %27, i64 %0
   br label %for.body.i.i.i.i98
 
-for.body.i.i.i.i98:                               ; preds = %for.body.i.i.i.i98.preheader, %for.body.i.i.i.i98
-  %first.sroa.0.04.i.i.i.i99 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i98 ], [ %add.ptr54, %for.body.i.i.i.i98.preheader ]
+for.body.i.i.i.i98:                               ; preds = %_ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit96, %for.body.i.i.i.i98
+  %first.sroa.0.04.i.i.i.i99 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i98 ], [ %add.ptr54, %_ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit96 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %first.sroa.0.04.i.i.i.i99, ptr noundef nonnull align 1 dereferenceable(56) %args1, i64 56, i1 false)
   %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i.i99, i64 56
   %cmp.i.not.i.i.i.i101 = icmp eq ptr %incdec.ptr.i.i.i.i.i100, %add.ptr57
   br i1 %cmp.i.not.i.i.i.i101, label %if.end59, label %for.body.i.i.i.i98, !llvm.loop !157
 
-if.end59:                                         ; preds = %for.body.i.i.i.i98, %if.else46, %_ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit96, %_ZN5eastl9allocator10deallocateEPvm.exit, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E13PaddingStructE15DoInsertAndFillEmmmRKS2_.exit
+if.end59:                                         ; preds = %for.body.i.i.i.i98, %if.else46, %_ZN5eastl9allocator10deallocateEPvm.exit, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E13PaddingStructE15DoInsertAndFillEmmmRKS2_.exit
   %28 = load ptr, ptr %this, align 8, !noalias !162
   %29 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !162
   store i64 %0, ptr %agg.result, align 8, !alias.scope !165

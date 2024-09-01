@@ -593,20 +593,20 @@ define internal i32 @cf_he_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   %59 = getelementptr inbounds i8, ptr %.057.i.i, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, %.061.ph129.i
-  br i1 %61, label %.lr.ph.i81.preheader.i, label %62
+  br i1 %61, label %addr_first_match.exit.i, label %62
 
 62:                                               ; preds = %.lr.ph.i.i
   %63 = getelementptr inbounds i8, ptr %.057.i.i, i64 40
   %64 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i, label %.lr.ph.i81.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %addr_first_match.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
-.lr.ph.i81.preheader.i:                           ; preds = %62, %.lr.ph.i.i
+addr_first_match.exit.i:                          ; preds = %62, %.lr.ph.i.i
   %.05.lcssa.i.i = phi ptr [ null, %62 ], [ %.057.i.i, %.lr.ph.i.i ]
   br label %.lr.ph.i81.i
 
-.lr.ph.i81.i:                                     ; preds = %68, %.lr.ph.i81.preheader.i
-  %.057.i82.i = phi ptr [ %70, %68 ], [ %.pr127.i, %.lr.ph.i81.preheader.i ]
+.lr.ph.i81.i:                                     ; preds = %68, %addr_first_match.exit.i
+  %.057.i82.i = phi ptr [ %70, %68 ], [ %.pr127.i, %addr_first_match.exit.i ]
   %65 = getelementptr inbounds i8, ptr %.057.i82.i, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, %.064.ph128.i
@@ -666,8 +666,8 @@ addr_first_match.exit85.i:                        ; preds = %68, %.lr.ph.i81.i, 
   %.06.i.i.i = phi ptr [ %.063.i, %80 ], [ %92, %93 ]
   %91 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 40
   %92 = load ptr, ptr %91, align 8
-  %.not8.i.i.not.i.not = icmp ne ptr %92, null
-  br i1 %.not8.i.i.not.i.not, label %93, label %97
+  %.not8.i.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %92, null
+  br i1 %.not8.i.i.not.not.not.i.not.not.not.not.not, label %93, label %97
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %92, i64 4
@@ -677,7 +677,7 @@ addr_first_match.exit85.i:                        ; preds = %68, %.lr.ph.i81.i, 
 
 97:                                               ; preds = %93, %90
   %98 = icmp sgt i64 %spec.select130.i, 600
-  %or.cond.i.i = and i1 %98, %.not8.i.i.not.i.not
+  %or.cond.i.i = and i1 %98, %.not8.i.i.not.not.not.i.not.not.not.not.not
   %99 = zext i1 %or.cond.i.i to i64
   %100 = lshr i64 %spec.select130.i, %99
   %101 = getelementptr inbounds i8, ptr %79, i64 80
@@ -752,8 +752,8 @@ addr_first_match.exit85.i:                        ; preds = %68, %.lr.ph.i81.i, 
   %.06.i.i89.i = phi ptr [ %.05.lcssa.i84.i, %126 ], [ %140, %141 ]
   %139 = getelementptr inbounds i8, ptr %.06.i.i89.i, i64 40
   %140 = load ptr, ptr %139, align 8
-  %.not8.i.i91.not.i.not = icmp ne ptr %140, null
-  br i1 %.not8.i.i91.not.i.not, label %141, label %145
+  %.not8.i.i91.not.not.not.i.not.not.not.not.not = icmp ne ptr %140, null
+  br i1 %.not8.i.i91.not.not.not.i.not.not.not.not.not, label %141, label %145
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds i8, ptr %140, i64 4
@@ -762,7 +762,7 @@ addr_first_match.exit85.i:                        ; preds = %68, %.lr.ph.i81.i, 
   br i1 %144, label %145, label %138, !llvm.loop !8
 
 145:                                              ; preds = %141, %138
-  %or.cond.i94.i = and i1 %98, %.not8.i.i91.not.i.not
+  %or.cond.i94.i = and i1 %98, %.not8.i.i91.not.not.not.i.not.not.not.not.not
   %146 = zext i1 %or.cond.i94.i to i64
   %147 = lshr i64 %spec.select130.i, %146
   %148 = getelementptr inbounds i8, ptr %125, i64 80

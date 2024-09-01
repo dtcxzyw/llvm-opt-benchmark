@@ -2484,17 +2484,14 @@ _ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.050, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_cases
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %if.then38, label %for.body
 
-for.end:                                          ; preds = %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit
-  br i1 %cmp.i.not46, label %if.end41, label %if.then38
-
-if.then38:                                        ; preds = %for.end
+if.then38:                                        ; preds = %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit
   %call40 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call4) #8
   br label %if.end41
 
-if.end41:                                         ; preds = %if.end, %if.then38, %for.end
-  %defaultBlock.0.lcssa54 = phi ptr [ %defaultBlock.1, %if.then38 ], [ %defaultBlock.1, %for.end ], [ %call4, %if.end ]
+if.end41:                                         ; preds = %if.end, %if.then38
+  %defaultBlock.0.lcssa54 = phi ptr [ %defaultBlock.1, %if.then38 ], [ %call4, %if.end ]
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12) #8
   %call44 = call noundef ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call6, ptr noundef %defaultBlock.0.lcssa54, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call4) #8

@@ -1016,8 +1016,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body
   %call4 = tail call i32 @evbuffer_expand_fast_(ptr noundef %buf, i64 noundef %add, i32 noundef 2)
   %cmp5 = icmp sgt i32 %call4, -1
-  %or.cond = and i1 %cmp5, %cmp20
-  br i1 %or.cond, label %for.body10.preheader, label %do.body28
+  br i1 %cmp5, label %for.body10.preheader, label %do.body28
 
 for.body10.preheader:                             ; preds = %for.end
   %wide.trip.count32 = zext nneg i32 %n_vec to i64
@@ -2172,12 +2171,9 @@ for.body.preheader:                               ; preds = %if.end58
 for.cond:                                         ; preds = %cond.end84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond90.preheader, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.body92.preheader, label %for.body, !llvm.loop !17
 
-for.cond90.preheader:                             ; preds = %for.cond
-  br i1 %cmp5967, label %for.body92.preheader, label %okay
-
-for.body92.preheader:                             ; preds = %for.cond90.preheader
+for.body92.preheader:                             ; preds = %for.cond
   %wide.trip.count78 = zext nneg i32 %n_vecs to i64
   br label %for.body92
 
@@ -2249,8 +2245,8 @@ if.end108:                                        ; preds = %if.then106, %for.bo
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %okay, label %for.body92, !llvm.loop !18
 
-okay:                                             ; preds = %if.end108, %if.end58, %for.cond90.preheader, %if.end27, %if.then36
-  %added.0 = phi i64 [ %12, %if.then36 ], [ 0, %if.end27 ], [ 0, %for.cond90.preheader ], [ 0, %if.end58 ], [ %add101, %if.end108 ]
+okay:                                             ; preds = %if.end108, %if.end58, %if.end27, %if.then36
+  %added.0 = phi i64 [ %12, %if.then36 ], [ 0, %if.end27 ], [ 0, %if.end58 ], [ %add101, %if.end108 ]
   %total_len = getelementptr inbounds i8, ptr %buf, i64 24
   %33 = load i64, ptr %total_len, align 8
   %add113 = add i64 %33, %added.0

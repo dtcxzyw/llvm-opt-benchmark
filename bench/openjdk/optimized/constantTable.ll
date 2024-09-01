@@ -409,9 +409,9 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   br label %16
 
 16:                                               ; preds = %.lr.ph107, %_ZN17AbstractAssembler12int_constantEi.exit.thread100
-  %indvars.iv127 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next128, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ]
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next126, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ]
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %17, i64 %indvars.iv127
+  %18 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %17, i64 %indvars.iv125
   %.sroa.0.0.copyload = load i8, ptr %18, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 1
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
@@ -662,20 +662,20 @@ _ZN17AbstractAssembler12int_constantEi.exit:      ; preds = %16
   br i1 %124, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
 _ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split: ; preds = %24, %31, %38, %45, %64, %74, %113
-  %.sink134 = phi ptr [ %118, %113 ], [ %77, %74 ], [ %69, %64 ], [ %47, %45 ], [ %40, %38 ], [ %33, %31 ], [ %26, %24 ]
-  %.sink133 = phi i64 [ 8, %113 ], [ 8, %74 ], [ 8, %64 ], [ 8, %45 ], [ 4, %38 ], [ 8, %31 ], [ 4, %24 ]
+  %.sink133 = phi ptr [ %118, %113 ], [ %77, %74 ], [ %69, %64 ], [ %47, %45 ], [ %40, %38 ], [ %33, %31 ], [ %26, %24 ]
+  %.sink132 = phi i64 [ 8, %113 ], [ 8, %74 ], [ 8, %64 ], [ 8, %45 ], [ 4, %38 ], [ 8, %31 ], [ 4, %24 ]
   %.sink = phi ptr [ %111, %113 ], [ %72, %74 ], [ %62, %64 ], [ %43, %45 ], [ %36, %38 ], [ %29, %31 ], [ %22, %24 ]
-  %125 = load ptr, ptr %.sink134, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 %.sink133
-  store ptr %126, ptr %.sink134, align 8
+  %125 = load ptr, ptr %.sink133, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 %.sink132
+  store ptr %126, ptr %.sink133, align 8
   call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.sink) #10
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
 _ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %93, %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split, %_ZN17AbstractAssembler16address_constantEPh.exit43, %_ZN17AbstractAssembler12int_constantEi.exit
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %127 = load i32, ptr %0, align 8
   %128 = sext i32 %127 to i64
-  %.not = icmp slt i64 %indvars.iv.next128, %128
+  %.not = icmp slt i64 %indvars.iv.next126, %128
   br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !20
 
 _ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %79, %21, %28, %35, %42, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %71, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2

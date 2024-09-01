@@ -1089,8 +1089,8 @@ default.unreachable:                              ; preds = %_ZN4UTF826is_supple
 105:                                              ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %80, %100, %37
   %.2 = phi i32 [ %.188, %37 ], [ %86, %100 ], [ %71, %80 ], [ %40, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
   %106 = add nsw i32 %.2, 1
-  %.not118 = icmp slt i32 %106, %1
-  br i1 %.not118, label %.lr.ph90, label %._crit_edge91, !llvm.loop !17
+  %.not117 = icmp slt i32 %106, %1
+  br i1 %.not117, label %.lr.ph90, label %._crit_edge91, !llvm.loop !17
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %80, %73, %67, %100, %94, %88, %.thread, %105, %._crit_edge
   %.lcssa = phi i1 [ true, %._crit_edge ], [ true, %105 ], [ false, %.thread ], [ false, %88 ], [ false, %94 ], [ false, %100 ], [ false, %67 ], [ false, %73 ], [ false, %80 ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %.lr.ph90 ]
@@ -1109,30 +1109,21 @@ define hidden noundef zeroext i1 @_ZN7UNICODE9is_latin1EPKti(ptr nocapture nound
   br i1 %3, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %4 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %5 = load i16, ptr %0, align 2
-  %6 = icmp ugt i16 %5, 255
-  br i1 %6, label %._crit_edge, label %.lr.ph10
+  br label %.lr.ph
 
-.lr.ph10:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %4 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %5 = load i16, ptr %4, align 2
+  %6 = icmp ult i16 %5, 256
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %6, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-.lr.ph:                                           ; preds = %.lr.ph10
-  %7 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.next
-  %8 = load i16, ptr %7, align 2
-  %9 = icmp ugt i16 %8, 255
-  br i1 %9, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !18
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph10
-  %10 = icmp uge i64 %indvars.iv.next, %4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph.preheader ], [ %10, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.lcssa = phi i1 [ true, %2 ], [ %6, %.lr.ph ]
   ret i1 %.lcssa
 }
 

@@ -8070,84 +8070,81 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br i1 %.not.i.i410, label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, label %.loopexit.i.i
 
 .thread11:                                        ; preds = %28
-  br i1 %9, label %.loopexit.i.i, label %36
+  %36 = add i64 %11, -1
+  %37 = ptrtoint ptr %1 to i64
+  %38 = lshr i64 %37, 4
+  %39 = lshr i64 %37, 9
+  %40 = xor i64 %38, %39
+  %41 = load ptr, ptr %0, align 8
+  br label %42
 
-36:                                               ; preds = %.thread11
-  %37 = add i64 %11, -1
-  %38 = ptrtoint ptr %1 to i64
-  %39 = lshr i64 %38, 4
-  %40 = lshr i64 %38, 9
-  %41 = xor i64 %39, %40
-  %42 = load ptr, ptr %0, align 8
-  br label %43
+42:                                               ; preds = %48, %.thread11
+  %.pn.i.i.i = phi i64 [ %40, %.thread11 ], [ %50, %48 ]
+  %.01523.i.i.i = phi i64 [ 0, %.thread11 ], [ %49, %48 ]
+  %.01624.i.i.i = and i64 %.pn.i.i.i, %36
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %.01624.i.i.i
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %1
+  br i1 %45, label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, label %46
 
-43:                                               ; preds = %49, %36
-  %.pn.i.i.i = phi i64 [ %41, %36 ], [ %51, %49 ]
-  %.01523.i.i.i = phi i64 [ 0, %36 ], [ %50, %49 ]
-  %.01624.i.i.i = and i64 %.pn.i.i.i, %37
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %.01624.i.i.i
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %1
-  br i1 %46, label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, label %47
+46:                                               ; preds = %42
+  %47 = icmp eq ptr %44, %8
+  br i1 %47, label %.loopexit.i.i, label %48
 
-47:                                               ; preds = %43
-  %48 = icmp eq ptr %45, %8
-  br i1 %48, label %.loopexit.i.i, label %49
+48:                                               ; preds = %46
+  %49 = add i64 %.01523.i.i.i, 1
+  %50 = add i64 %49, %.01624.i.i.i
+  %.not.i.i.i = icmp ugt i64 %49, %36
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %42, !llvm.loop !59
 
-49:                                               ; preds = %47
-  %50 = add i64 %.01523.i.i.i, 1
-  %51 = add i64 %50, %.01624.i.i.i
-  %.not.i.i.i = icmp ugt i64 %50, %37
-  br i1 %.not.i.i.i, label %.loopexit.i.i, label %43, !llvm.loop !59
-
-.loopexit.i.i:                                    ; preds = %49, %47, %.thread, %.thread12, %.thread11
-  %52 = phi ptr [ %10, %.thread11 ], [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %47 ], [ %10, %49 ]
+.loopexit.i.i:                                    ; preds = %48, %46, %.thread, %.thread12
+  %51 = phi ptr [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %46 ], [ %10, %48 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %0)
-  %.pre.i = load i64, ptr %52, align 8
+  %.pre.i = load i64, ptr %51, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
 
-_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i: ; preds = %43, %.thread12, %.thread, %.loopexit.i.i, %28
-  %53 = phi i64 [ %11, %28 ], [ %.pre.i, %.loopexit.i.i ], [ %11, %.thread ], [ %32, %.thread12 ], [ %11, %43 ]
-  %54 = add i64 %53, -1
-  %55 = ptrtoint ptr %1 to i64
-  %56 = lshr i64 %55, 4
-  %57 = lshr i64 %55, 9
-  %58 = xor i64 %56, %57
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %.01827.i7.i = and i64 %54, %58
-  %62 = getelementptr inbounds ptr, ptr %59, i64 %.01827.i7.i
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %61
-  br i1 %64, label %._crit_edge.i, label %.lr.ph.i
+_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i: ; preds = %42, %.thread12, %.thread, %.loopexit.i.i, %28
+  %52 = phi i64 [ %11, %28 ], [ %.pre.i, %.loopexit.i.i ], [ %11, %.thread ], [ %32, %.thread12 ], [ %11, %42 ]
+  %53 = add i64 %52, -1
+  %54 = ptrtoint ptr %1 to i64
+  %55 = lshr i64 %54, 4
+  %56 = lshr i64 %54, 9
+  %57 = xor i64 %55, %56
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %.01827.i7.i = and i64 %53, %57
+  %61 = getelementptr inbounds ptr, ptr %58, i64 %.01827.i7.i
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, %60
+  br i1 %63, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %70, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
-  %.01827.i.lcssa6.i = phi i64 [ %.01827.i7.i, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ], [ %.01827.i.i, %70 ]
-  %65 = getelementptr inbounds ptr, ptr %59, i64 %.01827.i.lcssa6.i
-  store ptr %1, ptr %65, align 8
-  %66 = load i64, ptr %3, align 8
-  %67 = add i64 %66, 1
-  store i64 %67, ptr %3, align 8
+._crit_edge.i:                                    ; preds = %69, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
+  %.01827.i.lcssa6.i = phi i64 [ %.01827.i7.i, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ], [ %.01827.i.i, %69 ]
+  %64 = getelementptr inbounds ptr, ptr %58, i64 %.01827.i.lcssa6.i
+  store ptr %1, ptr %64, align 8
+  %65 = load i64, ptr %3, align 8
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %3, align 8
   br label %_ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit
 
-.lr.ph.i:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, %70
-  %68 = phi ptr [ %74, %70 ], [ %63, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
-  %.01827.i9.i = phi i64 [ %.01827.i.i, %70 ], [ %.01827.i7.i, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
-  %.01726.i8.i = phi i64 [ %71, %70 ], [ 0, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
-  %69 = icmp eq ptr %68, %1
-  br i1 %69, label %_ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit, label %70
+.lr.ph.i:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, %69
+  %67 = phi ptr [ %73, %69 ], [ %62, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
+  %.01827.i9.i = phi i64 [ %.01827.i.i, %69 ], [ %.01827.i7.i, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
+  %.01726.i8.i = phi i64 [ %70, %69 ], [ 0, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ]
+  %68 = icmp eq ptr %67, %1
+  br i1 %68, label %_ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit, label %69
 
-70:                                               ; preds = %.lr.ph.i
-  %71 = add i64 %.01726.i8.i, 1
-  %72 = add i64 %71, %.01827.i9.i
-  %.not.i3.i = icmp ule i64 %71, %54
+69:                                               ; preds = %.lr.ph.i
+  %70 = add i64 %.01726.i8.i, 1
+  %71 = add i64 %70, %.01827.i9.i
+  %.not.i3.i = icmp ule i64 %70, %53
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %.01827.i.i = and i64 %72, %54
-  %73 = getelementptr inbounds ptr, ptr %59, i64 %.01827.i.i
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %61
-  br i1 %75, label %._crit_edge.i, label %.lr.ph.i
+  %.01827.i.i = and i64 %71, %53
+  %72 = getelementptr inbounds ptr, ptr %58, i64 %.01827.i.i
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, %60
+  br i1 %74, label %._crit_edge.i, label %.lr.ph.i
 
 _ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit: ; preds = %19, %.lr.ph.i, %._crit_edge.i
   %.0.i.i9 = phi i1 [ false, %._crit_edge.i ], [ false, %.lr.ph.i ], [ true, %19 ]

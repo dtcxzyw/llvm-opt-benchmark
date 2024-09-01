@@ -375,8 +375,8 @@ cond.false16.i:                                   ; preds = %cond.end7.i
 _ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit: ; preds = %cond.false16.i, %cond.true14.i
   %cond20.i = phi i64 [ %9, %cond.true14.i ], [ %10, %cond.false16.i ]
   %and.i = and i64 %cond20.i, 255
-  %cmp2.not.not.not.not = icmp ne i64 %and.i, 3
-  br i1 %cmp2.not.not.not.not, label %switch.early.test, label %cleanup23
+  %cmp2.not.not.not.not.not = icmp ne i64 %and.i, 3
+  br i1 %cmp2.not.not.not.not.not, label %switch.early.test, label %cleanup23
 
 switch.early.test:                                ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit
   %trunc = trunc i64 %cond20.i to i8
@@ -421,7 +421,7 @@ for.inc:                                          ; preds = %_ZNSt11this_thread9
 
 cleanup23:                                        ; preds = %for.inc.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit, %entry.split.us
   %.us-phi = phi i64 [ 3, %entry.split.us ], [ %and.i, %switch.early.test ], [ %and.i, %switch.early.test ], [ %and.i, %switch.early.test ], [ 3, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit ], [ 3, %for.inc.us ], [ %and.i.us52, %switch.early.test.us ], [ %and.i.us52, %switch.early.test.us ], [ %and.i.us52, %switch.early.test.us ]
-  %.us-phi44 = phi i1 [ false, %entry.split.us ], [ %cmp2.not.not.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit ], [ %cmp2.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not, %switch.early.test ], [ false, %for.inc.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ]
+  %.us-phi44 = phi i1 [ false, %entry.split.us ], [ %cmp2.not.not.not.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmlllRbRT_j.exit ], [ %cmp2.not.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not.not, %switch.early.test ], [ %cmp2.not.not.not.not.not, %switch.early.test ], [ false, %for.inc.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ]
   %conv = trunc nuw nsw i64 %.us-phi to i32
   store i32 %conv, ptr %sig, align 4, !tbaa !29
   ret i1 %.us-phi44

@@ -459,9 +459,9 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %135, %.preheader.i.i.i.i.i.i
-  %.142.i.i.i.i.i.i = phi i32 [ %138, %.preheader.i.i.i.i.i.i ], [ %.sroa.0.1.i, %135 ]
-  %136 = lshr i32 %.142.i.i.i.i.i.i, 1
-  %137 = add i32 %.142.i.i.i.i.i.i, 8
+  %.143.i.i.i.i.i.i = phi i32 [ %138, %.preheader.i.i.i.i.i.i ], [ %.sroa.0.1.i, %135 ]
+  %136 = lshr i32 %.143.i.i.i.i.i.i, 1
+  %137 = add i32 %.143.i.i.i.i.i.i, 8
   %138 = add i32 %137, %136
   %139 = icmp ugt i32 %.pre.i, %138
   br i1 %139, label %.preheader.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i, !llvm.loop !33
@@ -474,8 +474,8 @@ _ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE14realloc_vectorIS2_TnPN12
   %141 = zext nneg i32 %138 to i64
   %142 = mul nuw nsw i64 %141, 24
   %143 = call ptr @realloc(ptr noundef %.sroa.17.1.i, i64 noundef %142) #22
-  %.not43.i.i.i.i.i.i = icmp eq ptr %143, null
-  br i1 %.not43.i.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread9.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread.i.i.i.i.i
+  %.not42.i.i.i.i.i.i = icmp eq ptr %143, null
+  br i1 %.not42.i.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread9.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread.i.i.i.i.i
 
 _ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread9.i.i.i.i.i: ; preds = %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i
   %.01538.sink.i.ph.i.i.i.i.i = xor i32 %.sroa.0.1.i, -1
@@ -1681,9 +1681,9 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t5resetEv(ptr noundef
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
-  %.142.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
-  %18 = lshr i32 %.142.i.i, 1
-  %19 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
+  %18 = lshr i32 %.143.i.i, 1
+  %19 = add i32 %.143.i.i, 8
   %20 = add i32 %19, %18
   %21 = icmp ugt i32 %15, %20
   br i1 %21, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !64
@@ -1698,8 +1698,8 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_Tn
   %25 = shl nuw i32 %20, 3
   %26 = zext i32 %25 to i64
   %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #22
-  %.not43.i.i = icmp eq ptr %27, null
-  br i1 %.not43.i.i, label %28, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %27, null
+  br i1 %.not42.i.i, label %28, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
 
 28:                                               ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i
   %29 = load i32, ptr %10, align 8
@@ -2115,9 +2115,9 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_pool_tIN22hb_serialize_context_t8
   br i1 %.not.i, label %.preheader.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
-  %.142.i = phi i32 [ %13, %.preheader.i ], [ %8, %10 ]
-  %11 = lshr i32 %.142.i, 1
-  %12 = add i32 %.142.i, 8
+  %.143.i = phi i32 [ %13, %.preheader.i ], [ %8, %10 ]
+  %11 = lshr i32 %.143.i, 1
+  %12 = add i32 %.143.i, 8
   %13 = add i32 %12, %11
   %14 = icmp ugt i32 %7, %13
   br i1 %14, label %.preheader.i, label %.thread.i, !llvm.loop !70
@@ -2132,8 +2132,8 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   %18 = shl nuw i32 %13, 3
   %19 = zext i32 %18 to i64
   %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #22
-  %.not43.i = icmp eq ptr %20, null
-  br i1 %.not43.i, label %21, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit
+  %.not42.i = icmp eq ptr %20, null
+  br i1 %.not42.i, label %21, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit
 
 21:                                               ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE14realloc_vectorIS5_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS5_j11hb_priorityILj0EE.exit.i
   %22 = load i32, ptr %4, align 8
@@ -2172,9 +2172,9 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %30, %.preheader.i.i
-  %.142.i.i = phi i32 [ %33, %.preheader.i.i ], [ %23, %30 ]
-  %31 = lshr i32 %.142.i.i, 1
-  %32 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %33, %.preheader.i.i ], [ %23, %30 ]
+  %31 = lshr i32 %.143.i.i, 1
+  %32 = add i32 %.143.i.i, 8
   %33 = add i32 %32, %31
   %34 = icmp ugt i32 %28, %33
   br i1 %34, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !70
@@ -2189,8 +2189,8 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   %38 = shl nuw i32 %33, 3
   %39 = zext i32 %38 to i64
   %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #22
-  %.not43.i.i = icmp eq ptr %40, null
-  br i1 %.not43.i.i, label %41, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %40, null
+  br i1 %.not42.i.i, label %41, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.i
 
 41:                                               ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE14realloc_vectorIS5_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS5_j11hb_priorityILj0EE.exit.i.i
   %42 = load i32, ptr %4, align 8
@@ -3062,9 +3062,9 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i: ; preds =
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %97, %.preheader.i.i.i
-  %.142.i.i.i = phi i32 [ %100, %.preheader.i.i.i ], [ %93, %97 ]
-  %98 = lshr i32 %.142.i.i.i, 1
-  %99 = add i32 %.142.i.i.i, 8
+  %.143.i.i.i = phi i32 [ %100, %.preheader.i.i.i ], [ %93, %97 ]
+  %98 = lshr i32 %.143.i.i.i, 1
+  %99 = add i32 %.143.i.i.i, 8
   %100 = add i32 %99, %98
   %101 = icmp ugt i32 %95, %100
   br i1 %101, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !130
@@ -3078,8 +3078,8 @@ _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vector
   %104 = zext nneg i32 %100 to i64
   %105 = mul nuw nsw i64 %104, 12
   %106 = call ptr @realloc(ptr noundef %103, i64 noundef %105) #22
-  %.not43.i.i.i = icmp eq ptr %106, null
-  br i1 %.not43.i.i.i, label %107, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
+  %.not42.i.i.i = icmp eq ptr %106, null
+  br i1 %.not42.i.i.i, label %107, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
 107:                                              ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i
   %108 = load i32, ptr %88, align 8
@@ -3197,9 +3197,9 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN2
   br i1 %.not.i.i21, label %.preheader.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %149, %.preheader.i.i
-  %.142.i.i = phi i32 [ %152, %.preheader.i.i ], [ %145, %149 ]
-  %150 = lshr i32 %.142.i.i, 1
-  %151 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %152, %.preheader.i.i ], [ %145, %149 ]
+  %150 = lshr i32 %.143.i.i, 1
+  %151 = add i32 %.143.i.i, 8
   %152 = add i32 %151, %150
   %153 = icmp ugt i32 %147, %152
   br i1 %153, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !64
@@ -3214,8 +3214,8 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_Tn
   %157 = shl nuw i32 %152, 3
   %158 = zext i32 %157 to i64
   %159 = call ptr @realloc(ptr noundef %156, i64 noundef %158) #22
-  %.not43.i.i = icmp eq ptr %159, null
-  br i1 %.not43.i.i, label %160, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %159, null
+  br i1 %.not42.i.i, label %160, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
 
 160:                                              ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i
   %161 = load i32, ptr %142, align 8

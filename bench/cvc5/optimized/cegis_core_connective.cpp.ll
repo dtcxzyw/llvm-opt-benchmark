@@ -15333,8 +15333,8 @@ lpad.i.i120:                                      ; preds = %init.i.i118
 
 invoke.cont43:                                    ; preds = %invoke.cont.i.i121, %init.check.i.i116, %for.end
   %54 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i.not = icmp ne ptr %50, %54
-  br i1 %cmp.i.not, label %cond.true, label %cleanup136
+  %cmp.i.not.not.not.not.not = icmp ne ptr %50, %54
+  br i1 %cmp.i.not.not.not.not.not, label %cond.true, label %cleanup136
 
 cond.true:                                        ; preds = %invoke.cont43
   %55 = load ptr, ptr %_M_finish.i203, align 8
@@ -15795,7 +15795,7 @@ terminate.lpad.i578:                              ; preds = %if.then13.i.i577
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit579: ; preds = %cleanup136, %if.then.i.i571, %if.then13.i.i577
-  ret i1 %cmp.i.not
+  ret i1 %cmp.i.not.not.not.not.not
 
 ehcleanup137:                                     ; preds = %lpad.loopexit600, %lpad.loopexit.split-lp601.loopexit.split-lp, %lpad.loopexit.split-lp601.loopexit, %lpad129, %ehcleanup10.i, %lpad127, %lpad.i.i120, %lpad.i.i379, %lpad86, %ehcleanup42
   %.pn21 = phi { ptr, i32 } [ %73, %lpad86 ], [ %.pn17, %ehcleanup42 ], [ %53, %lpad.i.i120 ], [ %77, %lpad.i.i379 ], [ %99, %lpad129 ], [ %98, %lpad127 ], [ %.pn2.i, %ehcleanup10.i ], [ %lpad.loopexit602, %lpad.loopexit600 ], [ %lpad.loopexit605, %lpad.loopexit.split-lp601.loopexit ], [ %lpad.loopexit.split-lp606, %lpad.loopexit.split-lp601.loopexit.split-lp ]

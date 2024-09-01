@@ -778,15 +778,12 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body
   %conv3 = sext i32 %conv2 to i64
   %call4 = tail call noalias ptr @g_malloc0(i64 noundef %conv3) #11
-  br i1 %cmp15, label %for.body8.preheader, label %for.end18
-
-for.body8.preheader:                              ; preds = %for.end
   %wide.trip.count25 = zext nneg i32 %len to i64
   br label %for.body8
 
-for.body8:                                        ; preds = %for.body8.preheader, %for.body8
-  %indvars.iv22 = phi i64 [ 0, %for.body8.preheader ], [ %indvars.iv.next23, %for.body8 ]
-  %p.019 = phi ptr [ %call4, %for.body8.preheader ], [ %add.ptr, %for.body8 ]
+for.body8:                                        ; preds = %for.end, %for.body8
+  %indvars.iv22 = phi i64 [ 0, %for.end ], [ %indvars.iv.next23, %for.body8 ]
+  %p.019 = phi ptr [ %call4, %for.end ], [ %add.ptr, %for.body8 ]
   %arrayidx10 = getelementptr ptr, ptr %array, i64 %indvars.iv22
   %3 = load ptr, ptr %arrayidx10, align 8
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
@@ -799,9 +796,9 @@ for.body8:                                        ; preds = %for.body8.preheader
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
   br i1 %exitcond26.not, label %for.end18, label %for.body8, !llvm.loop !16
 
-for.end18:                                        ; preds = %for.body8, %for.end.thread, %for.end
-  %call431 = phi ptr [ %call429, %for.end.thread ], [ %call4, %for.end ], [ %call4, %for.body8 ]
-  %total_len.0.lcssa30 = phi i32 [ 0, %for.end.thread ], [ %conv2, %for.end ], [ %conv2, %for.body8 ]
+for.end18:                                        ; preds = %for.body8, %for.end.thread
+  %call431 = phi ptr [ %call429, %for.end.thread ], [ %call4, %for.body8 ]
+  %total_len.0.lcssa30 = phi i32 [ 0, %for.end.thread ], [ %conv2, %for.body8 ]
   %call19 = tail call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %node_path, ptr noundef %prop, ptr noundef %call431, i32 noundef %total_len.0.lcssa30)
   tail call void @g_free(ptr noundef %call431) #12
   ret i32 %call19

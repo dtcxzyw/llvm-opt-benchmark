@@ -1024,13 +1024,10 @@ define internal fastcc i32 @monitor_dataset(i64 noundef %0, ptr noundef %1) unna
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %.not56 = icmp eq i32 %20, %40
-  br i1 %.not56, label %._crit_edge.thread, label %.preheader60
+  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph69
 
-.preheader60:                                     ; preds = %._crit_edge
-  br i1 %.not84, label %.loopexit, label %.lr.ph69
-
-.lr.ph69:                                         ; preds = %.preheader60, %61
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %61 ], [ 0, %.preheader60 ]
+.lr.ph69:                                         ; preds = %._crit_edge, %61
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %61 ], [ 0, %._crit_edge ]
   %41 = load ptr, ptr @stdout, align 8
   %42 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv89
   %43 = load i64, ptr %42, align 8
@@ -1068,8 +1065,7 @@ define internal fastcc i32 @monitor_dataset(i64 noundef %0, ptr noundef %1) unna
 
 ._crit_edge70:                                    ; preds = %61
   %.b5457 = load i1, ptr @g_monitor_size_only, align 1
-  %brmerge = or i1 %.b5457, %.not84
-  br i1 %brmerge, label %.loopexit, label %.lr.ph72
+  br i1 %.b5457, label %.loopexit, label %.lr.ph72
 
 62:                                               ; preds = %.lr.ph72
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
@@ -1104,8 +1100,8 @@ define internal fastcc i32 @monitor_dataset(i64 noundef %0, ptr noundef %1) unna
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.loopexit62, label %.loopexit
 
-.loopexit:                                        ; preds = %62, %.preheader60, %._crit_edge70, %._crit_edge76
-  %.3 = phi i32 [ %.178, %._crit_edge70 ], [ %71, %._crit_edge76 ], [ %.178, %.preheader60 ], [ %.178, %62 ]
+.loopexit:                                        ; preds = %62, %._crit_edge70, %._crit_edge76
+  %.3 = phi i32 [ %.178, %._crit_edge70 ], [ %71, %._crit_edge76 ], [ %.178, %62 ]
   %73 = load ptr, ptr @stdout, align 8
   %74 = call i32 @fflush(ptr noundef %73)
   br label %._crit_edge.thread

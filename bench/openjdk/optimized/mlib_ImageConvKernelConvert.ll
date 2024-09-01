@@ -138,10 +138,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %wide.trip.count343 = zext nneg i32 %59 to i64
   br label %.lr.ph294
 
-.preheader256:                                    ; preds = %.lr.ph294
-  br i1 %60, label %.lr.ph299.preheader, label %._crit_edge300
-
-.lr.ph299.preheader:                              ; preds = %.preheader256
+.lr.ph299.preheader:                              ; preds = %.lr.ph294
   %wide.trip.count348 = zext nneg i32 %59 to i64
   br label %.lr.ph299
 
@@ -158,7 +155,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   store i32 %.sink, ptr %66, align 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %.preheader256, label %.lr.ph294, !llvm.loop !10
+  br i1 %exitcond344.not, label %.lr.ph299.preheader, label %.lr.ph294, !llvm.loop !10
 
 .lr.ph299:                                        ; preds = %.lr.ph299.preheader, %.lr.ph299
   %indvars.iv345 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next346, %.lr.ph299 ]
@@ -174,9 +171,9 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count348
   br i1 %exitcond349.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !11
 
-._crit_edge300:                                   ; preds = %.lr.ph299, %55, %.preheader256
-  %.0218.lcssa = phi i32 [ 0, %.preheader256 ], [ 0, %55 ], [ %.1219, %.lr.ph299 ]
-  %.0216.lcssa = phi i32 [ 0, %.preheader256 ], [ 0, %55 ], [ %.1217, %.lr.ph299 ]
+._crit_edge300:                                   ; preds = %.lr.ph299, %55
+  %.0218.lcssa = phi i32 [ 0, %55 ], [ %.1219, %.lr.ph299 ]
+  %.0216.lcssa = phi i32 [ 0, %55 ], [ %.1217, %.lr.ph299 ]
   switch i32 %5, label %75 [
     i32 6, label %71
     i32 1, label %71

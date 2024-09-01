@@ -95,8 +95,8 @@ define dso_local i32 @gen4_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   br label %73
 
 28:                                               ; preds = %17
-  %29 = getelementptr i8, ptr %19, i64 4
   store i32 %18, ptr %19, align 4
+  %29 = getelementptr i8, ptr %19, i64 4
   %30 = getelementptr i8, ptr %19, i64 8
   store i32 2046836738, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 80

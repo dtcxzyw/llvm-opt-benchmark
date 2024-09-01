@@ -4519,14 +4519,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiE
 ._crit_edge:                                      ; preds = %.lr.ph
   %50 = getelementptr inbounds i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  br i1 %43, label %.lr.ph54.preheader, label %._crit_edge55
-
-.lr.ph54.preheader:                               ; preds = %._crit_edge
   %wide.trip.count60 = and i64 %39, 2147483647
   br label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next58, %.lr.ph54 ]
+.lr.ph54:                                         ; preds = %._crit_edge, %.lr.ph54
+  %indvars.iv57 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next58, %.lr.ph54 ]
   %52 = load ptr, ptr %3, align 8
   %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv57
   %54 = load i32, ptr %53, align 4
@@ -4537,7 +4534,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
   br i1 %exitcond61.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !22
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %33, %._crit_edge
+._crit_edge55:                                    ; preds = %.lr.ph54, %33
   invoke fastcc void @_ZN2cv3dnnL21broadcast1D2TargetMatERNS_3MatERKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5)
           to label %57 unwind label %48
 

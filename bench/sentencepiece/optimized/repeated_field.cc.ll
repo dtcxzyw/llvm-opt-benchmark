@@ -10756,53 +10756,50 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrField
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit
-  br i1 %4, label %17, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit, label %20
 
-17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit, label %21
+20:                                               ; preds = %._crit_edge
+  %21 = add nsw i32 %2, %1
+  %22 = load i32, ptr %18, align 8
+  %23 = icmp slt i32 %21, %22
+  br i1 %23, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
-21:                                               ; preds = %17
-  %22 = add nsw i32 %2, %1
-  %23 = load i32, ptr %19, align 8
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %21
-  %25 = sext i32 %22 to i64
-  %26 = zext nneg i32 %2 to i64
+.lr.ph.preheader.i.i:                             ; preds = %20
+  %24 = sext i32 %21 to i64
+  %25 = zext nneg i32 %2 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %25, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %27 = phi ptr [ %19, %.lr.ph.preheader.i.i ], [ %33, %.lr.ph.i.i ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr inbounds [268435454 x ptr], ptr %28, i64 0, i64 %indvars.iv.i.i
-  %30 = load ptr, ptr %29, align 8
-  %31 = sub nsw i64 %indvars.iv.i.i, %26
-  %32 = getelementptr inbounds [268435454 x ptr], ptr %28, i64 0, i64 %31
-  store ptr %30, ptr %32, align 8
+  %indvars.iv.i.i = phi i64 [ %24, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %26 = phi ptr [ %18, %.lr.ph.preheader.i.i ], [ %32, %.lr.ph.i.i ]
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds [268435454 x ptr], ptr %27, i64 0, i64 %indvars.iv.i.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = sub nsw i64 %indvars.iv.i.i, %25
+  %31 = getelementptr inbounds [268435454 x ptr], ptr %27, i64 0, i64 %30
+  store ptr %29, ptr %31, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %33 = load ptr, ptr %18, align 8
-  %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next.i.i, %35
-  br i1 %36, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
+  %32 = load ptr, ptr %17, align 8
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next.i.i, %34
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %21
-  %.lcssa.i.i = phi ptr [ %19, %21 ], [ %33, %.lr.ph.i.i ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = sub nsw i32 %38, %2
-  store i32 %39, ptr %37, align 8
-  %40 = load i32, ptr %.lcssa.i.i, align 8
-  %41 = sub nsw i32 %40, %2
-  store i32 %41, ptr %.lcssa.i.i, align 8
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %20
+  %.lcssa.i.i = phi ptr [ %18, %20 ], [ %32, %.lr.ph.i.i ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = sub nsw i32 %37, %2
+  store i32 %38, ptr %36, align 8
+  %39 = load i32, ptr %.lcssa.i.i, align 8
+  %40 = sub nsw i32 %39, %2
+  store i32 %40, ptr %.lcssa.i.i, align 8
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit
 
-_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit: ; preds = %3, %._crit_edge, %17, %._crit_edge.i.i
+_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit: ; preds = %3, %._crit_edge, %._crit_edge.i.i
   ret void
 }
 

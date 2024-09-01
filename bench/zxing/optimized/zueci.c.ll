@@ -231,10 +231,10 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   %47 = trunc nuw i32 %31 to i8
   %48 = getelementptr inbounds i8, ptr %.061139, i64 1
   store i8 %47, ptr %.061139, align 1
-  br i1 %38, label %.preheader, label %._crit_edge140, !llvm.loop !4
+  br label %.preheader, !llvm.loop !4
 
-._crit_edge140:                                   ; preds = %46, %.thread, %.preheader103
-  %.061.lcssa = phi ptr [ %3, %.preheader103 ], [ %45, %.thread ], [ %48, %46 ]
+._crit_edge140:                                   ; preds = %.thread, %.preheader103
+  %.061.lcssa = phi ptr [ %3, %.preheader103 ], [ %45, %.thread ]
   %49 = ptrtoint ptr %.061.lcssa to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50
@@ -364,10 +364,10 @@ switch.early.test72:                              ; preds = %zueci_decode_utf8.e
 107:                                              ; preds = %.loopexit106
   %108 = sext i32 %101 to i64
   %109 = getelementptr inbounds i8, ptr %.1136, i64 %108
-  br i1 %99, label %.preheader105, label %._crit_edge, !llvm.loop !7
+  br label %.preheader105, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %107, %.thread169, %74
-  %.1.lcssa = phi ptr [ %3, %74 ], [ %106, %.thread169 ], [ %109, %107 ]
+._crit_edge:                                      ; preds = %.thread169, %74
+  %.1.lcssa = phi ptr [ %3, %74 ], [ %106, %.thread169 ]
   %110 = ptrtoint ptr %.1.lcssa to i64
   %111 = ptrtoint ptr %3 to i64
   %112 = sub i64 %110, %111
@@ -3166,8 +3166,8 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
   %50 = trunc i32 %3 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %.1..1..1..sroa_idx324 = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %52, ptr %.1..1..1..sroa_idx324, align 1
+  %.1..1..1..sroa_idx317 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 %52, ptr %.1..1..1..sroa_idx317, align 1
   br label %zueci_encode_utf8.exit162
 
 53:                                               ; preds = %44
@@ -3346,10 +3346,9 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 .loopexit194:                                     ; preds = %switch.early.test
   %121 = load i8, ptr %.3141, align 1
-  %122 = icmp slt i8 %121, 0
-  %brmerge.not = and i1 %122, %119
-  %.3141.lcssa276.mux = select i1 %122, ptr %97, ptr %.3141
-  br i1 %brmerge.not, label %.lr.ph215, label %.critedge21
+  %122 = icmp sgt i8 %121, -1
+  %.3141.lcssa276.mux = select i1 %122, ptr %.3141, ptr %97
+  br i1 %122, label %.critedge21, label %.lr.ph215
 
 .loopexit194.thread:                              ; preds = %.critedge
   %123 = load i8, ptr %.3141, align 1

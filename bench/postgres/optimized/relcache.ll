@@ -949,17 +949,14 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
 CopyIndexAttOptions.exit54:                       ; preds = %55
   store ptr %48, ptr %3, align 8
   store ptr %47, ptr @CurrentMemoryContext, align 8
-  br i1 %1, label %CopyIndexAttOptions.exit, label %.preheader
+  br i1 %1, label %CopyIndexAttOptions.exit, label %.lr.ph58.preheader
 
 CopyIndexAttOptions.exit54.thread:                ; preds = %._crit_edge
   store ptr %48, ptr %3, align 8
   store ptr %47, ptr @CurrentMemoryContext, align 8
   br i1 %1, label %CopyIndexAttOptions.exit, label %._crit_edge59
 
-.preheader:                                       ; preds = %CopyIndexAttOptions.exit54
-  br i1 %31, label %._crit_edge59, label %.lr.ph58.preheader
-
-.lr.ph58.preheader:                               ; preds = %.preheader
+.lr.ph58.preheader:                               ; preds = %CopyIndexAttOptions.exit54
   %wide.trip.count68 = zext nneg i32 %11 to i64
   br label %.lr.ph58
 
@@ -979,7 +976,7 @@ CopyIndexAttOptions.exit54.thread:                ; preds = %._crit_edge
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !12
 
-._crit_edge59:                                    ; preds = %61, %CopyIndexAttOptions.exit54.thread, %.preheader
+._crit_edge59:                                    ; preds = %61, %CopyIndexAttOptions.exit54.thread
   tail call void @pfree(ptr noundef %30) #12
   %62 = load ptr, ptr %3, align 8
   br label %CopyIndexAttOptions.exit

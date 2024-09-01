@@ -689,8 +689,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .preheader147:                                    ; preds = %._crit_edge
   %.not134156 = icmp eq ptr %.0108.lcssa, null
-  %or.cond196 = or i1 %.not123154, %.not134156
-  br i1 %or.cond196, label %.preheader144, label %.preheader145.preheader
+  br i1 %.not134156, label %.preheader144, label %.preheader145.preheader
 
 .preheader145.lr.ph:                              ; preds = %.preheader148.lr.ph
   %.not134156.old = icmp eq ptr %.0108.lcssa, null

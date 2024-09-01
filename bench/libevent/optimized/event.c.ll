@@ -12050,8 +12050,8 @@ do.body:                                          ; preds = %land.rhs, %entry
   %0 = load i32, ptr %th_notify_fd, align 4
   %call = call i64 @write(i32 noundef %0, ptr noundef nonnull %msg, i64 noundef 8) #26
   %1 = and i64 %call, 2147483648
-  %cmp.not.not = icmp ne i64 %1, 0
-  br i1 %cmp.not.not, label %land.rhs, label %do.end
+  %cmp.not.not.not.not.not.not = icmp ne i64 %1, 0
+  br i1 %cmp.not.not.not.not.not.not, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
   %call2 = tail call ptr @__errno_location() #30
@@ -12060,7 +12060,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp3, label %do.body, label %do.end, !llvm.loop !54
 
 do.end:                                           ; preds = %do.body, %land.rhs
-  %cond = sext i1 %cmp.not.not to i32
+  %cond = sext i1 %cmp.not.not.not.not.not.not to i32
   ret i32 %cond
 }
 

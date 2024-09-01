@@ -2943,12 +2943,12 @@ define i32 @sat_solver2_addclause(ptr nocapture noundef %0, ptr noundef readonly
 ._crit_edge147:                                   ; preds = %.critedge
   %33 = add nsw i32 %spec.select, 1
   tail call void @sat_solver2_setnvars(ptr noundef %0, i32 noundef %33)
-  br i1 %21, label %.lr.ph152, label %.preheader
+  br label %.lr.ph152
 
-.preheader:                                       ; preds = %47, %._crit_edge147.thread, %._crit_edge147
-  %.val169174 = phi ptr [ %.val, %._crit_edge147 ], [ %.val169.ph, %._crit_edge147.thread ], [ %.val, %47 ]
-  %34 = phi ptr [ %20, %._crit_edge147 ], [ %.ph170, %._crit_edge147.thread ], [ %20, %47 ]
-  %.1110.lcssa = phi ptr [ %20, %._crit_edge147 ], [ %.ph170, %._crit_edge147.thread ], [ %.2111, %47 ]
+.preheader:                                       ; preds = %47, %._crit_edge147.thread
+  %.val169174 = phi ptr [ %.val169.ph, %._crit_edge147.thread ], [ %.val, %47 ]
+  %34 = phi ptr [ %.ph170, %._crit_edge147.thread ], [ %20, %47 ]
+  %.1110.lcssa = phi ptr [ %.ph170, %._crit_edge147.thread ], [ %.2111, %47 ]
   %35 = icmp ult ptr %.val169174, %.1110.lcssa
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr i8, ptr %0, i64 248

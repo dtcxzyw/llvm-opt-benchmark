@@ -24402,8 +24402,8 @@ entry:
 dynamic_cast.notnull.i.i:                         ; preds = %if.end.i.i, %entry
   %current.04.i.i = phi ptr [ %0, %entry ], [ %call.i.i, %if.end.i.i ]
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %current.04.i.i, ptr nonnull @_ZTIN5folly14AsyncTransportE, ptr nonnull @_ZTIN5folly11AsyncSocketE, i64 0) #41
-  %tobool2.not.i.i.not = icmp ne ptr %1, null
-  br i1 %tobool2.not.i.i.not, label %if.then, label %if.end.i.i
+  %tobool2.not.i.i.not.not.not.not.not = icmp ne ptr %1, null
+  br i1 %tobool2.not.i.i.not.not.not.not.not, label %if.then, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %dynamic_cast.notnull.i.i
   %vtable.i.i = load ptr, ptr %current.04.i.i, align 8
@@ -24426,7 +24426,7 @@ if.then:                                          ; preds = %dynamic_cast.notnul
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then
-  ret i1 %tobool2.not.i.i.not
+  ret i1 %tobool2.not.i.i.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZN6wangle13TransportInfo14initWithSocketEPKN5folly11AsyncSocketE(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef) local_unnamed_addr #0

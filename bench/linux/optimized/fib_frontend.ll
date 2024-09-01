@@ -1030,8 +1030,8 @@ define dso_local noundef zeroext i1 @fib_info_nh_uses_dev(ptr nocapture noundef 
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread2, label %13
 
-.thread2:                                         ; preds = %.lr.ph, %20, %13, %6, %11
-  %23 = phi i1 [ %12, %11 ], [ false, %6 ], [ true, %.lr.ph ], [ true, %20 ], [ false, %13 ]
+.thread2:                                         ; preds = %20, %.lr.ph, %13, %6, %11
+  %23 = phi i1 [ %12, %11 ], [ false, %6 ], [ true, %20 ], [ true, %.lr.ph ], [ false, %13 ]
   ret i1 %23
 }
 

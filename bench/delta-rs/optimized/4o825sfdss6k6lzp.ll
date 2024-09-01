@@ -1539,8 +1539,8 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %134 = load ptr, ptr %27, align 8, !alias.scope !103, !noundef !4
   store ptr null, ptr %27, align 8, !alias.scope !103
-  %.not.not.i.i = icmp eq ptr %134, null
-  br i1 %.not.not.i.i, label %"_ZN4core3ptr422drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hd7d5872e61c2b9c2E.exit", label %.thread.i.i
+  %.not.i.i = icmp eq ptr %134, null
+  br i1 %.not.i.i, label %"_ZN4core3ptr422drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hd7d5872e61c2b9c2E.exit", label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %133
   invoke void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$12release_task17h8ad9ea9c2b513a00E"(ptr noalias nonnull align 8 poison, ptr noundef nonnull %134)
@@ -1625,8 +1625,8 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %175 = load ptr, ptr %27, align 8, !alias.scope !109, !noundef !4
   store ptr null, ptr %27, align 8, !alias.scope !109
-  %.not.not.i.i43 = icmp eq ptr %175, null
-  br i1 %.not.not.i.i43, label %"_ZN4core3ptr422drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hd7d5872e61c2b9c2E.exit47", label %.thread.i.i44
+  %.not.i.i43 = icmp eq ptr %175, null
+  br i1 %.not.i.i43, label %"_ZN4core3ptr422drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hd7d5872e61c2b9c2E.exit47", label %.thread.i.i44
 
 .thread.i.i44:                                    ; preds = %174
   invoke void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$12release_task17h8ad9ea9c2b513a00E"(ptr noalias nonnull align 8 poison, ptr noundef nonnull %175)

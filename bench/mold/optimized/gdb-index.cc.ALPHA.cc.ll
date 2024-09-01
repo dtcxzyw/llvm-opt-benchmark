@@ -1448,9 +1448,6 @@ for.end73:                                        ; preds = %for.body64, %_ZN4mo
   %cmp.i236306 = icmp eq ptr %76, %75
   br i1 %cmp.i236306, label %for.end128, label %for.body96
 
-for.cond115.preheader:                            ; preds = %for.body96
-  br i1 %cmp.i236306, label %for.end128, label %for.body118
-
 for.body96:                                       ; preds = %for.end73, %for.body96
   %offset.0308 = phi i64 [ %add104, %for.body96 ], [ 0, %for.end73 ]
   %__begin287.sroa.0.0307 = phi ptr [ %incdec.ptr.i237, %for.body96 ], [ %76, %for.end73 ]
@@ -1466,11 +1463,11 @@ for.body96:                                       ; preds = %for.end73, %for.bod
   %add104 = add nuw nsw i64 %offset.0308, %conv103
   %incdec.ptr.i237 = getelementptr inbounds i8, ptr %__begin287.sroa.0.0307, i64 8
   %cmp.i236 = icmp eq ptr %incdec.ptr.i237, %75
-  br i1 %cmp.i236, label %for.cond115.preheader, label %for.body96
+  br i1 %cmp.i236, label %for.body118, label %for.body96
 
-for.body118:                                      ; preds = %for.cond115.preheader, %for.body118
-  %offset.1312 = phi i64 [ %add125, %for.body118 ], [ %add104, %for.cond115.preheader ]
-  %__begin2109.sroa.0.0311 = phi ptr [ %incdec.ptr.i240, %for.body118 ], [ %76, %for.cond115.preheader ]
+for.body118:                                      ; preds = %for.body96, %for.body118
+  %offset.1312 = phi i64 [ %add125, %for.body118 ], [ %add104, %for.body96 ]
+  %__begin2109.sroa.0.0311 = phi ptr [ %incdec.ptr.i240, %for.body118 ], [ %76, %for.body96 ]
   %83 = load ptr, ptr %__begin2109.sroa.0.0311, align 8
   %conv121 = trunc i64 %offset.1312 to i32
   %name_offset = getelementptr inbounds i8, ptr %83, i64 16
@@ -1484,8 +1481,8 @@ for.body118:                                      ; preds = %for.cond115.prehead
   %cmp.i239 = icmp eq ptr %incdec.ptr.i240, %75
   br i1 %cmp.i239, label %for.end128, label %for.body118
 
-for.end128:                                       ; preds = %for.body118, %for.end73, %for.cond115.preheader
-  %offset.1.lcssa = phi i64 [ %add104, %for.cond115.preheader ], [ 0, %for.end73 ], [ %add125, %for.body118 ]
+for.end128:                                       ; preds = %for.body118, %for.end73
+  %offset.1.lcssa = phi i64 [ 0, %for.end73 ], [ %add125, %for.body118 ]
   %conv131 = zext i32 %conv84 to i64
   %add132 = add nuw nsw i64 %offset.1.lcssa, %conv131
   %output_file = getelementptr inbounds i8, ptr %ctx, i64 3360
@@ -13633,7 +13630,7 @@ if.then.i:                                        ; preds = %for.end
 
 if.end.i:                                         ; preds = %for.end
   %cmp3.i.not = icmp eq i64 %add, 0
-  br i1 %cmp3.i.not, label %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_M_deallocateEPS6_m.exit.i
+  br i1 %cmp3.i.not, label %for.body17.lr.ph, label %_ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_M_deallocateEPS6_m.exit.i
 
 _ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %if.end.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -13644,12 +13641,9 @@ _ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i, i64 %add
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit
+  br label %for.body17.lr.ph
 
-_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_M_deallocateEPS6_m.exit.i
-  br i1 %cmp.i22, label %nrvo.skipdtor, label %for.body17.lr.ph
-
-for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit
+for.body17.lr.ph:                                 ; preds = %_ZNSt12_Vector_baseIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE13_M_deallocateEPS6_m.exit.i, %if.end.i
   %_M_finish.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body17
 
@@ -13711,7 +13705,7 @@ _ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EED2Ev.exit:
   %cmp.i8 = icmp eq ptr %incdec.ptr.i16, %1
   br i1 %cmp.i8, label %nrvo.skipdtor, label %for.body17
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EED2Ev.exit, %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit.thread, %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit
+nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EED2Ev.exit, %_ZNSt6vectorIPN4mold13ConcurrentMapINS0_3elf8MapValueEE5EntryESaIS6_EE7reserveEm.exit.thread
   ret void
 }
 

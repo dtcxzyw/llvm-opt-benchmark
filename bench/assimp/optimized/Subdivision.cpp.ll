@@ -1484,7 +1484,7 @@ if.then.i360:                                     ; preds = %invoke.cont120.spli
 
 if.end.i325:                                      ; preds = %if.then.i360, %invoke.cont120.split
   %or.cond2067 = or i1 %or.cond.i.i280, %cmp3.i.not.i282
-  br i1 %or.cond2067, label %if.end21.i336, label %if.end21.i336.thread
+  br i1 %or.cond2067, label %if.end.i.i338.preheader, label %if.end21.i336.thread
 
 if.end21.i336.thread:                             ; preds = %if.end.i325
   %arrayidx16.i334 = getelementptr inbounds %class.aiVector3t, ptr %121, i64 %idxprom.i319
@@ -1493,21 +1493,15 @@ if.end21.i336.thread:                             ; preds = %if.end.i325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %bitangent.i315, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx19.i335, i64 12, i1 false)
   br label %if.end.i.i338.preheader
 
-if.end21.i336:                                    ; preds = %if.end.i325
-  br i1 %cmp2.i.i274, label %if.end.i.i338.preheader, label %invoke.cont123.split
-
-if.end.i.i338.preheader:                          ; preds = %if.end21.i336.thread, %if.end21.i336
+if.end.i.i338.preheader:                          ; preds = %if.end.i325, %if.end21.i336.thread
   br label %if.end.i.i338
-
-for.cond31.preheader.i343.split:                  ; preds = %if.end.i.i338, %for.body.i355
-  br i1 %cmp2.i.i274, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i345, label %invoke.cont123.split
 
 if.end.i.i338:                                    ; preds = %if.end.i.i338.preheader, %for.body.i355
   %indvars.iv.i339 = phi i64 [ %indvars.iv.next.i358, %for.body.i355 ], [ 0, %if.end.i.i338.preheader ]
   %arrayidx.i.i340 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i.i287, i64 0, i64 %indvars.iv.i339
   %125 = load ptr, ptr %arrayidx.i.i340, align 8
   %cmp2.not.i31.i341.not = icmp eq ptr %125, null
-  br i1 %cmp2.not.i31.i341.not, label %for.cond31.preheader.i343.split, label %for.body.i355
+  br i1 %cmp2.not.i31.i341.not, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i345.preheader, label %for.body.i355
 
 for.body.i355:                                    ; preds = %if.end.i.i338
   %arrayidx26.i356 = getelementptr inbounds %class.aiVector3t, ptr %125, i64 %idxprom.i319
@@ -1515,10 +1509,13 @@ for.body.i355:                                    ; preds = %if.end.i.i338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx29.i357, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx26.i356, i64 12, i1 false)
   %indvars.iv.next.i358 = add nuw nsw i64 %indvars.iv.i339, 1
   %exitcond.i359 = icmp eq i64 %indvars.iv.next.i358, 8
-  br i1 %exitcond.i359, label %for.cond31.preheader.i343.split, label %if.end.i.i338, !llvm.loop !11
+  br i1 %exitcond.i359, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i345.preheader, label %if.end.i.i338, !llvm.loop !11
 
-_ZNK6aiMesh15HasVertexColorsEj.exit.i345:         ; preds = %for.cond31.preheader.i343.split, %for.body33.i350
-  %indvars.iv46.i346 = phi i64 [ %indvars.iv.next47.i353, %for.body33.i350 ], [ 0, %for.cond31.preheader.i343.split ]
+_ZNK6aiMesh15HasVertexColorsEj.exit.i345.preheader: ; preds = %if.end.i.i338, %for.body.i355
+  br label %_ZNK6aiMesh15HasVertexColorsEj.exit.i345
+
+_ZNK6aiMesh15HasVertexColorsEj.exit.i345:         ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i345.preheader, %for.body33.i350
+  %indvars.iv46.i346 = phi i64 [ %indvars.iv.next47.i353, %for.body33.i350 ], [ 0, %_ZNK6aiMesh15HasVertexColorsEj.exit.i345.preheader ]
   %arrayidx.i37.i347 = getelementptr inbounds [8 x ptr], ptr %mColors.i.i294, i64 0, i64 %indvars.iv46.i346
   %126 = load ptr, ptr %arrayidx.i37.i347, align 8
   %cmp2.not.i38.i348.not = icmp eq ptr %126, null
@@ -1532,7 +1529,7 @@ for.body33.i350:                                  ; preds = %_ZNK6aiMesh15HasVer
   %exitcond49.i354 = icmp eq i64 %indvars.iv.next47.i353, 8
   br i1 %exitcond49.i354, label %invoke.cont123.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i345, !llvm.loop !12
 
-invoke.cont123.split:                             ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i345, %for.body33.i350, %if.end21.i336, %if.end21.i336.thread2350, %for.cond31.preheader.i343.split
+invoke.cont123.split:                             ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i345, %for.body33.i350, %if.end21.i336.thread2350
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %87, i8 0, i64 224, i1 false), !alias.scope !31
   %127 = load float, ptr %ref.tmp118, align 4, !noalias !31

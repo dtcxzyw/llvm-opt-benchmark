@@ -117,10 +117,10 @@ define void @_Z13powerspectavgPPPfiiiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIc
   store float %48, ptr %46, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZL14addtoavgenergyP9t_complexPfii.exit.us, label %40, !llvm.loop !5
+  br i1 %exitcond.not.i.us, label %.lr.ph.i45.us, label %40, !llvm.loop !5
 
-_ZL14addtoavgenergyP9t_complexPfii.exit.us:       ; preds = %40, %_ZL14addtoavgenergyP9t_complexPfii.exit.us
-  %indvars.iv.i47.us = phi i64 [ %indvars.iv.next.i51.us, %_ZL14addtoavgenergyP9t_complexPfii.exit.us ], [ 0, %40 ]
+.lr.ph.i45.us:                                    ; preds = %40, %.lr.ph.i45.us
+  %indvars.iv.i47.us = phi i64 [ %indvars.iv.next.i51.us, %.lr.ph.i45.us ], [ 0, %40 ]
   %49 = getelementptr inbounds %struct.t_complex, ptr %22, i64 %indvars.iv.i47.us
   %.sroa.0.0.copyload.i48.us = load <2 x float>, ptr %49, align 4
   %.sroa.0.0.vec.extract.i.i49.us = extractelement <2 x float> %.sroa.0.0.copyload.i48.us, i64 0
@@ -134,9 +134,9 @@ _ZL14addtoavgenergyP9t_complexPfii.exit.us:       ; preds = %40, %_ZL14addtoavge
   store float %56, ptr %54, align 4
   %indvars.iv.next.i51.us = add nuw nsw i64 %indvars.iv.i47.us, 1
   %exitcond.not.i52.us = icmp eq i64 %indvars.iv.next.i51.us, %wide.trip.count.i
-  br i1 %exitcond.not.i52.us, label %_ZL14addtoavgenergyP9t_complexPfii.exit53.loopexit.us, label %_ZL14addtoavgenergyP9t_complexPfii.exit.us, !llvm.loop !5
+  br i1 %exitcond.not.i52.us, label %_ZL14addtoavgenergyP9t_complexPfii.exit53.loopexit.us, label %.lr.ph.i45.us, !llvm.loop !5
 
-_ZL14addtoavgenergyP9t_complexPfii.exit53.loopexit.us: ; preds = %_ZL14addtoavgenergyP9t_complexPfii.exit.us
+_ZL14addtoavgenergyP9t_complexPfii.exit53.loopexit.us: ; preds = %.lr.ph.i45.us
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !7

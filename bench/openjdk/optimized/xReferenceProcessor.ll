@@ -1417,7 +1417,7 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit.lr.ph: ; pre
 .loopexit34:                                      ; preds = %17
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond49.not, label %._crit_edge, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit, !llvm.loop !20
+  br i1 %exitcond49.not, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit, !llvm.loop !20
 
 _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit: ; preds = %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit.lr.ph, %.loopexit34
   %indvars.iv46 = phi i64 [ 0, %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit.lr.ph ], [ %indvars.iv.next47, %.loopexit34 ]
@@ -1438,10 +1438,7 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit: ; preds = %
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit34, label %17, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.loopexit34
-  br i1 %.not, label %._crit_edge42, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph
-
-_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph: ; preds = %._crit_edge
+_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph: ; preds = %.loopexit34
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %wide.trip.count57 = zext i32 %11 to i64
@@ -1450,7 +1447,7 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph: ; p
 .loopexit33:                                      ; preds = %28
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge39, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14, !llvm.loop !22
+  br i1 %exitcond58.not, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15.lr.ph, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14, !llvm.loop !22
 
 _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14: ; preds = %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph, %.loopexit33
   %indvars.iv54 = phi i64 [ 0, %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14.lr.ph ], [ %indvars.iv.next55, %.loopexit33 ]
@@ -1471,10 +1468,7 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14: ; preds =
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 5
   br i1 %exitcond53.not, label %.loopexit33, label %28, !llvm.loop !23
 
-._crit_edge39:                                    ; preds = %.loopexit33
-  br i1 %.not, label %._crit_edge42, label %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15.lr.ph
-
-_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15.lr.ph: ; preds = %._crit_edge39
+_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15.lr.ph: ; preds = %.loopexit33
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %wide.trip.count66 = zext i32 %11 to i64
@@ -1515,11 +1509,11 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15: ; preds =
   %.pre73 = load i64, ptr %.phi.trans.insert72, align 16
   br label %._crit_edge42
 
-._crit_edge42:                                    ; preds = %1, %._crit_edge, %._crit_edge42.loopexit, %._crit_edge39
-  %45 = phi i64 [ %.pre73, %._crit_edge42.loopexit ], [ 0, %._crit_edge39 ], [ 0, %._crit_edge ], [ 0, %1 ]
-  %46 = phi i64 [ %.pre71, %._crit_edge42.loopexit ], [ 0, %._crit_edge39 ], [ 0, %._crit_edge ], [ 0, %1 ]
-  %47 = phi i64 [ %.pre69, %._crit_edge42.loopexit ], [ 0, %._crit_edge39 ], [ 0, %._crit_edge ], [ 0, %1 ]
-  %48 = phi i64 [ %.pre, %._crit_edge42.loopexit ], [ 0, %._crit_edge39 ], [ 0, %._crit_edge ], [ 0, %1 ]
+._crit_edge42:                                    ; preds = %1, %._crit_edge42.loopexit
+  %45 = phi i64 [ %.pre73, %._crit_edge42.loopexit ], [ 0, %1 ]
+  %46 = phi i64 [ %.pre71, %._crit_edge42.loopexit ], [ 0, %1 ]
+  %47 = phi i64 [ %.pre69, %._crit_edge42.loopexit ], [ 0, %1 ]
+  %48 = phi i64 [ %.pre, %._crit_edge42.loopexit ], [ 0, %1 ]
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %3, i64 8

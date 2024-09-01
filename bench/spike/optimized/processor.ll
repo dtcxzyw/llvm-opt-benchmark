@@ -134575,7 +134575,7 @@ define void @_ZN11processor_tD2Ev(ptr noundef nonnull align 8 dereferenceable(65
 
 _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %12 = icmp ugt i64 %.05.i.i.i.i, 576460752303423486
-  br i1 %12, label %13, label %.lr.ph.i.i.i.i.preheader.i.i
+  br i1 %12, label %13, label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i
 
 13:                                               ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #38
@@ -134584,14 +134584,14 @@ _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_
 .noexc.i:                                         ; preds = %13
   unreachable
 
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
+_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   %14 = shl nuw nsw i64 %10, 4
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #36
           to label %.lr.ph.i.i.i.i.i.i unwind label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EED2Ev.exit.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %.lr.ph.i.i.i.i.i.i
-  %.08.i.i.i.i.i.i.idx = phi i64 [ %.08.i.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %.sroa.04.07.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i.i
+  %.08.i.i.i.i.i.i.idx = phi i64 [ %.08.i.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i.i ], [ 0, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.04.07.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i ]
   %.08.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %15, i64 %.08.i.i.i.i.i.i.idx
   %16 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %17 = load i64, ptr %16, align 8
@@ -134605,7 +134605,7 @@ _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKmmELb0ELb0EEEENSt15iterator_
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZNSt6vectorISt4pairImmESaIS1_EEC2INSt8__detail14_Node_iteratorIS0_IKmmELb0ELb0EEEvEET_SA_RKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
 
-_ZNSt12_Vector_baseISt4pairImmESaIS1_EED2Ev.exit.i: ; preds = %13, %.lr.ph.i.i.i.i.preheader.i.i
+_ZNSt12_Vector_baseISt4pairImmESaIS1_EED2Ev.exit.i: ; preds = %13, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EE11_M_allocateEm.exit.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0

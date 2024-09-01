@@ -881,7 +881,7 @@ for.inc:                                          ; preds = %if.then127, %do.bod
   br i1 %exitcond.not, label %for.end, label %for.body105, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
-  br i1 %or.cond2.not, label %do.body179.preheader, label %if.end214
+  br i1 %or.cond2.not, label %for.body183.us, label %if.end214
 
 for.end.thread:                                   ; preds = %if.end101
   br i1 %or.cond2.not, label %do.end209, label %if.end235.thread
@@ -891,12 +891,9 @@ if.end235.thread:                                 ; preds = %for.end.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 32, i1 false)
   br label %for.end286
 
-do.body179.preheader:                             ; preds = %for.end
-  br i1 %cmp103316, label %for.body183.us, label %do.end209
-
-for.body183.us:                                   ; preds = %do.body179.preheader, %for.body183.us.backedge
-  %indvars.iv457 = phi i64 [ %indvars.iv457.be, %for.body183.us.backedge ], [ 0, %do.body179.preheader ]
-  %doShutdown.0321.us = phi i32 [ %doShutdown.0321.us.be, %for.body183.us.backedge ], [ 1, %do.body179.preheader ]
+for.body183.us:                                   ; preds = %for.end, %for.body183.us.backedge
+  %indvars.iv457 = phi i64 [ %indvars.iv457.be, %for.body183.us.backedge ], [ 0, %for.end ]
+  %doShutdown.0321.us = phi i32 [ %doShutdown.0321.us.be, %for.body183.us.backedge ], [ 1, %for.end ]
   %arrayidx185.us = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv457
   %done.us = getelementptr inbounds i8, ptr %arrayidx185.us, i64 33272
   %61 = load i32, ptr %done.us, align 8
@@ -940,8 +937,8 @@ if.then201:                                       ; preds = %land.lhs.true197.us
   call fastcc void @err_sys(ptr noundef nonnull @.str.14) #20
   unreachable
 
-do.end209:                                        ; preds = %for.cond180.do.cond_crit_edge.us, %for.end.thread, %do.body179.preheader
-  %ret.6.lcssa521523 = phi i32 [ %ret.7, %do.body179.preheader ], [ %ret.3333, %for.end.thread ], [ %ret.7, %for.cond180.do.cond_crit_edge.us ]
+do.end209:                                        ; preds = %for.cond180.do.cond_crit_edge.us, %for.end.thread
+  %ret.6.lcssa521523 = phi i32 [ %ret.3333, %for.end.thread ], [ %ret.7, %for.cond180.do.cond_crit_edge.us ]
   br i1 %tobool78.not, label %if.end235, label %if.then211
 
 if.then211:                                       ; preds = %do.end209

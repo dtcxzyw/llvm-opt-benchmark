@@ -151,7 +151,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   br label %59
 
 .preheader244:                                    ; preds = %59
-  %umax270 = call i64 @llvm.umax.i64(i64 %3, i64 1)
+  %umax269 = call i64 @llvm.umax.i64(i64 %3, i64 1)
   br label %65
 
 59:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit, %59
@@ -189,15 +189,15 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %gep = getelementptr ptr, ptr %51, i64 %.1183251
   store ptr %66, ptr %gep, align 8
   %67 = add nuw i64 %.1183251, 1
-  %exitcond271.not = icmp eq i64 %67, %umax270
-  br i1 %exitcond271.not, label %68, label %65, !llvm.loop !6
+  %exitcond270.not = icmp eq i64 %67, %umax269
+  br i1 %exitcond270.not, label %68, label %65, !llvm.loop !6
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i32, ptr %58, i64 %5
   %70 = getelementptr inbounds ptr, ptr %52, i64 %41
   store ptr null, ptr %70, align 8
   %71 = trunc i64 %41 to i32
-  %umax274 = call i64 @llvm.umax.i64(i64 %5, i64 1)
+  %umax273 = call i64 @llvm.umax.i64(i64 %5, i64 1)
   br label %72
 
 72:                                               ; preds = %68, %134
@@ -225,8 +225,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %.neg = xor i32 %83, -1
   %85 = add nsw i32 %.0175253, %.neg
   %86 = add nuw i64 %.0186252, 1
-  %exitcond272.not = icmp eq i64 %86, %1
-  br i1 %exitcond272.not, label %.critedge, label %.preheader241, !llvm.loop !7
+  %exitcond271.not = icmp eq i64 %86, %1
+  br i1 %exitcond271.not, label %.critedge, label %.preheader241, !llvm.loop !7
 
 87:                                               ; preds = %.preheader241
   %88 = and i32 %81, 7
@@ -305,15 +305,15 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %.neg233 = xor i32 %119, -1
   %121 = add nsw i32 %.0174255, %.neg233
   %122 = add nuw i64 %.1187254, 1
-  %exitcond273.not = icmp eq i64 %122, %umax270
-  br i1 %exitcond273.not, label %.thread, label %115, !llvm.loop !8
+  %exitcond272.not = icmp eq i64 %122, %umax269
+  br i1 %exitcond272.not, label %.thread, label %115, !llvm.loop !8
 
 123:                                              ; preds = %115
   %124 = icmp sgt i32 %.0174255, -1
   %125 = and i32 %117, 7
   %126 = icmp eq i32 %125, %40
-  %or.cond293 = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond293, label %134, label %.thread
+  %or.cond292 = select i1 %124, i1 %126, i1 false
+  br i1 %or.cond292, label %134, label %.thread
 
 .thread:                                          ; preds = %123, %120
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11
@@ -361,8 +361,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %147 = getelementptr inbounds i32, ptr %69, i64 %.2184256
   store i32 %146, ptr %147, align 4
   %148 = add nuw i64 %.2184256, 1
-  %exitcond275.not = icmp eq i64 %148, %umax274
-  br i1 %exitcond275.not, label %149, label %72, !llvm.loop !9
+  %exitcond274.not = icmp eq i64 %148, %umax273
+  br i1 %exitcond274.not, label %149, label %72, !llvm.loop !9
 
 149:                                              ; preds = %134
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull %50, ptr noundef nonnull %52, i32 noundef %71)
@@ -453,8 +453,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %196 = getelementptr inbounds ptr, ptr %56, i64 %.0188257
   store ptr %195, ptr %196, align 8
   %197 = add nuw i64 %.0188257, 1
-  %exitcond276.not = icmp eq i64 %197, %umax274
-  br i1 %exitcond276.not, label %.preheader234, label %.preheader236, !llvm.loop !10
+  %exitcond275.not = icmp eq i64 %197, %umax273
+  br i1 %exitcond275.not, label %.preheader234, label %.preheader236, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader234, %.loopexit
   %.0259 = phi i32 [ %200, %.loopexit ], [ 0, %.preheader234 ]
@@ -489,13 +489,13 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %33
   %217 = getelementptr inbounds i8, ptr %216, i64 %214
   store ptr %217, ptr %215, align 8
   %218 = add nuw i64 %.1189258, 1
-  %exitcond277.not = icmp eq i64 %218, %umax274
-  br i1 %exitcond277.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  %exitcond276.not = icmp eq i64 %218, %umax273
+  br i1 %exitcond276.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader
-  br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %199, %.loopexit, %.preheader234
+._crit_edge:                                      ; preds = %199, %.preheader234
   %219 = add i64 %.3185, 1
   %220 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %170 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !13

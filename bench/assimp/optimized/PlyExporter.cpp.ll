@@ -726,7 +726,7 @@ lpad9:                                            ; preds = %lpad9.loopexit.spli
 for.cond31.preheader:                             ; preds = %for.body28, %if.end.i89
   %.us-phi = phi i32 [ %or29, %for.body28 ], [ %components.3135, %if.end.i89 ]
   %mColors.i = getelementptr inbounds i8, ptr %4, i64 48
-  br i1 %cmp2.i, label %_ZNK6aiMesh15HasVertexColorsEj.exit, label %for.inc40
+  br label %_ZNK6aiMesh15HasVertexColorsEj.exit
 
 if.end.i89:                                       ; preds = %for.body, %for.body28
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body28 ], [ 0, %for.body ]
@@ -760,8 +760,8 @@ for.body34:                                       ; preds = %_ZNK6aiMesh15HasVer
   %exitcond173 = icmp eq i64 %indvars.iv.next171, 8
   br i1 %exitcond173, label %for.inc40, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !6
 
-for.inc40:                                        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %for.body34, %for.body, %for.cond31.preheader
-  %.us-phi140 = phi i32 [ %.us-phi, %for.cond31.preheader ], [ %11, %for.body ], [ %or36, %for.body34 ], [ %components.4137, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+for.inc40:                                        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %for.body34, %for.body
+  %.us-phi140 = phi i32 [ %11, %for.body ], [ %or36, %for.body34 ], [ %components.4137, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
   br i1 %exitcond177.not, label %for.end42, label %for.body, !llvm.loop !7

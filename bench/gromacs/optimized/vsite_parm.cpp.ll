@@ -1348,7 +1348,7 @@ _ZL28createVsiteBondedInformationiN3gmx8ArrayRefIKiEENS0_IK14Atom2VsiteBondEE.ex
   %fputc36.i = call i32 @fputc(i32 10, ptr %453)
   br label %_ZL9print_badP8_IO_FILEN3gmx8ArrayRefIK22VsiteBondedInteractionEES5_S5_.exit
 
-.loopexit399:                                     ; preds = %428, %510, %.critedge119.i, %.noexc97, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i, %.noexc99, %620, %.noexc101, %.noexc102, %.noexc103, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.thread.i, %.lr.ph.i156.preheader.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit163.i, %698, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit172.i, %.noexc109, %766, %.noexc112, %767, %.noexc130, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i123, %.noexc132, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit40.i, %.noexc134, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit49.i, %.noexc136, %.noexc137, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i127, %.noexc139, %.noexc140, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit60.i, %.noexc142, %898, %.noexc156, %.noexc157, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i151, %.noexc159, %.noexc160, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i155, %.noexc162, %958, %.noexc164, %965, %.critedge173.i, %.noexc190, %.noexc191, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i181, %.noexc193, %1077, %.noexc195, %.noexc196, %.noexc197, %.lr.ph.i210.preheader.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.i, %.noexc200, %.lr.ph.i219.preheader.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i, %.noexc203, %1213, %.noexc207, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit239.i, %.noexc209, %.noexc210, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit246.i, %.noexc212, %.noexc213, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit253.i, %.noexc215, %.noexc216, %1378, %.noexc218, %.noexc219, %1384, %.noexc238, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i228, %.noexc240, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit124.i, %.noexc242, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit133.i, %.noexc244, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit142.i, %.noexc246, %.noexc247, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i232, %.noexc249, %.noexc250, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit153.i, %.noexc252, %.noexc253, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit160.i, %.noexc255, %.noexc256, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit167.i, %.noexc258, %.noexc259, %1684, %.noexc262, %.noexc263, %1708, %.noexc287, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i274, %.noexc289, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit72.i, %.noexc291, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit81.i, %.noexc293, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit90.i, %.noexc295, %.noexc296, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i278, %.noexc298, %.noexc299, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit101.i, %.noexc301, %.noexc302, %1927, %.noexc305, %.noexc306
+.loopexit399:                                     ; preds = %428, %510, %.critedge119.i, %.noexc97, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i, %.noexc99, %620, %.noexc101, %.noexc102, %.noexc103, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.thread.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit163.i, %698, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit172.i, %.noexc109, %766, %.noexc112, %767, %.noexc130, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i123, %.noexc132, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit40.i, %.noexc134, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit49.i, %.noexc136, %.noexc137, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i127, %.noexc139, %.noexc140, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit60.i, %.noexc142, %898, %.noexc156, %.noexc157, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i151, %.noexc159, %.noexc160, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i155, %.noexc162, %958, %.noexc164, %965, %.critedge173.i, %.noexc190, %.noexc191, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i181, %.noexc193, %1077, %.noexc195, %.noexc196, %.noexc197, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.thread.i, %.noexc199, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.i, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i, %.noexc203, %1213, %.noexc207, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit239.i, %.noexc209, %.noexc210, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit246.i, %.noexc212, %.noexc213, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit253.i, %.noexc215, %.noexc216, %1378, %.noexc218, %.noexc219, %1384, %.noexc238, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i228, %.noexc240, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit124.i, %.noexc242, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit133.i, %.noexc244, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit142.i, %.noexc246, %.noexc247, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i232, %.noexc249, %.noexc250, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit153.i, %.noexc252, %.noexc253, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit160.i, %.noexc255, %.noexc256, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit167.i, %.noexc258, %.noexc259, %1684, %.noexc262, %.noexc263, %1708, %.noexc287, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i274, %.noexc289, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit72.i, %.noexc291, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit81.i, %.noexc293, %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit90.i, %.noexc295, %.noexc296, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i278, %.noexc298, %.noexc299, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit101.i, %.noexc301, %.noexc302, %1927, %.noexc305, %.noexc306
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body114
@@ -1486,9 +1486,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126.i:
   %545 = sext i32 %535 to i64
   %546 = getelementptr inbounds %struct.t_atom, ptr %532, i64 %545
   %547 = invoke fastcc noundef zeroext i1 @_ZL20cmp_atomtype_name_ABP6t_atomP22PreprocessingAtomTypesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %546, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
-          to label %549 unwind label %.thread38.i
+          to label %549 unwind label %.thread37.i
 
-.thread38.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126.i
+.thread37.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126.i
   %548 = landingpad { ptr, i32 }
           cleanup
   br label %696
@@ -1760,19 +1760,19 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.thread.
 
 645:                                              ; preds = %.lr.ph._crit_edge.i150.i, %.lr.ph.i147.i
   %646 = load float, ptr %.sroa.0.018.i148.i, align 4
-  br label %.lr.ph.i156.preheader.i
+  br label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.i
 
 647:                                              ; preds = %.lr.ph._crit_edge.i150.i
   %648 = getelementptr inbounds i8, ptr %.sroa.0.018.i148.i, i64 20
   %.not.i152.i = icmp eq ptr %648, %512
-  br i1 %.not.i152.i, label %.lr.ph.i156.preheader.i, label %.lr.ph.i147.i
+  br i1 %.not.i152.i, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.i, label %.lr.ph.i147.i
 
-.lr.ph.i156.preheader.i:                          ; preds = %647, %645
+_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.i: ; preds = %647, %645
   %.0.i153.i = phi float [ %646, %645 ], [ -4.092030e+05, %647 ]
   %649 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
           to label %.noexc106 unwind label %.loopexit399
 
-.noexc106:                                        ; preds = %.lr.ph.i156.preheader.i
+.noexc106:                                        ; preds = %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.i
   %650 = load i32, ptr %649, align 4
   br label %.lr.ph.i156.i
 
@@ -1886,13 +1886,13 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit163.i: ; pr
           cleanup
   br i1 %529, label %696, label %.body124.i
 
-696:                                              ; preds = %694, %.body129.i, %.thread38.i
-  %.pn.pn.pn.pn37.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.body129.i ], [ %695, %694 ], [ %548, %.thread38.i ]
+696:                                              ; preds = %694, %.body129.i, %.thread37.i
+  %.pn.pn.pn.pn36.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.body129.i ], [ %695, %694 ], [ %548, %.thread37.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #23
   br label %697
 
 697:                                              ; preds = %696, %683, %.body323
-  %.pn.pn.pn.pn.pn.ph.i = phi { ptr, i32 } [ %544, %.body323 ], [ %684, %683 ], [ %.pn.pn.pn.pn37.i, %696 ]
+  %.pn.pn.pn.pn.pn.ph.i = phi { ptr, i32 } [ %544, %.body323 ], [ %684, %683 ], [ %.pn.pn.pn.pn36.i, %696 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #23
   br label %.body124.i
 
@@ -2606,9 +2606,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i:
   %1000 = sext i32 %990 to i64
   %1001 = getelementptr inbounds %struct.t_atom, ptr %987, i64 %1000
   %1002 = invoke fastcc noundef zeroext i1 @_ZL20cmp_atomtype_name_ABP6t_atomP22PreprocessingAtomTypesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %1001, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
-          to label %1004 unwind label %.thread52.i
+          to label %1004 unwind label %.thread51.i
 
-.thread52.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i
+.thread51.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i
   %1003 = landingpad { ptr, i32 }
           cleanup
   br label %1211
@@ -2856,83 +2856,83 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit199.i: ; pr
 
 .noexc198:                                        ; preds = %.noexc197
   %1088 = load i32, ptr %1087, align 4
-  br i1 %.not17.i.i174, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.i, label %.lr.ph.i201.i
+  br i1 %.not17.i.i174, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.thread.i, label %.lr.ph.i201.i
 
-.lr.ph.i201.i:                                    ; preds = %.noexc198, %1099
-  %.sroa.0.018.i202.i = phi ptr [ %1100, %1099 ], [ %966, %.noexc198 ]
-  %1089 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 4
-  %1090 = load i32, ptr %1089, align 4
-  %1091 = icmp eq i32 %1086, %1090
-  %1092 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 8
-  %1093 = load i32, ptr %1092, align 4
-  %1094 = icmp eq i32 %1088, %1093
-  %or.cond21.i203.i = select i1 %1091, i1 %1094, i1 false
-  br i1 %or.cond21.i203.i, label %1097, label %.lr.ph._crit_edge.i204.i
-
-.lr.ph._crit_edge.i204.i:                         ; preds = %.lr.ph.i201.i
-  %1095 = icmp eq i32 %1086, %1093
-  %1096 = icmp eq i32 %1088, %1090
-  %or.cond.i205.i = and i1 %1096, %1095
-  br i1 %or.cond.i205.i, label %1097, label %1099
-
-1097:                                             ; preds = %.lr.ph._crit_edge.i204.i, %.lr.ph.i201.i
-  %1098 = load float, ptr %.sroa.0.018.i202.i, align 4
-  br label %.lr.ph.i210.preheader.i
-
-1099:                                             ; preds = %.lr.ph._crit_edge.i204.i
-  %1100 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 20
-  %.not.i206.i = icmp eq ptr %1100, %967
-  br i1 %.not.i206.i, label %.lr.ph.i210.preheader.i, label %.lr.ph.i201.i
-
-.lr.ph.i210.preheader.i:                          ; preds = %1099, %1097
-  %.0.i207.i = phi float [ %1098, %1097 ], [ -4.092030e+05, %1099 ]
-  %1101 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
+_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.thread.i: ; preds = %.noexc198
+  %1089 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
           to label %.noexc199 unwind label %.loopexit399
 
-.noexc199:                                        ; preds = %.lr.ph.i210.preheader.i
-  %1102 = load i32, ptr %1101, align 4
-  br label %.lr.ph.i210.i
-
-.lr.ph.i210.i:                                    ; preds = %1113, %.noexc199
-  %.sroa.0.018.i211.i = phi ptr [ %1114, %1113 ], [ %966, %.noexc199 ]
-  %1103 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 4
-  %1104 = load i32, ptr %1103, align 4
-  %1105 = icmp eq i32 %1102, %1104
-  %1106 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 8
-  %1107 = load i32, ptr %1106, align 4
-  %1108 = icmp eq i32 %1084, %1107
-  %or.cond21.i212.i = select i1 %1105, i1 %1108, i1 false
-  br i1 %or.cond21.i212.i, label %1111, label %.lr.ph._crit_edge.i213.i
-
-.lr.ph._crit_edge.i213.i:                         ; preds = %.lr.ph.i210.i
-  %1109 = icmp eq i32 %1102, %1107
-  %1110 = icmp eq i32 %1084, %1104
-  %or.cond.i214.i = and i1 %1110, %1109
-  br i1 %or.cond.i214.i, label %1111, label %1113
-
-1111:                                             ; preds = %.lr.ph._crit_edge.i213.i, %.lr.ph.i210.i
-  %1112 = load float, ptr %.sroa.0.018.i211.i, align 4
-  br label %.lr.ph.i219.preheader.i
-
-1113:                                             ; preds = %.lr.ph._crit_edge.i213.i
-  %1114 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 20
-  %.not.i215.i = icmp eq ptr %1114, %967
-  br i1 %.not.i215.i, label %.lr.ph.i219.preheader.i, label %.lr.ph.i210.i
-
-_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.i: ; preds = %.noexc198
-  %1115 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
-          to label %.noexc200 unwind label %.loopexit399
-
-.noexc200:                                        ; preds = %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.i
-  %1116 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
+.noexc199:                                        ; preds = %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.thread.i
+  %1090 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
           to label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i unwind label %.loopexit399
 
-.lr.ph.i219.preheader.i:                          ; preds = %1113, %1111
-  %.0.i216.i = phi float [ %1112, %1111 ], [ -4.092030e+05, %1113 ]
+.lr.ph.i201.i:                                    ; preds = %.noexc198, %1101
+  %.sroa.0.018.i202.i = phi ptr [ %1102, %1101 ], [ %966, %.noexc198 ]
+  %1091 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 4
+  %1092 = load i32, ptr %1091, align 4
+  %1093 = icmp eq i32 %1086, %1092
+  %1094 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 8
+  %1095 = load i32, ptr %1094, align 4
+  %1096 = icmp eq i32 %1088, %1095
+  %or.cond21.i203.i = select i1 %1093, i1 %1096, i1 false
+  br i1 %or.cond21.i203.i, label %1099, label %.lr.ph._crit_edge.i204.i
+
+.lr.ph._crit_edge.i204.i:                         ; preds = %.lr.ph.i201.i
+  %1097 = icmp eq i32 %1086, %1095
+  %1098 = icmp eq i32 %1088, %1092
+  %or.cond.i205.i = and i1 %1098, %1097
+  br i1 %or.cond.i205.i, label %1099, label %1101
+
+1099:                                             ; preds = %.lr.ph._crit_edge.i204.i, %.lr.ph.i201.i
+  %1100 = load float, ptr %.sroa.0.018.i202.i, align 4
+  br label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.i
+
+1101:                                             ; preds = %.lr.ph._crit_edge.i204.i
+  %1102 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 20
+  %.not.i206.i = icmp eq ptr %1102, %967
+  br i1 %.not.i206.i, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.i, label %.lr.ph.i201.i
+
+_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.i: ; preds = %1101, %1099
+  %.0.i207.i = phi float [ %1100, %1099 ], [ -4.092030e+05, %1101 ]
+  %1103 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
+          to label %.noexc201 unwind label %.loopexit399
+
+.noexc201:                                        ; preds = %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit208.i
+  %1104 = load i32, ptr %1103, align 4
+  br label %.lr.ph.i210.i
+
+.lr.ph.i210.i:                                    ; preds = %1115, %.noexc201
+  %.sroa.0.018.i211.i = phi ptr [ %1116, %1115 ], [ %966, %.noexc201 ]
+  %1105 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 4
+  %1106 = load i32, ptr %1105, align 4
+  %1107 = icmp eq i32 %1104, %1106
+  %1108 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 8
+  %1109 = load i32, ptr %1108, align 4
+  %1110 = icmp eq i32 %1084, %1109
+  %or.cond21.i212.i = select i1 %1107, i1 %1110, i1 false
+  br i1 %or.cond21.i212.i, label %1113, label %.lr.ph._crit_edge.i213.i
+
+.lr.ph._crit_edge.i213.i:                         ; preds = %.lr.ph.i210.i
+  %1111 = icmp eq i32 %1104, %1109
+  %1112 = icmp eq i32 %1084, %1106
+  %or.cond.i214.i = and i1 %1112, %1111
+  br i1 %or.cond.i214.i, label %1113, label %1115
+
+1113:                                             ; preds = %.lr.ph._crit_edge.i213.i, %.lr.ph.i210.i
+  %1114 = load float, ptr %.sroa.0.018.i211.i, align 4
+  br label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.i
+
+1115:                                             ; preds = %.lr.ph._crit_edge.i213.i
+  %1116 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 20
+  %.not.i215.i = icmp eq ptr %1116, %967
+  br i1 %.not.i215.i, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.i, label %.lr.ph.i210.i
+
+_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.i: ; preds = %1115, %1113
+  %.0.i216.i = phi float [ %1114, %1113 ], [ -4.092030e+05, %1115 ]
   %1117 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
           to label %.noexc202 unwind label %.loopexit399
 
-.noexc202:                                        ; preds = %.lr.ph.i219.preheader.i
+.noexc202:                                        ; preds = %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.i
   %1118 = load i32, ptr %1117, align 4
   br label %.lr.ph.i219.i
 
@@ -2962,10 +2962,10 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.
   %.not.i224.i = icmp eq ptr %1130, %967
   br i1 %.not.i224.i, label %_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i, label %.lr.ph.i219.i
 
-_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i: ; preds = %1129, %.noexc200, %1127
-  %.0.i21649.i = phi float [ %.0.i216.i, %1127 ], [ -4.092030e+05, %.noexc200 ], [ %.0.i216.i, %1129 ]
-  %.0.i2074548.i = phi float [ %.0.i207.i, %1127 ], [ -4.092030e+05, %.noexc200 ], [ %.0.i207.i, %1129 ]
-  %.0.i225.i = phi float [ %1128, %1127 ], [ -4.092030e+05, %.noexc200 ], [ -4.092030e+05, %1129 ]
+_ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i: ; preds = %1129, %.noexc199, %1127
+  %.0.i21649.i = phi float [ %.0.i216.i, %1127 ], [ -4.092030e+05, %.noexc199 ], [ %.0.i216.i, %1129 ]
+  %.0.i2074548.i = phi float [ %.0.i207.i, %1127 ], [ -4.092030e+05, %.noexc199 ], [ %.0.i207.i, %1129 ]
+  %.0.i225.i = phi float [ %1128, %1127 ], [ -4.092030e+05, %.noexc199 ], [ -4.092030e+05, %1129 ]
   %1131 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732)
           to label %.noexc203 unwind label %.loopexit399
 
@@ -3116,13 +3116,13 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186: ; preds = 
           cleanup
   br i1 %984, label %1211, label %.body178.i
 
-1211:                                             ; preds = %1209, %.body183.i, %.thread52.i
-  %.pn.pn.pn.pn51.i = phi { ptr, i32 } [ %.pn.pn.pn.i172, %.body183.i ], [ %1210, %1209 ], [ %1003, %.thread52.i ]
+1211:                                             ; preds = %1209, %.body183.i, %.thread51.i
+  %.pn.pn.pn.pn50.i = phi { ptr, i32 } [ %.pn.pn.pn.i172, %.body183.i ], [ %1210, %1209 ], [ %1003, %.thread51.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #23
   br label %1212
 
 1212:                                             ; preds = %1211, %1198, %.body335
-  %.pn.pn.pn.pn.pn.ph.i171 = phi { ptr, i32 } [ %999, %.body335 ], [ %1199, %1198 ], [ %.pn.pn.pn.pn51.i, %1211 ]
+  %.pn.pn.pn.pn.pn.ph.i171 = phi { ptr, i32 } [ %999, %.body335 ], [ %1199, %1198 ], [ %.pn.pn.pn.pn50.i, %1211 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #23
   br label %.body178.i
 
@@ -3425,7 +3425,7 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i: ; preds = 
   %.0141.i = phi float [ %1193, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186 ], [ %1377, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i ]
   %.0140.i = phi float [ %1190, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186 ], [ %1359, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i ]
   %.0139.i = phi float [ %1188, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186 ], [ %1349, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i ]
-  %.pn58.i = phi i1 [ %1169, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186 ], [ %1335, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i ]
+  %.pn57.i = phi i1 [ %1169, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186 ], [ %1335, %_ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i ]
   %1379 = fcmp oeq float %1044, -1.000000e+00
   invoke void @_ZN17InteractionOfType17setForceParameterEif(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0382.0732, i32 noundef 0, float noundef %.0139.i)
           to label %.noexc218 unwind label %.loopexit399
@@ -3444,7 +3444,7 @@ _ZL20calc_vsite3out_paramP22PreprocessingAtomTypesP17InteractionOfTypeP7t_atomsN
   %1381 = fcmp oeq float %.0.i.i182, -4.092030e+05
   %1382 = fcmp oeq float %.0.i198.i, -4.092030e+05
   %1383 = or i1 %1381, %1382
-  %.0.i183 = or i1 %1383, %.pn58.i
+  %.0.i183 = or i1 %1383, %.pn57.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)

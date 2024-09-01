@@ -72,7 +72,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 
 22:                                               ; preds = %16
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %.047)
-  br label %96
+  br label %94
 
 24:                                               ; preds = %16
   %25 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %19) #16
@@ -99,11 +99,10 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 
 40:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %41 = phi ptr [ %35, %.lr.ph ], [ %62, %55 ]
-  %.04671 = phi i32 [ 0, %.lr.ph ], [ %61, %55 ]
+  %41 = phi ptr [ %35, %.lr.ph ], [ %61, %55 ]
   %42 = load i8, ptr %41, align 1
-  %.not94 = icmp eq i8 %42, 35
-  br i1 %.not94, label %._crit_edge.loopexit.split.loop.exit, label %43
+  %.not95.not.not = icmp ne i8 %42, 35
+  br i1 %.not95.not.not, label %43, label %._crit_edge.loopexit
 
 43:                                               ; preds = %40
   %44 = icmp eq i64 %indvars.iv, %39
@@ -111,7 +110,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 
 45:                                               ; preds = %43
   %puts54 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %96
+  br label %94
 
 46:                                               ; preds = %43
   %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #17
@@ -120,7 +119,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 
 49:                                               ; preds = %46
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %96
+  br label %94
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %36, align 4
@@ -129,7 +128,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
 
 53:                                               ; preds = %50
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %47, i32 noundef %51)
-  br label %96
+  br label %94
 
 55:                                               ; preds = %50
   %56 = load ptr, ptr %37, align 8
@@ -139,86 +138,87 @@ define noundef ptr @Map_LibraryReadGateTree(ptr nocapture noundef readonly %0, p
   %60 = getelementptr inbounds [6 x ptr], ptr %38, i64 0, i64 %indvars.iv
   store ptr %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = add nuw nsw i32 %.04671, 1
-  %62 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
-  %.not = icmp eq ptr %62, null
-  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !4
+  %61 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
+  %.not = icmp eq ptr %61, null
+  br i1 %.not, label %._crit_edge.loopexit, label %40, !llvm.loop !4
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %40
-  %63 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit:                             ; preds = %40, %55
+  %.046.lcssa.ph.in = phi i64 [ %indvars.iv, %40 ], [ %indvars.iv.next, %55 ]
+  %.lcssa.ph = phi ptr [ %41, %40 ], [ null, %55 ]
+  %.046.lcssa.ph = trunc i64 %.046.lcssa.ph.in to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %55, %._crit_edge.loopexit.split.loop.exit, %24
-  %.046.lcssa = phi i32 [ 0, %24 ], [ %63, %._crit_edge.loopexit.split.loop.exit ], [ %61, %55 ]
-  %.lcssa = phi ptr [ null, %24 ], [ %41, %._crit_edge.loopexit.split.loop.exit ], [ null, %55 ]
-  %.not.lcssa = phi i1 [ true, %24 ], [ false, %._crit_edge.loopexit.split.loop.exit ], [ true, %55 ]
-  %64 = load i32, ptr %29, align 4
-  %65 = shl i32 %.046.lcssa, 2
-  %66 = and i32 %65, 28
-  %67 = and i32 %64, -29
-  %68 = or disjoint i32 %67, %66
-  store i32 %68, ptr %29, align 4
-  %69 = and i32 %.046.lcssa, 7
-  %70 = load ptr, ptr %20, align 8
-  %71 = tail call i32 @Mio_GateReadPinNum(ptr noundef %70) #16
-  %.not55 = icmp eq i32 %69, %71
-  br i1 %.not55, label %73, label %72
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+  %.046.lcssa = phi i32 [ 0, %24 ], [ %.046.lcssa.ph, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ null, %24 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  %.not.lcssa = phi i1 [ true, %24 ], [ %.not95.not.not, %._crit_edge.loopexit ]
+  %62 = load i32, ptr %29, align 4
+  %63 = shl i32 %.046.lcssa, 2
+  %64 = and i32 %63, 28
+  %65 = and i32 %62, -29
+  %66 = or disjoint i32 %65, %64
+  store i32 %66, ptr %29, align 4
+  %67 = and i32 %.046.lcssa, 7
+  %68 = load ptr, ptr %20, align 8
+  %69 = tail call i32 @Mio_GateReadPinNum(ptr noundef %68) #16
+  %.not55 = icmp eq i32 %67, %69
+  br i1 %.not55, label %71, label %70
 
-72:                                               ; preds = %._crit_edge
+70:                                               ; preds = %._crit_edge
   %puts57 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %96
+  br label %94
 
-73:                                               ; preds = %._crit_edge
-  br i1 %.not.lcssa, label %92, label %74
+71:                                               ; preds = %._crit_edge
+  br i1 %.not.lcssa, label %90, label %72
 
-74:                                               ; preds = %73
-  %75 = load i8, ptr %.lcssa, align 1
-  %76 = icmp eq i8 %75, 35
-  br i1 %76, label %77, label %92
+72:                                               ; preds = %71
+  %73 = load i8, ptr %.lcssa, align 1
+  %74 = icmp eq i8 %73, 35
+  br i1 %74, label %75, label %90
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.lcssa, i64 1
-  %79 = load i8, ptr %78, align 1
-  switch i8 %79, label %.loopexit [
-    i8 0, label %80
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %.lcssa, i64 1
+  %77 = load i8, ptr %76, align 1
+  switch i8 %77, label %.loopexit [
+    i8 0, label %78
     i8 32, label %.lr.ph80
   ]
 
-80:                                               ; preds = %77
-  %81 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
+78:                                               ; preds = %75
+  %79 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
   br label %.loopexit
 
-.lr.ph80:                                         ; preds = %77, %.lr.ph80
-  %.279 = phi ptr [ %82, %.lr.ph80 ], [ %78, %77 ]
-  %82 = getelementptr inbounds i8, ptr %.279, i64 1
-  %.pr = load i8, ptr %82, align 1
-  %83 = icmp eq i8 %.pr, 32
-  br i1 %83, label %.lr.ph80, label %.loopexit, !llvm.loop !6
+.lr.ph80:                                         ; preds = %75, %.lr.ph80
+  %.279 = phi ptr [ %80, %.lr.ph80 ], [ %76, %75 ]
+  %80 = getelementptr inbounds i8, ptr %.279, i64 1
+  %.pr = load i8, ptr %80, align 1
+  %81 = icmp eq i8 %.pr, 32
+  br i1 %81, label %.lr.ph80, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph80, %77, %80
-  %.1 = phi ptr [ %81, %80 ], [ %78, %77 ], [ %82, %.lr.ph80 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 176
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #17
-  %87 = trunc i64 %86 to i32
-  %88 = add i32 %87, 1
-  %89 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %85, i32 noundef %88) #16
-  %90 = getelementptr inbounds i8, ptr %7, i64 240
-  store ptr %89, ptr %90, align 8
-  %91 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %.1) #16
-  br label %92
+.loopexit:                                        ; preds = %.lr.ph80, %75, %78
+  %.1 = phi ptr [ %79, %78 ], [ %76, %75 ], [ %80, %.lr.ph80 ]
+  %82 = getelementptr inbounds i8, ptr %0, i64 176
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #17
+  %85 = trunc i64 %84 to i32
+  %86 = add i32 %85, 1
+  %87 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %83, i32 noundef %86) #16
+  %88 = getelementptr inbounds i8, ptr %7, i64 240
+  store ptr %87, ptr %88, align 8
+  %89 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) %.1) #16
+  br label %90
 
-92:                                               ; preds = %.loopexit, %74, %73
-  %93 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
-  %.not56 = icmp eq ptr %93, null
-  br i1 %.not56, label %96, label %94
+90:                                               ; preds = %.loopexit, %72, %71
+  %91 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
+  %.not56 = icmp eq ptr %91, null
+  br i1 %.not56, label %94, label %92
 
-94:                                               ; preds = %92
-  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %93)
-  br label %96
+92:                                               ; preds = %90
+  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %91)
+  br label %94
 
-96:                                               ; preds = %92, %94, %72, %53, %49, %45, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %72 ], [ null, %45 ], [ null, %49 ], [ null, %53 ], [ %7, %94 ], [ %7, %92 ]
+94:                                               ; preds = %90, %92, %70, %53, %49, %45, %22
+  %.0 = phi ptr [ null, %22 ], [ null, %70 ], [ null, %45 ], [ null, %49 ], [ null, %53 ], [ %7, %92 ], [ %7, %90 ]
   ret ptr %.0
 }
 

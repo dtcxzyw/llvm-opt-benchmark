@@ -270,7 +270,7 @@ while.body:                                       ; preds = %if.then19, %while.b
 
 while.end:                                        ; preds = %while.body
   tail call void @memory_region_transaction_commit() #6
-  br i1 %tobool21.not76, label %fail_host_notifiers, label %while.body27
+  br label %while.body27
 
 while.body27:                                     ; preds = %while.end, %while.body27
   %j.079 = phi i32 [ %dec25, %while.body27 ], [ %i.067, %while.end ]
@@ -405,7 +405,7 @@ for.body77:                                       ; preds = %if.then40, %for.bod
 
 for.end82:                                        ; preds = %for.body77
   call void @memory_region_transaction_commit() #6
-  br i1 %cmp1366.not, label %fail_host_notifiers, label %for.body86
+  br label %for.body86
 
 for.body86:                                       ; preds = %for.end82, %for.body86
   %i.575 = phi i32 [ %inc89, %for.body86 ], [ 0, %for.end82 ]
@@ -415,7 +415,7 @@ for.body86:                                       ; preds = %for.end82, %for.bod
   %exitcond86.not = icmp eq i32 %inc89, %conv
   br i1 %exitcond86.not, label %fail_host_notifiers, label %for.body86, !llvm.loop !13
 
-fail_host_notifiers:                              ; preds = %while.body27, %for.body86, %for.end82.thread, %while.end.thread, %for.end82, %while.end
+fail_host_notifiers:                              ; preds = %while.body27, %for.body86, %for.end82.thread, %while.end.thread
   %27 = load ptr, ptr %set_guest_notifiers, align 8
   %28 = load ptr, ptr %parent, align 8
   %call93 = call i32 %27(ptr noundef %28, i32 noundef %conv, i1 noundef zeroext false) #6
@@ -568,7 +568,7 @@ for.body:                                         ; preds = %if.end16, %for.body
 
 for.end:                                          ; preds = %for.body
   tail call void @memory_region_transaction_commit() #6
-  br i1 %cmp32.not, label %for.end27, label %for.body23
+  br label %for.body23
 
 for.body23:                                       ; preds = %for.end, %for.body23
   %i.135 = phi i32 [ %inc26, %for.body23 ], [ 0, %for.end ]
@@ -578,7 +578,7 @@ for.body23:                                       ; preds = %for.end, %for.body2
   %exitcond36.not = icmp eq i32 %inc26, %conv
   br i1 %exitcond36.not, label %for.end27, label %for.body23, !llvm.loop !15
 
-for.end27:                                        ; preds = %for.body23, %for.end.thread, %for.end
+for.end27:                                        ; preds = %for.body23, %for.end.thread
   store i8 0, ptr %dataplane_started, align 1
   %ctx29 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %ctx29, align 8

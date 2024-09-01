@@ -11516,16 +11516,16 @@ _ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7
   %47 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 16
   %48 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i71, i64 16
   %.not.i.i.i.i.i73 = icmp eq ptr %47, %9
-  br i1 %.not.i.i.i.i.i73, label %.lr.ph.i.i.i77.preheader, label %.lr.ph.i.i.i.i.i70, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !116
 
-.lr.ph.i.i.i77.preheader:                         ; preds = %.lr.ph.i.i.i.i.i70
+_ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i70
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %16
   store ptr %50, ptr %8, align 8
   br label %.lr.ph.i.i.i77
 
-.lr.ph.i.i.i77:                                   ; preds = %.lr.ph.i.i.i77.preheader, %.lr.ph.i.i.i77
-  %.06.i.i.i78 = phi ptr [ %52, %.lr.ph.i.i.i77 ], [ %1, %.lr.ph.i.i.i77.preheader ]
+.lr.ph.i.i.i77:                                   ; preds = %_ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, %.lr.ph.i.i.i77
+  %.06.i.i.i78 = phi ptr [ %52, %.lr.ph.i.i.i77 ], [ %1, %_ZSt22__uninitialized_move_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
   store ptr %.sroa.1.8.copyload, ptr %.06.i.i.i78, align 8
   %51 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 8
   store i32 %.sroa.6.8.copyload, ptr %51, align 8

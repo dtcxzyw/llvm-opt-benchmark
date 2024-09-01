@@ -846,9 +846,6 @@ pmix_pointer_array_get_item.exit418.thread:       ; preds = %358, %pmix_pointer_
   %.not380750 = icmp eq ptr %374, %322
   br i1 %.not380750, label %._crit_edge759.thread, label %.lr.ph753
 
-.preheader524:                                    ; preds = %380
-  br i1 %.not380750, label %._crit_edge759.thread, label %.lr.ph758
-
 .lr.ph753:                                        ; preds = %373, %380
   %.0307751 = phi ptr [ %382, %380 ], [ %374, %373 ]
   %375 = getelementptr inbounds i8, ptr %.0307751, i64 220
@@ -863,12 +860,12 @@ pmix_pointer_array_get_item.exit418.thread:       ; preds = %358, %pmix_pointer_
   %381 = getelementptr inbounds i8, ptr %.0307751, i64 120
   %382 = load ptr, ptr %381, align 8
   %.not380 = icmp eq ptr %382, %322
-  br i1 %.not380, label %.preheader524, label %.lr.ph753, !llvm.loop !10
+  br i1 %.not380, label %.lr.ph758, label %.lr.ph753, !llvm.loop !10
 
-.lr.ph758:                                        ; preds = %.preheader524, %.lr.ph758
-  %.2757 = phi i32 [ %spec.select403, %.lr.ph758 ], [ -1, %.preheader524 ]
-  %.2302756 = phi ptr [ %spec.select, %.lr.ph758 ], [ null, %.preheader524 ]
-  %.1308755 = phi ptr [ %388, %.lr.ph758 ], [ %374, %.preheader524 ]
+.lr.ph758:                                        ; preds = %380, %.lr.ph758
+  %.2757 = phi i32 [ %spec.select403, %.lr.ph758 ], [ -1, %380 ]
+  %.2302756 = phi ptr [ %spec.select, %.lr.ph758 ], [ null, %380 ]
+  %.1308755 = phi ptr [ %388, %.lr.ph758 ], [ %374, %380 ]
   %383 = getelementptr inbounds i8, ptr %.1308755, i64 200
   %384 = load i16, ptr %383, align 8
   %385 = zext i16 %384 to i32
@@ -884,7 +881,7 @@ pmix_pointer_array_get_item.exit418.thread:       ; preds = %358, %pmix_pointer_
   %389 = icmp eq ptr %spec.select, null
   br i1 %389, label %._crit_edge759.thread, label %.thread502
 
-._crit_edge759.thread:                            ; preds = %373, %.preheader524, %._crit_edge759
+._crit_edge759.thread:                            ; preds = %373, %._crit_edge759
   %390 = call ptr @prte_strerror(i32 noundef -2) #18
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %390, ptr noundef nonnull @.str.10, i32 noundef 295) #18
   br label %pmix_pointer_array_get_item.exit.thread

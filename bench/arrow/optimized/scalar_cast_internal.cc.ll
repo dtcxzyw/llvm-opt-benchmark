@@ -5062,8 +5062,8 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %invoke.cont17
 
 do.body.i.i.i.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
   %__count.0.i.i.i.i.i.i = phi i32 [ %17, %lor.lhs.false.i.i.i.i.i ], [ %20, %do.cond.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i7, label %do.cond.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i7, label %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i, 1
@@ -6147,8 +6147,8 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %invoke.cont
 
 do.body.i.i.i.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
   %__count.0.i.i.i.i.i.i = phi i32 [ %3, %lor.lhs.false.i.i.i.i.i ], [ %6, %do.cond.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %do.cond.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i, 1

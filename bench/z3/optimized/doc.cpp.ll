@@ -1451,7 +1451,7 @@ for.body.backedge:                                ; preds = %for.inc, %if.else19
   br label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %if.else19, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, %for.body, %for.inc, %if.end, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %switch, %if.else19 ], [ %switch, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %if.end ], [ true, %for.inc ], [ false, %for.body ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %if.else19 ], [ false, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %if.end ], [ true, %for.inc ], [ false, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -1813,29 +1813,19 @@ for.end:                                          ; preds = %for.inc, %for.body.
 define hidden noundef zeroext i1 @_ZN11doc_manager5mergeER3docjjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %lo, i32 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %equalities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discard_cols) local_unnamed_addr #3 align 2 {
 entry:
   %cmp3 = icmp eq i32 %length, 0
-  br i1 %cmp3, label %return, label %for.body.preheader
+  br i1 %cmp3, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %call7 = tail call noundef zeroext i1 @_ZN11doc_manager5mergeER3docjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %lo, ptr noundef nonnull align 8 dereferenceable(56) %equalities, ptr noundef nonnull align 8 dereferenceable(16) %discard_cols)
-  br i1 %call7, label %for.cond, label %return
-
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %i.048 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i32 %i.048, 1
-  %exitcond = icmp eq i32 %inc, %length
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !19
-
-for.body:                                         ; preds = %for.cond
-  %add = add i32 %inc, %lo
+for.body:                                         ; preds = %entry, %for.body
+  %i.04 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %add = add i32 %i.04, %lo
   %call = tail call noundef zeroext i1 @_ZN11doc_manager5mergeER3docjRK10union_findI22union_find_default_ctxS3_ERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %d, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(56) %equalities, ptr noundef nonnull align 8 dereferenceable(16) %discard_cols)
-  br i1 %call, label %for.cond, label %return.loopexit, !llvm.loop !19
+  %inc = add nuw i32 %i.04, 1
+  %exitcond.not = icmp ne i32 %inc, %length
+  %or.cond.not = select i1 %call, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !19
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i32 %inc, %length
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %call, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -2058,11 +2048,11 @@ if.then51:                                        ; preds = %lor.lhs.false, %lan
   tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call61, i32 noundef %idx.addr.3, i32 noundef 2)
   tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call61, i32 noundef %root1.1, i32 noundef 1)
   %call66 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull %call61)
-  %.pre118 = load ptr, ptr %m_next.i, align 8
+  %.pre115 = load ptr, ptr %m_next.i, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then51, %land.lhs.true, %lor.lhs.false
-  %23 = phi ptr [ %.pre118, %if.then51 ], [ %18, %land.lhs.true ], [ %18, %lor.lhs.false ]
+  %23 = phi ptr [ %.pre115, %if.then51 ], [ %18, %land.lhs.true ], [ %18, %lor.lhs.false ]
   %idxprom.i.i97 = zext i32 %idx.addr.3 to i64
   %arrayidx.i.i98 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i.i97
   %24 = load i32, ptr %arrayidx.i.i98, align 4

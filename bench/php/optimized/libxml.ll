@@ -1508,7 +1508,7 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph9, %.lr.ph, %.lr.ph.preheader, %5
-  %.lcssa = phi i1 [ false, %5 ], [ %14, %.lr.ph.preheader ], [ %14, %.lr.ph ], [ %14, %.lr.ph9 ]
+  %.lcssa = phi i1 [ false, %5 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph9 ]
   %20 = load ptr, ptr %7, align 8
   %sext = shl i64 %8, 32
   %21 = ashr exact i64 %sext, 32

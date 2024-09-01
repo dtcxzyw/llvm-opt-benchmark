@@ -2570,17 +2570,14 @@ define internal i64 @ancillary_s_unix_rights(i32 noundef %0, ptr nocapture nound
   %25 = zext nneg i32 %0 to i64
   %26 = shl nuw nsw i64 %25, 2
   %27 = tail call i64 @rb_str_buf_new(i64 noundef %26) #11
-  br i1 %7, label %.lr.ph44, label %._crit_edge45
-
-.lr.ph44:                                         ; preds = %._crit_edge
   %28 = inttoptr i64 %6 to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = getelementptr inbounds i8, ptr %28, i64 32
   %wide.trip.count50 = zext nneg i32 %0 to i64
   br label %31
 
-31:                                               ; preds = %.lr.ph44, %RARRAY_AREF.exit
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next48, %RARRAY_AREF.exit ]
+31:                                               ; preds = %._crit_edge, %RARRAY_AREF.exit
+  %indvars.iv47 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next48, %RARRAY_AREF.exit ]
   %32 = load i64, ptr %28, align 8
   %33 = and i64 %32, 8192
   %.not.i.i = icmp eq i64 %33, 0
@@ -2607,8 +2604,8 @@ RARRAY_AREF.exit:                                 ; preds = %31, %34
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge45, label %31, !llvm.loop !61
 
-._crit_edge45:                                    ; preds = %RARRAY_AREF.exit, %._crit_edge.thread, %._crit_edge
-  %45 = phi i64 [ %10, %._crit_edge.thread ], [ %27, %._crit_edge ], [ %27, %RARRAY_AREF.exit ]
+._crit_edge45:                                    ; preds = %RARRAY_AREF.exit, %._crit_edge.thread
+  %45 = phi i64 [ %10, %._crit_edge.thread ], [ %27, %RARRAY_AREF.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %45, ptr %4, align 8
   %46 = load i64, ptr @rb_cAncillaryData, align 8

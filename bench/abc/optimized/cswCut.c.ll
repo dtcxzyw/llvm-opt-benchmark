@@ -536,63 +536,60 @@ define internal fastcc range(i32 0, 2) i32 @Csw_CutMergeOrdered(ptr nocapture no
   %19 = icmp eq i8 %6, %18
   br i1 %19, label %.preheader101, label %.preheader104
 
-.preheader101:                                    ; preds = %16
-  %20 = icmp sgt i8 %6, 0
-  br i1 %20, label %.lr.ph121, label %.loopexit.sink.split
-
-.lr.ph121:                                        ; preds = %.preheader101
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
-  %wide.trip.count146 = zext nneg i32 %7 to i64
-  br label %26
-
-23:                                               ; preds = %26
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.preheader, label %26, !llvm.loop !13
-
-.preheader:                                       ; preds = %23
-  br i1 %20, label %.lr.ph123, label %.loopexit.sink.split
-
-.lr.ph123:                                        ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %31
-
-26:                                               ; preds = %.lr.ph121, %23
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next144, %23 ]
-  %27 = getelementptr inbounds [0 x i32], ptr %21, i64 0, i64 %indvars.iv143
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds [0 x i32], ptr %22, i64 0, i64 %indvars.iv143
-  %30 = load i32, ptr %29, align 4
-  %.not = icmp eq i32 %28, %30
-  br i1 %.not, label %23, label %.loopexit
-
-31:                                               ; preds = %.lr.ph123, %31
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next149, %31 ]
-  %32 = getelementptr inbounds [0 x i32], ptr %24, i64 0, i64 %indvars.iv148
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds [0 x i32], ptr %25, i64 0, i64 %indvars.iv148
-  store i32 %33, ptr %34, align 4
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %35 = load i8, ptr %5, align 1
-  %36 = sext i8 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next149, %36
-  br i1 %37, label %31, label %.loopexit.sink.split, !llvm.loop !14
-
 .preheader104:                                    ; preds = %16
-  %38 = icmp sgt i8 %18, 0
-  br i1 %38, label %.preheader103.lr.ph, label %.preheader102
+  %20 = icmp sgt i8 %18, 0
+  br i1 %20, label %.preheader103.lr.ph, label %.preheader102
 
 .preheader103.lr.ph:                              ; preds = %.preheader104
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
-  %41 = zext i32 %7 to i64
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = zext i32 %7 to i64
   br label %.preheader103
+
+.preheader101:                                    ; preds = %16
+  %24 = icmp sgt i8 %6, 0
+  br i1 %24, label %.lr.ph121, label %.loopexit.sink.split
+
+.lr.ph121:                                        ; preds = %.preheader101
+  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %wide.trip.count146 = zext nneg i32 %7 to i64
+  br label %30
+
+27:                                               ; preds = %30
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %.lr.ph123, label %30, !llvm.loop !13
+
+.lr.ph123:                                        ; preds = %27
+  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  br label %35
+
+30:                                               ; preds = %.lr.ph121, %27
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next144, %27 ]
+  %31 = getelementptr inbounds [0 x i32], ptr %25, i64 0, i64 %indvars.iv143
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds [0 x i32], ptr %26, i64 0, i64 %indvars.iv143
+  %34 = load i32, ptr %33, align 4
+  %.not = icmp eq i32 %32, %34
+  br i1 %.not, label %27, label %.loopexit
+
+35:                                               ; preds = %.lr.ph123, %35
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next149, %35 ]
+  %36 = getelementptr inbounds [0 x i32], ptr %28, i64 0, i64 %indvars.iv148
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 %indvars.iv148
+  store i32 %37, ptr %38, align 4
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %39 = load i8, ptr %5, align 1
+  %40 = sext i8 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next149, %40
+  br i1 %41, label %35, label %.loopexit.sink.split, !llvm.loop !14
 
 .preheader103:                                    ; preds = %.preheader103.lr.ph, %.thread
   %indvars.iv137 = phi i64 [ 0, %.preheader103.lr.ph ], [ %indvars.iv.next138, %.thread ]
-  %42 = getelementptr inbounds [0 x i32], ptr %40, i64 0, i64 %indvars.iv137
+  %42 = getelementptr inbounds [0 x i32], ptr %22, i64 0, i64 %indvars.iv137
   br label %46
 
 .preheader102:                                    ; preds = %.thread, %.preheader104
@@ -605,14 +602,14 @@ define internal fastcc range(i32 0, 2) i32 @Csw_CutMergeOrdered(ptr nocapture no
   br label %57
 
 46:                                               ; preds = %.preheader103, %49
-  %indvars.iv133 = phi i64 [ %41, %.preheader103 ], [ %50, %49 ]
+  %indvars.iv133 = phi i64 [ %23, %.preheader103 ], [ %50, %49 ]
   %47 = trunc nuw i64 %indvars.iv133 to i32
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %46
   %50 = add nsw i64 %indvars.iv133, -1
-  %51 = getelementptr inbounds [0 x i32], ptr %39, i64 0, i64 %50
+  %51 = getelementptr inbounds [0 x i32], ptr %21, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %42, align 4
   %54 = icmp eq i32 %52, %53
@@ -740,14 +737,14 @@ define internal fastcc range(i32 0, 2) i32 @Csw_CutMergeOrdered(ptr nocapture no
   %114 = icmp slt i32 %.1.lcssa, %113
   br i1 %114, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %57, %31, %110, %.preheader102, %.preheader, %.preheader101, %72
-  %.0.lcssa.sink = phi i8 [ %73, %72 ], [ %6, %.preheader ], [ %6, %.preheader101 ], [ %6, %.preheader102 ], [ %.0.lcssa, %110 ], [ %35, %31 ], [ %61, %57 ]
+.loopexit.sink.split:                             ; preds = %57, %35, %110, %.preheader102, %.preheader101, %72
+  %.0.lcssa.sink = phi i8 [ %73, %72 ], [ %6, %.preheader101 ], [ %6, %.preheader102 ], [ %.0.lcssa, %110 ], [ %39, %35 ], [ %61, %57 ]
   %115 = getelementptr inbounds i8, ptr %3, i64 23
   store i8 %.0.lcssa.sink, ptr %115, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %26, %.loopexit.sink.split, %.critedge._crit_edge, %110
-  %.096 = phi i32 [ 0, %110 ], [ 0, %.critedge._crit_edge ], [ 1, %.loopexit.sink.split ], [ 0, %26 ], [ 0, %55 ]
+.loopexit:                                        ; preds = %55, %30, %.loopexit.sink.split, %.critedge._crit_edge, %110
+  %.096 = phi i32 [ 0, %110 ], [ 0, %.critedge._crit_edge ], [ 1, %.loopexit.sink.split ], [ 0, %30 ], [ 0, %55 ]
   ret i32 %.096
 }
 

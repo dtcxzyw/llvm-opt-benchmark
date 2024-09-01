@@ -1283,10 +1283,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %wide.trip.count745 = zext nneg i32 %.0443.fr822 to i64
   br label %.lr.ph654
 
-.preheader637:                                    ; preds = %.lr.ph654
-  br i1 %30, label %._crit_edge661, label %.lr.ph658.preheader
-
-.lr.ph658.preheader:                              ; preds = %.preheader637
+.lr.ph658.preheader:                              ; preds = %.lr.ph654
   %wide.trip.count750 = zext nneg i32 %.0443.fr822 to i64
   br label %.lr.ph658
 
@@ -1302,12 +1299,9 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %125 = add i32 %124, %.0482651
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %exitcond746.not = icmp eq i64 %indvars.iv.next743, %wide.trip.count745
-  br i1 %exitcond746.not, label %.preheader637, label %.lr.ph654, !llvm.loop !13
+  br i1 %exitcond746.not, label %.lr.ph658.preheader, label %.lr.ph654, !llvm.loop !13
 
-.preheader636:                                    ; preds = %.lr.ph658
-  br i1 %30, label %._crit_edge661, label %.lr.ph660.preheader
-
-.lr.ph660.preheader:                              ; preds = %.preheader636
+.lr.ph660.preheader:                              ; preds = %.lr.ph658
   %wide.trip.count755 = zext nneg i32 %.0443.fr822 to i64
   br label %.lr.ph660
 
@@ -1332,7 +1326,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   store ptr %137, ptr %139, align 8
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
   %exitcond751.not = icmp eq i64 %indvars.iv.next748, %wide.trip.count750
-  br i1 %exitcond751.not, label %.preheader636, label %.lr.ph658, !llvm.loop !14
+  br i1 %exitcond751.not, label %.lr.ph660.preheader, label %.lr.ph658, !llvm.loop !14
 
 .lr.ph660:                                        ; preds = %.lr.ph660.preheader, %.lr.ph660
   %indvars.iv752 = phi i64 [ 0, %.lr.ph660.preheader ], [ %indvars.iv.next753, %.lr.ph660 ]
@@ -1344,9 +1338,9 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %exitcond756.not = icmp eq i64 %indvars.iv.next753, %wide.trip.count755
   br i1 %exitcond756.not, label %._crit_edge661, label %.lr.ph660, !llvm.loop !15
 
-._crit_edge661:                                   ; preds = %.lr.ph660, %119, %.preheader637, %.preheader636
-  %.1484.lcssa833838 = phi i32 [ %122, %.preheader636 ], [ %122, %.preheader637 ], [ %.0483, %119 ], [ %122, %.lr.ph660 ]
-  %.0482.lcssa834837 = phi i32 [ %125, %.preheader636 ], [ %125, %.preheader637 ], [ %.0483, %119 ], [ %125, %.lr.ph660 ]
+._crit_edge661:                                   ; preds = %.lr.ph660, %119
+  %.1484.lcssa833838 = phi i32 [ %.0483, %119 ], [ %122, %.lr.ph660 ]
+  %.0482.lcssa834837 = phi i32 [ %.0483, %119 ], [ %125, %.lr.ph660 ]
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 104
   %145 = load i32, ptr %144, align 8
@@ -1859,7 +1853,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 ._crit_edge699.thread:                            ; preds = %.preheader632
   call void @llvm.memset.p0.i64(ptr align 4 %.0469812, i8 0, i64 %372, i1 false)
-  br label %.split
+  br i1 %373, label %.split.split.us, label %.split707.us.sink.split
 
 .lr.ph698:                                        ; preds = %.preheader632, %.lr.ph698
   %indvars.iv770 = phi i64 [ %indvars.iv.next771, %.lr.ph698 ], [ 0, %.preheader632 ]
@@ -1879,7 +1873,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 ._crit_edge699:                                   ; preds = %.lr.ph698
   call void @llvm.memset.p0.i64(ptr align 4 %.0469812, i8 0, i64 %372, i1 false)
-  br i1 %30, label %.split, label %.split.us
+  br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge699, %401
   br i1 %373, label %395, label %.lr.ph703.us.preheader
@@ -2154,17 +2148,14 @@ thread-pre-split.us:                              ; preds = %494, %500
 ._crit_edge704.us:                                ; preds = %._crit_edge788
   br i1 %373, label %398, label %401
 
-.split:                                           ; preds = %._crit_edge699.thread, %._crit_edge699
-  br i1 %373, label %.split.split.us, label %.split707.us.sink.split
-
-.split.split.us:                                  ; preds = %.split
+.split.split.us:                                  ; preds = %._crit_edge699.thread
   %530 = load ptr, ptr %374, align 8
   %531 = call i32 @fputs(ptr noundef %530, ptr noundef %.2618)
   %532 = load ptr, ptr %383, align 8
   %533 = call i32 @fputs(ptr noundef %532, ptr noundef %.2618)
   br label %.split707.us.sink.split
 
-.split707.us.sink.split:                          ; preds = %.split, %.split.split.us
+.split707.us.sink.split:                          ; preds = %._crit_edge699.thread, %.split.split.us
   %534 = call i32 @fputc(i32 noundef 10, ptr noundef %.2618)
   br label %.split707.us
 
@@ -5118,7 +5109,7 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   %11 = getelementptr inbounds i8, ptr %3, i64 25
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %.thread108
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   br i1 %6, label %22, label %15
@@ -5148,8 +5139,8 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
 27:                                               ; preds = %25, %22
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
-  %.not101 = icmp eq i32 %29, 0
-  br i1 %.not101, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq i32 %29, 0
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %30 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5157,16 +5148,16 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   br i1 %.not83, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i8, ptr %31, i64 %indvars.iv105
+  %32 = getelementptr i8, ptr %31, i64 %indvars.iv104
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @fputc(i32 noundef %34, ptr noundef %1)
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %36 = load i32, ptr %28, align 8
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %indvars.iv.next106, %37
+  %38 = icmp ult i64 %indvars.iv.next105, %37
   br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
@@ -5200,20 +5191,20 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
 54:                                               ; preds = %._crit_edge
   %55 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 2, i64 1, ptr %1)
   %56 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 2, i64 1, ptr %1)
-  br i1 %6, label %.thread108, label %.thread109
+  br i1 %6, label %.critedge, label %.thread107
 
-.thread109:                                       ; preds = %54
+.thread107:                                       ; preds = %54
   %57 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 7, i64 1, ptr %1)
   br label %60
 
 58:                                               ; preds = %._crit_edge
   %59 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 2, i64 1, ptr %1)
-  br i1 %6, label %.thread108, label %60
+  br i1 %6, label %.critedge, label %60
 
-60:                                               ; preds = %.thread109, %58
+60:                                               ; preds = %.thread107, %58
   %61 = load i32, ptr %28, align 8
-  %.not102 = icmp eq i32 %61, 0
-  br i1 %.not102, label %._crit_edge90, label %.lr.ph89.preheader
+  %.not101 = icmp eq i32 %61, 0
+  br i1 %.not101, label %._crit_edge90, label %.lr.ph89.preheader
 
 .lr.ph89.preheader:                               ; preds = %60
   %62 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5244,24 +5235,24 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
 ._crit_edge90:                                    ; preds = %66, %60
   %74 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 4, i64 1, ptr %1)
   %75 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 7, i64 1, ptr %1)
-  br label %.thread108
+  br label %.critedge
 
-.thread108:                                       ; preds = %54, %58, %._crit_edge90, %10
+.critedge:                                        ; preds = %54, %58, %._crit_edge90, %10
   %76 = getelementptr inbounds i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
   %.not7891 = icmp eq ptr %78, null
-  br i1 %.not7891, label %._crit_edge96, label %.lr.ph95
+  br i1 %.not7891, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph95:                                         ; preds = %.thread108
+.lr.ph94:                                         ; preds = %.critedge
   %79 = getelementptr inbounds i8, ptr %0, i64 16
   %80 = icmp ugt i16 %.fr, 2
   br label %81
 
-81:                                               ; preds = %.lr.ph95, %95
-  %82 = phi ptr [ %78, %.lr.ph95 ], [ %97, %95 ]
-  %.193 = phi ptr [ %77, %.lr.ph95 ], [ %96, %95 ]
-  %.292 = phi i32 [ 0, %.lr.ph95 ], [ %83, %95 ]
+81:                                               ; preds = %.lr.ph94, %95
+  %82 = phi ptr [ %78, %.lr.ph94 ], [ %97, %95 ]
+  %.193 = phi ptr [ %77, %.lr.ph94 ], [ %96, %95 ]
+  %.292 = phi i32 [ 0, %.lr.ph94 ], [ %83, %95 ]
   tail call fastcc void @latex_escaped_print(ptr noundef nonnull %82, ptr noundef %1)
   %83 = add i32 %.292, 1
   %84 = load i32, ptr %79, align 8
@@ -5280,7 +5271,7 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
 91:                                               ; preds = %89, %87
   %92 = load volatile i32, ptr @cancel_pressed, align 4
   %.not79 = icmp eq i32 %92, 0
-  br i1 %.not79, label %95, label %._crit_edge96
+  br i1 %.not79, label %95, label %._crit_edge95
 
 93:                                               ; preds = %81
   %94 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 3, i64 1, ptr %1)
@@ -5290,16 +5281,16 @@ define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0,
   %96 = getelementptr i8, ptr %.193, i64 8
   %97 = load ptr, ptr %96, align 8
   %.not78 = icmp eq ptr %97, null
-  br i1 %.not78, label %._crit_edge96, label %81, !llvm.loop !59
+  br i1 %.not78, label %._crit_edge95, label %81, !llvm.loop !59
 
-._crit_edge96:                                    ; preds = %95, %91, %.thread108
+._crit_edge95:                                    ; preds = %95, %91, %.critedge
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 26
   %100 = load i8, ptr %99, align 2
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %132
 
-102:                                              ; preds = %._crit_edge96
+102:                                              ; preds = %._crit_edge95
   %103 = getelementptr inbounds i8, ptr %0, i64 72
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
@@ -5341,23 +5332,23 @@ footers_with_default.exit:                        ; preds = %102, %106, %110
 125:                                              ; preds = %123
   %126 = load volatile i32, ptr @cancel_pressed, align 4
   %.not81.not = icmp eq i32 %126, 0
-  br i1 %.not81.not, label %.lr.ph100, label %.loopexit
+  br i1 %.not81.not, label %.lr.ph99, label %.loopexit
 
-.lr.ph100:                                        ; preds = %125, %.lr.ph100
-  %.099 = phi ptr [ %130, %.lr.ph100 ], [ %.0.i, %125 ]
-  %127 = load ptr, ptr %.099, align 8
+.lr.ph99:                                         ; preds = %125, %.lr.ph99
+  %.098 = phi ptr [ %130, %.lr.ph99 ], [ %.0.i, %125 ]
+  %127 = load ptr, ptr %.098, align 8
   tail call fastcc void @latex_escaped_print(ptr noundef %127, ptr noundef %1)
   %128 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 4, i64 1, ptr %1)
-  %129 = getelementptr inbounds i8, ptr %.099, i64 8
+  %129 = getelementptr inbounds i8, ptr %.098, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not82 = icmp eq ptr %130, null
-  br i1 %.not82, label %.loopexit, label %.lr.ph100, !llvm.loop !60
+  br i1 %.not82, label %.loopexit, label %.lr.ph99, !llvm.loop !60
 
-.loopexit:                                        ; preds = %.lr.ph100, %123, %125
+.loopexit:                                        ; preds = %.lr.ph99, %123, %125
   %131 = tail call i32 @fputc(i32 noundef 10, ptr noundef %1)
   br label %132
 
-132:                                              ; preds = %2, %.loopexit, %._crit_edge96
+132:                                              ; preds = %2, %.loopexit, %._crit_edge95
   ret void
 }
 
@@ -6446,9 +6437,9 @@ printTableInit.exit:                              ; preds = %8
 .preheader56.lr.ph:                               ; preds = %.preheader57
   %46 = getelementptr inbounds i8, ptr %1, i64 120
   %47 = getelementptr inbounds i8, ptr %1, i64 82
-  br i1 %41, label %.preheader56, label %.preheader56.lr.ph.split.us
+  br label %.preheader56
 
-.preheader56.lr.ph.split.us:                      ; preds = %.preheader57.thread, %.preheader56.lr.ph
+.preheader56.lr.ph.split.us:                      ; preds = %.preheader57.thread
   store i64 0, ptr %40, align 8
   store ptr %30, ptr %37, align 8
   store ptr null, ptr %32, align 8

@@ -2337,7 +2337,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit71: ; preds = %.preheader
   br i1 %.not73, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit60, %99, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit71, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit, %30, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49
-  %.035 = phi i1 [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49 ], [ %.not37, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit ], [ false, %30 ], [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit71 ], [ %.not, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit60 ], [ false, %99 ]
+  %.035 = phi i1 [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit49 ], [ %.not37, %30 ], [ %.not37, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit ], [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit71 ], [ %.not, %99 ], [ %.not, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit60 ]
   ret i1 %.035
 }
 

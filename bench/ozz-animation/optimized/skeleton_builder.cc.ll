@@ -165,10 +165,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %49 = getelementptr inbounds i8, ptr %15, i64 32
   br label %51
 
-.preheader283:                                    ; preds = %51
-  br i1 %.not.i, label %.preheader282, label %.lr.ph291
-
-.lr.ph291:                                        ; preds = %.preheader283
+.lr.ph291:                                        ; preds = %51
   %smax306 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
   %wide.trip.count307 = zext nneg i32 %smax306 to i64
   %50 = getelementptr inbounds i8, ptr %15, i64 16
@@ -191,9 +188,9 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %62 = getelementptr inbounds i8, ptr %.0273287, i64 %61
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count301
-  br i1 %exitcond302.not, label %.preheader283, label %51, !llvm.loop !10
+  br i1 %exitcond302.not, label %.lr.ph291, label %51, !llvm.loop !10
 
-.preheader282:                                    ; preds = %76, %.preheader284, %.preheader283
+.preheader282:                                    ; preds = %76, %.preheader284
   %63 = getelementptr inbounds i8, ptr %15, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32

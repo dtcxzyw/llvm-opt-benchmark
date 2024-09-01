@@ -4657,9 +4657,9 @@ _ZN7V3Error13abortIfErrorsEv.exit:                ; preds = %1069, %1071
 
 1084:                                             ; preds = %1082
   %1085 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.invoke261 unwind label %1086
+          to label %.invoke259 unwind label %1086
 
-1086:                                             ; preds = %.invoke261, %.invoke, %1119, %1117, %1112, %1110, %1102, %1100, %1095, %1093, %1084, %1082
+1086:                                             ; preds = %.invoke259, %.invoke, %1119, %1117, %1112, %1110, %1102, %1100, %1095, %1093, %1084, %1082
   %1087 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN16V3MtDisabledLock6unlockEv(ptr noundef nonnull align 1 dereferenceable(1) @_ZN16V3MtDisabledLock16s_mtDisabledLockE)
@@ -4683,7 +4683,7 @@ _ZN7V3Error13abortIfErrorsEv.exit:                ; preds = %1069, %1071
 
 1095:                                             ; preds = %1093
   %1096 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.invoke261 unwind label %1086
+          to label %.invoke259 unwind label %1086
 
 1097:                                             ; preds = %1091
   %1098 = load i64, ptr getelementptr inbounds (i8, ptr @v3Global, i64 800), align 8
@@ -4696,15 +4696,15 @@ _ZN7V3Error13abortIfErrorsEv.exit:                ; preds = %1069, %1071
 
 1102:                                             ; preds = %1100
   %1103 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.invoke261 unwind label %1086
+          to label %.invoke259 unwind label %1086
 
-.invoke261:                                       ; preds = %1084, %1102, %1095
+.invoke259:                                       ; preds = %1084, %1102, %1095
   %1104 = phi ptr [ %1096, %1095 ], [ %1103, %1102 ], [ %1085, %1084 ]
   %1105 = phi ptr [ @.str.26, %1095 ], [ @.str.27, %1102 ], [ @.str.25, %1084 ]
   %1106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1104, ptr noundef nonnull %1105)
           to label %.invoke unwind label %1086
 
-.invoke:                                          ; preds = %.invoke261
+.invoke:                                          ; preds = %.invoke259
   invoke void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %1106) #24
           to label %.cont unwind label %1086
 

@@ -6001,8 +6001,8 @@ define noundef zeroext i1 @_ZN9actix_web4http6header6entity20check_slice_validit
 
 4:                                                ; preds = %6, %2
   %5 = phi ptr [ %7, %6 ], [ %0, %2 ]
-  %.not.i.not = icmp eq ptr %5, %3
-  br i1 %.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9090bd6db0e5fd1E.exit, label %6
+  %.not.not.not.i.not = icmp eq ptr %5, %3
+  br i1 %.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9090bd6db0e5fd1E.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 1
@@ -6016,7 +6016,7 @@ define noundef zeroext i1 @_ZN9actix_web4http6header6entity20check_slice_validit
   br i1 %spec.select.i.i.not.i.i.not.i, label %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9090bd6db0e5fd1E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17he9090bd6db0e5fd1E.exit: ; preds = %4, %6
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6032,8 +6032,8 @@ define void @_ZN9actix_web4http6header6entity9EntityTag3new17hce4ec3b23c246a2dE(
 
 11:                                               ; preds = %13, %3
   %12 = phi ptr [ %14, %13 ], [ %7, %3 ]
-  %.not.i.not.i = icmp eq ptr %12, %10
-  br i1 %.not.i.not.i, label %20, label %13
+  %.not.not.not.i.not.i = icmp eq ptr %12, %10
+  br i1 %.not.not.not.i.not.i, label %20, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %12, i64 1
@@ -6105,8 +6105,8 @@ define void @_ZN9actix_web4http6header6entity9EntityTag8new_weak17h8a62418582f5b
 
 10:                                               ; preds = %12, %2
   %11 = phi ptr [ %13, %12 ], [ %6, %2 ]
-  %.not.i.not.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.not.i.i, label %_ZN9actix_web4http6header6entity9EntityTag3new17hce4ec3b23c246a2dE.exit, label %12
+  %.not.not.not.i.not.i.i = icmp eq ptr %11, %9
+  br i1 %.not.not.not.i.not.i.i, label %_ZN9actix_web4http6header6entity9EntityTag3new17hce4ec3b23c246a2dE.exit, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 1
@@ -6179,8 +6179,8 @@ define void @_ZN9actix_web4http6header6entity9EntityTag4weak17hb2718ac426c33bb9E
 
 10:                                               ; preds = %12, %2
   %11 = phi ptr [ %13, %12 ], [ %6, %2 ]
-  %.not.i.not.i.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.not.i.i.i, label %_ZN9actix_web4http6header6entity9EntityTag8new_weak17h8a62418582f5b5b1E.exit, label %12
+  %.not.not.not.i.not.i.i.i = icmp eq ptr %11, %9
+  br i1 %.not.not.not.i.not.i.i.i, label %_ZN9actix_web4http6header6entity9EntityTag8new_weak17h8a62418582f5b5b1E.exit, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 1
@@ -6251,8 +6251,8 @@ define void @_ZN9actix_web4http6header6entity9EntityTag10new_strong17hbf4e721f92
 
 10:                                               ; preds = %12, %2
   %11 = phi ptr [ %13, %12 ], [ %6, %2 ]
-  %.not.i.not.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.not.i.i, label %_ZN9actix_web4http6header6entity9EntityTag3new17hce4ec3b23c246a2dE.exit, label %12
+  %.not.not.not.i.not.i.i = icmp eq ptr %11, %9
+  br i1 %.not.not.not.i.not.i.i, label %_ZN9actix_web4http6header6entity9EntityTag3new17hce4ec3b23c246a2dE.exit, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 1
@@ -6325,8 +6325,8 @@ define void @_ZN9actix_web4http6header6entity9EntityTag6strong17h9c02df73c80ba27
 
 10:                                               ; preds = %12, %2
   %11 = phi ptr [ %13, %12 ], [ %6, %2 ]
-  %.not.i.not.i.i.i = icmp eq ptr %11, %9
-  br i1 %.not.i.not.i.i.i, label %_ZN9actix_web4http6header6entity9EntityTag10new_strong17hbf4e721f929c9b88E.exit, label %12
+  %.not.not.not.i.not.i.i.i = icmp eq ptr %11, %9
+  br i1 %.not.not.not.i.not.i.i.i, label %_ZN9actix_web4http6header6entity9EntityTag10new_strong17hbf4e721f929c9b88E.exit, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 1
@@ -6624,8 +6624,8 @@ _ZN9actix_web4http6header6entity20check_slice_validity17h7784906e3357f26fE.exit:
 
 17:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i"
   %18 = phi ptr [ %20, %19 ], [ %10, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i" ]
-  %.not.i.not.i = icmp eq ptr %18, %16
-  br i1 %.not.i.not.i, label %46, label %19
+  %.not.not.not.i.not.i = icmp eq ptr %18, %16
+  br i1 %.not.not.not.i.not.i, label %46, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %18, i64 1
@@ -6667,8 +6667,8 @@ _ZN9actix_web4http6header6entity20check_slice_validity17h7784906e3357f26fE.exit7
 
 32:                                               ; preds = %34, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i65"
   %33 = phi ptr [ %35, %34 ], [ %25, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i65" ]
-  %.not.i.not.i68 = icmp eq ptr %33, %31
-  br i1 %.not.i.not.i68, label %40, label %34
+  %.not.not.not.i.not.i68 = icmp eq ptr %33, %31
+  br i1 %.not.not.not.i.not.i68, label %40, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %33, i64 1

@@ -1721,7 +1721,7 @@ _ZN2cv4gapi8GBackendD2Ev.exit.i.i:                ; preds = %_ZNSt16_Sp_counted_
 
 _ZSt8distanceINSt8__detail14_Node_iteratorIN2cv4gapi8GBackendELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %71 = icmp ugt i64 %.06.i.i.i.i, 576460752303423486
-  br i1 %71, label %72, label %.lr.ph.i.i.i.i.preheader.i.i
+  br i1 %71, label %72, label %_ZNSt12_Vector_baseIN2cv4gapi8GBackendESaIS2_EE11_M_allocateEm.exit.i.i
 
 72:                                               ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN2cv4gapi8GBackendELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #25
@@ -1730,12 +1730,12 @@ _ZSt8distanceINSt8__detail14_Node_iteratorIN2cv4gapi8GBackendELb1ELb1EEEENSt15it
 .noexc.i:                                         ; preds = %72
   unreachable
 
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN2cv4gapi8GBackendELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
+_ZNSt12_Vector_baseIN2cv4gapi8GBackendESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorIN2cv4gapi8GBackendELb1ELb1EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   %73 = shl nuw nsw i64 %70, 4
   %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #26
           to label %.noexc5.i unwind label %92
 
-.noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
+.noexc5.i:                                        ; preds = %_ZNSt12_Vector_baseIN2cv4gapi8GBackendESaIS2_EE11_M_allocateEm.exit.i.i
   store ptr %74, ptr %0, align 8
   %75 = getelementptr inbounds %"class.cv::gapi::GBackend", ptr %74, i64 %70
   %76 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1777,7 +1777,7 @@ _ZSt10_ConstructIN2cv4gapi8GBackendEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds
   %.not.i.i.i.i.i.i9 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i.i.i9, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
-92:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %72
+92:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4gapi8GBackendESaIS2_EE11_M_allocateEm.exit.i.i, %72
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %.body

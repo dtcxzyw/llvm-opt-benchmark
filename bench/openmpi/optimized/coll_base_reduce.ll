@@ -1549,8 +1549,8 @@ opal_datatype_span.exit:                          ; preds = %29, %39
 50:                                               ; preds = %opal_datatype_span.exit
   %51 = sub i64 0, %.0400
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
-  %.not495 = icmp eq i32 %.val, %5
-  br i1 %.not495, label %57, label %53
+  %.not484 = icmp eq i32 %.val, %5
+  br i1 %.not484, label %57, label %53
 
 53:                                               ; preds = %50
   %54 = tail call noalias ptr @malloc(i64 noundef %.0.i386) #9
@@ -1566,8 +1566,8 @@ opal_datatype_span.exit:                          ; preds = %29, %39
   br label %.lr.ph.i.preheader
 
 57:                                               ; preds = %50
-  %.not496 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
-  br i1 %.not496, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i.preheader
+  %.not485 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
+  br i1 %.not485, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %57, %.thread
   %.0301407 = phi ptr [ %56, %.thread ], [ %1, %57 ]
@@ -1676,18 +1676,18 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %165
-  %.0307490 = phi i32 [ %166, %165 ], [ 1, %.lr.ph.preheader ]
-  %.0310489 = phi i32 [ %.1311, %165 ], [ %2, %.lr.ph.preheader ]
-  %.0313488 = phi i32 [ %.1314, %165 ], [ 0, %.lr.ph.preheader ]
-  %107 = xor i32 %.0307490, %.0317
+  %.0307492 = phi i32 [ %166, %165 ], [ 1, %.lr.ph.preheader ]
+  %.0310491 = phi i32 [ %.1311, %165 ], [ %2, %.lr.ph.preheader ]
+  %.0313490 = phi i32 [ %.1314, %165 ], [ 0, %.lr.ph.preheader ]
+  %107 = xor i32 %.0307492, %.0317
   %108 = icmp slt i32 %107, %64
   %109 = shl nsw i32 %107, 1
   %110 = add nsw i32 %107, %64
   %111 = select i1 %108, i32 %109, i32 %110
   %112 = icmp slt i32 %.val, %111
-  %113 = sdiv i32 %.0310489, 2
-  %114 = sext i32 %.0313488 to i64
-  %115 = sub nsw i32 %.0310489, %113
+  %113 = sdiv i32 %.0310491, 2
+  %114 = sext i32 %.0313490 to i64
+  %115 = sub nsw i32 %.0310491, %113
   br i1 %112, label %116, label %122
 
 116:                                              ; preds = %.lr.ph
@@ -1754,7 +1754,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   %155 = load i32, ptr %141, align 4
   %156 = sext i32 %155 to i64
   tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %153, ptr noundef %154, i64 noundef %156, ptr noundef %3)
-  %157 = add nsw i32 %.0313488, 1
+  %157 = add nsw i32 %.0313490, 1
   %158 = icmp slt i32 %157, %.0.i
   br i1 %158, label %159, label %165
 
@@ -1769,9 +1769,9 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   br label %165
 
 165:                                              ; preds = %149, %159
-  %.1314 = phi i32 [ %157, %159 ], [ %.0313488, %149 ]
-  %.1311 = phi i32 [ %164, %159 ], [ %.0310489, %149 ]
-  %166 = shl i32 %.0307490, 1
+  %.1314 = phi i32 [ %157, %159 ], [ %.0313490, %149 ]
+  %.1311 = phi i32 [ %164, %159 ], [ %.0310491, %149 ]
+  %166 = shl i32 %.0307492, 1
   %167 = icmp slt i32 %166, %21
   br i1 %167, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
@@ -1785,20 +1785,20 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   br i1 %.not366, label %197, label %171
 
 171:                                              ; preds = %169
-  br i1 %.not495, label %.lr.ph494.preheader, label %187
+  br i1 %.not484, label %.lr.ph496.preheader, label %187
 
-.lr.ph494.preheader:                              ; preds = %171
+.lr.ph496.preheader:                              ; preds = %171
   store i32 0, ptr %98, align 4
-  br label %.lr.ph494
+  br label %.lr.ph496
 
-.lr.ph494:                                        ; preds = %.lr.ph494.preheader, %.lr.ph494
-  %indvars.iv = phi i64 [ 0, %.lr.ph494.preheader ], [ %indvars.iv.next, %.lr.ph494 ]
-  %.0303493 = phi i32 [ 1, %.lr.ph494.preheader ], [ %178, %.lr.ph494 ]
-  %.2312492 = phi i32 [ %2, %.lr.ph494.preheader ], [ %172, %.lr.ph494 ]
-  %172 = lshr i32 %.2312492, 1
+.lr.ph496:                                        ; preds = %.lr.ph496.preheader, %.lr.ph496
+  %indvars.iv = phi i64 [ 0, %.lr.ph496.preheader ], [ %indvars.iv.next, %.lr.ph496 ]
+  %.0303495 = phi i32 [ 1, %.lr.ph496.preheader ], [ %178, %.lr.ph496 ]
+  %.2312494 = phi i32 [ %2, %.lr.ph496.preheader ], [ %172, %.lr.ph496 ]
+  %172 = lshr i32 %.2312494, 1
   %173 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv
   store i32 %172, ptr %173, align 4
-  %174 = sub nsw i32 %.2312492, %172
+  %174 = sub nsw i32 %.2312494, %172
   %175 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv
   store i32 %174, ptr %175, align 4
   %176 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv
@@ -1806,11 +1806,11 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   %177 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv
   store i32 %172, ptr %177, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %178 = shl nsw i32 %.0303493, 1
+  %178 = shl nsw i32 %.0303495, 1
   %179 = icmp slt i32 %178, %21
-  br i1 %179, label %.lr.ph494, label %._crit_edge, !llvm.loop !18
+  br i1 %179, label %.lr.ph496, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph494
+._crit_edge:                                      ; preds = %.lr.ph496
   %180 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %181 = sext i32 %.0.i to i64
   %182 = getelementptr i32, ptr %100, i64 %181

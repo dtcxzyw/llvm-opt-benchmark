@@ -4907,16 +4907,13 @@ for.inc:                                          ; preds = %if.then41, %if.else
   %call47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call45.sink, i32 noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body37, !llvm.loop !24
+  br i1 %exitcond.not, label %if.then53, label %for.body37, !llvm.loop !24
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp22.not, label %if.end55, label %if.then53
-
-if.then53:                                        ; preds = %for.end
+if.then53:                                        ; preds = %for.inc
   %call54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.95)
   br label %if.end55
 
-if.end55:                                         ; preds = %if.end34, %if.then53, %for.end
+if.end55:                                         ; preds = %if.end34, %if.then53
   %28 = load ptr, ptr %3, align 8
   %call.i.i.i = tail call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0

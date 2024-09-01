@@ -2071,7 +2071,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115cmLoadedCommand11InitialP
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15, %24
-  %33 = phi i1 [ false, %24 ], [ false, %15 ], [ %27, %.lr.ph ]
+  %33 = phi i1 [ false, %24 ], [ false, %15 ], [ true, %.lr.ph ]
   %.02259 = phi ptr [ %26, %24 ], [ null, %15 ], [ %26, %.lr.ph ]
   %.val35 = load ptr, ptr %8, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 8

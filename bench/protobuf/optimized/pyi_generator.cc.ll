@@ -8765,11 +8765,11 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   br i1 %cmp91, label %for.body81, label %for.end99
 
 for.body81:                                       ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit, %for.inc97
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %for.inc97 ], [ 0, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %for.inc97 ], [ 0, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit ]
   %27 = phi ptr [ %35, %for.inc97 ], [ %25, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit ]
   %public_dependencies_.i = getelementptr inbounds i8, ptr %27, i64 80
   %28 = load ptr, ptr %public_dependencies_.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv104
+  %arrayidx.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv101
   %29 = load i32, ptr %arrayidx.i, align 4
   %call.i3435 = invoke noundef ptr @_ZNK6google8protobuf14FileDescriptor10dependencyEi(ptr noundef nonnull align 8 dereferenceable(168) %27, i32 noundef %29)
           to label %invoke.cont83 unwind label %lpad72.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -8838,12 +8838,12 @@ lpad72.body:                                      ; preds = %lpad72.loopexit, %l
   br label %ehcleanup
 
 for.inc97:                                        ; preds = %for.inc95, %for.cond87.preheader
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %35 = load ptr, ptr %file_, align 8
   %public_dependency_count_.i = getelementptr inbounds i8, ptr %35, i64 52
   %36 = load i32, ptr %public_dependency_count_.i, align 4
   %37 = sext i32 %36 to i64
-  %cmp = icmp slt i64 %indvars.iv.next105, %37
+  %cmp = icmp slt i64 %indvars.iv.next102, %37
   br i1 %cmp, label %for.body81, label %for.end99, !llvm.loop !297
 
 for.end99:                                        ; preds = %for.inc97, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
@@ -8858,21 +8858,21 @@ for.cond102.preheader:                            ; preds = %for.end99
   br i1 %cmp10694, label %for.body107, label %for.end114
 
 for.body107:                                      ; preds = %for.cond102.preheader, %for.inc112
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.inc112 ], [ 0, %for.cond102.preheader ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %for.inc112 ], [ 0, %for.cond102.preheader ]
   %40 = phi ptr [ %42, %for.inc112 ], [ %38, %for.cond102.preheader ]
   %enum_types_.i38 = getelementptr inbounds i8, ptr %40, i64 104
   %41 = load ptr, ptr %enum_types_.i38, align 8
-  %add.ptr.i40 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %41, i64 %indvars.iv107
+  %add.ptr.i40 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %41, i64 %indvars.iv104
   invoke void @_ZNK6google8protobuf8compiler6python12PyiGenerator15PrintEnumValuesERKNS0_14EnumDescriptorEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i40, i1 noundef zeroext false)
           to label %for.inc112 unwind label %lpad72.loopexit.split-lp.loopexit
 
 for.inc112:                                       ; preds = %for.body107
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %42 = load ptr, ptr %file_, align 8
   %enum_type_count_.i37 = getelementptr inbounds i8, ptr %42, i64 64
   %43 = load i32, ptr %enum_type_count_.i37, align 8
   %44 = sext i32 %43 to i64
-  %cmp106 = icmp slt i64 %indvars.iv.next108, %44
+  %cmp106 = icmp slt i64 %indvars.iv.next105, %44
   br i1 %cmp106, label %for.body107, label %for.end114, !llvm.loop !298
 
 for.end114:                                       ; preds = %for.inc112, %for.cond102.preheader

@@ -1457,12 +1457,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %call43 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil10parse_charERNS_17basic_string_viewIcSt11char_traitsIcEEEcbb(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 noundef signext 44, i1 noundef zeroext true, i1 noundef zeroext true) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %if.then45, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body
-  br i1 %cmp39137, label %if.then45, label %if.end52
-
-if.then45:                                        ; preds = %for.end
+if.then45:                                        ; preds = %for.body
   %41 = load ptr, ptr %paramname, align 8
   store ptr %41, ptr %agg.tmp46, align 8
   %m_len.i49 = getelementptr inbounds i8, ptr %agg.tmp46, i64 8
@@ -1490,7 +1487,7 @@ lpad47:                                           ; preds = %if.then45
   %tobool.not.i.i.i = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %eh.resume.sink.split
 
-if.end52:                                         ; preds = %invoke.cont, %if.then45, %for.end
+if.end52:                                         ; preds = %invoke.cont, %if.then45
   %tobool.not.i.i.i56 = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i56, label %if.end53thread-pre-split, label %if.then.i.i.i57
 
@@ -1551,12 +1548,9 @@ for.body66:                                       ; preds = %for.body66.preheade
   %call70 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil10parse_charERNS_17basic_string_viewIcSt11char_traitsIcEEEcbb(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 noundef signext 44, i1 noundef zeroext true, i1 noundef zeroext true) #19
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %for.end73, label %for.body66, !llvm.loop !8
+  br i1 %exitcond153.not, label %if.then75, label %for.body66, !llvm.loop !8
 
-for.end73:                                        ; preds = %for.body66
-  br i1 %cmp65141, label %if.then75, label %if.end82
-
-if.then75:                                        ; preds = %for.end73
+if.then75:                                        ; preds = %for.body66
   %50 = load ptr, ptr %paramname, align 8
   store ptr %50, ptr %agg.tmp76, align 8
   %m_len.i75 = getelementptr inbounds i8, ptr %agg.tmp76, i64 8
@@ -1584,7 +1578,7 @@ lpad77:                                           ; preds = %if.then75
   %tobool.not.i.i.i85 = icmp eq ptr %values58.sroa.0.0, null
   br i1 %tobool.not.i.i.i85, label %eh.resume, label %eh.resume.sink.split
 
-if.end82:                                         ; preds = %invoke.cont62, %if.then75, %for.end73
+if.end82:                                         ; preds = %invoke.cont62, %if.then75
   %tobool.not.i.i.i87 = icmp eq ptr %values58.sroa.0.0, null
   br i1 %tobool.not.i.i.i87, label %if.end118, label %if.end118.sink.split
 

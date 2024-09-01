@@ -168,11 +168,11 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %2, align 4
   %9 = getelementptr i8, ptr %6, i64 4
-  %.val82155 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val82155, 0
-  br i1 %10, label %.lr.ph157, label %.critedge
+  %.val82154 = load i32, ptr %9, align 4
+  %10 = icmp sgt i32 %.val82154, 0
+  br i1 %10, label %.lr.ph156, label %.critedge
 
-.lr.ph157:                                        ; preds = %4
+.lr.ph156:                                        ; preds = %4
   %11 = getelementptr i8, ptr %6, i64 8
   %12 = getelementptr i8, ptr %0, i64 56
   %.not76 = icmp eq ptr %3, null
@@ -181,10 +181,10 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph157, %326
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next169, %326 ]
+15:                                               ; preds = %.lr.ph156, %326
+  %indvars.iv167 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next168, %326 ]
   %.val83 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val83, i64 %indvars.iv168
+  %16 = getelementptr inbounds ptr, ptr %.val83, i64 %indvars.iv167
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 20
   %.val84 = load i32, ptr %18, align 4
@@ -215,8 +215,8 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %31 = load ptr, ptr %30, align 8
   tail call void @Abc_NtkFillTemp(ptr noundef %31) #13
   %32 = getelementptr i8, ptr %17, i64 28
-  %.val77144 = load i32, ptr %32, align 4
-  %33 = icmp sgt i32 %.val77144, 0
+  %.val77143 = load i32, ptr %32, align 4
+  %33 = icmp sgt i32 %.val77143, 0
   br i1 %33, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %29
@@ -275,29 +275,29 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   br i1 %63, label %36, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %36, %29
-  %.val146 = phi i32 [ %.val77144, %29 ], [ %.val77, %36 ]
-  br i1 %.not76, label %.critedge4.thread, label %.preheader143
+  %.val145 = phi i32 [ %.val77143, %29 ], [ %.val77, %36 ]
+  br i1 %.not76, label %.critedge4.thread, label %.preheader
 
-.preheader143:                                    ; preds = %.critedge2
-  %64 = icmp sgt i32 %.val146, 0
-  br i1 %64, label %.lr.ph148, label %.critedge4
+.preheader:                                       ; preds = %.critedge2
+  %64 = icmp sgt i32 %.val145, 0
+  br i1 %64, label %.lr.ph147, label %.critedge4
 
-.lr.ph148:                                        ; preds = %.preheader143
+.lr.ph147:                                        ; preds = %.preheader
   %65 = getelementptr i8, ptr %31, i64 40
   br label %66
 
 .critedge4.thread:                                ; preds = %.critedge2
   tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef null)
   %.phi.trans.insert = getelementptr i8, ptr %17, i64 44
-  %.val109152.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.val109151.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.critedge6
 
-66:                                               ; preds = %.lr.ph148, %66
-  %indvars.iv159 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next160, %66 ]
+66:                                               ; preds = %.lr.ph147, %66
+  %indvars.iv158 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next159, %66 ]
   %.val106 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %.val106, i64 8
   %.val106.val = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val106.val, i64 %indvars.iv159
+  %68 = getelementptr inbounds ptr, ptr %.val106.val, i64 %indvars.iv158
   %69 = load ptr, ptr %68, align 8
   %.val89 = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %69, i64 48
@@ -348,7 +348,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %.val107 = load ptr, ptr %65, align 8
   %107 = getelementptr i8, ptr %.val107, i64 8
   %.val107.val = load ptr, ptr %107, align 8
-  %108 = getelementptr inbounds ptr, ptr %.val107.val, i64 %indvars.iv159
+  %108 = getelementptr inbounds ptr, ptr %.val107.val, i64 %indvars.iv158
   %109 = load ptr, ptr %108, align 8
   %.val91 = load ptr, ptr %109, align 8
   %110 = getelementptr i8, ptr %109, i64 48
@@ -363,29 +363,29 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 64
   store i32 %106, ptr %116, align 8
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %.val = load i32, ptr %32, align 4
   %117 = sext i32 %.val to i64
-  %118 = icmp slt i64 %indvars.iv.next160, %117
+  %118 = icmp slt i64 %indvars.iv.next159, %117
   br i1 %118, label %66, label %.critedge4, !llvm.loop !7
 
-.critedge4:                                       ; preds = %66, %.preheader143
+.critedge4:                                       ; preds = %66, %.preheader
   tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %119 = getelementptr i8, ptr %17, i64 44
-  %.val108149 = load i32, ptr %119, align 4
-  %120 = icmp sgt i32 %.val108149, 0
-  br i1 %120, label %.lr.ph151, label %.critedge8
+  %.val108148 = load i32, ptr %119, align 4
+  %120 = icmp sgt i32 %.val108148, 0
+  br i1 %120, label %.lr.ph150, label %.critedge8
 
-.lr.ph151:                                        ; preds = %.critedge4
+.lr.ph150:                                        ; preds = %.critedge4
   %121 = getelementptr i8, ptr %31, i64 48
   br label %122
 
-122:                                              ; preds = %.lr.ph151, %122
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next163, %122 ]
+122:                                              ; preds = %.lr.ph150, %122
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next162, %122 ]
   %.val114 = load ptr, ptr %121, align 8
   %123 = getelementptr i8, ptr %.val114, i64 8
   %.val114.val = load ptr, ptr %123, align 8
-  %124 = getelementptr inbounds ptr, ptr %.val114.val, i64 %indvars.iv162
+  %124 = getelementptr inbounds ptr, ptr %.val114.val, i64 %indvars.iv161
   %125 = load ptr, ptr %124, align 8
   %.val99 = load ptr, ptr %125, align 8
   %126 = getelementptr i8, ptr %125, i64 32
@@ -436,7 +436,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %.val115 = load ptr, ptr %121, align 8
   %163 = getelementptr i8, ptr %.val115, i64 8
   %.val115.val = load ptr, ptr %163, align 8
-  %164 = getelementptr inbounds ptr, ptr %.val115.val, i64 %indvars.iv162
+  %164 = getelementptr inbounds ptr, ptr %.val115.val, i64 %indvars.iv161
   %165 = load ptr, ptr %164, align 8
   %.val101 = load ptr, ptr %165, align 8
   %166 = getelementptr i8, ptr %165, i64 32
@@ -451,32 +451,32 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 64
   store i32 %162, ptr %172, align 8
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %.val108 = load i32, ptr %119, align 4
   %173 = sext i32 %.val108 to i64
-  %174 = icmp slt i64 %indvars.iv.next163, %173
+  %174 = icmp slt i64 %indvars.iv.next162, %173
   br i1 %174, label %122, label %.critedge6, !llvm.loop !8
 
 .critedge6:                                       ; preds = %122, %.critedge4.thread
-  %.val109152 = phi i32 [ %.val109152.pre, %.critedge4.thread ], [ %.val108, %122 ]
+  %.val109151 = phi i32 [ %.val109151.pre, %.critedge4.thread ], [ %.val108, %122 ]
   %175 = getelementptr i8, ptr %17, i64 44
-  %176 = icmp sgt i32 %.val109152, 0
-  br i1 %176, label %.lr.ph154, label %.critedge8
+  %176 = icmp sgt i32 %.val109151, 0
+  br i1 %176, label %.lr.ph153, label %.critedge8
 
-.lr.ph154:                                        ; preds = %.critedge6
+.lr.ph153:                                        ; preds = %.critedge6
   %177 = getelementptr i8, ptr %17, i64 48
   %178 = getelementptr i8, ptr %31, i64 48
   br label %179
 
-179:                                              ; preds = %.lr.ph154, %179
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next166, %179 ]
+179:                                              ; preds = %.lr.ph153, %179
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next165, %179 ]
   %.val112 = load ptr, ptr %17, align 8
   %.val113 = load ptr, ptr %177, align 8
   %180 = getelementptr i8, ptr %.val112, i64 32
   %.val112.val = load ptr, ptr %180, align 8
   %181 = getelementptr i8, ptr %.val112.val, i64 8
   %.val112.val.val = load ptr, ptr %181, align 8
-  %182 = getelementptr inbounds i32, ptr %.val113, i64 %indvars.iv165
+  %182 = getelementptr inbounds i32, ptr %.val113, i64 %indvars.iv164
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds ptr, ptr %.val112.val.val, i64 %184
@@ -484,7 +484,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %.val116 = load ptr, ptr %178, align 8
   %187 = getelementptr i8, ptr %.val116, i64 8
   %.val116.val = load ptr, ptr %187, align 8
-  %188 = getelementptr inbounds ptr, ptr %.val116.val, i64 %indvars.iv165
+  %188 = getelementptr inbounds ptr, ptr %.val116.val, i64 %indvars.iv164
   %189 = load ptr, ptr %188, align 8
   %.val103 = load ptr, ptr %189, align 8
   %190 = getelementptr i8, ptr %189, i64 32
@@ -512,10 +512,10 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 64
   store i32 %197, ptr %204, align 8
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %.val109 = load i32, ptr %175, align 4
   %205 = sext i32 %.val109 to i64
-  %206 = icmp slt i64 %indvars.iv.next166, %205
+  %206 = icmp slt i64 %indvars.iv.next165, %205
   br i1 %206, label %179, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %179, %.critedge4, %.critedge6
@@ -786,10 +786,10 @@ Vec_IntPush.exit142:                              ; preds = %.Vec_IntGrow.exit10
   br label %326
 
 326:                                              ; preds = %20, %Vec_IntPush.exit142, %.critedge8
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %.val82 = load i32, ptr %9, align 4
   %327 = sext i32 %.val82 to i64
-  %328 = icmp slt i64 %indvars.iv.next169, %327
+  %328 = icmp slt i64 %indvars.iv.next168, %327
   br i1 %328, label %15, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %326, %4

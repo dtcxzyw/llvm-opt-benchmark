@@ -845,10 +845,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = zext nneg i32 %0 to i64
   br label %for.body
 
-for.cond14.preheader:                             ; preds = %for.body
-  br i1 %cmp119, label %for.body16.lr.ph, label %for.end47
-
-for.body16.lr.ph:                                 ; preds = %for.cond14.preheader
+for.body16.lr.ph:                                 ; preds = %for.body
   %m_pointCache18 = getelementptr inbounds i8, ptr %this, i64 8
   %m_contactBreakingThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 860
   %m_body0 = getelementptr inbounds i8, ptr %this, i64 840
@@ -952,7 +949,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nsw i32 %50, 1
   store i32 %inc, ptr %m_lifeTime, align 8
   %cmp = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond14.preheader, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.body16.lr.ph, !llvm.loop !8
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc45
   %indvars.iv126 = phi i64 [ %2, %for.body16.lr.ph ], [ %indvars.iv.next127, %for.inc45 ]
@@ -1122,7 +1119,7 @@ for.inc45:                                        ; preds = %_ZN20btPersistentMa
   %cmp15 = icmp ugt i64 %indvars.iv126, 1
   br i1 %cmp15, label %for.body16, label %for.end47, !llvm.loop !9
 
-for.end47:                                        ; preds = %for.inc45, %entry, %for.cond14.preheader
+for.end47:                                        ; preds = %for.inc45, %entry
   ret void
 }
 

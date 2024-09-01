@@ -743,7 +743,7 @@ define i32 @mca_common_ompio_cart_based_grouping(ptr nocapture noundef readonly 
 
 45:                                               ; preds = %.lr.ph81, %._crit_edge
   %indvars.iv88 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next89, %._crit_edge ]
-  %46 = phi ptr [ %41, %.lr.ph81 ], [ %94, %._crit_edge ]
+  %46 = phi ptr [ %41, %.lr.ph81 ], [ %93, %._crit_edge ]
   %47 = load i32, ptr %5, align 8
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 2
@@ -774,8 +774,8 @@ define i32 @mca_common_ompio_cart_based_grouping(ptr nocapture noundef readonly 
   %67 = icmp sgt i32 %66, 1
   br i1 %67, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %62, %87
-  %indvars.iv = phi i64 [ %indvars.iv.next, %87 ], [ 1, %62 ]
+.lr.ph:                                           ; preds = %62, %86
+  %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 1, %62 ]
   %68 = load i32, ptr %5, align 8
   %69 = add nsw i32 %68, -1
   %70 = load ptr, ptr %20, align 8
@@ -796,42 +796,41 @@ define i32 @mca_common_ompio_cart_based_grouping(ptr nocapture noundef readonly 
 select.unfold:                                    ; preds = %71
   store i32 0, ptr %73, align 4
   %79 = add nsw i32 %.077, -1
-  %80 = icmp ne i32 %79, 0
-  %.not68 = and i1 %80, %78
-  br i1 %.not68, label %71, label %select.unfold.thread
+  %.not97 = icmp eq i32 %79, 0
+  br i1 %.not97, label %select.unfold.thread, label %71
 
 select.unfold.thread:                             ; preds = %71, %select.unfold
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 280
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 72
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 %85(ptr noundef %81, ptr noundef nonnull %31, ptr noundef nonnull %4) #10
-  %.not69 = icmp eq i32 %86, 0
-  br i1 %.not69, label %87, label %.loopexit.sink.split
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 280
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 72
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 %84(ptr noundef %80, ptr noundef nonnull %31, ptr noundef nonnull %4) #10
+  %.not69 = icmp eq i32 %85, 0
+  br i1 %.not69, label %86, label %.loopexit.sink.split
 
-87:                                               ; preds = %select.unfold.thread
-  %88 = load i32, ptr %4, align 4
-  %89 = load ptr, ptr %64, align 8
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
-  store i32 %88, ptr %90, align 4
+86:                                               ; preds = %select.unfold.thread
+  %87 = load i32, ptr %4, align 4
+  %88 = load ptr, ptr %64, align 8
+  %89 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv
+  store i32 %87, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = load i32, ptr %54, align 8
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %90 = load i32, ptr %54, align 8
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %87, %62
+._crit_edge:                                      ; preds = %86, %62
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %94 = load ptr, ptr %20, align 8
-  %95 = load i32, ptr %94, align 4
-  %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next89, %96
-  br i1 %97, label %45, label %.loopexit, !llvm.loop !12
+  %93 = load ptr, ptr %20, align 8
+  %94 = load i32, ptr %93, align 4
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %indvars.iv.next89, %95
+  br i1 %96, label %45, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %45, %select.unfold.thread, %33, %30, %26, %22, %16
   %.str.4.sink = phi ptr [ @.str.2, %16 ], [ @.str.2, %22 ], [ @.str.2, %26 ], [ @.str.2, %30 ], [ @.str.3, %33 ], [ @.str.4, %select.unfold.thread ], [ @.str.4, %45 ]
-  %.048.ph = phi i32 [ -2, %16 ], [ -2, %22 ], [ -2, %26 ], [ -2, %30 ], [ %39, %33 ], [ %86, %select.unfold.thread ], [ %61, %45 ]
+  %.048.ph = phi i32 [ -2, %16 ], [ -2, %22 ], [ -2, %26 ], [ -2, %30 ], [ %39, %33 ], [ %85, %select.unfold.thread ], [ %61, %45 ]
   %.047.ph = phi ptr [ null, %16 ], [ null, %22 ], [ null, %26 ], [ null, %30 ], [ %31, %33 ], [ %31, %select.unfold.thread ], [ %31, %45 ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull %.str.4.sink) #10
   br label %.loopexit
@@ -839,46 +838,46 @@ select.unfold.thread:                             ; preds = %71, %select.unfold
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %40, %13, %3
   %.048 = phi i32 [ %12, %3 ], [ 17, %13 ], [ 0, %40 ], [ %.048.ph, %.loopexit.sink.split ], [ 0, %._crit_edge ]
   %.047 = phi ptr [ null, %3 ], [ null, %13 ], [ %31, %40 ], [ %.047.ph, %.loopexit.sink.split ], [ %31, %._crit_edge ]
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %.not70 = icmp eq ptr %99, null
-  br i1 %.not70, label %101, label %100
+  %97 = getelementptr inbounds i8, ptr %5, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %.not70 = icmp eq ptr %98, null
+  br i1 %.not70, label %100, label %99
 
-100:                                              ; preds = %.loopexit
-  call void @free(ptr noundef nonnull %99) #10
-  store ptr null, ptr %98, align 8
-  br label %101
+99:                                               ; preds = %.loopexit
+  call void @free(ptr noundef nonnull %98) #10
+  store ptr null, ptr %97, align 8
+  br label %100
 
-101:                                              ; preds = %100, %.loopexit
-  %102 = getelementptr inbounds i8, ptr %5, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %.not71 = icmp eq ptr %103, null
-  br i1 %.not71, label %105, label %104
+100:                                              ; preds = %99, %.loopexit
+  %101 = getelementptr inbounds i8, ptr %5, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %.not71 = icmp eq ptr %102, null
+  br i1 %.not71, label %104, label %103
 
-104:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %103) #10
-  store ptr null, ptr %102, align 8
-  br label %105
+103:                                              ; preds = %100
+  call void @free(ptr noundef nonnull %102) #10
+  store ptr null, ptr %101, align 8
+  br label %104
 
-105:                                              ; preds = %104, %101
-  %106 = getelementptr inbounds i8, ptr %5, i64 24
-  %107 = load ptr, ptr %106, align 8
-  %.not72 = icmp eq ptr %107, null
-  br i1 %.not72, label %109, label %108
+104:                                              ; preds = %103, %100
+  %105 = getelementptr inbounds i8, ptr %5, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %.not72 = icmp eq ptr %106, null
+  br i1 %.not72, label %108, label %107
 
-108:                                              ; preds = %105
-  call void @free(ptr noundef nonnull %107) #10
-  br label %109
+107:                                              ; preds = %104
+  call void @free(ptr noundef nonnull %106) #10
+  br label %108
 
-109:                                              ; preds = %108, %105
+108:                                              ; preds = %107, %104
   %.not73 = icmp eq ptr %.047, null
-  br i1 %.not73, label %111, label %110
+  br i1 %.not73, label %110, label %109
 
-110:                                              ; preds = %109
+109:                                              ; preds = %108
   call void @free(ptr noundef nonnull %.047) #10
-  br label %111
+  br label %110
 
-111:                                              ; preds = %110, %109
+110:                                              ; preds = %109, %108
   ret i32 %.048
 }
 
@@ -929,10 +928,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr noca
   %.pre61 = load ptr, ptr %22, align 8
   br label %23
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %14, label %.lr.ph51.preheader, label %.loopexit
-
-.lr.ph51.preheader:                               ; preds = %.preheader
+.lr.ph51.preheader:                               ; preds = %._crit_edge
   %wide.trip.count59 = zext nneg i32 %1 to i64
   br label %.lr.ph51
 
@@ -989,7 +985,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr noca
 ._crit_edge:                                      ; preds = %44, %.preheader46
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader46, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph51.preheader, label %.preheader46, !llvm.loop !14
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv56 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next57, %.lr.ph51 ]
@@ -1007,8 +1003,8 @@ define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr noca
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.2) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph51, %.loopexit.sink.split, %.preheader47, %.preheader
-  %.039 = phi i32 [ 0, %.preheader ], [ 0, %.preheader47 ], [ -2, %.loopexit.sink.split ], [ 0, %.lr.ph51 ]
+.loopexit:                                        ; preds = %.lr.ph51, %.loopexit.sink.split, %.preheader47
+  %.039 = phi i32 [ 0, %.preheader47 ], [ -2, %.loopexit.sink.split ], [ 0, %.lr.ph51 ]
   ret i32 %.039
 }
 
@@ -1451,9 +1447,6 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
 
 .preheader142:                                    ; preds = %.lr.ph
   %invariant.gep = getelementptr inbounds i8, ptr %27, i64 16
-  br i1 %43, label %.lr.ph147.preheader, label %._crit_edge
-
-.lr.ph147.preheader:                              ; preds = %.preheader142
   %.pre = load i64, ptr %4, align 8
   br label %.lr.ph147
 
@@ -1471,9 +1464,9 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader142, label %.lr.ph, !llvm.loop !21
 
-.lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
-  %51 = phi i64 [ %.pre, %.lr.ph147.preheader ], [ %53, %.lr.ph147 ]
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph147.preheader ], [ %indvars.iv.next164, %.lr.ph147 ]
+.lr.ph147:                                        ; preds = %.preheader142, %.lr.ph147
+  %51 = phi i64 [ %.pre, %.preheader142 ], [ %53, %.lr.ph147 ]
+  %indvars.iv163 = phi i64 [ 0, %.preheader142 ], [ %indvars.iv.next164, %.lr.ph147 ]
   %gep.idx = mul i64 %indvars.iv163, 24
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %52 = load i64, ptr %gep, align 8
@@ -1485,7 +1478,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
   %56 = icmp slt i64 %indvars.iv.next164, %55
   br i1 %56, label %.lr.ph147, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph147, %.preheader143, %.preheader142
+._crit_edge:                                      ; preds = %.lr.ph147, %.preheader143
   store ptr %27, ptr %1, align 8
   store ptr %41, ptr %2, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 400
@@ -1622,10 +1615,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
   %wide.trip.count175 = zext nneg i32 %118 to i64
   br label %124
 
-.preheader:                                       ; preds = %.thread
-  br i1 %119, label %.lr.ph159, label %._crit_edge160
-
-.lr.ph159:                                        ; preds = %.preheader
+.lr.ph159:                                        ; preds = %.thread
   %123 = getelementptr inbounds i8, ptr %0, i64 20
   br label %142
 
@@ -1671,7 +1661,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
 .thread:                                          ; preds = %.thread.sink.split, %136, %124, %138, %137
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %.preheader, label %124, !llvm.loop !25
+  br i1 %exitcond176.not, label %.lr.ph159, label %124, !llvm.loop !25
 
 142:                                              ; preds = %.lr.ph159, %.thread140
   %indvars.iv177 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next178, %.thread140 ]
@@ -1718,7 +1708,7 @@ define i32 @mca_common_ompio_prepare_to_group(ptr nocapture noundef readonly %0,
   %165 = icmp slt i64 %indvars.iv.next178, %164
   br i1 %165, label %142, label %._crit_edge160, !llvm.loop !26
 
-._crit_edge160:                                   ; preds = %.thread140, %._crit_edge154, %.preheader
+._crit_edge160:                                   ; preds = %.thread140, %._crit_edge154
   store ptr %84, ptr %5, align 8
   br label %166
 
@@ -2077,16 +2067,13 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   %83 = load i32, ptr %12, align 4
   %84 = icmp eq i32 %83, %.pre278
   %spec.select185 = select i1 %84, i32 1, i32 %.1128247
-  br i1 %.not179237, label %._crit_edge244, label %.lr.ph243.preheader
-
-.lr.ph243.preheader:                              ; preds = %._crit_edge
   %85 = add i32 %.2152.lcssa, 1
   %86 = sub i32 %85, %.4147246
   %wide.trip.count272 = zext i32 %86 to i64
   br label %.lr.ph243
 
-.lr.ph243:                                        ; preds = %.lr.ph243.preheader, %94
-  %indvars.iv268 = phi i64 [ 0, %.lr.ph243.preheader ], [ %indvars.iv.next269, %94 ]
+.lr.ph243:                                        ; preds = %._crit_edge, %94
+  %indvars.iv268 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next269, %94 ]
   %87 = load i32, ptr %12, align 4
   %88 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv268
   %89 = load i32, ptr %88, align 4
@@ -2112,9 +2099,9 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   %.pre279.pre = load i32, ptr %5, align 8
   br label %._crit_edge244
 
-._crit_edge244:                                   ; preds = %.preheader200, %._crit_edge244.loopexit, %._crit_edge
-  %spec.select185286 = phi i32 [ %spec.select185, %._crit_edge244.loopexit ], [ %spec.select185, %._crit_edge ], [ 1, %.preheader200 ]
-  %.pre279 = phi i32 [ %.pre279.pre, %._crit_edge244.loopexit ], [ %.pre279282, %._crit_edge ], [ %.pre279282, %.preheader200 ]
+._crit_edge244:                                   ; preds = %.preheader200, %._crit_edge244.loopexit
+  %spec.select185286 = phi i32 [ %spec.select185, %._crit_edge244.loopexit ], [ 1, %.preheader200 ]
+  %.pre279 = phi i32 [ %.pre279.pre, %._crit_edge244.loopexit ], [ %.pre279282, %.preheader200 ]
   tail call void @free(ptr noundef nonnull %74) #10
   br label %95
 

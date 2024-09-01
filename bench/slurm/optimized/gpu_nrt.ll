@@ -186,19 +186,19 @@ _get_system_gpu_list_neuron.exit.thread7:         ; preds = %_count_devices.exit
   %27 = getelementptr inbounds i8, ptr %13, i64 8
   %28 = getelementptr inbounds i8, ptr %13, i64 16
   %29 = getelementptr inbounds i8, ptr %13, i64 56
-  %.not39.i.i = icmp eq i32 %.3.i, 0
+  %.not34.i.i = icmp eq i32 %.3.i, 0
   %30 = getelementptr inbounds i8, ptr %13, i64 64
   %31 = getelementptr inbounds i8, ptr %13, i64 48
   %32 = getelementptr inbounds i8, ptr %13, i64 40
   br label %33
 
-33:                                               ; preds = %129, %.lr.ph.i
-  %34 = phi ptr [ %25, %.lr.ph.i ], [ %130, %129 ]
-  %.0925.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %129 ]
+33:                                               ; preds = %125, %.lr.ph.i
+  %34 = phi ptr [ %25, %.lr.ph.i ], [ %126, %125 ]
+  %.0925.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %125 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 19
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #8
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %129
+  br i1 %37, label %38, label %125
 
 38:                                               ; preds = %33
   store ptr null, ptr %10, align 8
@@ -291,206 +291,196 @@ _get_device_name.exit.i:                          ; preds = %56, %48
 69:                                               ; preds = %67
   %70 = call i32 @slurm_get_log_level() #8
   %71 = icmp sgt i32 %70, 4
-  br i1 %71, label %72, label %.loopexit.i.i
+  br i1 %71, label %72, label %.loopexit28.i.i
 
 72:                                               ; preds = %69
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_connected_devices) #8
-  br label %.loopexit.i.i
+  br label %.loopexit28.i.i
 
 73:                                               ; preds = %67
   %74 = call ptr @strtok_r(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #8
-  %.not2328.i.i = icmp eq ptr %74, null
-  br i1 %.not2328.i.i, label %.preheader.thread.i.i, label %.lr.ph.i17.i
+  %.not2329.i.i = icmp eq ptr %74, null
+  br i1 %.not2329.i.i, label %.preheader.thread.i.i, label %.lr.ph.i17.i
 
 .preheader.i18.i:                                 ; preds = %.lr.ph.i17.i
-  br i1 %.not39.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.preheader.i.i
+  br i1 %.not34.i.i, label %.loopexit28.i.i, label %.lr.ph.preheader.i.preheader.i.i
 
 .preheader.thread.i.i:                            ; preds = %73
-  br i1 %.not39.i.i, label %.loopexit.i.i, label %_is_link.exit.thread.us.preheader.i.i
+  br i1 %.not34.i.i, label %.loopexit28.i.i, label %.lr.ph33.split.us.preheader.i.i
 
 .lr.ph.preheader.i.preheader.i.i:                 ; preds = %.preheader.i18.i
-  %75 = and i64 %indvars.iv.next.i.i, 4294967295
-  %76 = load i32, ptr %5, align 16
+  %wide.trip.count.i.i.i = and i64 %indvars.iv.next.i.i, 4294967295
   %.not25.i.i = icmp eq i32 %59, 0
-  %77 = select i1 %.not25.i.i, ptr @.str.25, ptr @.str.24
-  %78 = zext i32 %indvars.iv.i to i64
+  %75 = select i1 %.not25.i.i, ptr @.str.25, ptr @.str.24
   br label %.lr.ph.preheader.i.i.i
 
-_is_link.exit.thread.us.preheader.i.i:            ; preds = %.preheader.thread.i.i
+.lr.ph33.split.us.preheader.i.i:                  ; preds = %.preheader.thread.i.i
   %.not25.us.i.i = icmp eq i32 %59, 0
-  %79 = select i1 %.not25.us.i.i, ptr @.str.25, ptr @.str.24
-  br label %_is_link.exit.thread.us.i.i
+  %76 = select i1 %.not25.us.i.i, ptr @.str.25, ptr @.str.24
+  br label %.lr.ph33.split.us.i.i
 
-_is_link.exit.thread.us.i.i:                      ; preds = %84, %_is_link.exit.thread.us.preheader.i.i
-  %.035.us.i.i = phi i32 [ %85, %84 ], [ 0, %_is_link.exit.thread.us.preheader.i.i ]
-  %80 = icmp eq i32 %.035.us.i.i, %59
-  br i1 %80, label %83, label %81
+.lr.ph33.split.us.i.i:                            ; preds = %81, %.lr.ph33.split.us.preheader.i.i
+  %.032.us.i.i = phi i32 [ %82, %81 ], [ 0, %.lr.ph33.split.us.preheader.i.i ]
+  %77 = icmp eq i32 %.032.us.i.i, %59
+  br i1 %77, label %80, label %78
 
-81:                                               ; preds = %_is_link.exit.thread.us.i.i
-  %.not24.us.i.i = icmp eq i32 %.035.us.i.i, 0
-  %82 = select i1 %.not24.us.i.i, ptr @.str.25, ptr @.str.24
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %82, i32 noundef 0) #8
-  br label %84
+78:                                               ; preds = %.lr.ph33.split.us.i.i
+  %.not24.us.i.i = icmp eq i32 %.032.us.i.i, 0
+  %79 = select i1 %.not24.us.i.i, ptr @.str.25, ptr @.str.24
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %79, i32 noundef 0) #8
+  br label %81
 
-83:                                               ; preds = %_is_link.exit.thread.us.i.i
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %79, i32 noundef -1) #8
-  br label %84
+80:                                               ; preds = %.lr.ph33.split.us.i.i
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %76, i32 noundef -1) #8
+  br label %81
 
-84:                                               ; preds = %83, %81
-  %85 = add nuw i32 %.035.us.i.i, 1
-  %exitcond43.not.i.i = icmp eq i32 %85, %.3.i
-  br i1 %exitcond43.not.i.i, label %.loopexit.i.i, label %_is_link.exit.thread.us.i.i, !llvm.loop !8
+81:                                               ; preds = %80, %78
+  %82 = add nuw i32 %.032.us.i.i, 1
+  %exitcond37.not.i.i = icmp eq i32 %82, %.3.i
+  br i1 %exitcond37.not.i.i, label %.loopexit28.i.i, label %.lr.ph33.split.us.i.i, !llvm.loop !8
 
 .lr.ph.i17.i:                                     ; preds = %73, %.lr.ph.i17.i
-  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %.lr.ph.i17.i ], [ 1, %73 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i17.i ], [ 0, %73 ]
-  %.02029.i.i = phi ptr [ %88, %.lr.ph.i17.i ], [ %74, %73 ]
-  %86 = call i32 @atoi(ptr nocapture noundef nonnull %.02029.i.i) #9
+  %.02030.i.i = phi ptr [ %85, %.lr.ph.i17.i ], [ %74, %73 ]
+  %83 = call i32 @atoi(ptr nocapture noundef nonnull %.02030.i.i) #9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %87 = getelementptr inbounds [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
-  store i32 %86, ptr %87, align 4
-  %88 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #8
-  %.not23.i.i = icmp eq ptr %88, null
-  %indvars.iv.next.i = add i32 %indvars.iv.i, 1
+  %84 = getelementptr inbounds [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  store i32 %83, ptr %84, align 4
+  %85 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #8
+  %.not23.i.i = icmp eq ptr %85, null
   br i1 %.not23.i.i, label %.preheader.i18.i, label %.lr.ph.i17.i, !llvm.loop !9
 
-.lr.ph.preheader.i.i.i:                           ; preds = %99, %.lr.ph.preheader.i.preheader.i.i
-  %.035.i.i = phi i32 [ %100, %99 ], [ 0, %.lr.ph.preheader.i.preheader.i.i ]
-  %89 = icmp eq i32 %76, %.035.i.i
-  br i1 %89, label %.critedge.i.i, label %.lr.ph32.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %95, %.lr.ph.preheader.i.preheader.i.i
+  %.032.i.i = phi i32 [ %96, %95 ], [ 0, %.lr.ph.preheader.i.preheader.i.i ]
+  br label %.lr.ph.i.i.i
 
-.lr.ph32.i.i:                                     ; preds = %.lr.ph.preheader.i.i.i, %.lr.ph.i.i.i
-  %indvars.iv.i31.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i31.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %75
-  br i1 %exitcond.not.i.i.i, label %_is_link.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
+86:                                               ; preds = %.lr.ph.i.i.i
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph32.i.i
-  %90 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i.i.i
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %91, %.035.i.i
-  br i1 %92, label %_is_link.exit.i.i, label %.lr.ph32.i.i, !llvm.loop !10
+.lr.ph.i.i.i:                                     ; preds = %86, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %86 ]
+  %87 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i.i.i
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp eq i32 %88, %.032.i.i
+  br i1 %89, label %_is_link.exit.i.i, label %86
 
-_is_link.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph32.i.i
-  %indvars.iv.next.i.i.lcssa.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ %78, %.lr.ph32.i.i ]
-  %93 = icmp ult i64 %indvars.iv.next.i.i.lcssa.i, %75
-  br i1 %93, label %.critedge.i.i, label %_is_link.exit.thread.i.i
+_is_link.exit.i.i:                                ; preds = %.lr.ph.i.i.i
+  %.not26.i.i = icmp eq i32 %.032.i.i, 0
+  %90 = select i1 %.not26.i.i, ptr @.str.25, ptr @.str.24
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %90, i32 noundef 1) #8
+  br label %95
 
-.critedge.i.i:                                    ; preds = %_is_link.exit.i.i, %.lr.ph.preheader.i.i.i
-  %.not26.i.i = icmp eq i32 %.035.i.i, 0
-  %94 = select i1 %.not26.i.i, ptr @.str.25, ptr @.str.24
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %94, i32 noundef 1) #8
-  br label %99
+.loopexit.i.i:                                    ; preds = %86
+  %91 = icmp eq i32 %.032.i.i, %59
+  br i1 %91, label %92, label %93
 
-_is_link.exit.thread.i.i:                         ; preds = %_is_link.exit.i.i
-  %95 = icmp eq i32 %.035.i.i, %59
-  br i1 %95, label %96, label %97
+92:                                               ; preds = %.loopexit.i.i
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %75, i32 noundef -1) #8
+  br label %95
 
-96:                                               ; preds = %_is_link.exit.thread.i.i
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %77, i32 noundef -1) #8
-  br label %99
+93:                                               ; preds = %.loopexit.i.i
+  %.not24.i.i = icmp eq i32 %.032.i.i, 0
+  %94 = select i1 %.not24.i.i, ptr @.str.25, ptr @.str.24
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %94, i32 noundef 0) #8
+  br label %95
 
-97:                                               ; preds = %_is_link.exit.thread.i.i
-  %.not24.i.i = icmp eq i32 %.035.i.i, 0
-  %98 = select i1 %.not24.i.i, ptr @.str.25, ptr @.str.24
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull %98, i32 noundef 0) #8
-  br label %99
+95:                                               ; preds = %93, %92, %_is_link.exit.i.i
+  %96 = add nuw i32 %.032.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %96, %.3.i
+  br i1 %exitcond.not.i.i, label %.loopexit28.i.i, label %.lr.ph.preheader.i.i.i, !llvm.loop !8
 
-99:                                               ; preds = %97, %96, %.critedge.i.i
-  %100 = add nuw i32 %.035.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %100, %.3.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i.i, !llvm.loop !8
-
-.loopexit.i.i:                                    ; preds = %99, %84, %.preheader.thread.i.i, %.preheader.i18.i, %72, %69
+.loopexit28.i.i:                                  ; preds = %95, %81, %.preheader.thread.i.i, %.preheader.i18.i, %72, %69
   call void @slurm_xfree(ptr noundef nonnull %2) #8
-  %101 = call i32 @fclose(ptr noundef nonnull %61)
-  %102 = load ptr, ptr %6, align 8
+  %97 = call i32 @fclose(ptr noundef nonnull %61)
+  %98 = load ptr, ptr %6, align 8
   br label %_get_connected_devices.exit.i
 
-_get_connected_devices.exit.i:                    ; preds = %.loopexit.i.i, %66
-  %.019.i.i = phi ptr [ %102, %.loopexit.i.i ], [ null, %66 ]
+_get_connected_devices.exit.i:                    ; preds = %.loopexit28.i.i, %66
+  %.019.i.i = phi ptr [ %98, %.loopexit28.i.i ], [ null, %66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %.019.i.i, ptr %11, align 8
-  %103 = call i32 @slurm_get_log_level() #8
-  %104 = icmp sgt i32 %103, 5
-  br i1 %104, label %105, label %107
+  %99 = call i32 @slurm_get_log_level() #8
+  %100 = icmp sgt i32 %99, 5
+  br i1 %100, label %101, label %103
 
-105:                                              ; preds = %_get_connected_devices.exit.i
-  %106 = load i32, ptr %9, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, i32 noundef %106) #8
-  br label %107
+101:                                              ; preds = %_get_connected_devices.exit.i
+  %102 = load i32, ptr %9, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, i32 noundef %102) #8
+  br label %103
 
-107:                                              ; preds = %105, %_get_connected_devices.exit.i
-  %108 = call i32 @slurm_get_log_level() #8
-  %109 = icmp sgt i32 %108, 5
-  br i1 %109, label %110, label %112
+103:                                              ; preds = %101, %_get_connected_devices.exit.i
+  %104 = call i32 @slurm_get_log_level() #8
+  %105 = icmp sgt i32 %104, 5
+  br i1 %105, label %106, label %108
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %12, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %111) #8
-  br label %112
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %12, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %107) #8
+  br label %108
 
-112:                                              ; preds = %110, %107
-  %113 = call i32 @slurm_get_log_level() #8
-  %114 = icmp sgt i32 %113, 5
-  br i1 %114, label %115, label %117
+108:                                              ; preds = %106, %103
+  %109 = call i32 @slurm_get_log_level() #8
+  %110 = icmp sgt i32 %109, 5
+  br i1 %110, label %111, label %113
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr %11, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %116) #8
-  br label %117
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %11, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %112) #8
+  br label %113
 
-117:                                              ; preds = %115, %112
-  %118 = call i32 @slurm_get_log_level() #8
-  %119 = icmp sgt i32 %118, 5
-  br i1 %119, label %120, label %122
+113:                                              ; preds = %111, %108
+  %114 = call i32 @slurm_get_log_level() #8
+  %115 = icmp sgt i32 %114, 5
+  br i1 %115, label %116, label %118
 
-120:                                              ; preds = %117
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %10, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %117) #8
+  br label %118
+
+118:                                              ; preds = %116, %113
+  %119 = load ptr, ptr %12, align 8
+  store ptr %119, ptr %30, align 8
+  %120 = load ptr, ptr %11, align 8
+  store ptr %120, ptr %31, align 8
   %121 = load ptr, ptr %10, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_neuron, ptr noundef %121) #8
-  br label %122
-
-122:                                              ; preds = %120, %117
-  %123 = load ptr, ptr %12, align 8
-  store ptr %123, ptr %30, align 8
-  %124 = load ptr, ptr %11, align 8
-  store ptr %124, ptr %31, align 8
-  %125 = load ptr, ptr %10, align 8
-  store ptr %125, ptr %32, align 8
+  store ptr %121, ptr %32, align 8
   %.not13.i = icmp eq ptr %.0925.i, null
-  br i1 %.not13.i, label %126, label %128
+  br i1 %.not13.i, label %122, label %124
 
-126:                                              ; preds = %122
-  %127 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #8
-  br label %128
+122:                                              ; preds = %118
+  %123 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #8
+  br label %124
 
-128:                                              ; preds = %126, %122
-  %.2.i = phi ptr [ %.0925.i, %122 ], [ %127, %126 ]
+124:                                              ; preds = %122, %118
+  %.2.i = phi ptr [ %.0925.i, %118 ], [ %123, %122 ]
   call void @add_gres_to_list(ptr noundef %.2.i, ptr noundef nonnull %13) #8
   call void @slurm_xfree(ptr noundef nonnull %10) #8
   call void @slurm_xfree(ptr noundef nonnull %11) #8
   call void @slurm_xfree(ptr noundef nonnull %12) #8
-  br label %129
+  br label %125
 
-129:                                              ; preds = %128, %33
-  %.1.i = phi ptr [ %.2.i, %128 ], [ %.0925.i, %33 ]
-  %130 = call ptr @readdir(ptr noundef nonnull %14) #8
-  %.not12.i = icmp eq ptr %130, null
+125:                                              ; preds = %124, %33
+  %.1.i = phi ptr [ %.2.i, %124 ], [ %.0925.i, %33 ]
+  %126 = call ptr @readdir(ptr noundef nonnull %14) #8
+  %.not12.i = icmp eq ptr %126, null
   br i1 %.not12.i, label %_get_system_gpu_list_neuron.exit, label %33, !llvm.loop !11
 
-_get_system_gpu_list_neuron.exit:                 ; preds = %129
-  %131 = call i32 @closedir(ptr noundef nonnull %14)
+_get_system_gpu_list_neuron.exit:                 ; preds = %125
+  %127 = call i32 @closedir(ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
   %.not = icmp eq ptr %.1.i, null
-  br i1 %.not, label %132, label %134
+  br i1 %.not, label %128, label %130
 
 .sink.split:                                      ; preds = %1, %_get_system_gpu_list_neuron.exit.thread7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -498,14 +488,14 @@ _get_system_gpu_list_neuron.exit:                 ; preds = %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  br label %132
+  br label %128
 
-132:                                              ; preds = %.sink.split, %_get_system_gpu_list_neuron.exit
-  %133 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3) #8
-  br label %134
+128:                                              ; preds = %.sink.split, %_get_system_gpu_list_neuron.exit
+  %129 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3) #8
+  br label %130
 
-134:                                              ; preds = %132, %_get_system_gpu_list_neuron.exit
-  %.0.i5 = phi ptr [ null, %132 ], [ %.1.i, %_get_system_gpu_list_neuron.exit ]
+130:                                              ; preds = %128, %_get_system_gpu_list_neuron.exit
+  %.0.i5 = phi ptr [ null, %128 ], [ %.1.i, %_get_system_gpu_list_neuron.exit ]
   ret ptr %.0.i5
 }
 

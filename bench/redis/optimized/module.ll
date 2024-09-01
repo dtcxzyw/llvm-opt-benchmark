@@ -14504,44 +14504,30 @@ entry:
 define dso_local ptr @moduleTypeLookupModuleByID(i64 noundef %id) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @moduleTypeLookupModuleByID.cache, i64 8), align 8
-  %cmp1.not28 = icmp eq ptr %0, null
-  br i1 %cmp1.not28, label %for.end, label %for.body
+  br label %land.rhs
 
-land.rhs:                                         ; preds = %for.inc
-  %arrayidx = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv.next
+land.rhs:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv
   %mt = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %1 = load ptr, ptr %mt, align 8
-  %cmp1.not = icmp eq ptr %1, null
-  br i1 %cmp1.not, label %land.rhs.for.end_crit_edge, label %for.body, !llvm.loop !36
+  %0 = load ptr, ptr %mt, align 8
+  %cmp1.not = icmp eq ptr %0, null
+  br i1 %cmp1.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %land.rhs
-  %2 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %arrayidx30 = phi ptr [ %arrayidx, %land.rhs ], [ @moduleTypeLookupModuleByID.cache, %entry ]
-  %indvars.iv29 = phi i64 [ %indvars.iv.next, %land.rhs ], [ 0, %entry ]
-  %3 = load i64, ptr %arrayidx30, align 16
-  %cmp5 = icmp eq i64 %3, %id
+for.body:                                         ; preds = %land.rhs
+  %1 = load i64, ptr %arrayidx, align 16
+  %cmp5 = icmp eq i64 %1, %id
   br i1 %cmp5, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !36
 
-land.rhs.for.end_crit_edge:                       ; preds = %land.rhs
-  %cmp.le = icmp ult i64 %indvars.iv29, 2
-  %4 = and i64 %indvars.iv.next, 4294967295
-  br label %for.end
-
-for.end.loopexit:                                 ; preds = %for.inc
-  %cmp.le44 = icmp ult i64 %indvars.iv29, 2
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %land.rhs.for.end_crit_edge, %entry
-  %j.0.lcssa = phi i64 [ %4, %land.rhs.for.end_crit_edge ], [ 0, %entry ], [ 3, %for.end.loopexit ]
-  %cmp.lcssa = phi i1 [ %cmp.le, %land.rhs.for.end_crit_edge ], [ true, %entry ], [ %cmp.le44, %for.end.loopexit ]
-  %5 = load ptr, ptr @modules, align 8
-  %call = tail call ptr @dictGetIterator(ptr noundef %5) #34
+for.end:                                          ; preds = %for.inc, %land.rhs
+  %j.0.lcssa = phi i64 [ 3, %for.inc ], [ %indvars.iv, %land.rhs ]
+  %2 = load ptr, ptr @modules, align 8
+  %call = tail call ptr @dictGetIterator(ptr noundef %2) #34
   %call1019 = tail call ptr @dictNext(ptr noundef %call) #34
   %cmp1120.not = icmp eq ptr %call1019, null
   br i1 %cmp1120.not, label %while.end24.thread, label %while.body
@@ -14554,8 +14540,8 @@ while.body:                                       ; preds = %for.end, %while.end
   %call1021 = phi ptr [ %call10, %while.end ], [ %call1019, %for.end ]
   %call15 = call ptr @dictGetVal(ptr noundef nonnull %call1021) #34
   %types = getelementptr inbounds i8, ptr %call15, i64 24
-  %6 = load ptr, ptr %types, align 8
-  call void @listRewind(ptr noundef %6, ptr noundef nonnull %li) #34
+  %3 = load ptr, ptr %types, align 8
+  call void @listRewind(ptr noundef %3, ptr noundef nonnull %li) #34
   br label %while.cond16
 
 while.cond16:                                     ; preds = %while.body18, %while.body
@@ -14565,35 +14551,36 @@ while.cond16:                                     ; preds = %while.body18, %whil
 
 while.body18:                                     ; preds = %while.cond16
   %value = getelementptr inbounds i8, ptr %call17, i64 16
-  %7 = load ptr, ptr %value, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp21.unshifted = xor i64 %8, %id
+  %4 = load ptr, ptr %value, align 8
+  %5 = load i64, ptr %4, align 8
+  %cmp21.unshifted = xor i64 %5, %id
   %cmp21 = icmp ult i64 %cmp21.unshifted, 1024
   br i1 %cmp21, label %while.end, label %while.cond16, !llvm.loop !37
 
 while.end:                                        ; preds = %while.body18, %while.cond16
-  %mt9.1 = phi ptr [ null, %while.cond16 ], [ %7, %while.body18 ]
+  %mt9.1 = phi ptr [ null, %while.cond16 ], [ %4, %while.body18 ]
   %call10 = call ptr @dictNext(ptr noundef %call) #34
   %cmp11 = icmp ne ptr %call10, null
   %cmp13 = icmp eq ptr %mt9.1, null
-  %9 = and i1 %cmp13, %cmp11
-  br i1 %9, label %while.body, label %while.end24, !llvm.loop !38
+  %6 = and i1 %cmp13, %cmp11
+  br i1 %6, label %while.body, label %while.end24, !llvm.loop !38
 
 while.end24:                                      ; preds = %while.end
   call void @dictReleaseIterator(ptr noundef %call) #34
   %tobool25 = icmp ne ptr %mt9.1, null
-  %or.cond = and i1 %cmp.lcssa, %tobool25
+  %or.cond = and i1 %cmp1.not, %tobool25
   br i1 %or.cond, label %if.then27, label %return
 
 if.then27:                                        ; preds = %while.end24
-  %arrayidx29 = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %j.0.lcssa
+  %idxprom28 = and i64 %j.0.lcssa, 4294967295
+  %arrayidx29 = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %idxprom28
   store i64 %id, ptr %arrayidx29, align 16
   %mt33 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   store ptr %mt9.1, ptr %mt33, align 8
   br label %return
 
 return:                                           ; preds = %for.body, %while.end24.thread, %while.end24, %if.then27
-  %retval.0 = phi ptr [ %mt9.1, %if.then27 ], [ %mt9.1, %while.end24 ], [ null, %while.end24.thread ], [ %2, %for.body ]
+  %retval.0 = phi ptr [ %mt9.1, %if.then27 ], [ %mt9.1, %while.end24 ], [ null, %while.end24.thread ], [ %0, %for.body ]
   ret ptr %retval.0
 }
 

@@ -301,7 +301,7 @@ for.body137.preheader:                            ; preds = %if.then126
   %call132 = call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #9
   %call133 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #8
   %add.ptr134 = getelementptr inbounds i8, ptr %call133, i64 %add31
-  %umax382 = call i64 @llvm.umax.i64(i64 %div120, i64 1)
+  %umax374 = call i64 @llvm.umax.i64(i64 %div120, i64 1)
   br label %for.body137
 
 for.body137:                                      ; preds = %for.body137.preheader, %invoke.cont142
@@ -414,8 +414,8 @@ invoke.cont142:                                   ; preds = %if.else12.i6.i162, 
   store i16 %or146, ptr %arrayidx.i, align 2
   %inc151 = add nuw nsw i64 %k.0346, 1
   %add.ptr152 = getelementptr inbounds i8, ptr %cur.0347, i64 4
-  %exitcond383.not = icmp eq i64 %inc151, %umax382
-  br i1 %exitcond383.not, label %for.end153, label %for.body137, !llvm.loop !7
+  %exitcond375.not = icmp eq i64 %inc151, %umax374
+  br i1 %exitcond375.not, label %for.end153, label %for.body137, !llvm.loop !7
 
 lpad:                                             ; preds = %for.end153
   %44 = landingpad { ptr, i32 }
@@ -689,8 +689,8 @@ invoke.cont216:                                   ; preds = %if.else12.i6.i270, 
   store i32 %or219, ptr %arrayidx.i282, align 4
   %inc223 = add nuw nsw i64 %k194.0344, 1
   %add.ptr224 = getelementptr inbounds i8, ptr %cur191.0343, i64 8
-  %exitcond381.not = icmp eq i64 %inc223, %umax
-  br i1 %exitcond381.not, label %for.end225, label %for.body197, !llvm.loop !8
+  %exitcond373.not = icmp eq i64 %inc223, %umax
+  br i1 %exitcond373.not, label %for.end225, label %for.body197, !llvm.loop !8
 
 lpad198:                                          ; preds = %for.end225
   %80 = landingpad { ptr, i32 }
@@ -760,9 +760,9 @@ return:                                           ; preds = %_ZN6Assimp17HexOcte
   ret i1 %cmp330
 
 eh.resume:                                        ; preds = %lpad198, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297, %lpad, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178
-  %call190393.sink = phi ptr [ %call132, %lpad ], [ %call132, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178 ], [ %call190, %lpad198 ], [ %call190, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297 ]
+  %call190385.sink = phi ptr [ %call132, %lpad ], [ %call132, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178 ], [ %call190, %lpad198 ], [ %call190, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297 ]
   %.pn121.pn = phi { ptr, i32 } [ %44, %lpad ], [ %45, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178 ], [ %80, %lpad198 ], [ %lpad.phi, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297 ]
-  call void @_ZdaPv(ptr noundef nonnull %call190393.sink) #10
+  call void @_ZdaPv(ptr noundef nonnull %call190385.sink) #10
   resume { ptr, i32 } %.pn121.pn
 }
 

@@ -2221,7 +2221,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   store ptr %call166, ptr %mRotationKeys.i, align 8
-  br i1 %isempty, label %for.end184, label %for.body171
+  br label %for.body171
 
 for.body171:                                      ; preds = %arrayctor.cont, %for.body171
   %indvars.iv590 = phi i64 [ %indvars.iv.next591, %for.body171 ], [ 0, %arrayctor.cont ]
@@ -2278,7 +2278,7 @@ for.body171:                                      ; preds = %arrayctor.cont, %fo
   %cmp170 = icmp ult i64 %indvars.iv.next591, %33
   br i1 %cmp170, label %for.body171, label %for.end184, !llvm.loop !10
 
-for.end184:                                       ; preds = %for.body171, %arrayctor.cont.thread, %arrayctor.cont
+for.end184:                                       ; preds = %for.body171, %arrayctor.cont.thread
   %mPreState = getelementptr inbounds i8, ptr %call43, i64 1072
   store i32 3, ptr %mPreState, align 8
   %mPostState = getelementptr inbounds i8, ptr %call43, i64 1076
@@ -2669,17 +2669,14 @@ arrayctor.loop374:                                ; preds = %arrayctor.loop374, 
 arrayctor.cont378:                                ; preds = %arrayctor.loop374
   %mPositionKeys379 = getelementptr inbounds i8, ptr %call43, i64 1032
   store ptr %call370, ptr %mPositionKeys379, align 8
-  br i1 %isempty371, label %if.then469, label %for.body384.lr.ph
-
-for.body384.lr.ph:                                ; preds = %arrayctor.cont378
   %speed390 = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 20
   %sub.i320 = tail call i32 @llvm.smin.i32(i32 %conv332, i32 0)
   %96 = sub i32 0, %sub.i320
   %tightness = getelementptr inbounds i8, ptr %it22.sroa.0.0577, i64 52
   br label %for.body384
 
-for.body384:                                      ; preds = %for.body384.lr.ph, %for.body384
-  %indvars.iv581 = phi i64 [ 0, %for.body384.lr.ph ], [ %indvars.iv.next582, %for.body384 ]
+for.body384:                                      ; preds = %arrayctor.cont378, %for.body384
+  %indvars.iv581 = phi i64 [ 0, %arrayctor.cont378 ], [ %indvars.iv.next582, %for.body384 ]
   %97 = load ptr, ptr %mPositionKeys379, align 8
   %arrayidx388 = getelementptr inbounds %struct.aiVectorKey, ptr %97, i64 %indvars.iv581
   %98 = trunc nuw i64 %indvars.iv581 to i32
@@ -2802,7 +2799,7 @@ sw.epilog:                                        ; preds = %delete.end4.i, %del
   tail call void @_ZdlPv(ptr noundef nonnull %call43) #29
   br label %for.inc472
 
-if.then469:                                       ; preds = %for.body384, %for.body306, %if.end124.thread, %arrayctor.cont378.thread, %arrayctor.cont378, %_ZN10aiVector3tIfE9NormalizeEv.exit296, %if.end82, %if.then338, %for.end262, %if.end130, %for.end184
+if.then469:                                       ; preds = %for.body384, %for.body306, %if.end124.thread, %arrayctor.cont378.thread, %_ZN10aiVector3tIfE9NormalizeEv.exit296, %if.end82, %if.then338, %for.end262, %if.end130, %for.end184
   %122 = load ptr, ptr %_M_finish.i448, align 8
   %123 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %122, %123
@@ -11010,7 +11007,7 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
   %2 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE8allocateE, align 8
   %call1 = tail call noundef ptr %2(i64 noundef %1)
   %tobool.not.not = icmp eq ptr %call1, null
-  br i1 %tobool.not.not, label %return, label %if.end
+  br i1 %tobool.not.not, label %return, label %while.body.i7
 
 _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread: ; preds = %entry
   %3 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE8allocateE, align 8
@@ -11018,13 +11015,10 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
   %tobool.not17.not = icmp eq ptr %call116, null
   br i1 %tobool.not17.not, label %return, label %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit
 
-if.end:                                           ; preds = %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit
-  br i1 %tobool.not9.i, label %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit, label %while.body.i7
-
-while.body.i7:                                    ; preds = %if.end, %if.end.i
-  %data.addr.015.i = phi ptr [ %data.addr.1.i9, %if.end.i ], [ %contents, %if.end ]
-  %result.addr.014.i = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %call1, %if.end ]
-  %size.addr.013.i = phi i64 [ %size.addr.1.i10, %if.end.i ], [ %div6, %if.end ]
+while.body.i7:                                    ; preds = %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit, %if.end.i
+  %data.addr.015.i = phi ptr [ %data.addr.1.i9, %if.end.i ], [ %contents, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
+  %result.addr.014.i = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %call1, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
+  %size.addr.013.i = phi i64 [ %size.addr.1.i10, %if.end.i ], [ %div6, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
   %4 = load i32, ptr %data.addr.015.i, align 4
   %cmp.i8 = icmp ult i32 %4, 65536
   br i1 %cmp.i8, label %if.then.i, label %if.else.i
@@ -11104,10 +11098,10 @@ if.end.i:                                         ; preds = %if.else.i, %if.else
   %tobool.not.i11 = icmp eq i64 %size.addr.1.i10, 0
   br i1 %tobool.not.i11, label %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit, label %while.body.i7, !llvm.loop !90
 
-_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit: ; preds = %if.end.i, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread, %if.end
-  %result.addr.0.lcssa.i1827 = phi i64 [ %1, %if.end ], [ 1, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %1, %if.end.i ]
-  %call11926 = phi ptr [ %call1, %if.end ], [ %call116, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %call1, %if.end.i ]
-  %result.addr.0.lcssa.i12 = phi ptr [ %call1, %if.end ], [ %call116, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %add.ptr.i.i, %if.end.i ]
+_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit: ; preds = %if.end.i, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread
+  %result.addr.0.lcssa.i1827 = phi i64 [ 1, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %1, %if.end.i ]
+  %call11926 = phi ptr [ %call116, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %call1, %if.end.i ]
+  %result.addr.0.lcssa.i12 = phi ptr [ %call116, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %add.ptr.i.i, %if.end.i ]
   store i8 0, ptr %result.addr.0.lcssa.i12, align 1
   store ptr %call11926, ptr %out_buffer, align 8
   store i64 %result.addr.0.lcssa.i1827, ptr %out_length, align 8
@@ -11148,7 +11142,7 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
   %2 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE8allocateE, align 8
   %call1 = tail call noundef ptr %2(i64 noundef %1)
   %tobool.not.not = icmp eq ptr %call1, null
-  br i1 %tobool.not.not, label %return, label %if.end
+  br i1 %tobool.not.not, label %return, label %while.body.i7
 
 _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread: ; preds = %entry
   %3 = load ptr, ptr @_ZN4pugi4impl38xml_memory_management_function_storageIiE8allocateE, align 8
@@ -11156,13 +11150,10 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
   %tobool.not18.not = icmp eq ptr %call117, null
   br i1 %tobool.not18.not, label %return, label %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit
 
-if.end:                                           ; preds = %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit
-  br i1 %tobool.not9.i, label %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit, label %while.body.i7
-
-while.body.i7:                                    ; preds = %if.end, %if.end.i
-  %data.addr.015.i = phi ptr [ %data.addr.1.i10, %if.end.i ], [ %contents, %if.end ]
-  %result.addr.014.i = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %call1, %if.end ]
-  %size.addr.013.i = phi i64 [ %size.addr.1.i11, %if.end.i ], [ %div6, %if.end ]
+while.body.i7:                                    ; preds = %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit, %if.end.i
+  %data.addr.015.i = phi ptr [ %data.addr.1.i10, %if.end.i ], [ %contents, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
+  %result.addr.014.i = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %call1, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
+  %size.addr.013.i = phi i64 [ %size.addr.1.i11, %if.end.i ], [ %div6, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit ]
   %4 = load i32, ptr %data.addr.015.i, align 4
   %or6.i.i8 = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   %cmp.i9 = icmp ult i32 %or6.i.i8, 65536
@@ -11243,10 +11234,10 @@ if.end.i:                                         ; preds = %if.else.i, %if.else
   %tobool.not.i12 = icmp eq i64 %size.addr.1.i11, 0
   br i1 %tobool.not.i12, label %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit, label %while.body.i7, !llvm.loop !92
 
-_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit: ; preds = %if.end.i, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread, %if.end
-  %result.addr.0.lcssa.i1928 = phi i64 [ %1, %if.end ], [ 1, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %1, %if.end.i ]
-  %call12027 = phi ptr [ %call1, %if.end ], [ %call117, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %call1, %if.end.i ]
-  %result.addr.0.lcssa.i13 = phi ptr [ %call1, %if.end ], [ %call117, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %add.ptr.i.i, %if.end.i ]
+_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit: ; preds = %if.end.i, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread
+  %result.addr.0.lcssa.i1928 = phi i64 [ 1, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %1, %if.end.i ]
+  %call12027 = phi ptr [ %call117, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %call1, %if.end.i ]
+  %result.addr.0.lcssa.i13 = phi ptr [ %call117, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread ], [ %add.ptr.i.i, %if.end.i ]
   store i8 0, ptr %result.addr.0.lcssa.i13, align 1
   store ptr %call12027, ptr %out_buffer, align 8
   store i64 %result.addr.0.lcssa.i1928, ptr %out_length, align 8

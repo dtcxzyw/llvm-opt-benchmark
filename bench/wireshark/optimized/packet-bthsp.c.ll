@@ -274,10 +274,10 @@ define internal i32 @dissect_bthsp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %58 = load i32, ptr %57, align 4
   %switch.selectcmp = icmp eq i32 %58, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.68, ptr @.str.69
-  %switch.selectcmp377 = icmp eq i32 %58, 0
-  %switch.select378 = select i1 %switch.selectcmp377, ptr @.str.67, ptr %switch.select
+  %switch.selectcmp376 = icmp eq i32 %58, 0
+  %switch.select377 = select i1 %switch.selectcmp376, ptr @.str.67, ptr %switch.select
   %59 = load ptr, ptr %55, align 8
-  tail call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %switch.select378) #7
+  tail call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %switch.select377) #7
   %60 = load i32, ptr @hsp_role, align 4
   switch i32 %60, label %.thread313 [
     i32 1, label %61
@@ -465,8 +465,8 @@ define internal i32 @dissect_bthsp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread316.sink.split
 
 .thread316.sink.split:                            ; preds = %138, %143, %147, %153, %61, %64, %.thread324, %.thread313
-  %.sink375 = phi i32 [ 2, %.thread313 ], [ 1, %.thread324 ], [ 1, %64 ], [ 1, %61 ], [ 2, %153 ], [ 2, %147 ], [ 2, %143 ], [ 2, %138 ]
-  store i32 %.sink375, ptr %5, align 4
+  %.sink374 = phi i32 [ 2, %.thread313 ], [ 1, %.thread324 ], [ 1, %64 ], [ 1, %61 ], [ 2, %153 ], [ 2, %147 ], [ 2, %143 ], [ 2, %138 ]
+  store i32 %.sink374, ptr %5, align 4
   br label %.thread316
 
 .thread316:                                       ; preds = %.thread316.sink.split, %110, %113, %67, %91, %95, %100, %118, %120, %124, %128
@@ -776,8 +776,8 @@ proto_item_set_generated.exit:                    ; preds = %.thread316, %159, %
 319:                                              ; preds = %.preheader338
   %320 = getelementptr inbounds i8, ptr %.0274342, i64 40
   %321 = load ptr, ptr %320, align 8
-  %.not361 = icmp eq ptr %321, null
-  br i1 %.not361, label %.critedge, label %.preheader338, !llvm.loop !4
+  %.not355 = icmp eq ptr %321, null
+  br i1 %.not355, label %.critedge, label %.preheader338, !llvm.loop !4
 
 .critedge:                                        ; preds = %319, %.preheader338
   %.0274.lcssa = phi ptr [ null, %319 ], [ %.0274342, %.preheader338 ]
@@ -1074,13 +1074,13 @@ proto_item_set_generated.exit:                    ; preds = %.thread316, %159, %
 
 .preheader336:                                    ; preds = %481
   %489 = call i32 @tvb_reported_length(ptr noundef nonnull %488) #7
-  %.not355 = icmp eq i32 %489, 0
-  br i1 %.not355, label %._crit_edge, label %.lr.ph351
+  %.not356 = icmp eq i32 %489, 0
+  br i1 %.not356, label %._crit_edge, label %.lr.ph351
 
 .preheader:                                       ; preds = %.critedge309, %479, %481
   %490 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  %.not356 = icmp eq i32 %490, 0
-  br i1 %.not356, label %.loopexit, label %.lr.ph354
+  %.not357 = icmp eq i32 %490, 0
+  br i1 %.not357, label %.loopexit, label %.lr.ph354
 
 .lr.ph351:                                        ; preds = %.preheader336, %.lr.ph351
   %.0350 = phi i32 [ %492, %.lr.ph351 ], [ 0, %.preheader336 ]

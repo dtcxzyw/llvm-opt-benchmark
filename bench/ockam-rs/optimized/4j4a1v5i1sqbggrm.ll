@@ -9236,8 +9236,8 @@ define internal fastcc void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1623)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1626)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1629
-  %.not.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload, 4
-  br i1 %.not.not.i.i.i, label %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hfebe03d46809a8f9E.exit.thread.i.i", label %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hfebe03d46809a8f9E.exit.i.i"
+  %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload, 4
+  br i1 %.not.i.i.i, label %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hfebe03d46809a8f9E.exit.thread.i.i", label %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hfebe03d46809a8f9E.exit.i.i"
 
 "_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hfebe03d46809a8f9E.exit.thread.i.i": ; preds = %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1629

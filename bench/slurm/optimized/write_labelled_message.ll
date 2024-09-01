@@ -45,102 +45,95 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   store ptr %18, ptr %10, align 8
   %19 = icmp sgt i32 %2, 0
-  br i1 %19, label %.lr.ph, label %.sink.split
+  br i1 %19, label %.lr.ph.split.us, label %.sink.split
 
 .thread:                                          ; preds = %8
   %20 = icmp sgt i32 %2, 0
-  br i1 %20, label %.lr.ph.split.preheader, label %.sink.split
+  br i1 %20, label %.lr.ph.split, label %.sink.split
 
-.lr.ph:                                           ; preds = %17
-  br i1 %6, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+.lr.ph.split.us:                                  ; preds = %17, %37
+  %.03751.us = phi i32 [ %.138.us, %37 ], [ 0, %17 ]
+  %.03950.us = phi i32 [ %.140.us, %37 ], [ %2, %17 ]
+  %.04149.us = phi ptr [ %.243.us, %37 ], [ null, %17 ]
+  %21 = zext nneg i32 %.03751.us to i64
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = zext nneg i32 %.03950.us to i64
+  %24 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 10, i64 noundef %23) #8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %34, label %26
 
-.lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
-  %21 = phi ptr [ %18, %.lr.ph ], [ null, %.thread ]
-  br label %.lr.ph.split
+26:                                               ; preds = %.lr.ph.split.us
+  %27 = ptrtoint ptr %24 to i64
+  %28 = ptrtoint ptr %22 to i64
+  %29 = sub i64 %27, %28
+  %30 = trunc i64 %29 to i32
+  %31 = add nsw i32 %30, 1
+  %32 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef %.04149.us, ptr noundef %22, i32 noundef %31)
+  %33 = icmp slt i32 %32, 1
+  br i1 %33, label %._crit_edge, label %37
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %.03751.us = phi i32 [ %.138.us, %38 ], [ 0, %.lr.ph ]
-  %.03950.us = phi i32 [ %.140.us, %38 ], [ %2, %.lr.ph ]
-  %.04149.us = phi ptr [ %.243.us, %38 ], [ null, %.lr.ph ]
-  %22 = zext nneg i32 %.03751.us to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 %22
-  %24 = zext nneg i32 %.03950.us to i64
-  %25 = call ptr @memchr(ptr noundef %23, i32 noundef 10, i64 noundef %24) #8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %35, label %27
+34:                                               ; preds = %.lr.ph.split.us
+  %35 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef nonnull @.str, ptr noundef %22, i32 noundef %.03950.us)
+  %36 = icmp slt i32 %35, 1
+  br i1 %36, label %._crit_edge, label %37
 
-27:                                               ; preds = %.lr.ph.split.us
-  %28 = ptrtoint ptr %25 to i64
-  %29 = ptrtoint ptr %23 to i64
-  %30 = sub i64 %28, %29
-  %31 = trunc i64 %30 to i32
-  %32 = add nsw i32 %31, 1
-  %33 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef %.04149.us, ptr noundef %23, i32 noundef %32)
-  %34 = icmp slt i32 %33, 1
-  br i1 %34, label %._crit_edge, label %38
-
-35:                                               ; preds = %.lr.ph.split.us
-  %36 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef nonnull @.str, ptr noundef %23, i32 noundef %.03950.us)
-  %37 = icmp slt i32 %36, 1
-  br i1 %37, label %._crit_edge, label %38
-
-38:                                               ; preds = %35, %27
-  %.243.us = phi ptr [ @.str, %35 ], [ %.04149.us, %27 ]
-  %.2.us = phi i32 [ %36, %35 ], [ %33, %27 ]
+37:                                               ; preds = %34, %26
+  %.243.us = phi ptr [ @.str, %34 ], [ %.04149.us, %26 ]
+  %.2.us = phi i32 [ %35, %34 ], [ %32, %26 ]
   %.138.us = add nuw nsw i32 %.2.us, %.03751.us
   %.140.us = sub nsw i32 %.03950.us, %.2.us
-  %39 = icmp sgt i32 %.140.us, 0
-  br i1 %39, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !6
+  %38 = icmp sgt i32 %.140.us, 0
+  br i1 %38, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !6
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %56
-  %.03751 = phi i32 [ %.138, %56 ], [ 0, %.lr.ph.split.preheader ]
-  %.03950 = phi i32 [ %.140, %56 ], [ %2, %.lr.ph.split.preheader ]
-  %40 = zext nneg i32 %.03751 to i64
-  %41 = getelementptr inbounds i8, ptr %1, i64 %40
-  %42 = zext nneg i32 %.03950 to i64
-  %43 = call ptr @memchr(ptr noundef %41, i32 noundef 10, i64 noundef %42) #8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %48
+.lr.ph.split:                                     ; preds = %.thread, %55
+  %.03751 = phi i32 [ %.138, %55 ], [ 0, %.thread ]
+  %.03950 = phi i32 [ %.140, %55 ], [ %2, %.thread ]
+  %39 = zext nneg i32 %.03751 to i64
+  %40 = getelementptr inbounds i8, ptr %1, i64 %39
+  %41 = zext nneg i32 %.03950 to i64
+  %42 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %40, i32 noundef 10, i64 noundef %41) #8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %47
 
-45:                                               ; preds = %.lr.ph.split
-  %46 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %21, ptr noundef null, ptr noundef %41, i32 noundef %.03950)
-  %47 = icmp slt i32 %46, 1
-  br i1 %47, label %._crit_edge, label %56
+44:                                               ; preds = %.lr.ph.split
+  %45 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %40, i32 noundef %.03950)
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %._crit_edge, label %55
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = ptrtoint ptr %43 to i64
-  %50 = ptrtoint ptr %41 to i64
-  %51 = sub i64 %49, %50
-  %52 = trunc i64 %51 to i32
-  %53 = add nsw i32 %52, 1
-  %54 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %21, ptr noundef null, ptr noundef %41, i32 noundef %53)
-  %55 = icmp slt i32 %54, 1
-  br i1 %55, label %._crit_edge, label %56
+47:                                               ; preds = %.lr.ph.split
+  %48 = ptrtoint ptr %42 to i64
+  %49 = ptrtoint ptr %40 to i64
+  %50 = sub i64 %48, %49
+  %51 = trunc i64 %50 to i32
+  %52 = add nsw i32 %51, 1
+  %53 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %40, i32 noundef %52)
+  %54 = icmp slt i32 %53, 1
+  br i1 %54, label %._crit_edge, label %55
 
-56:                                               ; preds = %48, %45
-  %.2 = phi i32 [ %46, %45 ], [ %54, %48 ]
+55:                                               ; preds = %47, %44
+  %.2 = phi i32 [ %45, %44 ], [ %53, %47 ]
   %.138 = add nuw nsw i32 %.2, %.03751
   %.140 = sub nsw i32 %.03950, %.2
-  %57 = icmp sgt i32 %.140, 0
-  br i1 %57, label %.lr.ph.split, label %.sink.split, !llvm.loop !6
+  %56 = icmp sgt i32 %.140, 0
+  br i1 %56, label %.lr.ph.split, label %.sink.split, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %45, %48, %35, %27
-  %.037.lcssa = phi i32 [ %.03751.us, %27 ], [ %.03751.us, %35 ], [ %.03751, %48 ], [ %.03751, %45 ]
-  %.1 = phi i32 [ %36, %35 ], [ %33, %27 ], [ %46, %45 ], [ %54, %48 ]
+._crit_edge:                                      ; preds = %44, %47, %34, %26
+  %.037.lcssa = phi i32 [ %.03751.us, %26 ], [ %.03751.us, %34 ], [ %.03751, %47 ], [ %.03751, %44 ]
+  %.1 = phi i32 [ %35, %34 ], [ %32, %26 ], [ %45, %44 ], [ %53, %47 ]
   %.037.lcssa.fr = freeze i32 %.037.lcssa
   call void @slurm_xfree(ptr noundef nonnull %10) #7
   %.not = icmp eq i32 %.037.lcssa.fr, 0
   %spec.select = select i1 %.not, i32 %.1, i32 %.037.lcssa.fr
-  br label %58
+  br label %57
 
-.sink.split:                                      ; preds = %56, %38, %.thread, %17
-  %.ph = phi i32 [ -1, %17 ], [ -1, %.thread ], [ %.138.us, %38 ], [ %.138, %56 ]
+.sink.split:                                      ; preds = %55, %37, %.thread, %17
+  %.ph = phi i32 [ -1, %17 ], [ -1, %.thread ], [ %.138.us, %37 ], [ %.138, %55 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #7
-  br label %58
+  br label %57
 
-58:                                               ; preds = %._crit_edge, %.sink.split
-  %59 = phi i32 [ %spec.select, %._crit_edge ], [ %.ph, %.sink.split ]
-  ret i32 %59
+57:                                               ; preds = %._crit_edge, %.sink.split
+  %58 = phi i32 [ %spec.select, %._crit_edge ], [ %.ph, %.sink.split ]
+  ret i32 %58
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

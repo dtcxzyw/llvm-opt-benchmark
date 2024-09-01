@@ -5228,7 +5228,7 @@ vec_uint_duplicate.exit:                          ; preds = %1, %9
   %44 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 19, i64 1, ptr %43)
   %45 = load ptr, ptr @stdout, align 8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.11, i32 noundef %15, i32 noundef %8) #19
-  br i1 %.not45, label %vec_uint_print.exit, label %.lr.ph.i
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -5250,19 +5250,16 @@ vec_uint_print.exit.critedge:                     ; preds = %.preheader
   %54 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 19, i64 1, ptr %53)
   %55 = load ptr, ptr @stdout, align 8
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.11, i32 noundef %15, i32 noundef %8) #19
-  br label %vec_uint_print.exit
-
-vec_uint_print.exit:                              ; preds = %vec_uint_print.exit.critedge, %._crit_edge
   %57 = load ptr, ptr @stdout, align 8
   %58 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %57)
   %.not.i37 = icmp eq ptr %.val36, null
   br i1 %.not.i37, label %vec_uint_free.exit, label %59
 
-59:                                               ; preds = %vec_uint_print.exit.thread, %vec_uint_print.exit
+59:                                               ; preds = %vec_uint_print.exit.thread, %vec_uint_print.exit.critedge
   tail call void @free(ptr noundef nonnull %.val36) #19
   br label %vec_uint_free.exit
 
-vec_uint_free.exit:                               ; preds = %59, %vec_uint_print.exit, %39, %26
+vec_uint_free.exit:                               ; preds = %59, %vec_uint_print.exit.critedge, %39, %26
   ret void
 }
 

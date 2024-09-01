@@ -1449,7 +1449,7 @@ cond.end39:                                       ; preds = %cond.false19, %cond
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %cmp45 = icmp eq i16 %6, 12
-  br i1 %cmp45, label %lor.end, label %cond.false.i
+  br i1 %cmp45, label %lor.end, label %cond.false13.i
 
 cond.end39.thread17:                              ; preds = %cond.false
   %cmp4 = icmp ult i32 %c, 56320
@@ -1486,17 +1486,14 @@ cond.end39.thread:                                ; preds = %entry
   %cmp4516 = icmp eq i16 %12, 12
   br i1 %cmp4516, label %lor.end, label %cond.end39.sink.split.i
 
-cond.false.i:                                     ; preds = %cond.end39
-  br i1 %cmp2, label %cond.true3.i, label %cond.false13.i
-
-cond.true3.i:                                     ; preds = %cond.end39.thread17, %cond.false.i
+cond.true3.i:                                     ; preds = %cond.end39.thread17
   %cmp4.i = icmp ult i32 %c, 56320
   %cond.i = select i1 %cmp4.i, i32 320, i32 0
   %shr5.i = lshr i32 %c, 5
   %add6.i = add nuw nsw i32 %cond.i, %shr5.i
   br label %cond.end39.sink.split.i
 
-cond.false13.i:                                   ; preds = %cond.false.i
+cond.false13.i:                                   ; preds = %cond.end39
   %cmp14.i = icmp ugt i32 %c, 1114111
   br i1 %cmp14.i, label %u_isgraphPOSIX_75.exit, label %cond.false19.i
 

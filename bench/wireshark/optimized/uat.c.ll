@@ -2230,263 +2230,198 @@ define hidden noalias ptr @uat_esc(ptr noundef readonly %0, i32 noundef %1) loca
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @uat_fld_chk_str_isprint(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str_isprint(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = zext i32 %2 to i64
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = and i16 %13, 64
-  %.not30 = icmp eq i16 %14, 0
-  br i1 %.not30, label %24, label %.lr.ph32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %9
 
-15:                                               ; preds = %.lr.ph32
-  %16 = getelementptr i8, ptr %1, i64 %indvars.iv.next
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %8, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 64
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !30
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %10 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr i16, ptr %8, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 64
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %20
 
-._crit_edge:                                      ; preds = %15
-  %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %.lr.ph
-  %indvars.iv.lcssa = phi i32 [ %23, %._crit_edge ], [ 0, %.lr.ph ]
-  %.lcssa26 = phi i1 [ %22, %._crit_edge ], [ false, %.lr.ph ]
-  %.lcssa = phi i8 [ %17, %._crit_edge ], [ %10, %.lr.ph ]
-  %25 = zext i8 %.lcssa to i32
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %indvars.iv.lcssa, i32 noundef %25) #16
+16:                                               ; preds = %9
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = zext i8 %11 to i32
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %17, i32 noundef %18) #16
   br label %.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph, %15
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %.loopexit, label %15, !llvm.loop !30
+20:                                               ; preds = %9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.lr.ph32, %6, %24
-  %27 = phi i1 [ %.lcssa26, %24 ], [ true, %6 ], [ true, %.lr.ph32 ]
-  %storemerge = phi ptr [ %26, %24 ], [ null, %6 ], [ null, %.lr.ph32 ]
+.loopexit:                                        ; preds = %20, %6, %16
+  %21 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %20 ]
+  %storemerge = phi ptr [ %19, %16 ], [ null, %6 ], [ null, %20 ]
   store ptr %storemerge, ptr %5, align 8
-  ret i1 %27
+  ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @uat_fld_chk_str_isalpha(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str_isalpha(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = zext i32 %2 to i64
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = and i16 %13, 2
-  %.not30 = icmp eq i16 %14, 0
-  br i1 %.not30, label %24, label %.lr.ph32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %9
 
-15:                                               ; preds = %.lr.ph32
-  %16 = getelementptr i8, ptr %1, i64 %indvars.iv.next
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %8, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 2
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !31
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %10 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr i16, ptr %8, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 2
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %20
 
-._crit_edge:                                      ; preds = %15
-  %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %.lr.ph
-  %indvars.iv.lcssa = phi i32 [ %23, %._crit_edge ], [ 0, %.lr.ph ]
-  %.lcssa26 = phi i1 [ %22, %._crit_edge ], [ false, %.lr.ph ]
-  %.lcssa = phi i8 [ %17, %._crit_edge ], [ %10, %.lr.ph ]
-  %25 = zext i8 %.lcssa to i32
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %indvars.iv.lcssa, i32 noundef %25) #16
+16:                                               ; preds = %9
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = zext i8 %11 to i32
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %17, i32 noundef %18) #16
   br label %.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph, %15
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %.loopexit, label %15, !llvm.loop !31
+20:                                               ; preds = %9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !31
 
-.loopexit:                                        ; preds = %.lr.ph32, %6, %24
-  %27 = phi i1 [ %.lcssa26, %24 ], [ true, %6 ], [ true, %.lr.ph32 ]
-  %storemerge = phi ptr [ %26, %24 ], [ null, %6 ], [ null, %.lr.ph32 ]
+.loopexit:                                        ; preds = %20, %6, %16
+  %21 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %20 ]
+  %storemerge = phi ptr [ %19, %16 ], [ null, %6 ], [ null, %20 ]
   store ptr %storemerge, ptr %5, align 8
-  ret i1 %27
+  ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @uat_fld_chk_str_isalnum(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str_isalnum(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = zext i32 %2 to i64
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = and i16 %13, 1
-  %.not30 = icmp eq i16 %14, 0
-  br i1 %.not30, label %24, label %.lr.ph32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %9
 
-15:                                               ; preds = %.lr.ph32
-  %16 = getelementptr i8, ptr %1, i64 %indvars.iv.next
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %8, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 1
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !32
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %10 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr i16, ptr %8, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 1
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %20
 
-._crit_edge:                                      ; preds = %15
-  %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %.lr.ph
-  %indvars.iv.lcssa = phi i32 [ %23, %._crit_edge ], [ 0, %.lr.ph ]
-  %.lcssa26 = phi i1 [ %22, %._crit_edge ], [ false, %.lr.ph ]
-  %.lcssa = phi i8 [ %17, %._crit_edge ], [ %10, %.lr.ph ]
-  %25 = zext i8 %.lcssa to i32
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %indvars.iv.lcssa, i32 noundef %25) #16
+16:                                               ; preds = %9
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = zext i8 %11 to i32
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %17, i32 noundef %18) #16
   br label %.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph, %15
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %.loopexit, label %15, !llvm.loop !32
+20:                                               ; preds = %9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.lr.ph32, %6, %24
-  %27 = phi i1 [ %.lcssa26, %24 ], [ true, %6 ], [ true, %.lr.ph32 ]
-  %storemerge = phi ptr [ %26, %24 ], [ null, %6 ], [ null, %.lr.ph32 ]
+.loopexit:                                        ; preds = %20, %6, %16
+  %21 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %20 ]
+  %storemerge = phi ptr [ %19, %16 ], [ null, %6 ], [ null, %20 ]
   store ptr %storemerge, ptr %5, align 8
-  ret i1 %27
+  ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @uat_fld_chk_str_isdigit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str_isdigit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = zext i32 %2 to i64
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = and i16 %13, 8
-  %.not30 = icmp eq i16 %14, 0
-  br i1 %.not30, label %24, label %.lr.ph32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %9
 
-15:                                               ; preds = %.lr.ph32
-  %16 = getelementptr i8, ptr %1, i64 %indvars.iv.next
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %8, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 8
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !33
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %10 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr i16, ptr %8, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 8
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %20
 
-._crit_edge:                                      ; preds = %15
-  %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %.lr.ph
-  %indvars.iv.lcssa = phi i32 [ %23, %._crit_edge ], [ 0, %.lr.ph ]
-  %.lcssa26 = phi i1 [ %22, %._crit_edge ], [ false, %.lr.ph ]
-  %.lcssa = phi i8 [ %17, %._crit_edge ], [ %10, %.lr.ph ]
-  %25 = zext i8 %.lcssa to i32
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %indvars.iv.lcssa, i32 noundef %25) #16
+16:                                               ; preds = %9
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = zext i8 %11 to i32
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %17, i32 noundef %18) #16
   br label %.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph, %15
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %.loopexit, label %15, !llvm.loop !33
+20:                                               ; preds = %9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.lr.ph32, %6, %24
-  %27 = phi i1 [ %.lcssa26, %24 ], [ true, %6 ], [ true, %.lr.ph32 ]
-  %storemerge = phi ptr [ %26, %24 ], [ null, %6 ], [ null, %.lr.ph32 ]
+.loopexit:                                        ; preds = %20, %6, %16
+  %21 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %20 ]
+  %storemerge = phi ptr [ %19, %16 ], [ null, %6 ], [ null, %20 ]
   store ptr %storemerge, ptr %5, align 8
-  ret i1 %27
+  ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @uat_fld_chk_str_isxdigit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str_isxdigit(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = zext i32 %2 to i64
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = and i16 %13, 1024
-  %.not30 = icmp eq i16 %14, 0
-  br i1 %.not30, label %24, label %.lr.ph32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %9
 
-15:                                               ; preds = %.lr.ph32
-  %16 = getelementptr i8, ptr %1, i64 %indvars.iv.next
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %8, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 1024
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !34
+9:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %10 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr i16, ptr %8, i64 %12
+  %14 = load i16, ptr %13, align 2
+  %15 = and i16 %14, 1024
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %20
 
-._crit_edge:                                      ; preds = %15
-  %22 = icmp uge i64 %indvars.iv.next, %9
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %.lr.ph
-  %indvars.iv.lcssa = phi i32 [ %23, %._crit_edge ], [ 0, %.lr.ph ]
-  %.lcssa26 = phi i1 [ %22, %._crit_edge ], [ false, %.lr.ph ]
-  %.lcssa = phi i8 [ %17, %._crit_edge ], [ %10, %.lr.ph ]
-  %25 = zext i8 %.lcssa to i32
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %indvars.iv.lcssa, i32 noundef %25) #16
+16:                                               ; preds = %9
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = zext i8 %11 to i32
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %17, i32 noundef %18) #16
   br label %.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph, %15
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %.loopexit, label %15, !llvm.loop !34
+20:                                               ; preds = %9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph32, %6, %24
-  %27 = phi i1 [ %.lcssa26, %24 ], [ true, %6 ], [ true, %.lr.ph32 ]
-  %storemerge = phi ptr [ %26, %24 ], [ null, %6 ], [ null, %.lr.ph32 ]
+.loopexit:                                        ; preds = %20, %6, %16
+  %21 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %20 ]
+  %storemerge = phi ptr [ %19, %16 ], [ null, %6 ], [ null, %20 ]
   store ptr %storemerge, ptr %5, align 8
-  ret i1 %27
+  ret i1 %21
 }
 
 ; Function Attrs: nofree nounwind

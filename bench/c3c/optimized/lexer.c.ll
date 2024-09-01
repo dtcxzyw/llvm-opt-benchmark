@@ -2617,7 +2617,7 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
   %4 = getelementptr inbounds i8, ptr %.060, i64 1
   %5 = load i8, ptr %.060, align 1
   switch i8 %5, label %.backedge88.backedge [
-    i8 34, label %.fold.split.loopexit167
+    i8 34, label %.fold.split.loopexit159
     i8 10, label %.fold.split
     i8 0, label %.fold.split
     i8 92, label %6
@@ -2638,11 +2638,11 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
   %.060.be = phi ptr [ %4, %.backedge88 ], [ %9, %8 ], [ %4, %6 ], [ %4, %6 ]
   br label %.backedge88, !llvm.loop !21
 
-.fold.split.loopexit167:                          ; preds = %.backedge88
+.fold.split.loopexit159:                          ; preds = %.backedge88
   br label %.fold.split
 
-.fold.split:                                      ; preds = %.backedge88, %.backedge88, %.fold.split.loopexit167
-  %10 = phi i64 [ 1, %.fold.split.loopexit167 ], [ 2, %.backedge88 ], [ 2, %.backedge88 ]
+.fold.split:                                      ; preds = %.backedge88, %.backedge88, %.fold.split.loopexit159
+  %10 = phi i64 [ 1, %.fold.split.loopexit159 ], [ 2, %.backedge88 ], [ 2, %.backedge88 ]
   %11 = getelementptr inbounds i8, ptr %.060, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -1
   %13 = ptrtoint ptr %12 to i64
@@ -3110,8 +3110,8 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 .backedge:                                        ; preds = %290, %.critedge67
   %293 = phi ptr [ %.pre, %.critedge67 ], [ %291, %290 ]
   %.0.be = phi i64 [ %294, %.critedge67 ], [ %.1, %290 ]
-  %.not128 = icmp ult ptr %293, %12
-  br i1 %.not128, label %20, label %._crit_edge, !llvm.loop !29
+  %.not110 = icmp ult ptr %293, %12
+  br i1 %.not110, label %20, label %._crit_edge, !llvm.loop !29
 
 .critedge67:                                      ; preds = %25
   %294 = add i64 %.0107, 1

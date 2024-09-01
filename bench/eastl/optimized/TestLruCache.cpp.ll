@@ -5652,8 +5652,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 _ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit: ; preds = %for.body.i.i
   %add.ptr.i.phi.trans.insert = getelementptr inbounds ptr, ptr %2, i64 %1
   %.pre = load ptr, ptr %add.ptr.i.phi.trans.insert, align 8, !noalias !245
-  %cmp.i = icmp ne ptr %pNode.addr.05.i.i, %.pre
-  br i1 %cmp.i, label %if.then, label %return
+  %cmp.i.not = icmp eq ptr %pNode.addr.05.i.i, %.pre
+  br i1 %cmp.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit
   %second4 = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 16
@@ -5716,7 +5716,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.end.i, %if.end.i
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %delete.notnull.i.i.i.i
-  %cmp.i13 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ %cmp.i, %delete.notnull.i.i.i.i ], [ false, %entry ], [ false, %for.inc.i.i ]
+  %cmp.i13 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ true, %delete.notnull.i.i.i.i ], [ false, %entry ], [ false, %for.inc.i.i ]
   ret i1 %cmp.i13
 }
 

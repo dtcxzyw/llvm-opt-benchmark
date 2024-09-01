@@ -230,7 +230,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 
 10:                                               ; preds = %5
   %11 = icmp eq i32 %3, 0
-  br i1 %11, label %.thread, label %.preheader1
+  br i1 %11, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %10
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @percpu_counters_lock) #7
@@ -239,10 +239,10 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %14, align 8
-  br label %35
+  br label %36
 
-.preheader1:                                      ; preds = %10, %.preheader1
-  %15 = phi i64 [ %23, %.preheader1 ], [ 0, %10 ]
+.preheader:                                       ; preds = %10, %.preheader
+  %15 = phi i64 [ %23, %.preheader ], [ 0, %10 ]
   %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
@@ -257,35 +257,35 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
   store ptr %21, ptr %22, align 8
   %23 = add nuw nsw i64 %15, 1
   %24 = icmp eq i64 %23, %6
-  br i1 %24, label %.preheader, label %.preheader1, !llvm.loop !20
+  br i1 %24, label %25, label %.preheader, !llvm.loop !20
 
-.preheader:                                       ; preds = %.preheader1
-  %25 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @percpu_counters_lock) #7
+25:                                               ; preds = %.preheader
+  %26 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @percpu_counters_lock) #7
   %.pre = load ptr, ptr @percpu_counters, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %.preheader, %26
-  %27 = phi ptr [ %29, %26 ], [ %.pre, %.preheader ]
-  %28 = phi i64 [ %32, %26 ], [ 0, %.preheader ]
-  %29 = getelementptr %struct.percpu_counter, ptr %0, i64 %28, i32 2
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %29, ptr %30, align 8
-  store ptr %27, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr @percpu_counters, ptr %31, align 8
-  store volatile ptr %29, ptr @percpu_counters, align 8
-  %32 = add nuw nsw i64 %28, 1
-  %33 = icmp eq i64 %32, %6
-  br i1 %33, label %.loopexit, label %26, !llvm.loop !21
+27:                                               ; preds = %25, %27
+  %28 = phi ptr [ %30, %27 ], [ %.pre, %25 ]
+  %29 = phi i64 [ %33, %27 ], [ 0, %25 ]
+  %30 = getelementptr %struct.percpu_counter, ptr %0, i64 %29, i32 2
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %30, ptr %31, align 8
+  store ptr %28, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr @percpu_counters, ptr %32, align 8
+  store volatile ptr %30, ptr @percpu_counters, align 8
+  %33 = add nuw nsw i64 %29, 1
+  %34 = icmp eq i64 %33, %6
+  br i1 %34, label %.loopexit, label %27, !llvm.loop !21
 
-.loopexit:                                        ; preds = %26, %.thread
-  %34 = phi i64 [ %12, %.thread ], [ %25, %26 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @percpu_counters_lock, i64 noundef %34) #7
-  br label %35
+.loopexit:                                        ; preds = %27, %.thread
+  %35 = phi i64 [ %12, %.thread ], [ %26, %27 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @percpu_counters_lock, i64 noundef %35) #7
+  br label %36
 
-35:                                               ; preds = %.loopexit, %13
-  %36 = phi i32 [ 0, %.loopexit ], [ -12, %13 ]
-  ret i32 %36
+36:                                               ; preds = %.loopexit, %13
+  %37 = phi i32 [ 0, %.loopexit ], [ -12, %13 ]
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)

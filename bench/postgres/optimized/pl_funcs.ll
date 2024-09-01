@@ -317,8 +317,8 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
   %.not36.us.us = icmp eq i32 %24, 0
   br i1 %.not36.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !6
 
-.preheader45.us75:                                ; preds = %.preheader45.lr.ph, %45
-  %.02962.us76 = phi ptr [ %47, %45 ], [ %0, %.preheader45.lr.ph ]
+.preheader45.us75:                                ; preds = %.preheader45.lr.ph, %44
+  %.02962.us76 = phi ptr [ %46, %44 ], [ %0, %.preheader45.lr.ph ]
   %25 = load i32, ptr %.02962.us76, align 8
   %.not3648.us77 = icmp eq i32 %25, 0
   br i1 %.not3648.us77, label %.loopexit.us, label %.lr.ph.us86
@@ -343,76 +343,75 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
 ._crit_edge.split.us87:                           ; preds = %30
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %2) #15
-  %36 = icmp ne i32 %35, 0
-  %brmerge = or i1 %36, %.not3648.us77
-  %.lcssa209.mux = select i1 %36, ptr %32, ptr %.02962.us76
-  br i1 %brmerge, label %.loopexit.us, label %.lr.ph54.us
+  %.not215 = icmp eq i32 %35, 0
+  %.lcssa209.mux = select i1 %.not215, ptr %.02962.us76, ptr %32
+  br i1 %.not215, label %.lr.ph54.us, label %.loopexit.us
 
-.lr.ph54.split.us94:                              ; preds = %.lr.ph54.us, %41
-  %37 = phi i32 [ %44, %41 ], [ %25, %.lr.ph54.us ]
-  %.253.us82 = phi ptr [ %43, %41 ], [ %.02962.us76, %.lr.ph54.us ]
-  %38 = getelementptr inbounds i8, ptr %.253.us82, i64 16
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %3) #15
-  %40 = icmp ne i32 %39, 0
-  %.not40.us = icmp eq i32 %37, 1
-  %or.cond174 = or i1 %40, %.not40.us
-  br i1 %or.cond174, label %41, label %.split57.us
+.lr.ph54.split.us94:                              ; preds = %.lr.ph54.us, %40
+  %36 = phi i32 [ %43, %40 ], [ %25, %.lr.ph54.us ]
+  %.253.us82 = phi ptr [ %42, %40 ], [ %.02962.us76, %.lr.ph54.us ]
+  %37 = getelementptr inbounds i8, ptr %.253.us82, i64 16
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %3) #15
+  %39 = icmp ne i32 %38, 0
+  %.not40.us = icmp eq i32 %36, 1
+  %or.cond174 = or i1 %39, %.not40.us
+  br i1 %or.cond174, label %40, label %.split57.us
 
-41:                                               ; preds = %.lr.ph54.split.us94
-  %42 = getelementptr inbounds i8, ptr %.253.us82, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %43, align 8
-  %.not38.us83 = icmp eq i32 %44, 0
+40:                                               ; preds = %.lr.ph54.split.us94
+  %41 = getelementptr inbounds i8, ptr %.253.us82, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %42, align 8
+  %.not38.us83 = icmp eq i32 %43, 0
   br i1 %.not38.us83, label %.loopexit.us, label %.lr.ph54.split.us94, !llvm.loop !8
 
-.loopexit.us:                                     ; preds = %41, %51, %._crit_edge.split.us87, %.preheader45.us75
-  %.1.us84 = phi ptr [ %.lcssa209.mux, %._crit_edge.split.us87 ], [ %.02962.us76, %.preheader45.us75 ], [ %53, %51 ], [ %43, %41 ]
-  br i1 %1, label %._crit_edge63, label %45
+.loopexit.us:                                     ; preds = %40, %50, %._crit_edge.split.us87, %.preheader45.us75
+  %.1.us84 = phi ptr [ %.lcssa209.mux, %._crit_edge.split.us87 ], [ %.02962.us76, %.preheader45.us75 ], [ %52, %50 ], [ %42, %40 ]
+  br i1 %1, label %._crit_edge63, label %44
 
-45:                                               ; preds = %.loopexit.us
-  %46 = getelementptr inbounds i8, ptr %.1.us84, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %.not.us85 = icmp eq ptr %47, null
+44:                                               ; preds = %.loopexit.us
+  %45 = getelementptr inbounds i8, ptr %.1.us84, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not.us85 = icmp eq ptr %46, null
   br i1 %.not.us85, label %._crit_edge63, label %.preheader45.us75, !llvm.loop !7
 
 .lr.ph54.us:                                      ; preds = %._crit_edge.split.us87
   br i1 %.not177, label %.lr.ph54.split.us.us, label %.lr.ph54.split.us94
 
-.lr.ph54.split.us.us:                             ; preds = %.lr.ph54.us, %51
-  %.253.us.us = phi ptr [ %53, %51 ], [ %.02962.us76, %.lr.ph54.us ]
-  %48 = getelementptr inbounds i8, ptr %.253.us.us, i64 16
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %3) #15
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.split57.us, label %51
+.lr.ph54.split.us.us:                             ; preds = %.lr.ph54.us, %50
+  %.253.us.us = phi ptr [ %52, %50 ], [ %.02962.us76, %.lr.ph54.us ]
+  %47 = getelementptr inbounds i8, ptr %.253.us.us, i64 16
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %3) #15
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %.split57.us, label %50
 
-51:                                               ; preds = %.lr.ph54.split.us.us
-  %52 = getelementptr inbounds i8, ptr %.253.us.us, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %53, align 8
-  %.not38.us.us = icmp eq i32 %54, 0
+50:                                               ; preds = %.lr.ph54.split.us.us
+  %51 = getelementptr inbounds i8, ptr %.253.us.us, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %52, align 8
+  %.not38.us.us = icmp eq i32 %53, 0
   br i1 %.not38.us.us, label %.loopexit.us, label %.lr.ph54.split.us.us, !llvm.loop !8
 
 .split.us:                                        ; preds = %.lr.ph.us86, %.lr.ph.us, %.lr.ph.split.us.us.us
   %.us-phi = phi ptr [ %.049.us.us.us, %.lr.ph.split.us.us.us ], [ %.049.us.us, %.lr.ph.us ], [ %.049.us78, %.lr.ph.us86 ]
   %.not43 = icmp eq ptr %5, null
-  br i1 %.not43, label %55, label %.sink.split
+  br i1 %.not43, label %54, label %.sink.split
 
 .split57.us:                                      ; preds = %.lr.ph54.split.us94, %.lr.ph54.split.us.us
   %.us-phi58 = phi ptr [ %.253.us.us, %.lr.ph54.split.us.us ], [ %.253.us82, %.lr.ph54.split.us94 ]
   %.not41 = icmp eq ptr %5, null
-  br i1 %.not41, label %55, label %.sink.split
+  br i1 %.not41, label %54, label %.sink.split
 
-._crit_edge63:                                    ; preds = %45, %.loopexit.us, %._crit_edge.split.us.us, %11, %.preheader45.us.us, %6
+._crit_edge63:                                    ; preds = %44, %.loopexit.us, %._crit_edge.split.us.us, %11, %.preheader45.us.us, %6
   %.not39 = icmp eq ptr %5, null
-  br i1 %.not39, label %55, label %.sink.split
+  br i1 %.not39, label %54, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge63, %.split57.us, %.split.us
   %.sink = phi i32 [ 1, %.split.us ], [ 2, %.split57.us ], [ 0, %._crit_edge63 ]
   %.028.ph = phi ptr [ %.us-phi, %.split.us ], [ %.us-phi58, %.split57.us ], [ null, %._crit_edge63 ]
   store i32 %.sink, ptr %5, align 4
-  br label %55
+  br label %54
 
-55:                                               ; preds = %.sink.split, %._crit_edge63, %.split57.us, %.split.us
+54:                                               ; preds = %.sink.split, %._crit_edge63, %.split57.us, %.split.us
   %.028 = phi ptr [ %.us-phi, %.split.us ], [ %.us-phi58, %.split57.us ], [ null, %._crit_edge63 ], [ %.028.ph, %.sink.split ]
   ret ptr %.028
 }

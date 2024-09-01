@@ -1097,88 +1097,85 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  br i1 %.not65, label %convert_oid_to_str.exit.thread, label %26
+  %.not31.i = icmp eq i8 %10, 0
+  br i1 %.not31.i, label %.lr.ph.preheader.i, label %26
 
 26:                                               ; preds = %._crit_edge
-  %.not31.i = icmp eq i8 %10, 0
-  br i1 %.not31.i, label %.lr.ph.preheader.i, label %27
+  %27 = sext i8 %10 to i32
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 2048, ptr noundef nonnull @.str.178, i32 noundef %27) #6
+  %29 = icmp slt i32 %28, 2048
+  br i1 %29, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread60
 
-27:                                               ; preds = %26
-  %28 = sext i8 %10 to i32
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 2048, ptr noundef nonnull @.str.178, i32 noundef %28) #6
-  %30 = icmp slt i32 %29, 2048
-  br i1 %30, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread60
-
-.lr.ph.preheader.i:                               ; preds = %26, %27
-  %.0.i57 = phi i32 [ %29, %27 ], [ 0, %26 ]
-  %31 = zext i8 %8 to i64
+.lr.ph.preheader.i:                               ; preds = %._crit_edge, %26
+  %.0.i57 = phi i32 [ %28, %26 ], [ 0, %._crit_edge ]
+  %30 = zext i8 %8 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.133.i = phi i32 [ %.0.i57, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i ]
-  %32 = sext i32 %.133.i to i64
-  %33 = getelementptr i8, ptr %7, i64 %32
-  %34 = sub i32 2048, %.133.i
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr i32, ptr %6, i64 %indvars.iv.i
-  %37 = load i32, ptr %36, align 4
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.179, i32 noundef %37) #6
-  %39 = add i32 %38, %.133.i
+  %.133.i = phi i32 [ %.0.i57, %.lr.ph.preheader.i ], [ %38, %.lr.ph.i ]
+  %31 = sext i32 %.133.i to i64
+  %32 = getelementptr i8, ptr %7, i64 %31
+  %33 = sub i32 2048, %.133.i
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr i32, ptr %6, i64 %indvars.iv.i
+  %36 = load i32, ptr %35, align 4
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.179, i32 noundef %36) #6
+  %38 = add i32 %37, %.133.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = icmp ult i64 %indvars.iv.next.i, %31
-  %41 = icmp slt i32 %39, 2048
-  %42 = and i1 %40, %41
-  br i1 %42, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !14
+  %39 = icmp ult i64 %indvars.iv.next.i, %30
+  %40 = icmp slt i32 %38, 2048
+  %41 = and i1 %39, %40
+  br i1 %41, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !14
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
-  %.not = icmp eq i32 %39, 0
+  %.not = icmp eq i32 %38, 0
   br i1 %.not, label %convert_oid_to_str.exit.thread, label %convert_oid_to_str.exit.thread60
 
-convert_oid_to_str.exit.thread:                   ; preds = %5, %._crit_edge, %convert_oid_to_str.exit
+convert_oid_to_str.exit.thread:                   ; preds = %5, %convert_oid_to_str.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.171, i64 7, i1 false)
   br label %convert_oid_to_str.exit.thread60
 
-convert_oid_to_str.exit.thread60:                 ; preds = %27, %convert_oid_to_str.exit.thread, %convert_oid_to_str.exit
+convert_oid_to_str.exit.thread60:                 ; preds = %26, %convert_oid_to_str.exit.thread, %convert_oid_to_str.exit
   %.not53 = icmp eq ptr %1, null
-  br i1 %.not53, label %63, label %43
+  br i1 %.not53, label %62, label %42
 
-43:                                               ; preds = %convert_oid_to_str.exit.thread60
+42:                                               ; preds = %convert_oid_to_str.exit.thread60
   %.not54 = icmp eq i8 %12, 0
-  %44 = select i1 %.not54, ptr @.str.174, ptr @.str.173
-  switch i32 %4, label %46 [
-    i32 0, label %47
-    i32 1, label %45
+  %43 = select i1 %.not54, ptr @.str.174, ptr @.str.173
+  switch i32 %4, label %45 [
+    i32 0, label %46
+    i32 1, label %44
   ]
 
-45:                                               ; preds = %43
-  br label %47
+44:                                               ; preds = %42
+  br label %46
 
-46:                                               ; preds = %43
-  br label %47
+45:                                               ; preds = %42
+  br label %46
 
-47:                                               ; preds = %43, %46, %45
-  %.048 = phi ptr [ @.str.172, %46 ], [ @.str.176, %45 ], [ @.str.175, %43 ]
-  %.0 = phi ptr [ @.str.172, %46 ], [ %44, %45 ], [ %44, %43 ]
-  %48 = shl nuw nsw i32 %15, 2
-  %49 = add nuw nsw i32 %48, 4
-  %50 = load i32, ptr @ett_obj_ident, align 4
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.177, ptr noundef nonnull %.048, ptr noundef nonnull %7, ptr noundef nonnull %.0) #6
-  %52 = load i32, ptr @hf_oid_sub, align 4
-  %53 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %15) #6
-  %54 = load i32, ptr @hf_oid_prefix, align 4
-  %55 = zext i8 %10 to i32
-  %56 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %54, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %55) #6
-  %57 = load i32, ptr @hf_oid_include, align 4
-  %58 = zext i8 %12 to i64
-  %59 = call ptr @proto_tree_add_boolean(ptr noundef %51, i32 noundef %57, ptr noundef %0, i32 noundef %11, i32 noundef 1, i64 noundef %58) #6
-  %60 = load i32, ptr @hf_oid_str, align 4
-  %61 = add i32 %2, 4
-  %62 = call ptr @proto_tree_add_string(ptr noundef %51, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef %48, ptr noundef nonnull %7) #6
-  br label %63
+46:                                               ; preds = %42, %45, %44
+  %.048 = phi ptr [ @.str.172, %45 ], [ @.str.176, %44 ], [ @.str.175, %42 ]
+  %.0 = phi ptr [ @.str.172, %45 ], [ %43, %44 ], [ %43, %42 ]
+  %47 = shl nuw nsw i32 %15, 2
+  %48 = add nuw nsw i32 %47, 4
+  %49 = load i32, ptr @ett_obj_ident, align 4
+  %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %48, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.177, ptr noundef nonnull %.048, ptr noundef nonnull %7, ptr noundef nonnull %.0) #6
+  %51 = load i32, ptr @hf_oid_sub, align 4
+  %52 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %15) #6
+  %53 = load i32, ptr @hf_oid_prefix, align 4
+  %54 = zext i8 %10 to i32
+  %55 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %54) #6
+  %56 = load i32, ptr @hf_oid_include, align 4
+  %57 = zext i8 %12 to i64
+  %58 = call ptr @proto_tree_add_boolean(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef %11, i32 noundef 1, i64 noundef %57) #6
+  %59 = load i32, ptr @hf_oid_str, align 4
+  %60 = add i32 %2, 4
+  %61 = call ptr @proto_tree_add_string(ptr noundef %50, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef %47, ptr noundef nonnull %7) #6
+  br label %62
 
-63:                                               ; preds = %convert_oid_to_str.exit.thread60, %47
-  %.050 = phi i32 [ %49, %47 ], [ %2, %convert_oid_to_str.exit.thread60 ]
+62:                                               ; preds = %convert_oid_to_str.exit.thread60, %46
+  %.050 = phi i32 [ %48, %46 ], [ %2, %convert_oid_to_str.exit.thread60 ]
   ret i32 %.050
 }
 

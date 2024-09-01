@@ -46946,8 +46946,8 @@ if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_ma
   %m_at12 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %m_at12, align 8
   %4 = and i32 %3, 256
-  %.not18 = icmp eq i32 %4, 0
-  br i1 %.not18, label %lor.lhs.false, label %if.then9
+  %.not19 = icmp eq i32 %4, 0
+  br i1 %.not19, label %lor.lhs.false, label %if.then9
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
@@ -46968,8 +46968,8 @@ for.body.i.i:                                     ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %5
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %6, i64 %rem.i.i.i.i.i
   %8 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool.not.i.not.i.not = icmp ne ptr %8, null
-  br i1 %tobool.not.i.not.i.not, label %if.end11.i.i, label %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm
+  %tobool.not.not.i.not.i.not = icmp eq ptr %8, null
+  br i1 %tobool.not.not.i.not.i.not, label %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %for.body.i.i
   %9 = load ptr, ptr %8, align 8
@@ -47013,15 +47013,14 @@ _ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T
   %m_at = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i32, ptr %m_at, align 8
   %19 = and i32 %18, 256
-  %20 = icmp ne i32 %19, 0
-  %spec.select = xor i1 %tobool.not.i.not.i.not, %20
-  br i1 %spec.select, label %lor.lhs.false, label %if.then9
+  %.not18 = icmp eq i32 %19, 0
+  br i1 %.not18, label %lor.lhs.false, label %if.then9
 
 lor.lhs.false:                                    ; preds = %if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit_crit_edge, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit
   %call7 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
   %success = getelementptr inbounds i8, ptr %call7, i64 108
-  %21 = load i8, ptr %success, align 4
-  %tobool8 = trunc i8 %21 to i1
+  %20 = load i8, ptr %success, align 4
+  %tobool8 = trunc i8 %20 to i1
   br i1 %tobool8, label %lor.lhs.false.if.then9_crit_edge, label %if.end12
 
 lor.lhs.false.if.then9_crit_edge:                 ; preds = %lor.lhs.false
@@ -47030,13 +47029,13 @@ lor.lhs.false.if.then9_crit_edge:                 ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit_crit_edge, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm, %lor.lhs.false.if.then9_crit_edge, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit
   %spec.select10 = phi i1 [ true, %lor.lhs.false.if.then9_crit_edge ], [ false, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit ], [ false, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm ], [ false, %if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit_crit_edge ]
-  %22 = phi ptr [ %.pre, %lor.lhs.false.if.then9_crit_edge ], [ %0, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit ], [ %0, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm ], [ %0, %if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit_crit_edge ]
-  call void @_ZN7doctest6detail19stringifyBinaryExprISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESB_EENS_6StringERKT_PKcRKT0_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.279, ptr noundef nonnull align 8 dereferenceable(56) %rhs)
+  %21 = phi ptr [ %.pre, %lor.lhs.false.if.then9_crit_edge ], [ %0, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit ], [ %0, %_ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit.thr_comm ], [ %0, %if.end.i.i._ZSteqIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEbRKSt13unordered_mapIT_T0_T1_T2_T3_ESG_.exit_crit_edge ]
+  call void @_ZN7doctest6detail19stringifyBinaryExprISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESB_EENS_6StringERKT_PKcRKT0_(ptr nonnull sret(%"class.doctest::String") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.279, ptr noundef nonnull align 8 dereferenceable(56) %rhs)
   invoke void @_ZN7doctest6detail6ResultC1EbRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i1 noundef zeroext %spec.select10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then9
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -47046,7 +47045,7 @@ if.end12:                                         ; preds = %lor.lhs.false
           to label %return unwind label %lpad15
 
 lpad15:                                           ; preds = %if.end12
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -47057,7 +47056,7 @@ return:                                           ; preds = %if.end12, %if.then9
 
 eh.resume:                                        ; preds = %lpad15, %lpad
   %ref.tmp14.sink17 = phi ptr [ %ref.tmp14, %lpad15 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %24, %lpad15 ], [ %23, %lpad ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad15 ], [ %22, %lpad ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14.sink17) #25
   resume { ptr, i32 } %.pn
 }
@@ -58327,13 +58326,13 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 
 _ZSt8distanceISt24_Fwd_list_const_iteratorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENSt15iterator_traitsIT_E15difference_typeESI_SI_.exit: ; preds = %while.body.i.i
   %cmp.i = icmp ugt i64 %__n.05.i.i, 576460752303423486
-  br i1 %cmp.i, label %if.then.i, label %for.body.i.i.i.i.preheader
+  br i1 %cmp.i, label %if.then.i, label %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit
 
 if.then.i:                                        ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENSt15iterator_traitsIT_E15difference_typeESI_SI_.exit
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.275) #30
   unreachable
 
-for.body.i.i.i.i.preheader:                       ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENSt15iterator_traitsIT_E15difference_typeESI_SI_.exit
+_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit: ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENSt15iterator_traitsIT_E15difference_typeESI_SI_.exit
   %mul.i.i.i = shl nuw nsw i64 %inc.i.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   store ptr %call5.i.i.i, ptr %this, align 8
@@ -58342,9 +58341,9 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZSt8distanceISt24_
   store ptr %add.ptr, ptr %_M_end_of_storage, align 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i
-  %__cur.010.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ %call5.i.i.i, %for.body.i.i.i.i.preheader ]
-  %__first.sroa.0.09.i.i.i.i = phi ptr [ %1, %for.inc.i.i.i.i ], [ %__first.coerce, %for.body.i.i.i.i.preheader ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit, %for.inc.i.i.i.i
+  %__cur.010.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ %call5.i.i.i, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ]
+  %__first.sroa.0.09.i.i.i.i = phi ptr [ %1, %for.inc.i.i.i.i ], [ %__first.coerce, %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i.i)
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i

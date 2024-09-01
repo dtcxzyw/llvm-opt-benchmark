@@ -3585,8 +3585,8 @@ for.body28.us:                                    ; preds = %for.body28.lr.ph, %
 
 for.cond30.us:                                    ; preds = %for.body32.us
   %inc47.us = add nuw nsw i64 %byte.082.us, 1
-  %exitcond111.not = icmp eq i64 %inc47.us, %conv2
-  br i1 %exitcond111.not, label %for.cond30.for.inc48_crit_edge.us, label %for.body32.us, !llvm.loop !66
+  %exitcond109.not = icmp eq i64 %inc47.us, %conv2
+  br i1 %exitcond109.not, label %for.cond30.for.inc48_crit_edge.us, label %for.body32.us, !llvm.loop !66
 
 for.body32.us:                                    ; preds = %for.body28.us, %for.cond30.us
   %byte.082.us = phi i64 [ 0, %for.body28.us ], [ %inc47.us, %for.cond30.us ]
@@ -3725,8 +3725,8 @@ for.body109.us.us.us:                             ; preds = %for.body109.us.us.u
 
 for.cond107.for.inc130_crit_edge.us.us.us:        ; preds = %for.body109.us.us.us
   %inc131.us.us.us = add nuw i64 %curChan.072.us.us.us, 1
-  %exitcond110.not = icmp eq i64 %inc131.us.us.us, %umax
-  br i1 %exitcond110.not, label %for.cond102.for.inc133_crit_edge.split.us.us.us, label %for.cond107.preheader.us.us.us, !llvm.loop !70
+  %exitcond108.not = icmp eq i64 %inc131.us.us.us, %umax
+  br i1 %exitcond108.not, label %for.cond102.for.inc133_crit_edge.split.us.us.us, label %for.cond107.preheader.us.us.us, !llvm.loop !70
 
 for.cond102.for.inc133_crit_edge.split.us.us.us:  ; preds = %for.cond107.for.inc130_crit_edge.us.us.us
   %inc134.us.us = add nuw nsw i64 %pixelX96.074.us.us, 1

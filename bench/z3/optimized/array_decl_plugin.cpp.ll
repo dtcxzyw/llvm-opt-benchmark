@@ -3993,12 +3993,9 @@ lpad32:                                           ; preds = %invoke.cont31
 for.inc:                                          ; preds = %_ZNK4decl13get_family_idEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %if.then38, label %for.body, !llvm.loop !20
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp50.not, label %if.end68, label %if.then38
-
-if.then38:                                        ; preds = %for.end
+if.then38:                                        ; preds = %for.inc
   %13 = load ptr, ptr %domain, align 8
   %m_info.i20 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %m_info.i20, align 8
@@ -4058,7 +4055,7 @@ if.then65:                                        ; preds = %_ZNK9parameter7get_
   tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %21, ptr noundef nonnull @.str.55) #20
   unreachable
 
-if.end68:                                         ; preds = %entry, %_ZNK9parameter7get_astEv.exit36, %for.end
+if.end68:                                         ; preds = %entry, %_ZNK9parameter7get_astEv.exit36
   ret i1 true
 
 eh.resume:                                        ; preds = %lpad21, %lpad32, %lpad, %lpad13

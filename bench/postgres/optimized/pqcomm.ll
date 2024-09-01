@@ -2401,61 +2401,48 @@ pq_gettcpusertimeout.exit:                        ; preds = %0, %4, %8, %11, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @pq_check_connection() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0 {
   %1 = alloca [3 x %struct.WaitEvent], align 16
   %2 = load ptr, ptr @FeBeWaitSet, align 8
   tail call void @ModifyWaitEvent(ptr noundef %2, i32 noundef 0, i32 noundef 128, ptr noundef null) #19
   %3 = load ptr, ptr @FeBeWaitSet, align 8
   %4 = call i32 @WaitEventSetWait(ptr noundef %3, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #19
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %0, %14
+  %6 = phi i32 [ %17, %14 ], [ %4, %0 ]
+  %wide.trip.count = zext nneg i32 %6 to i64
+  br label %8
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %7 = phi i32 [ %20, %17 ], [ %4, %.lr.ph.preheader ]
-  %wide.trip.count = zext nneg i32 %7 to i64
-  %8 = load i32, ptr %6, align 4
-  %9 = and i32 %8, 128
-  %.not18 = icmp eq i32 %9, 0
-  br i1 %.not18, label %.lr.ph20, label %._crit_edge
+7:                                                ; preds = %12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !14
 
-10:                                               ; preds = %.lr.ph20
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %11, !llvm.loop !14
+8:                                                ; preds = %.lr.ph, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %9 = getelementptr [3 x %struct.WaitEvent], ptr %1, i64 0, i64 %indvars.iv, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 128
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %._crit_edge
 
-11:                                               ; preds = %10
-  %12 = getelementptr [3 x %struct.WaitEvent], ptr %1, i64 0, i64 %indvars.iv.next, i32 1
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 128
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.lr.ph20, label %._crit_edge.loopexit, !llvm.loop !14
+12:                                               ; preds = %8
+  %13 = and i32 %10, 1
+  %.not6 = icmp eq i32 %13, 0
+  br i1 %.not6, label %7, label %14
 
-.lr.ph20:                                         ; preds = %.lr.ph, %11
-  %15 = phi i32 [ %13, %11 ], [ %8, %.lr.ph ]
-  %indvars.iv19 = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph ]
-  %16 = and i32 %15, 1
-  %.not6 = icmp eq i32 %16, 0
-  br i1 %.not6, label %10, label %17
+14:                                               ; preds = %12
+  %15 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %15) #19
+  %16 = load ptr, ptr @FeBeWaitSet, align 8
+  %17 = call i32 @WaitEventSetWait(ptr noundef %16, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #19
+  %18 = icmp slt i32 %17, 1
+  br i1 %18, label %._crit_edge, label %.lr.ph
 
-17:                                               ; preds = %.lr.ph20
-  %18 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %18) #19
-  %19 = load ptr, ptr @FeBeWaitSet, align 8
-  %20 = call i32 @WaitEventSetWait(ptr noundef %19, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #19
-  %21 = icmp slt i32 %20, 1
-  br i1 %21, label %._crit_edge, label %.lr.ph
-
-._crit_edge.loopexit:                             ; preds = %11, %10
-  %22 = zext nneg i32 %7 to i64
-  %23 = icmp uge i64 %indvars.iv.next, %22
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %17, %.lr.ph, %._crit_edge.loopexit, %0
-  %.lcssa = phi i1 [ true, %0 ], [ %23, %._crit_edge.loopexit ], [ %.not18, %.lr.ph ], [ %.not18, %17 ]
+._crit_edge:                                      ; preds = %14, %8, %7, %0
+  %.lcssa = phi i1 [ true, %0 ], [ %.not, %7 ], [ %.not, %8 ], [ true, %14 ]
   ret i1 %.lcssa
 }
 

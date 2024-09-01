@@ -1781,17 +1781,14 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
 ._crit_edge:                                      ; preds = %226, %235
   %.0194 = phi i32 [ %237, %235 ], [ 0, %226 ]
   %.pre358 = load i32, ptr %4, align 4
-  br i1 %92, label %.lr.ph323, label %._crit_edge324
-
-.lr.ph323:                                        ; preds = %._crit_edge
   %238 = getelementptr inbounds i8, ptr %1, i64 16024
   %239 = getelementptr inbounds i8, ptr %1, i64 18024
   %240 = getelementptr inbounds i8, ptr %1, i64 24
   br label %241
 
-241:                                              ; preds = %.lr.ph323, %264
-  %indvars.iv352 = phi i64 [ 0, %.lr.ph323 ], [ %indvars.iv.next353, %264 ]
-  %.1195320 = phi i32 [ %.0194, %.lr.ph323 ], [ %.2196, %264 ]
+241:                                              ; preds = %._crit_edge, %264
+  %indvars.iv352 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next353, %264 ]
+  %.1195320 = phi i32 [ %.0194, %._crit_edge ], [ %.2196, %264 ]
   %242 = getelementptr [2000 x i8], ptr %238, i64 0, i64 %indvars.iv352
   %243 = load i8, ptr %242, align 1
   %244 = zext i8 %243 to i64
@@ -1832,8 +1829,8 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   %267 = icmp slt i64 %indvars.iv.next353, %266
   br i1 %267, label %241, label %._crit_edge324, !llvm.loop !33
 
-._crit_edge324:                                   ; preds = %264, %._crit_edge.thread, %._crit_edge
-  %.pre358379 = phi i32 [ %.pre358378, %._crit_edge.thread ], [ %.pre358, %._crit_edge ], [ %.pre358, %264 ]
+._crit_edge324:                                   ; preds = %264, %._crit_edge.thread
+  %.pre358379 = phi i32 [ %.pre358378, %._crit_edge.thread ], [ %.pre358, %264 ]
   %268 = getelementptr inbounds i8, ptr %1, i64 18024
   %269 = sub i32 0, %.pre358379
   store i32 %269, ptr %268, align 4
@@ -3098,7 +3095,7 @@ define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr nocapture 
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @pg_get_timezone_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @pg_get_timezone_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 2
@@ -3107,42 +3104,29 @@ define dso_local zeroext i1 @pg_get_timezone_offset(ptr nocapture noundef readon
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %7 = getelementptr i8, ptr %0, i64 18296
-  %8 = load i32, ptr %7, align 8
-  %.not21 = icmp eq i32 %8, %.pre
-  br i1 %.not21, label %.lr.ph23, label %.loopexit
+  br label %7
 
-.lr.ph23:                                         ; preds = %.lr.ph, %9
-  %indvars.iv22 = phi i64 [ %indvars.iv.next, %9 ], [ 1, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %9, !llvm.loop !46
+6:                                                ; preds = %7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !46
 
-9:                                                ; preds = %.lr.ph23
-  %10 = getelementptr [256 x %struct.ttinfo], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %11, %.pre
-  br i1 %.not, label %.lr.ph23, label %.loopexit.loopexit, !llvm.loop !46
+7:                                                ; preds = %.lr.ph, %6
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %6 ]
+  %8 = getelementptr [256 x %struct.ttinfo], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 8
+  %.not = icmp eq i32 %9, %.pre
+  br i1 %.not, label %6, label %.loopexit
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph23
-  %12 = icmp uge i64 %indvars.iv.next, %6
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.lcssa = phi i1 [ true, %2 ], [ %12, %._crit_edge.loopexit ]
-  %13 = sext i32 %.pre to i64
-  store i64 %13, ptr %1, align 8
+._crit_edge:                                      ; preds = %6, %2
+  %10 = sext i32 %.pre to i64
+  store i64 %10, ptr %1, align 8
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %9
-  %14 = icmp uge i64 %indvars.iv.next, %6
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph, %._crit_edge
-  %15 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %.lr.ph ], [ %14, %.loopexit.loopexit ]
-  ret i1 %15
+.loopexit:                                        ; preds = %7, %._crit_edge
+  %11 = phi i1 [ true, %._crit_edge ], [ false, %7 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

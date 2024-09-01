@@ -105,7 +105,7 @@ Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
   store i32 %6, ptr %9, align 4
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_IntFill.exit, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %Vec_IntFill.exit ]
@@ -133,7 +133,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %54, %Vec_IntFill.exit.thread, %Vec_IntFill.exit
+._crit_edge:                                      ; preds = %54, %Vec_IntFill.exit.thread
   %55 = tail call i32 @Bmc_CollapseExpandRound(ptr noundef %1, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 0, i32 noundef -1) #6
   %.val4554 = load i32, ptr %9, align 4
   %56 = icmp sgt i32 %.val4554, 0

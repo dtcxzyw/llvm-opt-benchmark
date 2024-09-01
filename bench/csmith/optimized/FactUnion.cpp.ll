@@ -545,8 +545,8 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %.tr.i = phi ptr [ %71, %_ZNK8Variable14is_union_fieldEv.exit.i ], [ %59, %tailrecurse.i.preheader ]
   %70 = getelementptr inbounds i8, ptr %.tr.i, i64 88
   %71 = load ptr, ptr %70, align 8
-  %.not.i.not.i.not = icmp eq ptr %71, null
-  br i1 %.not.i.not.i.not, label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, label %_ZNK8Variable14is_union_fieldEv.exit.i
+  %.not.i.not.not.i.not = icmp eq ptr %71, null
+  br i1 %.not.i.not.not.i.not, label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, label %_ZNK8Variable14is_union_fieldEv.exit.i
 
 _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   %72 = getelementptr inbounds i8, ptr %71, i64 64
@@ -884,8 +884,8 @@ tailrecurse.i:                                    ; preds = %_ZNK8Variable14is_u
   %.tr.i = phi ptr [ %0, %2 ], [ %5, %_ZNK8Variable14is_union_fieldEv.exit.i ]
   %4 = getelementptr inbounds i8, ptr %.tr.i, i64 88
   %5 = load ptr, ptr %4, align 8
-  %.not.i.not.i.not = icmp eq ptr %5, null
-  br i1 %.not.i.not.i.not, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %_ZNK8Variable14is_union_fieldEv.exit.i
+  %.not.i.not.not.i.not = icmp eq ptr %5, null
+  br i1 %.not.i.not.not.i.not, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %_ZNK8Variable14is_union_fieldEv.exit.i
 
 _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   %6 = getelementptr inbounds i8, ptr %5, i64 64

@@ -1137,25 +1137,25 @@ define void @_ZN23SupportedProtocolsModel8populateEv(ptr noundef nonnull align 8
   %8 = alloca ptr, align 8
   tail call void @_ZN18QAbstractItemModel15beginResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %9 = call i32 @proto_get_first_protocol(ptr noundef nonnull %7)
-  %.not47 = icmp eq i32 %9, -1
-  br i1 %.not47, label %._crit_edge51, label %.lr.ph50
+  %.not48 = icmp eq i32 %9, -1
+  br i1 %.not48, label %._crit_edge52, label %.lr.ph51
 
-.lr.ph50:                                         ; preds = %1
+.lr.ph51:                                         ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %11 = getelementptr inbounds i8, ptr %2, i64 24
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   br label %13
 
-13:                                               ; preds = %.lr.ph50, %._crit_edge
-  %.02348 = phi i32 [ %9, %.lr.ph50 ], [ %131, %._crit_edge ]
-  %14 = call ptr @find_protocol_by_id(i32 noundef %.02348)
+13:                                               ; preds = %.lr.ph51, %._crit_edge
+  %.02349 = phi i32 [ %9, %.lr.ph51 ], [ %131, %._crit_edge ]
+  %14 = call ptr @find_protocol_by_id(i32 noundef %.02349)
   %15 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
   %16 = invoke ptr @proto_get_protocol_short_name(ptr noundef %14)
           to label %17 unwind label %35
 
 17:                                               ; preds = %13
-  %18 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.02348)
+  %18 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.02349)
           to label %19 unwind label %35
 
 19:                                               ; preds = %17
@@ -1191,9 +1191,9 @@ common.resume:                                    ; preds = %35, %129, %.body, %
 _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit: ; preds = %23
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %28 = call ptr @proto_get_first_protocol_field(i32 noundef %.02348, ptr noundef nonnull %8)
-  %.not2445 = icmp eq ptr %28, null
-  br i1 %.not2445, label %._crit_edge, label %.lr.ph
+  %28 = call ptr @proto_get_first_protocol_field(i32 noundef %.02349, ptr noundef nonnull %8)
+  %.not2446 = icmp eq ptr %28, null
+  br i1 %.not2446, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit
   %29 = getelementptr inbounds i8, ptr %15, i64 16
@@ -1202,8 +1202,8 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit: ; pr
   br label %32
 
 32:                                               ; preds = %.lr.ph, %127
-  %.046 = phi ptr [ %28, %.lr.ph ], [ %128, %127 ]
-  %33 = getelementptr inbounds i8, ptr %.046, i64 60
+  %.047 = phi ptr [ %28, %.lr.ph ], [ %128, %127 ]
+  %33 = getelementptr inbounds i8, ptr %.047, i64 60
   %34 = load i32, ptr %33, align 4
   %.not25 = icmp eq i32 %34, -1
   br i1 %.not25, label %37, label %127
@@ -1216,12 +1216,12 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit: ; pr
 
 37:                                               ; preds = %32
   %38 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
-  %39 = load ptr, ptr %.046, align 8
-  %40 = getelementptr inbounds i8, ptr %.046, i64 8
+  %39 = load ptr, ptr %.047, align 8
+  %40 = getelementptr inbounds i8, ptr %.047, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %.046, i64 16
+  %42 = getelementptr inbounds i8, ptr %.047, i64 16
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.046, i64 40
+  %44 = getelementptr inbounds i8, ptr %.047, i64 40
   %45 = load ptr, ptr %44, align 8
   invoke void @_ZN22SupportedProtocolsItemC1EP9_protocolPKcS3_6ftenumS3_PS_(ptr noundef nonnull align 8 dereferenceable(128) %38, ptr noundef %14, ptr noundef %39, ptr noundef %41, i32 noundef %43, ptr noundef %45, ptr noundef nonnull %15)
           to label %46 unwind label %129
@@ -1238,25 +1238,25 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit: ; pr
   br i1 %.not.i.i, label %._ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i_crit_edge, label %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i
 
 ._ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i_crit_edge: ; preds = %46
-  %.pre58 = load i64, ptr %30, align 8
+  %.pre59 = load i64, ptr %30, align 8
   br label %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i
 
 _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i: ; preds = %46
   %48 = load atomic i32, ptr %47 monotonic, align 4
   %49 = icmp sgt i32 %48, 1
-  %.pre59 = load i64, ptr %30, align 8
+  %.pre60 = load i64, ptr %30, align 8
   br i1 %49, label %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i, label %50
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i
-  %51 = icmp eq i64 %.pre59, 0
+  %51 = icmp eq i64 %.pre60, 0
   %.pre = load ptr, ptr %31, align 8
-  br i1 %51, label %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i, label %._crit_edge61
+  br i1 %51, label %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i, label %._crit_edge62
 
-._crit_edge61:                                    ; preds = %50
-  %.pre62 = ptrtoint ptr %47 to i64
-  %.pre63 = add i64 %.pre62, 23
-  %.pre65 = and i64 %.pre63, -8
-  %.pre67 = ptrtoint ptr %.pre to i64
+._crit_edge62:                                    ; preds = %50
+  %.pre63 = ptrtoint ptr %47 to i64
+  %.pre64 = add i64 %.pre63, 23
+  %.pre66 = and i64 %.pre64, -8
+  %.pre68 = ptrtoint ptr %.pre to i64
   br label %63
 
 _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i: ; preds = %50
@@ -1280,10 +1280,10 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i: ; preds = %50
   store i64 %62, ptr %30, align 8
   br label %_ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit27
 
-63:                                               ; preds = %._crit_edge61, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i
-  %.pre-phi68 = phi i64 [ %.pre67, %._crit_edge61 ], [ %57, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i ]
-  %.pre-phi66 = phi i64 [ %.pre65, %._crit_edge61 ], [ %56, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i ]
-  %.not14.i = icmp eq i64 %.pre-phi66, %.pre-phi68
+63:                                               ; preds = %._crit_edge62, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i
+  %.pre-phi69 = phi i64 [ %.pre68, %._crit_edge62 ], [ %57, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i ]
+  %.pre-phi67 = phi i64 [ %.pre66, %._crit_edge62 ], [ %56, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i ]
+  %.not14.i = icmp eq i64 %.pre-phi67, %.pre-phi69
   br i1 %.not14.i, label %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i, label %64
 
 64:                                               ; preds = %63
@@ -1300,7 +1300,7 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i: ; preds = %50
   br label %_ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit27
 
 _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i: ; preds = %._ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i_crit_edge, %63, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i
-  %70 = phi i64 [ %.pre58, %._ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i_crit_edge ], [ %.pre59, %63 ], [ %.pre59, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i ]
+  %70 = phi i64 [ %.pre59, %._ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i_crit_edge ], [ %.pre60, %63 ], [ %.pre60, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -1344,8 +1344,8 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i.i: ; preds = %_ZNK17
   %.not.i19.i = icmp sgt i64 %90, 0
   %92 = shl i64 %83, 1
   %93 = icmp sgt i64 %92, 0
-  %or.cond79 = and i1 %.not.i19.i, %93
-  br i1 %or.cond79, label %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i, label %.critedge.i
+  %or.cond80 = and i1 %.not.i19.i, %93
+  br i1 %or.cond80, label %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i, label %.critedge.i
 
 _ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i.i
   %94 = sub nsw i64 0, %90
@@ -1395,11 +1395,11 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i33: ; preds = %_ZNK17
           to label %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit unwind label %.body
 
 _ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit: ; preds = %.critedge.i
-  %.pre60 = load ptr, ptr %31, align 8
+  %.pre61 = load ptr, ptr %31, align 8
   br i1 %71, label %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.thread, label %_ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit.i
 
 _ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.thread: ; preds = %.noexc, %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit.i, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
-  %115 = phi ptr [ %.pre60, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit ], [ %109, %.noexc ], [ %76, %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit.i ]
+  %115 = phi ptr [ %.pre61, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit ], [ %109, %.noexc ], [ %76, %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit.i ]
   %116 = getelementptr i8, ptr %115, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -1416,7 +1416,7 @@ _ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionEx
   br label %common.resume
 
 _ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit.i: ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i30, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
-  %120 = phi ptr [ %.pre60, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit ], [ %84, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i30 ], [ %95, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i ]
+  %120 = phi ptr [ %.pre61, %_ZN17QArrayDataPointerI8QVariantE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit ], [ %84, %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i30 ], [ %95, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i ]
   %121 = getelementptr i8, ptr %120, i64 32
   %122 = load i64, ptr %30, align 8
   %123 = shl i64 %122, 5
@@ -1443,7 +1443,7 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit27: ; 
   br label %127
 
 127:                                              ; preds = %32, %_ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit27
-  %128 = call ptr @proto_get_next_protocol_field(i32 noundef %.02348, ptr noundef nonnull %8)
+  %128 = call ptr @proto_get_next_protocol_field(i32 noundef %.02349, ptr noundef nonnull %8)
   %.not24 = icmp eq ptr %128, null
   br i1 %.not24, label %._crit_edge, label %32, !llvm.loop !39
 
@@ -1456,9 +1456,9 @@ _ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit27: ; 
 ._crit_edge:                                      ; preds = %127, %_ZN19ModelHelperTreeItemI22SupportedProtocolsItemE12prependChildEPS0_.exit
   %131 = call i32 @proto_get_next_protocol(ptr noundef nonnull %7)
   %.not = icmp eq i32 %131, -1
-  br i1 %.not, label %._crit_edge51, label %13, !llvm.loop !40
+  br i1 %.not, label %._crit_edge52, label %13, !llvm.loop !40
 
-._crit_edge51:                                    ; preds = %._crit_edge, %1
+._crit_edge52:                                    ; preds = %._crit_edge, %1
   call void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }

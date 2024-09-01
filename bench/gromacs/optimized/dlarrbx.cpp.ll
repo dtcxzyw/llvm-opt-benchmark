@@ -138,7 +138,7 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %69 = zext i1 %68 to i32
   %.3430 = add nuw nsw i32 %.2429, %69
   %70 = fcmp uno double %64, 0.000000e+00
-  br i1 %70, label %.preheader501, label %90
+  br i1 %70, label %.lr.ph524, label %90
 
 ._crit_edge517.thread:                            ; preds = %55
   %71 = fcmp olt double %52, %.0425530
@@ -146,13 +146,10 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %73 = fcmp uno double %.0425530, 0.000000e+00
   br i1 %73, label %._crit_edge525, label %90
 
-.preheader501:                                    ; preds = %._crit_edge517
-  br i1 %.not494.not511, label %.lr.ph524, label %._crit_edge525
-
-.lr.ph524:                                        ; preds = %.preheader501, %.lr.ph524
-  %indvars.iv620 = phi i64 [ %indvars.iv.next621, %.lr.ph524 ], [ 1, %.preheader501 ]
-  %.5432523 = phi i32 [ %.6, %.lr.ph524 ], [ 0, %.preheader501 ]
-  %.1446522 = phi double [ %.2447, %.lr.ph524 ], [ %56, %.preheader501 ]
+.lr.ph524:                                        ; preds = %._crit_edge517, %.lr.ph524
+  %indvars.iv620 = phi i64 [ %indvars.iv.next621, %.lr.ph524 ], [ 1, %._crit_edge517 ]
+  %.5432523 = phi i32 [ %.6, %.lr.ph524 ], [ 0, %._crit_edge517 ]
+  %.1446522 = phi double [ %.2447, %.lr.ph524 ], [ %56, %._crit_edge517 ]
   %74 = getelementptr inbounds double, ptr %23, i64 %indvars.iv620
   %75 = load double, ptr %74, align 8
   %76 = fadd double %.1446522, %75
@@ -171,9 +168,9 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %exitcond624.not = icmp eq i64 %indvars.iv.next621, %wide.trip.count623
   br i1 %exitcond624.not, label %._crit_edge525, label %.lr.ph524, !llvm.loop !7
 
-._crit_edge525:                                   ; preds = %.lr.ph524, %._crit_edge517.thread, %.preheader501
-  %.1446.lcssa = phi double [ %56, %.preheader501 ], [ %56, %._crit_edge517.thread ], [ %.2447, %.lr.ph524 ]
-  %.5432.lcssa = phi i32 [ 0, %.preheader501 ], [ 0, %._crit_edge517.thread ], [ %.6, %.lr.ph524 ]
+._crit_edge525:                                   ; preds = %.lr.ph524, %._crit_edge517.thread
+  %.1446.lcssa = phi double [ %56, %._crit_edge517.thread ], [ %.2447, %.lr.ph524 ]
+  %.5432.lcssa = phi i32 [ 0, %._crit_edge517.thread ], [ %.6, %.lr.ph524 ]
   %86 = fadd double %52, %.1446.lcssa
   %87 = fcmp olt double %86, 0.000000e+00
   br i1 %87, label %88, label %90
@@ -236,7 +233,7 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %112 = zext i1 %111 to i32
   %.9 = add nuw nsw i32 %.8, %112
   %113 = fcmp uno double %107, 0.000000e+00
-  br i1 %113, label %.preheader500, label %133
+  br i1 %113, label %.lr.ph547, label %133
 
 ._crit_edge540.thread:                            ; preds = %98
   %114 = fcmp olt double %95, %.1
@@ -244,13 +241,10 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %116 = fcmp uno double %.1, 0.000000e+00
   br i1 %116, label %._crit_edge548, label %133
 
-.preheader500:                                    ; preds = %._crit_edge540
-  br i1 %.not497.not534, label %.lr.ph547, label %._crit_edge548
-
-.lr.ph547:                                        ; preds = %.preheader500, %.lr.ph547
-  %indvars.iv630 = phi i64 [ %indvars.iv.next631, %.lr.ph547 ], [ 1, %.preheader500 ]
-  %.11546 = phi i32 [ %.12, %.lr.ph547 ], [ 0, %.preheader500 ]
-  %.4449545 = phi double [ %.5450, %.lr.ph547 ], [ %99, %.preheader500 ]
+.lr.ph547:                                        ; preds = %._crit_edge540, %.lr.ph547
+  %indvars.iv630 = phi i64 [ %indvars.iv.next631, %.lr.ph547 ], [ 1, %._crit_edge540 ]
+  %.11546 = phi i32 [ %.12, %.lr.ph547 ], [ 0, %._crit_edge540 ]
+  %.4449545 = phi double [ %.5450, %.lr.ph547 ], [ %99, %._crit_edge540 ]
   %117 = getelementptr inbounds double, ptr %23, i64 %indvars.iv630
   %118 = load double, ptr %117, align 8
   %119 = fadd double %.4449545, %118
@@ -269,9 +263,9 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
   br i1 %exitcond634.not, label %._crit_edge548, label %.lr.ph547, !llvm.loop !9
 
-._crit_edge548:                                   ; preds = %.lr.ph547, %._crit_edge540.thread, %.preheader500
-  %.4449.lcssa = phi double [ %99, %.preheader500 ], [ %99, %._crit_edge540.thread ], [ %.5450, %.lr.ph547 ]
-  %.11.lcssa = phi i32 [ 0, %.preheader500 ], [ 0, %._crit_edge540.thread ], [ %.12, %.lr.ph547 ]
+._crit_edge548:                                   ; preds = %.lr.ph547, %._crit_edge540.thread
+  %.4449.lcssa = phi double [ %99, %._crit_edge540.thread ], [ %.5450, %.lr.ph547 ]
+  %.11.lcssa = phi i32 [ 0, %._crit_edge540.thread ], [ %.12, %.lr.ph547 ]
   %129 = fadd double %95, %.4449.lcssa
   %130 = fcmp olt double %129, 0.000000e+00
   br i1 %130, label %131, label %133
@@ -348,7 +342,7 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %.0417.lcssa = phi i64 [ 0, %.preheader502 ], [ %162, %._crit_edge563.loopexit ]
   %163 = load i32, ptr %0, align 4
   %.not479 = icmp sgt i32 %.2467.lcssa, %163
-  br i1 %.not479, label %.preheader686, label %164
+  br i1 %.not479, label %.preheader, label %164
 
 164:                                              ; preds = %._crit_edge563
   %165 = shl i32 %.2467.lcssa, 1
@@ -357,21 +351,21 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %168 = getelementptr inbounds i32, ptr %17, i64 %167
   %169 = load i32, ptr %168, align 4
   %.not480 = icmp eq i32 %169, -1
-  br i1 %.not480, label %.preheader686, label %170
+  br i1 %.not480, label %.preheader, label %170
 
 170:                                              ; preds = %164
   %171 = getelementptr inbounds double, ptr %18, i64 %.0417.lcssa
   %172 = load double, ptr %171, align 8
   %173 = getelementptr inbounds double, ptr %18, i64 %167
   store double %172, ptr %173, align 8
-  br label %.preheader686
+  br label %.preheader
 
-.preheader686:                                    ; preds = %170, %164, %._crit_edge563
+.preheader:                                       ; preds = %170, %164, %._crit_edge563
   br label %174
 
-174:                                              ; preds = %.preheader686, %._crit_edge601
-  %.2440 = phi i32 [ %.5443, %._crit_edge601 ], [ %.0438.lcssa, %.preheader686 ]
-  %.2422 = phi i32 [ %.4424, %._crit_edge601 ], [ %.0420.lcssa, %.preheader686 ]
+174:                                              ; preds = %.preheader, %._crit_edge601
+  %.2440 = phi i32 [ %.5443, %._crit_edge601 ], [ %.0438.lcssa, %.preheader ]
+  %.2422 = phi i32 [ %.4424, %._crit_edge601 ], [ %.0420.lcssa, %.preheader ]
   %.not481593 = icmp slt i32 %.2422, 1
   br i1 %.not481593, label %._crit_edge601.thread, label %.lr.ph600.preheader
 
@@ -525,7 +519,7 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %256 = zext i1 %255 to i32
   %.15 = add nuw nsw i32 %.14, %256
   %257 = fcmp uno double %248, 0.000000e+00
-  br i1 %257, label %.preheader, label %281
+  br i1 %257, label %.lr.ph581.preheader, label %281
 
 ._crit_edge574.thread:                            ; preds = %238
   %258 = sext i32 %240 to i64
@@ -536,10 +530,7 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %263 = fcmp uno double %189, 0.000000e+00
   br i1 %263, label %._crit_edge582, label %281
 
-.preheader:                                       ; preds = %._crit_edge574
-  br i1 %.not487.not568, label %.lr.ph581.preheader, label %._crit_edge582
-
-.lr.ph581.preheader:                              ; preds = %.preheader
+.lr.ph581.preheader:                              ; preds = %._crit_edge574
   %wide.trip.count643 = zext nneg i32 %240 to i64
   br label %.lr.ph581
 
@@ -565,10 +556,10 @@ define void @dlarrbx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %exitcond644.not = icmp eq i64 %indvars.iv.next641, %wide.trip.count643
   br i1 %exitcond644.not, label %._crit_edge582, label %.lr.ph581, !llvm.loop !12
 
-._crit_edge582:                                   ; preds = %.lr.ph581, %._crit_edge574.thread, %.preheader
-  %276 = phi double [ %253, %.preheader ], [ %260, %._crit_edge574.thread ], [ %253, %.lr.ph581 ]
-  %.7452.lcssa = phi double [ %239, %.preheader ], [ %239, %._crit_edge574.thread ], [ %.8453, %.lr.ph581 ]
-  %.17.lcssa = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge574.thread ], [ %.18, %.lr.ph581 ]
+._crit_edge582:                                   ; preds = %.lr.ph581, %._crit_edge574.thread
+  %276 = phi double [ %260, %._crit_edge574.thread ], [ %253, %.lr.ph581 ]
+  %.7452.lcssa = phi double [ %239, %._crit_edge574.thread ], [ %.8453, %.lr.ph581 ]
+  %.17.lcssa = phi i32 [ 0, %._crit_edge574.thread ], [ %.18, %.lr.ph581 ]
   %277 = fadd double %276, %.7452.lcssa
   %278 = fcmp olt double %277, 0.000000e+00
   br i1 %278, label %279, label %281

@@ -1123,8 +1123,8 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
 58:                                               ; preds = %41
   %59 = call i64 @ns2usecs(i64 noundef %56) #10
   %60 = call i64 @ns2usecs(i64 noundef %57) #10
-  %.not6 = icmp eq i32 %46, 0
-  br i1 %.not6, label %71, label %61
+  %.not5 = icmp eq i32 %46, 0
+  br i1 %.not5, label %71, label %61
 
 61:                                               ; preds = %58
   %62 = urem i64 %59, 1000
@@ -2542,7 +2542,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %109, label %.split7.us, label %.split, !llvm.loop !68
 
 .split7.us:                                       ; preds = %.split, %63, %66, %107, %.split.us, %45, %48, %56
-  %110 = phi i1 [ true, %56 ], [ true, %48 ], [ true, %45 ], [ true, %.split.us ], [ %33, %107 ], [ %33, %66 ], [ %33, %63 ], [ %33, %.split ]
+  %110 = phi i1 [ true, %56 ], [ true, %48 ], [ true, %45 ], [ true, %.split.us ], [ false, %107 ], [ false, %66 ], [ false, %63 ], [ false, %.split ]
   %.fr812 = phi ptr [ null, %56 ], [ null, %48 ], [ null, %45 ], [ null, %.split.us ], [ %28, %107 ], [ %28, %66 ], [ %28, %63 ], [ %28, %.split ]
   br i1 %110, label %112, label %111
 

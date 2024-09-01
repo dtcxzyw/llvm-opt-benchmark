@@ -4867,7 +4867,7 @@ define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @variable_defined_or_used_in_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @variable_defined_or_used_in_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = icmp slt i32 %2, %3
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4876,104 +4876,101 @@ define internal fastcc zeroext i1 @variable_defined_or_used_in_range(ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %2 to i64
-  %10 = sext i32 %3 to i64
-  br label %11
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %72
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %12 = phi i1 [ true, %.lr.ph ], [ %73, %72 ]
-  %13 = getelementptr inbounds %struct._zend_ssa_op, ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds i8, ptr %13, i64 12
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %23
+10:                                               ; preds = %.lr.ph, %70
+  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %70 ]
+  %11 = getelementptr inbounds %struct._zend_ssa_op, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %15, label %21
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8
-  %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr inbounds %struct._zend_ssa_var, ptr %18, i64 %19
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %1
-  br i1 %22, label %._crit_edge, label %23
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %5, align 8
+  %17 = zext nneg i32 %13 to i64
+  %18 = getelementptr inbounds %struct._zend_ssa_var, ptr %16, i64 %17
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, %1
+  br i1 %20, label %._crit_edge, label %21
 
-23:                                               ; preds = %17, %11
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %27, label %33
+21:                                               ; preds = %15, %10
+  %22 = getelementptr inbounds i8, ptr %11, i64 16
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %31
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %5, align 8
-  %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds %struct._zend_ssa_var, ptr %28, i64 %29
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, %1
-  br i1 %32, label %._crit_edge, label %33
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8
+  %27 = zext nneg i32 %23 to i64
+  %28 = getelementptr inbounds %struct._zend_ssa_var, ptr %26, i64 %27
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, %1
+  br i1 %30, label %._crit_edge, label %31
 
-33:                                               ; preds = %27, %23
-  %34 = getelementptr inbounds i8, ptr %13, i64 20
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %37, label %43
+31:                                               ; preds = %25, %21
+  %32 = getelementptr inbounds i8, ptr %11, i64 20
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %35, label %41
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %5, align 8
-  %39 = zext nneg i32 %35 to i64
-  %40 = getelementptr inbounds %struct._zend_ssa_var, ptr %38, i64 %39
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, %1
-  br i1 %42, label %._crit_edge, label %43
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %5, align 8
+  %37 = zext nneg i32 %33 to i64
+  %38 = getelementptr inbounds %struct._zend_ssa_var, ptr %36, i64 %37
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, %1
+  br i1 %40, label %._crit_edge, label %41
 
-43:                                               ; preds = %37, %33
-  %44 = load i32, ptr %13, align 4
-  %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %46, label %52
+41:                                               ; preds = %35, %31
+  %42 = load i32, ptr %11, align 4
+  %43 = icmp sgt i32 %42, -1
+  br i1 %43, label %44, label %50
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %5, align 8
-  %48 = zext nneg i32 %44 to i64
-  %49 = getelementptr inbounds %struct._zend_ssa_var, ptr %47, i64 %48
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, %1
-  br i1 %51, label %._crit_edge, label %52
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %5, align 8
+  %46 = zext nneg i32 %42 to i64
+  %47 = getelementptr inbounds %struct._zend_ssa_var, ptr %45, i64 %46
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, %1
+  br i1 %49, label %._crit_edge, label %50
 
-52:                                               ; preds = %46, %43
-  %53 = getelementptr inbounds i8, ptr %13, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %56, label %62
+50:                                               ; preds = %44, %41
+  %51 = getelementptr inbounds i8, ptr %11, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %54, label %60
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %5, align 8
-  %58 = zext nneg i32 %54 to i64
-  %59 = getelementptr inbounds %struct._zend_ssa_var, ptr %57, i64 %58
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, %1
-  br i1 %61, label %._crit_edge, label %62
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %5, align 8
+  %56 = zext nneg i32 %52 to i64
+  %57 = getelementptr inbounds %struct._zend_ssa_var, ptr %55, i64 %56
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, %1
+  br i1 %59, label %._crit_edge, label %60
 
-62:                                               ; preds = %56, %52
-  %63 = getelementptr inbounds i8, ptr %13, i64 8
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %66, label %72
+60:                                               ; preds = %54, %50
+  %61 = getelementptr inbounds i8, ptr %11, i64 8
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp sgt i32 %62, -1
+  br i1 %63, label %64, label %70
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %5, align 8
-  %68 = zext nneg i32 %64 to i64
-  %69 = getelementptr inbounds %struct._zend_ssa_var, ptr %67, i64 %68
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %1
-  br i1 %71, label %._crit_edge, label %72
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %5, align 8
+  %66 = zext nneg i32 %62 to i64
+  %67 = getelementptr inbounds %struct._zend_ssa_var, ptr %65, i64 %66
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %68, %1
+  br i1 %69, label %._crit_edge, label %70
 
-72:                                               ; preds = %66, %62
+70:                                               ; preds = %64, %60
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %73 = icmp slt i64 %indvars.iv.next, %10
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %11
+  br i1 %exitcond.not, label %._crit_edge, label %10
 
-._crit_edge:                                      ; preds = %66, %56, %46, %37, %27, %17, %72, %4
-  %.lcssa = phi i1 [ false, %4 ], [ %73, %72 ], [ %12, %17 ], [ %12, %27 ], [ %12, %37 ], [ %12, %46 ], [ %12, %56 ], [ %12, %66 ]
+._crit_edge:                                      ; preds = %64, %54, %44, %35, %25, %15, %70, %4
+  %.lcssa = phi i1 [ false, %4 ], [ false, %70 ], [ true, %15 ], [ true, %25 ], [ true, %35 ], [ true, %44 ], [ true, %54 ], [ true, %64 ]
   ret i1 %.lcssa
 }
 

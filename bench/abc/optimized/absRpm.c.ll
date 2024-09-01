@@ -1192,10 +1192,7 @@ Vec_WecFree.exit131:                              ; preds = %._crit_edge.i.i124,
   %wide.trip.count = zext nneg i32 %.val100 to i64
   br label %176
 
-.critedge4.preheader:                             ; preds = %176
-  br i1 %174, label %.lr.ph156, label %.critedge6.thread
-
-.lr.ph156:                                        ; preds = %.critedge4.preheader
+.lr.ph156:                                        ; preds = %176
   %.val81 = load ptr, ptr %5, align 8
   %wide.trip.count171 = zext nneg i32 %.val100 to i64
   br label %.critedge4
@@ -1214,7 +1211,7 @@ Vec_WecFree.exit131:                              ; preds = %._crit_edge.i.i124,
   store i32 %183, ptr %181, align 4
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
-  br i1 %exitcond167.not, label %.critedge4.preheader, label %176, !llvm.loop !17
+  br i1 %exitcond167.not, label %.lr.ph156, label %176, !llvm.loop !17
 
 .critedge4:                                       ; preds = %.lr.ph156, %.critedge4
   %indvars.iv168 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next169, %.critedge4 ]
@@ -1230,23 +1227,21 @@ Vec_WecFree.exit131:                              ; preds = %._crit_edge.i.i124,
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
   br i1 %exitcond172.not, label %.critedge6, label %.critedge4, !llvm.loop !18
 
-.critedge6.thread:                                ; preds = %.critedge4.preheader, %Vec_WecFree.exit131
+.critedge6.thread:                                ; preds = %Vec_WecFree.exit131
   %putchar187 = tail call i32 @putchar(i32 10)
   %.pre184188 = load ptr, ptr %5, align 8
-  br label %.critedge8
+  %.not.i134 = icmp eq ptr %.pre184188, null
+  br i1 %.not.i134, label %Vec_IntFree.exit, label %.critedge8.thread
 
 .critedge6:                                       ; preds = %.critedge4
   %putchar = tail call i32 @putchar(i32 10)
   %.pre184 = load ptr, ptr %5, align 8
-  br i1 %174, label %.lr.ph158, label %.critedge8
-
-.lr.ph158:                                        ; preds = %.critedge6
   %190 = getelementptr i8, ptr %0, i64 144
   %wide.trip.count176 = zext nneg i32 %.val100 to i64
   br label %191
 
-191:                                              ; preds = %.lr.ph158, %191
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next174, %191 ]
+191:                                              ; preds = %.critedge6, %191
+  %indvars.iv173 = phi i64 [ 0, %.critedge6 ], [ %indvars.iv.next174, %191 ]
   %192 = getelementptr inbounds i32, ptr %.pre184, i64 %indvars.iv173
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
@@ -1261,17 +1256,12 @@ Vec_WecFree.exit131:                              ; preds = %._crit_edge.i.i124,
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
   br i1 %exitcond177.not, label %.critedge8.thread, label %191, !llvm.loop !19
 
-.critedge8:                                       ; preds = %.critedge6.thread, %.critedge6
-  %.pre184189 = phi ptr [ %.pre184188, %.critedge6.thread ], [ %.pre184, %.critedge6 ]
-  %.not.i134 = icmp eq ptr %.pre184189, null
-  br i1 %.not.i134, label %Vec_IntFree.exit, label %.critedge8.thread
-
-.critedge8.thread:                                ; preds = %191, %.critedge8
-  %.pre184189192 = phi ptr [ %.pre184189, %.critedge8 ], [ %.pre184, %191 ]
+.critedge8.thread:                                ; preds = %191, %.critedge6.thread
+  %.pre184189192 = phi ptr [ %.pre184188, %.critedge6.thread ], [ %.pre184, %191 ]
   tail call void @free(ptr noundef nonnull %.pre184189192) #25
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge8, %.critedge8.thread
+Vec_IntFree.exit:                                 ; preds = %.critedge6.thread, %.critedge8.thread
   tail call void @free(ptr noundef nonnull %2) #25
   %199 = load ptr, ptr %9, align 8
   %.not.i135 = icmp eq ptr %199, null

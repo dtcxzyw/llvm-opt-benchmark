@@ -1190,7 +1190,7 @@ free_global_stats.exit:                           ; preds = %523
   %532 = load ptr, ptr @global, align 8
   call void @free(ptr noundef %532) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @global, i8 0, i64 16, i1 false)
-  br i1 %.not11.i40, label %._crit_edge190.thread, label %.lr.ph189
+  br label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %free_global_stats.exit, %parse_stats.exit
   %533 = phi i64 [ %792, %parse_stats.exit ], [ 0, %free_global_stats.exit ]
@@ -1836,7 +1836,7 @@ parse_stats.exit:                                 ; preds = %.outer.backedge.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @global, i8 0, i64 16, i1 false)
   br label %._crit_edge190.thread
 
-._crit_edge190.thread:                            ; preds = %._crit_edge190.thread.critedge, %free_global_stats.exit, %795, %._crit_edge190
+._crit_edge190.thread:                            ; preds = %._crit_edge190.thread.critedge, %795, %._crit_edge190
   %.sroa.0.0.copyload = load i64, ptr %17, align 8
   br label %798
 

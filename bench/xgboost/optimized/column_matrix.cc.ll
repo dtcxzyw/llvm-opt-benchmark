@@ -535,26 +535,23 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %109, %120, %143, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
   store ptr null, ptr %7, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
-  br i1 %exitcond.not, label %._crit_edge, label %109, !llvm.loop !5
+  br i1 %exitcond.not, label %.noexc63, label %109, !llvm.loop !5
 
 144:                                              ; preds = %141, %139
   %.pn54 = phi { ptr, i32 } [ %140, %139 ], [ %142, %141 ]
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-._crit_edge:                                      ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  br i1 %.not141, label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit, label %.noexc63
-
-.noexc63:                                         ; preds = %._crit_edge
+.noexc63:                                         ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %145 = shl nuw nsw i64 %30, 3
   %146 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %145) #26
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %146, i8 0, i64 %145, i1 false)
   %147 = getelementptr inbounds i64, ptr %146, i64 %30
   br label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
 
-_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit, %.noexc63, %._crit_edge
-  %.sroa.11.0 = phi ptr [ null, %._crit_edge ], [ %147, %.noexc63 ], [ null, %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit ]
-  %.sroa.0.0 = phi ptr [ null, %._crit_edge ], [ %146, %.noexc63 ], [ null, %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit ]
+_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit, %.noexc63
+  %.sroa.11.0 = phi ptr [ %147, %.noexc63 ], [ null, %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit ]
+  %.sroa.0.0 = phi ptr [ %146, %.noexc63 ], [ null, %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit ]
   %148 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %.noexc65 unwind label %.loopexit.split-lp
 

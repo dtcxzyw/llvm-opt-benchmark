@@ -640,16 +640,13 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %327 = phi i32 [ %323, %sub_1 ], [ %326, %sub_2 ]
   %328 = icmp eq i32 %327, 0
-  br i1 %328, label %329, label %sub_0193
+  br i1 %328, label %329, label %sub_1194
 
 329:                                              ; preds = %.tail
   %330 = and i32 %.0127256, -33
   br label %418
 
-sub_0193:                                         ; preds = %.tail
-  br i1 %.not263, label %sub_1194, label %.tail192
-
-sub_1194:                                         ; preds = %sub_0193
+sub_1194:                                         ; preds = %.tail
   %331 = getelementptr inbounds i8, ptr %154, i64 1
   %332 = load i8, ptr %331, align 1
   %333 = zext i8 %332 to i32
@@ -663,8 +660,8 @@ sub_2195:                                         ; preds = %sub_1194
   %337 = zext i8 %336 to i32
   br label %.tail192
 
-.tail192:                                         ; preds = %sub_0, %sub_0193, %sub_1194, %sub_2195
-  %338 = phi i32 [ %319, %sub_0193 ], [ %334, %sub_1194 ], [ %337, %sub_2195 ], [ %319, %sub_0 ]
+.tail192:                                         ; preds = %sub_0, %sub_1194, %sub_2195
+  %338 = phi i32 [ %334, %sub_1194 ], [ %337, %sub_2195 ], [ %319, %sub_0 ]
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %349, label %sub_0198
 
@@ -688,16 +685,13 @@ sub_2200:                                         ; preds = %sub_1199
 .tail197:                                         ; preds = %sub_1199, %sub_2200
   %347 = phi i32 [ %343, %sub_1199 ], [ %346, %sub_2200 ]
   %348 = icmp eq i32 %347, 0
-  br i1 %348, label %349, label %sub_0203
+  br i1 %348, label %349, label %sub_1204
 
 349:                                              ; preds = %.tail197, %.tail192
   %350 = and i32 %.0127256, -49
   br label %418
 
-sub_0203:                                         ; preds = %.tail197
-  br i1 %.not263, label %sub_1204, label %.tail202
-
-sub_1204:                                         ; preds = %sub_0203
+sub_1204:                                         ; preds = %.tail197
   %351 = getelementptr inbounds i8, ptr %154, i64 1
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
@@ -711,8 +705,8 @@ sub_2205:                                         ; preds = %sub_1204
   %357 = zext i8 %356 to i32
   br label %.tail202
 
-.tail202:                                         ; preds = %sub_0198, %sub_0203, %sub_1204, %sub_2205
-  %358 = phi i32 [ %319, %sub_0203 ], [ %354, %sub_1204 ], [ %357, %sub_2205 ], [ %319, %sub_0198 ]
+.tail202:                                         ; preds = %sub_0198, %sub_1204, %sub_2205
+  %358 = phi i32 [ %354, %sub_1204 ], [ %357, %sub_2205 ], [ %319, %sub_0198 ]
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %362
 
@@ -1615,18 +1609,18 @@ define internal void @data_callback(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not.i, label %expand_flags.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 expand_flags.exit.loopexit:                       ; preds = %77
-  %.pre104 = load ptr, ptr @options_data, align 8
-  %.pre105 = load i32, ptr @parse_options_idx, align 4
-  %.phi.trans.insert106 = sext i32 %.pre105 to i64
-  %.phi.trans.insert107 = getelementptr inbounds %struct.options_data_t, ptr %.pre104, i64 %.phi.trans.insert106, i32 8
-  %.pre108 = load ptr, ptr %.phi.trans.insert107, align 8
+  %.pre107 = load ptr, ptr @options_data, align 8
+  %.pre108 = load i32, ptr @parse_options_idx, align 4
+  %.phi.trans.insert109 = sext i32 %.pre108 to i64
+  %.phi.trans.insert110 = getelementptr inbounds %struct.options_data_t, ptr %.pre107, i64 %.phi.trans.insert109, i32 8
+  %.pre111 = load ptr, ptr %.phi.trans.insert110, align 8
   br label %expand_flags.exit
 
 expand_flags.exit:                                ; preds = %expand_flags.exit.loopexit, %57
-  %.pre-phi109 = phi i64 [ %.phi.trans.insert106, %expand_flags.exit.loopexit ], [ %68, %57 ]
-  %80 = phi ptr [ %.pre108, %expand_flags.exit.loopexit ], [ %70, %57 ]
-  %81 = phi ptr [ %.pre104, %expand_flags.exit.loopexit ], [ %66, %57 ]
-  %82 = getelementptr inbounds %struct.options_data_t, ptr %81, i64 %.pre-phi109, i32 8
+  %.pre-phi112 = phi i64 [ %.phi.trans.insert109, %expand_flags.exit.loopexit ], [ %68, %57 ]
+  %80 = phi ptr [ %.pre111, %expand_flags.exit.loopexit ], [ %70, %57 ]
+  %81 = phi ptr [ %.pre107, %expand_flags.exit.loopexit ], [ %66, %57 ]
+  %82 = getelementptr inbounds %struct.options_data_t, ptr %81, i64 %.pre-phi112, i32 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %83 = tail call i32 @opal_argv_count(ptr noundef %80) #16
   store i32 %83, ptr %4, align 4
@@ -1652,8 +1646,8 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
   %93 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %94) #19
-  %.not111 = icmp ne i32 %95, 0
-  br i1 %.not111, label %90, label %96
+  %.not.not22.i.not.not.not.not.not = icmp ne i32 %95, 0
+  br i1 %.not.not22.i.not.not.not.not.not, label %90, label %96
 
 96:                                               ; preds = %92
   %97 = call i32 @opal_argv_delete(ptr noundef nonnull %4, ptr noundef nonnull %82, i32 noundef %.01218.i, i32 noundef 1) #16
@@ -1662,7 +1656,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
 
 .loopexit.i:                                      ; preds = %90, %96
   %98 = phi i32 [ %.pre.i, %96 ], [ %85, %90 ]
-  %99 = zext i1 %.not111 to i32
+  %99 = zext i1 %.not.not22.i.not.not.not.not.not to i32
   %spec.select.i = add nuw nsw i32 %.01218.i, %99
   %100 = icmp slt i32 %spec.select.i, %98
   br i1 %100, label %.lr.ph.i79, label %filter_flags.exit, !llvm.loop !14
@@ -1718,26 +1712,26 @@ filter_flags.exit:                                ; preds = %.loopexit.i, %expan
 
 expand_flags.exit86.loopexit:                     ; preds = %124
   %.pre = load ptr, ptr @options_data, align 8
-  %.pre101 = load i32, ptr @parse_options_idx, align 4
-  %.phi.trans.insert = sext i32 %.pre101 to i64
-  %.phi.trans.insert102 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert, i32 9
-  %.pre103 = load ptr, ptr %.phi.trans.insert102, align 8
+  %.pre104 = load i32, ptr @parse_options_idx, align 4
+  %.phi.trans.insert = sext i32 %.pre104 to i64
+  %.phi.trans.insert105 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert, i32 9
+  %.pre106 = load ptr, ptr %.phi.trans.insert105, align 8
   br label %expand_flags.exit86
 
 expand_flags.exit86:                              ; preds = %expand_flags.exit86.loopexit, %104
   %.pre-phi = phi i64 [ %.phi.trans.insert, %expand_flags.exit86.loopexit ], [ %115, %104 ]
-  %127 = phi ptr [ %.pre103, %expand_flags.exit86.loopexit ], [ %117, %104 ]
+  %127 = phi ptr [ %.pre106, %expand_flags.exit86.loopexit ], [ %117, %104 ]
   %128 = phi ptr [ %.pre, %expand_flags.exit86.loopexit ], [ %113, %104 ]
   %129 = getelementptr inbounds %struct.options_data_t, ptr %128, i64 %.pre-phi, i32 9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %130 = tail call i32 @opal_argv_count(ptr noundef %127) #16
   store i32 %130, ptr %3, align 4
   %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %.lr.ph.i87, label %filter_flags.exit94
+  br i1 %131, label %.lr.ph.i87, label %filter_flags.exit95
 
-.lr.ph.i87:                                       ; preds = %expand_flags.exit86, %.loopexit.i91
-  %132 = phi i32 [ %145, %.loopexit.i91 ], [ %130, %expand_flags.exit86 ]
-  %.01218.i88 = phi i32 [ %spec.select.i92, %.loopexit.i91 ], [ 0, %expand_flags.exit86 ]
+.lr.ph.i87:                                       ; preds = %expand_flags.exit86, %.loopexit.i92
+  %132 = phi i32 [ %145, %.loopexit.i92 ], [ %130, %expand_flags.exit86 ]
+  %.01218.i88 = phi i32 [ %spec.select.i93, %.loopexit.i92 ], [ 0, %expand_flags.exit86 ]
   %133 = load ptr, ptr %129, align 8
   %134 = zext nneg i32 %.01218.i88 to i64
   %135 = getelementptr inbounds ptr, ptr %133, i64 %134
@@ -1746,30 +1740,30 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
 
 137:                                              ; preds = %139
   %138 = add nuw nsw i64 %.01116.i89, 1
-  %.not.not.i93 = icmp eq i64 %138, 3
-  br i1 %.not.not.i93, label %.loopexit.i91, label %139, !llvm.loop !13
+  %.not.not.i94 = icmp eq i64 %138, 3
+  br i1 %.not.not.i94, label %.loopexit.i92, label %139, !llvm.loop !13
 
 139:                                              ; preds = %137, %.lr.ph.i87
   %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %138, %137 ]
   %140 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i89
   %141 = load ptr, ptr %140, align 8
   %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) %141) #19
-  %.not110 = icmp ne i32 %142, 0
-  br i1 %.not110, label %137, label %143
+  %.not.not22.i90.not.not.not.not.not = icmp ne i32 %142, 0
+  br i1 %.not.not22.i90.not.not.not.not.not, label %137, label %143
 
 143:                                              ; preds = %139
   %144 = call i32 @opal_argv_delete(ptr noundef nonnull %3, ptr noundef nonnull %129, i32 noundef %.01218.i88, i32 noundef 1) #16
-  %.pre.i90 = load i32, ptr %3, align 4
-  br label %.loopexit.i91
+  %.pre.i91 = load i32, ptr %3, align 4
+  br label %.loopexit.i92
 
-.loopexit.i91:                                    ; preds = %137, %143
-  %145 = phi i32 [ %.pre.i90, %143 ], [ %132, %137 ]
-  %146 = zext i1 %.not110 to i32
-  %spec.select.i92 = add nuw nsw i32 %.01218.i88, %146
-  %147 = icmp slt i32 %spec.select.i92, %145
-  br i1 %147, label %.lr.ph.i87, label %filter_flags.exit94, !llvm.loop !14
+.loopexit.i92:                                    ; preds = %137, %143
+  %145 = phi i32 [ %.pre.i91, %143 ], [ %132, %137 ]
+  %146 = zext i1 %.not.not22.i90.not.not.not.not.not to i32
+  %spec.select.i93 = add nuw nsw i32 %.01218.i88, %146
+  %147 = icmp slt i32 %spec.select.i93, %145
+  br i1 %147, label %.lr.ph.i87, label %filter_flags.exit95, !llvm.loop !14
 
-filter_flags.exit94:                              ; preds = %.loopexit.i91, %expand_flags.exit86
+filter_flags.exit95:                              ; preds = %.loopexit.i92, %expand_flags.exit86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @opal_argv_free(ptr noundef %105) #16
   br label %311
@@ -2029,7 +2023,7 @@ filter_flags.exit94:                              ; preds = %.loopexit.i91, %exp
   store ptr %306, ptr %310, align 8
   br label %311
 
-311:                                              ; preds = %18, %17, %38, %37, %filter_flags.exit, %151, %189, %222, %245, %244, %265, %264, %285, %284, %301, %305, %294, %295, %274, %275, %254, %255, %234, %235, %210, %168, %filter_flags.exit94, %47, %48, %27, %28, %13
+311:                                              ; preds = %18, %17, %38, %37, %filter_flags.exit, %151, %189, %222, %245, %244, %265, %264, %285, %284, %301, %305, %294, %295, %274, %275, %254, %255, %234, %235, %210, %168, %filter_flags.exit95, %47, %48, %27, %28, %13
   ret void
 }
 
@@ -2155,7 +2149,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.loopexit
-  %6 = phi i32 [ %20, %.loopexit ], [ %4, %1 ]
+  %6 = phi i32 [ %19, %.loopexit ], [ %4, %1 ]
   %.01218 = phi i32 [ %spec.select, %.loopexit ], [ 0, %1 ]
   %7 = load ptr, ptr %0, align 8
   %8 = zext nneg i32 %.01218 to i64
@@ -2173,20 +2167,20 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr inbounds [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %15) #19
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %11, label %18
+  %.not.not22.not.not = icmp ne i32 %16, 0
+  br i1 %.not.not22.not.not, label %11, label %17
 
-18:                                               ; preds = %13
-  %19 = call i32 @opal_argv_delete(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %.01218, i32 noundef 1) #16
+17:                                               ; preds = %13
+  %18 = call i32 @opal_argv_delete(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %.01218, i32 noundef 1) #16
   %.pre = load i32, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %18
-  %20 = phi i32 [ %.pre, %18 ], [ %6, %11 ]
-  %21 = zext i1 %17 to i32
-  %spec.select = add nuw nsw i32 %.01218, %21
-  %22 = icmp slt i32 %spec.select, %20
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+.loopexit:                                        ; preds = %11, %17
+  %19 = phi i32 [ %.pre, %17 ], [ %6, %11 ]
+  %20 = zext i1 %.not.not22.not.not to i32
+  %spec.select = add nuw nsw i32 %.01218, %20
+  %21 = icmp slt i32 %spec.select, %19
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void

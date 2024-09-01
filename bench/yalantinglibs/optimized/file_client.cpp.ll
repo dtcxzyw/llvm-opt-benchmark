@@ -26039,7 +26039,6 @@ do.body:                                          ; preds = %do.body.backedge, %
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body
-  %cmp11.i.i = phi i1 [ true, %do.body ], [ %cmp.i.i, %for.inc.i.i ]
   %__i.010.i.i = phi i32 [ 0, %do.body ], [ %inc.i.i, %for.inc.i.i ]
   %1 = load atomic i32, ptr %__pred.coerce acquire, align 4
   %cmp.i.i.i.i = icmp eq i32 %1, 0
@@ -26049,7 +26048,7 @@ _ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i: ; preds = %for.bo
   %sub.i.i.i.i = add nsw i32 %1, -1
   %2 = cmpxchg ptr %__pred.coerce, i32 %1, i32 %sub.i.i.i.i acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit, label %if.end.i.i
+  br i1 %3, label %do.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i, %for.body.i.i
   %cmp1.i.i = icmp ult i32 %__i.010.i.i, 12
@@ -26065,15 +26064,10 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then2.i.i
   %inc.i.i = add nuw nsw i32 %__i.010.i.i, 1
-  %cmp.i.i = icmp ult i32 %__i.010.i.i, 15
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit, label %for.body.i.i, !llvm.loop !447
+  br i1 %exitcond.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !447
 
-_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit: ; preds = %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i, %for.inc.i.i
-  %cmp.lcssa.i.i = phi i1 [ %cmp.i.i, %for.inc.i.i ], [ %cmp11.i.i, %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i ]
-  br i1 %cmp.lcssa.i.i, label %do.end, label %if.end
-
-if.end:                                           ; preds = %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit
+if.end:                                           ; preds = %for.inc.i.i
   %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %__addr, i32 noundef 0, i32 noundef %0, ptr null) #28
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit, label %lor.lhs.false.i
@@ -26102,19 +26096,19 @@ terminate.lpad.i:                                 ; preds = %if.then4.i
 
 _ZNSt8__detail15__platform_waitIiEEvPKT_i.exit:   ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false.i
   %7 = load atomic i32, ptr %__pred.coerce acquire, align 4
-  %cmp.i.i2 = icmp eq i32 %7, 0
-  br i1 %cmp.i.i2, label %do.body.backedge, label %if.end.i.i3
+  %cmp.i.i = icmp eq i32 %7, 0
+  br i1 %cmp.i.i, label %do.body.backedge, label %if.end.i.i2
 
-if.end.i.i3:                                      ; preds = %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
+if.end.i.i2:                                      ; preds = %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
   %sub.i.i = add nsw i32 %7, -1
   %8 = cmpxchg ptr %__pred.coerce, i32 %7, i32 %sub.i.i acquire monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
   br i1 %9, label %do.end, label %do.body.backedge
 
-do.body.backedge:                                 ; preds = %if.end.i.i3, %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
+do.body.backedge:                                 ; preds = %if.end.i.i2, %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
   br label %do.body, !llvm.loop !448
 
-do.end:                                           ; preds = %if.end.i.i3, %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit
+do.end:                                           ; preds = %if.end.i.i2, %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i
   ret void
 }
 

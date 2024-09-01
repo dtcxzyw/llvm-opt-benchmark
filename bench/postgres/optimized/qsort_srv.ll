@@ -47,9 +47,8 @@ define dso_local void @pg_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   %15 = icmp sgt i32 %14, 0
   %16 = icmp ugt ptr %13, %.0176.ph.lcssa260
   %or.cond = and i1 %15, %16
-  %brmerge = or i1 %or.cond, %12
   %.mux = select i1 %or.cond, ptr %13, ptr %.0178307
-  br i1 %brmerge, label %.lr.ph305.us, label %infloop, !llvm.loop !5
+  br label %.lr.ph305.us, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %.0178308 = phi ptr [ %.0178, %.critedge ], [ %.0178307, %.preheader.lr.ph ]
@@ -483,9 +482,6 @@ pg_qsort_swapn.exit241:                           ; preds = %.lr.ph.i238, %pg_qs
 
 .critedge208:                                     ; preds = %196, %208, %28, %35, %.critedge, %.preheader243
   ret void
-
-infloop:                                          ; preds = %.lr.ph305.us, %infloop
-  br label %infloop
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable

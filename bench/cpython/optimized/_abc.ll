@@ -3438,7 +3438,7 @@ for.inc:                                          ; preds = %if.end33, %if.end26
 
 for.end:                                          ; preds = %for.inc, %for.body, %Py_DECREF.exit57, %if.then35, %if.end39
   %ret.0 = phi i32 [ 1, %if.end39 ], [ -1, %if.then35 ], [ 0, %for.inc ], [ -1, %for.body ], [ -1, %Py_DECREF.exit57 ]
-  br i1 %cmp2146, label %for.body44, label %for.end48
+  br label %for.body44
 
 for.body44:                                       ; preds = %for.end, %for.inc46
   %i.251 = phi i64 [ %inc47, %for.inc46 ], [ 0, %for.end ]
@@ -3464,8 +3464,8 @@ for.inc46:                                        ; preds = %if.end.i, %if.then1
   %exitcond52.not = icmp eq i64 %inc47, %call9
   br i1 %exitcond52.not, label %for.end48, label %for.body44, !llvm.loop !14
 
-for.end48:                                        ; preds = %for.inc46, %for.cond.preheader, %for.end
-  %ret.054 = phi i32 [ %ret.0, %for.end ], [ 0, %for.cond.preheader ], [ %ret.0, %for.inc46 ]
+for.end48:                                        ; preds = %for.inc46, %for.cond.preheader
+  %ret.054 = phi i32 [ 0, %for.cond.preheader ], [ %ret.0, %for.inc46 ]
   call void @PyMem_Free(ptr noundef nonnull %call13) #4
   br label %return
 

@@ -4260,84 +4260,80 @@ define noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull ali
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = icmp ne ptr %spec.select, %3
-  br i1 %9, label %10, label %._crit_edge.thread
+  %.not18 = icmp eq ptr %spec.select, %3
+  br i1 %.not18, label %._crit_edge.thread, label %9
 
-10:                                               ; preds = %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %spec.select, i64 16
-  %14 = icmp ne ptr %12, %13
-  %or.cond = or i1 %14, %.not12
-  br i1 %or.cond, label %24, label %15
+9:                                                ; preds = %._crit_edge
+  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %.not19 = icmp eq ptr %11, %12
+  br i1 %.not19, label %13, label %22
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %4, i64 172
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.sink.split, label %.preheader
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %4, i64 172
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %15, %19
-  %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %19 ], [ %3, %15 ]
+.preheader:                                       ; preds = %13, %17
+  %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %3, %13 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %3
-  br i1 %.not.i.i, label %.sink.split, label %19
+  br i1 %.not.i.i, label %.sink.split, label %17
 
-19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 172
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %17
-  br i1 %22, label %.split.loop.exit9.i.i, label %.preheader
+17:                                               ; preds = %.preheader
+  %18 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 172
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, %15
+  br i1 %20, label %.split.loop.exit9.i.i, label %.preheader
 
-.split.loop.exit9.i.i:                            ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 16
+.split.loop.exit9.i.i:                            ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 16
   br label %.sink.split
 
-24:                                               ; preds = %10
-  br i1 %.not12, label %.sink.split, label %25
+.sink.split:                                      ; preds = %.preheader, %.split.loop.exit9.i.i, %13
+  %.sink = phi ptr [ null, %13 ], [ %21, %.split.loop.exit9.i.i ], [ null, %.preheader ]
+  store ptr %.sink, ptr %10, align 8
+  br label %22
 
-.sink.split:                                      ; preds = %.preheader, %24, %.split.loop.exit9.i.i, %15
-  %.sink = phi ptr [ null, %15 ], [ %23, %.split.loop.exit9.i.i ], [ null, %24 ], [ null, %.preheader ]
-  store ptr %.sink, ptr %11, align 8
-  br label %25
-
-25:                                               ; preds = %.sink.split, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, -1
-  store i64 %28, ptr %26, align 8
+22:                                               ; preds = %9, %.sink.split
+  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = load i64, ptr %23, align 8
+  %25 = add i64 %24, -1
+  store i64 %25, ptr %23, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %spec.select) #28
-  %29 = getelementptr inbounds i8, ptr %spec.select, i64 176
-  %30 = load ptr, ptr %29, align 8
-  %31 = load atomic i32, ptr %30 monotonic, align 4
-  switch i32 %31, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i [
+  %26 = getelementptr inbounds i8, ptr %spec.select, i64 176
+  %27 = load ptr, ptr %26, align 8
+  %28 = load atomic i32, ptr %27 monotonic, align 4
+  switch i32 %28, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
     i32 -1, label %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i:  ; preds = %25
-  %32 = atomicrmw sub ptr %30, i32 1 seq_cst, align 4
-  %.not.i.i.i.i.i.i = icmp eq i32 %32, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i:  ; preds = %22
+  %29 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i.i.i.i.i = icmp eq i32 %29, 1
   br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i, label %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i = load ptr, ptr %29, align 8
+  %.pre.i.i.i.i.i.i = load ptr, ptr %26, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i, %25
-  %33 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i ], [ %30, %25 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %33, i64 noundef 2, i64 noundef 8) #28
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i, %22
+  %30 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i.i.i ], [ %27, %22 ]
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %30, i64 noundef 2, i64 noundef 8) #28
   br label %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit
 
-_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit: ; preds = %25, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
-  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %13) #28
+_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit: ; preds = %22, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i
+  tail call void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %12) #28
   tail call void @_ZdlPv(ptr noundef nonnull %spec.select) #27
   tail call void @_ZN12MeshDocument16rasterSetChangedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit
-  %34 = phi i1 [ false, %._crit_edge ], [ %9, %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit ], [ false, %2 ]
-  ret i1 %34
+  %31 = phi i1 [ false, %._crit_edge ], [ true, %_ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit ], [ false, %2 ]
+  ret i1 %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5608,8 +5604,8 @@ define noundef zeroext i1 @_ZNK12MeshDocument15hasBeenModifiedEv(ptr noundef non
 3:                                                ; preds = %4, %1
   %.sroa.05.0.in = phi ptr [ %2, %1 ], [ %.sroa.05.0, %4 ]
   %.sroa.05.0 = load ptr, ptr %.sroa.05.0.in, align 8
-  %.not = icmp ne ptr %.sroa.05.0, %2
-  br i1 %.not, label %4, label %7
+  %.not.not.not.not.not = icmp ne ptr %.sroa.05.0, %2
+  br i1 %.not.not.not.not.not, label %4, label %7
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 16
@@ -5617,7 +5613,7 @@ define noundef zeroext i1 @_ZNK12MeshDocument15hasBeenModifiedEv(ptr noundef non
   br i1 %6, label %7, label %3
 
 7:                                                ; preds = %3, %4
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZNK9MeshModel12meshModifiedEv(ptr noundef nonnull align 8 dereferenceable(1288)) local_unnamed_addr #0

@@ -2709,29 +2709,22 @@ define range(i32 0, 2) i32 @H5Z_filter_in_pline(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %1
-  br i1 %8, label %._crit_edge, label %.lr.ph13
+  br label %9
 
-.lr.ph13:                                         ; preds = %.lr.ph, %10
-  %.08912 = phi i64 [ %9, %10 ], [ 0, %.lr.ph ]
-  %9 = add nuw i64 %.08912, 1
-  %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %._crit_edge.loopexit.loopexit, label %10
+7:                                                ; preds = %9
+  %8 = add nuw i64 %.089, 1
+  %exitcond.not = icmp eq i64 %8, %4
+  br i1 %exitcond.not, label %._crit_edge, label %9
 
-10:                                               ; preds = %.lr.ph13
-  %11 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %6, i64 %9
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %1
-  br i1 %13, label %._crit_edge.loopexit.loopexit, label %.lr.ph13
+9:                                                ; preds = %.lr.ph, %7
+  %.089 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
+  %10 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %6, i64 %.089
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, %1
+  br i1 %12, label %._crit_edge, label %7
 
-._crit_edge.loopexit.loopexit:                    ; preds = %10, %.lr.ph13
-  %14 = icmp ult i64 %9, %4
-  %15 = zext i1 %14 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit.loopexit, %2
-  %.lcssa = phi i32 [ 0, %2 ], [ 1, %.lr.ph ], [ %15, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %7, %9, %2
+  %.lcssa = phi i32 [ 0, %2 ], [ 1, %9 ], [ 0, %7 ]
   ret i32 %.lcssa
 }
 

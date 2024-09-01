@@ -1126,16 +1126,16 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
 ._crit_edge31.i:                                  ; preds = %._crit_edge29.split.us33.i, %._crit_edge29.split.us.us.us.i
   %.not285.i = xor i1 %193, true
   %or.cond.not.i = or i1 %187, %.not285.i
-  br i1 %or.cond.not.i, label %.lr.ph49.preheader.i, label %.preheader4.lr.ph.i
+  br i1 %or.cond.not.i, label %.loopexit6.i, label %.preheader4.lr.ph.i
 
 ._crit_edge31.i.thread:                           ; preds = %.preheader7.lr.ph.i
   %.not285.i149 = xor i1 %193, true
   %or.cond.not.i150 = or i1 %187, %.not285.i149
-  br label %.lr.ph49.preheader.i
+  br label %.loopexit6.i
 
 .preheader4.lr.ph.i:                              ; preds = %._crit_edge31.i
   %wide.trip.count136.i = zext nneg i32 %466 to i64
-  br i1 %467, label %.preheader4.i.us, label %.lr.ph49.preheader.i
+  br label %.preheader4.i.us
 
 .preheader4.i.us:                                 ; preds = %.preheader4.lr.ph.i, %._crit_edge45.i.loopexit.us
   %indvars.iv143.i.us = phi i64 [ %indvars.iv.next144.i.us, %._crit_edge45.i.loopexit.us ], [ 0, %.preheader4.lr.ph.i ]
@@ -1185,14 +1185,14 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
 ._crit_edge45.i.loopexit.us:                      ; preds = %522
   %indvars.iv.next144.i.us = add nuw nsw i64 %indvars.iv143.i.us, 1
   %exitcond147.not.i.us = icmp eq i64 %indvars.iv.next144.i.us, %wide.trip.count103.i
-  br i1 %exitcond147.not.i.us, label %.lr.ph49.preheader.i, label %.preheader4.i.us, !llvm.loop !18
+  br i1 %exitcond147.not.i.us, label %.loopexit6.i, label %.preheader4.i.us, !llvm.loop !18
 
-.lr.ph49.preheader.i:                             ; preds = %._crit_edge45.i.loopexit.us, %._crit_edge31.i.thread, %.preheader4.lr.ph.i, %._crit_edge31.i
-  %or.cond.not.i152 = phi i1 [ true, %._crit_edge31.i ], [ false, %.preheader4.lr.ph.i ], [ %or.cond.not.i150, %._crit_edge31.i.thread ], [ false, %._crit_edge45.i.loopexit.us ]
+.loopexit6.i:                                     ; preds = %._crit_edge45.i.loopexit.us, %._crit_edge31.i.thread, %._crit_edge31.i
+  %or.cond.not.i152 = phi i1 [ true, %._crit_edge31.i ], [ %or.cond.not.i150, %._crit_edge31.i.thread ], [ false, %._crit_edge45.i.loopexit.us ]
   br label %.lr.ph49.i
 
-.lr.ph49.i:                                       ; preds = %.lr.ph49.i, %.lr.ph49.preheader.i
-  %indvars.iv148.i = phi i64 [ 0, %.lr.ph49.preheader.i ], [ %indvars.iv.next149.i, %.lr.ph49.i ]
+.lr.ph49.i:                                       ; preds = %.lr.ph49.i, %.loopexit6.i
+  %indvars.iv148.i = phi i64 [ 0, %.loopexit6.i ], [ %indvars.iv.next149.i, %.lr.ph49.i ]
   %523 = getelementptr inbounds ptr, ptr %222, i64 %indvars.iv148.i
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv148.i
@@ -1278,12 +1278,12 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   %exitcond167.not.i.us = icmp eq i64 %indvars.iv.next164.i.us, %wide.trip.count103.i
   br i1 %exitcond167.not.i.us, label %.lr.ph66.i.preheader, label %.preheader2.i.us, !llvm.loop !22
 
-.preheader.lr.ph.i:                               ; preds = %.lr.ph66.i
+.preheader1.i:                                    ; preds = %.lr.ph66.i
   %557 = load i32, ptr @_ZZ13gmx_potentialiPPcE7nslices, align 4
   %558 = icmp sgt i32 %557, 0
   br i1 %558, label %.preheader.lr.ph.split.us.i, label %._crit_edge71.i
 
-.preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
+.preheader.lr.ph.split.us.i:                      ; preds = %.preheader1.i
   %wide.trip.count186.i = zext nneg i32 %557 to i64
   br i1 %187, label %.preheader.us.us.i, label %.preheader.us.i
 
@@ -1363,9 +1363,9 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   call fastcc void @_ZL11p_integratePdPKdidii(ptr noundef %594, ptr noundef %596, i32 noundef %597, double noundef %463, i32 noundef %194, i32 noundef %195)
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %wide.trip.count103.i
-  br i1 %exitcond172.not.i, label %.preheader.lr.ph.i, label %.lr.ph66.i, !llvm.loop !25
+  br i1 %exitcond172.not.i, label %.preheader1.i, label %.lr.ph66.i, !llvm.loop !25
 
-._crit_edge71.i:                                  ; preds = %._crit_edge69.split.us73.i, %._crit_edge69.split.us.us.us.i, %.preheader.lr.ph.i, %.noexc29
+._crit_edge71.i:                                  ; preds = %._crit_edge69.split.us73.i, %._crit_edge69.split.us.us.us.i, %.preheader1.i, %.noexc29
   %598 = load ptr, ptr %27, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.46, i32 noundef 424, ptr noundef %598)
           to label %599 unwind label %.loopexit.split-lp107.loopexit.split-lp

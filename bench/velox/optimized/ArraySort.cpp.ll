@@ -21776,7 +21776,6 @@ if.end.i87:                                       ; preds = %if.else
   br i1 %cmp2.i90, label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146.thread236, label %if.end8.i91
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146.thread236: ; preds = %if.end.i87
-  %div.i129 = ashr i32 %add17, 6
   %sub.i130 = and i32 %add17, 63
   %sh_prom.i.i131 = zext nneg i32 %sub.i130 to i64
   %notmask.i.i132 = shl nsw i64 -1, %sh_prom.i.i131
@@ -21789,12 +21788,7 @@ _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES
   %sh_prom.i24.i139 = zext nneg i32 %sub.i23.i138 to i64
   %shl.i.i140 = shl i64 %sub.i.i.i137, %sh_prom.i24.i139
   %and7.i141 = and i64 %shl.i.i140, %sub.i22.i133
-  %idxprom.i.i143 = sext i32 %div.i129 to i64
-  %arrayidx.i.i144 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom.i.i143
-  %54 = load i64, ptr %arrayidx.i.i144, align 8
-  %or.i.i145 = or i64 %54, %and7.i141
-  store i64 %or.i.i145, ptr %arrayidx.i.i144, align 8
-  br label %if.end.i148
+  br label %if.end.i148.sink.split
 
 if.end8.i91:                                      ; preds = %if.end.i87
   %cmp9.not.i92 = icmp eq i32 %5, %mul.i.i89
@@ -21811,8 +21805,8 @@ if.then10.i93:                                    ; preds = %if.end8.i91
   %shl.i30.i101 = shl i64 %sub.i.i27.i98, %sh_prom.i29.i100
   %idxprom.i38.i102 = sext i32 %div11.i94 to i64
   %arrayidx.i39.i103 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom.i38.i102
-  %55 = load i64, ptr %arrayidx.i39.i103, align 8
-  %or.i40.i104 = or i64 %55, %shl.i30.i101
+  %54 = load i64, ptr %arrayidx.i39.i103, align 8
+  %or.i40.i104 = or i64 %54, %shl.i30.i101
   store i64 %or.i40.i104, ptr %arrayidx.i39.i103, align 8
   br label %if.end14.i105
 
@@ -21834,30 +21828,31 @@ for.body.i109:                                    ; preds = %if.end14.i105, %for
 
 for.end.i117:                                     ; preds = %for.body.i109, %if.end14.i105
   %cmp18.not.i118 = icmp eq i32 %add17, %53
-  br i1 %cmp18.not.i118, label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146, label %if.then19.i119
+  br i1 %cmp18.not.i118, label %if.end.i148, label %if.then19.i119
 
 if.then19.i119:                                   ; preds = %for.end.i117
-  %div20.i120 = ashr i32 %add17, 6
   %sub21.i121 = and i32 %add17, 63
   %sh_prom.i44.i122 = zext nneg i32 %sub21.i121 to i64
   %notmask.i45.i123 = shl nsw i64 -1, %sh_prom.i44.i122
   %sub.i46.i124 = xor i64 %notmask.i45.i123, -1
-  %idxprom.i54.i125 = sext i32 %div20.i120 to i64
+  br label %if.end.i148.sink.split
+
+if.end.i148.sink.split:                           ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146.thread236, %if.then19.i119
+  %sub.i46.i124.sink = phi i64 [ %sub.i46.i124, %if.then19.i119 ], [ %and7.i141, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146.thread236 ]
+  %div20.i120.sink = ashr i32 %add17, 6
+  %idxprom.i54.i125 = sext i32 %div20.i120.sink to i64
   %arrayidx.i55.i126 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom.i54.i125
-  %56 = load i64, ptr %arrayidx.i55.i126, align 8
-  %or.i56.i127 = or i64 %56, %sub.i46.i124
+  %55 = load i64, ptr %arrayidx.i55.i126, align 8
+  %or.i56.i127 = or i64 %55, %sub.i46.i124.sink
   store i64 %or.i56.i127, ptr %arrayidx.i55.i126, align 8
-  br i1 %cmp.not.i86, label %if.end.i148, label %if.end18
+  br label %if.end.i148
 
-_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146: ; preds = %for.end.i117
-  br i1 %cmp.not.i86, label %if.end.i148, label %if.end18
-
-if.end.i148:                                      ; preds = %if.then19.i119, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146.thread236, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146
+if.end.i148:                                      ; preds = %if.end.i148.sink.split, %for.end.i117
   %add.i.i149 = add i32 %sub15, 63
-  %57 = srem i32 %add.i.i149, 64
-  %mul.i.i150 = sub nsw i32 %add.i.i149, %57
-  %58 = and i32 %sub12, -64
-  %cmp2.i151 = icmp slt i32 %58, %mul.i.i150
+  %56 = srem i32 %add.i.i149, 64
+  %mul.i.i150 = sub nsw i32 %add.i.i149, %56
+  %57 = and i32 %sub12, -64
+  %cmp2.i151 = icmp slt i32 %57, %mul.i.i150
   br i1 %cmp2.i151, label %if.then3.i189, label %if.end8.i152
 
 if.then3.i189:                                    ; preds = %if.end.i148
@@ -21876,8 +21871,8 @@ if.then3.i189:                                    ; preds = %if.end.i148
   %not.i.i203 = or i64 %notmask.i.i193, %shl.i.i201.not
   %idxprom2.i.i204 = sext i32 %div.i190 to i64
   %arrayidx3.i.i205 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom2.i.i204
-  %59 = load i64, ptr %arrayidx3.i.i205, align 8
-  %and4.i.i206 = and i64 %59, %not.i.i203
+  %58 = load i64, ptr %arrayidx3.i.i205, align 8
+  %and4.i.i206 = and i64 %58, %not.i.i203
   store i64 %and4.i.i206, ptr %arrayidx3.i.i205, align 8
   br label %if.end18
 
@@ -21897,14 +21892,14 @@ if.then10.i154:                                   ; preds = %if.end8.i152
   %not.i33.i163 = xor i64 %shl.i30.i162, -1
   %idxprom2.i34.i164 = sext i32 %div11.i155 to i64
   %arrayidx3.i35.i165 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom2.i34.i164
-  %60 = load i64, ptr %arrayidx3.i35.i165, align 8
-  %and4.i36.i166 = and i64 %60, %not.i33.i163
+  %59 = load i64, ptr %arrayidx3.i35.i165, align 8
+  %and4.i36.i166 = and i64 %59, %not.i33.i163
   store i64 %and4.i36.i166, ptr %arrayidx3.i35.i165, align 8
   br label %if.end14.i167
 
 if.end14.i167:                                    ; preds = %if.then10.i154, %if.end8.i152
   %add65.i168 = add nsw i32 %mul.i.i150, 64
-  %cmp15.not66.i169 = icmp sgt i32 %add65.i168, %58
+  %cmp15.not66.i169 = icmp sgt i32 %add65.i168, %57
   br i1 %cmp15.not66.i169, label %for.end.i179, label %for.body.i171
 
 for.body.i171:                                    ; preds = %if.end14.i167, %for.body.i171
@@ -21915,11 +21910,11 @@ for.body.i171:                                    ; preds = %if.end14.i167, %for
   %arrayidx.i43.i176 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom.i42.i175
   store i64 0, ptr %arrayidx.i43.i176, align 8
   %add.i177 = add nsw i32 %add68.i172, 64
-  %cmp15.not.i178 = icmp sgt i32 %add.i177, %58
+  %cmp15.not.i178 = icmp sgt i32 %add.i177, %57
   br i1 %cmp15.not.i178, label %for.end.i179, label %for.body.i171, !llvm.loop !99
 
 for.end.i179:                                     ; preds = %for.body.i171, %if.end14.i167
-  %cmp18.not.i180 = icmp eq i32 %sub12, %58
+  %cmp18.not.i180 = icmp eq i32 %sub12, %57
   br i1 %cmp18.not.i180, label %if.end18, label %if.then19.i181
 
 if.then19.i181:                                   ; preds = %for.end.i179
@@ -21929,12 +21924,12 @@ if.then19.i181:                                   ; preds = %for.end.i179
   %notmask.i45.i185 = shl nsw i64 -1, %sh_prom.i44.i184
   %idxprom2.i50.i186 = sext i32 %div20.i182 to i64
   %arrayidx3.i51.i187 = getelementptr inbounds i64, ptr %call.i, i64 %idxprom2.i50.i186
-  %61 = load i64, ptr %arrayidx3.i51.i187, align 8
-  %and4.i52.i188 = and i64 %61, %notmask.i45.i185
+  %60 = load i64, ptr %arrayidx3.i51.i187, align 8
+  %and4.i52.i188 = and i64 %60, %notmask.i45.i185
   store i64 %and4.i52.i188, ptr %arrayidx3.i51.i187, align 8
   br label %if.end18
 
-if.end18:                                         ; preds = %_ZN8facebook5velox4bits9countBitsEPKmii.exit.thread, %if.else, %if.then19.i119, %if.then19.i181, %for.end.i179, %if.then3.i189, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit146, %if.then19.i65, %for.end.i63, %if.then3.i70, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit, %entry
+if.end18:                                         ; preds = %_ZN8facebook5velox4bits9countBitsEPKmii.exit.thread, %if.else, %if.then19.i181, %for.end.i179, %if.then3.i189, %if.then19.i65, %for.end.i63, %if.then3.i70, %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit, %entry
   ret void
 }
 

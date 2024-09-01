@@ -1629,8 +1629,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit78: ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i72
   %283 = urem i32 %.sroa.0.0.in.sroa.speculate.load..i.i74, 3
   %.not.i5.i75 = icmp eq i32 %283, 0
-  %.170 = select i1 %.not.i5.i75, i32 2, i32 -1
-  %284 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i74, %.170
+  %.164 = select i1 %.not.i5.i75, i32 2, i32 -1
+  %284 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i74, %.164
   %285 = icmp ne i32 %284, -1
   %286 = icmp ne i32 %284, %.sroa.0100.0
   %or.cond = and i1 %285, %286
@@ -1649,8 +1649,8 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %294 = sub i64 %292, %293
   %295 = lshr exact i64 %294, 2
   %296 = and i64 %295, 4294967295
-  %.not156 = icmp ult i64 %indvars.iv.next, %296
-  br i1 %.not156, label %32, label %.loopexit120, !llvm.loop !41
+  %.not144 = icmp ult i64 %indvars.iv.next, %296
+  br i1 %.not144, label %32, label %.loopexit120, !llvm.loop !41
 
 .loopexit120:                                     ; preds = %.critedge, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit31, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit
   %297 = phi i1 [ true, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit ], [ false, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit31 ], [ true, %.critedge ]
@@ -2223,8 +2223,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit74: ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i68
   %248 = urem i32 %.sroa.0.0.in.sroa.speculate.load..i.i70, 3
   %.not.i5.i71 = icmp eq i32 %248, 0
-  %.164 = select i1 %.not.i5.i71, i32 2, i32 -1
-  %249 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i70, %.164
+  %.158 = select i1 %.not.i5.i71, i32 2, i32 -1
+  %249 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i70, %.158
   %250 = icmp ne i32 %249, -1
   %251 = icmp ne i32 %249, %.sroa.093.0
   %or.cond = and i1 %250, %251
@@ -2243,8 +2243,8 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %259 = sub i64 %257, %258
   %260 = lshr exact i64 %259, 2
   %261 = and i64 %260, 4294967295
-  %.not150 = icmp ult i64 %indvars.iv.next, %261
-  br i1 %.not150, label %29, label %.loopexit114, !llvm.loop !64
+  %.not138 = icmp ult i64 %indvars.iv.next, %261
+  br i1 %.not138, label %29, label %.loopexit114, !llvm.loop !64
 
 .loopexit114:                                     ; preds = %.critedge, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit23, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit
   %262 = phi i1 [ true, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.exit ], [ false, %_ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit23 ], [ true, %.critedge ]

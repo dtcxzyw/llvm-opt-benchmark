@@ -8464,7 +8464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 167:                                              ; preds = %.thread, %158
   %168 = phi ptr [ %163, %.thread ], [ %159, %158 ]
-  %.053190 = phi i1 [ false, %.thread ], [ true, %158 ]
+  %.053.not = phi i1 [ true, %.thread ], [ false, %158 ]
   %.056188 = phi i1 [ false, %.thread ], [ %123, %158 ]
   %169 = load ptr, ptr %43, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #24
@@ -8492,10 +8492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89: ; 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #24
-  %.053.not = xor i1 %.053190, true
   %brmerge = or i1 %173, %.053.not
-  %not. = xor i1 %173, true
-  %.mux = and i1 %.053190, %not.
   br i1 %brmerge, label %.thread153.thread166, label %.critedge.thread
 
 174:                                              ; preds = %.noexc85, %167
@@ -8516,7 +8513,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89: ; 
 
 .critedge.thread:                                 ; preds = %158, %.critedge
   %178 = phi ptr [ %168, %.critedge ], [ %159, %158 ]
-  %.053191 = phi i1 [ %.053190, %.critedge ], [ true, %158 ]
   %.056186 = phi i1 [ %.056188, %.critedge ], [ %123, %158 ]
   %179 = getelementptr inbounds i8, ptr %0, i64 849
   %180 = load i8, ptr %179, align 1
@@ -9064,7 +9060,7 @@ _Z18cmRemoveDuplicatesISt6vectorIN20cmFindPackageCommand14ConfigFileInfoESaIS2_E
 
 .thread153.thread166:                             ; preds = %.thread, %182, %418, %.critedge, %148, %152, %.thread153
   %.055137146152158165 = phi i1 [ false, %.thread153 ], [ true, %152 ], [ true, %148 ], [ false, %.critedge ], [ false, %418 ], [ false, %182 ], [ false, %.thread ]
-  %421 = phi i1 [ %.053191, %.thread153 ], [ true, %152 ], [ true, %148 ], [ %.mux, %.critedge ], [ %.053191, %418 ], [ %.053191, %182 ], [ false, %.thread ]
+  %421 = phi i1 [ true, %.thread153 ], [ true, %152 ], [ true, %148 ], [ false, %.critedge ], [ true, %418 ], [ true, %182 ], [ false, %.thread ]
   %422 = phi ptr [ @.str.59, %.thread153 ], [ @.str.58, %152 ], [ @.str.58, %148 ], [ @.str.59, %.critedge ], [ @.str.59, %418 ], [ @.str.59, %182 ], [ @.str.59, %.thread ]
   %423 = load ptr, ptr %43, align 8
   invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %423, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 1, ptr nonnull %422)
@@ -16695,8 +16691,8 @@ define dso_local noundef zeroext i1 @_ZN20cmFindPackageCommand15SearchDirectoryE
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   %27 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 32
-  %.not19 = icmp eq ptr %27, %8
-  br i1 %.not19, label %._crit_edge, label %10
+  %.not18 = icmp eq ptr %27, %8
+  br i1 %.not18, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %26, %25, %2
   %.lcssa = phi i1 [ false, %2 ], [ true, %25 ], [ false, %26 ]

@@ -617,7 +617,7 @@ define noundef i64 @solve_linsys_qdldl(ptr nocapture noundef readonly %0, ptr no
   tail call void @QDLDL_solve(i64 noundef %.pre.i, ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %15, ptr noundef nonnull %19) #10
   br label %.lr.ph26.i
 
-.lr.ph26.i:                                       ; preds = %._crit_edge.loopexit.i, %.lr.ph26.i
+.lr.ph26.i:                                       ; preds = %.lr.ph26.i, %._crit_edge.loopexit.i
   %.124.i = phi i64 [ %40, %.lr.ph26.i ], [ 0, %._crit_edge.loopexit.i ]
   %35 = getelementptr inbounds double, ptr %19, i64 %.124.i
   %36 = load double, ptr %35, align 8
@@ -678,7 +678,7 @@ define noundef i64 @solve_linsys_qdldl(ptr nocapture noundef readonly %0, ptr no
   tail call void @QDLDL_solve(i64 noundef %.pre.i51, ptr noundef %68, ptr noundef %70, ptr noundef %72, ptr noundef %53, ptr noundef nonnull %57) #10
   br label %.lr.ph26.i52
 
-.lr.ph26.i52:                                     ; preds = %._crit_edge.loopexit.i50, %.lr.ph26.i52
+.lr.ph26.i52:                                     ; preds = %.lr.ph26.i52, %._crit_edge.loopexit.i50
   %.124.i53 = phi i64 [ %78, %.lr.ph26.i52 ], [ 0, %._crit_edge.loopexit.i50 ]
   %73 = getelementptr inbounds double, ptr %57, i64 %.124.i53
   %74 = load double, ptr %73, align 8
@@ -779,8 +779,8 @@ define i64 @adjoint_derivative_qdldl(ptr nocapture readnone %0, ptr noundef %1, 
   %14 = add nsw i64 %9, %8
   %15 = add nsw i64 %14, %10
   %reass.add = add i64 %12, %9
-  %reass.add224 = add i64 %reass.add, %13
-  %reass.mul = shl i64 %reass.add224, 1
+  %reass.add223 = add i64 %reass.add, %13
+  %reass.mul = shl i64 %reass.add223, 1
   %16 = add i64 %10, %8
   %17 = add i64 %16, %11
   %18 = add i64 %17, %15
@@ -819,8 +819,8 @@ define i64 @adjoint_derivative_qdldl(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %32
-  %.not221 = icmp eq i64 %29, 0
-  br i1 %.not221, label %_colcount_diag.exit.i, label %.lr.ph.i.i
+  %.not.i = icmp eq i64 %29, 0
+  br i1 %.not.i, label %_colcount_diag.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
@@ -1657,67 +1657,64 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   %541 = icmp ne ptr %539, null
   %542 = icmp ne ptr %540, null
   %or.cond19 = and i1 %541, %542
-  br i1 %or.cond19, label %.preheader228, label %584
+  br i1 %or.cond19, label %.preheader227, label %584
 
-.preheader228:                                    ; preds = %533
+.preheader227:                                    ; preds = %533
   %543 = icmp sgt i64 %15, 0
   br i1 %543, label %.lr.ph, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader228
+._crit_edge.thread:                               ; preds = %.preheader227
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %493, ptr noundef nonnull %529, ptr noundef nonnull %530, ptr noundef nonnull %495, ptr noundef nonnull %540) #10
-  br label %._crit_edge240
+  br label %._crit_edge239
 
-.lr.ph:                                           ; preds = %.preheader228
+.lr.ph:                                           ; preds = %.preheader227
   %544 = load ptr, ptr %6, align 8
   %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %545
 
 545:                                              ; preds = %.lr.ph, %545
-  %.0200236 = phi i64 [ 0, %.lr.ph ], [ %551, %545 ]
-  %546 = getelementptr inbounds i64, ptr %496, i64 %.0200236
+  %.0200235 = phi i64 [ 0, %.lr.ph ], [ %551, %545 ]
+  %546 = getelementptr inbounds i64, ptr %496, i64 %.0200235
   %547 = load i64, ptr %546, align 8
   %548 = getelementptr inbounds double, ptr %544, i64 %547
   %549 = load double, ptr %548, align 8
-  %550 = getelementptr inbounds double, ptr %540, i64 %.0200236
+  %550 = getelementptr inbounds double, ptr %540, i64 %.0200235
   store double %549, ptr %550, align 8
-  %551 = add nuw nsw i64 %.0200236, 1
+  %551 = add nuw nsw i64 %.0200235, 1
   %exitcond.not = icmp eq i64 %551, %smax
   br i1 %exitcond.not, label %._crit_edge, label %545, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %545
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %493, ptr noundef nonnull %529, ptr noundef nonnull %530, ptr noundef nonnull %495, ptr noundef nonnull %540) #10
-  br i1 %543, label %.lr.ph239.preheader, label %._crit_edge240
+  %smax255 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+  br label %.lr.ph238
 
-.lr.ph239.preheader:                              ; preds = %._crit_edge
-  %smax256 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
-  br label %.lr.ph239
-
-.lr.ph239:                                        ; preds = %.lr.ph239.preheader, %.lr.ph239
-  %.1201237 = phi i64 [ %557, %.lr.ph239 ], [ 0, %.lr.ph239.preheader ]
-  %552 = getelementptr inbounds double, ptr %540, i64 %.1201237
+.lr.ph238:                                        ; preds = %._crit_edge, %.lr.ph238
+  %.1201236 = phi i64 [ %557, %.lr.ph238 ], [ 0, %._crit_edge ]
+  %552 = getelementptr inbounds double, ptr %540, i64 %.1201236
   %553 = load double, ptr %552, align 8
-  %554 = getelementptr inbounds i64, ptr %496, i64 %.1201237
+  %554 = getelementptr inbounds i64, ptr %496, i64 %.1201236
   %555 = load i64, ptr %554, align 8
   %556 = getelementptr inbounds double, ptr %539, i64 %555
   store double %553, ptr %556, align 8
-  %557 = add nuw nsw i64 %.1201237, 1
-  %exitcond257.not = icmp eq i64 %557, %smax256
-  br i1 %exitcond257.not, label %._crit_edge240, label %.lr.ph239, !llvm.loop !23
+  %557 = add nuw nsw i64 %.1201236, 1
+  %exitcond256.not = icmp eq i64 %557, %smax255
+  br i1 %exitcond256.not, label %._crit_edge239, label %.lr.ph238, !llvm.loop !23
 
-._crit_edge240:                                   ; preds = %.lr.ph239, %._crit_edge.thread, %._crit_edge
+._crit_edge239:                                   ; preds = %.lr.ph238, %._crit_edge.thread
   %558 = tail call ptr @OSQPVectorf_new(ptr noundef nonnull %539, i64 noundef %20) #10
   %559 = tail call ptr @OSQPVectorf_malloc(i64 noundef %20) #10
   %560 = icmp ne ptr %558, null
   %561 = icmp ne ptr %559, null
   %or.cond21 = select i1 %560, i1 %561, i1 false
-  br i1 %or.cond21, label %.preheader227, label %583
+  br i1 %or.cond21, label %.preheader226, label %583
 
-.preheader227:                                    ; preds = %._crit_edge240
-  %smax258 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+.preheader226:                                    ; preds = %._crit_edge239
+  %smax257 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %562
 
-562:                                              ; preds = %.preheader227, %._crit_edge247
-  %.0248 = phi i64 [ 0, %.preheader227 ], [ %579, %._crit_edge247 ]
+562:                                              ; preds = %.preheader226, %._crit_edge246
+  %.0247 = phi i64 [ 0, %.preheader226 ], [ %579, %._crit_edge246 ]
   tail call void @OSQPVectorf_copy(ptr noundef nonnull %559, ptr noundef %6) #10
   tail call void @OSQPMatrix_Axpy(ptr noundef nonnull %457, ptr noundef nonnull %558, ptr noundef nonnull %559, double noundef 1.000000e+00, double noundef -1.000000e+00) #10
   %563 = tail call double @OSQPVectorf_norm_2(ptr noundef nonnull %559) #10
@@ -1725,56 +1722,56 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   br i1 %564, label %580, label %.preheader
 
 .preheader:                                       ; preds = %562
-  br i1 %543, label %.lr.ph242, label %._crit_edge243.thread
+  br i1 %543, label %.lr.ph241, label %._crit_edge242.thread
 
-._crit_edge243.thread:                            ; preds = %.preheader
+._crit_edge242.thread:                            ; preds = %.preheader
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %493, ptr noundef nonnull %529, ptr noundef nonnull %530, ptr noundef nonnull %495, ptr noundef nonnull %540) #10
-  br label %._crit_edge247
+  br label %._crit_edge246
 
-.lr.ph242:                                        ; preds = %.preheader, %.lr.ph242
-  %.2202241 = phi i64 [ %571, %.lr.ph242 ], [ 0, %.preheader ]
+.lr.ph241:                                        ; preds = %.preheader, %.lr.ph241
+  %.2202240 = phi i64 [ %571, %.lr.ph241 ], [ 0, %.preheader ]
   %565 = load ptr, ptr %559, align 8
-  %566 = getelementptr inbounds i64, ptr %496, i64 %.2202241
+  %566 = getelementptr inbounds i64, ptr %496, i64 %.2202240
   %567 = load i64, ptr %566, align 8
   %568 = getelementptr inbounds double, ptr %565, i64 %567
   %569 = load double, ptr %568, align 8
-  %570 = getelementptr inbounds double, ptr %540, i64 %.2202241
+  %570 = getelementptr inbounds double, ptr %540, i64 %.2202240
   store double %569, ptr %570, align 8
-  %571 = add nuw nsw i64 %.2202241, 1
-  %exitcond259.not = icmp eq i64 %571, %smax258
-  br i1 %exitcond259.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !24
+  %571 = add nuw nsw i64 %.2202240, 1
+  %exitcond258.not = icmp eq i64 %571, %smax257
+  br i1 %exitcond258.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !24
 
-._crit_edge243:                                   ; preds = %.lr.ph242
+._crit_edge242:                                   ; preds = %.lr.ph241
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %493, ptr noundef nonnull %529, ptr noundef nonnull %530, ptr noundef nonnull %495, ptr noundef nonnull %540) #10
-  br i1 %543, label %.lr.ph246, label %._crit_edge247
+  br label %.lr.ph245
 
-.lr.ph246:                                        ; preds = %._crit_edge243, %.lr.ph246
-  %.3203244 = phi i64 [ %578, %.lr.ph246 ], [ 0, %._crit_edge243 ]
-  %572 = getelementptr inbounds double, ptr %540, i64 %.3203244
+.lr.ph245:                                        ; preds = %._crit_edge242, %.lr.ph245
+  %.3203243 = phi i64 [ %578, %.lr.ph245 ], [ 0, %._crit_edge242 ]
+  %572 = getelementptr inbounds double, ptr %540, i64 %.3203243
   %573 = load double, ptr %572, align 8
   %574 = load ptr, ptr %559, align 8
-  %575 = getelementptr inbounds i64, ptr %496, i64 %.3203244
+  %575 = getelementptr inbounds i64, ptr %496, i64 %.3203243
   %576 = load i64, ptr %575, align 8
   %577 = getelementptr inbounds double, ptr %574, i64 %576
   store double %573, ptr %577, align 8
-  %578 = add nuw nsw i64 %.3203244, 1
-  %exitcond261.not = icmp eq i64 %578, %smax258
-  br i1 %exitcond261.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !25
+  %578 = add nuw nsw i64 %.3203243, 1
+  %exitcond260.not = icmp eq i64 %578, %smax257
+  br i1 %exitcond260.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !25
 
-._crit_edge247:                                   ; preds = %.lr.ph246, %._crit_edge243.thread, %._crit_edge243
+._crit_edge246:                                   ; preds = %.lr.ph245, %._crit_edge242.thread
   tail call void @OSQPVectorf_minus(ptr noundef nonnull %558, ptr noundef nonnull %558, ptr noundef nonnull %559) #10
-  %579 = add nuw nsw i64 %.0248, 1
-  %exitcond262.not = icmp eq i64 %579, 200
-  br i1 %exitcond262.not, label %580, label %562, !llvm.loop !26
+  %579 = add nuw nsw i64 %.0247, 1
+  %exitcond261.not = icmp eq i64 %579, 200
+  br i1 %exitcond261.not, label %580, label %562, !llvm.loop !26
 
-580:                                              ; preds = %562, %._crit_edge247
+580:                                              ; preds = %562, %._crit_edge246
   %581 = tail call ptr @OSQPVectorf_data(ptr noundef nonnull %558) #10
   %582 = tail call i64 @OSQPVectorf_length(ptr noundef nonnull %558) #10
   tail call void @OSQPVectorf_subvector_assign(ptr noundef %6, ptr noundef %581, i64 noundef 0, i64 noundef %582, double noundef 1.000000e+00) #10
   br label %583
 
-583:                                              ; preds = %._crit_edge240, %580
-  %.6 = phi i64 [ 0, %580 ], [ 5, %._crit_edge240 ]
+583:                                              ; preds = %._crit_edge239, %580
+  %.6 = phi i64 [ 0, %580 ], [ 5, %._crit_edge239 ]
   tail call void @OSQPVectorf_free(ptr noundef %558) #10
   tail call void @OSQPVectorf_free(ptr noundef %559) #10
   br label %584

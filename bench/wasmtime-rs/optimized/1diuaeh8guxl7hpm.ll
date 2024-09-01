@@ -2032,8 +2032,8 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
 31:                                               ; preds = %29
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4)
   %32 = call ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17he3c86a8ae68b83d6E"(ptr nonnull align 8 %5, ptr nonnull align 1 %12)
-  %.not25 = icmp eq ptr %32, null
-  br i1 %.not25, label %.loopexit, label %16
+  %.not22 = icmp eq ptr %32, null
+  br i1 %.not22, label %.loopexit, label %16
 
 33:                                               ; preds = %30
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4)

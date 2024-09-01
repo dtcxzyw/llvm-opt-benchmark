@@ -345,10 +345,7 @@ define void @_Z21normalize_probabilityiPd(i32 noundef %0, ptr nocapture noundef 
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %3, label %.lr.ph16.preheader, label %._crit_edge
-
-.lr.ph16.preheader:                               ; preds = %.preheader
+.lr.ph16.preheader:                               ; preds = %.lr.ph
   %wide.trip.count21 = zext nneg i32 %0 to i64
   br label %.lr.ph16
 
@@ -360,7 +357,7 @@ define void @_Z21normalize_probabilityiPd(i32 noundef %0, ptr nocapture noundef 
   %6 = fadd double %.014, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.lr.ph16.preheader, label %.lr.ph, !llvm.loop !5
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
   %indvars.iv18 = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next19, %.lr.ph16 ]
@@ -372,7 +369,7 @@ define void @_Z21normalize_probabilityiPd(i32 noundef %0, ptr nocapture noundef 
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph16, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph16, %2, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph16, %2
   ret void
 }
 
@@ -1215,16 +1212,13 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_PKiidbbfj.omp_outlined.16, ptr nonnull %14, ptr nonnull %16, ptr nonnull %12, ptr nonnull %13, ptr nonnull %15, ptr nonnull %11)
   %297 = load i32, ptr %76, align 8
   %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %.preheader76.lr.ph, label %.preheader75
+  br i1 %298, label %.preheader76.us.preheader, label %.lr.ph83.preheader
 
 ._crit_edge.thread:                               ; preds = %287
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_PKiidbbfj.omp_outlined.16, ptr nonnull %14, ptr nonnull %16, ptr nonnull %12, ptr nonnull %13, ptr nonnull %15, ptr nonnull %11)
   br label %._crit_edge84
 
-.preheader76.lr.ph:                               ; preds = %._crit_edge
-  br i1 %291, label %.preheader76.us.preheader, label %._crit_edge84
-
-.preheader76.us.preheader:                        ; preds = %.preheader76.lr.ph
+.preheader76.us.preheader:                        ; preds = %._crit_edge
   %wide.trip.count105 = zext nneg i32 %288 to i64
   br label %.preheader76.us
 
@@ -1253,12 +1247,9 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   %309 = load i32, ptr %76, align 8
   %310 = sext i32 %309 to i64
   %311 = icmp slt i64 %indvars.iv.next108, %310
-  br i1 %311, label %.preheader76.us, label %.preheader75, !llvm.loop !18
+  br i1 %311, label %.preheader76.us, label %.lr.ph83.preheader, !llvm.loop !18
 
-.preheader75:                                     ; preds = %._crit_edge80.us, %._crit_edge
-  br i1 %291, label %.lr.ph83.preheader, label %._crit_edge84
-
-.lr.ph83.preheader:                               ; preds = %.preheader75
+.lr.ph83.preheader:                               ; preds = %._crit_edge80.us, %._crit_edge
   %wide.trip.count113 = zext nneg i32 %288 to i64
   br label %.lr.ph83
 
@@ -1272,7 +1263,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
   br i1 %exitcond114.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !19
 
-._crit_edge84:                                    ; preds = %.lr.ph83, %._crit_edge.thread, %.preheader76.lr.ph, %.preheader75
+._crit_edge84:                                    ; preds = %.lr.ph83, %._crit_edge.thread
   %315 = load ptr, ptr %16, align 8
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 343, ptr noundef %315)
   br label %316
@@ -1869,13 +1860,13 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ;
   %231 = trunc i64 %230 to i32
   %232 = sub i32 %226, %141
   %.not85 = icmp sgt i32 %21, %231
-  br i1 %.not85, label %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.loopexit, label %147, !llvm.loop !21
+  br i1 %.not85, label %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43, label %147, !llvm.loop !21
 
-_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.loopexit: ; preds = %._crit_edge.i.i38
+_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43: ; preds = %._crit_edge.i.i38
   %.not33 = icmp eq i32 %231, %132
   br i1 %.not33, label %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.thread, label %233
 
-233:                                              ; preds = %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.loopexit
+233:                                              ; preds = %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43
   %234 = load ptr, ptr %9, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
@@ -1953,7 +1944,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.
 291:                                              ; preds = %289
   unreachable
 
-_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.thread: ; preds = %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.loopexit, %233
+_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43.thread: ; preds = %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit43, %233
   %292 = add nsw i64 %.095, 1
   %293 = load i64, ptr %18, align 8
   %.not.not = icmp slt i64 %.095, %293

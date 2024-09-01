@@ -4850,11 +4850,11 @@ for.cond:                                         ; preds = %if.end
 if.end:                                           ; preds = %entry, %for.cond
   %cur_pattern.09 = phi ptr [ %incdec.ptr, %for.cond ], [ %filter, %entry ]
   %call2 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cur_pattern.09, i32 noundef 58) #56
-  %cmp.not.not.not = icmp ne ptr %call2, null
-  br i1 %cmp.not.not.not, label %for.cond, label %cleanup
+  %cmp.not.not.not.not = icmp ne ptr %call2, null
+  br i1 %cmp.not.not.not.not, label %for.cond, label %cleanup
 
 cleanup:                                          ; preds = %if.end, %for.cond, %entry
-  %call1.lcssa = phi i1 [ true, %entry ], [ %cmp.not.not.not, %for.cond ], [ %cmp.not.not.not, %if.end ]
+  %call1.lcssa = phi i1 [ true, %entry ], [ %cmp.not.not.not.not, %for.cond ], [ %cmp.not.not.not.not, %if.end ]
   ret i1 %call1.lcssa
 }
 
@@ -40665,11 +40665,11 @@ for.cond.i:                                       ; preds = %if.end.i110
 if.end.i110:                                      ; preds = %invoke.cont34, %for.cond.i
   %cur_pattern.09.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ @_ZN7testingL20kDeathTestCaseFilterE, %invoke.cont34 ]
   %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cur_pattern.09.i, i32 noundef 58) #56
-  %cmp.not.i.not.not.not = icmp ne ptr %call2.i, null
-  br i1 %cmp.not.i.not.not.not, label %for.cond.i, label %invoke.cont36
+  %cmp.not.i.not.not.not.not = icmp ne ptr %call2.i, null
+  br i1 %cmp.not.i.not.not.not.not, label %for.cond.i, label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %if.end.i110, %for.cond.i, %invoke.cont34
-  %call1.lcssa.i = phi i1 [ true, %invoke.cont34 ], [ %cmp.not.i.not.not.not, %for.cond.i ], [ %cmp.not.i.not.not.not, %if.end.i110 ]
+  %call1.lcssa.i = phi i1 [ true, %invoke.cont34 ], [ %cmp.not.i.not.not.not.not, %for.cond.i ], [ %cmp.not.i.not.not.not.not, %if.end.i110 ]
   %cmp.i.i.i111 = icmp eq ptr %35, %29
   br i1 %cmp.i.i.i111, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113, label %if.then.i.i112
 
@@ -41502,11 +41502,11 @@ for.cond.i146:                                    ; preds = %if.end.i142
 if.end.i142:                                      ; preds = %lor.rhs, %for.cond.i146
   %cur_pattern.09.i143 = phi ptr [ %incdec.ptr.i147, %for.cond.i146 ], [ @_ZN7testingL18kDisableTestFilterE, %lor.rhs ]
   %call2.i144 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cur_pattern.09.i143, i32 noundef 58) #56
-  %cmp.not.i145.not.not.not = icmp ne ptr %call2.i144, null
-  br i1 %cmp.not.i145.not.not.not, label %for.cond.i146, label %lor.end
+  %cmp.not.i145.not.not.not.not = icmp ne ptr %call2.i144, null
+  br i1 %cmp.not.i145.not.not.not.not, label %for.cond.i146, label %lor.end
 
 lor.end:                                          ; preds = %for.cond.i, %if.end.i142, %for.cond.i146, %lor.rhs, %invoke.cont33
-  %28 = phi i1 [ true, %lor.rhs ], [ true, %invoke.cont33 ], [ %cmp.not.i145.not.not.not, %for.cond.i146 ], [ %cmp.not.i145.not.not.not, %if.end.i142 ], [ true, %for.cond.i ]
+  %28 = phi i1 [ true, %lor.rhs ], [ true, %invoke.cont33 ], [ %cmp.not.i145.not.not.not.not, %for.cond.i146 ], [ %cmp.not.i145.not.not.not.not, %if.end.i142 ], [ true, %for.cond.i ]
   %frombool = zext i1 %28 to i8
   %is_disabled_ = getelementptr inbounds i8, ptr %19, i64 89
   store i8 %frombool, ptr %is_disabled_, align 1

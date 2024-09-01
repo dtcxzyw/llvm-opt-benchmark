@@ -393,8 +393,8 @@ define noundef zeroext i1 @H5D__virtual_is_space_alloc(ptr nocapture readnone %0
 define internal noundef zeroext i1 @H5D__virtual_is_data_cached(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2184
   %3 = load i64, ptr %2, align 8
-  %.not56 = icmp eq i64 %3, 0
-  br i1 %.not56, label %.loopexit45, label %.lr.ph51
+  %.not54 = icmp eq i64 %3, 0
+  br i1 %.not54, label %.loopexit45, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 2192

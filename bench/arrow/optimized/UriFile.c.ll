@@ -506,7 +506,7 @@ if.end87.us.us.i:                                 ; preds = %if.then82.us.us.i, 
   %.pre = load i32, ptr %incdec.ptr88.us.us.i, align 4
   br label %for.cond.us.us.i
 
-for.cond.us72.i:                                  ; preds = %if.then15.i, %if.end87.us98.i
+for.cond.us72.i:                                  ; preds = %if.end87.us98.i, %if.then15.i
   %output.1.us73.i = phi ptr [ %output.4.us99.i, %if.end87.us98.i ], [ %add.ptr23.i, %if.then15.i ]
   %firstSegment.0.us74.i = phi i32 [ %firstSegment.1.us88.i, %if.end87.us98.i ], [ 1, %if.then15.i ]
   %lastSep.0.us75.i = phi ptr [ %lastSep.1.us100.i, %if.end87.us98.i ], [ %add.ptr.i, %if.then15.i ]

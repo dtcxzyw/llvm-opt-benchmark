@@ -694,14 +694,14 @@ define internal ptr @H5SM__cache_list_deserialize(ptr noundef %0, i64 %1, ptr no
   %66 = load i64, ptr @H5E_SOHM_g, align 8
   %67 = load i64, ptr @H5E_CANTLOAD_g, align 8
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5SM__cache_list_deserialize, i32 noundef 558, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.14) #6
-  br i1 %19, label %71, label %69
+  br label %69
 
-69:                                               ; preds = %.thread66, %65
+69:                                               ; preds = %65, %.thread66
   %70 = call ptr @H5FL_arr_free(ptr noundef nonnull @H5_H5SM_sohm_t_arr_free_list, ptr noundef nonnull %17) #6
   store ptr %70, ptr %18, align 8
   br label %71
 
-71:                                               ; preds = %.thread65, %69, %65
+71:                                               ; preds = %.thread65, %69
   %72 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5SM_list_t_reg_free_list, ptr noundef nonnull %6) #6
   br label %.thread
 

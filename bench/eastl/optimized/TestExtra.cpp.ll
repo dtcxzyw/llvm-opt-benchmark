@@ -16402,14 +16402,14 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
   %3 = load ptr, ptr %2, align 8
   %inc.i.i.i.i.i = add nuw nsw i64 %n.03.i.i.i.i.i, 1
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %3, %1
-  br i1 %cmp.i.not.i.i.i.i.i, label %for.body.i.i.i.i.preheader.i.i, label %while.body.i.i.i.i.i, !llvm.loop !212
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !212
 
-for.body.i.i.i.i.preheader.i.i:                   ; preds = %while.body.i.i.i.i.i
+_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
   %mul.i.i.i.i = mul i64 %inc.i.i.i.i.i, 24
   %call.i.i.i.i.i1.i = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc.i unwind label %lpad.i
 
-call.i.i.i.i.i.noexc.i:                           ; preds = %for.body.i.i.i.i.preheader.i.i
+call.i.i.i.i.i.noexc.i:                           ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i
   store ptr %call.i.i.i.i.i1.i, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i1.i, i64 %inc.i.i.i.i.i
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16449,7 +16449,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %10, %1
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2INS_12ListIteratorIS1_PS1_RS1_EEEET_S9_RKS2_.exit.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !213
 
-lpad.i:                                           ; preds = %for.body.i.i.i.i.preheader.i.i
+lpad.i:                                           ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = load ptr, ptr %this, align 8

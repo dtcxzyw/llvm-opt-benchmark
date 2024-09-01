@@ -169,9 +169,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 .loopexit:                                        ; preds = %51, %32
   %54 = tail call i32 @snd_device_new(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %25, ptr noundef nonnull @snd_jack_new.ops) #4
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %..thread7_crit_edge, label %56
+  br i1 %55, label %.loopexit..thread7_crit_edge, label %56
 
-..thread7_crit_edge:                              ; preds = %.loopexit
+.loopexit..thread7_crit_edge:                     ; preds = %.loopexit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread7
@@ -200,9 +200,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
   store ptr %25, ptr %3, align 8
   br label %.thread
 
-.thread7:                                         ; preds = %..thread7_crit_edge, %34
-  %65 = phi ptr [ %.pre, %..thread7_crit_edge ], [ null, %34 ]
-  %66 = phi i32 [ %54, %..thread7_crit_edge ], [ -12, %34 ]
+.thread7:                                         ; preds = %.loopexit..thread7_crit_edge, %34
+  %65 = phi ptr [ %.pre, %.loopexit..thread7_crit_edge ], [ null, %34 ]
+  %66 = phi i32 [ %54, %.loopexit..thread7_crit_edge ], [ -12, %34 ]
   tail call void @input_free_device(ptr noundef %65) #4
   %67 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef %67) #4

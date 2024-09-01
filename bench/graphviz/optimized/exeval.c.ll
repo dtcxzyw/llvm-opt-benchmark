@@ -224,8 +224,8 @@ common.ret1905:                                   ; preds = %590, %19, %common.r
   %common.ret1905.op = phi ptr [ %current.ret.tr1902, %common.ret ], [ %current.ret.tr1903, %19 ], [ %current.ret.tr1904, %590 ]
   ret ptr %common.ret1905.op
 
-common.ret:                                       ; preds = %13, %817, %821, %11, %tailrecurse.backedge, %794, %.critedge3, %798, %.lr.ph1245, %423, %419, %421, %388, %384, %386, %339, %335, %337, %304, %300, %302, %.thread, %195, %197, %203, %133, %1203, %1208, %._crit_edge1443, %1202, %1189, %1183, %._crit_edge1445, %1044, %1057, %._crit_edge1453, %860, %872, %._crit_edge1449, %438, %442, %396, %348, %312, %264, %182, %tailrecurse, %1129, %1130, %1121, %1122, %946, %947, %938, %939, %._crit_edge1290, %257, %253, %245, %.thread1458, %137, %139, %141, %143, %145, %147, %159, %160, %425, %431, %._crit_edge1224, %._crit_edge1218, %575, %584, %586, %596, %619, %847, %853, %887, %888, %893, %904, %907, %911, %918, %925, %932, %953, %957, %961, %965, %969, %973, %977, %982, %989, %991, %993, %995, %998, %1010, %1013, %1017, %1021, %1025, %1031, %1077, %1078, %1081, %1093, %1094, %1099, %1104, %1109, %1114, %1135, %1139, %1143, %1148, %1153, %1157, %1161, %1165, %1171, %1224, %1233, %1241, %1244, %1246, %1248, %1250, %1252, %1259, %1262, %1266, %1270, %1302
-  %common.ret.op = phi ptr [ %1305, %1302 ], [ %1168, %1165 ], [ %1164, %1161 ], [ %1160, %1157 ], [ %1156, %1153 ], [ %1152, %1148 ], [ %1147, %1143 ], [ %1142, %1139 ], [ %1138, %1135 ], [ %1118, %1114 ], [ %1113, %1109 ], [ %1108, %1104 ], [ %1103, %1099 ], [ %1098, %1094 ], [ %storemerge984, %1093 ], [ %1084, %1081 ], [ %1080, %1078 ], [ %.sroa.0837.0.copyload849, %1077 ], [ %1038, %1031 ], [ %.sroa.0837.0.copyload847, %1010 ], [ %.sroa.0837.0.copyload846, %998 ], [ %.sroa.0837.0.copyload845, %995 ], [ %.sroa.0837.0.copyload844, %993 ], [ %.sroa.0837.0.copyload843, %991 ], [ %.sroa.0837.0.copyload842, %989 ], [ %1273, %1270 ], [ %1269, %1266 ], [ %1265, %1262 ], [ %1261, %1259 ], [ %1254, %1252 ], [ %1251, %1250 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1245, %1244 ], [ %1243, %1241 ], [ %1240, %1233 ], [ %.sroa.0837.0.copyload852, %1224 ], [ %1175, %1171 ], [ %1028, %1025 ], [ %1024, %1021 ], [ %1020, %1017 ], [ %1016, %1013 ], [ %986, %982 ], [ %981, %977 ], [ %976, %973 ], [ %972, %969 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %956, %953 ], [ %935, %932 ], [ %931, %925 ], [ %924, %918 ], [ %917, %911 ], [ %910, %907 ], [ %906, %904 ], [ %898, %893 ], [ %892, %888 ], [ %.sroa.0837.0.copyload841, %887 ], [ %855, %853 ], [ %.sroa.0837.0.copyload839, %847 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload255, %619 ], [ %599, %596 ], [ %589, %586 ], [ null, %584 ], [ %583, %575 ], [ %557, %._crit_edge1218 ], [ %537, %._crit_edge1224 ], [ %434, %431 ], [ %430, %425 ], [ %163, %160 ], [ %151, %159 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %503, %.thread1458 ], [ %242, %245 ], [ %254, %253 ], [ %254, %257 ], [ %.lcssa1283, %._crit_edge1290 ], [ %942, %939 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload286.pre, %938 ], [ %952, %947 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload287.pre, %946 ], [ %1126, %1122 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload332.pre, %1121 ], [ %1134, %1130 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload334.pre, %1129 ], [ inttoptr (i64 1 to ptr), %tailrecurse ], [ %spec.select, %133 ], [ inttoptr (i64 1 to ptr), %182 ], [ null, %264 ], [ null, %312 ], [ null, %348 ], [ %storemerge9311249, %396 ], [ null, %442 ], [ %441, %438 ], [ %.sroa.0837.0.copyload840.pre, %._crit_edge1449 ], [ %875, %872 ], [ %865, %860 ], [ %.sroa.0837.0.copyload848.pre, %._crit_edge1453 ], [ %1064, %1057 ], [ %1050, %1044 ], [ %.sroa.0837.0.copyload850.pre, %._crit_edge1445 ], [ %1188, %1183 ], [ %1194, %1189 ], [ %.sroa.0837.0.copyload851.pre, %._crit_edge1443 ], [ %1212, %1208 ], [ %1207, %1203 ], [ null, %1202 ], [ inttoptr (i64 1 to ptr), %203 ], [ null, %197 ], [ null, %195 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %386 ], [ null, %384 ], [ %365, %388 ], [ null, %421 ], [ null, %419 ], [ %storemerge931, %423 ], [ %503, %.lr.ph1245 ], [ %806, %798 ], [ %806, %.critedge3 ], [ inttoptr (i64 1 to ptr), %tailrecurse.backedge ], [ inttoptr (i64 1 to ptr), %11 ], [ %822, %821 ], [ null, %817 ], [ %15, %13 ], [ %795, %794 ]
+common.ret:                                       ; preds = %13, %817, %821, %11, %tailrecurse.backedge, %794, %.critedge3, %798, %.lr.ph1245, %423, %419, %421, %388, %384, %386, %339, %335, %337, %304, %300, %302, %.thread, %195, %197, %203, %133, %1203, %1208, %._crit_edge1444, %1202, %1189, %1183, %._crit_edge1446, %1044, %1057, %._crit_edge1454, %860, %872, %._crit_edge1450, %438, %442, %396, %348, %312, %264, %182, %tailrecurse, %1129, %1130, %1121, %1122, %946, %947, %938, %939, %._crit_edge1290, %257, %253, %245, %.thread1458, %137, %139, %141, %143, %145, %147, %159, %160, %425, %431, %._crit_edge1224, %._crit_edge1218, %575, %584, %586, %596, %619, %847, %853, %887, %888, %893, %904, %907, %911, %918, %925, %932, %953, %957, %961, %965, %969, %973, %977, %982, %989, %991, %993, %995, %998, %1010, %1013, %1017, %1021, %1025, %1031, %1077, %1078, %1081, %1093, %1094, %1099, %1104, %1109, %1114, %1135, %1139, %1143, %1148, %1153, %1157, %1161, %1165, %1171, %1224, %1233, %1241, %1244, %1246, %1248, %1250, %1252, %1259, %1262, %1266, %1270, %1302
+  %common.ret.op = phi ptr [ %1305, %1302 ], [ %1168, %1165 ], [ %1164, %1161 ], [ %1160, %1157 ], [ %1156, %1153 ], [ %1152, %1148 ], [ %1147, %1143 ], [ %1142, %1139 ], [ %1138, %1135 ], [ %1118, %1114 ], [ %1113, %1109 ], [ %1108, %1104 ], [ %1103, %1099 ], [ %1098, %1094 ], [ %storemerge984, %1093 ], [ %1084, %1081 ], [ %1080, %1078 ], [ %.sroa.0837.0.copyload849, %1077 ], [ %1038, %1031 ], [ %.sroa.0837.0.copyload847, %1010 ], [ %.sroa.0837.0.copyload846, %998 ], [ %.sroa.0837.0.copyload845, %995 ], [ %.sroa.0837.0.copyload844, %993 ], [ %.sroa.0837.0.copyload843, %991 ], [ %.sroa.0837.0.copyload842, %989 ], [ %1273, %1270 ], [ %1269, %1266 ], [ %1265, %1262 ], [ %1261, %1259 ], [ %1254, %1252 ], [ %1251, %1250 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1245, %1244 ], [ %1243, %1241 ], [ %1240, %1233 ], [ %.sroa.0837.0.copyload852, %1224 ], [ %1175, %1171 ], [ %1028, %1025 ], [ %1024, %1021 ], [ %1020, %1017 ], [ %1016, %1013 ], [ %986, %982 ], [ %981, %977 ], [ %976, %973 ], [ %972, %969 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %956, %953 ], [ %935, %932 ], [ %931, %925 ], [ %924, %918 ], [ %917, %911 ], [ %910, %907 ], [ %906, %904 ], [ %898, %893 ], [ %892, %888 ], [ %.sroa.0837.0.copyload841, %887 ], [ %855, %853 ], [ %.sroa.0837.0.copyload839, %847 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload255, %619 ], [ %599, %596 ], [ %589, %586 ], [ null, %584 ], [ %583, %575 ], [ %557, %._crit_edge1218 ], [ %537, %._crit_edge1224 ], [ %434, %431 ], [ %430, %425 ], [ %163, %160 ], [ %151, %159 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %503, %.thread1458 ], [ %242, %245 ], [ %254, %253 ], [ %254, %257 ], [ %.lcssa1283, %._crit_edge1290 ], [ %942, %939 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload286.pre, %938 ], [ %952, %947 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload287.pre, %946 ], [ %1126, %1122 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload332.pre, %1121 ], [ %1134, %1130 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload334.pre, %1129 ], [ inttoptr (i64 1 to ptr), %tailrecurse ], [ %spec.select, %133 ], [ inttoptr (i64 1 to ptr), %182 ], [ null, %264 ], [ null, %312 ], [ null, %348 ], [ %storemerge9311249, %396 ], [ null, %442 ], [ %441, %438 ], [ %.sroa.0837.0.copyload840.pre, %._crit_edge1450 ], [ %875, %872 ], [ %865, %860 ], [ %.sroa.0837.0.copyload848.pre, %._crit_edge1454 ], [ %1064, %1057 ], [ %1050, %1044 ], [ %.sroa.0837.0.copyload850.pre, %._crit_edge1446 ], [ %1188, %1183 ], [ %1194, %1189 ], [ %.sroa.0837.0.copyload851.pre, %._crit_edge1444 ], [ %1212, %1208 ], [ %1207, %1203 ], [ null, %1202 ], [ inttoptr (i64 1 to ptr), %203 ], [ null, %197 ], [ null, %195 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %386 ], [ null, %384 ], [ %365, %388 ], [ null, %421 ], [ null, %419 ], [ %storemerge931, %423 ], [ %503, %.lr.ph1245 ], [ %806, %798 ], [ %806, %.critedge3 ], [ inttoptr (i64 1 to ptr), %tailrecurse.backedge ], [ inttoptr (i64 1 to ptr), %11 ], [ %822, %821 ], [ null, %817 ], [ %15, %13 ], [ %795, %794 ]
   %current.ret.tr1902 = select i1 %ret.known.tr, ptr %ret.tr, ptr %common.ret.op
   br label %common.ret1905
 
@@ -326,8 +326,8 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %71
 
 71:                                               ; preds = %773, %776, %778, %780, %782, %784, %735, %738, %741, %756, %759, %762, %765, %768, %747, %746, %753, %752, %669, %673, %677, %698, %705, %712, %719, %726, %684, %683, %692, %691, %793, %791, %61, %67
-  %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.copyload1121441 = phi ptr [ %storemerge962, %61 ], [ %storemerge962, %67 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload131.pre, %791 ], [ %626, %793 ], [ %storemerge924, %691 ], [ %697, %692 ], [ %storemerge924, %683 ], [ %687, %684 ], [ %732, %726 ], [ %725, %719 ], [ %718, %712 ], [ %711, %705 ], [ %704, %698 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %storemerge924, %752 ], [ %755, %753 ], [ %storemerge924, %746 ], [ %749, %747 ], [ %770, %768 ], [ %767, %765 ], [ %764, %762 ], [ %761, %759 ], [ %758, %756 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %786, %784 ], [ %783, %782 ], [ %781, %780 ], [ %779, %778 ], [ %777, %776 ], [ %775, %773 ]
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438 = phi ptr [ %66, %61 ], [ %70, %67 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload131.pre, %791 ], [ %626, %793 ], [ %storemerge924, %691 ], [ %697, %692 ], [ %storemerge924, %683 ], [ %687, %684 ], [ %732, %726 ], [ %725, %719 ], [ %718, %712 ], [ %711, %705 ], [ %704, %698 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %storemerge924, %752 ], [ %755, %753 ], [ %storemerge924, %746 ], [ %749, %747 ], [ %770, %768 ], [ %767, %765 ], [ %764, %762 ], [ %761, %759 ], [ %758, %756 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %786, %784 ], [ %783, %782 ], [ %781, %780 ], [ %779, %778 ], [ %777, %776 ], [ %775, %773 ]
+  %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.copyload1121442 = phi ptr [ %storemerge962, %61 ], [ %storemerge962, %67 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload131.pre, %791 ], [ %626, %793 ], [ %storemerge924, %691 ], [ %697, %692 ], [ %storemerge924, %683 ], [ %687, %684 ], [ %732, %726 ], [ %725, %719 ], [ %718, %712 ], [ %711, %705 ], [ %704, %698 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %storemerge924, %752 ], [ %755, %753 ], [ %storemerge924, %746 ], [ %749, %747 ], [ %770, %768 ], [ %767, %765 ], [ %764, %762 ], [ %761, %759 ], [ %758, %756 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %786, %784 ], [ %783, %782 ], [ %781, %780 ], [ %779, %778 ], [ %777, %776 ], [ %775, %773 ]
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111439 = phi ptr [ %66, %61 ], [ %70, %67 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload131.pre, %791 ], [ %626, %793 ], [ %storemerge924, %691 ], [ %697, %692 ], [ %storemerge924, %683 ], [ %687, %684 ], [ %732, %726 ], [ %725, %719 ], [ %718, %712 ], [ %711, %705 ], [ %704, %698 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %storemerge924, %752 ], [ %755, %753 ], [ %storemerge924, %746 ], [ %749, %747 ], [ %770, %768 ], [ %767, %765 ], [ %764, %762 ], [ %761, %759 ], [ %758, %756 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %786, %784 ], [ %783, %782 ], [ %781, %780 ], [ %779, %778 ], [ %777, %776 ], [ %775, %773 ]
   %72 = getelementptr inbounds i8, ptr %15, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 275
@@ -336,16 +336,16 @@ common.ret:                                       ; preds = %13, %817, %821, %11
 75:                                               ; preds = %71
   %76 = load i32, ptr %15, align 8
   %77 = icmp eq i32 %76, 263
-  br i1 %77, label %78, label %._crit_edge1427
+  br i1 %77, label %78, label %._crit_edge1428
 
-._crit_edge1427:                                  ; preds = %75
-  %.pre1428 = load ptr, ptr %7, align 8
+._crit_edge1428:                                  ; preds = %75
+  %.pre1429 = load ptr, ptr %7, align 8
   br label %95
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %0, i64 96
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr @vmstrdup(ptr noundef %80, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438) #22
+  %81 = tail call ptr @vmstrdup(ptr noundef %80, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111439) #22
   %82 = load ptr, ptr %7, align 8
   %.not965 = icmp eq ptr %82, null
   br i1 %.not965, label %85, label %83
@@ -373,15 +373,15 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   tail call void @vmfree(ptr noundef %94, ptr noundef nonnull %92) #22
   br label %95
 
-95:                                               ; preds = %._crit_edge1427, %91, %93
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111436 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438, %._crit_edge1427 ], [ %81, %91 ], [ %81, %93 ]
-  %96 = phi ptr [ %.pre1428, %._crit_edge1427 ], [ %82, %91 ], [ %82, %93 ]
+95:                                               ; preds = %._crit_edge1428, %91, %93
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111439, %._crit_edge1428 ], [ %81, %91 ], [ %81, %93 ]
+  %96 = phi ptr [ %.pre1429, %._crit_edge1428 ], [ %82, %91 ], [ %82, %93 ]
   %.not967 = icmp eq ptr %96, null
   br i1 %.not967, label %99, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds i8, ptr %96, i64 24
-  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111436, ptr %98, align 8
+  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, ptr %98, align 8
   br label %133
 
 99:                                               ; preds = %95
@@ -390,7 +390,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %102 = getelementptr inbounds i8, ptr %101, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 32
-  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111436, ptr %104, align 8
+  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, ptr %104, align 8
   br label %133
 
 105:                                              ; preds = %71
@@ -421,7 +421,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %120
 
 120:                                              ; preds = %114, %111
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.159.pre, %114 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438, %111 ]
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.159.pre, %114 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111439, %111 ]
   %121 = getelementptr inbounds i8, ptr %0, i64 160
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 120
@@ -429,7 +429,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %125 = load ptr, ptr %106, align 8
   %126 = getelementptr inbounds i8, ptr %15, i64 40
   %127 = load ptr, ptr %126, align 8
-  %128 = tail call i32 %124(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %125, ptr noundef %127, ptr noundef %2, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437) #22
+  %128 = tail call i32 %124(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %125, ptr noundef %127, ptr noundef %2, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438) #22
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %130, label %133
 
@@ -440,11 +440,11 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %133
 
 133:                                              ; preds = %120, %130, %97, %99
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload111 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, %120 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, %130 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111436, %97 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111436, %99 ]
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload111 = phi ptr [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438, %120 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111438, %130 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, %97 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload1111437, %99 ]
   %134 = getelementptr inbounds i8, ptr %.tr10051211, i64 64
   %135 = load i32, ptr %134, align 8
   %136 = icmp eq i32 %135, 290
-  %spec.select = select i1 %136, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload111, ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.copyload1121441
+  %spec.select = select i1 %136, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload111, ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.copyload1121442
   br label %common.ret
 
 137:                                              ; preds = %13
@@ -1081,21 +1081,21 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %484, label %.lr.ph1232, label %._crit_edge1233.loopexit
 
 ._crit_edge1233.loopexit:                         ; preds = %477
-  %.pre1413 = load ptr, ptr %448, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre1413, i64 56
-  %.pre1414 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert1415 = getelementptr inbounds i8, ptr %.pre1414, i64 32
-  %.18571234.pre = load ptr, ptr %.phi.trans.insert1415, align 8
+  %.pre1414 = load ptr, ptr %448, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre1414, i64 56
+  %.pre1415 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert1416 = getelementptr inbounds i8, ptr %.pre1415, i64 32
+  %.18571234.pre = load ptr, ptr %.phi.trans.insert1416, align 8
   br label %._crit_edge1233
 
 ._crit_edge1233:                                  ; preds = %._crit_edge1233.loopexit, %447
   %.18571234 = phi ptr [ %.08561227, %447 ], [ %.18571234.pre, %._crit_edge1233.loopexit ]
   %.lcssa1017 = phi i1 [ %453, %447 ], [ %483, %._crit_edge1233.loopexit ]
-  %.not1455 = icmp eq ptr %.18571234, null
-  br i1 %.not1455, label %._crit_edge1239.thread, label %.lr.ph1238
+  %.not1303 = icmp eq ptr %.18571234, null
+  br i1 %.not1303, label %._crit_edge1239.thread, label %.lr.ph1238
 
 .lr.ph1238:                                       ; preds = %._crit_edge1233, %.lr.ph1238
-  %indvars.iv1402 = phi i64 [ %indvars.iv.next1403, %.lr.ph1238 ], [ 0, %._crit_edge1233 ]
+  %indvars.iv1403 = phi i64 [ %indvars.iv.next1404, %.lr.ph1238 ], [ 0, %._crit_edge1233 ]
   %.18571236 = phi ptr [ %.1857, %.lr.ph1238 ], [ %.18571234, %._crit_edge1233 ]
   %485 = getelementptr inbounds i8, ptr %.18571236, i64 32
   %486 = load ptr, ptr %485, align 8
@@ -1104,14 +1104,14 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %489 = getelementptr inbounds i8, ptr %488, i64 56
   %490 = load ptr, ptr %489, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 32
-  %indvars.iv.next1403 = add nuw nsw i64 %indvars.iv1402, 1
-  %492 = getelementptr inbounds [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv1402
+  %indvars.iv.next1404 = add nuw nsw i64 %indvars.iv1403, 1
+  %492 = getelementptr inbounds [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv1403
   %493 = load i64, ptr %492, align 8
   store i64 %493, ptr %491, align 8
   %494 = getelementptr inbounds i8, ptr %.18571236, i64 40
   %.1857 = load ptr, ptr %494, align 8
   %495 = icmp ne ptr %.1857, null
-  %496 = icmp ult i64 %indvars.iv1402, 63
+  %496 = icmp ult i64 %indvars.iv1403, 63
   %497 = and i1 %495, %496
   br i1 %497, label %.lr.ph1238, label %._crit_edge1239
 
@@ -1140,11 +1140,11 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %506 = load ptr, ptr %505, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 32
   %.28581241 = load ptr, ptr %507, align 8
-  %.not1303 = icmp eq ptr %.28581241, null
-  br i1 %.not1303, label %common.ret, label %.lr.ph1245
+  %.not1304 = icmp eq ptr %.28581241, null
+  br i1 %.not1304, label %common.ret, label %.lr.ph1245
 
 .lr.ph1245:                                       ; preds = %.thread1458, %.lr.ph1245
-  %indvars.iv1405 = phi i64 [ %indvars.iv.next1406, %.lr.ph1245 ], [ 0, %.thread1458 ]
+  %indvars.iv1406 = phi i64 [ %indvars.iv.next1407, %.lr.ph1245 ], [ 0, %.thread1458 ]
   %.28581243 = phi ptr [ %.2858, %.lr.ph1245 ], [ %.28581241, %.thread1458 ]
   %508 = getelementptr inbounds i8, ptr %.28581243, i64 32
   %509 = load ptr, ptr %508, align 8
@@ -1153,22 +1153,22 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %512 = getelementptr inbounds i8, ptr %511, i64 56
   %513 = load ptr, ptr %512, align 8
   %514 = getelementptr inbounds i8, ptr %513, i64 32
-  %indvars.iv.next1406 = add nuw nsw i64 %indvars.iv1405, 1
-  %515 = getelementptr inbounds [64 x %union.EX_STYPE], ptr %9, i64 0, i64 %indvars.iv1405
+  %indvars.iv.next1407 = add nuw nsw i64 %indvars.iv1406, 1
+  %515 = getelementptr inbounds [64 x %union.EX_STYPE], ptr %9, i64 0, i64 %indvars.iv1406
   %516 = load i64, ptr %515, align 8
   store i64 %516, ptr %514, align 8
   %517 = getelementptr inbounds i8, ptr %.28581243, i64 40
   %.2858 = load ptr, ptr %517, align 8
   %518 = icmp ne ptr %.2858, null
-  %519 = icmp ult i64 %indvars.iv1405, 63
+  %519 = icmp ult i64 %indvars.iv1406, 63
   %520 = and i1 %518, %519
   br i1 %520, label %.lr.ph1245, label %common.ret
 
 .lr.ph1223:                                       ; preds = %.preheader1010, %.lr.ph1223
-  %indvars.iv1399 = phi i64 [ %indvars.iv.next1400, %.lr.ph1223 ], [ 0, %.preheader1010 ]
+  %indvars.iv1400 = phi i64 [ %indvars.iv.next1401, %.lr.ph1223 ], [ 0, %.preheader1010 ]
   %.21222 = phi ptr [ %.2, %.lr.ph1223 ], [ %.21220, %.preheader1010 ]
-  %indvars.iv.next1400 = add nuw nsw i64 %indvars.iv1399, 1
-  %521 = getelementptr inbounds [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv1399
+  %indvars.iv.next1401 = add nuw nsw i64 %indvars.iv1400, 1
+  %521 = getelementptr inbounds [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv1400
   %522 = getelementptr inbounds i8, ptr %.21222, i64 32
   %523 = load ptr, ptr %522, align 8
   %524 = tail call fastcc ptr @eval(ptr noundef %0, ptr noundef %523, ptr noundef %2)
@@ -1176,16 +1176,16 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %.2.in = getelementptr inbounds i8, ptr %.21222, i64 40
   %.2 = load ptr, ptr %.2.in, align 8
   %525 = icmp ne ptr %.2, null
-  %526 = icmp ult i64 %indvars.iv1399, 64
+  %526 = icmp ult i64 %indvars.iv1400, 64
   %527 = select i1 %525, i1 %526, i1 false
   br i1 %527, label %.lr.ph1223, label %._crit_edge1224.loopexit
 
 ._crit_edge1224.loopexit:                         ; preds = %.lr.ph1223
-  %.pre1412 = load ptr, ptr %18, align 8
+  %.pre1413 = load ptr, ptr %18, align 8
   br label %._crit_edge1224
 
 ._crit_edge1224:                                  ; preds = %._crit_edge1224.loopexit, %.preheader1010
-  %528 = phi ptr [ %.pre1412, %._crit_edge1224.loopexit ], [ %15, %.preheader1010 ]
+  %528 = phi ptr [ %.pre1413, %._crit_edge1224.loopexit ], [ %15, %.preheader1010 ]
   %529 = getelementptr inbounds i8, ptr %0, i64 160
   %530 = load ptr, ptr %529, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 104
@@ -1889,9 +1889,9 @@ tailrecurse.backedge:                             ; preds = %.lr.ph1731, %tailre
   %870 = load ptr, ptr %869, align 8
   %871 = call i32 %870(ptr noundef nonnull %5, i32 noundef 263, i32 noundef 0) #22
   %.not982 = icmp eq i32 %871, 0
-  br i1 %.not982, label %._crit_edge1449, label %872
+  br i1 %.not982, label %._crit_edge1450, label %872
 
-._crit_edge1449:                                  ; preds = %866
+._crit_edge1450:                                  ; preds = %866
   %.sroa.0837.0.copyload840.pre = load ptr, ptr %857, align 8
   br label %common.ret
 
@@ -2303,9 +2303,9 @@ thread-pre-split:                                 ; preds = %1004, %848
   %1055 = load ptr, ptr %1054, align 8
   %1056 = call i32 %1055(ptr noundef nonnull %5, i32 noundef 263, i32 noundef 0) #22
   %.not989 = icmp eq i32 %1056, 0
-  br i1 %.not989, label %._crit_edge1453, label %1057
+  br i1 %.not989, label %._crit_edge1454, label %1057
 
-._crit_edge1453:                                  ; preds = %1051
+._crit_edge1454:                                  ; preds = %1051
   %.sroa.0837.0.copyload848.pre = load ptr, ptr %1041, align 8
   br label %common.ret
 
@@ -2565,9 +2565,9 @@ thread-pre-split:                                 ; preds = %1004, %848
   %1181 = load ptr, ptr %1180, align 8
   %1182 = call i32 %1181(ptr noundef nonnull %5, i32 noundef 262, i32 noundef 0) #22
   %.not975 = icmp eq i32 %1182, 0
-  br i1 %.not975, label %._crit_edge1445, label %1183
+  br i1 %.not975, label %._crit_edge1446, label %1183
 
-._crit_edge1445:                                  ; preds = %1176
+._crit_edge1446:                                  ; preds = %1176
   %.sroa.0837.0.copyload850.pre = load ptr, ptr %1177, align 8
   br label %common.ret
 
@@ -2602,9 +2602,9 @@ thread-pre-split:                                 ; preds = %1004, %848
   %1200 = load ptr, ptr %1199, align 8
   %1201 = call i32 %1200(ptr noundef nonnull %5, i32 noundef 259, i32 noundef 0) #22
   %.not972 = icmp eq i32 %1201, 0
-  br i1 %.not972, label %._crit_edge1443, label %1202
+  br i1 %.not972, label %._crit_edge1444, label %1202
 
-._crit_edge1443:                                  ; preds = %1195
+._crit_edge1444:                                  ; preds = %1195
   %.sroa.0837.0.copyload851.pre = load ptr, ptr %1196, align 8
   br label %common.ret
 
@@ -2664,7 +2664,7 @@ thread-pre-split:                                 ; preds = %1004, %848
 
 1228:                                             ; preds = %1225
   %1229 = call i32 @strmatch(ptr noundef nonnull %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, ptr noundef nonnull %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110) #22
-  %.pre1442 = load i32, ptr %827, align 4
+  %.pre1443 = load i32, ptr %827, align 4
   br label %1233
 
 1230:                                             ; preds = %1225
@@ -2673,7 +2673,7 @@ thread-pre-split:                                 ; preds = %1004, %848
   br label %1233
 
 1233:                                             ; preds = %1230, %1228
-  %1234 = phi i32 [ %.pre1442, %1228 ], [ %1170, %1230 ]
+  %1234 = phi i32 [ %.pre1443, %1228 ], [ %1170, %1230 ]
   %1235 = phi i32 [ %1229, %1228 ], [ %1232, %1230 ]
   %1236 = icmp eq i32 %1234, 325
   %1237 = zext i1 %1236 to i32

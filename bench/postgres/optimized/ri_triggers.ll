@@ -2793,8 +2793,8 @@ define internal fastcc noundef zeroext i1 @ri_KeysEqual(ptr noundef %0, ptr noun
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %69 ], [ 0, %.lr.ph ]
-  %27 = getelementptr i16, ptr %15, i64 %indvars.iv45
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %69 ], [ 0, %.lr.ph ]
+  %27 = getelementptr i16, ptr %15, i64 %indvars.iv48
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i16, ptr %16, align 2
@@ -2857,11 +2857,11 @@ slot_getattr.exit30.us:                           ; preds = %slot_getsomeattrs.e
   br i1 %68, label %69, label %._crit_edge
 
 69:                                               ; preds = %52
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %70 = load i32, ptr %12, align 8
   %71 = sext i32 %70 to i64
-  %.not48 = icmp slt i64 %indvars.iv.next46, %71
-  br i1 %.not48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+  %.not44 = icmp slt i64 %indvars.iv.next49, %71
+  br i1 %.not44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %150
   %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %.lr.ph ]
@@ -3043,8 +3043,8 @@ ri_AttributesEqual.exit:                          ; preds = %ri_HashCompareOp.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load i32, ptr %12, align 8
   %152 = sext i32 %151 to i64
-  %.not47 = icmp slt i64 %indvars.iv.next, %152
-  br i1 %.not47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  %.not43 = icmp slt i64 %indvars.iv.next, %152
+  br i1 %.not43, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %slot_getattr.exit, %slot_getattr.exit30, %ri_AttributesEqual.exit, %150, %slot_getattr.exit.us, %slot_getattr.exit30.us, %52, %69, %5
   %.lcssa32 = phi i1 [ true, %5 ], [ true, %69 ], [ false, %52 ], [ false, %slot_getattr.exit30.us ], [ false, %slot_getattr.exit.us ], [ true, %150 ], [ false, %ri_AttributesEqual.exit ], [ false, %slot_getattr.exit30 ], [ false, %slot_getattr.exit ]

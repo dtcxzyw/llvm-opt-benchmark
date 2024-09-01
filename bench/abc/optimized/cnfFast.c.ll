@@ -2722,10 +2722,7 @@ define noundef i32 @Cnf_CountCnfSize(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %.val42 to i64
   br label %20
 
-.critedge.preheader:                              ; preds = %31
-  br i1 %17, label %.lr.ph54, label %.critedge2
-
-.lr.ph54:                                         ; preds = %.critedge.preheader
+.lr.ph54:                                         ; preds = %31
   %19 = getelementptr i8, ptr %0, i64 312
   br label %32
 
@@ -2750,7 +2747,7 @@ define noundef i32 @Cnf_CountCnfSize(ptr noundef %0) local_unnamed_addr #0 {
   %.138 = phi i32 [ %.03749, %20 ], [ %30, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %20, !llvm.loop !26
+  br i1 %exitcond.not, label %.lr.ph54, label %20, !llvm.loop !26
 
 32:                                               ; preds = %.lr.ph54, %.critedge
   %33 = phi ptr [ %15, %.lr.ph54 ], [ %54, %.critedge ]
@@ -2818,9 +2815,9 @@ Cnf_CollectVolume.exit:                           ; preds = %46, %44
   %57 = icmp slt i64 %indvars.iv.next58, %56
   br i1 %57, label %32, label %.critedge2, !llvm.loop !27
 
-.critedge2:                                       ; preds = %.critedge, %1, %.critedge.preheader
-  %.037.lcssa61 = phi i32 [ %.138, %.critedge.preheader ], [ 0, %1 ], [ %.138, %.critedge ]
-  %.035.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.136, %.critedge ]
+.critedge2:                                       ; preds = %.critedge, %1
+  %.037.lcssa61 = phi i32 [ 0, %1 ], [ %.138, %.critedge ]
+  %.035.lcssa = phi i32 [ 0, %1 ], [ %.136, %.critedge ]
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.037.lcssa61, i32 noundef %.035.lcssa)
   %59 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %59, null

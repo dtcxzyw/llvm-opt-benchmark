@@ -661,14 +661,14 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_14StepES2_SaIS1_EET0_T_S
   %244 = getelementptr inbounds i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 16
   %245 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %244, %210
-  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_14StepES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
 
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i
+_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_14StepES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %246 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i.i.i, i64 32
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_14StepEEvPT_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.05.i.i.i.i.i = phi ptr [ %251, %_ZSt8_DestroyIN12_GLOBAL__N_14StepEEvPT_.exit.i.i.i.i.i ], [ %.val32.i.i, %.lr.ph.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_14StepEEvPT_.exit.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_14StepES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.i.i
+  %.05.i.i.i.i.i = phi ptr [ %251, %_ZSt8_DestroyIN12_GLOBAL__N_14StepEEvPT_.exit.i.i.i.i.i ], [ %.val32.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_14StepES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.i.i ]
   %.0.val.i.i.i.i.i = load ptr, ptr %.05.i.i.i.i.i, align 8
   %247 = invoke ptr @proj_destroy(ptr noundef %.0.val.i.i.i.i.i)
           to label %_ZSt8_DestroyIN12_GLOBAL__N_14StepEEvPT_.exit.i.i.i.i.i unwind label %248
@@ -715,9 +715,6 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
   %.val = load ptr, ptr %258, align 8
   %.not297359 = icmp eq ptr %.val262, %.val
   br i1 %.not297359, label %.loopexit, label %.lr.ph362
-
-.preheader300:                                    ; preds = %292
-  br i1 %.not297359, label %.loopexit, label %.lr.ph365
 
 .lr.ph362:                                        ; preds = %._crit_edge358, %292
   %.sroa.0290.0360 = phi ptr [ %293, %292 ], [ %.val262, %._crit_edge358 ]
@@ -786,10 +783,10 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
 292:                                              ; preds = %279, %282, %285, %266, %269, %272, %.lr.ph362
   %293 = getelementptr inbounds i8, ptr %.sroa.0290.0360, i64 16
   %.not297 = icmp eq ptr %293, %.val
-  br i1 %.not297, label %.preheader300, label %.lr.ph362
+  br i1 %.not297, label %.lr.ph365, label %.lr.ph362
 
-.lr.ph365:                                        ; preds = %.preheader300, %301
-  %.sroa.0288.0364 = phi ptr [ %302, %301 ], [ %.val262, %.preheader300 ]
+.lr.ph365:                                        ; preds = %292, %301
+  %.sroa.0288.0364 = phi ptr [ %302, %301 ], [ %.val262, %292 ]
   %294 = getelementptr inbounds i8, ptr %.sroa.0288.0364, i64 9
   %295 = load i8, ptr %294, align 1
   %296 = trunc i8 %295 to i1
@@ -812,7 +809,7 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
   %.not298 = icmp eq ptr %302, %.val
   br i1 %.not298, label %.loopexit, label %.lr.ph365
 
-.loopexit:                                        ; preds = %301, %._crit_edge358, %.preheader300, %300
+.loopexit:                                        ; preds = %301, %._crit_edge358, %300
   %303 = icmp sgt i32 %.0224.lcssa, 2
   br i1 %303, label %.lr.ph368.preheader, label %.preheader
 
@@ -821,10 +818,7 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
   %305 = zext nneg i32 %304 to i64
   br label %.lr.ph368
 
-.preheader299:                                    ; preds = %323
-  br i1 %303, label %.lr.ph370.preheader, label %.preheader
-
-.lr.ph370.preheader:                              ; preds = %.preheader299
+.lr.ph370.preheader:                              ; preds = %323
   %wide.trip.count416 = zext nneg i32 %93 to i64
   br label %.lr.ph370
 
@@ -863,9 +857,9 @@ _ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EE12emplace_backIJRP8PJconstsRbS8_EEEvDp
 323:                                              ; preds = %.lr.ph368, %310, %313, %320
   %indvars.iv.next411 = add nsw i64 %indvars.iv410, -1
   %324 = icmp sgt i64 %indvars.iv410, 0
-  br i1 %324, label %.lr.ph368, label %.preheader299, !llvm.loop !16
+  br i1 %324, label %.lr.ph368, label %.lr.ph370.preheader, !llvm.loop !16
 
-.preheader:                                       ; preds = %343, %.loopexit, %.preheader299
+.preheader:                                       ; preds = %343, %.loopexit
   %smax = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
   %325 = add nsw i32 %smax, -1
   %wide.trip.count421 = zext nneg i32 %325 to i64

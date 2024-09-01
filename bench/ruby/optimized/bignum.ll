@@ -1903,17 +1903,14 @@ bary_addc.exit:                                   ; preds = %.lr.ph.i294
   br i1 %exitcond.not.i.i300, label %rbimpl_size_mul_or_raise.exit312, label %.lr.ph.i.i297, !llvm.loop !20
 
 rbimpl_size_mul_or_raise.exit312:                 ; preds = %.lr.ph.i.i297
+  %226 = zext i1 %214 to i32
   %.not481 = icmp ult i64 %222, 4294967296
-  br i1 %.not.i279, label %ruby_nonempty_memcpy.exit314, label %226
-
-226:                                              ; preds = %rbimpl_size_mul_or_raise.exit312
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0192, ptr readonly align 1 %60, i64 %178, i1 false)
   br label %ruby_nonempty_memcpy.exit314
 
-ruby_nonempty_memcpy.exit314:                     ; preds = %bary_mul_karatsuba_start.exit281, %rbimpl_size_mul_or_raise.exit312, %226
-  %.not481576 = phi i1 [ %.not481, %rbimpl_size_mul_or_raise.exit312 ], [ %.not481, %226 ], [ true, %bary_mul_karatsuba_start.exit281 ]
-  %.shrunk = phi i1 [ %214, %rbimpl_size_mul_or_raise.exit312 ], [ %214, %226 ], [ false, %bary_mul_karatsuba_start.exit281 ]
-  %227 = zext i1 %.shrunk to i32
+ruby_nonempty_memcpy.exit314:                     ; preds = %bary_mul_karatsuba_start.exit281, %rbimpl_size_mul_or_raise.exit312
+  %.not481576 = phi i1 [ %.not481, %rbimpl_size_mul_or_raise.exit312 ], [ true, %bary_mul_karatsuba_start.exit281 ]
+  %227 = phi i32 [ %226, %rbimpl_size_mul_or_raise.exit312 ], [ 0, %bary_mul_karatsuba_start.exit281 ]
   %228 = sub i64 %1, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -11370,8 +11367,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %14 = icmp ne i8 %12, 32
   %15 = add nsw i32 %13, -14
   %16 = icmp ult i32 %15, -5
-  %narrow.i.not307 = and i1 %14, %16
-  br i1 %narrow.i.not307, label %._crit_edge, label %.lr.ph.preheader
+  %narrow.i.not306 = and i1 %14, %16
+  br i1 %narrow.i.not306, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader284
   %17 = getelementptr i8, ptr %0, i64 %1
@@ -11379,14 +11376,14 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.2309 = phi ptr [ %19, %18 ], [ %0, %.lr.ph.preheader ]
-  %.1252308 = phi i64 [ %20, %18 ], [ %1, %.lr.ph.preheader ]
-  %or.cond = icmp eq i64 %.1252308, 1
+  %.2308 = phi ptr [ %19, %18 ], [ %0, %.lr.ph.preheader ]
+  %.1252307 = phi i64 [ %20, %18 ], [ %1, %.lr.ph.preheader ]
+  %or.cond = icmp eq i64 %.1252307, 1
   br i1 %or.cond, label %str2big_scan_digits.exit.thread, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %.2309, i64 1
-  %20 = add i64 %.1252308, -1
+  %19 = getelementptr i8, ptr %.2308, i64 1
+  %20 = add i64 %.1252307, -1
   %21 = load i8, ptr %19, align 1
   %22 = sext i8 %21 to i32
   %23 = icmp ne i8 %21, 32
@@ -11398,8 +11395,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 ._crit_edge:                                      ; preds = %18, %.preheader284
   %.1252.lcssa = phi i64 [ %1, %.preheader284 ], [ %20, %18 ]
   %.2.lcssa = phi ptr [ %0, %.preheader284 ], [ %19, %18 ]
-  %.lcssa303 = phi i8 [ %12, %.preheader284 ], [ %21, %18 ]
-  switch i8 %.lcssa303, label %34 [
+  %.lcssa302 = phi i8 [ %12, %.preheader284 ], [ %21, %18 ]
+  switch i8 %.lcssa302, label %34 [
     i8 43, label %26
     i8 45, label %30
   ]
@@ -11629,13 +11626,13 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %.4261 = phi ptr [ %.4.ph, %.thread ], [ %.1, %117 ]
   %.0164260 = phi i32 [ %.0164.ph, %.thread ], [ %.0164, %117 ]
   %.2253259 = phi i64 [ %.2253.ph, %.thread ], [ %.0251, %117 ]
-  %.4261358 = ptrtoint ptr %.4261 to i64
+  %.4261356 = ptrtoint ptr %.4261 to i64
   %.not204 = icmp eq i64 %.2253259, 0
   br i1 %.not204, label %str2big_scan_digits.exit.thread, label %123
 
 123:                                              ; preds = %121
   %124 = ptrtoint ptr %0 to i64
-  %125 = sub i64 %.4261358, %124
+  %125 = sub i64 %.4261356, %124
   store i64 %125, ptr %8, align 8
   %126 = load i8, ptr %.4261, align 1
   %127 = icmp eq i8 %126, 48
@@ -11660,7 +11657,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %138 = getelementptr i8, ptr %.6.us, i64 1
   %139 = load i8, ptr %138, align 1
   %cond.us = icmp eq i8 %139, 48
-  br i1 %cond.us, label %140, label %.split315.us
+  br i1 %cond.us, label %140, label %.split314.us
 
 140:                                              ; preds = %.split.us
   %141 = add i64 %137, 1
@@ -11681,7 +11678,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %147 = icmp ne i8 %145, 95
   %148 = icmp ne i32 %.0165, 0
   %or.cond221 = or i1 %148, %147
-  br i1 %or.cond221, label %.split315.us, label %151
+  br i1 %or.cond221, label %.split314.us, label %151
 
 149:                                              ; preds = %.split
   %150 = add i64 %143, 1
@@ -11694,38 +11691,38 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %153 = icmp eq ptr %144, %132
   br i1 %153, label %.thread262.loopexit, label %.split, !llvm.loop !82
 
-.split315.us:                                     ; preds = %146, %.split.us
+.split314.us:                                     ; preds = %146, %.split.us
   %154 = phi i64 [ %137, %.split.us ], [ %143, %146 ]
   %.us-phi = phi i8 [ %139, %.split.us ], [ %145, %146 ]
-  %.us-phi316 = phi ptr [ %.6.us, %.split.us ], [ %.6, %146 ]
-  %.us-phi317 = phi ptr [ %138, %.split.us ], [ %144, %146 ]
+  %.us-phi315 = phi ptr [ %.6.us, %.split.us ], [ %.6, %146 ]
+  %.us-phi316 = phi ptr [ %138, %.split.us ], [ %144, %146 ]
   %.not205 = icmp eq i8 %.us-phi, 0
   br i1 %.not205, label %163, label %.thread262
 
 .thread262.loopexit:                              ; preds = %151, %140
   %155 = phi i64 [ %141, %140 ], [ %152, %151 ]
-  %.us-phi319 = phi i8 [ 48, %140 ], [ %145, %151 ]
-  %.us-phi320 = phi ptr [ %.6.us, %140 ], [ %.6, %151 ]
-  %.pn = sub i64 %133, %.4261358
-  %.us-phi321 = getelementptr i8, ptr %.4261, i64 %.pn
+  %.us-phi318 = phi i8 [ 48, %140 ], [ %145, %151 ]
+  %.us-phi319 = phi ptr [ %.6.us, %140 ], [ %.6, %151 ]
+  %.pn = sub i64 %133, %.4261356
+  %.us-phi320 = getelementptr i8, ptr %.4261, i64 %.pn
   br label %.thread262
 
-.thread262:                                       ; preds = %.thread262.loopexit, %.split315.us
-  %156 = phi i64 [ %155, %.thread262.loopexit ], [ %154, %.split315.us ]
-  %.6301 = phi ptr [ %.us-phi320, %.thread262.loopexit ], [ %.us-phi316, %.split315.us ]
-  %157 = phi ptr [ %.us-phi321, %.thread262.loopexit ], [ %.us-phi317, %.split315.us ]
-  %158 = phi i8 [ %.us-phi319, %.thread262.loopexit ], [ %.us-phi, %.split315.us ]
+.thread262:                                       ; preds = %.thread262.loopexit, %.split314.us
+  %156 = phi i64 [ %155, %.thread262.loopexit ], [ %154, %.split314.us ]
+  %.6300 = phi ptr [ %.us-phi319, %.thread262.loopexit ], [ %.us-phi315, %.split314.us ]
+  %157 = phi ptr [ %.us-phi320, %.thread262.loopexit ], [ %.us-phi316, %.split314.us ]
+  %158 = phi i8 [ %.us-phi318, %.thread262.loopexit ], [ %.us-phi, %.split314.us ]
   %159 = sext i8 %158 to i32
   %160 = icmp ne i8 %158, 32
   %161 = add nsw i32 %159, -14
   %162 = icmp ult i32 %161, -5
   %narrow.i225.not = and i1 %160, %162
-  %spec.select328 = select i1 %narrow.i225.not, ptr %157, ptr %.6301
+  %spec.select327 = select i1 %narrow.i225.not, ptr %157, ptr %.6300
   br label %163
 
-163:                                              ; preds = %.thread262, %.split315.us
-  %164 = phi i64 [ %154, %.split315.us ], [ %156, %.thread262 ]
-  %.7 = phi ptr [ %.us-phi316, %.split315.us ], [ %spec.select328, %.thread262 ]
+163:                                              ; preds = %.thread262, %.split314.us
+  %164 = phi i64 [ %154, %.split314.us ], [ %156, %.thread262 ]
+  %.7 = phi ptr [ %.us-phi315, %.split314.us ], [ %spec.select327, %.thread262 ]
   %.not207 = icmp eq ptr %132, null
   br i1 %.not207, label %168, label %165
 
@@ -11826,8 +11823,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 .preheader.split:                                 ; preds = %.preheader, %207
   %.0163 = phi ptr [ %213, %207 ], [ %185, %.preheader ]
-  %.not329 = icmp ult ptr %.0163, %199
-  br i1 %.not329, label %207, label %.loopexit
+  %.not328 = icmp ult ptr %.0163, %199
+  br i1 %.not328, label %207, label %.loopexit
 
 207:                                              ; preds = %.preheader.split
   %208 = load i8, ptr %.0163, align 1
@@ -11875,22 +11872,22 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %str2big_scan_digits.exit
 
 229:                                              ; preds = %227
-  br i1 %9, label %.preheader431, label %230
+  br i1 %9, label %.preheader429, label %230
 
 230:                                              ; preds = %229
   %231 = load i8, ptr %.5, align 1
   %232 = icmp eq i8 %231, 95
-  br i1 %232, label %str2big_scan_digits.exit.thread.thread, label %.preheader431
+  br i1 %232, label %str2big_scan_digits.exit.thread.thread, label %.preheader429
 
-.preheader431:                                    ; preds = %230, %229
+.preheader429:                                    ; preds = %230, %229
   br label %.outer
 
-.outer:                                           ; preds = %.preheader431, %248
-  %.051.i.ph = phi ptr [ %.5, %.preheader431 ], [ %235, %248 ]
-  %.048.i.ph = phi i8 [ 0, %.preheader431 ], [ %.250.i, %248 ]
-  %.045.i.ph = phi i64 [ 0, %.preheader431 ], [ %.247.i, %248 ]
-  %.041.i.ph = phi ptr [ %.5, %.preheader431 ], [ %.243.i, %248 ]
-  %.0.i.ph = phi i64 [ %.3, %.preheader431 ], [ %249, %248 ]
+.outer:                                           ; preds = %.preheader429, %248
+  %.051.i.ph = phi ptr [ %.5, %.preheader429 ], [ %235, %248 ]
+  %.048.i.ph = phi i8 [ 0, %.preheader429 ], [ %.250.i, %248 ]
+  %.045.i.ph = phi i64 [ 0, %.preheader429 ], [ %.247.i, %248 ]
+  %.041.i.ph = phi ptr [ %.5, %.preheader429 ], [ %.243.i, %248 ]
+  %.0.i.ph = phi i64 [ %.3, %.preheader429 ], [ %249, %248 ]
   %233 = icmp sgt i64 %.0.i.ph, 0
   br label %234
 
@@ -11902,7 +11899,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %235 = getelementptr i8, ptr %.051.i, i64 1
   %236 = load i8, ptr %.051.i, align 1
   switch i8 %236, label %239 [
-    i8 0, label %.loopexit432
+    i8 0, label %.loopexit430
     i8 95, label %237
   ]
 
@@ -11921,7 +11918,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %244 = sext i8 %242 to i32
   %.not63.i = icmp sgt i32 %.0164260, %244
   %or.cond71.i = and i1 %243, %.not63.i
-  br i1 %or.cond71.i, label %245, label %.loopexit432
+  br i1 %or.cond71.i, label %245, label %.loopexit430
 
 245:                                              ; preds = %239
   %246 = add i64 %.045.i, 1
@@ -11936,9 +11933,9 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 248:                                              ; preds = %247
   %249 = add nsw i64 %.0.i.ph, -1
   %.not65.i = icmp eq i64 %249, 0
-  br i1 %.not65.i, label %.loopexit432, label %.outer, !llvm.loop !84
+  br i1 %.not65.i, label %.loopexit430, label %.outer, !llvm.loop !84
 
-.loopexit432:                                     ; preds = %248, %239, %234
+.loopexit430:                                     ; preds = %248, %239, %234
   %.149.i = phi i8 [ %.048.i, %234 ], [ %.048.i, %239 ], [ %.250.i, %248 ]
   %.146.i = phi i64 [ %.045.i, %234 ], [ %.045.i, %239 ], [ %.247.i, %248 ]
   %.142.i = phi ptr [ %.041.i, %234 ], [ %.041.i, %239 ], [ %.243.i, %248 ]
@@ -11947,7 +11944,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %or.cond.i.not = or i1 %9, %250
   br i1 %or.cond.i.not, label %251, label %str2big_scan_digits.exit.thread.thread
 
-251:                                              ; preds = %.loopexit432
+251:                                              ; preds = %.loopexit430
   %252 = icmp eq i64 %.1.i, 0
   %or.cond4.i = select i1 %9, i1 true, i1 %252
   %.not6626.i = icmp eq i8 %236, 0
@@ -12155,8 +12152,8 @@ str2big_scan_digits.exit.thread:                  ; preds = %.lr.ph, %.critedge.
   store ptr %.0162, ptr %2, align 8
   br label %str2big_scan_digits.exit.thread.thread
 
-str2big_scan_digits.exit.thread.thread:           ; preds = %230, %238, %.loopexit432, %344, %str2big_scan_digits.exit.thread
-  %.0169271 = phi i64 [ %.0169, %344 ], [ %.0169, %str2big_scan_digits.exit.thread ], [ 4, %.loopexit432 ], [ 4, %238 ], [ 4, %230 ]
+str2big_scan_digits.exit.thread.thread:           ; preds = %230, %238, %.loopexit430, %344, %str2big_scan_digits.exit.thread
+  %.0169271 = phi i64 [ %.0169, %344 ], [ %.0169, %str2big_scan_digits.exit.thread ], [ 4, %.loopexit430 ], [ 4, %238 ], [ 4, %230 ]
   %.not217 = icmp eq ptr %3, null
   br i1 %.not217, label %bignorm.exit, label %345
 

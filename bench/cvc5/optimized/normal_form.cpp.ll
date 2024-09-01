@@ -38363,7 +38363,7 @@ for.inc.i.i.i.i.i71:                              ; preds = %for.body.i.i.i.i.i5
   %incdec.ptr.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i59, i64 24
   %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i58, i64 24
   %cmp.i.i.not.i.i.i.i.i74 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i72, %2
-  br i1 %cmp.i.i.not.i.i.i.i.i74, label %for.body.i.i.i80.preheader, label %for.body.i.i.i.i.i57, !llvm.loop !551
+  br i1 %cmp.i.i.not.i.i.i.i.i74, label %invoke.cont35, label %for.body.i.i.i.i.i57, !llvm.loop !551
 
 lpad.i.i.i.i.i60:                                 ; preds = %for.body.i.i.i.i.i57
   %17 = landingpad { ptr, i32 }
@@ -38400,14 +38400,14 @@ terminate.lpad.i.i.i.i.i68:                       ; preds = %lpad7.i.i.i.i.i67
 unreachable.i.i.i.i.i70:                          ; preds = %invoke.cont8.i.i.i.i.i66
   unreachable
 
-for.body.i.i.i80.preheader:                       ; preds = %for.inc.i.i.i.i.i71
+invoke.cont35:                                    ; preds = %for.inc.i.i.i.i.i71
   %23 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %23, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i80
 
-for.body.i.i.i80:                                 ; preds = %for.body.i.i.i80.preheader, %call.i.i.i.noexc84
-  %__first.addr.04.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i82, %call.i.i.i.noexc84 ], [ %__position.coerce, %for.body.i.i.i80.preheader ]
+for.body.i.i.i80:                                 ; preds = %invoke.cont35, %call.i.i.i.noexc84
+  %__first.addr.04.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i82, %call.i.i.i.noexc84 ], [ %__position.coerce, %invoke.cont35 ]
   %call.i.i.i85 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory5arith6linear8MonomialaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i)
           to label %call.i.i.i.noexc84 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 

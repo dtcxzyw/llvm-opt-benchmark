@@ -1160,9 +1160,6 @@ for.end:                                          ; preds = %for.body, %for.body
   %mul.i = fmul float %div, %means.sroa.0.0.lcssa
   %mul4.i = fmul float %div, %means.sroa.6.0.lcssa
   %mul7.i = fmul float %div, %means.sroa.12.0.lcssa
-  br i1 %cmp231, label %for.body22.lr.ph, label %for.end44
-
-for.body22.lr.ph:                                 ; preds = %for.end
   %m_useQuantization.i59 = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load i8, ptr %m_useQuantization.i59, align 8
   %tobool.i60 = trunc i8 %20 to i1
@@ -1186,11 +1183,11 @@ for.body22.lr.ph:                                 ; preds = %for.end
   %wide.trip.count267 = sext i32 %endIndex to i64
   br i1 %tobool.i60, label %for.body22.us, label %for.body22
 
-for.body22.us:                                    ; preds = %for.body22.lr.ph, %for.body22.us
-  %indvars.iv264 = phi i64 [ %indvars.iv.next265, %for.body22.us ], [ %29, %for.body22.lr.ph ]
-  %variance.sroa.12.0243.us = phi float [ %add13.i179.us, %for.body22.us ], [ 0.000000e+00, %for.body22.lr.ph ]
-  %variance.sroa.6.0242.us = phi float [ %add8.i176.us, %for.body22.us ], [ 0.000000e+00, %for.body22.lr.ph ]
-  %variance.sroa.0.0241.us = phi float [ %add.i173.us, %for.body22.us ], [ 0.000000e+00, %for.body22.lr.ph ]
+for.body22.us:                                    ; preds = %for.end, %for.body22.us
+  %indvars.iv264 = phi i64 [ %indvars.iv.next265, %for.body22.us ], [ %29, %for.end ]
+  %variance.sroa.12.0243.us = phi float [ %add13.i179.us, %for.body22.us ], [ 0.000000e+00, %for.end ]
+  %variance.sroa.6.0242.us = phi float [ %add8.i176.us, %for.body22.us ], [ 0.000000e+00, %for.end ]
+  %variance.sroa.0.0241.us = phi float [ %add.i173.us, %for.body22.us ], [ 0.000000e+00, %for.end ]
   %m_quantizedAabbMax.i75.us = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %22, i64 %indvars.iv264, i32 1
   %30 = load i16, ptr %m_quantizedAabbMax.i75.us, align 2
   %conv.i.i76.us = uitofp i16 %30 to float
@@ -1240,11 +1237,11 @@ for.body22.us:                                    ; preds = %for.body22.lr.ph, %
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
   br i1 %exitcond268.not, label %for.end44, label %for.body22.us, !llvm.loop !11
 
-for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
-  %indvars.iv259 = phi i64 [ %indvars.iv.next260, %for.body22 ], [ %29, %for.body22.lr.ph ]
-  %variance.sroa.12.0243 = phi float [ %add13.i179, %for.body22 ], [ 0.000000e+00, %for.body22.lr.ph ]
-  %variance.sroa.6.0242 = phi float [ %add8.i176, %for.body22 ], [ 0.000000e+00, %for.body22.lr.ph ]
-  %variance.sroa.0.0241 = phi float [ %add.i173, %for.body22 ], [ 0.000000e+00, %for.body22.lr.ph ]
+for.body22:                                       ; preds = %for.end, %for.body22
+  %indvars.iv259 = phi i64 [ %indvars.iv.next260, %for.body22 ], [ %29, %for.end ]
+  %variance.sroa.12.0243 = phi float [ %add13.i179, %for.body22 ], [ 0.000000e+00, %for.end ]
+  %variance.sroa.6.0242 = phi float [ %add8.i176, %for.body22 ], [ 0.000000e+00, %for.end ]
+  %variance.sroa.0.0241 = phi float [ %add.i173, %for.body22 ], [ 0.000000e+00, %for.end ]
   %arrayidx.i4.i64 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %21, i64 %indvars.iv259
   %m_aabbMaxOrg.i65 = getelementptr inbounds i8, ptr %arrayidx.i4.i64, i64 16
   %retval.sroa.0.0.copyload.i66 = load <2 x float>, ptr %m_aabbMaxOrg.i65, align 4
@@ -1276,11 +1273,11 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count267
   br i1 %exitcond263.not, label %for.end44, label %for.body22, !llvm.loop !11
 
-for.end44:                                        ; preds = %for.body22, %for.body22.us, %for.end.thread, %for.end
-  %conv277 = phi float [ %conv, %for.end ], [ %conv272, %for.end.thread ], [ %conv, %for.body22.us ], [ %conv, %for.body22 ]
-  %variance.sroa.0.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add.i173.us, %for.body22.us ], [ %add.i173, %for.body22 ]
-  %variance.sroa.6.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add8.i176.us, %for.body22.us ], [ %add8.i176, %for.body22 ]
-  %variance.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add13.i179.us, %for.body22.us ], [ %add13.i179, %for.body22 ]
+for.end44:                                        ; preds = %for.body22, %for.body22.us, %for.end.thread
+  %conv277 = phi float [ %conv272, %for.end.thread ], [ %conv, %for.body22.us ], [ %conv, %for.body22 ]
+  %variance.sroa.0.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add.i173.us, %for.body22.us ], [ %add.i173, %for.body22 ]
+  %variance.sroa.6.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add8.i176.us, %for.body22.us ], [ %add8.i176, %for.body22 ]
+  %variance.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add13.i179.us, %for.body22.us ], [ %add13.i179, %for.body22 ]
   %sub47 = fadd float %conv277, -1.000000e+00
   %div48 = fdiv float 1.000000e+00, %sub47
   %mul.i180 = fmul float %div48, %variance.sroa.0.0.lcssa

@@ -3757,7 +3757,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 1046:                                             ; preds = %1044
   %1047 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not430, label %.thread337, label %1306
+  br label %.thread337
 
 1048:                                             ; preds = %.thread337, %1049
   %.pn161 = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn157.pn.pn, %.thread337 ]
@@ -4650,7 +4650,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182:
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %198)
           to label %.invoke429 unwind label %1304
 
-.thread337:                                       ; preds = %1045, %1046, %1307, %1304
+.thread337:                                       ; preds = %1046, %1045, %1307, %1304
   %.pn157.pn.pn = phi { ptr, i32 } [ %.pn157.pn207, %1307 ], [ %1305, %1304 ], [ %.pn154.pn, %1045 ], [ %1047, %1046 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %199) #8
           to label %1048 unwind label %1052
@@ -4669,8 +4669,8 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182:
   invoke void @"_ZN4core3ptr86drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$GT$$GT$17h470cb21fb05da35fE"(ptr nonnull align 8 %195) #8
           to label %.thread188 unwind label %1052
 
-1306:                                             ; preds = %.thread336, %1046, %1045
-  %.pn157335 = phi { ptr, i32 } [ %1047, %1046 ], [ %.pn154.pn, %1045 ], [ %1300, %.thread336 ]
+1306:                                             ; preds = %.thread336, %1045
+  %.pn157335 = phi { ptr, i32 } [ %.pn154.pn, %1045 ], [ %1300, %.thread336 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %197) #8
           to label %1307 unwind label %1052
 

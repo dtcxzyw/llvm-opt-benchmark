@@ -15085,7 +15085,7 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
 
 158:                                              ; preds = %210, %129
   %.sroa.0.0.copyload.i = phi i64 [ %.sroa.5110.0..sroa.5110.0..sroa.5110.0..sroa.5110.8., %129 ], [ %.sroa.0.0.copyload.i.pre, %210 ]
-  %.165 = phi i64 [ %.064204, %129 ], [ %.266248, %210 ]
+  %.165 = phi i64 [ %.064204, %129 ], [ %.266247, %210 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.experimental.noalias.scope.decl(metadata !3622)
   call void @llvm.experimental.noalias.scope.decl(metadata !3625)
@@ -15183,18 +15183,18 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   %182 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
   invoke fastcc void @_ZN5uu_pr10print_page17h5ce7a00e8381b285E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 8 %182, i64 noundef %.pre, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %3, i64 noundef %.165)
-          to label %191 unwind label %.thread250
+          to label %191 unwind label %.thread249
 
 183:                                              ; preds = %174
-  %.pre246 = load i64, ptr %23, align 8, !alias.scope !3630, !noalias !3633
+  %.pre245 = load i64, ptr %23, align 8, !alias.scope !3630, !noalias !3633
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
-  %184 = icmp eq i64 %.pre, %.pre246
+  %184 = icmp eq i64 %.pre, %.pre245
   br i1 %184, label %185, label %210
 
 185:                                              ; preds = %.thread, %183
-  %.266249 = phi i64 [ %175, %.thread ], [ %.165, %183 ]
-  %186 = phi i64 [ 0, %.thread ], [ %.pre246, %183 ]
+  %.266248 = phi i64 [ %175, %.thread ], [ %.165, %183 ]
+  %186 = phi i64 [ 0, %.thread ], [ %.pre245, %183 ]
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hceba2e3e31393cfeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %186)
           to label %._crit_edge.i unwind label %187, !noalias !3633
 
@@ -15280,7 +15280,7 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
   br label %185
 
 210:                                              ; preds = %._crit_edge.i, %183
-  %.266248 = phi i64 [ %.266249, %._crit_edge.i ], [ %.165, %183 ]
+  %.266247 = phi i64 [ %.266248, %._crit_edge.i ], [ %.165, %183 ]
   %211 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre, %183 ]
   %212 = load ptr, ptr %38, align 8, !alias.scope !3630, !noalias !3633, !nonnull !5, !noundef !5
   %213 = getelementptr inbounds { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, ptr %212, i64 %211
@@ -15370,7 +15370,7 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
   %234 = icmp eq i64 %233, -9223372036854775808
   br i1 %234, label %239, label %240
 
-.thread250:                                       ; preds = %181
+.thread249:                                       ; preds = %181
   %lpad.loopexit148 = landingpad { ptr, i32 }
           cleanup
   %235 = load i64, ptr %20, align 8, !range !37, !noundef !5
@@ -15389,13 +15389,13 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias nocapture noundef wri
 239:                                              ; preds = %232
   br i1 %.not71.not, label %161, label %.thread134
 
-240:                                              ; preds = %.thread250, %.thread128, %232
-  %.pn121132 = phi { ptr, i32 } [ %eh.lpad-body98, %.thread128 ], [ %lpad.loopexit.split-lp149, %232 ], [ %lpad.loopexit148, %.thread250 ]
+240:                                              ; preds = %.thread249, %.thread128, %232
+  %.pn121132 = phi { ptr, i32 } [ %eh.lpad-body98, %.thread128 ], [ %lpad.loopexit.split-lp149, %232 ], [ %lpad.loopexit148, %.thread249 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..io..error..Error$GT$$GT$17hb6e540f9a8e5c545E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #23
           to label %161 unwind label %242
 
-.thread134:                                       ; preds = %.thread250, %.thread128, %239
-  %.pn121131137 = phi { ptr, i32 } [ %lpad.loopexit.split-lp149, %239 ], [ %eh.lpad-body98, %.thread128 ], [ %lpad.loopexit148, %.thread250 ]
+.thread134:                                       ; preds = %.thread249, %.thread128, %239
+  %.pn121131137 = phi { ptr, i32 } [ %lpad.loopexit.split-lp149, %239 ], [ %eh.lpad-body98, %.thread128 ], [ %lpad.loopexit148, %.thread249 ]
   %241 = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0653749e2f0b6b41E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %241) #23
           to label %161 unwind label %242

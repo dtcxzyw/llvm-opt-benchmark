@@ -1033,100 +1033,98 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
 
 12:                                               ; preds = %3, %.thread80
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread80 ]
-  %13 = phi i1 [ false, %3 ], [ %51, %.thread80 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond89.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond89.not, label %.thread, label %14
+  br i1 %exitcond89.not, label %.thread, label %13
 
-14:                                               ; preds = %12
+13:                                               ; preds = %12
   tail call void @llvm.assume(i1 %6)
-  %15 = shl nuw nsw i64 %indvars.iv, 1
-  %16 = add nuw nsw i64 %15, 2
-  %17 = icmp ugt i64 %16, %.val62
-  br i1 %17, label %.thread, label %19
+  %14 = shl nuw nsw i64 %indvars.iv, 1
+  %15 = add nuw nsw i64 %14, 2
+  %16 = icmp ugt i64 %15, %.val62
+  br i1 %16, label %.thread, label %18
 
-.thread:                                          ; preds = %19, %24, %14, %12, %.thread80, %35, %38, %.lr.ph
-  %18 = phi i1 [ %13, %.lr.ph ], [ %13, %38 ], [ %13, %35 ], [ %51, %.thread80 ], [ %13, %12 ], [ %13, %14 ], [ %13, %24 ], [ %13, %19 ]
-  ret i1 %18
+.thread:                                          ; preds = %18, %23, %13, %12, %.thread80, %34, %37, %.lr.ph
+  %17 = phi i1 [ false, %.lr.ph ], [ false, %37 ], [ false, %34 ], [ true, %.thread80 ], [ false, %12 ], [ false, %13 ], [ false, %23 ], [ false, %18 ]
+  ret i1 %17
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %.val61, i64 %15
-  %.val.i.i.i.i = load i16, ptr %20, align 1, !alias.scope !136
-  %21 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i)
-  %22 = lshr i16 %21, 3
-  %23 = icmp ult i16 %22, %10
-  br i1 %23, label %24, label %.thread
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %.val61, i64 %14
+  %.val.i.i.i.i = load i16, ptr %19, align 1, !alias.scope !136
+  %20 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i)
+  %21 = lshr i16 %20, 3
+  %22 = icmp ult i16 %21, %10
+  br i1 %22, label %23, label %.thread
 
-24:                                               ; preds = %19
+23:                                               ; preds = %18
   tail call void @llvm.assume(i1 %11)
-  %25 = and i16 %21, -8
-  %26 = zext i16 %25 to i64
-  %27 = add nuw nsw i64 %26, 8
-  %28 = icmp ugt i64 %27, %.val64
-  br i1 %28, label %.thread, label %29
+  %24 = and i16 %20, -8
+  %25 = zext i16 %24 to i64
+  %26 = add nuw nsw i64 %25, 8
+  %27 = icmp ugt i64 %26, %.val64
+  br i1 %27, label %.thread, label %28
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %.val63, i64 %26
-  %.val.i.i.i.i.i.i = load i16, ptr %30, align 1, !alias.scope !143, !noalias !154
-  %31 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
-  %32 = getelementptr inbounds i8, ptr %30, i64 2
-  %.val.i.i.i49.i.i.i = load i16, ptr %32, align 1, !alias.scope !159, !noalias !154
-  %33 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i49.i.i.i)
-  %34 = icmp ult i16 %21, 8
-  br i1 %34, label %35, label %38
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %.val63, i64 %25
+  %.val.i.i.i.i.i.i = load i16, ptr %29, align 1, !alias.scope !143, !noalias !154
+  %30 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
+  %31 = getelementptr inbounds i8, ptr %29, i64 2
+  %.val.i.i.i49.i.i.i = load i16, ptr %31, align 1, !alias.scope !159, !noalias !154
+  %32 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i49.i.i.i)
+  %33 = icmp ult i16 %20, 8
+  br i1 %33, label %34, label %37
 
-35:                                               ; preds = %29
-  %36 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %31, i16 %33)
-  %37 = extractvalue { i16, i1 } %36, 1
-  br i1 %37, label %.thread, label %43
+34:                                               ; preds = %28
+  %35 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %30, i16 %32)
+  %36 = extractvalue { i16, i1 } %35, 1
+  br i1 %36, label %.thread, label %42
 
-38:                                               ; preds = %29
+37:                                               ; preds = %28
   %indvars.iv.tr = trunc i64 %indvars.iv to i16
-  %39 = shl i16 %indvars.iv.tr, 8
-  %40 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %31, i16 %39)
-  %41 = extractvalue { i16, i1 } %40, 0
-  %42 = extractvalue { i16, i1 } %40, 1
-  br i1 %42, label %.thread, label %.preheader
+  %38 = shl i16 %indvars.iv.tr, 8
+  %39 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %30, i16 %38)
+  %40 = extractvalue { i16, i1 } %39, 0
+  %41 = extractvalue { i16, i1 } %39, 1
+  br i1 %41, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %38
+.preheader:                                       ; preds = %37
   %.not = icmp eq i16 %.val.i.i.i49.i.i.i, 0
   br i1 %.not, label %.thread80, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i16 @llvm.umax.i16(i16 %33, i16 1)
+  %umax = tail call i16 @llvm.umax.i16(i16 %32, i16 1)
   br label %.lr.ph
 
-43:                                               ; preds = %35
-  %44 = extractvalue { i16, i1 } %36, 0
-  %45 = zext i16 %31 to i64
-  %46 = icmp uge i64 %indvars.iv, %45
-  %47 = zext i16 %44 to i64
-  %48 = icmp ult i64 %indvars.iv, %47
-  %or.cond = and i1 %46, %48
-  br i1 %or.cond, label %49, label %.thread80
+42:                                               ; preds = %34
+  %43 = extractvalue { i16, i1 } %35, 0
+  %44 = zext i16 %30 to i64
+  %45 = icmp uge i64 %indvars.iv, %44
+  %46 = zext i16 %43 to i64
+  %47 = icmp ult i64 %indvars.iv, %46
+  %or.cond = and i1 %45, %47
+  br i1 %or.cond, label %48, label %.thread80
 
-49:                                               ; preds = %43
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %50)
+48:                                               ; preds = %42
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %49)
   br label %.thread80
 
-.thread80:                                        ; preds = %54, %.preheader, %43, %49
-  %51 = icmp ugt i64 %indvars.iv, 254
+.thread80:                                        ; preds = %52, %.preheader, %42, %48
   %exitcond90 = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond90, label %.thread, label %12
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %.sroa.017.085 = phi i16 [ %56, %54 ], [ 0, %.lr.ph.preheader ]
-  %52 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %41, i16 %.sroa.017.085)
-  %53 = extractvalue { i16, i1 } %52, 1
-  br i1 %53, label %.thread, label %54
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %.sroa.017.085 = phi i16 [ %54, %52 ], [ 0, %.lr.ph.preheader ]
+  %50 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %40, i16 %.sroa.017.085)
+  %51 = extractvalue { i16, i1 } %50, 1
+  br i1 %51, label %.thread, label %52
 
-54:                                               ; preds = %.lr.ph
-  %55 = extractvalue { i16, i1 } %52, 0
-  %56 = add nuw i16 %.sroa.017.085, 1
-  %57 = zext i16 %55 to i32
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %57)
-  %exitcond.not = icmp eq i16 %56, %umax
+52:                                               ; preds = %.lr.ph
+  %53 = extractvalue { i16, i1 } %50, 0
+  %54 = add nuw i16 %.sroa.017.085, 1
+  %55 = zext i16 %53 to i32
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %55)
+  %exitcond.not = icmp eq i16 %54, %umax
   br i1 %exitcond.not, label %.thread80, label %.lr.ph
 }
 

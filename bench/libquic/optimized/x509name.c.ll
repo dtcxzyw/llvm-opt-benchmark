@@ -27,8 +27,8 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_NAME_get_text_by_OBJ(ptr noundef readonly %name, ptr noundef %obj, ptr noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp.i.not = icmp eq ptr %name, null
-  br i1 %cmp.i.not, label %return, label %if.end.i
+  %cmp.i = icmp eq ptr %name, null
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %name, align 8

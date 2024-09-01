@@ -6934,9 +6934,6 @@ define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstC
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge
-  br i1 %4, label %.thread, label %.split
-
 .lr.ph:                                           ; preds = %2, %.critedge
   %.sroa.0.032 = phi ptr [ %52, %.critedge ], [ %0, %2 ]
   %5 = load ptr, ptr %.sroa.0.032, align 8, !nonnull !4, !noundef !4
@@ -6967,11 +6964,11 @@ define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstC
     i8 -1, label %.critedge
   ]
 
-.split:                                           ; preds = %._crit_edge
+.split:                                           ; preds = %.critedge
   %23 = add i64 %1, -1
   br label %24
 
-.thread:                                          ; preds = %24, %2, %._crit_edge
+.thread:                                          ; preds = %24, %2
   ret void
 
 24:                                               ; preds = %25, %.split
@@ -7016,7 +7013,7 @@ define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstC
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph
   %52 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 8
   %53 = icmp eq ptr %52, %3
-  br i1 %53, label %._crit_edge, label %.lr.ph
+  br i1 %53, label %.split, label %.lr.ph
 
 54:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.01dc76652205ab58be182ecf3155886c.53, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.01dc76652205ab58be182ecf3155886c.54) #34

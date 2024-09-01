@@ -3157,7 +3157,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %4, %8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.23) #18
-  br label %270
+  br label %269
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %2, i64 32
@@ -3176,7 +3176,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %13
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.24) #18
-  br label %270
+  br label %269
 
 26:                                               ; preds = %13
   %27 = icmp sgt i32 %18, 0
@@ -3198,7 +3198,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 40:                                               ; preds = %28
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.25) #18
-  br label %270
+  br label %269
 
 41:                                               ; preds = %26
   %42 = icmp ne i32 %20, 0
@@ -3213,7 +3213,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 44:                                               ; preds = %41
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.25) #18
-  br label %270
+  br label %269
 
 .thread241:                                       ; preds = %..thread241_crit_edge, %28
   %45 = phi i64 [ %.pre, %..thread241_crit_edge ], [ %31, %28 ]
@@ -3231,7 +3231,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 51:                                               ; preds = %.lr.ph
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.26) #18
-  br label %270
+  br label %269
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds i8, ptr %.0196248, i64 8
@@ -3246,7 +3246,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 57:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.27) #18
-  br label %270
+  br label %269
 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds i8, ptr %55, i64 8
@@ -3322,7 +3322,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 103:                                              ; preds = %99
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.28) #18
-  br label %268
+  br label %267
 
 104:                                              ; preds = %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr nonnull align 1 %69, i64 %.0197, i1 false)
@@ -3446,7 +3446,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   %167 = getelementptr inbounds i8, ptr %.0198, i64 %166
   %168 = tail call fastcc i32 @parse_rockridge(ptr noundef %0, ptr noundef nonnull %55, ptr noundef %167, ptr noundef nonnull %75)
   %.not218 = icmp eq i32 %168, 0
-  br i1 %.not218, label %169, label %268
+  br i1 %.not218, label %169, label %267
 
 169:                                              ; preds = %161
   %170 = load i64, ptr %61, align 8
@@ -3486,7 +3486,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   %184 = getelementptr inbounds i8, ptr %7, i64 40
   %185 = load i8, ptr %184, align 8
   %.not221 = icmp eq i8 %185, 0
-  br i1 %.not221, label %265, label %186
+  br i1 %.not221, label %264, label %186
 
 186:                                              ; preds = %183
   br i1 %.not211247, label %.thread243, label %187
@@ -3554,7 +3554,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 .thread245:                                       ; preds = %.thread243, %218
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.32) #18
-  br label %268
+  br label %267
 
 219:                                              ; preds = %218
   %220 = getelementptr inbounds i8, ptr %55, i64 80
@@ -3564,14 +3564,14 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 222:                                              ; preds = %219
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.33) #18
-  br label %268
+  br label %267
 
 223:                                              ; preds = %219
   br i1 %.not214, label %224, label %.critedge
 
 224:                                              ; preds = %223
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.32) #18
-  br label %268
+  br label %267
 
 225:                                              ; preds = %211
   br i1 %.not224, label %228, label %226
@@ -3605,86 +3605,83 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   %237 = getelementptr inbounds i8, ptr %55, i64 80
   %238 = load i64, ptr %237, align 8
   %.not228 = icmp eq i64 %238, 0
-  br i1 %.not228, label %265, label %241
+  br i1 %.not228, label %264, label %241
 
 .critedge.thread:                                 ; preds = %.thread243
   %239 = getelementptr inbounds i8, ptr %55, i64 80
   %240 = load i64, ptr %239, align 8
   %.not228252 = icmp eq i64 %240, 0
-  br i1 %.not228252, label %265, label %.thread253
+  br i1 %.not228252, label %264, label %.thread253
 
 241:                                              ; preds = %.critedge
-  br i1 %.not211247, label %.thread253, label %242
+  %242 = getelementptr inbounds i8, ptr %1, i64 8
+  %243 = load ptr, ptr %242, align 8
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %.thread253, label %245
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds i8, ptr %1, i64 8
-  %244 = load ptr, ptr %243, align 8
-  %245 = icmp eq ptr %244, null
-  br i1 %245, label %.thread253, label %246
-
-.thread253:                                       ; preds = %.critedge.thread, %242, %241
+.thread253:                                       ; preds = %.critedge.thread, %241
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #18
-  br label %268
+  br label %267
 
-246:                                              ; preds = %242
-  br i1 %.not214, label %248, label %247
+245:                                              ; preds = %241
+  br i1 %.not214, label %247, label %246
 
-247:                                              ; preds = %246
+246:                                              ; preds = %245
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #18
-  br label %268
+  br label %267
 
-248:                                              ; preds = %246
-  %249 = getelementptr inbounds i8, ptr %1, i64 32
-  %250 = load i32, ptr %249, align 8
-  %251 = add nsw i32 %250, 1
-  store i32 %251, ptr %249, align 8
-  %252 = add i64 %238, 1
-  store i64 %252, ptr %142, align 8
-  store i64 %252, ptr %60, align 8
-  br label %253
+247:                                              ; preds = %245
+  %248 = getelementptr inbounds i8, ptr %1, i64 32
+  %249 = load i32, ptr %248, align 8
+  %250 = add nsw i32 %249, 1
+  store i32 %250, ptr %248, align 8
+  %251 = add i64 %238, 1
+  store i64 %251, ptr %142, align 8
+  store i64 %251, ptr %60, align 8
+  br label %252
 
-253:                                              ; preds = %248, %258
-  %.0249 = phi ptr [ %1, %248 ], [ %260, %258 ]
-  %254 = getelementptr inbounds i8, ptr %.0249, i64 48
-  %255 = load i64, ptr %254, align 8
-  %256 = icmp eq i64 %255, %238
-  br i1 %256, label %257, label %258
+252:                                              ; preds = %247, %257
+  %.0249 = phi ptr [ %1, %247 ], [ %259, %257 ]
+  %253 = getelementptr inbounds i8, ptr %.0249, i64 48
+  %254 = load i64, ptr %253, align 8
+  %255 = icmp eq i64 %254, %238
+  br i1 %255, label %256, label %257
 
-257:                                              ; preds = %253
+256:                                              ; preds = %252
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #18
-  br label %268
+  br label %267
 
-258:                                              ; preds = %253
-  %259 = getelementptr inbounds i8, ptr %.0249, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %.not229 = icmp eq ptr %260, null
-  br i1 %.not229, label %261, label %253, !llvm.loop !21
+257:                                              ; preds = %252
+  %258 = getelementptr inbounds i8, ptr %.0249, i64 8
+  %259 = load ptr, ptr %258, align 8
+  %.not229 = icmp eq ptr %259, null
+  br i1 %.not229, label %260, label %252, !llvm.loop !21
 
-261:                                              ; preds = %258
-  %262 = getelementptr inbounds i8, ptr %1, i64 72
-  %263 = load i8, ptr %262, align 8
-  %.not230 = icmp eq i8 %263, 0
-  br i1 %.not230, label %265, label %264
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds i8, ptr %1, i64 72
+  %262 = load i8, ptr %261, align 8
+  %.not230 = icmp eq i8 %262, 0
+  br i1 %.not230, label %264, label %263
 
-264:                                              ; preds = %261
+263:                                              ; preds = %260
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #18
-  br label %268
+  br label %267
 
-265:                                              ; preds = %.critedge.thread, %.critedge, %261, %183
-  %266 = getelementptr inbounds i8, ptr %7, i64 104
-  %267 = load ptr, ptr %266, align 8
-  store ptr %267, ptr %55, align 8
-  store ptr %55, ptr %266, align 8
-  br label %270
+264:                                              ; preds = %.critedge.thread, %.critedge, %260, %183
+  %265 = getelementptr inbounds i8, ptr %7, i64 104
+  %266 = load ptr, ptr %265, align 8
+  store ptr %266, ptr %55, align 8
+  store ptr %55, ptr %265, align 8
+  br label %269
 
-268:                                              ; preds = %161, %264, %257, %247, %.thread253, %224, %222, %.thread245, %103
-  %269 = getelementptr inbounds i8, ptr %55, i64 168
-  tail call void @archive_string_free(ptr noundef nonnull %269) #18
+267:                                              ; preds = %161, %263, %256, %246, %.thread253, %224, %222, %.thread245, %103
+  %268 = getelementptr inbounds i8, ptr %55, i64 168
+  tail call void @archive_string_free(ptr noundef nonnull %268) #18
   tail call void @free(ptr noundef %55) #18
-  br label %270
+  br label %269
 
-270:                                              ; preds = %268, %265, %57, %51, %44, %40, %25, %.thread
-  %.0195 = phi ptr [ null, %.thread ], [ null, %25 ], [ null, %40 ], [ null, %44 ], [ null, %51 ], [ null, %57 ], [ null, %268 ], [ %55, %265 ]
+269:                                              ; preds = %267, %264, %57, %51, %44, %40, %25, %.thread
+  %.0195 = phi ptr [ null, %.thread ], [ null, %25 ], [ null, %40 ], [ null, %44 ], [ null, %51 ], [ null, %57 ], [ null, %267 ], [ %55, %264 ]
   ret ptr %.0195
 }
 

@@ -513,8 +513,8 @@ if.else19:                                        ; preds = %if.end12
   ]
 
 if.then27:                                        ; preds = %if.else19, %if.else19
-  %cmp29.not = icmp eq i32 %and, 40960
-  br i1 %cmp29.not, label %cond.end37.thread, label %cond.end37
+  %cmp29 = icmp eq i32 %and, 40960
+  br i1 %cmp29, label %cond.end37.thread, label %cond.end37
 
 cond.end37.thread:                                ; preds = %if.then27
   %or31 = shl i32 %mode, 16

@@ -25113,8 +25113,7 @@ maygvl_fclose.exit:                               ; preds = %68
   %72 = and i64 %71, 2147483648
   %73 = icmp ne i64 %72, 0
   %74 = icmp eq i64 %.159, 4
-  %or.cond11.not = and i1 %.not.i71, %74
-  %or.cond92 = select i1 %73, i1 %or.cond11.not, i1 false
+  %or.cond92 = select i1 %73, i1 %74, i1 false
   br i1 %or.cond92, label %.thread84.sink.split, label %.thread84
 
 75:                                               ; preds = %66
@@ -26708,7 +26707,7 @@ RSTRING_PTR.exit:                                 ; preds = %40, %47
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !177
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader56.i.thread, %.preheader56.i
-  %57 = phi i1 [ false, %.preheader56.i ], [ false, %.preheader56.i.thread ], [ %53, %.lr.ph.i ]
+  %57 = phi i1 [ false, %.preheader56.i ], [ false, %.preheader56.i.thread ], [ true, %.lr.ph.i ]
   %.045.lcssa.i = phi i64 [ 0, %.preheader56.i ], [ 0, %.preheader56.i.thread ], [ %56, %.lr.ph.i ]
   %58 = getelementptr inbounds i8, ptr %2, i64 48
   %59 = load ptr, ptr %58, align 8

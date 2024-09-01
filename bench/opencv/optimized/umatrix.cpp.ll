@@ -552,103 +552,103 @@ define linkonce_odr hidden void @_ZN2cv18UMatDataAutoLocker4lockERPNS_8UMatDataE
   %12 = icmp ne ptr %6, %11
   %.not34 = select i1 %9, i1 %12, i1 false
   %13 = load ptr, ptr %2, align 8
-  %14 = icmp ne ptr %13, %8
-  %15 = icmp ne ptr %13, %11
-  %.not37 = select i1 %14, i1 %15, i1 false
-  br i1 %.not34, label %16, label %.thread38
+  %14 = icmp eq ptr %13, %8
+  %15 = icmp eq ptr %13, %11
+  %16 = select i1 %14, i1 true, i1 %15
+  br i1 %.not34, label %17, label %.thread35
 
-16:                                               ; preds = %3
-  br i1 %.not37, label %.thread, label %17
+17:                                               ; preds = %3
+  br i1 %16, label %18, label %.thread
 
-.thread38:                                        ; preds = %3
+.thread35:                                        ; preds = %3
   store ptr null, ptr %1, align 8
-  br i1 %.not37, label %.thread, label %.thread39
+  br i1 %16, label %.thread36, label %.thread
 
-.thread39:                                        ; preds = %.thread38
+.thread36:                                        ; preds = %.thread35
   store ptr null, ptr %2, align 8
   br label %_ZN2cv8UMatData4lockEv.exit28
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   store ptr null, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %17, %.thread38, %16
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %28, label %20
+.thread:                                          ; preds = %18, %.thread35, %17
+  %19 = load i32, ptr %0, align 8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %29, label %21
 
-20:                                               ; preds = %.thread
+21:                                               ; preds = %.thread
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %21 unwind label %23
-
-21:                                               ; preds = %20
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv18UMatDataAutoLocker4lockERPNS_8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 187) #23
-          to label %22 unwind label %25
+          to label %22 unwind label %24
 
 22:                                               ; preds = %21
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv18UMatDataAutoLocker4lockERPNS_8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 187) #23
+          to label %23 unwind label %26
+
+23:                                               ; preds = %22
   unreachable
 
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %28
 
-25:                                               ; preds = %21
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %22
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  br label %27
+  br label %28
 
-27:                                               ; preds = %25, %23
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
+28:                                               ; preds = %26, %24
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   resume { ptr, i32 } %.pn
 
-28:                                               ; preds = %.thread
+29:                                               ; preds = %.thread
   store i32 1, ptr %0, align 8
-  %29 = load ptr, ptr %1, align 8
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %2, align 8
-  store ptr %30, ptr %10, align 8
-  %31 = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %_ZN2cv8UMatData4lockEv.exit, label %32
+  %30 = load ptr, ptr %1, align 8
+  store ptr %30, ptr %7, align 8
+  %31 = load ptr, ptr %2, align 8
+  store ptr %31, ptr %10, align 8
+  %32 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %_ZN2cv8UMatData4lockEv.exit, label %33
 
-32:                                               ; preds = %28
-  %33 = ptrtoint ptr %31 to i64
-  %34 = urem i64 %33, 31
-  %35 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %34
-  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %35) #22
-  %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %._ZN2cv8UMatData4lockEv.exit_crit_edge, label %37
+33:                                               ; preds = %29
+  %34 = ptrtoint ptr %32 to i64
+  %35 = urem i64 %34, 31
+  %36 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %35
+  %37 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %36) #22
+  %.not.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i, label %._ZN2cv8UMatData4lockEv.exit_crit_edge, label %38
 
-._ZN2cv8UMatData4lockEv.exit_crit_edge:           ; preds = %32
+._ZN2cv8UMatData4lockEv.exit_crit_edge:           ; preds = %33
   %.pre = load ptr, ptr %2, align 8
   br label %_ZN2cv8UMatData4lockEv.exit
 
-37:                                               ; preds = %32
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %36) #23
+38:                                               ; preds = %33
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %37) #23
   unreachable
 
-_ZN2cv8UMatData4lockEv.exit:                      ; preds = %._ZN2cv8UMatData4lockEv.exit_crit_edge, %28
-  %38 = phi ptr [ %.pre, %._ZN2cv8UMatData4lockEv.exit_crit_edge ], [ %30, %28 ]
-  %.not24 = icmp eq ptr %38, null
-  br i1 %.not24, label %_ZN2cv8UMatData4lockEv.exit28, label %39
+_ZN2cv8UMatData4lockEv.exit:                      ; preds = %._ZN2cv8UMatData4lockEv.exit_crit_edge, %29
+  %39 = phi ptr [ %.pre, %._ZN2cv8UMatData4lockEv.exit_crit_edge ], [ %31, %29 ]
+  %.not24 = icmp eq ptr %39, null
+  br i1 %.not24, label %_ZN2cv8UMatData4lockEv.exit28, label %40
 
-39:                                               ; preds = %_ZN2cv8UMatData4lockEv.exit
-  %40 = ptrtoint ptr %38 to i64
-  %41 = urem i64 %40, 31
-  %42 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %41
-  %43 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %42) #22
-  %.not.i.i27 = icmp eq i32 %43, 0
-  br i1 %.not.i.i27, label %_ZN2cv8UMatData4lockEv.exit28, label %44
+40:                                               ; preds = %_ZN2cv8UMatData4lockEv.exit
+  %41 = ptrtoint ptr %39 to i64
+  %42 = urem i64 %41, 31
+  %43 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %42
+  %44 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %43) #22
+  %.not.i.i27 = icmp eq i32 %44, 0
+  br i1 %.not.i.i27, label %_ZN2cv8UMatData4lockEv.exit28, label %45
 
-44:                                               ; preds = %39
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %43) #23
+45:                                               ; preds = %40
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %44) #23
   unreachable
 
-_ZN2cv8UMatData4lockEv.exit28:                    ; preds = %.thread39, %39, %_ZN2cv8UMatData4lockEv.exit
+_ZN2cv8UMatData4lockEv.exit28:                    ; preds = %.thread36, %40, %_ZN2cv8UMatData4lockEv.exit
   ret void
 }
 
@@ -4245,14 +4245,11 @@ define void @_ZN2cv4UMatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 derefer
 
 ._crit_edge:                                      ; preds = %.critedge34
   %46 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  br i1 %17, label %.lr.ph60.preheader, label %._crit_edge61
-
-.lr.ph60.preheader:                               ; preds = %._crit_edge
   %wide.trip.count66 = zext nneg i32 %16 to i64
   br label %.lr.ph60
 
-.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.critedge
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next64, %.critedge ]
+.lr.ph60:                                         ; preds = %._crit_edge, %.critedge
+  %indvars.iv63 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next64, %.critedge ]
   %47 = getelementptr inbounds %"class.cv::Range", ptr %2, i64 %indvars.iv63
   %48 = load i64, ptr %47, align 4
   %.sroa.051.0.extract.trunc = trunc i64 %48 to i32
@@ -4294,7 +4291,7 @@ define void @_ZN2cv4UMatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 derefer
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !18
 
-._crit_edge61:                                    ; preds = %.critedge, %._crit_edge.thread, %._crit_edge
+._crit_edge61:                                    ; preds = %.critedge, %._crit_edge.thread
   %68 = load i32, ptr %0, align 8
   %69 = load i32, ptr %8, align 4
   %70 = load ptr, ptr %12, align 8
@@ -4433,14 +4430,11 @@ define void @_ZN2cv4UMatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnu
 
 ._crit_edge:                                      ; preds = %.critedge34
   %55 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  br i1 %26, label %.lr.ph59.preheader, label %._crit_edge60
-
-.lr.ph59.preheader:                               ; preds = %._crit_edge
   %wide.trip.count65 = zext nneg i32 %16 to i64
   br label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.critedge
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next63, %.critedge ]
+.lr.ph59:                                         ; preds = %._crit_edge, %.critedge
+  %indvars.iv62 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next63, %.critedge ]
   %56 = load ptr, ptr %2, align 8
   %57 = getelementptr inbounds %"class.cv::Range", ptr %56, i64 %indvars.iv62
   %58 = load i64, ptr %57, align 4
@@ -4483,7 +4477,7 @@ define void @_ZN2cv4UMatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnu
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !20
 
-._crit_edge60:                                    ; preds = %.critedge, %._crit_edge.thread, %._crit_edge
+._crit_edge60:                                    ; preds = %.critedge, %._crit_edge.thread
   %78 = load i32, ptr %0, align 8
   %79 = load i32, ptr %8, align 4
   %80 = load ptr, ptr %12, align 8

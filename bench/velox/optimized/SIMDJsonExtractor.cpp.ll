@@ -1405,15 +1405,15 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i, %for
   %24 = load i8, ptr %__begin2.05.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = sext i8 %24 to i32
   %call2.i.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i.i) #24
-  %tobool.not.i.i.i.i.i = icmp ne i32 %call2.i.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
+  %tobool.not.i.i.i.i.i.not = icmp ne i32 %call2.i.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i.i.not, label %for.cond.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
 
 _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit.thread: ; preds = %_ZN8simdjson7haswell8ondemand5array5startERNS1_14value_iteratorE.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i)
   br label %return
 
 _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i.i.i, %if.then.i.i.i
-  %cmp.i102 = phi i1 [ true, %if.then.i.i.i ], [ %tobool.not.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %tobool.not.i.i.i.i.i, %for.cond.i.i.i.i.i ]
+  %cmp.i102 = phi i1 [ true, %if.then.i.i.i ], [ %tobool.not.i.i.i.i.i.not, %for.body.i.i.i.i.i ], [ %tobool.not.i.i.i.i.i.not, %for.cond.i.i.i.i.i ]
   %retval.sroa.3.0.insert.insert.i.i.i.i = phi i64 [ %ref.tmp.sroa.31.0.extract.shift.i.i, %if.then.i.i.i ], [ %ref.tmp.sroa.31.0.extract.shift.i.i, %for.cond.i.i.i.i.i ], [ 2560, %for.body.i.i.i.i.i ]
   br i1 %cmp.i102, label %_ZNR5folly8ExpectedIiNS_14ConversionCodeEE5valueEv.exit, label %return
 

@@ -71,15 +71,12 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void @satisfyVPSC(ptr noundef %33) #13
-  br i1 %21, label %.lr.ph177, label %.loopexit172
-
-.lr.ph177:                                        ; preds = %._crit_edge
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count241 = zext nneg i32 %9 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph177, %35
-  %indvars.iv238 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next239, %35 ]
+35:                                               ; preds = %._crit_edge, %35
+  %indvars.iv238 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next239, %35 ]
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv238
   %38 = load ptr, ptr %37, align 8
@@ -91,7 +88,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
   br i1 %exitcond242.not, label %.loopexit172, label %35
 
-.loopexit172:                                     ; preds = %35, %._crit_edge.thread, %._crit_edge, %11
+.loopexit172:                                     ; preds = %35, %._crit_edge.thread, %11
   %42 = icmp slt i32 %3, 1
   br i1 %42, label %.loopexit171, label %.preheader170.lr.ph
 
@@ -113,10 +110,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %.0162228 = phi i32 [ 0, %.preheader170.lr.ph ], [ %145, %._crit_edge226 ]
   br i1 %43, label %.lr.ph183, label %._crit_edge199
 
-.preheader169:                                    ; preds = %._crit_edge181
-  br i1 %43, label %.lr.ph192.preheader, label %._crit_edge199
-
-.lr.ph192.preheader:                              ; preds = %.preheader169
+.lr.ph192.preheader:                              ; preds = %._crit_edge181
   %.pre = load ptr, ptr %0, align 8
   br label %.lr.ph192
 
@@ -153,7 +147,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 ._crit_edge181:                                   ; preds = %53
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %.preheader169, label %.lr.ph183
+  br i1 %exitcond252.not, label %.lr.ph192.preheader, label %.lr.ph183
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %._crit_edge188
   %indvars.iv258 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next259, %._crit_edge188 ]
@@ -184,12 +178,9 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %77 = tail call float @llvm.fmuladd.f32(float %76, float %65, float %.0147191)
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge193, label %.lr.ph192
+  br i1 %exitcond262.not, label %.lr.ph198, label %.lr.ph192
 
-._crit_edge193:                                   ; preds = %._crit_edge188
-  br i1 %43, label %.lr.ph198, label %._crit_edge199
-
-.lr.ph198:                                        ; preds = %._crit_edge193
+.lr.ph198:                                        ; preds = %._crit_edge188
   %78 = fcmp une float %77, 0.000000e+00
   %79 = fneg float %75
   %.neg = fdiv float %79, %77
@@ -208,7 +199,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
   br i1 %exitcond267.not, label %._crit_edge199, label %81
 
-._crit_edge199:                                   ; preds = %81, %.preheader170, %.preheader169, %._crit_edge193
+._crit_edge199:                                   ; preds = %81, %.preheader170
   %87 = load i32, ptr %18, align 8
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %.preheader168, label %.loopexit
@@ -237,7 +228,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 ._crit_edge202:                                   ; preds = %.lr.ph201
   %96 = load ptr, ptr %45, align 8
   tail call void @satisfyVPSC(ptr noundef %96) #13
-  br i1 %43, label %.lr.ph205, label %._crit_edge226
+  br label %.lr.ph205
 
 .lr.ph205:                                        ; preds = %._crit_edge202, %.lr.ph205
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %.lr.ph205 ], [ 0, %._crit_edge202 ]
@@ -255,10 +246,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 .loopexit:                                        ; preds = %.lr.ph205, %._crit_edge199
   br i1 %43, label %.lr.ph208, label %._crit_edge226
 
-.preheader:                                       ; preds = %.lr.ph208
-  br i1 %43, label %.lr.ph218.preheader, label %._crit_edge226
-
-.lr.ph218.preheader:                              ; preds = %.preheader
+.lr.ph218.preheader:                              ; preds = %.lr.ph208
   %.pre298 = load ptr, ptr %0, align 8
   br label %.lr.ph218
 
@@ -273,7 +261,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   store float %107, ptr %108, align 4
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %.preheader, label %.lr.ph208
+  br i1 %exitcond282.not, label %.lr.ph218.preheader, label %.lr.ph208
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %._crit_edge213
   %indvars.iv288 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next289, %._crit_edge213 ]
@@ -311,17 +299,14 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %124 = fcmp une float %123, 0.000000e+00
   %125 = fdiv float %122, %123
   %.0151 = select i1 %124, float %125, float 1.000000e+00
-  br i1 %43, label %.lr.ph225, label %._crit_edge226
-
-.lr.ph225:                                        ; preds = %._crit_edge219
   %126 = fcmp ogt float %.0151, 0.000000e+00
   %127 = fcmp olt float %.0151, 1.000000e+00
   %or.cond = and i1 %126, %127
   br label %128
 
-128:                                              ; preds = %.lr.ph225, %136
-  %indvars.iv293 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next294, %136 ]
-  %.0153223 = phi float [ 0.000000e+00, %.lr.ph225 ], [ %142, %136 ]
+128:                                              ; preds = %._crit_edge219, %136
+  %indvars.iv293 = phi i64 [ 0, %._crit_edge219 ], [ %indvars.iv.next294, %136 ]
+  %.0153223 = phi float [ 0.000000e+00, %._crit_edge219 ], [ %142, %136 ]
   br i1 %or.cond, label %129, label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %128
@@ -350,8 +335,8 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
   br i1 %exitcond297.not, label %._crit_edge226, label %128
 
-._crit_edge226:                                   ; preds = %136, %._crit_edge202, %._crit_edge202.thread, %.loopexit, %.preheader, %._crit_edge219
-  %.0153.lcssa = phi float [ 0.000000e+00, %._crit_edge219 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %._crit_edge202.thread ], [ 0.000000e+00, %._crit_edge202 ], [ %142, %136 ]
+._crit_edge226:                                   ; preds = %136, %._crit_edge202.thread, %.loopexit
+  %.0153.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %._crit_edge202.thread ], [ %142, %136 ]
   %143 = fpext float %.0153.lcssa to double
   %144 = fcmp ule double %143, 1.000000e-04
   %145 = add nuw nsw i32 %.0162228, 1
@@ -1921,16 +1906,13 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   tail call void @generateNonoverlapConstraints(ptr noundef nonnull %4, float noundef 1.000000e+00, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef %2)
   %17 = load ptr, ptr %5, align 8
   tail call void @solveVPSC(ptr noundef %17) #13
-  br i1 %7, label %.lr.ph28, label %._crit_edge29
-
-.lr.ph28:                                         ; preds = %._crit_edge
   %18 = getelementptr inbounds i8, ptr %4, i64 24
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count34 = zext nneg i32 %0 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph28, %20
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %20 ]
+20:                                               ; preds = %._crit_edge, %20
+  %indvars.iv31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next32, %20 ]
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv31
   %23 = load ptr, ptr %22, align 8
@@ -1949,7 +1931,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   tail call void @solveVPSC(ptr noundef %28) #13
   br label %._crit_edge29
 
-._crit_edge29:                                    ; preds = %20, %._crit_edge29.critedge, %._crit_edge
+._crit_edge29:                                    ; preds = %20, %._crit_edge29.critedge
   tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %4)
   ret void
 }

@@ -2078,8 +2078,8 @@ common.ret:                                       ; preds = %.thread433, %327, %
   br label %186
 
 203:                                              ; preds = %199
-  %.not127.not = icmp eq i8 %.sroa.0.0.copyload469, 15
-  br i1 %.not127.not, label %.thread468, label %204
+  %.not127 = icmp eq i8 %.sroa.0.0.copyload469, 15
+  br i1 %.not127, label %.thread468, label %204
 
 204:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28)
@@ -4073,8 +4073,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -5376,8 +5376,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -6679,8 +6679,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -7958,8 +7958,8 @@ common.ret:                                       ; preds = %330, %"_ZN72_$LT$co
   br label %.body265
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %334, %331
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %438, label %338
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %438, label %338
 
 338:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -9237,8 +9237,8 @@ common.ret:                                       ; preds = %330, %"_ZN72_$LT$co
   br label %.body265
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %334, %331
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %438, label %338
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %438, label %338
 
 338:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -10540,8 +10540,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -11843,8 +11843,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -13146,8 +13146,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -14449,8 +14449,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -15731,8 +15731,8 @@ common.ret:                                       ; preds = %333, %"_ZN72_$LT$co
   br label %.body265
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %337, %334
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %441, label %341
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %441, label %341
 
 341:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -17034,8 +17034,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -18337,8 +18337,8 @@ common.ret:                                       ; preds = %334, %"_ZN72_$LT$co
   br label %.body267
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %338, %335
-  %.not.not = icmp eq ptr %.fca.1.extract46, null
-  br i1 %.not.not, label %442, label %342
+  %.not = icmp eq ptr %.fca.1.extract46, null
+  br i1 %.not, label %442, label %342
 
 342:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -20804,8 +20804,8 @@ common.ret:                                       ; preds = %688, %303, %.invoke
   br label %.body391
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %307, %304
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %417, label %311
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %417, label %311
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -22939,8 +22939,8 @@ common.ret:                                       ; preds = %684, %299, %.invoke
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %303, %300
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %413, label %307
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %413, label %307
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -25074,8 +25074,8 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %300, %297
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %410, label %304
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %410, label %304
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -27193,8 +27193,8 @@ common.ret:                                       ; preds = %682, %297, %"_ZN4co
   br label %.body388
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %301, %298
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %411, label %305
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %411, label %305
 
 305:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -29311,8 +29311,8 @@ common.ret:                                       ; preds = %684, %299, %.invoke
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %303, %300
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %413, label %307
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %413, label %307
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -31446,8 +31446,8 @@ common.ret:                                       ; preds = %684, %299, %.invoke
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %303, %300
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %413, label %307
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %413, label %307
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -33581,8 +33581,8 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %300, %297
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %410, label %304
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %410, label %304
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -35723,8 +35723,8 @@ common.ret:                                       ; preds = %688, %303, %.invoke
   br label %.body391
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %307, %304
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %417, label %311
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %417, label %311
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -37858,8 +37858,8 @@ common.ret:                                       ; preds = %684, %299, %.invoke
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %303, %300
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %413, label %307
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %413, label %307
 
 307:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
@@ -40017,8 +40017,8 @@ common.ret:                                       ; preds = %688, %303, %.invoke
   br label %.body391
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %307, %304
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %417, label %311
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %417, label %311
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -42152,8 +42152,8 @@ common.ret:                                       ; preds = %681, %296, %"_ZN4co
   br label %.body389
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %300, %297
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %410, label %304
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %410, label %304
 
 304:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -44294,8 +44294,8 @@ common.ret:                                       ; preds = %688, %303, %.invoke
   br label %.body391
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %307, %304
-  %.not.not = icmp eq ptr %.fca.1.extract84, null
-  br i1 %.not.not, label %417, label %311
+  %.not = icmp eq ptr %.fca.1.extract84, null
+  br i1 %.not, label %417, label %311
 
 311:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
@@ -48452,8 +48452,8 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
   br label %.body264
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %320, %317
-  %.not.not = icmp eq ptr %.fca.1.extract49, null
-  br i1 %.not.not, label %424, label %324
+  %.not = icmp eq ptr %.fca.1.extract49, null
+  br i1 %.not, label %424, label %324
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -49678,8 +49678,8 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
   br label %.body264
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %320, %317
-  %.not.not = icmp eq ptr %.fca.1.extract49, null
-  br i1 %.not.not, label %424, label %324
+  %.not = icmp eq ptr %.fca.1.extract49, null
+  br i1 %.not, label %424, label %324
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -50904,8 +50904,8 @@ common.ret:                                       ; preds = %316, %"_ZN72_$LT$co
   br label %.body264
 
 "_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit": ; preds = %320, %317
-  %.not.not = icmp eq ptr %.fca.1.extract49, null
-  br i1 %.not.not, label %424, label %324
+  %.not = icmp eq ptr %.fca.1.extract49, null
+  br i1 %.not, label %424, label %324
 
 324:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$ockam_node..context..context..Context..send_stop_ack..$u7b$$u7b$closure$u7d$$u7d$$GT$17he723f1f2db3722aeE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -52411,8 +52411,8 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body352
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %314, %311
-  %.not.not = icmp eq ptr %.fca.1.extract107, null
-  br i1 %.not.not, label %424, label %318
+  %.not = icmp eq ptr %.fca.1.extract107, null
+  br i1 %.not, label %424, label %318
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
@@ -54249,8 +54249,8 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body352
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %314, %311
-  %.not.not = icmp eq ptr %.fca.1.extract107, null
-  br i1 %.not.not, label %424, label %318
+  %.not = icmp eq ptr %.fca.1.extract107, null
+  br i1 %.not, label %424, label %318
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
@@ -56087,8 +56087,8 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
   br label %.body352
 
 "_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit": ; preds = %314, %311
-  %.not.not = icmp eq ptr %.fca.1.extract107, null
-  br i1 %.not.not, label %424, label %318
+  %.not = icmp eq ptr %.fca.1.extract107, null
+  br i1 %.not, label %424, label %318
 
 318:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e10e81e42dc15dcE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
@@ -113605,8 +113605,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
 
 .noexc7:                                          ; preds = %.noexc
   %47 = load i64, ptr %15, align 8, !range !7480, !noalias !15467, !noundef !5
-  %.not37.i = icmp eq i64 %47, 2
-  br i1 %.not37.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not37.not.i = icmp eq i64 %47, 2
+  br i1 %.not37.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc7
   %48 = getelementptr inbounds i8, ptr %18, i64 16
@@ -113675,8 +113675,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !15467
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !15467
   %66 = load i64, ptr %15, align 8, !range !7480, !noalias !15467, !noundef !5
-  %.not11.not.i = icmp eq i64 %66, 2
-  br i1 %.not11.not.i, label %139, label %102
+  %.not11.i = icmp eq i64 %66, 2
+  br i1 %.not11.i, label %139, label %102
 
 67:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !15467
@@ -113728,8 +113728,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !15467
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !15467
   %74 = load i8, ptr %50, align 2, !range !165, !noalias !15467, !noundef !5
-  %.not7.not.i.not = icmp eq i8 %74, 3
-  br i1 %.not7.not.i.not, label %88, label %75
+  %.not7.not.not.not.i = icmp eq i8 %74, 3
+  br i1 %.not7.not.not.not.i, label %88, label %75
 
 75:                                               ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !15462
@@ -113921,8 +113921,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9dfbe65ec
 
 .noexc12:                                         ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$$GT$17h02483dce02c8c90cE.exit.i"
   %129 = load i64, ptr %15, align 8, !range !7480, !noalias !15467, !noundef !5
-  %.not.i = icmp eq i64 %129, 2
-  br i1 %.not.i, label %63, label %._crit_edge.i
+  %.not.not.i = icmp eq i64 %129, 2
+  br i1 %.not.not.i, label %63, label %._crit_edge.i
 
 130:                                              ; preds = %.body.i
   invoke void @"_ZN4core3ptr630drop_in_place$LT$core..result..Result$LT$$LP$tracing_opentelemetry..layer..OpenTelemetryLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$opentelemetry_sdk..trace..tracer..Tracer$GT$$C$opentelemetry_sdk..trace..provider..TracerProvider$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hca58dc7fa143552eE.llvm.6545128362769768385"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #32
@@ -114119,8 +114119,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
 
 .noexc7:                                          ; preds = %.noexc
   %47 = load i64, ptr %15, align 8, !range !7480, !noalias !15564, !noundef !5
-  %.not33.i = icmp eq i64 %47, 2
-  br i1 %.not33.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not33.not.i = icmp eq i64 %47, 2
+  br i1 %.not33.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc7
   %48 = getelementptr inbounds i8, ptr %18, i64 16
@@ -114187,8 +114187,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !15564
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !15564
   %64 = load i64, ptr %15, align 8, !range !7480, !noalias !15564, !noundef !5
-  %.not11.not.i = icmp eq i64 %64, 2
-  br i1 %.not11.not.i, label %138, label %100
+  %.not11.i = icmp eq i64 %64, 2
+  br i1 %.not11.i, label %138, label %100
 
 65:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !15564
@@ -114240,8 +114240,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !15564
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !15564
   %72 = load i64, ptr %10, align 8, !range !7480, !noalias !15564, !noundef !5
-  %.not7.not.i.not = icmp eq i64 %72, 2
-  br i1 %.not7.not.i.not, label %86, label %73
+  %.not7.not.not.not.i = icmp eq i64 %72, 2
+  br i1 %.not7.not.not.not.i, label %86, label %73
 
 73:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !15559
@@ -114433,8 +114433,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h9f50b7025
 
 .noexc12:                                         ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$$GT$17h02483dce02c8c90cE.exit.i"
   %128 = load i64, ptr %15, align 8, !range !7480, !noalias !15564, !noundef !5
-  %.not.i = icmp eq i64 %128, 2
-  br i1 %.not.i, label %61, label %._crit_edge.i
+  %.not.not.i = icmp eq i64 %128, 2
+  br i1 %.not.not.i, label %61, label %._crit_edge.i
 
 129:                                              ; preds = %.body.i
   invoke void @"_ZN4core3ptr325drop_in_place$LT$core..result..Result$LT$$LP$opentelemetry_appender_tracing..layer..OpenTelemetryTracingBridge$LT$opentelemetry_sdk..logs..log_emitter..LoggerProvider$C$opentelemetry_sdk..logs..log_emitter..Logger$GT$$C$opentelemetry_sdk..logs..log_emitter..LoggerProvider$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h6bcff5a51dbc3daaE.llvm.6545128362769768385"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #32
@@ -114920,8 +114920,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   invoke void @_ZN5tokio4sync6notify6Notify8notified17h4c519ee1dce28160E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 %60)
           to label %63 unwind label %.loopexit.i, !noalias !15690
 
-.body.thread.i:                                   ; preds = %115, %.body.i, %.body.thread56.i, %72, %64, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %115 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.phi12.i, %64 ], [ %73, %72 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp16.i, %.body.thread56.i ]
+.body.thread.i:                                   ; preds = %115, %.body.i, %.body.thread46.i, %72, %64, %.loopexit.i
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %115 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.phi12.i, %64 ], [ %73, %72 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp16.i, %.body.thread46.i ]
   %61 = load i64, ptr %15, align 8, !range !7480, !noalias !15692, !noundef !5
   %.not10.i = icmp eq i64 %61, 2
   br i1 %.not10.i, label %.body, label %118
@@ -114989,8 +114989,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !15692
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !15692
   %70 = load i64, ptr %10, align 8, !range !7480, !noalias !15692, !noundef !5
-  %.not7.not.i.not = icmp eq i64 %70, 2
-  br i1 %.not7.not.i.not, label %84, label %71
+  %.not7.not.not.not.i = icmp eq i64 %70, 2
+  br i1 %.not7.not.not.not.i, label %84, label %71
 
 71:                                               ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !15687
@@ -115020,7 +115020,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
   %80 = load ptr, ptr %79, align 8, !noalias !15723, !nonnull !5, !noundef !5
   %81 = load ptr, ptr %50, align 8, !alias.scope !15724, !noalias !15692, !noundef !5
   invoke void %80(ptr noundef %81)
-          to label %.noexc18.i unwind label %.body.thread56.i, !noalias !15690
+          to label %.noexc18.i unwind label %.body.thread46.i, !noalias !15690
 
 82:                                               ; preds = %72
   %83 = landingpad { ptr, i32 }
@@ -115068,7 +115068,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17ha9b052040
           cleanup
   br label %.body.i
 
-.body.thread56.i:                                 ; preds = %78
+.body.thread46.i:                                 ; preds = %78
   %lpad.loopexit.split-lp16.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
@@ -115581,8 +115581,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
 
 .noexc7:                                          ; preds = %.noexc
   %47 = load i64, ptr %15, align 8, !range !7480, !noalias !15802, !noundef !5
-  %.not33.i = icmp eq i64 %47, 2
-  br i1 %.not33.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not33.not.i = icmp eq i64 %47, 2
+  br i1 %.not33.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc7
   %48 = getelementptr inbounds i8, ptr %18, i64 16
@@ -115649,8 +115649,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !15802
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !15802
   %64 = load i64, ptr %15, align 8, !range !7480, !noalias !15802, !noundef !5
-  %.not11.not.i = icmp eq i64 %64, 2
-  br i1 %.not11.not.i, label %138, label %100
+  %.not11.i = icmp eq i64 %64, 2
+  br i1 %.not11.i, label %138, label %100
 
 65:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !15802
@@ -115702,8 +115702,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !15802
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !15802
   %72 = load i64, ptr %10, align 8, !range !8122, !noalias !15802, !noundef !5
-  %.not7.not.i.not = icmp eq i64 %72, 3
-  br i1 %.not7.not.i.not, label %86, label %73
+  %.not7.not.not.not.i = icmp eq i64 %72, 3
+  br i1 %.not7.not.not.not.i, label %86, label %73
 
 73:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !15797
@@ -115901,8 +115901,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hbc6f401d3
 
 .noexc12:                                         ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$$GT$17h02483dce02c8c90cE.exit.i"
   %128 = load i64, ptr %15, align 8, !range !7480, !noalias !15802, !noundef !5
-  %.not.i = icmp eq i64 %128, 2
-  br i1 %.not.i, label %61, label %._crit_edge.i
+  %.not.not.i = icmp eq i64 %128, 2
+  br i1 %.not.not.i, label %61, label %._crit_edge.i
 
 129:                                              ; preds = %.body.i
   invoke void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$ockam_api..cli_state..cli_state..CliState$C$ockam_api..cli_state..error..CliStateError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hbd5ed20acf887f96E.llvm.6545128362769768385"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #32
@@ -116149,8 +116149,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   invoke void @_ZN5tokio4sync6notify6Notify8notified17h4c519ee1dce28160E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 %60)
           to label %63 unwind label %.loopexit.i, !noalias !15898
 
-.body.thread.i:                                   ; preds = %115, %.body.i, %.body.thread56.i, %72, %64, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %115 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.phi12.i, %64 ], [ %73, %72 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp16.i, %.body.thread56.i ]
+.body.thread.i:                                   ; preds = %115, %.body.i, %.body.thread46.i, %72, %64, %.loopexit.i
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %115 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.phi12.i, %64 ], [ %73, %72 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp16.i, %.body.thread46.i ]
   %61 = load i64, ptr %15, align 8, !range !7480, !noalias !15900, !noundef !5
   %.not10.i = icmp eq i64 %61, 2
   br i1 %.not10.i, label %.body, label %118
@@ -116218,8 +116218,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !15900
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !15900
   %70 = load i64, ptr %10, align 8, !range !7480, !noalias !15900, !noundef !5
-  %.not7.not.i.not = icmp eq i64 %70, 2
-  br i1 %.not7.not.i.not, label %84, label %71
+  %.not7.not.not.not.i = icmp eq i64 %70, 2
+  br i1 %.not7.not.not.not.i, label %84, label %71
 
 71:                                               ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !15895
@@ -116249,7 +116249,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
   %80 = load ptr, ptr %79, align 8, !noalias !15931, !nonnull !5, !noundef !5
   %81 = load ptr, ptr %50, align 8, !alias.scope !15932, !noalias !15900, !noundef !5
   invoke void %80(ptr noundef %81)
-          to label %.noexc18.i unwind label %.body.thread56.i, !noalias !15898
+          to label %.noexc18.i unwind label %.body.thread46.i, !noalias !15898
 
 82:                                               ; preds = %72
   %83 = landingpad { ptr, i32 }
@@ -116297,7 +116297,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hd1f680a25
           cleanup
   br label %.body.i
 
-.body.thread56.i:                                 ; preds = %78
+.body.thread46.i:                                 ; preds = %78
   %lpad.loopexit.split-lp16.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i

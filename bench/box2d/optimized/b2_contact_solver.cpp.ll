@@ -885,15 +885,12 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
 for.end:                                          ; preds = %for.body20
   %cmp49 = icmp eq i32 %10, 1
   %brmerge = select i1 %cmp49, i1 true, i1 %cmp50
-  br i1 %brmerge, label %if.then, label %if.else
+  br i1 %brmerge, label %for.body54.lr.ph, label %if.else
 
 for.end.thread:                                   ; preds = %for.body
   br i1 %cmp50, label %if.end322, label %if.else
 
-if.then:                                          ; preds = %for.end
-  br i1 %cmp19806, label %for.body54.lr.ph, label %if.end322
-
-for.body54.lr.ph:                                 ; preds = %if.then
+for.body54.lr.ph:                                 ; preds = %for.end
   %neg91 = fneg float %7
   %wide.trip.count842 = zext nneg i32 %10 to i64
   br label %for.body54
@@ -1197,13 +1194,13 @@ if.end322.sink.split:                             ; preds = %if.then286, %if.the
   store float %fneg2.i.sink, ptr %normalImpulse107, align 4
   br label %if.end322
 
-if.end322:                                        ; preds = %for.body54, %if.end322.sink.split, %for.end.thread, %if.then, %if.end278
-  %vB.sroa.0.2 = phi float [ %vB.sroa.0.0.lcssa855, %if.end278 ], [ %add.i175, %if.then ], [ %15, %for.end.thread ], [ %vB.sroa.0.2.ph, %if.end322.sink.split ], [ %add.i236, %for.body54 ]
-  %vB.sroa.18.2 = phi float [ %vB.sroa.18.0.lcssa857, %if.end278 ], [ %add4.i, %if.then ], [ %16, %for.end.thread ], [ %vB.sroa.18.2.ph, %if.end322.sink.split ], [ %add4.i239, %for.body54 ]
-  %vA.sroa.0.2 = phi float [ %vA.sroa.0.0.lcssa859, %if.end278 ], [ %sub.i167, %if.then ], [ %12, %for.end.thread ], [ %vA.sroa.0.2.ph, %if.end322.sink.split ], [ %sub.i224, %for.body54 ]
-  %vA.sroa.18.2 = phi float [ %vA.sroa.18.0.lcssa861, %if.end278 ], [ %sub4.i, %if.then ], [ %13, %for.end.thread ], [ %vA.sroa.18.2.ph, %if.end322.sink.split ], [ %sub4.i227, %for.body54 ]
-  %wB.2 = phi float [ %wB.0.lcssa863, %if.end278 ], [ %36, %if.then ], [ %17, %for.end.thread ], [ %115, %if.end322.sink.split ], [ %52, %for.body54 ]
-  %wA.2 = phi float [ %wA.0.lcssa865, %if.end278 ], [ %34, %if.then ], [ %14, %for.end.thread ], [ %wA.2.ph, %if.end322.sink.split ], [ %50, %for.body54 ]
+if.end322:                                        ; preds = %for.body54, %if.end322.sink.split, %for.end.thread, %if.end278
+  %vB.sroa.0.2 = phi float [ %vB.sroa.0.0.lcssa855, %if.end278 ], [ %15, %for.end.thread ], [ %vB.sroa.0.2.ph, %if.end322.sink.split ], [ %add.i236, %for.body54 ]
+  %vB.sroa.18.2 = phi float [ %vB.sroa.18.0.lcssa857, %if.end278 ], [ %16, %for.end.thread ], [ %vB.sroa.18.2.ph, %if.end322.sink.split ], [ %add4.i239, %for.body54 ]
+  %vA.sroa.0.2 = phi float [ %vA.sroa.0.0.lcssa859, %if.end278 ], [ %12, %for.end.thread ], [ %vA.sroa.0.2.ph, %if.end322.sink.split ], [ %sub.i224, %for.body54 ]
+  %vA.sroa.18.2 = phi float [ %vA.sroa.18.0.lcssa861, %if.end278 ], [ %13, %for.end.thread ], [ %vA.sroa.18.2.ph, %if.end322.sink.split ], [ %sub4.i227, %for.body54 ]
+  %wB.2 = phi float [ %wB.0.lcssa863, %if.end278 ], [ %17, %for.end.thread ], [ %115, %if.end322.sink.split ], [ %52, %for.body54 ]
+  %wA.2 = phi float [ %wA.0.lcssa865, %if.end278 ], [ %14, %for.end.thread ], [ %wA.2.ph, %if.end322.sink.split ], [ %50, %for.body54 ]
   %116 = load ptr, ptr %m_velocities, align 8
   %arrayidx325 = getelementptr inbounds %struct.b2Velocity, ptr %116, i64 %idxprom
   store float %vA.sroa.0.2, ptr %arrayidx325, align 4

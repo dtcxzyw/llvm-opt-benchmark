@@ -960,8 +960,8 @@ if.else:                                          ; preds = %invoke.cont3
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %if.else
   %count.0.i.i.i = phi i64 [ %6, %if.else ], [ %9, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %if.then33, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %if.then33, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1

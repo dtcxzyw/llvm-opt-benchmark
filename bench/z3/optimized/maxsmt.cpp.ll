@@ -4733,13 +4733,13 @@ entry:
 entry.split:                                      ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %2 = zext i32 %1 to i64
+  %wide.trip.count = zext i32 %1 to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %entry.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8rational6is_oneEv.exit ], [ 0, %entry.split ]
-  %exitcond = icmp eq i64 %indvars.iv, %2
-  br i1 %exitcond, label %return.loopexit, label %for.body
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %arrayidx.i4 = getelementptr inbounds %class.rational, ptr %0, i64 %indvars.iv
@@ -4747,10 +4747,10 @@ for.body:                                         ; preds = %for.cond
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i, 0
-  %3 = load i32, ptr %arrayidx.i4, align 8
-  %cmp.i.i.i.i = icmp eq i32 %3, 1
-  %4 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
-  br i1 %4, label %_ZNK8rational6is_oneEv.exit, label %return.loopexit
+  %2 = load i32, ptr %arrayidx.i4, align 8
+  %cmp.i.i.i.i = icmp eq i32 %2, 1
+  %3 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
+  br i1 %3, label %_ZNK8rational6is_oneEv.exit, label %return
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %for.body
   %m_den.i.i = getelementptr inbounds i8, ptr %arrayidx.i4, i64 16
@@ -4758,18 +4758,14 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %for.body
   %bf.load.i.i.i3.i.i = load i8, ptr %m_kind.i.i.i2.i.i, align 4
   %bf.clear.i.i.i4.i.i = and i8 %bf.load.i.i.i3.i.i, 1
   %cmp.i.i.i5.i.i = icmp eq i8 %bf.clear.i.i.i4.i.i, 0
-  %5 = load i32, ptr %m_den.i.i, align 8
-  %cmp.i.i6.i.i = icmp eq i32 %5, 1
-  %6 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
+  %4 = load i32, ptr %m_den.i.i, align 8
+  %cmp.i.i6.i.i = icmp eq i32 %4, 1
+  %5 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %6, label %for.cond, label %return.loopexit, !llvm.loop !11
+  br i1 %5, label %for.cond, label %return, !llvm.loop !11
 
-return.loopexit:                                  ; preds = %for.body, %for.cond, %_ZNK8rational6is_oneEv.exit
-  %cmp.le = icmp uge i64 %indvars.iv, %2
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry
-  %.us-phi = phi i1 [ true, %entry ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %_ZNK8rational6is_oneEv.exit, %for.cond, %for.body, %entry
+  %.us-phi = phi i1 [ true, %entry ], [ %exitcond.not, %for.body ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %_ZNK8rational6is_oneEv.exit ]
   ret i1 %.us-phi
 }
 

@@ -577,14 +577,14 @@ land.lhs.true5.i.i.i:                             ; preds = %if.else34
   %7 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %trace_ppm_save.exit.i, label %if.then.i.i.i30
+  br i1 %cmp.i.not.i.i.i, label %trace_ppm_save.exit.i, label %if.then.i.i.i31
 
-if.then.i.i.i30:                                  ; preds = %land.lhs.true5.i.i.i
+if.then.i.i.i31:                                  ; preds = %land.lhs.true5.i.i.i
   %8 = load i8, ptr @message_with_timestamp, align 1
   %tobool7.i.i.i = trunc i8 %8 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
-if.then8.i.i.i:                                   ; preds = %if.then.i.i.i30
+if.then8.i.i.i:                                   ; preds = %if.then.i.i.i31
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %9 = load i64, ptr %_now.i.i.i, align 8
@@ -593,7 +593,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i30
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i.i30
+if.else.i.i.i:                                    ; preds = %if.then.i.i.i31
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
@@ -609,37 +609,33 @@ trace_ppm_save.exit.i:                            ; preds = %if.else.i.i.i, %if.
 if.end.i24:                                       ; preds = %trace_ppm_save.exit.i
   %call7.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i18) #9
   %cmp822.i = icmp slt i32 %call1.i19, 1
-  br i1 %cmp822.i, label %cleanup.i28, label %for.body.i25
+  br i1 %cmp822.i, label %cleanup.i27, label %for.body.i25
 
-for.cond.i:                                       ; preds = %for.body.i25
-  %inc.i27 = add nuw nsw i32 %y.023.i, 1
-  %cmp8.i = icmp sge i32 %inc.i27, %call1.i19
-  %exitcond.i = icmp eq i32 %inc.i27, %call1.i19
-  br i1 %exitcond.i, label %cleanup.i28, label %for.body.i25, !llvm.loop !7
-
-for.body.i25:                                     ; preds = %if.end.i24, %for.cond.i
-  %cmp824.i = phi i1 [ %cmp8.i, %for.cond.i ], [ false, %if.end.i24 ]
-  %y.023.i = phi i32 [ %inc.i27, %for.cond.i ], [ 0, %if.end.i24 ]
+for.body.i25:                                     ; preds = %if.end.i24, %for.body.i25
+  %y.023.i = phi i32 [ %inc.i29, %for.body.i25 ], [ 0, %if.end.i24 ]
   tail call void @qemu_pixman_linebuf_fill(ptr noundef %call7.i, ptr noundef %call18, i32 noundef %call.i18, i32 noundef 0, i32 noundef %y.023.i) #9
   %call.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   %call10.i = tail call ptr @pixman_image_get_data(ptr noundef %call7.i) #9
   %call11.i26 = tail call i32 @pixman_image_get_stride(ptr noundef %call7.i) #9
   %conv.i = sext i32 %call11.i26 to i64
   %call12.i = tail call i32 @qio_channel_write_all(ptr noundef %call.i11.i, ptr noundef %call10.i, i64 noundef %conv.i, ptr noundef %errp) #9
-  %cmp13.i = icmp slt i32 %call12.i, 0
-  br i1 %cmp13.i, label %cleanup.i28, label %for.cond.i
+  %cmp13.i = icmp sgt i32 %call12.i, -1
+  %inc.i29 = add nuw nsw i32 %y.023.i, 1
+  %exitcond.not.i30 = icmp ne i32 %inc.i29, %call1.i19
+  %or.cond35.not = select i1 %cmp13.i, i1 %exitcond.not.i30, i1 false
+  br i1 %or.cond35.not, label %for.body.i25, label %cleanup.i27, !llvm.loop !7
 
-cleanup.i28:                                      ; preds = %for.body.i25, %for.cond.i, %if.end.i24
-  %cmp8.lcssa.i = phi i1 [ true, %if.end.i24 ], [ %cmp824.i, %for.body.i25 ], [ %cmp8.i, %for.cond.i ]
-  %tobool.not.i.i.i29 = icmp eq ptr %call7.i, null
-  br i1 %tobool.not.i.i.i29, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.then.i.i12.i
+cleanup.i27:                                      ; preds = %for.body.i25, %if.end.i24
+  %cmp8.lcssa.i = phi i1 [ true, %if.end.i24 ], [ %cmp13.i, %for.body.i25 ]
+  %tobool.not.i.i.i28 = icmp eq ptr %call7.i, null
+  br i1 %tobool.not.i.i.i28, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.then.i.i12.i
 
-if.then.i.i12.i:                                  ; preds = %cleanup.i28
+if.then.i.i12.i:                                  ; preds = %cleanup.i27
   tail call void @qemu_pixman_image_unref(ptr noundef nonnull %call7.i) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit.i
 
-glib_autoptr_cleanup_pixman_image_t.exit.i:       ; preds = %if.then.i.i12.i, %cleanup.i28, %trace_ppm_save.exit.i
-  %retval.021.i = phi i1 [ %cmp8.lcssa.i, %cleanup.i28 ], [ %cmp8.lcssa.i, %if.then.i.i12.i ], [ false, %trace_ppm_save.exit.i ]
+glib_autoptr_cleanup_pixman_image_t.exit.i:       ; preds = %if.then.i.i12.i, %cleanup.i27, %trace_ppm_save.exit.i
+  %retval.021.i = phi i1 [ %cmp8.lcssa.i, %cleanup.i27 ], [ %cmp8.lcssa.i, %if.then.i.i12.i ], [ false, %trace_ppm_save.exit.i ]
   tail call void @g_free(ptr noundef %call3.i21) #9
   %tobool.not.i.i13.i = icmp eq ptr %call2.i20, null
   br i1 %tobool.not.i.i13.i, label %ppm_save.exit, label %if.then.i.i14.i

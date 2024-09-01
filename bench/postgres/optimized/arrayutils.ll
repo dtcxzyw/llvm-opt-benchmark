@@ -126,94 +126,79 @@ define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr nocapture noundef re
   br i1 %4, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %5 = zext nneg i32 %0 to i64
+  %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %.lr.ph.i
 
-6:                                                ; preds = %.lr.ph.i
+5:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %5
-  br i1 %exitcond.i, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.i, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.i, !llvm.loop !8
 
-.lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %7, i32 %9)
+  %11 = extractvalue { i32, i1 } %10, 1
+  br i1 %11, label %12, label %5
+
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call zeroext i1 @errsave_start(ptr noundef null, ptr noundef null) #7
+  br i1 %13, label %14, label %ArrayCheckBoundsSafe.exit
+
+14:                                               ; preds = %12
+  %15 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %16 = tail call i32 @errcode(i32 noundef 261) #7
+  %17 = load i32, ptr %15, align 4
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %17) #7
+  tail call void @errsave_finish(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
+  br label %ArrayCheckBoundsSafe.exit
+
+ArrayCheckBoundsSafe.exit:                        ; preds = %5, %3, %12, %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = icmp slt i32 %0, 1
+  br i1 %5, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %4
+  %wide.trip.count = zext nneg i32 %0 to i64
+  br label %.lr.ph
+
+6:                                                ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %6
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
+  %7 = getelementptr i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %8, i32 %10)
   %12 = extractvalue { i32, i1 } %11, 1
   br i1 %12, label %13, label %6
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = tail call zeroext i1 @errsave_start(ptr noundef null, ptr noundef null) #7
-  br i1 %14, label %15, label %ArrayCheckBoundsSafe.exit
+13:                                               ; preds = %.lr.ph
+  %14 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
+  br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %16 = getelementptr i32, ptr %2, i64 %indvars.iv
   %17 = tail call i32 @errcode(i32 noundef 261) #7
   %18 = load i32, ptr %16, align 4
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %18) #7
-  tail call void @errsave_finish(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
-  br label %ArrayCheckBoundsSafe.exit
-
-ArrayCheckBoundsSafe.exit:                        ; preds = %6, %3, %13, %15
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = icmp slt i32 %0, 1
-  br i1 %5, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
-  %6 = zext nneg i32 %0 to i64
-  %wide.trip.count = zext nneg i32 %0 to i64
-  %7 = load i32, ptr %1, align 4
-  %8 = load i32, ptr %2, align 4
-  %9 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %7, i32 %8)
-  %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph29
-
-.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv28 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %.lr.ph29
-  %11 = getelementptr i32, ptr %1, i64 %indvars.iv.next
-  %12 = load i32, ptr %11, align 4
-  %13 = getelementptr i32, ptr %2, i64 %indvars.iv.next
-  %14 = load i32, ptr %13, align 4
-  %15 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %12, i32 %14)
-  %16 = extractvalue { i32, i1 } %15, 1
-  br i1 %16, label %.lr.ph._crit_edge.loopexit, label %.lr.ph29, !llvm.loop !8
-
-.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %17 = icmp uge i64 %indvars.iv.next, %6
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %indvars.iv.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph._crit_edge.loopexit ]
-  %.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %17, %.lr.ph._crit_edge.loopexit ]
-  %18 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
-  br i1 %18, label %19, label %.loopexit
-
-19:                                               ; preds = %.lr.ph._crit_edge
-  %20 = getelementptr i32, ptr %2, i64 %indvars.iv.lcssa
-  %21 = tail call i32 @errcode(i32 noundef 261) #7
-  %22 = load i32, ptr %20, align 4
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22) #7
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %.lr.ph29
-  %24 = icmp uge i64 %indvars.iv.next, %6
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %4, %19, %.lr.ph._crit_edge
-  %25 = phi i1 [ %.lcssa, %19 ], [ %.lcssa, %.lr.ph._crit_edge ], [ true, %4 ], [ %24, %.loopexit.loopexit ]
-  ret i1 %25
+.loopexit:                                        ; preds = %6, %4, %15, %13
+  %20 = phi i1 [ false, %15 ], [ false, %13 ], [ true, %4 ], [ true, %6 ]
+  ret i1 %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

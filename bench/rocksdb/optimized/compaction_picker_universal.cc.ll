@@ -3968,12 +3968,12 @@ if.then.i.i.i.i34.i:                              ; preds = %cleanup.i187
   br label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder26IsInputFilesNonOverlappingEPNS_10CompactionE.exit
 
 _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder26IsInputFilesNonOverlappingEPNS_10CompactionE.exit: ; preds = %cleanup.thread.i, %cleanup.i187, %if.then.i.i.i.i34.i
-  %cmp.i.i.i2962.i = phi i1 [ true, %cleanup.thread.i ], [ %cmp.i.i.i29.i, %cleanup.i187 ], [ %cmp.i.i.i29.i, %if.then.i.i.i.i34.i ]
+  %cmp.i.i.i2958.i = phi i1 [ true, %cleanup.thread.i ], [ %cmp.i.i.i29.i, %cleanup.i187 ], [ %cmp.i.i.i29.i, %if.then.i.i.i.i34.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %next.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %smallest_key_priority_q.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i165)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp10.i)
-  %frombool.i = zext i1 %cmp.i.i.i2962.i to i8
+  %frombool.i = zext i1 %cmp.i.i.i2958.i to i8
   %is_trivial_move_.i = getelementptr inbounds i8, ptr %c.2.ph, i64 4544
   store i8 %frombool.i, ptr %is_trivial_move_.i, align 16
   br label %if.end112

@@ -214,10 +214,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.pre120 = load i32, ptr %7, align 8
   br label %114
 
-.preheader:                                       ; preds = %114
-  br i1 %109, label %.lr.ph105, label %.loopexit
-
-.lr.ph105:                                        ; preds = %.preheader
+.lr.ph105:                                        ; preds = %114
   %112 = getelementptr i8, ptr %0, i64 72
   %113 = sext i32 %108 to i64
   %wide.trip.count118 = zext nneg i32 %93 to i64
@@ -239,7 +236,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %.pre120, ptr %122, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %.preheader, label %114, !llvm.loop !6
+  br i1 %exitcond114.not, label %.lr.ph105, label %114, !llvm.loop !6
 
 123:                                              ; preds = %.lr.ph105, %123
   %indvars.iv115 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next116, %123 ]
@@ -261,7 +258,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %.loopexit, label %123, !llvm.loop !7
 
-.loopexit:                                        ; preds = %tailrecurse, %123, %._crit_edge, %3, %.preheader, %Vec_IntPush.exit
+.loopexit:                                        ; preds = %tailrecurse, %123, %._crit_edge, %3, %Vec_IntPush.exit
   ret void
 }
 

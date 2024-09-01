@@ -83,7 +83,7 @@ if.else.i:                                        ; preds = %if.end36
 
 _ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit: ; preds = %if.then.i, %if.else.i
   %call39 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %call37)
-  br i1 %cmp60.not, label %for.end78, label %for.body44
+  br label %for.body44
 
 for.body44:                                       ; preds = %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit, %for.inc76
   %i40.065 = phi i64 [ %inc77, %for.inc76 ], [ 0, %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit ]
@@ -140,7 +140,7 @@ for.inc76:                                        ; preds = %if.else72, %if.else
   %cmp43 = icmp ult i64 %inc77, %format.coerce0
   br i1 %cmp43, label %for.body44, label %for.end78, !llvm.loop !7
 
-for.end78:                                        ; preds = %if.else18, %if.then9, %if.then, %for.inc76, %entry, %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit, %for.end
+for.end78:                                        ; preds = %if.else18, %if.then9, %if.then, %for.inc76, %entry, %for.end
   ret void
 }
 

@@ -12134,10 +12134,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   %27 = zext nneg i32 %.val5366 to i64
   br label %31
 
-.critedge.preheader:                              ; preds = %.critedge2
-  br i1 %23, label %.lr.ph74, label %.critedge4.preheader
-
-.lr.ph74:                                         ; preds = %.critedge.preheader
+.lr.ph74:                                         ; preds = %.critedge2
   %28 = getelementptr i8, ptr %1, i64 8
   %29 = getelementptr i8, ptr %0, i64 128
   %.val57.pre = load ptr, ptr %29, align 8
@@ -12192,9 +12189,9 @@ Vec_BitStart.exit:                                ; preds = %2, %15
 .critedge2:                                       ; preds = %52, %31
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %56 = icmp ult i64 %indvars.iv.next80, %27
-  br i1 %56, label %31, label %.critedge.preheader, !llvm.loop !76
+  br i1 %56, label %31, label %.lr.ph74, !llvm.loop !76
 
-.critedge4.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit, %.critedge.preheader
+.critedge4.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit
   %57 = icmp sgt i32 %12, 0
   br i1 %57, label %.lr.ph77, label %.critedge6
 

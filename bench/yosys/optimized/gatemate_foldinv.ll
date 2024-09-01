@@ -10498,14 +10498,14 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %114, %
   %136 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i.i.i, i64 16
   %137 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i8.i.i.i = icmp eq ptr %136, %50
-  br i1 %.not.i.i.i.i.i.i8.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !138
+  br i1 %.not.i.i.i.i.i.i8.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !138
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %131
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i.i.i: ; preds = %131
   %138 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i.i.i, i64 32
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %169, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i ], [ %.val29.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i.i.i
+  %.05.i.i.i.i.i.i.i = phi ptr [ %169, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i ], [ %.val29.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i.i.i ]
   %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i.i.i.i.i = load i32, ptr %139, align 4, !noalias !134
   %140 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !noalias !134
@@ -10755,14 +10755,14 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i30.i.i: ; preds = %236,
   %258 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i28.i.i, i64 16
   %259 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i27.i.i, i64 16
   %.not.i.i.i.i.i.i8.i32.i.i = icmp eq ptr %258, %.pre22
-  br i1 %.not.i.i.i.i.i.i8.i32.i.i, label %.lr.ph.i.i.i.i.preheader.i33.i.i, label %.lr.ph.i.i.i.i.i.i.i26.i.i, !llvm.loop !138
+  br i1 %.not.i.i.i.i.i.i8.i32.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i33.i.i, label %.lr.ph.i.i.i.i.i.i.i26.i.i, !llvm.loop !138
 
-.lr.ph.i.i.i.i.preheader.i33.i.i:                 ; preds = %253
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i33.i.i: ; preds = %253
   %260 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i27.i.i, i64 32
   br label %.lr.ph.i.i.i.i.i34.i.i
 
-.lr.ph.i.i.i.i.i34.i.i:                           ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i40.i.i, %.lr.ph.i.i.i.i.preheader.i33.i.i
-  %.05.i.i.i.i.i35.i.i = phi ptr [ %291, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i40.i.i ], [ %.val.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i33.i.i ]
+.lr.ph.i.i.i.i.i34.i.i:                           ; preds = %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i40.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i33.i.i
+  %.05.i.i.i.i.i35.i.i = phi ptr [ %291, %_ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i40.i.i ], [ %.val.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_.exit43.i.i33.i.i ]
   %261 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i35.i.i, i64 8
   %.val.i.i.i.i.i.i.i.i36.i.i = load i32, ptr %261, align 4, !noalias !134
   %262 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !noalias !134

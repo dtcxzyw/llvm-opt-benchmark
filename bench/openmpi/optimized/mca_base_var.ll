@@ -4947,8 +4947,8 @@ define internal fastcc i32 @compare_strings(ptr noundef readonly %0, ptr noundef
 
 sub_0:                                            ; preds = %2
   %3 = load i8, ptr %0, align 1
-  %.not16 = icmp eq i8 %3, 42
-  br i1 %.not16, label %.tail, label %.tail.thread
+  %.not17 = icmp eq i8 %3, 42
+  br i1 %.not17, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -4962,8 +4962,8 @@ sub_0:                                            ; preds = %2
   br label %.thread14
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %.not17 = icmp eq ptr %1, null
-  br i1 %.not17, label %.thread14, label %9
+  %.not16 = icmp eq ptr %1, null
+  br i1 %.not16, label %.thread14, label %9
 
 9:                                                ; preds = %.tail.thread
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #24

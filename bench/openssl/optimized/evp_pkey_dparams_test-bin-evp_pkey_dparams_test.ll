@@ -177,8 +177,8 @@ land.rhs45:                                       ; preds = %for.body
 
 if.end57:                                         ; preds = %land.rhs45, %if.then29
   %ret.1.in.in = phi i32 [ %call39, %if.then29 ], [ %call53, %land.rhs45 ]
-  %ret.1.in = icmp ne i32 %ret.1.in.in, 0
-  br i1 %ret.1.in, label %for.inc, label %for.inc.thread
+  %ret.1.in.not = icmp eq i32 %ret.1.in.in, 0
+  br i1 %ret.1.in.not, label %for.inc.thread, label %for.inc
 
 for.inc.thread:                                   ; preds = %if.end57
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -188,8 +188,7 @@ for.inc.thread:                                   ; preds = %if.end57
 for.inc:                                          ; preds = %if.end57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp16 = icmp ult i64 %indvars.iv, 9
-  %or.cond = and i1 %ret.1.in, %cmp16
-  br i1 %or.cond, label %land.rhs18, label %for.end, !llvm.loop !5
+  br i1 %cmp16, label %land.rhs18, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %land.rhs18, %for.inc, %if.end, %for.inc.thread, %land.end
   %ret.0.lcssa = phi i32 [ 0, %land.end ], [ 0, %for.inc.thread ], [ 0, %if.end ], [ 1, %for.inc ], [ 1, %land.rhs18 ]

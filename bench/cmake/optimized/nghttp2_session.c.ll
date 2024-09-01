@@ -6463,7 +6463,7 @@ define dso_local i32 @nghttp2_session_add_settings(ptr noundef %0, i8 noundef ze
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %30, %.thread, %.preheader
-  %.not137145 = phi i1 [ true, %.preheader ], [ true, %.thread ], [ %.not137, %30 ]
+  %.not137145 = phi i1 [ true, %.preheader ], [ true, %.thread ], [ false, %30 ]
   %.0.lcssa = phi i8 [ %6, %.preheader ], [ %6, %.thread ], [ %.1, %30 ]
   %32 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %7, i64 noundef 152) #20
   %33 = icmp eq ptr %32, null

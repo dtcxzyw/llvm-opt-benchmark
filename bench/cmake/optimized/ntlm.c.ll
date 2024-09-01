@@ -415,7 +415,7 @@ unicodecpy.exit:                                  ; preds = %.lr.ph.i
   %125 = add i64 %98, %.1
   br label %unicodecpy.exit.thread155
 
-unicodecpy.exit.thread155:                        ; preds = %unicodecpy.exit, %112
+unicodecpy.exit.thread155:                        ; preds = %112, %unicodecpy.exit
   %126 = phi i64 [ %125, %unicodecpy.exit ], [ %98, %112 ]
   %127 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %126
   %128 = and i64 %27, 9223372036854775807
@@ -440,7 +440,7 @@ unicodecpy.exit149:                               ; preds = %.lr.ph.i146
   %136 = add i64 %126, %.0117
   br label %unicodecpy.exit149.thread156
 
-unicodecpy.exit149.thread156:                     ; preds = %unicodecpy.exit149, %unicodecpy.exit.thread155
+unicodecpy.exit149.thread156:                     ; preds = %unicodecpy.exit.thread155, %unicodecpy.exit149
   %137 = phi i64 [ %136, %unicodecpy.exit149 ], [ %126, %unicodecpy.exit.thread155 ]
   %138 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %137
   br label %.lr.ph.i151

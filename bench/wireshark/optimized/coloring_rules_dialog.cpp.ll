@@ -10280,106 +10280,103 @@ _ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread: ; preds = %47
   br i1 %108, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
 109:                                              ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38
-  br i1 %48, label %110, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
+  %110 = getelementptr inbounds i8, ptr %1, i64 36
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds i8, ptr %2, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = icmp slt i32 %111, %113
+  br i1 %114, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %115
 
-110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %1, i64 36
-  %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %2, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp slt i32 %112, %114
-  br i1 %115, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %116
+115:                                              ; preds = %109
+  %116 = icmp eq i32 %111, %113
+  br i1 %116, label %117, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
-116:                                              ; preds = %110
-  %117 = icmp eq i32 %112, %114
-  br i1 %117, label %118, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds i8, ptr %1, i64 40
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %2, i64 8
+  %121 = load i64, ptr %120, align 8
+  %122 = icmp ult i64 %119, %121
+  br i1 %122, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %123
 
-118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %1, i64 40
-  %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %2, i64 8
-  %122 = load i64, ptr %121, align 8
-  %123 = icmp ult i64 %120, %122
-  br i1 %123, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %124
+123:                                              ; preds = %117
+  %124 = icmp eq i64 %119, %121
+  br i1 %124, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
-124:                                              ; preds = %118
-  %125 = icmp eq i64 %120, %122
-  br i1 %125, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12:     ; preds = %123
+  %125 = getelementptr inbounds i8, ptr %1, i64 48
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %2, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp ult ptr %126, %128
+  br i1 %129, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12:     ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %1, i64 48
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp ult ptr %127, %129
-  br i1 %130, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread, %117, %109, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12
+  %130 = getelementptr inbounds i8, ptr %0, i64 32
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, %1
+  br i1 %132, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %133
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread, %118, %110, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12
-  %131 = getelementptr inbounds i8, ptr %0, i64 32
-  %132 = load ptr, ptr %131, align 8
-  %133 = icmp eq ptr %132, %1
-  br i1 %133, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %134
+133:                                              ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread
+  %134 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
+  %135 = getelementptr inbounds i8, ptr %134, i64 32
+  %136 = load i32, ptr %135, align 8
+  %137 = icmp slt i32 %44, %136
+  br i1 %137, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %138
 
-134:                                              ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread
-  %135 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp slt i32 %44, %137
-  br i1 %138, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %139
+138:                                              ; preds = %133
+  %139 = icmp eq i32 %44, %136
+  br i1 %139, label %140, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
 
-139:                                              ; preds = %134
-  %140 = icmp eq i32 %44, %137
-  br i1 %140, label %141, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds i8, ptr %2, i64 4
+  %142 = load i32, ptr %141, align 4
+  %143 = getelementptr inbounds i8, ptr %134, i64 36
+  %144 = load i32, ptr %143, align 4
+  %145 = icmp slt i32 %142, %144
+  br i1 %145, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %146
 
-141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %2, i64 4
-  %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %135, i64 36
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp slt i32 %143, %145
-  br i1 %146, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %147
+146:                                              ; preds = %140
+  %147 = icmp eq i32 %142, %144
+  br i1 %147, label %148, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
 
-147:                                              ; preds = %141
-  %148 = icmp eq i32 %143, %145
-  br i1 %148, label %149, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
+148:                                              ; preds = %146
+  %149 = getelementptr inbounds i8, ptr %2, i64 8
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %134, i64 40
+  %152 = load i64, ptr %151, align 8
+  %153 = icmp ult i64 %150, %152
+  br i1 %153, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %154
 
-149:                                              ; preds = %147
-  %150 = getelementptr inbounds i8, ptr %2, i64 8
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %135, i64 40
-  %153 = load i64, ptr %152, align 8
-  %154 = icmp ult i64 %151, %153
-  br i1 %154, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %155
+154:                                              ; preds = %148
+  %155 = icmp eq i64 %150, %152
+  br i1 %155, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
 
-155:                                              ; preds = %149
-  %156 = icmp eq i64 %151, %153
-  br i1 %156, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13:     ; preds = %154
+  %156 = getelementptr inbounds i8, ptr %2, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %134, i64 48
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp ult ptr %157, %159
+  br i1 %160, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13:     ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %2, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %135, i64 48
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp ult ptr %158, %160
-  br i1 %161, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44
-
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread: ; preds = %149, %141, %134, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13
-  %162 = getelementptr inbounds i8, ptr %1, i64 24
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, null
-  %spec.select46 = select i1 %164, ptr null, ptr %135
-  %spec.select47 = select i1 %164, ptr %1, ptr %135
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread: ; preds = %148, %140, %133, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13
+  %161 = getelementptr inbounds i8, ptr %1, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  %spec.select46 = select i1 %163, ptr null, ptr %134
+  %spec.select47 = select i1 %163, ptr %1, ptr %134
   br label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44: ; preds = %155, %147, %139, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13
-  %165 = tail call { ptr, ptr } @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE24_M_get_insert_unique_posERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %166 = extractvalue { ptr, ptr } %165, 0
-  %167 = extractvalue { ptr, ptr } %165, 1
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44: ; preds = %154, %146, %138, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13
+  %164 = tail call { ptr, ptr } @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE24_M_get_insert_unique_posERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %165 = extractvalue { ptr, ptr } %164, 0
+  %166 = extractvalue { ptr, ptr } %164, 1
   br label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread, %124, %116, %109, %26, %18, %9, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36
-  %.sroa.034.0 = phi ptr [ %40, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36 ], [ %105, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40 ], [ %166, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44 ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %71, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread ], [ %1, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12 ], [ null, %9 ], [ null, %18 ], [ null, %26 ], [ %1, %109 ], [ %1, %116 ], [ %1, %124 ], [ %spec.select, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread ], [ %spec.select46, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread ], [ %1, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread ]
-  %.sroa.12.0 = phi ptr [ %41, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36 ], [ %106, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40 ], [ %167, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44 ], [ %11, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %71, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread ], [ %132, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12 ], [ %11, %9 ], [ %11, %18 ], [ %11, %26 ], [ null, %109 ], [ null, %116 ], [ null, %124 ], [ %spec.select45, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread ], [ %spec.select47, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread ]
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread, %123, %115, %26, %18, %9, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36
+  %.sroa.034.0 = phi ptr [ %40, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36 ], [ %105, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40 ], [ %165, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44 ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %71, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread ], [ %1, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12 ], [ null, %9 ], [ null, %18 ], [ null, %26 ], [ %1, %115 ], [ %1, %123 ], [ %spec.select, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread ], [ %spec.select46, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread ], [ %1, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread ]
+  %.sroa.12.0 = phi ptr [ %41, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread36 ], [ %106, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread40 ], [ %166, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread44 ], [ %11, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %71, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread ], [ %131, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit12 ], [ %11, %9 ], [ %11, %18 ], [ %11, %26 ], [ null, %115 ], [ null, %123 ], [ %spec.select45, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit11.thread ], [ %spec.select47, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit13.thread ], [ null, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit10.thread38.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -11487,150 +11484,147 @@ _ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread: ; preds = %16
   br i1 %34, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
 
 35:                                               ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42
-  br i1 %17, label %36, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
+  %36 = getelementptr inbounds i8, ptr %.051, i64 36
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp slt i32 %7, %37
+  br i1 %38, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %39
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.051, i64 36
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp slt i32 %7, %38
-  br i1 %39, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %40
+39:                                               ; preds = %35
+  %40 = icmp eq i32 %7, %37
+  br i1 %40, label %41, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
 
-40:                                               ; preds = %36
-  %41 = icmp eq i32 %7, %38
-  br i1 %41, label %42, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.051, i64 40
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp ult i64 %9, %43
+  br i1 %44, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %45
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %.051, i64 40
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp ult i64 %9, %44
-  br i1 %45, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %46
+45:                                               ; preds = %41
+  %46 = icmp eq i64 %9, %43
+  br i1 %46, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
 
-46:                                               ; preds = %42
-  %47 = icmp eq i64 %9, %44
-  br i1 %47, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24:     ; preds = %45
+  %47 = getelementptr inbounds i8, ptr %.051, i64 48
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ult ptr %11, %48
+  br i1 %49, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24:     ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %.051, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ult ptr %11, %49
-  br i1 %50, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
-
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread, %46, %40, %35, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24
-  %51 = getelementptr inbounds i8, ptr %.051, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.051, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %.not12.i = icmp eq ptr %52, null
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread, %45, %39, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24
+  %50 = getelementptr inbounds i8, ptr %.051, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.051, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not12.i = icmp eq ptr %51, null
   br i1 %.not12.i, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
-  %.014.i = phi ptr [ %.1.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i ], [ %52, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44 ]
+  %.014.i = phi ptr [ %.1.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i ], [ %51, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44 ]
   %.0813.i = phi ptr [ %.19.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44 ]
-  %55 = getelementptr inbounds i8, ptr %.014.i, i64 32
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp slt i32 %56, %5
-  br i1 %57, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %58
+  %54 = getelementptr inbounds i8, ptr %.014.i, i64 32
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp slt i32 %55, %5
+  br i1 %56, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %57
 
-58:                                               ; preds = %.lr.ph.i
-  %59 = icmp eq i32 %56, %5
-  br i1 %59, label %60, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
+57:                                               ; preds = %.lr.ph.i
+  %58 = icmp eq i32 %55, %5
+  br i1 %58, label %59, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.014.i, i64 36
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp slt i32 %62, %7
-  br i1 %63, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %64
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds i8, ptr %.014.i, i64 36
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp slt i32 %61, %7
+  br i1 %62, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %63
 
-64:                                               ; preds = %60
-  %65 = icmp eq i32 %62, %7
-  br i1 %65, label %66, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
+63:                                               ; preds = %59
+  %64 = icmp eq i32 %61, %7
+  br i1 %64, label %65, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %.014.i, i64 40
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp ult i64 %68, %9
-  br i1 %69, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %70
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %.014.i, i64 40
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ult i64 %67, %9
+  br i1 %68, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %69
 
-70:                                               ; preds = %66
-  %71 = icmp eq i64 %68, %9
-  br i1 %71, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
+69:                                               ; preds = %65
+  %70 = icmp eq i64 %67, %9
+  br i1 %70, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i:     ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %.014.i, i64 48
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp ult ptr %73, %11
-  br i1 %74, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i:     ; preds = %69
+  %71 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ult ptr %72, %11
+  br i1 %73, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, %66, %60, %.lr.ph.i
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, %65, %59, %.lr.ph.i
   br label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, %70, %64, %58
-  %.sink.i = phi i64 [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i ], [ 16, %70 ], [ 16, %64 ], [ 16, %58 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i ]
-  %.19.i = phi ptr [ %.0813.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i ], [ %.014.i, %70 ], [ %.014.i, %64 ], [ %.014.i, %58 ], [ %.014.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i ]
-  %75 = getelementptr inbounds i8, ptr %.014.i, i64 %.sink.i
-  %.1.i = load ptr, ptr %75, align 8
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i, %69, %63, %57
+  %.sink.i = phi i64 [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i ], [ 16, %69 ], [ 16, %63 ], [ 16, %57 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i ]
+  %.19.i = phi ptr [ %.0813.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i ], [ %.014.i, %69 ], [ %.014.i, %63 ], [ %.014.i, %57 ], [ %.014.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i ]
+  %74 = getelementptr inbounds i8, ptr %.014.i, i64 %.sink.i
+  %.1.i = load ptr, ptr %74, align 8
   %.not.i = icmp eq ptr %.1.i, null
   br i1 %.not.i, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, label %.lr.ph.i, !llvm.loop !56
 
 _ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44
   %.08.lcssa.i = phi ptr [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24.thread44 ], [ %.19.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i ]
-  %.not12.i25 = icmp eq ptr %54, null
+  %.not12.i25 = icmp eq ptr %53, null
   br i1 %.not12.i25, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30
-  %.014.i27 = phi ptr [ %.1.i33, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30 ], [ %54, %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit ]
+  %.014.i27 = phi ptr [ %.1.i33, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30 ], [ %53, %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit ]
   %.0813.i28 = phi ptr [ %.19.i32, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30 ], [ %.02250, %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit ]
-  %76 = getelementptr inbounds i8, ptr %.014.i27, i64 32
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp slt i32 %5, %77
-  br i1 %78, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %79
+  %75 = getelementptr inbounds i8, ptr %.014.i27, i64 32
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp slt i32 %5, %76
+  br i1 %77, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %78
 
-79:                                               ; preds = %.lr.ph.i26
-  %80 = icmp eq i32 %5, %77
-  br i1 %80, label %81, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
+78:                                               ; preds = %.lr.ph.i26
+  %79 = icmp eq i32 %5, %76
+  br i1 %79, label %80, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.014.i27, i64 36
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp slt i32 %7, %83
-  br i1 %84, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %85
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %.014.i27, i64 36
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp slt i32 %7, %82
+  br i1 %83, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %84
 
-85:                                               ; preds = %81
-  %86 = icmp eq i32 %7, %83
-  br i1 %86, label %87, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
+84:                                               ; preds = %80
+  %85 = icmp eq i32 %7, %82
+  br i1 %85, label %86, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.014.i27, i64 40
-  %89 = load i64, ptr %88, align 8
-  %90 = icmp ult i64 %9, %89
-  br i1 %90, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %91
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds i8, ptr %.014.i27, i64 40
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp ult i64 %9, %88
+  br i1 %89, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %90
 
-91:                                               ; preds = %87
-  %92 = icmp eq i64 %9, %89
-  br i1 %92, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
+90:                                               ; preds = %86
+  %91 = icmp eq i64 %9, %88
+  br i1 %91, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36:   ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %.014.i27, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp ult ptr %11, %94
-  br i1 %95, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36:   ; preds = %90
+  %92 = getelementptr inbounds i8, ptr %.014.i27, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp ult ptr %11, %93
+  br i1 %94, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30, label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, %91, %85, %79
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, %90, %84, %78
   br label %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, %87, %81, %.lr.ph.i26
-  %.sink.i31 = phi i64 [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29 ], [ 16, %87 ], [ 16, %81 ], [ 16, %.lr.ph.i26 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36 ]
-  %.19.i32 = phi ptr [ %.0813.i28, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29 ], [ %.014.i27, %87 ], [ %.014.i27, %81 ], [ %.014.i27, %.lr.ph.i26 ], [ %.014.i27, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36 ]
-  %96 = getelementptr inbounds i8, ptr %.014.i27, i64 %.sink.i31
-  %.1.i33 = load ptr, ptr %96, align 8
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread.i30: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36, %86, %80, %.lr.ph.i26
+  %.sink.i31 = phi i64 [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29 ], [ 16, %86 ], [ 16, %80 ], [ 16, %.lr.ph.i26 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36 ]
+  %.19.i32 = phi ptr [ %.0813.i28, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread11.i29 ], [ %.014.i27, %86 ], [ %.014.i27, %80 ], [ %.014.i27, %.lr.ph.i26 ], [ %.014.i27, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i36 ]
+  %95 = getelementptr inbounds i8, ptr %.014.i27, i64 %.sink.i31
+  %.1.i33 = load ptr, ptr %95, align 8
   %.not.i34 = icmp eq ptr %.1.i33, null
   br i1 %.not.i34, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, label %.lr.ph.i26, !llvm.loop !88
 
-_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42, %36, %42, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit, %12, %18, %24
-  %.sink = phi i64 [ 24, %24 ], [ 24, %18 ], [ 24, %12 ], [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread ], [ 16, %42 ], [ 16, %36 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24 ]
-  %.123 = phi ptr [ %.02250, %24 ], [ %.02250, %18 ], [ %.02250, %12 ], [ %.02250, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread ], [ %.051, %42 ], [ %.051, %36 ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42 ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24 ]
-  %97 = getelementptr inbounds i8, ptr %.051, i64 %.sink
-  %.0 = load ptr, ptr %97, align 8
+_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42, %35, %41, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit, %12, %18, %24
+  %.sink = phi i64 [ 24, %24 ], [ 24, %18 ], [ 24, %12 ], [ 24, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread ], [ 16, %41 ], [ 16, %35 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42 ], [ 16, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24 ]
+  %.123 = phi ptr [ %.02250, %24 ], [ %.02250, %18 ], [ %.02250, %12 ], [ %.02250, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42.thread ], [ %.051, %41 ], [ %.051, %35 ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread42 ], [ %.051, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit24 ]
+  %96 = getelementptr inbounds i8, ptr %.051, i64 %.sink
+  %.0 = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit, label %12, !llvm.loop !89
 

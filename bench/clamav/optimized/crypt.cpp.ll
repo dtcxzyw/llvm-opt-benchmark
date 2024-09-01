@@ -314,7 +314,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
 .split49.us:                                      ; preds = %._crit_edge46.us
   %36 = and i64 %5, 15
   %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %.loopexit, label %.loopexit.thread57
+  br i1 %.not, label %.lr.ph.preheader, label %.loopexit.thread57
 
 .loopexit.thread57:                               ; preds = %.split49.us
   %37 = or i64 %5, 15
@@ -326,10 +326,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %40, i1 false)
   br label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %.split49.us
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.loopexit.thread57, %.loopexit
+.lr.ph.preheader:                                 ; preds = %.split49.us, %.loopexit.thread57
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -340,7 +337,7 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   %43 = icmp ult i64 %42, %5
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %2, %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
 

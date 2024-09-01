@@ -621,295 +621,286 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread:
   %144 = icmp slt i64 %indvars.iv.next, %143
   br i1 %144, label %55, label %.preheader123, !llvm.loop !7
 
-145:                                              ; preds = %.preheader123, %190
-  %146 = phi i32 [ %.pr, %190 ], [ %.lcssa126, %.preheader123 ]
+145:                                              ; preds = %.preheader123, %187
+  %146 = phi i32 [ %.pr, %187 ], [ %.lcssa126, %.preheader123 ]
   %147 = icmp sgt i32 %146, 0
   br i1 %147, label %.lr.ph.split.us.preheader.i, label %.loopexit.thread
 
 .lr.ph.split.us.preheader.i:                      ; preds = %145
-  %148 = zext nneg i32 %146 to i64
+  %wide.trip.count.i.i = zext nneg i32 %146 to i64
   %.sroa.03.0.copyload.i.i = load i8, ptr %32, align 2
-  %149 = and i8 %.sroa.03.0.copyload.i.i, 7
-  %150 = icmp ne i8 %149, 5
+  %148 = and i8 %.sroa.03.0.copyload.i.i, 7
+  %149 = icmp ne i8 %148, 5
   %.sroa.01.0.copyload.i.i = load i8, ptr %41, align 1
-  %151 = and i8 %.sroa.01.0.copyload.i.i, 7
-  %152 = icmp ne i8 %151, 5
+  %150 = and i8 %.sroa.01.0.copyload.i.i, 7
+  %151 = icmp ne i8 %150, 5
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i, %.lr.ph.split.us.preheader.i
-  %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next.i98, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i ]
-  %153 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i97
-  %154 = getelementptr inbounds i8, ptr %153, i64 24
-  %155 = load i8, ptr %154, align 4
-  %156 = trunc i8 %155 to i1
-  br i1 %156, label %.lr.ph.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i
+.lr.ph.split.us.i:                                ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, %.lr.ph.split.us.preheader.i
+  %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next.i98, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i ]
+  %152 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i97
+  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %154 = load i8, ptr %153, align 4
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %.lr.ph.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.split.us.i
-  %157 = getelementptr inbounds i8, ptr %153, i64 18
-  %.sroa.0.0.copyload.i.us.i = load i8, ptr %157, align 2
-  %158 = and i8 %.sroa.0.0.copyload.i.us.i, 7
-  %159 = icmp eq i8 %158, 5
-  br label %160
+  %156 = getelementptr inbounds i8, ptr %152, i64 18
+  %.sroa.0.0.copyload.i.us.i = load i8, ptr %156, align 2
+  %157 = and i8 %.sroa.0.0.copyload.i.us.i, 7
+  %158 = icmp eq i8 %157, 5
+  br label %159
 
-160:                                              ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i, %.lr.ph.i.us.i
+159:                                              ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i, %.lr.ph.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i ]
-  %161 = phi i1 [ true, %.lr.ph.i.us.i ], [ %177, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i ]
-  %162 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i.us.i
-  %163 = getelementptr inbounds i8, ptr %162, i64 24
-  %164 = load i8, ptr %163, align 4
-  %165 = trunc i8 %164 to i1
+  %160 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i.us.i
+  %161 = getelementptr inbounds i8, ptr %160, i64 24
+  %162 = load i8, ptr %161, align 4
+  %163 = trunc i8 %162 to i1
   %.not.i.us.i = icmp ne i64 %indvars.iv.i.us.i, %indvars.iv.i97
-  %or.cond.not.i.us.i = and i1 %.not.i.us.i, %165
-  br i1 %or.cond.not.i.us.i, label %166, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i
+  %or.cond.not.i.us.i = and i1 %.not.i.us.i, %163
+  br i1 %or.cond.not.i.us.i, label %164, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i
 
-166:                                              ; preds = %160
-  %167 = getelementptr inbounds i8, ptr %162, i64 6
-  %.sroa.03.0.copyload.i.i.us.i = load i8, ptr %167, align 2
-  %168 = and i8 %.sroa.03.0.copyload.i.i.us.i, 7
-  %169 = icmp ne i8 %168, 5
-  %170 = xor i1 %159, %169
+164:                                              ; preds = %159
+  %165 = getelementptr inbounds i8, ptr %160, i64 6
+  %.sroa.03.0.copyload.i.i.us.i = load i8, ptr %165, align 2
+  %166 = and i8 %.sroa.03.0.copyload.i.i.us.i, 7
+  %167 = icmp ne i8 %166, 5
+  %168 = xor i1 %158, %167
   %.unshifted.i.i.i.us.i = xor i8 %.sroa.03.0.copyload.i.i.us.i, %.sroa.0.0.copyload.i.us.i
-  %171 = icmp ult i8 %.unshifted.i.i.i.us.i, 8
-  %or.cond.i.i.us.i = and i1 %171, %170
-  br i1 %or.cond.i.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i
+  %169 = icmp ult i8 %.unshifted.i.i.i.us.i, 8
+  %or.cond.i.i.us.i = and i1 %169, %168
+  br i1 %or.cond.i.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i: ; preds = %166
-  %172 = getelementptr inbounds i8, ptr %162, i64 5
-  %.sroa.01.0.copyload.i.i.us.i = load i8, ptr %172, align 1
-  %173 = and i8 %.sroa.01.0.copyload.i.i.us.i, 7
-  %174 = icmp ne i8 %173, 5
-  %175 = xor i1 %159, %174
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i: ; preds = %164
+  %170 = getelementptr inbounds i8, ptr %160, i64 5
+  %.sroa.01.0.copyload.i.i.us.i = load i8, ptr %170, align 1
+  %171 = and i8 %.sroa.01.0.copyload.i.i.us.i, 7
+  %172 = icmp ne i8 %171, 5
+  %173 = xor i1 %158, %172
   %.unshifted.i7.i.i.us.i = xor i8 %.sroa.01.0.copyload.i.i.us.i, %.sroa.0.0.copyload.i.us.i
-  %176 = icmp ult i8 %.unshifted.i7.i.i.us.i, 8
-  %or.cond12.i.us.i = and i1 %176, %175
-  br i1 %or.cond12.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i
+  %174 = icmp ult i8 %.unshifted.i7.i.i.us.i, 8
+  %or.cond12.i.us.i = and i1 %174, %173
+  br i1 %or.cond12.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %160
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %159
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
-  %177 = icmp ult i64 %indvars.iv.next.i.us.i, %148
-  %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %148
-  br i1 %exitcond.not.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i, label %160, !llvm.loop !8
+  %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i, label %159, !llvm.loop !8
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %166
-  %.lcssa.i.us.i = phi i1 [ %161, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i ], [ %161, %166 ], [ %177, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i ]
-  br i1 %.lcssa.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i
-
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i
-  %178 = xor i1 %150, %159
-  %.unshifted.i.i.us.i = xor i8 %.sroa.0.0.copyload.i.us.i, %.sroa.03.0.copyload.i.i
-  %179 = icmp ult i8 %.unshifted.i.i.us.i, 8
-  %or.cond.i.us.i = and i1 %179, %178
-  br i1 %or.cond.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i
-
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i
-  %180 = xor i1 %152, %159
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i
+  %175 = xor i1 %151, %158
   %.unshifted.i7.i.us.i = xor i8 %.sroa.0.0.copyload.i.us.i, %.sroa.01.0.copyload.i.i
-  %181 = icmp ult i8 %.unshifted.i7.i.us.i, 8
-  %or.cond.us.i = and i1 %181, %180
-  br i1 %or.cond.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit
+  %176 = icmp ult i8 %.unshifted.i7.i.us.i, 8
+  %or.cond.us.i = and i1 %176, %175
+  br i1 %or.cond.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us.i, %.lr.ph.split.us.i
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %164, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i, %.lr.ph.split.us.i
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %148
+  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i.i
   br i1 %exitcond.not.i99, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !9
 
-_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i
-  %182 = getelementptr inbounds i8, ptr %153, i64 24
-  %183 = getelementptr inbounds i8, ptr %153, i64 18
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6419freeSourceRegistersERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %153)
-  %184 = load ptr, ptr %0, align 8
-  %.sroa.025.0.copyload = load i8, ptr %183, align 2
-  %185 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %184, i8 %.sroa.025.0.copyload, i32 noundef -1)
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %153)
-  store i8 0, ptr %182, align 4
-  br label %190
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us.i
+  %177 = xor i1 %149, %158
+  %.unshifted.i.i.us.i = xor i8 %.sroa.0.0.copyload.i.us.i, %.sroa.03.0.copyload.i.i
+  %178 = icmp ult i8 %.unshifted.i.i.us.i, 8
+  %or.cond.i.us.i = and i1 %178, %177
+  br i1 %or.cond.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i
 
-.loopexit:                                        ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us.i
-  %186 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
-  %.not = icmp eq i8 %186, -128
-  br i1 %.not, label %.preheader122, label %188
+_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i
+  %179 = getelementptr inbounds i8, ptr %152, i64 24
+  %180 = getelementptr inbounds i8, ptr %152, i64 18
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6419freeSourceRegistersERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %152)
+  %181 = load ptr, ptr %0, align 8
+  %.sroa.025.0.copyload = load i8, ptr %180, align 2
+  %182 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %181, i8 %.sroa.025.0.copyload, i32 noundef -1)
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %152)
+  store i8 0, ptr %179, align 4
+  br label %187
+
+.loopexit:                                        ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i
+  %183 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
+  %.not = icmp eq i8 %183, -128
+  br i1 %.not, label %.lr.ph130, label %185
 
 .loopexit.thread:                                 ; preds = %145
-  %187 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
-  %.not148 = icmp eq i8 %187, -128
-  br i1 %.not148, label %._crit_edge, label %188
+  %184 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
+  %.not148 = icmp eq i8 %184, -128
+  br i1 %.not148, label %._crit_edge, label %185
 
-.preheader122:                                    ; preds = %.loopexit
-  br i1 %147, label %.lr.ph130, label %._crit_edge
+185:                                              ; preds = %.loopexit.thread, %.loopexit
+  %186 = phi i8 [ %184, %.loopexit.thread ], [ %183, %.loopexit ]
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflictingRegisterENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 %186)
+  br label %187
 
-188:                                              ; preds = %.loopexit.thread, %.loopexit
-  %189 = phi i8 [ %187, %.loopexit.thread ], [ %186, %.loopexit ]
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflictingRegisterENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 %189)
-  br label %190
-
-190:                                              ; preds = %188, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit
+187:                                              ; preds = %185, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit
   %.pr = load i32, ptr %6, align 4
   br label %145, !llvm.loop !10
 
-.lr.ph130:                                        ; preds = %.preheader122, %209
-  %191 = phi i32 [ %210, %209 ], [ %146, %.preheader122 ]
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %209 ], [ 0, %.preheader122 ]
-  %192 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv138
-  %193 = getelementptr inbounds i8, ptr %192, i64 4
-  %194 = load i8, ptr %193, align 4
-  %195 = icmp eq i8 %194, 2
-  br i1 %195, label %196, label %209
+.lr.ph130:                                        ; preds = %.loopexit, %206
+  %188 = phi i32 [ %207, %206 ], [ %146, %.loopexit ]
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %206 ], [ 0, %.loopexit ]
+  %189 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv138
+  %190 = getelementptr inbounds i8, ptr %189, i64 4
+  %191 = load i8, ptr %190, align 4
+  %192 = icmp eq i8 %191, 2
+  br i1 %192, label %193, label %206
 
-196:                                              ; preds = %.lr.ph130
-  %197 = getelementptr inbounds i8, ptr %192, i64 24
-  store i8 1, ptr %197, align 4
-  %198 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
-  %.not120 = icmp eq i8 %198, -128
-  br i1 %.not120, label %200, label %199
+193:                                              ; preds = %.lr.ph130
+  %194 = getelementptr inbounds i8, ptr %189, i64 24
+  store i8 1, ptr %194, align 4
+  %195 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
+  %.not120 = icmp eq i8 %195, -128
+  br i1 %.not120, label %197, label %196
 
-199:                                              ; preds = %196
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflictingRegisterENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 %198)
-  br label %200
+196:                                              ; preds = %193
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflictingRegisterENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 %195)
+  br label %197
 
-200:                                              ; preds = %199, %196
-  %201 = getelementptr inbounds i8, ptr %192, i64 16
-  %202 = load i8, ptr %201, align 4
-  %203 = icmp eq i8 %202, 0
-  br i1 %203, label %204, label %208
+197:                                              ; preds = %196, %193
+  %198 = getelementptr inbounds i8, ptr %189, i64 16
+  %199 = load i8, ptr %198, align 4
+  %200 = icmp eq i8 %199, 0
+  br i1 %200, label %201, label %205
 
-204:                                              ; preds = %200
-  %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %192, i64 18
-  %.sroa.08.0.copyload = load i8, ptr %206, align 2
-  %207 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %205, i8 %.sroa.08.0.copyload, i32 noundef -1)
-  br label %208
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %0, align 8
+  %203 = getelementptr inbounds i8, ptr %189, i64 18
+  %.sroa.08.0.copyload = load i8, ptr %203, align 2
+  %204 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %202, i8 %.sroa.08.0.copyload, i32 noundef -1)
+  br label %205
 
-208:                                              ; preds = %204, %200
-  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %192)
-  store i8 0, ptr %197, align 4
+205:                                              ; preds = %201, %197
+  call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %189)
+  store i8 0, ptr %194, align 4
   %.pre = load i32, ptr %6, align 4
-  br label %209
+  br label %206
 
-209:                                              ; preds = %.lr.ph130, %208
-  %210 = phi i32 [ %191, %.lr.ph130 ], [ %.pre, %208 ]
+206:                                              ; preds = %.lr.ph130, %205
+  %207 = phi i32 [ %188, %.lr.ph130 ], [ %.pre, %205 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %211 = sext i32 %210 to i64
-  %212 = icmp slt i64 %indvars.iv.next139, %211
-  br i1 %212, label %.lr.ph130, label %._crit_edge, !llvm.loop !11
+  %208 = sext i32 %207 to i64
+  %209 = icmp slt i64 %indvars.iv.next139, %208
+  br i1 %209, label %.lr.ph130, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.loopexit.thread, %209, %.preheader122
+._crit_edge:                                      ; preds = %.loopexit.thread, %206
   %.sroa.06.0.copyload = load i8, ptr %32, align 2
-  %213 = and i8 %.sroa.06.0.copyload, 7
-  switch i8 %213, label %222 [
-    i8 5, label %214
+  %210 = and i8 %.sroa.06.0.copyload, 7
+  switch i8 %210, label %219 [
+    i8 5, label %211
     i8 0, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
   ]
 
-214:                                              ; preds = %._crit_edge
-  %215 = getelementptr inbounds i8, ptr %0, i64 224
-  %216 = lshr i8 %.sroa.06.0.copyload, 3
-  %217 = zext nneg i8 %216 to i64
-  %218 = getelementptr inbounds [16 x i8], ptr %215, i64 0, i64 %217
-  %219 = load i8, ptr %218, align 1
-  %220 = add i8 %219, -1
-  store i8 %220, ptr %218, align 1
-  %221 = icmp eq i8 %220, 0
-  br i1 %221, label %.sink.split.i100, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
+211:                                              ; preds = %._crit_edge
+  %212 = getelementptr inbounds i8, ptr %0, i64 224
+  %213 = lshr i8 %.sroa.06.0.copyload, 3
+  %214 = zext nneg i8 %213 to i64
+  %215 = getelementptr inbounds [16 x i8], ptr %212, i64 0, i64 %214
+  %216 = load i8, ptr %215, align 1
+  %217 = add i8 %216, -1
+  store i8 %217, ptr %215, align 1
+  %218 = icmp eq i8 %217, 0
+  br i1 %218, label %.sink.split.i100, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
-222:                                              ; preds = %._crit_edge
-  %223 = getelementptr inbounds i8, ptr %0, i64 208
-  %224 = lshr i8 %.sroa.06.0.copyload, 3
-  %225 = zext nneg i8 %224 to i64
-  %226 = getelementptr inbounds [16 x i8], ptr %223, i64 0, i64 %225
-  %227 = load i8, ptr %226, align 1
-  %228 = add i8 %227, -1
-  store i8 %228, ptr %226, align 1
-  %229 = icmp eq i8 %228, 0
-  br i1 %229, label %230, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
+219:                                              ; preds = %._crit_edge
+  %220 = getelementptr inbounds i8, ptr %0, i64 208
+  %221 = lshr i8 %.sroa.06.0.copyload, 3
+  %222 = zext nneg i8 %221 to i64
+  %223 = getelementptr inbounds [16 x i8], ptr %220, i64 0, i64 %222
+  %224 = load i8, ptr %223, align 1
+  %225 = add i8 %224, -1
+  store i8 %225, ptr %223, align 1
+  %226 = icmp eq i8 %225, 0
+  br i1 %226, label %227, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
-230:                                              ; preds = %222
-  %231 = load ptr, ptr %0, align 8
-  %232 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %231, i8 %.sroa.06.0.copyload)
-  br i1 %232, label %.sink.split.i100, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
+227:                                              ; preds = %219
+  %228 = load ptr, ptr %0, align 8
+  %229 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %228, i8 %.sroa.06.0.copyload)
+  br i1 %229, label %.sink.split.i100, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
-.sink.split.i100:                                 ; preds = %230, %214
-  %233 = load ptr, ptr %0, align 8
-  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %233, i8 %.sroa.06.0.copyload)
+.sink.split.i100:                                 ; preds = %227, %211
+  %230 = load ptr, ptr %0, align 8
+  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %230, i8 %.sroa.06.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
-_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit: ; preds = %._crit_edge, %214, %222, %230, %.sink.split.i100
+_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit: ; preds = %._crit_edge, %211, %219, %227, %.sink.split.i100
   %.sroa.05.0.copyload = load i8, ptr %41, align 1
-  %234 = and i8 %.sroa.05.0.copyload, 7
-  switch i8 %234, label %243 [
-    i8 5, label %235
+  %231 = and i8 %.sroa.05.0.copyload, 7
+  switch i8 %231, label %240 [
+    i8 5, label %232
     i8 0, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
   ]
 
-235:                                              ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
-  %236 = getelementptr inbounds i8, ptr %0, i64 224
-  %237 = lshr i8 %.sroa.05.0.copyload, 3
-  %238 = zext nneg i8 %237 to i64
-  %239 = getelementptr inbounds [16 x i8], ptr %236, i64 0, i64 %238
-  %240 = load i8, ptr %239, align 1
-  %241 = add i8 %240, -1
-  store i8 %241, ptr %239, align 1
-  %242 = icmp eq i8 %241, 0
-  br i1 %242, label %.sink.split.i101, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
+232:                                              ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
+  %233 = getelementptr inbounds i8, ptr %0, i64 224
+  %234 = lshr i8 %.sroa.05.0.copyload, 3
+  %235 = zext nneg i8 %234 to i64
+  %236 = getelementptr inbounds [16 x i8], ptr %233, i64 0, i64 %235
+  %237 = load i8, ptr %236, align 1
+  %238 = add i8 %237, -1
+  store i8 %238, ptr %236, align 1
+  %239 = icmp eq i8 %238, 0
+  br i1 %239, label %.sink.split.i101, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
 
-243:                                              ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
-  %244 = getelementptr inbounds i8, ptr %0, i64 208
-  %245 = lshr i8 %.sroa.05.0.copyload, 3
-  %246 = zext nneg i8 %245 to i64
-  %247 = getelementptr inbounds [16 x i8], ptr %244, i64 0, i64 %246
-  %248 = load i8, ptr %247, align 1
-  %249 = add i8 %248, -1
-  store i8 %249, ptr %247, align 1
-  %250 = icmp eq i8 %249, 0
-  br i1 %250, label %251, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
+240:                                              ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
+  %241 = getelementptr inbounds i8, ptr %0, i64 208
+  %242 = lshr i8 %.sroa.05.0.copyload, 3
+  %243 = zext nneg i8 %242 to i64
+  %244 = getelementptr inbounds [16 x i8], ptr %241, i64 0, i64 %243
+  %245 = load i8, ptr %244, align 1
+  %246 = add i8 %245, -1
+  store i8 %246, ptr %244, align 1
+  %247 = icmp eq i8 %246, 0
+  br i1 %247, label %248, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
 
-251:                                              ; preds = %243
-  %252 = load ptr, ptr %0, align 8
-  %253 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %252, i8 %.sroa.05.0.copyload)
-  br i1 %253, label %.sink.split.i101, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
+248:                                              ; preds = %240
+  %249 = load ptr, ptr %0, align 8
+  %250 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %249, i8 %.sroa.05.0.copyload)
+  br i1 %250, label %.sink.split.i101, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
 
-.sink.split.i101:                                 ; preds = %251, %235
-  %254 = load ptr, ptr %0, align 8
-  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %254, i8 %.sroa.05.0.copyload)
+.sink.split.i101:                                 ; preds = %248, %232
+  %251 = load ptr, ptr %0, align 8
+  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %251, i8 %.sroa.05.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
 
-_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102: ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit, %235, %243, %251, %.sink.split.i101
-  %255 = load i32, ptr %6, align 4
-  %256 = icmp sgt i32 %255, 0
-  br i1 %256, label %.lr.ph132, label %._crit_edge133
+_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102: ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit, %232, %240, %248, %.sink.split.i101
+  %252 = load i32, ptr %6, align 4
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %.lr.ph132, label %._crit_edge133
 
-.lr.ph132:                                        ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102, %265
-  %257 = phi i32 [ %266, %265 ], [ %255, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102 ]
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %265 ], [ 0, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102 ]
-  %258 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv141
-  %259 = getelementptr inbounds i8, ptr %258, i64 16
-  %260 = load i8, ptr %259, align 4
-  %261 = icmp eq i8 %260, 0
-  br i1 %261, label %262, label %265
+.lr.ph132:                                        ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102, %262
+  %254 = phi i32 [ %263, %262 ], [ %252, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102 ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %262 ], [ 0, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102 ]
+  %255 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv141
+  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %257 = load i8, ptr %256, align 4
+  %258 = icmp eq i8 %257, 0
+  br i1 %258, label %259, label %262
 
-262:                                              ; preds = %.lr.ph132
-  %263 = load ptr, ptr %0, align 8
-  %264 = getelementptr inbounds i8, ptr %258, i64 18
-  %.sroa.01.0.copyload = load i8, ptr %264, align 2
-  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %263, i8 %.sroa.01.0.copyload)
+259:                                              ; preds = %.lr.ph132
+  %260 = load ptr, ptr %0, align 8
+  %261 = getelementptr inbounds i8, ptr %255, i64 18
+  %.sroa.01.0.copyload = load i8, ptr %261, align 2
+  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %260, i8 %.sroa.01.0.copyload)
   %.pre147 = load i32, ptr %6, align 4
-  br label %265
+  br label %262
 
-265:                                              ; preds = %.lr.ph132, %262
-  %266 = phi i32 [ %257, %.lr.ph132 ], [ %.pre147, %262 ]
+262:                                              ; preds = %.lr.ph132, %259
+  %263 = phi i32 [ %254, %.lr.ph132 ], [ %.pre147, %259 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %267 = sext i32 %266 to i64
-  %268 = icmp slt i64 %indvars.iv.next142, %267
-  br i1 %268, label %.lr.ph132, label %._crit_edge133, !llvm.loop !12
+  %264 = sext i32 %263 to i64
+  %265 = icmp slt i64 %indvars.iv.next142, %264
+  br i1 %265, label %.lr.ph132, label %._crit_edge133, !llvm.loop !12
 
-._crit_edge133:                                   ; preds = %265, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
-  %269 = load ptr, ptr %0, align 8
-  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX6425preserveAndFreeInstValuesEv(ptr noundef nonnull align 8 dereferenceable(256) %269)
-  %270 = load ptr, ptr %0, align 8
-  call void @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413assertAllFreeEv(ptr noundef nonnull align 8 dereferenceable(256) %270)
-  %271 = getelementptr inbounds i8, ptr %0, i64 8
-  %272 = load ptr, ptr %271, align 8
+._crit_edge133:                                   ; preds = %262, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit102
+  %266 = load ptr, ptr %0, align 8
+  call void @_ZN4Luau7CodeGen3X6413IrRegAllocX6425preserveAndFreeInstValuesEv(ptr noundef nonnull align 8 dereferenceable(256) %266)
+  %267 = load ptr, ptr %0, align 8
+  call void @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413assertAllFreeEv(ptr noundef nonnull align 8 dereferenceable(256) %267)
+  %268 = getelementptr inbounds i8, ptr %0, i64 8
+  %269 = load ptr, ptr %268, align 8
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644callENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %272, i64 %.sroa.0.0.copyload)
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644callENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %269, i64 %.sroa.0.0.copyload)
   ret void
 }
 
@@ -1193,96 +1184,90 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInt
 
 .lr.ph.split.us.preheader:                        ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 202
-  %.sroa.03.0.copyload.i = load i8, ptr %7, align 2
-  %8 = and i8 %.sroa.03.0.copyload.i, 7
-  %9 = icmp ne i8 %8, 5
-  %10 = getelementptr inbounds i8, ptr %0, i64 201
-  %.sroa.01.0.copyload.i = load i8, ptr %10, align 1
-  %11 = and i8 %.sroa.01.0.copyload.i, 7
-  %12 = icmp ne i8 %11, 5
+  %wide.trip.count.i = zext nneg i32 %3 to i64
+  %6 = getelementptr inbounds i8, ptr %0, i64 202
+  %.sroa.03.0.copyload.i = load i8, ptr %6, align 2
+  %7 = and i8 %.sroa.03.0.copyload.i, 7
+  %8 = icmp ne i8 %7, 5
+  %9 = getelementptr inbounds i8, ptr %0, i64 201
+  %.sroa.01.0.copyload.i = load i8, ptr %9, align 1
+  %10 = and i8 %.sroa.01.0.copyload.i, 7
+  %11 = icmp ne i8 %10, 5
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us ]
-  %13 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = load i8, ptr %14, align 4
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us ]
+  %12 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = load i8, ptr %13, align 4
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds i8, ptr %13, i64 18
-  %.sroa.0.0.copyload.i.us = load i8, ptr %17, align 2
-  %18 = and i8 %.sroa.0.0.copyload.i.us, 7
-  %19 = icmp eq i8 %18, 5
-  br label %20
+  %16 = getelementptr inbounds i8, ptr %12, i64 18
+  %.sroa.0.0.copyload.i.us = load i8, ptr %16, align 2
+  %17 = and i8 %.sroa.0.0.copyload.i.us, 7
+  %18 = icmp eq i8 %17, 5
+  br label %19
 
-20:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us, %.lr.ph.i.us
+19:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us ]
-  %21 = phi i1 [ true, %.lr.ph.i.us ], [ %37, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us ]
-  %22 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i.us
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
-  %24 = load i8, ptr %23, align 4
-  %25 = trunc i8 %24 to i1
+  %20 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i.us
+  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = load i8, ptr %21, align 4
+  %23 = trunc i8 %22 to i1
   %.not.i.us = icmp ne i64 %indvars.iv.i.us, %indvars.iv
-  %or.cond.not.i.us = and i1 %.not.i.us, %25
-  br i1 %or.cond.not.i.us, label %26, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us
+  %or.cond.not.i.us = and i1 %.not.i.us, %23
+  br i1 %or.cond.not.i.us, label %24, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 6
-  %.sroa.03.0.copyload.i.i.us = load i8, ptr %27, align 2
-  %28 = and i8 %.sroa.03.0.copyload.i.i.us, 7
-  %29 = icmp ne i8 %28, 5
-  %30 = xor i1 %19, %29
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %20, i64 6
+  %.sroa.03.0.copyload.i.i.us = load i8, ptr %25, align 2
+  %26 = and i8 %.sroa.03.0.copyload.i.i.us, 7
+  %27 = icmp ne i8 %26, 5
+  %28 = xor i1 %18, %27
   %.unshifted.i.i.i.us = xor i8 %.sroa.03.0.copyload.i.i.us, %.sroa.0.0.copyload.i.us
-  %31 = icmp ult i8 %.unshifted.i.i.i.us, 8
-  %or.cond.i.i.us = and i1 %31, %30
-  br i1 %or.cond.i.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us
+  %29 = icmp ult i8 %.unshifted.i.i.i.us, 8
+  %or.cond.i.i.us = and i1 %29, %28
+  br i1 %or.cond.i.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us: ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %22, i64 5
-  %.sroa.01.0.copyload.i.i.us = load i8, ptr %32, align 1
-  %33 = and i8 %.sroa.01.0.copyload.i.i.us, 7
-  %34 = icmp ne i8 %33, 5
-  %35 = xor i1 %19, %34
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us: ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %20, i64 5
+  %.sroa.01.0.copyload.i.i.us = load i8, ptr %30, align 1
+  %31 = and i8 %.sroa.01.0.copyload.i.i.us, 7
+  %32 = icmp ne i8 %31, 5
+  %33 = xor i1 %18, %32
   %.unshifted.i7.i.i.us = xor i8 %.sroa.01.0.copyload.i.i.us, %.sroa.0.0.copyload.i.us
-  %36 = icmp ult i8 %.unshifted.i7.i.i.us, 8
-  %or.cond12.i.us = and i1 %36, %35
-  br i1 %or.cond12.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us
+  %34 = icmp ult i8 %.unshifted.i7.i.i.us, 8
+  %or.cond12.i.us = and i1 %34, %33
+  br i1 %or.cond12.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %20
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %19
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %37 = icmp ult i64 %indvars.iv.next.i.us, %6
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %6
-  br i1 %exitcond.not.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us, label %20, !llvm.loop !8
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
+  br i1 %exitcond.not.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us, label %19, !llvm.loop !8
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %26
-  %.lcssa.i.us = phi i1 [ %21, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us ], [ %21, %26 ], [ %37, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us ]
-  br i1 %.lcssa.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
-
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us
-  %38 = xor i1 %19, %9
-  %.unshifted.i.i.us = xor i8 %.sroa.03.0.copyload.i, %.sroa.0.0.copyload.i.us
-  %39 = icmp ult i8 %.unshifted.i.i.us, 8
-  %or.cond.i.us = and i1 %39, %38
-  br i1 %or.cond.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
-
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
-  %40 = xor i1 %19, %12
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us
+  %35 = xor i1 %18, %11
   %.unshifted.i7.i.us = xor i8 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i.us
-  %41 = icmp ult i8 %.unshifted.i7.i.us, 8
-  %or.cond.us = and i1 %41, %40
-  br i1 %or.cond.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
+  %36 = icmp ult i8 %.unshifted.i7.i.us, 8
+  %or.cond.us = and i1 %36, %35
+  br i1 %or.cond.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.us, %.lr.ph.split.us
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us: ; preds = %24, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %6
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11, label %.lr.ph.split.us, !llvm.loop !9
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %1
-  %.0 = phi ptr [ null, %1 ], [ %13, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us ], [ null, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread.us ]
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11.i.us
+  %37 = xor i1 %18, %8
+  %.unshifted.i.i.us = xor i8 %.sroa.03.0.copyload.i, %.sroa.0.0.copyload.i.us
+  %38 = icmp ult i8 %.unshifted.i.i.us, 8
+  %or.cond.i.us = and i1 %38, %37
+  br i1 %or.cond.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
+
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %1
+  %.0 = phi ptr [ null, %1 ], [ %12, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us ], [ null, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us ]
   ret ptr %.0
 }
 
@@ -1380,183 +1365,154 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
   %2 = getelementptr inbounds i8, ptr %0, i64 188
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph.split.us.preheader, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread
+  br i1 %4, label %.lr.ph.split.us.preheader, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit
 
 .lr.ph.split.us.preheader:                        ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = zext nneg i32 %3 to i64
+  %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us ]
-  %7 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = load i8, ptr %8, align 4
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us
+  %6 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load i8, ptr %7, align 4
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us
-  %11 = getelementptr inbounds i8, ptr %7, i64 6
-  %.sroa.03.0.copyload.us = load i8, ptr %11, align 2
-  %12 = and i8 %.sroa.03.0.copyload.us, 7
-  %13 = icmp eq i8 %12, 5
-  br label %14
+  %10 = getelementptr inbounds i8, ptr %6, i64 6
+  %.sroa.03.0.copyload.us = load i8, ptr %10, align 2
+  %11 = and i8 %.sroa.03.0.copyload.us, 7
+  %12 = icmp eq i8 %11, 5
+  br label %13
 
-14:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %.lr.ph.i.us
+13:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us ]
-  %15 = phi i1 [ true, %.lr.ph.i.us ], [ %26, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us ]
-  %16 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i.us
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load i8, ptr %17, align 4
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
+  %14 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i.us
+  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = load i8, ptr %15, align 4
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 18
-  %.sroa.01.0.copyload.i.us = load i8, ptr %21, align 2
-  %22 = and i8 %.sroa.01.0.copyload.i.us, 7
-  %23 = icmp ne i8 %22, 5
-  %24 = xor i1 %13, %23
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %14, i64 18
+  %.sroa.01.0.copyload.i.us = load i8, ptr %19, align 2
+  %20 = and i8 %.sroa.01.0.copyload.i.us, 7
+  %21 = icmp ne i8 %20, 5
+  %22 = xor i1 %12, %21
   %.unshifted.i.i.us = xor i8 %.sroa.01.0.copyload.i.us, %.sroa.03.0.copyload.us
-  %25 = icmp ult i8 %.unshifted.i.i.us, 8
-  %or.cond.i.us = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
+  %23 = icmp ult i8 %.unshifted.i.i.us, 8
+  %or.cond.i.us = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us: ; preds = %20, %14
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us: ; preds = %18, %13
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %26 = icmp ult i64 %indvars.iv.next.i.us, %6
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %6
-  br i1 %exitcond.not.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us, label %14, !llvm.loop !13
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
+  br i1 %exitcond.not.i.us, label %.lr.ph.i17.us, label %13, !llvm.loop !13
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %20
-  %.lcssa.i.us = phi i1 [ %15, %20 ], [ %26, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us ]
-  br i1 %.lcssa.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread, label %.lr.ph.i17.us
+.lr.ph.i17.us:                                    ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us
+  %24 = getelementptr inbounds i8, ptr %6, i64 5
+  %.sroa.02.0.copyload.us = load i8, ptr %24, align 1
+  %25 = and i8 %.sroa.02.0.copyload.us, 7
+  %26 = icmp eq i8 %25, 5
+  br label %27
 
-.lr.ph.i17.us:                                    ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us
-  %27 = getelementptr inbounds i8, ptr %7, i64 5
-  %.sroa.02.0.copyload.us = load i8, ptr %27, align 1
-  %28 = and i8 %.sroa.02.0.copyload.us, 7
-  %29 = icmp eq i8 %28, 5
-  br label %30
-
-30:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us, %.lr.ph.i17.us
+27:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us, %.lr.ph.i17.us
   %indvars.iv.i19.us = phi i64 [ 0, %.lr.ph.i17.us ], [ %indvars.iv.next.i21.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us ]
-  %31 = phi i1 [ true, %.lr.ph.i17.us ], [ %42, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us ]
-  %32 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i19.us
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = load i8, ptr %33, align 4
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us
+  %28 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i19.us
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load i8, ptr %29, align 4
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %32, i64 18
-  %.sroa.01.0.copyload.i23.us = load i8, ptr %37, align 2
-  %38 = and i8 %.sroa.01.0.copyload.i23.us, 7
-  %39 = icmp ne i8 %38, 5
-  %40 = xor i1 %29, %39
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %28, i64 18
+  %.sroa.01.0.copyload.i23.us = load i8, ptr %33, align 2
+  %34 = and i8 %.sroa.01.0.copyload.i23.us, 7
+  %35 = icmp ne i8 %34, 5
+  %36 = xor i1 %26, %35
   %.unshifted.i.i24.us = xor i8 %.sroa.01.0.copyload.i23.us, %.sroa.02.0.copyload.us
-  %41 = icmp ult i8 %.unshifted.i.i24.us, 8
-  %or.cond.i25.us = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond.i25.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us
+  %37 = icmp ult i8 %.unshifted.i.i24.us, 8
+  %or.cond.i25.us = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond.i25.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us: ; preds = %36, %30
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us: ; preds = %32, %27
   %indvars.iv.next.i21.us = add nuw nsw i64 %indvars.iv.i19.us, 1
-  %42 = icmp ult i64 %indvars.iv.next.i21.us, %6
-  %exitcond.not.i22.us = icmp eq i64 %indvars.iv.next.i21.us, %6
-  br i1 %exitcond.not.i22.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us, label %30, !llvm.loop !13
+  %exitcond.not.i22.us = icmp eq i64 %indvars.iv.next.i21.us, %wide.trip.count.i
+  br i1 %exitcond.not.i22.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us, label %27, !llvm.loop !13
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us, %36
-  %.lcssa.i16.us = phi i1 [ %31, %36 ], [ %42, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us ]
-  br i1 %.lcssa.i16.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us
-
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us, %.lr.ph.split.us
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i20.us, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %6
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.thread.us
-  %43 = getelementptr inbounds i8, ptr %0, i64 202
-  %.sroa.01.0.copyload = load i8, ptr %43, align 2
-  br i1 %4, label %.lr.ph.i28, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread
+  %38 = getelementptr inbounds i8, ptr %0, i64 202
+  %.sroa.01.0.copyload = load i8, ptr %38, align 2
+  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %40 = and i8 %.sroa.01.0.copyload, 7
+  %41 = icmp eq i8 %40, 5
+  %wide.trip.count.i29 = zext nneg i32 %3 to i64
+  br label %42
 
-.lr.ph.i28:                                       ; preds = %._crit_edge
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
-  %45 = and i8 %.sroa.01.0.copyload, 7
-  %46 = icmp eq i8 %45, 5
-  %47 = zext nneg i32 %3 to i64
-  br label %48
+42:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31, %._crit_edge
+  %indvars.iv.i30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i32, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31 ]
+  %43 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %39, i64 0, i64 %indvars.iv.i30
+  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = load i8, ptr %44, align 4
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
 
-48:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31, %.lr.ph.i28
-  %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i32, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31 ]
-  %49 = phi i1 [ true, %.lr.ph.i28 ], [ %60, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31 ]
-  %50 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %44, i64 0, i64 %indvars.iv.i30
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = load i8, ptr %51, align 4
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
-
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %50, i64 18
-  %.sroa.01.0.copyload.i34 = load i8, ptr %55, align 2
-  %56 = and i8 %.sroa.01.0.copyload.i34, 7
-  %57 = icmp ne i8 %56, 5
-  %58 = xor i1 %46, %57
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds i8, ptr %43, i64 18
+  %.sroa.01.0.copyload.i34 = load i8, ptr %48, align 2
+  %49 = and i8 %.sroa.01.0.copyload.i34, 7
+  %50 = icmp ne i8 %49, 5
+  %51 = xor i1 %41, %50
   %.unshifted.i.i35 = xor i8 %.sroa.01.0.copyload.i34, %.sroa.01.0.copyload
-  %59 = icmp ult i8 %.unshifted.i.i35, 8
-  %or.cond.i36 = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond.i36, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
+  %52 = icmp ult i8 %.unshifted.i.i35, 8
+  %or.cond.i36 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond.i36, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31: ; preds = %54, %48
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31: ; preds = %47, %42
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i30, 1
-  %60 = icmp ult i64 %indvars.iv.next.i32, %47
-  %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %47
-  br i1 %exitcond.not.i33, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37, label %48, !llvm.loop !13
+  %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i29
+  br i1 %exitcond.not.i33, label %.lr.ph.i39, label %42, !llvm.loop !13
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37: ; preds = %54, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
-  %.lcssa.i27 = phi i1 [ %49, %54 ], [ %60, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31 ]
-  br i1 %.lcssa.i27, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread, label %.lr.ph.i39
+.lr.ph.i39:                                       ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i31
+  %53 = getelementptr inbounds i8, ptr %0, i64 201
+  %.sroa.0.0.copyload = load i8, ptr %53, align 1
+  %54 = and i8 %.sroa.0.0.copyload, 7
+  %55 = icmp eq i8 %54, 5
+  br label %56
 
-.lr.ph.i39:                                       ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37
-  %61 = getelementptr inbounds i8, ptr %0, i64 201
-  %.sroa.0.0.copyload = load i8, ptr %61, align 1
-  %62 = and i8 %.sroa.0.0.copyload, 7
-  %63 = icmp eq i8 %62, 5
-  br label %64
-
-64:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42, %.lr.ph.i39
+56:                                               ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42, %.lr.ph.i39
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i43, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42 ]
-  %65 = phi i1 [ true, %.lr.ph.i39 ], [ %76, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42 ]
-  %66 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %44, i64 0, i64 %indvars.iv.i41
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  %68 = load i8, ptr %67, align 4
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42
+  %57 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %39, i64 0, i64 %indvars.iv.i41
+  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %59 = load i8, ptr %58, align 4
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %66, i64 18
-  %.sroa.01.0.copyload.i45 = load i8, ptr %71, align 2
-  %72 = and i8 %.sroa.01.0.copyload.i45, 7
-  %73 = icmp ne i8 %72, 5
-  %74 = xor i1 %63, %73
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %57, i64 18
+  %.sroa.01.0.copyload.i45 = load i8, ptr %62, align 2
+  %63 = and i8 %.sroa.01.0.copyload.i45, 7
+  %64 = icmp ne i8 %63, 5
+  %65 = xor i1 %55, %64
   %.unshifted.i.i46 = xor i8 %.sroa.01.0.copyload.i45, %.sroa.0.0.copyload
-  %75 = icmp ult i8 %.unshifted.i.i46, 8
-  %or.cond.i47 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond.i47, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42
+  %66 = icmp ult i8 %.unshifted.i.i46, 8
+  %or.cond.i47 = select i1 %65, i1 %66, i1 false
+  br i1 %or.cond.i47, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42: ; preds = %70, %64
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42: ; preds = %61, %56
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
-  %76 = icmp ult i64 %indvars.iv.next.i43, %47
-  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %47
-  br i1 %exitcond.not.i44, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48, label %64, !llvm.loop !13
+  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i29
+  br i1 %exitcond.not.i44, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit, label %56, !llvm.loop !13
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48: ; preds = %70, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42
-  %.lcssa.i38 = phi i1 [ %65, %70 ], [ %76, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42 ]
-  %cond.fr = freeze i1 %.lcssa.i38
-  %spec.select = select i1 %cond.fr, i8 %.sroa.0.0.copyload, i8 -128
-  br label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread
-
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48.thread: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us, %1, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48, %._crit_edge, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37
-  %.sroa.011.0 = phi i8 [ %.sroa.01.0.copyload, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit37 ], [ -128, %._crit_edge ], [ %spec.select, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit48 ], [ -128, %1 ], [ %.sroa.02.0.copyload.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit26.us ], [ %.sroa.03.0.copyload.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit.us ]
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit: ; preds = %18, %32, %47, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42, %61, %1
+  %.sroa.011.0 = phi i8 [ -128, %1 ], [ -128, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i42 ], [ %.sroa.0.0.copyload, %61 ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.02.0.copyload.us, %32 ], [ %.sroa.03.0.copyload.us, %18 ]
   ret i8 %.sroa.011.0
 }
 
@@ -1757,51 +1713,48 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427in
   %9 = and i8 %.sroa.0.0.copyload, 7
   %10 = icmp eq i8 %9, 5
   %11 = zext i32 %2 to i64
-  %12 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
+12:                                               ; preds = %.lr.ph, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11 ]
-  %14 = phi i1 [ true, %.lr.ph ], [ %30, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11 ]
-  %15 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %7, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  %17 = load i8, ptr %16, align 4
-  %18 = trunc i8 %17 to i1
+  %13 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %7, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = load i8, ptr %14, align 4
+  %16 = trunc i8 %15 to i1
   %.not = icmp ne i64 %indvars.iv, %11
-  %or.cond.not = and i1 %.not, %18
-  br i1 %or.cond.not, label %19, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
+  %or.cond.not = and i1 %.not, %16
+  br i1 %or.cond.not, label %17, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 6
-  %.sroa.03.0.copyload.i = load i8, ptr %20, align 2
-  %21 = and i8 %.sroa.03.0.copyload.i, 7
-  %22 = icmp ne i8 %21, 5
-  %23 = xor i1 %10, %22
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %13, i64 6
+  %.sroa.03.0.copyload.i = load i8, ptr %18, align 2
+  %19 = and i8 %.sroa.03.0.copyload.i, 7
+  %20 = icmp ne i8 %19, 5
+  %21 = xor i1 %10, %20
   %.unshifted.i.i = xor i8 %.sroa.03.0.copyload.i, %.sroa.0.0.copyload
-  %24 = icmp ult i8 %.unshifted.i.i, 8
-  %or.cond.i = and i1 %24, %23
+  %22 = icmp ult i8 %.unshifted.i.i, 8
+  %or.cond.i = and i1 %22, %21
   br i1 %or.cond.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i: ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %15, i64 5
-  %.sroa.01.0.copyload.i = load i8, ptr %25, align 1
-  %26 = and i8 %.sroa.01.0.copyload.i, 7
-  %27 = icmp ne i8 %26, 5
-  %28 = xor i1 %10, %27
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i: ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %13, i64 5
+  %.sroa.01.0.copyload.i = load i8, ptr %23, align 1
+  %24 = and i8 %.sroa.01.0.copyload.i, 7
+  %25 = icmp ne i8 %24, 5
+  %26 = xor i1 %10, %25
   %.unshifted.i7.i = xor i8 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload
-  %29 = icmp ult i8 %.unshifted.i7.i, 8
-  %or.cond12 = and i1 %29, %28
+  %27 = icmp ult i8 %.unshifted.i7.i, 8
+  %or.cond12 = and i1 %27, %26
   br i1 %or.cond12, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %13
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp ult i64 %indvars.iv.next, %12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %13, !llvm.loop !8
+  br i1 %exitcond.not, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %12, !llvm.loop !8
 
-_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11, %19, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %3
-  %.lcssa = phi i1 [ false, %3 ], [ %14, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i ], [ %14, %19 ], [ %30, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11 ]
+_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11, %17, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %3
+  %.lcssa = phi i1 [ false, %3 ], [ true, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i ], [ true, %17 ], [ false, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread11 ]
   ret i1 %.lcssa
 }
 
@@ -1848,38 +1801,35 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426in
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = and i8 %1, 7
   %8 = icmp eq i8 %7, 5
-  %9 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
+9:                                                ; preds = %.lr.ph, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ]
-  %11 = phi i1 [ true, %.lr.ph ], [ %22, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ]
-  %12 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %6, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = load i8, ptr %13, align 4
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
+  %10 = getelementptr inbounds [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load i8, ptr %11, align 4
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %12, i64 18
-  %.sroa.01.0.copyload = load i8, ptr %17, align 2
-  %18 = and i8 %.sroa.01.0.copyload, 7
-  %19 = icmp ne i8 %18, 5
-  %20 = xor i1 %8, %19
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %10, i64 18
+  %.sroa.01.0.copyload = load i8, ptr %15, align 2
+  %16 = and i8 %.sroa.01.0.copyload, 7
+  %17 = icmp ne i8 %16, 5
+  %18 = xor i1 %8, %17
   %.unshifted.i = xor i8 %.sroa.01.0.copyload, %1
-  %21 = icmp ult i8 %.unshifted.i, 8
-  %or.cond = select i1 %20, i1 %21, i1 false
+  %19 = icmp ult i8 %.unshifted.i, 8
+  %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %._crit_edge, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
 
-_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread: ; preds = %16, %10
+_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread: ; preds = %14, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp ult i64 %indvars.iv.next, %9
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread, %16, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %11, %16 ], [ %22, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ]
+._crit_edge:                                      ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread, %14, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %14 ], [ false, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ]
   ret i1 %.lcssa
 }
 

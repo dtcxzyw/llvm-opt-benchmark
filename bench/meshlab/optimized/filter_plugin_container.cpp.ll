@@ -1488,20 +1488,20 @@ define noundef ptr @_ZNK21FilterPluginContainer14pluginOfFilterEPK7QAction(ptr n
   %12 = getelementptr inbounds i8, ptr %.sroa.03.06.i.i.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %.lr.ph.i.i.i10.preheader, label %15
+  br i1 %14, label %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i
   %16 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %16, %3
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i10.preheader, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
-.lr.ph.i.i.i10.preheader:                         ; preds = %.lr.ph.i.i.i, %15
+_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %15, %.lr.ph.i.i.i
   %.sroa.03.0.lcssa.i.i.i = phi ptr [ %3, %15 ], [ %.sroa.03.06.i.i.i, %.lr.ph.i.i.i ]
   %.not28 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %3
   br label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i10:                                   ; preds = %.lr.ph.i.i.i10.preheader, %.lr.ph.i.i.i10
-  %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i10 ], [ %11, %.lr.ph.i.i.i10.preheader ]
+.lr.ph.i.i.i10:                                   ; preds = %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit, %.lr.ph.i.i.i10
+  %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i10 ], [ %11, %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
   %.not.i.i.i11 = icmp eq ptr %17, %3

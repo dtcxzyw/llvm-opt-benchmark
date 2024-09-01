@@ -320,7 +320,7 @@ for.end107:                                       ; preds = %for.body100, %if.en
 
 for.cond114.preheader:                            ; preds = %for.end107
   %cmp11598.not = icmp eq i32 %c.0.lcssa, 0
-  br i1 %cmp11598.not, label %if.then130, label %for.body117
+  br i1 %cmp11598.not, label %if.end125, label %for.body117
 
 for.body117:                                      ; preds = %for.cond114.preheader, %for.body117
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.body117 ], [ 0, %for.cond114.preheader ]
@@ -329,9 +329,9 @@ for.body117:                                      ; preds = %for.cond114.prehead
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx119, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx121, i64 32, i1 false)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %idxprom108
-  br i1 %exitcond109.not, label %if.then130, label %for.body117, !llvm.loop !7
+  br i1 %exitcond109.not, label %if.end125, label %for.body117, !llvm.loop !7
 
-if.then130:                                       ; preds = %for.body117, %for.cond114.preheader
+if.end125:                                        ; preds = %for.body117, %for.cond114.preheader
   store i32 %add72, ptr %clist, align 8
   store ptr %nlist.0, ptr %entries, align 8
   %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
@@ -344,8 +344,8 @@ if.end131.critedge:                               ; preds = %for.end107
   store ptr %nlist.0, ptr %entries, align 8
   br label %return
 
-return:                                           ; preds = %if.then130, %if.end131.critedge, %for.end, %entry, %if.then88, %if.then59, %if.then45, %if.then36, %if.then27, %if.then16, %if.then10, %if.then2
-  %retval.0 = phi i32 [ %call12, %if.then10 ], [ %call18, %if.then16 ], [ %call29, %if.then27 ], [ %call38, %if.then36 ], [ %call47, %if.then45 ], [ %call91, %if.then88 ], [ %call61, %if.then59 ], [ %call, %if.then2 ], [ 2, %entry ], [ %call66, %for.end ], [ 0, %if.end131.critedge ], [ 0, %if.then130 ]
+return:                                           ; preds = %if.end125, %if.end131.critedge, %for.end, %entry, %if.then88, %if.then59, %if.then45, %if.then36, %if.then27, %if.then16, %if.then10, %if.then2
+  %retval.0 = phi i32 [ %call12, %if.then10 ], [ %call18, %if.then16 ], [ %call29, %if.then27 ], [ %call38, %if.then36 ], [ %call47, %if.then45 ], [ %call91, %if.then88 ], [ %call61, %if.then59 ], [ %call, %if.then2 ], [ 2, %entry ], [ %call66, %for.end ], [ 0, %if.end131.critedge ], [ 0, %if.end125 ]
   ret i32 %retval.0
 }
 

@@ -3452,8 +3452,8 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit45
 
 .loopexit.i:                                      ; preds = %.noexc111, %.noexc108, %.noexc80
   %.2.ph.i = phi i64 [ %.0101.i, %.noexc80 ], [ %285, %.noexc108 ], [ %295, %.noexc111 ]
-  %exitcond.not = icmp eq i32 %179, %152
-  br i1 %exitcond.not, label %.thread, label %178
+  %exitcond.not.i62 = icmp eq i32 %179, %152
+  br i1 %exitcond.not.i62, label %.thread, label %178
 
 .thread157:                                       ; preds = %.noexc110
   %.sroa.532.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %25, i64 12

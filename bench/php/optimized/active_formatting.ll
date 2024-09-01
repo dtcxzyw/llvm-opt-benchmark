@@ -89,55 +89,44 @@ define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr nocapture
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @lxb_html_tree_active_formatting_find_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
-  %.not22 = icmp eq i64 %8, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
+  %.not18 = icmp eq i64 %8, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph32
+.lr.ph:                                           ; preds = %3, %13
+  %.017 = phi i64 [ %14, %13 ], [ 0, %3 ]
+  %9 = getelementptr inbounds ptr, ptr %6, i64 %.017
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, %1
+  br i1 %11, label %12, label %13
 
-.lr.ph:                                           ; preds = %.lr.ph32
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %15
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
-  br i1 %13, label %.lr.ph._crit_edge.loopexit, label %.lr.ph32
-
-.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %14 = icmp ult i64 %15, %8
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %.lcssa28 = phi i1 [ true, %.lr.ph.preheader ], [ %14, %.lr.ph._crit_edge.loopexit ]
-  %.017.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph._crit_edge.loopexit ]
+12:                                               ; preds = %.lr.ph
   %.not14 = icmp eq ptr %2, null
-  br i1 %.not14, label %16, label %.sink.split
+  br i1 %.not14, label %15, label %.sink.split
 
-.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01731 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %15 = add nuw i64 %.01731, 1
-  %exitcond.not = icmp eq i64 %15, %8
+13:                                               ; preds = %.lr.ph
+  %14 = add nuw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %14, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph32, %3
+._crit_edge:                                      ; preds = %13, %3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %16, label %.sink.split
+  br i1 %.not, label %15, label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %.lr.ph._crit_edge
-  %.sink = phi i64 [ %.017.lcssa, %.lr.ph._crit_edge ], [ 0, %._crit_edge ]
-  %.ph = phi i1 [ %.lcssa28, %.lr.ph._crit_edge ], [ false, %._crit_edge ]
+.sink.split:                                      ; preds = %._crit_edge, %12
+  %.sink = phi i64 [ %.017, %12 ], [ 0, %._crit_edge ]
+  %.ph = phi i1 [ true, %12 ], [ false, %._crit_edge ]
   store i64 %.sink, ptr %2, align 8
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.sink.split, %._crit_edge, %.lr.ph._crit_edge
-  %17 = phi i1 [ false, %._crit_edge ], [ %.lcssa28, %.lr.ph._crit_edge ], [ %.ph, %.sink.split ]
-  ret i1 %17
+15:                                               ; preds = %.sink.split, %._crit_edge, %12
+  %16 = phi i1 [ false, %._crit_edge ], [ true, %12 ], [ %.ph, %.sink.split ]
+  ret i1 %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -151,8 +140,8 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
 
 9:                                                ; preds = %10, %3
   %.0 = phi i64 [ %8, %3 ], [ %11, %10 ]
-  %.not.not = icmp ne i64 %.0, 0
-  br i1 %.not.not, label %10, label %16
+  %.not.not.not.not.not.not = icmp ne i64 %.0, 0
+  br i1 %.not.not.not.not.not.not, label %10, label %16
 
 10:                                               ; preds = %9
   %11 = add i64 %.0, -1
@@ -175,7 +164,8 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
   br label %17
 
 17:                                               ; preds = %.sink.split, %16, %15
-  ret i1 %.not.not
+  %.not.not.not21 = phi i1 [ false, %16 ], [ true, %15 ], [ %.not.not.not.not.not.not, %.sink.split ]
+  ret i1 %.not.not.not21
 }
 
 ; Function Attrs: nounwind uwtable

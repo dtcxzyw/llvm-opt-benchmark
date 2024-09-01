@@ -2935,8 +2935,8 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %261
 
 sub_0.i:                                          ; preds = %281
   %284 = load i8, ptr %1, align 1
-  %.not16.i = icmp eq i8 %284, 42
-  br i1 %.not16.i, label %.tail.i, label %.tail.thread.i
+  %.not17.i = icmp eq i8 %284, 42
+  br i1 %.not17.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
   %285 = getelementptr inbounds i8, ptr %1, i64 1
@@ -2950,8 +2950,8 @@ sub_0.i:                                          ; preds = %281
   br label %compare_strings.exit
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
-  %.not17.i = icmp eq ptr %283, null
-  br i1 %.not17.i, label %compare_strings.exit.thread233, label %290
+  %.not16.i = icmp eq ptr %283, null
+  br i1 %.not16.i, label %compare_strings.exit.thread233, label %290
 
 290:                                              ; preds = %.tail.thread.i
   %291 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %283) #30
@@ -3955,8 +3955,8 @@ define internal fastcc i32 @compare_strings(ptr noundef readonly %0, ptr noundef
 
 sub_0:                                            ; preds = %2
   %3 = load i8, ptr %0, align 1
-  %.not16 = icmp eq i8 %3, 42
-  br i1 %.not16, label %.tail, label %.tail.thread
+  %.not17 = icmp eq i8 %3, 42
+  br i1 %.not17, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -3970,8 +3970,8 @@ sub_0:                                            ; preds = %2
   br label %.thread14
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %.not17 = icmp eq ptr %1, null
-  br i1 %.not17, label %.thread14, label %9
+  %.not16 = icmp eq ptr %1, null
+  br i1 %.not16, label %.thread14, label %9
 
 9:                                                ; preds = %.tail.thread
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #30

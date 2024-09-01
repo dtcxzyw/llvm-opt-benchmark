@@ -182,7 +182,6 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
 
 for.end:                                          ; preds = %land.rhs
   %14 = trunc nuw nsw i64 %indvars.iv to i32
-  %15 = icmp eq i32 %normalize.037, 0
   %sub = add nsw i32 %argc, -1
   %cmp50 = icmp eq i32 %sub, %14
   br i1 %cmp50, label %if.end53, label %if.then52
@@ -192,6 +191,7 @@ if.then52:                                        ; preds = %for.inc, %if.end12,
   unreachable
 
 if.end53:                                         ; preds = %for.end
+  %15 = icmp eq i32 %normalize.037, 0
   %idxprom54 = and i64 %indvars.iv, 4294967295
   %arrayidx55 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom54
   %16 = load ptr, ptr %arrayidx55, align 8
@@ -232,12 +232,11 @@ collapse_slashes.exit:                            ; preds = %while.cond.i
   br label %if.end59
 
 if.end59:                                         ; preds = %collapse_slashes.exit, %if.end53
-  %normalize.0.lcssa5563 = phi i1 [ %15, %collapse_slashes.exit ], [ true, %if.end53 ]
   %refname.0 = phi ptr [ %call1.i30, %collapse_slashes.exit ], [ %16, %if.end53 ]
   %to_free.0 = phi ptr [ %call1.i30, %collapse_slashes.exit ], [ null, %if.end53 ]
   %call60 = tail call i32 @check_refname_format(ptr noundef %refname.0, i32 noundef %flags.038) #10
   %tobool61.not = icmp ne i32 %call60, 0
-  %brmerge = or i1 %normalize.0.lcssa5563, %tobool61.not
+  %brmerge = or i1 %15, %tobool61.not
   %.mux = zext i1 %tobool61.not to i32
   br i1 %brmerge, label %cleanup, label %if.then65
 

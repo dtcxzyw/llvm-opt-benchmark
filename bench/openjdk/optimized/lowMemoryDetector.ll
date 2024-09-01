@@ -1053,56 +1053,48 @@ define hidden void @_ZN17LowMemoryDetector37recompute_enabled_for_collected_pool
   br i1 %3, label %.lr.ph.preheader, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %0
-  %4 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread ]
-  %5 = phi i1 [ true, %.lr.ph.preheader ], [ %26, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread ]
-  %6 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %4 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(201) %10) #12
-  br i1 %14, label %15, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(201) %8) #12
+  br i1 %12, label %13, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %10, i64 176
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread, label %19
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds i8, ptr %8, i64 176
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread, label %17
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %10, i64 160
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %8, i64 160
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
 
-_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit: ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
-  %25 = load i64, ptr %24, align 8
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge.loopexit
+_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit: ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = load i64, ptr %22, align 8
+  %.not = icmp eq i64 %23, 0
+  br i1 %.not, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge
 
-_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread: ; preds = %19, %15, %.lr.ph, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit
+_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread: ; preds = %17, %13, %.lr.ph, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv.next, %4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge, label %.lr.ph, !llvm.loop !10
 
-_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge.loopexit: ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread
-  %.lcssa.ph = phi i1 [ %26, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread ], [ %5, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit ]
-  %27 = zext i1 %.lcssa.ph to i8
-  br label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge
-
-_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge: ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge.loopexit, %0
-  %.lcssa = phi i8 [ 0, %0 ], [ %27, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge.loopexit ]
+_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge: ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit, %0
+  %.lcssa = phi i8 [ 0, %0 ], [ 1, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit ], [ 0, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread ]
   store volatile i8 %.lcssa, ptr @_ZN17LowMemoryDetector28_enabled_for_collected_poolsE, align 1
   ret void
 }
@@ -2455,9 +2447,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -2465,20 +2456,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !14
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

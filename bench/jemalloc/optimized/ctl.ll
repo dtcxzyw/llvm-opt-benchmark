@@ -1196,9 +1196,6 @@ arenas_i.exit:                                    ; preds = %entry, %if.then11.i
   %cmp41.not = icmp eq i32 %1, 0
   br i1 %cmp41.not, label %for.end19, label %for.body
 
-for.cond4.preheader:                              ; preds = %for.body
-  br i1 %cmp41.not, label %for.end19, label %for.body6
-
 for.body:                                         ; preds = %arenas_i.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %arenas_i.exit ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
@@ -1208,10 +1205,10 @@ for.body:                                         ; preds = %arenas_i.exit, %for
   store ptr %10, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.body6, label %for.body, !llvm.loop !10
 
-for.body6:                                        ; preds = %for.cond4.preheader, %for.inc17
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc17 ], [ 0, %for.cond4.preheader ]
+for.body6:                                        ; preds = %for.body, %for.inc17
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc17 ], [ 0, %for.body ]
   %11 = load i8, ptr %state.i.i.i, align 8
   %cmp6.i.not.i32 = icmp eq i8 %11, 0
   br i1 %cmp6.i.not.i32, label %tsd_fetch_impl.exit.i, label %if.then11.i.i33
@@ -1265,7 +1262,7 @@ for.inc17:                                        ; preds = %arenas_i.exit36, %i
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %6
   br i1 %exitcond50.not, label %for.end19, label %for.body6, !llvm.loop !11
 
-for.end19:                                        ; preds = %for.inc17, %arenas_i.exit, %for.cond4.preheader
+for.end19:                                        ; preds = %for.inc17, %arenas_i.exit
   %19 = load ptr, ptr %astats.i, align 8
   %allocated_small = getelementptr inbounds i8, ptr %19, i64 10384
   %20 = load i64, ptr %allocated_small, align 8
@@ -7804,7 +7801,7 @@ for.body:                                         ; preds = %if.then, %for.body
 for.end:                                          ; preds = %for.body
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ctl_mtx, i64 72)) #14
-  br i1 %cmp326.not, label %for.end15, label %for.body6
+  br label %for.body6
 
 for.body6:                                        ; preds = %for.end, %for.inc13
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.inc13 ], [ 0, %for.end ]
@@ -7822,7 +7819,7 @@ for.inc13:                                        ; preds = %for.body6, %if.then
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %5
   br i1 %exitcond35.not, label %for.end15, label %for.body6, !llvm.loop !18
 
-for.end15:                                        ; preds = %for.inc13, %for.end.thread, %for.end
+for.end15:                                        ; preds = %for.inc13, %for.end.thread
   call void @llvm.stackrestore.p0(ptr %6)
   br label %if.end21
 

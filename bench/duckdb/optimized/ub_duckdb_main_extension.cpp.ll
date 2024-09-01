@@ -16809,7 +16809,7 @@ invoke.cont242:                                   ; preds = %for.body239
   %incdec.ptr.i1005 = getelementptr inbounds i8, ptr %__begin2230.sroa.0.01617, i64 32
   %cmp.i1004.not = icmp eq ptr %incdec.ptr.i1005, %call.i.i.i22.i.i.i
   %or.cond = select i1 %call243, i1 true, i1 %cmp.i1004.not
-  br i1 %or.cond, label %for.body.i.i.i.i1008.preheader, label %for.body239
+  br i1 %or.cond, label %for.body.i.i.i.i1008, label %for.body239
 
 lpad241:                                          ; preds = %for.body239
   %298 = landingpad { ptr, i32 }
@@ -16818,12 +16818,8 @@ lpad241:                                          ; preds = %for.body239
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp227) #30
   br label %ehcleanup283
 
-for.body.i.i.i.i1008.preheader:                   ; preds = %invoke.cont242
-  %cmp.i1004.not.lcssa.ph = xor i1 %call243, true
-  br label %for.body.i.i.i.i1008
-
-for.body.i.i.i.i1008:                             ; preds = %for.body.i.i.i.i1008.preheader, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012
-  %__first.addr.04.i.i.i.i1009 = phi ptr [ %incdec.ptr.i.i.i.i1013, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012 ], [ %.pr.i1016, %for.body.i.i.i.i1008.preheader ]
+for.body.i.i.i.i1008:                             ; preds = %invoke.cont242, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012
+  %__first.addr.04.i.i.i.i1009 = phi ptr [ %incdec.ptr.i.i.i.i1013, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012 ], [ %.pr.i1016, %invoke.cont242 ]
   %299 = load ptr, ptr %__first.addr.04.i.i.i.i1009, align 8, !tbaa !9
   %300 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i1009, i64 16
   %cmp.i.i.i.i.i.i.i.i1010 = icmp eq ptr %299, %300
@@ -16843,10 +16839,14 @@ if.then.i.i.i.i.i.i.i1011:                        ; preds = %for.body.i.i.i.i100
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012: ; preds = %if.then.i.i.i.i.i.i.i1011, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i1020
   %incdec.ptr.i.i.i.i1013 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i1009, i64 32
   %cmp.not.i.i.i.i1014 = icmp eq ptr %incdec.ptr.i.i.i.i1013, %call.i.i.i22.i.i.i
-  br i1 %cmp.not.i.i.i.i1014, label %invoke.cont.i1017, label %for.body.i.i.i.i1008, !llvm.loop !198
+  br i1 %cmp.not.i.i.i.i1014, label %invoke.cont.i1017.loopexit, label %for.body.i.i.i.i1008, !llvm.loop !198
 
-invoke.cont.i1017:                                ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012, %invoke.cont229
-  %cmp.i1004.not.lcssa1634 = phi i1 [ true, %invoke.cont229 ], [ %cmp.i1004.not.lcssa.ph, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012 ]
+invoke.cont.i1017.loopexit:                       ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i1012
+  %cmp.i1004.not.lcssa.ph = xor i1 %call243, true
+  br label %invoke.cont.i1017
+
+invoke.cont.i1017:                                ; preds = %invoke.cont.i1017.loopexit, %invoke.cont229
+  %cmp.i1004.not.lcssa1634 = phi i1 [ true, %invoke.cont229 ], [ %cmp.i1004.not.lcssa.ph, %invoke.cont.i1017.loopexit ]
   %tobool.not.i.i.i1018 = icmp eq ptr %.pr.i1016, null
   br i1 %tobool.not.i.i.i1018, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1023, label %if.then.i.i.i1019
 
@@ -43787,8 +43787,8 @@ _ZNSt8functionIFbvEEaSIZN14duckdb_httplib6detail13write_contentIZNS3_10ClientImp
 
 while.cond:                                       ; preds = %if.end, %_ZNSt8functionIFbvEEaSIZN14duckdb_httplib6detail13write_contentIZNS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEEUlvE_EEbS8_RKS_IFbmmRNS3_8DataSinkEEEmmT_SD_EUlvE_EENSt9enable_ifIXsrNS1_9_CallableISL_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES1_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSZ_JEEEE5valueERS1_E4typeEOSL_.exit
   %9 = load i64, ptr %offset.addr, align 8, !tbaa !14
-  %cmp.not.not = icmp uge i64 %9, %add
-  br i1 %cmp.not.not, label %cleanup, label %while.body
+  %cmp.not.not.not.not.not.not = icmp uge i64 %9, %add
+  br i1 %cmp.not.not.not.not.not.not, label %cleanup, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %sub = sub nuw i64 %add, %9
@@ -43898,7 +43898,7 @@ terminate.lpad.i12.i:                             ; preds = %if.then.i10.i
 _ZN14duckdb_httplib8DataSinkD2Ev.exit:            ; preds = %if.then.i10.i, %_ZNSt14_Function_baseD2Ev.exit7.i
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %data_sink) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ok) #30
-  ret i1 %cmp.not.not
+  ret i1 %cmp.not.not.not.not.not.not
 
 ehcleanup:                                        ; preds = %lpad4.loopexit.split-lp, %lpad4.loopexit, %lpad
   %.pn = phi { ptr, i32 } [ %12, %lpad ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp ]

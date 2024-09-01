@@ -5053,7 +5053,7 @@ if.end.thread:                                    ; preds = %entry
   %d_safeAssignment214 = getelementptr inbounds i8, ptr %this, i64 72
   %_M_finish.i.i.i415 = getelementptr inbounds i8, ptr %this, i64 80
   %cmp.i.i.i51116 = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i51116, label %while.end, label %while.body.preheader
+  br i1 %cmp.i.i.i51116, label %while.end, label %while.body
 
 while.body.lr.ph:                                 ; preds = %if.end
   %d_image.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5062,12 +5062,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   %d_boundsQueue.i = getelementptr inbounds i8, ptr %this, i64 256
   %d_posVector.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  br i1 %revert, label %while.body.us, label %while.body.preheader
-
-while.body.preheader:                             ; preds = %if.end.thread, %while.body.lr.ph
-  %d_safeAssignment21728 = phi ptr [ %d_safeAssignment2, %while.body.lr.ph ], [ %d_safeAssignment214, %if.end.thread ]
-  %_M_finish.i.i.i41827 = phi ptr [ %_M_finish.i.i.i4, %while.body.lr.ph ], [ %_M_finish.i.i.i415, %if.end.thread ]
-  br label %while.body
+  br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end14.us
   %2 = phi ptr [ %11, %if.end14.us ], [ %1, %while.body.lr.ph ]
@@ -5114,10 +5109,10 @@ if.end14.us:                                      ; preds = %if.then.i.us, %_ZNK
   %cmp.i.i.i5.us = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i5.us, label %while.end, label %while.body.us, !llvm.loop !32
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  tail call void @_ZN4cvc58internal8DenseMapINS0_13DeltaRationalEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(72) %d_safeAssignment21728)
-  %12 = load ptr, ptr %d_safeAssignment21728, align 8
-  %13 = load ptr, ptr %_M_finish.i.i.i41827, align 8
+while.body:                                       ; preds = %if.end.thread, %while.body
+  tail call void @_ZN4cvc58internal8DenseMapINS0_13DeltaRationalEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(72) %d_safeAssignment214)
+  %12 = load ptr, ptr %d_safeAssignment214, align 8
+  %13 = load ptr, ptr %_M_finish.i.i.i415, align 8
   %cmp.i.i.i5 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i5, label %while.end, label %while.body, !llvm.loop !32
 
@@ -5214,73 +5209,7 @@ lpad:                                             ; preds = %.noexc, %if.end.i3.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23revertAssignmentChangesEv(ptr noundef nonnull align 8 dereferenceable(568) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %prev.i = alloca %"class.cvc5::internal::theory::arith::linear::BoundsInfo", align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %prev.i)
-  %d_safeAssignment.i = getelementptr inbounds i8, ptr %this, i64 72
-  %0 = load ptr, ptr %d_safeAssignment.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZN4cvc58internal6theory5arith6linear14ArithVariables20clearSafeAssignmentsEb.exit, label %while.body.lr.ph.i
-
-while.body.lr.ph.i:                               ; preds = %entry
-  %d_deltaIsSafe.i.i = getelementptr inbounds i8, ptr %this, i64 512
-  store i8 0, ptr %d_deltaIsSafe.i.i, align 8
-  %d_image.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %d_image.i7.i = getelementptr inbounds i8, ptr %this, i64 120
-  %d_enqueueingBoundCounts.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %d_boundsQueue.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %d_posVector.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  br label %while.body.us.i
-
-while.body.us.i:                                  ; preds = %if.end14.us.i, %while.body.lr.ph.i
-  %2 = phi ptr [ %11, %if.end14.us.i ], [ %1, %while.body.lr.ph.i ]
-  %add.ptr.i.i.i.us.i = getelementptr inbounds i8, ptr %2, i64 -4
-  %3 = load i32, ptr %add.ptr.i.i.i.us.i, align 4
-  %conv.i.us.i = zext i32 %3 to i64
-  %4 = load ptr, ptr %d_image.i.i, align 8
-  %add.ptr.i.i.us.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %4, i64 %conv.i.us.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %prev.i, i8 0, i64 16, i1 false)
-  %5 = load ptr, ptr %d_image.i7.i, align 8
-  %add.ptr.i.i9.us.i = getelementptr inbounds %"class.cvc5::internal::DeltaRational", ptr %5, i64 %conv.i.us.i
-  %call11.us.i = call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13setAssignmentERKNS0_13DeltaRationalERNS3_10BoundsInfoE(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.us.i, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i9.us.i, ptr noundef nonnull align 4 dereferenceable(16) %prev.i)
-  br i1 %call11.us.i, label %if.then12.us.i, label %if.end14.us.i
-
-if.then12.us.i:                                   ; preds = %while.body.us.i
-  %6 = load i8, ptr %d_enqueueingBoundCounts.i.i, align 8
-  %tobool.i.us.i = trunc i8 %6 to i1
-  br i1 %tobool.i.us.i, label %land.lhs.true.i.us.i, label %if.end14.us.i
-
-land.lhs.true.i.us.i:                             ; preds = %if.then12.us.i
-  %7 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %8 = load ptr, ptr %d_posVector.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.us.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.us.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i.i.us.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.us.i, %sub.ptr.rhs.cast.i.i.i.i.us.i
-  %sub.ptr.div.i.i.i.i.us.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.us.i, 2
-  %cmp.not.i.i.us.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.us.i, %conv.i.us.i
-  br i1 %cmp.not.i.i.us.i, label %_ZNK4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEE5isKeyEj.exit.i.us.i, label %if.then.i.us.i
-
-_ZNK4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEE5isKeyEj.exit.i.us.i: ; preds = %land.lhs.true.i.us.i
-  %add.ptr.i.i.i10.us.i = getelementptr inbounds i32, ptr %8, i64 %conv.i.us.i
-  %9 = load i32, ptr %add.ptr.i.i.i10.us.i, align 4
-  %cmp4.i.not.i.us.i = icmp eq i32 %9, -1
-  br i1 %cmp4.i.not.i.us.i, label %if.then.i.us.i, label %if.end14.us.i
-
-if.then.i.us.i:                                   ; preds = %_ZNK4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEE5isKeyEj.exit.i.us.i, %land.lhs.true.i.us.i
-  call void @_ZN4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEE3setEjRKS5_(ptr noundef nonnull align 8 dereferenceable(72) %d_boundsQueue.i.i, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %prev.i)
-  br label %if.end14.us.i
-
-if.end14.us.i:                                    ; preds = %if.then.i.us.i, %_ZNK4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEE5isKeyEj.exit.i.us.i, %if.then12.us.i, %while.body.us.i
-  call void @_ZN4cvc58internal8DenseMapINS0_13DeltaRationalEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(72) %d_safeAssignment.i)
-  %10 = load ptr, ptr %d_safeAssignment.i, align 8
-  %11 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %cmp.i.i.i5.us.i = icmp eq ptr %10, %11
-  br i1 %cmp.i.i.i5.us.i, label %_ZN4cvc58internal6theory5arith6linear14ArithVariables20clearSafeAssignmentsEb.exit, label %while.body.us.i, !llvm.loop !32
-
-_ZN4cvc58internal6theory5arith6linear14ArithVariables20clearSafeAssignmentsEb.exit: ; preds = %if.end14.us.i, %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prev.i)
+  tail call void @_ZN4cvc58internal6theory5arith6linear14ArithVariables20clearSafeAssignmentsEb(ptr noundef nonnull align 8 dereferenceable(568) %this, i1 noundef zeroext true)
   ret void
 }
 

@@ -463,34 +463,34 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %3 = load i64, ptr %tv_nsec, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf.i6, i8 48, i64 9, i1 false)
-  %cmp214.i.not = icmp eq i64 %3, 0
-  br i1 %cmp214.i.not, label %while.end.i7, label %while.body.i11
+  %cmp214.not.i = icmp eq i64 %3, 0
+  br i1 %cmp214.not.i, label %while.end.i12, label %while.body.i7
 
-while.body.i11:                                   ; preds = %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, %while.body.i11
-  %idx.0.in17.i = phi i64 [ %idx.0.i, %while.body.i11 ], [ 9, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
-  %i.addr.016.i = phi i64 [ %div.i14, %while.body.i11 ], [ %3, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
+while.body.i7:                                    ; preds = %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, %while.body.i7
+  %idx.0.in17.i = phi i64 [ %idx.0.i, %while.body.i7 ], [ 9, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
+  %i.addr.016.i = phi i64 [ %div.i10, %while.body.i7 ], [ %3, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
   %idx.0.i = add nsw i64 %idx.0.in17.i, -1
-  %rem.i12 = urem i64 %i.addr.016.i, 10
-  %4 = trunc nuw nsw i64 %rem.i12 to i8
-  %conv.i13 = or disjoint i8 %4, 48
+  %rem.i8 = urem i64 %i.addr.016.i, 10
+  %4 = trunc nuw nsw i64 %rem.i8 to i8
+  %conv.i9 = or disjoint i8 %4, 48
   %arrayidx4.i = getelementptr inbounds [20 x i8], ptr %buf.i6, i64 0, i64 %idx.0.i
-  store i8 %conv.i13, ptr %arrayidx4.i, align 1
-  %div.i14 = udiv i64 %i.addr.016.i, 10
-  %cmp2.i15 = icmp ugt i64 %i.addr.016.i, 9
+  store i8 %conv.i9, ptr %arrayidx4.i, align 1
+  %div.i10 = udiv i64 %i.addr.016.i, 10
+  %cmp2.i11 = icmp ugt i64 %i.addr.016.i, 9
   %cmp3.i = icmp ugt i64 %idx.0.in17.i, 1
-  %5 = and i1 %cmp3.i, %cmp2.i15
-  br i1 %5, label %while.body.i11, label %while.end.i7, !llvm.loop !10
+  %5 = and i1 %cmp3.i, %cmp2.i11
+  br i1 %5, label %while.body.i7, label %while.end.i12, !llvm.loop !10
 
-while.end.i7:                                     ; preds = %while.body.i11, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit
-  %call.i8 = call i64 @write(i32 noundef %fd, ptr noundef nonnull %buf.i6, i64 noundef 9)
-  %cmp5.not.i9 = icmp eq i64 %call.i8, 9
-  br i1 %cmp5.not.i9, label %_ZN4cvc58internal24safe_print_right_alignedEiml.exit, label %if.then.i10
+while.end.i12:                                    ; preds = %while.body.i7, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit
+  %call.i13 = call i64 @write(i32 noundef %fd, ptr noundef nonnull %buf.i6, i64 noundef 9)
+  %cmp5.not.i14 = icmp eq i64 %call.i13, 9
+  br i1 %cmp5.not.i14, label %_ZN4cvc58internal24safe_print_right_alignedEiml.exit, label %if.then.i15
 
-if.then.i10:                                      ; preds = %while.end.i7
+if.then.i15:                                      ; preds = %while.end.i12
   tail call void @abort() #9
   unreachable
 
-_ZN4cvc58internal24safe_print_right_alignedEiml.exit: ; preds = %while.end.i7
+_ZN4cvc58internal24safe_print_right_alignedEiml.exit: ; preds = %while.end.i12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i6)
   ret void
 }
@@ -505,24 +505,23 @@ entry:
 
 while.cond.preheader:                             ; preds = %entry
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buf, i8 48, i64 %cond, i1 false)
-  %cmp214 = icmp ne i64 %i, 0
-  %0 = and i1 %cmp214, %cmp112
-  br i1 %0, label %while.body, label %while.end
+  %cmp214.not = icmp eq i64 %i, 0
+  br i1 %cmp214.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %idx.0.in17 = phi i64 [ %idx.0, %while.body ], [ %cond, %while.cond.preheader ]
   %i.addr.016 = phi i64 [ %div, %while.body ], [ %i, %while.cond.preheader ]
   %idx.0 = add nsw i64 %idx.0.in17, -1
   %rem = urem i64 %i.addr.016, 10
-  %1 = trunc nuw nsw i64 %rem to i8
-  %conv = or disjoint i8 %1, 48
+  %0 = trunc nuw nsw i64 %rem to i8
+  %conv = or disjoint i8 %0, 48
   %arrayidx4 = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.0
   store i8 %conv, ptr %arrayidx4, align 1
   %div = udiv i64 %i.addr.016, 10
   %cmp2 = icmp ugt i64 %i.addr.016, 9
   %cmp3 = icmp sgt i64 %idx.0.in17, 1
-  %2 = and i1 %cmp2, %cmp3
-  br i1 %2, label %while.body, label %while.end, !llvm.loop !10
+  %1 = and i1 %cmp2, %cmp3
+  br i1 %1, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %entry, %while.cond.preheader
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %buf, i64 noundef %cond)

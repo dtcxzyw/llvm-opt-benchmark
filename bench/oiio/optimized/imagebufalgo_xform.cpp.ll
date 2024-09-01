@@ -67046,8 +67046,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge435 = select i1 %cmp119, i1 true, i1 %cmp101.not409
-  br i1 %brmerge435, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv475 = phi i64 [ %indvars.iv.next476, %for.body124 ], [ 0, %for.end118 ]
@@ -67060,7 +67059,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond480.not, label %if.end131, label %for.body124, !llvm.loop !357
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119528 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119528 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136431 = icmp slt i32 %59, %60
@@ -67122,10 +67121,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv501
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond200.preheader
-
-for.cond200.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not417, label %for.inc226, label %for.body202
+  br i1 %cmp190, label %if.then191, label %for.body202
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -67135,8 +67131,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc226 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body202:                                      ; preds = %for.cond200.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv495 = phi i64 [ %indvars.iv.next496, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond200.preheader ]
+for.body202:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv495 = phi i64 [ %indvars.iv.next496, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx205 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv495
   %69 = load float, ptr %arrayidx205, align 4
   %mul206 = fmul float %65, %69
@@ -67267,7 +67263,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond500.not = icmp eq i64 %indvars.iv.next496, %wide.trip.count499
   br i1 %exitcond500.not, label %for.inc226, label %for.body202
 
-for.inc226:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond200.preheader, %if.then191
+for.inc226:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next502 = add nsw i64 %indvars.iv501, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next502 to i32
   %exitcond505.not = icmp eq i32 %add179, %lftr.wideiv
@@ -68304,8 +68300,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -68318,7 +68313,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !373
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -68380,10 +68375,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -68393,8 +68385,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -68527,7 +68519,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -69574,8 +69566,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -69588,7 +69579,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !389
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -69650,10 +69641,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -69663,8 +69651,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -69797,7 +69785,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -70849,8 +70837,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge466 = select i1 %cmp119, i1 true, i1 %cmp101.not440
-  br i1 %brmerge466, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv506 = phi i64 [ %indvars.iv.next507, %for.body124 ], [ 0, %for.end118 ]
@@ -70863,7 +70850,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond511.not, label %if.end131, label %for.body124, !llvm.loop !405
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119559 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119559 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136462 = icmp slt i32 %59, %60
@@ -70925,10 +70912,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv532
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not448, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -70938,8 +70922,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv526
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -71073,7 +71057,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond531.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count530
   br i1 %exitcond531.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next533 = add nsw i64 %indvars.iv532, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next533 to i32
   %exitcond536.not = icmp eq i32 %add179, %lftr.wideiv
@@ -72176,8 +72160,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -72190,7 +72173,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !421
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -72252,10 +72235,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -72265,8 +72245,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -72399,7 +72379,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -73446,8 +73426,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -73460,7 +73439,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !437
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -73522,10 +73501,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -73535,8 +73511,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -73669,7 +73645,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -74716,8 +74692,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge449 = select i1 %cmp119, i1 true, i1 %cmp101.not423
-  br i1 %brmerge449, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv489 = phi i64 [ %indvars.iv.next490, %for.body124 ], [ 0, %for.end118 ]
@@ -74730,7 +74705,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond494.not, label %if.end131, label %for.body124, !llvm.loop !453
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119542 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119542 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136445 = icmp slt i32 %59, %60
@@ -74792,10 +74767,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv515
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not431, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -74805,8 +74777,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv509 = phi i64 [ %indvars.iv.next510, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv509 = phi i64 [ %indvars.iv.next510, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv509
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -74939,7 +74911,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond514.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count513
   br i1 %exitcond514.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next516 = add nsw i64 %indvars.iv515, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next516 to i32
   %exitcond519.not = icmp eq i32 %add179, %lftr.wideiv
@@ -75988,8 +75960,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge449 = select i1 %cmp119, i1 true, i1 %cmp101.not423
-  br i1 %brmerge449, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv489 = phi i64 [ %indvars.iv.next490, %for.body124 ], [ 0, %for.end118 ]
@@ -76002,7 +75973,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond494.not, label %if.end131, label %for.body124, !llvm.loop !469
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119542 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119542 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136445 = icmp slt i32 %59, %60
@@ -76064,10 +76035,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv515
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not431, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -76077,8 +76045,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv509 = phi i64 [ %indvars.iv.next510, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv509 = phi i64 [ %indvars.iv.next510, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv509
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -76211,7 +76179,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond514.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count513
   br i1 %exitcond514.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next516 = add nsw i64 %indvars.iv515, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next516 to i32
   %exitcond519.not = icmp eq i32 %add179, %lftr.wideiv
@@ -77260,8 +77228,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge437 = select i1 %cmp119, i1 true, i1 %cmp101.not411
-  br i1 %brmerge437, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.body124 ], [ 0, %for.end118 ]
@@ -77274,7 +77241,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond482.not, label %if.end131, label %for.body124, !llvm.loop !485
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119530 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119530 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136433 = icmp slt i32 %59, %60
@@ -77336,10 +77303,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv503
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not419, label %for.inc227, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -77349,8 +77313,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc227 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv497
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -77484,7 +77448,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond502.not = icmp eq i64 %indvars.iv.next498, %wide.trip.count501
   br i1 %exitcond502.not, label %for.inc227, label %for.body201
 
-for.inc227:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc227:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next504 to i32
   %exitcond507.not = icmp eq i32 %add179, %lftr.wideiv
@@ -78522,8 +78486,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge437 = select i1 %cmp119, i1 true, i1 %cmp101.not411
-  br i1 %brmerge437, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.body124 ], [ 0, %for.end118 ]
@@ -78536,7 +78499,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond482.not, label %if.end131, label %for.body124, !llvm.loop !501
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119530 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119530 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136433 = icmp slt i32 %59, %60
@@ -78598,10 +78561,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv503
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not419, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -78611,8 +78571,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv497
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -78745,7 +78705,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond502.not = icmp eq i64 %indvars.iv.next498, %wide.trip.count501
   br i1 %exitcond502.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next504 to i32
   %exitcond507.not = icmp eq i32 %add179, %lftr.wideiv
@@ -79774,8 +79734,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge437 = select i1 %cmp119, i1 true, i1 %cmp101.not411
-  br i1 %brmerge437, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.body124 ], [ 0, %for.end118 ]
@@ -79788,7 +79747,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond482.not, label %if.end131, label %for.body124, !llvm.loop !517
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119530 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119530 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136433 = icmp slt i32 %59, %60
@@ -79850,10 +79809,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv503
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not419, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -79863,8 +79819,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv497
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -79998,7 +79954,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond502.not = icmp eq i64 %indvars.iv.next498, %wide.trip.count501
   br i1 %exitcond502.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next504 to i32
   %exitcond507.not = icmp eq i32 %add179, %lftr.wideiv
@@ -81028,8 +80984,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge437 = select i1 %cmp119, i1 true, i1 %cmp101.not411
-  br i1 %brmerge437, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.body124 ], [ 0, %for.end118 ]
@@ -81042,7 +80997,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond482.not, label %if.end131, label %for.body124, !llvm.loop !533
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119530 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119530 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136433 = icmp slt i32 %59, %60
@@ -81104,10 +81059,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv503
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not419, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -81117,8 +81069,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv497
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -81251,7 +81203,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond502.not = icmp eq i64 %indvars.iv.next498, %wide.trip.count501
   br i1 %exitcond502.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next504 to i32
   %exitcond507.not = icmp eq i32 %add179, %lftr.wideiv
@@ -82280,8 +82232,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge444 = select i1 %cmp119, i1 true, i1 %cmp101.not418
-  br i1 %brmerge444, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv484 = phi i64 [ %indvars.iv.next485, %for.body124 ], [ 0, %for.end118 ]
@@ -82294,7 +82245,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond489.not, label %if.end131, label %for.body124, !llvm.loop !549
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119537 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119537 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136440 = icmp slt i32 %59, %60
@@ -82356,10 +82307,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv510
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not426, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -82369,8 +82317,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv504 = phi i64 [ %indvars.iv.next505, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv504 = phi i64 [ %indvars.iv.next505, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv504
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -82501,7 +82449,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond509.not = icmp eq i64 %indvars.iv.next505, %wide.trip.count508
   br i1 %exitcond509.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next511 = add nsw i64 %indvars.iv510, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next511 to i32
   %exitcond514.not = icmp eq i32 %add179, %lftr.wideiv
@@ -83546,8 +83494,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge446 = select i1 %cmp119, i1 true, i1 %cmp101.not420
-  br i1 %brmerge446, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %for.body124 ], [ 0, %for.end118 ]
@@ -83560,7 +83507,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond491.not, label %if.end131, label %for.body124, !llvm.loop !565
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119539 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119539 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136442 = icmp slt i32 %59, %60
@@ -83622,10 +83569,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv512
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not428, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -83635,8 +83579,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv506
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -83770,7 +83714,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond511.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count510
   br i1 %exitcond511.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next513 = add nsw i64 %indvars.iv512, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next513 to i32
   %exitcond516.not = icmp eq i32 %add179, %lftr.wideiv
@@ -84818,8 +84762,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -84832,7 +84775,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !581
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -84894,10 +84837,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -84907,8 +84847,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -85041,7 +84981,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -86093,8 +86033,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge464 = select i1 %cmp119, i1 true, i1 %cmp101.not438
-  br i1 %brmerge464, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv504 = phi i64 [ %indvars.iv.next505, %for.body124 ], [ 0, %for.end118 ]
@@ -86107,7 +86046,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond509.not, label %if.end131, label %for.body124, !llvm.loop !597
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119557 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119557 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136460 = icmp slt i32 %59, %60
@@ -86169,10 +86108,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv530
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not446, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -86182,8 +86118,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv524 = phi i64 [ %indvars.iv.next525, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv524 = phi i64 [ %indvars.iv.next525, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv524
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -86314,7 +86250,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond529.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count528
   br i1 %exitcond529.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next531 = add nsw i64 %indvars.iv530, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next531 to i32
   %exitcond534.not = icmp eq i32 %add179, %lftr.wideiv
@@ -87419,8 +87355,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge466 = select i1 %cmp119, i1 true, i1 %cmp101.not440
-  br i1 %brmerge466, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv506 = phi i64 [ %indvars.iv.next507, %for.body124 ], [ 0, %for.end118 ]
@@ -87433,7 +87368,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond511.not, label %if.end131, label %for.body124, !llvm.loop !613
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119559 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119559 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136462 = icmp slt i32 %59, %60
@@ -87495,10 +87430,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv532
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not448, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -87508,8 +87440,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv526
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -87642,7 +87574,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond531.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count530
   br i1 %exitcond531.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next533 = add nsw i64 %indvars.iv532, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next533 to i32
   %exitcond536.not = icmp eq i32 %add179, %lftr.wideiv
@@ -88749,8 +88681,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge466 = select i1 %cmp119, i1 true, i1 %cmp101.not440
-  br i1 %brmerge466, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv506 = phi i64 [ %indvars.iv.next507, %for.body124 ], [ 0, %for.end118 ]
@@ -88763,7 +88694,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond511.not, label %if.end131, label %for.body124, !llvm.loop !629
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119559 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119559 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136462 = icmp slt i32 %59, %60
@@ -88825,10 +88756,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv532
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not448, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -88838,8 +88766,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv526 = phi i64 [ %indvars.iv.next527, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv526
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -88972,7 +88900,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond531.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count530
   br i1 %exitcond531.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next533 = add nsw i64 %indvars.iv532, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next533 to i32
   %exitcond536.not = icmp eq i32 %add179, %lftr.wideiv
@@ -90074,8 +90002,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge444 = select i1 %cmp119, i1 true, i1 %cmp101.not418
-  br i1 %brmerge444, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv484 = phi i64 [ %indvars.iv.next485, %for.body124 ], [ 0, %for.end118 ]
@@ -90088,7 +90015,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond489.not, label %if.end131, label %for.body124, !llvm.loop !645
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119537 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119537 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136440 = icmp slt i32 %59, %60
@@ -90150,10 +90077,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv510
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not426, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -90163,8 +90087,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv504 = phi i64 [ %indvars.iv.next505, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv504 = phi i64 [ %indvars.iv.next505, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv504
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -90295,7 +90219,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond509.not = icmp eq i64 %indvars.iv.next505, %wide.trip.count508
   br i1 %exitcond509.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next511 = add nsw i64 %indvars.iv510, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next511 to i32
   %exitcond514.not = icmp eq i32 %add179, %lftr.wideiv
@@ -91340,8 +91264,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge447 = select i1 %cmp119, i1 true, i1 %cmp101.not421
-  br i1 %brmerge447, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %for.body124 ], [ 0, %for.end118 ]
@@ -91354,7 +91277,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond492.not, label %if.end131, label %for.body124, !llvm.loop !661
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119540 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119540 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136443 = icmp slt i32 %59, %60
@@ -91416,10 +91339,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv513
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not429, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -91429,8 +91349,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv507 = phi i64 [ %indvars.iv.next508, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv507
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -91563,7 +91483,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond512.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count511
   br i1 %exitcond512.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next514 to i32
   %exitcond517.not = icmp eq i32 %add179, %lftr.wideiv
@@ -92610,8 +92530,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 for.end118:                                       ; preds = %invoke.cont111
   %cmp119 = fcmp oeq float %add115, 0.000000e+00
-  %brmerge446 = select i1 %cmp119, i1 true, i1 %cmp101.not420
-  br i1 %brmerge446, label %if.end131, label %for.body124
+  br i1 %cmp119, label %if.end131, label %for.body124
 
 for.body124:                                      ; preds = %for.end118, %for.body124
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %for.body124 ], [ 0, %for.end118 ]
@@ -92624,7 +92543,7 @@ for.body124:                                      ; preds = %for.end118, %for.bo
   br i1 %exitcond491.not, label %if.end131, label %for.body124, !llvm.loop !677
 
 if.end131:                                        ; preds = %for.body124, %for.body91, %for.end118
-  %cmp119539 = phi i1 [ %cmp119, %for.end118 ], [ true, %for.body91 ], [ %cmp119, %for.body124 ]
+  %cmp119539 = phi i1 [ true, %for.end118 ], [ true, %for.body91 ], [ false, %for.body124 ]
   %59 = load i32, ptr %roi, align 8
   %60 = load i32, ptr %xend135, align 4
   %cmp136442 = icmp slt i32 %59, %60
@@ -92686,10 +92605,7 @@ for.body186:                                      ; preds = %invoke.cont181, %fo
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv512
   %65 = load float, ptr %gep, align 4
   %cmp190 = fcmp oeq float %65, 0.000000e+00
-  br i1 %cmp190, label %if.then191, label %for.cond199.preheader
-
-for.cond199.preheader:                            ; preds = %for.body186
-  br i1 %cmp165.not428, label %for.inc225, label %for.body201
+  br i1 %cmp190, label %if.then191, label %for.body201
 
 if.then191:                                       ; preds = %for.body186
   %66 = load i32, ptr %m_x.i152, align 4
@@ -92699,8 +92615,8 @@ if.then191:                                       ; preds = %for.body186
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %66, i32 noundef %add194, i32 noundef %68)
           to label %for.inc225 unwind label %lpad97.loopexit.split-lp.loopexit
 
-for.body201:                                      ; preds = %for.cond199.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
-  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.cond199.preheader ]
+for.body201:                                      ; preds = %for.body186, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit
+  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit ], [ 0, %for.body186 ]
   %arrayidx204 = getelementptr inbounds float, ptr %add.ptr161, i64 %indvars.iv506
   %69 = load float, ptr %arrayidx204, align 4
   %mul205 = fmul float %65, %69
@@ -92834,7 +92750,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit: ; preds = %if.end13.i, 
   %exitcond511.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count510
   br i1 %exitcond511.not, label %for.inc225, label %for.body201
 
-for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %for.cond199.preheader, %if.then191
+for.inc225:                                       ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit, %if.then191
   %indvars.iv.next513 = add nsw i64 %indvars.iv512, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next513 to i32
   %exitcond516.not = icmp eq i32 %add179, %lftr.wideiv

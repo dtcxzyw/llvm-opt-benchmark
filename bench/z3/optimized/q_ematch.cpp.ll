@@ -6447,9 +6447,8 @@ invoke.cont25:                                    ; preds = %invoke.cont6, %land
   %cond.i.i.i = select i1 %cmp.i.i.i26, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i
   %bf.load.i.i = load i32, ptr %cond.i.i.i, align 4
   %20 = and i32 %bf.load.i.i, 65536
-  %tobool.i.i.not = icmp ne i32 %20, 0
-  %brmerge = or i1 %tobool.i.i.not, %tobool.not.i.i.i.i
-  br i1 %brmerge, label %invoke.cont37, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
+  %tobool.i.i.not.not = icmp eq i32 %20, 0
+  br i1 %tobool.i.i.not.not, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i, label %invoke.cont37
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %invoke.cont25
   %21 = load i32, ptr %9, align 8
@@ -7113,9 +7112,6 @@ for.end:                                          ; preds = %invoke.cont30
   %m_qi_max_eager_multipatterns = getelementptr inbounds i8, ptr %42, i64 1008
   %43 = load i32, ptr %m_qi_max_eager_multipatterns, align 8
   %spec.select = add i32 %43, %41
-  br i1 %cmp81, label %cleanup, label %invoke.cont48.lr.ph
-
-invoke.cont48.lr.ph:                              ; preds = %for.end
   %m_patterns_decls.i.i.i.i36 = getelementptr inbounds i8, ptr %0, i64 80
   %m_num_decls.i.i.i37 = getelementptr inbounds i8, ptr %0, i64 20
   %m_lazy_mam = getelementptr inbounds i8, ptr %this, i64 2296
@@ -7125,9 +7121,9 @@ invoke.cont48.lr.ph:                              ; preds = %for.end
   %wide.trip.count = zext i32 %34 to i64
   br label %invoke.cont48
 
-invoke.cont48:                                    ; preds = %invoke.cont48.lr.ph, %invoke.cont79
-  %indvars.iv90 = phi i64 [ 0, %invoke.cont48.lr.ph ], [ %indvars.iv.next91, %invoke.cont79 ]
-  %j.085 = phi i32 [ 0, %invoke.cont48.lr.ph ], [ %spec.select20, %invoke.cont79 ]
+invoke.cont48:                                    ; preds = %for.end, %invoke.cont79
+  %indvars.iv90 = phi i64 [ 0, %for.end ], [ %indvars.iv.next91, %invoke.cont79 ]
+  %j.085 = phi i32 [ 0, %for.end ], [ %spec.select20, %invoke.cont79 ]
   %44 = load i32, ptr %m_num_decls.i.i.i37, align 4
   %idx.ext.i.i.i38 = zext i32 %44 to i64
   %add.ptr.i.i.i39 = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i36, i64 %idx.ext.i.i.i38
@@ -7266,8 +7262,8 @@ invoke.cont79:                                    ; preds = %for.inc.i55, %_ZN6v
   %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
   br i1 %exitcond.not, label %cleanup, label %invoke.cont48, !llvm.loop !34
 
-cleanup:                                          ; preds = %if.then.i.i.i, %if.then22.i.i.i, %invoke.cont79, %invoke.cont27, %for.end
-  %c.sroa.0.0 = phi ptr [ null, %for.end ], [ null, %invoke.cont27 ], [ null, %invoke.cont79 ], [ %call, %if.then22.i.i.i ], [ %call, %if.then.i.i.i ]
+cleanup:                                          ; preds = %if.then.i.i.i, %if.then22.i.i.i, %invoke.cont79, %invoke.cont27
+  %c.sroa.0.0 = phi ptr [ null, %invoke.cont27 ], [ null, %invoke.cont79 ], [ %call, %if.then22.i.i.i ], [ %call, %if.then.i.i.i ]
   invoke void @_Z7deallocIN1q6clauseEEvPT_(ptr noundef %c.sroa.0.0)
           to label %_ZN10scoped_ptrIN1q6clauseEED2Ev.exit unwind label %terminate.lpad.i
 

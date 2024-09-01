@@ -791,19 +791,19 @@ _ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   %.pre = load ptr, ptr %31, align 8
-  %.pre28 = load i64, ptr %32, align 8
+  %.pre27 = load i64, ptr %32, align 8
   br label %211
 
 211:                                              ; preds = %_ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit, %1
-  %212 = phi i64 [ %.pre28, %_ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit ], [ 0, %1 ]
+  %212 = phi i64 [ %.pre27, %_ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit ], [ 0, %1 ]
   %213 = phi ptr [ %.pre, %_ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit ], [ %34, %1 ]
   %214 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %213, i64 %212
   br label %215
 
 215:                                              ; preds = %217, %211
   %216 = phi ptr [ %218, %217 ], [ %213, %211 ]
-  %.not.i18.not = icmp eq ptr %216, %214
-  br i1 %.not.i18.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h17a7ac4e84337062E.exit", label %217
+  %.not.not.not.i.not = icmp eq ptr %216, %214
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h17a7ac4e84337062E.exit", label %217
 
 217:                                              ; preds = %215
   %218 = getelementptr inbounds i8, ptr %216, i64 56
@@ -835,11 +835,11 @@ _ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit: ; preds = 
 
 226:                                              ; preds = %222
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h8a632872e3e8552aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %212)
-          to label %._crit_edge.i19 unwind label %227, !noalias !146
+          to label %._crit_edge.i18 unwind label %227, !noalias !146
 
-._crit_edge.i19:                                  ; preds = %226
+._crit_edge.i18:                                  ; preds = %226
   %.pre.i = load i64, ptr %32, align 8, !alias.scope !143, !noalias !146
-  %.pre29 = load ptr, ptr %31, align 8, !alias.scope !143, !noalias !146
+  %.pre28 = load ptr, ptr %31, align 8, !alias.scope !143, !noalias !146
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd8952bf5ef8ef0aE.exit"
 
 227:                                              ; preds = %226
@@ -854,9 +854,9 @@ _ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit: ; preds = 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd8952bf5ef8ef0aE.exit": ; preds = %222, %._crit_edge.i19
-  %231 = phi ptr [ %.pre29, %._crit_edge.i19 ], [ %213, %222 ]
-  %232 = phi i64 [ %.pre.i, %._crit_edge.i19 ], [ %212, %222 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd8952bf5ef8ef0aE.exit": ; preds = %222, %._crit_edge.i18
+  %231 = phi ptr [ %.pre28, %._crit_edge.i18 ], [ %213, %222 ]
+  %232 = phi i64 [ %.pre.i, %._crit_edge.i18 ], [ %212, %222 ]
   %233 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %231, i64 %232
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %233, ptr noundef nonnull align 8 dereferenceable(56) %30, i64 56, i1 false)
   %234 = load i64, ptr %32, align 8, !alias.scope !143, !noalias !146, !noundef !17

@@ -230,8 +230,8 @@ RSTRING_END.exit.i:                               ; preds = %27, %23
 
 .preheader.i:                                     ; preds = %30, %48
   %.025.i = phi ptr [ %.2.lcssa.i, %48 ], [ %.sroa.3.0.i.i, %30 ]
-  %.not = icmp ult ptr %.025.i, %28
-  br i1 %.not, label %32, label %is_constant_path.exit
+  %.not39.i = icmp ult ptr %.025.i, %28
+  br i1 %.not39.i, label %32, label %is_constant_path.exit
 
 32:                                               ; preds = %.preheader.i
   %33 = getelementptr i8, ptr %.025.i, i64 2

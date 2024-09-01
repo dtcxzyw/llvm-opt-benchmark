@@ -799,7 +799,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr nocapture noundef readonly %0) 
   br i1 %.not21.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !14
 
 _Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %17, %18, %1
-  %.not27.i = phi i1 [ true, %1 ], [ false, %18 ], [ false, %17 ], [ %or.cond.not.i, %.loopexit.i ], [ false, %._crit_edge.i ]
+  %.not27.i = phi i1 [ true, %1 ], [ false, %18 ], [ false, %17 ], [ %or.cond.not.i, %._crit_edge.i ], [ %or.cond.not.i, %.loopexit.i ]
   ret i1 %.not27.i
 }
 
@@ -858,7 +858,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr nocapture noundef readonly %0,
   br i1 %.not21, label %.preheader, label %.loopexit22, !llvm.loop !14
 
 .loopexit22:                                      ; preds = %._crit_edge, %.loopexit, %17, %18, %2
-  %.not27 = phi i1 [ true, %2 ], [ false, %18 ], [ false, %17 ], [ false, %._crit_edge ], [ %or.cond.not, %.loopexit ]
+  %.not27 = phi i1 [ true, %2 ], [ false, %18 ], [ false, %17 ], [ %or.cond.not, %.loopexit ], [ %or.cond.not, %._crit_edge ]
   ret i1 %.not27
 }
 

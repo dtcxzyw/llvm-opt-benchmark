@@ -584,22 +584,22 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %108 = getelementptr inbounds i8, ptr %.01619.i.i, i64 %47
   %109 = getelementptr inbounds i8, ptr %.01718.i.i, i64 %47
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %28
-  br i1 %exitcond.not.i.i, label %.lr.ph.i92.us.preheader.i, label %48, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph13.i, label %48, !llvm.loop !15
 
-.lr.ph.i92.us.preheader.i:                        ; preds = %48
+.lr.ph13.i:                                       ; preds = %48
   %110 = sext i32 %4 to i64
   %wide.trip.count58.i = zext nneg i32 %11 to i64
   br label %.lr.ph.i92.us.i
 
-.lr.ph.i92.us.i:                                  ; preds = %._crit_edge.us.i.loopexit, %.lr.ph.i92.us.preheader.i
-  %.07712.us.i = phi ptr [ %111, %._crit_edge.us.i.loopexit ], [ %0, %.lr.ph.i92.us.preheader.i ]
-  %.07811.us.i = phi ptr [ %112, %._crit_edge.us.i.loopexit ], [ %1, %.lr.ph.i92.us.preheader.i ]
-  %.07910.us.i = phi ptr [ %113, %._crit_edge.us.i.loopexit ], [ %2, %.lr.ph.i92.us.preheader.i ]
-  %.0809.us.i = phi i32 [ %188, %._crit_edge.us.i.loopexit ], [ 1, %.lr.ph.i92.us.preheader.i ]
-  %.0828.us.i = phi double [ %.2.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph.i92.us.preheader.i ]
-  %.0837.us.i = phi ptr [ %.0846.us.i, %._crit_edge.us.i.loopexit ], [ %30, %.lr.ph.i92.us.preheader.i ]
-  %.0846.us.i = phi ptr [ %.0837.us.i, %._crit_edge.us.i.loopexit ], [ %29, %.lr.ph.i92.us.preheader.i ]
-  %.0855.us.i = phi double [ %.287.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph.i92.us.preheader.i ]
+.lr.ph.i92.us.i:                                  ; preds = %._crit_edge.us.i.loopexit, %.lr.ph13.i
+  %.07712.us.i = phi ptr [ %111, %._crit_edge.us.i.loopexit ], [ %0, %.lr.ph13.i ]
+  %.07811.us.i = phi ptr [ %112, %._crit_edge.us.i.loopexit ], [ %1, %.lr.ph13.i ]
+  %.07910.us.i = phi ptr [ %113, %._crit_edge.us.i.loopexit ], [ %2, %.lr.ph13.i ]
+  %.0809.us.i = phi i32 [ %188, %._crit_edge.us.i.loopexit ], [ 1, %.lr.ph13.i ]
+  %.0828.us.i = phi double [ %.2.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph13.i ]
+  %.0837.us.i = phi ptr [ %.0846.us.i, %._crit_edge.us.i.loopexit ], [ %30, %.lr.ph13.i ]
+  %.0846.us.i = phi ptr [ %.0837.us.i, %._crit_edge.us.i.loopexit ], [ %29, %.lr.ph13.i ]
+  %.0855.us.i = phi double [ %.287.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph13.i ]
   %111 = getelementptr inbounds i8, ptr %.07712.us.i, i64 %110
   %112 = getelementptr inbounds i8, ptr %.07811.us.i, i64 %110
   %113 = getelementptr inbounds i8, ptr %.07910.us.i, i64 %110

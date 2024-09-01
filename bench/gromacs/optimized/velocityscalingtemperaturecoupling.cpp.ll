@@ -1075,8 +1075,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 .body:                                            ; preds = %41, %45
-  %.pn20 = phi { ptr, i32 } [ %.pn.ph, %45 ], [ %42, %41 ]
-  resume { ptr, i32 } %.pn20
+  %.pn19 = phi { ptr, i32 } [ %.pn.ph, %45 ], [ %42, %41 ]
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1205,8 +1205,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 .body:                                            ; preds = %50, %54
-  %.pn22 = phi { ptr, i32 } [ %.pn.ph, %54 ], [ %51, %50 ]
-  resume { ptr, i32 } %.pn22
+  %.pn21 = phi { ptr, i32 } [ %.pn.ph, %54 ], [ %51, %50 ]
+  resume { ptr, i32 } %.pn21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

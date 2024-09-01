@@ -183,7 +183,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60: ; preds = %.noexc64
   store double %49, ptr %50, align 8
   %51 = add nuw i64 %.043110.us, 1
   %52 = icmp ult i64 %51, %33
-  br i1 %52, label %.preheader107.us, label %.preheader106, !llvm.loop !6
+  br i1 %52, label %.preheader107.us, label %.lr.ph, !llvm.loop !6
 
 .preheader107:                                    ; preds = %.preheader107.preheader, %.preheader107
   %.043110 = phi i64 [ %60, %.preheader107 ], [ 0, %.preheader107.preheader ]
@@ -198,13 +198,9 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60: ; preds = %.noexc64
   store double %58, ptr %59, align 8
   %60 = add nuw nsw i64 %.043110, 1
   %61 = icmp ult i64 %60, %34
-  br i1 %61, label %.preheader107, label %.preheader106, !llvm.loop !6
+  br i1 %61, label %.preheader107, label %.lr.ph, !llvm.loop !6
 
-.preheader106:                                    ; preds = %._crit_edge.us, %.preheader107
-  %.pre-phi = phi i64 [ %34, %.preheader107 ], [ %33, %._crit_edge.us ]
-  br i1 %.not.i.i.i.i, label %.preheader, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader106
+.lr.ph:                                           ; preds = %._crit_edge.us, %.preheader107
   %62 = getelementptr inbounds i8, ptr %0, i64 196
   br label %66
 
@@ -219,11 +215,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %21
   tail call void @_ZdlPv(ptr noundef nonnull %18) #21
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit73
 
-.preheader:                                       ; preds = %66, %.preheader106.thread, %.preheader106
-  %.sroa.079.0105128139 = phi ptr [ %18, %.preheader106 ], [ null, %.preheader106.thread ], [ %18, %66 ]
-  %.sroa.087.098103129138 = phi ptr [ %13, %.preheader106 ], [ null, %.preheader106.thread ], [ %13, %66 ]
-  %.sroa.0.0132137 = phi ptr [ %22, %.preheader106 ], [ null, %.preheader106.thread ], [ %22, %66 ]
-  %.lcssa = phi i64 [ %.pre-phi, %.preheader106 ], [ %.pre, %.preheader106.thread ], [ %95, %66 ]
+.preheader:                                       ; preds = %66, %.preheader106.thread
+  %.sroa.079.0105128139 = phi ptr [ null, %.preheader106.thread ], [ %18, %66 ]
+  %.sroa.087.098103129138 = phi ptr [ null, %.preheader106.thread ], [ %13, %66 ]
+  %.sroa.0.0132137 = phi ptr [ null, %.preheader106.thread ], [ %22, %66 ]
+  %.lcssa = phi i64 [ %.pre, %.preheader106.thread ], [ %95, %66 ]
   %.not118 = icmp eq i64 %.lcssa, 0
   br i1 %.not118, label %._crit_edge, label %.lr.ph114
 
@@ -773,12 +769,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
 ._crit_edge.us:                                   ; preds = %60
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.preheader50, label %.preheader51.us, !llvm.loop !24
+  br i1 %exitcond65.not, label %.preheader.lr.ph, label %.preheader51.us, !llvm.loop !24
 
-.preheader50:                                     ; preds = %._crit_edge.us
-  br i1 %54, label %.preheader.lr.ph, label %._crit_edge56
-
-.preheader.lr.ph:                                 ; preds = %.preheader50
+.preheader.lr.ph:                                 ; preds = %._crit_edge.us
   %72 = getelementptr inbounds i8, ptr %8, i64 16
   %73 = getelementptr inbounds i8, ptr %8, i64 72
   %74 = zext nneg i32 %35 to i64
@@ -832,7 +825,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #22
   br label %97
 
-._crit_edge56:                                    ; preds = %._crit_edge.us57, %.preheader51.lr.ph, %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.preheader50
+._crit_edge56:                                    ; preds = %._crit_edge.us57, %.preheader51.lr.ph, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22

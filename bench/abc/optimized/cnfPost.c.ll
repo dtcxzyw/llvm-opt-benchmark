@@ -303,7 +303,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %44
   %.not = icmp eq i8 %24, 1
-  br i1 %.not, label %.preheader, label %.lr.ph.us.preheader
+  br i1 %.not, label %.lr.ph, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.critedge2
   %47 = add nsw i32 %25, -1
@@ -344,12 +344,9 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 
 ._crit_edge.us:                                   ; preds = %60
   %.not73.us = icmp eq i32 %.1.us, 0
-  br i1 %.not73.us, label %.preheader, label %.lr.ph.us, !llvm.loop !11
+  br i1 %.not73.us, label %.lr.ph, label %.lr.ph.us, !llvm.loop !11
 
-.preheader:                                       ; preds = %._crit_edge.us, %.critedge2
-  br i1 %26, label %.lr.ph, label %.critedge4
-
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %._crit_edge.us, %.critedge2
   %62 = getelementptr inbounds i8, ptr %.val87, i64 1
   br label %63
 
@@ -433,7 +430,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %104 = icmp slt i64 %indvars.iv.next120, %103
   br i1 %104, label %63, label %.critedge4, !llvm.loop !12
 
-.critedge4:                                       ; preds = %Aig_ManObj.exit93, %101, %63, %21, %.preheader, %14, %.lr.ph111, %99
+.critedge4:                                       ; preds = %Aig_ManObj.exit93, %101, %63, %21, %14, %.lr.ph111, %99
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 32

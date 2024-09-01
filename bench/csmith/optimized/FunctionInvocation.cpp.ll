@@ -1572,41 +1572,31 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation17has_simple_params
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = ptrtoint ptr %4 to i64
-  %7 = ptrtoint ptr %5 to i64
-  %8 = sub i64 %6, %7
-  %9 = ashr exact i64 %8, 3
-  %10 = icmp eq ptr %4, %5
-  br i1 %10, label %._crit_edge, label %.lr.ph.preheader
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %._crit_edge, label %.lr.ph10
+  %7 = ptrtoint ptr %4 to i64
+  %8 = ptrtoint ptr %5 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr exact i64 %9, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
+  br label %.lr.ph
 
-.lr.ph10:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0569 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %15 = add nuw i64 %.0569, 1
-  %exitcond = icmp eq i64 %15, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.056 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %.056
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 8
+  %.not = icmp ne i32 %14, 2
+  %15 = add nuw i64 %.056, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph10
-  %16 = getelementptr inbounds ptr, ptr %5, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 2
-  br i1 %20, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !11
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph10
-  %21 = icmp uge i64 %15, %9
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %21, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -2666,8 +2656,8 @@ _ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_.exit.us:     ; preds = %._crit_edge.us, %46
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 24
-  %.not72 = icmp ult i64 %48, %54
-  br i1 %.not72, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !17
+  %.not59 = icmp ult i64 %48, %54
+  br i1 %.not59, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !17
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %36
   %55 = phi ptr [ %39, %36 ], [ %69, %.preheader.us ]
@@ -2691,8 +2681,8 @@ _ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_.exit.us:     ; preds = %._crit_edge.us, %46
   %67 = getelementptr inbounds i8, ptr %34, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %34, align 8
-  %.not57 = icmp eq ptr %68, %69
-  br i1 %.not57, label %._crit_edge.us, label %.lr.ph.us
+  %.not58 = icmp eq ptr %68, %69
+  br i1 %.not58, label %._crit_edge.us, label %.lr.ph.us
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %46, %.lr.ph52.split.us
   %lpad.loopexit38.us = landingpad { ptr, i32 }
@@ -2891,8 +2881,8 @@ _ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_.exit:        ; preds = %_ZSt4copyIN9__gnu_c
   %143 = ptrtoint ptr %141 to i64
   %144 = sub i64 %142, %143
   %145 = sdiv exact i64 %144, 24
-  %.not71 = icmp ult i64 %139, %145
-  br i1 %.not71, label %.lr.ph52.split, label %._crit_edge53, !llvm.loop !17
+  %.not57 = icmp ult i64 %139, %145
+  br i1 %.not57, label %.lr.ph52.split, label %._crit_edge53, !llvm.loop !17
 
 ._crit_edge53:                                    ; preds = %_ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_.exit, %_ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_.exit.us, %.preheader37
   %146 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPK4FactSaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)

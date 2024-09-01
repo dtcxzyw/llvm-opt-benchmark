@@ -2293,8 +2293,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i": ; preds = %.noexc9, %53
   %.039.i.i = phi i16 [ %56, %53 ], [ %65, %.noexc9 ]
-  %.not.i.not.i.i.not = icmp ne i16 %.039.i.i, 0
-  br i1 %.not.i.not.i.i.not, label %58, label %57
+  %.not.i.not.i.i.not.not.not.not.not = icmp ne i16 %.039.i.i, 0
+  br i1 %.not.i.not.i.i.not.not.not.not.not, label %58, label %57
 
 57:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -2391,7 +2391,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %109
 
 109:                                              ; preds = %.thread20, %110
-  ret i1 %.not.i.not.i.i.not
+  ret i1 %.not.i.not.i.i.not.not.not.not.not
 
 110:                                              ; preds = %.noexc9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !236

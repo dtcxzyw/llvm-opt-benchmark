@@ -510,16 +510,13 @@ sub_2242:                                         ; preds = %sub_1241
 if.else34.tail:                                   ; preds = %sub_1241, %sub_2242
   %29 = phi i32 [ %25, %sub_1241 ], [ %28, %sub_2242 ]
   %cmp36 = icmp eq i32 %29, 0
-  br i1 %cmp36, label %if.then37, label %sub_0244
+  br i1 %cmp36, label %if.then37, label %sub_1245
 
 if.then37:                                        ; preds = %if.else34.tail
   store i1 true, ptr @verbose, align 4
   br label %if.end641
 
-sub_0244:                                         ; preds = %if.else34.tail
-  br i1 %.not, label %sub_1245, label %if.else38.tail
-
-sub_1245:                                         ; preds = %sub_0244
+sub_1245:                                         ; preds = %if.else34.tail
   %30 = getelementptr inbounds i8, ptr %8, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
@@ -533,8 +530,8 @@ sub_2246:                                         ; preds = %sub_1245
   %36 = zext i8 %35 to i32
   br label %if.else38.tail
 
-if.else38.tail:                                   ; preds = %sub_0240, %sub_0244, %sub_1245, %sub_2246
-  %37 = phi i32 [ %11, %sub_0244 ], [ %33, %sub_1245 ], [ %36, %sub_2246 ], [ %11, %sub_0240 ]
+if.else38.tail:                                   ; preds = %sub_0240, %sub_1245, %sub_2246
+  %37 = phi i32 [ %33, %sub_1245 ], [ %36, %sub_2246 ], [ %11, %sub_0240 ]
   %cmp40 = icmp eq i32 %37, 0
   br i1 %cmp40, label %if.then41, label %if.else42
 
@@ -2474,9 +2471,8 @@ sw.epilog:                                        ; preds = %sw.bb1264, %sw.bb12
 
 for.end1272:                                      ; preds = %for.cond1237
   %225 = load ptr, ptr @should_negotiate, align 8
-  %tobool1273 = icmp ne ptr %225, null
-  %or.cond20 = and i1 %cmp1238580, %tobool1273
-  br i1 %or.cond20, label %land.lhs.true1277, label %if.end1299
+  %tobool1273.not = icmp eq ptr %225, null
+  br i1 %tobool1273.not, label %if.end1299, label %land.lhs.true1277
 
 land.lhs.true1277:                                ; preds = %for.end1272
   %call1278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(12) @.str.109) #25

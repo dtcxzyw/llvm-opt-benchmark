@@ -5282,8 +5282,8 @@ define void @_ZN8uu_split8Settings4from17h1f908dd65db16b4eE(ptr noalias nocaptur
           to label %.noexc106 unwind label %.thread214.loopexit
 
 .noexc106:                                        ; preds = %97
-  %.not13.i.not = icmp eq ptr %98, null
-  br i1 %.not13.i.not, label %107, label %99
+  %.not13.not.not.i.not = icmp eq ptr %98, null
+  br i1 %.not13.not.not.i.not, label %107, label %99
 
 99:                                               ; preds = %.noexc106
   %100 = load ptr, ptr %36, align 8, !alias.scope !1553, !noalias !1564, !nonnull !4, !noundef !4

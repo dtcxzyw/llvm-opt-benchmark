@@ -1583,8 +1583,8 @@ if.end747:                                        ; preds = %if.end747.sink.spli
   br label %if.end750
 
 if.end750:                                        ; preds = %for.inc672, %if.then625, %if.end747, %if.then621
-  %cmp752496 = icmp slt i32 %vectorlen.1, 1
-  br i1 %cmp752496, label %for.end778.critedge, label %for.body754.preheader
+  %cmp752496 = icmp sgt i32 %vectorlen.1, 0
+  br i1 %cmp752496, label %for.body754.preheader, label %for.end778.critedge
 
 for.body754.preheader:                            ; preds = %if.end750
   %wide.trip.count534 = zext nneg i32 %vectorlen.1 to i64
@@ -1603,8 +1603,7 @@ for.end760:                                       ; preds = %for.body754
   call void @decrRefCount(ptr noundef nonnull %sortval.0) #12
   call void @listRelease(ptr noundef %call) #12
   %tobool765.not = icmp eq i32 %alpha.2553, 0
-  %or.cond558 = select i1 %cmp752496, i1 true, i1 %tobool765.not
-  br i1 %or.cond558, label %for.end778, label %for.body764.preheader
+  br i1 %tobool765.not, label %for.end778, label %for.body764.preheader
 
 for.body764.preheader:                            ; preds = %for.end760
   %wide.trip.count539 = zext nneg i32 %vectorlen.1 to i64

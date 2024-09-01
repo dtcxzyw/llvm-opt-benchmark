@@ -4243,7 +4243,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc84
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %42, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc84, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %.sroa.0104.2147 = phi ptr [ %47, %.noexc84 ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %47, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %42 ]
+  %.sroa.0104.2146 = phi ptr [ %47, %.noexc84 ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %47, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %42 ]
   %.sroa.099.2 = phi ptr [ %54, %.noexc84 ], [ %54, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %42 ]
   %58 = load i32, ptr %40, align 4
   switch i32 %58, label %72 [
@@ -4305,24 +4305,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %51
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit86
 
 _ZNSt6vectorIiSaIiEED2Ev.exit86:                  ; preds = %76, %77
-  %.not.i.i.i87 = icmp eq ptr %.sroa.0104.2147, null
+  %.not.i.i.i87 = icmp eq ptr %.sroa.0104.2146, null
   br i1 %.not.i.i.i87, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %78
 
 78:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit86
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.2147) #22
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.2146) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit86, %78
   br i1 %switch, label %156, label %.loopexit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %65, %63
-  %.not.i.i.i88 = icmp eq ptr %.sroa.0104.2147, null
+  %.not.i.i.i88 = icmp eq ptr %.sroa.0104.2146, null
   br i1 %.not.i.i.i88, label %_ZNSt6vectorIjSaIjEED2Ev.exit89, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.pn77153 = phi { ptr, i32 } [ %62, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %64, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.sroa.0104.2148152 = phi ptr [ %47, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %.sroa.0104.2147, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.2148152) #22
+  %.pn77152 = phi { ptr, i32 } [ %62, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %64, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.sroa.0104.2147151 = phi ptr [ %47, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %.sroa.0104.2146, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.2147151) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit89
 
 80:                                               ; preds = %24
@@ -4435,29 +4435,29 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %116, %106
   br i1 %.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %123
-  %.not131 = icmp eq i8 %110, 0
+  %.not130 = icmp eq i8 %110, 0
   %131 = getelementptr inbounds i8, ptr %86, i64 16
   %132 = getelementptr inbounds i8, ptr %39, i64 64
-  br i1 %.not131, label %.preheader, label %.preheader.us.preheader
+  br i1 %.not130, label %.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count = zext i8 %110 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv142 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next143, %._crit_edge.us ]
+  %indvars.iv141 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next142, %._crit_edge.us ]
   %.058119.us = phi i32 [ 0, %.preheader.us.preheader ], [ %148, %._crit_edge.us ]
-  %.062117.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next138, %._crit_edge.us ]
+  %.062117.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next137, %._crit_edge.us ]
   %133 = load float, ptr %5, align 4
   %sext = shl i64 %.062117.us, 32
   %134 = ashr exact i64 %sext, 32
   br label %135
 
 135:                                              ; preds = %.preheader.us, %135
-  %indvars.iv137 = phi i64 [ %134, %.preheader.us ], [ %indvars.iv.next138, %135 ]
+  %indvars.iv136 = phi i64 [ %134, %.preheader.us ], [ %indvars.iv.next137, %135 ]
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %135 ]
-  %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
-  %136 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv137
+  %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
+  %136 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv136
   %137 = load i32, ptr %136, align 4
   %138 = sitofp i32 %137 to float
   %139 = fmul float %133, %138
@@ -4474,9 +4474,9 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %116, %106
 ._crit_edge.us:                                   ; preds = %135
   %145 = load ptr, ptr %132, align 8
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 %indvars.iv142
+  %147 = getelementptr inbounds i8, ptr %146, i64 %indvars.iv141
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr nonnull align 1 %115, i64 %113, i1 false)
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, %114
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, %114
   %148 = add nuw i32 %.058119.us, 1
   %149 = load i32, ptr %129, align 8
   %150 = icmp ugt i32 %149, %148
@@ -4508,11 +4508,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94: ; preds = %._crit_edge
   br i1 %162, label %24, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %156, %17, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94.thread, %11
-  %.0 = phi i1 [ true, %11 ], [ false, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94.thread ], [ true, %17 ], [ true, %156 ], [ false, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %.0 = phi i1 [ true, %11 ], [ false, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94.thread ], [ true, %17 ], [ false, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ true, %156 ]
   ret i1 %.0
 
 _ZNSt6vectorIjSaIjEED2Ev.exit89:                  ; preds = %79, %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %.body
-  %.pn77.pn = phi { ptr, i32 } [ %122, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %.pn, %.body ], [ %64, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pn77153, %79 ]
+  %.pn77.pn = phi { ptr, i32 } [ %122, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %.pn, %.body ], [ %64, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pn77152, %79 ]
   resume { ptr, i32 } %.pn77.pn
 }
 
@@ -4567,10 +4567,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %23
 
 23:                                               ; preds = %.lr.ph64, %._crit_edge
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next70, %._crit_edge ]
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next69, %._crit_edge ]
   %24 = load i64, ptr %19, align 8
   %25 = load i64, ptr %20, align 8
-  %26 = mul nsw i64 %25, %indvars.iv69
+  %26 = mul nsw i64 %25, %indvars.iv68
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %24
@@ -4607,11 +4607,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %.sroa.034.0, i64 %25, i1 false)
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %43 = load i32, ptr %16, align 8
   %44 = zext i32 %43 to i64
-  %.not71 = icmp ult i64 %indvars.iv.next70, %44
-  br i1 %.not71, label %23, label %.loopexit, !llvm.loop !25
+  %.not65 = icmp ult i64 %indvars.iv.next69, %44
+  br i1 %.not65, label %23, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %._crit_edge, %33, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %45 = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %33 ], [ true, %._crit_edge ]
@@ -5919,8 +5919,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %150 = add i32 %149, 1
   store i32 %150, ptr %47, align 8
   %151 = add nuw i32 %.069172, 1
-  %exitcond193.not = icmp eq i32 %151, %.sroa.0.0.copyload150
-  br i1 %exitcond193.not, label %.backedge, label %.lr.ph173, !llvm.loop !40
+  %exitcond191.not = icmp eq i32 %151, %.sroa.0.0.copyload150
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph173, !llvm.loop !40
 
 152:                                              ; preds = %88
   %153 = icmp ult i32 %.sroa.0.0.copyload150, 3
@@ -5963,9 +5963,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not183, label %._crit_edge, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %171 = load ptr, ptr %52, align 8
-  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv190
+  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv188
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
   %175 = load ptr, ptr %53, align 8
@@ -5973,7 +5973,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %176, align 4
   %177 = load i32, ptr %0, align 8
   %178 = load ptr, ptr %52, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv190
+  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv188
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr %81, align 8
@@ -6040,7 +6040,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %211, %203, %195, %.lr.ph170
   %221 = load ptr, ptr %52, align 8
-  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv190
+  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv188
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
   %225 = load ptr, ptr %79, align 8
@@ -6051,10 +6051,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %230 = load i32, ptr %229, align 4
   %231 = or i32 %230, %227
   store i32 %231, ptr %229, align 4
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next191, %233
+  %234 = icmp ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -7275,8 +7275,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %160 = add i32 %159, 1
   store i32 %160, ptr %48, align 8
   %161 = add nuw i32 %.069177, 1
-  %exitcond197.not = icmp eq i32 %161, %.sroa.0.0.copyload153
-  br i1 %exitcond197.not, label %.backedge, label %.lr.ph178, !llvm.loop !50
+  %exitcond195.not = icmp eq i32 %161, %.sroa.0.0.copyload153
+  br i1 %exitcond195.not, label %.backedge, label %.lr.ph178, !llvm.loop !50
 
 162:                                              ; preds = %98
   %163 = icmp ult i32 %.sroa.0.0.copyload153, 3
@@ -7319,9 +7319,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not187, label %._crit_edge, label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %181 = load ptr, ptr %60, align 8
-  %182 = getelementptr inbounds i32, ptr %181, i64 %indvars.iv194
+  %182 = getelementptr inbounds i32, ptr %181, i64 %indvars.iv192
   %183 = load i32, ptr %182, align 4
   %184 = zext i32 %183 to i64
   %185 = load ptr, ptr %61, align 8
@@ -7329,7 +7329,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %186, align 4
   %187 = load i32, ptr %0, align 8
   %188 = load ptr, ptr %60, align 8
-  %189 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv194
+  %189 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv192
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
   %192 = load ptr, ptr %89, align 8
@@ -7396,7 +7396,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %221, %213, %205, %.lr.ph175
   %231 = load ptr, ptr %60, align 8
-  %232 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv194
+  %232 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv192
   %233 = load i32, ptr %232, align 4
   %234 = zext i32 %233 to i64
   %235 = load ptr, ptr %87, align 8
@@ -7407,10 +7407,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %240 = load i32, ptr %239, align 4
   %241 = or i32 %240, %237
   store i32 %241, ptr %239, align 4
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %242 = load i32, ptr %8, align 4
   %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %indvars.iv.next195, %243
+  %244 = icmp ult i64 %indvars.iv.next193, %243
   br i1 %244, label %.lr.ph175, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -8553,8 +8553,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %150 = add i32 %149, 1
   store i32 %150, ptr %47, align 8
   %151 = add nuw i32 %.069172, 1
-  %exitcond193.not = icmp eq i32 %151, %.sroa.0.0.copyload150
-  br i1 %exitcond193.not, label %.backedge, label %.lr.ph173, !llvm.loop !60
+  %exitcond191.not = icmp eq i32 %151, %.sroa.0.0.copyload150
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph173, !llvm.loop !60
 
 152:                                              ; preds = %88
   %153 = icmp ult i32 %.sroa.0.0.copyload150, 3
@@ -8597,9 +8597,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not183, label %._crit_edge, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %171 = load ptr, ptr %52, align 8
-  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv190
+  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv188
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
   %175 = load ptr, ptr %53, align 8
@@ -8607,7 +8607,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %176, align 4
   %177 = load i32, ptr %0, align 8
   %178 = load ptr, ptr %52, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv190
+  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv188
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr %81, align 8
@@ -8674,7 +8674,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %211, %203, %195, %.lr.ph170
   %221 = load ptr, ptr %52, align 8
-  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv190
+  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv188
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
   %225 = load ptr, ptr %79, align 8
@@ -8685,10 +8685,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %230 = load i32, ptr %229, align 4
   %231 = or i32 %230, %227
   store i32 %231, ptr %229, align 4
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next191, %233
+  %234 = icmp ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -9795,8 +9795,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %159 = add i32 %158, 1
   store i32 %159, ptr %49, align 8
   %160 = add nuw i32 %.069173, 1
-  %exitcond193.not = icmp eq i32 %160, %.sroa.0.0.copyload151
-  br i1 %exitcond193.not, label %.backedge, label %.lr.ph174, !llvm.loop !70
+  %exitcond191.not = icmp eq i32 %160, %.sroa.0.0.copyload151
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph174, !llvm.loop !70
 
 161:                                              ; preds = %97
   %162 = icmp ult i32 %.sroa.0.0.copyload151, 3
@@ -9839,9 +9839,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not183, label %._crit_edge, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %180 = load ptr, ptr %59, align 8
-  %181 = getelementptr inbounds i32, ptr %180, i64 %indvars.iv190
+  %181 = getelementptr inbounds i32, ptr %180, i64 %indvars.iv188
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
   %184 = load ptr, ptr %60, align 8
@@ -9849,7 +9849,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %185, align 4
   %186 = load i32, ptr %0, align 8
   %187 = load ptr, ptr %59, align 8
-  %188 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv190
+  %188 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv188
   %189 = load i32, ptr %188, align 4
   %190 = zext i32 %189 to i64
   %191 = load ptr, ptr %88, align 8
@@ -9916,7 +9916,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %220, %212, %204, %.lr.ph171
   %230 = load ptr, ptr %59, align 8
-  %231 = getelementptr inbounds i32, ptr %230, i64 %indvars.iv190
+  %231 = getelementptr inbounds i32, ptr %230, i64 %indvars.iv188
   %232 = load i32, ptr %231, align 4
   %233 = zext i32 %232 to i64
   %234 = load ptr, ptr %86, align 8
@@ -9927,10 +9927,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %239 = load i32, ptr %238, align 4
   %240 = or i32 %239, %236
   store i32 %240, ptr %238, align 4
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %241 = load i32, ptr %9, align 4
   %242 = zext i32 %241 to i64
-  %243 = icmp ult i64 %indvars.iv.next191, %242
+  %243 = icmp ult i64 %indvars.iv.next189, %242
   br i1 %243, label %.lr.ph171, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -11038,8 +11038,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %150 = add i32 %149, 1
   store i32 %150, ptr %47, align 8
   %151 = add nuw i32 %.069172, 1
-  %exitcond193.not = icmp eq i32 %151, %.sroa.0.0.copyload150
-  br i1 %exitcond193.not, label %.backedge, label %.lr.ph173, !llvm.loop !81
+  %exitcond191.not = icmp eq i32 %151, %.sroa.0.0.copyload150
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph173, !llvm.loop !81
 
 152:                                              ; preds = %88
   %153 = icmp ult i32 %.sroa.0.0.copyload150, 3
@@ -11082,9 +11082,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not183, label %._crit_edge, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %171 = load ptr, ptr %52, align 8
-  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv190
+  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv188
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
   %175 = load ptr, ptr %53, align 8
@@ -11092,7 +11092,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %176, align 4
   %177 = load i32, ptr %0, align 8
   %178 = load ptr, ptr %52, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv190
+  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv188
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr %81, align 8
@@ -11159,7 +11159,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %211, %203, %195, %.lr.ph170
   %221 = load ptr, ptr %52, align 8
-  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv190
+  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv188
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
   %225 = load ptr, ptr %79, align 8
@@ -11170,10 +11170,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %230 = load i32, ptr %229, align 4
   %231 = or i32 %230, %227
   store i32 %231, ptr %229, align 4
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next191, %233
+  %234 = icmp ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -12299,8 +12299,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %157 = add i32 %156, 1
   store i32 %157, ptr %48, align 8
   %158 = add nuw i32 %.069181, 1
-  %exitcond203.not = icmp eq i32 %158, %.sroa.0.0.copyload152
-  br i1 %exitcond203.not, label %.backedge, label %.lr.ph182, !llvm.loop !91
+  %exitcond199.not = icmp eq i32 %158, %.sroa.0.0.copyload152
+  br i1 %exitcond199.not, label %.backedge, label %.lr.ph182, !llvm.loop !91
 
 159:                                              ; preds = %95
   %160 = icmp ult i32 %.sroa.0.0.copyload152, 3
@@ -12343,9 +12343,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not191, label %._crit_edge, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %178 = load ptr, ptr %58, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv200
+  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv196
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr %59, align 8
@@ -12353,7 +12353,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %183, align 4
   %184 = load i32, ptr %0, align 8
   %185 = load ptr, ptr %58, align 8
-  %186 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv200
+  %186 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv196
   %187 = load i32, ptr %186, align 4
   %188 = zext i32 %187 to i64
   %189 = load ptr, ptr %87, align 8
@@ -12420,7 +12420,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %218, %210, %202, %.lr.ph179
   %228 = load ptr, ptr %58, align 8
-  %229 = getelementptr inbounds i32, ptr %228, i64 %indvars.iv200
+  %229 = getelementptr inbounds i32, ptr %228, i64 %indvars.iv196
   %230 = load i32, ptr %229, align 4
   %231 = zext i32 %230 to i64
   %232 = load ptr, ptr %85, align 8
@@ -12431,10 +12431,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %237 = load i32, ptr %236, align 4
   %238 = or i32 %237, %234
   store i32 %238, ptr %236, align 4
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %239 = load i32, ptr %8, align 4
   %240 = zext i32 %239 to i64
-  %241 = icmp ult i64 %indvars.iv.next201, %240
+  %241 = icmp ult i64 %indvars.iv.next197, %240
   br i1 %241, label %.lr.ph179, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -13555,8 +13555,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %150 = add i32 %149, 1
   store i32 %150, ptr %47, align 8
   %151 = add nuw i32 %.069172, 1
-  %exitcond193.not = icmp eq i32 %151, %.sroa.0.0.copyload150
-  br i1 %exitcond193.not, label %.backedge, label %.lr.ph173, !llvm.loop !102
+  %exitcond191.not = icmp eq i32 %151, %.sroa.0.0.copyload150
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph173, !llvm.loop !102
 
 152:                                              ; preds = %88
   %153 = icmp ult i32 %.sroa.0.0.copyload150, 3
@@ -13599,9 +13599,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %.not183, label %._crit_edge, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %171 = load ptr, ptr %52, align 8
-  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv190
+  %172 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv188
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
   %175 = load ptr, ptr %53, align 8
@@ -13609,7 +13609,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   store i32 0, ptr %176, align 4
   %177 = load i32, ptr %0, align 8
   %178 = load ptr, ptr %52, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv190
+  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv188
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = load ptr, ptr %81, align 8
@@ -13676,7 +13676,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %211, %203, %195, %.lr.ph170
   %221 = load ptr, ptr %52, align 8
-  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv190
+  %222 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv188
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
   %225 = load ptr, ptr %79, align 8
@@ -13687,10 +13687,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %230 = load i32, ptr %229, align 4
   %231 = or i32 %230, %227
   store i32 %231, ptr %229, align 4
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %232 = load i32, ptr %9, align 4
   %233 = zext i32 %232 to i64
-  %234 = icmp ult i64 %indvars.iv.next191, %233
+  %234 = icmp ult i64 %indvars.iv.next189, %233
   br i1 %234, label %.lr.ph170, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader

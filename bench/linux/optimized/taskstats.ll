@@ -226,8 +226,8 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
 
 64:                                               ; preds = %60
   tail call fastcc void @fill_stats(ptr noundef nonnull @init_pid_ns, ptr noundef %0, ptr noundef nonnull %62)
-  %.not24 = icmp eq i32 %1, 0
-  br i1 %.not24, label %.thread17, label %65
+  %.not19 = icmp eq i32 %1, 0
+  br i1 %.not19, label %.thread17, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds i8, ptr %62, i64 8
@@ -308,9 +308,9 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %112, label %.thread18, label %.lr.ph, !llvm.loop !9
 
 .thread18:                                        ; preds = %109, %96
-  %.lcssa19.ph = phi i32 [ %110, %109 ], [ %93, %96 ]
+  %.lcssa20.ph = phi i32 [ %110, %109 ], [ %93, %96 ]
   %.lcssa.ph = phi ptr [ %100, %109 ], [ %92, %96 ]
-  %113 = icmp eq i32 %.lcssa19.ph, 0
+  %113 = icmp eq i32 %.lcssa20.ph, 0
   tail call void @up_read(ptr noundef %48) #10
   %114 = icmp eq ptr %.lcssa.ph, null
   br i1 %114, label %116, label %115

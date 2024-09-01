@@ -496,15 +496,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 3:                                                ; preds = %5, %1
   %4 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6ae5041ee8c1fc0aE"(ptr align 8 %0)
-  %.not.not = icmp ne ptr %4, null
-  br i1 %.not.not, label %5, label %7
+  %.not.not.not.not.not.not = icmp ne ptr %4, null
+  br i1 %.not.not.not.not.not.not, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17h996928c9044b7ec7E"(ptr nonnull align 1 %2, ptr nonnull align 1 %4)
   br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -542,15 +542,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 3:                                                ; preds = %5, %1
   %4 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6ae5041ee8c1fc0aE"(ptr align 8 %0)
-  %.not.not = icmp ne ptr %4, null
-  br i1 %.not.not, label %5, label %7
+  %.not.not.not.not.not.not = icmp ne ptr %4, null
+  br i1 %.not.not.not.not.not.not, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN13logos_codegen9generator4rope18byte_slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17hcca21f094ee0b825E"(ptr nonnull align 1 %2, ptr nonnull align 1 %4)
   br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

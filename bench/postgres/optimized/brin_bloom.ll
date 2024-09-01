@@ -308,147 +308,124 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture nounde
   %19 = inttoptr i64 %18 to ptr
   %20 = tail call ptr @pg_detoast_datum(ptr noundef %19) #7
   %21 = icmp slt i32 %13, 1
-  br i1 %21, label %bloom_contains_value.exit._crit_edge, label %.lr.ph34
+  br i1 %21, label %bloom_contains_value.exit.thread, label %.lr.ph
 
-.lr.ph34:                                         ; preds = %1
+.lr.ph:                                           ; preds = %1
   %22 = getelementptr inbounds i8, ptr %4, i64 40
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   %25 = getelementptr inbounds i8, ptr %20, i64 6
   %26 = getelementptr inbounds i8, ptr %20, i64 16
-  %27 = and i64 %12, 2147483647
   %wide.trip.count = and i64 %12, 2147483647
-  br label %28
+  br label %27
 
-28:                                               ; preds = %.lr.ph34, %.critedge
-  %indvars.iv = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next, %.critedge ]
-  %29 = phi i1 [ false, %.lr.ph34 ], [ %100, %.critedge ]
-  %30 = getelementptr ptr, ptr %10, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 6
-  %33 = load i16, ptr %32, align 2
-  %cond = icmp eq i16 %33, 1
-  br i1 %cond, label %34, label %94
+27:                                               ; preds = %.lr.ph, %bloom_contains_value.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %bloom_contains_value.exit ]
+  %28 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 6
+  %31 = load i16, ptr %30, align 2
+  %cond = icmp eq i16 %31, 1
+  br i1 %cond, label %32, label %83
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %31, i64 64
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 4
-  %38 = load i16, ptr %37, align 4
-  %39 = zext i16 %38 to i64
-  %40 = add nsw i64 %39, -1
-  %41 = getelementptr [0 x ptr], ptr %22, i64 0, i64 %40
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %29, i64 64
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %29, i64 4
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i64
+  %38 = add nsw i64 %37, -1
+  %39 = getelementptr [0 x ptr], ptr %22, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
-  %46 = load i8, ptr %45, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %bloom_get_procinfo.exit, label %48
+  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %44 = load i8, ptr %43, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %bloom_get_procinfo.exit, label %46
 
-48:                                               ; preds = %34
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %bloom_get_procinfo.exit
+46:                                               ; preds = %32
+  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %bloom_get_procinfo.exit
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %23, align 8
-  %54 = tail call i32 @index_getprocid(ptr noundef %53, i16 noundef signext %38, i16 noundef zeroext 11) #7
-  %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %59, label %55
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %23, align 8
+  %52 = tail call i32 @index_getprocid(ptr noundef %51, i16 noundef signext %36, i16 noundef zeroext 11) #7
+  %.not.i = icmp eq i32 %52, 0
+  br i1 %.not.i, label %57, label %53
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %23, align 8
-  %57 = tail call ptr @index_getprocinfo(ptr noundef %56, i16 noundef signext %38, i16 noundef zeroext 11) #7
-  %58 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %44, ptr noundef %57, ptr noundef %58) #7
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %23, align 8
+  %55 = tail call ptr @index_getprocinfo(ptr noundef %54, i16 noundef signext %36, i16 noundef zeroext 11) #7
+  %56 = load ptr, ptr %4, align 8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %42, ptr noundef %55, ptr noundef %56) #7
   br label %bloom_get_procinfo.exit
 
-59:                                               ; preds = %52
-  store i8 1, ptr %45, align 1
+57:                                               ; preds = %50
+  store i8 1, ptr %43, align 1
   br label %bloom_get_procinfo.exit
 
-bloom_get_procinfo.exit:                          ; preds = %34, %48, %55, %59
-  %.0.i = phi ptr [ null, %59 ], [ null, %34 ], [ %44, %55 ], [ %44, %48 ]
-  %60 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i, i32 noundef %15, i64 noundef %36) #7
-  %61 = trunc i64 %60 to i32
-  %62 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %61, i64 noundef 1910056111) #7
-  %63 = load i32, ptr %24, align 4
-  %64 = zext i32 %63 to i64
-  %65 = urem i64 %62, %64
-  %66 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %61, i64 noundef 3125326612) #7
-  %67 = load i32, ptr %24, align 4
-  %68 = zext i32 %67 to i64
-  %69 = urem i64 %66, %68
-  %70 = load i8, ptr %25, align 2
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %.critedge, label %.lr.ph.i
+bloom_get_procinfo.exit:                          ; preds = %32, %46, %53, %57
+  %.0.i = phi ptr [ null, %57 ], [ null, %32 ], [ %42, %53 ], [ %42, %46 ]
+  %58 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i, i32 noundef %15, i64 noundef %34) #7
+  %59 = trunc i64 %58 to i32
+  %60 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %59, i64 noundef 1910056111) #7
+  %61 = load i32, ptr %24, align 4
+  %62 = zext i32 %61 to i64
+  %63 = urem i64 %60, %62
+  %64 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %59, i64 noundef 3125326612) #7
+  %65 = load i32, ptr %24, align 4
+  %66 = zext i32 %65 to i64
+  %67 = urem i64 %64, %66
+  %68 = load i8, ptr %25, align 2
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %bloom_contains_value.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bloom_get_procinfo.exit
-  %72 = zext i8 %70 to i64
-  %.lhs.trunc = trunc nuw i64 %65 to i32
-  %73 = urem i32 %.lhs.trunc, %67
-  %74 = lshr i32 %73, 3
-  %75 = zext nneg i32 %74 to i64
-  %76 = and i32 %73, 7
-  %77 = getelementptr [0 x i8], ptr %26, i64 0, i64 %75
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 1, %76
-  %81 = and i32 %80, %79
-  %.not.i2528 = icmp eq i32 %81, 0
-  br i1 %.not.i2528, label %bloom_contains_value.exit._crit_edge.loopexit, label %.lr.ph
+  %wide.trip.count.i = zext i8 %68 to i64
+  br label %71
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %82
-  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i29, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %72
-  br i1 %exitcond.i, label %bloom_contains_value.exit, label %82, !llvm.loop !7
+70:                                               ; preds = %71
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %bloom_contains_value.exit, label %71, !llvm.loop !7
 
-82:                                               ; preds = %.lr.ph
-  %83 = mul nuw nsw i64 %indvars.iv.next.i, %69
-  %84 = add nuw nsw i64 %83, %65
-  %85 = urem i64 %84, %68
-  %86 = trunc nuw i64 %85 to i32
-  %87 = lshr i64 %85, 3
-  %88 = and i32 %86, 7
-  %89 = getelementptr [0 x i8], ptr %26, i64 0, i64 %87
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = shl nuw nsw i32 1, %88
-  %93 = and i32 %92, %91
-  %.not.i25 = icmp eq i32 %93, 0
-  br i1 %.not.i25, label %bloom_contains_value.exit, label %.lr.ph, !llvm.loop !7
+71:                                               ; preds = %70, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
+  %72 = mul nuw nsw i64 %indvars.iv.i, %67
+  %73 = add nuw nsw i64 %72, %63
+  %74 = urem i64 %73, %66
+  %75 = trunc nuw i64 %74 to i32
+  %76 = lshr i64 %74, 3
+  %77 = and i32 %75, 7
+  %78 = getelementptr [0 x i8], ptr %26, i64 0, i64 %76
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw nsw i32 1, %77
+  %82 = and i32 %81, %80
+  %.not.not.i = icmp eq i32 %82, 0
+  br i1 %.not.not.i, label %bloom_contains_value.exit.thread, label %70
 
-bloom_contains_value.exit:                        ; preds = %82, %.lr.ph
-  %.not.le = icmp ult i64 %indvars.iv.next.i, %72
-  br i1 %.not.le, label %bloom_contains_value.exit._crit_edge.loopexit, label %.critedge
+bloom_contains_value.exit:                        ; preds = %70, %bloom_get_procinfo.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %bloom_contains_value.exit.thread, label %27, !llvm.loop !8
 
-94:                                               ; preds = %28
-  %95 = getelementptr inbounds i8, ptr %31, i64 6
-  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %96)
-  %97 = load i16, ptr %95, align 2
-  %98 = zext i16 %97 to i32
-  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %98) #7
+83:                                               ; preds = %27
+  %84 = getelementptr inbounds i8, ptr %29, i64 6
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %85)
+  %86 = load i16, ptr %84, align 2
+  %87 = zext i16 %86 to i32
+  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %87) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 649, ptr noundef nonnull @__func__.brin_bloom_consistent) #7
   unreachable
 
-.critedge:                                        ; preds = %bloom_get_procinfo.exit, %bloom_contains_value.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = icmp uge i64 %indvars.iv.next, %27
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %bloom_contains_value.exit._crit_edge.loopexit, label %28, !llvm.loop !8
-
-bloom_contains_value.exit._crit_edge.loopexit:    ; preds = %.lr.ph.i, %bloom_contains_value.exit, %.critedge
-  %.lcssa26.ph = phi i1 [ %100, %.critedge ], [ %29, %.lr.ph.i ], [ %29, %bloom_contains_value.exit ]
-  %101 = zext i1 %.lcssa26.ph to i64
-  br label %bloom_contains_value.exit._crit_edge
-
-bloom_contains_value.exit._crit_edge:             ; preds = %bloom_contains_value.exit._crit_edge.loopexit, %1
-  %.lcssa26 = phi i64 [ 1, %1 ], [ %101, %bloom_contains_value.exit._crit_edge.loopexit ]
-  ret i64 %.lcssa26
+bloom_contains_value.exit.thread:                 ; preds = %bloom_contains_value.exit, %71, %1
+  %89 = phi i64 [ 1, %1 ], [ 0, %71 ], [ 1, %bloom_contains_value.exit ]
+  ret i64 %89
 }
 
 ; Function Attrs: cold

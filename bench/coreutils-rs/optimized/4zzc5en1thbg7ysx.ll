@@ -2983,8 +2983,8 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$uu_dd..progress..SignalHandl
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8, !alias.scope !1179
-  %.not.not.i = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %20, label %5
+  %.not.i = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not.i, label %20, label %5
 
 5:                                                ; preds = %.noexc
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
@@ -8955,8 +8955,8 @@ define void @"_ZN72_$LT$uu_dd..progress..SignalHandler$u20$as$u20$core..ops..dro
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   store ptr null, ptr %4, align 8
-  %.not.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3000f7511550c178E.llvm.4233002952263615725.exit.thread", label %5
+  %.not = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3000f7511550c178E.llvm.4233002952263615725.exit.thread", label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)

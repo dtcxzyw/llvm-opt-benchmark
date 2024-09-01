@@ -1088,104 +1088,103 @@ define dso_local i32 @v9fs_vfs_rename(ptr nocapture readnone %0, ptr noundef %1,
   %143 = phi i32 [ 0, %132 ], [ %106, %.thread24 ], [ -18, %85 ]
   call void @up_write(ptr noundef %70) #14
   %144 = icmp eq ptr %65, null
-  %145 = or i1 %144, %66
-  br i1 %145, label %.thread30, label %146
+  br i1 %144, label %.thread30, label %145
 
-146:                                              ; preds = %142
+145:                                              ; preds = %142
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #14
-          to label %148 [label %147], !srcloc !9
+          to label %147 [label %146], !srcloc !9
 
-147:                                              ; preds = %146
+146:                                              ; preds = %145
   call void @do_trace_9p_fid_put(ptr noundef nonnull %65) #14
-  br label %148
+  br label %147
 
-148:                                              ; preds = %147, %146
-  %149 = getelementptr inbounds i8, ptr %65, i64 12
-  %150 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %149, i32 -1, ptr elementtype(i32) %149) #14, !srcloc !10
-  %151 = icmp eq i32 %150, 1
-  br i1 %151, label %155, label %152
+147:                                              ; preds = %146, %145
+  %148 = getelementptr inbounds i8, ptr %65, i64 12
+  %149 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %148, i32 -1, ptr elementtype(i32) %148) #14, !srcloc !10
+  %150 = icmp eq i32 %149, 1
+  br i1 %150, label %154, label %151
 
-152:                                              ; preds = %148
-  %153 = icmp sgt i32 %150, 0
-  br i1 %153, label %.thread30, label %154, !prof !11
+151:                                              ; preds = %147
+  %152 = icmp sgt i32 %149, 0
+  br i1 %152, label %.thread30, label %153, !prof !11
 
-154:                                              ; preds = %152
-  call void @refcount_warn_saturate(ptr noundef %149, i32 noundef 3) #14
+153:                                              ; preds = %151
+  call void @refcount_warn_saturate(ptr noundef %148, i32 noundef 3) #14
   br label %.thread30
 
-155:                                              ; preds = %148
+154:                                              ; preds = %147
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %156 = call i32 @p9_client_clunk(ptr noundef nonnull %65) #14
+  %155 = call i32 @p9_client_clunk(ptr noundef nonnull %65) #14
   br label %.thread30
 
-.thread30:                                        ; preds = %.thread36, %152, %154, %155, %142
-  %157 = phi i32 [ %68, %.thread36 ], [ %143, %152 ], [ %143, %154 ], [ %143, %155 ], [ %143, %142 ]
-  %158 = icmp eq ptr %42, null
-  br i1 %158, label %.thread33, label %159
+.thread30:                                        ; preds = %.thread36, %151, %153, %154, %142
+  %156 = phi i32 [ %68, %.thread36 ], [ %143, %151 ], [ %143, %153 ], [ %143, %154 ], [ %143, %142 ]
+  %157 = icmp eq ptr %42, null
+  br i1 %157, label %.thread33, label %158
 
-159:                                              ; preds = %.thread30
+158:                                              ; preds = %.thread30
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #14
-          to label %161 [label %160], !srcloc !9
+          to label %160 [label %159], !srcloc !9
 
-160:                                              ; preds = %159
+159:                                              ; preds = %158
   call void @do_trace_9p_fid_put(ptr noundef nonnull %42) #14
-  br label %161
+  br label %160
 
-161:                                              ; preds = %160, %159
-  %162 = getelementptr inbounds i8, ptr %42, i64 12
-  %163 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %162, i32 -1, ptr elementtype(i32) %162) #14, !srcloc !10
-  %164 = icmp eq i32 %163, 1
-  br i1 %164, label %168, label %165
+160:                                              ; preds = %159, %158
+  %161 = getelementptr inbounds i8, ptr %42, i64 12
+  %162 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %161, i32 -1, ptr elementtype(i32) %161) #14, !srcloc !10
+  %163 = icmp eq i32 %162, 1
+  br i1 %163, label %167, label %164
 
-165:                                              ; preds = %161
-  %166 = icmp sgt i32 %163, 0
-  br i1 %166, label %.thread33, label %167, !prof !11
+164:                                              ; preds = %160
+  %165 = icmp sgt i32 %162, 0
+  br i1 %165, label %.thread33, label %166, !prof !11
 
-167:                                              ; preds = %165
-  call void @refcount_warn_saturate(ptr noundef %162, i32 noundef 3) #14
+166:                                              ; preds = %164
+  call void @refcount_warn_saturate(ptr noundef %161, i32 noundef 3) #14
   br label %.thread33
 
-168:                                              ; preds = %161
+167:                                              ; preds = %160
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %169 = call i32 @p9_client_clunk(ptr noundef nonnull %42) #14
+  %168 = call i32 @p9_client_clunk(ptr noundef nonnull %42) #14
   br label %.thread33
 
-.thread33:                                        ; preds = %165, %167, %.thread31, %168, %.thread30
-  %170 = phi i32 [ %45, %.thread31 ], [ %157, %168 ], [ %157, %.thread30 ], [ %157, %167 ], [ %157, %165 ]
-  %171 = icmp eq ptr %18, null
-  br i1 %171, label %.thread35, label %172
+.thread33:                                        ; preds = %164, %166, %.thread31, %167, %.thread30
+  %169 = phi i32 [ %45, %.thread31 ], [ %156, %167 ], [ %156, %.thread30 ], [ %156, %166 ], [ %156, %164 ]
+  %170 = icmp eq ptr %18, null
+  br i1 %170, label %.thread35, label %171
 
-172:                                              ; preds = %.thread33
+171:                                              ; preds = %.thread33
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #14
-          to label %174 [label %173], !srcloc !9
+          to label %173 [label %172], !srcloc !9
 
-173:                                              ; preds = %172
+172:                                              ; preds = %171
   call void @do_trace_9p_fid_put(ptr noundef nonnull %18) #14
-  br label %174
+  br label %173
 
-174:                                              ; preds = %173, %172
-  %175 = getelementptr inbounds i8, ptr %18, i64 12
-  %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %175, i32 -1, ptr elementtype(i32) %175) #14, !srcloc !10
-  %177 = icmp eq i32 %176, 1
-  br i1 %177, label %181, label %178
+173:                                              ; preds = %172, %171
+  %174 = getelementptr inbounds i8, ptr %18, i64 12
+  %175 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %174, i32 -1, ptr elementtype(i32) %174) #14, !srcloc !10
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %180, label %177
 
-178:                                              ; preds = %174
-  %179 = icmp sgt i32 %176, 0
-  br i1 %179, label %.thread35, label %180, !prof !11
+177:                                              ; preds = %173
+  %178 = icmp sgt i32 %175, 0
+  br i1 %178, label %.thread35, label %179, !prof !11
 
-180:                                              ; preds = %178
-  call void @refcount_warn_saturate(ptr noundef %175, i32 noundef 3) #14
+179:                                              ; preds = %177
+  call void @refcount_warn_saturate(ptr noundef %174, i32 noundef 3) #14
   br label %.thread35
 
-181:                                              ; preds = %174
+180:                                              ; preds = %173
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %182 = call i32 @p9_client_clunk(ptr noundef nonnull %18) #14
+  %181 = call i32 @p9_client_clunk(ptr noundef nonnull %18) #14
   br label %.thread35
 
-.thread35:                                        ; preds = %178, %180, %181, %.thread33, %20, %6
-  %183 = phi i32 [ %22, %20 ], [ -22, %6 ], [ %170, %.thread33 ], [ %170, %181 ], [ %170, %180 ], [ %170, %178 ]
+.thread35:                                        ; preds = %177, %179, %180, %.thread33, %20, %6
+  %182 = phi i32 [ %22, %20 ], [ -22, %6 ], [ %169, %.thread33 ], [ %169, %180 ], [ %169, %179 ], [ %169, %177 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #14
-  ret i32 %183
+  ret i32 %182
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -757,16 +757,13 @@ if.end24:                                         ; preds = %if.else, %strbuf_ad
   %wide.trip.count270 = zext nneg i32 %smax to i64
   br i1 %cmp12209.not, label %for.end160, label %for.body31.preheader
 
-for.cond26.loopexit:                              ; preds = %for.inc148
-  br i1 %cmp12209.not, label %for.end160, label %for.body31.preheader
+for.body31.preheader.loopexit:                    ; preds = %for.inc148
+  br label %for.body31.preheader, !llvm.loop !7
 
-for.body31.preheader:                             ; preds = %if.end24, %for.cond26.loopexit
-  %interesting.0321 = phi i32 [ %retval.0.i198202, %for.cond26.loopexit ], [ 1, %if.end24 ]
-  %ret.0320 = phi i32 [ %ret.2, %for.cond26.loopexit ], [ 0, %if.end24 ]
+for.body31.preheader:                             ; preds = %if.end24, %for.body31.preheader.loopexit
+  %interesting.0321 = phi i32 [ %retval.0.i198202, %for.body31.preheader.loopexit ], [ 1, %if.end24 ]
+  %ret.0320 = phi i32 [ %ret.2, %for.body31.preheader.loopexit ], [ 0, %if.end24 ]
   br label %for.body31
-
-for.cond37.preheader:                             ; preds = %extended_entry_extract.exit
-  br i1 %cmp12209.not, label %for.end160, label %for.body40
 
 for.body31:                                       ; preds = %for.body31.preheader, %extended_entry_extract.exit
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %extended_entry_extract.exit ], [ 0, %for.body31.preheader ]
@@ -804,7 +801,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %ptr.i = getelementptr inbounds i8, ptr %skip.0.i, i64 8
   %19 = load ptr, ptr %ptr.i, align 8
   %cmp.i = icmp eq ptr %18, %19
-  br i1 %cmp.i, label %if.end9.i, label %for.cond.i, !llvm.loop !7
+  br i1 %cmp.i, label %if.end9.i, label %for.cond.i, !llvm.loop !8
 
 if.end9.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
@@ -863,12 +860,12 @@ update_tree_entry.exit:                           ; preds = %if.end.i.i133, %upd
 extended_entry_extract.exit:                      ; preds = %for.cond.i, %if.then.i102
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %for.cond37.preheader, label %for.body31, !llvm.loop !8
+  br i1 %exitcond247.not, label %for.body40, label %for.body31, !llvm.loop !9
 
-for.body40:                                       ; preds = %for.cond37.preheader, %for.inc60
-  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %for.inc60 ], [ 0, %for.cond37.preheader ]
-  %first_len.0216 = phi i32 [ %first_len.1, %for.inc60 ], [ 0, %for.cond37.preheader ]
-  %first.0215 = phi ptr [ %first.1, %for.inc60 ], [ null, %for.cond37.preheader ]
+for.body40:                                       ; preds = %extended_entry_extract.exit, %for.inc60
+  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %for.inc60 ], [ 0, %extended_entry_extract.exit ]
+  %first_len.0216 = phi i32 [ %first_len.1, %for.inc60 ], [ 0, %extended_entry_extract.exit ]
+  %first.0215 = phi ptr [ %first.1, %for.inc60 ], [ null, %extended_entry_extract.exit ]
   %add.ptr42 = getelementptr inbounds %struct.name_entry, ptr %call8, i64 %indvars.iv248
   %path = getelementptr inbounds i8, ptr %add.ptr42, i64 40
   %29 = load ptr, ptr %path, align 8
@@ -897,12 +894,11 @@ for.inc60:                                        ; preds = %if.end45, %if.end50
   %first_len.1 = phi i32 [ %add.ptr42.val, %if.then57 ], [ %first_len.0216, %if.end50 ], [ %first_len.0216, %for.body40 ], [ %add.ptr42.val, %if.end45 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count252
-  br i1 %exitcond253.not, label %for.end62, label %for.body40, !llvm.loop !9
+  br i1 %exitcond253.not, label %for.end62, label %for.body40, !llvm.loop !10
 
 for.end62:                                        ; preds = %for.inc60
   %tobool63.not = icmp eq ptr %first.1, null
-  %brmerge = or i1 %tobool63.not, %cmp12209.not
-  br i1 %brmerge, label %if.end88, label %for.body68.lr.ph
+  br i1 %tobool63.not, label %for.body92.preheader, label %for.body68.lr.ph
 
 for.body68.lr.ph:                                 ; preds = %for.end62
   %conv.i.i = sext i32 %first_len.1 to i64
@@ -946,7 +942,7 @@ for.body.i114:                                    ; preds = %for.cond.i110
   %ptr.i115 = getelementptr inbounds i8, ptr %skip.0.i112, i64 8
   %33 = load ptr, ptr %ptr.i115, align 8
   %cmp.i116 = icmp eq ptr %.pre, %33
-  br i1 %cmp.i116, label %if.end9.i117, label %for.cond.i110, !llvm.loop !7
+  br i1 %cmp.i116, label %if.end9.i117, label %for.cond.i110, !llvm.loop !8
 
 if.end9.i117:                                     ; preds = %for.body.i114
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i168)
@@ -1124,7 +1120,7 @@ update_tree_entry.exit167:                        ; preds = %update_tree_entry.e
   call void @strbuf_release(ptr noundef nonnull %err.i140) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i140)
   %tobool21.not.i = icmp eq i32 %56, 0
-  br i1 %tobool21.not.i, label %return.sink.split.i, label %while.body22.i, !llvm.loop !10
+  br i1 %tobool21.not.i, label %return.sink.split.i, label %while.body22.i, !llvm.loop !11
 
 return.sink.split.i:                              ; preds = %update_tree_entry.exit167, %land.lhs.true11.i39.i, %land.lhs.true.i36.i, %if.end5.i32.i, %sw.epilog.i, %land.lhs.true11.i.i, %land.lhs.true.i.i, %if.end5.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr70, i8 0, i64 56, i1 false)
@@ -1152,17 +1148,17 @@ if.then83:                                        ; preds = %if.end76
 for.inc85:                                        ; preds = %if.end76, %if.then83, %extended_entry_extract.exit121
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count258
-  br i1 %exitcond259.not, label %if.end88, label %for.body68, !llvm.loop !11
+  br i1 %exitcond259.not, label %for.body92.preheader, label %for.body68, !llvm.loop !12
 
-if.end88:                                         ; preds = %for.inc85, %for.end62
-  %e.2 = phi ptr [ %add.ptr42, %for.end62 ], [ %add.ptr70, %for.inc85 ]
-  br i1 %cmp12209.not, label %for.end160, label %for.body92
+for.body92.preheader:                             ; preds = %for.inc85, %for.end62
+  %e.4227.ph = phi ptr [ %add.ptr42, %for.end62 ], [ %add.ptr70, %for.inc85 ]
+  br label %for.body92
 
-for.body92:                                       ; preds = %if.end88, %for.inc110
-  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %for.inc110 ], [ 0, %if.end88 ]
-  %e.4227 = phi ptr [ %e.5, %for.inc110 ], [ %e.2, %if.end88 ]
-  %dirmask.0226 = phi i64 [ %dirmask.1, %for.inc110 ], [ 0, %if.end88 ]
-  %mask.0225 = phi i64 [ %mask.1, %for.inc110 ], [ 0, %if.end88 ]
+for.body92:                                       ; preds = %for.body92.preheader, %for.inc110
+  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %for.inc110 ], [ 0, %for.body92.preheader ]
+  %e.4227 = phi ptr [ %e.5, %for.inc110 ], [ %e.4227.ph, %for.body92.preheader ]
+  %dirmask.0226 = phi i64 [ %dirmask.1, %for.inc110 ], [ 0, %for.body92.preheader ]
+  %mask.0225 = phi i64 [ %mask.1, %for.inc110 ], [ 0, %for.body92.preheader ]
   %arrayidx94 = getelementptr inbounds %struct.name_entry, ptr %call8, i64 %indvars.iv260
   %path95 = getelementptr inbounds i8, ptr %arrayidx94, i64 40
   %59 = load ptr, ptr %path95, align 8
@@ -1186,11 +1182,11 @@ for.inc110:                                       ; preds = %for.body92, %if.end
   %e.5 = phi ptr [ %arrayidx94, %if.end98 ], [ %e.4227, %for.body92 ]
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count264
-  br i1 %exitcond265.not, label %for.end112, label %for.body92, !llvm.loop !12
+  br i1 %exitcond265.not, label %for.end112, label %for.body92, !llvm.loop !13
 
 for.end112:                                       ; preds = %for.inc110
   %tobool113.not = icmp eq i64 %mask.1, 0
-  br i1 %tobool113.not, label %for.end151, label %if.end115
+  br i1 %tobool113.not, label %for.body155.preheader, label %if.end115
 
 if.end115:                                        ; preds = %for.end112
   %info.val = load ptr, ptr %16, align 8
@@ -1240,7 +1236,7 @@ if.end17.i.i:                                     ; preds = %if.end9.i.i
 prune_traversal.exit:                             ; preds = %if.end3.i, %if.end17.i.i
   %retval.0.i = phi i32 [ %call.i.i123, %if.end3.i ], [ %spec.select.i.i, %if.end17.i.i ]
   %cmp117 = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp117, label %for.end151, label %if.end120
+  br i1 %cmp117, label %for.body155.preheader, label %if.end120
 
 if.end120:                                        ; preds = %prune_traversal.exit
   %tobool121.not = icmp eq i32 %retval.0.i, 0
@@ -1256,7 +1252,7 @@ if.then122:                                       ; preds = %if.end115, %if.end.
 if.then126:                                       ; preds = %if.then122
   %64 = load i32, ptr %show_all_errors, align 8
   %tobool127.not = icmp eq i32 %64, 0
-  br i1 %tobool127.not, label %for.end151, label %if.end130
+  br i1 %tobool127.not, label %for.body155.preheader, label %if.end130
 
 if.end130:                                        ; preds = %if.then126, %if.then122
   %ret.3 = phi i32 [ %call123, %if.then126 ], [ %ret.0320, %if.then122 ]
@@ -1268,7 +1264,7 @@ if.end133:                                        ; preds = %if.end130, %if.end1
   %retval.0.i198202 = phi i32 [ %retval.0.i198201, %if.end130 ], [ 0, %if.end120 ]
   %ret.2 = phi i32 [ %ret.3, %if.end130 ], [ %ret.0320, %if.end120 ]
   %mask.2 = phi i64 [ %and132, %if.end130 ], [ %mask.1, %if.end120 ]
-  br i1 %cmp12209.not, label %for.end160, label %for.body137
+  br label %for.body137
 
 for.body137:                                      ; preds = %if.end133, %for.inc148
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %for.inc148 ], [ 0, %if.end133 ]
@@ -1304,13 +1300,10 @@ if.else.i:                                        ; preds = %if.then142
 for.inc148:                                       ; preds = %if.else.i, %if.then.i128, %for.body137
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count270
-  br i1 %exitcond271.not, label %for.cond26.loopexit, label %for.body137, !llvm.loop !13
+  br i1 %exitcond271.not, label %for.body31.preheader.loopexit, label %for.body137, !llvm.loop !7
 
-for.end151:                                       ; preds = %if.then126, %prune_traversal.exit, %for.end112
+for.body155.preheader:                            ; preds = %for.end112, %prune_traversal.exit, %if.then126
   %ret.1 = phi i32 [ %ret.0320, %prune_traversal.exit ], [ %call123, %if.then126 ], [ %ret.0320, %for.end112 ]
-  br i1 %cmp12209.not, label %for.end160, label %for.body155.preheader
-
-for.body155.preheader:                            ; preds = %for.end151
   %wide.trip.count276 = zext nneg i32 %smax to i64
   br label %for.body155
 
@@ -1333,8 +1326,8 @@ free_extended_entry.exit:                         ; preds = %for.body.i129, %for
   %exitcond277.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count276
   br i1 %exitcond277.not, label %for.end160, label %for.body155, !llvm.loop !15
 
-for.end160:                                       ; preds = %for.cond37.preheader, %if.end133, %for.cond26.loopexit, %if.end88, %free_extended_entry.exit, %if.end24, %for.end151
-  %ret.1294 = phi i32 [ %ret.1, %for.end151 ], [ 0, %if.end24 ], [ %ret.1, %free_extended_entry.exit ], [ %ret.0320, %if.end88 ], [ %ret.2, %for.cond26.loopexit ], [ %ret.2, %if.end133 ], [ %ret.0320, %for.cond37.preheader ]
+for.end160:                                       ; preds = %free_extended_entry.exit, %if.end24
+  %ret.1294 = phi i32 [ 0, %if.end24 ], [ %ret.1, %free_extended_entry.exit ]
   call void @free(ptr noundef %call11) #14
   call void @free(ptr noundef %call8) #14
   call void @free(ptr noundef %traverse_path.0) #14

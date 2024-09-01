@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
-  %.not75 = icmp eq i64 %1, 0
-  br i1 %.not75, label %.critedge, label %.lr.ph.lr.ph
+  %.not69 = icmp eq i64 %1, 0
+  br i1 %.not69, label %.critedge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %3
   %5 = tail call ptr @__errno_location() #7

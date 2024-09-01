@@ -1099,7 +1099,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
 
 ..critedge2.loopexit_crit_edge.split.us.us.us:    ; preds = %221
   %.not197.us.us = icmp eq i32 %.2.us.us.us, 0
-  br i1 %.not197.us.us, label %.preheader280, label %.preheader281.us.us.backedge
+  br i1 %.not197.us.us, label %.lr.ph366.preheader, label %.preheader281.us.us.backedge
 
 .preheader281.us:                                 ; preds = %.critedge2.preheader.split.us, %.preheader281.us.backedge
   %indvars.iv398 = phi i64 [ %indvars.iv398.be, %.preheader281.us.backedge ], [ 0, %.critedge2.preheader.split.us ]
@@ -1192,7 +1192,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
 
 ..critedge2.loopexit_crit_edge.split.us359:       ; preds = %271
   %.not197.us = icmp eq i32 %.2.us358, 0
-  br i1 %.not197.us, label %.preheader280, label %.preheader281.us.backedge
+  br i1 %.not197.us, label %.lr.ph366.preheader, label %.preheader281.us.backedge
 
 .lr.ph333.split:                                  ; preds = %.lr.ph333.split.preheader, %._crit_edge304
   %272 = phi i32 [ %184, %.lr.ph333.split.preheader ], [ %370, %._crit_edge304 ]
@@ -1405,16 +1405,13 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %372 = icmp slt i64 %indvars.iv.next396, %371
   br i1 %372, label %.lr.ph333.split, label %.critedge2.preheader, !llvm.loop !14
 
-.preheader280:                                    ; preds = %..critedge2.loopexit_crit_edge.split.us359, %..critedge2.loopexit_crit_edge.split.us.us.us
+.lr.ph366.preheader:                              ; preds = %..critedge2.loopexit_crit_edge.split.us359, %..critedge2.loopexit_crit_edge.split.us.us.us
   %.us-phi363 = phi ptr [ %.13.us.us.us, %..critedge2.loopexit_crit_edge.split.us.us.us ], [ %.13.us357, %..critedge2.loopexit_crit_edge.split.us359 ]
-  br i1 %182, label %.lr.ph366.preheader, label %.preheader278
-
-.lr.ph366.preheader:                              ; preds = %.preheader280
   %wide.trip.count411 = zext nneg i32 %14 to i64
   br label %.lr.ph366
 
-.preheader278:                                    ; preds = %.lr.ph366, %.critedge2.preheader, %.preheader280
-  %.us-phi363440 = phi ptr [ %.us-phi363, %.preheader280 ], [ %.5189.lcssa, %.critedge2.preheader ], [ %.us-phi363, %.lr.ph366 ]
+.preheader278:                                    ; preds = %.lr.ph366, %.critedge2.preheader
+  %.us-phi363440 = phi ptr [ %.5189.lcssa, %.critedge2.preheader ], [ %.us-phi363, %.lr.ph366 ]
   %.val218 = load i32, ptr %34, align 4
   %373 = icmp sgt i32 %.val218, 0
   br i1 %373, label %.lr.ph368, label %.critedge

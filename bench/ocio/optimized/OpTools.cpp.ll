@@ -72,7 +72,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %invoke.cont
-  %cmp5064 = phi i1 [ false, %invoke.cont ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %cmp50, %for.body ]
+  %cmp5064 = phi i1 [ false, %invoke.cont ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ true, %for.body ]
   %tmp.sroa.0.062 = phi ptr [ %call5.i.i.i.i2.i.i25, %invoke.cont ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i25, %for.body ]
   invoke void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %ops)
           to label %invoke.cont14 unwind label %lpad13.loopexit.split-lp

@@ -1755,8 +1755,8 @@ define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr no
 .lr.ph.preheader:                                 ; preds = %27, %14, %.lr.ph.preheader.i
   br label %.lr.ph
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i58.i, %get_line_size.exit63.thread.i.thread320
-  %31 = phi i64 [ %spec.select66.i324, %get_line_size.exit63.thread.i.thread320 ], [ -1, %.lr.ph.i58.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i58.i, %get_line_size.exit63.thread.i.thread316
+  %31 = phi i64 [ %spec.select66.i320, %get_line_size.exit63.thread.i.thread316 ], [ -1, %.lr.ph.i58.i ]
   %32 = icmp eq i64 %31, %49
   %or.cond.i = and i1 %42, %32
   br i1 %or.cond.i, label %.lr.ph, label %next_line.exit.thread, !llvm.loop !19
@@ -1794,9 +1794,9 @@ define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr no
   %49 = sub nsw i64 %48, %33
   store i64 %49, ptr %3, align 8
   %50 = sub nsw i64 %49, %.182.i219
-  %.019.i57.fr.i323 = freeze i64 %50
-  %51 = icmp sgt i64 %.019.i57.fr.i323, 0
-  br i1 %51, label %.lr.ph.i58.preheader.i, label %get_line_size.exit63.thread.i.thread320
+  %.019.i57.fr.i319 = freeze i64 %50
+  %51 = icmp sgt i64 %.019.i57.fr.i319, 0
+  br i1 %51, label %.lr.ph.i58.preheader.i, label %get_line_size.exit63.thread.i.thread316
 
 .lr.ph.i58.preheader.i:                           ; preds = %47
   %52 = getelementptr inbounds i8, ptr %.3114, i64 %.1109218
@@ -1813,7 +1813,7 @@ define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr no
   ]
 
 54:                                               ; preds = %.lr.ph.i58.i
-  %55 = sub nsw i64 %.019.i57.fr.i323, %.032.i59.i
+  %55 = sub nsw i64 %.019.i57.fr.i319, %.032.i59.i
   %56 = icmp sgt i64 %55, 1
   br i1 %56, label %57, label %get_line_size.exit63.thread.i
 
@@ -1821,23 +1821,23 @@ define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr no
   %58 = getelementptr inbounds i8, ptr %.02031.i60.i, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 10
-  %spec.select507 = select i1 %60, i64 2, i64 1
+  %spec.select503 = select i1 %60, i64 2, i64 1
   br label %get_line_size.exit63.thread.i
 
 61:                                               ; preds = %.lr.ph.i58.i
   %62 = getelementptr inbounds i8, ptr %.02031.i60.i, i64 1
   %63 = add nuw nsw i64 %.032.i59.i, 1
-  %exitcond.not.i62.i = icmp eq i64 %63, %.019.i57.fr.i323
-  br i1 %exitcond.not.i62.i, label %get_line_size.exit63.thread.i.thread320, label %.lr.ph.i58.i, !llvm.loop !18
+  %exitcond.not.i62.i = icmp eq i64 %63, %.019.i57.fr.i319
+  br i1 %exitcond.not.i62.i, label %get_line_size.exit63.thread.i.thread316, label %.lr.ph.i58.i, !llvm.loop !18
 
-get_line_size.exit63.thread.i.thread320:          ; preds = %61, %47
-  %64 = icmp slt i64 %.019.i57.fr.i323, 0
+get_line_size.exit63.thread.i.thread316:          ; preds = %61, %47
+  %64 = icmp slt i64 %.019.i57.fr.i319, 0
   %65 = select i1 %64, i64 0, i64 %.182.i219
-  %spec.select66.i324 = add nsw i64 %65, %.019.i57.fr.i323
+  %spec.select66.i320 = add nsw i64 %65, %.019.i57.fr.i319
   br label %.lr.ph.i
 
 get_line_size.exit63.thread.i:                    ; preds = %.lr.ph.i58.i, %57, %54
-  %.sink = phi i64 [ 1, %54 ], [ %spec.select507, %57 ], [ 1, %.lr.ph.i58.i ]
+  %.sink = phi i64 [ 1, %54 ], [ %spec.select503, %57 ], [ 1, %.lr.ph.i58.i ]
   %66 = getelementptr inbounds i8, ptr %.3114, i64 %33
   %67 = add nuw nsw i64 %.032.i59.i, %.sink
   %.019.i57.fr.i = freeze i64 %67
@@ -2201,11 +2201,11 @@ define internal fastcc i32 @bid_keyword_list(ptr nocapture noundef readonly %0, 
 
 .lr.phthread-pre-split:                           ; preds = %.critedge4
   %9 = add nsw i64 %.15695, -1
-  %.pr167 = load i8, ptr %12, align 1
+  %.pr163 = load i8, ptr %12, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.phthread-pre-split
-  %10 = phi i8 [ %.pr167, %.lr.phthread-pre-split ], [ %8, %7 ]
+  %10 = phi i8 [ %.pr163, %.lr.phthread-pre-split ], [ %8, %7 ]
   %11 = phi i1 [ true, %.lr.phthread-pre-split ], [ false, %7 ]
   %.196 = phi ptr [ %12, %.lr.phthread-pre-split ], [ %.054117, %7 ]
   %.15695 = phi i64 [ %9, %.lr.phthread-pre-split ], [ %.055116, %7 ]
@@ -2537,25 +2537,21 @@ sub_0:                                            ; preds = %2
 
 .thread57:                                        ; preds = %2
   %.not4758 = icmp eq i8 %.pre54, 0
-  br i1 %.not4758, label %._crit_edge, label %.lr.ph.split.us.preheader
+  br i1 %.not4758, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph:                                           ; preds = %.tail.thread
   %9 = getelementptr inbounds i8, ptr %1, i64 56
-  br i1 %.not50, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
+  br label %.lr.ph.split.preheader
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread57, %.lr.ph
-  %.ph = phi i8 [ %.pre54, %.thread57 ], [ %8, %.lr.ph ]
-  br label %.lr.ph.split.us
-
-.lr.ph.split.preheader:                           ; preds = %.tail, %.lr.ph
+.lr.ph.split.preheader:                           ; preds = %.lr.ph, %.tail
   %10 = phi ptr [ %9, %.lr.ph ], [ %6, %.tail ]
   %11 = phi i8 [ %8, %.lr.ph ], [ 46, %.tail ]
   br label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %54
-  %12 = phi i8 [ %56, %54 ], [ %.ph, %.lr.ph.split.us.preheader ]
-  %.03649.us = phi ptr [ %55, %54 ], [ %0, %.lr.ph.split.us.preheader ]
-  %.03748.us = phi ptr [ %.1.us, %54 ], [ %0, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.thread57, %54
+  %12 = phi i8 [ %56, %54 ], [ %.pre54, %.thread57 ]
+  %.03649.us = phi ptr [ %55, %54 ], [ %0, %.thread57 ]
+  %.03748.us = phi ptr [ %.1.us, %54 ], [ %0, %.thread57 ]
   %13 = getelementptr inbounds i8, ptr %.03748.us, i64 1
   %14 = icmp eq i8 %12, 92
   br i1 %14, label %15, label %54

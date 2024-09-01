@@ -1321,9 +1321,9 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
 .loopexit42.i:                                    ; preds = %.lr.ph.i65, %291, %289, %276
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph49.i, label %276, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.preheader41.i, label %276, !llvm.loop !14
 
-.lr.ph49.i:                                       ; preds = %.loopexit42.i, %.loopexit.i
+.preheader41.i:                                   ; preds = %.loopexit42.i, %.loopexit.i
   %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %.loopexit.i ], [ 0, %.loopexit42.i ]
   %314 = load ptr, ptr %274, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 8
@@ -1339,7 +1339,7 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %325 = icmp eq i32 %324, 0
   br i1 %325, label %.loopexit.i, label %326
 
-326:                                              ; preds = %.lr.ph49.i
+326:                                              ; preds = %.preheader41.i
   %327 = and i32 %323, -33
   store i32 %327, ptr %322, align 8
   %328 = call i32 @Fraig_NodeIsAnd(ptr noundef nonnull %321) #10
@@ -1377,10 +1377,10 @@ Fraig_SupergateAddClauses.exit:                   ; preds = %206, %._crit_edge.i
   %350 = icmp slt i64 %indvars.iv.next55.i, %349
   br i1 %350, label %.lr.ph47.i, label %.loopexit.i, !llvm.loop !15
 
-.loopexit.i:                                      ; preds = %.lr.ph47.i, %.preheader.i, %326, %.lr.ph49.i
+.loopexit.i:                                      ; preds = %.lr.ph47.i, %.preheader.i, %326, %.preheader41.i
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
-  br i1 %exitcond61.not.i, label %Fraig_SetupAdjacentMark.exit, label %.lr.ph49.i, !llvm.loop !16
+  br i1 %exitcond61.not.i, label %Fraig_SetupAdjacentMark.exit, label %.preheader41.i, !llvm.loop !16
 
 Fraig_SetupAdjacentMark.exit:                     ; preds = %.loopexit.i, %._crit_edge
   ret void

@@ -436,8 +436,8 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %vectorFunctionSignatures, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %vectorFunctionSignatures, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not32 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not32, label %cleanup16, label %invoke.cont8.lr.ph
+  %cmp.i.not38 = icmp eq ptr %1, %2
+  br i1 %cmp.i.not38, label %cleanup16, label %invoke.cont8.lr.ph
 
 invoke.cont8.lr.ph:                               ; preds = %invoke.cont
   %typeVariablesBindings_.i.i = getelementptr inbounds i8, ptr %binder, i64 8
@@ -456,8 +456,8 @@ invoke.cont8.lr.ph:                               ; preds = %invoke.cont
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %invoke.cont8.lr.ph, %for.inc
-  %__begin3.sroa.0.033 = phi ptr [ %1, %invoke.cont8.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %3 = load ptr, ptr %__begin3.sroa.0.033, align 8
+  %__begin3.sroa.0.039 = phi ptr [ %1, %invoke.cont8.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %3 = load ptr, ptr %__begin3.sroa.0.039, align 8
   store ptr %3, ptr %binder, align 8
   store ptr %_M_single_bucket.i.i.i.i, ptr %typeVariablesBindings_.i.i, align 8
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8
@@ -515,11 +515,11 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %typeVariablesBindings_.i.i) #20
   %10 = load ptr, ptr %typeVariablesBindings_.i.i, align 8
   %cmp.i.i.i.i.i2.i.i = icmp eq ptr %10, %_M_single_bucket.i.i.i.i
-  br i1 %cmp.i.i.i.i.i2.i.i, label %cleanup16.loopexit, label %if.end.i.i.i.i3.i.i
+  br i1 %cmp.i.i.i.i.i2.i.i, label %cleanup16, label %if.end.i.i.i.i3.i.i
 
 if.end.i.i.i.i3.i.i:                              ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef %10) #21
-  br label %cleanup16.loopexit
+  br label %cleanup16
 
 for.inc.critedge:                                 ; preds = %invoke.cont10
   %11 = load ptr, ptr %_M_before_begin.i.i3.i.i, align 8
@@ -560,18 +560,13 @@ if.end.i.i.i.i3.i.i28:                            ; preds = %_ZNSt13unordered_ma
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i.i.i.i3.i.i28, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit.i.i24
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.033, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.039, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %cleanup16.loopexit, label %invoke.cont8
+  br i1 %cmp.i.not, label %cleanup16, label %invoke.cont8
 
-cleanup16.loopexit:                               ; preds = %for.inc, %if.end.i.i.i.i3.i.i, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit.i.i
-  %switch.ph = xor i1 %call11, true
-  %.pre = load i8, ptr %_M_engaged.i.i, align 8
-  br label %cleanup16
-
-cleanup16:                                        ; preds = %cleanup16.loopexit, %invoke.cont, %entry
-  %17 = phi i8 [ %0, %entry ], [ %0, %invoke.cont ], [ %.pre, %cleanup16.loopexit ]
-  %switch = phi i1 [ true, %entry ], [ true, %invoke.cont ], [ %switch.ph, %cleanup16.loopexit ]
+cleanup16:                                        ; preds = %for.inc, %invoke.cont, %if.end.i.i.i.i3.i.i, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit.i.i, %entry
+  %switch = phi i1 [ true, %entry ], [ false, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit.i.i ], [ false, %if.end.i.i.i.i3.i.i ], [ true, %invoke.cont ], [ true, %for.inc ]
+  %17 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalISt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS6_EEED2Ev.exit
 

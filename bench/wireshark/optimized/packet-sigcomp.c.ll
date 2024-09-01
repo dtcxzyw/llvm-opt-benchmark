@@ -860,8 +860,8 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
 
 48:                                               ; preds = %.lr.ph199
   %49 = add nsw i32 %.2150.ph216, 1
-  %.not160.not = icmp slt i32 %49, %28
-  br i1 %.not160.not, label %50, label %.outer._crit_edge.loopexit
+  %.not160.not.not = icmp slt i32 %49, %28
+  br i1 %.not160.not.not, label %50, label %.outer._crit_edge.loopexit
 
 50:                                               ; preds = %48
   %51 = load i32, ptr @udvm_print_detail_level, align 4
@@ -991,8 +991,8 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
 115:                                              ; preds = %111, %.lr.ph213
   %116 = add i32 %.3209, 1
   %.2 = add i32 %.2211, 1
-  %exitcond243.not = icmp eq i32 %.2, %105
-  br i1 %exitcond243.not, label %.outer.backedge, label %.lr.ph213, !llvm.loop !7
+  %exitcond242.not = icmp eq i32 %.2, %105
+  br i1 %exitcond242.not, label %.outer.backedge, label %.lr.ph213, !llvm.loop !7
 
 117:                                              ; preds = %.lr.ph199
   %118 = sext i32 %.1.ph217 to i64
@@ -1014,14 +1014,14 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.outer.backedge
 
 .outer._crit_edge.loopexit:                       ; preds = %48, %.backedge.thread
-  %.sink266 = phi i32 [ %83, %.backedge.thread ], [ %49, %48 ]
-  %129 = icmp slt i32 %.sink266, %28
+  %.sink265 = phi i32 [ %83, %.backedge.thread ], [ %49, %48 ]
+  %129 = icmp slt i32 %.sink265, %28
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.outer._crit_edge.loopexit, %44
   %.1.ph.lcssa192 = phi i32 [ 0, %44 ], [ %.1.ph217, %.outer._crit_edge.loopexit ], [ %.1.ph.be, %.outer.backedge ]
-  %.2150.lcssa = phi i32 [ %.1149, %44 ], [ %.sink266, %.outer._crit_edge.loopexit ], [ %.2150.ph.be, %.outer.backedge ]
-  %.lcssa169 = phi i1 [ false, %44 ], [ %.not160.not, %.outer._crit_edge.loopexit ], [ false, %.outer.backedge ]
+  %.2150.lcssa = phi i32 [ %.1149, %44 ], [ %.sink265, %.outer._crit_edge.loopexit ], [ %.2150.ph.be, %.outer.backedge ]
+  %.lcssa169 = phi i1 [ false, %44 ], [ %.not160.not.not, %.outer._crit_edge.loopexit ], [ false, %.outer.backedge ]
   %.lcssa = phi i1 [ false, %44 ], [ %129, %.outer._crit_edge.loopexit ], [ false, %.outer.backedge ]
   %130 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %38, i32 noundef %.1.ph.lcssa192, i32 noundef %.1.ph.lcssa192) #8
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %130, ptr noundef nonnull @.str.541) #8

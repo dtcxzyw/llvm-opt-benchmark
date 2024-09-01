@@ -825,7 +825,7 @@ define noundef zeroext i1 @prte_nptr_match(ptr nocapture noundef readonly %0, pt
   br i1 %.not24, label %.loopexit27, label %14, !llvm.loop !12
 
 .loopexit27:                                      ; preds = %14, %.loopexit, %28, %.lr.ph, %.preheader28, %9, %2
-  %.021 = phi i1 [ true, %2 ], [ false, %9 ], [ false, %.preheader28 ], [ true, %.lr.ph ], [ true, %28 ], [ true, %14 ], [ %17, %.loopexit ]
+  %.021 = phi i1 [ true, %2 ], [ false, %9 ], [ false, %.preheader28 ], [ true, %.lr.ph ], [ true, %28 ], [ %17, %.loopexit ], [ %17, %14 ]
   ret i1 %.021
 }
 

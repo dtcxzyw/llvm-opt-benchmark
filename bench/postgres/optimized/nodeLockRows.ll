@@ -176,13 +176,13 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %36 = getelementptr inbounds i8, ptr %23, i64 24
   %37 = load i32, ptr %32, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph170, label %.loopexit88
+  br i1 %38, label %.lr.ph179, label %.loopexit88
 
-.lr.ph170:                                        ; preds = %.lr.ph, %172
-  %.064111169 = phi i1 [ %.1, %172 ], [ false, %.lr.ph ]
-  %indvars.iv168 = phi i64 [ %indvars.iv.next, %172 ], [ 0, %.lr.ph ]
+.lr.ph179:                                        ; preds = %.lr.ph, %172
+  %.064111178 = phi i1 [ %.1, %172 ], [ false, %.lr.ph ]
+  %indvars.iv177 = phi i64 [ %indvars.iv.next, %172 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv168
+  %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv177
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
@@ -200,7 +200,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %.not78 = icmp eq i32 %51, %53
   br i1 %.not78, label %81, label %54
 
-54:                                               ; preds = %.lr.ph170
+54:                                               ; preds = %.lr.ph179
   %55 = getelementptr inbounds i8, ptr %41, i64 10
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
@@ -249,7 +249,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   store i16 0, ptr %80, align 2
   br label %172
 
-81:                                               ; preds = %69, %.lr.ph170
+81:                                               ; preds = %69, %.lr.ph179
   %82 = getelementptr inbounds i8, ptr %42, i64 36
   store i8 1, ptr %82, align 4
   %83 = getelementptr inbounds i8, ptr %41, i64 8
@@ -322,7 +322,7 @@ ExecGetJunkAttribute.exit84:                      ; preds = %81, %slot_getsomeat
 124:                                              ; preds = %120
   %125 = load i8, ptr %4, align 1
   %126 = trunc i8 %125 to i1
-  %spec.select = select i1 %126, i1 true, i1 %.064111169
+  %spec.select = select i1 %126, i1 true, i1 %.064111178
   br label %172
 
 127:                                              ; preds = %100
@@ -366,7 +366,7 @@ switch.lookup:                                    ; preds = %127
 146:                                              ; preds = %switch.lookup
   %147 = load i8, ptr %18, align 4
   %148 = trunc i8 %147 to i1
-  %spec.select82 = select i1 %148, i1 true, i1 %.064111169
+  %spec.select82 = select i1 %148, i1 true, i1 %.064111178
   %149 = getelementptr inbounds i8, ptr %42, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %149, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   br label %172
@@ -417,12 +417,12 @@ switch.lookup:                                    ; preds = %127
   unreachable
 
 172:                                              ; preds = %124, %146, %76
-  %.1 = phi i1 [ %.064111169, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv168, 1
+  %.1 = phi i1 [ %.064111178, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv177, 1
   %173 = load i32, ptr %32, align 4
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next, %174
-  br i1 %175, label %.lr.ph170, label %._crit_edge
+  br i1 %175, label %.lr.ph179, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %172
   br i1 %.1, label %176, label %.loopexit88

@@ -3341,10 +3341,7 @@ lor.lhs.false123.us:                              ; preds = %while.cond.us
 
 while.end.us:                                     ; preds = %lor.lhs.false123.us
   %cmp139.us = icmp eq i64 %buf_len.0.us, 0
-  br i1 %cmp139.us, label %if.then141, label %for.end211.thread
-
-for.end211.thread:                                ; preds = %while.end.us
-  br i1 %cmp1448.us, label %if.then229, label %if.then268
+  br i1 %cmp139.us, label %if.then141, label %if.then229
 
 while.body.us:                                    ; preds = %lor.lhs.false123.us, %while.cond.us
   %incdec.ptr138.us = getelementptr inbounds i8, ptr %l.3.us, i64 1
@@ -3398,7 +3395,7 @@ while.end:                                        ; preds = %lor.lhs.false123
   br i1 %cmp139, label %if.then141, label %if.end143
 
 if.then141:                                       ; preds = %while.end, %while.end.us
-  %.us-phi60193 = phi i1 [ %cmp1448.us, %while.end.us ], [ false, %while.end ]
+  %.us-phi60193 = phi i1 [ true, %while.end.us ], [ false, %while.end ]
   %.us-phi59190 = phi i32 [ %rule.09.us, %while.end.us ], [ %.us-phi59191, %while.end ]
   %.us-phi = phi i32 [ -1, %while.end.us ], [ %alg_enc.0, %while.end ]
   %.us-phi97 = phi i32 [ -1, %while.end.us ], [ %alg_mac.0, %while.end ]
@@ -3534,12 +3531,12 @@ if.end226.fold.split:                             ; preds = %for.end211
 if.end226:                                        ; preds = %for.end211, %for.end211
   br i1 %.us-phi60192, label %if.then229, label %if.else266
 
-if.then229:                                       ; preds = %if.end226.fold.split, %for.end211.thread, %if.then224, %if.end226
-  %l.246233262 = phi ptr [ %l.246, %if.then224 ], [ %l.246, %if.end226 ], [ %l.17.us, %for.end211.thread ], [ %l.246, %if.end226.fold.split ]
-  %buf_len.0.lcssa37235261 = phi i64 [ %buf_len.0.lcssa37, %if.then224 ], [ %buf_len.0.lcssa37, %if.end226 ], [ %buf_len.0.us, %for.end211.thread ], [ %buf_len.0.lcssa37, %if.end226.fold.split ]
-  %l.4241258 = phi ptr [ %l.4, %if.then224 ], [ %l.4, %if.end226 ], [ %l.3.us, %for.end211.thread ], [ %l.4, %if.end226.fold.split ]
-  %retval1.2246255 = phi i32 [ %retval1.2, %if.then224 ], [ %retval1.2, %if.end226 ], [ %retval1.0.ph118, %for.end211.thread ], [ %retval1.2, %if.end226.fold.split ]
-  %in_group.2248254 = phi i32 [ %in_group.2, %if.then224 ], [ %in_group.2, %if.end226 ], [ 0, %for.end211.thread ], [ %in_group.2, %if.end226.fold.split ]
+if.then229:                                       ; preds = %while.end.us, %if.end226.fold.split, %if.then224, %if.end226
+  %l.246233262 = phi ptr [ %l.246, %if.then224 ], [ %l.246, %if.end226 ], [ %l.246, %if.end226.fold.split ], [ %l.17.us, %while.end.us ]
+  %buf_len.0.lcssa37235261 = phi i64 [ %buf_len.0.lcssa37, %if.then224 ], [ %buf_len.0.lcssa37, %if.end226 ], [ %buf_len.0.lcssa37, %if.end226.fold.split ], [ %buf_len.0.us, %while.end.us ]
+  %l.4241258 = phi ptr [ %l.4, %if.then224 ], [ %l.4, %if.end226 ], [ %l.4, %if.end226.fold.split ], [ %l.3.us, %while.end.us ]
+  %retval1.2246255 = phi i32 [ %retval1.2, %if.then224 ], [ %retval1.2, %if.end226 ], [ %retval1.2, %if.end226.fold.split ], [ %retval1.0.ph118, %while.end.us ]
+  %in_group.2248254 = phi i32 [ %in_group.2, %if.then224 ], [ %in_group.2, %if.end226 ], [ %in_group.2, %if.end226.fold.split ], [ 0, %while.end.us ]
   %cmp230 = icmp eq i64 %buf_len.0.lcssa37235261, 8
   br i1 %cmp230, label %land.lhs.true232, label %if.else237
 
@@ -3760,32 +3757,19 @@ if.else266:                                       ; preds = %if.end226.fold.spli
   %tobool267.not = icmp eq i32 %skip_rule.1, 0
   br i1 %tobool267.not, label %if.then268, label %if.end270thread-pre-split
 
-if.then268:                                       ; preds = %for.end211.thread, %if.else266
-  %in_group.2248252290 = phi i32 [ %in_group.2, %if.else266 ], [ 0, %for.end211.thread ]
-  %retval1.2246256289 = phi i32 [ %retval1.2, %if.else266 ], [ %retval1.0.ph118, %for.end211.thread ]
-  %l.4241259288 = phi ptr [ %l.4, %if.else266 ], [ %l.3.us, %for.end211.thread ]
-  %min_version.1239260287 = phi i16 [ %min_version.1, %if.else266 ], [ 0, %for.end211.thread ]
-  %.us-phi59189231263286 = phi i32 [ %.us-phi59189, %if.else266 ], [ %rule.09.us, %for.end211.thread ]
-  %alg_enc.4264285 = phi i32 [ %alg_enc.4264, %if.else266 ], [ -1, %for.end211.thread ]
-  %alg_mac.4265284 = phi i32 [ %alg_mac.4265, %if.else266 ], [ -1, %for.end211.thread ]
-  %alg_auth.4266283 = phi i32 [ %alg_auth.4266, %if.else266 ], [ -1, %for.end211.thread ]
-  %cipher_id.3267282 = phi i32 [ %cipher_id.3267, %if.else266 ], [ 0, %for.end211.thread ]
-  %alg_mkey.4268281 = phi i32 [ %alg_mkey.4268, %if.else266 ], [ -1, %for.end211.thread ]
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3267282, i32 noundef %alg_mkey.4268281, i32 noundef %alg_auth.4266283, i32 noundef %alg_enc.4264285, i32 noundef %alg_mac.4265284, i16 noundef zeroext %min_version.1239260287, i32 noundef %.us-phi59189231263286, i32 noundef -1, i32 noundef %in_group.2248252290, ptr noundef %head_p, ptr noundef %tail_p)
+if.then268:                                       ; preds = %if.else266
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3267, i32 noundef %alg_mkey.4268, i32 noundef %alg_auth.4266, i32 noundef %alg_enc.4264, i32 noundef %alg_mac.4265, i16 noundef zeroext %min_version.1, i32 noundef %.us-phi59189, i32 noundef -1, i32 noundef %in_group.2, ptr noundef %head_p, ptr noundef %tail_p)
   br label %if.end270thread-pre-split
 
 if.end270thread-pre-split:                        ; preds = %if.then268, %if.else266
-  %in_group.2248253.ph = phi i32 [ %in_group.2248252290, %if.then268 ], [ %in_group.2, %if.else266 ]
-  %l.6.ph = phi ptr [ %l.4241259288, %if.then268 ], [ %l.4, %if.else266 ]
-  %retval1.4.ph = phi i32 [ %retval1.2246256289, %if.then268 ], [ %retval1.2, %if.else266 ]
-  %.pr = load i8, ptr %l.6.ph, align 1
+  %.pr = load i8, ptr %l.4, align 1
   br label %if.end270
 
 if.end270:                                        ; preds = %while.cond243, %while.cond243, %while.cond243, %while.cond243, %while.cond243, %if.end270thread-pre-split
   %47 = phi i8 [ %.pr, %if.end270thread-pre-split ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ]
-  %in_group.2248253 = phi i32 [ %in_group.2248253.ph, %if.end270thread-pre-split ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ]
-  %l.6 = phi ptr [ %l.6.ph, %if.end270thread-pre-split ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ]
-  %retval1.4 = phi i32 [ %retval1.4.ph, %if.end270thread-pre-split ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ]
+  %in_group.2248253 = phi i32 [ %in_group.2, %if.end270thread-pre-split ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ]
+  %l.6 = phi ptr [ %l.4, %if.end270thread-pre-split ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ]
+  %retval1.4 = phi i32 [ %retval1.2, %if.end270thread-pre-split ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ]
   %cmp527986 = icmp eq i8 %47, 0
   br i1 %cmp527986, label %for.end271, label %if.end.lr.ph.lr.ph.lr.ph
 

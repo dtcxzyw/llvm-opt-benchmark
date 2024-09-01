@@ -244,10 +244,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr nocapture noundef readonly %0, ptr
   %wide.trip.count58 = zext nneg i32 %3 to i64
   br label %.lr.ph46
 
-.preheader42:                                     ; preds = %._crit_edge
-  br i1 %6, label %.preheader.preheader, label %._crit_edge53
-
-.preheader.preheader:                             ; preds = %.preheader42
+.preheader.preheader:                             ; preds = %._crit_edge
   %7 = zext nneg i32 %3 to i64
   %8 = zext nneg i32 %3 to i64
   br label %.preheader
@@ -286,7 +283,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr nocapture noundef readonly %0, ptr
 ._crit_edge:                                      ; preds = %16, %.lr.ph46
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.preheader42, label %.lr.ph46, !llvm.loop !13
+  br i1 %exitcond59.not, label %.preheader.preheader, label %.lr.ph46, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge49
   %indvars.iv60 = phi i64 [ %7, %.preheader.preheader ], [ %indvars.iv.next61, %._crit_edge49 ]
@@ -333,7 +330,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr nocapture noundef readonly %0, ptr
   %46 = icmp sgt i64 %indvars.iv60, 1
   br i1 %46, label %.preheader, label %._crit_edge53, !llvm.loop !15
 
-._crit_edge53:                                    ; preds = %._crit_edge49, %5, %.preheader42
+._crit_edge53:                                    ; preds = %._crit_edge49, %5
   ret void
 }
 

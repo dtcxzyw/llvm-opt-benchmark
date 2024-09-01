@@ -1123,14 +1123,11 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   %99 = getelementptr inbounds i8, ptr %0, i64 88
   %100 = getelementptr inbounds i8, ptr %0, i64 10644
   call void @initColorCube(ptr noundef nonnull %7, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %100) #16
-  br i1 %88, label %.lr.ph87.preheader, label %._crit_edge88
-
-.lr.ph87.preheader:                               ; preds = %._crit_edge
   %wide.trip.count93 = zext nneg i32 %75 to i64
   br label %.lr.ph87
 
-.lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next91, %.lr.ph87 ]
+.lr.ph87:                                         ; preds = %._crit_edge, %.lr.ph87
+  %indvars.iv90 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next91, %.lr.ph87 ]
   %101 = getelementptr inbounds [256 x i64], ptr %8, i64 0, i64 %indvars.iv90
   %102 = load i64, ptr %101, align 8
   %103 = getelementptr inbounds [256 x %struct.XColor], ptr %9, i64 0, i64 %indvars.iv90
@@ -1158,10 +1155,10 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !9
 
-._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge.thread, %._crit_edge
-  %119 = phi ptr [ %91, %._crit_edge.thread ], [ %100, %._crit_edge ], [ %100, %.lr.ph87 ]
-  %120 = phi ptr [ %90, %._crit_edge.thread ], [ %99, %._crit_edge ], [ %99, %.lr.ph87 ]
-  %121 = phi ptr [ %89, %._crit_edge.thread ], [ %98, %._crit_edge ], [ %98, %.lr.ph87 ]
+._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge.thread
+  %119 = phi ptr [ %91, %._crit_edge.thread ], [ %100, %.lr.ph87 ]
+  %120 = phi ptr [ %90, %._crit_edge.thread ], [ %99, %.lr.ph87 ]
+  %121 = phi ptr [ %89, %._crit_edge.thread ], [ %98, %.lr.ph87 ]
   %122 = load ptr, ptr %13, align 8
   %123 = load i64, ptr %87, align 8
   %124 = call i32 @XStoreColors(ptr noundef %122, i64 noundef %123, ptr noundef nonnull %9, i32 noundef %75) #16

@@ -470,12 +470,12 @@ define dso_local void @sortDumpableObjects(ptr nocapture noundef %0, i32 noundef
   br i1 %exitcond130.i, label %TopoSort.exit, label %.lr.ph108.i, !llvm.loop !12
 
 TopoSort.exit:                                    ; preds = %104, %._crit_edge104.i
-  %.not84.i94 = phi i1 [ true, %._crit_edge104.i ], [ false, %104 ]
+  %.not84.i86 = phi i1 [ true, %._crit_edge104.i ], [ false, %104 ]
   %.0 = phi i32 [ %1, %._crit_edge104.i ], [ %.2.i, %104 ]
   call void @binaryheap_free(ptr noundef nonnull %13) #9
   call void @free(ptr noundef %17) #9
   call void @free(ptr noundef %18) #9
-  br i1 %.not84.i94, label %829, label %105
+  br i1 %.not84.i86, label %829, label %105
 
 105:                                              ; preds = %TopoSort.exit
   %106 = call i32 @getMaxDumpId() #9
@@ -490,20 +490,20 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %115 = call ptr @pg_malloc(i64 noundef %9) #9
   %invariant.gep.i = getelementptr i8, ptr %115, i64 8
   %116 = icmp sgt i32 %.0, 0
-  br i1 %116, label %.lr.ph60.i, label %.critedge.i
+  br i1 %116, label %.lr.ph70.i, label %.critedge.i
 
-.lr.ph60.i:                                       ; preds = %105
-  %wide.trip.count85.i = zext nneg i32 %.0 to i64
+.lr.ph70.i:                                       ; preds = %105
+  %wide.trip.count95.i = zext nneg i32 %.0 to i64
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph60.i
-  %indvars.iv83.ph.i = phi i64 [ %indvars.iv.next8492.i, %.loopexit.thread.i ], [ 0, %.lr.ph60.i ]
-  %.02559.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph60.i ]
+.outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph70.i
+  %indvars.iv93.ph.i = phi i64 [ %indvars.iv.next94107.i, %.loopexit.thread.i ], [ 0, %.lr.ph70.i ]
+  %.02569.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph70.i ]
   br label %117
 
 117:                                              ; preds = %.loopexit.i12, %.outer.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %.loopexit.i12 ], [ %indvars.iv83.ph.i, %.outer.i ]
-  %118 = getelementptr ptr, ptr %10, i64 %indvars.iv83.i
+  %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %.loopexit.i12 ], [ %indvars.iv93.ph.i, %.outer.i ]
+  %118 = getelementptr ptr, ptr %10, i64 %indvars.iv93.i
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 12
   %121 = load i32, ptr %120, align 4
@@ -513,8 +513,8 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 
 124:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
-  %.not500.not.i.i = icmp eq i32 %122, 2
-  br i1 %.not500.not.i.i, label %125, label %.critedge273.i.i
+  %.not552.i.i = icmp eq i32 %122, 2
+  br i1 %.not552.i.i, label %125, label %.critedge273.i.i
 
 125:                                              ; preds = %124
   %126 = load ptr, ptr %115, align 8
@@ -525,7 +525,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   br i1 %128, label %131, label %146
 
 131:                                              ; preds = %125
-  switch i32 %130, label %.lr.ph374.preheader.i.i [
+  switch i32 %130, label %.lr.ph369.preheader.i.i [
     i32 4, label %132
     i32 20, label %374
   ]
@@ -595,7 +595,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 165:                                              ; preds = %.critedge.i.i
   %166 = getelementptr inbounds i8, ptr %126, i64 104
   %167 = load i8, ptr %166, align 8
-  switch i8 %167, label %.lr.ph374.preheader.i.i [
+  switch i8 %167, label %.lr.ph369.preheader.i.i [
     i8 118, label %168
     i8 109, label %168
   ]
@@ -604,19 +604,19 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %169 = getelementptr inbounds i8, ptr %129, i64 72
   %170 = load i8, ptr %169, align 8
   %171 = icmp eq i8 %170, 49
-  br i1 %171, label %172, label %.lr.ph374.preheader.i.i
+  br i1 %171, label %172, label %.lr.ph369.preheader.i.i
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds i8, ptr %129, i64 73
   %174 = load i8, ptr %173, align 1
   %175 = trunc i8 %174 to i1
-  br i1 %175, label %176, label %.lr.ph374.preheader.i.i
+  br i1 %175, label %176, label %.lr.ph369.preheader.i.i
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds i8, ptr %129, i64 64
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, %126
-  br i1 %179, label %180, label %.lr.ph374.preheader.i.i
+  br i1 %179, label %180, label %.lr.ph369.preheader.i.i
 
 180:                                              ; preds = %176
   %181 = getelementptr i8, ptr %126, i64 12
@@ -633,7 +633,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 184:                                              ; preds = %.critedge272.i.i
   %185 = getelementptr inbounds i8, ptr %129, i64 104
   %186 = load i8, ptr %185, align 8
-  switch i8 %186, label %.lr.ph374.preheader.i.i [
+  switch i8 %186, label %.lr.ph369.preheader.i.i [
     i8 118, label %187
     i8 109, label %187
   ]
@@ -642,19 +642,19 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %188 = getelementptr inbounds i8, ptr %126, i64 72
   %189 = load i8, ptr %188, align 8
   %190 = icmp eq i8 %189, 49
-  br i1 %190, label %191, label %.lr.ph374.preheader.i.i
+  br i1 %190, label %191, label %.lr.ph369.preheader.i.i
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %126, i64 73
   %193 = load i8, ptr %192, align 1
   %194 = trunc i8 %193 to i1
-  br i1 %194, label %195, label %.lr.ph374.preheader.i.i
+  br i1 %194, label %195, label %.lr.ph369.preheader.i.i
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds i8, ptr %126, i64 64
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, %129
-  br i1 %198, label %199, label %.lr.ph374.preheader.i.i
+  br i1 %198, label %199, label %.lr.ph369.preheader.i.i
 
 199:                                              ; preds = %195
   %200 = getelementptr i8, ptr %129, i64 12
@@ -664,32 +664,32 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 
 .critedge273.i.i:                                 ; preds = %124
   %201 = icmp ugt i32 %122, 2
-  br i1 %201, label %.preheader326.split.us.preheader.i.i, label %.critedge283.thread.i.i
+  br i1 %201, label %.preheader325.split.us.preheader.i.i, label %.critedge283.thread.i.i
 
-.preheader326.split.us.preheader.i.i:             ; preds = %.critedge273.i.i
-  %wide.trip.count425.i.i = zext nneg i32 %122 to i64
-  br label %.preheader326.split.us.i.i
+.preheader325.split.us.preheader.i.i:             ; preds = %.critedge273.i.i
+  %wide.trip.count421.i.i = zext nneg i32 %122 to i64
+  br label %.preheader325.split.us.i.i
 
-.preheader326.split.us.i.i:                       ; preds = %..loopexit325_crit_edge.us.i.i, %.preheader326.split.us.preheader.i.i
-  %indvars.iv422.i.i = phi i64 [ 0, %.preheader326.split.us.preheader.i.i ], [ %indvars.iv.next423.i.i, %..loopexit325_crit_edge.us.i.i ]
-  %202 = getelementptr ptr, ptr %115, i64 %indvars.iv422.i.i
+.preheader325.split.us.i.i:                       ; preds = %..loopexit324_crit_edge.us.i.i, %.preheader325.split.us.preheader.i.i
+  %indvars.iv418.i.i = phi i64 [ 0, %.preheader325.split.us.preheader.i.i ], [ %indvars.iv.next419.i.i, %..loopexit324_crit_edge.us.i.i ]
+  %202 = getelementptr ptr, ptr %115, i64 %indvars.iv418.i.i
   %203 = load ptr, ptr %202, align 8
   %204 = load i32, ptr %203, align 8
   %205 = icmp eq i32 %204, 12
-  br i1 %205, label %206, label %..loopexit325_crit_edge.us.i.i
+  br i1 %205, label %206, label %..loopexit324_crit_edge.us.i.i
 
-206:                                              ; preds = %.preheader326.split.us.i.i
+206:                                              ; preds = %.preheader325.split.us.i.i
   %207 = getelementptr inbounds i8, ptr %203, i64 104
   %208 = load i8, ptr %207, align 8
   %209 = icmp eq i8 %208, 118
-  br i1 %209, label %.preheader324.us.i.i, label %..loopexit325_crit_edge.us.i.i
+  br i1 %209, label %.preheader323.us.i.i, label %..loopexit324_crit_edge.us.i.i
 
-..loopexit325_crit_edge.us.i.i:                   ; preds = %226, %206, %.preheader326.split.us.i.i
-  %indvars.iv.next423.i.i = add nuw nsw i64 %indvars.iv422.i.i, 1
-  %exitcond426.not.i.i = icmp eq i64 %indvars.iv.next423.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond426.not.i.i, label %.lr.ph348.i.i, label %.preheader326.split.us.i.i, !llvm.loop !13
+..loopexit324_crit_edge.us.i.i:                   ; preds = %226, %206, %.preheader325.split.us.i.i
+  %indvars.iv.next419.i.i = add nuw nsw i64 %indvars.iv418.i.i, 1
+  %exitcond422.not.i.i = icmp eq i64 %indvars.iv.next419.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond422.not.i.i, label %.lr.ph345.i.i, label %.preheader325.split.us.i.i, !llvm.loop !13
 
-.preheader324.us.i.i:                             ; preds = %206, %226
+.preheader323.us.i.i:                             ; preds = %206, %226
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %226 ], [ 0, %206 ]
   %210 = getelementptr ptr, ptr %115, i64 %indvars.iv.i.i
   %211 = load ptr, ptr %210, align 8
@@ -697,7 +697,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %213 = icmp eq i32 %212, 18
   br i1 %213, label %214, label %226
 
-214:                                              ; preds = %.preheader324.us.i.i
+214:                                              ; preds = %.preheader323.us.i.i
   %215 = getelementptr inbounds i8, ptr %211, i64 72
   %216 = load i8, ptr %215, align 8
   %217 = icmp eq i8 %216, 49
@@ -713,14 +713,14 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %223 = getelementptr inbounds i8, ptr %211, i64 64
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, %203
-  br i1 %225, label %.split343.us.i.i, label %226
+  br i1 %225, label %.split.us.i.i, label %226
 
-226:                                              ; preds = %222, %218, %214, %.preheader324.us.i.i
+226:                                              ; preds = %222, %218, %214, %.preheader323.us.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond.not.i.i, label %..loopexit325_crit_edge.us.i.i, label %.preheader324.us.i.i, !llvm.loop !14
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond.not.i.i, label %..loopexit324_crit_edge.us.i.i, label %.preheader323.us.i.i, !llvm.loop !14
 
-.split343.us.i.i:                                 ; preds = %222
+.split.us.i.i:                                    ; preds = %222
   %227 = getelementptr inbounds i8, ptr %211, i64 12
   %228 = load i32, ptr %227, align 4
   call void @removeObjectDependency(ptr noundef nonnull %203, i32 noundef %228) #9
@@ -735,104 +735,104 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @addObjectDependency(ptr noundef nonnull %211, i32 noundef %233) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph348.i.i:                                    ; preds = %..loopexit325_crit_edge.us.i.i, %.loopexit322.i.i
-  %indvars.iv432.i.i = phi i64 [ %indvars.iv.next433.i.i, %.loopexit322.i.i ], [ 0, %..loopexit325_crit_edge.us.i.i ]
-  %234 = getelementptr ptr, ptr %115, i64 %indvars.iv432.i.i
+.lr.ph350.split.us.i.i:                           ; preds = %.loopexit321.i.i, %.critedge275.us.i.i
+  %indvars.iv438.i.i = phi i64 [ %indvars.iv.next439.i.i, %.critedge275.us.i.i ], [ 0, %.loopexit321.i.i ]
+  %234 = getelementptr ptr, ptr %115, i64 %indvars.iv438.i.i
   %235 = load ptr, ptr %234, align 8
   %236 = load i32, ptr %235, align 8
-  %237 = icmp eq i32 %236, 12
-  br i1 %237, label %238, label %.loopexit322.i.i
+  %237 = icmp eq i32 %236, 4
+  br i1 %237, label %.preheader318.us.i.i, label %.critedge275.us.i.i
 
-238:                                              ; preds = %.lr.ph348.i.i
-  %239 = getelementptr inbounds i8, ptr %235, i64 104
-  %240 = load i8, ptr %239, align 8
-  %.not392.i.i = icmp eq i8 %240, 109
-  br i1 %.not392.i.i, label %.lr.ph.i.i, label %.loopexit322.i.i
+.critedge275.us.i.i:                              ; preds = %242, %.lr.ph350.split.us.i.i
+  %indvars.iv.next439.i.i = add nuw nsw i64 %indvars.iv438.i.i, 1
+  %exitcond443.not.i.i = icmp eq i64 %indvars.iv.next439.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond443.not.i.i, label %.lr.ph357.split.us.i.i, label %.lr.ph350.split.us.i.i, !llvm.loop !15
 
-.lr.ph.i.i:                                       ; preds = %238, %260
-  %indvars.iv427.i.i = phi i64 [ %indvars.iv.next428.i.i, %260 ], [ 0, %238 ]
-  %241 = getelementptr ptr, ptr %115, i64 %indvars.iv427.i.i
-  %242 = load ptr, ptr %241, align 8
-  %243 = load i32, ptr %242, align 8
-  %244 = icmp eq i32 %243, 37
-  br i1 %244, label %245, label %260
+.preheader318.us.i.i:                             ; preds = %.lr.ph350.split.us.i.i, %242
+  %indvars.iv433.i.i = phi i64 [ %indvars.iv.next434.i.i, %242 ], [ 0, %.lr.ph350.split.us.i.i ]
+  %238 = getelementptr ptr, ptr %115, i64 %indvars.iv433.i.i
+  %239 = load ptr, ptr %238, align 8
+  %240 = load i32, ptr %239, align 8
+  %241 = icmp eq i32 %240, 37
+  br i1 %241, label %.split.us351.i.i, label %242
 
-245:                                              ; preds = %.lr.ph.i.i
-  %246 = trunc nuw nsw i64 %indvars.iv427.i.i to i32
-  %247 = add nsw i32 %122, -1
-  %248 = icmp sgt i32 %247, %246
-  %gep57.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv427.i.i
-  %.in271.i.i = select i1 %248, ptr %gep57.i, ptr %115
-  %249 = load ptr, ptr %.in271.i.i, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 12
-  %251 = load i32, ptr %250, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %242, i32 noundef %251) #9
-  %252 = load i32, ptr %249, align 8
-  %253 = icmp eq i32 %252, 12
-  br i1 %253, label %254, label %.lr.ph.preheader.i
+242:                                              ; preds = %.preheader318.us.i.i
+  %indvars.iv.next434.i.i = add nuw nsw i64 %indvars.iv433.i.i, 1
+  %exitcond437.not.i.i = icmp eq i64 %indvars.iv.next434.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond437.not.i.i, label %.critedge275.us.i.i, label %.preheader318.us.i.i, !llvm.loop !16
 
-254:                                              ; preds = %245
-  %255 = getelementptr inbounds i8, ptr %249, i64 104
-  %256 = load i8, ptr %255, align 8
-  %257 = icmp eq i8 %256, 109
-  br i1 %257, label %258, label %.lr.ph.preheader.i
+.lr.ph345.i.i:                                    ; preds = %..loopexit324_crit_edge.us.i.i, %.loopexit321.i.i
+  %indvars.iv428.i.i = phi i64 [ %indvars.iv.next429.i.i, %.loopexit321.i.i ], [ 0, %..loopexit324_crit_edge.us.i.i ]
+  %243 = getelementptr ptr, ptr %115, i64 %indvars.iv428.i.i
+  %244 = load ptr, ptr %243, align 8
+  %245 = load i32, ptr %244, align 8
+  %246 = icmp eq i32 %245, 12
+  br i1 %246, label %247, label %.loopexit321.i.i
 
-258:                                              ; preds = %254
-  %259 = getelementptr inbounds i8, ptr %249, i64 210
-  store i8 1, ptr %259, align 2
+247:                                              ; preds = %.lr.ph345.i.i
+  %248 = getelementptr inbounds i8, ptr %244, i64 104
+  %249 = load i8, ptr %248, align 8
+  %.not388.i.i = icmp eq i8 %249, 109
+  br i1 %.not388.i.i, label %.lr.ph.i.i, label %.loopexit321.i.i
+
+.lr.ph.i.i:                                       ; preds = %247, %269
+  %indvars.iv423.i.i = phi i64 [ %indvars.iv.next424.i.i, %269 ], [ 0, %247 ]
+  %250 = getelementptr ptr, ptr %115, i64 %indvars.iv423.i.i
+  %251 = load ptr, ptr %250, align 8
+  %252 = load i32, ptr %251, align 8
+  %253 = icmp eq i32 %252, 37
+  br i1 %253, label %254, label %269
+
+254:                                              ; preds = %.lr.ph.i.i
+  %255 = trunc nuw nsw i64 %indvars.iv423.i.i to i32
+  %256 = add nsw i32 %122, -1
+  %257 = icmp sgt i32 %256, %255
+  %gep67.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv423.i.i
+  %.in271.i.i = select i1 %257, ptr %gep67.i, ptr %115
+  %258 = load ptr, ptr %.in271.i.i, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 12
+  %260 = load i32, ptr %259, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %251, i32 noundef %260) #9
+  %261 = load i32, ptr %258, align 8
+  %262 = icmp eq i32 %261, 12
+  br i1 %262, label %263, label %.lr.ph.preheader.i
+
+263:                                              ; preds = %254
+  %264 = getelementptr inbounds i8, ptr %258, i64 104
+  %265 = load i8, ptr %264, align 8
+  %266 = icmp eq i8 %265, 109
+  br i1 %266, label %267, label %.lr.ph.preheader.i
+
+267:                                              ; preds = %263
+  %268 = getelementptr inbounds i8, ptr %258, i64 210
+  store i8 1, ptr %268, align 2
   br label %.lr.ph.preheader.i
 
-260:                                              ; preds = %.lr.ph.i.i
-  %indvars.iv.next428.i.i = add nuw nsw i64 %indvars.iv427.i.i, 1
-  %exitcond431.not.i.i = icmp eq i64 %indvars.iv.next428.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond431.not.i.i, label %.loopexit322.i.i, label %.lr.ph.i.i, !llvm.loop !15
+269:                                              ; preds = %.lr.ph.i.i
+  %indvars.iv.next424.i.i = add nuw nsw i64 %indvars.iv423.i.i, 1
+  %exitcond427.not.i.i = icmp eq i64 %indvars.iv.next424.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond427.not.i.i, label %.loopexit321.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
-.loopexit322.i.i:                                 ; preds = %260, %238, %.lr.ph348.i.i
-  %indvars.iv.next433.i.i = add nuw nsw i64 %indvars.iv432.i.i, 1
-  %exitcond436.not.i.i = icmp eq i64 %indvars.iv.next433.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond436.not.i.i, label %.lr.ph353.split.us.i.i, label %.lr.ph348.i.i, !llvm.loop !16
+.loopexit321.i.i:                                 ; preds = %269, %247, %.lr.ph345.i.i
+  %indvars.iv.next429.i.i = add nuw nsw i64 %indvars.iv428.i.i, 1
+  %exitcond432.not.i.i = icmp eq i64 %indvars.iv.next429.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond432.not.i.i, label %.lr.ph350.split.us.i.i, label %.lr.ph345.i.i, !llvm.loop !18
 
-.lr.ph353.split.us.i.i:                           ; preds = %.loopexit322.i.i, %..loopexit319_crit_edge.us.i.i
-  %indvars.iv442.i.i = phi i64 [ %indvars.iv.next443.i.i, %..loopexit319_crit_edge.us.i.i ], [ 0, %.loopexit322.i.i ]
-  %261 = getelementptr ptr, ptr %115, i64 %indvars.iv442.i.i
-  %262 = load ptr, ptr %261, align 8
-  %263 = load i32, ptr %262, align 8
-  %264 = icmp eq i32 %263, 4
-  br i1 %264, label %.preheader318.us.i.i, label %..loopexit319_crit_edge.us.i.i
-
-..loopexit319_crit_edge.us.i.i:                   ; preds = %269, %.lr.ph353.split.us.i.i
-  %indvars.iv.next443.i.i = add nuw nsw i64 %indvars.iv442.i.i, 1
-  %exitcond447.not.i.i = icmp eq i64 %indvars.iv.next443.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond447.not.i.i, label %.lr.ph361.split.us.i.i, label %.lr.ph353.split.us.i.i, !llvm.loop !17
-
-.preheader318.us.i.i:                             ; preds = %.lr.ph353.split.us.i.i, %269
-  %indvars.iv437.i.i = phi i64 [ %indvars.iv.next438.i.i, %269 ], [ 0, %.lr.ph353.split.us.i.i ]
-  %265 = getelementptr ptr, ptr %115, i64 %indvars.iv437.i.i
-  %266 = load ptr, ptr %265, align 8
-  %267 = load i32, ptr %266, align 8
-  %268 = icmp eq i32 %267, 37
-  br i1 %268, label %.split355.us.i.i, label %269
-
-269:                                              ; preds = %.preheader318.us.i.i
-  %indvars.iv.next438.i.i = add nuw nsw i64 %indvars.iv437.i.i, 1
-  %exitcond441.not.i.i = icmp eq i64 %indvars.iv.next438.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond441.not.i.i, label %..loopexit319_crit_edge.us.i.i, label %.preheader318.us.i.i, !llvm.loop !18
-
-.split355.us.i.i:                                 ; preds = %.preheader318.us.i.i
-  %270 = trunc nuw nsw i64 %indvars.iv437.i.i to i32
+.split.us351.i.i:                                 ; preds = %.preheader318.us.i.i
+  %270 = trunc nuw nsw i64 %indvars.iv433.i.i to i32
   %271 = add nsw i32 %122, -1
   %272 = icmp sgt i32 %271, %270
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv437.i.i
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv433.i.i
   %.in.i.i = select i1 %272, ptr %gep.i, ptr %115
   %273 = load ptr, ptr %.in.i.i, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 12
   %275 = load i32, ptr %274, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %266, i32 noundef %275) #9
+  call void @removeObjectDependency(ptr noundef nonnull %239, i32 noundef %275) #9
   %276 = load i32, ptr %273, align 8
   %277 = icmp eq i32 %276, 4
   br i1 %277, label %278, label %.lr.ph.preheader.i
 
-278:                                              ; preds = %.split355.us.i.i
+278:                                              ; preds = %.split.us351.i.i
   %279 = getelementptr inbounds i8, ptr %273, i64 124
   store i8 1, ptr %279, align 4
   br label %.lr.ph.preheader.i
@@ -841,7 +841,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   br i1 %163, label %280, label %291
 
 280:                                              ; preds = %.critedge276.thread.i.i
-  switch i32 %130, label %.lr.ph374.preheader.i.i [
+  switch i32 %130, label %.lr.ph369.preheader.i.i [
     i32 20, label %281
     i32 14, label %326
   ]
@@ -850,13 +850,13 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %282 = getelementptr inbounds i8, ptr %129, i64 80
   %283 = load i8, ptr %282, align 8
   %284 = icmp eq i8 %283, 99
-  br i1 %284, label %285, label %.lr.ph374.preheader.i.i
+  br i1 %284, label %285, label %.lr.ph369.preheader.i.i
 
 285:                                              ; preds = %281
   %286 = getelementptr inbounds i8, ptr %129, i64 64
   %287 = load ptr, ptr %286, align 8
   %288 = icmp eq ptr %287, %126
-  br i1 %288, label %289, label %.lr.ph374.preheader.i.i
+  br i1 %288, label %289, label %.lr.ph369.preheader.i.i
 
 289:                                              ; preds = %285
   %290 = getelementptr i8, ptr %126, i64 12
@@ -867,19 +867,19 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 291:                                              ; preds = %.critedge276.thread.i.i
   %292 = icmp eq i32 %127, 20
   %or.cond306.i.i = and i1 %292, %182
-  br i1 %or.cond306.i.i, label %293, label %._crit_edge493.i.i
+  br i1 %or.cond306.i.i, label %293, label %._crit_edge489.i.i
 
 293:                                              ; preds = %291
   %294 = getelementptr inbounds i8, ptr %126, i64 80
   %295 = load i8, ptr %294, align 8
   %296 = icmp eq i8 %295, 99
-  br i1 %296, label %297, label %.lr.ph374.preheader.i.i
+  br i1 %296, label %297, label %.lr.ph369.preheader.i.i
 
 297:                                              ; preds = %293
   %298 = getelementptr inbounds i8, ptr %126, i64 64
   %299 = load ptr, ptr %298, align 8
   %300 = icmp eq ptr %299, %129
-  br i1 %300, label %301, label %.lr.ph374.preheader.i.i
+  br i1 %300, label %301, label %.lr.ph369.preheader.i.i
 
 301:                                              ; preds = %297
   %302 = getelementptr i8, ptr %129, i64 12
@@ -887,22 +887,22 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %126, i32 noundef %.val286.i.i) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph361.split.us.i.i:                           ; preds = %..loopexit319_crit_edge.us.i.i, %..loopexit315_crit_edge.us.i.i
-  %indvars.iv453.i.i = phi i64 [ %indvars.iv.next454.i.i, %..loopexit315_crit_edge.us.i.i ], [ 0, %..loopexit319_crit_edge.us.i.i ]
-  %303 = getelementptr ptr, ptr %115, i64 %indvars.iv453.i.i
+.lr.ph357.split.us.i.i:                           ; preds = %.critedge275.us.i.i, %..loopexit315_crit_edge.us.i.i
+  %indvars.iv449.i.i = phi i64 [ %indvars.iv.next450.i.i, %..loopexit315_crit_edge.us.i.i ], [ 0, %.critedge275.us.i.i ]
+  %303 = getelementptr ptr, ptr %115, i64 %indvars.iv449.i.i
   %304 = load ptr, ptr %303, align 8
   %305 = load i32, ptr %304, align 8
   %306 = icmp eq i32 %305, 12
   br i1 %306, label %.preheader314.us.i.i, label %..loopexit315_crit_edge.us.i.i
 
-..loopexit315_crit_edge.us.i.i:                   ; preds = %319, %.lr.ph361.split.us.i.i
-  %indvars.iv.next454.i.i = add nuw nsw i64 %indvars.iv453.i.i, 1
-  %exitcond457.not.i.i = icmp eq i64 %indvars.iv.next454.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond457.not.i.i, label %.preheader312.i.i, label %.lr.ph361.split.us.i.i, !llvm.loop !19
+..loopexit315_crit_edge.us.i.i:                   ; preds = %319, %.lr.ph357.split.us.i.i
+  %indvars.iv.next450.i.i = add nuw nsw i64 %indvars.iv449.i.i, 1
+  %exitcond453.not.i.i = icmp eq i64 %indvars.iv.next450.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond453.not.i.i, label %.loopexit317.i.i, label %.lr.ph357.split.us.i.i, !llvm.loop !19
 
-.preheader314.us.i.i:                             ; preds = %.lr.ph361.split.us.i.i, %319
-  %indvars.iv448.i.i = phi i64 [ %indvars.iv.next449.i.i, %319 ], [ 0, %.lr.ph361.split.us.i.i ]
-  %307 = getelementptr ptr, ptr %115, i64 %indvars.iv448.i.i
+.preheader314.us.i.i:                             ; preds = %.lr.ph357.split.us.i.i, %319
+  %indvars.iv444.i.i = phi i64 [ %indvars.iv.next445.i.i, %319 ], [ 0, %.lr.ph357.split.us.i.i ]
+  %307 = getelementptr ptr, ptr %115, i64 %indvars.iv444.i.i
   %308 = load ptr, ptr %307, align 8
   %309 = load i32, ptr %308, align 8
   %310 = icmp eq i32 %309, 20
@@ -918,14 +918,14 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %316 = getelementptr inbounds i8, ptr %308, i64 64
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, %304
-  br i1 %318, label %.split363.us.i.i, label %319
+  br i1 %318, label %.split.us358.i.i, label %319
 
 319:                                              ; preds = %315, %311, %.preheader314.us.i.i
-  %indvars.iv.next449.i.i = add nuw nsw i64 %indvars.iv448.i.i, 1
-  %exitcond452.not.i.i = icmp eq i64 %indvars.iv.next449.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond452.not.i.i, label %..loopexit315_crit_edge.us.i.i, label %.preheader314.us.i.i, !llvm.loop !20
+  %indvars.iv.next445.i.i = add nuw nsw i64 %indvars.iv444.i.i, 1
+  %exitcond448.not.i.i = icmp eq i64 %indvars.iv.next445.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond448.not.i.i, label %..loopexit315_crit_edge.us.i.i, label %.preheader314.us.i.i, !llvm.loop !20
 
-.split363.us.i.i:                                 ; preds = %315
+.split.us358.i.i:                                 ; preds = %315
   %320 = getelementptr inbounds i8, ptr %308, i64 12
   %321 = load i32, ptr %320, align 4
   call void @removeObjectDependency(ptr noundef nonnull %304, i32 noundef %321) #9
@@ -942,7 +942,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %327 = getelementptr inbounds i8, ptr %129, i64 64
   %328 = load ptr, ptr %327, align 8
   %329 = icmp eq ptr %328, %126
-  br i1 %329, label %330, label %.lr.ph374.preheader.i.i
+  br i1 %329, label %330, label %.lr.ph369.preheader.i.i
 
 330:                                              ; preds = %326
   %331 = getelementptr i8, ptr %126, i64 12
@@ -950,18 +950,18 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val287.i.i) #9
   br label %.lr.ph.preheader.i
 
-._crit_edge493.i.i:                               ; preds = %291
-  br i1 %182, label %._crit_edge493.i.thread.i, label %.critedge280.i.i
+._crit_edge489.i.i:                               ; preds = %291
+  br i1 %182, label %._crit_edge489.i.thread.i, label %.critedge280.i.i
 
-._crit_edge493.i.thread.i:                        ; preds = %._crit_edge493.i.i
+._crit_edge489.i.thread.i:                        ; preds = %._crit_edge489.i.i
   %cond.i = icmp eq i32 %127, 14
-  br i1 %cond.i, label %332, label %.lr.ph374.preheader.i.i
+  br i1 %cond.i, label %332, label %.lr.ph369.preheader.i.i
 
-332:                                              ; preds = %._crit_edge493.i.thread.i
+332:                                              ; preds = %._crit_edge489.i.thread.i
   %333 = getelementptr inbounds i8, ptr %126, i64 64
   %334 = load ptr, ptr %333, align 8
   %335 = icmp eq ptr %334, %129
-  br i1 %335, label %336, label %.lr.ph374.preheader.i.i
+  br i1 %335, label %336, label %.lr.ph369.preheader.i.i
 
 336:                                              ; preds = %332
   %337 = getelementptr i8, ptr %129, i64 12
@@ -969,7 +969,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %126, i32 noundef %.val288.i.i) #9
   br label %.lr.ph.preheader.i
 
-.critedge280.i.i:                                 ; preds = %._crit_edge493.i.i
+.critedge280.i.i:                                 ; preds = %._crit_edge489.i.i
   %338 = icmp eq i32 %127, 15
   %339 = icmp eq i32 %130, 15
   %or.cond307.i.i = and i1 %338, %339
@@ -995,7 +995,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %351 = getelementptr inbounds i8, ptr %126, i64 8
   %352 = load i32, ptr %351, align 4
   %353 = icmp eq i32 %350, %352
-  br i1 %353, label %354, label %.lr.ph374.preheader.i.i
+  br i1 %353, label %354, label %.lr.ph369.preheader.i.i
 
 354:                                              ; preds = %348
   %355 = getelementptr i8, ptr %126, i64 12
@@ -1003,23 +1003,23 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val290.i.i) #9
   br label %.lr.ph.preheader.i
 
-.preheader312.i.i:                                ; preds = %..loopexit315_crit_edge.us.i.i, %.loopexit311.i.i
-  %indvars.iv463.i.i = phi i64 [ %indvars.iv.next464.i.i, %.loopexit311.i.i ], [ 0, %..loopexit315_crit_edge.us.i.i ]
-  %356 = getelementptr ptr, ptr %115, i64 %indvars.iv463.i.i
+.loopexit317.i.i:                                 ; preds = %..loopexit315_crit_edge.us.i.i, %.loopexit311.i.i
+  %indvars.iv459.i.i = phi i64 [ %indvars.iv.next460.i.i, %.loopexit311.i.i ], [ 0, %..loopexit315_crit_edge.us.i.i ]
+  %356 = getelementptr ptr, ptr %115, i64 %indvars.iv459.i.i
   %357 = load ptr, ptr %356, align 8
   %358 = load i32, ptr %357, align 8
-  %.not393.i.i = icmp eq i32 %358, 12
-  br i1 %.not393.i.i, label %.lr.ph366.i.i, label %.loopexit311.i.i
+  %.not389.i.i = icmp eq i32 %358, 12
+  br i1 %.not389.i.i, label %.lr.ph361.i.i, label %.loopexit311.i.i
 
-.lr.ph366.i.i:                                    ; preds = %.preheader312.i.i, %373
-  %indvars.iv458.i.i = phi i64 [ %indvars.iv.next459.i.i, %373 ], [ 0, %.preheader312.i.i ]
-  %359 = getelementptr ptr, ptr %115, i64 %indvars.iv458.i.i
+.lr.ph361.i.i:                                    ; preds = %.loopexit317.i.i, %373
+  %indvars.iv454.i.i = phi i64 [ %indvars.iv.next455.i.i, %373 ], [ 0, %.loopexit317.i.i ]
+  %359 = getelementptr ptr, ptr %115, i64 %indvars.iv454.i.i
   %360 = load ptr, ptr %359, align 8
   %361 = load i32, ptr %360, align 8
   %362 = icmp eq i32 %361, 14
   br i1 %362, label %363, label %373
 
-363:                                              ; preds = %.lr.ph366.i.i
+363:                                              ; preds = %.lr.ph361.i.i
   %364 = getelementptr inbounds i8, ptr %360, i64 64
   %365 = load ptr, ptr %364, align 8
   %366 = icmp eq ptr %365, %357
@@ -1036,27 +1036,27 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @addObjectDependency(ptr noundef nonnull %360, i32 noundef %372) #9
   br label %.lr.ph.preheader.i
 
-373:                                              ; preds = %363, %.lr.ph366.i.i
-  %indvars.iv.next459.i.i = add nuw nsw i64 %indvars.iv458.i.i, 1
-  %exitcond462.not.i.i = icmp eq i64 %indvars.iv.next459.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond462.not.i.i, label %.loopexit311.i.i, label %.lr.ph366.i.i, !llvm.loop !21
+373:                                              ; preds = %363, %.lr.ph361.i.i
+  %indvars.iv.next455.i.i = add nuw nsw i64 %indvars.iv454.i.i, 1
+  %exitcond458.not.i.i = icmp eq i64 %indvars.iv.next455.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond458.not.i.i, label %.loopexit311.i.i, label %.lr.ph361.i.i, !llvm.loop !21
 
-.loopexit311.i.i:                                 ; preds = %373, %.preheader312.i.i
-  %indvars.iv.next464.i.i = add nuw nsw i64 %indvars.iv463.i.i, 1
-  %exitcond467.not.i.i = icmp eq i64 %indvars.iv.next464.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond467.not.i.i, label %.lr.ph372.i.i, label %.preheader312.i.i, !llvm.loop !22
+.loopexit311.i.i:                                 ; preds = %373, %.loopexit317.i.i
+  %indvars.iv.next460.i.i = add nuw nsw i64 %indvars.iv459.i.i, 1
+  %exitcond463.not.i.i = icmp eq i64 %indvars.iv.next460.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond463.not.i.i, label %.lr.ph367.i.i, label %.loopexit317.i.i, !llvm.loop !22
 
 374:                                              ; preds = %131
   %375 = getelementptr inbounds i8, ptr %129, i64 80
   %376 = load i8, ptr %375, align 8
   %377 = icmp eq i8 %376, 99
-  br i1 %377, label %378, label %.lr.ph374.preheader.i.i
+  br i1 %377, label %378, label %.lr.ph369.preheader.i.i
 
 378:                                              ; preds = %374
   %379 = getelementptr inbounds i8, ptr %129, i64 72
   %380 = load ptr, ptr %379, align 8
   %381 = icmp eq ptr %380, %126
-  br i1 %381, label %382, label %.lr.ph374.preheader.i.i
+  br i1 %381, label %382, label %.lr.ph369.preheader.i.i
 
 382:                                              ; preds = %378
   %383 = getelementptr i8, ptr %126, i64 12
@@ -1066,19 +1066,19 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 
 .thread301.i.i:                                   ; preds = %.critedge280.i.i
   %or.cond308.i.i = and i1 %292, %147
-  br i1 %or.cond308.i.i, label %384, label %.lr.ph374.preheader.i.i
+  br i1 %or.cond308.i.i, label %384, label %.lr.ph369.preheader.i.i
 
 384:                                              ; preds = %.thread301.i.i
   %385 = getelementptr inbounds i8, ptr %126, i64 80
   %386 = load i8, ptr %385, align 8
   %387 = icmp eq i8 %386, 99
-  br i1 %387, label %388, label %.lr.ph374.preheader.i.i
+  br i1 %387, label %388, label %.lr.ph369.preheader.i.i
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds i8, ptr %126, i64 72
   %390 = load ptr, ptr %389, align 8
   %391 = icmp eq ptr %390, %129
-  br i1 %391, label %392, label %.lr.ph374.preheader.i.i
+  br i1 %391, label %392, label %.lr.ph369.preheader.i.i
 
 392:                                              ; preds = %388
   %393 = getelementptr i8, ptr %129, i64 12
@@ -1086,23 +1086,23 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %126, i32 noundef %.val292.i.i) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph372.i.i:                                    ; preds = %.loopexit311.i.i, %.loopexit.i.i
-  %indvars.iv473.i.i = phi i64 [ %indvars.iv.next474.i.i, %.loopexit.i.i ], [ 0, %.loopexit311.i.i ]
-  %394 = getelementptr ptr, ptr %115, i64 %indvars.iv473.i.i
+.lr.ph367.i.i:                                    ; preds = %.loopexit311.i.i, %.loopexit.i.i
+  %indvars.iv469.i.i = phi i64 [ %indvars.iv.next470.i.i, %.loopexit.i.i ], [ 0, %.loopexit311.i.i ]
+  %394 = getelementptr ptr, ptr %115, i64 %indvars.iv469.i.i
   %395 = load ptr, ptr %394, align 8
   %396 = load i32, ptr %395, align 8
-  %.not394.i.i = icmp eq i32 %396, 2
-  br i1 %.not394.i.i, label %.lr.ph370.i.i, label %.loopexit.i.i
+  %.not390.i.i = icmp eq i32 %396, 2
+  br i1 %.not390.i.i, label %.lr.ph365.i.i, label %.loopexit.i.i
 
-.lr.ph370.i.i:                                    ; preds = %.lr.ph372.i.i, %416
-  %indvars.iv468.i.i = phi i64 [ %indvars.iv.next469.i.i, %416 ], [ 0, %.lr.ph372.i.i ]
-  %397 = getelementptr ptr, ptr %115, i64 %indvars.iv468.i.i
+.lr.ph365.i.i:                                    ; preds = %.lr.ph367.i.i, %416
+  %indvars.iv464.i.i = phi i64 [ %indvars.iv.next465.i.i, %416 ], [ 0, %.lr.ph367.i.i ]
+  %397 = getelementptr ptr, ptr %115, i64 %indvars.iv464.i.i
   %398 = load ptr, ptr %397, align 8
   %399 = load i32, ptr %398, align 8
   %400 = icmp eq i32 %399, 20
   br i1 %400, label %401, label %416
 
-401:                                              ; preds = %.lr.ph370.i.i
+401:                                              ; preds = %.lr.ph365.i.i
   %402 = getelementptr inbounds i8, ptr %398, i64 80
   %403 = load i8, ptr %402, align 8
   %404 = icmp eq i8 %403, 99
@@ -1127,25 +1127,25 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @addObjectDependency(ptr noundef nonnull %398, i32 noundef %415) #9
   br label %.lr.ph.preheader.i
 
-416:                                              ; preds = %405, %401, %.lr.ph370.i.i
-  %indvars.iv.next469.i.i = add nuw nsw i64 %indvars.iv468.i.i, 1
-  %exitcond472.not.i.i = icmp eq i64 %indvars.iv.next469.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond472.not.i.i, label %.loopexit.i.i, label %.lr.ph370.i.i, !llvm.loop !23
+416:                                              ; preds = %405, %401, %.lr.ph365.i.i
+  %indvars.iv.next465.i.i = add nuw nsw i64 %indvars.iv464.i.i, 1
+  %exitcond468.not.i.i = icmp eq i64 %indvars.iv.next465.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond468.not.i.i, label %.loopexit.i.i, label %.lr.ph365.i.i, !llvm.loop !23
 
-.loopexit.i.i:                                    ; preds = %416, %.lr.ph372.i.i
-  %indvars.iv.next474.i.i = add nuw nsw i64 %indvars.iv473.i.i, 1
-  %exitcond477.not.i.i = icmp eq i64 %indvars.iv.next474.i.i, %wide.trip.count425.i.i
-  br i1 %exitcond477.not.i.i, label %.critedge283.thread.i.i, label %.lr.ph372.i.i, !llvm.loop !24
+.loopexit.i.i:                                    ; preds = %416, %.lr.ph367.i.i
+  %indvars.iv.next470.i.i = add nuw nsw i64 %indvars.iv469.i.i, 1
+  %exitcond473.not.i.i = icmp eq i64 %indvars.iv.next470.i.i, %wide.trip.count421.i.i
+  br i1 %exitcond473.not.i.i, label %.critedge283.thread.i.i, label %.lr.ph367.i.i, !llvm.loop !24
 
 .critedge283.thread.i.i:                          ; preds = %.loopexit.i.i, %.critedge273.i.i
   %417 = icmp eq i32 %122, 1
-  br i1 %417, label %418, label %.lr.ph374.preheader.i.i
+  br i1 %417, label %418, label %.lr.ph369.preheader.i.i
 
 418:                                              ; preds = %.critedge283.thread.i.i
   %419 = load ptr, ptr %115, align 8
   %420 = load i32, ptr %419, align 8
   %421 = icmp eq i32 %420, 12
-  br i1 %421, label %422, label %.lr.ph374.preheader.i.i
+  br i1 %421, label %422, label %.lr.ph369.preheader.i.i
 
 422:                                              ; preds = %418
   %423 = getelementptr inbounds i8, ptr %419, i64 12
@@ -1153,67 +1153,67 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   call void @removeObjectDependency(ptr noundef nonnull %419, i32 noundef %424) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph374.preheader.i.i:                          ; preds = %131, %280, %418, %.critedge283.thread.i.i, %388, %384, %.thread301.i.i, %378, %374, %348, %332, %._crit_edge493.i.thread.i, %326, %297, %293, %285, %281, %195, %191, %187, %184, %176, %172, %168, %165
-  %425 = phi i1 [ true, %418 ], [ false, %.critedge283.thread.i.i ], [ false, %332 ], [ false, %378 ], [ false, %374 ], [ false, %.thread301.i.i ], [ false, %384 ], [ false, %388 ], [ false, %348 ], [ false, %326 ], [ false, %285 ], [ false, %281 ], [ false, %176 ], [ false, %172 ], [ false, %168 ], [ false, %165 ], [ false, %184 ], [ false, %187 ], [ false, %191 ], [ false, %195 ], [ false, %293 ], [ false, %297 ], [ false, %._crit_edge493.i.thread.i ], [ false, %280 ], [ false, %131 ]
-  %wide.trip.count481.i.i = zext nneg i32 %122 to i64
-  br label %.lr.ph374.i.i
+.lr.ph369.preheader.i.i:                          ; preds = %418, %.critedge283.thread.i.i, %388, %384, %.thread301.i.i, %378, %374, %348, %332, %._crit_edge489.i.thread.i, %326, %297, %293, %285, %281, %280, %195, %191, %187, %184, %176, %172, %168, %165, %131
+  %425 = phi i1 [ false, %332 ], [ true, %418 ], [ false, %.critedge283.thread.i.i ], [ false, %326 ], [ false, %348 ], [ false, %378 ], [ false, %374 ], [ false, %.thread301.i.i ], [ false, %384 ], [ false, %388 ], [ false, %285 ], [ false, %281 ], [ false, %176 ], [ false, %172 ], [ false, %168 ], [ false, %165 ], [ false, %184 ], [ false, %187 ], [ false, %191 ], [ false, %195 ], [ false, %293 ], [ false, %297 ], [ false, %._crit_edge489.i.thread.i ], [ false, %280 ], [ false, %131 ]
+  %wide.trip.count477.i.i = zext nneg i32 %122 to i64
+  br label %.lr.ph369.i.i
 
-426:                                              ; preds = %.lr.ph374.i.i
-  %indvars.iv.next479.i.i = add nuw nsw i64 %indvars.iv478.i.i, 1
-  %exitcond482.not.i.i = icmp eq i64 %indvars.iv.next479.i.i, %wide.trip.count481.i.i
-  br i1 %exitcond482.not.i.i, label %._crit_edge.i.i, label %.lr.ph374.i.i, !llvm.loop !25
+426:                                              ; preds = %.lr.ph369.i.i
+  %indvars.iv.next475.i.i = add nuw nsw i64 %indvars.iv474.i.i, 1
+  %exitcond478.not.i.i = icmp eq i64 %indvars.iv.next475.i.i, %wide.trip.count477.i.i
+  br i1 %exitcond478.not.i.i, label %._crit_edge.i.i, label %.lr.ph369.i.i, !llvm.loop !25
 
-.lr.ph374.i.i:                                    ; preds = %426, %.lr.ph374.preheader.i.i
-  %indvars.iv478.i.i = phi i64 [ 0, %.lr.ph374.preheader.i.i ], [ %indvars.iv.next479.i.i, %426 ]
-  %427 = getelementptr ptr, ptr %115, i64 %indvars.iv478.i.i
+.lr.ph369.i.i:                                    ; preds = %426, %.lr.ph369.preheader.i.i
+  %indvars.iv474.i.i = phi i64 [ 0, %.lr.ph369.preheader.i.i ], [ %indvars.iv.next475.i.i, %426 ]
+  %427 = getelementptr ptr, ptr %115, i64 %indvars.iv474.i.i
   %428 = load ptr, ptr %427, align 8
   %429 = load i32, ptr %428, align 8
   %.not.i.i = icmp eq i32 %429, 24
-  br i1 %.not.i.i, label %426, label %.lr.ph381.preheader.i.i
+  br i1 %.not.i.i, label %426, label %.lr.ph376.preheader.i.i
 
 ._crit_edge.i.i:                                  ; preds = %426
   %430 = select i1 %425, ptr @.str.3, ptr @.str.4
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull %430) #9
-  br label %.lr.ph377.i.i
+  br label %.lr.ph372.i.i
 
-.lr.ph377.i.i:                                    ; preds = %.lr.ph377.i.i, %._crit_edge.i.i
-  %indvars.iv488.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next489.i.i, %.lr.ph377.i.i ]
-  %431 = getelementptr ptr, ptr %115, i64 %indvars.iv488.i.i
+.lr.ph372.i.i:                                    ; preds = %.lr.ph372.i.i, %._crit_edge.i.i
+  %indvars.iv484.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next485.i.i, %.lr.ph372.i.i ]
+  %431 = getelementptr ptr, ptr %115, i64 %indvars.iv484.i.i
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds i8, ptr %432, i64 16
   %434 = load ptr, ptr %433, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %434) #9
-  %indvars.iv.next489.i.i = add nuw nsw i64 %indvars.iv488.i.i, 1
-  %exitcond492.not.i.i = icmp eq i64 %indvars.iv.next489.i.i, %wide.trip.count481.i.i
-  br i1 %exitcond492.not.i.i, label %._crit_edge378.i.i, label %.lr.ph377.i.i, !llvm.loop !26
+  %indvars.iv.next485.i.i = add nuw nsw i64 %indvars.iv484.i.i, 1
+  %exitcond488.not.i.i = icmp eq i64 %indvars.iv.next485.i.i, %wide.trip.count477.i.i
+  br i1 %exitcond488.not.i.i, label %._crit_edge373.i.i, label %.lr.ph372.i.i, !llvm.loop !26
 
-._crit_edge378.i.i:                               ; preds = %.lr.ph377.i.i
+._crit_edge373.i.i:                               ; preds = %.lr.ph372.i.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 2, ptr noundef nonnull @.str.6) #9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 2, ptr noundef nonnull @.str.7) #9
   %.not.i20 = icmp eq i32 %122, 1
   %435 = load ptr, ptr %115, align 8
   br i1 %.not.i20, label %440, label %436
 
-436:                                              ; preds = %._crit_edge378.i.i
+436:                                              ; preds = %._crit_edge373.i.i
   %437 = load ptr, ptr %invariant.gep.i, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 12
   %439 = load i32, ptr %438, align 4
   call void @removeObjectDependency(ptr noundef %435, i32 noundef %439) #9
   br label %.lr.ph.preheader.i
 
-440:                                              ; preds = %._crit_edge378.i.i
+440:                                              ; preds = %._crit_edge373.i.i
   %441 = getelementptr inbounds i8, ptr %435, i64 12
   %442 = load i32, ptr %441, align 4
   call void @removeObjectDependency(ptr noundef %435, i32 noundef %442) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph381.preheader.i.i:                          ; preds = %.lr.ph374.i.i
+.lr.ph376.preheader.i.i:                          ; preds = %.lr.ph369.i.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.8) #9
-  br label %.lr.ph381.i.i
+  br label %.lr.ph376.i.i
 
-.lr.ph381.i.i:                                    ; preds = %describeDumpableObject.exit.i.i, %.lr.ph381.preheader.i.i
-  %indvars.iv483.i.i = phi i64 [ 0, %.lr.ph381.preheader.i.i ], [ %indvars.iv.next484.i.i, %describeDumpableObject.exit.i.i ]
-  %443 = getelementptr ptr, ptr %115, i64 %indvars.iv483.i.i
+.lr.ph376.i.i:                                    ; preds = %describeDumpableObject.exit.i.i, %.lr.ph376.preheader.i.i
+  %indvars.iv479.i.i = phi i64 [ 0, %.lr.ph376.preheader.i.i ], [ %indvars.iv.next480.i.i, %describeDumpableObject.exit.i.i ]
+  %443 = getelementptr ptr, ptr %115, i64 %indvars.iv479.i.i
   %444 = load ptr, ptr %443, align 8
   %445 = load i32, ptr %444, align 8
   switch i32 %445, label %806 [
@@ -1266,7 +1266,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
     i32 38, label %802
   ]
 
-446:                                              ; preds = %.lr.ph381.i.i
+446:                                              ; preds = %.lr.ph376.i.i
   %447 = getelementptr inbounds i8, ptr %444, i64 16
   %448 = load ptr, ptr %447, align 8
   %449 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1276,7 +1276,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %453 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef %448, i32 noundef %450, i32 noundef %452) #9
   br label %describeDumpableObject.exit.i.i
 
-454:                                              ; preds = %.lr.ph381.i.i
+454:                                              ; preds = %.lr.ph376.i.i
   %455 = getelementptr inbounds i8, ptr %444, i64 16
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1286,7 +1286,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %461 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %456, i32 noundef %458, i32 noundef %460) #9
   br label %describeDumpableObject.exit.i.i
 
-462:                                              ; preds = %.lr.ph381.i.i
+462:                                              ; preds = %.lr.ph376.i.i
   %463 = getelementptr inbounds i8, ptr %444, i64 16
   %464 = load ptr, ptr %463, align 8
   %465 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1296,7 +1296,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %469 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %464, i32 noundef %466, i32 noundef %468) #9
   br label %describeDumpableObject.exit.i.i
 
-470:                                              ; preds = %.lr.ph381.i.i
+470:                                              ; preds = %.lr.ph376.i.i
   %471 = getelementptr inbounds i8, ptr %444, i64 16
   %472 = load ptr, ptr %471, align 8
   %473 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1306,7 +1306,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %477 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %472, i32 noundef %474, i32 noundef %476) #9
   br label %describeDumpableObject.exit.i.i
 
-478:                                              ; preds = %.lr.ph381.i.i
+478:                                              ; preds = %.lr.ph376.i.i
   %479 = getelementptr inbounds i8, ptr %444, i64 16
   %480 = load ptr, ptr %479, align 8
   %481 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1316,7 +1316,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %485 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %480, i32 noundef %482, i32 noundef %484) #9
   br label %describeDumpableObject.exit.i.i
 
-486:                                              ; preds = %.lr.ph381.i.i
+486:                                              ; preds = %.lr.ph376.i.i
   %487 = getelementptr inbounds i8, ptr %444, i64 16
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1326,7 +1326,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %493 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %488, i32 noundef %490, i32 noundef %492) #9
   br label %describeDumpableObject.exit.i.i
 
-494:                                              ; preds = %.lr.ph381.i.i
+494:                                              ; preds = %.lr.ph376.i.i
   %495 = getelementptr inbounds i8, ptr %444, i64 16
   %496 = load ptr, ptr %495, align 8
   %497 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1336,7 +1336,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %501 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %496, i32 noundef %498, i32 noundef %500) #9
   br label %describeDumpableObject.exit.i.i
 
-502:                                              ; preds = %.lr.ph381.i.i
+502:                                              ; preds = %.lr.ph376.i.i
   %503 = getelementptr inbounds i8, ptr %444, i64 16
   %504 = load ptr, ptr %503, align 8
   %505 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1346,7 +1346,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %509 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %504, i32 noundef %506, i32 noundef %508) #9
   br label %describeDumpableObject.exit.i.i
 
-510:                                              ; preds = %.lr.ph381.i.i
+510:                                              ; preds = %.lr.ph376.i.i
   %511 = getelementptr inbounds i8, ptr %444, i64 16
   %512 = load ptr, ptr %511, align 8
   %513 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1356,7 +1356,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %517 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %512, i32 noundef %514, i32 noundef %516) #9
   br label %describeDumpableObject.exit.i.i
 
-518:                                              ; preds = %.lr.ph381.i.i
+518:                                              ; preds = %.lr.ph376.i.i
   %519 = getelementptr inbounds i8, ptr %444, i64 16
   %520 = load ptr, ptr %519, align 8
   %521 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1366,7 +1366,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %525 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %520, i32 noundef %522, i32 noundef %524) #9
   br label %describeDumpableObject.exit.i.i
 
-526:                                              ; preds = %.lr.ph381.i.i
+526:                                              ; preds = %.lr.ph376.i.i
   %527 = getelementptr inbounds i8, ptr %444, i64 16
   %528 = load ptr, ptr %527, align 8
   %529 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1376,7 +1376,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %533 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %528, i32 noundef %530, i32 noundef %532) #9
   br label %describeDumpableObject.exit.i.i
 
-534:                                              ; preds = %.lr.ph381.i.i
+534:                                              ; preds = %.lr.ph376.i.i
   %535 = getelementptr inbounds i8, ptr %444, i64 16
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1386,7 +1386,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %541 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %536, i32 noundef %538, i32 noundef %540) #9
   br label %describeDumpableObject.exit.i.i
 
-542:                                              ; preds = %.lr.ph381.i.i
+542:                                              ; preds = %.lr.ph376.i.i
   %543 = getelementptr inbounds i8, ptr %444, i64 16
   %544 = load ptr, ptr %543, align 8
   %545 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1396,7 +1396,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %549 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %544, i32 noundef %546, i32 noundef %548) #9
   br label %describeDumpableObject.exit.i.i
 
-550:                                              ; preds = %.lr.ph381.i.i
+550:                                              ; preds = %.lr.ph376.i.i
   %551 = getelementptr inbounds i8, ptr %444, i64 16
   %552 = load ptr, ptr %551, align 8
   %553 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1404,7 +1404,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %555 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %552, i32 noundef %554) #9
   br label %describeDumpableObject.exit.i.i
 
-556:                                              ; preds = %.lr.ph381.i.i
+556:                                              ; preds = %.lr.ph376.i.i
   %557 = getelementptr inbounds i8, ptr %444, i64 64
   %558 = load ptr, ptr %557, align 8
   %559 = getelementptr inbounds i8, ptr %558, i64 16
@@ -1424,7 +1424,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %573 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %560, ptr noundef %568, i32 noundef %570, i32 noundef %572) #9
   br label %describeDumpableObject.exit.i.i
 
-574:                                              ; preds = %.lr.ph381.i.i
+574:                                              ; preds = %.lr.ph376.i.i
   %575 = getelementptr inbounds i8, ptr %444, i64 16
   %576 = load ptr, ptr %575, align 8
   %577 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1434,7 +1434,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %581 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.24, ptr noundef %576, i32 noundef %578, i32 noundef %580) #9
   br label %describeDumpableObject.exit.i.i
 
-582:                                              ; preds = %.lr.ph381.i.i
+582:                                              ; preds = %.lr.ph376.i.i
   %583 = getelementptr inbounds i8, ptr %444, i64 16
   %584 = load ptr, ptr %583, align 8
   %585 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1442,7 +1442,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %587 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.25, ptr noundef %584, i32 noundef %586) #9
   br label %describeDumpableObject.exit.i.i
 
-588:                                              ; preds = %.lr.ph381.i.i
+588:                                              ; preds = %.lr.ph376.i.i
   %589 = getelementptr inbounds i8, ptr %444, i64 16
   %590 = load ptr, ptr %589, align 8
   %591 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1452,7 +1452,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %595 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.26, ptr noundef %590, i32 noundef %592, i32 noundef %594) #9
   br label %describeDumpableObject.exit.i.i
 
-596:                                              ; preds = %.lr.ph381.i.i
+596:                                              ; preds = %.lr.ph376.i.i
   %597 = getelementptr inbounds i8, ptr %444, i64 16
   %598 = load ptr, ptr %597, align 8
   %599 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1462,7 +1462,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %603 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.27, ptr noundef %598, i32 noundef %600, i32 noundef %602) #9
   br label %describeDumpableObject.exit.i.i
 
-604:                                              ; preds = %.lr.ph381.i.i
+604:                                              ; preds = %.lr.ph376.i.i
   %605 = getelementptr inbounds i8, ptr %444, i64 16
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1472,7 +1472,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %611 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.28, ptr noundef %606, i32 noundef %608, i32 noundef %610) #9
   br label %describeDumpableObject.exit.i.i
 
-612:                                              ; preds = %.lr.ph381.i.i
+612:                                              ; preds = %.lr.ph376.i.i
   %613 = getelementptr inbounds i8, ptr %444, i64 16
   %614 = load ptr, ptr %613, align 8
   %615 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1482,7 +1482,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %619 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.29, ptr noundef %614, i32 noundef %616, i32 noundef %618) #9
   br label %describeDumpableObject.exit.i.i
 
-620:                                              ; preds = %.lr.ph381.i.i
+620:                                              ; preds = %.lr.ph376.i.i
   %621 = getelementptr inbounds i8, ptr %444, i64 16
   %622 = load ptr, ptr %621, align 8
   %623 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1492,7 +1492,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %627 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.30, ptr noundef %622, i32 noundef %624, i32 noundef %626) #9
   br label %describeDumpableObject.exit.i.i
 
-628:                                              ; preds = %.lr.ph381.i.i
+628:                                              ; preds = %.lr.ph376.i.i
   %629 = getelementptr inbounds i8, ptr %444, i64 16
   %630 = load ptr, ptr %629, align 8
   %631 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1502,7 +1502,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %635 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %630, i32 noundef %632, i32 noundef %634) #9
   br label %describeDumpableObject.exit.i.i
 
-636:                                              ; preds = %.lr.ph381.i.i
+636:                                              ; preds = %.lr.ph376.i.i
   %637 = getelementptr inbounds i8, ptr %444, i64 16
   %638 = load ptr, ptr %637, align 8
   %639 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1512,7 +1512,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %643 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.32, ptr noundef %638, i32 noundef %640, i32 noundef %642) #9
   br label %describeDumpableObject.exit.i.i
 
-644:                                              ; preds = %.lr.ph381.i.i
+644:                                              ; preds = %.lr.ph376.i.i
   %645 = getelementptr inbounds i8, ptr %444, i64 16
   %646 = load ptr, ptr %645, align 8
   %647 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1522,7 +1522,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %651 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.33, ptr noundef %646, i32 noundef %648, i32 noundef %650) #9
   br label %describeDumpableObject.exit.i.i
 
-652:                                              ; preds = %.lr.ph381.i.i
+652:                                              ; preds = %.lr.ph376.i.i
   %653 = getelementptr inbounds i8, ptr %444, i64 64
   %654 = load i32, ptr %653, align 8
   %655 = getelementptr inbounds i8, ptr %444, i64 68
@@ -1534,7 +1534,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %661 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.34, i32 noundef %654, i32 noundef %656, i32 noundef %658, i32 noundef %660) #9
   br label %describeDumpableObject.exit.i.i
 
-662:                                              ; preds = %.lr.ph381.i.i
+662:                                              ; preds = %.lr.ph376.i.i
   %663 = getelementptr inbounds i8, ptr %444, i64 64
   %664 = load i32, ptr %663, align 8
   %665 = getelementptr inbounds i8, ptr %444, i64 68
@@ -1546,7 +1546,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %671 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.35, i32 noundef %664, i32 noundef %666, i32 noundef %668, i32 noundef %670) #9
   br label %describeDumpableObject.exit.i.i
 
-672:                                              ; preds = %.lr.ph381.i.i
+672:                                              ; preds = %.lr.ph376.i.i
   %673 = getelementptr inbounds i8, ptr %444, i64 16
   %674 = load ptr, ptr %673, align 8
   %675 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1556,7 +1556,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %679 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.36, ptr noundef %674, i32 noundef %676, i32 noundef %678) #9
   br label %describeDumpableObject.exit.i.i
 
-680:                                              ; preds = %.lr.ph381.i.i
+680:                                              ; preds = %.lr.ph376.i.i
   %681 = getelementptr inbounds i8, ptr %444, i64 16
   %682 = load ptr, ptr %681, align 8
   %683 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1566,7 +1566,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %687 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.37, ptr noundef %682, i32 noundef %684, i32 noundef %686) #9
   br label %describeDumpableObject.exit.i.i
 
-688:                                              ; preds = %.lr.ph381.i.i
+688:                                              ; preds = %.lr.ph376.i.i
   %689 = getelementptr inbounds i8, ptr %444, i64 16
   %690 = load ptr, ptr %689, align 8
   %691 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1576,7 +1576,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %695 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.38, ptr noundef %690, i32 noundef %692, i32 noundef %694) #9
   br label %describeDumpableObject.exit.i.i
 
-696:                                              ; preds = %.lr.ph381.i.i
+696:                                              ; preds = %.lr.ph376.i.i
   %697 = getelementptr inbounds i8, ptr %444, i64 16
   %698 = load ptr, ptr %697, align 8
   %699 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1586,7 +1586,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %703 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.39, ptr noundef %698, i32 noundef %700, i32 noundef %702) #9
   br label %describeDumpableObject.exit.i.i
 
-704:                                              ; preds = %.lr.ph381.i.i
+704:                                              ; preds = %.lr.ph376.i.i
   %705 = getelementptr inbounds i8, ptr %444, i64 16
   %706 = load ptr, ptr %705, align 8
   %707 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1596,7 +1596,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %711 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.40, ptr noundef %706, i32 noundef %708, i32 noundef %710) #9
   br label %describeDumpableObject.exit.i.i
 
-712:                                              ; preds = %.lr.ph381.i.i
+712:                                              ; preds = %.lr.ph376.i.i
   %713 = getelementptr inbounds i8, ptr %444, i64 16
   %714 = load ptr, ptr %713, align 8
   %715 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1606,7 +1606,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %719 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.41, ptr noundef %714, i32 noundef %716, i32 noundef %718) #9
   br label %describeDumpableObject.exit.i.i
 
-720:                                              ; preds = %.lr.ph381.i.i
+720:                                              ; preds = %.lr.ph376.i.i
   %721 = getelementptr inbounds i8, ptr %444, i64 16
   %722 = load ptr, ptr %721, align 8
   %723 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1616,7 +1616,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %727 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.42, ptr noundef %722, i32 noundef %724, i32 noundef %726) #9
   br label %describeDumpableObject.exit.i.i
 
-728:                                              ; preds = %.lr.ph381.i.i
+728:                                              ; preds = %.lr.ph376.i.i
   %729 = getelementptr inbounds i8, ptr %444, i64 16
   %730 = load ptr, ptr %729, align 8
   %731 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1626,7 +1626,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %735 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef %730, i32 noundef %732, i32 noundef %734) #9
   br label %describeDumpableObject.exit.i.i
 
-736:                                              ; preds = %.lr.ph381.i.i
+736:                                              ; preds = %.lr.ph376.i.i
   %737 = getelementptr inbounds i8, ptr %444, i64 16
   %738 = load ptr, ptr %737, align 8
   %739 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1636,7 +1636,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %743 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef %738, i32 noundef %740, i32 noundef %742) #9
   br label %describeDumpableObject.exit.i.i
 
-744:                                              ; preds = %.lr.ph381.i.i
+744:                                              ; preds = %.lr.ph376.i.i
   %745 = getelementptr inbounds i8, ptr %444, i64 16
   %746 = load ptr, ptr %745, align 8
   %747 = getelementptr inbounds i8, ptr %444, i64 12
@@ -1646,7 +1646,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %751 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.45, ptr noundef %746, i32 noundef %748, i32 noundef %750) #9
   br label %describeDumpableObject.exit.i.i
 
-752:                                              ; preds = %.lr.ph381.i.i
+752:                                              ; preds = %.lr.ph376.i.i
   %753 = getelementptr inbounds i8, ptr %444, i64 12
   %754 = load i32, ptr %753, align 4
   %755 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1654,13 +1654,13 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %757 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.46, i32 noundef %754, i32 noundef %756) #9
   br label %describeDumpableObject.exit.i.i
 
-758:                                              ; preds = %.lr.ph381.i.i
+758:                                              ; preds = %.lr.ph376.i.i
   %759 = getelementptr inbounds i8, ptr %444, i64 12
   %760 = load i32, ptr %759, align 4
   %761 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.47, i32 noundef %760) #9
   br label %describeDumpableObject.exit.i.i
 
-762:                                              ; preds = %.lr.ph381.i.i
+762:                                              ; preds = %.lr.ph376.i.i
   %763 = getelementptr inbounds i8, ptr %444, i64 12
   %764 = load i32, ptr %763, align 4
   %765 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1668,7 +1668,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %767 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.48, i32 noundef %764, i32 noundef %766) #9
   br label %describeDumpableObject.exit.i.i
 
-768:                                              ; preds = %.lr.ph381.i.i
+768:                                              ; preds = %.lr.ph376.i.i
   %769 = getelementptr inbounds i8, ptr %444, i64 12
   %770 = load i32, ptr %769, align 4
   %771 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1676,7 +1676,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %773 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.49, i32 noundef %770, i32 noundef %772) #9
   br label %describeDumpableObject.exit.i.i
 
-774:                                              ; preds = %.lr.ph381.i.i
+774:                                              ; preds = %.lr.ph376.i.i
   %775 = getelementptr inbounds i8, ptr %444, i64 12
   %776 = load i32, ptr %775, align 4
   %777 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1684,7 +1684,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %779 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.50, i32 noundef %776, i32 noundef %778) #9
   br label %describeDumpableObject.exit.i.i
 
-780:                                              ; preds = %.lr.ph381.i.i
+780:                                              ; preds = %.lr.ph376.i.i
   %781 = getelementptr inbounds i8, ptr %444, i64 12
   %782 = load i32, ptr %781, align 4
   %783 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1692,7 +1692,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %785 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.51, i32 noundef %782, i32 noundef %784) #9
   br label %describeDumpableObject.exit.i.i
 
-786:                                              ; preds = %.lr.ph381.i.i
+786:                                              ; preds = %.lr.ph376.i.i
   %787 = getelementptr inbounds i8, ptr %444, i64 12
   %788 = load i32, ptr %787, align 4
   %789 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1700,7 +1700,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %791 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.52, i32 noundef %788, i32 noundef %790) #9
   br label %describeDumpableObject.exit.i.i
 
-792:                                              ; preds = %.lr.ph381.i.i
+792:                                              ; preds = %.lr.ph376.i.i
   %793 = getelementptr inbounds i8, ptr %444, i64 12
   %794 = load i32, ptr %793, align 4
   %795 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1708,19 +1708,19 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   %797 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.53, i32 noundef %794, i32 noundef %796) #9
   br label %describeDumpableObject.exit.i.i
 
-798:                                              ; preds = %.lr.ph381.i.i
+798:                                              ; preds = %.lr.ph376.i.i
   %799 = getelementptr inbounds i8, ptr %444, i64 12
   %800 = load i32, ptr %799, align 4
   %801 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.54, i32 noundef %800) #9
   br label %describeDumpableObject.exit.i.i
 
-802:                                              ; preds = %.lr.ph381.i.i
+802:                                              ; preds = %.lr.ph376.i.i
   %803 = getelementptr inbounds i8, ptr %444, i64 12
   %804 = load i32, ptr %803, align 4
   %805 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %804) #9
   br label %describeDumpableObject.exit.i.i
 
-806:                                              ; preds = %.lr.ph381.i.i
+806:                                              ; preds = %.lr.ph376.i.i
   %807 = getelementptr inbounds i8, ptr %444, i64 12
   %808 = load i32, ptr %807, align 4
   %809 = getelementptr inbounds i8, ptr %444, i64 8
@@ -1730,28 +1730,28 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 
 describeDumpableObject.exit.i.i:                  ; preds = %806, %802, %798, %792, %786, %780, %774, %768, %762, %758, %752, %744, %736, %728, %720, %712, %704, %696, %688, %680, %672, %662, %652, %644, %636, %628, %620, %612, %604, %596, %588, %582, %574, %556, %550, %542, %534, %526, %518, %510, %502, %494, %486, %478, %470, %462, %454, %446
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull %5) #9
-  %indvars.iv.next484.i.i = add nuw nsw i64 %indvars.iv483.i.i, 1
-  %exitcond487.not.i.i = icmp eq i64 %indvars.iv.next484.i.i, %wide.trip.count481.i.i
-  br i1 %exitcond487.not.i.i, label %._crit_edge382.i.i, label %.lr.ph381.i.i, !llvm.loop !27
+  %indvars.iv.next480.i.i = add nuw nsw i64 %indvars.iv479.i.i, 1
+  %exitcond483.not.i.i = icmp eq i64 %indvars.iv.next480.i.i, %wide.trip.count477.i.i
+  br i1 %exitcond483.not.i.i, label %._crit_edge377.i.i, label %.lr.ph376.i.i, !llvm.loop !27
 
-._crit_edge382.i.i:                               ; preds = %describeDumpableObject.exit.i.i
+._crit_edge377.i.i:                               ; preds = %describeDumpableObject.exit.i.i
   %812 = load ptr, ptr %115, align 8
   br i1 %425, label %817, label %813
 
-813:                                              ; preds = %._crit_edge382.i.i
+813:                                              ; preds = %._crit_edge377.i.i
   %814 = load ptr, ptr %invariant.gep.i, align 8
   %815 = getelementptr inbounds i8, ptr %814, i64 12
   %816 = load i32, ptr %815, align 4
   call void @removeObjectDependency(ptr noundef %812, i32 noundef %816) #9
   br label %.lr.ph.preheader.i
 
-817:                                              ; preds = %._crit_edge382.i.i
+817:                                              ; preds = %._crit_edge377.i.i
   %818 = getelementptr inbounds i8, ptr %812, i64 12
   %819 = load i32, ptr %818, align 4
   call void @removeObjectDependency(ptr noundef %812, i32 noundef %819) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %817, %813, %440, %436, %422, %409, %392, %382, %367, %354, %346, %336, %330, %.split363.us.i.i, %301, %289, %278, %.split355.us.i.i, %258, %254, %245, %.split343.us.i.i, %199, %180, %159, %154, %149, %142, %137, %132
+.lr.ph.preheader.i:                               ; preds = %817, %813, %440, %436, %422, %409, %392, %382, %367, %354, %346, %336, %330, %.split.us358.i.i, %301, %289, %278, %.split.us351.i.i, %267, %263, %254, %.split.us.i.i, %199, %180, %159, %154, %149, %142, %137, %132
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   %wide.trip.count.i15 = zext nneg i32 %122 to i64
   br label %.lr.ph.i16
@@ -1774,17 +1774,17 @@ describeDumpableObject.exit.i.i:                  ; preds = %806, %802, %798, %7
   %827 = sext i32 %826 to i64
   %828 = getelementptr i8, ptr %109, i64 %827
   store i8 1, ptr %828, align 1
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count85.i
-  br i1 %exitcond86.not.i, label %._crit_edge.i13, label %117, !llvm.loop !29
+  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
+  %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, %wide.trip.count95.i
+  br i1 %exitcond96.not.i, label %._crit_edge.i13, label %117, !llvm.loop !29
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i16
-  %indvars.iv.next8492.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond86.not93.i = icmp eq i64 %indvars.iv.next8492.i, %wide.trip.count85.i
-  br i1 %exitcond86.not93.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !29
+  %indvars.iv.next94107.i = add nuw nsw i64 %indvars.iv93.i, 1
+  %exitcond96.not108.i = icmp eq i64 %indvars.iv.next94107.i, %wide.trip.count95.i
+  br i1 %exitcond96.not108.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !29
 
 ._crit_edge.i13:                                  ; preds = %.loopexit.i12
-  br i1 %.02559.ph.i, label %findDependencyLoops.exit, label %.critedge.i
+  br i1 %.02569.ph.i, label %findDependencyLoops.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i13, %105
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2) #9
@@ -1905,12 +1905,9 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr nocaptu
 30:                                               ; preds = %32
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.preheader, label %32, !llvm.loop !32
+  br i1 %exitcond62.not, label %.lr.ph53, label %32, !llvm.loop !32
 
-.preheader:                                       ; preds = %30
-  br i1 %27, label %.lr.ph53, label %._crit_edge54
-
-.lr.ph53:                                         ; preds = %.preheader
+.lr.ph53:                                         ; preds = %30
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   br label %36
 
@@ -1942,7 +1939,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr nocaptu
   %47 = icmp slt i64 %indvars.iv.next64, %46
   br i1 %47, label %36, label %._crit_edge54, !llvm.loop !33
 
-._crit_edge54:                                    ; preds = %44, %._crit_edge, %.preheader
+._crit_edge54:                                    ; preds = %44, %._crit_edge
   %48 = load i32, ptr %7, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr i32, ptr %3, i64 %49

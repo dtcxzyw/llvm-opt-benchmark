@@ -333,7 +333,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i54:                                     ; preds = %for.inc.i.i48, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %repeatS.0103 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i48 ]
-  br i1 %tobool3.not7.i.i40, label %invoke.cont6, label %for.body.i.i58
+  br label %for.body.i.i58
 
 for.body.i.i58:                                   ; preds = %if.end.i.i54, %for.inc.i.i65
   %i.08.i.i59 = phi ptr [ %i.0.i.i67, %for.inc.i.i65 ], [ %i.06.i.i39, %if.end.i.i54 ]
@@ -372,9 +372,9 @@ cond.true.i.i73:                                  ; preds = %if.end.i3.i70
 lor.rhs.i.i.i76:                                  ; preds = %cond.true.i.i73
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i65, %if.end.i.i37, %do.end, %entry, %invoke.cont, %if.end.i.i54, %lor.rhs.i.i.i76, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %if.end.i3.i70
-  %repeatS.099 = phi i8 [ %repeatS.0103, %if.end.i.i54 ], [ %repeatS.0103, %lor.rhs.i.i.i76 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %if.end.i3.i70 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i37 ], [ %repeatS.0103, %for.inc.i.i65 ]
-  %repeatT.0 = phi i8 [ 1, %if.end.i.i54 ], [ 0, %lor.rhs.i.i.i76 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 0, %if.end.i3.i70 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i37 ], [ 1, %for.inc.i.i65 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i65, %if.end.i.i37, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i76, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %cond.true.i.i73, %if.end.i3.i70
+  %repeatS.099 = phi i8 [ %repeatS.0103, %lor.rhs.i.i.i76 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %cond.true.i.i73 ], [ %repeatS.0103, %if.end.i3.i70 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i37 ], [ %repeatS.0103, %for.inc.i.i65 ]
+  %repeatT.0 = phi i8 [ 0, %lor.rhs.i.i.i76 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 1, %cond.true.i.i73 ], [ 0, %if.end.i3.i70 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i37 ], [ 1, %for.inc.i.i65 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getStringListAttributeERN4pugi8xml_nodeEPKcRNSt7__cxx114listINS6_12basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(24) %url)
           to label %invoke.cont8 unwind label %lpad
 

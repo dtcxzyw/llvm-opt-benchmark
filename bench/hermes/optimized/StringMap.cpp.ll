@@ -315,7 +315,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread:   ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
   %idx.ext.i13 = zext i32 %0 to i64
   %add.ptr.i14 = getelementptr inbounds ptr, ptr %1, i64 %idx.ext.i13
-  br label %while.body.i.us.preheader
+  %add.ptr3.i15 = getelementptr inbounds i8, ptr %add.ptr.i14, i64 8
+  br label %while.body.i.us
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.body.i.i
   %H.addr.08.i.i = phi i32 [ %add3.i.i, %for.body.i.i ], [ 0, %if.end.i ]
@@ -337,38 +338,30 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit.i:          ; preds = %for.body.i.i
   %ItemSize.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %ItemSize.i, align 4
   %idx.ext14.i = zext i32 %4 to i64
-  br i1 %cmp.not6.i.i, label %while.body.i.us.preheader, label %while.body.i
+  br label %while.body.i
 
-while.body.i.us.preheader:                        ; preds = %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i
-  %5 = phi ptr [ %add.ptr.i14, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %add.ptr.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
-  %6 = phi ptr [ %1, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %3, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
-  %sub.i19 = phi i32 [ %sub.i12, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %sub.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
-  %H.addr.0.lcssa.i.i18 = phi i32 [ 0, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %add3.i.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %while.body.i.us
-
-while.body.i.us:                                  ; preds = %while.body.i.us.preheader, %if.end23.i.us
-  %ProbeAmt.0.i.us = phi i32 [ %inc.i.us, %if.end23.i.us ], [ 1, %while.body.i.us.preheader ]
-  %call.pn.i.us = phi i32 [ %add.i.us, %if.end23.i.us ], [ %H.addr.0.lcssa.i.i18, %while.body.i.us.preheader ]
-  %BucketNo.0.i.us = and i32 %call.pn.i.us, %sub.i19
+while.body.i.us:                                  ; preds = %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread, %if.end23.i.us
+  %ProbeAmt.0.i.us = phi i32 [ %inc.i.us, %if.end23.i.us ], [ 1, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ]
+  %call.pn.i.us = phi i32 [ %add.i.us, %if.end23.i.us ], [ 0, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ]
+  %BucketNo.0.i.us = and i32 %call.pn.i.us, %sub.i12
   %idxprom.i.us = zext i32 %BucketNo.0.i.us to i64
-  %arrayidx.i.us = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.us
-  %8 = load ptr, ptr %arrayidx.i.us, align 8
-  %magicptr.i.us = ptrtoint ptr %8 to i64
+  %arrayidx.i.us = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.us
+  %5 = load ptr, ptr %arrayidx.i.us, align 8
+  %magicptr.i.us = ptrtoint ptr %5 to i64
   switch i64 %magicptr.i.us, label %if.else.i.us [
     i64 0, label %return
     i64 -8, label %if.end23.i.us
   ]
 
 if.else.i.us:                                     ; preds = %while.body.i.us
-  %arrayidx11.i.us = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.us
-  %9 = load i32, ptr %arrayidx11.i.us, align 4
-  %cmp12.i.us = icmp eq i32 %9, %H.addr.0.lcssa.i.i18
+  %arrayidx11.i.us = getelementptr inbounds i32, ptr %add.ptr3.i15, i64 %idxprom.i.us
+  %6 = load i32, ptr %arrayidx11.i.us, align 4
+  %cmp12.i.us = icmp eq i32 %6, 0
   br i1 %cmp12.i.us, label %if.then13.i.us, label %if.end23.i.us
 
 if.then13.i.us:                                   ; preds = %if.else.i.us
-  %10 = load i64, ptr %8, align 8
-  %cmp.i.i.us = icmp eq i64 %10, 0
+  %7 = load i64, ptr %5, align 8
+  %cmp.i.i.us = icmp eq i64 %7, 0
   br i1 %cmp.i.i.us, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i.us
 
 if.end23.i.us:                                    ; preds = %if.then13.i.us, %if.else.i.us, %while.body.i.us
@@ -382,8 +375,8 @@ while.body.i:                                     ; preds = %_ZN4llvh7djbHashENS
   %BucketNo.0.i = and i32 %call.pn.i, %sub.i
   %idxprom.i = zext i32 %BucketNo.0.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
-  %11 = load ptr, ptr %arrayidx.i, align 8
-  %magicptr.i = ptrtoint ptr %11 to i64
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  %magicptr.i = ptrtoint ptr %8 to i64
   switch i64 %magicptr.i, label %if.else.i [
     i64 0, label %return
     i64 -8, label %if.end23.i
@@ -391,17 +384,17 @@ while.body.i:                                     ; preds = %_ZN4llvh7djbHashENS
 
 if.else.i:                                        ; preds = %while.body.i
   %arrayidx11.i = getelementptr inbounds i32, ptr %add.ptr3.i, i64 %idxprom.i
-  %12 = load i32, ptr %arrayidx11.i, align 4
-  %cmp12.i = icmp eq i32 %12, %add3.i.i
+  %9 = load i32, ptr %arrayidx11.i, align 4
+  %cmp12.i = icmp eq i32 %9, %add3.i.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end23.i
 
 if.then13.i:                                      ; preds = %if.else.i
-  %13 = load i64, ptr %11, align 8
-  %cmp.i.i = icmp eq i64 %Key.coerce1, %13
+  %10 = load i64, ptr %8, align 8
+  %cmp.i.i = icmp eq i64 %Key.coerce1, %10
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.end23.i
 
 land.rhs.i.i:                                     ; preds = %if.then13.i
-  %add.ptr15.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext14.i
+  %add.ptr15.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext14.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
   %cmp5.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp5.i.i, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
@@ -412,28 +405,28 @@ if.end23.i:                                       ; preds = %land.rhs.i.i, %if.t
   br label %while.body.i, !llvm.loop !6
 
 _ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %land.rhs.i.i, %if.then13.i.us
-  %14 = phi ptr [ %6, %if.then13.i.us ], [ %3, %land.rhs.i.i ]
+  %11 = phi ptr [ %1, %if.then13.i.us ], [ %3, %land.rhs.i.i ]
   %.us-phi = phi i32 [ %BucketNo.0.i.us, %if.then13.i.us ], [ %BucketNo.0.i, %land.rhs.i.i ]
   %cmp = icmp eq i32 %.us-phi, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit
   %idxprom = sext i32 %.us-phi to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %idxprom
-  %15 = load ptr, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
+  %12 = load ptr, ptr %arrayidx, align 8
   store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
   %NumItems = getelementptr inbounds i8, ptr %this, i64 12
-  %16 = load i32, ptr %NumItems, align 4
-  %dec = add i32 %16, -1
+  %13 = load i32, ptr %NumItems, align 4
+  %dec = add i32 %13, -1
   store i32 %dec, ptr %NumItems, align 4
   %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
-  %17 = load i32, ptr %NumTombstones, align 8
-  %inc = add i32 %17, 1
+  %14 = load i32, ptr %NumTombstones, align 8
+  %inc = add i32 %14, 1
   store i32 %inc, ptr %NumTombstones, align 8
   br label %return
 
 return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, %if.end
-  %retval.0 = phi ptr [ %15, %if.end ], [ null, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
+  %retval.0 = phi ptr [ %12, %if.end ], [ null, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
   ret ptr %retval.0
 }
 

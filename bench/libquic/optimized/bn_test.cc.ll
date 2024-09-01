@@ -3671,13 +3671,11 @@ lpad:                                             ; preds = %entry
 
 for.cond:                                         ; preds = %invoke.cont73
   %inc = add nuw nsw i32 %i.065, 1
-  %cmp = icmp ugt i32 %i.065, 98
   %exitcond = icmp eq i32 %inc, 100
   br i1 %exitcond, label %if.then.i45, label %do.body.preheader, !llvm.loop !18
 
 do.body.preheader:                                ; preds = %for.cond.preheader, %for.cond
   %1 = phi ptr [ %call1, %for.cond.preheader ], [ %.pr.pre.pre, %for.cond ]
-  %cmp66 = phi i1 [ false, %for.cond.preheader ], [ %cmp, %for.cond ]
   %i.065 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond ]
   br label %do.body
 
@@ -3806,12 +3804,11 @@ if.then76:                                        ; preds = %invoke.cont73
 
 cleanup:                                          ; preds = %invoke.cont21, %invoke.cont6, %invoke.cont10, %invoke.cont
   %11 = phi ptr [ %call1, %invoke.cont ], [ %.pr.pre.pre, %invoke.cont10 ], [ %2, %invoke.cont6 ], [ %.pr.pre.pre, %invoke.cont21 ]
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ %cmp66, %invoke.cont10 ], [ %cmp66, %invoke.cont6 ], [ %cmp66, %invoke.cont21 ]
   %cmp.not.i44 = icmp eq ptr %11, null
   br i1 %cmp.not.i44, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %invoke.cont28, %invoke.cont67, %invoke.cont60, %invoke.cont55, %for.cond, %if.then76, %cleanup
-  %retval.077 = phi i1 [ %retval.0, %cleanup ], [ %cmp66, %if.then76 ], [ %cmp66, %invoke.cont28 ], [ %cmp66, %invoke.cont67 ], [ %cmp66, %invoke.cont60 ], [ %cmp66, %invoke.cont55 ], [ %cmp, %for.cond ]
+  %retval.073 = phi i1 [ false, %cleanup ], [ false, %if.then76 ], [ false, %invoke.cont28 ], [ false, %invoke.cont67 ], [ false, %invoke.cont60 ], [ false, %invoke.cont55 ], [ true, %for.cond ]
   %12 = phi ptr [ %11, %cleanup ], [ %.pr.pre.pre, %if.then76 ], [ %.pr.pre.pre, %for.cond ], [ %.pr.pre.pre, %invoke.cont55 ], [ %.pr.pre.pre, %invoke.cont60 ], [ %.pr.pre.pre, %invoke.cont67 ], [ %.pr.pre.pre, %invoke.cont28 ]
   invoke void @BN_free(ptr noundef nonnull %12)
           to label %if.then.i45._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge unwind label %terminate.lpad.i
@@ -3828,14 +3825,14 @@ terminate.lpad.i:                                 ; preds = %if.then.i45
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %if.then.i45._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge, %cleanup
-  %retval.078 = phi i1 [ %retval.077, %if.then.i45._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ %retval.0, %cleanup ]
+  %retval.074 = phi i1 [ %retval.073, %if.then.i45._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ false, %cleanup ]
   %.pr53 = phi ptr [ %.pr53.pre, %if.then.i45._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ %call, %cleanup ]
   store ptr null, ptr %b, align 8
   %cmp.not.i46 = icmp eq ptr %.pr53, null
   br i1 %cmp.not.i46, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  %retval.05256 = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %retval.078, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
+  %retval.05256 = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %retval.074, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
   %15 = phi ptr [ %call, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %.pr53, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49 unwind label %terminate.lpad.i48
@@ -3848,7 +3845,7 @@ terminate.lpad.i48:                               ; preds = %if.then.i47
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i47
-  %retval.05257 = phi i1 [ %retval.078, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ %retval.05256, %if.then.i47 ]
+  %retval.05257 = phi i1 [ %retval.074, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ %retval.05256, %if.then.i47 ]
   ret i1 %retval.05257
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
@@ -4271,8 +4268,8 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont45 unwind label %lpad20.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %for.body
-  %tobool47.not = icmp ne i32 %call46, 0
-  br i1 %tobool47.not, label %for.body52, label %cleanup
+  %tobool47.not.not.not = icmp ne i32 %call46, 0
+  br i1 %tobool47.not.not.not, label %for.body52, label %cleanup
 
 for.cond50:                                       ; preds = %invoke.cont139
   %inc = add nuw nsw i32 %i.070, 1
@@ -4428,7 +4425,7 @@ for.inc147:                                       ; preds = %for.cond50
 
 cleanup:                                          ; preds = %for.inc147, %invoke.cont45, %invoke.cont118, %invoke.cont125, %invoke.cont133, %invoke.cont61, %if.then142.invoke, %lor.lhs.false, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge, %invoke.cont9
   %25 = phi ptr [ %call10, %invoke.cont9 ], [ %call10, %lor.lhs.false ], [ %.pr.pre.pre, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ %.pr.pre.pre77, %if.then142.invoke ], [ %.pr.pre.pre77, %invoke.cont61 ], [ %.pr.pre.pre77, %invoke.cont133 ], [ %.pr.pre.pre77, %invoke.cont125 ], [ %.pr.pre.pre77, %invoke.cont118 ], [ %.pr76, %invoke.cont45 ], [ %.pr.pre.pre77, %for.inc147 ]
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ false, %if.then142.invoke ], [ false, %invoke.cont61 ], [ false, %invoke.cont133 ], [ false, %invoke.cont125 ], [ false, %invoke.cont118 ], [ false, %invoke.cont45 ], [ %tobool47.not, %for.inc147 ]
+  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ false, %if.then142.invoke ], [ false, %invoke.cont61 ], [ false, %invoke.cont133 ], [ false, %invoke.cont125 ], [ false, %invoke.cont118 ], [ %tobool47.not.not.not, %invoke.cont45 ], [ %tobool47.not.not.not, %for.inc147 ]
   %cmp.not.i46 = icmp eq ptr %25, null
   br i1 %cmp.not.i46, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i47
 
@@ -8271,25 +8268,18 @@ entry:
   %bn2 = alloca %"class.std::unique_ptr.10", align 8
   br label %for.body
 
-for.cond:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
-  %inc = add nuw nsw i64 %i.026, 1
-  %cmp = icmp ugt i64 %i.026, 4
-  %exitcond = icmp eq i64 %inc, 6
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !57
-
-for.body:                                         ; preds = %entry, %for.cond
-  %cmp27 = phi i1 [ false, %entry ], [ %cmp, %for.cond ]
-  %i.026 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21, %entry
+  %i.026 = phi i64 [ 0, %entry ], [ %inc, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21 ]
   %arrayidx = getelementptr inbounds [6 x %struct.MPITest], ptr @_ZL9kMPITests, i64 0, i64 %i.026
   %0 = load ptr, ptr %arrayidx, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw.i)
-  store ptr null, ptr %raw.i, align 8, !noalias !58
-  %call.i = call i32 @BN_asc2bn(ptr noundef nonnull %raw.i, ptr noundef %0), !noalias !58
+  store ptr null, ptr %raw.i, align 8, !noalias !57
+  %call.i = call i32 @BN_asc2bn(ptr noundef nonnull %raw.i, ptr noundef %0), !noalias !57
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %1 = load ptr, ptr %raw.i, align 8, !noalias !58
+  %1 = load ptr, ptr %raw.i, align 8, !noalias !57
   %storemerge.i = select i1 %tobool.not.i, ptr null, ptr %1
-  store ptr %storemerge.i, ptr %bn, align 8, !alias.scope !58
+  store ptr %storemerge.i, ptr %bn, align 8, !alias.scope !57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %raw.i)
   %call1 = invoke i64 @BN_bn2mpi(ptr noundef %storemerge.i, ptr noundef null)
           to label %invoke.cont unwind label %lpad
@@ -8422,16 +8412,18 @@ terminate.lpad.i20:                               ; preds = %if.then.i19
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21: ; preds = %cleanup50, %if.then.i19
   store ptr null, ptr %bn, align 8
   %switch = icmp eq i32 %cleanup.dest.slot.0, 0
-  br i1 %switch, label %for.cond, label %return
+  %inc = add nuw nsw i64 %i.026, 1
+  %exitcond = icmp ne i64 %inc, 6
+  %or.cond.not = select i1 %switch, i1 %exitcond, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !60
 
 ehcleanup:                                        ; preds = %lpad36, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %11, %lpad36 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bn) #19
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %for.cond, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
-  %cmp.lcssa = phi i1 [ %cmp, %for.cond ], [ %cmp27, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21 ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -9429,10 +9421,10 @@ attributes #20 = { noreturn nounwind }
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
 !56 = distinct !{!56, !"_ZL13ASCIIToBIGNUMPKc"}
-!57 = distinct !{!57, !8}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
-!60 = distinct !{!60, !"_ZL13ASCIIToBIGNUMPKc"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
+!59 = distinct !{!59, !"_ZL13ASCIIToBIGNUMPKc"}
+!60 = distinct !{!60, !8}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
 !63 = distinct !{!63, !"_ZL13ASCIIToBIGNUMPKc"}

@@ -1809,8 +1809,8 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorIN4pstd
   br label %for.body
 
 for.cond19.preheader:                             ; preds = %for.body, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i133 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %3, %for.body ]
-  %displayValues.sroa.0.0132 = phi ptr [ null, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %call5.i.i.i.i2.i.i26, %for.body ]
+  %__cur.0.lcssa.i.i.i.i.i129 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %3, %for.body ]
+  %displayValues.sroa.0.0128 = phi ptr [ null, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %call5.i.i.i.i2.i.i26, %for.body ]
   %resolution = getelementptr inbounds i8, ptr %this, i64 40
   %y20 = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %y20, align 4
@@ -1818,8 +1818,8 @@ for.cond19.preheader:                             ; preds = %for.body, %_ZNSt6ve
   br i1 %cmp21109, label %cleanup, label %for.cond23.preheader.lr.ph
 
 for.cond23.preheader.lr.ph:                       ; preds = %for.cond19.preheader
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %displayValues.sroa.0.0132 to i64
-  %sub.ptr.sub.i.i = sub i64 %__cur.0.lcssa.i.i.i.i.i133, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %displayValues.sroa.0.0128 to i64
+  %sub.ptr.sub.i.i = sub i64 %__cur.0.lcssa.i.i.i.i.i129, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %5 = getelementptr inbounds i8, ptr %__args.i, i64 8
   %6 = getelementptr inbounds i8, ptr %__args4.i, i64 8
@@ -1864,7 +1864,7 @@ for.body27.lr.ph:                                 ; preds = %for.cond23.preheade
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc84
   %16 = phi ptr [ %12, %for.body27.lr.ph ], [ %41, %for.inc84 ]
   %17 = phi ptr [ %13, %for.body27.lr.ph ], [ %42, %for.inc84 ]
-  %indvars.iv126 = phi i64 [ %15, %for.body27.lr.ph ], [ %indvars.iv.next127, %for.inc84 ]
+  %indvars.iv122 = phi i64 [ %15, %for.body27.lr.ph ], [ %indvars.iv.next123, %for.inc84 ]
   %18 = phi i32 [ %14, %for.body27.lr.ph ], [ %43, %for.inc84 ]
   %x.0107 = phi i32 [ 0, %for.body27.lr.ph ], [ %add35, %for.inc84 ]
   %19 = load i32, ptr %y20, align 4
@@ -1881,9 +1881,9 @@ for.inc52.lr.ph:                                  ; preds = %for.body27
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.inc52.lr.ph, %for.inc52
-  %indvars.iv120 = phi i64 [ 0, %for.inc52.lr.ph ], [ %indvars.iv.next121, %for.inc52 ]
+  %indvars.iv116 = phi i64 [ 0, %for.inc52.lr.ph ], [ %indvars.iv.next117, %for.inc52 ]
   %20 = phi ptr [ %16, %for.inc52.lr.ph ], [ %24, %for.inc52 ]
-  %add.ptr.i41 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %20, i64 %indvars.iv120
+  %add.ptr.i41 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %20, i64 %indvars.iv116
   %21 = load ptr, ptr %add.ptr.i41, align 8
   %tileBoundsOffset.i = getelementptr inbounds i8, ptr %add.ptr.i41, i64 24
   %22 = load i32, ptr %tileBoundsOffset.i, align 8
@@ -1898,14 +1898,14 @@ for.inc52:                                        ; preds = %for.inc52.lr.ph, %f
   store i32 %sub, ptr %add.ptr.i4.i, align 1
   %setCount.i = getelementptr inbounds i8, ptr %add.ptr.i41, i64 56
   store i32 %mul.i, ptr %setCount.i, align 8
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %23 = load ptr, ptr %_M_finish.i, align 8
   %24 = load ptr, ptr %channelBuffers, align 8
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
   %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 6
-  %cmp46 = icmp ugt i64 %sub.ptr.div.i40, %indvars.iv.next121
+  %cmp46 = icmp ugt i64 %sub.ptr.div.i40, %indvars.iv.next117
   br i1 %cmp46, label %for.inc52, label %invoke.cont61, !llvm.loop !13
 
 lpad31.loopexit:                                  ; preds = %if.end16.i
@@ -1925,11 +1925,11 @@ lpad31.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i
 
 lpad31:                                           ; preds = %lpad31.loopexit.split-lp.loopexit, %lpad31.loopexit.split-lp.loopexit.split-lp, %lpad31.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad31.loopexit ], [ %lpad.loopexit77, %lpad31.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp78, %lpad31.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %displayValues.sroa.0.0132, null
+  %tobool.not.i.i.i = icmp eq ptr %displayValues.sroa.0.0128, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad31
-  call void @_ZdlPv(ptr noundef nonnull %displayValues.sroa.0.0132) #25
+  call void @_ZdlPv(ptr noundef nonnull %displayValues.sroa.0.0128) #25
   br label %eh.resume
 
 invoke.cont61:                                    ; preds = %for.inc52, %for.body27
@@ -1949,7 +1949,7 @@ invoke.cont61:                                    ; preds = %for.inc52, %for.bod
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args4.i)
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %__args.i, align 8
   store i64 %retval.sroa.0.0.insert.insert.i14.i, ptr %5, align 8
-  store ptr %displayValues.sroa.0.0132, ptr %__args4.i, align 8
+  store ptr %displayValues.sroa.0.0128, ptr %__args4.i, align 8
   store i64 %sub.ptr.div.i.i, ptr %6, align 8
   %25 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %25, null
@@ -1976,9 +1976,9 @@ _ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit: ; pr
   br i1 %cmp71103.not, label %for.inc84, label %for.body72
 
 for.body72:                                       ; preds = %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit, %for.inc81
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %for.inc81 ], [ 0, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %for.inc81 ], [ 0, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ]
   %29 = phi ptr [ %40, %for.inc81 ], [ %28, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ]
-  %add.ptr.i53 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %29, i64 %indvars.iv123
+  %add.ptr.i53 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %29, i64 %indvars.iv119
   %setCount.i54 = getelementptr inbounds i8, ptr %add.ptr.i53, i64 56
   %30 = load i32, ptr %setCount.i54, align 8
   %cmp.i55 = icmp sgt i32 %30, 16384
@@ -2030,7 +2030,7 @@ _ZN4pbrt10HashBufferIhEEmPKT_mm.exit.i:           ; preds = %while.body.i.i.i
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
   %tileHashes.i = getelementptr inbounds i8, ptr %add.ptr.i53, i64 32
   %35 = load ptr, ptr %tileHashes.i, align 8
-  %add.ptr.i.i57 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv126
+  %add.ptr.i.i57 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv122
   %36 = load i64, ptr %add.ptr.i.i57, align 8
   %cmp14.i = icmp eq i64 %xor43.i.i.i, %36
   br i1 %cmp14.i, label %for.inc81, label %if.end16.i
@@ -2048,7 +2048,7 @@ call25.i.noexc:                                   ; preds = %if.end16.i
 
 if.end27.i:                                       ; preds = %call25.i.noexc
   %38 = load ptr, ptr %tileHashes.i, align 8
-  %add.ptr.i4.i58 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv126
+  %add.ptr.i4.i58 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv122
   store i64 %xor43.i.i.i, ptr %add.ptr.i4.i58, align 8
   br label %for.inc81
 
@@ -2057,26 +2057,26 @@ if.then78:                                        ; preds = %call25.i.noexc
   br label %cleanup
 
 for.inc81:                                        ; preds = %if.end27.i, %_ZN4pbrt10HashBufferIhEEmPKT_mm.exit.i
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %39 = load ptr, ptr %_M_finish.i, align 8
   %40 = load ptr, ptr %channelBuffers, align 8
   %sub.ptr.lhs.cast.i49 = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i50 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i51 = sub i64 %sub.ptr.lhs.cast.i49, %sub.ptr.rhs.cast.i50
   %sub.ptr.div.i52 = ashr exact i64 %sub.ptr.sub.i51, 6
-  %cmp71 = icmp ugt i64 %sub.ptr.div.i52, %indvars.iv.next124
+  %cmp71 = icmp ugt i64 %sub.ptr.div.i52, %indvars.iv.next120
   br i1 %cmp71, label %for.body72, label %for.inc84, !llvm.loop !14
 
 for.inc84:                                        ; preds = %for.inc81, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit
   %41 = phi ptr [ %28, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ], [ %40, %for.inc81 ]
   %42 = phi ptr [ %27, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ], [ %39, %for.inc81 ]
-  %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
+  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
   %43 = load i32, ptr %resolution, align 8
   %cmp26 = icmp slt i32 %add35, %43
   br i1 %cmp26, label %for.body27, label %for.inc88.loopexit, !llvm.loop !15
 
 for.inc88.loopexit:                               ; preds = %for.inc84
-  %44 = trunc nsw i64 %indvars.iv.next127 to i32
+  %44 = trunc nsw i64 %indvars.iv.next123 to i32
   %.pre = load i32, ptr %y20, align 4
   br label %for.inc88
 
@@ -2091,11 +2091,11 @@ for.inc88:                                        ; preds = %for.cond23.preheade
 
 cleanup:                                          ; preds = %for.inc88, %for.cond23.preheader.lr.ph, %for.cond19.preheader, %if.then78
   %cmp2188 = phi i1 [ false, %if.then78 ], [ true, %for.cond19.preheader ], [ true, %for.cond23.preheader.lr.ph ], [ true, %for.inc88 ]
-  %tobool.not.i.i.i64 = icmp eq ptr %displayValues.sroa.0.0132, null
+  %tobool.not.i.i.i64 = icmp eq ptr %displayValues.sroa.0.0128, null
   br i1 %tobool.not.i.i.i64, label %return, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %displayValues.sroa.0.0132) #25
+  call void @_ZdlPv(ptr noundef nonnull %displayValues.sroa.0.0128) #25
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i65, %cleanup, %if.then

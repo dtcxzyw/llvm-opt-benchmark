@@ -324,239 +324,215 @@ mca_bml_base_btl_array_remove.exit:               ; preds = %25, %6, %._crit_edg
 .lr.ph.i79:                                       ; preds = %mca_bml_base_btl_array_remove.exit
   %29 = getelementptr inbounds i8, ptr %4, i64 160
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %1
-  br i1 %33, label %.preheader.i82, label %.lr.ph
+  br label %31
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %30, i64 %49, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %1
-  br i1 %37, label %.preheader.i82.loopexit, label %.lr.ph, !llvm.loop !11
+31:                                               ; preds = %44, %.lr.ph.i79
+  %.022.i80 = phi i64 [ 0, %.lr.ph.i79 ], [ %45, %44 ]
+  %32 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %30, i64 %.022.i80, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %1
+  br i1 %34, label %.preheader.i82, label %44
 
-.preheader.i82.loopexit:                          ; preds = %34
-  %38 = icmp ult i64 %49, %28
-  br label %.preheader.i82
-
-.preheader.i82:                                   ; preds = %.preheader.i82.loopexit, %.lr.ph.i79
-  %.lcssa112 = phi i1 [ true, %.lr.ph.i79 ], [ %38, %.preheader.i82.loopexit ]
-  %.022.i80.lcssa = phi i64 [ 0, %.lr.ph.i79 ], [ %49, %.preheader.i82.loopexit ]
-  %39 = add i64 %28, -1
-  %40 = icmp ult i64 %.022.i80.lcssa, %39
-  br i1 %40, label %.lr.ph24.i85, label %._crit_edge.i83
+.preheader.i82:                                   ; preds = %31
+  %35 = add i64 %28, -1
+  %36 = icmp ult i64 %.022.i80, %35
+  br i1 %36, label %.lr.ph24.i85, label %.loopexit106
 
 .lr.ph24.i85:                                     ; preds = %.preheader.i82, %.lr.ph24.i85
-  %.123.i86 = phi i64 [ %43, %.lr.ph24.i85 ], [ %.022.i80.lcssa, %.preheader.i82 ]
-  %41 = load ptr, ptr %29, align 8
-  %42 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %41, i64 %.123.i86
-  %43 = add nuw i64 %.123.i86, 1
-  %44 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %41, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
-  %45 = load i64, ptr %27, align 8
-  %46 = add i64 %45, -1
-  %47 = icmp ult i64 %43, %46
-  br i1 %47, label %.lr.ph24.i85, label %._crit_edge.i83, !llvm.loop !10
+  %.123.i86 = phi i64 [ %39, %.lr.ph24.i85 ], [ %.022.i80, %.preheader.i82 ]
+  %37 = load ptr, ptr %29, align 8
+  %38 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %37, i64 %.123.i86
+  %39 = add nuw i64 %.123.i86, 1
+  %40 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %37, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  %41 = load i64, ptr %27, align 8
+  %42 = add i64 %41, -1
+  %43 = icmp ult i64 %39, %42
+  br i1 %43, label %.lr.ph24.i85, label %.loopexit106, !llvm.loop !10
 
-._crit_edge.i83:                                  ; preds = %.lr.ph24.i85, %.preheader.i82
-  %.val73122 = phi i64 [ %39, %.preheader.i82 ], [ %46, %.lr.ph24.i85 ]
-  store i64 %.val73122, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 152
-  store i64 0, ptr %48, align 8
-  br i1 %.lcssa112, label %50, label %mca_bml_base_btl_array_remove.exit87.thread
+44:                                               ; preds = %31
+  %45 = add nuw i64 %.022.i80, 1
+  %exitcond.not.i81 = icmp eq i64 %45, %28
+  br i1 %exitcond.not.i81, label %mca_bml_base_btl_array_remove.exit87.thread, label %31, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph.i79, %34
-  %.022.i80116 = phi i64 [ %49, %34 ], [ 0, %.lr.ph.i79 ]
-  %49 = add nuw i64 %.022.i80116, 1
-  %exitcond.not.i81 = icmp eq i64 %49, %28
-  br i1 %exitcond.not.i81, label %mca_bml_base_btl_array_remove.exit87.thread, label %34, !llvm.loop !11
+.loopexit106:                                     ; preds = %.lr.ph24.i85, %.preheader.i82
+  %.val73116 = phi i64 [ %35, %.preheader.i82 ], [ %42, %.lr.ph24.i85 ]
+  store i64 %.val73116, ptr %27, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 152
+  store i64 0, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 64
+  store i64 -1, ptr %47, align 8
+  %.not128 = icmp eq i64 %.val73116, 0
+  br i1 %.not128, label %mca_bml_base_btl_array_remove.exit87.thread, label %mca_bml_base_btl_array_get_index.exit.lr.ph
 
-50:                                               ; preds = %._crit_edge.i83
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
-  store i64 -1, ptr %51, align 8
-  %.not138 = icmp eq i64 %.val73122, 0
-  br i1 %.not138, label %mca_bml_base_btl_array_remove.exit87.thread, label %mca_bml_base_btl_array_get_index.exit.lr.ph
-
-mca_bml_base_btl_array_get_index.exit.lr.ph:      ; preds = %50
+mca_bml_base_btl_array_get_index.exit.lr.ph:      ; preds = %.loopexit106
   %.pre = load ptr, ptr %29, align 8
   br label %mca_bml_base_btl_array_get_index.exit
 
-mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %63
-  %52 = phi i64 [ -1, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %64, %63 ]
-  %.0120 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %65, %63 ]
-  %.063119 = phi double [ 0.000000e+00, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %58, %63 ]
-  %53 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %.pre, i64 %.0120, i32 2
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 64
-  %56 = load i32, ptr %55, align 8
-  %57 = uitofp i32 %56 to double
-  %58 = fadd double %.063119, %57
-  %59 = getelementptr inbounds i8, ptr %54, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp ugt i64 %52, %60
-  br i1 %61, label %62, label %63
+mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %59
+  %48 = phi i64 [ -1, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %60, %59 ]
+  %.0115 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %61, %59 ]
+  %.063114 = phi double [ 0.000000e+00, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %54, %59 ]
+  %49 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %.pre, i64 %.0115, i32 2
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %52 = load i32, ptr %51, align 8
+  %53 = uitofp i32 %52 to double
+  %54 = fadd double %.063114, %53
+  %55 = getelementptr inbounds i8, ptr %50, i64 24
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp ugt i64 %48, %56
+  br i1 %57, label %58, label %59
 
-62:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
-  store i64 %60, ptr %51, align 8
-  br label %63
+58:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
+  store i64 %56, ptr %47, align 8
+  br label %59
 
-63:                                               ; preds = %mca_bml_base_btl_array_get_index.exit, %62
-  %64 = phi i64 [ %52, %mca_bml_base_btl_array_get_index.exit ], [ %60, %62 ]
-  %65 = add nuw i64 %.0120, 1
-  %66 = icmp ult i64 %65, %.val73122
-  br i1 %66, label %mca_bml_base_btl_array_get_index.exit, label %mca_bml_base_btl_array_get_index.exit89, !llvm.loop !12
+59:                                               ; preds = %mca_bml_base_btl_array_get_index.exit, %58
+  %60 = phi i64 [ %48, %mca_bml_base_btl_array_get_index.exit ], [ %56, %58 ]
+  %61 = add nuw i64 %.0115, 1
+  %62 = icmp ult i64 %61, %.val73116
+  br i1 %62, label %mca_bml_base_btl_array_get_index.exit, label %mca_bml_base_btl_array_get_index.exit89, !llvm.loop !12
 
-mca_bml_base_btl_array_get_index.exit89:          ; preds = %63, %mca_bml_base_btl_array_get_index.exit89
-  %.val73124 = phi i64 [ %.val73, %mca_bml_base_btl_array_get_index.exit89 ], [ %.val73122, %63 ]
-  %.1123 = phi i64 [ %78, %mca_bml_base_btl_array_get_index.exit89 ], [ 0, %63 ]
-  %67 = load ptr, ptr %29, align 8
-  %68 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %67, i64 %.1123
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 64
-  %72 = load i32, ptr %71, align 8
-  %.not72 = icmp eq i32 %72, 0
-  %73 = uitofp i64 %.val73124 to double
-  %74 = fdiv double 1.000000e+00, %73
-  %75 = uitofp i32 %72 to double
-  %76 = fdiv double %75, %58
-  %.sink.in = select i1 %.not72, double %74, double %76
+mca_bml_base_btl_array_get_index.exit89:          ; preds = %59, %mca_bml_base_btl_array_get_index.exit89
+  %.val73118 = phi i64 [ %.val73, %mca_bml_base_btl_array_get_index.exit89 ], [ %.val73116, %59 ]
+  %.1117 = phi i64 [ %74, %mca_bml_base_btl_array_get_index.exit89 ], [ 0, %59 ]
+  %63 = load ptr, ptr %29, align 8
+  %64 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %63, i64 %.1117
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 64
+  %68 = load i32, ptr %67, align 8
+  %.not72 = icmp eq i32 %68, 0
+  %69 = uitofp i64 %.val73118 to double
+  %70 = fdiv double 1.000000e+00, %69
+  %71 = uitofp i32 %68 to double
+  %72 = fdiv double %71, %54
+  %.sink.in = select i1 %.not72, double %70, double %72
   %.sink = fptrunc double %.sink.in to float
-  %77 = getelementptr inbounds i8, ptr %68, i64 4
-  store float %.sink, ptr %77, align 4
-  %78 = add nuw i64 %.1123, 1
+  %73 = getelementptr inbounds i8, ptr %64, i64 4
+  store float %.sink, ptr %73, align 4
+  %74 = add nuw i64 %.1117, 1
   %.val73 = load i64, ptr %27, align 8
-  %79 = icmp ult i64 %78, %.val73
-  br i1 %79, label %mca_bml_base_btl_array_get_index.exit89, label %mca_bml_base_btl_array_remove.exit87.thread, !llvm.loop !13
+  %75 = icmp ult i64 %74, %.val73
+  br i1 %75, label %mca_bml_base_btl_array_get_index.exit89, label %mca_bml_base_btl_array_remove.exit87.thread, !llvm.loop !13
 
-mca_bml_base_btl_array_remove.exit87.thread:      ; preds = %.lr.ph, %mca_bml_base_btl_array_get_index.exit89, %50, %mca_bml_base_btl_array_remove.exit, %._crit_edge.i83
-  %80 = getelementptr inbounds i8, ptr %4, i64 184
-  %81 = load i64, ptr %80, align 8
-  %.not.i90 = icmp eq i64 %81, 0
+mca_bml_base_btl_array_remove.exit87.thread:      ; preds = %44, %mca_bml_base_btl_array_get_index.exit89, %.loopexit106, %mca_bml_base_btl_array_remove.exit
+  %76 = getelementptr inbounds i8, ptr %4, i64 184
+  %77 = load i64, ptr %76, align 8
+  %.not.i90 = icmp eq i64 %77, 0
   br i1 %.not.i90, label %mca_bml_base_btl_array_remove.exit99.thread, label %.lr.ph.i91
 
 .lr.ph.i91:                                       ; preds = %mca_bml_base_btl_array_remove.exit87.thread
-  %82 = getelementptr inbounds i8, ptr %4, i64 208
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %1
-  br i1 %86, label %.preheader.i94, label %.lr.ph126
+  %78 = getelementptr inbounds i8, ptr %4, i64 208
+  %79 = load ptr, ptr %78, align 8
+  br label %80
 
-87:                                               ; preds = %.lr.ph126
-  %88 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %83, i64 %102, i32 2
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %1
-  br i1 %90, label %.preheader.i94.loopexit, label %.lr.ph126, !llvm.loop !11
+80:                                               ; preds = %93, %.lr.ph.i91
+  %.022.i92 = phi i64 [ 0, %.lr.ph.i91 ], [ %94, %93 ]
+  %81 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %79, i64 %.022.i92, i32 2
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, %1
+  br i1 %83, label %.preheader.i94, label %93
 
-.preheader.i94.loopexit:                          ; preds = %87
-  %91 = icmp ult i64 %102, %81
-  br label %.preheader.i94
-
-.preheader.i94:                                   ; preds = %.preheader.i94.loopexit, %.lr.ph.i91
-  %.lcssa108 = phi i1 [ true, %.lr.ph.i91 ], [ %91, %.preheader.i94.loopexit ]
-  %.022.i92.lcssa = phi i64 [ 0, %.lr.ph.i91 ], [ %102, %.preheader.i94.loopexit ]
-  %92 = add i64 %81, -1
-  %93 = icmp ult i64 %.022.i92.lcssa, %92
-  br i1 %93, label %.lr.ph24.i97, label %._crit_edge.i95
+.preheader.i94:                                   ; preds = %80
+  %84 = add i64 %77, -1
+  %85 = icmp ult i64 %.022.i92, %84
+  br i1 %85, label %.lr.ph24.i97, label %.loopexit
 
 .lr.ph24.i97:                                     ; preds = %.preheader.i94, %.lr.ph24.i97
-  %.123.i98 = phi i64 [ %96, %.lr.ph24.i97 ], [ %.022.i92.lcssa, %.preheader.i94 ]
-  %94 = load ptr, ptr %82, align 8
-  %95 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %94, i64 %.123.i98
-  %96 = add nuw i64 %.123.i98, 1
-  %97 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %94, i64 %96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
-  %98 = load i64, ptr %80, align 8
-  %99 = add i64 %98, -1
-  %100 = icmp ult i64 %96, %99
-  br i1 %100, label %.lr.ph24.i97, label %._crit_edge.i95, !llvm.loop !10
+  %.123.i98 = phi i64 [ %88, %.lr.ph24.i97 ], [ %.022.i92, %.preheader.i94 ]
+  %86 = load ptr, ptr %78, align 8
+  %87 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %86, i64 %.123.i98
+  %88 = add nuw i64 %.123.i98, 1
+  %89 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %86, i64 %88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false)
+  %90 = load i64, ptr %76, align 8
+  %91 = add i64 %90, -1
+  %92 = icmp ult i64 %88, %91
+  br i1 %92, label %.lr.ph24.i97, label %.loopexit, !llvm.loop !10
 
-._crit_edge.i95:                                  ; preds = %.lr.ph24.i97, %.preheader.i94
-  %.val76135 = phi i64 [ %92, %.preheader.i94 ], [ %99, %.lr.ph24.i97 ]
-  store i64 %.val76135, ptr %80, align 8
-  %101 = getelementptr inbounds i8, ptr %4, i64 200
-  store i64 0, ptr %101, align 8
-  br i1 %.lcssa108, label %103, label %mca_bml_base_btl_array_remove.exit99.thread
+93:                                               ; preds = %80
+  %94 = add nuw i64 %.022.i92, 1
+  %exitcond.not.i93 = icmp eq i64 %94, %77
+  br i1 %exitcond.not.i93, label %mca_bml_base_btl_array_remove.exit99.thread, label %80, !llvm.loop !11
 
-.lr.ph126:                                        ; preds = %.lr.ph.i91, %87
-  %.022.i92125 = phi i64 [ %102, %87 ], [ 0, %.lr.ph.i91 ]
-  %102 = add nuw i64 %.022.i92125, 1
-  %exitcond.not.i93 = icmp eq i64 %102, %81
-  br i1 %exitcond.not.i93, label %mca_bml_base_btl_array_remove.exit99.thread, label %87, !llvm.loop !11
+.loopexit:                                        ; preds = %.lr.ph24.i97, %.preheader.i94
+  %.val76125 = phi i64 [ %84, %.preheader.i94 ], [ %91, %.lr.ph24.i97 ]
+  store i64 %.val76125, ptr %76, align 8
+  %95 = getelementptr inbounds i8, ptr %4, i64 200
+  store i64 0, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %4, i64 48
+  %97 = getelementptr inbounds i8, ptr %4, i64 56
+  %.not130 = icmp eq i64 %.val76125, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  br i1 %.not130, label %mca_bml_base_btl_array_remove.exit99.thread, label %mca_bml_base_btl_array_get_index.exit101.lr.ph
 
-103:                                              ; preds = %._crit_edge.i95
-  %104 = getelementptr inbounds i8, ptr %4, i64 48
-  %105 = getelementptr inbounds i8, ptr %4, i64 56
-  %.not140 = icmp eq i64 %.val76135, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  br i1 %.not140, label %mca_bml_base_btl_array_remove.exit99.thread, label %mca_bml_base_btl_array_get_index.exit101.lr.ph
-
-mca_bml_base_btl_array_get_index.exit101.lr.ph:   ; preds = %103
-  %.pre156 = load ptr, ptr %82, align 8
+mca_bml_base_btl_array_get_index.exit101.lr.ph:   ; preds = %.loopexit
+  %.pre142 = load ptr, ptr %78, align 8
   br label %mca_bml_base_btl_array_get_index.exit101
 
-mca_bml_base_btl_array_get_index.exit101:         ; preds = %mca_bml_base_btl_array_get_index.exit101.lr.ph, %124
-  %106 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %125, %124 ]
-  %107 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %119, %124 ]
-  %.2131 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %126, %124 ]
-  %.164130 = phi double [ 0.000000e+00, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %113, %124 ]
-  %108 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %.pre156, i64 %.2131, i32 2
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 64
-  %111 = load i32, ptr %110, align 8
-  %112 = uitofp i32 %111 to double
-  %113 = fadd double %.164130, %112
-  %114 = getelementptr inbounds i8, ptr %109, i64 32
-  %115 = load i64, ptr %114, align 8
-  %116 = icmp ult i64 %107, %115
-  br i1 %116, label %117, label %118
+mca_bml_base_btl_array_get_index.exit101:         ; preds = %mca_bml_base_btl_array_get_index.exit101.lr.ph, %116
+  %98 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %117, %116 ]
+  %99 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %111, %116 ]
+  %.2121 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %118, %116 ]
+  %.164120 = phi double [ 0.000000e+00, %mca_bml_base_btl_array_get_index.exit101.lr.ph ], [ %105, %116 ]
+  %100 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %.pre142, i64 %.2121, i32 2
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 64
+  %103 = load i32, ptr %102, align 8
+  %104 = uitofp i32 %103 to double
+  %105 = fadd double %.164120, %104
+  %106 = getelementptr inbounds i8, ptr %101, i64 32
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp ult i64 %99, %107
+  br i1 %108, label %109, label %110
 
-117:                                              ; preds = %mca_bml_base_btl_array_get_index.exit101
-  store i64 %115, ptr %104, align 8
-  br label %118
+109:                                              ; preds = %mca_bml_base_btl_array_get_index.exit101
+  store i64 %107, ptr %96, align 8
+  br label %110
 
-118:                                              ; preds = %117, %mca_bml_base_btl_array_get_index.exit101
-  %119 = phi i64 [ %115, %117 ], [ %107, %mca_bml_base_btl_array_get_index.exit101 ]
-  %120 = getelementptr inbounds i8, ptr %109, i64 48
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp ult i64 %106, %121
-  br i1 %122, label %123, label %124
+110:                                              ; preds = %109, %mca_bml_base_btl_array_get_index.exit101
+  %111 = phi i64 [ %107, %109 ], [ %99, %mca_bml_base_btl_array_get_index.exit101 ]
+  %112 = getelementptr inbounds i8, ptr %101, i64 48
+  %113 = load i64, ptr %112, align 8
+  %114 = icmp ult i64 %98, %113
+  br i1 %114, label %115, label %116
 
-123:                                              ; preds = %118
-  store i64 %121, ptr %105, align 8
-  br label %124
+115:                                              ; preds = %110
+  store i64 %113, ptr %97, align 8
+  br label %116
 
-124:                                              ; preds = %118, %123
-  %125 = phi i64 [ %106, %118 ], [ %121, %123 ]
-  %126 = add nuw i64 %.2131, 1
-  %127 = icmp ult i64 %126, %.val76135
-  br i1 %127, label %mca_bml_base_btl_array_get_index.exit101, label %mca_bml_base_btl_array_get_index.exit103, !llvm.loop !14
+116:                                              ; preds = %110, %115
+  %117 = phi i64 [ %98, %110 ], [ %113, %115 ]
+  %118 = add nuw i64 %.2121, 1
+  %119 = icmp ult i64 %118, %.val76125
+  br i1 %119, label %mca_bml_base_btl_array_get_index.exit101, label %mca_bml_base_btl_array_get_index.exit103, !llvm.loop !14
 
-mca_bml_base_btl_array_get_index.exit103:         ; preds = %124, %mca_bml_base_btl_array_get_index.exit103
-  %.val76137 = phi i64 [ %.val76, %mca_bml_base_btl_array_get_index.exit103 ], [ %.val76135, %124 ]
-  %.3136 = phi i64 [ %139, %mca_bml_base_btl_array_get_index.exit103 ], [ 0, %124 ]
-  %128 = load ptr, ptr %82, align 8
-  %129 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %128, i64 %.3136
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 64
-  %133 = load i32, ptr %132, align 8
-  %.not = icmp eq i32 %133, 0
-  %134 = uitofp i64 %.val76137 to double
-  %135 = fdiv double 1.000000e+00, %134
-  %136 = uitofp i32 %133 to double
-  %137 = fdiv double %136, %113
-  %.sink155.in = select i1 %.not, double %135, double %137
-  %.sink155 = fptrunc double %.sink155.in to float
-  %138 = getelementptr inbounds i8, ptr %129, i64 4
-  store float %.sink155, ptr %138, align 4
-  %139 = add nuw i64 %.3136, 1
-  %.val76 = load i64, ptr %80, align 8
-  %140 = icmp ult i64 %139, %.val76
-  br i1 %140, label %mca_bml_base_btl_array_get_index.exit103, label %mca_bml_base_btl_array_remove.exit99.thread, !llvm.loop !15
+mca_bml_base_btl_array_get_index.exit103:         ; preds = %116, %mca_bml_base_btl_array_get_index.exit103
+  %.val76127 = phi i64 [ %.val76, %mca_bml_base_btl_array_get_index.exit103 ], [ %.val76125, %116 ]
+  %.3126 = phi i64 [ %131, %mca_bml_base_btl_array_get_index.exit103 ], [ 0, %116 ]
+  %120 = load ptr, ptr %78, align 8
+  %121 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %120, i64 %.3126
+  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 64
+  %125 = load i32, ptr %124, align 8
+  %.not = icmp eq i32 %125, 0
+  %126 = uitofp i64 %.val76127 to double
+  %127 = fdiv double 1.000000e+00, %126
+  %128 = uitofp i32 %125 to double
+  %129 = fdiv double %128, %105
+  %.sink141.in = select i1 %.not, double %127, double %129
+  %.sink141 = fptrunc double %.sink141.in to float
+  %130 = getelementptr inbounds i8, ptr %121, i64 4
+  store float %.sink141, ptr %130, align 4
+  %131 = add nuw i64 %.3126, 1
+  %.val76 = load i64, ptr %76, align 8
+  %132 = icmp ult i64 %131, %.val76
+  br i1 %132, label %mca_bml_base_btl_array_get_index.exit103, label %mca_bml_base_btl_array_remove.exit99.thread, !llvm.loop !15
 
-mca_bml_base_btl_array_remove.exit99.thread:      ; preds = %.lr.ph126, %mca_bml_base_btl_array_get_index.exit103, %103, %mca_bml_base_btl_array_remove.exit87.thread, %._crit_edge.i95, %2
+mca_bml_base_btl_array_remove.exit99.thread:      ; preds = %93, %mca_bml_base_btl_array_get_index.exit103, %.loopexit, %mca_bml_base_btl_array_remove.exit87.thread, %2
   ret i32 0
 }
 

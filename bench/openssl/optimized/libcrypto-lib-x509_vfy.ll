@@ -7149,12 +7149,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.inc:                                          ; preds = %for.body
   %inc = add i32 %i.080, 1
   %exitcond.not = icmp eq i32 %inc, %call2
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %if.then24, label %for.body, !llvm.loop !36
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp1179, label %if.then24, label %if.end30
-
-if.then24:                                        ; preds = %for.end
+if.then24:                                        ; preds = %for.inc
   %param25 = getelementptr inbounds i8, ptr %ctx, i64 32
   %10 = load ptr, ptr %param25, align 8
   %flags = getelementptr inbounds i8, ptr %10, i64 24
@@ -7165,7 +7162,7 @@ if.then24:                                        ; preds = %for.end
   %.mux = select i1 %cmp27.not, i32 3, i32 1
   br i1 %brmerge, label %return, label %land.lhs.true63
 
-if.end30:                                         ; preds = %if.end10, %for.end
+if.end30:                                         ; preds = %if.end10
   %cmp31 = icmp eq i32 %num_untrusted, %call2
   br i1 %cmp31, label %land.lhs.true32, label %return
 

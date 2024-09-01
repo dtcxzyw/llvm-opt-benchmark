@@ -18445,8 +18445,8 @@ common.resume:                                    ; preds = %45, %470, %.thread7
   %.phi.trans.insert = getelementptr inbounds i8, ptr %24, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !684
   %62 = getelementptr inbounds i8, ptr %24, i64 16
-  %.not.not = icmp eq i64 %.pre, -9223372036854775804
-  br i1 %.not.not, label %82, label %63
+  %.not = icmp eq i64 %.pre, -9223372036854775804
+  br i1 %.not, label %82, label %63
 
 63:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h5c014464e9a0d41cE.exit"
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %23)
@@ -18887,8 +18887,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
 
 "_ZN4core3ptr181drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$core..result..Result$LT$$LP$usize$C$usize$C$exr..block..chunk..Chunk$RP$$C$exr..error..Error$GT$$GT$$GT$$GT$17h34312486082bcb17E.exit.i.i": ; preds = %205, %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i
   %208 = load i64, ptr %188, align 8, !range !684, !noalias !2121, !noundef !4
-  %.not10.not.i.i = icmp eq i64 %208, -9223372036854775804
-  br i1 %.not10.not.i.i, label %209, label %270
+  %.not10.i.i = icmp eq i64 %208, -9223372036854775804
+  br i1 %.not10.i.i, label %209, label %270
 
 209:                                              ; preds = %"_ZN4core3ptr181drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$core..result..Result$LT$$LP$usize$C$usize$C$exr..block..chunk..Chunk$RP$$C$exr..error..Error$GT$$GT$$GT$$GT$17h34312486082bcb17E.exit.i.i"
   br i1 %.not22.i.i, label %211, label %271
@@ -20335,8 +20335,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
 
 "_ZN4core3ptr162drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h9f093a1580ca9e47E.exit.i.i": ; preds = %205, %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.i.i.i.i
   %208 = load i64, ptr %20, align 8, !range !627, !noalias !2361, !noundef !4
-  %.not10.not.i.i = icmp eq i64 %208, -9223372036854775807
-  br i1 %.not10.not.i.i, label %209, label %285
+  %.not10.i.i = icmp eq i64 %208, -9223372036854775807
+  br i1 %.not10.i.i, label %209, label %285
 
 209:                                              ; preds = %"_ZN4core3ptr162drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h9f093a1580ca9e47E.exit.i.i"
   br i1 %.not20.i.i, label %211, label %286

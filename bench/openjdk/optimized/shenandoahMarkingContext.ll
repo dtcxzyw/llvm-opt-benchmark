@@ -107,7 +107,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
   store volatile i32 0, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit ]
@@ -149,7 +149,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread
   ret void
 }
 
@@ -279,41 +279,39 @@ define hidden noundef zeroext i1 @_ZNK24ShenandoahMarkingContext15is_bitmap_clea
   %6 = getelementptr inbounds i8, ptr %2, i64 552
   br label %7
 
-7:                                                ; preds = %.lr.ph, %23
-  %8 = phi i1 [ false, %.lr.ph ], [ %25, %23 ]
-  %.01112 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %9 = load i64, ptr %3, align 8
-  %10 = icmp ult i64 %.01112, %9
-  br i1 %10, label %11, label %_ZNK14ShenandoahHeap10get_regionEm.exit
+7:                                                ; preds = %.lr.ph, %22
+  %.01112 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
+  %8 = load i64, ptr %3, align 8
+  %9 = icmp ult i64 %.01112, %8
+  br i1 %9, label %10, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %.01112
-  %14 = load ptr, ptr %13, align 8
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %.01112
+  %13 = load ptr, ptr %12, align 8
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
-_ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %7, %11
-  %.0.i = phi ptr [ %14, %11 ], [ null, %7 ]
-  %15 = tail call noundef zeroext i1 @_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb(ptr noundef nonnull align 8 dereferenceable(2657) %2, ptr noundef %.0.i, i1 noundef zeroext false) #5
-  br i1 %15, label %16, label %23
+_ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %7, %10
+  %.0.i = phi ptr [ %13, %10 ], [ null, %7 ]
+  %14 = tail call noundef zeroext i1 @_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb(ptr noundef nonnull align 8 dereferenceable(2657) %2, ptr noundef %.0.i, i1 noundef zeroext false) #5
+  br i1 %14, label %15, label %22
 
-16:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %18, ptr noundef %20) #5
-  %22 = icmp eq ptr %21, %20
-  br i1 %22, label %23, label %._crit_edge
+15:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %17, ptr noundef %19) #5
+  %21 = icmp eq ptr %20, %19
+  br i1 %21, label %22, label %._crit_edge
 
-23:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %16
-  %24 = add nuw i64 %.01112, 1
-  %25 = icmp uge i64 %24, %4
-  %exitcond = icmp eq i64 %24, %4
-  br i1 %exitcond, label %._crit_edge, label %7, !llvm.loop !12
+22:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %15
+  %23 = add nuw i64 %.01112, 1
+  %exitcond.not = icmp eq i64 %23, %4
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %16, %23, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %25, %23 ], [ %8, %16 ]
+._crit_edge:                                      ; preds = %15, %22, %1
+  %.lcssa = phi i1 [ true, %1 ], [ true, %22 ], [ false, %15 ]
   ret i1 %.lcssa
 }
 

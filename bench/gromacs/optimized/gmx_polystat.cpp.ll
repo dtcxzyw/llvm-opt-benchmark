@@ -709,7 +709,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_imp
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph588, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph588, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge
-  %207 = phi i1 [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %202, %.lr.ph588 ]
+  %207 = phi i1 [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ true, %.lr.ph588 ]
   %.0288.lcssa801 = phi i32 [ %.1289, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.1289, %.lr.ph588 ]
   %.0.lcssa = phi i32 [ %201, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ %167, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.sroa.speculated473, %.lr.ph588 ]
   %storemerge.lcssa = phi i32 [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.sroa.speculated, %.lr.ph588 ]
@@ -1653,15 +1653,12 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %566
 .loopexit549:                                     ; preds = %568, %544
   %.132.i445637.lcssa651 = phi i32 [ %.132.i445637.lcssa652, %544 ], [ %spec.select, %568 ]
   %.132.i612.lcssa626 = phi i32 [ %.132.i612.lcssa627, %544 ], [ %spec.select, %568 ]
-  br i1 %.not, label %.loopexit, label %.preheader548
-
-.preheader548:                                    ; preds = %.loopexit549
   %577 = icmp sge i32 %407, %417
-  br i1 %577, label %.loopexit, label %.lr.ph615
+  %or.cond.not = or i1 %577, %.not
+  br i1 %or.cond.not, label %.loopexit, label %.lr.ph615
 
 .preheader547:                                    ; preds = %.lr.ph615
-  %brmerge830 = select i1 %577, i1 true, i1 %391
-  br i1 %brmerge830, label %.loopexit, label %.preheader543.us
+  br i1 %391, label %.loopexit, label %.preheader543.us
 
 .preheader543.us:                                 ; preds = %.preheader547, %..critedge_crit_edge.us
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %..critedge_crit_edge.us ], [ %412, %.preheader547 ]
@@ -1707,8 +1704,8 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %566
   %exitcond750.not = icmp eq i64 %indvars.iv.next747, %418
   br i1 %exitcond750.not, label %.loopexit, label %.preheader543.us, !llvm.loop !26
 
-.lr.ph615:                                        ; preds = %.preheader548, %.lr.ph615
-  %indvars.iv738 = phi i64 [ %indvars.iv.next739, %.lr.ph615 ], [ %412, %.preheader548 ]
+.lr.ph615:                                        ; preds = %.loopexit549, %.lr.ph615
+  %indvars.iv738 = phi i64 [ %indvars.iv.next739, %.lr.ph615 ], [ %412, %.loopexit549 ]
   %606 = load ptr, ptr %15, align 8
   %607 = load ptr, ptr %11, align 8
   %indvars.iv.next739 = add nsw i64 %indvars.iv738, 1
@@ -1751,7 +1748,7 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %566
   %exitcond742.not = icmp eq i64 %indvars.iv.next739, %418
   br i1 %exitcond742.not, label %.preheader547, label %.lr.ph615
 
-.loopexit:                                        ; preds = %..critedge_crit_edge.us, %.preheader547, %.preheader548, %.loopexit549
+.loopexit:                                        ; preds = %..critedge_crit_edge.us, %.preheader547, %.loopexit549
   %exitcond755.not = icmp eq i64 %indvars.iv.next752, %wide.trip.count754
   br i1 %exitcond755.not, label %._crit_edge624, label %.lr.ph623, !llvm.loop !27
 

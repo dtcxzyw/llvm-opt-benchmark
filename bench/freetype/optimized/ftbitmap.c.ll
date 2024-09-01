@@ -536,7 +536,6 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %.not126151 = icmp slt i32 %.0102181, 1
   %193 = zext i32 %.0106143 to i64
   %wide.trip.count = zext nneg i32 %.0105 to i64
-  %brmerge = or i1 %.not126151, %.not197
   br label %.preheader135
 
 .preheader135:                                    ; preds = %.preheader135.lr.ph, %._crit_edge154
@@ -548,7 +547,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   br i1 %.not127139, label %.preheader.thread188, label %.lr.ph
 
 .preheader:                                       ; preds = %.loopexit
-  br i1 %brmerge, label %._crit_edge154, label %.lr.ph150.us.preheader
+  br i1 %.not126151, label %._crit_edge154, label %.lr.ph150.us.preheader
 
 .preheader.thread188:                             ; preds = %.lr.ph148
   br i1 %.not126151, label %._crit_edge154, label %.lr.ph150.us.preheader

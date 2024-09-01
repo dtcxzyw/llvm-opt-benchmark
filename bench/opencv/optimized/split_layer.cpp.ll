@@ -639,30 +639,21 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14SplitLayerImpl11tryQu
 .lr.ph:                                           ; preds = %4
   %16 = load ptr, ptr %5, align 8
   %17 = load float, ptr %16, align 4
-  %18 = and i64 %13, 2147483647
   %wide.trip.count = and i64 %13, 2147483647
-  %19 = load float, ptr %9, align 4
-  %20 = fcmp une float %19, %17
-  br i1 %20, label %._crit_edge, label %.lr.ph12
+  br label %18
 
-.lr.ph12:                                         ; preds = %.lr.ph, %21
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %21, !llvm.loop !8
+18:                                               ; preds = %18, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %19 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp oeq float %20, %17
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %21, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %18, label %._crit_edge, !llvm.loop !8
 
-21:                                               ; preds = %.lr.ph12
-  %22 = getelementptr inbounds float, ptr %9, i64 %indvars.iv.next
-  %23 = load float, ptr %22, align 4
-  %24 = fcmp une float %23, %17
-  br i1 %24, label %._crit_edge.loopexit, label %.lr.ph12, !llvm.loop !8
-
-._crit_edge.loopexit:                             ; preds = %21, %.lr.ph12
-  %25 = icmp uge i64 %indvars.iv.next, %18
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %4
-  %.lcssa = phi i1 [ true, %4 ], [ false, %.lr.ph ], [ %25, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %18, %4
+  %.lcssa = phi i1 [ true, %4 ], [ %21, %18 ]
   ret i1 %.lcssa
 }
 

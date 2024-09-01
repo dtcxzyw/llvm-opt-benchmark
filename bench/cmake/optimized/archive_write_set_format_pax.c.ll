@@ -2027,8 +2027,7 @@ define internal fastcc nonnull ptr @build_ustar_entry_name(ptr noundef returned 
 
 8:                                                ; preds = %4
   %9 = icmp ult i64 %2, 100
-  %or.cond = and i1 %9, %5
-  br i1 %or.cond, label %11, label %.preheader
+  br i1 %9, label %11, label %.preheader
 
 .preheader:                                       ; preds = %.thread193, %8
   %.0196 = phi i64 [ %7, %.thread193 ], [ 0, %8 ]
@@ -2092,8 +2091,8 @@ define internal fastcc nonnull ptr @build_ustar_entry_name(ptr noundef returned 
 .lr.ph175.preheader:                              ; preds = %.thread
   %invariant.op = add nsw i64 %.0116.idx153, -1
   %26 = load i8, ptr %.0118.ptr.ptr171, align 1
-  %.not138225 = icmp ne i8 %26, 47
-  br i1 %.not138225, label %.lr.ph227, label %.critedge
+  %.not138225.not = icmp eq i8 %26, 47
+  br i1 %.not138225.not, label %.critedge, label %.lr.ph227
 
 .lr.ph175:                                        ; preds = %.lr.ph227
   %.0118.add = add nsw i64 %.0118.idx172226, -1
@@ -2116,7 +2115,7 @@ define internal fastcc nonnull ptr @build_ustar_entry_name(ptr noundef returned 
   %29 = phi i64 [ %spec.select221, %.thread ], [ %.ph, %.thread210 ], [ %spec.select221, %.lr.ph175.preheader ], [ %spec.select221, %.lr.ph227 ], [ %spec.select221, %.critedge.loopexit.split.loop.exit ]
   %.not.lcssa202217 = phi i1 [ %.not154, %.thread ], [ %10, %.thread210 ], [ %.not154, %.lr.ph175.preheader ], [ %.not154, %.lr.ph227 ], [ %.not154, %.critedge.loopexit.split.loop.exit ]
   %.0116.ptr.ptr.lcssa204216 = phi ptr [ %.0116.ptr.ptr155, %.thread ], [ %.0116.ptr.ptr.lcssa204.ph, %.thread210 ], [ %.0116.ptr.ptr155, %.lr.ph175.preheader ], [ %.0116.ptr.ptr155, %.lr.ph227 ], [ %.0116.ptr.ptr155, %.critedge.loopexit.split.loop.exit ]
-  %.0118.idx.lcssa = phi i1 [ false, %.thread ], [ false, %.thread210 ], [ %.not138225, %.lr.ph175.preheader ], [ %.not138225, %.lr.ph227 ], [ %.not138225, %.critedge.loopexit.split.loop.exit ]
+  %.0118.idx.lcssa = phi i1 [ false, %.thread ], [ false, %.thread210 ], [ false, %.lr.ph175.preheader ], [ true, %.lr.ph227 ], [ true, %.critedge.loopexit.split.loop.exit ]
   %.0116.ptr.add.lcssa = phi i64 [ 0, %.thread ], [ %.0116.ptr.add170214, %.thread210 ], [ %.0116.ptr.add170, %.lr.ph175.preheader ], [ %.0116.ptr.add.reass, %.critedge.loopexit.split.loop.exit ], [ 0, %.lr.ph227 ]
   %.0118.ptr.ptr.lcssa = phi ptr [ %.0118.ptr.ptr171, %.thread ], [ %.0118.ptr.ptr171215, %.thread210 ], [ %.0118.ptr.ptr171, %.lr.ph175.preheader ], [ %.0118.ptr.ptr.le, %.critedge.loopexit.split.loop.exit ], [ %1, %.lr.ph227 ]
   %30 = load i8, ptr %.0118.ptr.ptr.lcssa, align 1
@@ -2603,8 +2602,8 @@ define internal fastcc range(i32 -30, 1) i32 @archive_write_pax_header_xattrs(pt
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = tail call i32 @archive_entry_xattr_reset(ptr noundef %2) #15
-  %.not29 = icmp eq i32 %8, 0
-  br i1 %.not29, label %.loopexit, label %.lr.ph
+  %.not28 = icmp eq i32 %8, 0
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2663,7 +2662,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 ._crit_edge.thread.i:                             ; preds = %13
   %30 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #19
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %url_encode.exit.thread, label %url_encode.exit.thread23
+  br i1 %31, label %url_encode.exit.thread, label %url_encode.exit.thread22
 
 .lr.ph57.i:                                       ; preds = %._crit_edge.i, %47
   %.fr4556.i = phi i8 [ %.fr45.i, %47 ], [ %.fr47.i, %._crit_edge.i ]
@@ -2707,9 +2706,9 @@ switch.early.test44.i:                            ; preds = %.lr.ph57.i
   %49 = load i8, ptr %48, align 1
   %.fr45.i = freeze i8 %49
   %.not38.i = icmp eq i8 %.fr45.i, 0
-  br i1 %.not38.i, label %url_encode.exit.thread23, label %.lr.ph57.i, !llvm.loop !21
+  br i1 %.not38.i, label %url_encode.exit.thread22, label %.lr.ph57.i, !llvm.loop !21
 
-url_encode.exit.thread23:                         ; preds = %47, %._crit_edge.thread.i
+url_encode.exit.thread22:                         ; preds = %47, %._crit_edge.thread.i
   %.132.i.lcssa.sink = phi ptr [ %30, %._crit_edge.thread.i ], [ %.132.i, %47 ]
   %50 = phi ptr [ %30, %._crit_edge.thread.i ], [ %28, %47 ]
   store i8 0, ptr %.132.i.lcssa.sink, align 1
@@ -2722,7 +2721,7 @@ url_encode.exit.thread23:                         ; preds = %47, %._crit_edge.th
     i32 -1, label %url_encode.exit.thread
   ]
 
-54:                                               ; preds = %url_encode.exit.thread23
+54:                                               ; preds = %url_encode.exit.thread22
   %55 = load ptr, ptr %9, align 8
   %56 = load ptr, ptr %6, align 8
   %57 = load i64, ptr %7, align 8
@@ -2899,11 +2898,11 @@ archive_write_pax_header_xattr.exit:              ; preds = %54, %153, %156
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.loopexit, label %13, !llvm.loop !23
 
-160:                                              ; preds = %url_encode.exit.thread23
+160:                                              ; preds = %url_encode.exit.thread22
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.69) #15
   br label %.loopexit
 
-url_encode.exit.thread:                           ; preds = %._crit_edge.thread.i, %._crit_edge.i, %url_encode.exit.thread23, %21, %19
+url_encode.exit.thread:                           ; preds = %._crit_edge.thread.i, %._crit_edge.i, %url_encode.exit.thread22, %21, %19
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.48) #15
   br label %.loopexit
 

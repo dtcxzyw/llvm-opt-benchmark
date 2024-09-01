@@ -1328,9 +1328,9 @@ entry:
   br i1 %cmp48, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %pTextEnd68 = ptrtoint ptr %pTextEnd to i64
-  %pText69 = ptrtoint ptr %pText to i64
-  %0 = sub i64 %pTextEnd68, %pText69
+  %pTextEnd65 = ptrtoint ptr %pTextEnd to i64
+  %pText66 = ptrtoint ptr %pText to i64
+  %0 = sub i64 %pTextEnd65, %pText66
   %scevgep = getelementptr i8, ptr %pText, i64 %0
   br label %for.body
 
@@ -1391,8 +1391,7 @@ if.then24.us:                                     ; preds = %if.then22.us
 if.end26.us:                                      ; preds = %switch.early.test, %switch.early.test
   %and.us = and i32 %nQuoteLevel.055.us, 1
   %cmp27.not.us = icmp eq i32 %and.us, 0
-  %brmerge43.us = or i1 %cmp27.not.us, %cmp7.us
-  br i1 %brmerge43.us, label %if.then32, label %for.inc70.us
+  br i1 %cmp27.not.us, label %if.then32, label %for.inc70.us
 
 for.inc70.us:                                     ; preds = %if.end26.us, %if.else64.us
   %nQuoteLevel.1.us = phi i32 [ %nQuoteLevel.055.us, %if.end26.us ], [ %spec.select44.us, %if.else64.us ]
@@ -1439,13 +1438,13 @@ if.end35:                                         ; preds = %if.then34, %if.then
   %5 = phi ptr [ %.pre, %if.then34 ], [ %4, %if.then32 ]
   %cmp39.not = icmp eq ptr %5, %pTextEnd
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp39.not
-  %.pre70 = load ptr, ptr %pToken, align 8
-  %cmp41.not62 = icmp eq ptr %5, %.pre70
-  %or.cond85 = select i1 %or.cond, i1 true, i1 %cmp41.not62
-  br i1 %or.cond85, label %if.end50, label %land.rhs
+  %.pre67 = load ptr, ptr %pToken, align 8
+  %cmp41.not62 = icmp eq ptr %5, %.pre67
+  %or.cond82 = select i1 %or.cond, i1 true, i1 %cmp41.not62
+  br i1 %or.cond82, label %if.end50, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end35, %while.body
-  %6 = phi ptr [ %9, %while.body ], [ %.pre70, %if.end35 ]
+  %6 = phi ptr [ %9, %while.body ], [ %.pre67, %if.end35 ]
   %7 = phi ptr [ %arrayidx, %while.body ], [ %5, %if.end35 ]
   %arrayidx = getelementptr inbounds i8, ptr %7, i64 -1
   %8 = load i8, ptr %arrayidx, align 1
@@ -1462,7 +1461,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
 
 if.end50:                                         ; preds = %while.body, %land.rhs, %if.end35
   %10 = phi ptr [ %5, %if.end35 ], [ %arrayidx, %while.body ], [ %7, %land.rhs ]
-  %11 = phi ptr [ %.pre70, %if.end35 ], [ %9, %while.body ], [ %6, %land.rhs ]
+  %11 = phi ptr [ %.pre67, %if.end35 ], [ %9, %while.body ], [ %6, %land.rhs ]
   %cmp51.not = icmp eq ptr %11, %pTextEnd
   br i1 %cmp51.not, label %return, label %land.lhs.true52
 
@@ -1577,8 +1576,7 @@ if.then24.us:                                     ; preds = %if.then22.us
 if.end26.us:                                      ; preds = %switch.early.test, %switch.early.test
   %and.us = and i32 %nQuoteLevel.055.us, 1
   %cmp27.not.us = icmp eq i32 %and.us, 0
-  %brmerge43.us = or i1 %cmp27.not.us, %cmp7.us
-  br i1 %brmerge43.us, label %if.then32, label %for.inc70.us
+  br i1 %cmp27.not.us, label %if.then32, label %for.inc70.us
 
 for.inc70.us:                                     ; preds = %if.end26.us, %if.else64.us
   %nQuoteLevel.1.us = phi i32 [ %nQuoteLevel.055.us, %if.end26.us ], [ %spec.select44.us, %if.else64.us ]
@@ -1625,13 +1623,13 @@ if.end35:                                         ; preds = %if.then34, %if.then
   %4 = phi ptr [ %.pre, %if.then34 ], [ %3, %if.then32 ]
   %cmp39.not = icmp eq ptr %4, %pTextEnd
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp39.not
-  %.pre68 = load ptr, ptr %pToken, align 8
-  %cmp41.not62 = icmp eq ptr %4, %.pre68
-  %or.cond83 = select i1 %or.cond, i1 true, i1 %cmp41.not62
-  br i1 %or.cond83, label %if.end50, label %land.rhs
+  %.pre65 = load ptr, ptr %pToken, align 8
+  %cmp41.not62 = icmp eq ptr %4, %.pre65
+  %or.cond80 = select i1 %or.cond, i1 true, i1 %cmp41.not62
+  br i1 %or.cond80, label %if.end50, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end35, %while.body
-  %5 = phi ptr [ %8, %while.body ], [ %.pre68, %if.end35 ]
+  %5 = phi ptr [ %8, %while.body ], [ %.pre65, %if.end35 ]
   %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %if.end35 ]
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 -2
   %7 = load i16, ptr %arrayidx, align 2
@@ -1648,7 +1646,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
 
 if.end50:                                         ; preds = %while.body, %land.rhs, %if.end35
   %9 = phi ptr [ %4, %if.end35 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
-  %10 = phi ptr [ %.pre68, %if.end35 ], [ %8, %while.body ], [ %5, %land.rhs ]
+  %10 = phi ptr [ %.pre65, %if.end35 ], [ %8, %while.body ], [ %5, %land.rhs ]
   %cmp51.not = icmp eq ptr %10, %pTextEnd
   br i1 %cmp51.not, label %return, label %land.lhs.true52
 
@@ -1763,8 +1761,7 @@ if.then18.us:                                     ; preds = %if.then16.us
 if.end20.us:                                      ; preds = %switch.early.test, %switch.early.test
   %and.us = and i32 %nQuoteLevel.058.us, 1
   %cmp21.not.us = icmp eq i32 %and.us, 0
-  %brmerge46.us = or i1 %cmp21.not.us, %cmp6.us
-  br i1 %brmerge46.us, label %if.then26, label %for.inc58.us
+  br i1 %cmp21.not.us, label %if.then26, label %for.inc58.us
 
 for.inc58.us:                                     ; preds = %if.end20.us, %if.else53.us
   %nQuoteLevel.1.us = phi i32 [ %nQuoteLevel.058.us, %if.end20.us ], [ %spec.select47.us, %if.else53.us ]
@@ -1811,13 +1808,13 @@ if.end29:                                         ; preds = %if.then28, %if.then
   %4 = phi ptr [ %.pre, %if.then28 ], [ %3, %if.then26 ]
   %cmp32.not = icmp eq ptr %4, %pTextEnd
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp32.not
-  %.pre71 = load ptr, ptr %pToken, align 8
-  %cmp34.not65 = icmp eq ptr %4, %.pre71
-  %or.cond86 = select i1 %or.cond, i1 true, i1 %cmp34.not65
-  br i1 %or.cond86, label %if.end41, label %land.rhs
+  %.pre68 = load ptr, ptr %pToken, align 8
+  %cmp34.not65 = icmp eq ptr %4, %.pre68
+  %or.cond83 = select i1 %or.cond, i1 true, i1 %cmp34.not65
+  br i1 %or.cond83, label %if.end41, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end29, %while.body
-  %5 = phi ptr [ %8, %while.body ], [ %.pre71, %if.end29 ]
+  %5 = phi ptr [ %8, %while.body ], [ %.pre68, %if.end29 ]
   %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %if.end29 ]
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx, align 4
@@ -1834,7 +1831,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
 
 if.end41:                                         ; preds = %while.body, %land.rhs, %if.end29
   %9 = phi ptr [ %4, %if.end29 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
-  %10 = phi ptr [ %.pre71, %if.end29 ], [ %8, %while.body ], [ %5, %land.rhs ]
+  %10 = phi ptr [ %.pre68, %if.end29 ], [ %8, %while.body ], [ %5, %land.rhs ]
   %cmp42.not = icmp eq ptr %10, %pTextEnd
   br i1 %cmp42.not, label %return, label %land.lhs.true43
 

@@ -1129,21 +1129,14 @@ define void @Res6_PrintSuppSims(ptr nocapture noundef readonly %0, ptr nocapture
 
 .critedge.preheader:                              ; preds = %.lr.ph51.split, %._crit_edge.us
   %36 = icmp sgt i32 %2, 0
-  br i1 %36, label %.preheader.lr.ph, label %.critedge2._crit_edge
+  br i1 %36, label %.preheader.lr.ph.split.us, label %.critedge2._crit_edge
 
 .critedge.preheader.thread:                       ; preds = %4
   %.pre = shl nsw i32 %2, 6
   %37 = icmp sgt i32 %2, 0
-  br i1 %37, label %.preheader.preheader, label %.critedge2._crit_edge
+  br i1 %37, label %.preheader, label %.critedge2._crit_edge
 
-.preheader.lr.ph:                                 ; preds = %.critedge.preheader
-  br i1 %7, label %.preheader.lr.ph.split.us, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %.critedge.preheader.thread, %.preheader.lr.ph
-  %.pre-phi7072 = phi i32 [ %9, %.preheader.lr.ph ], [ %.pre, %.critedge.preheader.thread ]
-  br label %.preheader
-
-.preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
+.preheader.lr.ph.split.us:                        ; preds = %.critedge.preheader
   %38 = getelementptr i8, ptr %5, i64 8
   %.val46.us = load ptr, ptr %38, align 8
   %39 = sext i32 %9 to i64
@@ -1205,12 +1198,12 @@ define void @Res6_PrintSuppSims(ptr nocapture noundef readonly %0, ptr nocapture
   %exitcond.not = icmp eq i32 %64, %.val45
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph51.split, !llvm.loop !20
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.153 = phi i32 [ %66, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.critedge.preheader.thread, %.preheader
+  %.153 = phi i32 [ %66, %.preheader ], [ 0, %.critedge.preheader.thread ]
   %putchar = tail call i32 @putchar(i32 10)
   %65 = icmp ne i32 %.153, 9
   %66 = add nuw nsw i32 %.153, 1
-  %67 = icmp slt i32 %66, %.pre-phi7072
+  %67 = icmp slt i32 %66, %.pre
   %or.cond55 = select i1 %65, i1 %67, i1 false
   br i1 %or.cond55, label %.preheader, label %.critedge2._crit_edge, !llvm.loop !22
 

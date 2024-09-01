@@ -718,24 +718,24 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 128:                                              ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph20.i, label %129, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %129, !llvm.loop !8
 
 129:                                              ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
   %130 = getelementptr inbounds i64, ptr %124, i64 %indvars.iv.i
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 514
-  br i1 %132, label %.lr.ph20.i, label %128
+  br i1 %132, label %._crit_edge.i, label %128
 
-.lr.ph20.i:                                       ; preds = %128, %129
+._crit_edge.i:                                    ; preds = %129, %128
   %.091.i = phi i64 [ 1026, %128 ], [ 514, %129 ]
   br label %133
 
-133:                                              ; preds = %133, %.lr.ph20.i
-  %indvars.iv33.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next34.i, %133 ]
-  %.08617.i = phi i64 [ 0, %.lr.ph20.i ], [ %141, %133 ]
-  %.08716.i = phi i64 [ 0, %.lr.ph20.i ], [ %139, %133 ]
-  %.08915.i = phi i64 [ 0, %.lr.ph20.i ], [ %137, %133 ]
+133:                                              ; preds = %133, %._crit_edge.i
+  %indvars.iv33.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next34.i, %133 ]
+  %.08617.i = phi i64 [ 0, %._crit_edge.i ], [ %141, %133 ]
+  %.08716.i = phi i64 [ 0, %._crit_edge.i ], [ %139, %133 ]
+  %.08915.i = phi i64 [ 0, %._crit_edge.i ], [ %137, %133 ]
   %134 = getelementptr inbounds i64, ptr %124, i64 %indvars.iv33.i
   %135 = load i64, ptr %134, align 8
   %.fr.i = freeze i64 %135

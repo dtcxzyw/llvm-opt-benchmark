@@ -1912,7 +1912,7 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
   %52 = add i64 %50, 8
   %53 = add nsw i32 %31, -2
   %invariant.gep.i = getelementptr i8, ptr %33, i64 8
-  %sext74 = zext nneg i32 %31 to i64
+  %sext73 = zext nneg i32 %31 to i64
   br label %.lr.ph42.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph42.i
@@ -1922,7 +1922,7 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
 .lr.ph42.i:                                       ; preds = %.loopexit.i, %.lr.ph42.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvar.next.i, %.loopexit.i ]
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
-  %54 = icmp ult i64 %indvar.next.i, %sext74
+  %54 = icmp ult i64 %indvar.next.i, %sext73
   br i1 %54, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph42.i
@@ -1999,40 +1999,40 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
 ._crit_edge.i50:                                  ; preds = %89
   %90 = and i64 %75, -4
   %91 = invoke noundef zeroext i1 @_ZN2cv3hal11Cholesky32fEPfmiS1_mi(ptr noundef nonnull %73, i64 noundef %90, i32 noundef %71, ptr noundef null, i64 noundef 0, i32 noundef 0)
-          to label %.noexc64 unwind label %63
+          to label %.noexc63 unwind label %63
 
-.noexc64:                                         ; preds = %._crit_edge.i50
-  br i1 %91, label %.lr.ph42.preheader.i52, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit
+.noexc63:                                         ; preds = %._crit_edge.i50
+  br i1 %91, label %.lr.ph42.preheader.i51, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit
 
-.lr.ph42.preheader.i52:                           ; preds = %.noexc64
+.lr.ph42.preheader.i51:                           ; preds = %.noexc63
   %92 = add i64 %90, 4
   %93 = add nsw i32 %71, -2
-  %invariant.gep.i54 = getelementptr i8, ptr %73, i64 4
+  %invariant.gep.i53 = getelementptr i8, ptr %73, i64 4
   %sext = zext nneg i32 %71 to i64
-  br label %.lr.ph42.i55
+  br label %.lr.ph42.i54
 
-.loopexit.i59:                                    ; preds = %.lr.ph.i61, %.lr.ph42.i55
-  %exitcond62.not.i60 = icmp eq i64 %indvar.next.i57, %wide.trip.count54.i40
-  br i1 %exitcond62.not.i60, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i55, !llvm.loop !10
+.loopexit.i58:                                    ; preds = %.lr.ph.i60, %.lr.ph42.i54
+  %exitcond62.not.i59 = icmp eq i64 %indvar.next.i56, %wide.trip.count54.i40
+  br i1 %exitcond62.not.i59, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i54, !llvm.loop !10
 
-.lr.ph42.i55:                                     ; preds = %.loopexit.i59, %.lr.ph42.preheader.i52
-  %indvar.i56 = phi i64 [ 0, %.lr.ph42.preheader.i52 ], [ %indvar.next.i57, %.loopexit.i59 ]
-  %indvar.next.i57 = add nuw nsw i64 %indvar.i56, 1
-  %94 = icmp ult i64 %indvar.next.i57, %sext
-  br i1 %94, label %.lr.ph.i61, label %.loopexit.i59
+.lr.ph42.i54:                                     ; preds = %.loopexit.i58, %.lr.ph42.preheader.i51
+  %indvar.i55 = phi i64 [ 0, %.lr.ph42.preheader.i51 ], [ %indvar.next.i56, %.loopexit.i58 ]
+  %indvar.next.i56 = add nuw nsw i64 %indvar.i55, 1
+  %94 = icmp ult i64 %indvar.next.i56, %sext
+  br i1 %94, label %.lr.ph.i60, label %.loopexit.i58
 
-.lr.ph.i61:                                       ; preds = %.lr.ph42.i55
-  %95 = trunc i64 %indvar.i56 to i32
+.lr.ph.i60:                                       ; preds = %.lr.ph42.i54
+  %95 = trunc i64 %indvar.i55 to i32
   %96 = sub i32 %93, %95
   %97 = zext i32 %96 to i64
   %98 = shl nuw nsw i64 %97, 2
   %99 = add nuw nsw i64 %98, 4
-  %100 = mul i64 %indvar.i56, %92
-  %gep.i62 = getelementptr i8, ptr %invariant.gep.i54, i64 %100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %gep.i62, i8 0, i64 %99, i1 false)
-  br label %.loopexit.i59
+  %100 = mul i64 %indvar.i55, %92
+  %gep.i61 = getelementptr i8, ptr %invariant.gep.i53, i64 %100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %gep.i61, i8 0, i64 %99, i1 false)
+  br label %.loopexit.i58
 
-_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit: ; preds = %.loopexit.i59, %.loopexit.i, %.noexc64, %._crit_edge.thread.i38, %.noexc37, %._crit_edge.thread.i, %22
+_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit: ; preds = %.loopexit.i58, %.loopexit.i, %.noexc63, %._crit_edge.thread.i38, %.noexc37, %._crit_edge.thread.i, %22
   invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %7, double noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %101 unwind label %63
 

@@ -9816,14 +9816,11 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit: ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i
   %.sroa.4.018.i.i = phi ptr [ %50, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ null, %.loopexit.i.i ]
   tail call void @_ZdlPv(ptr noundef %.sroa.4.018.i.i) #19
-  br i1 %42, label %._crit_edge69, label %.lr.ph68
-
-.lr.ph68:                                         ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %2, label %.lr.ph68.split.us, label %_ZN10V3OutCFile11putsPrivateEb.exit
 
-.lr.ph68.split.us:                                ; preds = %.lr.ph68, %62
-  %.sroa.024.067.us = phi ptr [ %63, %62 ], [ %.sroa.032.1, %.lr.ph68 ]
+.lr.ph68.split.us:                                ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit, %62
+  %.sroa.024.067.us = phi ptr [ %63, %62 ], [ %.sroa.032.1, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit ]
   %54 = load ptr, ptr %.sroa.024.067.us, align 8
   %55 = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 313
@@ -9866,8 +9863,8 @@ _ZN10V3OutCFile11putsPrivateEb.exit.us:           ; preds = %.noexc21.us, %.crit
           cleanup
   br label %.body
 
-_ZN10V3OutCFile11putsPrivateEb.exit:              ; preds = %.lr.ph68, %65
-  %.sroa.024.067 = phi ptr [ %66, %65 ], [ %.sroa.032.1, %.lr.ph68 ]
+_ZN10V3OutCFile11putsPrivateEb.exit:              ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit, %65
+  %.sroa.024.067 = phi ptr [ %66, %65 ], [ %.sroa.032.1, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit ]
   %64 = load ptr, ptr %.sroa.024.067, align 8
   invoke void @_ZN21EmitCBaseVisitorConst13emitCFuncDeclEPK8AstCFuncPK13AstNodeModuleb(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %64, ptr noundef nonnull %1, i1 noundef zeroext false)
           to label %65 unwind label %.loopexit.split
@@ -9877,7 +9874,7 @@ _ZN10V3OutCFile11putsPrivateEb.exit:              ; preds = %.lr.ph68, %65
   %.not45 = icmp eq ptr %66, %.sroa.7.1
   br i1 %.not45, label %._crit_edge69, label %_ZN10V3OutCFile11putsPrivateEb.exit
 
-._crit_edge69:                                    ; preds = %65, %62, %._crit_edge, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPK8AstCFuncSt6vectorIS4_SaIS4_EEEEZN11EmitCHeader13emitFuncDeclsEPK13AstNodeModulebEUlPK7AstNodeSG_E_EvT_SI_T0_.exit
+._crit_edge69:                                    ; preds = %65, %62, %._crit_edge
   %.not.i.i.i22 = icmp eq ptr %.sroa.032.1, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorIPK8AstCFuncSaIS2_EED2Ev.exit23, label %67
 
@@ -10002,7 +9999,7 @@ _ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit: ; pred
   %.not32 = icmp ult ptr %2, %15
   br i1 %.not32, label %.lr.ph.i.i.i21.preheader, label %84
 
-.lr.ph.i.i.i21.preheader:                         ; preds = %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit, %_ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i
+.lr.ph.i.i.i21.preheader:                         ; preds = %_ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %_ZNKSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EE5countERKS1_.exit
   br label %.lr.ph.i.i.i21
 
 .lr.ph.i.i.i21:                                   ; preds = %.lr.ph.i.i.i21.preheader, %.lr.ph.i.i.i21

@@ -1634,14 +1634,11 @@ for.body9.i:                                      ; preds = %for.body9.i, %.noex
 
 _ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit:    ; preds = %for.body9.i
   store i32 %numBodies, ptr %m_size.i.i, align 4
-  br i1 %cmp4.i, label %for.body.preheader, label %invoke.cont5
-
-for.body.preheader:                               ; preds = %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit
   %wide.trip.count = zext nneg i32 %numBodies to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit, %for.body
+  %indvars.iv = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
   store i32 0, ptr %arrayidx.i, align 4
@@ -1654,7 +1651,7 @@ lpad2:                                            ; preds = %if.then3.i.i, %.noe
           cleanup
   br label %ehcleanup445
 
-invoke.cont5:                                     ; preds = %for.body, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit.thread, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit
+invoke.cont5:                                     ; preds = %for.body, %_ZN20b3AlignedObjectArrayIjE6resizeEiRKj.exit.thread
   %cmp4.i160 = icmp sgt i32 %numManifolds, 0
   br i1 %cmp4.i160, label %_ZN20b3AlignedObjectArrayI6b3Int2E8allocateEi.exit.i, label %invoke.cont51
 
@@ -1870,12 +1867,9 @@ for.body9.i217:                                   ; preds = %for.body9.i217.preh
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %arrayidx12.i219, i8 0, i64 176, i1 false)
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i218, 1
   %exitcond.not.i221 = icmp eq i64 %indvars.iv.next.i220, %conv.i.i.i726
-  br i1 %exitcond.not.i221, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit, label %for.body9.i217, !llvm.loop !15
+  br i1 %exitcond.not.i221, label %for.body67.lr.ph, label %for.body9.i217, !llvm.loop !15
 
-_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit: ; preds = %for.body9.i217
-  br i1 %cmp4.i160, label %for.body67.lr.ph, label %invoke.cont77
-
-for.body67.lr.ph:                                 ; preds = %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit
+for.body67.lr.ph:                                 ; preds = %for.body9.i217
   %m_deltaTime = getelementptr inbounds i8, ptr %solverInfo, i64 4
   %m_positionDrift = getelementptr inbounds i8, ptr %solverInfo, i64 8
   %m_positionConstraintCoeff = getelementptr inbounds i8, ptr %solverInfo, i64 12
@@ -1901,8 +1895,8 @@ ehcleanup442.thread:                              ; preds = %_ZN20b3AlignedObjec
           cleanup
   br label %ehcleanup443
 
-invoke.cont77:                                    ; preds = %for.body67, %invoke.cont60, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit
-  %contactConstraints.sroa.12.21075 = phi ptr [ %call.i.i.i753, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit ], [ null, %invoke.cont60 ], [ %call.i.i.i753, %for.body67 ]
+invoke.cont77:                                    ; preds = %for.body67, %invoke.cont60
+  %contactConstraints.sroa.12.21075 = phi ptr [ null, %invoke.cont60 ], [ %call.i.i.i753, %for.body67 ]
   %m_numIterations = getelementptr inbounds i8, ptr %solverInfo, i64 16
   %41 = load i32, ptr %m_numIterations, align 4
   %42 = load i32, ptr %totalNumSplitBodies, align 4
@@ -2012,10 +2006,7 @@ for.cond100.preheader:                            ; preds = %for.cond100.prehead
   %iter.0956 = phi i32 [ 0, %for.cond100.preheader.lr.ph ], [ %inc217, %for.inc216 ]
   br i1 %cmp4.i160, label %invoke.cont111, label %for.cond159.preheader
 
-for.cond220.preheader:                            ; preds = %for.inc216
-  br i1 %cmp97949, label %for.cond224.preheader.lr.ph, label %for.cond407.preheader
-
-for.cond224.preheader.lr.ph:                      ; preds = %for.cond220.preheader
+for.cond224.preheader.lr.ph:                      ; preds = %for.inc216
   %arrayidx22.i.i = getelementptr inbounds i8, ptr %tangent.i, i64 8
   %44 = getelementptr inbounds i8, ptr %tangent.i, i64 4
   %45 = getelementptr inbounds i8, ptr %tangent.i, i64 20
@@ -2378,10 +2369,7 @@ invoke.cont190.preheader:                         ; preds = %if.then166
   %wide.trip.count1019 = zext nneg i32 %157 to i64
   br label %invoke.cont190
 
-for.cond200.preheader:                            ; preds = %invoke.cont190
-  br i1 %cmp174920, label %for.body202.preheader, label %for.inc213
-
-for.body202.preheader:                            ; preds = %for.cond200.preheader
+for.body202.preheader:                            ; preds = %invoke.cont190
   %159 = sext i32 %155 to i64
   %wide.trip.count1025 = zext nneg i32 %157 to i64
   br label %for.body202
@@ -2421,7 +2409,7 @@ invoke.cont190:                                   ; preds = %invoke.cont190.preh
   %add8.i331 = fadd float %averageAngVel.sroa.6.2926, %mul4.i319
   %indvars.iv.next1016 = add nuw nsw i64 %indvars.iv1015, 1
   %exitcond1020.not = icmp eq i64 %indvars.iv.next1016, %wide.trip.count1019
-  br i1 %exitcond1020.not, label %for.cond200.preheader, label %invoke.cont190, !llvm.loop !21
+  br i1 %exitcond1020.not, label %for.body202.preheader, label %invoke.cont190, !llvm.loop !21
 
 for.body202:                                      ; preds = %for.body202.preheader, %for.body202
   %indvars.iv1021 = phi i64 [ 0, %for.body202.preheader ], [ %indvars.iv.next1022, %for.body202 ]
@@ -2446,7 +2434,7 @@ for.body202:                                      ; preds = %for.body202.prehead
   %exitcond1026.not = icmp eq i64 %indvars.iv.next1022, %wide.trip.count1025
   br i1 %exitcond1026.not, label %for.inc213, label %for.body202, !llvm.loop !22
 
-for.inc213:                                       ; preds = %for.body202, %if.then166, %for.cond200.preheader, %for.body161
+for.inc213:                                       ; preds = %for.body202, %if.then166, %for.body161
   %indvars.iv.next1028 = add nuw nsw i64 %indvars.iv1027, 1
   %exitcond1031.not = icmp eq i64 %indvars.iv.next1028, %wide.trip.count1030
   br i1 %exitcond1031.not, label %for.inc216, label %for.body161, !llvm.loop !23
@@ -2454,13 +2442,13 @@ for.inc213:                                       ; preds = %for.body202, %if.th
 for.inc216:                                       ; preds = %for.inc213, %for.cond159.preheader
   %inc217 = add nuw nsw i32 %iter.0956, 1
   %exitcond1032.not = icmp eq i32 %inc217, %41
-  br i1 %exitcond1032.not, label %for.cond220.preheader, label %for.cond100.preheader, !llvm.loop !24
+  br i1 %exitcond1032.not, label %for.cond224.preheader.lr.ph, label %for.cond100.preheader, !llvm.loop !24
 
 for.cond224.preheader:                            ; preds = %for.cond224.preheader.lr.ph, %for.inc403
   %iter219.0999 = phi i32 [ 0, %for.cond224.preheader.lr.ph ], [ %inc404, %for.inc403 ]
   br i1 %cmp4.i160, label %for.body226, label %for.cond338.preheader
 
-for.cond407.preheader:                            ; preds = %for.inc403, %for.cond96.preheader, %for.cond220.preheader
+for.cond407.preheader:                            ; preds = %for.inc403, %for.cond96.preheader
   br i1 %cmp4.i, label %for.body409.lr.ph, label %for.end441
 
 for.body409.lr.ph:                                ; preds = %for.cond407.preheader
@@ -2989,10 +2977,7 @@ invoke.cont377.preheader:                         ; preds = %if.then345
   %wide.trip.count1050 = zext nneg i32 %320 to i64
   br label %invoke.cont377
 
-for.cond387.preheader:                            ; preds = %invoke.cont377
-  br i1 %cmp361962, label %for.body389.preheader, label %for.inc400
-
-for.body389.preheader:                            ; preds = %for.cond387.preheader
+for.body389.preheader:                            ; preds = %invoke.cont377
   %322 = sext i32 %318 to i64
   %wide.trip.count1056 = zext nneg i32 %320 to i64
   br label %for.body389
@@ -3032,7 +3017,7 @@ invoke.cont377:                                   ; preds = %invoke.cont377.preh
   %add8.i482 = fadd float %averageAngVel357.sroa.6.2968, %mul4.i470
   %indvars.iv.next1047 = add nuw nsw i64 %indvars.iv1046, 1
   %exitcond1051.not = icmp eq i64 %indvars.iv.next1047, %wide.trip.count1050
-  br i1 %exitcond1051.not, label %for.cond387.preheader, label %invoke.cont377, !llvm.loop !29
+  br i1 %exitcond1051.not, label %for.body389.preheader, label %invoke.cont377, !llvm.loop !29
 
 for.body389:                                      ; preds = %for.body389.preheader, %for.body389
   %indvars.iv1052 = phi i64 [ 0, %for.body389.preheader ], [ %indvars.iv.next1053, %for.body389 ]
@@ -3057,7 +3042,7 @@ for.body389:                                      ; preds = %for.body389.prehead
   %exitcond1057.not = icmp eq i64 %indvars.iv.next1053, %wide.trip.count1056
   br i1 %exitcond1057.not, label %for.inc400, label %for.body389, !llvm.loop !30
 
-for.inc400:                                       ; preds = %for.body389, %if.then345, %for.cond387.preheader, %for.body340
+for.inc400:                                       ; preds = %for.body389, %if.then345, %for.body340
   %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv1058, 1
   %exitcond1062.not = icmp eq i64 %indvars.iv.next1059, %wide.trip.count1061
   br i1 %exitcond1062.not, label %for.inc403, label %for.body340, !llvm.loop !31

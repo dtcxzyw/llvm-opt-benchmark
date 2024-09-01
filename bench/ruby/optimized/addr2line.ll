@@ -208,22 +208,22 @@ append_obj.exit102:                               ; preds = %._crit_edge, %49
   %67 = add i32 %.0111, 1
   %68 = icmp slt i32 %67, %0
   %or.cond = and i1 %66, %68
-  br i1 %or.cond, label %.backedge.backedge, label %._crit_edge113
+  br i1 %or.cond, label %.backedge.backedge, label %.lr.ph117.preheader
 
 69:                                               ; preds = %42, %40, %29, %.backedge
   %.old = add i32 %.0111, 1
   %.old131 = icmp slt i32 %.old, %0
-  br i1 %.old131, label %.backedge.backedge, label %._crit_edge113
+  br i1 %.old131, label %.backedge.backedge, label %.lr.ph117.preheader
 
 .backedge.backedge:                               ; preds = %69, %63
   %.0111.be = phi i32 [ %.old, %69 ], [ %67, %63 ]
   br label %.backedge, !llvm.loop !9
 
-._crit_edge113:                                   ; preds = %69, %63
-  br i1 %21, label %.lr.ph117, label %._crit_edge118
+.lr.ph117.preheader:                              ; preds = %69, %63
+  br label %.lr.ph117
 
-.lr.ph117:                                        ; preds = %._crit_edge113, %.lr.ph117.backedge
-  %.1115 = phi i32 [ %.1115.be, %.lr.ph117.backedge ], [ 0, %._crit_edge113 ]
+.lr.ph117:                                        ; preds = %.lr.ph117.backedge, %.lr.ph117.preheader
+  %.1115 = phi i32 [ 0, %.lr.ph117.preheader ], [ %.1115.be, %.lr.ph117.backedge ]
   %70 = sext i32 %.1115 to i64
   %71 = getelementptr %struct.line_info, ptr %8, i64 %70
   %72 = getelementptr ptr, ptr %1, i64 %70
@@ -372,7 +372,7 @@ print_line.exit:                                  ; preds = %print_line0.exit.i
   %.1115.be = phi i32 [ %.old132, %146 ], [ %144, %141 ]
   br label %.lr.ph117, !llvm.loop !10
 
-._crit_edge118:                                   ; preds = %146, %141, %main_exe_path.exit.thread, %._crit_edge113
+._crit_edge118:                                   ; preds = %146, %141, %main_exe_path.exit.thread
   %.pr = load ptr, ptr %5, align 8
   %.not95121 = icmp eq ptr %.pr, null
   br i1 %.not95121, label %.preheader, label %.preheader106.lr.ph

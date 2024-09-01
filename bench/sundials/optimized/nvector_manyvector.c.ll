@@ -153,9 +153,6 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr nocapture noundef readonly %1,
   %100 = icmp sgt i64 %0, 0
   br i1 %100, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %100, label %.lr.ph78, label %._crit_edge
-
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.175 = phi i64 [ %105, %.lr.ph ], [ 0, %3 ]
   %101 = getelementptr inbounds ptr, ptr %1, i64 %.175
@@ -165,11 +162,11 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr nocapture noundef readonly %1,
   store ptr %102, ptr %104, align 8
   %105 = add nuw nsw i64 %.175, 1
   %exitcond.not = icmp eq i64 %105, %0
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph78, label %.lr.ph
 
-.lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
-  %.077 = phi i64 [ %109, %.lr.ph78 ], [ 0, %.preheader ]
-  %.276 = phi i64 [ %110, %.lr.ph78 ], [ 0, %.preheader ]
+.lr.ph78:                                         ; preds = %.lr.ph, %.lr.ph78
+  %.077 = phi i64 [ %109, %.lr.ph78 ], [ 0, %.lr.ph ]
+  %.276 = phi i64 [ %110, %.lr.ph78 ], [ 0, %.lr.ph ]
   %106 = getelementptr inbounds ptr, ptr %1, i64 %.276
   %107 = load ptr, ptr %106, align 8
   %108 = tail call i64 @N_VGetLength(ptr noundef %107) #10
@@ -178,8 +175,8 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr nocapture noundef readonly %1,
   %exitcond79.not = icmp eq i64 %110, %0
   br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph78
 
-._crit_edge:                                      ; preds = %.lr.ph78, %3, %.preheader
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ 0, %3 ], [ %109, %.lr.ph78 ]
+._crit_edge:                                      ; preds = %.lr.ph78, %3
+  %.0.lcssa = phi i64 [ 0, %3 ], [ %109, %.lr.ph78 ]
   %111 = getelementptr inbounds i8, ptr %95, i64 8
   store i64 %.0.lcssa, ptr %111, align 8
   ret ptr %4
@@ -1266,9 +1263,6 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nocapt
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %6, label %.lr.ph26, label %._crit_edge
-
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.024 = phi i64 [ %13, %.lr.ph ], [ 0, %4 ]
   %7 = getelementptr inbounds ptr, ptr %1, i64 %.024
@@ -1280,10 +1274,10 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nocapt
   store double %11, ptr %12, align 8
   %13 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %13, %5
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph26, label %.lr.ph
 
-.lr.ph26:                                         ; preds = %.preheader, %26
-  %.125 = phi i64 [ %28, %26 ], [ 0, %.preheader ]
+.lr.ph26:                                         ; preds = %.lr.ph, %26
+  %.125 = phi i64 [ %28, %26 ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds double, ptr %3, i64 %.125
   %15 = load double, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %1, i64 %.125
@@ -1307,7 +1301,7 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nocapt
   %exitcond27.not = icmp eq i64 %28, %5
   br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph26
 
-._crit_edge:                                      ; preds = %26, %4, %.preheader
+._crit_edge:                                      ; preds = %26, %4
   ret i32 0
 }
 
@@ -1316,9 +1310,6 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
   %6 = sext i32 %0 to i64
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
-
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph27, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.025 = phi i64 [ %14, %.lr.ph ], [ 0, %5 ]
@@ -1331,10 +1322,10 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
   store double %12, ptr %13, align 8
   %14 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %14, %6
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph27, label %.lr.ph
 
-.lr.ph27:                                         ; preds = %.preheader, %27
-  %.126 = phi i64 [ %29, %27 ], [ 0, %.preheader ]
+.lr.ph27:                                         ; preds = %.lr.ph, %27
+  %.126 = phi i64 [ %29, %27 ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds double, ptr %4, i64 %.126
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %1, i64 %.126
@@ -1358,7 +1349,7 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
   %exitcond28.not = icmp eq i64 %29, %6
   br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph27
 
-._crit_edge:                                      ; preds = %27, %5, %.preheader
+._crit_edge:                                      ; preds = %27, %5
   ret i32 0
 }
 

@@ -4010,14 +4010,13 @@ if.else218:                                       ; preds = %if.end136
   %resp241 = getelementptr inbounds i8, ptr %c, i64 24
   %slen.i201 = getelementptr inbounds i8, ptr %value220, i64 8
   %lval.i205 = getelementptr inbounds i8, ptr %value220, i64 16
-  br label %while.body227.lr.ph
+  br label %while.body227.us.preheader
 
-while.body227.lr.ph:                              ; preds = %if.else218, %if.end248
-  %cmp225218 = phi i1 [ true, %if.else218 ], [ %cmp225, %if.end248 ]
+while.body227.us.preheader:                       ; preds = %if.end248, %if.else218
   %added.0.ph217 = phi i64 [ 0, %if.else218 ], [ %inc, %if.end248 ]
-  br i1 %cmp225218, label %while.body227.us, label %while.body227.lr.ph.split, !llvm.loop !19
+  br label %while.body227.us
 
-while.body227.us:                                 ; preds = %while.body227.lr.ph, %if.then237.us
+while.body227.us:                                 ; preds = %while.body227.us.preheader, %if.then237.us
   call void @hashTypeRandomElement(ptr noundef nonnull %call, i64 noundef %length.0.i, ptr noundef nonnull %key219, ptr noundef %value220.)
   %45 = load ptr, ptr %key219, align 8
   %tobool.not.i190.us = icmp eq ptr %45, null
@@ -4044,40 +4043,13 @@ if.then237.us:                                    ; preds = %hashSdsFromListpack
   call void @sdsfree(ptr noundef %cond.i.us) #10
   br label %while.body227.us
 
-while.body227.lr.ph.split:                        ; preds = %while.body227.lr.ph
-  call void @hashTypeRandomElement(ptr noundef nonnull %call, i64 noundef %length.0.i, ptr noundef nonnull %key219, ptr noundef %value220.)
-  %48 = load ptr, ptr %key219, align 8
-  %tobool.not.i190 = icmp eq ptr %48, null
-  br i1 %tobool.not.i190, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %while.body227.lr.ph.split
-  %49 = load i32, ptr %slen.i, align 8
-  %conv.i191 = zext i32 %49 to i64
-  %call.i192 = call ptr @sdsnewlen(ptr noundef nonnull %48, i64 noundef %conv.i191) #10
-  br label %hashSdsFromListpackEntry.exit
-
-cond.false.i:                                     ; preds = %while.body227.lr.ph.split
-  %50 = load i64, ptr %lval.i, align 8
-  %call2.i = call ptr @sdsfromlonglong(i64 noundef %50) #10
-  br label %hashSdsFromListpackEntry.exit
-
-hashSdsFromListpackEntry.exit:                    ; preds = %cond.true.i, %cond.false.i
-  %cond.i = phi ptr [ %call.i192, %cond.true.i ], [ %call2.i, %cond.false.i ]
-  %call234 = call i32 @dictAdd(ptr noundef %call222, ptr noundef %cond.i, ptr noundef null) #10
-  %cmp235.not = icmp eq i32 %call234, 0
-  br i1 %cmp235.not, label %if.end238, label %if.then237
-
-if.then237:                                       ; preds = %hashSdsFromListpackEntry.exit
-  call void @sdsfree(ptr noundef %cond.i) #10
-  br label %while.end249
-
-if.end238:                                        ; preds = %hashSdsFromListpackEntry.exit.us, %hashSdsFromListpackEntry.exit
+if.end238:                                        ; preds = %hashSdsFromListpackEntry.exit.us
   %inc = add nuw i64 %added.0.ph217, 1
   br i1 %tobool78.not, label %if.end248.critedge, label %land.lhs.true240
 
 land.lhs.true240:                                 ; preds = %if.end238
-  %51 = load i32, ptr %resp241, align 8
-  %cmp242 = icmp sgt i32 %51, 2
+  %48 = load i32, ptr %resp241, align 8
+  %cmp242 = icmp sgt i32 %48, 2
   br i1 %cmp242, label %if.then244, label %if.end245
 
 if.then244:                                       ; preds = %land.lhs.true240
@@ -4085,59 +4057,58 @@ if.then244:                                       ; preds = %land.lhs.true240
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then244, %land.lhs.true240
-  %52 = load ptr, ptr %key219, align 8
-  %tobool.not.i193 = icmp eq ptr %52, null
+  %49 = load ptr, ptr %key219, align 8
+  %tobool.not.i193 = icmp eq ptr %49, null
   br i1 %tobool.not.i193, label %if.else.i, label %if.then.i194
 
 if.then.i194:                                     ; preds = %if.end245
-  %53 = load i32, ptr %slen.i, align 8
-  %conv.i196 = zext i32 %53 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %52, i64 noundef %conv.i196) #10
+  %50 = load i32, ptr %slen.i, align 8
+  %conv.i196 = zext i32 %50 to i64
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %49, i64 noundef %conv.i196) #10
   br label %if.then247
 
 if.else.i:                                        ; preds = %if.end245
-  %54 = load i64, ptr %lval.i, align 8
-  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %54) #10
+  %51 = load i64, ptr %lval.i, align 8
+  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %51) #10
   br label %if.then247
 
 if.then247:                                       ; preds = %if.else.i, %if.then.i194
-  %55 = load ptr, ptr %value220, align 8
-  %tobool.not.i199 = icmp eq ptr %55, null
+  %52 = load ptr, ptr %value220, align 8
+  %tobool.not.i199 = icmp eq ptr %52, null
   br i1 %tobool.not.i199, label %if.else.i204, label %if.then.i200
 
 if.then.i200:                                     ; preds = %if.then247
-  %56 = load i32, ptr %slen.i201, align 8
-  %conv.i202 = zext i32 %56 to i64
-  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %55, i64 noundef %conv.i202) #10
+  %53 = load i32, ptr %slen.i201, align 8
+  %conv.i202 = zext i32 %53 to i64
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %52, i64 noundef %conv.i202) #10
   br label %if.end248
 
 if.else.i204:                                     ; preds = %if.then247
-  %57 = load i64, ptr %lval.i205, align 8
-  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %57) #10
+  %54 = load i64, ptr %lval.i205, align 8
+  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %54) #10
   br label %if.end248
 
 if.end248.critedge:                               ; preds = %if.end238
-  %58 = load ptr, ptr %key219, align 8
-  %tobool.not.i207 = icmp eq ptr %58, null
+  %55 = load ptr, ptr %key219, align 8
+  %tobool.not.i207 = icmp eq ptr %55, null
   br i1 %tobool.not.i207, label %if.else.i212, label %if.then.i208
 
 if.then.i208:                                     ; preds = %if.end248.critedge
-  %59 = load i32, ptr %slen.i, align 8
-  %conv.i210 = zext i32 %59 to i64
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %58, i64 noundef %conv.i210) #10
+  %56 = load i32, ptr %slen.i, align 8
+  %conv.i210 = zext i32 %56 to i64
+  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %55, i64 noundef %conv.i210) #10
   br label %if.end248
 
 if.else.i212:                                     ; preds = %if.end248.critedge
-  %60 = load i64, ptr %lval.i, align 8
-  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %60) #10
+  %57 = load i64, ptr %lval.i, align 8
+  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %57) #10
   br label %if.end248
 
 if.end248:                                        ; preds = %if.else.i212, %if.then.i208, %if.else.i204, %if.then.i200
-  %cmp225 = icmp ult i64 %inc, %count.0
   %exitcond.not = icmp eq i64 %inc, %l
-  br i1 %exitcond.not, label %while.end249, label %while.body227.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %while.end249, label %while.body227.us.preheader, !llvm.loop !19
 
-while.end249:                                     ; preds = %if.end248, %if.then237
+while.end249:                                     ; preds = %if.end248
   call void @dictRelease(ptr noundef %call222) #10
   br label %if.end250
 

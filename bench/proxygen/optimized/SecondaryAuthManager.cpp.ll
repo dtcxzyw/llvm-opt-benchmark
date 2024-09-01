@@ -1420,12 +1420,12 @@ lpad54:                                           ; preds = %if.then.i
 cleanup:                                          ; preds = %cond.false, %cleanup.action, %invoke.cont55, %cond.end, %if.end20
   %52 = load i8, ptr %hasValue.i.i5, align 8
   %tobool.i.i.i68 = trunc i8 %52 to i1
-  br i1 %tobool.i.i.i68, label %if.then.i.i.i69, label %cleanup59
+  br i1 %tobool.i.i.i68, label %if.then.i.i.i69, label %if.then.i.i.i77
 
 if.then.i.i.i69:                                  ; preds = %cleanup
   store i8 0, ptr %hasValue.i.i5, align 8
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %certs) #17
-  br label %cleanup59
+  br label %if.then.i.i.i77
 
 ehcleanup:                                        ; preds = %lpad39, %lpad54, %lpad17, %lpad9, %lpad5
   %.pn = phi { ptr, i32 } [ %46, %lpad39 ], [ %22, %lpad5 ], [ %51, %lpad54 ], [ %23, %lpad9 ], [ %40, %lpad17 ]
@@ -1442,10 +1442,7 @@ _ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEED2Ev.exit74: ; pr
   call void @_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %authRequest) #17
   br label %ehcleanup62
 
-cleanup59:                                        ; preds = %if.then.i.i.i69, %cleanup
-  br i1 %tobool.i.i, label %if.then.i.i.i77, label %_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit
-
-if.then.i.i.i77:                                  ; preds = %cleanup59
+if.then.i.i.i77:                                  ; preds = %cleanup, %if.then.i.i.i69
   %54 = load ptr, ptr %authRequest, align 8
   %cmp.not.i.i.i.i78 = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i.i78, label %_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
@@ -1455,8 +1452,8 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %54) #17
   br label %_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit: ; preds = %if.then.i.i.i77, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %cleanup59
-  %retval.085 = phi i1 [ %tobool.i.i55, %cleanup59 ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %tobool.i.i55, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %tobool.i.i55, %if.then.i.i.i77 ]
+_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit: ; preds = %if.then.i.i.i77, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
+  %retval.085 = phi i1 [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %tobool.i.i55, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %tobool.i.i55, %if.then.i.i.i77 ]
   %55 = load ptr, ptr %authClone, align 8
   %cmp.not.i79 = icmp eq ptr %55, null
   br i1 %cmp.not.i79, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit81, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i80

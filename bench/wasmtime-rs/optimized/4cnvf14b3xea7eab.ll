@@ -12659,8 +12659,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5040841037904929774.exit.i.i": ; preds = %52, %47
   %.039.i.i = phi i16 [ %50, %47 ], [ %56, %52 ]
-  %.not.i.not.i.i.not = icmp ne i16 %.039.i.i, 0
-  br i1 %.not.i.not.i.i.not, label %52, label %51
+  %.not.i.not.i.i.not.not.not.not.not = icmp ne i16 %.039.i.i, 0
+  br i1 %.not.i.not.i.i.not.not.not.not.not, label %52, label %51
 
 51:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5040841037904929774.exit.i.i"
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -12752,7 +12752,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hc7243001d7eb41f7E.llvm.5040841037904929774.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hc7243001d7eb41f7E.llvm.5040841037904929774.exit": ; preds = %52, %86
-  ret i1 %.not.i.not.i.i.not
+  ret i1 %.not.i.not.i.i.not.not.not.not.not
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -12779,8 +12779,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5040841037904929774.exit": ; preds = %18, %11
   %.0 = phi i16 [ %14, %11 ], [ %22, %18 ]
-  %.not.i.not = icmp ne i16 %.0, 0
-  br i1 %.not.i.not, label %18, label %15
+  %.not.i.not.not.not.not.not = icmp ne i16 %.0, 0
+  br i1 %.not.i.not.not.not.not.not, label %18, label %15
 
 15:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.5040841037904929774.exit"
   %16 = icmp eq <16 x i8> %.0.copyload.i29, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -12806,7 +12806,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
 
 .loopexit:                                        ; preds = %15, %18
   %.sroa.3.0 = phi i64 [ %24, %18 ], [ undef, %15 ]
-  %.sroa.0.0.i = zext i1 %.not.i.not to i64
+  %.sroa.0.0.i = zext i1 %.not.i.not.not.not.not.not to i64
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %31 = insertvalue { i64, i64 } %30, i64 %.sroa.3.0, 1
   ret { i64, i64 } %31

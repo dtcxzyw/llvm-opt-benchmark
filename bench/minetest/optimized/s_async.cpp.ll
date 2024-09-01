@@ -3149,8 +3149,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
 for.cond.i.i.i.us:                                ; preds = %for.body.i.i.i.us, %for.body.us
   %retval.sroa.0.0.in.i.i.i.us = phi ptr [ %_M_before_begin.i.i.i.i.i, %for.body.us ], [ %retval.sroa.0.0.i.i.i.us, %for.body.i.i.i.us ]
   %retval.sroa.0.0.i.i.i.us = load ptr, ptr %retval.sroa.0.0.in.i.i.i.us, align 8, !tbaa !57
-  %cmp.i.not.i.i.i.us.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i.us, null
-  br i1 %cmp.i.not.i.i.i.us.not.not, label %for.body.i.i.i.us, label %invoke.cont10.loopexit.us
+  %cmp.i.not.i.i.i.us.not.not.not.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i.us, null
+  br i1 %cmp.i.not.i.i.i.us.not.not.not.not.not.not, label %for.body.i.i.i.us, label %invoke.cont10.loopexit.us
 
 for.body.i.i.i.us:                                ; preds = %for.cond.i.i.i.us
   %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.us, i64 8
@@ -3172,7 +3172,7 @@ _ZNSt15_Deque_iteratorI10LuaJobInfoRS0_PS0_EppEv.exit.us: ; preds = %invoke.cont
   br i1 %cmp.i.i.not.us, label %for.cond.cleanup, label %for.body.us
 
 invoke.cont10.loopexit.us:                        ; preds = %for.body.i.i.i.us, %for.cond.i.i.i.us
-  %17 = zext i1 %cmp.i.not.i.i.i.us.not.not to i32
+  %17 = zext i1 %cmp.i.not.i.i.i.us.not.not.not.not.not.not to i32
   %conv13.us = add i32 %n.0182.us, %17
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0179.us, i64 152
   %cmp.i.us = icmp eq ptr %incdec.ptr.i.us, %__begin2.sroa.11.0180.us

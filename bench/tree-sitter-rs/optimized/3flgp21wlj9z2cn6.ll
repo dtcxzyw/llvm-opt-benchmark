@@ -214,8 +214,8 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit.i.us.i: 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !17
   %88 = xor i1 %87, %74
   %89 = icmp ne ptr %79, %.sroa.7148.0.copyload.i.i
-  %or.cond.not139.i = select i1 %88, i1 %89, i1 false
-  br i1 %or.cond.not139.i, label %.lr.ph.i111.i.us.i.backedge, label %.backedge.i
+  %or.cond.not130.i = select i1 %88, i1 %89, i1 false
+  br i1 %or.cond.not130.i, label %.lr.ph.i111.i.us.i.backedge, label %.backedge.i
 
 90:                                               ; preds = %36
   %91 = getelementptr inbounds i8, ptr %37, i64 4
@@ -501,8 +501,8 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit122.i.i: 
   br i1 %176, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h18f8cab505c630deE.exit.i.i", label %"_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0a2a1ceba7f64f79E.exit.backedge.i.i.i"
 
 "_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0a2a1ceba7f64f79E.exit.backedge.i.i.i": ; preds = %175, %.lr.ph.i134.i.i
-  %.not18.i.i.i = icmp eq ptr %173, %98
-  br i1 %.not18.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h18f8cab505c630deE.exit.thr_comm.i.i", label %.lr.ph.i134.i.i
+  %.not13.i.i.i = icmp eq ptr %173, %98
+  br i1 %.not13.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h18f8cab505c630deE.exit.thr_comm.i.i", label %.lr.ph.i134.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h18f8cab505c630deE.exit.thr_comm.i.i": ; preds = %"_ZN11tree_sitter10QueryMatch25satisfies_text_predicates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0a2a1ceba7f64f79E.exit.backedge.i.i.i", %170
   br i1 %101, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35f164eba2848bb5E.exit.thread.sink.split.i", label %177

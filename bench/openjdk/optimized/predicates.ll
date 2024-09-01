@@ -1223,7 +1223,7 @@ _ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.ex
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16, %_ZN16Unique_Node_List4pushEP4Node.exit
-  %.not.lcssa = phi i1 [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ true, %.lr.ph ], [ %or.cond, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16 ]
+  %.not.lcssa = phi i1 [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %or.cond, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16 ], [ %or.cond, %.lr.ph ]
   %128 = load ptr, ptr %22, align 8
   %.not.i.i.i.i20 = icmp eq ptr %128, null
   br i1 %.not.i.i.i.i20, label %130, label %129

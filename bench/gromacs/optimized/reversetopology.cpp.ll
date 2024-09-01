@@ -647,8 +647,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
 ._crit_edge.us.us.us.i:                           ; preds = %.lr.ph.us.us.us.i, %180
   %205 = load i32, ptr %149, align 4
   %206 = and i32 %205, 2
-  %.not75.us.us.us.not.i = icmp eq i32 %206, 0
-  br i1 %.not75.us.us.us.not.i, label %.thread.us.us.us.i, label %207
+  %.not75.us.us.us.i = icmp eq i32 %206, 0
+  br i1 %.not75.us.us.us.i, label %.thread.us.us.us.i, label %207
 
 207:                                              ; preds = %._crit_edge.us.us.us.i
   %208 = load i32, ptr %184, align 4

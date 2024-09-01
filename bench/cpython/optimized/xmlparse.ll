@@ -13557,8 +13557,8 @@ do.body:                                          ; preds = %sip_round.exit, %en
 land.rhs:                                         ; preds = %do.body, %while.body
   %p.126 = phi ptr [ %incdec.ptr, %while.body ], [ %p.0, %do.body ]
   %0 = load ptr, ptr %p1, align 8
-  %cmp2.not = icmp uge ptr %0, %p1
-  br i1 %cmp2.not, label %while.end, label %while.body
+  %cmp2.not.not = icmp uge ptr %0, %p1
+  br i1 %cmp2.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr i8, ptr %p.126, i64 1
@@ -13571,7 +13571,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %do.body
   %p.1.lcssa = phi ptr [ %p.0, %do.body ], [ %incdec.ptr, %while.body ], [ %p.126, %land.rhs ]
-  %cmp.lcssa = phi i1 [ false, %do.body ], [ %cmp2.not, %while.body ], [ %cmp2.not, %land.rhs ]
+  %cmp.lcssa = phi i1 [ false, %do.body ], [ %cmp2.not.not, %while.body ], [ %cmp2.not.not, %land.rhs ]
   %2 = load ptr, ptr %p1, align 8
   %cmp8 = icmp ult ptr %2, %p1
   br i1 %cmp8, label %do.end, label %if.end

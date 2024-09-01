@@ -6789,35 +6789,35 @@ _ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeac
   %.not11 = icmp eq i64 %.idx.mask, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit, %15
-  %.0713 = phi i32 [ %16, %15 ], [ 0, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ]
-  %.sroa.7.012 = phi ptr [ %17, %15 ], [ %6, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ]
+.lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit, %16
+  %.0713 = phi i32 [ %17, %16 ], [ 0, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ]
+  %.sroa.7.012 = phi ptr [ %18, %16 ], [ %6, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ]
   %12 = load ptr, ptr %.sroa.7.012, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %.not19 = icmp eq ptr %14, %1
-  br i1 %.not19, label %._crit_edge, label %15
+  %15 = icmp eq ptr %14, %1
+  br i1 %15, label %._crit_edge, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = add i32 %.0713, 1
-  %17 = getelementptr i8, ptr %.sroa.7.012, i64 8
-  %.not = icmp eq ptr %17, %11
+16:                                               ; preds = %.lr.ph
+  %17 = add i32 %.0713, 1
+  %18 = getelementptr i8, ptr %.sroa.7.012, i64 8
+  %.not = icmp eq ptr %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %15, %.lr.ph, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit
-  %.not.lcssa = phi i32 [ -1, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ], [ %.0713, %.lr.ph ], [ -1, %15 ]
+._crit_edge:                                      ; preds = %16, %.lr.ph, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit
+  %.not.lcssa = phi i32 [ -1, %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP16PacketListRecordEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit ], [ %.0713, %.lr.ph ], [ -1, %16 ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit, label %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i: ; preds = %._crit_edge
-  %18 = atomicrmw sub ptr %4, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %18, 1
-  br i1 %.not.i.i.i, label %19, label %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit
+  %19 = atomicrmw sub ptr %4, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %19, 1
+  br i1 %.not.i.i.i, label %20, label %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit
 
-19:                                               ; preds = %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i
+20:                                               ; preds = %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i
   tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 8) #29
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit
 
-_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit: ; preds = %._crit_edge, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i, %19
+_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit: ; preds = %._crit_edge, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i, %20
   ret i32 %.not.lcssa
 }
 

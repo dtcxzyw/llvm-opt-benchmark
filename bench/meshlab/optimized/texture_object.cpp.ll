@@ -1473,17 +1473,14 @@ define void @_ZN13TextureObject20ComputeRelativeSizesEv(ptr dead_on_unwind noali
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = uitofp nneg i32 %.sroa.speculated26 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br i1 %.not40, label %._crit_edge50, label %.lr.ph49
-
-.lr.ph49:                                         ; preds = %._crit_edge
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   br label %14
 
-14:                                               ; preds = %.lr.ph49, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
-  %15 = phi ptr [ null, %.lr.ph49 ], [ %45, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
-  %.sroa.018.047 = phi ptr [ %4, %.lr.ph49 ], [ %47, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
-  %16 = phi ptr [ null, %.lr.ph49 ], [ %46, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+14:                                               ; preds = %._crit_edge, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
+  %15 = phi ptr [ null, %._crit_edge ], [ %45, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+  %.sroa.018.047 = phi ptr [ %4, %._crit_edge ], [ %47, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+  %16 = phi ptr [ null, %._crit_edge ], [ %46, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
   %.sroa.0.0.copyload = load i32, ptr %.sroa.018.047, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.018.047, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1605,8 +1602,8 @@ _ZNSt6vectorISt4pairIddESaIS1_EED2Ev.exit:        ; preds = %48, %49
 _ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit:      ; preds = %_ZNSt6vectorISt4pairIddESaIS1_EED2Ev.exit, %50
   resume { ptr, i32 } %lpad.phi
 
-._crit_edge50:                                    ; preds = %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit, %._crit_edge.thread, %._crit_edge
-  %.lcssa43 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %46, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+._crit_edge50:                                    ; preds = %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit, %._crit_edge.thread
+  %.lcssa43 = phi ptr [ null, %._crit_edge.thread ], [ %46, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
   store ptr %.lcssa43, ptr %0, align 8
   %.not.i.i.i10 = icmp eq ptr %4, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit11, label %51

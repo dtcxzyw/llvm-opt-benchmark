@@ -2907,17 +2907,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %.val = load i16, ptr %30, align 2
   %31 = and i16 %.val, 4
   %.not59 = icmp eq i16 %31, 0
-  br i1 %.not59, label %.thread94, label %48
+  br i1 %.not59, label %.thread86, label %48
 
-.thread94:                                        ; preds = %BufferGetPage.exit
+.thread86:                                        ; preds = %BufferGetPage.exit
   %32 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val5596 = load i16, ptr %32, align 4
-  %33 = icmp ult i16 %.val5596, 25
-  %34 = zext i16 %.val5596 to i32
+  %.val5588 = load i16, ptr %32, align 4
+  %33 = icmp ult i16 %.val5588, 25
+  %34 = zext i16 %.val5588 to i32
   %35 = add nuw nsw i32 %34, 262120
   %36 = lshr i32 %35, 2
   %37 = trunc i32 %36 to i16
-  %.0.i97 = select i1 %33, i16 0, i16 %37
+  %.0.i89 = select i1 %33, i16 0, i16 %37
   %38 = getelementptr inbounds i8, ptr %5, i64 56
   %39 = getelementptr inbounds i8, ptr %0, i64 88
   %40 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2935,8 +2935,8 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 45
   %52 = load i8, ptr %51, align 1
-  %.fr93 = freeze i8 %52
-  %53 = trunc i8 %.fr93 to i1
+  %.fr85 = freeze i8 %52
+  %53 = trunc i8 %.fr85 to i1
   %54 = getelementptr i8, ptr %.0.i.i, i64 12
   %.val55 = load i16, ptr %54, align 4
   %55 = icmp ult i16 %.val55, 25
@@ -2958,17 +2958,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %53, label %.split.preheader, label %.split.us
 
-.split.preheader:                                 ; preds = %.thread94, %48
-  %71 = phi ptr [ %47, %.thread94 ], [ %70, %48 ]
-  %72 = phi ptr [ %46, %.thread94 ], [ %69, %48 ]
-  %73 = phi ptr [ %45, %.thread94 ], [ %68, %48 ]
-  %74 = phi i16 [ %44, %.thread94 ], [ %67, %48 ]
-  %75 = phi i16 [ %43, %.thread94 ], [ %66, %48 ]
-  %76 = phi ptr [ %41, %.thread94 ], [ %64, %48 ]
-  %77 = phi ptr [ %40, %.thread94 ], [ %63, %48 ]
-  %78 = phi ptr [ %39, %.thread94 ], [ %61, %48 ]
-  %79 = phi ptr [ %38, %.thread94 ], [ %60, %48 ]
-  %.0.i98 = phi i16 [ %.0.i97, %.thread94 ], [ %.0.i, %48 ]
+.split.preheader:                                 ; preds = %.thread86, %48
+  %71 = phi ptr [ %47, %.thread86 ], [ %70, %48 ]
+  %72 = phi ptr [ %46, %.thread86 ], [ %69, %48 ]
+  %73 = phi ptr [ %45, %.thread86 ], [ %68, %48 ]
+  %74 = phi i16 [ %44, %.thread86 ], [ %67, %48 ]
+  %75 = phi i16 [ %43, %.thread86 ], [ %66, %48 ]
+  %76 = phi ptr [ %41, %.thread86 ], [ %64, %48 ]
+  %77 = phi ptr [ %40, %.thread86 ], [ %63, %48 ]
+  %78 = phi ptr [ %39, %.thread86 ], [ %61, %48 ]
+  %79 = phi ptr [ %38, %.thread86 ], [ %60, %48 ]
+  %.0.i90 = phi i16 [ %.0.i89, %.thread86 ], [ %.0.i, %48 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 124
   %81 = getelementptr inbounds i8, ptr %0, i64 128
   %82 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
@@ -3070,7 +3070,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %113
 
 128:                                              ; preds = %.split, %127
   %129 = load ptr, ptr %79, align 8
-  %130 = tail call zeroext i16 %129(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i98) #11
+  %130 = tail call zeroext i16 %129(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i90) #11
   %131 = add i16 %130, -1
   %132 = icmp ult i16 %131, 2048
   br i1 %132, label %133, label %.split65.us
@@ -3185,11 +3185,11 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %151
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %177) #11
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
-  %.pre91 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8
   br label %185
 
 185:                                              ; preds = %.thread58, %184
-  %186 = phi ptr [ %179, %.thread58 ], [ %.pre91, %184 ]
+  %186 = phi ptr [ %179, %.thread58 ], [ %.pre83, %184 ]
   %187 = getelementptr inbounds i8, ptr %186, i64 24
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1

@@ -3869,8 +3869,8 @@ tls1_set_shared_sigalgs.exit:                     ; preds = %for.inc16.i58.i, %f
   store i64 %nmatch.0.i, ptr %shared_sigalgslen.i, align 8
   %ssl_pkey_num = getelementptr inbounds i8, ptr %s, i64 272
   %49 = load i64, ptr %ssl_pkey_num, align 8
-  %cmp29.not = icmp eq i64 %49, 0
-  br i1 %cmp29.not, label %for.cond1.preheader, label %for.body
+  %cmp27.not = icmp eq i64 %49, 0
+  br i1 %cmp27.not, label %for.cond1.preheader, label %for.body
 
 for.cond1.preheader.loopexit:                     ; preds = %for.body
   %.pre = load i64, ptr %shared_sigalgslen.i, align 8
@@ -3878,8 +3878,8 @@ for.cond1.preheader.loopexit:                     ; preds = %for.body
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.loopexit, %tls1_set_shared_sigalgs.exit
   %50 = phi i64 [ %.pre, %for.cond1.preheader.loopexit ], [ %nmatch.0.i, %tls1_set_shared_sigalgs.exit ]
-  %cmp231.not = icmp eq i64 %50, 0
-  br i1 %cmp231.not, label %return, label %for.body3.lr.ph
+  %cmp229.not = icmp eq i64 %50, 0
+  br i1 %cmp229.not, label %return, label %for.body3.lr.ph
 
 for.body3.lr.ph:                                  ; preds = %for.cond1.preheader
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -3887,18 +3887,18 @@ for.body3.lr.ph:                                  ; preds = %for.cond1.preheader
   br label %for.body3
 
 for.body:                                         ; preds = %tls1_set_shared_sigalgs.exit, %for.body
-  %i.030 = phi i64 [ %inc, %for.body ], [ 0, %tls1_set_shared_sigalgs.exit ]
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %i.030
+  %i.028 = phi i64 [ %inc, %for.body ], [ 0, %tls1_set_shared_sigalgs.exit ]
+  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %i.028
   store i32 0, ptr %arrayidx, align 4
-  %inc = add nuw i64 %i.030, 1
+  %inc = add nuw i64 %i.028, 1
   %51 = load i64, ptr %ssl_pkey_num, align 8
   %cmp = icmp ult i64 %inc, %51
   br i1 %cmp, label %for.body, label %for.cond1.preheader.loopexit, !llvm.loop !31
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %for.inc28
-  %i.132 = phi i64 [ 0, %for.body3.lr.ph ], [ %inc29, %for.inc28 ]
+  %i.130 = phi i64 [ 0, %for.body3.lr.ph ], [ %inc29, %for.inc28 ]
   %52 = load ptr, ptr %shared_sigalgs.i, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %52, i64 %i.132
+  %arrayidx4 = getelementptr inbounds ptr, ptr %52, i64 %i.130
   %53 = load ptr, ptr %arrayidx4, align 8
   %sig_idx = getelementptr inbounds i8, ptr %53, i64 24
   %54 = load i32, ptr %sig_idx, align 8
@@ -3942,7 +3942,7 @@ if.then24:                                        ; preds = %land.lhs.true20
   br label %for.inc28
 
 for.inc28:                                        ; preds = %if.end17, %land.lhs.true20, %if.then24, %land.lhs.true14
-  %inc29 = add nuw i64 %i.132, 1
+  %inc29 = add nuw i64 %i.130, 1
   %62 = load i64, ptr %shared_sigalgslen.i, align 8
   %cmp2 = icmp ult i64 %inc29, %62
   br i1 %cmp2, label %for.body3, label %return, !llvm.loop !32
@@ -4639,8 +4639,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %enc_flags = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load i32, ptr %enc_flags, align 8
   %and = and i32 %3, 8
-  %tobool1.not.not = icmp eq i32 %and, 0
-  br i1 %tobool1.not.not, label %land.lhs.true, label %if.end13.thread
+  %tobool1.not = icmp eq i32 %and, 0
+  br i1 %tobool1.not, label %land.lhs.true, label %if.end13.thread
 
 land.lhs.true:                                    ; preds = %if.end
   %4 = load i32, ptr %1, align 8
@@ -4658,8 +4658,8 @@ land.lhs.true10:                                  ; preds = %land.lhs.true
 if.end13:                                         ; preds = %land.lhs.true10, %land.lhs.true
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %6 = load i32, ptr %server, align 8
-  %brmerge.not = icmp eq i32 %6, 0
-  br i1 %brmerge.not, label %land.lhs.true22, label %if.end36
+  %tobool14.not.not = icmp eq i32 %6, 0
+  br i1 %tobool14.not.not, label %land.lhs.true22, label %if.end36
 
 if.end13.thread:                                  ; preds = %if.end
   %server44 = getelementptr inbounds i8, ptr %s, i64 112

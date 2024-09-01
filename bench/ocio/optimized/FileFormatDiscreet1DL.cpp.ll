@@ -2485,10 +2485,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit: ; pred
   tail call void @_ZdlPv(ptr noundef nonnull %call) #27
   br label %return
 
-for.cond16.preheader:                             ; preds = %for.body
-  br i1 %cmp1474, label %for.body18.lr.ph, label %for.end34
-
-for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
+for.body18.lr.ph:                                 ; preds = %for.body
   %conv = zext nneg i32 %length to i64
   %mul = shl nuw nsw i64 %conv, 1
   %wide.trip.count83 = zext nneg i32 %num to i64
@@ -2502,7 +2499,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr null, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.body18.lr.ph, label %for.body, !llvm.loop !42
 
 for.cond16:                                       ; preds = %for.body18
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -2579,7 +2576,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit62: ; pr
   tail call void @_ZdlPv(ptr noundef nonnull %call) #27
   br label %return
 
-for.end34:                                        ; preds = %for.cond16, %for.cond.preheader, %for.cond16.preheader
+for.end34:                                        ; preds = %for.cond16, %for.cond.preheader
   store ptr %call, ptr %plut, align 8
   br label %return
 

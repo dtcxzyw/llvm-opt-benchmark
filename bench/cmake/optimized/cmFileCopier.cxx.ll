@@ -2522,8 +2522,8 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier19InstallSymlinkChainERNSt
 
 30:                                               ; preds = %28
   %31 = and i64 %29, 4294967295
-  %.not = icmp ne i64 %31, 0
-  br i1 %.not, label %.loopexit, label %32
+  %.not.not.not.not.not = icmp ne i64 %31, 0
+  br i1 %.not.not.not.not.not, label %.loopexit, label %32
 
 32:                                               ; preds = %30
   %33 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools14FileIsFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -2783,7 +2783,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 .loopexit:                                        ; preds = %30, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 
 126:                                              ; preds = %125, %49, %47
   %.pn.pn = phi { ptr, i32 } [ %.pn, %125 ], [ %48, %47 ], [ %50, %49 ]

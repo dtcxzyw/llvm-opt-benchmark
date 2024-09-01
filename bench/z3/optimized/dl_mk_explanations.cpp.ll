@@ -5682,54 +5682,41 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %entry
   br i1 %cmp6, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %2 = zext i32 %1 to i64
-  %3 = load ptr, ptr %m_manager.i, align 8
-  %call.i15 = tail call noundef nonnull align 8 dereferenceable(3556) ptr @_ZN7datalog28get_context_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200) %3)
-  %m_decl_util.i16 = getelementptr inbounds i8, ptr %call.i15, i64 56
-  %4 = load ptr, ptr %s, align 8
-  %5 = load ptr, ptr %4, align 8
-  %call.i517 = tail call noundef i32 @_ZNK7datalog12dl_decl_util13get_family_idEv(ptr noundef nonnull align 8 dereferenceable(28) %m_decl_util.i16)
-  %m_info.i.i.i.i18 = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load ptr, ptr %m_info.i.i.i.i18, align 8
-  %cmp.i.i.i.i19 = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.i19, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
+  %wide.trip.count = zext i32 %1 to i64
+  br label %for.body
 
 for.cond:                                         ; preds = %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv20, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %2
-  %exitcond = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !29
 
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %m_manager.i, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(3556) ptr @_ZN7datalog28get_context_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200) %7)
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
+  %2 = load ptr, ptr %m_manager.i, align 8
+  %call.i = tail call noundef nonnull align 8 dereferenceable(3556) ptr @_ZN7datalog28get_context_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200) %2)
   %m_decl_util.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  %8 = load ptr, ptr %s, align 8
-  %arrayidx.i4 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
-  %9 = load ptr, ptr %arrayidx.i4, align 8
+  %3 = load ptr, ptr %s, align 8
+  %arrayidx.i4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %4 = load ptr, ptr %arrayidx.i4, align 8
   %call.i5 = tail call noundef i32 @_ZNK7datalog12dl_decl_util13get_family_idEv(ptr noundef nonnull align 8 dereferenceable(28) %m_decl_util.i)
-  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
-  %10 = load ptr, ptr %m_info.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.i.i.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, !llvm.loop !29
+  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = load ptr, ptr %m_info.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %5, null
+  br i1 %cmp.i.i.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %for.body.preheader, %for.body
-  %11 = phi ptr [ %10, %for.body ], [ %6, %for.body.preheader ]
-  %call.i522 = phi i32 [ %call.i5, %for.body ], [ %call.i517, %for.body.preheader ]
-  %cmp821 = phi i1 [ %cmp, %for.body ], [ false, %for.body.preheader ]
-  %indvars.iv20 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %12 = load i32, ptr %11, align 8
-  %cmp6.i.i.i = icmp eq i32 %12, %call.i522
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %for.body
+  %6 = load i32, ptr %5, align 8
+  %cmp6.i.i.i = icmp eq i32 %6, %call.i5
   br i1 %cmp6.i.i.i, label %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit, label %return
 
 _ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
-  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %for.cond, label %return
+  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = load i32, ptr %m_kind.i.i.i.i.i, align 4
+  %8 = icmp eq i32 %7, 2
+  br i1 %8, label %for.cond, label %return
 
-return:                                           ; preds = %for.body, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %for.cond, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit, %for.body.preheader, %entry, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %cmp.lcssa = phi i1 [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ true, %entry ], [ false, %for.body.preheader ], [ %cmp821, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit ], [ %cmp, %for.cond ], [ %cmp821, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %cmp, %for.body ]
+return:                                           ; preds = %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit, %for.cond, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %for.body, %entry, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
+  %cmp.lcssa = phi i1 [ true, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ true, %entry ], [ false, %for.body ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ true, %for.cond ], [ false, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit ]
   ret i1 %cmp.lcssa
 }
 

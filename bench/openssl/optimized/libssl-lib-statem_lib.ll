@@ -3812,8 +3812,8 @@ sw.bb3:                                           ; preds = %entry
 sw.epilog:                                        ; preds = %entry, %sw.bb3
   %table.0 = phi ptr [ @dtls_version_table, %sw.bb3 ], [ @tls_version_table, %entry ]
   %3 = load i32, ptr %table.0, align 16
-  %cmp5.not70 = icmp eq i32 %3, 0
-  br i1 %cmp5.not70, label %return, label %land.rhs.lr.ph
+  %cmp5.not69 = icmp eq i32 %3, 0
+  br i1 %cmp5.not69, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %sw.epilog
   %cmp4.i26 = icmp eq i32 %version, 256
@@ -3830,9 +3830,9 @@ land.rhs.lr.ph:                                   ; preds = %sw.epilog
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
   %4 = phi i32 [ %9, %for.inc.us ], [ %3, %land.rhs.lr.ph ]
-  %vent.071.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %table.0, %land.rhs.lr.ph ]
-  %cmp.i18.us.not = icmp eq i32 %version, %4
-  br i1 %cmp.i18.us.not, label %for.body.thread.us, label %if.end.i19.us
+  %vent.070.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %table.0, %land.rhs.lr.ph ]
+  %cmp.i18.us = icmp eq i32 %version, %4
+  br i1 %cmp.i18.us, label %for.body.thread.us, label %if.end.i19.us
 
 if.end.i19.us:                                    ; preds = %land.rhs.us
   %5 = load ptr, ptr %method, align 8
@@ -3855,7 +3855,7 @@ if.then1.i33.us:                                  ; preds = %if.end.i19.us
   br i1 %cmp2.i34.us, label %for.inc.us, label %return
 
 for.body.thread.us:                               ; preds = %land.rhs.us
-  %cmeth61.us = getelementptr inbounds i8, ptr %vent.071.us, i64 8
+  %cmeth61.us = getelementptr inbounds i8, ptr %vent.070.us, i64 8
   %8 = load ptr, ptr %cmeth61.us, align 8
   %cmp11.not62.us = icmp eq ptr %8, null
   br i1 %cmp11.not62.us, label %for.inc.us, label %land.lhs.true17.us
@@ -3866,17 +3866,17 @@ land.lhs.true17.us:                               ; preds = %for.body.thread.us
   %cmp21.us = icmp eq i32 %call20.us, 0
   br i1 %cmp21.us, label %if.then, label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.end3.i25.us, %if.then1.i33.us, %land.lhs.true17.us, %for.body.thread.us
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %vent.071.us, i64 24
+for.inc.us:                                       ; preds = %land.lhs.true17.us, %for.body.thread.us, %if.then1.i33.us, %if.end3.i25.us
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %vent.070.us, i64 24
   %9 = load i32, ptr %incdec.ptr.us, align 8
   %cmp5.not.us = icmp eq i32 %9, 0
   br i1 %cmp5.not.us, label %return, label %land.rhs.us, !llvm.loop !13
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %10 = phi i32 [ %30, %for.inc ], [ %3, %land.rhs.lr.ph ]
-  %vent.071 = phi ptr [ %incdec.ptr, %for.inc ], [ %table.0, %land.rhs.lr.ph ]
-  %cmp.i18.not = icmp eq i32 %10, 772
-  br i1 %cmp.i18.not, label %for.body.thread, label %if.end.i19
+  %10 = phi i32 [ %31, %for.inc ], [ %3, %land.rhs.lr.ph ]
+  %vent.070 = phi ptr [ %incdec.ptr, %for.inc ], [ %table.0, %land.rhs.lr.ph ]
+  %cmp.i18 = icmp eq i32 %10, 772
+  br i1 %cmp.i18, label %for.body.thread, label %if.end.i19
 
 if.end.i19:                                       ; preds = %land.rhs
   %11 = load ptr, ptr %method, align 8
@@ -3899,7 +3899,7 @@ if.end3.i25:                                      ; preds = %if.end.i19
   br i1 %cmp11.i30, label %for.inc, label %return
 
 for.body.thread:                                  ; preds = %land.rhs
-  %cmeth61 = getelementptr inbounds i8, ptr %vent.071, i64 8
+  %cmeth61 = getelementptr inbounds i8, ptr %vent.070, i64 8
   %14 = load ptr, ptr %cmeth61, align 8
   %cmp11.not62 = icmp eq ptr %14, null
   br i1 %cmp11.not62, label %for.inc, label %land.lhs.true17
@@ -4001,19 +4001,19 @@ for.inc.i:                                        ; preds = %if.end45.for.inc_cr
   br i1 %cmp36.i, label %for.body.i, label %for.inc, !llvm.loop !14
 
 if.then:                                          ; preds = %land.lhs.true17.us, %land.lhs.true23, %lor.lhs.false17.i, %if.end.i56, %if.end24.i, %lor.lhs.false31.i, %if.end28.i, %if.end45.i, %if.end41.i
-  %.ph69 = phi ptr [ %14, %if.end41.i ], [ %14, %if.end45.i ], [ %14, %if.end28.i ], [ %14, %lor.lhs.false31.i ], [ %14, %if.end24.i ], [ %14, %if.end.i56 ], [ %14, %lor.lhs.false17.i ], [ %14, %land.lhs.true23 ], [ %8, %land.lhs.true17.us ]
+  %30 = phi ptr [ %14, %if.end41.i ], [ %14, %if.end45.i ], [ %14, %if.end28.i ], [ %14, %lor.lhs.false31.i ], [ %14, %if.end24.i ], [ %14, %if.end.i56 ], [ %14, %lor.lhs.false17.i ], [ %14, %land.lhs.true23 ], [ %8, %land.lhs.true17.us ]
   %cmp29.not = icmp eq ptr %meth, null
   br i1 %cmp29.not, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.then
-  %call33 = tail call ptr %.ph69() #11
+  %call33 = tail call ptr %30() #11
   store ptr %call33, ptr %meth, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.inc.i, %if.end3.i25, %if.then1.i33, %for.cond.preheader.i, %lor.lhs.false.i, %lor.lhs.false26, %for.body.thread, %land.lhs.true17
-  %incdec.ptr = getelementptr inbounds i8, ptr %vent.071, i64 24
-  %30 = load i32, ptr %incdec.ptr, align 8
-  %cmp5.not = icmp eq i32 %30, 0
+  %incdec.ptr = getelementptr inbounds i8, ptr %vent.070, i64 24
+  %31 = load i32, ptr %incdec.ptr, align 8
+  %cmp5.not = icmp eq i32 %31, 0
   br i1 %cmp5.not, label %return, label %land.rhs, !llvm.loop !13
 
 return:                                           ; preds = %for.inc.us, %if.then1.i33.us, %if.end3.i25.us, %for.inc, %if.then1.i33, %if.end3.i25, %sw.epilog, %if.then, %if.then31, %sw.default
@@ -4583,14 +4583,14 @@ sw.bb3.i:                                         ; preds = %land.lhs.true4
 sw.epilog.i:                                      ; preds = %sw.bb3.i, %land.lhs.true4
   %table.0.i = phi ptr [ @dtls_version_table, %sw.bb3.i ], [ @tls_version_table, %land.lhs.true4 ]
   %4 = load i32, ptr %table.0.i, align 16
-  %cmp5.not70.i = icmp eq i32 %4, 0
-  br i1 %cmp5.not70.i, label %if.else8, label %land.rhs.us.i
+  %cmp5.not69.i = icmp eq i32 %4, 0
+  br i1 %cmp5.not69.i, label %if.else8, label %land.rhs.us.i
 
 land.rhs.us.i:                                    ; preds = %sw.epilog.i, %for.inc.us.i
   %5 = phi i32 [ %10, %for.inc.us.i ], [ %4, %sw.epilog.i ]
-  %vent.071.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %table.0.i, %sw.epilog.i ]
-  %cmp.i18.us.not.i = icmp eq i32 %5, 771
-  br i1 %cmp.i18.us.not.i, label %for.body.thread.us.i, label %if.end.i19.us.i
+  %vent.070.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %table.0.i, %sw.epilog.i ]
+  %cmp.i18.us.i = icmp eq i32 %5, 771
+  br i1 %cmp.i18.us.i, label %for.body.thread.us.i, label %if.end.i19.us.i
 
 if.end.i19.us.i:                                  ; preds = %land.rhs.us.i
   %6 = load ptr, ptr %method, align 8
@@ -4613,7 +4613,7 @@ if.then1.i33.us.i:                                ; preds = %if.end.i19.us.i
   br i1 %cmp2.i34.us.i, label %for.inc.us.i, label %if.else8
 
 for.body.thread.us.i:                             ; preds = %land.rhs.us.i
-  %cmeth61.us.i = getelementptr inbounds i8, ptr %vent.071.us.i, i64 8
+  %cmeth61.us.i = getelementptr inbounds i8, ptr %vent.070.us.i, i64 8
   %9 = load ptr, ptr %cmeth61.us.i, align 8
   %cmp11.not62.us.i = icmp eq ptr %9, null
   br i1 %cmp11.not62.us.i, label %for.inc.us.i, label %land.lhs.true17.us.i
@@ -4625,7 +4625,7 @@ land.lhs.true17.us.i:                             ; preds = %for.body.thread.us.
   br i1 %cmp21.us.i, label %if.end9, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %land.lhs.true17.us.i, %for.body.thread.us.i, %if.then1.i33.us.i, %if.end3.i25.us.i
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.071.us.i, i64 24
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.070.us.i, i64 24
   %10 = load i32, ptr %incdec.ptr.us.i, align 8
   %cmp5.not.us.i = icmp eq i32 %10, 0
   br i1 %cmp5.not.us.i, label %if.else8, label %land.rhs.us.i, !llvm.loop !13

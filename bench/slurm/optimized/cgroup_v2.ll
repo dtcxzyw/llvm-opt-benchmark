@@ -1945,7 +1945,7 @@ define internal range(i32 0, 2) i32 @_find_pid_task(ptr noundef %0, ptr nocaptur
   store i32 0, ptr %4, align 4
   %6 = call i32 @common_cgroup_get_pids(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.preheader, label %19
+  br i1 %.not, label %.preheader, label %15
 
 .preheader:                                       ; preds = %2
   %7 = load i32, ptr %4, align 4
@@ -1954,35 +1954,27 @@ define internal range(i32 0, 2) i32 @_find_pid_task(ptr noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = load ptr, ptr %3, align 8
-  %10 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
-  %11 = load i32, ptr %9, align 4
-  %12 = icmp eq i32 %11, %5
-  br i1 %12, label %._crit_edge, label %.lr.ph14
+  br label %11
 
-.lr.ph14:                                         ; preds = %.lr.ph, %13
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
+10:                                               ; preds = %11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit.loopexit, label %13, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !14
 
-13:                                               ; preds = %.lr.ph14
-  %14 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, %5
-  br i1 %16, label %._crit_edge.loopexit.loopexit, label %.lr.ph14, !llvm.loop !14
+11:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %12 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, %5
+  br i1 %14, label %._crit_edge, label %10
 
-._crit_edge.loopexit.loopexit:                    ; preds = %13, %.lr.ph14
-  %17 = icmp ult i64 %indvars.iv.next, %10
-  %18 = zext i1 %17 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit.loopexit, %.preheader
-  %.lcssa = phi i32 [ 0, %.preheader ], [ 1, %.lr.ph ], [ %18, %._crit_edge.loopexit.loopexit ]
+._crit_edge:                                      ; preds = %10, %11, %.preheader
+  %.lcssa = phi i32 [ 0, %.preheader ], [ 1, %11 ], [ 0, %10 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %19
+  br label %15
 
-19:                                               ; preds = %2, %._crit_edge
+15:                                               ; preds = %2, %._crit_edge
   %.09 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %2 ]
   ret i32 %.09
 }

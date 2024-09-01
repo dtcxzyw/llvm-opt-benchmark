@@ -760,10 +760,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %.0.copyload11.pre = load i24, ptr %15, align 1
   br label %.lr.ph142
 
-.preheader136:                                    ; preds = %.lr.ph142
-  br i1 %37, label %.lr.ph145.preheader, label %._crit_edge146
-
-.lr.ph145.preheader:                              ; preds = %.preheader136
+.lr.ph145.preheader:                              ; preds = %.lr.ph142
   %wide.trip.count168 = zext nneg i32 %36 to i64
   %.pre = load double, ptr %35, align 8
   br label %.lr.ph145
@@ -809,7 +806,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %54 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next161
   store double %sqrt.i, ptr %54, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader136, label %.lr.ph142
+  br i1 %exitcond.not, label %.lr.ph145.preheader, label %.lr.ph142
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
   %55 = phi double [ %.pre, %.lr.ph145.preheader ], [ %58, %.lr.ph145 ]
@@ -822,7 +819,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %exitcond169.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count168
   br i1 %exitcond169.not, label %._crit_edge146, label %.lr.ph145
 
-._crit_edge146:                                   ; preds = %.lr.ph145, %32, %.preheader136
+._crit_edge146:                                   ; preds = %.lr.ph145, %32
   %59 = load i8, ptr @Verbose, align 1
   %.not125 = icmp eq i8 %59, 0
   br i1 %.not125, label %66, label %60

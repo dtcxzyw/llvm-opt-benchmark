@@ -865,21 +865,18 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nocap
 
 .lr.ph54:                                         ; preds = %.preheader
   %23 = getelementptr inbounds i8, ptr %0, i64 168
-  br i1 %7, label %.lr.ph.us56.preheader, label %.lr.ph54.split.preheader
-
-.lr.ph54.split.preheader:                         ; preds = %.preheader.thread, %.lr.ph54
   %24 = zext i32 %6 to i64
-  %25 = shl nuw nsw i64 %24, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %25, i1 false)
-  br label %._crit_edge55
-
-.lr.ph.us56.preheader:                            ; preds = %.lr.ph54
-  %26 = zext i32 %6 to i64
   %wide.trip.count77 = zext nneg i32 %4 to i64
   br label %.lr.ph.us56
 
-.lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next80, %._crit_edge.us57 ]
+.lr.ph54.split.preheader:                         ; preds = %.preheader.thread
+  %25 = zext i32 %6 to i64
+  %26 = shl nuw nsw i64 %25, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %26, i1 false)
+  br label %._crit_edge55
+
+.lr.ph.us56:                                      ; preds = %.lr.ph54, %._crit_edge.us57
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next80, %._crit_edge.us57 ]
   %27 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv79
   store i32 0, ptr %27, align 4
   %invariant.gep = getelementptr inbounds i32, ptr %2, i64 %indvars.iv79
@@ -889,13 +886,13 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nocap
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us56 ], [ %indvars.iv.next75, %28 ]
   %.03950.us = phi i32 [ 0, %.lr.ph.us56 ], [ %34, %28 ]
   %29 = load ptr, ptr %23, align 8
-  %30 = mul nuw nsw i64 %indvars.iv74, %26
+  %30 = mul nuw nsw i64 %indvars.iv74, %24
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
   %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv79
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %.03950.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %35 = mul nuw nsw i64 %indvars.iv.next75, %26
+  %35 = mul nuw nsw i64 %indvars.iv.next75, %24
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %35
   store i32 %34, ptr %gep, align 4
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
@@ -903,7 +900,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nocap
 
 ._crit_edge.us57:                                 ; preds = %28
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %26
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %24
   br i1 %exitcond83.not, label %._crit_edge55, label %.lr.ph.us56, !llvm.loop !12
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49.split.preheader, %.lr.ph49.split

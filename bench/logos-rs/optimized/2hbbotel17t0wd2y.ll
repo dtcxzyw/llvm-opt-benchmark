@@ -164,8 +164,8 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.0..sroa_idx, i64 216, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %46, ptr noundef nonnull align 8 dereferenceable(224) %19, i64 224, i1 false)
-  %.not23.not = icmp eq i64 %.sroa.0.0.copyload, 17
-  br i1 %.not23.not, label %.thread36, label %56
+  %.not23 = icmp eq i64 %.sroa.0.0.copyload, 17
+  br i1 %.not23, label %.thread36, label %56
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %1, i64 16

@@ -2464,7 +2464,7 @@ entry:
 while.cond:                                       ; preds = %while.body
   %call = tail call ptr @PEM_read_bio_X509(ptr noundef %in, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %tobool.not, label %if.then6, label %while.body, !llvm.loop !14
 
 while.body:                                       ; preds = %entry, %while.cond
   %call6 = phi ptr [ %call, %while.cond ], [ %call4, %entry ]
@@ -2472,15 +2472,12 @@ while.body:                                       ; preds = %entry, %while.cond
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %while.cond, !llvm.loop !14
 
-while.end:                                        ; preds = %while.cond
-  br i1 %tobool.not5, label %return, label %if.then6
-
-if.then6:                                         ; preds = %while.end
+if.then6:                                         ; preds = %while.cond
   tail call void @ERR_clear_error() #5
   br label %return
 
-return:                                           ; preds = %while.body, %entry, %while.end, %if.then6
-  %retval.0 = phi i32 [ 1, %if.then6 ], [ 1, %while.end ], [ 0, %entry ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %entry, %if.then6
+  %retval.0 = phi i32 [ 1, %if.then6 ], [ 0, %entry ], [ 0, %while.body ]
   ret i32 %retval.0
 }
 

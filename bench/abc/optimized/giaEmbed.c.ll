@@ -4841,7 +4841,7 @@ define void @Emb_ManComputeCovariance(ptr nocapture noundef %0, i32 noundef %1) 
   %18 = load i32, ptr %6, align 8
   %19 = sitofp i32 %18 to double
   %20 = fdiv double %.155, %19
-  br i1 %12, label %.lr.ph75, label %._crit_edge76
+  br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %._crit_edge, %.lr.ph75
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.lr.ph75 ], [ 0, %._crit_edge ]
@@ -4859,8 +4859,8 @@ define void @Emb_ManComputeCovariance(ptr nocapture noundef %0, i32 noundef %1) 
   %29 = icmp slt i64 %indvars.iv.next94, %28
   br i1 %29, label %.lr.ph75, label %._crit_edge76, !llvm.loop !51
 
-._crit_edge76:                                    ; preds = %.lr.ph75, %7, %._crit_edge
-  %30 = phi i32 [ %8, %._crit_edge ], [ %8, %7 ], [ %27, %.lr.ph75 ]
+._crit_edge76:                                    ; preds = %.lr.ph75, %7
+  %30 = phi i32 [ %8, %7 ], [ %27, %.lr.ph75 ]
   %31 = add nuw nsw i32 %.05377, 1
   %exitcond96.not = icmp eq i32 %31, %1
   br i1 %exitcond96.not, label %._crit_edge80, label %7, !llvm.loop !52
@@ -5037,14 +5037,11 @@ define void @Emb_ManVecNormal(ptr nocapture noundef %0, i32 noundef %1) local_un
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %9 = tail call double @pow(double noundef %8, double noundef 5.000000e-01) #26
-  br i1 %3, label %.lr.ph20.preheader, label %._crit_edge21
-
-.lr.ph20.preheader:                               ; preds = %._crit_edge
   %wide.trip.count26 = zext nneg i32 %1 to i64
   br label %.lr.ph20
 
-.lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
-  %indvars.iv23 = phi i64 [ 0, %.lr.ph20.preheader ], [ %indvars.iv.next24, %.lr.ph20 ]
+.lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
+  %indvars.iv23 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next24, %.lr.ph20 ]
   %10 = getelementptr inbounds float, ptr %0, i64 %indvars.iv23
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
@@ -5055,7 +5052,7 @@ define void @Emb_ManVecNormal(ptr nocapture noundef %0, i32 noundef %1) local_un
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !58
 
-._crit_edge21:                                    ; preds = %.lr.ph20, %2, %._crit_edge
+._crit_edge21:                                    ; preds = %.lr.ph20, %2
   ret void
 }
 
@@ -5196,19 +5193,19 @@ define void @Emb_ManComputeEigenvectors(ptr nocapture noundef readonly %0, i32 n
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %2, 0
-  br i1 %9, label %.lr.ph117, label %._crit_edge118
+  br i1 %9, label %.lr.ph116, label %._crit_edge117
 
-.lr.ph117:                                        ; preds = %3
+.lr.ph116:                                        ; preds = %3
   %10 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %wide.trip.count128 = zext nneg i32 %2 to i64
+  %wide.trip.count127 = zext nneg i32 %2 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph117, %Emb_ManVecCopyOne.exit109
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next126, %Emb_ManVecCopyOne.exit109 ]
+12:                                               ; preds = %.lr.ph116, %Emb_ManVecCopyOne.exit108
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next125, %Emb_ManVecCopyOne.exit108 ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv125
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv124
   %15 = load ptr, ptr %14, align 8
   br i1 %10, label %.lr.ph.i, label %Emb_ManVecNormal.exit
 
@@ -5232,14 +5229,14 @@ define void @Emb_ManComputeEigenvectors(ptr nocapture noundef readonly %0, i32 n
   %23 = fadd double %.017.i, %22
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i46, label %.lr.ph20.preheader.i, label %.lr.ph.i43, !llvm.loop !57
+  br i1 %exitcond.not.i46, label %._crit_edge.i, label %.lr.ph.i43, !llvm.loop !57
 
-.lr.ph20.preheader.i:                             ; preds = %.lr.ph.i43
+._crit_edge.i:                                    ; preds = %.lr.ph.i43
   %24 = tail call double @pow(double noundef %23, double noundef 5.000000e-01) #26
   br label %.lr.ph20.i
 
-.lr.ph20.i:                                       ; preds = %.lr.ph20.i, %.lr.ph20.preheader.i
-  %indvars.iv23.i = phi i64 [ 0, %.lr.ph20.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
+.lr.ph20.i:                                       ; preds = %.lr.ph20.i, %._crit_edge.i
+  %indvars.iv23.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
   %25 = getelementptr inbounds float, ptr %8, i64 %indvars.iv23.i
   %26 = load float, ptr %25, align 4
   %27 = fpext float %26 to double
@@ -5251,7 +5248,7 @@ define void @Emb_ManComputeEigenvectors(ptr nocapture noundef readonly %0, i32 n
   br i1 %exitcond27.not.i, label %Emb_ManVecNormal.exit, label %.lr.ph20.i, !llvm.loop !58
 
 Emb_ManVecNormal.exit:                            ; preds = %.lr.ph20.i, %12
-  %.not = icmp eq i64 %indvars.iv125, 0
+  %.not = icmp eq i64 %indvars.iv124, 0
   br label %30
 
 30:                                               ; preds = %Emb_ManVecMultiplyOne.exit, %Emb_ManVecNormal.exit
@@ -5270,13 +5267,10 @@ Emb_ManVecNormal.exit:                            ; preds = %.lr.ph20.i, %12
   br i1 %exitcond.not.i53, label %Emb_ManVecCopyOne.exit, label %.lr.ph.i50, !llvm.loop !60
 
 Emb_ManVecCopyOne.exit:                           ; preds = %.lr.ph.i50
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i55.us
 
-.lr.ph:                                           ; preds = %Emb_ManVecCopyOne.exit
-  br i1 %10, label %.lr.ph.i55.us, label %Emb_ManVecMultiplyOne.exit
-
-.lr.ph.i55.us:                                    ; preds = %.lr.ph, %Emb_ManVecCopyOne.exit66.loopexit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecCopyOne.exit66.loopexit.us ], [ 0, %.lr.ph ]
+.lr.ph.i55.us:                                    ; preds = %Emb_ManVecCopyOne.exit, %Emb_ManVecCopyOne.exit66.loopexit.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecCopyOne.exit66.loopexit.us ], [ 0, %Emb_ManVecCopyOne.exit ]
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
@@ -5323,12 +5317,12 @@ Emb_ManVecMultiplyOne.exit.loopexit.us.i.us:      ; preds = %.lr.ph.i.us.i.us
 
 Emb_ManVecCopyOne.exit66.loopexit.us:             ; preds = %.lr.ph.i62.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv125
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv124
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i55.us, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %Emb_ManVecCopyOne.exit66.loopexit.us, %Emb_ManVecCopyOne.exit
   %53 = load ptr, ptr %11, align 8
-  br i1 %10, label %.lr.ph.preheader.i.us.i70, label %Emb_ManVecMultiplyOne.exit
+  br label %.lr.ph.preheader.i.us.i70
 
 .lr.ph.preheader.i.us.i70:                        ; preds = %._crit_edge, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i78, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77 ], [ 0, %._crit_edge ]
@@ -5365,38 +5359,38 @@ Emb_ManVecMultiplyOne.exit.loopexit.us.i77:       ; preds = %.lr.ph.i.us.i72
   %66 = fadd double %.017.i84, %65
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i
-  br i1 %exitcond.not.i86, label %.lr.ph20.preheader.i88, label %.lr.ph.i82, !llvm.loop !57
+  br i1 %exitcond.not.i86, label %._crit_edge.i87, label %.lr.ph.i82, !llvm.loop !57
 
-.lr.ph20.preheader.i88:                           ; preds = %.lr.ph.i82
+._crit_edge.i87:                                  ; preds = %.lr.ph.i82
   %67 = tail call double @pow(double noundef %66, double noundef 5.000000e-01) #26
-  br label %.lr.ph20.i90
+  br label %.lr.ph20.i89
 
-.lr.ph20.i90:                                     ; preds = %.lr.ph20.i90, %.lr.ph20.preheader.i88
-  %indvars.iv23.i91 = phi i64 [ 0, %.lr.ph20.preheader.i88 ], [ %indvars.iv.next24.i92, %.lr.ph20.i90 ]
-  %68 = getelementptr inbounds float, ptr %8, i64 %indvars.iv23.i91
+.lr.ph20.i89:                                     ; preds = %.lr.ph20.i89, %._crit_edge.i87
+  %indvars.iv23.i90 = phi i64 [ 0, %._crit_edge.i87 ], [ %indvars.iv.next24.i91, %.lr.ph20.i89 ]
+  %68 = getelementptr inbounds float, ptr %8, i64 %indvars.iv23.i90
   %69 = load float, ptr %68, align 4
   %70 = fpext float %69 to double
   %71 = fdiv double %70, %67
   %72 = fptrunc double %71 to float
   store float %72, ptr %68, align 4
-  %indvars.iv.next24.i92 = add nuw nsw i64 %indvars.iv23.i91, 1
-  %exitcond27.not.i93 = icmp eq i64 %indvars.iv.next24.i92, %wide.trip.count.i
-  br i1 %exitcond27.not.i93, label %.lr.ph.i98, label %.lr.ph20.i90, !llvm.loop !58
+  %indvars.iv.next24.i91 = add nuw nsw i64 %indvars.iv23.i90, 1
+  %exitcond27.not.i92 = icmp eq i64 %indvars.iv.next24.i91, %wide.trip.count.i
+  br i1 %exitcond27.not.i92, label %.lr.ph.i97, label %.lr.ph20.i89, !llvm.loop !58
 
-.lr.ph.i98:                                       ; preds = %.lr.ph20.i90, %.lr.ph.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %.lr.ph20.i90 ]
-  %.089.i = phi float [ %77, %.lr.ph.i98 ], [ 0.000000e+00, %.lr.ph20.i90 ]
-  %73 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i99
+.lr.ph.i97:                                       ; preds = %.lr.ph20.i89, %.lr.ph.i97
+  %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i99, %.lr.ph.i97 ], [ 0, %.lr.ph20.i89 ]
+  %.089.i = phi float [ %77, %.lr.ph.i97 ], [ 0.000000e+00, %.lr.ph20.i89 ]
+  %73 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i98
   %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i99
+  %75 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i98
   %76 = load float, ptr %75, align 4
   %77 = tail call float @llvm.fmuladd.f32(float %74, float %76, float %.089.i)
-  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
-  %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i
-  br i1 %exitcond.not.i101, label %Emb_ManVecMultiplyOne.exit, label %.lr.ph.i98, !llvm.loop !59
+  %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
+  %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, %wide.trip.count.i
+  br i1 %exitcond.not.i100, label %Emb_ManVecMultiplyOne.exit, label %.lr.ph.i97, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i98, %30, %.lr.ph, %._crit_edge
-  %.08.lcssa.i = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %30 ], [ %77, %.lr.ph.i98 ]
+Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i97, %30
+  %.08.lcssa.i = phi float [ 0.000000e+00, %30 ], [ %77, %.lr.ph.i97 ]
   %78 = fpext float %.08.lcssa.i to double
   %79 = fcmp olt double %78, 0x3FEFF7CED916872B
   %80 = icmp ult i32 %.0, 99
@@ -5404,24 +5398,24 @@ Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i98, %30, %.
   br i1 %81, label %30, label %82, !llvm.loop !64
 
 82:                                               ; preds = %Emb_ManVecMultiplyOne.exit
-  br i1 %10, label %.lr.ph.i105, label %Emb_ManVecCopyOne.exit109
+  br i1 %10, label %.lr.ph.i104, label %Emb_ManVecCopyOne.exit108
 
-.lr.ph.i105:                                      ; preds = %82, %.lr.ph.i105
-  %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 0, %82 ]
-  %83 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i106
+.lr.ph.i104:                                      ; preds = %82, %.lr.ph.i104
+  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i106, %.lr.ph.i104 ], [ 0, %82 ]
+  %83 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i105
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i106
+  %85 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i105
   store float %84, ptr %85, align 4
-  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
-  %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i
-  br i1 %exitcond.not.i108, label %Emb_ManVecCopyOne.exit109, label %.lr.ph.i105, !llvm.loop !60
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
+  %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i
+  br i1 %exitcond.not.i107, label %Emb_ManVecCopyOne.exit108, label %.lr.ph.i104, !llvm.loop !60
 
-Emb_ManVecCopyOne.exit109:                        ; preds = %.lr.ph.i105, %82
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %._crit_edge118, label %12, !llvm.loop !65
+Emb_ManVecCopyOne.exit108:                        ; preds = %.lr.ph.i104, %82
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %._crit_edge117, label %12, !llvm.loop !65
 
-._crit_edge118:                                   ; preds = %Emb_ManVecCopyOne.exit109, %3
+._crit_edge117:                                   ; preds = %Emb_ManVecCopyOne.exit108, %3
   ret void
 }
 
@@ -5546,9 +5540,9 @@ define void @Emb_ManDerivePlacement(ptr nocapture noundef %0, i32 noundef %1) lo
 ._crit_edge:                                      ; preds = %.lr.ph
   %17 = fsub float %16, %13
   %18 = fdiv float 3.276700e+04, %17
-  br i1 %7, label %.lr.ph89, label %._crit_edge90.thread
+  br label %.lr.ph89
 
-._crit_edge90.thread:                             ; preds = %._crit_edge, %3
+._crit_edge90.thread:                             ; preds = %3
   %.pre = sext i32 %6 to i64
   %19 = getelementptr inbounds float, ptr %.val81, i64 %.pre
   br label %._crit_edge103
@@ -5598,7 +5592,7 @@ define void @Emb_ManDerivePlacement(ptr nocapture noundef %0, i32 noundef %1) lo
 ._crit_edge97:                                    ; preds = %.lr.ph96
   %40 = fsub float %39, %36
   %41 = fdiv float 3.276700e+04, %40
-  br i1 %30, label %.lr.ph102, label %._crit_edge103
+  br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %._crit_edge97, %.lr.ph102
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.lr.ph102 ], [ 0, %._crit_edge97 ]
@@ -5615,9 +5609,9 @@ define void @Emb_ManDerivePlacement(ptr nocapture noundef %0, i32 noundef %1) lo
   %50 = icmp slt i64 %indvars.iv.next125, %49
   br i1 %50, label %.lr.ph102, label %._crit_edge103, !llvm.loop !73
 
-._crit_edge103:                                   ; preds = %.lr.ph102, %._crit_edge90, %._crit_edge90.thread, %._crit_edge97
-  %51 = phi ptr [ %29, %._crit_edge97 ], [ %19, %._crit_edge90.thread ], [ %29, %._crit_edge90 ], [ %29, %.lr.ph102 ]
-  %.lcssa = phi i32 [ %26, %._crit_edge97 ], [ %6, %._crit_edge90.thread ], [ %26, %._crit_edge90 ], [ %48, %.lr.ph102 ]
+._crit_edge103:                                   ; preds = %.lr.ph102, %._crit_edge90, %._crit_edge90.thread
+  %51 = phi ptr [ %19, %._crit_edge90.thread ], [ %29, %._crit_edge90 ], [ %29, %.lr.ph102 ]
+  %.lcssa = phi i32 [ %6, %._crit_edge90.thread ], [ %26, %._crit_edge90 ], [ %48, %.lr.ph102 ]
   %52 = tail call ptr @Gia_SortFloats(ptr noundef %.val81, ptr noundef null, i32 noundef %.lcssa) #26
   %53 = load i32, ptr %4, align 8
   %54 = tail call ptr @Gia_SortFloats(ptr noundef %51, ptr noundef null, i32 noundef %53) #26
@@ -5946,12 +5940,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %88 = add i32 %narrow.i, %47
   %89 = add i32 %88, %.pre-phi213
   %90 = icmp slt i32 %89, %28
-  br i1 %90, label %31, label %.critedge, !llvm.loop !78
+  br i1 %90, label %31, label %.lr.ph188, !llvm.loop !78
 
-.critedge:                                        ; preds = %.critedge2
-  br i1 %29, label %.lr.ph188, label %.critedge4
-
-.lr.ph188:                                        ; preds = %.critedge
+.lr.ph188:                                        ; preds = %.critedge2
   %.val.pr = load ptr, ptr %25, align 8
   %.not140 = icmp eq ptr %.val.pr, null
   br i1 %.not140, label %.critedge4, label %.lr.ph188.split
@@ -6025,8 +6016,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %131 = icmp slt i32 %130, %28
   br i1 %131, label %.lr.ph188.split, label %.critedge4, !llvm.loop !80
 
-.critedge4:                                       ; preds = %.critedge6, %.lr.ph171, %.preheader, %.lr.ph188, %.critedge
-  %.0124.lcssa215 = phi double [ %87, %.lr.ph188 ], [ %87, %.critedge ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph171 ], [ %87, %.critedge6 ]
+.critedge4:                                       ; preds = %.critedge6, %.lr.ph171, %.preheader, %.lr.ph188
+  %.0124.lcssa215 = phi double [ %87, %.lr.ph188 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph171 ], [ %87, %.critedge6 ]
   %132 = load i32, ptr %16, align 8
   %133 = call ptr @Gia_SortFloats(ptr noundef %22, ptr noundef null, i32 noundef %132) #26
   %134 = load i32, ptr %16, align 8
@@ -6995,16 +6986,16 @@ Abc_Clock.exit:                                   ; preds = %2, %17
   %45 = add i32 %narrow.i.i.i, %44
   %46 = add i32 %45, %.val8.i.i
   %47 = icmp slt i32 %46, %37
-  br i1 %47, label %.lr.ph.i.i, label %.lr.ph.i.preheader.split, !llvm.loop !19
+  br i1 %47, label %.lr.ph.i.i, label %Emb_ManResetTravId.exit.split.split, !llvm.loop !19
 
-.lr.ph.i.preheader.split:                         ; preds = %.lr.ph.i.i
+Emb_ManResetTravId.exit.split.split:              ; preds = %.lr.ph.i.i
   %48 = getelementptr inbounds i8, ptr %.0, i64 32
   store i32 1, ptr %48, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.split, %.lr.ph.i
-  %.012.i = phi i32 [ %51, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader.split ]
-  %.0711.i = phi i32 [ %56, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader.split ]
+.lr.ph.i:                                         ; preds = %Emb_ManResetTravId.exit.split.split, %.lr.ph.i
+  %.012.i = phi i32 [ %51, %.lr.ph.i ], [ 0, %Emb_ManResetTravId.exit.split.split ]
+  %.0711.i = phi i32 [ %56, %.lr.ph.i ], [ 0, %Emb_ManResetTravId.exit.split.split ]
   %49 = zext i32 %.0711.i to i64
   %50 = getelementptr inbounds i32, ptr %.val.i.i, i64 %49
   %51 = add nuw nsw i32 %.012.i, 1

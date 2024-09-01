@@ -246,10 +246,7 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %16 = zext nneg i32 %14 to i64
   br label %.lr.ph
 
-.preheader96:                                     ; preds = %.lr.ph
-  br i1 %15, label %.lr.ph101.preheader, label %.preheader94
-
-.lr.ph101.preheader:                              ; preds = %.preheader96
+.lr.ph101.preheader:                              ; preds = %.lr.ph
   %17 = zext nneg i32 %14 to i64
   br label %.lr.ph101
 
@@ -261,12 +258,9 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = icmp ult i64 %indvars.iv.next, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  br i1 %20, label %.lr.ph, label %.preheader96, !llvm.loop !9
+  br i1 %20, label %.lr.ph, label %.lr.ph101.preheader, !llvm.loop !9
 
-.preheader95:                                     ; preds = %.lr.ph101
-  br i1 %15, label %.lr.ph104.preheader, label %.preheader94
-
-.lr.ph104.preheader:                              ; preds = %.preheader95
+.lr.ph104.preheader:                              ; preds = %.lr.ph101
   %21 = zext nneg i32 %14 to i64
   br label %.lr.ph104
 
@@ -289,9 +283,9 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %spec.select = select i1 %.not92, ptr %.07399, ptr %30
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %31 = icmp ult i64 %indvars.iv.next116, %17
-  br i1 %31, label %.lr.ph101, label %.preheader95, !llvm.loop !10
+  br i1 %31, label %.lr.ph101, label %.lr.ph104.preheader, !llvm.loop !10
 
-.preheader94:                                     ; preds = %.lr.ph104, %9, %.preheader96, %.preheader95
+.preheader94:                                     ; preds = %.lr.ph104, %9
   %32 = load i32, ptr @pmix_stepd_children, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph106, label %.preheader

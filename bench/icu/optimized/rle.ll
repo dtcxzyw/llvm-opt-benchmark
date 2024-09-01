@@ -782,7 +782,7 @@ lor.lhs.false.i140:                               ; preds = %if.then10.i129, %if
   store i8 0, ptr %state, align 1
   %.pr172.pr = load i32, ptr %status, align 4
   %cmp.i141 = icmp sgt i32 %.pr172.pr, 0
-  br i1 %cmp.i141, label %return, label %if.end.i142
+  br i1 %cmp.i141, label %return, label %if.else13.i157
 
 lor.lhs.false.i140.thread:                        ; preds = %lor.lhs.false.i119.thread
   %conv21207 = trunc i32 %length.addr.0.ph to i8
@@ -793,12 +793,8 @@ lor.lhs.false.i140.thread:                        ; preds = %lor.lhs.false.i119.
   %cmp.i141217 = icmp sgt i32 %.pr172.pr216, 0
   br i1 %cmp.i141217, label %return, label %if.then3.i144
 
-if.end.i142:                                      ; preds = %lor.lhs.false.i140
-  br i1 %cmp1.not.i102.not, label %if.else13.i157, label %if.then3.i144
-
-if.then3.i144:                                    ; preds = %lor.lhs.false.i140.thread, %if.end.i142
-  %retval.0.i128.ph.ph218220 = phi ptr [ %buffer.addr.0.i127, %if.end.i142 ], [ %buffer.addr.0.i107, %lor.lhs.false.i140.thread ]
-  %cmp8.i145 = icmp ult ptr %retval.0.i128.ph.ph218220, %bufLimit
+if.then3.i144:                                    ; preds = %lor.lhs.false.i140.thread
+  %cmp8.i145 = icmp ult ptr %buffer.addr.0.i107, %bufLimit
   br i1 %cmp8.i145, label %if.then10.i150, label %if.else.i146
 
 if.then10.i150:                                   ; preds = %if.then3.i144
@@ -808,8 +804,8 @@ if.then10.i150:                                   ; preds = %if.then3.i144
   %shl.i153 = shl nuw i16 %conv5.i152, 8
   %conv6.i154 = zext i8 %value to i16
   %or.i155 = or disjoint i16 %shl.i153, %conv6.i154
-  %incdec.ptr.i156 = getelementptr inbounds i8, ptr %retval.0.i128.ph.ph218220, i64 2
-  store i16 %or.i155, ptr %retval.0.i128.ph.ph218220, align 2
+  %incdec.ptr.i156 = getelementptr inbounds i8, ptr %buffer.addr.0.i107, i64 2
+  store i16 %or.i155, ptr %buffer.addr.0.i107, align 2
   br label %if.end11.i147
 
 if.else.i146:                                     ; preds = %if.then3.i144
@@ -817,11 +813,11 @@ if.else.i146:                                     ; preds = %if.then3.i144
   br label %if.end11.i147
 
 if.end11.i147:                                    ; preds = %if.else.i146, %if.then10.i150
-  %buffer.addr.0.i148 = phi ptr [ %incdec.ptr.i156, %if.then10.i150 ], [ %retval.0.i128.ph.ph218220, %if.else.i146 ]
+  %buffer.addr.0.i148 = phi ptr [ %incdec.ptr.i156, %if.then10.i150 ], [ %buffer.addr.0.i107, %if.else.i146 ]
   store i8 0, ptr %state, align 1
   br label %return
 
-if.else13.i157:                                   ; preds = %if.end.i142
+if.else13.i157:                                   ; preds = %lor.lhs.false.i140
   store i8 1, ptr %state, align 1
   %arrayidx15.i158 = getelementptr inbounds i8, ptr %state, i64 1
   store i8 %value, ptr %arrayidx15.i158, align 1

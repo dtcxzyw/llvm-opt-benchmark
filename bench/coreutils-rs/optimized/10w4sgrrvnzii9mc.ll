@@ -1103,8 +1103,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx, i64 56, i1 false)
   store i64 -9223372036854775807, ptr %24, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit48", label %25
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit48", label %25
 
 25:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)

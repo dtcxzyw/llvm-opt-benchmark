@@ -701,43 +701,36 @@ entry.split:                                      ; preds = %entry
   br i1 %cmp18, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry.split
-  %2 = zext i32 %1 to i64
-  %3 = load ptr, ptr %0, align 8
-  %m_info.i.i.i.i31 = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %m_info.i.i.i.i31, align 8
-  %cmp.i.i.i.i32 = icmp eq ptr %4, null
-  br i1 %cmp.i.i.i.i32, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
+  %wide.trip.count = zext i32 %1 to i64
+  br label %for.body
 
-for.body:                                         ; preds = %for.inc
-  %arrayidx.i6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
-  %5 = load ptr, ptr %arrayidx.i6, align 8
-  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load ptr, ptr %m_info.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, !llvm.loop !4
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx.i6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %2 = load ptr, ptr %arrayidx.i6, align 8
+  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = load ptr, ptr %m_info.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, null
+  br i1 %cmp.i.i.i.i, label %return, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %for.body.preheader, %for.body
-  %7 = phi ptr [ %6, %for.body ], [ %4, %for.body.preheader ]
-  %cmp2034 = phi i1 [ %cmp, %for.body ], [ false, %for.body.preheader ]
-  %indvars.iv33 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %8 = load i32, ptr %7, align 8
-  %cmp6.i.i.i = icmp eq i32 %8, 5
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %for.body
+  %4 = load i32, ptr %3, align 8
+  %cmp6.i.i.i = icmp eq i32 %4, 5
   br i1 %cmp6.i.i.i, label %_ZNK17arith_recognizers6is_intEPK4sort.exit, label %return
 
 _ZNK17arith_recognizers6is_intEPK4sort.exit:      ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
-  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %switch = icmp ult i32 %9, 2
+  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = load i32, ptr %m_kind.i.i.i.i.i, align 4
+  %switch = icmp ult i32 %5, 2
   br i1 %switch, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv33, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %2
-  %exitcond = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %for.inc, %for.body, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK17arith_recognizers6is_intEPK4sort.exit, %for.body.preheader, %entry.split, %entry
-  %.us-phi = phi i1 [ true, %entry ], [ true, %entry.split ], [ false, %for.body.preheader ], [ %cmp2034, %_ZNK17arith_recognizers6is_intEPK4sort.exit ], [ %cmp2034, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %cmp, %for.body ], [ %cmp, %for.inc ]
+return:                                           ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %for.body, %for.inc, %entry.split, %entry
+  %.us-phi = phi i1 [ true, %entry ], [ true, %entry.split ], [ true, %for.inc ], [ false, %for.body ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ false, %_ZNK17arith_recognizers6is_intEPK4sort.exit ]
   ret i1 %.us-phi
 }
 
@@ -5113,8 +5106,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i.i = zext i32 %i.0 to i64
@@ -5224,7 +5217,7 @@ for.inc:                                          ; preds = %_ZN8rationalD2Ev.ex
   br label %for.cond, !llvm.loop !14
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN8rationalD2Ev.exit, %_ZNK7datalog15vector_relationI12old_intervalNS_22vector_relation_helperIS1_EEE4findEj.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZNK12old_interval8containsERK8rational(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

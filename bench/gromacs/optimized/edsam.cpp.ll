@@ -4876,7 +4876,7 @@ _ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i:        ; preds = %523
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %234), !noalias !61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %235), !noalias !61
   %.not.i.i.i = icmp eq i32 %482, %507
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZL13check_if_same7gmx_edxS_.exit.i.i
+  br i1 %.not.i.i.i, label %.lr.ph.preheader.i.i.i, label %_ZL13check_if_same7gmx_edxS_.exit.i.i
 
 _ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i.thread: ; preds = %.noexc37.i
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %234), !noalias !61
@@ -4884,7 +4884,7 @@ _ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i.thread: ; preds = %.noexc37.i
   %.not.i.i.i759 = icmp eq i32 %482, %507
   br i1 %.not.i.i.i759, label %._crit_edge.i.i.i, label %_ZL13check_if_same7gmx_edxS_.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %_ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %_ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i
   %wide.trip.count.i55.i.i = zext nneg i32 %482 to i64
   br label %.lr.ph.i56.i.i
 
@@ -4893,8 +4893,8 @@ _ZL8read_edxP8_IO_FILEiPiPA3_f.exit54.i.i.thread: ; preds = %.noexc37.i
   %exitcond.not.i59.i.i = icmp eq i64 %indvars.iv.next.i58.i.i, %wide.trip.count.i55.i.i
   br i1 %exitcond.not.i59.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i56.i.i, !llvm.loop !64
 
-.lr.ph.i56.i.i:                                   ; preds = %524, %.preheader.i.i.i
-  %indvars.iv.i57.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i58.i.i, %524 ]
+.lr.ph.i56.i.i:                                   ; preds = %524, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i57.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i58.i.i, %524 ]
   %525 = getelementptr inbounds i32, ptr %484, i64 %indvars.iv.i57.i.i
   %526 = load i32, ptr %525, align 4, !noalias !55
   %527 = getelementptr inbounds i32, ptr %509, i64 %indvars.iv.i57.i.i

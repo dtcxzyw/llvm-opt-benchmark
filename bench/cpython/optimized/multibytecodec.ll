@@ -659,8 +659,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add25 = phi i64 [ %add21, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -671,80 +671,80 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2630 = phi i64 [ %add25, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1031, align 8
+  %3 = load ptr, ptr %cond1031, align 8
   %tobool12.not = icmp eq i64 %add2630, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1031, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
-  %cmp16 = icmp eq ptr %5, @_Py_NoneStruct
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %cmp16 = icmp eq ptr %4, @_Py_NoneStruct
   br i1 %cmp16, label %skip_optional_pos, label %if.else
 
 if.else:                                          ; preds = %if.end14
-  %6 = getelementptr i8, ptr %5, i64 8
-  %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr i8, ptr %.val, i64 168
-  %call19.val = load i64, ptr %7, align 8
-  %8 = and i64 %call19.val, 268435456
-  %tobool21.not = icmp eq i64 %8, 0
+  %5 = getelementptr i8, ptr %4, i64 8
+  %.val = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %.val, i64 168
+  %call19.val = load i64, ptr %6, align 8
+  %7 = and i64 %call19.val, 268435456
+  %tobool21.not = icmp eq i64 %7, 0
   br i1 %tobool21.not, label %if.else32, label %if.then22
 
 if.then22:                                        ; preds = %if.else
-  %call24 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %5, ptr noundef nonnull %errors_length) #7
+  %call24 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %4, ptr noundef nonnull %errors_length) #7
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %exit, label %if.end27
 
 if.end27:                                         ; preds = %if.then22
   %call28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call24) #8
-  %9 = load i64, ptr %errors_length, align 8
-  %cmp29.not = icmp eq i64 %call28, %9
+  %8 = load i64, ptr %errors_length, align 8
+  %cmp29.not = icmp eq i64 %call28, %8
   br i1 %cmp29.not, label %skip_optional_pos, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.10) #7
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.10) #7
   br label %exit
 
 if.else32:                                        ; preds = %if.else
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %5) #7
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %4) #7
   br label %exit
 
 skip_optional_pos:                                ; preds = %if.end14, %if.end27, %if.end
   %errors.0 = phi ptr [ %call24, %if.end27 ], [ null, %if.end ], [ null, %if.end14 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %state.i)
-  %11 = getelementptr i8, ptr %4, i64 8
-  %input.val.i = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %input.val.i, i64 168
-  %call.val.i = load i64, ptr %12, align 8
-  %13 = and i64 %call.val.i, 268435456
-  %tobool.not.i = icmp eq i64 %13, 0
+  %10 = getelementptr i8, ptr %3, i64 8
+  %input.val.i = load ptr, ptr %10, align 8
+  %11 = getelementptr i8, ptr %input.val.i, i64 168
+  %call.val.i = load i64, ptr %11, align 8
+  %12 = and i64 %call.val.i, 268435456
+  %tobool.not.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end10.i
 
 if.else.i:                                        ; preds = %skip_optional_pos
-  %call2.i = call ptr @PyObject_Str(ptr noundef nonnull %4) #7
+  %call2.i = call ptr @PyObject_Str(ptr noundef nonnull %3) #7
   %cmp.i19 = icmp eq ptr %call2.i, null
   br i1 %cmp.i19, label %_multibytecodec_MultibyteCodec_encode_impl.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %14 = getelementptr i8, ptr %call2.i, i64 8
-  %call2.val.i = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %call2.val.i, i64 168
-  %call5.val.i = load i64, ptr %15, align 8
-  %16 = and i64 %call5.val.i, 268435456
-  %tobool7.not.i = icmp eq i64 %16, 0
+  %13 = getelementptr i8, ptr %call2.i, i64 8
+  %call2.val.i = load ptr, ptr %13, align 8
+  %14 = getelementptr i8, ptr %call2.val.i, i64 168
+  %call5.val.i = load i64, ptr %14, align 8
+  %15 = and i64 %call5.val.i, 268435456
+  %tobool7.not.i = icmp eq i64 %15, 0
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.else4.i
-  %17 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.13) #7
-  %18 = load i64, ptr %call2.i, align 8
-  %19 = and i64 %18, 2147483648
-  %cmp.i64.not.i = icmp eq i64 %19, 0
+  %16 = load ptr, ptr @PyExc_TypeError, align 8
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.13) #7
+  %17 = load i64, ptr %call2.i, align 8
+  %18 = and i64 %17, 2147483648
+  %cmp.i64.not.i = icmp eq i64 %18, 0
   br i1 %cmp.i64.not.i, label %if.end.i57.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end.i57.i:                                     ; preds = %if.then8.i
-  %dec.i58.i = add i64 %18, -1
+  %dec.i58.i = add i64 %17, -1
   store i64 %dec.i58.i, ptr %call2.i, align 8
   %cmp.i59.i = icmp eq i64 %dec.i58.i, 0
   br i1 %cmp.i59.i, label %if.then1.i60.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
@@ -754,10 +754,10 @@ if.then1.i60.i:                                   ; preds = %if.end.i57.i
   br label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end10.i:                                       ; preds = %if.else4.i, %skip_optional_pos
-  %input.addr.0.i = phi ptr [ %call2.i, %if.else4.i ], [ %4, %skip_optional_pos ]
+  %input.addr.0.i = phi ptr [ %call2.i, %if.else4.i ], [ %3, %skip_optional_pos ]
   %ucvt.0.i = phi ptr [ %call2.i, %if.else4.i ], [ null, %skip_optional_pos ]
-  %20 = getelementptr i8, ptr %input.addr.0.i, i64 16
-  %input.addr.0.val.i = load i64, ptr %20, align 8
+  %19 = getelementptr i8, ptr %input.addr.0.i, i64 16
+  %input.addr.0.val.i = load i64, ptr %19, align 8
   %cmp.i35.i = icmp eq ptr %errors.0, null
   br i1 %cmp.i35.i, label %if.end15.i, label %lor.lhs.false.i.i
 
@@ -786,13 +786,13 @@ if.then14.i:                                      ; preds = %internal_error_call
   br i1 %cmp.not.i.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then14.i
-  %21 = load i64, ptr %ucvt.0.i, align 8
-  %22 = and i64 %21, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %22, 0
+  %20 = load i64, ptr %ucvt.0.i, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %21, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %21, -1
+  %dec.i.i.i = add i64 %20, -1
   store i64 %dec.i.i.i, ptr %ucvt.0.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
@@ -804,14 +804,14 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 if.end15.i:                                       ; preds = %internal_error_callback.exit.i, %if.else5.i.i, %if.else.i.i, %lor.lhs.false.i.i, %if.end10.i
   %retval.0.i66.i = phi ptr [ %call10.i.i, %internal_error_callback.exit.i ], [ inttoptr (i64 3 to ptr), %if.else5.i.i ], [ inttoptr (i64 2 to ptr), %if.else.i.i ], [ inttoptr (i64 1 to ptr), %if.end10.i ], [ inttoptr (i64 1 to ptr), %lor.lhs.false.i.i ]
   %codec.i = getelementptr inbounds i8, ptr %self, i64 16
-  %23 = load ptr, ptr %codec.i, align 8
-  %encinit.i = getelementptr inbounds i8, ptr %23, i64 32
-  %24 = load ptr, ptr %encinit.i, align 8
-  %cmp16.not.i = icmp eq ptr %24, null
+  %22 = load ptr, ptr %codec.i, align 8
+  %encinit.i = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = load ptr, ptr %encinit.i, align 8
+  %cmp16.not.i = icmp eq ptr %23, null
   br i1 %cmp16.not.i, label %if.end23.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end15.i
-  %call20.i = call i32 %24(ptr noundef nonnull %state.i, ptr noundef nonnull %23) #7
+  %call20.i = call i32 %23(ptr noundef nonnull %state.i, ptr noundef nonnull %22) #7
   %cmp21.not.i = icmp eq i32 %call20.i, 0
   br i1 %cmp21.not.i, label %land.lhs.true.if.end23_crit_edge.i, label %land.lhs.true38.i
 
@@ -820,8 +820,8 @@ land.lhs.true.if.end23_crit_edge.i:               ; preds = %land.lhs.true.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.lhs.true.if.end23_crit_edge.i, %if.end15.i
-  %25 = phi ptr [ %.pre.i, %land.lhs.true.if.end23_crit_edge.i ], [ %23, %if.end15.i ]
-  %call25.i = call fastcc ptr @multibytecodec_encode(ptr noundef %25, ptr noundef nonnull %state.i, ptr noundef nonnull %input.addr.0.i, ptr noundef null, ptr noundef nonnull %retval.0.i66.i, i32 noundef 3)
+  %24 = phi ptr [ %.pre.i, %land.lhs.true.if.end23_crit_edge.i ], [ %22, %if.end15.i ]
+  %call25.i = call fastcc ptr @multibytecodec_encode(ptr noundef %24, ptr noundef nonnull %state.i, ptr noundef nonnull %input.addr.0.i, ptr noundef null, ptr noundef nonnull %retval.0.i66.i, i32 noundef 3)
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %land.lhs.true38.i, label %land.lhs.true30.i
 
@@ -832,13 +832,13 @@ land.lhs.true30.i:                                ; preds = %if.end23.i
   br i1 %or.cond.i, label %if.then33.i, label %do.end.i
 
 if.then33.i:                                      ; preds = %land.lhs.true30.i
-  %26 = load i64, ptr %retval.0.i66.i, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i67.not.i = icmp eq i64 %27, 0
+  %25 = load i64, ptr %retval.0.i66.i, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i67.not.i = icmp eq i64 %26, 0
   br i1 %cmp.i67.not.i, label %if.end.i48.i, label %do.end.i
 
 if.end.i48.i:                                     ; preds = %if.then33.i
-  %dec.i49.i = add i64 %26, -1
+  %dec.i49.i = add i64 %25, -1
   store i64 %dec.i49.i, ptr %retval.0.i66.i, align 8
   %cmp.i50.i = icmp eq i64 %dec.i49.i, 0
   br i1 %cmp.i50.i, label %if.then1.i51.i, label %do.end.i
@@ -852,13 +852,13 @@ do.end.i:                                         ; preds = %if.then1.i51.i, %if
   br i1 %cmp.not.i37.i, label %if.end.i47.i, label %if.then.i38.i
 
 if.then.i38.i:                                    ; preds = %do.end.i
-  %28 = load i64, ptr %ucvt.0.i, align 8
-  %29 = and i64 %28, 2147483648
-  %cmp.i2.not.i39.i = icmp eq i64 %29, 0
+  %27 = load i64, ptr %ucvt.0.i, align 8
+  %28 = and i64 %27, 2147483648
+  %cmp.i2.not.i39.i = icmp eq i64 %28, 0
   br i1 %cmp.i2.not.i39.i, label %if.end.i.i41.i, label %if.end.i47.i
 
 if.end.i.i41.i:                                   ; preds = %if.then.i38.i
-  %dec.i.i42.i = add i64 %28, -1
+  %dec.i.i42.i = add i64 %27, -1
   store i64 %dec.i.i42.i, ptr %ucvt.0.i, align 8
   %cmp.i.i43.i = icmp eq i64 %dec.i.i42.i, 0
   br i1 %cmp.i.i43.i, label %if.then1.i.i44.i, label %if.end.i47.i
@@ -873,13 +873,13 @@ if.end.i47.i:                                     ; preds = %if.then1.i.i44.i, %
   br i1 %cmp1.i49.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i47.i
-  %30 = load i64, ptr %call25.i, align 8
-  %31 = and i64 %30, 2147483648
-  %cmp.i18.not.i.i = icmp eq i64 %31, 0
+  %29 = load i64, ptr %call25.i, align 8
+  %30 = and i64 %29, 2147483648
+  %cmp.i18.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp.i18.not.i.i, label %if.end.i11.i.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end.i11.i.i:                                   ; preds = %if.then2.i.i
-  %dec.i12.i.i = add i64 %30, -1
+  %dec.i12.i.i = add i64 %29, -1
   store i64 %dec.i12.i.i, ptr %call25.i, align 8
   %cmp.i13.i.i = icmp eq i64 %dec.i12.i.i, 0
   br i1 %cmp.i13.i.i, label %if.then1.i14.i.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
@@ -896,13 +896,13 @@ if.end3.i.i:                                      ; preds = %if.end.i47.i
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end7.i.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  %32 = load i64, ptr %call.i48.i, align 8
-  %33 = and i64 %32, 2147483648
-  %cmp.i21.not.i.i = icmp eq i64 %33, 0
+  %31 = load i64, ptr %call.i48.i, align 8
+  %32 = and i64 %31, 2147483648
+  %cmp.i21.not.i.i = icmp eq i64 %32, 0
   br i1 %cmp.i21.not.i.i, label %if.end.i.i51.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end.i.i51.i:                                   ; preds = %if.then6.i.i
-  %dec.i.i52.i = add i64 %32, -1
+  %dec.i.i52.i = add i64 %31, -1
   store i64 %dec.i.i52.i, ptr %call.i48.i, align 8
   %cmp.i.i53.i = icmp eq i64 %dec.i.i52.i, 0
   br i1 %cmp.i.i53.i, label %if.then1.i.i54.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
@@ -923,13 +923,13 @@ land.lhs.true38.i:                                ; preds = %if.end23.i, %land.l
   br i1 %or.cond3.i, label %if.then42.i, label %do.end44.i
 
 if.then42.i:                                      ; preds = %land.lhs.true38.i
-  %34 = load i64, ptr %retval.0.i66.i, align 8
-  %35 = and i64 %34, 2147483648
-  %cmp.i71.not.i = icmp eq i64 %35, 0
+  %33 = load i64, ptr %retval.0.i66.i, align 8
+  %34 = and i64 %33, 2147483648
+  %cmp.i71.not.i = icmp eq i64 %34, 0
   br i1 %cmp.i71.not.i, label %if.end.i.i, label %do.end44.i
 
 if.end.i.i:                                       ; preds = %if.then42.i
-  %dec.i.i = add i64 %34, -1
+  %dec.i.i = add i64 %33, -1
   store i64 %dec.i.i, ptr %retval.0.i66.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %do.end44.i
@@ -943,13 +943,13 @@ do.end44.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %cmp.not.i55.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit, label %if.then.i56.i
 
 if.then.i56.i:                                    ; preds = %do.end44.i
-  %36 = load i64, ptr %ucvt.0.i, align 8
-  %37 = and i64 %36, 2147483648
-  %cmp.i2.not.i57.i = icmp eq i64 %37, 0
+  %35 = load i64, ptr %ucvt.0.i, align 8
+  %36 = and i64 %35, 2147483648
+  %cmp.i2.not.i57.i = icmp eq i64 %36, 0
   br i1 %cmp.i2.not.i57.i, label %if.end.i.i59.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 if.end.i.i59.i:                                   ; preds = %if.then.i56.i
-  %dec.i.i60.i = add i64 %36, -1
+  %dec.i.i60.i = add i64 %35, -1
   store i64 %dec.i.i60.i, ptr %ucvt.0.i, align 8
   %cmp.i.i61.i = icmp eq i64 %dec.i.i60.i, 0
   br i1 %cmp.i.i61.i, label %if.then1.i.i62.i, label %_multibytecodec_MultibyteCodec_encode_impl.exit
@@ -2829,8 +2829,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add20 = phi i64 [ %add16, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2841,20 +2841,20 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1026 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2125 = phi i64 [ %add20, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1026, align 8
+  %3 = load ptr, ptr %cond1026, align 8
   %tobool12.not = icmp eq i64 %add2125, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1026, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
-  %call16 = call i32 @PyObject_IsTrue(ptr noundef %5) #7
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %call16 = call i32 @PyObject_IsTrue(ptr noundef %4) #7
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end14, %if.end
   %final.0 = phi i32 [ %call16, %if.end14 ], [ 0, %if.end ]
-  %call.i = call fastcc ptr @encoder_encode_stateful(ptr noundef %self, ptr noundef %4, i32 noundef %final.0)
+  %call.i = call fastcc ptr @encoder_encode_stateful(ptr noundef %self, ptr noundef %3, i32 noundef %final.0)
   br label %exit
 
 exit:                                             ; preds = %if.end14, %cond.end9, %skip_optional_pos

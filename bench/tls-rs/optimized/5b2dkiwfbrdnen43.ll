@@ -23602,8 +23602,8 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 
 68:                                               ; preds = %69, %64
   %.sroa.0.0.i = phi ptr [ %66, %64 ], [ %70, %69 ]
-  %.not.i.not = icmp eq ptr %.sroa.0.0.i, %67
-  br i1 %.not.i.not, label %_ZN6rustls4msgs9handshake23CertificatePayloadTls1323any_entry_has_extension17h80a18655e905d5c5E.exit, label %69
+  %.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i, %67
+  br i1 %.not.not.not.i.not, label %_ZN6rustls4msgs9handshake23CertificatePayloadTls1323any_entry_has_extension17h80a18655e905d5c5E.exit, label %69
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 48

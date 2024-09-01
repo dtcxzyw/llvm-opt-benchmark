@@ -19726,8 +19726,8 @@ land.rhs:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %invoke.cont9 ]
   %5 = load i32, ptr %m_num_args.i, align 8
   %6 = zext i32 %5 to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %6
-  br i1 %cmp.not, label %cleanup, label %for.body
+  %cmp.not.not = icmp uge i64 %indvars.iv, %6
+  br i1 %cmp.not.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
@@ -20075,7 +20075,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont102, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont9, %land.rhs, %cleanup.sink.split, %invoke.cont90, %invoke.cont98, %.noexc.i, %.noexc.i99, %invoke.cont15, %if.then71, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ %and65, %invoke.cont90 ], [ false, %invoke.cont98 ], [ %call23, %.noexc.i ], [ %call38, %.noexc.i99 ], [ false, %invoke.cont15 ], [ %call73, %if.then71 ], [ %retval.0.ph, %cleanup.sink.split ], [ %cmp.not, %land.rhs ], [ %cmp.not, %invoke.cont9 ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ %and65, %invoke.cont90 ], [ false, %invoke.cont98 ], [ %call23, %.noexc.i ], [ %call38, %.noexc.i99 ], [ false, %invoke.cont15 ], [ %call73, %if.then71 ], [ %retval.0.ph, %cleanup.sink.split ], [ %cmp.not.not, %land.rhs ], [ %cmp.not.not, %invoke.cont9 ]
   %60 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %.noexc.i173 unwind label %terminate.lpad.i172

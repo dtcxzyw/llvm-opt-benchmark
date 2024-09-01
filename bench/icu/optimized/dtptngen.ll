@@ -6985,7 +6985,7 @@ lor.lhs.false21.i:                                ; preds = %for.body.i
   %24 = load i32, ptr %fLength.i.i.i20.i, align 4
   %cond.i.i.i21.i = select i1 %cmp.i.i.i.i18.i, i32 %24, i32 %shr.i.i.i.i19.i
   %cmp.i.i22.not.i = icmp eq i32 %cond.i.i.i21.i, 0
-  br i1 %cmp.i.i22.not.i, label %if.end, label %_ZNK6icu_7513UnicodeString6charAtEi.exit30.i
+  br i1 %cmp.i.i22.not.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit30.i
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit30.i:     ; preds = %lor.lhs.false21.i
   %25 = and i16 %22, 2
@@ -6996,18 +6996,18 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit30.i:     ; preds = %lor.lhs.false21.i
   %cond.i2.i.i28.i = select i1 %tobool.not.i.i.i25.i, ptr %26, ptr %fBuffer.i.i.i26.i
   %27 = load i16, ptr %cond.i2.i.i28.i, align 2
   %cmp24.i = icmp eq i16 %27, 46
-  br i1 %cmp24.i, label %for.inc.i, label %if.end
+  br i1 %cmp24.i, label %for.inc.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
 
 for.inc.i:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit30.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end191.invoke, label %for.body.i, !llvm.loop !28
 
-if.end:                                           ; preds = %lor.lhs.false21.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit30.i
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i:     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit30.i, %lor.lhs.false21.i
   %cmp235.i.i.not = icmp eq i32 %cond.i.i.i.i, 1
   br i1 %cmp235.i.i.not, label %while.body.preheader.i.i.preheader, label %for.body.i.i
 
-while.body.preheader.i.i.preheader:               ; preds = %for.cond.i.i, %if.end
+while.body.preheader.i.i.preheader:               ; preds = %for.cond.i.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
   br label %while.body.preheader.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -7015,8 +7015,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %while.body.preheader.i.i.preheader, label %for.body.i.i, !llvm.loop !23
 
-for.body.i.i:                                     ; preds = %if.end, %for.cond.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 1, %if.end ]
+for.body.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, %for.cond.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %indvars.iv.i.i
   %28 = load i16, ptr %arrayidx.i.i.i.i, align 2
   %cmp5.not.i.i = icmp eq i16 %14, %28
@@ -10222,9 +10222,9 @@ delete.notnull.i:                                 ; preds = %delete.notnull.i.si
 ehcleanup93:                                      ; preds = %lpad15, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad15 ]
   call void @_ZN6icu_7518PatternMapIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %it) #34
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i85
+  br label %delete.notnull.i85
 
-delete.notnull.i85:                               ; preds = %ehcleanup93.thread, %ehcleanup93
+delete.notnull.i85:                               ; preds = %ehcleanup93, %ehcleanup93.thread
   %.pn.pn.pn147 = phi { ptr, i32 } [ %4, %ehcleanup93.thread ], [ %.pn.pn, %ehcleanup93 ]
   %vtable.i86 = load ptr, ptr %call7, align 8
   %vfn.i87 = getelementptr inbounds i8, ptr %vtable.i86, i64 8
@@ -10236,8 +10236,8 @@ return:                                           ; preds = %new.cont, %if.then.
   %retval.0 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %delete.notnull.i ], [ %call7, %cleanup92.thread138 ], [ null, %if.then.i ], [ null, %new.cont ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %delete.notnull.i85, %ehcleanup93, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %ehcleanup93 ], [ %.pn.pn.pn147, %delete.notnull.i85 ]
+eh.resume:                                        ; preds = %delete.notnull.i85, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn.pn147, %delete.notnull.i85 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

@@ -1340,7 +1340,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit, %_ZN16JfrThreadSampler18get_enqueue_bufferEv.exit
-  %.0.ph68 = phi ptr [ %67, %_ZN16JfrThreadSampler18get_enqueue_bufferEv.exit ], [ %122, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
+  %.0.ph68 = phi ptr [ %67, %_ZN16JfrThreadSampler18get_enqueue_bufferEv.exit ], [ %124, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
   %.020.ph67 = phi ptr [ null, %_ZN16JfrThreadSampler18get_enqueue_bufferEv.exit ], [ %spec.select.us, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
   %.022.ph66 = phi i32 [ 0, %_ZN16JfrThreadSampler18get_enqueue_bufferEv.exit ], [ %spec.select28, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
   %71 = load ptr, ptr %44, align 8
@@ -1392,128 +1392,128 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   br i1 %103, label %84, label %.split51.us, !llvm.loop !20
 
 .split51.us:                                      ; preds = %.lr.ph61
-  %.pre78 = load i32, ptr %69, align 4
-  %.pre77 = load ptr, ptr %68, align 8
-  %104 = call noundef zeroext i1 @_ZN22JfrThreadSampleClosure16do_sample_threadEP10JavaThreadP13JfrStackFramej13JfrSampleType(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %98, ptr noundef %.pre77, i32 noundef %.pre78, i32 noundef %1)
-  %105 = zext i1 %104 to i32
-  %spec.select28 = add nuw nsw i32 %.022.ph66, %105
-  %106 = getelementptr inbounds i8, ptr %.0.ph68, i64 40
-  %107 = load i16, ptr %106, align 8
-  %108 = zext i16 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %.0.ph68, i64 %108
-  %110 = getelementptr inbounds i8, ptr %.0.ph68, i64 32
-  %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 %111
-  %113 = getelementptr inbounds i8, ptr %.0.ph68, i64 16
-  %114 = load volatile ptr, ptr %113, align 8
+  %104 = load ptr, ptr %68, align 8
+  %105 = load i32, ptr %69, align 4
+  %106 = call noundef zeroext i1 @_ZN22JfrThreadSampleClosure16do_sample_threadEP10JavaThreadP13JfrStackFramej13JfrSampleType(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %98, ptr noundef %104, i32 noundef %105, i32 noundef %1)
+  %107 = zext i1 %106 to i32
+  %spec.select28 = add nuw nsw i32 %.022.ph66, %107
+  %108 = getelementptr inbounds i8, ptr %.0.ph68, i64 40
+  %109 = load i16, ptr %108, align 8
+  %110 = zext i16 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %.0.ph68, i64 %110
+  %112 = getelementptr inbounds i8, ptr %.0.ph68, i64 32
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  %115 = getelementptr inbounds i8, ptr %.0.ph68, i64 16
+  %116 = load volatile ptr, ptr %115, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
-  %115 = ptrtoint ptr %112 to i64
-  %116 = ptrtoint ptr %114 to i64
-  %117 = sub i64 %115, %116
-  %118 = load i64, ptr %70, align 8
-  %119 = icmp ult i64 %117, %118
-  br i1 %119, label %120, label %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit
+  %117 = ptrtoint ptr %114 to i64
+  %118 = ptrtoint ptr %116 to i64
+  %119 = sub i64 %117, %118
+  %120 = load i64, ptr %70, align 8
+  %121 = icmp ult i64 %119, %120
+  br i1 %121, label %122, label %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit
 
-120:                                              ; preds = %.split51.us
-  %121 = call noundef ptr @_ZN21JfrTraceIdLoadBarrier28renew_sampler_enqueue_bufferEP6Thread(ptr noundef nonnull %0) #18
+122:                                              ; preds = %.split51.us
+  %123 = call noundef ptr @_ZN21JfrTraceIdLoadBarrier28renew_sampler_enqueue_bufferEP6Thread(ptr noundef nonnull %0) #18
   br label %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit
 
-_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit: ; preds = %.split51.us, %120
-  %122 = phi ptr [ %121, %120 ], [ %.0.ph68, %.split51.us ]
-  %123 = icmp ult i32 %spec.select28, %39
-  br i1 %123, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !20
+_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit: ; preds = %.split51.us, %122
+  %124 = phi ptr [ %123, %122 ], [ %.0.ph68, %.split51.us ]
+  %125 = icmp ult i32 %spec.select28, %39
+  br i1 %125, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit, %84
   %.022.ph.lcssa = phi i32 [ %.022.ph66, %84 ], [ %.022.ph66, %.lr.ph.split.us ], [ %spec.select28, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
   %.1 = phi ptr [ null, %84 ], [ null, %.lr.ph.split.us ], [ %98, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
   store ptr %.1, ptr %2, align 8
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #18
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %124
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %126
 
-124:                                              ; preds = %.outer._crit_edge
+126:                                              ; preds = %.outer._crit_edge
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %41) #18
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, %124
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, %126
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #18
-  %125 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not37 = icmp eq ptr %125, null
-  br i1 %.not37, label %130, label %126
+  %127 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not37 = icmp eq ptr %127, null
+  br i1 %.not37, label %132, label %128
 
-126:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
-  %127 = call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #18
-  %128 = load i32, ptr %36, align 8
-  %129 = load i32, ptr %37, align 4
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, double noundef %127, i32 noundef %128, i32 noundef %129)
-  br label %130
+128:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+  %129 = call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #18
+  %130 = load i32, ptr %36, align 8
+  %131 = load i32, ptr %37, align 4
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, double noundef %129, i32 noundef %130, i32 noundef %131)
+  br label %132
 
-130:                                              ; preds = %_ZN11MutexLockerD2Ev.exit, %126
+132:                                              ; preds = %_ZN11MutexLockerD2Ev.exit, %128
   %.not27 = icmp eq i32 %.022.ph.lcssa, 0
-  br i1 %.not27, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, label %131
+  br i1 %.not27, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, label %133
 
-131:                                              ; preds = %130
-  br i1 %38, label %132, label %140
+133:                                              ; preds = %132
+  br i1 %38, label %134, label %142
 
-132:                                              ; preds = %131
-  %133 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2849), align 1
-  %.not8.i = icmp eq i8 %133, 0
-  %134 = load i32, ptr %36, align 8
-  %.not15.i = icmp eq i32 %134, 0
+134:                                              ; preds = %133
+  %135 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2849), align 1
+  %.not8.i = icmp eq i8 %135, 0
+  %136 = load i32, ptr %36, align 8
+  %.not15.i = icmp eq i32 %136, 0
   %or.cond = select i1 %.not8.i, i1 true, i1 %.not15.i
   br i1 %or.cond, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, label %.lr.ph13.i
 
-.lr.ph13.i:                                       ; preds = %132, %.lr.ph13.i
-  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %.lr.ph13.i ], [ 0, %132 ]
-  %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds %class.EventExecutionSample, ptr %135, i64 %indvars.iv18.i
-  call void @_ZN8JfrEventI20EventExecutionSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %136)
+.lr.ph13.i:                                       ; preds = %134, %.lr.ph13.i
+  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %.lr.ph13.i ], [ 0, %134 ]
+  %137 = load ptr, ptr %6, align 8
+  %138 = getelementptr inbounds %class.EventExecutionSample, ptr %137, i64 %indvars.iv18.i
+  call void @_ZN8JfrEventI20EventExecutionSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %138)
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %137 = load i32, ptr %36, align 8
-  %138 = zext i32 %137 to i64
-  %139 = icmp ult i64 %indvars.iv.next19.i, %138
-  br i1 %139, label %.lr.ph13.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !9
+  %139 = load i32, ptr %36, align 8
+  %140 = zext i32 %139 to i64
+  %141 = icmp ult i64 %indvars.iv.next19.i, %140
+  br i1 %141, label %.lr.ph13.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !9
 
-140:                                              ; preds = %131
-  %141 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2873), align 1
-  %.not.i31 = icmp eq i8 %141, 0
-  %142 = load i32, ptr %37, align 4
-  %.not14.i = icmp eq i32 %142, 0
+142:                                              ; preds = %133
+  %143 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2873), align 1
+  %.not.i31 = icmp eq i8 %143, 0
+  %144 = load i32, ptr %37, align 4
+  %.not14.i = icmp eq i32 %144, 0
   %or.cond36 = select i1 %.not.i31, i1 true, i1 %.not14.i
   br i1 %or.cond36, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %140, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %140 ]
-  %143 = load ptr, ptr %33, align 8
-  %144 = getelementptr inbounds %class.EventNativeMethodSample, ptr %143, i64 %indvars.iv.i
-  call void @_ZN8JfrEventI23EventNativeMethodSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %144)
+.lr.ph.i:                                         ; preds = %142, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %142 ]
+  %145 = load ptr, ptr %33, align 8
+  %146 = getelementptr inbounds %class.EventNativeMethodSample, ptr %145, i64 %indvars.iv.i
+  call void @_ZN8JfrEventI23EventNativeMethodSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %146)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %145 = load i32, ptr %37, align 4
-  %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %indvars.iv.next.i, %146
-  br i1 %147, label %.lr.ph.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !11
+  %147 = load i32, ptr %37, align 4
+  %148 = zext i32 %147 to i64
+  %149 = icmp ult i64 %indvars.iv.next.i, %148
+  br i1 %149, label %.lr.ph.i, label %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit, !llvm.loop !11
 
-_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit: ; preds = %.lr.ph.i, %.lr.ph13.i, %140, %132, %130
-  %148 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %148, null
-  br i1 %.not.i.i.i.i, label %150, label %149
+_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit: ; preds = %.lr.ph.i, %.lr.ph13.i, %142, %134, %132
+  %150 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i = icmp eq ptr %150, null
+  br i1 %.not.i.i.i.i, label %152, label %151
 
-149:                                              ; preds = %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit
+151:                                              ; preds = %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #18
-  br label %150
+  br label %152
 
-150:                                              ; preds = %149, %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit
-  %151 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i = icmp eq ptr %151, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %152
+152:                                              ; preds = %151, %_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType.exit
+  %153 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %153, %16
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %154
 
-152:                                              ; preds = %150
+154:                                              ; preds = %152
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
   store ptr %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %150, %152
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %152, %154
   ret void
 }
 

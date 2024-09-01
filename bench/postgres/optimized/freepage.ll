@@ -3559,15 +3559,15 @@ FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %.lr.ph.i56.preheader, label %54
 
+.lr.ph.i56.preheader:                             ; preds = %41, %54, %FreePageBtreeFindRightSibling.exit
+  br label %.lr.ph.i56
+
 54:                                               ; preds = %FreePageBtreeFindRightSibling.exit
   %55 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %7
   %58 = icmp ult i64 %57, 255
   br i1 %58, label %59, label %.lr.ph.i56.preheader
-
-.lr.ph.i56.preheader:                             ; preds = %41, %FreePageBtreeFindRightSibling.exit, %54
-  br label %.lr.ph.i56
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %1, align 8

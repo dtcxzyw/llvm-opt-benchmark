@@ -540,19 +540,19 @@ if.end:                                           ; preds = %bad_cache_params.ex
   %call1 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #14
   %1 = load i32, ptr @cores, align 4
   %cmp7 = icmp sgt i32 %1, 0
-  br i1 %cmp7, label %for.body.lr.ph.split, label %return
+  br i1 %cmp7, label %bad_cache_params.exit.i.lr.ph.split, label %return
 
-for.body.lr.ph.split:                             ; preds = %if.end
+bad_cache_params.exit.i.lr.ph.split:              ; preds = %if.end
   %num.addr.0.off4.i.i = add i32 %blksize, 1
   %tobool.not5.i.i = icmp ult i32 %num.addr.0.off4.i.i, 3
   %conv9.i = sext i32 %assoc to i64
   %sub.i = add nsw i32 %blksize, -1
   %2 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %blksize)
   %cmp.i.i = icmp ult i32 %2, 2
-  br i1 %cmp.i.i, label %for.body.us, label %for.body
+  br i1 %cmp.i.i, label %bad_cache_params.exit.i.us, label %bad_cache_params.exit.i
 
-for.body.us:                                      ; preds = %for.body.lr.ph.split, %cache_init.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %cache_init.exit.us ], [ 0, %for.body.lr.ph.split ]
+bad_cache_params.exit.i.us:                       ; preds = %bad_cache_params.exit.i.lr.ph.split, %cache_init.exit.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %cache_init.exit.us ], [ 0, %bad_cache_params.exit.i.lr.ph.split ]
   %call1.i.us = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #14
   %assoc2.i.us = getelementptr inbounds i8, ptr %call1.i.us, i64 16
   store i32 %assoc, ptr %assoc2.i.us, align 8
@@ -566,17 +566,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   store ptr %call5.i.us, ptr %call1.i.us, align 8
   br i1 %tobool.not5.i.i, label %pow_of_two.exit.i.us, label %while.body.i.i.us
 
-while.body.i.i.us:                                ; preds = %for.body.us, %while.body.i.i.us
-  %ret.07.i.i.us = phi i32 [ %inc.i.i.us, %while.body.i.i.us ], [ 0, %for.body.us ]
-  %num.addr.06.i.i.us = phi i32 [ %div.i.i.us, %while.body.i.i.us ], [ %blksize, %for.body.us ]
+while.body.i.i.us:                                ; preds = %bad_cache_params.exit.i.us, %while.body.i.i.us
+  %ret.07.i.i.us = phi i32 [ %inc.i.i.us, %while.body.i.i.us ], [ 0, %bad_cache_params.exit.i.us ]
+  %num.addr.06.i.i.us = phi i32 [ %div.i.i.us, %while.body.i.i.us ], [ %blksize, %bad_cache_params.exit.i.us ]
   %div.i.i.us = sdiv i32 %num.addr.06.i.i.us, 2
   %inc.i.i.us = add nuw nsw i32 %ret.07.i.i.us, 1
   %num.addr.0.off.i.i.us = add nsw i32 %div.i.i.us, 1
   %tobool.not.i.i.us = icmp ult i32 %num.addr.0.off.i.i.us, 3
   br i1 %tobool.not.i.i.us, label %pow_of_two.exit.i.us, label %while.body.i.i.us, !llvm.loop !6
 
-pow_of_two.exit.i.us:                             ; preds = %while.body.i.i.us, %for.body.us
-  %3 = phi i32 [ 0, %for.body.us ], [ %inc.i.i.us, %while.body.i.i.us ]
+pow_of_two.exit.i.us:                             ; preds = %while.body.i.i.us, %bad_cache_params.exit.i.us
+  %3 = phi i32 [ 0, %bad_cache_params.exit.i.us ], [ %inc.i.i.us, %while.body.i.i.us ]
   %blksize_shift.i.us = getelementptr inbounds i8, ptr %call1.i.us, i64 20
   store i32 %3, ptr %blksize_shift.i.us, align 4
   %accesses.i.us = getelementptr inbounds i8, ptr %call1.i.us, i64 40
@@ -619,9 +619,9 @@ cache_init.exit.us:                               ; preds = %if.then18.i.us, %fo
   %6 = load i32, ptr @cores, align 4
   %7 = sext i32 %6 to i64
   %cmp.us = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !8
+  br i1 %cmp.us, label %bad_cache_params.exit.i.us, label %return, !llvm.loop !8
 
-for.body:                                         ; preds = %for.body.lr.ph.split
+bad_cache_params.exit.i:                          ; preds = %bad_cache_params.exit.i.lr.ph.split
   %call1.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #14
   %conv.i = sext i32 %div.i to i64
   %call5.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv.i, i64 noundef 32) #14

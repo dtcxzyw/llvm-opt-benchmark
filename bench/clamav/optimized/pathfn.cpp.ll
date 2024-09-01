@@ -1196,15 +1196,12 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %11
-  br i1 %.not1315, label %.loopexit, label %14
-
-14:                                               ; preds = %._crit_edge
-  %15 = tail call ptr @wcspbrk(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #18
-  %16 = icmp eq ptr %15, null
+  %14 = tail call ptr @wcspbrk(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #18
+  %15 = icmp eq ptr %14, null
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %.lr.ph, %.preheader, %._crit_edge, %14, %1
-  %.011 = phi i1 [ false, %1 ], [ false, %._crit_edge ], [ %16, %14 ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
+.loopexit:                                        ; preds = %7, %.lr.ph, %.preheader, %._crit_edge, %1
+  %.011 = phi i1 [ false, %1 ], [ %15, %._crit_edge ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
   ret i1 %.011
 }
 

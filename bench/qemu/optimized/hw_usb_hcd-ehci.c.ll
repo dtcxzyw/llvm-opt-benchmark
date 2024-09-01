@@ -3222,12 +3222,9 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.body10.lr.ph, label %for.body, !llvm.loop !18
 
-for.cond8.preheader:                              ; preds = %for.cond
-  br i1 %cmp130.not, label %for.end26, label %for.body10.lr.ph
-
-for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
+for.body10.lr.ph:                                 ; preds = %for.cond
   %companion_ports13 = getelementptr inbounds i8, ptr %bus, i64 1904
   %ports17 = getelementptr inbounds i8, ptr %bus, i64 1472
   %portsc = getelementptr inbounds i8, ptr %bus, i64 1416
@@ -3268,7 +3265,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %for.end26, label %for.body10, !llvm.loop !19
 
-for.end26:                                        ; preds = %for.body10, %for.cond.preheader, %for.cond8.preheader
+for.end26:                                        ; preds = %for.body10, %for.cond.preheader
   %companion_count = getelementptr inbounds i8, ptr %bus, i64 1312
   %5 = load i32, ptr %companion_count, align 16
   %inc27 = add i32 %5, 1

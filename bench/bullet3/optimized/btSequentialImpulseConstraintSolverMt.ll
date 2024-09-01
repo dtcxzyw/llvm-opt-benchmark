@@ -3168,17 +3168,14 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsE
   store ptr %call.i.i.i.i64, ptr %m_data.i.i, align 8
   store i32 %numConstraints, ptr %m_capacity.i.i, align 8
   store i32 %numConstraints, ptr %m_size.i.i33, align 4
-  br i1 %cmp.i35, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit
   %m_data.i66 = getelementptr inbounds i8, ptr %this, i64 280
   %m_timeStep = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %wide.trip.count = zext nneg i32 %numConstraints to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end29
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end29 ]
-  %totalNumRows.0112 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end29 ]
+for.body:                                         ; preds = %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit, %if.end29
+  %indvars.iv = phi i64 [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit ], [ %indvars.iv.next, %if.end29 ]
+  %totalNumRows.0112 = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit ], [ %add, %if.end29 ]
   %arrayidx = getelementptr inbounds ptr, ptr %constraints, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx, align 8
   %14 = load ptr, ptr %m_data.i.i, align 8
@@ -3232,8 +3229,8 @@ if.end29:                                         ; preds = %if.else27, %invoke.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
-for.end:                                          ; preds = %if.end29, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit.thread, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit
-  %totalNumRows.0.lcssa = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit ], [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit.thread ], [ %add, %if.end29 ]
+for.end:                                          ; preds = %if.end29, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit.thread
+  %totalNumRows.0.lcssa = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit.thread ], [ %add, %if.end29 ]
   %m_size.i.i69 = getelementptr inbounds i8, ptr %this, i64 76
   %22 = load i32, ptr %m_size.i.i69, align 4
   %cmp.i70 = icmp sgt i32 %totalNumRows.0.lcssa, %22

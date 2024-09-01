@@ -562,12 +562,9 @@ for.end86:                                        ; preds = %for.body75
   %sub90 = add nuw nsw i32 %spec.store.select, 1
   %add91 = sub i32 %sub90, %sub88
   %cmp9285 = icmp ult i32 %sub88, %add91
-  br i1 %cmp9285, label %for.body94.lr.ph, label %for.end114
+  br i1 %cmp9285, label %for.body94.us.preheader, label %for.end114
 
-for.body94.lr.ph:                                 ; preds = %for.end86
-  br i1 %cmp3374, label %for.body94.us.preheader, label %HUF_fillDTableX2.exit
-
-for.body94.us.preheader:                          ; preds = %for.body94.lr.ph
+for.body94.us.preheader:                          ; preds = %for.end86
   %10 = zext i32 %indvars.iv126 to i64
   %11 = add i32 %spec.store.select, %indvars.iv131
   %wide.trip.count124 = zext i32 %indvars.iv107 to i64
@@ -1089,7 +1086,7 @@ for.inc33.i:                                      ; preds = %HUF_fillDTableX2Lev
   %exitcond.not.i = icmp eq i64 %indvars.iv.next66.i, %idxprom46
   br i1 %exitcond.not.i, label %HUF_fillDTableX2.exit, label %for.body.i, !llvm.loop !33
 
-HUF_fillDTableX2.exit:                            ; preds = %for.inc33.i, %for.end65, %for.body94.lr.ph, %for.end114
+HUF_fillDTableX2.exit:                            ; preds = %for.inc33.i, %for.end65, %for.end114
   %conv122 = trunc nuw nsw i32 %spec.store.select to i8
   store i8 %dtd.sroa.0.0.extract.trunc, ptr %DTable, align 4
   %dtd.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %DTable, i64 1

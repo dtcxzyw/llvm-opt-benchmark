@@ -603,20 +603,20 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %ai_family.i.i = getelementptr inbounds i8, ptr %addr.addr.05.i.i, i64 4
   %19 = load i32, ptr %ai_family.i.i, align 4
   %cmp.i48.i = icmp eq i32 %19, %ai_family0.0.ph131.i
-  br i1 %cmp.i48.i, label %while.body.i50.preheader.i, label %if.end.i.i
+  br i1 %cmp.i48.i, label %addr_first_match.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %ai_next.i.i = getelementptr inbounds i8, ptr %addr.addr.05.i.i, i64 40
   %20 = load ptr, ptr %ai_next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i, label %while.body.i50.preheader.i, label %while.body.i.i, !llvm.loop !6
+  br i1 %tobool.not.i.i, label %addr_first_match.exit.i, label %while.body.i.i, !llvm.loop !6
 
-while.body.i50.preheader.i:                       ; preds = %if.end.i.i, %while.body.i.i
+addr_first_match.exit.i:                          ; preds = %if.end.i.i, %while.body.i.i
   %addr.addr.0.lcssa.i.i = phi ptr [ null, %if.end.i.i ], [ %addr.addr.05.i.i, %while.body.i.i ]
   br label %while.body.i50.i
 
-while.body.i50.i:                                 ; preds = %if.end.i54.i, %while.body.i50.preheader.i
-  %addr.addr.05.i51.i = phi ptr [ %22, %if.end.i54.i ], [ %.pr129.i, %while.body.i50.preheader.i ]
+while.body.i50.i:                                 ; preds = %if.end.i54.i, %addr_first_match.exit.i
+  %addr.addr.05.i51.i = phi ptr [ %22, %if.end.i54.i ], [ %.pr129.i, %addr_first_match.exit.i ]
   %ai_family.i52.i = getelementptr inbounds i8, ptr %addr.addr.05.i51.i, i64 4
   %21 = load i32, ptr %ai_family.i52.i, align 4
   %cmp.i53.i = icmp eq i32 %21, %ai_family1.0.ph130.i
@@ -676,8 +676,8 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %addr.addr.0.i.i.i = phi ptr [ %addr0.0.i, %if.end.i61.i ], [ %26, %while.body.i.i.i ]
   %ai_next.i.i.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i.i, i64 40
   %26 = load ptr, ptr %ai_next.i.i.i, align 8
-  %tobool1.not.i.i.not.i.not = icmp ne ptr %26, null
-  br i1 %tobool1.not.i.i.not.i.not, label %while.body.i.i.i, label %do.body.i
+  %tobool1.not.i.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %26, null
+  br i1 %tobool1.not.i.i.not.not.not.i.not.not.not.not.not, label %while.body.i.i.i, label %do.body.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %ai_family.i.i.i = getelementptr inbounds i8, ptr %26, i64 4
@@ -687,7 +687,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
 
 do.body.i:                                        ; preds = %while.body.i.i.i, %land.rhs.i.i.i
   %cmp13.i.i = icmp sgt i64 %spec.select132.i, 600
-  %or.cond.i.i = and i1 %cmp13.i.i, %tobool1.not.i.i.not.i.not
+  %or.cond.i.i = and i1 %cmp13.i.i, %tobool1.not.i.i.not.not.not.i.not.not.not.not.not
   %div20.i.i = zext i1 %or.cond.i.i to i64
   %cond20.i.i = lshr i64 %spec.select132.i, %div20.i.i
   %timeoutms.i.i = getelementptr inbounds i8, ptr %call.i59.i, i64 80
@@ -762,8 +762,8 @@ land.rhs.i.i80.i:                                 ; preds = %while.body.i.i83.i,
   %addr.addr.0.i.i78.i = phi ptr [ %addr.addr.0.lcssa.i57.i, %if.end.i66.i ], [ %37, %while.body.i.i83.i ]
   %ai_next.i.i81.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i78.i, i64 40
   %37 = load ptr, ptr %ai_next.i.i81.i, align 8
-  %tobool1.not.i.i82.not.i.not = icmp ne ptr %37, null
-  br i1 %tobool1.not.i.i82.not.i.not, label %while.body.i.i83.i, label %do.body60.i
+  %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not = icmp ne ptr %37, null
+  br i1 %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not, label %while.body.i.i83.i, label %do.body60.i
 
 while.body.i.i83.i:                               ; preds = %land.rhs.i.i80.i
   %ai_family.i.i84.i = getelementptr inbounds i8, ptr %37, i64 4
@@ -772,7 +772,7 @@ while.body.i.i83.i:                               ; preds = %land.rhs.i.i80.i
   br i1 %cmp.i.i85.i, label %do.body60.i, label %land.rhs.i.i80.i, !llvm.loop !7
 
 do.body60.i:                                      ; preds = %while.body.i.i83.i, %land.rhs.i.i80.i
-  %or.cond.i89.i = and i1 %cmp13.i.i, %tobool1.not.i.i82.not.i.not
+  %or.cond.i89.i = and i1 %cmp13.i.i, %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not
   %div20.i90.i = zext i1 %or.cond.i89.i to i64
   %cond20.i91.i = lshr i64 %spec.select132.i, %div20.i90.i
   %timeoutms.i92.i = getelementptr inbounds i8, ptr %call.i64.i, i64 80

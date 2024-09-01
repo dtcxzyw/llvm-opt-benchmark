@@ -4272,10 +4272,10 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIN
   %.lcssa = phi ptr [ null, %invoke.cont.thread ], [ %46, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit ]
   %mode_ = getelementptr inbounds i8, ptr %this, i64 192
   %50 = load i32, ptr %mode_, align 8
-  %cmp16 = icmp eq i32 %50, 0
+  %cmp16.not = icmp eq i32 %50, 0
   %type_codes_ = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
-  br i1 %cmp16, label %cond.true, label %cond.false
+  br i1 %cmp16.not, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.end
   store ptr %.lcssa, ptr %agg.tmp, align 8

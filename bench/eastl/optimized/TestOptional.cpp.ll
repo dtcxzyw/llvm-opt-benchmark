@@ -1721,15 +1721,15 @@ while.cond2.preheader.i.us:                       ; preds = %cond.false3.i.us.i.
   %engaged.i.i1128.i.us = getelementptr inbounds i8, ptr %last.addr.0.i.us, i64 -4
   %4 = load i8, ptr %engaged.i.i1128.i.us, align 4
   %tobool.i.i1229.i.us = trunc i8 %4 to i1
-  br i1 %tobool.i.i1229.i.us, label %cond.false.i14.lr.ph.split.us.i.us, label %while.end6.i.us
+  br i1 %tobool.i.i1229.i.us, label %cond.false.i14.lr.ph.i.us, label %while.end6.i.us
 
-cond.false.i14.lr.ph.split.us.i.us:               ; preds = %while.cond2.preheader.i.us
+cond.false.i14.lr.ph.i.us:                        ; preds = %while.cond2.preheader.i.us
   %5 = load i32, ptr %last.addr.127.i.us, align 4
   %cmp.i18.us44.i.us = icmp slt i32 %spec.select, %5
   br i1 %cmp.i18.us44.i.us, label %while.cond2.backedge.us.i.us, label %while.end6.i.us
 
-while.cond2.backedge.us.i.us:                     ; preds = %cond.false.i14.lr.ph.split.us.i.us, %cond.false.i14.us.i.us
-  %last.addr.131.us45.i.us = phi ptr [ %last.addr.1.us.i.us, %cond.false.i14.us.i.us ], [ %last.addr.127.i.us, %cond.false.i14.lr.ph.split.us.i.us ]
+while.cond2.backedge.us.i.us:                     ; preds = %cond.false.i14.lr.ph.i.us, %cond.false.i14.us.i.us
+  %last.addr.131.us45.i.us = phi ptr [ %last.addr.1.us.i.us, %cond.false.i14.us.i.us ], [ %last.addr.127.i.us, %cond.false.i14.lr.ph.i.us ]
   %last.addr.1.us.i.us = getelementptr inbounds i8, ptr %last.addr.131.us45.i.us, i64 -8
   %engaged.i.i11.us.i.us = getelementptr inbounds i8, ptr %last.addr.131.us45.i.us, i64 -4
   %6 = load i8, ptr %engaged.i.i11.us.i.us, align 4
@@ -1741,10 +1741,10 @@ cond.false.i14.us.i.us:                           ; preds = %while.cond2.backedg
   %cmp.i18.us.i.us = icmp slt i32 %spec.select, %7
   br i1 %cmp.i18.us.i.us, label %while.cond2.backedge.us.i.us, label %while.end6.i.us, !llvm.loop !22
 
-while.end6.i.us:                                  ; preds = %while.cond2.backedge.us.i.us, %cond.false.i14.us.i.us, %cond.false.i14.lr.ph.split.us.i.us, %while.cond2.preheader.i.us
-  %last.addr.0.pn.lcssa.i.us = phi ptr [ %last.addr.0.i.us, %while.cond2.preheader.i.us ], [ %last.addr.0.i.us, %cond.false.i14.lr.ph.split.us.i.us ], [ %last.addr.131.us45.i.us, %cond.false.i14.us.i.us ], [ %last.addr.131.us45.i.us, %while.cond2.backedge.us.i.us ]
-  %last.addr.1.lcssa.i.us = phi ptr [ %last.addr.127.i.us, %while.cond2.preheader.i.us ], [ %last.addr.127.i.us, %cond.false.i14.lr.ph.split.us.i.us ], [ %last.addr.1.us.i.us, %cond.false.i14.us.i.us ], [ %last.addr.1.us.i.us, %while.cond2.backedge.us.i.us ]
-  %.lcssa.i.us = phi i8 [ %4, %while.cond2.preheader.i.us ], [ %4, %cond.false.i14.lr.ph.split.us.i.us ], [ %6, %cond.false.i14.us.i.us ], [ %6, %while.cond2.backedge.us.i.us ]
+while.end6.i.us:                                  ; preds = %while.cond2.backedge.us.i.us, %cond.false.i14.us.i.us, %cond.false.i14.lr.ph.i.us, %while.cond2.preheader.i.us
+  %last.addr.0.pn.lcssa.i.us = phi ptr [ %last.addr.0.i.us, %while.cond2.preheader.i.us ], [ %last.addr.0.i.us, %cond.false.i14.lr.ph.i.us ], [ %last.addr.131.us45.i.us, %cond.false.i14.us.i.us ], [ %last.addr.131.us45.i.us, %while.cond2.backedge.us.i.us ]
+  %last.addr.1.lcssa.i.us = phi ptr [ %last.addr.127.i.us, %while.cond2.preheader.i.us ], [ %last.addr.127.i.us, %cond.false.i14.lr.ph.i.us ], [ %last.addr.1.us.i.us, %cond.false.i14.us.i.us ], [ %last.addr.1.us.i.us, %while.cond2.backedge.us.i.us ]
+  %.lcssa.i.us = phi i8 [ %4, %while.cond2.preheader.i.us ], [ %4, %cond.false.i14.lr.ph.i.us ], [ %6, %cond.false.i14.us.i.us ], [ %6, %while.cond2.backedge.us.i.us ]
   %engaged.i.i11.le.i.us = getelementptr inbounds i8, ptr %last.addr.0.pn.lcssa.i.us, i64 -4
   %cmp.not.i.us = icmp ult ptr %first.addr.122.us.i.us, %last.addr.1.lcssa.i.us
   br i1 %cmp.not.i.us, label %if.end.i.us, label %_ZN5eastl18get_partition_implIPNS_8optionalIiEERKS2_EET_S6_S6_OT0_.exit

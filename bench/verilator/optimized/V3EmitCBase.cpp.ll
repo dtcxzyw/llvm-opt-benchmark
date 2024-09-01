@@ -2618,19 +2618,19 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit: ; preds 
   %89 = phi i1 [ false, %3 ], [ %88, %86 ]
   %90 = getelementptr inbounds i8, ptr %1, i64 249
   %91 = load i8, ptr %90, align 1
-  %.not396 = icmp eq i8 %91, 0
+  %.not394 = icmp eq i8 %91, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 260
   %.pre = load i64, ptr %.phi.trans.insert, align 4
-  br i1 %.not396, label %.thread, label %92
+  br i1 %.not394, label %.thread, label %92
 
 92:                                               ; preds = %_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit
   %93 = and i64 %.pre, 16
-  %.not394 = icmp eq i64 %93, 0
-  %.not397 = icmp eq ptr %78, null
-  br i1 %.not394, label %217, label %94
+  %.not395 = icmp eq i64 %93, 0
+  %.not396 = icmp eq ptr %78, null
+  br i1 %.not395, label %217, label %94
 
 94:                                               ; preds = %92
-  br i1 %.not397, label %95, label %99
+  br i1 %.not396, label %95, label %99
 
 95:                                               ; preds = %94
   %96 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.18, i32 noundef 155, i1 noundef zeroext false)
@@ -3111,7 +3111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit224: ;
   br label %common.resume
 
 217:                                              ; preds = %92
-  br i1 %.not397, label %.thread, label %218
+  br i1 %.not396, label %.thread, label %218
 
 218:                                              ; preds = %217
   %219 = getelementptr inbounds i8, ptr %78, i64 164
@@ -4040,8 +4040,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit350: ;
 
 .thread:                                          ; preds = %_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %218, %217
   %482 = and i64 %.pre, 16384
-  %.not395 = icmp eq i64 %482, 0
-  br i1 %.not395, label %_ZNK7AstNode8isStringEv.exit.thread, label %483
+  %.not397 = icmp eq i64 %482, 0
+  br i1 %.not397, label %_ZNK7AstNode8isStringEv.exit.thread, label %483
 
 483:                                              ; preds = %.thread
   %484 = load ptr, ptr %70, align 8

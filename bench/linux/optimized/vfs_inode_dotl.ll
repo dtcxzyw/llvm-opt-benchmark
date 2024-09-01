@@ -1329,42 +1329,41 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
 .thread:                                          ; preds = %37, %96, %98, %99, %84
   %101 = phi i32 [ %86, %96 ], [ %86, %98 ], [ %86, %99 ], [ %86, %84 ], [ %43, %37 ]
   %102 = icmp eq ptr %18, null
-  %103 = or i1 %102, %19
-  br i1 %103, label %.thread14, label %104
+  br i1 %102, label %.thread14, label %103
 
-104:                                              ; preds = %.thread
+103:                                              ; preds = %.thread
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #12
-          to label %106 [label %105], !srcloc !13
+          to label %105 [label %104], !srcloc !13
 
-105:                                              ; preds = %104
+104:                                              ; preds = %103
   call void @do_trace_9p_fid_put(ptr noundef nonnull %18) #12
-  br label %106
+  br label %105
 
-106:                                              ; preds = %105, %104
-  %107 = getelementptr inbounds i8, ptr %18, i64 12
-  %108 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %107, i32 -1, ptr elementtype(i32) %107) #12, !srcloc !14
-  %109 = icmp eq i32 %108, 1
-  br i1 %109, label %113, label %110
+105:                                              ; preds = %104, %103
+  %106 = getelementptr inbounds i8, ptr %18, i64 12
+  %107 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %106, i32 -1, ptr elementtype(i32) %106) #12, !srcloc !14
+  %108 = icmp eq i32 %107, 1
+  br i1 %108, label %112, label %109
 
-110:                                              ; preds = %106
-  %111 = icmp sgt i32 %108, 0
-  br i1 %111, label %.thread14, label %112, !prof !15
+109:                                              ; preds = %105
+  %110 = icmp sgt i32 %107, 0
+  br i1 %110, label %.thread14, label %111, !prof !15
 
-112:                                              ; preds = %110
-  call void @refcount_warn_saturate(ptr noundef %107, i32 noundef 3) #12
+111:                                              ; preds = %109
+  call void @refcount_warn_saturate(ptr noundef %106, i32 noundef 3) #12
   br label %.thread14
 
-113:                                              ; preds = %106
+112:                                              ; preds = %105
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
-  %114 = call i32 @p9_client_clunk(ptr noundef nonnull %18) #12
+  %113 = call i32 @p9_client_clunk(ptr noundef nonnull %18) #12
   br label %.thread14
 
-.thread14:                                        ; preds = %.thread.thread, %110, %112, %113, %.thread
-  %115 = phi i32 [ %21, %.thread.thread ], [ %101, %110 ], [ %101, %112 ], [ %101, %113 ], [ %101, %.thread ]
+.thread14:                                        ; preds = %.thread.thread, %109, %111, %112, %.thread
+  %114 = phi i32 [ %21, %.thread.thread ], [ %101, %109 ], [ %101, %111 ], [ %101, %112 ], [ %101, %.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  ret i32 %115
+  ret i32 %114
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1538,42 +1537,41 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
 .thread:                                          ; preds = %34, %91, %93, %94, %79
   %96 = phi i32 [ %81, %91 ], [ %81, %93 ], [ %81, %94 ], [ %81, %79 ], [ %40, %34 ]
   %97 = icmp eq ptr %15, null
-  %98 = or i1 %97, %16
-  br i1 %98, label %.thread14, label %99
+  br i1 %97, label %.thread14, label %98
 
-99:                                               ; preds = %.thread
+98:                                               ; preds = %.thread
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #12
-          to label %101 [label %100], !srcloc !13
+          to label %100 [label %99], !srcloc !13
 
-100:                                              ; preds = %99
+99:                                               ; preds = %98
   call void @do_trace_9p_fid_put(ptr noundef nonnull %15) #12
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %99
-  %102 = getelementptr inbounds i8, ptr %15, i64 12
-  %103 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %102, i32 -1, ptr elementtype(i32) %102) #12, !srcloc !14
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %108, label %105
+100:                                              ; preds = %99, %98
+  %101 = getelementptr inbounds i8, ptr %15, i64 12
+  %102 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %101, i32 -1, ptr elementtype(i32) %101) #12, !srcloc !14
+  %103 = icmp eq i32 %102, 1
+  br i1 %103, label %107, label %104
 
-105:                                              ; preds = %101
-  %106 = icmp sgt i32 %103, 0
-  br i1 %106, label %.thread14, label %107, !prof !15
+104:                                              ; preds = %100
+  %105 = icmp sgt i32 %102, 0
+  br i1 %105, label %.thread14, label %106, !prof !15
 
-107:                                              ; preds = %105
-  call void @refcount_warn_saturate(ptr noundef %102, i32 noundef 3) #12
+106:                                              ; preds = %104
+  call void @refcount_warn_saturate(ptr noundef %101, i32 noundef 3) #12
   br label %.thread14
 
-108:                                              ; preds = %101
+107:                                              ; preds = %100
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
-  %109 = call i32 @p9_client_clunk(ptr noundef nonnull %15) #12
+  %108 = call i32 @p9_client_clunk(ptr noundef nonnull %15) #12
   br label %.thread14
 
-.thread14:                                        ; preds = %.thread.thread, %105, %107, %108, %.thread
-  %110 = phi i32 [ %18, %.thread.thread ], [ %96, %105 ], [ %96, %107 ], [ %96, %108 ], [ %96, %.thread ]
+.thread14:                                        ; preds = %.thread.thread, %104, %106, %107, %.thread
+  %109 = phi i32 [ %18, %.thread.thread ], [ %96, %104 ], [ %96, %106 ], [ %96, %107 ], [ %96, %.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  ret i32 %110
+  ret i32 %109
 }
 
 ; Function Attrs: null_pointer_is_valid

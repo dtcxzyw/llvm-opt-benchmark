@@ -2368,9 +2368,9 @@ common.resume:                                    ; preds = %.thread, %122, %124
           to label %144 unwind label %142
 
 138:                                              ; preds = %269, %243, %167
-  %.sroa.2.0..sroa_idx.val195 = phi i64 [ %.sroa.0.0.copyload, %269 ], [ %135, %243 ], [ %130, %167 ]
+  %.sroa.2.0..sroa_idx.val196 = phi i64 [ %.sroa.0.0.copyload, %269 ], [ %135, %243 ], [ %130, %167 ]
   %139 = phi ptr [ %270, %269 ], [ %133, %243 ], [ %131, %167 ]
-  %.140 = phi i1 [ %.not198, %269 ], [ %.not.not, %243 ], [ %174, %167 ]
+  %.140 = phi i1 [ %.not182.not.not.not.not, %269 ], [ %.not.not.not.not.not.not, %243 ], [ %174, %167 ]
   %.138 = phi i1 [ true, %269 ], [ false, %243 ], [ true, %167 ]
   %.036 = phi i1 [ true, %269 ], [ true, %243 ], [ false, %167 ]
   %.135 = phi i1 [ false, %269 ], [ true, %243 ], [ true, %167 ]
@@ -2400,7 +2400,7 @@ common.resume:                                    ; preds = %.thread, %122, %124
   br label %.thread127
 
 142:                                              ; preds = %206, %136
-  %.sroa.2.0..sroa_idx.val196 = phi i64 [ %135, %206 ], [ %130, %136 ]
+  %.sroa.2.0..sroa_idx.val197 = phi i64 [ %135, %206 ], [ %130, %136 ]
   %143 = phi ptr [ null, %206 ], [ %131, %136 ]
   %lpad.thr_comm.split-lp144 = landingpad { ptr, i32 }
           cleanup
@@ -2581,8 +2581,8 @@ common.resume:                                    ; preds = %.thread, %122, %124
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %133, ptr %16, align 8
   %201 = load i8, ptr %42, align 8, !range !413, !noundef !4
-  %.not.not = icmp ne i8 %201, 41
-  br i1 %.not.not, label %227, label %228
+  %.not.not.not.not.not.not = icmp ne i8 %201, 41
+  br i1 %.not.not.not.not.not.not, label %227, label %228
 
 202:                                              ; preds = %132
   %203 = load i64, ptr %36, align 8, !alias.scope !414, !noundef !4
@@ -2672,14 +2672,14 @@ common.resume:                                    ; preds = %.thread, %122, %124
 
 228:                                              ; preds = %200
   %229 = and i64 %135, 3
-  switch i64 %229, label %default.unreachable197 [
+  switch i64 %229, label %default.unreachable198 [
     i64 2, label %231
     i64 3, label %switch.lookup
     i64 0, label %235
     i64 1, label %238
   ]
 
-default.unreachable197:                           ; preds = %228
+default.unreachable198:                           ; preds = %228
   unreachable
 
 switch.lookup:                                    ; preds = %228
@@ -2820,8 +2820,8 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %275 = load i64, ptr %36, align 8, !alias.scope !474, !noundef !4
   %276 = load i64, ptr %37, align 8, !alias.scope !474, !noundef !4
-  %.not198 = icmp ne i64 %275, %276
-  br i1 %.not198, label %277, label %278
+  %.not182.not.not.not.not = icmp ne i64 %275, %276
+  br i1 %.not182.not.not.not.not, label %277, label %278
 
 277:                                              ; preds = %274
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.437abf4fc75871fa06817f7f17e4beb4.39, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.44) #34
@@ -2921,7 +2921,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
   br label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h2bb5796257865d2cE.exit"
 
 .thread127:                                       ; preds = %.thread145.split.loop.exit, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp, %.thread145.split.loop.exit.split-lp.split.loop.exit, %306, %138
-  %.sroa.2.0..sroa_idx.val = phi i64 [ %.sroa.2.0..sroa_idx.val194, %306 ], [ %.sroa.2.0..sroa_idx.val195, %138 ], [ %135, %.thread145.split.loop.exit ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %135, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp ]
+  %.sroa.2.0..sroa_idx.val = phi i64 [ %.sroa.2.0..sroa_idx.val195, %306 ], [ %.sroa.2.0..sroa_idx.val196, %138 ], [ %135, %.thread145.split.loop.exit ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %135, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp ]
   %305 = phi ptr [ %307, %306 ], [ %139, %138 ], [ %133, %.thread145.split.loop.exit ], [ %140, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %133, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit ], [ %141, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp ]
   %.pn49136 = phi { ptr, i32 } [ %.pn49140, %306 ], [ %.pn49, %138 ], [ %lpad.split.loop.exit, %.thread145.split.loop.exit ], [ %lpad.split.loop.exit267, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %lpad.split.loop.exit275, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp ]
   %.135135 = phi i1 [ %.135139, %306 ], [ %.135, %138 ], [ true, %.thread145.split.loop.exit ], [ false, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ true, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit ], [ false, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp ]
@@ -2933,7 +2933,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
   ]
 
 306:                                              ; preds = %142, %138
-  %.sroa.2.0..sroa_idx.val194 = phi i64 [ %.sroa.2.0..sroa_idx.val196, %142 ], [ %.sroa.2.0..sroa_idx.val195, %138 ]
+  %.sroa.2.0..sroa_idx.val195 = phi i64 [ %.sroa.2.0..sroa_idx.val197, %142 ], [ %.sroa.2.0..sroa_idx.val196, %138 ]
   %307 = phi ptr [ %143, %142 ], [ %139, %138 ]
   %.pn49140 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp144, %142 ], [ %.pn49, %138 ]
   %.135139 = phi i1 [ true, %142 ], [ %.135, %138 ]

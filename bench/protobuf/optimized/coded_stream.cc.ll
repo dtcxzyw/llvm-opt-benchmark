@@ -996,8 +996,8 @@ while.cond:                                       ; preds = %while.body, %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.not = icmp sle i32 %size.addr.0, %conv.i
-  br i1 %cmp.not, label %while.end, label %while.body
+  %cmp.not.not.not.not.not = icmp sle i32 %size.addr.0, %conv.i
+  br i1 %cmp.not.not.not.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %sext = shl i64 %sub.ptr.sub.i, 32
@@ -1020,7 +1020,7 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.body, %while.end
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1121,8 +1121,8 @@ while.cond:                                       ; preds = %if.end18, %if.end11
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp13.not = icmp sle i32 %size.addr.0, %conv.i
-  br i1 %cmp13.not, label %while.end, label %while.body
+  %cmp13.not.not.not.not.not = icmp sle i32 %size.addr.0, %conv.i
+  br i1 %cmp13.not.not.not.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %cmp14.not = icmp eq i32 %conv.i, 0
@@ -1152,7 +1152,7 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %if.end18, %while.end
-  ret i1 %cmp13.not
+  ret i1 %cmp13.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind
@@ -1323,8 +1323,8 @@ while.cond.i:                                     ; preds = %entry, %while.body.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp.not.i.not = icmp sgt i32 %size.addr.0.i, %conv.i.i
-  br i1 %cmp.not.i.not, label %while.body.i, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
+  %cmp.not.not.not.i.not = icmp sgt i32 %size.addr.0.i, %conv.i.i
+  br i1 %cmp.not.not.not.i.not, label %while.body.i, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
 
 while.body.i:                                     ; preds = %while.cond.i
   %sext.i = shl i64 %sub.ptr.sub.i.i, 32
@@ -1383,8 +1383,8 @@ while.cond.i:                                     ; preds = %entry, %while.body.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp.not.i.not = icmp sgt i32 %size.addr.0.i, %conv.i.i
-  br i1 %cmp.not.i.not, label %while.body.i, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
+  %cmp.not.not.not.i.not = icmp sgt i32 %size.addr.0.i, %conv.i.i
+  br i1 %cmp.not.not.not.i.not, label %while.body.i, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
 
 while.body.i:                                     ; preds = %while.cond.i
   %sext.i = shl i64 %sub.ptr.sub.i.i, 32
@@ -2383,8 +2383,8 @@ entry:
 do.body:                                          ; preds = %while.end, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.end ], [ 0, %entry ]
   %result.0 = phi i64 [ %or, %while.end ], [ 0, %entry ]
-  %cmp = icmp ne i64 %indvars.iv, 10
-  br i1 %cmp, label %while.cond, label %return
+  %cmp.not = icmp ne i64 %indvars.iv, 10
+  br i1 %cmp.not, label %while.cond, label %return
 
 while.cond:                                       ; preds = %do.body, %while.body
   %0 = load ptr, ptr %this, align 8
@@ -2411,7 +2411,7 @@ while.end:                                        ; preds = %while.cond
 
 return:                                           ; preds = %while.end, %do.body, %while.body
   %or.lcssa.sink = phi i64 [ 0, %while.body ], [ 0, %do.body ], [ %or, %while.end ]
-  %retval.0 = phi i1 [ false, %while.body ], [ %cmp, %do.body ], [ %cmp, %while.end ]
+  %retval.0 = phi i1 [ false, %while.body ], [ %cmp.not, %do.body ], [ %cmp.not, %while.end ]
   store i64 %or.lcssa.sink, ptr %value, align 8
   ret i1 %retval.0
 }

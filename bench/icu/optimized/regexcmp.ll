@@ -4946,17 +4946,14 @@ for.end:                                          ; preds = %_ZNK6icu_759UVector
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %caseStringBuffer, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %caseStringBuffer, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  br i1 %cmp106, label %for.body16.lr.ph, label %for.end65
-
-for.body16.lr.ph:                                 ; preds = %for.end
   %count.i44 = getelementptr inbounds i8, ptr %deltas, i64 8
   %elements.i48 = getelementptr inbounds i8, ptr %deltas, i64 24
   %wide.trip.count116 = zext nneg i32 %4 to i64
   br label %for.body16
 
-for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc63
-  %indvars.iv113 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next114, %for.inc63 ]
-  %dst.0111 = phi i32 [ 0, %for.body16.lr.ph ], [ %dst.1, %for.inc63 ]
+for.body16:                                       ; preds = %for.end, %for.inc63
+  %indvars.iv113 = phi i64 [ 0, %for.end ], [ %indvars.iv.next114, %for.inc63 ]
+  %dst.0111 = phi i32 [ 0, %for.end ], [ %dst.1, %for.inc63 ]
   %18 = load ptr, ptr %fRXPat, align 8
   %fCompiledPat19 = getelementptr inbounds i8, ptr %18, i64 32
   %19 = load ptr, ptr %fCompiledPat19, align 8
@@ -5195,8 +5192,8 @@ for.inc63:                                        ; preds = %invoke.cont33, %inv
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %for.end65, label %for.body16, !llvm.loop !13
 
-for.end65:                                        ; preds = %for.inc63, %for.end.thread, %for.end
-  %dst.0.lcssa = phi i32 [ 0, %for.end ], [ 0, %for.end.thread ], [ %dst.1, %for.inc63 ]
+for.end65:                                        ; preds = %for.inc63, %for.end.thread
+  %dst.0.lcssa = phi i32 [ 0, %for.end.thread ], [ %dst.1, %for.inc63 ]
   %40 = load ptr, ptr %fRXPat, align 8
   %fCompiledPat67 = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load ptr, ptr %fCompiledPat67, align 8
@@ -5721,10 +5718,7 @@ for.cond.preheader:                               ; preds = %if.end
   %cmp389 = icmp sgt i32 %4, 3
   br i1 %cmp389, label %for.body, label %for.end398
 
-for.cond6.preheader:                              ; preds = %for.inc
-  br i1 %cmp389, label %for.body8.lr.ph, label %for.end398
-
-for.body8.lr.ph:                                  ; preds = %for.cond6.preheader
+for.body8.lr.ph:                                  ; preds = %for.inc
   %count.i147 = getelementptr inbounds i8, ptr %forwardedLength, i64 8
   %elements.i151 = getelementptr inbounds i8, ptr %forwardedLength, i64 24
   br label %for.body8
@@ -5737,7 +5731,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %loc.0390, 1
   %exitcond.not = icmp eq i32 %inc, %4
-  br i1 %exitcond.not, label %for.cond6.preheader, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.body8.lr.ph, label %for.body, !llvm.loop !17
 
 lpad.loopexit:                                    ; preds = %for.body.i
   %lpad.loopexit366 = landingpad { ptr, i32 }
@@ -6663,8 +6657,8 @@ for.end398.loopexit:                              ; preds = %for.inc396
   %88 = icmp eq i32 %numInitialStrings.14, 1
   br label %for.end398
 
-for.end398:                                       ; preds = %for.cond.preheader, %for.end398.loopexit, %for.cond6.preheader
-  %numInitialStrings.0.lcssa = phi i1 [ false, %for.cond6.preheader ], [ %88, %for.end398.loopexit ], [ false, %for.cond.preheader ]
+for.end398:                                       ; preds = %for.cond.preheader, %for.end398.loopexit
+  %numInitialStrings.0.lcssa = phi i1 [ %88, %for.end398.loopexit ], [ false, %for.cond.preheader ]
   %89 = load ptr, ptr %fRXPat, align 8
   %fInitialChars8 = getelementptr inbounds i8, ptr %89, i64 176
   %90 = load ptr, ptr %fInitialChars8, align 8
@@ -9560,10 +9554,7 @@ for.cond.preheader:                               ; preds = %if.end
   %cmp.not203 = icmp sgt i32 %start, %end
   br i1 %cmp.not203, label %for.end140, label %for.body
 
-for.cond5.preheader:                              ; preds = %for.inc
-  br i1 %cmp.not203, label %for.end140, label %for.body7.lr.ph
-
-for.body7.lr.ph:                                  ; preds = %for.cond5.preheader
+for.body7.lr.ph:                                  ; preds = %for.inc
   %fRXPat = getelementptr inbounds i8, ptr %this, i64 16
   %count.i60 = getelementptr inbounds i8, ptr %forwardedLength, i64 8
   %elements.i64 = getelementptr inbounds i8, ptr %forwardedLength, i64 24
@@ -9577,7 +9568,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add i32 %loc.0204, 1
   %exitcond.not = icmp eq i32 %loc.0204, %end
-  br i1 %exitcond.not, label %for.cond5.preheader, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %for.body7.lr.ph, label %for.body, !llvm.loop !27
 
 lpad.loopexit:                                    ; preds = %if.then36, %if.then52, %if.end98
   %lpad.loopexit198 = landingpad { ptr, i32 }
@@ -9956,8 +9947,8 @@ for.inc138:                                       ; preds = %sw.bb40, %_ZNK6icu_
   %cmp6.not.not = icmp slt i32 %loc.2195, %end
   br i1 %cmp6.not.not, label %for.body7, label %for.end140, !llvm.loop !29
 
-for.end140:                                       ; preds = %for.inc138, %sw.epilog, %_ZNK6icu_759UVector6410elementAtiEi.exit139, %_ZNK6icu_759UVector6410elementAtiEi.exit125, %if.then25, %sw.bb18, %sw.bb29, %sw.bb44, %_ZNK6icu_759UVector6410elementAtiEi.exit163, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %invoke.cont100, %for.cond.preheader, %for.cond5.preheader
-  %currentLen.1 = phi i32 [ 0, %for.cond5.preheader ], [ 0, %for.cond.preheader ], [ 2147483647, %invoke.cont100 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit163 ], [ 2147483647, %sw.bb44 ], [ 2147483647, %sw.bb29 ], [ 2147483647, %sw.bb18 ], [ 2147483647, %if.then25 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit125 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit139 ], [ 2147483647, %sw.epilog ], [ %currentLen.3194, %for.inc138 ]
+for.end140:                                       ; preds = %for.inc138, %sw.epilog, %_ZNK6icu_759UVector6410elementAtiEi.exit139, %_ZNK6icu_759UVector6410elementAtiEi.exit125, %if.then25, %sw.bb18, %sw.bb29, %sw.bb44, %_ZNK6icu_759UVector6410elementAtiEi.exit163, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %if.end16, %invoke.cont100, %for.cond.preheader
+  %currentLen.1 = phi i32 [ 0, %for.cond.preheader ], [ 2147483647, %invoke.cont100 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %if.end16 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit163 ], [ 2147483647, %sw.bb44 ], [ 2147483647, %sw.bb29 ], [ 2147483647, %sw.bb18 ], [ 2147483647, %if.then25 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit125 ], [ 2147483647, %_ZNK6icu_759UVector6410elementAtiEi.exit139 ], [ 2147483647, %sw.epilog ], [ %currentLen.3194, %for.inc138 ]
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %forwardedLength) #13
   br label %return
 

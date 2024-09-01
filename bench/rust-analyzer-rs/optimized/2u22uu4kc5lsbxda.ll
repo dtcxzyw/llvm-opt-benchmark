@@ -1345,8 +1345,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h15df98e0d0bce2cdE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %37 = load i64, ptr %15, align 8, !range !147, !noundef !5
-  %.not42.not = icmp eq i64 %37, -9223372036854775808
-  br i1 %.not42.not, label %113, label %93
+  %.not42 = icmp eq i64 %37, -9223372036854775808
+  br i1 %.not42, label %113, label %93
 
 38:                                               ; preds = %4
   br label %75
@@ -1358,8 +1358,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h15df98e0d0bce2cdE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %41 = load i64, ptr %9, align 8, !range !147, !noundef !5
-  %.not38.not = icmp eq i64 %41, -9223372036854775808
-  br i1 %.not38.not, label %135, label %115
+  %.not38 = icmp eq i64 %41, -9223372036854775808
+  br i1 %.not38, label %135, label %115
 
 42:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -1626,8 +1626,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h15df98e0d0bce2cdE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %140 = load i64, ptr %12, align 8, !range !147, !noundef !5
-  %.not35.not = icmp eq i64 %140, -9223372036854775808
-  br i1 %.not35.not, label %161, label %141
+  %.not35 = icmp eq i64 %140, -9223372036854775808
+  br i1 %.not35, label %161, label %141
 
 141:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -1769,8 +1769,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h9f1a99e90aaf3ddfE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %36 = load i64, ptr %15, align 8, !range !147, !noundef !5
-  %.not42.not = icmp eq i64 %36, -9223372036854775808
-  br i1 %.not42.not, label %111, label %91
+  %.not42 = icmp eq i64 %36, -9223372036854775808
+  br i1 %.not42, label %111, label %91
 
 37:                                               ; preds = %4
   br label %73
@@ -1782,8 +1782,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h9f1a99e90aaf3ddfE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %40 = load i64, ptr %9, align 8, !range !147, !noundef !5
-  %.not38.not = icmp eq i64 %40, -9223372036854775808
-  br i1 %.not38.not, label %133, label %113
+  %.not38 = icmp eq i64 %40, -9223372036854775808
+  br i1 %.not38, label %133, label %113
 
 41:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -2047,8 +2047,8 @@ define hidden void @_ZN3hir4Type4walk9walk_type17h9f1a99e90aaf3ddfE.llvm.5605154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$17impl_trait_bounds17h031234010f19f7a0E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %138 = load i64, ptr %12, align 8, !range !147, !noundef !5
-  %.not35.not = icmp eq i64 %138, -9223372036854775808
-  br i1 %.not35.not, label %159, label %139
+  %.not35 = icmp eq i64 %138, -9223372036854775808
+  br i1 %.not35, label %159, label %139
 
 139:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -29681,8 +29681,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.backedge.us.i
 
 .backedge.us.i:                                   ; preds = %19, %15, %.lr.ph.split.us.i
-  %.not30.i = icmp eq ptr %12, %4
-  br i1 %.not30.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.lr.ph.split.us.i
+  %.not18.i = icmp eq ptr %12, %4
+  br i1 %.not18.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %23 = phi ptr [ %24, %.backedge.i ], [ %1, %.lr.ph.i ]
@@ -29709,8 +29709,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %31, %27, %.lr.ph.split.i
-  %.not29.i = icmp eq ptr %24, %4
-  br i1 %.not29.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.lr.ph.split.i
+  %.not17.i = icmp eq ptr %24, %4
+  br i1 %.not17.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.lr.ph.split.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit": ; preds = %31, %.backedge.i, %19, %.backedge.us.i, %3
   %.lcssa.i = phi i1 [ false, %3 ], [ false, %.backedge.us.i ], [ true, %19 ], [ false, %.backedge.i ], [ true, %31 ]
@@ -29724,8 +29724,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 5:                                                ; preds = %7, %3
   %6 = phi ptr [ %8, %7 ], [ %1, %3 ]
-  %.not.i.not = icmp ne ptr %6, %4
-  br i1 %.not.i.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcc8a942965e7befaE.llvm.5605154820796467450.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %6, %4
+  br i1 %.not.not.not.i.not.not.not.not.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcc8a942965e7befaE.llvm.5605154820796467450.exit"
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -29733,7 +29733,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcc8a942965e7befaE.llvm.5605154820796467450.exit", label %5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcc8a942965e7befaE.llvm.5605154820796467450.exit": ; preds = %5, %7
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
@@ -32487,8 +32487,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.backedge.us
 
 .backedge.us:                                     ; preds = %15, %.lr.ph.split.us, %19
-  %.not30 = icmp eq ptr %12, %4
-  br i1 %.not30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.lr.ph.split.us
+  %.not18 = icmp eq ptr %12, %4
+  br i1 %.not18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %23 = phi ptr [ %24, %.backedge ], [ %.promoted, %.lr.ph ]
@@ -32515,8 +32515,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph.split, %27, %31
-  %.not29 = icmp eq ptr %24, %4
-  br i1 %.not29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.lr.ph.split
+  %.not17 = icmp eq ptr %24, %4
+  br i1 %.not17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.lr.ph.split
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split": ; preds = %.backedge, %31, %.backedge.us, %19
   %.us-phi13.sink = phi ptr [ %12, %19 ], [ %12, %.backedge.us ], [ %24, %31 ], [ %24, %.backedge ]
@@ -32538,8 +32538,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %6, %4
-  br i1 %.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06c6d39a00848073E.llvm.5605154820796467450.exit"
+  %.not.not.not.not.not = icmp ne ptr %6, %4
+  br i1 %.not.not.not.not.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06c6d39a00848073E.llvm.5605154820796467450.exit"
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -32548,7 +32548,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06c6d39a00848073E.llvm.5605154820796467450.exit", label %5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06c6d39a00848073E.llvm.5605154820796467450.exit": ; preds = %5, %7
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -33742,8 +33742,8 @@ common.resume:                                    ; preds = %.body, %14, %17
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %38
-  %.not.not.i.not.i.not = icmp eq ptr %39, null
-  br i1 %.not.not.i.not.i.not, label %42, label %40
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %39, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %42, label %40
 
 40:                                               ; preds = %.noexc
   %41 = invoke noundef zeroext i1 @"_ZN81_$LT$ide..navigation_target..NavigationTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha18458a335cc5fb1E.llvm.15544646111798989001"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %6)

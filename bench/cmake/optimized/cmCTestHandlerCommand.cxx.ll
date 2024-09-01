@@ -1570,7 +1570,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm.i: ; preds = %526, %523
   %531 = load i8, ptr %6, align 1
   %532 = trunc i8 %531 to i1
-  br i1 %532, label %_ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev.exit, label %.thread.i
+  br i1 %532, label %_ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev.exit, label %.critedge.i
 
 _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.i: ; preds = %529
   %533 = load i8, ptr %6, align 1
@@ -1579,14 +1579,14 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.i: ; preds = %529
   br i1 %535, label %536, label %_ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev.exit
 
 536:                                              ; preds = %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.i
-  br i1 %534, label %.sink.split.i, label %.thread.i
+  br i1 %534, label %.sink.split.i, label %.critedge.i
 
-.thread.i:                                        ; preds = %536, %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm.i
+.critedge.i:                                      ; preds = %536, %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm.i
   store i8 0, ptr @_ZN13cmSystemTools20s_FatalErrorOccurredE, align 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread.i, %536, %520
-  %.sink.i = phi i8 [ 0, %.thread.i ], [ 1, %520 ], [ 1, %536 ]
+.sink.split.i:                                    ; preds = %.critedge.i, %536, %520
+  %.sink.i = phi i8 [ 0, %.critedge.i ], [ 1, %520 ], [ 1, %536 ]
   store i8 %.sink.i, ptr @_ZN13cmSystemTools15s_ErrorOccurredE, align 1
   br label %_ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev.exit
 
@@ -1998,7 +1998,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev(ptr no
 _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm: ; preds = %8, %11
   %16 = load i8, ptr %0, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %22, label %.thread
+  br i1 %17, label %22, label %.critedge
 
 _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit:  ; preds = %14
   %18 = load i8, ptr %0, align 1
@@ -2007,14 +2007,14 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit:  ; preds = %14
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit
-  br i1 %19, label %.sink.split, label %.thread
+  br i1 %19, label %.sink.split, label %.critedge
 
-.thread:                                          ; preds = %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm, %21
+.critedge:                                        ; preds = %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm, %21
   store i8 0, ptr @_ZN13cmSystemTools20s_FatalErrorOccurredE, align 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %21, %5, %.thread
-  %.sink = phi i8 [ 0, %.thread ], [ 1, %5 ], [ 1, %21 ]
+.sink.split:                                      ; preds = %21, %5, %.critedge
+  %.sink = phi i8 [ 0, %.critedge ], [ 1, %5 ], [ 1, %21 ]
   store i8 %.sink, ptr @_ZN13cmSystemTools15s_ErrorOccurredE, align 1
   br label %22
 

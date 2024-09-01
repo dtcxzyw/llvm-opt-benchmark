@@ -4394,7 +4394,7 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
   br i1 %cmp.i.i.i.i, label %_ZN9hashtableI6symbol16symbol_hash_proc14symbol_eq_procED2Ev.exit, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %entry, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit, %cleanup
-  %cmp.not2550 = phi i1 [ %cmp.not25, %cleanup ], [ false, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ], [ false, %entry ]
+  %cmp.not2546 = phi i1 [ %cmp.not25, %cleanup ], [ false, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ], [ false, %entry ]
   %21 = phi ptr [ %20, %cleanup ], [ %call.i.i.i.i, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ], [ %call.i.i.i.i, %entry ]
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %21)
           to label %_ZN9hashtableI6symbol16symbol_hash_proc14symbol_eq_procED2Ev.exit unwind label %terminate.lpad.i.i
@@ -4407,8 +4407,8 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   unreachable
 
 _ZN9hashtableI6symbol16symbol_hash_proc14symbol_eq_procED2Ev.exit: ; preds = %cleanup, %for.cond.preheader.i.i.i.i
-  %cmp.not2551 = phi i1 [ %cmp.not25, %cleanup ], [ %cmp.not2550, %for.cond.preheader.i.i.i.i ]
-  ret i1 %cmp.not2551
+  %cmp.not2547 = phi i1 [ %cmp.not25, %cleanup ], [ %cmp.not2546, %for.cond.preheader.i.i.i.i ]
+  ret i1 %cmp.not2547
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6257,7 +6257,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i.i7, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12
 
 _ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread: ; preds = %for.end, %entry
-  %.pre5363 = load ptr, ptr %symbol2idx, align 8
+  %.pre4959 = load ptr, ptr %symbol2idx, align 8
   br label %cleanup
 
 _ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12:  ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit, %for.end
@@ -6267,14 +6267,14 @@ _ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12:  ; preds = %_ZN6vectorIP14pdata
   %8 = zext i32 %7 to i64
   %add.ptr.i11 = getelementptr inbounds ptr, ptr %6, i64 %8
   %cmp18.not38 = icmp eq i32 %7, 0
-  %.pre53 = load ptr, ptr %symbol2idx, align 8
+  %.pre49 = load ptr, ptr %symbol2idx, align 8
   br i1 %cmp18.not38, label %cleanup, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12
   %9 = load i32, ptr %m_capacity.i.i.i, align 8
   %sub.i.i.i.i.i = add i32 %9, -1
   %idx.ext4.i.i.i.i.i = zext i32 %9 to i64
-  %add.ptr5.i.i.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %.pre53, i64 %idx.ext4.i.i.i.i.i
+  %add.ptr5.i.i.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %.pre49, i64 %idx.ext4.i.i.i.i.i
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc23
@@ -6349,7 +6349,7 @@ _ZNK14core_hashtableI17default_map_entryI6symboliEN9table2mapIS2_16symbol_hash_p
   %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i.i.i, %if.else4.i.i.i.i.i.i.i.i.i ], [ -1640531495, %if.end.i.i19 ]
   %and.i.i.i.i.i = and i32 %sub.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i = zext i32 %and.i.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %.pre53, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %.pre49, i64 %idx.ext.i.i.i.i.i
   %cmp.not30.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, %9
   br i1 %cmp.not30.i.i.i.i.i, label %for.cond18.preheader.i.i.i.i.i, label %for.body.i.i.i.i.i
 
@@ -6383,7 +6383,7 @@ for.inc.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond18.preheader.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !22
 
 for.body20.i.i.i.i.i:                             ; preds = %for.cond18.preheader.i.i.i.i.i, %for.inc36.i.i.i.i.i
-  %curr.133.i.i.i.i.i = phi ptr [ %incdec.ptr37.i.i.i.i.i, %for.inc36.i.i.i.i.i ], [ %.pre53, %for.cond18.preheader.i.i.i.i.i ]
+  %curr.133.i.i.i.i.i = phi ptr [ %incdec.ptr37.i.i.i.i.i, %for.inc36.i.i.i.i.i ], [ %.pre49, %for.cond18.preheader.i.i.i.i.i ]
   %m_state.i22.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i, i64 4
   %26 = load i32, ptr %m_state.i22.i.i.i.i.i, align 4
   switch i32 %26, label %for.inc36.i.i.i.i.i [
@@ -6432,13 +6432,13 @@ for.inc23:                                        ; preds = %for.cond.i, %_ZN6ve
   br i1 %cmp18.not, label %cleanup, label %for.body19
 
 cleanup:                                          ; preds = %for.inc23, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12, %invoke.cont21
-  %.pre5364 = phi ptr [ %.pre53, %invoke.cont21 ], [ %.pre53, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12 ], [ %.pre5363, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread ], [ %.pre53, %for.inc23 ]
+  %.pre4960 = phi ptr [ %.pre49, %invoke.cont21 ], [ %.pre49, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12 ], [ %.pre4959, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread ], [ %.pre49, %for.inc23 ]
   %cmp18.not33 = phi i1 [ false, %invoke.cont21 ], [ true, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12 ], [ true, %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit12.thread ], [ true, %for.inc23 ]
-  %cmp.i.i.i.i.i = icmp eq ptr %.pre5364, null
+  %cmp.i.i.i.i.i = icmp eq ptr %.pre4960, null
   br i1 %cmp.i.i.i.i.i, label %_ZN3mapI6symboli16symbol_hash_proc14symbol_eq_procED2Ev.exit, label %for.cond.preheader.i.i.i.i.i
 
 for.cond.preheader.i.i.i.i.i:                     ; preds = %cleanup
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pre5364)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pre4960)
           to label %_ZN3mapI6symboli16symbol_hash_proc14symbol_eq_procED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %for.cond.preheader.i.i.i.i.i

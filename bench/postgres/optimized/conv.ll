@@ -1154,8 +1154,8 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %or.cond, label %.preheader, label %13
 
 .preheader:                                       ; preds = %9
-  %11 = icmp slt i32 %1, 1
-  br i1 %11, label %.thread, label %.lr.ph
+  %11 = icmp sgt i32 %1, 0
+  br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %.not87 = icmp eq ptr %3, null
@@ -1494,8 +1494,8 @@ store_coded_char.exit:                            ; preds = %147, %145, %121, %1
   %.177 = phi ptr [ %23, %21 ], [ %.2.i, %69 ], [ %73, %71 ], [ %.2.i108, %119 ], [ %123, %121 ], [ %.2.i117, %145 ], [ %149, %147 ]
   %.2 = phi ptr [ %22, %21 ], [ %39, %69 ], [ %39, %71 ], [ %39, %119 ], [ %39, %121 ], [ %39, %145 ], [ %39, %147 ]
   %155 = sub nsw i32 %.071137, %.078
-  %156 = icmp slt i32 %155, 1
-  br i1 %156, label %.thread, label %17, !llvm.loop !12
+  %156 = icmp sgt i32 %155, 0
+  br i1 %156, label %17, label %.thread, !llvm.loop !12
 
 157:                                              ; preds = %24, %17
   br i1 %8, label %.thread, label %158

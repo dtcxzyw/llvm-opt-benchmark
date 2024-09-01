@@ -4769,13 +4769,12 @@ while.body.lr.ph:                                 ; preds = %if.end129
   %conn_to_port = getelementptr inbounds i8, ptr %needle, i64 1152
   %name591 = getelementptr inbounds i8, ptr %needle, i64 80
   %remote_port = getelementptr inbounds i8, ptr %needle, i64 1148
-  %brmerge239 = select i1 %3, i1 true, i1 %8
   %user649 = getelementptr inbounds i8, ptr %needle, i64 240
   %passwd656 = getelementptr inbounds i8, ptr %needle, i64 248
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %chosen.0266 = phi ptr [ null, %while.body.lr.ph ], [ %chosen.0.be, %while.cond.backedge ]
+  %chosen.0267 = phi ptr [ null, %while.body.lr.ph ], [ %chosen.0.be, %while.cond.backedge ]
   %foundPendingCandidate.0265 = phi i1 [ false, %while.body.lr.ph ], [ %foundPendingCandidate.0.be, %while.cond.backedge ]
   %curr.0264 = phi ptr [ %29, %while.body.lr.ph ], [ %31, %while.cond.backedge ]
   %30 = load ptr, ptr %curr.0264, align 8
@@ -4793,9 +4792,9 @@ lor.lhs.false:                                    ; preds = %while.body
   %tobool137.not = icmp eq i32 %33, 0
   br i1 %tobool137.not, label %if.end139, label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %lor.lhs.false485, %if.end158.thread, %if.then739, %land.lhs.true731, %if.then717, %land.lhs.true709, %lor.lhs.false681, %land.lhs.true684, %if.end647, %lor.lhs.false654, %if.then638, %lor.lhs.false642, %if.end590, %lor.lhs.false596, %land.lhs.true574, %land.lhs.true585, %land.lhs.true554, %lor.lhs.false561, %if.then502, %lor.lhs.false507, %lor.lhs.false513, %lor.lhs.false521, %land.lhs.true479, %if.then444, %lor.lhs.false448, %lor.lhs.false452, %lor.lhs.false456, %if.then413, %lor.lhs.false420, %land.lhs.true429, %lor.lhs.false432, %if.then405, %do.body395, %lor.lhs.false288, %if.then188, %land.lhs.true180, %while.body, %lor.lhs.false, %if.then624, %if.then760, %land.lhs.true144, %if.then154, %if.else163, %land.lhs.true197, %if.then204, %if.end208, %if.end214, %if.else227, %if.end255, %land.lhs.true306, %if.then315, %if.end327, %if.then342, %if.end352, %if.end462, %land.lhs.true606, %if.else630, %if.else663, %if.then240
-  %foundPendingCandidate.0.be = phi i1 [ %foundPendingCandidate.0265, %land.lhs.true144 ], [ %foundPendingCandidate.0265, %if.else163 ], [ %foundPendingCandidate.0265, %if.end208 ], [ %foundPendingCandidate.0265, %if.end214 ], [ %foundPendingCandidate.0265, %if.end255 ], [ %foundPendingCandidate.0265, %if.then315 ], [ %foundPendingCandidate.0265, %if.then342 ], [ %foundPendingCandidate.0265, %if.end462 ], [ %foundPendingCandidate.0265, %if.then624 ], [ %foundPendingCandidate.0265, %if.then760 ], [ %foundPendingCandidate.0265, %if.else663 ], [ %foundPendingCandidate.0265, %if.else630 ], [ %foundPendingCandidate.0265, %land.lhs.true606 ], [ %foundPendingCandidate.0265, %if.end352 ], [ %foundPendingCandidate.0265, %if.end327 ], [ %foundPendingCandidate.0265, %land.lhs.true306 ], [ %foundPendingCandidate.0265, %if.then204 ], [ %foundPendingCandidate.0265, %if.else227 ], [ %foundPendingCandidate.0265, %land.lhs.true197 ], [ %foundPendingCandidate.0265, %if.then154 ], [ %foundPendingCandidate.0265, %if.then240 ], [ %foundPendingCandidate.0265, %lor.lhs.false ], [ %foundPendingCandidate.0265, %while.body ], [ true, %land.lhs.true180 ], [ true, %if.then188 ], [ %foundPendingCandidate.0265, %lor.lhs.false288 ], [ %foundPendingCandidate.0265, %do.body395 ], [ %foundPendingCandidate.0265, %if.then405 ], [ %foundPendingCandidate.0265, %lor.lhs.false432 ], [ %foundPendingCandidate.0265, %land.lhs.true429 ], [ %foundPendingCandidate.0265, %lor.lhs.false420 ], [ %foundPendingCandidate.0265, %if.then413 ], [ %foundPendingCandidate.0265, %lor.lhs.false456 ], [ %foundPendingCandidate.0265, %lor.lhs.false452 ], [ %foundPendingCandidate.0265, %lor.lhs.false448 ], [ %foundPendingCandidate.0265, %if.then444 ], [ %foundPendingCandidate.0265, %land.lhs.true479 ], [ %foundPendingCandidate.0265, %lor.lhs.false521 ], [ %foundPendingCandidate.0265, %lor.lhs.false513 ], [ %foundPendingCandidate.0265, %lor.lhs.false507 ], [ %foundPendingCandidate.0265, %if.then502 ], [ %foundPendingCandidate.0265, %lor.lhs.false561 ], [ %foundPendingCandidate.0265, %land.lhs.true554 ], [ %foundPendingCandidate.0265, %land.lhs.true585 ], [ %foundPendingCandidate.0265, %land.lhs.true574 ], [ %foundPendingCandidate.0265, %lor.lhs.false596 ], [ %foundPendingCandidate.0265, %if.end590 ], [ %foundPendingCandidate.0265, %lor.lhs.false642 ], [ %foundPendingCandidate.0265, %if.then638 ], [ %foundPendingCandidate.0265, %lor.lhs.false654 ], [ %foundPendingCandidate.0265, %if.end647 ], [ %foundPendingCandidate.0265, %land.lhs.true684 ], [ %foundPendingCandidate.0265, %lor.lhs.false681 ], [ %foundPendingCandidate.0265, %land.lhs.true709 ], [ %foundPendingCandidate.0265, %if.then717 ], [ %foundPendingCandidate.0265, %land.lhs.true731 ], [ %foundPendingCandidate.0265, %if.then739 ], [ %foundPendingCandidate.0265, %if.end158.thread ], [ %foundPendingCandidate.0265, %lor.lhs.false485 ]
-  %chosen.0.be = phi ptr [ %chosen.0266, %land.lhs.true144 ], [ %chosen.0266, %if.else163 ], [ %chosen.0266, %if.end208 ], [ %chosen.0266, %if.end214 ], [ %chosen.0266, %if.end255 ], [ %chosen.0266, %if.then315 ], [ %chosen.0266, %if.then342 ], [ %chosen.0266, %if.end462 ], [ %spec.select, %if.then624 ], [ %chosen.0266, %if.then760 ], [ %chosen.0266, %if.else663 ], [ %chosen.0266, %if.else630 ], [ %chosen.0266, %land.lhs.true606 ], [ %chosen.0266, %if.end352 ], [ %chosen.0266, %if.end327 ], [ %chosen.0266, %land.lhs.true306 ], [ %chosen.0266, %if.then204 ], [ %chosen.0266, %if.else227 ], [ %chosen.0266, %land.lhs.true197 ], [ %chosen.0266, %if.then154 ], [ %chosen.0266, %if.then240 ], [ %chosen.0266, %lor.lhs.false ], [ %chosen.0266, %while.body ], [ %chosen.0266, %land.lhs.true180 ], [ %chosen.0266, %if.then188 ], [ %chosen.0266, %lor.lhs.false288 ], [ %chosen.0266, %do.body395 ], [ %chosen.0266, %if.then405 ], [ %chosen.0266, %lor.lhs.false432 ], [ %chosen.0266, %land.lhs.true429 ], [ %chosen.0266, %lor.lhs.false420 ], [ %chosen.0266, %if.then413 ], [ %chosen.0266, %lor.lhs.false456 ], [ %chosen.0266, %lor.lhs.false452 ], [ %chosen.0266, %lor.lhs.false448 ], [ %chosen.0266, %if.then444 ], [ %chosen.0266, %land.lhs.true479 ], [ %chosen.0266, %lor.lhs.false521 ], [ %chosen.0266, %lor.lhs.false513 ], [ %chosen.0266, %lor.lhs.false507 ], [ %chosen.0266, %if.then502 ], [ %chosen.0266, %lor.lhs.false561 ], [ %chosen.0266, %land.lhs.true554 ], [ %chosen.0266, %land.lhs.true585 ], [ %chosen.0266, %land.lhs.true574 ], [ %chosen.0266, %lor.lhs.false596 ], [ %chosen.0266, %if.end590 ], [ %chosen.0266, %lor.lhs.false642 ], [ %chosen.0266, %if.then638 ], [ %chosen.0266, %lor.lhs.false654 ], [ %chosen.0266, %if.end647 ], [ %30, %land.lhs.true684 ], [ %30, %lor.lhs.false681 ], [ %chosen.0266, %land.lhs.true709 ], [ %chosen.0266, %if.then717 ], [ %chosen.0266, %land.lhs.true731 ], [ %chosen.0266, %if.then739 ], [ %chosen.0266, %if.end158.thread ], [ %chosen.0266, %lor.lhs.false485 ]
+while.cond.backedge:                              ; preds = %lor.lhs.false485, %land.lhs.true677.thread, %if.end158.thread, %if.then739, %land.lhs.true731, %if.then717, %land.lhs.true709, %land.lhs.true684, %if.end647, %lor.lhs.false654, %if.then638, %lor.lhs.false642, %if.end590, %lor.lhs.false596, %land.lhs.true574, %land.lhs.true585, %land.lhs.true554, %lor.lhs.false561, %if.then502, %lor.lhs.false507, %lor.lhs.false513, %lor.lhs.false521, %land.lhs.true479, %if.then444, %lor.lhs.false448, %lor.lhs.false452, %lor.lhs.false456, %if.then413, %lor.lhs.false420, %land.lhs.true429, %lor.lhs.false432, %if.then405, %do.body395, %lor.lhs.false288, %if.then188, %land.lhs.true180, %while.body, %lor.lhs.false, %if.then624, %if.then760, %land.lhs.true144, %if.then154, %if.else163, %land.lhs.true197, %if.then204, %if.end208, %if.end214, %if.else227, %if.end255, %land.lhs.true306, %if.then315, %if.end327, %if.then342, %if.end352, %if.end462, %land.lhs.true606, %if.else630, %if.else663, %if.then240
+  %foundPendingCandidate.0.be = phi i1 [ %foundPendingCandidate.0265, %land.lhs.true144 ], [ %foundPendingCandidate.0265, %if.else163 ], [ %foundPendingCandidate.0265, %if.end208 ], [ %foundPendingCandidate.0265, %if.end214 ], [ %foundPendingCandidate.0265, %if.end255 ], [ %foundPendingCandidate.0265, %if.then315 ], [ %foundPendingCandidate.0265, %if.then342 ], [ %foundPendingCandidate.0265, %if.end462 ], [ %foundPendingCandidate.0265, %if.then624 ], [ %foundPendingCandidate.0265, %if.then760 ], [ %foundPendingCandidate.0265, %if.else663 ], [ %foundPendingCandidate.0265, %if.else630 ], [ %foundPendingCandidate.0265, %land.lhs.true606 ], [ %foundPendingCandidate.0265, %if.end352 ], [ %foundPendingCandidate.0265, %if.end327 ], [ %foundPendingCandidate.0265, %land.lhs.true306 ], [ %foundPendingCandidate.0265, %if.then204 ], [ %foundPendingCandidate.0265, %if.else227 ], [ %foundPendingCandidate.0265, %land.lhs.true197 ], [ %foundPendingCandidate.0265, %if.then154 ], [ %foundPendingCandidate.0265, %if.then240 ], [ %foundPendingCandidate.0265, %lor.lhs.false ], [ %foundPendingCandidate.0265, %while.body ], [ true, %land.lhs.true180 ], [ true, %if.then188 ], [ %foundPendingCandidate.0265, %lor.lhs.false288 ], [ %foundPendingCandidate.0265, %do.body395 ], [ %foundPendingCandidate.0265, %if.then405 ], [ %foundPendingCandidate.0265, %lor.lhs.false432 ], [ %foundPendingCandidate.0265, %land.lhs.true429 ], [ %foundPendingCandidate.0265, %lor.lhs.false420 ], [ %foundPendingCandidate.0265, %if.then413 ], [ %foundPendingCandidate.0265, %lor.lhs.false456 ], [ %foundPendingCandidate.0265, %lor.lhs.false452 ], [ %foundPendingCandidate.0265, %lor.lhs.false448 ], [ %foundPendingCandidate.0265, %if.then444 ], [ %foundPendingCandidate.0265, %land.lhs.true479 ], [ %foundPendingCandidate.0265, %lor.lhs.false521 ], [ %foundPendingCandidate.0265, %lor.lhs.false513 ], [ %foundPendingCandidate.0265, %lor.lhs.false507 ], [ %foundPendingCandidate.0265, %if.then502 ], [ %foundPendingCandidate.0265, %lor.lhs.false561 ], [ %foundPendingCandidate.0265, %land.lhs.true554 ], [ %foundPendingCandidate.0265, %land.lhs.true585 ], [ %foundPendingCandidate.0265, %land.lhs.true574 ], [ %foundPendingCandidate.0265, %lor.lhs.false596 ], [ %foundPendingCandidate.0265, %if.end590 ], [ %foundPendingCandidate.0265, %lor.lhs.false642 ], [ %foundPendingCandidate.0265, %if.then638 ], [ %foundPendingCandidate.0265, %lor.lhs.false654 ], [ %foundPendingCandidate.0265, %if.end647 ], [ %foundPendingCandidate.0265, %land.lhs.true684 ], [ %foundPendingCandidate.0265, %land.lhs.true709 ], [ %foundPendingCandidate.0265, %if.then717 ], [ %foundPendingCandidate.0265, %land.lhs.true731 ], [ %foundPendingCandidate.0265, %if.then739 ], [ %foundPendingCandidate.0265, %if.end158.thread ], [ %foundPendingCandidate.0265, %land.lhs.true677.thread ], [ %foundPendingCandidate.0265, %lor.lhs.false485 ]
+  %chosen.0.be = phi ptr [ %chosen.0267, %land.lhs.true144 ], [ %chosen.0267, %if.else163 ], [ %chosen.0267, %if.end208 ], [ %chosen.0267, %if.end214 ], [ %chosen.0267, %if.end255 ], [ %chosen.0267, %if.then315 ], [ %chosen.0267, %if.then342 ], [ %chosen.0267, %if.end462 ], [ %spec.select, %if.then624 ], [ %chosen.0267, %if.then760 ], [ %chosen.0267, %if.else663 ], [ %chosen.0267, %if.else630 ], [ %chosen.0267, %land.lhs.true606 ], [ %chosen.0267, %if.end352 ], [ %chosen.0267, %if.end327 ], [ %chosen.0267, %land.lhs.true306 ], [ %chosen.0267, %if.then204 ], [ %chosen.0267, %if.else227 ], [ %chosen.0267, %land.lhs.true197 ], [ %chosen.0267, %if.then154 ], [ %chosen.0267, %if.then240 ], [ %chosen.0267, %lor.lhs.false ], [ %chosen.0267, %while.body ], [ %chosen.0267, %land.lhs.true180 ], [ %chosen.0267, %if.then188 ], [ %chosen.0267, %lor.lhs.false288 ], [ %chosen.0267, %do.body395 ], [ %chosen.0267, %if.then405 ], [ %chosen.0267, %lor.lhs.false432 ], [ %chosen.0267, %land.lhs.true429 ], [ %chosen.0267, %lor.lhs.false420 ], [ %chosen.0267, %if.then413 ], [ %chosen.0267, %lor.lhs.false456 ], [ %chosen.0267, %lor.lhs.false452 ], [ %chosen.0267, %lor.lhs.false448 ], [ %chosen.0267, %if.then444 ], [ %chosen.0267, %land.lhs.true479 ], [ %chosen.0267, %lor.lhs.false521 ], [ %chosen.0267, %lor.lhs.false513 ], [ %chosen.0267, %lor.lhs.false507 ], [ %chosen.0267, %if.then502 ], [ %chosen.0267, %lor.lhs.false561 ], [ %chosen.0267, %land.lhs.true554 ], [ %chosen.0267, %land.lhs.true585 ], [ %chosen.0267, %land.lhs.true574 ], [ %chosen.0267, %lor.lhs.false596 ], [ %chosen.0267, %if.end590 ], [ %chosen.0267, %lor.lhs.false642 ], [ %chosen.0267, %if.then638 ], [ %chosen.0267, %lor.lhs.false654 ], [ %chosen.0267, %if.end647 ], [ %30, %land.lhs.true684 ], [ %chosen.0267, %land.lhs.true709 ], [ %chosen.0267, %if.then717 ], [ %chosen.0267, %land.lhs.true731 ], [ %chosen.0267, %if.then739 ], [ %chosen.0267, %if.end158.thread ], [ %30, %land.lhs.true677.thread ], [ %chosen.0267, %lor.lhs.false485 ]
   %tobool130.not = icmp eq ptr %31, null
   br i1 %tobool130.not, label %while.end, label %while.body, !llvm.loop !13
 
@@ -4826,10 +4825,10 @@ if.end158:                                        ; preds = %if.end152
   br i1 %tobool159.not, label %if.end175, label %if.else163
 
 if.end158.thread:                                 ; preds = %if.then154
-  %size277 = getelementptr inbounds i8, ptr %30, i64 776
-  %38 = load i64, ptr %size277, align 8
-  %tobool159.not278 = icmp eq i64 %38, 0
-  br i1 %tobool159.not278, label %if.end175, label %while.cond.backedge
+  %size278 = getelementptr inbounds i8, ptr %30, i64 776
+  %38 = load i64, ptr %size278, align 8
+  %tobool159.not279 = icmp eq i64 %38, 0
+  br i1 %tobool159.not279, label %if.end175, label %while.cond.backedge
 
 if.else163:                                       ; preds = %if.end158
   %easyq = getelementptr inbounds i8, ptr %30, i64 752
@@ -4842,7 +4841,7 @@ if.else163:                                       ; preds = %if.end158
   br i1 %cmp170.not, label %if.end175, label %while.cond.backedge
 
 if.end175:                                        ; preds = %if.end158.thread, %if.else163, %if.end158
-  %size281 = phi ptr [ %size277, %if.end158.thread ], [ %size, %if.else163 ], [ %size, %if.end158 ]
+  %size282 = phi ptr [ %size278, %if.end158.thread ], [ %size, %if.else163 ], [ %size, %if.end158 ]
   %call176 = tail call zeroext i1 @Curl_conn_is_connected(ptr noundef nonnull %30, i32 noundef 0) #11
   br i1 %call176, label %if.end191, label %land.lhs.true180
 
@@ -4865,7 +4864,7 @@ if.end191:                                        ; preds = %if.end175
   br i1 %tobool196.not, label %land.lhs.true197, label %if.end202
 
 land.lhs.true197:                                 ; preds = %if.end191
-  %46 = load i64, ptr %size281, align 8
+  %46 = load i64, ptr %size282, align 8
   %tobool200.not = icmp eq i64 %46, 0
   br i1 %tobool200.not, label %if.end202, label %while.cond.backedge
 
@@ -4923,8 +4922,8 @@ if.end255:                                        ; preds = %if.then240, %if.end
   %bf.load257 = load i32, ptr %bits, align 8
   %bf.lshr258224 = xor i32 %bf.load257, %bf.load193
   %59 = and i32 %bf.lshr258224, 1537
-  %or.cond268 = icmp eq i32 %59, 0
-  br i1 %or.cond268, label %lor.lhs.false288, label %while.cond.backedge
+  %or.cond269 = icmp eq i32 %59, 0
+  br i1 %or.cond269, label %lor.lhs.false288, label %while.cond.backedge
 
 lor.lhs.false288:                                 ; preds = %if.end255
   %bf.lshr291 = lshr i32 %bf.load257, 1
@@ -5029,8 +5028,8 @@ if.end408:                                        ; preds = %land.lhs.true362, %
   %tobool409.not = icmp eq ptr %68, null
   %.pre = load i16, ptr %localport, align 8
   %tobool412.not = icmp eq i16 %.pre, 0
-  %or.cond292 = select i1 %tobool409.not, i1 %tobool412.not, i1 false
-  br i1 %or.cond292, label %if.end439, label %if.then413
+  %or.cond296 = select i1 %tobool409.not, i1 %tobool412.not, i1 false
+  br i1 %or.cond296, label %if.end439, label %if.then413
 
 if.then413:                                       ; preds = %if.end408
   %localport414 = getelementptr inbounds i8, ptr %30, i64 1160
@@ -5128,8 +5127,8 @@ land.lhs.true479:                                 ; preds = %land.lhs.true474
 lor.lhs.false485:                                 ; preds = %land.lhs.true479
   %cmp488 = icmp ugt i8 %87, 29
   %cmp494 = icmp ult i8 %88, 30
-  %or.cond293 = and i1 %cmp488, %cmp494
-  br i1 %or.cond293, label %while.cond.backedge, label %if.else497
+  %or.cond297 = and i1 %cmp488, %cmp494
+  br i1 %or.cond297, label %while.cond.backedge, label %if.else497
 
 if.else497:                                       ; preds = %land.lhs.true474, %lor.lhs.false485, %if.end469
   %89 = getelementptr i8, ptr %85, i64 136
@@ -5169,11 +5168,11 @@ lor.lhs.false521:                                 ; preds = %lor.lhs.false513
   br i1 %cmp527.not, label %lor.lhs.false521.if.end532_crit_edge, label %while.cond.backedge
 
 lor.lhs.false521.if.end532_crit_edge:             ; preds = %lor.lhs.false521
-  %.pre274 = load ptr, ptr %handler.i, align 8
+  %.pre275 = load ptr, ptr %handler.i, align 8
   br label %if.end532
 
 if.end532:                                        ; preds = %lor.lhs.false521.if.end532_crit_edge, %if.else497
-  %98 = phi ptr [ %.pre274, %lor.lhs.false521.if.end532_crit_edge ], [ %85, %if.else497 ]
+  %98 = phi ptr [ %.pre275, %lor.lhs.false521.if.end532_crit_edge ], [ %85, %if.else497 ]
   %flags534 = getelementptr inbounds i8, ptr %98, i64 140
   %99 = load i32, ptr %flags534, align 4
   %and535 = and i32 %99, 1
@@ -5291,7 +5290,7 @@ if.then624:                                       ; preds = %lor.lhs.false619, %
   %http_ntlm_state = getelementptr inbounds i8, ptr %30, i64 800
   %125 = load i32, ptr %http_ntlm_state, align 8
   %cmp625 = icmp eq i32 %125, 0
-  %spec.select = select i1 %cmp625, ptr %30, ptr %chosen.0266
+  %spec.select = select i1 %cmp625, ptr %30, ptr %chosen.0267
   br label %while.cond.backedge
 
 if.else630:                                       ; preds = %if.end612
@@ -5335,68 +5334,71 @@ if.else663:                                       ; preds = %if.end636
   br i1 %cmp664.not, label %if.end668, label %while.cond.backedge
 
 if.end668:                                        ; preds = %if.else663
-  br i1 %brmerge239, label %if.then674, label %if.end690
+  br i1 %3, label %land.lhs.true677.thread, label %if.end690
 
-if.then674:                                       ; preds = %lor.lhs.false654, %if.end668
-  br i1 %3, label %land.lhs.true677, label %lor.lhs.false681
+if.then674:                                       ; preds = %lor.lhs.false654
+  br i1 %3, label %land.lhs.true677, label %land.lhs.true684
 
 land.lhs.true677:                                 ; preds = %if.then674
   %http_ntlm_state678 = getelementptr inbounds i8, ptr %30, i64 800
   %133 = load i32, ptr %http_ntlm_state678, align 8
   %cmp679.not = icmp eq i32 %133, 0
-  br i1 %cmp679.not, label %lor.lhs.false681, label %if.then688
+  br i1 %cmp679.not, label %land.lhs.true684, label %if.then688
 
-lor.lhs.false681:                                 ; preds = %land.lhs.true677, %if.then674
-  br i1 %8, label %land.lhs.true684, label %while.cond.backedge
+land.lhs.true677.thread:                          ; preds = %if.end668
+  %http_ntlm_state678285 = getelementptr inbounds i8, ptr %30, i64 800
+  %134 = load i32, ptr %http_ntlm_state678285, align 8
+  %cmp679.not286 = icmp eq i32 %134, 0
+  br i1 %cmp679.not286, label %while.cond.backedge, label %if.then688
 
-land.lhs.true684:                                 ; preds = %lor.lhs.false681
+land.lhs.true684:                                 ; preds = %land.lhs.true677, %if.then674
   %proxy_ntlm_state685 = getelementptr inbounds i8, ptr %30, i64 804
-  %134 = load i32, ptr %proxy_ntlm_state685, align 4
-  %cmp686.not = icmp eq i32 %134, 0
+  %135 = load i32, ptr %proxy_ntlm_state685, align 4
+  %cmp686.not = icmp eq i32 %135, 0
   br i1 %cmp686.not, label %while.cond.backedge, label %if.then688
 
-if.then688:                                       ; preds = %land.lhs.true684, %land.lhs.true677
+if.then688:                                       ; preds = %land.lhs.true677.thread, %land.lhs.true684, %land.lhs.true677
   store i8 1, ptr %force_reuse, align 1
   br label %if.then764
 
 if.end690:                                        ; preds = %if.end668
-  %135 = load i64, ptr %size281, align 8
-  %tobool693.not = icmp eq i64 %135, 0
+  %136 = load i64, ptr %size282, align 8
+  %tobool693.not = icmp eq i64 %136, 0
   br i1 %tobool693.not, label %if.else758, label %do.end698
 
 do.end698:                                        ; preds = %if.end690
-  %136 = load ptr, ptr %multi169, align 8
-  %call702 = tail call i32 @Curl_multi_max_concurrent_streams(ptr noundef %136) #11
+  %137 = load ptr, ptr %multi169, align 8
+  %call702 = tail call i32 @Curl_multi_max_concurrent_streams(ptr noundef %137) #11
   %conv703 = zext i32 %call702 to i64
-  %cmp704.not = icmp ult i64 %135, %conv703
+  %cmp704.not = icmp ult i64 %136, %conv703
   br i1 %cmp704.not, label %if.end722, label %land.lhs.true709
 
 land.lhs.true709:                                 ; preds = %do.end698
   %bf.load712 = load i64, ptr %verbose, align 2
-  %137 = and i64 %bf.load712, 536870912
-  %tobool716.not = icmp eq i64 %137, 0
+  %138 = and i64 %bf.load712, 536870912
+  %tobool716.not = icmp eq i64 %138, 0
   br i1 %tobool716.not, label %while.cond.backedge, label %if.then717
 
 if.then717:                                       ; preds = %land.lhs.true709
-  %138 = load i64, ptr %size281, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.75, i64 noundef %138) #11
+  %139 = load i64, ptr %size282, align 8
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.75, i64 noundef %139) #11
   br label %while.cond.backedge
 
 if.end722:                                        ; preds = %do.end698
-  %139 = load i64, ptr %size281, align 8
+  %140 = load i64, ptr %size282, align 8
   %call725 = tail call i64 @Curl_conn_get_max_concurrent(ptr noundef nonnull %data, ptr noundef nonnull %30, i32 noundef 0) #11
-  %cmp726.not = icmp ult i64 %139, %call725
+  %cmp726.not = icmp ult i64 %140, %call725
   %bf.load750 = load i64, ptr %verbose, align 2
-  %140 = and i64 %bf.load750, 536870912
-  %tobool754.not = icmp eq i64 %140, 0
+  %141 = and i64 %bf.load750, 536870912
+  %tobool754.not = icmp eq i64 %141, 0
   br i1 %cmp726.not, label %land.lhs.true747, label %land.lhs.true731
 
 land.lhs.true731:                                 ; preds = %if.end722
   br i1 %tobool754.not, label %while.cond.backedge, label %if.then739
 
 if.then739:                                       ; preds = %land.lhs.true731
-  %141 = load i64, ptr %size281, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.76, i64 noundef %141) #11
+  %142 = load i64, ptr %size282, align 8
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.76, i64 noundef %142) #11
   br label %while.cond.backedge
 
 land.lhs.true747:                                 ; preds = %if.end722
@@ -5422,8 +5424,8 @@ if.then764:                                       ; preds = %if.else758, %land.l
   %chosen.1250 = phi ptr [ %chosen.0.be, %while.end ], [ %30, %if.then688 ], [ %30, %if.then755 ], [ %30, %land.lhs.true747 ], [ %30, %if.else758 ]
   tail call void @Curl_attach_connection(ptr noundef %data, ptr noundef nonnull %chosen.1250) #11
   %share765 = getelementptr inbounds i8, ptr %data, i64 208
-  %142 = load ptr, ptr %share765, align 8
-  %tobool766.not = icmp eq ptr %142, null
+  %143 = load ptr, ptr %share765, align 8
+  %tobool766.not = icmp eq ptr %143, null
   br i1 %tobool766.not, label %if.end769, label %if.then767
 
 if.then767:                                       ; preds = %if.then764
@@ -5435,10 +5437,10 @@ if.end769:                                        ; preds = %if.then767, %if.the
   br label %return
 
 if.end770:                                        ; preds = %if.end129, %while.end
-  %foundPendingCandidate.0.lcssa287 = phi i1 [ %foundPendingCandidate.0.be, %while.end ], [ false, %if.end129 ]
+  %foundPendingCandidate.0.lcssa291 = phi i1 [ %foundPendingCandidate.0.be, %while.end ], [ false, %if.end129 ]
   %share771 = getelementptr inbounds i8, ptr %data, i64 208
-  %143 = load ptr, ptr %share771, align 8
-  %tobool772.not = icmp eq ptr %143, null
+  %144 = load ptr, ptr %share771, align 8
+  %tobool772.not = icmp eq ptr %144, null
   br i1 %tobool772.not, label %if.end775, label %if.then773
 
 if.then773:                                       ; preds = %if.end770
@@ -5446,17 +5448,17 @@ if.then773:                                       ; preds = %if.end770
   br label %if.end775
 
 if.end775:                                        ; preds = %if.then773, %if.end770
-  br i1 %foundPendingCandidate.0.lcssa287, label %land.lhs.true778, label %return
+  br i1 %foundPendingCandidate.0.lcssa291, label %land.lhs.true778, label %return
 
 land.lhs.true778:                                 ; preds = %if.end775
   %bf.load781 = load i64, ptr %verbose, align 2
-  %144 = and i64 %bf.load781, 17592186044416
-  %tobool785.not = icmp eq i64 %144, 0
+  %145 = and i64 %bf.load781, 17592186044416
+  %tobool785.not = icmp eq i64 %145, 0
   br i1 %tobool785.not, label %return, label %do.body787
 
 do.body787:                                       ; preds = %land.lhs.true778
-  %145 = and i64 %bf.load781, 536870912
-  %tobool796.not = icmp eq i64 %145, 0
+  %146 = and i64 %bf.load781, 536870912
+  %tobool796.not = icmp eq i64 %146, 0
   br i1 %tobool796.not, label %do.end799, label %if.then797
 
 if.then797:                                       ; preds = %do.body787

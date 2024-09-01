@@ -2068,18 +2068,10 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
 
 .preheader89:                                     ; preds = %34
   %35 = trunc nuw nsw i32 %1 to i8
-  br i1 %.not, label %.preheader89.split.us, label %.preheader89.split.preheader
-
-.preheader89.split.preheader:                     ; preds = %.preheader89
   %wide.trip.count = zext nneg i32 %.066 to i64
   br label %.preheader89.split
 
-.preheader89.split.us:                            ; preds = %.preheader89
-  %.not24.i.us = icmp eq i32 %spec.store.select, 0
-  br i1 %.not24.i.us, label %._crit_edge.thread, label %.lr.ph.i.preheader.us.preheader
-
-.lr.ph.i.preheader.us.preheader:                  ; preds = %33, %.preheader89.split.us
-  %.068115118121 = phi ptr [ %28, %.preheader89.split.us ], [ %19, %33 ]
+.lr.ph.i.preheader.us.preheader:                  ; preds = %33
   %wide.trip.count109 = zext nneg i32 %.066 to i64
   br label %.lr.ph.i.preheader.us
 
@@ -2092,7 +2084,7 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %40
   %.023.i.us = phi i32 [ %41, %40 ], [ 0, %.lr.ph.i.preheader.us ]
-  %.01722.i.us = phi ptr [ %42, %40 ], [ %.068115118121, %.lr.ph.i.preheader.us ]
+  %.01722.i.us = phi ptr [ %42, %40 ], [ %19, %.lr.ph.i.preheader.us ]
   %bcmp.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.01722.i.us, ptr noundef nonnull readonly dereferenceable(4) %38, i64 4)
   %39 = icmp eq i32 %bcmp.i.us, 0
   br i1 %39, label %.sink.split.i.loopexit.us, label %40
@@ -2114,14 +2106,14 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %add_one_chunk.exit.us
 
 .preheader:                                       ; preds = %.sink.split.i, %add_one_chunk.exit.us
-  %.068115117 = phi ptr [ %.068115118121, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
+  %.068115117 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
   %.us-phi = phi i32 [ %spec.store.select, %add_one_chunk.exit.us ], [ %.016.ph.i, %.sink.split.i ]
   %.not99 = icmp eq i32 %.us-phi, 0
   br i1 %.not99, label %._crit_edge.thread, label %.lr.ph
 
-.preheader89.split:                               ; preds = %.preheader89.split.preheader, %.sink.split.i
-  %indvars.iv = phi i64 [ 0, %.preheader89.split.preheader ], [ %indvars.iv.next, %.sink.split.i ]
-  %.06591 = phi i32 [ %spec.store.select, %.preheader89.split.preheader ], [ %.016.ph.i, %.sink.split.i ]
+.preheader89.split:                               ; preds = %.preheader89, %.sink.split.i
+  %indvars.iv = phi i64 [ 0, %.preheader89 ], [ %indvars.iv.next, %.sink.split.i ]
+  %.06591 = phi i32 [ %spec.store.select, %.preheader89 ], [ %.016.ph.i, %.sink.split.i ]
   %44 = mul i64 %indvars.iv, 5
   %45 = and i64 %44, 4294967295
   %46 = getelementptr inbounds i8, ptr %.070, i64 %45
@@ -2192,14 +2184,13 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %64 = icmp eq i32 %.2, 0
   br i1 %64, label %._crit_edge.thread, label %thread-pre-split
 
-._crit_edge.thread:                               ; preds = %.preheader89.split.us, %.preheader, %._crit_edge
-  %.068115117125128 = phi ptr [ %.068115117, %._crit_edge ], [ %.068115117, %.preheader ], [ %28, %.preheader89.split.us ]
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %65 = load ptr, ptr %18, align 8
-  %.not81 = icmp eq ptr %65, %.068115117125128
+  %.not81 = icmp eq ptr %65, %.068115117
   br i1 %.not81, label %67, label %66
 
 66:                                               ; preds = %._crit_edge.thread
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068115117125128) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068115117) #12
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %._crit_edge, %66, %34

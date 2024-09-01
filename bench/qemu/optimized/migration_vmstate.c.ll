@@ -1441,8 +1441,8 @@ for.inc.i21.i:                                    ; preds = %if.end.i.i, %for.bo
   br i1 %tobool.not.i24.i, label %vmfield_name_num.exit.i, label %for.body.i18.i, !llvm.loop !11
 
 vmfield_name_num.exit.i:                          ; preds = %for.inc.i21.i, %if.then.i25.i
-  %retval.0.i.ph.i = phi i32 [ %found.08.i.i, %if.then.i25.i ], [ -1, %for.inc.i21.i ]
-  %call8.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, ptr noundef %call3.i, i32 noundef %retval.0.i.ph.i) #10
+  %retval.0.i.i = phi i32 [ -1, %for.inc.i21.i ], [ %found.08.i.i, %if.then.i25.i ]
+  %call8.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, ptr noundef %call3.i, i32 noundef %retval.0.i.i) #10
   tail call void @g_free(ptr noundef %call3.i) #10
   br label %if.end9.i
 

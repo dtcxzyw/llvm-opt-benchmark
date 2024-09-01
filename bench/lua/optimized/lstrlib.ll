@@ -3707,7 +3707,7 @@ if.else102:                                       ; preds = %if.else.i206, %sing
   %70 = load i8, ptr %retval.0.i188, align 1
   switch i8 %70, label %init.outer.backedge [
     i8 63, label %sw.bb104
-    i8 43, label %sw.bb115.loopexit625
+    i8 43, label %sw.bb115.loopexit619
     i8 42, label %sw.bb115
     i8 45, label %for.cond.i.preheader
   ]
@@ -3728,19 +3728,19 @@ sw.bb104:                                         ; preds = %if.else102
   %cmp108.not = icmp eq ptr %call107, null
   br i1 %cmp108.not, label %init.backedge, label %if.end124
 
-sw.bb115.loopexit625:                             ; preds = %if.else102
+sw.bb115.loopexit619:                             ; preds = %if.else102
   br label %sw.bb115
 
-sw.bb115:                                         ; preds = %if.else102, %sw.bb115.loopexit625
-  %s.addr.2 = phi ptr [ %add.ptr105, %sw.bb115.loopexit625 ], [ %s.addr.0.ph424, %if.else102 ]
+sw.bb115:                                         ; preds = %if.else102, %sw.bb115.loopexit619
+  %s.addr.2 = phi ptr [ %add.ptr105, %sw.bb115.loopexit619 ], [ %s.addr.0.ph424, %if.else102 ]
   %add.ptr5.i244 = getelementptr inbounds i8, ptr %retval.0.i188, i64 -1
-  %cmp.not.i239616 = icmp ult ptr %s.addr.2, %ms.val
-  br i1 %cmp.not.i239616, label %if.else.i241, label %while.body2.i.lr.ph
+  %cmp.not.i239610 = icmp ult ptr %s.addr.2, %ms.val
+  br i1 %cmp.not.i239610, label %if.else.i241, label %while.body2.i.lr.ph
 
 if.else.i241:                                     ; preds = %sw.bb115, %while.body.i216
-  %i.0.i617 = phi i64 [ %inc.i217, %while.body.i216 ], [ 0, %sw.bb115 ]
-  %add.ptr.i213618 = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.0.i617
-  %71 = load i8, ptr %add.ptr.i213618, align 1
+  %i.0.i611 = phi i64 [ %inc.i217, %while.body.i216 ], [ 0, %sw.bb115 ]
+  %add.ptr.i213612 = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.0.i611
+  %71 = load i8, ptr %add.ptr.i213612, align 1
   %conv.i242 = zext i8 %71 to i32
   switch i8 %62, label %sw.default.i282 [
     i8 46, label %while.body.i216
@@ -3822,12 +3822,12 @@ singlematch.exit285:                              ; preds = %sw.bb2.i278, %match
   br i1 %tobool.not.i215, label %while.body2.i.lr.ph, label %while.body.i216
 
 while.body2.i.lr.ph:                              ; preds = %singlematch.exit285, %while.body.i216, %sw.bb115
-  %i.0.i.lcssa = phi i64 [ 0, %sw.bb115 ], [ %i.0.i617, %singlematch.exit285 ], [ %inc.i217, %while.body.i216 ]
+  %i.0.i.lcssa = phi i64 [ 0, %sw.bb115 ], [ %i.0.i611, %singlematch.exit285 ], [ %inc.i217, %while.body.i216 ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %retval.0.i188, i64 1
   br label %while.body2.i
 
 while.body.i216:                                  ; preds = %if.else.i241, %singlematch.exit285
-  %inc.i217 = add nuw nsw i64 %i.0.i617, 1
+  %inc.i217 = add nuw nsw i64 %i.0.i611, 1
   %add.ptr.i213 = getelementptr inbounds i8, ptr %s.addr.2, i64 %inc.i217
   %cmp.not.i239 = icmp ult ptr %add.ptr.i213, %ms.val
   br i1 %cmp.not.i239, label %if.else.i241, label %while.body2.i.lr.ph, !llvm.loop !32

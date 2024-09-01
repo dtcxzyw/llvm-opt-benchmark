@@ -3881,10 +3881,7 @@ for.body43.preheader:                             ; preds = %for.body43.lr.ph
   %wide.trip.count.i62 = zext nneg i32 %.pr to i64
   br label %for.body43
 
-for.cond67.preheader:                             ; preds = %for.inc
-  br i1 %cmp42186, label %for.body69.preheader, label %for.inc82
-
-for.body69.preheader:                             ; preds = %for.body43.lr.ph, %for.cond67.preheader
+for.body69.preheader:                             ; preds = %for.inc, %for.body43.lr.ph
   %17 = sext i32 %14 to i64
   br label %for.body69
 
@@ -3956,7 +3953,7 @@ for.inc:                                          ; preds = %for.inc.i67, %for.b
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %add40, %lftr.wideiv
-  br i1 %exitcond.not, label %for.cond67.preheader, label %for.body43, !llvm.loop !29
+  br i1 %exitcond.not, label %for.body69.preheader, label %for.body43, !llvm.loop !29
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.inc79
   %29 = phi ptr [ %2, %for.body69.preheader ], [ %45, %for.inc79 ]
@@ -4154,13 +4151,13 @@ for.inc79:                                        ; preds = %if.then.i88, %_ZN20
   %exitcond199.not = icmp eq i32 %add40, %lftr.wideiv198
   br i1 %exitcond199.not, label %for.inc82, label %for.body69, !llvm.loop !32
 
-for.inc82:                                        ; preds = %for.inc79, %if.end, %for.cond67.preheader, %for.body
-  %46 = phi i32 [ %1, %for.cond67.preheader ], [ %1, %for.body ], [ %1, %if.end ], [ %43, %for.inc79 ]
-  %47 = phi ptr [ %2, %for.cond67.preheader ], [ %2, %for.body ], [ %2, %if.end ], [ %45, %for.inc79 ]
-  %.pr201 = phi i32 [ %.pr, %for.cond67.preheader ], [ %.pr, %for.body ], [ %.pr, %if.end ], [ %inc.i87, %for.inc79 ]
-  %48 = phi ptr [ %27, %for.cond67.preheader ], [ %3, %for.body ], [ %3, %if.end ], [ %45, %for.inc79 ]
-  %49 = phi i32 [ %28, %for.cond67.preheader ], [ %4, %for.body ], [ %4, %if.end ], [ %inc.i87, %for.inc79 ]
-  %50 = phi i32 [ %28, %for.cond67.preheader ], [ %5, %for.body ], [ %5, %if.end ], [ %inc.i87, %for.inc79 ]
+for.inc82:                                        ; preds = %for.inc79, %if.end, %for.body
+  %46 = phi i32 [ %1, %for.body ], [ %1, %if.end ], [ %43, %for.inc79 ]
+  %47 = phi ptr [ %2, %for.body ], [ %2, %if.end ], [ %45, %for.inc79 ]
+  %.pr201 = phi i32 [ %.pr, %for.body ], [ %.pr, %if.end ], [ %inc.i87, %for.inc79 ]
+  %48 = phi ptr [ %3, %for.body ], [ %3, %if.end ], [ %45, %for.inc79 ]
+  %49 = phi i32 [ %4, %for.body ], [ %4, %if.end ], [ %inc.i87, %for.inc79 ]
+  %50 = phi i32 [ %5, %for.body ], [ %5, %if.end ], [ %inc.i87, %for.inc79 ]
   %inc83 = add nuw nsw i32 %wgIdx.0190, 1
   %exitcond200.not = icmp eq i32 %inc83, 32
   br i1 %exitcond200.not, label %for.end84, label %for.body, !llvm.loop !33

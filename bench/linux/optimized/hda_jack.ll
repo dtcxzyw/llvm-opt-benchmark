@@ -779,7 +779,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %18 = getelementptr inbounds i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %2
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.preheader.preheader, label %21
 
 21:                                               ; preds = %17, %.preheader9
   %22 = add nuw i32 %13, 1
@@ -787,11 +787,8 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %24 = icmp eq i32 %22, %11
   br i1 %24, label %.preheader.preheader, label %.preheader9, !llvm.loop !6
 
-.thread:                                          ; preds = %17
-  br i1 %12, label %.thread8, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %21, %.thread
-  %25 = phi ptr [ %14, %.thread ], [ null, %21 ]
+.preheader.preheader:                             ; preds = %21, %17
+  %25 = phi ptr [ %14, %17 ], [ null, %21 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %30
@@ -807,9 +804,9 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %33 = icmp eq i32 %31, %11
   br i1 %33, label %.thread8, label %.preheader, !llvm.loop !15
 
-.thread8:                                         ; preds = %30, %.preheader, %9, %3, %.thread
-  %34 = phi ptr [ %14, %.thread ], [ null, %3 ], [ null, %9 ], [ %25, %.preheader ], [ %25, %30 ]
-  %35 = phi ptr [ null, %.thread ], [ null, %3 ], [ null, %9 ], [ null, %30 ], [ %27, %.preheader ]
+.thread8:                                         ; preds = %30, %.preheader, %9, %3
+  %34 = phi ptr [ null, %3 ], [ null, %9 ], [ %25, %.preheader ], [ %25, %30 ]
+  %35 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %30 ], [ %27, %.preheader ]
   %36 = icmp eq i32 %2, 0
   br i1 %36, label %43, label %37
 
@@ -952,8 +949,8 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   %24 = icmp eq i32 %22, %11
   br i1 %24, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !6
 
-.preheader.preheader.i:                           ; preds = %21, %17
-  %25 = phi ptr [ %14, %17 ], [ null, %21 ]
+.preheader.preheader.i:                           ; preds = %17, %21
+  %25 = phi ptr [ null, %21 ], [ %14, %17 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %30, %.preheader.preheader.i
@@ -970,169 +967,169 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   br i1 %33, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %30, %.preheader.i
-  %.ph8 = phi ptr [ null, %30 ], [ %27, %.preheader.i ]
-  %34 = icmp eq ptr %25, null
-  br i1 %34, label %.thread8.i.thread, label %snd_hda_jack_tbl_new.exit
+  %34 = phi ptr [ %27, %.preheader.i ], [ null, %30 ]
+  %35 = icmp eq ptr %25, null
+  br i1 %35, label %.thread8.i.thread, label %snd_hda_jack_tbl_new.exit
 
 .thread8.i.thread:                                ; preds = %9, %3, %.thread8.i
-  %35 = phi ptr [ %.ph8, %.thread8.i ], [ null, %3 ], [ null, %9 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 1480
-  %37 = tail call ptr @snd_array_new(ptr noundef %36) #11
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %snd_hda_jack_tbl_new.exit, label %39
+  %36 = phi ptr [ %34, %.thread8.i ], [ null, %3 ], [ null, %9 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 1480
+  %38 = tail call ptr @snd_array_new(ptr noundef %37) #11
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %snd_hda_jack_tbl_new.exit, label %40
 
-39:                                               ; preds = %.thread8.i.thread
-  store i16 %1, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 4
-  store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 28
-  %42 = load i8, ptr %41, align 4
-  %43 = or i8 %42, 2
-  store i8 %43, ptr %41, align 4
-  %44 = icmp eq ptr %35, null
-  %45 = getelementptr inbounds i8, ptr %37, i64 8
-  br i1 %44, label %54, label %46
+40:                                               ; preds = %.thread8.i.thread
+  store i16 %1, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 0, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %38, i64 28
+  %43 = load i8, ptr %42, align 4
+  %44 = or i8 %43, 2
+  store i8 %44, ptr %42, align 4
+  %45 = icmp eq ptr %36, null
+  %46 = getelementptr inbounds i8, ptr %38, i64 8
+  br i1 %45, label %55, label %47
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %35, i64 8
-  %48 = load i8, ptr %47, align 8
-  store i8 %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %35, i64 28
-  %50 = load i8, ptr %49, align 4
-  %51 = and i8 %50, 1
-  %52 = and i8 %43, -2
-  %53 = or disjoint i8 %51, %52
-  store i8 %53, ptr %41, align 4
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %49 = load i8, ptr %48, align 8
+  store i8 %49, ptr %46, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 28
+  %51 = load i8, ptr %50, align 4
+  %52 = and i8 %51, 1
+  %53 = and i8 %44, -2
+  %54 = or disjoint i8 %52, %53
+  store i8 %54, ptr %42, align 4
   br label %snd_hda_jack_tbl_new.exit
 
-54:                                               ; preds = %39
-  %55 = load i32, ptr %36, align 8
-  %56 = trunc i32 %55 to i8
-  store i8 %56, ptr %45, align 8
+55:                                               ; preds = %40
+  %56 = load i32, ptr %37, align 8
+  %57 = trunc i32 %56 to i8
+  store i8 %57, ptr %46, align 8
   br label %snd_hda_jack_tbl_new.exit
 
-snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.thread8.i.thread, %46, %54
-  %57 = phi ptr [ %25, %.thread8.i ], [ null, %.thread8.i.thread ], [ %37, %54 ], [ %37, %46 ]
-  %58 = load ptr, ptr %4, align 8
-  %59 = icmp ne i16 %2, 0
-  %60 = icmp ne ptr %58, null
-  %61 = select i1 %59, i1 %60, i1 false
-  br i1 %61, label %62, label %.thread8.i2.thread
+snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.thread8.i.thread, %47, %55
+  %58 = phi ptr [ %25, %.thread8.i ], [ null, %.thread8.i.thread ], [ %38, %55 ], [ %38, %47 ]
+  %59 = load ptr, ptr %4, align 8
+  %60 = icmp ne i16 %2, 0
+  %61 = icmp ne ptr %59, null
+  %62 = select i1 %60, i1 %61, i1 false
+  br i1 %62, label %63, label %.thread8.i2.thread
 
-62:                                               ; preds = %snd_hda_jack_tbl_new.exit
-  %63 = getelementptr inbounds i8, ptr %0, i64 1480
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.thread8.i2.thread, label %.preheader9.i3
+63:                                               ; preds = %snd_hda_jack_tbl_new.exit
+  %64 = getelementptr inbounds i8, ptr %0, i64 1480
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.thread8.i2.thread, label %.preheader9.i3
 
-.preheader9.i3:                                   ; preds = %62, %74
-  %66 = phi i32 [ %75, %74 ], [ 0, %62 ]
-  %67 = phi ptr [ %76, %74 ], [ %58, %62 ]
-  %68 = load i16, ptr %67, align 8
-  %69 = icmp eq i16 %68, %2
-  br i1 %69, label %70, label %74
+.preheader9.i3:                                   ; preds = %63, %75
+  %67 = phi i32 [ %76, %75 ], [ 0, %63 ]
+  %68 = phi ptr [ %77, %75 ], [ %59, %63 ]
+  %69 = load i16, ptr %68, align 8
+  %70 = icmp eq i16 %69, %2
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %.preheader9.i3
-  %71 = getelementptr inbounds i8, ptr %67, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.preheader.preheader.i4, label %74
+71:                                               ; preds = %.preheader9.i3
+  %72 = getelementptr inbounds i8, ptr %68, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.preheader.preheader.i4, label %75
 
-74:                                               ; preds = %70, %.preheader9.i3
-  %75 = add nuw i32 %66, 1
-  %76 = getelementptr i8, ptr %67, i64 56
-  %77 = icmp eq i32 %75, %64
-  br i1 %77, label %.preheader.preheader.i4, label %.preheader9.i3, !llvm.loop !6
+75:                                               ; preds = %71, %.preheader9.i3
+  %76 = add nuw i32 %67, 1
+  %77 = getelementptr i8, ptr %68, i64 56
+  %78 = icmp eq i32 %76, %65
+  br i1 %78, label %.preheader.preheader.i4, label %.preheader9.i3, !llvm.loop !6
 
-.preheader.preheader.i4:                          ; preds = %74, %70
-  %78 = phi ptr [ %67, %70 ], [ null, %74 ]
+.preheader.preheader.i4:                          ; preds = %71, %75
+  %79 = phi ptr [ null, %75 ], [ %68, %71 ]
   br label %.preheader.i5
 
-.preheader.i5:                                    ; preds = %83, %.preheader.preheader.i4
-  %79 = phi i32 [ %84, %83 ], [ 0, %.preheader.preheader.i4 ]
-  %80 = phi ptr [ %85, %83 ], [ %58, %.preheader.preheader.i4 ]
-  %81 = load i16, ptr %80, align 8
-  %82 = icmp eq i16 %81, %2
-  br i1 %82, label %.thread8.i2, label %83
+.preheader.i5:                                    ; preds = %84, %.preheader.preheader.i4
+  %80 = phi i32 [ %85, %84 ], [ 0, %.preheader.preheader.i4 ]
+  %81 = phi ptr [ %86, %84 ], [ %59, %.preheader.preheader.i4 ]
+  %82 = load i16, ptr %81, align 8
+  %83 = icmp eq i16 %82, %2
+  br i1 %83, label %.thread8.i2, label %84
 
-83:                                               ; preds = %.preheader.i5
-  %84 = add nuw i32 %79, 1
-  %85 = getelementptr i8, ptr %80, i64 56
-  %86 = icmp eq i32 %84, %64
-  br i1 %86, label %.thread8.i2, label %.preheader.i5, !llvm.loop !15
+84:                                               ; preds = %.preheader.i5
+  %85 = add nuw i32 %80, 1
+  %86 = getelementptr i8, ptr %81, i64 56
+  %87 = icmp eq i32 %85, %65
+  br i1 %87, label %.thread8.i2, label %.preheader.i5, !llvm.loop !15
 
-.thread8.i2:                                      ; preds = %83, %.preheader.i5
-  %.ph = phi ptr [ null, %83 ], [ %80, %.preheader.i5 ]
-  %87 = icmp eq ptr %78, null
-  br i1 %87, label %.thread8.i2.thread, label %snd_hda_jack_tbl_new.exit7
+.thread8.i2:                                      ; preds = %84, %.preheader.i5
+  %88 = phi ptr [ %81, %.preheader.i5 ], [ null, %84 ]
+  %89 = icmp eq ptr %79, null
+  br i1 %89, label %.thread8.i2.thread, label %snd_hda_jack_tbl_new.exit7
 
-.thread8.i2.thread:                               ; preds = %62, %snd_hda_jack_tbl_new.exit, %.thread8.i2
-  %88 = phi ptr [ %.ph, %.thread8.i2 ], [ null, %snd_hda_jack_tbl_new.exit ], [ null, %62 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 1480
-  %90 = tail call ptr @snd_array_new(ptr noundef %89) #11
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %snd_hda_jack_tbl_new.exit7, label %92
+.thread8.i2.thread:                               ; preds = %63, %snd_hda_jack_tbl_new.exit, %.thread8.i2
+  %90 = phi ptr [ %88, %.thread8.i2 ], [ null, %snd_hda_jack_tbl_new.exit ], [ null, %63 ]
+  %91 = getelementptr inbounds i8, ptr %0, i64 1480
+  %92 = tail call ptr @snd_array_new(ptr noundef %91) #11
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %snd_hda_jack_tbl_new.exit7, label %94
 
-92:                                               ; preds = %.thread8.i2.thread
-  store i16 %2, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 4
-  store i32 0, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %90, i64 28
-  %95 = load i8, ptr %94, align 4
-  %96 = or i8 %95, 2
-  store i8 %96, ptr %94, align 4
-  %97 = icmp eq ptr %88, null
-  %98 = getelementptr inbounds i8, ptr %90, i64 8
-  br i1 %97, label %107, label %99
+94:                                               ; preds = %.thread8.i2.thread
+  store i16 %2, ptr %92, align 8
+  %95 = getelementptr inbounds i8, ptr %92, i64 4
+  store i32 0, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %92, i64 28
+  %97 = load i8, ptr %96, align 4
+  %98 = or i8 %97, 2
+  store i8 %98, ptr %96, align 4
+  %99 = icmp eq ptr %90, null
+  %100 = getelementptr inbounds i8, ptr %92, i64 8
+  br i1 %99, label %109, label %101
 
-99:                                               ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %88, i64 8
-  %101 = load i8, ptr %100, align 8
-  store i8 %101, ptr %98, align 8
-  %102 = getelementptr inbounds i8, ptr %88, i64 28
-  %103 = load i8, ptr %102, align 4
-  %104 = and i8 %103, 1
-  %105 = and i8 %96, -2
-  %106 = or disjoint i8 %104, %105
-  store i8 %106, ptr %94, align 4
+101:                                              ; preds = %94
+  %102 = getelementptr inbounds i8, ptr %90, i64 8
+  %103 = load i8, ptr %102, align 8
+  store i8 %103, ptr %100, align 8
+  %104 = getelementptr inbounds i8, ptr %90, i64 28
+  %105 = load i8, ptr %104, align 4
+  %106 = and i8 %105, 1
+  %107 = and i8 %98, -2
+  %108 = or disjoint i8 %106, %107
+  store i8 %108, ptr %96, align 4
   br label %snd_hda_jack_tbl_new.exit7
 
-107:                                              ; preds = %92
-  %108 = load i32, ptr %89, align 8
-  %109 = trunc i32 %108 to i8
-  store i8 %109, ptr %98, align 8
+109:                                              ; preds = %94
+  %110 = load i32, ptr %91, align 8
+  %111 = trunc i32 %110 to i8
+  store i8 %111, ptr %100, align 8
   br label %snd_hda_jack_tbl_new.exit7
 
-snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thread8.i2.thread, %99, %107
-  %110 = phi ptr [ %78, %.thread8.i2 ], [ null, %.thread8.i2.thread ], [ %90, %107 ], [ %90, %99 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 1432
-  %112 = load i32, ptr %111, align 8
-  %113 = and i32 %112, 16384
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %116, label %115, !prof !20
+snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thread8.i2.thread, %101, %109
+  %112 = phi ptr [ %79, %.thread8.i2 ], [ null, %.thread8.i2.thread ], [ %92, %109 ], [ %92, %101 ]
+  %113 = getelementptr inbounds i8, ptr %0, i64 1432
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 16384
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %118, label %117, !prof !20
 
-115:                                              ; preds = %snd_hda_jack_tbl_new.exit7
+117:                                              ; preds = %snd_hda_jack_tbl_new.exit7
   tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #11, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 390, i32 2305, i64 12) #11, !srcloc !22
   tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #11, !srcloc !23
-  br label %116
+  br label %118
 
-116:                                              ; preds = %115, %snd_hda_jack_tbl_new.exit7
-  %117 = icmp ne ptr %57, null
-  %118 = icmp ne ptr %110, null
-  %119 = and i1 %117, %118
-  br i1 %119, label %120, label %123
+118:                                              ; preds = %117, %snd_hda_jack_tbl_new.exit7
+  %119 = icmp ne ptr %58, null
+  %120 = icmp ne ptr %112, null
+  %121 = and i1 %119, %120
+  br i1 %121, label %122, label %125
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %57, i64 30
-  store i16 %2, ptr %121, align 2
-  %122 = getelementptr inbounds i8, ptr %110, i64 32
-  store i16 %1, ptr %122, align 8
-  br label %123
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %58, i64 30
+  store i16 %2, ptr %123, align 2
+  %124 = getelementptr inbounds i8, ptr %112, i64 32
+  store i16 %1, ptr %124, align 8
+  br label %125
 
-123:                                              ; preds = %120, %116
-  %124 = phi i32 [ 0, %120 ], [ -22, %116 ]
-  ret i32 %124
+125:                                              ; preds = %122, %118
+  %126 = phi i32 [ 0, %122 ], [ -22, %118 ]
+  ret i32 %126
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1832,13 +1829,13 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
 
 12:                                               ; preds = %11, %4
   %13 = icmp eq i16 %1, 0
-  br i1 %13, label %154, label %14
+  br i1 %13, label %155, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %16 = and i32 %15, -1073741824
   %17 = icmp eq i32 %16, 1073741824
-  br i1 %17, label %154, label %18
+  br i1 %17, label %155, label %18
 
 18:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %6, i8 0, i64 44, i1 false), !annotation !5
@@ -1925,12 +1922,12 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %69 = sub i64 43, %68
   %70 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull @.str.3, i64 noundef %69) #11
   %71 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null), !range !40
-  br label %154
+  br label %155
 
 72:                                               ; preds = %67
   %73 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 0, ptr noundef null), !range !40
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %154, label %75
+  br i1 %74, label %155, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %0, i64 1496
@@ -1963,8 +1960,8 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %93 = icmp eq i32 %91, %80
   br i1 %93, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !6
 
-.preheader.preheader.i:                           ; preds = %90, %86
-  %94 = phi ptr [ %83, %86 ], [ null, %90 ]
+.preheader.preheader.i:                           ; preds = %86, %90
+  %94 = phi ptr [ null, %90 ], [ %83, %86 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %99, %.preheader.preheader.i
@@ -1981,97 +1978,97 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %102, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %99, %.preheader.i
-  %.ph5 = phi ptr [ null, %99 ], [ %96, %.preheader.i ]
-  %103 = icmp eq ptr %94, null
-  br i1 %103, label %.thread8.i.thread, label %.thread8.i._crit_edge
+  %103 = phi ptr [ %96, %.preheader.i ], [ null, %99 ]
+  %104 = icmp eq ptr %94, null
+  br i1 %104, label %.thread8.i.thread, label %.thread8.i._crit_edge
 
 .thread8.i._crit_edge:                            ; preds = %.thread8.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %94, i64 28
   %.pre = load i8, ptr %.phi.trans.insert, align 4
-  br label %126
+  br label %127
 
 .thread8.i.thread:                                ; preds = %78, %75, %.thread8.i
-  %104 = phi ptr [ %.ph5, %.thread8.i ], [ null, %75 ], [ null, %78 ]
-  %105 = getelementptr inbounds i8, ptr %0, i64 1480
-  %106 = call ptr @snd_array_new(ptr noundef %105) #11
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %snd_hda_jack_tbl_new.exit, label %108
+  %105 = phi ptr [ %103, %.thread8.i ], [ null, %75 ], [ null, %78 ]
+  %106 = getelementptr inbounds i8, ptr %0, i64 1480
+  %107 = call ptr @snd_array_new(ptr noundef %106) #11
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %snd_hda_jack_tbl_new.exit, label %109
 
-108:                                              ; preds = %.thread8.i.thread
-  store i16 %1, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 4
-  store i32 0, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %106, i64 28
-  %111 = load i8, ptr %110, align 4
-  %112 = or i8 %111, 2
-  store i8 %112, ptr %110, align 4
-  %113 = icmp eq ptr %104, null
-  %114 = getelementptr inbounds i8, ptr %106, i64 8
-  br i1 %113, label %123, label %115
+109:                                              ; preds = %.thread8.i.thread
+  store i16 %1, ptr %107, align 8
+  %110 = getelementptr inbounds i8, ptr %107, i64 4
+  store i32 0, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %107, i64 28
+  %112 = load i8, ptr %111, align 4
+  %113 = or i8 %112, 2
+  store i8 %113, ptr %111, align 4
+  %114 = icmp eq ptr %105, null
+  %115 = getelementptr inbounds i8, ptr %107, i64 8
+  br i1 %114, label %124, label %116
 
-115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %104, i64 8
-  %117 = load i8, ptr %116, align 8
-  store i8 %117, ptr %114, align 8
-  %118 = getelementptr inbounds i8, ptr %104, i64 28
-  %119 = load i8, ptr %118, align 4
-  %120 = and i8 %119, 1
-  %121 = and i8 %112, -2
-  %122 = or disjoint i8 %120, %121
-  store i8 %122, ptr %110, align 4
-  br label %126
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds i8, ptr %105, i64 8
+  %118 = load i8, ptr %117, align 8
+  store i8 %118, ptr %115, align 8
+  %119 = getelementptr inbounds i8, ptr %105, i64 28
+  %120 = load i8, ptr %119, align 4
+  %121 = and i8 %120, 1
+  %122 = and i8 %113, -2
+  %123 = or disjoint i8 %121, %122
+  store i8 %123, ptr %111, align 4
+  br label %127
 
-123:                                              ; preds = %108
-  %124 = load i32, ptr %105, align 8
-  %125 = trunc i32 %124 to i8
-  store i8 %125, ptr %114, align 8
-  br label %126
+124:                                              ; preds = %109
+  %125 = load i32, ptr %106, align 8
+  %126 = trunc i32 %125 to i8
+  store i8 %126, ptr %115, align 8
+  br label %127
 
-126:                                              ; preds = %.thread8.i._crit_edge, %123, %115
-  %127 = phi i8 [ %122, %115 ], [ %112, %123 ], [ %.pre, %.thread8.i._crit_edge ]
-  %.ph = phi ptr [ %106, %115 ], [ %106, %123 ], [ %94, %.thread8.i._crit_edge ]
-  %128 = and i8 %127, 1
-  %129 = icmp eq i8 %128, 0
-  br i1 %129, label %130, label %snd_hda_jack_tbl_new.exit
+127:                                              ; preds = %.thread8.i._crit_edge, %124, %116
+  %128 = phi i8 [ %123, %116 ], [ %113, %124 ], [ %.pre, %.thread8.i._crit_edge ]
+  %.ph = phi ptr [ %107, %116 ], [ %107, %124 ], [ %94, %.thread8.i._crit_edge ]
+  %129 = and i8 %128, 1
+  %130 = icmp eq i8 %129, 0
+  br i1 %130, label %131, label %snd_hda_jack_tbl_new.exit
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %.ph, i64 28
-  %132 = or disjoint i8 %127, 1
-  store i8 %132, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %0, i64 1504
-  %134 = load i64, ptr %133, align 8
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %136, label %snd_hda_jack_tbl_new.exit
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds i8, ptr %.ph, i64 28
+  %133 = or disjoint i8 %128, 1
+  store i8 %133, ptr %132, align 4
+  %134 = getelementptr inbounds i8, ptr %0, i64 1504
+  %135 = load i64, ptr %134, align 8
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %137, label %snd_hda_jack_tbl_new.exit
 
-136:                                              ; preds = %130
-  %137 = getelementptr inbounds i8, ptr %.ph, i64 8
-  %138 = load i8, ptr %137, align 8
-  %139 = or i8 %138, -128
-  %140 = zext i8 %139 to i32
-  %141 = zext i16 %1 to i32
-  %142 = shl i32 %141, 20
-  %143 = or disjoint i32 %142, 985088
-  %144 = call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %143, i32 noundef %140) #11
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %146, label %snd_hda_jack_tbl_new.exit
+137:                                              ; preds = %131
+  %138 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %139 = load i8, ptr %138, align 8
+  %140 = or i8 %139, -128
+  %141 = zext i8 %140 to i32
+  %142 = zext i16 %1 to i32
+  %143 = shl i32 %142, 20
+  %144 = or disjoint i32 %143, 985088
+  %145 = call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %144, i32 noundef %141) #11
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %147, label %snd_hda_jack_tbl_new.exit
 
-146:                                              ; preds = %136
-  %147 = sext i32 %144 to i64
-  %148 = inttoptr i64 %147 to ptr
+147:                                              ; preds = %137
+  %148 = sext i32 %145 to i64
+  %149 = inttoptr i64 %148 to ptr
   br label %snd_hda_jack_tbl_new.exit
 
-snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i.thread, %146, %136, %130, %126
-  %149 = phi ptr [ %148, %146 ], [ null, %126 ], [ null, %130 ], [ null, %136 ], [ inttoptr (i64 -12 to ptr), %.thread8.i.thread ]
-  %150 = icmp ugt ptr %149, inttoptr (i64 -4096 to ptr)
-  %151 = ptrtoint ptr %149 to i64
-  %152 = trunc i64 %151 to i32
-  %153 = select i1 %150, i32 %152, i32 0
-  br label %154
+snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i.thread, %147, %137, %131, %127
+  %150 = phi ptr [ %149, %147 ], [ null, %127 ], [ null, %131 ], [ null, %137 ], [ inttoptr (i64 -12 to ptr), %.thread8.i.thread ]
+  %151 = icmp ugt ptr %150, inttoptr (i64 -4096 to ptr)
+  %152 = ptrtoint ptr %150 to i64
+  %153 = trunc i64 %152 to i32
+  %154 = select i1 %151, i32 %153, i32 0
+  br label %155
 
-154:                                              ; preds = %.thread, %snd_hda_jack_tbl_new.exit, %72, %14, %12
-  %155 = phi i32 [ %153, %snd_hda_jack_tbl_new.exit ], [ 0, %12 ], [ 0, %14 ], [ %73, %72 ], [ %71, %.thread ]
+155:                                              ; preds = %.thread, %snd_hda_jack_tbl_new.exit, %72, %14, %12
+  %156 = phi i32 [ %154, %snd_hda_jack_tbl_new.exit ], [ 0, %12 ], [ 0, %14 ], [ %73, %72 ], [ %71, %.thread ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #11
-  ret i32 %155
+  ret i32 %156
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

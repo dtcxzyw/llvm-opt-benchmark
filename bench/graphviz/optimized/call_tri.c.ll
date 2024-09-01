@@ -241,10 +241,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
   %37 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %38
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not, label %._crit_edge58, label %.lr.ph57.preheader
-
-.lr.ph57.preheader:                               ; preds = %.preheader
+.lr.ph57.preheader:                               ; preds = %._crit_edge
   %smax71 = call i32 @llvm.smax.i32(i32 %0, i32 1)
   br label %.lr.ph57
 
@@ -263,7 +260,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 ._crit_edge:                                      ; preds = %38, %.preheader51
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.preheader, label %.preheader51
+  br i1 %exitcond70.not, label %.lr.ph57.preheader, label %.preheader51
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %.256 = phi i32 [ %47, %.lr.ph57 ], [ 0, %.lr.ph57.preheader ]
@@ -272,7 +269,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
   %exitcond72.not = icmp eq i32 %47, %smax71
   br i1 %exitcond72.not, label %._crit_edge58, label %.lr.ph57
 
-._crit_edge58:                                    ; preds = %.lr.ph57, %gv_calloc.exit50._crit_edge, %.preheader
+._crit_edge58:                                    ; preds = %.lr.ph57, %gv_calloc.exit50._crit_edge
   %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #11
   %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #11
   call void @SparseMatrix_delete(ptr noundef %48) #11

@@ -704,19 +704,15 @@ _ZN13cmCTestLaunch13HandleRealArgEPKc.exit:       ; preds = %94, %97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %83, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !7
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
   %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.12)
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %_ZN13cmCTestLaunch13HandleRealArgEPKc.exit
-  %99 = xor i1 %.not, true
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %._crit_edge.thread
-  %.not.lcssa59 = phi i1 [ true, %.preheader ], [ false, %._crit_edge.thread ], [ %99, %.loopexit.loopexit ]
-  ret i1 %.not.lcssa59
+.loopexit:                                        ; preds = %_ZN13cmCTestLaunch13HandleRealArgEPKc.exit, %.preheader, %._crit_edge.thread
+  %.041 = phi i1 [ true, %.preheader ], [ false, %._crit_edge.thread ], [ true, %_ZN13cmCTestLaunch13HandleRealArgEPKc.exit ]
+  ret i1 %.041
 }
 
 ; Function Attrs: mustprogress uwtable

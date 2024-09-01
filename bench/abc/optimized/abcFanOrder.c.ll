@@ -570,9 +570,6 @@ Vec_StrPush.exit43:                               ; preds = %.Vec_StrGrow.exit10
 ._crit_edge57:                                    ; preds = %Vec_StrPush.exit43
   %.val = load i32, ptr %5, align 4
   store i32 0, ptr %5, align 4
-  br i1 %41, label %.lr.ph60, label %._crit_edge61
-
-.lr.ph60:                                         ; preds = %._crit_edge57
   %104 = add nsw i32 %.val, 1
   %105 = getelementptr i8, ptr %3, i64 8
   %.phi.trans.insert.i45 = getelementptr inbounds i8, ptr %2, i64 8
@@ -580,8 +577,8 @@ Vec_StrPush.exit43:                               ; preds = %.Vec_StrGrow.exit10
   %wide.trip.count69 = zext nneg i32 %1 to i64
   br label %107
 
-107:                                              ; preds = %.lr.ph60, %Vec_PtrPush.exit50
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next67, %Vec_PtrPush.exit50 ]
+107:                                              ; preds = %._crit_edge57, %Vec_PtrPush.exit50
+  %indvars.iv66 = phi i64 [ 0, %._crit_edge57 ], [ %indvars.iv.next67, %Vec_PtrPush.exit50 ]
   %108 = mul nsw i64 %indvars.iv66, %106
   %.val33 = load ptr, ptr %105, align 8
   %109 = getelementptr inbounds i8, ptr %.val33, i64 %108
@@ -651,7 +648,7 @@ Vec_PtrPush.exit50:                               ; preds = %.Vec_PtrGrow.exit11
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %._crit_edge61, label %107, !llvm.loop !14
 
-._crit_edge61:                                    ; preds = %Vec_PtrPush.exit50, %._crit_edge57.thread, %._crit_edge57
+._crit_edge61:                                    ; preds = %Vec_PtrPush.exit50, %._crit_edge57.thread
   ret void
 }
 
@@ -1297,7 +1294,8 @@ Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i
   store i32 %37, ptr %15, align 4
   tail call void @Abc_NtkSopTranspose(ptr noundef nonnull %36, i32 noundef %37, ptr noundef nonnull %10, ptr noundef nonnull %6)
   store i32 0, ptr %3, align 4
-  br label %._crit_edge120.Vec_StrSelectSortCost2.exit_crit_edge
+  %.val94.pre = load ptr, ptr %5, align 8
+  br label %Vec_StrSelectSortCost2.exit
 
 .preheader116.us.preheader:                       ; preds = %Vec_IntFill.exit
   %53 = add nuw nsw i32 %37, 3
@@ -1339,11 +1337,7 @@ Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i
   tail call void @Abc_NtkSopTranspose(ptr noundef nonnull %36, i32 noundef %37, ptr noundef nonnull %10, ptr noundef nonnull %6)
   %.val97 = load ptr, ptr %13, align 8
   store i32 0, ptr %3, align 4
-  br i1 %49, label %.lr.ph.i100, label %._crit_edge120.Vec_StrSelectSortCost2.exit_crit_edge
-
-._crit_edge120.Vec_StrSelectSortCost2.exit_crit_edge: ; preds = %Vec_IntFill.exit.thread, %._crit_edge120
-  %.val94.pre = load ptr, ptr %5, align 8
-  br label %Vec_StrSelectSortCost2.exit
+  br label %.lr.ph.i100
 
 thread-pre-split.i:                               ; preds = %Vec_IntPush.exit.i
   %.pr.i = load i32, ptr %3, align 4
@@ -1493,8 +1487,8 @@ Vec_IntPush.exit.i:                               ; preds = %86, %Vec_IntGrow.ex
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %Vec_StrSelectSortCost2.exit, label %.lr.ph61.i, !llvm.loop !27
 
-Vec_StrSelectSortCost2.exit:                      ; preds = %._crit_edge62.i, %._crit_edge120.Vec_StrSelectSortCost2.exit_crit_edge, %._crit_edge.i
-  %.val94 = phi ptr [ %.val94.pre, %._crit_edge120.Vec_StrSelectSortCost2.exit_crit_edge ], [ %.val.i, %._crit_edge.i ], [ %.val.i, %._crit_edge62.i ]
+Vec_StrSelectSortCost2.exit:                      ; preds = %._crit_edge62.i, %Vec_IntFill.exit.thread, %._crit_edge.i
+  %.val94 = phi ptr [ %.val94.pre, %Vec_IntFill.exit.thread ], [ %.val.i, %._crit_edge.i ], [ %.val.i, %._crit_edge62.i ]
   %129 = tail call i32 @Abc_SopGetCubeNum(ptr noundef nonnull %36) #18
   %130 = add nsw i32 %37, 3
   %131 = mul nsw i32 %129, %130
@@ -1873,11 +1867,13 @@ Vec_IntFill.exit131:                              ; preds = %Vec_IntGrow.exit.i1
   store i32 %37, ptr %19, align 4
   %65 = load i8, ptr %36, align 1
   %.not108158 = icmp eq i8 %65, 0
-  br i1 %.not108158, label %.preheader156, label %.preheader155.us.preheader
+  br i1 %.not108158, label %.lr.ph, label %.preheader155.us.preheader
 
 Vec_IntFill.exit131.thread:                       ; preds = %Vec_IntGrow.exit.i124
   store i32 %37, ptr %19, align 4
-  br label %._crit_edge.thread
+  store i32 0, ptr %7, align 4
+  %.val113210 = load ptr, ptr %9, align 8
+  br label %Vec_IntSelectSortCost.exit
 
 .preheader155.us.preheader:                       ; preds = %Vec_IntFill.exit131
   %66 = add nuw nsw i32 %37, 3
@@ -1918,12 +1914,9 @@ Vec_IntFill.exit131.thread:                       ; preds = %Vec_IntGrow.exit.i1
   %78 = getelementptr inbounds i8, ptr %.0101159.us, i64 %67
   %79 = load i8, ptr %78, align 1
   %.not108.us = icmp eq i8 %79, 0
-  br i1 %.not108.us, label %.preheader156, label %.preheader155.us, !llvm.loop !33
+  br i1 %.not108.us, label %.lr.ph, label %.preheader155.us, !llvm.loop !33
 
-.preheader156:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit131
-  br i1 %49, label %.lr.ph, label %._crit_edge.thread
-
-.lr.ph:                                           ; preds = %.preheader156
+.lr.ph:                                           ; preds = %._crit_edge.us, %Vec_IntFill.exit131
   %.val114 = load ptr, ptr %13, align 8
   %wide.trip.count188 = zext nneg i32 %37 to i64
   br label %80
@@ -1948,13 +1941,9 @@ Vec_IntFill.exit131.thread:                       ; preds = %Vec_IntGrow.exit.i1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %._crit_edge, label %80, !llvm.loop !34
 
-._crit_edge.thread:                               ; preds = %Vec_IntFill.exit131.thread, %.preheader156
-  store i32 0, ptr %7, align 4
-  br label %._crit_edge165.thread
-
 ._crit_edge:                                      ; preds = %87
   store i32 0, ptr %7, align 4
-  br i1 %49, label %.lr.ph164, label %._crit_edge165.thread
+  br label %.lr.ph164
 
 .lr.ph164thread-pre-split:                        ; preds = %Vec_IntPush.exit
   %.pr = load i32, ptr %7, align 4
@@ -2027,10 +2016,6 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond190.not = icmp eq i32 %115, %37
   br i1 %exitcond190.not, label %._crit_edge165, label %.lr.ph164thread-pre-split, !llvm.loop !35
 
-._crit_edge165.thread:                            ; preds = %._crit_edge.thread, %._crit_edge
-  %.val113210 = load ptr, ptr %9, align 8
-  br label %Vec_IntSelectSortCost.exit
-
 ._crit_edge165:                                   ; preds = %Vec_IntPush.exit
   %.val113 = load ptr, ptr %9, align 8
   %.not213 = icmp eq i32 %37, 1
@@ -2083,8 +2068,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %Vec_IntSelectSortCost.exit, label %.lr.ph.i135, !llvm.loop !7
 
-Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %._crit_edge165.thread, %._crit_edge165
-  %.val113211 = phi ptr [ %.val113210, %._crit_edge165.thread ], [ %.val113, %._crit_edge165 ], [ %.val113, %._crit_edge.i ]
+Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %Vec_IntFill.exit131.thread, %._crit_edge165
+  %.val113211 = phi ptr [ %.val113210, %Vec_IntFill.exit131.thread ], [ %.val113, %._crit_edge165 ], [ %.val113, %._crit_edge.i ]
   %137 = tail call i32 @Abc_SopGetCubeNum(ptr noundef nonnull %36) #18
   %138 = add nsw i32 %37, 3
   %139 = mul nsw i32 %137, %138

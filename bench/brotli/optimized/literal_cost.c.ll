@@ -70,7 +70,7 @@ for.body.preheader.i:                             ; preds = %UTF8Position.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %histogram, i8 0, i64 6144, i1 false)
   br label %for.body.i
 
-for.body11.lr.ph.i:                               ; preds = %UTF8Position.exit.i
+for.cond8.preheader.i:                            ; preds = %UTF8Position.exit.i
   %add18.i = add i64 %pos, -496
   %add30.i = add i64 %pos, -497
   %add41.i = add i64 %pos, -495
@@ -113,10 +113,10 @@ UTF8Position.exit.i:                              ; preds = %if.else3.i.i, %if.e
   %retval.0.i.i = phi i64 [ 0, %for.body.i ], [ %.clamp.i.i, %if.else3.i.i ], [ %4, %if.else.i.i ]
   %inc7.i = add nuw nsw i64 %i.0138.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, %cond.i.i
-  br i1 %exitcond.not.i, label %for.body11.lr.ph.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %for.cond8.preheader.i, label %for.body.i, !llvm.loop !6
 
-for.body11.i:                                     ; preds = %if.end139.i, %for.body11.lr.ph.i
-  %i.1140.i = phi i64 [ 0, %for.body11.lr.ph.i ], [ %inc143.i, %if.end139.i ]
+for.body11.i:                                     ; preds = %if.end139.i, %for.cond8.preheader.i
+  %i.1140.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %inc143.i, %if.end139.i ]
   %cmp12.i = icmp ugt i64 %i.1140.i, 494
   br i1 %cmp12.i, label %if.then.i57, label %if.end.i56
 
@@ -333,10 +333,7 @@ if.else:                                          ; preds = %entry
   %cmp58.not = icmp eq i64 %len, 0
   br i1 %cmp58.not, label %if.end47, label %for.body
 
-for.cond4.preheader:                              ; preds = %for.body
-  br i1 %cmp58.not, label %if.end47, label %for.body6.lr.ph
-
-for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
+for.body6.lr.ph:                                  ; preds = %for.body
   %add9 = add i64 %pos, -2000
   %add18 = add i64 %pos, 2000
   br label %for.body6
@@ -354,7 +351,7 @@ for.body:                                         ; preds = %if.else, %for.body
   store i64 %inc, ptr %arrayidx2, align 8
   %inc3 = add nuw nsw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc3, %cond.i
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.body6.lr.ph, label %for.body, !llvm.loop !8
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %FastLog2.exit
   %i.162 = phi i64 [ 0, %for.body6.lr.ph ], [ %inc45, %FastLog2.exit ]
@@ -447,7 +444,7 @@ FastLog2.exit:                                    ; preds = %if.end.i, %if.then.
   %exitcond63.not = icmp eq i64 %inc45, %len
   br i1 %exitcond63.not, label %if.end47, label %for.body6, !llvm.loop !9
 
-if.end47:                                         ; preds = %FastLog2.exit, %if.else, %for.cond4.preheader, %EstimateBitCostsForLiteralsUTF8.exit
+if.end47:                                         ; preds = %FastLog2.exit, %if.else, %EstimateBitCostsForLiteralsUTF8.exit
   ret void
 }
 

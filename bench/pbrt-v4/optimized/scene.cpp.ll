@@ -1727,7 +1727,7 @@ for.body.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.i.no
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %call.i.i.i.i.i.i.noexc.i
   %.pr.i.i = load ptr, ptr %ptr.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i, label %if.end.i.i.i9.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i.i, label %if.end.i.i.i9.i.i.i.i
 
 if.end.i.i.i9.i.i.i.i:                            ; preds = %for.end.i.i.i.i
   %6 = load i64, ptr %nAlloc.i.i.i, align 32
@@ -1737,15 +1737,15 @@ if.end.i.i.i9.i.i.i.i:                            ; preds = %for.end.i.i.i.i
   %vfn.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i12.i.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.pr.i.i, i64 noundef %mul.i10.i.i.i.i, i64 noundef 8)
-          to label %for.body.preheader.i.i.i unwind label %lpad.i
+          to label %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i.i unwind label %lpad.i
 
-for.body.preheader.i.i.i:                         ; preds = %if.end.i.i.i9.i.i.i.i, %for.end.i.i.i.i
+_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i.i: ; preds = %if.end.i.i.i9.i.i.i.i, %for.end.i.i.i.i
   store i64 256, ptr %nAlloc.i.i.i, align 32
   store ptr %call.i.i.i.i.i.i1.i, ptr %ptr.i.i.i, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
-  %i.09.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i.i
+  %i.09.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i.i ]
   %9 = load ptr, ptr %ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %i.09.i.i.i
   store ptr null, ptr %add.ptr.i.i.i, align 8
@@ -35411,23 +35411,23 @@ if.then34:                                        ; preds = %while.end
 if.end.i.i.i:                                     ; preds = %if.then34
   %mul.i.i.i.i = shl i64 %18, 4
   %cmp.i.i.i.i.i.i = icmp eq i64 %mul.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.preheader.i.i, label %for.end.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i, label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %if.end.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.0.0.copyload.i, i64 noundef %mul.i.i.i.i, i64 noundef 8)
-  br label %for.body.preheader.i.i
+  br label %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i
 
-for.body.preheader.i.i:                           ; preds = %for.end.i.i.i, %if.end.i.i.i
+_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i: ; preds = %for.end.i.i.i, %if.end.i.i.i
   %22 = phi ptr [ %call.i.i.i.i.i.i, %for.end.i.i.i ], [ null, %if.end.i.i.i ]
   store i64 %mul37, ptr %nAlloc.i.i, align 8
   store ptr %22, ptr %ptr.i.i, align 8
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i
+  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %22, i64 %i.09.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
   %inc.i.i = add nuw i64 %i.09.i.i, 1
@@ -42146,23 +42146,23 @@ if.then34:                                        ; preds = %while.end
 if.end.i.i.i:                                     ; preds = %if.then34
   %mul.i.i.i.i = shl i64 %13, 4
   %cmp.i.i.i.i.i.i = icmp eq i64 %mul.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.preheader.i.i, label %for.end.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i, label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %if.end.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.0.0.copyload.i, i64 noundef %mul.i.i.i.i, i64 noundef 8)
-  br label %for.body.preheader.i.i
+  br label %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i
 
-for.body.preheader.i.i:                           ; preds = %for.end.i.i.i, %if.end.i.i.i
+_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i: ; preds = %for.end.i.i.i, %if.end.i.i.i
   %17 = phi ptr [ %call.i.i.i.i.i.i, %for.end.i.i.i ], [ null, %if.end.i.i.i ]
   store i64 %mul37, ptr %nAlloc.i.i, align 8
   store ptr %17, ptr %ptr.i.i, align 8
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i
+  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEE7reserveEm.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %17, i64 %i.09.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
   %inc.i.i = add nuw i64 %i.09.i.i, 1
@@ -54068,7 +54068,7 @@ for.body.i.i.i.i.i:                               ; preds = %call.i.i.i.i.i.i.no
 for.end.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i, %call.i.i.i.i.i.i.noexc.i.i
   %.pr.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 88), align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i, label %if.end.i.i.i9.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i.i.i, label %if.end.i.i.i9.i.i.i.i.i
 
 if.end.i.i.i9.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 96), align 32
@@ -54078,15 +54078,15 @@ if.end.i.i.i9.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i
   %vfn.i.i.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i12.i.i.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.pr.i.i.i, i64 noundef %mul.i10.i.i.i.i.i, i64 noundef 8)
-          to label %for.body.preheader.i.i.i.i unwind label %lpad.i.i
+          to label %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i.i.i unwind label %lpad.i.i
 
-for.body.preheader.i.i.i.i:                       ; preds = %if.end.i.i.i9.i.i.i.i.i, %for.end.i.i.i.i.i
+_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i.i.i: ; preds = %if.end.i.i.i9.i.i.i.i.i, %for.end.i.i.i.i.i
   store i64 256, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 96), align 32
   store ptr %call.i.i.i.i.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 88), align 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
-  %i.09.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i.i.i
+  %i.09.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEE7reserveEm.exit.i.i.i.i ]
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 88), align 8
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %i.09.i.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i, align 8

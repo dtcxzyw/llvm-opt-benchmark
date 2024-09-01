@@ -425,8 +425,8 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
           to label %61 unwind label %.thread34.i
 
 61:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
-  %.not.not.i = icmp eq ptr %60, null
-  br i1 %.not.not.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h7d0c20d454ddf8acE.exit21.i", label %64
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h7d0c20d454ddf8acE.exit21.i", label %64
 
 62:                                               ; preds = %64
   %63 = landingpad { ptr, i32 }
@@ -796,8 +796,8 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
           to label %61 unwind label %.thread34.i
 
 61:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h954de11e0f3e6dd4E.exit.i
-  %.not.not.i = icmp eq ptr %60, null
-  br i1 %.not.not.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h7d0c20d454ddf8acE.exit21.i", label %64
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h7d0c20d454ddf8acE.exit21.i", label %64
 
 62:                                               ; preds = %64
   %63 = landingpad { ptr, i32 }
@@ -2598,8 +2598,8 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
 
 26:                                               ; preds = %25
   %27 = load i64, ptr %10, align 8, !range !178, !noundef !4
-  %.not.not = icmp ne i64 %27, 2
-  br i1 %.not.not, label %28, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit43"
+  %.not.not.not.not.not.not = icmp ne i64 %27, 2
+  br i1 %.not.not.not.not.not.not, label %28, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9bd3ffa255191efdE.exit43"
 
 28:                                               ; preds = %26
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -2616,7 +2616,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
   %.113 = phi i1 [ %.214, %56 ], [ %.214, %104 ], [ %.012, %26 ]
   %29 = load i64, ptr %10, align 8, !range !178, !noundef !4
   %.not21 = icmp eq i64 %29, 2
-  %brmerge = or i1 %.not.not, %.not21
+  %brmerge = or i1 %.not.not.not.not.not.not, %.not21
   br i1 %brmerge, label %107, label %108
 
 30:                                               ; preds = %28

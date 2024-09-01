@@ -1067,8 +1067,8 @@ define noundef zeroext i1 @"_ZN79_$LT$grep_printer..hyperlink..HyperlinkFormat$u
 
 8:                                                ; preds = %9, %2
   %.sroa.0.0 = phi ptr [ %4, %2 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %7
-  br i1 %.not, label %9, label %12
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %7
+  br i1 %.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 24
@@ -1076,7 +1076,7 @@ define noundef zeroext i1 @"_ZN79_$LT$grep_printer..hyperlink..HyperlinkFormat$u
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

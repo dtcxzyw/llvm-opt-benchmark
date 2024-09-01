@@ -1560,9 +1560,9 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %258 = fadd double %.sroa.4.07.i.i.i192.i, %257
   %259 = getelementptr inbounds i8, ptr %.09.i.i.i190.i, i64 16
   %.not.i.i.i193.i = icmp eq ptr %259, %.011.i.i84.i
-  br i1 %.not.i.i.i193.i, label %.lr.ph.i195.preheader.i, label %.lr.ph.i.i.i189.i, !llvm.loop !38
+  br i1 %.not.i.i.i193.i, label %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i, label %.lr.ph.i.i.i189.i, !llvm.loop !38
 
-.lr.ph.i195.preheader.i:                          ; preds = %.lr.ph.i.i.i189.i
+_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i: ; preds = %.lr.ph.i.i.i189.i
   %260 = ptrtoint ptr %.011.i.i84.i to i64
   %261 = ptrtoint ptr %107 to i64
   %262 = sub i64 %260, %261
@@ -1572,11 +1572,11 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %266 = fdiv double %258, %264
   br label %.lr.ph.i195.i
 
-.lr.ph.i195.i:                                    ; preds = %.lr.ph.i195.i, %.lr.ph.i195.preheader.i
-  %.075.i196.i = phi double [ %272, %.lr.ph.i195.i ], [ 0.000000e+00, %.lr.ph.i195.preheader.i ]
-  %.03574.i197.i = phi double [ %273, %.lr.ph.i195.i ], [ 0.000000e+00, %.lr.ph.i195.preheader.i ]
-  %.03673.i198.i = phi double [ %274, %.lr.ph.i195.i ], [ 0.000000e+00, %.lr.ph.i195.preheader.i ]
-  %.03772.i199.i = phi ptr [ %275, %.lr.ph.i195.i ], [ %107, %.lr.ph.i195.preheader.i ]
+.lr.ph.i195.i:                                    ; preds = %.lr.ph.i195.i, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i
+  %.075.i196.i = phi double [ %272, %.lr.ph.i195.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i ]
+  %.03574.i197.i = phi double [ %273, %.lr.ph.i195.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i ]
+  %.03673.i198.i = phi double [ %274, %.lr.ph.i195.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i ]
+  %.03772.i199.i = phi ptr [ %275, %.lr.ph.i195.i ], [ %107, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i194.i ]
   %267 = load double, ptr %.03772.i199.i, align 8, !noalias !29
   %268 = fsub double %267, %265
   %269 = getelementptr inbounds i8, ptr %.03772.i199.i, i64 8
@@ -1666,9 +1666,9 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %312 = fadd double %.sroa.4.07.i.i.i219.i, %311
   %313 = getelementptr inbounds i8, ptr %.09.i.i.i217.i, i64 16
   %.not.i.i.i220.i = icmp eq ptr %313, %.011.i.i.i
-  br i1 %.not.i.i.i220.i, label %.lr.ph.i222.preheader.i, label %.lr.ph.i.i.i216.i, !llvm.loop !38
+  br i1 %.not.i.i.i220.i, label %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i, label %.lr.ph.i.i.i216.i, !llvm.loop !38
 
-.lr.ph.i222.preheader.i:                          ; preds = %.lr.ph.i.i.i216.i
+_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i: ; preds = %.lr.ph.i.i.i216.i
   %314 = ptrtoint ptr %.011.i.i.i to i64
   %315 = ptrtoint ptr %304 to i64
   %316 = sub i64 %314, %315
@@ -1678,11 +1678,11 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %320 = fdiv double %312, %318
   br label %.lr.ph.i222.i
 
-.lr.ph.i222.i:                                    ; preds = %.lr.ph.i222.i, %.lr.ph.i222.preheader.i
-  %.075.i223.i = phi double [ %326, %.lr.ph.i222.i ], [ 0.000000e+00, %.lr.ph.i222.preheader.i ]
-  %.03574.i224.i = phi double [ %327, %.lr.ph.i222.i ], [ 0.000000e+00, %.lr.ph.i222.preheader.i ]
-  %.03673.i225.i = phi double [ %328, %.lr.ph.i222.i ], [ 0.000000e+00, %.lr.ph.i222.preheader.i ]
-  %.03772.i226.i = phi ptr [ %329, %.lr.ph.i222.i ], [ %304, %.lr.ph.i222.preheader.i ]
+.lr.ph.i222.i:                                    ; preds = %.lr.ph.i222.i, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i
+  %.075.i223.i = phi double [ %326, %.lr.ph.i222.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i ]
+  %.03574.i224.i = phi double [ %327, %.lr.ph.i222.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i ]
+  %.03673.i225.i = phi double [ %328, %.lr.ph.i222.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i ]
+  %.03772.i226.i = phi ptr [ %329, %.lr.ph.i222.i ], [ %304, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i221.i ]
   %321 = load double, ptr %.03772.i226.i, align 8, !noalias !29
   %322 = fsub double %321, %319
   %323 = getelementptr inbounds i8, ptr %.03772.i226.i, i64 8
@@ -1772,9 +1772,9 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %366 = fadd double %.sroa.4.07.i.i.i249.i, %365
   %367 = getelementptr inbounds i8, ptr %.09.i.i.i247.i, i64 16
   %.not.i.i.i250.i = icmp eq ptr %367, %.011.i.i129.i
-  br i1 %.not.i.i.i250.i, label %.lr.ph.i252.preheader.i, label %.lr.ph.i.i.i246.i, !llvm.loop !38
+  br i1 %.not.i.i.i250.i, label %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i, label %.lr.ph.i.i.i246.i, !llvm.loop !38
 
-.lr.ph.i252.preheader.i:                          ; preds = %.lr.ph.i.i.i246.i
+_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i: ; preds = %.lr.ph.i.i.i246.i
   %368 = ptrtoint ptr %.011.i.i129.i to i64
   %369 = ptrtoint ptr %358 to i64
   %370 = sub i64 %368, %369
@@ -1784,11 +1784,11 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %374 = fdiv double %366, %372
   br label %.lr.ph.i252.i
 
-.lr.ph.i252.i:                                    ; preds = %.lr.ph.i252.i, %.lr.ph.i252.preheader.i
-  %.075.i253.i = phi double [ %380, %.lr.ph.i252.i ], [ 0.000000e+00, %.lr.ph.i252.preheader.i ]
-  %.03574.i254.i = phi double [ %381, %.lr.ph.i252.i ], [ 0.000000e+00, %.lr.ph.i252.preheader.i ]
-  %.03673.i255.i = phi double [ %382, %.lr.ph.i252.i ], [ 0.000000e+00, %.lr.ph.i252.preheader.i ]
-  %.03772.i256.i = phi ptr [ %383, %.lr.ph.i252.i ], [ %358, %.lr.ph.i252.preheader.i ]
+.lr.ph.i252.i:                                    ; preds = %.lr.ph.i252.i, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i
+  %.075.i253.i = phi double [ %380, %.lr.ph.i252.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i ]
+  %.03574.i254.i = phi double [ %381, %.lr.ph.i252.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i ]
+  %.03673.i255.i = phi double [ %382, %.lr.ph.i252.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i ]
+  %.03772.i256.i = phi ptr [ %383, %.lr.ph.i252.i ], [ %358, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i251.i ]
   %375 = load double, ptr %.03772.i256.i, align 8, !noalias !29
   %376 = fsub double %375, %373
   %377 = getelementptr inbounds i8, ptr %.03772.i256.i, i64 8
@@ -1878,9 +1878,9 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %420 = fadd double %.sroa.4.07.i.i.i279.i, %419
   %421 = getelementptr inbounds i8, ptr %.09.i.i.i277.i, i64 16
   %.not.i.i.i280.i = icmp eq ptr %.09.i.i.i277.i, %.0.lcssa.i.i.i.i.i.i.pn.i
-  br i1 %.not.i.i.i280.i, label %.lr.ph.i282.preheader.i, label %.lr.ph.i.i.i276.i, !llvm.loop !38
+  br i1 %.not.i.i.i280.i, label %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i, label %.lr.ph.i.i.i276.i, !llvm.loop !38
 
-.lr.ph.i282.preheader.i:                          ; preds = %.lr.ph.i.i.i276.i
+_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i: ; preds = %.lr.ph.i.i.i276.i
   %422 = ptrtoint ptr %412 to i64
   %423 = sub i64 %94, %422
   %424 = ashr exact i64 %423, 4
@@ -1889,11 +1889,11 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %427 = fdiv double %420, %425
   br label %.lr.ph.i282.i
 
-.lr.ph.i282.i:                                    ; preds = %.lr.ph.i282.i, %.lr.ph.i282.preheader.i
-  %.075.i283.i = phi double [ %433, %.lr.ph.i282.i ], [ 0.000000e+00, %.lr.ph.i282.preheader.i ]
-  %.03574.i284.i = phi double [ %434, %.lr.ph.i282.i ], [ 0.000000e+00, %.lr.ph.i282.preheader.i ]
-  %.03673.i285.i = phi double [ %435, %.lr.ph.i282.i ], [ 0.000000e+00, %.lr.ph.i282.preheader.i ]
-  %.03772.i286.i = phi ptr [ %436, %.lr.ph.i282.i ], [ %412, %.lr.ph.i282.preheader.i ]
+.lr.ph.i282.i:                                    ; preds = %.lr.ph.i282.i, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i
+  %.075.i283.i = phi double [ %433, %.lr.ph.i282.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i ]
+  %.03574.i284.i = phi double [ %434, %.lr.ph.i282.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i ]
+  %.03673.i285.i = phi double [ %435, %.lr.ph.i282.i ], [ 0.000000e+00, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i ]
+  %.03772.i286.i = phi ptr [ %436, %.lr.ph.i282.i ], [ %412, %_ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i281.i ]
   %428 = load double, ptr %.03772.i286.i, align 8, !noalias !29
   %429 = fsub double %428, %426
   %430 = getelementptr inbounds i8, ptr %.03772.i286.i, i64 8

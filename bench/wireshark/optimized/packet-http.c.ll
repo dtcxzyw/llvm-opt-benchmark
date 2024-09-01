@@ -2975,8 +2975,8 @@ parse_http_status_code.exit:                      ; preds = %196, %201, %204
   br i1 %.not798, label %217, label %.sink.split
 
 .sink.split:                                      ; preds = %213, %parse_http_status_code.exit
-  %.sink1240 = phi ptr [ %28, %parse_http_status_code.exit ], [ %214, %213 ]
-  %215 = getelementptr inbounds i8, ptr %.sink1240, i64 40
+  %.sink1239 = phi ptr [ %28, %parse_http_status_code.exit ], [ %214, %213 ]
+  %215 = getelementptr inbounds i8, ptr %.sink1239, i64 40
   %216 = load ptr, ptr %215, align 8
   br label %217
 
@@ -3459,7 +3459,7 @@ push_req.exit:                                    ; preds = %438, %445
   %457 = call noalias ptr @wmem_strdup(ptr noundef %455, ptr noundef %456) #14
   %458 = getelementptr inbounds i8, ptr %440, i64 40
   store ptr %457, ptr %458, align 8
-  br label %.sink.split1241
+  br label %.sink.split1240
 
 459:                                              ; preds = %436
   %460 = load ptr, ptr %83, align 8
@@ -3515,19 +3515,19 @@ push_res.exit:                                    ; preds = %461, %464, %push_re
   %484 = load i32, ptr @proto_http, align 4
   call void @p_add_proto_data(ptr noundef %483, ptr noundef nonnull %2, i32 noundef %484, i32 noundef 0, ptr noundef nonnull %.0.i892) #14
   %485 = getelementptr inbounds i8, ptr %.0.i892, i64 88
-  br label %.sink.split1241
+  br label %.sink.split1240
 
-.sink.split1241:                                  ; preds = %push_res.exit, %push_req.exit
-  %.sink1242 = phi ptr [ %450, %push_req.exit ], [ %485, %push_res.exit ]
+.sink.split1240:                                  ; preds = %push_res.exit, %push_req.exit
+  %.sink1241 = phi ptr [ %450, %push_req.exit ], [ %485, %push_res.exit ]
   %.06811043.sink = phi i32 [ %.06811043, %push_req.exit ], [ %357, %push_res.exit ]
   %.3691.ph = phi ptr [ %440, %push_req.exit ], [ %.0.i892, %push_res.exit ]
-  %486 = load ptr, ptr %.sink1242, align 8
+  %486 = load ptr, ptr %.sink1241, align 8
   store i32 %.06811043.sink, ptr %486, align 8
   br label %487
 
-487:                                              ; preds = %.sink.split1241, %436, %421
-  %.3691 = phi ptr [ %.26901106, %421 ], [ %.26901106, %436 ], [ %.3691.ph, %.sink.split1241 ]
-  %.2685 = phi ptr [ %.16841108, %421 ], [ %.16841108, %436 ], [ %486, %.sink.split1241 ]
+487:                                              ; preds = %.sink.split1240, %436, %421
+  %.3691 = phi ptr [ %.26901106, %421 ], [ %.26901106, %436 ], [ %.3691.ph, %.sink.split1240 ]
+  %.2685 = phi ptr [ %.16841108, %421 ], [ %.16841108, %436 ], [ %486, %.sink.split1240 ]
   %488 = load ptr, ptr %20, align 8
   %.not817 = icmp eq ptr %488, null
   br i1 %.not817, label %493, label %489
@@ -4043,11 +4043,11 @@ proto_item_set_generated.exit937:                 ; preds = %718, %715, %712, %7
   br i1 %.not5.i939, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %728, %671, %562
-  %.sink1246 = phi ptr [ %564, %562 ], [ %673, %671 ], [ %730, %728 ]
-  %.sink1245 = phi i32 [ 1, %562 ], [ 2, %671 ], [ 2, %728 ]
-  %731 = getelementptr inbounds i8, ptr %.sink1246, i64 28
+  %.sink1245 = phi ptr [ %564, %562 ], [ %673, %671 ], [ %730, %728 ]
+  %.sink1244 = phi i32 [ 1, %562 ], [ 2, %671 ], [ 2, %728 ]
+  %731 = getelementptr inbounds i8, ptr %.sink1245, i64 28
   %732 = load i32, ptr %731, align 4
-  %733 = or i32 %732, %.sink1245
+  %733 = or i32 %732, %.sink1244
   store i32 %733, ptr %731, align 4
   br label %proto_item_set_hidden.exit
 
@@ -4670,9 +4670,9 @@ thread-pre-split1028.thread:                      ; preds = %1024, %thread-pre-s
   br label %thread-pre-split1031
 
 thread-pre-split1031:                             ; preds = %1041, %thread-pre-split1028.thread, %1037, %1043
-  %.sink1248 = phi i32 [ %1035, %1043 ], [ %1033, %1037 ], [ %1033, %thread-pre-split1028.thread ], [ %1039, %1041 ]
+  %.sink1247 = phi i32 [ %1035, %1043 ], [ %1033, %1037 ], [ %1033, %thread-pre-split1028.thread ], [ %1039, %1041 ]
   %1044 = load ptr, ptr @port_subdissector_table, align 8
-  %1045 = call ptr @dissector_get_uint_handle(ptr noundef %1044, i32 noundef %.sink1248) #14
+  %1045 = call ptr @dissector_get_uint_handle(ptr noundef %1044, i32 noundef %.sink1247) #14
   store ptr %1045, ptr %21, align 8
   %.not852 = icmp eq ptr %1045, null
   br i1 %.not852, label %.critedge879, label %.thread1033

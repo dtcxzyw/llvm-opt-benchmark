@@ -6999,8 +6999,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit.thread577: ; preds = %235, %275, %268, %2
 _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %230, %234
   %395 = icmp eq i32 %35, 23
   %396 = icmp eq i32 %35, 24
-  %or.cond29 = and i1 %396, %226
-  br i1 %or.cond29, label %397, label %_ZL18is_cloop_conditionP8BoolNode.exit444
+  br i1 %396, label %397, label %_ZL18is_cloop_conditionP8BoolNode.exit444
 
 397:                                              ; preds = %_ZL18is_cloop_conditionP8BoolNode.exit
   %398 = getelementptr inbounds i8, ptr %26, i64 8

@@ -4028,7 +4028,7 @@ _ZNSt6vectorISt3mapIiS_IN2cv3dnn4util14NormalizedBBoxESaIS4_EESt4lessIiESaISt4pa
   %64 = getelementptr inbounds i8, ptr %60, i64 16
   %65 = getelementptr inbounds i8, ptr %60, i64 8
   %66 = getelementptr inbounds i8, ptr %60, i64 40
-  br i1 %51, label %.lr.ph120.us, label %._crit_edge123
+  br label %.lr.ph120.us
 
 .lr.ph120.us:                                     ; preds = %.lr.ph122, %._crit_edge.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.us ], [ 0, %.lr.ph122 ]
@@ -4404,7 +4404,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS6_EEESt10_
   tail call void @_ZdlPv(ptr noundef nonnull %80) #25
   br label %common.resume
 
-._crit_edge123:                                   ; preds = %._crit_edge.us, %58, %.lr.ph122, %.preheader
+._crit_edge123:                                   ; preds = %._crit_edge.us, %58, %.preheader
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %212 = getelementptr inbounds float, ptr %.0127, i64 %56
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -4430,10 +4430,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl19GetConfid
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   br label %36
 
-.preheader33:                                     ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit
-  br i1 %10, label %.lr.ph42, label %._crit_edge
-
-.lr.ph42:                                         ; preds = %.preheader33
+.lr.ph42:                                         ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit
   %13 = icmp sgt i32 %3, 0
   %14 = getelementptr inbounds i8, ptr %8, i64 16
   %15 = getelementptr inbounds i8, ptr %8, i64 72
@@ -4533,7 +4530,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %39, %42
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26
   %43 = add nuw nsw i32 %.03034, 1
   %exitcond.not = icmp eq i32 %43, %1
-  br i1 %exitcond.not, label %.preheader33, label %36, !llvm.loop !39
+  br i1 %exitcond.not, label %.lr.ph42, label %36, !llvm.loop !39
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -4551,7 +4548,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %39, %42
   %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph42.split, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %.lr.ph42.split, %.preheader.lr.ph.us, %._crit_edge38.split.us.us.us, %5, %.preheader33
+._crit_edge:                                      ; preds = %.lr.ph42.split, %.preheader.lr.ph.us, %._crit_edge38.split.us.us.us, %5
   ret void
 }
 
@@ -13438,16 +13435,16 @@ _ZSt22__uninitialized_move_aIPSt6vectorIiSaIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit76
   %87 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 24
   %88 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i72, i64 24
   %.not.i.i.i.i.i74 = icmp eq ptr %87, %10
-  br i1 %.not.i.i.i.i.i74, label %.lr.ph.i.i.i78.preheader, label %.lr.ph.i.i.i.i.i71, !llvm.loop !199
+  br i1 %.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPSt6vectorIiSaIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit76, label %.lr.ph.i.i.i.i.i71, !llvm.loop !199
 
-.lr.ph.i.i.i78.preheader:                         ; preds = %.lr.ph.i.i.i.i.i71
+_ZSt22__uninitialized_move_aIPSt6vectorIiSaIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit76: ; preds = %.lr.ph.i.i.i.i.i71
   %89 = load ptr, ptr %9, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 %37
   store ptr %90, ptr %9, align 8
   br label %.lr.ph.i.i.i78
 
-.lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78.preheader, %.noexc81
-  %.06.i.i.i79 = phi ptr [ %92, %.noexc81 ], [ %1, %.lr.ph.i.i.i78.preheader ]
+.lr.ph.i.i.i78:                                   ; preds = %_ZSt22__uninitialized_move_aIPSt6vectorIiSaIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit76, %.noexc81
+  %.06.i.i.i79 = phi ptr [ %92, %.noexc81 ], [ %1, %_ZSt22__uninitialized_move_aIPSt6vectorIiSaIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit76 ]
   %91 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i79, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %.noexc81 unwind label %.loopexit.split-lp.loopexit
 

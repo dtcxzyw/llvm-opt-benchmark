@@ -120,10 +120,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.preheader184:                                    ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph193, label %.preheader
-
-.lr.ph193:                                        ; preds = %.preheader184
+.lr.ph193:                                        ; preds = %.lr.ph
   %25 = zext nneg i32 %3 to i64
   %26 = getelementptr %struct.tna_t, ptr %42, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -40
@@ -150,10 +147,10 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   store double %41, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader184, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph193, label %.lr.ph
 
-.preheader:                                       ; preds = %46, %22, %.preheader184
-  %44 = phi ptr [ %42, %.preheader184 ], [ %23, %22 ], [ %42, %46 ]
+.preheader:                                       ; preds = %46, %22
+  %44 = phi ptr [ %23, %22 ], [ %42, %46 ]
   %45 = icmp sgt i32 %3, 0
   br i1 %45, label %.lr.ph195, label %._crit_edge.i
 
@@ -196,12 +193,9 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   store double %65, ptr %.sroa.221.0..sroa_idx, align 8
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %._crit_edge, label %51
+  br i1 %exitcond224.not, label %.lr.ph.i, label %51
 
-._crit_edge:                                      ; preds = %51
-  br i1 %45, label %.lr.ph.i, label %._crit_edge.i
-
-.lr.ph.i:                                         ; preds = %._crit_edge
+.lr.ph.i:                                         ; preds = %51
   %66 = load double, ptr %2, align 8
   %67 = getelementptr inbounds i8, ptr %2, i64 8
   %68 = load double, ptr %67, align 8
@@ -268,12 +262,12 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %69
   br i1 %exitcond.not.i, label %._crit_edge.i, label %75
 
-._crit_edge.i:                                    ; preds = %75, %.preheader, %._crit_edge
-  %.sroa.037.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %116, %75 ]
-  %.sroa.5.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %119, %75 ]
-  %.sroa.042.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %83, %75 ]
-  %.sroa.12.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %90, %75 ]
-  %.sroa.15.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ %93, %75 ]
+._crit_edge.i:                                    ; preds = %75, %.preheader
+  %.sroa.037.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %116, %75 ]
+  %.sroa.5.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %119, %75 ]
+  %.sroa.042.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %83, %75 ]
+  %.sroa.12.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %90, %75 ]
+  %.sroa.15.0.lcssa.i = phi double [ 0.000000e+00, %.preheader ], [ %93, %75 ]
   %120 = fneg double %.sroa.12.0.lcssa.i
   %121 = fmul double %.sroa.12.0.lcssa.i, %120
   %122 = tail call double @llvm.fmuladd.f64(double %.sroa.042.0.lcssa.i, double %.sroa.15.0.lcssa.i, double %121)

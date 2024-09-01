@@ -4157,7 +4157,7 @@ define noundef zeroext i1 @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20
   br label %16
 
 16:                                               ; preds = %35, %2
-  %17 = phi ptr [ %.pre25, %35 ], [ %9, %2 ]
+  %17 = phi ptr [ %.pre28, %35 ], [ %9, %2 ]
   %18 = phi ptr [ %.pre, %35 ], [ %8, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !560)
   call void @llvm.experimental.noalias.scope.decl(metadata !563)
@@ -4167,8 +4167,8 @@ define noundef zeroext i1 @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %16
-  %.not26 = icmp ne ptr %21, null
-  br i1 %.not26, label %24, label %.loopexit
+  %.not23.not.not.not.not.not = icmp ne ptr %21, null
+  br i1 %.not23.not.not.not.not.not, label %24, label %.loopexit
 
 22:                                               ; preds = %16, %32, %29
   %23 = landingpad { ptr, i32 }
@@ -4186,7 +4186,7 @@ define noundef zeroext i1 @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20
 .loopexit:                                        ; preds = %34, %.noexc, %31
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbdf7993e92eca5eE.llvm.8351105841907204142"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  ret i1 %.not26
+  ret i1 %.not23.not.not.not.not.not
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %10, align 8, !range !156, !noundef !7
@@ -4220,7 +4220,7 @@ define noundef zeroext i1 @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20
 
 35:                                               ; preds = %34
   %.pre = load ptr, ptr %5, align 8, !alias.scope !566
-  %.pre25 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !566
+  %.pre28 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !566
   br label %16
 
 36:                                               ; preds = %22

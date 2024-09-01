@@ -209,10 +209,7 @@ BufferGetPage.exit:                               ; preds = %14, %20
   %54 = zext nneg i32 %.mask to i64
   br label %65
 
-.preheader:                                       ; preds = %86
-  br i1 %.not143, label %._crit_edge, label %.lr.ph149
-
-.lr.ph149:                                        ; preds = %.preheader
+.lr.ph149:                                        ; preds = %86
   %.not85 = icmp eq ptr %5, null
   %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %56 = getelementptr inbounds i8, ptr %4, i64 8
@@ -278,7 +275,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %79, %81
   store i8 %.sink, ptr %87, align 1
   %88 = and i64 %66, 65535
   %.not = icmp eq i64 %88, 0
-  br i1 %.not, label %.preheader, label %65, !llvm.loop !5
+  br i1 %.not, label %.lr.ph149, label %65, !llvm.loop !5
 
 89:                                               ; preds = %.lr.ph149, %336
   %.1146 = phi i16 [ 1, %.lr.ph149 ], [ %337, %336 ]
@@ -775,7 +772,7 @@ heap_prune_chain.exit:                            ; preds = %126, %132, %140, %h
   %.not81 = icmp ugt i16 %337, %41
   br i1 %.not81, label %._crit_edge, label %89, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %336, %BufferGetPage.exit, %.preheader
+._crit_edge:                                      ; preds = %336, %BufferGetPage.exit
   %.not82 = icmp eq ptr %5, null
   br i1 %.not82, label %339, label %338
 

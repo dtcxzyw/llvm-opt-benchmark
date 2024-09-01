@@ -88,8 +88,8 @@ if.end.i.i:                                       ; preds = %for.cond.i
 
 _ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i:  ; preds = %if.end.i.i, %for.cond.i
   %retval.0.i.i = phi i32 [ %5, %if.end.i.i ], [ 0, %for.cond.i ]
-  %cmp.not.i.not = icmp ult i32 %i.0.i, %retval.0.i.i
-  br i1 %cmp.not.i.not, label %for.body.i, label %if.end
+  %cmp.not.not.not.i.not = icmp ult i32 %i.0.i, %retval.0.i.i
+  br i1 %cmp.not.not.not.i.not, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit.i
   %call3.i = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %i.0.i)
@@ -205,8 +205,8 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit:    ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i32 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit
   %call3 = tail call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %i.0)
@@ -214,7 +214,7 @@ for.body:                                         ; preds = %_ZNK6vectorIPN2lp8l
   br i1 %call3, label %for.cond, label %return, !llvm.loop !4
 
 return:                                           ; preds = %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit, %for.body
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 declare void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(1888)) local_unnamed_addr #0

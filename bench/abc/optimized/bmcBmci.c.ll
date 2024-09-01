@@ -1721,7 +1721,7 @@ Vec_IntPush.exit234:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntSum.exit, label %241, !llvm.loop !15
 
 Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exit220, %.critedge4
-  %245 = phi i1 [ false, %.critedge4 ], [ false, %Abc_Clock.exit220 ], [ %239, %241 ]
+  %245 = phi i1 [ false, %.critedge4 ], [ false, %Abc_Clock.exit220 ], [ true, %241 ]
   %.0153.lcssa326 = phi i32 [ %.1, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %.1, %241 ]
   %246 = phi i32 [ %.pre, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %.pre, %241 ]
   %.0.lcssa.i = phi i32 [ 0, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %244, %241 ]

@@ -990,7 +990,7 @@ define hidden noundef ptr @_ZN9ScopeDesc24objects_to_rematerializeER5frameR11Reg
 
 .lr.ph:                                           ; preds = %7, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ 0, %7 ]
-  %16 = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ %13, %7 ]
+  %16 = phi ptr [ %58, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ %13, %7 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
@@ -1018,67 +1018,61 @@ define hidden noundef ptr @_ZN9ScopeDesc24objects_to_rematerializeER5frameR11Reg
   %.0 = phi ptr [ %30, %29 ], [ %20, %24 ]
   %35 = load i32, ptr %8, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i
+  br i1 %36, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %34
   %37 = load ptr, ptr %11, align 8
-  %38 = zext nneg i32 %35 to i64
-  %39 = load ptr, ptr %37, align 8
-  %40 = icmp eq ptr %39, %.0
-  br i1 %40, label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %35 to i64
+  br label %39
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %41
-  %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i.i, %41 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i7.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %38
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i, label %41, !llvm.loop !11
+38:                                               ; preds = %39
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %39, !llvm.loop !11
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.next.i.i
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %.0
-  br i1 %44, label %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.i, label %.lr.ph.i, !llvm.loop !11
+39:                                               ; preds = %38, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
+  %40 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i.i
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, %.0
+  br i1 %42, label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %38
 
-_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.i: ; preds = %41
-  %45 = icmp ult i64 %indvars.iv.next.i.i, %38
-  br i1 %45, label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i
+.loopexit.i:                                      ; preds = %38, %34
+  %43 = load i32, ptr %10, align 4
+  %44 = icmp eq i32 %35, %43
+  br i1 %44, label %45, label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
-_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i: ; preds = %.lr.ph.i, %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.i, %34
-  %46 = load i32, ptr %10, align 4
-  %47 = icmp eq i32 %35, %46
-  br i1 %47, label %48, label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i
-
-48:                                               ; preds = %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i
-  %49 = add nsw i32 %35, 1
-  %50 = icmp sgt i32 %35, -1
-  %51 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %49)
-  %52 = icmp ult i32 %51, 2
-  %or.cond.i.i.i.i.i = select i1 %50, i1 %52, i1 false
-  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
-  %54 = sub nuw nsw i32 32, %53
-  %55 = shl nuw i32 1, %54
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %49, i32 %55
+45:                                               ; preds = %.loopexit.i
+  %46 = add nsw i32 %35, 1
+  %47 = icmp sgt i32 %35, -1
+  %48 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %46)
+  %49 = icmp ult i32 %48, 2
+  %or.cond.i.i.i.i.i = select i1 %47, i1 %49, i1 false
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
+  %51 = sub nuw nsw i32 32, %50
+  %52 = shl nuw i32 1, %51
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %46, i32 %52
   tail call void @_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %8, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %48, %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i
-  %56 = phi i32 [ %.pre.i.i, %48 ], [ %35, %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.thread.i ]
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %8, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
-  store ptr %.0, ptr %60, align 8
+_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %45, %.loopexit.i
+  %53 = phi i32 [ %.pre.i.i, %45 ], [ %35, %.loopexit.i ]
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %8, align 8
+  %55 = load ptr, ptr %11, align 8
+  %56 = sext i32 %53 to i64
+  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  store ptr %.0, ptr %57, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i, %_ZNK17GrowableArrayViewIP10ScopeValueE8containsERKS1_.exit.i, %.lr.ph.i.i, %29, %.lr.ph
+_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %39, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit.i, %29, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load ptr, ptr %4, align 8
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  %58 = load ptr, ptr %4, align 8
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %7, %3
   %.014 = phi ptr [ null, %3 ], [ %8, %7 ], [ %8, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]

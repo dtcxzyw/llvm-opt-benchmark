@@ -1050,12 +1050,12 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %invoke.cont17.invoke unwind label %lpad.loopexit.split-lp
 
 invoke.cont17.invoke:                             ; preds = %if.then14, %if.then34
-  %.sink50 = phi i64 [ 864, %if.then34 ], [ 856, %if.then14 ]
+  %.sink48 = phi i64 [ 864, %if.then34 ], [ 856, %if.then14 ]
   %11 = load ptr, ptr %m_ctx, align 8
   %12 = load i32, ptr %idx, align 4
   %13 = load ptr, ptr %fml, align 8
   %14 = load ptr, ptr %m, align 8
-  %m_false.i11 = getelementptr inbounds i8, ptr %14, i64 %.sink50
+  %m_false.i11 = getelementptr inbounds i8, ptr %14, i64 %.sink48
   %15 = load ptr, ptr %m_false.i11, align 8
   %vtable46 = load ptr, ptr %11, align 8
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 80
@@ -1184,7 +1184,6 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %entry, %_ZN11ast_ma
   br i1 %cmp22.not, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %for.body
 
 for.body:                                         ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, %for.inc
-  %cmp24 = phi i1 [ %cmp, %for.inc ], [ true, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
   %i.023 = phi i32 [ %inc, %for.inc ], [ 0, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
   %5 = load ptr, ptr %m, align 8
   %6 = load ptr, ptr %m_ctx, align 8
@@ -1244,12 +1243,11 @@ lpad7:                                            ; preds = %lpad7.loopexit.spli
 
 for.inc:                                          ; preds = %invoke.cont10, %invoke.cont17
   %inc = add nuw i32 %i.023, 1
-  %cmp = icmp ult i32 %inc, %call
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !9
 
 cleanup:                                          ; preds = %for.inc, %if.then
-  %cmp19.ph = phi i1 [ %cmp24, %if.then ], [ %cmp, %for.inc ]
+  %cmp19.ph = phi i1 [ true, %if.then ], [ false, %for.inc ]
   %.pr = load ptr, ptr %def, align 8
   %tobool.not.i.i6 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i6, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
@@ -1275,7 +1273,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, %cleanup, %if.then.i.i.i, %if.then2.i.i.i
-  %cmp1931 = phi i1 [ %cmp19.ph, %cleanup ], [ %cmp19.ph, %if.then.i.i.i ], [ %cmp19.ph, %if.then2.i.i.i ], [ false, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
+  %cmp1929 = phi i1 [ %cmp19.ph, %cleanup ], [ %cmp19.ph, %if.then.i.i.i ], [ %cmp19.ph, %if.then2.i.i.i ], [ false, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
   %18 = load ptr, ptr %fml, align 8
   %tobool.not.i.i8 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i8, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit16, label %if.then.i.i.i9
@@ -1301,7 +1299,7 @@ terminate.lpad.i15:                               ; preds = %if.then2.i.i.i14
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit16:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i9, %if.then2.i.i.i14
-  ret i1 %cmp1931
+  ret i1 %cmp1929
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

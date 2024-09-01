@@ -4899,8 +4899,8 @@ common.resume:                                    ; preds = %46, %41
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %12, align 8, !noundef !10
-  %.not15.not = icmp eq ptr %50, null
-  br i1 %.not15.not, label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17hc2d0697f1c7fd65cE.exit35", label %51
+  %.not15 = icmp eq ptr %50, null
+  br i1 %.not15, label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17hc2d0697f1c7fd65cE.exit35", label %51
 
 51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)

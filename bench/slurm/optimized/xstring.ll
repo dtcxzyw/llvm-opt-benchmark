@@ -757,11 +757,11 @@ define noundef zeroext i1 @xstring_is_whitespace(ptr nocapture noundef readonly 
   %11 = getelementptr inbounds i16, ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
-  %.not7.not = icmp ne i16 %13, 0
-  br i1 %.not7.not, label %5, label %._crit_edge
+  %.not7.not.not = icmp ne i16 %13, 0
+  br i1 %.not7.not.not, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8, %5, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ %.not7.not, %5 ], [ %.not7.not, %8 ]
+  %.not.lcssa = phi i1 [ true, %1 ], [ %.not7.not.not, %5 ], [ %.not7.not.not, %8 ]
   ret i1 %.not.lcssa
 }
 

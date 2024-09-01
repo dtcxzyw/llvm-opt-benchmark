@@ -7492,21 +7492,18 @@ for.body.i:                                       ; preds = %if.else97, %for.bod
 
 invoke.cont:                                      ; preds = %for.body.i
   %cmp3.i.not = icmp eq i32 %spec.select, 0
-  br i1 %cmp3.i.not, label %invoke.cont98, label %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i
+  br i1 %cmp3.i.not, label %for.cond2.preheader.i.preheader, label %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %invoke.cont
   %conv = zext nneg i32 %spec.select to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv, 12
   %call5.i.i.i.i65 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
   %add.ptr21.i = getelementptr inbounds %"struct.facebook::velox::BaseVector::CopyRange", ptr %call5.i.i.i.i65, i64 %conv
-  br label %invoke.cont98
+  br label %for.cond2.preheader.i.preheader
 
-invoke.cont98:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i, %invoke.cont
+for.cond2.preheader.i.preheader:                  ; preds = %invoke.cont, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i
   %outRanges.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
   %outRanges.sroa.9.0 = phi ptr [ %call5.i.i.i.i65, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
-  br i1 %cmp.not1.i, label %invoke.cont100, label %for.cond2.preheader.i.preheader
-
-for.cond2.preheader.i.preheader:                  ; preds = %invoke.cont98
   %rawSizes_.i.i.i = getelementptr inbounds i8, ptr %call3, i64 128
   %rawOffsets_.i.i.i = getelementptr inbounds i8, ptr %call3, i64 112
   br label %for.cond2.preheader.i
@@ -7702,54 +7699,54 @@ for.inc6.i:                                       ; preds = %"_ZZN8facebook5velo
 
 invoke.cont100.loopexit:                          ; preds = %for.inc6.i
   %.pre = load ptr, ptr %targetValues, align 8
+  %68 = ptrtoint ptr %outRanges.sroa.9.2 to i64
   br label %invoke.cont100
 
-invoke.cont100:                                   ; preds = %if.else97, %invoke.cont100.loopexit, %invoke.cont98
-  %68 = phi ptr [ %25, %invoke.cont98 ], [ %.pre, %invoke.cont100.loopexit ], [ %25, %if.else97 ]
-  %childSize.4 = phi i32 [ %26, %invoke.cont98 ], [ %childSize.1, %invoke.cont100.loopexit ], [ %26, %if.else97 ]
-  %outRanges.sroa.9.6 = phi ptr [ %outRanges.sroa.9.0, %invoke.cont98 ], [ %outRanges.sroa.9.2, %invoke.cont100.loopexit ], [ null, %if.else97 ]
-  %outRanges.sroa.0.7 = phi ptr [ %outRanges.sroa.9.0, %invoke.cont98 ], [ %outRanges.sroa.0.3, %invoke.cont100.loopexit ], [ null, %if.else97 ]
-  %vtable102 = load ptr, ptr %68, align 8
+invoke.cont100:                                   ; preds = %if.else97, %invoke.cont100.loopexit
+  %69 = phi ptr [ %.pre, %invoke.cont100.loopexit ], [ %25, %if.else97 ]
+  %childSize.4 = phi i32 [ %childSize.1, %invoke.cont100.loopexit ], [ %26, %if.else97 ]
+  %outRanges.sroa.9.6 = phi i64 [ %68, %invoke.cont100.loopexit ], [ 0, %if.else97 ]
+  %outRanges.sroa.0.7 = phi ptr [ %outRanges.sroa.0.3, %invoke.cont100.loopexit ], [ null, %if.else97 ]
+  %vtable102 = load ptr, ptr %69, align 8
   %vfn103 = getelementptr inbounds i8, ptr %vtable102, i64 192
-  %69 = load ptr, ptr %vfn103, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(99) %68, i32 noundef %childSize.4, i1 noundef zeroext true)
+  %70 = load ptr, ptr %vfn103, align 8
+  invoke void %70(ptr noundef nonnull align 8 dereferenceable(99) %69, i32 noundef %childSize.4, i1 noundef zeroext true)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %invoke.cont100
-  %70 = load ptr, ptr %targetValues, align 8
-  %sub.ptr.lhs.cast.i.i80 = ptrtoint ptr %outRanges.sroa.9.6 to i64
+  %71 = load ptr, ptr %targetValues, align 8
   %sub.ptr.rhs.cast.i.i81 = ptrtoint ptr %outRanges.sroa.0.7 to i64
-  %sub.ptr.sub.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i80, %sub.ptr.rhs.cast.i.i81
+  %sub.ptr.sub.i.i82 = sub i64 %outRanges.sroa.9.6, %sub.ptr.rhs.cast.i.i81
   store ptr %outRanges.sroa.0.7, ptr %ref.tmp106, align 8
   %e_.i.i = getelementptr inbounds i8, ptr %ref.tmp106, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %outRanges.sroa.0.7, i64 %sub.ptr.sub.i.i82
   store ptr %add.ptr.i.i, ptr %e_.i.i, align 8
-  %vtable108 = load ptr, ptr %70, align 8
+  %vtable108 = load ptr, ptr %71, align 8
   %vfn109 = getelementptr inbounds i8, ptr %vtable108, i64 216
-  %71 = load ptr, ptr %vfn109, align 8
-  invoke void %71(ptr noundef nonnull align 8 dereferenceable(99) %70, ptr noundef %sourceValues.0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp106)
+  %72 = load ptr, ptr %vfn109, align 8
+  invoke void %72(ptr noundef nonnull align 8 dereferenceable(99) %71, ptr noundef %sourceValues.0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp106)
           to label %invoke.cont110 unwind label %lpad.loopexit.split-lp
 
 invoke.cont110:                                   ; preds = %invoke.cont107
   br i1 %tobool.not, label %if.end123, label %if.then112
 
 if.then112:                                       ; preds = %invoke.cont110
-  %72 = load ptr, ptr %targetKeys, align 8
-  %vtable114 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %targetKeys, align 8
+  %vtable114 = load ptr, ptr %73, align 8
   %vfn115 = getelementptr inbounds i8, ptr %vtable114, i64 192
-  %73 = load ptr, ptr %vfn115, align 8
-  invoke void %73(ptr noundef nonnull align 8 dereferenceable(99) %72, i32 noundef %childSize.4, i1 noundef zeroext true)
+  %74 = load ptr, ptr %vfn115, align 8
+  invoke void %74(ptr noundef nonnull align 8 dereferenceable(99) %73, i32 noundef %childSize.4, i1 noundef zeroext true)
           to label %invoke.cont119 unwind label %lpad.loopexit.split-lp
 
 invoke.cont119:                                   ; preds = %if.then112
-  %74 = load ptr, ptr %targetKeys, align 8
+  %75 = load ptr, ptr %targetKeys, align 8
   store ptr %outRanges.sroa.0.7, ptr %ref.tmp118, align 8
   %e_.i.i87 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
   store ptr %add.ptr.i.i, ptr %e_.i.i87, align 8
-  %vtable120 = load ptr, ptr %74, align 8
+  %vtable120 = load ptr, ptr %75, align 8
   %vfn121 = getelementptr inbounds i8, ptr %vtable120, i64 216
-  %75 = load ptr, ptr %vfn121, align 8
-  invoke void %75(ptr noundef nonnull align 8 dereferenceable(99) %74, ptr noundef %sourceKeys.0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118)
+  %76 = load ptr, ptr %vfn121, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(99) %75, ptr noundef %sourceKeys.0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp118)
           to label %if.end123 unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %for.body4.i, %if.then.i.i72, %if.then4.i.i, %if.end.i.i, %cond.true.i.i.i.i.i.i

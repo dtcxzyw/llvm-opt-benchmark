@@ -1232,8 +1232,8 @@ define dso_local noundef zeroext i1 @mdprefetch(ptr nocapture noundef %0, i32 no
   %11 = trunc i8 %10 to i1
   %12 = select i1 %11, i32 2, i32 1
   %13 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.01923, i1 noundef zeroext false, i32 noundef %12)
-  %.not = icmp ne ptr %13, null
-  br i1 %.not, label %14, label %.loopexit
+  %.not.not = icmp ne ptr %13, null
+  br i1 %.not.not, label %14, label %.loopexit
 
 14:                                               ; preds = %.lr.ph
   %15 = and i32 %.01923, 131071
@@ -1251,7 +1251,7 @@ define dso_local noundef zeroext i1 @mdprefetch(ptr nocapture noundef %0, i32 no
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.preheader ], [ %.not, %14 ], [ %.not, %.lr.ph ]
+  %.0 = phi i1 [ false, %4 ], [ true, %.preheader ], [ %.not.not, %14 ], [ %.not.not, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -2222,14 +2222,11 @@ define dso_local void @DropRelationFiles(ptr nocapture noundef readonly %0, i32 
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.loopexit.us
   tail call void @smgrdounlinkall(ptr noundef nonnull %6, i32 noundef %1, i1 noundef zeroext %2) #14
-  br i1 %7, label %.lr.ph31.preheader, label %._crit_edge32
-
-.lr.ph31.preheader:                               ; preds = %._crit_edge
   %wide.trip.count44 = zext nneg i32 %1 to i64
   br label %.lr.ph31
 
-.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
-  %indvars.iv41 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next42, %.lr.ph31 ]
+.lr.ph31:                                         ; preds = %._crit_edge, %.lr.ph31
+  %indvars.iv41 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next42, %.lr.ph31 ]
   %16 = getelementptr ptr, ptr %6, i64 %indvars.iv41
   %17 = load ptr, ptr %16, align 8
   tail call void @smgrclose(ptr noundef %17) #14
@@ -2237,7 +2234,7 @@ define dso_local void @DropRelationFiles(ptr nocapture noundef readonly %0, i32 
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !22
 
-._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge.thread, %._crit_edge
+._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge.thread
   tail call void @pfree(ptr noundef %6) #14
   ret void
 }

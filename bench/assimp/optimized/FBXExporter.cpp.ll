@@ -25197,7 +25197,7 @@ _ZNKSt4lessI10aiVector3tIfEEclERKS1_S4_.exit.i.i1775: ; preds = %cond.false.i.i.
   %cmp14.i.i.i.i1777 = fcmp olt float %372, %378
   br i1 %cmp14.i.i.i.i1777, label %while.body.i.i.i.i1799.preheader, label %if.else610
 
-while.body.i.i.i.i1799.preheader:                 ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt4lessI10aiVector3tIfEEclERKS1_S4_.exit.i.i1775, %cond.true.i.i.i.i1782, %cond.true8.i.i.i.i1780
+while.body.i.i.i.i1799.preheader:                 ; preds = %cond.true8.i.i.i.i1780, %cond.true.i.i.i.i1782, %_ZNKSt4lessI10aiVector3tIfEEclERKS1_S4_.exit.i.i1775, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   br label %while.body.i.i.i.i1799
 
 while.body.i.i.i.i1799:                           ; preds = %while.body.i.i.i.i1799.preheader, %if.end.i.i.i.i1810

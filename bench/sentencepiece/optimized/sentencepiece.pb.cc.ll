@@ -4479,7 +4479,7 @@ _ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds
   br i1 %30, label %20, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !11
 
 _ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i, %8, %23, %1
-  %31 = phi i1 [ true, %1 ], [ false, %23 ], [ %14, %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i ], [ false, %8 ]
+  %31 = phi i1 [ true, %1 ], [ false, %23 ], [ %14, %8 ], [ %14, %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i ]
   ret i1 %31
 }
 

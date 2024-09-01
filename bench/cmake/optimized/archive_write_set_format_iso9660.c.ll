@@ -11416,28 +11416,28 @@ default.unreachable:                              ; preds = %1230, %95
   %.not101 = icmp eq i64 %165, 0
   br i1 %.not101, label %.thread106.thread, label %.thread108
 
-.thread108:                                       ; preds = %163
-  %166 = add nsw i64 %.084, 34
-  %167 = getelementptr inbounds i8, ptr %52, i64 %166
-  store i8 0, ptr %167, align 1
-  %168 = icmp eq i32 %4, 0
-  br i1 %168, label %.thread114, label %178
-
 .thread106:                                       ; preds = %32
-  %169 = add nsw i64 %.084, 33
-  %170 = and i64 %169, 1
-  %.not101103 = icmp eq i64 %170, 0
-  %171 = add nsw i64 %.084, 34
-  %spec.select118 = select i1 %.not101103, i64 %169, i64 %171
-  %172 = icmp eq i32 %4, 0
-  br i1 %172, label %175, label %178
+  %166 = add nsw i64 %.084, 33
+  %167 = and i64 %166, 1
+  %.not101103 = icmp eq i64 %167, 0
+  %168 = add nsw i64 %.084, 34
+  %spec.select118 = select i1 %.not101103, i64 %166, i64 %168
+  %169 = icmp eq i32 %4, 0
+  br i1 %169, label %175, label %178
 
 .thread106.thread:                                ; preds = %163
+  %170 = icmp eq i32 %4, 0
+  br i1 %170, label %.thread114, label %178
+
+.thread108:                                       ; preds = %163
+  %171 = add nsw i64 %.084, 34
+  %172 = getelementptr inbounds i8, ptr %52, i64 %171
+  store i8 0, ptr %172, align 1
   %173 = icmp eq i32 %4, 0
   br i1 %173, label %.thread114, label %178
 
 .thread114:                                       ; preds = %.thread106.thread, %.thread108
-  %.1112116 = phi i64 [ %166, %.thread108 ], [ %164, %.thread106.thread ]
+  %.1112116 = phi i64 [ %171, %.thread108 ], [ %164, %.thread106.thread ]
   %174 = trunc i64 %.1112116 to i8
   store i8 %174, ptr %0, align 1
   %.pre = trunc i64 %.1112116 to i32
@@ -11450,7 +11450,7 @@ default.unreachable:                              ; preds = %1230, %95
   br label %1240
 
 178:                                              ; preds = %.thread106.thread, %.thread108, %.thread106
-  %.1113 = phi i64 [ %166, %.thread108 ], [ %spec.select118, %.thread106 ], [ %164, %.thread106.thread ]
+  %.1113 = phi i64 [ %171, %.thread108 ], [ %spec.select118, %.thread106 ], [ %164, %.thread106.thread ]
   %.086105111 = phi ptr [ %52, %.thread108 ], [ null, %.thread106 ], [ %52, %.thread106.thread ]
   %179 = getelementptr inbounds i8, ptr %3, i64 66416
   %180 = load i32, ptr %179, align 8

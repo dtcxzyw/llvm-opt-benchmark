@@ -2971,7 +2971,7 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable wr
 
 9:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %99
+  br label %98
 
 10:                                               ; preds = %3
   %11 = add i32 %2, -3
@@ -2987,7 +2987,7 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable wr
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %99
+  br label %98
 
 18:                                               ; preds = %14
   %19 = sub nsw i32 128, %7
@@ -3030,7 +3030,7 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   store i64 %.sroa.015.0.i, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.6.0.i33, ptr %43, align 8
-  br label %99
+  br label %98
 
 44:                                               ; preds = %10
   %45 = sub nsw i32 128, %7
@@ -3070,85 +3070,82 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
 i128_lshr64.exit45:                               ; preds = %51, %55, %59
   %.sroa.015.0.i41 = phi i64 [ 0, %55 ], [ %68, %59 ], [ 0, %51 ]
   %.sroa.6.0.i42 = phi i64 [ %58, %55 ], [ %67, %59 ], [ %49, %51 ]
-  br i1 %12, label %69, label %98
+  br i1 %12, label %69, label %97
 
 i128_lshr64.exit45.thread:                        ; preds = %44
-  br i1 %12, label %i128_ashr64.exit, label %98
+  br i1 %12, label %i128_ashr64.exit, label %97
 
 69:                                               ; preds = %i128_lshr64.exit45
-  br i1 %50, label %i128_ashr64.exit, label %70
+  %70 = icmp eq i32 %7, 64
+  br i1 %70, label %.thread126, label %71
 
-70:                                               ; preds = %69
-  %71 = icmp eq i32 %7, 64
-  br i1 %71, label %.thread126, label %72
+71:                                               ; preds = %69
+  %72 = icmp ugt i32 %45, 64
+  br i1 %72, label %73, label %.thread151
 
-72:                                               ; preds = %70
-  %73 = icmp ugt i32 %45, 64
-  br i1 %73, label %74, label %.thread151
+73:                                               ; preds = %71
+  %74 = add nsw i64 %46, -64
+  %75 = shl i64 %.sroa.6.0.i42, %74
+  %.not.i = icmp sgt i64 %75, -1
+  %76 = add nsw i64 %46, -64
+  br i1 %.not.i, label %82, label %89
 
-74:                                               ; preds = %72
-  %75 = add nsw i64 %46, -64
-  %76 = shl i64 %.sroa.6.0.i42, %75
-  %.not.i = icmp sgt i64 %76, -1
-  %77 = add nsw i64 %46, -64
-  br i1 %.not.i, label %83, label %90
-
-.thread151:                                       ; preds = %72
-  %78 = shl i64 %.sroa.015.0.i41, %46
-  %79 = sub nuw nsw i64 64, %46
-  %80 = lshr i64 %.sroa.6.0.i42, %79
-  %81 = or i64 %80, %78
-  %82 = shl i64 %.sroa.6.0.i42, %46
-  %.not.i154 = icmp sgt i64 %81, -1
+.thread151:                                       ; preds = %71
+  %77 = shl i64 %.sroa.015.0.i41, %46
+  %78 = sub nuw nsw i64 64, %46
+  %79 = lshr i64 %.sroa.6.0.i42, %78
+  %80 = or i64 %79, %77
+  %81 = shl i64 %.sroa.6.0.i42, %46
+  %.not.i154 = icmp sgt i64 %80, -1
   br i1 %.not.i154, label %.thread159, label %.thread164
 
-.thread126:                                       ; preds = %70
+.thread126:                                       ; preds = %69
   %.sroa.6.0.i42.lobit = ashr i64 %.sroa.6.0.i42, 63
   br label %i128_ashr64.exit
 
-83:                                               ; preds = %74
-  %84 = lshr i64 %76, %77
+82:                                               ; preds = %73
+  %83 = lshr i64 %75, %76
   br label %i128_ashr64.exit
 
 .thread159:                                       ; preds = %.thread151
-  %85 = lshr exact i64 %82, %46
-  %86 = sub nuw nsw i64 64, %46
-  %87 = shl i64 %81, %86
-  %88 = or i64 %85, %87
-  %89 = lshr i64 %81, %46
+  %84 = lshr exact i64 %81, %46
+  %85 = sub nuw nsw i64 64, %46
+  %86 = shl i64 %80, %85
+  %87 = or i64 %84, %86
+  %88 = lshr i64 %80, %46
   br label %i128_ashr64.exit
 
-90:                                               ; preds = %74
-  %91 = ashr i64 %76, %77
+89:                                               ; preds = %73
+  %90 = ashr i64 %75, %76
   br label %i128_ashr64.exit
 
 .thread164:                                       ; preds = %.thread151
-  %92 = ashr i64 %81, %46
-  %93 = lshr exact i64 %82, %46
-  %94 = sub nuw nsw i64 64, %46
-  %95 = shl i64 %81, %94
-  %96 = or i64 %93, %95
+  %91 = ashr i64 %80, %46
+  %92 = lshr exact i64 %81, %46
+  %93 = sub nuw nsw i64 64, %46
+  %94 = shl i64 %80, %93
+  %95 = or i64 %92, %94
   br label %i128_ashr64.exit
 
-i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %69, %83, %.thread159, %90, %.thread164
-  %.sroa.015.0.i51 = phi i64 [ -1, %90 ], [ %92, %.thread164 ], [ 0, %83 ], [ %89, %.thread159 ], [ 0, %69 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
-  %.sroa.7.0.i = phi i64 [ %91, %90 ], [ %96, %.thread164 ], [ %84, %83 ], [ %88, %.thread159 ], [ 0, %69 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
+i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.thread, %.thread126, %82, %.thread159, %89, %.thread164
+  %.sroa.015.0.i51 = phi i64 [ -1, %89 ], [ %91, %.thread164 ], [ 0, %82 ], [ %88, %.thread159 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
+  %.sroa.7.0.i = phi i64 [ %90, %89 ], [ %95, %.thread164 ], [ %83, %82 ], [ %87, %.thread159 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
   store i64 %.sroa.015.0.i51, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.7.0.i, ptr %97, align 8
-  br label %99
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.7.0.i, ptr %96, align 8
+  br label %98
 
-98:                                               ; preds = %i128_lshr64.exit45.thread, %i128_lshr64.exit45
+97:                                               ; preds = %i128_lshr64.exit45.thread, %i128_lshr64.exit45
   %.sroa.6.0.i42148 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.6.0.i42, %i128_lshr64.exit45 ]
   %.sroa.015.0.i41146 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.015.0.i41, %i128_lshr64.exit45 ]
   store i64 %.sroa.015.0.i41146, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.6.0.i42148, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %99
+  br label %98
 
-99:                                               ; preds = %98, %i128_ashr64.exit, %i128_lshr64.exit, %17, %9
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %2, ptr %100, align 8
+98:                                               ; preds = %97, %i128_ashr64.exit, %i128_lshr64.exit, %17, %9
+  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %2, ptr %99, align 8
   ret void
 }
 

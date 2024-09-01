@@ -559,12 +559,9 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   %65 = add nuw nsw i32 %spec.store.select, 1
   %66 = sub i32 %65, %64
   %67 = icmp ult i32 %64, %66
-  br i1 %67, label %.lr.ph131, label %._crit_edge132
+  br i1 %67, label %.lr.ph127.us.preheader, label %._crit_edge132
 
-.lr.ph131:                                        ; preds = %._crit_edge124
-  br i1 %36, label %.lr.ph127.us.preheader, label %HUF_fillDTableX2.exit
-
-.lr.ph127.us.preheader:                           ; preds = %.lr.ph131
+.lr.ph127.us.preheader:                           ; preds = %._crit_edge124
   %68 = zext i32 %indvars.iv177 to i64
   %69 = add i32 %spec.store.select, %indvars.iv182
   %wide.trip.count175 = zext i32 %indvars.iv158 to i64
@@ -1086,7 +1083,7 @@ HUF_fillDTableX2Level2.exit.loopexit.i:           ; preds = %HUF_fillDTableX2For
   %exitcond.not.i = icmp eq i64 %indvars.iv.next83.i, %41
   br i1 %exitcond.not.i, label %HUF_fillDTableX2.exit, label %.lr.ph71.i, !llvm.loop !34
 
-HUF_fillDTableX2.exit:                            ; preds = %.loopexit.i, %._crit_edge119, %.lr.ph131, %._crit_edge132
+HUF_fillDTableX2.exit:                            ; preds = %.loopexit.i, %._crit_edge119, %._crit_edge132
   %267 = trunc nuw nsw i32 %spec.store.select to i8
   store i8 %.sroa.0.0.extract.trunc, ptr %0, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1

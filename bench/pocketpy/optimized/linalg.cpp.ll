@@ -5881,74 +5881,48 @@ define void @_ZNK4pkpy6Mat3x3dvEf(ptr dead_on_unwind noalias writable sret(%"str
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4pkpy6Mat3x3eqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #7 align 2 {
-  %3 = load float, ptr %0, align 4
-  %4 = load float, ptr %1, align 4
-  %5 = fsub float %3, %4
-  %6 = tail call noundef float @llvm.fabs.f32(float %5)
-  %7 = fpext float %6 to double
-  %8 = fcmp olt double %7, 1.000000e-04
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br label %3
 
-.lr.ph:                                           ; preds = %2, %9
-  %indvars.iv8 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %2 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %._crit_edge.loopexit, label %9, !llvm.loop !16
+3:                                                ; preds = %3, %2
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+  %4 = getelementptr inbounds [9 x float], ptr %0, i64 0, i64 %indvars.iv
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds [9 x float], ptr %1, i64 0, i64 %indvars.iv
+  %7 = load float, ptr %6, align 4
+  %8 = fsub float %5, %7
+  %9 = tail call noundef float @llvm.fabs.f32(float %8)
+  %10 = fpext float %9 to double
+  %11 = fcmp olt double %10, 1.000000e-04
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp ne i64 %indvars.iv.next, 9
+  %or.cond.not = select i1 %11, i1 %exitcond, i1 false
+  br i1 %or.cond.not, label %3, label %12, !llvm.loop !16
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds [9 x float], ptr %0, i64 0, i64 %indvars.iv.next
-  %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds [9 x float], ptr %1, i64 0, i64 %indvars.iv.next
-  %13 = load float, ptr %12, align 4
-  %14 = fsub float %11, %13
-  %15 = tail call noundef float @llvm.fabs.f32(float %14)
-  %16 = fpext float %15 to double
-  %17 = fcmp olt double %16, 1.000000e-04
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %9
-  %18 = icmp ugt i64 %indvars.iv8, 7
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %18, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+12:                                               ; preds = %3
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4pkpy6Mat3x3neERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #7 align 2 {
-  %3 = load float, ptr %0, align 4
-  %4 = load float, ptr %1, align 4
-  %5 = fsub float %3, %4
-  %6 = tail call noundef float @llvm.fabs.f32(float %5)
-  %7 = fpext float %6 to double
-  %8 = fcmp olt double %7, 1.000000e-04
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br label %3
 
-.lr.ph:                                           ; preds = %2, %9
-  %indvars.iv8 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %2 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
+3:                                                ; preds = %3, %2
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+  %4 = getelementptr inbounds [9 x float], ptr %0, i64 0, i64 %indvars.iv
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds [9 x float], ptr %1, i64 0, i64 %indvars.iv
+  %7 = load float, ptr %6, align 4
+  %8 = fsub float %5, %7
+  %9 = tail call noundef float @llvm.fabs.f32(float %8)
+  %10 = fpext float %9 to double
+  %11 = fcmp uge double %10, 1.000000e-04
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !17
+  %or.cond = select i1 %11, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %12, label %3, !llvm.loop !17
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds [9 x float], ptr %0, i64 0, i64 %indvars.iv.next
-  %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds [9 x float], ptr %1, i64 0, i64 %indvars.iv.next
-  %13 = load float, ptr %12, align 4
-  %14 = fsub float %11, %13
-  %15 = tail call noundef float @llvm.fabs.f32(float %14)
-  %16 = fpext float %15 to double
-  %17 = fcmp olt double %16, 1.000000e-04
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %9
-  %18 = icmp ult i64 %indvars.iv8, 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.lcssa = phi i1 [ true, %2 ], [ %18, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+12:                                               ; preds = %3
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13760,41 +13734,30 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 8:                                                ; preds = %3
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = load float, ptr %5, align 4
-  %12 = load float, ptr %10, align 4
-  %13 = fsub float %11, %12
-  %14 = tail call noundef float @llvm.fabs.f32(float %13)
-  %15 = fpext float %14 to double
-  %16 = fcmp olt double %15, 1.000000e-04
-  br i1 %16, label %.lr.ph.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
+  br label %11
 
-.lr.ph.i:                                         ; preds = %8, %17
-  %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %8 ]
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i1.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i.i, label %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i.thread, label %17, !llvm.loop !16
+11:                                               ; preds = %11, %8
+  %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %11 ]
+  %12 = getelementptr inbounds [9 x float], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %13 = load float, ptr %12, align 4
+  %14 = getelementptr inbounds [9 x float], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %15 = load float, ptr %14, align 4
+  %16 = fsub float %13, %15
+  %17 = tail call noundef float @llvm.fabs.f32(float %16)
+  %18 = fpext float %17 to double
+  %19 = fcmp olt double %18, 1.000000e-04
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 9
+  %or.cond.not.i.i = select i1 %19, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %11, label %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i, !llvm.loop !16
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds [9 x float], ptr %5, i64 0, i64 %indvars.iv.next.i.i
-  %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds [9 x float], ptr %10, i64 0, i64 %indvars.iv.next.i.i
-  %21 = load float, ptr %20, align 4
-  %22 = fsub float %19, %21
-  %23 = tail call noundef float @llvm.fabs.f32(float %22)
-  %24 = fpext float %23 to double
-  %25 = fcmp olt double %24, 1.000000e-04
-  br i1 %25, label %.lr.ph.i, label %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i, !llvm.loop !16
-
-_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i:         ; preds = %17
-  %26 = icmp ugt i64 %indvars.iv.i1.i, 7
-  br i1 %26, label %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i.thread, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
-
-_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i.thread:  ; preds = %.lr.ph.i, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i
+_ZNK4pkpy6Mat3x3eqERKS0_.exit.i:                  ; preds = %11
+  %.in.v.i.i = select i1 %19, i64 264528, i64 264536
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i.thread, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i, %3, %8
-  %.lcssa.i.sink.i = phi i64 [ 264544, %3 ], [ 264536, %8 ], [ 264528, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i.thread ], [ 264536, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.loopexit.i ]
-  %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.lcssa.i.sink.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %3, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i
+  %.in.v.i.sink.i = phi i64 [ %.in.v.i.i, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i ], [ 264544, %3 ]
+  %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i.sink.i
   %.0.i = load ptr, ptr %.in.i.i, align 8
   ret ptr %.0.i
 }

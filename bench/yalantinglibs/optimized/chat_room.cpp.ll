@@ -41914,8 +41914,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %_ZN4asio12basic_soc
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %10, %lor.lhs.false.i.i.i.i ], [ %13, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -44544,17 +44544,17 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i, 
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i8.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %1
-  br i1 %cmp.i.i.i.i.i8.i.i.i, label %for.body.i.i.i.i.preheader, label %for.body.i.i.i.i.i.i.i, !llvm.loop !666
+  br i1 %cmp.i.i.i.i.i8.i.i.i, label %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !666
 
-for.body.i.i.i.i.preheader:                       ; preds = %for.body.i.i.i.i.i.i.i
+_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %total_consumed_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %total_consumed_.i.i, i8 0, i64 24, i1 false)
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
-  %total_buffer_size.06.i.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.i.i.i.i.preheader ]
-  %iter.sroa.0.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.i.preheader ]
+for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i, %for.body.i.i.i.i
+  %total_buffer_size.06.i.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i.i ], [ 0, %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i ]
+  %iter.sroa.0.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i ]
   %b.sroa.1.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %iter.sroa.0.05.i.i.i.i, i64 8
   %b.sroa.1.0.copyload.i.i.i.i = load i64, ptr %b.sroa.1.0..sroa_idx.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %b.sroa.1.0.copyload.i.i.i.i, %total_buffer_size.06.i.i.i.i
@@ -54982,8 +54982,8 @@ land.rhs.i:                                       ; preds = %_ZN7cinatra17coro_h
 
 land.rhs.i47:                                     ; preds = %land.rhs.i
   %bcmp.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %retval.sroa.3.0.copyload.i41, ptr noundef nonnull dereferenceable(9) @.str.1078, i64 9)
-  %cmp.i.i49.not = icmp eq i32 %bcmp.i48, 0
-  br i1 %cmp.i.i49.not, label %for.body.i61, label %return
+  %cmp.i.i49 = icmp eq i32 %bcmp.i48, 0
+  br i1 %cmp.i.i49, label %for.body.i61, label %return
 
 for.body.i61:                                     ; preds = %land.rhs.i47, %for.inc.i68
   %__begin2.sroa.0.012.i62 = phi ptr [ %incdec.ptr.i.i69, %for.inc.i68 ], [ %headers_.i.ptr.i, %land.rhs.i47 ]
@@ -55028,7 +55028,7 @@ if.end24:                                         ; preds = %_ZN7cinatra17coro_h
   store i8 1, ptr %is_websocket_, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %for.inc.i17, %for.inc.i68, %land.rhs.i47, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit93, %land.rhs.i, %entry, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit42, %if.end24
+return:                                           ; preds = %for.inc.i, %for.inc.i17, %for.inc.i68, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit93, %land.rhs.i47, %land.rhs.i, %entry, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit42, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.end24
   %retval.0 = phi i1 [ true, %if.end24 ], [ false, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ false, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit42 ], [ false, %entry ], [ false, %land.rhs.i ], [ false, %land.rhs.i47 ], [ false, %_ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char_traitsIcEE.exit93 ], [ false, %for.inc.i68 ], [ false, %for.inc.i17 ], [ false, %for.inc.i ]
   ret i1 %retval.0
 }
@@ -55872,8 +55872,8 @@ _ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i: ; preds = %_ZN4
 
 _ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit: ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i, %for.cond2.preheader.lr.ph.i
   %result.sroa.13.0 = phi i64 [ %start_pos.sroa.21.0, %for.cond2.preheader.lr.ph.i ], [ %iter1.sroa.19.095.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
-  %cmp.i.i13.not = icmp ne i64 %result.sroa.13.0, %sub.ptr.sub.i.i
-  br i1 %cmp.i.i13.not, label %if.then, label %if.else
+  %cmp.i.i13.not.not = icmp eq i64 %result.sroa.13.0, %sub.ptr.sub.i.i
+  br i1 %cmp.i.i13.not.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit
   %add = add i64 %result.sroa.13.0, %14
@@ -55881,7 +55881,7 @@ if.then:                                          ; preds = %_ZN4asio6detail14pa
   br label %if.end50
 
 if.else:                                          ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit
-  %cmp.i.i13108 = phi i1 [ %cmp.i.i13.not, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %cmp.i.i13.not141, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
+  %cmp.i.i13108 = phi i1 [ false, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %cmp.i.i13.not141, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
   %result.sroa.13.0107 = phi i64 [ %result.sroa.13.0, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %iter1.sroa.19.095.i, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
   %17 = load ptr, ptr %buffers_, align 8
   %call.i.i16 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %17)

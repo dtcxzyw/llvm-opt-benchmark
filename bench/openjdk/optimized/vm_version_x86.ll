@@ -2180,7 +2180,7 @@ thread-pre-split126:                              ; preds = %710, %713, %715, %6
 716:                                              ; preds = %627, %thread-pre-split126
   %717 = phi i32 [ %.pr127, %thread-pre-split126 ], [ %628, %627 ]
   %718 = icmp eq i32 %717, 1970169159
-  br i1 %718, label %719, label %836
+  br i1 %718, label %719, label %835
 
 719:                                              ; preds = %716
   %720 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 4) #14
@@ -2319,7 +2319,7 @@ thread-pre-split126:                              ; preds = %710, %713, %715, %6
 775:                                              ; preds = %768
   %776 = load i8, ptr @UseKNLSetting, align 1
   %777 = trunc i8 %776 to i1
-  br i1 %777, label %_ZN10VM_Version14is_atom_familyEv.exit, label %782
+  br i1 %777, label %_ZN10VM_Version14is_atom_familyEv.exit, label %_ZN10VM_Version17is_knights_familyEv.exit97
 
 .thread259:                                       ; preds = %766
   %778 = load i8, ptr @UseKNLSetting, align 1
@@ -2331,698 +2331,695 @@ thread-pre-split126:                              ; preds = %710, %713, %715, %6
   %781 = trunc i8 %780 to i1
   br i1 %781, label %_ZN10VM_Version14is_atom_familyEv.exit, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
 
-782:                                              ; preds = %775
-  br i1 %767, label %_ZN10VM_Version17is_knights_familyEv.exit97, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
-
-_ZN10VM_Version17is_knights_familyEv.exit97:      ; preds = %782
-  %783 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
-  %784 = lshr i32 %783, 4
-  %785 = and i32 %784, 15
-  %786 = lshr i32 %783, 12
-  %787 = and i32 %786, 240
-  %788 = or disjoint i32 %785, %787
-  %trunc219 = trunc nuw i32 %788 to i8
+_ZN10VM_Version17is_knights_familyEv.exit97:      ; preds = %775
+  %782 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %783 = lshr i32 %782, 4
+  %784 = and i32 %783, 15
+  %785 = lshr i32 %782, 12
+  %786 = and i32 %785, 240
+  %787 = or disjoint i32 %784, %786
+  %trunc219 = trunc nuw i32 %787 to i8
   switch i8 %trunc219, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137 [
     i8 -123, label %_ZN10VM_Version14is_atom_familyEv.exit
     i8 87, label %_ZN10VM_Version14is_atom_familyEv.exit
   ]
 
 _ZN10VM_Version14is_atom_familyEv.exit:           ; preds = %.thread259, %_ZN10VM_Version17is_knights_familyEv.exit97, %_ZN10VM_Version17is_knights_familyEv.exit97, %.thread131, %775, %768, %768, %768
-  %789 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 229) #14
-  br i1 %789, label %790, label %791
+  %788 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 229) #14
+  br i1 %788, label %789, label %790
 
-790:                                              ; preds = %_ZN10VM_Version14is_atom_familyEv.exit
+789:                                              ; preds = %_ZN10VM_Version14is_atom_familyEv.exit
   store i8 1, ptr @OptoScheduling, align 1
-  br label %791
+  br label %790
 
-791:                                              ; preds = %790, %_ZN10VM_Version14is_atom_familyEv.exit
-  %792 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %793 = and i64 %792, 4096
-  %.not220 = icmp eq i64 %793, 0
-  br i1 %.not220, label %797, label %794
+790:                                              ; preds = %789, %_ZN10VM_Version14is_atom_familyEv.exit
+  %791 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %792 = and i64 %791, 4096
+  %.not220 = icmp eq i64 %792, 0
+  br i1 %.not220, label %796, label %793
 
-794:                                              ; preds = %791
-  %795 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
-  br i1 %795, label %796, label %797
+793:                                              ; preds = %790
+  %794 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %794, label %795, label %796
 
-796:                                              ; preds = %794
+795:                                              ; preds = %793
   store i8 1, ptr @UseUnalignedLoadStores, align 1
-  br label %797
+  br label %796
 
-797:                                              ; preds = %794, %796, %791
-  %798 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 10) #14
-  br i1 %798, label %799, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
+796:                                              ; preds = %793, %795, %790
+  %797 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 10) #14
+  br i1 %797, label %798, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
 
-799:                                              ; preds = %797
+798:                                              ; preds = %796
   store i8 0, ptr @UseIncDec, align 1
   br label %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
 
-_ZN10VM_Version17is_knights_familyEv.exit97.thread137: ; preds = %.thread259, %_ZN10VM_Version17is_knights_familyEv.exit97, %.thread131, %782, %797, %799
-  %800 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
-  br i1 %800, label %801, label %805
+_ZN10VM_Version17is_knights_familyEv.exit97.thread137: ; preds = %.thread259, %_ZN10VM_Version17is_knights_familyEv.exit97, %.thread131, %796, %798
+  %799 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %799, label %800, label %804
 
-801:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
-  %802 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %803 = and i64 %802, 32
-  %.not221 = icmp eq i64 %803, 0
-  br i1 %.not221, label %805, label %804
+800:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
+  %801 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %802 = and i64 %801, 32
+  %.not221 = icmp eq i64 %802, 0
+  br i1 %.not221, label %804, label %803
 
-804:                                              ; preds = %801
+803:                                              ; preds = %800
   store i64 3, ptr @AllocatePrefetchInstr, align 8
-  br label %805
+  br label %804
 
-805:                                              ; preds = %804, %801, %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
-  %806 = load i32, ptr @UseAVX, align 4
-  %807 = icmp sgt i32 %806, 2
-  br i1 %807, label %808, label %836
+804:                                              ; preds = %803, %800, %_ZN10VM_Version17is_knights_familyEv.exit97.thread137
+  %805 = load i32, ptr @UseAVX, align 4
+  %806 = icmp sgt i32 %805, 2
+  br i1 %806, label %807, label %835
 
-808:                                              ; preds = %805
-  %809 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
-  br i1 %809, label %813, label %810
+807:                                              ; preds = %804
+  %808 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+  br i1 %808, label %812, label %809
 
-810:                                              ; preds = %808
-  %811 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+809:                                              ; preds = %807
+  %810 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
   %.pre251 = load i64, ptr @ArrayOperationPartialInlineSize, align 8
-  br i1 %811, label %827, label %switch.early.test
+  br i1 %810, label %826, label %switch.early.test
 
-switch.early.test:                                ; preds = %810
-  %812 = call i64 @llvm.fshl.i64(i64 %.pre251, i64 %.pre251, i64 60)
-  switch i64 %812, label %813 [
-    i64 4, label %827
-    i64 2, label %827
-    i64 1, label %827
-    i64 0, label %827
+switch.early.test:                                ; preds = %809
+  %811 = call i64 @llvm.fshl.i64(i64 %.pre251, i64 %.pre251, i64 60)
+  switch i64 %811, label %812 [
+    i64 4, label %826
+    i64 2, label %826
+    i64 1, label %826
+    i64 0, label %826
   ]
 
-813:                                              ; preds = %switch.early.test, %808
-  %814 = load i64, ptr @MaxVectorSize, align 8
-  %815 = icmp sgt i64 %814, 63
-  %816 = load i32, ptr @AVX3Threshold, align 4
-  %817 = icmp eq i32 %816, 0
-  %or.cond27 = select i1 %815, i1 %817, i1 false
-  br i1 %or.cond27, label %822, label %818
+812:                                              ; preds = %switch.early.test, %807
+  %813 = load i64, ptr @MaxVectorSize, align 8
+  %814 = icmp sgt i64 %813, 63
+  %815 = load i32, ptr @AVX3Threshold, align 4
+  %816 = icmp eq i32 %815, 0
+  %or.cond27 = select i1 %814, i1 %816, i1 false
+  br i1 %or.cond27, label %821, label %817
 
-818:                                              ; preds = %813
-  %819 = icmp sgt i64 %814, 31
-  br i1 %819, label %822, label %820
+817:                                              ; preds = %812
+  %818 = icmp sgt i64 %813, 31
+  br i1 %818, label %821, label %819
 
-820:                                              ; preds = %818
-  %821 = icmp sgt i64 %814, 15
-  %spec.select85 = select i1 %821, i32 16, i32 0
-  br label %822
+819:                                              ; preds = %817
+  %820 = icmp sgt i64 %813, 15
+  %spec.select85 = select i1 %820, i32 16, i32 0
+  br label %821
 
-822:                                              ; preds = %820, %818, %813
-  %.066 = phi i32 [ 64, %813 ], [ 32, %818 ], [ %spec.select85, %820 ]
-  %823 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
-  br i1 %823, label %825, label %824
+821:                                              ; preds = %819, %817, %812
+  %.066 = phi i32 [ 64, %812 ], [ 32, %817 ], [ %spec.select85, %819 ]
+  %822 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+  br i1 %822, label %824, label %823
 
-824:                                              ; preds = %822
+823:                                              ; preds = %821
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.101, i32 noundef %.066) #14
-  br label %825
+  br label %824
 
-825:                                              ; preds = %824, %822
-  %826 = zext nneg i32 %.066 to i64
-  store i64 %826, ptr @ArrayOperationPartialInlineSize, align 8
-  br label %827
+824:                                              ; preds = %823, %821
+  %825 = zext nneg i32 %.066 to i64
+  store i64 %825, ptr @ArrayOperationPartialInlineSize, align 8
+  br label %826
 
-827:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %810, %825
-  %828 = phi i64 [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %810 ], [ %826, %825 ]
-  %829 = load i64, ptr @MaxVectorSize, align 8
-  %830 = icmp sgt i64 %828, %829
-  br i1 %830, label %831, label %836
+826:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %809, %824
+  %827 = phi i64 [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %switch.early.test ], [ %.pre251, %809 ], [ %825, %824 ]
+  %828 = load i64, ptr @MaxVectorSize, align 8
+  %829 = icmp sgt i64 %827, %828
+  br i1 %829, label %830, label %835
 
-831:                                              ; preds = %827
-  %832 = icmp slt i64 %829, 16
-  %833 = select i1 %832, i64 0, i64 %829
-  store i64 %833, ptr @ArrayOperationPartialInlineSize, align 8
-  br i1 %832, label %835, label %834
+830:                                              ; preds = %826
+  %831 = icmp slt i64 %828, 16
+  %832 = select i1 %831, i64 0, i64 %828
+  store i64 %832, ptr @ArrayOperationPartialInlineSize, align 8
+  br i1 %831, label %834, label %833
 
-834:                                              ; preds = %831
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.102, i64 noundef %829) #14
-  br label %836
+833:                                              ; preds = %830
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.102, i64 noundef %828) #14
+  br label %835
 
-835:                                              ; preds = %831
+834:                                              ; preds = %830
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.103, i64 noundef 0) #14
-  br label %836
+  br label %835
 
-836:                                              ; preds = %805, %834, %835, %827, %716
-  %837 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 210) #14
-  br i1 %837, label %838, label %846
+835:                                              ; preds = %804, %833, %834, %826, %716
+  %836 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 210) #14
+  br i1 %836, label %837, label %845
 
-838:                                              ; preds = %836
-  %839 = load i64, ptr @MaxVectorSize, align 8
-  %840 = icmp slt i64 %839, 32
-  br i1 %840, label %845, label %841
+837:                                              ; preds = %835
+  %838 = load i64, ptr @MaxVectorSize, align 8
+  %839 = icmp slt i64 %838, 32
+  br i1 %839, label %844, label %840
 
-841:                                              ; preds = %838
-  %842 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %843 = and i64 %842, 13019119616
-  %844 = icmp eq i64 %843, 13019119616
-  br i1 %844, label %846, label %845
+840:                                              ; preds = %837
+  %841 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %842 = and i64 %841, 13019119616
+  %843 = icmp eq i64 %842, 13019119616
+  br i1 %843, label %845, label %844
 
-845:                                              ; preds = %841, %838
+844:                                              ; preds = %840, %837
   store i8 0, ptr @OptimizeFill, align 1
-  br label %846
+  br label %845
 
-846:                                              ; preds = %841, %845, %836
-  %847 = load i8, ptr @UseSSE42Intrinsics, align 1
-  %848 = trunc i8 %847 to i1
-  br i1 %848, label %849, label %851
+845:                                              ; preds = %840, %844, %835
+  %846 = load i8, ptr @UseSSE42Intrinsics, align 1
+  %847 = trunc i8 %846 to i1
+  br i1 %847, label %848, label %850
 
-849:                                              ; preds = %846
-  %850 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
-  br i1 %850, label %.sink.split312, label %857
+848:                                              ; preds = %845
+  %849 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
+  br i1 %849, label %.sink.split312, label %856
 
-851:                                              ; preds = %846
-  %852 = load i8, ptr @UseVectorizedMismatchIntrinsic, align 1
-  %853 = trunc i8 %852 to i1
-  br i1 %853, label %854, label %857
+850:                                              ; preds = %845
+  %851 = load i8, ptr @UseVectorizedMismatchIntrinsic, align 1
+  %852 = trunc i8 %851 to i1
+  br i1 %852, label %853, label %856
 
-854:                                              ; preds = %851
-  %855 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
-  br i1 %855, label %.sink.split312, label %856
+853:                                              ; preds = %850
+  %854 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
+  br i1 %854, label %.sink.split312, label %855
 
-856:                                              ; preds = %854
+855:                                              ; preds = %853
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.104) #14
   br label %.sink.split312
 
-.sink.split312:                                   ; preds = %854, %856, %849
-  %.sink313 = phi i8 [ 1, %849 ], [ 0, %856 ], [ 0, %854 ]
+.sink.split312:                                   ; preds = %853, %855, %848
+  %.sink313 = phi i8 [ 1, %848 ], [ 0, %855 ], [ 0, %853 ]
   store i8 %.sink313, ptr @UseVectorizedMismatchIntrinsic, align 1
-  br label %857
+  br label %856
 
-857:                                              ; preds = %.sink.split312, %851, %849
-  %858 = load i32, ptr @UseAVX, align 4
-  %859 = icmp sgt i32 %858, 1
-  br i1 %859, label %.sink.split314, label %860
+856:                                              ; preds = %.sink.split312, %850, %848
+  %857 = load i32, ptr @UseAVX, align 4
+  %858 = icmp sgt i32 %857, 1
+  br i1 %858, label %.sink.split314, label %859
 
-860:                                              ; preds = %857
-  %861 = load i8, ptr @UseVectorizedHashCodeIntrinsic, align 1
-  %862 = trunc i8 %861 to i1
-  br i1 %862, label %863, label %866
+859:                                              ; preds = %856
+  %860 = load i8, ptr @UseVectorizedHashCodeIntrinsic, align 1
+  %861 = trunc i8 %860 to i1
+  br i1 %861, label %862, label %865
 
-863:                                              ; preds = %860
-  %864 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 508) #14
-  br i1 %864, label %.sink.split314, label %865
+862:                                              ; preds = %859
+  %863 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 508) #14
+  br i1 %863, label %.sink.split314, label %864
 
-865:                                              ; preds = %863
+864:                                              ; preds = %862
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.105) #14
   br label %.sink.split314
 
-.sink.split314:                                   ; preds = %863, %865, %857
-  %.sink315 = phi i8 [ 1, %857 ], [ 0, %865 ], [ 0, %863 ]
+.sink.split314:                                   ; preds = %862, %864, %856
+  %.sink315 = phi i8 [ 1, %856 ], [ 0, %864 ], [ 0, %862 ]
   store i8 %.sink315, ptr @UseVectorizedHashCodeIntrinsic, align 1
-  br label %866
+  br label %865
 
-866:                                              ; preds = %.sink.split314, %860
-  %867 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %868 = and i64 %867, 16384
-  %.not222 = icmp eq i64 %868, 0
-  br i1 %.not222, label %871, label %869
+865:                                              ; preds = %.sink.split314, %859
+  %866 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %867 = and i64 %866, 16384
+  %.not222 = icmp eq i64 %867, 0
+  br i1 %.not222, label %870, label %868
 
-869:                                              ; preds = %866
-  %870 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 20) #14
-  br i1 %870, label %.sink.split316, label %875
+868:                                              ; preds = %865
+  %869 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 20) #14
+  br i1 %869, label %.sink.split316, label %874
 
-871:                                              ; preds = %866
-  %872 = load i8, ptr @UseCountLeadingZerosInstruction, align 1
-  %873 = trunc i8 %872 to i1
-  br i1 %873, label %874, label %875
+870:                                              ; preds = %865
+  %871 = load i8, ptr @UseCountLeadingZerosInstruction, align 1
+  %872 = trunc i8 %871 to i1
+  br i1 %872, label %873, label %874
 
-874:                                              ; preds = %871
+873:                                              ; preds = %870
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.106) #14
   br label %.sink.split316
 
-.sink.split316:                                   ; preds = %869, %874
-  %.sink317 = phi i8 [ 0, %874 ], [ 1, %869 ]
+.sink.split316:                                   ; preds = %868, %873
+  %.sink317 = phi i8 [ 0, %873 ], [ 1, %868 ]
   store i8 %.sink317, ptr @UseCountLeadingZerosInstruction, align 1
-  br label %875
+  br label %874
 
-875:                                              ; preds = %.sink.split316, %871, %869
-  %876 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %877 = and i64 %876, 8388608
-  %.not223 = icmp eq i64 %877, 0
-  br i1 %.not223, label %886, label %878
+874:                                              ; preds = %.sink.split316, %870, %868
+  %875 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %876 = and i64 %875, 8388608
+  %.not223 = icmp eq i64 %876, 0
+  br i1 %.not223, label %885, label %877
 
-878:                                              ; preds = %875
-  %879 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 21) #14
-  br i1 %879, label %880, label %890
+877:                                              ; preds = %874
+  %878 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 21) #14
+  br i1 %878, label %879, label %889
 
-880:                                              ; preds = %878
-  %881 = load i8, ptr @UseBMI1Instructions, align 1
-  %882 = trunc i8 %881 to i1
-  br i1 %882, label %885, label %883
+879:                                              ; preds = %877
+  %880 = load i8, ptr @UseBMI1Instructions, align 1
+  %881 = trunc i8 %880 to i1
+  br i1 %881, label %884, label %882
 
-883:                                              ; preds = %880
-  %884 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
-  br i1 %884, label %885, label %.sink.split318
+882:                                              ; preds = %879
+  %883 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
+  br i1 %883, label %884, label %.sink.split318
 
-885:                                              ; preds = %883, %880
+884:                                              ; preds = %882, %879
   br label %.sink.split318
 
-886:                                              ; preds = %875
-  %887 = load i8, ptr @UseCountTrailingZerosInstruction, align 1
-  %888 = trunc i8 %887 to i1
-  br i1 %888, label %889, label %890
+885:                                              ; preds = %874
+  %886 = load i8, ptr @UseCountTrailingZerosInstruction, align 1
+  %887 = trunc i8 %886 to i1
+  br i1 %887, label %888, label %889
 
-889:                                              ; preds = %886
+888:                                              ; preds = %885
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.107) #14
   br label %.sink.split318
 
-.sink.split318:                                   ; preds = %883, %885, %889
-  %.sink319 = phi i8 [ 0, %889 ], [ 1, %885 ], [ 0, %883 ]
+.sink.split318:                                   ; preds = %882, %884, %888
+  %.sink319 = phi i8 [ 0, %888 ], [ 1, %884 ], [ 0, %882 ]
   store i8 %.sink319, ptr @UseCountTrailingZerosInstruction, align 1
-  br label %890
+  br label %889
 
-890:                                              ; preds = %.sink.split318, %886, %878
-  %891 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %892 = and i64 %891, 8650752
-  %or.cond165 = icmp eq i64 %892, 8650752
-  br i1 %or.cond165, label %893, label %895
+889:                                              ; preds = %.sink.split318, %885, %877
+  %890 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %891 = and i64 %890, 8650752
+  %or.cond165 = icmp eq i64 %891, 8650752
+  br i1 %or.cond165, label %892, label %894
 
-893:                                              ; preds = %890
-  %894 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
-  br i1 %894, label %.sink.split320, label %899
+892:                                              ; preds = %889
+  %893 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
+  br i1 %893, label %.sink.split320, label %898
 
-895:                                              ; preds = %890
-  %896 = load i8, ptr @UseBMI1Instructions, align 1
-  %897 = trunc i8 %896 to i1
-  br i1 %897, label %898, label %899
+894:                                              ; preds = %889
+  %895 = load i8, ptr @UseBMI1Instructions, align 1
+  %896 = trunc i8 %895 to i1
+  br i1 %896, label %897, label %898
 
-898:                                              ; preds = %895
+897:                                              ; preds = %894
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.108) #14
   br label %.sink.split320
 
-.sink.split320:                                   ; preds = %893, %898
-  %.sink321 = phi i8 [ 0, %898 ], [ 1, %893 ]
+.sink.split320:                                   ; preds = %892, %897
+  %.sink321 = phi i8 [ 0, %897 ], [ 1, %892 ]
   store i8 %.sink321, ptr @UseBMI1Instructions, align 1
-  br label %899
+  br label %898
 
-899:                                              ; preds = %.sink.split320, %895, %893
-  %900 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %901 = and i64 %900, 17039360
-  %or.cond167 = icmp eq i64 %901, 17039360
-  br i1 %or.cond167, label %902, label %904
+898:                                              ; preds = %.sink.split320, %894, %892
+  %899 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %900 = and i64 %899, 17039360
+  %or.cond167 = icmp eq i64 %900, 17039360
+  br i1 %or.cond167, label %901, label %903
 
-902:                                              ; preds = %899
-  %903 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 24) #14
-  br i1 %903, label %.sink.split322, label %908
+901:                                              ; preds = %898
+  %902 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 24) #14
+  br i1 %902, label %.sink.split322, label %907
 
-904:                                              ; preds = %899
-  %905 = load i8, ptr @UseBMI2Instructions, align 1
-  %906 = trunc i8 %905 to i1
-  br i1 %906, label %907, label %908
+903:                                              ; preds = %898
+  %904 = load i8, ptr @UseBMI2Instructions, align 1
+  %905 = trunc i8 %904 to i1
+  br i1 %905, label %906, label %907
 
-907:                                              ; preds = %904
+906:                                              ; preds = %903
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.109) #14
   br label %.sink.split322
 
-.sink.split322:                                   ; preds = %902, %907
-  %.sink323 = phi i8 [ 0, %907 ], [ 1, %902 ]
+.sink.split322:                                   ; preds = %901, %906
+  %.sink323 = phi i8 [ 0, %906 ], [ 1, %901 ]
   store i8 %.sink323, ptr @UseBMI2Instructions, align 1
-  br label %908
+  br label %907
 
-908:                                              ; preds = %.sink.split322, %904, %902
-  %909 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %910 = and i64 %909, 8192
-  %.not224 = icmp eq i64 %910, 0
-  br i1 %.not224, label %913, label %911
+907:                                              ; preds = %.sink.split322, %903, %901
+  %908 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %909 = and i64 %908, 8192
+  %.not224 = icmp eq i64 %909, 0
+  br i1 %.not224, label %912, label %910
 
-911:                                              ; preds = %908
-  %912 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 673) #14
-  br i1 %912, label %.sink.split324, label %917
+910:                                              ; preds = %907
+  %911 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 673) #14
+  br i1 %911, label %.sink.split324, label %916
 
-913:                                              ; preds = %908
-  %914 = load i8, ptr @UsePopCountInstruction, align 1
-  %915 = trunc i8 %914 to i1
-  br i1 %915, label %916, label %917
+912:                                              ; preds = %907
+  %913 = load i8, ptr @UsePopCountInstruction, align 1
+  %914 = trunc i8 %913 to i1
+  br i1 %914, label %915, label %916
 
-916:                                              ; preds = %913
+915:                                              ; preds = %912
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.110) #14
   br label %.sink.split324
 
-.sink.split324:                                   ; preds = %911, %916
-  %.sink325 = phi i8 [ 0, %916 ], [ 1, %911 ]
+.sink.split324:                                   ; preds = %910, %915
+  %.sink325 = phi i8 [ 0, %915 ], [ 1, %910 ]
   store i8 %.sink325, ptr @UsePopCountInstruction, align 1
-  br label %917
+  br label %916
 
-917:                                              ; preds = %.sink.split324, %913, %911
-  %918 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %919 = and i64 %918, 2097152
-  %.not225 = icmp eq i64 %919, 0
-  br i1 %.not225, label %922, label %920
+916:                                              ; preds = %.sink.split324, %912, %910
+  %917 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %918 = and i64 %917, 2097152
+  %.not225 = icmp eq i64 %918, 0
+  br i1 %.not225, label %921, label %919
 
-920:                                              ; preds = %917
-  %921 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
-  br i1 %921, label %.sink.split326, label %926
+919:                                              ; preds = %916
+  %920 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %920, label %.sink.split326, label %925
 
-922:                                              ; preds = %917
-  %923 = load i8, ptr @UseFastStosb, align 1
-  %924 = trunc i8 %923 to i1
-  br i1 %924, label %925, label %926
+921:                                              ; preds = %916
+  %922 = load i8, ptr @UseFastStosb, align 1
+  %923 = trunc i8 %922 to i1
+  br i1 %923, label %924, label %925
 
-925:                                              ; preds = %922
+924:                                              ; preds = %921
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.111) #14
   br label %.sink.split326
 
-.sink.split326:                                   ; preds = %920, %925
-  %.sink327 = phi i8 [ 0, %925 ], [ 1, %920 ]
+.sink.split326:                                   ; preds = %919, %924
+  %.sink327 = phi i8 [ 0, %924 ], [ 1, %919 ]
   store i8 %.sink327, ptr @UseFastStosb, align 1
-  br label %926
+  br label %925
 
-926:                                              ; preds = %.sink.split326, %922, %920
-  %927 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  %928 = icmp eq i32 %927, 1752462657
-  %929 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
-  %930 = icmp sgt i32 %929, 24
-  %or.cond169 = select i1 %928, i1 %930, i1 false
-  br i1 %or.cond169, label %931, label %934
+925:                                              ; preds = %.sink.split326, %921, %919
+  %926 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %927 = icmp eq i32 %926, 1752462657
+  %928 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %929 = icmp sgt i32 %928, 24
+  %or.cond169 = select i1 %927, i1 %929, i1 false
+  br i1 %or.cond169, label %930, label %933
 
-931:                                              ; preds = %926
-  %932 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
-  br i1 %932, label %933, label %934
+930:                                              ; preds = %925
+  %931 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %931, label %932, label %933
 
-933:                                              ; preds = %931
+932:                                              ; preds = %930
   store i8 0, ptr @UseFastStosb, align 1
-  br label %934
+  br label %933
 
-934:                                              ; preds = %931, %933, %926
-  %935 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  %936 = icmp eq i32 %935, 1970169159
-  %937 = load i64, ptr @MaxVectorSize, align 8
-  %938 = icmp sgt i64 %937, 16
-  %or.cond29 = select i1 %936, i1 %938, i1 false
-  br i1 %or.cond29, label %939, label %942
+933:                                              ; preds = %930, %932, %925
+  %934 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %935 = icmp eq i32 %934, 1970169159
+  %936 = load i64, ptr @MaxVectorSize, align 8
+  %937 = icmp sgt i64 %936, 16
+  %or.cond29 = select i1 %935, i1 %937, i1 false
+  br i1 %or.cond29, label %938, label %941
 
-939:                                              ; preds = %934
-  %940 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
-  br i1 %940, label %941, label %942
+938:                                              ; preds = %933
+  %939 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %939, label %940, label %941
 
-941:                                              ; preds = %939
+940:                                              ; preds = %938
   store i8 0, ptr @UseFastStosb, align 1
-  br label %942
+  br label %941
 
-942:                                              ; preds = %939, %941, %934
-  %943 = load i8, ptr @UseFastStosb, align 1
-  %944 = trunc i8 %943 to i1
-  %945 = load i32, ptr @UseSSE, align 4
-  %946 = icmp slt i32 %945, 2
-  %or.cond32.not = select i1 %944, i1 true, i1 %946
-  br i1 %or.cond32.not, label %952, label %947
+941:                                              ; preds = %938, %940, %933
+  %942 = load i8, ptr @UseFastStosb, align 1
+  %943 = trunc i8 %942 to i1
+  %944 = load i32, ptr @UseSSE, align 4
+  %945 = icmp slt i32 %944, 2
+  %or.cond32.not = select i1 %943, i1 true, i1 %945
+  br i1 %or.cond32.not, label %951, label %946
 
-947:                                              ; preds = %942
-  %948 = load i8, ptr @UseUnalignedLoadStores, align 1
-  %949 = trunc i8 %948 to i1
-  br i1 %949, label %950, label %952
+946:                                              ; preds = %941
+  %947 = load i8, ptr @UseUnalignedLoadStores, align 1
+  %948 = trunc i8 %947 to i1
+  br i1 %948, label %949, label %951
 
-950:                                              ; preds = %947
-  %951 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 18) #14
-  br i1 %951, label %.sink.split328, label %956
+949:                                              ; preds = %946
+  %950 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 18) #14
+  br i1 %950, label %.sink.split328, label %955
 
-952:                                              ; preds = %947, %942
-  %953 = load i8, ptr @UseXMMForObjInit, align 1
-  %954 = trunc i8 %953 to i1
-  br i1 %954, label %955, label %956
+951:                                              ; preds = %946, %941
+  %952 = load i8, ptr @UseXMMForObjInit, align 1
+  %953 = trunc i8 %952 to i1
+  br i1 %953, label %954, label %955
 
-955:                                              ; preds = %952
+954:                                              ; preds = %951
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.112) #14
   br label %.sink.split328
 
-.sink.split328:                                   ; preds = %950, %955
-  %.sink329 = phi i8 [ 0, %955 ], [ 1, %950 ]
+.sink.split328:                                   ; preds = %949, %954
+  %.sink329 = phi i8 [ 0, %954 ], [ 1, %949 ]
   store i8 %.sink329, ptr @UseXMMForObjInit, align 1
-  br label %956
+  br label %955
 
-956:                                              ; preds = %.sink.split328, %952, %950
-  %957 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 166) #14
-  br i1 %957, label %958, label %962
+955:                                              ; preds = %.sink.split328, %951, %949
+  %956 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 166) #14
+  br i1 %956, label %957, label %961
 
-958:                                              ; preds = %956
-  %959 = load i8, ptr @UseUnalignedLoadStores, align 1
-  %960 = and i8 %959, 1
-  %961 = xor i8 %960, 1
-  store i8 %961, ptr @AlignVector, align 1
-  br label %962
+957:                                              ; preds = %955
+  %958 = load i8, ptr @UseUnalignedLoadStores, align 1
+  %959 = and i8 %958, 1
+  %960 = xor i8 %959, 1
+  store i8 %960, ptr @AlignVector, align 1
+  br label %961
 
-962:                                              ; preds = %958, %956
-  %963 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
-  br i1 %963, label %964, label %970
+961:                                              ; preds = %957, %955
+  %962 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %962, label %963, label %969
 
-964:                                              ; preds = %962
-  %965 = load i64, ptr @AllocatePrefetchInstr, align 8
-  %966 = icmp eq i64 %965, 3
+963:                                              ; preds = %961
+  %964 = load i64, ptr @AllocatePrefetchInstr, align 8
+  %965 = icmp eq i64 %964, 3
   %.pre252 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %967 = and i64 %.pre252, 32
-  %.not226 = icmp eq i64 %967, 0
-  %or.cond330 = select i1 %966, i1 %.not226, i1 false
-  br i1 %or.cond330, label %.sink.split331, label %968
+  %966 = and i64 %.pre252, 32
+  %.not226 = icmp eq i64 %966, 0
+  %or.cond330 = select i1 %965, i1 %.not226, i1 false
+  br i1 %or.cond330, label %.sink.split331, label %967
 
-968:                                              ; preds = %964
-  %969 = and i64 %.pre252, 96
-  %or.cond171 = icmp eq i64 %969, 32
-  br i1 %or.cond171, label %.sink.split331, label %970
+967:                                              ; preds = %963
+  %968 = and i64 %.pre252, 96
+  %or.cond171 = icmp eq i64 %968, 32
+  br i1 %or.cond171, label %.sink.split331, label %969
 
-.sink.split331:                                   ; preds = %968, %964
-  %.sink332 = phi i64 [ 0, %964 ], [ 3, %968 ]
+.sink.split331:                                   ; preds = %967, %963
+  %.sink332 = phi i64 [ 0, %963 ], [ 3, %967 ]
   store i64 %.sink332, ptr @AllocatePrefetchInstr, align 8
-  br label %970
+  br label %969
 
-970:                                              ; preds = %.sink.split331, %968, %962
-  %971 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  switch i32 %971, label %_ZN10VM_Version18prefetch_data_sizeEv.exit [
-    i32 1970169159, label %972
-    i32 1869052232, label %976
-    i32 1752462657, label %976
-    i32 1953391939, label %979
-    i32 1750278176, label %979
+969:                                              ; preds = %.sink.split331, %967, %961
+  %970 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %970, label %_ZN10VM_Version18prefetch_data_sizeEv.exit [
+    i32 1970169159, label %971
+    i32 1869052232, label %975
+    i32 1752462657, label %975
+    i32 1953391939, label %978
+    i32 1750278176, label %978
   ]
 
-972:                                              ; preds = %970
-  %973 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
-  %974 = and i32 %973, 4095
-  %975 = add nuw nsw i32 %974, 1
+971:                                              ; preds = %969
+  %972 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %973 = and i32 %972, 4095
+  %974 = add nuw nsw i32 %973, 1
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
 
-976:                                              ; preds = %970, %970
-  %977 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
-  %978 = and i32 %977, 255
+975:                                              ; preds = %969, %969
+  %976 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %977 = and i32 %976, 255
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
 
-979:                                              ; preds = %970, %970
-  %980 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
-  %981 = and i32 %980, 4095
-  %982 = add nuw nsw i32 %981, 1
+978:                                              ; preds = %969, %969
+  %979 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %980 = and i32 %979, 4095
+  %981 = add nuw nsw i32 %980, 1
   br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
 
-_ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %970, %972, %976, %979
-  %.0.i.i = phi i32 [ %975, %972 ], [ %978, %976 ], [ %982, %979 ], [ 0, %970 ]
+_ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %969, %971, %975, %978
+  %.0.i.i = phi i32 [ %974, %971 ], [ %977, %975 ], [ %981, %978 ], [ 0, %969 ]
   %spec.store.select.i.i = call noundef range(i32 0, 4097) i32 @llvm.umax.i32(i32 %.0.i.i, i32 32)
-  %983 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 748) #14
-  %984 = load i32, ptr @AllocatePrefetchStepSize, align 4
-  %985 = icmp sgt i32 %spec.store.select.i.i, %984
-  %or.cond = select i1 %983, i1 %985, i1 false
-  br i1 %or.cond, label %986, label %987
+  %982 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 748) #14
+  %983 = load i32, ptr @AllocatePrefetchStepSize, align 4
+  %984 = icmp sgt i32 %spec.store.select.i.i, %983
+  %or.cond = select i1 %982, i1 %984, i1 false
+  br i1 %or.cond, label %985, label %986
 
-986:                                              ; preds = %_ZN10VM_Version18prefetch_data_sizeEv.exit
+985:                                              ; preds = %_ZN10VM_Version18prefetch_data_sizeEv.exit
   store i32 %spec.store.select.i.i, ptr @AllocatePrefetchStepSize, align 4
-  br label %987
+  br label %986
 
-987:                                              ; preds = %986, %_ZN10VM_Version18prefetch_data_sizeEv.exit
-  %988 = load i32, ptr @AllocatePrefetchDistance, align 4
-  %989 = icmp eq i32 %988, 0
-  %990 = load i32, ptr @AllocatePrefetchStyle, align 4
-  %991 = icmp ne i32 %990, 0
-  %or.cond34 = select i1 %989, i1 %991, i1 false
-  br i1 %or.cond34, label %992, label %996
+986:                                              ; preds = %985, %_ZN10VM_Version18prefetch_data_sizeEv.exit
+  %987 = load i32, ptr @AllocatePrefetchDistance, align 4
+  %988 = icmp eq i32 %987, 0
+  %989 = load i32, ptr @AllocatePrefetchStyle, align 4
+  %990 = icmp ne i32 %989, 0
+  %or.cond34 = select i1 %988, i1 %990, i1 false
+  br i1 %or.cond34, label %991, label %995
 
-992:                                              ; preds = %987
-  %993 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 744) #14
-  br i1 %993, label %995, label %994
+991:                                              ; preds = %986
+  %992 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 744) #14
+  br i1 %992, label %994, label %993
 
-994:                                              ; preds = %992
+993:                                              ; preds = %991
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.113) #14
+  br label %994
+
+994:                                              ; preds = %993, %991
+  store i32 0, ptr @AllocatePrefetchStyle, align 4
   br label %995
 
-995:                                              ; preds = %994, %992
-  store i32 0, ptr @AllocatePrefetchStyle, align 4
-  br label %996
-
-996:                                              ; preds = %995, %987
-  %997 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 745) #14
+995:                                              ; preds = %994, %986
+  %996 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 745) #14
   %.pre253 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  br i1 %997, label %998, label %1018
+  br i1 %996, label %997, label %1017
 
-998:                                              ; preds = %996
-  %999 = load i32, ptr @AllocatePrefetchStyle, align 4
-  %1000 = icmp eq i32 %999, 2
-  switch i32 %.pre253, label %1004 [
-    i32 1869052232, label %1001
-    i32 1752462657, label %1001
+997:                                              ; preds = %995
+  %998 = load i32, ptr @AllocatePrefetchStyle, align 4
+  %999 = icmp eq i32 %998, 2
+  switch i32 %.pre253, label %1003 [
+    i32 1869052232, label %1000
+    i32 1752462657, label %1000
   ]
 
-1001:                                             ; preds = %998, %998
-  %1002 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1003 = and i64 %1002, 128
-  %.not.i98 = icmp eq i64 %1003, 0
+1000:                                             ; preds = %997, %997
+  %1001 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1002 = and i64 %1001, 128
+  %.not.i98 = icmp eq i64 %1002, 0
   %..i = select i1 %.not.i98, i32 128, i32 256
   br label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit
 
-1004:                                             ; preds = %998
-  %1005 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1006 = and i64 %1005, 256
-  %1007 = icmp ne i64 %1006, 0
-  %1008 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
-  %1009 = icmp eq i32 %1008, 6
-  %or.cond.i = select i1 %1007, i1 %1009, i1 false
-  br i1 %or.cond.i, label %1010, label %1016
+1003:                                             ; preds = %997
+  %1004 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1005 = and i64 %1004, 256
+  %1006 = icmp ne i64 %1005, 0
+  %1007 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1008 = icmp eq i32 %1007, 6
+  %or.cond.i = select i1 %1006, i1 %1008, i1 false
+  br i1 %or.cond.i, label %1009, label %1015
 
-1010:                                             ; preds = %1004
-  %1011 = and i64 %1005, 4096
-  %.not4.i = icmp eq i64 %1011, 0
-  br i1 %.not4.i, label %1015, label %1012
+1009:                                             ; preds = %1003
+  %1010 = and i64 %1004, 4096
+  %.not4.i = icmp eq i64 %1010, 0
+  br i1 %.not4.i, label %1014, label %1011
 
-1012:                                             ; preds = %1010
-  %1013 = and i64 %1005, 8
-  %1014 = icmp ne i64 %1013, 0
-  %brmerge.i = or i1 %1000, %1014
-  %.mux.i = select i1 %1014, i32 192, i32 384
-  br i1 %brmerge.i, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1016
+1011:                                             ; preds = %1009
+  %1012 = and i64 %1004, 8
+  %1013 = icmp ne i64 %1012, 0
+  %brmerge.i = or i1 %999, %1013
+  %.mux.i = select i1 %1013, i32 192, i32 384
+  br i1 %brmerge.i, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1015
 
-1015:                                             ; preds = %1010
-  br i1 %1000, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1016
+1014:                                             ; preds = %1009
+  br i1 %999, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1015
 
-1016:                                             ; preds = %1015, %1012, %1004
-  %1017 = and i64 %1005, 128
-  %.not5.i = icmp eq i64 %1017, 0
-  %.2.i = select i1 %1009, i32 256, i32 512
+1015:                                             ; preds = %1014, %1011, %1003
+  %1016 = and i64 %1004, 128
+  %.not5.i = icmp eq i64 %1016, 0
+  %.2.i = select i1 %1008, i32 256, i32 512
   %spec.select.i100 = select i1 %.not5.i, i32 128, i32 %.2.i
   br label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit
 
-_ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1001, %1012, %1015, %1016
-  %.0.i99 = phi i32 [ %..i, %1001 ], [ %.mux.i, %1012 ], [ 384, %1015 ], [ %spec.select.i100, %1016 ]
+_ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1000, %1011, %1014, %1015
+  %.0.i99 = phi i32 [ %..i, %1000 ], [ %.mux.i, %1011 ], [ 384, %1014 ], [ %spec.select.i100, %1015 ]
   store i32 %.0.i99, ptr @AllocatePrefetchDistance, align 4
-  br label %1018
+  br label %1017
 
-1018:                                             ; preds = %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, %996
-  %1019 = icmp eq i32 %.pre253, 1970169159
-  %1020 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
-  %1021 = icmp eq i32 %1020, 6
-  %or.cond173 = select i1 %1019, i1 %1021, i1 false
-  br i1 %or.cond173, label %1022, label %1037
+1017:                                             ; preds = %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, %995
+  %1018 = icmp eq i32 %.pre253, 1970169159
+  %1019 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1020 = icmp eq i32 %1019, 6
+  %or.cond173 = select i1 %1018, i1 %1020, i1 false
+  br i1 %or.cond173, label %1021, label %1036
 
-1022:                                             ; preds = %1018
-  %1023 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1024 = and i64 %1023, 256
-  %.not227 = icmp eq i64 %1024, 0
-  br i1 %.not227, label %1037, label %1025
+1021:                                             ; preds = %1017
+  %1022 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1023 = and i64 %1022, 256
+  %.not227 = icmp eq i64 %1023, 0
+  br i1 %.not227, label %1036, label %1024
 
-1025:                                             ; preds = %1022
-  %1026 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 746) #14
-  br i1 %1026, label %1027, label %1031
+1024:                                             ; preds = %1021
+  %1025 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 746) #14
+  br i1 %1025, label %1026, label %1030
 
-1027:                                             ; preds = %1025
-  %1028 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1029 = and i64 %1028, 4104
-  %or.cond175 = icmp eq i64 %1029, 4104
-  br i1 %or.cond175, label %1030, label %1031
+1026:                                             ; preds = %1024
+  %1027 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1028 = and i64 %1027, 4104
+  %or.cond175 = icmp eq i64 %1028, 4104
+  br i1 %or.cond175, label %1029, label %1030
 
-1030:                                             ; preds = %1027
+1029:                                             ; preds = %1026
   store i32 4, ptr @AllocatePrefetchLines, align 4
-  br label %1031
+  br label %1030
 
-1031:                                             ; preds = %1030, %1027, %1025
-  %1032 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
-  br i1 %1032, label %1033, label %1037
+1030:                                             ; preds = %1029, %1026, %1024
+  %1031 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
+  br i1 %1031, label %1032, label %1036
 
-1033:                                             ; preds = %1031
-  %1034 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1035 = and i64 %1034, 4096
-  %.not228 = icmp eq i64 %1035, 0
-  br i1 %.not228, label %1037, label %1036
+1032:                                             ; preds = %1030
+  %1033 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1034 = and i64 %1033, 4096
+  %.not228 = icmp eq i64 %1034, 0
+  br i1 %.not228, label %1036, label %1035
 
-1036:                                             ; preds = %1033
+1035:                                             ; preds = %1032
   store i8 1, ptr @UseFPUForSpilling, align 1
-  br label %1037
+  br label %1036
 
-1037:                                             ; preds = %1031, %1033, %1036, %1022, %1018
-  %1038 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  switch i32 %1038, label %1048 [
-    i32 1953391939, label %1039
-    i32 1750278176, label %1039
+1036:                                             ; preds = %1030, %1032, %1035, %1021, %1017
+  %1037 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %1037, label %1047 [
+    i32 1953391939, label %1038
+    i32 1750278176, label %1038
   ]
 
-1039:                                             ; preds = %1037, %1037
-  %1040 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
-  %1041 = and i32 %1040, -2
-  %switch181 = icmp eq i32 %1041, 6
-  br i1 %switch181, label %1042, label %1048
+1038:                                             ; preds = %1036, %1036
+  %1039 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1040 = and i32 %1039, -2
+  %switch181 = icmp eq i32 %1040, 6
+  br i1 %switch181, label %1041, label %1047
 
-1042:                                             ; preds = %1039
-  %1043 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1044 = and i64 %1043, 4096
-  %.not229 = icmp eq i64 %1044, 0
-  br i1 %.not229, label %1048, label %1045
+1041:                                             ; preds = %1038
+  %1042 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1043 = and i64 %1042, 4096
+  %.not229 = icmp eq i64 %1043, 0
+  br i1 %.not229, label %1047, label %1044
 
-1045:                                             ; preds = %1042
-  %1046 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
-  br i1 %1046, label %1047, label %1048
+1044:                                             ; preds = %1041
+  %1045 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
+  br i1 %1045, label %1046, label %1047
 
-1047:                                             ; preds = %1045
+1046:                                             ; preds = %1044
   store i8 1, ptr @UseFPUForSpilling, align 1
-  br label %1048
+  br label %1047
 
-1048:                                             ; preds = %1039, %1037, %1045, %1047, %1042
-  %1049 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1171) #14
-  br i1 %1049, label %1050, label %1051
+1047:                                             ; preds = %1038, %1036, %1044, %1046, %1041
+  %1048 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1171) #14
+  br i1 %1048, label %1049, label %1050
 
-1050:                                             ; preds = %1048
+1049:                                             ; preds = %1047
   store i64 576, ptr @PrefetchCopyIntervalInBytes, align 8
-  br label %1051
+  br label %1050
 
-1051:                                             ; preds = %1050, %1048
-  %1052 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1172) #14
-  br i1 %1052, label %1053, label %1054
+1050:                                             ; preds = %1049, %1047
+  %1051 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1172) #14
+  br i1 %1051, label %1052, label %1053
 
-1053:                                             ; preds = %1051
+1052:                                             ; preds = %1050
   store i64 576, ptr @PrefetchScanIntervalInBytes, align 8
-  br label %1054
+  br label %1053
 
-1054:                                             ; preds = %1053, %1051
-  %1055 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 632) #14
-  %1056 = load i32, ptr @ContendedPaddingWidth, align 4
-  %1057 = icmp sgt i32 %spec.store.select.i.i, %1056
-  %or.cond88 = select i1 %1055, i1 %1057, i1 false
-  br i1 %or.cond88, label %1058, label %1059
+1053:                                             ; preds = %1052, %1050
+  %1054 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 632) #14
+  %1055 = load i32, ptr @ContendedPaddingWidth, align 4
+  %1056 = icmp sgt i32 %spec.store.select.i.i, %1055
+  %or.cond88 = select i1 %1054, i1 %1056, i1 false
+  br i1 %or.cond88, label %1057, label %1058
 
-1058:                                             ; preds = %1054
+1057:                                             ; preds = %1053
   store i32 %spec.store.select.i.i, ptr @ContendedPaddingWidth, align 4
-  br label %1059
+  br label %1058
 
-1059:                                             ; preds = %1058, %1054
-  %1060 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 897) #14
-  br i1 %1060, label %1061, label %1062
+1058:                                             ; preds = %1057, %1053
+  %1059 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 897) #14
+  br i1 %1059, label %1060, label %1061
 
-1061:                                             ; preds = %1059
+1060:                                             ; preds = %1058
   store i8 1, ptr @UseUnalignedAccesses, align 1
-  br label %1062
+  br label %1061
 
-1062:                                             ; preds = %1061, %1059
-  %1063 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 510) #14
-  br i1 %1063, label %1064, label %1065
+1061:                                             ; preds = %1060, %1058
+  %1062 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 510) #14
+  br i1 %1062, label %1063, label %1064
 
-1064:                                             ; preds = %1062
+1063:                                             ; preds = %1061
   store i8 1, ptr @UseSignumIntrinsic, align 1
-  br label %1065
+  br label %1064
 
-1065:                                             ; preds = %1064, %1062
-  %1066 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 509) #14
-  br i1 %1066, label %1067, label %1068
+1064:                                             ; preds = %1063, %1061
+  %1065 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 509) #14
+  br i1 %1065, label %1066, label %1067
 
-1067:                                             ; preds = %1065
+1066:                                             ; preds = %1064
   store i8 1, ptr @UseCopySignIntrinsic, align 1
-  br label %1068
+  br label %1067
 
-1068:                                             ; preds = %1067, %1065
+1067:                                             ; preds = %1066, %1064
   ret void
 }
 

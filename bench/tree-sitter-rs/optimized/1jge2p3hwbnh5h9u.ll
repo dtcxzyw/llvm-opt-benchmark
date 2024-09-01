@@ -1267,8 +1267,8 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   %107 = getelementptr inbounds i8, ptr %97, i64 -352
   call void @_ZN21tree_sitter_highlight11Highlighter9highlight17h070055a7420d5b15E(ptr noalias nocapture noundef nonnull sret({ i64, [18 x i64] }) align 8 dereferenceable(152) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %107, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %46, ptr noundef align 8 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
   %108 = load i64, ptr %14, align 8, !range !292, !noalias !291, !noundef !4
-  %.not16.not.i = icmp eq i64 %108, 2
-  br i1 %.not16.not.i, label %120, label %109
+  %.not16.i = icmp eq i64 %108, 2
+  br i1 %.not16.i, label %120, label %109
 
 109:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13), !noalias !291

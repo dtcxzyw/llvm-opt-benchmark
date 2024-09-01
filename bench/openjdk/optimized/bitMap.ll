@@ -1069,8 +1069,8 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr nocapture nounde
 11:                                               ; preds = %13, %9
   %.017.i = phi i64 [ %10, %9 ], [ %14, %13 ]
   %12 = or i64 %.017.i, %8
-  %.not.i.not.not = icmp ne i64 %12, %.017.i
-  br i1 %.not.i.not.not, label %13, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit
+  %.not.not.not.i.not.not.not = icmp ne i64 %12, %.017.i
+  br i1 %.not.not.not.i.not.not.not, label %13, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit
 
 13:                                               ; preds = %11
   %14 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %.017.i, ptr nonnull %6) #10, !srcloc !6
@@ -1086,8 +1086,8 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr nocapture nounde
 19:                                               ; preds = %21, %16
   %.017.i3 = phi i64 [ %18, %16 ], [ %22, %21 ]
   %20 = and i64 %.017.i3, %17
-  %.not.i4.not.not = icmp ne i64 %20, %.017.i3
-  br i1 %.not.i4.not.not, label %21, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit
+  %.not.not.not.i4.not.not.not = icmp ne i64 %20, %.017.i3
+  br i1 %.not.not.not.i4.not.not.not, label %21, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit
 
 21:                                               ; preds = %19
   %22 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %.017.i3, ptr nonnull %6) #10, !srcloc !6
@@ -1095,7 +1095,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr nocapture nounde
   br i1 %23, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %19, !llvm.loop !11
 
 _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %11
-  %24 = phi i1 [ %.not.i.not.not, %11 ], [ %.not.i.not.not, %13 ], [ %.not.i4.not.not, %19 ], [ %.not.i4.not.not, %21 ]
+  %24 = phi i1 [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
   ret i1 %24
 }
 

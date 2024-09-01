@@ -3231,8 +3231,8 @@ thread-pre-split.i:                               ; preds = %364
 376:                                              ; preds = %.preheader131, %378
   %.pn.i = phi ptr [ %377, %378 ], [ %366, %.preheader131 ]
   %377 = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %.not9.i.not.not.not.i = icmp eq ptr %377, %375
-  br i1 %.not9.i.not.not.not.i, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit.thread84, label %378
+  %.not9.not.not.i.not.not.not.i = icmp eq ptr %377, %375
+  br i1 %.not9.not.not.i.not.not.not.i, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit.thread84, label %378
 
 378:                                              ; preds = %376
   %.val.i25.i = load i8, ptr %377, align 1, !noalias !627, !noundef !5
@@ -3397,8 +3397,8 @@ thread-pre-split.i236:                            ; preds = %412
 424:                                              ; preds = %.preheader, %426
   %.pn.i238 = phi ptr [ %425, %426 ], [ %414, %.preheader ]
   %425 = getelementptr inbounds i8, ptr %.pn.i238, i64 1
-  %.not9.i.not.not.not.i239 = icmp eq ptr %425, %423
-  br i1 %.not9.i.not.not.not.i239, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit247.thread89, label %426
+  %.not9.not.not.i.not.not.not.i239 = icmp eq ptr %425, %423
+  br i1 %.not9.not.not.i.not.not.not.i239, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit247.thread89, label %426
 
 426:                                              ; preds = %424
   %.val.i25.i240 = load i8, ptr %425, align 1, !noalias !678, !noundef !5
@@ -3526,8 +3526,8 @@ thread-pre-split.i264:                            ; preds = %442
 454:                                              ; preds = %.preheader133, %456
   %.pn.i266 = phi ptr [ %455, %456 ], [ %444, %.preheader133 ]
   %455 = getelementptr inbounds i8, ptr %.pn.i266, i64 1
-  %.not9.i.not.not.not.i267 = icmp eq ptr %455, %453
-  br i1 %.not9.i.not.not.not.i267, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit275.thread96, label %456
+  %.not9.not.not.i.not.not.not.i267 = icmp eq ptr %455, %453
+  br i1 %.not9.not.not.i.not.not.not.i267, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit275.thread96, label %456
 
 456:                                              ; preds = %454
   %.val.i25.i268 = load i8, ptr %455, align 1, !noalias !706, !noundef !5
@@ -3644,8 +3644,8 @@ thread-pre-split.i285:                            ; preds = %474
 486:                                              ; preds = %.preheader132, %488
   %.pn.i287 = phi ptr [ %487, %488 ], [ %476, %.preheader132 ]
   %487 = getelementptr inbounds i8, ptr %.pn.i287, i64 1
-  %.not9.i.not.not.not.i288 = icmp eq ptr %487, %485
-  br i1 %.not9.i.not.not.not.i288, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit296.thread102, label %488
+  %.not9.not.not.i.not.not.not.i288 = icmp eq ptr %487, %485
+  br i1 %.not9.not.not.i.not.not.not.i288, label %_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8E.exit296.thread102, label %488
 
 488:                                              ; preds = %486
   %.val.i25.i289 = load i8, ptr %487, align 1, !noalias !734, !noundef !5
@@ -7384,7 +7384,7 @@ define noundef zeroext i1 @_ZN7uu_expr11syntax_tree9is_truthy17hbf9d811baddb2fa8
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcabc3d50e57dd5c8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hcabc3d50e57dd5c8E.exit: ; preds = %26, %24, %12, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit", %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17hd843d77d6c4a9dbbE.exit"
-  %.0 = phi i1 [ %9, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17hd843d77d6c4a9dbbE.exit" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.thread.thread" ], [ false, %12 ], [ %.not9.i.not.not.not, %24 ], [ %.not9.i.not.not.not, %26 ]
+  %.0 = phi i1 [ %9, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17hd843d77d6c4a9dbbE.exit" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.thread.thread" ], [ false, %12 ], [ %.not9.not.not.i.not.not.not.not, %24 ], [ %.not9.not.not.i.not.not.not.not, %26 ]
   ret i1 %.0
 
 thread-pre-split:                                 ; preds = %12
@@ -7405,8 +7405,8 @@ thread-pre-split:                                 ; preds = %12
 24:                                               ; preds = %.preheader, %26
   %.pn = phi ptr [ %25, %26 ], [ %14, %.preheader ]
   %25 = getelementptr inbounds i8, ptr %.pn, i64 1
-  %.not9.i.not.not.not = icmp ne ptr %25, %23
-  br i1 %.not9.i.not.not.not, label %26, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcabc3d50e57dd5c8E.exit
+  %.not9.not.not.i.not.not.not.not = icmp ne ptr %25, %23
+  br i1 %.not9.not.not.i.not.not.not.not, label %26, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcabc3d50e57dd5c8E.exit
 
 26:                                               ; preds = %24
   %.val.i25 = load i8, ptr %25, align 1, !noalias !1247, !noundef !5

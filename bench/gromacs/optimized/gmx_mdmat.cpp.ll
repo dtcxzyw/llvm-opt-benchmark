@@ -873,12 +873,9 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit: ; preds = %.loopexit.i
 ._crit_edge426.us:                                ; preds = %338
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond482.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count85.i
-  br i1 %exitcond482.not, label %.preheader373, label %.preheader372.us, !llvm.loop !19
+  br i1 %exitcond482.not, label %.preheader371.preheader, label %.preheader372.us, !llvm.loop !19
 
-.preheader373:                                    ; preds = %._crit_edge426.us
-  br i1 %.not359418, label %._crit_edge435.split, label %.preheader371.preheader
-
-.preheader371.preheader:                          ; preds = %.preheader372.lr.ph, %.preheader373
+.preheader371.preheader:                          ; preds = %._crit_edge426.us, %.preheader372.lr.ph
   br label %.preheader371
 
 .preheader371:                                    ; preds = %.preheader371.preheader, %._crit_edge432
@@ -906,7 +903,7 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit: ; preds = %.loopexit.i
   %exitcond492.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count85.i
   br i1 %exitcond492.not, label %._crit_edge435.split, label %.preheader371, !llvm.loop !21
 
-._crit_edge435.split:                             ; preds = %._crit_edge432, %_ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit, %_ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit.thread, %.preheader373
+._crit_edge435.split:                             ; preds = %._crit_edge432, %_ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit, %_ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit.thread
   br i1 %96, label %349, label %379
 
 349:                                              ; preds = %._crit_edge435.split

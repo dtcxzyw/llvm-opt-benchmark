@@ -11231,8 +11231,8 @@ define dso_local void @_ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cm
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %18 = load ptr, ptr %10, align 8
   %19 = load ptr, ptr %12, align 8
-  %.not812.i.not = icmp eq ptr %18, %19
-  br i1 %.not812.i.not, label %.loopexit, label %.lr.ph.i
+  %.not812.not.i = icmp eq ptr %18, %19
+  br i1 %.not812.not.i, label %.loopexit, label %.lr.ph.i
 
 20:                                               ; preds = %.lr.ph.i
   %21 = getelementptr inbounds i8, ptr %.sroa.01.013.i, i64 32
@@ -11291,8 +11291,8 @@ define dso_local void @_ZN18cmCTestTestHandler23CheckLabelFilterExcludeERNS_21cm
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %12, align 8
-  %.not812.i.not = icmp eq ptr %16, %17
-  br i1 %.not812.i.not, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread, label %.lr.ph.i
+  %.not812.not.i = icmp eq ptr %16, %17
+  br i1 %.not812.not.i, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread, label %.lr.ph.i
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.sroa.01.013.i, i64 32
@@ -11357,8 +11357,8 @@ define dso_local void @_ZN18cmCTestTestHandler16CheckLabelFilterERNS_21cmCTestTe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %4, i8 0, i64 520, i1 false)
   %19 = load ptr, ptr %11, align 8
   %20 = load ptr, ptr %13, align 8
-  %.not812.i.not.i = icmp eq ptr %19, %20
-  br i1 %.not812.i.not.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not812.not.i.i = icmp eq ptr %19, %20
+  br i1 %.not812.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = getelementptr inbounds i8, ptr %.sroa.01.013.i.i, i64 32
@@ -11411,8 +11411,8 @@ _ZN18cmCTestTestHandler23CheckLabelFilterIncludeERNS_21cmCTestTestPropertiesE.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %40 = load ptr, ptr %34, align 8
   %41 = load ptr, ptr %36, align 8
-  %.not812.i.not.i5 = icmp eq ptr %40, %41
-  br i1 %.not812.i.not.i5, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i, label %.lr.ph.i.i6
+  %.not812.not.i.i5 = icmp eq ptr %40, %41
+  br i1 %.not812.not.i.i5, label %_ZL26MatchLabelsAgainstFilterRERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS_IN5cmsys17RegularExpressionESaISB_EE.exit.thread.i, label %.lr.ph.i.i6
 
 42:                                               ; preds = %.lr.ph.i.i6
   %43 = getelementptr inbounds i8, ptr %.sroa.01.013.i.i7, i64 32
@@ -26138,8 +26138,8 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler22SetDirectoryProper
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not105 = icmp eq ptr %7, %9
-  br i1 %.not105, label %.critedge, label %.lr.ph
+  %.not97 = icmp eq ptr %7, %9
+  br i1 %.not97, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds i8, ptr %3, i64 8
@@ -26197,15 +26197,15 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler22SetDirectoryProper
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc, %25
   %26 = getelementptr inbounds i8, ptr %.sroa.064.087, i64 32
   %27 = load ptr, ptr %8, align 8
-  %.not106 = icmp eq ptr %26, %27
-  br i1 %.not106, label %.critedge, label %12, !llvm.loop !295
+  %.not98 = icmp eq ptr %26, %27
+  br i1 %.not98, label %.critedge, label %12, !llvm.loop !295
 
 .loopexit77.loopexit:                             ; preds = %_ZN6cmListD2Ev.exit
-  %.pre104 = load ptr, ptr %8, align 8
+  %.pre103 = load ptr, ptr %8, align 8
   br label %.loopexit77
 
 .loopexit77:                                      ; preds = %.loopexit77.loopexit, %33
-  %28 = phi ptr [ %.pre104, %.loopexit77.loopexit ], [ %30, %33 ]
+  %28 = phi ptr [ %.pre103, %.loopexit77.loopexit ], [ %30, %33 ]
   %.sroa.064.1 = getelementptr inbounds i8, ptr %.sroa.064.0.pn93, i64 96
   %.not = icmp eq ptr %.sroa.064.1, %28
   br i1 %.not, label %.critedge, label %29, !llvm.loop !296
@@ -26314,11 +26314,11 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .noexc46._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge: ; preds = %.noexc46
   %.pre = load ptr, ptr %53, align 8
-  %.pre103 = load ptr, ptr %54, align 8
+  %.pre102 = load ptr, ptr %54, align 8
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc46._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge, %64
-  %75 = phi ptr [ %.pre103, %.noexc46._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %66, %64 ]
+  %75 = phi ptr [ %.pre102, %.noexc46._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %66, %64 ]
   %76 = phi ptr [ %.pre, %.noexc46._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %65, %64 ]
   %77 = invoke ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops19_Iter_equal_to_iterEET_SF_SF_T0_(ptr %76, ptr %75)
           to label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEET_SD_SD_.exit unwind label %92

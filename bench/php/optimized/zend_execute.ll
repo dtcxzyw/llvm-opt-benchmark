@@ -2618,22 +2618,22 @@ define dso_local noundef zeroext i1 @zend_verify_ref_array_assignable(ptr nounde
   %11 = load i64, ptr %10, align 8
   %.idx = shl nsw i64 %11, 3
   %12 = getelementptr i8, ptr %10, i64 %.idx
-  %.ptr43 = getelementptr i8, ptr %12, i64 16
-  %.not33 = icmp sgt i64 %11, 0
-  br i1 %.not33, label %.lr.ph.preheader, label %.loopexit
+  %.ptr40 = getelementptr i8, ptr %12, i64 16
+  %.not27 = icmp sgt i64 %11, 0
+  br i1 %.not27, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.thread, %8
-  %.01939 = phi ptr [ %7, %.thread ], [ %.ptr43, %8 ]
-  %.02038 = phi ptr [ %4, %.thread ], [ %.ptr, %8 ]
+  %.01936 = phi ptr [ %7, %.thread ], [ %.ptr40, %8 ]
+  %.02035 = phi ptr [ %4, %.thread ], [ %.ptr, %8 ]
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %.126, i64 8
-  %.not34 = icmp ult ptr %14, %.01939
-  br i1 %.not34, label %.lr.ph, label %.loopexit
+  %.not28 = icmp ult ptr %14, %.01936
+  br i1 %.not28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.126 = phi ptr [ %14, %13 ], [ %.02038, %.lr.ph.preheader ]
+  %.126 = phi ptr [ %14, %13 ], [ %.02035, %.lr.ph.preheader ]
   %15 = load ptr, ptr %.126, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8

@@ -5178,10 +5178,7 @@ for.body18.lr.ph:                                 ; preds = %_ZN18OpenImageIO_v2
   %div35 = fdiv float %sub33, %sub32
   br label %for.body18
 
-for.cond60.preheader:                             ; preds = %for.inc
-  br i1 %cmp17200, label %for.body62.lr.ph, label %for.inc113
-
-for.body62.lr.ph:                                 ; preds = %for.cond60.preheader
+for.body62.lr.ph:                                 ; preds = %for.inc
   %sub81 = fsub float %depth, %call8
   %sub82 = fsub float %call9, %call8
   %div83 = fdiv float %sub81, %sub82
@@ -5374,7 +5371,7 @@ if.else:                                          ; preds = %if.end31
 for.inc:                                          ; preds = %if.then38, %if.else, %_ZNK18OpenImageIO_v2_6_08DeepData10deep_valueElii.exit, %for.body18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond60.preheader, label %for.body18, !llvm.loop !60
+  br i1 %exitcond.not, label %for.body62.lr.ph, label %for.body18, !llvm.loop !60
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.inc109
   %indvars.iv205 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next206, %for.inc109 ]
@@ -5557,8 +5554,8 @@ for.inc109:                                       ; preds = %if.then90, %if.else
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %for.inc113, label %for.body62, !llvm.loop !61
 
-for.inc113:                                       ; preds = %for.inc109, %for.body, %_ZN18OpenImageIO_v2_6_08DeepData14insert_samplesElii.exit, %for.cond60.preheader
-  %splits_occurred.1 = phi i1 [ true, %for.cond60.preheader ], [ true, %_ZN18OpenImageIO_v2_6_08DeepData14insert_samplesElii.exit ], [ %splits_occurred.0, %for.body ], [ true, %for.inc109 ]
+for.inc113:                                       ; preds = %for.inc109, %for.body, %_ZN18OpenImageIO_v2_6_08DeepData14insert_samplesElii.exit
+  %splits_occurred.1 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_08DeepData14insert_samplesElii.exit ], [ %splits_occurred.0, %for.body ], [ true, %for.inc109 ]
   br label %for.cond, !llvm.loop !62
 
 return:                                           ; preds = %_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl.exit, %entry
@@ -5752,10 +5749,7 @@ for.body18.lr.ph:                                 ; preds = %for.cond16.preheade
   %cmp12.i.i126 = icmp slt i32 %s.0, 0
   br label %for.body18
 
-for.cond92.preheader:                             ; preds = %for.inc
-  br i1 %cmp17487, label %for.body94.lr.ph, label %for.end133
-
-for.body94.lr.ph:                                 ; preds = %for.cond92.preheader
+for.body94.lr.ph:                                 ; preds = %for.inc
   %cmp12.i.i329 = icmp slt i32 %s.0, 1
   %cmp12.i.i396 = icmp slt i32 %s.0, 0
   br label %for.body94
@@ -6372,7 +6366,7 @@ if.end89:                                         ; preds = %if.else, %if.else56
 for.inc:                                          ; preds = %for.body18, %if.end89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond92.preheader, label %for.body18, !llvm.loop !66
+  br i1 %exitcond.not, label %for.body94.lr.ph, label %for.body18, !llvm.loop !66
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.inc131
   %indvars.iv492 = phi i64 [ 0, %for.body94.lr.ph ], [ %indvars.iv.next493, %for.inc131 ]
@@ -6680,7 +6674,7 @@ for.inc131:                                       ; preds = %for.body94, %cond.e
   %exitcond496.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count495
   br i1 %exitcond496.not, label %for.end133, label %for.body94, !llvm.loop !67
 
-for.end133:                                       ; preds = %for.inc131, %for.cond16.preheader, %for.cond92.preheader
+for.end133:                                       ; preds = %for.inc131, %for.cond16.preheader
   %187 = load ptr, ptr %this, align 8
   %m_nsamples.i447 = getelementptr inbounds i8, ptr %187, i64 72
   %188 = load ptr, ptr %m_nsamples.i447, align 8
@@ -8155,9 +8149,9 @@ for.body.i.i.i.i.i52:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i54, i64 8
   %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i53, i64 8
   %cmp.i.i.not.i.i.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i62, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i64, label %for.body.i.i.i68.preheader, label %for.body.i.i.i.i.i52, !llvm.loop !82
+  br i1 %cmp.i.i.not.i.i.i.i.i64, label %invoke.cont35, label %for.body.i.i.i.i.i52, !llvm.loop !82
 
-for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i52
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i52
   %17 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
@@ -8173,8 +8167,8 @@ for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i5
   %__tmp.sroa.1.8.insert.insert130 = or disjoint i64 %__tmp.sroa.6.8.insert.insert135, %__tmp.sroa.11.8.insert.shift148
   br label %for.body.i.i.i68
 
-for.body.i.i.i68:                                 ; preds = %for.body.i.i.i68.preheader, %for.body.i.i.i68
-  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %for.body.i.i.i68.preheader ]
+for.body.i.i.i68:                                 ; preds = %invoke.cont35, %for.body.i.i.i68
+  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %invoke.cont35 ]
   store i64 %__tmp.sroa.1.8.insert.insert130, ptr %__first.addr.04.i.i.i69, align 4
   %incdec.ptr.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i69, i64 8
   %cmp.not.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i70, %1

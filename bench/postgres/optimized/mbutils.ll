@@ -1938,8 +1938,8 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
 
 12:                                               ; preds = %14, %2
   %13 = load i8, ptr %5, align 1
-  %.not.not = icmp ne i8 %13, -1
-  br i1 %.not.not, label %14, label %18
+  %.not.not.not.not.not.not = icmp ne i8 %13, -1
+  br i1 %.not.not.not.not.not.not, label %14, label %18
 
 14:                                               ; preds = %12
   %15 = add nuw i8 %13, 1
@@ -1949,7 +1949,7 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
   br i1 %17, label %18, label %12, !llvm.loop !16
 
 18:                                               ; preds = %12, %14
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable

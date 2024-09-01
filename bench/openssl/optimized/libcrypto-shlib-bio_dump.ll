@@ -272,9 +272,8 @@ for.inc:                                          ; preds = %if.end4, %if.then7
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %1 = icmp ne i32 %rem, 0
-  %or.cond1 = or i1 %cmp117.not, %1
-  br i1 %or.cond1, label %if.end15, label %if.then13
+  %.not = icmp eq i32 %rem, 0
+  br i1 %.not, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %for.end
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, i32 noundef %indent, ptr noundef nonnull @.str.1) #6
@@ -283,8 +282,8 @@ if.then13:                                        ; preds = %for.end
 if.end15:                                         ; preds = %for.cond.preheader, %if.then13, %for.end
   %idxprom17 = zext nneg i32 %sub to i64
   %arrayidx18 = getelementptr inbounds i8, ptr %data, i64 %idxprom17
-  %2 = load i8, ptr %arrayidx18, align 1
-  %conv19 = zext i8 %2 to i32
+  %1 = load i8, ptr %arrayidx18, align 1
+  %conv19 = zext i8 %1 to i32
   %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8, i32 noundef %conv19) #6
   br label %return
 

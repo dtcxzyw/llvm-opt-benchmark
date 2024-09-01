@@ -3639,9 +3639,9 @@ define void @Rsb_DecPrintFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
 ._crit_edge.us.i:                                 ; preds = %56
   %66 = getelementptr inbounds i8, ptr %.013.us.i, i64 8
   %67 = icmp ult ptr %66, %53
-  br i1 %67, label %.preheader.us.i, label %.preheader.us.preheader.i44, !llvm.loop !43
+  br i1 %67, label %.preheader.us.i, label %Abc_TtPrintBinary.exit, !llvm.loop !43
 
-.preheader.us.preheader.i44:                      ; preds = %._crit_edge.us.i
+Abc_TtPrintBinary.exit:                           ; preds = %._crit_edge.us.i
   %putchar.i = call i32 @putchar(i32 10)
   %68 = zext nneg i32 %.val31 to i64
   %69 = shl nuw i64 1, %68
@@ -3651,8 +3651,8 @@ define void @Rsb_DecPrintFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   br label %.preheader.us.i46
 
-.preheader.us.i46:                                ; preds = %._crit_edge.us.i50, %.preheader.us.preheader.i44
-  %.013.us.i47 = phi ptr [ %83, %._crit_edge.us.i50 ], [ %7, %.preheader.us.preheader.i44 ]
+.preheader.us.i46:                                ; preds = %._crit_edge.us.i50, %Abc_TtPrintBinary.exit
+  %.013.us.i47 = phi ptr [ %83, %._crit_edge.us.i50 ], [ %7, %Abc_TtPrintBinary.exit ]
   br label %73
 
 73:                                               ; preds = %73, %.preheader.us.i46

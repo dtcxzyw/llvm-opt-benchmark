@@ -24756,9 +24756,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %next_data17 = getelementptr inbounds i8, ptr %call.i85, i64 48
   %19 = load i64, ptr %next_data17, align 8, !tbaa !57
   %cmp.i83.not = icmp eq i64 %19, -1
-  br i1 %cmp.i83.not, label %while.body22.lr.ph, label %while.body, !llvm.loop !781
+  br i1 %cmp.i83.not, label %while.end, label %while.body, !llvm.loop !781
 
-while.body22.lr.ph:                               ; preds = %while.body
+while.end:                                        ; preds = %while.body
   call void @_ZN6duckdb6Vector6ResizeEmm(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef 0, i64 noundef %add)
   %data.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %20 = load ptr, ptr %data.i.i, align 8, !tbaa !79
@@ -24769,9 +24769,9 @@ while.body22.lr.ph:                               ; preds = %while.body
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %current_validity, i64 16
   br label %while.body22
 
-while.body22:                                     ; preds = %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit, %while.body22.lr.ph
-  %current_offset.0118 = phi i64 [ 0, %while.body22.lr.ph ], [ %add43, %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit ]
-  %next_index.sroa.0.0117 = phi i64 [ %vector_index.coerce, %while.body22.lr.ph ], [ %31, %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit ]
+while.body22:                                     ; preds = %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit, %while.end
+  %current_offset.0118 = phi i64 [ 0, %while.end ], [ %add43, %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit ]
+  %next_index.sroa.0.0117 = phi i64 [ %vector_index.coerce, %while.end ], [ %31, %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit ]
   %call.i89 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN6duckdb6vectorINS_14VectorMetaDataELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %vector_data.i, i64 noundef %next_index.sroa.0.0117)
   %21 = load ptr, ptr %this, align 8, !tbaa !170
   %22 = load i32, ptr %call.i89, align 8, !tbaa !366

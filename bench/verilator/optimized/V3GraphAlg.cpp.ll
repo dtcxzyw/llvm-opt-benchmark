@@ -849,14 +849,11 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vect
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEE18GraphSortVertexCmpEvT_SA_T0_.exit: ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i
   %.sroa.4.018.i.i = phi ptr [ %37, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i ], [ null, %.loopexit.i.i ]
   tail call void @_ZdlPv(ptr noundef %.sroa.4.018.i.i) #18
-  br i1 %29, label %._crit_edge64, label %.lr.ph63
-
-.lr.ph63:                                         ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEE18GraphSortVertexCmpEvT_SA_T0_.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   br label %41
 
-41:                                               ; preds = %.lr.ph63, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit
-  %.sroa.032.062 = phi ptr [ %.sroa.036.1, %.lr.ph63 ], [ %67, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit ]
+41:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEE18GraphSortVertexCmpEvT_SA_T0_.exit, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit
+  %.sroa.032.062 = phi ptr [ %.sroa.036.1, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEE18GraphSortVertexCmpEvT_SA_T0_.exit ], [ %67, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit ]
   %42 = load ptr, ptr %.sroa.032.062, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -927,7 +924,7 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit: ; preds 
   %.not44 = icmp eq ptr %.sroa.032.062, %.pn
   br i1 %.not44, label %._crit_edge64, label %41
 
-._crit_edge64:                                    ; preds = %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit, %._crit_edge, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP13V3GraphVertexSt6vectorIS3_SaIS3_EEEE18GraphSortVertexCmpEvT_SA_T0_.exit
+._crit_edge64:                                    ; preds = %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_.exit, %._crit_edge
   %.not.i.i.i30 = icmp eq ptr %.sroa.036.1, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EED2Ev.exit31, label %68
 
@@ -948,9 +945,9 @@ define dso_local void @_ZN7V3Graph9sortEdgesEv(ptr nocapture noundef nonnull rea
   %.not100 = icmp eq ptr %.sroa.040.099, null
   br i1 %.not100, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EED2Ev.exit53, label %.lr.ph105
 
-_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE5clearEv.exit.loopexit: ; preds = %45, %.lr.ph105, %._crit_edge, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit
-  %.sroa.16.1.lcssa116123 = phi ptr [ %.sroa.16.2, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit ], [ %.sroa.16.2, %._crit_edge ], [ %.sroa.16.0101, %.lr.ph105 ], [ %.sroa.16.2, %45 ]
-  %.sroa.058.1.lcssa118122 = phi ptr [ %.sroa.058.2, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit ], [ %.sroa.058.2, %._crit_edge ], [ %.sroa.058.0102, %.lr.ph105 ], [ %.sroa.058.2, %45 ]
+_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE5clearEv.exit.loopexit: ; preds = %45, %.lr.ph105, %._crit_edge
+  %.sroa.16.1.lcssa116123 = phi ptr [ %.sroa.16.2, %._crit_edge ], [ %.sroa.16.0101, %.lr.ph105 ], [ %.sroa.16.2, %45 ]
+  %.sroa.058.1.lcssa118122 = phi ptr [ %.sroa.058.2, %._crit_edge ], [ %.sroa.058.0102, %.lr.ph105 ], [ %.sroa.058.2, %45 ]
   %.sroa.040.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.sroa.040.0, null
   br i1 %.not, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE5clearEv.exit._crit_edge, label %.lr.ph105
@@ -1119,7 +1116,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vector
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit: ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i
   %.sroa.4.018.i.i = phi ptr [ %41, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i ], [ null, %.loopexit.i.i ]
   tail call void @_ZdlPv(ptr noundef %.sroa.4.018.i.i) #18
-  br i1 %33, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE5clearEv.exit.loopexit, label %.lr.ph98
+  br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit, %45
   %.sroa.054.097 = phi ptr [ %46, %45 ], [ %.sroa.058.2, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphSortEdgeCmpEvT_SA_T0_.exit ]

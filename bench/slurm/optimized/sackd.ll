@@ -740,12 +740,12 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %249, label %.lr.ph104.i, label %._crit_edge105.i
 
 .lr.ph104.i:                                      ; preds = %247
-  %.pre136.i = load i32, ptr @listen_fd, align 4
+  %.pre141.i = load i32, ptr @listen_fd, align 4
   br label %250
 
 250:                                              ; preds = %259, %.lr.ph104.i
   %251 = phi i64 [ %248, %.lr.ph104.i ], [ %260, %259 ]
-  %252 = phi i32 [ %.pre136.i, %.lr.ph104.i ], [ %261, %259 ]
+  %252 = phi i32 [ %.pre141.i, %.lr.ph104.i ], [ %261, %259 ]
   %indvars.iv.i = phi i64 [ 3, %.lr.ph104.i ], [ %indvars.iv.next.i, %259 ]
   %253 = load i32, ptr %157, align 4
   %254 = zext i32 %253 to i64
@@ -759,11 +759,11 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   %257 = trunc nuw nsw i64 %indvars.iv.i to i32
   %258 = call i32 @close(i32 noundef %257) #14
   %.pre.i = load i32, ptr @listen_fd, align 4
-  %.pre137.i = load i64, ptr %3, align 8
+  %.pre142.i = load i64, ptr %3, align 8
   br label %259
 
 259:                                              ; preds = %256, %250
-  %260 = phi i64 [ %251, %250 ], [ %.pre137.i, %256 ]
+  %260 = phi i64 [ %251, %250 ], [ %.pre142.i, %256 ]
   %261 = phi i32 [ %252, %250 ], [ %.pre.i, %256 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %262 = icmp ugt i64 %260, %indvars.iv.next.i

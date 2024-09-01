@@ -1105,8 +1105,8 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX9GetReader
 
 10:                                               ; preds = %11, %7
   %.06.i.i.i.i.i = phi i32 [ %9, %7 ], [ %15, %11 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %11
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -1234,8 +1234,8 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX9GetWriter
 
 10:                                               ; preds = %11, %7
   %.06.i.i.i.i.i = phi i32 [ %9, %7 ], [ %15, %11 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %11
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.06.i.i.i.i.i, 1

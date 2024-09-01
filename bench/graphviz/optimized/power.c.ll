@@ -86,20 +86,14 @@ gv_calloc.exit78:                                 ; preds = %23
   %35 = fcmp ogt double %34, 0.000000e+00
   %36 = fdiv double 1.000000e+00, %34
   %.064 = select i1 %35, double %36, double %34
-  br i1 %.not, label %.preheader79.split.preheader, label %.lr.ph83.preheader
+  br i1 %.not, label %.preheader79.split, label %.lr.ph83.preheader
 
 .lr.ph83.preheader:                               ; preds = %._crit_edge
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count100 = zext nneg i32 %smax to i64
   br label %.lr.ph83
 
-.preheader79:                                     ; preds = %.lr.ph83
-  br i1 %.not, label %.preheader79.split.preheader, label %.preheader79.split.us.preheader
-
-.preheader79.split.preheader:                     ; preds = %._crit_edge, %.preheader79
-  br label %.preheader79.split
-
-.preheader79.split.us.preheader:                  ; preds = %.preheader79
+.preheader79.split.us.preheader:                  ; preds = %.lr.ph83
   %smax105 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count106 = zext nneg i32 %smax105 to i64
   %wide.trip.count112 = zext nneg i32 %smax105 to i64
@@ -178,10 +172,10 @@ gv_calloc.exit78:                                 ; preds = %23
   store double %67, ptr %68, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.preheader79, label %.lr.ph83
+  br i1 %exitcond101.not, label %.preheader79.split.us.preheader, label %.lr.ph83
 
-.preheader79.split:                               ; preds = %.preheader79.split.preheader, %75
-  %.0 = phi i32 [ %76, %75 ], [ 0, %.preheader79.split.preheader ]
+.preheader79.split:                               ; preds = %._crit_edge, %75
+  %.0 = phi i32 [ %76, %75 ], [ 0, %._crit_edge ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %4) #14
   %69 = load ptr, ptr %4, align 8
   %70 = call double @vector_product(i32 noundef 0, ptr noundef %69, ptr noundef %69) #14

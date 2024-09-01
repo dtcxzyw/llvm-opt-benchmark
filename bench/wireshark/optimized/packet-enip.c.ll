@@ -4788,8 +4788,8 @@ define internal fastcc ptr @enip_match_request(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %12, label %49
 
 12:                                               ; preds = %3
-  %.not86 = icmp eq ptr %2, null
-  br i1 %.not86, label %.critedge, label %13
+  %.not83 = icmp eq ptr %2, null
+  br i1 %.not83, label %.critedge, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %2, i64 4
@@ -4870,9 +4870,9 @@ define internal fastcc ptr @enip_match_request(ptr noundef %0, ptr noundef %1, p
   %.154 = phi ptr [ %54, %50 ], [ %45, %46 ], [ %.05391, %38 ]
   %56 = icmp eq ptr %1, null
   %57 = icmp eq ptr %.154, null
-  %or.cond3.not85 = select i1 %56, i1 true, i1 %57
+  %or.cond3.not87 = select i1 %56, i1 true, i1 %57
   %.not66 = icmp eq ptr %2, null
-  %or.cond82 = or i1 %.not66, %or.cond3.not85
+  %or.cond82 = or i1 %.not66, %or.cond3.not87
   br i1 %or.cond82, label %.critedge, label %58
 
 58:                                               ; preds = %55

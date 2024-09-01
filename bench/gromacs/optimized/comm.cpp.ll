@@ -716,7 +716,7 @@ _Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread: ; preds = %_Z11t
   br label %.loopexit174
 
 _Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread158: ; preds = %20, %16, %.preheader.i
-  %.08.i160 = phi i64 [ -1, %.preheader.i ], [ -1, %20 ], [ %indvars.iv.i, %16 ]
+  %.08.i160 = phi i64 [ -1, %.preheader.i ], [ %indvars.iv.i, %16 ], [ -1, %20 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 208
   %24 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %23)
   %.not126 = icmp eq i32 %24, 0
@@ -1013,12 +1013,9 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.i.threa
 156:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader173, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph186, label %.lr.ph, !llvm.loop !20
 
-.preheader173:                                    ; preds = %156
-  br i1 %155, label %.lr.ph186, label %.preheader
-
-.lr.ph186:                                        ; preds = %.preheader173
+.lr.ph186:                                        ; preds = %156
   %157 = getelementptr inbounds i8, ptr %0, i64 8
   %wide.trip.count207 = zext nneg i32 %.2156 to i64
   br label %175
@@ -1032,7 +1029,7 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.i.threa
   %.not134 = icmp eq i32 %161, 0
   br i1 %.not134, label %156, label %.loopexit174
 
-.preheader:                                       ; preds = %._crit_edge, %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, %.preheader173
+.preheader:                                       ; preds = %._crit_edge, %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit
   %162 = icmp sgt i32 %.0.i, 0
   br i1 %162, label %.lr.ph191, label %._crit_edge192.thread
 

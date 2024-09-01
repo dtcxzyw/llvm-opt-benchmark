@@ -1479,15 +1479,12 @@ arrayctor.loop134:                                ; preds = %arrayctor.loop134, 
 
 arrayctor.cont138:                                ; preds = %arrayctor.loop134
   store ptr %call130, ptr %mRotationKeys.i, align 8
-  br i1 %isempty131, label %for.end221, label %for.cond146.preheader.lr.ph
-
-for.cond146.preheader.lr.ph:                      ; preds = %arrayctor.cont138
   %mChannelValues192 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   br label %for.cond146.preheader
 
-for.cond146.preheader:                            ; preds = %for.cond146.preheader.lr.ph, %invoke.cont216
-  %indvars.iv439 = phi i64 [ 0, %for.cond146.preheader.lr.ph ], [ %indvars.iv.next440, %invoke.cont216 ]
-  %rotkey.0430 = phi ptr [ %call130, %for.cond146.preheader.lr.ph ], [ %incdec.ptr218, %invoke.cont216 ]
+for.cond146.preheader:                            ; preds = %arrayctor.cont138, %invoke.cont216
+  %indvars.iv439 = phi i64 [ 0, %arrayctor.cont138 ], [ %indvars.iv.next440, %invoke.cont216 ]
+  %rotkey.0430 = phi ptr [ %call130, %arrayctor.cont138 ], [ %incdec.ptr218, %invoke.cont216 ]
   %60 = load ptr, ptr %_M_finish.i90, align 8
   %61 = load ptr, ptr %mChannels30, align 8
   %cmp150407.not = icmp eq ptr %60, %61
@@ -1763,7 +1760,7 @@ invoke.cont216:                                   ; preds = %if.else73.i, %if.th
   %cmp143 = icmp ult i64 %indvars.iv.next440, %131
   br i1 %cmp143, label %for.cond146.preheader, label %for.end221, !llvm.loop !11
 
-for.end221:                                       ; preds = %invoke.cont216, %arrayctor.cont138.thread, %arrayctor.cont138
+for.end221:                                       ; preds = %invoke.cont216, %arrayctor.cont138.thread
   store i32 1, ptr %mNumScalingKeys.i, align 8
   %call223 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #25
           to label %arrayctor.loop225.preheader unwind label %lpad37.loopexit.split-lp.loopexit

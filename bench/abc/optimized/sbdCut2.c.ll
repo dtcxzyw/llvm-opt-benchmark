@@ -338,8 +338,8 @@ define void @Sbd_ManCutExpand(ptr nocapture noundef readonly %0, ptr nocapture n
   %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i65.i, %46 ], [ 0, %.lr.ph.i62.i.preheader ]
   %44 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv.i64.i
   %45 = load i32, ptr %44, align 4
-  %.not.i.not = icmp ne i32 %45, %43
-  br i1 %.not.i.not, label %46, label %Vec_IntFind.exit68.thread.i
+  %.not.i.not.not.not.not.not = icmp ne i32 %45, %43
+  br i1 %.not.i.not.not.not.not.not, label %46, label %Vec_IntFind.exit68.thread.i
 
 46:                                               ; preds = %.lr.ph.i62.i
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i64.i, 1
@@ -393,7 +393,7 @@ Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %56
 
 68:                                               ; preds = %67, %Vec_IntDrop.exit.i
   %69 = icmp ne i32 %43, 0
-  %or.cond5.i = and i1 %69, %.not.i.not
+  %or.cond5.i = and i1 %69, %.not.i.not.not.not.not.not
   br i1 %or.cond5.i, label %70, label %.critedge
 
 70:                                               ; preds = %68

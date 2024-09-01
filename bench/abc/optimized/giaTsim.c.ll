@@ -692,10 +692,7 @@ define i32 @Gia_ManTerRetire2(ptr nocapture noundef readonly %0, ptr nocapture n
   %wide.trip.count = zext nneg i32 %.val43 to i64
   br label %12
 
-.preheader:                                       ; preds = %29
-  br i1 %5, label %.lr.ph51, label %Vec_IntPush.exit._crit_edge
-
-.lr.ph51:                                         ; preds = %.preheader
+.lr.ph51:                                         ; preds = %29
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = getelementptr inbounds i8, ptr %0, i64 32
@@ -735,7 +732,7 @@ define i32 @Gia_ManTerRetire2(ptr nocapture noundef readonly %0, ptr nocapture n
   %.1 = phi i32 [ %.048, %21 ], [ %.048, %12 ], [ %spec.select, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %.lr.ph51, label %12, !llvm.loop !11
 
 30:                                               ; preds = %.lr.ph51, %83
   %31 = phi ptr [ %3, %.lr.ph51 ], [ %84, %83 ]
@@ -851,7 +848,7 @@ Vec_IntPush.exit._crit_edge65:                    ; preds = %Vec_IntPush.exit
   %87 = icmp slt i64 %indvars.iv.next60, %86
   br i1 %87, label %30, label %Vec_IntPush.exit._crit_edge, !llvm.loop !12
 
-Vec_IntPush.exit._crit_edge:                      ; preds = %83, %Vec_IntPush.exit, %2, %.preheader
+Vec_IntPush.exit._crit_edge:                      ; preds = %83, %Vec_IntPush.exit, %2
   %88 = getelementptr inbounds i8, ptr %0, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr i8, ptr %89, i64 4

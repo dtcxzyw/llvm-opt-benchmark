@@ -341,7 +341,7 @@ add_string_to_conversion_struct.exit:             ; preds = %.lr.ph739, %103, %l
   br i1 %exitcond945.not, label %._crit_edge740, label %.lr.ph739, !llvm.loop !8
 
 ._crit_edge740:                                   ; preds = %add_string_to_conversion_struct.exit, %.loopexit719.thread, %.loopexit719
-  %124 = phi i1 [ false, %.loopexit719.thread ], [ false, %.loopexit719 ], [ %99, %add_string_to_conversion_struct.exit ]
+  %124 = phi i1 [ false, %.loopexit719.thread ], [ false, %.loopexit719 ], [ true, %add_string_to_conversion_struct.exit ]
   %125 = icmp sgt i32 %.val626.val, 1
   br i1 %125, label %126, label %129
 
@@ -1516,23 +1516,20 @@ string_to_comm_method.exit675:                    ; preds = %565, %.lr.ph.i.i670
   %.5519 = phi i32 [ %.4518, %557 ], [ %spec.select615, %string_to_comm_method.exit675 ]
   %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv1058, 1
   %exitcond1062.not = icmp eq i64 %indvars.iv.next1059, %wide.trip.count.i.i659
-  br i1 %exitcond1062.not, label %._crit_edge891, label %546, !llvm.loop !39
+  br i1 %exitcond1062.not, label %.lr.ph895.preheader, label %546, !llvm.loop !39
 
-._crit_edge891:                                   ; preds = %568
+.lr.ph895.preheader:                              ; preds = %568
   %569 = sext i32 %542 to i64
   %570 = getelementptr inbounds i32, ptr %507, i64 %569
   %571 = load i32, ptr %570, align 4
-  br i1 %513, label %.lr.ph895.preheader, label %.preheader701
-
-.lr.ph895.preheader:                              ; preds = %._crit_edge891
   %572 = zext nneg i32 %512 to i64
   %573 = shl nuw nsw i64 %572, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %507, i8 0, i64 %573, i1 false)
   br label %.preheader701
 
-.preheader701:                                    ; preds = %._crit_edge891.thread, %.lr.ph895.preheader, %._crit_edge891
-  %.in = phi i32 [ %545, %._crit_edge891.thread ], [ %571, %.lr.ph895.preheader ], [ %571, %._crit_edge891 ]
-  %.3517.lcssa1121 = phi i32 [ %542, %._crit_edge891.thread ], [ %.5519, %.lr.ph895.preheader ], [ %.5519, %._crit_edge891 ]
+.preheader701:                                    ; preds = %._crit_edge891.thread, %.lr.ph895.preheader
+  %.in = phi i32 [ %545, %._crit_edge891.thread ], [ %571, %.lr.ph895.preheader ]
+  %.3517.lcssa1121 = phi i32 [ %542, %._crit_edge891.thread ], [ %.5519, %.lr.ph895.preheader ]
   %574 = icmp sgt i32 %.in, 0
   br i1 %124, label %.preheader700.lr.ph, label %.preheader699
 

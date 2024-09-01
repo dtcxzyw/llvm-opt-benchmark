@@ -10584,7 +10584,7 @@ select.unfold:                                    ; preds = %45, %41, %43
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82: ; preds = %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1761
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1761
-  br i1 %trunc.i.i77, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread, label %.critedge
+  br label %.critedge
 
 60:                                               ; preds = %23
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.0.i73.lcssa, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aef2ba79577a57b07f107cfc70efd80d.140) #56, !noalias !1755
@@ -10595,7 +10595,7 @@ _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; pred
   %61 = icmp ult i64 %2, %1
   br i1 %61, label %109, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 
-.critedge:                                        ; preds = %35, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82
+.critedge:                                        ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82, %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1762)
   %62 = icmp ugt i64 %18, %17
   br i1 %62, label %.lr.ph, label %._crit_edge
@@ -10867,8 +10867,8 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread.cr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1761
   br label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 
-_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread: ; preds = %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread.critedge, %38, %45, %select.unfold, %select.unfold19, %121, %114, %31, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82, %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
-  %.1 = phi i8 [ %137, %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82 ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70 ], [ 0, %31 ], [ 0, %114 ], [ 0, %121 ], [ 0, %select.unfold19 ], [ 0, %select.unfold ], [ 0, %45 ], [ 0, %38 ], [ 0, %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread.critedge ]
+_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread: ; preds = %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread.critedge, %38, %45, %select.unfold, %select.unfold19, %121, %114, %31, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70, %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
+  %.1 = phi i8 [ %137, %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70 ], [ 0, %31 ], [ 0, %114 ], [ 0, %121 ], [ 0, %select.unfold19 ], [ 0, %select.unfold ], [ 0, %45 ], [ 0, %38 ], [ 0, %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread.critedge ]
   ret i8 %.1
 }
 

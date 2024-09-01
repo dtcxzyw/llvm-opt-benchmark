@@ -614,10 +614,7 @@ for.body25.lr.ph:                                 ; preds = %for.end
   %16 = add i32 %endIslandIndex.0.in.lcssa, 1
   br label %for.body25
 
-for.cond56.preheader:                             ; preds = %for.inc51
-  br i1 %cmp24.not147, label %for.inc124, label %for.body58.preheader
-
-for.body58.preheader:                             ; preds = %for.cond56.preheader
+for.body58.preheader:                             ; preds = %for.inc51
   %17 = add i32 %endIslandIndex.0.in.lcssa, 1
   br label %for.body58
 
@@ -648,7 +645,7 @@ for.inc51:                                        ; preds = %if.then41, %for.bod
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next160 to i32
   %exitcond.not = icmp eq i32 %16, %lftr.wideiv
-  br i1 %exitcond.not, label %for.cond56.preheader, label %for.body25, !llvm.loop !12
+  br i1 %exitcond.not, label %for.body58.preheader, label %for.body25, !llvm.loop !12
 
 for.body58:                                       ; preds = %for.body58.preheader, %for.inc83
   %indvars.iv167 = phi i64 [ %idxprom.i.i, %for.body58.preheader ], [ %indvars.iv.next168, %for.inc83 ]
@@ -709,7 +706,7 @@ for.inc120:                                       ; preds = %for.body89, %invoke
   %exitcond166.not = icmp eq i32 %16, %lftr.wideiv165
   br i1 %exitcond166.not, label %for.inc124, label %for.body89, !llvm.loop !14
 
-for.inc124:                                       ; preds = %for.inc120, %for.inc83, %for.end, %for.cond56.preheader
+for.inc124:                                       ; preds = %for.inc120, %for.inc83, %for.end
   %cmp = icmp slt i32 %endIslandIndex.0.lcssa, %6
   br i1 %cmp, label %for.body, label %for.end125, !llvm.loop !15
 

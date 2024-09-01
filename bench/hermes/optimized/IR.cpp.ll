@@ -3823,43 +3823,43 @@ while.cond.preheader:                             ; preds = %entry
   %Size.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %Size.i, align 8
   %tobool.not5 = icmp eq i32 %0, 0
-  br i1 %tobool.not5, label %while.end, label %while.body.lr.ph.split
+  br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
-while.body.lr.ph.split:                           ; preds = %while.cond.preheader
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %Users = getelementptr inbounds i8, ptr %this, i64 8
+  %tobool7.not.i.i = icmp eq ptr %Other, null
   %Users.i8.i.i = getelementptr inbounds i8, ptr %Other, i64 8
   %Size.i.i.i9.i.i = getelementptr inbounds i8, ptr %Other, i64 16
   %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %Other, i64 20
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Other, i64 24
-  %tobool7.not.i.i = icmp eq ptr %Other, null
-  br i1 %tobool7.not.i.i, label %while.body.us6, label %while.body
+  br i1 %tobool7.not.i.i, label %while.body.us, label %while.body
 
-while.body.us6:                                   ; preds = %while.body.lr.ph.split, %if.end6.i.i.us
-  %1 = phi i32 [ %22, %if.end6.i.i.us ], [ %0, %while.body.lr.ph.split ]
-  %conv.i.us7 = zext i32 %1 to i64
+while.body.us:                                    ; preds = %while.body.lr.ph, %if.end6.i.i.us
+  %1 = phi i32 [ %22, %if.end6.i.i.us ], [ %0, %while.body.lr.ph ]
+  %conv.i.us = zext i32 %1 to i64
   %2 = load ptr, ptr %Users, align 8
-  %3 = getelementptr ptr, ptr %2, i64 %conv.i.us7
-  %arrayidx.i.us8 = getelementptr i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %arrayidx.i.us8, align 8
-  %Size.i.i.i.us9 = getelementptr inbounds i8, ptr %4, i64 72
-  %5 = load i32, ptr %Size.i.i.i.us9, align 8
-  %Operands.i.i.us10 = getelementptr inbounds i8, ptr %4, i64 64
-  %6 = load ptr, ptr %Operands.i.i.us10, align 8
+  %3 = getelementptr ptr, ptr %2, i64 %conv.i.us
+  %arrayidx.i.us = getelementptr i8, ptr %3, i64 -8
+  %4 = load ptr, ptr %arrayidx.i.us, align 8
+  %Size.i.i.i.us = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = load i32, ptr %Size.i.i.i.us, align 8
+  %Operands.i.i.us = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = load ptr, ptr %Operands.i.i.us, align 8
   %7 = sext i32 %5 to i64
-  br label %for.cond.i.us11
+  br label %for.cond.i.us
 
-for.cond.i.us11:                                  ; preds = %for.cond.i.us11, %while.body.us6
-  %indvars.iv.i.us12 = phi i64 [ %indvars.iv.next.i.us16, %for.cond.i.us11 ], [ 0, %while.body.us6 ]
-  %cmp.i.us13 = icmp slt i64 %indvars.iv.i.us12, %7
-  tail call void @llvm.assume(i1 %cmp.i.us13)
-  %arrayidx.i.i.i.us14 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %indvars.iv.i.us12
-  %8 = load ptr, ptr %arrayidx.i.i.i.us14, align 8
-  %cmp3.i.us15 = icmp eq ptr %this, %8
-  %indvars.iv.next.i.us16 = add nuw nsw i64 %indvars.iv.i.us12, 1
-  br i1 %cmp3.i.us15, label %if.then.i.us17, label %for.cond.i.us11, !llvm.loop !6
+for.cond.i.us:                                    ; preds = %for.cond.i.us, %while.body.us
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %for.cond.i.us ], [ 0, %while.body.us ]
+  %cmp.i.us = icmp slt i64 %indvars.iv.i.us, %7
+  tail call void @llvm.assume(i1 %cmp.i.us)
+  %arrayidx.i.i.i.us = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %indvars.iv.i.us
+  %8 = load ptr, ptr %arrayidx.i.i.i.us, align 8
+  %cmp3.i.us = icmp eq ptr %this, %8
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
+  br i1 %cmp3.i.us, label %if.end.i.i.us, label %for.cond.i.us, !llvm.loop !6
 
-if.then.i.us17:                                   ; preds = %for.cond.i.us11
-  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us14, i64 8
+if.end.i.i.us:                                    ; preds = %for.cond.i.us
+  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.us = load i32, ptr %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us, align 8
   %Users.i.i.i.us = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %Users.i.i.i.us, align 8
@@ -3878,7 +3878,7 @@ if.then.i.us17:                                   ; preds = %for.cond.i.us11
   %cmp.not.i.i.i.us = icmp eq i32 %sub.i.i.i.i.us, %agg.tmp.sroa.2.0.copyload.i.i.us
   br i1 %cmp.not.i.i.i.us, label %if.end6.i.i.us, label %if.then.i.i.i.us
 
-if.then.i.i.i.us:                                 ; preds = %if.then.i.us17
+if.then.i.i.i.us:                                 ; preds = %if.end.i.i.us
   %13 = load ptr, ptr %Users.i.i.i.us, align 8
   %arrayidx.i.i.i.i.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i.i.i.us
   %14 = load ptr, ptr %arrayidx.i.i.i.i.us, align 8
@@ -3909,18 +3909,18 @@ if.then23.i.i.i.us:                               ; preds = %for.cond.i.i.i.us
   store i32 %agg.tmp.sroa.2.0.copyload.i.i.us, ptr %second.i12.i.i.i.us.le, align 8
   br label %if.end6.i.i.us
 
-if.end6.i.i.us:                                   ; preds = %if.then23.i.i.i.us, %if.then.i.us17
-  %21 = load ptr, ptr %Operands.i.i.us10, align 8
-  %arrayidx.i.i6.i.us = getelementptr inbounds %"struct.std::pair", ptr %21, i64 %indvars.iv.i.us12
+if.end6.i.i.us:                                   ; preds = %if.then23.i.i.i.us, %if.end.i.i.us
+  %21 = load ptr, ptr %Operands.i.i.us, align 8
+  %arrayidx.i.i6.i.us = getelementptr inbounds %"struct.std::pair", ptr %21, i64 %indvars.iv.i.us
   store ptr null, ptr %arrayidx.i.i6.i.us, align 8
   %second3.i13.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.us, i64 8
   store i32 0, ptr %second3.i13.i.i.us, align 8
   %22 = load i32, ptr %Size.i, align 8
-  %tobool.not.us21 = icmp eq i32 %22, 0
-  br i1 %tobool.not.us21, label %while.end, label %while.body.us6, !llvm.loop !7
+  %tobool.not.us = icmp eq i32 %22, 0
+  br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !7
 
-while.body:                                       ; preds = %while.body.lr.ph.split, %_ZN6hermes5Value7addUserEPNS_11InstructionE.exit.i.i
-  %23 = phi i32 [ %50, %_ZN6hermes5Value7addUserEPNS_11InstructionE.exit.i.i ], [ %0, %while.body.lr.ph.split ]
+while.body:                                       ; preds = %while.body.lr.ph, %_ZN6hermes5Value7addUserEPNS_11InstructionE.exit.i.i
+  %23 = phi i32 [ %50, %_ZN6hermes5Value7addUserEPNS_11InstructionE.exit.i.i ], [ %0, %while.body.lr.ph ]
   %conv.i = zext i32 %23 to i64
   %24 = load ptr, ptr %Users, align 8
   %25 = getelementptr ptr, ptr %24, i64 %conv.i
@@ -3941,9 +3941,9 @@ for.cond.i:                                       ; preds = %for.cond.i, %while.
   %30 = load ptr, ptr %arrayidx.i.i.i, align 8
   %cmp3.i = icmp eq ptr %this, %30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %cmp3.i, label %if.then.i, label %for.cond.i, !llvm.loop !6
+  br i1 %cmp3.i, label %if.end.i.i, label %for.cond.i, !llvm.loop !6
 
-if.then.i:                                        ; preds = %for.cond.i
+if.end.i.i:                                       ; preds = %for.cond.i
   %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i32, ptr %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i, align 8
   %Users.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
@@ -3963,7 +3963,7 @@ if.then.i:                                        ; preds = %for.cond.i
   %cmp.not.i.i.i = icmp eq i32 %sub.i.i.i.i, %agg.tmp.sroa.2.0.copyload.i.i
   br i1 %cmp.not.i.i.i, label %if.end6.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i
+if.then.i.i.i:                                    ; preds = %if.end.i.i
   %35 = load ptr, ptr %Users.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %35, i64 %conv.i.i.i
   %36 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -3994,7 +3994,7 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   store i32 %agg.tmp.sroa.2.0.copyload.i.i, ptr %second.i12.i.i.i.le, align 8
   br label %if.end6.i.i
 
-if.end6.i.i:                                      ; preds = %if.then23.i.i.i, %if.then.i
+if.end6.i.i:                                      ; preds = %if.then23.i.i.i, %if.end.i.i
   %43 = load i32, ptr %Size.i.i.i9.i.i, align 8
   %44 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %43, %44
@@ -6954,38 +6954,38 @@ while.body:                                       ; preds = %entry, %_ZN6hermes5
   %Size.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %Size.i.i, align 8
   %tobool.not5.i = icmp eq i32 %2, 0
-  br i1 %tobool.not5.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit, label %while.body.lr.ph.split.i
+  br i1 %tobool.not5.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit, label %while.body.lr.ph.i
 
-while.body.lr.ph.split.i:                         ; preds = %while.body
+while.body.lr.ph.i:                               ; preds = %while.body
   %Users.i = getelementptr inbounds i8, ptr %1, i64 24
-  br label %while.body.us6.i
+  br label %while.body.us.i
 
-while.body.us6.i:                                 ; preds = %if.end6.i.i.us.i, %while.body.lr.ph.split.i
-  %3 = phi i32 [ %24, %if.end6.i.i.us.i ], [ %2, %while.body.lr.ph.split.i ]
-  %conv.i.us7.i = zext i32 %3 to i64
+while.body.us.i:                                  ; preds = %if.end6.i.i.us.i, %while.body.lr.ph.i
+  %3 = phi i32 [ %24, %if.end6.i.i.us.i ], [ %2, %while.body.lr.ph.i ]
+  %conv.i.us.i = zext i32 %3 to i64
   %4 = load ptr, ptr %Users.i, align 8
-  %5 = getelementptr ptr, ptr %4, i64 %conv.i.us7.i
-  %arrayidx.i.us8.i = getelementptr i8, ptr %5, i64 -8
-  %6 = load ptr, ptr %arrayidx.i.us8.i, align 8
-  %Size.i.i.i.us9.i = getelementptr inbounds i8, ptr %6, i64 72
-  %7 = load i32, ptr %Size.i.i.i.us9.i, align 8
-  %Operands.i.i.us10.i = getelementptr inbounds i8, ptr %6, i64 64
-  %8 = load ptr, ptr %Operands.i.i.us10.i, align 8
+  %5 = getelementptr ptr, ptr %4, i64 %conv.i.us.i
+  %arrayidx.i.us.i = getelementptr i8, ptr %5, i64 -8
+  %6 = load ptr, ptr %arrayidx.i.us.i, align 8
+  %Size.i.i.i.us.i = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = load i32, ptr %Size.i.i.i.us.i, align 8
+  %Operands.i.i.us.i = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = load ptr, ptr %Operands.i.i.us.i, align 8
   %9 = sext i32 %7 to i64
-  br label %for.cond.i.us11.i
+  br label %for.cond.i.us.i
 
-for.cond.i.us11.i:                                ; preds = %for.cond.i.us11.i, %while.body.us6.i
-  %indvars.iv.i.us12.i = phi i64 [ %indvars.iv.next.i.us16.i, %for.cond.i.us11.i ], [ 0, %while.body.us6.i ]
-  %cmp.i.us13.i = icmp slt i64 %indvars.iv.i.us12.i, %9
-  tail call void @llvm.assume(i1 %cmp.i.us13.i)
-  %arrayidx.i.i.i.us14.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %indvars.iv.i.us12.i
-  %10 = load ptr, ptr %arrayidx.i.i.i.us14.i, align 8
-  %cmp3.i.us15.i = icmp eq ptr %add.ptr, %10
-  %indvars.iv.next.i.us16.i = add nuw nsw i64 %indvars.iv.i.us12.i, 1
-  br i1 %cmp3.i.us15.i, label %if.then.i.us17.i, label %for.cond.i.us11.i, !llvm.loop !6
+for.cond.i.us.i:                                  ; preds = %for.cond.i.us.i, %while.body.us.i
+  %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %for.cond.i.us.i ], [ 0, %while.body.us.i ]
+  %cmp.i.us.i = icmp slt i64 %indvars.iv.i.us.i, %9
+  tail call void @llvm.assume(i1 %cmp.i.us.i)
+  %arrayidx.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %indvars.iv.i.us.i
+  %10 = load ptr, ptr %arrayidx.i.i.i.us.i, align 8
+  %cmp3.i.us.i = icmp eq ptr %add.ptr, %10
+  %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
+  br i1 %cmp3.i.us.i, label %if.end.i.i.us.i, label %for.cond.i.us.i, !llvm.loop !6
 
-if.then.i.us17.i:                                 ; preds = %for.cond.i.us11.i
-  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us14.i, i64 8
+if.end.i.i.us.i:                                  ; preds = %for.cond.i.us.i
+  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.us.i = load i32, ptr %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i, align 8
   %Users.i.i.i.us.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %Users.i.i.i.us.i, align 8
@@ -7004,7 +7004,7 @@ if.then.i.us17.i:                                 ; preds = %for.cond.i.us11.i
   %cmp.not.i.i.i.us.i = icmp eq i32 %sub.i.i.i.i.us.i, %agg.tmp.sroa.2.0.copyload.i.i.us.i
   br i1 %cmp.not.i.i.i.us.i, label %if.end6.i.i.us.i, label %if.then.i.i.i.us.i
 
-if.then.i.i.i.us.i:                               ; preds = %if.then.i.us17.i
+if.then.i.i.i.us.i:                               ; preds = %if.end.i.i.us.i
   %15 = load ptr, ptr %Users.i.i.i.us.i, align 8
   %arrayidx.i.i.i.i.us.i = getelementptr inbounds ptr, ptr %15, i64 %conv.i.i.i.us.i
   %16 = load ptr, ptr %arrayidx.i.i.i.i.us.i, align 8
@@ -7035,15 +7035,15 @@ if.then23.i.i.i.us.i:                             ; preds = %for.cond.i.i.i.us.i
   store i32 %agg.tmp.sroa.2.0.copyload.i.i.us.i, ptr %second.i12.i.i.i.us.i.le, align 8
   br label %if.end6.i.i.us.i
 
-if.end6.i.i.us.i:                                 ; preds = %if.then23.i.i.i.us.i, %if.then.i.us17.i
-  %23 = load ptr, ptr %Operands.i.i.us10.i, align 8
-  %arrayidx.i.i6.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %indvars.iv.i.us12.i
+if.end6.i.i.us.i:                                 ; preds = %if.then23.i.i.i.us.i, %if.end.i.i.us.i
+  %23 = load ptr, ptr %Operands.i.i.us.i, align 8
+  %arrayidx.i.i6.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %indvars.iv.i.us.i
   store ptr null, ptr %arrayidx.i.i6.i.us.i, align 8
   %second3.i13.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.us.i, i64 8
   store i32 0, ptr %second3.i13.i.i.us.i, align 8
   %24 = load i32, ptr %Size.i.i, align 8
-  %tobool.not.us21.i = icmp eq i32 %24, 0
-  br i1 %tobool.not.us21.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit, label %while.body.us6.i, !llvm.loop !7
+  %tobool.not.us.i = icmp eq i32 %24, 0
+  br i1 %tobool.not.us.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit, label %while.body.us.i, !llvm.loop !7
 
 _ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit: ; preds = %if.end6.i.i.us.i
   %.pre = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -7082,38 +7082,38 @@ while.body:                                       ; preds = %entry, %_ZN6hermes1
   %Size.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %Size.i.i, align 8
   %tobool.not5.i = icmp eq i32 %2, 0
-  br i1 %tobool.not5.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit, label %while.body.lr.ph.split.i
+  br i1 %tobool.not5.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit, label %while.body.lr.ph.i
 
-while.body.lr.ph.split.i:                         ; preds = %while.body
+while.body.lr.ph.i:                               ; preds = %while.body
   %Users.i = getelementptr inbounds i8, ptr %1, i64 24
-  br label %while.body.us6.i
+  br label %while.body.us.i
 
-while.body.us6.i:                                 ; preds = %if.end6.i.i.us.i, %while.body.lr.ph.split.i
-  %3 = phi i32 [ %24, %if.end6.i.i.us.i ], [ %2, %while.body.lr.ph.split.i ]
-  %conv.i.us7.i = zext i32 %3 to i64
+while.body.us.i:                                  ; preds = %if.end6.i.i.us.i, %while.body.lr.ph.i
+  %3 = phi i32 [ %24, %if.end6.i.i.us.i ], [ %2, %while.body.lr.ph.i ]
+  %conv.i.us.i = zext i32 %3 to i64
   %4 = load ptr, ptr %Users.i, align 8
-  %5 = getelementptr ptr, ptr %4, i64 %conv.i.us7.i
-  %arrayidx.i.us8.i = getelementptr i8, ptr %5, i64 -8
-  %6 = load ptr, ptr %arrayidx.i.us8.i, align 8
-  %Size.i.i.i.us9.i = getelementptr inbounds i8, ptr %6, i64 72
-  %7 = load i32, ptr %Size.i.i.i.us9.i, align 8
-  %Operands.i.i.us10.i = getelementptr inbounds i8, ptr %6, i64 64
-  %8 = load ptr, ptr %Operands.i.i.us10.i, align 8
+  %5 = getelementptr ptr, ptr %4, i64 %conv.i.us.i
+  %arrayidx.i.us.i = getelementptr i8, ptr %5, i64 -8
+  %6 = load ptr, ptr %arrayidx.i.us.i, align 8
+  %Size.i.i.i.us.i = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = load i32, ptr %Size.i.i.i.us.i, align 8
+  %Operands.i.i.us.i = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = load ptr, ptr %Operands.i.i.us.i, align 8
   %9 = sext i32 %7 to i64
-  br label %for.cond.i.us11.i
+  br label %for.cond.i.us.i
 
-for.cond.i.us11.i:                                ; preds = %for.cond.i.us11.i, %while.body.us6.i
-  %indvars.iv.i.us12.i = phi i64 [ %indvars.iv.next.i.us16.i, %for.cond.i.us11.i ], [ 0, %while.body.us6.i ]
-  %cmp.i.us13.i = icmp slt i64 %indvars.iv.i.us12.i, %9
-  tail call void @llvm.assume(i1 %cmp.i.us13.i)
-  %arrayidx.i.i.i.us14.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %indvars.iv.i.us12.i
-  %10 = load ptr, ptr %arrayidx.i.i.i.us14.i, align 8
-  %cmp3.i.us15.i = icmp eq ptr %add.ptr, %10
-  %indvars.iv.next.i.us16.i = add nuw nsw i64 %indvars.iv.i.us12.i, 1
-  br i1 %cmp3.i.us15.i, label %if.then.i.us17.i, label %for.cond.i.us11.i, !llvm.loop !6
+for.cond.i.us.i:                                  ; preds = %for.cond.i.us.i, %while.body.us.i
+  %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %for.cond.i.us.i ], [ 0, %while.body.us.i ]
+  %cmp.i.us.i = icmp slt i64 %indvars.iv.i.us.i, %9
+  tail call void @llvm.assume(i1 %cmp.i.us.i)
+  %arrayidx.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %indvars.iv.i.us.i
+  %10 = load ptr, ptr %arrayidx.i.i.i.us.i, align 8
+  %cmp3.i.us.i = icmp eq ptr %add.ptr, %10
+  %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
+  br i1 %cmp3.i.us.i, label %if.end.i.i.us.i, label %for.cond.i.us.i, !llvm.loop !6
 
-if.then.i.us17.i:                                 ; preds = %for.cond.i.us11.i
-  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us14.i, i64 8
+if.end.i.i.us.i:                                  ; preds = %for.cond.i.us.i
+  %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.us.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.us.i = load i32, ptr %agg.tmp.sroa.2.0.arrayidx.i31.sroa_idx.i.i.us.i, align 8
   %Users.i.i.i.us.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %Users.i.i.i.us.i, align 8
@@ -7132,7 +7132,7 @@ if.then.i.us17.i:                                 ; preds = %for.cond.i.us11.i
   %cmp.not.i.i.i.us.i = icmp eq i32 %sub.i.i.i.i.us.i, %agg.tmp.sroa.2.0.copyload.i.i.us.i
   br i1 %cmp.not.i.i.i.us.i, label %if.end6.i.i.us.i, label %if.then.i.i.i.us.i
 
-if.then.i.i.i.us.i:                               ; preds = %if.then.i.us17.i
+if.then.i.i.i.us.i:                               ; preds = %if.end.i.i.us.i
   %15 = load ptr, ptr %Users.i.i.i.us.i, align 8
   %arrayidx.i.i.i.i.us.i = getelementptr inbounds ptr, ptr %15, i64 %conv.i.i.i.us.i
   %16 = load ptr, ptr %arrayidx.i.i.i.i.us.i, align 8
@@ -7163,15 +7163,15 @@ if.then23.i.i.i.us.i:                             ; preds = %for.cond.i.i.i.us.i
   store i32 %agg.tmp.sroa.2.0.copyload.i.i.us.i, ptr %second.i12.i.i.i.us.i.le, align 8
   br label %if.end6.i.i.us.i
 
-if.end6.i.i.us.i:                                 ; preds = %if.then23.i.i.i.us.i, %if.then.i.us17.i
-  %23 = load ptr, ptr %Operands.i.i.us10.i, align 8
-  %arrayidx.i.i6.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %indvars.iv.i.us12.i
+if.end6.i.i.us.i:                                 ; preds = %if.then23.i.i.i.us.i, %if.end.i.i.us.i
+  %23 = load ptr, ptr %Operands.i.i.us.i, align 8
+  %arrayidx.i.i6.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %indvars.iv.i.us.i
   store ptr null, ptr %arrayidx.i.i6.i.us.i, align 8
   %second3.i13.i.i.us.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.us.i, i64 8
   store i32 0, ptr %second3.i13.i.i.us.i, align 8
   %24 = load i32, ptr %Size.i.i, align 8
-  %tobool.not.us21.i = icmp eq i32 %24, 0
-  br i1 %tobool.not.us21.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit, label %while.body.us6.i, !llvm.loop !7
+  %tobool.not.us.i = icmp eq i32 %24, 0
+  br i1 %tobool.not.us.i, label %_ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit, label %while.body.us.i, !llvm.loop !7
 
 _ZN6hermes5Value18replaceAllUsesWithEPS0_.exit.loopexit: ; preds = %if.end6.i.i.us.i
   %.pre = load ptr, ptr %Next.i.i.i.i.i, align 8

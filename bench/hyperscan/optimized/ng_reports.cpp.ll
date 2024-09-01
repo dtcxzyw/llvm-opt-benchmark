@@ -176,8 +176,8 @@ for.body:                                         ; preds = %entry, %for.inc
 invoke.cont:                                      ; preds = %for.body
   %ekey = getelementptr inbounds i8, ptr %call5, i64 32
   %2 = load i32, ptr %ekey, align 8
-  %cmp.not = icmp ne i32 %2, -1
-  br i1 %cmp.not, label %for.inc, label %cleanup
+  %cmp.not.not = icmp ne i32 %2, -1
+  br i1 %cmp.not.not, label %for.inc, label %cleanup
 
 lpad:                                             ; preds = %for.body
   %3 = landingpad { ptr, i32 }
@@ -191,7 +191,7 @@ for.inc:                                          ; preds = %invoke.cont
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc, %invoke.cont, %entry
-  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ %cmp.not, %invoke.cont ], [ %cmp.not, %for.inc ]
+  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ %cmp.not.not, %invoke.cont ], [ %cmp.not.not, %for.inc ]
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %4)

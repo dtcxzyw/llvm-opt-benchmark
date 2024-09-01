@@ -636,12 +636,9 @@ define void @Pla_ManHashCubes2(ptr nocapture noundef readonly %0, ptr nocapture 
   %20 = add nuw nsw i32 %19, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Pla_CubeHashValue.exit, label %13, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.lr.ph, label %13, !llvm.loop !4
 
-Pla_CubeHashValue.exit:                           ; preds = %13
-  br i1 %11, label %.lr.ph, label %.critedge2
-
-.lr.ph:                                           ; preds = %Pla_CubeHashValue.exit
+.lr.ph:                                           ; preds = %13
   %21 = getelementptr i8, ptr %9, i64 8
   %22 = trunc nuw nsw i64 %indvars.iv32 to i32
   br label %23
@@ -690,8 +687,8 @@ Pla_CubeHashValue.exit:                           ; preds = %13
   %.val22.pre = load i32, ptr %3, align 4
   br label %.critedge2
 
-.critedge2:                                       ; preds = %8, %.critedge2.loopexit, %Pla_CubeHashValue.exit
-  %.val22 = phi i32 [ %.val22.pre, %.critedge2.loopexit ], [ %.val2235, %Pla_CubeHashValue.exit ], [ %.val2235, %8 ]
+.critedge2:                                       ; preds = %8, %.critedge2.loopexit
+  %.val22 = phi i32 [ %.val22.pre, %.critedge2.loopexit ], [ %.val2235, %8 ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %50 = sext i32 %.val22 to i64
   %51 = icmp slt i64 %indvars.iv.next33, %50
@@ -959,16 +956,16 @@ Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exi
   %70 = add nuw nsw i32 %69, %.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i77, label %63, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %Pla_CubeHashValue.exit.i, label %63, !llvm.loop !4
 
-.lr.ph.i77:                                       ; preds = %63
+Pla_CubeHashValue.exit.i:                         ; preds = %63
   %71 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %72 = sext i32 %.promoted to i64
   br label %73
 
-73:                                               ; preds = %73, %.lr.ph.i77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ %72, %.lr.ph.i77 ]
-  %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %73 ], [ 0, %.lr.ph.i77 ]
+73:                                               ; preds = %73, %Pla_CubeHashValue.exit.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ %72, %Pla_CubeHashValue.exit.i ]
+  %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %73 ], [ 0, %Pla_CubeHashValue.exit.i ]
   %.val24.i = load ptr, ptr %62, align 8
   %74 = getelementptr inbounds i32, ptr %.val24.i, i64 %indvars.iv.i78
   %75 = load i32, ptr %74, align 4

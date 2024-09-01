@@ -1037,8 +1037,8 @@ while.cond:                                       ; preds = %if.end, %while.body
   %5 = phi i32 [ %inc.i13, %while.body ], [ %inc.i, %if.end ]
   %add.ptr.i933 = phi ptr [ %add.ptr.i9, %while.body ], [ %add.ptr.i, %if.end ]
   %add.ptr.i9 = getelementptr inbounds i8, ptr %add.ptr.i933, i64 1
-  %cmp.i11.not.not = icmp ule ptr %add.ptr.i9, %2
-  br i1 %cmp.i11.not.not, label %while.body, label %return
+  %cmp.i11.not.not.not = icmp ule ptr %add.ptr.i9, %2
+  br i1 %cmp.i11.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %inc.i13 = add nsw i32 %5, 1
@@ -1076,7 +1076,7 @@ if.then26:                                        ; preds = %while.body20
   br label %return
 
 return:                                           ; preds = %while.cond18, %while.cond, %while.body, %while.body, %if.end, %entry, %lor.lhs.false, %if.then26
-  %retval.0 = phi i1 [ true, %if.then26 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ %cmp.i11.not.not, %while.body ], [ %cmp.i11.not.not, %while.body ], [ %cmp.i11.not.not, %while.cond ], [ false, %while.cond18 ]
+  %retval.0 = phi i1 [ true, %if.then26 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ %cmp.i11.not.not.not, %while.body ], [ %cmp.i11.not.not.not, %while.body ], [ %cmp.i11.not.not.not, %while.cond ], [ false, %while.cond18 ]
   ret i1 %retval.0
 }
 

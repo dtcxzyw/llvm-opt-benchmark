@@ -2013,15 +2013,12 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 invoke.cont132:                                   ; preds = %for.body.i.i.i.i.i
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  br i1 %cmp.not.i.i.i.i419, label %for.end176, label %for.body138.preheader
-
-for.body138.preheader:                            ; preds = %invoke.cont132
   %wide.trip.count1888 = zext i16 %58 to i64
   br label %for.body138
 
-for.body138:                                      ; preds = %for.body138.preheader, %invoke.cont167
-  %indvars.iv1886 = phi i64 [ 0, %for.body138.preheader ], [ %indvars.iv.next1887, %invoke.cont167 ]
-  %need_default.01683 = phi i1 [ false, %for.body138.preheader ], [ %spec.select, %invoke.cont167 ]
+for.body138:                                      ; preds = %invoke.cont132, %invoke.cont167
+  %indvars.iv1886 = phi i64 [ 0, %invoke.cont132 ], [ %indvars.iv.next1887, %invoke.cont167 ]
+  %need_default.01683 = phi i1 [ false, %invoke.cont132 ], [ %spec.select, %invoke.cont167 ]
   %59 = load ptr, ptr %groups, align 8
   %add.ptr.i428 = getelementptr inbounds %"struct.Assimp::MS3DImporter::TempGroup", ptr %59, i64 %indvars.iv1886
   %60 = load ptr, ptr %mCurrent.i.i, align 8
@@ -2207,8 +2204,8 @@ invoke.cont167:                                   ; preds = %for.end166
   %exitcond1889.not = icmp eq i64 %indvars.iv.next1887, %wide.trip.count1888
   br i1 %exitcond1889.not, label %for.end176, label %for.body138, !llvm.loop !17
 
-for.end176:                                       ; preds = %invoke.cont167, %invoke.cont132.thread, %invoke.cont132
-  %need_default.0.lcssa = phi i1 [ false, %invoke.cont132 ], [ false, %invoke.cont132.thread ], [ %spec.select, %invoke.cont167 ]
+for.end176:                                       ; preds = %invoke.cont167, %invoke.cont132.thread
+  %need_default.0.lcssa = phi i1 [ false, %invoke.cont132.thread ], [ %spec.select, %invoke.cont167 ]
   %82 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i498 = getelementptr inbounds i8, ptr %82, i64 2
   %83 = load ptr, ptr %mLimit.i.i, align 8
@@ -2265,14 +2262,11 @@ for.body.i.i.i.i.i515:                            ; preds = %for.body.i.i.i.i.i5
 
 invoke.cont183:                                   ; preds = %for.body.i.i.i.i.i515
   store ptr %incdec.ptr.i.i.i.i.i520, ptr %_M_finish.i.i.i512, align 8
-  br i1 %cmp.not.i.i.i.i510, label %for.end218, label %for.body189.preheader
-
-for.body189.preheader:                            ; preds = %invoke.cont183
   %wide.trip.count1893 = zext i16 %85 to i64
   br label %for.body189
 
-for.body189:                                      ; preds = %for.body189.preheader, %invoke.cont213
-  %indvars.iv1890 = phi i64 [ 0, %for.body189.preheader ], [ %indvars.iv.next1891, %invoke.cont213 ]
+for.body189:                                      ; preds = %invoke.cont183, %invoke.cont213
+  %indvars.iv1890 = phi i64 [ 0, %invoke.cont183 ], [ %indvars.iv.next1891, %invoke.cont213 ]
   %86 = load ptr, ptr %materials, align 8
   %add.ptr.i529 = getelementptr inbounds %"struct.Assimp::MS3DImporter::TempMaterial", ptr %86, i64 %indvars.iv1890
   %87 = load ptr, ptr %mCurrent.i.i, align 8
@@ -2460,7 +2454,7 @@ lpad195.loopexit.split-lp:                        ; preds = %invoke.cont.i.i540.
           cleanup
   br label %ehcleanup1077
 
-for.end218:                                       ; preds = %invoke.cont213, %invoke.cont183.thread, %invoke.cont183
+for.end218:                                       ; preds = %invoke.cont213, %invoke.cont183.thread
   %110 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i611 = getelementptr inbounds i8, ptr %110, i64 4
   %111 = load ptr, ptr %mLimit.i.i, align 8
@@ -2569,14 +2563,11 @@ for.body.i.i.i.i.i663:                            ; preds = %for.body.i.i.i.i.i6
 
 invoke.cont230:                                   ; preds = %for.body.i.i.i.i.i663
   store ptr %incdec.ptr.i.i.i.i.i668, ptr %_M_finish.i.i.i660, align 8
-  br i1 %cmp.not.i.i.i.i658, label %for.end296, label %for.body235.preheader
-
-for.body235.preheader:                            ; preds = %invoke.cont230
   %wide.trip.count1898 = zext i16 %117 to i64
   br label %for.body235
 
-for.body235:                                      ; preds = %for.body235.preheader, %for.inc294
-  %indvars.iv1895 = phi i64 [ 0, %for.body235.preheader ], [ %indvars.iv.next1896, %for.inc294 ]
+for.body235:                                      ; preds = %invoke.cont230, %for.inc294
+  %indvars.iv1895 = phi i64 [ 0, %invoke.cont230 ], [ %indvars.iv.next1896, %for.inc294 ]
   %118 = load ptr, ptr %joints, align 8
   %add.ptr.i677 = getelementptr inbounds %"struct.Assimp::MS3DImporter::TempJoint", ptr %118, i64 %indvars.iv1895
   %119 = load ptr, ptr %mCurrent.i.i, align 8
@@ -2975,7 +2966,7 @@ for.inc294:                                       ; preds = %for.inc291, %for.co
   %exitcond1899.not = icmp eq i64 %indvars.iv.next1896, %wide.trip.count1898
   br i1 %exitcond1899.not, label %for.end296, label %for.body235, !llvm.loop !23
 
-for.end296:                                       ; preds = %for.inc294, %invoke.cont230.thread, %invoke.cont230
+for.end296:                                       ; preds = %for.inc294, %invoke.cont230.thread
   %mEnd.i = getelementptr inbounds i8, ptr %stream, i64 32
   %179 = load ptr, ptr %mEnd.i, align 8
   %180 = load ptr, ptr %mCurrent.i.i, align 8

@@ -1756,11 +1756,11 @@ Abc_Clock.exit602:                                ; preds = %.critedge, %107
 122:                                              ; preds = %Abc_Clock.exit602
   %123 = add nsw i32 %.val562, -1
   %.not453 = icmp eq i32 %1, 0
-  %.pre930.pre980 = load ptr, ptr %0, align 8
+  %.pre915.pre965 = load ptr, ptr %0, align 8
   br i1 %.not453, label %157, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %.pre930.pre980, i64 100
+  %125 = getelementptr inbounds i8, ptr %.pre915.pre965, i64 100
   %126 = load i32, ptr %125, align 4
   %.not454 = icmp eq i32 %126, 0
   br i1 %.not454, label %128, label %127
@@ -1836,11 +1836,11 @@ IPdr_ManCheckClauses.exit:                        ; preds = %.critedge2.i, %143,
 
 156:                                              ; preds = %IPdr_ManCheckClauses.exit
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6)
-  %.pre930.pre = load ptr, ptr %0, align 8
+  %.pre915.pre = load ptr, ptr %0, align 8
   br label %157
 
 157:                                              ; preds = %IPdr_ManCheckClauses.exit, %156, %122
-  %.pre930 = phi ptr [ %153, %IPdr_ManCheckClauses.exit ], [ %.pre930.pre, %156 ], [ %.pre930.pre980, %122 ]
+  %.pre915 = phi ptr [ %153, %IPdr_ManCheckClauses.exit ], [ %.pre915.pre, %156 ], [ %.pre915.pre965, %122 ]
   %.not456 = icmp eq i32 %2, 0
   br i1 %.not456, label %192, label %158
 
@@ -1848,7 +1848,7 @@ IPdr_ManCheckClauses.exit:                        ; preds = %.critedge2.i, %143,
   %159 = call noundef i32 @llvm.smax.i32(i32 %123, i32 1)
   %160 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %159, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %.pre930, i64 100
+  %161 = getelementptr inbounds i8, ptr %.pre915, i64 100
   %162 = load i32, ptr %161, align 4
   %.not457 = icmp eq i32 %162, 0
   br i1 %.not457, label %174, label %163
@@ -1909,10 +1909,10 @@ Abc_Clock.exit607:                                ; preds = %179, %182
 
 190:                                              ; preds = %Abc_Clock.exit607, %174
   %.not459 = icmp eq i32 %175, 0
-  br i1 %.not459, label %._crit_edge928, label %191
+  br i1 %.not459, label %._crit_edge913, label %191
 
-._crit_edge928:                                   ; preds = %190
-  %.pre929 = load ptr, ptr %0, align 8
+._crit_edge913:                                   ; preds = %190
+  %.pre914 = load ptr, ptr %0, align 8
   br label %192
 
 191:                                              ; preds = %190
@@ -1920,8 +1920,8 @@ Abc_Clock.exit607:                                ; preds = %179, %182
   call void @Pdr_ManVerifyInvariant(ptr noundef nonnull %0) #16
   br label %.loopexit684
 
-192:                                              ; preds = %._crit_edge928, %157
-  %193 = phi ptr [ %.pre929, %._crit_edge928 ], [ %.pre930, %157 ]
+192:                                              ; preds = %._crit_edge913, %157
+  %193 = phi ptr [ %.pre914, %._crit_edge913 ], [ %.pre915, %157 ]
   %194 = getelementptr inbounds i8, ptr %193, i64 92
   %195 = load i32, ptr %194, align 4
   %.not460 = icmp eq i32 %195, 0
@@ -2143,21 +2143,21 @@ IPdr_ManRestoreAbsFlops.exit:                     ; preds = %.critedge.i, %Vec_I
   %308 = getelementptr inbounds i8, ptr %307, i64 92
   %309 = load i32, ptr %308, align 4
   %.not461 = icmp eq i32 %309, 0
-  br i1 %.not461, label %._crit_edge931, label %310
+  br i1 %.not461, label %._crit_edge916, label %310
 
-._crit_edge931:                                   ; preds = %306
-  %.pre932 = load ptr, ptr %30, align 8
+._crit_edge916:                                   ; preds = %306
+  %.pre917 = load ptr, ptr %30, align 8
   br label %341
 
 310:                                              ; preds = %306
   %311 = load ptr, ptr %277, align 8
   %312 = icmp eq ptr %311, null
   %or.cond3 = select i1 %312, i1 %305, i1 false
-  %.pre933 = load ptr, ptr %30, align 8
+  %.pre918 = load ptr, ptr %30, align 8
   br i1 %or.cond3, label %313, label %341
 
 313:                                              ; preds = %310
-  %314 = getelementptr i8, ptr %.pre933, i64 104
+  %314 = getelementptr i8, ptr %.pre918, i64 104
   %.val590 = load i32, ptr %314, align 8
   %315 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %316 = add i32 %.val590, -1
@@ -2236,8 +2236,8 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   store ptr %337, ptr %279, align 8
   br label %341
 
-341:                                              ; preds = %._crit_edge931, %Vec_IntStartFull.exit631, %310
-  %342 = phi ptr [ %.pre932, %._crit_edge931 ], [ %.pre933, %Vec_IntStartFull.exit631 ], [ %.pre933, %310 ]
+341:                                              ; preds = %._crit_edge916, %Vec_IntStartFull.exit631, %310
+  %342 = phi ptr [ %.pre917, %._crit_edge916 ], [ %.pre918, %Vec_IntStartFull.exit631 ], [ %.pre918, %310 ]
   store i32 %.2.ph, ptr %274, align 4
   store i32 %304, ptr %275, align 8
   store i32 0, ptr %276, align 8
@@ -2336,11 +2336,11 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   %393 = mul nsw i32 %.val571802, %.2.ph
   %394 = add nsw i32 %393, %storemerge800
   %395 = call ptr @Abc_CexMakeTriv(i32 noundef %.val594, i32 noundef %.val596, i32 noundef %.val571802, i32 noundef %394) #16
-  %.pre953 = load ptr, ptr %0, align 8
+  %.pre938 = load ptr, ptr %0, align 8
   br label %396
 
 396:                                              ; preds = %387, %390
-  %397 = phi ptr [ %.pre953, %390 ], [ %373, %387 ]
+  %397 = phi ptr [ %.pre938, %390 ], [ %373, %387 ]
   %398 = phi ptr [ %395, %390 ], [ inttoptr (i64 1 to ptr), %387 ]
   %399 = getelementptr inbounds i8, ptr %397, i64 132
   %400 = load i32, ptr %399, align 4
@@ -2359,11 +2359,11 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   %408 = sext i32 %406 to i64
   %409 = getelementptr inbounds i32, ptr %.val567, i64 %408
   store i32 0, ptr %409, align 4
-  %.pre954 = load ptr, ptr %0, align 8
+  %.pre939 = load ptr, ptr %0, align 8
   br label %410
 
 410:                                              ; preds = %405, %396
-  %411 = phi ptr [ %.pre954, %405 ], [ %402, %396 ]
+  %411 = phi ptr [ %.pre939, %405 ], [ %402, %396 ]
   %412 = getelementptr inbounds i8, ptr %411, i64 108
   %413 = load i32, ptr %412, align 4
   %.not537 = icmp eq i32 %413, 0
@@ -2377,11 +2377,11 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   %419 = getelementptr i8, ptr %418, i64 112
   %.val576 = load i32, ptr %419, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, i32 noundef %.09.i, i32 noundef %415, i32 noundef %.2.ph, i32 noundef %.09.i, i32 noundef %417, i32 noundef %.09.i, i32 noundef %.val576)
-  %.pre955 = load ptr, ptr %0, align 8
+  %.pre940 = load ptr, ptr %0, align 8
   br label %420
 
 420:                                              ; preds = %414, %410
-  %421 = phi ptr [ %.pre955, %414 ], [ %411, %410 ]
+  %421 = phi ptr [ %.pre940, %414 ], [ %411, %410 ]
   %422 = getelementptr inbounds i8, ptr %421, i64 124
   %423 = load i32, ptr %422, align 4
   %.not538 = icmp eq i32 %423, 0
@@ -2427,11 +2427,11 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   %448 = phi ptr [ %446, %441 ], [ null, %437 ]
   %449 = call i32 %436(i32 noundef %438, ptr noundef %448) #16
   %.not541 = icmp eq i32 %449, 0
-  %.pre958 = load ptr, ptr %0, align 8
+  %.pre943 = load ptr, ptr %0, align 8
   br i1 %.not541, label %464, label %450
 
 450:                                              ; preds = %447
-  %451 = getelementptr inbounds i8, ptr %.pre958, i64 100
+  %451 = getelementptr inbounds i8, ptr %.pre943, i64 100
   %452 = load i32, ptr %451, align 4
   %.not543 = icmp eq i32 %452, 0
   br i1 %.not543, label %456, label %453
@@ -2440,11 +2440,11 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
   %454 = call fastcc i64 @Abc_Clock()
   %455 = sub nsw i64 %454, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %455) #16
-  %.pre956 = load ptr, ptr %0, align 8
+  %.pre941 = load ptr, ptr %0, align 8
   br label %456
 
 456:                                              ; preds = %453, %450
-  %457 = phi ptr [ %.pre956, %453 ], [ %.pre958, %450 ]
+  %457 = phi ptr [ %.pre941, %453 ], [ %.pre943, %450 ]
   %458 = getelementptr inbounds i8, ptr %457, i64 112
   %459 = load i32, ptr %458, align 8
   %.not544 = icmp eq i32 %459, 0
@@ -2452,17 +2452,17 @@ Vec_IntStartFull.exit631:                         ; preds = %Vec_IntAlloc.exit.t
 
 460:                                              ; preds = %456
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.2.ph)
-  %.pre957 = load ptr, ptr %0, align 8
+  %.pre942 = load ptr, ptr %0, align 8
   br label %461
 
 461:                                              ; preds = %460, %456
-  %462 = phi ptr [ %.pre957, %460 ], [ %457, %456 ]
+  %462 = phi ptr [ %.pre942, %460 ], [ %457, %456 ]
   %463 = getelementptr inbounds i8, ptr %462, i64 144
   store i32 %.2.ph, ptr %463, align 8
   br label %.loopexit684
 
 464:                                              ; preds = %447, %428
-  %465 = phi ptr [ %.pre958, %447 ], [ %434, %428 ]
+  %465 = phi ptr [ %.pre943, %447 ], [ %434, %428 ]
   %466 = getelementptr inbounds i8, ptr %465, i64 132
   %467 = load i32, ptr %466, align 4
   %468 = getelementptr inbounds i8, ptr %465, i64 136
@@ -2617,11 +2617,11 @@ Abc_Clock.exit641:                                ; preds = %540, %543
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   %550 = sub nsw i64 %.0.i640, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %550) #16
-  %.pre934 = load ptr, ptr %0, align 8
+  %.pre919 = load ptr, ptr %0, align 8
   br label %551
 
 551:                                              ; preds = %Abc_Clock.exit641, %537
-  %552 = phi ptr [ %.pre934, %Abc_Clock.exit641 ], [ %528, %537 ]
+  %552 = phi ptr [ %.pre919, %Abc_Clock.exit641 ], [ %528, %537 ]
   %553 = getelementptr inbounds i8, ptr %552, i64 112
   %554 = load i32, ptr %553, align 8
   %.not532 = icmp eq i32 %554, 0
@@ -2631,11 +2631,11 @@ Abc_Clock.exit641:                                ; preds = %540, %543
   %556 = getelementptr inbounds i8, ptr %552, i64 24
   %557 = load i32, ptr %556, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %557, i32 noundef %.2.ph)
-  %.pre935 = load ptr, ptr %0, align 8
+  %.pre920 = load ptr, ptr %0, align 8
   br label %558
 
 558:                                              ; preds = %555, %551
-  %559 = phi ptr [ %.pre935, %555 ], [ %552, %551 ]
+  %559 = phi ptr [ %.pre920, %555 ], [ %552, %551 ]
   %560 = getelementptr inbounds i8, ptr %559, i64 144
   store i32 %.2.ph, ptr %560, align 8
   br label %.loopexit684
@@ -2685,10 +2685,10 @@ Abc_Clock.exit643:                                ; preds = %570, %573
 580:                                              ; preds = %Abc_Clock.exit643, %566
   %581 = load i64, ptr %65, align 8
   %.not494 = icmp eq i64 %581, 0
-  br i1 %.not494, label %._crit_edge947, label %582
+  br i1 %.not494, label %._crit_edge932, label %582
 
-._crit_edge947:                                   ; preds = %580
-  %.pre948 = load ptr, ptr %0, align 8
+._crit_edge932:                                   ; preds = %580
+  %.pre933 = load ptr, ptr %0, align 8
   br label %596
 
 582:                                              ; preds = %580
@@ -2710,17 +2710,17 @@ Abc_Clock.exit645:                                ; preds = %582, %585
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %591 = load i64, ptr %65, align 8
   %592 = icmp sgt i64 %.0.i644, %591
-  %.pre949 = load ptr, ptr %0, align 8
+  %.pre934 = load ptr, ptr %0, align 8
   br i1 %592, label %593, label %596
 
 593:                                              ; preds = %Abc_Clock.exit645
-  %594 = getelementptr inbounds i8, ptr %.pre949, i64 20
+  %594 = getelementptr inbounds i8, ptr %.pre934, i64 20
   %595 = load i32, ptr %594, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %595, i32 noundef %.2.ph)
   br label %644
 
-596:                                              ; preds = %._crit_edge947, %Abc_Clock.exit645
-  %597 = phi ptr [ %.pre948, %._crit_edge947 ], [ %.pre949, %Abc_Clock.exit645 ]
+596:                                              ; preds = %._crit_edge932, %Abc_Clock.exit645
+  %597 = phi ptr [ %.pre933, %._crit_edge932 ], [ %.pre934, %Abc_Clock.exit645 ]
   %598 = getelementptr inbounds i8, ptr %597, i64 24
   %599 = load i32, ptr %598, align 8
   %.not495 = icmp eq i32 %599, 0
@@ -2768,7 +2768,7 @@ Abc_Clock.exit647:                                ; preds = %603, %606
   %623 = phi ptr [ %612, %Abc_Clock.exit647 ], [ %597, %600 ], [ %597, %596 ]
   %624 = load i64, ptr %284, align 8
   %.not497 = icmp eq i64 %624, 0
-  br i1 %.not497, label %split950, label %625
+  br i1 %.not497, label %split935, label %625
 
 625:                                              ; preds = %622
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -2792,21 +2792,21 @@ Abc_Clock.exit649:                                ; preds = %625, %628
   br i1 %635, label %.critedge547.sink.split, label %Abc_Clock.exit649._crit_edge
 
 Abc_Clock.exit649._crit_edge:                     ; preds = %Abc_Clock.exit649
-  %.pre951 = load ptr, ptr %0, align 8
-  br label %split950
+  %.pre936 = load ptr, ptr %0, align 8
+  br label %split935
 
-split950:                                         ; preds = %622, %Abc_Clock.exit649._crit_edge
-  %636 = phi ptr [ %.pre951, %Abc_Clock.exit649._crit_edge ], [ %623, %622 ]
+split935:                                         ; preds = %622, %Abc_Clock.exit649._crit_edge
+  %636 = phi ptr [ %.pre936, %Abc_Clock.exit649._crit_edge ], [ %623, %622 ]
   %637 = getelementptr inbounds i8, ptr %636, i64 8
   %638 = load i32, ptr %637, align 8
   %.not498 = icmp eq i32 %638, 0
   br i1 %.not498, label %640, label %639
 
-639:                                              ; preds = %split950
+639:                                              ; preds = %split935
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, i32 noundef %638, i32 noundef %.2.ph)
   br label %644
 
-640:                                              ; preds = %split950
+640:                                              ; preds = %split935
   %641 = getelementptr inbounds i8, ptr %636, i64 100
   %642 = load i32, ptr %641, align 4
   %.not499 = icmp eq i32 %642, 0
@@ -2861,10 +2861,10 @@ Abc_Clock.exit651:                                ; preds = %654, %657
 664:                                              ; preds = %Abc_Clock.exit651, %653
   %665 = load i64, ptr %65, align 8
   %.not487 = icmp eq i64 %665, 0
-  br i1 %.not487, label %._crit_edge943, label %666
+  br i1 %.not487, label %._crit_edge928, label %666
 
-._crit_edge943:                                   ; preds = %664
-  %.pre944 = load ptr, ptr %0, align 8
+._crit_edge928:                                   ; preds = %664
+  %.pre929 = load ptr, ptr %0, align 8
   br label %680
 
 666:                                              ; preds = %664
@@ -2886,17 +2886,17 @@ Abc_Clock.exit653:                                ; preds = %666, %669
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %675 = load i64, ptr %65, align 8
   %676 = icmp sgt i64 %.0.i652, %675
-  %.pre945 = load ptr, ptr %0, align 8
+  %.pre930 = load ptr, ptr %0, align 8
   br i1 %676, label %677, label %680
 
 677:                                              ; preds = %Abc_Clock.exit653
-  %678 = getelementptr inbounds i8, ptr %.pre945, i64 20
+  %678 = getelementptr inbounds i8, ptr %.pre930, i64 20
   %679 = load i32, ptr %678, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %679, i32 noundef %.2.ph)
   br label %728
 
-680:                                              ; preds = %._crit_edge943, %Abc_Clock.exit653
-  %681 = phi ptr [ %.pre944, %._crit_edge943 ], [ %.pre945, %Abc_Clock.exit653 ]
+680:                                              ; preds = %._crit_edge928, %Abc_Clock.exit653
+  %681 = phi ptr [ %.pre929, %._crit_edge928 ], [ %.pre930, %Abc_Clock.exit653 ]
   %682 = getelementptr inbounds i8, ptr %681, i64 24
   %683 = load i32, ptr %682, align 8
   %.not488 = icmp eq i32 %683, 0
@@ -2968,11 +2968,11 @@ Abc_Clock.exit657:                                ; preds = %709, %712
   br i1 %719, label %.critedge547.sink.split, label %Abc_Clock.exit657._crit_edge
 
 Abc_Clock.exit657._crit_edge:                     ; preds = %Abc_Clock.exit657
-  %.pre946 = load ptr, ptr %0, align 8
+  %.pre931 = load ptr, ptr %0, align 8
   br label %split
 
 split:                                            ; preds = %706, %Abc_Clock.exit657._crit_edge
-  %720 = phi ptr [ %.pre946, %Abc_Clock.exit657._crit_edge ], [ %707, %706 ]
+  %720 = phi ptr [ %.pre931, %Abc_Clock.exit657._crit_edge ], [ %707, %706 ]
   %721 = getelementptr inbounds i8, ptr %720, i64 8
   %722 = load i32, ptr %721, align 8
   %.not491 = icmp eq i32 %722, 0
@@ -3030,11 +3030,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %747 = sub nsw i64 %.0.i658, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef %738, i64 noundef %747) #16
-  %.pre936 = load ptr, ptr %0, align 8
+  %.pre921 = load ptr, ptr %0, align 8
   br label %748
 
 748:                                              ; preds = %Abc_Clock.exit659, %732, %731
-  %749 = phi ptr [ %.pre936, %Abc_Clock.exit659 ], [ %650, %732 ], [ %650, %731 ]
+  %749 = phi ptr [ %.pre921, %Abc_Clock.exit659 ], [ %650, %732 ], [ %650, %731 ]
   %750 = getelementptr inbounds i8, ptr %749, i64 144
   store i32 %.2.ph, ptr %750, align 8
   %751 = load ptr, ptr %0, align 8
@@ -3104,11 +3104,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
 
 788:                                              ; preds = %785, %778
   %789 = call ptr @Pdr_ManDeriveCex(ptr noundef nonnull %0) #16
-  %.pre937 = load ptr, ptr %0, align 8
+  %.pre922 = load ptr, ptr %0, align 8
   br label %790
 
 790:                                              ; preds = %785, %788
-  %791 = phi ptr [ %.pre937, %788 ], [ %782, %785 ]
+  %791 = phi ptr [ %.pre922, %788 ], [ %782, %785 ]
   %792 = phi ptr [ %789, %788 ], [ inttoptr (i64 1 to ptr), %785 ]
   %793 = getelementptr inbounds i8, ptr %791, i64 176
   %794 = load ptr, ptr %793, align 8
@@ -3122,11 +3122,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
   %798 = sext i32 %796 to i64
   %799 = getelementptr inbounds i32, ptr %.val566, i64 %798
   store i32 0, ptr %799, align 4
-  %.pre938 = load ptr, ptr %0, align 8
+  %.pre923 = load ptr, ptr %0, align 8
   br label %800
 
 800:                                              ; preds = %795, %790
-  %801 = phi ptr [ %.pre938, %795 ], [ %791, %790 ]
+  %801 = phi ptr [ %.pre923, %795 ], [ %791, %790 ]
   %802 = getelementptr inbounds i8, ptr %801, i64 124
   %803 = load i32, ptr %802, align 4
   %.not479 = icmp eq i32 %803, 0
@@ -3172,11 +3172,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
   %828 = phi ptr [ %826, %821 ], [ null, %817 ]
   %829 = call i32 %816(i32 noundef %818, ptr noundef %828) #16
   %.not482 = icmp eq i32 %829, 0
-  %.pre941 = load ptr, ptr %0, align 8
+  %.pre926 = load ptr, ptr %0, align 8
   br i1 %.not482, label %844, label %830
 
 830:                                              ; preds = %827
-  %831 = getelementptr inbounds i8, ptr %.pre941, i64 100
+  %831 = getelementptr inbounds i8, ptr %.pre926, i64 100
   %832 = load i32, ptr %831, align 4
   %.not484 = icmp eq i32 %832, 0
   br i1 %.not484, label %836, label %833
@@ -3185,11 +3185,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
   %834 = call fastcc i64 @Abc_Clock()
   %835 = sub nsw i64 %834, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %835) #16
-  %.pre939 = load ptr, ptr %0, align 8
+  %.pre924 = load ptr, ptr %0, align 8
   br label %836
 
 836:                                              ; preds = %833, %830
-  %837 = phi ptr [ %.pre939, %833 ], [ %.pre941, %830 ]
+  %837 = phi ptr [ %.pre924, %833 ], [ %.pre926, %830 ]
   %838 = getelementptr inbounds i8, ptr %837, i64 112
   %839 = load i32, ptr %838, align 8
   %.not485 = icmp eq i32 %839, 0
@@ -3197,17 +3197,17 @@ Abc_Clock.exit659:                                ; preds = %735, %741
 
 840:                                              ; preds = %836
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.2.ph)
-  %.pre940 = load ptr, ptr %0, align 8
+  %.pre925 = load ptr, ptr %0, align 8
   br label %841
 
 841:                                              ; preds = %840, %836
-  %842 = phi ptr [ %.pre940, %840 ], [ %837, %836 ]
+  %842 = phi ptr [ %.pre925, %840 ], [ %837, %836 ]
   %843 = getelementptr inbounds i8, ptr %842, i64 144
   store i32 %.2.ph, ptr %843, align 8
   br label %.loopexit684
 
 844:                                              ; preds = %827, %808
-  %845 = phi ptr [ %.pre941, %827 ], [ %814, %808 ]
+  %845 = phi ptr [ %.pre926, %827 ], [ %814, %808 ]
   %846 = getelementptr inbounds i8, ptr %845, i64 108
   %847 = load i32, ptr %846, align 4
   %.not483 = icmp eq i32 %847, 0
@@ -3221,11 +3221,11 @@ Abc_Clock.exit659:                                ; preds = %735, %741
   %853 = getelementptr i8, ptr %852, i64 112
   %.val578 = load i32, ptr %853, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, i32 noundef %.09.i, i32 noundef %849, i32 noundef %.2.ph, i32 noundef %.2.ph, i32 noundef %.09.i, i32 noundef %851, i32 noundef %.09.i, i32 noundef %.val578)
-  %.pre942 = load ptr, ptr %0, align 8
+  %.pre927 = load ptr, ptr %0, align 8
   br label %854
 
 854:                                              ; preds = %848, %844
-  %855 = phi ptr [ %.pre942, %848 ], [ %845, %844 ]
+  %855 = phi ptr [ %.pre927, %848 ], [ %845, %844 ]
   %856 = getelementptr inbounds i8, ptr %855, i64 132
   %857 = load i32, ptr %856, align 4
   %858 = load ptr, ptr %30, align 8
@@ -3331,11 +3331,11 @@ Abc_Clock.exit663:                                ; preds = %873, %876
   %913 = sext i32 %911 to i64
   %914 = getelementptr inbounds i32, ptr %.val565, i64 %913
   store i32 -1, ptr %914, align 4
-  %.pre952 = load ptr, ptr %0, align 8
+  %.pre937 = load ptr, ptr %0, align 8
   br label %915
 
 915:                                              ; preds = %910, %902
-  %916 = phi ptr [ %.pre952, %910 ], [ %907, %902 ]
+  %916 = phi ptr [ %.pre937, %910 ], [ %907, %902 ]
   %917 = getelementptr inbounds i8, ptr %916, i64 108
   %918 = load i32, ptr %917, align 4
   %.not503 = icmp eq i32 %918, 0
@@ -3434,10 +3434,10 @@ Vec_IntFill.exit:                                 ; preds = %951, %Vec_IntGrow.e
 
 .preheader682:                                    ; preds = %Vec_IntFill.exit, %.critedge9
   %957 = phi ptr [ %992, %.critedge9 ], [ %954, %Vec_IntFill.exit ]
-  %indvars.iv922 = phi i64 [ %indvars.iv.next923, %.critedge9 ], [ 0, %Vec_IntFill.exit ]
+  %indvars.iv907 = phi i64 [ %indvars.iv.next908, %.critedge9 ], [ 0, %Vec_IntFill.exit ]
   %958 = getelementptr i8, ptr %957, i64 8
   %.val549807 = load ptr, ptr %958, align 8
-  %959 = getelementptr inbounds ptr, ptr %.val549807, i64 %indvars.iv922
+  %959 = getelementptr inbounds ptr, ptr %.val549807, i64 %indvars.iv907
   %960 = load ptr, ptr %959, align 8
   %961 = getelementptr i8, ptr %960, i64 4
   %.val550808 = load i32, ptr %961, align 4
@@ -3447,11 +3447,11 @@ Vec_IntFill.exit:                                 ; preds = %951, %Vec_IntGrow.e
 .lr.ph810:                                        ; preds = %.preheader682, %._crit_edge
   %963 = phi ptr [ %984, %._crit_edge ], [ %957, %.preheader682 ]
   %964 = phi ptr [ %985, %._crit_edge ], [ %957, %.preheader682 ]
-  %indvars.iv919 = phi i64 [ %indvars.iv.next920, %._crit_edge ], [ 0, %.preheader682 ]
+  %indvars.iv904 = phi i64 [ %indvars.iv.next905, %._crit_edge ], [ 0, %.preheader682 ]
   %965 = phi ptr [ %988, %._crit_edge ], [ %960, %.preheader682 ]
   %966 = getelementptr i8, ptr %965, i64 8
   %.val551 = load ptr, ptr %966, align 8
-  %967 = getelementptr inbounds ptr, ptr %.val551, i64 %indvars.iv919
+  %967 = getelementptr inbounds ptr, ptr %.val551, i64 %indvars.iv904
   %968 = load ptr, ptr %967, align 8
   %969 = getelementptr inbounds i8, ptr %968, i64 16
   %970 = load i32, ptr %969, align 8
@@ -3463,9 +3463,9 @@ Vec_IntFill.exit:                                 ; preds = %951, %Vec_IntGrow.e
   br label %973
 
 973:                                              ; preds = %.lr.ph806, %973
-  %indvars.iv916 = phi i64 [ 0, %.lr.ph806 ], [ %indvars.iv.next917, %973 ]
+  %indvars.iv901 = phi i64 [ 0, %.lr.ph806 ], [ %indvars.iv.next902, %973 ]
   %974 = load ptr, ptr %277, align 8
-  %975 = getelementptr inbounds [0 x i32], ptr %972, i64 0, i64 %indvars.iv916
+  %975 = getelementptr inbounds [0 x i32], ptr %972, i64 0, i64 %indvars.iv901
   %976 = load i32, ptr %975, align 4
   %977 = ashr i32 %976, 1
   %978 = getelementptr i8, ptr %974, i64 8
@@ -3473,37 +3473,37 @@ Vec_IntFill.exit:                                 ; preds = %951, %Vec_IntGrow.e
   %979 = sext i32 %977 to i64
   %980 = getelementptr inbounds i32, ptr %.val564, i64 %979
   store i32 1, ptr %980, align 4
-  %indvars.iv.next917 = add nuw nsw i64 %indvars.iv916, 1
+  %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
   %981 = load i32, ptr %969, align 8
   %982 = sext i32 %981 to i64
-  %983 = icmp slt i64 %indvars.iv.next917, %982
+  %983 = icmp slt i64 %indvars.iv.next902, %982
   br i1 %983, label %973, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %973
-  %.pre959 = load ptr, ptr %116, align 8
+  %.pre944 = load ptr, ptr %116, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph810
-  %984 = phi ptr [ %.pre959, %._crit_edge.loopexit ], [ %963, %.lr.ph810 ]
-  %985 = phi ptr [ %.pre959, %._crit_edge.loopexit ], [ %964, %.lr.ph810 ]
-  %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
+  %984 = phi ptr [ %.pre944, %._crit_edge.loopexit ], [ %963, %.lr.ph810 ]
+  %985 = phi ptr [ %.pre944, %._crit_edge.loopexit ], [ %964, %.lr.ph810 ]
+  %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %986 = getelementptr i8, ptr %985, i64 8
   %.val549 = load ptr, ptr %986, align 8
-  %987 = getelementptr inbounds ptr, ptr %.val549, i64 %indvars.iv922
+  %987 = getelementptr inbounds ptr, ptr %.val549, i64 %indvars.iv907
   %988 = load ptr, ptr %987, align 8
   %989 = getelementptr i8, ptr %988, i64 4
   %.val550 = load i32, ptr %989, align 4
   %990 = sext i32 %.val550 to i64
-  %991 = icmp slt i64 %indvars.iv.next920, %990
+  %991 = icmp slt i64 %indvars.iv.next905, %990
   br i1 %991, label %.lr.ph810, label %.critedge9, !llvm.loop !34
 
 .critedge9:                                       ; preds = %._crit_edge, %.preheader682
   %992 = phi ptr [ %957, %.preheader682 ], [ %984, %._crit_edge ]
-  %indvars.iv.next923 = add nuw nsw i64 %indvars.iv922, 1
+  %indvars.iv.next908 = add nuw nsw i64 %indvars.iv907, 1
   %993 = getelementptr i8, ptr %992, i64 4
   %.val560 = load i32, ptr %993, align 4
   %994 = sext i32 %.val560 to i64
-  %995 = icmp slt i64 %indvars.iv.next923, %994
+  %995 = icmp slt i64 %indvars.iv.next908, %994
   br i1 %995, label %.preheader682, label %.loopexit683, !llvm.loop !35
 
 .loopexit683:                                     ; preds = %.critedge9, %Vec_IntFill.exit, %932, %.critedge5
@@ -3563,11 +3563,11 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
   %1023 = call fastcc i64 @Abc_Clock()
   %1024 = sub nsw i64 %1023, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %1024) #16
-  %.pre970 = load ptr, ptr %0, align 8
+  %.pre955 = load ptr, ptr %0, align 8
   br label %1025
 
 1025:                                             ; preds = %1022, %1021
-  %1026 = phi ptr [ %.pre970, %1022 ], [ %1018, %1021 ]
+  %1026 = phi ptr [ %.pre955, %1022 ], [ %1018, %1021 ]
   %1027 = getelementptr inbounds i8, ptr %1026, i64 112
   %1028 = load i32, ptr %1027, align 8
   %.not529 = icmp eq i32 %1028, 0
@@ -3582,17 +3582,17 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
   %1032 = call fastcc i64 @Abc_Clock()
   %1033 = load i64, ptr %65, align 8
   %1034 = icmp sgt i64 %1032, %1033
-  %.pre971 = load ptr, ptr %0, align 8
+  %.pre956 = load ptr, ptr %0, align 8
   br i1 %1034, label %1035, label %1038
 
 1035:                                             ; preds = %1031
-  %1036 = getelementptr inbounds i8, ptr %.pre971, i64 20
+  %1036 = getelementptr inbounds i8, ptr %.pre956, i64 20
   %1037 = load i32, ptr %1036, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %1037, i32 noundef %1015)
   br label %1042
 
 1038:                                             ; preds = %1031, %1029
-  %1039 = phi ptr [ %.pre971, %1031 ], [ %1026, %1029 ]
+  %1039 = phi ptr [ %.pre956, %1031 ], [ %1026, %1029 ]
   %1040 = getelementptr inbounds i8, ptr %1039, i64 8
   %1041 = load i32, ptr %1040, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, i32 noundef %1041, i32 noundef %1015)
@@ -3611,11 +3611,11 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
   %1047 = call fastcc i64 @Abc_Clock()
   %1048 = sub nsw i64 %1047, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %1048) #16
-  %.pre972 = load ptr, ptr %0, align 8
+  %.pre957 = load ptr, ptr %0, align 8
   br label %1049
 
 1049:                                             ; preds = %1046, %1045
-  %1050 = phi ptr [ %.pre972, %1046 ], [ %1018, %1045 ]
+  %1050 = phi ptr [ %.pre957, %1046 ], [ %1018, %1045 ]
   %1051 = getelementptr inbounds i8, ptr %1050, i64 112
   %1052 = load i32, ptr %1051, align 8
   %.not524 = icmp eq i32 %1052, 0
@@ -3623,19 +3623,19 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
 
 1053:                                             ; preds = %1049
   call void @Pdr_ManReportInvariant(ptr noundef nonnull %0) #16
-  %.pre973 = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre973, i64 112
-  %.pre974 = load i32, ptr %.phi.trans.insert, align 8
-  %1054 = icmp eq i32 %.pre974, 0
+  %.pre958 = load ptr, ptr %0, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre958, i64 112
+  %.pre959 = load i32, ptr %.phi.trans.insert, align 8
+  %1054 = icmp eq i32 %.pre959, 0
   br i1 %1054, label %1055, label %.thread
 
 1055:                                             ; preds = %1053
   call void @Pdr_ManVerifyInvariant(ptr noundef nonnull %0) #16
-  %.pre975 = load ptr, ptr %0, align 8
+  %.pre960 = load ptr, ptr %0, align 8
   br label %.thread
 
 .thread:                                          ; preds = %1049, %1055, %1053
-  %1056 = phi ptr [ %.pre975, %1055 ], [ %.pre973, %1053 ], [ %1050, %1049 ]
+  %1056 = phi ptr [ %.pre960, %1055 ], [ %.pre958, %1053 ], [ %1050, %1049 ]
   %1057 = getelementptr inbounds i8, ptr %1056, i64 144
   store i32 %1015, ptr %1057, align 8
   %1058 = load ptr, ptr %30, align 8
@@ -3654,21 +3654,21 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
   %1069 = getelementptr inbounds i8, ptr %1068, i64 176
   %1070 = load ptr, ptr %1069, align 8
   %.not526 = icmp ne ptr %1070, null
-  %.pre977 = load ptr, ptr %30, align 8
-  %.phi.trans.insert978 = getelementptr i8, ptr %.pre977, i64 112
-  %.val582.pre = load i32, ptr %.phi.trans.insert978, align 8
+  %.pre962 = load ptr, ptr %30, align 8
+  %.phi.trans.insert963 = getelementptr i8, ptr %.pre962, i64 112
+  %.val582.pre = load i32, ptr %.phi.trans.insert963, align 8
   %1071 = icmp sgt i32 %.val582.pre, 0
-  %or.cond1084 = select i1 %.not526, i1 %1071, i1 false
-  br i1 %or.cond1084, label %.lr.ph815, label %.loopexit
+  %or.cond1069 = select i1 %.not526, i1 %1071, i1 false
+  br i1 %or.cond1069, label %.lr.ph815, label %.loopexit
 
 .lr.ph815:                                        ; preds = %.thread, %1087
-  %indvars.iv925 = phi i64 [ %indvars.iv.next926, %1087 ], [ 0, %.thread ]
+  %indvars.iv910 = phi i64 [ %indvars.iv.next911, %1087 ], [ 0, %.thread ]
   %1072 = load ptr, ptr %0, align 8
   %1073 = getelementptr inbounds i8, ptr %1072, i64 176
   %1074 = load ptr, ptr %1073, align 8
   %1075 = getelementptr i8, ptr %1074, i64 8
   %.val598 = load ptr, ptr %1075, align 8
-  %1076 = getelementptr inbounds i32, ptr %.val598, i64 %indvars.iv925
+  %1076 = getelementptr inbounds i32, ptr %.val598, i64 %indvars.iv910
   %1077 = load i32, ptr %1076, align 4
   %1078 = icmp eq i32 %1077, -2
   br i1 %1078, label %1079, label %1087
@@ -3683,26 +3683,26 @@ Abc_Clock.exit672:                                ; preds = %999, %1003
 
 1083:                                             ; preds = %1079
   %1084 = load ptr, ptr @stdout, align 8
-  %1085 = trunc nuw nsw i64 %indvars.iv925 to i32
+  %1085 = trunc nuw nsw i64 %indvars.iv910 to i32
   %1086 = call i32 @Gia_ManToBridgeResult(ptr noundef %1084, i32 noundef 1, ptr noundef null, i32 noundef %1085) #16
   br label %1087
 
 1087:                                             ; preds = %.lr.ph815, %1083, %1079
-  %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
+  %indvars.iv.next911 = add nuw nsw i64 %indvars.iv910, 1
   %1088 = load ptr, ptr %30, align 8
   %1089 = getelementptr i8, ptr %1088, i64 112
   %.val581 = load i32, ptr %1089, align 8
   %1090 = sext i32 %.val581 to i64
-  %1091 = icmp slt i64 %indvars.iv.next926, %1090
+  %1091 = icmp slt i64 %indvars.iv.next911, %1090
   br i1 %1091, label %.lr.ph815, label %.loopexit.loopexit, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %1087
-  %.pre976 = load ptr, ptr %0, align 8
+  %.pre961 = load ptr, ptr %0, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.loopexit
   %.val582 = phi i32 [ %.val581, %.loopexit.loopexit ], [ %.val582.pre, %.thread ]
-  %1092 = phi ptr [ %.pre976, %.loopexit.loopexit ], [ %1068, %.thread ]
+  %1092 = phi ptr [ %.pre961, %.loopexit.loopexit ], [ %1068, %.thread ]
   %1093 = getelementptr inbounds i8, ptr %1092, i64 140
   %1094 = load i32, ptr %1093, align 4
   %1095 = icmp eq i32 %1094, %.val582
@@ -3737,11 +3737,11 @@ Abc_Clock.exit674:                                ; preds = %1101, %1104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %1110 = sub nsw i64 %.0.i673, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 0, i64 noundef %1110) #16
-  %.pre960 = load ptr, ptr %0, align 8
+  %.pre945 = load ptr, ptr %0, align 8
   br label %1111
 
 1111:                                             ; preds = %Abc_Clock.exit674, %1100
-  %1112 = phi ptr [ %.pre960, %Abc_Clock.exit674 ], [ %1018, %1100 ]
+  %1112 = phi ptr [ %.pre945, %Abc_Clock.exit674 ], [ %1018, %1100 ]
   %1113 = getelementptr inbounds i8, ptr %1112, i64 152
   %1114 = load ptr, ptr %1113, align 8
   %.not510 = icmp eq ptr %1114, null
@@ -3763,10 +3763,10 @@ Abc_Clock.exit674:                                ; preds = %1101, %1104
 1122:                                             ; preds = %1115, %1111
   %1123 = load i64, ptr %65, align 8
   %.not512 = icmp eq i64 %1123, 0
-  br i1 %.not512, label %._crit_edge963, label %1124
+  br i1 %.not512, label %._crit_edge948, label %1124
 
-._crit_edge963:                                   ; preds = %1122
-  %.pre964 = load ptr, ptr %0, align 8
+._crit_edge948:                                   ; preds = %1122
+  %.pre949 = load ptr, ptr %0, align 8
   br label %1151
 
 1124:                                             ; preds = %1122
@@ -3788,11 +3788,11 @@ Abc_Clock.exit676:                                ; preds = %1124, %1127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %1133 = load i64, ptr %65, align 8
   %1134 = icmp sgt i64 %.0.i675, %1133
-  %.pre965 = load ptr, ptr %0, align 8
+  %.pre950 = load ptr, ptr %0, align 8
   br i1 %1134, label %1135, label %1151
 
 1135:                                             ; preds = %Abc_Clock.exit676
-  %1136 = getelementptr inbounds i8, ptr %.pre965, i64 100
+  %1136 = getelementptr inbounds i8, ptr %.pre950, i64 100
   %1137 = load i32, ptr %1136, align 4
   %.not521 = icmp eq i32 %1137, 0
   br i1 %.not521, label %1141, label %1138
@@ -3801,11 +3801,11 @@ Abc_Clock.exit676:                                ; preds = %1124, %1127
   %1139 = call fastcc i64 @Abc_Clock()
   %1140 = sub nsw i64 %1139, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %1140) #16
-  %.pre961 = load ptr, ptr %0, align 8
+  %.pre946 = load ptr, ptr %0, align 8
   br label %1141
 
 1141:                                             ; preds = %1138, %1135
-  %1142 = phi ptr [ %.pre961, %1138 ], [ %.pre965, %1135 ]
+  %1142 = phi ptr [ %.pre946, %1138 ], [ %.pre950, %1135 ]
   %1143 = getelementptr inbounds i8, ptr %1142, i64 112
   %1144 = load i32, ptr %1143, align 8
   %.not522 = icmp eq i32 %1144, 0
@@ -3815,17 +3815,17 @@ Abc_Clock.exit676:                                ; preds = %1124, %1127
   %1146 = getelementptr inbounds i8, ptr %1142, i64 20
   %1147 = load i32, ptr %1146, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %1147, i32 noundef %1015)
-  %.pre962 = load ptr, ptr %0, align 8
+  %.pre947 = load ptr, ptr %0, align 8
   br label %1148
 
 1148:                                             ; preds = %1145, %1141
-  %1149 = phi ptr [ %.pre962, %1145 ], [ %1142, %1141 ]
+  %1149 = phi ptr [ %.pre947, %1145 ], [ %1142, %1141 ]
   %1150 = getelementptr inbounds i8, ptr %1149, i64 144
   store i32 %1015, ptr %1150, align 8
   br label %.loopexit684
 
-1151:                                             ; preds = %._crit_edge963, %Abc_Clock.exit676
-  %1152 = phi ptr [ %.pre964, %._crit_edge963 ], [ %.pre965, %Abc_Clock.exit676 ]
+1151:                                             ; preds = %._crit_edge948, %Abc_Clock.exit676
+  %1152 = phi ptr [ %.pre949, %._crit_edge948 ], [ %.pre950, %Abc_Clock.exit676 ]
   %1153 = getelementptr inbounds i8, ptr %1152, i64 24
   %1154 = load i32, ptr %1153, align 8
   %.not513 = icmp eq i32 %1154, 0
@@ -3875,11 +3875,11 @@ Abc_Clock.exit678:                                ; preds = %1158, %1161
   %1180 = call fastcc i64 @Abc_Clock()
   %1181 = sub nsw i64 %1180, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %1181) #16
-  %.pre966 = load ptr, ptr %0, align 8
+  %.pre951 = load ptr, ptr %0, align 8
   br label %1182
 
 1182:                                             ; preds = %1179, %1176
-  %1183 = phi ptr [ %.pre966, %1179 ], [ %1167, %1176 ]
+  %1183 = phi ptr [ %.pre951, %1179 ], [ %1167, %1176 ]
   %1184 = getelementptr inbounds i8, ptr %1183, i64 112
   %1185 = load i32, ptr %1184, align 8
   %.not520 = icmp eq i32 %1185, 0
@@ -3889,11 +3889,11 @@ Abc_Clock.exit678:                                ; preds = %1158, %1161
   %1187 = getelementptr inbounds i8, ptr %1183, i64 24
   %1188 = load i32, ptr %1187, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %1188, i32 noundef %1015)
-  %.pre967 = load ptr, ptr %0, align 8
+  %.pre952 = load ptr, ptr %0, align 8
   br label %1189
 
 1189:                                             ; preds = %1186, %1182
-  %1190 = phi ptr [ %.pre967, %1186 ], [ %1183, %1182 ]
+  %1190 = phi ptr [ %.pre952, %1186 ], [ %1183, %1182 ]
   %1191 = getelementptr inbounds i8, ptr %1190, i64 144
   store i32 %1015, ptr %1191, align 8
   br label %.loopexit684
@@ -3917,11 +3917,11 @@ Abc_Clock.exit678:                                ; preds = %1158, %1161
   %1200 = call fastcc i64 @Abc_Clock()
   %1201 = sub nsw i64 %1200, %.0.i
   call void @Pdr_ManPrintProgress(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %1201) #16
-  %.pre968 = load ptr, ptr %0, align 8
+  %.pre953 = load ptr, ptr %0, align 8
   br label %1202
 
 1202:                                             ; preds = %1199, %1196
-  %1203 = phi ptr [ %.pre968, %1199 ], [ %1193, %1196 ]
+  %1203 = phi ptr [ %.pre953, %1199 ], [ %1193, %1196 ]
   %1204 = getelementptr inbounds i8, ptr %1203, i64 112
   %1205 = load i32, ptr %1204, align 8
   %.not518 = icmp eq i32 %1205, 0
@@ -3931,11 +3931,11 @@ Abc_Clock.exit678:                                ; preds = %1158, %1161
   %1207 = getelementptr inbounds i8, ptr %1203, i64 4
   %1208 = load i32, ptr %1207, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %1208)
-  %.pre969 = load ptr, ptr %0, align 8
+  %.pre954 = load ptr, ptr %0, align 8
   br label %1209
 
 1209:                                             ; preds = %1206, %1202
-  %1210 = phi ptr [ %.pre969, %1206 ], [ %1203, %1202 ]
+  %1210 = phi ptr [ %.pre954, %1206 ], [ %1203, %1202 ]
   %1211 = getelementptr inbounds i8, ptr %1210, i64 144
   store i32 %1015, ptr %1211, align 8
   br label %.loopexit684

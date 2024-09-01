@@ -1483,10 +1483,10 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
   %wide.trip.count222 = zext nneg i32 %9 to i64
   br label %99
 
-.loopexit181:                                     ; preds = %319, %.critedge2, %.preheader180
-  %.1121.lcssa242 = phi i64 [ %.2122, %.preheader180 ], [ %.0120, %.critedge2 ], [ %.2122, %319 ]
-  %.1128.lcssa241 = phi i32 [ %.2129, %.preheader180 ], [ %.0127, %.critedge2 ], [ %.2129, %319 ]
-  %.1125.lcssa = phi i32 [ 0, %.preheader180 ], [ 0, %.critedge2 ], [ %.2126, %319 ]
+.loopexit181:                                     ; preds = %319, %.critedge2
+  %.1121.lcssa242 = phi i64 [ %.0120, %.critedge2 ], [ %.2122, %319 ]
+  %.1128.lcssa241 = phi i32 [ %.0127, %.critedge2 ], [ %.2129, %319 ]
+  %.1125.lcssa = phi i32 [ 0, %.critedge2 ], [ %.2126, %319 ]
   br label %99, !llvm.loop !25
 
 99:                                               ; preds = %.loopexit181, %Vec_IntSum.exit
@@ -1515,9 +1515,6 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
 
 .critedge2:                                       ; preds = %101, %99
   br i1 %66, label %.lr.ph195, label %.loopexit181
-
-.preheader180:                                    ; preds = %310
-  br i1 %66, label %.lr.ph200, label %.loopexit181
 
 .lr.ph195:                                        ; preds = %.critedge2, %310
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %310 ], [ 0, %.critedge2 ]
@@ -1898,11 +1895,11 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   %.2122 = phi i64 [ %.1121193, %.lr.ph195 ], [ %.3123, %304 ], [ %.3123, %302 ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.preheader180, label %.lr.ph195, !llvm.loop !27
+  br i1 %exitcond218.not, label %.lr.ph200, label %.lr.ph195, !llvm.loop !27
 
-.lr.ph200:                                        ; preds = %.preheader180, %319
-  %indvars.iv219 = phi i64 [ %indvars.iv.next220, %319 ], [ 0, %.preheader180 ]
-  %.1125198 = phi i32 [ %.2126, %319 ], [ 0, %.preheader180 ]
+.lr.ph200:                                        ; preds = %310, %319
+  %indvars.iv219 = phi i64 [ %indvars.iv.next220, %319 ], [ 0, %310 ]
+  %.1125198 = phi i32 [ %.2126, %319 ], [ 0, %310 ]
   %311 = getelementptr inbounds [100 x %struct.Kf_ThData_t_], ptr %5, i64 0, i64 %indvars.iv219
   %312 = getelementptr inbounds i8, ptr %311, i64 12
   %313 = load i32, ptr %312, align 4

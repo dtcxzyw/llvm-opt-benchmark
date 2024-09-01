@@ -983,12 +983,12 @@ if.then116:                                       ; preds = %if.then112
 
 if.end117:                                        ; preds = %if.then112
   %tobool118.not = icmp eq ptr %pcert, null
+  %call142181 = call i32 @OPENSSL_sk_num(ptr noundef %rsk.0118130152) #4
+  %cmp143182 = icmp sgt i32 %call142181, 0
   br i1 %tobool118.not, label %for.cond140.preheader, label %for.cond120.preheader
 
 for.cond120.preheader:                            ; preds = %if.end117
-  %call122178 = call i32 @OPENSSL_sk_num(ptr noundef %rsk.0118130152) #4
-  %cmp123179 = icmp sgt i32 %call122178, 0
-  br i1 %cmp123179, label %for.body124, label %if.then135
+  br i1 %cmp143182, label %for.body124, label %if.then135
 
 for.body124:                                      ; preds = %for.cond120.preheader, %if.end130
   %i.1180 = phi i32 [ %inc132, %if.end130 ], [ 0, %for.cond120.preheader ]
@@ -1008,7 +1008,7 @@ pkcs7_cmp_ri.exit:                                ; preds = %for.body124
   %30 = load ptr, ptr %serial.i, align 8
   %call4.i = call i32 @ASN1_INTEGER_cmp(ptr noundef %call2.i, ptr noundef %30) #4
   %tobool128.not = icmp eq i32 %call4.i, 0
-  br i1 %tobool128.not, label %if.end137, label %if.end130
+  br i1 %tobool128.not, label %if.else156, label %if.end130
 
 if.end130:                                        ; preds = %for.body124, %pkcs7_cmp_ri.exit
   %inc132 = add nuw nsw i32 %i.1180, 1
@@ -1022,12 +1022,7 @@ if.then135:                                       ; preds = %if.end130, %for.con
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 115, ptr noundef null) #4
   br label %err
 
-if.end137:                                        ; preds = %pkcs7_cmp_ri.exit
-  br i1 %tobool118.not, label %for.cond140.preheader, label %if.else156
-
-for.cond140.preheader:                            ; preds = %if.end117, %if.end137
-  %call142181 = call i32 @OPENSSL_sk_num(ptr noundef %rsk.0118130152) #4
-  %cmp143182 = icmp sgt i32 %call142181, 0
+for.cond140.preheader:                            ; preds = %if.end117
   br i1 %cmp143182, label %for.body144, label %if.end163
 
 for.body144:                                      ; preds = %for.cond140.preheader, %if.end152
@@ -1048,7 +1043,7 @@ if.end152:                                        ; preds = %for.body144
   %cmp143 = icmp slt i32 %inc154, %call142
   br i1 %cmp143, label %for.body144, label %if.end163, !llvm.loop !9
 
-if.else156:                                       ; preds = %if.end137
+if.else156:                                       ; preds = %pkcs7_cmp_ri.exit
   %ctx157 = getelementptr inbounds i8, ptr %call126, i64 40
   store ptr %call, ptr %ctx157, align 8
   %call158 = call fastcc i32 @pkcs7_decrypt_rinfo(ptr noundef nonnull %ek, ptr noundef nonnull %eklen, ptr noundef nonnull %call126, ptr noundef %pkey, i64 noundef 0)

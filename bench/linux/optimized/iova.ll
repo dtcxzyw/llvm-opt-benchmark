@@ -884,23 +884,23 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread12
-  br i1 %3, label %.preheader15.preheader, label %.thread14
-
-.loopexit34:                                      ; preds = %.loopexit
+.loopexit15:                                      ; preds = %.loopexit
   %80 = tail call ptr @alloc_iova(ptr noundef %0, i64 noundef %76, i64 noundef %2, i1 noundef zeroext true)
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.thread14, label %._crit_edge, !llvm.loop !32
 
-.preheader15.preheader:                           ; preds = %.lr.ph, %.preheader15
-  %82 = phi i64 [ %111, %.preheader15 ], [ 0, %.lr.ph ]
+.lr.ph:                                           ; preds = %.thread12
+  br i1 %3, label %.preheader16.preheader, label %.thread14
+
+.preheader16.preheader:                           ; preds = %.lr.ph, %.preheader16
+  %82 = phi i64 [ %111, %.preheader16 ], [ 0, %.lr.ph ]
   %83 = load i64, ptr @__cpu_online_mask, align 8
   %84 = shl nsw i64 -1, %82
   %85 = and i64 %83, %84
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %.preheader.preheader, label %87
 
-87:                                               ; preds = %.preheader15.preheader
+87:                                               ; preds = %.preheader16.preheader
   %88 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %85) #10, !srcloc !9
   %89 = and i64 %88, 4294967232
   %90 = icmp eq i64 %89, 0
@@ -930,15 +930,15 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %102, i64 noundef %103) #9
   %108 = add nuw nsw i64 %95, 1
   %109 = icmp eq i64 %108, 6
-  br i1 %109, label %.preheader15, label %94, !llvm.loop !10
+  br i1 %109, label %.preheader16, label %94, !llvm.loop !10
 
-.preheader15:                                     ; preds = %94
+.preheader16:                                     ; preds = %94
   %110 = add nuw nsw i64 %88, 1
   %111 = and i64 %110, 127
   %112 = icmp ugt i64 %111, 63
-  br i1 %112, label %.preheader.preheader, label %.preheader15.preheader, !prof !33, !llvm.loop !34
+  br i1 %112, label %.preheader.preheader, label %.preheader16.preheader, !prof !33, !llvm.loop !34
 
-.preheader.preheader:                             ; preds = %.preheader15.preheader, %.preheader15, %87
+.preheader.preheader:                             ; preds = %.preheader16.preheader, %.preheader16, %87
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
@@ -973,16 +973,16 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %115, i64 noundef %116) #9
   %129 = add nuw nsw i64 %113, 1
   %130 = icmp eq i64 %129, 6
-  br i1 %130, label %.loopexit34, label %.preheader, !llvm.loop !32
+  br i1 %130, label %.loopexit15, label %.preheader, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.loopexit34, %.thread12
-  %.lcssa = phi ptr [ %78, %.thread12 ], [ %80, %.loopexit34 ]
+._crit_edge:                                      ; preds = %.loopexit15, %.thread12
+  %.lcssa = phi ptr [ %78, %.thread12 ], [ %80, %.loopexit15 ]
   %131 = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %132 = load i64, ptr %131, align 8
   br label %.thread14
 
-.thread14:                                        ; preds = %.lr.ph, %.loopexit34, %._crit_edge, %70
-  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit34 ], [ 0, %.lr.ph ]
+.thread14:                                        ; preds = %.lr.ph, %.loopexit15, %._crit_edge, %70
+  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit15 ], [ 0, %.lr.ph ]
   ret i64 %133
 }
 

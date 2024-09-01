@@ -605,8 +605,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -658,8 +658,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.then
 
 do.body.i.i.i.i.i21:                              ; preds = %do.cond.i.i.i.i.i24, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i22 = phi i32 [ %8, %lor.lhs.false.i.i.i.i ], [ %11, %do.cond.i.i.i.i.i24 ]
-  %cmp.not.i.not.i.i.i.i23 = icmp eq i32 %__count.0.i.i.i.i.i22, 0
-  br i1 %cmp.not.i.not.i.i.i.i23, label %if.then.i.i.i.i26, label %do.cond.i.i.i.i.i24
+  %cmp.not.not.not.i.not.i.i.i.i23 = icmp eq i32 %__count.0.i.i.i.i.i22, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i23, label %if.then.i.i.i.i26, label %do.cond.i.i.i.i.i24
 
 do.cond.i.i.i.i.i24:                              ; preds = %do.body.i.i.i.i.i21
   %add.i.i.i.i.i25 = add nsw i32 %__count.0.i.i.i.i.i22, 1
@@ -1366,8 +1366,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -1419,8 +1419,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.then
 
 do.body.i.i.i.i.i15:                              ; preds = %do.cond.i.i.i.i.i18, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i16 = phi i32 [ %8, %lor.lhs.false.i.i.i.i ], [ %11, %do.cond.i.i.i.i.i18 ]
-  %cmp.not.i.not.i.i.i.i17 = icmp eq i32 %__count.0.i.i.i.i.i16, 0
-  br i1 %cmp.not.i.not.i.i.i.i17, label %if.then.i.i.i.i20, label %do.cond.i.i.i.i.i18
+  %cmp.not.not.not.i.not.i.i.i.i17 = icmp eq i32 %__count.0.i.i.i.i.i16, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i17, label %if.then.i.i.i.i20, label %do.cond.i.i.i.i.i18
 
 do.cond.i.i.i.i.i18:                              ; preds = %do.body.i.i.i.i.i15
   %add.i.i.i.i.i19 = add nsw i32 %__count.0.i.i.i.i.i16, 1

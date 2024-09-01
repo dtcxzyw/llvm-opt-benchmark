@@ -280,15 +280,12 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %38, %36, %34, %32, 
   store i32 %54, ptr %13, align 8
   store i32 %53, ptr %14, align 4
   store double %60, ptr %0, align 8
-  br i1 %4, label %62, label %.preheader
+  br i1 %4, label %62, label %.lr.ph38.preheader
 
 .thread:                                          ; preds = %5
   br i1 %4, label %62, label %.loopexit
 
-.preheader:                                       ; preds = %61
-  br i1 %11, label %.lr.ph38.preheader, label %.loopexit
-
-.lr.ph38.preheader:                               ; preds = %.preheader
+.lr.ph38.preheader:                               ; preds = %61
   %wide.trip.count46 = zext nneg i32 %3 to i64
   br label %.lr.ph38
 
@@ -310,7 +307,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %38, %36, %34, %32, 
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
   br i1 %exitcond47.not, label %.loopexit, label %.lr.ph38, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph38, %.thread, %.preheader, %62
+.loopexit:                                        ; preds = %.lr.ph38, %.thread, %62
   ret void
 }
 

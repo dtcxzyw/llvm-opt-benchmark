@@ -6241,10 +6241,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.b
   %cmp12 = icmp ult i32 %j, %retval.0.i.i.i
   br i1 %cmp12, label %for.body, label %if.end
 
-for.cond4.preheader:                              ; preds = %for.body
-  br i1 %cmp12, label %for.body6.lr.ph, label %if.end
-
-for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
+for.body6.lr.ph:                                  ; preds = %for.body
   %m_proofs = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body6
 
@@ -6255,7 +6252,7 @@ for.body:                                         ; preds = %_ZNK4goal4sizeEv.ex
   tail call void @_ZN14parray_managerIN11ast_manager17expr_array_configEE8pop_backERNS2_3refE(ptr noundef nonnull align 8 dereferenceable(32) %m_expr_array_manager.i, ptr noundef nonnull align 8 dereferenceable(12) %m_forms.i)
   %inc = add i32 %i.013, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i.i.i
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !30
+  br i1 %exitcond.not, label %for.body6.lr.ph, label %for.body, !llvm.loop !30
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
   %i3.015 = phi i32 [ %j, %for.body6.lr.ph ], [ %inc9, %for.body6 ]
@@ -6270,9 +6267,8 @@ for.end10:                                        ; preds = %for.body6
   %m_core_enabled.i = getelementptr inbounds i8, ptr %this, i64 120
   %bf.load.i = load i32, ptr %m_core_enabled.i, align 8
   %11 = and i32 %bf.load.i, 268435456
-  %tobool.i.not = icmp ne i32 %11, 0
-  %or.cond = and i1 %tobool.i.not, %cmp12
-  br i1 %or.cond, label %for.body15.lr.ph, label %if.end
+  %tobool.i.not.not = icmp eq i32 %11, 0
+  br i1 %tobool.i.not.not, label %if.end, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %for.end10
   %m_dependencies = getelementptr inbounds i8, ptr %this, i64 104
@@ -6287,7 +6283,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %exitcond22.not = icmp eq i32 %inc18, %retval.0.i.i.i
   br i1 %exitcond22.not, label %if.end, label %for.body15, !llvm.loop !32
 
-if.end:                                           ; preds = %for.body15, %entry, %_ZNK4goal4sizeEv.exit, %for.cond4.preheader, %for.end10
+if.end:                                           ; preds = %for.body15, %entry, %_ZNK4goal4sizeEv.exit, %for.end10
   ret void
 }
 
@@ -8840,38 +8836,31 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.b
 
 for.body.lr.ph:                                   ; preds = %_ZNK4goal4sizeEv.exit
   %m_inconsistent.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %9 = zext i32 %retval.0.i.i.i to i64
+  %wide.trip.count = zext i32 %retval.0.i.i.i to i64
   br label %for.body
 
-for.cond:                                         ; preds = %_ZNK4goal4formEj.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %9
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !39
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %cmp17 = phi i1 [ false, %for.body.lr.ph ], [ %cmp, %for.cond ]
+for.body:                                         ; preds = %_ZNK4goal4formEj.exit, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK4goal4formEj.exit ]
   %bf.load.i.i = load i32, ptr %m_inconsistent.i.i, align 8
-  %10 = and i32 %bf.load.i.i, 536870912
-  %tobool.i.not.i = icmp eq i32 %10, 0
-  %11 = load ptr, ptr %this, align 8
+  %9 = and i32 %bf.load.i.i, 536870912
+  %tobool.i.not.i = icmp eq i32 %9, 0
+  %10 = load ptr, ptr %this, align 8
   br i1 %tobool.i.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %m_false.i.i = getelementptr inbounds i8, ptr %11, i64 864
+  %m_false.i.i = getelementptr inbounds i8, ptr %10, i64 864
   br label %_ZNK4goal4formEj.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %m_expr_array_manager.i.i = getelementptr inbounds i8, ptr %11, i64 616
+  %m_expr_array_manager.i.i = getelementptr inbounds i8, ptr %10, i64 616
   br label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.epilog.i.i.i
   tail call void @_ZN14parray_managerIN11ast_manager17expr_array_configEE6rerootERNS2_3refE(ptr noundef nonnull align 8 dereferenceable(32) %m_expr_array_manager.i.i, ptr noundef nonnull align 8 dereferenceable(12) %m_forms.i)
-  %12 = load ptr, ptr %m_forms.i, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %11 = load ptr, ptr %m_forms.i, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %.pre = load ptr, ptr %this, align 8
   br label %_ZNK4goal4formEj.exit
 
@@ -8889,10 +8878,10 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   ]
 
 sw.bb.i.i.i6:                                     ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %15 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = zext i32 %16 to i64
-  %cmp4.i.i.i = icmp eq i64 %indvars.iv, %17
+  %14 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = zext i32 %15 to i64
+  %cmp4.i.i.i = icmp eq i64 %indvars.iv, %16
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i6
@@ -8900,9 +8889,9 @@ if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i6
   br label %_ZNK4goal4formEj.exit
 
 sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i
-  %18 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %arrayidx14.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %17 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %arrayidx14.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
   br label %_ZNK4goal4formEj.exit
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb.i.i.i6, %if.end.i.i.i
@@ -8912,14 +8901,17 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb.i.i.i6, %if.e
   br i1 %exitcond.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i, !llvm.loop !11
 
 _ZNK4goal4formEj.exit:                            ; preds = %cond.true.i, %if.then.i.i.i, %if.then5.i.i.i, %sw.bb12.i.i.i
-  %20 = phi ptr [ %11, %cond.true.i ], [ %.pre, %if.then.i.i.i ], [ %11, %sw.bb12.i.i.i ], [ %11, %if.then5.i.i.i ]
+  %19 = phi ptr [ %10, %cond.true.i ], [ %.pre, %if.then.i.i.i ], [ %10, %sw.bb12.i.i.i ], [ %10, %if.then5.i.i.i ]
   %cond.in.i = phi ptr [ %m_false.i.i, %cond.true.i ], [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx14.i.i.i, %sw.bb12.i.i.i ], [ %m_elem.i.i.i.i, %if.then5.i.i.i ]
   %cond.i = load ptr, ptr %cond.in.i, align 8
-  %call4 = tail call noundef zeroext i1 @_Z14is_well_sortedRK11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef %cond.i)
-  br i1 %call4, label %for.cond, label %return
+  %call4 = tail call noundef zeroext i1 @_Z14is_well_sortedRK11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %19, ptr noundef %cond.i)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %call4, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !39
 
-return:                                           ; preds = %_ZNK4goal4formEj.exit, %for.cond, %entry, %_ZNK4goal4sizeEv.exit
-  %cmp.lcssa = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %entry ], [ %cmp, %for.cond ], [ %cmp17, %_ZNK4goal4formEj.exit ]
+return:                                           ; preds = %_ZNK4goal4formEj.exit, %entry, %_ZNK4goal4sizeEv.exit
+  %cmp.lcssa = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %entry ], [ %call4, %_ZNK4goal4formEj.exit ]
   ret i1 %cmp.lcssa
 }
 
@@ -9812,10 +9804,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4goal4sizeEv.ex
   %wide.trip.count = zext i32 %retval.0.i.i.i39 to i64
   br label %for.body
 
-for.cond13.preheader:                             ; preds = %for.inc
-  br i1 %cmp3180.not, label %for.end30, label %for.body15.lr.ph
-
-for.body15.lr.ph:                                 ; preds = %for.cond13.preheader
+for.body15.lr.ph:                                 ; preds = %for.inc
   %m_inconsistent.i.i59 = getelementptr inbounds i8, ptr %s2, i64 120
   %wide.trip.count206 = zext i32 %retval.0.i.i.i39 to i64
   br label %for.body15
@@ -9984,7 +9973,7 @@ for.inc:                                          ; preds = %_ZN13ast_fast_markI
   %num1.1 = phi i32 [ %num1.0182, %invoke.cont4 ], [ %inc, %_ZN13ast_fast_markILj1EE4markEP3ast.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.body15.lr.ph, label %for.body, !llvm.loop !41
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc28
   %indvars.iv203 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next204, %for.inc28 ]
@@ -10139,9 +10128,9 @@ for.inc28:                                        ; preds = %invoke.cont23, %inv
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
   br i1 %exitcond207.not, label %for.end30, label %for.body15, !llvm.loop !42
 
-for.end30:                                        ; preds = %for.inc28, %if.end, %_ZNK4goal4sizeEv.exit46, %for.cond13.preheader
-  %num1.0.lcssa215 = phi i32 [ %num1.1, %for.cond13.preheader ], [ 0, %_ZNK4goal4sizeEv.exit46 ], [ 0, %if.end ], [ %num1.1, %for.inc28 ]
-  %num2.0.lcssa = phi i32 [ 0, %for.cond13.preheader ], [ 0, %_ZNK4goal4sizeEv.exit46 ], [ 0, %if.end ], [ %num2.1, %for.inc28 ]
+for.end30:                                        ; preds = %for.inc28, %if.end, %_ZNK4goal4sizeEv.exit46
+  %num1.0.lcssa215 = phi i32 [ 0, %_ZNK4goal4sizeEv.exit46 ], [ 0, %if.end ], [ %num1.1, %for.inc28 ]
+  %num2.0.lcssa = phi i32 [ 0, %_ZNK4goal4sizeEv.exit46 ], [ 0, %if.end ], [ %num2.1, %for.inc28 ]
   %cmp31 = icmp eq i32 %num1.0.lcssa215, %num2.0.lcssa
   %.pr = load i32, ptr %m_pos.i.i.i30, align 8
   br label %cleanup
@@ -10341,8 +10330,8 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 _ZNK4goal4sizeEv.exit:                            ; preds = %for.cond, %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
   %retval.0.i.i.i = phi i32 [ %8, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ], [ 0, %for.cond ]
   %9 = zext i32 %retval.0.i.i.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %9
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not.not = icmp uge i64 %indvars.iv, %9
+  br i1 %cmp.not.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK4goal4sizeEv.exit
   %bf.load.i.i = load i32, ptr %m_inconsistent.i.i, align 8
@@ -10626,8 +10615,8 @@ for.inc16:                                        ; preds = %if.then7.i37, %if.e
   br label %for.cond, !llvm.loop !43
 
 return:                                           ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i25, %_ZNK4goal4sizeEv.exit, %_ZNK4goal10is_literalEP4expr.exit69, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i, %_ZNK4goal10is_literalEP4expr.exit
-  %cmp97 = phi i1 [ false, %_ZNK4goal10is_literalEP4expr.exit ], [ false, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %cmp.not, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i25 ], [ true, %_ZNK4goal4sizeEv.exit ], [ %cmp.not, %_ZNK4goal10is_literalEP4expr.exit69 ]
-  ret i1 %cmp97
+  %cmp.not.not.not.not.not127 = phi i1 [ false, %_ZNK4goal10is_literalEP4expr.exit ], [ false, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i ], [ %cmp.not.not.not.not.not.not, %_ZNK4goal10is_literalEP4expr.exit69 ], [ %cmp.not.not.not.not.not.not, %_ZNK4goal4sizeEv.exit ], [ %cmp.not.not.not.not.not.not, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.i25 ]
+  ret i1 %cmp.not.not.not.not.not127
 }
 
 ; Function Attrs: mustprogress uwtable

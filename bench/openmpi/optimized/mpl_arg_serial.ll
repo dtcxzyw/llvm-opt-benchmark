@@ -45,10 +45,7 @@ MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
   %wide.trip.count55 = zext nneg i32 %0 to i64
   br label %.lr.ph44
 
-.preheader:                                       ; preds = %.lr.ph44
-  br i1 %7, label %.lr.ph48.preheader, label %._crit_edge49
-
-.lr.ph48.preheader:                               ; preds = %.preheader
+.lr.ph48.preheader:                               ; preds = %.lr.ph44
   %wide.trip.count60 = zext nneg i32 %0 to i64
   br label %.lr.ph48
 
@@ -65,7 +62,7 @@ MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
   %23 = add i32 %.03742, 4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %.preheader, label %.lr.ph44, !llvm.loop !6
+  br i1 %exitcond56.not, label %.lr.ph48.preheader, label %.lr.ph44, !llvm.loop !6
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv57 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next58, %.lr.ph48 ]
@@ -83,7 +80,7 @@ MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
   br i1 %exitcond61.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !7
 
-._crit_edge49:                                    ; preds = %.lr.ph48, %MPL_malloc.exit, %.preheader
+._crit_edge49:                                    ; preds = %.lr.ph48, %MPL_malloc.exit
   store i32 %.036.lcssa, ptr %2, align 4
   store ptr %.0.i, ptr %3, align 8
   ret i32 0
@@ -117,10 +114,7 @@ MPL_malloc.exit39:                                ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %.03542, i64 %13, i1 false)
   br label %.lr.ph
 
-.preheader:                                       ; preds = %MPL_malloc.exit41
-  br i1 %.not, label %._crit_edge, label %.lr.ph47.preheader
-
-.lr.ph47.preheader:                               ; preds = %.preheader
+.lr.ph47.preheader:                               ; preds = %MPL_malloc.exit41
   %wide.trip.count53 = zext nneg i32 %5 to i64
   br label %.lr.ph47
 
@@ -144,7 +138,7 @@ MPL_malloc.exit41:                                ; preds = %.lr.ph, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.035 = getelementptr inbounds i8, ptr %.03544, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph47.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next51, %.lr.ph47 ]
@@ -162,9 +156,9 @@ MPL_malloc.exit41:                                ; preds = %.lr.ph, %16
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
   br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph47, %4, %MPL_malloc.exit39, %.preheader
-  %.0.i566167 = phi ptr [ %9, %.preheader ], [ %9, %MPL_malloc.exit39 ], [ null, %4 ], [ %9, %.lr.ph47 ]
-  %.0.i386266 = phi ptr [ %11, %.preheader ], [ %11, %MPL_malloc.exit39 ], [ null, %4 ], [ %11, %.lr.ph47 ]
+._crit_edge:                                      ; preds = %.lr.ph47, %4, %MPL_malloc.exit39
+  %.0.i566167 = phi ptr [ %9, %MPL_malloc.exit39 ], [ null, %4 ], [ %9, %.lr.ph47 ]
+  %.0.i386266 = phi ptr [ %11, %MPL_malloc.exit39 ], [ null, %4 ], [ %11, %.lr.ph47 ]
   store i32 %5, ptr %2, align 4
   store ptr %.0.i566167, ptr %3, align 8
   tail call void @free(ptr noundef %.0.i386266) #8

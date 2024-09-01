@@ -332,7 +332,7 @@ lpad.i6:                                          ; preds = %if.end44.i, %if.end
 for.cond.i:                                       ; preds = %invoke.cont46.i
   %inc.i = add nuw nsw i64 %i.013.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
-  br i1 %exitcond.not.i, label %if.then.i.i10, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %cleanup.i8, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %lor.lhs.false, %for.cond.i
   %i.013.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %lor.lhs.false ]
@@ -357,7 +357,7 @@ lor.lhs.false.i:                                  ; preds = %invoke.cont13.i
 if.then18.i:                                      ; preds = %lor.lhs.false.i, %invoke.cont13.i
   %24 = load ptr, ptr @stderr, align 8
   %call20.i7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.15, i32 noundef %call14.i5) #18
-  br label %if.then.i.i10
+  br label %cleanup.i8
 
 if.end21.i:                                       ; preds = %lor.lhs.false.i
   %call24.i = invoke i32 @BIO_mem_contents(ptr noundef nonnull %call1.i3, ptr noundef nonnull %contents.i, ptr noundef nonnull %len.i)
@@ -370,7 +370,7 @@ invoke.cont23.i:                                  ; preds = %if.end21.i
 if.then25.i:                                      ; preds = %invoke.cont23.i
   %25 = load ptr, ptr @stderr, align 8
   %26 = call i64 @fwrite(ptr nonnull @.str.16, i64 24, i64 1, ptr %25) #18
-  br label %if.then.i.i10
+  br label %cleanup.i8
 
 if.end28.i:                                       ; preds = %invoke.cont23.i
   %27 = load i64, ptr %len.i, align 8
@@ -394,7 +394,7 @@ if.then40.i:                                      ; preds = %lor.lhs.false35.i, 
   %28 = load ptr, ptr @stderr, align 8
   %conv41.i = trunc i64 %.lcssa.i to i32
   %call43.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.18, i32 noundef %conv41.i, ptr noundef %.pre.i) #18
-  br label %if.then.i.i10
+  br label %cleanup.i8
 
 if.end44.i:                                       ; preds = %lor.lhs.false35.i
   %call47.i = invoke i32 @BIO_reset(ptr noundef nonnull %call1.i3)
@@ -407,21 +407,21 @@ invoke.cont46.i:                                  ; preds = %if.end44.i
 if.then49.i:                                      ; preds = %invoke.cont46.i
   %29 = load ptr, ptr @stderr, align 8
   %30 = call i64 @fwrite(ptr nonnull @.str.19, i64 17, i64 1, ptr %29) #18
-  br label %if.then.i.i10
+  br label %cleanup.i8
 
-if.then.i.i10:                                    ; preds = %for.cond.i, %if.then18.i, %if.then25.i, %if.then40.i, %if.then49.i
+cleanup.i8:                                       ; preds = %for.cond.i, %if.then49.i, %if.then40.i, %if.then25.i, %if.then18.i
   %retval.0.i9 = phi i1 [ false, %if.then18.i ], [ false, %if.then40.i ], [ false, %if.then49.i ], [ false, %if.then25.i ], [ true, %for.cond.i ]
   invoke void @BIO_vfree(ptr noundef nonnull %call1.i3)
           to label %_ZL10TestPrintfv.exit unwind label %terminate.lpad.i.i11
 
-terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
+terminate.lpad.i.i11:                             ; preds = %cleanup.i8
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   call void @__clang_call_terminate(ptr %32) #20
   unreachable
 
-_ZL10TestPrintfv.exit:                            ; preds = %if.then.i.i10
+_ZL10TestPrintfv.exit:                            ; preds = %cleanup.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i1)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %string.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %contents.i)
@@ -452,7 +452,6 @@ for.body.i14:                                     ; preds = %for.body.i14, %lor.
   br i1 %exitcond.not.i19, label %for.cond5.preheader.i, label %for.body.i14, !llvm.loop !9
 
 for.cond5.preheader.i:                            ; preds = %for.body.i14, %for.inc79.i
-  %cmp396.i = phi i1 [ %cmp3.i, %for.inc79.i ], [ false, %for.body.i14 ]
   %i1.095.i = phi i64 [ %inc80.i, %for.inc79.i ], [ 0, %for.body.i14 ]
   %arrayidx9.i = getelementptr inbounds [8 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 0, i64 %i1.095.i
   %conv50.i = trunc nuw nsw i64 %i1.095.i to i32
@@ -460,14 +459,14 @@ for.cond5.preheader.i:                            ; preds = %for.body.i14, %for.
 
 for.cond5.i:                                      ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i
   %inc77.i = add nuw nsw i64 %j.094.i, 1
-  %exitcond105.not.i = icmp eq i64 %inc77.i, 10
-  br i1 %exitcond105.not.i, label %for.inc79.i, label %for.body7.i, !llvm.loop !10
+  %exitcond98.not.i = icmp eq i64 %inc77.i, 10
+  br i1 %exitcond98.not.i, label %for.inc79.i, label %for.body7.i, !llvm.loop !10
 
 for.body7.i:                                      ; preds = %for.cond5.i, %for.cond5.preheader.i
   %j.094.i = phi i64 [ 0, %for.cond5.preheader.i ], [ %inc77.i, %for.cond5.i ]
   %call8.i = call i32 @BIO_new_bio_pair(ptr noundef nonnull %bio1.i, i64 noundef 512, ptr noundef nonnull %bio2.i, i64 noundef 512)
   %tobool.not.i20 = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i20, label %_ZL20TestZeroCopyBioPairsv.exit, label %if.end.i21
+  br i1 %tobool.not.i20, label %_ZL20TestZeroCopyBioPairsv.exit.thread, label %if.end.i21
 
 if.end.i21:                                       ; preds = %for.body7.i
   %33 = load ptr, ptr %bio1.i, align 8
@@ -722,16 +721,14 @@ terminate.lpad.i73.i:                             ; preds = %if.then.i72.i
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i: ; preds = %if.then.i72.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i28
   store ptr null, ptr %bio1_scoper.i, align 8
-  br i1 %switch.i, label %for.cond5.i, label %_ZL20TestZeroCopyBioPairsv.exit
+  br i1 %switch.i, label %for.cond5.i, label %_ZL20TestZeroCopyBioPairsv.exit.thread
 
 for.inc79.i:                                      ; preds = %for.cond5.i
   %inc80.i = add nuw nsw i64 %i1.095.i, 1
-  %cmp3.i = icmp ugt i64 %i1.095.i, 6
-  %exitcond106.i = icmp eq i64 %inc80.i, 8
-  br i1 %exitcond106.i, label %_ZL20TestZeroCopyBioPairsv.exit, label %for.cond5.preheader.i, !llvm.loop !13
+  %exitcond99.i = icmp eq i64 %inc80.i, 8
+  br i1 %exitcond99.i, label %lor.lhs.false4, label %for.cond5.preheader.i, !llvm.loop !13
 
-_ZL20TestZeroCopyBioPairsv.exit:                  ; preds = %for.inc79.i, %for.body7.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i
-  %cmp392.i = phi i1 [ %cmp396.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i ], [ %cmp396.i, %for.body7.i ], [ %cmp3.i, %for.inc79.i ]
+_ZL20TestZeroCopyBioPairsv.exit.thread:           ; preds = %for.body7.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %bio1_application_send_buffer.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %bio2_application_recv_buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio1.i)
@@ -741,9 +738,18 @@ _ZL20TestZeroCopyBioPairsv.exit:                  ; preds = %for.inc79.i, %for.b
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %write_buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %write_buf_offset.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %available_bytes.i)
-  br i1 %cmp392.i, label %lor.lhs.false4, label %return
+  br label %return
 
-lor.lhs.false4:                                   ; preds = %_ZL20TestZeroCopyBioPairsv.exit
+lor.lhs.false4:                                   ; preds = %for.inc79.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %bio1_application_send_buffer.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %bio2_application_recv_buffer.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio1.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio2.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio1_scoper.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio2_scoper.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %write_buf.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %write_buf_offset.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %available_bytes.i)
   %call.i30 = call fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroext true, ptr noundef nonnull @_ZZL8TestASN1vE6kData1, i64 noundef 6, i64 noundef 4, i64 noundef 100)
   br i1 %call.i30, label %lor.lhs.false.i32, label %return
 
@@ -777,7 +783,7 @@ invoke.cont.i37:                                  ; preds = %if.end9.i
 if.then14.i:                                      ; preds = %invoke.cont.i37
   %69 = load ptr, ptr @stderr, align 8
   %70 = call i64 @fwrite(ptr nonnull @.str.23, i64 27, i64 1, ptr %69) #18
-  br label %_ZL8TestASN1v.exit.thread47
+  br label %_ZL8TestASN1v.exit.thread48
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i:  ; preds = %if.end32.i40, %if.end24.i, %if.end17.i, %if.end9.i
   %71 = landingpad { ptr, i32 }
@@ -795,7 +801,7 @@ invoke.cont19.i39:                                ; preds = %if.end17.i
 if.then21.i:                                      ; preds = %invoke.cont19.i39
   %72 = load ptr, ptr @stderr, align 8
   %73 = call i64 @fwrite(ptr nonnull @.str.24, i64 21, i64 1, ptr %72) #18
-  br label %_ZL8TestASN1v.exit.thread47
+  br label %_ZL8TestASN1v.exit.thread48
 
 if.end24.i:                                       ; preds = %invoke.cont19.i39
   store i16 -32720, ptr %call6.i, align 1
@@ -808,7 +814,7 @@ invoke.cont27.i:                                  ; preds = %if.end24.i
 if.then29.i:                                      ; preds = %invoke.cont27.i
   %74 = load ptr, ptr @stderr, align 8
   %75 = call i64 @fwrite(ptr nonnull @.str.25, i64 31, i64 1, ptr %74) #18
-  br label %_ZL8TestASN1v.exit.thread47
+  br label %_ZL8TestASN1v.exit.thread48
 
 if.end32.i40:                                     ; preds = %invoke.cont27.i
   %call35.i41 = invoke fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroext false, ptr noundef nonnull %call6.i, i64 noundef 8004, i64 noundef 8004, i64 noundef 7999)
@@ -820,9 +826,9 @@ invoke.cont34.i42:                                ; preds = %if.end32.i40
 if.then36.i:                                      ; preds = %invoke.cont34.i42
   %76 = load ptr, ptr @stderr, align 8
   %77 = call i64 @fwrite(ptr nonnull @.str.26, i64 40, i64 1, ptr %76) #18
-  br label %_ZL8TestASN1v.exit.thread47
+  br label %_ZL8TestASN1v.exit.thread48
 
-_ZL8TestASN1v.exit.thread47:                      ; preds = %if.then14.i, %if.then21.i, %if.then29.i, %if.then36.i
+_ZL8TestASN1v.exit.thread48:                      ; preds = %if.then14.i, %if.then21.i, %if.then29.i, %if.then36.i
   call void @free(ptr noundef nonnull %call6.i) #17
   br label %return
 
@@ -831,8 +837,8 @@ if.end:                                           ; preds = %invoke.cont34.i42
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %if.end.i34, %lor.lhs.false4, %lor.lhs.false.i32, %lor.lhs.false2.i, %lor.lhs.false4.i, %_ZL8TestASN1v.exit.thread47, %_ZL10TestPrintfv.exit.thread, %_ZL17TestSocketConnectv.exit.thread, %_ZL17TestSocketConnectv.exit, %_ZL10TestPrintfv.exit, %_ZL20TestZeroCopyBioPairsv.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL20TestZeroCopyBioPairsv.exit ], [ 1, %_ZL10TestPrintfv.exit ], [ 1, %_ZL17TestSocketConnectv.exit ], [ 1, %_ZL17TestSocketConnectv.exit.thread ], [ 1, %_ZL10TestPrintfv.exit.thread ], [ 1, %_ZL8TestASN1v.exit.thread47 ], [ 1, %lor.lhs.false4.i ], [ 1, %lor.lhs.false2.i ], [ 1, %lor.lhs.false.i32 ], [ 1, %lor.lhs.false4 ], [ 1, %if.end.i34 ]
+return:                                           ; preds = %if.end.i34, %lor.lhs.false4, %lor.lhs.false.i32, %lor.lhs.false2.i, %lor.lhs.false4.i, %_ZL8TestASN1v.exit.thread48, %_ZL20TestZeroCopyBioPairsv.exit.thread, %_ZL10TestPrintfv.exit.thread, %_ZL17TestSocketConnectv.exit.thread, %_ZL17TestSocketConnectv.exit, %_ZL10TestPrintfv.exit, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL10TestPrintfv.exit ], [ 1, %_ZL17TestSocketConnectv.exit ], [ 1, %_ZL17TestSocketConnectv.exit.thread ], [ 1, %_ZL10TestPrintfv.exit.thread ], [ 1, %_ZL20TestZeroCopyBioPairsv.exit.thread ], [ 1, %_ZL8TestASN1v.exit.thread48 ], [ 1, %lor.lhs.false4.i ], [ 1, %lor.lhs.false2.i ], [ 1, %lor.lhs.false.i32 ], [ 1, %lor.lhs.false4 ], [ 1, %if.end.i34 ]
   ret i32 %retval.0
 }
 

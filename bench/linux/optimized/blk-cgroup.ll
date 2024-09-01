@@ -1761,7 +1761,7 @@ define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone %0) #1 align 1
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.thread, label %.preheader11, !prof !22, !llvm.loop !53
 
-.thread:                                          ; preds = %17, %21, %.preheader11
+.thread:                                          ; preds = %.preheader11, %21, %17
   %32 = getelementptr inbounds i8, ptr %8, i64 240
   br label %33
 
@@ -3639,11 +3639,11 @@ define dso_local noundef zeroext i1 @blk_cgroup_congested() local_unnamed_addr #
   %20 = phi ptr [ %22, %15 ], [ %10, %.thread ]
   %21 = getelementptr inbounds i8, ptr %20, i64 192
   %22 = load ptr, ptr %21, align 8
-  %.not5.not = icmp ne ptr %22, null
-  br i1 %.not5.not, label %15, label %.loopexit, !llvm.loop !90
+  %.not5.not.not = icmp ne ptr %22, null
+  br i1 %.not5.not.not, label %15, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.preheader, %15, %.thread, %3
-  %23 = phi i1 [ false, %3 ], [ true, %.thread ], [ %.not5.not, %15 ], [ %.not5.not, %.preheader ]
+  %23 = phi i1 [ false, %3 ], [ true, %.thread ], [ %.not5.not.not, %15 ], [ %.not5.not.not, %.preheader ]
   tail call void @__rcu_read_unlock() #16
   ret i1 %23
 }

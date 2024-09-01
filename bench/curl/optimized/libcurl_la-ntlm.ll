@@ -420,7 +420,7 @@ if.end186:                                        ; preds = %for.body.i
   %add187 = add i64 %add157, %domlen.1
   br label %if.then191
 
-if.then191:                                       ; preds = %if.end186, %if.then182
+if.then191:                                       ; preds = %if.then182, %if.end186
   %add187129 = phi i64 [ %add187, %if.end186 ], [ %add157, %if.then182 ]
   %arrayidx192 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187129
   %div193100 = and i64 %call8, 9223372036854775807
@@ -445,7 +445,7 @@ if.end196:                                        ; preds = %for.body.i103
   %add197 = add i64 %add187129, %userlen.0
   br label %if.then201
 
-if.then201:                                       ; preds = %if.end196, %if.then191
+if.then201:                                       ; preds = %if.then191, %if.end196
   %add197137 = phi i64 [ %add197, %if.end196 ], [ %add187129, %if.then191 ]
   %arrayidx202 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197137
   br label %for.body.i114

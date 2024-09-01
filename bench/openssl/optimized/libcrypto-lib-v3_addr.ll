@@ -835,8 +835,8 @@ land.rhs:                                         ; preds = %if.end40, %for.inc
   %14 = zext nneg i32 %i.053 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %14
   %15 = load i8, ptr %gep, align 1
-  %cmp44.not = icmp ne i8 %15, 0
-  br i1 %cmp44.not, label %for.end, label %for.inc
+  %cmp44.not.not = icmp ne i8 %15, 0
+  br i1 %cmp44.not.not, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs
   %dec = add nsw i32 %i.053, -1
@@ -845,7 +845,7 @@ for.inc:                                          ; preds = %land.rhs
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %if.end40
   %i.0.lcssa = phi i32 [ %length, %if.end40 ], [ 0, %for.inc ], [ %i.053, %land.rhs ]
-  %cmp41.lcssa = phi i1 [ false, %if.end40 ], [ %cmp44.not, %for.inc ], [ %cmp44.not, %land.rhs ]
+  %cmp41.lcssa = phi i1 [ false, %if.end40 ], [ %cmp44.not.not, %for.inc ], [ %cmp44.not.not, %land.rhs ]
   %16 = load ptr, ptr %u, align 8
   %17 = load ptr, ptr %16, align 8
   %call48 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef %17, ptr noundef %min, i32 noundef %i.0.lcssa) #15
@@ -894,8 +894,8 @@ land.rhs70:                                       ; preds = %if.end66, %for.inc7
   %26 = zext nneg i32 %i.161 to i64
   %gep59 = getelementptr i8, ptr %invariant.gep58, i64 %26
   %27 = load i8, ptr %gep59, align 1
-  %cmp75.not = icmp ne i8 %27, -1
-  br i1 %cmp75.not, label %for.end81, label %for.inc79
+  %cmp75.not.not = icmp ne i8 %27, -1
+  br i1 %cmp75.not.not, label %for.end81, label %for.inc79
 
 for.inc79:                                        ; preds = %land.rhs70
   %dec80 = add nsw i32 %i.161, -1
@@ -904,7 +904,7 @@ for.inc79:                                        ; preds = %land.rhs70
 
 for.end81:                                        ; preds = %land.rhs70, %for.inc79, %if.end66
   %i.1.lcssa = phi i32 [ %length, %if.end66 ], [ 0, %for.inc79 ], [ %i.161, %land.rhs70 ]
-  %cmp68.lcssa = phi i1 [ false, %if.end66 ], [ %cmp75.not, %for.inc79 ], [ %cmp75.not, %land.rhs70 ]
+  %cmp68.lcssa = phi i1 [ false, %if.end66 ], [ %cmp75.not.not, %for.inc79 ], [ %cmp75.not.not, %land.rhs70 ]
   %28 = load ptr, ptr %u, align 8
   %max83 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %max83, align 8

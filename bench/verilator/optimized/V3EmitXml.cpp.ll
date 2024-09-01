@@ -12611,8 +12611,8 @@ define linkonce_odr dso_local void @_ZNK10AstDisplay10verilogKwdB5cxx11Ev(ptr de
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
-  %.not.not = icmp eq ptr %12, null
-  br i1 %.not.not, label %37, label %13
+  %.not.not.not = icmp eq ptr %12, null
+  br i1 %.not.not.not, label %37, label %13
 
 13:                                               ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -12746,16 +12746,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72: ; 
   %60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.critedge51 unwind label %69
 
-.critedge51:                                      ; preds = %35, %33, %57, %59
+.critedge51:                                      ; preds = %33, %35, %59, %57
   %.sink.i73.sink = phi ptr [ %58, %57 ], [ %60, %59 ], [ %34, %33 ], [ %36, %35 ]
-  %.sink92 = phi ptr [ %9, %57 ], [ %9, %59 ], [ %5, %33 ], [ %5, %35 ]
-  %.sink91 = phi ptr [ %10, %57 ], [ %10, %59 ], [ %6, %33 ], [ %6, %35 ]
-  %.sink90 = phi ptr [ %7, %57 ], [ %7, %59 ], [ %3, %33 ], [ %3, %35 ]
+  %.sink90 = phi ptr [ %9, %57 ], [ %9, %59 ], [ %5, %33 ], [ %5, %35 ]
+  %.sink89 = phi ptr [ %10, %57 ], [ %10, %59 ], [ %6, %33 ], [ %6, %35 ]
+  %.sink88 = phi ptr [ %7, %57 ], [ %7, %59 ], [ %3, %33 ], [ %3, %35 ]
   %.sink = phi ptr [ %8, %57 ], [ %8, %59 ], [ %4, %33 ], [ %4, %35 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i73.sink) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink92) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink91) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink90) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink89) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink88) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   ret void
 
@@ -12791,7 +12791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %.critedge53
 
-71:                                               ; preds = %33, %35
+71:                                               ; preds = %35, %33
   %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
@@ -12803,11 +12803,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.critedge53
 
-.critedge53:                                      ; preds = %61, %15, %73, %65, %39, %.body70
-  %.sink93 = phi ptr [ %8, %.body70 ], [ %8, %39 ], [ %8, %65 ], [ %4, %73 ], [ %4, %15 ], [ %4, %61 ]
-  %.pn41.pn.pn88 = phi { ptr, i32 } [ %.pn, %.body70 ], [ %40, %39 ], [ %66, %65 ], [ %.pn41.pn.ph, %73 ], [ %16, %15 ], [ %62, %61 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink93) #19
-  resume { ptr, i32 } %.pn41.pn.pn88
+.critedge53:                                      ; preds = %61, %15, %73, %.body70, %39, %65
+  %.sink91 = phi ptr [ %8, %65 ], [ %8, %39 ], [ %8, %.body70 ], [ %4, %73 ], [ %4, %15 ], [ %4, %61 ]
+  %.pn41.pn.pn86 = phi { ptr, i32 } [ %66, %65 ], [ %40, %39 ], [ %.pn, %.body70 ], [ %.pn41.pn.ph, %73 ], [ %16, %15 ], [ %62, %61 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink91) #19
+  resume { ptr, i32 } %.pn41.pn.pn86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2170,64 +2170,64 @@ define hidden void @_ZN11PhaseVector16expand_vbox_nodeEP13VectorBoxNode(ptr noun
 .lr.ph.i.i:                                       ; preds = %21
   %27 = getelementptr inbounds i8, ptr %23, i64 424
   %28 = load ptr, ptr %27, align 8
-  %29 = zext nneg i32 %25 to i64
-  br label %30
+  %wide.trip.count.i.i = zext nneg i32 %25 to i64
+  br label %29
 
-30:                                               ; preds = %48, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %48 ]
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i.i
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %1
-  br i1 %33, label %34, label %48
+29:                                               ; preds = %47, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
+  %30 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i.i
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, %1
+  br i1 %32, label %33, label %47
 
-34:                                               ; preds = %30
-  %35 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i.i.i = add nuw nsw i32 %35, 1
-  %36 = icmp slt i32 %.06.i.i.i, %25
-  br i1 %36, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
+33:                                               ; preds = %29
+  %34 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %34, 1
+  %35 = icmp slt i32 %.06.i.i.i, %25
+  br i1 %35, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %34
-  %37 = and i64 %indvars.iv.i.i, 4294967295
-  %38 = add nuw nsw i64 %37, 1
-  br label %39
+.lr.ph.i.i.i:                                     ; preds = %33
+  %36 = and i64 %indvars.iv.i.i, 4294967295
+  %37 = add nuw nsw i64 %36, 1
+  br label %38
 
-39:                                               ; preds = %39, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %39 ]
-  %indvars.iv.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %39 ]
-  %40 = load ptr, ptr %27, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i.i.i
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv10.i.i.i
-  store ptr %42, ptr %43, align 8
+38:                                               ; preds = %38, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %38 ]
+  %indvars.iv.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %38 ]
+  %39 = load ptr, ptr %27, align 8
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv.i.i.i
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv10.i.i.i
+  store ptr %41, ptr %42, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %44 = load i32, ptr %24, align 8
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next.i.i.i, %45
+  %43 = load i32, ptr %24, align 8
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next.i.i.i, %44
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %46, label %39, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
+  br i1 %45, label %38, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
 
-_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %39, %34
-  %.lcssa.i.i.i = phi i32 [ %25, %34 ], [ %44, %39 ]
-  %47 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %47, ptr %24, align 8
+_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %38, %33
+  %.lcssa.i.i.i = phi i32 [ %25, %33 ], [ %43, %38 ]
+  %46 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %46, ptr %24, align 8
   br label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
 
-48:                                               ; preds = %30
+47:                                               ; preds = %29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %29
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %30, !llvm.loop !20
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %29, !llvm.loop !20
 
-_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %48, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %21
-  %49 = getelementptr inbounds i8, ptr %23, i64 560
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
+_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %47, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %21
+  %48 = getelementptr inbounds i8, ptr %23, i64 560
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-52:                                               ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
+51:                                               ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
   call void @_ZN7Compile21remove_coarsened_lockEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %23, ptr noundef %1) #6
   br label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %52
+_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %51
   ret void
 }
 
@@ -2684,64 +2684,64 @@ _ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit: ; preds = %246, %256, %267
 .lr.ph.i.i:                                       ; preds = %282
   %288 = getelementptr inbounds i8, ptr %284, i64 424
   %289 = load ptr, ptr %288, align 8
-  %290 = zext nneg i32 %286 to i64
-  br label %291
+  %wide.trip.count.i.i = zext nneg i32 %286 to i64
+  br label %290
 
-291:                                              ; preds = %309, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %309 ]
-  %292 = getelementptr inbounds ptr, ptr %289, i64 %indvars.iv.i.i
-  %293 = load ptr, ptr %292, align 8
-  %294 = icmp eq ptr %293, %1
-  br i1 %294, label %295, label %309
+290:                                              ; preds = %308, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %308 ]
+  %291 = getelementptr inbounds ptr, ptr %289, i64 %indvars.iv.i.i
+  %292 = load ptr, ptr %291, align 8
+  %293 = icmp eq ptr %292, %1
+  br i1 %293, label %294, label %308
 
-295:                                              ; preds = %291
-  %296 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i.i.i = add nuw nsw i32 %296, 1
-  %297 = icmp slt i32 %.06.i.i.i, %286
-  br i1 %297, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
+294:                                              ; preds = %290
+  %295 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %295, 1
+  %296 = icmp slt i32 %.06.i.i.i, %286
+  br i1 %296, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %295
-  %298 = and i64 %indvars.iv.i.i, 4294967295
-  %299 = add nuw nsw i64 %298, 1
-  br label %300
+.lr.ph.i.i.i:                                     ; preds = %294
+  %297 = and i64 %indvars.iv.i.i, 4294967295
+  %298 = add nuw nsw i64 %297, 1
+  br label %299
 
-300:                                              ; preds = %300, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %298, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %300 ]
-  %indvars.iv.i.i.i = phi i64 [ %299, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %300 ]
-  %301 = load ptr, ptr %288, align 8
-  %302 = getelementptr inbounds ptr, ptr %301, i64 %indvars.iv.i.i.i
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %indvars.iv10.i.i.i
-  store ptr %303, ptr %304, align 8
+299:                                              ; preds = %299, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %297, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %299 ]
+  %indvars.iv.i.i.i = phi i64 [ %298, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %299 ]
+  %300 = load ptr, ptr %288, align 8
+  %301 = getelementptr inbounds ptr, ptr %300, i64 %indvars.iv.i.i.i
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds ptr, ptr %300, i64 %indvars.iv10.i.i.i
+  store ptr %302, ptr %303, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %305 = load i32, ptr %285, align 8
-  %306 = sext i32 %305 to i64
-  %307 = icmp slt i64 %indvars.iv.next.i.i.i, %306
+  %304 = load i32, ptr %285, align 8
+  %305 = sext i32 %304 to i64
+  %306 = icmp slt i64 %indvars.iv.next.i.i.i, %305
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %307, label %300, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
+  br i1 %306, label %299, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
 
-_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %300, %295
-  %.lcssa.i.i.i = phi i32 [ %286, %295 ], [ %305, %300 ]
-  %308 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %308, ptr %285, align 8
+_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %299, %294
+  %.lcssa.i.i.i = phi i32 [ %286, %294 ], [ %304, %299 ]
+  %307 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %307, ptr %285, align 8
   br label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
 
-309:                                              ; preds = %291
+308:                                              ; preds = %290
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %290
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %291, !llvm.loop !20
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %290, !llvm.loop !20
 
-_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %309, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %282
-  %310 = getelementptr inbounds i8, ptr %284, i64 560
-  %311 = load i32, ptr %310, align 4
-  %312 = icmp sgt i32 %311, 0
-  br i1 %312, label %313, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
+_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %308, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %282
+  %309 = getelementptr inbounds i8, ptr %284, i64 560
+  %310 = load i32, ptr %309, align 4
+  %311 = icmp sgt i32 %310, 0
+  br i1 %311, label %312, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-313:                                              ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
+312:                                              ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
   call void @_ZN7Compile21remove_coarsened_lockEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %284, ptr noundef %1) #6
   br label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %313
+_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %312
   ret void
 }
 
@@ -2764,64 +2764,64 @@ define hidden void @_ZN11PhaseVector25eliminate_vbox_alloc_nodeEP21VectorBoxAllo
 .lr.ph.i.i:                                       ; preds = %2
   %13 = getelementptr inbounds i8, ptr %9, i64 424
   %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %11 to i64
-  br label %16
+  %wide.trip.count.i.i = zext nneg i32 %11 to i64
+  br label %15
 
-16:                                               ; preds = %34, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i.i
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %34
+15:                                               ; preds = %33, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i.i
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, %1
+  br i1 %18, label %19, label %33
 
-20:                                               ; preds = %16
-  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i.i.i = add nuw nsw i32 %21, 1
-  %22 = icmp slt i32 %.06.i.i.i, %11
-  br i1 %22, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
+19:                                               ; preds = %15
+  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %20, 1
+  %21 = icmp slt i32 %.06.i.i.i, %11
+  br i1 %21, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %20
-  %23 = and i64 %indvars.iv.i.i, 4294967295
-  %24 = add nuw nsw i64 %23, 1
-  br label %25
+.lr.ph.i.i.i:                                     ; preds = %19
+  %22 = and i64 %indvars.iv.i.i, 4294967295
+  %23 = add nuw nsw i64 %22, 1
+  br label %24
 
-25:                                               ; preds = %25, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %25 ]
-  %indvars.iv.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %26 = load ptr, ptr %13, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i.i.i
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv10.i.i.i
-  store ptr %28, ptr %29, align 8
+24:                                               ; preds = %24, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %24 ]
+  %indvars.iv.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i.i
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv10.i.i.i
+  store ptr %27, ptr %28, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = load i32, ptr %10, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i.i, %31
+  %29 = load i32, ptr %10, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next.i.i.i, %30
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %32, label %25, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
+  br i1 %31, label %24, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
 
-_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %25, %20
-  %.lcssa.i.i.i = phi i32 [ %11, %20 ], [ %30, %25 ]
-  %33 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %33, ptr %10, align 8
+_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %24, %19
+  %.lcssa.i.i.i = phi i32 [ %11, %19 ], [ %29, %24 ]
+  %32 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %32, ptr %10, align 8
   br label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
 
-34:                                               ; preds = %16
+33:                                               ; preds = %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %16, !llvm.loop !20
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %15, !llvm.loop !20
 
-_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %34, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %2
-  %35 = getelementptr inbounds i8, ptr %9, i64 560
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %38, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
+_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %33, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %2
+  %34 = getelementptr inbounds i8, ptr %9, i64 560
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-38:                                               ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
+37:                                               ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
   call void @_ZN7Compile21remove_coarsened_lockEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %9, ptr noundef %1) #6
   br label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %38
+_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %37
   ret void
 }
 
@@ -3554,64 +3554,64 @@ _ZN7ciField4typeEv.exit:                          ; preds = %39, %121
 .lr.ph.i.i:                                       ; preds = %_ZN7ciField4typeEv.exit
   %141 = getelementptr inbounds i8, ptr %137, i64 424
   %142 = load ptr, ptr %141, align 8
-  %143 = zext nneg i32 %139 to i64
-  br label %144
+  %wide.trip.count.i.i = zext nneg i32 %139 to i64
+  br label %143
 
-144:                                              ; preds = %162, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %162 ]
-  %145 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv.i.i
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, %1
-  br i1 %147, label %148, label %162
+143:                                              ; preds = %161, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %161 ]
+  %144 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv.i.i
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp eq ptr %145, %1
+  br i1 %146, label %147, label %161
 
-148:                                              ; preds = %144
-  %149 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i.i.i = add nuw nsw i32 %149, 1
-  %150 = icmp slt i32 %.06.i.i.i, %139
-  br i1 %150, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
+147:                                              ; preds = %143
+  %148 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %148, 1
+  %149 = icmp slt i32 %.06.i.i.i, %139
+  br i1 %149, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %148
-  %151 = and i64 %indvars.iv.i.i, 4294967295
-  %152 = add nuw nsw i64 %151, 1
-  br label %153
+.lr.ph.i.i.i:                                     ; preds = %147
+  %150 = and i64 %indvars.iv.i.i, 4294967295
+  %151 = add nuw nsw i64 %150, 1
+  br label %152
 
-153:                                              ; preds = %153, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %151, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %153 ]
-  %indvars.iv.i.i.i = phi i64 [ %152, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %153 ]
-  %154 = load ptr, ptr %141, align 8
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %indvars.iv.i.i.i
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds ptr, ptr %154, i64 %indvars.iv10.i.i.i
-  store ptr %156, ptr %157, align 8
+152:                                              ; preds = %152, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %150, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %152 ]
+  %indvars.iv.i.i.i = phi i64 [ %151, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %152 ]
+  %153 = load ptr, ptr %141, align 8
+  %154 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv.i.i.i
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv10.i.i.i
+  store ptr %155, ptr %156, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %158 = load i32, ptr %138, align 8
-  %159 = sext i32 %158 to i64
-  %160 = icmp slt i64 %indvars.iv.next.i.i.i, %159
+  %157 = load i32, ptr %138, align 8
+  %158 = sext i32 %157 to i64
+  %159 = icmp slt i64 %indvars.iv.next.i.i.i, %158
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %160, label %153, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
+  br i1 %159, label %152, label %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, !llvm.loop !19
 
-_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %153, %148
-  %.lcssa.i.i.i = phi i32 [ %139, %148 ], [ %158, %153 ]
-  %161 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %161, ptr %138, align 8
+_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i: ; preds = %152, %147
+  %.lcssa.i.i.i = phi i32 [ %139, %147 ], [ %157, %152 ]
+  %160 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %160, ptr %138, align 8
   br label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
 
-162:                                              ; preds = %144
+161:                                              ; preds = %143
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %143
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %144, !llvm.loop !20
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, label %143, !llvm.loop !20
 
-_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %162, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %_ZN7ciField4typeEv.exit
-  %163 = getelementptr inbounds i8, ptr %137, i64 560
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %166, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
+_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i: ; preds = %161, %_ZN17GrowableArrayViewIP4NodeE9remove_atEi.exit.i.i, %_ZN7ciField4typeEv.exit
+  %162 = getelementptr inbounds i8, ptr %137, i64 560
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp sgt i32 %163, 0
+  br i1 %164, label %165, label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-166:                                              ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
+165:                                              ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i
   call void @_ZN7Compile21remove_coarsened_lockEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %137, ptr noundef %1) #6
   br label %_ZN7Compile17remove_macro_nodeEP4Node.exit
 
-_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %166
+_ZN7Compile17remove_macro_nodeEP4Node.exit:       ; preds = %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i, %165
   ret ptr %103
 }
 

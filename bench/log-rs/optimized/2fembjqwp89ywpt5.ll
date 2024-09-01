@@ -142,8 +142,8 @@ define noundef i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$
 
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
-  %exitcond.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit", label %21
+  %exitcond.not.i.i.i = icmp eq i64 %20, %16
+  br i1 %exitcond.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit", label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
@@ -263,8 +263,8 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
-  %exitcond.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.i.i.i, label %switch.lookup, label %21
+  %exitcond.not.i.i.i = icmp eq i64 %20, %16
+  br i1 %exitcond.not.i.i.i, label %switch.lookup, label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1

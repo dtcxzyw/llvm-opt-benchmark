@@ -86,8 +86,8 @@ define noundef i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noundef %0, i32 noun
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %23 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %23)
-  %.not25.i.not = icmp eq i32 %24, 0
-  br i1 %.not25.i.not, label %25, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %.not25.not.i = icmp eq i32 %24, 0
+  br i1 %.not25.not.i, label %25, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @debug, align 8
@@ -267,8 +267,8 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %24 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %24)
-  %.not25.i.not = icmp eq i32 %25, 0
-  br i1 %.not25.i.not, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %.not25.not.i = icmp eq i32 %25, 0
+  br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @debug, align 8
@@ -501,8 +501,8 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %30 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %31 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %30)
-  %.not25.i.not = icmp eq i32 %31, 0
-  br i1 %.not25.i.not, label %32, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %.not25.not.i = icmp eq i32 %31, 0
+  br i1 %.not25.not.i, label %32, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @debug, align 8

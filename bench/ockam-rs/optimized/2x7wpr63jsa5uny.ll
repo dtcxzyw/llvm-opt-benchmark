@@ -1762,8 +1762,8 @@ default.unreachable35:                            ; preds = %1
   %18 = getelementptr inbounds i8, ptr %14, i64 64
   %19 = load ptr, ptr %18, align 8, !alias.scope !253, !noundef !5
   store ptr null, ptr %18, align 8, !alias.scope !253
-  %.not.not.i = icmp eq ptr %19, null
-  br i1 %.not.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit", label %20
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit", label %20
 
 20:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !253
@@ -11285,8 +11285,8 @@ common.ret:                                       ; preds = %838, %841
   %114 = getelementptr inbounds i8, ptr %108, i64 200
   %115 = load ptr, ptr %114, align 8, !alias.scope !1691, !noundef !5
   store ptr null, ptr %114, align 8, !alias.scope !1691
-  %.not.not.i.i = icmp eq ptr %115, null
-  br i1 %.not.not.i.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit.i", label %116
+  %.not.i.i = icmp eq ptr %115, null
+  br i1 %.not.i.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit.i", label %116
 
 116:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !1694
@@ -20572,8 +20572,8 @@ common.ret:                                       ; preds = %838, %841
   %114 = getelementptr inbounds i8, ptr %108, i64 200
   %115 = load ptr, ptr %114, align 8, !alias.scope !2716, !noundef !5
   store ptr null, ptr %114, align 8, !alias.scope !2716
-  %.not.not.i.i = icmp eq ptr %115, null
-  br i1 %.not.not.i.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit.i", label %116
+  %.not.i.i = icmp eq ptr %115, null
+  br i1 %.not.i.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit.i", label %116
 
 116:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !2719

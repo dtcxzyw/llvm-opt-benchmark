@@ -304,28 +304,28 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE5clearEv.exit: ; preds = %9, %10, 
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
-  %.not2425 = icmp eq ptr %17, %19
-  br i1 %.not2425, label %.thread, label %.lr.ph
+  %.not24 = icmp eq ptr %17, %19
+  br i1 %.not24, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE5clearEv.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %.pre27 = load ptr, ptr %22, align 8
+  %.pre = load ptr, ptr %22, align 8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit
-  %25 = phi ptr [ %.pre27, %.lr.ph ], [ %63, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit ]
-  %.sroa.021.026 = phi ptr [ %17, %.lr.ph ], [ %64, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit ]
-  %26 = load i32, ptr %.sroa.021.026, align 4
+  %25 = phi ptr [ %.pre, %.lr.ph ], [ %63, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit ]
+  %.sroa.021.025 = phi ptr [ %17, %.lr.ph ], [ %64, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit ]
+  %26 = load i32, ptr %.sroa.021.025, align 4
   %27 = load ptr, ptr %21, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.sroa.021.026, i64 4
+  %33 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, %32
   %36 = load ptr, ptr %23, align 8
@@ -404,9 +404,9 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gn
 
 _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit: ; preds = %37, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
   %63 = phi ptr [ %39, %37 ], [ %60, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.021.026, i64 8
-  %.not24 = icmp eq ptr %64, %19
-  br i1 %.not24, label %.thread, label %24
+  %64 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 8
+  %.not = icmp eq ptr %64, %19
+  br i1 %.not, label %.thread, label %24
 
 .thread:                                          ; preds = %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE5clearEv.exit, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE5clearEv.exit.thread
   %65 = getelementptr inbounds i8, ptr %0, i64 8

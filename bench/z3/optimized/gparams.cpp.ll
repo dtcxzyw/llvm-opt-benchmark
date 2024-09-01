@@ -2637,10 +2637,7 @@ for.body.preheader:                               ; preds = %invoke.cont
   %wide.trip.count = and i64 %call, 4294967295
   br label %for.body
 
-for.cond36.preheader:                             ; preds = %for.inc
-  br i1 %cmp323.not, label %for.end56, label %for.body38.preheader
-
-for.body38.preheader:                             ; preds = %for.cond36.preheader
+for.body38.preheader:                             ; preds = %for.inc
   %wide.trip.count33 = and i64 %call, 4294967295
   br label %for.body38
 
@@ -2727,7 +2724,7 @@ invoke.cont31:                                    ; preds = %if.then29
 for.inc:                                          ; preds = %invoke.cont22, %invoke.cont31, %invoke.cont25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond36.preheader, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.body38.preheader, label %for.body, !llvm.loop !14
 
 for.cond36:                                       ; preds = %invoke.cont40
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
@@ -2759,7 +2756,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
   %call52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mod_name, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
           to label %cleanup unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
-for.end56:                                        ; preds = %for.cond36, %invoke.cont, %for.cond36.preheader
+for.end56:                                        ; preds = %for.cond36, %invoke.cont
   %call58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %param_name, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
           to label %invoke.cont57 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 

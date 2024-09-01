@@ -2570,7 +2570,7 @@ for.cond.cleanup:                                 ; preds = %_ZN6duckdbL10FastMe
   %all_constant.i = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load i8, ptr %all_constant.i, align 8, !tbaa !67, !range !68, !noundef !69
   %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %for.body15.preheader, label %if.end
+  br i1 %tobool.i.not, label %if.then, label %if.end
 
 for.body:                                         ; preds = %entry, %_ZN6duckdbL10FastMemsetEPvim.exit
   %i.050 = phi i64 [ %inc, %_ZN6duckdbL10FastMemsetEPvim.exit ], [ 0, %entry ]
@@ -3869,7 +3869,7 @@ _ZN6duckdbL10FastMemsetEPvim.exit:                ; preds = %sw.default.i, %sw.b
   %exitcond.not = icmp eq i64 %inc, %append_count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !190
 
-for.body15.preheader:                             ; preds = %for.cond.cleanup
+if.then:                                          ; preds = %for.cond.cleanup
   %heap_size_offset.i = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load i64, ptr %heap_size_offset.i, align 8, !tbaa !70
   %data.i.i.i46 = getelementptr inbounds i8, ptr %chunk_state, i64 288
@@ -3878,7 +3878,7 @@ for.body15.preheader:                             ; preds = %for.cond.cleanup
   %7 = icmp ult i64 %append_count, 4
   br i1 %7, label %if.end.loopexit.unr-lcssa, label %for.body15.preheader.new
 
-for.body15.preheader.new:                         ; preds = %for.body15.preheader
+for.body15.preheader.new:                         ; preds = %if.then
   %unroll_iter = and i64 %append_count, -4
   br label %for.body15
 
@@ -3919,8 +3919,8 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %niter.ncmp.3 = icmp eq i64 %inc19.3, %unroll_iter
   br i1 %niter.ncmp.3, label %if.end.loopexit.unr-lcssa, label %for.body15, !llvm.loop !191
 
-if.end.loopexit.unr-lcssa:                        ; preds = %for.body15, %for.body15.preheader
-  %i11.052.unr = phi i64 [ 0, %for.body15.preheader ], [ %unroll_iter, %for.body15 ]
+if.end.loopexit.unr-lcssa:                        ; preds = %for.body15, %if.then
+  %i11.052.unr = phi i64 [ 0, %if.then ], [ %unroll_iter, %for.body15 ]
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %if.end, label %for.body15.epil
 
@@ -4248,7 +4248,7 @@ for.cond.cleanup:                                 ; preds = %_ZNK6duckdb15Select
   %all_constant.i = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load i8, ptr %all_constant.i, align 8, !tbaa !67, !range !68, !noundef !69
   %tobool.i.not = icmp eq i8 %3, 0
-  br i1 %tobool.i.not, label %for.body20.lr.ph, label %cleanup49
+  br i1 %tobool.i.not, label %if.then, label %cleanup49
 
 for.body:                                         ; preds = %entry, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %i.098 = phi i64 [ %inc, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %entry ]
@@ -4273,7 +4273,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %cond.true.i, %for.b
   %exitcond.not = icmp eq i64 %inc, %append_count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !197
 
-for.body20.lr.ph:                                 ; preds = %for.cond.cleanup
+if.then:                                          ; preds = %for.cond.cleanup
   %heap_locations = getelementptr inbounds i8, ptr %input, i64 152
   %data.i.i.i82 = getelementptr inbounds i8, ptr %input, i64 184
   %8 = load ptr, ptr %data.i.i.i82, align 8, !tbaa !145
@@ -4286,7 +4286,7 @@ for.body20.lr.ph:                                 ; preds = %for.cond.cleanup
   %tobool.not.i85 = icmp eq ptr %11, null
   br i1 %tobool.not.i85, label %for.body20.us.preheader, label %for.body20.preheader
 
-for.body20.preheader:                             ; preds = %for.body20.lr.ph
+for.body20.preheader:                             ; preds = %if.then
   %xtraiter = and i64 %append_count, 3
   %12 = icmp ult i64 %append_count, 4
   br i1 %12, label %for.cond.cleanup19.loopexit129.unr-lcssa, label %for.body20.preheader.new
@@ -4295,7 +4295,7 @@ for.body20.preheader.new:                         ; preds = %for.body20.preheade
   %unroll_iter = and i64 %append_count, -4
   br label %for.body20
 
-for.body20.us.preheader:                          ; preds = %for.body20.lr.ph
+for.body20.us.preheader:                          ; preds = %if.then
   %min.iters.check = icmp ult i64 %append_count, 4
   br i1 %min.iters.check, label %for.body20.us.preheader11, label %vector.ph
 

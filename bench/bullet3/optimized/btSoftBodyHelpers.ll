@@ -4310,75 +4310,75 @@ for.cond75.preheader.us:                          ; preds = %delete.notnull69, %
   %iy.1164.us = phi i32 [ %add83.us, %for.cond75.for.inc164_crit_edge.us ], [ 0, %delete.notnull69 ]
   %mul78.us = mul nuw nsw i32 %iy.1164.us, %resx
   %add83.us = add nuw nsw i32 %iy.1164.us, 1
-  %cmp84.us.not = icmp slt i32 %add83.us, %resy
+  %cmp84.us = icmp slt i32 %add83.us, %resy
   %mul95.us = mul nuw nsw i32 %add83.us, %resx
-  br i1 %cmp84.us.not, label %for.body77.us166, label %for.body77.us.us
+  br i1 %cmp84.us, label %for.body77.us.us, label %for.body77.us166
 
-for.body77.us166:                                 ; preds = %for.cond75.preheader.us, %for.inc161.us
-  %ix74.0162.us167 = phi i32 [ %add80.us169, %for.inc161.us ], [ 0, %for.cond75.preheader.us ]
-  %add79.us168 = add nuw nsw i32 %ix74.0162.us167, %mul78.us
+for.body77.us166:                                 ; preds = %for.cond75.preheader.us, %if.end91.us173
+  %ix74.0162.us167 = phi i32 [ %add80.us169, %if.end91.us173 ], [ 0, %for.cond75.preheader.us ]
   %add80.us169 = add nuw nsw i32 %ix74.0162.us167, 1
-  %cmp81.us170.not = icmp slt i32 %add80.us169, %resx
-  br i1 %cmp81.us170.not, label %if.then87.us171, label %for.inc161.us.critedge
+  %cmp81.not.us170 = icmp slt i32 %add80.us169, %resx
+  br i1 %cmp81.not.us170, label %if.then87.us171, label %if.end91.us173
 
 if.then87.us171:                                  ; preds = %for.body77.us166
+  %add79.us168 = add nuw nsw i32 %ix74.0162.us167, %mul78.us
   %add90.us172 = add nuw nsw i32 %add80.us169, %mul78.us
   tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add90.us172, ptr noundef null, i1 noundef zeroext false)
-  %add96.us = add nuw nsw i32 %ix74.0162.us167, %mul95.us
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add96.us, ptr noundef null, i1 noundef zeroext false)
-  %add101.us = add nuw nsw i32 %ix74.0162.us167, %iy.1164.us
-  %and102.us = and i32 %add101.us, 1
-  %tobool103.not.us = icmp eq i32 %and102.us, 0
-  br i1 %tobool103.not.us, label %if.else.us, label %if.then104.us
+  br label %if.end91.us173
 
-if.then104.us:                                    ; preds = %if.then87.us171
-  %add113.us = add nuw nsw i32 %add80.us169, %mul95.us
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add90.us172, i32 noundef %add113.us, ptr noundef null)
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add113.us, i32 noundef %add96.us, ptr noundef null)
-  br i1 %gendiags, label %if.then124.us, label %for.inc161.us
+if.end91.us173:                                   ; preds = %if.then87.us171, %for.body77.us166
+  %exitcond188.not = icmp eq i32 %add80.us169, %resx
+  br i1 %exitcond188.not, label %for.cond75.for.inc164_crit_edge.us, label %for.body77.us166, !llvm.loop !33
 
-if.then124.us:                                    ; preds = %if.then104.us
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add113.us, ptr noundef null, i1 noundef zeroext false)
-  br label %for.inc161.us
-
-if.else.us:                                       ; preds = %if.then87.us171
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add96.us, i32 noundef %add79.us168, i32 noundef %add90.us172, ptr noundef null)
-  %add149.us = add nuw nsw i32 %add80.us169, %mul95.us
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add96.us, i32 noundef %add90.us172, i32 noundef %add149.us, ptr noundef null)
-  br i1 %gendiags, label %if.then151.us, label %for.inc161.us
-
-if.then151.us:                                    ; preds = %if.else.us
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add90.us172, i32 noundef %add96.us, ptr noundef null, i1 noundef zeroext false)
-  br label %for.inc161.us
-
-for.inc161.us.critedge:                           ; preds = %for.body77.us166
-  %add96.us.c = add nuw nsw i32 %ix74.0162.us167, %mul95.us
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us168, i32 noundef %add96.us.c, ptr noundef null, i1 noundef zeroext false)
-  br label %for.inc161.us
-
-for.inc161.us:                                    ; preds = %for.inc161.us.critedge, %if.then151.us, %if.else.us, %if.then124.us, %if.then104.us
-  %exitcond189.not = icmp eq i32 %add80.us169, %resx
-  br i1 %exitcond189.not, label %for.cond75.for.inc164_crit_edge.us, label %for.body77.us166, !llvm.loop !33
-
-for.cond75.for.inc164_crit_edge.us:               ; preds = %if.end91.us.us, %for.inc161.us
+for.cond75.for.inc164_crit_edge.us:               ; preds = %if.end91.us173, %for.inc161.us.us
   %exitcond190.not = icmp eq i32 %add83.us, %resy
   br i1 %exitcond190.not, label %return, label %for.cond75.preheader.us, !llvm.loop !34
 
-for.body77.us.us:                                 ; preds = %for.cond75.preheader.us, %if.end91.us.us
-  %ix74.0162.us.us = phi i32 [ %add80.us.us, %if.end91.us.us ], [ 0, %for.cond75.preheader.us ]
+for.body77.us.us:                                 ; preds = %for.cond75.preheader.us, %for.inc161.us.us
+  %ix74.0162.us.us = phi i32 [ %add80.us.us, %for.inc161.us.us ], [ 0, %for.cond75.preheader.us ]
+  %add79.us.us = add nuw nsw i32 %ix74.0162.us.us, %mul78.us
   %add80.us.us = add nuw nsw i32 %ix74.0162.us.us, 1
-  %cmp81.us.us.not = icmp slt i32 %add80.us.us, %resx
-  br i1 %cmp81.us.us.not, label %if.then87.us.us, label %if.end91.us.us
+  %cmp81.not.us.us = icmp slt i32 %add80.us.us, %resx
+  br i1 %cmp81.not.us.us, label %if.then87.us.us, label %for.inc161.us.us.critedge
 
 if.then87.us.us:                                  ; preds = %for.body77.us.us
-  %add79.us.us = add nuw nsw i32 %ix74.0162.us.us, %mul78.us
   %add90.us.us = add nuw nsw i32 %add80.us.us, %mul78.us
   tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add90.us.us, ptr noundef null, i1 noundef zeroext false)
-  br label %if.end91.us.us
+  %add96.us.us = add nuw nsw i32 %ix74.0162.us.us, %mul95.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add96.us.us, ptr noundef null, i1 noundef zeroext false)
+  %add101.us.us = add nuw nsw i32 %ix74.0162.us.us, %iy.1164.us
+  %and102.us.us = and i32 %add101.us.us, 1
+  %tobool103.not.us.us = icmp eq i32 %and102.us.us, 0
+  br i1 %tobool103.not.us.us, label %if.else.us.us, label %if.then104.us.us
 
-if.end91.us.us:                                   ; preds = %if.then87.us.us, %for.body77.us.us
-  %exitcond188.not = icmp eq i32 %add80.us.us, %resx
-  br i1 %exitcond188.not, label %for.cond75.for.inc164_crit_edge.us, label %for.body77.us.us, !llvm.loop !33
+if.then104.us.us:                                 ; preds = %if.then87.us.us
+  %add113.us.us = add nuw nsw i32 %add80.us.us, %mul95.us
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add90.us.us, i32 noundef %add113.us.us, ptr noundef null)
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add113.us.us, i32 noundef %add96.us.us, ptr noundef null)
+  br i1 %gendiags, label %if.then124.us.us, label %for.inc161.us.us
+
+if.then124.us.us:                                 ; preds = %if.then104.us.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add113.us.us, ptr noundef null, i1 noundef zeroext false)
+  br label %for.inc161.us.us
+
+if.else.us.us:                                    ; preds = %if.then87.us.us
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add96.us.us, i32 noundef %add79.us.us, i32 noundef %add90.us.us, ptr noundef null)
+  %add149.us.us = add nuw nsw i32 %add80.us.us, %mul95.us
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add96.us.us, i32 noundef %add90.us.us, i32 noundef %add149.us.us, ptr noundef null)
+  br i1 %gendiags, label %if.then151.us.us, label %for.inc161.us.us
+
+if.then151.us.us:                                 ; preds = %if.else.us.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add90.us.us, i32 noundef %add96.us.us, ptr noundef null, i1 noundef zeroext false)
+  br label %for.inc161.us.us
+
+for.inc161.us.us.critedge:                        ; preds = %for.body77.us.us
+  %add96.us.us.c = add nuw nsw i32 %ix74.0162.us.us, %mul95.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add79.us.us, i32 noundef %add96.us.us.c, ptr noundef null, i1 noundef zeroext false)
+  br label %for.inc161.us.us
+
+for.inc161.us.us:                                 ; preds = %for.inc161.us.us.critedge, %if.then151.us.us, %if.else.us.us, %if.then124.us.us, %if.then104.us.us
+  %exitcond189.not = icmp eq i32 %add80.us.us, %resx
+  br i1 %exitcond189.not, label %for.cond75.for.inc164_crit_edge.us, label %for.body77.us.us, !llvm.loop !33
 
 return:                                           ; preds = %for.cond75.for.inc164_crit_edge.us, %delete.notnull69, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %call.i147, %delete.notnull69 ], [ %call.i147, %for.cond75.for.inc164_crit_edge.us ]
@@ -4641,7 +4641,7 @@ for.cond107.preheader.us:                         ; preds = %for.cond107.prehead
   %iy.1261.us = phi i32 [ %add113.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
   %z.0260.us = phi i32 [ %.us-phi.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
   %add113.us = add nuw nsw i32 %iy.1261.us, 1
-  %cmp114.us.not = icmp slt i32 %add113.us, %resy
+  %cmp114.us = icmp slt i32 %add113.us, %resy
   %mul116.us = mul nuw nsw i32 %iy.1261.us, %resx
   %mul122.us = mul nuw nsw i32 %add113.us, %resx
   %sub8.i.us = sub nsw i32 %sub4.i, %iy.1261.us
@@ -4651,102 +4651,102 @@ for.cond107.preheader.us:                         ; preds = %for.cond107.prehead
   %sub19.i.us = add i32 %sub4.i, %33
   %conv20.i.us = sitofp i32 %sub19.i.us to float
   %mul21.i.us = fmul float %div6.i, %conv20.i.us
-  br i1 %cmp114.us.not, label %for.body109.us262, label %for.body109.us.us
+  br i1 %cmp114.us, label %for.body109.us.us, label %for.body109.us262
 
-for.body109.us262:                                ; preds = %for.cond107.preheader.us, %for.inc196.us
-  %z.1258.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0260.us, %for.cond107.preheader.us ]
-  %ix106.0257.us263 = phi i32 [ %add110.us264, %for.inc196.us ], [ 0, %for.cond107.preheader.us ]
+for.body109.us262:                                ; preds = %for.cond107.preheader.us, %if.end130.us269
+  %ix106.0257.us263 = phi i32 [ %add110.us264, %if.end130.us269 ], [ 0, %for.cond107.preheader.us ]
   %add110.us264 = add nuw nsw i32 %ix106.0257.us263, 1
-  %cmp111.us265.not = icmp slt i32 %add110.us264, %resx
-  %add117.us266 = add nuw nsw i32 %ix106.0257.us263, %mul116.us
-  %add120.us267 = add nuw nsw i32 %add110.us264, %mul116.us
-  %add123.us = add nuw nsw i32 %ix106.0257.us263, %mul122.us
-  %add127.us = add nuw nsw i32 %add110.us264, %mul122.us
-  br i1 %cmp111.us265.not, label %if.then129.us268, label %for.inc196.us.critedge
+  %cmp111.not.us265 = icmp slt i32 %add110.us264, %resx
+  br i1 %cmp111.not.us265, label %if.then129.us268, label %if.end130.us269
 
 if.then129.us268:                                 ; preds = %for.body109.us262
+  %add120.us267 = add nuw nsw i32 %add110.us264, %mul116.us
+  %add117.us266 = add nuw nsw i32 %ix106.0257.us263, %mul116.us
   tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us266, i32 noundef %add120.us267, ptr noundef null, i1 noundef zeroext false)
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us266, i32 noundef %add123.us, ptr noundef null, i1 noundef zeroext false)
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us266, i32 noundef %add123.us, i32 noundef %add127.us, ptr noundef null)
-  br i1 %tobool137.not, label %if.end190.critedge.us, label %if.then138.us
+  br label %if.end130.us269
 
-if.then138.us:                                    ; preds = %if.then129.us268
-  %conv1.i.us = uitofp nneg i32 %ix106.0257.us263 to float
-  %mul.i.us = fmul float %div.i, %conv1.i.us
-  %idxprom141.us = sext i32 %z.1258.us to i64
-  %arrayidx142.us = getelementptr inbounds float, ptr %tex_coords, i64 %idxprom141.us
-  store float %mul.i.us, ptr %arrayidx142.us, align 4
-  %arrayidx146.us = getelementptr i8, ptr %arrayidx142.us, i64 4
-  store float %mul10.i.us, ptr %arrayidx146.us, align 4
-  %arrayidx150.us = getelementptr i8, ptr %arrayidx142.us, i64 8
-  store float %mul.i.us, ptr %arrayidx150.us, align 4
-  %arrayidx154.us = getelementptr i8, ptr %arrayidx142.us, i64 12
-  store float %mul21.i.us, ptr %arrayidx154.us, align 4
-  %conv28.i.us = uitofp nneg i32 %add110.us264 to float
-  %mul29.i.us = fmul float %div.i, %conv28.i.us
-  %arrayidx158.us = getelementptr i8, ptr %arrayidx142.us, i64 16
-  store float %mul29.i.us, ptr %arrayidx158.us, align 4
-  %arrayidx162.us = getelementptr i8, ptr %arrayidx142.us, i64 20
-  store float %mul21.i.us, ptr %arrayidx162.us, align 4
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add127.us, i32 noundef %add120.us267, i32 noundef %add117.us266, ptr noundef null)
-  %arrayidx169.us = getelementptr i8, ptr %arrayidx142.us, i64 24
-  store float %mul29.i.us, ptr %arrayidx169.us, align 4
-  %arrayidx173.us = getelementptr i8, ptr %arrayidx142.us, i64 28
-  store float %mul21.i.us, ptr %arrayidx173.us, align 4
-  %arrayidx177.us = getelementptr i8, ptr %arrayidx142.us, i64 32
-  store float %mul29.i.us, ptr %arrayidx177.us, align 4
-  %arrayidx181.us = getelementptr i8, ptr %arrayidx142.us, i64 36
-  store float %mul10.i.us, ptr %arrayidx181.us, align 4
-  %arrayidx185.us = getelementptr i8, ptr %arrayidx142.us, i64 40
-  store float %mul.i.us, ptr %arrayidx185.us, align 4
-  %arrayidx189.us = getelementptr i8, ptr %arrayidx142.us, i64 44
-  store float %mul10.i.us, ptr %arrayidx189.us, align 4
-  br label %if.end190.us
+if.end130.us269:                                  ; preds = %if.then129.us268, %for.body109.us262
+  %exitcond284.not = icmp eq i32 %add110.us264, %resx
+  br i1 %exitcond284.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us262, !llvm.loop !37
 
-if.end190.critedge.us:                            ; preds = %if.then129.us268
-  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add127.us, i32 noundef %add120.us267, i32 noundef %add117.us266, ptr noundef null)
-  br label %if.end190.us
-
-if.end190.us:                                     ; preds = %if.end190.critedge.us, %if.then138.us
-  br i1 %gendiags, label %if.then192.us, label %if.end193.us
-
-if.then192.us:                                    ; preds = %if.end190.us
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us266, i32 noundef %add127.us, ptr noundef null, i1 noundef zeroext false)
-  br label %if.end193.us
-
-if.end193.us:                                     ; preds = %if.then192.us, %if.end190.us
-  %add194.us = add nsw i32 %z.1258.us, 12
-  br label %for.inc196.us
-
-for.inc196.us.critedge:                           ; preds = %for.body109.us262
-  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us266, i32 noundef %add123.us, ptr noundef null, i1 noundef zeroext false)
-  br label %for.inc196.us
-
-for.inc196.us:                                    ; preds = %for.inc196.us.critedge, %if.end193.us
-  %z.2.us = phi i32 [ %add194.us, %if.end193.us ], [ %z.1258.us, %for.inc196.us.critedge ]
-  %exitcond285.not = icmp eq i32 %add110.us264, %resx
-  br i1 %exitcond285.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us262, !llvm.loop !37
-
-for.cond107.for.inc199_crit_edge.us:              ; preds = %if.end130.us.us, %for.inc196.us
-  %.us-phi.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0260.us, %if.end130.us.us ]
+for.cond107.for.inc199_crit_edge.us:              ; preds = %if.end130.us269, %for.inc196.us.us
+  %.us-phi.us = phi i32 [ %z.2.us.us, %for.inc196.us.us ], [ %z.0260.us, %if.end130.us269 ]
   %exitcond286.not = icmp eq i32 %add113.us, %resy
   br i1 %exitcond286.not, label %return, label %for.cond107.preheader.us, !llvm.loop !38
 
-for.body109.us.us:                                ; preds = %for.cond107.preheader.us, %if.end130.us.us
-  %ix106.0257.us.us = phi i32 [ %add110.us.us, %if.end130.us.us ], [ 0, %for.cond107.preheader.us ]
+for.body109.us.us:                                ; preds = %for.cond107.preheader.us, %for.inc196.us.us
+  %z.1258.us.us = phi i32 [ %z.2.us.us, %for.inc196.us.us ], [ %z.0260.us, %for.cond107.preheader.us ]
+  %ix106.0257.us.us = phi i32 [ %add110.us.us, %for.inc196.us.us ], [ 0, %for.cond107.preheader.us ]
   %add110.us.us = add nuw nsw i32 %ix106.0257.us.us, 1
-  %cmp111.us.us.not = icmp slt i32 %add110.us.us, %resx
-  br i1 %cmp111.us.us.not, label %if.then129.us.us, label %if.end130.us.us
+  %cmp111.not.us.us = icmp slt i32 %add110.us.us, %resx
+  %add117.us.us = add nuw nsw i32 %ix106.0257.us.us, %mul116.us
+  %add120.us.us = add nuw nsw i32 %add110.us.us, %mul116.us
+  %add123.us.us = add nuw nsw i32 %ix106.0257.us.us, %mul122.us
+  %add127.us.us = add nuw nsw i32 %add110.us.us, %mul122.us
+  br i1 %cmp111.not.us.us, label %if.then129.us.us, label %for.inc196.us.us.critedge
 
 if.then129.us.us:                                 ; preds = %for.body109.us.us
-  %add120.us.us = add nuw nsw i32 %add110.us.us, %mul116.us
-  %add117.us.us = add nuw nsw i32 %ix106.0257.us.us, %mul116.us
   tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add120.us.us, ptr noundef null, i1 noundef zeroext false)
-  br label %if.end130.us.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add123.us.us, ptr noundef null, i1 noundef zeroext false)
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add123.us.us, i32 noundef %add127.us.us, ptr noundef null)
+  br i1 %tobool137.not, label %if.end190.critedge.us.us, label %if.then138.us.us
 
-if.end130.us.us:                                  ; preds = %if.then129.us.us, %for.body109.us.us
-  %exitcond284.not = icmp eq i32 %add110.us.us, %resx
-  br i1 %exitcond284.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us.us, !llvm.loop !37
+if.then138.us.us:                                 ; preds = %if.then129.us.us
+  %conv1.i.us.us = uitofp nneg i32 %ix106.0257.us.us to float
+  %mul.i.us.us = fmul float %div.i, %conv1.i.us.us
+  %idxprom141.us.us = sext i32 %z.1258.us.us to i64
+  %arrayidx142.us.us = getelementptr inbounds float, ptr %tex_coords, i64 %idxprom141.us.us
+  store float %mul.i.us.us, ptr %arrayidx142.us.us, align 4
+  %arrayidx146.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 4
+  store float %mul10.i.us, ptr %arrayidx146.us.us, align 4
+  %arrayidx150.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 8
+  store float %mul.i.us.us, ptr %arrayidx150.us.us, align 4
+  %arrayidx154.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 12
+  store float %mul21.i.us, ptr %arrayidx154.us.us, align 4
+  %conv28.i.us.us = uitofp nneg i32 %add110.us.us to float
+  %mul29.i.us.us = fmul float %div.i, %conv28.i.us.us
+  %arrayidx158.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 16
+  store float %mul29.i.us.us, ptr %arrayidx158.us.us, align 4
+  %arrayidx162.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 20
+  store float %mul21.i.us, ptr %arrayidx162.us.us, align 4
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add127.us.us, i32 noundef %add120.us.us, i32 noundef %add117.us.us, ptr noundef null)
+  %arrayidx169.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 24
+  store float %mul29.i.us.us, ptr %arrayidx169.us.us, align 4
+  %arrayidx173.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 28
+  store float %mul21.i.us, ptr %arrayidx173.us.us, align 4
+  %arrayidx177.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 32
+  store float %mul29.i.us.us, ptr %arrayidx177.us.us, align 4
+  %arrayidx181.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 36
+  store float %mul10.i.us, ptr %arrayidx181.us.us, align 4
+  %arrayidx185.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 40
+  store float %mul.i.us.us, ptr %arrayidx185.us.us, align 4
+  %arrayidx189.us.us = getelementptr i8, ptr %arrayidx142.us.us, i64 44
+  store float %mul10.i.us, ptr %arrayidx189.us.us, align 4
+  br label %if.end190.us.us
+
+if.end190.critedge.us.us:                         ; preds = %if.then129.us.us
+  tail call void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add127.us.us, i32 noundef %add120.us.us, i32 noundef %add117.us.us, ptr noundef null)
+  br label %if.end190.us.us
+
+if.end190.us.us:                                  ; preds = %if.end190.critedge.us.us, %if.then138.us.us
+  br i1 %gendiags, label %if.then192.us.us, label %if.end193.us.us
+
+if.then192.us.us:                                 ; preds = %if.end190.us.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add127.us.us, ptr noundef null, i1 noundef zeroext false)
+  br label %if.end193.us.us
+
+if.end193.us.us:                                  ; preds = %if.then192.us.us, %if.end190.us.us
+  %add194.us.us = add nsw i32 %z.1258.us.us, 12
+  br label %for.inc196.us.us
+
+for.inc196.us.us.critedge:                        ; preds = %for.body109.us.us
+  tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add123.us.us, ptr noundef null, i1 noundef zeroext false)
+  br label %for.inc196.us.us
+
+for.inc196.us.us:                                 ; preds = %for.inc196.us.us.critedge, %if.end193.us.us
+  %z.2.us.us = phi i32 [ %add194.us.us, %if.end193.us.us ], [ %z.1258.us.us, %for.inc196.us.us.critedge ]
+  %exitcond285.not = icmp eq i32 %add110.us.us, %resx
+  br i1 %exitcond285.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us.us, !llvm.loop !37
 
 return:                                           ; preds = %for.cond107.for.inc199_crit_edge.us, %for.cond107.preheader.lr.ph, %delete.notnull101, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %call.i200, %delete.notnull101 ], [ %call.i200, %for.cond107.preheader.lr.ph ], [ %call.i200, %for.cond107.for.inc199_crit_edge.us ]
@@ -6006,14 +6006,10 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody12Tet
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp slt i32 %newsize, %0
-  br i1 %cmp, label %if.end15, label %if.else
-
-if.else:                                          ; preds = %entry
   %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %if.then4, label %if.end15
 
-if.then4:                                         ; preds = %if.else
+if.then4:                                         ; preds = %entry
   %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp slt i32 %1, %newsize
@@ -6100,9 +6096,9 @@ if.end:                                           ; preds = %_ZNK20btAlignedObje
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i, ptr %m_data.i5.i, align 8
   store i32 %newsize, ptr %m_capacity.i.i, align 8
-  br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
+  br label %for.body8.lr.ph
 
-for.body8.lr.ph:                                  ; preds = %if.then4, %if.end
+for.body8.lr.ph:                                  ; preds = %if.end, %if.then4
   %m_data9 = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %fillData, i64 16
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %fillData, i64 32
@@ -6145,7 +6141,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end15, label %for.body8, !llvm.loop !52
 
-if.end15:                                         ; preds = %for.body8, %if.else, %entry, %if.end
+if.end15:                                         ; preds = %for.body8, %entry
   store i32 %newsize, ptr %m_size.i, align 4
   ret void
 }
@@ -7058,15 +7054,15 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   store i32 0, ptr %arrayidx11.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i.i.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i.i, label %for.body8.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i, label %for.body8.i.i, !llvm.loop !54
 
-for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
+_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %9, ptr %m_size.i.i, align 4
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i6.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
+  %indvars.iv.i6.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv.i6.i
   %15 = load ptr, ptr %m_data.i4.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i6.i
@@ -10002,16 +9998,16 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   store i32 0, ptr %arrayidx11.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i.i.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i.i, label %for.body8.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i, label %for.body8.i.i, !llvm.loop !54
 
-for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
+_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %4, ptr %m_size.i.i, align 4
   %m_data.i4.i = getelementptr inbounds i8, ptr %_Val, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i6.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
+  %indvars.iv.i6.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv.i6.i
   %10 = load ptr, ptr %m_data.i4.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i6.i
@@ -11129,15 +11125,15 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   store ptr null, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i.i.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i.i, label %for.body8.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i, label %for.body8.i.i, !llvm.loop !94
 
-for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
+_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i: ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %9, ptr %m_size.i.i, align 4
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i6.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i
+  %indvars.iv.i6.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i6.i
   %15 = load ptr, ptr %m_data.i4.i, align 8
   %arrayidx3.i.i = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i6.i
@@ -12302,16 +12298,16 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   store i32 0, ptr %arrayidx11.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i.i.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i.i, label %for.body8.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i, label %for.body8.i.i, !llvm.loop !54
 
-for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
+_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %2, ptr %m_size.i.i, align 4
   %m_data.i4.i = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i6.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i
+  %indvars.iv.i6.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv.i6.i
   %8 = load ptr, ptr %m_data.i4.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i6.i
@@ -13620,16 +13616,16 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   store ptr null, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i.i.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i.i, label %for.body8.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i, label %for.body8.i.i, !llvm.loop !94
 
-for.body.lr.ph.i.i:                               ; preds = %for.body8.i.i
+_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i: ; preds = %for.body8.i.i
   %.pre.i = load ptr, ptr %m_data.i.i, align 8
   store i32 %2, ptr %m_size.i.i, align 4
   %m_data.i4.i = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i6.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i
+  %indvars.iv.i6.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i ], [ %indvars.iv.next.i7.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i6.i
   %8 = load ptr, ptr %m_data.i4.i, align 8
   %arrayidx3.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i6.i

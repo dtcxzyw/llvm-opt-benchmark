@@ -3904,12 +3904,12 @@ controller_fini_scheduling.exit320:               ; preds = %_slurmctld_backgrou
   br i1 %1440, label %.lr.ph128.i, label %._crit_edge129.i
 
 .lr.ph128.i:                                      ; preds = %.loopexit
-  %.pre167.i = load i32, ptr @pidfd, align 4
+  %.pre172.i = load i32, ptr @pidfd, align 4
   br label %1441
 
 1441:                                             ; preds = %.loopexit.i, %.lr.ph128.i
   %1442 = phi i64 [ %1439, %.lr.ph128.i ], [ %1460, %.loopexit.i ]
-  %1443 = phi i32 [ %.pre167.i, %.lr.ph128.i ], [ %1461, %.loopexit.i ]
+  %1443 = phi i32 [ %.pre172.i, %.lr.ph128.i ], [ %1461, %.loopexit.i ]
   %indvars.iv164.i = phi i64 [ 3, %.lr.ph128.i ], [ %indvars.iv.next165.i, %.loopexit.i ]
   %1444 = load i32, ptr %551, align 4
   %1445 = zext i32 %1444 to i64
@@ -3946,11 +3946,11 @@ controller_fini_scheduling.exit320:               ; preds = %_slurmctld_backgrou
   %1458 = trunc nuw nsw i64 %indvars.iv164.i to i32
   %1459 = call i32 @close(i32 noundef %1458) #21
   %.pre.i = load i32, ptr @pidfd, align 4
-  %.pre168.i = load i64, ptr %3, align 8
+  %.pre173.i = load i64, ptr %3, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %1453, %.critedge.i324, %1441
-  %1460 = phi i64 [ %.pre168.i, %.critedge.i324 ], [ %1442, %1441 ], [ %1442, %1453 ]
+  %1460 = phi i64 [ %.pre173.i, %.critedge.i324 ], [ %1442, %1441 ], [ %1442, %1453 ]
   %1461 = phi i32 [ %.pre.i, %.critedge.i324 ], [ %1443, %1441 ], [ %1443, %1453 ]
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %1462 = icmp ugt i64 %1460, %indvars.iv.next165.i

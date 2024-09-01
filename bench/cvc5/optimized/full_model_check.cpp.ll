@@ -15116,8 +15116,8 @@ if.then.i.i.i:                                    ; preds = %_ZN4cvc58internal12
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i.i
   %retval.sroa.0.0.in.i.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8
-  %cmp.i.not.i.i.i.not = icmp ne ptr %retval.sroa.0.0.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.not, label %for.body.i.i.i, label %cleanup.action
+  %cmp.i.not.i.i.i.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i, null
+  br i1 %cmp.i.not.i.i.i.not.not, label %for.body.i.i.i, label %cleanup.action
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
@@ -15180,7 +15180,7 @@ lor.end.thread2360:                               ; preds = %call2.i.i.i.i.noexc
 
 cleanup.action:                                   ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i.i.i, %for.body.i.i.i, %for.cond.i.i.i, %lor.end.thread2360
   %23 = phi ptr [ %.pre.pre, %lor.end.thread2360 ], [ %10, %for.cond.i.i.i ], [ %10, %for.body.i.i.i ], [ %.pre.pre, %for.cond.i.i.i.i.i ], [ %.pre.pre, %if.end3.i.i.i.i.i ], [ %.pre.pre, %lor.lhs.false.i.i.i.i.i ]
-  %lnot2364 = phi i1 [ %cmp.i.i2152362, %lor.end.thread2360 ], [ %cmp.i.not.i.i.i.not, %for.cond.i.i.i ], [ %cmp.i.not.i.i.i.not, %for.body.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i ], [ true, %for.cond.i.i.i.i.i ]
+  %lnot2364 = phi i1 [ %cmp.i.i2152362, %lor.end.thread2360 ], [ %cmp.i.not.i.i.i.not.not, %for.cond.i.i.i ], [ %cmp.i.not.i.i.i.not.not, %for.body.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i ], [ true, %for.cond.i.i.i.i.i ]
   %bf.load.i.i217 = load i64, ptr %23, align 8
   %24 = and i64 %bf.load.i.i217, 1152920405095219200
   %cmp.not.i.i218 = icmp eq i64 %24, 1152920405095219200
@@ -17893,8 +17893,8 @@ invoke.cont539:                                   ; preds = %lor.rhs.i2126, %if.
   %sub.ptr.div.i2143 = lshr exact i64 %sub.ptr.sub.i2142, 2
   %297 = trunc i64 %sub.ptr.div.i2143 to i32
   %i536.02387 = add i32 %297, -1
-  %cmp5442388 = icmp slt i32 %i536.02387, 0
-  br i1 %cmp5442388, label %return.sink.split, label %for.body545.preheader
+  %cmp5442388 = icmp sgt i32 %i536.02387, -1
+  br i1 %cmp5442388, label %for.body545.preheader, label %return.sink.split
 
 for.body545.preheader:                            ; preds = %invoke.cont539
   %298 = zext nneg i32 %i536.02387 to i64
@@ -18288,8 +18288,8 @@ ehcleanup583:                                     ; preds = %lpad578, %lpad576
 
 for.inc587:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2270, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2325
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp544 = icmp slt i64 %indvars.iv, 1
-  br i1 %cmp544, label %return.sink.split, label %for.body545, !llvm.loop !158
+  %cmp544 = icmp sgt i64 %indvars.iv, 0
+  br i1 %cmp544, label %for.body545, label %return.sink.split, !llvm.loop !158
 
 ehcleanup592:                                     ; preds = %lpad538.loopexit, %lpad538.loopexit.split-lp, %ehcleanup583, %ehcleanup569
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup583 ], [ %.pn39, %ehcleanup569 ], [ %lpad.loopexit2371, %lpad538.loopexit ], [ %lpad.loopexit.split-lp2372, %lpad538.loopexit.split-lp ]

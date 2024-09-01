@@ -1612,7 +1612,7 @@ _ZNSt10_HashtableIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS2_jESaIS5_ENSt8__detai
   store i32 %conv.i27, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %this.val7.i.i.i.i = load i64, ptr %_M_element_count.i.i.i.i, align 8, !noalias !22
   %cmp.not.not.i.i.i.i = icmp eq i64 %this.val7.i.i.i.i, 0
-  br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.preheader.i, label %if.then28.i.i.i.i
+  br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.preheader.i, label %if.end20.thread.i.i.i.i
 
 for.cond.i.i.i.preheader.i:                       ; preds = %_ZNSt10_HashtableIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_10ue2_hasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS2_RjEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit.i.i.i.i
   %__it.sroa.0.0.i.i.i379.i = load ptr, ptr %_M_before_begin.i.i.i14, align 8, !noalias !22
@@ -1629,37 +1629,47 @@ for.body.i.i.i.lr.ph.i:                           ; preds = %for.cond.i.i.i.preh
   %adjacent_cr.i.i.i228.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i74.i, i64 112
   br label %for.body.i.i.i.i
 
+if.end20.thread.i.i.i.i:                          ; preds = %_ZNSt10_HashtableIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_10ue2_hasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS2_RjEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit.i.i.i.i
+  %call2249.i.i.i.i = call fastcc noundef i64 @_ZNKSt8__detail15_Hash_code_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_(ptr noundef nonnull align 8 dereferenceable(156) %add.ptr.i.i.i.i.i.i29), !noalias !22
+  %this.val950.i.i.i.i = load i64, ptr %_M_bucket_count.i.i.i13, align 8, !noalias !22
+  %rem.i.i.i51.i.i.i.i = urem i64 %call2249.i.i.i.i, %this.val950.i.i.i.i
+  %this.val10.i.i.i.i = load ptr, ptr %classinfomap.i, align 8, !noalias !22
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %this.val10.i.i.i.i, i64 %rem.i.i.i51.i.i.i.i
+  %142 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !22
+  %tobool.not.i.i.i.i.i66.i = icmp eq ptr %142, null
+  br i1 %tobool.not.i.i.i.i.i66.i, label %if.end36.i.i.i.i, label %if.end.i.i.i.i.i.i
+
 for.body.i.i.i.i:                                 ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i, %for.body.i.i.i.lr.ph.i
   %__it.sroa.0.0.i.i.i381.i = phi ptr [ %__it.sroa.0.0.i.i.i379.i, %for.body.i.i.i.lr.ph.i ], [ %__it.sroa.0.0.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i ]
   %add.ptr14.i.i.i.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 8
   %node_type2.i.i.i206.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 144
-  %142 = load i32, ptr %node_type2.i.i.i206.i, align 8, !noalias !22
-  %cmp.i.i.i207.i = icmp eq i32 %141, %142
+  %143 = load i32, ptr %node_type2.i.i.i206.i, align 8, !noalias !22
+  %cmp.i.i.i207.i = icmp eq i32 %141, %143
   br i1 %cmp.i.i.i207.i, label %land.lhs.true.i.i.i208.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.lhs.true.i.i.i208.i:                         ; preds = %for.body.i.i.i.i
   %depth3.i.i.i210.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 148
-  %143 = load i32, ptr %depth.i.i.i209.i, align 4, !noalias !22
-  %144 = load i32, ptr %depth3.i.i.i210.i, align 4, !noalias !22
-  %cmp.i.i.i.i.i211.i = icmp eq i32 %143, %144
+  %144 = load i32, ptr %depth.i.i.i209.i, align 4, !noalias !22
+  %145 = load i32, ptr %depth3.i.i.i210.i, align 4, !noalias !22
+  %cmp.i.i.i.i.i211.i = icmp eq i32 %144, %145
   %max3.i.i.i.i213.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 152
-  %145 = load i32, ptr %max.i.i.i.i212.i, align 4, !noalias !22
-  %146 = load i32, ptr %max3.i.i.i.i213.i, align 4, !noalias !22
-  %cmp.i2.i.i.i.i214.i = icmp eq i32 %145, %146
-  %147 = select i1 %cmp.i.i.i.i.i211.i, i1 %cmp.i2.i.i.i.i214.i, i1 false
-  br i1 %147, label %land.lhs.true5.i.i.i215.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
+  %146 = load i32, ptr %max.i.i.i.i212.i, align 4, !noalias !22
+  %147 = load i32, ptr %max3.i.i.i.i213.i, align 4, !noalias !22
+  %cmp.i2.i.i.i.i214.i = icmp eq i32 %146, %147
+  %148 = select i1 %cmp.i.i.i.i.i211.i, i1 %cmp.i2.i.i.i.i214.i, i1 false
+  br i1 %148, label %land.lhs.true5.i.i.i215.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.lhs.true5.i.i.i215.i:                        ; preds = %land.lhs.true.i.i.i208.i
   %d28.i.i.i217.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 156
-  %148 = load i32, ptr %d2.i.i.i216.i, align 4, !noalias !22
-  %149 = load i32, ptr %d28.i.i.i217.i, align 4, !noalias !22
-  %cmp.i.i8.i.i.i218.i = icmp eq i32 %148, %149
+  %149 = load i32, ptr %d2.i.i.i216.i, align 4, !noalias !22
+  %150 = load i32, ptr %d28.i.i.i217.i, align 4, !noalias !22
+  %cmp.i.i8.i.i.i218.i = icmp eq i32 %149, %150
   %max3.i10.i.i.i220.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 160
-  %150 = load i32, ptr %max.i9.i.i.i219.i, align 4, !noalias !22
-  %151 = load i32, ptr %max3.i10.i.i.i220.i, align 4, !noalias !22
-  %cmp.i2.i11.i.i.i221.i = icmp eq i32 %150, %151
-  %152 = select i1 %cmp.i.i8.i.i.i218.i, i1 %cmp.i2.i11.i.i.i221.i, i1 false
-  br i1 %152, label %land.lhs.true10.i.i.i222.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
+  %151 = load i32, ptr %max.i9.i.i.i219.i, align 4, !noalias !22
+  %152 = load i32, ptr %max3.i10.i.i.i220.i, align 4, !noalias !22
+  %cmp.i2.i11.i.i.i221.i = icmp eq i32 %151, %152
+  %153 = select i1 %cmp.i.i8.i.i.i218.i, i1 %cmp.i2.i11.i.i.i221.i, i1 false
+  br i1 %153, label %land.lhs.true10.i.i.i222.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.lhs.true10.i.i.i222.i:                       ; preds = %land.lhs.true5.i.i.i215.i
   %cr11.i.i.i224.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 80
@@ -1675,70 +1685,70 @@ land.lhs.true13.i.i.i227.i:                       ; preds = %land.lhs.true10.i.i
 
 land.lhs.true16.i.i.i232.i:                       ; preds = %land.lhs.true13.i.i.i227.i
   %edge_tops17.i.i.i233.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 48
-  %153 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
+  %154 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %m_size.i4.i.i.i.i.i235.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 56
-  %154 = load i64, ptr %m_size.i4.i.i.i.i.i235.i, align 8, !noalias !22
-  %cmp.i.i14.i.i.i236.i = icmp eq i64 %153, %154
+  %155 = load i64, ptr %m_size.i4.i.i.i.i.i235.i, align 8, !noalias !22
+  %cmp.i.i14.i.i.i236.i = icmp eq i64 %154, %155
   br i1 %cmp.i.i14.i.i.i236.i, label %land.rhs.i.i.i.i.i237.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.rhs.i.i.i.i.i237.i:                          ; preds = %land.lhs.true16.i.i.i232.i
-  %155 = load ptr, ptr %edge_tops.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
-  %add.ptr.i.i.i.i.i.i.i239.i = getelementptr inbounds i32, ptr %155, i64 %153
-  %cmp.i.not3.i.i.i.i.i.i.i240.i = icmp eq i64 %153, 0
+  %156 = load ptr, ptr %edge_tops.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
+  %add.ptr.i.i.i.i.i.i.i239.i = getelementptr inbounds i32, ptr %156, i64 %154
+  %cmp.i.not3.i.i.i.i.i.i.i240.i = icmp eq i64 %154, 0
   br i1 %cmp.i.not3.i.i.i.i.i.i.i240.i, label %land.lhs.true19.i.i.i249.i, label %for.body.i.i.preheader.i.i.i.i.i241.i
 
 for.body.i.i.preheader.i.i.i.i.i241.i:            ; preds = %land.rhs.i.i.i.i.i237.i
-  %156 = load ptr, ptr %edge_tops17.i.i.i233.i, align 8, !noalias !60
+  %157 = load ptr, ptr %edge_tops17.i.i.i233.i, align 8, !noalias !60
   br label %for.body.i.i.i.i.i.i.i242.i
 
 for.body.i.i.i.i.i.i.i242.i:                      ; preds = %for.inc.i.i.i.i.i.i.i245.i, %for.body.i.i.preheader.i.i.i.i.i241.i
-  %agg.tmp2.sroa.0.0.i.i.i.i.i.i243.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i.i.i247.i, %for.inc.i.i.i.i.i.i.i245.i ], [ %156, %for.body.i.i.preheader.i.i.i.i.i241.i ]
-  %157 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i246.i, %for.inc.i.i.i.i.i.i.i245.i ], [ %155, %for.body.i.i.preheader.i.i.i.i.i241.i ]
-  %158 = load i32, ptr %157, align 4, !noalias !22
-  %159 = load i32, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i.i243.i, align 4, !noalias !22
-  %cmp.i1.i.i.i.i.i.i.i244.i = icmp eq i32 %158, %159
+  %agg.tmp2.sroa.0.0.i.i.i.i.i.i243.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i.i.i247.i, %for.inc.i.i.i.i.i.i.i245.i ], [ %157, %for.body.i.i.preheader.i.i.i.i.i241.i ]
+  %158 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i246.i, %for.inc.i.i.i.i.i.i.i245.i ], [ %156, %for.body.i.i.preheader.i.i.i.i.i241.i ]
+  %159 = load i32, ptr %158, align 4, !noalias !22
+  %160 = load i32, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i.i243.i, align 4, !noalias !22
+  %cmp.i1.i.i.i.i.i.i.i244.i = icmp eq i32 %159, %160
   br i1 %cmp.i1.i.i.i.i.i.i.i244.i, label %for.inc.i.i.i.i.i.i.i245.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 for.inc.i.i.i.i.i.i.i245.i:                       ; preds = %for.body.i.i.i.i.i.i.i242.i
-  %incdec.ptr.i.i.i.i.i.i.i.i246.i = getelementptr inbounds i8, ptr %157, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i246.i = getelementptr inbounds i8, ptr %158, i64 4
   %incdec.ptr.i2.i.i.i.i.i.i.i247.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i.i243.i, i64 4
   %cmp.i.not.i.i.i.i.i.i.i248.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i246.i, %add.ptr.i.i.i.i.i.i.i239.i
   br i1 %cmp.i.not.i.i.i.i.i.i.i248.i, label %land.lhs.true19.i.i.i249.i, label %for.body.i.i.i.i.i.i.i242.i, !llvm.loop !42
 
 land.lhs.true19.i.i.i249.i:                       ; preds = %for.inc.i.i.i.i.i.i.i245.i, %land.rhs.i.i.i.i.i237.i
-  %160 = load i32, ptr %vertex_flags.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
+  %161 = load i32, ptr %vertex_flags.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %vertex_flags20.i.i.i251.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 40
-  %161 = load i32, ptr %vertex_flags20.i.i.i251.i, align 8, !noalias !22
-  %cmp21.i.i.i252.i = icmp eq i32 %160, %161
+  %162 = load i32, ptr %vertex_flags20.i.i.i251.i, align 8, !noalias !22
+  %cmp21.i.i.i252.i = icmp eq i32 %161, %162
   br i1 %cmp21.i.i.i252.i, label %land.rhs.i.i.i253.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.rhs.i.i.i253.i:                              ; preds = %land.lhs.true19.i.i.i249.i
-  %162 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
+  %163 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %m_size.i4.i.i16.i.i.i255.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 16
-  %163 = load i64, ptr %m_size.i4.i.i16.i.i.i255.i, align 8, !noalias !22
-  %cmp.i.i17.i.i.i256.i = icmp eq i64 %162, %163
+  %164 = load i64, ptr %m_size.i4.i.i16.i.i.i255.i, align 8, !noalias !22
+  %cmp.i.i17.i.i.i256.i = icmp eq i64 %163, %164
   br i1 %cmp.i.i17.i.i.i256.i, label %land.rhs.i.i18.i.i.i257.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.rhs.i.i18.i.i.i257.i:                        ; preds = %land.rhs.i.i.i253.i
-  %164 = load ptr, ptr %add.ptr.i.i.i.i.i.i29, align 8, !noalias !22
-  %add.ptr.i.i.i.i19.i.i.i258.i = getelementptr inbounds i32, ptr %164, i64 %162
-  %cmp.i.not3.i.i.i.i20.i.i.i259.i = icmp eq i64 %162, 0
+  %165 = load ptr, ptr %add.ptr.i.i.i.i.i.i29, align 8, !noalias !22
+  %add.ptr.i.i.i.i19.i.i.i258.i = getelementptr inbounds i32, ptr %165, i64 %163
+  %cmp.i.not3.i.i.i.i20.i.i.i259.i = icmp eq i64 %163, 0
   br i1 %cmp.i.not3.i.i.i.i20.i.i.i259.i, label %if.then.i24.i.i.i.i, label %for.body.i.i.preheader.i.i21.i.i.i260.i
 
 for.body.i.i.preheader.i.i21.i.i.i260.i:          ; preds = %land.rhs.i.i18.i.i.i257.i
-  %165 = load ptr, ptr %add.ptr14.i.i.i.i, align 8, !noalias !63
+  %166 = load ptr, ptr %add.ptr14.i.i.i.i, align 8, !noalias !63
   br label %for.body.i.i.i.i22.i.i.i261.i
 
 for.body.i.i.i.i22.i.i.i261.i:                    ; preds = %for.inc.i.i.i.i25.i.i.i264.i, %for.body.i.i.preheader.i.i21.i.i.i260.i
-  %agg.tmp2.sroa.0.0.i.i.i23.i.i.i262.i = phi ptr [ %incdec.ptr.i2.i.i.i.i27.i.i.i266.i, %for.inc.i.i.i.i25.i.i.i264.i ], [ %165, %for.body.i.i.preheader.i.i21.i.i.i260.i ]
-  %166 = phi ptr [ %incdec.ptr.i.i.i.i.i26.i.i.i265.i, %for.inc.i.i.i.i25.i.i.i264.i ], [ %164, %for.body.i.i.preheader.i.i21.i.i.i260.i ]
-  %167 = load i32, ptr %166, align 4, !noalias !22
-  %168 = load i32, ptr %agg.tmp2.sroa.0.0.i.i.i23.i.i.i262.i, align 4, !noalias !22
-  %cmp.i1.i.i.i.i24.i.i.i263.i = icmp eq i32 %167, %168
+  %agg.tmp2.sroa.0.0.i.i.i23.i.i.i262.i = phi ptr [ %incdec.ptr.i2.i.i.i.i27.i.i.i266.i, %for.inc.i.i.i.i25.i.i.i264.i ], [ %166, %for.body.i.i.preheader.i.i21.i.i.i260.i ]
+  %167 = phi ptr [ %incdec.ptr.i.i.i.i.i26.i.i.i265.i, %for.inc.i.i.i.i25.i.i.i264.i ], [ %165, %for.body.i.i.preheader.i.i21.i.i.i260.i ]
+  %168 = load i32, ptr %167, align 4, !noalias !22
+  %169 = load i32, ptr %agg.tmp2.sroa.0.0.i.i.i23.i.i.i262.i, align 4, !noalias !22
+  %cmp.i1.i.i.i.i24.i.i.i263.i = icmp eq i32 %168, %169
   br i1 %cmp.i1.i.i.i.i24.i.i.i263.i, label %for.inc.i.i.i.i25.i.i.i264.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 for.inc.i.i.i.i25.i.i.i264.i:                     ; preds = %for.body.i.i.i.i22.i.i.i261.i
-  %incdec.ptr.i.i.i.i.i26.i.i.i265.i = getelementptr inbounds i8, ptr %166, i64 4
+  %incdec.ptr.i.i.i.i.i26.i.i.i265.i = getelementptr inbounds i8, ptr %167, i64 4
   %incdec.ptr.i2.i.i.i.i27.i.i.i266.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i23.i.i.i262.i, i64 4
   %cmp.i.not.i.i.i.i28.i.i.i267.i = icmp eq ptr %incdec.ptr.i.i.i.i.i26.i.i.i265.i, %add.ptr.i.i.i.i19.i.i.i258.i
   br i1 %cmp.i.not.i.i.i.i28.i.i.i267.i, label %if.then.i24.i.i.i.i, label %for.body.i.i.i.i22.i.i.i261.i, !llvm.loop !42
@@ -1749,7 +1759,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_
   br i1 %cmp.i.not.i.i.i.i, label %if.end20.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !66
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i.i32, %if.end36.i.i.i.i
-  %169 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10_HashtableIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_10ue2_hasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr nonnull %call5.i.i.i.i.i.i.i74.i) #22, !noalias !22
   br label %ehcleanup66.i
@@ -1760,18 +1770,8 @@ if.end20.i.i.i.i:                                 ; preds = %_ZNKSt8__detail15_H
   %rem.i.i.i.i.i.i.i = urem i64 %call22.i.i.i.i, %this.val9.i.i.i.i
   br label %if.end36.i.i.i.i
 
-if.then28.i.i.i.i:                                ; preds = %_ZNSt10_HashtableIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_10ue2_hasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS2_RjEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit.i.i.i.i
-  %call2249.i.i.i.i = call fastcc noundef i64 @_ZNKSt8__detail15_Hash_code_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_(ptr noundef nonnull align 8 dereferenceable(156) %add.ptr.i.i.i.i.i.i29), !noalias !22
-  %this.val950.i.i.i.i = load i64, ptr %_M_bucket_count.i.i.i13, align 8, !noalias !22
-  %rem.i.i.i51.i.i.i.i = urem i64 %call2249.i.i.i.i, %this.val950.i.i.i.i
-  %this.val10.i.i.i.i = load ptr, ptr %classinfomap.i, align 8, !noalias !22
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %this.val10.i.i.i.i, i64 %rem.i.i.i51.i.i.i.i
-  %170 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !22
-  %tobool.not.i.i.i.i.i66.i = icmp eq ptr %170, null
-  br i1 %tobool.not.i.i.i.i.i66.i, label %if.end36.i.i.i.i, label %if.end.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i:                               ; preds = %if.then28.i.i.i.i
-  %171 = load ptr, ptr %170, align 8, !noalias !22
+if.end.i.i.i.i.i.i:                               ; preds = %if.end20.thread.i.i.i.i
+  %171 = load ptr, ptr %142, align 8, !noalias !22
   %add.ptr.i.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds i8, ptr %171, i64 176
   %add.ptr.val.i.pre.i.i.i.i.i.i = load i64, ptr %add.ptr.i.phi.trans.insert.i.i.i.i.i.i, align 8, !noalias !22
   %node_type.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i74.i, i64 144
@@ -1914,10 +1914,10 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i51.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.end36.i.i.i.i, !llvm.loop !53
 
-if.end36.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %if.then28.i.i.i.i, %if.end20.i.i.i.i
-  %rem.i.i.i57.i.i.i.i = phi i64 [ %rem.i.i.i51.i.i.i.i, %if.then28.i.i.i.i ], [ %rem.i.i.i.i.i.i.i, %if.end20.i.i.i.i ], [ %rem.i.i.i51.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %rem.i.i.i51.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
-  %this.val955.i.i.i.i = phi i64 [ %this.val950.i.i.i.i, %if.then28.i.i.i.i ], [ %this.val9.i.i.i.i, %if.end20.i.i.i.i ], [ %this.val950.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %this.val950.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
-  %call2253.i.i.i.i = phi i64 [ %call2249.i.i.i.i, %if.then28.i.i.i.i ], [ %call22.i.i.i.i, %if.end20.i.i.i.i ], [ %call2249.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %call2249.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
+if.end36.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %if.end20.i.i.i.i, %if.end20.thread.i.i.i.i
+  %rem.i.i.i57.i.i.i.i = phi i64 [ %rem.i.i.i51.i.i.i.i, %if.end20.thread.i.i.i.i ], [ %rem.i.i.i.i.i.i.i, %if.end20.i.i.i.i ], [ %rem.i.i.i51.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %rem.i.i.i51.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
+  %this.val955.i.i.i.i = phi i64 [ %this.val950.i.i.i.i, %if.end20.thread.i.i.i.i ], [ %this.val9.i.i.i.i, %if.end20.i.i.i.i ], [ %this.val950.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %this.val950.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
+  %call2253.i.i.i.i = phi i64 [ %call2249.i.i.i.i, %if.end20.thread.i.i.i.i ], [ %call22.i.i.i.i, %if.end20.i.i.i.i ], [ %call2249.i.i.i.i, %if.end3.i.i.i.i.i.i ], [ %call2249.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !22
   %203 = load i64, ptr %_M_next_resize.i.i.i.i16, align 8, !noalias !22
   store i64 %203, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !22
@@ -1987,7 +1987,7 @@ cleanup.i.i.i.i:                                  ; preds = %if.end.i.i20.i.i.i.
   br label %if.end65.i
 
 if.then.i24.i.i.i.i:                              ; preds = %land.rhs.i.i18.i.i.i, %land.rhs.i.i18.i.i.i257.i, %for.inc.i.i.i.i25.i.i.i, %for.inc.i.i.i.i25.i.i.i264.i
-  %214 = phi ptr [ %155, %for.inc.i.i.i.i25.i.i.i264.i ], [ %187, %for.inc.i.i.i.i25.i.i.i ], [ %155, %land.rhs.i.i18.i.i.i257.i ], [ %187, %land.rhs.i.i18.i.i.i ]
+  %214 = phi ptr [ %156, %for.inc.i.i.i.i25.i.i.i264.i ], [ %187, %for.inc.i.i.i.i25.i.i.i ], [ %156, %land.rhs.i.i18.i.i.i257.i ], [ %187, %land.rhs.i.i18.i.i.i ]
   %215 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %215, 0
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i, %214
@@ -2403,7 +2403,7 @@ _ZN3ue212_GLOBAL__N_19ClassInfoD2Ev.exit.i:       ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i47.not.i, label %do.end.i, label %invoke.cont13.i25
 
 ehcleanup66.i:                                    ; preds = %lpad29.loopexit.i.loopexit, %lpad29.loopexit.i.loopexit.split-lp, %if.then.i.i.i.i.i.i.i.i.i.i.i.i82.i, %if.then.i.i.i.i.i.i.i.i.i78.i, %lpad49.i, %lpad29.loopexit.split-lp.i, %lpad.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %lpad.i.i
-  %.pn17.i = phi { ptr, i32 } [ %169, %lpad.i.i.i.i ], [ %125, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %125, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %125, %lpad.i.i ], [ %218, %lpad49.i ], [ %218, %if.then.i.i.i.i.i.i.i.i.i78.i ], [ %218, %if.then.i.i.i.i.i.i.i.i.i.i.i.i82.i ], [ %lpad.loopexit.split-lp.i34, %lpad29.loopexit.split-lp.i ], [ %lpad.loopexit447, %lpad29.loopexit.i.loopexit ], [ %lpad.loopexit.split-lp448, %lpad29.loopexit.i.loopexit.split-lp ]
+  %.pn17.i = phi { ptr, i32 } [ %170, %lpad.i.i.i.i ], [ %125, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %125, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %125, %lpad.i.i ], [ %218, %lpad49.i ], [ %218, %if.then.i.i.i.i.i.i.i.i.i78.i ], [ %218, %if.then.i.i.i.i.i.i.i.i.i.i.i.i82.i ], [ %lpad.loopexit.split-lp.i34, %lpad29.loopexit.split-lp.i ], [ %lpad.loopexit447, %lpad29.loopexit.i.loopexit ], [ %lpad.loopexit.split-lp448, %lpad29.loopexit.i.loopexit.split-lp ]
   call fastcc void @_ZN3ue212_GLOBAL__N_19ClassInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %ci.i) #22, !noalias !22
   br label %ehcleanup68.i
 

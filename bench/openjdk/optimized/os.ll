@@ -672,7 +672,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i8 noundef zeroext 9, i32 noundef 0) #28
   %13 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %12, i64 noundef %11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef nonnull @.str.7) #28
   %.not69 = icmp eq i32 %13, -1
-  br i1 %.not69, label %87, label %14
+  br i1 %.not69, label %85, label %14
 
 14:                                               ; preds = %4
   %.not = icmp eq ptr %2, null
@@ -686,7 +686,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
 .thread:                                          ; preds = %14, %15
   %18 = tail call noundef ptr @_ZN2os21get_current_directoryEPcm(ptr noundef %0, i64 noundef %1) #28
   %.not59 = icmp eq ptr %18, null
-  br i1 %.not59, label %87, label %19
+  br i1 %.not59, label %85, label %19
 
 19:                                               ; preds = %.thread
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
@@ -718,7 +718,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
 _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   %.0.i = phi i1 [ %35, %33 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  br label %87
+  br label %85
 
 36:                                               ; preds = %15
   %37 = tail call noundef ptr @_ZN2os14path_separatorEv() #28
@@ -726,12 +726,12 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   %39 = sext i8 %38 to i32
   %40 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %39) #29
   %.not57 = icmp eq ptr %40, null
-  br i1 %.not57, label %72, label %41
+  br i1 %.not57, label %70, label %41
 
 41:                                               ; preds = %36
   %42 = call noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %10)
   %.not58 = icmp eq ptr %42, null
-  br i1 %.not58, label %87, label %.preheader
+  br i1 %.not58, label %85, label %.preheader
 
 .preheader:                                       ; preds = %41
   %43 = load i64, ptr %8, align 8
@@ -739,111 +739,109 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   br i1 %.not75, label %_ZL25free_array_of_char_arraysPPcm.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread67
-  %44 = phi i1 [ %66, %.thread67 ], [ true, %.preheader ]
-  %.05171 = phi i64 [ %65, %.thread67 ], [ 0, %.preheader ]
-  %45 = getelementptr inbounds ptr, ptr %42, i64 %.05171
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread67, label %48
+  %.05171 = phi i64 [ %64, %.thread67 ], [ 0, %.preheader ]
+  %44 = getelementptr inbounds ptr, ptr %42, i64 %.05171
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.thread67, label %47
 
-48:                                               ; preds = %.lr.ph
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #29
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.thread67, label %51
+47:                                               ; preds = %.lr.ph
+  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #29
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %.thread67, label %50
 
-51:                                               ; preds = %48
-  %52 = getelementptr i8, ptr %46, i64 %49
-  %53 = getelementptr i8, ptr %52, i64 -1
-  %54 = load i8, ptr %53, align 1
+50:                                               ; preds = %47
+  %51 = getelementptr i8, ptr %45, i64 %48
+  %52 = getelementptr i8, ptr %51, i64 -1
+  %53 = load i8, ptr %52, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %55 = call noundef ptr @_ZN2os14file_separatorEv() #28
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %54, %56
-  br i1 %57, label %60, label %58
+  %54 = call noundef ptr @_ZN2os14file_separatorEv() #28
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %53, %55
+  br i1 %56, label %59, label %57
 
-58:                                               ; preds = %51
-  %59 = call noundef ptr @_ZN2os14file_separatorEv() #28
-  br label %60
+57:                                               ; preds = %50
+  %58 = call noundef ptr @_ZN2os14file_separatorEv() #28
+  br label %59
 
-60:                                               ; preds = %58, %51
-  %61 = phi ptr [ %59, %58 ], [ @.str.8, %51 ]
-  %62 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %46, ptr noundef %61, ptr noundef %12) #28
-  %.not.i60 = icmp eq i32 %62, -1
+59:                                               ; preds = %57, %50
+  %60 = phi ptr [ %58, %57 ], [ @.str.8, %50 ]
+  %61 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %45, ptr noundef %60, ptr noundef %12) #28
+  %.not.i60 = icmp eq i32 %61, -1
   br i1 %.not.i60, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62
 
-_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread: ; preds = %60
+_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread: ; preds = %59
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   br label %.thread67
 
-_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %60
-  %63 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %6) #28
-  %64 = icmp eq i32 %63, 0
+_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %59
+  %62 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %6) #28
+  %63 = icmp eq i32 %62, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  br i1 %64, label %.lr.ph.i.preheader, label %.thread67
+  br i1 %63, label %.lr.ph.i.preheader, label %.thread67
 
-.thread67:                                        ; preds = %.lr.ph, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62, %48
-  %65 = add nuw i64 %.05171, 1
-  %66 = icmp ult i64 %65, %43
-  %exitcond.not = icmp eq i64 %65, %43
+.thread67:                                        ; preds = %.lr.ph, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62, %47
+  %64 = add nuw i64 %.05171, 1
+  %exitcond.not = icmp eq i64 %64, %43
   br i1 %exitcond.not, label %.lr.ph.i.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph.i.preheader:                               ; preds = %.thread67, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62
-  %.lcssa82 = phi i1 [ %44, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62 ], [ %66, %.thread67 ]
+  %.lcssa80 = phi i1 [ true, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62 ], [ false, %.thread67 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %71
-  %.09.i = phi i64 [ %67, %71 ], [ %43, %.lr.ph.i.preheader ]
-  %67 = add i64 %.09.i, -1
-  %68 = getelementptr inbounds ptr, ptr %42, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %.not7.i = icmp eq ptr %69, null
-  br i1 %.not7.i, label %71, label %70
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %69
+  %.09.i = phi i64 [ %65, %69 ], [ %43, %.lr.ph.i.preheader ]
+  %65 = add i64 %.09.i, -1
+  %66 = getelementptr inbounds ptr, ptr %42, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %.not7.i = icmp eq ptr %67, null
+  br i1 %.not7.i, label %69, label %68
 
-70:                                               ; preds = %.lr.ph.i
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %69) #28
-  br label %71
+68:                                               ; preds = %.lr.ph.i
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %67) #28
+  br label %69
 
-71:                                               ; preds = %70, %.lr.ph.i
-  %.not.i63 = icmp eq i64 %67, 0
+69:                                               ; preds = %68, %.lr.ph.i
+  %.not.i63 = icmp eq i64 %65, 0
   br i1 %.not.i63, label %_ZL25free_array_of_char_arraysPPcm.exit, label %.lr.ph.i, !llvm.loop !10
 
-_ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %71, %.preheader
-  %.lcssa78 = phi i1 [ false, %.preheader ], [ %.lcssa82, %71 ]
+_ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %69, %.preheader
+  %.lcssa77 = phi i1 [ false, %.preheader ], [ %.lcssa80, %69 ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %42) #28
-  br label %87
+  br label %85
 
-72:                                               ; preds = %36
-  %73 = getelementptr i8, ptr %2, i64 %16
-  %74 = getelementptr i8, ptr %73, i64 -1
-  %75 = load i8, ptr %74, align 1
+70:                                               ; preds = %36
+  %71 = getelementptr i8, ptr %2, i64 %16
+  %72 = getelementptr i8, ptr %71, i64 -1
+  %73 = load i8, ptr %72, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  %76 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %75, %77
-  br i1 %78, label %81, label %79
+  %74 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %73, %75
+  br i1 %76, label %79, label %77
 
-79:                                               ; preds = %72
-  %80 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
-  br label %81
+77:                                               ; preds = %70
+  %78 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
+  br label %79
 
-81:                                               ; preds = %79, %72
-  %82 = phi ptr [ %80, %79 ], [ @.str.8, %72 ]
-  %83 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %82, ptr noundef %12) #28
-  %.not.i64 = icmp eq i32 %83, -1
-  br i1 %.not.i64, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, label %84
+79:                                               ; preds = %77, %70
+  %80 = phi ptr [ %78, %77 ], [ @.str.8, %70 ]
+  %81 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %80, ptr noundef %12) #28
+  %.not.i64 = icmp eq i32 %81, -1
+  br i1 %.not.i64, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, label %82
 
-84:                                               ; preds = %81
-  %85 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %5) #28
-  %86 = icmp eq i32 %85, 0
+82:                                               ; preds = %79
+  %83 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %5) #28
+  %84 = icmp eq i32 %83, 0
   br label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66
 
-_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66: ; preds = %81, %84
-  %.0.i65 = phi i1 [ %86, %84 ], [ false, %81 ]
+_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66: ; preds = %79, %82
+  %.0.i65 = phi i1 [ %84, %82 ], [ false, %79 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  br label %87
+  br label %85
 
-87:                                               ; preds = %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit, %.thread, %41, %_ZL25free_array_of_char_arraysPPcm.exit, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, %4
-  %.0 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa78, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
+85:                                               ; preds = %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit, %.thread, %41, %_ZL25free_array_of_char_arraysPPcm.exit, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, %4
+  %.0 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa77, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
   call void @_Z8FreeHeapPv(ptr noundef %12) #28
   ret i1 %.0
 }

@@ -3480,9 +3480,6 @@ delete.notnull.i61:                               ; preds = %_ZN6icu_7512LocalPo
 ehcleanup:                                        ; preds = %for.body, %if.then36, %invoke.cont29
   %18 = landingpad { ptr, i32 }
           cleanup
-  br i1 %new.isnull6, label %eh.resume, label %delete.notnull.i66
-
-delete.notnull.i66:                               ; preds = %ehcleanup
   %vtable.i67 = load ptr, ptr %call5, align 8
   %vfn.i68 = getelementptr inbounds i8, ptr %vtable.i67, i64 8
   %19 = load ptr, ptr %vfn.i68, align 8
@@ -3493,8 +3490,8 @@ return:                                           ; preds = %if.then.i, %new.con
   %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59 ], [ null, %delete.notnull.i61 ], [ null, %delete.notnull.i55 ], [ %senum.sroa.0.2, %if.end65.thread ], [ null, %new.cont15 ], [ null, %if.then.i ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %delete.notnull.i66, %ehcleanup, %ehcleanup.thread, %lpad10, %lpad
-  %.pn16 = phi { ptr, i32 } [ %1, %lpad ], [ %6, %lpad10 ], [ %12, %ehcleanup.thread ], [ %18, %ehcleanup ], [ %18, %delete.notnull.i66 ]
+eh.resume:                                        ; preds = %ehcleanup, %ehcleanup.thread, %lpad10, %lpad
+  %.pn16 = phi { ptr, i32 } [ %1, %lpad ], [ %6, %lpad10 ], [ %12, %ehcleanup.thread ], [ %18, %ehcleanup ]
   resume { ptr, i32 } %.pn16
 }
 

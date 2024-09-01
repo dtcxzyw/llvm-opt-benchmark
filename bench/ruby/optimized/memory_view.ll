@@ -159,7 +159,7 @@ define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -172,32 +172,26 @@ define dso_local zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr nocap
 .lr.ph.preheader:                                 ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr %7, align 8
-  %.not19 = icmp eq i64 %11, %10
-  br i1 %.not19, label %.lr.ph22, label %._crit_edge
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph22
-  %12 = getelementptr i64, ptr %5, i64 %.01620
-  %13 = load i64, ptr %12, align 8
-  %14 = mul i64 %13, %.0131521
-  %15 = getelementptr i64, ptr %7, i64 %17
-  %16 = load i64, ptr %15, align 8
-  %.not = icmp eq i64 %16, %14
-  br i1 %.not, label %.lr.ph22, label %._crit_edge.loopexit, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %13
+  %.016 = phi i64 [ %17, %13 ], [ 0, %.lr.ph.preheader ]
+  %.01315 = phi i64 [ %16, %13 ], [ %10, %.lr.ph.preheader ]
+  %11 = getelementptr i64, ptr %7, i64 %.016
+  %12 = load i64, ptr %11, align 8
+  %.not = icmp eq i64 %12, %.01315
+  br i1 %.not, label %13, label %._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0131521 = phi i64 [ %14, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.01620 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %17 = add nuw nsw i64 %.01620, 1
-  %exitcond = icmp eq i64 %17, %3
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr i64, ptr %5, i64 %.016
+  %15 = load i64, ptr %14, align 8
+  %16 = mul i64 %15, %.01315
+  %17 = add nuw nsw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %17, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph22
-  %18 = icmp sge i64 %17, %3
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %18, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %13, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %.not, %13 ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -830,10 +824,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %22 = load ptr, ptr %21, align 8
   br label %25
 
-.preheader:                                       ; preds = %25
-  br i1 %18, label %.lr.ph75, label %.loopexit
-
-.lr.ph75:                                         ; preds = %.preheader
+.lr.ph75:                                         ; preds = %25
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   br label %30
@@ -846,7 +837,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %28 = mul i64 %27, %.069
   %29 = add nuw nsw i64 %.04968, 1
   %exitcond82.not = icmp eq i64 %29, %6
-  br i1 %exitcond82.not, label %.preheader, label %25, !llvm.loop !17
+  br i1 %exitcond82.not, label %.lr.ph75, label %25, !llvm.loop !17
 
 30:                                               ; preds = %.lr.ph75, %30
   %.174 = phi i64 [ %28, %.lr.ph75 ], [ %33, %30 ]
@@ -914,8 +905,8 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   %exitcond.not = icmp eq i64 %64, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %63, %.lr.ph66, %30, %17, %.preheader60, %.preheader58, %.preheader, %10
-  %.051 = phi ptr [ %15, %10 ], [ %4, %.preheader ], [ %4, %.preheader58 ], [ %4, %.preheader60 ], [ %4, %17 ], [ %37, %30 ], [ %49, %.lr.ph66 ], [ %.4, %63 ]
+.loopexit:                                        ; preds = %63, %.lr.ph66, %30, %17, %.preheader60, %.preheader58, %10
+  %.051 = phi ptr [ %15, %10 ], [ %4, %.preheader58 ], [ %4, %.preheader60 ], [ %4, %17 ], [ %37, %30 ], [ %49, %.lr.ph66 ], [ %.4, %63 ]
   ret ptr %.051
 }
 
@@ -1374,12 +1365,12 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %27 = mul i64 %26, %.069.i
   %28 = add nuw nsw i64 %.04968.i, 1
   %exitcond82.not.i = icmp eq i64 %28, %7
-  br i1 %exitcond82.not.i, label %.lr.ph75.i, label %24, !llvm.loop !17
+  br i1 %exitcond82.not.i, label %.preheader.i, label %24, !llvm.loop !17
 
-.lr.ph75.i:                                       ; preds = %24, %.lr.ph75.i
-  %.174.i = phi i64 [ %31, %.lr.ph75.i ], [ %27, %24 ]
-  %.15073.i = phi i64 [ %36, %.lr.ph75.i ], [ 0, %24 ]
-  %.05272.i = phi ptr [ %35, %.lr.ph75.i ], [ %5, %24 ]
+.preheader.i:                                     ; preds = %24, %.preheader.i
+  %.174.i = phi i64 [ %31, %.preheader.i ], [ %27, %24 ]
+  %.15073.i = phi i64 [ %36, %.preheader.i ], [ 0, %24 ]
+  %.05272.i = phi ptr [ %35, %.preheader.i ], [ %5, %24 ]
   %29 = getelementptr i64, ptr %23, i64 %.15073.i
   %30 = load i64, ptr %29, align 8
   %31 = sdiv i64 %.174.i, %30
@@ -1389,7 +1380,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %35 = getelementptr i8, ptr %.05272.i, i64 %34
   %36 = add nuw nsw i64 %.15073.i, 1
   %exitcond83.not.i = icmp eq i64 %36, %7
-  br i1 %exitcond83.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph75.i, !llvm.loop !18
+  br i1 %exitcond83.not.i, label %rb_memory_view_get_item_pointer.exit, label %.preheader.i, !llvm.loop !18
 
 37:                                               ; preds = %17
   %38 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1442,8 +1433,8 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   %exitcond.not.i = icmp eq i64 %62, %7
   br i1 %exitcond.not.i, label %rb_memory_view_get_item_pointer.exit, label %.lr.ph.i, !llvm.loop !20
 
-rb_memory_view_get_item_pointer.exit:             ; preds = %61, %.lr.ph66.i, %.lr.ph75.i, %11, %18, %.preheader60.i, %.preheader58.i
-  %.051.i = phi ptr [ %16, %11 ], [ %5, %.preheader58.i ], [ %5, %.preheader60.i ], [ %5, %18 ], [ %35, %.lr.ph75.i ], [ %47, %.lr.ph66.i ], [ %.4.i, %61 ]
+rb_memory_view_get_item_pointer.exit:             ; preds = %61, %.lr.ph66.i, %.preheader.i, %11, %18, %.preheader60.i, %.preheader58.i
+  %.051.i = phi ptr [ %16, %11 ], [ %5, %.preheader58.i ], [ %5, %.preheader60.i ], [ %5, %18 ], [ %35, %.preheader.i ], [ %47, %.lr.ph66.i ], [ %.4.i, %61 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null

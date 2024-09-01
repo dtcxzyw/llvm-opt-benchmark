@@ -10479,7 +10479,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
 
 .preheader:                                       ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24
   %22 = fptrunc double %43 to float
-  br i1 %.not61, label %._crit_edge, label %.lr.ph68
+  br label %.lr.ph68
 
 .lr.ph64:                                         ; preds = %.preheader50, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24
   %23 = phi ptr [ %39, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0EEppEv.exit24 ], [ %9, %.preheader50 ]
@@ -10557,7 +10557,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIfLm18446744073709551615EEELb0
   tail call void @_ZSt9terminatev() #31
   unreachable
 
-._crit_edge:                                      ; preds = %45, %.preheader50, %.preheader
+._crit_edge:                                      ; preds = %45, %.preheader50
   ret void
 }
 

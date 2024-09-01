@@ -37,10 +37,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %20 = zext nneg i32 %1 to i64
   br label %.lr.ph58
 
-.preheader:                                       ; preds = %33
-  br i1 %17, label %.lr.ph61.preheader, label %._crit_edge
-
-.lr.ph61.preheader:                               ; preds = %.preheader
+.lr.ph61.preheader:                               ; preds = %33
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph61
 
@@ -67,7 +64,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 
 33:                                               ; preds = %.lr.ph58, %24
   %34 = icmp ugt i64 %indvars.iv, 1
-  br i1 %34, label %.lr.ph58, label %.preheader, !llvm.loop !4
+  br i1 %34, label %.lr.ph58, label %.lr.ph61.preheader, !llvm.loop !4
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %40
   %indvars.iv64 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next65, %40 ]
@@ -88,7 +85,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph61, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %40, %11, %.preheader
+._crit_edge:                                      ; preds = %40, %11
   %41 = tail call ptr @cs_idone(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1) #3
   br label %42
 

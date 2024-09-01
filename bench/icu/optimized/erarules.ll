@@ -758,7 +758,7 @@ if.else11.i:                                      ; preds = %if.else8.i
 if.end15:                                         ; preds = %if.else8.i, %if.else11.i
   %sub46 = add nsw i32 %4, -1
   %cmp1647 = icmp slt i32 %5, %sub46
-  br i1 %cmp1647, label %while.body.lr.ph, label %return
+  br i1 %cmp1647, label %while.body.lr.ph.split, label %return
 
 if.end15.thread100:                               ; preds = %if.then.i
   %sub46101 = add nsw i32 %4, -1
@@ -769,6 +769,10 @@ if.end15.thread82:                                ; preds = %if.then.i
   %cmp164785 = icmp sgt i32 %4, 1
   br i1 %cmp164785, label %while.body.us.preheader, label %return
 
+while.body.us.preheader:                          ; preds = %if.end15.thread100, %if.end15.thread82
+  %low.149.us.ph = phi i32 [ %5, %if.end15.thread100 ], [ 0, %if.end15.thread82 ]
+  br label %while.body.us
+
 if.end15.thread:                                  ; preds = %if.else11.i
   %cmp164770 = icmp sgt i32 %4, 1
   br i1 %cmp164770, label %while.body.lr.ph.split.thread, label %return
@@ -778,13 +782,6 @@ while.body.lr.ph.split.thread:                    ; preds = %if.end15.thread
   %shl1.i.i2476 = shl nuw nsw i32 %month, 8
   %or.i.i2577 = or disjoint i32 %shl1.i.i2476, %shl.i.i2375
   br label %while.body.preheader
-
-while.body.lr.ph:                                 ; preds = %if.end15
-  br i1 %cmp.i16, label %while.body.us.preheader, label %while.body.lr.ph.split
-
-while.body.us.preheader:                          ; preds = %if.end15.thread100, %if.end15.thread82, %while.body.lr.ph
-  %low.149.us.ph = phi i32 [ %5, %if.end15.thread100 ], [ 0, %if.end15.thread82 ], [ %5, %while.body.lr.ph ]
-  br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
   %low.149.us = phi i32 [ %div.low.1.us, %while.body.us ], [ %low.149.us.ph, %while.body.us.preheader ]
@@ -801,7 +798,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %cmp16.us = icmp slt i32 %div.low.1.us, %sub.us
   br i1 %cmp16.us, label %while.body.us, label %return, !llvm.loop !8
 
-while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
+while.body.lr.ph.split:                           ; preds = %if.end15
   %shl1.i.i24 = shl nuw nsw i32 %month, 8
   %shl.i.i23 = shl nsw i32 %year, 16
   %or.i.i25 = or disjoint i32 %shl1.i.i24, %shl.i.i23

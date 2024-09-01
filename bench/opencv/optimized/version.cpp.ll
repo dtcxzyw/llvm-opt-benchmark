@@ -16465,10 +16465,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
   call void %51(ptr noundef nonnull align 8 dereferenceable(12) %42) #18
   br label %common.resume
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %37, label %.lr.ph85.preheader, label %._crit_edge
-
-.lr.ph85.preheader:                               ; preds = %.preheader
+.lr.ph85.preheader:                               ; preds = %.lr.ph
   %52 = zext nneg i32 %.0.i to i64
   %53 = getelementptr inbounds i8, ptr %28, i64 336
   %54 = getelementptr inbounds i8, ptr %28, i64 312
@@ -16490,7 +16487,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
   store i8 1, ptr %65, align 1
   %66 = add nuw nsw i32 %.07083, 2
   %67 = icmp slt i32 %66, %.0.i
-  br i1 %67, label %.lr.ph, label %.preheader, !llvm.loop !10
+  br i1 %67, label %.lr.ph, label %.lr.ph85.preheader, !llvm.loop !10
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next, %.lr.ph85 ]
@@ -16510,7 +16507,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
   %79 = icmp ult i64 %indvars.iv.next, %52
   br i1 %79, label %.lr.ph85, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph85, %.preheader82, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph85, %.preheader82
   invoke void @_ZN5zxing9BitMatrix9setRegionEiiiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) %28, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %80 unwind label %.loopexit.split-lp
 

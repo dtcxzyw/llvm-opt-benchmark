@@ -963,7 +963,7 @@ helper1.exit:                                     ; preds = %516, %444
   %570 = add nsw i32 %.0557.i, %.v.i
   %571 = zext i32 %550 to i64
   %572 = icmp eq i64 %indvars.iv, %571
-  br i1 %572, label %588, label %605
+  br i1 %572, label %588, label %599
 
 .thread815.i:                                     ; preds = %554
   %573 = add i32 %550, -1
@@ -1007,33 +1007,33 @@ helper1.exit:                                     ; preds = %516, %444
   %spec.select213 = select i1 %596, i32 0, i32 %598
   br label %.loopexit682.i
 
+599:                                              ; preds = %558
+  %600 = icmp ult i32 %570, 7
+  %601 = select i1 %600, i32 8, i32 11
+  br i1 %566, label %608, label %.loopexit682.i.loopexit147
+
 .thread650.i:                                     ; preds = %.thread.i74, %.thread815.i
   %.1558648654.i = phi i32 [ %585, %.thread.i74 ], [ %580, %.thread815.i ]
   %.0555649653.i = phi i32 [ %550, %.thread.i74 ], [ %573, %.thread815.i ]
-  %599 = getelementptr inbounds i8, ptr %548, i64 24
-  %600 = load i32, ptr %599, align 4
-  %601 = icmp ult i32 %600, 4
-  %602 = icmp ult i32 %.1558648654.i, 7
+  %602 = getelementptr inbounds i8, ptr %548, i64 24
+  %603 = load i32, ptr %602, align 4
+  %604 = icmp ult i32 %603, 4
+  %605 = icmp ult i32 %.1558648654.i, 7
   %.pre = zext i32 %.0555649653.i to i64
-  br i1 %601, label %.thread655.i, label %.thread662.i
+  br i1 %604, label %.thread655.i, label %.thread662.i
 
 .thread655.i:                                     ; preds = %.thread650.i
-  %603 = select i1 %602, i32 8, i32 11
+  %606 = select i1 %605, i32 8, i32 11
   br label %608
 
 .thread662.i:                                     ; preds = %.thread650.i
-  %604 = select i1 %602, i32 7, i32 10
+  %607 = select i1 %605, i32 7, i32 10
   br label %.loopexit682.i.loopexit147
 
-605:                                              ; preds = %558
-  %606 = icmp ult i32 %570, 7
-  %607 = select i1 %606, i32 8, i32 11
-  br i1 %566, label %608, label %.loopexit682.i.loopexit147
-
-608:                                              ; preds = %605, %.thread655.i
-  %.pre-phi = phi i64 [ %561, %605 ], [ %.pre, %.thread655.i ]
-  %.3560660.i = phi i32 [ %607, %605 ], [ %603, %.thread655.i ]
-  %.0561659.i = phi i32 [ %565, %605 ], [ %600, %.thread655.i ]
+608:                                              ; preds = %599, %.thread655.i
+  %.pre-phi = phi i64 [ %561, %599 ], [ %.pre, %.thread655.i ]
+  %.3560660.i = phi i32 [ %601, %599 ], [ %606, %.thread655.i ]
+  %.0561659.i = phi i32 [ %565, %599 ], [ %603, %.thread655.i ]
   %609 = zext nneg i32 %.0561659.i to i64
   %610 = getelementptr inbounds [4096 x %struct.lzma_optimal], ptr %239, i64 0, i64 %.pre-phi, i32 8, i64 %609
   %611 = load i32, ptr %610, align 4
@@ -1068,10 +1068,10 @@ helper1.exit:                                     ; preds = %516, %444
   %exitcond771.not.i = icmp eq i64 %622, 4
   br i1 %exitcond771.not.i, label %.loopexit682.i, label %.lr.ph699.i, !llvm.loop !44
 
-.loopexit682.i.loopexit147:                       ; preds = %605, %.thread662.i
-  %.pre-phi183 = phi i64 [ %561, %605 ], [ %.pre, %.thread662.i ]
-  %.3560667.i = phi i32 [ %607, %605 ], [ %604, %.thread662.i ]
-  %.0561666.i = phi i32 [ %565, %605 ], [ %600, %.thread662.i ]
+.loopexit682.i.loopexit147:                       ; preds = %599, %.thread662.i
+  %.pre-phi183 = phi i64 [ %561, %599 ], [ %.pre, %.thread662.i ]
+  %.3560667.i = phi i32 [ %601, %599 ], [ %607, %.thread662.i ]
+  %.0561666.i = phi i32 [ %565, %599 ], [ %603, %.thread662.i ]
   %623 = add i32 %.0561666.i, -4
   store i32 %623, ptr %8, align 16
   %624 = mul nuw nsw i64 %.pre-phi183, 44

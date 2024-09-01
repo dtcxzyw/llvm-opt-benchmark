@@ -969,8 +969,8 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
           to label %.noexc79 unwind label %.loopexit
 
 .noexc79:                                         ; preds = %96
-  %.not.not.i.not.i.not = icmp eq ptr %97, null
-  br i1 %.not.not.i.not.i.not, label %112, label %98
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %97, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %112, label %98
 
 98:                                               ; preds = %.noexc79
   %99 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha167c676cbc4d1f0E.llvm.18234772108217180036"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
@@ -1557,8 +1557,8 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
 75:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
   %76 = load i64, ptr %68, align 8, !range !6, !noundef !4
-  %.not.not = icmp eq i64 %76, -9223372036854775808
-  br i1 %.not.not, label %151, label %77
+  %.not = icmp eq i64 %76, -9223372036854775808
+  br i1 %.not, label %151, label %77
 
 77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %67)

@@ -1194,217 +1194,170 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
   %6 = sdiv exact i64 %5, 12
   %7 = ashr i64 %6, 2
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
+  br i1 %8, label %.preheader57.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %2
+.preheader57.preheader.i.i.i.i:                   ; preds = %2
   %9 = mul nuw nsw i64 %7, 48
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %9
-  br label %.lr.ph.i.i.i.i
+  br label %.preheader57.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i", %.lr.ph.preheader.i.i.i.i
-  %.092.i.i.i.i = phi i64 [ %50, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.062.091.i.i.i.i = phi ptr [ %49, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i" ], [ %0, %.lr.ph.preheader.i.i.i.i ]
-  %10 = load float, ptr %.sroa.062.091.i.i.i.i, align 4
-  %11 = tail call float @llvm.fabs.f32(float %10)
-  %12 = fcmp ueq float %11, 0x7FF0000000000000
-  br i1 %12, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i.i.i.i.i
+.preheader57.i.i.i.i:                             ; preds = %36, %.preheader57.preheader.i.i.i.i
+  %.066.i.i.i.i = phi i64 [ %38, %36 ], [ %7, %.preheader57.preheader.i.i.i.i ]
+  %.sroa.050.065.i.i.i.i = phi ptr [ %37, %36 ], [ %0, %.preheader57.preheader.i.i.i.i ]
+  br label %10
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i, %13
-  %indvars.iv.i1.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %13 ], [ 0, %.lr.ph.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i.i.i.i.i, 1
-  %exitcond.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
-  br i1 %exitcond.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i", label %13, !llvm.loop !13
+10:                                               ; preds = %10, %.preheader57.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %10 ], [ 0, %.preheader57.i.i.i.i ]
+  %11 = getelementptr inbounds [3 x float], ptr %.sroa.050.065.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %12 = load float, ptr %11, align 4
+  %13 = tail call float @llvm.fabs.f32(float %12)
+  %14 = fcmp one float %13, 0x7FF0000000000000
+  %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
+  %exitcond.i.i.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i.i.i, 3
+  %or.cond.not.i.i.i.i.i.i = select i1 %14, i1 %exitcond.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i.i.i.i.i, label %10, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i", !llvm.loop !13
 
-13:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %14 = getelementptr inbounds [3 x float], ptr %.sroa.062.091.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i.i.i
-  %15 = load float, ptr %14, align 4
-  %16 = tail call float @llvm.fabs.f32(float %15)
-  %17 = fcmp ueq float %16, 0x7FF0000000000000
-  br i1 %17, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !13
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i": ; preds = %10
+  br i1 %14, label %15, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i": ; preds = %13
-  %18 = icmp ult i64 %indvars.iv.i1.i.i.i.i.i, 2
-  br i1 %18, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i"
+15:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i"
+  %16 = getelementptr inbounds i8, ptr %.sroa.050.065.i.i.i.i, i64 12
+  br label %17
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i"
-  %19 = getelementptr inbounds i8, ptr %.sroa.062.091.i.i.i.i, i64 12
-  %20 = load float, ptr %19, align 4
-  %21 = tail call float @llvm.fabs.f32(float %20)
-  %22 = fcmp ueq float %21, 0x7FF0000000000000
-  br i1 %22, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i18.i.i.i.i
+17:                                               ; preds = %17, %15
+  %indvars.iv.i.i18.i.i.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i19.i.i.i.i, %17 ]
+  %18 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %indvars.iv.i.i18.i.i.i.i
+  %19 = load float, ptr %18, align 4
+  %20 = tail call float @llvm.fabs.f32(float %19)
+  %21 = fcmp one float %20, 0x7FF0000000000000
+  %indvars.iv.next.i.i19.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i18.i.i.i.i, 1
+  %exitcond.i.i20.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i19.i.i.i.i, 3
+  %or.cond.not.i.i21.i.i.i.i = select i1 %21, i1 %exitcond.i.i20.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i21.i.i.i.i, label %17, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit22.i.i.i.i", !llvm.loop !13
 
-.lr.ph.i18.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i", %23
-  %indvars.iv.i1.i19.i.i.i.i = phi i64 [ %indvars.iv.next.i.i20.i.i.i.i, %23 ], [ 0, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i" ]
-  %indvars.iv.next.i.i20.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i19.i.i.i.i, 1
-  %exitcond.i.i21.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i20.i.i.i.i, 3
-  br i1 %exitcond.i.i21.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i", label %23, !llvm.loop !13
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit22.i.i.i.i": ; preds = %17
+  br i1 %21, label %22, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-23:                                               ; preds = %.lr.ph.i18.i.i.i.i
-  %24 = getelementptr inbounds [3 x float], ptr %19, i64 0, i64 %indvars.iv.next.i.i20.i.i.i.i
-  %25 = load float, ptr %24, align 4
-  %26 = tail call float @llvm.fabs.f32(float %25)
-  %27 = fcmp ueq float %26, 0x7FF0000000000000
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.i.i.i.i", label %.lr.ph.i18.i.i.i.i, !llvm.loop !13
+22:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit22.i.i.i.i"
+  %23 = getelementptr inbounds i8, ptr %.sroa.050.065.i.i.i.i, i64 24
+  br label %24
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.i.i.i.i": ; preds = %23
-  %28 = icmp ult i64 %indvars.iv.i1.i19.i.i.i.i, 2
-  br i1 %28, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i"
+24:                                               ; preds = %24, %22
+  %indvars.iv.i.i23.i.i.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i24.i.i.i.i, %24 ]
+  %25 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %indvars.iv.i.i23.i.i.i.i
+  %26 = load float, ptr %25, align 4
+  %27 = tail call float @llvm.fabs.f32(float %26)
+  %28 = fcmp one float %27, 0x7FF0000000000000
+  %indvars.iv.next.i.i24.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i23.i.i.i.i, 1
+  %exitcond.i.i25.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i24.i.i.i.i, 3
+  %or.cond.not.i.i26.i.i.i.i = select i1 %28, i1 %exitcond.i.i25.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i26.i.i.i.i, label %24, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit27.i.i.i.i", !llvm.loop !13
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i": ; preds = %.lr.ph.i18.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.i.i.i.i"
-  %29 = getelementptr inbounds i8, ptr %.sroa.062.091.i.i.i.i, i64 24
-  %30 = load float, ptr %29, align 4
-  %31 = tail call float @llvm.fabs.f32(float %30)
-  %32 = fcmp ueq float %31, 0x7FF0000000000000
-  br i1 %32, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i25.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit27.i.i.i.i": ; preds = %24
+  br i1 %28, label %29, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-.lr.ph.i25.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i", %33
-  %indvars.iv.i1.i26.i.i.i.i = phi i64 [ %indvars.iv.next.i.i27.i.i.i.i, %33 ], [ 0, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i" ]
-  %indvars.iv.next.i.i27.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i26.i.i.i.i, 1
-  %exitcond.i.i28.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i27.i.i.i.i, 3
-  br i1 %exitcond.i.i28.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i", label %33, !llvm.loop !13
+29:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit27.i.i.i.i"
+  %30 = getelementptr inbounds i8, ptr %.sroa.050.065.i.i.i.i, i64 36
+  br label %31
 
-33:                                               ; preds = %.lr.ph.i25.i.i.i.i
-  %34 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 %indvars.iv.next.i.i27.i.i.i.i
-  %35 = load float, ptr %34, align 4
-  %36 = tail call float @llvm.fabs.f32(float %35)
-  %37 = fcmp ueq float %36, 0x7FF0000000000000
-  br i1 %37, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.i.i.i.i", label %.lr.ph.i25.i.i.i.i, !llvm.loop !13
+31:                                               ; preds = %31, %29
+  %indvars.iv.i.i28.i.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i29.i.i.i.i, %31 ]
+  %32 = getelementptr inbounds [3 x float], ptr %30, i64 0, i64 %indvars.iv.i.i28.i.i.i.i
+  %33 = load float, ptr %32, align 4
+  %34 = tail call float @llvm.fabs.f32(float %33)
+  %35 = fcmp one float %34, 0x7FF0000000000000
+  %indvars.iv.next.i.i29.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i28.i.i.i.i, 1
+  %exitcond.i.i30.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i29.i.i.i.i, 3
+  %or.cond.not.i.i31.i.i.i.i = select i1 %35, i1 %exitcond.i.i30.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i31.i.i.i.i, label %31, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit32.i.i.i.i", !llvm.loop !13
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.i.i.i.i": ; preds = %33
-  %38 = icmp ult i64 %indvars.iv.i1.i26.i.i.i.i, 2
-  br i1 %38, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit32.i.i.i.i": ; preds = %31
+  br i1 %35, label %36, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i": ; preds = %.lr.ph.i25.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.i.i.i.i"
-  %39 = getelementptr inbounds i8, ptr %.sroa.062.091.i.i.i.i, i64 36
-  %40 = load float, ptr %39, align 4
-  %41 = tail call float @llvm.fabs.f32(float %40)
-  %42 = fcmp ueq float %41, 0x7FF0000000000000
-  br i1 %42, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i32.i.i.i.i
+36:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit32.i.i.i.i"
+  %37 = getelementptr inbounds i8, ptr %.sroa.050.065.i.i.i.i, i64 48
+  %38 = add nsw i64 %.066.i.i.i.i, -1
+  %39 = icmp sgt i64 %.066.i.i.i.i, 1
+  br i1 %39, label %.preheader57.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !14
 
-.lr.ph.i32.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i", %43
-  %indvars.iv.i1.i33.i.i.i.i = phi i64 [ %indvars.iv.next.i.i34.i.i.i.i, %43 ], [ 0, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i" ]
-  %indvars.iv.next.i.i34.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i33.i.i.i.i, 1
-  %exitcond.i.i35.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i34.i.i.i.i, 3
-  br i1 %exitcond.i.i35.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i", label %43, !llvm.loop !13
-
-43:                                               ; preds = %.lr.ph.i32.i.i.i.i
-  %44 = getelementptr inbounds [3 x float], ptr %39, i64 0, i64 %indvars.iv.next.i.i34.i.i.i.i
-  %45 = load float, ptr %44, align 4
-  %46 = tail call float @llvm.fabs.f32(float %45)
-  %47 = fcmp ueq float %46, 0x7FF0000000000000
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.i.i.i.i", label %.lr.ph.i32.i.i.i.i, !llvm.loop !13
-
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.i.i.i.i": ; preds = %43
-  %48 = icmp ult i64 %indvars.iv.i1.i33.i.i.i.i, 2
-  br i1 %48, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i"
-
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i": ; preds = %.lr.ph.i32.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.i.i.i.i"
-  %49 = getelementptr inbounds i8, ptr %.sroa.062.091.i.i.i.i, i64 48
-  %50 = add nsw i64 %.092.i.i.i.i, -1
-  %51 = icmp sgt i64 %.092.i.i.i.i, 1
-  br i1 %51, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !14
-
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.thread76.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %36
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre100.i.i.i.i = sub i64 %3, %.pre.i.i.i.i
+  %.pre74.i.i.i.i = sub i64 %3, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
-  %.pre-phi101.i.i.i.i = phi i64 [ %.pre100.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %2 ]
-  %.sroa.062.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %0, %2 ]
-  %52 = sdiv exact i64 %.pre-phi101.i.i.i.i, 12
-  switch i64 %52, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit" [
-    i64 3, label %53
-    i64 2, label %64
-    i64 1, label %75
+  %.pre-phi75.i.i.i.i = phi i64 [ %.pre74.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %2 ]
+  %.sroa.050.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %0, %2 ]
+  %40 = sdiv exact i64 %.pre-phi75.i.i.i.i, 12
+  switch i64 %40, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit" [
+    i64 3, label %.preheader.i.i.i.i
+    i64 2, label %47
+    i64 1, label %55
   ]
 
-53:                                               ; preds = %._crit_edge.i.i.i.i
-  %54 = load float, ptr %.sroa.062.0.lcssa.i.i.i.i, align 4
-  %55 = tail call float @llvm.fabs.f32(float %54)
-  %56 = fcmp ueq float %55, 0x7FF0000000000000
-  br i1 %56, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i39.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i, %.preheader.i.i.i.i
+  %indvars.iv.i.i33.i.i.i.i = phi i64 [ %indvars.iv.next.i.i34.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %._crit_edge.i.i.i.i ]
+  %41 = getelementptr inbounds [3 x float], ptr %.sroa.050.0.lcssa.i.i.i.i, i64 0, i64 %indvars.iv.i.i33.i.i.i.i
+  %42 = load float, ptr %41, align 4
+  %43 = tail call float @llvm.fabs.f32(float %42)
+  %44 = fcmp one float %43, 0x7FF0000000000000
+  %indvars.iv.next.i.i34.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i33.i.i.i.i, 1
+  %exitcond.i.i35.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i34.i.i.i.i, 3
+  %or.cond.not.i.i36.i.i.i.i = select i1 %44, i1 %exitcond.i.i35.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i36.i.i.i.i, label %.preheader.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit37.i.i.i.i", !llvm.loop !13
 
-.lr.ph.i39.i.i.i.i:                               ; preds = %53, %57
-  %indvars.iv.i1.i40.i.i.i.i = phi i64 [ %indvars.iv.next.i.i41.i.i.i.i, %57 ], [ 0, %53 ]
-  %indvars.iv.next.i.i41.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i40.i.i.i.i, 1
-  %exitcond.i.i42.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i41.i.i.i.i, 3
-  br i1 %exitcond.i.i42.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.thread78.i.i.i.i", label %57, !llvm.loop !13
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit37.i.i.i.i": ; preds = %.preheader.i.i.i.i
+  br i1 %44, label %45, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-57:                                               ; preds = %.lr.ph.i39.i.i.i.i
-  %58 = getelementptr inbounds [3 x float], ptr %.sroa.062.0.lcssa.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i41.i.i.i.i
-  %59 = load float, ptr %58, align 4
-  %60 = tail call float @llvm.fabs.f32(float %59)
-  %61 = fcmp ueq float %60, 0x7FF0000000000000
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.i.i.i.i", label %.lr.ph.i39.i.i.i.i, !llvm.loop !13
+45:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit37.i.i.i.i"
+  %46 = getelementptr inbounds i8, ptr %.sroa.050.0.lcssa.i.i.i.i, i64 12
+  br label %47
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.i.i.i.i": ; preds = %57
-  %62 = icmp ult i64 %indvars.iv.i1.i40.i.i.i.i, 2
-  br i1 %62, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.thread78.i.i.i.i"
+47:                                               ; preds = %45, %._crit_edge.i.i.i.i
+  %.sroa.050.1.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %46, %45 ]
+  br label %48
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.thread78.i.i.i.i": ; preds = %.lr.ph.i39.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.i.i.i.i"
-  %63 = getelementptr inbounds i8, ptr %.sroa.062.0.lcssa.i.i.i.i, i64 12
-  br label %64
+48:                                               ; preds = %48, %47
+  %indvars.iv.i.i38.i.i.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i39.i.i.i.i, %48 ]
+  %49 = getelementptr inbounds [3 x float], ptr %.sroa.050.1.i.i.i.i, i64 0, i64 %indvars.iv.i.i38.i.i.i.i
+  %50 = load float, ptr %49, align 4
+  %51 = tail call float @llvm.fabs.f32(float %50)
+  %52 = fcmp one float %51, 0x7FF0000000000000
+  %indvars.iv.next.i.i39.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i38.i.i.i.i, 1
+  %exitcond.i.i40.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i39.i.i.i.i, 3
+  %or.cond.not.i.i41.i.i.i.i = select i1 %52, i1 %exitcond.i.i40.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i41.i.i.i.i, label %48, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit42.i.i.i.i", !llvm.loop !13
 
-64:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.thread78.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.062.1.i.i.i.i = phi ptr [ %.sroa.062.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %63, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.thread78.i.i.i.i" ]
-  %65 = load float, ptr %.sroa.062.1.i.i.i.i, align 4
-  %66 = tail call float @llvm.fabs.f32(float %65)
-  %67 = fcmp ueq float %66, 0x7FF0000000000000
-  br i1 %67, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i46.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit42.i.i.i.i": ; preds = %48
+  br i1 %52, label %53, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-.lr.ph.i46.i.i.i.i:                               ; preds = %64, %68
-  %indvars.iv.i1.i47.i.i.i.i = phi i64 [ %indvars.iv.next.i.i48.i.i.i.i, %68 ], [ 0, %64 ]
-  %indvars.iv.next.i.i48.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i47.i.i.i.i, 1
-  %exitcond.i.i49.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i48.i.i.i.i, 3
-  br i1 %exitcond.i.i49.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.thread80.i.i.i.i", label %68, !llvm.loop !13
+53:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit42.i.i.i.i"
+  %54 = getelementptr inbounds i8, ptr %.sroa.050.1.i.i.i.i, i64 12
+  br label %55
 
-68:                                               ; preds = %.lr.ph.i46.i.i.i.i
-  %69 = getelementptr inbounds [3 x float], ptr %.sroa.062.1.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i48.i.i.i.i
-  %70 = load float, ptr %69, align 4
-  %71 = tail call float @llvm.fabs.f32(float %70)
-  %72 = fcmp ueq float %71, 0x7FF0000000000000
-  br i1 %72, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.i.i.i.i", label %.lr.ph.i46.i.i.i.i, !llvm.loop !13
+55:                                               ; preds = %53, %._crit_edge.i.i.i.i
+  %.sroa.050.2.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  br label %56
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.i.i.i.i": ; preds = %68
-  %73 = icmp ult i64 %indvars.iv.i1.i47.i.i.i.i, 2
-  br i1 %73, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.thread80.i.i.i.i"
+56:                                               ; preds = %56, %55
+  %indvars.iv.i.i43.i.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i44.i.i.i.i, %56 ]
+  %57 = getelementptr inbounds [3 x float], ptr %.sroa.050.2.i.i.i.i, i64 0, i64 %indvars.iv.i.i43.i.i.i.i
+  %58 = load float, ptr %57, align 4
+  %59 = tail call float @llvm.fabs.f32(float %58)
+  %60 = fcmp one float %59, 0x7FF0000000000000
+  %indvars.iv.next.i.i44.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i43.i.i.i.i, 1
+  %exitcond.i.i45.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i44.i.i.i.i, 3
+  %or.cond.not.i.i46.i.i.i.i = select i1 %60, i1 %exitcond.i.i45.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i46.i.i.i.i, label %56, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit47.i.i.i.i", !llvm.loop !13
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.thread80.i.i.i.i": ; preds = %.lr.ph.i46.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.i.i.i.i"
-  %74 = getelementptr inbounds i8, ptr %.sroa.062.1.i.i.i.i, i64 12
-  br label %75
-
-75:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.thread80.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.062.2.i.i.i.i = phi ptr [ %.sroa.062.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %74, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.thread80.i.i.i.i" ]
-  %76 = load float, ptr %.sroa.062.2.i.i.i.i, align 4
-  %77 = tail call float @llvm.fabs.f32(float %76)
-  %78 = fcmp ueq float %77, 0x7FF0000000000000
-  br i1 %78, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %.lr.ph.i53.i.i.i.i
-
-.lr.ph.i53.i.i.i.i:                               ; preds = %75, %79
-  %indvars.iv.i1.i54.i.i.i.i = phi i64 [ %indvars.iv.next.i.i55.i.i.i.i, %79 ], [ 0, %75 ]
-  %indvars.iv.next.i.i55.i.i.i.i = add nuw nsw i64 %indvars.iv.i1.i54.i.i.i.i, 1
-  %exitcond.i.i56.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i55.i.i.i.i, 3
-  br i1 %exitcond.i.i56.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.thread82.i.i.i.i", label %79, !llvm.loop !13
-
-79:                                               ; preds = %.lr.ph.i53.i.i.i.i
-  %80 = getelementptr inbounds [3 x float], ptr %.sroa.062.2.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i55.i.i.i.i
-  %81 = load float, ptr %80, align 4
-  %82 = tail call float @llvm.fabs.f32(float %81)
-  %83 = fcmp ueq float %82, 0x7FF0000000000000
-  br i1 %83, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.i.i.i.i", label %.lr.ph.i53.i.i.i.i, !llvm.loop !13
-
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.i.i.i.i": ; preds = %79
-  %84 = icmp ult i64 %indvars.iv.i1.i54.i.i.i.i, 2
-  br i1 %84, label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.thread82.i.i.i.i"
-
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.thread82.i.i.i.i": ; preds = %.lr.ph.i53.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit47.i.i.i.i": ; preds = %56
+  %spec.select.i.i.i.i = select i1 %60, ptr %1, ptr %.sroa.050.2.i.i.i.i
   br label %"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.i.i.i.i", %._crit_edge.i.i.i.i, %53, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.i.i.i.i", %64, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.i.i.i.i", %75, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.thread82.i.i.i.i"
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.062.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit45.i.i.i.i" ], [ %.sroa.062.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit52.i.i.i.i" ], [ %.sroa.062.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.i.i.i.i" ], [ %1, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit59.thread82.i.i.i.i" ], [ %1, %._crit_edge.i.i.i.i ], [ %.sroa.062.0.lcssa.i.i.i.i, %53 ], [ %.sroa.062.1.i.i.i.i, %64 ], [ %.sroa.062.2.i.i.i.i, %75 ], [ %39, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.thread74.i.i.i.i" ], [ %29, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.thread72.i.i.i.i" ], [ %19, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.thread70.i.i.i.i" ], [ %.sroa.062.091.i.i.i.i, %.lr.ph.i.i.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit38.i.i.i.i" ], [ %29, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit31.i.i.i.i" ], [ %19, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit24.i.i.i.i" ], [ %.sroa.062.091.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i" ]
-  %85 = icmp eq ptr %1, %.sroa.010.0.in.sroa.speculated.i.i.i.i
-  ret i1 %85
+"_ZSt6all_ofIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEEZN5nblib12isRealValuedENS0_8ArrayRefIS4_EEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit22.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit27.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit32.i.i.i.i", %._crit_edge.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit37.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit42.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit47.i.i.i.i"
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit37.i.i.i.i" ], [ %.sroa.050.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit42.i.i.i.i" ], [ %1, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit47.i.i.i.i" ], [ %30, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit32.i.i.i.i" ], [ %23, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit27.i.i.i.i" ], [ %16, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit22.i.i.i.i" ], [ %.sroa.050.065.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEE3$_0EclINS3_12ArrayRefIterIS7_EEEEbT_.exit.i.i.i.i" ]
+  %61 = icmp eq ptr %1, %.sroa.010.0.in.sroa.speculated.i.i.i.i
+  ret i1 %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

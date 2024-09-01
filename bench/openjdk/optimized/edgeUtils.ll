@@ -205,11 +205,11 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
 91:                                               ; preds = %89
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 4 dereferenceable(26) %39)
   %.pre = load i32, ptr %35, align 8
-  %.pre27 = load i32, ptr %36, align 4
+  %.pre25 = load i32, ptr %36, align 4
   br label %_ZN15FieldStreamBase4nextEv.exit
 
 _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
-  %92 = phi i32 [ %75, %89 ], [ %.pre27, %91 ]
+  %92 = phi i32 [ %75, %89 ], [ %.pre25, %91 ]
   %93 = phi i32 [ %90, %89 ], [ %.pre, %91 ]
   %.not20 = icmp slt i32 %93, %92
   br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !8

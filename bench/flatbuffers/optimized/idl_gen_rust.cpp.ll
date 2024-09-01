@@ -9525,7 +9525,7 @@ invoke.cont56:                                    ; preds = %invoke.cont53
   call void @_ZN11flatbuffers4rust13RustGenerator19GenNamespaceImportsEi(ptr noundef nonnull align 8 dereferenceable(1008) %this, i32 noundef 2)
   %inc61 = add i64 %j32.071, 1
   %cmp34.not = icmp eq i64 %inc61, %cond10
-  br i1 %cmp34.not, label %for.end62, label %for.body35, !llvm.loop !33
+  br i1 %cmp34.not, label %if.then64, label %for.body35, !llvm.loop !33
 
 lpad38:                                           ; preds = %call.i42.noexc, %for.body35
   %19 = landingpad { ptr, i32 }
@@ -9569,10 +9569,7 @@ ehcleanup59:                                      ; preds = %ehcleanup58, %lpad5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #21
   br label %eh.resume
 
-for.end62:                                        ; preds = %invoke.cont56
-  br i1 %cmp34.not70, label %if.end74, label %if.then64
-
-if.then64:                                        ; preds = %for.end62
+if.then64:                                        ; preds = %invoke.cont56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #21
   %call.i5559 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp65)
           to label %call.i55.noexc unwind label %lpad67
@@ -9617,7 +9614,7 @@ ehcleanup73:                                      ; preds = %lpad67, %lpad.i58, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #21
   br label %eh.resume
 
-if.end74:                                         ; preds = %if.end31, %invoke.cont71, %for.end62
+if.end74:                                         ; preds = %if.end31, %invoke.cont71
   store ptr %ns, ptr %cur_name_space_, align 8
   br label %return
 

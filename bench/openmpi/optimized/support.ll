@@ -397,18 +397,18 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
   %66 = getelementptr inbounds i8, ptr %.011.i.i36, i64 120
   %.0.i.i37 = load ptr, ptr %66, align 8
   %.not.i.i38 = icmp eq ptr %.0.i.i37, %47
-  br i1 %.not.i.i38, label %pmix_cmd_line_is_taken.exit42, label %.lr.ph.i.i35, !llvm.loop !7
+  br i1 %.not.i.i38, label %.lr.ph.i.i45.preheader, label %.lr.ph.i.i35, !llvm.loop !7
 
 pmix_cmd_line_is_taken.exit42.sink.split:         ; preds = %.lr.ph.i.i, %.lr.ph.i.i25, %.lr.ph.i.i35
   %.sink = phi i8 [ 0, %.lr.ph.i.i35 ], [ 0, %.lr.ph.i.i25 ], [ 1, %.lr.ph.i.i ]
   store i8 %.sink, ptr @pmix_info_pretty, align 1
-  br label %pmix_cmd_line_is_taken.exit42
+  br label %.lr.ph.i.i45.preheader
 
-pmix_cmd_line_is_taken.exit42:                    ; preds = %65, %pmix_cmd_line_is_taken.exit42.sink.split
-  br i1 %.not10.i.i, label %pmix_cmd_line_is_taken.exit62, label %.lr.ph.i.i45
+.lr.ph.i.i45.preheader:                           ; preds = %65, %pmix_cmd_line_is_taken.exit42.sink.split
+  br label %.lr.ph.i.i45
 
-.lr.ph.i.i45:                                     ; preds = %pmix_cmd_line_is_taken.exit42, %71
-  %.011.i.i46 = phi ptr [ %.0.i.i47, %71 ], [ %.09.i.i, %pmix_cmd_line_is_taken.exit42 ]
+.lr.ph.i.i45:                                     ; preds = %.lr.ph.i.i45.preheader, %71
+  %.011.i.i46 = phi ptr [ %.0.i.i47, %71 ], [ %.09.i.i, %.lr.ph.i.i45.preheader ]
   %67 = getelementptr inbounds i8, ptr %.011.i.i46, i64 144
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(14) @.str.38) #23
@@ -419,17 +419,17 @@ pmix_cmd_line_is_taken.exit42:                    ; preds = %65, %pmix_cmd_line_
   %72 = getelementptr inbounds i8, ptr %.011.i.i46, i64 120
   %.0.i.i47 = load ptr, ptr %72, align 8
   %.not.i.i48 = icmp eq ptr %.0.i.i47, %47
-  br i1 %.not.i.i48, label %pmix_cmd_line_is_taken.exit52, label %.lr.ph.i.i45, !llvm.loop !7
+  br i1 %.not.i.i48, label %.lr.ph.i.i55.preheader, label %.lr.ph.i.i45, !llvm.loop !7
 
 73:                                               ; preds = %.lr.ph.i.i45
   store i32 0, ptr @pmix_info_register_flags, align 4
-  br label %pmix_cmd_line_is_taken.exit52
+  br label %.lr.ph.i.i55.preheader
 
-pmix_cmd_line_is_taken.exit52:                    ; preds = %71, %73
-  br i1 %.not10.i.i, label %pmix_cmd_line_is_taken.exit62, label %.lr.ph.i.i55
+.lr.ph.i.i55.preheader:                           ; preds = %71, %73
+  br label %.lr.ph.i.i55
 
-.lr.ph.i.i55:                                     ; preds = %pmix_cmd_line_is_taken.exit52, %78
-  %.011.i.i56 = phi ptr [ %.0.i.i57, %78 ], [ %.09.i.i, %pmix_cmd_line_is_taken.exit52 ]
+.lr.ph.i.i55:                                     ; preds = %.lr.ph.i.i55.preheader, %78
+  %.011.i.i56 = phi ptr [ %.0.i.i57, %78 ], [ %.09.i.i, %.lr.ph.i.i55.preheader ]
   %74 = getelementptr inbounds i8, ptr %.011.i.i56, i64 144
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull readonly dereferenceable(12) @.str.39) #23
@@ -446,7 +446,7 @@ pmix_cmd_line_is_taken.exit52:                    ; preds = %71, %73
   store i8 1, ptr @pmix_mca_base_component_track_load_errors, align 1
   br label %pmix_cmd_line_is_taken.exit62
 
-pmix_cmd_line_is_taken.exit62:                    ; preds = %78, %45, %pmix_cmd_line_is_taken.exit42, %pmix_cmd_line_is_taken.exit52, %80
+pmix_cmd_line_is_taken.exit62:                    ; preds = %78, %45, %80
   ret i32 0
 }
 

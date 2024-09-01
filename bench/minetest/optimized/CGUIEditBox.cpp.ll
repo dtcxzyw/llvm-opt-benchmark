@@ -6241,18 +6241,18 @@ while.body.i:                                     ; preds = %if.end7.i, %while.b
 if.end7.i:                                        ; preds = %while.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %while.body.preheader.i527, label %while.body.i, !llvm.loop !110
+  br i1 %exitcond.not.i, label %while.cond.preheader.i514, label %while.body.i, !llvm.loop !110
 
 cleanup.loopexit.split.loop.exit25.i:             ; preds = %while.body.i
   %53 = trunc i64 %indvars.iv.i to i32
-  br label %while.body.preheader.i527
+  br label %while.cond.preheader.i514
 
-while.body.preheader.i527:                        ; preds = %if.end7.i, %cleanup.loopexit.split.loop.exit25.i
+while.cond.preheader.i514:                        ; preds = %if.end7.i, %cleanup.loopexit.split.loop.exit25.i
   %conv.i.i.sink = phi i32 [ %53, %cleanup.loopexit.split.loop.exit25.i ], [ %conv.i.i, %if.end7.i ]
   br label %while.body.i529
 
-while.body.i529:                                  ; preds = %if.end7.i533, %while.body.preheader.i527
-  %indvars.iv.i530 = phi i64 [ 0, %while.body.preheader.i527 ], [ %indvars.iv.next.i534, %if.end7.i533 ]
+while.body.i529:                                  ; preds = %if.end7.i533, %while.cond.preheader.i514
+  %indvars.iv.i530 = phi i64 [ 0, %while.cond.preheader.i514 ], [ %indvars.iv.next.i534, %if.end7.i533 ]
   %add.ptr.i.i.i531 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.i530
   %54 = load i32, ptr %add.ptr.i.i.i531, align 4, !tbaa !67
   %cmp5.i532 = icmp sgt i32 %54, %cond63771

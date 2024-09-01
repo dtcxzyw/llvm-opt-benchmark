@@ -3862,8 +3862,8 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread: ; pr
 
 303:                                              ; preds = %304, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i"
   %.idx.i = phi i64 [ %.add.i, %304 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i" ]
-  %.not.i.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
-  br i1 %.not.i.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
+  %.not.not.not.i.not.not.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
 
 304:                                              ; preds = %303
   %.ptr.i = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.60, i64 %.idx.i
@@ -3991,8 +3991,8 @@ _ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit: ; preds = %
 
 360:                                              ; preds = %361, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i"
   %.idx.i213 = phi i64 [ %.add.i215, %361 ], [ 0, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i" ]
-  %.not.i.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
-  br i1 %.not.i.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
+  %.not.not.not.i.not.not.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
 
 361:                                              ; preds = %360
   %.ptr.i214 = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.62, i64 %.idx.i213
@@ -5881,8 +5881,8 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread: ; pr
 
 303:                                              ; preds = %304, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i"
   %.idx.i = phi i64 [ %.add.i, %304 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i" ]
-  %.not.i.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
-  br i1 %.not.i.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
+  %.not.not.not.i.not.not.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
 
 304:                                              ; preds = %303
   %.ptr.i = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.60, i64 %.idx.i
@@ -6010,8 +6010,8 @@ _ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit: ; preds = %
 
 360:                                              ; preds = %361, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i"
   %.idx.i213 = phi i64 [ %.add.i215, %361 ], [ 0, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i" ]
-  %.not.i.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
-  br i1 %.not.i.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
+  %.not.not.not.i.not.not.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
 
 361:                                              ; preds = %360
   %.ptr.i214 = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.62, i64 %.idx.i213
@@ -7900,8 +7900,8 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread: ; pr
 
 303:                                              ; preds = %304, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i"
   %.idx.i = phi i64 [ %.add.i, %304 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i" ]
-  %.not.i.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
-  br i1 %.not.i.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
+  %.not.not.not.i.not.not.not.i.not.i.not.i = icmp eq i64 %.idx.i, 36
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit.thread, label %304
 
 304:                                              ; preds = %303
   %.ptr.i = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.60, i64 %.idx.i
@@ -8029,8 +8029,8 @@ _ZN4core3str7pattern7Pattern12is_prefix_of17h2ed316247303759bE.exit: ; preds = %
 
 360:                                              ; preds = %361, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i"
   %.idx.i213 = phi i64 [ %.add.i215, %361 ], [ 0, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i" ]
-  %.not.i.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
-  br i1 %.not.i.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
+  %.not.not.not.i.not.not.not.i.not.i.not.not.i = icmp eq i64 %.idx.i213, 12
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.not.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hfea3cde8f886bc94E.exit.thread, label %361
 
 361:                                              ; preds = %360
   %.ptr.i214 = getelementptr inbounds i8, ptr @anon.f5cdfdec8e1dafb0668466b6c05bb60d.62, i64 %.idx.i213

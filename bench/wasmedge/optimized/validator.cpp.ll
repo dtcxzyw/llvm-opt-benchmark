@@ -1485,10 +1485,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST11TypeSectionE(p
   %wide.trip.count = zext i32 %26 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %27, label %.lr.ph50.preheader, label %.loopexit
-
-.lr.ph50.preheader:                               ; preds = %.preheader
+.lr.ph50.preheader:                               ; preds = %.lr.ph
   %29 = zext i32 %.02951 to i64
   %wide.trip.count58 = zext i32 %26 to i64
   br label %.lr.ph50
@@ -1499,7 +1496,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST11TypeSectionE(p
   tail call void @_ZN8WasmEdge9Validator11FormChecker7addTypeERKNS_3AST7SubTypeE(ptr noundef nonnull align 8 dereferenceable(360) %18, ptr noundef nonnull align 8 dereferenceable(140) %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %.lr.ph50.preheader, label %.lr.ph, !llvm.loop !55
 
 31:                                               ; preds = %.lr.ph50
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -1596,8 +1593,8 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader47
   %67 = add i32 %.02951, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %24, %.preheader, %66
-  %.1 = phi i32 [ %67, %66 ], [ %26, %.preheader ], [ %26, %24 ], [ %26, %31 ]
+.loopexit:                                        ; preds = %31, %24, %66
+  %.1 = phi i32 [ %67, %66 ], [ %26, %24 ], [ %26, %31 ]
   %68 = zext i32 %.1 to i64
   %69 = icmp ugt i64 %16, %68
   br i1 %69, label %20, label %._crit_edge, !llvm.loop !66
@@ -6201,8 +6198,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
 33:                                               ; preds = %._crit_edge
   %34 = add nuw i32 %.01727, 1
   %35 = load i32, ptr %12, align 4
-  %.not40 = icmp ult i32 %34, %35
-  br i1 %.not40, label %36, label %.loopexit, !llvm.loop !162
+  %.not37 = icmp ult i32 %34, %35
+  br i1 %.not37, label %36, label %.loopexit, !llvm.loop !162
 
 36:                                               ; preds = %.lr.ph29, %33
   %.01727 = phi i32 [ 0, %.lr.ph29 ], [ %34, %33 ]

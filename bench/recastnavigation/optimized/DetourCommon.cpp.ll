@@ -230,85 +230,82 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
 
 .lr.ph.preheader:                                 ; preds = %8
   %18 = add nsw i32 %3, -1
-  %19 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %20 = phi i1 [ false, %.lr.ph.preheader ], [ %65, %64 ]
-  %.03948 = phi i32 [ %18, %.lr.ph.preheader ], [ %66, %64 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+  %.03948 = phi i32 [ %18, %.lr.ph.preheader ], [ %63, %62 ]
   %.idx = mul i64 %indvars.iv, 12
-  %21 = getelementptr inbounds i8, ptr %2, i64 %.idx
-  %22 = mul nsw i32 %.03948, 3
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds float, ptr %2, i64 %23
-  %25 = load float, ptr %21, align 4
-  %26 = load float, ptr %24, align 4
-  %27 = fsub float %25, %26
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %20 = mul nsw i32 %.03948, 3
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds float, ptr %2, i64 %21
+  %23 = load float, ptr %19, align 4
+  %24 = load float, ptr %22, align 4
+  %25 = fsub float %23, %24
+  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %22, i64 8
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
-  %31 = load float, ptr %30, align 4
-  %32 = fsub float %29, %31
-  %33 = load float, ptr %0, align 4
-  %34 = fsub float %33, %26
-  %35 = load float, ptr %14, align 4
-  %36 = fsub float %35, %31
-  %37 = fneg float %36
-  %38 = fmul float %27, %37
-  %39 = tail call noundef float @llvm.fmuladd.f32(float %32, float %34, float %38)
-  %40 = fneg float %32
-  %41 = fmul float %11, %40
-  %42 = tail call noundef float @llvm.fmuladd.f32(float %16, float %27, float %41)
-  %43 = tail call float @llvm.fabs.f32(float %42)
-  %44 = fcmp olt float %43, 0x3EB0C6F7A0000000
-  br i1 %44, label %45, label %47
+  %30 = fsub float %27, %29
+  %31 = load float, ptr %0, align 4
+  %32 = fsub float %31, %24
+  %33 = load float, ptr %14, align 4
+  %34 = fsub float %33, %29
+  %35 = fneg float %34
+  %36 = fmul float %25, %35
+  %37 = tail call noundef float @llvm.fmuladd.f32(float %30, float %32, float %36)
+  %38 = fneg float %30
+  %39 = fmul float %11, %38
+  %40 = tail call noundef float @llvm.fmuladd.f32(float %16, float %25, float %39)
+  %41 = tail call float @llvm.fabs.f32(float %40)
+  %42 = fcmp olt float %41, 0x3EB0C6F7A0000000
+  br i1 %42, label %43, label %45
+
+43:                                               ; preds = %.lr.ph
+  %44 = fcmp olt float %37, 0.000000e+00
+  br i1 %44, label %._crit_edge, label %62
 
 45:                                               ; preds = %.lr.ph
-  %46 = fcmp olt float %39, 0.000000e+00
-  br i1 %46, label %._crit_edge, label %64
+  %46 = fdiv float %37, %40
+  %47 = fcmp olt float %40, 0.000000e+00
+  br i1 %47, label %48, label %55
 
-47:                                               ; preds = %.lr.ph
-  %48 = fdiv float %39, %42
-  %49 = fcmp olt float %42, 0.000000e+00
-  br i1 %49, label %50, label %57
+48:                                               ; preds = %45
+  %49 = load float, ptr %4, align 4
+  %50 = fcmp ogt float %46, %49
+  br i1 %50, label %51, label %62
 
-50:                                               ; preds = %47
-  %51 = load float, ptr %4, align 4
-  %52 = fcmp ogt float %48, %51
-  br i1 %52, label %53, label %64
-
-53:                                               ; preds = %50
-  store float %48, ptr %4, align 4
+51:                                               ; preds = %48
+  store float %46, ptr %4, align 4
   store i32 %.03948, ptr %6, align 4
-  %54 = load float, ptr %4, align 4
-  %55 = load float, ptr %5, align 4
-  %56 = fcmp ogt float %54, %55
-  br i1 %56, label %._crit_edge, label %64
+  %52 = load float, ptr %4, align 4
+  %53 = load float, ptr %5, align 4
+  %54 = fcmp ogt float %52, %53
+  br i1 %54, label %._crit_edge, label %62
 
-57:                                               ; preds = %47
-  %58 = load float, ptr %5, align 4
-  %59 = fcmp olt float %48, %58
-  br i1 %59, label %60, label %64
+55:                                               ; preds = %45
+  %56 = load float, ptr %5, align 4
+  %57 = fcmp olt float %46, %56
+  br i1 %57, label %58, label %62
 
-60:                                               ; preds = %57
-  store float %48, ptr %5, align 4
+58:                                               ; preds = %55
+  store float %46, ptr %5, align 4
   store i32 %.03948, ptr %7, align 4
-  %61 = load float, ptr %5, align 4
-  %62 = load float, ptr %4, align 4
-  %63 = fcmp olt float %61, %62
-  br i1 %63, label %._crit_edge, label %64
+  %59 = load float, ptr %5, align 4
+  %60 = load float, ptr %4, align 4
+  %61 = fcmp olt float %59, %60
+  br i1 %61, label %._crit_edge, label %62
 
-64:                                               ; preds = %53, %50, %60, %57, %45
+62:                                               ; preds = %51, %48, %58, %55, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = icmp uge i64 %indvars.iv.next, %19
-  %66 = trunc nuw nsw i64 %indvars.iv to i32
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %45, %53, %60, %64, %8
-  %.lcssa = phi i1 [ true, %8 ], [ %65, %64 ], [ %20, %60 ], [ %20, %53 ], [ %20, %45 ]
+._crit_edge:                                      ; preds = %43, %51, %58, %62, %8
+  %.lcssa = phi i1 [ true, %8 ], [ true, %62 ], [ false, %58 ], [ false, %51 ], [ false, %43 ]
   ret i1 %.lcssa
 }
 
@@ -957,15 +954,12 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
 ._crit_edge:                                      ; preds = %10
   %37 = fmul float %3, %36
   %38 = add nsw i32 %1, -1
-  br i1 %7, label %.lr.ph78.preheader, label %.loopexit
-
-.lr.ph78.preheader:                               ; preds = %._crit_edge
   %wide.trip.count87 = zext nneg i32 %1 to i64
   br label %.lr.ph78
 
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %48
-  %indvars.iv84 = phi i64 [ 2, %.lr.ph78.preheader ], [ %indvars.iv.next85, %48 ]
-  %.06476 = phi float [ 0.000000e+00, %.lr.ph78.preheader ], [ %42, %48 ]
+.lr.ph78:                                         ; preds = %._crit_edge, %48
+  %indvars.iv84 = phi i64 [ 2, %._crit_edge ], [ %indvars.iv.next85, %48 ]
+  %.06476 = phi float [ 0.000000e+00, %._crit_edge ], [ %42, %48 ]
   %39 = getelementptr inbounds float, ptr %2, i64 %indvars.iv84
   %40 = load float, ptr %39, align 4
   %41 = fcmp oge float %37, %.06476
@@ -985,9 +979,9 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !13
 
-.loopexit:                                        ; preds = %48, %._crit_edge.thread, %._crit_edge, %44
-  %.066 = phi i32 [ %45, %44 ], [ %38, %._crit_edge ], [ %8, %._crit_edge.thread ], [ %38, %48 ]
-  %.065 = phi float [ %47, %44 ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %._crit_edge.thread ], [ 1.000000e+00, %48 ]
+.loopexit:                                        ; preds = %48, %._crit_edge.thread, %44
+  %.066 = phi i32 [ %45, %44 ], [ %8, %._crit_edge.thread ], [ %38, %48 ]
+  %.065 = phi float [ %47, %44 ], [ 1.000000e+00, %._crit_edge.thread ], [ 1.000000e+00, %48 ]
   %49 = tail call noundef float @sqrtf(float noundef %4) #6
   %50 = fsub float 1.000000e+00, %49
   %51 = fsub float 1.000000e+00, %.065

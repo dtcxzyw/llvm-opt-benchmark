@@ -1937,7 +1937,8 @@ if.end166:                                        ; preds = %if.then129
   br i1 %cmp171, label %cond.true172, label %moreBytes
 
 cond.true172:                                     ; preds = %land.lhs.true144, %land.lhs.true132, %land.lhs.true157, %if.end166
-  %conv175 = zext i1 %cmp128 to i8
+  %cmp128439 = phi i1 [ true, %if.end166 ], [ %cmp128, %land.lhs.true157 ], [ %cmp128, %land.lhs.true132 ], [ %cmp128, %land.lhs.true144 ]
+  %conv175 = zext i1 %cmp128439 to i8
   %cmp177 = icmp ugt i8 %17, -17
   %add179 = select i1 %cmp177, i8 3, i8 2
   %add180 = add nuw nsw i8 %add179, %conv175

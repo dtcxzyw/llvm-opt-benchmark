@@ -537,8 +537,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %2
   %14 = load i64, ptr %9, align 8, !range !158, !noalias !154, !noundef !16
-  %.not.not.i = icmp eq i64 %14, -9223372036854775808
-  br i1 %.not.not.i, label %.thread14, label %15
+  %.not.i = icmp eq i64 %14, -9223372036854775808
+  br i1 %.not.i, label %.thread14, label %15
 
 .thread14:                                        ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !154
@@ -688,8 +688,8 @@ common.resume:                                    ; preds = %109, %.body6, %34, 
 
 .noexc.i.i:                                       ; preds = %59
   %60 = load i64, ptr %5, align 8, !range !158, !noalias !190, !noundef !16
-  %.not.not.i.i.i = icmp eq i64 %60, -9223372036854775808
-  br i1 %.not.not.i.i.i, label %.thread.i.i, label %61
+  %.not.i.i.i = icmp eq i64 %60, -9223372036854775808
+  br i1 %.not.i.i.i, label %.thread.i.i, label %61
 
 61:                                               ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !190

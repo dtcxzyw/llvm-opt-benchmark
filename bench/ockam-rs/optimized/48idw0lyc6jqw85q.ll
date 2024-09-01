@@ -44541,8 +44541,8 @@ common.ret:                                       ; preds = %567, %540, %311, %1
   br label %.body354
 
 314:                                              ; preds = %310
-  %.not.not = icmp eq ptr %.fca.1.extract, null
-  br i1 %.not.not, label %415, label %315
+  %.not = icmp eq ptr %.fca.1.extract, null
+  br i1 %.not, label %415, label %315
 
 315:                                              ; preds = %314
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
@@ -46792,8 +46792,8 @@ common.ret:                                       ; preds = %567, %540, %311, %1
   br label %.body354
 
 314:                                              ; preds = %310
-  %.not.not = icmp eq ptr %.fca.1.extract, null
-  br i1 %.not.not, label %415, label %315
+  %.not = icmp eq ptr %.fca.1.extract, null
+  br i1 %.not, label %415, label %315
 
 315:                                              ; preds = %314
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)

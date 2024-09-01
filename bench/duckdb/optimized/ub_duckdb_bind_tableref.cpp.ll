@@ -24437,7 +24437,7 @@ invoke.cont406:                                   ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %ref.tmp402, align 8, !tbaa !67
   store ptr %446, ptr %agg.result, align 8, !tbaa !67
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre2247, null
-  br i1 %tobool.not.i.i.i.i.i, label %for.body.i.i.i.i866.preheader, label %_ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit
+  br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit, label %_ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit
 
 _ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit: ; preds = %invoke.cont406
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pre2247, align 8, !tbaa !89
@@ -24446,21 +24446,21 @@ _ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit:
   call void %447(ptr noundef nonnull align 8 dereferenceable(216) %.pre2247) #23
   %.pr = load ptr, ptr %ref.tmp402, align 8, !tbaa !67
   %cmp.not.i863 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i863, label %for.body.i.i.i.i866.preheader, label %_ZNKSt14default_deleteIN6duckdb10SelectNodeEEclEPS1_.exit.i
+  br i1 %cmp.not.i863, label %_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb10SelectNodeEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb10SelectNodeEEclEPS1_.exit.i: ; preds = %_ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8, !tbaa !89
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %448 = load ptr, ptr %vfn.i.i, align 8
   call void %448(ptr noundef nonnull align 8 dereferenceable(216) %.pr) #23
-  br label %for.body.i.i.i.i866.preheader
+  br label %_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit
 
-for.body.i.i.i.i866.preheader:                    ; preds = %invoke.cont406, %_ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %_ZNKSt14default_deleteIN6duckdb10SelectNodeEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb10SelectNodeEEclEPS1_.exit.i, %_ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %invoke.cont406
   store ptr null, ptr %ref.tmp402, align 8, !tbaa !67
   br label %for.body.i.i.i.i866
 
-for.body.i.i.i.i866:                              ; preds = %for.body.i.i.i.i866.preheader, %_ZSt8_DestroyIN6duckdb17PivotValueElementEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i867 = phi ptr [ %incdec.ptr.i.i.i.i868, %_ZSt8_DestroyIN6duckdb17PivotValueElementEEvPT_.exit.i.i.i.i ], [ %246, %for.body.i.i.i.i866.preheader ]
+for.body.i.i.i.i866:                              ; preds = %_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit, %_ZSt8_DestroyIN6duckdb17PivotValueElementEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i867 = phi ptr [ %incdec.ptr.i.i.i.i868, %_ZSt8_DestroyIN6duckdb17PivotValueElementEEvPT_.exit.i.i.i.i ], [ %246, %_ZNSt10unique_ptrIN6duckdb10SelectNodeESt14default_deleteIS1_EED2Ev.exit ]
   %name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i867, i64 24
   %449 = load ptr, ptr %name.i.i.i.i.i.i, align 8, !tbaa !88
   %450 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i867, i64 40

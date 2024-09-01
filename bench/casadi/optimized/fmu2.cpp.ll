@@ -14506,8 +14506,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit450:           ; preds = %217, %224
 ._crit_edge656:                                   ; preds = %382
   %.not374 = icmp eq i64 %.1319, -1
   %brmerge = or i1 %2, %.not374
-  %or.cond.not = or i1 %brmerge, %.not694
-  br i1 %or.cond.not, label %.loopexit604, label %.lr.ph658
+  br i1 %brmerge, label %.loopexit604, label %.lr.ph658
 
 .lr.ph658:                                        ; preds = %._crit_edge656
   %384 = getelementptr inbounds i8, ptr %1, i64 608

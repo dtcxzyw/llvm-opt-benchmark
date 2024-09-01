@@ -3625,8 +3625,8 @@ count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, 
   %23 = tail call noalias ptr @g_malloc0(i64 noundef %22) #24
   store ptr %23, ptr %1, align 8
   %24 = load i8, ptr %2, align 1
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not23 = icmp eq i8 %24, 0
+  br i1 %.not23, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %count_hex_bytes.exit
   %25 = load ptr, ptr @g_ascii_table, align 8
@@ -8041,16 +8041,13 @@ define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %._crit_edge
-  br i1 %.not87, label %26, label %.preheader
+  br i1 %.not87, label %26, label %.lr.ph100.preheader
 
 .thread:                                          ; preds = %3
   %.not87120 = icmp eq ptr %2, null
   br i1 %.not87120, label %26, label %.loopexit
 
-.preheader:                                       ; preds = %14
-  br i1 %.not102, label %.loopexit, label %.lr.ph100.preheader
-
-.lr.ph100.preheader:                              ; preds = %.preheader
+.lr.ph100.preheader:                              ; preds = %14
   %wide.trip.count114 = zext i32 %1 to i64
   br label %.lr.ph100
 
@@ -8096,57 +8093,53 @@ define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly
   br label %.loopexit
 
 28:                                               ; preds = %._crit_edge
-  br i1 %.not87, label %50, label %29
+  br i1 %.not87, label %49, label %.lr.ph95.preheader
 
-29:                                               ; preds = %28
+.lr.ph95.preheader:                               ; preds = %28
   store i8 123, ptr %2, align 1
-  br i1 %.not102, label %._crit_edge96, label %.lr.ph95.preheader
-
-.lr.ph95.preheader:                               ; preds = %29
   %wide.trip.count109 = zext i32 %1 to i64
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv106 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next107, %.lr.ph95 ]
-  %.392 = phi i32 [ 1, %.lr.ph95.preheader ], [ %44, %.lr.ph95 ]
-  %30 = getelementptr i8, ptr %0, i64 %indvars.iv106
-  %31 = load i8, ptr %30, align 1
-  %32 = lshr i8 %31, 4
-  %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = add i32 %.392, 1
-  %37 = zext i32 %.392 to i64
-  %38 = getelementptr i8, ptr %2, i64 %37
-  store i8 %35, ptr %38, align 1
-  %39 = load i8, ptr %30, align 1
-  %40 = and i8 %39, 15
-  %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = add i32 %.392, 2
-  %45 = zext i32 %36 to i64
-  %46 = getelementptr i8, ptr %2, i64 %45
-  store i8 %43, ptr %46, align 1
+  %.392 = phi i32 [ 1, %.lr.ph95.preheader ], [ %43, %.lr.ph95 ]
+  %29 = getelementptr i8, ptr %0, i64 %indvars.iv106
+  %30 = load i8, ptr %29, align 1
+  %31 = lshr i8 %30, 4
+  %32 = zext nneg i8 %31 to i64
+  %33 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = add i32 %.392, 1
+  %36 = zext i32 %.392 to i64
+  %37 = getelementptr i8, ptr %2, i64 %36
+  store i8 %34, ptr %37, align 1
+  %38 = load i8, ptr %29, align 1
+  %39 = and i8 %38, 15
+  %40 = zext nneg i8 %39 to i64
+  %41 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = add i32 %.392, 2
+  %44 = zext i32 %35 to i64
+  %45 = getelementptr i8, ptr %2, i64 %44
+  store i8 %42, ptr %45, align 1
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !39
 
-._crit_edge96:                                    ; preds = %.lr.ph95, %29
-  %.3.lcssa = phi i32 [ 1, %29 ], [ %44, %.lr.ph95 ]
-  %47 = add i32 %.3.lcssa, 1
-  %48 = zext i32 %.3.lcssa to i64
-  %49 = getelementptr i8, ptr %2, i64 %48
-  store i8 125, ptr %49, align 1
+._crit_edge96:                                    ; preds = %.lr.ph95
+  %46 = add i32 %.392, 3
+  %47 = zext i32 %43 to i64
+  %48 = getelementptr i8, ptr %2, i64 %47
+  store i8 125, ptr %48, align 1
   br label %.loopexit
 
-50:                                               ; preds = %28
-  %51 = shl nuw nsw i32 %1, 1
-  %52 = add nuw nsw i32 %51, 2
+49:                                               ; preds = %28
+  %50 = shl nuw nsw i32 %1, 1
+  %51 = add nuw nsw i32 %50, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %.thread, %.preheader, %._crit_edge96, %50, %26
-  %.281 = phi i32 [ %27, %26 ], [ %47, %._crit_edge96 ], [ %52, %50 ], [ 0, %.preheader ], [ 0, %.thread ], [ %23, %22 ]
+.loopexit:                                        ; preds = %22, %.thread, %._crit_edge96, %49, %26
+  %.281 = phi i32 [ %27, %26 ], [ %46, %._crit_edge96 ], [ %51, %49 ], [ 0, %.thread ], [ %23, %22 ]
   ret i32 %.281
 }
 

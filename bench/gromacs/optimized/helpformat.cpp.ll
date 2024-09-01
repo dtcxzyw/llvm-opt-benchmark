@@ -1332,14 +1332,14 @@ define void @_ZN3gmx18TextTableFormatter9formatRowB5cxx11Ev(ptr dead_on_unwind n
 
 63:                                               ; preds = %61
   %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7)
-          to label %._crit_edge231 unwind label %.loopexit.split-lp149
+          to label %._crit_edge224 unwind label %.loopexit.split-lp149
 
-._crit_edge231:                                   ; preds = %63
+._crit_edge224:                                   ; preds = %63
   %.pre = load ptr, ptr %1, align 8
   br label %65
 
-65:                                               ; preds = %._crit_edge231, %14, %2
-  %66 = phi ptr [ %.pre, %._crit_edge231 ], [ %10, %14 ], [ %10, %2 ]
+65:                                               ; preds = %._crit_edge224, %14, %2
+  %66 = phi ptr [ %.pre, %._crit_edge224 ], [ %10, %14 ], [ %10, %2 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -1745,29 +1745,29 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %229, label %230, label %._crit_edge189..critedge_crit_edge
 
 ._crit_edge189..critedge_crit_edge:               ; preds = %._crit_edge189
-  %.pre232 = load ptr, ptr %72, align 8
-  %.pre234 = load ptr, ptr %6, align 8
-  %.pre236 = load ptr, ptr %71, align 8
-  %.pre238 = load ptr, ptr %7, align 8
+  %.pre225 = load ptr, ptr %72, align 8
+  %.pre227 = load ptr, ptr %6, align 8
+  %.pre229 = load ptr, ptr %71, align 8
+  %.pre231 = load ptr, ptr %7, align 8
   br label %.critedge
 
 230:                                              ; preds = %._crit_edge189
   %231 = getelementptr inbounds i8, ptr %225, i64 28
   %232 = load i32, ptr %231, align 4
   %233 = icmp sgt i32 %232, -1
-  %.pre233 = load ptr, ptr %72, align 8
-  %.pre235 = load ptr, ptr %6, align 8
-  %.pre237 = load ptr, ptr %71, align 8
-  %.pre239 = load ptr, ptr %7, align 8
+  %.pre226 = load ptr, ptr %72, align 8
+  %.pre228 = load ptr, ptr %6, align 8
+  %.pre230 = load ptr, ptr %71, align 8
+  %.pre232 = load ptr, ptr %7, align 8
   br i1 %233, label %234, label %.critedge
 
 234:                                              ; preds = %230
-  %235 = ptrtoint ptr %.pre237 to i64
-  %236 = ptrtoint ptr %.pre239 to i64
+  %235 = ptrtoint ptr %.pre230 to i64
+  %236 = ptrtoint ptr %.pre232 to i64
   %237 = sub i64 %235, %236
   %238 = ashr exact i64 %237, 5
-  %239 = ptrtoint ptr %.pre233 to i64
-  %240 = ptrtoint ptr %.pre235 to i64
+  %239 = ptrtoint ptr %.pre226 to i64
+  %240 = ptrtoint ptr %.pre228 to i64
   %241 = sub i64 %239, %240
   %242 = ashr exact i64 %241, 5
   %243 = ptrtoint ptr %224 to i64
@@ -1784,10 +1784,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.loopexit144
 
 .critedge:                                        ; preds = %._crit_edge189..critedge_crit_edge, %230, %234
-  %251 = phi ptr [ %.pre238, %._crit_edge189..critedge_crit_edge ], [ %.pre239, %230 ], [ %.pre239, %234 ]
-  %252 = phi ptr [ %.pre236, %._crit_edge189..critedge_crit_edge ], [ %.pre237, %230 ], [ %.pre237, %234 ]
-  %253 = phi ptr [ %.pre234, %._crit_edge189..critedge_crit_edge ], [ %.pre235, %230 ], [ %.pre235, %234 ]
-  %254 = phi ptr [ %.pre232, %._crit_edge189..critedge_crit_edge ], [ %.pre233, %230 ], [ %.pre233, %234 ]
+  %251 = phi ptr [ %.pre231, %._crit_edge189..critedge_crit_edge ], [ %.pre232, %230 ], [ %.pre232, %234 ]
+  %252 = phi ptr [ %.pre229, %._crit_edge189..critedge_crit_edge ], [ %.pre230, %230 ], [ %.pre230, %234 ]
+  %253 = phi ptr [ %.pre227, %._crit_edge189..critedge_crit_edge ], [ %.pre228, %230 ], [ %.pre228, %234 ]
+  %254 = phi ptr [ %.pre225, %._crit_edge189..critedge_crit_edge ], [ %.pre226, %230 ], [ %.pre226, %234 ]
   %255 = ptrtoint ptr %254 to i64
   %256 = ptrtoint ptr %253 to i64
   %257 = sub i64 %255, %256
@@ -1805,13 +1805,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge: ; preds = %264
-  %.pre240 = load ptr, ptr %71, align 8
-  %.pre241 = load ptr, ptr %7, align 8
+  %.pre233 = load ptr, ptr %71, align 8
+  %.pre234 = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge, %.critedge
-  %266 = phi ptr [ %.pre241, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge ], [ %251, %.critedge ]
-  %267 = phi ptr [ %.pre240, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge ], [ %252, %.critedge ]
+  %266 = phi ptr [ %.pre234, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge ], [ %251, %.critedge ]
+  %267 = phi ptr [ %.pre233, %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge ], [ %252, %.critedge ]
   %.not207 = icmp eq ptr %267, %266
   br i1 %.not207, label %._crit_edge193, label %.lr.ph192
 
@@ -1886,14 +1886,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %.not127, label %.loopexit144.loopexit, label %74, !llvm.loop !33
 
 .loopexit144.loopexit:                            ; preds = %._crit_edge193
-  %.pre242 = load ptr, ptr %6, align 8
-  %.pre243 = load ptr, ptr %72, align 8
+  %.pre235 = load ptr, ptr %6, align 8
+  %.pre236 = load ptr, ptr %72, align 8
   br label %.loopexit144
 
 .loopexit144:                                     ; preds = %.loopexit144.loopexit, %247
-  %.pre245247 = phi ptr [ %225, %247 ], [ %310, %.loopexit144.loopexit ]
-  %313 = phi ptr [ %.pre233, %247 ], [ %.pre243, %.loopexit144.loopexit ]
-  %314 = phi ptr [ %.pre235, %247 ], [ %.pre242, %.loopexit144.loopexit ]
+  %.pre238240 = phi ptr [ %225, %247 ], [ %310, %.loopexit144.loopexit ]
+  %313 = phi ptr [ %.pre226, %247 ], [ %.pre236, %.loopexit144.loopexit ]
+  %314 = phi ptr [ %.pre228, %247 ], [ %.pre235, %.loopexit144.loopexit ]
   %.not127166 = phi i1 [ false, %247 ], [ true, %.loopexit144.loopexit ]
   %.147 = phi i32 [ %250, %247 ], [ %308, %.loopexit144.loopexit ]
   %315 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1924,20 +1924,20 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %.not128, label %._crit_edge206.loopexit, label %.lr.ph205, !llvm.loop !34
 
 ._crit_edge206.loopexit:                          ; preds = %325
-  %.pre245.pre = load ptr, ptr %1, align 8
+  %.pre238.pre = load ptr, ptr %1, align 8
   br i1 %.not127166, label %.loopexit, label %328
 
 ._crit_edge206:                                   ; preds = %.loopexit144
   br i1 %.not127166, label %.loopexit, label %328
 
 328:                                              ; preds = %._crit_edge206.loopexit, %._crit_edge206
-  %.pre245258 = phi ptr [ %.pre245.pre, %._crit_edge206.loopexit ], [ %.pre245247, %._crit_edge206 ]
-  %329 = getelementptr inbounds i8, ptr %.pre245258, i64 8
+  %.pre238251 = phi ptr [ %.pre238.pre, %._crit_edge206.loopexit ], [ %.pre238240, %._crit_edge206 ]
+  %329 = getelementptr inbounds i8, ptr %.pre238251, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 -88
-  %332 = getelementptr inbounds i8, ptr %.pre245258, i64 24
+  %332 = getelementptr inbounds i8, ptr %.pre238251, i64 24
   %333 = load i32, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %.pre245258, i64 28
+  %334 = getelementptr inbounds i8, ptr %.pre238251, i64 28
   %335 = load i32, ptr %334, align 4
   %336 = add nsw i32 %335, %333
   %337 = getelementptr inbounds i8, ptr %330, i64 -40
@@ -1996,12 +1996,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br label %.loopexit.split-lp
 
 .loopexit.loopexit:                               ; preds = %353
-  %.pre244 = load ptr, ptr %1, align 8
+  %.pre237 = load ptr, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge206.loopexit, %._crit_edge206.thread, %.loopexit.loopexit, %._crit_edge206
   %372 = phi ptr [ %315, %.loopexit.loopexit ], [ %315, %._crit_edge206 ], [ %70, %._crit_edge206.thread ], [ %315, %._crit_edge206.loopexit ]
-  %373 = phi ptr [ %.pre244, %.loopexit.loopexit ], [ %.pre245247, %._crit_edge206 ], [ %66, %._crit_edge206.thread ], [ %.pre245.pre, %._crit_edge206.loopexit ]
+  %373 = phi ptr [ %.pre237, %.loopexit.loopexit ], [ %.pre238240, %._crit_edge206 ], [ %66, %._crit_edge206.thread ], [ %.pre238.pre, %._crit_edge206.loopexit ]
   %374 = getelementptr inbounds i8, ptr %373, i64 32
   store i8 0, ptr %374, align 8
   %375 = load ptr, ptr %1, align 8

@@ -313,9 +313,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %56 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %30)
           to label %57 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %102, %.loopexit, %.loopexit.split-lp, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ], [ true, %102 ]
-  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %102 ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %102, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %102 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %.pn, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
           to label %111 unwind label %99
 
@@ -645,9 +645,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %104, %.loopexit, %.loopexit.split-lp, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ], [ true, %104 ]
-  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %104 ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %104 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %.pn, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
           to label %113 unwind label %101
 
@@ -980,9 +980,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %104, %.loopexit, %.loopexit.split-lp, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ], [ true, %104 ]
-  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %104 ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %104 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %.pn, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
           to label %113 unwind label %101
 
@@ -1308,9 +1308,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %104, %.loopexit, %.loopexit.split-lp, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ], [ true, %104 ]
-  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %104 ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %104 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %.pn, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %15) #12
           to label %113 unwind label %101
 

@@ -350,10 +350,10 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 107:                                              ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !49, !noalias !52
-  %.phi.trans.insert299 = getelementptr inbounds i8, ptr %7, i64 8
-  %.pre300 = load ptr, ptr %.phi.trans.insert299, align 8, !alias.scope !54
-  %.phi.trans.insert301 = getelementptr inbounds i8, ptr %7, i64 16
-  %.pre302 = load i64, ptr %.phi.trans.insert301, align 8, !alias.scope !54
+  %.phi.trans.insert300 = getelementptr inbounds i8, ptr %7, i64 8
+  %.pre301 = load ptr, ptr %.phi.trans.insert300, align 8, !alias.scope !54
+  %.phi.trans.insert302 = getelementptr inbounds i8, ptr %7, i64 16
+  %.pre303 = load i64, ptr %.phi.trans.insert302, align 8, !alias.scope !54
   br label %151
 
 108:                                              ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
@@ -390,9 +390,9 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   store i64 %.sroa.3.0.i133, ptr %.sroa.5.0..sroa_idx.i148, align 8, !alias.scope !49, !noalias !52
   %.pre = load i64, ptr %8, align 8, !range !4, !alias.scope !60
   %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 8
-  %.pre296 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !60
-  %.phi.trans.insert297 = getelementptr inbounds i8, ptr %8, i64 16
-  %.pre298 = load i64, ptr %.phi.trans.insert297, align 8, !alias.scope !60
+  %.pre297 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !60
+  %.phi.trans.insert298 = getelementptr inbounds i8, ptr %8, i64 16
+  %.pre299 = load i64, ptr %.phi.trans.insert298, align 8, !alias.scope !60
   br label %151
 
 121:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit142"
@@ -542,16 +542,16 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
           to label %147 unwind label %217
 
 151:                                              ; preds = %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146", %107
-  %152 = phi i64 [ %.sroa.3.0.i133, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.pre302, %107 ]
-  %153 = phi ptr [ %110, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.pre300, %107 ]
+  %152 = phi i64 [ %.sroa.3.0.i133, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.pre303, %107 ]
+  %153 = phi ptr [ %110, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.pre301, %107 ]
   %154 = phi i64 [ %120, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ -9223372036854775808, %107 ]
-  %155 = phi i64 [ %.pre298, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.sroa.3.0.i126, %107 ]
-  %156 = phi ptr [ %.pre296, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %104, %107 ]
+  %155 = phi i64 [ %.pre299, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %.sroa.3.0.i126, %107 ]
+  %156 = phi ptr [ %.pre297, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %104, %107 ]
   %157 = phi i64 [ %.pre, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i146" ], [ %105, %107 ]
-  %.not303 = icmp eq i64 %157, -9223372036854775808
+  %.not294 = icmp eq i64 %157, -9223372036854775808
   %158 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.3.0.i202 = select i1 %.not303, i64 undef, i64 %155
-  %.sroa.0.0.i203 = select i1 %.not303, ptr null, ptr %156
+  %.sroa.3.0.i202 = select i1 %.not294, i64 undef, i64 %155
+  %.sroa.0.0.i203 = select i1 %.not294, ptr null, ptr %156
   %159 = icmp ne i64 %154, -9223372036854775808
   %160 = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.3.0.i204 = select i1 %159, i64 %152, i64 undef
@@ -572,7 +572,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %brmerge124, label %.critedge, label %166
 
 166:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit209"
-  br i1 %.not303, label %176, label %167
+  br i1 %.not294, label %176, label %167
 
 167:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !120
@@ -586,8 +586,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
           to label %.noexc210 unwind label %.loopexit.split-lp
 
 .noexc210:                                        ; preds = %169
-  %.not.not.i.not.i.not = icmp eq ptr %170, null
-  br i1 %.not.not.i.not.i.not, label %177, label %171
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %170, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %177, label %171
 
 171:                                              ; preds = %.noexc210
   %172 = load ptr, ptr %170, align 8, !alias.scope !124, !noalias !129, !nonnull !5, !align !134, !noundef !5
@@ -651,8 +651,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
           to label %.noexc215 unwind label %.loopexit
 
 .noexc215:                                        ; preds = %189
-  %.not.not.i.not.i214.not = icmp eq ptr %190, null
-  br i1 %.not.not.i.not.i214.not, label %197, label %191
+  %.not.not.not.not.i.not.not.not.i214.not = icmp eq ptr %190, null
+  br i1 %.not.not.not.not.i.not.not.not.i214.not, label %197, label %191
 
 191:                                              ; preds = %.noexc215
   %192 = load ptr, ptr %190, align 8, !alias.scope !151, !noalias !156, !nonnull !5, !align !134, !noundef !5
@@ -669,7 +669,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br label %.critedge
 
 196:                                              ; preds = %197, %176
-  br i1 %.not303, label %.critedge, label %.lr.ph.i.i
+  br i1 %.not294, label %.critedge, label %.lr.ph.i.i
 
 197:                                              ; preds = %.noexc215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !147
@@ -691,8 +691,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %199, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i"
 
 "_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i", %.lr.ph.i.i
-  %.not19.i.i = icmp eq i64 %.add, 864
-  br i1 %.not19.i.i, label %.lr.ph.i.i218, label %.lr.ph.i.i
+  %.not14.i.i = icmp eq i64 %.add, 864
+  br i1 %.not14.i.i, label %.lr.ph.i.i218, label %.lr.ph.i.i
 
 .lr.ph.i.i218:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224"
   %.idx279 = phi i64 [ %.add280, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i" ]
@@ -710,8 +710,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %201, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224"
 
 "_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i221", %.lr.ph.i.i218
-  %.not19.i.i225 = icmp eq i64 %.add280, 32
-  br i1 %.not19.i.i225, label %.lr.ph.i.i228, label %.lr.ph.i.i218
+  %.not14.i.i225 = icmp eq i64 %.add280, 32
+  br i1 %.not14.i.i225, label %.lr.ph.i.i228, label %.lr.ph.i.i218
 
 .lr.ph.i.i228:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i234"
   %.idx283 = phi i64 [ %.add284, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i234" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224" ]
@@ -729,8 +729,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %203, label %204, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i234"
 
 "_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i234": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i231", %.lr.ph.i.i228
-  %.not19.i.i235 = icmp eq i64 %.add284, 32
-  br i1 %.not19.i.i235, label %.critedge, label %.lr.ph.i.i228
+  %.not14.i.i235 = icmp eq i64 %.add284, 32
+  br i1 %.not14.i.i235, label %.critedge, label %.lr.ph.i.i228
 
 204:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i231"
   %. = zext i1 %159 to i8

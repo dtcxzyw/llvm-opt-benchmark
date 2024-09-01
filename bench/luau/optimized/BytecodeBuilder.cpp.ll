@@ -6851,20 +6851,20 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpConstantERNSt7__cxx1112ba
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %6, i64 %5
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %.critedge [
+  switch i32 %8, label %_ZN4LuauL23printableStringConstantEPKcm.exit [
     i32 0, label %9
     i32 1, label %10
     i32 2, label %15
     i32 3, label %18
     i32 4, label %42
-    i32 5, label %64
-    i32 6, label %114
-    i32 7, label %115
+    i32 5, label %63
+    i32 6, label %113
+    i32 7, label %114
   ]
 
 9:                                                ; preds = %3
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.1)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6872,13 +6872,13 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpConstantERNSt7__cxx1112ba
   %13 = trunc i8 %12 to i1
   %14 = select i1 %13, ptr @.str.3, ptr @.str.4
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %14)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load double, ptr %16, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.5, double noundef %17)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6897,7 +6897,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpConstantERNSt7__cxx1112ba
   %30 = load float, ptr %29, align 8
   %31 = fpext float %30 to double
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.6, double noundef %25, double noundef %28, double noundef %31)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 32:                                               ; preds = %18
   %33 = fpext float %21 to double
@@ -6910,7 +6910,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpConstantERNSt7__cxx1112ba
   %40 = load float, ptr %39, align 8
   %41 = fpext float %40 to double
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.7, double noundef %35, double noundef %38, double noundef %41, double noundef %33)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds i8, ptr %0, i64 616
@@ -6924,125 +6924,116 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpConstantERNSt7__cxx1112ba
   %51 = getelementptr inbounds i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %.thread, label %.lr.ph.i.preheader
+  br i1 %53, label %.thread, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %42
-  %54 = load i8, ptr %50, align 1
-  %55 = icmp ult i8 %54, 32
-  br i1 %55, label %.critedge, label %.lr.ph
+54:                                               ; preds = %.lr.ph.i
+  %55 = add nuw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %55, %52
+  br i1 %exitcond.not.i, label %59, label %.lr.ph.i, !llvm.loop !54
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.06.i53 = phi i64 [ %56, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %56 = add nuw i64 %.06.i53, 1
-  %exitcond.i = icmp eq i64 %56, %52
-  br i1 %exitcond.i, label %_ZN4LuauL23printableStringConstantEPKcm.exit, label %.lr.ph.i, !llvm.loop !54
+.lr.ph.i:                                         ; preds = %42, %54
+  %.06.i = phi i64 [ %55, %54 ], [ 0, %42 ]
+  %56 = getelementptr inbounds i8, ptr %50, i64 %.06.i
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp ugt i8 %57, 31
+  br i1 %58, label %54, label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %57 = getelementptr inbounds i8, ptr %50, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = icmp ult i8 %58, 32
-  br i1 %59, label %_ZN4LuauL23printableStringConstantEPKcm.exit, label %.lr.ph, !llvm.loop !54
+59:                                               ; preds = %54
+  %60 = icmp ult i64 %52, 32
+  br i1 %60, label %.thread, label %62
 
-_ZN4LuauL23printableStringConstantEPKcm.exit:     ; preds = %.lr.ph.i, %.lr.ph
-  %.not55.le = icmp ult i64 %56, %52
-  br i1 %.not55.le, label %.critedge, label %60
+.thread:                                          ; preds = %42, %59
+  %61 = trunc nuw nsw i64 %52 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.8, i32 noundef %61, ptr noundef %50)
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
-60:                                               ; preds = %_ZN4LuauL23printableStringConstantEPKcm.exit
-  %61 = icmp ult i64 %52, 32
-  br i1 %61, label %.thread, label %63
-
-.thread:                                          ; preds = %42, %60
-  %62 = trunc nuw nsw i64 %52 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.8, i32 noundef %62, ptr noundef %50)
-  br label %.critedge
-
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.9, i32 noundef 32, ptr noundef nonnull %50)
-  br label %.critedge
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
-64:                                               ; preds = %3
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = lshr i32 %66, 30
-  %68 = lshr i32 %66, 10
-  %69 = and i32 %68, 1023
-  %.inv.i = icmp sgt i32 %66, -1
-  %70 = select i1 %.inv.i, i32 -1, i32 %69
-  %71 = icmp eq i32 %67, 3
-  %72 = and i32 %66, 1023
-  %.not = icmp ult i32 %66, 1073741824
-  br i1 %.not, label %.critedge, label %73
+63:                                               ; preds = %3
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = load i32, ptr %64, align 8
+  %66 = lshr i32 %65, 30
+  %67 = lshr i32 %65, 10
+  %68 = and i32 %67, 1023
+  %.inv.i = icmp sgt i32 %65, -1
+  %69 = select i1 %.inv.i, i32 -1, i32 %68
+  %70 = icmp eq i32 %66, 3
+  %71 = and i32 %65, 1023
+  %.not = icmp ult i32 %65, 1073741824
+  br i1 %.not, label %_ZN4LuauL23printableStringConstantEPKcm.exit, label %72
 
-73:                                               ; preds = %64
-  %74 = lshr i32 %66, 20
-  %75 = and i32 %74, 1023
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %0, i64 616
-  %78 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %6, i64 %76, i32 1
-  %79 = load i32, ptr %78, align 8
-  %80 = add i32 %79, -1
-  %81 = zext i32 %80 to i64
-  %82 = load ptr, ptr %77, align 8
-  %83 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %82, i64 %81
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = trunc i64 %85 to i32
-  %87 = load ptr, ptr %83, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.10, i32 noundef %86, ptr noundef %87)
-  %cond = icmp eq i32 %67, 1
-  br i1 %cond, label %.critedge, label %88
+72:                                               ; preds = %63
+  %73 = lshr i32 %65, 20
+  %74 = and i32 %73, 1023
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %0, i64 616
+  %77 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %6, i64 %75, i32 1
+  %78 = load i32, ptr %77, align 8
+  %79 = add i32 %78, -1
+  %80 = zext i32 %79 to i64
+  %81 = load ptr, ptr %76, align 8
+  %82 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %81, i64 %80
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = trunc i64 %84 to i32
+  %86 = load ptr, ptr %82, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.10, i32 noundef %85, ptr noundef %86)
+  %cond = icmp eq i32 %66, 1
+  br i1 %cond, label %_ZN4LuauL23printableStringConstantEPKcm.exit, label %87
 
-88:                                               ; preds = %73
-  %89 = sext i32 %70 to i64
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %90, i64 %89, i32 1
-  %92 = load i32, ptr %91, align 8
-  %93 = add i32 %92, -1
-  %94 = zext i32 %93 to i64
-  %95 = load ptr, ptr %77, align 8
-  %96 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %95, i64 %94
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  %98 = load i64, ptr %97, align 8
-  %99 = trunc i64 %98 to i32
-  %100 = load ptr, ptr %96, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.11, i32 noundef %99, ptr noundef %100)
-  br i1 %71, label %101, label %.critedge
+87:                                               ; preds = %72
+  %88 = sext i32 %69 to i64
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %89, i64 %88, i32 1
+  %91 = load i32, ptr %90, align 8
+  %92 = add i32 %91, -1
+  %93 = zext i32 %92 to i64
+  %94 = load ptr, ptr %76, align 8
+  %95 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %94, i64 %93
+  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = load i64, ptr %96, align 8
+  %98 = trunc i64 %97 to i32
+  %99 = load ptr, ptr %95, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.11, i32 noundef %98, ptr noundef %99)
+  br i1 %70, label %100, label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
-101:                                              ; preds = %88
-  %102 = zext nneg i32 %72 to i64
-  %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %103, i64 %102, i32 1
-  %105 = load i32, ptr %104, align 8
-  %106 = add i32 %105, -1
-  %107 = zext i32 %106 to i64
-  %108 = load ptr, ptr %77, align 8
-  %109 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %108, i64 %107
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
-  %111 = load i64, ptr %110, align 8
-  %112 = trunc i64 %111 to i32
-  %113 = load ptr, ptr %109, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.11, i32 noundef %112, ptr noundef %113)
-  br label %.critedge
+100:                                              ; preds = %87
+  %101 = zext nneg i32 %71 to i64
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Constant", ptr %102, i64 %101, i32 1
+  %104 = load i32, ptr %103, align 8
+  %105 = add i32 %104, -1
+  %106 = zext i32 %105 to i64
+  %107 = load ptr, ptr %76, align 8
+  %108 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::StringRef", ptr %107, i64 %106
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = load i64, ptr %109, align 8
+  %111 = trunc i64 %110 to i32
+  %112 = load ptr, ptr %108, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.11, i32 noundef %111, ptr noundef %112)
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
+
+113:                                              ; preds = %3
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.12)
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
 114:                                              ; preds = %3
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.12)
-  br label %.critedge
+  %115 = getelementptr inbounds i8, ptr %7, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = zext i32 %116 to i64
+  %118 = load ptr, ptr %0, align 8
+  %119 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Function", ptr %118, i64 %117, i32 8
+  %120 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %119) #30
+  br i1 %120, label %_ZN4LuauL23printableStringConstantEPKcm.exit, label %121
 
-115:                                              ; preds = %3
-  %116 = getelementptr inbounds i8, ptr %7, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = zext i32 %117 to i64
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Function", ptr %119, i64 %118, i32 8
-  %121 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %120) #30
-  br i1 %121, label %.critedge, label %122
+121:                                              ; preds = %114
+  %122 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %119) #30
+  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.13, ptr noundef %122)
+  br label %_ZN4LuauL23printableStringConstantEPKcm.exit
 
-122:                                              ; preds = %115
-  %123 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %120) #30
-  tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.13, ptr noundef %123)
-  br label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph.i.preheader, %73, %115, %122, %64, %101, %88, %_ZN4LuauL23printableStringConstantEPKcm.exit, %63, %.thread, %23, %32, %114, %15, %10, %9, %3
+_ZN4LuauL23printableStringConstantEPKcm.exit:     ; preds = %.lr.ph.i, %72, %114, %121, %63, %100, %87, %62, %.thread, %23, %32, %113, %15, %10, %9, %3
   ret void
 }
 

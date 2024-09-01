@@ -125,7 +125,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %_ZNKSt8_Rb_treeIN3g
   %17 = icmp sgt i32 %16, 7
   br i1 %17, label %.lr.ph.i.i.i.i23.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i23.preheader:                       ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
+.lr.ph.i.i.i.i23.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
   br label %.lr.ph.i.i.i.i23
 
 .lr.ph.i.i.i.i23:                                 ; preds = %.lr.ph.i.i.i.i23.preheader, %.lr.ph.i.i.i.i23
@@ -145,14 +145,14 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
   %21 = icmp eq ptr %.19.i.i.i.i26, %10
   br i1 %21, label %.lr.ph.i.i.i.i36.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
 
-.lr.ph.i.i.i.i36.preheader:                       ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31
-  br label %.lr.ph.i.i.i.i36
-
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31
   %22 = getelementptr inbounds i8, ptr %.19.i.i.i.i26, i64 32
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 5
   br i1 %24, label %.lr.ph.i.i.i.i36.preheader, label %25
+
+.lr.ph.i.i.i.i36.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
+  br label %.lr.ph.i.i.i.i36
 
 25:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
   %26 = tail call noundef i32 @_ZN3gmx22identifyAvx512FmaUnitsEv()
@@ -183,7 +183,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47:    ; preds = %_ZNKSt8_Rb_treeIN3g
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %.lr.ph.i.i.i.i49.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i49.preheader:                       ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44
+.lr.ph.i.i.i.i49.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47
   br label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %.lr.ph.i.i.i.i49.preheader, %.lr.ph.i.i.i.i49
@@ -209,7 +209,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60:    ; preds = %_ZNKSt8_Rb_treeIN3g
   %42 = icmp sgt i32 %41, 3
   br i1 %42, label %.lr.ph.i.i.i.i62.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i62.preheader:                       ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57
+.lr.ph.i.i.i.i62.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60
   br label %.lr.ph.i.i.i.i62
 
 .lr.ph.i.i.i.i62:                                 ; preds = %.lr.ph.i.i.i.i62.preheader, %.lr.ph.i.i.i.i62
@@ -235,7 +235,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73:    ; preds = %_ZNKSt8_Rb_treeIN3g
   %49 = icmp sgt i32 %48, 41
   br i1 %49, label %.lr.ph.i.i.i.i75.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i75.preheader:                       ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70
+.lr.ph.i.i.i.i75.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73
   br label %.lr.ph.i.i.i.i75
 
 .lr.ph.i.i.i.i75:                                 ; preds = %.lr.ph.i.i.i.i75.preheader, %.lr.ph.i.i.i.i75
@@ -298,7 +298,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99:    ; preds = %_ZNKSt8_Rb_treeIN3g
   %68 = icmp sgt i32 %67, 5
   br i1 %68, label %.lr.ph.i.i.i.i101.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i101.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96
+.lr.ph.i.i.i.i101.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99
   br label %.lr.ph.i.i.i.i101
 
 .lr.ph.i.i.i.i101:                                ; preds = %.lr.ph.i.i.i.i101.preheader, %.lr.ph.i.i.i.i101
@@ -318,14 +318,14 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
   %72 = icmp eq ptr %.19.i.i.i.i104, %61
   br i1 %72, label %.lr.ph.i.i.i.i114.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
 
-.lr.ph.i.i.i.i114.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109
-  br label %.lr.ph.i.i.i.i114
-
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109
   %73 = getelementptr inbounds i8, ptr %.19.i.i.i.i104, i64 32
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, 4
   br i1 %75, label %.lr.ph.i.i.i.i114.preheader, label %76
+
+.lr.ph.i.i.i.i114.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
+  br label %.lr.ph.i.i.i.i114
 
 76:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
   %77 = tail call noundef zeroext i1 @_ZN3gmx12cpuIsAmdZen1ERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -349,14 +349,14 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
   %82 = icmp eq ptr %.19.i.i.i.i117, %61
   br i1 %82, label %.lr.ph.i.i.i.i140.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125
 
-.lr.ph.i.i.i.i140.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122
-  br label %.lr.ph.i.i.i.i140
-
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122
   %83 = getelementptr inbounds i8, ptr %.19.i.i.i.i117, i64 32
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 3
   br i1 %85, label %.lr.ph.i.i.i.i140.preheader, label %.lr.ph.i.i.i.i127
+
+.lr.ph.i.i.i.i140.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125
+  br label %.lr.ph.i.i.i.i140
 
 .lr.ph.i.i.i.i127:                                ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125, %.lr.ph.i.i.i.i127
   %.012.i.i.i.i128 = phi ptr [ %.1.i.i.i.i133, %.lr.ph.i.i.i.i127 ], [ %60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125 ]
@@ -411,7 +411,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151:   ; preds = %_ZNKSt8_Rb_treeIN3g
   %100 = icmp sgt i32 %99, 41
   br i1 %100, label %.lr.ph.i.i.i.i153.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i153.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148
+.lr.ph.i.i.i.i153.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151
   br label %.lr.ph.i.i.i.i153
 
 .lr.ph.i.i.i.i153:                                ; preds = %.lr.ph.i.i.i.i153.preheader, %.lr.ph.i.i.i.i153
@@ -474,7 +474,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177:   ; preds = %_ZNKSt8_Rb_treeIN3g
   %119 = icmp slt i32 %118, 50
   br i1 %119, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i179.preheader
 
-.lr.ph.i.i.i.i179.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
+.lr.ph.i.i.i.i179.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174
   br label %.lr.ph.i.i.i.i179
 
 .lr.ph.i.i.i.i179:                                ; preds = %.lr.ph.i.i.i.i179.preheader, %.lr.ph.i.i.i.i179
@@ -500,7 +500,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190:   ; preds = %_ZNKSt8_Rb_treeIN3g
   %126 = icmp slt i32 %125, 49
   br i1 %126, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i192.preheader
 
-.lr.ph.i.i.i.i192.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
+.lr.ph.i.i.i.i192.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
 127:                                              ; preds = %4
@@ -533,7 +533,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216:   ; preds = %_ZNKSt8_Rb_treeIN3g
   %137 = icmp slt i32 %136, 53
   br i1 %137, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i218.preheader
 
-.lr.ph.i.i.i.i218.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
+.lr.ph.i.i.i.i218.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203:   ; preds = %.lr.ph.i.i.i.i218.preheader, %.lr.ph.i.i.i.i192.preheader, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %127, %109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %25, %76, %4, %1

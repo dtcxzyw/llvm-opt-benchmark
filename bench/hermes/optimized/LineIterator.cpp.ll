@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN4llvh13line_iteratorC1ERKNS_12MemoryBufferEbc = hidden unnamed_addr alias void (ptr, ptr, i1, i8), ptr @_ZN4llvh13line_iteratorC2ERKNS_12MemoryBufferEbc
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh13line_iteratorC2ERKNS_12MemoryBufferEbc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %Buffer, i1 noundef zeroext %SkipBlanks, i8 noundef signext %CommentMarker) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %SkipBlanks to i8
@@ -59,7 +59,7 @@ if.end20:                                         ; preds = %land.lhs.true.i, %l
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh13line_iterator7advanceEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %CurrentLine = getelementptr inbounds i8, ptr %this, i64 16
@@ -123,31 +123,25 @@ if.else.thread:                                   ; preds = %if.end
 for.cond.preheader.thread:                        ; preds = %if.else.thread
   %LineNumber2896 = getelementptr inbounds i8, ptr %this, i64 12
   %LineNumber28.promoted97 = load i32, ptr %LineNumber2896, align 4
-  br label %for.cond.us.preheader
+  br label %for.cond.us
 
 for.cond.preheader:                               ; preds = %if.else
   %LineNumber28 = getelementptr inbounds i8, ptr %this, i64 12
   %LineNumber28.promoted = load i32, ptr %LineNumber28, align 4
-  br i1 %tobool, label %for.cond.us.preheader, label %for.cond
+  br label %for.cond
 
-for.cond.us.preheader:                            ; preds = %for.cond.preheader.thread, %for.cond.preheader
-  %LineNumber28.promoted99 = phi i32 [ %LineNumber28.promoted97, %for.cond.preheader.thread ], [ %LineNumber28.promoted, %for.cond.preheader ]
-  %LineNumber2898 = phi ptr [ %LineNumber2896, %for.cond.preheader.thread ], [ %LineNumber28, %for.cond.preheader ]
-  %10 = phi i8 [ %9, %for.cond.preheader.thread ], [ %8, %for.cond.preheader ]
-  br label %for.cond.us
-
-for.cond.us:                                      ; preds = %for.cond.us.preheader, %if.end27.us
-  %11 = phi i32 [ %inc29.us, %if.end27.us ], [ %LineNumber28.promoted99, %for.cond.us.preheader ]
-  %Pos.2.us = phi ptr [ %add.ptr6.i35.us, %if.end27.us ], [ %Pos.554, %for.cond.us.preheader ]
-  %12 = load i8, ptr %Pos.2.us, align 1
-  %cmp19.us = icmp eq i8 %12, %10
+for.cond.us:                                      ; preds = %for.cond.preheader.thread, %if.end27.us
+  %10 = phi i32 [ %inc29.us, %if.end27.us ], [ %LineNumber28.promoted97, %for.cond.preheader.thread ]
+  %Pos.2.us = phi ptr [ %add.ptr6.i35.us, %if.end27.us ], [ %Pos.554, %for.cond.preheader.thread ]
+  %11 = load i8, ptr %Pos.2.us, align 1
+  %cmp19.us = icmp eq i8 %11, %9
   br i1 %cmp19.us, label %do.body.us, label %if.end24.us
 
 do.body.us:                                       ; preds = %for.cond.us, %do.body.us.backedge
   %Pos.4.us = phi ptr [ %incdec.ptr.us, %do.body.us.backedge ], [ %Pos.2.us, %for.cond.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %Pos.4.us, i64 1
-  %13 = load i8, ptr %incdec.ptr.us, align 1
-  switch i8 %13, label %do.body.us.backedge [
+  %12 = load i8, ptr %incdec.ptr.us, align 1
+  switch i8 %12, label %do.body.us.backedge [
     i8 0, label %if.then34
     i8 10, label %if.end27.us
     i8 13, label %land.lhs.true.i23.us
@@ -155,15 +149,15 @@ do.body.us:                                       ; preds = %for.cond.us, %do.bo
 
 land.lhs.true.i23.us:                             ; preds = %do.body.us
   %add.ptr.i24.us = getelementptr inbounds i8, ptr %Pos.4.us, i64 2
-  %14 = load i8, ptr %add.ptr.i24.us, align 1
-  %cmp4.i25.us = icmp eq i8 %14, 10
+  %13 = load i8, ptr %add.ptr.i24.us, align 1
+  %cmp4.i25.us = icmp eq i8 %13, 10
   br i1 %cmp4.i25.us, label %land.lhs.true.i29.us, label %do.body.us.backedge
 
 do.body.us.backedge:                              ; preds = %land.lhs.true.i23.us, %do.body.us
   br label %do.body.us, !llvm.loop !4
 
 if.end24.us:                                      ; preds = %for.cond.us
-  switch i8 %12, label %if.end31 [
+  switch i8 %11, label %if.end31 [
     i8 10, label %if.end27.us
     i8 13, label %land.lhs.true.i29.us
   ]
@@ -171,16 +165,16 @@ if.end24.us:                                      ; preds = %for.cond.us
 land.lhs.true.i29.us:                             ; preds = %land.lhs.true.i23.us, %if.end24.us
   %Pos.3.ph.ph.us104 = phi ptr [ %Pos.2.us, %if.end24.us ], [ %incdec.ptr.us, %land.lhs.true.i23.us ]
   %add.ptr.i30.us = getelementptr inbounds i8, ptr %Pos.3.ph.ph.us104, i64 1
-  %15 = load i8, ptr %add.ptr.i30.us, align 1
-  %cmp4.i31.us = icmp eq i8 %15, 10
+  %14 = load i8, ptr %add.ptr.i30.us, align 1
+  %cmp4.i31.us = icmp eq i8 %14, 10
   br i1 %cmp4.i31.us, label %if.end27.us, label %while.cond37.preheader
 
 if.end27.us:                                      ; preds = %do.body.us, %land.lhs.true.i29.us, %if.end24.us
   %Pos.3.ph68.us = phi ptr [ %Pos.2.us, %if.end24.us ], [ %Pos.3.ph.ph.us104, %land.lhs.true.i29.us ], [ %incdec.ptr.us, %do.body.us ]
   %.sink.i34.us = phi i64 [ 1, %if.end24.us ], [ 2, %land.lhs.true.i29.us ], [ 1, %do.body.us ]
   %add.ptr6.i35.us = getelementptr inbounds i8, ptr %Pos.3.ph68.us, i64 %.sink.i34.us
-  %inc29.us = add i32 %11, 1
-  store i32 %inc29.us, ptr %LineNumber2898, align 4
+  %inc29.us = add i32 %10, 1
+  store i32 %inc29.us, ptr %LineNumber2896, align 4
   br label %for.cond.us, !llvm.loop !6
 
 while.cond.preheader:                             ; preds = %if.else.thread, %if.else
@@ -189,51 +183,51 @@ while.cond.preheader:                             ; preds = %if.else.thread, %if
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %16 = phi i32 [ %inc8, %while.body ], [ %LineNumber7.promoted, %while.cond.preheader ]
+  %15 = phi i32 [ %inc8, %while.body ], [ %LineNumber7.promoted, %while.cond.preheader ]
   %Pos.1 = phi ptr [ %add.ptr6.i15, %while.body ], [ %Pos.554, %while.cond.preheader ]
-  %17 = load i8, ptr %Pos.1, align 1
-  switch i8 %17, label %if.end31 [
+  %16 = load i8, ptr %Pos.1, align 1
+  switch i8 %16, label %if.end31 [
     i8 10, label %while.body
     i8 13, label %land.lhs.true.i9
   ]
 
 land.lhs.true.i9:                                 ; preds = %while.cond
   %add.ptr.i10 = getelementptr inbounds i8, ptr %Pos.1, i64 1
-  %18 = load i8, ptr %add.ptr.i10, align 1
-  %cmp4.i11 = icmp eq i8 %18, 10
+  %17 = load i8, ptr %add.ptr.i10, align 1
+  %cmp4.i11 = icmp eq i8 %17, 10
   br i1 %cmp4.i11, label %while.body, label %while.cond37.preheader
 
 while.body:                                       ; preds = %land.lhs.true.i9, %while.cond
   %.sink.i14 = phi i64 [ 1, %while.cond ], [ 2, %land.lhs.true.i9 ]
   %add.ptr6.i15 = getelementptr inbounds i8, ptr %Pos.1, i64 %.sink.i14
-  %inc8 = add i32 %16, 1
+  %inc8 = add i32 %15, 1
   store i32 %inc8, ptr %LineNumber7, align 4
   br label %while.cond, !llvm.loop !7
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end27
-  %19 = phi i32 [ %inc29, %if.end27 ], [ %LineNumber28.promoted, %for.cond.preheader ]
+  %18 = phi i32 [ %inc29, %if.end27 ], [ %LineNumber28.promoted, %for.cond.preheader ]
   %Pos.2 = phi ptr [ %add.ptr6.i35, %if.end27 ], [ %Pos.554, %for.cond.preheader ]
-  %20 = load i8, ptr %Pos.2, align 1
-  switch i8 %20, label %if.end15 [
+  %19 = load i8, ptr %Pos.2, align 1
+  switch i8 %19, label %if.end15 [
     i8 10, label %while.cond37.preheader
     i8 13, label %land.lhs.true.i17
   ]
 
 land.lhs.true.i17:                                ; preds = %for.cond
   %add.ptr.i18 = getelementptr inbounds i8, ptr %Pos.2, i64 1
-  %21 = load i8, ptr %add.ptr.i18, align 1
-  %cmp4.i19.not = icmp eq i8 %21, 10
+  %20 = load i8, ptr %add.ptr.i18, align 1
+  %cmp4.i19.not = icmp eq i8 %20, 10
   br i1 %cmp4.i19.not, label %while.cond37.preheader, label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true.i17, %for.cond
-  %cmp19 = icmp eq i8 %20, %8
+  %cmp19 = icmp eq i8 %19, %8
   br i1 %cmp19, label %do.body, label %if.end24
 
 do.body:                                          ; preds = %if.end15, %do.body.backedge
   %Pos.4 = phi ptr [ %incdec.ptr, %do.body.backedge ], [ %Pos.2, %if.end15 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %Pos.4, i64 1
-  %22 = load i8, ptr %incdec.ptr, align 1
-  switch i8 %22, label %do.body.backedge [
+  %21 = load i8, ptr %incdec.ptr, align 1
+  switch i8 %21, label %do.body.backedge [
     i8 0, label %if.then34
     i8 10, label %if.end27
     i8 13, label %land.lhs.true.i23
@@ -244,12 +238,12 @@ do.body.backedge:                                 ; preds = %do.body, %land.lhs.
 
 land.lhs.true.i23:                                ; preds = %do.body
   %add.ptr.i24 = getelementptr inbounds i8, ptr %Pos.4, i64 2
-  %23 = load i8, ptr %add.ptr.i24, align 1
-  %cmp4.i25 = icmp eq i8 %23, 10
+  %22 = load i8, ptr %add.ptr.i24, align 1
+  %cmp4.i25 = icmp eq i8 %22, 10
   br i1 %cmp4.i25, label %land.lhs.true.i29, label %do.body.backedge
 
 if.end24:                                         ; preds = %if.end15
-  switch i8 %20, label %if.end31 [
+  switch i8 %19, label %if.end31 [
     i8 10, label %if.end27
     i8 13, label %land.lhs.true.i29
   ]
@@ -257,27 +251,27 @@ if.end24:                                         ; preds = %if.end15
 land.lhs.true.i29:                                ; preds = %land.lhs.true.i23, %if.end24
   %Pos.3.ph.ph110 = phi ptr [ %Pos.2, %if.end24 ], [ %incdec.ptr, %land.lhs.true.i23 ]
   %add.ptr.i30 = getelementptr inbounds i8, ptr %Pos.3.ph.ph110, i64 1
-  %24 = load i8, ptr %add.ptr.i30, align 1
-  %cmp4.i31 = icmp eq i8 %24, 10
+  %23 = load i8, ptr %add.ptr.i30, align 1
+  %cmp4.i31 = icmp eq i8 %23, 10
   br i1 %cmp4.i31, label %if.end27, label %while.cond37.preheader
 
 if.end27:                                         ; preds = %do.body, %land.lhs.true.i29, %if.end24
   %Pos.3.ph68 = phi ptr [ %Pos.2, %if.end24 ], [ %Pos.3.ph.ph110, %land.lhs.true.i29 ], [ %incdec.ptr, %do.body ]
   %.sink.i34 = phi i64 [ 1, %if.end24 ], [ 2, %land.lhs.true.i29 ], [ 1, %do.body ]
   %add.ptr6.i35 = getelementptr inbounds i8, ptr %Pos.3.ph68, i64 %.sink.i34
-  %inc29 = add i32 %19, 1
+  %inc29 = add i32 %18, 1
   store i32 %inc29, ptr %LineNumber28, align 4
   br label %for.cond, !llvm.loop !6
 
 if.end31:                                         ; preds = %if.end24, %if.end24.us, %while.cond
-  %25 = phi i8 [ %17, %while.cond ], [ %12, %if.end24.us ], [ %20, %if.end24 ]
+  %24 = phi i8 [ %16, %while.cond ], [ %11, %if.end24.us ], [ %19, %if.end24 ]
   %Pos.0 = phi ptr [ %Pos.1, %while.cond ], [ %Pos.2.us, %if.end24.us ], [ %Pos.2, %if.end24 ]
-  %cmp33 = icmp eq i8 %25, 0
+  %cmp33 = icmp eq i8 %24, 0
   br i1 %cmp33, label %if.then34, label %while.cond37.preheader
 
 while.cond37.preheader:                           ; preds = %land.lhs.true.i29, %for.cond, %land.lhs.true.i17, %land.lhs.true.i29.us, %land.lhs.true.i9, %land.lhs.true, %land.lhs.true.i5, %if.end31
   %Pos.0115 = phi ptr [ %Pos.0, %if.end31 ], [ %Pos.554, %land.lhs.true ], [ %Pos.554, %land.lhs.true.i5 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.3.ph.ph.us104, %land.lhs.true.i29.us ], [ %Pos.2, %land.lhs.true.i17 ], [ %Pos.2, %for.cond ], [ %Pos.3.ph.ph110, %land.lhs.true.i29 ]
-  %26 = phi i8 [ %25, %if.end31 ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ 13, %land.lhs.true.i17 ], [ %20, %for.cond ], [ 13, %land.lhs.true.i29 ]
+  %25 = phi i8 [ %24, %if.end31 ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ 13, %land.lhs.true.i17 ], [ %19, %for.cond ], [ 13, %land.lhs.true.i29 ]
   %invariant.gep = getelementptr i8, ptr %Pos.0115, i64 1
   br label %while.cond37
 
@@ -287,9 +281,9 @@ if.then34:                                        ; preds = %do.body, %do.body.u
   br label %return
 
 while.cond37:                                     ; preds = %while.cond37.preheader, %while.body45
-  %27 = phi i8 [ %.pre, %while.body45 ], [ %26, %while.cond37.preheader ]
+  %26 = phi i8 [ %.pre, %while.body45 ], [ %25, %while.cond37.preheader ]
   %Length.0 = phi i64 [ %inc46, %while.body45 ], [ 0, %while.cond37.preheader ]
-  switch i8 %27, label %while.body45 [
+  switch i8 %26, label %while.body45 [
     i8 0, label %while.end47
     i8 10, label %while.end47
     i8 13, label %land.lhs.true.i37
@@ -297,8 +291,8 @@ while.cond37:                                     ; preds = %while.cond37.prehea
 
 land.lhs.true.i37:                                ; preds = %while.cond37
   %gep = getelementptr i8, ptr %invariant.gep, i64 %Length.0
-  %28 = load i8, ptr %gep, align 1
-  %cmp4.i39 = icmp eq i8 %28, 10
+  %27 = load i8, ptr %gep, align 1
+  %cmp4.i39 = icmp eq i8 %27, 10
   br i1 %cmp4.i39, label %while.end47, label %while.body45
 
 while.body45:                                     ; preds = %while.cond37, %land.lhs.true.i37
@@ -319,7 +313,7 @@ return:                                           ; preds = %while.end47, %if.th
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

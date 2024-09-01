@@ -345,8 +345,8 @@ define noundef zeroext i1 @_ZN8uu_rmdir13dir_not_empty17h9cb2ed62c559434fE(ptr n
 
 18:                                               ; preds = %20, %14
   %19 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he12377d955ffe1b6E.llvm.10787802261570551020"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !103
-  %.not.not.i.not.i.not = icmp eq ptr %19, null
-  br i1 %.not.not.i.not.i.not, label %23, label %20
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %19, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %23, label %20
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %19, align 4, !alias.scope !106, !noalias !111, !noundef !5
@@ -367,8 +367,8 @@ define noundef zeroext i1 @_ZN8uu_rmdir13dir_not_empty17h9cb2ed62c559434fE(ptr n
 
 25:                                               ; preds = %27, %23
   %26 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he12377d955ffe1b6E.llvm.10787802261570551020"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !118
-  %.not.not.i.not.i9.not = icmp eq ptr %26, null
-  br i1 %.not.not.i.not.i9.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit10", label %27
+  %.not.not.not.not.i.not.not.not.i9.not = icmp eq ptr %26, null
+  br i1 %.not.not.not.not.i.not.not.not.i9.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit10", label %27
 
 27:                                               ; preds = %25
   %28 = load i32, ptr %26, align 4, !alias.scope !121, !noalias !126, !noundef !5

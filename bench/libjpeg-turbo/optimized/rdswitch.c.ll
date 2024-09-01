@@ -432,7 +432,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
 
 .critedge.i:                                      ; preds = %text_getc.exit26.i, %text_getc.exit.i, %.lr.ph.i
   %.0.lcssa.i = phi i32 [ %.022.i, %.lr.ph.i ], [ -1, %text_getc.exit.i ], [ -1, %text_getc.exit26.i ]
-  %.lcssa21.i = phi i1 [ true, %.lr.ph.i ], [ %.not19.i, %text_getc.exit.i ], [ false, %text_getc.exit26.i ]
+  %.lcssa21.i = phi i1 [ %.not19.i, %.lr.ph.i ], [ %.not19.i, %text_getc.exit.i ], [ false, %text_getc.exit26.i ]
   %66 = load ptr, ptr %30, align 8
   %67 = sext i32 %.0.lcssa.i to i64
   %68 = getelementptr inbounds i16, ptr %66, i64 %67
@@ -636,7 +636,7 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
 
 .critedge:                                        ; preds = %.lr.ph, %text_getc.exit, %5
   %.0.lcssa = phi i32 [ -1, %5 ], [ -1, %text_getc.exit ], [ %.022, %.lr.ph ]
-  %.lcssa21 = phi i1 [ false, %5 ], [ %.not19, %text_getc.exit ], [ true, %.lr.ph ]
+  %.lcssa21 = phi i1 [ false, %5 ], [ %.not19, %text_getc.exit ], [ %.not19, %.lr.ph ]
   %16 = load ptr, ptr %.pre, align 8
   %17 = sext i32 %.0.lcssa to i64
   %18 = getelementptr inbounds i16, ptr %16, i64 %17

@@ -265,8 +265,8 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
 .lr.ph:                                           ; preds = %.preheader99, %47
   %.4118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
   %50 = tail call i32 @__archive_pathmatch(ptr noundef nonnull %.361, ptr noundef nonnull %.4118, i32 noundef %2)
-  %.not77.not = icmp ne i32 %50, 0
-  br i1 %.not77.not, label %.loopexit, label %47
+  %.not77.not.not = icmp ne i32 %50, 0
+  br i1 %.not77.not.not, label %.loopexit, label %47
 
 51:                                               ; preds = %27
   %52 = getelementptr inbounds i8, ptr %.159, i64 1
@@ -520,7 +520,7 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip.exit93, %102, %101, %100, %93, %pm_list.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip.exit96, %pm_slashskip.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not, %47 ], [ %.not77.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %40 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }
@@ -790,8 +790,8 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
 .lr.ph:                                           ; preds = %.preheader99, %47
   %.4118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
   %50 = tail call i32 @__archive_pathmatch_w(ptr noundef nonnull %.361, ptr noundef nonnull %.4118, i32 noundef %2)
-  %.not77.not = icmp ne i32 %50, 0
-  br i1 %.not77.not, label %.loopexit, label %47
+  %.not77.not.not = icmp ne i32 %50, 0
+  br i1 %.not77.not.not, label %.loopexit, label %47
 
 51:                                               ; preds = %27
   %52 = getelementptr inbounds i8, ptr %.159, i64 4
@@ -1045,7 +1045,7 @@ pm_slashskip_w.exit96:                            ; preds = %.preheader102, %124
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip_w.exit93, %102, %101, %100, %93, %pm_list_w.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip_w.exit96, %pm_slashskip_w.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not, %47 ], [ %.not77.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip_w.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip_w.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %40 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }

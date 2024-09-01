@@ -2543,15 +2543,12 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %29, %33
   %47 = getelementptr inbounds i8, ptr %0, i64 240
   %48 = getelementptr inbounds i8, ptr %0, i64 472
   %49 = getelementptr inbounds i8, ptr %0, i64 528
-  br i1 %38, label %.lr.ph74.us.preheader, label %._crit_edge77
-
-.lr.ph74.us.preheader:                            ; preds = %.lr.ph76
   %wide.trip.count88 = zext nneg i32 %19 to i64
   %wide.trip.count83 = zext nneg i32 %24 to i64
   br label %.lr.ph74.us
 
-.lr.ph74.us:                                      ; preds = %.lr.ph74.us.preheader, %._crit_edge.us
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph74.us.preheader ], [ %indvars.iv.next86, %._crit_edge.us ]
+.lr.ph74.us:                                      ; preds = %.lr.ph76, %._crit_edge.us
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next86, %._crit_edge.us ]
   %50 = load ptr, ptr %40, align 8
   %51 = load ptr, ptr %41, align 8
   %52 = load i64, ptr %51, align 8
@@ -2630,7 +2627,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %29, %33
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !58
 
-._crit_edge77:                                    ; preds = %._crit_edge.us, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit, %.lr.ph76, %.preheader
+._crit_edge77:                                    ; preds = %._crit_edge.us, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit, %.preheader
   %103 = load ptr, ptr %12, align 8
   %.not.i.i71 = icmp eq ptr %103, %31
   br i1 %.not.i.i71, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %104

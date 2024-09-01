@@ -725,8 +725,8 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
 176:                                              ; preds = %173
   %177 = call i64 @time(ptr noundef null) #15
   %178 = and i32 %spec.store.select7, 1
-  %.not19 = icmp eq i32 %178, 0
-  br i1 %.not19, label %229, label %179
+  %.not13 = icmp eq i32 %178, 0
+  br i1 %.not13, label %229, label %179
 
 179:                                              ; preds = %.thread, %176
   %.0.i9 = phi i64 [ %175, %.thread ], [ %177, %176 ]

@@ -6940,7 +6940,7 @@ _ZNK2cv11_InputArray6getMatEi.exit186:            ; preds = %152, %155
           cleanup
   br label %1333
 
-.loopexit366:                                     ; preds = %853
+.loopexit363:                                     ; preds = %853
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %1332
@@ -7413,8 +7413,8 @@ _ZNK2cv11_InputArray6getMatEi.exit210:            ; preds = %337, %340
   br label %1332
 
 .sink.split:                                      ; preds = %_ZNK2cv11_InputArray6getMatEi.exit210, %327
-  %.sink394 = phi ptr [ %30, %327 ], [ %32, %_ZNK2cv11_InputArray6getMatEi.exit210 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink394) #24
+  %.sink391 = phi ptr [ %30, %327 ], [ %32, %_ZNK2cv11_InputArray6getMatEi.exit210 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink391) #24
   br label %344
 
 344:                                              ; preds = %.sink.split, %326
@@ -7968,11 +7968,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i236: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i239, %604, %591, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i232
   store ptr %563, ptr %562, align 8
-  %.pr362 = load ptr, ptr %561, align 8
+  %.pr359 = load ptr, ptr %561, align 8
   br label %_ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_22FlannNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit
 
 _ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_22FlannNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit: ; preds = %559, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i236
-  %609 = phi ptr [ %563, %559 ], [ %.pr362, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i236 ]
+  %609 = phi ptr [ %563, %559 ], [ %.pr359, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i236 ]
   %.not.i.i.i.i240 = icmp eq ptr %609, null
   br i1 %.not.i.i.i.i240, label %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit, label %610
 
@@ -8163,11 +8163,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i255: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i258, %699, %686, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i251
   store ptr %658, ptr %657, align 8
-  %.pr363 = load ptr, ptr %656, align 8
+  %.pr360 = load ptr, ptr %656, align 8
   br label %_ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_29RadiusSearchNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit
 
 _ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_29RadiusSearchNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit: ; preds = %654, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i255
-  %704 = phi ptr [ %658, %654 ], [ %.pr363, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i255 ]
+  %704 = phi ptr [ %658, %654 ], [ %.pr360, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i255 ]
   %.not.i.i.i.i259 = icmp eq ptr %704, null
   br i1 %.not.i.i.i.i259, label %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit, label %705
 
@@ -8251,23 +8251,23 @@ _ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_29RadiusSearchNeighborhoodGraphEE
   br label %1332
 
 _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split.sink.split: ; preds = %705, %610, %516
-  %.sink407 = phi ptr [ %517, %516 ], [ %611, %610 ], [ %706, %705 ]
-  %.sink406 = phi ptr [ %515, %516 ], [ %609, %610 ], [ %704, %705 ]
-  store i32 0, ptr %.sink407, align 8
-  %739 = getelementptr inbounds i8, ptr %.sink406, i64 12
+  %.sink404 = phi ptr [ %517, %516 ], [ %611, %610 ], [ %706, %705 ]
+  %.sink403 = phi ptr [ %515, %516 ], [ %609, %610 ], [ %704, %705 ]
+  store i32 0, ptr %.sink404, align 8
+  %739 = getelementptr inbounds i8, ptr %.sink403, i64 12
   store i32 0, ptr %739, align 4
-  %740 = load ptr, ptr %.sink406, align 8
+  %740 = load ptr, ptr %.sink403, align 8
   %741 = getelementptr inbounds i8, ptr %740, i64 16
   %742 = load ptr, ptr %741, align 8
-  call void %742(ptr noundef nonnull align 8 dereferenceable(16) %.sink406) #24
+  call void %742(ptr noundef nonnull align 8 dereferenceable(16) %.sink403) #24
   br label %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split
 
 _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split: ; preds = %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split.sink.split, %729, %634, %540
-  %.sink399 = phi ptr [ %515, %540 ], [ %609, %634 ], [ %704, %729 ], [ %.sink406, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split.sink.split ]
-  %743 = load ptr, ptr %.sink399, align 8
+  %.sink396 = phi ptr [ %515, %540 ], [ %609, %634 ], [ %704, %729 ], [ %.sink403, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split.sink.split ]
+  %743 = load ptr, ptr %.sink396, align 8
   %744 = getelementptr inbounds i8, ptr %743, i64 24
   %745 = load ptr, ptr %744, align 8
-  call void %745(ptr noundef nonnull align 8 dereferenceable(16) %.sink399) #24
+  call void %745(ptr noundef nonnull align 8 dereferenceable(16) %.sink396) #24
   br label %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit.sink.split, %729, %716, %_ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_29RadiusSearchNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit, %634, %621, %_ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_22FlannNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit, %540, %527, %_ZN2cv3PtrINS_4usac17NeighborhoodGraphEEaSINS1_21GridNeighborhoodGraphEEERS3_RKNS0_IT_EE.exit, %428
@@ -8414,48 +8414,48 @@ _ZNSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE7reserveEm.exit: ; 
   %817 = lshr exact i64 %816, 2
   %818 = trunc i64 %817 to i32
   %819 = icmp sgt i32 %818, 0
-  br i1 %819, label %.lr.ph377, label %.loopexit
+  br i1 %819, label %.lr.ph374, label %.loopexit
 
-.lr.ph377:                                        ; preds = %.preheader
+.lr.ph374:                                        ; preds = %.preheader
   %820 = getelementptr inbounds i8, ptr %0, i64 1136
   %821 = getelementptr inbounds i8, ptr %46, i64 8
   br label %838
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0105371 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1106, %.lr.ph ]
-  %.0107370 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1108, %.lr.ph ]
-  %.0109369 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1110, %.lr.ph ]
-  %.0111368 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1112, %.lr.ph ]
+  %.0105368 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1106, %.lr.ph ]
+  %.0107367 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1108, %.lr.ph ]
+  %.0109366 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1110, %.lr.ph ]
+  %.0111365 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1112, %.lr.ph ]
   %822 = getelementptr inbounds float, ptr %806, i64 %indvars.iv
   %823 = load float, ptr %822, align 4
-  %824 = fcmp ogt float %823, %.0111368
-  %.1112 = select i1 %824, float %823, float %.0111368
+  %824 = fcmp ogt float %823, %.0111365
+  %.1112 = select i1 %824, float %823, float %.0111365
   %825 = or disjoint i64 %indvars.iv, 1
   %826 = getelementptr inbounds float, ptr %806, i64 %825
   %827 = load float, ptr %826, align 4
-  %828 = fcmp ogt float %827, %.0109369
-  %.1110 = select i1 %828, float %827, float %.0109369
+  %828 = fcmp ogt float %827, %.0109366
+  %.1110 = select i1 %828, float %827, float %.0109366
   %829 = or disjoint i64 %indvars.iv, 2
   %830 = getelementptr inbounds float, ptr %806, i64 %829
   %831 = load float, ptr %830, align 4
-  %832 = fcmp ogt float %831, %.0107370
-  %.1108 = select i1 %832, float %831, float %.0107370
+  %832 = fcmp ogt float %831, %.0107367
+  %.1108 = select i1 %832, float %831, float %.0107367
   %833 = or disjoint i64 %indvars.iv, 3
   %834 = getelementptr inbounds float, ptr %806, i64 %833
   %835 = load float, ptr %834, align 4
-  %836 = fcmp ogt float %835, %.0105371
-  %.1106 = select i1 %836, float %835, float %.0105371
+  %836 = fcmp ogt float %835, %.0105368
+  %.1106 = select i1 %836, float %835, float %.0105368
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %837 = icmp ult i64 %indvars.iv.next, %811
   br i1 %837, label %.lr.ph, label %.preheader, !llvm.loop !189
 
-838:                                              ; preds = %.lr.ph377, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275
-  %indvars.iv383 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next384, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275 ]
-  %839 = phi ptr [ %813, %.lr.ph377 ], [ %910, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275 ]
-  %840 = getelementptr i32, ptr %839, i64 %indvars.iv383
+838:                                              ; preds = %.lr.ph374, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275
+  %indvars.iv380 = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next381, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275 ]
+  %839 = phi ptr [ %813, %.lr.ph374 ], [ %910, %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275 ]
+  %840 = getelementptr i32, ptr %839, i64 %indvars.iv380
   %841 = load i32, ptr %840, align 4
-  %.not169 = icmp eq i64 %indvars.iv383, 0
+  %.not169 = icmp eq i64 %indvars.iv380, 0
   br i1 %.not169, label %853, label %842
 
 842:                                              ; preds = %838
@@ -8504,7 +8504,7 @@ _ZNSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE7reserveEm.exit: ; 
   %862 = fdiv float %.0105.lcssa, %855
   %863 = fptosi float %862 to i32
   invoke void @_ZN2cv4usac21GridNeighborhoodGraph6createERKNS_3MatEiiiiii(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.100") align 8 %46, ptr noundef nonnull align 8 dereferenceable(96) %81, i32 noundef %854, i32 noundef %857, i32 noundef %859, i32 noundef %861, i32 noundef %863, i32 noundef 10)
-          to label %864 unwind label %.loopexit366
+          to label %864 unwind label %.loopexit363
 
 864:                                              ; preds = %853
   %865 = load ptr, ptr %820, align 8
@@ -8604,7 +8604,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275
 
 _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE12emplace_backIJNS1_INS2_21GridNeighborhoodGraphEEEEEEvDpOT_.exit, %891, %904, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i274
-  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
+  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %909 = load ptr, ptr %771, align 8
   %910 = load ptr, ptr %769, align 8
   %911 = ptrtoint ptr %909 to i64
@@ -8612,7 +8612,7 @@ _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275: ; preds = %_ZNSt6vecto
   %913 = sub i64 %911, %912
   %sext = shl i64 %913, 30
   %914 = ashr i64 %sext, 32
-  %915 = icmp slt i64 %indvars.iv.next384, %914
+  %915 = icmp slt i64 %indvars.iv.next381, %914
   br i1 %915, label %838, label %.loopexit, !llvm.loop !190
 
 916:                                              ; preds = %873
@@ -8630,9 +8630,9 @@ _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275: ; preds = %_ZNSt6vecto
           to label %923 unwind label %.loopexit.split-lp
 
 923:                                              ; preds = %.loopexit
-  br i1 %922, label %924, label %._crit_edge389
+  br i1 %922, label %924, label %._crit_edge386
 
-._crit_edge389:                                   ; preds = %923
+._crit_edge386:                                   ; preds = %923
   %.pre = load double, ptr %103, align 8
   br label %934
 
@@ -8655,8 +8655,8 @@ _ZN2cv3PtrINS_4usac21GridNeighborhoodGraphEED2Ev.exit275: ; preds = %_ZNSt6vecto
   store double %931, ptr %112, align 8
   br label %934
 
-934:                                              ; preds = %._crit_edge389, %928, %933
-  %935 = phi double [ %.pre, %._crit_edge389 ], [ %930, %928 ], [ %930, %933 ]
+934:                                              ; preds = %._crit_edge386, %928, %933
+  %935 = phi double [ %.pre, %._crit_edge386 ], [ %930, %928 ], [ %930, %933 ]
   %936 = fmul double %935, %935
   store double %936, ptr %103, align 8
   %937 = load ptr, ptr %0, align 8
@@ -8777,42 +8777,42 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %987
   store i32 0, ptr %995, align 4
   %998 = getelementptr i8, ptr %995, i64 4
   %999 = icmp eq i32 %989, 1
-  br i1 %999, label %.lr.ph379.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  br i1 %999, label %.lr.ph376.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc279
   %1000 = add nsw i64 %994, -4
   call void @llvm.memset.p0.i64(ptr align 4 %998, i8 0, i64 %1000, i1 false)
-  br label %.lr.ph379.preheader
+  br label %.lr.ph376.preheader
 
 1001:                                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   br label %._crit_edge
 
-.lr.ph379.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc279
+.lr.ph376.preheader:                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc279
   %.0.i.i.i.i.i277.ph = phi ptr [ %996, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %998, %.noexc279 ]
   %1002 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %.0.i.i.i.i.i277.ph, ptr %1002, align 8
-  br label %.lr.ph379
+  br label %.lr.ph376
 
-.lr.ph379:                                        ; preds = %.lr.ph379.preheader, %.lr.ph379
-  %indvars.iv386 = phi i64 [ 0, %.lr.ph379.preheader ], [ %indvars.iv.next387, %.lr.ph379 ]
+.lr.ph376:                                        ; preds = %.lr.ph376.preheader, %.lr.ph376
+  %indvars.iv383 = phi i64 [ 0, %.lr.ph376.preheader ], [ %indvars.iv.next384, %.lr.ph376 ]
   %1003 = load ptr, ptr %48, align 8
-  %1004 = getelementptr inbounds i32, ptr %1003, i64 %indvars.iv386
-  %1005 = trunc nuw nsw i64 %indvars.iv386 to i32
+  %1004 = getelementptr inbounds i32, ptr %1003, i64 %indvars.iv383
+  %1005 = trunc nuw nsw i64 %indvars.iv383 to i32
   store i32 %1005, ptr %1004, align 4
-  %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
+  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %1006 = load i32, ptr %988, align 8
   %1007 = sext i32 %1006 to i64
-  %1008 = icmp slt i64 %indvars.iv.next387, %1007
-  br i1 %1008, label %.lr.ph379, label %._crit_edge, !llvm.loop !191
+  %1008 = icmp slt i64 %indvars.iv.next384, %1007
+  br i1 %1008, label %.lr.ph376, label %._crit_edge, !llvm.loop !191
 
 1009:                                             ; preds = %993, %992
   %1010 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit287
 
-._crit_edge:                                      ; preds = %.lr.ph379, %1001
-  %.lcssa = phi i32 [ 0, %1001 ], [ %1006, %.lr.ph379 ]
+._crit_edge:                                      ; preds = %.lr.ph376, %1001
+  %.lcssa = phi i32 [ 0, %1001 ], [ %1006, %.lr.ph376 ]
   %1011 = load ptr, ptr %47, align 8
   %1012 = load ptr, ptr %1011, align 8
   %1013 = getelementptr inbounds i8, ptr %1012, i64 64
@@ -9076,11 +9076,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i297: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i300, %1133, %1120, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i293
   store ptr %1092, ptr %1090, align 8
-  %.pr364 = load ptr, ptr %1091, align 8
+  %.pr361 = load ptr, ptr %1091, align 8
   br label %_ZN2cv3PtrINS_4usac11GammaValuesEEaSERKS3_.exit
 
 _ZN2cv3PtrINS_4usac11GammaValuesEEaSERKS3_.exit:  ; preds = %1088, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i297
-  %1138 = phi ptr [ %1092, %1088 ], [ %.pr364, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i297 ]
+  %1138 = phi ptr [ %1092, %1088 ], [ %.pr361, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i297 ]
   %.not.i.i.i.i301 = icmp eq ptr %1138, null
   br i1 %.not.i.i.i.i301, label %_ZN2cv3PtrINS_4usac11GammaValuesEED2Ev.exit, label %1139
 
@@ -9332,11 +9332,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i318: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i321, %1254, %1241, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i314
   store ptr %1213, ptr %1212, align 8
-  %.pr365 = load ptr, ptr %1211, align 8
+  %.pr362 = load ptr, ptr %1211, align 8
   br label %_ZN2cv3PtrINS_4usac18FinalModelPolisherEEaSINS1_18NonMinimalPolisherEEERS3_RKNS0_IT_EE.exit
 
 _ZN2cv3PtrINS_4usac18FinalModelPolisherEEaSINS1_18NonMinimalPolisherEEERS3_RKNS0_IT_EE.exit: ; preds = %1209, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i318
-  %1259 = phi ptr [ %1213, %1209 ], [ %.pr365, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i318 ]
+  %1259 = phi ptr [ %1213, %1209 ], [ %.pr362, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i318 ]
   %.not.i.i.i.i322 = icmp eq ptr %1259, null
   br i1 %.not.i.i.i.i322, label %_ZN2cv3PtrINS_4usac18NonMinimalPolisherEED2Ev.exit, label %1260
 
@@ -9493,8 +9493,8 @@ _ZN2cv3PtrINS_4usac14WeightFunctionEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
   ret void
 
-1332:                                             ; preds = %.loopexit366, %.loopexit.split-lp, %354, %330, %288, %187, %333, %291, %190, %1330, %_ZNSt6vectorIiSaIiEED2Ev.exit287, %916, %852, %738, %412, %410, %408, %406, %342, %300, %284, %282, %280, %278, %191, %183, %182
-  %.pn171.pn = phi { ptr, i32 } [ %.pn171, %852 ], [ %917, %916 ], [ %1331, %1330 ], [ %.pn166, %_ZNSt6vectorIiSaIiEED2Ev.exit287 ], [ %.pn164, %738 ], [ %192, %191 ], [ %.pn160.pn.pn.ph, %190 ], [ %184, %183 ], [ %.pn158, %182 ], [ %343, %342 ], [ %.pn152.pn.pn.ph, %333 ], [ %301, %300 ], [ %.pn.pn.pn.ph, %291 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %407, %406 ], [ %188, %187 ], [ %289, %288 ], [ %331, %330 ], [ %355, %354 ], [ %lpad.loopexit, %.loopexit366 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+1332:                                             ; preds = %.loopexit363, %.loopexit.split-lp, %354, %330, %288, %187, %333, %291, %190, %1330, %_ZNSt6vectorIiSaIiEED2Ev.exit287, %916, %852, %738, %412, %410, %408, %406, %342, %300, %284, %282, %280, %278, %191, %183, %182
+  %.pn171.pn = phi { ptr, i32 } [ %.pn171, %852 ], [ %917, %916 ], [ %1331, %1330 ], [ %.pn166, %_ZNSt6vectorIiSaIiEED2Ev.exit287 ], [ %.pn164, %738 ], [ %192, %191 ], [ %.pn160.pn.pn.ph, %190 ], [ %184, %183 ], [ %.pn158, %182 ], [ %343, %342 ], [ %.pn152.pn.pn.ph, %333 ], [ %301, %300 ], [ %.pn.pn.pn.ph, %291 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %407, %406 ], [ %188, %187 ], [ %289, %288 ], [ %331, %330 ], [ %355, %354 ], [ %lpad.loopexit, %.loopexit363 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
   br label %1333

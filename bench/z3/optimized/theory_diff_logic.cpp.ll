@@ -12011,8 +12011,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -12528,9 +12528,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink256 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink256, 1
+  %82 = and i8 %.sink252, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -12542,7 +12542,7 @@ for.inc85:                                        ; preds = %for.inc85.sink.spli
   br label %for.cond, !llvm.loop !61
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 declare noundef i32 @_ZN3smt7context11mk_bool_varEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
@@ -33905,8 +33905,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -34422,9 +34422,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink256 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink256, 1
+  %82 = and i8 %.sink252, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -34436,7 +34436,7 @@ for.inc85:                                        ; preds = %for.inc85.sink.spli
   br label %for.cond, !llvm.loop !160
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52980,8 +52980,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -53497,9 +53497,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink256 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink256, 1
+  %82 = and i8 %.sink252, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -53511,7 +53511,7 @@ for.inc85:                                        ; preds = %for.inc85.sink.spli
   br label %for.cond, !llvm.loop !264
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73604,8 +73604,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -74121,9 +74121,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink256 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink256, 1
+  %82 = and i8 %.sink252, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -74135,7 +74135,7 @@ for.inc85:                                        ; preds = %for.inc85.sink.spli
   br label %for.cond, !llvm.loop !386
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -94704,8 +94704,8 @@ if.end.i:                                         ; preds = %for.cond
 _ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
   %2 = zext i32 %retval.0.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %2
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %2
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit
   %arrayidx.i.i = getelementptr inbounds %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %0, i64 %indvars.iv
@@ -94744,7 +94744,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %_ZN
   br label %for.cond, !llvm.loop !511
 
 return:                                           ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

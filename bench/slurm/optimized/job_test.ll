@@ -551,8 +551,8 @@ select.unfold.i:                                  ; preds = %_set_sched_weight.e
 
 193:                                              ; preds = %207, %.outer.i
   %194 = call ptr @list_next(ptr noundef %188) #9
-  %.not161.i.not = icmp ne ptr %194, null
-  br i1 %.not161.i.not, label %195, label %.loopexit194.i
+  %.not161.i.not.not.not.not.not = icmp ne ptr %194, null
+  br i1 %.not161.i.not.not.not.not.not, label %195, label %.loopexit194.i
 
 195:                                              ; preds = %193
   %196 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -693,7 +693,7 @@ select.unfold.i:                                  ; preds = %_set_sched_weight.e
 
 .critedge.i:                                      ; preds = %.preheader.split.split.us.i, %.preheader.split.split.preheader.i, %.preheader.split.us.i
   %.2131228243.i = phi i64 [ %.2131228244.i, %.preheader.split.us.i ], [ %.2131228258262.i, %.preheader.split.split.preheader.i ], [ %.2131228258263.i, %.preheader.split.split.us.i ]
-  %.1128229241.i = phi i1 [ false, %.preheader.split.us.i ], [ %.not161.i.not, %.preheader.split.split.preheader.i ], [ %.not161.i.not, %.preheader.split.split.us.i ]
+  %.1128229241.i = phi i1 [ false, %.preheader.split.us.i ], [ %.not161.i.not.not.not.not.not, %.preheader.split.split.preheader.i ], [ %.not161.i.not.not.not.not.not, %.preheader.split.split.us.i ]
   %.1126230239.i = phi ptr [ %.1126230240.i, %.preheader.split.us.i ], [ %.1126230256266.i, %.preheader.split.split.preheader.i ], [ %.1126230256267.i, %.preheader.split.split.us.i ]
   %.us-phi.i = phi i32 [ %.2134.us.i, %.preheader.split.us.i ], [ %245, %.preheader.split.split.preheader.i ], [ %247, %.preheader.split.split.us.i ]
   %251 = load i8, ptr @backfill_busy_nodes, align 1

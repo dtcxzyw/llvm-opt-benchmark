@@ -600,7 +600,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = tail call i32 @llvm.umin.i32(i32 %.lcssa, i32 5)
   %36 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 %35, ptr %36, align 4
-  br i1 %13, label %.lr.ph13, label %.thread8
+  br label %.lr.ph13
 
 .lr.ph13:                                         ; preds = %34, %57
   %37 = phi ptr [ %64, %57 ], [ %10, %34 ]
@@ -645,7 +645,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %65 = icmp sgt i32 %62, 3
   br i1 %65, label %.lr.ph13, label %.thread8, !llvm.loop !15
 
-.thread8:                                         ; preds = %54, %.lr.ph13, %57, %7, %34, %.thread, %3
+.thread8:                                         ; preds = %54, %.lr.ph13, %57, %7, %.thread, %3
   %66 = icmp eq i32 %1, 0
   br i1 %66, label %67, label %69
 

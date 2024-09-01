@@ -1841,8 +1841,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2c55ee4b98ed348bE.exit.thre
 
 106:                                              ; preds = %108, %104
   %107 = phi ptr [ %109, %108 ], [ %.sroa.0.0.i, %104 ]
-  %.not.i.not.i.not = icmp eq ptr %107, %105
-  br i1 %.not.i.not.i.not, label %.loopexit, label %108
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %107, %105
+  br i1 %.not.not.not.i.not.not.not.i.not, label %.loopexit, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds i8, ptr %107, i64 4

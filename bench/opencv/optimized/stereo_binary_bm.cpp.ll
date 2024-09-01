@@ -4572,8 +4572,8 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16PrefilterInvokerclERKNS_5RangeE
   %56 = udiv i32 %55, %53
   %57 = trunc i64 %42 to i32
   %58 = mul nuw nsw i32 %56, %38
-  %59 = icmp slt i32 %46, 1
-  br i1 %59, label %.preheader172.i, label %.lr.ph.i
+  %59 = icmp sgt i32 %46, 0
+  br i1 %59, label %.lr.ph.i, label %.preheader172.i
 
 .lr.ph.i:                                         ; preds = %.preheader175.i
   %60 = add nsw i32 %30, 2
@@ -4707,7 +4707,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16PrefilterInvokerclERKNS_5RangeE
   %127 = load i64, ptr %126, align 8
   %128 = mul i64 %127, %indvars.iv241.i
   %129 = getelementptr inbounds i8, ptr %125, i64 %128
-  br i1 %59, label %.preheader.i, label %.lr.ph182.i
+  br i1 %59, label %.lr.ph182.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph182.i, %101
   br i1 %.not169183.i, label %._crit_edge.thread.i, label %.lr.ph185.i

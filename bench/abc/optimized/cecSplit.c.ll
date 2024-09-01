@@ -1967,18 +1967,15 @@ Vec_PtrPush.exit:                                 ; preds = %70
   %81 = getelementptr inbounds i8, ptr %10, i64 8
   %.not174 = icmp eq i32 %6, 0
   %.not168 = icmp eq i32 %3, 0
-  br i1 %80, label %.preheader230.split.us.preheader, label %.preheader230.split
-
-.preheader230.split.us.preheader:                 ; preds = %.preheader230
   %wide.trip.count266 = zext i32 %38 to i64
   br label %.preheader230.split.us
 
-.preheader230.split.us:                           ; preds = %.preheader230.split.us.preheader, %._crit_edge.us
-  %.0146.us = phi i32 [ %.3149.us, %._crit_edge.us ], [ 0, %.preheader230.split.us.preheader ]
-  %.0140.us = phi i32 [ %.3143.us, %._crit_edge.us ], [ 1, %.preheader230.split.us.preheader ]
-  %.0139.us = phi double [ %.2.us, %._crit_edge.us ], [ 0.000000e+00, %.preheader230.split.us.preheader ]
+.preheader230.split.us:                           ; preds = %.preheader230, %._crit_edge.us
+  %.0146.us = phi i32 [ %.3149.us, %._crit_edge.us ], [ 0, %.preheader230 ]
+  %.0140.us = phi i32 [ %.3143.us, %._crit_edge.us ], [ 1, %.preheader230 ]
+  %.0139.us = phi double [ %.2.us, %._crit_edge.us ], [ 0.000000e+00, %.preheader230 ]
   %.not.us = icmp eq i32 %.0140.us, 0
-  br i1 %.not.us, label %.preheader, label %.lr.ph241.us
+  br i1 %.not.us, label %.lr.ph257.preheader, label %.lr.ph241.us
 
 .lr.ph241.us:                                     ; preds = %.preheader230.split.us
   %.val185.us = load i32, ptr %76, align 4
@@ -2495,7 +2492,7 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %or.cond181.us = select i1 %.not168, i1 true, i1 %.not169.us
   br i1 %or.cond181.us, label %.preheader230.split.us, label %.split.us, !llvm.loop !18
 
-.preheader230.split:                              ; preds = %Vec_PtrPush.exit, %.preheader230
+.preheader230.split:                              ; preds = %Vec_PtrPush.exit
   %or.cond181 = icmp sgt i32 %3, -1
   br i1 %or.cond181, label %.preheader230.split.split.us, label %._crit_edge, !llvm.loop !18
 
@@ -2530,24 +2527,21 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %347 = load ptr, ptr %346, align 8
   store ptr %347, ptr %28, align 8
   store ptr null, ptr %346, align 8
-  br label %.preheader
+  br label %.lr.ph257.preheader
 
 .split.us:                                        ; preds = %._crit_edge.us
   %348 = icmp eq i32 %.3143.us, 0
-  br i1 %348, label %349, label %.preheader
+  br i1 %348, label %349, label %.lr.ph257.preheader
 
 349:                                              ; preds = %.split.us
-  br label %.preheader
+  br label %.lr.ph257.preheader
 
-.preheader:                                       ; preds = %.preheader230.split.us, %.split247.us, %349, %.split.us
+.lr.ph257.preheader:                              ; preds = %.preheader230.split.us, %.split.us, %349, %.split247.us
   %.5151 = phi i32 [ %.2148238.us, %.split247.us ], [ %.3149.us, %.split.us ], [ %.3149.us, %349 ], [ %.0146.us, %.preheader230.split.us ]
   %350 = phi i1 [ true, %.split247.us ], [ false, %.split.us ], [ false, %349 ], [ false, %.preheader230.split.us ]
   %351 = phi i1 [ false, %.split247.us ], [ false, %.split.us ], [ true, %349 ], [ true, %.preheader230.split.us ]
   %352 = phi i1 [ false, %.split247.us ], [ true, %.split.us ], [ false, %349 ], [ false, %.preheader230.split.us ]
   %.0145 = phi i32 [ 0, %.split247.us ], [ -1, %.split.us ], [ 1, %349 ], [ 1, %.preheader230.split.us ]
-  br i1 %80, label %.lr.ph257.preheader, label %._crit_edge
-
-.lr.ph257.preheader:                              ; preds = %.preheader
   %wide.trip.count271 = zext nneg i32 %38 to i64
   br label %.lr.ph257
 
@@ -2572,12 +2566,12 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %._crit_edge, label %.lr.ph257, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %359, %.preheader230.split, %.preheader
-  %.5151280285 = phi i32 [ %.5151, %.preheader ], [ 0, %.preheader230.split ], [ %.5151, %359 ]
-  %360 = phi i1 [ %350, %.preheader ], [ false, %.preheader230.split ], [ %350, %359 ]
-  %361 = phi i1 [ %351, %.preheader ], [ false, %.preheader230.split ], [ %351, %359 ]
-  %362 = phi i1 [ %352, %.preheader ], [ true, %.preheader230.split ], [ %352, %359 ]
-  %.0145281284 = phi i32 [ %.0145, %.preheader ], [ -1, %.preheader230.split ], [ %.0145, %359 ]
+._crit_edge:                                      ; preds = %359, %.preheader230.split
+  %.5151280285 = phi i32 [ 0, %.preheader230.split ], [ %.5151, %359 ]
+  %360 = phi i1 [ false, %.preheader230.split ], [ %350, %359 ]
+  %361 = phi i1 [ false, %.preheader230.split ], [ %351, %359 ]
+  %362 = phi i1 [ true, %.preheader230.split ], [ %352, %359 ]
+  %.0145281284 = phi i32 [ -1, %.preheader230.split ], [ %.0145, %359 ]
   %.val7.i = load i32, ptr %76, align 4
   %363 = icmp sgt i32 %.val7.i, 0
   %.pre = load ptr, ptr %78, align 8

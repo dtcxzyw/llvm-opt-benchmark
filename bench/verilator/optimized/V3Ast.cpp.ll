@@ -4985,31 +4985,31 @@ define dso_local void @_ZN7AstNode17addHereThisAsNextEPS_(ptr noundef nonnull al
 31:                                               ; preds = %23
   store ptr %1, ptr %28, align 8
   store ptr null, ptr %17, align 8
-  br label %54
+  br label %55
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %11, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %.critedge, label %36
+  br i1 %35, label %51, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %11, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %0
-  br i1 %39, label %.critedge, label %40
+  br i1 %39, label %51, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %11, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
-  br i1 %43, label %.critedge, label %44
+  br i1 %43, label %51, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %11, i64 48
   %46 = load ptr, ptr %45, align 8
   %.not41 = icmp eq ptr %46, %0
-  br i1 %.not41, label %.critedge, label %47
+  br i1 %.not41, label %51, label %47
 
 47:                                               ; preds = %44
   %48 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 764, i1 noundef zeroext false)
@@ -5018,39 +5018,39 @@ define dso_local void @_ZN7AstNode17addHereThisAsNextEPS_(ptr noundef nonnull al
   tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %50) #26
   unreachable
 
-.critedge:                                        ; preds = %44, %40, %36, %32
+51:                                               ; preds = %44, %40, %36, %32
   %.sink = phi ptr [ %33, %32 ], [ %37, %36 ], [ %41, %40 ], [ %45, %44 ]
   store ptr %1, ptr %.sink, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
-  %52 = load ptr, ptr %51, align 8
-  store ptr null, ptr %51, align 8
-  store ptr %52, ptr %17, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
-  store ptr %1, ptr %53, align 8
-  br label %54
+  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = load ptr, ptr %52, align 8
+  store ptr null, ptr %52, align 8
+  store ptr %53, ptr %17, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  store ptr %1, ptr %54, align 8
+  br label %55
 
-54:                                               ; preds = %.critedge, %31
-  %55 = getelementptr inbounds i8, ptr %18, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %.not42 = icmp eq ptr %56, null
-  br i1 %.not42, label %58, label %57
+55:                                               ; preds = %51, %31
+  %56 = getelementptr inbounds i8, ptr %18, i64 56
+  %57 = load ptr, ptr %56, align 8
+  %.not42 = icmp eq ptr %57, null
+  br i1 %.not42, label %59, label %58
 
-57:                                               ; preds = %54
-  store ptr %0, ptr %56, align 8
-  br label %58
+58:                                               ; preds = %55
+  store ptr %0, ptr %57, align 8
+  br label %59
 
-58:                                               ; preds = %57, %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  %60 = load ptr, ptr %59, align 8
-  %.not43 = icmp eq ptr %60, null
-  br i1 %.not43, label %62, label %61
+59:                                               ; preds = %58, %55
+  %60 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %.not43 = icmp eq ptr %61, null
+  br i1 %.not43, label %63, label %62
 
-61:                                               ; preds = %58
-  store ptr %1, ptr %60, align 8
-  store ptr null, ptr %59, align 8
-  br label %62
+62:                                               ; preds = %59
+  store ptr %1, ptr %61, align 8
+  store ptr null, ptr %60, align 8
+  br label %63
 
-62:                                               ; preds = %61, %58
+63:                                               ; preds = %62, %59
   ret void
 }
 

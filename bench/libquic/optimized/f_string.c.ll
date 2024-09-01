@@ -99,9 +99,6 @@ entry:
   %cmp118 = icmp sgt i32 %call, 0
   br i1 %cmp118, label %if.end, label %for.end169
 
-if.then:                                          ; preds = %if.then165
-  br i1 %cmp118, label %err_sl, label %for.end169
-
 if.end:                                           ; preds = %entry, %if.then165
   %slen.0123 = phi i32 [ %slen.1, %if.then165 ], [ 0, %entry ]
   %num.0121 = phi i32 [ %add, %if.then165 ], [ 0, %entry ]
@@ -313,18 +310,18 @@ for.end162:                                       ; preds = %for.inc159, %if.end
 if.then165:                                       ; preds = %for.end162
   %call166 = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef %size) #6
   %cmp = icmp slt i32 %call166, 1
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %err_sl, label %if.end
 
-for.end169:                                       ; preds = %for.end162, %entry, %if.then
-  %s.1 = phi ptr [ %s.2, %if.then ], [ null, %entry ], [ %s.2, %for.end162 ]
-  %num.1 = phi i32 [ %add, %if.then ], [ 0, %entry ], [ %add, %for.end162 ]
+for.end169:                                       ; preds = %for.end162, %entry
+  %s.1 = phi ptr [ null, %entry ], [ %s.2, %for.end162 ]
+  %num.1 = phi i32 [ 0, %entry ], [ %add, %for.end162 ]
   store i32 %num.1, ptr %bs, align 8
   %data = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %s.1, ptr %data, align 8
   br label %if.end171
 
-err_sl:                                           ; preds = %for.end, %if.end22, %if.end7, %for.end.thread, %if.then
-  %s.0105 = phi ptr [ %s.2, %if.then ], [ %s.0120, %for.end.thread ], [ %s.0120, %if.end7 ], [ %s.0120, %if.end22 ], [ %s.0120, %for.end ]
+err_sl:                                           ; preds = %for.end, %if.end22, %if.end7, %if.then165, %for.end.thread
+  %s.0105 = phi ptr [ %s.0120, %for.end.thread ], [ %s.0120, %for.end ], [ %s.0120, %if.end22 ], [ %s.0120, %if.end7 ], [ %s.2, %if.then165 ]
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef 191) #6
   br label %if.end171
 

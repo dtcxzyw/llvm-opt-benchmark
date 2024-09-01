@@ -413,16 +413,16 @@ for.inc.i:                                        ; preds = %if.then.i28, %for.b
 
 for.end.i31:                                      ; preds = %for.inc.i
   %tobool6.not.i = icmp eq i32 %remaining_nr.1.i, 0
-  br i1 %tobool6.not.i, label %remove_fetched_oids.exit.thread, label %for.body13.preheader.i
+  br i1 %tobool6.not.i, label %remove_fetched_oids.exit.thread, label %if.then7.i32
 
-for.body13.preheader.i:                           ; preds = %for.end.i31
+if.then7.i32:                                     ; preds = %for.end.i31
   %conv8.i = sext i32 %remaining_nr.1.i to i64
   %call9.i33 = call ptr @xcalloc(i64 noundef %conv8.i, i64 noundef 36) #9
   br label %for.body13.i
 
-for.body13.i:                                     ; preds = %for.inc24.i, %for.body13.preheader.i
-  %indvars.iv26.i = phi i64 [ 0, %for.body13.preheader.i ], [ %indvars.iv.next27.i, %for.inc24.i ]
-  %j.024.i = phi i32 [ 0, %for.body13.preheader.i ], [ %j.1.i, %for.inc24.i ]
+for.body13.i:                                     ; preds = %for.inc24.i, %if.then7.i32
+  %indvars.iv26.i = phi i64 [ 0, %if.then7.i32 ], [ %indvars.iv.next27.i, %for.inc24.i ]
+  %j.024.i = phi i32 [ 0, %if.then7.i32 ], [ %j.1.i, %for.inc24.i ]
   %arrayidx15.i = getelementptr inbounds i32, ptr %call.i20, i64 %indvars.iv26.i
   %8 = load i32, ptr %arrayidx15.i, align 4
   %tobool16.not.i = icmp eq i32 %8, 0

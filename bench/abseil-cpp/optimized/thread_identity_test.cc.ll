@@ -1346,18 +1346,15 @@ for.body11:                                       ; preds = %for.end, %for.inc14
 for.inc14:                                        ; preds = %for.body11
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.054, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %14
-  br i1 %cmp.i.not, label %for.end16, label %for.body11
-
-for.end16:                                        ; preds = %for.inc14
-  br i1 %cmp.i.not53, label %invoke.cont.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not, label %for.body.i.i.i.i, label %for.body11
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !29
 
-for.body.i.i.i.i:                                 ; preds = %for.end16, %for.cond.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %15, %for.end16 ]
+for.body.i.i.i.i:                                 ; preds = %for.inc14, %for.cond.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %15, %for.inc14 ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %__first.addr.04.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1366,7 +1363,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
   call void @_ZSt9terminatev() #21
   unreachable
 
-invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end, %for.end16
+invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
@@ -2461,18 +2458,15 @@ for.body15:                                       ; preds = %for.end, %for.inc19
 for.inc19:                                        ; preds = %for.body15
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %14
-  br i1 %cmp.i.not, label %for.end21, label %for.body15
-
-for.end21:                                        ; preds = %for.inc19
-  br i1 %cmp.i.not28, label %invoke.cont.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not, label %for.body.i.i.i.i, label %for.body15
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !29
 
-for.body.i.i.i.i:                                 ; preds = %for.end21, %for.cond.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %15, %for.end21 ]
+for.body.i.i.i.i:                                 ; preds = %for.inc19, %for.cond.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %15, %for.inc19 ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %__first.addr.04.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2481,7 +2475,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
   call void @_ZSt9terminatev() #21
   unreachable
 
-invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end, %for.end21
+invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %if.then.i.i.i
 

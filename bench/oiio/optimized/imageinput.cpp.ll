@@ -2293,7 +2293,7 @@ lpad:                                             ; preds = %invoke.cont26, %inv
   br label %ehcleanup
 
 if.end32:                                         ; preds = %if.end.thread, %if.end
-  %cmp17150 = phi i1 [ %cmp17147, %if.end.thread ], [ %cmp17, %if.end ]
+  %cmp17150 = phi i1 [ %cmp17147, %if.end.thread ], [ false, %if.end ]
   %xstride.addr.0149 = phi i64 [ %xstride.addr.0.ph, %if.end.thread ], [ %xstride.addr.0, %if.end ]
   %width = getelementptr inbounds i8, ptr %this, i64 20
   %21 = load i32, ptr %width, align 4
@@ -3579,10 +3579,9 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %cmp15.not = icmp slt i32 %ybegin, %.sroa.speculated
   br i1 %cmp15.not, label %for.body, label %cleanup
 
-for.body:                                         ; preds = %invoke.cont5, %if.end
-  %cmp18 = phi i1 [ %cmp, %if.end ], [ false, %invoke.cont5 ]
-  %y9.017 = phi i32 [ %inc, %if.end ], [ %ybegin, %invoke.cont5 ]
-  %data.addr.016 = phi ptr [ %add.ptr, %if.end ], [ %data, %invoke.cont5 ]
+for.body:                                         ; preds = %invoke.cont5, %invoke.cont12
+  %y9.017 = phi i32 [ %inc, %invoke.cont12 ], [ %ybegin, %invoke.cont5 ]
+  %data.addr.016 = phi ptr [ %add.ptr, %invoke.cont12 ], [ %data, %invoke.cont5 ]
   %vtable10 = load ptr, ptr %this, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 208
   %5 = load ptr, ptr %vfn11, align 8
@@ -3590,7 +3589,11 @@ for.body:                                         ; preds = %invoke.cont5, %if.e
           to label %invoke.cont12 unwind label %lpad.loopexit
 
 invoke.cont12:                                    ; preds = %for.body
-  br i1 %call13, label %if.end, label %cleanup
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.016, i64 %call
+  %inc = add i32 %y9.017, 1
+  %exitcond.not = icmp ne i32 %inc, %.sroa.speculated
+  %or.cond.not = and i1 %exitcond.not, %call13
+  br i1 %or.cond.not, label %for.body, label %cleanup, !llvm.loop !33
 
 lpad.loopexit:                                    ; preds = %for.body
   %lpad.loopexit12 = landingpad { ptr, i32 }
@@ -3608,15 +3611,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %call1.i.i.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #28
   resume { ptr, i32 } %lpad.phi
 
-if.end:                                           ; preds = %invoke.cont12
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.016, i64 %call
-  %inc = add i32 %y9.017, 1
-  %cmp = icmp sge i32 %inc, %.sroa.speculated
-  %exitcond = icmp eq i32 %inc, %.sroa.speculated
-  br i1 %exitcond, label %cleanup, label %for.body, !llvm.loop !33
-
-cleanup:                                          ; preds = %invoke.cont12, %if.end, %invoke.cont5
-  %cmp.lcssa = phi i1 [ true, %invoke.cont5 ], [ %cmp, %if.end ], [ %cmp18, %invoke.cont12 ]
+cleanup:                                          ; preds = %invoke.cont12, %invoke.cont5
+  %cmp.lcssa = phi i1 [ true, %invoke.cont5 ], [ %call13, %invoke.cont12 ]
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %call1.i.i.i.i.i7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #28
   ret i1 %cmp.lcssa
@@ -5544,10 +5540,10 @@ if.end4:                                          ; preds = %land.rhs.i37
 for.cond.preheader:                               ; preds = %if.end4
   %cmp55.not = icmp slt i32 %zbegin, %zend
   %cmp1652 = icmp slt i32 %ybegin, %yend
-  %or.cond81 = and i1 %cmp55.not, %cmp1652
+  %or.cond74 = and i1 %cmp55.not, %cmp1652
   %cmp1950 = icmp slt i32 %xbegin, %xend
-  %or.cond82 = and i1 %or.cond81, %cmp1950
-  br i1 %or.cond82, label %for.cond15.preheader.us.us, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit40
+  %or.cond75 = and i1 %or.cond74, %cmp1950
+  br i1 %or.cond75, label %for.cond15.preheader.us.us, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit40
 
 for.cond15.preheader.us.us:                       ; preds = %for.cond.preheader, %for.cond15.for.inc52_crit_edge.split.us.us.us
   %z.056.us.us = phi i32 [ %add54.us.us, %for.cond15.for.inc52_crit_edge.split.us.us.us ], [ %zbegin, %for.cond.preheader ]
@@ -5843,8 +5839,8 @@ for.cond29.preheader.lr.ph:                       ; preds = %for.cond.preheader
   %cmp3073 = icmp slt i32 %ybegin, %yend
   %arrayidx.i = getelementptr inbounds i8, ptr %call27, i64 %call17
   %cmp3371 = icmp slt i32 %xbegin, %xend
-  %or.cond102 = and i1 %cmp3073, %cmp3371
-  br i1 %or.cond102, label %for.cond29.preheader.us.us, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit60
+  %or.cond95 = and i1 %cmp3073, %cmp3371
+  br i1 %or.cond95, label %for.cond29.preheader.us.us, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit60
 
 for.cond29.preheader.us.us:                       ; preds = %for.cond29.preheader.lr.ph, %for.cond29.for.inc67_crit_edge.split.us.us.us
   %z.077.us.us = phi i32 [ %add69.us.us, %for.cond29.for.inc67_crit_edge.split.us.us.us ], [ %zbegin, %for.cond29.preheader.lr.ph ]

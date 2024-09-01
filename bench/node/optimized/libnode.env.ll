@@ -72337,8 +72337,8 @@ while.cond:                                       ; preds = %_ZNSt10unique_ptrIN
   %4 = load i64, ptr %head_.i, align 8, !noalias !1006
   %5 = inttoptr i64 %4 to ptr
   store ptr null, ptr %head_.i, align 8, !noalias !1006
-  %cmp.i.not.i.not = icmp ne i64 %4, 0
-  br i1 %cmp.i.not.i.not, label %if.then.i, label %cleanup20
+  %cmp.i.not.i.not.not.not.not = icmp ne i64 %4, 0
+  br i1 %cmp.i.not.i.not.not.not.not, label %if.then.i, label %cleanup20
 
 if.then.i:                                        ; preds = %while.cond
   %next_.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -72426,7 +72426,7 @@ if.then16:                                        ; preds = %_ZNK4node11Environm
 
 cleanup20:                                        ; preds = %while.cond, %land.lhs.true, %if.then13, %_ZNK4node11Environment16can_call_into_jsEv.exit, %if.then16
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #24
-  ret i1 %cmp.i.not.i.not
+  ret i1 %cmp.i.not.i.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

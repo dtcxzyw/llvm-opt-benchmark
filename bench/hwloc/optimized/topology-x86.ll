@@ -4202,7 +4202,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br label %.backedge476
 
 .loopexit475:                                     ; preds = %.backedge476, %219, %.loopexit477
-  br i1 %71, label %.lr.ph551.preheader, label %.loopexit474
+  br i1 %71, label %.lr.ph551.preheader, label %.preheader472.preheader
 
 .lr.ph551.preheader:                              ; preds = %.loopexit475
   %wide.trip.count640 = zext i32 %12 to i64
@@ -4228,12 +4228,9 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 268:                                              ; preds = %.lr.ph551, %261
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond641.not = icmp eq i64 %indvars.iv.next638, %wide.trip.count640
-  br i1 %exitcond641.not, label %.loopexit474, label %.lr.ph551, !llvm.loop !33
+  br i1 %exitcond641.not, label %.preheader472.preheader, label %.lr.ph551, !llvm.loop !33
 
-.loopexit474:                                     ; preds = %268, %.loopexit475
-  br i1 %.not588, label %._crit_edge586, label %.preheader472.preheader
-
-.preheader472.preheader:                          ; preds = %.loopexit474
+.preheader472.preheader:                          ; preds = %268, %.loopexit475
   %wide.trip.count650 = zext i32 %12 to i64
   br label %.preheader472
 
@@ -4577,7 +4574,7 @@ hwloc_cache_type_by_depth_type.exit.thread.thread: ; preds = %283, %hwloc_cache_
   %.not432 = icmp eq i32 %420, 0
   br i1 %.not432, label %._crit_edge586, label %.preheader470, !llvm.loop !42
 
-._crit_edge586:                                   ; preds = %hwloc_cache_type_by_depth_type.exit.thread.thread, %.loopexit474, %.preheader471
+._crit_edge586:                                   ; preds = %hwloc_cache_type_by_depth_type.exit.thread.thread, %.preheader471
   call void @hwloc_bitmap_free(ptr noundef %24) #22
   call void @hwloc_bitmap_free(ptr noundef %13) #22
   %.not433 = icmp eq i32 %.0399, 0

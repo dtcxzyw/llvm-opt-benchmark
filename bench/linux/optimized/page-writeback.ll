@@ -2564,40 +2564,40 @@ define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %151, label %.lr.ph, label %.thread7.loopexit
 
 .thread7.loopexit:                                ; preds = %.lr.ph, %147
-  %.ph25 = phi i32 [ %141, %147 ], [ 0, %.lr.ph ]
-  %.ph26 = phi i64 [ %142, %147 ], [ %40, %.lr.ph ]
-  %.ph27 = phi i32 [ %143, %147 ], [ %39, %.lr.ph ]
-  %152 = icmp ne i32 %.ph25, 0
+  %.lcssa18.ph = phi i64 [ %142, %147 ], [ %40, %.lr.ph ]
+  %.lcssa16.ph = phi i32 [ %143, %147 ], [ %39, %.lr.ph ]
+  %.ph29 = phi i32 [ %141, %147 ], [ 0, %.lr.ph ]
+  %152 = icmp ne i32 %.ph29, 0
   br label %.thread7
 
 .thread7:                                         ; preds = %.thread7.loopexit, %36
+  %.lcssa18 = phi i64 [ %26, %36 ], [ %.lcssa18.ph, %.thread7.loopexit ]
+  %.lcssa16 = phi i32 [ 0, %36 ], [ %.lcssa16.ph, %.thread7.loopexit ]
   %153 = phi i1 [ false, %36 ], [ %152, %.thread7.loopexit ]
-  %154 = phi i64 [ %26, %36 ], [ %.ph26, %.thread7.loopexit ]
-  %155 = phi i32 [ 0, %36 ], [ %.ph27, %.thread7.loopexit ]
-  %156 = load i8, ptr %8, align 4
-  %157 = and i8 %156, 16
-  %158 = icmp eq i8 %157, 0
-  %159 = or i1 %153, %158
-  %160 = select i1 %159, i64 %154, i64 0
-  br i1 %158, label %161, label %165
+  %154 = load i8, ptr %8, align 4
+  %155 = and i8 %154, 16
+  %156 = icmp eq i8 %155, 0
+  %157 = or i1 %156, %153
+  %158 = select i1 %157, i64 %.lcssa18, i64 0
+  br i1 %156, label %159, label %163
 
-161:                                              ; preds = %.thread7
-  br i1 %28, label %167, label %162
+159:                                              ; preds = %.thread7
+  br i1 %28, label %165, label %160
 
-162:                                              ; preds = %161
-  %163 = load i64, ptr %1, align 8
-  %164 = icmp sgt i64 %163, 0
-  br i1 %164, label %165, label %167
+160:                                              ; preds = %159
+  %161 = load i64, ptr %1, align 8
+  %162 = icmp sgt i64 %161, 0
+  br i1 %162, label %163, label %165
 
-165:                                              ; preds = %162, %.thread7
-  %166 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %160, ptr %166, align 8
-  br label %167
+163:                                              ; preds = %160, %.thread7
+  %164 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %158, ptr %164, align 8
+  br label %165
 
-167:                                              ; preds = %165, %162, %161
+165:                                              ; preds = %163, %160, %159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
-  ret i32 %155
+  ret i32 %.lcssa16
 }
 
 ; Function Attrs: null_pointer_is_valid

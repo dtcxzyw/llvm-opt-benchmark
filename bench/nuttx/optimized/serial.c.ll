@@ -369,8 +369,8 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %14, label %29, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not277 = icmp eq i64 %2, 0
-  br i1 %.not277, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
+  %.not237 = icmp eq i64 %2, 0
+  br i1 %.not237, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %11, i64 258
@@ -459,7 +459,7 @@ select.unfold:                                    ; preds = %47, %42
   %storemerge = phi i8 [ %85, %84 ], [ 2, %54 ]
   store i8 %storemerge, ptr %22, align 1
   %56 = icmp ult i64 %51, %2
-  br i1 %56, label %.lr.ph, label %.loopexit.loopexit286.split.loop.exit319, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %.loopexit.loopexit287.split.loop.exit320, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
   %.075.ph225 = phi i64 [ %.075.ph.ph233, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
@@ -475,7 +475,7 @@ select.unfold:                                    ; preds = %47, %42
 
 .lr.ph217.preheader:                              ; preds = %.lr.ph.split.us.split.us
   %.pre = load ptr, ptr %17, align 8
-  %.pre274 = load i16, ptr %18, align 4
+  %.pre278 = load i16, ptr %18, align 4
   br label %.lr.ph217
 
 60:                                               ; preds = %select.unfold.us.us
@@ -490,7 +490,7 @@ select.unfold:                                    ; preds = %47, %42
   %65 = getelementptr inbounds i8, ptr %.pre, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = add i16 %63, 1
-  %.not87.us.us = icmp slt i16 %67, %.pre274
+  %.not87.us.us = icmp slt i16 %67, %.pre278
   %spec.store.select.us.us = select i1 %.not87.us.us, i16 %67, i16 0
   store volatile i16 %spec.store.select.us.us, ptr %15, align 2
   %68 = load i32, ptr %19, align 4
@@ -816,18 +816,18 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
   %207 = icmp ult i64 %.2, %2
   br i1 %207, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
-.loopexit.loopexit286.split.loop.exit319:         ; preds = %.outer.backedge
+.loopexit.loopexit287.split.loop.exit320:         ; preds = %.outer.backedge
   %208 = add nuw i64 %.075.ph.ph233, 1
   %umax.le = call i64 @llvm.umax.i64(i64 %2, i64 %208)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit286.split.loop.exit319
-  %.073.ph.ph156 = phi i1 [ %.073.ph.ph234, %.loopexit.loopexit286.split.loop.exit319 ], [ %.073.ph.ph234, %60 ], [ %.073.ph.ph234, %173 ], [ %.073.ph.ph234, %170 ], [ %.073.ph.ph234, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit286.split.loop.exit319 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
+.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit287.split.loop.exit320
+  %.073.ph.ph156 = phi i1 [ %.073.ph.ph234, %.loopexit.loopexit287.split.loop.exit320 ], [ %.073.ph.ph234, %60 ], [ %.073.ph.ph234, %173 ], [ %.073.ph.ph234, %170 ], [ %.073.ph.ph234, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit287.split.loop.exit320 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
   br i1 %.073.ph.ph156, label %209, label %.loopexit.thread
 
 209:                                              ; preds = %198, %.loopexit
-  %.176281 = phi i64 [ %spec.select95, %198 ], [ %.176, %.loopexit ]
+  %.176282 = phi i64 [ %spec.select95, %198 ], [ %.176, %.loopexit ]
   %210 = getelementptr inbounds i8, ptr %11, i64 272
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 72
@@ -836,7 +836,7 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %198, %209, %.loopexit
-  %.176280 = phi i64 [ %.176281, %209 ], [ %.176, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
+  %.176281 = phi i64 [ %.176282, %209 ], [ %.176, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
   %214 = getelementptr inbounds i8, ptr %11, i64 272
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 48
@@ -846,7 +846,7 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
   br label %219
 
 219:                                              ; preds = %.loopexit.thread, %29
-  %.077 = phi i64 [ %30, %29 ], [ %.176280, %.loopexit.thread ]
+  %.077 = phi i64 [ %30, %29 ], [ %.176281, %.loopexit.thread ]
   ret i64 %.077
 }
 
@@ -1690,7 +1690,6 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef %1) unnamed
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %7, %15
-  %.not2 = phi i1 [ %.not, %15 ], [ %.not1, %7 ]
   %18 = load ptr, ptr %11, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
@@ -1704,7 +1703,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef %1) unnamed
   br i1 %25, label %15, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %15, %.lr.ph, %7
-  %.not.lcssa = phi i1 [ %.not1, %7 ], [ %.not, %15 ], [ %.not2, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %7 ], [ %25, %.lr.ph ], [ %25, %15 ]
   %.1.lcssa = phi i32 [ 0, %7 ], [ %21, %.lr.ph ], [ %21, %15 ]
   %26 = and i64 %8, 512
   %.not.i = icmp eq i64 %26, 0

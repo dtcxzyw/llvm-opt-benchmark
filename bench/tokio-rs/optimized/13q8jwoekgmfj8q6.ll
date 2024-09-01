@@ -481,8 +481,8 @@ define hidden void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$
   call void @_ZN10tokio_util4sync12reusable_box13reuse_pin_box17h9c412c38a8bab641E.llvm.1636463278540328082(ptr noalias nocapture noundef nonnull sret({ [88 x i8], i8, [7 x i8] }) align 8 dereferenceable(96) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !5
   %7 = getelementptr inbounds i8, ptr %3, i64 88
   %8 = load i8, ptr %7, align 8, !range !121, !noundef !5
-  %.not.not = icmp eq i8 %8, 4
-  br i1 %.not.not, label %27, label %9
+  %.not = icmp eq i8 %8, 4
+  br i1 %.not, label %27, label %9
 
 common.resume:                                    ; preds = %14, %.body
   %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %15, %14 ]

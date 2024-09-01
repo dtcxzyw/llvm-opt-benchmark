@@ -1815,27 +1815,26 @@ define dso_local void @pci_clear_and_set_config_dword(ptr nocapture noundef read
   %21 = call i32 %20(ptr noundef %11, i32 noundef %13, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %5) #7
   %22 = load i32, ptr %5, align 4
   %.pr.pre = load i32, ptr %6, align 4
-  %23 = icmp ne i32 %.pr.pre, 3
+  %.not = icmp eq i32 %.pr.pre, 3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  %or.cond = and i1 %15, %23
-  br i1 %or.cond, label %24, label %pci_bus_write_config_dword.exit
+  br i1 %.not, label %pci_bus_write_config_dword.exit, label %23
 
-24:                                               ; preds = %16
-  %25 = icmp eq i32 %21, 0
-  %26 = select i1 %25, i32 %22, i32 -1
-  %27 = xor i32 %2, -1
-  %28 = and i32 %26, %27
-  %29 = or i32 %28, %3
-  %30 = load i32, ptr %12, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 192
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef %31, i32 noundef %30, i32 noundef %1, i32 noundef 4, i32 noundef %29) #7
+23:                                               ; preds = %16
+  %24 = icmp eq i32 %21, 0
+  %25 = select i1 %24, i32 %22, i32 -1
+  %26 = xor i32 %2, -1
+  %27 = and i32 %25, %26
+  %28 = or i32 %27, %3
+  %29 = load i32, ptr %12, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 192
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i32 %34(ptr noundef %30, i32 noundef %29, i32 noundef %1, i32 noundef 4, i32 noundef %28) #7
   br label %pci_bus_write_config_dword.exit
 
-pci_bus_write_config_dword.exit:                  ; preds = %.thread, %4, %24, %16
+pci_bus_write_config_dword.exit:                  ; preds = %.thread, %4, %23, %16
   ret void
 }
 

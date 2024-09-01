@@ -1273,8 +1273,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br i1 %19, label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$17hc23d663408361d42E.llvm.4786290445112235611.exit", label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i.i"
 
 "_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i.i": ; preds = %17, %13
-  %.not18.i.i = icmp eq ptr %15, %9
-  br i1 %.not18.i.i, label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$17hc23d663408361d42E.llvm.4786290445112235611.exit", label %13
+  %.not13.i.i = icmp eq ptr %15, %9
+  br i1 %.not13.i.i, label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$17hc23d663408361d42E.llvm.4786290445112235611.exit", label %13
 
 "_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$17hc23d663408361d42E.llvm.4786290445112235611.exit": ; preds = %17, %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i.i", %2
   %.lcssa.i.i = phi i1 [ false, %2 ], [ true, %17 ], [ false, %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i.i" ]
@@ -3444,8 +3444,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.exit.sink.split", label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge"
 
 "_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge": ; preds = %12, %8
-  %.not18 = icmp eq ptr %10, %4
-  br i1 %.not18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.exit.sink.split", label %8
+  %.not13 = icmp eq ptr %10, %4
+  br i1 %.not13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.exit.sink.split", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fbeef26ed0ac208E.exit.sink.split": ; preds = %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge", %12
   %.lcssa.ph = phi i1 [ true, %12 ], [ false, %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge" ]
@@ -4603,8 +4603,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder7builder7command7Command14gr
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb5f465fa47a28488E.llvm.4786290445112235611.exit", label %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i"
 
 "_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i": ; preds = %16, %12
-  %.not18.i = icmp eq ptr %14, %8
-  br i1 %.not18.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb5f465fa47a28488E.llvm.4786290445112235611.exit", label %12
+  %.not13.i = icmp eq ptr %14, %8
+  br i1 %.not13.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb5f465fa47a28488E.llvm.4786290445112235611.exit", label %12
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb5f465fa47a28488E.llvm.4786290445112235611.exit": ; preds = %16, %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i", %2
   %.lcssa.i = phi i1 [ false, %2 ], [ false, %"_ZN12clap_builder7builder7command7Command14groups_for_arg28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6eb5d23499f8e637E.exit.backedge.i" ], [ true, %16 ]
@@ -7164,8 +7164,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   store ptr %15, ptr %9, align 8
   %36 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %36, -9223372036854775808
-  br i1 %.not.not, label %43, label %37
+  %.not = icmp eq i64 %36, -9223372036854775808
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -7200,10 +7200,10 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br i1 %44, label %47, label %46
 
 .body.thread.thread:                              ; preds = %39, %.body.thread, %53
-  %.pn64 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %.pn, %53 ], [ %40, %39 ]
-  %.063 = phi i1 [ %.0, %.body.thread ], [ %.0, %53 ], [ false, %39 ]
-  %.02162 = phi i8 [ %.021, %.body.thread ], [ %.021, %53 ], [ %.223, %39 ]
-  %45 = trunc nuw i8 %.02162 to i1
+  %.pn63 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %.pn, %53 ], [ %40, %39 ]
+  %.062 = phi i1 [ %.0, %.body.thread ], [ %.0, %53 ], [ false, %39 ]
+  %.02161 = phi i8 [ %.021, %.body.thread ], [ %.021, %53 ], [ %.223, %39 ]
+  %45 = trunc nuw i8 %.02161 to i1
   br i1 %45, label %54, label %48
 
 46:                                               ; preds = %47, %43
@@ -7214,7 +7214,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br label %46
 
 48:                                               ; preds = %54, %.body.thread.thread
-  br i1 %.063, label %56, label %55
+  br i1 %.062, label %56, label %55
 
 49:                                               ; preds = %33
   %50 = landingpad { ptr, i32 }
@@ -7237,7 +7237,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %48 unwind label %51
 
 55:                                               ; preds = %56, %48
-  resume { ptr, i32 } %.pn64
+  resume { ptr, i32 } %.pn63
 
 56:                                               ; preds = %48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #43
@@ -7358,8 +7358,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   store ptr %15, ptr %9, align 8
   %36 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %36, -9223372036854775808
-  br i1 %.not.not, label %43, label %37
+  %.not = icmp eq i64 %36, -9223372036854775808
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %7, i64 8
@@ -7394,10 +7394,10 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br i1 %44, label %47, label %46
 
 .body.thread.thread:                              ; preds = %39, %.body.thread, %53
-  %.pn64 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %.pn, %53 ], [ %40, %39 ]
-  %.063 = phi i1 [ %.0, %.body.thread ], [ %.0, %53 ], [ false, %39 ]
-  %.02162 = phi i8 [ %.021, %.body.thread ], [ %.021, %53 ], [ %.223, %39 ]
-  %45 = trunc nuw i8 %.02162 to i1
+  %.pn63 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %.pn, %53 ], [ %40, %39 ]
+  %.062 = phi i1 [ %.0, %.body.thread ], [ %.0, %53 ], [ false, %39 ]
+  %.02161 = phi i8 [ %.021, %.body.thread ], [ %.021, %53 ], [ %.223, %39 ]
+  %45 = trunc nuw i8 %.02161 to i1
   br i1 %45, label %54, label %48
 
 46:                                               ; preds = %47, %43
@@ -7408,7 +7408,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br label %46
 
 48:                                               ; preds = %54, %.body.thread.thread
-  br i1 %.063, label %56, label %55
+  br i1 %.062, label %56, label %55
 
 49:                                               ; preds = %33
   %50 = landingpad { ptr, i32 }
@@ -7431,7 +7431,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %48 unwind label %51
 
 55:                                               ; preds = %56, %48
-  resume { ptr, i32 } %.pn64
+  resume { ptr, i32 } %.pn63
 
 56:                                               ; preds = %48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #43
@@ -7536,8 +7536,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %21 = load i64, ptr %2, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.not, label %28, label %22
+  %.not = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7809,8 +7809,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %71 = load i64, ptr %20, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %71, -9223372036854775808
-  br i1 %.not.not, label %78, label %72
+  %.not = icmp eq i64 %71, -9223372036854775808
+  br i1 %.not, label %78, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %13, i64 8
@@ -8044,10 +8044,10 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %67 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond260 = select i1 %or.cond259, i1 %67, i1 false
   %spec.select = select i1 %or.cond260, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %spec.select274 = select i1 %or.cond260, i64 0, i64 4
+  %spec.select273 = select i1 %or.cond260, i64 0, i64 4
   store ptr %spec.select, ptr %17, align 8
   %68 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %spec.select274, ptr %68, align 8
+  store i64 %spec.select273, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %16, ptr noundef nonnull align 2 dereferenceable(14) %48, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -8065,11 +8065,11 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %or.cond262 = select i1 %or.cond261, i1 %71, i1 false
   %72 = icmp eq i16 %.sroa.15204.0.copyload, 0
   %or.cond263 = select i1 %or.cond262, i1 %72, i1 false
-  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink266 = select i1 %or.cond263, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %.sink265 = select i1 %or.cond263, i64 0, i64 4
-  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink266, ptr %15, align 8
+  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink265 = select i1 %or.cond263, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
+  %.sink264 = select i1 %or.cond263, i64 0, i64 4
+  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink265, ptr %15, align 8
   %73 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %.sink265, ptr %73, align 8
+  store i64 %.sink264, ptr %73, align 8
   store ptr %18, ptr %19, align 8
   %74 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %74, align 8
@@ -8244,8 +8244,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12)
   store ptr %56, ptr %23, align 8
   %113 = load i64, ptr %5, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %113, -9223372036854775808
-  br i1 %.not.not, label %.noexc182, label %114
+  %.not = icmp eq i64 %113, -9223372036854775808
+  br i1 %.not, label %.noexc182, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds i8, ptr %11, i64 8
@@ -8293,13 +8293,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br label %128
 
 .body180.thread.thread:                           ; preds = %116, %.body180.thread, %134
-  %.pn.pn273 = phi { ptr, i32 } [ %.pn.pn, %.body180.thread ], [ %.pn.pn, %134 ], [ %117, %116 ]
-  %.0137272 = phi i1 [ %.0137, %.body180.thread ], [ %.0137, %134 ], [ false, %116 ]
+  %.pn.pn272 = phi { ptr, i32 } [ %.pn.pn, %.body180.thread ], [ %.pn.pn, %134 ], [ %117, %116 ]
+  %.0137271 = phi i1 [ %.0137, %.body180.thread ], [ %.0137, %134 ], [ false, %116 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #43
           to label %127 unwind label %131
 
 127:                                              ; preds = %.body180.thread.thread
-  br i1 %.0137272, label %135, label %.thread256
+  br i1 %.0137271, label %135, label %.thread256
 
 128:                                              ; preds = %122, %.noexc182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2111
@@ -8335,7 +8335,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %136 unwind label %131
 
 .thread256:                                       ; preds = %127, %136
-  resume { ptr, i32 } %.pn.pn273
+  resume { ptr, i32 } %.pn.pn272
 
 136:                                              ; preds = %135
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #43
@@ -8399,8 +8399,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %21 = load i64, ptr %2, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.not, label %28, label %22
+  %.not = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8511,8 +8511,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %21 = load i64, ptr %2, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not.not, label %28, label %22
+  %.not = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8632,8 +8632,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   %23 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %23, -9223372036854775808
-  br i1 %.not.not, label %30, label %24
+  %.not = icmp eq i64 %23, -9223372036854775808
+  br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -8711,8 +8711,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
 
 10:                                               ; preds = %8
   %11 = load i64, ptr %1, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not.not, label %19, label %12
+  %.not = icmp eq i64 %11, -9223372036854775808
+  br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %4, i64 8
@@ -8826,8 +8826,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   %23 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %23, -9223372036854775808
-  br i1 %.not.not, label %30, label %24
+  %.not = icmp eq i64 %23, -9223372036854775808
+  br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -8954,8 +8954,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9)
   %25 = load i64, ptr %4, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %25, -9223372036854775808
-  br i1 %.not.not, label %32, label %26
+  %.not = icmp eq i64 %25, -9223372036854775808
+  br i1 %.not, label %32, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %8, i64 8
@@ -9222,8 +9222,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9)
   %25 = load i64, ptr %4, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %25, -9223372036854775808
-  br i1 %.not.not, label %32, label %26
+  %.not = icmp eq i64 %25, -9223372036854775808
+  br i1 %.not, label %32, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %8, i64 8
@@ -10160,10 +10160,10 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %52 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond160 = select i1 %or.cond159, i1 %52, i1 false
   %spec.select = select i1 %or.cond160, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %spec.select177 = select i1 %or.cond160, i64 0, i64 4
+  %spec.select176 = select i1 %or.cond160, i64 0, i64 4
   store ptr %spec.select, ptr %13, align 8
   %53 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %spec.select177, ptr %53, align 8
+  store i64 %spec.select176, ptr %53, align 8
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %12, ptr noundef nonnull align 2 dereferenceable(14) %42, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -10181,11 +10181,11 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %or.cond162 = select i1 %or.cond161, i1 %56, i1 false
   %57 = icmp eq i16 %.sroa.15101.0.copyload, 0
   %or.cond163 = select i1 %or.cond162, i1 %57, i1 false
-  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink166 = select i1 %or.cond163, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %.sink165 = select i1 %or.cond163, i64 0, i64 4
-  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink166, ptr %11, align 8
+  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink165 = select i1 %or.cond163, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
+  %.sink164 = select i1 %or.cond163, i64 0, i64 4
+  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink165, ptr %11, align 8
   %58 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %.sink165, ptr %58, align 8
+  store i64 %.sink164, ptr %58, align 8
   store ptr %14, ptr %15, align 8
   %59 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %59, align 8
@@ -10297,8 +10297,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %91 = load i64, ptr %2, align 8, !range !118, !noundef !7
-  %.not.not = icmp eq i64 %91, -9223372036854775808
-  br i1 %.not.not, label %98, label %92
+  %.not = icmp eq i64 %91, -9223372036854775808
+  br i1 %.not, label %98, label %92
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds i8, ptr %7, i64 8
@@ -10361,8 +10361,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %.thread155.thread unwind label %100
 
 .thread155.thread.thread:                         ; preds = %94, %105, %.thread155.thread
-  %.pn58.pn.pn173176 = phi { ptr, i32 } [ %.pn58.pn.pn, %105 ], [ %.pn58.pn.pn, %.thread155.thread ], [ %95, %94 ]
-  resume { ptr, i32 } %.pn58.pn.pn173176
+  %.pn58.pn.pn172175 = phi { ptr, i32 } [ %.pn58.pn.pn, %105 ], [ %.pn58.pn.pn, %.thread155.thread ], [ %95, %94 ]
+  resume { ptr, i32 } %.pn58.pn.pn172175
 
 105:                                              ; preds = %.thread155.thread
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #43

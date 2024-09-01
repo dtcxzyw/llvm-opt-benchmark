@@ -7196,7 +7196,7 @@ if.end3.i:                                        ; preds = %if.end.i, %for.cond
   %__p.010.i = phi ptr [ %13, %for.cond.i ], [ %10, %if.end.i ]
   %13 = load ptr, ptr %__p.010.i, align 8
   %tobool5.not.i = icmp eq ptr %13, null
-  br i1 %tobool5.not.i, label %if.else, label %lor.lhs.false.i
+  br i1 %tobool5.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -7204,7 +7204,7 @@ lor.lhs.false.i:                                  ; preds = %if.end3.i
   %conv.i.i.i.i.i = sext i32 %14 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %4
   %cmp.not.i = icmp eq i64 %rem.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i, label %for.cond.i, label %if.else, !llvm.loop !8
+  br i1 %cmp.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !8
 
 if.then13:                                        ; preds = %for.cond.i, %if.end.i
   %15 = phi ptr [ %10, %if.end.i ], [ %13, %for.cond.i ]
@@ -7239,10 +7239,7 @@ if.then29:                                        ; preds = %if.then24
   store ptr %__node, ptr %arrayidx, align 8
   br label %if.end33
 
-if.else:                                          ; preds = %if.end3.i, %lor.lhs.false.i
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.else
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end3.i
   %21 = load ptr, ptr %9, align 8
   store ptr %21, ptr %__node, align 8
   %22 = load ptr, ptr %this, align 8
@@ -7251,7 +7248,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %__node, ptr %23, align 8
   br label %if.end33
 
-if.else.i:                                        ; preds = %cond.false, %if.else
+if.else.i:                                        ; preds = %cond.false
   %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %24, ptr %__node, align 8

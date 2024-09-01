@@ -295,9 +295,9 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
 
 ._crit_edge:                                      ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
   %17 = getelementptr inbounds i8, ptr %1, i64 192
-  br i1 %.not, label %._crit_edge65, label %.lr.ph64
+  br label %.lr.ph64
 
-._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader, %._crit_edge
+._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader
   store i8 %7, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 8 dereferenceable(968) %3, i64 968, i1 false)
   call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %3)

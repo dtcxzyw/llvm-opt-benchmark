@@ -2145,7 +2145,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr nocapture
 7:                                                ; preds = %4
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -4
   %.not16.i = icmp eq i32 %0, 0
-  br i1 %.not16.i, label %.preheader.preheader, label %.lr.ph.preheader.i
+  br i1 %.not16.i, label %.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %7
   %8 = zext nneg i32 %0 to i64
@@ -2174,18 +2174,11 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr nocapture
 ._crit_edge.i:                                    ; preds = %9
   %14 = add i32 %13, -286331154
   %or.cond = icmp ult i32 %14, -286331153
-  br i1 %or.cond, label %CubeSize.exit.thread, label %.preheader29
+  br i1 %or.cond, label %CubeSize.exit.thread, label %.preheader.us.preheader
 
-.preheader29:                                     ; preds = %._crit_edge.i
-  br i1 %.not16.i, label %.preheader.preheader, label %.preheader.us.preheader
-
-.preheader.us.preheader:                          ; preds = %.preheader29
+.preheader.us.preheader:                          ; preds = %._crit_edge.i
   %15 = zext nneg i32 %0 to i64
   br label %.preheader.us
-
-.preheader.preheader:                             ; preds = %7, %.preheader29
-  %.0.i4345 = phi i32 [ %13, %.preheader29 ], [ 1, %7 ]
-  br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %40
   %.02333.us = phi i32 [ %41, %40 ], [ 0, %.preheader.us.preheader ]
@@ -2238,19 +2231,14 @@ _cmsQuantizeVal.exit.us:                          ; preds = %31, %29, %16
   %.not.us = icmp eq i32 %42, 0
   br i1 %.not.us, label %CubeSize.exit.thread, label %40
 
-43:                                               ; preds = %.preheader
-  %44 = add nuw nsw i32 %.02333, 1
-  %exitcond40.not = icmp eq i32 %44, %.0.i4345
-  br i1 %exitcond40.not, label %CubeSize.exit.thread, label %.preheader, !llvm.loop !37
+.preheader:                                       ; preds = %7
+  %43 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
+  %.not = icmp ne i32 %43, 0
+  %spec.select = zext i1 %.not to i32
+  br label %CubeSize.exit.thread
 
-.preheader:                                       ; preds = %.preheader.preheader, %43
-  %.02333 = phi i32 [ %44, %43 ], [ 0, %.preheader.preheader ]
-  %45 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %CubeSize.exit.thread, label %43
-
-CubeSize.exit.thread:                             ; preds = %12, %.lr.ph.i, %40, %._crit_edge.us, %.preheader, %43, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ 1, %43 ], [ 0, %.preheader ], [ 1, %40 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %12 ]
+CubeSize.exit.thread:                             ; preds = %12, %.lr.ph.i, %40, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ %spec.select, %.preheader ], [ 1, %40 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -2263,7 +2251,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nocapt
 7:                                                ; preds = %4
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -4
   %.not16.i = icmp eq i32 %0, 0
-  br i1 %.not16.i, label %.preheader.preheader, label %.lr.ph.preheader.i
+  br i1 %.not16.i, label %.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %7
   %8 = zext nneg i32 %0 to i64
@@ -2292,18 +2280,11 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nocapt
 ._crit_edge.i:                                    ; preds = %9
   %14 = add i32 %13, -286331154
   %or.cond = icmp ult i32 %14, -286331153
-  br i1 %or.cond, label %CubeSize.exit.thread, label %.preheader29
+  br i1 %or.cond, label %CubeSize.exit.thread, label %.preheader.us.preheader
 
-.preheader29:                                     ; preds = %._crit_edge.i
-  br i1 %.not16.i, label %.preheader.preheader, label %.preheader.us.preheader
-
-.preheader.us.preheader:                          ; preds = %.preheader29
+.preheader.us.preheader:                          ; preds = %._crit_edge.i
   %15 = zext nneg i32 %0 to i64
   br label %.preheader.us
-
-.preheader.preheader:                             ; preds = %7, %.preheader29
-  %.0.i4345 = phi i32 [ %13, %.preheader29 ], [ 1, %7 ]
-  br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %43
   %.02333.us = phi i32 [ %44, %43 ], [ 0, %.preheader.us.preheader ]
@@ -2359,19 +2340,14 @@ _cmsQuantizeVal.exit.us:                          ; preds = %31, %29, %16
   %.not.us = icmp eq i32 %45, 0
   br i1 %.not.us, label %CubeSize.exit.thread, label %43
 
-46:                                               ; preds = %.preheader
-  %47 = add nuw nsw i32 %.02333, 1
-  %exitcond40.not = icmp eq i32 %47, %.0.i4345
-  br i1 %exitcond40.not, label %CubeSize.exit.thread, label %.preheader, !llvm.loop !39
+.preheader:                                       ; preds = %7
+  %46 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
+  %.not = icmp ne i32 %46, 0
+  %spec.select = zext i1 %.not to i32
+  br label %CubeSize.exit.thread
 
-.preheader:                                       ; preds = %.preheader.preheader, %46
-  %.02333 = phi i32 [ %47, %46 ], [ 0, %.preheader.preheader ]
-  %48 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %CubeSize.exit.thread, label %46
-
-CubeSize.exit.thread:                             ; preds = %12, %.lr.ph.i, %43, %._crit_edge.us, %.preheader, %46, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ 1, %46 ], [ 0, %.preheader ], [ 1, %43 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %12 ]
+CubeSize.exit.thread:                             ; preds = %12, %.lr.ph.i, %43, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ %spec.select, %.preheader ], [ 1, %43 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %12 ]
   ret i32 %.0
 }
 

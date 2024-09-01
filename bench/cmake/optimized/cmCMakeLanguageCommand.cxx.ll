@@ -1652,9 +1652,9 @@ _ZNSt6vectorIN20cmDependencyProvider6MethodESaIS1_EED2Ev.exit133.i: ; preds = %4
   unreachable
 
 _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94.i, %314
-  %.sink219.i = phi ptr [ %17, %314 ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94.i ]
+  %.sink215.i = phi ptr [ %17, %314 ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94.i ]
   %.sink.i = phi ptr [ %18, %314 ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink219.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink215.i) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #19
   br label %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.i
 
@@ -1664,9 +1664,9 @@ _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED
   br label %.body73.i
 
 _ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.i: ; preds = %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split.i, %487, %_ZNSt6vectorIN20cmDependencyProvider6MethodESaIS1_EED2Ev.exit131.i, %291
-  %.sink220.i = phi ptr [ %14, %291 ], [ %15, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split.i ], [ %15, %487 ], [ %15, %_ZNSt6vectorIN20cmDependencyProvider6MethodESaIS1_EED2Ev.exit131.i ]
+  %.sink216.i = phi ptr [ %14, %291 ], [ %15, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split.i ], [ %15, %487 ], [ %15, %_ZNSt6vectorIN20cmDependencyProvider6MethodESaIS1_EED2Ev.exit131.i ]
   %.127.i = phi i1 [ false, %291 ], [ %307, %_ZNSt8functionIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEED2Ev.exit.sink.split.i ], [ %.3.i, %487 ], [ %.3.i, %_ZNSt6vectorIN20cmDependencyProvider6MethodESaIS1_EED2Ev.exit131.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink220.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink216.i) #19
   %498 = load ptr, ptr %246, align 8
   %499 = getelementptr inbounds i8, ptr %13, i64 40
   %500 = load ptr, ptr %499, align 8
@@ -2966,7 +2966,7 @@ _ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP18
   resume { ptr, i32 } %64
 
 ._crit_edge:                                      ; preds = %19, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ false, %19 ], [ %.not3, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit ]
+  %.not.lcssa = phi i1 [ true, %1 ], [ %.not3, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit ], [ %.not3, %19 ]
   ret i1 %.not.lcssa
 }
 

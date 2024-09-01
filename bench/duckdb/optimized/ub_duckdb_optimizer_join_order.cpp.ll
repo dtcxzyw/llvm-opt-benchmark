@@ -11059,8 +11059,8 @@ if.then.i.i.i431:                                 ; preds = %for.body77
 for.cond.i.i.i433:                                ; preds = %for.body.i.i.i437, %if.then.i.i.i431
   %retval.sroa.0.0.in.i.i.i434 = phi ptr [ %_M_before_begin.i.i.i.i.i432, %if.then.i.i.i431 ], [ %retval.sroa.0.0.i.i.i435, %for.body.i.i.i437 ]
   %retval.sroa.0.0.i.i.i435 = load ptr, ptr %retval.sroa.0.0.in.i.i.i434, align 8, !tbaa !28
-  %cmp.i.not.i.i.i436.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i435, null
-  br i1 %cmp.i.not.i.i.i436.not.not.not, label %for.body.i.i.i437, label %invoke.cont83
+  %cmp.i.not.i.i.i436.not.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i435, null
+  br i1 %cmp.i.not.i.i.i436.not.not.not.not, label %for.body.i.i.i437, label %invoke.cont83
 
 for.body.i.i.i437:                                ; preds = %for.cond.i.i.i433
   %add.ptr.i.i.i438 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i435, i64 8
@@ -11110,7 +11110,7 @@ invoke.cont83.thread:                             ; preds = %if.end.i.i.i.i.i416
   br label %if.end15.i.i.i443
 
 invoke.cont83:                                    ; preds = %lor.lhs.false.i.i.i.i.i422, %if.end3.i.i.i.i.i419, %for.cond.i.i.i.i.i429, %for.body.i.i.i437, %for.cond.i.i.i433
-  %retval.sroa.0.1.i.i.i426 = phi i1 [ %cmp.i.not.i.i.i436.not.not.not, %for.cond.i.i.i433 ], [ %cmp.i.not.i.i.i436.not.not.not, %for.body.i.i.i437 ], [ true, %for.cond.i.i.i.i.i429 ], [ false, %if.end3.i.i.i.i.i419 ], [ false, %lor.lhs.false.i.i.i.i.i422 ]
+  %retval.sroa.0.1.i.i.i426 = phi i1 [ %cmp.i.not.i.i.i436.not.not.not.not, %for.cond.i.i.i433 ], [ %cmp.i.not.i.i.i436.not.not.not.not, %for.body.i.i.i437 ], [ true, %for.cond.i.i.i.i.i429 ], [ false, %if.end3.i.i.i.i.i419 ], [ false, %lor.lhs.false.i.i.i.i.i422 ]
   %..i.i428 = zext i1 %retval.sroa.0.1.i.i.i426 to i64
   %.pre795 = load i64, ptr %right_binding87683, align 8
   br i1 %cmp.not.not.i.i.i410, label %if.then.i.i.i463, label %invoke.cont83.if.end15.i.i.i443_crit_edge

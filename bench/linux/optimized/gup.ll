@@ -6239,9 +6239,9 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %47 = icmp eq i32 %46, 0
   %48 = getelementptr inbounds i8, ptr %0, i64 176
   %49 = or i32 %41, 131072
-  br i1 %47, label %.split133.us, label %.split133
+  br i1 %47, label %.split134.us, label %.split134
 
-.split133.us:                                     ; preds = %45, %83
+.split134.us:                                     ; preds = %45, %83
   %50 = phi i64 [ %88, %83 ], [ %42, %45 ]
   %51 = phi i64 [ %87, %83 ], [ %1, %45 ]
   %52 = phi i8 [ 1, %83 ], [ %27, %45 ]
@@ -6252,15 +6252,15 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %62
 
-58:                                               ; preds = %.split133.us
+58:                                               ; preds = %.split134.us
   %59 = icmp slt i64 %50, 0
-  br i1 %59, label %.split135.us, label %60, !prof !5
+  br i1 %59, label %.split136.us, label %60, !prof !5
 
 60:                                               ; preds = %58
   %61 = icmp ult i64 %50, %54
-  br i1 %61, label %62, label %.split137.us, !prof !9
+  br i1 %61, label %62, label %.split138.us, !prof !9
 
-62:                                               ; preds = %60, %.split133.us
+62:                                               ; preds = %60, %.split134.us
   %63 = icmp sgt i64 %50, 0
   br i1 %63, label %64, label %68
 
@@ -6273,9 +6273,9 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 68:                                               ; preds = %64, %62
   %69 = phi i64 [ %65, %64 ], [ %54, %62 ]
   %70 = phi i64 [ %66, %64 ], [ %53, %62 ]
-  br i1 %57, label %.split120.us.us, label %.split141.us
+  br i1 %57, label %.split121.us.us, label %.split142.us
 
-.split120.us.us:                                  ; preds = %68
+.split121.us.us:                                  ; preds = %68
   %71 = icmp eq ptr %55, null
   %72 = getelementptr ptr, ptr %55, i64 %50
   %73 = select i1 %71, ptr null, ptr %72, !prof !5
@@ -6286,7 +6286,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %78 = getelementptr inbounds i8, ptr %77, i64 1936
   br label %89
 
-79:                                               ; preds = %.split129.us.us
+79:                                               ; preds = %.split130.us.us
   %80 = add i64 %69, -1
   %81 = add i64 %70, 1
   %82 = icmp eq i64 %80, 0
@@ -6298,9 +6298,9 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %86 = select i1 %84, ptr null, ptr %85, !prof !5
   %87 = add i64 %75, 4096
   %88 = tail call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %87, i64 noundef %80, i32 noundef %41, ptr noundef %86, ptr noundef %4)
-  br label %.split133.us
+  br label %.split134.us
 
-89:                                               ; preds = %109, %.split120.us.us
+89:                                               ; preds = %109, %.split121.us.us
   %90 = load volatile i64, ptr %77, align 8
   %91 = and i64 %90, 4
   %92 = icmp eq i64 %91, 0
@@ -6310,7 +6310,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %94 = load i64, ptr %78, align 8
   %95 = and i64 %94, 256
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.split122.us
+  br i1 %96, label %97, label %.split123.us
 
 97:                                               ; preds = %93, %89
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #9
@@ -6332,24 +6332,24 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 103:                                              ; preds = %101, %99
   %104 = icmp eq i32 %100, 0
-  br i1 %104, label %105, label %.split125.us
+  br i1 %104, label %105, label %.split126.us
 
 105:                                              ; preds = %103
   store i32 1, ptr %4, align 4
   %106 = tail call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %75, i64 noundef 1, i32 noundef %49, ptr noundef %73, ptr noundef %4)
   %107 = load i32, ptr %4, align 4
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %.split129.us.us
+  br i1 %108, label %109, label %.split130.us.us
 
 109:                                              ; preds = %105
   %110 = icmp eq i64 %106, 0
-  br i1 %110, label %89, label %.split132.us, !prof !9
+  br i1 %110, label %89, label %.split133.us, !prof !9
 
-.split129.us.us:                                  ; preds = %105
+.split130.us.us:                                  ; preds = %105
   %111 = icmp eq i64 %106, 1
-  br i1 %111, label %79, label %.split147.us
+  br i1 %111, label %79, label %.split148.us
 
-.split133:                                        ; preds = %45, %191
+.split134:                                        ; preds = %45, %191
   %112 = phi i64 [ %196, %191 ], [ %42, %45 ]
   %113 = phi i64 [ %195, %191 ], [ %1, %45 ]
   %114 = phi i8 [ 1, %191 ], [ %27, %45 ]
@@ -6360,25 +6360,25 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %124
 
-120:                                              ; preds = %.split133
+120:                                              ; preds = %.split134
   %121 = icmp slt i64 %112, 0
-  br i1 %121, label %.split135.us, label %122, !prof !5
+  br i1 %121, label %.split136.us, label %122, !prof !5
 
-.split135.us:                                     ; preds = %120, %58
+.split136.us:                                     ; preds = %120, %58
   tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #9, !srcloc !86
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1519, i32 0, i64 12) #9, !srcloc !87
   unreachable
 
 122:                                              ; preds = %120
   %123 = icmp ult i64 %112, %116
-  br i1 %123, label %124, label %.split137.us, !prof !9
+  br i1 %123, label %124, label %.split138.us, !prof !9
 
-.split137.us:                                     ; preds = %122, %60
+.split138.us:                                     ; preds = %122, %60
   tail call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #9, !srcloc !88
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1520, i32 0, i64 12) #9, !srcloc !89
   unreachable
 
-124:                                              ; preds = %122, %.split133
+124:                                              ; preds = %122, %.split134
   %125 = icmp sgt i64 %112, 0
   br i1 %125, label %126, label %130
 
@@ -6391,17 +6391,17 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 130:                                              ; preds = %126, %124
   %131 = phi i64 [ %127, %126 ], [ %116, %124 ]
   %132 = phi i64 [ %128, %126 ], [ %115, %124 ]
-  br i1 %119, label %.split120, label %.split141.us
+  br i1 %119, label %.split121, label %.split142.us
 
-.split141.us:                                     ; preds = %130, %68
-  %.us-phi142 = phi i64 [ %70, %68 ], [ %132, %130 ]
-  %.us-phi143 = phi i64 [ %50, %68 ], [ %112, %130 ]
-  %.us-phi144 = phi i8 [ %52, %68 ], [ %114, %130 ]
-  %133 = icmp eq i64 %.us-phi142, 0
-  %134 = select i1 %133, i64 %.us-phi143, i64 %.us-phi142
+.split142.us:                                     ; preds = %130, %68
+  %.us-phi143 = phi i64 [ %70, %68 ], [ %132, %130 ]
+  %.us-phi144 = phi i64 [ %50, %68 ], [ %112, %130 ]
+  %.us-phi145 = phi i8 [ %52, %68 ], [ %114, %130 ]
+  %133 = icmp eq i64 %.us-phi143, 0
+  %134 = select i1 %133, i64 %.us-phi144, i64 %.us-phi143
   br label %.loopexit
 
-.split120:                                        ; preds = %130
+.split121:                                        ; preds = %130
   %135 = icmp eq ptr %117, null
   %136 = getelementptr ptr, ptr %117, i64 %112
   %137 = select i1 %135, ptr null, ptr %136, !prof !5
@@ -6412,7 +6412,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %142 = getelementptr inbounds i8, ptr %141, i64 1936
   br label %143
 
-143:                                              ; preds = %179, %.split120
+143:                                              ; preds = %179, %.split121
   %144 = load volatile i64, ptr %141, align 8
   %145 = and i64 %144, 4
   %146 = icmp eq i64 %145, 0
@@ -6422,24 +6422,24 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %148 = load i64, ptr %142, align 8
   %149 = and i64 %148, 256
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %151, label %.split122.us
+  br i1 %150, label %151, label %.split123.us
 
 151:                                              ; preds = %147, %143
   %152 = load volatile i64, ptr %141, align 8
   %153 = and i64 %152, 131072
   %154 = icmp eq i64 %153, 0
-  br i1 %154, label %155, label %.split122.us, !prof !9
+  br i1 %154, label %155, label %.split123.us, !prof !9
 
 155:                                              ; preds = %151
   %156 = load volatile i64, ptr %141, align 8
   %157 = and i64 %156, 4
   %158 = icmp eq i64 %157, 0
-  br i1 %158, label %161, label %.split122.us
+  br i1 %158, label %161, label %.split123.us
 
-.split122.us:                                     ; preds = %147, %151, %155, %93
-  %.us-phi123 = phi i64 [ %70, %93 ], [ %132, %155 ], [ %132, %151 ], [ %132, %147 ]
-  %159 = icmp eq i64 %.us-phi123, 0
-  %160 = select i1 %159, i64 -4, i64 %.us-phi123
+.split123.us:                                     ; preds = %147, %151, %155, %93
+  %.us-phi124 = phi i64 [ %70, %93 ], [ %132, %155 ], [ %132, %151 ], [ %132, %147 ]
+  %159 = icmp eq i64 %.us-phi124, 0
+  %160 = select i1 %159, i64 -4, i64 %.us-phi124
   br label %.thread
 
 161:                                              ; preds = %155
@@ -6462,23 +6462,23 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 167:                                              ; preds = %165, %163
   %168 = icmp eq i32 %164, 0
-  br i1 %168, label %175, label %.split125.us
+  br i1 %168, label %175, label %.split126.us
 
-.split125.us:                                     ; preds = %167, %103
-  %.us-phi126 = phi i64 [ %70, %103 ], [ %132, %167 ]
-  %.us-phi127 = phi i32 [ %100, %103 ], [ %164, %167 ]
-  %169 = icmp sgt i32 %.us-phi127, 0
+.split126.us:                                     ; preds = %167, %103
+  %.us-phi127 = phi i64 [ %70, %103 ], [ %132, %167 ]
+  %.us-phi128 = phi i32 [ %100, %103 ], [ %164, %167 ]
+  %169 = icmp sgt i32 %.us-phi128, 0
   br i1 %169, label %170, label %171, !prof !5
 
-170:                                              ; preds = %.split125.us
+170:                                              ; preds = %.split126.us
   tail call void asm sideeffect "497: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 497b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 497) #9, !srcloc !90
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1566, i32 0, i64 12) #9, !srcloc !91
   unreachable
 
-171:                                              ; preds = %.split125.us
-  %172 = sext i32 %.us-phi127 to i64
-  %173 = icmp eq i64 %.us-phi126, 0
-  %174 = select i1 %173, i64 %172, i64 %.us-phi126
+171:                                              ; preds = %.split126.us
+  %172 = sext i32 %.us-phi128 to i64
+  %173 = icmp eq i64 %.us-phi127, 0
+  %174 = select i1 %173, i64 %172, i64 %.us-phi127
   br label %.thread
 
 175:                                              ; preds = %167
@@ -6486,38 +6486,38 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %176 = tail call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %139, i64 noundef 1, i32 noundef %49, ptr noundef %137, ptr noundef %4)
   %177 = load i32, ptr %4, align 4
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %.split129
+  br i1 %178, label %179, label %.split130
 
 179:                                              ; preds = %175
   %180 = icmp eq i64 %176, 0
-  br i1 %180, label %143, label %.split132.us, !prof !9
+  br i1 %180, label %143, label %.split133.us, !prof !9
 
-.split132.us:                                     ; preds = %179, %109
+.split133.us:                                     ; preds = %179, %109
   tail call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #9, !srcloc !92
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1577, i32 0, i64 12) #9, !srcloc !93
   unreachable
 
-.split129:                                        ; preds = %175
+.split130:                                        ; preds = %175
   %181 = icmp eq i64 %176, 1
-  br i1 %181, label %187, label %.split147.us
+  br i1 %181, label %187, label %.split148.us
 
-.split147.us:                                     ; preds = %.split129, %.split129.us.us
-  %.us-phi148 = phi i64 [ %70, %.split129.us.us ], [ %132, %.split129 ]
-  %.us-phi149 = phi i64 [ %106, %.split129.us.us ], [ %176, %.split129 ]
-  %182 = icmp sgt i64 %.us-phi149, 1
+.split148.us:                                     ; preds = %.split130, %.split130.us.us
+  %.us-phi149 = phi i64 [ %70, %.split130.us.us ], [ %132, %.split130 ]
+  %.us-phi150 = phi i64 [ %106, %.split130.us.us ], [ %176, %.split130 ]
+  %182 = icmp sgt i64 %.us-phi150, 1
   br i1 %182, label %183, label %184, !prof !5
 
-183:                                              ; preds = %.split147.us
+183:                                              ; preds = %.split148.us
   tail call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #9, !srcloc !94
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1581, i32 0, i64 12) #9, !srcloc !95
   unreachable
 
-184:                                              ; preds = %.split147.us
-  %185 = icmp eq i64 %.us-phi148, 0
-  %186 = select i1 %185, i64 %.us-phi149, i64 %.us-phi148
+184:                                              ; preds = %.split148.us
+  %185 = icmp eq i64 %.us-phi149, 0
+  %186 = select i1 %185, i64 %.us-phi150, i64 %.us-phi149
   br label %.thread
 
-187:                                              ; preds = %.split129
+187:                                              ; preds = %.split130
   %188 = add i64 %131, -1
   %189 = add i64 %132, 1
   %190 = icmp eq i64 %188, 0
@@ -6529,16 +6529,16 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %194 = select i1 %192, ptr null, ptr %193, !prof !5
   %195 = add i64 %139, 4096
   %196 = tail call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %195, i64 noundef %188, i32 noundef %41, ptr noundef %194, ptr noundef %4)
-  br label %.split133
+  br label %.split134
 
-.loopexit:                                        ; preds = %126, %64, %.split141.us, %37
-  %197 = phi i64 [ %134, %.split141.us ], [ %42, %37 ], [ %66, %64 ], [ %128, %126 ]
-  %198 = phi i8 [ %.us-phi144, %.split141.us ], [ %27, %37 ], [ %52, %64 ], [ %114, %126 ]
+.loopexit:                                        ; preds = %126, %64, %.split142.us, %37
+  %197 = phi i64 [ %134, %.split142.us ], [ %42, %37 ], [ %66, %64 ], [ %128, %126 ]
+  %198 = phi i8 [ %.us-phi145, %.split142.us ], [ %27, %37 ], [ %52, %64 ], [ %114, %126 ]
   %199 = icmp eq i8 %198, 0
   br i1 %199, label %207, label %.thread
 
-.thread:                                          ; preds = %187, %79, %184, %171, %.split122.us, %.loopexit
-  %200 = phi i64 [ %197, %.loopexit ], [ %186, %184 ], [ %174, %171 ], [ %160, %.split122.us ], [ %81, %79 ], [ %189, %187 ]
+.thread:                                          ; preds = %187, %79, %184, %171, %.split123.us, %.loopexit
+  %200 = phi i64 [ %197, %.loopexit ], [ %186, %184 ], [ %174, %171 ], [ %160, %.split123.us ], [ %81, %79 ], [ %189, %187 ]
   %201 = load i32, ptr %4, align 4
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %207, label %203
@@ -6725,7 +6725,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %301 = load i64, ptr %233, align 8
   %302 = and i64 %301, 256
   %303 = icmp eq i64 %302, 0
-  br i1 %303, label %304, label %.split109.us
+  br i1 %303, label %304, label %.split110.us
 
 304:                                              ; preds = %300, %.split.us
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #9
@@ -6747,18 +6747,18 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 310:                                              ; preds = %308, %306
   %311 = icmp eq i32 %307, 0
-  br i1 %311, label %312, label %.split111.us
+  br i1 %311, label %312, label %.split112.us
 
 312:                                              ; preds = %310
   store i32 1, ptr %4, align 4
   %313 = call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %296, i64 noundef 1, i32 noundef %236, ptr noundef %294, ptr noundef %4)
   %314 = load i32, ptr %4, align 4
   %315 = icmp eq i32 %314, 0
-  br i1 %315, label %316, label %.split115.us
+  br i1 %315, label %316, label %.split116.us
 
 316:                                              ; preds = %312
   %317 = icmp eq i64 %313, 0
-  br i1 %317, label %.split.us, label %.split118.us, !prof !9
+  br i1 %317, label %.split.us, label %.split119.us, !prof !9
 
 .split:                                           ; preds = %291, %353
   %318 = load volatile i64, ptr %216, align 8
@@ -6770,21 +6770,21 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %322 = load i64, ptr %233, align 8
   %323 = and i64 %322, 256
   %324 = icmp eq i64 %323, 0
-  br i1 %324, label %325, label %.split109.us
+  br i1 %324, label %325, label %.split110.us
 
 325:                                              ; preds = %321, %.split
   %326 = load volatile i64, ptr %216, align 8
   %327 = and i64 %326, 131072
   %328 = icmp eq i64 %327, 0
-  br i1 %328, label %329, label %.split109.us, !prof !9
+  br i1 %328, label %329, label %.split110.us, !prof !9
 
 329:                                              ; preds = %325
   %330 = load volatile i64, ptr %216, align 8
   %331 = and i64 %330, 4
   %332 = icmp eq i64 %331, 0
-  br i1 %332, label %335, label %.split109.us
+  br i1 %332, label %335, label %.split110.us
 
-.split109.us:                                     ; preds = %321, %325, %329, %300
+.split110.us:                                     ; preds = %321, %325, %329, %300
   %333 = icmp eq i64 %287, 0
   %334 = select i1 %333, i64 -4, i64 %287
   br label %.thread25
@@ -6809,20 +6809,20 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 341:                                              ; preds = %339, %337
   %342 = icmp eq i32 %338, 0
-  br i1 %342, label %349, label %.split111.us
+  br i1 %342, label %349, label %.split112.us
 
-.split111.us:                                     ; preds = %341, %310
-  %.us-phi113 = phi i32 [ %307, %310 ], [ %338, %341 ]
-  %343 = icmp sgt i32 %.us-phi113, 0
+.split112.us:                                     ; preds = %341, %310
+  %.us-phi114 = phi i32 [ %307, %310 ], [ %338, %341 ]
+  %343 = icmp sgt i32 %.us-phi114, 0
   br i1 %343, label %344, label %345, !prof !5
 
-344:                                              ; preds = %.split111.us
+344:                                              ; preds = %.split112.us
   call void asm sideeffect "497: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 497b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 497) #9, !srcloc !90
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1566, i32 0, i64 12) #9, !srcloc !91
   unreachable
 
-345:                                              ; preds = %.split111.us
-  %346 = sext i32 %.us-phi113 to i64
+345:                                              ; preds = %.split112.us
+  %346 = sext i32 %.us-phi114 to i64
   %347 = icmp eq i64 %287, 0
   %348 = select i1 %347, i64 %346, i64 %287
   br label %.thread25
@@ -6832,24 +6832,24 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %350 = call fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %296, i64 noundef 1, i32 noundef %236, ptr noundef %294, ptr noundef %4)
   %351 = load i32, ptr %4, align 4
   %352 = icmp eq i32 %351, 0
-  br i1 %352, label %353, label %.split115.us
+  br i1 %352, label %353, label %.split116.us
 
 353:                                              ; preds = %349
   %354 = icmp eq i64 %350, 0
-  br i1 %354, label %.split, label %.split118.us, !prof !9
+  br i1 %354, label %.split, label %.split119.us, !prof !9
 
-.split118.us:                                     ; preds = %353, %316
+.split119.us:                                     ; preds = %353, %316
   call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #9, !srcloc !92
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1577, i32 0, i64 12) #9, !srcloc !93
   unreachable
 
-.split115.us:                                     ; preds = %349, %312
-  %.us-phi116 = phi i64 [ %313, %312 ], [ %350, %349 ]
-  %355 = icmp eq i64 %.us-phi116, 1
+.split116.us:                                     ; preds = %349, %312
+  %.us-phi117 = phi i64 [ %313, %312 ], [ %350, %349 ]
+  %355 = icmp eq i64 %.us-phi117, 1
   br i1 %355, label %362, label %356
 
-356:                                              ; preds = %.split115.us
-  %357 = icmp sgt i64 %.us-phi116, 1
+356:                                              ; preds = %.split116.us
+  %357 = icmp sgt i64 %.us-phi117, 1
   br i1 %357, label %358, label %359, !prof !5
 
 358:                                              ; preds = %356
@@ -6859,10 +6859,10 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 
 359:                                              ; preds = %356
   %360 = icmp eq i64 %287, 0
-  %361 = select i1 %360, i64 %.us-phi116, i64 %287
+  %361 = select i1 %360, i64 %.us-phi117, i64 %287
   br label %.thread25
 
-362:                                              ; preds = %.split115.us
+362:                                              ; preds = %.split116.us
   %363 = add i64 %286, -1
   %364 = add i64 %287, 1
   %365 = icmp eq i64 %363, 0
@@ -6882,8 +6882,8 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
   %374 = icmp eq i8 %373, 0
   br i1 %374, label %381, label %.thread25
 
-.thread25:                                        ; preds = %362, %359, %345, %.split109.us, %.loopexit39
-  %375 = phi i64 [ %372, %.loopexit39 ], [ %361, %359 ], [ %348, %345 ], [ %334, %.split109.us ], [ %364, %362 ]
+.thread25:                                        ; preds = %362, %359, %345, %.split110.us, %.loopexit39
+  %375 = phi i64 [ %372, %.loopexit39 ], [ %361, %359 ], [ %348, %345 ], [ %334, %.split110.us ], [ %364, %362 ]
   %376 = load i32, ptr %4, align 4
   %377 = icmp eq i32 %376, 0
   br i1 %377, label %381, label %378
@@ -7233,9 +7233,9 @@ unpin_user_page.exit:                             ; preds = %538, %556, %562
 576:                                              ; preds = %575, %.preheader
   %577 = add nuw nsw i64 %571, 1
   %578 = icmp eq i64 %577, %383
-  br i1 %578, label %.thread28.thread281, label %.preheader, !llvm.loop !142
+  br i1 %578, label %.thread28.thread282, label %.preheader, !llvm.loop !142
 
-.thread28.thread281:                              ; preds = %576
+.thread28.thread282:                              ; preds = %576
   call void @putback_movable_pages(ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   %579 = load i32, ptr %217, align 4
@@ -7264,8 +7264,8 @@ unpin_user_page.exit:                             ; preds = %538, %556, %562
   store i32 %588, ptr %217, align 4
   br label %589
 
-589:                                              ; preds = %.thread28, %.thread28.thread281, %.thread28.thread35, %.thread28.thread, %.thread31, %213, %207, %23, %11
-  %590 = phi i64 [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ %208, %207 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ 0, %.thread28.thread35 ], [ -12, %.thread28.thread281 ], [ %383, %.thread28 ]
+589:                                              ; preds = %.thread28, %.thread28.thread282, %.thread28.thread35, %.thread28.thread, %.thread31, %213, %207, %23, %11
+  %590 = phi i64 [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ %208, %207 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ 0, %.thread28.thread35 ], [ -12, %.thread28.thread282 ], [ %383, %.thread28 ]
   ret i64 %590
 }
 

@@ -1381,12 +1381,9 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count
   %or.cond450 = select i1 %413, i1 true, i1 %exitcond423.not
-  br i1 %or.cond450, label %.critedge10, label %400, !llvm.loop !22
+  br i1 %or.cond450, label %.lr.ph365, label %400, !llvm.loop !22
 
-.critedge10:                                      ; preds = %.critedge12
-  br i1 %399, label %.lr.ph365, label %.critedge14
-
-.lr.ph365:                                        ; preds = %.critedge10
+.lr.ph365:                                        ; preds = %.critedge12
   %wide.trip.count427 = zext nneg i32 %.val222.pre to i64
   br label %414
 
@@ -1443,7 +1440,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count427
   br i1 %exitcond428.not, label %.critedge14, label %414, !llvm.loop !24
 
-.critedge14:                                      ; preds = %Vec_PtrFreeFree.exit, %Dau_EnumTestDump.exit, %.critedge10
+.critedge14:                                      ; preds = %Vec_PtrFreeFree.exit, %Dau_EnumTestDump.exit
   %.not.i328 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i328, label %Vec_PtrFree.exit, label %432
 

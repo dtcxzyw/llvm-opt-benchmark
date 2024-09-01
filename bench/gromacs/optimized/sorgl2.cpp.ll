@@ -125,9 +125,9 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %65
 
 .loopexit:                                        ; preds = %.lr.ph114
-  br i1 %.not100.not111, label %65, label %.thread, !llvm.loop !6
+  br label %65, !llvm.loop !6
 
-65:                                               ; preds = %.lr.ph117, %.loopexit
+65:                                               ; preds = %.loopexit, %.lr.ph117
   %indvars.iv126 = phi i64 [ %64, %.lr.ph117 ], [ %indvars.iv.next127, %.loopexit ]
   %indvars128 = trunc i64 %indvars.iv126 to i32
   %66 = load i32, ptr %1, align 4
@@ -210,7 +210,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store i32 %.sink, ptr %7, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %96, %.thread.sink.split, %59, %27
+.thread:                                          ; preds = %96, %.thread.sink.split, %59, %27
   ret void
 }
 

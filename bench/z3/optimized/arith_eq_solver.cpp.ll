@@ -6993,8 +6993,8 @@ _ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit67: ; preds = %invoke.cont26, %i
 
 for.cond30:                                       ; preds = %_ZN8rationalD2Ev.exit166, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit67
   %indvars.iv320 = phi i64 [ %28, %_ZN8rationalD2Ev.exit166 ], [ %retval.0.i66, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit67 ]
-  %cmp31.not = icmp ne i64 %indvars.iv320, 0
-  br i1 %cmp31.not, label %for.body32, label %cleanup147
+  %cmp31.not.not.not = icmp ne i64 %indvars.iv320, 0
+  br i1 %cmp31.not.not.not, label %for.body32, label %cleanup147
 
 for.body32:                                       ; preds = %for.cond30
   %28 = add nsw i64 %indvars.iv320, -1
@@ -7670,7 +7670,7 @@ for.inc144:                                       ; preds = %_ZN6vectorIjLb0EjE9
   br label %for.cond, !llvm.loop !62
 
 cleanup147:                                       ; preds = %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit, %for.cond30, %_ZN8rationalD2Ev.exit166
-  %retval.2 = phi i1 [ false, %for.cond30 ], [ %cmp31.not, %_ZN8rationalD2Ev.exit166 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
+  %retval.2 = phi i1 [ %cmp31.not.not.not, %_ZN8rationalD2Ev.exit166 ], [ %cmp31.not.not.not, %for.cond30 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
   %131 = load ptr, ptr %aux_indices, align 8
   %tobool.not.i.i.i = icmp eq ptr %131, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i

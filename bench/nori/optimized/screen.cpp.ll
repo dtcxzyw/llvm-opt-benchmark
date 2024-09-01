@@ -5384,15 +5384,12 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .loopexit14:                                      ; preds = %.lr.ph.i.i.i.i.i
   store ptr %13, ptr %9, align 8
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.loopexit14
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+.lr.ph:                                           ; preds = %.loopexit14, %19
+  %indvars.iv = phi i64 [ 0, %.loopexit14 ], [ %indvars.iv.next, %19 ]
   %14 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
@@ -5420,7 +5417,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
   resume { ptr, i32 } %lpad.phi
 
-._crit_edge:                                      ; preds = %19, %.loopexit14.thread, %.loopexit14
+._crit_edge:                                      ; preds = %19, %.loopexit14.thread
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 160
   %23 = load ptr, ptr %22, align 8
@@ -5985,17 +5982,13 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.lr.ph, %109
-  %.not4977 = phi i1 [ %.not4976, %.lr.ph.preheader.lr.ph ], [ %.not49, %109 ]
   %.in = phi i64 [ %92, %.lr.ph.preheader.lr.ph ], [ %113, %109 ]
   %93 = phi ptr [ %89, %.lr.ph.preheader.lr.ph ], [ %110, %109 ]
   %94 = ashr exact i64 %.in, 3
   %umax = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not4977, label %.critedge, label %.lr.ph48.preheader
-
-.lr.ph48.preheader:                               ; preds = %.preheader
+.lr.ph48.preheader:                               ; preds = %.lr.ph
   %umax56 = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %.lr.ph48
 
@@ -6008,7 +6001,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %spec.select = select i1 %97, i64 %.01644, i64 %.01743
   %98 = add nuw i64 %.01644, 1
   %exitcond.not = icmp eq i64 %98, %umax
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.lr.ph48.preheader, label %.lr.ph, !llvm.loop !50
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.thread
   %.01547 = phi i64 [ %114, %.thread ], [ 0, %.lr.ph48.preheader ]
@@ -6045,7 +6038,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %exitcond57.not = icmp eq i64 %114, %umax56
   br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !52
 
-.critedge:                                        ; preds = %.preheader, %109, %.thread, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
+.critedge:                                        ; preds = %109, %.thread, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
   ret void
 }
 

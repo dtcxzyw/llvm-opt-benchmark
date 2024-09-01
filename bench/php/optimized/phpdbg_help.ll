@@ -170,15 +170,12 @@ define hidden noundef i32 @phpdbg_do_help_aliases(ptr nocapture readnone %0) #0 
   %33 = getelementptr inbounds i8, ptr %storemerge35, i64 80
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph36
+  br i1 %.not, label %.lr.ph43.i, label %.lr.ph36
 
-._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.not34, label %get_command.exit, label %.lr.ph43.i
-
-.lr.ph43.i:                                       ; preds = %._crit_edge, %.lr.ph43.i
-  %.028 = phi ptr [ %.129, %.lr.ph43.i ], [ %33, %._crit_edge ]
-  %.042.i = phi i32 [ %.1.i, %.lr.ph43.i ], [ 0, %._crit_edge ]
-  %.02541.i = phi ptr [ %41, %.lr.ph43.i ], [ @phpdbg_prompt_commands, %._crit_edge ]
+.lr.ph43.i:                                       ; preds = %.loopexit, %.lr.ph43.i
+  %.028 = phi ptr [ %.129, %.lr.ph43.i ], [ %33, %.loopexit ]
+  %.042.i = phi i32 [ %.1.i, %.lr.ph43.i ], [ 0, %.loopexit ]
+  %.02541.i = phi ptr [ %41, %.lr.ph43.i ], [ @phpdbg_prompt_commands, %.loopexit ]
   %35 = getelementptr inbounds i8, ptr %.02541.i, i64 32
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 104
@@ -196,9 +193,9 @@ get_command.exit.loopexit:                        ; preds = %.lr.ph43.i
   %.pre = load ptr, ptr %.129, align 8
   br label %get_command.exit
 
-get_command.exit:                                 ; preds = %1, %get_command.exit.loopexit, %._crit_edge
-  %43 = phi ptr [ null, %._crit_edge ], [ %.pre, %get_command.exit.loopexit ], [ null, %1 ]
-  %.2 = phi ptr [ %33, %._crit_edge ], [ %.129, %get_command.exit.loopexit ], [ @phpdbg_prompt_commands, %1 ]
+get_command.exit:                                 ; preds = %1, %get_command.exit.loopexit
+  %43 = phi ptr [ %.pre, %get_command.exit.loopexit ], [ null, %1 ]
+  %.2 = phi ptr [ %.129, %get_command.exit.loopexit ], [ @phpdbg_prompt_commands, %1 ]
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %45 = getelementptr inbounds i8, ptr %.2, i64 32
   %46 = load i8, ptr %45, align 8

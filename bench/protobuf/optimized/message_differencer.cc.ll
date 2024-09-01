@@ -14687,14 +14687,13 @@ eh.resume.i.split.us:                             ; preds = %call5.i.i.i.i1.i.i.
   br label %eh.resume.i
 
 for.cond.i:                                       ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit.i
-  %result.2.i = add nuw nsw i32 %result.036.i, 1
   %inc7.i = add nuw nsw i32 %i.037.i, 1
   %23 = load i32, ptr %matcher, align 8
   %cmp.i = icmp slt i32 %inc7.i, %23
   br i1 %cmp.i, label %for.body.i, label %for.cond9.preheader.i, !llvm.loop !260
 
 for.cond9.preheader.i:                            ; preds = %for.cond.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us, %_ZNSt8functionIFbiiEED2Ev.exit
-  %result.0.lcssa.i = phi i32 [ 0, %_ZNSt8functionIFbiiEED2Ev.exit ], [ %result.2.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ %result.2.i, %for.cond.i ]
+  %result.0.lcssa.i = phi i32 [ 0, %_ZNSt8functionIFbiiEED2Ev.exit ], [ %result.2.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ %inc7.i, %for.cond.i ]
   %24 = load i32, ptr %count2_.i, align 4
   %cmp1038.i = icmp sgt i32 %24, 0
   br i1 %cmp1038.i, label %for.body11.i, label %invoke.cont20
@@ -14702,7 +14701,6 @@ for.cond9.preheader.i:                            ; preds = %for.cond.i, %_ZNSt6
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
   %25 = phi i32 [ %23, %for.cond.i ], [ %16, %for.body.lr.ph.i ]
   %i.037.i = phi i32 [ %inc7.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
-  %result.036.i = phi i32 [ %result.2.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
   %conv.i90 = sext i32 %25 to i64
   %sub.i.i.i.i.i.i = add nsw i64 %conv.i90, 63
   %26 = lshr i64 %sub.i.i.i.i.i.i, 3

@@ -20093,7 +20093,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %21
 
 .preheader131:                                    ; preds = %.lr.ph
   %invariant.gep = getelementptr i8, ptr %1, i64 -8
-  br i1 %46, label %.lr.ph136, label %.preheader130
+  br label %.lr.ph136
 
 .lr.ph:                                           ; preds = %45, %.lr.ph
   %.085134 = phi i64 [ %48, %.lr.ph ], [ 1, %45 ]
@@ -20103,7 +20103,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %21
   %exitcond.not = icmp eq i64 %48, %7
   br i1 %exitcond.not, label %.preheader131, label %.lr.ph, !llvm.loop !109
 
-.preheader130:                                    ; preds = %.lr.ph136, %45, %.preheader131
+.preheader130:                                    ; preds = %.lr.ph136, %45
   %49 = icmp ult i32 %0, 2147483647
   br i1 %49, label %._crit_edge, label %._crit_edge.thread
 

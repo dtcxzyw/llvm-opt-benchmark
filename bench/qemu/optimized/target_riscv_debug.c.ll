@@ -126,8 +126,8 @@ entry.split:                                      ; preds = %entry
 
 for.body.us:                                      ; preds = %entry.split, %for.body.us.backedge
   %cmp.us = phi i1 [ false, %for.body.us.backedge ], [ true, %entry.split ]
-  %indvars.iv17 = phi i64 [ 1, %for.body.us.backedge ], [ 0, %entry.split ]
-  %arrayidx.i.us = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv17
+  %indvars.iv18 = phi i64 [ 1, %for.body.us.backedge ], [ 0, %entry.split ]
+  %arrayidx.i.us = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv18
   %1 = load i64, ptr %arrayidx.i.us, align 8
   %2 = and i64 %1, 4026531840
   %cmp1.not.us = icmp eq i64 %2, 805306368
@@ -231,8 +231,8 @@ if.end5:                                          ; preds = %if.then.i, %check_i
   %11 = and i64 %7, 16776192
   %tobool.not = icmp ne i64 %11, 0
   %cmp.not = xor i1 %cmp, true
-  %brmerge23 = or i1 %tobool.not, %cmp.not
-  br i1 %brmerge23, label %return, label %for.body.backedge
+  %brmerge25 = or i1 %tobool.not, %cmp.not
+  br i1 %brmerge25, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %if.else.i, %lor.lhs.false.i, %if.then.i, %check_itrigger_priv.exit, %for.body
   br i1 %cmp, label %for.body.backedge, label %return

@@ -1949,31 +1949,22 @@ for.body.lr.ph:                                   ; preds = %entry
   %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero.i, align 8
   %4 = sext i32 %3 to i64
-  %5 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   %invariant.gep = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i, i64 %4
-  %retval.sroa.0.0.copyload.i8 = load i8, ptr %invariant.gep, align 1
-  %cmp.i9 = icmp eq i8 %field.coerce, %retval.sroa.0.0.copyload.i8
-  br i1 %cmp.i9, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !14
-
-for.body:                                         ; preds = %for.cond
-  %gep = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %invariant.gep, i64 %indvars.iv.next
+for.body:                                         ; preds = %for.body, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %gep = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %invariant.gep, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i8, ptr %gep, align 1
   %cmp.i = icmp eq i8 %field.coerce, %retval.sroa.0.0.copyload.i
-  br i1 %cmp.i, label %return.loopexit, label %for.cond, !llvm.loop !14
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp.i, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !14
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %5
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.lr.ph, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.lr.ph ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.i, %for.body ]
   ret i1 %cmp.lcssa
 }
 

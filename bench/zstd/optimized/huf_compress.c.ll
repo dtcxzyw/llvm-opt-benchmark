@@ -310,14 +310,11 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
 for.end37:                                        ; preds = %for.body22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %nbPerRank, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %valPerRank, i8 0, i64 28, i1 false)
-  br i1 %cmp2033.not, label %for.end50, label %for.body42.preheader
-
-for.body42.preheader:                             ; preds = %for.end37
   %wide.trip.count52 = zext i32 %2 to i64
   br label %for.body42
 
-for.body42:                                       ; preds = %for.body42.preheader, %for.body42
-  %indvars.iv49 = phi i64 [ 0, %for.body42.preheader ], [ %indvars.iv.next50, %for.body42 ]
+for.body42:                                       ; preds = %for.end37, %for.body42
+  %indvars.iv49 = phi i64 [ 0, %for.end37 ], [ %indvars.iv.next50, %for.body42 ]
   %arrayidx44 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv49
   %10 = load i64, ptr %arrayidx44, align 8
   %and.i = and i64 %10, 255
@@ -329,7 +326,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %for.end50, label %for.body42, !llvm.loop !10
 
-for.end50:                                        ; preds = %for.body42, %for.end37.thread, %for.end37
+for.end50:                                        ; preds = %for.body42, %for.end37.thread
   %add51 = add nuw nsw i32 %1, 1
   %idxprom52 = zext nneg i32 %add51 to i64
   %arrayidx53 = getelementptr inbounds [14 x i16], ptr %valPerRank, i64 0, i64 %idxprom52
@@ -572,7 +569,14 @@ while.end.i:                                      ; preds = %while.cond.i
   store i16 256, ptr %parent17.i, align 4
   %sub18.i = add nsw i32 %17, -2
   %cmp19.not64.i = icmp slt i64 %indvars.iv.i15, 2
-  br i1 %cmp19.not64.i, label %while.end73.thread.i, label %for.body.preheader.i
+  br i1 %cmp19.not64.i, label %for.end.thread.i, label %for.body.preheader.i
+
+for.end.thread.i:                                 ; preds = %while.end.i
+  store i32 -2147483648, ptr %retval.0.i, align 4
+  %.pre.i22 = sext i32 %sub.i to i64
+  %nbBits93.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %.pre.i22, i32 3
+  store i8 0, ptr %nbBits93.i, align 1
+  br label %for.cond96.preheader.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %19 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 257)
@@ -586,23 +590,16 @@ for.body.i19:                                     ; preds = %for.body.i19, %for.
   store i32 1073741824, ptr %arrayidx22.i, align 4
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next76.i, %20
-  br i1 %exitcond.not, label %while.body30.preheader.i, label %for.body.i19, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i19, !llvm.loop !18
 
-while.end73.thread.i:                             ; preds = %while.end.i
-  store i32 -2147483648, ptr %retval.0.i, align 4
-  %.pre.i22 = sext i32 %sub.i to i64
-  %nbBits93.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %.pre.i22, i32 3
-  store i8 0, ptr %nbBits93.i, align 1
-  br label %for.cond96.preheader.i
-
-while.body30.preheader.i:                         ; preds = %for.body.i19
+for.end.i:                                        ; preds = %for.body.i19
   store i32 -2147483648, ptr %retval.0.i, align 4
   br label %while.body30.i
 
-while.body30.i:                                   ; preds = %while.body30.i, %while.body30.preheader.i
-  %indvars.iv78.i = phi i64 [ 257, %while.body30.preheader.i ], [ %indvars.iv.next79.i, %while.body30.i ]
-  %lowS.069.i = phi i32 [ %sub18.i, %while.body30.preheader.i ], [ %lowS.2.i, %while.body30.i ]
-  %lowN.068.i = phi i32 [ 256, %while.body30.preheader.i ], [ %lowN.2.i, %while.body30.i ]
+while.body30.i:                                   ; preds = %while.body30.i, %for.end.i
+  %indvars.iv78.i = phi i64 [ 257, %for.end.i ], [ %indvars.iv.next79.i, %while.body30.i ]
+  %lowS.069.i = phi i32 [ %sub18.i, %for.end.i ], [ %lowS.2.i, %while.body30.i ]
+  %lowN.068.i = phi i32 [ 256, %for.end.i ], [ %lowN.2.i, %while.body30.i ]
   %idxprom31.i = sext i32 %lowS.069.i to i64
   %arrayidx32.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom31.i
   %21 = load i32, ptr %arrayidx32.i, align 4
@@ -654,7 +651,7 @@ while.end73.i:                                    ; preds = %while.body30.i
   %28 = zext i32 %indvars.iv81.i to i64
   br label %for.body80.i
 
-for.cond96.preheader.i:                           ; preds = %for.body80.i, %while.end73.thread.i
+for.cond96.preheader.i:                           ; preds = %for.body80.i, %for.end.thread.i
   %cmp97.not72.i = icmp slt i64 %indvars.iv.i15, 0
   br i1 %cmp97.not72.i, label %HUF_buildTree.exit, label %for.body99.preheader.i
 
@@ -2993,8 +2990,7 @@ do.end53:                                         ; preds = %if.end27
   store i32 %1, ptr %maxSymbolValueBegin, align 4
   %call35 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueBegin, ptr noundef %src, i64 noundef 4096) #14
   %conv = zext i32 %call35 to i64
-  %3 = load i32, ptr %maxSymbolValue.addr, align 4
-  store i32 %3, ptr %maxSymbolValueEnd, align 4
+  store i32 %1, ptr %maxSymbolValueEnd, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr45 = getelementptr inbounds i8, ptr %add.ptr44, i64 -4096
   %call46 = call i32 @HIST_count_simple(ptr noundef %retval.0.i, ptr noundef nonnull %maxSymbolValueEnd, ptr noundef nonnull %add.ptr45, i64 noundef 4096) #14
@@ -3014,8 +3010,8 @@ do.end69:                                         ; preds = %if.end59
   br i1 %cmp70, label %if.then72, label %if.end73
 
 if.then72:                                        ; preds = %do.end69
-  %4 = load i8, ptr %src, align 1
-  store i8 %4, ptr %dst, align 1
+  %3 = load i8, ptr %src, align 1
+  store i8 %3, ptr %dst, align 1
   br label %return
 
 if.end73:                                         ; preds = %do.end69
@@ -3028,13 +3024,13 @@ do.end80:                                         ; preds = %if.end73
   br i1 %tobool22, label %if.end101, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %do.end80
-  %5 = load i32, ptr %repeat, align 4
-  %cmp83 = icmp eq i32 %5, 1
+  %4 = load i32, ptr %repeat, align 4
+  %cmp83 = icmp eq i32 %4, 1
   br i1 %cmp83, label %land.lhs.true85, label %if.end91
 
 land.lhs.true85:                                  ; preds = %land.lhs.true82
-  %6 = load i32, ptr %maxSymbolValue.addr, align 4
-  %call88 = call i32 @HUF_validateCTable(ptr noundef %oldHufTable, ptr noundef %retval.0.i, i32 noundef %6)
+  %5 = load i32, ptr %maxSymbolValue.addr, align 4
+  %call88 = call i32 @HUF_validateCTable(ptr noundef %oldHufTable, ptr noundef %retval.0.i, i32 noundef %5)
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %if.end91.thread
 
@@ -3043,8 +3039,8 @@ if.then90:                                        ; preds = %land.lhs.true85
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %land.lhs.true82
-  %7 = phi i32 [ 0, %if.then90 ], [ %5, %land.lhs.true82 ]
-  %cmp97.not = icmp eq i32 %7, 0
+  %6 = phi i32 [ 0, %if.then90 ], [ %4, %land.lhs.true82 ]
+  %cmp97.not = icmp eq i32 %6, 0
   %or.cond150 = or i1 %or.cond.not151, %cmp97.not
   br i1 %or.cond150, label %if.end101, label %if.then99
 
@@ -3056,18 +3052,18 @@ if.then99:                                        ; preds = %if.end91, %if.end91
   br label %return
 
 if.end101:                                        ; preds = %if.end91.thread, %do.end80, %if.end91
-  %8 = load i32, ptr %maxSymbolValue.addr, align 4
+  %7 = load i32, ptr %maxSymbolValue.addr, align 4
   %CTable = getelementptr inbounds i8, ptr %retval.0.i, i64 1024
-  %call106 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %srcSize, i32 noundef %8, ptr noundef nonnull %wksps, i64 noundef 4864, ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %flags)
-  %9 = load i32, ptr %maxSymbolValue.addr, align 4
-  %call112 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %9, i32 noundef %call106, ptr noundef nonnull %wksps, i64 noundef 4864)
+  %call106 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %srcSize, i32 noundef %7, ptr noundef nonnull %wksps, i64 noundef 4864, ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %flags)
+  %8 = load i32, ptr %maxSymbolValue.addr, align 4
+  %call112 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %8, i32 noundef %call106, ptr noundef nonnull %wksps, i64 noundef 4864)
   %cmp.i104 = icmp ult i64 %call112, -119
   br i1 %cmp.i104, label %do.end120, label %return
 
 do.end120:                                        ; preds = %if.end101
   %conv121 = trunc nsw i64 %call112 to i32
-  %10 = load i32, ptr %maxSymbolValue.addr, align 4
-  %call127 = call i64 @HUF_writeCTable_wksp(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %CTable, i32 noundef %10, i32 noundef %conv121, ptr noundef nonnull %wksps, i64 noundef 748)
+  %9 = load i32, ptr %maxSymbolValue.addr, align 4
+  %call127 = call i64 @HUF_writeCTable_wksp(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %CTable, i32 noundef %9, i32 noundef %conv121, ptr noundef nonnull %wksps, i64 noundef 748)
   %cmp.i106 = icmp ult i64 %call127, -119
   br i1 %cmp.i106, label %do.end133, label %return
 
@@ -3075,30 +3071,30 @@ do.end133:                                        ; preds = %do.end120
   br i1 %tobool22, label %if.end156.thread, label %land.lhs.true135
 
 land.lhs.true135:                                 ; preds = %do.end133
-  %11 = load i32, ptr %repeat, align 4
-  %cmp136.not = icmp eq i32 %11, 0
+  %10 = load i32, ptr %repeat, align 4
+  %cmp136.not = icmp eq i32 %10, 0
   br i1 %cmp136.not, label %if.end156.thread143, label %if.then138
 
 if.then138:                                       ; preds = %land.lhs.true135
-  %12 = load i32, ptr %maxSymbolValue.addr, align 4
+  %11 = load i32, ptr %maxSymbolValue.addr, align 4
   %add.ptr.i108 = getelementptr inbounds i8, ptr %oldHufTable, i64 8
-  %cmp.not5.i = icmp slt i32 %12, 0
+  %cmp.not5.i = icmp slt i32 %11, 0
   br i1 %cmp.not5.i, label %if.then153, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then138
-  %13 = add nuw i32 %12, 1
-  %wide.trip.count.i = zext i32 %13 to i64
+  %12 = add nuw i32 %11, 1
+  %wide.trip.count.i = zext i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %nbBits.06.i = phi i64 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr.i108, i64 %indvars.iv.i
-  %14 = load i64, ptr %arrayidx.i, align 8
-  %and.i.i = and i64 %14, 255
+  %13 = load i64, ptr %arrayidx.i, align 8
+  %and.i.i = and i64 %13, 255
   %arrayidx2.i = getelementptr inbounds i32, ptr %retval.0.i, i64 %indvars.iv.i
-  %15 = load i32, ptr %arrayidx2.i, align 4
-  %conv.i109 = zext i32 %15 to i64
+  %14 = load i32, ptr %arrayidx2.i, align 4
+  %conv.i109 = zext i32 %14 to i64
   %mul.i = mul nuw nsw i64 %and.i.i, %conv.i109
   %add.i = add i64 %mul.i, %nbBits.06.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3113,11 +3109,11 @@ for.body.i114:                                    ; preds = %for.body.i114, %HUF
   %indvars.iv.i115 = phi i64 [ 0, %HUF_estimateCompressedSize.exit ], [ %indvars.iv.next.i123, %for.body.i114 ]
   %nbBits.06.i116 = phi i64 [ 0, %HUF_estimateCompressedSize.exit ], [ %add.i122, %for.body.i114 ]
   %arrayidx.i117 = getelementptr inbounds i64, ptr %add.ptr.i110, i64 %indvars.iv.i115
-  %16 = load i64, ptr %arrayidx.i117, align 8
-  %and.i.i118 = and i64 %16, 255
+  %15 = load i64, ptr %arrayidx.i117, align 8
+  %and.i.i118 = and i64 %15, 255
   %arrayidx2.i119 = getelementptr inbounds i32, ptr %retval.0.i, i64 %indvars.iv.i115
-  %17 = load i32, ptr %arrayidx2.i119, align 4
-  %conv.i120 = zext i32 %17 to i64
+  %16 = load i32, ptr %arrayidx2.i119, align 4
+  %conv.i120 = zext i32 %16 to i64
   %mul.i121 = mul nuw nsw i64 %and.i.i118, %conv.i120
   %add.i122 = add i64 %mul.i121, %nbBits.06.i116
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i115, 1
@@ -3125,10 +3121,10 @@ for.body.i114:                                    ; preds = %for.body.i114, %HUF
   br i1 %exitcond.not.i124, label %for.end.loopexit.i125, label %for.body.i114, !llvm.loop !34
 
 for.end.loopexit.i125:                            ; preds = %for.body.i114
-  %18 = lshr i64 %add.i, 3
-  %19 = lshr i64 %add.i122, 3
-  %add147 = add i64 %19, %call127
-  %cmp148.not = icmp ugt i64 %18, %add147
+  %17 = lshr i64 %add.i, 3
+  %18 = lshr i64 %add.i122, 3
+  %add147 = add i64 %18, %call127
+  %cmp148.not = icmp ugt i64 %17, %add147
   %add150 = add i64 %call127, 12
   %cmp151.not = icmp ult i64 %add150, %srcSize
   %or.cond102 = and i1 %cmp151.not, %cmp148.not

@@ -8506,8 +8506,8 @@ define internal fastcc ptr @pick_eevdf(ptr nocapture noundef readonly %0) unname
   br i1 %53, label %91, label %.thread8.thread35
 
 .thread8.thread35:                                ; preds = %.thread.thread34
-  %.in16.phi.trans.insert36 = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre37 = load i64, ptr %.in16.phi.trans.insert36, align 32
+  %.in13.phi.trans.insert36 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre37 = load i64, ptr %.in13.phi.trans.insert36, align 32
   %.in.phi.trans.insert38 = getelementptr inbounds i8, ptr %0, i64 40
   %.pre2339 = load i64, ptr %.in.phi.trans.insert38, align 8
   br label %.thread8.thread
@@ -8524,8 +8524,8 @@ define internal fastcc ptr @pick_eevdf(ptr nocapture noundef readonly %0) unname
   %56 = phi ptr [ null, %.thread8.thread35 ], [ %10, %.thread7 ]
   %57 = phi i64 [ %.pre37, %.thread8.thread35 ], [ %30, %.thread7 ]
   %58 = phi i64 [ %.pre2339, %.thread8.thread35 ], [ %32, %.thread7 ]
-  %.in1733 = getelementptr inbounds i8, ptr %8, i64 104
-  %59 = load i64, ptr %.in1733, align 8
+  %.in1433 = getelementptr inbounds i8, ptr %8, i64 104
+  %59 = load i64, ptr %.in1433, align 8
   %60 = load i64, ptr %10, align 64
   %61 = icmp eq i64 %60, 0
   %62 = lshr i64 %60, 10
@@ -8545,12 +8545,12 @@ define internal fastcc ptr @pick_eevdf(ptr nocapture noundef readonly %0) unname
   br i1 %75, label %91, label %.thread10
 
 .thread41:                                        ; preds = %.thread
-  %.in16.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre = load i64, ptr %.in16.phi.trans.insert, align 32
+  %.in13.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre = load i64, ptr %.in13.phi.trans.insert, align 32
   %.in.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
   %.pre23 = load i64, ptr %.in.phi.trans.insert, align 8
-  %.in17 = getelementptr inbounds i8, ptr %8, i64 104
-  %76 = load i64, ptr %.in17, align 8
+  %.in14 = getelementptr inbounds i8, ptr %8, i64 104
+  %76 = load i64, ptr %.in14, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
   %.pre24 = load i64, ptr %.phi.trans.insert, align 8
   %77 = sub i64 %76, %.pre24

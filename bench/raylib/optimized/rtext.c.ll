@@ -231,7 +231,8 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
 ._crit_edge.thread:                               ; preds = %3
   %5 = sext i32 %2 to i64
   tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #42
-  br label %._crit_edge60.thread
+  tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_original_order) #42
+  br label %._crit_edge65
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -249,9 +250,6 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %.lr.ph
   %8 = zext nneg i32 %2 to i64
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #42
-  br i1 %4, label %.lr.ph59, label %._crit_edge60.thread
-
-.lr.ph59:                                         ; preds = %._crit_edge
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -260,8 +258,8 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
   %wide.trip.count72 = zext nneg i32 %2 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph59, %stbrp__skyline_pack_rectangle.exit
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next70, %stbrp__skyline_pack_rectangle.exit ]
+14:                                               ; preds = %._crit_edge, %stbrp__skyline_pack_rectangle.exit
+  %indvars.iv69 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next70, %stbrp__skyline_pack_rectangle.exit ]
   %15 = getelementptr inbounds %struct.stbrp_rect, ptr %1, i64 %indvars.iv69
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -684,22 +682,14 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %159, %stbrp__skylin
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %._crit_edge60, label %14
 
-._crit_edge60.thread:                             ; preds = %._crit_edge.thread, %._crit_edge
-  %.ph = phi i64 [ %8, %._crit_edge ], [ %5, %._crit_edge.thread ]
-  tail call void @qsort(ptr noundef %1, i64 noundef %.ph, i64 noundef 24, ptr noundef nonnull @rect_original_order) #42
-  br label %._crit_edge65
-
 ._crit_edge60:                                    ; preds = %stbrp__skyline_pack_rectangle.exit
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #42
-  br i1 %4, label %.lr.ph64.preheader, label %._crit_edge65
-
-.lr.ph64.preheader:                               ; preds = %._crit_edge60
   %wide.trip.count77 = zext nneg i32 %2 to i64
   br label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.thread
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next75, %.thread ]
-  %.04561 = phi i32 [ 1, %.lr.ph64.preheader ], [ %196, %.thread ]
+.lr.ph64:                                         ; preds = %._crit_edge60, %.thread
+  %indvars.iv74 = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next75, %.thread ]
+  %.04561 = phi i32 [ 1, %._crit_edge60 ], [ %196, %.thread ]
   %187 = getelementptr inbounds %struct.stbrp_rect, ptr %1, i64 %indvars.iv74
   %188 = getelementptr inbounds i8, ptr %187, i64 12
   %189 = load i32, ptr %188, align 4
@@ -724,8 +714,8 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %159, %stbrp__skylin
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge65, label %.lr.ph64
 
-._crit_edge65:                                    ; preds = %.thread, %._crit_edge60.thread, %._crit_edge60
-  %.045.lcssa = phi i32 [ 1, %._crit_edge60 ], [ 1, %._crit_edge60.thread ], [ %196, %.thread ]
+._crit_edge65:                                    ; preds = %.thread, %._crit_edge.thread
+  %.045.lcssa = phi i32 [ 1, %._crit_edge.thread ], [ %196, %.thread ]
   ret i32 %.045.lcssa
 }
 

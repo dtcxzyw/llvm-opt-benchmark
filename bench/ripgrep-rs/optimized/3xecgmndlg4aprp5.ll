@@ -1010,15 +1010,9 @@ _ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE.exit.thre
   %375 = icmp eq i64 %374, 10
   %376 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %376, i64 32, i1 false), !noalias !61
-  br i1 %375, label %.thread303, label %379
+  br i1 %375, label %.thread303, label %377
 
-.invoke:                                          ; preds = %369, %379
-  %377 = phi ptr [ %11, %379 ], [ %27, %369 ]
-  %378 = phi i8 [ 10, %379 ], [ %372, %369 ]
-  invoke void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %377, i8 noundef %378)
-          to label %382 unwind label %.body.thread298
-
-379:                                              ; preds = %.noexc200
+377:                                              ; preds = %.noexc200
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 40
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !61
@@ -1028,6 +1022,12 @@ _ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE.exit.thre
   %.sroa.9.0..sroa_idx5.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.9.0..sroa_idx5.i, align 8, !noalias !61
   br label %.invoke
+
+.invoke:                                          ; preds = %369, %377
+  %378 = phi ptr [ %11, %377 ], [ %27, %369 ]
+  %379 = phi i8 [ 10, %377 ], [ %372, %369 ]
+  invoke void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %378, i8 noundef %379)
+          to label %382 unwind label %.body.thread298
 
 .thread303:                                       ; preds = %.noexc200
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !61

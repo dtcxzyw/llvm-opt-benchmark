@@ -562,9 +562,9 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.body.lr.ph.i, label %for.body.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i, label %for.body.i.i.i.i.i.i, !llvm.loop !13
 
-for.body.lr.ph.i:                                 ; preds = %for.body.i.i.i.i.i.i
+_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i: ; preds = %for.body.i.i.i.i.i.i
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %disas.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp142.i, i64 8
   %options_.i.i = getelementptr inbounds i8, ptr %disas.i, i64 16
@@ -577,9 +577,9 @@ for.cond.i:                                       ; preds = %_ZNSt10unique_ptrIN
   %cmp.i93 = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i93, label %for.body.i, label %for.end165.i, !llvm.loop !14
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %conv1072.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.cond.i ]
-  %i.01071.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc164.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i
+  %conv1072.i = phi i64 [ 0, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i ], [ %conv.i, %for.cond.i ]
+  %i.01071.i = phi i32 [ 0, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i ], [ %inc164.i, %for.cond.i ]
   %add.ptr.i.i87 = getelementptr inbounds %"class.std::unique_ptr", ptr %fileBufs.sroa.0.1, i64 %conv1072.i
   %38 = load ptr, ptr %add.ptr.i.i87, align 8
   %call.i.i88 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !15

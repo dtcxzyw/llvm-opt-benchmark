@@ -613,8 +613,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
 61:                                               ; preds = %63, %43
   %.021.i.i = phi i64 [ %60, %43 ], [ %64, %63 ]
   %62 = or i64 %.021.i.i, %58
-  %.not.i.not.i = icmp eq i64 %62, %.021.i.i
-  br i1 %.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %63
+  %.not.not.not.i.not.i = icmp eq i64 %62, %.021.i.i
+  br i1 %.not.not.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %63
 
 63:                                               ; preds = %61
   %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.021.i.i, ptr nonnull %56) #7, !srcloc !6
@@ -829,8 +829,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
 68:                                               ; preds = %70, %50
   %.021.i.i = phi i64 [ %67, %50 ], [ %71, %70 ]
   %69 = or i64 %.021.i.i, %65
-  %.not.i.not.i = icmp eq i64 %69, %.021.i.i
-  br i1 %.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %70
+  %.not.not.not.i.not.i = icmp eq i64 %69, %.021.i.i
+  br i1 %.not.not.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %70
 
 70:                                               ; preds = %68
   %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %.021.i.i, ptr nonnull %63) #7, !srcloc !6

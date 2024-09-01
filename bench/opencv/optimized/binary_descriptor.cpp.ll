@@ -4217,12 +4217,9 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor10OctaveLineESaIS3_EEC2EmRKS
   store float %112, ptr %109, align 4
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge444, label %.lr.ph443, !llvm.loop !53
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %.lr.ph443, !llvm.loop !53
 
-._crit_edge444:                                   ; preds = %.lr.ph443
-  br i1 %108, label %.preheader.lr.ph, label %.loopexit420
-
-.preheader.lr.ph:                                 ; preds = %._crit_edge444
+.preheader.lr.ph:                                 ; preds = %.lr.ph443
   %wide.trip.count502 = zext nneg i32 %71 to i64
   br label %.preheader
 
@@ -4467,9 +4464,9 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor10OctaveLineESaIS3_EEC2EmRKS
   %exitcond503.not = icmp eq i64 %indvars.iv.next500, %wide.trip.count502
   br i1 %exitcond503.not, label %.loopexit420, label %.preheader, !llvm.loop !56
 
-.loopexit420:                                     ; preds = %._crit_edge461, %107, %._crit_edge444
-  %.1317 = phi i32 [ %.0316.lcssa, %._crit_edge444 ], [ %.0316.lcssa, %107 ], [ %.3319.lcssa, %._crit_edge461 ]
-  %.3296 = phi i32 [ %.0316.lcssa, %._crit_edge444 ], [ %.0316.lcssa, %107 ], [ %.5.lcssa, %._crit_edge461 ]
+.loopexit420:                                     ; preds = %._crit_edge461, %107
+  %.1317 = phi i32 [ %.0316.lcssa, %107 ], [ %.3319.lcssa, %._crit_edge461 ]
+  %.3296 = phi i32 [ %.0316.lcssa, %107 ], [ %.5.lcssa, %._crit_edge461 ]
   %275 = load ptr, ptr %2, align 8
   %276 = getelementptr inbounds i8, ptr %2, i64 8
   %277 = load ptr, ptr %276, align 8

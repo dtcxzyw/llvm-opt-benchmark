@@ -7294,8 +7294,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
 
 78:                                               ; preds = %53
   %79 = and i16 %39, 140
-  %.not20 = icmp eq i16 %79, 136
-  br i1 %.not20, label %98, label %.thread
+  %.not19 = icmp eq i16 %79, 136
+  br i1 %.not19, label %98, label %.thread
 
 .thread:                                          ; preds = %57, %78
   %80 = load i32, ptr %31, align 8
@@ -7504,9 +7504,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   tail call void @skb_trim(ptr noundef %122, i32 noundef %160) #20
   %215 = load ptr, ptr %131, align 8
   %216 = icmp eq ptr %215, %131
-  br i1 %216, label %.loopexit, label %.preheader19
+  br i1 %216, label %.loopexit, label %.preheader20
 
-.preheader19:                                     ; preds = %._crit_edge, %235
+.preheader20:                                     ; preds = %._crit_edge, %235
   %217 = phi ptr [ %241, %235 ], [ %215, %._crit_edge ]
   %218 = phi i16 [ %240, %235 ], [ 0, %._crit_edge ]
   %219 = getelementptr inbounds i8, ptr %217, i64 200
@@ -7515,7 +7515,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   %222 = icmp eq ptr %221, %131
   br i1 %222, label %232, label %223
 
-223:                                              ; preds = %.preheader19
+223:                                              ; preds = %.preheader20
   %224 = getelementptr inbounds i8, ptr %217, i64 40
   %225 = load i16, ptr %220, align 2
   %226 = or i16 %225, 1024
@@ -7531,7 +7531,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   store i32 %231, ptr %224, align 8
   br label %235
 
-232:                                              ; preds = %.preheader19
+232:                                              ; preds = %.preheader20
   %233 = load i16, ptr %220, align 2
   %234 = and i16 %233, -1025
   store i16 %234, ptr %220, align 2
@@ -7546,7 +7546,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   %240 = add i16 %218, 1
   %241 = load ptr, ptr %217, align 8
   %242 = icmp eq ptr %241, %131
-  br i1 %242, label %.loopexit, label %.preheader19, !llvm.loop !136
+  br i1 %242, label %.loopexit, label %.preheader20, !llvm.loop !136
 
 .loopexit:                                        ; preds = %235, %121, %141, %._crit_edge
   %243 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8105,7 +8105,7 @@ define dso_local void @__ieee80211_schedule_txq(ptr noundef %0, ptr noundef %1, 
   %19 = getelementptr i8, ptr %1, i64 -48
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %22, label %84
+  br i1 %21, label %22, label %82
 
 22:                                               ; preds = %17
   %.phi.trans.insert = getelementptr i8, ptr %1, i64 8
@@ -8114,7 +8114,7 @@ define dso_local void @__ieee80211_schedule_txq(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %44, label %24
 
 24:                                               ; preds = %22
-  br i1 %23, label %84, label %25
+  br i1 %23, label %82, label %25
 
 25:                                               ; preds = %24
   %26 = load i8, ptr %5, align 1
@@ -8127,7 +8127,7 @@ define dso_local void @__ieee80211_schedule_txq(ptr noundef %0, ptr noundef %1, 
   %33 = load volatile i32, ptr %32, align 4
   %34 = sub i32 %31, %33
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %84, label %36
+  br i1 %35, label %82, label %36
 
 36:                                               ; preds = %25
   %37 = getelementptr [4 x %struct.airtime_info], ptr %27, i64 0, i64 %28, i32 2
@@ -8136,81 +8136,80 @@ define dso_local void @__ieee80211_schedule_txq(ptr noundef %0, ptr noundef %1, 
   %40 = load volatile i64, ptr @jiffies, align 64
   %41 = sub i64 %39, %40
   %42 = icmp sgt i64 %41, -1
-  br i1 %42, label %.thread3, label %84
+  br i1 %42, label %.thread3, label %82
 
 .thread3:                                         ; preds = %36
   %43 = getelementptr i8, ptr %1, i64 8
-  br label %65
+  br label %63
 
 44:                                               ; preds = %22
   %45 = getelementptr i8, ptr %1, i64 8
-  br i1 %23, label %65, label %46
+  br i1 %23, label %63, label %46
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %0, i64 388
   %48 = load i16, ptr %47, align 4
-  %49 = icmp ne i16 %48, 0
-  %50 = select i1 %49, i1 %18, i1 false
-  br i1 %50, label %51, label %65
+  %.not = icmp eq i16 %48, 0
+  br i1 %.not, label %63, label %49
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 64
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i8, ptr %53, i64 100
-  %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 2
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %65, label %.thread4
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr i8, ptr %51, i64 100
+  %53 = load i8, ptr %52, align 1
+  %54 = and i8 %53, 2
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %63, label %.thread4
 
-.thread4:                                         ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 312
-  %59 = load i8, ptr %5, align 1
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr [4 x %struct.list_head], ptr %58, i64 0, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %19, ptr %63, align 8
-  store ptr %62, ptr %19, align 8
-  %64 = getelementptr i8, ptr %1, i64 -40
-  store ptr %61, ptr %64, align 8
-  store volatile ptr %19, ptr %61, align 8
-  br label %74
+.thread4:                                         ; preds = %49
+  %56 = getelementptr inbounds i8, ptr %0, i64 312
+  %57 = load i8, ptr %5, align 1
+  %58 = zext i8 %57 to i64
+  %59 = getelementptr [4 x %struct.list_head], ptr %56, i64 0, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %19, ptr %61, align 8
+  store ptr %60, ptr %19, align 8
+  %62 = getelementptr i8, ptr %1, i64 -40
+  store ptr %59, ptr %62, align 8
+  store volatile ptr %19, ptr %59, align 8
+  br label %72
 
-65:                                               ; preds = %44, %46, %51, %.thread3
-  %66 = phi ptr [ %45, %51 ], [ %45, %46 ], [ %45, %44 ], [ %43, %.thread3 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 312
-  %68 = load i8, ptr %5, align 1
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr [4 x %struct.list_head], ptr %67, i64 0, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
-  store ptr %19, ptr %71, align 8
-  store ptr %70, ptr %19, align 8
-  %73 = getelementptr i8, ptr %1, i64 -40
-  store ptr %72, ptr %73, align 8
-  store volatile ptr %19, ptr %72, align 8
-  br i1 %18, label %74, label %84
+63:                                               ; preds = %44, %46, %49, %.thread3
+  %64 = phi ptr [ %45, %49 ], [ %45, %46 ], [ %45, %44 ], [ %43, %.thread3 ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 312
+  %66 = load i8, ptr %5, align 1
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr [4 x %struct.list_head], ptr %65, i64 0, i64 %67
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  store ptr %19, ptr %69, align 8
+  store ptr %68, ptr %19, align 8
+  %71 = getelementptr i8, ptr %1, i64 -40
+  store ptr %70, ptr %71, align 8
+  store volatile ptr %19, ptr %70, align 8
+  br i1 %18, label %72, label %82
 
-74:                                               ; preds = %.thread4, %65
-  %75 = phi ptr [ %45, %.thread4 ], [ %66, %65 ]
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %84, label %78
+72:                                               ; preds = %.thread4, %63
+  %73 = phi ptr [ %45, %.thread4 ], [ %64, %63 ]
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %82, label %76
 
-78:                                               ; preds = %74
-  %79 = load volatile i64, ptr @jiffies, align 64
-  %80 = getelementptr i8, ptr %76, i64 -2152
-  %81 = load i8, ptr %5, align 1
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr [4 x %struct.airtime_info], ptr %80, i64 0, i64 %82, i32 2
-  store i64 %79, ptr %83, align 8
-  br label %84
+76:                                               ; preds = %72
+  %77 = load volatile i64, ptr @jiffies, align 64
+  %78 = getelementptr i8, ptr %74, i64 -2152
+  %79 = load i8, ptr %5, align 1
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr [4 x %struct.airtime_info], ptr %78, i64 0, i64 %80, i32 2
+  store i64 %77, ptr %81, align 8
+  br label %82
 
-84:                                               ; preds = %78, %74, %65, %36, %25, %24, %17
-  %85 = load i8, ptr %5, align 1
-  %86 = zext i8 %85 to i64
-  %87 = getelementptr [4 x %struct.spinlock], ptr %4, i64 0, i64 %86
-  tail call void @_raw_spin_unlock_bh(ptr noundef %87) #20
+82:                                               ; preds = %76, %72, %63, %36, %25, %24, %17
+  %83 = load i8, ptr %5, align 1
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr [4 x %struct.spinlock], ptr %4, i64 0, i64 %84
+  tail call void @_raw_spin_unlock_bh(ptr noundef %85) #20
   ret void
 }
 

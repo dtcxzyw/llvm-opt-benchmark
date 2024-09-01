@@ -12052,16 +12052,16 @@ define internal fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_strin
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %.val6 = load i64, ptr %7, align 8
   %.old.i = icmp eq i64 %.val6, 0
-  br i1 %.old.i, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i
+  br i1 %.old.i, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i
 
-_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i: ; preds = %2
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i: ; preds = %2
   %lhsc.i = load i8, ptr %.val, align 1
   %.not.i.i8.i = icmp eq i8 %lhsc.i, 46
   %8 = icmp eq i64 %.val6, 1
   %or.cond5.i = and i1 %8, %.not.i.i8.i
   br i1 %or.cond5.i, label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i
   %.sroa.speculated.i.i12.i = call i64 @llvm.umin.i64(i64 %.val6, i64 2)
   %bcmp.i14.i = call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull @.str.19, i64 %.sroa.speculated.i.i12.i)
   %.not.i.i15.i = icmp eq i32 %bcmp.i14.i, 0
@@ -12085,8 +12085,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i21.i: ; preds = %11
   %12 = icmp ne i32 %bcmp.i.i.i.i22.i, 0
   br label %"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
-"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i21.i, %11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i, %2
-  %13 = phi i1 [ false, %2 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ false, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i ], [ %not.or.cond7.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i ], [ true, %11 ], [ %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i21.i ]
+"_ZZN2rc9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i21.i, %11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i, %2
+  %13 = phi i1 [ false, %2 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i6.i ], [ %not.or.cond7.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i13.i ], [ true, %11 ], [ %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i21.i ]
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = icmp eq ptr %.val, %14
   br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

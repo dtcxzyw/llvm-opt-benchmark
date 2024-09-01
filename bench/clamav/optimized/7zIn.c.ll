@@ -3248,11 +3248,11 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %335
 
 .loopexit336.i.i:                                 ; preds = %404
   %410 = icmp ugt i8 %399, 8
-  br i1 %410, label %SzGetNextFolderItem.exit.thread.i, label %.lr.ph429.i.i
+  br i1 %410, label %SzGetNextFolderItem.exit.thread.i, label %.preheader
 
-.lr.ph429.i.i:                                    ; preds = %.loopexit336.i.i, %.lr.ph429.i.i
-  %indvars.iv573.i.i = phi i64 [ %indvars.iv.next574.i.i, %.lr.ph429.i.i ], [ 0, %.loopexit336.i.i ]
-  %411 = phi i64 [ %420, %.lr.ph429.i.i ], [ 0, %.loopexit336.i.i ]
+.preheader:                                       ; preds = %.loopexit336.i.i, %.preheader
+  %indvars.iv573.i.i = phi i64 [ %indvars.iv.next574.i.i, %.preheader ], [ 0, %.loopexit336.i.i ]
+  %411 = phi i64 [ %420, %.preheader ], [ 0, %.loopexit336.i.i ]
   %412 = xor i64 %indvars.iv573.i.i, -1
   %413 = add nsw i64 %412, %400
   %414 = and i64 %413, 4294967295
@@ -3264,10 +3264,10 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %335
   %420 = or i64 %419, %411
   %indvars.iv.next574.i.i = add nuw nsw i64 %indvars.iv573.i.i, 1
   %exitcond577.not.i.i = icmp eq i64 %indvars.iv.next574.i.i, %400
-  br i1 %exitcond577.not.i.i, label %.thread596.i.i, label %.lr.ph429.i.i
+  br i1 %exitcond577.not.i.i, label %.thread596.i.i, label %.preheader
 
-.thread596.i.i:                                   ; preds = %.lr.ph429.i.i, %394
-  %.lcssa879.sink = phi i64 [ 0, %394 ], [ %420, %.lr.ph429.i.i ]
+.thread596.i.i:                                   ; preds = %.preheader, %394
+  %.lcssa879.sink = phi i64 [ 0, %394 ], [ %420, %.preheader ]
   %421 = getelementptr inbounds i8, ptr %391, i64 8
   store i64 %.lcssa879.sink, ptr %421, align 8
   %422 = and i8 %398, 16
@@ -4151,7 +4151,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
 
 .lr.ph312.i:                                      ; preds = %.preheader136.i, %.backedge.i
   %859 = load i64, ptr %14, align 8
-  switch i64 %859, label %881 [
+  switch i64 %859, label %880 [
     i64 0, label %SzReadUnpackInfo.exit
     i64 10, label %860
   ]
@@ -4198,15 +4198,15 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   tail call void %879(ptr noundef %8, ptr noundef %.pre487.i) #11
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %881, %._crit_edge310.i
-  %880 = call fastcc i32 @SzReadID(ptr noundef %0, ptr noundef nonnull %14)
-  %.not97.i = icmp eq i32 %880, 0
-  br i1 %.not97.i, label %.lr.ph312.i, label %SzReadUnpackInfo.exit.thread
-
-881:                                              ; preds = %.lr.ph312.i
-  %882 = tail call fastcc i32 @SzSkeepData(ptr noundef %0)
-  %.not98.i = icmp eq i32 %882, 0
+880:                                              ; preds = %.lr.ph312.i
+  %881 = tail call fastcc i32 @SzSkeepData(ptr noundef %0)
+  %.not98.i = icmp eq i32 %881, 0
   br i1 %.not98.i, label %.backedge.i, label %SzReadUnpackInfo.exit.thread
+
+.backedge.i:                                      ; preds = %880, %._crit_edge310.i
+  %882 = call fastcc i32 @SzReadID(ptr noundef %0, ptr noundef nonnull %14)
+  %.not97.i = icmp eq i32 %882, 0
+  br i1 %.not97.i, label %.lr.ph312.i, label %SzReadUnpackInfo.exit.thread
 
 SzReadNumber.exit.critedge.i:                     ; preds = %860
   %883 = load ptr, ptr %22, align 8
@@ -4217,8 +4217,8 @@ SzReadNumber.exit.critedge.i:                     ; preds = %860
   tail call void %885(ptr noundef %8, ptr noundef %886) #11
   br label %SzReadUnpackInfo.exit.thread
 
-SzReadUnpackInfo.exit.thread:                     ; preds = %282, %318, %323, %SzReadSwitch.exit._crit_edge.i, %284, %.loopexit.i.i50, %._crit_edge.i55, %335, %.preheader136.i, %306, %SzFolder_GetNumOutStreams.exit.thread.i, %816, %SzFolder_GetNumOutStreams.exit.i, %.backedge.i, %881, %.lr.ph304.i, %.lr.ph298.i, %SzGetNextFolderItem.exit.thread.i, %SzReadNumber.exit.critedge.i
-  %.0.i44.ph = phi i32 [ %863, %SzReadNumber.exit.critedge.i ], [ %.0.i108.ph.i, %SzGetNextFolderItem.exit.thread.i ], [ 16, %.lr.ph298.i ], [ 16, %.lr.ph304.i ], [ %880, %.backedge.i ], [ %882, %881 ], [ 11, %SzFolder_GetNumOutStreams.exit.thread.i ], [ 2, %816 ], [ 11, %SzFolder_GetNumOutStreams.exit.i ], [ 16, %306 ], [ %283, %282 ], [ 11, %318 ], [ 2, %323 ], [ %797, %SzReadSwitch.exit._crit_edge.i ], [ 16, %284 ], [ 4, %.loopexit.i.i50 ], [ 16, %._crit_edge.i55 ], [ 4, %335 ], [ %799, %.preheader136.i ]
+SzReadUnpackInfo.exit.thread:                     ; preds = %282, %318, %323, %SzReadSwitch.exit._crit_edge.i, %284, %.loopexit.i.i50, %._crit_edge.i55, %335, %.preheader136.i, %306, %SzFolder_GetNumOutStreams.exit.thread.i, %816, %SzFolder_GetNumOutStreams.exit.i, %.backedge.i, %880, %.lr.ph304.i, %.lr.ph298.i, %SzGetNextFolderItem.exit.thread.i, %SzReadNumber.exit.critedge.i
+  %.0.i44.ph = phi i32 [ %863, %SzReadNumber.exit.critedge.i ], [ %.0.i108.ph.i, %SzGetNextFolderItem.exit.thread.i ], [ 16, %.lr.ph298.i ], [ 16, %.lr.ph304.i ], [ %882, %.backedge.i ], [ %881, %880 ], [ 11, %SzFolder_GetNumOutStreams.exit.thread.i ], [ 2, %816 ], [ 11, %SzFolder_GetNumOutStreams.exit.i ], [ 16, %306 ], [ %283, %282 ], [ 11, %318 ], [ 2, %323 ], [ %797, %SzReadSwitch.exit._crit_edge.i ], [ 16, %284 ], [ 4, %.loopexit.i.i50 ], [ 16, %._crit_edge.i55 ], [ 4, %335 ], [ %799, %.preheader136.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)

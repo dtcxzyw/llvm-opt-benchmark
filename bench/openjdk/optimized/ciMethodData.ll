@@ -1338,10 +1338,10 @@ define hidden void @_ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20Ty
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN13ciTypeEntries15translate_klassEl.exit
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %49, %_ZN13ciTypeEntries15translate_klassEl.exit ]
+  %.014 = phi i32 [ 0, %.lr.ph ], [ %49, %_ZN13ciTypeEntries15translate_klassEl.exit ]
   %10 = load ptr, ptr %1, align 8
   %11 = load i32, ptr %6, align 8
-  %12 = shl nuw nsw i32 %.013, 1
+  %12 = shl nuw nsw i32 %.014, 1
   %13 = or disjoint i32 %12, 1
   %14 = add nsw i32 %11, %13
   %15 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1367,8 +1367,8 @@ define hidden void @_ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20Ty
 
 29:                                               ; preds = %22
   %30 = and i64 %20, 2
-  %.not14 = icmp eq i64 %30, 0
-  br i1 %.not14, label %_ZN5ciEnv9get_klassEP5Klass.exit.i, label %.thread
+  %.not13 = icmp eq i64 %30, 0
+  br i1 %.not13, label %_ZN5ciEnv9get_klassEP5Klass.exit.i, label %.thread
 
 _ZN5ciEnv9get_klassEP5Klass.exit.i:               ; preds = %29
   %31 = load ptr, ptr %8, align 8
@@ -1397,7 +1397,7 @@ _ZN13ciTypeEntries15translate_klassEl.exit:       ; preds = %.thread, %_ZN5ciEnv
   %47 = sext i32 %43 to i64
   %48 = getelementptr inbounds [1 x i64], ptr %46, i64 0, i64 %47
   store i64 %.sink, ptr %48, align 8
-  %49 = add nuw nsw i32 %.013, 1
+  %49 = add nuw nsw i32 %.014, 1
   %50 = load i32, ptr %3, align 4
   %51 = icmp slt i32 %49, %50
   br i1 %51, label %9, label %._crit_edge, !llvm.loop !12
@@ -1889,16 +1889,16 @@ _ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %7
   %19 = zext i16 %18 to i32
   %.not.i = icmp slt i32 %1, %19
   %spec.select.i = select i1 %.not.i, ptr %14, ptr %16
-  %.not2933 = icmp eq ptr %spec.select.i, null
-  br i1 %.not2933, label %select.unfold._crit_edge, label %.lr.ph
+  %.not2934 = icmp eq ptr %spec.select.i, null
+  br i1 %.not2934, label %select.unfold._crit_edge, label %.lr.ph36
 
-.lr.ph:                                           ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit
+.lr.ph36:                                         ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   br label %21
 
-21:                                               ; preds = %.lr.ph, %select.unfold
-  %.01734 = phi ptr [ %spec.select.i, %.lr.ph ], [ %49, %select.unfold ]
-  %22 = getelementptr inbounds i8, ptr %.01734, i64 2
+21:                                               ; preds = %.lr.ph36, %select.unfold
+  %.01735 = phi ptr [ %spec.select.i, %.lr.ph36 ], [ %49, %select.unfold ]
+  %22 = getelementptr inbounds i8, ptr %.01735, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
   %25 = icmp eq i32 %1, %24
@@ -1906,13 +1906,13 @@ _ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %7
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %20, align 8
-  %28 = ptrtoint ptr %.01734 to i64
+  %28 = ptrtoint ptr %.01735 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %31, ptr %32, align 8
-  %33 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.01734)
+  %33 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.01735)
   br label %98
 
 34:                                               ; preds = %21
@@ -1921,11 +1921,11 @@ _ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %7
 
 select.unfold:                                    ; preds = %34
   %36 = load ptr, ptr %20, align 8
-  %37 = ptrtoint ptr %.01734 to i64
+  %37 = ptrtoint ptr %.01735 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = trunc i64 %39 to i32
-  %41 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.01734) #13
+  %41 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.01735) #13
   %42 = shl nsw i32 %41, 3
   %43 = add nsw i32 %42, 8
   %44 = add nsw i32 %43, %40
@@ -1934,8 +1934,8 @@ select.unfold:                                    ; preds = %34
   %47 = load ptr, ptr %20, align 8
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %.not2948 = icmp eq ptr %47, null
-  %.not29 = select i1 %46, i1 true, i1 %.not2948
+  %.not2947 = icmp eq ptr %47, null
+  %.not29 = select i1 %46, i1 true, i1 %.not2947
   br i1 %.not29, label %select.unfold._crit_edge, label %21
 
 select.unfold._crit_edge:                         ; preds = %34, %select.unfold, %7, %_ZN12ciMethodData18data_layout_beforeEi.exit
@@ -1958,7 +1958,7 @@ select.unfold._crit_edge:                         ; preds = %34, %select.unfold,
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %._crit_edge38, label %_ZN12ciMethodData18data_layout_beforeEi.exit.i
+  br i1 %57, label %._crit_edge, label %_ZN12ciMethodData18data_layout_beforeEi.exit.i
 
 _ZN12ciMethodData18data_layout_beforeEi.exit.i:   ; preds = %54
   %58 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1972,16 +1972,16 @@ _ZN12ciMethodData18data_layout_beforeEi.exit.i:   ; preds = %54
   %66 = zext i16 %65 to i32
   %.not.i.i = icmp slt i32 %1, %66
   %spec.select.i.i = select i1 %.not.i.i, ptr %61, ptr %63
-  %.not3035 = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not3035, label %._crit_edge38, label %.lr.ph37
+  %.not32 = icmp eq ptr %spec.select.i.i, null
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
-.lr.ph37:                                         ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit.i
+.lr.ph:                                           ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit.i
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   br label %68
 
-68:                                               ; preds = %.lr.ph37, %select.unfold26
-  %.017.i36 = phi ptr [ %spec.select.i.i, %.lr.ph37 ], [ %96, %select.unfold26 ]
-  %69 = getelementptr inbounds i8, ptr %.017.i36, i64 2
+68:                                               ; preds = %.lr.ph, %select.unfold26
+  %.017.i33 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %96, %select.unfold26 ]
+  %69 = getelementptr inbounds i8, ptr %.017.i33, i64 2
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp eq i32 %1, %71
@@ -1989,26 +1989,26 @@ _ZN12ciMethodData18data_layout_beforeEi.exit.i:   ; preds = %54
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %67, align 8
-  %75 = ptrtoint ptr %.017.i36 to i64
+  %75 = ptrtoint ptr %.017.i33 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
   %78 = trunc i64 %77 to i32
   %79 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %78, ptr %79, align 8
-  %80 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.017.i36)
+  %80 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.017.i33)
   br label %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit
 
 81:                                               ; preds = %68
   %82 = icmp slt i32 %1, %71
-  br i1 %82, label %._crit_edge38, label %select.unfold26
+  br i1 %82, label %._crit_edge, label %select.unfold26
 
 select.unfold26:                                  ; preds = %81
   %83 = load ptr, ptr %67, align 8
-  %84 = ptrtoint ptr %.017.i36 to i64
+  %84 = ptrtoint ptr %.017.i33 to i64
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = trunc i64 %86 to i32
-  %88 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.017.i36) #13
+  %88 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.017.i33) #13
   %89 = shl nsw i32 %88, 3
   %90 = add nsw i32 %89, 8
   %91 = add nsw i32 %90, %87
@@ -2017,16 +2017,16 @@ select.unfold26:                                  ; preds = %81
   %94 = load ptr, ptr %67, align 8
   %95 = sext i32 %91 to i64
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  %.not3047 = icmp eq ptr %94, null
-  %.not30 = select i1 %93, i1 true, i1 %.not3047
-  br i1 %.not30, label %._crit_edge38, label %68
+  %.not46 = icmp eq ptr %94, null
+  %.not = select i1 %93, i1 true, i1 %.not46
+  br i1 %.not, label %._crit_edge, label %68
 
-._crit_edge38:                                    ; preds = %select.unfold26, %81, %54, %_ZN12ciMethodData18data_layout_beforeEi.exit.i
+._crit_edge:                                      ; preds = %select.unfold26, %81, %54, %_ZN12ciMethodData18data_layout_beforeEi.exit.i
   %97 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit
 
-_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit:  ; preds = %._crit_edge38, %73
-  %.0.i23 = phi ptr [ %80, %73 ], [ %97, %._crit_edge38 ]
+_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit:  ; preds = %._crit_edge, %73
+  %.0.i23 = phi ptr [ %80, %73 ], [ %97, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %98
 
@@ -4829,10 +4829,10 @@ define linkonce_odr hidden void @_ZN20ciParametersTypeData14translate_fromEPK11P
   br label %15
 
 15:                                               ; preds = %_ZN13ciTypeEntries15translate_klassEl.exit.i, %.lr.ph.i
-  %.013.i = phi i32 [ 0, %.lr.ph.i ], [ %55, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
+  %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %55, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %12, align 8
-  %18 = shl nuw nsw i32 %.013.i, 1
+  %18 = shl nuw nsw i32 %.014.i, 1
   %19 = or disjoint i32 %18, 1
   %20 = add nsw i32 %17, %19
   %21 = getelementptr inbounds i8, ptr %16, i64 8
@@ -4858,8 +4858,8 @@ define linkonce_odr hidden void @_ZN20ciParametersTypeData14translate_fromEPK11P
 
 35:                                               ; preds = %28
   %36 = and i64 %26, 2
-  %.not14.i = icmp eq i64 %36, 0
-  br i1 %.not14.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
+  %.not13.i = icmp eq i64 %36, 0
+  br i1 %.not13.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
 
 _ZN5ciEnv9get_klassEP5Klass.exit.i.i:             ; preds = %35
   %37 = load ptr, ptr %14, align 8
@@ -4888,7 +4888,7 @@ _ZN13ciTypeEntries15translate_klassEl.exit.i:     ; preds = %.thread.i, %_ZN5ciE
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds [1 x i64], ptr %52, i64 0, i64 %53
   store i64 %.sink.i, ptr %54, align 8
-  %55 = add nuw nsw i32 %.013.i, 1
+  %55 = add nuw nsw i32 %.014.i, 1
   %56 = load i32, ptr %9, align 4
   %57 = icmp slt i32 %55, %56
   br i1 %57, label %15, label %_ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.exit, !llvm.loop !12
@@ -5272,10 +5272,10 @@ define linkonce_odr hidden void @_ZN14ciCallTypeData14translate_fromEPK11Profile
   br label %22
 
 22:                                               ; preds = %_ZN13ciTypeEntries15translate_klassEl.exit.i, %.lr.ph.i
-  %.013.i = phi i32 [ 0, %.lr.ph.i ], [ %62, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
+  %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %62, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
   %23 = load ptr, ptr %15, align 8
   %24 = load i32, ptr %19, align 8
-  %25 = shl nuw nsw i32 %.013.i, 1
+  %25 = shl nuw nsw i32 %.014.i, 1
   %26 = or disjoint i32 %25, 1
   %27 = add nsw i32 %24, %26
   %28 = getelementptr inbounds i8, ptr %23, i64 8
@@ -5301,8 +5301,8 @@ define linkonce_odr hidden void @_ZN14ciCallTypeData14translate_fromEPK11Profile
 
 42:                                               ; preds = %35
   %43 = and i64 %33, 2
-  %.not14.i = icmp eq i64 %43, 0
-  br i1 %.not14.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
+  %.not13.i = icmp eq i64 %43, 0
+  br i1 %.not13.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
 
 _ZN5ciEnv9get_klassEP5Klass.exit.i.i:             ; preds = %42
   %44 = load ptr, ptr %21, align 8
@@ -5331,7 +5331,7 @@ _ZN13ciTypeEntries15translate_klassEl.exit.i:     ; preds = %.thread.i, %_ZN5ciE
   %60 = sext i32 %56 to i64
   %61 = getelementptr inbounds [1 x i64], ptr %59, i64 0, i64 %60
   store i64 %.sink.i, ptr %61, align 8
-  %62 = add nuw nsw i32 %.013.i, 1
+  %62 = add nuw nsw i32 %.014.i, 1
   %63 = load i32, ptr %16, align 4
   %64 = icmp slt i32 %62, %63
   br i1 %64, label %22, label %_ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.exit, !llvm.loop !12
@@ -5609,10 +5609,10 @@ _ZN18ciReceiverTypeData28translate_receiver_data_fromEPK11ProfileData.exit: ; pr
   br label %78
 
 78:                                               ; preds = %_ZN13ciTypeEntries15translate_klassEl.exit.i, %.lr.ph.i4
-  %.013.i = phi i32 [ 0, %.lr.ph.i4 ], [ %118, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
+  %.014.i = phi i32 [ 0, %.lr.ph.i4 ], [ %118, %_ZN13ciTypeEntries15translate_klassEl.exit.i ]
   %79 = load ptr, ptr %71, align 8
   %80 = load i32, ptr %75, align 8
-  %81 = shl nuw nsw i32 %.013.i, 1
+  %81 = shl nuw nsw i32 %.014.i, 1
   %82 = or disjoint i32 %81, 1
   %83 = add nsw i32 %80, %82
   %84 = getelementptr inbounds i8, ptr %79, i64 8
@@ -5638,8 +5638,8 @@ _ZN18ciReceiverTypeData28translate_receiver_data_fromEPK11ProfileData.exit: ; pr
 
 98:                                               ; preds = %91
   %99 = and i64 %89, 2
-  %.not14.i = icmp eq i64 %99, 0
-  br i1 %.not14.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
+  %.not13.i6 = icmp eq i64 %99, 0
+  br i1 %.not13.i6, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i, label %.thread.i
 
 _ZN5ciEnv9get_klassEP5Klass.exit.i.i:             ; preds = %98
   %100 = load ptr, ptr %77, align 8
@@ -5668,7 +5668,7 @@ _ZN13ciTypeEntries15translate_klassEl.exit.i:     ; preds = %.thread.i, %_ZN5ciE
   %116 = sext i32 %112 to i64
   %117 = getelementptr inbounds [1 x i64], ptr %115, i64 0, i64 %116
   store i64 %.sink.i, ptr %117, align 8
-  %118 = add nuw nsw i32 %.013.i, 1
+  %118 = add nuw nsw i32 %.014.i, 1
   %119 = load i32, ptr %72, align 4
   %120 = icmp slt i32 %118, %119
   br i1 %120, label %78, label %_ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.exit, !llvm.loop !12
@@ -5693,10 +5693,10 @@ _ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.e
   %134 = getelementptr inbounds i8, ptr %133, i64 96
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %..i6 = select i1 %136, ptr %1, ptr null
-  %137 = getelementptr inbounds i8, ptr %..i6, i64 32
+  %..i7 = select i1 %136, ptr %1, ptr null
+  %137 = getelementptr inbounds i8, ptr %..i7, i64 32
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %..i6, i64 40
+  %139 = getelementptr inbounds i8, ptr %..i7, i64 40
   %140 = load i32, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %138, i64 8
   %142 = load ptr, ptr %141, align 8
@@ -5705,8 +5705,8 @@ _ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.e
   %145 = getelementptr inbounds [1 x i64], ptr %143, i64 0, i64 %144
   %146 = load i64, ptr %145, align 8
   %147 = and i64 %146, -4
-  %.not.i7 = icmp eq i64 %147, 0
-  br i1 %.not.i7, label %.thread.i9, label %148
+  %.not.i8 = icmp eq i64 %147, 0
+  br i1 %.not.i8, label %.thread.i10, label %148
 
 148:                                              ; preds = %131
   %149 = inttoptr i64 %147 to ptr
@@ -5722,9 +5722,9 @@ _ZN22ciTypeStackSlotEntries24translate_type_data_fromEPK20TypeStackSlotEntries.e
 155:                                              ; preds = %148
   %156 = and i64 %146, 2
   %.not7.i = icmp eq i64 %156, 0
-  br i1 %.not7.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i10, label %.thread.i9
+  br i1 %.not7.i, label %_ZN5ciEnv9get_klassEP5Klass.exit.i.i11, label %.thread.i10
 
-_ZN5ciEnv9get_klassEP5Klass.exit.i.i10:           ; preds = %155
+_ZN5ciEnv9get_klassEP5Klass.exit.i.i11:           ; preds = %155
   %157 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 1808
@@ -5737,12 +5737,12 @@ _ZN5ciEnv9get_klassEP5Klass.exit.i.i10:           ; preds = %155
   %166 = or i64 %165, %164
   br label %_ZN17ciReturnTypeEntry24translate_type_data_fromEPK15ReturnTypeEntry.exit
 
-.thread.i9:                                       ; preds = %155, %131
+.thread.i10:                                      ; preds = %155, %131
   %167 = and i64 %146, 3
   br label %_ZN17ciReturnTypeEntry24translate_type_data_fromEPK15ReturnTypeEntry.exit
 
-_ZN17ciReturnTypeEntry24translate_type_data_fromEPK15ReturnTypeEntry.exit: ; preds = %153, %_ZN5ciEnv9get_klassEP5Klass.exit.i.i10, %.thread.i9
-  %.0.i.sink.i = phi i64 [ %154, %153 ], [ %166, %_ZN5ciEnv9get_klassEP5Klass.exit.i.i10 ], [ %167, %.thread.i9 ]
+_ZN17ciReturnTypeEntry24translate_type_data_fromEPK15ReturnTypeEntry.exit: ; preds = %153, %_ZN5ciEnv9get_klassEP5Klass.exit.i.i11, %.thread.i10
+  %.0.i.sink.i = phi i64 [ %154, %153 ], [ %166, %_ZN5ciEnv9get_klassEP5Klass.exit.i.i11 ], [ %167, %.thread.i10 ]
   %168 = load ptr, ptr %132, align 8
   %169 = getelementptr inbounds i8, ptr %0, i64 40
   %170 = load i32, ptr %169, align 8

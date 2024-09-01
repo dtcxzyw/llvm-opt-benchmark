@@ -2422,13 +2422,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 596:                                              ; preds = %595
   %597 = getelementptr inbounds i8, ptr %40, i64 8
   %598 = load i64, ptr %597, align 8, !noalias !43
-  %.not763 = icmp eq i64 %598, 0
-  br i1 %.not763, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i431, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i427
+  %.not755 = icmp eq i64 %598, 0
+  br i1 %.not755, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i431, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i427
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i427: ; preds = %596
   %599 = load ptr, ptr %40, align 8, !noalias !43
-  %lhsc764 = load i8, ptr %599, align 1
-  %.not.i.i.i.i429 = icmp eq i8 %lhsc764, 47
+  %lhsc756 = load i8, ptr %599, align 1
+  %.not.i.i.i.i429 = icmp eq i8 %lhsc756, 47
   %600 = icmp eq i64 %598, 1
   %or.cond.i.i430 = and i1 %600, %.not.i.i.i.i429
   br i1 %or.cond.i.i430, label %601, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread.i.i431

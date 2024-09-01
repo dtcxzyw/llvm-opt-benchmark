@@ -122,9 +122,9 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
   store i64 0, ptr %.sroa.5.0..sroa_idx6, align 8
   br label %37
 
-.critedge54:                                      ; preds = %.critedge, %.loopexit, %.loopexit.split-lp, %.critedge53.thread, %.critedge53
-  %.1 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ], [ true, %.critedge ]
-  %.pn47 = phi { ptr, i32 } [ %.pn94100, %.critedge53.thread ], [ %.pn95, %.critedge53 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %.critedge ]
+.critedge54:                                      ; preds = %.loopexit, %.loopexit.split-lp, %.critedge, %.critedge53.thread, %.critedge53
+  %.1 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ true, %.critedge ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
+  %.pn47 = phi { ptr, i32 } [ %.pn94100, %.critedge53.thread ], [ %.pn95, %.critedge53 ], [ %.pn, %.critedge ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17h4fd4e0b15e875384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #14
           to label %147 unwind label %136
 
@@ -200,7 +200,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.414.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i64 2, ptr %18, align 8
   %74 = getelementptr inbounds i8, ptr %18, i64 64
-  store i64 %.sroa.09.0.copyload138, ptr %74, align 8
+  store i64 %.sroa.09.0.copyload131, ptr %74, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
   store ptr %.sroa.511.sroa.0.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.538.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 80
@@ -380,7 +380,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17heffaac49c1b767b0E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17heffaac49c1b767b0E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17ha5ed8f2a08841605E.exit.i", %.thread.i
-  %.sroa.09.0.copyload138 = phi i64 [ %116, %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17ha5ed8f2a08841605E.exit.i" ], [ %117, %.thread.i ]
+  %.sroa.09.0.copyload131 = phi i64 [ %116, %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17ha5ed8f2a08841605E.exit.i" ], [ %117, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -391,8 +391,8 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
 
 134:                                              ; preds = %135, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17heffaac49c1b767b0E.exit"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  %.not139 = icmp eq ptr %68, %56
-  br i1 %.not139, label %._crit_edge, label %67
+  %.not119 = icmp eq ptr %68, %56
+  br i1 %.not119, label %._crit_edge, label %67
 
 135:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17heffaac49c1b767b0E.exit"
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17h9026bb45b1432256E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
@@ -484,7 +484,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.promoted, i64 32)
   br i1 %11, label %.thread17, label %.lr.ph
 
-.thread17:                                        ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h04af08bc20c66ba0E.exit", %3
+.thread17:                                        ; preds = %3
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !42, !noalias !47, !noundef !5
   br label %49
@@ -620,7 +620,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %26
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h04af08bc20c66ba0E.exit": ; preds = %61, %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !55
-  br i1 %11, label %.thread17, label %.lr.ph
+  br label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

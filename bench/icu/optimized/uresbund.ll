@@ -3357,8 +3357,8 @@ invoke.cont:                                      ; preds = %if.then2
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #21
   %2 = load i32, ptr %status, align 4
-  %cmp.i34 = icmp slt i32 %2, 1
-  br i1 %cmp.i34, label %if.end.i.i.i, label %cleanup.thread
+  %cmp.i34 = icmp sgt i32 %2, 0
+  br i1 %cmp.i34, label %cleanup.thread, label %if.end.i.i.i
 
 cleanup.thread:                                   ; preds = %invoke.cont4
   store i32 1, ptr %status, align 4
@@ -8224,8 +8224,8 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %entry
-  %len.i7 = getelementptr inbounds i8, ptr %region, i64 56
-  %5 = load i32, ptr %len.i7, align 8
+  %len.i6 = getelementptr inbounds i8, ptr %region, i64 56
+  %5 = load i32, ptr %len.i6, align 8
   %cmp.i.not = icmp eq i32 %5, 0
   br i1 %cmp.i.not, label %if.then17, label %if.then
 
@@ -8234,14 +8234,14 @@ if.then:                                          ; preds = %_ZN6icu_7510CharStr
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.then
-  %len.i8 = getelementptr inbounds i8, ptr %localeID, i64 56
-  store i32 0, ptr %len.i8, align 8
+  %len.i7 = getelementptr inbounds i8, ptr %localeID, i64 56
+  store i32 0, ptr %len.i7, align 8
   %6 = load ptr, ptr %localeID, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %language, align 8
   %len.i.i = getelementptr inbounds i8, ptr %language, i64 56
   %8 = load i32, ptr %len.i.i, align 8
-  %call3.i9 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %localeID, ptr noundef %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call3.i8 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %localeID, ptr noundef %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont1
@@ -8252,19 +8252,19 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   %9 = load ptr, ptr %agg.tmp5, align 8
   %10 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   %11 = load i32, ptr %10, align 8
-  %call3.i10 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i9, ptr noundef %9, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call3.i9 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i8, ptr noundef %9, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont6
   %12 = load ptr, ptr %region, align 8
-  %13 = load i32, ptr %len.i7, align 8
-  %call3.i12 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i10, ptr noundef %12, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %13 = load i32, ptr %len.i6, align 8
+  %call3.i11 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call3.i9, ptr noundef %12, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %14 = load i32, ptr %err, align 4
-  %cmp.i14 = icmp sgt i32 %14, 0
-  br i1 %cmp.i14, label %cleanup.thread, label %if.end
+  %cmp.i13 = icmp slt i32 %14, 1
+  br i1 %cmp.i13, label %if.end, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont9
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeID) #21
@@ -8307,10 +8307,10 @@ if.else.i:                                        ; preds = %while.body.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
   %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
-  %cmp.i16 = icmp ult ptr %bottom.1.i, %top.1.i
-  br i1 %cmp.i16, label %while.body.i, label %cleanup.thread56, !llvm.loop !30
+  %cmp.i15 = icmp ult ptr %bottom.1.i, %top.1.i
+  br i1 %cmp.i15, label %while.body.i, label %cleanup.thread55, !llvm.loop !30
 
-cleanup.thread56:                                 ; preds = %if.else.i
+cleanup.thread55:                                 ; preds = %if.else.i
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeID) #21
   br label %if.then17
 
@@ -8320,44 +8320,44 @@ cleanup:                                          ; preds = %while.body.i
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeID) #21
   br label %if.then23
 
-if.then17:                                        ; preds = %cleanup.thread56, %_ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit
+if.then17:                                        ; preds = %cleanup.thread55, %_ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit
   %20 = load ptr, ptr %language, align 8
-  br label %while.body.i17
+  br label %while.body.i16
 
-while.body.i17:                                   ; preds = %if.else.i31, %if.then17
-  %bottom.011.i18 = phi ptr [ %bottom.1.i35, %if.else.i31 ], [ @_ZL18defaultScriptTable, %if.then17 ]
-  %top.010.i19 = phi ptr [ %top.1.i34, %if.else.i31 ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.then17 ]
-  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %top.010.i19 to i64
-  %sub.ptr.rhs.cast.i21 = ptrtoint ptr %bottom.011.i18 to i64
-  %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %div.i24 = sdiv i64 %sub.ptr.div.i23, 4
-  %add.ptr1.idx.i25 = shl nsw i64 %div.i24, 3
-  %add.ptr1.i26 = getelementptr inbounds i8, ptr %bottom.011.i18, i64 %add.ptr1.idx.i25
-  %21 = load i32, ptr %add.ptr1.i26, align 4
-  %idxprom.i27 = sext i32 %21 to i64
-  %arrayidx.i28 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i27
-  %call.i29 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i28) #25
-  %cmp2.i30 = icmp eq i32 %call.i29, 0
-  br i1 %cmp2.i30, label %if.then.i38, label %if.else.i31
+while.body.i16:                                   ; preds = %if.else.i30, %if.then17
+  %bottom.011.i17 = phi ptr [ %bottom.1.i34, %if.else.i30 ], [ @_ZL18defaultScriptTable, %if.then17 ]
+  %top.010.i18 = phi ptr [ %top.1.i33, %if.else.i30 ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.then17 ]
+  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %top.010.i18 to i64
+  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %bottom.011.i17 to i64
+  %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
+  %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 2
+  %div.i23 = sdiv i64 %sub.ptr.div.i22, 4
+  %add.ptr1.idx.i24 = shl nsw i64 %div.i23, 3
+  %add.ptr1.i25 = getelementptr inbounds i8, ptr %bottom.011.i17, i64 %add.ptr1.idx.i24
+  %21 = load i32, ptr %add.ptr1.i25, align 4
+  %idxprom.i26 = sext i32 %21 to i64
+  %arrayidx.i27 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i26
+  %call.i28 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i27) #25
+  %cmp2.i29 = icmp eq i32 %call.i28, 0
+  br i1 %cmp2.i29, label %if.then.i37, label %if.else.i30
 
-if.then.i38:                                      ; preds = %while.body.i17
-  %arrayidx3.i39 = getelementptr inbounds i8, ptr %add.ptr1.i26, i64 4
-  %22 = load i32, ptr %arrayidx3.i39, align 4
+if.then.i37:                                      ; preds = %while.body.i16
+  %arrayidx3.i38 = getelementptr inbounds i8, ptr %add.ptr1.i25, i64 4
+  %22 = load i32, ptr %arrayidx3.i38, align 4
   br label %if.then23
 
-if.else.i31:                                      ; preds = %while.body.i17
-  %cmp6.i32 = icmp slt i32 %call.i29, 0
-  %add.ptr9.i33 = getelementptr inbounds i8, ptr %add.ptr1.i26, i64 8
-  %top.1.i34 = select i1 %cmp6.i32, ptr %add.ptr1.i26, ptr %top.010.i19
-  %bottom.1.i35 = select i1 %cmp6.i32, ptr %bottom.011.i18, ptr %add.ptr9.i33
-  %cmp.i36 = icmp ult ptr %bottom.1.i35, %top.1.i34
-  br i1 %cmp.i36, label %while.body.i17, label %nrvo.skipdtor, !llvm.loop !30
+if.else.i30:                                      ; preds = %while.body.i16
+  %cmp6.i31 = icmp slt i32 %call.i28, 0
+  %add.ptr9.i32 = getelementptr inbounds i8, ptr %add.ptr1.i25, i64 8
+  %top.1.i33 = select i1 %cmp6.i31, ptr %add.ptr1.i25, ptr %top.010.i18
+  %bottom.1.i34 = select i1 %cmp6.i31, ptr %bottom.011.i17, ptr %add.ptr9.i32
+  %cmp.i35 = icmp ult ptr %bottom.1.i34, %top.1.i33
+  br i1 %cmp.i35, label %while.body.i16, label %nrvo.skipdtor, !llvm.loop !30
 
-if.then23:                                        ; preds = %cleanup, %if.then.i38
-  %idxprom4.i40.pn.in = phi i32 [ %22, %if.then.i38 ], [ %19, %cleanup ]
-  %idxprom4.i40.pn = sext i32 %idxprom4.i40.pn.in to i64
-  %defaultScript.2.ph = getelementptr inbounds i8, ptr @_ZL15scriptCodeChars, i64 %idxprom4.i40.pn
+if.then23:                                        ; preds = %cleanup, %if.then.i37
+  %idxprom4.i39.pn.in = phi i32 [ %22, %if.then.i37 ], [ %19, %cleanup ]
+  %idxprom4.i39.pn = sext i32 %idxprom4.i39.pn.in to i64
+  %defaultScript.2.ph = getelementptr inbounds i8, ptr @_ZL15scriptCodeChars, i64 %idxprom4.i39.pn
   store i32 0, ptr %len.i, align 8
   %23 = load ptr, ptr %agg.result, align 8
   store i8 0, ptr %23, align 1
@@ -8368,10 +8368,10 @@ invoke.cont27:                                    ; preds = %if.then23
   %24 = load ptr, ptr %agg.tmp26, align 8
   %25 = getelementptr inbounds i8, ptr %agg.tmp26, i64 8
   %26 = load i32, ptr %25, align 8
-  %call3.i44 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, ptr noundef %24, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call3.i43 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %agg.result, ptr noundef %24, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %nrvo.skipdtor unwind label %lpad
 
-nrvo.skipdtor:                                    ; preds = %if.else.i31, %invoke.cont27, %cleanup.thread
+nrvo.skipdtor:                                    ; preds = %if.else.i30, %invoke.cont27, %cleanup.thread
   ret void
 }
 

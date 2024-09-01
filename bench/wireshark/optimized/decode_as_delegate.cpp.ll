@@ -6340,7 +6340,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %47, label %_ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit.thread, label %.lr.ph.i, !llvm.loop !60
 
 _ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit.thread: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %7
-  %.0.lcssa.i18 = phi i64 [ %18, %7 ], [ %.016.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.0.lcssa.i18 = phi i64 [ %18, %7 ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %.016.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ]
   %48 = load atomic i32, ptr %3 monotonic, align 4
   %49 = icmp ugt i32 %48, 1
   br i1 %49, label %50, label %_ZN5QHashI7QString15QHashDummyValueE6detachEv.exit

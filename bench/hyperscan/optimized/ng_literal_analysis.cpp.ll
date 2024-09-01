@@ -7273,8 +7273,8 @@ while.body.lr.ph.split.i:                         ; preds = %if.then17.i, %while
   %sit.sroa.0.0.ph62.i = phi ptr [ %call.i.i, %if.then17.i ], [ %6, %while.body.lr.ph.preheader.i ]
   %bit.sroa.0.0.ph61.i = phi ptr [ %call.i11.i, %if.then17.i ], [ %7, %while.body.lr.ph.preheader.i ]
   %agg.tmp22.sroa.2.0.call23.sroa_idx.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i, i64 40
-  %cmp.i838.i.not = icmp eq ptr %bit.sroa.0.0.ph61.i, %2
-  br i1 %cmp.i838.i.not, label %cleanup, label %if.end13.lr.ph.i
+  %cmp.i838.not.i = icmp eq ptr %bit.sroa.0.0.ph61.i, %2
+  br i1 %cmp.i838.not.i, label %cleanup, label %if.end13.lr.ph.i
 
 if.end13.lr.ph.i:                                 ; preds = %while.body.lr.ph.split.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i, i64 32

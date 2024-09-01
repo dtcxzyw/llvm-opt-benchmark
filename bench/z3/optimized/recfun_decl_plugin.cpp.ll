@@ -5119,7 +5119,7 @@ terminate.lpad.i.i87:                             ; preds = %if.then.i.i.i85
   unreachable
 
 cleanup:                                          ; preds = %while.body.i.i.i.i, %invoke.cont8, %if.then.i.i.i85, %_ZN10ptr_vectorI4exprED2Ev.exit, %for.end
-  %cmp22151 = phi i1 [ %cmp22, %if.then.i.i.i85 ], [ %cmp22, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ false, %for.end ], [ false, %invoke.cont8 ], [ false, %while.body.i.i.i.i ]
+  %cmp22151 = phi i1 [ true, %if.then.i.i.i85 ], [ true, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ false, %for.end ], [ false, %invoke.cont8 ], [ false, %while.body.i.i.i.i ]
   %68 = phi ptr [ %52, %if.then.i.i.i85 ], [ %52, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ %2, %for.end ], [ %2, %invoke.cont8 ], [ %2, %while.body.i.i.i.i ]
   %69 = load ptr, ptr %scores, align 8
   %cmp.i.i.i.i88 = icmp eq ptr %69, null

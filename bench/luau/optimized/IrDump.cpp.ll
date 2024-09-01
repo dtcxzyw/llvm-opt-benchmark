@@ -1676,40 +1676,35 @@ _ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i:     ; preds = %87
 _ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit: ; preds = %29, %73, %76, %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i, %97
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %100 = load i64, ptr %9, align 8
-  %.not.i1.i = icmp eq i64 %100, 0
-  br i1 %.not.i1.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
+  br label %100
 
-.lr.ph.i:                                         ; preds = %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit, %102
-  %.05.i2.i = phi i64 [ %101, %102 ], [ 0, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit ]
-  %101 = add nuw nsw i64 %.05.i2.i, 1
-  %exitcond.not.i.i = icmp eq i64 %101, 4
-  br i1 %exitcond.not.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread31, label %102, !llvm.loop !14
+100:                                              ; preds = %100, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
+  %.05.i.i = phi i64 [ 0, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit ], [ %103, %100 ]
+  %101 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %.05.i.i
+  %102 = load i64, ptr %101, align 8
+  %.not.not.i.i = icmp ne i64 %102, 0
+  %103 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %103, 4
+  %or.cond.i.i = select i1 %.not.not.i.i, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, label %100, !llvm.loop !14
 
-102:                                              ; preds = %.lr.ph.i
-  %103 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %101
-  %104 = load i64, ptr %103, align 8
-  %.not.i.i = icmp eq i64 %104, 0
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, !llvm.loop !14
+_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %100
+  br i1 %.not.not.i.i, label %108, label %104
 
-_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %102
-  %105 = icmp ult i64 %.05.i2.i, 3
-  br i1 %105, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread31
+104:                                              ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit
+  %105 = getelementptr inbounds i8, ptr %9, i64 32
+  %106 = load i8, ptr %105, align 8
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %142
 
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread31:        ; preds = %.lr.ph.i, %_ZNKSt6bitsetILm256EE3anyEv.exit
-  %106 = getelementptr inbounds i8, ptr %9, i64 32
-  %107 = load i8, ptr %106, align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread, label %142
-
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread:          ; preds = %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread31, %_ZNKSt6bitsetILm256EE3anyEv.exit
+108:                                              ; preds = %104, %_ZNKSt6bitsetILm256EE3anyEv.exit
   %109 = load ptr, ptr %0, align 8
   call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.193, i32 noundef %4)
   br label %_ZNKSt6bitsetILm256EE4testEm.exit.i
 
-_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %124, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
-  %.017.i = phi i64 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %125, %124 ]
-  %.01516.i = phi i8 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %.1.i, %124 ]
+_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %124, %108
+  %.017.i = phi i64 [ 0, %108 ], [ %125, %124 ]
+  %.01516.i = phi i8 [ 0, %108 ], [ %.1.i, %124 ]
   %110 = lshr i64 %.017.i, 6
   %111 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %110
   %112 = load i64, ptr %111, align 8
@@ -1768,7 +1763,7 @@ _ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSe
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.194)
   br label %153
 
-142:                                              ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit.thread31
+142:                                              ; preds = %104
   %143 = load ptr, ptr %0, align 8
   call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull @.str.195, i32 noundef %4)
   br label %153
@@ -1804,484 +1799,469 @@ define dso_local void @_ZN4Luau7CodeGen16toStringDetailedERNS0_17IrToStringConte
   %8 = getelementptr inbounds i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = icmp ne i16 %9, 0
-  %or.cond.not114 = select i1 %7, i1 true, i1 %10
+  %or.cond.not101 = select i1 %7, i1 true, i1 %10
   %11 = load i8, ptr %1, align 4
   %.not = icmp eq i8 %11, 4
-  %or.cond61 = select i1 %or.cond.not114, i1 true, i1 %.not
-  br i1 %or.cond61, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107, label %12
+  %or.cond61 = select i1 %or.cond.not101, i1 true, i1 %.not
+  br i1 %or.cond61, label %switch.lookup, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 264
-  %16 = load i64, ptr %15, align 8
-  %.not.i1.i = icmp eq i64 %16, 0
-  br i1 %.not.i1.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
+  br label %16
 
-.lr.ph.i:                                         ; preds = %12, %18
-  %.05.i2.i = phi i64 [ %17, %18 ], [ 0, %12 ]
-  %17 = add nuw nsw i64 %.05.i2.i, 1
-  %exitcond.not.i.i = icmp eq i64 %17, 4
-  br i1 %exitcond.not.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107, label %18, !llvm.loop !14
+16:                                               ; preds = %16, %12
+  %.05.i.i = phi i64 [ 0, %12 ], [ %19, %16 ]
+  %17 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 %.05.i.i
+  %18 = load i64, ptr %17, align 8
+  %.not.not.i.i = icmp ne i64 %18, 0
+  %19 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %19, 4
+  %or.cond.i.i = select i1 %.not.not.i.i, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, label %16, !llvm.loop !14
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds [4 x i64], ptr %15, i64 0, i64 %17
-  %20 = load i64, ptr %19, align 8
-  %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, !llvm.loop !14
+_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %16
+  br i1 %.not.not.i.i, label %20, label %switch.lookup
 
-_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %18
-  %21 = icmp ult i64 %.05.i2.i, 3
-  br i1 %21, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107
-
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread:          ; preds = %12, %_ZNKSt6bitsetILm256EE3anyEv.exit
-  %22 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.197)
-  %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 264
+20:                                               ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit
+  %21 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.197)
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 264
   br label %_ZNKSt6bitsetILm256EE4testEm.exit.i
 
-_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %39, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
-  %.017.i = phi i64 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %40, %39 ]
-  %.01516.i = phi i8 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %.1.i, %39 ]
-  %25 = lshr i64 %.017.i, 6
-  %26 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 %25
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %.017.i, 63
-  %29 = shl nuw i64 1, %28
-  %30 = and i64 %27, %29
-  %.not.i = icmp eq i64 %30, 0
-  br i1 %.not.i, label %39, label %31
+_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %38, %20
+  %.017.i = phi i64 [ 0, %20 ], [ %39, %38 ]
+  %.01516.i = phi i8 [ 0, %20 ], [ %.1.i, %38 ]
+  %24 = lshr i64 %.017.i, 6
+  %25 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 %24
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %.017.i, 63
+  %28 = shl nuw i64 1, %27
+  %29 = and i64 %26, %28
+  %.not.i = icmp eq i64 %29, 0
+  br i1 %.not.i, label %38, label %30
 
-31:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
-  %32 = trunc nuw i8 %.01516.i to i1
-  br i1 %32, label %33, label %36
+30:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
+  %31 = trunc nuw i8 %.01516.i to i1
+  br i1 %31, label %32, label %35
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %0, align 8
-  %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.152)
-  br label %36
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %0, align 8
+  %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.152)
+  br label %35
 
-36:                                               ; preds = %33, %31
-  %37 = load ptr, ptr %0, align 8
-  %38 = trunc nuw i64 %.017.i to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.156, i32 noundef %38)
-  br label %39
+35:                                               ; preds = %32, %30
+  %36 = load ptr, ptr %0, align 8
+  %37 = trunc nuw i64 %.017.i to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.156, i32 noundef %37)
+  br label %38
 
-39:                                               ; preds = %36, %_ZNKSt6bitsetILm256EE4testEm.exit.i
-  %.1.i = phi i8 [ 1, %36 ], [ %.01516.i, %_ZNKSt6bitsetILm256EE4testEm.exit.i ]
-  %40 = add nuw nsw i64 %.017.i, 1
-  %exitcond.not.i = icmp eq i64 %40, 256
-  br i1 %exitcond.not.i, label %41, label %_ZNKSt6bitsetILm256EE4testEm.exit.i, !llvm.loop !15
+38:                                               ; preds = %35, %_ZNKSt6bitsetILm256EE4testEm.exit.i
+  %.1.i = phi i8 [ 1, %35 ], [ %.01516.i, %_ZNKSt6bitsetILm256EE4testEm.exit.i ]
+  %39 = add nuw nsw i64 %.017.i, 1
+  %exitcond.not.i = icmp eq i64 %39, 256
+  br i1 %exitcond.not.i, label %40, label %_ZNKSt6bitsetILm256EE4testEm.exit.i, !llvm.loop !15
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %23, i64 296
-  %43 = load i8, ptr %42, align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %22, i64 296
+  %42 = load i8, ptr %41, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit
 
-45:                                               ; preds = %41
-  %46 = trunc nuw i8 %.1.i to i1
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %40
+  %45 = trunc nuw i8 %.1.i to i1
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %0, align 8
-  %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.152)
-  br label %50
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %0, align 8
+  %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.152)
+  br label %49
 
-50:                                               ; preds = %47, %45
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %23, i64 297
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.247, i32 noundef %54)
+49:                                               ; preds = %46, %44
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds i8, ptr %22, i64 297
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.247, i32 noundef %53)
   br label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit
 
-_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit: ; preds = %41, %50
-  %55 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull @.str.198)
-  br label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107
-
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread107:       ; preds = %.lr.ph.i, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit, %_ZNKSt6bitsetILm256EE3anyEv.exit, %6
-  %56 = load ptr, ptr %0, align 8
-  %57 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #13
-  %58 = load ptr, ptr %0, align 8
-  %59 = load i8, ptr %1, align 4
-  %60 = sext i8 %59 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %60
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load, i32 noundef %2)
-  %61 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.199)
-  %62 = icmp eq i32 %3, 1
-  %63 = load ptr, ptr %0, align 8
-  br i1 %62, label %64, label %74
-
-64:                                               ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107
-  %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #13
-  %.neg.i = sub i64 %57, %65
-  %.neg4.i = trunc i64 %.neg.i to i32
-  %66 = add i32 %.neg4.i, 60
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-
-68:                                               ; preds = %64
-  %69 = zext nneg i32 %66 to i64
-  %70 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %69, i8 noundef signext 32)
-  br label %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-
-_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %64, %68
-  %71 = load ptr, ptr %0, align 8
-  %72 = load i16, ptr %8, align 2
-  %73 = zext i16 %72 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.200, i32 noundef %73)
-  br label %76
-
-74:                                               ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit.thread107
-  %75 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull @.str.194)
-  br label %76
-
-76:                                               ; preds = %74, %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-  %77 = icmp eq i32 %4, 1
-  br i1 %77, label %78, label %.critedge
-
-78:                                               ; preds = %76
-  %79 = zext i32 %2 to i64
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %82, align 8
-  %86 = ptrtoint ptr %84 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  %89 = ashr exact i64 %88, 2
-  %90 = icmp ugt i64 %89, %79
-  br i1 %90, label %91, label %111
-
-91:                                               ; preds = %78
-  %92 = tail call { ptr, ptr } @_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304) %81, i32 noundef %2)
-  %93 = extractvalue { ptr, ptr } %92, 0
-  %94 = extractvalue { ptr, ptr } %92, 1
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %111, label %.lr.ph.i64
-
-.lr.ph.i64:                                       ; preds = %91
-  %96 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull @.str.201)
-  %97 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %98
-
-98:                                               ; preds = %switch.lookup, %.lr.ph.i64
-  %.014.i = phi i1 [ false, %.lr.ph.i64 ], [ true, %switch.lookup ]
-  %.01113.i = phi ptr [ %93, %.lr.ph.i64 ], [ %109, %switch.lookup ]
-  %99 = load i32, ptr %.01113.i, align 4
-  br i1 %.014.i, label %100, label %switch.lookup
-
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.152)
+_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit: ; preds = %40, %49
+  %54 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.198)
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %100, %98
-  %102 = load ptr, ptr %97, align 8
-  %103 = zext i32 %99 to i64
-  %104 = load ptr, ptr %102, align 8
-  %105 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %104, i64 %103
-  %106 = load ptr, ptr %0, align 8
-  %107 = load i8, ptr %105, align 4
-  %108 = sext i8 %107 to i64
-  %switch.gep127 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %108
-  %switch.load128 = load ptr, ptr %switch.gep127, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load128, i32 noundef %99)
-  %109 = getelementptr inbounds i8, ptr %.01113.i, i64 4
-  %.not.i65 = icmp eq ptr %109, %94
-  br i1 %.not.i65, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit, label %98
+switch.lookup:                                    ; preds = %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit, %_ZNKSt6bitsetILm256EE3anyEv.exit, %6
+  %55 = load ptr, ptr %0, align 8
+  %56 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #13
+  %57 = load ptr, ptr %0, align 8
+  %58 = load i8, ptr %1, align 4
+  %59 = sext i8 %58 to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %59
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load, i32 noundef %2)
+  %60 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull @.str.199)
+  %61 = icmp eq i32 %3, 1
+  %62 = load ptr, ptr %0, align 8
+  br i1 %61, label %63, label %73
 
-_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit: ; preds = %switch.lookup
-  %110 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.194)
-  br label %111
+63:                                               ; preds = %switch.lookup
+  %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #13
+  %.neg.i = sub i64 %56, %64
+  %.neg4.i = trunc i64 %.neg.i to i32
+  %65 = add i32 %.neg4.i, 60
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-111:                                              ; preds = %78, %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit, %91
-  %112 = load ptr, ptr %80, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 72
-  %114 = getelementptr inbounds i8, ptr %112, i64 80
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %113, align 8
+67:                                               ; preds = %63
+  %68 = zext nneg i32 %65 to i64
+  %69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef %68, i8 noundef signext 32)
+  br label %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+
+_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %63, %67
+  %70 = load ptr, ptr %0, align 8
+  %71 = load i16, ptr %8, align 2
+  %72 = zext i16 %71 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull @.str.200, i32 noundef %72)
+  br label %75
+
+73:                                               ; preds = %switch.lookup
+  %74 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.194)
+  br label %75
+
+75:                                               ; preds = %73, %_ZN4Luau7CodeGenL17padToDetailColumnERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+  %76 = icmp eq i32 %4, 1
+  br i1 %76, label %77, label %.critedge
+
+77:                                               ; preds = %75
+  %78 = zext i32 %2 to i64
+  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = getelementptr inbounds i8, ptr %80, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %81, align 8
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = ashr exact i64 %87, 2
+  %89 = icmp ugt i64 %88, %78
+  br i1 %89, label %90, label %110
+
+90:                                               ; preds = %77
+  %91 = tail call { ptr, ptr } @_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304) %80, i32 noundef %2)
+  %92 = extractvalue { ptr, ptr } %91, 0
+  %93 = extractvalue { ptr, ptr } %91, 1
+  %94 = icmp eq ptr %92, %93
+  br i1 %94, label %110, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %90
+  %95 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.201)
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %97
+
+97:                                               ; preds = %switch.lookup102, %.lr.ph.i
+  %.014.i = phi i1 [ false, %.lr.ph.i ], [ true, %switch.lookup102 ]
+  %.01113.i = phi ptr [ %92, %.lr.ph.i ], [ %108, %switch.lookup102 ]
+  %98 = load i32, ptr %.01113.i, align 4
+  br i1 %.014.i, label %99, label %switch.lookup102
+
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull @.str.152)
+  br label %switch.lookup102
+
+switch.lookup102:                                 ; preds = %99, %97
+  %101 = load ptr, ptr %96, align 8
+  %102 = zext i32 %98 to i64
+  %103 = load ptr, ptr %101, align 8
+  %104 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %103, i64 %102
+  %105 = load ptr, ptr %0, align 8
+  %106 = load i8, ptr %104, align 4
+  %107 = sext i8 %106 to i64
+  %switch.gep103 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %107
+  %switch.load104 = load ptr, ptr %switch.gep103, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load104, i32 noundef %98)
+  %108 = getelementptr inbounds i8, ptr %.01113.i, i64 4
+  %.not.i64 = icmp eq ptr %108, %93
+  br i1 %.not.i64, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit, label %97
+
+_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit: ; preds = %switch.lookup102
+  %109 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.194)
+  br label %110
+
+110:                                              ; preds = %77, %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit, %90
+  %111 = load ptr, ptr %79, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 72
+  %113 = getelementptr inbounds i8, ptr %111, i64 80
+  %114 = load ptr, ptr %113, align 8
+  %115 = load ptr, ptr %112, align 8
+  %116 = ptrtoint ptr %114 to i64
   %117 = ptrtoint ptr %115 to i64
-  %118 = ptrtoint ptr %116 to i64
-  %119 = sub i64 %117, %118
-  %120 = ashr exact i64 %119, 2
-  %121 = icmp ugt i64 %120, %79
-  br i1 %121, label %122, label %.critedge
+  %118 = sub i64 %116, %117
+  %119 = ashr exact i64 %118, 2
+  %120 = icmp ugt i64 %119, %78
+  br i1 %120, label %121, label %.critedge
 
-122:                                              ; preds = %111
-  %123 = tail call { ptr, ptr } @_ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304) %112, i32 noundef %2)
-  %124 = extractvalue { ptr, ptr } %123, 0
-  %125 = extractvalue { ptr, ptr } %123, 1
-  %126 = icmp eq ptr %124, %125
-  br i1 %126, label %.critedge, label %.lr.ph.i67
+121:                                              ; preds = %110
+  %122 = tail call { ptr, ptr } @_ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304) %111, i32 noundef %2)
+  %123 = extractvalue { ptr, ptr } %122, 0
+  %124 = extractvalue { ptr, ptr } %122, 1
+  %125 = icmp eq ptr %123, %124
+  br i1 %125, label %.critedge, label %.lr.ph.i66
 
-.lr.ph.i67:                                       ; preds = %122
-  %127 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull @.str.202)
-  %128 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %129
+.lr.ph.i66:                                       ; preds = %121
+  %126 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull @.str.202)
+  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %128
 
-129:                                              ; preds = %switch.lookup129, %.lr.ph.i67
-  %.014.i68 = phi i1 [ false, %.lr.ph.i67 ], [ true, %switch.lookup129 ]
-  %.01113.i69 = phi ptr [ %124, %.lr.ph.i67 ], [ %140, %switch.lookup129 ]
-  %130 = load i32, ptr %.01113.i69, align 4
-  br i1 %.014.i68, label %131, label %switch.lookup129
+128:                                              ; preds = %switch.lookup105, %.lr.ph.i66
+  %.014.i67 = phi i1 [ false, %.lr.ph.i66 ], [ true, %switch.lookup105 ]
+  %.01113.i68 = phi ptr [ %123, %.lr.ph.i66 ], [ %139, %switch.lookup105 ]
+  %129 = load i32, ptr %.01113.i68, align 4
+  br i1 %.014.i67, label %130, label %switch.lookup105
 
-131:                                              ; preds = %129
-  %132 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull @.str.152)
-  br label %switch.lookup129
+130:                                              ; preds = %128
+  %131 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull @.str.152)
+  br label %switch.lookup105
 
-switch.lookup129:                                 ; preds = %131, %129
-  %133 = load ptr, ptr %128, align 8
-  %134 = zext i32 %130 to i64
-  %135 = load ptr, ptr %133, align 8
-  %136 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %135, i64 %134
-  %137 = load ptr, ptr %0, align 8
-  %138 = load i8, ptr %136, align 4
-  %139 = sext i8 %138 to i64
-  %switch.gep130 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %139
-  %switch.load131 = load ptr, ptr %switch.gep130, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load131, i32 noundef %130)
-  %140 = getelementptr inbounds i8, ptr %.01113.i69, i64 4
-  %.not.i72 = icmp eq ptr %140, %125
-  br i1 %.not.i72, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit73, label %129
+switch.lookup105:                                 ; preds = %130, %128
+  %132 = load ptr, ptr %127, align 8
+  %133 = zext i32 %129 to i64
+  %134 = load ptr, ptr %132, align 8
+  %135 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %134, i64 %133
+  %136 = load ptr, ptr %0, align 8
+  %137 = load i8, ptr %135, align 4
+  %138 = sext i8 %137 to i64
+  %switch.gep106 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %138
+  %switch.load107 = load ptr, ptr %switch.gep106, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull @.str.153, ptr noundef nonnull %switch.load107, i32 noundef %129)
+  %139 = getelementptr inbounds i8, ptr %.01113.i68, i64 4
+  %.not.i71 = icmp eq ptr %139, %124
+  br i1 %.not.i71, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit72, label %128
 
-_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit73: ; preds = %switch.lookup129
-  %141 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull @.str.194)
+_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit72: ; preds = %switch.lookup105
+  %140 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.194)
   br label %.critedge
 
-.critedge:                                        ; preds = %76, %122, %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit73, %111
-  br i1 %7, label %.critedge63, label %142
+.critedge:                                        ; preds = %75, %121, %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit72, %110
+  br i1 %7, label %.critedge63, label %141
 
-142:                                              ; preds = %.critedge
-  %143 = zext i32 %2 to i64
-  %144 = getelementptr inbounds i8, ptr %0, i64 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 192
-  %147 = getelementptr inbounds i8, ptr %145, i64 200
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %146, align 8
+141:                                              ; preds = %.critedge
+  %142 = zext i32 %2 to i64
+  %143 = getelementptr inbounds i8, ptr %0, i64 24
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 192
+  %146 = getelementptr inbounds i8, ptr %144, i64 200
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %145, align 8
+  %149 = ptrtoint ptr %147 to i64
   %150 = ptrtoint ptr %148 to i64
-  %151 = ptrtoint ptr %149 to i64
-  %152 = sub i64 %150, %151
-  %153 = sdiv exact i64 %152, 40
-  %154 = icmp ugt i64 %153, %143
-  br i1 %154, label %155, label %198
+  %151 = sub i64 %149, %150
+  %152 = sdiv exact i64 %151, 40
+  %153 = icmp ugt i64 %152, %142
+  br i1 %153, label %154, label %197
 
-155:                                              ; preds = %142
-  %156 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %149, i64 %143
-  %157 = load i64, ptr %156, align 8
-  %.not.i1.i74 = icmp eq i64 %157, 0
-  br i1 %.not.i1.i74, label %.lr.ph.i76, label %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread
+154:                                              ; preds = %141
+  %155 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %148, i64 %142
+  br label %156
 
-.lr.ph.i76:                                       ; preds = %155, %159
-  %.05.i2.i77 = phi i64 [ %158, %159 ], [ 0, %155 ]
-  %158 = add nuw nsw i64 %.05.i2.i77, 1
-  %exitcond.not.i.i78 = icmp eq i64 %158, 4
-  br i1 %exitcond.not.i.i78, label %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109, label %159, !llvm.loop !14
+156:                                              ; preds = %156, %154
+  %.05.i.i73 = phi i64 [ 0, %154 ], [ %159, %156 ]
+  %157 = getelementptr inbounds [4 x i64], ptr %155, i64 0, i64 %.05.i.i73
+  %158 = load i64, ptr %157, align 8
+  %.not.not.i.i74 = icmp ne i64 %158, 0
+  %159 = add nuw nsw i64 %.05.i.i73, 1
+  %exitcond.not.i.i75 = icmp eq i64 %159, 4
+  %or.cond.i.i76 = select i1 %.not.not.i.i74, i1 true, i1 %exitcond.not.i.i75
+  br i1 %or.cond.i.i76, label %_ZNKSt6bitsetILm256EE3anyEv.exit77, label %156, !llvm.loop !14
 
-159:                                              ; preds = %.lr.ph.i76
-  %160 = getelementptr inbounds [4 x i64], ptr %156, i64 0, i64 %158
-  %161 = load i64, ptr %160, align 8
-  %.not.i.i79 = icmp eq i64 %161, 0
-  br i1 %.not.i.i79, label %.lr.ph.i76, label %_ZNKSt6bitsetILm256EE3anyEv.exit81, !llvm.loop !14
+_ZNKSt6bitsetILm256EE3anyEv.exit77:               ; preds = %156
+  br i1 %.not.not.i.i74, label %164, label %160
 
-_ZNKSt6bitsetILm256EE3anyEv.exit81:               ; preds = %159
-  %162 = icmp ult i64 %.05.i2.i77, 3
-  br i1 %162, label %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread, label %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109
+160:                                              ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit77
+  %161 = getelementptr inbounds i8, ptr %155, i64 32
+  %162 = load i8, ptr %161, align 8
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %197
 
-_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109:     ; preds = %.lr.ph.i76, %_ZNKSt6bitsetILm256EE3anyEv.exit81
-  %163 = getelementptr inbounds i8, ptr %156, i64 32
-  %164 = load i8, ptr %163, align 8
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread, label %198
+164:                                              ; preds = %160, %_ZNKSt6bitsetILm256EE3anyEv.exit77
+  %165 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull @.str.203)
+  br label %_ZNKSt6bitsetILm256EE4testEm.exit.i78
 
-_ZNKSt6bitsetILm256EE3anyEv.exit81.thread:        ; preds = %155, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109, %_ZNKSt6bitsetILm256EE3anyEv.exit81
-  %166 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull @.str.203)
-  br label %_ZNKSt6bitsetILm256EE4testEm.exit.i82
+_ZNKSt6bitsetILm256EE4testEm.exit.i78:            ; preds = %180, %164
+  %.017.i79 = phi i64 [ 0, %164 ], [ %181, %180 ]
+  %.01516.i80 = phi i8 [ 0, %164 ], [ %.1.i82, %180 ]
+  %166 = lshr i64 %.017.i79, 6
+  %167 = getelementptr inbounds [4 x i64], ptr %155, i64 0, i64 %166
+  %168 = load i64, ptr %167, align 8
+  %169 = and i64 %.017.i79, 63
+  %170 = shl nuw i64 1, %169
+  %171 = and i64 %168, %170
+  %.not.i81 = icmp eq i64 %171, 0
+  br i1 %.not.i81, label %180, label %172
 
-_ZNKSt6bitsetILm256EE4testEm.exit.i82:            ; preds = %181, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread
-  %.017.i83 = phi i64 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread ], [ %182, %181 ]
-  %.01516.i84 = phi i8 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread ], [ %.1.i86, %181 ]
-  %167 = lshr i64 %.017.i83, 6
-  %168 = getelementptr inbounds [4 x i64], ptr %156, i64 0, i64 %167
-  %169 = load i64, ptr %168, align 8
-  %170 = and i64 %.017.i83, 63
-  %171 = shl nuw i64 1, %170
-  %172 = and i64 %169, %171
-  %.not.i85 = icmp eq i64 %172, 0
-  br i1 %.not.i85, label %181, label %173
+172:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i78
+  %173 = trunc nuw i8 %.01516.i80 to i1
+  br i1 %173, label %174, label %177
 
-173:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i82
-  %174 = trunc nuw i8 %.01516.i84 to i1
-  br i1 %174, label %175, label %178
+174:                                              ; preds = %172
+  %175 = load ptr, ptr %0, align 8
+  %176 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull @.str.152)
+  br label %177
 
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %0, align 8
-  %177 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull @.str.152)
-  br label %178
+177:                                              ; preds = %174, %172
+  %178 = load ptr, ptr %0, align 8
+  %179 = trunc nuw i64 %.017.i79 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull @.str.156, i32 noundef %179)
+  br label %180
 
-178:                                              ; preds = %175, %173
-  %179 = load ptr, ptr %0, align 8
-  %180 = trunc nuw i64 %.017.i83 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull @.str.156, i32 noundef %180)
-  br label %181
+180:                                              ; preds = %177, %_ZNKSt6bitsetILm256EE4testEm.exit.i78
+  %.1.i82 = phi i8 [ 1, %177 ], [ %.01516.i80, %_ZNKSt6bitsetILm256EE4testEm.exit.i78 ]
+  %181 = add nuw nsw i64 %.017.i79, 1
+  %exitcond.not.i83 = icmp eq i64 %181, 256
+  br i1 %exitcond.not.i83, label %182, label %_ZNKSt6bitsetILm256EE4testEm.exit.i78, !llvm.loop !15
 
-181:                                              ; preds = %178, %_ZNKSt6bitsetILm256EE4testEm.exit.i82
-  %.1.i86 = phi i8 [ 1, %178 ], [ %.01516.i84, %_ZNKSt6bitsetILm256EE4testEm.exit.i82 ]
-  %182 = add nuw nsw i64 %.017.i83, 1
-  %exitcond.not.i87 = icmp eq i64 %182, 256
-  br i1 %exitcond.not.i87, label %183, label %_ZNKSt6bitsetILm256EE4testEm.exit.i82, !llvm.loop !15
+182:                                              ; preds = %180
+  %183 = getelementptr inbounds i8, ptr %155, i64 32
+  %184 = load i8, ptr %183, align 8
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit84
 
-183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %156, i64 32
-  %185 = load i8, ptr %184, align 8
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %187, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit88
+186:                                              ; preds = %182
+  %187 = trunc nuw i8 %.1.i82 to i1
+  br i1 %187, label %188, label %191
 
-187:                                              ; preds = %183
-  %188 = trunc nuw i8 %.1.i86 to i1
-  br i1 %188, label %189, label %192
+188:                                              ; preds = %186
+  %189 = load ptr, ptr %0, align 8
+  %190 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull @.str.152)
+  br label %191
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %0, align 8
-  %191 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull @.str.152)
-  br label %192
+191:                                              ; preds = %188, %186
+  %192 = load ptr, ptr %0, align 8
+  %193 = getelementptr inbounds i8, ptr %155, i64 33
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull @.str.247, i32 noundef %195)
+  br label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit84
 
-192:                                              ; preds = %189, %187
-  %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %156, i64 33
-  %195 = load i8, ptr %194, align 1
-  %196 = zext i8 %195 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull @.str.247, i32 noundef %196)
-  br label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit88
+_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit84: ; preds = %182, %191
+  %196 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull @.str.194)
+  %.pre = load ptr, ptr %143, align 8
+  br label %197
 
-_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit88: ; preds = %183, %192
-  %197 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull @.str.194)
-  %.pre = load ptr, ptr %144, align 8
-  br label %198
-
-198:                                              ; preds = %142, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit88, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109
-  %199 = phi ptr [ %145, %142 ], [ %.pre, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit88 ], [ %145, %_ZNKSt6bitsetILm256EE3anyEv.exit81.thread109 ]
-  %200 = getelementptr inbounds i8, ptr %199, i64 240
-  %201 = getelementptr inbounds i8, ptr %199, i64 248
-  %202 = load ptr, ptr %201, align 8
-  %203 = load ptr, ptr %200, align 8
+197:                                              ; preds = %141, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit84, %160
+  %198 = phi ptr [ %144, %141 ], [ %.pre, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit84 ], [ %144, %160 ]
+  %199 = getelementptr inbounds i8, ptr %198, i64 240
+  %200 = getelementptr inbounds i8, ptr %198, i64 248
+  %201 = load ptr, ptr %200, align 8
+  %202 = load ptr, ptr %199, align 8
+  %203 = ptrtoint ptr %201 to i64
   %204 = ptrtoint ptr %202 to i64
-  %205 = ptrtoint ptr %203 to i64
-  %206 = sub i64 %204, %205
-  %207 = sdiv exact i64 %206, 40
-  %208 = icmp ugt i64 %207, %143
-  br i1 %208, label %209, label %.critedge63
+  %205 = sub i64 %203, %204
+  %206 = sdiv exact i64 %205, 40
+  %207 = icmp ugt i64 %206, %142
+  br i1 %207, label %208, label %.critedge63
 
-209:                                              ; preds = %198
-  %210 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %203, i64 %143
-  %211 = load i64, ptr %210, align 8
-  %.not.i1.i89 = icmp eq i64 %211, 0
-  br i1 %.not.i1.i89, label %.lr.ph.i91, label %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread
+208:                                              ; preds = %197
+  %209 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %202, i64 %142
+  br label %210
 
-.lr.ph.i91:                                       ; preds = %209, %213
-  %.05.i2.i92 = phi i64 [ %212, %213 ], [ 0, %209 ]
-  %212 = add nuw nsw i64 %.05.i2.i92, 1
-  %exitcond.not.i.i93 = icmp eq i64 %212, 4
-  br i1 %exitcond.not.i.i93, label %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread111, label %213, !llvm.loop !14
+210:                                              ; preds = %210, %208
+  %.05.i.i85 = phi i64 [ 0, %208 ], [ %213, %210 ]
+  %211 = getelementptr inbounds [4 x i64], ptr %209, i64 0, i64 %.05.i.i85
+  %212 = load i64, ptr %211, align 8
+  %.not.not.i.i86 = icmp ne i64 %212, 0
+  %213 = add nuw nsw i64 %.05.i.i85, 1
+  %exitcond.not.i.i87 = icmp eq i64 %213, 4
+  %or.cond.i.i88 = select i1 %.not.not.i.i86, i1 true, i1 %exitcond.not.i.i87
+  br i1 %or.cond.i.i88, label %_ZNKSt6bitsetILm256EE3anyEv.exit89, label %210, !llvm.loop !14
 
-213:                                              ; preds = %.lr.ph.i91
-  %214 = getelementptr inbounds [4 x i64], ptr %210, i64 0, i64 %212
-  %215 = load i64, ptr %214, align 8
-  %.not.i.i94 = icmp eq i64 %215, 0
-  br i1 %.not.i.i94, label %.lr.ph.i91, label %_ZNKSt6bitsetILm256EE3anyEv.exit96, !llvm.loop !14
+_ZNKSt6bitsetILm256EE3anyEv.exit89:               ; preds = %210
+  br i1 %.not.not.i.i86, label %218, label %214
 
-_ZNKSt6bitsetILm256EE3anyEv.exit96:               ; preds = %213
-  %216 = icmp ult i64 %.05.i2.i92, 3
-  br i1 %216, label %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread, label %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread111
+214:                                              ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit89
+  %215 = getelementptr inbounds i8, ptr %209, i64 32
+  %216 = load i8, ptr %215, align 8
+  %217 = trunc i8 %216 to i1
+  br i1 %217, label %218, label %.critedge63
 
-_ZNKSt6bitsetILm256EE3anyEv.exit96.thread111:     ; preds = %.lr.ph.i91, %_ZNKSt6bitsetILm256EE3anyEv.exit96
-  %217 = getelementptr inbounds i8, ptr %210, i64 32
-  %218 = load i8, ptr %217, align 8
-  %219 = trunc i8 %218 to i1
-  br i1 %219, label %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread, label %.critedge63
+218:                                              ; preds = %214, %_ZNKSt6bitsetILm256EE3anyEv.exit89
+  %219 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull @.str.204)
+  br label %_ZNKSt6bitsetILm256EE4testEm.exit.i90
 
-_ZNKSt6bitsetILm256EE3anyEv.exit96.thread:        ; preds = %209, %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread111, %_ZNKSt6bitsetILm256EE3anyEv.exit96
-  %220 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %220, ptr noundef nonnull @.str.204)
-  br label %_ZNKSt6bitsetILm256EE4testEm.exit.i97
+_ZNKSt6bitsetILm256EE4testEm.exit.i90:            ; preds = %234, %218
+  %.017.i91 = phi i64 [ 0, %218 ], [ %235, %234 ]
+  %.01516.i92 = phi i8 [ 0, %218 ], [ %.1.i94, %234 ]
+  %220 = lshr i64 %.017.i91, 6
+  %221 = getelementptr inbounds [4 x i64], ptr %209, i64 0, i64 %220
+  %222 = load i64, ptr %221, align 8
+  %223 = and i64 %.017.i91, 63
+  %224 = shl nuw i64 1, %223
+  %225 = and i64 %222, %224
+  %.not.i93 = icmp eq i64 %225, 0
+  br i1 %.not.i93, label %234, label %226
 
-_ZNKSt6bitsetILm256EE4testEm.exit.i97:            ; preds = %235, %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread
-  %.017.i98 = phi i64 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread ], [ %236, %235 ]
-  %.01516.i99 = phi i8 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread ], [ %.1.i101, %235 ]
-  %221 = lshr i64 %.017.i98, 6
-  %222 = getelementptr inbounds [4 x i64], ptr %210, i64 0, i64 %221
-  %223 = load i64, ptr %222, align 8
-  %224 = and i64 %.017.i98, 63
-  %225 = shl nuw i64 1, %224
-  %226 = and i64 %223, %225
-  %.not.i100 = icmp eq i64 %226, 0
-  br i1 %.not.i100, label %235, label %227
+226:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i90
+  %227 = trunc nuw i8 %.01516.i92 to i1
+  br i1 %227, label %228, label %231
 
-227:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i97
-  %228 = trunc nuw i8 %.01516.i99 to i1
-  br i1 %228, label %229, label %232
+228:                                              ; preds = %226
+  %229 = load ptr, ptr %0, align 8
+  %230 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull @.str.152)
+  br label %231
 
-229:                                              ; preds = %227
-  %230 = load ptr, ptr %0, align 8
-  %231 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull @.str.152)
-  br label %232
+231:                                              ; preds = %228, %226
+  %232 = load ptr, ptr %0, align 8
+  %233 = trunc nuw i64 %.017.i91 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull @.str.156, i32 noundef %233)
+  br label %234
 
-232:                                              ; preds = %229, %227
-  %233 = load ptr, ptr %0, align 8
-  %234 = trunc nuw i64 %.017.i98 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull @.str.156, i32 noundef %234)
-  br label %235
+234:                                              ; preds = %231, %_ZNKSt6bitsetILm256EE4testEm.exit.i90
+  %.1.i94 = phi i8 [ 1, %231 ], [ %.01516.i92, %_ZNKSt6bitsetILm256EE4testEm.exit.i90 ]
+  %235 = add nuw nsw i64 %.017.i91, 1
+  %exitcond.not.i95 = icmp eq i64 %235, 256
+  br i1 %exitcond.not.i95, label %236, label %_ZNKSt6bitsetILm256EE4testEm.exit.i90, !llvm.loop !15
 
-235:                                              ; preds = %232, %_ZNKSt6bitsetILm256EE4testEm.exit.i97
-  %.1.i101 = phi i8 [ 1, %232 ], [ %.01516.i99, %_ZNKSt6bitsetILm256EE4testEm.exit.i97 ]
-  %236 = add nuw nsw i64 %.017.i98, 1
-  %exitcond.not.i102 = icmp eq i64 %236, 256
-  br i1 %exitcond.not.i102, label %237, label %_ZNKSt6bitsetILm256EE4testEm.exit.i97, !llvm.loop !15
+236:                                              ; preds = %234
+  %237 = getelementptr inbounds i8, ptr %209, i64 32
+  %238 = load i8, ptr %237, align 8
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %240, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit96
 
-237:                                              ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %210, i64 32
-  %239 = load i8, ptr %238, align 8
-  %240 = trunc i8 %239 to i1
-  br i1 %240, label %241, label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit103
+240:                                              ; preds = %236
+  %241 = trunc nuw i8 %.1.i94 to i1
+  br i1 %241, label %242, label %245
 
-241:                                              ; preds = %237
-  %242 = trunc nuw i8 %.1.i101 to i1
-  br i1 %242, label %243, label %246
+242:                                              ; preds = %240
+  %243 = load ptr, ptr %0, align 8
+  %244 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull @.str.152)
+  br label %245
 
-243:                                              ; preds = %241
-  %244 = load ptr, ptr %0, align 8
-  %245 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull @.str.152)
-  br label %246
+245:                                              ; preds = %242, %240
+  %246 = load ptr, ptr %0, align 8
+  %247 = getelementptr inbounds i8, ptr %209, i64 33
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i32
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull @.str.247, i32 noundef %249)
+  br label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit96
 
-246:                                              ; preds = %243, %241
-  %247 = load ptr, ptr %0, align 8
-  %248 = getelementptr inbounds i8, ptr %210, i64 33
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull @.str.247, i32 noundef %250)
-  br label %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit103
-
-_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit103: ; preds = %237, %246
-  %251 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull @.str.194)
+_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit96: ; preds = %236, %245
+  %250 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull @.str.194)
   br label %.critedge63
 
-.critedge63:                                      ; preds = %.critedge, %_ZNKSt6bitsetILm256EE3anyEv.exit96.thread111, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit103, %198
+.critedge63:                                      ; preds = %.critedge, %214, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit96, %197
   ret void
 }
 
@@ -3221,40 +3201,35 @@ define internal fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStr
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %.0.val, i64 %1
-  %11 = load i64, ptr %10, align 8
-  %.not.i1.i = icmp eq i64 %11, 0
-  br i1 %.not.i1.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
+  br label %11
 
-.lr.ph.i:                                         ; preds = %9, %13
-  %.05.i2.i = phi i64 [ %12, %13 ], [ 0, %9 ]
-  %12 = add nuw nsw i64 %.05.i2.i, 1
-  %exitcond.not.i.i = icmp eq i64 %12, 4
-  br i1 %exitcond.not.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread2, label %13, !llvm.loop !14
+11:                                               ; preds = %11, %9
+  %.05.i.i = phi i64 [ 0, %9 ], [ %14, %11 ]
+  %12 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %.05.i.i
+  %13 = load i64, ptr %12, align 8
+  %.not.not.i.i = icmp ne i64 %13, 0
+  %14 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %14, 4
+  %or.cond.i.i = select i1 %.not.not.i.i, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond.i.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, label %11, !llvm.loop !14
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %12
-  %15 = load i64, ptr %14, align 8
-  %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm256EE3anyEv.exit, !llvm.loop !14
+_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %11
+  br i1 %.not.not.i.i, label %19, label %15
 
-_ZNKSt6bitsetILm256EE3anyEv.exit:                 ; preds = %13
-  %16 = icmp ult i64 %.05.i2.i, 3
-  br i1 %16, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread2
+15:                                               ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit
+  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %52
 
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread2:         ; preds = %.lr.ph.i, %_ZNKSt6bitsetILm256EE3anyEv.exit
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZNKSt6bitsetILm256EE3anyEv.exit.thread, label %52
-
-_ZNKSt6bitsetILm256EE3anyEv.exit.thread:          ; preds = %9, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread2, %_ZNKSt6bitsetILm256EE3anyEv.exit
+19:                                               ; preds = %15, %_ZNKSt6bitsetILm256EE3anyEv.exit
   %20 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.256, ptr noundef %2)
   br label %_ZNKSt6bitsetILm256EE4testEm.exit.i
 
-_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %35, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread
-  %.017.i = phi i64 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %36, %35 ]
-  %.01516.i = phi i8 [ 0, %_ZNKSt6bitsetILm256EE3anyEv.exit.thread ], [ %.1.i, %35 ]
+_ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %35, %19
+  %.017.i = phi i64 [ 0, %19 ], [ %36, %35 ]
+  %.01516.i = phi i8 [ 0, %19 ], [ %.1.i, %35 ]
   %21 = lshr i64 %.017.i, 6
   %22 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
@@ -3313,7 +3288,7 @@ _ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSe
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.257)
   br label %52
 
-52:                                               ; preds = %_ZNKSt6bitsetILm256EE3anyEv.exit.thread2, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit, %3
+52:                                               ; preds = %15, %_ZN4Luau7CodeGenL17appendRegisterSetERNS0_17IrToStringContextERKNS0_11RegisterSetEPKc.exit, %3
   ret void
 }
 

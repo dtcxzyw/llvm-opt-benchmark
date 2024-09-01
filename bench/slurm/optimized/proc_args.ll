@@ -2956,14 +2956,14 @@ define ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef zeroext %
 
 8:                                                ; preds = %3
   %9 = and i64 %6, 1
-  %.not7.not = icmp eq i64 %9, 0
-  br i1 %.not7.not, label %11, label %.thread
+  %.not7 = icmp eq i64 %9, 0
+  br i1 %.not7, label %11, label %.thread
 
 .thread15:                                        ; preds = %3
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.83) #20
   %10 = and i64 %6, 1
-  %.not7.not16 = icmp eq i64 %10, 0
-  br i1 %.not7.not16, label %.thread17, label %.thread
+  %.not716 = icmp eq i64 %10, 0
+  br i1 %.not716, label %.thread17, label %.thread
 
 .thread:                                          ; preds = %.thread15, %8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.85) #20
@@ -3600,8 +3600,8 @@ define zeroext i1 @subpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
   %.021 = phi ptr [ %19, %17 ], [ %12, %8 ]
   %.01220 = phi ptr [ %18, %17 ], [ %11, %8 ]
   %16 = call i32 @xstrcmp(ptr noundef nonnull %.01220, ptr noundef nonnull %.021) #20
-  %.not18.not = icmp ne i32 %16, 0
-  br i1 %.not18.not, label %._crit_edge, label %17
+  %.not18.not.not = icmp ne i32 %16, 0
+  br i1 %.not18.not.not, label %._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.127, ptr noundef nonnull %5) #20
@@ -3614,7 +3614,7 @@ define zeroext i1 @subpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
 ._crit_edge:                                      ; preds = %17, %.lr.ph, %8
   %.0.lcssa = phi ptr [ %12, %8 ], [ %.021, %.lr.ph ], [ %19, %17 ]
   %.lcssa19 = phi i1 [ %13, %8 ], [ true, %.lr.ph ], [ %20, %17 ]
-  %.lcssa = phi i1 [ false, %8 ], [ %.not18.not, %.lr.ph ], [ %.not18.not, %17 ]
+  %.lcssa = phi i1 [ false, %8 ], [ %.not18.not.not, %.lr.ph ], [ %.not18.not.not, %17 ]
   %23 = icmp eq ptr %.0.lcssa, null
   %or.cond = or i1 %.lcssa19, %23
   %spec.select = xor i1 %.lcssa, %or.cond

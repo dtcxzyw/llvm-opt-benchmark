@@ -405,12 +405,9 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
 92:                                               ; preds = %86, %._crit_edge.i
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next64.i, %smax
-  br i1 %exitcond132.not, label %Nwk_ManDelayTraceSortPins.exit, label %.lr.ph54.i, !llvm.loop !8
+  br i1 %exitcond132.not, label %.lr.ph, label %.lr.ph54.i, !llvm.loop !8
 
-Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
-  br i1 %57, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.i, %Nwk_ManDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %92, %.critedge.i
   %93 = load ptr, ptr %56, align 8
   %wide.trip.count = zext nneg i32 %.val92 to i64
   br label %94
@@ -460,8 +457,8 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %.critedge.thread, label %108, !llvm.loop !13
 
-.critedge:                                        ; preds = %55, %Nwk_ManDelayTraceSortPins.exit, %.preheader101, %39, %.preheader
-  %.val90 = phi i32 [ %18, %.preheader ], [ %.val92, %39 ], [ %.val92, %.preheader101 ], [ 1, %Nwk_ManDelayTraceSortPins.exit ], [ %.val92, %55 ]
+.critedge:                                        ; preds = %55, %.preheader101, %39, %.preheader
+  %.val90 = phi i32 [ %18, %.preheader ], [ %.val92, %39 ], [ %.val92, %.preheader101 ], [ %.val92, %55 ]
   %.val90.fr = freeze i32 %.val90
   %117 = icmp eq i32 %.val90.fr, 0
   br i1 %117, label %118, label %.critedge.thread
@@ -666,7 +663,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 
 .critedge.i:                                      ; preds = %84, %.lr.ph.i
   %.not120 = icmp eq i32 %.val97, 1
-  br i1 %.not120, label %Nwk_ManDelayTraceSortPins.exit.preheader, label %.lr.ph54.i.preheader
+  br i1 %.not120, label %.lr.ph.i115.preheader, label %.lr.ph54.i.preheader
 
 .lr.ph54.i.preheader:                             ; preds = %.critedge.i
   %89 = tail call i32 @llvm.smax.i32(i32 %.val97, i32 2)
@@ -722,13 +719,13 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 114:                                              ; preds = %108, %._crit_edge.i
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next64.i, %smax
-  br i1 %exitcond159.not, label %Nwk_ManDelayTraceSortPins.exit.preheader, label %.lr.ph54.i, !llvm.loop !8
+  br i1 %exitcond159.not, label %.lr.ph.i115.preheader, label %.lr.ph54.i, !llvm.loop !8
 
-Nwk_ManDelayTraceSortPins.exit.preheader:         ; preds = %114, %.critedge.i
-  br label %Nwk_ManDelayTraceSortPins.exit
+.lr.ph.i115.preheader:                            ; preds = %114, %.critedge.i
+  br label %.lr.ph.i115
 
-Nwk_ManDelayTraceSortPins.exit:                   ; preds = %Nwk_ManDelayTraceSortPins.exit.preheader, %121
-  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %121 ], [ 0, %Nwk_ManDelayTraceSortPins.exit.preheader ]
+.lr.ph.i115:                                      ; preds = %.lr.ph.i115.preheader, %121
+  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %121 ], [ 0, %.lr.ph.i115.preheader ]
   %115 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i117
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %116 to i64
@@ -737,13 +734,13 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %Nwk_ManDelayTraceSo
   %120 = icmp eq ptr %119, %0
   br i1 %120, label %Nwk_ManWhereIsPin.exit, label %121
 
-121:                                              ; preds = %Nwk_ManDelayTraceSortPins.exit
+121:                                              ; preds = %.lr.ph.i115
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %81
-  br i1 %exitcond.not.i119, label %Nwk_ManWhereIsPin.exit, label %Nwk_ManDelayTraceSortPins.exit, !llvm.loop !9
+  br i1 %exitcond.not.i119, label %Nwk_ManWhereIsPin.exit, label %.lr.ph.i115, !llvm.loop !9
 
-Nwk_ManWhereIsPin.exit:                           ; preds = %Nwk_ManDelayTraceSortPins.exit, %121, %76
-  %.08.i = phi i64 [ -1, %76 ], [ %indvars.iv.i117, %Nwk_ManDelayTraceSortPins.exit ], [ -1, %121 ]
+Nwk_ManWhereIsPin.exit:                           ; preds = %.lr.ph.i115, %121, %76
+  %.08.i = phi i64 [ -1, %76 ], [ %indvars.iv.i117, %.lr.ph.i115 ], [ -1, %121 ]
   %122 = getelementptr i8, ptr %75, i64 32
   %.val100 = load i32, ptr %122, align 8
   %123 = and i32 %.val100, 7
@@ -1012,12 +1009,9 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
 93:                                               ; preds = %87, %._crit_edge.i
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next64.i, %smax
-  br i1 %exitcond113.not, label %Nwk_ManDelayTraceSortPins.exit, label %.lr.ph54.i, !llvm.loop !8
+  br i1 %exitcond113.not, label %.lr.ph, label %.lr.ph54.i, !llvm.loop !8
 
-Nwk_ManDelayTraceSortPins.exit:                   ; preds = %93
-  br i1 %54, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.i, %Nwk_ManDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %93, %.critedge.i
   %94 = getelementptr i8, ptr %0, i64 52
   %95 = load ptr, ptr %53, align 8
   %96 = load ptr, ptr %95, align 8
@@ -1093,8 +1087,8 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %93
   %133 = icmp slt i64 %indvars.iv.next116, %132
   br i1 %133, label %118, label %.critedge, !llvm.loop !21
 
-.critedge:                                        ; preds = %97, %114, %118, %130, %.lr.ph104, %48, %24, %.lr.ph107, %.lr.ph, %.lr.ph99, %58, %Nwk_ManDelayTraceSortPins.exit, %.preheader, %34, %11
-  %.062 = phi float [ %13, %11 ], [ %37, %34 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %Nwk_ManDelayTraceSortPins.exit ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %13, %.lr.ph107 ], [ %13, %24 ], [ %37, %48 ], [ %37, %.lr.ph104 ], [ %126, %130 ], [ %126, %118 ], [ %105, %114 ], [ %105, %97 ]
+.critedge:                                        ; preds = %97, %114, %118, %130, %.lr.ph104, %48, %24, %.lr.ph107, %.lr.ph, %.lr.ph99, %58, %.preheader, %34, %11
+  %.062 = phi float [ %13, %11 ], [ %37, %34 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %13, %.lr.ph107 ], [ %13, %24 ], [ %37, %48 ], [ %37, %.lr.ph104 ], [ %126, %130 ], [ %126, %118 ], [ %105, %114 ], [ %105, %97 ]
   ret float %.062
 }
 

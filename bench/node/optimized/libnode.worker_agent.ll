@@ -281,8 +281,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %_ZNSt12__shared_ptr
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %13, %land.lhs.true.i.i.i.i ], [ %16, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %do.body6, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %do.body6, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i3 = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -747,8 +747,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %cleanup.thread66, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %cleanup.thread66, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -1080,8 +1080,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.end
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %return, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %return, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -1198,8 +1198,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector8protocol10NodeWorker8FrontendEED2Ev.exit, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector8protocol10NodeWorker8FrontendEED2Ev.exit, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -1238,8 +1238,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end
 
 do.body.i.i.i.i.i4:                               ; preds = %do.cond.i.i.i.i.i7, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i5 = phi i32 [ %10, %lor.lhs.false.i.i.i.i ], [ %13, %do.cond.i.i.i.i.i7 ]
-  %cmp.not.i.not.i.i.i.i6 = icmp eq i32 %__count.0.i.i.i.i.i5, 0
-  br i1 %cmp.not.i.not.i.i.i.i6, label %if.then.i.i.i.i9, label %do.cond.i.i.i.i.i7
+  %cmp.not.not.not.i.not.i.i.i.i6 = icmp eq i32 %__count.0.i.i.i.i.i5, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i6, label %if.then.i.i.i.i9, label %do.cond.i.i.i.i.i7
 
 do.cond.i.i.i.i.i7:                               ; preds = %do.body.i.i.i.i.i4
   %add.i.i.i.i.i8 = add nsw i32 %__count.0.i.i.i.i.i5, 1
@@ -1674,8 +1674,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector8protocol10NodeWorker8FrontendEED2Ev.exit, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector8protocol10NodeWorker8FrontendEED2Ev.exit, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -2480,8 +2480,8 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %entry
 
 do.body.i.i.i.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
   %__count.0.i.i.i.i.i.i = phi i32 [ %2, %land.lhs.true.i.i.i.i.i ], [ %5, %do.cond.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i, label %_ZN4node9inspector8protocol11NodeWorkers4SendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit, label %do.cond.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %_ZN4node9inspector8protocol11NodeWorkers4SendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit, label %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i, 1

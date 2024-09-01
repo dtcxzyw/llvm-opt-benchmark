@@ -618,12 +618,9 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
 218:                                              ; preds = %216, %check_and_push_malloc_block.exit37.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %read_all_code.exit, label %186, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph266, label %186, !llvm.loop !10
 
-read_all_code.exit:                               ; preds = %218
-  br i1 %184, label %.lr.ph266, label %._crit_edge.i144
-
-.lr.ph266:                                        ; preds = %read_all_code.exit
+.lr.ph266:                                        ; preds = %218
   %219 = getelementptr inbounds i8, ptr %9, i64 520
   %220 = getelementptr inbounds i8, ptr %9, i64 512
   %221 = getelementptr inbounds i8, ptr %9, i64 536
@@ -2473,12 +2470,9 @@ verify_constant_pool_type.exit.i:                 ; preds = %1039
 
 verify_method.exit:                               ; preds = %234, %252, %._crit_edge233.i
   %1049 = icmp sgt i64 %indvars.iv, 1
-  br i1 %1049, label %234, label %._crit_edge267, !llvm.loop !24
+  br i1 %1049, label %234, label %.lr.ph.i145, !llvm.loop !24
 
-._crit_edge267:                                   ; preds = %verify_method.exit
-  br i1 %184, label %.lr.ph.i145, label %._crit_edge.i144
-
-.lr.ph.i145:                                      ; preds = %._crit_edge267
+.lr.ph.i145:                                      ; preds = %verify_method.exit
   %1050 = getelementptr inbounds i8, ptr %9, i64 32
   %wide.trip.count.i146 = zext nneg i32 %138 to i64
   br label %1051
@@ -2532,7 +2526,7 @@ pop_and_free.exit.i:                              ; preds = %1067, %1064, %1051
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, %wide.trip.count.i146
   br i1 %exitcond.not.i152, label %._crit_edge.i144, label %1051, !llvm.loop !25
 
-._crit_edge.i144:                                 ; preds = %pop_and_free.exit.i, %check_and_push_malloc_block.exit35.i, %read_all_code.exit, %._crit_edge267
+._crit_edge.i144:                                 ; preds = %pop_and_free.exit.i, %check_and_push_malloc_block.exit35.i
   %1068 = load ptr, ptr %160, align 8
   %1069 = getelementptr inbounds i8, ptr %1068, i64 16
   %1070 = load ptr, ptr %1069, align 8
@@ -6821,14 +6815,14 @@ is_superclass.exit.split:                         ; preds = %is_superclass.exit,
 
 .split.us:                                        ; preds = %is_superclass.exit.split, %is_superclass.exit.split.us
   %.us-phi = phi i32 [ %23, %is_superclass.exit.split.us ], [ %33, %is_superclass.exit.split ]
-  %.us-phi64 = phi ptr [ %.046.us, %is_superclass.exit.split.us ], [ %.046, %is_superclass.exit.split ]
+  %.us-phi62 = phi ptr [ %.046.us, %is_superclass.exit.split.us ], [ %.046, %is_superclass.exit.split ]
   %42 = and i32 %.us-phi, 4
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %.thread, label %43
 
 43:                                               ; preds = %.split.us
   %44 = load ptr, ptr %21, align 8
-  %45 = tail call zeroext i8 @JVM_IsSameClassPackage(ptr noundef nonnull %5, ptr noundef %.us-phi64, ptr noundef %44) #20
+  %45 = tail call zeroext i8 @JVM_IsSameClassPackage(ptr noundef nonnull %5, ptr noundef %.us-phi62, ptr noundef %44) #20
   %.not52 = icmp eq i8 %45, 0
   br i1 %.not52, label %46, label %.thread
 
@@ -6843,7 +6837,7 @@ is_superclass.exit.split:                         ; preds = %is_superclass.exit,
   br label %.thread
 
 .thread:                                          ; preds = %34, %24, %46, %43, %.split.us
-  %.159 = phi ptr [ %.us-phi64, %46 ], [ %.us-phi64, %43 ], [ %.us-phi64, %.split.us ], [ null, %24 ], [ null, %34 ]
+  %.159 = phi ptr [ %.us-phi62, %46 ], [ %.us-phi62, %43 ], [ %.us-phi62, %.split.us ], [ null, %24 ], [ null, %34 ]
   %53 = load ptr, ptr %5, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
@@ -7812,7 +7806,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef %0, i32 nounde
   %29 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %28)
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %._crit_edge.i, %.lr.ph31.i
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
   %.029.i = phi ptr [ %31, %.lr.ph31.i ], [ %29, %._crit_edge.i ]
   %.128.i = phi ptr [ %34, %.lr.ph31.i ], [ %.0132172, %._crit_edge.i ]
   %30 = load i32, ptr %.128.i, align 8
@@ -8156,7 +8150,7 @@ define internal fastcc void @merge_stack(ptr noundef %0, i32 noundef %1, ptr %.0
   %28 = tail call fastcc ptr @CCalloc(ptr noundef %0, i32 noundef %27)
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %._crit_edge.i, %.lr.ph31.i
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
   %.029.i = phi ptr [ %30, %.lr.ph31.i ], [ %28, %._crit_edge.i ]
   %.128.i = phi ptr [ %33, %.lr.ph31.i ], [ %15, %._crit_edge.i ]
   %29 = load i32, ptr %.128.i, align 8

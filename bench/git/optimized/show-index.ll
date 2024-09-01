@@ -185,9 +185,6 @@ for.body75.lr.ph:                                 ; preds = %if.else68
   %conv79 = and i64 %4, 4294967295
   br label %for.body75
 
-for.cond93.preheader:                             ; preds = %if.end84
-  br i1 %cmp7391.not, label %for.end165, label %for.body96
-
 for.body75:                                       ; preds = %for.body75.lr.ph, %if.end84
   %indvars.iv109 = phi i64 [ 0, %for.body75.lr.ph ], [ %indvars.iv.next110, %if.end84 ]
   %arrayidx77 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv109
@@ -213,13 +210,10 @@ if.end84:                                         ; preds = %for.body75
   store i32 %conv.i, ptr %algo, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, %conv69
-  br i1 %exitcond112.not, label %for.cond93.preheader, label %for.body75, !llvm.loop !9
+  br i1 %exitcond112.not, label %for.body96, label %for.body75, !llvm.loop !9
 
-for.cond107.preheader:                            ; preds = %for.inc104
-  br i1 %cmp7391.not, label %for.end165, label %for.body110
-
-for.body96:                                       ; preds = %for.cond93.preheader, %for.inc104
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %for.inc104 ], [ 0, %for.cond93.preheader ]
+for.body96:                                       ; preds = %if.end84, %for.inc104
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %for.inc104 ], [ 0, %if.end84 ]
   %crc = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv113, i32 1
   %20 = load ptr, ptr @stdin, align 8
   %call99 = call i64 @fread(ptr noundef nonnull %crc, i64 noundef 4, i64 noundef 1, ptr noundef %20)
@@ -234,17 +228,14 @@ if.then102:                                       ; preds = %for.body96
 for.inc104:                                       ; preds = %for.body96
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %conv69
-  br i1 %exitcond117.not, label %for.cond107.preheader, label %for.body96, !llvm.loop !10
+  br i1 %exitcond117.not, label %for.body110, label %for.body96, !llvm.loop !10
 
-for.cond121.preheader:                            ; preds = %for.inc118
-  br i1 %cmp7391.not, label %for.end165, label %for.body124.lr.ph
-
-for.body124.lr.ph:                                ; preds = %for.cond121.preheader
+for.body124.lr.ph:                                ; preds = %for.inc118
   %arrayidx149 = getelementptr inbounds i8, ptr %off64, i64 4
   br label %for.body124
 
-for.body110:                                      ; preds = %for.cond107.preheader, %for.inc118
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %for.inc118 ], [ 0, %for.cond107.preheader ]
+for.body110:                                      ; preds = %for.inc104, %for.inc118
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %for.inc118 ], [ 0, %for.inc104 ]
   %off = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv118, i32 2
   %22 = load ptr, ptr @stdin, align 8
   %call113 = call i64 @fread(ptr noundef nonnull %off, i64 noundef 4, i64 noundef 1, ptr noundef %22)
@@ -259,7 +250,7 @@ if.then116:                                       ; preds = %for.body110
 for.inc118:                                       ; preds = %for.body110
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %conv69
-  br i1 %exitcond122.not, label %for.cond121.preheader, label %for.body110, !llvm.loop !11
+  br i1 %exitcond122.not, label %for.body124.lr.ph, label %for.body110, !llvm.loop !11
 
 for.body124:                                      ; preds = %for.body124.lr.ph, %if.end153
   %indvars.iv123 = phi i64 [ 0, %for.body124.lr.ph ], [ %indvars.iv.next124, %if.end153 ]
@@ -318,7 +309,7 @@ if.end153:                                        ; preds = %if.else.i65, %if.th
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %conv69
   br i1 %exitcond127.not, label %for.end165, label %for.body124, !llvm.loop !12
 
-for.end165:                                       ; preds = %if.end153, %if.else68, %for.cond93.preheader, %for.cond107.preheader, %for.cond121.preheader
+for.end165:                                       ; preds = %if.end153, %if.else68
   call void @free(ptr noundef %call71) #7
   br label %if.end166
 

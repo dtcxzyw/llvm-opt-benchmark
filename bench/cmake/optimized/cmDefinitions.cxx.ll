@@ -431,7 +431,7 @@ define dso_local noundef zeroext i1 @_ZN13cmDefinitions6HasKeyERKNSt7__cxx1112ba
           to label %18 unwind label %54
 
 18:                                               ; preds = %10
-  %.not.not = icmp ne ptr %17, null
+  %.not.not.not = icmp ne ptr %17, null
   %19 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZN2cm6StringD2Ev.exit, label %20
@@ -505,7 +505,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cm6StringD2Ev.exit
 
 _ZN2cm6StringD2Ev.exit:                           ; preds = %18, %36, %49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  br i1 %.not.not, label %._crit_edge, label %56
+  br i1 %.not.not.not, label %._crit_edge, label %56
 
 54:                                               ; preds = %10
   %55 = landingpad { ptr, i32 }
@@ -522,7 +522,7 @@ _ZN2cm6StringD2Ev.exit:                           ; preds = %18, %36, %49, %_ZNS
   br i1 %.not20, label %._crit_edge, label %10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN2cm6StringD2Ev.exit, %56, %5
-  %.lcssa = phi i1 [ false, %5 ], [ %.not.not, %56 ], [ %.not.not, %_ZN2cm6StringD2Ev.exit ]
+  %.lcssa = phi i1 [ false, %5 ], [ %.not.not.not, %56 ], [ %.not.not.not, %_ZN2cm6StringD2Ev.exit ]
   ret i1 %.lcssa
 }
 

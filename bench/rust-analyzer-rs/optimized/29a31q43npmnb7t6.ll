@@ -47542,8 +47542,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$itertools..format..Format$LT$I$GT$$
   br i1 %43, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f7dc9c2a0ed641E.exit.thread.sink.split.i", label %.critedge.backedge.i.i.i.i
 
 .critedge.backedge.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i, %29
-  %.not13.i.i.i.i = icmp eq ptr %31, %8
-  br i1 %.not13.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f7dc9c2a0ed641E.exit.thread.sink.split.i", label %29
+  %.not12.i.i.i.i = icmp eq ptr %31, %8
+  br i1 %.not12.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f7dc9c2a0ed641E.exit.thread.sink.split.i", label %29
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43ba6be1b6c96e49E.llvm.1686074433831124249.exit.critedge.i.i.i.i": ; preds = %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !18030
@@ -48530,8 +48530,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$itertools..format..FormatWith$LT$I$
 24:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b6f303a36bdf938E.exit.i.i", %22
   %.pn = phi ptr [ %25, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b6f303a36bdf938E.exit.i.i" ], [ %4, %22 ]
   %25 = getelementptr inbounds i8, ptr %.pn, i64 32
-  %.not.i.not.i.not.not.not = icmp ne ptr %25, %6
-  br i1 %.not.i.not.i.not.not.not, label %26, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he8486881d356d9c4E.exit
+  %.not.not.not.i.not.not.not.i.not.not.not.not = icmp ne ptr %25, %6
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not, label %26, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he8486881d356d9c4E.exit
 
 26:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18397)
@@ -48564,7 +48564,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$itertools..format..FormatWith$LT$I$
   br i1 %41, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he8486881d356d9c4E.exit, label %24
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he8486881d356d9c4E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b6f303a36bdf938E.exit.i.i", %38, %32, %29, %24, %"_ZN73_$LT$rust_analyzer..config..ConfigError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17ha8989e2c1f0375c7E.exit", %12, %18, %9
-  %.1 = phi i1 [ false, %9 ], [ true, %18 ], [ true, %12 ], [ true, %"_ZN73_$LT$rust_analyzer..config..ConfigError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17ha8989e2c1f0375c7E.exit" ], [ %.not.i.not.i.not.not.not, %24 ], [ %.not.i.not.i.not.not.not, %29 ], [ %.not.i.not.i.not.not.not, %32 ], [ %.not.i.not.i.not.not.not, %38 ], [ %.not.i.not.i.not.not.not, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b6f303a36bdf938E.exit.i.i" ]
+  %.1 = phi i1 [ false, %9 ], [ true, %18 ], [ true, %12 ], [ true, %"_ZN73_$LT$rust_analyzer..config..ConfigError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17ha8989e2c1f0375c7E.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %24 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %29 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %32 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %38 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7b6f303a36bdf938E.exit.i.i" ]
   ret i1 %.1
 }
 

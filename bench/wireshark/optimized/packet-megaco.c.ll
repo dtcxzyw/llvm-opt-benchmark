@@ -1792,7 +1792,7 @@ megaco_tvb_skip_wsp_return.exit1143:              ; preds = %.lr.ph.i1140, %539,
   br label %543
 
 543:                                              ; preds = %megaco_tvb_skip_wsp_return.exit1133, %megaco_tvb_skip_wsp_return.exit1138, %megaco_tvb_skip_wsp_return.exit1143
-  %544 = phi i1 [ true, %megaco_tvb_skip_wsp_return.exit1133 ], [ true, %megaco_tvb_skip_wsp_return.exit1138 ], [ %500, %megaco_tvb_skip_wsp_return.exit1143 ]
+  %544 = phi i1 [ true, %megaco_tvb_skip_wsp_return.exit1133 ], [ true, %megaco_tvb_skip_wsp_return.exit1138 ], [ false, %megaco_tvb_skip_wsp_return.exit1143 ]
   %.3875.lcssa14991501 = phi i32 [ %.3875.lcssa14991502, %megaco_tvb_skip_wsp_return.exit1133 ], [ %.3875.lcssa14991502, %megaco_tvb_skip_wsp_return.exit1138 ], [ %.3875.lcssa, %megaco_tvb_skip_wsp_return.exit1143 ]
   %.pn = phi i32 [ %518, %megaco_tvb_skip_wsp_return.exit1133 ], [ %530, %megaco_tvb_skip_wsp_return.exit1138 ], [ %542, %megaco_tvb_skip_wsp_return.exit1143 ]
   %.3 = phi i32 [ %.1901, %megaco_tvb_skip_wsp_return.exit1133 ], [ %530, %megaco_tvb_skip_wsp_return.exit1138 ], [ %542, %megaco_tvb_skip_wsp_return.exit1143 ]
@@ -2504,7 +2504,7 @@ define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef rea
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %112 [
+  switch i32 %8, label %111 [
     i32 1, label %9
     i32 2, label %9
     i32 3, label %9
@@ -2533,7 +2533,7 @@ define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef rea
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %12, null
-  br i1 %.not45, label %112, label %13
+  br i1 %.not45, label %111, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2552,14 +2552,14 @@ define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef rea
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
-  br label %112
+  br label %111
 
 26:                                               ; preds = %13
   %27 = getelementptr inbounds i8, ptr %21, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
-  br label %112
+  br label %111
 
 30:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %31 = getelementptr inbounds i8, ptr %3, i64 56
@@ -2605,121 +2605,118 @@ megacostat_is_duplicate_reply.exit:               ; preds = %46
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
-  br label %112
+  br label %111
 
-.thread57:                                        ; preds = %40, %38
-  br i1 %.not11.i, label %megacostat_had_request.exit.thread, label %55
-
-55:                                               ; preds = %.thread57
-  %56 = load ptr, ptr %.010.i, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 48
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load i32, ptr %63, align 8
-  %.not7.i = icmp eq i32 %60, %64
+.thread57:                                        ; preds = %38, %40
+  %55 = load ptr, ptr %.010.i, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %3, i64 48
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8
+  %.not7.i = icmp eq i32 %59, %63
   br i1 %.not7.i, label %megacostat_had_request.exit.thread, label %megacostat_had_request.exit
 
-megacostat_had_request.exit:                      ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %56, i64 16
-  %66 = load i32, ptr %65, align 8
-  %67 = add i32 %66, -12
-  %switch9.i = icmp ult i32 %67, -11
-  br i1 %switch9.i, label %megacostat_had_request.exit.thread, label %73
+megacostat_had_request.exit:                      ; preds = %.thread57
+  %64 = getelementptr inbounds i8, ptr %55, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, -12
+  %switch9.i = icmp ult i32 %66, -11
+  br i1 %switch9.i, label %megacostat_had_request.exit.thread, label %72
 
-megacostat_had_request.exit.thread:               ; preds = %30, %55, %.thread57, %megacostat_had_request.exit
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 20
-  %71 = load i32, ptr %70, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %70, align 4
-  br label %112
+megacostat_had_request.exit.thread:               ; preds = %30, %.thread57, %megacostat_had_request.exit
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 4
+  br label %111
 
-73:                                               ; preds = %megacostat_had_request.exit
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load i32, ptr %76, align 8
-  %78 = add i32 %77, -1
-  store i32 %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 24
-  %80 = load ptr, ptr %31, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %79, ptr noundef nonnull %82) #9
-  %83 = load i32, ptr %7, align 8
-  %84 = load ptr, ptr %74, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8
-  switch i32 %83, label %105 [
-    i32 12, label %107
-    i32 13, label %87
-    i32 14, label %89
-    i32 15, label %91
-    i32 16, label %93
-    i32 17, label %95
-    i32 18, label %97
-    i32 19, label %99
-    i32 20, label %101
-    i32 21, label %103
+72:                                               ; preds = %megacostat_had_request.exit
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load i32, ptr %75, align 8
+  %77 = add i32 %76, -1
+  store i32 %77, ptr %75, align 8
+  %78 = getelementptr inbounds i8, ptr %1, i64 24
+  %79 = load ptr, ptr %31, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %78, ptr noundef nonnull %81) #9
+  %82 = load i32, ptr %7, align 8
+  %83 = load ptr, ptr %73, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8
+  switch i32 %82, label %104 [
+    i32 12, label %106
+    i32 13, label %86
+    i32 14, label %88
+    i32 15, label %90
+    i32 16, label %92
+    i32 17, label %94
+    i32 18, label %96
+    i32 19, label %98
+    i32 20, label %100
+    i32 21, label %102
   ]
 
-87:                                               ; preds = %73
-  %88 = getelementptr i8, ptr %86, i64 72
-  br label %107
+86:                                               ; preds = %72
+  %87 = getelementptr i8, ptr %85, i64 72
+  br label %106
 
-89:                                               ; preds = %73
-  %90 = getelementptr i8, ptr %86, i64 144
-  br label %107
+88:                                               ; preds = %72
+  %89 = getelementptr i8, ptr %85, i64 144
+  br label %106
 
-91:                                               ; preds = %73
-  %92 = getelementptr i8, ptr %86, i64 216
-  br label %107
+90:                                               ; preds = %72
+  %91 = getelementptr i8, ptr %85, i64 216
+  br label %106
 
-93:                                               ; preds = %73
-  %94 = getelementptr i8, ptr %86, i64 288
-  br label %107
+92:                                               ; preds = %72
+  %93 = getelementptr i8, ptr %85, i64 288
+  br label %106
 
-95:                                               ; preds = %73
-  %96 = getelementptr i8, ptr %86, i64 360
-  br label %107
+94:                                               ; preds = %72
+  %95 = getelementptr i8, ptr %85, i64 360
+  br label %106
 
-97:                                               ; preds = %73
-  %98 = getelementptr i8, ptr %86, i64 432
-  br label %107
+96:                                               ; preds = %72
+  %97 = getelementptr i8, ptr %85, i64 432
+  br label %106
 
-99:                                               ; preds = %73
-  %100 = getelementptr i8, ptr %86, i64 504
-  br label %107
+98:                                               ; preds = %72
+  %99 = getelementptr i8, ptr %85, i64 504
+  br label %106
 
-101:                                              ; preds = %73
-  %102 = getelementptr i8, ptr %86, i64 576
-  br label %107
+100:                                              ; preds = %72
+  %101 = getelementptr i8, ptr %85, i64 576
+  br label %106
 
-103:                                              ; preds = %73
-  %104 = getelementptr i8, ptr %86, i64 648
-  br label %107
+102:                                              ; preds = %72
+  %103 = getelementptr i8, ptr %85, i64 648
+  br label %106
 
-105:                                              ; preds = %73
-  %106 = getelementptr i8, ptr %86, i64 792
-  br label %107
+104:                                              ; preds = %72
+  %105 = getelementptr i8, ptr %85, i64 792
+  br label %106
 
-107:                                              ; preds = %73, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87
-  %.sink = phi ptr [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %73 ]
+106:                                              ; preds = %72, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86
+  %.sink = phi ptr [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %72 ]
   call void @time_stat_update(ptr noundef %.sink, ptr noundef nonnull %6, ptr noundef %1) #9
-  %108 = load ptr, ptr %74, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr i8, ptr %110, i64 720
-  call void @time_stat_update(ptr noundef %111, ptr noundef nonnull %6, ptr noundef %1) #9
-  br label %112
+  %107 = load ptr, ptr %73, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr i8, ptr %109, i64 720
+  call void @time_stat_update(ptr noundef %110, ptr noundef nonnull %6, ptr noundef %1) #9
+  br label %111
 
-112:                                              ; preds = %22, %26, %megacostat_had_request.exit.thread, %107, %megacostat_is_duplicate_reply.exit, %5, %9
-  %.042 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %megacostat_is_duplicate_reply.exit ], [ 1, %107 ], [ 0, %megacostat_had_request.exit.thread ], [ 0, %22 ], [ 0, %26 ]
+111:                                              ; preds = %22, %26, %megacostat_had_request.exit.thread, %106, %megacostat_is_duplicate_reply.exit, %5, %9
+  %.042 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %megacostat_is_duplicate_reply.exit ], [ 1, %106 ], [ 0, %megacostat_had_request.exit.thread ], [ 0, %22 ], [ 0, %26 ]
   ret i32 %.042
 }
 

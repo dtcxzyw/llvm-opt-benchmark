@@ -1158,23 +1158,23 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 .preheader:                                       ; preds = %9
   %12 = load ptr, ptr %10, align 8
-  %.not4364 = icmp eq ptr %12, null
-  br i1 %.not4364, label %._crit_edge, label %.lr.ph67
+  %.not4365 = icmp eq ptr %12, null
+  br i1 %.not4365, label %._crit_edge, label %.lr.ph68
 
-.lr.ph67:                                         ; preds = %.preheader
+.lr.ph68:                                         ; preds = %.preheader
   %13 = getelementptr inbounds i8, ptr %0, i64 192
   br label %14
 
-14:                                               ; preds = %.lr.ph67, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %43 ]
-  %15 = phi ptr [ %12, %.lr.ph67 ], [ %47, %43 ]
-  %.03965 = phi i32 [ 0, %.lr.ph67 ], [ %45, %43 ]
+14:                                               ; preds = %.lr.ph68, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %43 ]
+  %15 = phi ptr [ %12, %.lr.ph68 ], [ %47, %43 ]
+  %.03966 = phi i32 [ 0, %.lr.ph68 ], [ %45, %43 ]
   %16 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %17 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 0) #20
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr %4, align 4
-  %.not45.not55 = icmp sgt i32 %19, 0
-  br i1 %.not45.not55, label %.lr.ph, label %.thread
+  %.not45.not5256 = icmp sgt i32 %19, 0
+  br i1 %.not45.not5256, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %14
   %20 = load ptr, ptr %5, align 8
@@ -1211,18 +1211,18 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %39 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
-  %42 = and i32 %41, %.03965
-  %.not44.not = icmp eq i32 %42, 0
-  br i1 %.not44.not, label %43, label %.thread
+  %42 = and i32 %41, %.03966
+  %.not44 = icmp eq i32 %42, 0
+  br i1 %.not44, label %43, label %.thread
 
 .thread:                                          ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
-  %.mux51 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
+  %.mux50 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #20
   br label %48
 
 43:                                               ; preds = %.split.us.split
   %44 = load i32, ptr %39, align 8
-  %45 = or i32 %44, %.03965
+  %45 = or i32 %44, %.03966
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
   %47 = load ptr, ptr %46, align 8
@@ -1236,7 +1236,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br label %48
 
 48:                                               ; preds = %9, %3, %._crit_edge, %.thread
-  %.038 = phi i32 [ %.mux51, %.thread ], [ 0, %._crit_edge ], [ %8, %3 ], [ -27, %9 ]
+  %.038 = phi i32 [ %.mux50, %.thread ], [ 0, %._crit_edge ], [ %8, %3 ], [ -27, %9 ]
   ret i32 %.038
 }
 

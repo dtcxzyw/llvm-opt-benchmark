@@ -1776,9 +1776,6 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %.not8690 = icmp eq ptr %42, %43
   br i1 %.not8690, label %._crit_edge101, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not8690, label %._crit_edge101, label %.lr.ph95
-
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %.lr.ph
   %.08592 = phi i32 [ %.sroa.speculated81, %.lr.ph ], [ 32002, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
   %.sroa.074.091 = phi ptr [ %50, %.lr.ph ], [ %42, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
@@ -1791,10 +1788,10 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %.sroa.speculated81 = call i32 @llvm.smin.i32(i32 %49, i32 %.08592)
   %50 = getelementptr inbounds i8, ptr %.sroa.074.091, i64 8
   %.not86 = icmp eq ptr %50, %43
-  br i1 %.not86, label %.preheader, label %.lr.ph
+  br i1 %.not86, label %.lr.ph95, label %.lr.ph
 
-.lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
-  %.sroa.067.094 = phi ptr [ %63, %.lr.ph95 ], [ %42, %.preheader ]
+.lr.ph95:                                         ; preds = %.lr.ph, %.lr.ph95
+  %.sroa.067.094 = phi ptr [ %63, %.lr.ph95 ], [ %42, %.lr.ph ]
   %51 = load ptr, ptr %.sroa.067.094, align 8
   %52 = getelementptr i8, ptr %51, i64 8
   %.val53 = load ptr, ptr %52, align 8
@@ -1928,8 +1925,8 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %.not88 = icmp eq ptr %129, %.pre105
   br i1 %.not88, label %._crit_edge101, label %.lr.ph100
 
-._crit_edge101:                                   ; preds = %128, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %.preheader, %._crit_edge
-  %.0.lcssa = phi ptr [ %5, %._crit_edge ], [ %5, %.preheader ], [ %5, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ], [ %.1, %128 ]
+._crit_edge101:                                   ; preds = %128, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %._crit_edge
+  %.0.lcssa = phi ptr [ %5, %._crit_edge ], [ %5, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ], [ %.1, %128 ]
   %130 = load ptr, ptr %25, align 8
   %.not5.i.i.i.i = icmp eq ptr %130, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i

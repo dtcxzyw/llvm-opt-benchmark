@@ -188,15 +188,12 @@ if.then:                                          ; preds = %land.lhs.true4
 
 land.lhs.true8:                                   ; preds = %land.lhs.true4, %land.lhs.true2
   %tobool10 = trunc i8 %2 to i1
-  br i1 %tobool10, label %land.lhs.true11, label %lor.lhs.false28
+  br i1 %tobool10, label %land.lhs.true14, label %lor.lhs.false28
 
 land.lhs.true8.thread:                            ; preds = %land.lhs.true
   br i1 %tobool3, label %return, label %lor.lhs.false28
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  br i1 %tobool1, label %land.lhs.true14, label %return
-
-land.lhs.true14:                                  ; preds = %land.lhs.true11
+land.lhs.true14:                                  ; preds = %land.lhs.true8
   %ipv415 = getelementptr inbounds i8, ptr %addr, i64 23
   %4 = load i8, ptr %ipv415, align 1
   %tobool16 = trunc i8 %4 to i1
@@ -215,7 +212,7 @@ lor.lhs.false:                                    ; preds = %if.then17
 
 lor.lhs.false28:                                  ; preds = %land.lhs.true8, %land.lhs.true8.thread
   %tobool30 = trunc i8 %1 to i1
-  br i1 %tobool30, label %land.lhs.true31, label %lor.lhs.false41
+  br i1 %tobool30, label %land.lhs.true31, label %land.lhs.true44
 
 lor.lhs.false28.thread:                           ; preds = %entry
   br i1 %tobool1, label %land.lhs.true31, label %if.end48
@@ -227,20 +224,17 @@ land.lhs.true31:                                  ; preds = %lor.lhs.false28.thr
   %spec.select25 = select i1 %tobool33, i32 2, i32 10
   br label %return
 
-lor.lhs.false41:                                  ; preds = %lor.lhs.false28
-  br i1 %tobool, label %land.lhs.true44, label %if.end48
-
-land.lhs.true44:                                  ; preds = %lor.lhs.false41
+land.lhs.true44:                                  ; preds = %lor.lhs.false28
   %ipv645 = getelementptr inbounds i8, ptr %addr, i64 25
   %7 = load i8, ptr %ipv645, align 1
   %tobool46 = trunc i8 %7 to i1
   br i1 %tobool46, label %if.end48, label %return
 
-if.end48:                                         ; preds = %lor.lhs.false28.thread, %land.lhs.true44, %lor.lhs.false41
+if.end48:                                         ; preds = %lor.lhs.false28.thread, %land.lhs.true44
   br label %return
 
-return:                                           ; preds = %land.lhs.true31, %land.lhs.true8.thread, %land.lhs.true11, %land.lhs.true14, %lor.lhs.false, %land.lhs.true44, %if.then17, %if.end48, %if.then
-  %retval.0 = phi i32 [ 0, %if.end48 ], [ 0, %if.then ], [ 10, %if.then17 ], [ 2, %land.lhs.true44 ], [ %spec.select, %lor.lhs.false ], [ 10, %land.lhs.true14 ], [ 10, %land.lhs.true11 ], [ 10, %land.lhs.true8.thread ], [ %spec.select25, %land.lhs.true31 ]
+return:                                           ; preds = %land.lhs.true31, %land.lhs.true8.thread, %land.lhs.true14, %lor.lhs.false, %land.lhs.true44, %if.then17, %if.end48, %if.then
+  %retval.0 = phi i32 [ 0, %if.end48 ], [ 0, %if.then ], [ 10, %if.then17 ], [ 2, %land.lhs.true44 ], [ %spec.select, %lor.lhs.false ], [ 10, %land.lhs.true14 ], [ 10, %land.lhs.true8.thread ], [ %spec.select25, %land.lhs.true31 ]
   ret i32 %retval.0
 }
 
@@ -298,7 +292,7 @@ land.lhs.true2.i.i:                               ; preds = %land.lhs.true.i.i
   %ipv415.i.i = getelementptr inbounds i8, ptr %saddr, i64 23
   %4 = load i8, ptr %ipv415.i.i, align 1
   %tobool16.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true14.i.i, label %land.lhs.true4.i.i
+  br i1 %tobool3.i.i, label %land.lhs.true11.i.i, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
   br i1 %tobool16.i.i, label %inet_ai_family_from_address.exit.i, label %if.then.i.i
@@ -311,10 +305,10 @@ land.lhs.true8.thread.i.i:                        ; preds = %land.lhs.true.i.i
   %spec.select22.i = select i1 %tobool3.i.i, i32 10, i32 2
   br label %inet_ai_family_from_address.exit.i
 
-land.lhs.true14.i.i:                              ; preds = %land.lhs.true2.i.i
+land.lhs.true11.i.i:                              ; preds = %land.lhs.true2.i.i
   br i1 %tobool16.i.i, label %if.then17.i.i, label %inet_ai_family_from_address.exit.i
 
-if.then17.i.i:                                    ; preds = %land.lhs.true14.i.i
+if.then17.i.i:                                    ; preds = %land.lhs.true11.i.i
   %5 = load ptr, ptr %saddr, align 8
   %tobool18.not.i.i = icmp eq ptr %5, null
   br i1 %tobool18.not.i.i, label %inet_ai_family_from_address.exit.i, label %lor.lhs.false.i.i
@@ -335,8 +329,8 @@ lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i: ; preds = %lor.lhs.false
   %6 = select i1 %.pre23.i, i32 2, i32 10
   br label %inet_ai_family_from_address.exit.i
 
-inet_ai_family_from_address.exit.i:               ; preds = %land.lhs.true4.i.i, %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true14.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true14.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select22.i, %land.lhs.true8.thread.i.i ], [ %6, %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i ], [ 2, %land.lhs.true4.i.i ]
+inet_ai_family_from_address.exit.i:               ; preds = %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true11.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i, %land.lhs.true4.i.i
+  %retval.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true11.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select22.i, %land.lhs.true8.thread.i.i ], [ %6, %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i ], [ 2, %land.lhs.true4.i.i ]
   %ai_family.i = getelementptr inbounds i8, ptr %ai.i, i64 4
   store i32 %retval.0.i.i, ptr %ai_family.i, align 4
   %7 = load ptr, ptr %spec.select.i, align 8
@@ -1585,10 +1579,10 @@ land.lhs.true2.i.i:                               ; preds = %land.lhs.true.i.i
   %ipv415.i.i = getelementptr inbounds i8, ptr %addr, i64 31
   %14 = load i8, ptr %ipv415.i.i, align 1
   %tobool16.i.i = trunc i8 %14 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true14.i.i, label %land.lhs.true4.i.i
+  br i1 %tobool3.i.i, label %land.lhs.true11.i.i, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
-  br i1 %tobool16.i.i, label %land.lhs.true31.i.i.thread, label %if.then.i.i19
+  br i1 %tobool16.i.i, label %inet_ai_family_from_address.exit.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %land.lhs.true4.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @__func__.inet_ai_family_from_address, ptr noundef nonnull @.str.1) #13
@@ -1598,10 +1592,10 @@ land.lhs.true8.thread.i.i:                        ; preds = %land.lhs.true.i.i
   %spec.select85.i = select i1 %tobool3.i.i, i32 10, i32 2
   br label %inet_ai_family_from_address.exit.i
 
-land.lhs.true14.i.i:                              ; preds = %land.lhs.true2.i.i
+land.lhs.true11.i.i:                              ; preds = %land.lhs.true2.i.i
   br i1 %tobool16.i.i, label %if.then17.i.i, label %inet_ai_family_from_address.exit.i
 
-if.then17.i.i:                                    ; preds = %land.lhs.true14.i.i
+if.then17.i.i:                                    ; preds = %land.lhs.true11.i.i
   %15 = load ptr, ptr %u, align 8
   %tobool18.not.i.i = icmp eq ptr %15, null
   br i1 %tobool18.not.i.i, label %inet_ai_family_from_address.exit.i, label %lor.lhs.false.i.i
@@ -1613,29 +1607,26 @@ lor.lhs.false.i.i:                                ; preds = %if.then17.i.i
   br label %inet_ai_family_from_address.exit.i
 
 lor.lhs.false28.thread.i.i:                       ; preds = %if.end10.i
-  br i1 %tobool1.i.i, label %land.lhs.true31.i.i, label %inet_ai_family_from_address.exit.i
+  br i1 %tobool1.i.i, label %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i, label %inet_ai_family_from_address.exit.i
 
-land.lhs.true31.i.i:                              ; preds = %lor.lhs.false28.thread.i.i
+lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i: ; preds = %lor.lhs.false28.thread.i.i
   %ipv432.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %addr, i64 31
   %.pre.i = load i8, ptr %ipv432.i.phi.trans.insert.i, align 1
-  %.pre.i.fr = freeze i8 %.pre.i
-  %.pre114.i = trunc i8 %.pre.i.fr to i1
-  br i1 %.pre114.i, label %land.lhs.true31.i.i.thread, label %inet_ai_family_from_address.exit.i
-
-land.lhs.true31.i.i.thread:                       ; preds = %land.lhs.true4.i.i, %land.lhs.true31.i.i
+  %.pre114.i = trunc i8 %.pre.i to i1
+  %16 = select i1 %.pre114.i, i32 2, i32 10
   br label %inet_ai_family_from_address.exit.i
 
-inet_ai_family_from_address.exit.i:               ; preds = %land.lhs.true31.i.i.thread, %land.lhs.true31.i.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true14.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i19
-  %retval.0.i.i = phi i32 [ 0, %if.then.i.i19 ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true14.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select85.i, %land.lhs.true8.thread.i.i ], [ 2, %land.lhs.true31.i.i.thread ], [ 10, %land.lhs.true31.i.i ]
+inet_ai_family_from_address.exit.i:               ; preds = %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true11.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i19, %land.lhs.true4.i.i
+  %retval.0.i.i = phi i32 [ 0, %if.then.i.i19 ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true11.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select85.i, %land.lhs.true8.thread.i.i ], [ %16, %lor.lhs.false28.thread.i.land.lhs.true31.i_crit_edge.i ], [ 2, %land.lhs.true4.i.i ]
   %ai_family.i = getelementptr inbounds i8, ptr %ai.i, i64 4
   store i32 %retval.0.i.i, ptr %ai_family.i, align 4
-  %16 = load ptr, ptr %spec.select.i, align 8
-  %tobool11.not.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %spec.select.i, align 8
+  %tobool11.not.i = icmp eq ptr %17, null
   br i1 %tobool11.not.i, label %if.end13.i, label %inet_listen_saddr.exit
 
 if.end13.i:                                       ; preds = %inet_ai_family_from_address.exit.i
-  %17 = load ptr, ptr %u, align 8
-  %cmp14.i = icmp eq ptr %17, null
+  %18 = load ptr, ptr %u, align 8
+  %cmp14.i = icmp eq ptr %18, null
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end13.i
@@ -1644,16 +1635,16 @@ if.then15.i:                                      ; preds = %if.end13.i
 
 if.end16.i:                                       ; preds = %if.end13.i
   %port17.i = getelementptr inbounds i8, ptr %addr, i64 16
-  %18 = load ptr, ptr %port17.i, align 8
-  %cmp18.not.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %port17.i, align 8
+  %cmp18.not.i = icmp eq ptr %19, null
   br i1 %cmp18.not.i, label %if.else.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  call void @pstrcpy(ptr noundef nonnull %port.i, i32 noundef 33, ptr noundef nonnull %18) #13
+  call void @pstrcpy(ptr noundef nonnull %port.i, i32 noundef 33, ptr noundef nonnull %19) #13
   %.pre111.i = load ptr, ptr %u, align 8
   %char056.pre.i = load i8, ptr %port.i, align 16
-  %19 = icmp eq i8 %char056.pre.i, 0
-  %20 = select i1 %19, ptr null, ptr %port.i
+  %20 = icmp eq i8 %char056.pre.i, 0
+  %21 = select i1 %20, ptr null, ptr %port.i
   br label %if.end46.i
 
 if.else.i:                                        ; preds = %if.end16.i
@@ -1661,11 +1652,11 @@ if.else.i:                                        ; preds = %if.end16.i
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.else.i, %if.then19.i
-  %char056.i = phi ptr [ %20, %if.then19.i ], [ null, %if.else.i ]
-  %21 = phi ptr [ %.pre111.i, %if.then19.i ], [ %17, %if.else.i ]
-  %char0.i = load i8, ptr %21, align 1
+  %char056.i = phi ptr [ %21, %if.then19.i ], [ null, %if.else.i ]
+  %22 = phi ptr [ %.pre111.i, %if.then19.i ], [ %18, %if.else.i ]
+  %char0.i = load i8, ptr %22, align 1
   %tobool49.not.i = icmp eq i8 %char0.i, 0
-  %spec.select57.i = select i1 %tobool49.not.i, ptr null, ptr %21
+  %spec.select57.i = select i1 %tobool49.not.i, ptr null, ptr %22
   %call59.i = call i32 @getaddrinfo(ptr noundef %spec.select57.i, ptr noundef %char056.i, ptr noundef nonnull %ai.i, ptr noundef nonnull %res.i) #13
   %cmp60.not.i = icmp eq i32 %call59.i, 0
   br i1 %cmp60.not.i, label %for.cond.preheader.i, label %if.then62.i
@@ -1685,21 +1676,21 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 if.then62.i:                                      ; preds = %if.end46.i
-  %22 = load ptr, ptr %u, align 8
+  %23 = load ptr, ptr %u, align 8
   %call65.i = call ptr @gai_strerror(i32 noundef %call59.i) #13
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @__func__.inet_listen_saddr, ptr noundef nonnull @.str.41, ptr noundef %22, ptr noundef nonnull %port.i, ptr noundef %call65.i) #13
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @__func__.inet_listen_saddr, ptr noundef nonnull @.str.41, ptr noundef %23, ptr noundef nonnull %port.i, ptr noundef %call65.i) #13
   br label %inet_listen_saddr.exit
 
 for.body.i:                                       ; preds = %for.inc125.i, %for.body.lr.ph.i
   %e.0104.i = phi ptr [ %e.0101.i, %for.body.lr.ph.i ], [ %e.0.i, %for.inc125.i ]
   %socket_created.0103.i = phi i1 [ false, %for.body.lr.ph.i ], [ %socket_created.1.lcssa.i, %for.inc125.i ]
-  %23 = load i8, ptr %has_mptcp.i, align 4
-  %tobool69.i = trunc i8 %23 to i1
+  %24 = load i8, ptr %has_mptcp.i, align 4
+  %tobool69.i = trunc i8 %24 to i1
   br i1 %tobool69.i, label %land.lhs.true71.i, label %if.end75.i
 
 land.lhs.true71.i:                                ; preds = %for.body.i
-  %24 = load i8, ptr %mptcp.i, align 1
-  %tobool72.i = trunc i8 %24 to i1
+  %25 = load i8, ptr %mptcp.i, align 1
+  %tobool72.i = trunc i8 %25 to i1
   br i1 %tobool72.i, label %if.then74.i, label %if.end75.i
 
 if.then74.i:                                      ; preds = %land.lhs.true71.i
@@ -1709,34 +1700,34 @@ if.then74.i:                                      ; preds = %land.lhs.true71.i
 
 if.end75.i:                                       ; preds = %if.then74.i, %land.lhs.true71.i, %for.body.i
   %ai_addr.i = getelementptr inbounds i8, ptr %e.0104.i, i64 24
-  %25 = load ptr, ptr %ai_addr.i, align 8
+  %26 = load ptr, ptr %ai_addr.i, align 8
   %ai_addrlen.i = getelementptr inbounds i8, ptr %e.0104.i, i64 16
-  %26 = load i32, ptr %ai_addrlen.i, align 8
-  %call78.i = call i32 @getnameinfo(ptr noundef %25, i32 noundef %26, ptr noundef nonnull %uaddr.i, i32 noundef 46, ptr noundef nonnull %uport.i, i32 noundef 32, i32 noundef 3) #13
+  %27 = load i32, ptr %ai_addrlen.i, align 8
+  %call78.i = call i32 @getnameinfo(ptr noundef %26, i32 noundef %27, ptr noundef nonnull %uaddr.i, i32 noundef 46, ptr noundef nonnull %uport.i, i32 noundef 32, i32 noundef 3) #13
   %ai_family.i.i = getelementptr inbounds i8, ptr %e.0104.i, i64 4
-  %27 = load i32, ptr %ai_family.i.i, align 4
-  switch i32 %27, label %inet_getport.exit.i [
+  %28 = load i32, ptr %ai_family.i.i, align 4
+  switch i32 %28, label %inet_getport.exit.i [
     i32 10, label %return.sink.split.i.i
     i32 2, label %return.sink.split.i.i
   ]
 
 return.sink.split.i.i:                            ; preds = %if.end75.i, %if.end75.i
-  %28 = load ptr, ptr %ai_addr.i, align 8
-  %sin_port.i.i = getelementptr inbounds i8, ptr %28, i64 2
-  %29 = load i16, ptr %sin_port.i.i, align 2
-  %call3.i.i = call zeroext i16 @ntohs(i16 noundef zeroext %29) #14
-  %30 = zext i16 %call3.i.i to i32
+  %29 = load ptr, ptr %ai_addr.i, align 8
+  %sin_port.i.i = getelementptr inbounds i8, ptr %29, i64 2
+  %30 = load i16, ptr %sin_port.i.i, align 2
+  %call3.i.i = call zeroext i16 @ntohs(i16 noundef zeroext %30) #14
+  %31 = zext i16 %call3.i.i to i32
   br label %inet_getport.exit.i
 
 inet_getport.exit.i:                              ; preds = %return.sink.split.i.i, %if.end75.i
-  %retval.0.shrunk.i.i = phi i32 [ 0, %if.end75.i ], [ %30, %return.sink.split.i.i ]
-  %31 = load i8, ptr %has_to.i, align 2
-  %tobool80.i = trunc i8 %31 to i1
+  %retval.0.shrunk.i.i = phi i32 [ 0, %if.end75.i ], [ %31, %return.sink.split.i.i ]
+  %32 = load i8, ptr %has_to.i, align 2
+  %tobool80.i = trunc i8 %32 to i1
   br i1 %tobool80.i, label %cond.true82.i, label %cond.end86.i
 
 cond.true82.i:                                    ; preds = %inet_getport.exit.i
-  %32 = load i16, ptr %to.i, align 4
-  %conv83.i = zext i16 %32 to i32
+  %33 = load i16, ptr %to.i, align 4
+  %conv83.i = zext i16 %33 to i32
   br label %cond.end86.i
 
 cond.end86.i:                                     ; preds = %cond.true82.i, %inet_getport.exit.i
@@ -1752,26 +1743,26 @@ for.body91.lr.ph.i:                               ; preds = %cond.end86.i
 for.body91.i:                                     ; preds = %for.inc.i, %for.body91.lr.ph.i
   %socket_created.1100.i = phi i1 [ %socket_created.0103.i, %for.body91.lr.ph.i ], [ %socket_created.2.i, %for.inc.i ]
   %p.099.i = phi i32 [ %retval.0.shrunk.i.i, %for.body91.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %33 = load i32, ptr %ai_family.i.i, align 4
-  switch i32 %33, label %inet_setport.exit.i [
+  %34 = load i32, ptr %ai_family.i.i, align 4
+  switch i32 %34, label %inet_setport.exit.i [
     i32 10, label %sw.epilog.sink.split.i.i
     i32 2, label %sw.epilog.sink.split.i.i
   ]
 
 sw.epilog.sink.split.i.i:                         ; preds = %for.body91.i, %for.body91.i
-  %34 = load ptr, ptr %ai_addr.i, align 8
+  %35 = load ptr, ptr %ai_addr.i, align 8
   %conv3.i.i = trunc nuw i32 %p.099.i to i16
   %call4.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv3.i.i) #14
-  %sin_port.i61.i = getelementptr inbounds i8, ptr %34, i64 2
+  %sin_port.i61.i = getelementptr inbounds i8, ptr %35, i64 2
   store i16 %call4.i.i, ptr %sin_port.i61.i, align 2
   %.pre113.i = load i32, ptr %ai_family.i.i, align 4
   br label %inet_setport.exit.i
 
 inet_setport.exit.i:                              ; preds = %sw.epilog.sink.split.i.i, %for.body91.i
-  %35 = phi i32 [ %33, %for.body91.i ], [ %.pre113.i, %sw.epilog.sink.split.i.i ]
-  %36 = load i32, ptr %ai_socktype.i.i, align 8
-  %37 = load i32, ptr %ai_protocol.i.i, align 4
-  %call.i63.i = call i32 @qemu_socket(i32 noundef %35, i32 noundef %36, i32 noundef %37) #13
+  %36 = phi i32 [ %34, %for.body91.i ], [ %.pre113.i, %sw.epilog.sink.split.i.i ]
+  %37 = load i32, ptr %ai_socktype.i.i, align 8
+  %38 = load i32, ptr %ai_protocol.i.i, align 4
+  %call.i63.i = call i32 @qemu_socket(i32 noundef %36, i32 noundef %37, i32 noundef %38) #13
   %cmp.i.i = icmp slt i32 %call.i63.i, 0
   br i1 %cmp.i.i, label %if.then95.i, label %if.end101.i
 
@@ -1781,46 +1772,46 @@ if.then95.i:                                      ; preds = %inet_setport.exit.i
 
 listen_failed.thread.i:                           ; preds = %if.then95.i
   %call100.i = tail call ptr @__errno_location() #14
-  %38 = load i32, ptr %call100.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %38, ptr noundef nonnull @.str.71) #13
   %39 = load i32, ptr %call100.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %39, ptr noundef nonnull @.str.71) #13
+  %40 = load i32, ptr %call100.i, align 4
   br label %if.end136.i
 
 if.end101.i:                                      ; preds = %inet_setport.exit.i
   %call1.i.i = call i32 @socket_set_fast_reuse(i32 noundef %call.i63.i) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v6only.i.i)
-  %40 = load i8, ptr %has_ipv4.i.i, align 2
-  %tobool.i66.i = trunc i8 %40 to i1
+  %41 = load i8, ptr %has_ipv4.i.i, align 2
+  %tobool.i66.i = trunc i8 %41 to i1
   br i1 %tobool.i66.i, label %land.lhs.true4.i73.i, label %land.lhs.true.i67.i
 
 land.lhs.true.i67.i:                              ; preds = %if.end101.i
-  %41 = load i8, ptr %has_ipv6.i.i, align 8
-  %42 = and i8 %41, 1
+  %42 = load i8, ptr %has_ipv6.i.i, align 8
+  %43 = and i8 %42, 1
   br label %lor.end.i.i
 
 land.lhs.true4.i73.i:                             ; preds = %if.end101.i
-  %43 = load i8, ptr %ipv4.i74.i, align 1
-  %tobool5.i75.i = trunc i8 %43 to i1
+  %44 = load i8, ptr %ipv4.i74.i, align 1
+  %tobool5.i75.i = trunc i8 %44 to i1
   br i1 %tobool5.i75.i, label %land.lhs.true6.i.i, label %lor.end.i.i
 
 land.lhs.true6.i.i:                               ; preds = %land.lhs.true4.i73.i
-  %44 = load i8, ptr %has_ipv6.i.i, align 8
-  %tobool8.i.i = trunc i8 %44 to i1
+  %45 = load i8, ptr %has_ipv6.i.i, align 8
+  %tobool8.i.i = trunc i8 %45 to i1
   br i1 %tobool8.i.i, label %land.rhs.i.i, label %lor.end.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true6.i.i
-  %45 = load i8, ptr %ipv6.i76.i, align 1
-  %46 = and i8 %45, 1
-  %47 = xor i8 %46, 1
+  %46 = load i8, ptr %ipv6.i76.i, align 1
+  %47 = and i8 %46, 1
+  %48 = xor i8 %47, 1
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %land.rhs.i.i, %land.lhs.true6.i.i, %land.lhs.true4.i73.i, %land.lhs.true.i67.i
-  %not..shrunk.i.i = phi i8 [ 1, %land.lhs.true6.i.i ], [ 1, %land.lhs.true4.i73.i ], [ %47, %land.rhs.i.i ], [ %42, %land.lhs.true.i67.i ]
+  %not..shrunk.i.i = phi i8 [ 1, %land.lhs.true6.i.i ], [ 1, %land.lhs.true4.i73.i ], [ %48, %land.rhs.i.i ], [ %43, %land.lhs.true.i67.i ]
   %not..i.i = zext nneg i8 %not..shrunk.i.i to i32
   %.pre.i.i = load i32, ptr %ai_family.i.i, align 4
-  %48 = icmp eq i32 %.pre.i.i, 10
+  %49 = icmp eq i32 %.pre.i.i, 10
   store i32 %not..i.i, ptr %v6only.i.i, align 4
-  br i1 %48, label %if.then.i71.i, label %if.end.i70.i
+  br i1 %49, label %if.then.i71.i, label %if.end.i70.i
 
 if.then.critedge.i.i:                             ; preds = %land.lhs.true16.i.i
   store i32 1, ptr %v6only.i.i, align 4
@@ -1831,9 +1822,9 @@ if.then.i71.i:                                    ; preds = %if.then.critedge.i.
   br label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %if.then.i71.i, %lor.end.i.i
-  %49 = load ptr, ptr %ai_addr.i, align 8
-  %50 = load i32, ptr %ai_addrlen.i, align 8
-  %call10.i.i17 = call i32 @bind(i32 noundef %call.i63.i, ptr %49, i32 noundef %50) #13
+  %50 = load ptr, ptr %ai_addr.i, align 8
+  %51 = load i32, ptr %ai_addrlen.i, align 8
+  %call10.i.i17 = call i32 @bind(i32 noundef %call.i63.i, ptr %50, i32 noundef %51) #13
   %tobool11.not.i.i = icmp eq i32 %call10.i.i17, 0
   br i1 %tobool11.not.i.i, label %try_bind.exit.thread.i, label %if.end13.i.i
 
@@ -1842,16 +1833,16 @@ try_bind.exit.thread.i:                           ; preds = %if.end.i70.i
   br label %if.else112.i
 
 if.end13.i.i:                                     ; preds = %if.end.i70.i
-  %51 = load i32, ptr %ai_family.i.i, align 4
-  %cmp15.i.i = icmp eq i32 %51, 10
+  %52 = load i32, ptr %ai_family.i.i, align 4
+  %cmp15.i.i = icmp eq i32 %52, 10
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %try_bind.exit.i
 
 land.lhs.true16.i.i:                              ; preds = %if.end13.i.i
   %call17.i.i = tail call ptr @__errno_location() #14
-  %52 = load i32, ptr %call17.i.i, align 4
-  %cmp18.i.i = icmp ne i32 %52, 98
-  %53 = load i32, ptr %v6only.i.i, align 4
-  %tobool20.i.i = icmp ne i32 %53, 0
+  %53 = load i32, ptr %call17.i.i, align 4
+  %cmp18.i.i = icmp ne i32 %53, 98
+  %54 = load i32, ptr %v6only.i.i, align 4
+  %tobool20.i.i = icmp ne i32 %54, 0
   %or.cond.i.i18 = select i1 %cmp18.i.i, i1 true, i1 %tobool20.i.i
   br i1 %or.cond.i.i18, label %try_bind.exit.i, label %if.then.critedge.i.i
 
@@ -1862,12 +1853,12 @@ try_bind.exit.i:                                  ; preds = %land.lhs.true16.i.i
 
 if.then105.i:                                     ; preds = %try_bind.exit.i
   %call106.i = tail call ptr @__errno_location() #14
-  %54 = load i32, ptr %call106.i, align 4
-  %cmp107.not.i = icmp eq i32 %54, 98
+  %55 = load i32, ptr %call106.i, align 4
+  %cmp107.not.i = icmp eq i32 %55, 98
   br i1 %cmp107.not.i, label %if.end123.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %if.then105.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %54, ptr noundef nonnull @.str.72) #13
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %55, ptr noundef nonnull @.str.72) #13
   br label %listen_failed.i
 
 if.else112.i:                                     ; preds = %try_bind.exit.i, %try_bind.exit.thread.i
@@ -1877,12 +1868,12 @@ if.else112.i:                                     ; preds = %try_bind.exit.i, %t
 
 if.end116.i:                                      ; preds = %if.else112.i
   %call117.i = tail call ptr @__errno_location() #14
-  %55 = load i32, ptr %call117.i, align 4
-  %cmp118.not.i = icmp eq i32 %55, 98
+  %56 = load i32, ptr %call117.i, align 4
+  %cmp118.not.i = icmp eq i32 %56, 98
   br i1 %cmp118.not.i, label %if.end123.i, label %if.then120.i
 
 if.then120.i:                                     ; preds = %if.end116.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %55, ptr noundef nonnull @.str.54) #13
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %56, ptr noundef nonnull @.str.54) #13
   br label %listen_failed.i
 
 if.end123.i:                                      ; preds = %if.end116.i, %if.then105.i
@@ -1903,34 +1894,34 @@ for.inc125.i:                                     ; preds = %for.inc.i, %cond.en
   br i1 %cmp67.not.i, label %for.end126.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end126.loopexit.i:                            ; preds = %for.inc125.i
-  %56 = select i1 %socket_created.1.lcssa.i, ptr @.str.73, ptr @.str.74
+  %57 = select i1 %socket_created.1.lcssa.i, ptr @.str.73, ptr @.str.74
   br label %listen_failed.thread115.i
 
 listen_failed.thread115.i:                        ; preds = %for.end126.loopexit.i, %for.cond.preheader.i
-  %socket_created.0.lcssa.i = phi ptr [ @.str.74, %for.cond.preheader.i ], [ %56, %for.end126.loopexit.i ]
+  %socket_created.0.lcssa.i = phi ptr [ @.str.74, %for.cond.preheader.i ], [ %57, %for.end126.loopexit.i ]
   %call127.i = tail call ptr @__errno_location() #14
-  %57 = load i32, ptr %call127.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 336, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %57, ptr noundef nonnull %socket_created.0.lcssa.i) #13
   %58 = load i32, ptr %call127.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 336, ptr noundef nonnull @__func__.inet_listen_saddr, i32 noundef %58, ptr noundef nonnull %socket_created.0.lcssa.i) #13
+  %59 = load i32, ptr %call127.i, align 4
   br label %if.end136.i
 
 listen_failed.i:                                  ; preds = %if.then120.i, %if.then109.i
   %call131.pre-phi.i = phi ptr [ %call117.i, %if.then120.i ], [ %call106.i, %if.then109.i ]
-  %59 = load i32, ptr %call131.pre-phi.i, align 4
+  %60 = load i32, ptr %call131.pre-phi.i, align 4
   %call135.i = call i32 @close(i32 noundef %call.i63.i) #13
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %listen_failed.i, %listen_failed.thread115.i, %listen_failed.thread.i
-  %60 = phi i32 [ %39, %listen_failed.thread.i ], [ %59, %listen_failed.i ], [ %58, %listen_failed.thread115.i ]
+  %61 = phi i32 [ %40, %listen_failed.thread.i ], [ %60, %listen_failed.i ], [ %59, %listen_failed.thread115.i ]
   %call13184.i = phi ptr [ %call100.i, %listen_failed.thread.i ], [ %call131.pre-phi.i, %listen_failed.i ], [ %call127.i, %listen_failed.thread115.i ]
-  %61 = load ptr, ptr %res.i, align 8
-  call void @freeaddrinfo(ptr noundef %61) #13
-  store i32 %60, ptr %call13184.i, align 4
+  %62 = load ptr, ptr %res.i, align 8
+  call void @freeaddrinfo(ptr noundef %62) #13
+  store i32 %61, ptr %call13184.i, align 4
   br label %inet_listen_saddr.exit
 
 listen_ok.i:                                      ; preds = %if.else112.i
-  %62 = load ptr, ptr %res.i, align 8
-  call void @freeaddrinfo(ptr noundef %62) #13
+  %63 = load ptr, ptr %res.i, align 8
+  call void @freeaddrinfo(ptr noundef %63) #13
   br label %inet_listen_saddr.exit
 
 inet_listen_saddr.exit:                           ; preds = %if.then4.i, %inet_ai_family_from_address.exit.i, %if.then15.i, %if.then62.i, %if.end136.i, %listen_ok.i
@@ -1953,8 +1944,8 @@ sw.bb1:                                           ; preds = %trace_socket_listen
 
 sw.bb4:                                           ; preds = %trace_socket_listen.exit
   %u5 = getelementptr inbounds i8, ptr %addr, i64 8
-  %63 = load ptr, ptr %u5, align 8
-  %call6 = tail call fastcc i32 @socket_get_fd(ptr noundef %63, ptr noundef %errp)
+  %64 = load ptr, ptr %u5, align 8
+  %call6 = tail call fastcc i32 @socket_get_fd(ptr noundef %64, ptr noundef %errp)
   %cmp = icmp slt i32 %call6, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -1965,8 +1956,8 @@ if.end:                                           ; preds = %sw.bb4
 
 if.then9:                                         ; preds = %if.end
   %call10 = tail call ptr @__errno_location() #14
-  %64 = load i32, ptr %call10, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1240, ptr noundef nonnull @__func__.socket_listen, i32 noundef %64, ptr noundef nonnull @.str.33) #13
+  %65 = load i32, ptr %call10, align 4
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1240, ptr noundef nonnull @__func__.socket_listen, i32 noundef %65, ptr noundef nonnull @.str.33) #13
   %call11 = tail call i32 @close(i32 noundef %call6) #13
   br label %return
 
@@ -1976,35 +1967,35 @@ sw.bb13:                                          ; preds = %trace_socket_listen
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %svm.i, i8 0, i64 16, i1 false)
   store i16 40, ptr %svm.i, align 4
-  %65 = load ptr, ptr %u14, align 8
-  %call.i.i20 = call i32 @parse_uint_full(ptr noundef %65, i32 noundef 10, ptr noundef nonnull %val.i.i) #13
+  %66 = load ptr, ptr %u14, align 8
+  %call.i.i20 = call i32 @parse_uint_full(ptr noundef %66, i32 noundef 10, ptr noundef nonnull %val.i.i) #13
   %cmp.i.i21 = icmp slt i32 %call.i.i20, 0
-  %66 = load i64, ptr %val.i.i, align 8
-  %cmp1.i.i = icmp ugt i64 %66, 4294967295
+  %67 = load i64, ptr %val.i.i, align 8
+  %cmp1.i.i = icmp ugt i64 %67, 4294967295
   %or.cond.i.i22 = select i1 %cmp.i.i21, i1 true, i1 %cmp1.i.i
   br i1 %or.cond.i.i22, label %if.then.i.i27, label %if.end.i.i
 
 if.then.i.i27:                                    ; preds = %sw.bb13
-  %67 = load ptr, ptr %u14, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.vsock_parse_vaddr_to_sockaddr, ptr noundef nonnull @.str.62, ptr noundef %67) #13
+  %68 = load ptr, ptr %u14, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.vsock_parse_vaddr_to_sockaddr, ptr noundef nonnull @.str.62, ptr noundef %68) #13
   br label %vsock_parse_vaddr_to_sockaddr.exit.thread.i
 
 if.end.i.i:                                       ; preds = %sw.bb13
-  %conv.i.i = trunc nuw i64 %66 to i32
+  %conv.i.i = trunc nuw i64 %67 to i32
   %svm_cid.i.i = getelementptr inbounds i8, ptr %svm.i, i64 8
   store i32 %conv.i.i, ptr %svm_cid.i.i, align 4
   %port.i.i = getelementptr inbounds i8, ptr %addr, i64 16
-  %68 = load ptr, ptr %port.i.i, align 8
-  %call3.i.i23 = call i32 @parse_uint_full(ptr noundef %68, i32 noundef 10, ptr noundef nonnull %val.i.i) #13
+  %69 = load ptr, ptr %port.i.i, align 8
+  %call3.i.i23 = call i32 @parse_uint_full(ptr noundef %69, i32 noundef 10, ptr noundef nonnull %val.i.i) #13
   %cmp4.i.i = icmp slt i32 %call3.i.i23, 0
-  %69 = load i64, ptr %val.i.i, align 8
-  %cmp7.i.i = icmp ugt i64 %69, 4294967295
+  %70 = load i64, ptr %val.i.i, align 8
+  %cmp7.i.i = icmp ugt i64 %70, 4294967295
   %or.cond1.i.i = select i1 %cmp4.i.i, i1 true, i1 %cmp7.i.i
   br i1 %or.cond1.i.i, label %if.then9.i.i, label %if.end.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
-  %70 = load ptr, ptr %port.i.i, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 749, ptr noundef nonnull @__func__.vsock_parse_vaddr_to_sockaddr, ptr noundef nonnull @.str.63, ptr noundef %70) #13
+  %71 = load ptr, ptr %port.i.i, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 749, ptr noundef nonnull @__func__.vsock_parse_vaddr_to_sockaddr, ptr noundef nonnull @.str.63, ptr noundef %71) #13
   br label %vsock_parse_vaddr_to_sockaddr.exit.thread.i
 
 vsock_parse_vaddr_to_sockaddr.exit.thread.i:      ; preds = %if.then9.i.i, %if.then.i.i27
@@ -2012,7 +2003,7 @@ vsock_parse_vaddr_to_sockaddr.exit.thread.i:      ; preds = %if.then9.i.i, %if.t
   br label %vsock_listen_saddr.exit
 
 if.end.i:                                         ; preds = %if.end.i.i
-  %conv12.i.i = trunc nuw i64 %69 to i32
+  %conv12.i.i = trunc nuw i64 %70 to i32
   %svm_port.i.i = getelementptr inbounds i8, ptr %svm.i, i64 4
   store i32 %conv12.i.i, ptr %svm_port.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
@@ -2022,8 +2013,8 @@ if.end.i:                                         ; preds = %if.end.i.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @__errno_location() #14
-  %71 = load i32, ptr %call3.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 811, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %71, ptr noundef nonnull @.str.56) #13
+  %72 = load i32, ptr %call3.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 811, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %72, ptr noundef nonnull @.str.56) #13
   br label %vsock_listen_saddr.exit
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -2033,8 +2024,8 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %call8.i = tail call ptr @__errno_location() #14
-  %72 = load i32, ptr %call8.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 816, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %72, ptr noundef nonnull @.str.72) #13
+  %73 = load i32, ptr %call8.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 816, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %73, ptr noundef nonnull @.str.72) #13
   %call9.i = call i32 @close(i32 noundef %call1.i) #13
   br label %vsock_listen_saddr.exit
 
@@ -2045,8 +2036,8 @@ if.end10.i26:                                     ; preds = %if.end4.i
 
 if.then13.i:                                      ; preds = %if.end10.i26
   %call14.i = tail call ptr @__errno_location() #14
-  %73 = load i32, ptr %call14.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 822, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %73, ptr noundef nonnull @.str.54) #13
+  %74 = load i32, ptr %call14.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 822, ptr noundef nonnull @__func__.vsock_listen_saddr, i32 noundef %74, ptr noundef nonnull @.str.54) #13
   %call15.i = call i32 @close(i32 noundef %call1.i) #13
   br label %vsock_listen_saddr.exit
 
@@ -2208,10 +2199,10 @@ land.lhs.true2.i.i:                               ; preds = %land.lhs.true.i.i
   %ipv415.i.i = getelementptr inbounds i8, ptr %remote, i64 31
   %5 = load i8, ptr %ipv415.i.i, align 1
   %tobool16.i.i = trunc i8 %5 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true14.i.i, label %land.lhs.true4.i.i
+  br i1 %tobool3.i.i, label %land.lhs.true11.i.i, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
-  br i1 %tobool16.i.i, label %land.lhs.true31.i.i.thread, label %if.then.i.i
+  br i1 %tobool16.i.i, label %land.lhs.true31.i.thread.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true4.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @__func__.inet_ai_family_from_address, ptr noundef nonnull @.str.1) #13
@@ -2221,10 +2212,10 @@ land.lhs.true8.thread.i.i:                        ; preds = %land.lhs.true.i.i
   %spec.select54.i = select i1 %tobool3.i.i, i32 10, i32 2
   br label %inet_ai_family_from_address.exit.i
 
-land.lhs.true14.i.i:                              ; preds = %land.lhs.true2.i.i
+land.lhs.true11.i.i:                              ; preds = %land.lhs.true2.i.i
   br i1 %tobool16.i.i, label %if.then17.i.i, label %inet_ai_family_from_address.exit.i
 
-if.then17.i.i:                                    ; preds = %land.lhs.true14.i.i
+if.then17.i.i:                                    ; preds = %land.lhs.true11.i.i
   %6 = load ptr, ptr %u, align 8
   %tobool18.not.i.i = icmp eq ptr %6, null
   br i1 %tobool18.not.i.i, label %inet_ai_family_from_address.exit.i, label %lor.lhs.false.i.i
@@ -2241,15 +2232,15 @@ lor.lhs.false28.thread.i.i:                       ; preds = %sw.bb
 land.lhs.true31.i.i:                              ; preds = %lor.lhs.false28.thread.i.i
   %ipv432.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %remote, i64 31
   %.pre.i = load i8, ptr %ipv432.i.phi.trans.insert.i, align 1
-  %.pre.i.fr = freeze i8 %.pre.i
-  %.pre55.i = trunc i8 %.pre.i.fr to i1
-  br i1 %.pre55.i, label %land.lhs.true31.i.i.thread, label %inet_ai_family_from_address.exit.i
+  %.pre.fr.i = freeze i8 %.pre.i
+  %.pre55.i = trunc i8 %.pre.fr.i to i1
+  br i1 %.pre55.i, label %land.lhs.true31.i.thread.i, label %inet_ai_family_from_address.exit.i
 
-land.lhs.true31.i.i.thread:                       ; preds = %land.lhs.true4.i.i, %land.lhs.true31.i.i
+land.lhs.true31.i.thread.i:                       ; preds = %land.lhs.true31.i.i, %land.lhs.true4.i.i
   br label %inet_ai_family_from_address.exit.i
 
-inet_ai_family_from_address.exit.i:               ; preds = %land.lhs.true31.i.i.thread, %land.lhs.true31.i.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true14.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true14.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select54.i, %land.lhs.true8.thread.i.i ], [ 2, %land.lhs.true31.i.i.thread ], [ 10, %land.lhs.true31.i.i ]
+inet_ai_family_from_address.exit.i:               ; preds = %land.lhs.true31.i.thread.i, %land.lhs.true31.i.i, %lor.lhs.false28.thread.i.i, %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true11.i.i, %land.lhs.true8.thread.i.i, %if.then.i.i
+  %retval.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 10, %if.then17.i.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ 10, %land.lhs.true11.i.i ], [ 0, %lor.lhs.false28.thread.i.i ], [ %spec.select54.i, %land.lhs.true8.thread.i.i ], [ 2, %land.lhs.true31.i.thread.i ], [ 10, %land.lhs.true31.i.i ]
   %ai_family.i = getelementptr inbounds i8, ptr %ai.i, i64 4
   store i32 %retval.0.i.i, ptr %ai_family.i, align 4
   %7 = load ptr, ptr %spec.select.i, align 8

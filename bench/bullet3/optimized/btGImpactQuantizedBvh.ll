@@ -175,20 +175,17 @@ for.end:                                          ; preds = %for.body
   %mul.i = fmul float %div, %add.i24
   %mul4.i = fmul float %div, %add8.i27
   %mul7.i = fmul float %div, %add13.i
-  br i1 %cmp118, label %for.body19.lr.ph, label %for.end41
-
-for.body19.lr.ph:                                 ; preds = %for.end
   %m_data.i29 = getelementptr inbounds i8, ptr %primitive_boxes, i64 16
   %8 = load ptr, ptr %m_data.i29, align 8
   %9 = sext i32 %startIndex to i64
   %wide.trip.count137 = sext i32 %endIndex to i64
   br label %for.body19
 
-for.body19:                                       ; preds = %for.body19.lr.ph, %for.body19
-  %indvars.iv134 = phi i64 [ %9, %for.body19.lr.ph ], [ %indvars.iv.next135, %for.body19 ]
-  %variance.sroa.12.0128 = phi float [ 0.000000e+00, %for.body19.lr.ph ], [ %add13.i82, %for.body19 ]
-  %variance.sroa.6.0127 = phi float [ 0.000000e+00, %for.body19.lr.ph ], [ %add8.i79, %for.body19 ]
-  %variance.sroa.0.0126 = phi float [ 0.000000e+00, %for.body19.lr.ph ], [ %add.i76, %for.body19 ]
+for.body19:                                       ; preds = %for.end, %for.body19
+  %indvars.iv134 = phi i64 [ %9, %for.end ], [ %indvars.iv.next135, %for.body19 ]
+  %variance.sroa.12.0128 = phi float [ 0.000000e+00, %for.end ], [ %add13.i82, %for.body19 ]
+  %variance.sroa.6.0127 = phi float [ 0.000000e+00, %for.end ], [ %add8.i79, %for.body19 ]
+  %variance.sroa.0.0126 = phi float [ 0.000000e+00, %for.end ], [ %add.i76, %for.body19 ]
   %arrayidx.i31 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %8, i64 %indvars.iv134
   %m_max25 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 16
   %10 = load float, ptr %m_max25, align 4
@@ -220,11 +217,11 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
   br i1 %exitcond138.not, label %for.end41, label %for.body19, !llvm.loop !8
 
-for.end41:                                        ; preds = %for.body19, %for.end.thread, %for.end
-  %conv147 = phi float [ %conv, %for.end ], [ %conv142, %for.end.thread ], [ %conv, %for.body19 ]
-  %variance.sroa.0.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add.i76, %for.body19 ]
-  %variance.sroa.6.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add8.i79, %for.body19 ]
-  %variance.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %add13.i82, %for.body19 ]
+for.end41:                                        ; preds = %for.body19, %for.end.thread
+  %conv147 = phi float [ %conv142, %for.end.thread ], [ %conv, %for.body19 ]
+  %variance.sroa.0.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add.i76, %for.body19 ]
+  %variance.sroa.6.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add8.i79, %for.body19 ]
+  %variance.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.end.thread ], [ %add13.i82, %for.body19 ]
   %sub44 = fadd float %conv147, -1.000000e+00
   %div45 = fdiv float 1.000000e+00, %sub44
   %mul.i83 = fmul float %div45, %variance.sroa.0.0.lcssa
@@ -1245,7 +1242,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
 
 _ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit: ; preds = %for.body8.i
   store i32 %call, ptr %m_size.i.i.i, align 4
-  br i1 %cmp3.i, label %for.body, label %for.end
+  br label %for.body
 
 for.body:                                         ; preds = %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit, %invoke.cont11
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont11 ], [ 0, %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit ]
@@ -1284,7 +1281,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZN18GIM_BVH_DATA_ARRAYD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %primitive_boxes) #14
   resume { ptr, i32 } %lpad.phi
 
-for.end:                                          ; preds = %invoke.cont11, %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit.thread, %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit
+for.end:                                          ; preds = %invoke.cont11, %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE6resizeEiRKS0_.exit.thread
   invoke void @_ZN18btQuantizedBvhTree10build_treeER18GIM_BVH_DATA_ARRAY(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(25) %primitive_boxes)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
 

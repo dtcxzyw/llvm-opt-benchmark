@@ -1240,7 +1240,7 @@ define dso_local noundef ptr @_ZN13StatementGoto20find_good_jump_blockERSt6vecto
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer.backedge
-  %.tr100.ph118 = phi i1 [ %2, %.lr.ph.lr.ph ], [ %brmerge73.demorgan, %tailrecurse.outer.backedge ]
+  %.tr100.ph118 = phi i1 [ %2, %.lr.ph.lr.ph ], [ %brmerge73.demorgan142, %tailrecurse.outer.backedge ]
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse.backedge
@@ -1311,6 +1311,7 @@ tailrecurse.outer.backedge.sink.split:            ; preds = %43, %75
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %tailrecurse.outer.backedge.sink.split, %75, %43
+  %brmerge73.demorgan142 = phi i1 [ true, %43 ], [ false, %75 ], [ %brmerge73.demorgan, %tailrecurse.outer.backedge.sink.split ]
   %.pn = phi ptr [ %45, %43 ], [ %77, %75 ], [ %.pre.i.i82, %tailrecurse.outer.backedge.sink.split ]
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 -8
   store ptr %storemerge, ptr %4, align 8

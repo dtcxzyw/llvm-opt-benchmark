@@ -2137,7 +2137,7 @@ lpad431:                                          ; preds = %new.notnull428
 lpad439:                                          ; preds = %for.body452, %if.then460
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup497
+  br label %delete.notnull.i282
 
 for.body452:                                      ; preds = %for.cond446.preheader, %for.inc465
   %j445.0465 = phi i32 [ %inc466, %for.inc465 ], [ 0, %for.cond446.preheader ]
@@ -2163,7 +2163,7 @@ for.inc465:                                       ; preds = %invoke.cont456, %if
 for.end467:                                       ; preds = %for.inc465
   %.pre502 = load i32, ptr %errorCode, align 4
   %122 = icmp slt i32 %.pre502, 1
-  br i1 %122, label %if.end472, label %cleanup
+  br i1 %122, label %if.end472, label %delete.notnull.i277
 
 if.end472:                                        ; preds = %for.cond446.preheader, %for.end467
   %call474 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
@@ -2176,43 +2176,37 @@ new.notnull476:                                   ; preds = %if.end472
 
 if.then491:                                       ; preds = %if.end472
   store i32 7, ptr %errorCode, align 4
-  br label %cleanup
+  br label %delete.notnull.i277
 
 lpad479:                                          ; preds = %new.notnull476
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call474) #17
-  br label %ehcleanup497
+  br label %delete.notnull.i282
 
-cleanup:                                          ; preds = %for.end467, %if.then491
-  br i1 %new.isnull427, label %cleanup498, label %delete.notnull.i277
-
-delete.notnull.i277:                              ; preds = %invoke.cont438, %cleanup
+delete.notnull.i277:                              ; preds = %if.then491, %for.end467, %invoke.cont438
   %vtable.i278 = load ptr, ptr %call426, align 8
   %vfn.i279 = getelementptr inbounds i8, ptr %vtable.i278, i64 8
   %124 = load ptr, ptr %vfn.i279, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(40) %call426) #17
   br label %cleanup498
 
-ehcleanup497:                                     ; preds = %lpad479, %lpad439
+delete.notnull.i282:                              ; preds = %lpad439, %lpad479
   %.pn = phi { ptr, i32 } [ %119, %lpad439 ], [ %123, %lpad479 ]
-  br i1 %new.isnull427, label %ehcleanup499, label %delete.notnull.i282
-
-delete.notnull.i282:                              ; preds = %ehcleanup497
   %vtable.i283 = load ptr, ptr %call426, align 8
   %vfn.i284 = getelementptr inbounds i8, ptr %vtable.i283, i64 8
   %125 = load ptr, ptr %vfn.i284, align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(40) %call426) #17
   br label %ehcleanup499
 
-cleanup498:                                       ; preds = %invoke.cont267, %cleanup.done248, %invoke.cont133, %invoke.cont107, %if.then.i265, %new.cont437, %cleanup.done248.critedge, %delete.end.i240, %new.notnull476, %delete.notnull.i277, %cleanup, %new.notnull376, %new.notnull292, %if.end365, %invoke.cont333, %for.end278, %if.then391, %if.then307
-  %bucketList.sroa.0.2 = phi ptr [ %call14, %if.then307 ], [ %call14, %if.then391 ], [ %call14, %if.end365 ], [ %call14, %invoke.cont333 ], [ %call14, %for.end278 ], [ null, %new.notnull292 ], [ null, %new.notnull376 ], [ %call14, %cleanup ], [ %call14, %delete.notnull.i277 ], [ null, %new.notnull476 ], [ %call14, %delete.end.i240 ], [ %call14, %cleanup.done248.critedge ], [ %call14, %new.cont437 ], [ %call14, %if.then.i265 ], [ %call14, %invoke.cont107 ], [ %call14, %invoke.cont133 ], [ %call14, %cleanup.done248 ], [ %call14, %invoke.cont267 ]
-  %retval.3 = phi ptr [ null, %if.then307 ], [ null, %if.then391 ], [ null, %if.end365 ], [ null, %invoke.cont333 ], [ null, %for.end278 ], [ %call290, %new.notnull292 ], [ %call374, %new.notnull376 ], [ null, %cleanup ], [ null, %delete.notnull.i277 ], [ %call474, %new.notnull476 ], [ null, %delete.end.i240 ], [ null, %cleanup.done248.critedge ], [ null, %new.cont437 ], [ null, %if.then.i265 ], [ null, %invoke.cont107 ], [ null, %invoke.cont133 ], [ null, %cleanup.done248 ], [ null, %invoke.cont267 ]
+cleanup498:                                       ; preds = %invoke.cont267, %cleanup.done248, %invoke.cont133, %invoke.cont107, %if.then.i265, %new.cont437, %cleanup.done248.critedge, %delete.end.i240, %new.notnull476, %delete.notnull.i277, %new.notnull376, %new.notnull292, %if.end365, %invoke.cont333, %for.end278, %if.then391, %if.then307
+  %bucketList.sroa.0.2 = phi ptr [ %call14, %if.then307 ], [ %call14, %if.then391 ], [ %call14, %if.end365 ], [ %call14, %invoke.cont333 ], [ %call14, %for.end278 ], [ null, %new.notnull292 ], [ null, %new.notnull376 ], [ %call14, %delete.notnull.i277 ], [ null, %new.notnull476 ], [ %call14, %delete.end.i240 ], [ %call14, %cleanup.done248.critedge ], [ %call14, %new.cont437 ], [ %call14, %if.then.i265 ], [ %call14, %invoke.cont107 ], [ %call14, %invoke.cont133 ], [ %call14, %cleanup.done248 ], [ %call14, %invoke.cont267 ]
+  %retval.3 = phi ptr [ null, %if.then307 ], [ null, %if.then391 ], [ null, %if.end365 ], [ null, %invoke.cont333 ], [ null, %for.end278 ], [ %call290, %new.notnull292 ], [ %call374, %new.notnull376 ], [ null, %delete.notnull.i277 ], [ %call474, %new.notnull476 ], [ null, %delete.end.i240 ], [ null, %cleanup.done248.critedge ], [ null, %new.cont437 ], [ null, %if.then.i265 ], [ null, %invoke.cont107 ], [ null, %invoke.cont133 ], [ null, %cleanup.done248 ], [ null, %invoke.cont267 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #17
   br label %cleanup500
 
-ehcleanup499:                                     ; preds = %lpad60.loopexit, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad60.loopexit.split-lp.loopexit, %delete.notnull.i282, %ehcleanup497, %lpad431, %lpad379, %lpad319, %lpad295, %cleanup.action253, %lpad162, %lpad120.body, %lpad94, %lpad192
-  %.pn92 = phi { ptr, i32 } [ %.pn90, %cleanup.action253 ], [ %87, %lpad192 ], [ %71, %lpad162 ], [ %eh.lpad-body, %lpad120.body ], [ %26, %lpad94 ], [ %103, %lpad295 ], [ %118, %lpad431 ], [ %110, %lpad379 ], [ %107, %lpad319 ], [ %.pn, %ehcleanup497 ], [ %.pn, %delete.notnull.i282 ], [ %lpad.loopexit, %lpad60.loopexit ], [ %lpad.loopexit387, %lpad60.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit393, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp394, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+ehcleanup499:                                     ; preds = %lpad60.loopexit, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad60.loopexit.split-lp.loopexit, %delete.notnull.i282, %lpad431, %lpad379, %lpad319, %lpad295, %cleanup.action253, %lpad162, %lpad120.body, %lpad94, %lpad192
+  %.pn92 = phi { ptr, i32 } [ %.pn90, %cleanup.action253 ], [ %87, %lpad192 ], [ %71, %lpad162 ], [ %eh.lpad-body, %lpad120.body ], [ %26, %lpad94 ], [ %103, %lpad295 ], [ %118, %lpad431 ], [ %110, %lpad379 ], [ %107, %lpad319 ], [ %.pn, %delete.notnull.i282 ], [ %lpad.loopexit, %lpad60.loopexit ], [ %lpad.loopexit387, %lpad60.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit393, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp394, %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #17
   br label %ehcleanup501
 
@@ -2237,14 +2231,14 @@ ehcleanup501:                                     ; preds = %ehcleanup499, %lpad
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %ehcleanup499 ], [ %11, %lpad42 ]
   %128 = load ptr, ptr %bucket, align 8
   %isnull.i292 = icmp eq ptr %128, null
-  br i1 %isnull.i292, label %ehcleanup503, label %delete.notnull.i293
+  br i1 %isnull.i292, label %delete.notnull.i305, label %delete.notnull.i293
 
 delete.notnull.i293:                              ; preds = %ehcleanup501
   %vtable.i294 = load ptr, ptr %128, align 8
   %vfn.i295 = getelementptr inbounds i8, ptr %vtable.i294, i64 8
   %129 = load ptr, ptr %vfn.i295, align 8
   call void %129(ptr noundef nonnull align 8 dereferenceable(168) %128) #17
-  br label %ehcleanup503
+  br label %delete.notnull.i305
 
 cleanup502:                                       ; preds = %delete.notnull.i288, %cleanup500
   %bucketList.sroa.0.0 = phi ptr [ %bucketList.sroa.0.1.ph.ph, %cleanup500 ], [ %bucketList.sroa.0.1524, %delete.notnull.i288 ]
@@ -2266,19 +2260,16 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303: ; preds = %if.then.i, %new.c
   call void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ces) #17
   br label %cleanup506
 
-ehcleanup503:                                     ; preds = %delete.notnull.i293, %ehcleanup501
-  br i1 %new.isnull, label %ehcleanup505, label %delete.notnull.i305
-
-delete.notnull.i305:                              ; preds = %lpad18, %lpad33, %ehcleanup503
-  %.pn92.pn.pn537 = phi { ptr, i32 } [ %.pn92.pn, %ehcleanup503 ], [ %10, %lpad33 ], [ %7, %lpad18 ]
+delete.notnull.i305:                              ; preds = %ehcleanup501, %delete.notnull.i293, %lpad18, %lpad33
+  %.pn92.pn.pn537 = phi { ptr, i32 } [ %10, %lpad33 ], [ %7, %lpad18 ], [ %.pn92.pn, %delete.notnull.i293 ], [ %.pn92.pn, %ehcleanup501 ]
   %vtable.i306 = load ptr, ptr %call14, align 8
   %vfn.i307 = getelementptr inbounds i8, ptr %vtable.i306, i64 8
   %131 = load ptr, ptr %vfn.i307, align 8
   call void %131(ptr noundef nonnull align 8 dereferenceable(40) %call14) #17
   br label %ehcleanup505
 
-ehcleanup505:                                     ; preds = %delete.notnull.i305, %ehcleanup503, %lpad15, %lpad6
-  %.pn92.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %6, %lpad15 ], [ %.pn92.pn, %ehcleanup503 ], [ %.pn92.pn.pn537, %delete.notnull.i305 ]
+ehcleanup505:                                     ; preds = %delete.notnull.i305, %lpad15, %lpad6
+  %.pn92.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %6, %lpad15 ], [ %.pn92.pn.pn537, %delete.notnull.i305 ]
   call void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ces) #17
   br label %ehcleanup507
 
@@ -3839,9 +3830,9 @@ ehcleanup68:                                      ; preds = %lpad27, %_ZN6icu_75
   %.pn = phi { ptr, i32 } [ %12, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit31 ], [ %11, %lpad44 ], [ %8, %lpad27 ]
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %iter) #17
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set) #17
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i37
+  br label %delete.notnull.i37
 
-delete.notnull.i37:                               ; preds = %ehcleanup68.thread71, %ehcleanup68.thread, %ehcleanup68
+delete.notnull.i37:                               ; preds = %ehcleanup68, %ehcleanup68.thread71, %ehcleanup68.thread
   %.pn.pn.pn70 = phi { ptr, i32 } [ %4, %ehcleanup68.thread ], [ %.pn, %ehcleanup68 ], [ %7, %ehcleanup68.thread71 ]
   %vtable.i38 = load ptr, ptr %call2, align 8
   %vfn.i39 = getelementptr inbounds i8, ptr %vtable.i38, i64 8
@@ -3853,8 +3844,8 @@ return:                                           ; preds = %new.cont, %if.then.
   %retval.0 = phi ptr [ null, %entry ], [ %retval.5, %cleanup67 ], [ %retval.164, %delete.notnull.i33 ], [ null, %if.then.i ], [ null, %new.cont ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %delete.notnull.i37, %ehcleanup68, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn, %ehcleanup68 ], [ %.pn.pn.pn70, %delete.notnull.i37 ]
+eh.resume:                                        ; preds = %delete.notnull.i37, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn.pn70, %delete.notnull.i37 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

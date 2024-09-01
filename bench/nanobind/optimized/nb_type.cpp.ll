@@ -2974,16 +2974,16 @@ _ZNKSt9type_infoeqERKS_.exit.preheader.i:         ; preds = %80
 _ZNKSt9type_infoeqERKS_.exit.backedge.i:          ; preds = %98, %96
   %104 = load ptr, ptr %89, align 8
   %.not.i56 = icmp eq ptr %104, null
-  br i1 %.not.i56, label %.lr.ph65.i, label %87, !llvm.loop !57
+  br i1 %.not.i56, label %.preheader58.i, label %87, !llvm.loop !57
 
-.lr.ph65.i:                                       ; preds = %_ZNKSt9type_infoeqERKS_.exit.backedge.i, %115
+.preheader58.i:                                   ; preds = %_ZNKSt9type_infoeqERKS_.exit.backedge.i, %115
   %105 = phi ptr [ %116, %115 ], [ %85, %_ZNKSt9type_infoeqERKS_.exit.backedge.i ]
   %.pn66.i = phi ptr [ %106, %115 ], [ %82, %_ZNKSt9type_infoeqERKS_.exit.backedge.i ]
   %106 = getelementptr inbounds i8, ptr %.pn66.i, i64 8
   %107 = invoke noundef ptr @_ZN8nanobind6detail11nb_type_c2pEPNS0_12nb_internalsEPKSt9type_info(ptr noundef %20, ptr noundef nonnull %105)
           to label %108 unwind label %.loopexit60.i
 
-108:                                              ; preds = %.lr.ph65.i
+108:                                              ; preds = %.preheader58.i
   %.not49.i = icmp eq ptr %107, null
   br i1 %.not49.i, label %115, label %109
 
@@ -3001,7 +3001,7 @@ _ZNKSt9type_infoeqERKS_.exit.backedge.i:          ; preds = %98, %96
 115:                                              ; preds = %114, %108
   %116 = load ptr, ptr %106, align 8
   %.not46.i = icmp eq ptr %116, null
-  br i1 %.not46.i, label %.loopexit59.i, label %.lr.ph65.i, !llvm.loop !58
+  br i1 %.not46.i, label %.loopexit59.i, label %.preheader58.i, !llvm.loop !58
 
 .loopexit59.i:                                    ; preds = %115, %_ZNKSt9type_infoeqERKS_.exit.preheader.i, %80
   %117 = getelementptr inbounds i8, ptr %.2, i64 72
@@ -3131,7 +3131,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit.i: ; preds = %163, %147
   %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.30, ptr noundef %175, ptr noundef %178) #29
   br label %_ZN8nanobind6detailL20nb_type_get_implicitEP7_objectPKSt9type_infoPKNS0_9type_dataEPNS0_12nb_internalsEPNS0_12cleanup_listEPPv.exit
 
-.loopexit60.i:                                    ; preds = %109, %.lr.ph65.i
+.loopexit60.i:                                    ; preds = %109, %.preheader58.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           catch ptr null
   br label %180
@@ -5234,14 +5234,14 @@ define internal void @_ZN8nanobind6detailL15nb_type_deallocEP7_object(ptr nounde
   %2 = getelementptr inbounds i8, ptr %0, i64 904
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %4
+  br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 892
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 65536
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %._crit_edge
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
@@ -5451,7 +5451,7 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8eq
   %139 = getelementptr inbounds i8, ptr %0, i64 912
   %140 = load ptr, ptr %139, align 8
   %.not4386 = icmp eq ptr %140, null
-  br i1 %.not4386, label %._crit_edge, label %.lr.ph
+  br i1 %.not4386, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit77
   %.04087 = phi ptr [ %142, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit77 ], [ %140, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit ]
@@ -5582,20 +5582,20 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8eq
   store i8 1, ptr %138, align 1
   tail call void @PyMem_Free(ptr noundef nonnull %.04087)
   %.not43 = icmp eq ptr %142, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %.not43, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .critedge:                                        ; preds = %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS3_.exit67, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS3_.exit, %49
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
-._crit_edge:                                      ; preds = %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit77, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit, %4, %1
+.loopexit:                                        ; preds = %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit77, %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5eraseENS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEE.exit, %4, %1
   %214 = getelementptr inbounds i8, ptr %0, i64 892
   %215 = load i32, ptr %214, align 4
   %216 = and i32 %215, 32768
   %.not44 = icmp eq i32 %216, 0
   br i1 %.not44, label %222, label %217
 
-217:                                              ; preds = %._crit_edge
+217:                                              ; preds = %.loopexit
   %218 = getelementptr inbounds i8, ptr %0, i64 952
   %219 = load ptr, ptr %218, align 8
   tail call void @free(ptr noundef %219) #28
@@ -5604,7 +5604,7 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8eq
   tail call void @free(ptr noundef %221) #28
   br label %222
 
-222:                                              ; preds = %217, %._crit_edge
+222:                                              ; preds = %217, %.loopexit
   %223 = getelementptr inbounds i8, ptr %0, i64 896
   %224 = load ptr, ptr %223, align 8
   tail call void @free(ptr noundef %224) #28

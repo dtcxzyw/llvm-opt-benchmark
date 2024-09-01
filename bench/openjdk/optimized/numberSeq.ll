@@ -276,33 +276,30 @@ define hidden noundef zeroext i1 @_ZN9NumberSeq10check_numsEPS_iPS0_(ptr nocaptu
   br i1 %6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %7 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %8 = phi i1 [ false, %.lr.ph.preheader ], [ %16, %15 ]
-  %9 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %15, label %11
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
+  %7 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %13, label %9
 
-11:                                               ; preds = %.lr.ph
-  %12 = load i32, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = load i32, ptr %13, align 8
-  %.not9 = icmp eq i32 %12, %14
-  br i1 %.not9, label %15, label %._crit_edge
+9:                                                ; preds = %.lr.ph
+  %10 = load i32, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i32, ptr %11, align 8
+  %.not9 = icmp eq i32 %10, %12
+  br i1 %.not9, label %13, label %._crit_edge
 
-15:                                               ; preds = %.lr.ph, %11
+13:                                               ; preds = %.lr.ph, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = icmp uge i64 %indvars.iv.next, %7
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %11, %15, %4
-  %.lcssa = phi i1 [ true, %4 ], [ %16, %15 ], [ %8, %11 ]
+._crit_edge:                                      ; preds = %9, %13, %4
+  %.lcssa = phi i1 [ true, %4 ], [ true, %13 ], [ false, %9 ]
   ret i1 %.lcssa
 }
 

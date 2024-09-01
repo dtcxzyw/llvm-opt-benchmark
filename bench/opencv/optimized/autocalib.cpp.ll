@@ -546,10 +546,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
   %wide.trip.count126 = and i64 %14, 2147483647
   br label %106
 
-.preheader:                                       ; preds = %106
-  br i1 %32, label %.lr.ph108, label %.loopexit
-
-.lr.ph108:                                        ; preds = %.preheader
+.lr.ph108:                                        ; preds = %106
   %104 = uitofp nneg i32 %15 to double
   %105 = fdiv double %114, %104
   %wide.trip.count131 = and i64 %14, 2147483647
@@ -568,7 +565,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
   %114 = fadd double %.040104, %113
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %.preheader, label %106, !llvm.loop !8
+  br i1 %exitcond127.not, label %.lr.ph108, label %106, !llvm.loop !8
 
 115:                                              ; preds = %.lr.ph108, %115
   %indvars.iv128 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next129, %115 ]
@@ -579,7 +576,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %.loopexit, label %115, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph, %115, %.preheader71, %.preheader
+.loopexit:                                        ; preds = %.lr.ph, %115, %.preheader71
   %.not.i.i.i50 = icmp eq ptr %.sroa.0.0.lcssa, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIdSaIdEED2Ev.exit51, label %.loopexit.thread
 

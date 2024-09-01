@@ -842,8 +842,8 @@ ompi_group_proc_lookup_rank.exit.thread:          ; preds = %ompi_group_proc_loo
   store i32 -2, ptr %6, align 4
   %88 = getelementptr inbounds i8, ptr %55, i64 256
   %89 = load ptr, ptr %88, align 8
-  %.not58 = icmp ne ptr %87, %89
-  br i1 %.not58, label %90, label %opal_pointer_array_get_item.exit.thread
+  %.not58.not = icmp eq ptr %87, %89
+  br i1 %.not58.not, label %opal_pointer_array_get_item.exit.thread, label %90
 
 ompi_group_proc_lookup_rank.exit:                 ; preds = %77, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -908,7 +908,7 @@ thread-pre-split:                                 ; preds = %107, %105
 
 .thread:                                          ; preds = %thread-pre-split, %ompi_group_proc_lookup_rank.exit
   %storemerge = phi i32 [ %71, %ompi_group_proc_lookup_rank.exit ], [ %99, %thread-pre-split ]
-  %.04477 = phi i1 [ false, %ompi_group_proc_lookup_rank.exit ], [ %.not58, %thread-pre-split ]
+  %.04477 = phi i1 [ false, %ompi_group_proc_lookup_rank.exit ], [ true, %thread-pre-split ]
   store i32 %storemerge, ptr %6, align 4
   %115 = call i32 @ompi_comm_set_rank_failed(ptr noundef nonnull %55, i32 noundef %storemerge, i1 noundef zeroext %.04477) #13
   %116 = load ptr, ptr %7, align 8

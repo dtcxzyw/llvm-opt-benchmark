@@ -436,8 +436,8 @@ entry:
   %0 = load ptr, ptr %type, align 8
   %id_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %id_.i, align 8
-  %cmp.not = icmp eq i32 %1, 31
-  br i1 %cmp.not, label %cond.true, label %cleanup.done11
+  %cmp = icmp eq i32 %1, 31
+  br i1 %cmp, label %cond.true, label %cleanup.done11
 
 cond.true:                                        ; preds = %entry
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -452,8 +452,8 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %cond.true
 
 do.body.i.i.i.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
   %__count.0.i.i.i.i.i.i = phi i32 [ %3, %lor.lhs.false.i.i.i.i.i ], [ %6, %do.cond.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %do.cond.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %do.cond.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i, 1
@@ -479,20 +479,20 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i13
   %9 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !noalias !11
   %add.i.i.i.i.i.i.i = add nsw i32 %9, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !noalias !11
-  br label %if.then.i.i.i
+  br label %cond.end
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i13
   %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !11
-  br label %if.then.i.i.i
+  br label %cond.end
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
+cond.end:                                         ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %storage_type_.i = getelementptr inbounds i8, ptr %7, i64 72
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
+if.then.i.i.i.i:                                  ; preds = %cond.end
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
@@ -502,7 +502,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   br label %if.end8.sink.split.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
+if.end.i.i.i.i:                                   ; preds = %cond.end
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i14

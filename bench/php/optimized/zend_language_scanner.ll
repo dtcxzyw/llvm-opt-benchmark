@@ -20915,8 +20915,8 @@ switch.early.test325:                             ; preds = %83
 103:                                              ; preds = %97
   %104 = getelementptr inbounds i8, ptr %.1341, i64 3
   %105 = load i8, ptr %104, align 1
-  %.not298336.not = icmp eq i8 %105, 125
-  br i1 %.not298336.not, label %.critedge, label %.lr.ph
+  %.not298336 = icmp eq i8 %105, 125
+  br i1 %.not298336, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %103, %108
   %106 = phi i8 [ %111, %108 ], [ %105, %103 ]
@@ -20947,8 +20947,8 @@ switch.early.test326:                             ; preds = %.lr.ph
   %109 = add i64 %.0272337, 1
   %110 = getelementptr inbounds i8, ptr %.3338, i64 1
   %111 = load i8, ptr %110, align 1
-  %.not298.not = icmp eq i8 %111, 125
-  br i1 %.not298.not, label %._crit_edge, label %.lr.ph
+  %.not298 = icmp eq i8 %111, 125
+  br i1 %.not298, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %108
   %112 = add i64 %.0272337, 2

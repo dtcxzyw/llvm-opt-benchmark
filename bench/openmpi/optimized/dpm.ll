@@ -12241,7 +12241,7 @@ disconnect_waitall.exit:                          ; preds = %85, %97, %._crit_ed
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ompi_dpm_mark_dyncomm(ptr noundef %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, @ompi_mpi_comm_null
-  br i1 %2, label %ompi_dpm_group_is_dyn.exit26.thread, label %3
+  br i1 %2, label %ompi_dpm_group_is_dyn.exit.thread29, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 248
@@ -12272,117 +12272,105 @@ define void @ompi_dpm_mark_dyncomm(ptr noundef %0) local_unnamed_addr #16 {
   %17 = getelementptr i8, ptr %5, i64 16
   %.val11.i = load i32, ptr %17, align 8
   %18 = icmp sgt i32 %.val11.i, 0
-  br i1 %18, label %.lr.ph.i, label %ompi_dpm_group_is_dyn.exit.thread
+  br i1 %18, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %16
-  %19 = zext nneg i32 %.val11.i to i64
-  br label %22
+  %wide.trip.count.i = zext nneg i32 %.val11.i to i64
+  br label %20
 
-20:                                               ; preds = %ompi_group_get_proc_name.exit.i
+19:                                               ; preds = %ompi_group_get_proc_name.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = icmp ult i64 %indvars.iv.next.i, %19
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not.i, label %ompi_dpm_group_is_dyn.exit, label %22, !llvm.loop !73
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %20, !llvm.loop !73
 
-22:                                               ; preds = %20, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %23 = phi i1 [ true, %.lr.ph.i ], [ %21, %20 ]
-  %24 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 1
-  %.not.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i, label %32, label %28
+20:                                               ; preds = %19, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
+  %21 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = and i64 %23, 1
+  %.not.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i, label %29, label %25
 
-28:                                               ; preds = %22
-  %29 = lshr i64 %26, 1
-  %30 = and i64 %29, 32767
-  %31 = and i64 %26, -65536
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %30, %31
+25:                                               ; preds = %20
+  %26 = lshr i64 %23, 1
+  %27 = and i64 %26, 32767
+  %28 = and i64 %23, -65536
+  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %27, %28
   br label %ompi_group_get_proc_name.exit.i
 
-32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %25, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %33, align 8
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds i8, ptr %22, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8
   br label %ompi_group_get_proc_name.exit.i
 
-ompi_group_get_proc_name.exit.i:                  ; preds = %32, %28
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %28 ], [ %.sroa.0.0.copyload.i.i, %32 ]
+ompi_group_get_proc_name.exit.i:                  ; preds = %29, %25
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %25 ], [ %.sroa.0.0.copyload.i.i, %29 ]
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.i.i to i32
-  %.not10.i = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
-  br i1 %.not10.i, label %20, label %ompi_dpm_group_is_dyn.exit
+  %.not10.not.i = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
+  br i1 %.not10.not.i, label %19, label %ompi_dpm_group_is_dyn.exit
 
-ompi_dpm_group_is_dyn.exit:                       ; preds = %20, %ompi_group_get_proc_name.exit.i
-  %.lcssa.i = phi i1 [ %21, %20 ], [ %23, %ompi_group_get_proc_name.exit.i ]
-  br i1 %.lcssa.i, label %ompi_dpm_group_is_dyn.exit26.thread29, label %ompi_dpm_group_is_dyn.exit.thread
+.loopexit:                                        ; preds = %19, %16
+  %31 = getelementptr inbounds i8, ptr %0, i64 256
+  %32 = load ptr, ptr %31, align 8
+  %.not.i10 = icmp eq ptr %32, null
+  br i1 %.not.i10, label %ompi_dpm_group_is_dyn.exit.thread29, label %33
 
-ompi_dpm_group_is_dyn.exit.thread:                ; preds = %16, %ompi_dpm_group_is_dyn.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 256
-  %35 = load ptr, ptr %34, align 8
-  %.not.i10 = icmp eq ptr %35, null
-  br i1 %.not.i10, label %ompi_dpm_group_is_dyn.exit26.thread, label %36
+33:                                               ; preds = %.loopexit
+  %34 = getelementptr i8, ptr %32, i64 16
+  %.val11.i11 = load i32, ptr %34, align 8
+  %35 = icmp sgt i32 %.val11.i11, 0
+  br i1 %35, label %.lr.ph.i13, label %ompi_dpm_group_is_dyn.exit.thread29
 
-36:                                               ; preds = %ompi_dpm_group_is_dyn.exit.thread
-  %37 = getelementptr i8, ptr %35, i64 16
-  %.val11.i11 = load i32, ptr %37, align 8
-  %38 = icmp sgt i32 %.val11.i11, 0
-  br i1 %38, label %.lr.ph.i13, label %ompi_dpm_group_is_dyn.exit26.thread
+.lr.ph.i13:                                       ; preds = %33
+  %36 = getelementptr i8, ptr %32, i64 32
+  %.val.i14 = load ptr, ptr %36, align 8
+  %wide.trip.count.i15 = zext nneg i32 %.val11.i11 to i64
+  br label %38
 
-.lr.ph.i13:                                       ; preds = %36
-  %39 = getelementptr i8, ptr %35, i64 32
-  %.val.i14 = load ptr, ptr %39, align 8
-  %40 = zext nneg i32 %.val11.i11 to i64
-  br label %43
-
-41:                                               ; preds = %ompi_group_get_proc_name.exit.i19
+37:                                               ; preds = %ompi_group_get_proc_name.exit.i19
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i16, 1
-  %42 = icmp ult i64 %indvars.iv.next.i23, %40
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %40
-  br i1 %exitcond.not.i24, label %ompi_dpm_group_is_dyn.exit26, label %43, !llvm.loop !73
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i15
+  br i1 %exitcond.not.i24, label %ompi_dpm_group_is_dyn.exit.thread29, label %38, !llvm.loop !73
 
-43:                                               ; preds = %41, %.lr.ph.i13
-  %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i23, %41 ]
-  %44 = phi i1 [ true, %.lr.ph.i13 ], [ %42, %41 ]
-  %45 = getelementptr inbounds ptr, ptr %.val.i14, i64 %indvars.iv.i16
-  %46 = load ptr, ptr %45, align 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = and i64 %47, 1
-  %.not.i.i17 = icmp eq i64 %48, 0
-  br i1 %.not.i.i17, label %53, label %49
+38:                                               ; preds = %37, %.lr.ph.i13
+  %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i23, %37 ]
+  %39 = getelementptr inbounds ptr, ptr %.val.i14, i64 %indvars.iv.i16
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, 1
+  %.not.i.i17 = icmp eq i64 %42, 0
+  br i1 %.not.i.i17, label %47, label %43
 
-49:                                               ; preds = %43
-  %50 = lshr i64 %47, 1
-  %51 = and i64 %50, 32767
-  %52 = and i64 %47, -65536
-  %.sroa.0.0.insert.insert.i.i.i18 = or disjoint i64 %51, %52
+43:                                               ; preds = %38
+  %44 = lshr i64 %41, 1
+  %45 = and i64 %44, 32767
+  %46 = and i64 %41, -65536
+  %.sroa.0.0.insert.insert.i.i.i18 = or disjoint i64 %45, %46
   br label %ompi_group_get_proc_name.exit.i19
 
-53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %46, i64 40
-  %.sroa.0.0.copyload.i.i25 = load i64, ptr %54, align 8
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds i8, ptr %40, i64 40
+  %.sroa.0.0.copyload.i.i25 = load i64, ptr %48, align 8
   br label %ompi_group_get_proc_name.exit.i19
 
-ompi_group_get_proc_name.exit.i19:                ; preds = %53, %49
-  %.sroa.0.0.i.i20 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i18, %49 ], [ %.sroa.0.0.copyload.i.i25, %53 ]
+ompi_group_get_proc_name.exit.i19:                ; preds = %47, %43
+  %.sroa.0.0.i.i20 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i18, %43 ], [ %.sroa.0.0.copyload.i.i25, %47 ]
   %.sroa.0.0.extract.trunc.i21 = trunc i64 %.sroa.0.0.i.i20 to i32
-  %.not10.i22 = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i21
-  br i1 %.not10.i22, label %41, label %ompi_dpm_group_is_dyn.exit26
+  %.not10.not.i22 = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i21
+  br i1 %.not10.not.i22, label %37, label %ompi_dpm_group_is_dyn.exit
 
-ompi_dpm_group_is_dyn.exit26:                     ; preds = %ompi_group_get_proc_name.exit.i19, %41
-  %.0.in = phi i1 [ %42, %41 ], [ %44, %ompi_group_get_proc_name.exit.i19 ]
-  br i1 %.0.in, label %ompi_dpm_group_is_dyn.exit26.thread29, label %ompi_dpm_group_is_dyn.exit26.thread
+ompi_dpm_group_is_dyn.exit:                       ; preds = %ompi_group_get_proc_name.exit.i, %ompi_group_get_proc_name.exit.i19
+  %49 = load i32, ptr @ompi_comm_num_dyncomm, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr @ompi_comm_num_dyncomm, align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 224
+  %52 = load i32, ptr %51, align 8
+  %53 = or i32 %52, 8
+  store i32 %53, ptr %51, align 8
+  br label %ompi_dpm_group_is_dyn.exit.thread29
 
-ompi_dpm_group_is_dyn.exit26.thread29:            ; preds = %ompi_dpm_group_is_dyn.exit, %ompi_dpm_group_is_dyn.exit26
-  %55 = load i32, ptr @ompi_comm_num_dyncomm, align 4
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr @ompi_comm_num_dyncomm, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 224
-  %58 = load i32, ptr %57, align 8
-  %59 = or i32 %58, 8
-  store i32 %59, ptr %57, align 8
-  br label %ompi_dpm_group_is_dyn.exit26.thread
-
-ompi_dpm_group_is_dyn.exit26.thread:              ; preds = %ompi_dpm_group_is_dyn.exit.thread, %36, %1, %ompi_dpm_group_is_dyn.exit26.thread29, %ompi_dpm_group_is_dyn.exit26
+ompi_dpm_group_is_dyn.exit.thread29:              ; preds = %37, %.loopexit, %33, %1, %ompi_dpm_group_is_dyn.exit
   ret void
 }
 

@@ -2348,8 +2348,8 @@ arraydestroy.body446:                             ; preds = %ehcleanup442, %arra
   br i1 %arraydestroy.done449, label %eh.resume, label %arraydestroy.body446
 
 eh.resume:                                        ; preds = %arraydestroy.body446, %ehcleanup442.thread, %ehcleanup442
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn628 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup442.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup442 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body446 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn628
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn627 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup442.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup442 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body446 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn627
 }
 
 ; Function Attrs: nounwind
@@ -2823,7 +2823,7 @@ for.end:                                          ; preds = %for.body
   %last_histogram_num = getelementptr inbounds i8, ptr %this, i64 1552
   %7 = load i64, ptr %last_histogram_num, align 8
   %cmp6.not = icmp eq i64 %add5, %7
-  br i1 %cmp6.not, label %if.end9, label %if.end9.thread
+  br i1 %cmp6.not, label %if.else, label %if.end9.thread
 
 for.end.thread:                                   ; preds = %for.cond.preheader
   %num_.i.i16 = getelementptr inbounds i8, ptr %this, i64 600
@@ -2839,16 +2839,13 @@ if.end9.thread:                                   ; preds = %for.end.thread, %fo
   store i64 %add520, ptr %last_histogram_num21, align 8
   br label %if.then11
 
-if.end9:                                          ; preds = %for.end
-  br i1 %tobool, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %entry, %if.end9.thread, %if.end9
+if.then11:                                        ; preds = %entry, %if.end9.thread
   %no_cf_change_period_since_dump_ = getelementptr inbounds i8, ptr %this, i64 1548
   store i32 0, ptr %no_cf_change_period_since_dump_, align 4
   store i8 0, ptr %has_cf_change_since_dump_, align 8
   br label %if.end23
 
-if.else:                                          ; preds = %for.end.thread, %if.end9
+if.else:                                          ; preds = %for.end, %for.end.thread
   %no_cf_change_period_since_dump_13 = getelementptr inbounds i8, ptr %this, i64 1548
   %10 = load i32, ptr %no_cf_change_period_since_dump_13, align 4
   %inc14 = add nsw i32 %10, 1

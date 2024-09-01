@@ -1625,7 +1625,7 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit24: ; preds =
   %.pre126 = sdiv i32 %.pre124, %.pre116
   %108 = getelementptr inbounds i8, ptr %0, i64 372
   store i32 %.pre126, ptr %108, align 4
-  br i1 %.not85101, label %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i34, label %.lr.ph.i.i.i.i26
+  br label %.lr.ph.i.i.i.i26
 
 .lr.ph.i.i.i.i26:                                 ; preds = %._crit_edge105, %_ZSt8_DestroyISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i30
   %.05.i.i.i.i27 = phi ptr [ %113, %_ZSt8_DestroyISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i30 ], [ %4, %._crit_edge105 ]
@@ -1646,7 +1646,7 @@ _ZSt8_DestroyISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EEEvPT_.exit.
   %.not.i.i.i.i31 = icmp eq ptr %113, %7
   br i1 %.not.i.i.i.i31, label %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i34, label %.lr.ph.i.i.i.i26, !llvm.loop !19
 
-_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i34: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i30, %._crit_edge105.thread, %._crit_edge105
+_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i34: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i30, %._crit_edge105.thread
   %.not.i.i.i35 = icmp eq ptr %4, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit36, label %114
 

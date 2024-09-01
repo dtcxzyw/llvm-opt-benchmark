@@ -7544,8 +7544,8 @@ if.end.i.i:                                       ; preds = %for.cond
 invoke.cont9:                                     ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i32 [ %25, %if.end.i.i ], [ 0, %for.cond ]
   %26 = zext i32 %retval.0.i.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %26
-  br i1 %cmp.not, label %for.end, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %26
+  br i1 %cmp.not.not.not.not.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont9
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -9649,7 +9649,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit799, %invoke.cont8.i.i, %if.then.i.i.i.i.i807
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 
 ehcleanup346:                                     ; preds = %lpad3.loopexit, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad3.loopexit.split-lp.loopexit, %lpad311, %ehcleanup286, %ehcleanup183
   %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %ehcleanup183 ], [ %.pn, %ehcleanup286 ], [ %328, %lpad311 ], [ %lpad.loopexit, %lpad3.loopexit ], [ %lpad.loopexit808, %lpad3.loopexit.split-lp.loopexit ], [ %lpad.loopexit811, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit816, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit819, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -13773,8 +13773,8 @@ land.rhs:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %invoke.cont41 ]
   %32 = load i32, ptr %m_num_args.i, align 8
   %33 = zext i32 %32 to i64
-  %cmp39.not = icmp uge i64 %indvars.iv, %33
-  br i1 %cmp39.not, label %if.end153, label %for.body
+  %cmp39.not.not = icmp uge i64 %indvars.iv, %33
+  br i1 %cmp39.not.not, label %if.end153, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
@@ -14151,7 +14151,7 @@ invoke.cont141:                                   ; preds = %invoke.cont139
           to label %if.end153 unwind label %lpad.loopexit.split-lp
 
 if.end153:                                        ; preds = %invoke.cont41, %land.rhs, %invoke.cont49, %.noexc.i129, %.noexc.i114, %.noexc.i93, %.noexc.i69, %.noexc.i, %if.then, %invoke.cont94, %invoke.cont111, %invoke.cont125, %invoke.cont141, %if.then131
-  %res.0 = phi i1 [ true, %if.then131 ], [ true, %invoke.cont141 ], [ false, %invoke.cont125 ], [ false, %invoke.cont111 ], [ false, %invoke.cont94 ], [ true, %if.then ], [ %call15, %.noexc.i ], [ %call29, %.noexc.i69 ], [ %call56, %.noexc.i93 ], [ %call71, %.noexc.i114 ], [ true, %.noexc.i129 ], [ false, %invoke.cont49 ], [ %cmp39.not, %land.rhs ], [ %cmp39.not, %invoke.cont41 ]
+  %res.0 = phi i1 [ true, %if.then131 ], [ true, %invoke.cont141 ], [ false, %invoke.cont125 ], [ false, %invoke.cont111 ], [ false, %invoke.cont94 ], [ true, %if.then ], [ %call15, %.noexc.i ], [ %call29, %.noexc.i69 ], [ %call56, %.noexc.i93 ], [ %call71, %.noexc.i114 ], [ true, %.noexc.i129 ], [ false, %invoke.cont49 ], [ %cmp39.not.not, %land.rhs ], [ %cmp39.not.not, %invoke.cont41 ]
   %82 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %mul1)
           to label %.noexc.i145 unwind label %terminate.lpad.i144
@@ -18752,8 +18752,8 @@ if.end.i.i151:                                    ; preds = %for.cond
 invoke.cont4:                                     ; preds = %if.end.i.i151, %for.cond
   %retval.0.i.i153 = phi i32 [ %33, %if.end.i.i151 ], [ 0, %for.cond ]
   %34 = zext i32 %retval.0.i.i153 to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %34
-  br i1 %cmp.not, label %for.end, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %34
+  br i1 %cmp.not.not.not.not.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -22981,7 +22981,7 @@ terminate.lpad.i1877:                             ; preds = %if.then2.i.i.i1876
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit1878:     ; preds = %cleanup765, %if.then.i.i.i1870, %if.then2.i.i.i1876
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 
 ehcleanup766:                                     ; preds = %lpad.loopexit1890, %lpad.loopexit.split-lp, %ehcleanup764, %ehcleanup180
   %.pn91.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn.pn, %ehcleanup180 ], [ %.pn88.pn, %ehcleanup764 ], [ %lpad.loopexit1891, %lpad.loopexit1890 ], [ %lpad.loopexit.split-lp1892, %lpad.loopexit.split-lp ]

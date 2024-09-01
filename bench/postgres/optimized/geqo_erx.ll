@@ -426,16 +426,16 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.1.i = phi i32 [ 1, %51 ], [ %spec.select.i, %61 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
-  br i1 %exitcond.not.i41, label %.lr.ph54.preheader.i, label %.lr.ph.i38, !llvm.loop !11
+  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !11
 
-.lr.ph54.preheader.i:                             ; preds = %64
+._crit_edge.i:                                    ; preds = %64
   %65 = add i32 %.1.i, -1
   %66 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %65, i32 noundef 0) #9
   br label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %76, %.lr.ph54.preheader.i
-  %indvars.iv61.i = phi i64 [ 0, %.lr.ph54.preheader.i ], [ %indvars.iv.next62.i, %76 ]
-  %.252.i = phi i32 [ %.1.i, %.lr.ph54.preheader.i ], [ %.3.i, %76 ]
+.lr.ph54.i:                                       ; preds = %76, %._crit_edge.i
+  %indvars.iv61.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next62.i, %76 ]
+  %.252.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.3.i, %76 ]
   %67 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv61.i
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
@@ -509,7 +509,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %93 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %92, i32 noundef 0) #9
   br label %.lr.ph86.i
 
-.lr.ph86.i:                                       ; preds = %91, %106
+.lr.ph86.i:                                       ; preds = %106, %91
   %.284.i = phi i32 [ %.3.i51, %106 ], [ %.1.i48, %91 ]
   %.15583.i = phi i32 [ %107, %106 ], [ 1, %91 ]
   %.not68.i = icmp eq i32 %.15583.i, %37
@@ -553,7 +553,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %112 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %111, i32 noundef 0) #9
   br label %.lr.ph92.i
 
-.lr.ph92.i:                                       ; preds = %110, %120
+.lr.ph92.i:                                       ; preds = %120, %110
   %.25190.i = phi i32 [ %.352.i, %120 ], [ %.150.i, %110 ]
   %.25689.i = phi i32 [ %121, %120 ], [ 1, %110 ]
   %.not65.i = icmp eq i32 %.25689.i, %37

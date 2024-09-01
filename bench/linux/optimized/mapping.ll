@@ -628,7 +628,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   %39 = phi i64 [ %38, %36 ], [ -1, %23 ]
   %40 = and i64 %4, 32
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.thread15, label %75
+  br i1 %41, label %.preheader, label %75
 
 .thread16:                                        ; preds = %15
   %42 = and i64 %4, 32
@@ -640,9 +640,6 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.thread17, label %75
 
-.thread15:                                        ; preds = %.loopexit
-  br i1 %22, label %.thread17, label %.preheader
-
 46:                                               ; preds = %.preheader
   %47 = getelementptr i8, ptr %52, i64 24
   %48 = getelementptr i8, ptr %52, i64 40
@@ -650,9 +647,9 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread17, label %.preheader, !llvm.loop !41
 
-.preheader:                                       ; preds = %.thread15, %46
-  %51 = phi i64 [ %49, %46 ], [ %21, %.thread15 ]
-  %52 = phi ptr [ %47, %46 ], [ %17, %.thread15 ]
+.preheader:                                       ; preds = %.loopexit, %46
+  %51 = phi i64 [ %49, %46 ], [ %21, %.loopexit ]
+  %52 = phi ptr [ %47, %46 ], [ %17, %.loopexit ]
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = sub i64 %1, %54
@@ -666,9 +663,9 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   %61 = add i64 %60, %55
   br label %.thread17
 
-.thread17:                                        ; preds = %46, %.thread14, %.thread16, %59, %.thread15
-  %62 = phi i64 [ %39, %.thread15 ], [ %39, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ %39, %46 ]
-  %63 = phi i64 [ -1, %.thread15 ], [ %61, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ -1, %46 ]
+.thread17:                                        ; preds = %46, %.thread14, %.thread16, %59
+  %62 = phi i64 [ %39, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ %39, %46 ]
+  %63 = phi i64 [ %61, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ -1, %46 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 616
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null

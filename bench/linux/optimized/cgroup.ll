@@ -4040,7 +4040,7 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %163 = shl nuw i32 1, %162
   %164 = and i32 %160, %163
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %180, label %226
+  br i1 %165, label %183, label %226
 
 .thread20:                                        ; preds = %138
   %166 = getelementptr inbounds i8, ptr %143, i64 368
@@ -4059,19 +4059,19 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %.thread21, label %226
 
-180:                                              ; preds = %158
-  %181 = trunc i32 %147 to i16
-  br label %185
-
 .thread21:                                        ; preds = %.thread20
-  %182 = getelementptr inbounds i8, ptr %143, i64 370
-  %183 = load i16, ptr %182, align 2
-  %184 = and i16 %172, %183
+  %180 = getelementptr inbounds i8, ptr %143, i64 370
+  %181 = load i16, ptr %180, align 2
+  %182 = and i16 %172, %181
   br label %185
 
-185:                                              ; preds = %180, %.thread21
-  %186 = phi i32 [ %177, %.thread21 ], [ %163, %180 ]
-  %187 = phi i16 [ %184, %.thread21 ], [ %181, %180 ]
+183:                                              ; preds = %158
+  %184 = trunc i32 %147 to i16
+  br label %185
+
+185:                                              ; preds = %183, %.thread21
+  %186 = phi i32 [ %177, %.thread21 ], [ %163, %183 ]
+  %187 = phi i16 [ %182, %.thread21 ], [ %184, %183 ]
   %188 = zext i16 %187 to i32
   %189 = and i32 %186, %188
   %190 = icmp ne i32 %189, 0
@@ -9284,7 +9284,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
   %171 = shl nuw i32 1, %170
   %172 = and i32 %168, %171
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %188, label %206
+  br i1 %173, label %191, label %206
 
 .thread23:                                        ; preds = %146
   %174 = getelementptr inbounds i8, ptr %151, i64 368
@@ -9303,19 +9303,19 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %.thread24, label %206
 
-188:                                              ; preds = %166
-  %189 = trunc i32 %155 to i16
-  br label %193
-
 .thread24:                                        ; preds = %.thread23
-  %190 = getelementptr inbounds i8, ptr %151, i64 370
-  %191 = load i16, ptr %190, align 2
-  %192 = and i16 %180, %191
+  %188 = getelementptr inbounds i8, ptr %151, i64 370
+  %189 = load i16, ptr %188, align 2
+  %190 = and i16 %180, %189
   br label %193
 
-193:                                              ; preds = %188, %.thread24
-  %194 = phi i32 [ %185, %.thread24 ], [ %171, %188 ]
-  %195 = phi i16 [ %192, %.thread24 ], [ %189, %188 ]
+191:                                              ; preds = %166
+  %192 = trunc i32 %155 to i16
+  br label %193
+
+193:                                              ; preds = %191, %.thread24
+  %194 = phi i32 [ %185, %.thread24 ], [ %171, %191 ]
+  %195 = phi i16 [ %190, %.thread24 ], [ %192, %191 ]
   %196 = zext i16 %195 to i32
   %197 = and i32 %194, %196
   %198 = icmp ne i32 %197, 0
@@ -15721,7 +15721,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %17 = getelementptr inbounds i8, ptr %10, i64 736
   %18 = load ptr, ptr %17, align 32
   %19 = icmp eq ptr %18, %10
-  br i1 %19, label %20, label %.loopexit26
+  br i1 %19, label %20, label %.loopexit25
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %10, i64 228
@@ -15733,7 +15733,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %27 = load i32, ptr %26, align 4
   %28 = sub i32 0, %27
   %29 = icmp eq i32 %25, %28
-  br i1 %29, label %30, label %.loopexit26
+  br i1 %29, label %30, label %.loopexit25
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %10, i64 368
@@ -15744,31 +15744,31 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %36 = xor i32 %35, -1
   %37 = and i32 %36, %33
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.loopexit26
+  br i1 %38, label %39, label %.loopexit25
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds i8, ptr %16, i64 736
   %41 = load ptr, ptr %40, align 32
   %.not = icmp eq ptr %41, %16
-  br i1 %.not, label %.preheader25.preheader, label %.loopexit26
+  br i1 %.not, label %.preheader24.preheader, label %.loopexit25
 
-.preheader25.preheader:                           ; preds = %39
+.preheader24.preheader:                           ; preds = %39
   %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 64
-  br label %.preheader25
+  br label %.preheader24
 
-.preheader25:                                     ; preds = %.preheader25.preheader, %._crit_edge
-  %42 = phi ptr [ %46, %._crit_edge ], [ %.pre, %.preheader25.preheader ]
+.preheader24:                                     ; preds = %.preheader24.preheader, %._crit_edge
+  %42 = phi ptr [ %46, %._crit_edge ], [ %.pre, %.preheader24.preheader ]
   %43 = icmp eq ptr %42, null
   br i1 %43, label %64, label %44
 
-44:                                               ; preds = %.preheader25
+44:                                               ; preds = %.preheader24
   %45 = getelementptr inbounds i8, ptr %42, i64 192
   %46 = load ptr, ptr %45, align 64
   %47 = icmp ne ptr %46, null
-  %.phi.trans.insert31 = getelementptr inbounds i8, ptr %42, i64 736
-  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 32
-  %48 = icmp eq ptr %.pre32, %42
+  %.phi.trans.insert30 = getelementptr inbounds i8, ptr %42, i64 736
+  %.pre31 = load ptr, ptr %.phi.trans.insert30, align 32
+  %48 = icmp eq ptr %.pre31, %42
   %or.cond = select i1 %47, i1 %48, i1 false
   br i1 %or.cond, label %49, label %._crit_edge
 
@@ -15776,7 +15776,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %50 = getelementptr inbounds i8, ptr %42, i64 240
   %51 = load i32, ptr %50, align 16
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.loopexit26
+  br i1 %52, label %53, label %.loopexit25
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %42, i64 228
@@ -15789,22 +15789,22 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %59 = load i16, ptr %58, align 16
   %60 = and i16 %59, %34
   %61 = icmp eq i16 %60, 0
-  br i1 %61, label %._crit_edge, label %.loopexit26
+  br i1 %61, label %._crit_edge, label %.loopexit25
 
 ._crit_edge:                                      ; preds = %44, %57, %53
-  %62 = phi ptr [ %42, %57 ], [ %42, %53 ], [ %.pre32, %44 ]
+  %62 = phi ptr [ %42, %57 ], [ %42, %53 ], [ %.pre31, %44 ]
   %63 = icmp eq ptr %62, %42
-  br i1 %63, label %.preheader25, label %.loopexit26, !llvm.loop !145
+  br i1 %63, label %.preheader24, label %.loopexit25, !llvm.loop !145
 
-64:                                               ; preds = %.preheader25
+64:                                               ; preds = %.preheader24
   %65 = icmp eq ptr %.pre, null
-  br i1 %65, label %.preheader24.preheader, label %66
+  br i1 %65, label %.critedge.preheader, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds i8, ptr %16, i64 232
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %.loopexit26
+  br i1 %69, label %70, label %.loopexit25
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds i8, ptr %16, i64 368
@@ -15812,13 +15812,13 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %73 = zext i16 %72 to i32
   %74 = and i32 %73, %36
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.preheader24.preheader, label %.loopexit26
+  br i1 %75, label %.critedge.preheader, label %.loopexit25
 
-.preheader24.preheader:                           ; preds = %64, %70
-  br label %.preheader24
+.critedge.preheader:                              ; preds = %70, %64
+  br label %.critedge
 
-.preheader24:                                     ; preds = %.preheader24.preheader, %.loopexit23
-  %76 = phi ptr [ %135, %.loopexit23 ], [ %10, %.preheader24.preheader ]
+.critedge:                                        ; preds = %.critedge.preheader, %.loopexit23
+  %76 = phi ptr [ %135, %.loopexit23 ], [ %10, %.critedge.preheader ]
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 84
   %79 = load i32, ptr %78, align 4
@@ -15826,7 +15826,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %92, label %82
 
-82:                                               ; preds = %.preheader24
+82:                                               ; preds = %.critedge
   %83 = getelementptr inbounds i8, ptr %77, i64 368
   %84 = load i16, ptr %83, align 16
   %85 = getelementptr inbounds i8, ptr %77, i64 372
@@ -15841,7 +15841,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   store ptr %90, ptr %91, align 8
   br label %92
 
-92:                                               ; preds = %82, %.preheader24
+92:                                               ; preds = %82, %.critedge
   %93 = getelementptr inbounds i8, ptr %76, i64 48
   %94 = load volatile ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 -32
@@ -15910,7 +15910,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
 
 .loopexit23:                                      ; preds = %.loopexit21, %92
   %135 = phi ptr [ %95, %92 ], [ %130, %.loopexit21 ]
-  br label %.preheader24, !llvm.loop !347
+  br label %.critedge, !llvm.loop !347
 
 .preheader20:                                     ; preds = %.preheader22, %.loopexit19
   %136 = phi ptr [ %193, %.loopexit19 ], [ %10, %.preheader22 ]
@@ -16010,22 +16010,22 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
 194:                                              ; preds = %.preheader
   %195 = tail call fastcc i32 @cgroup_apply_control(ptr noundef nonnull %10)
   %196 = icmp eq i32 %195, 0
-  br i1 %196, label %.split2, label %.loopexit26.sink.split
+  br i1 %196, label %.split2, label %.loopexit25.sink.split
 
 .split2:                                          ; preds = %194
   %197 = getelementptr inbounds i8, ptr %14, i64 240
   %198 = load i32, ptr %197, align 16
   %199 = add i32 %198, 1
   store i32 %199, ptr %197, align 16
-  br label %.loopexit26.sink.split
+  br label %.loopexit25.sink.split
 
-.loopexit26.sink.split:                           ; preds = %194, %.split2
+.loopexit25.sink.split:                           ; preds = %194, %.split2
   %.sink = phi i32 [ 0, %.split2 ], [ %195, %194 ]
   tail call fastcc void @cgroup_finalize_control(ptr noundef nonnull %10, i32 noundef %.sink)
-  br label %.loopexit26
+  br label %.loopexit25
 
-.loopexit26:                                      ; preds = %._crit_edge, %57, %49, %.loopexit26.sink.split, %70, %66, %39, %30, %20, %12
-  %200 = phi i32 [ 0, %12 ], [ -95, %30 ], [ -95, %20 ], [ -95, %39 ], [ -95, %66 ], [ -95, %70 ], [ %.sink, %.loopexit26.sink.split ], [ -95, %49 ], [ -95, %57 ], [ -95, %._crit_edge ]
+.loopexit25:                                      ; preds = %._crit_edge, %57, %49, %.loopexit25.sink.split, %70, %66, %39, %30, %20, %12
+  %200 = phi i32 [ 0, %12 ], [ -95, %30 ], [ -95, %20 ], [ -95, %70 ], [ -95, %39 ], [ -95, %66 ], [ %.sink, %.loopexit25.sink.split ], [ -95, %49 ], [ -95, %57 ], [ -95, %._crit_edge ]
   %201 = load ptr, ptr %0, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 112
   %203 = load i16, ptr %202, align 8
@@ -16033,13 +16033,13 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   %205 = icmp eq i16 %204, 1
   br i1 %205, label %209, label %206
 
-206:                                              ; preds = %.loopexit26
+206:                                              ; preds = %.loopexit25
   %207 = getelementptr inbounds i8, ptr %201, i64 8
   %208 = load ptr, ptr %207, align 8
   br label %209
 
-209:                                              ; preds = %206, %.loopexit26
-  %210 = phi ptr [ %208, %206 ], [ %201, %.loopexit26 ]
+209:                                              ; preds = %206, %.loopexit25
+  %210 = phi ptr [ %208, %206 ], [ %201, %.loopexit25 ]
   %211 = getelementptr inbounds i8, ptr %210, i64 96
   %212 = load ptr, ptr %211, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @cgroup_mutex) #30

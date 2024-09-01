@@ -461,16 +461,13 @@ compute_weighted_apsp_packed.exit.thread:         ; preds = %6
 
 compute_weighted_apsp_packed.exit:                ; preds = %.lr.ph.i
   tail call void @free(ptr noundef %13) #17
-  br i1 %14, label %.lr.ph47.preheader, label %._crit_edge48
-
-.lr.ph47.preheader:                               ; preds = %compute_weighted_apsp_packed.exit
   %24 = zext nneg i32 %1 to i64
   br label %.lr.ph47
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %._crit_edge
-  %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.03646 = phi double [ 0.000000e+00, %.lr.ph47.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %.03745 = phi i32 [ 0, %.lr.ph47.preheader ], [ %26, %._crit_edge ]
+.lr.ph47:                                         ; preds = %compute_weighted_apsp_packed.exit, %._crit_edge
+  %indvars.iv = phi i64 [ 0, %compute_weighted_apsp_packed.exit ], [ %indvars.iv.next, %._crit_edge ]
+  %.03646 = phi double [ 0.000000e+00, %compute_weighted_apsp_packed.exit ], [ %.1.lcssa, %._crit_edge ]
+  %.03745 = phi i32 [ 0, %compute_weighted_apsp_packed.exit ], [ %26, %._crit_edge ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = add nuw nsw i32 %.03745, %25
   %27 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
@@ -523,8 +520,8 @@ compute_weighted_apsp_packed.exit:                ; preds = %.lr.ph.i
   %exitcond51.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond51.not, label %._crit_edge48, label %.lr.ph47
 
-._crit_edge48:                                    ; preds = %._crit_edge, %compute_weighted_apsp_packed.exit.thread, %compute_weighted_apsp_packed.exit
-  %.036.lcssa = phi double [ 0.000000e+00, %compute_weighted_apsp_packed.exit ], [ 0.000000e+00, %compute_weighted_apsp_packed.exit.thread ], [ %.1.lcssa, %._crit_edge ]
+._crit_edge48:                                    ; preds = %._crit_edge, %compute_weighted_apsp_packed.exit.thread
+  %.036.lcssa = phi double [ 0.000000e+00, %compute_weighted_apsp_packed.exit.thread ], [ %.1.lcssa, %._crit_edge ]
   %55 = load i8, ptr @Verbose, align 1
   %.not = icmp eq i8 %55, 0
   br i1 %.not, label %59, label %56
@@ -1785,10 +1782,7 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %390 = load ptr, ptr %389, align 8
   br label %392
 
-.preheader449:                                    ; preds = %392
-  br i1 %388, label %.lr.ph460, label %._crit_edge
-
-.lr.ph460:                                        ; preds = %.preheader449
+.lr.ph460:                                        ; preds = %392
   %391 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv583
   br label %398
 
@@ -1802,12 +1796,9 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %.1347 = select i1 %396, double %395, double %.0346458
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next, %92
-  br i1 %exitcond572.not, label %.preheader449, label %392
+  br i1 %exitcond572.not, label %.lr.ph460, label %392
 
-.preheader448:                                    ; preds = %398
-  br i1 %388, label %.lr.ph462, label %._crit_edge
-
-.lr.ph462:                                        ; preds = %.preheader448
+.lr.ph462:                                        ; preds = %398
   %397 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv583
   br label %403
 
@@ -1820,7 +1811,7 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   store double %402, ptr %400, align 8
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
   %exitcond577.not = icmp eq i64 %indvars.iv.next574, %92
-  br i1 %exitcond577.not, label %.preheader448, label %398
+  br i1 %exitcond577.not, label %.lr.ph462, label %398
 
 403:                                              ; preds = %.lr.ph462, %403
   %indvars.iv578 = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next579, %403 ]
@@ -1835,7 +1826,7 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %exitcond582.not = icmp eq i64 %indvars.iv.next579, %92
   br i1 %exitcond582.not, label %._crit_edge, label %403
 
-._crit_edge:                                      ; preds = %403, %.preheader450, %.preheader449, %.preheader448
+._crit_edge:                                      ; preds = %403, %.preheader450
   %410 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv583
   %411 = load ptr, ptr %410, align 8
   call void @orthog1(i32 noundef %1, ptr noundef %411) #17
@@ -2276,9 +2267,6 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %exitcond676.not = icmp eq i64 %indvars.iv.next669, %wide.trip.count675
   br i1 %exitcond676.not, label %.preheader444, label %.lr.ph521
 
-.preheader443:                                    ; preds = %.lr.ph523
-  br i1 %436, label %.lr.ph526, label %._crit_edge533
-
 .lr.ph523:                                        ; preds = %.preheader444, %.lr.ph523
   %indvars.iv677 = phi i64 [ %indvars.iv.next678, %.lr.ph523 ], [ 0, %.preheader444 ]
   %565 = getelementptr inbounds ptr, ptr %432, i64 %indvars.iv677
@@ -2288,11 +2276,11 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   call void @right_mult_with_vector_ff(ptr noundef %492, i32 noundef %1, ptr noundef %566, ptr noundef %568) #17
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %exitcond681.not = icmp eq i64 %indvars.iv.next678, %wide.trip.count680
-  br i1 %exitcond681.not, label %.preheader443, label %.lr.ph523
+  br i1 %exitcond681.not, label %.lr.ph526, label %.lr.ph523
 
-.lr.ph526:                                        ; preds = %.preheader443, %.lr.ph526
-  %indvars.iv682 = phi i64 [ %indvars.iv.next683, %.lr.ph526 ], [ 0, %.preheader443 ]
-  %.0369524 = phi double [ %574, %.lr.ph526 ], [ 0.000000e+00, %.preheader443 ]
+.lr.ph526:                                        ; preds = %.lr.ph523, %.lr.ph526
+  %indvars.iv682 = phi i64 [ %indvars.iv.next683, %.lr.ph526 ], [ 0, %.lr.ph523 ]
+  %.0369524 = phi double [ %574, %.lr.ph526 ], [ 0.000000e+00, %.lr.ph523 ]
   %569 = getelementptr inbounds ptr, ptr %432, i64 %indvars.iv682
   %570 = load ptr, ptr %569, align 8
   %571 = getelementptr inbounds ptr, ptr %483, i64 %indvars.iv682
@@ -2306,7 +2294,7 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
 ._crit_edge527:                                   ; preds = %.lr.ph526
   %575 = fmul double %574, 2.000000e+00
   %576 = fadd double %575, %501
-  br i1 %436, label %.lr.ph532, label %._crit_edge533
+  br label %.lr.ph532
 
 .lr.ph532:                                        ; preds = %._crit_edge527, %.lr.ph532
   %indvars.iv687 = phi i64 [ %indvars.iv.next688, %.lr.ph532 ], [ 0, %._crit_edge527 ]
@@ -2321,8 +2309,8 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %exitcond691.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count690
   br i1 %exitcond691.not, label %._crit_edge533, label %.lr.ph532
 
-._crit_edge533:                                   ; preds = %.lr.ph532, %.preheader444, %.preheader443, %._crit_edge527
-  %.1370.lcssa = phi double [ %576, %._crit_edge527 ], [ %502, %.preheader443 ], [ %502, %.preheader444 ], [ %581, %.lr.ph532 ]
+._crit_edge533:                                   ; preds = %.lr.ph532, %.preheader444
+  %.1370.lcssa = phi double [ %502, %.preheader444 ], [ %581, %.lr.ph532 ]
   %582 = fsub double %.0371541, %.1370.lcssa
   %583 = call double @llvm.fabs.f64(double %582)
   %584 = fdiv double %583, %.0371541

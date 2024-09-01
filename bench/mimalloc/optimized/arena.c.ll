@@ -1033,14 +1033,13 @@ mi_arenas_unsafe_destroy.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_arena_contains(ptr noundef readnone %p) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone %p) local_unnamed_addr #7 {
 entry:
   %0 = load atomic i64, ptr @mi_arena_count monotonic, align 64
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %cmp10 = phi i1 [ %cmp, %for.inc ], [ true, %entry ]
   %i.09 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.09
   %1 = load atomic i64, ptr %arrayidx acquire, align 8
@@ -1067,12 +1066,11 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true4
   %inc = add nuw i64 %i.09, 1
-  %cmp = icmp ult i64 %inc, %0
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %land.lhs.true4, %for.inc, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp, %for.inc ], [ %cmp10, %land.lhs.true4 ]
+  %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %land.lhs.true4 ]
   ret i1 %cmp.lcssa
 }
 

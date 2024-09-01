@@ -12708,10 +12708,7 @@ for.body4.preheader:                              ; preds = %for.body
   %2 = zext nneg i32 %.sroa.speculated to i64
   br label %for.body4
 
-for.cond8.preheader:                              ; preds = %for.inc
-  br i1 %cmp321, label %for.body10.preheader, label %for.inc17
-
-for.body10.preheader:                             ; preds = %for.cond8.preheader
+for.body10.preheader:                             ; preds = %for.inc
   %3 = zext nneg i32 %.sroa.speculated to i64
   br label %for.body10
 
@@ -12724,7 +12721,7 @@ for.body4:                                        ; preds = %for.body4.preheader
 for.inc:                                          ; preds = %for.body4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %cmp3 = icmp ult i64 %indvars.iv.next27, %2
-  br i1 %cmp3, label %for.body4, label %for.cond8.preheader, !llvm.loop !174
+  br i1 %cmp3, label %for.body4, label %for.body10.preheader, !llvm.loop !174
 
 lpad.loopexit:                                    ; preds = %for.body10
   %lpad.loopexit19 = landingpad { ptr, i32 }
@@ -12752,7 +12749,7 @@ for.inc14:                                        ; preds = %for.body10
   %cmp9 = icmp ult i64 %indvars.iv.next30, %3
   br i1 %cmp9, label %for.body10, label %for.inc17, !llvm.loop !175
 
-for.inc17:                                        ; preds = %for.inc14, %for.body, %for.cond8.preheader
+for.inc17:                                        ; preds = %for.inc14, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 131072
   br i1 %exitcond.not, label %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i12, label %for.body, !llvm.loop !176
@@ -24109,18 +24106,15 @@ for.body8:                                        ; preds = %for.end, %for.inc11
 for.inc11:                                        ; preds = %for.body8
   %incdec.ptr.i6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i6, %22
-  br i1 %cmp.i.not, label %for.end13, label %for.body8
-
-for.end13:                                        ; preds = %for.inc11
-  br i1 %cmp.i.not23, label %invoke.cont.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not, label %for.body.i.i.i.i, label %for.body8
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %22
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !56
 
-for.body.i.i.i.i:                                 ; preds = %for.end13, %for.cond.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %.pre, %for.end13 ]
+for.body.i.i.i.i:                                 ; preds = %for.inc11, %for.cond.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %.pre, %for.inc11 ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %__first.addr.04.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24129,7 +24123,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
   call void @_ZSt9terminatev() #42
   unreachable
 
-invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end, %for.end13
+invoke.cont.i:                                    ; preds = %for.cond.i.i.i.i, %for.end
   %tobool.not.i.i.i8 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %if.then.i.i.i9
 

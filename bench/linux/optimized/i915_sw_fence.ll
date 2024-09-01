@@ -197,8 +197,8 @@ define dso_local noundef zeroext i1 @i915_sw_fence_await(ptr noundef %0) local_u
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
-  %.not = icmp ne i8 %8, 0
-  br i1 %.not, label %.thread, label %10, !prof !17
+  %.not.not = icmp ne i8 %8, 0
+  br i1 %.not.not, label %.thread, label %10, !prof !17
 
 10:                                               ; preds = %.lr.ph
   %11 = extractvalue { i8, i32 } %7, 1
@@ -206,7 +206,7 @@ define dso_local noundef zeroext i1 @i915_sw_fence_await(ptr noundef %0) local_u
   br i1 %12, label %.lr.ph, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %10, %.lr.ph, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %.not, %.lr.ph ], [ %.not, %10 ]
+  %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %10 ]
   ret i1 %.lcssa
 }
 

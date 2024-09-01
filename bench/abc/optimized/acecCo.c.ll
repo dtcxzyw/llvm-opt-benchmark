@@ -797,9 +797,9 @@ Vec_BitStart.exit:                                ; preds = %5, %18
   %29 = getelementptr i8, ptr %3, i64 8
   %30 = getelementptr i8, ptr %2, i64 8
   %31 = getelementptr i8, ptr %1, i64 8
-  br i1 %26, label %.critedge, label %.critedge.preheader.split.us
+  br label %.critedge
 
-.critedge.preheader.split.us:                     ; preds = %Vec_BitStart.exit, %.critedge.preheader
+.critedge.preheader.split.us:                     ; preds = %Vec_BitStart.exit
   %32 = icmp eq i32 %.val90140, 0
   br i1 %32, label %.split.us, label %.critedge.us
 

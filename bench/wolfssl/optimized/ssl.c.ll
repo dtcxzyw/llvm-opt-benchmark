@@ -7365,9 +7365,8 @@ if.then74:                                        ; preds = %if.end69
 
 if.end78:                                         ; preds = %if.end69, %if.then74
   %call79 = call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #20
-  %cmp83 = icmp ne ptr %clientCacheEntry, null
-  %or.cond = and i1 %cmp83, %or.cond9.i.i.not
-  br i1 %or.cond, label %if.then85, label %return
+  %cmp83.not = icmp eq ptr %clientCacheEntry, null
+  br i1 %cmp83.not, label %return, label %if.then85
 
 if.then85:                                        ; preds = %if.end78
   %serverID = getelementptr inbounds i8, ptr %call, i64 204
@@ -9288,19 +9287,16 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body
   %cmp1 = icmp slt i32 %add, 1025
-  br i1 %cmp1, label %if.end5, label %if.then
+  br i1 %cmp1, label %for.body9.preheader, label %if.then
 
 if.then:                                          ; preds = %for.end
   %conv3 = zext nneg i32 %add to i64
   %call = tail call ptr @wolfSSL_Malloc(i64 noundef %conv3) #20
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end5
+  br i1 %tobool.not, label %return, label %for.body9.preheader
 
-if.end5:                                          ; preds = %if.then, %for.end
+for.body9.preheader:                              ; preds = %for.end, %if.then
   %myBuffer.0 = phi ptr [ %staticBuffer, %for.end ], [ %call, %if.then ]
-  br i1 %cmp20, label %for.body9.preheader, label %for.end24
-
-for.body9.preheader:                              ; preds = %if.end5
   %wide.trip.count30 = zext nneg i32 %iovcnt to i64
   br label %for.body9
 
@@ -9321,10 +9317,10 @@ for.body9:                                        ; preds = %for.body9.preheader
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %for.end24, label %for.body9, !llvm.loop !32
 
-for.end24:                                        ; preds = %for.body9, %entry, %if.end5
-  %myBuffer.041 = phi ptr [ %myBuffer.0, %if.end5 ], [ %staticBuffer, %entry ], [ %myBuffer.0, %for.body9 ]
-  %sending.0.lcssa3440 = phi i32 [ %add, %if.end5 ], [ 0, %entry ], [ %add, %for.body9 ]
-  %cmp13539 = phi i1 [ %cmp1, %if.end5 ], [ true, %entry ], [ %cmp1, %for.body9 ]
+for.end24:                                        ; preds = %for.body9, %entry
+  %myBuffer.041 = phi ptr [ %staticBuffer, %entry ], [ %myBuffer.0, %for.body9 ]
+  %sending.0.lcssa3440 = phi i32 [ 0, %entry ], [ %add, %for.body9 ]
+  %cmp13539 = phi i1 [ true, %entry ], [ %cmp1, %for.body9 ]
   %cmp.i = icmp eq ptr %ssl, null
   %cmp3.i = icmp slt i32 %sending.0.lcssa3440, 0
   %or.cond1.i = or i1 %cmp.i, %cmp3.i

@@ -9224,19 +9224,16 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   br i1 %23, label %.thread66.sink.split, label %.preheader69
 
 .preheader69:                                     ; preds = %20
-  %.not73 = icmp eq i32 %2, 0
-  br i1 %.not73, label %.thread66.sink.split.sink.split91, label %.lr.ph.preheader
+  %.not74 = icmp eq i32 %2, 0
+  br i1 %.not74, label %.thread66.sink.split.sink.split92, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader69
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %30
-  br i1 %.not73, label %.thread66.sink.split.sink.split91, label %.lr.ph72
-
-.lr.ph72:                                         ; preds = %.preheader
+.lr.ph73:                                         ; preds = %30
   %24 = getelementptr inbounds i8, ptr %1, i64 288
-  %wide.trip.count80 = zext i32 %2 to i64
+  %wide.trip.count81 = zext i32 %2 to i64
   br label %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -9244,13 +9241,13 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   %25 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
   %26 = tail call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %25) #13
   %.not57 = icmp eq i32 %26, 0
-  br i1 %.not57, label %.thread66.sink.split.sink.split91, label %27
+  br i1 %.not57, label %.thread66.sink.split.sink.split92, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
   %29 = tail call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %28) #13
   %.not58 = icmp eq i32 %29, 0
-  br i1 %.not58, label %.thread66.sink.split.sink.split91, label %30
+  br i1 %.not58, label %.thread66.sink.split.sink.split92, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %25, align 4
@@ -9258,41 +9255,41 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   store i32 %32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !82
+  br i1 %exitcond.not, label %.lr.ph73, label %.lr.ph, !llvm.loop !82
 
 33:                                               ; preds = %39
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.thread66.sink.split.sink.split91, label %34, !llvm.loop !83
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  br i1 %exitcond82.not, label %.thread66.sink.split.sink.split92, label %34, !llvm.loop !83
 
-34:                                               ; preds = %.lr.ph72, %33
-  %indvars.iv77 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next78, %33 ]
+34:                                               ; preds = %.lr.ph73, %33
+  %indvars.iv78 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next79, %33 ]
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv77
+  %36 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv78
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 %35(ptr noundef %1, i32 noundef %37) #13
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %.thread66.sink.split.sink.split91, label %39
+  br i1 %.not, label %.thread66.sink.split.sink.split92, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv77
+  %40 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv78
   %41 = load i32, ptr %40, align 4
-  %42 = trunc nuw i64 %indvars.iv77 to i32
+  %42 = trunc nuw i64 %indvars.iv78 to i32
   %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %42, i32 noundef %41) #13, !callees !84
   %.not56 = icmp eq i32 %43, 0
-  br i1 %.not56, label %.thread66.sink.split.sink.split91, label %33
+  br i1 %.not56, label %.thread66.sink.split.sink.split92, label %33
 
-.thread66.sink.split.sink.split91:                ; preds = %27, %.lr.ph, %39, %33, %34, %.preheader69, %.preheader
-  %.0.ph.ph92 = phi i32 [ 1, %.preheader69 ], [ 1, %.preheader ], [ 0, %39 ], [ 1, %33 ], [ 0, %34 ], [ 0, %.lr.ph ], [ 0, %27 ]
+.thread66.sink.split.sink.split92:                ; preds = %27, %.lr.ph, %39, %33, %34, %.preheader69
+  %.0.ph.ph93 = phi i32 [ 1, %.preheader69 ], [ 0, %39 ], [ 1, %33 ], [ 0, %34 ], [ 0, %.lr.ph ], [ 0, %27 ]
   %44 = load ptr, ptr %16, align 8
   tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %18) #13
   br label %.thread66.sink.split
 
-.thread66.sink.split:                             ; preds = %.thread66.sink.split.sink.split91, %20
-  %.sink89 = phi ptr [ %18, %20 ], [ %22, %.thread66.sink.split.sink.split91 ]
-  %.0.ph = phi i32 [ 0, %20 ], [ %.0.ph.ph92, %.thread66.sink.split.sink.split91 ]
+.thread66.sink.split:                             ; preds = %.thread66.sink.split.sink.split92, %20
+  %.sink90 = phi ptr [ %18, %20 ], [ %22, %.thread66.sink.split.sink.split92 ]
+  %.0.ph = phi i32 [ 0, %20 ], [ %.0.ph.ph93, %.thread66.sink.split.sink.split92 ]
   %45 = load ptr, ptr %16, align 8
-  tail call void @_cmsFree(ptr noundef %45, ptr noundef nonnull %.sink89) #13
+  tail call void @_cmsFree(ptr noundef %45, ptr noundef nonnull %.sink90) #13
   br label %.thread66
 
 .thread66:                                        ; preds = %.thread66.sink.split, %15, %6
@@ -10273,20 +10270,20 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %16 = getelementptr inbounds i8, ptr %1, i64 304
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %1) #13
-  %.not93 = icmp eq i32 %2, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+  %.not94 = icmp eq i32 %2, 0
+  br i1 %.not94, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %22
-  %20 = add nuw i32 %.06387, 1
+  %20 = add nuw i32 %.06388, 1
   %exitcond.not = icmp eq i32 %20, %2
-  br i1 %exitcond.not, label %.lr.ph89.preheader, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !101
 
-.lr.ph89.preheader:                               ; preds = %19
+.lr.ph90.preheader:                               ; preds = %19
   %wide.trip.count = zext i32 %2 to i64
-  br label %.lr.ph89
+  br label %.lr.ph90
 
 .lr.ph:                                           ; preds = %15, %19
-  %.06387 = phi i32 [ %20, %19 ], [ 0, %15 ]
+  %.06388 = phi i32 [ %20, %19 ], [ 0, %15 ]
   %21 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
   %.not73 = icmp eq i32 %21, 0
   br i1 %.not73, label %.thread82.sink.split.sink.split3, label %22
@@ -10296,8 +10293,8 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %.not74 = icmp eq i32 %23, 0
   br i1 %.not74, label %.thread82.sink.split.sink.split3, label %19
 
-.lr.ph89:                                         ; preds = %.lr.ph89.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %30 ]
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next, %30 ]
   %24 = load ptr, ptr %16, align 8
   %25 = tail call i32 %24(ptr noundef %1) #13
   %26 = sub i32 %25, %3
@@ -10308,15 +10305,15 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %.not72 = icmp eq i32 %29, 0
   br i1 %.not72, label %.thread82.sink.split.sink.split3, label %30
 
-30:                                               ; preds = %.lr.ph89
+30:                                               ; preds = %.lr.ph90
   %31 = load ptr, ptr %16, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %1) #13
   %33 = sub i32 %32, %25
   %34 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !103
+  %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %30, %15
   %35 = load ptr, ptr %16, align 8
@@ -10328,52 +10325,52 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   br i1 %.not, label %.thread.thread, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %.not93, label %._crit_edge92, label %.lr.ph91.preheader
+  br i1 %.not94, label %._crit_edge93, label %.lr.ph92.preheader
 
-.lr.ph91.preheader:                               ; preds = %.preheader
-  %wide.trip.count103 = zext i32 %2 to i64
-  br label %.lr.ph91
+.lr.ph92.preheader:                               ; preds = %.preheader
+  %wide.trip.count104 = zext i32 %2 to i64
+  br label %.lr.ph92
 
 40:                                               ; preds = %44
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !104
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
+  br i1 %exitcond105.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !104
 
-.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %40
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next101, %40 ]
-  %41 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv100
+.lr.ph92:                                         ; preds = %.lr.ph92.preheader, %40
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next102, %40 ]
+  %41 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv101
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %42) #13
   %.not70 = icmp eq i32 %43, 0
   br i1 %.not70, label %.thread82.sink.split.sink.split3, label %44
 
-44:                                               ; preds = %.lr.ph91
-  %45 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv100
+44:                                               ; preds = %.lr.ph92
+  %45 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv101
   %46 = load i32, ptr %45, align 4
   %47 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %46) #13
   %.not71 = icmp eq i32 %47, 0
   br i1 %.not71, label %.thread.thread, label %40
 
-._crit_edge92:                                    ; preds = %40, %.preheader
+._crit_edge93:                                    ; preds = %40, %.preheader
   %48 = load ptr, ptr %37, align 8
   %49 = tail call i32 %48(ptr noundef %1, i32 noundef %36) #13
   %.not69 = icmp eq i32 %49, 0
   br i1 %.not69, label %.thread.thread, label %.thread82.sink.split.sink.split3
 
-.thread.thread:                                   ; preds = %44, %._crit_edge92, %._crit_edge
+.thread.thread:                                   ; preds = %44, %._crit_edge93, %._crit_edge
   br label %.thread82.sink.split.sink.split3
 
-.thread82.sink.split.sink.split3:                 ; preds = %22, %.lr.ph, %.lr.ph89, %.lr.ph91, %.thread.thread, %._crit_edge92
-  %.062.ph.ph4 = phi i32 [ 0, %.thread.thread ], [ 1, %._crit_edge92 ], [ 0, %.lr.ph91 ], [ 0, %.lr.ph89 ], [ 0, %.lr.ph ], [ 0, %22 ]
+.thread82.sink.split.sink.split3:                 ; preds = %22, %.lr.ph, %.lr.ph90, %.lr.ph92, %.thread.thread, %._crit_edge93
+  %.062.ph.ph4 = phi i32 [ 0, %.thread.thread ], [ 1, %._crit_edge93 ], [ 0, %.lr.ph92 ], [ 0, %.lr.ph90 ], [ 0, %.lr.ph ], [ 0, %22 ]
   %50 = load ptr, ptr %7, align 8
   tail call void @_cmsFree(ptr noundef %50, ptr noundef nonnull %9) #13
   br label %.thread82.sink.split
 
 .thread82.sink.split:                             ; preds = %.thread82.sink.split.sink.split3, %11
-  %.sink113 = phi ptr [ %9, %11 ], [ %13, %.thread82.sink.split.sink.split3 ]
+  %.sink114 = phi ptr [ %9, %11 ], [ %13, %.thread82.sink.split.sink.split3 ]
   %.062.ph = phi i32 [ 0, %11 ], [ %.062.ph.ph4, %.thread82.sink.split.sink.split3 ]
   %51 = load ptr, ptr %7, align 8
-  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %.sink113) #13
+  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %.sink114) #13
   br label %.thread82
 
 .thread82:                                        ; preds = %.thread82.sink.split, %6

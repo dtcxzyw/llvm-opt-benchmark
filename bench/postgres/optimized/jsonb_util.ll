@@ -2011,17 +2011,17 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
   %.not5963.i = icmp eq i32 %.pr.pre.i, 1
-  br i1 %.not5963.i, label %._crit_edge.i46, label %.lr.ph48.split.preheader.i
+  br i1 %.not5963.i, label %._crit_edge.i46, label %.lr.ph48.thread.i
+
+.lr.ph48.thread.i:                                ; preds = %.thread62.i
+  %.0284464.i = getelementptr i8, ptr %125, i64 72
+  br label %.lr.ph48.split.i
 
 .lr.ph48.i:                                       ; preds = %.critedge.thread61.i
   %.02844.i = getelementptr i8, ptr %113, i64 72
   br label %.lr.ph48.split.us.i
 
-.lr.ph48.split.preheader.i:                       ; preds = %.thread62.i
-  %.0284464.i = getelementptr i8, ptr %125, i64 72
-  br label %.lr.ph48.split.i
-
-.lr.ph48.split.us.i:                              ; preds = %.lr.ph48.i, %140
+.lr.ph48.split.us.i:                              ; preds = %140, %.lr.ph48.i
   %127 = phi i32 [ %141, %140 ], [ %114, %.lr.ph48.i ]
   %128 = phi ptr [ %142, %140 ], [ %113, %.lr.ph48.i ]
   %.02847.us.i = phi ptr [ %.028.us.i, %140 ], [ %.02844.i, %.lr.ph48.i ]
@@ -2074,12 +2074,12 @@ lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbS
   %148 = icmp slt i64 %146, %147
   br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !15
 
-.lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.split.preheader.i
-  %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.split.preheader.i ]
-  %150 = phi ptr [ %161, %159 ], [ %125, %.lr.ph48.split.preheader.i ]
-  %.02847.i = phi ptr [ %.028.i, %159 ], [ %.0284464.i, %.lr.ph48.split.preheader.i ]
-  %.046.i = phi ptr [ %.1.i, %159 ], [ %125, %.lr.ph48.split.preheader.i ]
-  %.pn45.i = phi ptr [ %.02847.i, %159 ], [ %125, %.lr.ph48.split.preheader.i ]
+.lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.thread.i
+  %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.thread.i ]
+  %150 = phi ptr [ %161, %159 ], [ %125, %.lr.ph48.thread.i ]
+  %.02847.i = phi ptr [ %.028.i, %159 ], [ %.0284464.i, %.lr.ph48.thread.i ]
+  %.046.i = phi ptr [ %.1.i, %159 ], [ %125, %.lr.ph48.thread.i ]
+  %.pn45.i = phi ptr [ %.02847.i, %159 ], [ %125, %.lr.ph48.thread.i ]
   %151 = getelementptr i8, ptr %.pn45.i, i64 80
   %.028.val.i = load i32, ptr %151, align 8
   %152 = getelementptr i8, ptr %.046.i, i64 8
@@ -3096,10 +3096,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %wide.trip.count = zext nneg i32 %84 to i64
   br label %120
 
-.preheader:                                       ; preds = %138
-  br i1 %115, label %.lr.ph38, label %._crit_edge
-
-.lr.ph38:                                         ; preds = %.preheader
+.lr.ph38:                                         ; preds = %138
   %117 = getelementptr inbounds i8, ptr %2, i64 16
   %118 = add i32 %3, 1
   %119 = zext nneg i32 %84 to i64
@@ -3147,7 +3144,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %142 = add i32 %.0.i1733, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %120, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph38, label %120, !llvm.loop !20
 
 143:                                              ; preds = %.lr.ph38, %163
   %indvars.iv47 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next48, %163 ]
@@ -3195,7 +3192,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %119
   br i1 %exitcond51.not, label %._crit_edge, label %143, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %163, %padBufferToInt.exit27, %.preheader
+._crit_edge:                                      ; preds = %163, %padBufferToInt.exit27
   %168 = load i32, ptr %85, align 8
   %169 = sub i32 %168, %86
   %170 = icmp sgt i32 %169, 268435455

@@ -212446,8 +212446,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %idxprom = zext nneg i32 %print_xdigits.1149 to i64
   %arrayidx = getelementptr inbounds [32 x i8], ptr %xdigits, i64 0, i64 %idxprom
   %10 = load i8, ptr %arrayidx, align 1
-  %cmp43.not = icmp ne i8 %10, 48
-  br i1 %cmp43.not, label %while.end, label %while.body
+  %cmp43.not.not = icmp ne i8 %10, 48
+  br i1 %cmp43.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %dec44 = add nsw i32 %print_xdigits.1149, -1
@@ -212456,7 +212456,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %print_xdigits.1.lcssa = phi i32 [ %print_xdigits.0, %while.cond.preheader ], [ 0, %while.body ], [ %print_xdigits.1149, %land.rhs ]
-  %cmp41.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp43.not, %while.body ], [ %cmp43.not, %land.rhs ]
+  %cmp41.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp43.not.not, %while.body ], [ %cmp43.not.not, %land.rhs ]
   %size_.i = getelementptr inbounds i8, ptr %buf, i64 16
   %11 = load i64, ptr %size_.i, align 8
   %add.i = add i64 %11, 1
@@ -219975,21 +219975,21 @@ entry:
   br i1 %cmp, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %entry, %_ZZN3fmt3v106detail10vformat_toIwEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refEEN14format_handler7on_textEPKwSF_.exit27
-  %from.addr.039 = phi ptr [ %add.ptr, %_ZZN3fmt3v106detail10vformat_toIwEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refEEN14format_handler7on_textEPKwSF_.exit27 ], [ %from, %entry ]
+  %from.addr.037 = phi ptr [ %add.ptr, %_ZZN3fmt3v106detail10vformat_toIwEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refEEN14format_handler7on_textEPKwSF_.exit27 ], [ %from, %entry ]
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  br i1 %cmp4, label %while.body.lr.ph.i.i.i.i, label %for.body.i, !llvm.loop !9687
+  br i1 %cmp4, label %if.then2, label %for.body.i, !llvm.loop !9687
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
-  %p.0 = phi ptr [ %incdec.ptr, %for.cond.i ], [ %from.addr.039, %for.body.i.preheader ]
+  %p.0 = phi ptr [ %incdec.ptr, %for.cond.i ], [ %from.addr.037, %for.body.i.preheader ]
   %0 = load i32, ptr %p.0, align 4
   %cmp1.i = icmp eq i32 %0, 125
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 4
   %cmp4 = icmp eq ptr %incdec.ptr, %to
   br i1 %cmp1.i, label %if.end3, label %for.cond.i
 
-while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
+if.then2:                                         ; preds = %for.cond.i
   %1 = load ptr, ptr %this, align 8
   %context.i = getelementptr inbounds i8, ptr %1, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context.i, align 8
@@ -219998,8 +219998,8 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   %ptr_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i, i64 8
   br label %while.body.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %begin.addr.03.i.i.i.i = phi ptr [ %from.addr.039, %while.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i ]
+while.body.i.i.i.i:                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i, %if.then2
+  %begin.addr.03.i.i.i.i = phi ptr [ %from.addr.037, %if.then2 ], [ %incdec.ptr.i.i.i.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %begin.addr.03.i.i.i.i, i64 4
   %2 = load i32, ptr %begin.addr.03.i.i.i.i, align 4
   %3 = load i64, ptr %size_.i.i.i.i.i.i, align 8
@@ -220048,7 +220048,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br label %while.body.i.i.i.i14
 
 while.body.i.i.i.i14:                             ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i19, %if.end8
-  %begin.addr.03.i.i.i.i15 = phi ptr [ %from.addr.039, %if.end8 ], [ %incdec.ptr.i.i.i.i16, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i19 ]
+  %begin.addr.03.i.i.i.i15 = phi ptr [ %from.addr.037, %if.end8 ], [ %incdec.ptr.i.i.i.i16, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit.i.i.i.i19 ]
   %incdec.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %begin.addr.03.i.i.i.i15, i64 4
   %10 = load i32, ptr %begin.addr.03.i.i.i.i15, align 4
   %11 = load i64, ptr %size_.i.i.i.i.i.i11, align 8
@@ -227546,8 +227546,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %idxprom = zext nneg i32 %print_xdigits.1143 to i64
   %arrayidx = getelementptr inbounds [16 x i8], ptr %xdigits, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
-  %cmp33.not = icmp ne i8 %7, 48
-  br i1 %cmp33.not, label %while.end, label %while.body
+  %cmp33.not.not = icmp ne i8 %7, 48
+  br i1 %cmp33.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %dec = add nsw i32 %print_xdigits.1143, -1
@@ -227556,7 +227556,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %print_xdigits.1.lcssa = phi i32 [ %print_xdigits.0, %while.cond.preheader ], [ 0, %while.body ], [ %print_xdigits.1143, %land.rhs ]
-  %cmp31.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp33.not, %while.body ], [ %cmp33.not, %land.rhs ]
+  %cmp31.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp33.not.not, %while.body ], [ %cmp33.not.not, %land.rhs ]
   %size_.i = getelementptr inbounds i8, ptr %buf, i64 16
   %8 = load i64, ptr %size_.i, align 8
   %add.i = add i64 %8, 1

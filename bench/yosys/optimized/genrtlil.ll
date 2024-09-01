@@ -38737,8 +38737,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5Yosys12AST_INTERNAL17LookaheadRewrit
   %51 = zext nneg i32 %.013.i.i to i64
   %52 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, std::pair<Yosys::AST::AstNode *, Yosys::AST::AstNode *>>::entry_t", ptr %49, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not21.not = icmp ne i32 %53, %10
-  br i1 %.not21.not, label %54, label %.thread15
+  %.not21.not.not = icmp ne i32 %53, %10
+  br i1 %.not21.not.not, label %54, label %.thread15
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %52, i64 24
@@ -38747,7 +38747,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Yosys12AST_INTERNAL17LookaheadRewrit
   br i1 %57, label %50, label %.thread15, !llvm.loop !155
 
 .thread15:                                        ; preds = %54, %50, %._crit_edge.i.i, %7
-  %58 = phi i1 [ true, %7 ], [ true, %._crit_edge.i.i ], [ %.not21.not, %50 ], [ %.not21.not, %54 ]
+  %58 = phi i1 [ true, %7 ], [ true, %._crit_edge.i.i ], [ %.not21.not.not, %50 ], [ %.not21.not.not, %54 ]
   %59 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %60 = trunc i8 %59 to i1
   %61 = icmp ne i32 %10, 0

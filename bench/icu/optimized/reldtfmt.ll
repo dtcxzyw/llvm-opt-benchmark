@@ -1023,8 +1023,8 @@ invoke.cont10:                                    ; preds = %invoke.cont, %if.en
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 368
   %16 = load i16, ptr %fUnion.i, align 8
   %cmp.i35 = icmp ugt i16 %16, 31
-  %or.cond88 = select i1 %cmp12, i1 %cmp.i35, i1 false
-  br i1 %or.cond88, label %land.lhs.true17, label %if.else.invoke
+  %or.cond = select i1 %cmp12, i1 %cmp.i35, i1 false
+  br i1 %or.cond, label %land.lhs.true17, label %if.else.invoke
 
 land.lhs.true17:                                  ; preds = %invoke.cont10
   %fUnion.i36 = getelementptr inbounds i8, ptr %this, i64 432

@@ -897,8 +897,8 @@ define void @_ZN5uu_du4Stat3new17hc983550786cb46f1E(ptr noalias nocapture nounde
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %29
-  %.not.not.i.not.i.not = icmp eq ptr %30, null
-  br i1 %.not.not.i.not.i.not, label %35, label %31
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %30, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %35, label %31
 
 31:                                               ; preds = %.noexc
   %32 = invoke noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h745857070c73a145E.llvm.2701954067344418532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
@@ -943,7 +943,7 @@ define void @_ZN5uu_du4Stat3new17hc983550786cb46f1E(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.1344)
-  br i1 %.not.not.i.not.i.not, label %47, label %53
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %47, label %53
 
 44:                                               ; preds = %75, %33
   %45 = landingpad { ptr, i32 }
@@ -6048,8 +6048,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit99:  ; preds = %166
           to label %.noexc115 unwind label %.loopexit
 
 .noexc115:                                        ; preds = %249
-  %.not.not.i.not.i.not = icmp eq ptr %250, null
-  br i1 %.not.not.i.not.i.not, label %253, label %251
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %250, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %253, label %251
 
 251:                                              ; preds = %.noexc115
   %252 = invoke noundef zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h745857070c73a145E.llvm.2701954067344418532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %250, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
@@ -11579,8 +11579,8 @@ define void @"_ZN63_$LT$uu_du..Threshold$u20$as$u20$core..str..traits..FromStr$G
 
 43:                                               ; preds = %44, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i"
   %.idx.i = phi i64 [ %.add.i, %44 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i" ]
-  %.not.i.not.i.not.i.not.i = icmp eq i64 %.idx.i, 8
-  br i1 %.not.i.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2e4d0127f0e066c5E.exit.thread, label %44
+  %.not.not.not.i.not.not.not.i.not.i.not.i = icmp eq i64 %.idx.i, 8
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.i, label %_ZN4core3str7pattern7Pattern12is_prefix_of17h2e4d0127f0e066c5E.exit.thread, label %44
 
 44:                                               ; preds = %43
   %.ptr.i = getelementptr inbounds i8, ptr @anon.602568ce88baeebf0f7acd82f06f7bec.191, i64 %.idx.i

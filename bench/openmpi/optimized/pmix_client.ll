@@ -4272,7 +4272,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i190, %140
 pmix_obj_new_tma.exit199:                         ; preds = %.lr.ph.i.i196, %168, %169
   %180 = call i32 @pthread_mutex_lock(ptr noundef %158) #16
   %181 = icmp eq i32 %180, 35
-  br i1 %181, label %182, label %186
+  br i1 %181, label %182, label %184
 
 182:                                              ; preds = %pmix_obj_new_tma.exit199
   %183 = tail call ptr @__errno_location() #20
@@ -4281,47 +4281,47 @@ pmix_obj_new_tma.exit199:                         ; preds = %.lr.ph.i.i196, %168
   call void @abort() #22
   unreachable
 
+184:                                              ; preds = %pmix_obj_new_tma.exit199
+  %185 = getelementptr inbounds i8, ptr %158, i64 48
+  %186 = load i32, ptr %185, align 8
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %185, align 8
+  %188 = call i32 @pthread_mutex_unlock(ptr noundef %158) #16
+  %189 = getelementptr inbounds i8, ptr %164, i64 256
+  store ptr %158, ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %164, i64 272
+  store ptr %49, ptr %190, align 8
+  %191 = getelementptr inbounds i8, ptr %164, i64 280
+  store ptr @finwait_cbfunc, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %164, i64 288
+  store ptr %4, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %164, i64 128
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %195 = call i32 @pmix_event_assign(ptr noundef nonnull %193, ptr noundef %194, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_ptl_base_send_recv, ptr noundef %164) #16
+  fence release
+  call void @event_active(ptr noundef nonnull %193, i32 noundef 4, i16 noundef signext 1) #16
+  %196 = getelementptr inbounds i8, ptr %4, i64 128
+  %197 = call i32 @pthread_mutex_lock(ptr noundef nonnull %196) #16
+  %198 = load volatile i8, ptr %152, align 8
+  %199 = trunc i8 %198 to i1
+  br i1 %199, label %.lr.ph291, label %._crit_edge292
+
 .thread279:                                       ; preds = %pmix_obj_run_constructors.exit
   store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %184 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #16
-  %185 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #16
+  %200 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #16
+  %201 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #16
   br label %495
 
-186:                                              ; preds = %pmix_obj_new_tma.exit199
-  %187 = getelementptr inbounds i8, ptr %158, i64 48
-  %188 = load i32, ptr %187, align 8
-  %189 = add nsw i32 %188, 1
-  store i32 %189, ptr %187, align 8
-  %190 = call i32 @pthread_mutex_unlock(ptr noundef %158) #16
-  %191 = getelementptr inbounds i8, ptr %164, i64 256
-  store ptr %158, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %164, i64 272
-  store ptr %49, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %164, i64 280
-  store ptr @finwait_cbfunc, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %164, i64 288
-  store ptr %4, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %164, i64 128
-  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
-  %197 = call i32 @pmix_event_assign(ptr noundef nonnull %195, ptr noundef %196, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_ptl_base_send_recv, ptr noundef %164) #16
-  fence release
-  call void @event_active(ptr noundef nonnull %195, i32 noundef 4, i16 noundef signext 1) #16
-  %198 = getelementptr inbounds i8, ptr %4, i64 128
-  %199 = call i32 @pthread_mutex_lock(ptr noundef nonnull %198) #16
-  %200 = load volatile i8, ptr %152, align 8
-  %201 = trunc i8 %200 to i1
-  br i1 %201, label %.lr.ph291, label %._crit_edge292
-
-.lr.ph291:                                        ; preds = %186, %.lr.ph291
-  %202 = call i32 @pthread_cond_wait(ptr noundef nonnull %150, ptr noundef nonnull %198) #16
+.lr.ph291:                                        ; preds = %184, %.lr.ph291
+  %202 = call i32 @pthread_cond_wait(ptr noundef nonnull %150, ptr noundef nonnull %196) #16
   %203 = load volatile i8, ptr %152, align 8
   %204 = trunc i8 %203 to i1
   br i1 %204, label %.lr.ph291, label %._crit_edge292, !llvm.loop !19
 
-._crit_edge292:                                   ; preds = %.lr.ph291, %186
+._crit_edge292:                                   ; preds = %.lr.ph291, %184
   fence acquire
-  %205 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %198) #16
+  %205 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %196) #16
   %206 = load ptr, ptr %142, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 48
   %208 = load ptr, ptr %207, align 8

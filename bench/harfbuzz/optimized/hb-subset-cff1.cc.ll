@@ -4198,7 +4198,7 @@ if.then16:                                        ; preds = %for.body
   br label %if.end19
 
 if.end19:                                         ; preds = %for.cond, %if.then11, %if.then16, %if.end
-  %tobool33 = phi i1 [ false, %if.then11 ], [ true, %if.then16 ], [ true, %if.end ], [ %cmp.i42, %for.cond ]
+  %tobool33 = phi i1 [ false, %if.then11 ], [ true, %if.then16 ], [ true, %if.end ], [ false, %for.cond ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %acc, i64 220
   %21 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.not = icmp eq i32 %21, -1
@@ -18261,9 +18261,6 @@ for.inc48:                                        ; preds = %for.body31, %for.in
 for.end49:                                        ; preds = %for.inc48
   %all_dropped = getelementptr inbounds i8, ptr %drop, i64 2
   store i8 1, ptr %all_dropped, align 1
-  br i1 %cmp53.not, label %for.end67, label %for.body53.preheader
-
-for.body53.preheader:                             ; preds = %for.end49
   %wide.trip.count67 = zext i32 %0 to i64
   br label %for.body53
 
@@ -18272,8 +18269,8 @@ for.cond51:                                       ; preds = %if.end60
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %for.end67, label %for.body53, !llvm.loop !138
 
-for.body53:                                       ; preds = %for.body53.preheader, %for.cond51
-  %indvars.iv64 = phi i64 [ 0, %for.body53.preheader ], [ %indvars.iv.next65, %for.cond51 ]
+for.body53:                                       ; preds = %for.end49, %for.cond51
+  %indvars.iv64 = phi i64 [ 0, %for.end49 ], [ %indvars.iv.next65, %for.cond51 ]
   %arrayidx56 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv64
   %op57 = getelementptr inbounds i8, ptr %arrayidx56, i64 8
   %19 = load i32, ptr %op57, align 8
@@ -18290,8 +18287,8 @@ if.then62:                                        ; preds = %if.end60
   store i8 0, ptr %all_dropped, align 1
   br label %for.end67
 
-for.end67:                                        ; preds = %for.cond51, %for.body53, %for.end49.thread, %for.end49, %if.then62
-  %seen_hint.0.lcssa71 = phi i1 [ false, %for.end49.thread ], [ %seen_hint.1, %for.end49 ], [ %seen_hint.1, %if.then62 ], [ %seen_hint.1, %for.body53 ], [ %seen_hint.1, %for.cond51 ]
+for.end67:                                        ; preds = %for.cond51, %for.body53, %for.end49.thread, %if.then62
+  %seen_hint.0.lcssa71 = phi i1 [ false, %for.end49.thread ], [ %seen_hint.1, %if.then62 ], [ %seen_hint.1, %for.body53 ], [ %seen_hint.1, %for.cond51 ]
   ret i1 %seen_hint.0.lcssa71
 }
 

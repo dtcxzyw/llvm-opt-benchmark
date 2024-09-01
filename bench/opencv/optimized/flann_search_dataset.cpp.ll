@@ -11640,9 +11640,6 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101: ; preds = %._crit_edge.i93, %
 ._crit_edge150:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101
   %159 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv205
   store i32 %127, ptr %159, align 4
-  br i1 %34, label %.lr.ph156, label %._crit_edge157
-
-.lr.ph156:                                        ; preds = %._crit_edge150
   %.pre211 = sext i32 %.074.lcssa to i64
   %160 = getelementptr inbounds i32, ptr %2, i64 %.pre211
   %161 = load ptr, ptr %79, align 8
@@ -11658,8 +11655,8 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101: ; preds = %._crit_edge.i93, %
   %.not23.i112 = icmp eq i64 %168, 0
   br label %170
 
-170:                                              ; preds = %.lr.ph156, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next201, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
+170:                                              ; preds = %._crit_edge150, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116
+  %indvars.iv200 = phi i64 [ 0, %._crit_edge150 ], [ %indvars.iv.next201, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
   %171 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv200
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
@@ -11717,8 +11714,8 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116: ; preds = %._crit_edge.i108, 
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %13
   br i1 %exitcond204.not, label %._crit_edge157, label %170, !llvm.loop !79
 
-._crit_edge157:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116, %._crit_edge150.thread, %._crit_edge150
-  %.076.lcssa214 = phi double [ 0.000000e+00, %._crit_edge150.thread ], [ %158, %._crit_edge150 ], [ %158, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
+._crit_edge157:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116, %._crit_edge150.thread
+  %.076.lcssa214 = phi double [ 0.000000e+00, %._crit_edge150.thread ], [ %158, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge160, label %.preheader, !llvm.loop !80
@@ -19362,9 +19359,6 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101: ; preds = %._crit_edge.i93, %
 ._crit_edge150:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101
   %159 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv205
   store i32 %127, ptr %159, align 4
-  br i1 %34, label %.lr.ph156, label %._crit_edge157
-
-.lr.ph156:                                        ; preds = %._crit_edge150
   %.pre211 = sext i32 %.074.lcssa to i64
   %160 = getelementptr inbounds i32, ptr %2, i64 %.pre211
   %161 = load ptr, ptr %79, align 8
@@ -19380,8 +19374,8 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit101: ; preds = %._crit_edge.i93, %
   %.not23.i112 = icmp eq i64 %168, 0
   br label %170
 
-170:                                              ; preds = %.lr.ph156, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next201, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
+170:                                              ; preds = %._crit_edge150, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116
+  %indvars.iv200 = phi i64 [ 0, %._crit_edge150 ], [ %indvars.iv.next201, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
   %171 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv200
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
@@ -19439,8 +19433,8 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116: ; preds = %._crit_edge.i108, 
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %13
   br i1 %exitcond204.not, label %._crit_edge157, label %170, !llvm.loop !169
 
-._crit_edge157:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116, %._crit_edge150.thread, %._crit_edge150
-  %.076.lcssa214 = phi double [ 0.000000e+00, %._crit_edge150.thread ], [ %158, %._crit_edge150 ], [ %158, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
+._crit_edge157:                                   ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116, %._crit_edge150.thread
+  %.076.lcssa214 = phi double [ 0.000000e+00, %._crit_edge150.thread ], [ %158, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit116 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge160, label %.preheader, !llvm.loop !170
@@ -19805,9 +19799,6 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %163 = load i32, ptr %162, align 4
   %164 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv210
   store i32 %163, ptr %164, align 4
-  br i1 %34, label %.lr.ph152, label %._crit_edge
-
-.lr.ph152:                                        ; preds = %._crit_edge128.split.us
   %165 = load ptr, ptr %71, align 8
   %166 = load i64, ptr %72, align 8
   %167 = sext i32 %163 to i64
@@ -19820,8 +19811,8 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %.not23.i95 = icmp eq i64 %171, 0
   br label %173
 
-173:                                              ; preds = %.lr.ph152, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next206, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99 ]
+173:                                              ; preds = %._crit_edge128.split.us, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99
+  %indvars.iv205 = phi i64 [ 0, %._crit_edge128.split.us ], [ %indvars.iv.next206, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99 ]
   %174 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv205
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
@@ -19878,7 +19869,7 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99: ; preds = %._crit_edge.i91, %1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %13
   br i1 %exitcond209.not, label %._crit_edge, label %173, !llvm.loop !174
 
-._crit_edge:                                      ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99, %._crit_edge128.split.us.thread, %._crit_edge128.split.us
+._crit_edge:                                      ; preds = %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit99, %._crit_edge128.split.us.thread
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
   br i1 %exitcond214.not, label %._crit_edge154, label %.preheader106, !llvm.loop !175

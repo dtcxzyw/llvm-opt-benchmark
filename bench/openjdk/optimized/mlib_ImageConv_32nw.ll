@@ -644,10 +644,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %302
   %wide.trip.count1254 = zext i32 %321 to i64
   br label %.lr.ph990
 
-.preheader973:                                    ; preds = %.lr.ph990
-  br i1 %.not987, label %._crit_edge994, label %.lr.ph993.preheader
-
-.lr.ph993.preheader:                              ; preds = %.preheader973
+.lr.ph993.preheader:                              ; preds = %.lr.ph990
   %322 = zext i32 %321 to i64
   br label %.lr.ph993
 
@@ -659,7 +656,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %302
   store ptr %324, ptr %325, align 8
   %indvars.iv.next1252 = add nuw nsw i64 %indvars.iv1251, 1
   %exitcond1255.not = icmp eq i64 %indvars.iv.next1252, %wide.trip.count1254
-  br i1 %exitcond1255.not, label %.preheader973, label %.lr.ph990, !llvm.loop !17
+  br i1 %exitcond1255.not, label %.lr.ph993.preheader, label %.lr.ph990, !llvm.loop !17
 
 .lr.ph993:                                        ; preds = %.lr.ph993.preheader, %.lr.ph993
   %indvars.iv1256 = phi i64 [ 0, %.lr.ph993.preheader ], [ %indvars.iv.next1257, %.lr.ph993 ]
@@ -672,7 +669,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %302
   %exitcond1260.not = icmp eq i64 %indvars.iv.next1257, %322
   br i1 %exitcond1260.not, label %._crit_edge994, label %.lr.ph993, !llvm.loop !18
 
-._crit_edge994:                                   ; preds = %.lr.ph993, %319, %.preheader973
+._crit_edge994:                                   ; preds = %.lr.ph993, %319
   %330 = sext i32 %4 to i64
   %331 = getelementptr inbounds ptr, ptr %.0771, i64 %330
   %332 = load ptr, ptr %331, align 8

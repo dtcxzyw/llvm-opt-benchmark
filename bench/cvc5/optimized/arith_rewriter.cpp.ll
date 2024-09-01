@@ -3216,8 +3216,8 @@ ehcleanup94:                                      ; preds = %ehcleanup, %lpad88
   br label %eh.resume
 
 invoke.cont96:                                    ; preds = %if.then73
-  %cmp98 = icmp sgt i32 %11, 0
-  br i1 %cmp98, label %invoke.cont99, label %if.end256
+  %cmp.inv.i = icmp sgt i32 %11, -1
+  br i1 %cmp.inv.i, label %invoke.cont99, label %if.end256
 
 invoke.cont99:                                    ; preds = %invoke.cont96
   %_mp_den.i.i = getelementptr inbounds i8, ptr %call.i7778, i64 16
@@ -14003,7 +14003,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
   %agg.tmp.val.val.i9.i.i.i.i.i = load i16, ptr %31, align 8
   %bf.clear.i.i.i10.i.i.i.i.i = and i16 %agg.tmp.val.val.i9.i.i.i.i.i, 1023
   %cmp.i.i11.i.i.i.i.i = icmp eq i16 %bf.clear.i.i.i10.i.i.i.i.i, 36
-  br i1 %cmp.i.i11.i.i.i.i.i, label %invoke.cont28.loopexit.split.loop.exit363, label %if.end10.i.i.i.i.i
+  br i1 %cmp.i.i11.i.i.i.i.i, label %invoke.cont28.loopexit.split.loop.exit355, label %if.end10.i.i.i.i.i
 
 if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i.i, i64 16
@@ -14012,7 +14012,7 @@ if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %agg.tmp.val.val.i13.i.i.i.i.i = load i16, ptr %33, align 8
   %bf.clear.i.i.i14.i.i.i.i.i = and i16 %agg.tmp.val.val.i13.i.i.i.i.i, 1023
   %cmp.i.i15.i.i.i.i.i = icmp eq i16 %bf.clear.i.i.i14.i.i.i.i.i, 36
-  br i1 %cmp.i.i15.i.i.i.i.i, label %invoke.cont28.loopexit.split.loop.exit361, label %if.end16.i.i.i.i.i
+  br i1 %cmp.i.i15.i.i.i.i.i, label %invoke.cont28.loopexit.split.loop.exit353, label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.end10.i.i.i.i.i
   %incdec.ptr.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i.i, i64 24
@@ -14083,16 +14083,16 @@ invoke.cont28.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i.i.i
   %incdec.ptr.i16.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i.i, i64 24
   br label %invoke.cont28
 
-invoke.cont28.loopexit.split.loop.exit361:        ; preds = %if.end10.i.i.i.i.i
+invoke.cont28.loopexit.split.loop.exit353:        ; preds = %if.end10.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i.i, i64 16
   br label %invoke.cont28
 
-invoke.cont28.loopexit.split.loop.exit363:        ; preds = %if.end.i.i.i.i.i
+invoke.cont28.loopexit.split.loop.exit355:        ; preds = %if.end.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.057.i.i.i.i.i, i64 8
   br label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont28.loopexit.split.loop.exit, %invoke.cont28.loopexit.split.loop.exit361, %invoke.cont28.loopexit.split.loop.exit363, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i16.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit ], [ %incdec.ptr.i12.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit361 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit363 ], [ %__first.sroa.0.057.i.i.i.i.i, %for.body.i.i.i.i.i ]
+invoke.cont28:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont28.loopexit.split.loop.exit, %invoke.cont28.loopexit.split.loop.exit353, %invoke.cont28.loopexit.split.loop.exit355, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i16.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit ], [ %incdec.ptr.i12.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit353 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit355 ], [ %__first.sroa.0.057.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %cmp.i.i.i36.not = icmp eq ptr %26, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i
   br i1 %cmp.i.i.i36.not, label %if.else, label %if.then30
 

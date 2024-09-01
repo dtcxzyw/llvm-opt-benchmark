@@ -2881,8 +2881,8 @@ if.end16.i164:                                    ; preds = %if.end13.i162
 if.end19.i:                                       ; preds = %if.end16.i164
   %sub.i167 = sub nsw i32 %mul.i165, %conv10.i160
   %add.ptr.i168 = getelementptr inbounds i8, ptr %dp.addr.239.i156, i64 1
-  %cond982 = icmp eq i32 %width.addr.238.i157, 1
-  br i1 %cond982, label %while.end.i173, label %if.end24.i
+  %cond987 = icmp eq i32 %width.addr.238.i157, 1
+  br i1 %cond987, label %while.end.i173, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
   %16 = load i8, ptr %add.ptr.i168, align 1
@@ -2961,8 +2961,8 @@ if.end16.i209:                                    ; preds = %if.end13.i207
 if.end19.i213:                                    ; preds = %if.end16.i209
   %sub.i214 = sub nsw i32 %mul.i210, %conv10.i205
   %add.ptr.i215 = getelementptr inbounds i8, ptr %dp.addr.239.i201, i64 1
-  %cond981 = icmp eq i32 %width.addr.238.i202, 1
-  br i1 %cond981, label %while.end.i222, label %if.end24.i217
+  %cond986 = icmp eq i32 %width.addr.238.i202, 1
+  br i1 %cond986, label %while.end.i222, label %if.end24.i217
 
 if.end24.i217:                                    ; preds = %if.end19.i213
   %21 = load i8, ptr %add.ptr.i215, align 1
@@ -3325,8 +3325,8 @@ if.end16.i504:                                    ; preds = %if.end13.i502
 if.end19.i508:                                    ; preds = %if.end16.i504
   %sub.i509 = sub nsw i32 %mul.i505, %conv10.i500
   %add.ptr.i510 = getelementptr inbounds i8, ptr %dp.addr.239.i496, i64 1
-  %cond980 = icmp eq i32 %width.addr.238.i497, 1
-  br i1 %cond980, label %while.end.i517, label %if.end24.i512
+  %cond985 = icmp eq i32 %width.addr.238.i497, 1
+  br i1 %cond985, label %while.end.i517, label %if.end24.i512
 
 if.end24.i512:                                    ; preds = %if.end19.i508
   %43 = load i8, ptr %add.ptr.i510, align 1
@@ -3403,8 +3403,8 @@ if.end16.i563:                                    ; preds = %if.end13.i561
 if.end19.i567:                                    ; preds = %if.end16.i563
   %sub.i568 = sub nsw i32 %mul.i564, %conv10.i559
   %add.ptr.i569 = getelementptr inbounds i8, ptr %dp.addr.239.i555, i64 1
-  %cond979 = icmp eq i32 %width.addr.238.i556, 1
-  br i1 %cond979, label %while.end.i576, label %if.end24.i571
+  %cond984 = icmp eq i32 %width.addr.238.i556, 1
+  br i1 %cond984, label %while.end.i576, label %if.end24.i571
 
 if.end24.i571:                                    ; preds = %if.end19.i567
   %47 = load i8, ptr %add.ptr.i569, align 1
@@ -3481,8 +3481,8 @@ if.end16.i622:                                    ; preds = %if.end13.i620
 if.end19.i626:                                    ; preds = %if.end16.i622
   %sub.i627 = sub nsw i32 %mul.i623, %conv10.i618
   %add.ptr.i628 = getelementptr inbounds i8, ptr %dp.addr.239.i614, i64 1
-  %cond978 = icmp eq i32 %width.addr.238.i615, 1
-  br i1 %cond978, label %while.end.i635, label %if.end24.i630
+  %cond983 = icmp eq i32 %width.addr.238.i615, 1
+  br i1 %cond983, label %while.end.i635, label %if.end24.i630
 
 if.end24.i630:                                    ; preds = %if.end19.i626
   %51 = load i8, ptr %add.ptr.i628, align 1
@@ -3949,17 +3949,18 @@ while.end346:                                     ; preds = %while.cond3.backedg
   br i1 %twelve_hour.0.lcssa, label %land.lhs.true348, label %if.end355
 
 land.lhs.true348:                                 ; preds = %while.cond3.backedge.thread, %while.end346
-  %data.1.lcssa906 = phi ptr [ null, %while.cond3.backedge.thread ], [ %data.1.lcssa, %while.end346 ]
-  %saw_year.0.lcssa904 = phi i1 [ %saw_year.0865, %while.cond3.backedge.thread ], [ %saw_year.0.lcssa, %while.end346 ]
-  %saw_offset.0.lcssa902 = phi i1 [ %saw_offset.0863, %while.cond3.backedge.thread ], [ %saw_offset.0.lcssa, %while.end346 ]
-  %afternoon.0.lcssa900 = phi i1 [ %afternoon.0857, %while.cond3.backedge.thread ], [ %afternoon.0.lcssa, %while.end346 ]
-  %week_start.0.lcssa899 = phi i32 [ %week_start.0.be.ph, %while.cond3.backedge.thread ], [ %week_start.0.lcssa, %while.end346 ]
-  %saw_percent_s.0.lcssa897 = phi i1 [ %saw_percent_s.0853, %while.cond3.backedge.thread ], [ %saw_percent_s.0.lcssa, %while.end346 ]
-  %week_num.0.lcssa895 = phi i32 [ %week_num.0.be.ph, %while.cond3.backedge.thread ], [ %week_num.0.lcssa, %while.end346 ]
-  %percent_s.0.lcssa893 = phi i64 [ %percent_s.0849, %while.cond3.backedge.thread ], [ %percent_s.0.lcssa, %while.end346 ]
+  %cmp5.not.not926 = phi i1 [ false, %while.cond3.backedge.thread ], [ %cmp5.not.not, %while.end346 ]
+  %data.1.lcssa911 = phi ptr [ null, %while.cond3.backedge.thread ], [ %data.1.lcssa, %while.end346 ]
+  %saw_year.0.lcssa909 = phi i1 [ %saw_year.0865, %while.cond3.backedge.thread ], [ %saw_year.0.lcssa, %while.end346 ]
+  %saw_offset.0.lcssa907 = phi i1 [ %saw_offset.0863, %while.cond3.backedge.thread ], [ %saw_offset.0.lcssa, %while.end346 ]
+  %afternoon.0.lcssa905 = phi i1 [ %afternoon.0857, %while.cond3.backedge.thread ], [ %afternoon.0.lcssa, %while.end346 ]
+  %week_start.0.lcssa904 = phi i32 [ %week_start.0.be.ph, %while.cond3.backedge.thread ], [ %week_start.0.lcssa, %while.end346 ]
+  %saw_percent_s.0.lcssa902 = phi i1 [ %saw_percent_s.0853, %while.cond3.backedge.thread ], [ %saw_percent_s.0.lcssa, %while.end346 ]
+  %week_num.0.lcssa900 = phi i32 [ %week_num.0.be.ph, %while.cond3.backedge.thread ], [ %week_num.0.lcssa, %while.end346 ]
+  %percent_s.0.lcssa898 = phi i64 [ %percent_s.0849, %while.cond3.backedge.thread ], [ %percent_s.0.lcssa, %while.end346 ]
   %82 = load i32, ptr %tm_hour, align 8
   %cmp352 = icmp slt i32 %82, 12
-  %or.cond1 = select i1 %afternoon.0.lcssa900, i1 %cmp352, i1 false
+  %or.cond1 = select i1 %afternoon.0.lcssa905, i1 %cmp352, i1 false
   br i1 %or.cond1, label %if.then353, label %if.end355
 
 if.then353:                                       ; preds = %land.lhs.true348
@@ -3968,14 +3969,15 @@ if.then353:                                       ; preds = %land.lhs.true348
   br label %if.end355
 
 if.end355:                                        ; preds = %while.end.i517, %if.then36.i530, %while.cond3.backedge.thread, %if.then353, %land.lhs.true348, %while.end346
-  %data.1.lcssa905 = phi ptr [ null, %while.cond3.backedge.thread ], [ %data.1.lcssa906, %if.then353 ], [ %data.1.lcssa906, %land.lhs.true348 ], [ %data.1.lcssa, %while.end346 ], [ null, %if.then36.i530 ], [ null, %while.end.i517 ]
-  %saw_year.0.lcssa903 = phi i1 [ %saw_year.0865, %while.cond3.backedge.thread ], [ %saw_year.0.lcssa904, %if.then353 ], [ %saw_year.0.lcssa904, %land.lhs.true348 ], [ %saw_year.0.lcssa, %while.end346 ], [ %saw_year.0865, %if.then36.i530 ], [ %saw_year.0865, %while.end.i517 ]
-  %saw_offset.0.lcssa901 = phi i1 [ %saw_offset.0863, %while.cond3.backedge.thread ], [ %saw_offset.0.lcssa902, %if.then353 ], [ %saw_offset.0.lcssa902, %land.lhs.true348 ], [ %saw_offset.0.lcssa, %while.end346 ], [ %saw_offset.0863, %if.then36.i530 ], [ %saw_offset.0863, %while.end.i517 ]
-  %week_start.0.lcssa898 = phi i32 [ %week_start.0.be.ph, %while.cond3.backedge.thread ], [ %week_start.0.lcssa899, %if.then353 ], [ %week_start.0.lcssa899, %land.lhs.true348 ], [ %week_start.0.lcssa, %while.end346 ], [ %week_start.0855, %if.then36.i530 ], [ %week_start.0855, %while.end.i517 ]
-  %saw_percent_s.0.lcssa896 = phi i1 [ %saw_percent_s.0853, %while.cond3.backedge.thread ], [ %saw_percent_s.0.lcssa897, %if.then353 ], [ %saw_percent_s.0.lcssa897, %land.lhs.true348 ], [ %saw_percent_s.0.lcssa, %while.end346 ], [ %saw_percent_s.0853, %if.then36.i530 ], [ %saw_percent_s.0853, %while.end.i517 ]
-  %week_num.0.lcssa894 = phi i32 [ %week_num.0.be.ph, %while.cond3.backedge.thread ], [ %week_num.0.lcssa895, %if.then353 ], [ %week_num.0.lcssa895, %land.lhs.true348 ], [ %week_num.0.lcssa, %while.end346 ], [ %week_num.0851, %if.then36.i530 ], [ %week_num.0851, %while.end.i517 ]
-  %percent_s.0.lcssa892 = phi i64 [ %percent_s.0849, %while.cond3.backedge.thread ], [ %percent_s.0.lcssa893, %if.then353 ], [ %percent_s.0.lcssa893, %land.lhs.true348 ], [ %percent_s.0.lcssa, %while.end346 ], [ %percent_s.0849, %if.then36.i530 ], [ %percent_s.0849, %while.end.i517 ]
-  br i1 %cmp5.not.not, label %while.cond364, label %if.then357
+  %cmp5.not.not925 = phi i1 [ false, %while.cond3.backedge.thread ], [ %cmp5.not.not926, %if.then353 ], [ %cmp5.not.not926, %land.lhs.true348 ], [ %cmp5.not.not, %while.end346 ], [ false, %if.then36.i530 ], [ false, %while.end.i517 ]
+  %data.1.lcssa910 = phi ptr [ null, %while.cond3.backedge.thread ], [ %data.1.lcssa911, %if.then353 ], [ %data.1.lcssa911, %land.lhs.true348 ], [ %data.1.lcssa, %while.end346 ], [ null, %if.then36.i530 ], [ null, %while.end.i517 ]
+  %saw_year.0.lcssa908 = phi i1 [ %saw_year.0865, %while.cond3.backedge.thread ], [ %saw_year.0.lcssa909, %if.then353 ], [ %saw_year.0.lcssa909, %land.lhs.true348 ], [ %saw_year.0.lcssa, %while.end346 ], [ %saw_year.0865, %if.then36.i530 ], [ %saw_year.0865, %while.end.i517 ]
+  %saw_offset.0.lcssa906 = phi i1 [ %saw_offset.0863, %while.cond3.backedge.thread ], [ %saw_offset.0.lcssa907, %if.then353 ], [ %saw_offset.0.lcssa907, %land.lhs.true348 ], [ %saw_offset.0.lcssa, %while.end346 ], [ %saw_offset.0863, %if.then36.i530 ], [ %saw_offset.0863, %while.end.i517 ]
+  %week_start.0.lcssa903 = phi i32 [ %week_start.0.be.ph, %while.cond3.backedge.thread ], [ %week_start.0.lcssa904, %if.then353 ], [ %week_start.0.lcssa904, %land.lhs.true348 ], [ %week_start.0.lcssa, %while.end346 ], [ %week_start.0855, %if.then36.i530 ], [ %week_start.0855, %while.end.i517 ]
+  %saw_percent_s.0.lcssa901 = phi i1 [ %saw_percent_s.0853, %while.cond3.backedge.thread ], [ %saw_percent_s.0.lcssa902, %if.then353 ], [ %saw_percent_s.0.lcssa902, %land.lhs.true348 ], [ %saw_percent_s.0.lcssa, %while.end346 ], [ %saw_percent_s.0853, %if.then36.i530 ], [ %saw_percent_s.0853, %while.end.i517 ]
+  %week_num.0.lcssa899 = phi i32 [ %week_num.0.be.ph, %while.cond3.backedge.thread ], [ %week_num.0.lcssa900, %if.then353 ], [ %week_num.0.lcssa900, %land.lhs.true348 ], [ %week_num.0.lcssa, %while.end346 ], [ %week_num.0851, %if.then36.i530 ], [ %week_num.0851, %while.end.i517 ]
+  %percent_s.0.lcssa897 = phi i64 [ %percent_s.0849, %while.cond3.backedge.thread ], [ %percent_s.0.lcssa898, %if.then353 ], [ %percent_s.0.lcssa898, %land.lhs.true348 ], [ %percent_s.0.lcssa, %while.end346 ], [ %percent_s.0849, %if.then36.i530 ], [ %percent_s.0849, %while.end.i517 ]
+  br i1 %cmp5.not.not925, label %while.cond364, label %if.then357
 
 if.then357:                                       ; preds = %if.end355
   %cmp358.not = icmp eq ptr %err, null
@@ -3987,7 +3989,7 @@ if.then359.invoke:                                ; preds = %if.then527, %if.the
           to label %cleanup unwind label %lpad42.loopexit.split-lp
 
 while.cond364:                                    ; preds = %if.end355, %while.cond364
-  %data.10 = phi ptr [ %incdec.ptr369, %while.cond364 ], [ %data.1.lcssa905, %if.end355 ]
+  %data.10 = phi ptr [ %incdec.ptr369, %while.cond364 ], [ %data.1.lcssa910, %if.end355 ]
   %85 = load i8, ptr %data.10, align 1
   %conv365 = sext i8 %85 to i32
   %call366 = call i32 @isspace(i32 noundef %conv365) #19
@@ -4004,14 +4006,14 @@ if.then373:                                       ; preds = %while.end370
   br i1 %cmp374.not, label %cleanup, label %if.then359.invoke
 
 if.end379:                                        ; preds = %while.end370
-  br i1 %saw_percent_s.0.lcssa896, label %invoke.cont383, label %if.end389
+  br i1 %saw_percent_s.0.lcssa901, label %invoke.cont383, label %if.end389
 
 invoke.cont383:                                   ; preds = %if.end379
-  store i64 %percent_s.0.lcssa892, ptr %sec, align 8
+  store i64 %percent_s.0.lcssa897, ptr %sec, align 8
   br label %cleanup.sink.split
 
 if.end389:                                        ; preds = %if.end379
-  br i1 %saw_offset.0.lcssa901, label %cond.true391, label %cond.false395
+  br i1 %saw_offset.0.lcssa906, label %cond.true391, label %cond.false395
 
 cond.true391:                                     ; preds = %if.end389
   %call393 = invoke ptr @_ZN4absl13time_internal4cctz13utc_time_zoneEv()
@@ -4042,7 +4044,7 @@ if.then399:                                       ; preds = %cond.end396
 
 if.end406:                                        ; preds = %if.then399, %cond.end396
   %90 = phi i32 [ 59, %if.then399 ], [ %88, %cond.end396 ]
-  br i1 %saw_year.0.lcssa903, label %if.end420, label %if.then408
+  br i1 %saw_year.0.lcssa908, label %if.end420, label %if.then408
 
 if.then408:                                       ; preds = %if.end406
   %91 = load i32, ptr %tm_year, align 4
@@ -4052,14 +4054,14 @@ if.then408:                                       ; preds = %if.end406
   br label %if.end420
 
 if.end420:                                        ; preds = %if.then408, %if.end406
-  %cmp421.not = icmp eq i32 %week_num.0.lcssa894, -1
+  %cmp421.not = icmp eq i32 %week_num.0.lcssa899, -1
   br i1 %cmp421.not, label %if.end420.if.end432_crit_edge, label %if.then422
 
 if.end420.if.end432_crit_edge:                    ; preds = %if.end420
-  %.pre870 = load i32, ptr %tm_mon, align 8
-  %.pre871 = load i64, ptr %year, align 8
-  %.pre872 = load i32, ptr %tm_mday, align 4
-  %92 = add nsw i32 %.pre870, 1
+  %.pre875 = load i32, ptr %tm_mon, align 8
+  %.pre876 = load i64, ptr %year, align 8
+  %.pre877 = load i32, ptr %tm_mday, align 4
+  %92 = add nsw i32 %.pre875, 1
   br label %if.end432
 
 if.then422:                                       ; preds = %if.end420
@@ -4095,7 +4097,7 @@ for.cond1.i.i:                                    ; preds = %for.cond.i.i, %for.
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
   %arrayidx3.i.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_back, i64 0, i64 %indvars.iv.next11.i.i
   %98 = load i32, ptr %arrayidx3.i.i, align 4
-  %cmp4.i.i = icmp eq i32 %week_start.0.lcssa898, %98
+  %cmp4.i.i = icmp eq i32 %week_start.0.lcssa903, %98
   br i1 %cmp4.i.i, label %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i, label %for.cond1.i.i, !llvm.loop !17
 
 _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i: ; preds = %for.cond1.i.i
@@ -4114,7 +4116,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
   %100 = extractvalue { i64, i64 } %call.i.i.i, 0
   %101 = load i32, ptr %tm_wday, align 8
   %switch.tableidx = add i32 %101, -1
-  %spec.select1048 = call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 6)
+  %spec.select1051 = call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 6)
   %ref.tmp.sroa.2.8.extract.trunc.i10.i = trunc i64 %retval.sroa.3.0.in.i.i to i8
   %102 = trunc i64 %retval.sroa.3.0.in.i.i to i32
   %rem.i.i11.i = srem i64 %100, 400
@@ -4159,7 +4161,7 @@ for.cond1.i41.i:                                  ; preds = %for.cond.i35.i, %fo
   %indvars.iv.next11.i43.i = add nuw nsw i64 %indvars.iv10.i42.i, 1
   %arrayidx3.i44.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 0, i64 %indvars.iv.next11.i43.i
   %107 = load i32, ptr %arrayidx3.i44.i, align 4
-  %cmp4.i45.i = icmp eq i32 %spec.select1048, %107
+  %cmp4.i45.i = icmp eq i32 %spec.select1051, %107
   br i1 %cmp4.i45.i, label %_ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i, label %for.cond1.i41.i, !llvm.loop !26
 
 _ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i: ; preds = %for.cond1.i41.i
@@ -4171,7 +4173,7 @@ _ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagE
   %call.i.i.i.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %100, i8 noundef signext %ref.tmp.sroa.2.8.extract.trunc.i10.i, i64 noundef %conv.i.i.i.i, i64 noundef %conv.i48.i, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #17
   %109 = extractvalue { i64, i64 } %call.i.i.i.i, 1
   %110 = extractvalue { i64, i64 } %call.i.i.i.i, 0
-  %mul.i742 = mul nsw i32 %week_num.0.lcssa894, 7
+  %mul.i742 = mul nsw i32 %week_num.0.lcssa899, 7
   %conv.i743 = sext i32 %mul.i742 to i64
   %f.sroa.2.8.extract.trunc.i.i49.i = trunc i64 %109 to i8
   %retval.sroa.2.8.insert.insert.i.i.i.i.i = shl i64 %109, 48
@@ -4211,7 +4213,7 @@ invoke.cont423:                                   ; preds = %_ZN4absl13time_inte
   %114 = shl i32 %cd.sroa.3.8.extract.trunc.i, 16
   %conv.i61.i = ashr i32 %114, 24
   store i32 %conv.i61.i, ptr %tm_mday, align 4
-  %.pre873 = load i32, ptr %tm, align 8
+  %.pre878 = load i32, ptr %tm, align 8
   br label %if.end432
 
 if.then425:                                       ; preds = %if.then13.i, %if.else.i
@@ -4219,9 +4221,9 @@ if.then425:                                       ; preds = %if.then13.i, %if.el
   br i1 %cmp426.not, label %cleanup, label %if.then359.invoke
 
 if.end432:                                        ; preds = %if.end420.if.end432_crit_edge, %invoke.cont423
-  %115 = phi i32 [ %90, %if.end420.if.end432_crit_edge ], [ %.pre873, %invoke.cont423 ]
-  %116 = phi i32 [ %.pre872, %if.end420.if.end432_crit_edge ], [ %conv.i61.i, %invoke.cont423 ]
-  %117 = phi i64 [ %.pre871, %if.end420.if.end432_crit_edge ], [ %113, %invoke.cont423 ]
+  %115 = phi i32 [ %90, %if.end420.if.end432_crit_edge ], [ %.pre878, %invoke.cont423 ]
+  %116 = phi i32 [ %.pre877, %if.end420.if.end432_crit_edge ], [ %conv.i61.i, %invoke.cont423 ]
+  %117 = phi i64 [ %.pre876, %if.end420.if.end432_crit_edge ], [ %113, %invoke.cont423 ]
   %add434 = phi i32 [ %92, %if.end420.if.end432_crit_edge ], [ %conv.i60.i, %invoke.cont423 ]
   %conv435 = sext i32 %add434 to i64
   %conv437 = sext i32 %116 to i64

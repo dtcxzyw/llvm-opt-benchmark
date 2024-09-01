@@ -9192,7 +9192,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 .thread22:                                        ; preds = %93, %.lr.ph, %470, %.thread22.sink.split, %.lr.ph.preheader, %4
   %478 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %39, %.thread22.sink.split ], [ %465, %470 ], [ %465, %.lr.ph ], [ %39, %93 ]
   %479 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %40, %.thread22.sink.split ], [ %466, %470 ], [ %466, %.lr.ph ], [ %40, %93 ]
-  %480 = phi i1 [ false, %4 ], [ %31, %.lr.ph.preheader ], [ true, %.thread22.sink.split ], [ %31, %470 ], [ %31, %.lr.ph ], [ %31, %93 ]
+  %480 = phi i1 [ false, %4 ], [ false, %.lr.ph.preheader ], [ true, %.thread22.sink.split ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
   %481 = phi i32 [ %10, %4 ], [ %10, %.lr.ph.preheader ], [ %50, %.thread22.sink.split ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
   store i32 %481, ptr %9, align 4
   %482 = load volatile i32, ptr %9, align 4

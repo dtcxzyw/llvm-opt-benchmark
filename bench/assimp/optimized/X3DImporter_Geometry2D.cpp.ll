@@ -1107,7 +1107,7 @@ invoke.cont14:                                    ; preds = %cond.true.i.i159, %
 
 if.end.i.i162:                                    ; preds = %for.inc.i.i153, %if.end.i3.i158, %cond.true.i.i159, %invoke.cont14
   %solid.0261 = phi i8 [ 0, %cond.true.i.i159 ], [ 0, %if.end.i3.i158 ], [ 1, %invoke.cont14 ], [ 0, %for.inc.i.i153 ]
-  br i1 %tobool3.not7.i.i145, label %invoke.cont16, label %for.body.i.i166
+  br label %for.body.i.i166
 
 for.body.i.i166:                                  ; preds = %if.end.i.i162, %for.inc.i.i173
   %i.08.i.i167 = phi ptr [ %i.0.i.i175, %for.inc.i.i173 ], [ %i.06.i.i144, %if.end.i.i162 ]
@@ -1138,11 +1138,11 @@ cond.true.i.i181:                                 ; preds = %if.end.i3.i178
   %conv.i.i.i183 = fptrunc double %call.i.i5.i182 to float
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %for.inc.i.i173, %if.end.i.i142, %invoke.cont, %invoke.cont3, %invoke.cont6, %do.end, %invoke.cont12, %invoke.cont8, %invoke.cont10, %if.end.i.i162, %cond.true.i.i181, %if.end.i3.i178
-  %solid.0253 = phi i8 [ %solid.0261, %if.end.i.i162 ], [ %solid.0261, %cond.true.i.i181 ], [ %solid.0261, %if.end.i3.i178 ], [ 0, %invoke.cont10 ], [ 0, %invoke.cont8 ], [ 0, %invoke.cont12 ], [ 0, %do.end ], [ 0, %invoke.cont6 ], [ 0, %invoke.cont3 ], [ 0, %invoke.cont ], [ 0, %if.end.i.i142 ], [ %solid.0261, %for.inc.i.i173 ]
-  %endAngle.1239244252 = phi float [ %endAngle.1.ph.ph.ph317, %if.end.i.i162 ], [ %endAngle.1.ph.ph.ph317, %cond.true.i.i181 ], [ %endAngle.1.ph.ph.ph317, %if.end.i3.i178 ], [ %endAngle.1.ph.ph.ph, %invoke.cont10 ], [ %endAngle.0.ph, %invoke.cont8 ], [ %endAngle.1.ph.ph.ph317, %invoke.cont12 ], [ 0x3FF921FB60000000, %do.end ], [ 0x3FF921FB60000000, %invoke.cont6 ], [ 0x3FF921FB60000000, %invoke.cont3 ], [ 0x3FF921FB60000000, %invoke.cont ], [ %endAngle.1.ph.ph.ph317, %if.end.i.i142 ], [ %endAngle.1.ph.ph.ph317, %for.inc.i.i173 ]
-  %radius.0245251 = phi float [ %radius.0.ph322, %if.end.i.i162 ], [ %radius.0.ph322, %cond.true.i.i181 ], [ %radius.0.ph322, %if.end.i3.i178 ], [ 1.000000e+00, %invoke.cont10 ], [ 1.000000e+00, %invoke.cont8 ], [ %radius.0.ph, %invoke.cont12 ], [ 1.000000e+00, %do.end ], [ 1.000000e+00, %invoke.cont6 ], [ 1.000000e+00, %invoke.cont3 ], [ 1.000000e+00, %invoke.cont ], [ %radius.0.ph322, %if.end.i.i142 ], [ %radius.0.ph322, %for.inc.i.i173 ]
-  %startAngle.0 = phi float [ 0.000000e+00, %if.end.i.i162 ], [ %conv.i.i.i183, %cond.true.i.i181 ], [ 0.000000e+00, %if.end.i3.i178 ], [ 0.000000e+00, %invoke.cont10 ], [ 0.000000e+00, %invoke.cont8 ], [ 0.000000e+00, %invoke.cont12 ], [ 0.000000e+00, %do.end ], [ 0.000000e+00, %invoke.cont6 ], [ 0.000000e+00, %invoke.cont3 ], [ 0.000000e+00, %invoke.cont ], [ 0.000000e+00, %if.end.i.i142 ], [ 0.000000e+00, %for.inc.i.i173 ]
+invoke.cont16:                                    ; preds = %for.inc.i.i173, %if.end.i.i142, %invoke.cont, %invoke.cont3, %invoke.cont6, %do.end, %invoke.cont12, %invoke.cont8, %invoke.cont10, %cond.true.i.i181, %if.end.i3.i178
+  %solid.0253 = phi i8 [ %solid.0261, %cond.true.i.i181 ], [ %solid.0261, %if.end.i3.i178 ], [ 0, %invoke.cont10 ], [ 0, %invoke.cont8 ], [ 0, %invoke.cont12 ], [ 0, %do.end ], [ 0, %invoke.cont6 ], [ 0, %invoke.cont3 ], [ 0, %invoke.cont ], [ 0, %if.end.i.i142 ], [ %solid.0261, %for.inc.i.i173 ]
+  %endAngle.1239244252 = phi float [ %endAngle.1.ph.ph.ph317, %cond.true.i.i181 ], [ %endAngle.1.ph.ph.ph317, %if.end.i3.i178 ], [ %endAngle.1.ph.ph.ph, %invoke.cont10 ], [ %endAngle.0.ph, %invoke.cont8 ], [ %endAngle.1.ph.ph.ph317, %invoke.cont12 ], [ 0x3FF921FB60000000, %do.end ], [ 0x3FF921FB60000000, %invoke.cont6 ], [ 0x3FF921FB60000000, %invoke.cont3 ], [ 0x3FF921FB60000000, %invoke.cont ], [ %endAngle.1.ph.ph.ph317, %if.end.i.i142 ], [ %endAngle.1.ph.ph.ph317, %for.inc.i.i173 ]
+  %radius.0245251 = phi float [ %radius.0.ph322, %cond.true.i.i181 ], [ %radius.0.ph322, %if.end.i3.i178 ], [ 1.000000e+00, %invoke.cont10 ], [ 1.000000e+00, %invoke.cont8 ], [ %radius.0.ph, %invoke.cont12 ], [ 1.000000e+00, %do.end ], [ 1.000000e+00, %invoke.cont6 ], [ 1.000000e+00, %invoke.cont3 ], [ 1.000000e+00, %invoke.cont ], [ %radius.0.ph322, %if.end.i.i142 ], [ %radius.0.ph322, %for.inc.i.i173 ]
+  %startAngle.0 = phi float [ %conv.i.i.i183, %cond.true.i.i181 ], [ 0.000000e+00, %if.end.i3.i178 ], [ 0.000000e+00, %invoke.cont10 ], [ 0.000000e+00, %invoke.cont8 ], [ 0.000000e+00, %invoke.cont12 ], [ 0.000000e+00, %do.end ], [ 0.000000e+00, %invoke.cont6 ], [ 0.000000e+00, %invoke.cont3 ], [ 0.000000e+00, %invoke.cont ], [ 0.000000e+00, %if.end.i.i142 ], [ 0.000000e+00, %for.inc.i.i173 ]
   %call18 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #21
   br i1 %call18, label %if.else, label %if.then
 

@@ -356,7 +356,7 @@ define void @_ZN10grep_regex5strip16strip_from_match17h1ffa6655497453f9E(ptr noa
   %5 = alloca { { i64, [4 x i64] }, ptr }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
-  br i1 %2, label %7, label %11
+  br i1 %2, label %7, label %15
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -365,13 +365,9 @@ define void @_ZN10grep_regex5strip16strip_from_match17h1ffa6655497453f9E(ptr noa
   %9 = icmp eq i64 %8, 10
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  br i1 %9, label %13, label %12
+  br i1 %9, label %12, label %11
 
-11:                                               ; preds = %4
-  tail call void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, i8 noundef %3)
-  br label %15
-
-12:                                               ; preds = %7
+11:                                               ; preds = %7
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -381,17 +377,21 @@ define void @_ZN10grep_regex5strip16strip_from_match17h1ffa6655497453f9E(ptr noa
   %.sroa.9.0..sroa_idx5 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 %.sroa.5.0.copyload, ptr %.sroa.9.0..sroa_idx5, align 8
   call void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i8 noundef 10)
-  br label %15
+  br label %14
 
-13:                                               ; preds = %7
+12:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   store i64 10, ptr %0, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %12, %11, %13
+14:                                               ; preds = %11, %15, %12
   ret void
+
+15:                                               ; preds = %4
+  tail call void @_ZN10grep_regex5strip22strip_from_match_ascii17h31a9950cfa9240f4E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, i8 noundef %3)
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable

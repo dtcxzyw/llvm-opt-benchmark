@@ -4810,12 +4810,9 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %90 = getelementptr inbounds double, ptr %.0160189, i64 %37
   %91 = add nuw nsw i32 %.0158191, 1
   %exitcond236.not = icmp eq i32 %91, %6
-  br i1 %exitcond236.not, label %._crit_edge193, label %85, !llvm.loop !120
+  br i1 %exitcond236.not, label %.lr.ph198, label %85, !llvm.loop !120
 
-._crit_edge193:                                   ; preds = %85
-  br i1 %63, label %.lr.ph198, label %._crit_edge199
-
-.lr.ph198:                                        ; preds = %._crit_edge193
+.lr.ph198:                                        ; preds = %85
   %92 = load ptr, ptr %38, align 8
   %93 = getelementptr inbounds double, ptr %92, i64 %indvars.iv242
   %94 = load double, ptr %93, align 8
@@ -4837,7 +4834,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %exitcond237.not = icmp eq i32 %104, %6
   br i1 %exitcond237.not, label %._crit_edge199, label %98, !llvm.loop !121
 
-._crit_edge199:                                   ; preds = %98, %.preheader177, %._crit_edge193
+._crit_edge199:                                   ; preds = %98, %.preheader177
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next239, %37
   br i1 %exitcond241.not, label %._crit_edge201, label %.preheader177, !llvm.loop !122
@@ -4877,12 +4874,9 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %118 = getelementptr inbounds double, ptr %.0152207, i64 %108
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
-  br i1 %exitcond253.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !124
+  br i1 %exitcond253.not, label %.lr.ph216, label %.lr.ph210, !llvm.loop !124
 
-._crit_edge211:                                   ; preds = %.lr.ph210
-  br i1 %113, label %.lr.ph216, label %._crit_edge217
-
-.lr.ph216:                                        ; preds = %._crit_edge211
+.lr.ph216:                                        ; preds = %.lr.ph210
   %119 = load ptr, ptr %109, align 8
   %120 = getelementptr inbounds double, ptr %119, i64 %indvars.iv247
   %121 = load double, ptr %120, align 8
@@ -4903,7 +4897,7 @@ define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef non
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
   br i1 %exitcond258.not, label %._crit_edge217, label %124, !llvm.loop !125
 
-._crit_edge217:                                   ; preds = %124, %.preheader, %._crit_edge211
+._crit_edge217:                                   ; preds = %124, %.preheader
   %130 = getelementptr inbounds double, ptr %.0155218, i64 %111
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next248, %108

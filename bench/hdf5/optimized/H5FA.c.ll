@@ -825,7 +825,7 @@ define i32 @H5FA_iterate(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_iterate, i32 noundef 681, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.19) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %27, %34, %.preheader
+.loopexit:                                        ; preds = %17, %.preheader, %27, %34
   %.0 = phi i32 [ -1, %27 ], [ %32, %34 ], [ 0, %.preheader ], [ %32, %17 ]
   %38 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_fa_native_elmt_blk_free_list, ptr noundef nonnull %9) #5
   br label %39

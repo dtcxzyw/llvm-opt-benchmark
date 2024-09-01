@@ -409,9 +409,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
 _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %193
   %214 = load ptr, ptr @stderr, align 8
   %215 = call i64 @fwrite(ptr nonnull @.str.2, i64 28, i64 1, ptr %214) #12
-  br i1 %182, label %220, label %216
+  br label %216
 
-216:                                              ; preds = %209, %_ZL10copy_rvecnPA3_KfPA3_fii.exit
+216:                                              ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit, %209
   %.0143 = phi ptr [ %211, %209 ], [ %192, %_ZL10copy_rvecnPA3_KfPA3_fii.exit ]
   %or.cond139142 = xor i1 %or.cond.not, true
   %217 = getelementptr inbounds i8, ptr %7, i64 176
@@ -420,9 +420,9 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %193
   invoke void @_Z11do_pbc_mtop7PbcTypePA3_KfPK10gmx_mtop_tPA3_f(i32 noundef %218, ptr noundef nonnull %219, ptr noundef nonnull %11, ptr noundef %.0143)
           to label %220 unwind label %207
 
-220:                                              ; preds = %.thread145, %209, %216, %_ZL10copy_rvecnPA3_KfPA3_fii.exit
-  %.0144 = phi ptr [ %211, %209 ], [ %.0143, %216 ], [ %192, %_ZL10copy_rvecnPA3_KfPA3_fii.exit ], [ %184, %.thread145 ]
-  %or.cond139141 = phi i1 [ false, %209 ], [ %or.cond139142, %216 ], [ true, %_ZL10copy_rvecnPA3_KfPA3_fii.exit ], [ false, %.thread145 ]
+220:                                              ; preds = %.thread145, %209, %216
+  %.0144 = phi ptr [ %211, %209 ], [ %.0143, %216 ], [ %184, %.thread145 ]
+  %or.cond139141 = phi i1 [ false, %209 ], [ %or.cond139142, %216 ], [ false, %.thread145 ]
   %221 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 10, i32 noundef %2, ptr noundef %3)
           to label %222 unwind label %207
 

@@ -1584,12 +1584,9 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
   store i64 %18, ptr %19, align 8
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
-  br i1 %exitcond43.not.i, label %ar_each_key.exit, label %.lr.ph.split.us.i, !llvm.loop !13
+  br i1 %exitcond43.not.i, label %.lr.ph.preheader, label %.lr.ph.split.us.i, !llvm.loop !13
 
-ar_each_key.exit:                                 ; preds = %.lr.ph.split.us.i
-  br i1 %.not1, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %ar_each_key.exit
+.lr.ph.preheader:                                 ; preds = %.lr.ph.split.us.i
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph
 
@@ -1616,8 +1613,8 @@ ar_each_key.exit:                                 ; preds = %.lr.ph.split.us.i
   %.pre = load i64, ptr %5, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit, %ar_each_key.exit
-  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %ar_each_key.exit ], [ %6, %10 ]
+._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit
+  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %10 ]
   %29 = and i64 %28, 32768
   %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %30, label %46

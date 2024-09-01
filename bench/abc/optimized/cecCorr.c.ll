@@ -2909,10 +2909,7 @@ define range(i32 0, 2) i32 @Cec_ManLoadCounterExamplesTry(ptr nocapture noundef 
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %19
 
-.preheader:                                       ; preds = %38
-  br i1 %6, label %.lr.ph40, label %.loopexit
-
-.lr.ph40:                                         ; preds = %.preheader
+.lr.ph40:                                         ; preds = %38
   %13 = getelementptr i8, ptr %0, i64 8
   %14 = getelementptr i8, ptr %1, i64 8
   %15 = and i32 %2, 31
@@ -2951,7 +2948,7 @@ define range(i32 0, 2) i32 @Cec_ManLoadCounterExamplesTry(ptr nocapture noundef 
 38:                                               ; preds = %19, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph40, label %19, !llvm.loop !29
 
 39:                                               ; preds = %.lr.ph40, %60
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next44, %60 ]
@@ -2988,8 +2985,8 @@ define range(i32 0, 2) i32 @Cec_ManLoadCounterExamplesTry(ptr nocapture noundef 
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
   br i1 %exitcond47.not, label %.loopexit, label %39, !llvm.loop !30
 
-.loopexit:                                        ; preds = %29, %60, %5, %.preheader
-  %.032 = phi i32 [ 1, %.preheader ], [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
+.loopexit:                                        ; preds = %29, %60, %5
+  %.032 = phi i32 [ 1, %5 ], [ 1, %60 ], [ 0, %29 ]
   ret i32 %.032
 }
 
@@ -3155,7 +3152,7 @@ Cec_ManLoadCounterExamplesTry.exit.us:            ; preds = %67
 77:                                               ; preds = %67, %57
   %indvars.iv.next.i50.us = add nuw nsw i64 %indvars.iv.i49.us, 1
   %exitcond.not.i51.us = icmp eq i64 %indvars.iv.next.i50.us, %wide.trip.count.i48
-  br i1 %exitcond.not.i51.us, label %.lr.ph40.i, label %57, !llvm.loop !29
+  br i1 %exitcond.not.i51.us, label %.preheader.i, label %57, !llvm.loop !29
 
 thread-pre-split:                                 ; preds = %Vec_IntPush.exit
   %.pr = load i32, ptr %13, align 4
@@ -3233,7 +3230,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond99.not = icmp eq i32 %108, %47
   br i1 %exitcond99.not, label %.preheader, label %thread-pre-split, !llvm.loop !35
 
-.lr.ph40.i:                                       ; preds = %77, %129
+.preheader.i:                                     ; preds = %77, %129
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %129 ], [ 0, %77 ]
   %109 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv43.i
   %110 = load i32, ptr %109, align 4
@@ -3257,15 +3254,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %129
 
-127:                                              ; preds = %.lr.ph40.i
+127:                                              ; preds = %.preheader.i
   %128 = xor i32 %121, %56
   store i32 %128, ptr %120, align 4
   br label %129
 
-129:                                              ; preds = %127, %.lr.ph40.i
+129:                                              ; preds = %127, %.preheader.i
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i48
-  br i1 %exitcond47.not.i, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.lr.ph40.i, !llvm.loop !30
+  br i1 %exitcond47.not.i, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.preheader.i, !llvm.loop !30
 
 Cec_ManLoadCounterExamplesTry.exit.thread:        ; preds = %Cec_ManLoadCounterExamplesTry.exit.us, %129, %.preheader, %.lr.ph
   %.13563 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.13569.us, %129 ], [ %smax100, %Cec_ManLoadCounterExamplesTry.exit.us ]

@@ -431,7 +431,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %wide.trip.count.i = zext nneg i32 %51 to i64
   br label %.lr.ph243.i
 
-.lr.ph248.i:                                      ; preds = %.lr.ph243.i
+.preheader.i:                                     ; preds = %.lr.ph243.i
   %170 = getelementptr inbounds i8, ptr %8, i64 432
   br label %173
 
@@ -443,12 +443,12 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %172, i32 %.0205242.i)
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next265.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph248.i, label %.lr.ph243.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph243.i, !llvm.loop !8
 
-173:                                              ; preds = %185, %.lr.ph248.i
-  %indvars.iv267.i = phi i64 [ 1, %.lr.ph248.i ], [ %indvars.iv.next268.i, %185 ]
-  %.0203247.i = phi i32 [ 0, %.lr.ph248.i ], [ %.1.i, %185 ]
-  %.0209245.i = phi i32 [ 1, %.lr.ph248.i ], [ %.1210.i, %185 ]
+173:                                              ; preds = %185, %.preheader.i
+  %indvars.iv267.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next268.i, %185 ]
+  %.0203247.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %185 ]
+  %.0209245.i = phi i32 [ 1, %.preheader.i ], [ %.1210.i, %185 ]
   %174 = getelementptr inbounds i32, ptr %167, i64 %indvars.iv267.i
   %175 = load i32, ptr %174, align 4
   %176 = sub nsw i32 %175, %spec.select.i

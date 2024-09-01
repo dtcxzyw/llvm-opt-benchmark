@@ -419,7 +419,7 @@ gv_alloc.exit.i:                                  ; preds = %mapSegToTri.exit
   %wide.trip.count.i96 = zext nneg i32 %150 to i64
   br label %156
 
-.lr.ph79.i:                                       ; preds = %156
+.preheader.i:                                     ; preds = %156
   %153 = getelementptr inbounds i8, ptr %93, i64 32
   %154 = getelementptr inbounds i8, ptr %141, i64 16
   %155 = getelementptr inbounds i8, ptr %141, i64 24
@@ -461,12 +461,12 @@ gv_alloc.exit.i:                                  ; preds = %mapSegToTri.exit
   store double %175, ptr %.sroa.2.0..sroa_idx.i, align 8
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i96
-  br i1 %exitcond.not.i99, label %.lr.ph79.i, label %156
+  br i1 %exitcond.not.i99, label %.preheader.i, label %156
 
-176:                                              ; preds = %.critedge.i, %.lr.ph79.i
-  %177 = phi i32 [ 0, %.lr.ph79.i ], [ %322, %.critedge.i ]
-  %178 = phi ptr [ null, %.lr.ph79.i ], [ %323, %.critedge.i ]
-  %indvars.iv102.i = phi i64 [ 0, %.lr.ph79.i ], [ %indvars.iv.next103.i, %.critedge.i ]
+176:                                              ; preds = %.critedge.i, %.preheader.i
+  %177 = phi i32 [ 0, %.preheader.i ], [ %322, %.critedge.i ]
+  %178 = phi ptr [ null, %.preheader.i ], [ %323, %.critedge.i ]
+  %indvars.iv102.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next103.i, %.critedge.i ]
   %179 = load ptr, ptr %153, align 8
   %180 = mul nuw nsw i64 %indvars.iv102.i, 3
   %181 = getelementptr inbounds i32, ptr %179, i64 %180

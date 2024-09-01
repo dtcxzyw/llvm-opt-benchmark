@@ -6590,8 +6590,8 @@ define hidden void @_ZN24datafusion_physical_plan13ExecutionPlan16unbounded_outp
 
 13:                                               ; preds = %15, %4
   %14 = phi ptr [ %16, %15 ], [ %2, %4 ]
-  %.not.i.not = icmp eq ptr %14, %12
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h24c3a7744bea2194E.exit", label %15
+  %.not.not.not.i.not = icmp eq ptr %14, %12
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h24c3a7744bea2194E.exit", label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %14, i64 1
@@ -6775,8 +6775,8 @@ define hidden void @_ZN24datafusion_physical_plan13ExecutionPlan16unbounded_outp
 
 13:                                               ; preds = %15, %4
   %14 = phi ptr [ %16, %15 ], [ %2, %4 ]
-  %.not.i.not = icmp eq ptr %14, %12
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd92ad7d0b047b4faE.exit", label %15
+  %.not.not.not.i.not = icmp eq ptr %14, %12
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd92ad7d0b047b4faE.exit", label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %14, i64 1
@@ -119749,8 +119749,8 @@ define void @_ZN14deltalake_core10operations11transaction10CommitData3new17h3469
 
 26:                                               ; preds = %28, %4
   %27 = phi ptr [ %29, %28 ], [ %22, %4 ]
-  %.not.i.not = icmp eq ptr %27, %25
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4802acb0636d5478E.exit", label %28
+  %.not.not.not.i.not = icmp eq ptr %27, %25
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4802acb0636d5478E.exit", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %27, i64 296
@@ -133064,8 +133064,8 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
 47:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   %48 = load i64, ptr %38, align 8, !range !11, !noundef !12
-  %.not.not = icmp eq i64 %48, -9223372036854775808
-  br i1 %.not.not, label %123, label %49
+  %.not = icmp eq i64 %48, -9223372036854775808
+  br i1 %.not, label %123, label %49
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %37)
@@ -133901,8 +133901,8 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
 75:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
   %76 = load i64, ptr %68, align 8, !range !11, !noundef !12
-  %.not.not = icmp eq i64 %76, -9223372036854775808
-  br i1 %.not.not, label %151, label %77
+  %.not = icmp eq i64 %76, -9223372036854775808
+  br i1 %.not, label %151, label %77
 
 77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %67)
@@ -135474,8 +135474,8 @@ _ZN14deltalake_core7storage9factories17h058b76954b9f05c7E.exit: ; preds = %"_ZN3
           to label %.noexc79 unwind label %.loopexit
 
 .noexc79:                                         ; preds = %101
-  %.not.not.i.not.i.not = icmp eq ptr %102, null
-  br i1 %.not.not.i.not.i.not, label %117, label %103
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %102, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %117, label %103
 
 103:                                              ; preds = %.noexc79
   %104 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17ha980407492a20e7fE.llvm.7925137649769596059"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
@@ -145591,7 +145591,7 @@ define hidden void @"_ZN245_$LT$deltalake_core..kernel..models..schema.._..$LT$i
   store i8 11, ptr %40, align 1
   br label %43
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit98.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit86", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit82", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit66.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit78", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit90", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit98"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit98.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit86", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit82", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit78", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit66.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit94", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit90", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit98"
   %41 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant17hf2139592af5fa3ddE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 @anon.7dcc1814731b01eddf58c89754db9bf6.796, i64 noundef 12)
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %41, ptr %42, align 8

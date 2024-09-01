@@ -401,8 +401,8 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 .split98.us:                                      ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %.pre = load ptr, ptr %28, align 8
-  %.pre188 = load ptr, ptr %29, align 8
-  %.not.i27 = icmp eq ptr %.pre, %.pre188
+  %.pre176 = load ptr, ptr %29, align 8
+  %.not.i27 = icmp eq ptr %.pre, %.pre176
   br i1 %.not.i27, label %65, label %55
 
 55:                                               ; preds = %.split98.us

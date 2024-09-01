@@ -861,17 +861,14 @@ for.cond.preheader:                               ; preds = %entry
 
 for.cond2.preheader:                              ; preds = %for.body
   %cmp362.not = icmp eq i64 %count, 0
-  br i1 %cmp362.not, label %for.end91, label %for.body4.lr.ph
+  br i1 %cmp362.not, label %for.end91, label %for.body4.us
 
 for.cond2.preheader.thread:                       ; preds = %for.cond.preheader
   %cmp362.not82 = icmp eq i64 %count, 0
   br i1 %cmp362.not82, label %for.end91, label %for.body24.lr.ph
 
-for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
-  br i1 %cmp158.not, label %for.body24.lr.ph, label %for.body4.us
-
-for.body4.us:                                     ; preds = %for.body4.lr.ph, %for.cond7.for.inc18_crit_edge.us
-  %i.063.us = phi i64 [ %inc19.us, %for.cond7.for.inc18_crit_edge.us ], [ 0, %for.body4.lr.ph ]
+for.body4.us:                                     ; preds = %for.cond2.preheader, %for.cond7.for.inc18_crit_edge.us
+  %i.063.us = phi i64 [ %inc19.us, %for.cond7.for.inc18_crit_edge.us ], [ 0, %for.cond2.preheader ]
   %mul.us = mul i64 %i.063.us, %div45
   %arrayidx5.us = getelementptr inbounds float, ptr %data, i64 %mul.us
   br label %for.body9.us
@@ -910,7 +907,7 @@ if.end:                                           ; preds = %entry
   %cmp2371.not = icmp eq i64 %count, 0
   br i1 %cmp2371.not, label %for.end91, label %for.body24.lr.ph
 
-for.body24.lr.ph:                                 ; preds = %for.cond7.for.inc18_crit_edge.us, %for.cond2.preheader.thread, %for.body4.lr.ph, %if.end
+for.body24.lr.ph:                                 ; preds = %for.cond7.for.inc18_crit_edge.us, %for.cond2.preheader.thread, %if.end
   %cmp30 = icmp eq i32 %mode, 1
   %cmp47 = icmp ne i32 %mode, 0
   %cmp5164.not73 = icmp ult i64 %stride, 4

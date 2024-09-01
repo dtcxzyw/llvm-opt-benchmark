@@ -216,7 +216,7 @@ if.end48:                                         ; preds = %land.lhs.true31, %l
   %call49 = call i64 @Curl_cwriter_count(ptr noundef nonnull %data, i32 noundef 1) #7
   %7 = add i64 %call49, -4
   %cmp51 = icmp ult i64 %7, -5
-  br i1 %cmp51, label %if.then53, label %if.end54
+  br i1 %cmp51, label %if.then53, label %for.body.preheader.i
 
 if.end48.thread:                                  ; preds = %land.lhs.true40
   %call4933 = call i64 @Curl_cwriter_count(ptr noundef nonnull %data, i32 noundef 3) #7
@@ -228,10 +228,7 @@ if.then53:                                        ; preds = %if.end48.thread, %i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.2, i32 noundef 5) #7
   br label %return
 
-if.end54:                                         ; preds = %if.end48
-  br i1 %tobool.not.not, label %for.body18.i.preheader, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.end54
+for.body.preheader.i:                             ; preds = %if.end48
   %call.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef %0, i64 noundef %namelen.0) #7
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %land.lhs.true.i
@@ -256,7 +253,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true6.i
   %tobool13.not.i = icmp eq i8 %10, 0
   br i1 %tobool13.not.i, label %find_unencode_writer.exit, label %for.body18.i.preheader
 
-for.body18.i.preheader:                           ; preds = %if.end48.thread, %land.lhs.true10.i, %land.lhs.true6.i, %lor.lhs.false.i, %if.end54
+for.body18.i.preheader:                           ; preds = %if.end48.thread, %land.lhs.true10.i, %land.lhs.true6.i, %lor.lhs.false.i
   br label %for.body18.i
 
 for.body18.i:                                     ; preds = %for.body18.i.preheader, %for.inc40.i

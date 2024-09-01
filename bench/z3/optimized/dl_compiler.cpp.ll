@@ -4669,10 +4669,7 @@ for.body132.lr.ph:                                ; preds = %_ZN9hashtableIj6u_h
   %wide.trip.count328 = zext i32 %retval.0.i to i64
   br label %for.body132
 
-for.cond157.preheader:                            ; preds = %for.inc153
-  br i1 %cmp11290.not, label %for.end185, label %for.body159.preheader
-
-for.body159.preheader:                            ; preds = %for.cond157.preheader
+for.body159.preheader:                            ; preds = %for.inc153
   %wide.trip.count333 = zext i32 %retval.0.i to i64
   br label %for.body159
 
@@ -4800,7 +4797,7 @@ for.inc153:                                       ; preds = %_ZN14core_hashtable
   %102 = phi ptr [ %84, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertERKj.exit187 ], [ %82, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit194 ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %for.cond157.preheader, label %for.body132, !llvm.loop !30
+  br i1 %exitcond329.not, label %for.body159.preheader, label %for.body132, !llvm.loop !30
 
 for.body159:                                      ; preds = %for.body159.preheader, %for.inc183
   %103 = phi ptr [ %82, %for.body159.preheader ], [ %126, %for.inc183 ]
@@ -4977,9 +4974,9 @@ for.end185.loopexit:                              ; preds = %for.inc183
   %.pre336 = load i32, ptr %curr, align 4
   br label %for.end185
 
-for.end185:                                       ; preds = %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148, %for.end185.loopexit, %for.cond157.preheader
-  %127 = phi ptr [ %126, %for.end185.loopexit ], [ %82, %for.cond157.preheader ], [ %82, %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148 ]
-  %128 = phi i32 [ %.pre336, %for.end185.loopexit ], [ %101, %for.cond157.preheader ], [ %81, %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148 ]
+for.end185:                                       ; preds = %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148, %for.end185.loopexit
+  %127 = phi ptr [ %126, %for.end185.loopexit ], [ %82, %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148 ]
+  %128 = phi i32 [ %.pre336, %for.end185.loopexit ], [ %81, %_ZN9hashtableIj6u_hash4u_eqEC2EjRKS0_RKS1_.exit148 ]
   %cmp186 = icmp eq i32 %128, -1
   br i1 %cmp186, label %if.then187, label %if.end189
 
@@ -16182,18 +16179,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 8
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !115
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !115
 
-_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit: ; preds = %for.body.i.i.i.i.i.i
-  br i1 %cmp.i, label %_ZN6vectorISt4pairIjjELb0EjE7destroyEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit
+if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIjjELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIjjELb0EjE7destroyEv.exit:      ; preds = %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit.thread, %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit.thread ], [ %add.ptr28, %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit ], [ %add.ptr28, %if.then.i ]
+_ZN6vectorISt4pairIjjELb0EjE7destroyEv.exit:      ; preds = %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit.thread, %if.then.i
+  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIjjEjS2_ES0_IT_T1_ES3_T0_S4_.exit.thread ], [ %add.ptr28, %if.then.i ]
   store ptr %add.ptr282832, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32

@@ -4515,8 +4515,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   store ptr %1947, ptr %878, align 8, !alias.scope !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %865, i8 0, i64 24, i1 false), !noalias !56
   %1953 = load i32, ptr %212, align 8
-  %.not41.i = icmp eq i32 %1953, 0
-  br i1 %.not41.i, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit, label %.lr.ph.i350
+  %.not31.i = icmp eq i32 %1953, 0
+  br i1 %.not31.i, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit, label %.lr.ph.i350
 
 .lr.ph.i350:                                      ; preds = %.loopexit5913
   %1954 = zext i32 %1953 to i64
@@ -4866,8 +4866,8 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.
 
 .critedge.i:                                      ; preds = %2130, %._crit_edge.i.i.i, %1969, %_ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit.i354
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i351, 1
-  %.not42.i = icmp eq i64 %indvars.iv.next.i356, %1954
-  br i1 %.not42.i, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit, label %1955
+  %.not32.i = icmp eq i64 %indvars.iv.next.i356, %1954
+  br i1 %.not32.i, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit, label %1955
 
 _ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit: ; preds = %.critedge.i, %.lr.ph.i.i.i, %.loopexit5913
   %2134 = phi i1 [ false, %.loopexit5913 ], [ true, %.lr.ph.i.i.i ], [ false, %.critedge.i ]
@@ -13173,8 +13173,8 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1571: ; preds = %_ZN5Yosys7hash
   store ptr %5608, ptr %1248, align 8, !alias.scope !120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1240, i8 0, i64 24, i1 false), !noalias !120
   %5614 = load i32, ptr %231, align 8
-  %.not41.i811 = icmp eq i32 %5614, 0
-  br i1 %.not41.i811, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit827, label %.lr.ph.i812
+  %.not31.i811 = icmp eq i32 %5614, 0
+  br i1 %.not31.i811, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit827, label %.lr.ph.i812
 
 .lr.ph.i812:                                      ; preds = %.loopexit5706
   %5615 = zext i32 %5614 to i64
@@ -13524,8 +13524,8 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.
 
 .critedge.i819:                                   ; preds = %5791, %._crit_edge.i.i.i818, %5630, %_ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit.i816
   %indvars.iv.next.i820 = add nuw nsw i64 %indvars.iv.i813, 1
-  %.not42.i821 = icmp eq i64 %indvars.iv.next.i820, %5615
-  br i1 %.not42.i821, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit827, label %5616
+  %.not32.i821 = icmp eq i64 %indvars.iv.next.i820, %5615
+  br i1 %.not32.i821, label %_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit827, label %5616
 
 _ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE.exit827: ; preds = %.critedge.i819, %.lr.ph.i.i.i822, %.loopexit5706
   %5795 = phi i1 [ false, %.loopexit5706 ], [ true, %.lr.ph.i.i.i822 ], [ false, %.critedge.i819 ]
@@ -33821,8 +33821,8 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK5Yosys7SigPool9check_anyERKNS_5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load i32, ptr %1, align 8
-  %.not41 = icmp eq i32 %3, 0
-  br i1 %.not41, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit, label %.lr.ph
+  %.not31 = icmp eq i32 %3, 0
+  br i1 %.not31, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -33946,8 +33946,8 @@ _ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit:  ; preds = %_ZNK5Yosys5RTLIL7Si
 
 .critedge:                                        ; preds = %80, %26, %._crit_edge.i.i, %_ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not42 = icmp eq i64 %indvars.iv.next, %11
-  br i1 %.not42, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit, label %12
+  %.not32 = icmp eq i64 %indvars.iv.next, %11
+  br i1 %.not32, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit, label %12
 
 _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.exit: ; preds = %.critedge, %71, %2
   %84 = phi i1 [ false, %2 ], [ true, %71 ], [ false, %.critedge ]

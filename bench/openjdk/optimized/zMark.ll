@@ -1264,8 +1264,8 @@ define hidden noundef zeroext i1 @_ZN5ZMark11follow_workEb(ptr noundef nonnull a
   %.pn.in.i.i.us = add nuw nsw i64 %.pn.in.in.i.i.us, 1
   %.pn.i.i.us = and i64 %.pn.in.i.i.us, 15
   %.014.i.i.us = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %26, i64 0, i64 %.pn.i.i.us
-  %.not.not.i.not.i.us = icmp eq ptr %.014.i.i.us, %35
-  br i1 %.not.not.i.not.i.us, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us, label %42
+  %.not.not.not.not.i.not.i.us = icmp eq ptr %.014.i.i.us, %35
+  br i1 %.not.not.not.not.i.not.i.us, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds [16 x ptr], ptr %40, i64 0, i64 %.pn.i.i.us
@@ -1324,8 +1324,8 @@ _ZN5ZMark5leaveEv.exit:                           ; preds = %._crit_edge, %56
   %.pn.in.i.i = add nuw nsw i64 %.pn.in.in.i.i, 1
   %.pn.i.i = and i64 %.pn.in.i.i, 15
   %.014.i.i = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %26, i64 0, i64 %.pn.i.i
-  %.not.not.i.not.i = icmp eq ptr %.014.i.i, %60
-  br i1 %.not.not.i.not.i, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i, label %67
+  %.not.not.not.not.i.not.i = icmp eq ptr %.014.i.i, %60
+  br i1 %.not.not.not.not.i.not.i, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i, label %67
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds [16 x ptr], ptr %65, i64 0, i64 %.pn.i.i
@@ -2874,8 +2874,8 @@ define hidden noundef zeroext i1 @_ZN5ZMark15try_steal_localEP12ZMarkContext(ptr
   %.pn.in = add nuw nsw i64 %.pn.in.in, 1
   %.pn = and i64 %.pn.in, 15
   %.014 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %8, i64 0, i64 %.pn
-  %.not.not = icmp ne ptr %.014, %4
-  br i1 %.not.not, label %14, label %.loopexit
+  %.not.not.not.not.not.not = icmp ne ptr %.014, %4
+  br i1 %.not.not.not.not.not.not, label %14, label %.loopexit
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 %.pn
@@ -2891,7 +2891,7 @@ define hidden noundef zeroext i1 @_ZN5ZMark15try_steal_localEP12ZMarkContext(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %17
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3022,8 +3022,8 @@ define hidden noundef zeroext i1 @_ZN5ZMark9try_stealEP12ZMarkContext(ptr nounde
   %.pn.in.i = add nuw nsw i64 %.pn.in.in.i, 1
   %.pn.i = and i64 %.pn.in.i, 15
   %.014.i = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %8, i64 0, i64 %.pn.i
-  %.not.not.i.not = icmp eq ptr %.014.i, %4
-  br i1 %.not.not.i.not, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit, label %14
+  %.not.not.not.not.i.not = icmp eq ptr %.014.i, %4
+  br i1 %.not.not.not.not.i.not, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 %.pn.i
@@ -4252,8 +4252,8 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
 62:                                               ; preds = %64, %54
   %.020.i.i.i = phi i64 [ %60, %54 ], [ %65, %64 ]
   %63 = or i64 %.020.i.i.i, %61
-  %.not.i.not.i.i = icmp eq i64 %63, %.020.i.i.i
-  br i1 %.not.i.not.i.i, label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit, label %64
+  %.not.not.not.i.not.i.i = icmp eq i64 %63, %.020.i.i.i
+  br i1 %.not.not.not.i.not.i.i, label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit, label %64
 
 64:                                               ; preds = %62
   %65 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %.020.i.i.i, ptr nonnull %58) #15, !srcloc !16
@@ -4690,30 +4690,29 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier16remap
   %153 = shl i64 %142, %152
   %154 = or i64 %153, %147
   %155 = and i64 %154, -65521
-  %156 = icmp ne i64 %155, 0
-  %or.cond18.i.i12 = or i1 %103, %156
-  br i1 %or.cond18.i.i12, label %.preheader.i.i14.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not40 = icmp eq i64 %155, 0
+  br i1 %.not40, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14.preheader
 
 .preheader.i.i14.preheader:                       ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i2538.in = phi i64 [ %141, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %154, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i2538 = or i64 %.0.i.i2538.in, 48
   br label %.preheader.i.i14
 
-.preheader.i.i14:                                 ; preds = %.preheader.i.i14.preheader, %159
-  %.0.i17.i15 = phi i64 [ %157, %159 ], [ %3, %.preheader.i.i14.preheader ]
-  %157 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538, i64 %.0.i17.i15, ptr nonnull %0) #15, !srcloc !16
-  %158 = icmp eq i64 %157, %.0.i17.i15
-  br i1 %158, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %159
+.preheader.i.i14:                                 ; preds = %.preheader.i.i14.preheader, %158
+  %.0.i17.i15 = phi i64 [ %156, %158 ], [ %3, %.preheader.i.i14.preheader ]
+  %156 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538, i64 %.0.i17.i15, ptr nonnull %0) #15, !srcloc !16
+  %157 = icmp eq i64 %156, %.0.i17.i15
+  br i1 %157, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %158
 
-159:                                              ; preds = %.preheader.i.i14
-  %160 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %161 = and i64 %160, %157
-  %.not.i.i24 = icmp eq i64 %161, 0
-  %162 = icmp ne i64 %157, 0
-  %163 = and i1 %162, %.not.i.i24
-  br i1 %163, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14, !llvm.loop !20
+158:                                              ; preds = %.preheader.i.i14
+  %159 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %160 = and i64 %159, %156
+  %.not.i.i24 = icmp eq i64 %160, 0
+  %161 = icmp ne i64 %156, 0
+  %162 = and i1 %161, %.not.i.i24
+  br i1 %162, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %159, %.preheader.i.i14, %90, %.preheader.i.i.backedge, %.preheader.i.i.preheader, %97, %_ZN8ZBarrier29is_finalizable_good_fast_pathE8zpointer.exit23, %_Z15color_mark_good8zaddress8zpointer.exit, %_Z22color_finalizable_good8zaddress8zpointer.exit
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %158, %.preheader.i.i14, %90, %.preheader.i.i.backedge, %.preheader.i.i.preheader, %97, %_ZN8ZBarrier29is_finalizable_good_fast_pathE8zpointer.exit23, %_Z15color_mark_good8zaddress8zpointer.exit, %_Z22color_finalizable_good8zaddress8zpointer.exit
   ret void
 }
 
@@ -4776,8 +4775,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8ZLiveMap3setE13ZGenerationIdm
 33:                                               ; preds = %35, %31
   %.017.i.i.i = phi i64 [ %30, %31 ], [ %36, %35 ]
   %34 = or i64 %.017.i.i.i, %32
-  %.not.i.not.i.not.i.not = icmp ne i64 %34, %.017.i.i.i
-  br i1 %.not.i.not.i.not.i.not, label %35, label %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne i64 %34, %.017.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %35, label %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i
 
 35:                                               ; preds = %33
   %36 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %.017.i.i.i, ptr nonnull %28) #15, !srcloc !16
@@ -4785,7 +4784,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8ZLiveMap3setE13ZGenerationIdm
   br i1 %37, label %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i, label %33, !llvm.loop !21
 
 _ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i: ; preds = %35, %33
-  %38 = zext i1 %.not.i.not.i.not.i.not to i8
+  %38 = zext i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not to i8
   br label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit
 
 39:                                               ; preds = %24
@@ -4795,8 +4794,8 @@ _ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i: ; preds = %35, %33
 41:                                               ; preds = %43, %39
   %.020.i.i = phi i64 [ %30, %39 ], [ %44, %43 ]
   %42 = or i64 %.020.i.i, %40
-  %.not.i.not.i = icmp eq i64 %42, %.020.i.i
-  br i1 %.not.i.not.i, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit, label %43
+  %.not.not.not.i.not.i = icmp eq i64 %42, %.020.i.i
+  br i1 %.not.not.not.i.not.i, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit, label %43
 
 43:                                               ; preds = %41
   %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %42, i64 %.020.i.i, ptr nonnull %28) #15, !srcloc !16
@@ -4812,7 +4811,7 @@ _ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i: ; preds = %35, %33
 
 _ZN7ZBitMap16par_set_bit_pairEmbRb.exit:          ; preds = %41, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i, %46
   %storemerge.i = phi i8 [ %38, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ %50, %46 ], [ 0, %41 ]
-  %.0.i = phi i1 [ %.not.i.not.i.not.i.not, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ true, %46 ], [ false, %41 ]
+  %.0.i = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ true, %46 ], [ false, %41 ]
   store i8 %storemerge.i, ptr %4, align 1
   ret i1 %.0.i
 }
@@ -5308,38 +5307,37 @@ _Z21color_mark_young_good8zaddress8zpointer.exit: ; preds = %_ZN8ZBarrier16remap
   %58 = or i64 %48, %57
   %59 = or i64 %58, %51
   %60 = and i64 %59, -65521
-  %61 = icmp ne i64 %60, 0
-  %or.cond18.i.i = or i1 %10, %61
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not11 = icmp eq i64 %60, 0
+  br i1 %.not11, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z21color_mark_young_good8zaddress8zpointer.exit.thread, %_Z21color_mark_young_good8zaddress8zpointer.exit
   %.0.i.i210.in = phi i64 [ %46, %_Z21color_mark_young_good8zaddress8zpointer.exit.thread ], [ %59, %_Z21color_mark_young_good8zaddress8zpointer.exit ]
   %.0.i.i210 = or i64 %.0.i.i210.in, 48
-  %62 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i210, i64 %2, ptr nonnull %0) #15, !srcloc !16
-  %63 = icmp eq i64 %62, %2
-  br i1 %63, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph
+  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i210, i64 %2, ptr nonnull %0) #15, !srcloc !16
+  %62 = icmp eq i64 %61, %2
+  br i1 %62, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.i.i.preheader, %.preheader.i.i.backedge
-  %64 = phi i64 [ %72, %.preheader.i.i.backedge ], [ %62, %.preheader.i.i.preheader ]
-  %65 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %66 = and i64 %65, %64
-  %.not.i.i = icmp eq i64 %66, 0
-  %67 = icmp ne i64 %64, 0
-  %68 = and i1 %67, %.not.i.i
-  br i1 %68, label %69, label %.preheader.i.i.backedge
+  %63 = phi i64 [ %71, %.preheader.i.i.backedge ], [ %61, %.preheader.i.i.preheader ]
+  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %65 = and i64 %64, %63
+  %.not.i.i = icmp eq i64 %65, 0
+  %66 = icmp ne i64 %63, 0
+  %67 = and i1 %66, %.not.i.i
+  br i1 %67, label %68, label %.preheader.i.i.backedge
 
-69:                                               ; preds = %.lr.ph
-  %70 = load i64, ptr @ZPointerMarkedYoung, align 8
-  %71 = and i64 %70, %64
-  %.not6 = icmp eq i64 %71, 0
+68:                                               ; preds = %.lr.ph
+  %69 = load i64, ptr @ZPointerMarkedYoung, align 8
+  %70 = and i64 %69, %63
+  %.not6 = icmp eq i64 %70, 0
   br i1 %.not6, label %.preheader.i.i.backedge, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
 
-.preheader.i.i.backedge:                          ; preds = %69, %.lr.ph
-  %72 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i210, i64 %64, ptr nonnull %0) #15, !srcloc !16
-  %73 = icmp eq i64 %72, %64
-  br i1 %73, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph, !llvm.loop !20
+.preheader.i.i.backedge:                          ; preds = %68, %.lr.ph
+  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i210, i64 %63, ptr nonnull %0) #15, !srcloc !16
+  %72 = icmp eq i64 %71, %63
+  br i1 %72, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i.backedge, %69, %.preheader.i.i.preheader, %_ZN8ZBarrier28is_mark_young_good_fast_pathE8zpointer.exit4, %_Z21color_mark_young_good8zaddress8zpointer.exit
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i.backedge, %68, %.preheader.i.i.preheader, %_ZN8ZBarrier28is_mark_young_good_fast_pathE8zpointer.exit4, %_Z21color_mark_young_good8zaddress8zpointer.exit
   ret void
 }
 
@@ -5888,30 +5886,29 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier16remap
   %153 = shl i64 %142, %152
   %154 = or i64 %153, %147
   %155 = and i64 %154, -65521
-  %156 = icmp ne i64 %155, 0
-  %or.cond18.i.i12 = or i1 %103, %156
-  br i1 %or.cond18.i.i12, label %.preheader.i.i14.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not40 = icmp eq i64 %155, 0
+  br i1 %.not40, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14.preheader
 
 .preheader.i.i14.preheader:                       ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i2538.in = phi i64 [ %141, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %154, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i2538 = or i64 %.0.i.i2538.in, 48
   br label %.preheader.i.i14
 
-.preheader.i.i14:                                 ; preds = %.preheader.i.i14.preheader, %159
-  %.0.i17.i15 = phi i64 [ %157, %159 ], [ %3, %.preheader.i.i14.preheader ]
-  %157 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538, i64 %.0.i17.i15, ptr nonnull %0) #15, !srcloc !16
-  %158 = icmp eq i64 %157, %.0.i17.i15
-  br i1 %158, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %159
+.preheader.i.i14:                                 ; preds = %.preheader.i.i14.preheader, %158
+  %.0.i17.i15 = phi i64 [ %156, %158 ], [ %3, %.preheader.i.i14.preheader ]
+  %156 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538, i64 %.0.i17.i15, ptr nonnull %0) #15, !srcloc !16
+  %157 = icmp eq i64 %156, %.0.i17.i15
+  br i1 %157, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %158
 
-159:                                              ; preds = %.preheader.i.i14
-  %160 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %161 = and i64 %160, %157
-  %.not.i.i24 = icmp eq i64 %161, 0
-  %162 = icmp ne i64 %157, 0
-  %163 = and i1 %162, %.not.i.i24
-  br i1 %163, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14, !llvm.loop !20
+158:                                              ; preds = %.preheader.i.i14
+  %159 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %160 = and i64 %159, %156
+  %.not.i.i24 = icmp eq i64 %160, 0
+  %161 = icmp ne i64 %156, 0
+  %162 = and i1 %161, %.not.i.i24
+  br i1 %162, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i14, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %159, %.preheader.i.i14, %90, %.preheader.i.i.backedge, %.preheader.i.i.preheader, %97, %_ZN8ZBarrier29is_finalizable_good_fast_pathE8zpointer.exit23, %_Z15color_mark_good8zaddress8zpointer.exit, %_Z22color_finalizable_good8zaddress8zpointer.exit
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %158, %.preheader.i.i14, %90, %.preheader.i.i.backedge, %.preheader.i.i.preheader, %97, %_ZN8ZBarrier29is_finalizable_good_fast_pathE8zpointer.exit23, %_Z15color_mark_good8zaddress8zpointer.exit, %_Z22color_finalizable_good8zaddress8zpointer.exit
   ret void
 }
 
@@ -6409,8 +6406,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds %class.OopMapBlock, ptr %26, i64 %29
-  %.not33 = icmp eq i32 %28, 0
-  br i1 %.not33, label %._crit_edge32, label %.lr.ph31
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %._crit_edge32, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %17
   %31 = ptrtoint ptr %1 to i64
@@ -6426,8 +6423,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %36, i64 %39
-  %.not34 = icmp eq i32 %38, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i32 %38, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit
   %.027 = phi ptr [ %108, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %36, %32 ]
@@ -6526,8 +6523,8 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   %98 = shl i64 %87, %97
   %99 = or i64 %98, %92
   %100 = and i64 %99, -65521
-  %.not = icmp eq i64 %100, 0
-  br i1 %.not, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
+  %.not40.i = icmp eq i64 %100, 0
+  br i1 %.not40.i, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
 
 .preheader.i.i14.preheader.i:                     ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i
   %.0.i.i2538.in.i = phi i64 [ %86, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i ], [ %99, %_Z15color_mark_good8zaddress8zpointer.exit.i ]
@@ -7599,32 +7596,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i310 = or i64 %.0.i.i310.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i16.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
-  %72 = icmp eq i64 %71, %.0.i16.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
+  %71 = icmp eq i64 %70, %.0.i16.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -7725,9 +7721,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -7735,20 +7730,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -8153,32 +8148,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i310 = or i64 %.0.i.i310.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i16.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
-  %72 = icmp eq i64 %71, %.0.i16.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !16
+  %71 = icmp eq i64 %70, %.0.i16.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
 
-_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -8226,8 +8220,8 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds %class.OopMapBlock, ptr %27, i64 %30
-  %.not35 = icmp eq i32 %29, 0
-  br i1 %.not35, label %._crit_edge34, label %.lr.ph33
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %._crit_edge34, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %18
   %32 = ptrtoint ptr %1 to i64
@@ -8243,8 +8237,8 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
-  %.not36 = icmp eq i32 %39, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq i32 %39, 0
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit
   %.029 = phi ptr [ %109, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %37, %33 ]
@@ -8343,8 +8337,8 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   %99 = shl i64 %88, %98
   %100 = or i64 %99, %93
   %101 = and i64 %100, -65521
-  %.not = icmp eq i64 %101, 0
-  br i1 %.not, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
+  %.not40.i = icmp eq i64 %101, 0
+  br i1 %.not40.i, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
 
 .preheader.i.i14.preheader.i:                     ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i
   %.0.i.i2538.in.i = phi i64 [ %87, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i ], [ %100, %_Z15color_mark_good8zaddress8zpointer.exit.i ]
@@ -8691,29 +8685,29 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds %class.OopMapBlock, ptr %28, i64 %31
-  %.not49 = icmp eq i32 %30, 0
-  br i1 %.not49, label %._crit_edge48, label %.lr.ph47
+  %.not48 = icmp eq i32 %30, 0
+  br i1 %.not48, label %._crit_edge47, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %19
+.lr.ph46:                                         ; preds = %19
   %33 = ptrtoint ptr %1 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph47, %._crit_edge
-  %.03745 = phi ptr [ %28, %.lr.ph47 ], [ %112, %._crit_edge ]
-  %35 = load i32, ptr %.03745, align 4
+34:                                               ; preds = %.lr.ph46, %._crit_edge
+  %.03744 = phi ptr [ %28, %.lr.ph46 ], [ %112, %._crit_edge ]
+  %35 = load i32, ptr %.03744, align 4
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %36, %33
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %.03745, i64 4
+  %39 = getelementptr inbounds i8, ptr %.03744, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %38, i64 %41
-  %.not50 = icmp eq i32 %40, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i32 %40, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit
-  %.043 = phi ptr [ %110, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %38, %34 ]
-  %43 = load volatile i64, ptr %.043, align 8
+  %.042 = phi ptr [ %110, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %38, %34 ]
+  %43 = load volatile i64, ptr %.042, align 8
   %44 = icmp ne i64 %43, 0
   %45 = load i64, ptr @ZPointerMarkBadMask, align 8
   %46 = and i64 %45, %43
@@ -8808,8 +8802,8 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   %100 = shl i64 %89, %99
   %101 = or i64 %100, %94
   %102 = and i64 %101, -65521
-  %.not42 = icmp eq i64 %102, 0
-  br i1 %.not42, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
+  %.not40.i = icmp eq i64 %102, 0
+  br i1 %.not40.i, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
 
 .preheader.i.i14.preheader.i:                     ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i
   %.0.i.i2538.in.i = phi i64 [ %88, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i ], [ %101, %_Z15color_mark_good8zaddress8zpointer.exit.i ]
@@ -8818,7 +8812,7 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
 
 .preheader.i.i14.i:                               ; preds = %105, %.preheader.i.i14.preheader.i
   %.0.i17.i15.i = phi i64 [ %103, %105 ], [ %43, %.preheader.i.i14.preheader.i ]
-  %103 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538.i, i64 %.0.i17.i15.i, ptr nonnull %.043) #15, !srcloc !16
+  %103 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538.i, i64 %.0.i17.i15.i, ptr nonnull %.042) #15, !srcloc !16
   %104 = icmp eq i64 %103, %.0.i17.i15.i
   br i1 %104, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %105
 
@@ -8831,21 +8825,21 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   br i1 %109, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.i, !llvm.loop !20
 
 _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.preheader.i.i14.i, %105, %.lr.ph, %_Z15color_mark_good8zaddress8zpointer.exit.i
-  %110 = getelementptr inbounds i8, ptr %.043, i64 8
+  %110 = getelementptr inbounds i8, ptr %.042, i64 8
   %111 = icmp ult ptr %110, %42
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, %34
-  %112 = getelementptr inbounds i8, ptr %.03745, i64 8
+  %112 = getelementptr inbounds i8, ptr %.03744, i64 8
   %113 = icmp ult ptr %112, %32
-  br i1 %113, label %34, label %._crit_edge48, !llvm.loop !33
+  br i1 %113, label %34, label %._crit_edge47, !llvm.loop !33
 
-._crit_edge48:                                    ; preds = %._crit_edge, %19
+._crit_edge47:                                    ; preds = %._crit_edge, %19
   %.val.i40 = load i8, ptr %7, align 8
   %114 = trunc i8 %.val.i40 to i1
   br i1 %114, label %115, label %148
 
-115:                                              ; preds = %._crit_edge48
+115:                                              ; preds = %._crit_edge47
   %116 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %117 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %116) #15
   %.not = icmp eq ptr %117, null
@@ -8903,7 +8897,7 @@ _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.prehe
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %148
 
-148:                                              ; preds = %130, %139, %118, %115, %._crit_edge48
+148:                                              ; preds = %130, %139, %118, %115, %._crit_edge47
   %149 = ptrtoint ptr %1 to i64
   %150 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
   %151 = sext i32 %150 to i64
@@ -9086,29 +9080,29 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds %class.OopMapBlock, ptr %27, i64 %30
-  %.not41 = icmp eq i32 %29, 0
-  br i1 %.not41, label %._crit_edge40, label %.lr.ph39
+  %.not40 = icmp eq i32 %29, 0
+  br i1 %.not40, label %._crit_edge39, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %18
+.lr.ph38:                                         ; preds = %18
   %32 = ptrtoint ptr %1 to i64
   br label %33
 
-33:                                               ; preds = %.lr.ph39, %._crit_edge
-  %.03037 = phi ptr [ %27, %.lr.ph39 ], [ %111, %._crit_edge ]
-  %34 = load i32, ptr %.03037, align 4
+33:                                               ; preds = %.lr.ph38, %._crit_edge
+  %.03036 = phi ptr [ %27, %.lr.ph38 ], [ %111, %._crit_edge ]
+  %34 = load i32, ptr %.03036, align 4
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %35, %32
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %.03037, i64 4
+  %38 = getelementptr inbounds i8, ptr %.03036, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
-  %.not42 = icmp eq i32 %39, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i32 %39, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit
-  %.035 = phi ptr [ %109, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %37, %33 ]
-  %42 = load volatile i64, ptr %.035, align 8
+  %.034 = phi ptr [ %109, %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit ], [ %37, %33 ]
+  %42 = load volatile i64, ptr %.034, align 8
   %43 = icmp ne i64 %42, 0
   %44 = load i64, ptr @ZPointerMarkBadMask, align 8
   %45 = and i64 %44, %42
@@ -9203,8 +9197,8 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   %99 = shl i64 %88, %98
   %100 = or i64 %99, %93
   %101 = and i64 %100, -65521
-  %.not34 = icmp eq i64 %101, 0
-  br i1 %.not34, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
+  %.not40.i = icmp eq i64 %101, 0
+  br i1 %.not40.i, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.preheader.i
 
 .preheader.i.i14.preheader.i:                     ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i
   %.0.i.i2538.in.i = phi i64 [ %87, %_Z15color_mark_good8zaddress8zpointer.exit.thread.i ], [ %100, %_Z15color_mark_good8zaddress8zpointer.exit.i ]
@@ -9213,7 +9207,7 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
 
 .preheader.i.i14.i:                               ; preds = %104, %.preheader.i.i14.preheader.i
   %.0.i17.i15.i = phi i64 [ %102, %104 ], [ %42, %.preheader.i.i14.preheader.i ]
-  %102 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538.i, i64 %.0.i17.i15.i, ptr nonnull %.035) #15, !srcloc !16
+  %102 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i2538.i, i64 %.0.i17.i15.i, ptr nonnull %.034) #15, !srcloc !16
   %103 = icmp eq i64 %102, %.0.i17.i15.i
   br i1 %103, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %104
 
@@ -9226,21 +9220,21 @@ _Z15color_mark_good8zaddress8zpointer.exit.i:     ; preds = %_ZN8ZBarrier16remap
   br i1 %108, label %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, label %.preheader.i.i14.i, !llvm.loop !20
 
 _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.preheader.i.i14.i, %104, %.lr.ph, %_Z15color_mark_good8zaddress8zpointer.exit.i
-  %109 = getelementptr inbounds i8, ptr %.035, i64 8
+  %109 = getelementptr inbounds i8, ptr %.034, i64 8
   %110 = icmp ult ptr %109, %41
   br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit, %33
-  %111 = getelementptr inbounds i8, ptr %.03037, i64 8
+  %111 = getelementptr inbounds i8, ptr %.03036, i64 8
   %112 = icmp ult ptr %111, %31
-  br i1 %112, label %33, label %._crit_edge40, !llvm.loop !37
+  br i1 %112, label %33, label %._crit_edge39, !llvm.loop !37
 
-._crit_edge40:                                    ; preds = %._crit_edge, %18
+._crit_edge39:                                    ; preds = %._crit_edge, %18
   %.val.i33 = load i8, ptr %6, align 8
   %113 = trunc i8 %.val.i33 to i1
   br i1 %113, label %114, label %125
 
-114:                                              ; preds = %._crit_edge40
+114:                                              ; preds = %._crit_edge39
   %115 = call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #15
   %.not = icmp eq ptr %115, null
   br i1 %.not, label %125, label %116
@@ -9262,7 +9256,7 @@ _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.prehe
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %125
 
-125:                                              ; preds = %114, %116, %._crit_edge40
+125:                                              ; preds = %114, %116, %._crit_edge39
   ret void
 }
 

@@ -9912,8 +9912,8 @@ if.else:                                          ; preds = %entry
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errorPtr.i)
   store ptr null, ptr %errorPtr.i, align 8
-  %cmp5.i = icmp slt i32 %21, 1
-  br i1 %cmp5.i, label %if.else34.invoke.i, label %for.body.lr.ph.i
+  %cmp.not5.i = icmp sgt i32 %21, 0
+  br i1 %cmp.not5.i, label %for.body.lr.ph.i, label %if.else34.invoke.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
   %vector_.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -13999,8 +13999,8 @@ if.else:                                          ; preds = %entry
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errorPtr.i)
   store ptr null, ptr %errorPtr.i, align 8
-  %cmp5.i = icmp slt i32 %21, 1
-  br i1 %cmp5.i, label %if.else32.invoke.i, label %for.body.lr.ph.i
+  %cmp.not5.i = icmp sgt i32 %21, 0
+  br i1 %cmp.not5.i, label %for.body.lr.ph.i, label %if.else32.invoke.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
   %vector_.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -17664,8 +17664,8 @@ if.else:                                          ; preds = %entry
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errorPtr.i)
   store ptr null, ptr %errorPtr.i, align 8
-  %cmp5.i = icmp slt i32 %21, 1
-  br i1 %cmp5.i, label %if.else32.invoke.i, label %for.body.lr.ph.i
+  %cmp.not5.i = icmp sgt i32 %21, 0
+  br i1 %cmp.not5.i, label %for.body.lr.ph.i, label %if.else32.invoke.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
   %vector_.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -21646,8 +21646,8 @@ if.else:                                          ; preds = %entry
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errorPtr.i)
   store ptr null, ptr %errorPtr.i, align 8
-  %cmp5.i = icmp slt i32 %21, 1
-  br i1 %cmp5.i, label %if.else32.invoke.i, label %for.body.lr.ph.i
+  %cmp.not5.i = icmp sgt i32 %21, 0
+  br i1 %cmp.not5.i, label %for.body.lr.ph.i, label %if.else32.invoke.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else
   %vector_.i.i = getelementptr inbounds i8, ptr %25, i64 8

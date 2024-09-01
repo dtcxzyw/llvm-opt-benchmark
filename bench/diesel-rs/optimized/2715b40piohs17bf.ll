@@ -19,8 +19,8 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 4:                                                ; preds = %7, %1
   %5 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %6 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %.not = icmp ne ptr %6, %5
-  br i1 %.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit"
+  %.not.not.not.not.not = icmp ne ptr %6, %5
+  br i1 %.not.not.not.not.not, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit"
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 24
@@ -29,7 +29,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit": ; preds = %4, %7
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

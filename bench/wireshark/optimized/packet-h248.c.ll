@@ -6435,7 +6435,7 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
   %31 = getelementptr inbounds i8, ptr %29, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
-  br i1 %.not29, label %.loopexit, label %.preheader
+  br i1 %.not29, label %.loopexit.thread, label %.preheader
 
 .preheader:                                       ; preds = %30
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -6451,19 +6451,16 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
 
 37:                                               ; preds = %.lr.ph
   store ptr %.02036, ptr getelementptr inbounds (i8, ptr @curr_info, i64 72), align 8
-  br label %.loopexit
+  br label %.loopexit.thread
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr i8, ptr %.02036, i64 32
   %40 = getelementptr i8, ptr %.02036, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not30 = icmp eq ptr %41, null
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not30, label %.loopexit.thread, label %.lr.ph, !llvm.loop !31
 
-.loopexit:                                        ; preds = %38, %30, %37
-  br i1 %.not28, label %.critedge, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.preheader, %.loopexit
+.loopexit.thread:                                 ; preds = %38, %37, %30, %.preheader
   %42 = getelementptr inbounds i8, ptr %29, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not32 = icmp eq ptr %43, null
@@ -6482,7 +6479,7 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.44, ptr noundef nonnull %45, i32 noundef %.021) #7
   br label %57
 
-.critedge:                                        ; preds = %28, %44, %.loopexit.thread, %.loopexit
+.critedge:                                        ; preds = %28, %44, %.loopexit.thread
   %52 = getelementptr inbounds i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 408
@@ -6840,7 +6837,7 @@ define internal i32 @dissect_h248_SigParameterName(i1 noundef zeroext %0, ptr no
   %.not28 = icmp eq ptr %40, null
   br i1 %.not28, label %.thread32, label %.lr.ph, !llvm.loop !33
 
-.thread32:                                        ; preds = %37, %36, %.preheader, %29
+.thread32:                                        ; preds = %37, %.preheader, %36, %29
   %41 = getelementptr inbounds i8, ptr %28, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not30 = icmp eq ptr %42, null

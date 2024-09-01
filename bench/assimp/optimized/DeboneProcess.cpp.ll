@@ -1338,9 +1338,6 @@ for.body77.lr.ph:                                 ; preds = %invoke.cont72
   %28 = load ptr, ptr %mFaces, align 8
   br label %for.body77
 
-for.cond146.preheader:                            ; preds = %for.inc142
-  br i1 %cmp.not.i.i.i.i105, label %for.end172.thread496, label %for.body149
-
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc142
   %indvars.iv474 = phi i64 [ 0, %for.body77.lr.ph ], [ %indvars.iv.next475, %for.inc142 ]
   %nFacesUnowned.0451 = phi i32 [ 0, %for.body77.lr.ph ], [ %nFacesUnowned.1, %for.inc142 ]
@@ -1451,11 +1448,11 @@ for.inc142:                                       ; preds = %if.then133, %if.els
   %nFacesUnowned.1 = phi i32 [ %nFacesUnowned.0451, %if.then133 ], [ %inc140, %if.else139 ]
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next475, %conv62
-  br i1 %exitcond.not, label %for.cond146.preheader, label %for.body77, !llvm.loop !27
+  br i1 %exitcond.not, label %for.body149, label %for.body77, !llvm.loop !27
 
-for.body149:                                      ; preds = %for.cond146.preheader, %for.inc170
-  %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.inc170 ], [ 0, %for.cond146.preheader ]
-  %nFacesUnowned.2456 = phi i32 [ %nFacesUnowned.3, %for.inc170 ], [ %nFacesUnowned.1, %for.cond146.preheader ]
+for.body149:                                      ; preds = %for.inc142, %for.inc170
+  %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.inc170 ], [ 0, %for.inc142 ]
+  %nFacesUnowned.2456 = phi i32 [ %nFacesUnowned.3, %for.inc170 ], [ %nFacesUnowned.1, %for.inc142 ]
   %add.ptr.i169 = getelementptr inbounds i32, ptr %faceBones.sroa.0.0, i64 %indvars.iv477
   %45 = load i32, ptr %add.ptr.i169, align 4
   %cmp153 = icmp ult i32 %45, %26
@@ -1492,26 +1489,15 @@ for.end172:                                       ; preds = %for.inc170
   %tobool.not = icmp eq i32 %nFacesUnowned.3, 0
   br i1 %tobool.not, label %if.end194, label %if.then173
 
-for.end172.thread496:                             ; preds = %for.cond146.preheader
-  %tobool.not498 = icmp eq i32 %nFacesUnowned.1, 0
-  br i1 %tobool.not498, label %if.end194, label %if.then173.thread
-
-if.then173.thread:                                ; preds = %for.end172.thread496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subFaces, i8 0, i64 24, i1 false)
-  br label %for.end188
-
 if.then173:                                       ; preds = %for.end172
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subFaces, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.i.i.i105, label %for.end188, label %for.body178.lr.ph
-
-for.body178.lr.ph:                                ; preds = %if.then173
   %_M_finish.i = getelementptr inbounds i8, ptr %subFaces, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %subFaces, i64 16
   br label %for.body178
 
-for.body178:                                      ; preds = %for.body178.lr.ph, %for.inc186
-  %48 = phi ptr [ null, %for.body178.lr.ph ], [ %57, %for.inc186 ]
-  %indvars.iv482 = phi i64 [ 0, %for.body178.lr.ph ], [ %indvars.iv.next483, %for.inc186 ]
+for.body178:                                      ; preds = %if.then173, %for.inc186
+  %48 = phi ptr [ null, %if.then173 ], [ %57, %for.inc186 ]
+  %indvars.iv482 = phi i64 [ 0, %if.then173 ], [ %indvars.iv.next483, %for.inc186 ]
   %add.ptr.i186 = getelementptr inbounds i32, ptr %faceBones.sroa.0.0, i64 %indvars.iv482
   %49 = load i32, ptr %add.ptr.i186, align 4
   %cmp181 = icmp eq i32 %49, -1
@@ -1614,7 +1600,7 @@ for.inc186:                                       ; preds = %_ZNSt6vectorIjSaIjE
   %cmp177 = icmp ult i64 %indvars.iv.next483, %59
   br i1 %cmp177, label %for.body178, label %for.end188, !llvm.loop !29
 
-for.end188:                                       ; preds = %for.inc186, %if.then173.thread, %if.then173
+for.end188:                                       ; preds = %for.inc186
   %call190 = invoke noundef ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef nonnull %pMesh, ptr noundef nonnull align 8 dereferenceable(24) %subFaces, i32 noundef 0)
           to label %invoke.cont189 unwind label %lpad183.loopexit.split-lp
 
@@ -1702,7 +1688,7 @@ if.then.i.i.i224:                                 ; preds = %invoke.cont193
   call void @_ZdlPv(ptr noundef nonnull %65) #20
   br label %if.end194
 
-if.end194:                                        ; preds = %invoke.cont72, %for.end172.thread496, %if.then.i.i.i224, %invoke.cont193, %for.end172
+if.end194:                                        ; preds = %invoke.cont72, %if.then.i.i.i224, %invoke.cont193, %for.end172
   %66 = load i32, ptr %mNumBones, align 8
   %cmp198463.not = icmp eq i32 %66, 0
   br i1 %cmp198463.not, label %for.end242, label %invoke.cont202.lr.ph

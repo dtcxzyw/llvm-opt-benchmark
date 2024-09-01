@@ -866,99 +866,95 @@ define void @_Z12orient_princPK7t_atomsiPKiiPA3_fS5_Pf(ptr nocapture noundef rea
   br i1 %exitcond51.not, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %39
-  %73 = icmp slt i32 %3, 1
-  br i1 %73, label %._crit_edge46, label %.lr.ph.i
+  br i1 %14, label %.lr.ph.i, label %._crit_edge46
 
 .lr.ph.i:                                         ; preds = %.loopexit
   %wide.trip.count43.i = zext nneg i32 %3 to i64
-  %74 = load float, ptr %44, align 8
-  %75 = load float, ptr %47, align 4
-  %76 = load float, ptr %45, align 16
+  %73 = load float, ptr %44, align 8
+  %74 = load float, ptr %47, align 4
+  %75 = load float, ptr %45, align 16
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %77 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv40.i
-  %78 = load float, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %77, i64 4
-  %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %77, i64 8
-  %82 = load float, ptr %81, align 4
-  %83 = fmul float %56, %80
-  %84 = tail call float @llvm.fmuladd.f32(float %40, float %78, float %83)
-  %85 = tail call float @llvm.fmuladd.f32(float %58, float %82, float %84)
-  store float %85, ptr %77, align 4
-  %86 = fmul float %43, %80
-  %87 = tail call float @llvm.fmuladd.f32(float %54, float %78, float %86)
-  %88 = tail call float @llvm.fmuladd.f32(float %50, float %82, float %87)
-  store float %88, ptr %79, align 4
-  %89 = fmul float %80, %75
-  %90 = tail call float @llvm.fmuladd.f32(float %74, float %78, float %89)
-  %91 = tail call float @llvm.fmuladd.f32(float %76, float %82, float %90)
-  store float %91, ptr %81, align 4
+  %76 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv40.i
+  %77 = load float, ptr %76, align 4
+  %78 = getelementptr inbounds i8, ptr %76, i64 4
+  %79 = load float, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = load float, ptr %80, align 4
+  %82 = fmul float %56, %79
+  %83 = tail call float @llvm.fmuladd.f32(float %40, float %77, float %82)
+  %84 = tail call float @llvm.fmuladd.f32(float %58, float %81, float %83)
+  store float %84, ptr %76, align 4
+  %85 = fmul float %43, %79
+  %86 = tail call float @llvm.fmuladd.f32(float %54, float %77, float %85)
+  %87 = tail call float @llvm.fmuladd.f32(float %50, float %81, float %86)
+  store float %87, ptr %78, align 4
+  %88 = fmul float %79, %74
+  %89 = tail call float @llvm.fmuladd.f32(float %73, float %77, float %88)
+  %90 = tail call float @llvm.fmuladd.f32(float %75, float %81, float %89)
+  store float %90, ptr %80, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
   br i1 %exitcond44.not.i, label %_Z12rotate_atomsiPKiPA3_fS2_.exit, label %.lr.ph.split.us.i, !llvm.loop !24
 
 _Z12rotate_atomsiPKiPA3_fS2_.exit:                ; preds = %.lr.ph.split.us.i
   %.not32 = icmp eq ptr %5, null
-  br i1 %.not32, label %_Z12rotate_atomsiPKiPA3_fS2_.exit39, label %.lr.ph.split.us.i35
+  br i1 %.not32, label %.lr.ph45, label %.lr.ph.split.us.i35
 
 .lr.ph.split.us.i35:                              ; preds = %_Z12rotate_atomsiPKiPA3_fS2_.exit, %.lr.ph.split.us.i35
   %indvars.iv40.i36 = phi i64 [ %indvars.iv.next41.i37, %.lr.ph.split.us.i35 ], [ 0, %_Z12rotate_atomsiPKiPA3_fS2_.exit ]
-  %92 = getelementptr inbounds [3 x float], ptr %5, i64 %indvars.iv40.i36
-  %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %92, i64 4
-  %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %92, i64 8
-  %97 = load float, ptr %96, align 4
-  %98 = fmul float %56, %95
-  %99 = tail call float @llvm.fmuladd.f32(float %40, float %93, float %98)
-  %100 = tail call float @llvm.fmuladd.f32(float %58, float %97, float %99)
-  store float %100, ptr %92, align 4
-  %101 = fmul float %43, %95
-  %102 = tail call float @llvm.fmuladd.f32(float %54, float %93, float %101)
-  %103 = tail call float @llvm.fmuladd.f32(float %50, float %97, float %102)
-  store float %103, ptr %94, align 4
-  %104 = fmul float %95, %75
-  %105 = tail call float @llvm.fmuladd.f32(float %74, float %93, float %104)
-  %106 = tail call float @llvm.fmuladd.f32(float %76, float %97, float %105)
-  store float %106, ptr %96, align 4
+  %91 = getelementptr inbounds [3 x float], ptr %5, i64 %indvars.iv40.i36
+  %92 = load float, ptr %91, align 4
+  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = load float, ptr %93, align 4
+  %95 = getelementptr inbounds i8, ptr %91, i64 8
+  %96 = load float, ptr %95, align 4
+  %97 = fmul float %56, %94
+  %98 = tail call float @llvm.fmuladd.f32(float %40, float %92, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %58, float %96, float %98)
+  store float %99, ptr %91, align 4
+  %100 = fmul float %43, %94
+  %101 = tail call float @llvm.fmuladd.f32(float %54, float %92, float %100)
+  %102 = tail call float @llvm.fmuladd.f32(float %50, float %96, float %101)
+  store float %102, ptr %93, align 4
+  %103 = fmul float %94, %74
+  %104 = tail call float @llvm.fmuladd.f32(float %73, float %92, float %103)
+  %105 = tail call float @llvm.fmuladd.f32(float %75, float %96, float %104)
+  store float %105, ptr %95, align 4
   %indvars.iv.next41.i37 = add nuw nsw i64 %indvars.iv40.i36, 1
   %exitcond44.not.i38 = icmp eq i64 %indvars.iv.next41.i37, %wide.trip.count43.i
-  br i1 %exitcond44.not.i38, label %_Z12rotate_atomsiPKiPA3_fS2_.exit39, label %.lr.ph.split.us.i35, !llvm.loop !24
+  br i1 %exitcond44.not.i38, label %.lr.ph45, label %.lr.ph.split.us.i35, !llvm.loop !24
 
-_Z12rotate_atomsiPKiPA3_fS2_.exit39:              ; preds = %.lr.ph.split.us.i35, %_Z12rotate_atomsiPKiPA3_fS2_.exit
-  br i1 %14, label %.lr.ph45, label %._crit_edge46
-
-.lr.ph45:                                         ; preds = %_Z12rotate_atomsiPKiPA3_fS2_.exit39
-  %107 = load float, ptr %8, align 4
-  %108 = getelementptr inbounds i8, ptr %8, i64 4
-  %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %8, i64 8
-  %111 = load float, ptr %110, align 4
+.lr.ph45:                                         ; preds = %.lr.ph.split.us.i35, %_Z12rotate_atomsiPKiPA3_fS2_.exit
+  %106 = load float, ptr %8, align 4
+  %107 = getelementptr inbounds i8, ptr %8, i64 4
+  %108 = load float, ptr %107, align 4
+  %109 = getelementptr inbounds i8, ptr %8, i64 8
+  %110 = load float, ptr %109, align 4
   %wide.trip.count55 = zext nneg i32 %3 to i64
-  br label %112
+  br label %111
 
-112:                                              ; preds = %.lr.ph45, %112
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %112 ]
-  %113 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv52
-  %114 = load float, ptr %113, align 4
-  %115 = fadd float %114, %107
-  %116 = getelementptr inbounds i8, ptr %113, i64 4
-  %117 = load float, ptr %116, align 4
-  %118 = fadd float %117, %109
-  %119 = getelementptr inbounds i8, ptr %113, i64 8
-  %120 = load float, ptr %119, align 4
-  %121 = fadd float %120, %111
-  store float %115, ptr %113, align 4
-  store float %118, ptr %116, align 4
-  store float %121, ptr %119, align 4
+111:                                              ; preds = %.lr.ph45, %111
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %111 ]
+  %112 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv52
+  %113 = load float, ptr %112, align 4
+  %114 = fadd float %113, %106
+  %115 = getelementptr inbounds i8, ptr %112, i64 4
+  %116 = load float, ptr %115, align 4
+  %117 = fadd float %116, %108
+  %118 = getelementptr inbounds i8, ptr %112, i64 8
+  %119 = load float, ptr %118, align 4
+  %120 = fadd float %119, %110
+  store float %114, ptr %112, align 4
+  store float %117, ptr %115, align 4
+  store float %120, ptr %118, align 4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge46, label %112, !llvm.loop !31
+  br i1 %exitcond56.not, label %._crit_edge46, label %111, !llvm.loop !31
 
-._crit_edge46:                                    ; preds = %112, %.loopexit, %_Z12rotate_atomsiPKiPA3_fS2_.exit39
+._crit_edge46:                                    ; preds = %111, %.loopexit
   ret void
 }
 

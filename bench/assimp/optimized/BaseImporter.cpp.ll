@@ -1191,8 +1191,8 @@ for.end49:                                        ; preds = %invoke.cont45, %for
   br i1 %tobool52.not, label %for.inc81, label %if.end54
 
 if.end54:                                         ; preds = %for.end49
-  %cmp56.not = icmp ne ptr %call51, %call9
-  br i1 %cmp56.not, label %land.lhs.true57, label %if.then74
+  %cmp56.not.not = icmp eq ptr %call51, %call9
+  br i1 %cmp56.not.not, label %if.then74, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end54
   %arrayidx58 = getelementptr inbounds i8, ptr %call51, i64 -1
@@ -1203,8 +1203,7 @@ land.lhs.true57:                                  ; preds = %if.end54
   br i1 %tobool61.not, label %if.end63, label %for.inc81
 
 if.end63:                                         ; preds = %land.lhs.true57
-  %or.cond38.not = and i1 %cmp56.not, %tokensSol
-  br i1 %or.cond38.not, label %lor.lhs.false66, label %if.then74
+  br i1 %tokensSol, label %lor.lhs.false66, label %if.then74
 
 lor.lhs.false66:                                  ; preds = %if.end63
   %arrayidx67 = getelementptr inbounds i8, ptr %call51, i64 -1

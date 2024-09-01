@@ -2338,7 +2338,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader: ; preds = %
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.outer: ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader, %274
   %.022.i.ph = phi i16 [ 175, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader ], [ 164, %274 ]
   %.021.i.ph = phi i1 [ false, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader ], [ %259, %274 ]
-  %.1.i.ph = phi i1 [ %169, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader ], [ true, %274 ]
+  %.1.i.ph150 = phi i1 [ %169, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.preheader ], [ true, %274 ]
   br label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27: ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i27.outer, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit46.i
@@ -2553,7 +2553,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit46.i: ; preds = %272
 _ZN6parser7grammar8patterns9tuple_pat17h941a176c145a71fdE.exit: ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !371
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !noalias !371
-  %brmerge.i = select i1 %.1.i.ph, i1 true, i1 %.021.i
+  %brmerge.i = select i1 %.1.i.ph150, i1 true, i1 %.021.i
   %.0.i = select i1 %brmerge.i, i16 175, i16 %.123.i
   %278 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.0.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !371

@@ -427,69 +427,69 @@ if.end4:                                          ; preds = %lor.lhs.false
 if.end6:                                          ; preds = %if.end4
   %iterator.023.i = load ptr, ptr @engine_list_head, align 8
   %tobool24.not.i = icmp eq ptr %iterator.023.i, null
-  br i1 %tobool24.not.i, label %if.then13.i, label %while.body.lr.ph.i
+  br i1 %tobool24.not.i, label %if.end6.thread.i, label %while.body.lr.ph.i
+
+if.end6.thread.i:                                 ; preds = %if.end6
+  %struct_ref26.i = getelementptr inbounds i8, ptr %e, i64 156
+  %3 = atomicrmw add ptr %struct_ref26.i, i32 1 monotonic, align 4
+  %4 = load ptr, ptr @engine_list_tail, align 8
+  %cmp14.not.i = icmp eq ptr %4, null
+  br i1 %cmp14.not.i, label %if.end19.i, label %if.then16.i
 
 while.body.lr.ph.i:                               ; preds = %if.end6
-  %3 = load ptr, ptr %e, align 8
+  %5 = load ptr, ptr %e, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %iterator.025.i = phi ptr [ %iterator.023.i, %while.body.lr.ph.i ], [ %iterator.0.i, %while.body.i ]
-  %4 = load ptr, ptr %iterator.025.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %3) #5
+  %6 = load ptr, ptr %iterator.025.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %5) #5
   %cmp3.i = icmp ne i32 %call.i, 0
   %next.i = getelementptr inbounds i8, ptr %iterator.025.i, i64 192
   %iterator.0.i = load ptr, ptr %next.i, align 8
   %tobool.i = icmp ne ptr %iterator.0.i, null
-  %5 = select i1 %tobool.i, i1 %cmp3.i, i1 false
-  br i1 %5, label %while.body.i, label %while.end.i, !llvm.loop !6
+  %7 = select i1 %tobool.i, i1 %cmp3.i, i1 false
+  br i1 %7, label %while.body.i, label %while.end.i, !llvm.loop !6
 
 while.end.i:                                      ; preds = %while.body.i
-  br i1 %cmp3.i, label %if.else.i, label %if.then9
+  br i1 %cmp3.i, label %if.end6.i, label %if.then9
 
-if.then13.i:                                      ; preds = %if.end6
-  %struct_ref26.i = getelementptr inbounds i8, ptr %e, i64 156
-  %6 = atomicrmw add ptr %struct_ref26.i, i32 1 monotonic, align 4
-  %7 = load ptr, ptr @engine_list_tail, align 8
-  %cmp14.not.i = icmp eq ptr %7, null
-  br i1 %cmp14.not.i, label %if.end19.i, label %if.then16.i
+if.end6.i:                                        ; preds = %while.end.i
+  %struct_ref.i = getelementptr inbounds i8, ptr %e, i64 156
+  %8 = atomicrmw add ptr %struct_ref.i, i32 1 monotonic, align 4
+  %9 = load ptr, ptr @engine_list_tail, align 8
+  %cmp26.i = icmp eq ptr %9, null
+  br i1 %cmp26.i, label %if.then31.i, label %lor.lhs.false.i
 
-if.then16.i:                                      ; preds = %if.then13.i
-  %8 = atomicrmw sub ptr %struct_ref26.i, i32 1 monotonic, align 4
-  %cmp.i.i = icmp eq i32 %8, 1
+if.then16.i:                                      ; preds = %if.end6.thread.i
+  %10 = atomicrmw sub ptr %struct_ref26.i, i32 1 monotonic, align 4
+  %cmp.i.i = icmp eq i32 %10, 1
   br i1 %cmp.i.i, label %if.then9.sink.split, label %if.then9
 
-if.end19.i:                                       ; preds = %if.then13.i
+if.end19.i:                                       ; preds = %if.end6.thread.i
   %call20.i = tail call i32 @engine_cleanup_add_last(ptr noundef nonnull @engine_list_cleanup) #4
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %if.then22.i, label %engine_list_add.exit
 
 if.then22.i:                                      ; preds = %if.end19.i
-  %9 = atomicrmw sub ptr %struct_ref26.i, i32 1 monotonic, align 4
-  %cmp.i16.i = icmp eq i32 %9, 1
+  %11 = atomicrmw sub ptr %struct_ref26.i, i32 1 monotonic, align 4
+  %cmp.i16.i = icmp eq i32 %11, 1
   br i1 %cmp.i16.i, label %if.then9.sink.split, label %if.then9
 
-if.else.i:                                        ; preds = %while.end.i
-  %struct_ref.i = getelementptr inbounds i8, ptr %e, i64 156
-  %10 = atomicrmw add ptr %struct_ref.i, i32 1 monotonic, align 4
-  %11 = load ptr, ptr @engine_list_tail, align 8
-  %cmp26.i = icmp eq ptr %11, null
-  br i1 %cmp26.i, label %if.then31.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.else.i
-  %next28.i = getelementptr inbounds i8, ptr %11, i64 192
+lor.lhs.false.i:                                  ; preds = %if.end6.i
+  %next28.i = getelementptr inbounds i8, ptr %9, i64 192
   %12 = load ptr, ptr %next28.i, align 8
   %cmp29.not.i = icmp eq ptr %12, null
   br i1 %cmp29.not.i, label %engine_list_add.exit, label %if.then31.i
 
-if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.else.i
+if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end6.i
   %13 = atomicrmw sub ptr %struct_ref.i, i32 1 monotonic, align 4
   %cmp.i20.i = icmp eq i32 %13, 1
   br i1 %cmp.i20.i, label %if.then9.sink.split, label %if.then9
 
 engine_list_add.exit:                             ; preds = %if.end19.i, %lor.lhs.false.i
   %next28.sink.i = phi ptr [ @engine_list_head, %if.end19.i ], [ %next28.i, %lor.lhs.false.i ]
-  %.sink.i = phi ptr [ null, %if.end19.i ], [ %11, %lor.lhs.false.i ]
+  %.sink.i = phi ptr [ null, %if.end19.i ], [ %9, %lor.lhs.false.i ]
   store ptr %e, ptr %next28.sink.i, align 8
   %prev36.i = getelementptr inbounds i8, ptr %e, i64 184
   store ptr %.sink.i, ptr %prev36.i, align 8

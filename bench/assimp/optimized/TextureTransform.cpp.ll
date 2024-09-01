@@ -748,18 +748,18 @@ for.body100:                                      ; preds = %for.body100.lr.ph, 
 for.end109:                                       ; preds = %for.body100
   switch i32 %spec.select, label %if.then114 [
     i32 0, label %cleanup
-    i32 1, label %if.end116
+    i32 1, label %for.body121.preheader
   ]
 
 if.then114:                                       ; preds = %for.end109
   store i32 -1, ptr %lockedPos.i, align 8
-  br label %if.end116
+  br label %for.body121.preheader
 
-if.end116:                                        ; preds = %for.end109, %if.then114
-  br i1 %cmp99628.not, label %cleanup, label %for.body121
+for.body121.preheader:                            ; preds = %for.end109, %if.then114
+  br label %for.body121
 
-for.body121:                                      ; preds = %if.end116, %for.inc193
-  %indvars.iv715 = phi i64 [ %indvars.iv.next716, %for.inc193 ], [ 0, %if.end116 ]
+for.body121:                                      ; preds = %for.body121.preheader, %for.inc193
+  %indvars.iv715 = phi i64 [ %indvars.iv.next716, %for.inc193 ], [ 0, %for.body121.preheader ]
   %40 = load ptr, ptr %mMeshes, align 8
   %arrayidx124 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv715
   %41 = load ptr, ptr %arrayidx124, align 8
@@ -976,7 +976,7 @@ for.inc193:                                       ; preds = %_ZNSt7__cxx114listI
   %cmp120 = icmp ult i64 %indvars.iv.next716, %76
   br i1 %cmp120, label %for.body121, label %cleanup, !llvm.loop !13
 
-cleanup:                                          ; preds = %for.inc193, %invoke.cont91, %if.end116, %for.end109
+cleanup:                                          ; preds = %for.inc193, %invoke.cont91, %for.end109
   %77 = load ptr, ptr %updateList.i, align 8
   %cmp.not4.i.i.i.i175 = icmp eq ptr %77, %updateList.i
   br i1 %cmp.not4.i.i.i.i175, label %for.inc197, label %while.body.i.i.i.i176

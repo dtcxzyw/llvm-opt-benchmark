@@ -7599,7 +7599,7 @@ define internal fastcc ptr @neighbor(ptr nocapture readonly %.16.val.264.val, pt
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = getelementptr inbounds i8, ptr %.16.val1, i64 280
-  %.not12.i = icmp eq ptr %1, null
+  %.not5.i = icmp eq ptr %1, null
   %14 = icmp ne ptr %0, null
   br label %15
 
@@ -7643,7 +7643,7 @@ define internal fastcc ptr @neighbor(ptr nocapture readonly %.16.val.264.val, pt
   br i1 %.not60.i, label %.thread.i, label %.critedge
 
 36:                                               ; preds = %.thread
-  br i1 %.not12.i, label %.thread.i, label %37
+  br i1 %.not5.i, label %.thread.i, label %37
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds i8, ptr %23, i64 272
@@ -7653,20 +7653,20 @@ define internal fastcc ptr @neighbor(ptr nocapture readonly %.16.val.264.val, pt
 
 41:                                               ; preds = %84, %37
   %42 = phi i1 [ true, %37 ], [ false, %84 ]
-  %.0507.i = phi ptr [ %1, %37 ], [ %86, %84 ]
-  %.0526.i = phi ptr [ %40, %37 ], [ %76, %84 ]
-  %43 = load i32, ptr %.0526.i, align 8
+  %.0508.i = phi ptr [ %1, %37 ], [ %86, %84 ]
+  %.0527.i = phi ptr [ %40, %37 ], [ %76, %84 ]
+  %43 = load i32, ptr %.0527.i, align 8
   %44 = and i32 %43, 3
   %45 = icmp eq i32 %44, 2
   %.idx.i = select i1 %45, i64 0, i64 -64
-  %46 = getelementptr inbounds i8, ptr %.0526.i, i64 %.idx.i
+  %46 = getelementptr inbounds i8, ptr %.0527.i, i64 %.idx.i
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %.0507.i, align 8
+  %49 = load i32, ptr %.0508.i, align 8
   %50 = and i32 %49, 3
   %51 = icmp eq i32 %50, 2
   %.idx61.i = select i1 %51, i64 0, i64 -64
-  %52 = getelementptr inbounds i8, ptr %.0507.i, i64 %.idx61.i
+  %52 = getelementptr inbounds i8, ptr %.0508.i, i64 %.idx61.i
   %53 = getelementptr inbounds i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %48, %54
@@ -7733,20 +7733,20 @@ define internal fastcc ptr @neighbor(ptr nocapture readonly %.16.val.264.val, pt
 
 94:                                               ; preds = %137, %90
   %95 = phi i1 [ true, %90 ], [ false, %137 ]
-  %.15110.i = phi ptr [ %0, %90 ], [ %139, %137 ]
-  %.1539.i = phi ptr [ %93, %90 ], [ %129, %137 ]
-  %96 = load i32, ptr %.1539.i, align 8
+  %.15111.i = phi ptr [ %0, %90 ], [ %139, %137 ]
+  %.15310.i = phi ptr [ %93, %90 ], [ %129, %137 ]
+  %96 = load i32, ptr %.15310.i, align 8
   %97 = and i32 %96, 3
   %98 = icmp eq i32 %97, 3
   %.idx65.i = select i1 %98, i64 0, i64 64
-  %99 = getelementptr inbounds i8, ptr %.1539.i, i64 %.idx65.i
+  %99 = getelementptr inbounds i8, ptr %.15310.i, i64 %.idx65.i
   %100 = getelementptr inbounds i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr %.15110.i, align 8
+  %102 = load i32, ptr %.15111.i, align 8
   %103 = and i32 %102, 3
   %104 = icmp eq i32 %103, 3
   %.idx66.i = select i1 %104, i64 0, i64 64
-  %105 = getelementptr inbounds i8, ptr %.15110.i, i64 %.idx66.i
+  %105 = getelementptr inbounds i8, ptr %.15111.i, i64 %.idx66.i
   %106 = getelementptr inbounds i8, ptr %105, i64 56
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %101, %107

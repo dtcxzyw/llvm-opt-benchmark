@@ -103,7 +103,7 @@ return:                                           ; preds = %if.else7, %if.else7
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_try_find_from_claim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %cmp20.not = icmp eq i64 %bitmap_fields, 0
   br i1 %cmp20.not, label %return, label %for.body.lr.ph
@@ -117,7 +117,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %cmp23.us = phi i1 [ %cmp.us, %for.inc.us ], [ true, %for.body.lr.ph ]
   %visited.022.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %idx.021.us = phi i64 [ %inc4.us, %for.inc.us ], [ %start_field_idx, %for.body.lr.ph ]
   %cmp1.not.us = icmp ult i64 %idx.021.us, %bitmap_fields
@@ -165,16 +164,14 @@ if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
 for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end.i.us, %for.body.us
   %inc.us = add nuw i64 %visited.022.us, 1
   %inc4.us = add i64 %spec.store.select.us, 1
-  %cmp.us = icmp ult i64 %inc.us, %bitmap_fields
-  %exitcond122.not = icmp eq i64 %inc.us, %bitmap_fields
-  br i1 %exitcond122.not, label %return, label %for.body.us, !llvm.loop !6
+  %exitcond118.not = icmp eq i64 %inc.us, %bitmap_fields
+  br i1 %exitcond118.not, label %return, label %for.body.us, !llvm.loop !6
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %cmp.i.i = icmp ugt i64 %count, 63
   br i1 %cmp.i.i, label %for.body.us27, label %for.body.lr.ph.split.split
 
 for.body.us27:                                    ; preds = %for.body.lr.ph.split, %for.inc.us42
-  %cmp23.us28 = phi i1 [ %cmp.us45, %for.inc.us42 ], [ true, %for.body.lr.ph.split ]
   %visited.022.us29 = phi i64 [ %inc.us43, %for.inc.us42 ], [ 0, %for.body.lr.ph.split ]
   %idx.021.us30 = phi i64 [ %inc4.us44, %for.inc.us42 ], [ %start_field_idx, %for.body.lr.ph.split ]
   %cmp1.not.us31 = icmp ult i64 %idx.021.us30, %bitmap_fields
@@ -225,15 +222,13 @@ if.then4.i.us:                                    ; preds = %while.cond.i.us
 for.inc.us42:                                     ; preds = %if.else7.i.us, %if.end.i.us35, %for.body.us27
   %inc.us43 = add nuw i64 %visited.022.us29, 1
   %inc4.us44 = add i64 %spec.store.select.us32, 1
-  %cmp.us45 = icmp ult i64 %inc.us43, %bitmap_fields
-  %exitcond121.not = icmp eq i64 %inc.us43, %bitmap_fields
-  br i1 %exitcond121.not, label %return, label %for.body.us27, !llvm.loop !6
+  %exitcond117.not = icmp eq i64 %inc.us43, %bitmap_fields
+  br i1 %exitcond117.not, label %return, label %for.body.us27, !llvm.loop !6
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
   br i1 %cmp1.i.i, label %for.body.us50, label %for.body
 
 for.body.us50:                                    ; preds = %for.body.lr.ph.split.split, %for.inc.us85
-  %cmp23.us51 = phi i1 [ %cmp.us88, %for.inc.us85 ], [ true, %for.body.lr.ph.split.split ]
   %visited.022.us52 = phi i64 [ %inc.us86, %for.inc.us85 ], [ 0, %for.body.lr.ph.split.split ]
   %idx.021.us53 = phi i64 [ %inc4.us87, %for.inc.us85 ], [ %start_field_idx, %for.body.lr.ph.split.split ]
   %cmp1.not.us54 = icmp ult i64 %idx.021.us53, %bitmap_fields
@@ -263,12 +258,10 @@ if.then4.i.us83:                                  ; preds = %while.cond.outer.sp
 for.inc.us85:                                     ; preds = %if.end.i.us58, %for.body.us50
   %inc.us86 = add nuw i64 %visited.022.us52, 1
   %inc4.us87 = add i64 %spec.store.select.us55, 1
-  %cmp.us88 = icmp ult i64 %inc.us86, %bitmap_fields
-  %exitcond120.not = icmp eq i64 %inc.us86, %bitmap_fields
-  br i1 %exitcond120.not, label %return, label %for.body.us50, !llvm.loop !6
+  %exitcond116.not = icmp eq i64 %inc.us86, %bitmap_fields
+  br i1 %exitcond116.not, label %return, label %for.body.us50, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.inc
-  %cmp23 = phi i1 [ %cmp, %for.inc ], [ true, %for.body.lr.ph.split.split ]
   %visited.022 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split.split ]
   %idx.021 = phi i64 [ %inc4, %for.inc ], [ %start_field_idx, %for.body.lr.ph.split.split ]
   %cmp1.not = icmp ult i64 %idx.021, %bitmap_fields
@@ -318,7 +311,6 @@ if.else7.i:                                       ; preds = %while.cond.i
 
 _mi_bitmap_try_find_claim_field.exit:             ; preds = %if.then4.i, %if.then4.i.us83, %if.then4.i.us, %if.then4.us.i.us
   %spec.store.select19 = phi i64 [ %spec.store.select.us, %if.then4.us.i.us ], [ %spec.store.select.us32, %if.then4.i.us ], [ %spec.store.select.us55, %if.then4.i.us83 ], [ %spec.store.select, %if.then4.i ]
-  %cmp17 = phi i1 [ %cmp23.us, %if.then4.us.i.us ], [ %cmp23.us28, %if.then4.i.us ], [ %cmp23.us51, %if.then4.i.us83 ], [ %cmp23, %if.then4.i ]
   %.us-phi.i = phi i64 [ %bitidx.0.ph24.us.i.us, %if.then4.us.i.us ], [ %bitidx.0.ph24.i.us, %if.then4.i.us ], [ %13, %if.then4.i.us83 ], [ %bitidx.0.ph24.i, %if.then4.i ]
   %mul.i.i = shl i64 %spec.store.select19, 6
   %add.i.i = add i64 %.us-phi.i, %mul.i.i
@@ -328,17 +320,16 @@ _mi_bitmap_try_find_claim_field.exit:             ; preds = %if.then4.i, %if.the
 for.inc:                                          ; preds = %if.else7.i, %for.body, %if.end.i
   %inc = add nuw i64 %visited.022, 1
   %inc4 = add i64 %spec.store.select, 1
-  %cmp = icmp ult i64 %inc, %bitmap_fields
   %exitcond.not = icmp eq i64 %inc, %bitmap_fields
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %for.inc, %for.inc.us85, %for.inc.us42, %for.inc.us, %entry, %_mi_bitmap_try_find_claim_field.exit
-  %cmp16 = phi i1 [ %cmp17, %_mi_bitmap_try_find_claim_field.exit ], [ false, %entry ], [ %cmp.us, %for.inc.us ], [ %cmp.us45, %for.inc.us42 ], [ %cmp.us88, %for.inc.us85 ], [ %cmp, %for.inc ]
+  %cmp16 = phi i1 [ true, %_mi_bitmap_try_find_claim_field.exit ], [ false, %entry ], [ false, %for.inc.us ], [ false, %for.inc.us42 ], [ false, %for.inc.us85 ], [ false, %for.inc ]
   ret i1 %cmp16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef readonly %pred_fun, ptr noundef %pred_arg, ptr nocapture noundef %bitmap_idx) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef readonly %pred_fun, ptr noundef %pred_arg, ptr nocapture noundef %bitmap_idx) local_unnamed_addr #1 {
 entry:
   %cmp32.not = icmp eq i64 %bitmap_fields, 0
   br i1 %cmp32.not, label %return, label %for.body.lr.ph
@@ -354,7 +345,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %cmp35.us = phi i1 [ %cmp.us, %for.inc.us ], [ true, %for.body.lr.ph ]
   %visited.034.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %idx.033.us = phi i64 [ %inc9.us, %for.inc.us ], [ %start_field_idx, %for.body.lr.ph ]
   %cmp1.not.us = icmp ult i64 %idx.033.us, %bitmap_fields
@@ -418,9 +408,8 @@ if.end6.us:                                       ; preds = %lor.lhs.false.us
 for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end6.us, %if.end.i.us, %for.body.us
   %inc.us = add nuw i64 %visited.034.us, 1
   %inc9.us = add i64 %spec.store.select.us, 1
-  %cmp.us = icmp ult i64 %inc.us, %bitmap_fields
-  %exitcond99.not = icmp eq i64 %inc.us, %bitmap_fields
-  br i1 %exitcond99.not, label %return, label %for.body.us, !llvm.loop !7
+  %exitcond97.not = icmp eq i64 %inc.us, %bitmap_fields
+  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !7
 
 if.then2.loopexit.us:                             ; preds = %if.then4.us.i.us
   %mul.i.i.us = shl i64 %spec.store.select.us, 6
@@ -439,7 +428,6 @@ for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i.i, label %for.body.us40.us, label %for.body.us40
 
 for.body.us40.us:                                 ; preds = %for.body.lr.ph.split.split.us, %for.inc.us57.us
-  %cmp35.us41.us = phi i1 [ %cmp.us60.us, %for.inc.us57.us ], [ true, %for.body.lr.ph.split.split.us ]
   %visited.034.us42.us = phi i64 [ %inc.us58.us, %for.inc.us57.us ], [ 0, %for.body.lr.ph.split.split.us ]
   %idx.033.us43.us = phi i64 [ %inc9.us59.us, %for.inc.us57.us ], [ %start_field_idx, %for.body.lr.ph.split.split.us ]
   %cmp1.not.us44.us = icmp ult i64 %idx.033.us43.us, %bitmap_fields
@@ -490,12 +478,10 @@ if.then4.i.us.us:                                 ; preds = %while.cond.i.us.us
 for.inc.us57.us:                                  ; preds = %if.else7.i.us.us, %if.end.i.us48.us, %for.body.us40.us
   %inc.us58.us = add nuw i64 %visited.034.us42.us, 1
   %inc9.us59.us = add i64 %spec.store.select.us45.us, 1
-  %cmp.us60.us = icmp ult i64 %inc.us58.us, %bitmap_fields
-  %exitcond98.not = icmp eq i64 %inc.us58.us, %bitmap_fields
-  br i1 %exitcond98.not, label %return, label %for.body.us40.us, !llvm.loop !7
+  %exitcond96.not = icmp eq i64 %inc.us58.us, %bitmap_fields
+  br i1 %exitcond96.not, label %return, label %for.body.us40.us, !llvm.loop !7
 
 for.body.us40:                                    ; preds = %for.body.lr.ph.split.split.us, %for.inc.us57
-  %cmp35.us41 = phi i1 [ %cmp.us60, %for.inc.us57 ], [ true, %for.body.lr.ph.split.split.us ]
   %visited.034.us42 = phi i64 [ %inc.us58, %for.inc.us57 ], [ 0, %for.body.lr.ph.split.split.us ]
   %idx.033.us43 = phi i64 [ %inc9.us59, %for.inc.us57 ], [ %start_field_idx, %for.body.lr.ph.split.split.us ]
   %cmp1.not.us44 = icmp ult i64 %idx.033.us43, %bitmap_fields
@@ -546,12 +532,10 @@ if.then4.i.us:                                    ; preds = %while.cond.i.us
 for.inc.us57:                                     ; preds = %if.else7.i.us, %if.end.i.us48, %for.body.us40
   %inc.us58 = add nuw i64 %visited.034.us42, 1
   %inc9.us59 = add i64 %spec.store.select.us45, 1
-  %cmp.us60 = icmp ult i64 %inc.us58, %bitmap_fields
-  %exitcond97.not = icmp eq i64 %inc.us58, %bitmap_fields
-  br i1 %exitcond97.not, label %return, label %for.body.us40, !llvm.loop !7
+  %exitcond95.not = icmp eq i64 %inc.us58, %bitmap_fields
+  br i1 %exitcond95.not, label %return, label %for.body.us40, !llvm.loop !7
 
 if.then2.loopexit25.us:                           ; preds = %if.then4.i.us, %if.then4.i.us.us
-  %.us-phi69 = phi i1 [ %cmp35.us41.us, %if.then4.i.us.us ], [ %cmp35.us41, %if.then4.i.us ]
   %.us-phi70 = phi i64 [ %spec.store.select.us45.us, %if.then4.i.us.us ], [ %spec.store.select.us45, %if.then4.i.us ]
   %.us-phi71 = phi i64 [ %bitidx.0.ph24.i.us.us, %if.then4.i.us.us ], [ %bitidx.0.ph24.i.us, %if.then4.i.us ]
   %mul.i.i.us61 = shl i64 %.us-phi70, 6
@@ -560,7 +544,6 @@ if.then2.loopexit25.us:                           ; preds = %if.then4.i.us, %if.
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %cmp35 = phi i1 [ %cmp, %for.inc ], [ true, %for.body.preheader ]
   %visited.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %idx.033 = phi i64 [ %inc9, %for.inc ], [ %start_field_idx, %for.body.preheader ]
   %cmp1.not = icmp ult i64 %idx.033, %bitmap_fields
@@ -630,12 +613,11 @@ if.end6:                                          ; preds = %if.then2.loopexit25
 for.inc:                                          ; preds = %if.else7.i, %if.end.i, %for.body, %if.end6
   %inc = add nuw i64 %visited.034, 1
   %inc9 = add i64 %spec.store.select, 1
-  %cmp = icmp ult i64 %inc, %bitmap_fields
   %exitcond.not = icmp eq i64 %inc, %bitmap_fields
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %if.then2.loopexit25, %for.inc, %for.inc.us57, %for.inc.us57.us, %lor.lhs.false.us, %if.then2.loopexit.us, %for.inc.us, %if.then2.loopexit25.us, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %.us-phi69, %if.then2.loopexit25.us ], [ %cmp.us, %for.inc.us ], [ %cmp35.us, %if.then2.loopexit.us ], [ %cmp35.us, %lor.lhs.false.us ], [ %cmp.us60.us, %for.inc.us57.us ], [ %cmp.us60, %for.inc.us57 ], [ %cmp, %for.inc ], [ %cmp35, %if.then2.loopexit25 ]
+  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %if.then2.loopexit25.us ], [ false, %for.inc.us ], [ true, %if.then2.loopexit.us ], [ true, %lor.lhs.false.us ], [ false, %for.inc.us57.us ], [ false, %for.inc.us57 ], [ false, %for.inc ], [ true, %if.then2.loopexit25 ]
   ret i1 %cmp.lcssa
 }
 
@@ -800,7 +782,7 @@ mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %count, 3
   br i1 %cmp, label %if.then, label %for.cond.preheader

@@ -1492,8 +1492,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   call fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h867f1e7dea65c58eE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %6), !noalias !358
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6), !noalias !358
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !353
-  %.not21.i = icmp eq ptr %17, %10
-  br i1 %.not21.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h09772486318005a2E.llvm.8972240245584090867.exit, label %15
+  %.not17.i = icmp eq ptr %17, %10
+  br i1 %.not17.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h09772486318005a2E.llvm.8972240245584090867.exit, label %15
 
 30:                                               ; preds = %27, %23
   store ptr %22, ptr %2, align 8, !noalias !350
@@ -4781,8 +4781,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   call fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h867f1e7dea65c58eE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5), !noalias !1441
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !1441
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !1436
-  %.not21 = icmp eq ptr %17, %9
-  br i1 %.not21, label %.loopexit, label %15
+  %.not17 = icmp eq ptr %17, %9
+  br i1 %.not17, label %.loopexit, label %15
 
 31:                                               ; preds = %23, %28
   store ptr %22, ptr %.val76.i, align 8, !noalias !1433
@@ -5108,8 +5108,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %15 = load i64, ptr %7, align 8, !alias.scope !1512, !noundef !49
   %16 = add i64 %15, -1
   store i64 %16, ptr %7, align 8, !alias.scope !1512
-  %.not.not = icmp eq ptr %14, null
-  br i1 %.not.not, label %.loopexit, label %17
+  %.not.not.not = icmp eq ptr %14, null
+  br i1 %.not.not.not, label %.loopexit, label %17
 
 17:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit"
   %18 = getelementptr inbounds i8, ptr %14, i64 -40
@@ -5171,8 +5171,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8de5e135a6cc8649E.exit", %2, %34
-  %.not14 = phi i1 [ true, %34 ], [ false, %2 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8de5e135a6cc8649E.exit" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit" ]
-  ret i1 %.not14
+  %.not.not14 = phi i1 [ true, %34 ], [ false, %2 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8de5e135a6cc8649E.exit" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit" ]
+  ret i1 %.not.not14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5465,8 +5465,8 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_full17h6d62a00d12804e79E"(ptr noalias nocapture noundef nonnull sret({ i64, { i32, [1 x i32] } }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %.val.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %.sroa.01.0.i.i, i32 %.sroa.62.0.i.i), !noalias !1616
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1613
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1607
-  %.not38 = icmp eq ptr %30, %17
-  br i1 %.not38, label %.loopexit, label %28
+  %.not28 = icmp eq ptr %30, %17
+  br i1 %.not28, label %.loopexit, label %28
 
 92:                                               ; preds = %"_ZN16wasmtime_environ9component5types21ComponentTypesBuilder12variant_type28_$u7b$$u7b$closure$u7d$$u7d$17h48d42a358a0cb84aE.exit.thread.i", %89
   store ptr %.sroa.69.017.i, ptr %.val518.i, align 8, !noalias !1604
@@ -5768,8 +5768,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %17 = load i64, ptr %8, align 8, !alias.scope !1691, !noundef !49
   %18 = add i64 %17, -1
   store i64 %18, ptr %8, align 8, !alias.scope !1691
-  %.not.not = icmp eq ptr %16, null
-  br i1 %.not.not, label %.loopexit, label %19
+  %.not.not.not = icmp eq ptr %16, null
+  br i1 %.not.not.not, label %.loopexit, label %19
 
 19:                                               ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit"
   %20 = getelementptr inbounds i8, ptr %16, i64 -40
@@ -5834,8 +5834,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heed18c5a90337d33E.exit", %2, %36
-  %.not14 = phi i1 [ true, %36 ], [ false, %2 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heed18c5a90337d33E.exit" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit" ]
-  ret i1 %.not14
+  %.not.not14 = phi i1 [ true, %36 ], [ false, %2 ], [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heed18c5a90337d33E.exit" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e2807e2edb600aE.exit" ]
+  ret i1 %.not.not14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

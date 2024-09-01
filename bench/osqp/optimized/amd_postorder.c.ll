@@ -8,9 +8,6 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   %9 = icmp sgt i64 %0, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.preheader98:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph102, label %._crit_edge
-
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.08299 = phi i64 [ %12, %.lr.ph ], [ 0, %8 ]
   %10 = getelementptr inbounds i64, ptr %5, i64 %.08299
@@ -19,13 +16,10 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   store i64 -1, ptr %11, align 8
   %12 = add nuw nsw i64 %.08299, 1
   %exitcond.not = icmp eq i64 %12, %0
-  br i1 %exitcond.not, label %.preheader98, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph102, label %.lr.ph, !llvm.loop !4
 
-.preheader97:                                     ; preds = %23
-  br i1 %9, label %.lr.ph109, label %._crit_edge
-
-.lr.ph102:                                        ; preds = %.preheader98, %23
-  %.183101.in = phi i64 [ %.183101, %23 ], [ %0, %.preheader98 ]
+.lr.ph102:                                        ; preds = %.lr.ph, %23
+  %.183101.in = phi i64 [ %.183101, %23 ], [ %0, %.lr.ph ]
   %.183101 = add nsw i64 %.183101.in, -1
   %13 = getelementptr inbounds i64, ptr %2, i64 %.183101
   %14 = load i64, ptr %13, align 8
@@ -48,13 +42,10 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 
 23:                                               ; preds = %.lr.ph102, %19, %16
   %24 = icmp ugt i64 %.183101.in, 1
-  br i1 %24, label %.lr.ph102, label %.preheader97, !llvm.loop !6
+  br i1 %24, label %.lr.ph102, label %.lr.ph109, !llvm.loop !6
 
-.preheader95:                                     ; preds = %42
-  br i1 %9, label %.lr.ph114.preheader, label %._crit_edge
-
-.lr.ph109:                                        ; preds = %.preheader97, %42
-  %.0108 = phi i64 [ %43, %42 ], [ 0, %.preheader97 ]
+.lr.ph109:                                        ; preds = %23, %42
+  %.0108 = phi i64 [ %43, %42 ], [ 0, %23 ]
   %25 = getelementptr inbounds i64, ptr %2, i64 %.0108
   %26 = load i64, ptr %25, align 8
   %27 = icmp sgt i64 %26, 0
@@ -102,9 +93,9 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 42:                                               ; preds = %.lr.ph109, %28, %38, %35
   %43 = add nuw nsw i64 %.0108, 1
   %exitcond115.not = icmp eq i64 %43, %0
-  br i1 %exitcond115.not, label %.preheader95, label %.lr.ph109, !llvm.loop !8
+  br i1 %exitcond115.not, label %.lr.ph114.preheader, label %.lr.ph109, !llvm.loop !8
 
-.lr.ph114.preheader:                              ; preds = %.preheader95
+.lr.ph114.preheader:                              ; preds = %42
   %44 = shl nuw i64 %0, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 -1, i64 %44, i1 false)
   br label %.lr.ph114
@@ -133,7 +124,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   %exitcond116.not = icmp eq i64 %55, %0
   br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph114, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %54, %8, %.preheader98, %.preheader97, %.preheader95
+._crit_edge:                                      ; preds = %54, %8
   ret void
 }
 

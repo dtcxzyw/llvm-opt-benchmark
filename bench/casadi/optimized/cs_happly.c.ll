@@ -53,14 +53,11 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = fmul double %2, %31
-  br i1 %22, label %.lr.ph41.preheader, label %.loopexit
-
-.lr.ph41.preheader:                               ; preds = %._crit_edge
   %33 = sext i32 %19 to i64
   br label %.lr.ph41
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
-  %indvars.iv43 = phi i64 [ %33, %.lr.ph41.preheader ], [ %indvars.iv.next44, %.lr.ph41 ]
+.lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
+  %indvars.iv43 = phi i64 [ %33, %._crit_edge ], [ %indvars.iv.next44, %.lr.ph41 ]
   %34 = getelementptr inbounds double, ptr %16, i64 %indvars.iv43
   %35 = load double, ptr %34, align 8
   %36 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv43
@@ -77,8 +74,8 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   %45 = icmp slt i64 %indvars.iv.next44, %44
   br i1 %45, label %.lr.ph41, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph41, %10, %._crit_edge, %4, %5
-  %.033 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %._crit_edge ], [ 1, %10 ], [ 1, %.lr.ph41 ]
+.loopexit:                                        ; preds = %.lr.ph41, %10, %4, %5
+  %.033 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %10 ], [ 1, %.lr.ph41 ]
   ret i32 %.033
 }
 

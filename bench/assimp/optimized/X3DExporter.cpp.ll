@@ -661,7 +661,7 @@ for.end:                                          ; preds = %invoke.cont10
   store float %70, ptr %c3.i, align 4
   store float %73, ptr %c4.i, align 4
   store float %85, ptr %d4.i, align 4
-  br i1 %cmp.i.i.i.not59, label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit18, label %while.body.i.i.i15
+  br label %while.body.i.i.i15
 
 while.body.i.i.i15:                               ; preds = %for.end, %while.body.i.i.i15
   %__cur.05.i.i.i16 = phi ptr [ %86, %while.body.i.i.i15 ], [ %5, %for.end ]
@@ -670,7 +670,7 @@ while.body.i.i.i15:                               ; preds = %for.end, %while.bod
   %cmp.not.i.i.i17 = icmp eq ptr %86, %matr
   br i1 %cmp.not.i.i.i17, label %_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit18, label %while.body.i.i.i15, !llvm.loop !7
 
-_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit18: ; preds = %while.body.i.i.i15, %if.end, %for.end
+_ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EED2Ev.exit18: ; preds = %while.body.i.i.i15, %if.end
   ret void
 }
 

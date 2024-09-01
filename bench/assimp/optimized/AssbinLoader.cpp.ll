@@ -2648,7 +2648,7 @@ arrayctor.loop164:                                ; preds = %arrayctor.loop164, 
 arrayctor.cont168:                                ; preds = %arrayctor.loop164
   %mFaces = getelementptr inbounds i8, ptr %mesh, i64 208
   store ptr %75, ptr %mFaces, align 8
-  br i1 %isempty161, label %if.end205, label %for.body172
+  br label %for.body172
 
 for.body172:                                      ; preds = %arrayctor.cont168, %for.inc202
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %for.inc202 ], [ 0, %arrayctor.cont168 ]
@@ -2771,7 +2771,7 @@ for.inc202:                                       ; preds = %for.inc199, %_Z4Rea
   %cmp171 = icmp ult i64 %indvars.iv.next350, %93
   br i1 %cmp171, label %for.body172, label %if.end205, !llvm.loop !28
 
-if.end205:                                        ; preds = %for.inc202, %arrayctor.cont168.thread, %arrayctor.cont168, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit294
+if.end205:                                        ; preds = %for.inc202, %arrayctor.cont168.thread, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit294
   %94 = load i32, ptr %mNumBones, align 8
   %tobool207.not = icmp eq i32 %94, 0
   br i1 %tobool207.not, label %if.end227, label %for.body216.preheader

@@ -87,7 +87,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   %34 = icmp ne i32 %33, 0
   %35 = icmp eq ptr %4, inttoptr (i64 1 to ptr)
   %or.cond8 = or i1 %35, %34
-  br i1 %or.cond8, label %37, label %.thread170
+  br i1 %or.cond8, label %37, label %.thread167
 
 36:                                               ; preds = %31
   %.old7 = icmp eq ptr %4, inttoptr (i64 1 to ptr)
@@ -105,10 +105,10 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   %.pre = and i32 %.fr, 1
   %44 = icmp ne i32 %.pre, 0
   %spec.select = select i1 %44, i64 256, i64 248
-  br label %.thread170
+  br label %.thread167
 
-.thread170:                                       ; preds = %43, %32
-  %.pre-phi173 = phi i1 [ false, %32 ], [ %44, %43 ]
+.thread167:                                       ; preds = %43, %32
+  %.pre-phi170 = phi i1 [ false, %32 ], [ %44, %43 ]
   %45 = phi i64 [ 248, %32 ], [ %spec.select, %43 ]
   %.pn.in = getelementptr i8, ptr %8, i64 %45
   %.pn = load ptr, ptr %.pn.in, align 8
@@ -117,7 +117,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread170
+.lr.ph:                                           ; preds = %.thread167
   %48 = icmp eq ptr %.1101, null
   %49 = icmp eq ptr %.1101, @ompi_mpi_datatype_null
   %or.cond11 = or i1 %48, %49
@@ -143,8 +143,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
 56:                                               ; preds = %.lr.ph.split.split.us
   %.1101.val.us = load i16, ptr %50, align 8
   %57 = and i16 %.1101.val.us, 5
-  %or.cond175 = icmp eq i16 %57, 4
-  br i1 %or.cond175, label %.thread141, label %.thread
+  %or.cond172 = icmp eq i16 %57, 4
+  br i1 %or.cond172, label %.thread141, label %.thread
 
 58:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -161,8 +161,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
 62:                                               ; preds = %.lr.ph.split.split
   %.1101.val = load i16, ptr %50, align 8
   %63 = and i16 %.1101.val, 5
-  %or.cond176 = icmp eq i16 %63, 4
-  br i1 %or.cond176, label %70, label %.thread
+  %or.cond173 = icmp eq i16 %63, 4
+  br i1 %or.cond173, label %70, label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split.split, %62, %.lr.ph, %.lr.ph.split.split.us, %56
   %.1103139 = phi i32 [ 3, %56 ], [ 2, %.lr.ph.split.split.us ], [ 3, %.lr.ph ], [ 3, %62 ], [ 2, %.lr.ph.split.split ]
@@ -183,8 +183,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
 74:                                               ; preds = %70
   %.val122 = load i16, ptr %51, align 8
   %75 = and i16 %.val122, 5
-  %or.cond177 = icmp eq i16 %75, 4
-  br i1 %or.cond177, label %58, label %.thread141
+  %or.cond174 = icmp eq i16 %75, 4
+  br i1 %or.cond174, label %58, label %.thread141
 
 .thread141:                                       ; preds = %70, %74, %56
   %.2144 = phi i32 [ 3, %56 ], [ 3, %74 ], [ 2, %70 ]
@@ -196,8 +196,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   %81 = tail call i32 @ompi_errhandler_invoke(ptr noundef %78, ptr noundef %8, i32 noundef %80, i32 noundef %76, ptr noundef nonnull @FUNC_NAME) #4
   br label %148
 
-._crit_edge:                                      ; preds = %58, %.thread170
-  %brmerge = or i1 %26, %.pre-phi173
+._crit_edge:                                      ; preds = %58, %.thread167
+  %brmerge = or i1 %26, %.pre-phi170
   br i1 %brmerge, label %101, label %82
 
 82:                                               ; preds = %._crit_edge

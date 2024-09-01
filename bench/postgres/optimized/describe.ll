@@ -5467,14 +5467,11 @@ add_role_attribute.exit78:                        ; preds = %122, %124
   %153 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   call void @printTable(ptr noundef nonnull %7, ptr noundef %152, i1 noundef zeroext false, ptr noundef %153) #9
   call void @printTableCleanup(ptr noundef nonnull %7) #9
-  br i1 %34, label %.lr.ph.preheader, label %._crit_edge107
-
-.lr.ph.preheader:                                 ; preds = %._crit_edge
   %wide.trip.count119 = zext nneg i32 %27 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next117, %.lr.ph ]
+.lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
+  %indvars.iv116 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next117, %.lr.ph ]
   %154 = getelementptr ptr, ptr %31, i64 %indvars.iv116
   %155 = load ptr, ptr %154, align 8
   call void @free(ptr noundef %155) #9
@@ -5490,7 +5487,7 @@ add_role_attribute.exit78:                        ; preds = %122, %124
   call void @printTableCleanup(ptr noundef nonnull %7) #9
   br label %._crit_edge107
 
-._crit_edge107:                                   ; preds = %.lr.ph, %._crit_edge107.critedge, %._crit_edge
+._crit_edge107:                                   ; preds = %.lr.ph, %._crit_edge107.critedge
   call void @free(ptr noundef %31) #9
   call void @PQclear(ptr noundef nonnull %25) #9
   br label %158

@@ -5125,8 +5125,8 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
 14:                                               ; preds = %.lr.ph, %.backedge
   %.0259 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0259) #5
-  %.not = icmp ne i8 %15, 0
-  br i1 %.not, label %16, label %.backedge.thread
+  %.not.not = icmp eq i8 %15, 0
+  br i1 %.not.not, label %.backedge.thread, label %16
 
 16:                                               ; preds = %14
   %17 = zext i8 %15 to i32
@@ -6116,8 +6116,7 @@ dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %338, %58
   %.0.be = phi i32 [ %30, %16 ], [ %30, %32 ], [ %589, %dissect_isup_access_transport_parameter.exit ]
   %593 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be) #5
   %594 = icmp sgt i32 %593, 0
-  %595 = and i1 %.not, %594
-  br i1 %595, label %14, label %._crit_edge, !llvm.loop !9
+  br i1 %594, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.thread, %3
   ret void

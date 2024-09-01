@@ -10903,7 +10903,7 @@ define internal fastcc noundef ptr @gmtime_with_leapsecond(ptr noundef %0, ptr n
 rb_localtime_r.exit:                              ; preds = %2, %5
   %6 = tail call ptr @localtime_r(ptr noundef %0, ptr noundef %1) #18
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %139, label %8
+  br i1 %7, label %138, label %8
 
 8:                                                ; preds = %rb_localtime_r.exit
   %9 = getelementptr inbounds i8, ptr %6, i64 40
@@ -11088,8 +11088,8 @@ leap_year_p.exit.thread131:                       ; preds = %leap_year_p.exit.th
   %98 = tail call i32 @llvm.abs.i32(i32 %97, i1 false)
   %99 = zext i32 %98 to i64
   %100 = and i64 %99, 3
-  %.not.i112 = icmp ne i64 %100, 0
-  br i1 %.not.i112, label %.sink.split169, label %101
+  %.not.i112.not = icmp eq i64 %100, 0
+  br i1 %.not.i112.not, label %101, label %.sink.split169
 
 101:                                              ; preds = %93
   %102 = udiv i32 %98, 100
@@ -11100,12 +11100,13 @@ leap_year_p.exit.thread131:                       ; preds = %leap_year_p.exit.th
 
 leap_year_p.exit115:                              ; preds = %101
   %104 = and i64 %.zext, 3
-  %105 = icmp ne i64 %104, 0
-  %spec.select168 = select i1 %105, i32 364, i32 365
+  %.not182 = icmp eq i64 %104, 0
+  %spec.select168 = select i1 %.not182, i32 365, i32 364
+  %105 = select i1 %.not182, ptr @leap_year_days_in_month, ptr @common_year_days_in_month
   br label %.sink.split169
 
 .sink.split169:                                   ; preds = %93, %101, %leap_year_p.exit115
-  %.0.i113156 = phi i1 [ %105, %leap_year_p.exit115 ], [ %.not.i112, %101 ], [ %.not.i112, %93 ]
+  %.0.i113156 = phi ptr [ %105, %leap_year_p.exit115 ], [ @leap_year_days_in_month, %101 ], [ @common_year_days_in_month, %93 ]
   %106 = phi i32 [ %spec.select168, %leap_year_p.exit115 ], [ 365, %101 ], [ 364, %93 ]
   %107 = getelementptr inbounds i8, ptr %1, i64 28
   %108 = load i32, ptr %107, align 4
@@ -11119,58 +11120,57 @@ leap_year_p.exit115:                              ; preds = %101
   store i32 0, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 1, ptr %113, align 4
-  br label %131
+  br label %130
 
 114:                                              ; preds = %.sink.split169
   %115 = getelementptr inbounds i8, ptr %1, i64 12
   %116 = load i32, ptr %115, align 4
-  %117 = select i1 %.0.i113156, ptr @common_year_days_in_month, ptr @leap_year_days_in_month
-  %118 = getelementptr inbounds i8, ptr %1, i64 16
-  %119 = load i32, ptr %118, align 8
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr i8, ptr %117, i64 %120
-  %122 = load i8, ptr %121, align 1
-  %123 = sext i8 %122 to i32
-  %124 = icmp eq i32 %116, %123
-  br i1 %124, label %125, label %128
+  %117 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = load i32, ptr %117, align 8
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr i8, ptr %.0.i113156, i64 %119
+  %121 = load i8, ptr %120, align 1
+  %122 = sext i8 %121 to i32
+  %123 = icmp eq i32 %116, %122
+  br i1 %123, label %124, label %127
 
-125:                                              ; preds = %114
-  %126 = add i32 %119, 1
-  store i32 %126, ptr %118, align 8
+124:                                              ; preds = %114
+  %125 = add i32 %118, 1
+  store i32 %125, ptr %117, align 8
   store i32 1, ptr %115, align 4
-  %127 = add i32 %108, 1
-  br label %131
+  %126 = add i32 %108, 1
+  br label %130
 
-128:                                              ; preds = %114
-  %129 = add i32 %116, 1
-  store i32 %129, ptr %115, align 4
-  %130 = add i32 %108, 1
-  br label %131
+127:                                              ; preds = %114
+  %128 = add i32 %116, 1
+  store i32 %128, ptr %115, align 4
+  %129 = add i32 %108, 1
+  br label %130
 
-131:                                              ; preds = %125, %128, %110
-  %.sink173 = phi i32 [ %127, %125 ], [ %130, %128 ], [ 0, %110 ]
+130:                                              ; preds = %124, %127, %110
+  %.sink173 = phi i32 [ %126, %124 ], [ %129, %127 ], [ 0, %110 ]
   store i32 %.sink173, ptr %107, align 4
   br label %.thread119.sink.split
 
-.thread119.sink.split:                            ; preds = %131, %leap_year_p.exit.thread131
-  %.sink178 = phi i32 [ 6, %leap_year_p.exit.thread131 ], [ 1, %131 ]
-  %132 = getelementptr inbounds i8, ptr %1, i64 24
-  %133 = load i32, ptr %132, align 8
-  %134 = add i32 %133, %.sink178
-  %135 = srem i32 %134, 7
-  store i32 %135, ptr %132, align 8
+.thread119.sink.split:                            ; preds = %130, %leap_year_p.exit.thread131
+  %.sink178 = phi i32 [ 6, %leap_year_p.exit.thread131 ], [ 1, %130 ]
+  %131 = getelementptr inbounds i8, ptr %1, i64 24
+  %132 = load i32, ptr %131, align 8
+  %133 = add i32 %132, %.sink178
+  %134 = srem i32 %133, 7
+  store i32 %134, ptr %131, align 8
   br label %.thread119
 
 .thread119:                                       ; preds = %.thread119.sink.split, %40, %48
-  %136 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 0, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr @.str.33, ptr %138, align 8
-  br label %139
+  %135 = getelementptr inbounds i8, ptr %1, i64 32
+  store i32 0, ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 0, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr @.str.33, ptr %137, align 8
+  br label %138
 
-139:                                              ; preds = %rb_localtime_r.exit, %.thread119
+138:                                              ; preds = %rb_localtime_r.exit, %.thread119
   %.0 = phi ptr [ %1, %.thread119 ], [ null, %rb_localtime_r.exit ]
   ret ptr %.0
 }

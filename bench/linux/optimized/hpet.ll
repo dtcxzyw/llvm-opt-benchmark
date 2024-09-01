@@ -592,8 +592,8 @@ define internal fastcc noundef zeroext i1 @hpet_counting() unnamed_addr #4 secti
   %26 = load ptr, ptr @hpet_virt_address, align 8
   %27 = getelementptr i8, ptr %26, i64 240
   %28 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #19, !srcloc !5
-  %.not = icmp ne i32 %19, %28
-  br i1 %.not, label %.loopexit, label %29
+  %.not.not.not.not.not = icmp ne i32 %19, %28
+  br i1 %.not.not.not.not.not, label %.loopexit, label %29
 
 29:                                               ; preds = %25
   %30 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !17
@@ -610,7 +610,7 @@ define internal fastcc noundef zeroext i1 @hpet_counting() unnamed_addr #4 secti
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %37
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: null_pointer_is_valid

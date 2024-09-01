@@ -79,25 +79,25 @@ if.end19:                                         ; preds = %if.end14
   %call20 = call i32 %i2d(ptr noundef %data, ptr noundef nonnull %p) #2
   %call21 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef nonnull %call3, ptr noundef null) #2
   %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %land.end.thread, label %land.end
+  br i1 %tobool22.not, label %if.then28.critedge, label %land.rhs
 
-land.end.thread:                                  ; preds = %if.end19
-  call void @CRYPTO_clear_free(ptr noundef nonnull %call15, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 65) #2
-  br label %if.then28
-
-land.end:                                         ; preds = %if.end19
+land.rhs:                                         ; preds = %if.end19
   %call24 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %call15, i64 noundef %conv) #2
   %tobool25.not = icmp eq i32 %call24, 0
   call void @CRYPTO_clear_free(ptr noundef nonnull %call15, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 65) #2
   br i1 %tobool25.not, label %if.then28, label %if.end29
 
-if.then28:                                        ; preds = %land.end.thread, %land.end
+if.then28.critedge:                               ; preds = %if.end19
+  call void @CRYPTO_clear_free(ptr noundef nonnull %call15, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 65) #2
+  br label %if.then28
+
+if.then28:                                        ; preds = %if.then28.critedge, %land.rhs
   call void @ERR_new() #2
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @__func__.ASN1_verify) #2
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #2
   br label %err
 
-if.end29:                                         ; preds = %land.end
+if.end29:                                         ; preds = %land.rhs
   %data30 = getelementptr inbounds i8, ptr %signature, i64 8
   %3 = load ptr, ptr %data30, align 8
   %4 = load i32, ptr %signature, align 8

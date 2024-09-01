@@ -5083,8 +5083,8 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %253, %250, %92, %24
   %258 = ptrtoint ptr %256 to i64
   %259 = sub i64 %257, %258
   %260 = ashr exact i64 %259, 2
-  %.not237 = icmp ult i64 %254, %260
-  br i1 %.not237, label %92, label %._crit_edge214, !llvm.loop !35
+  %.not221 = icmp ult i64 %254, %260
+  br i1 %.not221, label %92, label %._crit_edge214, !llvm.loop !35
 
 ._crit_edge214:                                   ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %261 = trunc nuw i8 %.1130 to i1
@@ -7013,8 +7013,8 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %256, %253, %92, %25
   %261 = ptrtoint ptr %259 to i64
   %262 = sub i64 %260, %261
   %263 = ashr exact i64 %262, 2
-  %.not237 = icmp ult i64 %257, %263
-  br i1 %.not237, label %92, label %._crit_edge214, !llvm.loop !64
+  %.not221 = icmp ult i64 %257, %263
+  br i1 %.not221, label %92, label %._crit_edge214, !llvm.loop !64
 
 ._crit_edge214:                                   ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %264 = trunc nuw i8 %.1130 to i1

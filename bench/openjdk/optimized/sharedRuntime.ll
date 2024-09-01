@@ -2288,8 +2288,8 @@ _ZN10MethodData20allocate_bci_to_dataEiP6Method.exit.thread: ; preds = %101, %.t
 112:                                              ; preds = %115, %108
   %113 = load i8, ptr %111, align 1
   %114 = and i8 %113, 8
-  %.not10.i.not.i.not.i = icmp eq i8 %114, 0
-  br i1 %.not10.i.not.i.not.i, label %115, label %_ZN11MutexLockerD2Ev.exit
+  %.not10.not.not.i.not.i.not.i = icmp eq i8 %114, 0
+  br i1 %.not10.not.not.i.not.i.not.i, label %115, label %_ZN11MutexLockerD2Ev.exit
 
 115:                                              ; preds = %112
   %116 = or disjoint i8 %113, 8
@@ -2973,7 +2973,7 @@ define hidden noundef ptr @_ZN13SharedRuntime28compute_compiled_exc_handlerEP7nm
   %53 = getelementptr inbounds i8, ptr %48, i64 816
   %54 = getelementptr inbounds i8, ptr %48, i64 8
   %55 = getelementptr inbounds i8, ptr %48, i64 808
-  %.not = xor i1 %4, true
+  %.not108 = xor i1 %4, true
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %49
@@ -3092,7 +3092,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %97, %_ZN10HandleAre
 
 115:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   %116 = icmp sgt i32 %94, -1
-  %or.cond.not = or i1 %116, %4
+  %or.cond.not = or i1 %4, %116
   br i1 %or.cond.not, label %.thread, label %117
 
 117:                                              ; preds = %115
@@ -3111,7 +3111,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %97, %_ZN10HandleAre
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %115, %122
-  %or.cond113 = phi i1 [ true, %122 ], [ false, %115 ], [ %.not, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %or.cond113 = phi i1 [ true, %122 ], [ false, %115 ], [ %.not108, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %.182112 = phi i32 [ %94, %122 ], [ %94, %115 ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %.285 = phi ptr [ %118, %122 ], [ %.184, %115 ], [ %.184, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %.280 = phi i32 [ %123, %122 ], [ %.179, %115 ], [ %.179, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]

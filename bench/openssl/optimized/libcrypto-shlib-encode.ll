@@ -731,7 +731,6 @@ if.end18:                                         ; preds = %if.end14
   br i1 %cmp23.not.not62, label %tail, label %for.body
 
 for.body:                                         ; preds = %if.end18, %for.inc
-  %cmp23.not.not69 = phi i1 [ %cmp23.not.not, %for.inc ], [ false, %if.end18 ]
   %out.addr.068 = phi ptr [ %out.addr.1, %for.inc ], [ %out, %if.end18 ]
   %n.167 = phi i32 [ %n.3, %for.inc ], [ %0, %if.end18 ]
   %in.addr.066 = phi ptr [ %incdec.ptr, %for.inc ], [ %in, %if.end18 ]
@@ -775,8 +774,8 @@ if.end44:                                         ; preds = %land.lhs.true39, %i
 
 if.end48:                                         ; preds = %if.else36, %if.end44
   %eof.257 = phi i32 [ %eof.2, %if.end44 ], [ 0, %if.else36 ]
-  %cmp49 = icmp eq i8 %7, -14
-  br i1 %cmp49, label %tail, label %if.end52
+  %cmp49.not.not = icmp ne i8 %7, -14
+  br i1 %cmp49.not.not, label %if.end52, label %tail
 
 if.end52:                                         ; preds = %if.end48
   %9 = and i32 %conv27, 236
@@ -818,15 +817,14 @@ for.inc:                                          ; preds = %if.end67, %if.end77
   %n.3 = phi i32 [ 0, %if.end77 ], [ %n.2, %if.end67 ]
   %out.addr.1 = phi ptr [ %add.ptr, %if.end77 ], [ %out.addr.068, %if.end67 ]
   %inc81 = add nuw nsw i32 %i.065, 1
-  %cmp23.not.not = icmp sge i32 %inc81, %inl
-  %exitcond = icmp eq i32 %inc81, %inl
-  br i1 %exitcond, label %tail, label %for.body, !llvm.loop !7
+  %exitcond.not = icmp eq i32 %inc81, %inl
+  br i1 %exitcond.not, label %tail, label %for.body, !llvm.loop !7
 
 tail:                                             ; preds = %for.inc, %if.end48, %if.end18
   %ret.1.lcssa = phi i32 [ 0, %if.end18 ], [ %ret.164, %if.end48 ], [ %ret.2, %for.inc ]
   %n.1.lcssa = phi i32 [ %0, %if.end18 ], [ %n.167, %if.end48 ], [ %n.3, %for.inc ]
   %out.addr.0.lcssa = phi ptr [ %out, %if.end18 ], [ %out.addr.068, %if.end48 ], [ %out.addr.1, %for.inc ]
-  %cmp23.not.not.lcssa = phi i1 [ true, %if.end18 ], [ %cmp23.not.not69, %if.end48 ], [ %cmp23.not.not, %for.inc ]
+  %cmp23.not.not.lcssa = phi i1 [ true, %if.end18 ], [ %cmp49.not.not, %if.end48 ], [ %cmp49.not.not, %for.inc ]
   %eof.3 = phi i32 [ %eof.0, %if.end18 ], [ %eof.257, %if.end48 ], [ %eof.257, %for.inc ]
   %cmp82 = icmp sgt i32 %n.1.lcssa, 0
   br i1 %cmp82, label %if.then84, label %if.end103

@@ -193,7 +193,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %8 = icmp ult i32 %7, 4
-  br i1 %8, label %317, label %9
+  br i1 %8, label %316, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -213,7 +213,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %23 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 8, i32 noundef 1) #3
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %305
+  br i1 %.not, label %24, label %304
 
 24:                                               ; preds = %9
   %25 = load i32, ptr @hf_dsr_reserved, align 4
@@ -233,8 +233,8 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %34 = getelementptr inbounds i8, ptr %1, i64 408
   br label %35
 
-35:                                               ; preds = %.lr.ph393, %304
-  %.0363392 = phi i32 [ 4, %.lr.ph393 ], [ %.1364, %304 ]
+35:                                               ; preds = %.backedge, %.lr.ph393
+  %.0363392 = phi i32 [ 4, %.lr.ph393 ], [ %.1364, %.backedge ]
   %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0363392) #3
   switch i8 %36, label %.loopexit [
     i8 1, label %37
@@ -619,43 +619,43 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.early.test:                                ; preds = %.loopexit
   switch i8 %36, label %302 [
-    i8 -32, label %304
-    i8 0, label %304
+    i8 -32, label %.backedge
+    i8 0, label %.backedge
   ]
+
+.backedge:                                        ; preds = %switch.early.test, %switch.early.test, %302
+  br label %35, !llvm.loop !8
 
 302:                                              ; preds = %switch.early.test
   %303 = load ptr, ptr %10, align 8
   call void @col_append_str(ptr noundef %303, i32 noundef 25, ptr noundef nonnull @.str.100) #3
-  br label %304
+  br label %.backedge
 
-304:                                              ; preds = %switch.early.test, %switch.early.test, %302
-  br i1 %301, label %35, label %.loopexit383, !llvm.loop !8
-
-305:                                              ; preds = %9
-  %306 = load i32, ptr @hf_dsr_fs_hopcount, align 4
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %306, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %308 = load i32, ptr @hf_dsr_fs_id, align 4
-  %309 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %308, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+304:                                              ; preds = %9
+  %305 = load i32, ptr @hf_dsr_fs_hopcount, align 4
+  %306 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %305, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %307 = load i32, ptr @hf_dsr_fs_id, align 4
+  %308 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %307, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   br label %.loopexit383
 
-.loopexit383:                                     ; preds = %.loopexit, %304, %24, %305
-  %.2365 = phi i32 [ 4, %305 ], [ 4, %24 ], [ %.1364, %304 ], [ %.1364, %.loopexit ]
-  %310 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2365) #3
-  %311 = load ptr, ptr @ip_dissector_table, align 8
-  %312 = call i32 @dissector_try_uint(ptr noundef %311, i32 noundef %20, ptr noundef %310, ptr noundef %1, ptr noundef %2) #3
-  %.not379 = icmp eq i32 %312, 0
-  br i1 %.not379, label %313, label %315
+.loopexit383:                                     ; preds = %.loopexit, %24, %304
+  %.2365 = phi i32 [ 4, %304 ], [ 4, %24 ], [ %.1364, %.loopexit ]
+  %309 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2365) #3
+  %310 = load ptr, ptr @ip_dissector_table, align 8
+  %311 = call i32 @dissector_try_uint(ptr noundef %310, i32 noundef %20, ptr noundef %309, ptr noundef %1, ptr noundef %2) #3
+  %.not379 = icmp eq i32 %311, 0
+  br i1 %.not379, label %312, label %314
 
-313:                                              ; preds = %.loopexit383
-  %314 = call i32 @call_data_dissector(ptr noundef %310, ptr noundef %1, ptr noundef %2) #3
-  br label %315
+312:                                              ; preds = %.loopexit383
+  %313 = call i32 @call_data_dissector(ptr noundef %309, ptr noundef %1, ptr noundef %2) #3
+  br label %314
 
-315:                                              ; preds = %313, %.loopexit383
-  %316 = add i32 %.2365, 4
-  br label %317
+314:                                              ; preds = %312, %.loopexit383
+  %315 = add i32 %.2365, 4
+  br label %316
 
-317:                                              ; preds = %4, %315
-  %.0 = phi i32 [ %316, %315 ], [ 0, %4 ]
+316:                                              ; preds = %4, %314
+  %.0 = phi i32 [ %315, %314 ], [ 0, %4 ]
   ret i32 %.0
 }
 

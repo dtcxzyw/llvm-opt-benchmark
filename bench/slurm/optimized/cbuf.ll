@@ -3156,45 +3156,42 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br i1 %115, label %93, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %93
-  br i1 %89, label %116, label %._crit_edge.thread
-
-116:                                              ; preds = %._crit_edge
-  %117 = getelementptr inbounds i8, ptr %1, i64 72
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 76
-  %120 = load i32, ptr %119, align 4
-  %121 = sub i32 %118, %120
-  %122 = add nsw i32 %111, 1
-  %123 = add nsw i32 %121, %122
-  %124 = srem i32 %123, %122
-  %125 = load i32, ptr %12, align 8
-  %126 = add nsw i32 %125, %.0105
-  %.125 = call i32 @llvm.smin.i32(i32 %126, i32 %111)
+  %116 = getelementptr inbounds i8, ptr %1, i64 72
+  %117 = load i32, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %1, i64 76
+  %119 = load i32, ptr %118, align 4
+  %120 = sub i32 %117, %119
+  %121 = add nsw i32 %111, 1
+  %122 = add nsw i32 %120, %121
+  %123 = srem i32 %122, %121
+  %124 = load i32, ptr %12, align 8
+  %125 = add nsw i32 %124, %.0105
+  %.125 = call i32 @llvm.smin.i32(i32 %125, i32 %111)
   store i32 %.125, ptr %12, align 8
   store i32 %113, ptr %78, align 4
-  %127 = sub nsw i32 %.0104, %124
-  %128 = icmp sgt i32 %.0105, %127
-  br i1 %128, label %129, label %133
+  %126 = sub nsw i32 %.0104, %123
+  %127 = icmp sgt i32 %.0105, %126
+  br i1 %127, label %128, label %132
 
-129:                                              ; preds = %116
-  %130 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 1, ptr %130, align 8
-  %131 = add nsw i32 %113, 1
-  %132 = srem i32 %131, %122
-  store i32 %132, ptr %119, align 4
-  br label %133
+128:                                              ; preds = %._crit_edge
+  %129 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 1, ptr %129, align 8
+  %130 = add nsw i32 %113, 1
+  %131 = srem i32 %130, %121
+  store i32 %131, ptr %118, align 4
+  br label %132
 
-133:                                              ; preds = %129, %116
-  %134 = phi i32 [ %132, %129 ], [ %120, %116 ]
-  %135 = icmp sgt i32 %.0105, %.0104
-  br i1 %135, label %136, label %._crit_edge.thread
+132:                                              ; preds = %128, %._crit_edge
+  %133 = phi i32 [ %131, %128 ], [ %119, %._crit_edge ]
+  %134 = icmp sgt i32 %.0105, %.0104
+  br i1 %134, label %135, label %._crit_edge.thread
 
-136:                                              ; preds = %133
-  store i32 %134, ptr %117, align 8
+135:                                              ; preds = %132
+  store i32 %133, ptr %116, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %88, %._crit_edge, %136, %133, %4, %66
-  %.0102 = phi i32 [ -1, %66 ], [ 0, %4 ], [ %.0106, %133 ], [ %.0106, %136 ], [ %.0106, %._crit_edge ], [ %.0106, %88 ]
+._crit_edge.thread:                               ; preds = %88, %135, %132, %4, %66
+  %.0102 = phi i32 [ -1, %66 ], [ 0, %4 ], [ %.0106, %132 ], [ %.0106, %135 ], [ %.0106, %88 ]
   ret i32 %.0102
 }
 

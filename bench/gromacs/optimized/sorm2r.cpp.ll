@@ -22,7 +22,7 @@ define void @sorm2r_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %23 = load i8, ptr %0, align 1
   %.fr83 = freeze i8 %23
   %24 = and i8 %.fr83, -33
-  %spec.select = icmp ne i8 %24, 76
+  %spec.select.not = icmp eq i8 %24, 76
   %25 = load i8, ptr %1, align 1
   %26 = and i8 %25, -33
   %27 = icmp eq i8 %26, 78
@@ -41,7 +41,7 @@ define void @sorm2r_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33
-  br i1 %spec.select, label %37, label %switch.early.test
+  br i1 %spec.select.not, label %switch.early.test, label %37
 
 switch.early.test:                                ; preds = %36
   switch i8 %25, label %38 [
@@ -50,8 +50,7 @@ switch.early.test:                                ; preds = %36
   ]
 
 37:                                               ; preds = %36
-  %or.cond3 = and i1 %27, %spec.select
-  br i1 %or.cond3, label %38, label %.thread
+  br i1 %27, label %38, label %.thread
 
 38:                                               ; preds = %switch.early.test, %37
   br label %.thread

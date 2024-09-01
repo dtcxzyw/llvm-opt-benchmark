@@ -254,7 +254,7 @@ if.then.i.i:                                      ; preds = %if.end31.i.thread
   %7 = load atomic i64, ptr %arrayidx.i243134 monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i277) #12
   %call1.i279114 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i277, i64 noundef %magicptr121)
-  br label %emap_alloc_ctx_lookup.exit
+  br label %if.end10
 
 if.end.i.i.split:                                 ; preds = %if.end31.i
   %magicptr = ptrtoint ptr %call33.i to i64
@@ -266,9 +266,9 @@ if.end.i.i.split:                                 ; preds = %if.end31.i
   %arrayidx.i243 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
   %9 = load atomic i64, ptr %arrayidx.i243 monotonic, align 8
   %call1.i279115 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %magicptr)
-  br label %emap_alloc_ctx_lookup.exit
+  br label %if.end10
 
-emap_alloc_ctx_lookup.exit:                       ; preds = %if.end.i.i.split, %if.then.i.i
+if.end10:                                         ; preds = %if.then.i.i, %if.end.i.i.split
   %.in = phi i64 [ %7, %if.then.i.i ], [ %9, %if.end.i.i.split ]
   %call33.i123128135 = phi ptr [ %call33.i120, %if.then.i.i ], [ %call33.i, %if.end.i.i.split ]
   %phi.call = phi { i64, i32 } [ %call1.i279114, %if.then.i.i ], [ %call1.i279115, %if.end.i.i.split ]
@@ -282,8 +282,8 @@ emap_alloc_ctx_lookup.exit:                       ; preds = %if.end.i.i.split, %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call33.i123128135, ptr nonnull align 1 %thread_name, i64 %add, i1 false)
   br label %return
 
-return:                                           ; preds = %if.end31.i.thread, %if.end31.i, %if.end, %entry, %emap_alloc_ctx_lookup.exit
-  %retval.0 = phi ptr [ %call33.i123128135, %emap_alloc_ctx_lookup.exit ], [ null, %entry ], [ @.str, %if.end ], [ null, %if.end31.i ], [ null, %if.end31.i.thread ]
+return:                                           ; preds = %if.end31.i.thread, %if.end31.i, %if.end, %entry, %if.end10
+  %retval.0 = phi ptr [ %call33.i123128135, %if.end10 ], [ null, %entry ], [ @.str, %if.end ], [ null, %if.end31.i ], [ null, %if.end31.i.thread ]
   ret ptr %retval.0
 }
 

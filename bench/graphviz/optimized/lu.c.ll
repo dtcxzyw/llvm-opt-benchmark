@@ -303,10 +303,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %11 = load ptr, ptr %10, align 8
   br label %16
 
-.preheader39:                                     ; preds = %._crit_edge
-  br i1 %4, label %.preheader.lr.ph, label %._crit_edge52
-
-.preheader.lr.ph:                                 ; preds = %.preheader39
+.preheader.lr.ph:                                 ; preds = %._crit_edge
   %12 = load ptr, ptr @lu, align 8
   %13 = load ptr, ptr @ps, align 8
   %14 = zext nneg i32 %2 to i64
@@ -335,7 +332,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   store double %24, ptr %25, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.preheader39, label %.preheader40
+  br i1 %exitcond59.not, label %.preheader.lr.ph, label %.preheader40
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge47
   %indvars.iv60 = phi i64 [ %14, %.preheader.lr.ph ], [ %indvars.iv.next61, %._crit_edge47 ]
@@ -373,7 +370,7 @@ define void @lu_solve(ptr nocapture noundef %0, ptr nocapture noundef readonly %
   %45 = icmp sgt i64 %indvars.iv60, 1
   br i1 %45, label %.preheader, label %._crit_edge52
 
-._crit_edge52:                                    ; preds = %._crit_edge47, %3, %.preheader39
+._crit_edge52:                                    ; preds = %._crit_edge47, %3
   ret void
 }
 

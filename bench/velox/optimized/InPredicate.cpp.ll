@@ -51423,8 +51423,8 @@ for.body.i.i:                                     ; preds = %if.else, %if.end18.
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %for.body.i.i
   %hits.i.i.sroa.0.0 = phi i32 [ %and.i, %for.body.i.i ], [ %and.i30, %while.body.i.i ]
-  %cmp.i28.not.not = icmp ne i32 %hits.i.i.sroa.0.0, 0
-  br i1 %cmp.i28.not.not, label %while.body.i.i, label %while.end.i.i
+  %cmp.i28.not.not.not.not.not = icmp ne i32 %hits.i.i.sroa.0.0, 0
+  br i1 %cmp.i28.not.not.not.not.not, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %23 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i.i.sroa.0.0, i1 true)
@@ -51498,7 +51498,7 @@ if.else7:                                         ; preds = %while.body.i.i, %la
   %38 = getelementptr inbounds i8, ptr %this, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  tail call void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %40, i32 noundef %row, i1 noundef zeroext %cmp.i28.not.not)
+  tail call void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %40, i32 noundef %row, i1 noundef zeroext %cmp.i28.not.not.not.not.not)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else7, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit41, %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit

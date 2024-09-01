@@ -326,7 +326,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
 
 178:                                              ; preds = %171
   %179 = icmp ugt i64 %173, 1
-  br i1 %179, label %.lr.ph, label %._crit_edge
+  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %178, %.preheader
   %180 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #8
@@ -424,7 +424,7 @@ define internal fastcc i64 @calibrate_delay_converge() unnamed_addr #1 align 16 
 2:                                                ; preds = %2, %0
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = icmp eq i64 %1, %3
-  br i1 %4, label %2, label %5, !llvm.loop !13
+  br i1 %4, label %2, label %5, !llvm.loop !14
 
 5:                                                ; preds = %2
   %6 = load volatile i64, ptr @jiffies, align 64
@@ -446,7 +446,7 @@ define internal fastcc i64 @calibrate_delay_converge() unnamed_addr #1 align 16 
   %19 = add i32 %15, %8
   %20 = load volatile i64, ptr @jiffies, align 64
   %21 = icmp eq i64 %6, %20
-  br i1 %21, label %7, label %22, !llvm.loop !14
+  br i1 %21, label %7, label %22, !llvm.loop !15
 
 22:                                               ; preds = %7
   %23 = sext i32 %8 to i64
@@ -469,7 +469,7 @@ define internal fastcc i64 @calibrate_delay_converge() unnamed_addr #1 align 16 
 33:                                               ; preds = %33, %.preheader
   %34 = load volatile i64, ptr @jiffies, align 64
   %35 = icmp eq i64 %32, %34
-  br i1 %35, label %33, label %36, !llvm.loop !15
+  br i1 %35, label %33, label %36, !llvm.loop !16
 
 36:                                               ; preds = %33
   %37 = add i64 %31, %30
@@ -480,7 +480,7 @@ define internal fastcc i64 @calibrate_delay_converge() unnamed_addr #1 align 16 
   %41 = select i1 %40, i64 %37, i64 %31
   %42 = lshr i64 %30, 1
   %43 = icmp ugt i64 %42, %28
-  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %36, %25
   %44 = phi i64 [ %26, %25 ], [ %41, %36 ]
@@ -538,3 +538,4 @@ attributes #8 = { cold nounwind }
 !14 = distinct !{!14, !8, !9}
 !15 = distinct !{!15, !8, !9}
 !16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

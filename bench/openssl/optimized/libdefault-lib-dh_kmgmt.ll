@@ -208,7 +208,7 @@ land.lhs.true:                                    ; preds = %if.end13
   %ffc_params = getelementptr inbounds i8, ptr %genctx, i64 8
   %2 = load ptr, ptr %ffc_params, align 8
   %cmp17 = icmp eq ptr %2, null
-  br i1 %cmp17, label %if.then19, label %if.else
+  br i1 %cmp17, label %if.end27, label %if.else
 
 land.lhs.true.thread:                             ; preds = %if.end
   store i32 3, ptr %gen_type4.phi.trans.insert, align 4
@@ -217,10 +217,7 @@ land.lhs.true.thread:                             ; preds = %if.end
   %cmp1797 = icmp eq ptr %3, null
   br i1 %cmp1797, label %if.end32, label %if.else
 
-if.then19:                                        ; preds = %land.lhs.true
-  br i1 %cmp1.not, label %if.end27, label %if.end32
-
-if.end27:                                         ; preds = %if.then19
+if.end27:                                         ; preds = %land.lhs.true
   %pbits = getelementptr inbounds i8, ptr %genctx, i64 24
   %4 = load i64, ptr %pbits, align 8
   %conv24 = trunc i64 %4 to i32
@@ -229,8 +226,8 @@ if.end27:                                         ; preds = %if.then19
   %cmp29 = icmp eq i32 %call25, 0
   br i1 %cmp29, label %return, label %if.end32
 
-if.end32:                                         ; preds = %land.lhs.true.thread, %if.then19, %if.end27
-  %5 = phi i32 [ %call25, %if.end27 ], [ %0, %if.then19 ], [ %0, %land.lhs.true.thread ]
+if.end32:                                         ; preds = %land.lhs.true.thread, %if.end27
+  %5 = phi i32 [ %call25, %if.end27 ], [ %0, %land.lhs.true.thread ]
   %6 = load ptr, ptr %genctx, align 8
   %call34 = tail call ptr @ossl_dh_new_by_nid_ex(ptr noundef %6, i32 noundef %5) #7
   %cmp35 = icmp eq ptr %call34, null

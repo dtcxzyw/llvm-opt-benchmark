@@ -2978,7 +2978,7 @@ _ZN5vcpkg5Debug5printIJA28_cNS_11PackageSpecEA42_cNSt7__cxx1112basic_stringIcSt1
 ._crit_edge.i:                                    ; preds = %323
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %325 = icmp ugt i64 %283, 144115188075855871
-  br i1 %325, label %326, label %_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE8allocateERS2_m.exit.i.i.i.i
+  br i1 %325, label %326, label %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
 326:                                              ; preds = %._crit_edge.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.145) #25
@@ -2987,19 +2987,19 @@ _ZN5vcpkg5Debug5printIJA28_cNS_11PackageSpecEA42_cNSt7__cxx1112basic_stringIcSt1
 .noexc.i.i:                                       ; preds = %326
   unreachable
 
-_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %._crit_edge.i
+_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i: ; preds = %._crit_edge.i
   %327 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %282) #29
           to label %_ZNSt12_Vector_baseIN5vcpkg8AbiEntryESaIS1_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit108
 
-_ZNSt12_Vector_baseIN5vcpkg8AbiEntryESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.thread.i
-  %328 = phi ptr [ %327, %_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE8allocateERS2_m.exit.i.i.i.i ], [ null, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.thread.i ]
+_ZNSt12_Vector_baseIN5vcpkg8AbiEntryESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.thread.i
+  %328 = phi ptr [ %327, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ], [ null, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.thread.i ]
   store ptr %328, ptr %37, align 8
   %329 = getelementptr inbounds %"struct.vcpkg::AbiEntry", ptr %328, i64 %283
   store ptr %329, ptr %115, align 8
   %330 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN5vcpkg8AbiEntryEPS1_ET0_T_S6_S5_(ptr noundef %278, ptr noundef %311, ptr noundef %328)
           to label %334 unwind label %.loopexit108
 
-.loopexit108:                                     ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg8AbiEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
+.loopexit108:                                     ; preds = %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg8AbiEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
   br label %331

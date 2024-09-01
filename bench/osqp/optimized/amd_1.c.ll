@@ -14,10 +14,7 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   %17 = icmp sgt i64 %0, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
-.preheader139:                                    ; preds = %.lr.ph
-  br i1 %17, label %.lr.ph154, label %._crit_edge
-
-.lr.ph154:                                        ; preds = %.preheader139
+.lr.ph154:                                        ; preds = %.lr.ph
   %invariant.gep = getelementptr i8, ptr %1, i64 8
   br label %24
 
@@ -33,10 +30,7 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   %22 = add nsw i64 %21, %.0128144
   %23 = add nuw nsw i64 %.0145, 1
   %exitcond.not = icmp eq i64 %23, %0
-  br i1 %exitcond.not, label %.preheader139, label %.lr.ph, !llvm.loop !4
-
-.preheader:                                       ; preds = %.loopexit138
-  br i1 %17, label %.lr.ph159, label %._crit_edge
+  br i1 %exitcond.not, label %.lr.ph154, label %.lr.ph, !llvm.loop !4
 
 24:                                               ; preds = %.lr.ph154, %.loopexit138
   %.0125152 = phi i64 [ 0, %.lr.ph154 ], [ %27, %.loopexit138 ]
@@ -125,14 +119,14 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   %67 = getelementptr inbounds i64, ptr %15, i64 %.0125152
   store i64 %.1127, ptr %67, align 8
   %exitcond170.not = icmp eq i64 %27, %0
-  br i1 %exitcond170.not, label %.preheader, label %24, !llvm.loop !8
+  br i1 %exitcond170.not, label %.lr.ph159, label %24, !llvm.loop !8
 
 .loopexit:                                        ; preds = %75, %.lr.ph159
   %exitcond171.not = icmp eq i64 %70, %0
   br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph159, !llvm.loop !9
 
-.lr.ph159:                                        ; preds = %.preheader, %.loopexit
-  %.1158 = phi i64 [ %70, %.loopexit ], [ 0, %.preheader ]
+.lr.ph159:                                        ; preds = %.loopexit138, %.loopexit
+  %.1158 = phi i64 [ %70, %.loopexit ], [ 0, %.loopexit138 ]
   %68 = getelementptr inbounds i64, ptr %15, i64 %.1158
   %69 = load i64, ptr %68, align 8
   %70 = add nuw nsw i64 %.1158, 1
@@ -165,8 +159,8 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   %87 = icmp slt i64 %85, %86
   br i1 %87, label %75, label %.loopexit, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.loopexit, %10, %.preheader139, %.preheader
-  %.0128.lcssa173175 = phi i64 [ %22, %.preheader ], [ %22, %.preheader139 ], [ 0, %10 ], [ %22, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %10
+  %.0128.lcssa173175 = phi i64 [ 0, %10 ], [ %22, %.loopexit ]
   %.neg = mul i64 %0, -6
   %88 = add i64 %6, %.neg
   tail call void @amd_l2(i64 noundef %0, ptr noundef %7, ptr noundef %16, ptr noundef %5, i64 noundef %88, i64 noundef %.0128.lcssa173175, ptr noundef %11, ptr noundef %4, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %8, ptr noundef %9) #2

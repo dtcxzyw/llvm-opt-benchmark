@@ -169,28 +169,20 @@ define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) lo
 define dso_local zeroext i1 @alloc_registered(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = icmp eq i32 %3, 52
-  br i1 %4, label %._crit_edge, label %.lr.ph
+  br label %4
 
-.lr.ph:                                           ; preds = %1, %5
-  %indvars.iv7 = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
+4:                                                ; preds = %4, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, %3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %5, !llvm.loop !10
+  %or.cond = select i1 %7, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %8, label %4, !llvm.loop !10
 
-5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv.next
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %3
-  br i1 %8, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %5
-  %9 = icmp ult i64 %indvars.iv7, 17
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %9, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+8:                                                ; preds = %4
+  ret i1 %7
 }
 
 declare void @xfree_ptr(ptr noundef) #1

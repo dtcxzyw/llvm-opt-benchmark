@@ -705,13 +705,13 @@ dom_local_name_compare_ex.exit44:                 ; preds = %dom_local_name_comp
 
 dom_local_name_compare_ex.exit45:                 ; preds = %dom_local_name_compare_ex.exit38
   %31 = load ptr, ptr %8, align 8
-  %32 = tail call i32 @zend_binary_strcmp(ptr noundef %31, i64 noundef %10, ptr noundef nonnull @.str.8, i64 noundef %10) #4
+  %32 = tail call i32 @zend_binary_strcmp(ptr noundef %31, i64 noundef 4, ptr noundef nonnull @.str.8, i64 noundef 4) #4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %61, label %dom_local_name_compare_ex.exit46
 
 dom_local_name_compare_ex.exit46:                 ; preds = %dom_local_name_compare_ex.exit45
   %34 = load ptr, ptr %8, align 8
-  %35 = tail call i32 @zend_binary_strcmp(ptr noundef %34, i64 noundef %10, ptr noundef nonnull @.str.9, i64 noundef %10) #4
+  %35 = tail call i32 @zend_binary_strcmp(ptr noundef %34, i64 noundef 4, ptr noundef nonnull @.str.9, i64 noundef 4) #4
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %61, label %dom_local_name_compare_ex.exit54.thread
 

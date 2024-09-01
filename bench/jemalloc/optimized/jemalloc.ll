@@ -13023,9 +13023,7 @@ do.cond2151:                                      ; preds = %do.body2140
 land.lhs.true2159:                                ; preds = %do.cond2151
   %207 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2160 = trunc i8 %207 to i1
-  %tobool2160.not = xor i1 %tobool2160, true
-  %brmerge2166 = or i1 %call2141, %tobool2160.not
-  br i1 %brmerge2166, label %while.cond.backedge, label %if.then2165
+  br i1 %tobool2160, label %if.then2165, label %while.cond.backedge
 
 if.then2165:                                      ; preds = %land.lhs.true2159
   %conv2166 = trunc i64 %sub3.i to i32

@@ -6810,7 +6810,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %421
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %428, %.preheader, %.thread185
-  %.3115 = phi i1 [ %.4116183.ph, %.thread185 ], [ %139, %.preheader ], [ true, %428 ]
+  %.3115 = phi i1 [ %.4116183.ph, %.thread185 ], [ true, %.preheader ], [ true, %428 ]
   %431 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #27
   br i1 %431, label %461, label %432
 

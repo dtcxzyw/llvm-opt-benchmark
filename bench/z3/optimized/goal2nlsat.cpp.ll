@@ -734,10 +734,7 @@ for.body.lr.ph:                                   ; preds = %if.then12
   %16 = zext i32 %13 to i64
   br label %for.body
 
-for.cond25.preheader:                             ; preds = %invoke.cont22
-  br i1 %cmp288.not, label %for.end60, label %for.body27.lr.ph
-
-for.body27.lr.ph:                                 ; preds = %for.cond25.preheader
+for.body27.lr.ph:                                 ; preds = %invoke.cont22
   %m_ps.i30 = getelementptr inbounds i8, ptr %call9, i64 24
   %a = getelementptr inbounds i8, ptr %this, i64 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 4
@@ -784,7 +781,7 @@ invoke.cont22:                                    ; preds = %call3.i.noexc, %cal
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ult i64 %indvars.iv.next, %16
   %21 = and i1 %is_int.0.lcssa.i, %cmp
-  br i1 %21, label %for.body, label %for.cond25.preheader, !llvm.loop !12
+  br i1 %21, label %for.body, label %for.body27.lr.ph, !llvm.loop !12
 
 lpad19.loopexit:                                  ; preds = %for.body27
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1023,7 +1020,7 @@ ehcleanup:                                        ; preds = %lpad43, %lpad33
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %t30) #18
   br label %ehcleanup143
 
-for.end60:                                        ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then12, %for.cond25.preheader
+for.end60:                                        ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then12
   %a62 = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN10arith_util15mk_mul_simplifyERK10ref_vectorI4expr11ast_managerE(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(16) %a62, ptr noundef nonnull align 8 dereferenceable(16) %ps)
           to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit81 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

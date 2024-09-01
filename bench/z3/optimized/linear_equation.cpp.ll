@@ -407,10 +407,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %wide.trip.count = zext i32 %sz to i64
   br label %for.body
 
-for.cond20.preheader:                             ; preds = %for.inc
-  br i1 %cmp59159.not, label %return, label %for.body22.lr.ph
-
-for.body22.lr.ph:                                 ; preds = %for.cond20.preheader
+for.body22.lr.ph:                                 ; preds = %for.inc
   %m_mark26 = getelementptr inbounds i8, ptr %this, i64 48
   %m_buffer.i59 = getelementptr inbounds i8, ptr %this, i64 40
   %m39 = getelementptr inbounds i8, ptr %this, i64 8
@@ -656,7 +653,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.el
 for.inc:                                          ; preds = %if.then5, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond20.preheader, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.body22.lr.ph, label %for.body, !llvm.loop !13
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc49
   %indvars.iv164 = phi i64 [ 0, %for.body22.lr.ph ], [ %indvars.iv.next165, %for.inc49 ]
@@ -911,8 +908,8 @@ for.end88:                                        ; preds = %for.body77, %for.en
   %call89 = tail call noundef ptr @_ZN23linear_equation_manager7mk_coreEjP3mpzPj(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %sz.addr.0189197, ptr noundef %as, ptr noundef %xs)
   br label %return
 
-return:                                           ; preds = %for.cond.preheader, %for.cond20.preheader, %for.end51, %for.end88
-  %retval.0 = phi ptr [ %call89, %for.end88 ], [ null, %for.end51 ], [ null, %for.cond20.preheader ], [ null, %for.cond.preheader ]
+return:                                           ; preds = %for.cond.preheader, %for.end51, %for.end88
+  %retval.0 = phi ptr [ %call89, %for.end88 ], [ null, %for.end51 ], [ null, %for.cond.preheader ]
   ret ptr %retval.0
 }
 

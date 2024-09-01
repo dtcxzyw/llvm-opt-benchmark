@@ -25151,8 +25151,8 @@ if.end4.i:                                        ; preds = %if.end.i
 while.cond.i:                                     ; preds = %call.i.i3.i.noexc, %if.end4.i
   %7 = load ptr, ptr %_M_begin.i, align 8
   %8 = load ptr, ptr %_M_end.i, align 8
-  %cmp.i.not.not.i.not = icmp ne ptr %7, %8
-  br i1 %cmp.i.not.not.i.not, label %while.body.i, label %if.end21
+  %cmp.i.not.not.i.not.not = icmp ne ptr %7, %8
+  br i1 %cmp.i.not.not.i.not.not, label %while.body.i, label %if.end21
 
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 1
@@ -25166,7 +25166,7 @@ call.i.i3.i.noexc:                                ; preds = %while.body.i
   br i1 %call.i.i3.i45, label %if.end21, label %while.cond.i, !llvm.loop !200
 
 if.end21:                                         ; preds = %call.i.i3.i.noexc, %while.cond.i, %if.end.i, %call.i.i.i.noexc, %if.then15
-  %__ret.0.in = phi i1 [ %call.i.i43, %if.then15 ], [ true, %call.i.i.i.noexc ], [ false, %if.end.i ], [ %cmp.i.not.not.i.not, %while.cond.i ], [ %cmp.i.not.not.i.not, %call.i.i3.i.noexc ]
+  %__ret.0.in = phi i1 [ %call.i.i43, %if.then15 ], [ true, %call.i.i.i.noexc ], [ false, %if.end.i ], [ %cmp.i.not.not.i.not.not, %while.cond.i ], [ %cmp.i.not.not.i.not.not, %call.i.i3.i.noexc ]
   %_M_states.i = getelementptr inbounds i8, ptr %__executor, i64 96
   %_M_visited_states.i.i = getelementptr inbounds i8, ptr %__executor, i64 120
   %9 = load ptr, ptr %_M_visited_states.i.i, align 8
@@ -25693,8 +25693,8 @@ if.end4:                                          ; preds = %if.end
 while.cond:                                       ; preds = %while.body, %if.end4
   %5 = load ptr, ptr %_M_begin.i, align 8
   %6 = load ptr, ptr %_M_end, align 8
-  %cmp.i.not.not = icmp ne ptr %5, %6
-  br i1 %cmp.i.not.not, label %while.body, label %return
+  %cmp.i.not.not.not = icmp ne ptr %5, %6
+  br i1 %cmp.i.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 1
@@ -25712,7 +25712,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %tobool.i.i.i8, label %return, label %while.cond, !llvm.loop !203
 
 return:                                           ; preds = %while.cond, %while.body, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp.i.not.not, %while.body ], [ %cmp.i.not.not, %while.cond ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp.i.not.not.not, %while.body ], [ %cmp.i.not.not.not, %while.cond ]
   ret i1 %retval.0
 }
 

@@ -81,10 +81,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph63
 
-.preheader:                                       ; preds = %.lr.ph63
-  br i1 %.not60, label %._crit_edge72, label %.lr.ph71
-
-.lr.ph71:                                         ; preds = %.preheader
+.lr.ph71:                                         ; preds = %.lr.ph63
   %10 = mul i32 %3, %0
   %.promoted = load i32, ptr %5, align 4
   %11 = zext nneg i32 %3 to i64
@@ -102,7 +99,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   store i32 %17, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond74.not, label %.preheader, label %.lr.ph63, !llvm.loop !6
+  br i1 %exitcond74.not, label %.lr.ph71, label %.lr.ph63, !llvm.loop !6
 
 .lr.ph67:                                         ; preds = %.lr.ph71, %._crit_edge68
   %indvars.iv80 = phi i64 [ 1, %.lr.ph71 ], [ %indvars.iv.next81, %._crit_edge68 ]
@@ -143,7 +140,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %11
   br i1 %exitcond84.not, label %._crit_edge72, label %.lr.ph67, !llvm.loop !8
 
-._crit_edge72:                                    ; preds = %._crit_edge68, %._crit_edge, %.preheader
+._crit_edge72:                                    ; preds = %._crit_edge68, %._crit_edge
   %39 = sext i32 %0 to i64
   %40 = getelementptr inbounds i32, ptr %5, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -3690,8 +3687,8 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   %wide.trip.count150 = zext nneg i32 %.val89 to i64
   %wide.trip.count155 = zext nneg i32 %.val89 to i64
   %32 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %12, ptr noundef %.val95, i32 noundef %.val89) #23
-  %.not162 = icmp eq i32 %32, 1
-  br i1 %.not162, label %.preheader125, label %.critedge.thread._crit_edge
+  %.not161 = icmp eq i32 %32, 1
+  br i1 %.not161, label %.preheader125, label %.critedge.thread._crit_edge
 
 .lr.ph130thread-pre-split:                        ; preds = %Vec_IntPush.exit
   %.pr = load i32, ptr %4, align 4
@@ -3773,9 +3770,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not, label %.preheader125, label %.critedge.thread._crit_edge, !llvm.loop !58
 
 .preheader125:                                    ; preds = %.preheader126, %64
-  %.079138165 = phi i64 [ %spec.select, %64 ], [ 0, %.preheader126 ]
-  %.077139164 = phi i64 [ %.178.lcssa, %64 ], [ 0, %.preheader126 ]
-  %.1140163 = phi i32 [ %84, %64 ], [ 0, %.preheader126 ]
+  %.079138164 = phi i64 [ %spec.select, %64 ], [ 0, %.preheader126 ]
+  %.077139163 = phi i64 [ %.178.lcssa, %64 ], [ 0, %.preheader126 ]
+  %.1140162 = phi i32 [ %84, %64 ], [ 0, %.preheader126 ]
   br i1 %29, label %.lr.ph132, label %.critedge.thread
 
 .lr.ph132:                                        ; preds = %.preheader125, %.lr.ph132
@@ -3791,32 +3788,26 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .critedge:                                        ; preds = %.lr.ph132
   %69 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef nonnull %.val95, ptr noundef nonnull %31) #23
   %.not85 = icmp eq i32 %69, 0
-  br i1 %.not85, label %.critedge.thread._crit_edge, label %.preheader
+  br i1 %.not85, label %.critedge.thread._crit_edge, label %.lr.ph134
 
 .critedge.thread:                                 ; preds = %.preheader125
   %70 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef %.val95, ptr noundef %31) #23
   %.not85160 = icmp eq i32 %70, 0
   br i1 %.not85160, label %.critedge.thread._crit_edge, label %.critedge4
 
-.preheader:                                       ; preds = %.critedge
-  br i1 %29, label %.lr.ph134, label %.critedge4
-
-.critedge2.preheader:                             ; preds = %.lr.ph134
-  br i1 %29, label %.critedge2, label %.critedge4
-
-.lr.ph134:                                        ; preds = %.preheader, %.lr.ph134
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph134 ], [ 0, %.preheader ]
+.lr.ph134:                                        ; preds = %.critedge, %.lr.ph134
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph134 ], [ 0, %.critedge ]
   %71 = getelementptr inbounds i32, ptr %.val95, i64 %indvars.iv147
   %72 = load i32, ptr %71, align 4
   %73 = xor i32 %72, 1
   store i32 %73, ptr %71, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.critedge2.preheader, label %.lr.ph134, !llvm.loop !60
+  br i1 %exitcond151.not, label %.critedge2, label %.lr.ph134, !llvm.loop !60
 
-.critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %.178136 = phi i64 [ %.2, %.critedge2 ], [ 0, %.critedge2.preheader ]
+.critedge2:                                       ; preds = %.lr.ph134, %.critedge2
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge2 ], [ 0, %.lr.ph134 ]
+  %.178136 = phi i64 [ %.2, %.critedge2 ], [ 0, %.lr.ph134 ]
   %74 = getelementptr inbounds i32, ptr %.val95, i64 %indvars.iv152
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 1
@@ -3832,17 +3823,17 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %.critedge4, label %.critedge2, !llvm.loop !61
 
-.critedge4:                                       ; preds = %.critedge2, %.critedge.thread, %.preheader, %.critedge2.preheader
-  %.178.lcssa = phi i64 [ 0, %.critedge2.preheader ], [ 0, %.preheader ], [ 0, %.critedge.thread ], [ %.2, %.critedge2 ]
-  %83 = icmp eq i64 %.079138165, 0
-  %spec.select = select i1 %83, i64 %.178.lcssa, i64 %.079138165
-  %84 = add nuw nsw i32 %.1140163, 1
+.critedge4:                                       ; preds = %.critedge2, %.critedge.thread
+  %.178.lcssa = phi i64 [ 0, %.critedge.thread ], [ %.2, %.critedge2 ]
+  %83 = icmp eq i64 %.079138164, 0
+  %spec.select = select i1 %83, i64 %.178.lcssa, i64 %.079138164
+  %84 = add nuw nsw i32 %.1140162, 1
   %exitcond157.not = icmp eq i32 %84, 1000
   br i1 %exitcond157.not, label %.critedge.thread._crit_edge, label %64, !llvm.loop !58
 
 .critedge.thread._crit_edge:                      ; preds = %.critedge4, %64, %.critedge, %.critedge.thread, %.preheader126
-  %.079.lcssa = phi i64 [ 0, %.preheader126 ], [ %spec.select, %.critedge4 ], [ %spec.select, %64 ], [ %.079138165, %.critedge ], [ %.079138165, %.critedge.thread ]
-  %.077.lcssa = phi i64 [ 0, %.preheader126 ], [ %.178.lcssa, %.critedge4 ], [ %.178.lcssa, %64 ], [ %.077139164, %.critedge ], [ %.077139164, %.critedge.thread ]
+  %.079.lcssa = phi i64 [ 0, %.preheader126 ], [ %spec.select, %.critedge4 ], [ %spec.select, %64 ], [ %.079138164, %.critedge ], [ %.079138164, %.critedge.thread ]
+  %.077.lcssa = phi i64 [ 0, %.preheader126 ], [ %.178.lcssa, %.critedge4 ], [ %.178.lcssa, %64 ], [ %.077139163, %.critedge ], [ %.077139163, %.critedge.thread ]
   %85 = sub i64 %.077.lcssa, %.079.lcssa
   br label %86
 

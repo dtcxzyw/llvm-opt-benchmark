@@ -1896,12 +1896,9 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.body11.lr.ph, label %for.body, !llvm.loop !42
 
-for.cond8.preheader:                              ; preds = %for.cond
-  br i1 %cmp341.not, label %for.end17, label %for.body11.lr.ph
-
-for.body11.lr.ph:                                 ; preds = %for.cond8.preheader
+for.body11.lr.ph:                                 ; preds = %for.cond
   %mMeshes12 = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body11
 
@@ -1960,10 +1957,10 @@ for.end17.loopexit:                               ; preds = %for.inc15
   %11 = zext i32 %8 to i64
   br label %for.end17
 
-for.end17:                                        ; preds = %if.end, %for.cond8.preheader, %for.end17.loopexit
-  %12 = phi ptr [ %.pre53, %for.end17.loopexit ], [ null, %for.cond8.preheader ], [ null, %if.end ]
-  %13 = phi ptr [ %.pre, %for.end17.loopexit ], [ null, %for.cond8.preheader ], [ null, %if.end ]
-  %.lcssa = phi i64 [ %11, %for.end17.loopexit ], [ 0, %for.cond8.preheader ], [ 0, %if.end ]
+for.end17:                                        ; preds = %if.end, %for.end17.loopexit
+  %12 = phi ptr [ %.pre53, %for.end17.loopexit ], [ null, %if.end ]
+  %13 = phi ptr [ %.pre, %for.end17.loopexit ], [ null, %if.end ]
+  %.lcssa = phi i64 [ %11, %for.end17.loopexit ], [ 0, %if.end ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

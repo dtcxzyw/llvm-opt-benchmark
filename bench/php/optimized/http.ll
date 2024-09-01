@@ -102,13 +102,13 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
-  %.not217228 = icmp eq i32 %29, 0
-  br i1 %.not217228, label %.loopexit, label %.lr.ph
+  %.not217229 = icmp eq i32 %29, 0
+  br i1 %.not217229, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %.not233 = icmp eq ptr %5, null
+  %.not227 = icmp eq ptr %5, null
   %32 = icmp eq i32 %7, 2
   %.not221 = icmp eq ptr %4, null
   %33 = getelementptr inbounds i8, ptr %4, i64 24
@@ -127,35 +127,35 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %482
-  %.0198232 = phi i32 [ %29, %.lr.ph ], [ %483, %482 ]
-  %.0199231 = phi ptr [ %31, %.lr.ph ], [ %.1200, %482 ]
-  %.0201230 = phi ptr [ null, %.lr.ph ], [ %.1202, %482 ]
-  %.0203229 = phi i32 [ 0, %.lr.ph ], [ %.1204, %482 ]
+  %.0198233 = phi i32 [ %29, %.lr.ph ], [ %483, %482 ]
+  %.0199232 = phi ptr [ %31, %.lr.ph ], [ %.1200, %482 ]
+  %.0201231 = phi ptr [ null, %.lr.ph ], [ %.1202, %482 ]
+  %.0203230 = phi i32 [ 0, %.lr.ph ], [ %.1204, %482 ]
   %45 = load i32, ptr %27, align 8
   %46 = and i32 %45, 4
   %.not218 = icmp eq i32 %46, 0
   br i1 %.not218, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %.0199231, i64 16
-  %49 = zext i32 %.0203229 to i64
-  %50 = add i32 %.0203229, 1
+  %48 = getelementptr inbounds i8, ptr %.0199232, i64 16
+  %49 = zext i32 %.0203230 to i64
+  %50 = add i32 %.0203230, 1
   br label %57
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %.0199231, i64 32
-  %53 = getelementptr inbounds i8, ptr %.0199231, i64 16
+  %52 = getelementptr inbounds i8, ptr %.0199232, i64 32
+  %53 = getelementptr inbounds i8, ptr %.0199232, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.0199231, i64 24
+  %55 = getelementptr inbounds i8, ptr %.0199232, i64 24
   %56 = load ptr, ptr %55, align 8
   br label %57
 
 57:                                               ; preds = %51, %47
-  %.1204 = phi i32 [ %50, %47 ], [ %.0203229, %51 ]
-  %.1202 = phi ptr [ %.0201230, %47 ], [ %56, %51 ]
+  %.1204 = phi i32 [ %50, %47 ], [ %.0203230, %51 ]
+  %.1202 = phi ptr [ %.0201231, %47 ], [ %56, %51 ]
   %.1200 = phi ptr [ %48, %47 ], [ %52, %51 ]
   %.0197 = phi i64 [ %49, %47 ], [ %54, %51 ]
-  %58 = getelementptr inbounds i8, ptr %.0199231, i64 8
+  %58 = getelementptr inbounds i8, ptr %.0199232, i64 8
   %59 = load i8, ptr %58, align 8
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %482, label %61
@@ -165,14 +165,14 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr %.0199231, align 8
+  %64 = load ptr, ptr %.0199232, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 8
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %482, label %68
 
 68:                                               ; preds = %63, %61
-  %.0195 = phi ptr [ %.0199231, %61 ], [ %64, %63 ]
+  %.0195 = phi ptr [ %.0199232, %61 ], [ %64, %63 ]
   %.not219 = icmp eq ptr %.1202, null
   br i1 %.not219, label %82, label %69
 
@@ -182,7 +182,7 @@ define void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef 
   %71 = getelementptr inbounds i8, ptr %.1202, i64 16
   %72 = load i64, ptr %71, align 8
   store i64 %72, ptr %12, align 8
-  br i1 %.not233, label %.thread, label %73
+  br i1 %.not227, label %.thread, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %5, align 8
@@ -1063,7 +1063,7 @@ php_url_encode_scalar.exit:                       ; preds = %358, %370, %371, %4
   br label %482
 
 482:                                              ; preds = %90, %90, %php_url_encode_scalar.exit, %183, %188, %179, %73, %63, %57
-  %483 = add i32 %.0198232, -1
+  %483 = add i32 %.0198233, -1
   %.not217 = icmp eq i32 %483, 0
   br i1 %.not217, label %.loopexit, label %44
 

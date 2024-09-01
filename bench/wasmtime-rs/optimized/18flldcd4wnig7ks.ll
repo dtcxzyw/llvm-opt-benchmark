@@ -10297,9 +10297,6 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.49.0..sroa_idx.i, align 8, !noalias !1852
   %.sroa.510.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 16
   store i64 0, ptr %.sroa.510.0..sroa_idx.i, align 8, !noalias !1852
-  br i1 %71, label %.loopexit, label %.lr.ph30.i
-
-.lr.ph30.i:                                       ; preds = %._crit_edge548
   %100 = getelementptr inbounds i8, ptr %56, i64 8
   %101 = getelementptr inbounds i8, ptr %56, i64 16
   %102 = trunc i64 %64 to i32
@@ -10317,8 +10314,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   invoke void @"_ZN4core3ptr169drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..DefinedFuncIndex$C$wasmtime_cranelift..debug..transform..address_transform..FunctionMap$GT$$GT$17haa3d4e3de6045754E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #37
           to label %.thread unwind label %187, !noalias !1852
 
-104:                                              ; preds = %158, %.lr.ph30.i
-  %.sroa.01.028.i = phi ptr [ %67, %.lr.ph30.i ], [ %105, %158 ]
+104:                                              ; preds = %158, %._crit_edge548
+  %.sroa.01.028.i = phi ptr [ %67, %._crit_edge548 ], [ %105, %158 ]
   %105 = getelementptr inbounds i8, ptr %.sroa.01.028.i, i64 8
   %106 = load ptr, ptr %.sroa.01.028.i, align 8, !noalias !1852, !nonnull !9, !align !209, !noundef !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56), !noalias !1852
@@ -12228,7 +12225,7 @@ thread-pre-split.i:                               ; preds = %.noexc227.i, %.loop
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cranelift..debug..transform..address_transform..Range$GT$$GT$17he39a582917754b8eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #37
           to label %.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, !noalias !1881
 
-.loopexit:                                        ; preds = %158, %._crit_edge548.thread, %._crit_edge548
+.loopexit:                                        ; preds = %158, %._crit_edge548.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57), !noalias !1852
   %.sroa.092.0.copyload = load ptr, ptr %62, align 8

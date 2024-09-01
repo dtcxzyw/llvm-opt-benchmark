@@ -1260,7 +1260,7 @@ for.body.lr.ph.split.us:                          ; preds = %_ZNK3sat14clause_wr
   br i1 %cmp.i5.us15, label %return, label %for.cond.us.preheader
 
 for.cond.us.preheader:                            ; preds = %for.body.lr.ph.split.us
-  %5 = zext i32 %3 to i64
+  %wide.trip.count = zext i32 %3 to i64
   br label %for.cond.us
 
 for.body.us:                                      ; preds = %for.cond.us
@@ -1268,17 +1268,17 @@ for.body.us:                                      ; preds = %for.cond.us
   %retval.sroa.0.0.copyload.i.us = load i32, ptr %arrayidx.i.i.us, align 4
   %cmp.i5.us = icmp eq i32 %retval.sroa.0.0.copyload.i.us, %l.coerce
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %cmp.i5.us, label %return.loopexit, label %for.cond.us, !llvm.loop !10
+  br i1 %cmp.i5.us, label %return, label %for.cond.us, !llvm.loop !10
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.body.us
   %indvars.iv = phi i64 [ 1, %for.cond.us.preheader ], [ %indvars.iv.next, %for.body.us ]
-  %exitcond21.not = icmp eq i64 %indvars.iv, %5
-  br i1 %exitcond21.not, label %return.loopexit, label %for.body.us, !llvm.loop !10
+  %exitcond21.not.not.not = icmp ne i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond21.not.not.not, label %for.body.us, label %return, !llvm.loop !10
 
 for.body.lr.ph.split:                             ; preds = %entry
-  %6 = ptrtoint ptr %2 to i64
-  %7 = trunc i64 %6 to i32
-  %cmp.i511 = icmp eq i32 %l.coerce, %7
+  %5 = ptrtoint ptr %2 to i64
+  %6 = trunc i64 %5 to i32
+  %cmp.i511 = icmp eq i32 %l.coerce, %6
   br i1 %cmp.i511, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.body.lr.ph.split
@@ -1287,23 +1287,15 @@ for.cond.preheader:                               ; preds = %for.body.lr.ph.spli
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
   %inc12 = phi i32 [ %inc, %for.body ], [ 1, %for.cond.preheader ]
-  %exitcond.not = icmp eq i32 %inc12, 2
-  br i1 %exitcond.not, label %return.loopexit29, label %for.body, !llvm.loop !10
+  %exitcond.not.not.not = icmp ne i32 %inc12, 2
+  br i1 %exitcond.not.not.not, label %for.body, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond
   %inc = add i32 %inc12, 1
-  br i1 %cmp.i5, label %return.loopexit29, label %for.cond, !llvm.loop !10
+  br i1 %cmp.i5, label %return, label %for.cond, !llvm.loop !10
 
-return.loopexit:                                  ; preds = %for.cond.us, %for.body.us
-  %cmp.us.le = icmp ult i64 %indvars.iv, %5
-  br label %return
-
-return.loopexit29:                                ; preds = %for.cond, %for.body
-  %cmp.le = icmp ult i32 %inc12, 2
-  br label %return
-
-return:                                           ; preds = %return.loopexit29, %return.loopexit, %for.body.lr.ph.split.us, %for.body.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
-  %cmp.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %for.body.lr.ph.split.us ], [ true, %for.body.lr.ph.split ], [ %cmp.us.le, %return.loopexit ], [ %cmp.le, %return.loopexit29 ]
+return:                                           ; preds = %for.body, %for.cond, %for.body.us, %for.cond.us, %for.body.lr.ph.split.us, %for.body.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
+  %cmp.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %for.body.lr.ph.split.us ], [ true, %for.body.lr.ph.split ], [ %exitcond21.not.not.not, %for.cond.us ], [ %exitcond21.not.not.not, %for.body.us ], [ %exitcond.not.not.not, %for.cond ], [ %exitcond.not.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -1333,7 +1325,7 @@ for.body.lr.ph.split.us:                          ; preds = %_ZNK3sat14clause_wr
   br i1 %cmp4.us16, label %return, label %for.cond.us.preheader
 
 for.cond.us.preheader:                            ; preds = %for.body.lr.ph.split.us
-  %5 = zext i32 %3 to i64
+  %wide.trip.count = zext i32 %3 to i64
   br label %for.cond.us
 
 for.body.us:                                      ; preds = %for.cond.us
@@ -1342,17 +1334,17 @@ for.body.us:                                      ; preds = %for.cond.us
   %shr.i.us = lshr i32 %retval.sroa.0.0.copyload.i.us, 1
   %cmp4.us = icmp eq i32 %shr.i.us, %v
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %cmp4.us, label %return.loopexit, label %for.cond.us, !llvm.loop !11
+  br i1 %cmp4.us, label %return, label %for.cond.us, !llvm.loop !11
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.body.us
   %indvars.iv = phi i64 [ 1, %for.cond.us.preheader ], [ %indvars.iv.next, %for.body.us ]
-  %exitcond22.not = icmp eq i64 %indvars.iv, %5
-  br i1 %exitcond22.not, label %return.loopexit, label %for.body.us, !llvm.loop !11
+  %exitcond22.not.not.not = icmp ne i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond22.not.not.not, label %for.body.us, label %return, !llvm.loop !11
 
 for.body.lr.ph.split:                             ; preds = %entry
-  %6 = ptrtoint ptr %2 to i64
-  %7 = trunc i64 %6 to i32
-  %shr.i10 = lshr i32 %7, 1
+  %5 = ptrtoint ptr %2 to i64
+  %6 = trunc i64 %5 to i32
+  %shr.i10 = lshr i32 %6, 1
   %cmp411 = icmp eq i32 %shr.i10, %v
   br i1 %cmp411, label %return, label %for.cond.preheader
 
@@ -1363,23 +1355,15 @@ for.cond.preheader:                               ; preds = %for.body.lr.ph.spli
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
   %inc12 = phi i32 [ %inc, %for.body ], [ 1, %for.cond.preheader ]
-  %exitcond.not = icmp eq i32 %inc12, 2
-  br i1 %exitcond.not, label %return.loopexit30, label %for.body, !llvm.loop !11
+  %exitcond.not.not.not = icmp ne i32 %inc12, 2
+  br i1 %exitcond.not.not.not, label %for.body, label %return, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond
   %inc = add i32 %inc12, 1
-  br i1 %cmp4, label %return.loopexit30, label %for.cond, !llvm.loop !11
+  br i1 %cmp4, label %return, label %for.cond, !llvm.loop !11
 
-return.loopexit:                                  ; preds = %for.cond.us, %for.body.us
-  %cmp.us.le = icmp ult i64 %indvars.iv, %5
-  br label %return
-
-return.loopexit30:                                ; preds = %for.cond, %for.body
-  %cmp.le = icmp ult i32 %inc12, 2
-  br label %return
-
-return:                                           ; preds = %return.loopexit30, %return.loopexit, %for.body.lr.ph.split.us, %for.body.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
-  %cmp.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %for.body.lr.ph.split.us ], [ true, %for.body.lr.ph.split ], [ %cmp.us.le, %return.loopexit ], [ %cmp.le, %return.loopexit30 ]
+return:                                           ; preds = %for.body, %for.cond, %for.body.us, %for.cond.us, %for.body.lr.ph.split.us, %for.body.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
+  %cmp.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %for.body.lr.ph.split.us ], [ true, %for.body.lr.ph.split ], [ %exitcond22.not.not.not, %for.cond.us ], [ %exitcond22.not.not.not, %for.body.us ], [ %exitcond.not.not.not, %for.cond ], [ %exitcond.not.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 

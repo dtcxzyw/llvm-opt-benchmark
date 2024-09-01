@@ -72,20 +72,19 @@ define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly %1) 
 
 .split.us.preheader:                              ; preds = %2
   %.not.i.us46 = icmp eq ptr %0, null
-  br i1 %.not.i.us46, label %.preheader, label %list_length.exit.us
+  br i1 %.not.i.us46, label %.thread, label %list_length.exit.us
 
 list_length.exit.us:                              ; preds = %.split.us.preheader, %.split.us
-  %.not.i.us48 = phi i1 [ %.not.i.us, %.split.us ], [ %.not.i.us46, %.split.us.preheader ]
   %.0.us47 = phi ptr [ %7, %.split.us ], [ %0, %.split.us.preheader ]
   %4 = getelementptr inbounds i8, ptr %.0.us47, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %.split.us, label %.preheader
+  br i1 %6, label %.split.us, label %.thread
 
 .split.us:                                        ; preds = %list_length.exit.us
   %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us47, ptr noundef null) #5
   %.not.i.us = icmp eq ptr %7, null
-  br i1 %.not.i.us, label %.preheader, label %list_length.exit.us, !llvm.loop !7
+  br i1 %.not.i.us, label %.thread, label %list_length.exit.us, !llvm.loop !7
 
 .split:                                           ; preds = %2, %17
   %.0 = phi ptr [ %18, %17 ], [ %0, %2 ]
@@ -102,28 +101,21 @@ list_length.exit.thread:                          ; preds = %.split
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %3, align 4
   %13 = icmp slt i32 %11, %12
-  br i1 %13, label %17, label %.preheader.split30.split.preheader
+  br i1 %13, label %17, label %.preheader.thread.thread
 
-.preheader:                                       ; preds = %list_length.exit.us, %.split.us, %.split.us.preheader
-  %.not.i.us.lcssa = phi i1 [ %.not.i.us46, %.split.us.preheader ], [ %.not.i.us48, %list_length.exit.us ], [ %.not.i.us, %.split.us ]
-  %.us-phi28 = phi ptr [ null, %.split.us.preheader ], [ %.0.us47, %list_length.exit.us ], [ null, %.split.us ]
-  %brmerge = or i1 %.not.i26, %.not.i.us.lcssa
-  br i1 %brmerge, label %.thread, label %.preheader.split30.split.preheader
-
-.preheader.split30.split.preheader:               ; preds = %list_length.exit.thread, %.preheader
-  %.us-phi283941 = phi ptr [ %.us-phi28, %.preheader ], [ %.0, %list_length.exit.thread ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %.us-phi283941, i64 16
-  %16 = getelementptr inbounds i8, ptr %.us-phi283941, i64 4
+.preheader.thread.thread:                         ; preds = %list_length.exit.thread
+  %14 = getelementptr inbounds i8, ptr %.0, i64 4
+  %15 = getelementptr inbounds i8, ptr %.0, i64 16
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.preheader.split30.split
 
 17:                                               ; preds = %list_length.exit.thread, %list_length.exit
   %18 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #5
   br label %.split, !llvm.loop !7
 
-.preheader.split30.split:                         ; preds = %.preheader.split30.split.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.preheader.split30.split.preheader ], [ %indvars.iv.next, %36 ]
-  %19 = load i32, ptr %16, align 4
+.preheader.split30.split:                         ; preds = %.preheader.thread.thread, %36
+  %indvars.iv = phi i64 [ 0, %.preheader.thread.thread ], [ %indvars.iv.next, %36 ]
+  %19 = load i32, ptr %14, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv, %20
   br i1 %21, label %22, label %25
@@ -141,7 +133,7 @@ list_length.exit.thread:                          ; preds = %.split
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %14, align 8
+  %31 = load ptr, ptr %16, align 8
   %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv
   %33 = icmp ne ptr %26, null
   %34 = icmp ne ptr %32, null
@@ -156,8 +148,8 @@ list_length.exit.thread:                          ; preds = %.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.preheader.split30.split, !llvm.loop !8
 
-.thread:                                          ; preds = %list_length.exit, %25, %30, %.preheader
-  %.us-phi2838 = phi ptr [ %.us-phi28, %.preheader ], [ %.us-phi283941, %30 ], [ %.us-phi283941, %25 ], [ %.0, %list_length.exit ]
+.thread:                                          ; preds = %list_length.exit, %25, %30, %.split.us, %list_length.exit.us, %.split.us.preheader
+  %.us-phi2838 = phi ptr [ null, %.split.us.preheader ], [ %.0.us47, %list_length.exit.us ], [ null, %.split.us ], [ %.0, %30 ], [ %.0, %25 ], [ %.0, %list_length.exit ]
   ret ptr %.us-phi2838
 }
 

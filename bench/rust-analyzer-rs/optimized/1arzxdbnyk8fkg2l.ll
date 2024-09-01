@@ -3446,9 +3446,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   %11 = load i64, ptr %8, align 8, !range !183
   %.not5 = icmp eq i64 %11, -9223372036854775808
   %or.cond = select i1 %.not, i1 true, i1 %.not5
-  br i1 %or.cond, label %13, label %.thread17
+  br i1 %or.cond, label %13, label %.thread15
 
-.thread17:                                        ; preds = %3
+.thread15:                                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
@@ -3501,7 +3501,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   %.not7 = icmp eq i64 %28, -9223372036854775808
   br i1 %.not7, label %29, label %30
 
-29:                                               ; preds = %26, %30
+29:                                               ; preds = %30, %26
   resume { ptr, i32 } %27
 
 30:                                               ; preds = %26
@@ -3514,7 +3514,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-33:                                               ; preds = %.thread17, %15, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17h2673387daed93db3E.exit"
+33:                                               ; preds = %.thread15, %15, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17h2673387daed93db3E.exit"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   ret void
 

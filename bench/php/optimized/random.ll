@@ -750,90 +750,70 @@ define noalias noundef ptr @php_random_bin2hex_le(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define zeroext i1 @php_random_hex2bin_le(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @php_random_hex2bin_le(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = icmp ult i64 %4, 2
-  br i1 %7, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %7, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %8 = load i8, ptr %6, align 1
-  %9 = and i8 %8, -33
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -65
-  %12 = add nsw i32 %10, -71
-  %13 = xor i32 %11, %12
-  %14 = lshr i32 %13, 31
-  %15 = xor i8 %8, 48
-  %16 = zext i8 %15 to i32
-  %17 = add nsw i32 %16, -10
-  %18 = ashr i32 %17, 31
-  %19 = or i32 %14, %18
-  %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph42
+.lr.ph:                                           ; preds = %2, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %2 ]
+  %.034 = phi i64 [ %43, %36 ], [ 0, %2 ]
+  %8 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
+  %9 = load i8, ptr %8, align 1
+  %10 = and i8 %9, -33
+  %11 = zext i8 %10 to i32
+  %12 = add nsw i32 %11, -65
+  %13 = add nsw i32 %11, -71
+  %14 = xor i32 %12, %13
+  %15 = lshr i32 %14, 31
+  %16 = xor i8 %9, 48
+  %17 = zext i8 %16 to i32
+  %18 = add nsw i32 %17, -10
+  %19 = ashr i32 %18, 31
+  %20 = or i32 %15, %19
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %._crit_edge, label %21
 
-.lr.ph:                                           ; preds = %50
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv40, 2
-  %20 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
-  %21 = load i8, ptr %20, align 1
-  %22 = and i8 %21, -33
-  %23 = zext i8 %22 to i32
-  %24 = add nsw i32 %23, -65
-  %25 = add nsw i32 %23, -71
-  %26 = xor i32 %24, %25
-  %27 = lshr i32 %26, 31
-  %28 = xor i8 %21, 48
-  %29 = zext i8 %28 to i32
-  %30 = add nsw i32 %29, -10
-  %31 = ashr i32 %30, 31
-  %32 = or i32 %27, %31
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph42
+21:                                               ; preds = %.lr.ph
+  %22 = or disjoint i64 %indvars.iv, 1
+  %23 = getelementptr inbounds i8, ptr %6, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, -33
+  %26 = zext i8 %25 to i32
+  %27 = add nsw i32 %26, -65
+  %28 = add nsw i32 %26, -71
+  %29 = xor i32 %27, %28
+  %30 = lshr i32 %29, 31
+  %31 = xor i8 %24, 48
+  %32 = zext i8 %31 to i32
+  %33 = add nsw i32 %32, -10
+  %34 = ashr i32 %33, 31
+  %35 = or i32 %30, %34
+  %.not30 = icmp eq i32 %35, 0
+  br i1 %.not30, label %._crit_edge, label %36
 
-.lr.ph42:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %33 = phi i32 [ %26, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %34 = phi i8 [ %21, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.03441 = phi i64 [ %57, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %35 = phi i1 [ %58, %.lr.ph ], [ false, %.lr.ph.preheader ]
-  %indvars.iv40 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %36 = or disjoint i64 %indvars.iv40, 1
-  %37 = getelementptr inbounds i8, ptr %6, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, -33
-  %40 = zext i8 %39 to i32
-  %41 = add nsw i32 %40, -65
-  %42 = add nsw i32 %40, -71
-  %43 = xor i32 %41, %42
-  %44 = lshr i32 %43, 31
-  %45 = xor i8 %38, 48
-  %46 = zext i8 %45 to i32
-  %47 = add nsw i32 %46, -10
-  %48 = ashr i32 %47, 31
-  %49 = or i32 %44, %48
-  %.not30 = icmp eq i32 %49, 0
-  br i1 %.not30, label %._crit_edge, label %50
-
-50:                                               ; preds = %.lr.ph42
-  %isneg = icmp slt i32 %33, 0
+36:                                               ; preds = %21
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
+  %isneg = icmp slt i32 %14, 0
   %.neg = select i1 %isneg, i8 9, i8 0
-  %51 = add i8 %.neg, %34
-  %52 = shl i8 %51, 4
-  %53 = add i8 %39, -16
-  %isneg31 = icmp slt i32 %43, 0
+  %37 = add i8 %.neg, %9
+  %38 = shl i8 %37, 4
+  %39 = add i8 %25, -16
+  %isneg31 = icmp slt i32 %29, 0
   %.neg32 = select i1 %isneg31, i8 -39, i8 0
-  %54 = add i8 %53, %.neg32
-  %55 = or i8 %54, %52
-  %56 = getelementptr inbounds i8, ptr %1, i64 %.03441
-  store i8 %55, ptr %56, align 1
-  %57 = add nuw nsw i64 %.03441, 1
-  %58 = icmp uge i64 %57, %5
-  %exitcond = icmp eq i64 %57, %5
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph
+  %40 = add i8 %39, %.neg32
+  %41 = or i8 %40, %38
+  %42 = getelementptr inbounds i8, ptr %1, i64 %.034
+  store i8 %41, ptr %42, align 1
+  %43 = add nuw nsw i64 %.034, 1
+  %exitcond.not = icmp eq i64 %43, %5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %50, %.lr.ph42, %.lr.ph, %.lr.ph.preheader, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph.preheader ], [ %58, %.lr.ph ], [ %35, %.lr.ph42 ], [ %58, %50 ]
+._crit_edge:                                      ; preds = %.lr.ph, %21, %36, %2
+  %.lcssa = phi i1 [ true, %2 ], [ true, %36 ], [ false, %21 ], [ false, %.lr.ph ]
   ret i1 %.lcssa
 }
 

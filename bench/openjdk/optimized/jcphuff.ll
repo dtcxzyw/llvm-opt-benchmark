@@ -989,9 +989,6 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
 ._crit_edge:                                      ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %5, i64 96
   %45 = getelementptr inbounds i8, ptr %5, i64 88
-  br i1 %.not96187, label %._crit_edge205, label %.lr.ph204
-
-.lr.ph204:                                        ; preds = %._crit_edge
   %46 = load ptr, ptr %44, align 8
   %47 = load i32, ptr %45, align 8
   %48 = zext i32 %47 to i64
@@ -1009,11 +1006,11 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   %60 = add i32 %7, 1
   br label %61
 
-61:                                               ; preds = %.lr.ph204, %581
-  %indvars.iv224 = phi i64 [ %58, %.lr.ph204 ], [ %indvars.iv.next225, %581 ]
-  %.080202 = phi i32 [ 0, %.lr.ph204 ], [ %.1, %581 ]
-  %.083200 = phi i32 [ 0, %.lr.ph204 ], [ %.184, %581 ]
-  %.086199 = phi ptr [ %49, %.lr.ph204 ], [ %.187, %581 ]
+61:                                               ; preds = %._crit_edge, %581
+  %indvars.iv224 = phi i64 [ %58, %._crit_edge ], [ %indvars.iv.next225, %581 ]
+  %.080202 = phi i32 [ 0, %._crit_edge ], [ %.1, %581 ]
+  %.083200 = phi i32 [ 0, %._crit_edge ], [ %.184, %581 ]
+  %.086199 = phi ptr [ %49, %._crit_edge ], [ %.187, %581 ]
   %62 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv224
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
@@ -2016,10 +2013,10 @@ emit_buffered_bits.exit107:                       ; preds = %emit_bits.exit173, 
   %582 = icmp sgt i32 %.1, 0
   br label %._crit_edge205
 
-._crit_edge205:                                   ; preds = %._crit_edge.thread, %._crit_edge205.loopexit, %._crit_edge
-  %583 = phi ptr [ %45, %._crit_edge ], [ %45, %._crit_edge205.loopexit ], [ %31, %._crit_edge.thread ]
-  %.083.lcssa = phi i32 [ 0, %._crit_edge ], [ %.184, %._crit_edge205.loopexit ], [ 0, %._crit_edge.thread ]
-  %.080.lcssa = phi i1 [ false, %._crit_edge ], [ %582, %._crit_edge205.loopexit ], [ false, %._crit_edge.thread ]
+._crit_edge205:                                   ; preds = %._crit_edge.thread, %._crit_edge205.loopexit
+  %583 = phi ptr [ %45, %._crit_edge205.loopexit ], [ %31, %._crit_edge.thread ]
+  %.083.lcssa = phi i32 [ %.184, %._crit_edge205.loopexit ], [ 0, %._crit_edge.thread ]
+  %.080.lcssa = phi i1 [ %582, %._crit_edge205.loopexit ], [ false, %._crit_edge.thread ]
   %584 = icmp ne i32 %.083.lcssa, 0
   %or.cond = select i1 %.080.lcssa, i1 true, i1 %584
   br i1 %or.cond, label %585, label %594

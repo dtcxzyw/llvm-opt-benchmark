@@ -687,7 +687,7 @@ lor.rhs:                                          ; preds = %invoke.cont4
   %bf.load.i11.pre = load i16, ptr %d_kind.i10.phi.trans.insert, align 8
   %bf.clear.i12 = and i16 %bf.load.i11.pre, 1023
   %cmp8 = icmp eq i16 %bf.clear.i12, 18
-  br i1 %cmp8, label %land.lhs.true9, label %cleanup.done42.thread170
+  br i1 %cmp8, label %land.lhs.true9, label %cleanup.action55
 
 lor.rhs.thread:                                   ; preds = %entry
   %bf.clear.i12183 = and i16 %bf.load.i, 1023
@@ -914,9 +914,6 @@ terminate.lpad.i125:                              ; preds = %if.then13.i.i124
   call void @__clang_call_terminate(ptr %22) #12
   unreachable
 
-cleanup.done42.thread170:                         ; preds = %lor.rhs
-  br i1 %cmp, label %cleanup.action55, label %cleanup.done63
-
 cleanup.action48:                                 ; preds = %if.then13.i.i124, %if.then.i.i118, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %invoke.cont11
   %23 = phi i1 [ false, %invoke.cont11 ], [ %cmp.i104, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %cmp.i104, %if.then.i.i118 ], [ %cmp.i104, %if.then13.i.i124 ]
   %bf.load.i.i127 = load i64, ptr %5, align 8
@@ -951,9 +948,9 @@ cleanup.done49.cleanup.action55_crit_edge:        ; preds = %cleanup.done49
   %.pre181 = load ptr, ptr %ref.tmp, align 8
   br label %cleanup.action55
 
-cleanup.action55:                                 ; preds = %cleanup.done49.cleanup.action55_crit_edge, %invoke.cont4, %cleanup.done42.thread170
-  %27 = phi ptr [ %3, %cleanup.done42.thread170 ], [ %.pre181, %cleanup.done49.cleanup.action55_crit_edge ], [ %3, %invoke.cont4 ]
-  %28 = phi i1 [ false, %cleanup.done42.thread170 ], [ %23, %cleanup.done49.cleanup.action55_crit_edge ], [ true, %invoke.cont4 ]
+cleanup.action55:                                 ; preds = %lor.rhs, %cleanup.done49.cleanup.action55_crit_edge, %invoke.cont4
+  %27 = phi ptr [ %.pre181, %cleanup.done49.cleanup.action55_crit_edge ], [ %3, %invoke.cont4 ], [ %3, %lor.rhs ]
+  %28 = phi i1 [ %23, %cleanup.done49.cleanup.action55_crit_edge ], [ true, %invoke.cont4 ], [ false, %lor.rhs ]
   %bf.load.i.i138 = load i64, ptr %27, align 8
   %29 = and i64 %bf.load.i.i138, 1152920405095219200
   %cmp.not.i.i139 = icmp eq i64 %29, 1152920405095219200
@@ -1006,8 +1003,8 @@ terminate.lpad.i158:                              ; preds = %if.then13.i.i157
   call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
-cleanup.done63:                                   ; preds = %lor.rhs.thread, %if.then13.i.i157, %if.then.i.i151, %_ZN4cvc58internal8TypeNodeD2Ev.exit148, %cleanup.done42.thread170, %cleanup.done49
-  %36 = phi i1 [ false, %cleanup.done42.thread170 ], [ %23, %cleanup.done49 ], [ %28, %_ZN4cvc58internal8TypeNodeD2Ev.exit148 ], [ %28, %if.then.i.i151 ], [ %28, %if.then13.i.i157 ], [ false, %lor.rhs.thread ]
+cleanup.done63:                                   ; preds = %lor.rhs.thread, %if.then13.i.i157, %if.then.i.i151, %_ZN4cvc58internal8TypeNodeD2Ev.exit148, %cleanup.done49
+  %36 = phi i1 [ %23, %cleanup.done49 ], [ %28, %_ZN4cvc58internal8TypeNodeD2Ev.exit148 ], [ %28, %if.then.i.i151 ], [ %28, %if.then13.i.i157 ], [ false, %lor.rhs.thread ]
   ret i1 %36
 
 lpad:                                             ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit

@@ -2458,7 +2458,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %51, label %5
+  br i1 %.not, label %50, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2483,82 +2483,79 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %15 = icmp eq i32 %spec.select, 0
-  br i1 %15, label %._crit_edge.thread, label %16
+  br i1 %15, label %._crit_edge.thread, label %.lr.ph52
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
   tail call void @g_list_free_full(ptr noundef %7, ptr noundef nonnull @extcap_free_interface) #11
-  br label %51
+  br label %50
 
-16:                                               ; preds = %._crit_edge
-  %17 = zext i32 %spec.select to i64
-  %18 = tail call noalias ptr @g_malloc0_n(i64 noundef %17, i64 noundef 16) #12
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store i32 %spec.select, ptr %20, align 8
-  br i1 %.not4245, label %._crit_edge53, label %.lr.ph52
+.lr.ph52:                                         ; preds = %._crit_edge
+  %16 = zext i32 %spec.select to i64
+  %17 = tail call noalias ptr @g_malloc0_n(i64 noundef %16, i64 noundef 16) #12
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 %spec.select, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %25
 
-.lr.ph52:                                         ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %26
+25:                                               ; preds = %.lr.ph52, %47
+  %.050 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %47 ]
+  %.04049 = phi ptr [ %7, %.lr.ph52 ], [ %49, %47 ]
+  %26 = load ptr, ptr %.04049, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = load i32, ptr %27, align 8
+  %.not44 = icmp eq i32 %28, 4
+  br i1 %.not44, label %29, label %47
 
-26:                                               ; preds = %.lr.ph52, %48
-  %.050 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %48 ]
-  %.04049 = phi ptr [ %7, %.lr.ph52 ], [ %50, %48 ]
-  %27 = load ptr, ptr %.04049, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
-  %29 = load i32, ptr %28, align 8
-  %.not44 = icmp eq i32 %29, 4
-  br i1 %.not44, label %30, label %48
-
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   store ptr @.str.9, ptr %4, align 16
-  store ptr @.str.2, ptr %21, align 8
-  %31 = load ptr, ptr %27, align 8
-  store ptr %31, ptr %22, align 16
-  store ptr null, ptr %23, align 8
-  %32 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %33 = load ptr, ptr %19, align 8
-  %34 = add i32 %.050, 1
-  %35 = zext i32 %.050 to i64
-  %36 = getelementptr %struct.extcap_iface_info, ptr %33, i64 %35
-  %37 = load ptr, ptr %1, align 8
-  store ptr %37, ptr %32, align 8
-  %38 = call ptr @g_strdupv(ptr noundef nonnull %4) #11
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 16
-  store ptr @extcap_process_config_cb, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 24
-  store ptr %36, ptr %41, align 8
-  %42 = load ptr, ptr %27, align 8
-  %43 = call noalias ptr @g_strdup(ptr noundef %42) #11
-  store ptr %43, ptr %36, align 8
-  call void @g_mutex_lock(ptr noundef nonnull %24) #11
-  %44 = load i32, ptr %25, align 8
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %25, align 8
-  call void @g_mutex_unlock(ptr noundef nonnull %24) #11
-  %46 = load ptr, ptr %0, align 8
-  %47 = call i32 @g_thread_pool_push(ptr noundef %46, ptr noundef nonnull %32, ptr noundef null) #11
-  br label %48
+  store ptr @.str.2, ptr %20, align 8
+  %30 = load ptr, ptr %26, align 8
+  store ptr %30, ptr %21, align 16
+  store ptr null, ptr %22, align 8
+  %31 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
+  %32 = load ptr, ptr %18, align 8
+  %33 = add i32 %.050, 1
+  %34 = zext i32 %.050 to i64
+  %35 = getelementptr %struct.extcap_iface_info, ptr %32, i64 %34
+  %36 = load ptr, ptr %1, align 8
+  store ptr %36, ptr %31, align 8
+  %37 = call ptr @g_strdupv(ptr noundef nonnull %4) #11
+  %38 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %31, i64 16
+  store ptr @extcap_process_config_cb, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr %35, ptr %40, align 8
+  %41 = load ptr, ptr %26, align 8
+  %42 = call noalias ptr @g_strdup(ptr noundef %41) #11
+  store ptr %42, ptr %35, align 8
+  call void @g_mutex_lock(ptr noundef nonnull %23) #11
+  %43 = load i32, ptr %24, align 8
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %24, align 8
+  call void @g_mutex_unlock(ptr noundef nonnull %23) #11
+  %45 = load ptr, ptr %0, align 8
+  %46 = call i32 @g_thread_pool_push(ptr noundef %45, ptr noundef nonnull %31, ptr noundef null) #11
+  br label %47
 
-48:                                               ; preds = %26, %30
-  %.1 = phi i32 [ %.050, %26 ], [ %34, %30 ]
-  %49 = getelementptr inbounds i8, ptr %.04049, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %.not43 = icmp eq ptr %50, null
-  br i1 %.not43, label %._crit_edge53, label %26, !llvm.loop !33
+47:                                               ; preds = %25, %29
+  %.1 = phi i32 [ %.050, %25 ], [ %33, %29 ]
+  %48 = getelementptr inbounds i8, ptr %.04049, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %.not43 = icmp eq ptr %49, null
+  br i1 %.not43, label %._crit_edge53, label %25, !llvm.loop !33
 
-._crit_edge53:                                    ; preds = %48, %16
+._crit_edge53:                                    ; preds = %47
   call void @g_list_free_full(ptr noundef nonnull %7, ptr noundef nonnull @extcap_free_interface) #11
-  br label %51
+  br label %50
 
-51:                                               ; preds = %3, %._crit_edge53, %._crit_edge.thread
+50:                                               ; preds = %3, %._crit_edge53, %._crit_edge.thread
   ret void
 }
 

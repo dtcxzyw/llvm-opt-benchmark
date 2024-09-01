@@ -221,8 +221,8 @@ for.end18:                                        ; preds = %for.inc16
   %.pre = load ptr, ptr %switches, align 8
   %conv.i = zext i32 %9 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %.pre, i64 %conv.i
-  %cmp.not21 = icmp ne i32 %9, 0
-  br i1 %cmp.not21, label %for.body25, label %for.end28
+  %cmp.not21.not = icmp ne i32 %9, 0
+  br i1 %cmp.not21.not, label %for.body25, label %for.end28
 
 for.body25:                                       ; preds = %for.end18, %for.body25
   %__begin120.022 = phi ptr [ %incdec.ptr, %for.body25 ], [ %.pre, %for.end18 ]
@@ -237,7 +237,6 @@ for.end28.loopexit:                               ; preds = %for.body25
   br label %for.end28
 
 for.end28:                                        ; preds = %for.end28.loopexit, %for.end18
-  %cmp.not2127 = phi i1 [ %cmp.not21, %for.end28.loopexit ], [ false, %for.end18 ]
   %11 = phi ptr [ %.pre23, %for.end28.loopexit ], [ %.pre, %for.end18 ]
   %cmp.i.i.i = icmp eq ptr %11, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10SwitchInstELj4EED2Ev.exit, label %if.then.i.i
@@ -247,7 +246,7 @@ if.then.i.i:                                      ; preds = %for.end28
   br label %_ZN4llvh11SmallVectorIPN6hermes10SwitchInstELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes10SwitchInstELj4EED2Ev.exit: ; preds = %entry, %for.end28, %if.then.i.i
-  %cmp.not212730 = phi i1 [ %cmp.not2127, %for.end28 ], [ %cmp.not2127, %if.then.i.i ], [ false, %entry ]
+  %cmp.not212730 = phi i1 [ %cmp.not21.not, %for.end28 ], [ %cmp.not21.not, %if.then.i.i ], [ false, %entry ]
   ret i1 %cmp.not212730
 }
 

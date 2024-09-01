@@ -2641,8 +2641,8 @@ define ptr @H5D__open_name(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   store ptr %5, ptr %8, align 8
   %9 = call i32 @H5G_loc_reset(ptr noundef nonnull %4) #12
   %10 = call i32 @H5G_loc_find(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #12
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %16
+  %11 = icmp sgt i32 %10, -1
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @H5E_DATASET_g, align 8

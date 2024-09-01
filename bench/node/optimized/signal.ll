@@ -256,11 +256,11 @@ if.then22.i:                                      ; preds = %if.end.i
   %9 = load ptr, ptr %tree_entry23.i, align 8
   %cmp25.i = icmp eq ptr %9, %elm.addr.0.i
   %rbe_right31.i = getelementptr inbounds i8, ptr %7, i64 120
-  %spec.select125.i = select i1 %cmp25.i, ptr %tree_entry23.i, ptr %rbe_right31.i
+  %spec.select128.i = select i1 %cmp25.i, ptr %tree_entry23.i, ptr %rbe_right31.i
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then22.i, %if.end.i
-  %tree_entry23.sink.i = phi ptr [ @uv__signal_tree, %if.end.i ], [ %spec.select125.i, %if.then22.i ]
+  %tree_entry23.sink.i = phi ptr [ @uv__signal_tree, %if.end.i ], [ %spec.select128.i, %if.then22.i ]
   store ptr %6, ptr %tree_entry23.sink.i, align 8
   %10 = load ptr, ptr %rbe_parent.i, align 8
   %cmp37.i = icmp eq ptr %10, %handle
@@ -276,11 +276,11 @@ if.then45.i:                                      ; preds = %if.end34.i
   %12 = load ptr, ptr %tree_entry48.i, align 8
   %cmp50.i = icmp eq ptr %12, %handle
   %rbe_right60.i = getelementptr inbounds i8, ptr %11, i64 120
-  %spec.select126.i = select i1 %cmp50.i, ptr %tree_entry48.i, ptr %rbe_right60.i
+  %spec.select129.i = select i1 %cmp50.i, ptr %tree_entry48.i, ptr %rbe_right60.i
   br label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.then45.i, %if.end34.i
-  %tree_entry48.sink.i = phi ptr [ @uv__signal_tree, %if.end34.i ], [ %spec.select126.i, %if.then45.i ]
+  %tree_entry48.sink.i = phi ptr [ @uv__signal_tree, %if.end34.i ], [ %spec.select129.i, %if.then45.i ]
   store ptr %elm.addr.0.i, ptr %tree_entry48.sink.i, align 8
   %13 = load ptr, ptr %tree_entry.i, align 8
   %rbe_parent70.i = getelementptr inbounds i8, ptr %13, i64 128
@@ -333,11 +333,11 @@ if.then102.i:                                     ; preds = %if.end100.i
   %22 = load ptr, ptr %tree_entry103.i, align 8
   %cmp105.i = icmp eq ptr %22, %handle
   %rbe_right111.i = getelementptr inbounds i8, ptr %21, i64 120
-  %spec.select127.i = select i1 %cmp105.i, ptr %tree_entry103.i, ptr %rbe_right111.i
+  %spec.select130.i = select i1 %cmp105.i, ptr %tree_entry103.i, ptr %rbe_right111.i
   br label %color119.sink.split.i
 
 color119.sink.split.i:                            ; preds = %if.then102.i, %if.end100.i
-  %uv__signal_tree.sink.i = phi ptr [ @uv__signal_tree, %if.end100.i ], [ %spec.select127.i, %if.then102.i ]
+  %uv__signal_tree.sink.i = phi ptr [ @uv__signal_tree, %if.end100.i ], [ %spec.select130.i, %if.then102.i ]
   store ptr %child.06.i, ptr %uv__signal_tree.sink.i, align 8
   br label %color119.i
 
@@ -461,10 +461,10 @@ if.else91.i.i:                                    ; preds = %lor.lhs.false71.i.i
   br i1 %cmp94.i.i, label %if.end108.i.i, label %lor.lhs.false95.i.thread.i
 
 lor.lhs.false95.i.thread.i:                       ; preds = %if.else91.i.i
-  %rbe_color99.i8.i = getelementptr inbounds i8, ptr %.pre54.i.i, i64 136
-  %39 = load i32, ptr %rbe_color99.i8.i, align 8
-  %cmp100.i9.i = icmp eq i32 %39, 0
-  br i1 %cmp100.i9.i, label %if.end108.i.i, label %if.end168.i.i
+  %rbe_color99.i9.i = getelementptr inbounds i8, ptr %.pre54.i.i, i64 136
+  %39 = load i32, ptr %rbe_color99.i9.i, align 8
+  %cmp100.i10.i = icmp eq i32 %39, 0
+  br i1 %cmp100.i10.i, label %if.end108.i.i, label %if.end168.i.i
 
 if.end108.i.i:                                    ; preds = %lor.lhs.false95.i.thread.i, %if.else91.i.i
   store i32 0, ptr %rbe_color75.i.i.le, align 8
@@ -887,8 +887,8 @@ do.body.i.i24:                                    ; preds = %land.rhs.i.i25, %if
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %81, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %82 = and i64 %call.i.i, 2147483648
-  %cmp.not.not.i.not.i = icmp eq i64 %82, 0
-  br i1 %cmp.not.not.i.not.i, label %if.end.i27, label %land.rhs.i.i25
+  %cmp.not.not.not.not.i.not.i = icmp eq i64 %82, 0
+  br i1 %cmp.not.not.not.not.i.not.i, label %if.end.i27, label %land.rhs.i.i25
 
 land.rhs.i.i25:                                   ; preds = %do.body.i.i24
   %call2.i.i = tail call ptr @__errno_location() #12
@@ -1202,8 +1202,8 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.t
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %8, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %9 = and i64 %call.i.i, 2147483648
-  %cmp.not.not.i.not.i = icmp eq i64 %9, 0
-  br i1 %cmp.not.not.i.not.i, label %if.end.i40, label %land.rhs.i.i
+  %cmp.not.not.not.not.i.not.i = icmp eq i64 %9, 0
+  br i1 %cmp.not.not.not.not.i.not.i, label %if.end.i40, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
   %call2.i.i = tail call ptr @__errno_location() #12
@@ -1583,8 +1583,8 @@ do.body.i.i49:                                    ; preds = %land.rhs.i.i52, %uv
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i50 = call i64 @write(i32 noundef %45, ptr noundef nonnull %data.i.i48, i64 noundef 1) #10
   %46 = and i64 %call.i.i50, 2147483648
-  %cmp.not.not.i.not.i51 = icmp eq i64 %46, 0
-  br i1 %cmp.not.not.i.not.i51, label %if.end.i56, label %land.rhs.i.i52
+  %cmp.not.not.not.not.i.not.i51 = icmp eq i64 %46, 0
+  br i1 %cmp.not.not.not.not.i.not.i51, label %if.end.i56, label %land.rhs.i.i52
 
 land.rhs.i.i52:                                   ; preds = %do.body.i.i49
   %call2.i.i53 = tail call ptr @__errno_location() #12
@@ -1695,8 +1695,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %if.end
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i1 = call i64 @write(i32 noundef %2, ptr noundef nonnull %data.i, i64 noundef 1) #10
   %3 = and i64 %call.i1, 2147483648
-  %cmp.not.not.i.not = icmp eq i64 %3, 0
-  br i1 %cmp.not.not.i.not, label %if.end4, label %land.rhs.i
+  %cmp.not.not.not.not.i.not = icmp eq i64 %3, 0
+  br i1 %cmp.not.not.not.not.i.not, label %if.end4, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call ptr @__errno_location() #12
@@ -1887,8 +1887,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %if.end
   %0 = load i32, ptr @uv__signal_lock_pipefd, align 4
   %call.i = call i64 @read(i32 noundef %0, ptr noundef nonnull %data.i, i64 noundef 1) #10
   %1 = and i64 %call.i, 2147483648
-  %cmp.not.not.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.not.not.i.not, label %if.end9, label %land.rhs.i
+  %cmp.not.not.not.not.i.not = icmp eq i64 %1, 0
+  br i1 %cmp.not.not.not.not.i.not, label %if.end9, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call2.i = tail call ptr @__errno_location() #12
@@ -1936,8 +1936,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %entry
   %2 = load i32, ptr @uv__signal_lock_pipefd, align 4
   %call.i = call i64 @read(i32 noundef %2, ptr noundef nonnull %data.i, i64 noundef 1) #10
   %3 = and i64 %call.i, 2147483648
-  %cmp.not.not.i.not = icmp eq i64 %3, 0
-  br i1 %cmp.not.not.i.not, label %if.end, label %land.rhs.i
+  %cmp.not.not.not.not.i.not = icmp eq i64 %3, 0
+  br i1 %cmp.not.not.not.not.i.not, label %if.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %do.body.i
   %4 = load i32, ptr %call, align 4
@@ -2112,8 +2112,8 @@ do.body.i14:                                      ; preds = %land.rhs.i18, %for.
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i15 = call i64 @write(i32 noundef %22, ptr noundef nonnull %data.i13, i64 noundef 1) #10
   %23 = and i64 %call.i15, 2147483648
-  %cmp.not.not.i16.not = icmp eq i64 %23, 0
-  br i1 %cmp.not.not.i16.not, label %uv__signal_unlock.exit, label %land.rhs.i18
+  %cmp.not.not.not.not.i16.not = icmp eq i64 %23, 0
+  br i1 %cmp.not.not.not.not.i16.not, label %uv__signal_unlock.exit, label %land.rhs.i18
 
 land.rhs.i18:                                     ; preds = %do.body.i14
   %24 = load i32, ptr %call, align 4

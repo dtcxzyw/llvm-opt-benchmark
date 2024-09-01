@@ -929,9 +929,9 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %357 = getelementptr inbounds i8, ptr %.01174.us.i, i64 %330
   %358 = add nuw nsw i32 %.01202.us.i, 1
   %exitcond20.not.i = icmp eq i32 %358, %307
-  br i1 %exitcond20.not.i, label %.lr.ph12.i, label %.critedge.us.i, !llvm.loop !19
+  br i1 %exitcond20.not.i, label %.preheader.i118, label %.critedge.us.i, !llvm.loop !19
 
-.lr.ph12.i:                                       ; preds = %.critedge.i, %._crit_edge.us.i
+.preheader.i118:                                  ; preds = %.critedge.i, %._crit_edge.us.i
   %.0118.lcssa.i = phi ptr [ %356, %._crit_edge.us.i ], [ %393, %.critedge.i ]
   %359 = sub nsw i64 0, %324
   %360 = shl i64 %303, 30
@@ -939,7 +939,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %362 = sub nsw i64 0, %361
   br i1 %329, label %.lr.ph.us.preheader.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph12.i
+.lr.ph.us.preheader.i:                            ; preds = %.preheader.i118
   %363 = zext nneg i32 %306 to i64
   %364 = ashr exact i64 %sext.i, 30
   br label %.lr.ph.us.i
@@ -1008,7 +1008,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %393 = getelementptr inbounds i32, ptr %.01183.i, i64 %324
   %394 = add nuw nsw i32 %.01202.i, 1
   %exitcond.not.i117 = icmp eq i32 %394, %307
-  br i1 %exitcond.not.i117, label %.lr.ph12.i, label %.critedge.i, !llvm.loop !19
+  br i1 %exitcond.not.i117, label %.preheader.i118, label %.critedge.i, !llvm.loop !19
 
 395:                                              ; preds = %.loopexit, %584, %397, %272
   %396 = landingpad { ptr, i32 }
@@ -1208,7 +1208,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %514 = getelementptr inbounds i8, ptr %.0178215.us.i, i64 %465
   %515 = add nuw nsw i32 %.0181213.us.i, 1
   %exitcond237.not.i = icmp eq i32 %515, %436
-  br i1 %exitcond237.not.i, label %.lr.ph223.i, label %.preheader210.us.i, !llvm.loop !24
+  br i1 %exitcond237.not.i, label %.preheader.i126, label %.preheader210.us.i, !llvm.loop !24
 
 .preheader210.i:                                  ; preds = %.preheader210.i, %.preheader210.preheader.i
   %.0179214.i = phi ptr [ %520, %.preheader210.i ], [ %461, %.preheader210.preheader.i ]
@@ -1224,9 +1224,9 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %520 = getelementptr inbounds i32, ptr %.0179214.i, i64 %464
   %521 = add nuw nsw i32 %.0181213.i, 1
   %exitcond.not.i125 = icmp eq i32 %521, %436
-  br i1 %exitcond.not.i125, label %.lr.ph223.i, label %.preheader210.i, !llvm.loop !24
+  br i1 %exitcond.not.i125, label %.preheader.i126, label %.preheader210.i, !llvm.loop !24
 
-.lr.ph223.i:                                      ; preds = %.preheader210.i, %._crit_edge.us.i140
+.preheader.i126:                                  ; preds = %.preheader210.i, %._crit_edge.us.i140
   %.0179.lcssa.i = phi ptr [ %513, %._crit_edge.us.i140 ], [ %520, %.preheader210.i ]
   %522 = sub nsw i64 0, %464
   %523 = shl i64 %432, 30
@@ -1234,7 +1234,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %525 = sub nsw i64 0, %524
   br i1 %463, label %.lr.ph.us.preheader.i128, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
-.lr.ph.us.preheader.i128:                         ; preds = %.lr.ph223.i
+.lr.ph.us.preheader.i128:                         ; preds = %.preheader.i126
   %526 = zext nneg i32 %435 to i64
   %527 = ashr exact i64 %sext206.i, 30
   br label %.lr.ph.us.i129
@@ -1774,7 +1774,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %819 = getelementptr inbounds i32, ptr %.0257300.us.i, i64 %715
   %820 = add nuw nsw i32 %.0262297.us.i, 1
   %exitcond332.not.i = icmp eq i32 %820, %681
-  br i1 %exitcond332.not.i, label %.lr.ph313.i, label %.preheader294.us.i, !llvm.loop !33
+  br i1 %exitcond332.not.i, label %.preheader.i151, label %.preheader294.us.i, !llvm.loop !33
 
 .preheader294.i:                                  ; preds = %.preheader294.i, %.preheader294.preheader.i
   %.0257300.i = phi ptr [ %826, %.preheader294.i ], [ %665, %.preheader294.preheader.i ]
@@ -1792,9 +1792,9 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %826 = getelementptr inbounds i32, ptr %.0257300.i, i64 %715
   %827 = add nuw nsw i32 %.0262297.i, 1
   %exitcond.not.i150 = icmp eq i32 %827, %681
-  br i1 %exitcond.not.i150, label %.lr.ph313.i, label %.preheader294.i, !llvm.loop !33
+  br i1 %exitcond.not.i150, label %.preheader.i151, label %.preheader294.i, !llvm.loop !33
 
-.lr.ph313.i:                                      ; preds = %.preheader294.i, %._crit_edge.us.i163
+.preheader.i151:                                  ; preds = %.preheader294.i, %._crit_edge.us.i163
   %.0259.lcssa.i = phi ptr [ %818, %._crit_edge.us.i163 ], [ %825, %.preheader294.i ]
   %.0257.lcssa.i = phi ptr [ %819, %._crit_edge.us.i163 ], [ %826, %.preheader294.i ]
   %828 = sub nsw i64 0, %714
@@ -1804,7 +1804,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %832 = sub nsw i64 0, %831
   br i1 %708, label %.lr.ph.us.preheader.i153, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
-.lr.ph.us.preheader.i153:                         ; preds = %.lr.ph313.i
+.lr.ph.us.preheader.i153:                         ; preds = %.preheader.i151
   %833 = zext nneg i32 %680 to i64
   %834 = sext i32 %709 to i64
   %835 = ashr exact i64 %sext290.i, 30
@@ -1923,7 +1923,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %896 = icmp sgt i32 %.1263312.us.in.i, 1
   br i1 %896, label %.lr.ph.us.i154, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit, !llvm.loop !35
 
-_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit: ; preds = %._crit_edge.us225.i, %._crit_edge.us14.i, %._crit_edge.us315.i, %.lr.ph313.i, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, %.lr.ph223.i, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, %.lr.ph12.i, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i
+_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit: ; preds = %._crit_edge.us225.i, %._crit_edge.us14.i, %._crit_edge.us315.i, %.preheader.i151, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, %.preheader.i126, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, %.preheader.i118, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #16
   br label %897
 
@@ -2281,13 +2281,13 @@ _ZNK2cv11_InputArray6getMatEi.exit16.i:           ; preds = %51, %48
 
 .preheader.i.i:                                   ; preds = %154
   %108 = icmp sgt i32 %55, 1
-  br i1 %108, label %.lr.ph157.split.us.preheader.i.i, label %._crit_edge158.thread.i.i
+  br i1 %108, label %.lr.ph157.i.i, label %._crit_edge158.thread.i.i
 
 .preheader.thread.i.i:                            ; preds = %103
   %109 = icmp sgt i32 %55, 1
-  br i1 %109, label %.lr.ph157.split.preheader.i.i, label %.loopexit.i
+  br i1 %109, label %.lr.ph157.thread.i.i, label %.loopexit.i
 
-.lr.ph157.split.preheader.i.i:                    ; preds = %.preheader.thread.i.i
+.lr.ph157.thread.i.i:                             ; preds = %.preheader.thread.i.i
   %sext134200.i.i = shl i64 %61, 32
   %110 = ashr exact i64 %sext134200.i.i, 32
   %sext135201.i.i = shl i64 %63, 32
@@ -2296,7 +2296,7 @@ _ZNK2cv11_InputArray6getMatEi.exit16.i:           ; preds = %51, %48
   %112 = ashr exact i64 %.neg202.i.i, 32
   br label %.lr.ph157.split.i.i
 
-.lr.ph157.split.us.preheader.i.i:                 ; preds = %.preheader.i.i
+.lr.ph157.i.i:                                    ; preds = %.preheader.i.i
   %sext134.i.i = shl i64 %61, 32
   %113 = ashr exact i64 %sext134.i.i, 32
   %sext135.i.i = shl i64 %63, 32
@@ -2305,10 +2305,10 @@ _ZNK2cv11_InputArray6getMatEi.exit16.i:           ; preds = %51, %48
   %115 = ashr exact i64 %.neg.i.i, 32
   br label %.lr.ph157.split.us.i.i
 
-.lr.ph157.split.us.i.i:                           ; preds = %._crit_edge.us.i.i, %.lr.ph157.split.us.preheader.i.i
-  %.0116156.us.i.i = phi i32 [ %145, %._crit_edge.us.i.i ], [ 1, %.lr.ph157.split.us.preheader.i.i ]
-  %.0118155.us.i.i = phi ptr [ %117, %._crit_edge.us.i.i ], [ %59, %.lr.ph157.split.us.preheader.i.i ]
-  %.0120154.us.i.i = phi ptr [ %116, %._crit_edge.us.i.i ], [ %57, %.lr.ph157.split.us.preheader.i.i ]
+.lr.ph157.split.us.i.i:                           ; preds = %._crit_edge.us.i.i, %.lr.ph157.i.i
+  %.0116156.us.i.i = phi i32 [ %145, %._crit_edge.us.i.i ], [ 1, %.lr.ph157.i.i ]
+  %.0118155.us.i.i = phi ptr [ %117, %._crit_edge.us.i.i ], [ %59, %.lr.ph157.i.i ]
+  %.0120154.us.i.i = phi ptr [ %116, %._crit_edge.us.i.i ], [ %57, %.lr.ph157.i.i ]
   %116 = getelementptr inbounds i8, ptr %.0120154.us.i.i, i64 %113
   %117 = getelementptr inbounds i8, ptr %.0118155.us.i.i, i64 %114
   %118 = load i8, ptr %116, align 1
@@ -2386,10 +2386,10 @@ _ZNK2cv11_InputArray6getMatEi.exit16.i:           ; preds = %51, %48
   %exitcond179.not.i.i = icmp eq i64 %indvars.iv.next177.i.i, %wide.trip.count.i.i
   br i1 %exitcond179.not.i.i, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !45
 
-.lr.ph157.split.i.i:                              ; preds = %167, %.lr.ph157.split.preheader.i.i
-  %.0116156.i.i = phi i32 [ %169, %167 ], [ 1, %.lr.ph157.split.preheader.i.i ]
-  %.0118155.i.i = phi ptr [ %158, %167 ], [ %59, %.lr.ph157.split.preheader.i.i ]
-  %.0120154.i.i = phi ptr [ %157, %167 ], [ %57, %.lr.ph157.split.preheader.i.i ]
+.lr.ph157.split.i.i:                              ; preds = %167, %.lr.ph157.thread.i.i
+  %.0116156.i.i = phi i32 [ %169, %167 ], [ 1, %.lr.ph157.thread.i.i ]
+  %.0118155.i.i = phi ptr [ %158, %167 ], [ %59, %.lr.ph157.thread.i.i ]
+  %.0120154.i.i = phi ptr [ %157, %167 ], [ %57, %.lr.ph157.thread.i.i ]
   %157 = getelementptr inbounds i8, ptr %.0120154.i.i, i64 %110
   %158 = getelementptr inbounds i8, ptr %.0118155.i.i, i64 %111
   %159 = load i8, ptr %157, align 1

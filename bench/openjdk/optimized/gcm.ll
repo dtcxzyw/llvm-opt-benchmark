@@ -1453,9 +1453,9 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN10Node_Stack4pus
   store ptr %85, ptr %2, align 8
   br label %86
 
-86:                                               ; preds = %.backedge78, %82
-  %.034 = phi i32 [ 0, %82 ], [ %.034.be, %.backedge78 ]
-  %.033 = phi ptr [ %84, %82 ], [ %.033.be, %.backedge78 ]
+86:                                               ; preds = %.backedge77, %82
+  %.034 = phi i32 [ 0, %82 ], [ %.034.be, %.backedge77 ]
+  %.033 = phi ptr [ %84, %82 ], [ %.033.be, %.backedge77 ]
   %87 = icmp eq i32 %.034, 0
   br i1 %87, label %88, label %_ZN4Node7set_reqEjPS_.exit
 
@@ -1590,9 +1590,9 @@ _ZNK8PhaseCFG9has_blockEPK4Node.exit.thread:      ; preds = %_ZN9VectorSet8test_
   store ptr %.033, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   store i32 %145, ptr %152, align 8
-  br label %.backedge78
+  br label %.backedge77
 
-.backedge78:                                      ; preds = %.thread, %196
+.backedge77:                                      ; preds = %.thread, %196
   %.034.be = phi i32 [ %199, %196 ], [ 0, %.thread ]
   %.033.be = phi ptr [ %197, %196 ], [ %122, %.thread ]
   br label %86, !llvm.loop !21
@@ -1706,7 +1706,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepes
   %199 = load i32, ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %193, i64 -16
   store ptr %200, ptr %4, align 8
-  br label %.backedge78
+  br label %.backedge77
 
 .loopexit56:                                      ; preds = %.loopexit, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread, %_ZN9VectorSet3setEj.exit
   %.not60 = phi i1 [ true, %_ZN9VectorSet3setEj.exit ], [ false, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread ], [ true, %.loopexit ]
@@ -7286,10 +7286,7 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %94, %98, %_ZN26Grow
   %wide.trip.count = zext nneg i32 %143 to i64
   br label %148
 
-.preheader:                                       ; preds = %148
-  br i1 %144, label %.lr.ph87, label %._crit_edge88
-
-.lr.ph87:                                         ; preds = %.preheader
+.lr.ph87:                                         ; preds = %148
   %147 = getelementptr inbounds i8, ptr %0, i64 80
   br label %152
 
@@ -7301,7 +7298,7 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %94, %98, %_ZN26Grow
   %151 = fadd double %.04983, %150
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %148, !llvm.loop !74
+  br i1 %exitcond.not, label %.lr.ph87, label %148, !llvm.loop !74
 
 152:                                              ; preds = %.lr.ph87, %152
   %indvars.iv103 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next104, %152 ]
@@ -7320,8 +7317,8 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %94, %98, %_ZN26Grow
   %163 = icmp slt i64 %indvars.iv.next104, %162
   br i1 %163, label %152, label %._crit_edge88, !llvm.loop !75
 
-._crit_edge88:                                    ; preds = %152, %.preheader66, %.preheader
-  %.049.lcssa107 = phi double [ %151, %.preheader ], [ 0.000000e+00, %.preheader66 ], [ %151, %152 ]
+._crit_edge88:                                    ; preds = %152, %.preheader66
+  %.049.lcssa107 = phi double [ 0.000000e+00, %.preheader66 ], [ %151, %152 ]
   %164 = fcmp ogt double %.049.lcssa107, 1.000000e+00
   %.1 = select i1 %164, double 1.000000e+00, double %.049.lcssa107
   %165 = fcmp olt double %.1, 0x3EB0C6F7A0000000

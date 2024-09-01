@@ -9593,8 +9593,8 @@ define linkonce_odr void @_ZNSt7__cxx114listIiSaIiEE4sortEv(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %.preheader47, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit
   %.02550 = phi ptr [ %32, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit ], [ %3, %.preheader47 ]
   %14 = load ptr, ptr %.02550, align 8
-  %15 = icmp ne ptr %14, %.02550
-  br i1 %15, label %16, label %.critedge
+  %15 = icmp eq ptr %14, %.02550
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr %2, align 8
@@ -9643,7 +9643,7 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit, %.preheader47
   %.025.lcssa = phi ptr [ %3, %.preheader47 ], [ %.0.ptr, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit ], [ %.02550, %.lr.ph ]
-  %.not32.lcssa = phi i1 [ true, %.preheader47 ], [ %15, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit ], [ false, %.lr.ph ]
+  %.not32.lcssa = phi i64 [ 0, %.preheader47 ], [ 0, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit ], [ -16, %.lr.ph ]
   %spec.select.idx = phi i64 [ 16, %.preheader47 ], [ 16, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit ], [ 0, %.lr.ph ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.025.lcssa) #26
   %.0.add = add nuw nsw i64 %.0.idx, %spec.select.idx
@@ -9712,9 +9712,8 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS
   br i1 %.not33, label %._crit_edge, label %.lr.ph62
 
 ._crit_edge:                                      ; preds = %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIiEvEEEEvRNS_15_List_node_baseET_.exit43, %.preheader
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not32.lcssa, i64 0, i64 -16
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %.0.ptr, i64 %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %.0.ptr, i64 %.not32.lcssa
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %54
 
 54:                                               ; preds = %._crit_edge, %5, %1
@@ -9926,461 +9925,459 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule10atom_group24calc_required
   %2 = getelementptr inbounds i8, ptr %0, i64 628
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %56, label %5
+  br i1 %4, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread, label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 368
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 257
-  %9 = load i8, ptr %8, align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31, label %19
+_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread: ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 600
+  %6 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %7 = getelementptr inbounds i8, ptr %0, i64 1296
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %.phi.trans.insert68 = getelementptr inbounds i8, ptr %0, i64 368
+  %.pre69 = load ptr, ptr %.phi.trans.insert68, align 8
+  br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
 
-_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31: ; preds = %5
-  %11 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 624
-  %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 560
-  %15 = sext i32 %13 to i64
-  %16 = load ptr, ptr %14, align 8, !noalias !103
-  %17 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %16, i64 %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 368
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 257
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31, label %22
+
+_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31: ; preds = %8
+  %14 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 624
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 560
+  %18 = sext i32 %16 to i64
+  %19 = load ptr, ptr %17, align 8, !noalias !103
+  %20 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %19, i64 %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 504
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert66 = getelementptr inbounds i8, ptr %0, i64 512
   %.pre67 = load ptr, ptr %.phi.trans.insert66, align 8
-  br label %61
+  br label %59
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 504
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 512
-  %24 = load ptr, ptr %23, align 8
-  %.not12.i = icmp eq ptr %22, %24
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  %24 = getelementptr inbounds i8, ptr %0, i64 504
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 512
+  %27 = load ptr, ptr %26, align 8
+  %.not12.i = icmp eq ptr %25, %27
   br i1 %.not12.i, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1352
-  %26 = getelementptr inbounds i8, ptr %0, i64 1360
-  br label %27
+.lr.ph.i:                                         ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %0, i64 1352
+  %29 = getelementptr inbounds i8, ptr %0, i64 1360
+  br label %30
 
-27:                                               ; preds = %27, %.lr.ph.i
-  %28 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %44, %27 ]
-  %29 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %43, %27 ]
-  %.sroa.08.013.i = phi ptr [ %22, %.lr.ph.i ], [ %45, %27 ]
-  %30 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %42, %27 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 8
-  %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 24
-  %34 = load double, ptr %33, align 8, !noalias !106
-  %35 = fmul double %32, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 32
+30:                                               ; preds = %30, %.lr.ph.i
+  %31 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %47, %30 ]
+  %32 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %46, %30 ]
+  %.sroa.08.013.i = phi ptr [ %25, %.lr.ph.i ], [ %48, %30 ]
+  %33 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %45, %30 ]
+  %34 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 8
+  %35 = load double, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 24
   %37 = load double, ptr %36, align 8, !noalias !106
-  %38 = fmul double %32, %37
-  %39 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 40
+  %38 = fmul double %35, %37
+  %39 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 32
   %40 = load double, ptr %39, align 8, !noalias !106
-  %41 = fmul double %32, %40
-  %42 = fadd double %30, %35
-  store double %42, ptr %20, align 8
-  %43 = fadd double %29, %38
-  store double %43, ptr %25, align 8
-  %44 = fadd double %28, %41
-  store double %44, ptr %26, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 120
-  %.not.i = icmp eq ptr %45, %24
-  br i1 %.not.i, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit, label %27, !llvm.loop !109
+  %41 = fmul double %35, %40
+  %42 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 40
+  %43 = load double, ptr %42, align 8, !noalias !106
+  %44 = fmul double %35, %43
+  %45 = fadd double %33, %38
+  store double %45, ptr %23, align 8
+  %46 = fadd double %32, %41
+  store double %46, ptr %28, align 8
+  %47 = fadd double %31, %44
+  store double %47, ptr %29, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 120
+  %.not.i = icmp eq ptr %48, %27
+  br i1 %.not.i, label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit, label %30, !llvm.loop !109
 
-_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit: ; preds = %27, %19
-  %46 = phi double [ 0.000000e+00, %19 ], [ %44, %27 ]
-  %47 = phi double [ 0.000000e+00, %19 ], [ %43, %27 ]
-  %48 = phi double [ 0.000000e+00, %19 ], [ %42, %27 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 1272
-  %50 = load double, ptr %49, align 8
-  %51 = fdiv double %48, %50
-  store double %51, ptr %20, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1352
-  %53 = fdiv double %47, %50
-  store double %53, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 1360
-  %55 = fdiv double %46, %50
-  store double %55, ptr %54, align 8
-  br label %61
+_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit: ; preds = %30, %22
+  %49 = phi double [ 0.000000e+00, %22 ], [ %47, %30 ]
+  %50 = phi double [ 0.000000e+00, %22 ], [ %46, %30 ]
+  %51 = phi double [ 0.000000e+00, %22 ], [ %45, %30 ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 1272
+  %53 = load double, ptr %52, align 8
+  %54 = fdiv double %51, %53
+  store double %54, ptr %23, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 1352
+  %56 = fdiv double %50, %53
+  store double %56, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 1360
+  %58 = fdiv double %49, %53
+  store double %58, ptr %57, align 8
+  br label %59
 
-56:                                               ; preds = %1
-  %57 = getelementptr inbounds i8, ptr %0, i64 600
-  %58 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  %.phi.trans.insert68.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 368
-  %.pre69.pre = load ptr, ptr %.phi.trans.insert68.phi.trans.insert, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 600
-  %60 = getelementptr inbounds i8, ptr %0, i64 1296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
-  br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
-
-61:                                               ; preds = %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31
-  %62 = phi ptr [ %.pre67, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31 ], [ %24, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit ]
-  %63 = phi ptr [ %.pre, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31 ], [ %22, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 1296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  %.not7.i = icmp eq ptr %63, %62
+59:                                               ; preds = %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31
+  %60 = phi ptr [ %27, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit ], [ %.pre67, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31 ]
+  %61 = phi ptr [ %25, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit ], [ %.pre, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread31 ]
+  %62 = getelementptr inbounds i8, ptr %0, i64 1296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  %.not7.i = icmp eq ptr %61, %60
   br i1 %.not7.i, label %._crit_edge.i6, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 1304
-  %66 = getelementptr inbounds i8, ptr %0, i64 1312
-  br label %67
+.lr.ph.i4:                                        ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 1304
+  %64 = getelementptr inbounds i8, ptr %0, i64 1312
+  br label %65
 
-67:                                               ; preds = %67, %.lr.ph.i4
-  %68 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %79, %67 ]
-  %69 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %76, %67 ]
-  %.sroa.04.08.i = phi ptr [ %63, %.lr.ph.i4 ], [ %80, %67 ]
-  %70 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %73, %67 ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 24
-  %72 = load double, ptr %71, align 8
-  %73 = fadd double %70, %72
-  store double %73, ptr %64, align 8
-  %74 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 32
-  %75 = load double, ptr %74, align 8
-  %76 = fadd double %69, %75
-  store double %76, ptr %65, align 8
-  %77 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 40
-  %78 = load double, ptr %77, align 8
-  %79 = fadd double %68, %78
-  store double %79, ptr %66, align 8
-  %80 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 120
-  %.not.i5 = icmp eq ptr %80, %62
-  br i1 %.not.i5, label %._crit_edge.i6, label %67, !llvm.loop !110
+65:                                               ; preds = %65, %.lr.ph.i4
+  %66 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %77, %65 ]
+  %67 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %74, %65 ]
+  %.sroa.04.08.i = phi ptr [ %61, %.lr.ph.i4 ], [ %78, %65 ]
+  %68 = phi double [ 0.000000e+00, %.lr.ph.i4 ], [ %71, %65 ]
+  %69 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 24
+  %70 = load double, ptr %69, align 8
+  %71 = fadd double %68, %70
+  store double %71, ptr %62, align 8
+  %72 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 32
+  %73 = load double, ptr %72, align 8
+  %74 = fadd double %67, %73
+  store double %74, ptr %63, align 8
+  %75 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 40
+  %76 = load double, ptr %75, align 8
+  %77 = fadd double %66, %76
+  store double %77, ptr %64, align 8
+  %78 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 120
+  %.not.i5 = icmp eq ptr %78, %60
+  br i1 %.not.i5, label %._crit_edge.i6, label %65, !llvm.loop !110
 
-._crit_edge.i6:                                   ; preds = %67, %61
-  %81 = phi double [ 0.000000e+00, %61 ], [ %79, %67 ]
-  %82 = phi double [ 0.000000e+00, %61 ], [ %76, %67 ]
-  %83 = phi double [ 0.000000e+00, %61 ], [ %73, %67 ]
-  %84 = ptrtoint ptr %62 to i64
-  %85 = ptrtoint ptr %63 to i64
-  %86 = sub i64 %84, %85
-  %87 = sdiv exact i64 %86, 120
-  %88 = uitofp i64 %87 to double
-  %89 = fdiv double %83, %88
-  store double %89, ptr %64, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 1304
-  %91 = fdiv double %82, %88
+._crit_edge.i6:                                   ; preds = %65, %59
+  %79 = phi double [ 0.000000e+00, %59 ], [ %77, %65 ]
+  %80 = phi double [ 0.000000e+00, %59 ], [ %74, %65 ]
+  %81 = phi double [ 0.000000e+00, %59 ], [ %71, %65 ]
+  %82 = ptrtoint ptr %60 to i64
+  %83 = ptrtoint ptr %61 to i64
+  %84 = sub i64 %82, %83
+  %85 = sdiv exact i64 %84, 120
+  %86 = uitofp i64 %85 to double
+  %87 = fdiv double %81, %86
+  store double %87, ptr %62, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 1304
+  %89 = fdiv double %80, %86
+  store double %89, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 1312
+  %91 = fdiv double %79, %86
   store double %91, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 1312
-  %93 = fdiv double %81, %88
-  store double %93, ptr %92, align 8
   br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
 
-_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit: ; preds = %56, %._crit_edge.i6
-  %94 = phi ptr [ %.pre69.pre, %56 ], [ %7, %._crit_edge.i6 ]
-  %95 = getelementptr inbounds i8, ptr %0, i64 368
-  %96 = getelementptr inbounds i8, ptr %94, i64 257
-  %97 = load i8, ptr %96, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30, label %99
+_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit: ; preds = %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread, %._crit_edge.i6
+  %92 = phi ptr [ %.pre69, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit.thread ], [ %10, %._crit_edge.i6 ]
+  %93 = getelementptr inbounds i8, ptr %0, i64 368
+  %94 = getelementptr inbounds i8, ptr %92, i64 257
+  %95 = load i8, ptr %94, align 1
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30, label %97
 
-99:                                               ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
-  %100 = getelementptr inbounds i8, ptr %94, i64 33
-  %101 = load i8, ptr %100, align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %107, label %103
+97:                                               ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
+  %98 = getelementptr inbounds i8, ptr %92, i64 33
+  %99 = load i8, ptr %98, align 1
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %105, label %101
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %94, i64 97
-  %105 = load i8, ptr %104, align 1
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds i8, ptr %92, i64 97
+  %103 = load i8, ptr %102, align 1
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30
 
-107:                                              ; preds = %103, %99
-  %108 = getelementptr inbounds i8, ptr %0, i64 1264
-  %109 = load ptr, ptr %108, align 8
-  %.not = icmp eq ptr %109, null
-  br i1 %.not, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12, label %110
+105:                                              ; preds = %101, %97
+  %106 = getelementptr inbounds i8, ptr %0, i64 1264
+  %107 = load ptr, ptr %106, align 8
+  %.not = icmp eq ptr %107, null
+  br i1 %.not, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12, label %108
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %109, i64 628
-  %112 = load i8, ptr %111, align 4
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %117
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %107, i64 628
+  %110 = load i8, ptr %109, align 4
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %115
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %109, i64 600
-  %116 = getelementptr inbounds i8, ptr %109, i64 1296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %107, i64 600
+  %114 = getelementptr inbounds i8, ptr %107, i64 1296
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false)
   br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %109, i64 1296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
-  %119 = getelementptr inbounds i8, ptr %109, i64 504
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds i8, ptr %107, i64 1296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
+  %117 = getelementptr inbounds i8, ptr %107, i64 504
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %107, i64 512
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %109, i64 512
-  %122 = load ptr, ptr %121, align 8
-  %.not7.i7 = icmp eq ptr %120, %122
+  %.not7.i7 = icmp eq ptr %118, %120
   br i1 %.not7.i7, label %._crit_edge.i11, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %109, i64 1304
-  %124 = getelementptr inbounds i8, ptr %109, i64 1312
-  br label %125
+.lr.ph.i8:                                        ; preds = %115
+  %121 = getelementptr inbounds i8, ptr %107, i64 1304
+  %122 = getelementptr inbounds i8, ptr %107, i64 1312
+  br label %123
 
-125:                                              ; preds = %125, %.lr.ph.i8
-  %126 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %137, %125 ]
-  %127 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %134, %125 ]
-  %.sroa.04.08.i9 = phi ptr [ %120, %.lr.ph.i8 ], [ %138, %125 ]
-  %128 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %131, %125 ]
-  %129 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 24
-  %130 = load double, ptr %129, align 8
-  %131 = fadd double %128, %130
-  store double %131, ptr %118, align 8
-  %132 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 32
-  %133 = load double, ptr %132, align 8
-  %134 = fadd double %127, %133
-  store double %134, ptr %123, align 8
-  %135 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 40
-  %136 = load double, ptr %135, align 8
-  %137 = fadd double %126, %136
-  store double %137, ptr %124, align 8
-  %138 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 120
-  %.not.i10 = icmp eq ptr %138, %122
-  br i1 %.not.i10, label %._crit_edge.i11, label %125, !llvm.loop !110
+123:                                              ; preds = %123, %.lr.ph.i8
+  %124 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %135, %123 ]
+  %125 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %132, %123 ]
+  %.sroa.04.08.i9 = phi ptr [ %118, %.lr.ph.i8 ], [ %136, %123 ]
+  %126 = phi double [ 0.000000e+00, %.lr.ph.i8 ], [ %129, %123 ]
+  %127 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 24
+  %128 = load double, ptr %127, align 8
+  %129 = fadd double %126, %128
+  store double %129, ptr %116, align 8
+  %130 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 32
+  %131 = load double, ptr %130, align 8
+  %132 = fadd double %125, %131
+  store double %132, ptr %121, align 8
+  %133 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 40
+  %134 = load double, ptr %133, align 8
+  %135 = fadd double %124, %134
+  store double %135, ptr %122, align 8
+  %136 = getelementptr inbounds i8, ptr %.sroa.04.08.i9, i64 120
+  %.not.i10 = icmp eq ptr %136, %120
+  br i1 %.not.i10, label %._crit_edge.i11, label %123, !llvm.loop !110
 
-._crit_edge.i11:                                  ; preds = %125, %117
-  %139 = phi double [ 0.000000e+00, %117 ], [ %137, %125 ]
-  %140 = phi double [ 0.000000e+00, %117 ], [ %134, %125 ]
-  %141 = phi double [ 0.000000e+00, %117 ], [ %131, %125 ]
-  %142 = ptrtoint ptr %122 to i64
-  %143 = ptrtoint ptr %120 to i64
-  %144 = sub i64 %142, %143
-  %145 = sdiv exact i64 %144, 120
-  %146 = uitofp i64 %145 to double
-  %147 = fdiv double %141, %146
-  store double %147, ptr %118, align 8
-  %148 = getelementptr inbounds i8, ptr %109, i64 1304
-  %149 = fdiv double %140, %146
+._crit_edge.i11:                                  ; preds = %123, %115
+  %137 = phi double [ 0.000000e+00, %115 ], [ %135, %123 ]
+  %138 = phi double [ 0.000000e+00, %115 ], [ %132, %123 ]
+  %139 = phi double [ 0.000000e+00, %115 ], [ %129, %123 ]
+  %140 = ptrtoint ptr %120 to i64
+  %141 = ptrtoint ptr %118 to i64
+  %142 = sub i64 %140, %141
+  %143 = sdiv exact i64 %142, 120
+  %144 = uitofp i64 %143 to double
+  %145 = fdiv double %139, %144
+  store double %145, ptr %116, align 8
+  %146 = getelementptr inbounds i8, ptr %107, i64 1304
+  %147 = fdiv double %138, %144
+  store double %147, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %107, i64 1312
+  %149 = fdiv double %137, %144
   store double %149, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %109, i64 1312
-  %151 = fdiv double %139, %146
-  store double %151, ptr %150, align 8
   br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
 
-_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12: ; preds = %._crit_edge.i11, %114, %107
+_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12: ; preds = %._crit_edge.i11, %112, %105
   tail call void @_ZN12colvarmodule10atom_group27calc_apply_roto_translationEv(ptr noundef nonnull align 8 dereferenceable(1440) %0)
-  %152 = load i8, ptr %2, align 4
-  %153 = trunc i8 %152 to i1
-  br i1 %153, label %176, label %154
+  %150 = load i8, ptr %2, align 4
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18.thread, label %155
 
-154:                                              ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
-  %155 = getelementptr inbounds i8, ptr %0, i64 1296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
-  %156 = getelementptr inbounds i8, ptr %0, i64 504
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 512
-  %159 = load ptr, ptr %158, align 8
-  %.not7.i13 = icmp eq ptr %157, %159
-  br i1 %.not7.i13, label %.loopexit, label %.lr.ph.i14
-
-.lr.ph.i14:                                       ; preds = %154
-  %160 = getelementptr inbounds i8, ptr %0, i64 1304
-  %161 = getelementptr inbounds i8, ptr %0, i64 1312
-  br label %162
-
-162:                                              ; preds = %162, %.lr.ph.i14
-  %163 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %174, %162 ]
-  %164 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %171, %162 ]
-  %.sroa.04.08.i15 = phi ptr [ %157, %.lr.ph.i14 ], [ %175, %162 ]
-  %165 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %168, %162 ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 24
-  %167 = load double, ptr %166, align 8
-  %168 = fadd double %165, %167
-  store double %168, ptr %155, align 8
-  %169 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 32
-  %170 = load double, ptr %169, align 8
-  %171 = fadd double %164, %170
-  store double %171, ptr %160, align 8
-  %172 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 40
-  %173 = load double, ptr %172, align 8
-  %174 = fadd double %163, %173
-  store double %174, ptr %161, align 8
-  %175 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 120
-  %.not.i16 = icmp eq ptr %175, %159
-  br i1 %.not.i16, label %.loopexit, label %162, !llvm.loop !110
-
-176:                                              ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
-  %177 = getelementptr inbounds i8, ptr %0, i64 600
-  %178 = getelementptr inbounds i8, ptr %0, i64 1296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull align 8 dereferenceable(24) %177, i64 24, i1 false)
-  %179 = getelementptr inbounds i8, ptr %0, i64 600
-  %180 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, ptr noundef nonnull align 8 dereferenceable(24) %179, i64 24, i1 false)
+_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18.thread: ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
+  %152 = getelementptr inbounds i8, ptr %0, i64 600
+  %153 = getelementptr inbounds i8, ptr %0, i64 1296
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
+  %154 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
   br label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24
 
-.loopexit:                                        ; preds = %162, %154
-  %181 = phi double [ 0.000000e+00, %154 ], [ %174, %162 ]
-  %182 = phi double [ 0.000000e+00, %154 ], [ %171, %162 ]
-  %183 = phi double [ 0.000000e+00, %154 ], [ %168, %162 ]
-  %184 = ptrtoint ptr %159 to i64
-  %185 = ptrtoint ptr %157 to i64
-  %186 = sub i64 %184, %185
-  %187 = sdiv exact i64 %186, 120
-  %188 = uitofp i64 %187 to double
-  %189 = fdiv double %183, %188
-  store double %189, ptr %155, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 1304
-  %191 = fdiv double %182, %188
-  store double %191, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 1312
-  %193 = fdiv double %181, %188
-  store double %193, ptr %192, align 8
-  %194 = load ptr, ptr %95, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 257
-  %196 = load i8, ptr %195, align 1
-  %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %207
+155:                                              ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit12
+  %156 = getelementptr inbounds i8, ptr %0, i64 1296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %156, i8 0, i64 24, i1 false)
+  %157 = getelementptr inbounds i8, ptr %0, i64 504
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 512
+  %160 = load ptr, ptr %159, align 8
+  %.not7.i13 = icmp eq ptr %158, %160
+  br i1 %.not7.i13, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18, label %.lr.ph.i14
 
-198:                                              ; preds = %.loopexit
-  %199 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 624
-  %201 = load i32, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %199, i64 560
-  %203 = sext i32 %201 to i64
-  %204 = load ptr, ptr %202, align 8, !noalias !111
-  %205 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %204, i64 %203
-  %206 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(24) %205, i64 24, i1 false)
+.lr.ph.i14:                                       ; preds = %155
+  %161 = getelementptr inbounds i8, ptr %0, i64 1304
+  %162 = getelementptr inbounds i8, ptr %0, i64 1312
+  br label %163
+
+163:                                              ; preds = %163, %.lr.ph.i14
+  %164 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %175, %163 ]
+  %165 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %172, %163 ]
+  %.sroa.04.08.i15 = phi ptr [ %158, %.lr.ph.i14 ], [ %176, %163 ]
+  %166 = phi double [ 0.000000e+00, %.lr.ph.i14 ], [ %169, %163 ]
+  %167 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 24
+  %168 = load double, ptr %167, align 8
+  %169 = fadd double %166, %168
+  store double %169, ptr %156, align 8
+  %170 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 32
+  %171 = load double, ptr %170, align 8
+  %172 = fadd double %165, %171
+  store double %172, ptr %161, align 8
+  %173 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 40
+  %174 = load double, ptr %173, align 8
+  %175 = fadd double %164, %174
+  store double %175, ptr %162, align 8
+  %176 = getelementptr inbounds i8, ptr %.sroa.04.08.i15, i64 120
+  %.not.i16 = icmp eq ptr %176, %160
+  br i1 %.not.i16, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18, label %163, !llvm.loop !110
+
+_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18: ; preds = %163, %155
+  %177 = phi double [ 0.000000e+00, %155 ], [ %175, %163 ]
+  %178 = phi double [ 0.000000e+00, %155 ], [ %172, %163 ]
+  %179 = phi double [ 0.000000e+00, %155 ], [ %169, %163 ]
+  %180 = ptrtoint ptr %160 to i64
+  %181 = ptrtoint ptr %158 to i64
+  %182 = sub i64 %180, %181
+  %183 = sdiv exact i64 %182, 120
+  %184 = uitofp i64 %183 to double
+  %185 = fdiv double %179, %184
+  store double %185, ptr %156, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 1304
+  %187 = fdiv double %178, %184
+  store double %187, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %0, i64 1312
+  %189 = fdiv double %177, %184
+  store double %189, ptr %188, align 8
+  %190 = load ptr, ptr %93, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 257
+  %192 = load i8, ptr %191, align 1
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %194, label %203
+
+194:                                              ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18
+  %195 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
+  %196 = getelementptr inbounds i8, ptr %0, i64 624
+  %197 = load i32, ptr %196, align 8
+  %198 = getelementptr inbounds i8, ptr %195, i64 560
+  %199 = sext i32 %197 to i64
+  %200 = load ptr, ptr %198, align 8, !noalias !111
+  %201 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %200, i64 %199
+  %202 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, ptr noundef nonnull align 8 dereferenceable(24) %201, i64 24, i1 false)
   br label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24
 
-207:                                              ; preds = %.loopexit
-  %208 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %208, i8 0, i64 24, i1 false)
+203:                                              ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18
+  %204 = getelementptr inbounds i8, ptr %0, i64 1344
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %204, i8 0, i64 24, i1 false)
   br i1 %.not7.i13, label %._crit_edge.i23, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %207
-  %209 = getelementptr inbounds i8, ptr %0, i64 1352
-  %210 = getelementptr inbounds i8, ptr %0, i64 1360
-  br label %211
+.lr.ph.i20:                                       ; preds = %203
+  %205 = getelementptr inbounds i8, ptr %0, i64 1352
+  %206 = getelementptr inbounds i8, ptr %0, i64 1360
+  br label %207
 
-211:                                              ; preds = %211, %.lr.ph.i20
-  %212 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %228, %211 ]
-  %213 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %227, %211 ]
-  %.sroa.08.013.i21 = phi ptr [ %157, %.lr.ph.i20 ], [ %229, %211 ]
-  %214 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %226, %211 ]
-  %215 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 8
-  %216 = load double, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 24
-  %218 = load double, ptr %217, align 8, !noalias !114
-  %219 = fmul double %216, %218
-  %220 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 32
-  %221 = load double, ptr %220, align 8, !noalias !114
-  %222 = fmul double %216, %221
-  %223 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 40
-  %224 = load double, ptr %223, align 8, !noalias !114
-  %225 = fmul double %216, %224
-  %226 = fadd double %214, %219
-  store double %226, ptr %208, align 8
-  %227 = fadd double %213, %222
-  store double %227, ptr %209, align 8
-  %228 = fadd double %212, %225
-  store double %228, ptr %210, align 8
-  %229 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 120
-  %.not.i22 = icmp eq ptr %229, %159
-  br i1 %.not.i22, label %._crit_edge.i23, label %211, !llvm.loop !109
+207:                                              ; preds = %207, %.lr.ph.i20
+  %208 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %224, %207 ]
+  %209 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %223, %207 ]
+  %.sroa.08.013.i21 = phi ptr [ %158, %.lr.ph.i20 ], [ %225, %207 ]
+  %210 = phi double [ 0.000000e+00, %.lr.ph.i20 ], [ %222, %207 ]
+  %211 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 8
+  %212 = load double, ptr %211, align 8
+  %213 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 24
+  %214 = load double, ptr %213, align 8, !noalias !114
+  %215 = fmul double %212, %214
+  %216 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 32
+  %217 = load double, ptr %216, align 8, !noalias !114
+  %218 = fmul double %212, %217
+  %219 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 40
+  %220 = load double, ptr %219, align 8, !noalias !114
+  %221 = fmul double %212, %220
+  %222 = fadd double %210, %215
+  store double %222, ptr %204, align 8
+  %223 = fadd double %209, %218
+  store double %223, ptr %205, align 8
+  %224 = fadd double %208, %221
+  store double %224, ptr %206, align 8
+  %225 = getelementptr inbounds i8, ptr %.sroa.08.013.i21, i64 120
+  %.not.i22 = icmp eq ptr %225, %160
+  br i1 %.not.i22, label %._crit_edge.i23, label %207, !llvm.loop !109
 
-._crit_edge.i23:                                  ; preds = %211, %207
-  %230 = phi double [ 0.000000e+00, %207 ], [ %228, %211 ]
-  %231 = phi double [ 0.000000e+00, %207 ], [ %227, %211 ]
-  %232 = phi double [ 0.000000e+00, %207 ], [ %226, %211 ]
-  %233 = getelementptr inbounds i8, ptr %0, i64 1272
-  %234 = load double, ptr %233, align 8
-  %235 = fdiv double %232, %234
-  store double %235, ptr %208, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 1352
-  %237 = fdiv double %231, %234
-  store double %237, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %0, i64 1360
-  %239 = fdiv double %230, %234
-  store double %239, ptr %238, align 8
+._crit_edge.i23:                                  ; preds = %207, %203
+  %226 = phi double [ 0.000000e+00, %203 ], [ %224, %207 ]
+  %227 = phi double [ 0.000000e+00, %203 ], [ %223, %207 ]
+  %228 = phi double [ 0.000000e+00, %203 ], [ %222, %207 ]
+  %229 = getelementptr inbounds i8, ptr %0, i64 1272
+  %230 = load double, ptr %229, align 8
+  %231 = fdiv double %228, %230
+  store double %231, ptr %204, align 8
+  %232 = getelementptr inbounds i8, ptr %0, i64 1352
+  %233 = fdiv double %227, %230
+  store double %233, ptr %232, align 8
+  %234 = getelementptr inbounds i8, ptr %0, i64 1360
+  %235 = fdiv double %226, %230
+  store double %235, ptr %234, align 8
   br label %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24
 
-_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24: ; preds = %176, %198, %._crit_edge.i23
-  %240 = load ptr, ptr %108, align 8
-  %.not2 = icmp eq ptr %240, null
-  br i1 %.not2, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30, label %241
+_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24: ; preds = %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit18.thread, %194, %._crit_edge.i23
+  %236 = load ptr, ptr %106, align 8
+  %.not2 = icmp eq ptr %236, null
+  br i1 %.not2, label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30, label %237
 
-241:                                              ; preds = %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24
-  %242 = getelementptr inbounds i8, ptr %240, i64 628
-  %243 = load i8, ptr %242, align 4
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %245, label %248
+237:                                              ; preds = %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24
+  %238 = getelementptr inbounds i8, ptr %236, i64 628
+  %239 = load i8, ptr %238, align 4
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %244
 
-245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %240, i64 600
-  %247 = getelementptr inbounds i8, ptr %240, i64 1296
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %247, ptr noundef nonnull align 8 dereferenceable(24) %246, i64 24, i1 false)
+241:                                              ; preds = %237
+  %242 = getelementptr inbounds i8, ptr %236, i64 600
+  %243 = getelementptr inbounds i8, ptr %236, i64 1296
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %243, ptr noundef nonnull align 8 dereferenceable(24) %242, i64 24, i1 false)
   br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30
 
-248:                                              ; preds = %241
-  %249 = getelementptr inbounds i8, ptr %240, i64 1296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %249, i8 0, i64 24, i1 false)
-  %250 = getelementptr inbounds i8, ptr %240, i64 504
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %240, i64 512
-  %253 = load ptr, ptr %252, align 8
-  %.not7.i25 = icmp eq ptr %251, %253
+244:                                              ; preds = %237
+  %245 = getelementptr inbounds i8, ptr %236, i64 1296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
+  %246 = getelementptr inbounds i8, ptr %236, i64 504
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds i8, ptr %236, i64 512
+  %249 = load ptr, ptr %248, align 8
+  %.not7.i25 = icmp eq ptr %247, %249
   br i1 %.not7.i25, label %._crit_edge.i29, label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %248
-  %254 = getelementptr inbounds i8, ptr %240, i64 1304
-  %255 = getelementptr inbounds i8, ptr %240, i64 1312
-  br label %256
+.lr.ph.i26:                                       ; preds = %244
+  %250 = getelementptr inbounds i8, ptr %236, i64 1304
+  %251 = getelementptr inbounds i8, ptr %236, i64 1312
+  br label %252
 
-256:                                              ; preds = %256, %.lr.ph.i26
-  %257 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %268, %256 ]
-  %258 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %265, %256 ]
-  %.sroa.04.08.i27 = phi ptr [ %251, %.lr.ph.i26 ], [ %269, %256 ]
-  %259 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %262, %256 ]
-  %260 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 24
-  %261 = load double, ptr %260, align 8
-  %262 = fadd double %259, %261
-  store double %262, ptr %249, align 8
-  %263 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 32
-  %264 = load double, ptr %263, align 8
-  %265 = fadd double %258, %264
-  store double %265, ptr %254, align 8
-  %266 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 40
-  %267 = load double, ptr %266, align 8
-  %268 = fadd double %257, %267
-  store double %268, ptr %255, align 8
-  %269 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 120
-  %.not.i28 = icmp eq ptr %269, %253
-  br i1 %.not.i28, label %._crit_edge.i29, label %256, !llvm.loop !110
+252:                                              ; preds = %252, %.lr.ph.i26
+  %253 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %264, %252 ]
+  %254 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %261, %252 ]
+  %.sroa.04.08.i27 = phi ptr [ %247, %.lr.ph.i26 ], [ %265, %252 ]
+  %255 = phi double [ 0.000000e+00, %.lr.ph.i26 ], [ %258, %252 ]
+  %256 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 24
+  %257 = load double, ptr %256, align 8
+  %258 = fadd double %255, %257
+  store double %258, ptr %245, align 8
+  %259 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 32
+  %260 = load double, ptr %259, align 8
+  %261 = fadd double %254, %260
+  store double %261, ptr %250, align 8
+  %262 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 40
+  %263 = load double, ptr %262, align 8
+  %264 = fadd double %253, %263
+  store double %264, ptr %251, align 8
+  %265 = getelementptr inbounds i8, ptr %.sroa.04.08.i27, i64 120
+  %.not.i28 = icmp eq ptr %265, %249
+  br i1 %.not.i28, label %._crit_edge.i29, label %252, !llvm.loop !110
 
-._crit_edge.i29:                                  ; preds = %256, %248
-  %270 = phi double [ 0.000000e+00, %248 ], [ %268, %256 ]
-  %271 = phi double [ 0.000000e+00, %248 ], [ %265, %256 ]
-  %272 = phi double [ 0.000000e+00, %248 ], [ %262, %256 ]
-  %273 = ptrtoint ptr %253 to i64
-  %274 = ptrtoint ptr %251 to i64
-  %275 = sub i64 %273, %274
-  %276 = sdiv exact i64 %275, 120
-  %277 = uitofp i64 %276 to double
-  %278 = fdiv double %272, %277
-  store double %278, ptr %249, align 8
-  %279 = getelementptr inbounds i8, ptr %240, i64 1304
-  %280 = fdiv double %271, %277
-  store double %280, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %240, i64 1312
-  %282 = fdiv double %270, %277
-  store double %282, ptr %281, align 8
+._crit_edge.i29:                                  ; preds = %252, %244
+  %266 = phi double [ 0.000000e+00, %244 ], [ %264, %252 ]
+  %267 = phi double [ 0.000000e+00, %244 ], [ %261, %252 ]
+  %268 = phi double [ 0.000000e+00, %244 ], [ %258, %252 ]
+  %269 = ptrtoint ptr %249 to i64
+  %270 = ptrtoint ptr %247 to i64
+  %271 = sub i64 %269, %270
+  %272 = sdiv exact i64 %271, 120
+  %273 = uitofp i64 %272 to double
+  %274 = fdiv double %268, %273
+  store double %274, ptr %245, align 8
+  %275 = getelementptr inbounds i8, ptr %236, i64 1304
+  %276 = fdiv double %267, %273
+  store double %276, ptr %275, align 8
+  %277 = getelementptr inbounds i8, ptr %236, i64 1312
+  %278 = fdiv double %266, %273
+  store double %278, ptr %277, align 8
   br label %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30
 
-_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30: ; preds = %._crit_edge.i29, %245, %103, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24, %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
-  %283 = load i32, ptr @_ZN12colvarmodule9errorCodeE, align 4
-  %.not3 = icmp ne i32 %283, 0
-  %284 = zext i1 %.not3 to i32
-  ret i32 %284
+_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit30: ; preds = %._crit_edge.i29, %241, %101, %_ZN12colvarmodule10atom_group19calc_center_of_massEv.exit24, %_ZN12colvarmodule10atom_group23calc_center_of_geometryEv.exit
+  %279 = load i32, ptr @_ZN12colvarmodule9errorCodeE, align 4
+  %.not3 = icmp ne i32 %279, 0
+  %280 = zext i1 %.not3 to i32
+  ret i32 %280
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

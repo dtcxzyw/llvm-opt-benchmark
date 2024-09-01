@@ -1327,7 +1327,7 @@ tailrecurse.backedge:                             ; preds = %24, %113, %110, %11
   br i1 %.tr115130, label %tailrecurse.backedge, label %75
 
 75:                                               ; preds = %74, %71
-  %.tr115130.lcssa175 = phi i1 [ false, %74 ], [ %.tr115130, %71 ]
+  %.tr115.lcssa123 = phi i1 [ false, %74 ], [ %.tr115130, %71 ]
   %76 = getelementptr inbounds i8, ptr %.tr129, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
@@ -1353,7 +1353,7 @@ tailrecurse.backedge:                             ; preds = %24, %113, %110, %11
   %86 = load ptr, ptr %79, align 8
   %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %88, i1 noundef zeroext %.tr115130.lcssa175)
+  %89 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %88, i1 noundef zeroext %.tr115.lcssa123)
   %90 = icmp eq ptr %.2147155, null
   br i1 %90, label %93, label %91
 
@@ -1604,7 +1604,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %118, 
   br i1 %.tr112125, label %tailrecurse.backedge, label %79
 
 79:                                               ; preds = %78, %75
-  %.tr112125.lcssa168 = phi i1 [ false, %78 ], [ %.tr112125, %75 ]
+  %.tr112.lcssa119 = phi i1 [ false, %78 ], [ %.tr112125, %75 ]
   %80 = getelementptr inbounds i8, ptr %.tr124, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 4
@@ -1630,7 +1630,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %118, 
   %90 = load ptr, ptr %83, align 8
   %91 = getelementptr %union.ListCell, ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %92, i1 noundef zeroext %.tr112125.lcssa168)
+  %93 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %92, i1 noundef zeroext %.tr112.lcssa119)
   %94 = icmp eq ptr %.2142150, null
   br i1 %94, label %97, label %95
 

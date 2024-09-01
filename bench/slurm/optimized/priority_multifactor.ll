@@ -1645,8 +1645,8 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   %166 = sext i32 %165 to i64
   %167 = shl nsw i64 %166, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %164, i8 0, i64 %167, i1 false)
-  %168 = icmp slt i32 %165, 1
-  br i1 %168, label %_get_tres_prio_weighted.exit169, label %.lr.ph.i153
+  %168 = icmp sgt i32 %165, 0
+  br i1 %168, label %.lr.ph.i153, label %_get_tres_prio_weighted.exit169
 
 .lr.ph.i153:                                      ; preds = %160
   %169 = load i32, ptr @flags, align 4
@@ -3148,8 +3148,8 @@ _create_prio_factors_obj.exit:                    ; preds = %83, %87
 
 147:                                              ; preds = %137
   %148 = load i32, ptr @slurmctld_tres_cnt, align 4
-  %149 = icmp slt i32 %148, 1
-  br i1 %149, label %_create_prio_factors_obj.exit56, label %.lr.ph.i.i
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %.lr.ph.i.i, label %_create_prio_factors_obj.exit56
 
 .lr.ph.i.i:                                       ; preds = %147
   %150 = and i32 %128, 1024

@@ -1378,7 +1378,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 if.then.i14:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %Name.sroa.0.0.copyload, i64 noundef %Name.sroa.3.0.copyload) #15
   %OutBufCur.i6.i17.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i, i64 24
-  %.pre39 = load ptr, ptr %OutBufCur.i6.i17.phi.trans.insert, align 8
+  %.pre38 = load ptr, ptr %OutBufCur.i6.i17.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -1393,7 +1393,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i14, %if.end.i, %if.then4.i
-  %9 = phi ptr [ %.pre39, %if.then.i14 ], [ %add.ptr.i13, %if.then4.i ], [ %6, %if.end.i ]
+  %9 = phi ptr [ %.pre38, %if.then.i14 ], [ %add.ptr.i13, %if.then4.i ], [ %6, %if.end.i ]
   %retval.0.i = phi ptr [ %call3.i, %if.then.i14 ], [ %phi.call.i, %if.then4.i ], [ %phi.call.i, %if.end.i ]
   %OutBufEnd.i5.i16 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5.i16, align 8

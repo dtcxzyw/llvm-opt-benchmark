@@ -75261,8 +75261,7 @@ _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Valu
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE5emptyEv.exit: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS9_10NodeStructEEE.exit.thread.i.i.i
   %cmp.i.i = icmp eq i64 %0, %10
-  %brmerge = or i1 %cmp.i.i, %cmp.i.not7.i.i.i
-  br i1 %brmerge, label %return, label %for.body.lr.ph.i
+  br i1 %cmp.i.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE5emptyEv.exit
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %bbox, i64 4
@@ -75460,8 +75459,7 @@ _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Valu
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE5emptyEv.exit: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS9_10NodeStructEEE.exit.thread.i.i.i
   %cmp.i.i = icmp eq i64 %0, %10
-  %brmerge = or i1 %cmp.i.i, %cmp.i.not7.i.i.i
-  br i1 %brmerge, label %return, label %for.body.lr.ph.i
+  br i1 %cmp.i.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE5emptyEv.exit
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %bbox, i64 4
@@ -121332,15 +121330,15 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %spec.select.i = add i32 %sum.06.i, %inc.i
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.05.i) #30
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.not.i, label %for.body.i14.preheader, label %for.body.i, !llvm.loop !1078
+  br i1 %cmp.i.not.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE12getTileCountEv.exit, label %for.body.i, !llvm.loop !1078
 
-for.body.i14.preheader:                           ; preds = %for.body.i
+_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE12getTileCountEv.exit: ; preds = %for.body.i
   store i32 %spec.select.i, ptr %numTiles, align 4
   br label %for.body.i14
 
-for.body.i14:                                     ; preds = %for.body.i14.preheader, %for.body.i14
-  %sum.06.i15 = phi i32 [ %spec.select.i19, %for.body.i14 ], [ 0, %for.body.i14.preheader ]
-  %i.sroa.0.05.i16 = phi ptr [ %call.i.i20, %for.body.i14 ], [ %1, %for.body.i14.preheader ]
+for.body.i14:                                     ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE12getTileCountEv.exit, %for.body.i14
+  %sum.06.i15 = phi i32 [ %spec.select.i19, %for.body.i14 ], [ 0, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE12getTileCountEv.exit ]
+  %i.sroa.0.05.i16 = phi ptr [ %call.i.i20, %for.body.i14 ], [ %1, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE12getTileCountEv.exit ]
   %second.i.i17 = getelementptr inbounds i8, ptr %i.sroa.0.05.i16, i64 48
   %3 = load ptr, ptr %second.i.i17, align 8
   %cmp.i.i.not.i = icmp ne ptr %3, null

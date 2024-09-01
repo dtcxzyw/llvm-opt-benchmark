@@ -196,22 +196,16 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge527.us:                                ; preds = %67
   %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
   %exitcond696.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count695
-  br i1 %exitcond696.not, label %.preheader507, label %.preheader508.us
+  br i1 %exitcond696.not, label %.preheader506.lr.ph, label %.preheader508.us
 
-.preheader507:                                    ; preds = %._crit_edge527.us
-  br i1 %64, label %._crit_edge538, label %.preheader506.lr.ph
-
-.preheader506.lr.ph:                              ; preds = %.preheader507
+.preheader506.lr.ph:                              ; preds = %._crit_edge527.us
   %72 = fdiv double 1.000000e+01, %71
-  br i1 %11, label %.lr.ph537.preheader, label %.preheader506.us.preheader
-
-.preheader506.us.preheader:                       ; preds = %.preheader506.lr.ph
   %wide.trip.count705 = zext nneg i32 %4 to i64
   %wide.trip.count700 = zext nneg i32 %1 to i64
   br label %.preheader506.us
 
-.preheader506.us:                                 ; preds = %.preheader506.us.preheader, %._crit_edge534.us
-  %indvars.iv702 = phi i64 [ 0, %.preheader506.us.preheader ], [ %indvars.iv.next703, %._crit_edge534.us ]
+.preheader506.us:                                 ; preds = %.preheader506.lr.ph, %._crit_edge534.us
+  %indvars.iv702 = phi i64 [ 0, %.preheader506.lr.ph ], [ %indvars.iv.next703, %._crit_edge534.us ]
   %73 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv702
   br label %74
 
@@ -229,12 +223,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge534.us:                                ; preds = %74
   %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
   %exitcond706.not = icmp eq i64 %indvars.iv.next703, %wide.trip.count705
-  br i1 %exitcond706.not, label %.preheader505, label %.preheader506.us
+  br i1 %exitcond706.not, label %.lr.ph537.preheader, label %.preheader506.us
 
-.preheader505:                                    ; preds = %._crit_edge534.us
-  br i1 %64, label %._crit_edge538, label %.lr.ph537.preheader
-
-.lr.ph537.preheader:                              ; preds = %.preheader508.lr.ph, %.preheader506.lr.ph, %.preheader505
+.lr.ph537.preheader:                              ; preds = %._crit_edge534.us, %.preheader508.lr.ph
   %wide.trip.count710 = zext nneg i32 %4 to i64
   br label %.lr.ph537
 
@@ -247,7 +238,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %exitcond711.not = icmp eq i64 %indvars.iv.next708, %wide.trip.count710
   br i1 %exitcond711.not, label %._crit_edge538, label %.lr.ph537
 
-._crit_edge538:                                   ; preds = %.lr.ph537, %.preheader509, %.preheader507, %.preheader505
+._crit_edge538:                                   ; preds = %.lr.ph537, %.preheader509
   %81 = getelementptr inbounds i8, ptr %2, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load double, ptr %82, align 8
@@ -743,11 +734,8 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %wide.trip.count787 = zext i32 %indvars.iv785 to i64
   br label %.lr.ph613
 
-.preheader498:                                    ; preds = %269
+.lr.ph618.preheader:                              ; preds = %269
   %.4439614 = add i32 %.3438622, 1
-  br i1 %262, label %.lr.ph618.preheader, label %._crit_edge619
-
-.lr.ph618.preheader:                              ; preds = %.preheader498
   %263 = sext i32 %.4439614 to i64
   %wide.trip.count796 = zext i32 %indvars.iv785 to i64
   %invariant.gep862 = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv798
@@ -769,7 +757,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 269:                                              ; preds = %.lr.ph613, %268
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %exitcond788.not = icmp eq i64 %indvars.iv.next783, %wide.trip.count787
-  br i1 %exitcond788.not, label %.preheader498, label %.lr.ph613
+  br i1 %exitcond788.not, label %.lr.ph618.preheader, label %.lr.ph613
 
 .lr.ph618:                                        ; preds = %.lr.ph618.preheader, %.lr.ph618
   %indvars.iv791 = phi i64 [ 0, %.lr.ph618.preheader ], [ %indvars.iv.next792, %.lr.ph618 ]
@@ -796,9 +784,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %279 = trunc nsw i64 %indvars.iv.next790 to i32
   br label %._crit_edge619
 
-._crit_edge619:                                   ; preds = %.preheader498.thread, %._crit_edge619.loopexit, %.preheader498
-  %.1434.lcssa = phi double [ 0.000000e+00, %.preheader498 ], [ %276, %._crit_edge619.loopexit ], [ 0.000000e+00, %.preheader498.thread ]
-  %.4439.lcssa = phi i32 [ %.4439614, %.preheader498 ], [ %279, %._crit_edge619.loopexit ], [ %.4439614845, %.preheader498.thread ]
+._crit_edge619:                                   ; preds = %.preheader498.thread, %._crit_edge619.loopexit
+  %.1434.lcssa = phi double [ %276, %._crit_edge619.loopexit ], [ 0.000000e+00, %.preheader498.thread ]
+  %.4439.lcssa = phi i32 [ %279, %._crit_edge619.loopexit ], [ %.4439614845, %.preheader498.thread ]
   %280 = getelementptr inbounds double, ptr %179, i64 %indvars.iv798
   %281 = load double, ptr %280, align 8
   %282 = fsub double %281, %.1434.lcssa
@@ -828,9 +816,6 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %exitcond811.not = icmp eq i64 %indvars.iv.next804, %wide.trip.count810
   br i1 %exitcond811.not, label %.preheader500, label %.lr.ph629
 
-.preheader499:                                    ; preds = %.lr.ph631
-  br i1 %64, label %._crit_edge641, label %.lr.ph634
-
 .lr.ph631:                                        ; preds = %.preheader500, %.lr.ph631
   %indvars.iv812 = phi i64 [ %indvars.iv.next813, %.lr.ph631 ], [ 0, %.preheader500 ]
   %290 = getelementptr inbounds ptr, ptr %202, i64 %indvars.iv812
@@ -840,11 +825,11 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   tail call void @right_mult_with_vector_ff(ptr noundef %242, i32 noundef %.0409, ptr noundef %291, ptr noundef %293) #12
   %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 1
   %exitcond816.not = icmp eq i64 %indvars.iv.next813, %wide.trip.count815
-  br i1 %exitcond816.not, label %.preheader499, label %.lr.ph631
+  br i1 %exitcond816.not, label %.lr.ph634, label %.lr.ph631
 
-.lr.ph634:                                        ; preds = %.preheader499, %.lr.ph634
-  %indvars.iv817 = phi i64 [ %indvars.iv.next818, %.lr.ph634 ], [ 0, %.preheader499 ]
-  %.1428633 = phi double [ %299, %.lr.ph634 ], [ 0.000000e+00, %.preheader499 ]
+.lr.ph634:                                        ; preds = %.lr.ph631, %.lr.ph634
+  %indvars.iv817 = phi i64 [ %indvars.iv.next818, %.lr.ph634 ], [ 0, %.lr.ph631 ]
+  %.1428633 = phi double [ %299, %.lr.ph634 ], [ 0.000000e+00, %.lr.ph631 ]
   %294 = getelementptr inbounds ptr, ptr %202, i64 %indvars.iv817
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds ptr, ptr %226, i64 %indvars.iv817
@@ -858,7 +843,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge635:                                   ; preds = %.lr.ph634
   %300 = fmul double %299, 2.000000e+00
   %301 = fadd double %300, %244
-  br i1 %64, label %._crit_edge641, label %.lr.ph640
+  br label %.lr.ph640
 
 .lr.ph640:                                        ; preds = %._crit_edge635, %.lr.ph640
   %indvars.iv822 = phi i64 [ %indvars.iv.next823, %.lr.ph640 ], [ 0, %._crit_edge635 ]
@@ -873,8 +858,8 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %exitcond826.not = icmp eq i64 %indvars.iv.next823, %wide.trip.count825
   br i1 %exitcond826.not, label %._crit_edge641, label %.lr.ph640
 
-._crit_edge641:                                   ; preds = %.lr.ph640, %.preheader500, %.preheader499, %._crit_edge635
-  %.2429.lcssa = phi double [ %301, %._crit_edge635 ], [ %244, %.preheader499 ], [ %244, %.preheader500 ], [ %306, %.lr.ph640 ]
+._crit_edge641:                                   ; preds = %.lr.ph640, %.preheader500
+  %.2429.lcssa = phi double [ %244, %.preheader500 ], [ %306, %.lr.ph640 ]
   %307 = load i8, ptr @Verbose, align 1
   %.not483 = icmp eq i8 %307, 0
   br i1 %.not483, label %315, label %308

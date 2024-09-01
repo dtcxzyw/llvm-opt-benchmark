@@ -50,10 +50,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.preheader123:                                    ; preds = %36
-  br i1 %29, label %.lr.ph127.preheader, label %._crit_edge.thread
-
-.lr.ph127.preheader:                              ; preds = %.preheader123
+.lr.ph127.preheader:                              ; preds = %36
   %wide.trip.count154 = zext nneg i32 %8 to i64
   br label %.lr.ph127
 
@@ -74,12 +71,9 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %.1111 = phi i32 [ %.0110124, %.lr.ph ], [ %35, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader123, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph127.preheader, label %.lr.ph, !llvm.loop !4
 
-.preheader122:                                    ; preds = %.lr.ph127
-  br i1 %29, label %.lr.ph131.preheader, label %._crit_edge.thread
-
-.lr.ph131.preheader:                              ; preds = %.preheader122
+.lr.ph131.preheader:                              ; preds = %.lr.ph127
   %wide.trip.count159 = zext nneg i32 %8 to i64
   br label %.lr.ph131
 
@@ -91,7 +85,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %39, ptr %37, align 4
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %.preheader122, label %.lr.ph127, !llvm.loop !6
+  br i1 %exitcond155.not, label %.lr.ph131.preheader, label %.lr.ph127, !llvm.loop !6
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %51
   %indvars.iv156 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next157, %51 ]
@@ -120,7 +114,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
   br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !7
 
-._crit_edge.thread:                               ; preds = %.preheader122, %.preheader123, %21
+._crit_edge.thread:                               ; preds = %21
   %52 = getelementptr inbounds i32, ptr %26, i64 %22
   store i32 0, ptr %52, align 4
   br label %.lr.ph135.preheader

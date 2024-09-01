@@ -3311,10 +3311,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
   %63 = icmp ult ptr %62, %30
   br i1 %63, label %34, label %.preheader242, !llvm.loop !41
 
-.preheader241:                                    ; preds = %.lr.ph246
-  br i1 %.not244, label %._crit_edge, label %.lr.ph249.preheader
-
-.lr.ph249.preheader:                              ; preds = %.preheader241
+.lr.ph249.preheader:                              ; preds = %.lr.ph246
   %64 = add nuw i32 %0, 1
   %wide.trip.count295 = zext i32 %64 to i64
   br label %.lr.ph249
@@ -3327,7 +3324,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
   store ptr %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader241, label %.lr.ph246, !llvm.loop !42
+  br i1 %exitcond.not, label %.lr.ph249.preheader, label %.lr.ph246, !llvm.loop !42
 
 .lr.ph249:                                        ; preds = %.lr.ph249.preheader, %.lr.ph249
   %indvars.iv292 = phi i64 [ 2, %.lr.ph249.preheader ], [ %indvars.iv.next293, %.lr.ph249 ]
@@ -3339,7 +3336,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
   br i1 %exitcond296.not, label %._crit_edge, label %.lr.ph249, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %.lr.ph249, %.preheader242, %.preheader241
+._crit_edge:                                      ; preds = %.lr.ph249, %.preheader242
   %71 = load ptr, ptr %27, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 320
   %73 = icmp ult ptr %72, %30

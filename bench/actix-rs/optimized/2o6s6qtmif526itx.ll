@@ -889,8 +889,8 @@ define internal fastcc noundef zeroext i1 @"_ZN2h25codec12framed_write16Encoder$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @_ZN2h25frame7headers12Continuation6encode17h7ee6edbd59315af7E(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %30 = load ptr, ptr %2, align 8, !noundef !10
-  %.not.not = icmp eq ptr %30, null
-  br i1 %.not.not, label %47, label %34
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %47, label %34
 
 31:                                               ; preds = %14
   %32 = landingpad { ptr, i32 }
@@ -2100,8 +2100,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit653
 
 470:                                              ; preds = %310
   %471 = load ptr, ptr %95, align 8, !noundef !10
-  %.not539.not = icmp eq ptr %471, null
-  br i1 %.not539.not, label %"_ZN4core3ptr53drop_in_place$LT$h2..frame..headers..Continuation$GT$17h9d94dfbafc0ffe8aE.exit", label %472
+  %.not539 = icmp eq ptr %471, null
+  br i1 %.not539, label %"_ZN4core3ptr53drop_in_place$LT$h2..frame..headers..Continuation$GT$17h9d94dfbafc0ffe8aE.exit", label %472
 
 472:                                              ; preds = %470
   call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %.sroa.055)
@@ -2144,8 +2144,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit653
 
 485:                                              ; preds = %319
   %486 = load ptr, ptr %92, align 8, !noundef !10
-  %.not537.not = icmp eq ptr %486, null
-  br i1 %.not537.not, label %"_ZN4core3ptr53drop_in_place$LT$h2..frame..headers..Continuation$GT$17h9d94dfbafc0ffe8aE.exit712", label %487
+  %.not537 = icmp eq ptr %486, null
+  br i1 %.not537, label %"_ZN4core3ptr53drop_in_place$LT$h2..frame..headers..Continuation$GT$17h9d94dfbafc0ffe8aE.exit712", label %487
 
 487:                                              ; preds = %485
   call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %.sroa.065)

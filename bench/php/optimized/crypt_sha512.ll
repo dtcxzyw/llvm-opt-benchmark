@@ -214,7 +214,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 2270897969802886507, ptr %75, align 8
   store i64 6620516959819538809, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  br i1 %.not524536, label %.thread806, label %.lr.ph543
+  br label %.lr.ph543
 
 .thread806.critedge:                              ; preds = %._crit_edge
   %88 = call fastcc ptr @sha512_finish_ctx(ptr noundef nonnull %6, ptr noundef nonnull %4)
@@ -227,9 +227,6 @@ sub_2:                                            ; preds = %sub_1
   store i64 2270897969802886507, ptr %75, align 8
   store i64 6620516959819538809, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  br label %.thread806
-
-.thread806:                                       ; preds = %.thread806.critedge, %._crit_edge540
   %89 = call fastcc ptr @sha512_finish_ctx(ptr noundef nonnull %7, ptr noundef nonnull %5)
   %90 = alloca i8, i64 %36, align 16
   br label %._crit_edge549
@@ -268,11 +265,11 @@ sub_2:                                            ; preds = %sub_1
   %102 = icmp ugt i64 %101, 63
   br i1 %102, label %.lr.ph548, label %._crit_edge549
 
-._crit_edge549:                                   ; preds = %.lr.ph548, %.thread806, %96
-  %103 = phi ptr [ %97, %96 ], [ %90, %.thread806 ], [ %99, %.lr.ph548 ]
-  %104 = phi i1 [ false, %96 ], [ false, %.thread806 ], [ %93, %.lr.ph548 ]
-  %.0483.lcssa = phi ptr [ %97, %96 ], [ %90, %.thread806 ], [ %100, %.lr.ph548 ]
-  %.3479.lcssa = phi i64 [ %36, %96 ], [ 0, %.thread806 ], [ %101, %.lr.ph548 ]
+._crit_edge549:                                   ; preds = %.lr.ph548, %.thread806.critedge, %96
+  %103 = phi ptr [ %97, %96 ], [ %90, %.thread806.critedge ], [ %99, %.lr.ph548 ]
+  %104 = phi i1 [ false, %96 ], [ false, %.thread806.critedge ], [ %93, %.lr.ph548 ]
+  %.0483.lcssa = phi ptr [ %97, %96 ], [ %90, %.thread806.critedge ], [ %100, %.lr.ph548 ]
+  %.3479.lcssa = phi i64 [ %36, %96 ], [ 0, %.thread806.critedge ], [ %101, %.lr.ph548 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0483.lcssa, ptr nonnull align 8 %5, i64 %.3479.lcssa, i1 false)
   store i64 7640891576956012808, ptr %7, align 8
   store i64 -4942790177534073029, ptr %70, align 8

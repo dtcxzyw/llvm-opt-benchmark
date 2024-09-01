@@ -92,8 +92,8 @@ tailrecurse:                                      ; preds = %31, %2
   %17 = sext i8 %14 to i32
   %18 = tail call i32 @putchar(i32 noundef %17)
   %19 = add nuw nsw i64 %.144, 1
-  %exitcond54.not = icmp eq i64 %19, 32
-  br i1 %exitcond54.not, label %split, label %.preheader, !llvm.loop !6
+  %exitcond55.not = icmp eq i64 %19, 32
+  br i1 %exitcond55.not, label %split, label %.preheader, !llvm.loop !6
 
 split:                                            ; preds = %16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.tr, i64 32
@@ -141,8 +141,8 @@ split.thread:                                     ; preds = %.preheader, %21, %s
 .loopexit:                                        ; preds = %25, %41
   %43 = trunc i64 %30 to i32
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %.tr, i32 noundef %43)
-  %.not57 = icmp eq i64 %30, 0
-  br i1 %.not57, label %._crit_edge48.thread, label %.lr.ph47
+  %.not50 = icmp eq i64 %30, 0
+  br i1 %.not50, label %._crit_edge48.thread, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.loopexit
   %45 = getelementptr inbounds i8, ptr %.tr, i64 24
@@ -158,8 +158,8 @@ split.thread:                                     ; preds = %.preheader, %21, %s
   %51 = sext i8 %50 to i32
   %52 = tail call i32 @putchar(i32 noundef %51)
   %53 = add nuw nsw i64 %.245, 1
-  %exitcond55.not = icmp eq i64 %.245, %umin
-  br i1 %exitcond55.not, label %._crit_edge48, label %47, !llvm.loop !7
+  %exitcond56.not = icmp eq i64 %.245, %umin
+  br i1 %exitcond56.not, label %._crit_edge48, label %47, !llvm.loop !7
 
 ._crit_edge48:                                    ; preds = %47
   %54 = icmp ult i64 %53, %30

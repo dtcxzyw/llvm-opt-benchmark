@@ -375,8 +375,8 @@ _ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28:    ; preds = %while.cond.preheade
   %6 = phi ptr [ %17, %while.cond.backedge ], [ %5, %while.cond.preheader ]
   %arrayidx.i26 = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i26, align 4
-  %cmp28.not = icmp ule i32 %7, %retval.0.i
-  br i1 %cmp28.not, label %if.then.i.i, label %loop
+  %cmp28.not.not.not.not.not = icmp ule i32 %7, %retval.0.i
+  br i1 %cmp28.not.not.not.not.not, label %if.then.i.i, label %loop
 
 loop.loopexit:                                    ; preds = %invoke.cont88
   br label %loop, !llvm.loop !4
@@ -555,7 +555,7 @@ if.then.i.i:                                      ; preds = %_ZNK6vectorIN3sat6e
   br label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit
 
 _ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit: ; preds = %while.cond.backedge, %while.cond.preheader, %cleanup, %if.then.i.i
-  %cmp286170 = phi i1 [ %cmp28.not, %cleanup ], [ %cmp28.not, %if.then.i.i ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ]
+  %cmp286170 = phi i1 [ false, %cleanup ], [ %cmp28.not.not.not.not.not, %if.then.i.i ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ]
   ret i1 %cmp286170
 
 ehcleanup107:                                     ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit, %ehcleanup43, %cleanup.action

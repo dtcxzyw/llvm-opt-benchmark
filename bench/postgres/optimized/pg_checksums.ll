@@ -717,14 +717,14 @@ define internal fastcc i64 @scan_directory(ptr noundef %0, ptr noundef %1, i1 no
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef %0, ptr noundef %1) #12
   %11 = call ptr @opendir(ptr noundef nonnull %4)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %15, label %.preheader48
+  br i1 %.not, label %15, label %skipfile.exit.preheader
 
-.preheader48:                                     ; preds = %3
+skipfile.exit.preheader:                          ; preds = %3
   %12 = call ptr @readdir(ptr noundef nonnull %11) #12
-  %.not396164 = icmp eq ptr %12, null
-  br i1 %.not396164, label %.outer._crit_edge, label %sub_0.lr.ph.lr.ph
+  %.not395557 = icmp eq ptr %12, null
+  br i1 %.not395557, label %skipfile.exit.outer._crit_edge, label %sub_0.lr.ph.lr.ph
 
-sub_0.lr.ph.lr.ph:                                ; preds = %.preheader48
+sub_0.lr.ph.lr.ph:                                ; preds = %skipfile.exit.preheader
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   %14 = getelementptr inbounds i8, ptr %6, i64 48
   br label %sub_0.lr.ph
@@ -734,28 +734,28 @@ sub_0.lr.ph.lr.ph:                                ; preds = %.preheader48
   call void @exit(i32 noundef 1) #15
   unreachable
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
-  %16 = phi ptr [ %97, %sub_0.lr.ph ], [ %33, %.backedge ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %skipfile.exit.backedge
+  %16 = phi ptr [ %97, %sub_0.lr.ph ], [ %33, %skipfile.exit.backedge ]
   %17 = getelementptr inbounds i8, ptr %16, i64 19
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = add nsw i32 %19, -46
-  %.not67 = icmp eq i32 %20, 0
-  br i1 %.not67, label %.tail, label %.tail44
+  %.not60 = icmp eq i32 %20, 0
+  br i1 %.not60, label %.tail, label %.tail44
 
 .tail:                                            ; preds = %sub_0
   %21 = getelementptr inbounds i8, ptr %16, i64 20
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.backedge, label %sub_146
+  br i1 %23, label %skipfile.exit.backedge, label %sub_146
 
 sub_146:                                          ; preds = %.tail
   %24 = getelementptr inbounds i8, ptr %16, i64 20
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nsw i32 %26, -46
-  %.not69 = icmp eq i32 %27, 0
-  br i1 %.not69, label %sub_2, label %.tail44
+  %.not62 = icmp eq i32 %27, 0
+  br i1 %.not62, label %sub_2, label %.tail44
 
 sub_2:                                            ; preds = %sub_146
   %28 = getelementptr inbounds i8, ptr %16, i64 21
@@ -766,22 +766,22 @@ sub_2:                                            ; preds = %sub_146
 .tail44:                                          ; preds = %sub_0, %sub_146, %sub_2
   %31 = phi i32 [ %27, %sub_146 ], [ %30, %sub_2 ], [ %20, %sub_0 ]
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.backedge, label %34
+  br i1 %32, label %skipfile.exit.backedge, label %34
 
-.backedge:                                        ; preds = %.preheader, %.tail, %.tail44, %34, %37, %skipfile.exit, %75
+skipfile.exit.backedge:                           ; preds = %.preheader, %.tail, %.tail44, %34, %37, %75
   %33 = call ptr @readdir(ptr noundef nonnull %11) #12
   %.not39 = icmp eq ptr %33, null
-  br i1 %.not39, label %.outer._crit_edge, label %sub_0, !llvm.loop !12
+  br i1 %.not39, label %skipfile.exit.outer._crit_edge, label %sub_0, !llvm.loop !12
 
 34:                                               ; preds = %.tail44
   %35 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.69, i64 noundef 9) #13
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.backedge, label %37
+  br i1 %36, label %skipfile.exit.backedge, label %37
 
 37:                                               ; preds = %34
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.70) #13
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.backedge, label %40
+  br i1 %39, label %skipfile.exit.backedge, label %40
 
 40:                                               ; preds = %37
   %41 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, ptr noundef nonnull %17) #12
@@ -798,28 +798,25 @@ sub_2:                                            ; preds = %sub_146
   %46 = load i32, ptr %13, align 8
   %47 = trunc i32 %46 to i16
   %trunc = and i16 %47, -4096
-  switch i16 %trunc, label %.outer [
+  switch i16 %trunc, label %skipfile.exit.outer [
     i16 -32768, label %.preheader
     i16 16384, label %81
     i16 -24576, label %81
   ]
 
-.preheader:                                       ; preds = %45
-  %48 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.75, ptr noundef nonnull readonly dereferenceable(1) %17, i64 noundef 11) #13
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.backedge, label %.lr.ph
+48:                                               ; preds = %.preheader
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %49 = getelementptr [5 x %struct.exclude_list_item], ptr @skip, i64 0, i64 %indvars.iv.next.i
+  %50 = load ptr, ptr %49, align 16
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.i, label %62, label %.preheader, !llvm.loop !13
 
-.lr.ph:                                           ; preds = %.preheader, %52
-  %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i58, 1
-  %50 = getelementptr [5 x %struct.exclude_list_item], ptr @skip, i64 0, i64 %indvars.iv.next.i
-  %51 = load ptr, ptr %50, align 16
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %skipfile.exit, label %52, !llvm.loop !13
-
-52:                                               ; preds = %.lr.ph
+.preheader:                                       ; preds = %45, %48
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %45 ]
+  %51 = phi ptr [ %50, %48 ], [ @.str.75, %45 ]
+  %52 = phi ptr [ %49, %48 ], [ @skip, %45 ]
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #13
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 8
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 1
   %57 = xor i8 %56, 1
@@ -829,13 +826,9 @@ sub_2:                                            ; preds = %sub_146
   %59 = ashr exact i64 %sext.i, 32
   %60 = call i32 @strncmp(ptr noundef nonnull %51, ptr noundef nonnull readonly %17, i64 noundef %59) #13
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %skipfile.exit, label %.lr.ph, !llvm.loop !13
+  br i1 %61, label %skipfile.exit.backedge, label %48, !llvm.loop !12
 
-skipfile.exit:                                    ; preds = %52, %.lr.ph
-  %.not.i.not.le = icmp eq ptr %51, null
-  br i1 %.not.i.not.le, label %62, label %.backedge
-
-62:                                               ; preds = %skipfile.exit
+62:                                               ; preds = %48
   %63 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1024) #12
   %64 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 46) #13
   %.not40 = icmp eq ptr %64, null
@@ -871,16 +864,16 @@ skipfile.exit:                                    ; preds = %52, %.lr.ph
 75:                                               ; preds = %73
   %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %7) #13
   %.not43 = icmp eq i32 %76, 0
-  br i1 %.not43, label %77, label %.backedge
+  br i1 %.not43, label %77, label %skipfile.exit.backedge
 
 77:                                               ; preds = %75, %73
   %78 = load i64, ptr %14, align 8
-  %79 = add i64 %78, %.031.ph65
-  br i1 %2, label %.outer, label %80
+  %79 = add i64 %78, %.031.ph58
+  br i1 %2, label %skipfile.exit.outer, label %80
 
 80:                                               ; preds = %77
   call fastcc void @scan_file(ptr noundef nonnull %5, i32 noundef %.0)
-  br label %.outer
+  br label %skipfile.exit.outer
 
 81:                                               ; preds = %45, %45
   %82 = call i32 @strncmp(ptr noundef nonnull dereferenceable(10) @.str.32, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 9) #13
@@ -901,29 +894,29 @@ skipfile.exit:                                    ; preds = %52, %.lr.ph
 89:                                               ; preds = %84
   %90 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, ptr noundef nonnull %17) #12
   %91 = call fastcc i64 @scan_directory(ptr noundef nonnull %8, ptr noundef nonnull @.str.74, i1 noundef zeroext %2)
-  %92 = add i64 %91, %.031.ph65
-  br label %.outer
+  %92 = add i64 %91, %.031.ph58
+  br label %skipfile.exit.outer
 
 93:                                               ; preds = %81
   %94 = call fastcc i64 @scan_directory(ptr noundef nonnull %4, ptr noundef nonnull %17, i1 noundef zeroext %2)
-  %95 = add i64 %94, %.031.ph65
-  br label %.outer
+  %95 = add i64 %94, %.031.ph58
+  br label %skipfile.exit.outer
 
-.outer:                                           ; preds = %45, %93, %89, %77, %80
-  %.1 = phi i64 [ %79, %77 ], [ %79, %80 ], [ %92, %89 ], [ %95, %93 ], [ %.031.ph65, %45 ]
+skipfile.exit.outer:                              ; preds = %45, %93, %89, %77, %80
+  %.1 = phi i64 [ %79, %77 ], [ %79, %80 ], [ %92, %89 ], [ %95, %93 ], [ %.031.ph58, %45 ]
   %96 = call ptr @readdir(ptr noundef nonnull %11) #12
-  %.not3961 = icmp eq ptr %96, null
-  br i1 %.not3961, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !12
+  %.not3955 = icmp eq ptr %96, null
+  br i1 %.not3955, label %skipfile.exit.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !12
 
-sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %.outer
-  %97 = phi ptr [ %12, %sub_0.lr.ph.lr.ph ], [ %96, %.outer ]
-  %.031.ph65 = phi i64 [ 0, %sub_0.lr.ph.lr.ph ], [ %.1, %.outer ]
+sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %skipfile.exit.outer
+  %97 = phi ptr [ %12, %sub_0.lr.ph.lr.ph ], [ %96, %skipfile.exit.outer ]
+  %.031.ph58 = phi i64 [ 0, %sub_0.lr.ph.lr.ph ], [ %.1, %skipfile.exit.outer ]
   br label %sub_0
 
-.outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader48
-  %.031.ph.lcssa55 = phi i64 [ 0, %.preheader48 ], [ %.031.ph65, %.backedge ], [ %.1, %.outer ]
+skipfile.exit.outer._crit_edge:                   ; preds = %skipfile.exit.outer, %skipfile.exit.backedge, %skipfile.exit.preheader
+  %.031.ph.lcssa54 = phi i64 [ 0, %skipfile.exit.preheader ], [ %.031.ph58, %skipfile.exit.backedge ], [ %.1, %skipfile.exit.outer ]
   %98 = call i32 @closedir(ptr noundef nonnull %11)
-  ret i64 %.031.ph.lcssa55
+  ret i64 %.031.ph.lcssa54
 }
 
 ; Function Attrs: nounwind uwtable

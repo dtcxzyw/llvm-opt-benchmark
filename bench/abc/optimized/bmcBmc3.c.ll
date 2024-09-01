@@ -629,7 +629,10 @@ define void @Saig_ManBmcTerSimTest(ptr nocapture noundef readonly %0) local_unna
 
 ._crit_edge.thread:                               ; preds = %1
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
-  br label %Vec_PtrFreeData.exit.i
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.not.i.i = icmp eq ptr %.pre, null
+  br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %Vec_PtrFreeData.exit.i.thread
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 8
@@ -710,16 +713,13 @@ Saig_ManBmcTerSimCount01.exit:                    ; preds = %38, %9, %.preheader
 
 ._crit_edge:                                      ; preds = %Saig_ManBmcTerSimCount01.exit
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
-  br i1 %4, label %.lr.ph.i.i, label %Vec_PtrFreeData.exit.i
-
-.lr.ph.i.i:                                       ; preds = %._crit_edge
   %40 = getelementptr i8, ptr %2, i64 8
   %.val.i.i = load ptr, ptr %40, align 8
   %41 = zext nneg i32 %.val9 to i64
   br label %42
 
-42:                                               ; preds = %46, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %46 ]
+42:                                               ; preds = %46, %._crit_edge
+  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %46 ]
   %43 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
   %44 = load ptr, ptr %43, align 8
   %switch.i.i = icmp ult ptr %44, inttoptr (i64 3 to ptr)
@@ -734,18 +734,12 @@ Saig_ManBmcTerSimCount01.exit:                    ; preds = %38, %9, %.preheader
   %exitcond12.not = icmp eq i64 %indvars.iv.next.i.i, %41
   br i1 %exitcond12.not, label %Vec_PtrFreeData.exit.i.thread, label %42, !llvm.loop !13
 
-Vec_PtrFreeData.exit.i:                           ; preds = %._crit_edge, %._crit_edge.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %Vec_PtrFreeData.exit.i.thread
-
-Vec_PtrFreeData.exit.i.thread:                    ; preds = %46, %Vec_PtrFreeData.exit.i
-  %47 = phi ptr [ %.pre, %Vec_PtrFreeData.exit.i ], [ %.val.i.i, %46 ]
+Vec_PtrFreeData.exit.i.thread:                    ; preds = %46, %._crit_edge.thread
+  %47 = phi ptr [ %.pre, %._crit_edge.thread ], [ %.val.i.i, %46 ]
   tail call void @free(ptr noundef nonnull %47) #23
   br label %Vec_PtrFreeFree.exit
 
-Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %Vec_PtrFreeData.exit.i.thread
+Vec_PtrFreeFree.exit:                             ; preds = %._crit_edge.thread, %Vec_PtrFreeData.exit.i.thread
   tail call void @free(ptr noundef nonnull %2) #23
   ret void
 }
@@ -1706,7 +1700,10 @@ define void @Saig_ManBmcSectionsTest(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge.thread:                                 ; preds = %1
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
-  br label %.critedge.i
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.not.i9.i = icmp eq ptr %.pre, null
+  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i.thread
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 8
@@ -1728,16 +1725,13 @@ define void @Saig_ManBmcSectionsTest(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %6
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
-  br i1 %4, label %.lr.ph.i, label %.critedge.i
-
-.lr.ph.i:                                         ; preds = %.critedge
   %11 = getelementptr i8, ptr %2, i64 8
   %.val8.i = load ptr, ptr %11, align 8
   %12 = zext nneg i32 %.val8 to i64
   br label %13
 
-13:                                               ; preds = %20, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
+13:                                               ; preds = %20, %.critedge
+  %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %20 ]
   %14 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
@@ -1762,18 +1756,12 @@ Vec_PtrFree.exit.i:                               ; preds = %19, %16
   %exitcond12.not = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond12.not, label %.critedge.i.thread, label %13, !llvm.loop !21
 
-.critedge.i:                                      ; preds = %.critedge, %.critedge.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i9.i = icmp eq ptr %.pre, null
-  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i.thread
-
-.critedge.i.thread:                               ; preds = %20, %.critedge.i
-  %21 = phi ptr [ %.pre, %.critedge.i ], [ %.val8.i, %20 ]
+.critedge.i.thread:                               ; preds = %20, %.critedge.thread
+  %21 = phi ptr [ %.pre, %.critedge.thread ], [ %.val8.i, %20 ]
   tail call void @free(ptr noundef nonnull %21) #23
   br label %Vec_VecFree.exit
 
-Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.critedge.i.thread
+Vec_VecFree.exit:                                 ; preds = %.critedge.thread, %.critedge.i.thread
   tail call void @free(ptr noundef nonnull %2) #23
   ret void
 }

@@ -431,8 +431,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #17
   %60 = load i32, ptr %48, align 8
-  %.not126 = icmp eq i32 %60, 0
-  br i1 %.not126, label %61, label %.thread114
+  %.not117 = icmp eq i32 %60, 0
+  br i1 %.not117, label %61, label %.thread114
 
 61:                                               ; preds = %58
   %.sroa.036.0.copyload = load i64, ptr @_ZN5vcpkg32msgUpdateBaselineNoConfigurationE, align 8
@@ -475,8 +475,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 
 .thread114:                                       ; preds = %58
   %67 = call noundef ptr @_ZNK5vcpkg4Json6Object3getENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull @.str.9, i64 16) #17
-  %brmerge77.not = and i1 %53, %39
-  br i1 %brmerge77.not, label %68, label %71
+  br i1 %39, label %68, label %71
 
 68:                                               ; preds = %.thread114
   store i32 91, ptr %7, align 8
@@ -491,8 +490,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 
 71:                                               ; preds = %.thread114.thread, %.thread114
   %72 = phi ptr [ %57, %.thread114.thread ], [ %67, %.thread114 ]
-  %.not117 = icmp eq ptr %72, null
-  br i1 %.not117, label %73, label %.critedge
+  %.not118 = icmp eq ptr %72, null
+  br i1 %.not118, label %73, label %.critedge
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %48, align 8
@@ -648,18 +647,18 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %4, i64 360
   %137 = load ptr, ptr %136, align 8
-  %.not118124 = icmp eq ptr %135, %137
-  br i1 %.not118124, label %._crit_edge, label %.lr.ph
+  %.not120126 = icmp eq ptr %135, %137
+  br i1 %.not120126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %133, %138
-  %.sroa.0101.0125 = phi ptr [ %139, %138 ], [ %135, %133 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_125update_baseline_in_configERKN5vcpkg10VcpkgPathsERNS0_14RegistryConfigE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.0101.0125)
+  %.sroa.0101.0127 = phi ptr [ %139, %138 ], [ %135, %133 ]
+  invoke fastcc void @_ZN12_GLOBAL__N_125update_baseline_in_configERKN5vcpkg10VcpkgPathsERNS0_14RegistryConfigE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.0101.0127)
           to label %138 unwind label %.loopexit
 
 138:                                              ; preds = %.lr.ph
-  %139 = getelementptr inbounds i8, ptr %.sroa.0101.0125, i64 344
-  %.not118 = icmp eq ptr %139, %137
-  br i1 %.not118, label %._crit_edge, label %.lr.ph
+  %139 = getelementptr inbounds i8, ptr %.sroa.0101.0127, i64 344
+  %.not120 = icmp eq ptr %139, %137
+  br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %138, %133
   %140 = load i32, ptr %48, align 8

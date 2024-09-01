@@ -2897,11 +2897,19 @@ define dso_local void @exit_sem(ptr nocapture noundef %0) local_unnamed_addr #0 
   call void @__rcu_read_lock() #12
   %18 = load volatile ptr, ptr %14, align 8
   %19 = icmp eq ptr %18, %14
+  br i1 %19, label %.thread33, label %.lr.ph
+
+.thread33:                                        ; preds = %248, %12
   call void @_raw_spin_lock(ptr noundef %15) #12
-  br i1 %19, label %.loopexit39, label %.lr.ph
+  call void @_raw_spin_unlock(ptr noundef %15) #12
+  call void @__rcu_read_unlock() #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @kfree(ptr noundef nonnull %4) #12
+  br label %.thread
 
 .lr.ph:                                           ; preds = %12, %248
   %20 = phi ptr [ %250, %248 ], [ %18, %12 ]
+  call void @_raw_spin_lock(ptr noundef %15) #12
   %21 = getelementptr inbounds i8, ptr %20, i64 56
   %22 = load i32, ptr %21, align 8
   call void @_raw_spin_unlock(ptr noundef %15) #12
@@ -3208,42 +3216,42 @@ define dso_local void @exit_sem(ptr nocapture noundef %0) local_unnamed_addr #0 
   %184 = icmp sgt i32 %179, 0
   br i1 %184, label %.outer, label %.thread30
 
-.outer:                                           ; preds = %183, %.thread45
-  %.ph = phi i32 [ %.pre44, %.thread45 ], [ %179, %183 ]
-  %.ph47 = phi i64 [ %197, %.thread45 ], [ 0, %183 ]
-  %185 = phi i1 [ false, %.thread45 ], [ true, %183 ]
+.outer:                                           ; preds = %183, %.thread44
+  %.ph = phi i32 [ %.pre43, %.thread44 ], [ %179, %183 ]
+  %.ph46 = phi i64 [ %197, %.thread44 ], [ 0, %183 ]
+  %185 = phi i1 [ false, %.thread44 ], [ true, %183 ]
   %186 = sext i32 %.ph to i64
   br label %187
 
 187:                                              ; preds = %.outer, %192
-  %188 = phi i64 [ %193, %192 ], [ %.ph47, %.outer ]
+  %188 = phi i64 [ %193, %192 ], [ %.ph46, %.outer ]
   %189 = getelementptr [0 x %struct.sem], ptr %143, i64 0, i64 %188
   %190 = load i32, ptr %189, align 64
   %191 = icmp eq i32 %190, 0
-  br i1 %191, label %.thread45, label %192
+  br i1 %191, label %.thread44, label %192
 
 192:                                              ; preds = %187
   %193 = add nuw nsw i64 %188, 1
   %194 = icmp slt i64 %193, %186
   br i1 %194, label %187, label %200, !llvm.loop !45
 
-.thread45:                                        ; preds = %187
+.thread44:                                        ; preds = %187
   %195 = trunc i64 %188 to i32
   %196 = call fastcc i32 @wake_const_ops(ptr noundef %29, i32 noundef %195, ptr noundef nonnull %2), !range !43
-  %.pre44 = load i32, ptr %138, align 8
+  %.pre43 = load i32, ptr %138, align 8
   %197 = add nuw nsw i64 %188, 1
-  %198 = sext i32 %.pre44 to i64
+  %198 = sext i32 %.pre43 to i64
   %199 = icmp slt i64 %197, %198
-  br i1 %199, label %.outer, label %.thread46, !llvm.loop !45
+  br i1 %199, label %.outer, label %.thread45, !llvm.loop !45
 
 200:                                              ; preds = %192
-  br i1 %185, label %.thread30, label %.thread46
+  br i1 %185, label %.thread30, label %.thread45
 
-.thread46:                                        ; preds = %.thread45, %200
+.thread45:                                        ; preds = %.thread44, %200
   %201 = call fastcc i32 @wake_const_ops(ptr noundef %29, i32 noundef -1, ptr noundef nonnull %2), !range !43
   br label %.thread30
 
-.thread30:                                        ; preds = %128, %183, %.thread46, %200
+.thread30:                                        ; preds = %128, %183, %.thread45, %200
   %202 = getelementptr inbounds i8, ptr %29, i64 136
   %203 = load volatile ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, %202
@@ -3345,17 +3353,9 @@ define dso_local void @exit_sem(ptr nocapture noundef %0) local_unnamed_addr #0 
   call void @__rcu_read_lock() #12
   %250 = load volatile ptr, ptr %14, align 8
   %251 = icmp eq ptr %250, %14
-  call void @_raw_spin_lock(ptr noundef %15) #12
-  br i1 %251, label %.loopexit39, label %.lr.ph
+  br i1 %251, label %.thread33, label %.lr.ph
 
-.loopexit39:                                      ; preds = %248, %12
-  call void @_raw_spin_unlock(ptr noundef %15) #12
-  call void @__rcu_read_unlock() #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  call void @kfree(ptr noundef nonnull %4) #12
-  br label %.thread
-
-.thread:                                          ; preds = %9, %11, %.loopexit39, %1
+.thread:                                          ; preds = %9, %11, %.thread33, %1
   ret void
 }
 

@@ -1516,186 +1516,183 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
   %.not.i = icmp eq ptr %1, null
   br label %12
 
-12:                                               ; preds = %11, %51
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %51 ]
-  %13 = phi i1 [ false, %11 ], [ %52, %51 ]
-  %14 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %15)
+12:                                               ; preds = %11, %50
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %50 ]
+  %13 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %14)
+          to label %15 unwind label %.loopexit
+
+15:                                               ; preds = %12
+  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 10240, float noundef 9.729000e+03)
           to label %16 unwind label %.loopexit
 
-16:                                               ; preds = %12
-  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 10240, float noundef 9.729000e+03)
+16:                                               ; preds = %15
+  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 10241, float noundef 9.728000e+03)
           to label %17 unwind label %.loopexit
 
 17:                                               ; preds = %16
-  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 10241, float noundef 9.728000e+03)
-          to label %18 unwind label %.loopexit
+  call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  br i1 %.not.i, label %21, label %18
 
 18:                                               ; preds = %17
-  call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  br i1 %.not.i, label %22, label %19
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %20 = trunc i64 %19 to i32
+  br label %21
 
-19:                                               ; preds = %18
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %21 = trunc i64 %20 to i32
-  br label %22
+21:                                               ; preds = %18, %17
+  %22 = phi i32 [ %20, %18 ], [ -1, %17 ]
+  %23 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %1, i32 noundef %22)
+          to label %24 unwind label %.loopexit25
 
-22:                                               ; preds = %19, %18
-  %23 = phi i32 [ %21, %19 ], [ -1, %18 ]
-  %24 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %1, i32 noundef %23)
-          to label %25 unwind label %.loopexit25
+24:                                               ; preds = %21
+  store ptr %23, ptr %5, align 8
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %25, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %27 unwind label %33
 
-25:                                               ; preds = %22
-  store ptr %24, ptr %5, align 8
-  %26 = trunc nuw nsw i64 %indvars.iv to i32
-  %27 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %26, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %28 unwind label %34
-
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8
-  %30 = load atomic i32, ptr %29 monotonic, align 4
-  switch i32 %30, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8
+  %29 = load atomic i32, ptr %28 monotonic, align 4
+  switch i32 %29, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN7QStringD2Ev.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %28
-  %31 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i18 = icmp eq i32 %31, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %27
+  %30 = atomicrmw sub ptr %28, i32 1 seq_cst, align 4
+  %.not.i18 = icmp eq i32 %30, 1
   br i1 %.not.i18, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, label %_ZN7QStringD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i
   %.pre.i = load ptr, ptr %5, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %28
-  %32 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %29, %28 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %32, i64 noundef 2, i64 noundef 8) #12
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %27
+  %31 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %28, %27 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %31, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %33 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null)
-          to label %36 unwind label %.loopexit25
+_ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
+  %32 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null)
+          to label %35 unwind label %.loopexit25
 
-.loopexit:                                        ; preds = %12, %16, %17
+.loopexit:                                        ; preds = %12, %15, %16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %60
 
-.loopexit.split-lp:                               ; preds = %56
+.loopexit.split-lp:                               ; preds = %54
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %60
 
-.loopexit25:                                      ; preds = %_ZN7QStringD2Ev.exit, %38, %22
+.loopexit25:                                      ; preds = %_ZN7QStringD2Ev.exit, %37, %21
   %lpad.loopexit27 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %53
 
-.loopexit.split-lp26:                             ; preds = %37
+.loopexit.split-lp26:                             ; preds = %36
   %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %53
 
-34:                                               ; preds = %25
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %24
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  br label %53
+
+35:                                               ; preds = %_ZN7QStringD2Ev.exit
+  br i1 %32, label %37, label %36
+
+36:                                               ; preds = %35
+  invoke void @glPopAttrib()
+          to label %49 unwind label %.loopexit.split-lp26
+
+37:                                               ; preds = %35
+  invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %38 unwind label %.loopexit25
+
+38:                                               ; preds = %37
+  %39 = load i32, ptr %13, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %39)
+          to label %40 unwind label %51
+
+40:                                               ; preds = %38
+  %41 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %42 unwind label %51
+
+42:                                               ; preds = %40
+  %43 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %44 unwind label %51
+
+44:                                               ; preds = %42
+  %45 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %46 unwind label %51
+
+46:                                               ; preds = %44
+  invoke void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 3, i32 noundef %41, i32 noundef %43, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %45)
+          to label %47 unwind label %51
+
+47:                                               ; preds = %46
+  %48 = load ptr, ptr @__glewGenerateMipmap, align 8
+  invoke void %48(i32 noundef 3553)
+          to label %50 unwind label %51
+
+49:                                               ; preds = %36
+  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %55
 
-36:                                               ; preds = %_ZN7QStringD2Ev.exit
-  br i1 %33, label %38, label %37
-
-37:                                               ; preds = %36
-  invoke void @glPopAttrib()
-          to label %50 unwind label %.loopexit.split-lp26
-
-38:                                               ; preds = %36
-  invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %39 unwind label %.loopexit25
-
-39:                                               ; preds = %38
-  %40 = load i32, ptr %14, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %40)
-          to label %41 unwind label %53
-
-41:                                               ; preds = %39
-  %42 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %43 unwind label %53
-
-43:                                               ; preds = %41
-  %44 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %45 unwind label %53
-
-45:                                               ; preds = %43
-  %46 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %47 unwind label %53
-
-47:                                               ; preds = %45
-  invoke void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 3, i32 noundef %42, i32 noundef %44, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %46)
-          to label %48 unwind label %53
-
-48:                                               ; preds = %47
-  %49 = load ptr, ptr @__glewGenerateMipmap, align 8
-  invoke void %49(i32 noundef 3553)
-          to label %51 unwind label %53
-
-50:                                               ; preds = %37
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  br label %57
-
-51:                                               ; preds = %48
+50:                                               ; preds = %47
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = icmp ugt i64 %indvars.iv, 4
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %56, label %12, !llvm.loop !25
+  br i1 %exitcond, label %54, label %12, !llvm.loop !25
 
-53:                                               ; preds = %48, %47, %45, %43, %41, %39
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %47, %46, %44, %42, %40, %38
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
-  br label %55
+  br label %53
 
-55:                                               ; preds = %.loopexit25, %.loopexit.split-lp26, %53, %34
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %35, %34 ], [ %lpad.loopexit27, %.loopexit25 ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp26 ]
+53:                                               ; preds = %.loopexit25, %.loopexit.split-lp26, %51, %33
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %34, %33 ], [ %lpad.loopexit27, %.loopexit25 ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp26 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  br label %63
+  br label %60
 
-56:                                               ; preds = %51
+54:                                               ; preds = %50
   invoke void @glPopAttrib()
-          to label %57 unwind label %.loopexit.split-lp
+          to label %55 unwind label %.loopexit.split-lp
 
-57:                                               ; preds = %50, %56
-  %58 = phi i1 [ %13, %50 ], [ %52, %56 ]
-  %59 = load ptr, ptr %3, align 8
-  %60 = load atomic i32, ptr %59 monotonic, align 4
-  switch i32 %60, label %_ZN9QtPrivate8RefCount5derefEv.exit.i20 [
+55:                                               ; preds = %49, %54
+  %56 = load ptr, ptr %3, align 8
+  %57 = load atomic i32, ptr %56 monotonic, align 4
+  switch i32 %57, label %_ZN9QtPrivate8RefCount5derefEv.exit.i20 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19
     i32 -1, label %_ZN7QStringD2Ev.exit24
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i20:          ; preds = %57
-  %61 = atomicrmw sub ptr %59, i32 1 seq_cst, align 4
-  %.not.i21 = icmp eq i32 %61, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i20:          ; preds = %55
+  %58 = atomicrmw sub ptr %56, i32 1 seq_cst, align 4
+  %.not.i21 = icmp eq i32 %58, 1
   br i1 %.not.i21, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22, label %_ZN7QStringD2Ev.exit24
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i20
   %.pre.i23 = load ptr, ptr %3, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22, %57
-  %62 = phi ptr [ %.pre.i23, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22 ], [ %59, %57 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %62, i64 noundef 2, i64 noundef 8) #12
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22, %55
+  %59 = phi ptr [ %.pre.i23, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i22 ], [ %56, %55 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %59, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit24
 
-_ZN7QStringD2Ev.exit24:                           ; preds = %57, %_ZN9QtPrivate8RefCount5derefEv.exit.i20, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19
-  ret i1 %58
+_ZN7QStringD2Ev.exit24:                           ; preds = %55, %_ZN9QtPrivate8RefCount5derefEv.exit.i20, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i19
+  ret i1 %32
 
-63:                                               ; preds = %.loopexit, %.loopexit.split-lp, %55
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+60:                                               ; preds = %.loopexit, %.loopexit.split-lp, %53
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %53 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   resume { ptr, i32 } %.pn.pn
 }
@@ -1737,158 +1734,155 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadExtEPKc(ptr noundef nonnull ali
   tail call void @glTexParameterf(i32 noundef 34067, i32 noundef 10240, float noundef 9.729000e+03)
   tail call void @glTexParameterf(i32 noundef 34067, i32 noundef 10241, float noundef 9.987000e+03)
   %.not.i = icmp eq ptr %1, null
-  br label %20
+  br label %19
 
 18:                                               ; preds = %_ZN7QStringD2Ev.exit21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = icmp ugt i64 %indvars.iv, 4
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %64, label %20, !llvm.loop !26
+  br i1 %exitcond, label %62, label %19, !llvm.loop !26
 
-20:                                               ; preds = %11, %18
+19:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
-  %21 = phi i1 [ false, %11 ], [ %19, %18 ]
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  br i1 %.not.i, label %25, label %22
+  br i1 %.not.i, label %23, label %20
 
-22:                                               ; preds = %20
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %24 = trunc i64 %23 to i32
-  br label %25
+20:                                               ; preds = %19
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %22 = trunc i64 %21 to i32
+  br label %23
 
-25:                                               ; preds = %22, %20
-  %26 = phi i32 [ %24, %22 ], [ -1, %20 ]
-  %27 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %1, i32 noundef %26)
-          to label %28 unwind label %37
+23:                                               ; preds = %20, %19
+  %24 = phi i32 [ %22, %20 ], [ -1, %19 ]
+  %25 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %1, i32 noundef %24)
+          to label %26 unwind label %35
 
-28:                                               ; preds = %25
-  store ptr %27, ptr %6, align 8
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %29, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %31 unwind label %39
+26:                                               ; preds = %23
+  store ptr %25, ptr %6, align 8
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %27, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %29 unwind label %37
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %6, align 8
-  %33 = load atomic i32, ptr %32 monotonic, align 4
-  switch i32 %33, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %6, align 8
+  %31 = load atomic i32, ptr %30 monotonic, align 4
+  switch i32 %31, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
     i32 -1, label %_ZN7QStringD2Ev.exit
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %31
-  %34 = atomicrmw sub ptr %32, i32 1 seq_cst, align 4
-  %.not.i15 = icmp eq i32 %34, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %29
+  %32 = atomicrmw sub ptr %30, i32 1 seq_cst, align 4
+  %.not.i15 = icmp eq i32 %32, 1
   br i1 %.not.i15, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, label %_ZN7QStringD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i
   %.pre.i = load ptr, ptr %6, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %31
-  %35 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %32, %31 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %35, i64 noundef 2, i64 noundef 8) #12
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %29
+  %33 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %30, %29 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %33, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %31, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %36 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
-          to label %41 unwind label %37
+_ZN7QStringD2Ev.exit:                             ; preds = %29, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
+  %34 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
+          to label %39 unwind label %35
 
-37:                                               ; preds = %25, %43, %42, %_ZN7QStringD2Ev.exit
+35:                                               ; preds = %23, %41, %40, %_ZN7QStringD2Ev.exit
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  br label %61
+
+37:                                               ; preds = %26
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %63
-
-39:                                               ; preds = %28
-  %40 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  br label %63
+  br label %61
 
-41:                                               ; preds = %_ZN7QStringD2Ev.exit
-  br i1 %36, label %43, label %42
+39:                                               ; preds = %_ZN7QStringD2Ev.exit
+  br i1 %34, label %41, label %40
+
+40:                                               ; preds = %39
+  invoke void @glPopAttrib()
+          to label %54 unwind label %35
+
+41:                                               ; preds = %39
+  invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %42 unwind label %35
 
 42:                                               ; preds = %41
-  invoke void @glPopAttrib()
-          to label %56 unwind label %37
+  %43 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %44 = load i32, ptr %43, align 4
+  %45 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %46 unwind label %59
 
-43:                                               ; preds = %41
-  invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %44 unwind label %37
+46:                                               ; preds = %42
+  %47 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %48 unwind label %59
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4
-  %47 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %48 unwind label %61
-
-48:                                               ; preds = %44
-  %49 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %50 unwind label %61
+48:                                               ; preds = %46
+  %49 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %50 unwind label %59
 
 50:                                               ; preds = %48
-  %51 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %52 unwind label %61
+  invoke void @glTexImage2D(i32 noundef %44, i32 noundef 0, i32 noundef 3, i32 noundef %45, i32 noundef %47, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %49)
+          to label %51 unwind label %59
 
-52:                                               ; preds = %50
-  invoke void @glTexImage2D(i32 noundef %46, i32 noundef 0, i32 noundef 3, i32 noundef %47, i32 noundef %49, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %51)
-          to label %53 unwind label %61
+51:                                               ; preds = %50
+  %52 = load ptr, ptr @__glewGenerateMipmap, align 8
+  invoke void %52(i32 noundef %44)
+          to label %53 unwind label %59
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr @__glewGenerateMipmap, align 8
-  invoke void %54(i32 noundef %46)
-          to label %55 unwind label %61
-
-55:                                               ; preds = %53
+53:                                               ; preds = %51
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %56
+  br label %54
 
-56:                                               ; preds = %42, %55
+54:                                               ; preds = %40, %53
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  %57 = load ptr, ptr %4, align 8
-  %58 = load atomic i32, ptr %57 monotonic, align 4
-  switch i32 %58, label %_ZN9QtPrivate8RefCount5derefEv.exit.i17 [
+  %55 = load ptr, ptr %4, align 8
+  %56 = load atomic i32, ptr %55 monotonic, align 4
+  switch i32 %56, label %_ZN9QtPrivate8RefCount5derefEv.exit.i17 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
     i32 -1, label %_ZN7QStringD2Ev.exit21
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit.i17:          ; preds = %56
-  %59 = atomicrmw sub ptr %57, i32 1 seq_cst, align 4
-  %.not.i18 = icmp eq i32 %59, 1
+_ZN9QtPrivate8RefCount5derefEv.exit.i17:          ; preds = %54
+  %57 = atomicrmw sub ptr %55, i32 1 seq_cst, align 4
+  %.not.i18 = icmp eq i32 %57, 1
   br i1 %.not.i18, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19, label %_ZN7QStringD2Ev.exit21
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i17
   %.pre.i20 = load ptr, ptr %4, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19, %56
-  %60 = phi ptr [ %.pre.i20, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19 ], [ %57, %56 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %60, i64 noundef 2, i64 noundef 8) #12
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19, %54
+  %58 = phi ptr [ %.pre.i20, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i19 ], [ %55, %54 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %58, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit21
 
-_ZN7QStringD2Ev.exit21:                           ; preds = %56, %_ZN9QtPrivate8RefCount5derefEv.exit.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
-  br i1 %36, label %18, label %.loopexit
+_ZN7QStringD2Ev.exit21:                           ; preds = %54, %_ZN9QtPrivate8RefCount5derefEv.exit.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
+  br i1 %34, label %18, label %.loopexit
 
-61:                                               ; preds = %53, %52, %50, %48, %44
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %51, %50, %48, %46, %42
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %63
+  br label %61
 
-63:                                               ; preds = %61, %39, %37
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %62, %61 ], [ %40, %39 ]
+61:                                               ; preds = %59, %37, %35
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %60, %59 ], [ %38, %37 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   resume { ptr, i32 } %.pn
 
-64:                                               ; preds = %18
+62:                                               ; preds = %18
   call void @glDisable(i32 noundef 34067)
   call void @glPopAttrib()
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7QStringD2Ev.exit21, %64
-  %65 = phi i1 [ %19, %64 ], [ %21, %_ZN7QStringD2Ev.exit21 ]
-  ret i1 %65
+.loopexit:                                        ; preds = %_ZN7QStringD2Ev.exit21, %62
+  ret i1 %34
 }
 
 declare void @glGenTextures(i32 noundef, ptr noundef) local_unnamed_addr #0

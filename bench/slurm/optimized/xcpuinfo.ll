@@ -1215,20 +1215,19 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture n
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %._crit_edge, %19
-  %.not22 = phi i1 [ false, %19 ], [ %.not, %._crit_edge ]
   %.0 = phi i32 [ -1, %19 ], [ 0, %._crit_edge ]
   %.not20 = icmp eq ptr %22, null
   br i1 %.not20, label %69, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %28, %thread-pre-split
   %.035 = phi i32 [ %.0, %thread-pre-split ], [ -1, %28 ]
-  %.not2233 = phi i1 [ %.not22, %thread-pre-split ], [ false, %28 ]
+  %.not2233 = phi i1 [ %or.cond, %thread-pre-split ], [ false, %28 ]
   call void @slurm_bit_free(ptr noundef nonnull %3) #11
   br label %69
 
 69:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
   %.036 = phi i32 [ %.035, %thread-pre-split.thread ], [ %.0, %thread-pre-split ]
-  %.not2234 = phi i1 [ %.not2233, %thread-pre-split.thread ], [ %.not22, %thread-pre-split ]
+  %.not2234 = phi i1 [ %.not2233, %thread-pre-split.thread ], [ %or.cond, %thread-pre-split ]
   store ptr null, ptr %3, align 8
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %71, label %70
@@ -1440,20 +1439,19 @@ define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture n
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %._crit_edge46, %20
-  %.not36 = phi i1 [ false, %20 ], [ %.not, %._crit_edge46 ]
   %.0 = phi i32 [ -1, %20 ], [ 0, %._crit_edge46 ]
   %.not33 = icmp eq ptr %23, null
   br i1 %.not33, label %104, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %32, %thread-pre-split
   %.061 = phi i32 [ %.0, %thread-pre-split ], [ -1, %32 ]
-  %.not3659 = phi i1 [ %.not36, %thread-pre-split ], [ false, %32 ]
+  %.not3659 = phi i1 [ %or.cond, %thread-pre-split ], [ false, %32 ]
   call void @slurm_bit_free(ptr noundef nonnull %3) #11
   br label %104
 
 104:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
   %.062 = phi i32 [ %.061, %thread-pre-split.thread ], [ %.0, %thread-pre-split ]
-  %.not3660 = phi i1 [ %.not3659, %thread-pre-split.thread ], [ %.not36, %thread-pre-split ]
+  %.not3660 = phi i1 [ %.not3659, %thread-pre-split.thread ], [ %or.cond, %thread-pre-split ]
   store ptr null, ptr %3, align 8
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %106, label %105

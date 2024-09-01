@@ -3576,52 +3576,33 @@ define range(i32 -1, 1) i32 @zend_call_method_if_exists(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @zend_is_valid_class_name(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define noundef zeroext i1 @zend_is_valid_class_name(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %1
-  %6 = load i8, ptr %2, align 1
-  %7 = lshr i8 %6, 5
-  %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds [8 x i32], ptr @valid_chars, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = and i8 %6, 31
-  %12 = zext nneg i8 %11 to i32
-  %13 = shl nuw i32 1, %12
-  %14 = and i32 %13, %10
-  %.not11 = icmp eq i32 %14, 0
-  br i1 %.not11, label %._crit_edge, label %.lr.ph13
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.078 = phi i64 [ %16, %.lr.ph ], [ 0, %1 ]
+  %6 = getelementptr inbounds [1 x i8], ptr %2, i64 0, i64 %.078
+  %7 = load i8, ptr %6, align 1
+  %8 = lshr i8 %7, 5
+  %9 = zext nneg i8 %8 to i64
+  %10 = getelementptr inbounds [8 x i32], ptr @valid_chars, i64 0, i64 %9
+  %11 = load i32, ptr %10, align 4
+  %12 = and i8 %7, 31
+  %13 = zext nneg i8 %12 to i32
+  %14 = shl nuw i32 1, %13
+  %15 = and i32 %14, %11
+  %.not.not = icmp ne i32 %15, 0
+  %16 = add nuw i64 %.078, 1
+  %exitcond.not = icmp ne i64 %16, %4
+  %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
-.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.07812 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %15 = add nuw i64 %.07812, 1
-  %exitcond = icmp eq i64 %15, %4
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph13
-  %16 = getelementptr inbounds [1 x i8], ptr %2, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = lshr i8 %17, 5
-  %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds [8 x i32], ptr @valid_chars, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = and i8 %17, 31
-  %23 = zext nneg i8 %22 to i32
-  %24 = shl nuw i32 1, %23
-  %25 = and i32 %24, %21
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph13
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph13
-  %26 = icmp uge i64 %15, %4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %26, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

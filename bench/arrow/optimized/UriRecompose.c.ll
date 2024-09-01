@@ -103,7 +103,7 @@ if.end60:                                         ; preds = %if.end14.thread, %i
   %written.0 = phi i32 [ %add43, %if.then46 ], [ 0, %if.end14.thread ]
   %call = tail call i32 @uriIsHostSetA(ptr noundef nonnull %uri) #3
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end521, label %if.then61
+  br i1 %tobool.not, label %if.end521, label %if.then64
 
 if.end60.thread493:                               ; preds = %if.end14
   %call495 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %uri) #3
@@ -123,10 +123,7 @@ if.end60.thread:                                  ; preds = %if.end14
   %tobool.not359 = icmp eq i32 %call358, 0
   br i1 %tobool.not359, label %if.end521, label %if.end81
 
-if.then61:                                        ; preds = %if.end60
-  br i1 %cmp1, label %if.end81, label %if.then64
-
-if.then64:                                        ; preds = %if.then61
+if.then64:                                        ; preds = %if.end60
   %add65 = add nsw i32 %written.0, 2
   %cmp66.not.not = icmp slt i32 %add65, %maxChars
   br i1 %cmp66.not.not, label %if.end81.thread, label %if.else72
@@ -140,8 +137,7 @@ if.then76:                                        ; preds = %if.else72
   store i32 0, ptr %charsWritten, align 4
   br label %return
 
-if.end81:                                         ; preds = %if.end60.thread493, %if.then61, %if.end60.thread
-  %written.0360362 = phi i32 [ %written.0, %if.then61 ], [ 0, %if.end60.thread ], [ 0, %if.end60.thread493 ]
+if.end81:                                         ; preds = %if.end60.thread493, %if.end60.thread
   %4 = load i32, ptr %charsRequired, align 4
   %add80 = add nsw i32 %4, 2
   store i32 %add80, ptr %charsRequired, align 4
@@ -217,7 +213,7 @@ if.else130:                                       ; preds = %if.end81
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end81.thread, %if.then119, %if.else130, %if.end81
-  %written.4 = phi i32 [ %add116, %if.then119 ], [ %written.0360362, %if.else130 ], [ %written.0360362, %if.end81 ], [ %add65, %if.end81.thread ]
+  %written.4 = phi i32 [ %add116, %if.then119 ], [ 0, %if.else130 ], [ 0, %if.end81 ], [ %add65, %if.end81.thread ]
   %hostData = getelementptr inbounds i8, ptr %uri, i64 48
   %9 = load ptr, ptr %hostData, align 8
   %cmp135.not = icmp eq ptr %9, null
@@ -456,17 +452,17 @@ for.inc331:                                       ; preds = %if.end303.thread, %
   br i1 %exitcond489.not, label %if.then336, label %for.body266, !llvm.loop !6
 
 for.end333:                                       ; preds = %for.body266.us
-  store i32 %spec.select, ptr %charsRequired, align 4
-  br i1 %cmp1, label %if.else351, label %if.then336
+  %add352 = add nsw i32 %spec.select, 1
+  store i32 %add352, ptr %charsRequired, align 4
+  br label %if.end467
 
-if.then336:                                       ; preds = %for.inc331, %for.end333
-  %.us-phi469506 = phi i32 [ %written.4, %for.end333 ], [ %written.11, %for.inc331 ]
-  %cmp338.not.not = icmp slt i32 %.us-phi469506, %dec
+if.then336:                                       ; preds = %for.inc331
+  %cmp338.not.not = icmp slt i32 %written.11, %dec
   br i1 %cmp338.not.not, label %if.then340, label %if.else344
 
 if.then340:                                       ; preds = %if.then336
-  %add337 = add nsw i32 %.us-phi469506, 1
-  %idx.ext341 = sext i32 %.us-phi469506 to i64
+  %add337 = add nsw i32 %written.11, 1
+  %idx.ext341 = sext i32 %written.11 to i64
   %add.ptr342 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext341
   store i8 93, ptr %add.ptr342, align 1
   br label %if.end467
@@ -480,23 +476,17 @@ if.then348:                                       ; preds = %if.else344
   store i32 0, ptr %charsWritten, align 4
   br label %return
 
-if.else351:                                       ; preds = %for.end333
-  %22 = load i32, ptr %charsRequired, align 4
-  %add352 = add nsw i32 %22, 1
-  store i32 %add352, ptr %charsRequired, align 4
-  br label %if.end467
-
 if.else354:                                       ; preds = %if.else237
   %ipFuture = getelementptr inbounds i8, ptr %uri, i64 64
-  %23 = load ptr, ptr %ipFuture, align 8
-  %cmp357.not = icmp eq ptr %23, null
+  %22 = load ptr, ptr %ipFuture, align 8
+  %cmp357.not = icmp eq ptr %22, null
   br i1 %cmp357.not, label %if.else426, label %if.then359
 
 if.then359:                                       ; preds = %if.else354
   %afterLast363 = getelementptr inbounds i8, ptr %uri, i64 72
-  %24 = load ptr, ptr %afterLast363, align 8
-  %sub.ptr.lhs.cast367 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast368 = ptrtoint ptr %23 to i64
+  %23 = load ptr, ptr %afterLast363, align 8
+  %sub.ptr.lhs.cast367 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast368 = ptrtoint ptr %22 to i64
   %sub.ptr.sub369 = sub i64 %sub.ptr.lhs.cast367, %sub.ptr.rhs.cast368
   %conv370 = trunc i64 %sub.ptr.sub369 to i32
   br i1 %cmp1, label %if.else421, label %if.then373
@@ -526,10 +516,10 @@ if.then385:                                       ; preds = %if.else381
 if.then391:                                       ; preds = %if.then377
   %idx.ext392 = sext i32 %add374 to i64
   %add.ptr393 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext392
-  %25 = load ptr, ptr %ipFuture, align 8
+  %24 = load ptr, ptr %ipFuture, align 8
   %sext341 = shl i64 %sub.ptr.sub369, 32
   %conv397 = ashr exact i64 %sext341, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr393, ptr align 1 %25, i64 %conv397, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr393, ptr align 1 %24, i64 %conv397, i1 false)
   %cmp408.not.not = icmp slt i32 %add388, %dec
   br i1 %cmp408.not.not, label %if.then410, label %if.else414
 
@@ -560,22 +550,22 @@ if.then418:                                       ; preds = %if.else414
 
 if.else421:                                       ; preds = %if.then359
   %add423 = add nsw i32 %conv370, 2
-  %26 = load i32, ptr %charsRequired, align 4
-  %add424 = add nsw i32 %add423, %26
+  %25 = load i32, ptr %charsRequired, align 4
+  %add424 = add nsw i32 %add423, %25
   store i32 %add424, ptr %charsRequired, align 4
   br label %if.end467
 
 if.else426:                                       ; preds = %if.else354
   %hostText = getelementptr inbounds i8, ptr %uri, i64 32
-  %27 = load ptr, ptr %hostText, align 8
-  %cmp428.not = icmp eq ptr %27, null
+  %26 = load ptr, ptr %hostText, align 8
+  %cmp428.not = icmp eq ptr %26, null
   br i1 %cmp428.not, label %if.end467, label %if.then430
 
 if.then430:                                       ; preds = %if.else426
   %afterLast433 = getelementptr inbounds i8, ptr %uri, i64 40
-  %28 = load ptr, ptr %afterLast433, align 8
-  %sub.ptr.lhs.cast436 = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast437 = ptrtoint ptr %27 to i64
+  %27 = load ptr, ptr %afterLast433, align 8
+  %sub.ptr.lhs.cast436 = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast437 = ptrtoint ptr %26 to i64
   %sub.ptr.sub438 = sub i64 %sub.ptr.lhs.cast436, %sub.ptr.rhs.cast437
   %conv439 = trunc i64 %sub.ptr.sub438 to i32
   br i1 %cmp1, label %if.else461, label %if.then442
@@ -590,7 +580,7 @@ if.then446:                                       ; preds = %if.then442
   %add.ptr448 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext447
   %sext340 = shl i64 %sub.ptr.sub438, 32
   %conv451 = ashr exact i64 %sext340, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr448, ptr nonnull align 1 %27, i64 %conv451, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr448, ptr nonnull align 1 %26, i64 %conv451, i1 false)
   br label %if.end467
 
 if.else454:                                       ; preds = %if.then442
@@ -603,23 +593,23 @@ if.then458:                                       ; preds = %if.else454
   br label %return
 
 if.else461:                                       ; preds = %if.then430
-  %29 = load i32, ptr %charsRequired, align 4
-  %add462 = add nsw i32 %29, %conv439
+  %28 = load i32, ptr %charsRequired, align 4
+  %add462 = add nsw i32 %28, %conv439
   store i32 %add462, ptr %charsRequired, align 4
   br label %if.end467
 
-if.end467:                                        ; preds = %if.end197, %for.body.us, %if.else351, %if.then340, %if.else426, %if.else461, %if.then446, %if.then410, %if.else421
-  %written.7 = phi i32 [ %add337, %if.then340 ], [ %written.4, %if.else351 ], [ %add407, %if.then410 ], [ %written.4, %if.else421 ], [ %add443, %if.then446 ], [ %written.4, %if.else461 ], [ %written.4, %if.else426 ], [ %written.4, %for.body.us ], [ %add154581, %if.end197 ]
+if.end467:                                        ; preds = %if.end197, %for.body.us, %for.end333, %if.then340, %if.else426, %if.else461, %if.then446, %if.then410, %if.else421
+  %written.7 = phi i32 [ %add337, %if.then340 ], [ %written.4, %for.end333 ], [ %add407, %if.then410 ], [ %written.4, %if.else421 ], [ %add443, %if.then446 ], [ %written.4, %if.else461 ], [ %written.4, %if.else426 ], [ %written.4, %for.body.us ], [ %add154581, %if.end197 ]
   %portText = getelementptr inbounds i8, ptr %uri, i64 80
-  %30 = load ptr, ptr %portText, align 8
-  %cmp469.not = icmp eq ptr %30, null
+  %29 = load ptr, ptr %portText, align 8
+  %cmp469.not = icmp eq ptr %29, null
   br i1 %cmp469.not, label %if.end521, label %if.then471
 
 if.then471:                                       ; preds = %if.end467
   %afterLast474 = getelementptr inbounds i8, ptr %uri, i64 88
-  %31 = load ptr, ptr %afterLast474, align 8
-  %sub.ptr.lhs.cast477 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast478 = ptrtoint ptr %30 to i64
+  %30 = load ptr, ptr %afterLast474, align 8
+  %sub.ptr.lhs.cast477 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast478 = ptrtoint ptr %29 to i64
   %sub.ptr.sub479 = sub i64 %sub.ptr.lhs.cast477, %sub.ptr.rhs.cast478
   %conv480 = trunc i64 %sub.ptr.sub479 to i32
   br i1 %cmp1, label %if.else516, label %if.then483
@@ -649,10 +639,10 @@ if.then495:                                       ; preds = %if.else491
 if.then501:                                       ; preds = %if.then487
   %idx.ext502 = sext i32 %add484 to i64
   %add.ptr503 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext502
-  %32 = load ptr, ptr %portText, align 8
+  %31 = load ptr, ptr %portText, align 8
   %sext343 = shl i64 %sub.ptr.sub479, 32
   %conv506 = ashr exact i64 %sext343, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr503, ptr align 1 %32, i64 %conv506, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr503, ptr align 1 %31, i64 %conv506, i1 false)
   br label %if.end521
 
 if.else509:                                       ; preds = %if.then487
@@ -666,22 +656,22 @@ if.then513:                                       ; preds = %if.else509
 
 if.else516:                                       ; preds = %if.then471
   %add517 = add nsw i32 %conv480, 1
-  %33 = load i32, ptr %charsRequired, align 4
-  %add518 = add nsw i32 %add517, %33
+  %32 = load i32, ptr %charsRequired, align 4
+  %add518 = add nsw i32 %add517, %32
   store i32 %add518, ptr %charsRequired, align 4
   br label %if.end521
 
 if.end521:                                        ; preds = %if.end60.thread493, %if.end60.thread, %if.end467, %if.else516, %if.then501, %if.end60
   %written.2 = phi i32 [ %add498, %if.then501 ], [ %written.7, %if.else516 ], [ %written.7, %if.end467 ], [ %written.0, %if.end60 ], [ 0, %if.end60.thread ], [ 0, %if.end60.thread493 ]
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
-  %34 = load i32, ptr %absolutePath, align 8
-  %tobool522.not = icmp eq i32 %34, 0
+  %33 = load i32, ptr %absolutePath, align 8
+  %tobool522.not = icmp eq i32 %33, 0
   br i1 %tobool522.not, label %lor.lhs.false523, label %if.then529
 
 lor.lhs.false523:                                 ; preds = %if.end521
   %pathHead = getelementptr inbounds i8, ptr %uri, i64 96
-  %35 = load ptr, ptr %pathHead, align 8
-  %cmp524.not = icmp eq ptr %35, null
+  %34 = load ptr, ptr %pathHead, align 8
+  %cmp524.not = icmp eq ptr %34, null
   br i1 %cmp524.not, label %if.end550, label %land.lhs.true526
 
 land.lhs.true526:                                 ; preds = %lor.lhs.false523
@@ -707,17 +697,17 @@ if.then544:                                       ; preds = %if.else540
 
 if.end550:                                        ; preds = %land.lhs.true526, %lor.lhs.false523
   %pathHead551 = getelementptr inbounds i8, ptr %uri, i64 96
-  %36 = load ptr, ptr %pathHead551, align 8
-  %cmp552.not = icmp eq ptr %36, null
+  %35 = load ptr, ptr %pathHead551, align 8
+  %cmp552.not = icmp eq ptr %35, null
   br i1 %cmp552.not, label %if.end616, label %do.body.preheader
 
 if.end550.thread513:                              ; preds = %if.then529
-  %37 = load i32, ptr %charsRequired, align 4
-  %add548 = add nsw i32 %37, 1
+  %36 = load i32, ptr %charsRequired, align 4
+  %add548 = add nsw i32 %36, 1
   store i32 %add548, ptr %charsRequired, align 4
   %pathHead551514 = getelementptr inbounds i8, ptr %uri, i64 96
-  %38 = load ptr, ptr %pathHead551514, align 8
-  %cmp552.not515 = icmp eq ptr %38, null
+  %37 = load ptr, ptr %pathHead551514, align 8
+  %cmp552.not515 = icmp eq ptr %37, null
   br i1 %cmp552.not515, label %if.end616.thread528, label %do.body.preheader.split.us
 
 if.end550.thread:                                 ; preds = %if.then532
@@ -726,38 +716,38 @@ if.end550.thread:                                 ; preds = %if.then532
   %add.ptr538 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext537
   store i8 47, ptr %add.ptr538, align 1
   %pathHead551508 = getelementptr inbounds i8, ptr %uri, i64 96
-  %39 = load ptr, ptr %pathHead551508, align 8
-  %cmp552.not509 = icmp eq ptr %39, null
+  %38 = load ptr, ptr %pathHead551508, align 8
+  %cmp552.not509 = icmp eq ptr %38, null
   br i1 %cmp552.not509, label %if.end616.thread519, label %do.body.preheader582
 
 do.body.preheader:                                ; preds = %if.end550
   br i1 %cmp1, label %do.body.preheader.split.us, label %do.body.preheader582
 
 do.body.preheader582:                             ; preds = %if.end550.thread, %do.body.preheader
-  %walker.0.ph = phi ptr [ %39, %if.end550.thread ], [ %36, %do.body.preheader ]
+  %walker.0.ph = phi ptr [ %38, %if.end550.thread ], [ %35, %do.body.preheader ]
   %written.14.ph = phi i32 [ %add533, %if.end550.thread ], [ %written.2, %do.body.preheader ]
   br label %do.body
 
 do.body.preheader.split.us:                       ; preds = %if.end550.thread513, %do.body.preheader
-  %40 = phi ptr [ %36, %do.body.preheader ], [ %38, %if.end550.thread513 ]
+  %39 = phi ptr [ %35, %do.body.preheader ], [ %37, %if.end550.thread513 ]
   %charsRequired.promoted473 = load i32, ptr %charsRequired, align 4
   br label %do.body.us
 
 do.body.us:                                       ; preds = %if.else609.us, %do.body.preheader.split.us
   %add610.us474 = phi i32 [ %add610.us, %if.else609.us ], [ %charsRequired.promoted473, %do.body.preheader.split.us ]
-  %walker.0.us = phi ptr [ %.pr.us, %if.else609.us ], [ %40, %do.body.preheader.split.us ]
+  %walker.0.us = phi ptr [ %.pr.us, %if.else609.us ], [ %39, %do.body.preheader.split.us ]
   %afterLast558.us = getelementptr inbounds i8, ptr %walker.0.us, i64 8
-  %41 = load ptr, ptr %afterLast558.us, align 8
-  %42 = load ptr, ptr %walker.0.us, align 8
-  %sub.ptr.lhs.cast561.us = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast562.us = ptrtoint ptr %42 to i64
+  %40 = load ptr, ptr %afterLast558.us, align 8
+  %41 = load ptr, ptr %walker.0.us, align 8
+  %sub.ptr.lhs.cast561.us = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast562.us = ptrtoint ptr %41 to i64
   %sub.ptr.sub563.us = sub i64 %sub.ptr.lhs.cast561.us, %sub.ptr.rhs.cast562.us
   %conv564.us = trunc i64 %sub.ptr.sub563.us to i32
   %add587.us = add nsw i32 %add610.us474, %conv564.us
   store i32 %add587.us, ptr %charsRequired, align 4
   %next.us = getelementptr inbounds i8, ptr %walker.0.us, i64 16
-  %43 = load ptr, ptr %next.us, align 8
-  %cmp589.not.us = icmp eq ptr %43, null
+  %42 = load ptr, ptr %next.us, align 8
+  %cmp589.not.us = icmp eq ptr %42, null
   br i1 %cmp589.not.us, label %if.end616, label %if.else609.us
 
 if.else609.us:                                    ; preds = %do.body.us
@@ -771,10 +761,10 @@ do.body:                                          ; preds = %do.body.preheader58
   %walker.0 = phi ptr [ %.pr, %if.then598 ], [ %walker.0.ph, %do.body.preheader582 ]
   %written.14 = phi i32 [ %add595, %if.then598 ], [ %written.14.ph, %do.body.preheader582 ]
   %afterLast558 = getelementptr inbounds i8, ptr %walker.0, i64 8
-  %44 = load ptr, ptr %afterLast558, align 8
-  %45 = load ptr, ptr %walker.0, align 8
-  %sub.ptr.lhs.cast561 = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast562 = ptrtoint ptr %45 to i64
+  %43 = load ptr, ptr %afterLast558, align 8
+  %44 = load ptr, ptr %walker.0, align 8
+  %sub.ptr.lhs.cast561 = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast562 = ptrtoint ptr %44 to i64
   %sub.ptr.sub563 = sub i64 %sub.ptr.lhs.cast561, %sub.ptr.rhs.cast562
   %conv564 = trunc i64 %sub.ptr.sub563 to i32
   %add568 = add nsw i32 %written.14, %conv564
@@ -795,10 +785,10 @@ if.end588.thread:                                 ; preds = %do.body
   %add.ptr573 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext572
   %sext344 = shl i64 %sub.ptr.sub563, 32
   %conv576 = ashr exact i64 %sext344, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr573, ptr align 1 %45, i64 %conv576, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr573, ptr align 1 %44, i64 %conv576, i1 false)
   %next385 = getelementptr inbounds i8, ptr %walker.0, i64 16
-  %46 = load ptr, ptr %next385, align 8
-  %cmp589.not386 = icmp eq ptr %46, null
+  %45 = load ptr, ptr %next385, align 8
+  %cmp589.not386 = icmp eq ptr %45, null
   br i1 %cmp589.not386, label %if.end616.thread, label %if.then594
 
 if.then594:                                       ; preds = %if.end588.thread
@@ -826,26 +816,26 @@ if.then606:                                       ; preds = %if.else602
 if.end616:                                        ; preds = %if.then598, %if.else609.us, %do.body.us, %if.end550
   %written.13 = phi i32 [ %written.2, %if.end550 ], [ %written.2, %do.body.us ], [ %written.2, %if.else609.us ], [ %add595, %if.then598 ]
   %query = getelementptr inbounds i8, ptr %uri, i64 112
-  %47 = load ptr, ptr %query, align 8
-  %cmp618.not = icmp eq ptr %47, null
+  %46 = load ptr, ptr %query, align 8
+  %cmp618.not = icmp eq ptr %46, null
   br i1 %cmp618.not, label %if.end674, label %if.then620
 
 if.end616.thread528:                              ; preds = %if.end550.thread513
   %query530 = getelementptr inbounds i8, ptr %uri, i64 112
-  %48 = load ptr, ptr %query530, align 8
-  %cmp618.not531 = icmp eq ptr %48, null
+  %47 = load ptr, ptr %query530, align 8
+  %cmp618.not531 = icmp eq ptr %47, null
   br i1 %cmp618.not531, label %if.end674.thread545, label %if.end674.thread417
 
 if.end616.thread519:                              ; preds = %if.end550.thread
   %query521 = getelementptr inbounds i8, ptr %uri, i64 112
-  %49 = load ptr, ptr %query521, align 8
-  %cmp618.not522 = icmp eq ptr %49, null
+  %48 = load ptr, ptr %query521, align 8
+  %cmp618.not522 = icmp eq ptr %48, null
   br i1 %cmp618.not522, label %if.end674.thread536, label %if.then623
 
 if.end616.thread:                                 ; preds = %if.end588.thread
   %query440 = getelementptr inbounds i8, ptr %uri, i64 112
-  %50 = load ptr, ptr %query440, align 8
-  %cmp618.not441 = icmp eq ptr %50, null
+  %49 = load ptr, ptr %query440, align 8
+  %cmp618.not441 = icmp eq ptr %49, null
   br i1 %cmp618.not441, label %if.end674.thread449, label %if.then623
 
 if.then620:                                       ; preds = %if.end616
@@ -872,10 +862,10 @@ if.then652:                                       ; preds = %if.then623
   %add.ptr629 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext628
   store i8 63, ptr %add.ptr629, align 1
   %afterLast643 = getelementptr inbounds i8, ptr %uri, i64 120
-  %51 = load ptr, ptr %afterLast643, align 8
-  %52 = load ptr, ptr %query444447, align 8
-  %sub.ptr.lhs.cast646 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast647 = ptrtoint ptr %52 to i64
+  %50 = load ptr, ptr %afterLast643, align 8
+  %51 = load ptr, ptr %query444447, align 8
+  %sub.ptr.lhs.cast646 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast647 = ptrtoint ptr %51 to i64
   %sub.ptr.sub648 = sub i64 %sub.ptr.lhs.cast646, %sub.ptr.rhs.cast647
   %conv649 = trunc i64 %sub.ptr.sub648 to i32
   %add653 = add nsw i32 %add624, %conv649
@@ -893,45 +883,45 @@ if.then668:                                       ; preds = %if.else664
 
 if.end674:                                        ; preds = %if.end616
   %fragment = getelementptr inbounds i8, ptr %uri, i64 128
-  %53 = load ptr, ptr %fragment, align 8
-  %cmp676.not = icmp eq ptr %53, null
+  %52 = load ptr, ptr %fragment, align 8
+  %cmp676.not = icmp eq ptr %52, null
   br i1 %cmp676.not, label %if.end732, label %if.then678
 
 if.end674.thread545:                              ; preds = %if.end616.thread528
   %fragment547 = getelementptr inbounds i8, ptr %uri, i64 128
-  %54 = load ptr, ptr %fragment547, align 8
-  %cmp676.not548 = icmp eq ptr %54, null
+  %53 = load ptr, ptr %fragment547, align 8
+  %cmp676.not548 = icmp eq ptr %53, null
   br i1 %cmp676.not548, label %return, label %if.then678.if.else729_crit_edge
 
 if.end674.thread536:                              ; preds = %if.end616.thread519
   %fragment538 = getelementptr inbounds i8, ptr %uri, i64 128
-  %55 = load ptr, ptr %fragment538, align 8
-  %cmp676.not539 = icmp eq ptr %55, null
+  %54 = load ptr, ptr %fragment538, align 8
+  %cmp676.not539 = icmp eq ptr %54, null
   br i1 %cmp676.not539, label %if.then735, label %if.then681
 
 if.end674.thread449:                              ; preds = %if.end616.thread
   %fragment451 = getelementptr inbounds i8, ptr %uri, i64 128
-  %56 = load ptr, ptr %fragment451, align 8
-  %cmp676.not452 = icmp eq ptr %56, null
+  %55 = load ptr, ptr %fragment451, align 8
+  %cmp676.not452 = icmp eq ptr %55, null
   br i1 %cmp676.not452, label %if.then735, label %if.then681
 
 if.end674.thread417:                              ; preds = %if.end616.thread528, %if.then620
   %query525535 = phi ptr [ %query, %if.then620 ], [ %query530, %if.end616.thread528 ]
-  %57 = load i32, ptr %charsRequired, align 4
-  %add639 = add nsw i32 %57, 1
+  %56 = load i32, ptr %charsRequired, align 4
+  %add639 = add nsw i32 %56, 1
   store i32 %add639, ptr %charsRequired, align 4
   %afterLast643400 = getelementptr inbounds i8, ptr %uri, i64 120
-  %58 = load ptr, ptr %afterLast643400, align 8
-  %59 = load ptr, ptr %query525535, align 8
-  %sub.ptr.lhs.cast646401 = ptrtoint ptr %58 to i64
-  %sub.ptr.rhs.cast647402 = ptrtoint ptr %59 to i64
+  %57 = load ptr, ptr %afterLast643400, align 8
+  %58 = load ptr, ptr %query525535, align 8
+  %sub.ptr.lhs.cast646401 = ptrtoint ptr %57 to i64
+  %sub.ptr.rhs.cast647402 = ptrtoint ptr %58 to i64
   %sub.ptr.sub648403 = sub i64 %sub.ptr.lhs.cast646401, %sub.ptr.rhs.cast647402
   %conv649404 = trunc i64 %sub.ptr.sub648403 to i32
   %add672 = add nsw i32 %add639, %conv649404
   store i32 %add672, ptr %charsRequired, align 4
   %fragment418 = getelementptr inbounds i8, ptr %uri, i64 128
-  %60 = load ptr, ptr %fragment418, align 8
-  %cmp676.not419 = icmp eq ptr %60, null
+  %59 = load ptr, ptr %fragment418, align 8
+  %cmp676.not419 = icmp eq ptr %59, null
   br i1 %cmp676.not419, label %return, label %if.else729
 
 if.end674.thread:                                 ; preds = %if.then652
@@ -939,10 +929,10 @@ if.end674.thread:                                 ; preds = %if.then652
   %add.ptr658 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext657
   %sext345 = shl i64 %sub.ptr.sub648, 32
   %conv661 = ashr exact i64 %sext345, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr658, ptr align 1 %52, i64 %conv661, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr658, ptr align 1 %51, i64 %conv661, i1 false)
   %fragment408 = getelementptr inbounds i8, ptr %uri, i64 128
-  %61 = load ptr, ptr %fragment408, align 8
-  %cmp676.not409 = icmp eq ptr %61, null
+  %60 = load ptr, ptr %fragment408, align 8
+  %cmp676.not409 = icmp eq ptr %60, null
   br i1 %cmp676.not409, label %if.then735, label %if.then681
 
 if.then678:                                       ; preds = %if.end674
@@ -974,10 +964,10 @@ if.then710:                                       ; preds = %if.then681
   %add.ptr687 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext686
   store i8 35, ptr %add.ptr687, align 1
   %afterLast701 = getelementptr inbounds i8, ptr %uri, i64 136
-  %62 = load ptr, ptr %afterLast701, align 8
-  %63 = load ptr, ptr %fragment411415, align 8
-  %sub.ptr.lhs.cast704 = ptrtoint ptr %62 to i64
-  %sub.ptr.rhs.cast705 = ptrtoint ptr %63 to i64
+  %61 = load ptr, ptr %afterLast701, align 8
+  %62 = load ptr, ptr %fragment411415, align 8
+  %sub.ptr.lhs.cast704 = ptrtoint ptr %61 to i64
+  %sub.ptr.rhs.cast705 = ptrtoint ptr %62 to i64
   %sub.ptr.sub706 = sub i64 %sub.ptr.lhs.cast704, %sub.ptr.rhs.cast705
   %conv707 = trunc i64 %sub.ptr.sub706 to i32
   %add711 = add nsw i32 %add682, %conv707
@@ -989,7 +979,7 @@ if.then714:                                       ; preds = %if.then710
   %add.ptr716 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext715
   %sext346 = shl i64 %sub.ptr.sub706, 32
   %conv719 = ashr exact i64 %sext346, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr716, ptr align 1 %63, i64 %conv719, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr716, ptr align 1 %62, i64 %conv719, i1 false)
   br label %if.then735
 
 if.else722:                                       ; preds = %if.then710
@@ -1002,15 +992,15 @@ if.then726:                                       ; preds = %if.else722
   br label %return
 
 if.else729:                                       ; preds = %if.then678.if.else729_crit_edge, %if.end674.thread417
-  %64 = phi i32 [ %.pre491, %if.then678.if.else729_crit_edge ], [ %add672, %if.end674.thread417 ]
+  %63 = phi i32 [ %.pre491, %if.then678.if.else729_crit_edge ], [ %add672, %if.end674.thread417 ]
   %fragment411423 = phi ptr [ %fragment542552, %if.then678.if.else729_crit_edge ], [ %fragment418, %if.end674.thread417 ]
-  %add697 = add nsw i32 %64, 1
+  %add697 = add nsw i32 %63, 1
   store i32 %add697, ptr %charsRequired, align 4
   %afterLast701427 = getelementptr inbounds i8, ptr %uri, i64 136
-  %65 = load ptr, ptr %afterLast701427, align 8
-  %66 = load ptr, ptr %fragment411423, align 8
-  %sub.ptr.lhs.cast704428 = ptrtoint ptr %65 to i64
-  %sub.ptr.rhs.cast705429 = ptrtoint ptr %66 to i64
+  %64 = load ptr, ptr %afterLast701427, align 8
+  %65 = load ptr, ptr %fragment411423, align 8
+  %sub.ptr.lhs.cast704428 = ptrtoint ptr %64 to i64
+  %sub.ptr.rhs.cast705429 = ptrtoint ptr %65 to i64
   %sub.ptr.sub706430 = sub i64 %sub.ptr.lhs.cast704428, %sub.ptr.rhs.cast705429
   %conv707431 = trunc i64 %sub.ptr.sub706430 to i32
   %add730 = add nsw i32 %add697, %conv707431
@@ -1148,7 +1138,7 @@ if.end60:                                         ; preds = %if.end14.thread, %i
   %written.0 = phi i32 [ %add43, %if.then46 ], [ 0, %if.end14.thread ]
   %call = tail call i32 @uriIsHostSetW(ptr noundef nonnull %uri) #3
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end519, label %if.then61
+  br i1 %tobool.not, label %if.end519, label %if.then64
 
 if.end60.thread503:                               ; preds = %if.end14
   %call505 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %uri) #3
@@ -1169,10 +1159,7 @@ if.end60.thread:                                  ; preds = %if.end14
   %tobool.not360 = icmp eq i32 %call359, 0
   br i1 %tobool.not360, label %if.end519, label %if.end81
 
-if.then61:                                        ; preds = %if.end60
-  br i1 %cmp1, label %if.end81, label %if.then64
-
-if.then64:                                        ; preds = %if.then61
+if.then64:                                        ; preds = %if.end60
   %add65 = add nsw i32 %written.0, 2
   %cmp66.not.not = icmp slt i32 %add65, %maxChars
   br i1 %cmp66.not.not, label %if.end81.thread, label %if.else72
@@ -1186,8 +1173,7 @@ if.then76:                                        ; preds = %if.else72
   store i32 0, ptr %charsWritten, align 4
   br label %return
 
-if.end81:                                         ; preds = %if.end60.thread503, %if.then61, %if.end60.thread
-  %written.0361363 = phi i32 [ %written.0, %if.then61 ], [ 0, %if.end60.thread ], [ 0, %if.end60.thread503 ]
+if.end81:                                         ; preds = %if.end60.thread503, %if.end60.thread
   %5 = load i32, ptr %charsRequired, align 4
   %add80 = add nsw i32 %5, 2
   store i32 %add80, ptr %charsRequired, align 4
@@ -1266,7 +1252,7 @@ if.else131:                                       ; preds = %if.end81
   br label %if.end135
 
 if.end135:                                        ; preds = %if.end81.thread, %if.then120, %if.else131, %if.end81
-  %written.4 = phi i32 [ %add117, %if.then120 ], [ %written.0361363, %if.else131 ], [ %written.0361363, %if.end81 ], [ %add65, %if.end81.thread ]
+  %written.4 = phi i32 [ %add117, %if.then120 ], [ 0, %if.else131 ], [ 0, %if.end81 ], [ %add65, %if.end81.thread ]
   %hostData = getelementptr inbounds i8, ptr %uri, i64 48
   %11 = load ptr, ptr %hostData, align 8
   %cmp136.not = icmp eq ptr %11, null
@@ -1518,17 +1504,17 @@ for.inc326:                                       ; preds = %if.end298.thread, %
   br i1 %exitcond499.not, label %if.then331, label %for.body261, !llvm.loop !9
 
 for.end328:                                       ; preds = %for.body261.us
-  store i32 %spec.select, ptr %charsRequired, align 4
-  br i1 %cmp1, label %if.else346, label %if.then331
+  %add347 = add nsw i32 %spec.select, 1
+  store i32 %add347, ptr %charsRequired, align 4
+  br label %if.end464
 
-if.then331:                                       ; preds = %for.inc326, %for.end328
-  %.us-phi479516 = phi i32 [ %written.4, %for.end328 ], [ %written.11, %for.inc326 ]
-  %cmp333.not.not = icmp slt i32 %.us-phi479516, %dec
+if.then331:                                       ; preds = %for.inc326
+  %cmp333.not.not = icmp slt i32 %written.11, %dec
   br i1 %cmp333.not.not, label %if.then335, label %if.else339
 
 if.then335:                                       ; preds = %if.then331
-  %add332 = add nsw i32 %.us-phi479516, 1
-  %idx.ext336 = sext i32 %.us-phi479516 to i64
+  %add332 = add nsw i32 %written.11, 1
+  %idx.ext336 = sext i32 %written.11 to i64
   %add.ptr337 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext336
   store i32 93, ptr %add.ptr337, align 4
   br label %if.end464
@@ -1542,23 +1528,17 @@ if.then343:                                       ; preds = %if.else339
   store i32 0, ptr %charsWritten, align 4
   br label %return
 
-if.else346:                                       ; preds = %for.end328
-  %30 = load i32, ptr %charsRequired, align 4
-  %add347 = add nsw i32 %30, 1
-  store i32 %add347, ptr %charsRequired, align 4
-  br label %if.end464
-
 if.else349:                                       ; preds = %if.else232
   %ipFuture = getelementptr inbounds i8, ptr %uri, i64 64
-  %31 = load ptr, ptr %ipFuture, align 8
-  %cmp352.not = icmp eq ptr %31, null
+  %30 = load ptr, ptr %ipFuture, align 8
+  %cmp352.not = icmp eq ptr %30, null
   br i1 %cmp352.not, label %if.else422, label %if.then354
 
 if.then354:                                       ; preds = %if.else349
   %afterLast358 = getelementptr inbounds i8, ptr %uri, i64 72
-  %32 = load ptr, ptr %afterLast358, align 8
-  %sub.ptr.lhs.cast362 = ptrtoint ptr %32 to i64
-  %sub.ptr.rhs.cast363 = ptrtoint ptr %31 to i64
+  %31 = load ptr, ptr %afterLast358, align 8
+  %sub.ptr.lhs.cast362 = ptrtoint ptr %31 to i64
+  %sub.ptr.rhs.cast363 = ptrtoint ptr %30 to i64
   %sub.ptr.sub364 = sub i64 %sub.ptr.lhs.cast362, %sub.ptr.rhs.cast363
   %sub.ptr.div365 = lshr exact i64 %sub.ptr.sub364, 2
   %conv366 = trunc i64 %sub.ptr.div365 to i32
@@ -1589,11 +1569,11 @@ if.then381:                                       ; preds = %if.else377
 if.then387:                                       ; preds = %if.then373
   %idx.ext388 = sext i32 %add370 to i64
   %add.ptr389 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext388
-  %33 = load ptr, ptr %ipFuture, align 8
+  %32 = load ptr, ptr %ipFuture, align 8
   %sext341 = shl i64 %sub.ptr.sub364, 30
-  %34 = ashr exact i64 %sext341, 30
-  %mul394 = and i64 %34, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr389, ptr align 4 %33, i64 %mul394, i1 false)
+  %33 = ashr exact i64 %sext341, 30
+  %mul394 = and i64 %33, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr389, ptr align 4 %32, i64 %mul394, i1 false)
   %cmp404.not.not = icmp slt i32 %add384, %dec
   br i1 %cmp404.not.not, label %if.then406, label %if.else410
 
@@ -1624,22 +1604,22 @@ if.then414:                                       ; preds = %if.else410
 
 if.else417:                                       ; preds = %if.then354
   %add419 = add nsw i32 %conv366, 2
-  %35 = load i32, ptr %charsRequired, align 4
-  %add420 = add nsw i32 %add419, %35
+  %34 = load i32, ptr %charsRequired, align 4
+  %add420 = add nsw i32 %add419, %34
   store i32 %add420, ptr %charsRequired, align 4
   br label %if.end464
 
 if.else422:                                       ; preds = %if.else349
   %hostText = getelementptr inbounds i8, ptr %uri, i64 32
-  %36 = load ptr, ptr %hostText, align 8
-  %cmp424.not = icmp eq ptr %36, null
+  %35 = load ptr, ptr %hostText, align 8
+  %cmp424.not = icmp eq ptr %35, null
   br i1 %cmp424.not, label %if.end464, label %if.then426
 
 if.then426:                                       ; preds = %if.else422
   %afterLast429 = getelementptr inbounds i8, ptr %uri, i64 40
-  %37 = load ptr, ptr %afterLast429, align 8
-  %sub.ptr.lhs.cast432 = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast433 = ptrtoint ptr %36 to i64
+  %36 = load ptr, ptr %afterLast429, align 8
+  %sub.ptr.lhs.cast432 = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast433 = ptrtoint ptr %35 to i64
   %sub.ptr.sub434 = sub i64 %sub.ptr.lhs.cast432, %sub.ptr.rhs.cast433
   %sub.ptr.div435 = lshr exact i64 %sub.ptr.sub434, 2
   %conv436 = trunc i64 %sub.ptr.div435 to i32
@@ -1654,9 +1634,9 @@ if.then443:                                       ; preds = %if.then439
   %idx.ext444 = sext i32 %written.4 to i64
   %add.ptr445 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext444
   %sext340 = shl i64 %sub.ptr.sub434, 30
-  %38 = ashr exact i64 %sext340, 30
-  %mul449 = and i64 %38, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr445, ptr nonnull align 4 %36, i64 %mul449, i1 false)
+  %37 = ashr exact i64 %sext340, 30
+  %mul449 = and i64 %37, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr445, ptr nonnull align 4 %35, i64 %mul449, i1 false)
   br label %if.end464
 
 if.else451:                                       ; preds = %if.then439
@@ -1669,23 +1649,23 @@ if.then455:                                       ; preds = %if.else451
   br label %return
 
 if.else458:                                       ; preds = %if.then426
-  %39 = load i32, ptr %charsRequired, align 4
-  %add459 = add nsw i32 %39, %conv436
+  %38 = load i32, ptr %charsRequired, align 4
+  %add459 = add nsw i32 %38, %conv436
   store i32 %add459, ptr %charsRequired, align 4
   br label %if.end464
 
-if.end464:                                        ; preds = %if.end192, %for.body.us, %if.else346, %if.then335, %if.else422, %if.else458, %if.then443, %if.then406, %if.else417
-  %written.7 = phi i32 [ %add332, %if.then335 ], [ %written.4, %if.else346 ], [ %add403, %if.then406 ], [ %written.4, %if.else417 ], [ %add440, %if.then443 ], [ %written.4, %if.else458 ], [ %written.4, %if.else422 ], [ %written.4, %for.body.us ], [ %add155591, %if.end192 ]
+if.end464:                                        ; preds = %if.end192, %for.body.us, %for.end328, %if.then335, %if.else422, %if.else458, %if.then443, %if.then406, %if.else417
+  %written.7 = phi i32 [ %add332, %if.then335 ], [ %written.4, %for.end328 ], [ %add403, %if.then406 ], [ %written.4, %if.else417 ], [ %add440, %if.then443 ], [ %written.4, %if.else458 ], [ %written.4, %if.else422 ], [ %written.4, %for.body.us ], [ %add155591, %if.end192 ]
   %portText = getelementptr inbounds i8, ptr %uri, i64 80
-  %40 = load ptr, ptr %portText, align 8
-  %cmp466.not = icmp eq ptr %40, null
+  %39 = load ptr, ptr %portText, align 8
+  %cmp466.not = icmp eq ptr %39, null
   br i1 %cmp466.not, label %if.end519, label %if.then468
 
 if.then468:                                       ; preds = %if.end464
   %afterLast471 = getelementptr inbounds i8, ptr %uri, i64 88
-  %41 = load ptr, ptr %afterLast471, align 8
-  %sub.ptr.lhs.cast474 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast475 = ptrtoint ptr %40 to i64
+  %40 = load ptr, ptr %afterLast471, align 8
+  %sub.ptr.lhs.cast474 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast475 = ptrtoint ptr %39 to i64
   %sub.ptr.sub476 = sub i64 %sub.ptr.lhs.cast474, %sub.ptr.rhs.cast475
   %sub.ptr.div477 = lshr exact i64 %sub.ptr.sub476, 2
   %conv478 = trunc i64 %sub.ptr.div477 to i32
@@ -1716,11 +1696,11 @@ if.then493:                                       ; preds = %if.else489
 if.then499:                                       ; preds = %if.then485
   %idx.ext500 = sext i32 %add482 to i64
   %add.ptr501 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext500
-  %42 = load ptr, ptr %portText, align 8
+  %41 = load ptr, ptr %portText, align 8
   %sext343 = shl i64 %sub.ptr.sub476, 30
-  %43 = ashr exact i64 %sext343, 30
-  %mul505 = and i64 %43, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr501, ptr align 4 %42, i64 %mul505, i1 false)
+  %42 = ashr exact i64 %sext343, 30
+  %mul505 = and i64 %42, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr501, ptr align 4 %41, i64 %mul505, i1 false)
   br label %if.end519
 
 if.else507:                                       ; preds = %if.then485
@@ -1734,22 +1714,22 @@ if.then511:                                       ; preds = %if.else507
 
 if.else514:                                       ; preds = %if.then468
   %add515 = add nsw i32 %conv478, 1
-  %44 = load i32, ptr %charsRequired, align 4
-  %add516 = add nsw i32 %add515, %44
+  %43 = load i32, ptr %charsRequired, align 4
+  %add516 = add nsw i32 %add515, %43
   store i32 %add516, ptr %charsRequired, align 4
   br label %if.end519
 
 if.end519:                                        ; preds = %if.end60.thread503, %if.end60.thread, %if.end464, %if.else514, %if.then499, %if.end60
   %written.2 = phi i32 [ %add496, %if.then499 ], [ %written.7, %if.else514 ], [ %written.7, %if.end464 ], [ %written.0, %if.end60 ], [ 0, %if.end60.thread ], [ 0, %if.end60.thread503 ]
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
-  %45 = load i32, ptr %absolutePath, align 8
-  %tobool520.not = icmp eq i32 %45, 0
+  %44 = load i32, ptr %absolutePath, align 8
+  %tobool520.not = icmp eq i32 %44, 0
   br i1 %tobool520.not, label %lor.lhs.false521, label %if.then527
 
 lor.lhs.false521:                                 ; preds = %if.end519
   %pathHead = getelementptr inbounds i8, ptr %uri, i64 96
-  %46 = load ptr, ptr %pathHead, align 8
-  %cmp522.not = icmp eq ptr %46, null
+  %45 = load ptr, ptr %pathHead, align 8
+  %cmp522.not = icmp eq ptr %45, null
   br i1 %cmp522.not, label %if.end548, label %land.lhs.true524
 
 land.lhs.true524:                                 ; preds = %lor.lhs.false521
@@ -1775,17 +1755,17 @@ if.then542:                                       ; preds = %if.else538
 
 if.end548:                                        ; preds = %land.lhs.true524, %lor.lhs.false521
   %pathHead549 = getelementptr inbounds i8, ptr %uri, i64 96
-  %47 = load ptr, ptr %pathHead549, align 8
-  %cmp550.not = icmp eq ptr %47, null
+  %46 = load ptr, ptr %pathHead549, align 8
+  %cmp550.not = icmp eq ptr %46, null
   br i1 %cmp550.not, label %if.end615, label %do.body.preheader
 
 if.end548.thread523:                              ; preds = %if.then527
-  %48 = load i32, ptr %charsRequired, align 4
-  %add546 = add nsw i32 %48, 1
+  %47 = load i32, ptr %charsRequired, align 4
+  %add546 = add nsw i32 %47, 1
   store i32 %add546, ptr %charsRequired, align 4
   %pathHead549524 = getelementptr inbounds i8, ptr %uri, i64 96
-  %49 = load ptr, ptr %pathHead549524, align 8
-  %cmp550.not525 = icmp eq ptr %49, null
+  %48 = load ptr, ptr %pathHead549524, align 8
+  %cmp550.not525 = icmp eq ptr %48, null
   br i1 %cmp550.not525, label %if.end615.thread538, label %do.body.preheader.split.us
 
 if.end548.thread:                                 ; preds = %if.then530
@@ -1794,39 +1774,39 @@ if.end548.thread:                                 ; preds = %if.then530
   %add.ptr536 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext535
   store i32 47, ptr %add.ptr536, align 4
   %pathHead549518 = getelementptr inbounds i8, ptr %uri, i64 96
-  %50 = load ptr, ptr %pathHead549518, align 8
-  %cmp550.not519 = icmp eq ptr %50, null
+  %49 = load ptr, ptr %pathHead549518, align 8
+  %cmp550.not519 = icmp eq ptr %49, null
   br i1 %cmp550.not519, label %if.end615.thread529, label %do.body.preheader592
 
 do.body.preheader:                                ; preds = %if.end548
   br i1 %cmp1, label %do.body.preheader.split.us, label %do.body.preheader592
 
 do.body.preheader592:                             ; preds = %if.end548.thread, %do.body.preheader
-  %walker.0.ph = phi ptr [ %50, %if.end548.thread ], [ %47, %do.body.preheader ]
+  %walker.0.ph = phi ptr [ %49, %if.end548.thread ], [ %46, %do.body.preheader ]
   %written.14.ph = phi i32 [ %add531, %if.end548.thread ], [ %written.2, %do.body.preheader ]
   br label %do.body
 
 do.body.preheader.split.us:                       ; preds = %if.end548.thread523, %do.body.preheader
-  %51 = phi ptr [ %47, %do.body.preheader ], [ %49, %if.end548.thread523 ]
+  %50 = phi ptr [ %46, %do.body.preheader ], [ %48, %if.end548.thread523 ]
   %charsRequired.promoted483 = load i32, ptr %charsRequired, align 4
   br label %do.body.us
 
 do.body.us:                                       ; preds = %if.else608.us, %do.body.preheader.split.us
   %add609.us484 = phi i32 [ %add609.us, %if.else608.us ], [ %charsRequired.promoted483, %do.body.preheader.split.us ]
-  %walker.0.us = phi ptr [ %.pr.us, %if.else608.us ], [ %51, %do.body.preheader.split.us ]
+  %walker.0.us = phi ptr [ %.pr.us, %if.else608.us ], [ %50, %do.body.preheader.split.us ]
   %afterLast556.us = getelementptr inbounds i8, ptr %walker.0.us, i64 8
-  %52 = load ptr, ptr %afterLast556.us, align 8
-  %53 = load ptr, ptr %walker.0.us, align 8
-  %sub.ptr.lhs.cast559.us = ptrtoint ptr %52 to i64
-  %sub.ptr.rhs.cast560.us = ptrtoint ptr %53 to i64
+  %51 = load ptr, ptr %afterLast556.us, align 8
+  %52 = load ptr, ptr %walker.0.us, align 8
+  %sub.ptr.lhs.cast559.us = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast560.us = ptrtoint ptr %52 to i64
   %sub.ptr.sub561.us = sub i64 %sub.ptr.lhs.cast559.us, %sub.ptr.rhs.cast560.us
   %sub.ptr.div562.us = lshr exact i64 %sub.ptr.sub561.us, 2
   %conv563.us = trunc i64 %sub.ptr.div562.us to i32
   %add586.us = add nsw i32 %add609.us484, %conv563.us
   store i32 %add586.us, ptr %charsRequired, align 4
   %next.us = getelementptr inbounds i8, ptr %walker.0.us, i64 16
-  %54 = load ptr, ptr %next.us, align 8
-  %cmp588.not.us = icmp eq ptr %54, null
+  %53 = load ptr, ptr %next.us, align 8
+  %cmp588.not.us = icmp eq ptr %53, null
   br i1 %cmp588.not.us, label %if.end615, label %if.else608.us
 
 if.else608.us:                                    ; preds = %do.body.us
@@ -1840,10 +1820,10 @@ do.body:                                          ; preds = %do.body.preheader59
   %walker.0 = phi ptr [ %.pr, %if.then597 ], [ %walker.0.ph, %do.body.preheader592 ]
   %written.14 = phi i32 [ %add594, %if.then597 ], [ %written.14.ph, %do.body.preheader592 ]
   %afterLast556 = getelementptr inbounds i8, ptr %walker.0, i64 8
-  %55 = load ptr, ptr %afterLast556, align 8
-  %56 = load ptr, ptr %walker.0, align 8
-  %sub.ptr.lhs.cast559 = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast560 = ptrtoint ptr %56 to i64
+  %54 = load ptr, ptr %afterLast556, align 8
+  %55 = load ptr, ptr %walker.0, align 8
+  %sub.ptr.lhs.cast559 = ptrtoint ptr %54 to i64
+  %sub.ptr.rhs.cast560 = ptrtoint ptr %55 to i64
   %sub.ptr.sub561 = sub i64 %sub.ptr.lhs.cast559, %sub.ptr.rhs.cast560
   %sub.ptr.div562 = lshr exact i64 %sub.ptr.sub561, 2
   %conv563 = trunc i64 %sub.ptr.div562 to i32
@@ -1864,12 +1844,12 @@ if.end587.thread:                                 ; preds = %do.body
   %idx.ext571 = sext i32 %written.14 to i64
   %add.ptr572 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext571
   %sext344 = shl i64 %sub.ptr.sub561, 30
-  %57 = ashr exact i64 %sext344, 30
-  %mul576 = and i64 %57, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr572, ptr align 4 %56, i64 %mul576, i1 false)
+  %56 = ashr exact i64 %sext344, 30
+  %mul576 = and i64 %56, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr572, ptr align 4 %55, i64 %mul576, i1 false)
   %next387 = getelementptr inbounds i8, ptr %walker.0, i64 16
-  %58 = load ptr, ptr %next387, align 8
-  %cmp588.not388 = icmp eq ptr %58, null
+  %57 = load ptr, ptr %next387, align 8
+  %cmp588.not388 = icmp eq ptr %57, null
   br i1 %cmp588.not388, label %if.end615.thread, label %if.then593
 
 if.then593:                                       ; preds = %if.end587.thread
@@ -1897,26 +1877,26 @@ if.then605:                                       ; preds = %if.else601
 if.end615:                                        ; preds = %if.then597, %if.else608.us, %do.body.us, %if.end548
   %written.13 = phi i32 [ %written.2, %if.end548 ], [ %written.2, %do.body.us ], [ %written.2, %if.else608.us ], [ %add594, %if.then597 ]
   %query = getelementptr inbounds i8, ptr %uri, i64 112
-  %59 = load ptr, ptr %query, align 8
-  %cmp617.not = icmp eq ptr %59, null
+  %58 = load ptr, ptr %query, align 8
+  %cmp617.not = icmp eq ptr %58, null
   br i1 %cmp617.not, label %if.end674, label %if.then619
 
 if.end615.thread538:                              ; preds = %if.end548.thread523
   %query540 = getelementptr inbounds i8, ptr %uri, i64 112
-  %60 = load ptr, ptr %query540, align 8
-  %cmp617.not541 = icmp eq ptr %60, null
+  %59 = load ptr, ptr %query540, align 8
+  %cmp617.not541 = icmp eq ptr %59, null
   br i1 %cmp617.not541, label %if.end674.thread555, label %if.end674.thread420
 
 if.end615.thread529:                              ; preds = %if.end548.thread
   %query531 = getelementptr inbounds i8, ptr %uri, i64 112
-  %61 = load ptr, ptr %query531, align 8
-  %cmp617.not532 = icmp eq ptr %61, null
+  %60 = load ptr, ptr %query531, align 8
+  %cmp617.not532 = icmp eq ptr %60, null
   br i1 %cmp617.not532, label %if.end674.thread546, label %if.then622
 
 if.end615.thread:                                 ; preds = %if.end587.thread
   %query444 = getelementptr inbounds i8, ptr %uri, i64 112
-  %62 = load ptr, ptr %query444, align 8
-  %cmp617.not445 = icmp eq ptr %62, null
+  %61 = load ptr, ptr %query444, align 8
+  %cmp617.not445 = icmp eq ptr %61, null
   br i1 %cmp617.not445, label %if.end674.thread453, label %if.then622
 
 if.then619:                                       ; preds = %if.end615
@@ -1943,10 +1923,10 @@ if.then652:                                       ; preds = %if.then622
   %add.ptr628 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext627
   store i32 63, ptr %add.ptr628, align 4
   %afterLast642 = getelementptr inbounds i8, ptr %uri, i64 120
-  %63 = load ptr, ptr %afterLast642, align 8
-  %64 = load ptr, ptr %query448451, align 8
-  %sub.ptr.lhs.cast645 = ptrtoint ptr %63 to i64
-  %sub.ptr.rhs.cast646 = ptrtoint ptr %64 to i64
+  %62 = load ptr, ptr %afterLast642, align 8
+  %63 = load ptr, ptr %query448451, align 8
+  %sub.ptr.lhs.cast645 = ptrtoint ptr %62 to i64
+  %sub.ptr.rhs.cast646 = ptrtoint ptr %63 to i64
   %sub.ptr.sub647 = sub i64 %sub.ptr.lhs.cast645, %sub.ptr.rhs.cast646
   %sub.ptr.div648 = lshr exact i64 %sub.ptr.sub647, 2
   %conv649 = trunc i64 %sub.ptr.div648 to i32
@@ -1965,58 +1945,58 @@ if.then668:                                       ; preds = %if.else664
 
 if.end674:                                        ; preds = %if.end615
   %fragment = getelementptr inbounds i8, ptr %uri, i64 128
-  %65 = load ptr, ptr %fragment, align 8
-  %cmp676.not = icmp eq ptr %65, null
+  %64 = load ptr, ptr %fragment, align 8
+  %cmp676.not = icmp eq ptr %64, null
   br i1 %cmp676.not, label %if.end733, label %if.then678
 
 if.end674.thread555:                              ; preds = %if.end615.thread538
   %fragment557 = getelementptr inbounds i8, ptr %uri, i64 128
-  %66 = load ptr, ptr %fragment557, align 8
-  %cmp676.not558 = icmp eq ptr %66, null
+  %65 = load ptr, ptr %fragment557, align 8
+  %cmp676.not558 = icmp eq ptr %65, null
   br i1 %cmp676.not558, label %return, label %if.then678.if.else730_crit_edge
 
 if.end674.thread546:                              ; preds = %if.end615.thread529
   %fragment548 = getelementptr inbounds i8, ptr %uri, i64 128
-  %67 = load ptr, ptr %fragment548, align 8
-  %cmp676.not549 = icmp eq ptr %67, null
+  %66 = load ptr, ptr %fragment548, align 8
+  %cmp676.not549 = icmp eq ptr %66, null
   br i1 %cmp676.not549, label %if.then736, label %if.then681
 
 if.end674.thread453:                              ; preds = %if.end615.thread
   %fragment455 = getelementptr inbounds i8, ptr %uri, i64 128
-  %68 = load ptr, ptr %fragment455, align 8
-  %cmp676.not456 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %fragment455, align 8
+  %cmp676.not456 = icmp eq ptr %67, null
   br i1 %cmp676.not456, label %if.then736, label %if.then681
 
 if.end674.thread420:                              ; preds = %if.end615.thread538, %if.then619
   %query535545 = phi ptr [ %query, %if.then619 ], [ %query540, %if.end615.thread538 ]
-  %69 = load i32, ptr %charsRequired, align 4
-  %add638 = add nsw i32 %69, 1
+  %68 = load i32, ptr %charsRequired, align 4
+  %add638 = add nsw i32 %68, 1
   store i32 %add638, ptr %charsRequired, align 4
   %afterLast642402 = getelementptr inbounds i8, ptr %uri, i64 120
-  %70 = load ptr, ptr %afterLast642402, align 8
-  %71 = load ptr, ptr %query535545, align 8
-  %sub.ptr.lhs.cast645403 = ptrtoint ptr %70 to i64
-  %sub.ptr.rhs.cast646404 = ptrtoint ptr %71 to i64
+  %69 = load ptr, ptr %afterLast642402, align 8
+  %70 = load ptr, ptr %query535545, align 8
+  %sub.ptr.lhs.cast645403 = ptrtoint ptr %69 to i64
+  %sub.ptr.rhs.cast646404 = ptrtoint ptr %70 to i64
   %sub.ptr.sub647405 = sub i64 %sub.ptr.lhs.cast645403, %sub.ptr.rhs.cast646404
   %sub.ptr.div648406 = lshr exact i64 %sub.ptr.sub647405, 2
   %conv649407 = trunc i64 %sub.ptr.div648406 to i32
   %add672 = add nsw i32 %add638, %conv649407
   store i32 %add672, ptr %charsRequired, align 4
   %fragment421 = getelementptr inbounds i8, ptr %uri, i64 128
-  %72 = load ptr, ptr %fragment421, align 8
-  %cmp676.not422 = icmp eq ptr %72, null
+  %71 = load ptr, ptr %fragment421, align 8
+  %cmp676.not422 = icmp eq ptr %71, null
   br i1 %cmp676.not422, label %return, label %if.else730
 
 if.end674.thread:                                 ; preds = %if.then652
   %idx.ext657 = sext i32 %add623 to i64
   %add.ptr658 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext657
   %sext345 = shl i64 %sub.ptr.sub647, 30
-  %73 = ashr exact i64 %sext345, 30
-  %mul662 = and i64 %73, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr658, ptr align 4 %64, i64 %mul662, i1 false)
+  %72 = ashr exact i64 %sext345, 30
+  %mul662 = and i64 %72, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr658, ptr align 4 %63, i64 %mul662, i1 false)
   %fragment411 = getelementptr inbounds i8, ptr %uri, i64 128
-  %74 = load ptr, ptr %fragment411, align 8
-  %cmp676.not412 = icmp eq ptr %74, null
+  %73 = load ptr, ptr %fragment411, align 8
+  %cmp676.not412 = icmp eq ptr %73, null
   br i1 %cmp676.not412, label %if.then736, label %if.then681
 
 if.then678:                                       ; preds = %if.end674
@@ -2048,10 +2028,10 @@ if.then711:                                       ; preds = %if.then681
   %add.ptr687 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext686
   store i32 35, ptr %add.ptr687, align 4
   %afterLast701 = getelementptr inbounds i8, ptr %uri, i64 136
-  %75 = load ptr, ptr %afterLast701, align 8
-  %76 = load ptr, ptr %fragment414418, align 8
-  %sub.ptr.lhs.cast704 = ptrtoint ptr %75 to i64
-  %sub.ptr.rhs.cast705 = ptrtoint ptr %76 to i64
+  %74 = load ptr, ptr %afterLast701, align 8
+  %75 = load ptr, ptr %fragment414418, align 8
+  %sub.ptr.lhs.cast704 = ptrtoint ptr %74 to i64
+  %sub.ptr.rhs.cast705 = ptrtoint ptr %75 to i64
   %sub.ptr.sub706 = sub i64 %sub.ptr.lhs.cast704, %sub.ptr.rhs.cast705
   %sub.ptr.div707 = lshr exact i64 %sub.ptr.sub706, 2
   %conv708 = trunc i64 %sub.ptr.div707 to i32
@@ -2063,9 +2043,9 @@ if.then715:                                       ; preds = %if.then711
   %idx.ext716 = sext i32 %add682 to i64
   %add.ptr717 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext716
   %sext346 = shl i64 %sub.ptr.sub706, 30
-  %77 = ashr exact i64 %sext346, 30
-  %mul721 = and i64 %77, -4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr717, ptr align 4 %76, i64 %mul721, i1 false)
+  %76 = ashr exact i64 %sext346, 30
+  %mul721 = and i64 %76, -4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr717, ptr align 4 %75, i64 %mul721, i1 false)
   br label %if.then736
 
 if.else723:                                       ; preds = %if.then711
@@ -2078,15 +2058,15 @@ if.then727:                                       ; preds = %if.else723
   br label %return
 
 if.else730:                                       ; preds = %if.then678.if.else730_crit_edge, %if.end674.thread420
-  %78 = phi i32 [ %.pre501, %if.then678.if.else730_crit_edge ], [ %add672, %if.end674.thread420 ]
+  %77 = phi i32 [ %.pre501, %if.then678.if.else730_crit_edge ], [ %add672, %if.end674.thread420 ]
   %fragment414426 = phi ptr [ %fragment552562, %if.then678.if.else730_crit_edge ], [ %fragment421, %if.end674.thread420 ]
-  %add697 = add nsw i32 %78, 1
+  %add697 = add nsw i32 %77, 1
   store i32 %add697, ptr %charsRequired, align 4
   %afterLast701430 = getelementptr inbounds i8, ptr %uri, i64 136
-  %79 = load ptr, ptr %afterLast701430, align 8
-  %80 = load ptr, ptr %fragment414426, align 8
-  %sub.ptr.lhs.cast704431 = ptrtoint ptr %79 to i64
-  %sub.ptr.rhs.cast705432 = ptrtoint ptr %80 to i64
+  %78 = load ptr, ptr %afterLast701430, align 8
+  %79 = load ptr, ptr %fragment414426, align 8
+  %sub.ptr.lhs.cast704431 = ptrtoint ptr %78 to i64
+  %sub.ptr.rhs.cast705432 = ptrtoint ptr %79 to i64
   %sub.ptr.sub706433 = sub i64 %sub.ptr.lhs.cast704431, %sub.ptr.rhs.cast705432
   %sub.ptr.div707434 = lshr exact i64 %sub.ptr.sub706433, 2
   %conv708435 = trunc i64 %sub.ptr.div707434 to i32

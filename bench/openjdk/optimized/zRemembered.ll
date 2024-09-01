@@ -348,8 +348,8 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 88:                                               ; preds = %90, %66
   %.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %87, %66 ], [ %91, %90 ]
   %89 = or i64 %.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %86
-  %.not.i.not.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %89, %.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i", label %90
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %89, %.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i", label %90
 
 90:                                               ; preds = %88
   %91 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %89, i64 %.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %84) #14, !srcloc !8
@@ -444,8 +444,8 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
 148:                                              ; preds = %150, %126
   %.017.i.i.i.i.i.i.i = phi i64 [ %147, %126 ], [ %151, %150 ]
   %149 = or i64 %.017.i.i.i.i.i.i.i, %146
-  %.not.i.not.i.not.i.i.i.i.i = icmp eq i64 %149, %.017.i.i.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i.i.i, label %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i", label %150
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i = icmp eq i64 %149, %.017.i.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i, label %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i", label %150
 
 150:                                              ; preds = %148
   %151 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %149, i64 %.017.i.i.i.i.i.i.i, ptr nonnull %144) #14, !srcloc !8
@@ -726,8 +726,8 @@ _ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %89, %69, %62, %59
 137:                                              ; preds = %139, %115
   %.017.i.i.i.i.i.i.i = phi i64 [ %136, %115 ], [ %140, %139 ]
   %138 = or i64 %.017.i.i.i.i.i.i.i, %135
-  %.not.i.not.i.not.i.i.i.i.i = icmp eq i64 %138, %.017.i.i.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i.i.i, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i", label %139
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i = icmp eq i64 %138, %.017.i.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i", label %139
 
 139:                                              ; preds = %137
   %140 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %138, i64 %.017.i.i.i.i.i.i.i, ptr nonnull %133) #14, !srcloc !8
@@ -902,8 +902,8 @@ _ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5
 242:                                              ; preds = %244, %219
   %.017.i.i.i.i.i.i.i21 = phi i64 [ %241, %219 ], [ %245, %244 ]
   %243 = or i64 %.017.i.i.i.i.i.i.i21, %240
-  %.not.i.not.i.not.i.i.i.i.i22 = icmp eq i64 %243, %.017.i.i.i.i.i.i.i21
-  br i1 %.not.i.not.i.not.i.i.i.i.i22, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %244
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i22 = icmp eq i64 %243, %.017.i.i.i.i.i.i.i21
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i22, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %244
 
 244:                                              ; preds = %242
   %245 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %243, i64 %.017.i.i.i.i.i.i.i21, ptr nonnull %238) #14, !srcloc !8
@@ -1136,8 +1136,8 @@ define hidden void @_ZN11ZRemembered8FoundOld13register_pageEP5ZPage(ptr nocaptu
 18:                                               ; preds = %20, %2
   %.017.i = phi i64 [ %17, %2 ], [ %21, %20 ]
   %19 = or i64 %.017.i, %16
-  %.not.i.not = icmp eq i64 %19, %.017.i
-  br i1 %.not.i.not, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %20
+  %.not.not.not.i.not = icmp eq i64 %19, %.017.i
+  br i1 %.not.not.not.i.not, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %20
 
 20:                                               ; preds = %18
   %21 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %.017.i, ptr nonnull %14) #14, !srcloc !8
@@ -1192,8 +1192,8 @@ define hidden void @_ZN11ZRemembered18register_found_oldEP5ZPage(ptr nocapture n
 18:                                               ; preds = %20, %2
   %.017.i.i = phi i64 [ %17, %2 ], [ %21, %20 ]
   %19 = or i64 %.017.i.i, %16
-  %.not.i.not.i = icmp eq i64 %19, %.017.i.i
-  br i1 %.not.i.not.i, label %_ZN11ZRemembered8FoundOld13register_pageEP5ZPage.exit, label %20
+  %.not.not.not.i.not.i = icmp eq i64 %19, %.017.i.i
+  br i1 %.not.not.not.i.not.i, label %_ZN11ZRemembered8FoundOld13register_pageEP5ZPage.exit, label %20
 
 20:                                               ; preds = %18
   %21 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %.017.i.i, ptr nonnull %14) #14, !srcloc !8
@@ -1332,8 +1332,8 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered10scan_fieldEPV8zpointer(ptr 
 40:                                               ; preds = %42, %17
   %.017.i.i.i.i = phi i64 [ %39, %17 ], [ %43, %42 ]
   %41 = or i64 %.017.i.i.i.i, %38
-  %.not.i.not.i.not.i.i = icmp eq i64 %41, %.017.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i, label %_ZNK11ZRemembered8rememberEPV8zpointer.exit, label %42
+  %.not.not.not.i.not.not.not.i.not.i.i = icmp eq i64 %41, %.017.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i, label %_ZNK11ZRemembered8rememberEPV8zpointer.exit, label %42
 
 42:                                               ; preds = %40
   %43 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %41, i64 %.017.i.i.i.i, ptr nonnull %36) #14, !srcloc !8
@@ -2018,8 +2018,8 @@ _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_Z
 76:                                               ; preds = %78, %59
   %.017.i.i.i = phi i64 [ %75, %59 ], [ %79, %78 ]
   %77 = or i64 %.017.i.i.i, %74
-  %.not.i.not.i.i = icmp eq i64 %77, %.017.i.i.i
-  br i1 %.not.i.not.i.i, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %78
+  %.not.not.not.i.not.i.i = icmp eq i64 %77, %.017.i.i.i
+  br i1 %.not.not.not.i.not.i.i, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %78
 
 78:                                               ; preds = %76
   %79 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %.017.i.i.i, ptr nonnull %72) #14, !srcloc !8

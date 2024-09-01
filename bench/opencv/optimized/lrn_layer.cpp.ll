@@ -1444,15 +1444,12 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12LRNLayerImpl8getFLOPSERKSt6
 
 .preheader.i36.us:                                ; preds = %.lr.ph.i.us
   %40 = mul nsw i32 %39, %28
-  br i1 %.not73.us, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit43.us, label %.lr.ph.i39.us.preheader
-
-.lr.ph.i39.us.preheader:                          ; preds = %.preheader.i36.us
   %wide.trip.count112 = and i64 %35, 2147483647
   br label %.lr.ph.i39.us
 
-.lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us.preheader, %.lr.ph.i39.us
-  %indvars.iv.i40.us = phi i64 [ %indvars.iv.next.i42.us, %.lr.ph.i39.us ], [ 2, %.lr.ph.i39.us.preheader ]
-  %.0231.i41.us = phi i32 [ %43, %.lr.ph.i39.us ], [ 1, %.lr.ph.i39.us.preheader ]
+.lr.ph.i39.us:                                    ; preds = %.preheader.i36.us, %.lr.ph.i39.us
+  %indvars.iv.i40.us = phi i64 [ %indvars.iv.next.i42.us, %.lr.ph.i39.us ], [ 2, %.preheader.i36.us ]
+  %.0231.i41.us = phi i32 [ %43, %.lr.ph.i39.us ], [ 1, %.preheader.i36.us ]
   %41 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i40.us
   %42 = load i32, ptr %41, align 4
   %43 = mul nsw i32 %42, %.0231.i41.us
@@ -1460,9 +1457,9 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12LRNLayerImpl8getFLOPSERKSt6
   %exitcond113.not = icmp eq i64 %indvars.iv.next.i42.us, %wide.trip.count112
   br i1 %exitcond113.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit43.us, label %.lr.ph.i39.us, !llvm.loop !8
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit43.us: ; preds = %.lr.ph.i39.us, %.preheader.i.us, %.lr.ph.split.us, %.preheader.i36.us
-  %44 = phi i32 [ %40, %.preheader.i36.us ], [ 0, %.lr.ph.split.us ], [ %28, %.preheader.i.us ], [ %40, %.lr.ph.i39.us ]
-  %.024.i37.us = phi i32 [ 1, %.preheader.i36.us ], [ 0, %.lr.ph.split.us ], [ 1, %.preheader.i.us ], [ %43, %.lr.ph.i39.us ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit43.us: ; preds = %.lr.ph.i39.us, %.preheader.i.us, %.lr.ph.split.us
+  %44 = phi i32 [ 0, %.lr.ph.split.us ], [ %28, %.preheader.i.us ], [ %40, %.lr.ph.i39.us ]
+  %.024.i37.us = phi i32 [ 0, %.lr.ph.split.us ], [ 1, %.preheader.i.us ], [ %43, %.lr.ph.i39.us ]
   %45 = shl nsw i32 %26, 2
   %46 = mul nsw i32 %.024.i37.us, %45
   %47 = add nsw i32 %46, %44

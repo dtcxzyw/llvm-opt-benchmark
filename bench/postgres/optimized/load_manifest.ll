@@ -513,8 +513,8 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %9 = zext i32 %.03246 to i64
   %10 = getelementptr %struct.manifest_file, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8
-  %.not60 = icmp eq i32 %11, 0
-  br i1 %.not60, label %.loopexit, label %.lr.ph
+  %.not55 = icmp eq i32 %11, 0
+  br i1 %.not55, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %44
   %12 = phi i32 [ %48, %44 ], [ %11, %2 ]
@@ -580,8 +580,8 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %46 = zext i32 %.032 to i64
   %47 = getelementptr %struct.manifest_file, ptr %8, i64 %46
   %48 = load i32, ptr %47, align 8
-  %.not61 = icmp eq i32 %48, 0
-  br i1 %.not61, label %.loopexit, label %.lr.ph
+  %.not56 = icmp eq i32 %48, 0
+  br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %44, %2, %._crit_edge
   %49 = phi i1 [ true, %._crit_edge ], [ false, %2 ], [ false, %44 ]

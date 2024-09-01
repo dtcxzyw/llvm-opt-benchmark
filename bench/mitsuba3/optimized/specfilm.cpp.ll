@@ -3100,19 +3100,16 @@ _ZN5drjit13dr_unique_ptrIA_mED2Ev.exit.i:         ; preds = %_ZN5drjit12DynamicA
   %32 = add nuw i64 %.013.i, 1
   %33 = load i64, ptr %23, align 8
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph.i23, label %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit, !llvm.loop !33
+  br i1 %34, label %.lr.ph.i23, label %.lr.ph, !llvm.loop !33
 
 _ZN5drjit13dr_unique_ptrIA_mED2Ev.exit11.i:       ; preds = %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5drjit9dr_vectorImEC2EPKmS3_.exit:             ; preds = %.lr.ph.i23
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit, %.lr.ph
-  %.027 = phi i64 [ %39, %.lr.ph ], [ 0, %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit ]
-  %.01826 = phi i64 [ %38, %.lr.ph ], [ 1, %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.i23, %.lr.ph
+  %.027 = phi i64 [ %39, %.lr.ph ], [ 0, %.lr.ph.i23 ]
+  %.01826 = phi i64 [ %38, %.lr.ph ], [ 1, %.lr.ph.i23 ]
   %36 = getelementptr inbounds i64, ptr %3, i64 %.027
   %37 = load i64, ptr %36, align 8
   %38 = mul i64 %37, %.01826
@@ -3120,8 +3117,8 @@ _ZN5drjit9dr_vectorImEC2EPKmS3_.exit:             ; preds = %.lr.ph.i23
   %exitcond.not = icmp eq i64 %39, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN5drjit13dr_unique_ptrIA_mED2Ev.exit.i, %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit
-  %.018.lcssa = phi i64 [ 1, %_ZN5drjit9dr_vectorImEC2EPKmS3_.exit ], [ 1, %_ZN5drjit13dr_unique_ptrIA_mED2Ev.exit.i ], [ %38, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN5drjit13dr_unique_ptrIA_mED2Ev.exit.i
+  %.018.lcssa = phi i64 [ 1, %_ZN5drjit13dr_unique_ptrIA_mED2Ev.exit.i ], [ %38, %.lr.ph ]
   %40 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %.018.lcssa, %40
   %41 = icmp eq i64 %40, 1

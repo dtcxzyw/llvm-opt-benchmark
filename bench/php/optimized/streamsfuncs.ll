@@ -2499,7 +2499,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %.0234356 = phi ptr [ %45, %50 ], [ null, %13 ], [ %.1235, %22 ], [ %.2236, %32 ], [ %.3, %42 ], [ %55, %60 ]
   %.0237355 = phi i32 [ 4, %50 ], [ 0, %13 ], [ 1, %22 ], [ 2, %32 ], [ 3, %42 ], [ 5, %60 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0231358, i32 noundef %.0237355, ptr noundef null, i32 noundef %.0233357, ptr noundef %.0234356) #10
-  br label %191
+  br label %190
 
 62:                                               ; preds = %.preheader368
   %63 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.2265315, ptr noundef nonnull %4, ptr noundef nonnull %7)
@@ -2535,7 +2535,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
-  br label %191
+  br label %190
 
 76:                                               ; preds = %72
   %77 = load i32, ptr %7, align 4
@@ -2546,7 +2546,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   call void @_php_emit_fd_setsize_warning(i32 noundef %77) #10
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %80, align 8
-  br label %191
+  br label %190
 
 81:                                               ; preds = %76
   br i1 %.3275325, label %82, label %.critedge
@@ -2562,7 +2562,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %87 = icmp ne ptr %86, null
   call void @llvm.assume(i1 %87)
-  br label %191
+  br label %190
 
 .critedge:                                        ; preds = %81
   %88 = load i64, ptr %8, align 8
@@ -2574,7 +2574,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %92 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %92)
-  br label %191
+  br label %190
 
 93:                                               ; preds = %.critedge
   %94 = load i64, ptr %9, align 8
@@ -2586,7 +2586,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %98 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %98)
-  br label %191
+  br label %190
 
 99:                                               ; preds = %93
   %100 = udiv i64 %94, 1000000
@@ -2742,7 +2742,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   store i64 %165, ptr %1, align 8
   %166 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %166, align 8
-  br label %191
+  br label %190
 
 stream_array_emulate_read_fd_set.exit.thread:     ; preds = %108, %._crit_edge.i.._crit_edge.thread.i_crit_edge
   %.pre = phi i32 [ %.pre.pre, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %77, %108 ]
@@ -2750,7 +2750,7 @@ stream_array_emulate_read_fd_set.exit.thread:     ; preds = %108, %._crit_edge.i
   %167 = add nsw i32 %.pre, 1
   %168 = call i32 @select(i32 noundef %167, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %.0228) #10
   %169 = icmp eq i32 %168, -1
-  br i1 %169, label %176, label %182
+  br i1 %169, label %176, label %.thread380
 
 stream_array_emulate_read_fd_set.exit.thread.thread381: ; preds = %104
   %170 = add nsw i32 %77, 1
@@ -2772,39 +2772,36 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %179, ptr noundef %180, i32 noundef %177) #10
   %181 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %181, align 8
-  br label %191
+  br label %190
 
-182:                                              ; preds = %stream_array_emulate_read_fd_set.exit.thread
-  br i1 %.not298, label %.thread382, label %.thread380
-
-.thread380:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread, %182
-  %183 = phi i32 [ %168, %182 ], [ %174, %stream_array_emulate_read_fd_set.exit.thread.thread ]
+.thread380:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread, %stream_array_emulate_read_fd_set.exit.thread.thread
+  %182 = phi i32 [ %174, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %168, %stream_array_emulate_read_fd_set.exit.thread ]
   call fastcc void @stream_array_from_fd_set(ptr noundef nonnull %.2265315, ptr noundef nonnull %4)
   br label %.thread382
 
-.thread382:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread381, %.thread380, %182
-  %184 = phi i32 [ %183, %.thread380 ], [ %168, %182 ], [ %171, %stream_array_emulate_read_fd_set.exit.thread.thread381 ]
-  br i1 %.not300, label %186, label %185
+.thread382:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread381, %.thread380
+  %183 = phi i32 [ %182, %.thread380 ], [ %171, %stream_array_emulate_read_fd_set.exit.thread.thread381 ]
+  br i1 %.not300, label %185, label %184
 
-185:                                              ; preds = %.thread382
+184:                                              ; preds = %.thread382
   call fastcc void @stream_array_from_fd_set(ptr noundef nonnull %.2268318, ptr noundef nonnull %5)
-  br label %186
+  br label %185
 
-186:                                              ; preds = %185, %.thread382
-  br i1 %.not301, label %188, label %187
+185:                                              ; preds = %184, %.thread382
+  br i1 %.not301, label %187, label %186
 
-187:                                              ; preds = %186
+186:                                              ; preds = %185
   call fastcc void @stream_array_from_fd_set(ptr noundef nonnull %.2271321, ptr noundef nonnull %6)
-  br label %188
+  br label %187
 
-188:                                              ; preds = %187, %186
-  %189 = sext i32 %184 to i64
-  store i64 %189, ptr %1, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %190, align 8
-  br label %191
+187:                                              ; preds = %186, %185
+  %188 = sext i32 %183 to i64
+  store i64 %188, ptr %1, align 8
+  %189 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %189, align 8
+  br label %190
 
-191:                                              ; preds = %188, %176, %164, %96, %90, %85, %79, %73, %.thread344
+190:                                              ; preds = %187, %176, %164, %96, %90, %85, %79, %73, %.thread344
   ret void
 }
 

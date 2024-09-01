@@ -13747,7 +13747,7 @@ exec_query.exit:                                  ; preds = %194, %200, %202, %2
   %.not10.i150 = icmp eq i8 %282, 0
   br i1 %.not10.i150, label %identifier_needs_quotes.exit.thread, label %.backedge187
 
-.backedge187:                                     ; preds = %308, %302, %298, %279, %273, %269
+.backedge187:                                     ; preds = %309, %303, %299, %279, %273, %269
   %283 = load i32, ptr @_complete_from_query.list_index, align 4
   %284 = load ptr, ptr @_complete_from_query.result, align 8
   %285 = call i32 @PQntuples(ptr noundef %284) #12
@@ -13756,219 +13756,216 @@ exec_query.exit:                                  ; preds = %194, %200, %202, %2
 
 identifier_needs_quotes.exit.thread:              ; preds = %279, %276, %266
   %.not146 = icmp eq ptr %.0100, null
-  br i1 %.not146, label %.thread169, label %295
+  br i1 %.not146, label %.thread169, label %296
 
 identifier_needs_quotes.exit.thread.thread:       ; preds = %265
   %.not146227 = icmp eq ptr %.0100, null
-  br i1 %.not146227, label %.thread169.thread, label %295
+  br i1 %.not146227, label %.thread169.thread, label %296
 
 .thread169.thread:                                ; preds = %identifier_needs_quotes.exit.thread.thread
   %287 = load i32, ptr @_complete_from_query.num_query_other, align 4
   %288 = add i32 %287, 1
   store i32 %288, ptr @_complete_from_query.num_query_other, align 4
-  br label %.thread
-
-.thread169:                                       ; preds = %identifier_needs_quotes.exit.thread
-  %289 = load i32, ptr @_complete_from_query.num_query_other, align 4
-  %290 = add i32 %289, 1
-  store i32 %290, ptr @_complete_from_query.num_query_other, align 4
-  %291 = load i8, ptr @_complete_from_query.schemaquoted, align 1
-  %292 = trunc i8 %291 to i1
-  %293 = load i8, ptr @_complete_from_query.objectquoted, align 1
-  %294 = trunc i8 %293 to i1
-  br i1 %.not145, label %.thread, label %356
-
-295:                                              ; preds = %identifier_needs_quotes.exit.thread.thread, %identifier_needs_quotes.exit.thread
-  %296 = load i8, ptr @_complete_from_query.schemaquoted, align 1
-  %297 = trunc i8 %296 to i1
-  br i1 %297, label %identifier_needs_quotes.exit156.thread, label %298
-
-298:                                              ; preds = %295
-  %299 = load i8, ptr %.0100, align 1
-  %300 = add i8 %299, -97
-  %or.cond.i151 = icmp ult i8 %300, 26
-  %301 = icmp eq i8 %299, 95
-  %or.cond11.i152 = or i1 %301, %or.cond.i151
-  br i1 %or.cond11.i152, label %302, label %.backedge187
-
-302:                                              ; preds = %298
-  %303 = call i64 @strspn(ptr noundef nonnull %.0100, ptr noundef nonnull @.str.1544) #14
-  %304 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
-  %.not.i154 = icmp eq i64 %303, %304
-  br i1 %.not.i154, label %305, label %.backedge187
-
-305:                                              ; preds = %302
-  %306 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
-  %307 = icmp sgt i32 %306, -1
-  br i1 %307, label %308, label %identifier_needs_quotes.exit156.thread
-
-308:                                              ; preds = %305
-  %309 = zext nneg i32 %306 to i64
-  %310 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %309
-  %311 = load i8, ptr %310, align 1
-  %.not10.i155 = icmp eq i8 %311, 0
-  br i1 %.not10.i155, label %identifier_needs_quotes.exit156.thread, label %.backedge187
-
-identifier_needs_quotes.exit156.thread:           ; preds = %308, %305, %295, %260
-  %312 = icmp eq ptr %.0101, null
-  %313 = icmp ne ptr %.0100, null
-  %or.cond9 = select i1 %312, i1 %313, i1 false
-  br i1 %or.cond9, label %.thread165, label %321
-
-.thread165:                                       ; preds = %identifier_needs_quotes.exit156.thread
-  %314 = load i32, ptr @_complete_from_query.num_schema_only, align 4
-  %315 = add i32 %314, 1
-  store i32 %315, ptr @_complete_from_query.num_schema_only, align 4
-  %316 = load i8, ptr @_complete_from_query.schemaquoted, align 1
-  %317 = trunc i8 %316 to i1
-  %318 = load i8, ptr @_complete_from_query.objectquoted, align 1
-  %319 = trunc i8 %318 to i1
-  %320 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
-  br i1 %317, label %.thread.i, label %330
-
-321:                                              ; preds = %identifier_needs_quotes.exit156.thread
-  %322 = load i32, ptr @_complete_from_query.num_query_other, align 4
-  %323 = add i32 %322, 1
-  store i32 %323, ptr @_complete_from_query.num_query_other, align 4
-  %324 = load i8, ptr @_complete_from_query.schemaquoted, align 1
-  %325 = trunc i8 %324 to i1
-  %326 = load i8, ptr @_complete_from_query.objectquoted, align 1
-  %327 = trunc i8 %326 to i1
-  %.not.i157 = icmp eq ptr %.0100, null
-  br i1 %.not.i157, label %.loopexit95.i, label %328
-
-328:                                              ; preds = %321
-  %329 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
-  br i1 %325, label %.thread.i, label %330
-
-330:                                              ; preds = %.thread165, %328
-  %331 = phi i64 [ %320, %.thread165 ], [ %329, %328 ]
-  %332 = phi i1 [ %319, %.thread165 ], [ %327, %328 ]
-  %333 = add i64 %331, 2
-  %334 = load i8, ptr %.0100, align 1
-  %335 = add i8 %334, -97
-  %or.cond.i.i = icmp ult i8 %335, 26
-  %336 = icmp eq i8 %334, 95
-  %or.cond11.i.i = or i1 %336, %or.cond.i.i
-  br i1 %or.cond11.i.i, label %337, label %.thread.i
-
-337:                                              ; preds = %330
-  %338 = call i64 @strspn(ptr noundef nonnull %.0100, ptr noundef nonnull @.str.1544) #14
-  %.not.i.i = icmp eq i64 %338, %331
-  br i1 %.not.i.i, label %339, label %.thread.i
-
-339:                                              ; preds = %337
-  %340 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
-  %341 = icmp sgt i32 %340, -1
-  br i1 %341, label %342, label %.loopexit95.i
-
-342:                                              ; preds = %339
-  %343 = zext nneg i32 %340 to i64
-  %344 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %343
-  %345 = load i8, ptr %344, align 1
-  %.not10.i.i = icmp eq i8 %345, 0
-  br i1 %.not10.i.i, label %.loopexit95.i, label %.thread.i
-
-.thread.i:                                        ; preds = %.thread165, %342, %337, %330, %328
-  %346 = phi i64 [ %320, %.thread165 ], [ %331, %342 ], [ %331, %337 ], [ %331, %330 ], [ %329, %328 ]
-  %347 = phi i1 [ %319, %.thread165 ], [ %332, %342 ], [ %332, %337 ], [ %332, %330 ], [ %327, %328 ]
-  %348 = add i64 %346, 4
-  br label %349
-
-349:                                              ; preds = %353, %.thread.i
-  %.157.i = phi i64 [ %348, %.thread.i ], [ %.258.i, %353 ]
-  %.054.i = phi ptr [ %.0100, %.thread.i ], [ %354, %353 ]
-  %350 = load i8, ptr %.054.i, align 1
-  switch i8 %350, label %353 [
-    i8 0, label %.loopexit95.i
-    i8 34, label %351
-  ]
-
-351:                                              ; preds = %349
-  %352 = add i64 %.157.i, 1
-  br label %353
-
-353:                                              ; preds = %351, %349
-  %.258.i = phi i64 [ %352, %351 ], [ %.157.i, %349 ]
-  %354 = getelementptr i8, ptr %.054.i, i64 1
-  br label %349, !llvm.loop !29
-
-.loopexit95.i:                                    ; preds = %349, %342, %339, %321
-  %.not.i157168 = phi i1 [ true, %321 ], [ false, %339 ], [ false, %342 ], [ false, %349 ]
-  %355 = phi i1 [ %327, %321 ], [ %332, %339 ], [ %332, %342 ], [ %347, %349 ]
-  %.062.i = phi i1 [ %325, %321 ], [ false, %339 ], [ false, %342 ], [ true, %349 ]
-  %.056.i = phi i64 [ 1, %321 ], [ %333, %339 ], [ %333, %342 ], [ %.157.i, %349 ]
-  br i1 %312, label %.loopexit.i158, label %356
-
-356:                                              ; preds = %.thread169, %.loopexit95.i
-  %.0100223 = phi ptr [ null, %.thread169 ], [ %.0100, %.loopexit95.i ]
-  %.056.i177 = phi i64 [ 1, %.thread169 ], [ %.056.i, %.loopexit95.i ]
-  %.062.i175 = phi i1 [ %292, %.thread169 ], [ %.062.i, %.loopexit95.i ]
-  %357 = phi i1 [ %294, %.thread169 ], [ %355, %.loopexit95.i ]
-  %.not.i157168173 = phi i1 [ true, %.thread169 ], [ %.not.i157168, %.loopexit95.i ]
-  %358 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0101) #14
-  %359 = add i64 %358, %.056.i177
-  br i1 %357, label %.thread89.i, label %360
-
-360:                                              ; preds = %356
-  %361 = load i8, ptr %.0101, align 1
-  %362 = add i8 %361, -97
-  %or.cond.i79.i = icmp ult i8 %362, 26
-  %363 = icmp eq i8 %361, 95
-  %or.cond11.i80.i = or i1 %363, %or.cond.i79.i
-  br i1 %or.cond11.i80.i, label %364, label %.thread89.i
-
-364:                                              ; preds = %360
-  %365 = call i64 @strspn(ptr noundef nonnull %.0101, ptr noundef nonnull @.str.1544) #14
-  %.not.i82.i = icmp eq i64 %365, %358
-  br i1 %.not.i82.i, label %366, label %.thread89.i
-
-366:                                              ; preds = %364
-  %367 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0101, ptr noundef nonnull @ScanKeywords) #12
-  %368 = icmp sgt i32 %367, -1
-  br i1 %368, label %369, label %.loopexit.i158
-
-369:                                              ; preds = %366
-  %370 = zext nneg i32 %367 to i64
-  %371 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %370
-  %372 = load i8, ptr %371, align 1
-  %.not10.i83.i = icmp eq i8 %372, 0
-  br i1 %.not10.i83.i, label %.loopexit.i158, label %.thread89.i
-
-.thread89.i:                                      ; preds = %369, %364, %360, %356
-  %373 = add i64 %359, 2
-  br label %374
-
-374:                                              ; preds = %378, %.thread89.i
-  %.460.i = phi i64 [ %373, %.thread89.i ], [ %.561.i, %378 ]
-  %.053.i = phi ptr [ %.0101, %.thread89.i ], [ %379, %378 ]
-  %375 = load i8, ptr %.053.i, align 1
-  switch i8 %375, label %378 [
-    i8 0, label %.loopexit.i158
-    i8 34, label %376
-  ]
-
-376:                                              ; preds = %374
-  %377 = add i64 %.460.i, 1
-  br label %378
-
-378:                                              ; preds = %376, %374
-  %.561.i = phi i64 [ %377, %376 ], [ %.460.i, %374 ]
-  %379 = getelementptr i8, ptr %.053.i, i64 1
-  br label %374, !llvm.loop !30
-
-.thread:                                          ; preds = %.thread169.thread, %.thread169
-  %380 = call ptr @pg_malloc(i64 noundef 1) #12
+  %289 = call ptr @pg_malloc(i64 noundef 1) #12
   br label %requote_identifier.exit
 
-.loopexit.i158:                                   ; preds = %374, %369, %366, %.loopexit95.i
-  %.0100224 = phi ptr [ %.0100, %.loopexit95.i ], [ %.0100223, %366 ], [ %.0100223, %369 ], [ %.0100223, %374 ]
-  %.0101220 = phi ptr [ null, %.loopexit95.i ], [ %.0101, %366 ], [ %.0101, %369 ], [ %.0101, %374 ]
-  %.062.i176 = phi i1 [ %.062.i, %.loopexit95.i ], [ %.062.i175, %366 ], [ %.062.i175, %369 ], [ %.062.i175, %374 ]
-  %381 = phi i1 [ true, %.loopexit95.i ], [ false, %366 ], [ false, %369 ], [ false, %374 ]
-  %.not.i157168174 = phi i1 [ %.not.i157168, %.loopexit95.i ], [ %.not.i157168173, %366 ], [ %.not.i157168173, %369 ], [ %.not.i157168173, %374 ]
-  %.064.i = phi i1 [ %355, %.loopexit95.i ], [ false, %366 ], [ false, %369 ], [ true, %374 ]
-  %.359.i = phi i64 [ %.056.i, %.loopexit95.i ], [ %359, %366 ], [ %359, %369 ], [ %.460.i, %374 ]
+.thread169:                                       ; preds = %identifier_needs_quotes.exit.thread
+  %290 = load i32, ptr @_complete_from_query.num_query_other, align 4
+  %291 = add i32 %290, 1
+  store i32 %291, ptr @_complete_from_query.num_query_other, align 4
+  %292 = load i8, ptr @_complete_from_query.schemaquoted, align 1
+  %293 = trunc i8 %292 to i1
+  %294 = load i8, ptr @_complete_from_query.objectquoted, align 1
+  %295 = trunc i8 %294 to i1
+  br label %357
+
+296:                                              ; preds = %identifier_needs_quotes.exit.thread.thread, %identifier_needs_quotes.exit.thread
+  %297 = load i8, ptr @_complete_from_query.schemaquoted, align 1
+  %298 = trunc i8 %297 to i1
+  br i1 %298, label %identifier_needs_quotes.exit156.thread, label %299
+
+299:                                              ; preds = %296
+  %300 = load i8, ptr %.0100, align 1
+  %301 = add i8 %300, -97
+  %or.cond.i151 = icmp ult i8 %301, 26
+  %302 = icmp eq i8 %300, 95
+  %or.cond11.i152 = or i1 %302, %or.cond.i151
+  br i1 %or.cond11.i152, label %303, label %.backedge187
+
+303:                                              ; preds = %299
+  %304 = call i64 @strspn(ptr noundef nonnull %.0100, ptr noundef nonnull @.str.1544) #14
+  %305 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
+  %.not.i154 = icmp eq i64 %304, %305
+  br i1 %.not.i154, label %306, label %.backedge187
+
+306:                                              ; preds = %303
+  %307 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
+  %308 = icmp sgt i32 %307, -1
+  br i1 %308, label %309, label %identifier_needs_quotes.exit156.thread
+
+309:                                              ; preds = %306
+  %310 = zext nneg i32 %307 to i64
+  %311 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %310
+  %312 = load i8, ptr %311, align 1
+  %.not10.i155 = icmp eq i8 %312, 0
+  br i1 %.not10.i155, label %identifier_needs_quotes.exit156.thread, label %.backedge187
+
+identifier_needs_quotes.exit156.thread:           ; preds = %309, %306, %296, %260
+  %313 = icmp eq ptr %.0101, null
+  %314 = icmp ne ptr %.0100, null
+  %or.cond9 = select i1 %313, i1 %314, i1 false
+  br i1 %or.cond9, label %.thread165, label %322
+
+.thread165:                                       ; preds = %identifier_needs_quotes.exit156.thread
+  %315 = load i32, ptr @_complete_from_query.num_schema_only, align 4
+  %316 = add i32 %315, 1
+  store i32 %316, ptr @_complete_from_query.num_schema_only, align 4
+  %317 = load i8, ptr @_complete_from_query.schemaquoted, align 1
+  %318 = trunc i8 %317 to i1
+  %319 = load i8, ptr @_complete_from_query.objectquoted, align 1
+  %320 = trunc i8 %319 to i1
+  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
+  br i1 %318, label %.thread.i, label %331
+
+322:                                              ; preds = %identifier_needs_quotes.exit156.thread
+  %323 = load i32, ptr @_complete_from_query.num_query_other, align 4
+  %324 = add i32 %323, 1
+  store i32 %324, ptr @_complete_from_query.num_query_other, align 4
+  %325 = load i8, ptr @_complete_from_query.schemaquoted, align 1
+  %326 = trunc i8 %325 to i1
+  %327 = load i8, ptr @_complete_from_query.objectquoted, align 1
+  %328 = trunc i8 %327 to i1
+  %.not.i157 = icmp eq ptr %.0100, null
+  br i1 %.not.i157, label %.loopexit95.i, label %329
+
+329:                                              ; preds = %322
+  %330 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
+  br i1 %326, label %.thread.i, label %331
+
+331:                                              ; preds = %.thread165, %329
+  %332 = phi i64 [ %321, %.thread165 ], [ %330, %329 ]
+  %333 = phi i1 [ %320, %.thread165 ], [ %328, %329 ]
+  %334 = add i64 %332, 2
+  %335 = load i8, ptr %.0100, align 1
+  %336 = add i8 %335, -97
+  %or.cond.i.i = icmp ult i8 %336, 26
+  %337 = icmp eq i8 %335, 95
+  %or.cond11.i.i = or i1 %337, %or.cond.i.i
+  br i1 %or.cond11.i.i, label %338, label %.thread.i
+
+338:                                              ; preds = %331
+  %339 = call i64 @strspn(ptr noundef nonnull %.0100, ptr noundef nonnull @.str.1544) #14
+  %.not.i.i = icmp eq i64 %339, %332
+  br i1 %.not.i.i, label %340, label %.thread.i
+
+340:                                              ; preds = %338
+  %341 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
+  %342 = icmp sgt i32 %341, -1
+  br i1 %342, label %343, label %.loopexit95.i
+
+343:                                              ; preds = %340
+  %344 = zext nneg i32 %341 to i64
+  %345 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %344
+  %346 = load i8, ptr %345, align 1
+  %.not10.i.i = icmp eq i8 %346, 0
+  br i1 %.not10.i.i, label %.loopexit95.i, label %.thread.i
+
+.thread.i:                                        ; preds = %.thread165, %343, %338, %331, %329
+  %347 = phi i64 [ %321, %.thread165 ], [ %332, %343 ], [ %332, %338 ], [ %332, %331 ], [ %330, %329 ]
+  %348 = phi i1 [ %320, %.thread165 ], [ %333, %343 ], [ %333, %338 ], [ %333, %331 ], [ %328, %329 ]
+  %349 = add i64 %347, 4
+  br label %350
+
+350:                                              ; preds = %354, %.thread.i
+  %.157.i = phi i64 [ %349, %.thread.i ], [ %.258.i, %354 ]
+  %.054.i = phi ptr [ %.0100, %.thread.i ], [ %355, %354 ]
+  %351 = load i8, ptr %.054.i, align 1
+  switch i8 %351, label %354 [
+    i8 0, label %.loopexit95.i
+    i8 34, label %352
+  ]
+
+352:                                              ; preds = %350
+  %353 = add i64 %.157.i, 1
+  br label %354
+
+354:                                              ; preds = %352, %350
+  %.258.i = phi i64 [ %353, %352 ], [ %.157.i, %350 ]
+  %355 = getelementptr i8, ptr %.054.i, i64 1
+  br label %350, !llvm.loop !29
+
+.loopexit95.i:                                    ; preds = %350, %343, %340, %322
+  %.not.i157168 = phi i1 [ true, %322 ], [ false, %340 ], [ false, %343 ], [ false, %350 ]
+  %356 = phi i1 [ %328, %322 ], [ %333, %340 ], [ %333, %343 ], [ %348, %350 ]
+  %.062.i = phi i1 [ %326, %322 ], [ false, %340 ], [ false, %343 ], [ true, %350 ]
+  %.056.i = phi i64 [ 1, %322 ], [ %334, %340 ], [ %334, %343 ], [ %.157.i, %350 ]
+  br i1 %313, label %.loopexit.i158, label %357
+
+357:                                              ; preds = %.thread169, %.loopexit95.i
+  %.0100223 = phi ptr [ null, %.thread169 ], [ %.0100, %.loopexit95.i ]
+  %.056.i177 = phi i64 [ 1, %.thread169 ], [ %.056.i, %.loopexit95.i ]
+  %.062.i175 = phi i1 [ %293, %.thread169 ], [ %.062.i, %.loopexit95.i ]
+  %358 = phi i1 [ %295, %.thread169 ], [ %356, %.loopexit95.i ]
+  %.not.i157168173 = phi i1 [ true, %.thread169 ], [ %.not.i157168, %.loopexit95.i ]
+  %359 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0101) #14
+  %360 = add i64 %359, %.056.i177
+  br i1 %358, label %.thread89.i, label %361
+
+361:                                              ; preds = %357
+  %362 = load i8, ptr %.0101, align 1
+  %363 = add i8 %362, -97
+  %or.cond.i79.i = icmp ult i8 %363, 26
+  %364 = icmp eq i8 %362, 95
+  %or.cond11.i80.i = or i1 %364, %or.cond.i79.i
+  br i1 %or.cond11.i80.i, label %365, label %.thread89.i
+
+365:                                              ; preds = %361
+  %366 = call i64 @strspn(ptr noundef nonnull %.0101, ptr noundef nonnull @.str.1544) #14
+  %.not.i82.i = icmp eq i64 %366, %359
+  br i1 %.not.i82.i, label %367, label %.thread89.i
+
+367:                                              ; preds = %365
+  %368 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0101, ptr noundef nonnull @ScanKeywords) #12
+  %369 = icmp sgt i32 %368, -1
+  br i1 %369, label %370, label %.loopexit.i158
+
+370:                                              ; preds = %367
+  %371 = zext nneg i32 %368 to i64
+  %372 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %371
+  %373 = load i8, ptr %372, align 1
+  %.not10.i83.i = icmp eq i8 %373, 0
+  br i1 %.not10.i83.i, label %.loopexit.i158, label %.thread89.i
+
+.thread89.i:                                      ; preds = %370, %365, %361, %357
+  %374 = add i64 %360, 2
+  br label %375
+
+375:                                              ; preds = %379, %.thread89.i
+  %.460.i = phi i64 [ %374, %.thread89.i ], [ %.561.i, %379 ]
+  %.053.i = phi ptr [ %.0101, %.thread89.i ], [ %380, %379 ]
+  %376 = load i8, ptr %.053.i, align 1
+  switch i8 %376, label %379 [
+    i8 0, label %.loopexit.i158
+    i8 34, label %377
+  ]
+
+377:                                              ; preds = %375
+  %378 = add i64 %.460.i, 1
+  br label %379
+
+379:                                              ; preds = %377, %375
+  %.561.i = phi i64 [ %378, %377 ], [ %.460.i, %375 ]
+  %380 = getelementptr i8, ptr %.053.i, i64 1
+  br label %375, !llvm.loop !30
+
+.loopexit.i158:                                   ; preds = %375, %370, %367, %.loopexit95.i
+  %.0100224 = phi ptr [ %.0100, %.loopexit95.i ], [ %.0100223, %367 ], [ %.0100223, %370 ], [ %.0100223, %375 ]
+  %.0101220 = phi ptr [ null, %.loopexit95.i ], [ %.0101, %367 ], [ %.0101, %370 ], [ %.0101, %375 ]
+  %.062.i176 = phi i1 [ %.062.i, %.loopexit95.i ], [ %.062.i175, %367 ], [ %.062.i175, %370 ], [ %.062.i175, %375 ]
+  %381 = phi i1 [ true, %.loopexit95.i ], [ false, %367 ], [ false, %370 ], [ false, %375 ]
+  %.not.i157168174 = phi i1 [ %.not.i157168, %.loopexit95.i ], [ %.not.i157168173, %367 ], [ %.not.i157168173, %370 ], [ %.not.i157168173, %375 ]
+  %.064.i = phi i1 [ %356, %.loopexit95.i ], [ false, %367 ], [ false, %370 ], [ true, %375 ]
+  %.359.i = phi i64 [ %.056.i, %.loopexit95.i ], [ %360, %367 ], [ %360, %370 ], [ %.460.i, %375 ]
   %382 = call ptr @pg_malloc(i64 noundef %.359.i) #12
   br i1 %.not.i157168174, label %401, label %383
 
@@ -14072,9 +14069,9 @@ identifier_needs_quotes.exit156.thread:           ; preds = %308, %305, %295, %2
   store i8 34, ptr %.7.lcssa.i, align 1
   br label %requote_identifier.exit
 
-requote_identifier.exit:                          ; preds = %399, %.thread, %401, %._crit_edge104.i, %416
-  %418 = phi ptr [ %382, %416 ], [ %382, %._crit_edge104.i ], [ %382, %401 ], [ %380, %.thread ], [ %382, %399 ]
-  %.5.i = phi ptr [ %417, %416 ], [ %.7.lcssa.i, %._crit_edge104.i ], [ %382, %401 ], [ %380, %.thread ], [ %400, %399 ]
+requote_identifier.exit:                          ; preds = %399, %.thread169.thread, %401, %._crit_edge104.i, %416
+  %418 = phi ptr [ %382, %416 ], [ %382, %._crit_edge104.i ], [ %382, %401 ], [ %289, %.thread169.thread ], [ %382, %399 ]
+  %.5.i = phi ptr [ %417, %416 ], [ %.7.lcssa.i, %._crit_edge104.i ], [ %382, %401 ], [ %289, %.thread169.thread ], [ %400, %399 ]
   store i8 0, ptr %.5.i, align 1
   br label %467
 
@@ -14212,8 +14209,8 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noun
 
 .lr.ph81:                                         ; preds = %5
   %.fr92 = freeze i32 %9
-  %.not100 = icmp eq i32 %.fr92, 1
-  br i1 %.not100, label %.lr.ph81.split.us.split, label %.lr.ph81.split
+  %.not93 = icmp eq i32 %.fr92, 1
+  br i1 %.not93, label %.lr.ph81.split.us.split, label %.lr.ph81.split
 
 .lr.ph81.split.us.split:                          ; preds = %.lr.ph81, %47
   %12 = phi i8 [ %48, %47 ], [ %11, %.lr.ph81 ]
@@ -14384,12 +14381,12 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noun
   br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .thread:                                          ; preds = %67
-  %.pre96 = trunc i8 %.04980 to i1
+  %.pre97 = trunc i8 %.04980 to i1
   %78 = add nsw i8 %49, -91
   %or.cond = icmp ult i8 %78, -26
-  %or.cond105.not = select i1 %.pre96, i1 true, i1 %or.cond
+  %or.cond103.not = select i1 %.pre97, i1 true, i1 %or.cond
   %79 = or disjoint i8 %49, 32
-  %spec.select = select i1 %or.cond105.not, i8 %49, i8 %79
+  %spec.select = select i1 %or.cond103.not, i8 %49, i8 %79
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %61

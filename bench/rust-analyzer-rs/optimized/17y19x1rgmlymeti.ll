@@ -2080,8 +2080,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc141 unwind label %.body146.thread349.loopexit
 
 .noexc141:                                        ; preds = %457
-  %.not.not.i.not.i.not = icmp ne ptr %458, null
-  br i1 %.not.not.i.not.i.not, label %459, label %470
+  %.not.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %458, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.not.not.not.not, label %459, label %470
 
 459:                                              ; preds = %.noexc141
   %460 = load i64, ptr %458, align 8, !alias.scope !391, !noalias !396, !noundef !5
@@ -2143,7 +2143,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store ptr %60, ptr %53, align 8
   store ptr %58, ptr %130, align 8
   store ptr %61, ptr %131, align 8
-  invoke void @_ZN10vfs_notify11NotifyActor10load_entry17h7a8863b3274e3307E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %54, i1 noundef zeroext %.not.not.i.not.i.not, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %53)
+  invoke void @_ZN10vfs_notify11NotifyActor10load_entry17h7a8863b3274e3307E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %54, i1 noundef zeroext %.not.not.not.not.i.not.not.not.i.not.not.not.not.not, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %53)
           to label %505 unwind label %.body146
 
 472:                                              ; preds = %459

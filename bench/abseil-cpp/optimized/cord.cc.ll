@@ -1876,7 +1876,7 @@ if.end51:                                         ; preds = %if.end13.i, %if.end
   %appended.0 = phi i64 [ %.sroa.speculated.sink.i, %if.then9 ], [ 0, %lor.lhs.false.i34 ], [ 0, %if.end8.i ], [ 0, %if.end13.i ]
   %sub.i58 = sub i64 %src.coerce0, %appended.0
   %cmp.i59 = icmp eq i64 %sub.i58, 0
-  br i1 %cmp.i59, label %if.then.i61, label %if.end55
+  br i1 %cmp.i59, label %if.then53, label %if.end55
 
 if.end51.thread:                                  ; preds = %if.end23
   %28 = getelementptr inbounds i8, ptr %call4.i.i48, i64 8
@@ -1913,28 +1913,28 @@ if.end51.thread:                                  ; preds = %if.end23
   store i64 %add50, ptr %call4.i.i48, align 8
   %sub.i58117 = sub i64 %src.coerce0, %.sroa.speculated91
   %cmp.i59118 = icmp eq i64 %sub.i58117, 0
-  br i1 %cmp.i59118, label %if.else.i63, label %if.end55
+  br i1 %cmp.i59118, label %if.then53.thread, label %if.end55
 
-if.then.i61:                                      ; preds = %if.end51
-  store ptr %retval.0.i26, ptr %rep.i.i.i.i.i, align 8
-  %31 = load ptr, ptr %scope, align 8
-  %tobool.not.i.i.i = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i87.sink.split
-
-if.else.i63:                                      ; preds = %if.end51.thread
+if.then53.thread:                                 ; preds = %if.end51.thread
   store ptr %call4.i.i48, ptr %rep.i.i.i.i.i, align 8
   store i64 1, ptr %this, align 8
-  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %33 = load i64, ptr %32, align 8
-  %cmp.i.i.i64 = icmp sgt i64 %33, 1
+  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %32 = load i64, ptr %31, align 8
+  %cmp.i.i.i64 = icmp sgt i64 %32, 1
   br i1 %cmp.i.i.i64, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
 
-_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %if.else.i63
-  %dec.i.i.i = add nsw i64 %33, -1
-  store i64 %dec.i.i.i, ptr %32, align 8
+if.then53:                                        ; preds = %if.end51
+  store ptr %retval.0.i26, ptr %rep.i.i.i.i.i, align 8
+  %33 = load ptr, ptr %scope, align 8
+  %tobool.not.i.i.i = icmp eq ptr %33, null
+  br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i87.sink.split
+
+_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %if.then53.thread
+  %dec.i.i.i = add nsw i64 %32, -1
+  store i64 %dec.i.i.i, ptr %31, align 8
   br label %cleanup
 
-_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %if.else.i63
+_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %if.then53.thread
   %call.i1.i.i65 = invoke noundef zeroext i1 @_ZN4absl13cord_internal25cordz_should_profile_slowEv()
           to label %call.i1.i.i.noexc unwind label %lpad
 
@@ -1993,9 +1993,9 @@ cleanup:                                          ; preds = %if.then.i.i3.i79.in
   %tobool.not.i86 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i86, label %cleanup.cont, label %if.then.i87
 
-if.then.i87.sink.split:                           ; preds = %if.then.i71, %if.then.i61
-  %.sink = phi ptr [ %31, %if.then.i61 ], [ %35, %if.then.i71 ]
-  %retval.0.i26.sink = phi ptr [ %retval.0.i26, %if.then.i61 ], [ %call69, %if.then.i71 ]
+if.then.i87.sink.split:                           ; preds = %if.then.i71, %if.then53
+  %.sink = phi ptr [ %33, %if.then53 ], [ %35, %if.then.i71 ]
+  %retval.0.i26.sink = phi ptr [ %retval.0.i26, %if.then53 ], [ %call69, %if.then.i71 ]
   %rep_.i.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 64
   store ptr %retval.0.i26.sink, ptr %rep_.i.i.i.i, align 8
   br label %if.then.i87
@@ -2012,7 +2012,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i87
   tail call void @__clang_call_terminate(ptr %40) #26
   unreachable
 
-cleanup.cont:                                     ; preds = %if.then.i61, %if.then.i71, %if.then.i87, %cleanup, %_ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit
+cleanup.cont:                                     ; preds = %if.then53, %if.then.i71, %if.then.i87, %cleanup, %_ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit
   ret void
 }
 
@@ -2934,8 +2934,7 @@ if.then18.thread:                                 ; preds = %_ZNK4absl4Cord9Inli
   %25 = lshr exact i8 %9, 1
   %shr.i.i.i.i = zext nneg i8 %25 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %src, i64 1
-  %spec.select.i = select i1 %cmp.i.i.not.i.i.i, ptr %add.ptr.i.i.i, ptr null
-  tail call void @_ZN4absl4Cord9InlineRep11AppendArrayESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %shr.i.i.i.i, ptr %spec.select.i, i32 noundef 1)
+  tail call void @_ZN4absl4Cord9InlineRep11AppendArrayESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %shr.i.i.i.i, ptr nonnull %add.ptr.i.i.i, i32 noundef 1)
   br label %return
 
 _ZNK4absl4Cord9InlineRep4sizeEv.exit.thread:      ; preds = %if.end15

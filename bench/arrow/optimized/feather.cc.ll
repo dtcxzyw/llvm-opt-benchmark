@@ -1154,9 +1154,9 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %if.end8.sink.split.
   %add.ptr4.i.i.i393.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i391.i.i, i64 %idx.ext3.i.i.i392.i.i
   %102 = load i32, ptr %add.ptr4.i.i.i393.i.i, align 4, !noalias !30
   %cmp394.i.i = icmp sgt i32 %102, 0
-  br i1 %cmp394.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
+  br i1 %cmp394.i.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i, label %for.end.i.i
 
-for.body.lr.ph.i.i:                               ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i: ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i
   %_M_refcount.i.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp29.i.i, i64 8
   %_M_refcount3.i.i.i136.i = getelementptr inbounds i8, ptr %type.i.i, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %fields.i.i, i64 8
@@ -1165,11 +1165,11 @@ for.body.lr.ph.i.i:                               ; preds = %_ZNSt10shared_ptrIN
   %_M_refcount.i.i114.i.i = getelementptr inbounds i8, ptr %agg.tmp30.i.i, i64 8
   br label %invoke.cont7.i.i
 
-invoke.cont7.i.i:                                 ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %103 = phi i32 [ %101, %for.body.lr.ph.i.i ], [ %181, %for.inc.i.i ]
-  %104 = phi i16 [ %100, %for.body.lr.ph.i.i ], [ %180, %for.inc.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %105 = phi ptr [ %add.ptr.i.i.i.i, %for.body.lr.ph.i.i ], [ %177, %for.inc.i.i ]
+invoke.cont7.i.i:                                 ; preds = %for.inc.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i
+  %103 = phi i32 [ %101, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i ], [ %181, %for.inc.i.i ]
+  %104 = phi i16 [ %100, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i ], [ %180, %for.inc.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+  %105 = phi ptr [ %add.ptr.i.i.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i16.lr.ph.i.i ], [ %177, %for.inc.i.i ]
   %idx.ext.i.i.i20.i.i = zext i16 %104 to i64
   %add.ptr.i.i.i21.i.i = getelementptr inbounds i8, ptr %105, i64 %idx.ext.i.i.i20.i.i
   %idx.ext3.i.i.i22.i.i = zext i32 %103 to i64

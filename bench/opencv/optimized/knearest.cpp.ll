@@ -1638,16 +1638,13 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
 
 .preheader243:                                    ; preds = %._crit_edge.us
   %41 = icmp sgt i32 %13, 0
-  br i1 %41, label %.preheader242.lr.ph, label %._crit_edge271
+  br i1 %41, label %.preheader242.us.preheader, label %.lr.ph294
 
 .preheader243.thread368:                          ; preds = %.preheader244.lr.ph
   %42 = icmp sgt i32 %13, 0
   br i1 %42, label %.preheader242.us.preheader, label %.lr.ph294
 
-.preheader242.lr.ph:                              ; preds = %.preheader243
-  br i1 %33, label %.preheader242.us.preheader, label %._crit_edge295
-
-.preheader242.us.preheader:                       ; preds = %.preheader243.thread368, %.preheader242.lr.ph
+.preheader242.us.preheader:                       ; preds = %.preheader243, %.preheader243.thread368
   %.not230247371 = icmp slt i32 %11, 4
   %43 = add i32 %2, -2
   %44 = add i32 %11, -4
@@ -1807,7 +1804,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
 ._crit_edge269.us:                                ; preds = %._crit_edge258.us.thread
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %._crit_edge271, label %.preheader242.us, !llvm.loop !46
+  br i1 %exitcond329.not, label %.lr.ph294, label %.preheader242.us, !llvm.loop !46
 
 122:                                              ; preds = %192
   %123 = landingpad { ptr, i32 }
@@ -1825,10 +1822,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
   resume { ptr, i32 } %123
 
-._crit_edge271:                                   ; preds = %._crit_edge269.us, %.preheader243
-  br i1 %33, label %.lr.ph294, label %._crit_edge295
-
-.lr.ph294:                                        ; preds = %.preheader243.thread368, %._crit_edge271
+.lr.ph294:                                        ; preds = %._crit_edge269.us, %.preheader243, %.preheader243.thread368
   %.pn = sitofp i32 %2 to float
   %127 = fdiv float 1.000000e+00, %.pn
   %.not225 = icmp eq ptr %5, null
@@ -2086,7 +2080,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %236, %229, %221
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
   br i1 %exitcond363.not, label %._crit_edge295, label %142, !llvm.loop !51
 
-._crit_edge295:                                   ; preds = %255, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit, %.preheader242.lr.ph, %._crit_edge271
+._crit_edge295:                                   ; preds = %255, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
   %256 = load ptr, ptr %9, align 8
   %.not.i.i235 = icmp eq ptr %256, %21
   %257 = icmp eq ptr %256, null

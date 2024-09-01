@@ -25,7 +25,7 @@ define range(i32 -1, 5) i32 @pg_check_dir(ptr nocapture noundef readonly %0) loc
   br label %.thread27
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %26
-  %10 = phi ptr [ %33, %sub_0.lr.ph ], [ %27, %26 ]
+  %10 = phi ptr [ %32, %sub_0.lr.ph ], [ %27, %26 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 19
   %12 = load i8, ptr %11, align 1
   %.not53 = icmp eq i8 %12, 46
@@ -55,7 +55,7 @@ sub_2:                                            ; preds = %sub_131
 .tail29:                                          ; preds = %sub_131, %sub_2
   %24 = phi i32 [ %19, %sub_131 ], [ %23, %sub_2 ]
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %.outer
 
 26:                                               ; preds = %.tail29, %.tail
   store i32 0, ptr %4, align 4
@@ -63,25 +63,22 @@ sub_2:                                            ; preds = %sub_131
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !4
 
-28:                                               ; preds = %.tail29
-  br i1 %.not53, label %.outer, label %.thread
+.thread:                                          ; preds = %sub_0
+  %28 = getelementptr inbounds i8, ptr %10, i64 19
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.2, ptr noundef nonnull dereferenceable(1) %28) #7
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.outer, label %.loopexit
 
-.thread:                                          ; preds = %sub_0, %28
-  %29 = getelementptr inbounds i8, ptr %10, i64 19
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.2, ptr noundef nonnull dereferenceable(1) %29) #7
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.outer, label %.loopexit
-
-.outer:                                           ; preds = %.thread, %28
-  %.116 = phi i1 [ true, %28 ], [ %.015.ph48, %.thread ]
-  %.1 = phi i1 [ %.014.ph49, %28 ], [ true, %.thread ]
+.outer:                                           ; preds = %.tail29, %.thread
+  %.116 = phi i1 [ %.015.ph48, %.thread ], [ true, %.tail29 ]
+  %.1 = phi i1 [ true, %.thread ], [ %.014.ph49, %.tail29 ]
   store i32 0, ptr %4, align 4
-  %32 = tail call ptr @readdir(ptr noundef nonnull %2) #6
-  %.not41 = icmp eq ptr %32, null
+  %31 = tail call ptr @readdir(ptr noundef nonnull %2) #6
+  %.not41 = icmp eq ptr %31, null
   br i1 %.not41, label %.loopexit, label %sub_0.lr.ph, !llvm.loop !4
 
 sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
-  %33 = phi ptr [ %32, %.outer ], [ %5, %.preheader ]
+  %32 = phi ptr [ %31, %.outer ], [ %5, %.preheader ]
   %.014.ph49 = phi i1 [ %.1, %.outer ], [ false, %.preheader ]
   %.015.ph48 = phi i1 [ %.116, %.outer ], [ false, %.preheader ]
   br label %sub_0
@@ -90,26 +87,26 @@ sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
   %.015.ph40 = phi i1 [ false, %.preheader ], [ %.015.ph48, %26 ], [ %.116, %.outer ], [ %.015.ph48, %.thread ]
   %.014.ph38 = phi i1 [ false, %.preheader ], [ %.014.ph49, %26 ], [ %.1, %.outer ], [ %.014.ph49, %.thread ]
   %.017 = phi i32 [ 1, %.preheader ], [ 1, %26 ], [ 1, %.outer ], [ 4, %.thread ]
-  %34 = load i32, ptr %4, align 4
-  %35 = tail call i32 @closedir(ptr noundef nonnull %2)
-  %.not21 = icmp eq i32 %35, 0
-  br i1 %.not21, label %36, label %.thread27
+  %33 = load i32, ptr %4, align 4
+  %34 = tail call i32 @closedir(ptr noundef nonnull %2)
+  %.not21 = icmp eq i32 %34, 0
+  br i1 %.not21, label %35, label %.thread27
 
-36:                                               ; preds = %.loopexit
-  %.fr = freeze i32 %34
+35:                                               ; preds = %.loopexit
+  %.fr = freeze i32 %33
   %.not20 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not20, i32 %.017, i32 -1
   store i32 %.fr, ptr %4, align 4
-  %37 = icmp eq i32 %spec.select, 1
+  %36 = icmp eq i32 %spec.select, 1
   %spec.select22 = select i1 %.014.ph38, i32 3, i32 1
-  %spec.select28 = select i1 %37, i32 %spec.select22, i32 %spec.select
-  %38 = icmp eq i32 %spec.select28, 1
+  %spec.select28 = select i1 %36, i32 %spec.select22, i32 %spec.select
+  %37 = icmp eq i32 %spec.select28, 1
   %spec.select23 = select i1 %.015.ph40, i32 2, i32 1
-  %spec.select33 = select i1 %38, i32 %spec.select23, i32 %spec.select28
+  %spec.select33 = select i1 %37, i32 %spec.select23, i32 %spec.select28
   br label %.thread27
 
-.thread27:                                        ; preds = %36, %.loopexit, %6
-  %.0 = phi i32 [ %9, %6 ], [ -1, %.loopexit ], [ %spec.select33, %36 ]
+.thread27:                                        ; preds = %35, %.loopexit, %6
+  %.0 = phi i32 [ %9, %6 ], [ -1, %.loopexit ], [ %spec.select33, %35 ]
   ret i32 %.0
 }
 

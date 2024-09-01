@@ -1270,7 +1270,7 @@ _ZNK6cmTest7GetNameB5cxx11Ev.exit91:              ; preds = %135
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   %158 = getelementptr inbounds i8, ptr %.sroa.033.143.us.i, i64 32
   %.not.us.i = icmp eq ptr %158, %152
-  br i1 %.not.us.i, label %_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %.not.us.i, label %.lr.ph.i.i.i.i.i.i.preheader, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph47.i:                                       ; preds = %154
   %159 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1299,7 +1299,10 @@ _ZNK6cmTest7GetNameB5cxx11Ev.exit91:              ; preds = %135
   %175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %163, i64 %174
   %176 = getelementptr inbounds i8, ptr %.sroa.033.046.i, i64 32
   %.not38.i = icmp eq ptr %176, %152
-  br i1 %.not38.i, label %_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i, label %160, !llvm.loop !11
+  br i1 %.not38.i, label %.lr.ph.i.i.i.i.i.i.preheader, label %160, !llvm.loop !11
+
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %.noexc136, %.noexc137
+  br label %.lr.ph.i.i.i.i.i.i
 
 .loopexit154:                                     ; preds = %160
   %lpad.loopexit156 = landingpad { ptr, i32 }
@@ -1316,11 +1319,8 @@ _ZNK6cmTest7GetNameB5cxx11Ev.exit91:              ; preds = %135
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
   br label %.body93
 
-_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i: ; preds = %.noexc136, %.noexc137
-  br i1 %153, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %178, %.lr.ph.i.i.i.i.i.i ], [ %150, %_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %178, %.lr.ph.i.i.i.i.i.i ], [ %150, %.lr.ph.i.i.i.i.i.i.preheader ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #18
   %178 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i92 = icmp eq ptr %178, %152
@@ -1330,7 +1330,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   store ptr %150, ptr %151, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %149, %_ZN6cmListC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEEEET_SG_NS_14ExpandElementsENS_13EmptyElementsE.exit.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %149, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %.not.i.i.i95 = icmp eq ptr %150, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %179
 

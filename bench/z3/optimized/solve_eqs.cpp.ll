@@ -1841,7 +1841,7 @@ if.then.i200:                                     ; preds = %_ZNK6vectorIP4exprL
   br label %_ZN6vectorIP4exprLb0EjE5resetEv.exit
 
 _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %while.cond52.backedge, %while.end, %if.then.i200
-  %.ph = phi i1 [ %cmp3.i100, %if.then.i200 ], [ %cmp3.i100, %while.end ], [ true, %while.cond52.backedge ]
+  %.ph = phi i1 [ %cmp3.i100, %if.then.i200 ], [ false, %while.end ], [ true, %while.cond52.backedge ]
   %.pr = load i32, ptr %m_pos.i.i.i, align 8
   %114 = load ptr, ptr %visited, align 8
   %idx.ext.i.i = zext i32 %.pr to i64

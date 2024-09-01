@@ -2223,68 +2223,66 @@ define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %11
+  br label %10
 
-8:                                                ; preds = %23
+8:                                                ; preds = %21
   %9 = add nuw i64 %.024, 1
-  %10 = icmp uge i64 %9, %5
-  %exitcond = icmp eq i64 %9, %5
-  br i1 %exitcond, label %._crit_edge, label %11, !llvm.loop !15
+  %exitcond.not = icmp eq i64 %9, %5
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
 
-11:                                               ; preds = %.lr.ph, %8
-  %12 = phi i1 [ false, %.lr.ph ], [ %10, %8 ]
+10:                                               ; preds = %.lr.ph, %8
   %.024 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.024
-  %14 = load i8, ptr %13, align 1
-  %15 = icmp ult i8 %14, 33
-  br i1 %15, label %16, label %17
+  %11 = getelementptr inbounds i8, ptr %1, i64 %.024
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp ult i8 %12, 33
+  br i1 %13, label %14, label %15
 
-16:                                               ; preds = %11
+14:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 0, ptr noundef nonnull @.str.38)
-  br label %17
+  br label %15
 
-17:                                               ; preds = %16, %11
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 %.024
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %23
+15:                                               ; preds = %14, %10
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.024
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %21
 
-22:                                               ; preds = %17
+20:                                               ; preds = %15
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.39, ptr noundef %2, ptr noundef nonnull %1)
   br label %_ZN4JSON4skipEm.exit
 
-23:                                               ; preds = %17
-  %.not = icmp eq i8 %20, %14
-  br i1 %.not, label %8, label %24
+21:                                               ; preds = %15
+  %.not = icmp eq i8 %18, %12
+  br i1 %.not, label %8, label %22
 
-24:                                               ; preds = %23
+22:                                               ; preds = %21
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.40, ptr noundef nonnull %1, ptr noundef %2)
   br label %_ZN4JSON4skipEm.exit
 
 ._crit_edge:                                      ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load i8, ptr %18, align 1
-  %.not37 = icmp eq i8 %26, 0
-  br i1 %.not37, label %_ZN4JSON4skipEm.exit, label %_ZN4JSON4nextEv.exit.i
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load i8, ptr %16, align 1
+  %.not29 = icmp eq i8 %24, 0
+  br i1 %.not29, label %_ZN4JSON4skipEm.exit, label %_ZN4JSON4nextEv.exit.i
 
 .lr.phthread-pre-split.i:                         ; preds = %_ZN4JSON4nextEv.exit.i
-  %.pr.i = load i8, ptr %28, align 1
+  %.pr.i = load i8, ptr %26, align 1
   %.not.i.i = icmp eq i8 %.pr.i, 0
   br i1 %.not.i.i, label %_ZN4JSON4skipEm.exit, label %_ZN4JSON4nextEv.exit.i
 
 _ZN4JSON4nextEv.exit.i:                           ; preds = %._crit_edge, %.lr.phthread-pre-split.i
-  %27 = phi ptr [ %28, %.lr.phthread-pre-split.i ], [ %18, %._crit_edge ]
-  %.07.i25 = phi i64 [ %29, %.lr.phthread-pre-split.i ], [ %5, %._crit_edge ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
-  store ptr %28, ptr %25, align 8
-  %29 = add i64 %.07.i25, -1
-  %.not.i = icmp eq i64 %29, 0
+  %25 = phi ptr [ %26, %.lr.phthread-pre-split.i ], [ %16, %._crit_edge ]
+  %.07.i25 = phi i64 [ %27, %.lr.phthread-pre-split.i ], [ %5, %._crit_edge ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %23, align 8
+  %27 = add i64 %.07.i25, -1
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !13
 
-_ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-split.i, %_ZN4JSON4nextEv.exit.i, %4, %._crit_edge, %24, %22
-  %30 = phi i1 [ %10, %._crit_edge ], [ %12, %24 ], [ %12, %22 ], [ true, %4 ], [ %10, %_ZN4JSON4nextEv.exit.i ], [ %10, %.lr.phthread-pre-split.i ]
-  ret i1 %30
+_ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-split.i, %_ZN4JSON4nextEv.exit.i, %4, %._crit_edge, %22, %20
+  %28 = phi i1 [ true, %._crit_edge ], [ false, %22 ], [ false, %20 ], [ true, %4 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

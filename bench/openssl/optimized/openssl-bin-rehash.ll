@@ -616,12 +616,9 @@ if.then92:                                        ; preds = %for.body86
 for.inc97:                                        ; preds = %for.body86, %if.then92
   %ep.0 = load ptr, ptr %ep.0132, align 8
   %tobool85.not = icmp eq ptr %ep.0, null
-  br i1 %tobool85.not, label %for.end99, label %for.body86, !llvm.loop !13
+  br i1 %tobool85.not, label %for.body103.lr.ph, label %for.body86, !llvm.loop !13
 
-for.end99:                                        ; preds = %for.inc97
-  br i1 %tobool85.not131, label %for.end207, label %for.body103.lr.ph
-
-for.body103.lr.ph:                                ; preds = %for.end99
+for.body103.lr.ph:                                ; preds = %for.inc97
   %hash132 = getelementptr inbounds i8, ptr %bp.0139, i64 24
   %type133 = getelementptr inbounds i8, ptr %bp.0139, i64 28
   br label %for.body103
@@ -788,8 +785,8 @@ if.end204:                                        ; preds = %if.end169, %if.end1
   %tobool102.not = icmp eq ptr %40, null
   br i1 %tobool102.not, label %for.end207, label %for.body103, !llvm.loop !15
 
-for.end207:                                       ; preds = %if.end204, %for.body80, %for.end99
-  %errs.5.lcssa = phi i32 [ %errs.4140, %for.end99 ], [ %errs.4140, %for.body80 ], [ %errs.6, %if.end204 ]
+for.end207:                                       ; preds = %if.end204, %for.body80
+  %errs.5.lcssa = phi i32 [ %errs.4140, %for.body80 ], [ %errs.6, %if.end204 ]
   call void @CRYPTO_free(ptr noundef nonnull %bp.0139, ptr noundef nonnull @.str.25, i32 noundef 474) #14
   %tobool79.not = icmp eq ptr %34, null
   br i1 %tobool79.not, label %for.end209, label %for.body80, !llvm.loop !16

@@ -705,10 +705,10 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   br i1 %27, label %19, label %29, !llvm.loop !7
 
 .critedge:                                        ; preds = %19
-  %.not32 = icmp ne i32 %22, 0
+  %.not30 = icmp ne i32 %22, 0
   %28 = add nuw nsw i32 %.01825, %22
   %.not = icmp slt i32 %28, %2
-  %or.cond = select i1 %.not32, i1 %.not, i1 false
+  %or.cond = select i1 %.not30, i1 %.not, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !8
 
 29:                                               ; preds = %24
@@ -723,7 +723,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   resume { ptr, i32 } %32
 
 .loopexit:                                        ; preds = %.critedge, %.critedge21, %29
-  %33 = phi i1 [ false, %29 ], [ true, %.critedge21 ], [ %.not32, %.critedge ]
+  %33 = phi i1 [ false, %29 ], [ true, %.critedge21 ], [ %.not30, %.critedge ]
   ret i1 %33
 }
 

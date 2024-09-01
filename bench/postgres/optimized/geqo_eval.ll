@@ -173,9 +173,9 @@ tailrecurse.us:                                   ; preds = %.split75.us.us, %6
   br i1 %.not.us, label %.thread57, label %.lr.ph.split.us.split.us157
 
 desirable_join.exit.thread.us.us154:              ; preds = %.lr.ph.split.us.split.us157, %19
-  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %19 ], [ 0, %.lr.ph.split.us.split.us157 ]
+  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %19 ], [ 0, %.lr.ph.split.us.split.us157 ]
   %13 = load ptr, ptr %24, align 8
-  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv202
+  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv204
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %.tr59149.us, align 8
@@ -184,10 +184,10 @@ desirable_join.exit.thread.us.us154:              ; preds = %.lr.ph.split.us.spl
   br i1 %.not53.us.us155, label %19, label %.split75.us.us
 
 19:                                               ; preds = %desirable_join.exit.thread.us.us154
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %20 = load i32, ptr %23, align 4
   %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next203, %21
+  %22 = icmp slt i64 %indvars.iv.next205, %21
   br i1 %22, label %desirable_join.exit.thread.us.us154, label %.split.us
 
 .lr.ph.split.us.split.us157:                      ; preds = %.lr.ph.lr.ph, %tailrecurse.us
@@ -200,7 +200,7 @@ desirable_join.exit.thread.us.us154:              ; preds = %.lr.ph.split.us.spl
   br i1 %26, label %desirable_join.exit.thread.us.us154, label %.split.us
 
 .split75.us.us:                                   ; preds = %desirable_join.exit.thread.us.us154
-  %27 = trunc nuw nsw i64 %indvars.iv202 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv204 to i32
   tail call void @generate_partitionwise_join_paths(ptr noundef %0, ptr noundef nonnull %18) #2
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -273,55 +273,56 @@ tailrecurse:                                      ; preds = %51, %.split75
   br i1 %61, label %.lr.ph112, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %58, %.lr.ph.split.us.split.us157, %19
-  %62 = phi i32 [ %20, %19 ], [ %25, %.lr.ph.split.us.split.us157 ], [ %59, %58 ], [ %34, %.lr.ph.split.split ]
   %.us-phi = phi ptr [ %.tr58147.us, %19 ], [ %.tr58147.us, %.lr.ph.split.us.split.us157 ], [ %.tr58147, %58 ], [ %.tr58147, %.lr.ph.split.split ]
   %.us-phi73 = phi ptr [ %.tr59149.us, %19 ], [ %.tr59149.us, %.lr.ph.split.us.split.us157 ], [ %.tr59149, %58 ], [ %.tr59149, %.lr.ph.split.split ]
-  %63 = getelementptr inbounds i8, ptr %.us-phi73, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %.thread57, label %list_length.exit.preheader
+  %62 = getelementptr inbounds i8, ptr %.us-phi73, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %.thread57, label %list_length.exit.preheader
 
 list_length.exit.preheader:                       ; preds = %.split.us
-  %66 = icmp sgt i32 %62, 0
-  br i1 %66, label %.lr.ph172, label %._crit_edge
+  %65 = getelementptr inbounds i8, ptr %.us-phi, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.lr.ph172, label %._crit_edge
 
 .lr.ph172:                                        ; preds = %list_length.exit.preheader
-  %67 = getelementptr i8, ptr %.us-phi, i64 16
-  %.val = load ptr, ptr %67, align 8
-  %wide.trip.count = zext nneg i32 %62 to i64
-  br label %69
+  %68 = getelementptr i8, ptr %.us-phi, i64 16
+  %.val = load ptr, ptr %68, align 8
+  %wide.trip.count = zext nneg i32 %66 to i64
+  br label %70
 
 .thread57:                                        ; preds = %tailrecurse, %tailrecurse.us, %4, %.split.us
   %.tr5868 = phi ptr [ %.us-phi, %.split.us ], [ null, %4 ], [ null, %tailrecurse.us ], [ null, %tailrecurse ]
   %.tr5966 = phi ptr [ %.us-phi73, %.split.us ], [ %2, %4 ], [ %15, %tailrecurse.us ], [ %38, %tailrecurse ]
-  %68 = tail call ptr @lappend(ptr noundef %.tr5868, ptr noundef %.tr5966) #2
-  br label %77
+  %69 = tail call ptr @lappend(ptr noundef %.tr5868, ptr noundef %.tr5966) #2
+  br label %78
 
-69:                                               ; preds = %.lr.ph172, %list_length.exit
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next206, %list_length.exit ]
-  %70 = getelementptr %union.ListCell, ptr %.val, i64 %indvars.iv205
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp sgt i32 %64, %73
-  br i1 %74, label %._crit_edge.loopexit.split.loop.exit, label %list_length.exit
+70:                                               ; preds = %.lr.ph172, %list_length.exit
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next208, %list_length.exit ]
+  %71 = getelementptr %union.ListCell, ptr %.val, i64 %indvars.iv207
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp sgt i32 %63, %74
+  br i1 %75, label %._crit_edge.loopexit.split.loop.exit, label %list_length.exit
 
-list_length.exit:                                 ; preds = %69
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !8
+list_length.exit:                                 ; preds = %70
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !8
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %69
-  %75 = trunc nuw nsw i64 %indvars.iv205 to i32
+._crit_edge.loopexit.split.loop.exit:             ; preds = %70
+  %76 = trunc nuw nsw i64 %indvars.iv207 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_length.exit, %._crit_edge.loopexit.split.loop.exit, %list_length.exit.preheader
-  %.049.lcssa = phi i32 [ 0, %list_length.exit.preheader ], [ %75, %._crit_edge.loopexit.split.loop.exit ], [ %62, %list_length.exit ]
-  %76 = tail call ptr @list_insert_nth(ptr noundef nonnull %.us-phi, i32 noundef %.049.lcssa, ptr noundef %.us-phi73) #2
-  br label %77
+  %.049.lcssa = phi i32 [ 0, %list_length.exit.preheader ], [ %76, %._crit_edge.loopexit.split.loop.exit ], [ %66, %list_length.exit ]
+  %77 = tail call ptr @list_insert_nth(ptr noundef nonnull %.us-phi, i32 noundef %.049.lcssa, ptr noundef %.us-phi73) #2
+  br label %78
 
-77:                                               ; preds = %._crit_edge, %.thread57
-  %.0 = phi ptr [ %68, %.thread57 ], [ %76, %._crit_edge ]
+78:                                               ; preds = %._crit_edge, %.thread57
+  %.0 = phi ptr [ %69, %.thread57 ], [ %77, %._crit_edge ]
   ret ptr %.0
 }
 

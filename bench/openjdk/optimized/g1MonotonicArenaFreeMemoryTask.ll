@@ -274,16 +274,16 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #14
-  br i1 %17, label %._crit_edge, label %._crit_edge11
+  br i1 %17, label %._crit_edge, label %._crit_edge12
 
-._crit_edge11:                                    ; preds = %16
+._crit_edge12:                                    ; preds = %16
   %.pre = load ptr, ptr %3, align 8
-  %.pre12 = load i32, ptr %.pre, align 4
+  %.pre13 = load i32, ptr %.pre, align 4
   br label %18
 
-18:                                               ; preds = %._crit_edge11, %.lr.ph
-  %19 = phi i32 [ %.pre12, %._crit_edge11 ], [ %7, %.lr.ph ]
-  %20 = phi ptr [ %.pre, %._crit_edge11 ], [ %8, %.lr.ph ]
+18:                                               ; preds = %._crit_edge12, %.lr.ph
+  %19 = phi i32 [ %.pre13, %._crit_edge12 ], [ %7, %.lr.ph ]
+  %20 = phi ptr [ %.pre, %._crit_edge12 ], [ %8, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
@@ -319,16 +319,16 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %1) #14
-  br i1 %17, label %._crit_edge, label %._crit_edge11
+  br i1 %17, label %._crit_edge, label %._crit_edge12
 
-._crit_edge11:                                    ; preds = %16
+._crit_edge12:                                    ; preds = %16
   %.pre = load ptr, ptr %3, align 8
-  %.pre12 = load i32, ptr %.pre, align 4
+  %.pre13 = load i32, ptr %.pre, align 4
   br label %18
 
-18:                                               ; preds = %._crit_edge11, %.lr.ph
-  %19 = phi i32 [ %.pre12, %._crit_edge11 ], [ %7, %.lr.ph ]
-  %20 = phi ptr [ %.pre, %._crit_edge11 ], [ %8, %.lr.ph ]
+18:                                               ; preds = %._crit_edge12, %.lr.ph
+  %19 = phi i32 [ %.pre13, %._crit_edge12 ], [ %7, %.lr.ph ]
+  %20 = phi ptr [ %.pre, %._crit_edge12 ], [ %8, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
@@ -462,16 +462,16 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
 
 34:                                               ; preds = %.lr.ph.i
   %35 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_vmEl(ptr noundef nonnull align 8 dereferenceable(40) %30, i64 noundef %9) #14
-  br i1 %35, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge11.i
+  br i1 %35, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge12.i
 
-._crit_edge11.i:                                  ; preds = %34
+._crit_edge12.i:                                  ; preds = %34
   %.pre.i = load ptr, ptr %16, align 8
-  %.pre12.i = load i32, ptr %.pre.i, align 4
+  %.pre13.i = load i32, ptr %.pre.i, align 4
   br label %36
 
-36:                                               ; preds = %._crit_edge11.i, %.lr.ph.i
-  %37 = phi i32 [ %.pre12.i, %._crit_edge11.i ], [ %25, %.lr.ph.i ]
-  %38 = phi ptr [ %.pre.i, %._crit_edge11.i ], [ %26, %.lr.ph.i ]
+36:                                               ; preds = %._crit_edge12.i, %.lr.ph.i
+  %37 = phi i32 [ %.pre13.i, %._crit_edge12.i ], [ %25, %.lr.ph.i ]
+  %38 = phi ptr [ %.pre.i, %._crit_edge12.i ], [ %26, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next.i, %39
@@ -498,16 +498,16 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
 
 54:                                               ; preds = %.lr.ph.i12
   %55 = tail call noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor12return_to_osEl(ptr noundef nonnull align 8 dereferenceable(40) %50, i64 noundef %9) #14
-  br i1 %55, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge11.i14
+  br i1 %55, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit, label %._crit_edge12.i14
 
-._crit_edge11.i14:                                ; preds = %54
+._crit_edge12.i14:                                ; preds = %54
   %.pre.i15 = load ptr, ptr %16, align 8
-  %.pre12.i16 = load i32, ptr %.pre.i15, align 4
+  %.pre13.i16 = load i32, ptr %.pre.i15, align 4
   br label %56
 
-56:                                               ; preds = %._crit_edge11.i14, %.lr.ph.i12
-  %57 = phi i32 [ %.pre12.i16, %._crit_edge11.i14 ], [ %45, %.lr.ph.i12 ]
-  %58 = phi ptr [ %.pre.i15, %._crit_edge11.i14 ], [ %46, %.lr.ph.i12 ]
+56:                                               ; preds = %._crit_edge12.i14, %.lr.ph.i12
+  %57 = phi i32 [ %.pre13.i16, %._crit_edge12.i14 ], [ %45, %.lr.ph.i12 ]
+  %58 = phi ptr [ %.pre.i15, %._crit_edge12.i14 ], [ %46, %.lr.ph.i12 ]
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i13, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next.i17, %59

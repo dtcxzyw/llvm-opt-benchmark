@@ -66621,8 +66621,8 @@ while.body:                                       ; preds = %if.end31, %while.bo
   call void @_ZN6duckdb15TransactionDataC1ERNS_15DuckTransactionE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %transaction)
   call void @_ZN6duckdb8RowGroup13TemplatedScanILNS_13TableScanTypeE0EEEvNS_15TransactionDataERNS_19CollectionScanStateERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(217) %2, ptr noundef nonnull byval(%"struct.duckdb::TransactionData") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %result)
   %3 = load i64, ptr %count.i, align 8, !tbaa !1314
-  %cmp.not.not = icmp ne i64 %3, 0
-  br i1 %cmp.not.not, label %return, label %if.else
+  %cmp.not.not.not.not = icmp ne i64 %3, 0
+  br i1 %cmp.not.not.not.not, label %return, label %if.else
 
 if.else:                                          ; preds = %while.body
   %4 = load i64, ptr %max_row, align 8, !tbaa !1310
@@ -67600,7 +67600,7 @@ return.sink.split:                                ; preds = %if.else, %if.then15
   br label %return
 
 return:                                           ; preds = %if.end31, %while.body, %_ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE14GetNextSegmentEPS1_.exit, %return.sink.split, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %return.sink.split ], [ false, %_ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE14GetNextSegmentEPS1_.exit ], [ %cmp.not.not, %if.end31 ], [ true, %while.body ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %return.sink.split ], [ false, %_ZN6duckdb11SegmentTreeINS_8RowGroupELb1EE14GetNextSegmentEPS1_.exit ], [ %cmp.not.not.not.not, %while.body ], [ %cmp.not.not.not.not, %if.end31 ]
   ret i1 %retval.0
 }
 
@@ -79054,8 +79054,8 @@ while.body:                                       ; preds = %if.end11, %while.bo
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %.pre, %if.end11 ]
   tail call void @_ZN6duckdb8RowGroup13ScanCommittedERNS_19CollectionScanStateERNS_9DataChunkENS_13TableScanTypeE(ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %result, i8 noundef zeroext %type)
   %2 = load i64, ptr %count.i, align 8, !tbaa !1314
-  %cmp.not.not.not.not = icmp ne i64 %2, 0
-  br i1 %cmp.not.not.not.not, label %return, label %if.else
+  %cmp.not.not.not.not.not = icmp ne i64 %2, 0
+  br i1 %cmp.not.not.not.not.not, label %return, label %if.else
 
 if.else:                                          ; preds = %while.body
   %3 = load ptr, ptr %row_groups, align 8, !tbaa !1565
@@ -79072,7 +79072,7 @@ if.end11:                                         ; preds = %if.else
   br i1 %tobool.not.not, label %return, label %while.body, !llvm.loop !1866
 
 return:                                           ; preds = %if.end11, %if.else, %while.body, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %cmp.not.not.not.not, %while.body ], [ %cmp.not.not.not.not, %if.else ], [ %cmp.not.not.not.not, %if.end11 ]
+  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %cmp.not.not.not.not.not, %while.body ], [ %cmp.not.not.not.not.not, %if.else ], [ %cmp.not.not.not.not.not, %if.end11 ]
   ret i1 %tobool.not.lcssa
 }
 
@@ -80593,8 +80593,8 @@ while.body:                                       ; preds = %if.end11, %while.bo
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %.pre, %if.end11 ]
   tail call void @_ZN6duckdb8RowGroup13ScanCommittedERNS_19CollectionScanStateERNS_9DataChunkENS_13TableScanTypeE(ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %result, i8 noundef zeroext %type)
   %2 = load i64, ptr %count.i, align 8, !tbaa !1314
-  %cmp.not.not.not.not = icmp ne i64 %2, 0
-  br i1 %cmp.not.not.not.not, label %return, label %if.else
+  %cmp.not.not.not.not.not = icmp ne i64 %2, 0
+  br i1 %cmp.not.not.not.not.not, label %return, label %if.else
 
 if.else:                                          ; preds = %while.body
   %3 = load ptr, ptr %row_groups, align 8, !tbaa !1565
@@ -80611,7 +80611,7 @@ if.end11:                                         ; preds = %if.else
   br i1 %tobool.not.not, label %return, label %while.body, !llvm.loop !1891
 
 return:                                           ; preds = %if.end11, %if.else, %while.body, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %cmp.not.not.not.not, %while.body ], [ %cmp.not.not.not.not, %if.else ], [ %cmp.not.not.not.not, %if.end11 ]
+  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %cmp.not.not.not.not.not, %while.body ], [ %cmp.not.not.not.not.not, %if.else ], [ %cmp.not.not.not.not.not, %if.end11 ]
   ret i1 %tobool.not.lcssa
 }
 

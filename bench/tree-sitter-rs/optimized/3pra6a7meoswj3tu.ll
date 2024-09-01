@@ -30246,12 +30246,10 @@ define void @_ZN15tree_sitter_cli14test_highlight18iterate_assertions17h0c3fe909
 
 "_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split": ; preds = %.lr.ph101.split, %.lr.ph101
   %29 = add nuw i64 %.1.ph126, 1
-  %.not = icmp ult i64 %29, %4
   %exitcond.not = icmp eq i64 %29, %4
   br i1 %exitcond.not, label %.critedge, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %.lr.ph101.lr.ph, %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split"
-  %.not127 = phi i1 [ true, %.lr.ph101.lr.ph ], [ %.not, %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split" ]
   %.1.ph126 = phi i64 [ %.033131, %.lr.ph101.lr.ph ], [ %29, %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split" ]
   %30 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64 }, ptr %3, i64 %.1.ph126, i32 1
   %.val47 = load i64, ptr %30, align 8, !noundef !4
@@ -30274,8 +30272,8 @@ define void @_ZN15tree_sitter_cli14test_highlight18iterate_assertions17h0c3fe909
   br label %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.us"
 
 "_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.us": ; preds = %60, %.lr.ph101.split.split
-  %37 = phi i64 [ %65, %60 ], [ 0, %.lr.ph101.split.split ]
-  %.03599.us = phi i64 [ %.mux, %60 ], [ %.1.ph126, %.lr.ph101.split.split ]
+  %37 = phi i64 [ 0, %.lr.ph101.split.split ], [ %65, %60 ]
+  %.03599.us = phi i64 [ %.1.ph126, %.lr.ph101.split.split ], [ %spec.select, %60 ]
   %.0100.us = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64 }, ptr %3, i64 %.03599.us
   %.0.val.us = load i64, ptr %.0100.us, align 8, !noundef !4
   %38 = icmp ult i64 %.0.val.us, %.val49
@@ -30342,9 +30340,8 @@ define void @_ZN15tree_sitter_cli14test_highlight18iterate_assertions17h0c3fe909
   store i64 %65, ptr %15, align 8, !alias.scope !4084, !noalias !4087
   %66 = add i64 %.03599.us, 1
   %.not82.us = icmp ult i64 %66, %4
-  %brmerge = or i1 %.not82.us, %.not127
-  %.mux = select i1 %.not82.us, i64 %66, i64 %.1.ph126
-  br i1 %brmerge, label %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.us", label %.critedge
+  %spec.select = select i1 %.not82.us, i64 %66, i64 %.1.ph126
+  br label %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.us"
 
 .loopexit83.split.us:                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit.us", %"._ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit_crit_edge.us"
   %67 = icmp eq ptr %25, %16
@@ -30362,7 +30359,7 @@ define void @_ZN15tree_sitter_cli14test_highlight18iterate_assertions17h0c3fe909
 68:                                               ; preds = %.split.us
   unreachable
 
-.critedge:                                        ; preds = %.lr.ph, %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split", %60, %39
+.critedge:                                        ; preds = %.lr.ph, %"_ZN60_$LT$tree_sitter..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb9f6066f41c8366aE.exit.thread.split", %39
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %69 = getelementptr inbounds i8, ptr %.sroa.0.0130, i64 32
   %70 = load i64, ptr %69, align 8, !noundef !4

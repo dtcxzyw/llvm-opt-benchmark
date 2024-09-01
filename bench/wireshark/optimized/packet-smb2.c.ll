@@ -5375,10 +5375,10 @@ switch.lookup:                                    ; preds = %4
   %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #12
   %75 = load i32, ptr @ett_smb2_header, align 4
   %76 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %75, ptr noundef nonnull %21, ptr noundef nonnull %.0262) #12
-  switch i8 %37, label %759 [
+  switch i8 %37, label %758 [
     i8 -2, label %77
     i8 -3, label %466
-    i8 -4, label %582
+    i8 -4, label %581
   ]
 
 77:                                               ; preds = %70
@@ -6204,9 +6204,9 @@ dissect_smb2_command.exit:                        ; preds = %458, %460
   %513 = getelementptr inbounds i8, ptr %506, i64 138
   %514 = getelementptr inbounds i8, ptr %506, i64 106
   %..i.i = select i1 %510, ptr %511, ptr %512
-  %.159.i.i = select i1 %510, ptr %512, ptr %511
-  %.160.i.i = select i1 %510, ptr %513, ptr %514
-  %.161.i.i = select i1 %510, ptr %514, ptr %513
+  %.162.i.i = select i1 %510, ptr %512, ptr %511
+  %.163.i.i = select i1 %510, ptr %513, ptr %514
+  %.164.i.i = select i1 %510, ptr %514, ptr %513
   %515 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef 32) #12
   %516 = load ptr, ptr %29, align 8
   %517 = load i32, ptr %477, align 8
@@ -6214,10 +6214,10 @@ dissect_smb2_command.exit:                        ; preds = %458, %460
   %519 = call ptr @tvb_memdup(ptr noundef %516, ptr noundef %0, i32 noundef 52, i64 noundef %518) #12
   br label %520
 
-520:                                              ; preds = %.thread156.i.i, %503
-  %.not.i.i318 = phi i1 [ true, %503 ], [ false, %.thread156.i.i ]
-  %indvars.iv.i.sroa.phi.sroa.speculated.i = phi ptr [ %.160.i.i, %503 ], [ %.161.i.i, %.thread156.i.i ]
-  %indvars.iv.i.sroa.phi.sroa.speculated74.i = phi ptr [ %..i.i, %503 ], [ %.159.i.i, %.thread156.i.i ]
+520:                                              ; preds = %.critedge148.i.i, %503
+  %.not.i.i318 = phi i1 [ true, %503 ], [ false, %.critedge148.i.i ]
+  %indvars.iv.i.sroa.phi.sroa.speculated.i = phi ptr [ %.163.i.i, %503 ], [ %.164.i.i, %.critedge148.i.i ]
+  %indvars.iv.i.sroa.phi.sroa.speculated74.i = phi ptr [ %..i.i, %503 ], [ %.162.i.i, %.critedge148.i.i ]
   %521 = load ptr, ptr %63, align 8
   %522 = getelementptr inbounds i8, ptr %521, i64 20
   %523 = load i16, ptr %522, align 4
@@ -6243,24 +6243,24 @@ dissect_smb2_command.exit:                        ; preds = %458, %460
   br i1 %.not113.i.i, label %532, label %decrypt_smb_payload.exit.i
 
 532:                                              ; preds = %525
-  br i1 %.not114.i.i, label %.thread156.i.i, label %.thread.i.thread.i
+  br i1 %.not114.i.i, label %.critedge148.i.i, label %.thread.thread155.i.i
 
 .thread.i.i:                                      ; preds = %520
   %533 = load i32, ptr %477, align 8
   %534 = zext i32 %533 to i64
   %535 = call fastcc i32 @do_decrypt(ptr noundef %519, i64 noundef %534, ptr noundef %indvars.iv.i.sroa.phi.sroa.speculated74.i, ptr noundef %515, ptr noundef nonnull %31, i32 noundef 1)
   %.not115.i.i = icmp eq i32 %535, 0
-  br i1 %.not115.i.i, label %.thread156.i.i, label %decrypt_smb_payload.exit.i
+  br i1 %.not115.i.i, label %.critedge148.i.i, label %decrypt_smb_payload.exit.i
 
-.thread.i.thread.i:                               ; preds = %532
+.thread.thread155.i.i:                            ; preds = %532
   %536 = load i32, ptr %477, align 8
   %537 = zext i32 %536 to i64
   %538 = call fastcc i32 @do_decrypt(ptr noundef %519, i64 noundef %537, ptr noundef %indvars.iv.i.sroa.phi.sroa.speculated74.i, ptr noundef %515, ptr noundef nonnull %31, i32 noundef 1)
-  %.not115.i76.i = icmp eq i32 %538, 0
-  br i1 %.not115.i76.i, label %.thread.thread.i.i, label %decrypt_smb_payload.exit.i
+  %.not115157.i.i = icmp eq i32 %538, 0
+  br i1 %.not115157.i.i, label %.thread.thread.i.i, label %decrypt_smb_payload.exit.i
 
-.thread.thread.i.i:                               ; preds = %.thread.i.thread.i, %520
-  %.not118126131141.i.i = phi i1 [ true, %520 ], [ false, %.thread.i.thread.i ]
+.thread.thread.i.i:                               ; preds = %.thread.thread155.i.i, %520
+  %.not118126131141.i.i = phi i1 [ true, %520 ], [ false, %.thread.thread155.i.i ]
   %539 = load i32, ptr %477, align 8
   %540 = zext i32 %539 to i64
   %541 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %519, i32 noundef 52, i64 noundef %540) #12
@@ -6268,496 +6268,496 @@ dissect_smb2_command.exit:                        ; preds = %458, %460
   %543 = zext i32 %542 to i64
   %544 = call fastcc i32 @do_decrypt(ptr noundef %519, i64 noundef %543, ptr noundef %indvars.iv.i.sroa.phi.sroa.speculated.i, ptr noundef %515, ptr noundef nonnull %31, i32 noundef 4)
   %.not117.i.i = icmp eq i32 %544, 0
-  br i1 %.not117.i.i, label %545, label %decrypt_smb_payload.exit.i
+  br i1 %.not117.i.i, label %.critedge.i.i, label %decrypt_smb_payload.exit.i
 
-545:                                              ; preds = %.thread.thread.i.i
-  br i1 %.not118126131141.i.i, label %.thread156.i.i, label %.thread145.i.i
+.critedge.i.i:                                    ; preds = %.thread.thread.i.i
+  br i1 %.not118126131141.i.i, label %.critedge148.i.i, label %.thread145.i.i
 
-.thread145.i.i:                                   ; preds = %545, %520
-  %546 = load i32, ptr %477, align 8
-  %547 = zext i32 %546 to i64
-  %548 = call fastcc i32 @do_decrypt(ptr noundef %519, i64 noundef %547, ptr noundef %indvars.iv.i.sroa.phi.sroa.speculated.i, ptr noundef %515, ptr noundef nonnull %31, i32 noundef 3)
-  %.not119.i.i = icmp eq i32 %548, 0
-  br i1 %.not119.i.i, label %.thread156.i.i, label %decrypt_smb_payload.exit.i
+.thread145.i.i:                                   ; preds = %.critedge.i.i, %520
+  %545 = load i32, ptr %477, align 8
+  %546 = zext i32 %545 to i64
+  %547 = call fastcc i32 @do_decrypt(ptr noundef %519, i64 noundef %546, ptr noundef %indvars.iv.i.sroa.phi.sroa.speculated.i, ptr noundef %515, ptr noundef nonnull %31, i32 noundef 3)
+  %.not119.i.i = icmp eq i32 %547, 0
+  br i1 %.not119.i.i, label %.critedge148.i.i, label %decrypt_smb_payload.exit.i
 
-.thread156.i.i:                                   ; preds = %.thread145.i.i, %545, %.thread.i.i, %532
-  %549 = load i32, ptr %477, align 8
-  %550 = zext i32 %549 to i64
-  %551 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %519, i32 noundef 52, i64 noundef %550) #12
+.critedge148.i.i:                                 ; preds = %.thread145.i.i, %.critedge.i.i, %.thread.i.i, %532
+  %548 = load i32, ptr %477, align 8
+  %549 = zext i32 %548 to i64
+  %550 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %519, i32 noundef 52, i64 noundef %549) #12
   br i1 %.not.i.i318, label %520, label %decrypt_smb_payload.exit.i.thread, !llvm.loop !13
 
-decrypt_smb_payload.exit.i.thread:                ; preds = %.thread156.i.i, %466, %496, %500
-  %552 = load i32, ptr %477, align 8
-  %553 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 52, i32 noundef %552) #12
+decrypt_smb_payload.exit.i.thread:                ; preds = %.critedge148.i.i, %466, %496, %500
+  %551 = load i32, ptr %477, align 8
+  %552 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 52, i32 noundef %551) #12
   br label %dissect_smb2_transform_header.exit
 
-decrypt_smb_payload.exit.i:                       ; preds = %525, %.thread.i.i, %.thread.i.thread.i, %.thread.thread.i.i, %.thread145.i.i
-  %.197.ph.i.i = phi i16 [ 3, %.thread145.i.i ], [ 4, %.thread.thread.i.i ], [ 1, %.thread.i.i ], [ 2, %525 ], [ 1, %.thread.i.thread.i ]
-  %554 = load ptr, ptr %63, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 20
-  store i16 %.197.ph.i.i, ptr %555, align 4
-  %556 = load ptr, ptr %493, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 90
-  %558 = icmp eq ptr %indvars.iv.i.sroa.phi.sroa.speculated74.i, %557
-  %559 = getelementptr inbounds i8, ptr %1, i64 284
-  %spec.select.i = select i1 %558, ptr %504, ptr %559
-  %.sink163.i.i = load i32, ptr %spec.select.i, align 4
-  %560 = trunc i32 %.sink163.i.i to i16
-  %561 = getelementptr inbounds i8, ptr %556, i64 40
-  store i16 %560, ptr %561, align 8
-  %562 = load i32, ptr %477, align 8
-  %563 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 52, i32 noundef %562) #12
+decrypt_smb_payload.exit.i:                       ; preds = %525, %.thread.i.i, %.thread.thread155.i.i, %.thread.thread.i.i, %.thread145.i.i
+  %.197.ph.i.i = phi i16 [ 3, %.thread145.i.i ], [ 4, %.thread.thread.i.i ], [ 1, %.thread.i.i ], [ 2, %525 ], [ 1, %.thread.thread155.i.i ]
+  %553 = load ptr, ptr %63, align 8
+  %554 = getelementptr inbounds i8, ptr %553, i64 20
+  store i16 %.197.ph.i.i, ptr %554, align 4
+  %555 = load ptr, ptr %493, align 8
+  %556 = getelementptr inbounds i8, ptr %555, i64 90
+  %557 = icmp eq ptr %indvars.iv.i.sroa.phi.sroa.speculated74.i, %556
+  %558 = getelementptr inbounds i8, ptr %1, i64 284
+  %spec.select.i = select i1 %557, ptr %504, ptr %558
+  %.sink166.i.i = load i32, ptr %spec.select.i, align 4
+  %559 = trunc i32 %.sink166.i.i to i16
+  %560 = getelementptr inbounds i8, ptr %555, i64 40
+  store i16 %559, ptr %560, align 8
+  %561 = load i32, ptr %477, align 8
+  %562 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 52, i32 noundef %561) #12
   %.not69.i = icmp eq ptr %519, null
-  br i1 %.not69.i, label %dissect_smb2_transform_header.exit, label %564
+  br i1 %.not69.i, label %dissect_smb2_transform_header.exit, label %563
 
-564:                                              ; preds = %decrypt_smb_payload.exit.i
-  %565 = load i32, ptr %477, align 8
-  %566 = call ptr @tvb_new_child_real_data(ptr noundef %563, ptr noundef nonnull %519, i32 noundef %565, i32 noundef %565) #12
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %566, ptr noundef nonnull @.str.2031) #12
+563:                                              ; preds = %decrypt_smb_payload.exit.i
+  %564 = load i32, ptr %477, align 8
+  %565 = call ptr @tvb_new_child_real_data(ptr noundef %562, ptr noundef nonnull %519, i32 noundef %564, i32 noundef %564) #12
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %565, ptr noundef nonnull @.str.2031) #12
   br label %dissect_smb2_transform_header.exit
 
-dissect_smb2_transform_header.exit:               ; preds = %decrypt_smb_payload.exit.i.thread, %decrypt_smb_payload.exit.i, %564
-  %567 = phi ptr [ %563, %decrypt_smb_payload.exit.i ], [ %563, %564 ], [ %553, %decrypt_smb_payload.exit.i.thread ]
-  %.0331 = phi ptr [ null, %decrypt_smb_payload.exit.i ], [ %566, %564 ], [ null, %decrypt_smb_payload.exit.i.thread ]
-  %568 = load i32, ptr %477, align 8
-  %569 = add i32 %568, 52
-  %570 = load i32, ptr @ett_smb2_encrypted, align 4
-  %571 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %567, i32 noundef 0, i32 noundef %568, i32 noundef %570, ptr noundef null, ptr noundef nonnull @.str.2030) #12
+dissect_smb2_transform_header.exit:               ; preds = %decrypt_smb_payload.exit.i.thread, %decrypt_smb_payload.exit.i, %563
+  %566 = phi ptr [ %562, %decrypt_smb_payload.exit.i ], [ %562, %563 ], [ %552, %decrypt_smb_payload.exit.i.thread ]
+  %.0331 = phi ptr [ null, %decrypt_smb_payload.exit.i ], [ %565, %563 ], [ null, %decrypt_smb_payload.exit.i.thread ]
+  %567 = load i32, ptr %477, align 8
+  %568 = add i32 %567, 52
+  %569 = load i32, ptr @ett_smb2_encrypted, align 4
+  %570 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %566, i32 noundef 0, i32 noundef %567, i32 noundef %569, ptr noundef null, ptr noundef nonnull @.str.2030) #12
   %.not281 = icmp eq ptr %.0331, null
-  %572 = load ptr, ptr %65, align 8
-  br i1 %.not281, label %575, label %573
+  %571 = load ptr, ptr %65, align 8
+  br i1 %.not281, label %574, label %572
 
-573:                                              ; preds = %dissect_smb2_transform_header.exit
-  call void @col_append_str(ptr noundef %572, i32 noundef 25, ptr noundef nonnull @.str.2031) #12
-  %574 = call fastcc i32 @dissect_smb2(ptr noundef nonnull %.0331, ptr noundef %1, ptr noundef %571, i32 noundef 0)
-  br label %579
+572:                                              ; preds = %dissect_smb2_transform_header.exit
+  call void @col_append_str(ptr noundef %571, i32 noundef 25, ptr noundef nonnull @.str.2031) #12
+  %573 = call fastcc i32 @dissect_smb2(ptr noundef nonnull %.0331, ptr noundef %1, ptr noundef %570, i32 noundef 0)
+  br label %578
 
-575:                                              ; preds = %dissect_smb2_transform_header.exit
-  call void @col_append_str(ptr noundef %572, i32 noundef 25, ptr noundef nonnull @.str.2032) #12
-  %576 = load i32, ptr @hf_smb2_transform_encrypted_data, align 4
-  %577 = load i32, ptr %477, align 8
-  %578 = call ptr @proto_tree_add_item(ptr noundef %571, i32 noundef %576, ptr noundef %567, i32 noundef 0, i32 noundef %577, i32 noundef 0) #12
-  br label %579
+574:                                              ; preds = %dissect_smb2_transform_header.exit
+  call void @col_append_str(ptr noundef %571, i32 noundef 25, ptr noundef nonnull @.str.2032) #12
+  %575 = load i32, ptr @hf_smb2_transform_encrypted_data, align 4
+  %576 = load i32, ptr %477, align 8
+  %577 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %575, ptr noundef %566, i32 noundef 0, i32 noundef %576, i32 noundef 0) #12
+  br label %578
 
-579:                                              ; preds = %575, %573
-  %580 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %569) #12
-  %581 = icmp sgt i32 %580, 0
-  br i1 %581, label %select.unfold353, label %.thread355
+578:                                              ; preds = %574, %572
+  %579 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %568) #12
+  %580 = icmp sgt i32 %579, 0
+  br i1 %580, label %select.unfold353, label %.thread355
 
-582:                                              ; preds = %70
+581:                                              ; preds = %70
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %583 = load i32, ptr @hf_smb2_protocol_id, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %583, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
-  %585 = load i32, ptr @hf_smb2_comp_transform_orig_size, align 4
-  %586 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %585, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %33) #12
-  %587 = load ptr, ptr %29, align 8
-  %588 = call noalias ptr @wmem_array_sized_new(ptr noundef %587, i64 noundef 1, i32 noundef 1024) #12
-  %589 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10) #12
-  %590 = zext i16 %589 to i32
-  store i32 %590, ptr %14, align 4
-  %591 = and i32 %590, 1
-  %.not.i320 = icmp eq i32 %591, 0
-  br i1 %.not.i320, label %682, label %592
+  %582 = load i32, ptr @hf_smb2_protocol_id, align 4
+  %583 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %582, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
+  %584 = load i32, ptr @hf_smb2_comp_transform_orig_size, align 4
+  %585 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %584, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %33) #12
+  %586 = load ptr, ptr %29, align 8
+  %587 = call noalias ptr @wmem_array_sized_new(ptr noundef %586, i64 noundef 1, i32 noundef 1024) #12
+  %588 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10) #12
+  %589 = zext i16 %588 to i32
+  store i32 %589, ptr %14, align 4
+  %590 = and i32 %589, 1
+  %.not.i320 = icmp eq i32 %590, 0
+  br i1 %.not.i320, label %681, label %591
 
-592:                                              ; preds = %582
-  %593 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #12
-  %594 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %593) #12
-  %595 = icmp ne ptr %588, null
+591:                                              ; preds = %581
+  %592 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #12
+  %593 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %592) #12
+  %594 = icmp ne ptr %587, null
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.thread.i, %592
-  %.087.ph.i = phi i32 [ %677, %.thread.i ], [ 8, %592 ]
-  %.not97.i = phi i1 [ true, %.thread.i ], [ false, %592 ]
-  br label %596
+.outer.i:                                         ; preds = %.thread.i, %591
+  %.087.ph.i = phi i32 [ %676, %.thread.i ], [ 8, %591 ]
+  %.not97.i = phi i1 [ true, %.thread.i ], [ false, %591 ]
+  br label %595
 
-596:                                              ; preds = %680, %.outer.i
-  %.087.i = phi i32 [ %677, %680 ], [ %.087.ph.i, %.outer.i ]
+595:                                              ; preds = %679, %.outer.i
+  %.087.i = phi i32 [ %676, %679 ], [ %.087.ph.i, %.outer.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  %597 = load i32, ptr @ett_smb2_comp_payload, align 4
-  %598 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %0, i32 noundef %.087.i, i32 noundef 0, i32 noundef %597, ptr noundef nonnull %9, ptr noundef nonnull @.str.2181) #12
-  %599 = load i32, ptr @hf_smb2_comp_transform_comp_alg, align 4
-  %600 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %598, i32 noundef %599, ptr noundef %0, i32 noundef %.087.i, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %10) #12
-  %601 = add i32 %.087.i, 2
-  %602 = load i32, ptr @hf_smb2_comp_transform_flags, align 4
-  %603 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %598, i32 noundef %602, ptr noundef %0, i32 noundef %601, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12) #12
-  %604 = add i32 %.087.i, 4
-  %605 = load i32, ptr @hf_smb2_comp_transform_length, align 4
-  %606 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %598, i32 noundef %605, ptr noundef %0, i32 noundef %604, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #12
-  %607 = add i32 %.087.i, 8
-  %608 = load ptr, ptr %9, align 8
-  %609 = load i32, ptr %11, align 4
-  call void @proto_item_set_len(ptr noundef %608, i32 noundef %609) #12
-  %610 = load i32, ptr %10, align 4
-  %611 = add i32 %610, -1
-  %612 = icmp ult i32 %611, 3
-  br i1 %612, label %613, label %thread-pre-split.i.i
+  %596 = load i32, ptr @ett_smb2_comp_payload, align 4
+  %597 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %0, i32 noundef %.087.i, i32 noundef 0, i32 noundef %596, ptr noundef nonnull %9, ptr noundef nonnull @.str.2181) #12
+  %598 = load i32, ptr @hf_smb2_comp_transform_comp_alg, align 4
+  %599 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %597, i32 noundef %598, ptr noundef %0, i32 noundef %.087.i, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %10) #12
+  %600 = add i32 %.087.i, 2
+  %601 = load i32, ptr @hf_smb2_comp_transform_flags, align 4
+  %602 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %597, i32 noundef %601, ptr noundef %0, i32 noundef %600, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12) #12
+  %603 = add i32 %.087.i, 4
+  %604 = load i32, ptr @hf_smb2_comp_transform_length, align 4
+  %605 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %597, i32 noundef %604, ptr noundef %0, i32 noundef %603, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #12
+  %606 = add i32 %.087.i, 8
+  %607 = load ptr, ptr %9, align 8
+  %608 = load i32, ptr %11, align 4
+  call void @proto_item_set_len(ptr noundef %607, i32 noundef %608) #12
+  %609 = load i32, ptr %10, align 4
+  %610 = add i32 %609, -1
+  %611 = icmp ult i32 %610, 3
+  br i1 %611, label %612, label %thread-pre-split.i.i
 
-613:                                              ; preds = %596
-  %614 = load i32, ptr @hf_smb2_comp_transform_orig_payload_size, align 4
-  %615 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %598, i32 noundef %614, ptr noundef %0, i32 noundef %607, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #12
-  %616 = add i32 %.087.i, 12
-  %617 = load i32, ptr %11, align 4
-  %618 = add i32 %617, -4
-  store i32 %618, ptr %11, align 4
-  br label %619
+612:                                              ; preds = %595
+  %613 = load i32, ptr @hf_smb2_comp_transform_orig_payload_size, align 4
+  %614 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %597, i32 noundef %613, ptr noundef %0, i32 noundef %606, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #12
+  %615 = add i32 %.087.i, 12
+  %616 = load i32, ptr %11, align 4
+  %617 = add i32 %616, -4
+  store i32 %617, ptr %11, align 4
+  br label %618
 
-thread-pre-split.i.i:                             ; preds = %596
+thread-pre-split.i.i:                             ; preds = %595
   %.pr.i.i = load i32, ptr %11, align 4
-  br label %619
+  br label %618
 
-619:                                              ; preds = %thread-pre-split.i.i, %613
-  %620 = phi i32 [ %.pr.i.i, %thread-pre-split.i.i ], [ %618, %613 ]
-  %.051.i.i = phi i32 [ %607, %thread-pre-split.i.i ], [ %616, %613 ]
-  %621 = icmp ugt i32 %620, 16777216
-  br i1 %621, label %append_uncompress_data.exit57.thread61.i.i, label %623
+618:                                              ; preds = %thread-pre-split.i.i, %612
+  %619 = phi i32 [ %.pr.i.i, %thread-pre-split.i.i ], [ %617, %612 ]
+  %.051.i.i = phi i32 [ %606, %thread-pre-split.i.i ], [ %615, %612 ]
+  %620 = icmp ugt i32 %619, 16777216
+  br i1 %620, label %append_uncompress_data.exit57.thread61.i.i, label %622
 
-append_uncompress_data.exit57.thread61.i.i:       ; preds = %619
-  %622 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %622, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
+append_uncompress_data.exit57.thread61.i.i:       ; preds = %618
+  %621 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %621, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
   br label %dissect_smb2_chained_comp_payload.exit.i
 
-623:                                              ; preds = %619
-  %624 = load i32, ptr %10, align 4
-  switch i32 %624, label %660 [
-    i32 0, label %625
-    i32 2, label %629
-    i32 3, label %631
-    i32 1, label %633
-    i32 4, label %635
+622:                                              ; preds = %618
+  %623 = load i32, ptr %10, align 4
+  switch i32 %623, label %659 [
+    i32 0, label %624
+    i32 2, label %628
+    i32 3, label %630
+    i32 1, label %632
+    i32 4, label %634
   ]
 
-625:                                              ; preds = %623
-  %626 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620) #12
-  %.not.i.i.i = icmp eq ptr %626, null
-  br i1 %.not.i.i.i, label %append_uncompress_data.exit.i.i, label %627
+624:                                              ; preds = %622
+  %625 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619) #12
+  %.not.i.i.i = icmp eq ptr %625, null
+  br i1 %.not.i.i.i, label %append_uncompress_data.exit.i.i, label %626
 
-627:                                              ; preds = %625
-  %628 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620) #12
-  call void @wmem_array_append(ptr noundef %588, ptr noundef %628, i32 noundef %620) #12
+626:                                              ; preds = %624
+  %627 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619) #12
+  call void @wmem_array_append(ptr noundef %587, ptr noundef %627, i32 noundef %619) #12
   br label %append_uncompress_data.exit.i.i
 
-629:                                              ; preds = %623
-  %630 = call ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620) #12
+628:                                              ; preds = %622
+  %629 = call ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619) #12
   br label %append_uncompress_data.exit.i.i
 
-631:                                              ; preds = %623
-  %632 = call ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620) #12
+630:                                              ; preds = %622
+  %631 = call ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619) #12
   br label %append_uncompress_data.exit.i.i
 
-633:                                              ; preds = %623
-  %634 = call ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620) #12
+632:                                              ; preds = %622
+  %633 = call ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619) #12
   br label %append_uncompress_data.exit.i.i
 
-635:                                              ; preds = %623
+634:                                              ; preds = %622
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %636 = load i32, ptr @ett_smb2_comp_pattern_v1, align 4
-  %637 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %598, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %620, i32 noundef %636, ptr noundef nonnull %5, ptr noundef nonnull @.str.1123) #12
-  %638 = load i32, ptr @hf_smb2_comp_pattern_v1_pattern, align 4
-  %639 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %637, i32 noundef %638, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #12
-  %640 = add i32 %.051.i.i, 1
-  %641 = load i32, ptr @hf_smb2_comp_pattern_v1_reserved1, align 4
-  %642 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %641, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef -2147483648) #12
-  %643 = add i32 %.051.i.i, 2
-  %644 = load i32, ptr @hf_smb2_comp_pattern_v1_reserved2, align 4
-  %645 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %644, ptr noundef %0, i32 noundef %643, i32 noundef 2, i32 noundef -2147483648) #12
-  %646 = add i32 %.051.i.i, 4
-  %647 = load i32, ptr @hf_smb2_comp_pattern_v1_repetitions, align 4
-  %648 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %637, i32 noundef %647, ptr noundef %0, i32 noundef %646, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #12
-  %649 = load ptr, ptr %5, align 8
-  %650 = load i32, ptr %6, align 4
+  %635 = load i32, ptr @ett_smb2_comp_pattern_v1, align 4
+  %636 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %597, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %619, i32 noundef %635, ptr noundef nonnull %5, ptr noundef nonnull @.str.1123) #12
+  %637 = load i32, ptr @hf_smb2_comp_pattern_v1_pattern, align 4
+  %638 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %636, i32 noundef %637, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #12
+  %639 = add i32 %.051.i.i, 1
+  %640 = load i32, ptr @hf_smb2_comp_pattern_v1_reserved1, align 4
+  %641 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %640, ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef -2147483648) #12
+  %642 = add i32 %.051.i.i, 2
+  %643 = load i32, ptr @hf_smb2_comp_pattern_v1_reserved2, align 4
+  %644 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %643, ptr noundef %0, i32 noundef %642, i32 noundef 2, i32 noundef -2147483648) #12
+  %645 = add i32 %.051.i.i, 4
+  %646 = load i32, ptr @hf_smb2_comp_pattern_v1_repetitions, align 4
+  %647 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %636, i32 noundef %646, ptr noundef %0, i32 noundef %645, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #12
+  %648 = load ptr, ptr %5, align 8
+  %649 = load i32, ptr %6, align 4
+  %650 = load i32, ptr %7, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %648, ptr noundef nonnull @.str.2182, i32 noundef %649, i32 noundef %650) #12
   %651 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %649, ptr noundef nonnull @.str.2182, i32 noundef %650, i32 noundef %651) #12
-  %652 = load i32, ptr %7, align 4
-  %653 = icmp ult i32 %652, 16777216
-  %or.cond.i.i.i = select i1 %595, i1 %653, i1 false
-  br i1 %or.cond.i.i.i, label %654, label %dissect_smb2_compression_pattern_v1.exit.i.i
+  %652 = icmp ult i32 %651, 16777216
+  %or.cond.i.i.i = select i1 %594, i1 %652, i1 false
+  br i1 %or.cond.i.i.i, label %653, label %dissect_smb2_compression_pattern_v1.exit.i.i
 
-654:                                              ; preds = %635
-  %655 = load i32, ptr %6, align 4
-  %656 = trunc i32 %655 to i8
-  store i8 %656, ptr %8, align 1
-  %.not.i55.i.i = icmp eq i32 %652, 0
+653:                                              ; preds = %634
+  %654 = load i32, ptr %6, align 4
+  %655 = trunc i32 %654 to i8
+  store i8 %655, ptr %8, align 1
+  %.not.i55.i.i = icmp eq i32 %651, 0
   br i1 %.not.i55.i.i, label %dissect_smb2_compression_pattern_v1.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %654, %.lr.ph.i.i.i
-  %.026.i.i.i = phi i32 [ %657, %.lr.ph.i.i.i ], [ 0, %654 ]
-  call void @wmem_array_append(ptr noundef nonnull %588, ptr noundef nonnull %8, i32 noundef 1) #12
-  %657 = add nuw i32 %.026.i.i.i, 1
-  %658 = load i32, ptr %7, align 4
-  %659 = icmp ult i32 %657, %658
-  br i1 %659, label %.lr.ph.i.i.i, label %dissect_smb2_compression_pattern_v1.exit.i.i, !llvm.loop !14
+.lr.ph.i.i.i:                                     ; preds = %653, %.lr.ph.i.i.i
+  %.026.i.i.i = phi i32 [ %656, %.lr.ph.i.i.i ], [ 0, %653 ]
+  call void @wmem_array_append(ptr noundef nonnull %587, ptr noundef nonnull %8, i32 noundef 1) #12
+  %656 = add nuw i32 %.026.i.i.i, 1
+  %657 = load i32, ptr %7, align 4
+  %658 = icmp ult i32 %656, %657
+  br i1 %658, label %.lr.ph.i.i.i, label %dissect_smb2_compression_pattern_v1.exit.i.i, !llvm.loop !14
 
-dissect_smb2_compression_pattern_v1.exit.i.i:     ; preds = %.lr.ph.i.i.i, %654, %635
+dissect_smb2_compression_pattern_v1.exit.i.i:     ; preds = %.lr.ph.i.i.i, %653, %634
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %append_uncompress_data.exit.i.i
 
-660:                                              ; preds = %623
-  %661 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %661, i32 noundef 25, ptr noundef nonnull @.str.2178) #12
+659:                                              ; preds = %622
+  %660 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %660, i32 noundef 25, ptr noundef nonnull @.str.2178) #12
   br label %append_uncompress_data.exit.i.i
 
-append_uncompress_data.exit.i.i:                  ; preds = %660, %dissect_smb2_compression_pattern_v1.exit.i.i, %633, %631, %629, %627, %625
-  %.1.i.i = phi ptr [ null, %660 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ null, %625 ], [ null, %627 ]
-  br i1 %612, label %662, label %append_uncompress_data.exit57.i.i
+append_uncompress_data.exit.i.i:                  ; preds = %659, %dissect_smb2_compression_pattern_v1.exit.i.i, %632, %630, %628, %626, %624
+  %.1.i.i = phi ptr [ null, %659 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ null, %624 ], [ null, %626 ]
+  br i1 %611, label %661, label %append_uncompress_data.exit57.i.i
 
-662:                                              ; preds = %append_uncompress_data.exit.i.i
+661:                                              ; preds = %append_uncompress_data.exit.i.i
   %.not.i.i321 = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i321, label %666, label %663
+  br i1 %.not.i.i321, label %665, label %662
 
-663:                                              ; preds = %662
-  %664 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
-  %665 = load i32, ptr %13, align 4
-  %.not53.i.i = icmp eq i32 %664, %665
-  br i1 %.not53.i.i, label %668, label %666
+662:                                              ; preds = %661
+  %663 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
+  %664 = load i32, ptr %13, align 4
+  %.not53.i.i = icmp eq i32 %663, %664
+  br i1 %.not53.i.i, label %667, label %665
 
-666:                                              ; preds = %663, %662
-  %667 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %667, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
+665:                                              ; preds = %662, %661
+  %666 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %666, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
   br label %append_uncompress_data.exit57.i.i
 
-668:                                              ; preds = %663
-  %669 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
-  %670 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %669) #12
-  %.not.i56.i.i = icmp eq ptr %670, null
-  br i1 %.not.i56.i.i, label %append_uncompress_data.exit57.thread.i.i, label %671
+667:                                              ; preds = %662
+  %668 = call i32 @tvb_reported_length(ptr noundef nonnull %.1.i.i) #12
+  %669 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %668) #12
+  %.not.i56.i.i = icmp eq ptr %669, null
+  br i1 %.not.i56.i.i, label %append_uncompress_data.exit57.thread.i.i, label %670
 
-671:                                              ; preds = %668
-  %672 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %669) #12
-  call void @wmem_array_append(ptr noundef %588, ptr noundef %672, i32 noundef %669) #12
+670:                                              ; preds = %667
+  %671 = call ptr @tvb_get_ptr(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef %668) #12
+  call void @wmem_array_append(ptr noundef %587, ptr noundef %671, i32 noundef %668) #12
   br label %append_uncompress_data.exit57.thread.i.i
 
-append_uncompress_data.exit57.i.i:                ; preds = %666, %append_uncompress_data.exit.i.i
-  %.0102.i = phi i32 [ 0, %666 ], [ 1, %append_uncompress_data.exit.i.i ]
+append_uncompress_data.exit57.i.i:                ; preds = %665, %append_uncompress_data.exit.i.i
+  %.0102.i = phi i32 [ 0, %665 ], [ 1, %append_uncompress_data.exit.i.i ]
   %.not54.i.i = icmp eq ptr %.1.i.i, null
   br i1 %.not54.i.i, label %dissect_smb2_chained_comp_payload.exit.i, label %append_uncompress_data.exit57.thread.i.i
 
-append_uncompress_data.exit57.thread.i.i:         ; preds = %append_uncompress_data.exit57.i.i, %671, %668
-  %.1.i = phi i32 [ %.0102.i, %append_uncompress_data.exit57.i.i ], [ 1, %668 ], [ 1, %671 ]
+append_uncompress_data.exit57.thread.i.i:         ; preds = %append_uncompress_data.exit57.i.i, %670, %667
+  %.1.i = phi i32 [ %.0102.i, %append_uncompress_data.exit57.i.i ], [ 1, %667 ], [ 1, %670 ]
   call void @tvb_free(ptr noundef nonnull %.1.i.i) #12
   br label %dissect_smb2_chained_comp_payload.exit.i
 
 dissect_smb2_chained_comp_payload.exit.i:         ; preds = %append_uncompress_data.exit57.thread.i.i, %append_uncompress_data.exit57.i.i, %append_uncompress_data.exit57.thread61.i.i
   %.2103.i = phi i32 [ 0, %append_uncompress_data.exit57.thread61.i.i ], [ %.0102.i, %append_uncompress_data.exit57.i.i ], [ %.1.i, %append_uncompress_data.exit57.thread.i.i ]
-  %673 = load i32, ptr @hf_smb2_comp_transform_data, align 4
-  %674 = load i32, ptr %11, align 4
-  %675 = call ptr @proto_tree_add_item(ptr noundef %598, i32 noundef %673, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %674, i32 noundef 0) #12
-  %676 = load i32, ptr %11, align 4
-  %677 = add i32 %676, %.051.i.i
+  %672 = load i32, ptr @hf_smb2_comp_transform_data, align 4
+  %673 = load i32, ptr %11, align 4
+  %674 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %672, ptr noundef %0, i32 noundef %.051.i.i, i32 noundef %673, i32 noundef 0) #12
+  %675 = load i32, ptr %11, align 4
+  %676 = add i32 %675, %.051.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %.not96.i = icmp eq i32 %.2103.i, 0
-  %678 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %677) #12
-  %679 = icmp sgt i32 %678, 8
-  br i1 %.not96.i, label %.thread.i, label %680
+  %677 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %676) #12
+  %678 = icmp sgt i32 %677, 8
+  br i1 %.not96.i, label %.thread.i, label %679
 
-680:                                              ; preds = %dissect_smb2_chained_comp_payload.exit.i
-  br i1 %679, label %596, label %681, !llvm.loop !15
+679:                                              ; preds = %dissect_smb2_chained_comp_payload.exit.i
+  br i1 %678, label %595, label %680, !llvm.loop !15
 
 .thread.i:                                        ; preds = %dissect_smb2_chained_comp_payload.exit.i
-  br i1 %679, label %.outer.i, label %dissect_smb2_comp_transform_header.exit.thread, !llvm.loop !15
+  br i1 %678, label %.outer.i, label %dissect_smb2_comp_transform_header.exit.thread, !llvm.loop !15
 
-681:                                              ; preds = %680
+680:                                              ; preds = %679
   br i1 %.not97.i, label %dissect_smb2_comp_transform_header.exit.thread, label %append_uncompress_data.exit101.i
 
-682:                                              ; preds = %582
-  %683 = load i32, ptr @hf_smb2_comp_transform_comp_alg, align 4
-  %684 = getelementptr inbounds i8, ptr %33, i64 4
-  %685 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %683, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %684) #12
-  %686 = load i32, ptr @hf_smb2_comp_transform_flags, align 4
-  %687 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %686, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %14) #12
-  %688 = load i32, ptr @hf_smb2_comp_transform_offset, align 4
-  %689 = getelementptr inbounds i8, ptr %33, i64 8
-  %690 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %688, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %689) #12
-  %691 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #12
-  %692 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 16, i32 noundef %691) #12
-  %693 = load i32, ptr %33, align 8
-  %694 = icmp ugt i32 %693, 16777216
-  br i1 %694, label %dissect_smb2_comp_transform_header.exit.thread.sink.split, label %695
+681:                                              ; preds = %581
+  %682 = load i32, ptr @hf_smb2_comp_transform_comp_alg, align 4
+  %683 = getelementptr inbounds i8, ptr %33, i64 4
+  %684 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %682, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %683) #12
+  %685 = load i32, ptr @hf_smb2_comp_transform_flags, align 4
+  %686 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %685, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %14) #12
+  %687 = load i32, ptr @hf_smb2_comp_transform_offset, align 4
+  %688 = getelementptr inbounds i8, ptr %33, i64 8
+  %689 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %687, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %688) #12
+  %690 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #12
+  %691 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 16, i32 noundef %690) #12
+  %692 = load i32, ptr %33, align 8
+  %693 = icmp ugt i32 %692, 16777216
+  br i1 %693, label %dissect_smb2_comp_transform_header.exit.thread.sink.split, label %694
 
-695:                                              ; preds = %682
-  %696 = load i32, ptr %689, align 8
-  %697 = icmp ugt i32 %696, 16777216
-  br i1 %697, label %dissect_smb2_comp_transform_header.exit.thread.sink.split, label %698
+694:                                              ; preds = %681
+  %695 = load i32, ptr %688, align 8
+  %696 = icmp ugt i32 %695, 16777216
+  br i1 %696, label %dissect_smb2_comp_transform_header.exit.thread.sink.split, label %697
 
-698:                                              ; preds = %695
-  %699 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef %696) #12
-  %.not.i99.i = icmp eq ptr %699, null
-  br i1 %.not.i99.i, label %append_uncompress_data.exit.i, label %700
+697:                                              ; preds = %694
+  %698 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef %695) #12
+  %.not.i99.i = icmp eq ptr %698, null
+  br i1 %.not.i99.i, label %append_uncompress_data.exit.i, label %699
 
-700:                                              ; preds = %698
-  %701 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef %696) #12
-  call void @wmem_array_append(ptr noundef %588, ptr noundef %701, i32 noundef %696) #12
+699:                                              ; preds = %697
+  %700 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef %695) #12
+  call void @wmem_array_append(ptr noundef %587, ptr noundef %700, i32 noundef %695) #12
   br label %append_uncompress_data.exit.i
 
-append_uncompress_data.exit.i:                    ; preds = %700, %698
-  %702 = load i32, ptr %689, align 8
-  %703 = add i32 %702, 16
-  %704 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %703) #12
-  %705 = load i32, ptr %684, align 4
-  switch i32 %705, label %dissect_smb2_comp_transform_header.exit.thread.sink.split [
-    i32 2, label %706
-    i32 3, label %710
-    i32 1, label %714
+append_uncompress_data.exit.i:                    ; preds = %699, %697
+  %701 = load i32, ptr %688, align 8
+  %702 = add i32 %701, 16
+  %703 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %702) #12
+  %704 = load i32, ptr %683, align 4
+  switch i32 %704, label %dissect_smb2_comp_transform_header.exit.thread.sink.split [
+    i32 2, label %705
+    i32 3, label %709
+    i32 1, label %713
   ]
 
-706:                                              ; preds = %append_uncompress_data.exit.i
-  %707 = load i32, ptr %689, align 8
-  %708 = add i32 %707, 16
-  %709 = call ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %708, i32 noundef %704) #12
-  br label %718
+705:                                              ; preds = %append_uncompress_data.exit.i
+  %706 = load i32, ptr %688, align 8
+  %707 = add i32 %706, 16
+  %708 = call ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %707, i32 noundef %703) #12
+  br label %717
 
-710:                                              ; preds = %append_uncompress_data.exit.i
-  %711 = load i32, ptr %689, align 8
-  %712 = add i32 %711, 16
-  %713 = call ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %712, i32 noundef %704) #12
-  br label %718
+709:                                              ; preds = %append_uncompress_data.exit.i
+  %710 = load i32, ptr %688, align 8
+  %711 = add i32 %710, 16
+  %712 = call ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %711, i32 noundef %703) #12
+  br label %717
 
-714:                                              ; preds = %append_uncompress_data.exit.i
-  %715 = load i32, ptr %689, align 8
-  %716 = add i32 %715, 16
-  %717 = call ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %716, i32 noundef %704) #12
-  br label %718
+713:                                              ; preds = %append_uncompress_data.exit.i
+  %714 = load i32, ptr %688, align 8
+  %715 = add i32 %714, 16
+  %716 = call ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %715, i32 noundef %703) #12
+  br label %717
 
-718:                                              ; preds = %714, %710, %706
-  %.291.i = phi ptr [ %717, %714 ], [ %713, %710 ], [ %709, %706 ]
+717:                                              ; preds = %713, %709, %705
+  %.291.i = phi ptr [ %716, %713 ], [ %712, %709 ], [ %708, %705 ]
   %.not94.i = icmp eq ptr %.291.i, null
-  br i1 %.not94.i, label %722, label %719
+  br i1 %.not94.i, label %721, label %718
 
-719:                                              ; preds = %718
-  %720 = call i32 @tvb_reported_length(ptr noundef nonnull %.291.i) #12
-  %721 = load i32, ptr %33, align 8
-  %.not95.i = icmp eq i32 %720, %721
-  br i1 %.not95.i, label %724, label %722
+718:                                              ; preds = %717
+  %719 = call i32 @tvb_reported_length(ptr noundef nonnull %.291.i) #12
+  %720 = load i32, ptr %33, align 8
+  %.not95.i = icmp eq i32 %719, %720
+  br i1 %.not95.i, label %723, label %721
 
-722:                                              ; preds = %719, %718
-  %723 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %723, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
-  br label %733
+721:                                              ; preds = %718, %717
+  %722 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %722, i32 noundef 25, ptr noundef nonnull @.str.2179) #12
+  br label %732
 
-724:                                              ; preds = %719
-  %725 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %720) #12
-  %.not.i100.i = icmp eq ptr %725, null
-  br i1 %.not.i100.i, label %append_uncompress_data.exit101.i, label %726
+723:                                              ; preds = %718
+  %724 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %719) #12
+  %.not.i100.i = icmp eq ptr %724, null
+  br i1 %.not.i100.i, label %append_uncompress_data.exit101.i, label %725
 
-726:                                              ; preds = %724
-  %727 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %720) #12
-  call void @wmem_array_append(ptr noundef %588, ptr noundef %727, i32 noundef %720) #12
+725:                                              ; preds = %723
+  %726 = call ptr @tvb_get_ptr(ptr noundef nonnull %.291.i, i32 noundef 0, i32 noundef %719) #12
+  call void @wmem_array_append(ptr noundef %587, ptr noundef %726, i32 noundef %719) #12
   br label %append_uncompress_data.exit101.i
 
-append_uncompress_data.exit101.i:                 ; preds = %726, %724, %681
-  %.089.i = phi ptr [ null, %681 ], [ %.291.i, %724 ], [ %.291.i, %726 ]
-  %.188.i = phi i32 [ %677, %681 ], [ 16, %724 ], [ 16, %726 ]
-  %728 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %728, i32 noundef 25, ptr noundef nonnull @.str.2180) #12
-  %729 = call ptr @wmem_array_get_raw(ptr noundef %588) #12
-  %730 = call i32 @wmem_array_get_count(ptr noundef %588) #12
-  %731 = call i32 @wmem_array_get_count(ptr noundef %588) #12
-  %732 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %729, i32 noundef %730, i32 noundef %731) #12
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %732, ptr noundef nonnull @.str.2180) #12
-  br label %733
+append_uncompress_data.exit101.i:                 ; preds = %725, %723, %680
+  %.089.i = phi ptr [ null, %680 ], [ %.291.i, %723 ], [ %.291.i, %725 ]
+  %.188.i = phi i32 [ %676, %680 ], [ 16, %723 ], [ 16, %725 ]
+  %727 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %727, i32 noundef 25, ptr noundef nonnull @.str.2180) #12
+  %728 = call ptr @wmem_array_get_raw(ptr noundef %587) #12
+  %729 = call i32 @wmem_array_get_count(ptr noundef %587) #12
+  %730 = call i32 @wmem_array_get_count(ptr noundef %587) #12
+  %731 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %728, i32 noundef %729, i32 noundef %730) #12
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %731, ptr noundef nonnull @.str.2180) #12
+  br label %732
 
-733:                                              ; preds = %append_uncompress_data.exit101.i, %722
-  %.0 = phi ptr [ null, %722 ], [ %732, %append_uncompress_data.exit101.i ]
-  %.190.i = phi ptr [ %.291.i, %722 ], [ %.089.i, %append_uncompress_data.exit101.i ]
-  %.2.i = phi i32 [ 16, %722 ], [ %.188.i, %append_uncompress_data.exit101.i ]
+732:                                              ; preds = %append_uncompress_data.exit101.i, %721
+  %.0 = phi ptr [ null, %721 ], [ %731, %append_uncompress_data.exit101.i ]
+  %.190.i = phi ptr [ %.291.i, %721 ], [ %.089.i, %append_uncompress_data.exit101.i ]
+  %.2.i = phi i32 [ 16, %721 ], [ %.188.i, %append_uncompress_data.exit101.i ]
   %.not98.i = icmp eq ptr %.190.i, null
-  br i1 %.not98.i, label %dissect_smb2_comp_transform_header.exit, label %734
+  br i1 %.not98.i, label %dissect_smb2_comp_transform_header.exit, label %733
 
-734:                                              ; preds = %733
+733:                                              ; preds = %732
   call void @tvb_free(ptr noundef nonnull %.190.i) #12
   br label %dissect_smb2_comp_transform_header.exit
 
-dissect_smb2_comp_transform_header.exit.thread.sink.split: ; preds = %append_uncompress_data.exit.i, %682, %695
-  %.str.2177.sink = phi ptr [ @.str.2177, %695 ], [ @.str.2177, %682 ], [ @.str.2178, %append_uncompress_data.exit.i ]
-  %735 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %735, i32 noundef 25, ptr noundef nonnull %.str.2177.sink) #12
+dissect_smb2_comp_transform_header.exit.thread.sink.split: ; preds = %append_uncompress_data.exit.i, %681, %694
+  %.str.2177.sink = phi ptr [ @.str.2177, %694 ], [ @.str.2177, %681 ], [ @.str.2178, %append_uncompress_data.exit.i ]
+  %734 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %734, i32 noundef 25, ptr noundef nonnull %.str.2177.sink) #12
   br label %dissect_smb2_comp_transform_header.exit.thread
 
-dissect_smb2_comp_transform_header.exit.thread:   ; preds = %.thread.i, %dissect_smb2_comp_transform_header.exit.thread.sink.split, %681
-  %.2110.i.ph = phi i32 [ %677, %681 ], [ 16, %dissect_smb2_comp_transform_header.exit.thread.sink.split ], [ %677, %.thread.i ]
+dissect_smb2_comp_transform_header.exit.thread:   ; preds = %.thread.i, %dissect_smb2_comp_transform_header.exit.thread.sink.split, %680
+  %.2110.i.ph = phi i32 [ %676, %680 ], [ 16, %dissect_smb2_comp_transform_header.exit.thread.sink.split ], [ %676, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %749
+  br label %748
 
-dissect_smb2_comp_transform_header.exit:          ; preds = %733, %734
+dissect_smb2_comp_transform_header.exit:          ; preds = %732, %733
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %.not280 = icmp eq ptr %.0, null
-  br i1 %.not280, label %749, label %736
+  br i1 %.not280, label %748, label %735
 
-736:                                              ; preds = %dissect_smb2_comp_transform_header.exit
-  %737 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0, i32 noundef 0) #12
-  %738 = load i32, ptr @ett_smb2_decompressed, align 4
-  %739 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef nonnull %.0, i32 noundef 0, i32 noundef %737, i32 noundef %738, ptr noundef nonnull %28, ptr noundef nonnull @.str.2033) #12
-  %740 = load ptr, ptr %28, align 8
-  %.not.i322 = icmp eq ptr %740, null
-  br i1 %.not.i322, label %proto_item_set_generated.exit324, label %741
+735:                                              ; preds = %dissect_smb2_comp_transform_header.exit
+  %736 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0, i32 noundef 0) #12
+  %737 = load i32, ptr @ett_smb2_decompressed, align 4
+  %738 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef nonnull %.0, i32 noundef 0, i32 noundef %736, i32 noundef %737, ptr noundef nonnull %28, ptr noundef nonnull @.str.2033) #12
+  %739 = load ptr, ptr %28, align 8
+  %.not.i322 = icmp eq ptr %739, null
+  br i1 %.not.i322, label %proto_item_set_generated.exit324, label %740
 
-741:                                              ; preds = %736
-  %742 = getelementptr inbounds i8, ptr %740, i64 32
-  %743 = load ptr, ptr %742, align 8
-  %.not5.i323 = icmp eq ptr %743, null
-  br i1 %.not5.i323, label %proto_item_set_generated.exit324, label %744
+740:                                              ; preds = %735
+  %741 = getelementptr inbounds i8, ptr %739, i64 32
+  %742 = load ptr, ptr %741, align 8
+  %.not5.i323 = icmp eq ptr %742, null
+  br i1 %.not5.i323, label %proto_item_set_generated.exit324, label %743
 
-744:                                              ; preds = %741
-  %745 = getelementptr inbounds i8, ptr %743, i64 28
-  %746 = load i32, ptr %745, align 4
-  %747 = or i32 %746, 2
-  store i32 %747, ptr %745, align 4
+743:                                              ; preds = %740
+  %744 = getelementptr inbounds i8, ptr %742, i64 28
+  %745 = load i32, ptr %744, align 4
+  %746 = or i32 %745, 2
+  store i32 %746, ptr %744, align 4
   br label %proto_item_set_generated.exit324
 
-proto_item_set_generated.exit324:                 ; preds = %736, %741, %744
-  %748 = call fastcc i32 @dissect_smb2(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %739, i32 noundef 0)
-  br label %756
+proto_item_set_generated.exit324:                 ; preds = %735, %740, %743
+  %747 = call fastcc i32 @dissect_smb2(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %738, i32 noundef 0)
+  br label %755
 
-749:                                              ; preds = %dissect_smb2_comp_transform_header.exit.thread, %dissect_smb2_comp_transform_header.exit
+748:                                              ; preds = %dissect_smb2_comp_transform_header.exit.thread, %dissect_smb2_comp_transform_header.exit
   %.2110.i351 = phi i32 [ %.2110.i.ph, %dissect_smb2_comp_transform_header.exit.thread ], [ %.2.i, %dissect_smb2_comp_transform_header.exit ]
-  %750 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i351) #12
-  %751 = load i32, ptr @ett_smb2_compressed, align 4
-  %752 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef %0, i32 noundef %.2110.i351, i32 noundef %750, i32 noundef %751, ptr noundef null, ptr noundef nonnull @.str.2034) #12
-  %753 = load i32, ptr @hf_smb2_comp_transform_data, align 4
-  %754 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i351) #12
-  %755 = call ptr @proto_tree_add_item(ptr noundef %752, i32 noundef %753, ptr noundef %0, i32 noundef %.2110.i351, i32 noundef %754, i32 noundef 0) #12
-  br label %756
+  %749 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i351) #12
+  %750 = load i32, ptr @ett_smb2_compressed, align 4
+  %751 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef %0, i32 noundef %.2110.i351, i32 noundef %749, i32 noundef %750, ptr noundef null, ptr noundef nonnull @.str.2034) #12
+  %752 = load i32, ptr @hf_smb2_comp_transform_data, align 4
+  %753 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i351) #12
+  %754 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %752, ptr noundef %0, i32 noundef %.2110.i351, i32 noundef %753, i32 noundef 0) #12
+  br label %755
 
-756:                                              ; preds = %749, %proto_item_set_generated.exit324
-  %.2110.i352 = phi i32 [ %.2110.i351, %749 ], [ %.2.i, %proto_item_set_generated.exit324 ]
-  %757 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i352) #12
-  %758 = add i32 %757, %.2110.i352
+755:                                              ; preds = %748, %proto_item_set_generated.exit324
+  %.2110.i352 = phi i32 [ %.2110.i351, %748 ], [ %.2.i, %proto_item_set_generated.exit324 ]
+  %756 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2110.i352) #12
+  %757 = add i32 %756, %.2110.i352
   br label %.thread355
 
-759:                                              ; preds = %70
-  %760 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %760, i32 noundef 25, ptr noundef nonnull @.str.2035) #12
-  %761 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
+758:                                              ; preds = %70
+  %759 = load ptr, ptr %65, align 8
+  call void @col_append_str(ptr noundef %759, i32 noundef 25, ptr noundef nonnull @.str.2035) #12
+  %760 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   br label %.thread355
 
-select.unfold353:                                 ; preds = %579, %dissect_smb2_command.exit
-  %.0261 = phi i32 [ %112, %dissect_smb2_command.exit ], [ %569, %579 ]
-  %.1 = phi i32 [ %.0.i316, %dissect_smb2_command.exit ], [ %569, %579 ]
-  %762 = icmp sgt i32 %.0261, 0
-  br i1 %762, label %763, label %.thread355
+select.unfold353:                                 ; preds = %578, %dissect_smb2_command.exit
+  %.0261 = phi i32 [ %112, %dissect_smb2_command.exit ], [ %568, %578 ]
+  %.1 = phi i32 [ %.0.i316, %dissect_smb2_command.exit ], [ %568, %578 ]
+  %761 = icmp sgt i32 %.0261, 0
+  br i1 %761, label %762, label %.thread355
 
-763:                                              ; preds = %select.unfold353
+762:                                              ; preds = %select.unfold353
   call void @proto_item_set_len(ptr noundef %72, i32 noundef %.0261) #12
-  %764 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0261) #12
-  %765 = call fastcc i32 @dissect_smb2(ptr noundef %764, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
+  %763 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0261) #12
+  %764 = call fastcc i32 @dissect_smb2(ptr noundef %763, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
   br label %.thread355
 
-.thread355:                                       ; preds = %579, %759, %756, %763, %select.unfold353
-  %.2 = phi i32 [ %765, %763 ], [ %.1, %select.unfold353 ], [ %569, %579 ], [ %761, %759 ], [ %758, %756 ]
+.thread355:                                       ; preds = %578, %758, %755, %762, %select.unfold353
+  %.2 = phi i32 [ %764, %762 ], [ %.1, %select.unfold353 ], [ %568, %578 ], [ %760, %758 ], [ %757, %755 ]
   call void @decrement_dissection_depth(ptr noundef %1) #12
   ret i32 %.2
 }

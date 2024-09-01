@@ -5230,14 +5230,14 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 9:                                                ; preds = %7
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.272, ptr noundef %1) #25
   tail call void @free(ptr noundef nonnull %6) #25
-  br label %142
+  br label %141
 
 10:                                               ; preds = %7
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %8) #31
   %.not178 = icmp eq i32 %11, 0
   tail call void @free(ptr noundef nonnull %6) #25
   tail call void @free(ptr noundef nonnull %8) #25
-  br i1 %.not178, label %142, label %12
+  br i1 %.not178, label %141, label %12
 
 12:                                               ; preds = %10
   %13 = tail call fastcc i32 @maxlinelen(ptr noundef %0)
@@ -5249,7 +5249,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %16 = icmp eq i32 %.0152, -1
   %17 = icmp eq i32 %15, -1
   %or.cond = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond, label %142, label %18
+  br i1 %or.cond, label %141, label %18
 
 18:                                               ; preds = %14
   %19 = tail call i32 @llvm.smax.i32(i32 %.0152, i32 %15)
@@ -5261,7 +5261,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %18
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.273) #25
-  br label %142
+  br label %141
 
 24:                                               ; preds = %18
   %25 = tail call noalias ptr @malloc(i64 noundef %21) #30
@@ -5271,7 +5271,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 26:                                               ; preds = %24
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.274) #25
   tail call void @free(ptr noundef nonnull %22) #25
-  br label %142
+  br label %141
 
 27:                                               ; preds = %24
   %28 = tail call noalias ptr @malloc(i64 noundef %21) #30
@@ -5282,7 +5282,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.275) #25
   tail call void @free(ptr noundef nonnull %22) #25
   tail call void @free(ptr noundef nonnull %25) #25
-  br label %142
+  br label %141
 
 30:                                               ; preds = %27
   %31 = icmp sgt i32 %19, 32767
@@ -5304,7 +5304,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   tail call void @free(ptr noundef nonnull %22) #25
   tail call void @free(ptr noundef nonnull %25) #25
   tail call void @free(ptr noundef nonnull %28) #25
-  br label %142
+  br label %141
 
 39:                                               ; preds = %35
   %40 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.207)
@@ -5404,7 +5404,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   tail call void @free(ptr noundef %22) #25
   tail call void @free(ptr noundef nonnull %25) #25
   tail call void @free(ptr noundef %28) #25
-  br label %142
+  br label %141
 
 82:                                               ; preds = %68, %73, %65
   %83 = tail call i32 @cli_chomp(ptr noundef nonnull %25) #25
@@ -5480,8 +5480,8 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %110 = tail call i32 @fseek(ptr noundef nonnull %.0151.ph, i64 noundef %90, i32 noundef 0)
   %111 = load i8, ptr %22, align 1
   switch i8 %111, label %112 [
-    i8 0, label %.loopexit204
-    i8 32, label %.loopexit204
+    i8 0, label %.loopexit
+    i8 32, label %.loopexit
   ]
 
 112:                                              ; preds = %109
@@ -5503,17 +5503,13 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.280, ptr noundef nonnull %25) #25
   br label %.outer.outer.backedge
 
-.loopexit204:                                     ; preds = %109, %109
-  br i1 %.not185, label %.preheader, label %.loopexit
-
-.preheader:                                       ; preds = %.outer.split, %.loopexit204
-  %.1159264267 = phi i32 [ %86, %.loopexit204 ], [ %.0158, %.outer.split ]
+.preheader:                                       ; preds = %.outer.split
   %120 = tail call ptr @fgets(ptr noundef nonnull %22, i32 noundef %20, ptr noundef nonnull %.0151.ph)
   %.not195227 = icmp eq ptr %120, null
-  br i1 %.not195227, label %.critedge300, label %.lr.ph229
+  br i1 %.not195227, label %.loopexit, label %.lr.ph229
 
 .lr.ph229:                                        ; preds = %.preheader, %125
-  %.3228 = phi i32 [ %121, %125 ], [ %.1159264267, %.preheader ]
+  %.3228 = phi i32 [ %121, %125 ], [ %.0158, %.preheader ]
   %121 = add i32 %.3228, 1
   %122 = tail call i32 @cli_chomp(ptr noundef nonnull %22) #25
   store i8 0, ptr %46, align 1
@@ -5529,51 +5525,47 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.281, i32 noundef %121, ptr noundef nonnull %22) #25
   %127 = tail call ptr @fgets(ptr noundef nonnull %22, i32 noundef %20, ptr noundef nonnull %.0151.ph)
   %.not195 = icmp eq ptr %127, null
-  br i1 %.not195, label %.critedge300, label %.lr.ph229
+  br i1 %.not195, label %.loopexit, label %.lr.ph229
 
-.loopexit:                                        ; preds = %.loopexit204
+.loopexit:                                        ; preds = %109, %109, %125, %.preheader
   %128 = tail call i32 @fclose(ptr noundef nonnull %.0151.ph)
   %129 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
   tail call void @free(ptr noundef %22) #25
   tail call void @free(ptr noundef %28) #25
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.270, ptr noundef %1) #25
-  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.277, ptr noundef %1) #25
+  br i1 %.not183, label %139, label %130
+
+130:                                              ; preds = %.loopexit
+  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.270, ptr noundef %1) #25
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.277, ptr noundef %1) #25
   tail call void @rewind(ptr noundef nonnull %37)
-  %132 = tail call ptr @fgets(ptr noundef nonnull %25, i32 noundef %20, ptr noundef nonnull %37)
-  %.not198230 = icmp eq ptr %132, null
+  %133 = tail call ptr @fgets(ptr noundef nonnull %25, i32 noundef %20, ptr noundef nonnull %37)
+  %.not198230 = icmp eq ptr %133, null
   br i1 %.not198230, label %._crit_edge233, label %.lr.ph232
 
-.lr.ph232:                                        ; preds = %.loopexit, %.lr.ph232
-  %133 = tail call i32 @cli_chomp(ptr noundef nonnull %25) #25
-  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.280, ptr noundef nonnull %25) #25
-  %135 = tail call ptr @fgets(ptr noundef nonnull %25, i32 noundef %20, ptr noundef nonnull %37)
-  %.not198 = icmp eq ptr %135, null
+.lr.ph232:                                        ; preds = %130, %.lr.ph232
+  %134 = tail call i32 @cli_chomp(ptr noundef nonnull %25) #25
+  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.280, ptr noundef nonnull %25) #25
+  %136 = tail call ptr @fgets(ptr noundef nonnull %25, i32 noundef %20, ptr noundef nonnull %37)
+  %.not198 = icmp eq ptr %136, null
   br i1 %.not198, label %._crit_edge233, label %.lr.ph232
 
-._crit_edge233:                                   ; preds = %.lr.ph232, %.loopexit
-  %136 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
-  br label %140
+._crit_edge233:                                   ; preds = %.lr.ph232, %130
+  %137 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
+  br label %139
 
 .critedge:                                        ; preds = %.outer.split.us
-  %137 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
+  %138 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
   tail call void @free(ptr noundef %22) #25
   tail call void @free(ptr noundef %28) #25
-  br label %140
+  br label %139
 
-.critedge300:                                     ; preds = %125, %.preheader
-  %138 = tail call i32 @fclose(ptr noundef nonnull %.0151.ph)
-  %139 = tail call i64 @fwrite(ptr nonnull @.str.283, i64 6, i64 1, ptr %2)
-  tail call void @free(ptr noundef %22) #25
-  tail call void @free(ptr noundef %28) #25
-  br label %140
-
-140:                                              ; preds = %.critedge300, %.critedge, %._crit_edge233
+139:                                              ; preds = %.critedge, %._crit_edge233, %.loopexit
   tail call void @free(ptr noundef %25) #25
-  %141 = tail call i32 @fclose(ptr noundef nonnull %37)
-  br label %142
+  %140 = tail call i32 @fclose(ptr noundef nonnull %37)
+  br label %141
 
-142:                                              ; preds = %10, %14, %140, %80, %38, %29, %26, %23, %9
-  %.0 = phi i32 [ -1, %80 ], [ 0, %140 ], [ -1, %38 ], [ -1, %29 ], [ -1, %26 ], [ -1, %23 ], [ -1, %9 ], [ -1, %14 ], [ 0, %10 ]
+141:                                              ; preds = %10, %14, %139, %80, %38, %29, %26, %23, %9
+  %.0 = phi i32 [ -1, %80 ], [ 0, %139 ], [ -1, %38 ], [ -1, %29 ], [ -1, %26 ], [ -1, %23 ], [ -1, %9 ], [ -1, %14 ], [ 0, %10 ]
   ret i32 %.0
 }
 

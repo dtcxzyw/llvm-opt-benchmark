@@ -3965,8 +3965,8 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h27
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %6), !noalias !750
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !750
   store ptr %17, ptr %7, align 8, !noalias !750
-  %.not.not.i = icmp eq ptr %18, null
-  br i1 %.not.not.i, label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit, label %19
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit, label %19
 
 19:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h385aeed32f5ee8dfE.llvm.4723873805977257264.exit.i"
   invoke void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule17hce4f290ca67a1caaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %18)

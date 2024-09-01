@@ -8977,8 +8977,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %67 = load i64, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1016, !noalias !1010, !noundef !14
   %68 = add i64 %67, -1
   store i64 %68, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1016, !noalias !1010
-  %.not.not.i.i = icmp eq ptr %66, null
-  br i1 %.not.not.i.i, label %.noexc9._crit_edge.i, label %69
+  %.not.not.not.i.i = icmp eq ptr %66, null
+  br i1 %.not.not.not.i.i, label %.noexc9._crit_edge.i, label %69
 
 69:                                               ; preds = %.noexc8.i
   %70 = getelementptr inbounds i8, ptr %66, i64 -8
@@ -9016,7 +9016,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %72
 
 .noexc9._crit_edge.i:                             ; preds = %.noexc9.i, %72, %.noexc8.i, %.noexc8
-  %.not7.i.i = phi i1 [ false, %.noexc8 ], [ false, %72 ], [ false, %.noexc8.i ], [ true, %.noexc9.i ]
+  %.not.not8.i.i = phi i1 [ false, %.noexc8 ], [ false, %72 ], [ false, %.noexc8.i ], [ true, %.noexc9.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1010
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.0.sroa.7.i)
   %88 = atomicrmw sub ptr %33, i64 16 release, align 8, !noalias !999
@@ -9061,7 +9061,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$moka..sync_base..invalidator..Invalidator$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h50aa686284fbc9c1E.exit11" unwind label %109
 
 "_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$16apply_predicates17h3f2f2c8ebe45a36cE.exit": ; preds = %.noexc9._crit_edge.i, %.noexc7, %.noexc, %91
-  %.0.i5 = phi i1 [ false, %.noexc ], [ false, %.noexc7 ], [ %.not7.i.i, %.noexc9._crit_edge.i ], [ %.not7.i.i, %91 ]
+  %.0.i5 = phi i1 [ false, %.noexc ], [ false, %.noexc7 ], [ %.not.not8.i.i, %.noexc9._crit_edge.i ], [ %.not.not8.i.i, %91 ]
   %105 = atomicrmw sub ptr %9, i64 16 release, align 8
   %106 = and i64 %105, -14
   %107 = icmp eq i64 %106, 18
@@ -11110,27 +11110,27 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %.critedge, label %.lr.ph.i
 
+._crit_edge.i:                                    ; preds = %.critedge.i
+  %12 = add i64 %9, -1
+  br label %17
+
 .lr.ph.i:                                         ; preds = %2, %.critedge.i
   %.sroa.0.027.i = phi ptr [ %31, %.critedge.i ], [ %7, %2 ]
-  %12 = load ptr, ptr %.sroa.0.027.i, align 8, !alias.scope !1242, !nonnull !14, !noundef !14
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = getelementptr inbounds i8, ptr %12, i64 72
-  %15 = invoke noundef i8 @"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3c0f5ebe23a79e48E"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14)
+  %13 = load ptr, ptr %.sroa.0.027.i, align 8, !alias.scope !1242, !nonnull !14, !noundef !14
+  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds i8, ptr %13, i64 72
+  %16 = invoke noundef i8 @"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3c0f5ebe23a79e48E"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %15)
           to label %.noexc unwind label %.thread46.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  switch i8 %15, label %.invoke [
+  switch i8 %16, label %.invoke [
     i8 0, label %.critedge.i
     i8 -1, label %.critedge.i
   ]
 
-.split.i:                                         ; preds = %.critedge.i
-  %16 = add i64 %9, -1
-  br label %17
-
-17:                                               ; preds = %.noexc32, %.split.i
-  %.sroa.05.0.i = phi i64 [ 0, %.split.i ], [ %19, %.noexc32 ]
-  %exitcond.not.i = icmp eq i64 %.sroa.05.0.i, %16
+17:                                               ; preds = %.noexc32, %._crit_edge.i
+  %.sroa.05.0.i = phi i64 [ 0, %._crit_edge.i ], [ %19, %.noexc32 ]
+  %exitcond.not.i = icmp eq i64 %.sroa.05.0.i, %12
   br i1 %exitcond.not.i, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, label %18
 
 18:                                               ; preds = %17
@@ -11161,7 +11161,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
 .critedge.i:                                      ; preds = %.noexc, %.noexc
   %31 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 8
   %32 = icmp eq ptr %31, %10
-  br i1 %32, label %.split.i, label %.lr.ph.i
+  br i1 %32, label %._crit_edge.i, label %.lr.ph.i
 
 .thread46.loopexit:                               ; preds = %18
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -11338,27 +11338,27 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, label %.lr.ph.i
 
+._crit_edge.i:                                    ; preds = %.critedge.i
+  %17 = add i64 %14, -1
+  br label %22
+
 .lr.ph.i:                                         ; preds = %4, %.critedge.i
   %.sroa.0.027.i = phi ptr [ %36, %.critedge.i ], [ %12, %4 ]
-  %17 = load ptr, ptr %.sroa.0.027.i, align 8, !alias.scope !1259, !nonnull !14, !noundef !14
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = getelementptr inbounds i8, ptr %17, i64 72
-  %20 = invoke noundef i8 @"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3c0f5ebe23a79e48E"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %19)
+  %18 = load ptr, ptr %.sroa.0.027.i, align 8, !alias.scope !1259, !nonnull !14, !noundef !14
+  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %20 = getelementptr inbounds i8, ptr %18, i64 72
+  %21 = invoke noundef i8 @"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3c0f5ebe23a79e48E"(ptr noundef nonnull align 8 %19, ptr noundef nonnull align 8 %20)
           to label %.noexc unwind label %.thread54.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  switch i8 %20, label %.invoke [
+  switch i8 %21, label %.invoke [
     i8 0, label %.critedge.i
     i8 -1, label %.critedge.i
   ]
 
-.split.i:                                         ; preds = %.critedge.i
-  %21 = add i64 %14, -1
-  br label %22
-
-22:                                               ; preds = %.noexc39, %.split.i
-  %.sroa.05.0.i = phi i64 [ 0, %.split.i ], [ %24, %.noexc39 ]
-  %exitcond.not.i = icmp eq i64 %.sroa.05.0.i, %21
+22:                                               ; preds = %.noexc39, %._crit_edge.i
+  %.sroa.05.0.i = phi i64 [ 0, %._crit_edge.i ], [ %24, %.noexc39 ]
+  %exitcond.not.i = icmp eq i64 %.sroa.05.0.i, %17
   br i1 %exitcond.not.i, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit, label %23
 
 23:                                               ; preds = %22
@@ -11389,7 +11389,7 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
 .critedge.i:                                      ; preds = %.noexc, %.noexc
   %36 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 8
   %37 = icmp eq ptr %36, %15
-  br i1 %37, label %.split.i, label %.lr.ph.i
+  br i1 %37, label %._crit_edge.i, label %.lr.ph.i
 
 .thread54.loopexit:                               ; preds = %23
   %lpad.loopexit = landingpad { ptr, i32 }

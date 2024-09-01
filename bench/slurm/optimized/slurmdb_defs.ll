@@ -5098,12 +5098,12 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = load ptr, ptr %12, align 8
   %11 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %10) #20
   %.not39.us = icmp eq i32 %11, 0
-  br i1 %.not39.us, label %.split48.us, label %.outer.us.backedge
+  br i1 %.not39.us, label %.split50.us, label %.outer.us.backedge
 
 .outer.us:                                        ; preds = %4, %.outer.us.backedge
   %12 = tail call ptr @list_next(ptr noundef %5) #20
-  %.not52 = icmp eq ptr %12, null
-  br i1 %.not52, label %.thread, label %6
+  %.not44.us = icmp eq ptr %12, null
+  br i1 %.not44.us, label %.thread, label %6
 
 .outer:                                           ; preds = %4, %21
   %.0.ph = phi ptr [ %spec.select, %21 ], [ null, %4 ]
@@ -5111,11 +5111,11 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 13:                                               ; preds = %.outer, %15
   %14 = tail call ptr @list_next(ptr noundef %5) #20
-  %.not51 = icmp eq ptr %14, null
-  br i1 %.not51, label %.thread, label %15
+  %.not44 = icmp eq ptr %14, null
+  br i1 %.not44, label %.thread, label %15
 
 .thread:                                          ; preds = %13, %.outer.us
-  %.us-phi50 = phi ptr [ null, %.outer.us ], [ %.0.ph, %13 ]
+  %.us-phi52 = phi ptr [ null, %.outer.us ], [ %.0.ph, %13 ]
   tail call void @list_iterator_destroy(ptr noundef %5) #20
   br label %26
 
@@ -5129,7 +5129,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = load ptr, ptr %14, align 8
   %20 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %19) #20
   %.not39 = icmp eq i32 %20, 0
-  br i1 %.not39, label %.split48.us, label %21
+  br i1 %.not39, label %.split50.us, label %21
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %14, align 8
@@ -5138,26 +5138,26 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %spec.select = select i1 %.not42, ptr %14, ptr %.0.ph
   br label %.outer, !llvm.loop !20
 
-.split48.us:                                      ; preds = %18, %9
+.split50.us:                                      ; preds = %18, %9
   %.us-phi = phi ptr [ null, %9 ], [ %.0.ph, %18 ]
-  %.us-phi49 = phi ptr [ %12, %9 ], [ %14, %18 ]
+  %.us-phi51 = phi ptr [ %12, %9 ], [ %14, %18 ]
   tail call void @list_iterator_destroy(ptr noundef %5) #20
   br i1 %.not41, label %26, label %24
 
-24:                                               ; preds = %.split48.us
-  %25 = getelementptr inbounds i8, ptr %.us-phi49, i64 8
+24:                                               ; preds = %.split50.us
+  %25 = getelementptr inbounds i8, ptr %.us-phi51, i64 8
   br label %.sink.split
 
-26:                                               ; preds = %.thread, %.split48.us
-  %.0.ph46 = phi ptr [ %.us-phi50, %.thread ], [ %.us-phi, %.split48.us ]
+26:                                               ; preds = %.thread, %.split50.us
+  %.0.ph48 = phi ptr [ %.us-phi52, %.thread ], [ %.us-phi, %.split50.us ]
   %27 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 2277, ptr noundef nonnull @__func__.slurmdb_tree_name_get) #20
   %28 = tail call ptr @xstrdup(ptr noundef %0) #20
   store ptr %28, ptr %27, align 8
-  %.not40 = icmp eq ptr %.0.ph46, null
+  %.not40 = icmp eq ptr %.0.ph48, null
   br i1 %.not40, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.0.ph46, i64 16
+  %30 = getelementptr inbounds i8, ptr %.0.ph48, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.57, ptr noundef %31) #20
   br label %35
@@ -5185,9 +5185,9 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %45
 
 45:                                               ; preds = %43, %40
-  %.sink59 = phi ptr [ %41, %40 ], [ %44, %43 ]
+  %.sink58 = phi ptr [ %41, %40 ], [ %44, %43 ]
   %46 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %.sink59, ptr %46, align 8
+  store ptr %.sink58, ptr %46, align 8
   tail call void @list_append(ptr noundef nonnull %2, ptr noundef nonnull %27) #20
   br label %.sink.split
 

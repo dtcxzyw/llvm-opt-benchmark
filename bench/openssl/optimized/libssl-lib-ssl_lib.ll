@@ -3618,13 +3618,10 @@ if.end24.i62:                                     ; preds = %if.end19.i57
 SSL_get_wbio.exit67:                              ; preds = %land.lhs.true.i64, %if.then.i54, %if.then21.i60, %if.end24.i62
   %retval.0.i56 = phi ptr [ %call.i55, %if.then.i54 ], [ %call23.i61, %if.then21.i60 ], [ %16, %if.end24.i62 ], [ null, %land.lhs.true.i64 ]
   %cmp14 = icmp eq ptr %wbio, %retval.0.i56
-  br i1 %cmp14, label %land.lhs.true15, label %if.end20
-
-land.lhs.true15:                                  ; preds = %SSL_get_wbio.exit67
-  br i1 %cmp.i, label %return, label %cond.false.i69
-
-cond.false.i69:                                   ; preds = %land.lhs.true15
   %17 = load i32, ptr %s, align 8
+  br i1 %cmp14, label %cond.false.i69, label %cond.false.i105
+
+cond.false.i69:                                   ; preds = %SSL_get_wbio.exit67
   switch i32 %17, label %land.lhs.true.i75 [
     i32 0, label %cond.false.i80.thread
     i32 1, label %if.then.i70
@@ -3714,15 +3711,8 @@ if.end19.i98:                                     ; preds = %cond.false.i96
   %call.i100 = tail call i32 %24(ptr noundef %25, ptr noundef %rbio) #24
   br label %return
 
-if.end20:                                         ; preds = %SSL_get_wbio.exit67
-  br i1 %cmp.i, label %return, label %if.end20.cond.false.i105_crit_edge
-
-if.end20.cond.false.i105_crit_edge:               ; preds = %if.end20
-  %.pre = load i32, ptr %s, align 8
-  br label %cond.false.i105
-
-cond.false.i105:                                  ; preds = %if.end20.cond.false.i105_crit_edge, %SSL_get_wbio.exit94
-  %26 = phi i32 [ %.pre, %if.end20.cond.false.i105_crit_edge ], [ %.pre155, %SSL_get_wbio.exit94 ]
+cond.false.i105:                                  ; preds = %SSL_get_wbio.exit67, %SSL_get_wbio.exit94
+  %26 = phi i32 [ %.pre155, %SSL_get_wbio.exit94 ], [ %17, %SSL_get_wbio.exit67 ]
   switch i32 %26, label %land.lhs.true.i113 [
     i32 0, label %if.end19.i107
     i32 1, label %if.then.i106
@@ -3808,7 +3798,7 @@ if.end34.i132:                                    ; preds = %if.then29.i130, %if
   %call37.i136 = tail call i32 %37(ptr noundef %38, ptr noundef %35) #24
   br label %return
 
-return:                                           ; preds = %if.end8, %land.lhs.true15, %if.end34.i132, %if.then.i119, %land.lhs.true.i137, %if.end20, %if.end19.i98, %if.then.i97, %land.lhs.true.i101, %if.end34.i, %if.then.i42, %land.lhs.true.i49, %SSL_get_wbio.exit
+return:                                           ; preds = %if.end8, %if.end34.i132, %if.then.i119, %land.lhs.true.i137, %if.end19.i98, %if.then.i97, %land.lhs.true.i101, %if.end34.i, %if.then.i42, %land.lhs.true.i49, %SSL_get_wbio.exit
   ret void
 }
 

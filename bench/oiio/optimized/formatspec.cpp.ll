@@ -11948,7 +11948,7 @@ land.lhs.true.i857:                               ; preds = %land.lhs.true.i849
 
 if.end.i860:                                      ; preds = %for.inc.i852, %land.lhs.true.i857
   %cond.i = phi ptr [ %spec.select.i, %land.lhs.true.i857 ], [ @.str.47, %for.inc.i852 ]
-  br i1 %tobool3.not7.i844, label %lor.lhs.false.i.i, label %for.body.i864
+  br label %for.body.i864
 
 for.body.i864:                                    ; preds = %if.end.i860, %for.inc.i871
   %i.08.i865 = phi ptr [ %i.0.i873, %for.inc.i871 ], [ %i.06.i843, %if.end.i860 ]
@@ -11975,9 +11975,9 @@ land.lhs.true.i878:                               ; preds = %land.lhs.true.i868
   %spec.select.i881 = select i1 %tobool3.not.i880, ptr @.str.47, ptr %207
   br label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %for.inc.i871, %if.end.i842, %if.end.i860, %land.lhs.true.i878
-  %cond.i1091 = phi ptr [ %cond.i, %land.lhs.true.i878 ], [ %cond.i, %if.end.i860 ], [ @.str.47, %if.end.i842 ], [ %cond.i, %for.inc.i871 ]
-  %cond.i882 = phi ptr [ %spec.select.i881, %land.lhs.true.i878 ], [ @.str.47, %if.end.i860 ], [ @.str.47, %if.end.i842 ], [ @.str.47, %for.inc.i871 ]
+lor.lhs.false.i.i:                                ; preds = %for.inc.i871, %if.end.i842, %land.lhs.true.i878
+  %cond.i1091 = phi ptr [ %cond.i, %land.lhs.true.i878 ], [ @.str.47, %if.end.i842 ], [ %cond.i, %for.inc.i871 ]
+  %cond.i882 = phi ptr [ %spec.select.i881, %land.lhs.true.i878 ], [ @.str.47, %if.end.i842 ], [ @.str.47, %for.inc.i871 ]
   %208 = load i64, ptr %__begin1.sroa.0.01031, align 8
   %209 = trunc i64 %208 to i32
   %conv.i.i.i885 = and i32 %209, 15
@@ -81909,8 +81909,8 @@ if.end4.i:                                        ; preds = %if.end.i
 while.cond.i:                                     ; preds = %call.i.i3.i.noexc, %if.end4.i
   %7 = load ptr, ptr %_M_begin.i, align 8
   %8 = load ptr, ptr %_M_end.i, align 8
-  %cmp.i.not.not.i.not = icmp ne ptr %7, %8
-  br i1 %cmp.i.not.not.i.not, label %while.body.i, label %if.end21
+  %cmp.i.not.not.i.not.not = icmp ne ptr %7, %8
+  br i1 %cmp.i.not.not.i.not.not, label %while.body.i, label %if.end21
 
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 1
@@ -81924,7 +81924,7 @@ call.i.i3.i.noexc:                                ; preds = %while.body.i
   br i1 %call.i.i3.i45, label %if.end21, label %while.cond.i, !llvm.loop !828
 
 if.end21:                                         ; preds = %call.i.i3.i.noexc, %while.cond.i, %if.end.i, %call.i.i.i.noexc, %if.then15
-  %__ret.0.in = phi i1 [ %call.i.i43, %if.then15 ], [ true, %call.i.i.i.noexc ], [ false, %if.end.i ], [ %cmp.i.not.not.i.not, %while.cond.i ], [ %cmp.i.not.not.i.not, %call.i.i3.i.noexc ]
+  %__ret.0.in = phi i1 [ %call.i.i43, %if.then15 ], [ true, %call.i.i.i.noexc ], [ false, %if.end.i ], [ %cmp.i.not.not.i.not.not, %while.cond.i ], [ %cmp.i.not.not.i.not.not, %call.i.i3.i.noexc ]
   %_M_states.i = getelementptr inbounds i8, ptr %__executor, i64 96
   %_M_visited_states.i.i = getelementptr inbounds i8, ptr %__executor, i64 120
   %9 = load ptr, ptr %_M_visited_states.i.i, align 8
@@ -82451,8 +82451,8 @@ if.end4:                                          ; preds = %if.end
 while.cond:                                       ; preds = %while.body, %if.end4
   %5 = load ptr, ptr %_M_begin.i, align 8
   %6 = load ptr, ptr %_M_end, align 8
-  %cmp.i.not.not = icmp ne ptr %5, %6
-  br i1 %cmp.i.not.not, label %while.body, label %return
+  %cmp.i.not.not.not = icmp ne ptr %5, %6
+  br i1 %cmp.i.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 1
@@ -82470,7 +82470,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %tobool.i.i.i8, label %return, label %while.cond, !llvm.loop !831
 
 return:                                           ; preds = %while.cond, %while.body, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp.i.not.not, %while.body ], [ %cmp.i.not.not, %while.cond ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp.i.not.not.not, %while.body ], [ %cmp.i.not.not.not, %while.cond ]
   ret i1 %retval.0
 }
 

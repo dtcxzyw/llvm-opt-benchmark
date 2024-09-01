@@ -429,12 +429,12 @@ cleanup.action37:                                 ; preds = %cleanup.action30, %
   br label %cleanup.done38
 
 cleanup.done38:                                   ; preds = %ehcleanup, %cleanup.action37
-  %.pn.pn.pn40 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %cleanup.action37 ], [ %9, %ehcleanup ]
+  %.pn.pn.pn38 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %cleanup.action37 ], [ %9, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %cleanup.done38, %lpad6
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn40, %cleanup.done38 ], [ %5, %lpad6 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn38, %cleanup.done38 ], [ %5, %lpad6 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #17
   br label %ehcleanup41
 

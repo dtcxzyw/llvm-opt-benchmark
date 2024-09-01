@@ -464,7 +464,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %.backedge.backedge, label %.thread12
 
-.thread12:                                        ; preds = %.thread11, %252
+.thread12:                                        ; preds = %252, %.thread11
   call void @mutex_unlock(ptr noundef %8) #4
   br label %.thread14
 

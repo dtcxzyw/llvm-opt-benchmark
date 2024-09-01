@@ -57,8 +57,8 @@ define hidden void @_ZN3ade3dfsERKNS_6HandleINS_4NodeEEENS_4util8func_refIFbS4_E
 
 15:                                               ; preds = %15, %5
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %14, %5 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i)
   %16 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
   %17 = cmpxchg weak ptr %13, i32 %.06.i.i.i.i.i.i.i.i, i32 %16 acq_rel monotonic, align 8, !noalias !4
   %18 = extractvalue { i32, i1 } %17, 1
@@ -173,8 +173,8 @@ define internal fastcc void @_ZN3ade7details12_GLOBAL__N_127TransitiveClosureHel
 
 10:                                               ; preds = %10, %3
   %.06.i.i.i.i.i.i.i = phi i32 [ %9, %3 ], [ %14, %10 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %11 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %12 = cmpxchg weak ptr %8, i32 %.06.i.i.i.i.i.i.i, i32 %11 acq_rel monotonic, align 8, !noalias !10
   %13 = extractvalue { i32, i1 } %12, 1
@@ -307,8 +307,8 @@ define internal void @_ZN3ade4util8func_refIFvRKNS_6HandleINS_4NodeEEEEE5thunkIZ
 
 18:                                               ; preds = %18, %10
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %17, %10 ], [ %22, %18 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i)
   %19 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
   %20 = cmpxchg weak ptr %16, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %19 acq_rel monotonic, align 8, !noalias !13
   %21 = extractvalue { i32, i1 } %20, 1
@@ -420,8 +420,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNS
 
 9:                                                ; preds = %10, %6
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %8, %6 ], [ %14, %10 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEESt4pairIKS4_St13unordered_setIS4_NS1_12HandleHasherIS3_EESt8equal_toIS4_ESaIS4_EEENS_10_Select1stES9_NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %10
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEESt4pairIKS4_St13unordered_setIS4_NS1_12HandleHasherIS3_EESt8equal_toIS4_ESaIS4_EEENS_10_Select1stES9_NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %10
 
 10:                                               ; preds = %9
   %11 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
@@ -746,8 +746,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ade6HandleINS_4NodeEEeqERKS2
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -842,8 +842,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %8, %2, %30, %43, %_
 
 54:                                               ; preds = %55, %51
   %.06.i.i.i.i.i.i3 = phi i32 [ %53, %51 ], [ %59, %55 ]
-  %.not.i.not.i.i.i.i.i4 = icmp eq i32 %.06.i.i.i.i.i.i3, 0
-  br i1 %.not.i.not.i.i.i.i.i4, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit14, label %55
+  %.not.not.not.i.not.i.i.i.i.i4 = icmp eq i32 %.06.i.i.i.i.i.i3, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i4, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit14, label %55
 
 55:                                               ; preds = %54
   %56 = add nsw i32 %.06.i.i.i.i.i.i3, 1
@@ -1236,8 +1236,8 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN3ade6HandleINS0_4NodeEEESt4p
 
 17:                                               ; preds = %18, %14
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %16, %14 ], [ %22, %18 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEESt4pairIKS4_St13unordered_setIS4_NS1_12HandleHasherIS3_EESt8equal_toIS4_ESaIS4_EEENS_10_Select1stES9_NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %18
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEESt4pairIKS4_St13unordered_setIS4_NS1_12HandleHasherIS3_EESt8equal_toIS4_ESaIS4_EEENS_10_Select1stES9_NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit, label %18
 
 18:                                               ; preds = %17
   %19 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
@@ -1407,8 +1407,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ade6HandleINS0_4Node
 
 19:                                               ; preds = %20, %16
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %18, %16 ], [ %24, %20 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit, label %20
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit, label %20
 
 20:                                               ; preds = %19
   %21 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1

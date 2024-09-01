@@ -5993,7 +5993,7 @@ call2.i.i.i26.noexc:                              ; preds = %if.end15.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
-  %.pre419 = load ptr, ptr %ref.tmp11, align 8
+  %.pre420 = load ptr, ptr %ref.tmp11, align 8
   br i1 %tobool.not.i.i.i.i, label %invoke.cont13, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call2.i.i.i26.noexc
@@ -6003,7 +6003,7 @@ if.end.i.i.i.i:                                   ; preds = %call2.i.i.i26.noexc
   %13 = load i64, ptr %add.ptr.i9.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i = icmp eq i64 %call2.i.i.i2629, %13
   %14 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i.i11.i.i.i.i = icmp eq ptr %.pre419, %14
+  %cmp.i.i.i.i11.i.i.i.i = icmp eq ptr %.pre420, %14
   %15 = select i1 %cmp.i.i10.i.i.i.i, i1 %cmp.i.i.i.i11.i.i.i.i, i1 false
   br i1 %15, label %invoke.cont13, label %if.end3.i.i.i.i
 
@@ -6011,7 +6011,7 @@ for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i2629, %19
   %16 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %.pre419, %16
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %.pre420, %16
   %17 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
   br i1 %17, label %invoke.cont13, label %if.end3.i.i.i.i, !llvm.loop !166
 
@@ -6029,7 +6029,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %invoke.cont13, !llvm.loop !166
 
 invoke.cont13:                                    ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i.i.i, %for.body.i.i, %for.cond.i.i, %if.end.i.i.i.i, %call2.i.i.i26.noexc
-  %20 = phi ptr [ %.pre419, %call2.i.i.i26.noexc ], [ %.pre419, %if.end.i.i.i.i ], [ %7, %for.cond.i.i ], [ %7, %for.body.i.i ], [ %.pre419, %for.cond.i.i.i.i ], [ %.pre419, %if.end3.i.i.i.i ], [ %.pre419, %lor.lhs.false.i.i.i.i ]
+  %20 = phi ptr [ %.pre420, %call2.i.i.i26.noexc ], [ %.pre420, %if.end.i.i.i.i ], [ %7, %for.cond.i.i ], [ %7, %for.body.i.i ], [ %.pre420, %for.cond.i.i.i.i ], [ %.pre420, %if.end3.i.i.i.i ], [ %.pre420, %lor.lhs.false.i.i.i.i ]
   %retval.sroa.0.1.i.i = phi ptr [ null, %call2.i.i.i26.noexc ], [ %12, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ null, %for.cond.i.i ], [ null, %lor.lhs.false.i.i.i.i ], [ null, %if.end3.i.i.i.i ], [ %18, %for.cond.i.i.i.i ]
   %bf.load.i.i30 = load i64, ptr %20, align 8
   %21 = and i64 %bf.load.i.i30, 1152920405095219200
@@ -6092,8 +6092,8 @@ land.rhs:                                         ; preds = %cond.true.i.i, %if.
   %stack.sroa.0.0387 = phi ptr [ %call5.i.i.i.i249, %cond.true.i.i ], [ %stack.sroa.0.1, %if.end107 ]
   %stack.sroa.9.0386 = phi ptr [ %incdec.ptr.i246, %cond.true.i.i ], [ %stack.sroa.9.1, %if.end107 ]
   %stack.sroa.27.0385 = phi ptr [ %incdec.ptr.i246, %cond.true.i.i ], [ %stack.sroa.27.1, %if.end107 ]
-  %cmp.i.i42 = icmp ne ptr %stack.sroa.0.0387, %stack.sroa.9.0386
-  br i1 %cmp.i.i42, label %while.body, label %if.end129
+  %cmp.i.i42.not.not.not.not = icmp ne ptr %stack.sroa.0.0387, %stack.sroa.9.0386
+  br i1 %cmp.i.i42.not.not.not.not, label %while.body, label %if.end129
 
 while.body:                                       ; preds = %land.rhs
   %add.ptr.i.i44 = getelementptr inbounds i8, ptr %stack.sroa.9.0386, i64 -16
@@ -6319,7 +6319,7 @@ call2.i.i.i147.noexc:                             ; preds = %if.end15.i.i146
   %arrayidx.i.i.i.i150 = getelementptr inbounds ptr, ptr %48, i64 %rem.i.i.i.i.i149
   %49 = load ptr, ptr %arrayidx.i.i.i.i150, align 8
   %tobool.not.i.i.i.i151 = icmp eq ptr %49, null
-  %.pre420 = load ptr, ptr %ref.tmp74, align 8
+  %.pre421 = load ptr, ptr %ref.tmp74, align 8
   br i1 %tobool.not.i.i.i.i151, label %invoke.cont77, label %if.end.i.i.i.i152
 
 if.end.i.i.i.i152:                                ; preds = %call2.i.i.i147.noexc
@@ -6329,7 +6329,7 @@ if.end.i.i.i.i152:                                ; preds = %call2.i.i.i147.noex
   %51 = load i64, ptr %add.ptr.i9.i.i.i.i154, align 8
   %cmp.i.i10.i.i.i.i155 = icmp eq i64 %call2.i.i.i147178, %51
   %52 = load ptr, ptr %add.ptr8.i.i.i.i153, align 8
-  %cmp.i.i.i.i11.i.i.i.i156 = icmp eq ptr %.pre420, %52
+  %cmp.i.i.i.i11.i.i.i.i156 = icmp eq ptr %.pre421, %52
   %53 = select i1 %cmp.i.i10.i.i.i.i155, i1 %cmp.i.i.i.i11.i.i.i.i156, i1 false
   br i1 %53, label %invoke.cont77, label %if.end3.i.i.i.i157
 
@@ -6337,7 +6337,7 @@ for.cond.i.i.i.i165:                              ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i166 = getelementptr inbounds i8, ptr %56, i64 8
   %cmp.i.i.i.i.i.i167 = icmp eq i64 %call2.i.i.i147178, %57
   %54 = load ptr, ptr %add.ptr.i.i.i.i166, align 8
-  %cmp.i.i.i.i.i.i.i.i168 = icmp eq ptr %.pre420, %54
+  %cmp.i.i.i.i.i.i.i.i168 = icmp eq ptr %.pre421, %54
   %55 = select i1 %cmp.i.i.i.i.i.i167, i1 %cmp.i.i.i.i.i.i.i.i168, i1 false
   br i1 %55, label %invoke.cont77, label %if.end3.i.i.i.i157, !llvm.loop !166
 
@@ -6355,7 +6355,7 @@ lor.lhs.false.i.i.i.i160:                         ; preds = %if.end3.i.i.i.i157
   br i1 %cmp.not.i.i.i.i163, label %for.cond.i.i.i.i165, label %invoke.cont77, !llvm.loop !166
 
 invoke.cont77:                                    ; preds = %lor.lhs.false.i.i.i.i160, %if.end3.i.i.i.i157, %for.cond.i.i.i.i165, %for.body.i.i175, %for.cond.i.i171, %if.end.i.i.i.i152, %call2.i.i.i147.noexc
-  %58 = phi ptr [ %.pre420, %call2.i.i.i147.noexc ], [ %.pre420, %if.end.i.i.i.i152 ], [ %45, %for.cond.i.i171 ], [ %45, %for.body.i.i175 ], [ %.pre420, %for.cond.i.i.i.i165 ], [ %.pre420, %if.end3.i.i.i.i157 ], [ %.pre420, %lor.lhs.false.i.i.i.i160 ]
+  %58 = phi ptr [ %.pre421, %call2.i.i.i147.noexc ], [ %.pre421, %if.end.i.i.i.i152 ], [ %45, %for.cond.i.i171 ], [ %45, %for.body.i.i175 ], [ %.pre421, %for.cond.i.i.i.i165 ], [ %.pre421, %if.end3.i.i.i.i157 ], [ %.pre421, %lor.lhs.false.i.i.i.i160 ]
   %retval.sroa.0.1.i.i164 = phi ptr [ null, %call2.i.i.i147.noexc ], [ %50, %if.end.i.i.i.i152 ], [ %retval.sroa.0.0.i.i173, %for.body.i.i175 ], [ null, %for.cond.i.i171 ], [ null, %lor.lhs.false.i.i.i.i160 ], [ null, %if.end3.i.i.i.i157 ], [ %56, %for.cond.i.i.i.i165 ]
   %bf.load.i.i180 = load i64, ptr %58, align 8
   %59 = and i64 %bf.load.i.i180, 1152920405095219200
@@ -6604,7 +6604,7 @@ if.then.i.i.i240:                                 ; preds = %ehcleanup131
   br label %eh.resume
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %if.then.i.i.i, %if.end129, %lor.rhs.i, %if.then18
-  %retval.0 = phi i1 [ %tobool, %if.then18 ], [ false, %lor.rhs.i ], [ %cmp.i.i42, %if.end129 ], [ %cmp.i.i42, %if.then.i.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
+  %retval.0 = phi i1 [ %tobool, %if.then18 ], [ false, %lor.rhs.i ], [ %cmp.i.i42.not.not.not.not, %if.end129 ], [ %cmp.i.i42.not.not.not.not, %if.then.i.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i240, %ehcleanup131, %lpad12

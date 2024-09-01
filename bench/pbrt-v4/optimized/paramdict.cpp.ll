@@ -10970,16 +10970,16 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.body.lr.ph.i, label %for.body.i.i.i.i.i.i, !llvm.loop !145
+  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i.i.i, !llvm.loop !145
 
-for.body.lr.ph.i:                                 ; preds = %for.body.i.i.i.i.i.i
+invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i.i
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !alias.scope !142
   %ptr.i.i11 = getelementptr inbounds i8, ptr %call7, i64 8
   %loc13.i = getelementptr inbounds i8, ptr %3, i64 64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %invoke.cont14.i, %for.body.lr.ph.i
-  %i.017.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %invoke.cont14.i ]
+for.body.i:                                       ; preds = %invoke.cont14.i, %invoke.cont.i
+  %i.017.i = phi i64 [ 0, %invoke.cont.i ], [ %inc.i, %invoke.cont14.i ]
   %mul.i = mul i64 %i.017.i, %conv.i
   %7 = load ptr, ptr %ptr.i.i11, align 8, !noalias !142
   %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %mul.i

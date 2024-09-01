@@ -2664,7 +2664,7 @@ for.inc.i:                                        ; preds = %if.then9.i, %if.end
   br i1 %cmp.not.i, label %_ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE4sizeEv.exit, label %for.body.i
 
 _ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE4sizeEv.exit: ; preds = %if.then9.i, %for.inc.i, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i, %if.end22
-  %retval.0.i4261 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %r.1.i, %for.inc.i ], [ %inc.i, %if.then9.i ]
+  %retval.0.i4261 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %inc.i, %if.then9.i ], [ %r.1.i, %for.inc.i ]
   %retval.0.i48 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %27, %for.inc.i ], [ %27, %if.then9.i ]
   %cmp27 = icmp ult i32 %retval.0.i4261, %min_non_free_so_far.0
   br i1 %cmp27, label %if.then30, label %lor.lhs.false
@@ -12209,7 +12209,7 @@ for.inc.i:                                        ; preds = %if.then9.i, %if.end
   br i1 %cmp.not.i, label %_ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE4sizeEv.exit, label %for.body.i
 
 _ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE4sizeEv.exit: ; preds = %if.then9.i, %for.inc.i, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i, %if.end22
-  %retval.0.i4261 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %r.1.i, %for.inc.i ], [ %inc.i, %if.then9.i ]
+  %retval.0.i4261 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %inc.i, %if.then9.i ], [ %r.1.i, %for.inc.i ]
   %retval.0.i48 = phi i32 [ 0, %if.end22 ], [ 0, %_ZN6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit.i ], [ %20, %for.inc.i ], [ %20, %if.then9.i ]
   %cmp27 = icmp ult i32 %retval.0.i4261, %min_non_free_so_far.0
   br i1 %cmp27, label %if.then30, label %lor.lhs.false

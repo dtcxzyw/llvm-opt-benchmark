@@ -1117,7 +1117,7 @@ invoke.cont106:                                   ; preds = %if.end98
   %cmp.i185.not230 = icmp eq ptr %59, %add.ptr.i184229
   br i1 %cmp.i185.not230, label %for.end194, label %for.body
 
-for.cond.loopexit:                                ; preds = %invoke.cont181, %arrayctor.cont163.thread, %arrayctor.cont163
+for.cond.loopexit:                                ; preds = %invoke.cont181, %arrayctor.cont163.thread
   %65 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i184 = getelementptr inbounds i8, ptr %65, i64 -4
   %cmp.i185.not = icmp eq ptr %add.ptr.i191, %add.ptr.i184
@@ -1251,7 +1251,7 @@ arrayctor.loop159:                                ; preds = %arrayctor.loop159, 
 
 arrayctor.cont163:                                ; preds = %arrayctor.loop159
   store ptr %call155, ptr %mRotationKeys.i, align 8
-  br i1 %isempty156, label %for.cond.loopexit, label %for.body167
+  br label %for.body167
 
 for.body167:                                      ; preds = %arrayctor.cont163, %invoke.cont181
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont181 ], [ 0, %arrayctor.cont163 ]
@@ -3214,12 +3214,9 @@ for.body332:                                      ; preds = %for.body332.lr.ph, 
 
 for.end340:                                       ; preds = %for.body332
   %tobool341 = fcmp une float %add337, 0.000000e+00
-  br i1 %tobool341, label %for.cond351.preheader, label %if.then342
+  br i1 %tobool341, label %for.body356.lr.ph, label %if.then342
 
-for.cond351.preheader:                            ; preds = %for.end340
-  br i1 %cmp331438, label %for.body356.lr.ph, label %for.inc415
-
-for.body356.lr.ph:                                ; preds = %for.cond351.preheader
+for.body356.lr.ph:                                ; preds = %for.end340
   %sub.ptr.lhs.cast = ptrtoint ptr %pv.2447 to i64
   %136 = zext i32 %131 to i64
   br label %for.body356
@@ -3370,7 +3367,7 @@ for.inc412:                                       ; preds = %if.end365, %invoke.
   %cmp355 = icmp ult i64 %indvars.iv.next465, %181
   br i1 %cmp355, label %for.body356, label %for.inc415, !llvm.loop !22
 
-for.inc415:                                       ; preds = %for.inc412, %for.cond351.preheader, %invoke.cont343
+for.inc415:                                       ; preds = %for.inc412, %invoke.cont343
   %incdec.ptr.i267 = getelementptr inbounds i8, ptr %iter310.sroa.0.0446, i64 16
   %incdec.ptr417 = getelementptr inbounds i8, ptr %pv.2447, i64 12
   %182 = load ptr, ptr %_M_finish.i.i174, align 8

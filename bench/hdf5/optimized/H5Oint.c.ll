@@ -936,8 +936,8 @@ define ptr @H5O_open_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   store ptr %5, ptr %7, align 8
   %8 = call i32 @H5G_loc_reset(ptr noundef nonnull %4) #11
   %9 = call i32 @H5G_loc_find(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #11
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %15
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @H5E_OHDR_g, align 8
@@ -1036,8 +1036,8 @@ define ptr @H5O__open_by_idx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store ptr %8, ptr %10, align 8
   %11 = call i32 @H5G_loc_reset(ptr noundef nonnull %7) #11
   %12 = call i32 @H5G_loc_find_by_idx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef nonnull %7) #11
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %18
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %6
   %15 = load i64, ptr @H5E_OHDR_g, align 8

@@ -4468,16 +4468,16 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 _ZN5arrow9StopTokenD2Ev.exit.i:                   ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit.i
   %29 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i1.i = icmp eq ptr %29, null
-  br i1 %cmp.not.i.i1.i, label %cleanup.cont, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i
+  br i1 %cmp.not.i.i1.i, label %cleanup, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i: ; preds = %_ZN5arrow9StopTokenD2Ev.exit.i
   %vtable.i.i.i2.i = load ptr, ptr %29, align 8
   %vfn.i.i.i3.i = getelementptr inbounds i8, ptr %vtable.i.i.i2.i, i64 8
   %30 = load ptr, ptr %vfn.i.i.i3.i, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29) #30
-  br label %cleanup.cont
+  br label %cleanup
 
-cleanup.cont:                                     ; preds = %_ZN5arrow9StopTokenD2Ev.exit.i, %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i
+cleanup:                                          ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i
   %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
   %31 = load ptr, ptr %state_, align 8
   %cv_ = getelementptr inbounds i8, ptr %31, i64 40
@@ -4496,7 +4496,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #30
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %cleanup.thread, %cleanup.cont
+return:                                           ; preds = %cleanup.thread, %cleanup
   ret void
 }
 
@@ -7241,8 +7241,8 @@ land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %entry
 
 do.body.i.i.i.i.i.i.i.i:                          ; preds = %do.cond.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %do.cond.i.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %do.cond.i.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i.i, 1

@@ -443,8 +443,8 @@ while.cond:                                       ; preds = %while.body, %entry
   %cf.pn = phi ptr [ %cf, %entry ], [ %0, %while.body ]
   %pprev.0 = getelementptr inbounds i8, ptr %cf.pn, i64 8
   %0 = load ptr, ptr %pprev.0, align 8
-  %tobool.not.not = icmp ne ptr %0, null
-  br i1 %tobool.not.not, label %while.body, label %lor.lhs.false.critedge
+  %tobool.not.not.not.not.not.not = icmp ne ptr %0, null
+  br i1 %tobool.not.not.not.not.not.not, label %while.body, label %lor.lhs.false.critedge
 
 while.body:                                       ; preds = %while.cond
   %cmp = icmp eq ptr %0, %cf
@@ -472,7 +472,8 @@ if.then6:                                         ; preds = %if.then, %lor.lhs.f
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %lor.lhs.false.critedge
-  ret i1 %tobool.not.not
+  %tobool.not.not.not19 = phi i1 [ %tobool.not.not.not.not.not.not, %if.then6 ], [ false, %lor.lhs.false.critedge ]
+  ret i1 %tobool.not.not.not19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -824,8 +825,8 @@ while.body:                                       ; preds = %entry, %while.cond
   %connected = getelementptr inbounds i8, ptr %cf.06, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
-  %tobool1.not.not = icmp ne i8 %bf.clear, 0
-  br i1 %tobool1.not.not, label %return, label %if.end
+  %tobool1.not.not.not = icmp ne i8 %bf.clear, 0
+  br i1 %tobool1.not.not.not, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
   %1 = load ptr, ptr %cf.06, align 8
@@ -836,7 +837,7 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool2.not, label %while.cond, label %return
 
 return:                                           ; preds = %while.body, %if.end, %while.cond, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %tobool1.not.not, %while.cond ], [ %tobool1.not.not, %if.end ], [ %tobool1.not.not, %while.body ]
+  %retval.0 = phi i1 [ false, %entry ], [ %tobool1.not.not.not, %while.cond ], [ %tobool1.not.not.not, %if.end ], [ %tobool1.not.not.not, %while.body ]
   ret i1 %retval.0
 }
 

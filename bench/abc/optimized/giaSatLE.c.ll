@@ -378,16 +378,16 @@ Sle_SetCutIsContainedOrder.exit.thread.i:         ; preds = %152, %.lr.ph.i.i, %
   %155 = zext nneg i32 %154 to i64
   %156 = getelementptr inbounds i32, ptr %.0159.i, i64 %155
   %exitcond.not.i93 = icmp eq i32 %153, %125
-  br i1 %exitcond.not.i93, label %Sle_SetLastCutIsContained.exit, label %129, !llvm.loop !8
+  br i1 %exitcond.not.i93, label %.lr.ph.i97, label %129, !llvm.loop !8
 
-Sle_SetLastCutIsContained.exit:                   ; preds = %Sle_SetCutIsContainedOrder.exit.thread.i
+.lr.ph.i97:                                       ; preds = %Sle_SetCutIsContainedOrder.exit.thread.i
   %157 = icmp eq i32 %128, 0
   br label %158
 
-158:                                              ; preds = %Sle_SetCutIsContainedOrder.exit.thread.i98, %Sle_SetLastCutIsContained.exit
-  %159 = phi i32 [ %125, %Sle_SetLastCutIsContained.exit ], [ %177, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
-  %.034.i = phi i32 [ 0, %Sle_SetLastCutIsContained.exit ], [ %178, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
-  %.01933.i = phi ptr [ %127, %Sle_SetLastCutIsContained.exit ], [ %181, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
+158:                                              ; preds = %Sle_SetCutIsContainedOrder.exit.thread.i98, %.lr.ph.i97
+  %159 = phi i32 [ %125, %.lr.ph.i97 ], [ %177, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
+  %.034.i = phi i32 [ 0, %.lr.ph.i97 ], [ %178, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
+  %.01933.i = phi ptr [ %127, %.lr.ph.i97 ], [ %181, %Sle_SetCutIsContainedOrder.exit.thread.i98 ]
   %160 = getelementptr i8, ptr %.01933.i, i64 4
   %.019.val27.i = load i32, ptr %160, align 4
   %.not31.i = icmp ne i32 %.019.val27.i, 0

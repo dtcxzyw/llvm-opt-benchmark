@@ -6500,11 +6500,11 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %24, %22, %27, %47, 
   %86 = tail call ptr @pg_detoast_datum_packed(ptr noundef %84) #14
   %87 = ptrtoint ptr %86 to i64
   store i64 %87, ptr %1, align 8
-  %.not139 = icmp ne i8 %78, 112
+  %.not135 = icmp ne i8 %78, 112
   %.pre = load i8, ptr %86, align 1
   %88 = and i8 %.pre, 3
   %89 = icmp eq i8 %88, 0
-  %or.cond = select i1 %.not139, i1 %89, i1 false
+  %or.cond = select i1 %.not135, i1 %89, i1 false
   br i1 %or.cond, label %90, label %.thread.i
 
 90:                                               ; preds = %85
@@ -6599,7 +6599,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
 
 .thread129:                                       ; preds = %129
   %131 = load i64, ptr %2, align 8
-  %.ptr138 = inttoptr i64 %131 to ptr
+  %.ptr139 = inttoptr i64 %131 to ptr
   br label %150
 
 .thread109:                                       ; preds = %datum_compute_size.exit.thread, %129
@@ -6609,11 +6609,11 @@ datum_compute_size.exit.thread:                   ; preds = %90
   %134 = tail call ptr @pg_detoast_datum_packed(ptr noundef %133) #14
   %135 = ptrtoint ptr %134 to i64
   store i64 %135, ptr %2, align 8
-  %.not136 = icmp ne i8 %78, 112
+  %.not137 = icmp ne i8 %78, 112
   %.pre140 = load i8, ptr %134, align 1
   %136 = and i8 %.pre140, 3
   %137 = icmp eq i8 %136, 0
-  %or.cond148 = select i1 %.not136, i1 %137, i1 false
+  %or.cond148 = select i1 %.not137, i1 %137, i1 false
   br i1 %or.cond148, label %138, label %.thread.i91
 
 138:                                              ; preds = %.thread109
@@ -6637,7 +6637,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
   br i1 %.not.i93, label %150, label %.thread36.i84
 
 150:                                              ; preds = %.thread129, %.thread.i91
-  %.ptr137 = phi ptr [ %134, %.thread.i91 ], [ %.ptr138, %.thread129 ]
+  %.ptr138 = phi ptr [ %134, %.thread.i91 ], [ %.ptr139, %.thread129 ]
   %.070106114120 = phi i64 [ %.070106115, %.thread.i91 ], [ %.070, %.thread129 ]
   %151 = phi i1 [ true, %.thread.i91 ], [ false, %.thread129 ]
   switch i8 %76, label %158 [
@@ -6674,12 +6674,12 @@ datum_compute_size.exit.thread:                   ; preds = %90
   br i1 %151, label %..thread36_crit_edge.i82, label %187
 
 ..thread36_crit_edge.i82:                         ; preds = %166
-  %.pr.i83 = load i8, ptr %.ptr137, align 1
+  %.pr.i83 = load i8, ptr %.ptr138, align 1
   br label %.thread36.i84
 
 .thread36.i84:                                    ; preds = %..thread36_crit_edge.i82, %.thread.i91
   %167 = phi i8 [ %.pr.i83, %..thread36_crit_edge.i82 ], [ %148, %.thread.i91 ]
-  %.pre-phi40.i85 = phi ptr [ %.ptr137, %..thread36_crit_edge.i82 ], [ %134, %.thread.i91 ]
+  %.pre-phi40.i85 = phi ptr [ %.ptr138, %..thread36_crit_edge.i82 ], [ %134, %.thread.i91 ]
   %168 = phi i64 [ %162, %..thread36_crit_edge.i82 ], [ %.070106115, %.thread.i91 ]
   %169 = icmp eq i8 %167, 1
   br i1 %169, label %170, label %176
@@ -6717,7 +6717,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
   br label %190
 
 187:                                              ; preds = %166
-  %188 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr137) #17
+  %188 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr138) #17
   %189 = add i64 %188, 1
   br label %190
 

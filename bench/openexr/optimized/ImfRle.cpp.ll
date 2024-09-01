@@ -80,8 +80,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false28
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast
   %cmp41 = icmp sgt i64 %sub.ptr.sub40, 126
   %or.cond39.not67 = or i1 %cmp41, %cmp36.not
-  %brmerge = or i1 %or.cond39.not67, %cmp23.not
-  br i1 %brmerge, label %while.end45.loopexit.split.loop.exit74, label %land.lhs.true21.backedge
+  br i1 %or.cond39.not67, label %while.end45.loopexit, label %land.lhs.true21.backedge
 
 land.lhs.true21.backedge:                         ; preds = %lor.lhs.false31, %land.rhs37
   br label %land.lhs.true21
@@ -97,12 +96,8 @@ while.end45.loopexit.split.loop.exit:             ; preds = %land.rhs37
   %runEnd.341.mux66.le = select i1 %cmp41.old, ptr %runEnd.341, ptr %add.ptr22
   br label %while.end45.loopexit
 
-while.end45.loopexit.split.loop.exit74:           ; preds = %lor.lhs.false31
-  %runEnd.341.mux.le = select i1 %or.cond39.not67, ptr %runEnd.341, ptr %add.ptr22
-  br label %while.end45.loopexit
-
-while.end45.loopexit:                             ; preds = %while.end45.loopexit.split.loop.exit74, %while.end45.loopexit.split.loop.exit
-  %runEnd.3.lcssa.ph = phi ptr [ %runEnd.341.mux66.le, %while.end45.loopexit.split.loop.exit ], [ %runEnd.341.mux.le, %while.end45.loopexit.split.loop.exit74 ]
+while.end45.loopexit:                             ; preds = %lor.lhs.false31, %while.end45.loopexit.split.loop.exit
+  %runEnd.3.lcssa.ph = phi ptr [ %runEnd.341.mux66.le, %while.end45.loopexit.split.loop.exit ], [ %runEnd.341, %lor.lhs.false31 ]
   %.pre = ptrtoint ptr %runEnd.3.lcssa.ph to i64
   br label %while.end45
 

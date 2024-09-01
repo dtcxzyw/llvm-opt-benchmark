@@ -928,15 +928,15 @@ if.end:                                           ; preds = %lor.lhs.false.i.i.i
 
 if.end.if.end13.thread.i_crit_edge:               ; preds = %if.end
   %.pre = load i64, ptr %_M_bucket_count.i.i, align 8
-  %.pre261 = load ptr, ptr %s, align 8
-  %.pre263 = zext i32 %6 to i64
-  %.pre264 = urem i64 %.pre263, %.pre
+  %.pre254 = load ptr, ptr %s, align 8
+  %.pre256 = zext i32 %6 to i64
+  %.pre257 = urem i64 %.pre256, %.pre
   br label %if.end13.thread.i
 
 if.end13.thread.i:                                ; preds = %if.end.if.end13.thread.i_crit_edge, %if.end15.i.i
-  %rem.i.i.i24.i.pre-phi = phi i64 [ %.pre264, %if.end.if.end13.thread.i_crit_edge ], [ %rem.i.i.i.i.i, %if.end15.i.i ]
-  %conv.i.i22.i.pre-phi = phi i64 [ %.pre263, %if.end.if.end13.thread.i_crit_edge ], [ %conv.i.i.i.i, %if.end15.i.i ]
-  %17 = phi ptr [ %.pre261, %if.end.if.end13.thread.i_crit_edge ], [ %10, %if.end15.i.i ]
+  %rem.i.i.i24.i.pre-phi = phi i64 [ %.pre257, %if.end.if.end13.thread.i_crit_edge ], [ %rem.i.i.i.i.i, %if.end15.i.i ]
+  %conv.i.i22.i.pre-phi = phi i64 [ %.pre256, %if.end.if.end13.thread.i_crit_edge ], [ %conv.i.i.i.i, %if.end15.i.i ]
+  %17 = phi ptr [ %.pre254, %if.end.if.end13.thread.i_crit_edge ], [ %10, %if.end15.i.i ]
   %18 = phi i64 [ %.pre, %if.end.if.end13.thread.i_crit_edge ], [ %9, %if.end15.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %rem.i.i.i24.i.pre-phi
   %19 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -1000,7 +1000,7 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %if.end25.i
           to label %call5.i.i.i.i.i.i.noexc.invoke.cont25_crit_edge unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i
 
 call5.i.i.i.i.i.i.noexc.invoke.cont25_crit_edge:  ; preds = %call5.i.i.i.i.i.i.noexc
-  %.pre262 = load i32, ptr %__begin03.0218, align 8
+  %.pre255 = load i32, ptr %__begin03.0218, align 8
   br label %invoke.cont25
 
 _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i: ; preds = %call5.i.i.i.i.i.i.noexc
@@ -1010,7 +1010,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   br label %eh.resume
 
 invoke.cont25:                                    ; preds = %for.cond.i.i.i, %for.body.i, %call5.i.i.i.i.i.i.noexc.invoke.cont25_crit_edge, %if.end.i.i.i
-  %27 = phi i32 [ %.pre262, %call5.i.i.i.i.i.i.noexc.invoke.cont25_crit_edge ], [ %6, %if.end.i.i.i ], [ %6, %for.body.i ], [ %6, %for.cond.i.i.i ]
+  %27 = phi i32 [ %.pre255, %call5.i.i.i.i.i.i.noexc.invoke.cont25_crit_edge ], [ %6, %if.end.i.i.i ], [ %6, %for.body.i ], [ %6, %for.cond.i.i.i ]
   %28 = load ptr, ptr %m_columns, align 8
   %cmp.i37 = icmp eq ptr %28, null
   br i1 %cmp.i37, label %cleanupthread-pre-split, label %_ZNK6vectorIS_IN2lp8row_cellINS0_12empty_structEEELb1EjELb1EjE4sizeEv.exit
@@ -1324,11 +1324,11 @@ invoke.cont143:                                   ; preds = %if.else.i.i7.i.i.i1
 
 cleanup150thread-pre-split:                       ; preds = %call4.i.i.i.i.i.noexc162, %if.end117, %invoke.cont107, %if.end.i.i.i.i81, %for.cond86, %invoke.cont143, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit, %_ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit, %for.cond.i.i.i.i93, %for.body.i.i101, %_ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit
   %cmp87.not.not211.ph = phi i1 [ true, %_ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit ], [ false, %for.body.i.i101 ], [ false, %for.cond.i.i.i.i93 ], [ false, %call4.i.i.i.i.i.noexc162 ], [ false, %if.end117 ], [ false, %invoke.cont107 ], [ false, %if.end.i.i.i.i81 ], [ true, %for.cond86 ], [ false, %invoke.cont143 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE4sizeEv.exit ], [ false, %_ZNK6vectorIS_IN2lp8row_cellI8rationalEELb1EjELb1EjE4sizeEv.exit ]
-  %.pr277 = load ptr, ptr %_M_before_begin.i.i65, align 8
+  %.pr270 = load ptr, ptr %_M_before_begin.i.i65, align 8
   br label %cleanup150
 
 cleanup150:                                       ; preds = %cleanup150thread-pre-split, %for.body78
-  %72 = phi ptr [ %.pr277, %cleanup150thread-pre-split ], [ null, %for.body78 ]
+  %72 = phi ptr [ %.pr270, %cleanup150thread-pre-split ], [ null, %for.body78 ]
   %cmp87.not.not211 = phi i1 [ %cmp87.not.not211.ph, %cleanup150thread-pre-split ], [ true, %for.body78 ]
   %tobool.not3.i.i.i.i168 = icmp eq ptr %72, null
   br i1 %tobool.not3.i.i.i.i168, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i172, label %while.body.i.i.i.i169

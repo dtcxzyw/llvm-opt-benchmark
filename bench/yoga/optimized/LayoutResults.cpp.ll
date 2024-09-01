@@ -255,13 +255,11 @@ land.rhs:                                         ; preds = %land.lhs.true28
 
 lor.rhs.i:                                        ; preds = %land.rhs
   %cmp.i.i.i86 = fcmp uno float %agg.tmp31.sroa.0.0.copyload, 0.000000e+00
-  br i1 %cmp.i.i.i86, label %land.end, label %for.end
-
-land.end:                                         ; preds = %lor.rhs.i
   %cmp.i.i1.i = fcmp uno float %agg.tmp32.sroa.0.0.copyload, 0.000000e+00
-  br i1 %cmp.i.i1.i, label %land.rhs40.lr.ph, label %for.end
+  %or.cond135 = and i1 %cmp.i.i.i86, %cmp.i.i1.i
+  br i1 %or.cond135, label %land.rhs40.lr.ph, label %for.end
 
-land.rhs40.lr.ph:                                 ; preds = %land.rhs, %land.end
+land.rhs40.lr.ph:                                 ; preds = %lor.rhs.i, %land.rhs
   %cachedMeasurements = getelementptr inbounds i8, ptr %this, i64 20
   %cachedMeasurements44 = getelementptr inbounds i8, ptr %layout, i64 20
   br label %land.rhs40
@@ -330,9 +328,8 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %land.rhs40, %if.the
   %36 = select i1 %cmp36, i1 %isEqual.3.v.i, i1 false
   br i1 %36, label %land.rhs40, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %if.end.i.i, %if.end.i.i14, %if.end.i.i29, %if.end.i.i47, %if.end.i.i65, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit, %lor.rhs.i, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77, %land.lhs.true14, %land.lhs.true17, %land.lhs.true22, %land.lhs.true25, %land.lhs.true28, %land.end
-  %isEqual.0.lcssa.shrunk = phi i1 [ %cmp.i.i1.i, %land.end ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ %isEqual.3.v.i, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
-  %tobool.lcssa = phi i1 [ false, %land.end ], [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ %isEqual.3.v.i, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
+for.end:                                          ; preds = %if.end.i.i, %if.end.i.i14, %if.end.i.i29, %if.end.i.i47, %if.end.i.i65, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit, %lor.rhs.i, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77, %land.lhs.true14, %land.lhs.true17, %land.lhs.true22, %land.lhs.true25, %land.lhs.true28
+  %tobool.lcssa = phi i1 [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %lor.rhs.i ], [ %isEqual.3.v.i, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit ], [ false, %if.end.i.i65 ], [ false, %if.end.i.i47 ], [ false, %if.end.i.i29 ], [ false, %if.end.i.i14 ], [ false, %if.end.i.i ]
   %measuredDimensions_ = getelementptr inbounds i8, ptr %this, i64 248
   %37 = load float, ptr %measuredDimensions_, align 4
   %cmp.i92 = fcmp uno float %37, 0.000000e+00
@@ -344,7 +341,7 @@ lor.lhs.false:                                    ; preds = %for.end
   %cmp.i94 = fcmp ord float %38, 0.000000e+00
   %brmerge.not = select i1 %cmp.i94, i1 %tobool.lcssa, i1 false
   %not.cmp.i94 = xor i1 %cmp.i94, true
-  %narrow = select i1 %not.cmp.i94, i1 %isEqual.0.lcssa.shrunk, i1 false
+  %narrow = select i1 %not.cmp.i94, i1 %tobool.lcssa, i1 false
   br i1 %brmerge.not, label %land.rhs56, label %if.end
 
 if.then:                                          ; preds = %for.end

@@ -1703,12 +1703,9 @@ for.body87:                                       ; preds = %_ZN6vectorIPN3euf5e
   store i8 0, ptr %m_mark1.i117, align 8
   %incdec.ptr90 = getelementptr inbounds i8, ptr %__begin1.0381, i64 8
   %cmp86.not = icmp eq ptr %incdec.ptr90, %add.ptr.i116
-  br i1 %cmp86.not, label %for.end91, label %for.body87
+  br i1 %cmp86.not, label %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124, label %for.body87
 
-for.end91:                                        ; preds = %for.body87
-  br i1 %cmp.i.i113, label %for.end116, label %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124
-
-_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124:     ; preds = %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit, %for.end91
+_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124:     ; preds = %for.body87, %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit
   %arrayidx.i.i120 = getelementptr inbounds i8, ptr %63, i64 -4
   %67 = load i32, ptr %arrayidx.i.i120, align 4
   %68 = zext i32 %67 to i64
@@ -1743,7 +1740,7 @@ for.inc114:                                       ; preds = %invoke.cont109
   %cmp100.not = icmp eq ptr %incdec.ptr115, %add.ptr.i123
   br i1 %cmp100.not, label %for.end116, label %for.body101
 
-for.end116:                                       ; preds = %for.inc114, %for.end80, %for.end91, %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124
+for.end116:                                       ; preds = %for.inc114, %for.end80, %_ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit124
   %76 = load ptr, ptr %m, align 8
   store ptr null, ptr %new_expr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %new_expr, i64 8

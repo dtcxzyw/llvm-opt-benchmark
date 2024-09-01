@@ -497,17 +497,14 @@ str_end_with_word.exit157:                        ; preds = %58, %59
   %.lcssa.in.i154 = phi i64 [ %44, %58 ], [ %indvars.iv.next.i152, %59 ]
   %.lcssa.i155 = trunc i64 %.lcssa.in.i154 to i32
   %67 = icmp sgt i32 %.lcssa.i155, 0
-  br i1 %67, label %68, label %str_end_with_word.exit157.thread
+  br i1 %67, label %68, label %str_end_with_word.exit157.thread.thread
 
 68:                                               ; preds = %str_end_with_word.exit157
   %69 = and i64 %.lcssa.in.i154, 2147483647
   %70 = sub nsw i64 %44, %69
   br label %str_end_with_word.exit172.thread
 
-str_end_with_word.exit157.thread:                 ; preds = %str_end_with_word.exit157
-  br i1 %.not.i144, label %str_end_with_word.exit157.thread.thread, label %str_end_with_word.exit172.thread
-
-str_end_with_word.exit157.thread.thread:          ; preds = %45, %54, %str_end_with_word.exit157.thread
+str_end_with_word.exit157.thread.thread:          ; preds = %str_end_with_word.exit157, %45, %54
   %71 = add nsw i64 %44, -8
   %72 = getelementptr i8, ptr %.sroa.2.0.i, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -1
@@ -613,9 +610,9 @@ str_end_with_word.exit187:                        ; preds = %110, %111
   %122 = sub nsw i64 %12, %121
   br label %str_end_with_word.exit172.thread
 
-str_end_with_word.exit172.thread:                 ; preds = %42, %str_end_with_word.exit.thread, %79, %str_end_with_word.exit157.thread, %str_end_with_word.exit157.thread.thread, %str_end_with_word.exit172, %str_end_with_word.exit187, %120, %68, %93
-  %.not138 = phi i1 [ true, %68 ], [ false, %93 ], [ false, %120 ], [ true, %str_end_with_word.exit187 ], [ true, %str_end_with_word.exit172 ], [ true, %str_end_with_word.exit157.thread.thread ], [ true, %str_end_with_word.exit157.thread ], [ true, %79 ], [ true, %str_end_with_word.exit.thread ], [ true, %42 ]
-  %.0105 = phi i64 [ %70, %68 ], [ %95, %93 ], [ %122, %120 ], [ %12, %str_end_with_word.exit187 ], [ %12, %str_end_with_word.exit172 ], [ %12, %str_end_with_word.exit157.thread.thread ], [ %12, %str_end_with_word.exit157.thread ], [ %12, %79 ], [ %12, %str_end_with_word.exit.thread ], [ %12, %42 ]
+str_end_with_word.exit172.thread:                 ; preds = %42, %str_end_with_word.exit.thread, %79, %str_end_with_word.exit157.thread.thread, %str_end_with_word.exit172, %str_end_with_word.exit187, %120, %68, %93
+  %.not138 = phi i1 [ true, %68 ], [ false, %93 ], [ false, %120 ], [ true, %str_end_with_word.exit187 ], [ true, %str_end_with_word.exit172 ], [ true, %str_end_with_word.exit157.thread.thread ], [ true, %79 ], [ true, %str_end_with_word.exit.thread ], [ true, %42 ]
+  %.0105 = phi i64 [ %70, %68 ], [ %95, %93 ], [ %122, %120 ], [ %12, %str_end_with_word.exit187 ], [ %12, %str_end_with_word.exit172 ], [ %12, %str_end_with_word.exit157.thread.thread ], [ %12, %79 ], [ %12, %str_end_with_word.exit.thread ], [ %12, %42 ]
   %123 = icmp sgt i64 %.0105, 0
   br i1 %123, label %.lr.ph.i, label %shrunk_size.exit
 

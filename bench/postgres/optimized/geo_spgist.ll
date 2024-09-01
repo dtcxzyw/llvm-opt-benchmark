@@ -1191,8 +1191,8 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %16, align 8
   %71 = sext i32 %70 to i64
-  %.not92 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %.not92, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %.not79 = icmp slt i64 %indvars.iv.next, %71
+  br i1 %.not79, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %69, %15
   %72 = getelementptr inbounds i8, ptr %4, i64 20

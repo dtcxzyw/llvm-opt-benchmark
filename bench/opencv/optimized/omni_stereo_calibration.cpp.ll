@@ -335,7 +335,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %182 = phi i32 [ %178, %sub_1 ], [ %181, %sub_2 ]
   %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %sub_0232
+  br i1 %183, label %184, label %sub_1233
 
 184:                                              ; preds = %.tail
   %185 = add nsw i32 %.071267, 1
@@ -354,10 +354,7 @@ sub_2:                                            ; preds = %sub_1
   %195 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %194) #19
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit199
 
-sub_0232:                                         ; preds = %.tail
-  br i1 %.not273, label %sub_1233, label %.tail231
-
-sub_1233:                                         ; preds = %sub_0232
+sub_1233:                                         ; preds = %.tail
   %196 = getelementptr inbounds i8, ptr %171, i64 1
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
@@ -371,8 +368,8 @@ sub_2234:                                         ; preds = %sub_1233
   %202 = zext i8 %201 to i32
   br label %.tail231
 
-.tail231:                                         ; preds = %sub_0, %sub_0232, %sub_1233, %sub_2234
-  %203 = phi i32 [ %174, %sub_0232 ], [ %199, %sub_1233 ], [ %202, %sub_2234 ], [ %174, %sub_0 ]
+.tail231:                                         ; preds = %sub_0, %sub_1233, %sub_2234
+  %203 = phi i32 [ %199, %sub_1233 ], [ %202, %sub_2234 ], [ %174, %sub_0 ]
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %217
 

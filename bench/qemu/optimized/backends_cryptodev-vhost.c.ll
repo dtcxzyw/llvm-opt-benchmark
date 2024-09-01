@@ -179,7 +179,7 @@ for.end:                                          ; preds = %for.inc
   %6 = load ptr, ptr %parent, align 8
   %call12 = tail call i32 %.pre(ptr noundef %6, i32 noundef %total_queues, i1 noundef zeroext true) #6
   %cmp13 = icmp slt i32 %call12, 0
-  br i1 %cmp13, label %if.then15, label %for.cond17.preheader
+  br i1 %cmp13, label %if.then15, label %for.body20.lr.ph
 
 for.end.thread:                                   ; preds = %for.cond.preheader
   %parent101 = getelementptr inbounds i8, ptr %call.i44, i64 40
@@ -188,10 +188,7 @@ for.end.thread:                                   ; preds = %for.cond.preheader
   %cmp13103 = icmp slt i32 %call12102, 0
   br i1 %cmp13103, label %if.then15, label %return
 
-for.cond17.preheader:                             ; preds = %for.end
-  br i1 %cmp79, label %for.body20.lr.ph, label %return
-
-for.body20.lr.ph:                                 ; preds = %for.cond17.preheader
+for.body20.lr.ph:                                 ; preds = %for.end
   %conf21 = getelementptr inbounds i8, ptr %0, i64 48
   %wide.trip.count96 = zext nneg i32 %total_queues to i64
   br label %for.body20
@@ -320,8 +317,8 @@ if.then60:                                        ; preds = %while.end
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, i32 noundef %call57) #6
   br label %return
 
-return:                                           ; preds = %for.inc43, %for.end.thread, %for.cond17.preheader, %if.then15, %if.then60, %while.end, %if.then
-  %retval.0 = phi i32 [ -38, %if.then ], [ %call12105, %if.then15 ], [ %r.1, %if.then60 ], [ %r.1, %while.end ], [ 0, %for.cond17.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc43 ]
+return:                                           ; preds = %for.inc43, %for.end.thread, %if.then15, %if.then60, %while.end, %if.then
+  %retval.0 = phi i32 [ -38, %if.then ], [ %call12105, %if.then15 ], [ %r.1, %if.then60 ], [ %r.1, %while.end ], [ 0, %for.end.thread ], [ 0, %for.inc43 ]
   ret i32 %retval.0
 }
 

@@ -133,9 +133,9 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.not = icmp ne i32 %19, 27
   %20 = zext i1 %.not to i64
   %spec.select = add i64 %.1109, %20
-  %.not220 = icmp ne i32 %18, 0
+  %.not220.not.not.not = icmp ne i32 %18, 0
   %21 = icmp eq i32 %19, 1
-  br i1 %.not220, label %22, label %50
+  br i1 %.not220.not.not.not, label %22, label %50
 
 22:                                               ; preds = %15
   br i1 %21, label %.preheader, label %23
@@ -312,7 +312,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not134, label %.thread159, label %.preheader
 
 .preheader:                                       ; preds = %26, %41, %50, %42, %22, %106, %77, %102, %95
-  %.0104153226 = phi i1 [ %.not220, %95 ], [ %.not220, %102 ], [ %.not220, %77 ], [ %.not220, %106 ], [ false, %22 ], [ false, %42 ], [ false, %50 ], [ false, %41 ], [ false, %26 ]
+  %.0104153226 = phi i1 [ %.not220.not.not.not, %95 ], [ %.not220.not.not.not, %102 ], [ %.not220.not.not.not, %77 ], [ %.not220.not.not.not, %106 ], [ false, %22 ], [ false, %42 ], [ false, %50 ], [ false, %41 ], [ false, %26 ]
   %.099154225 = phi i32 [ 26, %95 ], [ 21, %102 ], [ 26, %77 ], [ %107, %106 ], [ 1, %50 ], [ 26, %41 ], [ 21, %26 ], [ 1, %22 ], [ 20, %42 ]
   %.not195 = icmp eq i64 %spec.select, 0
   br i1 %.not195, label %.thread145.thread, label %.lr.ph
@@ -482,8 +482,8 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %87 = sub i32 %2, %72
   %88 = load i16, ptr %47, align 1
   %89 = zext i16 %88 to i32
-  %.not31 = icmp ugt i32 %87, %89
-  br i1 %.not31, label %93, label %.thread
+  %.not27 = icmp ugt i32 %87, %89
+  br i1 %.not27, label %93, label %.thread
 
 .thread:                                          ; preds = %86
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #12
@@ -497,8 +497,8 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %95 = sub i32 %2, %94
   %96 = load i16, ptr %50, align 1
   %97 = zext i16 %96 to i32
-  %.not32 = icmp ult i32 %95, %97
-  br i1 %.not32, label %98, label %.thread34
+  %.not28 = icmp ult i32 %95, %97
+  br i1 %.not28, label %98, label %.thread34
 
 98:                                               ; preds = %93
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36) #12

@@ -2345,12 +2345,9 @@ sub_2297:                                         ; preds = %sub_1296
 if.else147.tail:                                  ; preds = %sub_1296, %sub_2297
   %82 = phi i32 [ %77, %sub_1296 ], [ %81, %sub_2297 ]
   %cmp149 = icmp eq i32 %82, 0
-  br i1 %cmp149, label %if.then298.invoke, label %sub_0299
+  br i1 %cmp149, label %if.then298.invoke, label %sub_1300
 
-sub_0299:                                         ; preds = %if.else147.tail
-  br i1 %.not, label %sub_1300, label %lor.lhs.false150.tail
-
-sub_1300:                                         ; preds = %sub_0299
+sub_1300:                                         ; preds = %if.else147.tail
   %83 = getelementptr inbounds i8, ptr %4, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
@@ -2365,8 +2362,8 @@ sub_2301:                                         ; preds = %sub_1300
   %90 = sub nsw i32 0, %89
   br label %lor.lhs.false150.tail
 
-lor.lhs.false150.tail:                            ; preds = %sub_0295, %sub_0299, %sub_1300, %sub_2301
-  %91 = phi i32 [ %7, %sub_0299 ], [ %86, %sub_1300 ], [ %90, %sub_2301 ], [ %7, %sub_0295 ]
+lor.lhs.false150.tail:                            ; preds = %sub_0295, %sub_1300, %sub_2301
+  %91 = phi i32 [ %86, %sub_1300 ], [ %90, %sub_2301 ], [ %7, %sub_0295 ]
   %tobool152.not = icmp eq i32 %91, 0
   br i1 %tobool152.not, label %if.then298.invoke, label %lor.lhs.false153
 
@@ -3037,7 +3034,7 @@ call57.us90.i.noexc:                              ; preds = %if.end56.us88.i
   %cmp.i46.us91.i = icmp slt i32 %182, 1
   br i1 %cmp.i46.us91.i, label %for.cond71.preheader.us95.i, label %if.then60.i
 
-for.end142.us92.i:                                ; preds = %if.end135.us.us.i, %for.cond71.preheader.us95.i
+for.end142.us92.i:                                ; preds = %if.then137.us.us.i, %for.cond71.preheader.us95.i
   %inc149.us93.i = add nuw nsw i32 %i.081.us85.i, 1
   %exitcond133.not.i = icmp eq i32 %inc149.us93.i, %smax132.i
   br i1 %exitcond133.not.i, label %for.end150.i, label %for.body51.us84.i, !llvm.loop !17
@@ -3046,8 +3043,8 @@ for.cond71.preheader.us95.i:                      ; preds = %call57.us90.i.noexc
   %cmp7465.us96.not.i = icmp eq i16 %call57.us90.i210, 0
   br i1 %cmp7465.us96.not.i, label %for.end142.us92.i, label %for.body75.us68.us.i
 
-for.body75.us68.us.i:                             ; preds = %for.cond71.preheader.us95.i, %if.end135.us.us.i
-  %a.066.us69.us.i = phi i16 [ %inc141.us76.us.i, %if.end135.us.us.i ], [ 0, %for.cond71.preheader.us95.i ]
+for.body75.us68.us.i:                             ; preds = %for.cond71.preheader.us95.i, %if.then137.us.us.i
+  %a.066.us69.us.i = phi i16 [ %inc141.us76.us.i, %if.then137.us.us.i ], [ 0, %for.cond71.preheader.us95.i ]
   %call76.us70.us.i211 = invoke ptr @ucnv_getAlias_75(ptr noundef %name.0.us89.i, i16 noundef zeroext %a.066.us69.us.i, ptr noundef nonnull %err.i)
           to label %call76.us70.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3064,9 +3061,9 @@ if.end91.us72.us.i:                               ; preds = %call76.us70.us.i.no
 
 if.then132.us.us.i:                               ; preds = %for.cond101.for.end130_crit_edge.us.us.i
   %call133.us.us.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.102)
-  br label %if.end135.us.us.i
+  br label %if.then137.us.us.i
 
-if.end135.us.us.i:                                ; preds = %for.cond101.for.end130_crit_edge.us.us.i, %if.then132.us.us.i
+if.then137.us.us.i:                               ; preds = %for.cond101.for.end130_crit_edge.us.us.i, %if.then132.us.us.i
   %putchar42.us.us.i = call i32 @putchar(i32 10)
   %inc141.us76.us.i = add nuw i16 %a.066.us69.us.i, 1
   %exitcond131.not.i = icmp eq i16 %inc141.us76.us.i, %call57.us90.i210
@@ -3132,7 +3129,7 @@ for.inc128.us.us.i:                               ; preds = %call112.us.us.i.noe
 
 for.cond101.for.end130_crit_edge.us.us.i:         ; preds = %for.inc128.us.us.i
   %tobool131.not.us.us.i = icmp eq i16 %t.4.us.us.i, 0
-  br i1 %tobool131.not.us.us.i, label %if.end135.us.us.i, label %if.then132.us.us.i
+  br i1 %tobool131.not.us.us.i, label %if.then137.us.us.i, label %if.then132.us.us.i
 
 for.body51.i:                                     ; preds = %for.body51.lr.ph.split.i, %for.end142.i
   %i.081.i = phi i32 [ %inc149.i, %for.end142.i ], [ 0, %for.body51.lr.ph.split.i ]

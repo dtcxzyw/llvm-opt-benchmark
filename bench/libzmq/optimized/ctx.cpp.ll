@@ -601,9 +601,6 @@ do.end:                                           ; preds = %if.then, %entry
   %cmp.not16 = icmp eq ptr %4, %5
   br i1 %cmp.not16, label %for.end21, label %for.body
 
-for.cond12.preheader:                             ; preds = %for.inc
-  br i1 %cmp.not16, label %for.end21, label %for.body14
-
 for.body:                                         ; preds = %do.end, %for.inc
   %i.017 = phi i64 [ %inc, %for.inc ], [ 0, %do.end ]
   %6 = load ptr, ptr %_io_threads, align 8
@@ -615,10 +612,10 @@ for.body:                                         ; preds = %do.end, %for.inc
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.017, 1
   %cmp.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %cmp.not, label %for.cond12.preheader, label %for.body, !llvm.loop !4
+  br i1 %cmp.not, label %for.body14, label %for.body, !llvm.loop !4
 
-for.body14:                                       ; preds = %for.cond12.preheader, %delete.end
-  %i11.019 = phi i64 [ %inc20, %delete.end ], [ 0, %for.cond12.preheader ]
+for.body14:                                       ; preds = %for.inc, %delete.end
+  %i11.019 = phi i64 [ %inc20, %delete.end ], [ 0, %for.inc ]
   %8 = load ptr, ptr %_io_threads, align 8
   %add.ptr.i8 = getelementptr inbounds ptr, ptr %8, i64 %i11.019
   %9 = load ptr, ptr %add.ptr.i8, align 8
@@ -639,7 +636,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
   %cmp13.not = icmp eq i64 %inc20, %sub.ptr.div.i
   br i1 %cmp13.not, label %for.end21, label %for.body14, !llvm.loop !6
 
-for.end21:                                        ; preds = %delete.end, %do.end, %for.cond12.preheader
+for.end21:                                        ; preds = %delete.end, %do.end
   %_reaper = getelementptr inbounds i8, ptr %this, i64 248
   %11 = load ptr, ptr %_reaper, align 8
   %isnull22 = icmp eq ptr %11, null

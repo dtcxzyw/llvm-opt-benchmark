@@ -91,48 +91,38 @@ define hidden noundef zeroext i1 @_ZNK14XMarkStripeSet8is_emptyEv(ptr noundef no
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i64, ptr @XMarkStackSpaceStart, align 8
-  %6 = load volatile ptr, ptr %4, align 64
-  %7 = ptrtoint ptr %6 to i64
-  %8 = lshr i64 %7, 32
-  %9 = icmp eq i64 %8, 4294967295
-  %.neg.i.i9 = mul nsw i64 %8, -2048
-  %10 = icmp eq i64 %5, %.neg.i.i9
-  %11 = select i1 %9, i1 true, i1 %10
-  br i1 %11, label %_ZNK11XMarkStripe8is_emptyEv.exit, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread
+  br label %8
 
-12:                                               ; preds = %_ZNK11XMarkStripe8is_emptyEv.exit
-  %13 = add nuw i64 %.0510, 1
-  %14 = icmp uge i64 %13, %2
-  %exitcond = icmp eq i64 %13, %2
-  br i1 %exitcond, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread, label %15, !llvm.loop !6
+6:                                                ; preds = %_ZNK11XMarkStripe8is_emptyEv.exit
+  %7 = add nuw i64 %.05, 1
+  %exitcond.not = icmp eq i64 %7, %2
+  br i1 %exitcond.not, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread, label %8, !llvm.loop !6
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds [16 x %class.XMarkStripe], ptr %4, i64 0, i64 %13
+8:                                                ; preds = %.lr.ph, %6
+  %.05 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
+  %9 = getelementptr inbounds [16 x %class.XMarkStripe], ptr %4, i64 0, i64 %.05
+  %10 = load volatile ptr, ptr %9, align 64
+  %11 = ptrtoint ptr %10 to i64
+  %12 = lshr i64 %11, 32
+  %13 = icmp eq i64 %12, 4294967295
+  %.neg.i.i = mul nsw i64 %12, -2048
+  %14 = icmp eq i64 %5, %.neg.i.i
+  %15 = select i1 %13, i1 true, i1 %14
+  br i1 %15, label %_ZNK11XMarkStripe8is_emptyEv.exit, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread
+
+_ZNK11XMarkStripe8is_emptyEv.exit:                ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %9, i64 64
   %17 = load volatile ptr, ptr %16, align 64
   %18 = ptrtoint ptr %17 to i64
   %19 = lshr i64 %18, 32
   %20 = icmp eq i64 %19, 4294967295
-  %.neg.i.i = mul nsw i64 %19, -2048
-  %21 = icmp eq i64 %5, %.neg.i.i
+  %.neg.i1.i = mul nsw i64 %19, -2048
+  %21 = icmp eq i64 %5, %.neg.i1.i
   %22 = select i1 %20, i1 true, i1 %21
-  br i1 %22, label %_ZNK11XMarkStripe8is_emptyEv.exit, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread, !llvm.loop !6
+  br i1 %22, label %6, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread
 
-_ZNK11XMarkStripe8is_emptyEv.exit:                ; preds = %.lr.ph, %15
-  %23 = phi ptr [ %16, %15 ], [ %4, %.lr.ph ]
-  %.0510 = phi i64 [ %13, %15 ], [ 0, %.lr.ph ]
-  %24 = phi i1 [ %14, %15 ], [ false, %.lr.ph ]
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
-  %26 = load volatile ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = lshr i64 %27, 32
-  %29 = icmp eq i64 %28, 4294967295
-  %.neg.i1.i = mul nsw i64 %28, -2048
-  %30 = icmp eq i64 %5, %.neg.i1.i
-  %31 = select i1 %29, i1 true, i1 %30
-  br i1 %31, label %12, label %_ZNK11XMarkStripe8is_emptyEv.exit.thread
-
-_ZNK11XMarkStripe8is_emptyEv.exit.thread:         ; preds = %15, %12, %_ZNK11XMarkStripe8is_emptyEv.exit, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %24, %_ZNK11XMarkStripe8is_emptyEv.exit ], [ %14, %12 ], [ %14, %15 ]
+_ZNK11XMarkStripe8is_emptyEv.exit.thread:         ; preds = %_ZNK11XMarkStripe8is_emptyEv.exit, %6, %8, %1
+  %.lcssa = phi i1 [ true, %1 ], [ false, %8 ], [ true, %6 ], [ false, %_ZNK11XMarkStripe8is_emptyEv.exit ]
   ret i1 %.lcssa
 }
 
@@ -180,31 +170,20 @@ define hidden noundef zeroext i1 @_ZNK22XMarkThreadLocalStacks8is_emptyEPK14XMar
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 64
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
-  %6 = load ptr, ptr %3, align 8
-  %.not10 = icmp eq ptr %6, null
-  br i1 %.not10, label %.lr.ph12, label %._crit_edge
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.067 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
+  %6 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %.067
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  %8 = add nuw i64 %.067, 1
+  %exitcond.not = icmp ne i64 %8, %4
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-.lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06711 = phi i64 [ %7, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %7 = add nuw i64 %.06711, 1
-  %exitcond = icmp eq i64 %7, %4
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %.lr.ph12
-  %8 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.lr.ph12, label %._crit_edge.loopexit, !llvm.loop !8
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph12
-  %10 = icmp uge i64 %7, %4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph.preheader ], [ %10, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.lcssa = phi i1 [ true, %2 ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

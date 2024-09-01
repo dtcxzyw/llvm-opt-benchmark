@@ -5914,8 +5914,8 @@ define void @"_ZN6diesel5mysql5types126_$LT$impl$u20$diesel..deserialize..FromSq
 
 7:                                                ; preds = %9, %2
   %8 = phi ptr [ %10, %9 ], [ %3, %2 ]
-  %.not8.i.not = icmp ne ptr %8, %6
-  br i1 %.not8.i.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfff52c576854fa27E.exit"
+  %.not8.not.not.i.not.not.not.not.not = icmp ne ptr %8, %6
+  br i1 %.not8.not.not.i.not.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfff52c576854fa27E.exit"
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 1
@@ -5925,7 +5925,7 @@ define void @"_ZN6diesel5mysql5types126_$LT$impl$u20$diesel..deserialize..FromSq
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfff52c576854fa27E.exit": ; preds = %7, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = zext i1 %.not8.i.not to i8
+  %12 = zext i1 %.not8.not.not.i.not.not.not.not.not to i8
   store i8 %12, ptr %11, align 8
   store ptr null, ptr %0, align 8
   ret void

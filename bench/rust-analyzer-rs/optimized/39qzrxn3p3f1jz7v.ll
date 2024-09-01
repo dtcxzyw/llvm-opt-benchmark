@@ -5908,8 +5908,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 10:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i.i", %2
   %11 = phi i64 [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i.i" ], [ %.promoted.i, %2 ]
   %12 = phi ptr [ %14, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i.i" ], [ %.promoted.i.i, %2 ]
-  %.not.i.not.i.not = icmp ne ptr %12, %8
-  br i1 %.not.i.not.i.not, label %13, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3859eec2f0c60d95E.llvm.836043833466553463.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %12, %8
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %13, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3859eec2f0c60d95E.llvm.836043833466553463.exit"
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %12, i64 24
@@ -5971,7 +5971,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %25, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3859eec2f0c60d95E.llvm.836043833466553463.exit", label %10
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3859eec2f0c60d95E.llvm.836043833466553463.exit": ; preds = %10, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i.i"
-  ret i1 %.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7655,8 +7655,8 @@ define hidden noundef zeroext i1 @"_ZN110_$LT$core..iter..adapters..enumerate..E
 10:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i", %2
   %11 = phi i64 [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i" ], [ %.promoted, %2 ]
   %12 = phi ptr [ %14, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i" ], [ %.promoted.i, %2 ]
-  %.not.i.not = icmp ne ptr %12, %8
-  br i1 %.not.i.not, label %13, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h46e0fea4a709af63E.llvm.836043833466553463.exit
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %12, %8
+  br i1 %.not.not.not.i.not.not.not.not.not, label %13, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h46e0fea4a709af63E.llvm.836043833466553463.exit
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %12, i64 24
@@ -7718,7 +7718,7 @@ define hidden noundef zeroext i1 @"_ZN110_$LT$core..iter..adapters..enumerate..E
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h46e0fea4a709af63E.llvm.836043833466553463.exit, label %10
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h46e0fea4a709af63E.llvm.836043833466553463.exit: ; preds = %10, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit.i"
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15572,8 +15572,8 @@ common.resume:                                    ; preds = %43, %49, %.body.i.i
 33:                                               ; preds = %"_ZN3hir4Type18contains_reference2go28_$u7b$$u7b$closure$u7d$$u7d$17h838aa56f0de5df10E.llvm.1832755805191578588.exit", %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit.i.i"
   %34 = phi ptr [ %36, %"_ZN3hir4Type18contains_reference2go28_$u7b$$u7b$closure$u7d$$u7d$17h838aa56f0de5df10E.llvm.1832755805191578588.exit" ], [ %.sroa.8.0.copyload, %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6039)
-  %.not.i.not.i.not.i.not.i.not = icmp eq ptr %34, %20
-  br i1 %.not.i.not.i.not.i.not.i.not, label %61, label %35
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %34, %20
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %61, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %34, i64 8
@@ -16330,8 +16330,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 14:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit", %2
   %15 = phi ptr [ %17, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit" ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %15, %7
-  br i1 %.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48def6df9102b782E.exit"
+  %.not.not.not.not.not = icmp ne ptr %15, %7
+  br i1 %.not.not.not.not.not, label %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48def6df9102b782E.exit"
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %15, i64 24
@@ -16395,7 +16395,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48def6df9102b782E.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48def6df9102b782E.exit": ; preds = %14, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h4981bf7f27eca01dE.exit"
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -20178,8 +20178,8 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters3map12map_try_fold28_$u
 21:                                               ; preds = %23, %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit.i"
   %22 = phi ptr [ %24, %23 ], [ %.sroa.49.0.copyload, %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7587)
-  %.not.i.not.i.not.i.not = icmp ne ptr %22, %4
-  br i1 %.not.i.not.i.not.i.not, label %23, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffa32aa2f3f8fc5dE.llvm.836043833466553463.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %22, %4
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %23, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffa32aa2f3f8fc5dE.llvm.836043833466553463.exit"
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 8
@@ -20189,7 +20189,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters3map12map_try_fold28_$u
   br i1 %26, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffa32aa2f3f8fc5dE.llvm.836043833466553463.exit", label %21
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffa32aa2f3f8fc5dE.llvm.836043833466553463.exit": ; preds = %21, %23
-  ret i1 %.not.i.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -21523,8 +21523,8 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26FlattenCompat
 25:                                               ; preds = %27, %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit"
   %26 = phi ptr [ %28, %27 ], [ %.promoted.i.i, %"_ZN4core6option15Option$LT$T$GT$6insert17h731001acb34710deE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8305)
-  %.not.i.not.i.not = icmp ne ptr %26, %23
-  br i1 %.not.i.not.i.not, label %27, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h17b228dc94571ddfE.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %26, %23
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %27, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h17b228dc94571ddfE.exit"
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %26, i64 8
@@ -21534,7 +21534,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26FlattenCompat
   br i1 %30, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h17b228dc94571ddfE.exit", label %25
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h17b228dc94571ddfE.exit": ; preds = %25, %27
-  ret i1 %.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

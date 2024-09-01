@@ -2474,7 +2474,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %65, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.us, %40
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
-  br i1 %exitcond163.not, label %._crit_edge, label %.preheader114.us, !llvm.loop !56
+  br i1 %exitcond163.not, label %.lr.ph130, label %.preheader114.us, !llvm.loop !56
 
 65:                                               ; preds = %27
   %66 = add nuw nsw i32 %storemerge72118.us, 1
@@ -2485,10 +2485,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us:       ; preds = %65, %_ZNSt6vectorIi
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us
-  br i1 %22, label %.lr.ph130, label %._crit_edge131
-
-.lr.ph130:                                        ; preds = %.preheader114.lr.ph, %._crit_edge
+.lr.ph130:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.us, %.preheader114.lr.ph
   %67 = getelementptr inbounds i8, ptr %0, i64 72
   %68 = icmp sgt i32 %21, 0
   %69 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2605,7 +2602,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit81:        ; preds = %93, %_ZNSt6vectorIi
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
   br i1 %exitcond173.not, label %._crit_edge131, label %70, !llvm.loop !59
 
-._crit_edge131:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit81, %2, %._crit_edge
+._crit_edge131:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit81, %2
   %119 = getelementptr inbounds i8, ptr %0, i64 48
   %120 = add i32 %21, -1
   %121 = icmp sgt i32 %21, 0
@@ -2706,7 +2703,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit90.us:     ; preds = %164, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89.us, %138
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -1
   %163 = icmp sgt i64 %indvars.iv181, 0
-  br i1 %163, label %.preheader113.us, label %._crit_edge136, !llvm.loop !60
+  br i1 %163, label %.preheader113.us, label %.lr.ph149, !llvm.loop !60
 
 164:                                              ; preds = %127
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
@@ -2717,10 +2714,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit90.us:     ; preds = %164, %_ZNSt6vectorI
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
-._crit_edge136:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit90.us
-  br i1 %121, label %.lr.ph149, label %.preheader
-
-.lr.ph149:                                        ; preds = %.preheader113.lr.ph, %._crit_edge136
+.lr.ph149:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit90.us, %.preheader113.lr.ph
   %165 = getelementptr inbounds i8, ptr %0, i64 120
   %166 = getelementptr inbounds i8, ptr %0, i64 96
   %167 = and i64 %13, 4294967295
@@ -2728,7 +2722,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit90.us:     ; preds = %164, %_ZNSt6vectorI
   %169 = zext nneg i32 %120 to i64
   br label %179
 
-.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit99, %._crit_edge131, %._crit_edge136
+.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit99, %._crit_edge131
   %170 = load ptr, ptr %119, align 8
   %171 = getelementptr inbounds %"class.std::vector.11", ptr %170, i64 %3
   %172 = getelementptr inbounds i8, ptr %171, i64 8

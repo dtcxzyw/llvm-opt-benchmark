@@ -517,7 +517,7 @@ define internal void @_ZN12_GLOBAL__N_117ExtractReducePass7executeESt6vectorINSt
   br i1 %149, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph10191, %.lr.ph.preheader, %3
-  %.096.lcssa = phi i1 [ false, %3 ], [ %138, %.lr.ph.preheader ], [ %138, %.lr.ph10191 ], [ %138, %.lr.ph ]
+  %.096.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph10191 ], [ true, %.lr.ph ]
   %.0.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %142, %.lr.ph10191 ], [ %142, %.lr.ph ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %61, i64 noundef %.0.lcssa, ptr noundef %2, i1 noundef zeroext true)

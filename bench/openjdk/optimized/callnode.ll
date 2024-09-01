@@ -2590,30 +2590,21 @@ define hidden noundef zeroext i1 @_ZN8CallNode17has_non_debug_useEP4Node(ptr noc
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %wide.trip.count = zext i32 %8 to i64
+  br label %12
+
+12:                                               ; preds = %12, %.lr.ph
+  %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
-  br i1 %15, label %._crit_edge, label %.lr.ph12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %15, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %12, !llvm.loop !17
 
-.lr.ph12:                                         ; preds = %.lr.ph, %16
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %16 ], [ 5, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !17
-
-16:                                               ; preds = %.lr.ph12
-  %17 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %._crit_edge.loopexit, label %.lr.ph12, !llvm.loop !17
-
-._crit_edge.loopexit:                             ; preds = %16, %.lr.ph12
-  %20 = icmp ult i64 %indvars.iv.next, %12
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %20, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %12, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %15, %12 ]
   ret i1 %.lcssa
 }
 

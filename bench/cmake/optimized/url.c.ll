@@ -4526,11 +4526,11 @@ define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr 
   %50 = getelementptr inbounds i8, ptr %0, i64 208
   %51 = load ptr, ptr %50, align 8
   %.not243 = icmp eq ptr %51, null
-  br i1 %.not243, label %444, label %52
+  br i1 %.not243, label %443, label %52
 
 52:                                               ; preds = %49
   %53 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
-  br label %444
+  br label %443
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -4600,11 +4600,11 @@ IsMultiplexingPossible.exit:                      ; preds = %75
   %86 = getelementptr inbounds i8, ptr %0, i64 208
   %87 = load ptr, ptr %86, align 8
   %.not330 = icmp eq ptr %87, null
-  br i1 %.not330, label %444, label %88
+  br i1 %.not330, label %443, label %88
 
 88:                                               ; preds = %85
   %89 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
-  br label %444
+  br label %443
 
 90:                                               ; preds = %79
   br i1 %.not249, label %IsMultiplexingPossible.exit.thread, label %IsMultiplexingPossible.exit.thread.sink.split
@@ -4660,13 +4660,12 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %120 = getelementptr inbounds i8, ptr %1, i64 1136
   %121 = getelementptr inbounds i8, ptr %1, i64 80
   %122 = getelementptr inbounds i8, ptr %1, i64 1132
-  %brmerge342 = select i1 %18, i1 true, i1 %34
   %123 = getelementptr inbounds i8, ptr %1, i64 240
   %124 = getelementptr inbounds i8, ptr %1, i64 248
   br label %125
 
 125:                                              ; preds = %.lr.ph, %.backedge
-  %.0224371 = phi ptr [ null, %.lr.ph ], [ %.0224.be, %.backedge ]
+  %.0224372 = phi ptr [ null, %.lr.ph ], [ %.0224.be, %.backedge ]
   %.0225370 = phi i1 [ false, %.lr.ph ], [ %.0225.be, %.backedge ]
   %.0227369 = phi ptr [ %101, %.lr.ph ], [ %128, %.backedge ]
   %126 = load ptr, ptr %.0227369, align 8
@@ -4684,9 +4683,9 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %.not252 = icmp eq i32 %134, 0
   br i1 %.not252, label %135, label %.backedge
 
-.backedge:                                        ; preds = %283, %420, %419, %412, %409, %398, %399, %384, %387, %378, %381, %343, %348, %331, %339, %319, %325, %288, %293, %298, %302, %280, %247, %252, %257, %262, %229, %232, %237, %240, %226, %225, %183, %156, %153, %125, %131, %370, %426, %137, %144, %145, %162, %179, %189, %195, %199, %205, %208, %267, %357, %374, %391, %174
-  %.0225.be = phi i1 [ %.0225370, %137 ], [ %.0225370, %145 ], [ %.0225370, %179 ], [ %.0225370, %195 ], [ %.0225370, %205 ], [ %.0225370, %267 ], [ %.0225370, %370 ], [ %.0225370, %426 ], [ %.0225370, %391 ], [ %.0225370, %374 ], [ %.0225370, %357 ], [ %.0225370, %208 ], [ %.0225370, %199 ], [ %.0225370, %189 ], [ %.0225370, %162 ], [ %.0225370, %144 ], [ %.0225370, %174 ], [ %.0225370, %131 ], [ %.0225370, %125 ], [ true, %153 ], [ true, %156 ], [ %.0225370, %183 ], [ %.0225370, %225 ], [ %.0225370, %226 ], [ %.0225370, %240 ], [ %.0225370, %237 ], [ %.0225370, %232 ], [ %.0225370, %229 ], [ %.0225370, %262 ], [ %.0225370, %257 ], [ %.0225370, %252 ], [ %.0225370, %247 ], [ %.0225370, %280 ], [ %.0225370, %302 ], [ %.0225370, %298 ], [ %.0225370, %293 ], [ %.0225370, %288 ], [ %.0225370, %325 ], [ %.0225370, %319 ], [ %.0225370, %339 ], [ %.0225370, %331 ], [ %.0225370, %348 ], [ %.0225370, %343 ], [ %.0225370, %381 ], [ %.0225370, %378 ], [ %.0225370, %387 ], [ %.0225370, %384 ], [ %.0225370, %399 ], [ %.0225370, %398 ], [ %.0225370, %409 ], [ %.0225370, %412 ], [ %.0225370, %419 ], [ %.0225370, %420 ], [ %.0225370, %283 ]
-  %.0224.be = phi ptr [ %.0224371, %137 ], [ %.0224371, %145 ], [ %.0224371, %179 ], [ %.0224371, %195 ], [ %.0224371, %205 ], [ %.0224371, %267 ], [ %spec.select, %370 ], [ %.0224371, %426 ], [ %.0224371, %391 ], [ %.0224371, %374 ], [ %.0224371, %357 ], [ %.0224371, %208 ], [ %.0224371, %199 ], [ %.0224371, %189 ], [ %.0224371, %162 ], [ %.0224371, %144 ], [ %.0224371, %174 ], [ %.0224371, %131 ], [ %.0224371, %125 ], [ %.0224371, %153 ], [ %.0224371, %156 ], [ %.0224371, %183 ], [ %.0224371, %225 ], [ %.0224371, %226 ], [ %.0224371, %240 ], [ %.0224371, %237 ], [ %.0224371, %232 ], [ %.0224371, %229 ], [ %.0224371, %262 ], [ %.0224371, %257 ], [ %.0224371, %252 ], [ %.0224371, %247 ], [ %.0224371, %280 ], [ %.0224371, %302 ], [ %.0224371, %298 ], [ %.0224371, %293 ], [ %.0224371, %288 ], [ %.0224371, %325 ], [ %.0224371, %319 ], [ %.0224371, %339 ], [ %.0224371, %331 ], [ %.0224371, %348 ], [ %.0224371, %343 ], [ %.0224371, %381 ], [ %.0224371, %378 ], [ %.0224371, %387 ], [ %.0224371, %384 ], [ %126, %399 ], [ %126, %398 ], [ %.0224371, %409 ], [ %.0224371, %412 ], [ %.0224371, %419 ], [ %.0224371, %420 ], [ %.0224371, %283 ]
+.backedge:                                        ; preds = %283, %.critedge.thread, %419, %418, %411, %408, %.thread386, %384, %387, %378, %381, %343, %348, %331, %339, %319, %325, %288, %293, %298, %302, %280, %247, %252, %257, %262, %229, %232, %237, %240, %226, %225, %183, %156, %153, %125, %131, %370, %425, %137, %144, %145, %162, %179, %189, %195, %199, %205, %208, %267, %357, %374, %391, %174
+  %.0225.be = phi i1 [ %.0225370, %137 ], [ %.0225370, %145 ], [ %.0225370, %179 ], [ %.0225370, %195 ], [ %.0225370, %205 ], [ %.0225370, %267 ], [ %.0225370, %370 ], [ %.0225370, %425 ], [ %.0225370, %391 ], [ %.0225370, %374 ], [ %.0225370, %357 ], [ %.0225370, %208 ], [ %.0225370, %199 ], [ %.0225370, %189 ], [ %.0225370, %162 ], [ %.0225370, %144 ], [ %.0225370, %174 ], [ %.0225370, %131 ], [ %.0225370, %125 ], [ true, %153 ], [ true, %156 ], [ %.0225370, %183 ], [ %.0225370, %225 ], [ %.0225370, %226 ], [ %.0225370, %240 ], [ %.0225370, %237 ], [ %.0225370, %232 ], [ %.0225370, %229 ], [ %.0225370, %262 ], [ %.0225370, %257 ], [ %.0225370, %252 ], [ %.0225370, %247 ], [ %.0225370, %280 ], [ %.0225370, %302 ], [ %.0225370, %298 ], [ %.0225370, %293 ], [ %.0225370, %288 ], [ %.0225370, %325 ], [ %.0225370, %319 ], [ %.0225370, %339 ], [ %.0225370, %331 ], [ %.0225370, %348 ], [ %.0225370, %343 ], [ %.0225370, %381 ], [ %.0225370, %378 ], [ %.0225370, %387 ], [ %.0225370, %384 ], [ %.0225370, %.thread386 ], [ %.0225370, %408 ], [ %.0225370, %411 ], [ %.0225370, %418 ], [ %.0225370, %419 ], [ %.0225370, %.critedge.thread ], [ %.0225370, %283 ]
+  %.0224.be = phi ptr [ %.0224372, %137 ], [ %.0224372, %145 ], [ %.0224372, %179 ], [ %.0224372, %195 ], [ %.0224372, %205 ], [ %.0224372, %267 ], [ %spec.select, %370 ], [ %.0224372, %425 ], [ %.0224372, %391 ], [ %.0224372, %374 ], [ %.0224372, %357 ], [ %.0224372, %208 ], [ %.0224372, %199 ], [ %.0224372, %189 ], [ %.0224372, %162 ], [ %.0224372, %144 ], [ %.0224372, %174 ], [ %.0224372, %131 ], [ %.0224372, %125 ], [ %.0224372, %153 ], [ %.0224372, %156 ], [ %.0224372, %183 ], [ %.0224372, %225 ], [ %.0224372, %226 ], [ %.0224372, %240 ], [ %.0224372, %237 ], [ %.0224372, %232 ], [ %.0224372, %229 ], [ %.0224372, %262 ], [ %.0224372, %257 ], [ %.0224372, %252 ], [ %.0224372, %247 ], [ %.0224372, %280 ], [ %.0224372, %302 ], [ %.0224372, %298 ], [ %.0224372, %293 ], [ %.0224372, %288 ], [ %.0224372, %325 ], [ %.0224372, %319 ], [ %.0224372, %339 ], [ %.0224372, %331 ], [ %.0224372, %348 ], [ %.0224372, %343 ], [ %.0224372, %381 ], [ %.0224372, %378 ], [ %.0224372, %387 ], [ %.0224372, %384 ], [ %126, %.thread386 ], [ %.0224372, %408 ], [ %.0224372, %411 ], [ %.0224372, %418 ], [ %.0224372, %419 ], [ %126, %.critedge.thread ], [ %.0224372, %283 ]
   %.not250 = icmp eq ptr %128, null
   br i1 %.not250, label %._crit_edge, label %125, !llvm.loop !19
 
@@ -4775,8 +4774,8 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %180 = load i32, ptr %19, align 8
   %181 = xor i32 %180, %160
   %182 = and i32 %181, 1537
-  %or.cond373 = icmp eq i32 %182, 0
-  br i1 %or.cond373, label %183, label %.backedge
+  %or.cond374 = icmp eq i32 %182, 0
+  br i1 %or.cond374, label %183, label %.backedge
 
 183:                                              ; preds = %179
   %184 = lshr i32 %180, 1
@@ -4793,14 +4792,14 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 189:                                              ; preds = %188
   %190 = getelementptr inbounds i8, ptr %126, i64 144
   %191 = tail call fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef nonnull %104, ptr noundef nonnull %190)
-  br i1 %191, label %._crit_edge379, label %.backedge
+  br i1 %191, label %._crit_edge380, label %.backedge
 
-._crit_edge379:                                   ; preds = %189
+._crit_edge380:                                   ; preds = %189
   %.pre = load i32, ptr %19, align 8
   br label %192
 
-192:                                              ; preds = %._crit_edge379, %188
-  %193 = phi i32 [ %.pre, %._crit_edge379 ], [ %180, %188 ]
+192:                                              ; preds = %._crit_edge380, %188
+  %193 = phi i32 [ %.pre, %._crit_edge380 ], [ %180, %188 ]
   %194 = and i32 %193, 1
   %.not268 = icmp eq i32 %194, 0
   br i1 %.not268, label %210, label %195
@@ -4863,11 +4862,11 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %221 = getelementptr inbounds i8, ptr %0, i64 208
   %222 = load ptr, ptr %221, align 8
   %.not275 = icmp eq ptr %222, null
-  br i1 %.not275, label %444, label %223
+  br i1 %.not275, label %443, label %223
 
 223:                                              ; preds = %220
   %224 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
-  br label %444
+  br label %443
 
 225:                                              ; preds = %214
   br i1 %.not273, label %.backedge, label %226
@@ -4879,15 +4878,15 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 227:                                              ; preds = %211, %210
   %228 = load ptr, ptr %107, align 8
   %.not276 = icmp eq ptr %228, null
-  %.pre380 = load i16, ptr %108, align 8
-  %.not277 = icmp eq i16 %.pre380, 0
-  %or.cond394 = select i1 %.not276, i1 %.not277, i1 false
-  br i1 %or.cond394, label %242, label %229
+  %.pre381 = load i16, ptr %108, align 8
+  %.not277 = icmp eq i16 %.pre381, 0
+  %or.cond398 = select i1 %.not276, i1 %.not277, i1 false
+  br i1 %or.cond398, label %242, label %229
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds i8, ptr %126, i64 1144
   %231 = load i16, ptr %230, align 8
-  %.not278 = icmp eq i16 %231, %.pre380
+  %.not278 = icmp eq i16 %231, %.pre381
   br i1 %.not278, label %232, label %.backedge
 
 232:                                              ; preds = %229
@@ -4980,8 +4979,8 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 283:                                              ; preds = %280
   %284 = icmp ugt i8 %278, 29
   %285 = icmp ult i8 %281, 30
-  %or.cond395 = and i1 %284, %285
-  br i1 %or.cond395, label %.backedge, label %.thread
+  %or.cond399 = and i1 %284, %285
+  br i1 %or.cond399, label %.backedge, label %.thread
 
 .thread:                                          ; preds = %276, %283, %271
   %286 = getelementptr i8, ptr %272, i64 136
@@ -5018,14 +5017,14 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %304 = getelementptr inbounds i8, ptr %126, i64 1097
   %305 = load i8, ptr %304, align 1
   %.not294 = icmp eq i8 %303, %305
-  br i1 %.not294, label %._crit_edge381, label %.backedge
+  br i1 %.not294, label %._crit_edge382, label %.backedge
 
-._crit_edge381:                                   ; preds = %302
-  %.pre382 = load ptr, ptr %63, align 8
+._crit_edge382:                                   ; preds = %302
+  %.pre383 = load ptr, ptr %63, align 8
   br label %306
 
-306:                                              ; preds = %._crit_edge381, %.thread
-  %307 = phi ptr [ %.pre382, %._crit_edge381 ], [ %272, %.thread ]
+306:                                              ; preds = %._crit_edge382, %.thread
+  %307 = phi ptr [ %.pre383, %._crit_edge382 ], [ %272, %.thread ]
   %308 = getelementptr inbounds i8, ptr %307, i64 140
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 1
@@ -5074,14 +5073,14 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %334 = load ptr, ptr %333, align 8
   %335 = tail call i32 @curl_strequal(ptr noundef %332, ptr noundef %334) #12
   %.not302 = icmp eq i32 %335, 0
-  br i1 %.not302, label %.backedge, label %._crit_edge383
+  br i1 %.not302, label %.backedge, label %._crit_edge384
 
-._crit_edge383:                                   ; preds = %331
-  %.pre384 = load i32, ptr %19, align 8
+._crit_edge384:                                   ; preds = %331
+  %.pre385 = load i32, ptr %19, align 8
   br label %336
 
-336:                                              ; preds = %._crit_edge383, %328
-  %337 = phi i32 [ %.pre384, %._crit_edge383 ], [ %329, %328 ]
+336:                                              ; preds = %._crit_edge384, %328
+  %337 = phi i32 [ %.pre385, %._crit_edge384 ], [ %329, %328 ]
   %338 = and i32 %337, 1024
   %.not303 = icmp eq i32 %338, 0
   br i1 %.not303, label %343, label %339
@@ -5143,7 +5142,7 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %371 = getelementptr inbounds i8, ptr %126, i64 768
   %372 = load i32, ptr %371, align 8
   %373 = icmp eq i32 %372, 0
-  %spec.select = select i1 %373, ptr %126, ptr %.0224371
+  %spec.select = select i1 %373, ptr %126, ptr %.0224372
   br label %.backedge
 
 374:                                              ; preds = %359
@@ -5187,82 +5186,85 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   br i1 %.not311, label %394, label %.backedge
 
 394:                                              ; preds = %391
-  br i1 %brmerge342, label %.thread349, label %403
+  br i1 %18, label %.critedge.thread, label %402
 
-.thread349:                                       ; preds = %387, %394
-  br i1 %18, label %395, label %398
+.thread349:                                       ; preds = %387
+  br i1 %18, label %.critedge, label %.thread386
 
-395:                                              ; preds = %.thread349
-  %396 = getelementptr inbounds i8, ptr %126, i64 768
-  %397 = load i32, ptr %396, align 8
-  %.not322 = icmp eq i32 %397, 0
-  br i1 %.not322, label %398, label %402
+.critedge:                                        ; preds = %.thread349
+  %395 = getelementptr inbounds i8, ptr %126, i64 768
+  %396 = load i32, ptr %395, align 8
+  %.not322 = icmp eq i32 %396, 0
+  br i1 %.not322, label %.thread386, label %401
 
-398:                                              ; preds = %395, %.thread349
-  br i1 %34, label %399, label %.backedge
+.critedge.thread:                                 ; preds = %394
+  %397 = getelementptr inbounds i8, ptr %126, i64 768
+  %398 = load i32, ptr %397, align 8
+  %.not322387 = icmp eq i32 %398, 0
+  br i1 %.not322387, label %.backedge, label %401
 
-399:                                              ; preds = %398
-  %400 = getelementptr inbounds i8, ptr %126, i64 772
-  %401 = load i32, ptr %400, align 4
-  %.not323 = icmp eq i32 %401, 0
-  br i1 %.not323, label %.backedge, label %402
+.thread386:                                       ; preds = %.critedge, %.thread349
+  %399 = getelementptr inbounds i8, ptr %126, i64 772
+  %400 = load i32, ptr %399, align 4
+  %.not323 = icmp eq i32 %400, 0
+  br i1 %.not323, label %.backedge, label %401
 
-402:                                              ; preds = %399, %395
+401:                                              ; preds = %.critedge.thread, %.thread386, %.critedge
   store i8 1, ptr %3, align 1
   br label %.thread351
 
-403:                                              ; preds = %394
-  %404 = load i64, ptr %142, align 8
-  %.not316 = icmp eq i64 %404, 0
-  br i1 %.not316, label %424, label %405
+402:                                              ; preds = %394
+  %403 = load i64, ptr %142, align 8
+  %.not316 = icmp eq i64 %403, 0
+  br i1 %.not316, label %423, label %404
 
-405:                                              ; preds = %403
-  %406 = load ptr, ptr %103, align 8
-  %407 = tail call i32 @Curl_multi_max_concurrent_streams(ptr noundef %406) #12
-  %408 = zext i32 %407 to i64
-  %.not317 = icmp ult i64 %404, %408
-  br i1 %.not317, label %414, label %409
+404:                                              ; preds = %402
+  %405 = load ptr, ptr %103, align 8
+  %406 = tail call i32 @Curl_multi_max_concurrent_streams(ptr noundef %405) #12
+  %407 = zext i32 %406 to i64
+  %.not317 = icmp ult i64 %403, %407
+  br i1 %.not317, label %413, label %408
 
-409:                                              ; preds = %405
-  %410 = load i64, ptr %55, align 2
-  %411 = and i64 %410, 268435456
-  %.not321 = icmp eq i64 %411, 0
-  br i1 %.not321, label %.backedge, label %412
+408:                                              ; preds = %404
+  %409 = load i64, ptr %55, align 2
+  %410 = and i64 %409, 268435456
+  %.not321 = icmp eq i64 %410, 0
+  br i1 %.not321, label %.backedge, label %411
 
-412:                                              ; preds = %409
-  %413 = load i64, ptr %142, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i64 noundef %413) #12
+411:                                              ; preds = %408
+  %412 = load i64, ptr %142, align 8
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i64 noundef %412) #12
   br label %.backedge
 
-414:                                              ; preds = %405
-  %415 = load i64, ptr %142, align 8
-  %416 = tail call i64 @Curl_conn_get_max_concurrent(ptr noundef nonnull %0, ptr noundef nonnull %126, i32 noundef 0) #12
-  %.not318 = icmp ult i64 %415, %416
-  %417 = load i64, ptr %55, align 2
-  %418 = and i64 %417, 268435456
-  %.not319 = icmp eq i64 %418, 0
-  br i1 %.not318, label %422, label %419
+413:                                              ; preds = %404
+  %414 = load i64, ptr %142, align 8
+  %415 = tail call i64 @Curl_conn_get_max_concurrent(ptr noundef nonnull %0, ptr noundef nonnull %126, i32 noundef 0) #12
+  %.not318 = icmp ult i64 %414, %415
+  %416 = load i64, ptr %55, align 2
+  %417 = and i64 %416, 268435456
+  %.not319 = icmp eq i64 %417, 0
+  br i1 %.not318, label %421, label %418
 
-419:                                              ; preds = %414
-  br i1 %.not319, label %.backedge, label %420
+418:                                              ; preds = %413
+  br i1 %.not319, label %.backedge, label %419
 
-420:                                              ; preds = %419
-  %421 = load i64, ptr %142, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i64 noundef %421) #12
+419:                                              ; preds = %418
+  %420 = load i64, ptr %142, align 8
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i64 noundef %420) #12
   br label %.backedge
 
-422:                                              ; preds = %414
-  br i1 %.not319, label %.thread351, label %423
+421:                                              ; preds = %413
+  br i1 %.not319, label %.thread351, label %422
 
-423:                                              ; preds = %422
+422:                                              ; preds = %421
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.71) #12
   br label %.thread351
 
-424:                                              ; preds = %403
-  %425 = tail call fastcc zeroext i1 @extract_if_dead(ptr noundef nonnull %126, ptr noundef nonnull %0)
-  br i1 %425, label %426, label %.thread351
+423:                                              ; preds = %402
+  %424 = tail call fastcc zeroext i1 @extract_if_dead(ptr noundef nonnull %126, ptr noundef nonnull %0)
+  br i1 %424, label %425, label %.thread351
 
-426:                                              ; preds = %424
+425:                                              ; preds = %423
   tail call void @Curl_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %126, i1 noundef zeroext true)
   br label %.backedge
 
@@ -5270,57 +5272,57 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
   %.not324 = icmp eq ptr %.0224.be, null
   br i1 %.not324, label %._crit_edge.thread, label %.thread351
 
-.thread351:                                       ; preds = %424, %422, %423, %402, %._crit_edge
-  %.1354 = phi ptr [ %.0224.be, %._crit_edge ], [ %126, %402 ], [ %126, %423 ], [ %126, %422 ], [ %126, %424 ]
+.thread351:                                       ; preds = %423, %421, %422, %401, %._crit_edge
+  %.1354 = phi ptr [ %.0224.be, %._crit_edge ], [ %126, %401 ], [ %126, %422 ], [ %126, %421 ], [ %126, %423 ]
   tail call void @Curl_attach_connection(ptr noundef %0, ptr noundef nonnull %.1354) #12
-  %427 = getelementptr inbounds i8, ptr %0, i64 208
-  %428 = load ptr, ptr %427, align 8
-  %.not328 = icmp eq ptr %428, null
-  br i1 %.not328, label %431, label %429
+  %426 = getelementptr inbounds i8, ptr %0, i64 208
+  %427 = load ptr, ptr %426, align 8
+  %.not328 = icmp eq ptr %427, null
+  br i1 %.not328, label %430, label %428
 
-429:                                              ; preds = %.thread351
-  %430 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
-  br label %431
+428:                                              ; preds = %.thread351
+  %429 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
+  br label %430
 
-431:                                              ; preds = %429, %.thread351
+430:                                              ; preds = %428, %.thread351
   store ptr %.1354, ptr %2, align 8
-  br label %444
-
-._crit_edge.thread:                               ; preds = %IsMultiplexingPossible.exit.thread, %._crit_edge
-  %.0225.lcssa388 = phi i1 [ %.0225.be, %._crit_edge ], [ false, %IsMultiplexingPossible.exit.thread ]
-  %432 = getelementptr inbounds i8, ptr %0, i64 208
-  %433 = load ptr, ptr %432, align 8
-  %.not325 = icmp eq ptr %433, null
-  br i1 %.not325, label %436, label %434
-
-434:                                              ; preds = %._crit_edge.thread
-  %435 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
-  br label %436
-
-436:                                              ; preds = %434, %._crit_edge.thread
-  br i1 %.0225.lcssa388, label %437, label %444
-
-437:                                              ; preds = %436
-  %438 = load i64, ptr %55, align 2
-  %439 = and i64 %438, 8796093022208
-  %.not326 = icmp eq i64 %439, 0
-  br i1 %.not326, label %444, label %440
-
-440:                                              ; preds = %437
-  %441 = and i64 %438, 268435456
-  %.not327 = icmp eq i64 %441, 0
-  br i1 %.not327, label %443, label %442
-
-442:                                              ; preds = %440
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.72) #12
   br label %443
 
-443:                                              ; preds = %440, %442
-  store i8 1, ptr %4, align 1
-  br label %444
+._crit_edge.thread:                               ; preds = %IsMultiplexingPossible.exit.thread, %._crit_edge
+  %.0225.lcssa392 = phi i1 [ %.0225.be, %._crit_edge ], [ false, %IsMultiplexingPossible.exit.thread ]
+  %431 = getelementptr inbounds i8, ptr %0, i64 208
+  %432 = load ptr, ptr %431, align 8
+  %.not325 = icmp eq ptr %432, null
+  br i1 %.not325, label %435, label %433
 
-444:                                              ; preds = %436, %437, %443, %220, %223, %85, %88, %49, %52, %431
-  %.0 = phi i1 [ true, %431 ], [ false, %52 ], [ false, %49 ], [ false, %88 ], [ false, %85 ], [ false, %223 ], [ false, %220 ], [ false, %443 ], [ false, %437 ], [ false, %436 ]
+433:                                              ; preds = %._crit_edge.thread
+  %434 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 5) #12
+  br label %435
+
+435:                                              ; preds = %433, %._crit_edge.thread
+  br i1 %.0225.lcssa392, label %436, label %443
+
+436:                                              ; preds = %435
+  %437 = load i64, ptr %55, align 2
+  %438 = and i64 %437, 8796093022208
+  %.not326 = icmp eq i64 %438, 0
+  br i1 %.not326, label %443, label %439
+
+439:                                              ; preds = %436
+  %440 = and i64 %437, 268435456
+  %.not327 = icmp eq i64 %440, 0
+  br i1 %.not327, label %442, label %441
+
+441:                                              ; preds = %439
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.72) #12
+  br label %442
+
+442:                                              ; preds = %439, %441
+  store i8 1, ptr %4, align 1
+  br label %443
+
+443:                                              ; preds = %435, %436, %442, %220, %223, %85, %88, %49, %52, %430
+  %.0 = phi i1 [ true, %430 ], [ false, %52 ], [ false, %49 ], [ false, %88 ], [ false, %85 ], [ false, %223 ], [ false, %220 ], [ false, %442 ], [ false, %436 ], [ false, %435 ]
   ret i1 %.0
 }
 

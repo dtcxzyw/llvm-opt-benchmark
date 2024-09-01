@@ -1035,7 +1035,7 @@ entry:
 while.cond11.preheader:                           ; preds = %while.body, %if.end.i
   %.us-phi = phi i32 [ %iRet.3, %while.body ], [ %iRet.233, %if.end.i ]
   %mColors.i = getelementptr inbounds i8, ptr %pcMesh, i64 48
-  br i1 %cmp2.i, label %_ZNK6aiMesh15HasVertexColorsEj.exit, label %while.end17
+  br label %_ZNK6aiMesh15HasVertexColorsEj.exit
 
 if.end.i:                                         ; preds = %entry, %while.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 0, %entry ]
@@ -1075,8 +1075,8 @@ while.body13:                                     ; preds = %_ZNK6aiMesh15HasVer
   %exitcond43 = icmp eq i64 %indvars.iv.next41, 8
   br i1 %exitcond43, label %while.end17, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !17
 
-while.end17:                                      ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %while.body13, %entry, %while.cond11.preheader
-  %.us-phi38 = phi i32 [ %.us-phi, %while.cond11.preheader ], [ %5, %entry ], [ %or16, %while.body13 ], [ %iRet.435, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+while.end17:                                      ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %while.body13, %entry
+  %.us-phi38 = phi i32 [ %5, %entry ], [ %or16, %while.body13 ], [ %iRet.435, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   ret i32 %.us-phi38
 }
 
@@ -1631,9 +1631,6 @@ arrayctor.loop121:                                ; preds = %arrayctor.loop121, 
 arrayctor.cont125:                                ; preds = %arrayctor.loop121
   %mFaces126 = getelementptr inbounds i8, ptr %call, i64 208
   store ptr %53, ptr %mFaces126, align 8
-  br i1 %cmp276.not, label %for.cond164.preheader, label %for.body131.lr.ph
-
-for.body131.lr.ph:                                ; preds = %arrayctor.cont125
   %mFaces132 = getelementptr inbounds i8, ptr %pMesh, i64 208
   br label %for.body131
 
@@ -1641,8 +1638,8 @@ for.cond164.preheader.loopexit:                   ; preds = %for.inc161
   %.pre340 = load i32, ptr %mNumVertices, align 4
   br label %for.cond164.preheader
 
-for.cond164.preheader:                            ; preds = %arrayctor.cont125.thread, %for.cond164.preheader.loopexit, %arrayctor.cont125
-  %54 = phi i32 [ %.pre340, %for.cond164.preheader.loopexit ], [ %.fr, %arrayctor.cont125 ], [ %.fr, %arrayctor.cont125.thread ]
+for.cond164.preheader:                            ; preds = %arrayctor.cont125.thread, %for.cond164.preheader.loopexit
+  %54 = phi i32 [ %.pre340, %for.cond164.preheader.loopexit ], [ %.fr, %arrayctor.cont125.thread ]
   %cmp166294.not = icmp eq i32 %54, 0
   br i1 %cmp166294.not, label %for.end243, label %for.body167.lr.ph
 
@@ -1656,9 +1653,9 @@ for.body167.lr.ph:                                ; preds = %for.cond164.prehead
   %57 = getelementptr inbounds i8, ptr %pMesh, i64 48
   br label %for.body167
 
-for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc161
-  %conv129289 = phi i64 [ 0, %for.body131.lr.ph ], [ %conv129, %for.inc161 ]
-  %a127.0288 = phi i32 [ 0, %for.body131.lr.ph ], [ %inc162, %for.inc161 ]
+for.body131:                                      ; preds = %arrayctor.cont125, %for.inc161
+  %conv129289 = phi i64 [ 0, %arrayctor.cont125 ], [ %conv129, %for.inc161 ]
+  %a127.0288 = phi i32 [ 0, %arrayctor.cont125 ], [ %inc162, %for.inc161 ]
   %58 = load ptr, ptr %mFaces132, align 8
   %59 = load ptr, ptr %subMeshFaces, align 8
   %add.ptr.i174 = getelementptr inbounds i32, ptr %59, i64 %conv129289
@@ -1865,10 +1862,7 @@ for.body254.lr.ph:                                ; preds = %if.end.i.i.i.i.i.i.
   %92 = load ptr, ptr %mBones, align 8
   br label %for.body254
 
-for.cond278.preheader:                            ; preds = %for.inc274
-  br i1 %cmp.not.i.i.i.i203, label %for.end291, label %for.body281.lr.ph
-
-for.body281.lr.ph:                                ; preds = %for.cond278.preheader
+for.body281.lr.ph:                                ; preds = %for.inc274
   %mNumBones286 = getelementptr inbounds i8, ptr %call, i64 216
   br label %for.body281
 
@@ -1917,7 +1911,7 @@ for.inc271:                                       ; preds = %for.body260, %if.th
 for.inc274:                                       ; preds = %for.inc271, %for.body254
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %conv245
-  br i1 %exitcond325.not, label %for.cond278.preheader, label %for.body254, !llvm.loop !38
+  br i1 %exitcond325.not, label %for.body281.lr.ph, label %for.body254, !llvm.loop !38
 
 for.body281:                                      ; preds = %for.body281.lr.ph, %for.inc289
   %indvars.iv326 = phi i64 [ 0, %for.body281.lr.ph ], [ %indvars.iv.next327, %for.inc289 ]
@@ -1937,8 +1931,8 @@ for.inc289:                                       ; preds = %for.body281, %if.th
   %exitcond331.not = icmp eq i64 %indvars.iv.next327, %conv245
   br i1 %exitcond331.not, label %for.end291, label %for.body281, !llvm.loop !39
 
-for.end291:                                       ; preds = %for.inc289, %if.then244, %for.cond278.preheader
-  %subBones.sroa.0.0374377 = phi ptr [ %call5.i.i.i.i2.i.i218, %for.cond278.preheader ], [ null, %if.then244 ], [ %call5.i.i.i.i2.i.i218, %for.inc289 ]
+for.end291:                                       ; preds = %for.inc289, %if.then244
+  %subBones.sroa.0.0374377 = phi ptr [ null, %if.then244 ], [ %call5.i.i.i.i2.i.i218, %for.inc289 ]
   %mNumBones292 = getelementptr inbounds i8, ptr %call, i64 216
   %102 = load i32, ptr %mNumBones292, align 8
   %tobool293.not = icmp eq i32 %102, 0

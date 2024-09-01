@@ -5595,12 +5595,9 @@ for.body63.epil:                                  ; preds = %for.cond.cleanup62.
 for.cond.cleanup62:                               ; preds = %for.body63.epil, %for.cond.cleanup62.loopexit.unr-lcssa
   %add77 = add nuw nsw i32 %conv, 1
   %mul78 = mul i32 %add77, %nodecount
-  br i1 %cmp24, label %for.cond83.preheader, label %if.else126
+  br i1 %cmp24, label %for.body86.preheader, label %if.else126
 
-for.cond83.preheader:                             ; preds = %for.cond.cleanup62
-  br i1 %cmp26232.not, label %if.end149, label %for.body86.preheader
-
-for.body86.preheader:                             ; preds = %for.cond83.preheader
+for.body86.preheader:                             ; preds = %for.cond.cleanup62
   %wide.trip.count262 = zext i32 %nodecount to i64
   br label %for.body86
 
@@ -5721,7 +5718,7 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %niter288.ncmp.3 = icmp eq i64 %indvars.iv.next255.3, %unroll_iter287
   br i1 %niter288.ncmp.3, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134, !llvm.loop !232
 
-if.end149:                                        ; preds = %if.end56, %for.cond.preheader, %for.cond38.preheader, %if.else126, %for.cond83.preheader
+if.end149:                                        ; preds = %if.end56, %for.cond.preheader, %for.cond38.preheader, %if.else126
   %isnull.i.i216 = icmp eq ptr %storemerge.i, null
   br i1 %isnull.i.i216, label %_ZN6BufferIhED2Ev.exit218, label %delete.notnull.i.i217
 

@@ -440,8 +440,8 @@ define internal fastcc void @_ZN3ade6passesL5visitERSt6vectorINS_6HandleINS_4Nod
 
 15:                                               ; preds = %16, %12
   %.06.i.i.i.i.i.i = phi i32 [ %14, %12 ], [ %20, %16 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %16
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %16
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -589,8 +589,8 @@ _ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_
 
 89:                                               ; preds = %89, %_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit.thread
   %.06.i.i.i.i.i.i.i = phi i32 [ %88, %_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit.thread ], [ %93, %89 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %90 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %91 = cmpxchg weak ptr %87, i32 %.06.i.i.i.i.i.i.i, i32 %90 acq_rel monotonic, align 8, !noalias !32
   %92 = extractvalue { i32, i1 } %91, 1
@@ -705,8 +705,8 @@ _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %110, %123, %_ZNSt16
 
 138:                                              ; preds = %138, %"_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSA_INS_6HandleISF_EESaISK_EERSt13unordered_setIPSF_St4hashISP_ESt8equal_toISP_ESaISP_EERKSK_E3$_0EEE8iteratorneERKS12_.exit"
   %.06.i.i.i.i.i.i.i.i.i.i = phi i32 [ %137, %"_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSA_INS_6HandleISF_EESaISK_EERSt13unordered_setIPSF_St4hashISP_ESt8equal_toISP_ESaISP_EERKSK_E3$_0EEE8iteratorneERKS12_.exit" ], [ %142, %138 ]
-  %.not.i.not.i.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i.i)
   %139 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i.i, 1
   %140 = cmpxchg weak ptr %136, i32 %.06.i.i.i.i.i.i.i.i.i.i, i32 %139 acq_rel monotonic, align 8, !noalias !48
   %141 = extractvalue { i32, i1 } %140, 1
@@ -994,8 +994,8 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit: ; preds = %
 
 264:                                              ; preds = %265, %261
   %.06.i.i.i.i.i.i30 = phi i32 [ %263, %261 ], [ %269, %265 ]
-  %.not.i.not.i.i.i.i.i31 = icmp eq i32 %.06.i.i.i.i.i.i30, 0
-  br i1 %.not.i.not.i.i.i.i.i31, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit41, label %265
+  %.not.not.not.i.not.i.i.i.i.i31 = icmp eq i32 %.06.i.i.i.i.i.i30, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i31, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit41, label %265
 
 265:                                              ; preds = %264
   %266 = add nsw i32 %.06.i.i.i.i.i.i30, 1

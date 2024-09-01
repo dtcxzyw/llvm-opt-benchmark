@@ -82,10 +82,10 @@ define hidden noundef i64 @"_ZN14regex_automata4util4pool5inner9THREAD_ID7__geti
 define hidden void @"_ZN15crossbeam_deque5deque14Steal$LT$T$GT$7success17hb21ad895875155e7E"(ptr noalias nocapture noundef writeonly sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !6, !noundef !5
   %4 = add nsw i64 %3, -3
-  %5 = icmp ugt i64 %4, 2
-  %6 = icmp eq i64 %4, 1
-  %.not2.not7 = or i1 %5, %6
-  br i1 %.not2.not7, label %.thread, label %7
+  %5 = icmp ult i64 %4, 3
+  %6 = icmp ne i64 %4, 1
+  %.not2 = and i1 %5, %6
+  br i1 %.not2, label %7, label %.thread
 
 .thread:                                          ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)

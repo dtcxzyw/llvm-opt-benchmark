@@ -852,10 +852,8 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
 
 cond.false.i.i.i:                                 ; preds = %land.rhs.i
   %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %if.else [
-    i32 -1, label %while.cond.backedge
-    i32 0, label %land.lhs.true16
-  ]
+  %cond = icmp eq i32 %24, -1
+  br i1 %cond, label %while.cond.backedge, label %if.else
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %if.else, label %_ZNK3app13get_family_idEv.exit.thread
@@ -865,10 +863,7 @@ _ZNK3app13get_family_idEv.exit.thread:            ; preds = %land.lhs.true
   %cmp107 = icmp eq i32 %.pr, 0
   br i1 %cmp107, label %_ZNK3app13get_decl_kindEv.exit, label %if.else
 
-land.lhs.true16:                                  ; preds = %cond.false.i.i.i
-  br i1 %cmp3.i23, label %if.else, label %_ZNK3app13get_decl_kindEv.exit
-
-_ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_family_idEv.exit.thread, %land.lhs.true16
+_ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_family_idEv.exit.thread
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load i32, ptr %m_kind.i.i.i, align 4
   switch i32 %25, label %while.cond.backedge [
@@ -1005,7 +1000,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6vect
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.cond.backedge, label %for.body, !llvm.loop !8
 
-if.else:                                          ; preds = %cond.false.i.i.i, %_ZNK3app13get_family_idEv.exit.thread, %land.lhs.true, %_ZN6vectorIP4exprLb0EjE4backEv.exit, %land.lhs.true16
+if.else:                                          ; preds = %cond.false.i.i.i, %_ZNK3app13get_family_idEv.exit.thread, %land.lhs.true, %_ZN6vectorIP4exprLb0EjE4backEv.exit
   tail call void @_Z18for_each_expr_coreIN30collect_boolean_interface_proc7visitorE13ast_fast_markILj1EELb0ELb0EEvRT_RT0_P4expr(ptr noundef nonnull align 8 dereferenceable(8) %proc, ptr noundef nonnull align 8 dereferenceable(144) %tvisited, ptr noundef nonnull %20)
   br label %while.cond.backedge
 
@@ -2329,7 +2324,7 @@ for.cond11.preheader.loopexit:                    ; preds = %for.inc
   br label %for.cond11.preheader
 
 for.cond11.preheader:                             ; preds = %for.cond11.preheader.loopexit, %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
-  %cmp112.not143 = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %_ZNK4goal4sizeEv.exit.thread ], [ %cmp112.not, %for.cond11.preheader.loopexit ]
+  %cmp112.not143 = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %_ZNK4goal4sizeEv.exit.thread ], [ false, %for.cond11.preheader.loopexit ]
   %retval.0.i.i.i142 = phi i64 [ 0, %_ZNK4goal4sizeEv.exit ], [ 0, %_ZNK4goal4sizeEv.exit.thread ], [ %9, %for.cond11.preheader.loopexit ]
   %10 = phi ptr [ null, %_ZNK4goal4sizeEv.exit ], [ null, %_ZNK4goal4sizeEv.exit.thread ], [ %49, %for.cond11.preheader.loopexit ]
   %proc = getelementptr inbounds i8, ptr %this, i64 304

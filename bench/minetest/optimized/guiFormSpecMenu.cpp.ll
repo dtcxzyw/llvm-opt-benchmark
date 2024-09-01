@@ -53781,8 +53781,8 @@ for.body:                                         ; preds = %cleanup111, %for.bo
   %i.02054 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %cleanup111 ]
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %48, i64 %i.02054
   %call18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i8 noundef signext 61, i64 noundef 0) #33
-  %cmp19.not = icmp ne i64 %call18, -1
-  br i1 %cmp19.not, label %if.end30, label %if.then20
+  %cmp19.not.not.not.not.not = icmp ne i64 %call18, -1
+  br i1 %cmp19.not.not.not.not.not, label %if.end30, label %if.then20
 
 if.then20:                                        ; preds = %for.body
   %.not91 = icmp eq ptr @_ZTH11errorstream, null
@@ -57340,7 +57340,7 @@ ehcleanup410:                                     ; preds = %ehcleanup408, %ehcl
   br label %ehcleanup414
 
 cleanup413:                                       ; preds = %cleanup409, %call1.i.noexc, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont, %call.i.noexc
-  %retval.4 = phi i1 [ %cmp19.not, %cleanup409 ], [ false, %invoke.cont11 ], [ false, %call1.i.noexc ], [ false, %invoke.cont9 ], [ false, %invoke.cont7 ], [ false, %call.i.noexc ], [ false, %invoke.cont5 ], [ false, %invoke.cont ]
+  %retval.4 = phi i1 [ %cmp19.not.not.not.not.not, %cleanup409 ], [ false, %invoke.cont11 ], [ false, %call1.i.noexc ], [ false, %invoke.cont9 ], [ false, %invoke.cont7 ], [ false, %call.i.noexc ], [ false, %invoke.cont5 ], [ false, %invoke.cont ]
   %510 = load ptr, ptr %parts, align 8, !tbaa !189
   %511 = load ptr, ptr %_M_finish.i, align 8, !tbaa !190
   %cmp.not3.i.i.i.i1468 = icmp eq ptr %510, %511
@@ -64820,20 +64820,20 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i = icmp ugt i64 %__n.016.i.i.i.i.i, 1152921504606846974
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.preheader
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.208) #36
   unreachable
 
-for.body.i.i.i.i.i.i.i.i.i.i.preheader:           ; preds = %_ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
+_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceISt14_List_iteratorIPN3irr3gui11IGUIElementEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %inc.i.i.i.i.i, 3
   %call5.i.i.i.i8.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #35
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i.i
-  %__result.addr.010.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i8.i, %for.body.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i = phi ptr [ %2, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %from.sroa.0.0, %for.body.i.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
+  %__result.addr.010.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i8.i, %_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i = phi ptr [ %2, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %from.sroa.0.0, %_ZNSt12_Vector_baseIPN3irr3gui11IGUIElementESaIS3_EE11_M_allocateEm.exit.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i, i64 16
   %1 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !182
   store ptr %1, ptr %__result.addr.010.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !182

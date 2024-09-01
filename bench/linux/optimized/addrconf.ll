@@ -7114,7 +7114,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %145, label %.split43.us, label %.split, !llvm.loop !104
 
 .split43.us:                                      ; preds = %.loopexit41.split.us.us, %.loopexit41.split
-  %.fr47 = phi i1 [ false, %.loopexit41.split ], [ %40, %.loopexit41.split.us.us ]
+  %.fr47 = phi i1 [ false, %.loopexit41.split ], [ true, %.loopexit41.split.us.us ]
   %146 = getelementptr inbounds i8, ptr %17, i64 616
   call void @_raw_write_lock_bh(ptr noundef %146) #20
   %147 = getelementptr inbounds i8, ptr %17, i64 936

@@ -77,8 +77,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %14 = getelementptr inbounds ptr, ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 1
-  %.not = icmp ne i8 %16, 45
-  br i1 %.not, label %._crit_edge, label %17
+  %.not.not.not.not = icmp ne i8 %16, 45
+  br i1 %.not.not.not.not, label %._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %15, i64 1
@@ -99,9 +99,6 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %exitcond = icmp eq i64 %.01219.i.idx, 7
   br i1 %exitcond, label %.lr.ph.i114.preheader, label %25
 
-.lr.ph.i114.preheader:                            ; preds = %34, %.lr.ph.i
-  br label %.lr.ph.i114
-
 25:                                               ; preds = %.lr.ph.i
   %26 = tail call ptr @__ctype_b_loc() #11
   %27 = load ptr, ptr %26, align 8
@@ -120,6 +117,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %.010.i = phi i32 [ %33, %32 ], [ %22, %25 ]
   %.not16.i = icmp eq i32 %.010.i, %24
   br i1 %.not16.i, label %35, label %.lr.ph.i114.preheader
+
+.lr.ph.i114.preheader:                            ; preds = %.lr.ph.i, %34
+  br label %.lr.ph.i114
 
 35:                                               ; preds = %34
   %36 = load i8, ptr %21, align 1
@@ -168,7 +168,7 @@ keymatch.exit126:                                 ; preds = %53
   %.not171 = icmp eq i32 %.020.i116, 0
   br i1 %.not171, label %.lr.ph.i128.preheader, label %56
 
-.lr.ph.i128.preheader:                            ; preds = %.lr.ph.i114, %52, %keymatch.exit126
+.lr.ph.i128.preheader:                            ; preds = %52, %.lr.ph.i114, %keymatch.exit126
   br label %.lr.ph.i128
 
 56:                                               ; preds = %keymatch.exit126
@@ -371,7 +371,6 @@ keymatch.exit:                                    ; preds = %35, %147, %59
   %.082.lcssa = phi i32 [ %.183, %keymatch.exit ], [ %.082260, %.lr.ph ]
   %.080.lcssa = phi i32 [ %.181, %keymatch.exit ], [ %.080261, %.lr.ph ]
   %.0.lcssa = phi i32 [ %150, %keymatch.exit ], [ %.0262, %.lr.ph ]
-  %.lcssa195 = phi i1 [ %.not, %keymatch.exit ], [ true, %.lr.ph ]
   %152 = icmp ne ptr %.088.lcssa, null
   %153 = icmp ne ptr %.086.lcssa, null
   %or.cond = select i1 %152, i1 %153, i1 false
@@ -383,7 +382,7 @@ keymatch.exit:                                    ; preds = %35, %147, %59
 
 154:                                              ; preds = %._crit_edge
   %or.cond3.not170 = select i1 %152, i1 true, i1 %153
-  %or.cond112 = or i1 %or.cond3.not170, %.lcssa195
+  %or.cond112 = or i1 %or.cond3.not170, %.not.not.not.not
   br i1 %or.cond112, label %155, label %.thread
 
 .thread:                                          ; preds = %9, %154
@@ -391,7 +390,7 @@ keymatch.exit:                                    ; preds = %35, %147, %59
   unreachable
 
 155:                                              ; preds = %154
-  br i1 %.lcssa195, label %156, label %167
+  br i1 %.not.not.not.not, label %156, label %167
 
 156:                                              ; preds = %155
   %157 = sext i32 %.0.lcssa to i64

@@ -7726,7 +7726,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i397 = getelementptr inbounds i8, ptr %sw, i64 33
   %176 = load i8, ptr %stats_enabled_.i397, align 1
   %tobool21.i = trunc i8 %176 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
+  br i1 %tobool21.i, label %cond.true.i399, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb13PerfStepTimerD2Ev.exit387
   %stats_enabled_.i397496 = getelementptr inbounds i8, ptr %sw, i64 33
@@ -7734,14 +7734,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb13PerfSt
   %tobool21.i497 = trunc i8 %177 to i1
   br i1 %tobool21.i497, label %cond.false.i403, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i389, label %cond.false.i403, label %cond.true.i399
-
-cond.true.i399:                                   ; preds = %if.then22.i
+cond.true.i399:                                   ; preds = %if.end20.i
   %178 = load i64, ptr %166, align 8
   br label %cond.end.i
 
-cond.false.i403:                                  ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i403:                                  ; preds = %if.end20.i.thread
   %179 = load ptr, ptr %sw, align 8
   %vtable26.i = load ptr, ptr %179, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -9176,16 +9173,16 @@ entry:
   %cfd_to_sv = alloca %"class.rocksdb::autovector.898", align 8
   %io_activity = getelementptr inbounds i8, ptr %_read_options, i64 153
   %0 = load i8, ptr %io_activity, align 1
-  %ref.tmp12.sink244.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  %ref.tmp12.sink244.sroa.gep251 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
-  %ref.tmp12.sink244.sroa.gep252 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
-  %ref.tmp12.sink244.sroa.gep253 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
-  %ref.tmp12.sink244.sroa.gep254 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
+  %ref.tmp12.sink240.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  %ref.tmp12.sink240.sroa.gep247 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
+  %ref.tmp12.sink240.sroa.gep248 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
+  %ref.tmp12.sink240.sroa.gep249 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
+  %ref.tmp12.sink240.sroa.gep250 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
   %ref.tmp11.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  %ref.tmp11.sink.sroa.gep255 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
-  %ref.tmp11.sink.sroa.gep256 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
-  %ref.tmp11.sink.sroa.gep257 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
-  %ref.tmp11.sink.sroa.gep258 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
+  %ref.tmp11.sink.sroa.gep251 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  %ref.tmp11.sink.sroa.gep252 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
+  %ref.tmp11.sink.sroa.gep253 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %ref.tmp11.sink.sroa.gep254 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
   switch i8 %0, label %if.then [
     i8 10, label %if.end
     i8 5, label %if.end
@@ -9457,16 +9454,16 @@ if.then86:                                        ; preds = %if.else84
   br label %if.then86.invoke
 
 if.then86.invoke:                                 ; preds = %if.then10, %if.then17, %if.then25, %if.then78, %if.then86
-  %ref.tmp11.sink.sroa.phi = phi ptr [ %ref.tmp11.sink.sroa.gep, %if.then10 ], [ %ref.tmp11.sink.sroa.gep255, %if.then17 ], [ %ref.tmp11.sink.sroa.gep256, %if.then25 ], [ %ref.tmp11.sink.sroa.gep257, %if.then78 ], [ %ref.tmp11.sink.sroa.gep258, %if.then86 ]
+  %ref.tmp11.sink.sroa.phi = phi ptr [ %ref.tmp11.sink.sroa.gep, %if.then10 ], [ %ref.tmp11.sink.sroa.gep251, %if.then17 ], [ %ref.tmp11.sink.sroa.gep252, %if.then25 ], [ %ref.tmp11.sink.sroa.gep253, %if.then78 ], [ %ref.tmp11.sink.sroa.gep254, %if.then86 ]
   %ref.tmp11.sink = phi ptr [ %ref.tmp11, %if.then10 ], [ %ref.tmp18, %if.then17 ], [ %ref.tmp26, %if.then25 ], [ %ref.tmp79, %if.then78 ], [ %ref.tmp87, %if.then86 ]
   %.sink = phi i64 [ 42, %if.then10 ], [ 59, %if.then17 ], [ 35, %if.then25 ], [ 48, %if.then78 ], [ 40, %if.then86 ]
-  %ref.tmp12.sink244.sroa.phi = phi ptr [ %ref.tmp12.sink244.sroa.gep, %if.then10 ], [ %ref.tmp12.sink244.sroa.gep251, %if.then17 ], [ %ref.tmp12.sink244.sroa.gep252, %if.then25 ], [ %ref.tmp12.sink244.sroa.gep253, %if.then78 ], [ %ref.tmp12.sink244.sroa.gep254, %if.then86 ]
-  %ref.tmp12.sink244 = phi ptr [ %ref.tmp12, %if.then10 ], [ %ref.tmp20, %if.then17 ], [ %ref.tmp28, %if.then25 ], [ %ref.tmp81, %if.then78 ], [ %ref.tmp89, %if.then86 ]
+  %ref.tmp12.sink240.sroa.phi = phi ptr [ %ref.tmp12.sink240.sroa.gep, %if.then10 ], [ %ref.tmp12.sink240.sroa.gep247, %if.then17 ], [ %ref.tmp12.sink240.sroa.gep248, %if.then25 ], [ %ref.tmp12.sink240.sroa.gep249, %if.then78 ], [ %ref.tmp12.sink240.sroa.gep250, %if.then86 ]
+  %ref.tmp12.sink240 = phi ptr [ %ref.tmp12, %if.then10 ], [ %ref.tmp20, %if.then17 ], [ %ref.tmp28, %if.then25 ], [ %ref.tmp81, %if.then78 ], [ %ref.tmp89, %if.then86 ]
   %28 = phi i8 [ 3, %if.then10 ], [ 3, %if.then17 ], [ 4, %if.then25 ], [ 3, %if.then78 ], [ 3, %if.then86 ]
   store i64 %.sink, ptr %ref.tmp11.sink.sroa.phi, align 8
-  store ptr @.str.31, ptr %ref.tmp12.sink244, align 8
-  store i64 0, ptr %ref.tmp12.sink244.sroa.phi, align 8
-  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %28, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.sink244, i8 noundef zeroext 0)
+  store ptr @.str.31, ptr %ref.tmp12.sink240, align 8
+  store i64 0, ptr %ref.tmp12.sink240.sroa.phi, align 8
+  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %28, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.sink240, i8 noundef zeroext 0)
           to label %cleanup190 unwind label %lpad.loopexit.split-lp208.loopexit.split-lp
 
 if.else92:                                        ; preds = %if.else84
@@ -9702,10 +9699,10 @@ for.inc150:                                       ; preds = %_ZN7rocksdb6StatusD
 
 invoke.cont155.loopexit:                          ; preds = %for.inc150
   %.pre = load i64, ptr %cfd_to_sv, align 8, !noalias !68
-  %.pre239 = load ptr, ptr %_M_finish.i.i78, align 8, !noalias !68
-  %.pre240 = load ptr, ptr %vect_.i, align 8, !noalias !68
-  %60 = ptrtoint ptr %.pre239 to i64
-  %61 = ptrtoint ptr %.pre240 to i64
+  %.pre235 = load ptr, ptr %_M_finish.i.i78, align 8, !noalias !68
+  %.pre236 = load ptr, ptr %vect_.i, align 8, !noalias !68
+  %60 = ptrtoint ptr %.pre235 to i64
+  %61 = ptrtoint ptr %.pre236 to i64
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 4
   %64 = add i64 %63, %.pre

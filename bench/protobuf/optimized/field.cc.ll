@@ -5224,7 +5224,7 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %_ZNK6google8proto
   %arrayidx.i = getelementptr inbounds i8, ptr %has_bit_indices.coerce0, i64 %12
   %13 = load i32, ptr %arrayidx.i, align 4
   %cmp = icmp sgt i32 %13, -1
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i10, label %if.end
 
 _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread: ; preds = %land.lhs.true
   %containing_type_.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
@@ -5242,14 +5242,14 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread: ; preds = %land.lhs.t
   %cmp90 = icmp sgt i32 %17, -1
   br i1 %cmp90, label %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27, label %if.end
 
-if.then:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
+_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i10: ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
   br i1 %cmp.not.i, label %if.else10.i21, label %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i13
 
-_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i13: ; preds = %if.then
+_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i13: ; preds = %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i10
   %extensions_.i14 = getelementptr inbounds i8, ptr %9, i64 96
   br label %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27
 
-if.else10.i21:                                    ; preds = %if.then
+if.else10.i21:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i10
   %file_.i22 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %18 = load ptr, ptr %file_.i22, align 8
   %extensions_11.i23 = getelementptr inbounds i8, ptr %18, i64 120

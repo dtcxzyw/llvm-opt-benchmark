@@ -12394,8 +12394,8 @@ define void @_ZN10tokenizers6models7unigram5model7Unigram6encode17h1440044a94f96
   %65 = getelementptr inbounds i8, ptr %1, i64 144
   call void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$3get17h295086e4d5562d4cE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 %65, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %66 = load i64, ptr %61, align 8, !range !44, !noundef !9
-  %67 = icmp eq i64 %66, -9223372036854775808
-  br i1 %67, label %69, label %75
+  %67 = icmp ne i64 %66, -9223372036854775808
+  br i1 %67, label %75, label %69
 
 68:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h3cb297d94b395003E.exit", %85, %63
   ret void
@@ -12431,12 +12431,12 @@ define void @_ZN10tokenizers6models7unigram5model7Unigram6encode17h1440044a94f96
           to label %84 unwind label %82
 
 .body:                                            ; preds = %436, %.body.i, %82, %813
-  %.040 = phi i1 [ true, %813 ], [ %67, %82 ], [ true, %.body.i ], [ true, %436 ]
+  %.040 = phi i1 [ false, %813 ], [ %67, %82 ], [ false, %.body.i ], [ false, %436 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %813 ], [ %83, %82 ], [ %.pn34.pn.i, %.body.i ], [ %.pn121.i, %436 ]
   %81 = load i64, ptr %61, align 8, !range !44, !noundef !9
-  %.not = icmp ne i64 %81, -9223372036854775808
-  %brmerge.not = and i1 %.040, %.not
-  br i1 %brmerge.not, label %829, label %.thread
+  %.not = icmp eq i64 %81, -9223372036854775808
+  %brmerge = or i1 %.040, %.not
+  br i1 %brmerge, label %.thread, label %829
 
 82:                                               ; preds = %736, %406, %310, %164, %88, %80
   %83 = landingpad { ptr, i32 }
@@ -13156,7 +13156,7 @@ define void @_ZN10tokenizers6models7unigram5model7Unigram6encode17h1440044a94f96
   %334 = getelementptr inbounds i8, ptr %1, i64 8
   br label %346
 
-.lr.ph439.i:                                      ; preds = %._crit_edge562.i
+._crit_edge.i51:                                  ; preds = %._crit_edge562.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !3040
   store i64 0, ptr %32, align 8, !noalias !3040
   %335 = getelementptr inbounds i8, ptr %32, i64 8
@@ -13207,8 +13207,8 @@ define void @_ZN10tokenizers6models7unigram5model7Unigram6encode17h1440044a94f96
   %351 = icmp eq i64 %.pre559.i, 0
   br i1 %351, label %thread-pre-split.i, label %355
 
-352:                                              ; preds = %492, %.lr.ph439.i
-  %.0437.i = phi i64 [ %3, %.lr.ph439.i ], [ %420, %492 ]
+352:                                              ; preds = %492, %._crit_edge.i51
+  %.0437.i = phi i64 [ %3, %._crit_edge.i51 ], [ %420, %492 ]
   %.val144.i = load i64, ptr %317, align 8, !noalias !3040, !noundef !9
   %353 = icmp ult i64 %.0437.i, %.val144.i
   br i1 %353, label %416, label %354, !prof !1015
@@ -14282,7 +14282,7 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i195.i: ; preds = %
 
 ._crit_edge562.i:                                 ; preds = %733, %718, %713
   %717 = icmp ult i64 %.pre563.i, %3
-  br i1 %717, label %346, label %.lr.ph439.i
+  br i1 %717, label %346, label %._crit_edge.i51
 
 718:                                              ; preds = %715
   %.val155.i = load ptr, ptr %316, align 8, !noalias !3040, !nonnull !9, !noundef !9
@@ -21171,8 +21171,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens17hfefd6
   %31 = phi i64 [ %18, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %spec.select34, %27 ]
   %.sroa.7.1 = phi i64 [ %.sroa.7.0, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %.sroa.7.2, %27 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %.sroa.0.2, %27 ]
-  %.not16.i.i.i.i = icmp eq ptr %21, %15
-  br i1 %.not16.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %.lr.ph.i.i.i.i
+  %.not12.i.i.i.i = icmp eq ptr %21, %15
+  br i1 %.not12.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %.lr.ph.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit": ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
   %32 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
@@ -21279,8 +21279,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars17hf177de
   %31 = phi i64 [ %18, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %spec.select34.i, %27 ]
   %.sroa.7.1.i = phi i64 [ %.sroa.7.0.i, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %.sroa.7.2.i, %27 ]
   %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %.sroa.0.2.i, %27 ]
-  %.not16.i.i.i.i.i = icmp eq ptr %21, %15
-  br i1 %.not16.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %.lr.ph.i.i.i.i.i
+  %.not12.i.i.i.i.i = icmp eq ptr %21, %15
+  br i1 %.not12.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %.lr.ph.i.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i", %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
   %32 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]

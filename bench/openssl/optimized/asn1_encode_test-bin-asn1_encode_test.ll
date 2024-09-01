@@ -563,8 +563,8 @@ cond.end.i:                                       ; preds = %entry
   %add2 = add nuw nsw i64 %add, %0
   %nbytes2 = getelementptr inbounds i8, ptr %custom_data, i64 24
   %2 = load i64, ptr %nbytes2, align 8
-  %cmp163.not = icmp eq i64 %2, 0
-  br i1 %cmp163.not, label %for.end, label %for.body.lr.ph
+  %cmp.not163 = icmp eq i64 %2, 0
+  br i1 %cmp.not163, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end.i
   %bytes2 = getelementptr inbounds i8, ptr %custom_data, i64 16

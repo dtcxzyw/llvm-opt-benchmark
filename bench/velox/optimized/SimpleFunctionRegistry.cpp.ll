@@ -2919,8 +2919,8 @@ for.body.i.i:                                     ; preds = %for.cond.loopexit.i
   %4 = load ptr, ptr %variables_2, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool.not.i.not.i.not = icmp eq ptr %5, null
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %if.end11.i.i
+  %tobool.not.not.i.not.i = icmp eq ptr %5, null
+  br i1 %tobool.not.not.i.not.i, label %land.end, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %for.body.i.i
   %6 = load ptr, ptr %5, align 8

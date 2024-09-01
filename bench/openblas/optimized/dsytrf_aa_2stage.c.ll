@@ -814,7 +814,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %539, label %.preheader49, label %.loopexit50, !llvm.loop !19
 
 .loopexit50:                                      ; preds = %536, %465
-  br i1 %292, label %128, label %.loopexit46, !llvm.loop !20
+  br label %128, !llvm.loop !20
 
 540:                                              ; preds = %.loopexit56
   %541 = icmp slt i32 %98, 1
@@ -1384,9 +1384,9 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %935, label %.preheader, label %.loopexit44, !llvm.loop !26
 
 .loopexit44:                                      ; preds = %932, %858
-  br i1 %716, label %554, label %.loopexit46, !llvm.loop !27
+  br label %554, !llvm.loop !27
 
-.loopexit46:                                      ; preds = %291, %.loopexit50, %715, %.loopexit44, %540, %113
+.loopexit46:                                      ; preds = %291, %715, %540, %113
   call void @dgbtrf_(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef %7, ptr noundef nonnull %10) #5
   br label %936
 

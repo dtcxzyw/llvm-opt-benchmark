@@ -850,8 +850,8 @@ define hidden void @_ZN3ade5Graph5eraseERKNS_6HandleINS_4NodeEEE(ptr noundef non
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -964,8 +964,8 @@ define hidden void @_ZN3ade5Graph10removeNodeEPNS_4NodeE(ptr noundef nonnull ali
 
 16:                                               ; preds = %17, %13
   %.06.i.i.i.i.i = phi i32 [ %15, %13 ], [ %21, %17 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
 
 17:                                               ; preds = %16
   %18 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -1358,8 +1358,8 @@ define hidden void @_ZN3ade5Graph6unlinkERKNS_6HandleINS_4NodeEEE(ptr nocapture 
 
 7:                                                ; preds = %7, %2
   %.06.i.i.i.i.i.i.i = phi i32 [ %6, %2 ], [ %11, %7 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %8 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %9 = cmpxchg weak ptr %5, i32 %.06.i.i.i.i.i.i.i, i32 %8 acq_rel monotonic, align 8, !noalias !18
   %10 = extractvalue { i32, i1 } %9, 1
@@ -1461,8 +1461,8 @@ define hidden void @_ZN3ade5Graph5eraseERKNS_6HandleINS_4EdgeEEE(ptr noundef non
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -1575,8 +1575,8 @@ define hidden void @_ZN3ade5Graph10removeEdgeEPNS_4EdgeE(ptr noundef nonnull ali
 
 16:                                               ; preds = %17, %13
   %.06.i.i.i.i.i = phi i32 [ %15, %13 ], [ %21, %17 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %17
 
 17:                                               ; preds = %16
   %18 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -1974,8 +1974,8 @@ define hidden void @_ZN3ade5Graph4linkERKNS_6HandleINS_4NodeEEES5_(ptr dead_on_u
 
 10:                                               ; preds = %11, %7
   %.06.i.i.i.i.i.i = phi i32 [ %9, %7 ], [ %15, %11 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %11
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -2070,8 +2070,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %10, %4, %32, %45, %
 
 56:                                               ; preds = %57, %53
   %.06.i.i.i.i.i.i4 = phi i32 [ %55, %53 ], [ %61, %57 ]
-  %.not.i.not.i.i.i.i.i5 = icmp eq i32 %.06.i.i.i.i.i.i4, 0
-  br i1 %.not.i.not.i.i.i.i.i5, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit15, label %57
+  %.not.not.not.i.not.i.i.i.i.i5 = icmp eq i32 %.06.i.i.i.i.i.i4, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i5, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit15, label %57
 
 57:                                               ; preds = %56
   %58 = add nsw i32 %.06.i.i.i.i.i.i4, 1
@@ -2662,8 +2662,8 @@ define hidden void @_ZN3ade5Graph4linkERKNS_6HandleINS_4EdgeEEERKNS1_INS_4NodeEE
 
 11:                                               ; preds = %12, %8
   %.06.i.i.i.i.i.i = phi i32 [ %10, %8 ], [ %16, %12 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %12
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %12
 
 12:                                               ; preds = %11
   %13 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -2758,8 +2758,8 @@ _ZNK3ade6HandleINS_4EdgeEE3getEv.exit:            ; preds = %11, %4, %33, %46, %
 
 57:                                               ; preds = %58, %54
   %.06.i.i.i.i.i.i13 = phi i32 [ %56, %54 ], [ %62, %58 ]
-  %.not.i.not.i.i.i.i.i14 = icmp eq i32 %.06.i.i.i.i.i.i13, 0
-  br i1 %.not.i.not.i.i.i.i.i14, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %58
+  %.not.not.not.i.not.i.i.i.i.i14 = icmp eq i32 %.06.i.i.i.i.i.i13, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i14, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %58
 
 58:                                               ; preds = %57
   %59 = add nsw i32 %.06.i.i.i.i.i.i13, 1
@@ -2981,8 +2981,8 @@ define hidden void @_ZN3ade5Graph4linkERKNS_6HandleINS_4NodeEEERKNS1_INS_4EdgeEE
 
 11:                                               ; preds = %12, %8
   %.06.i.i.i.i.i.i = phi i32 [ %10, %8 ], [ %16, %12 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %12
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %12
 
 12:                                               ; preds = %11
   %13 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -3077,8 +3077,8 @@ _ZNK3ade6HandleINS_4EdgeEE3getEv.exit:            ; preds = %11, %4, %33, %46, %
 
 57:                                               ; preds = %58, %54
   %.06.i.i.i.i.i.i13 = phi i32 [ %56, %54 ], [ %62, %58 ]
-  %.not.i.not.i.i.i.i.i14 = icmp eq i32 %.06.i.i.i.i.i.i13, 0
-  br i1 %.not.i.not.i.i.i.i.i14, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %58
+  %.not.not.not.i.not.i.i.i.i.i14 = icmp eq i32 %.06.i.i.i.i.i.i13, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i14, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %58
 
 58:                                               ; preds = %57
   %59 = add nsw i32 %.06.i.i.i.i.i.i13, 1
@@ -3497,8 +3497,8 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN3ade5Graph8met
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -3599,8 +3599,8 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3ade5Graph8me
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -3701,8 +3701,8 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN3ade5Graph8met
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -3803,8 +3803,8 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3ade5Graph8me
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4EdgeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1

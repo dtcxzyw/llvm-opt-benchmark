@@ -2490,7 +2490,7 @@ cond.end16:                                       ; preds = %ClusterBlocksComman
   %mul13.pre-phi = phi i64 [ %.pre, %if.end74.i652 ], [ %mul.i113.i108, %ClusterBlocksCommand.exit.i ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call5) #7
   %call14 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul13.pre-phi) #7
-  br i1 %cmp4.not.i, label %if.then2.i1381, label %for.body21
+  br label %for.body21
 
 for.body21:                                       ; preds = %cond.end16, %for.inc31
   %i18.01418 = phi i64 [ %inc32, %for.inc31 ], [ 0, %cond.end16 ]
@@ -2533,8 +2533,8 @@ for.end33:                                        ; preds = %for.inc31
   %cmp1.i699 = icmp eq i64 %j.1, 0
   br i1 %cmp1.i699, label %if.then2.i1381, label %if.end3.i700
 
-if.then2.i1381:                                   ; preds = %cond.end16, %cond.end16.thread, %for.end33
-  %cond17143114401446 = phi ptr [ %call14, %for.end33 ], [ null, %cond.end16.thread ], [ %call14, %cond.end16 ]
+if.then2.i1381:                                   ; preds = %cond.end16.thread, %for.end33
+  %cond17143114401446 = phi ptr [ %call14, %for.end33 ], [ null, %cond.end16.thread ]
   store i64 1, ptr %dist_split, align 8
   br label %SplitByteVectorDistance.exit
 

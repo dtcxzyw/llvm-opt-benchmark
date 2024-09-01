@@ -559,8 +559,8 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, -1
-  %or.cond22 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond22, label %12, label %._crit_edge
+  %or.cond21 = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond21, label %12, label %._crit_edge
 
 12:                                               ; preds = %5
   %13 = tail call i32 @dup(i32 noundef 1) #19

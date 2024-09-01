@@ -1119,14 +1119,11 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr nocapture noundef nonnull readno
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = tail call double @sqrt(double noundef %11) #26
   %13 = fdiv double %3, %12
-  br i1 %5, label %.lr.ph25.preheader, label %._crit_edge26
-
-.lr.ph25.preheader:                               ; preds = %._crit_edge
   %wide.trip.count31 = zext nneg i32 %1 to i64
   br label %.lr.ph25
 
-.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next29, %.lr.ph25 ]
+.lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
+  %indvars.iv28 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next29, %.lr.ph25 ]
   %14 = getelementptr inbounds double, ptr %2, i64 %indvars.iv28
   %15 = load double, ptr %14, align 8
   %16 = fmul double %13, %15
@@ -1135,7 +1132,7 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr nocapture noundef nonnull readno
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %._crit_edge26, label %.lr.ph25, !llvm.loop !16
 
-._crit_edge26:                                    ; preds = %.lr.ph25, %4, %._crit_edge
+._crit_edge26:                                    ; preds = %.lr.ph25, %4
   ret void
 }
 

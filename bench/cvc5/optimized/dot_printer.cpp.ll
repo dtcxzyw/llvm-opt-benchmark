@@ -4077,7 +4077,7 @@ invoke.cont32:                                    ; preds = %for.body.i.i.i40, %
   br i1 %cmp.i68.not, label %for.cond, label %cleanup, !llvm.loop !27
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont32, %for.end.i.i.i, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %for.end.i.i.i ], [ true, %for.cond ], [ %cmp.not, %invoke.cont32 ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %for.end.i.i.i ], [ %cmp.not, %invoke.cont32 ], [ %cmp.not, %for.cond ]
   ret i1 %retval.0
 }
 

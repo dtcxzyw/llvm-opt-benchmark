@@ -51525,9 +51525,9 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   %3365 = getelementptr inbounds i8, ptr %414, i64 160
   %3366 = getelementptr inbounds i8, ptr %414, i64 677
   %3367 = getelementptr inbounds i8, ptr %414, i64 676
-  %3368 = getelementptr inbounds i8, ptr %414, i64 672
-  %3369 = getelementptr inbounds i8, ptr %414, i64 675
-  %3370 = getelementptr inbounds i8, ptr %414, i64 696
+  %3368 = getelementptr inbounds i8, ptr %414, i64 696
+  %3369 = getelementptr inbounds i8, ptr %414, i64 672
+  %3370 = getelementptr inbounds i8, ptr %414, i64 675
   %3371 = getelementptr inbounds i8, ptr %414, i64 704
   %3372 = getelementptr inbounds i8, ptr %414, i64 712
   %3373 = getelementptr inbounds i8, ptr %432, i64 8
@@ -51589,7 +51589,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br i1 %3405, label %3409, label %3406
 
 3406:                                             ; preds = %3402
-  %3407 = load i8, ptr %3368, align 8
+  %3407 = load i8, ptr %3369, align 8
   %3408 = trunc i8 %3407 to i1
   br i1 %3408, label %3409, label %3414
 
@@ -51617,7 +51617,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit1279
 
 3414:                                             ; preds = %3412, %3406
-  %3415 = load i8, ptr %3369, align 1
+  %3415 = load i8, ptr %3370, align 1
   %3416 = trunc i8 %3415 to i1
   br i1 %3416, label %3417, label %3428
 
@@ -51680,7 +51680,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit1274: ; preds = %1987
           to label %3443 unwind label %.loopexit1393
 
 .thread1348:                                      ; preds = %.thread
-  invoke void @_ZN5Yosys5RTLIL5ConstC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %432, ptr noundef nonnull align 8 dereferenceable(32) %3370)
+  invoke void @_ZN5Yosys5RTLIL5ConstC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %432, ptr noundef nonnull align 8 dereferenceable(32) %3368)
           to label %3443 unwind label %.loopexit1393
 
 3443:                                             ; preds = %.thread1348, %3440
@@ -51773,7 +51773,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit1284:           ; preds = %3467
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit1279
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit1286:               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit.thread1607, %3471, %_ZN5Yosys5RTLIL5ConstaSERKS1_.exit1284, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.thread, %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  %3476 = load i8, ptr %3368, align 8
+  %3476 = load i8, ptr %3369, align 8
   %3477 = trunc i8 %3476 to i1
   br i1 %3477, label %3478, label %3613
 
@@ -52033,7 +52033,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1298:               ; preds = %3566, %3568
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit1279
 
 3579:                                             ; preds = %3545
-  %3580 = load i8, ptr %3369, align 1
+  %3580 = load i8, ptr %3370, align 1
   %3581 = trunc i8 %3580 to i1
   br i1 %3581, label %3582, label %3613
 
@@ -52139,7 +52139,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %451) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %452) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %450) #28
-  %3617 = load i8, ptr %3368, align 8
+  %3617 = load i8, ptr %3369, align 8
   %3618 = trunc i8 %3617 to i1
   %3619 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   %.b870899 = load i1, ptr @_ZN12_GLOBAL__N_113systemverilogE, align 1
@@ -52384,7 +52384,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
           to label %3735 unwind label %.loopexit1393
 
 3713:                                             ; preds = %3690
-  %3714 = load i8, ptr %3369, align 1
+  %3714 = load i8, ptr %3370, align 1
   %3715 = trunc i8 %3714 to i1
   br i1 %3715, label %3716, label %3735
 
@@ -52772,7 +52772,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit1279
 
 3868:                                             ; preds = %3823
-  %3869 = load i8, ptr %3369, align 1
+  %3869 = load i8, ptr %3370, align 1
   %3870 = trunc i8 %3869 to i1
   br i1 %3870, label %3871, label %3910
 
@@ -53282,7 +53282,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
 
 4065:                                             ; preds = %4063
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %509) #28
-  %4066 = load i8, ptr %3369, align 1
+  %4066 = load i8, ptr %3370, align 1
   %4067 = trunc i8 %4066 to i1
   br i1 %4067, label %4068, label %4126
 
@@ -53399,7 +53399,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
 
 4109:                                             ; preds = %4107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %514) #28
-  %4110 = load i8, ptr %3369, align 1
+  %4110 = load i8, ptr %3370, align 1
   %4111 = trunc i8 %4110 to i1
   br i1 %4111, label %4112, label %4126
 
@@ -53448,7 +53448,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1302:               ; preds = %3600, %3602
   br label %4126
 
 4126:                                             ; preds = %.sink.split1704, %4090, %4109, %4065
-  %4127 = load i8, ptr %3369, align 1
+  %4127 = load i8, ptr %3370, align 1
   %4128 = trunc i8 %4127 to i1
   br i1 %4128, label %4129, label %4150
 

@@ -2219,35 +2219,22 @@ _.exit.i283:                                      ; preds = %if.end3.i.i282, %if
 
 if.else487:                                       ; preds = %if.end484
   %or.cond20 = and i1 %tobool424419, %tobool490
-  br i1 %or.cond20, label %if.then491, label %if.then.i296
+  br i1 %or.cond20, label %if.then491, label %if.end498.thread
 
 if.then491:                                       ; preds = %if.else487
   %call492 = call i32 @transport_fetch_refs(ptr noundef %call295, ptr noundef nonnull %mapped_refs.0418) #17
   %tobool493.not = icmp eq i32 %call492, 0
-  br i1 %tobool493.not, label %if.then.i296, label %if.then494
+  br i1 %tobool493.not, label %if.end498.thread, label %if.then494
 
 if.then494:                                       ; preds = %if.then491
   %call495 = call fastcc ptr @_(ptr noundef nonnull @.str.69)
   call void (ptr, ...) @die(ptr noundef %call495) #18
   unreachable
 
-if.end498:                                        ; preds = %_.exit.i283, %if.end.i279
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alt.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %src.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dest.i)
+if.end498.thread:                                 ; preds = %if.else487, %if.then491
   %232 = load ptr, ptr %buf241, align 8
-  %buf500 = getelementptr inbounds i8, ptr %reflog_msg, i64 16
-  %233 = load ptr, ptr %buf500, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rm.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %opt.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %head_ref.i)
-  store ptr %mapped_refs.0418, ptr %rm.i, align 8
-  br label %if.end6.i
-
-if.then.i296:                                     ; preds = %if.then491, %if.else487
-  %234 = load ptr, ptr %buf241, align 8
   %buf500422 = getelementptr inbounds i8, ptr %reflog_msg, i64 16
-  %235 = load ptr, ptr %buf500422, align 8
+  %233 = load ptr, ptr %buf500422, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rm.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %opt.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %head_ref.i)
@@ -2266,15 +2253,28 @@ if.then.i296:                                     ; preds = %if.then491, %if.els
   %tobool3.not.i300 = icmp eq i32 %call.i299, 0
   br i1 %tobool3.not.i300, label %if.end6.i, label %if.then4.i301
 
-if.then4.i301:                                    ; preds = %if.then.i296
+if.end498:                                        ; preds = %_.exit.i283, %if.end.i279
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %alt.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %src.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dest.i)
+  %234 = load ptr, ptr %buf241, align 8
+  %buf500 = getelementptr inbounds i8, ptr %reflog_msg, i64 16
+  %235 = load ptr, ptr %buf500, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rm.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %opt.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %head_ref.i)
+  store ptr %mapped_refs.0418, ptr %rm.i, align 8
+  br label %if.end6.i
+
+if.then4.i301:                                    ; preds = %if.end498.thread
   %call5.i302 = call fastcc ptr @_(ptr noundef nonnull @.str.201)
   call void (ptr, ...) @die(ptr noundef %call5.i302) #18
   unreachable
 
-if.end6.i:                                        ; preds = %if.end498, %if.then.i296
-  %236 = phi ptr [ %235, %if.then.i296 ], [ %233, %if.end498 ]
-  %buf500425 = phi ptr [ %buf500422, %if.then.i296 ], [ %buf500, %if.end498 ]
-  %237 = phi ptr [ %234, %if.then.i296 ], [ %232, %if.end498 ]
+if.end6.i:                                        ; preds = %if.end498, %if.end498.thread
+  %236 = phi ptr [ %233, %if.end498.thread ], [ %235, %if.end498 ]
+  %buf500425 = phi ptr [ %buf500422, %if.end498.thread ], [ %buf500, %if.end498 ]
+  %237 = phi ptr [ %232, %if.end498.thread ], [ %234, %if.end498 ]
   br i1 %tobool419.not, label %if.end13.i, label %if.then8.i304
 
 if.then8.i304:                                    ; preds = %if.end6.i

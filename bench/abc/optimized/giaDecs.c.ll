@@ -439,14 +439,14 @@ Abc_TtCountOnes2.exit.i112:                       ; preds = %147, %.lr.ph.i108
   %167 = add nuw nsw i32 %166, %.220.i110
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i99
-  br i1 %exitcond.not.i114, label %Abc_TtCountOnesVecMask.exit115.loopexit, label %.lr.ph.i108, !llvm.loop !8
+  br i1 %exitcond.not.i114, label %Abc_TtCountOnesVecMask.exit115, label %.lr.ph.i108, !llvm.loop !8
 
-Abc_TtCountOnesVecMask.exit115.loopexit:          ; preds = %Abc_TtCountOnes2.exit.i112
+Abc_TtCountOnesVecMask.exit115:                   ; preds = %Abc_TtCountOnes2.exit.i112
   %168 = trunc nuw nsw i64 %indvars.iv137 to i32
   %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %168, i32 noundef %167)
   br label %Abc_TtCountOnesVecMask.exit.thread
 
-Abc_TtCountOnesVecMask.exit.thread:               ; preds = %._crit_edge, %Abc_TtCountOnesVecMask.exit, %Abc_TtCountOnesVecMask.exit115.loopexit
+Abc_TtCountOnesVecMask.exit.thread:               ; preds = %._crit_edge, %Abc_TtCountOnesVecMask.exit, %Abc_TtCountOnesVecMask.exit115
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %._crit_edge127, label %72, !llvm.loop !9

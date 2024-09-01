@@ -407,8 +407,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 
 63:                                               ; preds = %64, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread6.i.i.i.i"
   %.idx.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i, %64 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread6.i.i.i.i" ]
-  %.not.i.not.i.not.i.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 8
-  br i1 %.not.i.not.i.not.i.i.i.i, label %.loopexit.i.i.i, label %64
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 8
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %.loopexit.i.i.i, label %64
 
 64:                                               ; preds = %63
   %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
@@ -736,8 +736,8 @@ define { ptr, ptr } @_ZN9uu_numfmt28format_and_handle_validation17he4706689127fb
 
 _ZN9uu_numfmt6format16format_and_print17ha613a2f6c13a2e0bE.exit: ; preds = %24, %25
   %26 = load i64, ptr %18, align 8, !range !9, !noundef !5
-  %.not.not = icmp eq i64 %26, -9223372036854775808
-  br i1 %.not.not, label %44, label %27
+  %.not = icmp eq i64 %26, -9223372036854775808
+  br i1 %.not, label %44, label %27
 
 27:                                               ; preds = %_ZN9uu_numfmt6format16format_and_print17ha613a2f6c13a2e0bE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)

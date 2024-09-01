@@ -3391,26 +3391,14 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i397: ; preds = %.noexc401
   %46 = zext nneg i32 %23 to i64
   br label %51
 
-.preheader844:                                    ; preds = %78
-  br i1 %.not.i.i.i.i, label %.preheader844..preheader843_crit_edge, label %.lr.ph875
-
-.preheader844..preheader843_crit_edge:            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.preheader844
-  %.0246.lcssa1100 = phi float [ %.1247.lcssa, %.preheader844 ], [ 0.000000e+00, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0476.070710461099 = phi ptr [ %38, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0495.065766570010501097 = phi ptr [ %34, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0525.061562164866769810541095 = phi ptr [ %30, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0557.058158560462364666969610581093 = phi ptr [ %27, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0536.059760262564467169410621091 = phi ptr [ %29, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0508.063564267369210661089 = phi ptr [ %31, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0484.068169010701087 = phi ptr [ %36, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0457.010741085 = phi ptr [ %40, %.preheader844 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+.preheader844..preheader843_crit_edge:            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert1030 = getelementptr inbounds i8, ptr %1, i64 72
   %.pre1031 = load ptr, ptr %.phi.trans.insert1030, align 8
   br label %.preheader843
 
-.lr.ph875:                                        ; preds = %.preheader844
+.lr.ph875:                                        ; preds = %78
   %47 = getelementptr inbounds i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %1, i64 72
@@ -3511,21 +3499,21 @@ _ZNSt6vectorIfSaIfEED2Ev.exit431.thread:          ; preds = %_ZNSt6vectorIfSaIfE
   store i32 %.sink, ptr %79, align 4
   %80 = trunc nuw i64 %indvars.iv966 to i32
   %81 = icmp sgt i32 %80, 1
-  br i1 %81, label %51, label %.preheader844, !llvm.loop !48
+  br i1 %81, label %51, label %.lr.ph875, !llvm.loop !48
 
 .preheader843:                                    ; preds = %115, %.preheader844..preheader843_crit_edge
-  %.sroa.0476.070710461098 = phi ptr [ %.sroa.0476.070710461099, %.preheader844..preheader843_crit_edge ], [ %38, %115 ]
-  %.sroa.0495.065766570010501096 = phi ptr [ %.sroa.0495.065766570010501097, %.preheader844..preheader843_crit_edge ], [ %34, %115 ]
-  %.sroa.0525.061562164866769810541094 = phi ptr [ %.sroa.0525.061562164866769810541095, %.preheader844..preheader843_crit_edge ], [ %30, %115 ]
-  %.sroa.0557.058158560462364666969610581092 = phi ptr [ %.sroa.0557.058158560462364666969610581093, %.preheader844..preheader843_crit_edge ], [ %27, %115 ]
-  %.sroa.0536.059760262564467169410621090 = phi ptr [ %.sroa.0536.059760262564467169410621091, %.preheader844..preheader843_crit_edge ], [ %29, %115 ]
-  %.sroa.0508.063564267369210661088 = phi ptr [ %.sroa.0508.063564267369210661089, %.preheader844..preheader843_crit_edge ], [ %31, %115 ]
-  %.sroa.0484.068169010701086 = phi ptr [ %.sroa.0484.068169010701087, %.preheader844..preheader843_crit_edge ], [ %36, %115 ]
-  %.sroa.0457.010741084 = phi ptr [ %.sroa.0457.010741085, %.preheader844..preheader843_crit_edge ], [ %40, %115 ]
+  %.sroa.0476.070710461098 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %38, %115 ]
+  %.sroa.0495.065766570010501096 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %34, %115 ]
+  %.sroa.0525.061562164866769810541094 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %30, %115 ]
+  %.sroa.0557.058158560462364666969610581092 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %27, %115 ]
+  %.sroa.0536.059760262564467169410621090 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %29, %115 ]
+  %.sroa.0508.063564267369210661088 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %31, %115 ]
+  %.sroa.0484.068169010701086 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %36, %115 ]
+  %.sroa.0457.010741084 = phi ptr [ null, %.preheader844..preheader843_crit_edge ], [ %40, %115 ]
   %82 = phi ptr [ %.pre1031, %.preheader844..preheader843_crit_edge ], [ %50, %115 ]
   %83 = phi ptr [ %.pre, %.preheader844..preheader843_crit_edge ], [ %48, %115 ]
   %.0286.lcssa = phi i32 [ 0, %.preheader844..preheader843_crit_edge ], [ %.1287, %115 ]
-  %.3.lcssa = phi float [ %.0246.lcssa1100, %.preheader844..preheader843_crit_edge ], [ %.6, %115 ]
+  %.3.lcssa = phi float [ 0.000000e+00, %.preheader844..preheader843_crit_edge ], [ %.6, %115 ]
   %84 = getelementptr inbounds i8, ptr %1, i64 16
   %85 = getelementptr inbounds i8, ptr %1, i64 72
   %86 = icmp sgt i32 %23, 1

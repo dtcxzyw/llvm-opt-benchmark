@@ -2581,8 +2581,8 @@ for.cond:                                         ; preds = %for.body, %entry
   %.pn = phi ptr [ %0, %entry ], [ %dcl.0, %for.body ]
   %dcl.0.in = getelementptr inbounds i8, ptr %.pn, i64 32
   %dcl.0 = load ptr, ptr %dcl.0.in, align 8
-  %tobool.not.not = icmp ne ptr %dcl.0, null
-  br i1 %tobool.not.not, label %for.body, label %return
+  %tobool.not.not.not.not.not.not = icmp ne ptr %dcl.0, null
+  br i1 %tobool.not.not.not.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %ops = getelementptr inbounds i8, ptr %dcl.0, i64 8
@@ -2593,7 +2593,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool1.not, label %for.cond, label %return, !llvm.loop !20
 
 return:                                           ; preds = %for.cond, %for.body
-  ret i1 %tobool.not.not
+  ret i1 %tobool.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

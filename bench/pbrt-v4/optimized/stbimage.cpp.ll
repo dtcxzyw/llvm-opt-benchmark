@@ -19033,10 +19033,7 @@ if.then130:                                       ; preds = %if.end124
   store ptr @.str.6, ptr %77, align 8
   br label %return
 
-for.cond162.preheader:                            ; preds = %for.body136
-  br i1 %cmp135327, label %for.body165.lr.ph, label %for.end185
-
-for.body165.lr.ph:                                ; preds = %for.cond162.preheader
+for.body165.lr.ph:                                ; preds = %for.body136
   %img_comp166 = getelementptr inbounds i8, ptr %z, i64 18080
   %wide.trip.count356 = zext nneg i32 %.lcssa to i64
   br label %for.body165
@@ -19054,7 +19051,7 @@ for.body136:                                      ; preds = %for.body136.lr.ph, 
   %v_max.1 = tail call i32 @llvm.smax.i32(i32 %79, i32 %v_max.0330)
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
-  br i1 %exitcond352.not, label %for.cond162.preheader, label %for.body136, !llvm.loop !146
+  br i1 %exitcond352.not, label %for.body165.lr.ph, label %for.body136, !llvm.loop !146
 
 for.cond162:                                      ; preds = %if.end173
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
@@ -19087,9 +19084,9 @@ if.then180:                                       ; preds = %if.end173
   store ptr @.str.57, ptr %83, align 8
   br label %return
 
-for.end185:                                       ; preds = %for.cond162, %for.cond133.preheader, %for.cond162.preheader
-  %v_max.0.lcssa364 = phi i32 [ %v_max.1, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
-  %h_max.0.lcssa363 = phi i32 [ %spec.select, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %spec.select, %for.cond162 ]
+for.end185:                                       ; preds = %for.cond162, %for.cond133.preheader
+  %v_max.0.lcssa364 = phi i32 [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
+  %h_max.0.lcssa363 = phi i32 [ 1, %for.cond133.preheader ], [ %spec.select, %for.cond162 ]
   %img_h_max = getelementptr inbounds i8, ptr %z, i64 18056
   store i32 %h_max.0.lcssa363, ptr %img_h_max, align 8
   %img_v_max = getelementptr inbounds i8, ptr %z, i64 18060

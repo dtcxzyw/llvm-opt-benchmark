@@ -16046,7 +16046,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %111, %129
 
 .preheader:                                       ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit128
   %.pre1088.pre = load ptr, ptr %82, align 8
-  br i1 %139, label %.lr.ph892, label %._crit_edge
+  br label %.lr.ph892
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit128
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit128 ]
@@ -17513,10 +17513,10 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %747 = icmp sgt i32 %.2890, 1
   br i1 %747, label %.lr.ph892, label %._crit_edge, !llvm.loop !155
 
-._crit_edge:                                      ; preds = %744, %743, %138, %.preheader
-  %.sroa.0559.2.lcssa1112 = phi ptr [ %.sroa.0559.5, %.preheader ], [ null, %138 ], [ %.sroa.0559.5, %743 ], [ %.sroa.0559.5, %744 ]
-  %.sroa.6.2.lcssa1111 = phi ptr [ %.sroa.6.3, %.preheader ], [ null, %138 ], [ %.sroa.6.3, %743 ], [ %.sroa.6.3, %744 ]
-  %748 = phi ptr [ %.pre1088.pre, %.preheader ], [ null, %138 ], [ %745, %744 ], [ %.pre1087.pre, %743 ]
+._crit_edge:                                      ; preds = %744, %743, %138
+  %.sroa.0559.2.lcssa1112 = phi ptr [ null, %138 ], [ %.sroa.0559.5, %743 ], [ %.sroa.0559.5, %744 ]
+  %.sroa.6.2.lcssa1111 = phi ptr [ null, %138 ], [ %.sroa.6.3, %743 ], [ %.sroa.6.3, %744 ]
+  %748 = phi ptr [ null, %138 ], [ %745, %744 ], [ %.pre1087.pre, %743 ]
   %749 = load ptr, ptr %24, align 8
   %.not636894 = icmp eq ptr %749, %748
   br i1 %.not636894, label %885, label %.lr.ph897

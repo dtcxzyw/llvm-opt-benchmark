@@ -1066,15 +1066,15 @@ define { i32, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder11try_use_
   unreachable
 
 "_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit": ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %5, i64 336
-  %15 = load ptr, ptr %14, align 8, !alias.scope !137, !nonnull !4, !noundef !4
-  %16 = load ptr, ptr %0, align 8, !nonnull !4, !align !32, !noundef !4
-  %17 = getelementptr inbounds i16, ptr %15, i64 %8
+  %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !32, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %5, i64 336
+  %16 = load ptr, ptr %15, align 8, !alias.scope !137, !nonnull !4, !noundef !4
+  %17 = getelementptr inbounds i16, ptr %16, i64 %8
   %18 = load i16, ptr %17, align 2, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
-  tail call void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h551065cfee288acdE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %5, ptr noalias noundef nonnull align 8 dereferenceable(872) %16, i32 noundef %1, i16 noundef %18, i32 noundef %12), !noalias !143
-  %19 = tail call noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder17run_state_machine17h50f3e39ce35b7e0cE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %5, ptr noalias noundef nonnull align 8 dereferenceable(872) %16, i32 noundef %1, i16 noundef %18), !noalias !143
+  tail call void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h551065cfee288acdE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %5, ptr noalias noundef nonnull align 8 dereferenceable(872) %14, i32 noundef %1, i16 noundef %18, i32 noundef %12), !noalias !143
+  %19 = tail call noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder17run_state_machine17h50f3e39ce35b7e0cE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %5, ptr noalias noundef nonnull align 8 dereferenceable(872) %14, i32 noundef %1, i16 noundef %18), !noalias !143
   %20 = getelementptr inbounds i8, ptr %5, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !145
   store i64 0, ptr %20, align 8, !alias.scope !140, !noalias !145

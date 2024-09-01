@@ -57,8 +57,8 @@ land.rhs:                                         ; preds = %land.rhs, %land.rhs
   %cmp8.not = icmp eq i8 %2, 10
   %incdec.ptr14 = getelementptr inbounds i8, ptr %p.0135, i64 1
   %cmp7 = icmp uge ptr %incdec.ptr14, %add.ptr
-  %or.cond186.not = select i1 %cmp8.not, i1 true, i1 %cmp7
-  br i1 %or.cond186.not, label %if.end15, label %land.rhs, !llvm.loop !4
+  %or.cond185.not = select i1 %cmp8.not, i1 true, i1 %cmp7
+  br i1 %or.cond185.not, label %if.end15, label %land.rhs, !llvm.loop !4
 
 if.end15:                                         ; preds = %land.rhs
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr14 to i64
@@ -79,8 +79,8 @@ lor.lhs.false16:                                  ; preds = %while.cond
   %conv17 = sext i32 %sub to i64
   %cmp18 = icmp sgt i64 %sub.ptr.sub, %conv17
   %cmp22107 = icmp sgt i32 %4, 0
-  %or.cond170 = and i1 %cmp18, %cmp22107
-  br i1 %or.cond170, label %while.body, label %lor.lhs.false111
+  %or.cond169 = and i1 %cmp18, %cmp22107
+  br i1 %or.cond169, label %while.body, label %lor.lhs.false111
 
 land.rhs20:                                       ; preds = %while.cond
   %5 = load i32, ptr %obuf_len, align 4
@@ -88,15 +88,15 @@ land.rhs20:                                       ; preds = %while.cond
   br i1 %cmp22, label %land.rhs20.while.body_crit_edge, label %land.lhs.true.loopexit
 
 land.rhs20.while.body_crit_edge:                  ; preds = %land.rhs20
-  %.pre150 = load i32, ptr %obuf_size, align 8
-  %.pre152 = sub nsw i32 %.pre150, %5
-  %.pre153 = ptrtoint ptr %in.addr.1 to i64
-  %.pre154 = sub i64 %sub.ptr.lhs.cast, %.pre153
+  %.pre149 = load i32, ptr %obuf_size, align 8
+  %.pre151 = sub nsw i32 %.pre149, %5
+  %.pre152 = ptrtoint ptr %in.addr.1 to i64
+  %.pre153 = sub i64 %sub.ptr.lhs.cast, %.pre152
   br label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false16, %land.rhs20.while.body_crit_edge
-  %sub.ptr.sub31.pre-phi = phi i64 [ %.pre154, %land.rhs20.while.body_crit_edge ], [ %sub.ptr.sub, %lor.lhs.false16 ]
-  %sub28.pre-phi = phi i32 [ %.pre152, %land.rhs20.while.body_crit_edge ], [ %sub, %lor.lhs.false16 ]
+  %sub.ptr.sub31.pre-phi = phi i64 [ %.pre153, %land.rhs20.while.body_crit_edge ], [ %sub.ptr.sub, %lor.lhs.false16 ]
+  %sub28.pre-phi = phi i32 [ %.pre151, %land.rhs20.while.body_crit_edge ], [ %sub, %lor.lhs.false16 ]
   %6 = phi i32 [ %5, %land.rhs20.while.body_crit_edge ], [ %4, %lor.lhs.false16 ]
   %cmp32 = icmp sgt i64 %sub.ptr.sub31.pre-phi, 0
   br i1 %cmp32, label %if.then34, label %if.end77
@@ -163,11 +163,11 @@ if.then99:                                        ; preds = %if.end95
   %sub105 = sub nsw i32 %14, %call
   %conv106 = sext i32 %sub105 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %15, ptr nonnull align 1 %add.ptr103, i64 %conv106, i1 false)
-  %.pre151 = load i32, ptr %obuf_len, align 4
+  %.pre150 = load i32, ptr %obuf_len, align 4
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then99, %if.end95
-  %16 = phi i32 [ %.pre151, %if.then99 ], [ %14, %if.end95 ]
+  %16 = phi i32 [ %.pre150, %if.then99 ], [ %14, %if.end95 ]
   %sub109 = sub nsw i32 %16, %call
   store i32 %sub109, ptr %obuf_len, align 4
   br label %while.cond, !llvm.loop !6
@@ -182,12 +182,12 @@ do.cond.thread:                                   ; preds = %lor.lhs.false111
   br i1 %cmp156113, label %if.then161, label %return
 
 land.lhs.true.loopexit:                           ; preds = %land.rhs20
-  %.pre155 = ptrtoint ptr %in.addr.1 to i64
-  %.pre156 = sub i64 %sub.ptr.lhs.cast, %.pre155
+  %.pre154 = ptrtoint ptr %in.addr.1 to i64
+  %.pre155 = sub i64 %sub.ptr.lhs.cast, %.pre154
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.loopexit, %lor.lhs.false111
-  %sub.ptr.sub121.pre-phi = phi i64 [ %.pre156, %land.lhs.true.loopexit ], [ %sub.ptr.sub, %lor.lhs.false111 ]
+  %sub.ptr.sub121.pre-phi = phi i64 [ %.pre155, %land.lhs.true.loopexit ], [ %sub.ptr.sub, %lor.lhs.false111 ]
   %cmp122 = icmp sgt i64 %sub.ptr.sub121.pre-phi, 0
   br i1 %cmp122, label %if.then124, label %do.cond
 

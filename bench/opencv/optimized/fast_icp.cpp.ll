@@ -813,7 +813,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv5kinfu7ICPImpl18estimateTr
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 48
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.391.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 20
+  %.sroa.384.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 20
   br label %89
 
 89:                                               ; preds = %.lr.ph80, %._crit_edge
@@ -918,17 +918,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv5kinfu7ICPImpl18estimateTr
 
 .preheader.preheader:                             ; preds = %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %25, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
-  %.sroa.090.0.copyload = load float, ptr %45, align 4
+  %.sroa.083.0.copyload = load float, ptr %45, align 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.391.0.copyload = load float, ptr %.sroa.391.0..sroa_idx, align 4
+  %.sroa.384.0.copyload = load float, ptr %.sroa.384.0..sroa_idx, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   invoke void @_ZN2cv7Affine3IfE8rotationERKNS_3VecIfLi3EEE(ptr noundef nonnull align 4 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(12) %25)
           to label %127 unwind label %123
 
 127:                                              ; preds = %.preheader.preheader
-  store float %.sroa.090.0.copyload, ptr %46, align 4
+  store float %.sroa.083.0.copyload, ptr %46, align 4
   store float %.sroa.2.0.copyload, ptr %47, align 4
-  store float %.sroa.391.0.copyload, ptr %48, align 4
+  store float %.sroa.384.0.copyload, ptr %48, align 4
   store float 0.000000e+00, ptr %49, align 4
   store float 0.000000e+00, ptr %50, align 4
   store float 0.000000e+00, ptr %51, align 4
@@ -1062,9 +1062,9 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %165
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  %174 = fadd float %.sroa.090.0.copyload, %.sroa.462.0.copyload
+  %174 = fadd float %.sroa.083.0.copyload, %.sroa.462.0.copyload
   %175 = fadd float %.sroa.2.0.copyload, %.sroa.664.0.copyload
-  %176 = fadd float %.sroa.391.0.copyload, %.sroa.8.0.copyload
+  %176 = fadd float %.sroa.384.0.copyload, %.sroa.8.0.copyload
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11), !noalias !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0, i64 12, i1 false)
   store float %174, ptr %85, align 4

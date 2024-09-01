@@ -1156,8 +1156,8 @@ for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i,
   %__begin1.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i ], [ %path.coerce0, %for.body.lr.ph.i.i ]
   %3 = load i8, ptr %__begin1.08.i.i, align 1
   %4 = add i8 %3, -33
-  %or.cond19.i.i = icmp ult i8 %4, 94
-  br i1 %or.cond19.i.i, label %for.cond.i.i, label %if.then5
+  %or.cond20.i.i = icmp ult i8 %4, 94
+  br i1 %or.cond20.i.i, label %for.cond.i.i, label %if.then5
 
 if.then5:                                         ; preds = %for.body.us.i.i, %for.body.i.i, %for.body.lr.ph.split.us.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20

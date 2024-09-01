@@ -5185,7 +5185,7 @@ common.ret51:                                     ; preds = %49, %52, %47, %type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -5204,31 +5204,22 @@ define internal zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef readonl
   br i1 %15, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
-  %16 = zext i32 %14 to i64
-  %17 = load ptr, ptr %11, align 8
+  %wide.trip.count = zext i32 %14 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %16 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = tail call zeroext i1 @may_cast(ptr noundef %18, ptr noundef %17, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext %2)
-  br i1 %19, label %.lr.ph24, label %._crit_edge
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %19, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv23 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
-
-.lr.ph:                                           ; preds = %.lr.ph24
-  %20 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = tail call zeroext i1 @may_cast(ptr noundef %22, ptr noundef %21, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext %2)
-  br i1 %23, label %.lr.ph24, label %._crit_edge.loopexit, !llvm.loop !10
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph24
-  %24 = icmp uge i64 %indvars.iv.next, %16
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3, %12
-  %.lcssa = phi i1 [ true, %12 ], [ true, %3 ], [ false, %.lr.ph.preheader ], [ %24, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3, %12
+  %.lcssa = phi i1 [ true, %12 ], [ true, %3 ], [ %19, %.lr.ph ]
   ret i1 %.lcssa
 }
 

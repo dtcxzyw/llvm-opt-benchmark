@@ -207,17 +207,14 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %41 = phi i32 [ %37, %sub_1 ], [ %40, %sub_2 ]
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %sub_054
+  br i1 %42, label %43, label %sub_155
 
 43:                                               ; preds = %.tail, %26
   tail call fastcc void @usage()
   tail call void @exit(i32 noundef 0) #14
   unreachable
 
-sub_054:                                          ; preds = %.tail
-  br i1 %.not, label %sub_155, label %.tail53
-
-sub_155:                                          ; preds = %sub_054
+sub_155:                                          ; preds = %.tail
   %44 = getelementptr inbounds i8, ptr %28, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
@@ -231,8 +228,8 @@ sub_256:                                          ; preds = %sub_155
   %50 = zext i8 %49 to i32
   br label %.tail53
 
-.tail53:                                          ; preds = %sub_0, %sub_054, %sub_155, %sub_256
-  %51 = phi i32 [ %33, %sub_054 ], [ %47, %sub_155 ], [ %50, %sub_256 ], [ %33, %sub_0 ]
+.tail53:                                          ; preds = %sub_0, %sub_155, %sub_256
+  %51 = phi i32 [ %47, %sub_155 ], [ %50, %sub_256 ], [ %33, %sub_0 ]
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %56, label %53
 

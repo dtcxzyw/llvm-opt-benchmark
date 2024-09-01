@@ -1436,8 +1436,8 @@ delete.notnull:                                   ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %tobool6.not.not = icmp eq ptr %pProperties, null
-  br i1 %tobool6.not.not, label %cond.false, label %cond.true
+  %tobool6.not.not.not = icmp eq ptr %pProperties, null
+  br i1 %tobool6.not.not.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #29

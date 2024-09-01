@@ -1217,14 +1217,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .critedge.i:                                      ; preds = %95
   %.not.i81 = icmp ugt i32 %spec.select.i, %19
-  br i1 %.not.i81, label %.lr.ph96.i, label %Abc_NtkRRTfi_int.exit.thread
+  br i1 %.not.i81, label %.preheader88.i, label %Abc_NtkRRTfi_int.exit.thread
 
 .critedge2.preheader.i:                           ; preds = %.critedge4.i
   %.val5597.pre.i = load i32, ptr %92, align 4
   %101 = icmp sgt i32 %.val5597.pre.i, 0
   br i1 %101, label %.lr.ph100.i, label %Abc_NtkRRTfi_int.exit
 
-.lr.ph96.i:                                       ; preds = %.critedge.i, %.critedge4.i
+.preheader88.i:                                   ; preds = %.critedge.i, %.critedge4.i
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.critedge4.i ], [ 0, %.critedge.i ]
   %.val59.i = load ptr, ptr %94, align 8
   %102 = getelementptr inbounds ptr, ptr %.val59.i, i64 %indvars.iv106.i
@@ -1235,7 +1235,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.not53.i = icmp eq i32 %spec.select.i, %106
   br i1 %.not53.i, label %.preheader.i, label %.critedge4.i
 
-.preheader.i:                                     ; preds = %.lr.ph96.i
+.preheader.i:                                     ; preds = %.preheader88.i
   %107 = getelementptr i8, ptr %103, i64 28
   %.val6192.i = load i32, ptr %107, align 4
   %108 = icmp sgt i32 %.val6192.i, 0
@@ -1537,10 +1537,10 @@ Vec_PtrPush.exit.i:                               ; preds = %224, %Vec_PtrGrow.e
   %233 = icmp slt i64 %indvars.iv.next104.i, %232
   br i1 %233, label %110, label %.critedge4.i, !llvm.loop !16
 
-.critedge4.i:                                     ; preds = %231, %.preheader.i, %.lr.ph96.i
+.critedge4.i:                                     ; preds = %231, %.preheader.i, %.preheader88.i
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count.i
-  br i1 %exitcond110.not.i, label %.critedge2.preheader.i, label %.lr.ph96.i, !llvm.loop !17
+  br i1 %exitcond110.not.i, label %.critedge2.preheader.i, label %.preheader88.i, !llvm.loop !17
 
 .lr.ph100.i:                                      ; preds = %.critedge2.preheader.i, %.critedge2.i
   %.val55117.i = phi i32 [ %.val55.i, %.critedge2.i ], [ %.val5597.pre.i, %.critedge2.preheader.i ]
@@ -1698,12 +1698,12 @@ Abc_NtkIncrementTravId.exit100:                   ; preds = %Abc_NtkRRTfi_int.ex
 
 .critedge.i111:                                   ; preds = %294
   %300 = icmp sgt i32 %spec.select.i108, %25
-  br i1 %300, label %.preheader, label %.lr.ph103.i
+  br i1 %300, label %.preheader, label %.preheader93.i
 
 .critedge.thread.i102:                            ; preds = %.critedge
   br i1 %272, label %.preheader, label %Abc_NtkRRTfo_int.exit
 
-.lr.ph103.i:                                      ; preds = %.critedge.i111
+.preheader93.i:                                   ; preds = %.critedge.i111
   %301 = getelementptr inbounds i8, ptr %290, i64 4
   %.phi.trans.insert.i84.i = getelementptr inbounds i8, ptr %290, i64 8
   br label %303
@@ -1713,8 +1713,8 @@ Abc_NtkIncrementTravId.exit100:                   ; preds = %Abc_NtkRRTfi_int.ex
   %302 = icmp sgt i32 %.val69104.pre.i, 0
   br i1 %302, label %.lr.ph107.i, label %Abc_NtkRRTfo_int.exit
 
-303:                                              ; preds = %.critedge4.thread.i, %.lr.ph103.i
-  %indvars.iv113.i = phi i64 [ 0, %.lr.ph103.i ], [ %indvars.iv.next114.i, %.critedge4.thread.i ]
+303:                                              ; preds = %.critedge4.thread.i, %.preheader93.i
+  %indvars.iv113.i = phi i64 [ 0, %.preheader93.i ], [ %indvars.iv.next114.i, %.critedge4.thread.i ]
   %.val73.i = load ptr, ptr %293, align 8
   %304 = getelementptr inbounds ptr, ptr %.val73.i, i64 %indvars.iv113.i
   %305 = load ptr, ptr %304, align 8

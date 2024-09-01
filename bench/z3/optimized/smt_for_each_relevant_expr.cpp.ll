@@ -1620,10 +1620,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
-for.cond12.preheader:                             ; preds = %for.inc
-  br i1 %cmp77.not, label %for.end27, label %for.body14.lr.ph
-
-for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
+for.body14.lr.ph:                                 ; preds = %for.inc
   %m_args.i12 = getelementptr inbounds i8, ptr %n, i64 32
   %m_context.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count88 = zext i32 %0 to i64
@@ -1801,7 +1798,7 @@ for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for
 for.inc:                                          ; preds = %for.body.i.i, %for.inc36.i.i, %for.body20.i.i, %for.cond18.preheader.i.i, %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, %_ZN3smt22for_each_relevant_expr11is_relevantEP4expr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond12.preheader, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.body14.lr.ph, label %for.body, !llvm.loop !15
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc25
   %indvars.iv85 = phi i64 [ 0, %for.body14.lr.ph ], [ %indvars.iv.next86, %for.inc25 ]
@@ -1949,7 +1946,7 @@ for.inc25:                                        ; preds = %_ZN3smt22for_each_r
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %for.end27, label %for.body14, !llvm.loop !16
 
-for.end27:                                        ; preds = %for.inc25, %entry, %for.cond12.preheader
+for.end27:                                        ; preds = %for.inc25, %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 223, ptr noundef nonnull @.str.7)
   tail call void @exit(i32 noundef 114) #19
   unreachable

@@ -1778,11 +1778,11 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
   %36 = load i32, ptr %7, align 4
   store i32 %36, ptr %11, align 8
   store i64 %34, ptr %10, align 8
-  %.pre72 = load i32, ptr %8, align 4
+  %.pre71 = load i32, ptr %8, align 4
   br label %37
 
 37:                                               ; preds = %31, %26
-  %38 = phi i32 [ %.pre72, %31 ], [ %15, %26 ]
+  %38 = phi i32 [ %.pre71, %31 ], [ %15, %26 ]
   %39 = sub i32 %38, %18
   %40 = zext i32 %39 to i64
   %41 = icmp ugt i64 %.05160, %40

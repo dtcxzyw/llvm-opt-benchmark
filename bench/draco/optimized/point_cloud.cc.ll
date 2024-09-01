@@ -1312,12 +1312,12 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIj
 ._crit_edge.thread:                               ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEEC2EmRKS5_RKS6_RKSA_.exit"
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  br label %359
+  br label %341
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEEC2EmRKS5_RKS6_RKSA_.exit"
   %33 = shl nuw nsw i64 %32, 2
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #20
-          to label %.lr.ph unwind label %147
+          to label %.lr.ph unwind label %138
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   store ptr %34, ptr %3, align 8
@@ -1335,863 +1335,846 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIj
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
-  %42 = phi ptr [ %34, %.lr.ph ], [ %348, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
-  %43 = phi ptr [ %34, %.lr.ph ], [ %349, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
+  %42 = phi ptr [ %34, %.lr.ph ], [ %330, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
+  %43 = phi ptr [ %34, %.lr.ph ], [ %331, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
-  %.0896 = phi i32 [ 0, %.lr.ph ], [ %.19, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
+  %.0893 = phi i32 [ 0, %.lr.ph ], [ %.19, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit ]
   %.val.i.i = load i64, ptr %38, align 8
   %44 = icmp eq i64 %.val.i.i, 0
-  br i1 %44, label %45, label %76
+  br i1 %44, label %45, label %71
 
 45:                                               ; preds = %41
+  %.sroa.01.012.i.i = load ptr, ptr %13, align 8
+  %.not13.i.i = icmp eq ptr %.sroa.01.012.i.i, null
+  br i1 %.not13.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %45
   %.val7.i.i = load ptr, ptr %9, align 8
   %46 = getelementptr i8, ptr %.val7.i.i, i64 16
-  %47 = getelementptr i8, ptr %.val7.i.i, i64 24
-  %48 = trunc nuw i64 %indvars.iv to i32
-  br label %49
-
-49:                                               ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i", %45
-  %.sroa.01.0.in.i.i = phi ptr [ %13, %45 ], [ %.sroa.01.0.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i" ]
-  %.sroa.01.0.i.i = load ptr, ptr %.sroa.01.0.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.sroa.01.0.i.i, null
-  br i1 %.not.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %50
-
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 8
-  %.val9.i.i = load i32, ptr %51, align 4
   %.val7.val.i.i = load ptr, ptr %46, align 8
+  %47 = getelementptr i8, ptr %.val7.i.i, i64 24
   %.val7.val10.i.i = load ptr, ptr %47, align 8
-  %52 = ptrtoint ptr %.val7.val10.i.i to i64
-  %53 = ptrtoint ptr %.val7.val.i.i to i64
-  %54 = sub i64 %52, %53
-  %55 = lshr exact i64 %54, 3
-  %56 = trunc i64 %55 to i32
-  %57 = icmp slt i32 %56, 1
-  br i1 %57, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49", label %.lr.ph.i.i.i.i
+  %48 = ptrtoint ptr %.val7.val10.i.i to i64
+  %49 = ptrtoint ptr %.val7.val.i.i to i64
+  %50 = sub i64 %48, %49
+  %51 = lshr exact i64 %50, 3
+  %52 = trunc i64 %51 to i32
+  %53 = icmp slt i32 %52, 1
+  %wide.trip.count.i.i.i.i = and i64 %51, 2147483647
+  br i1 %53, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49", label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %50
-  %58 = zext i32 %.val9.i.i to i64
-  %59 = and i64 %55, 2147483647
-  br label %62
+.lr.ph.i.i.i.i.preheader:                         ; preds = %.lr.ph.i.i
+  %54 = trunc nuw i64 %indvars.iv to i32
+  br label %.lr.ph.i.i.i.i
 
-60:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i
+"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i
+  %.sroa.01.0.i.i = load ptr, ptr %.sroa.01.014.i.i, align 8
+  %.not.i.i = icmp eq ptr %.sroa.01.0.i.i, null
+  br i1 %.not.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %.lr.ph.i.i.i.i, !llvm.loop !19
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i"
+  %.sroa.01.014.i.i = phi ptr [ %.sroa.01.0.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i" ], [ %.sroa.01.012.i.i, %.lr.ph.i.i.i.i.preheader ]
+  %55 = getelementptr inbounds i8, ptr %.sroa.01.014.i.i, i64 8
+  %.val9.i.i = load i32, ptr %55, align 4
+  %56 = zext i32 %.val9.i.i to i64
+  br label %58
+
+57:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %61 = icmp uge i64 %indvars.iv.next.i.i.i.i, %59
-  %exitcond.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %59
-  br i1 %exitcond.i.i.i.i, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i", label %62, !llvm.loop !19
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit", label %58, !llvm.loop !20
 
-62:                                               ; preds = %60, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %60 ]
-  %63 = phi i1 [ false, %.lr.ph.i.i.i.i ], [ %61, %60 ]
-  %64 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val7.val.i.i, i64 %indvars.iv.i.i.i.i
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 100
-  %67 = load i8, ptr %66, align 4
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i, label %69
+58:                                               ; preds = %57, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %57 ]
+  %59 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val7.val.i.i, i64 %indvars.iv.i.i.i.i
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 100
+  %62 = load i8, ptr %61, align 4
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i, label %64
 
-69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %65, i64 72
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %"class.draco::IndexType.72", ptr %71, i64 %indvars.iv
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds %"class.draco::IndexType.72", ptr %71, i64 %58
-  %75 = load i32, ptr %74, align 4
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds i8, ptr %60, i64 72
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %"class.draco::IndexType.72", ptr %66, i64 %indvars.iv
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds %"class.draco::IndexType.72", ptr %66, i64 %56
+  %70 = load i32, ptr %69, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i: ; preds = %69, %62
-  %.sroa.02.0.i3.i.i.i.i = phi i32 [ %73, %69 ], [ %48, %62 ]
-  %.sroa.02.0.i9.i.i.i.i = phi i32 [ %75, %69 ], [ %.val9.i.i, %62 ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i: ; preds = %64, %58
+  %.sroa.02.0.i3.i.i.i.i = phi i32 [ %68, %64 ], [ %54, %58 ]
+  %.sroa.02.0.i9.i.i.i.i = phi i32 [ %70, %64 ], [ %.val9.i.i, %58 ]
   %.not.i.i.i.i = icmp eq i32 %.sroa.02.0.i3.i.i.i.i, %.sroa.02.0.i9.i.i.i.i
-  br i1 %.not.i.i.i.i, label %60, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i"
+  br i1 %.not.i.i.i.i, label %57, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i"
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i, %60
-  %.lcssa.i.i.i.i = phi i1 [ %63, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i ], [ %61, %60 ]
-  br i1 %.lcssa.i.i.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit", label %49, !llvm.loop !20
-
-76:                                               ; preds = %41
+71:                                               ; preds = %41
   %.val11.i.i = load ptr, ptr %2, align 8
-  %77 = getelementptr i8, ptr %.val11.i.i, i64 16
-  %.val11.val.i.i = load ptr, ptr %77, align 8
-  %78 = getelementptr i8, ptr %.val11.i.i, i64 24
-  %.val11.val13.i.i = load ptr, ptr %78, align 8
-  %79 = ptrtoint ptr %.val11.val13.i.i to i64
-  %80 = ptrtoint ptr %.val11.val.i.i to i64
-  %81 = sub i64 %79, %80
-  %82 = lshr exact i64 %81, 3
-  %83 = trunc i64 %82 to i32
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph.i.i16.i.i, label %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
+  %72 = getelementptr i8, ptr %.val11.i.i, i64 16
+  %.val11.val.i.i = load ptr, ptr %72, align 8
+  %73 = getelementptr i8, ptr %.val11.i.i, i64 24
+  %.val11.val13.i.i = load ptr, ptr %73, align 8
+  %74 = ptrtoint ptr %.val11.val13.i.i to i64
+  %75 = ptrtoint ptr %.val11.val.i.i to i64
+  %76 = sub i64 %74, %75
+  %77 = lshr exact i64 %76, 3
+  %78 = trunc i64 %77 to i32
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %.lr.ph.i.i16.i.i, label %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
 
-.lr.ph.i.i16.i.i:                                 ; preds = %76
-  %wide.trip.count.i.i.i.i = and i64 %82, 2147483647
-  %85 = trunc nuw i64 %indvars.iv to i32
-  br label %86
+.lr.ph.i.i16.i.i:                                 ; preds = %71
+  %wide.trip.count.i.i17.i.i = and i64 %77, 2147483647
+  %80 = trunc nuw i64 %indvars.iv to i32
+  br label %81
 
-86:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i, %.lr.ph.i.i16.i.i
-  %indvars.iv.i.i17.i.i = phi i64 [ 0, %.lr.ph.i.i16.i.i ], [ %indvars.iv.next.i.i18.i.i, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i ]
-  %.02.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i16.i.i ], [ %99, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i ]
-  %87 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val11.val.i.i, i64 %indvars.iv.i.i17.i.i
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 100
-  %90 = load i8, ptr %89, align 4
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i, label %92
+81:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i, %.lr.ph.i.i16.i.i
+  %indvars.iv.i.i18.i.i = phi i64 [ 0, %.lr.ph.i.i16.i.i ], [ %indvars.iv.next.i.i19.i.i, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i ]
+  %.02.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i16.i.i ], [ %94, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i ]
+  %82 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val11.val.i.i, i64 %indvars.iv.i.i18.i.i
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 100
+  %85 = load i8, ptr %84, align 4
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i, label %87
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %88, i64 72
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %"class.draco::IndexType.72", ptr %94, i64 %indvars.iv
-  %96 = load i32, ptr %95, align 4
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds i8, ptr %83, i64 72
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %"class.draco::IndexType.72", ptr %89, i64 %indvars.iv
+  %91 = load i32, ptr %90, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i: ; preds = %92, %86
-  %.sroa.02.0.i.i.i.i.i = phi i32 [ %96, %92 ], [ %85, %86 ]
-  %97 = shl i32 %.sroa.02.0.i.i.i.i.i, 2
-  %98 = shl i32 %.02.i.i.i.i, 1
-  %99 = xor i32 %97, %98
-  %indvars.iv.next.i.i18.i.i = add nuw nsw i64 %indvars.iv.i.i17.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i18.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i", label %86, !llvm.loop !21
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i: ; preds = %87, %81
+  %.sroa.02.0.i.i.i.i.i = phi i32 [ %91, %87 ], [ %80, %81 ]
+  %92 = shl i32 %.sroa.02.0.i.i.i.i.i, 2
+  %93 = shl i32 %.02.i.i.i.i, 1
+  %94 = xor i32 %92, %93
+  %indvars.iv.next.i.i19.i.i = add nuw nsw i64 %indvars.iv.i.i18.i.i, 1
+  %exitcond.not.i.i20.i.i = icmp eq i64 %indvars.iv.next.i.i19.i.i, %wide.trip.count.i.i17.i.i
+  br i1 %exitcond.not.i.i20.i.i, label %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i", label %81, !llvm.loop !21
 
 "_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i
-  %100 = zext i32 %99 to i64
+  %95 = zext i32 %94 to i64
   br label %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
 
-"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i": ; preds = %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i", %76
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %76 ], [ %100, %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i" ]
+"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i": ; preds = %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i", %71
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %71 ], [ %95, %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i" ]
   %.val14.i.i = load i64, ptr %12, align 8
-  %101 = urem i64 %.0.lcssa.i.i.i.i, %.val14.i.i
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %101
-  %104 = load ptr, ptr %103, align 8
-  %.not.i.i19.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i19.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %105
+  %96 = urem i64 %.0.lcssa.i.i.i.i, %.val14.i.i
+  %97 = load ptr, ptr %10, align 8
+  %98 = getelementptr inbounds ptr, ptr %97, i64 %96
+  %99 = load ptr, ptr %98, align 8
+  %.not.i.i21.i.i = icmp eq ptr %99, null
+  br i1 %.not.i.i21.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %100
 
-105:                                              ; preds = %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
-  %106 = load ptr, ptr %104, align 8
+100:                                              ; preds = %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
+  %101 = load ptr, ptr %99, align 8
   %.val.i.i.i.i = load ptr, ptr %9, align 8
-  %107 = getelementptr i8, ptr %.val.i.i.i.i, i64 16
-  %108 = getelementptr i8, ptr %.val.i.i.i.i, i64 24
-  %.phi.trans.insert.i.i.i.i = getelementptr i8, ptr %106, i64 16
+  %102 = getelementptr i8, ptr %.val.i.i.i.i, i64 16
+  %103 = getelementptr i8, ptr %.val.i.i.i.i, i64 24
+  %.phi.trans.insert.i.i.i.i = getelementptr i8, ptr %101, i64 16
   %.val20.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8
-  %109 = trunc nuw i64 %indvars.iv to i32
-  br label %110
+  %104 = trunc nuw i64 %indvars.iv to i32
+  br label %105
 
-110:                                              ; preds = %141, %105
-  %.val20.i.i.i.i = phi i64 [ %.val20.pre.i.i.i.i, %105 ], [ %.val22.i.i.i.i, %141 ]
-  %111 = phi ptr [ %106, %105 ], [ %140, %141 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
-  %.val19.i.i.i.i = load i32, ptr %112, align 4
-  %113 = icmp eq i64 %.0.lcssa.i.i.i.i, %.val20.i.i.i.i
-  br i1 %113, label %114, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i"
+105:                                              ; preds = %132, %100
+  %.val20.i.i.i.i = phi i64 [ %.val20.pre.i.i.i.i, %100 ], [ %.val22.i.i.i.i, %132 ]
+  %106 = phi ptr [ %101, %100 ], [ %131, %132 ]
+  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %.val19.i.i.i.i = load i32, ptr %107, align 4
+  %108 = icmp eq i64 %.0.lcssa.i.i.i.i, %.val20.i.i.i.i
+  br i1 %108, label %109, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i"
 
-114:                                              ; preds = %110
-  %.val.val.i.i.i.i.i = load ptr, ptr %107, align 8
-  %.val.val6.i.i.i.i.i = load ptr, ptr %108, align 8
-  %115 = ptrtoint ptr %.val.val6.i.i.i.i.i to i64
-  %116 = ptrtoint ptr %.val.val.i.i.i.i.i to i64
-  %117 = sub i64 %115, %116
-  %118 = lshr exact i64 %117, 3
-  %119 = trunc i64 %118 to i32
-  %120 = icmp slt i32 %119, 1
-  br i1 %120, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49", label %.lr.ph.i.i.i.i.i.i.i
+109:                                              ; preds = %105
+  %.val.val.i.i.i.i.i = load ptr, ptr %102, align 8
+  %.val.val6.i.i.i.i.i = load ptr, ptr %103, align 8
+  %110 = ptrtoint ptr %.val.val6.i.i.i.i.i to i64
+  %111 = ptrtoint ptr %.val.val.i.i.i.i.i to i64
+  %112 = sub i64 %110, %111
+  %113 = lshr exact i64 %112, 3
+  %114 = trunc i64 %113 to i32
+  %115 = icmp slt i32 %114, 1
+  br i1 %115, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49", label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %114
-  %121 = zext i32 %.val19.i.i.i.i to i64
-  %122 = and i64 %118, 2147483647
-  br label %125
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %109
+  %116 = zext i32 %.val19.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i.i.i.i = and i64 %113, 2147483647
+  br label %118
 
-123:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i
+117:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
-  %124 = icmp uge i64 %indvars.iv.next.i.i.i.i.i.i.i, %122
-  %exitcond.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, %122
-  br i1 %exitcond.i.i.i.i.i.i.i, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i", label %125, !llvm.loop !19
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit", label %118, !llvm.loop !20
 
-125:                                              ; preds = %123, %.lr.ph.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %123 ]
-  %126 = phi i1 [ false, %.lr.ph.i.i.i.i.i.i.i ], [ %124, %123 ]
-  %127 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val.val.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 100
-  %130 = load i8, ptr %129, align 4
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i, label %132
+118:                                              ; preds = %117, %.lr.ph.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %117 ]
+  %119 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val.val.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 100
+  %122 = load i8, ptr %121, align 4
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i, label %124
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %128, i64 72
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %"class.draco::IndexType.72", ptr %134, i64 %indvars.iv
-  %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds %"class.draco::IndexType.72", ptr %134, i64 %121
-  %138 = load i32, ptr %137, align 4
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds i8, ptr %120, i64 72
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds %"class.draco::IndexType.72", ptr %126, i64 %indvars.iv
+  %128 = load i32, ptr %127, align 4
+  %129 = getelementptr inbounds %"class.draco::IndexType.72", ptr %126, i64 %116
+  %130 = load i32, ptr %129, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i: ; preds = %132, %125
-  %.sroa.02.0.i3.i.i.i.i.i.i.i = phi i32 [ %136, %132 ], [ %109, %125 ]
-  %.sroa.02.0.i9.i.i.i.i.i.i.i = phi i32 [ %138, %132 ], [ %.val19.i.i.i.i, %125 ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i: ; preds = %124, %118
+  %.sroa.02.0.i3.i.i.i.i.i.i.i = phi i32 [ %128, %124 ], [ %104, %118 ]
+  %.sroa.02.0.i9.i.i.i.i.i.i.i = phi i32 [ %130, %124 ], [ %.val19.i.i.i.i, %118 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.sroa.02.0.i3.i.i.i.i.i.i.i, %.sroa.02.0.i9.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %123, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %117, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i"
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i, %123
-  %139 = phi i1 [ %124, %123 ], [ %126, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i ]
-  br i1 %139, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit", label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i"
+"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i, %105
+  %131 = load ptr, ptr %106, align 8
+  %.not16.i.i.i.i = icmp eq ptr %131, null
+  br i1 %.not16.i.i.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %132
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i": ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i", %110
-  %140 = load ptr, ptr %111, align 8
-  %.not16.i.i.i.i = icmp eq ptr %140, null
-  br i1 %.not16.i.i.i.i, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %141
+132:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i"
+  %133 = getelementptr i8, ptr %131, i64 16
+  %.val22.i.i.i.i = load i64, ptr %133, align 8
+  %134 = urem i64 %.val22.i.i.i.i, %.val14.i.i
+  %.not17.i.i.i.i = icmp eq i64 %134, %96
+  br i1 %.not17.i.i.i.i, label %105, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", !llvm.loop !22
 
-141:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i"
-  %142 = getelementptr i8, ptr %140, i64 16
-  %.val22.i.i.i.i = load i64, ptr %142, align 8
-  %143 = urem i64 %.val22.i.i.i.i, %.val14.i.i
-  %.not17.i.i.i.i = icmp eq i64 %143, %101
-  br i1 %.not17.i.i.i.i, label %110, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", !llvm.loop !22
-
-"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit": ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i", %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i"
-  %.sroa.01.1.i.i = phi ptr [ %.sroa.01.0.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i" ], [ %111, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i" ]
+"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit": ; preds = %117, %57
+  %.sroa.01.1.i.i = phi ptr [ %.sroa.01.014.i.i, %57 ], [ %106, %117 ]
   %.not = icmp eq ptr %.sroa.01.1.i.i, null
   br i1 %.not, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49"
 
-"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49": ; preds = %114, %50, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit"
-  %.sroa.01.1.i.i51 = phi ptr [ %.sroa.01.1.i.i, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit" ], [ %.sroa.01.0.i.i, %50 ], [ %111, %114 ]
-  %144 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i51, i64 12
-  %145 = getelementptr inbounds %"class.draco::IndexType", ptr %43, i64 %indvars.iv
-  %146 = load i32, ptr %144, align 4
-  store i32 %146, ptr %145, align 4
+"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49": ; preds = %109, %.lr.ph.i.i, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit"
+  %.sroa.01.1.i.i51 = phi ptr [ %.sroa.01.1.i.i, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit" ], [ %.sroa.01.012.i.i, %.lr.ph.i.i ], [ %106, %109 ]
+  %135 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i51, i64 12
+  %136 = getelementptr inbounds %"class.draco::IndexType", ptr %43, i64 %indvars.iv
+  %137 = load i32, ptr %135, align 4
+  store i32 %137, ptr %136, align 4
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
 
-147:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i
-  %148 = landingpad { ptr, i32 }
+138:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit
 
-.loopexit:                                        ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", %337
+.loopexit:                                        ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread", %319
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body19
 
-.loopexit.split-lp:                               ; preds = %354, %331
+.loopexit.split-lp:                               ; preds = %336, %313
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body19
 
 .body19:                                          ; preds = %.loopexit, %.loopexit.split-lp, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i"
   %eh.lpad-body20 = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %149 = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit, label %150
+  %140 = load ptr, ptr %4, align 8
+  %.not.i.i.i = icmp eq ptr %140, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit, label %141
 
-150:                                              ; preds = %.body19
-  call void @_ZdlPv(ptr noundef nonnull %149) #21
+141:                                              ; preds = %.body19
+  call void @_ZdlPv(ptr noundef nonnull %140) #21
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit: ; preds = %.body19, %150
-  %151 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i15 = icmp eq ptr %151, null
-  br i1 %.not.i.i.i.i15, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, label %152
+_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit: ; preds = %.body19, %141
+  %142 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i15 = icmp eq ptr %142, null
+  br i1 %.not.i.i.i.i15, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, label %143
 
-152:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %151) #21
+143:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %142) #21
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit
 
-"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread": ; preds = %141, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i", %49, %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i", %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit"
-  %153 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread": ; preds = %132, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i", %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i", %45, %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i", %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit"
+  %144 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
           to label %.noexc18 unwind label %.loopexit
 
 .noexc18:                                         ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread"
-  store ptr null, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
-  %155 = trunc nuw i64 %indvars.iv to i32
-  store i32 %155, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %153, i64 12
-  store i32 %.0896, ptr %156, align 4
-  br i1 %44, label %157, label %.loopexit.i.i.i
+  store ptr null, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = trunc nuw i64 %indvars.iv to i32
+  store i32 %146, ptr %145, align 4
+  %147 = getelementptr inbounds i8, ptr %144, i64 12
+  store i32 %.0893, ptr %147, align 4
+  br i1 %44, label %148, label %.loopexit.i.i.i
 
-157:                                              ; preds = %.noexc18
+148:                                              ; preds = %.noexc18
+  %.sroa.05.034.i.i.i = load ptr, ptr %13, align 8
+  %.not35.i.i.i = icmp eq ptr %.sroa.05.034.i.i.i, null
+  br i1 %.not35.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %148
   %.val16.i.i.i = load ptr, ptr %9, align 8
-  %158 = getelementptr i8, ptr %.val16.i.i.i, i64 16
-  %159 = getelementptr i8, ptr %.val16.i.i.i, i64 24
+  %149 = getelementptr i8, ptr %.val16.i.i.i, i64 16
+  %.val16.val.i.i.i = load ptr, ptr %149, align 8
+  %150 = getelementptr i8, ptr %.val16.i.i.i, i64 24
+  %.val16.val19.i.i.i = load ptr, ptr %150, align 8
+  %151 = ptrtoint ptr %.val16.val19.i.i.i to i64
+  %152 = ptrtoint ptr %.val16.val.i.i.i to i64
+  %153 = sub i64 %151, %152
+  %154 = lshr exact i64 %153, 3
+  %155 = trunc i64 %154 to i32
+  %156 = icmp slt i32 %155, 1
+  %wide.trip.count.i.i.i.i.i = and i64 %154, 2147483647
+  br i1 %156, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i", label %.lr.ph.i.i.i.i.i
+
+"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i
+  %.sroa.05.0.i.i.i = load ptr, ptr %.sroa.05.036.i.i.i, align 8
+  %.not.i.i.i17 = icmp eq ptr %.sroa.05.0.i.i.i, null
+  br i1 %.not.i.i.i17, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i.i"
+  %.sroa.05.036.i.i.i = phi ptr [ %.sroa.05.0.i.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i.i" ], [ %.sroa.05.034.i.i.i, %.lr.ph.i.i.i ]
+  %157 = getelementptr inbounds i8, ptr %.sroa.05.036.i.i.i, i64 8
+  %.val18.i.i.i = load i32, ptr %157, align 4
+  %158 = zext i32 %.val18.i.i.i to i64
   br label %160
 
-160:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i", %157
-  %.sroa.05.0.in.i.i.i = phi ptr [ %13, %157 ], [ %.sroa.05.0.i.i.i, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i" ]
-  %.sroa.05.0.i.i.i = load ptr, ptr %.sroa.05.0.in.i.i.i, align 8
-  %.not.i.i.i16 = icmp eq ptr %.sroa.05.0.i.i.i, null
-  br i1 %.not.i.i.i16, label %.loopexit.i.i.i, label %161
-
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i, i64 8
-  %.val18.i.i.i = load i32, ptr %162, align 4
-  %.val16.val.i.i.i = load ptr, ptr %158, align 8
-  %.val16.val19.i.i.i = load ptr, ptr %159, align 8
-  %163 = ptrtoint ptr %.val16.val19.i.i.i to i64
-  %164 = ptrtoint ptr %.val16.val.i.i.i to i64
-  %165 = sub i64 %163, %164
-  %166 = lshr exact i64 %165, 3
-  %167 = trunc i64 %166 to i32
-  %168 = icmp slt i32 %167, 1
-  br i1 %168, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i", label %.lr.ph.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i:                                 ; preds = %161
-  %169 = zext i32 %.val18.i.i.i to i64
-  %170 = and i64 %166, 2147483647
-  br label %173
-
-171:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i
+159:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %172 = icmp uge i64 %indvars.iv.next.i.i.i.i.i, %170
-  %exitcond.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %170
-  br i1 %exitcond.i.i.i.i.i, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i", label %173, !llvm.loop !19
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i", label %160, !llvm.loop !20
 
-173:                                              ; preds = %171, %.lr.ph.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %171 ]
-  %174 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ %172, %171 ]
-  %175 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val16.val.i.i.i, i64 %indvars.iv.i.i.i.i.i
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 100
-  %178 = load i8, ptr %177, align 4
-  %179 = trunc i8 %178 to i1
-  br i1 %179, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i, label %180
+160:                                              ; preds = %159, %.lr.ph.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %159 ]
+  %161 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val16.val.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 100
+  %164 = load i8, ptr %163, align 4
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i, label %166
 
-180:                                              ; preds = %173
-  %181 = getelementptr inbounds i8, ptr %176, i64 72
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %"class.draco::IndexType.72", ptr %182, i64 %indvars.iv
-  %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds %"class.draco::IndexType.72", ptr %182, i64 %169
-  %186 = load i32, ptr %185, align 4
+166:                                              ; preds = %160
+  %167 = getelementptr inbounds i8, ptr %162, i64 72
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds %"class.draco::IndexType.72", ptr %168, i64 %indvars.iv
+  %170 = load i32, ptr %169, align 4
+  %171 = getelementptr inbounds %"class.draco::IndexType.72", ptr %168, i64 %158
+  %172 = load i32, ptr %171, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i: ; preds = %180, %173
-  %.sroa.02.0.i3.i.i.i.i.i = phi i32 [ %184, %180 ], [ %155, %173 ]
-  %.sroa.02.0.i9.i.i.i.i.i = phi i32 [ %186, %180 ], [ %.val18.i.i.i, %173 ]
-  %.not.i.i.i.i.i17 = icmp eq i32 %.sroa.02.0.i3.i.i.i.i.i, %.sroa.02.0.i9.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i17, label %171, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i"
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i: ; preds = %166, %160
+  %.sroa.02.0.i3.i.i.i.i.i = phi i32 [ %170, %166 ], [ %146, %160 ]
+  %.sroa.02.0.i9.i.i.i.i.i = phi i32 [ %172, %166 ], [ %.val18.i.i.i, %160 ]
+  %.not.i.i.i.i.i16 = icmp eq i32 %.sroa.02.0.i3.i.i.i.i.i, %.sroa.02.0.i9.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i16, label %159, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i.i"
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i, %171
-  %.lcssa.i.i.i.i.i = phi i1 [ %174, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i ], [ %172, %171 ]
-  br i1 %.lcssa.i.i.i.i.i, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i", label %160, !llvm.loop !23
-
-187:                                              ; preds = %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i"
-  %188 = landingpad { ptr, i32 }
+173:                                              ; preds = %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i"
+  %174 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i"
 
-"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i": ; preds = %290, %187
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %188, %187 ], [ %291, %290 ]
-  call void @_ZdlPv(ptr noundef nonnull %153) #21
+"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i": ; preds = %272, %173
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %174, %173 ], [ %273, %272 ]
+  call void @_ZdlPv(ptr noundef nonnull %144) #21
   br label %.body19
 
-.loopexit.i.i.i:                                  ; preds = %160, %.noexc18
+.loopexit.i.i.i:                                  ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.loopexit.i.i.i", %148, %.noexc18
   %.val20.i.i.i = load ptr, ptr %2, align 8
-  %189 = getelementptr i8, ptr %.val20.i.i.i, i64 16
-  %.val20.val.i.i.i = load ptr, ptr %189, align 8
-  %190 = getelementptr i8, ptr %.val20.i.i.i, i64 24
-  %.val20.val22.i.i.i = load ptr, ptr %190, align 8
-  %191 = ptrtoint ptr %.val20.val22.i.i.i to i64
-  %192 = ptrtoint ptr %.val20.val.i.i.i to i64
-  %193 = sub i64 %191, %192
-  %194 = lshr exact i64 %193, 3
-  %195 = trunc i64 %194 to i32
-  %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph.i.i29.i.i.i, label %212
+  %175 = getelementptr i8, ptr %.val20.i.i.i, i64 16
+  %.val20.val.i.i.i = load ptr, ptr %175, align 8
+  %176 = getelementptr i8, ptr %.val20.i.i.i, i64 24
+  %.val20.val22.i.i.i = load ptr, ptr %176, align 8
+  %177 = ptrtoint ptr %.val20.val22.i.i.i to i64
+  %178 = ptrtoint ptr %.val20.val.i.i.i to i64
+  %179 = sub i64 %177, %178
+  %180 = lshr exact i64 %179, 3
+  %181 = trunc i64 %180 to i32
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %.lr.ph.i.i29.i.i.i, label %198
 
 .lr.ph.i.i29.i.i.i:                               ; preds = %.loopexit.i.i.i
-  %wide.trip.count.i.i.i.i.i = and i64 %194, 2147483647
-  br label %197
+  %wide.trip.count.i.i30.i.i.i = and i64 %180, 2147483647
+  br label %183
 
-197:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i, %.lr.ph.i.i29.i.i.i
-  %indvars.iv.i.i30.i.i.i = phi i64 [ 0, %.lr.ph.i.i29.i.i.i ], [ %indvars.iv.next.i.i31.i.i.i, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i ]
-  %.02.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i29.i.i.i ], [ %210, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i ]
-  %198 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val20.val.i.i.i, i64 %indvars.iv.i.i30.i.i.i
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 100
-  %201 = load i8, ptr %200, align 4
-  %202 = trunc i8 %201 to i1
-  br i1 %202, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i, label %203
+183:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i, %.lr.ph.i.i29.i.i.i
+  %indvars.iv.i.i31.i.i.i = phi i64 [ 0, %.lr.ph.i.i29.i.i.i ], [ %indvars.iv.next.i.i32.i.i.i, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i ]
+  %.02.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i29.i.i.i ], [ %196, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i ]
+  %184 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val20.val.i.i.i, i64 %indvars.iv.i.i31.i.i.i
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 100
+  %187 = load i8, ptr %186, align 4
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i, label %189
 
-203:                                              ; preds = %197
-  %204 = getelementptr inbounds i8, ptr %199, i64 72
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds %"class.draco::IndexType.72", ptr %205, i64 %indvars.iv
-  %207 = load i32, ptr %206, align 4
+189:                                              ; preds = %183
+  %190 = getelementptr inbounds i8, ptr %185, i64 72
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds %"class.draco::IndexType.72", ptr %191, i64 %indvars.iv
+  %193 = load i32, ptr %192, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i: ; preds = %203, %197
-  %.sroa.02.0.i.i.i.i.i.i = phi i32 [ %207, %203 ], [ %155, %197 ]
-  %208 = shl i32 %.sroa.02.0.i.i.i.i.i.i, 2
-  %209 = shl i32 %.02.i.i.i.i.i, 1
-  %210 = xor i32 %208, %209
-  %indvars.iv.next.i.i31.i.i.i = add nuw nsw i64 %indvars.iv.i.i30.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i31.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i", label %197, !llvm.loop !21
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i: ; preds = %189, %183
+  %.sroa.02.0.i.i.i.i.i.i = phi i32 [ %193, %189 ], [ %146, %183 ]
+  %194 = shl i32 %.sroa.02.0.i.i.i.i.i.i, 2
+  %195 = shl i32 %.02.i.i.i.i.i, 1
+  %196 = xor i32 %194, %195
+  %indvars.iv.next.i.i32.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i.i, 1
+  %exitcond.not.i.i33.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i.i, %wide.trip.count.i.i30.i.i.i
+  br i1 %exitcond.not.i.i33.i.i.i, label %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i", label %183, !llvm.loop !21
 
 "_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i
-  %211 = zext i32 %210 to i64
-  br label %212
+  %197 = zext i32 %196 to i64
+  br label %198
 
-212:                                              ; preds = %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i", %.loopexit.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %.loopexit.i.i.i ], [ %211, %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i" ]
+198:                                              ; preds = %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i", %.loopexit.i.i.i
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %.loopexit.i.i.i ], [ %197, %"_ZZN5draco10PointCloud19DeduplicatePointIdsEvENK3$_0clENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.loopexit.i.i.i.i" ]
   %.val23.i.i.i = load i64, ptr %12, align 8
-  %213 = urem i64 %.0.lcssa.i.i.i.i.i, %.val23.i.i.i
-  br i1 %44, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %214
+  %199 = urem i64 %.0.lcssa.i.i.i.i.i, %.val23.i.i.i
+  br i1 %44, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %200
 
-214:                                              ; preds = %212
-  %215 = load ptr, ptr %10, align 8
-  %216 = getelementptr inbounds ptr, ptr %215, i64 %213
-  %217 = load ptr, ptr %216, align 8
-  %.not.i.i32.i.i.i = icmp eq ptr %217, null
-  br i1 %.not.i.i32.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %218
+200:                                              ; preds = %198
+  %201 = load ptr, ptr %10, align 8
+  %202 = getelementptr inbounds ptr, ptr %201, i64 %199
+  %203 = load ptr, ptr %202, align 8
+  %.not.i.i34.i.i.i = icmp eq ptr %203, null
+  br i1 %.not.i.i34.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %204
 
-218:                                              ; preds = %214
-  %219 = load ptr, ptr %217, align 8
+204:                                              ; preds = %200
+  %205 = load ptr, ptr %203, align 8
   %.val.i.i.i.i.i = load ptr, ptr %9, align 8
-  %220 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
-  %221 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 24
-  %.phi.trans.insert.i.i.i.i.i = getelementptr i8, ptr %219, i64 16
+  %206 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
+  %207 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 24
+  %.phi.trans.insert.i.i.i.i.i = getelementptr i8, ptr %205, i64 16
   %.val20.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  br label %222
+  br label %208
 
-222:                                              ; preds = %253, %218
-  %.val20.i.i.i.i.i = phi i64 [ %.val20.pre.i.i.i.i.i, %218 ], [ %.val22.i.i.i.i.i, %253 ]
-  %223 = phi ptr [ %219, %218 ], [ %252, %253 ]
-  %224 = getelementptr inbounds i8, ptr %223, i64 8
-  %.val19.i.i.i.i.i = load i32, ptr %224, align 4
-  %225 = icmp eq i64 %.0.lcssa.i.i.i.i.i, %.val20.i.i.i.i.i
-  br i1 %225, label %226, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i.i"
+208:                                              ; preds = %235, %204
+  %.val20.i.i.i.i.i = phi i64 [ %.val20.pre.i.i.i.i.i, %204 ], [ %.val22.i.i.i.i.i, %235 ]
+  %209 = phi ptr [ %205, %204 ], [ %234, %235 ]
+  %210 = getelementptr inbounds i8, ptr %209, i64 8
+  %.val19.i.i.i.i.i = load i32, ptr %210, align 4
+  %211 = icmp eq i64 %.0.lcssa.i.i.i.i.i, %.val20.i.i.i.i.i
+  br i1 %211, label %212, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i"
 
-226:                                              ; preds = %222
-  %.val.val.i.i.i.i.i.i = load ptr, ptr %220, align 8
-  %.val.val6.i.i.i.i.i.i = load ptr, ptr %221, align 8
-  %227 = ptrtoint ptr %.val.val6.i.i.i.i.i.i to i64
-  %228 = ptrtoint ptr %.val.val.i.i.i.i.i.i to i64
-  %229 = sub i64 %227, %228
-  %230 = lshr exact i64 %229, 3
-  %231 = trunc i64 %230 to i32
-  %232 = icmp slt i32 %231, 1
-  br i1 %232, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
+212:                                              ; preds = %208
+  %.val.val.i.i.i.i.i.i = load ptr, ptr %206, align 8
+  %.val.val6.i.i.i.i.i.i = load ptr, ptr %207, align 8
+  %213 = ptrtoint ptr %.val.val6.i.i.i.i.i.i to i64
+  %214 = ptrtoint ptr %.val.val.i.i.i.i.i.i to i64
+  %215 = sub i64 %213, %214
+  %216 = lshr exact i64 %215, 3
+  %217 = trunc i64 %216 to i32
+  %218 = icmp slt i32 %217, 1
+  br i1 %218, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %226
-  %233 = zext i32 %.val19.i.i.i.i.i to i64
-  %234 = and i64 %230, 2147483647
-  br label %237
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %212
+  %219 = zext i32 %.val19.i.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i.i.i.i.i = and i64 %216, 2147483647
+  br label %221
 
-235:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i
+220:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
-  %236 = icmp uge i64 %indvars.iv.next.i.i.i.i.i.i.i.i, %234
-  %exitcond.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, %234
-  br i1 %exitcond.i.i.i.i.i.i.i.i, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i", label %237, !llvm.loop !19
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i", label %221, !llvm.loop !20
 
-237:                                              ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %235 ]
-  %238 = phi i1 [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ %236, %235 ]
-  %239 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val.val.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 100
-  %242 = load i8, ptr %241, align 4
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i, label %244
+221:                                              ; preds = %220, %.lr.ph.i.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %220 ]
+  %222 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %.val.val.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 100
+  %225 = load i8, ptr %224, align 4
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i, label %227
 
-244:                                              ; preds = %237
-  %245 = getelementptr inbounds i8, ptr %240, i64 72
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %"class.draco::IndexType.72", ptr %246, i64 %indvars.iv
-  %248 = load i32, ptr %247, align 4
-  %249 = getelementptr inbounds %"class.draco::IndexType.72", ptr %246, i64 %233
-  %250 = load i32, ptr %249, align 4
+227:                                              ; preds = %221
+  %228 = getelementptr inbounds i8, ptr %223, i64 72
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds %"class.draco::IndexType.72", ptr %229, i64 %indvars.iv
+  %231 = load i32, ptr %230, align 4
+  %232 = getelementptr inbounds %"class.draco::IndexType.72", ptr %229, i64 %219
+  %233 = load i32, ptr %232, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i: ; preds = %244, %237
-  %.sroa.02.0.i3.i.i.i.i.i.i.i.i = phi i32 [ %248, %244 ], [ %155, %237 ]
-  %.sroa.02.0.i9.i.i.i.i.i.i.i.i = phi i32 [ %250, %244 ], [ %.val19.i.i.i.i.i, %237 ]
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i: ; preds = %227, %221
+  %.sroa.02.0.i3.i.i.i.i.i.i.i.i = phi i32 [ %231, %227 ], [ %146, %221 ]
+  %.sroa.02.0.i9.i.i.i.i.i.i.i.i = phi i32 [ %233, %227 ], [ %.val19.i.i.i.i.i, %221 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %.sroa.02.0.i3.i.i.i.i.i.i.i.i, %.sroa.02.0.i9.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %235, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %220, label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i"
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i, %235
-  %251 = phi i1 [ %236, %235 ], [ %238, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i ]
-  br i1 %251, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i", label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i.i"
+"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i": ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit10.i.i.i.i.i.i.i.i, %208
+  %234 = load ptr, ptr %209, align 8
+  %.not16.i.i.i.i.i = icmp eq ptr %234, null
+  br i1 %.not16.i.i.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %235
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i.i": ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i", %222
-  %252 = load ptr, ptr %223, align 8
-  %.not16.i.i.i.i.i = icmp eq ptr %252, null
-  br i1 %.not16.i.i.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %253
+235:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i"
+  %236 = getelementptr i8, ptr %234, i64 16
+  %.val22.i.i.i.i.i = load i64, ptr %236, align 8
+  %237 = urem i64 %.val22.i.i.i.i.i, %.val23.i.i.i
+  %.not17.i.i.i.i.i = icmp eq i64 %237, %199
+  br i1 %.not17.i.i.i.i.i, label %208, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", !llvm.loop !22
 
-253:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i.i"
-  %254 = getelementptr i8, ptr %252, i64 16
-  %.val22.i.i.i.i.i = load i64, ptr %254, align 8
-  %255 = urem i64 %.val22.i.i.i.i.i, %.val23.i.i.i
-  %.not17.i.i.i.i.i = icmp eq i64 %255, %213
-  br i1 %.not17.i.i.i.i.i, label %222, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", !llvm.loop !22
+"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i": ; preds = %220
+  %.not13.i.i.i = icmp eq ptr %209, null
+  br i1 %.not13.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i"
 
-"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i": ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i"
-  %.not13.i.i.i = icmp eq ptr %223, null
-  br i1 %.not13.i.i.i, label %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i", label %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i"
-
-"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i": ; preds = %253, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread1.i.i.i.i.i", %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i", %214, %212
-  %256 = load i64, ptr %15, align 8
-  %257 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %.val23.i.i.i, i64 noundef %.val.i.i, i64 noundef 1)
-          to label %.noexc.i.i.i unwind label %187
+"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i": ; preds = %235, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i.i", %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i", %200, %198
+  %238 = load i64, ptr %15, align 8
+  %239 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %.val23.i.i.i, i64 noundef %.val.i.i, i64 noundef 1)
+          to label %.noexc.i.i.i unwind label %173
 
 .noexc.i.i.i:                                     ; preds = %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i.i.i"
-  %258 = extractvalue { i8, i64 } %257, 0
-  %259 = trunc i8 %258 to i1
-  br i1 %259, label %260, label %.noexc._crit_edge.i.i.i
+  %240 = extractvalue { i8, i64 } %239, 0
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %242, label %.noexc._crit_edge.i.i.i
 
 .noexc._crit_edge.i.i.i:                          ; preds = %.noexc.i.i.i
   %.pre.i.i.i = load ptr, ptr %10, align 8
-  br label %297
+  br label %279
 
-260:                                              ; preds = %.noexc.i.i.i
-  %261 = extractvalue { i8, i64 } %257, 1
-  %262 = icmp eq i64 %261, 1
-  br i1 %262, label %263, label %264
+242:                                              ; preds = %.noexc.i.i.i
+  %243 = extractvalue { i8, i64 } %239, 1
+  %244 = icmp eq i64 %243, 1
+  br i1 %244, label %245, label %246
 
-263:                                              ; preds = %260
+245:                                              ; preds = %242
   store ptr null, ptr %11, align 8
   br label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i"
 
-264:                                              ; preds = %260
-  %265 = icmp ugt i64 %261, 1152921504606846975
-  br i1 %265, label %266, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i
+246:                                              ; preds = %242
+  %247 = icmp ugt i64 %243, 1152921504606846975
+  br i1 %247, label %248, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i
 
-266:                                              ; preds = %264
-  %267 = icmp ugt i64 %261, 2305843009213693951
-  br i1 %267, label %.noexc.i.i.i.i.i.i.i.i, label %.noexc7.i.i.i.i.i.i.i.i
+248:                                              ; preds = %246
+  %249 = icmp ugt i64 %243, 2305843009213693951
+  br i1 %249, label %.noexc.i.i.i.i.i.i.i.i, label %.noexc7.i.i.i.i.i.i.i.i
 
-.noexc.i.i.i.i.i.i.i.i:                           ; preds = %266
+.noexc.i.i.i.i.i.i.i.i:                           ; preds = %248
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
-          to label %.noexc.i.i.i.i.i unwind label %.loopexit.split-lp57
+          to label %.noexc.i.i.i.i.i unwind label %.loopexit.split-lp56
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i.i.i.i.i
   unreachable
 
-.noexc7.i.i.i.i.i.i.i.i:                          ; preds = %266
+.noexc7.i.i.i.i.i.i.i.i:                          ; preds = %248
   invoke void @_ZSt17__throw_bad_allocv() #22
-          to label %.noexc5.i.i.i.i.i unwind label %.loopexit.split-lp57
+          to label %.noexc5.i.i.i.i.i unwind label %.loopexit.split-lp56
 
 .noexc5.i.i.i.i.i:                                ; preds = %.noexc7.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i: ; preds = %264
-  %268 = shl nuw nsw i64 %261, 3
-  %269 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %268) #20
-          to label %.noexc6.i.i.i.i.i unwind label %.loopexit56
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i: ; preds = %246
+  %250 = shl nuw nsw i64 %243, 3
+  %251 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %250) #20
+          to label %.noexc6.i.i.i.i.i unwind label %.loopexit55
 
 .noexc6.i.i.i.i.i:                                ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %269, i8 0, i64 %268, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %251, i8 0, i64 %250, i1 false)
   br label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i"
 
-"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i": ; preds = %.noexc6.i.i.i.i.i, %263
-  %.0.i.i.i.i.i.i.i = phi ptr [ %11, %263 ], [ %269, %.noexc6.i.i.i.i.i ]
+"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i": ; preds = %.noexc6.i.i.i.i.i, %245
+  %.0.i.i.i.i.i.i.i = phi ptr [ %11, %245 ], [ %251, %.noexc6.i.i.i.i.i ]
   %.val.i.i.i.i.i.i = load ptr, ptr %13, align 8
   store ptr null, ptr %13, align 8
   %.not30.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
   br i1 %.not30.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i", %283
-  %.032.i.i.i.i.i.i = phi ptr [ %270, %283 ], [ %.val.i.i.i.i.i.i, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i" ]
-  %.02531.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %283 ], [ 0, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i" ]
-  %270 = load ptr, ptr %.032.i.i.i.i.i.i, align 8
-  %271 = getelementptr i8, ptr %.032.i.i.i.i.i.i, i64 16
-  %.val29.i.i.i.i.i.i = load i64, ptr %271, align 8
-  %272 = urem i64 %.val29.i.i.i.i.i.i, %261
-  %273 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %272
-  %274 = load ptr, ptr %273, align 8
-  %.not27.i.i.i.i.i.i = icmp eq ptr %274, null
-  br i1 %.not27.i.i.i.i.i.i, label %275, label %280
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i", %265
+  %.032.i.i.i.i.i.i = phi ptr [ %252, %265 ], [ %.val.i.i.i.i.i.i, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i" ]
+  %.02531.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %265 ], [ 0, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i" ]
+  %252 = load ptr, ptr %.032.i.i.i.i.i.i, align 8
+  %253 = getelementptr i8, ptr %.032.i.i.i.i.i.i, i64 16
+  %.val29.i.i.i.i.i.i = load i64, ptr %253, align 8
+  %254 = urem i64 %.val29.i.i.i.i.i.i, %243
+  %255 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %254
+  %256 = load ptr, ptr %255, align 8
+  %.not27.i.i.i.i.i.i = icmp eq ptr %256, null
+  br i1 %.not27.i.i.i.i.i.i, label %257, label %262
 
-275:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %276 = load ptr, ptr %13, align 8
-  store ptr %276, ptr %.032.i.i.i.i.i.i, align 8
+257:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %258 = load ptr, ptr %13, align 8
+  store ptr %258, ptr %.032.i.i.i.i.i.i, align 8
   store ptr %.032.i.i.i.i.i.i, ptr %13, align 8
-  store ptr %13, ptr %273, align 8
-  %277 = load ptr, ptr %.032.i.i.i.i.i.i, align 8
-  %.not28.i.i.i.i.i.i = icmp eq ptr %277, null
-  br i1 %.not28.i.i.i.i.i.i, label %283, label %278
+  store ptr %13, ptr %255, align 8
+  %259 = load ptr, ptr %.032.i.i.i.i.i.i, align 8
+  %.not28.i.i.i.i.i.i = icmp eq ptr %259, null
+  br i1 %.not28.i.i.i.i.i.i, label %265, label %260
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i
   br label %.sink.split.i.i.i.i.i.i
 
-280:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %281 = load ptr, ptr %274, align 8
-  store ptr %281, ptr %.032.i.i.i.i.i.i, align 8
-  %282 = load ptr, ptr %273, align 8
+262:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %263 = load ptr, ptr %256, align 8
+  store ptr %263, ptr %.032.i.i.i.i.i.i, align 8
+  %264 = load ptr, ptr %255, align 8
   br label %.sink.split.i.i.i.i.i.i
 
-.sink.split.i.i.i.i.i.i:                          ; preds = %280, %278
-  %.sink.i.i.i.i.i.i = phi ptr [ %279, %278 ], [ %282, %280 ]
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %272, %278 ], [ %.02531.i.i.i.i.i.i, %280 ]
+.sink.split.i.i.i.i.i.i:                          ; preds = %262, %260
+  %.sink.i.i.i.i.i.i = phi ptr [ %261, %260 ], [ %264, %262 ]
+  %.1.ph.i.i.i.i.i.i = phi i64 [ %254, %260 ], [ %.02531.i.i.i.i.i.i, %262 ]
   store ptr %.032.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8
-  br label %283
+  br label %265
 
-283:                                              ; preds = %.sink.split.i.i.i.i.i.i, %275
-  %.1.i.i.i.i.i.i = phi i64 [ %272, %275 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i = icmp eq ptr %270, null
+265:                                              ; preds = %.sink.split.i.i.i.i.i.i, %257
+  %.1.i.i.i.i.i.i = phi i64 [ %254, %257 ], [ %.1.ph.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+  %.not.i.i.i.i.i.i = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !24
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %283, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i"
-  %284 = load ptr, ptr %10, align 8
-  %285 = icmp eq ptr %284, %11
-  br i1 %285, label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i", label %286
+._crit_edge.i.i.i.i.i.i:                          ; preds = %265, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i"
+  %266 = load ptr, ptr %10, align 8
+  %267 = icmp eq ptr %266, %11
+  br i1 %267, label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i", label %268
 
-286:                                              ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef %284) #21
+268:                                              ; preds = %._crit_edge.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef %266) #21
   br label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i"
 
-.loopexit56:                                      ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+.loopexit55:                                      ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIjNS3_20PointIndex_tag_type_EEES6_ELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i
+  %lpad.loopexit57 = landingpad { ptr, i32 }
           catch ptr null
-  br label %287
+  br label %269
 
-.loopexit.split-lp57:                             ; preds = %.noexc.i.i.i.i.i.i.i.i, %.noexc7.i.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
+.loopexit.split-lp56:                             ; preds = %.noexc.i.i.i.i.i.i.i.i, %.noexc7.i.i.i.i.i.i.i.i
+  %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
           catch ptr null
-  br label %287
+  br label %269
 
-287:                                              ; preds = %.loopexit.split-lp57, %.loopexit56
-  %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]
-  %288 = extractvalue { ptr, i32 } %lpad.phi60, 0
-  %289 = call ptr @__cxa_begin_catch(ptr %288) #23
-  store i64 %256, ptr %15, align 8
+269:                                              ; preds = %.loopexit.split-lp56, %.loopexit55
+  %lpad.phi59 = phi { ptr, i32 } [ %lpad.loopexit57, %.loopexit55 ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp56 ]
+  %270 = extractvalue { ptr, i32 } %lpad.phi59, 0
+  %271 = call ptr @__cxa_begin_catch(ptr %270) #23
+  store i64 %238, ptr %15, align 8
   invoke void @__cxa_rethrow() #22
-          to label %295 unwind label %290
+          to label %277 unwind label %272
 
-290:                                              ; preds = %287
-  %291 = landingpad { ptr, i32 }
+272:                                              ; preds = %269
+  %273 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i" unwind label %292
+          to label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i.i" unwind label %274
 
-292:                                              ; preds = %290
-  %293 = landingpad { ptr, i32 }
+274:                                              ; preds = %272
+  %275 = landingpad { ptr, i32 }
           catch ptr null
-  %294 = extractvalue { ptr, i32 } %293, 0
-  call void @__clang_call_terminate(ptr %294) #24
+  %276 = extractvalue { ptr, i32 } %275, 0
+  call void @__clang_call_terminate(ptr %276) #24
   unreachable
 
-295:                                              ; preds = %287
+277:                                              ; preds = %269
   unreachable
 
-"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i": ; preds = %286, %._crit_edge.i.i.i.i.i.i
-  store i64 %261, ptr %12, align 8
+"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i": ; preds = %268, %._crit_edge.i.i.i.i.i.i
+  store i64 %243, ptr %12, align 8
   store ptr %.0.i.i.i.i.i.i.i, ptr %10, align 8
-  %296 = urem i64 %.0.lcssa.i.i.i.i.i, %261
-  br label %297
+  %278 = urem i64 %.0.lcssa.i.i.i.i.i, %243
+  br label %279
 
-297:                                              ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i", %.noexc._crit_edge.i.i.i
-  %298 = phi ptr [ %.0.i.i.i.i.i.i.i, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i" ], [ %.pre.i.i.i, %.noexc._crit_edge.i.i.i ]
-  %.0.i33.i.i.i = phi i64 [ %296, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i" ], [ %213, %.noexc._crit_edge.i.i.i ]
-  %299 = getelementptr inbounds i8, ptr %153, i64 16
-  store i64 %.0.lcssa.i.i.i.i.i, ptr %299, align 8
-  %300 = getelementptr inbounds ptr, ptr %298, i64 %.0.i33.i.i.i
-  %301 = load ptr, ptr %300, align 8
-  %.not.i.i34.i.i.i = icmp eq ptr %301, null
-  br i1 %.not.i.i34.i.i.i, label %305, label %302
+279:                                              ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i", %.noexc._crit_edge.i.i.i
+  %280 = phi ptr [ %.0.i.i.i.i.i.i.i, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i" ], [ %.pre.i.i.i, %.noexc._crit_edge.i.i.i ]
+  %.0.i35.i.i.i = phi i64 [ %278, %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i" ], [ %199, %.noexc._crit_edge.i.i.i ]
+  %281 = getelementptr inbounds i8, ptr %144, i64 16
+  store i64 %.0.lcssa.i.i.i.i.i, ptr %281, align 8
+  %282 = getelementptr inbounds ptr, ptr %280, i64 %.0.i35.i.i.i
+  %283 = load ptr, ptr %282, align 8
+  %.not.i.i36.i.i.i = icmp eq ptr %283, null
+  br i1 %.not.i.i36.i.i.i, label %287, label %284
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %301, align 8
-  store ptr %303, ptr %153, align 8
-  %304 = load ptr, ptr %300, align 8
-  store ptr %153, ptr %304, align 8
-  br label %314
+284:                                              ; preds = %279
+  %285 = load ptr, ptr %283, align 8
+  store ptr %285, ptr %144, align 8
+  %286 = load ptr, ptr %282, align 8
+  store ptr %144, ptr %286, align 8
+  br label %296
 
-305:                                              ; preds = %297
-  %306 = load ptr, ptr %13, align 8
-  store ptr %306, ptr %153, align 8
-  store ptr %153, ptr %13, align 8
-  %.not11.i.i.i.i.i = icmp eq ptr %306, null
-  br i1 %.not11.i.i.i.i.i, label %311, label %307
+287:                                              ; preds = %279
+  %288 = load ptr, ptr %13, align 8
+  store ptr %288, ptr %144, align 8
+  store ptr %144, ptr %13, align 8
+  %.not11.i.i.i.i.i = icmp eq ptr %288, null
+  br i1 %.not11.i.i.i.i.i, label %293, label %289
 
-307:                                              ; preds = %305
-  %.val.i.i35.i.i.i = load i64, ptr %12, align 8
-  %308 = getelementptr i8, ptr %306, i64 16
-  %.val12.i.i.i.i.i = load i64, ptr %308, align 8
-  %309 = urem i64 %.val12.i.i.i.i.i, %.val.i.i35.i.i.i
-  %310 = getelementptr inbounds ptr, ptr %298, i64 %309
-  store ptr %153, ptr %310, align 8
-  %.pre37.i.i.i = load ptr, ptr %10, align 8
-  br label %311
+289:                                              ; preds = %287
+  %.val.i.i37.i.i.i = load i64, ptr %12, align 8
+  %290 = getelementptr i8, ptr %288, i64 16
+  %.val12.i.i.i.i.i = load i64, ptr %290, align 8
+  %291 = urem i64 %.val12.i.i.i.i.i, %.val.i.i37.i.i.i
+  %292 = getelementptr inbounds ptr, ptr %280, i64 %291
+  store ptr %144, ptr %292, align 8
+  %.pre42.i.i.i = load ptr, ptr %10, align 8
+  br label %293
 
-311:                                              ; preds = %307, %305
-  %312 = phi ptr [ %.pre37.i.i.i, %307 ], [ %298, %305 ]
-  %313 = getelementptr inbounds ptr, ptr %312, i64 %.0.i33.i.i.i
-  store ptr %13, ptr %313, align 8
-  br label %314
+293:                                              ; preds = %289, %287
+  %294 = phi ptr [ %.pre42.i.i.i, %289 ], [ %280, %287 ]
+  %295 = getelementptr inbounds ptr, ptr %294, i64 %.0.i35.i.i.i
+  store ptr %13, ptr %295, align 8
+  br label %296
 
-314:                                              ; preds = %311, %302
-  %315 = load i64, ptr %38, align 8
-  %316 = add i64 %315, 1
-  store i64 %316, ptr %38, align 8
+296:                                              ; preds = %293, %284
+  %297 = load i64, ptr %38, align 8
+  %298 = add i64 %297, 1
+  store i64 %298, ptr %38, align 8
   %.pre = load ptr, ptr %3, align 8
-  br label %317
+  br label %299
 
-"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i": ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i", %161, %226, %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i"
-  call void @_ZdlPv(ptr noundef nonnull %153) #21
-  br label %317
+"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i": ; preds = %212, %159, %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i", %.lr.ph.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #21
+  br label %299
 
-317:                                              ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i", %314
-  %318 = phi ptr [ %42, %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread.i.i.i" ], [ %.pre, %314 ]
-  %319 = add nsw i32 %.0896, 1
-  %320 = getelementptr inbounds %"class.draco::IndexType", ptr %318, i64 %indvars.iv
-  store i32 %.0896, ptr %320, align 4
-  %321 = load ptr, ptr %39, align 8
-  %322 = load ptr, ptr %40, align 8
-  %.not.i = icmp eq ptr %321, %322
-  br i1 %.not.i, label %325, label %323
+299:                                              ; preds = %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i", %296
+  %300 = phi ptr [ %42, %"_ZNKSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread14.i.i.i" ], [ %.pre, %296 ]
+  %301 = add nsw i32 %.0893, 1
+  %302 = getelementptr inbounds %"class.draco::IndexType", ptr %300, i64 %indvars.iv
+  store i32 %.0893, ptr %302, align 4
+  %303 = load ptr, ptr %39, align 8
+  %304 = load ptr, ptr %40, align 8
+  %.not.i = icmp eq ptr %303, %304
+  br i1 %.not.i, label %307, label %305
 
-323:                                              ; preds = %317
-  store i32 %155, ptr %321, align 4
-  %324 = getelementptr inbounds i8, ptr %321, i64 4
-  store ptr %324, ptr %39, align 8
+305:                                              ; preds = %299
+  store i32 %146, ptr %303, align 4
+  %306 = getelementptr inbounds i8, ptr %303, i64 4
+  store ptr %306, ptr %39, align 8
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
 
-325:                                              ; preds = %317
-  %326 = load ptr, ptr %4, align 8
-  %327 = ptrtoint ptr %321 to i64
-  %328 = ptrtoint ptr %326 to i64
-  %329 = sub i64 %327, %328
-  %330 = icmp eq i64 %329, 9223372036854775804
-  br i1 %330, label %331, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+307:                                              ; preds = %299
+  %308 = load ptr, ptr %4, align 8
+  %309 = ptrtoint ptr %303 to i64
+  %310 = ptrtoint ptr %308 to i64
+  %311 = sub i64 %309, %310
+  %312 = icmp eq i64 %311, 9223372036854775804
+  br i1 %312, label %313, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-331:                                              ; preds = %325
+313:                                              ; preds = %307
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #22
           to label %.noexc25 unwind label %.loopexit.split-lp
 
-.noexc25:                                         ; preds = %331
+.noexc25:                                         ; preds = %313
   unreachable
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %325
-  %332 = ashr exact i64 %329, 2
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %332, i64 1)
-  %333 = add nsw i64 %.sroa.speculated.i.i.i, %332
-  %334 = icmp ult i64 %333, %332
-  %335 = call i64 @llvm.umin.i64(i64 %333, i64 2305843009213693951)
-  %336 = select i1 %334, i64 2305843009213693951, i64 %335
-  %.not.i.i.i21 = icmp eq i64 %336, 0
-  br i1 %.not.i.i.i21, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i, label %337
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %307
+  %314 = ashr exact i64 %311, 2
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %314, i64 1)
+  %315 = add nsw i64 %.sroa.speculated.i.i.i, %314
+  %316 = icmp ult i64 %315, %314
+  %317 = call i64 @llvm.umin.i64(i64 %315, i64 2305843009213693951)
+  %318 = select i1 %316, i64 2305843009213693951, i64 %317
+  %.not.i.i.i21 = icmp eq i64 %318, 0
+  br i1 %.not.i.i.i21, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i, label %319
 
-337:                                              ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %338 = shl nuw nsw i64 %336, 2
-  %339 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %338) #20
+319:                                              ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %320 = shl nuw nsw i64 %318, 2
+  %321 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %320) #20
           to label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
-_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %337, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %340 = phi ptr [ null, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %339, %337 ]
-  %341 = getelementptr inbounds %"class.draco::IndexType", ptr %340, i64 %332
-  store i32 %155, ptr %341, align 4
-  %.not10.i.i.i.i.i = icmp eq ptr %326, %321
+_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %319, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %322 = phi ptr [ null, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %321, %319 ]
+  %323 = getelementptr inbounds %"class.draco::IndexType", ptr %322, i64 %314
+  store i32 %146, ptr %323, align 4
+  %.not10.i.i.i.i.i = icmp eq ptr %308, %303
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i22
 
 .lr.ph.i.i.i.i.i22:                               ; preds = %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i22
-  %.012.i.i.i.i.i = phi ptr [ %344, %.lr.ph.i.i.i.i.i22 ], [ %340, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %343, %.lr.ph.i.i.i.i.i22 ], [ %326, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.012.i.i.i.i.i = phi ptr [ %326, %.lr.ph.i.i.i.i.i22 ], [ %322, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %325, %.lr.ph.i.i.i.i.i22 ], [ %308, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %342 = load i32, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !28, !noalias !25
-  store i32 %342, ptr %.012.i.i.i.i.i, align 4, !alias.scope !25, !noalias !28
-  %343 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 4
-  %344 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i23 = icmp eq ptr %343, %321
+  %324 = load i32, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !28, !noalias !25
+  store i32 %324, ptr %.012.i.i.i.i.i, align 4, !alias.scope !25, !noalias !28
+  %325 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 4
+  %326 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i23 = icmp eq ptr %325, %303
   br i1 %.not.i.i.i.i.i23, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i22, !llvm.loop !30
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i22, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i24 = phi ptr [ %340, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %344, %.lr.ph.i.i.i.i.i22 ]
-  %345 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i24, i64 4
-  %.not.i23.i.i = icmp eq ptr %326, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %346
+  %.0.lcssa.i.i.i.i.i24 = phi ptr [ %322, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %326, %.lr.ph.i.i.i.i.i22 ]
+  %327 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i24, i64 4
+  %.not.i23.i.i = icmp eq ptr %308, null
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %328
 
-346:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %326) #21
+328:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
+  call void @_ZdlPv(ptr noundef nonnull %308) #21
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %346, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  store ptr %340, ptr %4, align 8
-  store ptr %345, ptr %39, align 8
-  %347 = getelementptr inbounds %"class.draco::IndexType", ptr %340, i64 %336
-  store ptr %347, ptr %40, align 8
+_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %328, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
+  store ptr %322, ptr %4, align 8
+  store ptr %327, ptr %39, align 8
+  %329 = getelementptr inbounds %"class.draco::IndexType", ptr %322, i64 %318
+  store ptr %329, ptr %40, align 8
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
 
-_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %323, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49"
-  %348 = phi ptr [ %42, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %318, %323 ], [ %318, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %349 = phi ptr [ %43, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %318, %323 ], [ %318, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %.19 = phi i32 [ %.0896, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %319, %323 ], [ %319, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %305, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49"
+  %330 = phi ptr [ %42, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %300, %305 ], [ %300, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+  %331 = phi ptr [ %43, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %300, %305 ], [ %300, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+  %.19 = phi i32 [ %.0893, %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread49" ], [ %301, %305 ], [ %301, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %350 = load i32, ptr %5, align 8
-  %351 = zext i32 %350 to i64
-  %352 = icmp ult i64 %indvars.iv.next, %351
-  br i1 %352, label %41, label %._crit_edge, !llvm.loop !31
+  %332 = load i32, ptr %5, align 8
+  %333 = zext i32 %332 to i64
+  %334 = icmp ult i64 %indvars.iv.next, %333
+  br i1 %334, label %41, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
-  %353 = icmp eq i32 %.19, %350
-  br i1 %353, label %thread-pre-split, label %354
+  %335 = icmp eq i32 %.19, %332
+  br i1 %335, label %thread-pre-split, label %336
 
-354:                                              ; preds = %._crit_edge
-  %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 48
-  %357 = load ptr, ptr %356, align 8
-  invoke void %357(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %358 unwind label %.loopexit.split-lp
+336:                                              ; preds = %._crit_edge
+  %337 = load ptr, ptr %0, align 8
+  %338 = getelementptr inbounds i8, ptr %337, i64 48
+  %339 = load ptr, ptr %338, align 8
+  invoke void %339(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %340 unwind label %.loopexit.split-lp
 
-358:                                              ; preds = %354
+340:                                              ; preds = %336
   store i32 %.19, ptr %5, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %358, %._crit_edge
+thread-pre-split:                                 ; preds = %340, %._crit_edge
   %.pr = load ptr, ptr %4, align 8
-  br label %359
+  br label %341
 
-359:                                              ; preds = %thread-pre-split, %._crit_edge.thread
-  %360 = phi ptr [ %.pr, %thread-pre-split ], [ null, %._crit_edge.thread ]
-  %.not.i.i.i27 = icmp eq ptr %360, null
-  br i1 %.not.i.i.i27, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28, label %361
+341:                                              ; preds = %thread-pre-split, %._crit_edge.thread
+  %342 = phi ptr [ %.pr, %thread-pre-split ], [ null, %._crit_edge.thread ]
+  %.not.i.i.i27 = icmp eq ptr %342, null
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28, label %343
 
-361:                                              ; preds = %359
-  call void @_ZdlPv(ptr noundef nonnull %360) #21
+343:                                              ; preds = %341
+  call void @_ZdlPv(ptr noundef nonnull %342) #21
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28
 
-_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28: ; preds = %359, %361
-  %362 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i29 = icmp eq ptr %362, null
-  br i1 %.not.i.i.i.i29, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30, label %363
+_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28: ; preds = %341, %343
+  %344 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i29 = icmp eq ptr %344, null
+  br i1 %.not.i.i.i.i29, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30, label %345
 
-363:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28
-  call void @_ZdlPv(ptr noundef nonnull %362) #21
+345:                                              ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28
+  call void @_ZdlPv(ptr noundef nonnull %344) #21
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28, %363
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit28, %345
   %.val.i.i.i = load ptr, ptr %13, align 8
   %.not5.i.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not5.i.i.i.i, label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i", label %.lr.ph.i.i.i.i31
 
 .lr.ph.i.i.i.i31:                                 ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30, %.lr.ph.i.i.i.i31
-  %.06.i.i.i.i = phi ptr [ %364, %.lr.ph.i.i.i.i31 ], [ %.val.i.i.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30 ]
-  %364 = load ptr, ptr %.06.i.i.i.i, align 8
+  %.06.i.i.i.i = phi ptr [ %346, %.lr.ph.i.i.i.i31 ], [ %.val.i.i.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30 ]
+  %346 = load ptr, ptr %.06.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #21
-  %.not.i.i.i.i32 = icmp eq ptr %364, null
+  %.not.i.i.i.i32 = icmp eq ptr %346, null
   br i1 %.not.i.i.i.i32, label %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i", label %.lr.ph.i.i.i.i31, !llvm.loop !32
 
 "_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i": ; preds = %.lr.ph.i.i.i.i31, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit30
-  %365 = load ptr, ptr %10, align 8
-  %366 = load i64, ptr %12, align 8
-  %367 = shl i64 %366, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %365, i8 0, i64 %367, i1 false)
+  %347 = load ptr, ptr %10, align 8
+  %348 = load i64, ptr %12, align 8
+  %349 = shl i64 %348, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %347, i8 0, i64 %349, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %368 = load ptr, ptr %10, align 8
-  %369 = icmp eq ptr %368, %11
-  br i1 %369, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev.exit", label %370
+  %350 = load ptr, ptr %10, align 8
+  %351 = icmp eq ptr %350, %11
+  br i1 %351, label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev.exit", label %352
 
-370:                                              ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i"
-  call void @_ZdlPv(ptr noundef %368) #21
+352:                                              ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i"
+  call void @_ZdlPv(ptr noundef %350) #21
   br label %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev.exit"
 
-"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev.exit": ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i", %370
+"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev.exit": ; preds = %"_ZNSt10_HashtableIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stEZNS0_10PointCloud19DeduplicatePointIdsEvE3$_1ZNSA_19DeduplicatePointIdsEvE3$_0NS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i", %352
   ret void
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %152, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit, %147
-  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %eh.lpad-body20, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit ], [ %eh.lpad-body20, %152 ]
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %143, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit, %138
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %eh.lpad-body20, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit ], [ %eh.lpad-body20, %143 ]
   call fastcc void @"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %2) #23
   br label %.body
 
@@ -2427,11 +2410,11 @@ define noundef zeroext i1 @_ZN5draco10PointCloud26DeduplicateAttributeValuesEv(p
   %24 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 @_ZN5draco14PointAttribute17DeduplicateValuesERKNS_17GeometryAttributeE(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(64) %25)
-  %.not.not = icmp ne i32 %26, 0
-  br i1 %.not.not, label %15, label %.loopexit
+  %.not.not.not = icmp ne i32 %26, 0
+  br i1 %.not.not.not, label %15, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %.preheader, %1
-  %.05 = phi i1 [ true, %1 ], [ true, %.preheader ], [ %.not.not, %15 ], [ %.not.not, %.lr.ph ]
+  %.05 = phi i1 [ true, %1 ], [ true, %.preheader ], [ %.not.not.not, %15 ], [ %.not.not.not, %.lr.ph ]
   ret i1 %.05
 }
 
@@ -2763,16 +2746,16 @@ _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_t
   %46 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 4
   %47 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i71, i64 4
   %.not.i.i.i.i.i73 = icmp eq ptr %46, %9
-  br i1 %.not.i.i.i.i.i73, label %.lr.ph.i.i.i79.preheader, label %.lr.ph.i.i.i.i.i70, !llvm.loop !38
+  br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !38
 
-.lr.ph.i.i.i79.preheader:                         ; preds = %.lr.ph.i.i.i.i.i70
+_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i70
   %48 = load ptr, ptr %8, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 %17
   store ptr %49, ptr %8, align 8
   br label %.lr.ph.i.i.i79
 
-.lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79.preheader, %.lr.ph.i.i.i79
-  %.06.i.i.i80 = phi ptr [ %50, %.lr.ph.i.i.i79 ], [ %1, %.lr.ph.i.i.i79.preheader ]
+.lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75
+  %.06.i.i.i80 = phi ptr [ %50, %.lr.ph.i.i.i79 ], [ %1, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
   store i32 %15, ptr %.06.i.i.i80, align 4
   %50 = getelementptr inbounds i8, ptr %.06.i.i.i80, i64 4
   %.not.i.i.i81 = icmp eq ptr %50, %9

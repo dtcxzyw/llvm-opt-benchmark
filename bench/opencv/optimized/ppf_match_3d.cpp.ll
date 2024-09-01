@@ -2461,10 +2461,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEEJRKS4_EEvPT_DpOT0_.exit.i.
   %wide.trip.count385 = and i64 %489, 2147483647
   br label %.lr.ph353
 
-.preheader:                                       ; preds = %.lr.ph353
-  br i1 %491, label %.lr.ph357, label %._crit_edge358
-
-.lr.ph357:                                        ; preds = %.preheader
+.lr.ph357:                                        ; preds = %.lr.ph353
   %492 = uitofp i64 %497 to double
   %wide.trip.count390 = and i64 %489, 2147483647
   br label %498
@@ -2479,7 +2476,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEEJRKS4_EEvPT_DpOT0_.exit.i.
   %497 = add i64 %496, %.067350
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count385
-  br i1 %exitcond386.not, label %.preheader, label %.lr.ph353, !llvm.loop !67
+  br i1 %exitcond386.not, label %.lr.ph357, label %.lr.ph353, !llvm.loop !67
 
 .loopexit311:                                     ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEEEE8allocateERS5_m.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2568,8 +2565,8 @@ _ZN2cvpLIddLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit: ; preds = %_ZN2cvm
   call void @_ZNSt6vectorIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #24
   br label %716
 
-._crit_edge358:                                   ; preds = %_ZN2cvpLIddLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit, %.loopexit, %.preheader
-  %.065.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.loopexit ], [ %528, %_ZN2cvpLIddLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit ]
+._crit_edge358:                                   ; preds = %_ZN2cvpLIddLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit, %.loopexit
+  %.065.lcssa = phi double [ 0.000000e+00, %.loopexit ], [ %528, %_ZN2cvpLIddLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit ]
   %531 = fdiv double 1.000000e+00, %.065.lcssa
   br label %532
 

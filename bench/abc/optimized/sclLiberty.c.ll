@@ -2394,19 +2394,16 @@ Scl_LibertyCompare.exit.thread:                   ; preds = %12
   %24 = getelementptr inbounds i8, ptr %.03697, i64 32
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %._crit_edge, label %Scl_LibertyItem.exit51
+  br i1 %26, label %Scl_LibertyItem.exit52, label %Scl_LibertyItem.exit51
 
 Scl_LibertyItem.exit51:                           ; preds = %Scl_LibertyCompare.exit.thread
   %27 = load ptr, ptr %11, align 8
   %28 = zext nneg i32 %25 to i64
   %29 = getelementptr inbounds %struct.Scl_Item_t_, ptr %27, i64 %28
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !26
+  br i1 %.not, label %Scl_LibertyItem.exit52, label %12, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit51
-  br i1 %5, label %.loopexit, label %Scl_LibertyItem.exit52
-
-Scl_LibertyItem.exit52:                           ; preds = %Scl_LibertyItem.exit, %._crit_edge
+Scl_LibertyItem.exit52:                           ; preds = %Scl_LibertyItem.exit51, %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not39104 = icmp eq ptr %31, null
@@ -2476,19 +2473,16 @@ Scl_LibertyCompare.exit65.thread:                 ; preds = %.lr.ph100
   %58 = getelementptr inbounds i8, ptr %.099, i64 32
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.critedge, label %Scl_LibertyItem.exit66
+  br i1 %60, label %Scl_LibertyItem.exit73, label %Scl_LibertyItem.exit66
 
 Scl_LibertyItem.exit66:                           ; preds = %Scl_LibertyCompare.exit65.thread
   %61 = load ptr, ptr %35, align 8
   %62 = zext nneg i32 %59 to i64
   %63 = getelementptr inbounds %struct.Scl_Item_t_, ptr %61, i64 %62
   %.not41 = icmp eq ptr %61, null
-  br i1 %.not41, label %.critedge, label %.lr.ph100, !llvm.loop !27
+  br i1 %.not41, label %Scl_LibertyItem.exit73, label %.lr.ph100, !llvm.loop !27
 
-.critedge:                                        ; preds = %Scl_LibertyCompare.exit65.thread, %Scl_LibertyItem.exit66
-  br i1 %47, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyItem.exit73
-
-Scl_LibertyItem.exit73:                           ; preds = %Scl_LibertyItem.exit59, %.critedge
+Scl_LibertyItem.exit73:                           ; preds = %Scl_LibertyItem.exit66, %Scl_LibertyCompare.exit65.thread, %Scl_LibertyItem.exit59
   %64 = load ptr, ptr %35, align 8
   %.not44101 = icmp eq ptr %64, null
   br i1 %.not44101, label %Scl_LibertyCompare.exit58.thread, label %.lr.ph103.preheader
@@ -2535,7 +2529,7 @@ Scl_LibertyItem.exit80:                           ; preds = %Scl_LibertyCompare.
   %.not44 = icmp eq ptr %81, null
   br i1 %.not44, label %Scl_LibertyCompare.exit58.thread, label %.lr.ph103, !llvm.loop !28
 
-Scl_LibertyCompare.exit58.thread:                 ; preds = %.lr.ph100, %Scl_LibertyCompare.exit79.thread, %Scl_LibertyItem.exit80, %44, %.critedge, %Scl_LibertyItem.exit73, %36
+Scl_LibertyCompare.exit58.thread:                 ; preds = %.lr.ph100, %Scl_LibertyCompare.exit79.thread, %Scl_LibertyItem.exit80, %44, %Scl_LibertyItem.exit73, %36
   %84 = getelementptr inbounds i8, ptr %.137105, i64 32
   %85 = load i32, ptr %84, align 4
   %86 = icmp slt i32 %85, 0
@@ -2548,8 +2542,8 @@ Scl_LibertyItem.exit81:                           ; preds = %Scl_LibertyCompare.
   %.not39 = icmp eq ptr %87, null
   br i1 %.not39, label %.loopexit, label %36, !llvm.loop !29
 
-.loopexit:                                        ; preds = %Scl_LibertyCompare.exit58.thread, %Scl_LibertyItem.exit81, %2, %._crit_edge, %Scl_LibertyItem.exit52, %74, %20
-  %.038 = phi ptr [ %23, %20 ], [ %77, %74 ], [ null, %Scl_LibertyItem.exit52 ], [ null, %._crit_edge ], [ null, %2 ], [ null, %Scl_LibertyItem.exit81 ], [ null, %Scl_LibertyCompare.exit58.thread ]
+.loopexit:                                        ; preds = %Scl_LibertyCompare.exit58.thread, %Scl_LibertyItem.exit81, %2, %Scl_LibertyItem.exit52, %74, %20
+  %.038 = phi ptr [ %23, %20 ], [ %77, %74 ], [ null, %Scl_LibertyItem.exit52 ], [ null, %2 ], [ null, %Scl_LibertyItem.exit81 ], [ null, %Scl_LibertyCompare.exit58.thread ]
   ret ptr %.038
 }
 

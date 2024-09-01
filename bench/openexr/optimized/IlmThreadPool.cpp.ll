@@ -2344,24 +2344,31 @@ for.body10.i:                                     ; preds = %.noexc, %.noexc11
 .noexc11:                                         ; preds = %for.body10.i
   %inc16.i = add i64 %i7.014.i, 1
   %cmp9.not.i = icmp eq i64 %inc16.i, %sub.ptr.div.i.i
-  br i1 %cmp9.not.i, label %for.end17.i, label %for.body10.i, !llvm.loop !55
+  br i1 %cmp9.not.i, label %for.end17.i.loopexit, label %for.body10.i, !llvm.loop !55
 
-for.end17.i:                                      ; preds = %.noexc11, %if.then
-  %_data.val5.i = load ptr, ptr %_data, align 8
-  %_threads20.i = getelementptr inbounds i8, ptr %_data.val5.i, i64 144
-  %5 = load ptr, ptr %_threads20.i, align 8
+for.end17.i.loopexit:                             ; preds = %.noexc11
+  %_data.val5.i.pre = load ptr, ptr %_data, align 8
+  %_threads20.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 144
+  %.pre = load ptr, ptr %_threads20.i.phi.trans.insert, align 8
+  %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 152
+  %.pre36 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  br label %for.end17.i
+
+for.end17.i:                                      ; preds = %for.end17.i.loopexit, %if.then
+  %5 = phi ptr [ %.pre36, %for.end17.i.loopexit ], [ %2, %if.then ]
+  %6 = phi ptr [ %.pre, %for.end17.i.loopexit ], [ %3, %if.then ]
+  %_data.val5.i = phi ptr [ %_data.val5.i.pre, %for.end17.i.loopexit ], [ %_data.val8.i, %if.then ]
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %_data.val5.i, i64 152
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, %5
+  %tobool.not.i.i.i = icmp eq ptr %5, %6
   br i1 %tobool.not.i.i.i, label %_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit, label %for.body.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %6
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !56
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.end17.i, %for.cond.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i ], [ %5, %for.end17.i ]
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i ], [ %6, %for.end17.i ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %__first.addr.04.i.i.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2371,7 +2378,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 invoke.cont.i.i.i:                                ; preds = %for.cond.i.i.i.i.i.i
-  store ptr %5, ptr %_M_finish.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i, align 8
   %_data.val.pre.i = load ptr, ptr %_data, align 8
   br label %_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit
 
@@ -2689,24 +2696,31 @@ for.body10.i:                                     ; preds = %.noexc, %.noexc1
 .noexc1:                                          ; preds = %for.body10.i
   %inc16.i = add i64 %i7.014.i, 1
   %cmp9.not.i = icmp eq i64 %inc16.i, %sub.ptr.div.i.i
-  br i1 %cmp9.not.i, label %for.end17.i, label %for.body10.i, !llvm.loop !55
+  br i1 %cmp9.not.i, label %for.end17.i.loopexit, label %for.body10.i, !llvm.loop !55
 
-for.end17.i:                                      ; preds = %.noexc1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %_data.val5.i = load ptr, ptr %_data, align 8
-  %_threads20.i = getelementptr inbounds i8, ptr %_data.val5.i, i64 144
-  %3 = load ptr, ptr %_threads20.i, align 8
+for.end17.i.loopexit:                             ; preds = %.noexc1
+  %_data.val5.i.pre = load ptr, ptr %_data, align 8
+  %_threads20.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 144
+  %.pre = load ptr, ptr %_threads20.i.phi.trans.insert, align 8
+  %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %_data.val5.i.pre, i64 152
+  %.pre8 = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8
+  br label %for.end17.i
+
+for.end17.i:                                      ; preds = %for.end17.i.loopexit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %3 = phi ptr [ %.pre8, %for.end17.i.loopexit ], [ %0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %4 = phi ptr [ %.pre, %for.end17.i.loopexit ], [ %1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %_data.val5.i = phi ptr [ %_data.val5.i.pre, %for.end17.i.loopexit ], [ %_data.val8.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %_data.val5.i, i64 152
-  %4 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %4, %3
+  %tobool.not.i.i.i = icmp eq ptr %3, %4
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !56
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.end17.i, %for.cond.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i ], [ %3, %for.end17.i ]
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i ], [ %4, %for.end17.i ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %__first.addr.04.i.i.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2716,7 +2730,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 invoke.cont.i.i.i:                                ; preds = %for.cond.i.i.i.i.i.i
-  store ptr %3, ptr %_M_finish.i.i.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i, align 8
   %_data.val.pre.i = load ptr, ptr %_data, align 8
   br label %invoke.cont
 

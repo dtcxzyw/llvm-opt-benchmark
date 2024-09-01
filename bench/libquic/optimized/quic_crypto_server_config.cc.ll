@@ -5072,7 +5072,7 @@ for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %parsed_configs, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %parsed_configs, i64 8
   %cmp.i.i = icmp eq ptr %.pre, %.pre242.pre
-  br i1 %cmp.i.i, label %if.then13, label %if.end29
+  br i1 %cmp.i.i, label %if.then13, label %if.else
 
 for.end.thread252:                                ; preds = %invoke.cont
   %.pre254 = load ptr, ptr %parsed_configs, align 8
@@ -5107,11 +5107,8 @@ lpad20:                                           ; preds = %invoke.cont19
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp18) #21
   br label %ehcleanup327
 
-if.end29:                                         ; preds = %for.end
-  br i1 %tobool.not.not, label %if.then31, label %if.else
-
-if.then31:                                        ; preds = %for.end.thread252, %cleanup.action, %invoke.cont14, %if.end29
-  %_M_finish.i.i250 = phi ptr [ %_M_finish.i.i251, %cleanup.action ], [ %_M_finish.i.i251, %invoke.cont14 ], [ %_M_finish.i.i, %if.end29 ], [ %_M_finish.i.i255, %for.end.thread252 ]
+if.then31:                                        ; preds = %for.end.thread252, %cleanup.action, %invoke.cont14
+  %_M_finish.i.i250 = phi ptr [ %_M_finish.i.i251, %cleanup.action ], [ %_M_finish.i.i251, %invoke.cont14 ], [ %_M_finish.i.i255, %for.end.thread252 ]
   %call33 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 1)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp
 
@@ -5137,7 +5134,7 @@ lpad41:                                           ; preds = %invoke.cont39
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp38) #21
   br label %ehcleanup327
 
-if.else:                                          ; preds = %if.end29
+if.else:                                          ; preds = %for.end
   %call.i25 = invoke noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef nonnull @.str, i64 noundef 147)
           to label %invoke.cont54 unwind label %lpad.loopexit.split-lp
 

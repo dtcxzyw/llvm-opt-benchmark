@@ -13466,89 +13466,82 @@ entry:
 for.end.thread:                                   ; preds = %entry
   store i32 0, ptr %numcmds, align 4
   %call3139 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #40
-  br label %if.else34
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
+  call void @commandListWithoutFilter(ptr noundef nonnull %c, ptr noundef %1, ptr noundef nonnull %numcmds)
+  br label %if.end35
 
 for.body.lr.ph:                                   ; preds = %entry
   %argv = getelementptr inbounds i8, ptr %c, i64 96
-  %1 = load ptr, ptr %argv, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = load ptr, ptr %argv, align 8
+  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 16
   %arg = getelementptr inbounds i8, ptr %filter, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %if.end22 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load ptr, ptr %ptr, align 8
-  %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.303) #41
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %3 = load ptr, ptr %arrayidx, align 8
+  %ptr = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %ptr, align 8
+  %call = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.303) #41
   %tobool = icmp eq i32 %call, 0
-  %4 = trunc i64 %indvars.iv to i32
-  %5 = sub i32 %4, %0
-  %cmp3 = icmp eq i32 %5, -3
+  %5 = trunc i64 %indvars.iv to i32
+  %6 = sub i32 %5, %0
+  %cmp3 = icmp eq i32 %6, -3
   %or.cond = and i1 %cmp3, %tobool
   br i1 %or.cond, label %if.then, label %if.else29
 
 if.then:                                          ; preds = %for.body
   %arrayidx6 = getelementptr i8, ptr %arrayidx, i64 8
-  %6 = load ptr, ptr %arrayidx6, align 8
-  %ptr7 = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %ptr7, align 8
-  %call8 = tail call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.223) #41
+  %7 = load ptr, ptr %arrayidx6, align 8
+  %ptr7 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %ptr7, align 8
+  %call8 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.223) #41
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end22, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call11 = tail call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.304) #41
+  %call11 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.304) #41
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end22, label %if.else15
 
 if.else15:                                        ; preds = %if.else
-  %call16 = tail call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.257) #41
+  %call16 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.257) #41
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end22, label %if.else20
 
 if.else20:                                        ; preds = %if.else15
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
-  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #40
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %9) #40
   br label %return
 
 if.end22:                                         ; preds = %if.else15, %if.else, %if.then
-  %9 = phi i32 [ 0, %if.then ], [ 1, %if.else ], [ 2, %if.else15 ]
+  %10 = phi i32 [ 0, %if.then ], [ 1, %if.else ], [ 2, %if.else15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %10 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp = icmp sgt i32 %0, %10
+  %11 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp = icmp sgt i32 %0, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !57
 
 if.else29:                                        ; preds = %for.body
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
-  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %11) #40
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
+  tail call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %12) #40
   br label %return
 
 for.end:                                          ; preds = %if.end22
   %gep.le = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv
-  %12 = load ptr, ptr %gep.le, align 8
-  %ptr27.le = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %ptr27.le, align 8
-  store ptr %13, ptr %arg, align 8
-  store i32 %9, ptr %filter, align 8
+  %13 = load ptr, ptr %gep.le, align 8
+  %ptr27.le = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %ptr27.le, align 8
+  store ptr %14, ptr %arg, align 8
+  store i32 %10, ptr %filter, align 8
   store i32 0, ptr %numcmds, align 4
   %call31 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #40
-  br i1 %cmp23, label %if.else34, label %if.then33
-
-if.then33:                                        ; preds = %for.end
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
-  call void @commandListWithFilter(ptr noundef nonnull %c, ptr noundef %14, ptr noundef nonnull byval(%struct.commandListFilter) align 8 %filter, ptr noundef nonnull %numcmds)
-  br label %if.end35
-
-if.else34:                                        ; preds = %for.end.thread, %for.end
-  %call3141 = phi ptr [ %call3139, %for.end.thread ], [ %call31, %for.end ]
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
-  call void @commandListWithoutFilter(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull %numcmds)
+  call void @commandListWithFilter(ptr noundef nonnull %c, ptr noundef %15, ptr noundef nonnull byval(%struct.commandListFilter) align 8 %filter, ptr noundef nonnull %numcmds)
   br label %if.end35
 
-if.end35:                                         ; preds = %if.else34, %if.then33
-  %call3140 = phi ptr [ %call3141, %if.else34 ], [ %call31, %if.then33 ]
+if.end35:                                         ; preds = %for.end.thread, %for.end
+  %call3140 = phi ptr [ %call3139, %for.end.thread ], [ %call31, %for.end ]
   %16 = load i32, ptr %numcmds, align 4
   %conv = sext i32 %16 to i64
   tail call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call3140, i64 noundef %conv) #40
@@ -17869,8 +17862,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx115 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv187
   %40 = load ptr, ptr %arrayidx115, align 8
   %41 = load i8, ptr %40, align 1
-  %cmp118.not = icmp eq i8 %41, 45
-  br i1 %cmp118.not, label %land.lhs.true, label %if.else246
+  %cmp118 = icmp eq i8 %41, 45
+  br i1 %cmp118, label %land.lhs.true, label %if.else246
 
 land.lhs.true:                                    ; preds = %while.body
   %arrayidx122 = getelementptr inbounds i8, ptr %40, i64 1

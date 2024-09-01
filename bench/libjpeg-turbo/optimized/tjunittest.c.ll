@@ -3669,14 +3669,11 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef re
 
 ._crit_edge371:                                   ; preds = %.preheader186, %._crit_edge.us372
   %putchar172 = tail call i32 @putchar(i32 10)
-  br i1 %170, label %.preheader.lr.ph, label %.thread
-
-.preheader.lr.ph:                                 ; preds = %._crit_edge371
   %185 = icmp sgt i32 %21, 0
   %186 = mul nsw i32 %25, %20
   br i1 %185, label %.preheader.us.preheader, label %.preheader
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+.preheader.us.preheader:                          ; preds = %._crit_edge371
   %wide.trip.count493 = zext nneg i32 %21 to i64
   br label %.preheader.us
 
@@ -3706,15 +3703,15 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef re
   %exitcond495.not = icmp eq i32 %196, %22
   br i1 %exitcond495.not, label %.thread, label %.preheader.us, !llvm.loop !37
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.4374 = phi i32 [ %197, %.preheader ], [ 0, %.preheader.lr.ph ]
+.preheader:                                       ; preds = %._crit_edge371, %.preheader
+  %.4374 = phi i32 [ %197, %.preheader ], [ 0, %._crit_edge371 ]
   %putchar173 = tail call i32 @putchar(i32 10)
   %197 = add nuw nsw i32 %.4374, 1
   %exitcond489.not = icmp eq i32 %197, %22
   br i1 %exitcond489.not, label %.thread, label %.preheader, !llvm.loop !37
 
-.thread:                                          ; preds = %._crit_edge.us327, %.preheader, %._crit_edge.us375, %._crit_edge371.thread, %.preheader188.lr.ph, %77, %._crit_edge371, %._crit_edge255
-  %.0154185 = phi i32 [ 1, %._crit_edge255 ], [ 0, %._crit_edge371 ], [ 1, %77 ], [ 1, %.preheader188.lr.ph ], [ 0, %._crit_edge371.thread ], [ 0, %._crit_edge.us375 ], [ 0, %.preheader ], [ 1, %._crit_edge.us327 ]
+.thread:                                          ; preds = %._crit_edge.us327, %.preheader, %._crit_edge.us375, %._crit_edge371.thread, %.preheader188.lr.ph, %77, %._crit_edge255
+  %.0154185 = phi i32 [ 1, %._crit_edge255 ], [ 1, %77 ], [ 1, %.preheader188.lr.ph ], [ 0, %._crit_edge371.thread ], [ 0, %._crit_edge.us375 ], [ 0, %.preheader ], [ 1, %._crit_edge.us327 ]
   ret i32 %.0154185
 }
 

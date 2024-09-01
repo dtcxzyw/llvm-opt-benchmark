@@ -5886,23 +5886,23 @@ land.lhs.true81.i:                                ; preds = %for.body.i
 
 for.inc.i72:                                      ; preds = %land.lhs.true81.i, %for.body.i
   %cmp79.i = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %cmp79.i, label %for.body.i, label %for.body115.lr.ph.i, !llvm.loop !35
+  br i1 %cmp79.i, label %for.body.i, label %if.end111.i, !llvm.loop !35
 
 if.then102.i:                                     ; preds = %land.lhs.true81.i
   %stream_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %95 = load i64, ptr %stream_offset.i, align 8
   %add106.i = add i64 %95, %53
-  br label %for.body115.lr.ph.i
+  br label %if.end111.i
 
-for.body115.lr.ph.i:                              ; preds = %for.inc.i72, %if.then102.i
+if.end111.i:                                      ; preds = %for.inc.i72, %if.then102.i
   %new_lower_bound.0.i = phi i64 [ %add106.i, %if.then102.i ], [ %86, %for.inc.i72 ]
   %new_lower_bound_sample.0.i = phi i64 [ %93, %if.then102.i ], [ %lower_bound_sample.0.i, %for.inc.i72 ]
   %points116.i = getelementptr inbounds i8, ptr %spec.select.i62, i64 8
   %96 = load ptr, ptr %points116.i, align 8
   br label %for.body115.i
 
-for.body115.i:                                    ; preds = %for.inc143.i, %for.body115.lr.ph.i
-  %indvars.iv326.i = phi i64 [ 0, %for.body115.lr.ph.i ], [ %indvars.iv.next327.i, %for.inc143.i ]
+for.body115.i:                                    ; preds = %for.inc143.i, %if.end111.i
+  %indvars.iv326.i = phi i64 [ 0, %if.end111.i ], [ %indvars.iv.next327.i, %for.inc143.i ]
   %arrayidx118.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %96, i64 %indvars.iv326.i
   %97 = load i64, ptr %arrayidx118.i, align 8
   %cmp120.not.i = icmp eq i64 %97, %90

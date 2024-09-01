@@ -1619,11 +1619,11 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %.not.i = icmp eq i16 %50, 0
   %.phi.trans.insert = getelementptr i8, ptr %46, i64 4
   %.val91.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %.not.i, label %.preheader97, label %.preheader.i
+  br i1 %.not.i, label %Amap_CreateRulesFromDsd.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %48
   %51 = icmp sgt i32 %.val91.pre, 0
-  br i1 %51, label %.lr.ph.i, label %.preheader97..critedge_crit_edge
+  br i1 %51, label %.lr.ph.i, label %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %52 = getelementptr i8, ptr %46, i64 8
@@ -1639,18 +1639,18 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %56, ptr %54, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader97, label %53, !llvm.loop !21
+  br i1 %exitcond.not.i, label %Amap_CreateRulesFromDsd.exit, label %53, !llvm.loop !21
 
-.preheader97:                                     ; preds = %53, %48
+Amap_CreateRulesFromDsd.exit:                     ; preds = %53, %48
   %57 = icmp sgt i32 %.val91.pre, 0
-  br i1 %57, label %.lr.ph101, label %.preheader97..critedge_crit_edge
+  br i1 %57, label %.lr.ph100, label %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
 
-.preheader97..critedge_crit_edge:                 ; preds = %.preheader.i, %.preheader97
-  %.phi.trans.insert107 = getelementptr inbounds i8, ptr %46, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert107, align 8
+Amap_CreateRulesFromDsd.exit..critedge_crit_edge: ; preds = %.preheader.i, %Amap_CreateRulesFromDsd.exit
+  %.phi.trans.insert106 = getelementptr inbounds i8, ptr %46, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert106, align 8
   br label %.critedge
 
-.lr.ph101:                                        ; preds = %.preheader97
+.lr.ph100:                                        ; preds = %Amap_CreateRulesFromDsd.exit
   %58 = getelementptr i8, ptr %46, i64 8
   %.val93 = load ptr, ptr %58, align 8
   %59 = getelementptr i8, ptr %0, i64 88
@@ -1664,9 +1664,9 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %wide.trip.count = zext nneg i32 %.val91.pre to i64
   br label %67
 
-67:                                               ; preds = %.lr.ph101, %.critedge2
-  %indvars.iv103 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next104, %.critedge2 ]
-  %68 = getelementptr inbounds i32, ptr %.val93, i64 %indvars.iv103
+67:                                               ; preds = %.lr.ph100, %.critedge2
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next103, %.critedge2 ]
+  %68 = getelementptr inbounds i32, ptr %.val93, i64 %indvars.iv102
   %69 = load i32, ptr %68, align 4
   %70 = ashr i32 %69, 1
   %.val94 = load ptr, ptr %59, align 8
@@ -1716,8 +1716,8 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %63, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %95
-  %.val98 = load i32, ptr %64, align 4
-  %100 = icmp sgt i32 %.val98, 0
+  %.val97 = load i32, ptr %64, align 4
+  %100 = icmp sgt i32 %.val97, 0
   br i1 %100, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -1777,12 +1777,12 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %140, label %.lr.ph, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %.lr.ph, %.preheader, %95, %89, %91
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !27
 
-.critedge:                                        ; preds = %.critedge2, %.preheader97..critedge_crit_edge
-  %141 = phi ptr [ %.pre, %.preheader97..critedge_crit_edge ], [ %.val93, %.critedge2 ]
+.critedge:                                        ; preds = %.critedge2, %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
+  %141 = phi ptr [ %.pre, %Amap_CreateRulesFromDsd.exit..critedge_crit_edge ], [ %.val93, %.critedge2 ]
   %.not.i95 = icmp eq ptr %141, null
   br i1 %.not.i95, label %Vec_IntFree.exit, label %142
 

@@ -12788,7 +12788,7 @@ dissect_kafka_compact_array.exit.i:               ; preds = %.lr.ph.i.i.i, %53, 
   br i1 %exitcond.not.i.i22.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i19.i, !llvm.loop !6
 
 dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %70, %dissect_kafka_compact_array.exit.i, %67
-  %76 = phi i1 [ %38, %dissect_kafka_compact_array.exit.i ], [ true, %67 ], [ true, %70 ], [ true, %.lr.ph.i.i19.i ]
+  %76 = phi i1 [ false, %dissect_kafka_compact_array.exit.i ], [ true, %67 ], [ true, %70 ], [ true, %.lr.ph.i.i19.i ]
   %.0.i = phi i32 [ %.0.i.i, %dissect_kafka_compact_array.exit.i ], [ %65, %67 ], [ %65, %70 ], [ %74, %.lr.ph.i.i19.i ]
   %77 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %77, ptr noundef %0, i32 noundef %.0.i) #6

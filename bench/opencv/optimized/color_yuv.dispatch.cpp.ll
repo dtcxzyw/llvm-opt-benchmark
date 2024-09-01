@@ -1846,22 +1846,13 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvo
   %.160 = phi ptr [ %46, %42 ], [ %.05986, %47 ]
   %.157 = phi ptr [ %.05687, %42 ], [ %67, %47 ]
   %.1 = phi ptr [ %.088, %42 ], [ %56, %47 ]
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  br i1 %21, label %.lr.ph.split.us, label %._crit_edge
 
 .thread:                                          ; preds = %26
-  br i1 %21, label %.lr.ph.split.preheader, label %._crit_edge
+  br i1 %21, label %.lr.ph.split, label %._crit_edge
 
-.lr.ph:                                           ; preds = %68
-  br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
-  %.160105116 = phi ptr [ %.160, %.lr.ph ], [ %.05986, %.thread ]
-  %.157107115 = phi ptr [ %.157, %.lr.ph ], [ %.05687, %.thread ]
-  %.1109114 = phi ptr [ %.1, %.lr.ph ], [ %.088, %.thread ]
-  br label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %140
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %140 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %68, %140
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %140 ], [ 0, %68 ]
   %69 = shl nuw nsw i64 %indvars.iv94, 1
   %70 = mul nsw i64 %69, %24
   %71 = getelementptr inbounds i8, ptr %30, i64 %70
@@ -1960,8 +1951,8 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvo
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %161
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %161 ]
+.lr.ph.split:                                     ; preds = %.thread, %161
+  %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.thread ]
   %141 = shl nuw nsw i64 %indvars.iv, 1
   %142 = mul nsw i64 %141, %24
   %143 = getelementptr inbounds i8, ptr %30, i64 %142
@@ -2022,9 +2013,9 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvo
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %161, %140, %.thread, %68
-  %.1110 = phi ptr [ %.088, %.thread ], [ %.1, %68 ], [ %.1, %140 ], [ %.1109114, %161 ]
-  %.157108 = phi ptr [ %.05687, %.thread ], [ %.157, %68 ], [ %.157, %140 ], [ %.157107115, %161 ]
-  %.160106 = phi ptr [ %.05986, %.thread ], [ %.160, %68 ], [ %.160, %140 ], [ %.160105116, %161 ]
+  %.1110 = phi ptr [ %.088, %.thread ], [ %.1, %68 ], [ %.1, %140 ], [ %.088, %161 ]
+  %.157108 = phi ptr [ %.05687, %.thread ], [ %.157, %68 ], [ %.157, %140 ], [ %.05687, %161 ]
+  %.160106 = phi ptr [ %.05986, %.thread ], [ %.160, %68 ], [ %.160, %140 ], [ %.05986, %161 ]
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %186 = load i32, ptr %4, align 4
   %187 = shl nsw i32 %186, 1

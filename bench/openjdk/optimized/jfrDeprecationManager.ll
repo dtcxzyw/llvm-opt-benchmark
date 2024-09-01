@@ -442,8 +442,8 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
 
 .preheader.i:                                     ; preds = %16, %29
   %28 = load volatile i64, ptr @_ZZL21max_limit_not_reachedvE9num_edges, align 8
-  %.not10.i.not.i = icmp eq i64 %28, 10000
-  br i1 %.not10.i.not.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %29
+  %.not8.not.not.i.not.i = icmp eq i64 %28, 10000
+  br i1 %.not8.not.not.i.not.i, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %29
 
 29:                                               ; preds = %.preheader.i
   %30 = add i64 %28, 1

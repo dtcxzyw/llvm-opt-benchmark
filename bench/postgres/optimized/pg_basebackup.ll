@@ -401,16 +401,16 @@ sub_0:                                            ; preds = %34
   %39 = load i8, ptr %36, align 1
   %40 = zext i8 %39 to i32
   %41 = add nsw i32 %40, -45
-  %.not201 = icmp eq i32 %41, 0
-  br i1 %.not201, label %sub_1, label %.tail105
+  %.not202 = icmp eq i32 %41, 0
+  br i1 %.not202, label %sub_1, label %.tail106
 
 sub_1:                                            ; preds = %sub_0
   %42 = getelementptr inbounds i8, ptr %36, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = add nsw i32 %44, -63
-  %.not202 = icmp eq i32 %45, 0
-  br i1 %.not202, label %sub_2, label %.tail
+  %.not203 = icmp eq i32 %45, 0
+  br i1 %.not203, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %46 = getelementptr inbounds i8, ptr %36, i64 2
@@ -421,41 +421,38 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %49 = phi i32 [ %45, %sub_1 ], [ %48, %sub_2 ]
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %sub_0106
+  br i1 %50, label %51, label %sub_1108
 
 51:                                               ; preds = %.tail, %34
   tail call fastcc void @usage()
   tail call void @exit(i32 noundef 0) #20
   unreachable
 
-sub_0106:                                         ; preds = %.tail
-  br i1 %.not201, label %sub_1107, label %.tail105
-
-sub_1107:                                         ; preds = %sub_0106
+sub_1108:                                         ; preds = %.tail
   %52 = getelementptr inbounds i8, ptr %36, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = add nsw i32 %54, -86
-  %.not204 = icmp eq i32 %55, 0
-  br i1 %.not204, label %sub_2108, label %.tail105
+  %.not205 = icmp eq i32 %55, 0
+  br i1 %.not205, label %sub_2109, label %.tail106
 
-sub_2108:                                         ; preds = %sub_1107
+sub_2109:                                         ; preds = %sub_1108
   %56 = getelementptr inbounds i8, ptr %36, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
-  br label %.tail105
+  br label %.tail106
 
-.tail105:                                         ; preds = %sub_0, %sub_0106, %sub_1107, %sub_2108
-  %59 = phi i32 [ %41, %sub_0106 ], [ %55, %sub_1107 ], [ %58, %sub_2108 ], [ %41, %sub_0 ]
+.tail106:                                         ; preds = %sub_0, %sub_1108, %sub_2109
+  %59 = phi i32 [ %55, %sub_1108 ], [ %58, %sub_2109 ], [ %41, %sub_0 ]
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %64, label %61
 
-61:                                               ; preds = %.tail105
+61:                                               ; preds = %.tail106
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(10) @.str.40) #19
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %66
 
-64:                                               ; preds = %61, %.tail105
+64:                                               ; preds = %61, %.tail106
   %65 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.41)
   tail call void @exit(i32 noundef 0) #20
   unreachable
@@ -474,7 +471,7 @@ sub_2108:                                         ; preds = %sub_1107
     i32 67, label %82
     i32 100, label %83
     i32 68, label %86
-    i32 70, label %sub_0111
+    i32 70, label %sub_0112
     i32 104, label %113
     i32 105, label %116
     i32 108, label %119
@@ -492,7 +489,7 @@ sub_2108:                                         ; preds = %sub_1107
     i32 118, label %253
     i32 119, label %256
     i32 87, label %257
-    i32 88, label %sub_0119
+    i32 88, label %sub_0120
     i32 122, label %292
     i32 90, label %293
     i32 1, label %300
@@ -547,56 +544,56 @@ sub_2108:                                         ; preds = %sub_1107
   store ptr %88, ptr @basedir, align 8
   br label %.backedge
 
-sub_0111:                                         ; preds = %68
+sub_0112:                                         ; preds = %68
   %89 = load ptr, ptr @optarg, align 8
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nsw i32 %91, -112
-  %.not208 = icmp eq i32 %92, 0
-  br i1 %.not208, label %sub_1112, label %.tail110
+  %.not209 = icmp eq i32 %92, 0
+  br i1 %.not209, label %sub_1113, label %.tail111
 
-sub_1112:                                         ; preds = %sub_0111
+sub_1113:                                         ; preds = %sub_0112
   %93 = getelementptr inbounds i8, ptr %89, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
-  br label %.tail110
+  br label %.tail111
 
-.tail110:                                         ; preds = %sub_0111, %sub_1112
-  %96 = phi i32 [ %92, %sub_0111 ], [ %95, %sub_1112 ]
+.tail111:                                         ; preds = %sub_0112, %sub_1113
+  %96 = phi i32 [ %92, %sub_0112 ], [ %95, %sub_1113 ]
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %101, label %98
 
-98:                                               ; preds = %.tail110
+98:                                               ; preds = %.tail111
   %99 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(6) @.str.47) #19
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %sub_0115
+  br i1 %100, label %101, label %sub_0116
 
-101:                                              ; preds = %98, %.tail110
+101:                                              ; preds = %98, %.tail111
   store i8 112, ptr @format, align 1
   br label %.backedge
 
-sub_0115:                                         ; preds = %98
+sub_0116:                                         ; preds = %98
   %102 = add nsw i32 %91, -116
-  %.not209 = icmp eq i32 %102, 0
-  br i1 %.not209, label %sub_1116, label %.tail114
+  %.not210 = icmp eq i32 %102, 0
+  br i1 %.not210, label %sub_1117, label %.tail115
 
-sub_1116:                                         ; preds = %sub_0115
+sub_1117:                                         ; preds = %sub_0116
   %103 = getelementptr inbounds i8, ptr %89, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
-  br label %.tail114
+  br label %.tail115
 
-.tail114:                                         ; preds = %sub_0115, %sub_1116
-  %106 = phi i32 [ %102, %sub_0115 ], [ %105, %sub_1116 ]
+.tail115:                                         ; preds = %sub_0116, %sub_1117
+  %106 = phi i32 [ %102, %sub_0116 ], [ %105, %sub_1117 ]
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %111, label %108
 
-108:                                              ; preds = %.tail114
+108:                                              ; preds = %.tail115
   %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(4) @.str.49) #19
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
 
-111:                                              ; preds = %108, %.tail114
+111:                                              ; preds = %108, %.tail115
   store i8 116, ptr @format, align 1
   br label %.backedge
 
@@ -981,81 +978,81 @@ tablespace_list_append.exit:                      ; preds = %246
   store i32 1, ptr @dbgetpassword, align 4
   br label %.backedge
 
-sub_0119:                                         ; preds = %68
+sub_0120:                                         ; preds = %68
   %258 = load ptr, ptr @optarg, align 8
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = add nsw i32 %260, -110
-  %.not205 = icmp eq i32 %261, 0
-  br i1 %.not205, label %sub_1120, label %.tail118
+  %.not206 = icmp eq i32 %261, 0
+  br i1 %.not206, label %sub_1121, label %.tail119
 
-sub_1120:                                         ; preds = %sub_0119
+sub_1121:                                         ; preds = %sub_0120
   %262 = getelementptr inbounds i8, ptr %258, i64 1
   %263 = load i8, ptr %262, align 1
   %264 = zext i8 %263 to i32
-  br label %.tail118
+  br label %.tail119
 
-.tail118:                                         ; preds = %sub_0119, %sub_1120
-  %265 = phi i32 [ %261, %sub_0119 ], [ %264, %sub_1120 ]
+.tail119:                                         ; preds = %sub_0120, %sub_1121
+  %265 = phi i32 [ %261, %sub_0120 ], [ %264, %sub_1121 ]
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %270, label %267
 
-267:                                              ; preds = %.tail118
+267:                                              ; preds = %.tail119
   %268 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %258, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %269 = icmp eq i32 %268, 0
-  br i1 %269, label %270, label %sub_0123
+  br i1 %269, label %270, label %sub_0124
 
-270:                                              ; preds = %267, %.tail118
+270:                                              ; preds = %267, %.tail119
   store i32 0, ptr @includewal, align 4
   br label %.backedge
 
-sub_0123:                                         ; preds = %267
+sub_0124:                                         ; preds = %267
   %271 = add nsw i32 %260, -102
-  %.not206 = icmp eq i32 %271, 0
-  br i1 %.not206, label %sub_1124, label %.tail122
+  %.not207 = icmp eq i32 %271, 0
+  br i1 %.not207, label %sub_1125, label %.tail123
 
-sub_1124:                                         ; preds = %sub_0123
+sub_1125:                                         ; preds = %sub_0124
   %272 = getelementptr inbounds i8, ptr %258, i64 1
   %273 = load i8, ptr %272, align 1
   %274 = zext i8 %273 to i32
-  br label %.tail122
+  br label %.tail123
 
-.tail122:                                         ; preds = %sub_0123, %sub_1124
-  %275 = phi i32 [ %271, %sub_0123 ], [ %274, %sub_1124 ]
+.tail123:                                         ; preds = %sub_0124, %sub_1125
+  %275 = phi i32 [ %271, %sub_0124 ], [ %274, %sub_1125 ]
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %280, label %277
 
-277:                                              ; preds = %.tail122
+277:                                              ; preds = %.tail123
   %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %258, ptr noundef nonnull dereferenceable(6) @.str.54) #19
   %279 = icmp eq i32 %278, 0
-  br i1 %279, label %280, label %sub_0127
+  br i1 %279, label %280, label %sub_0128
 
-280:                                              ; preds = %277, %.tail122
+280:                                              ; preds = %277, %.tail123
   store i32 1, ptr @includewal, align 4
   br label %.backedge
 
-sub_0127:                                         ; preds = %277
+sub_0128:                                         ; preds = %277
   %281 = add nsw i32 %260, -115
-  %.not207 = icmp eq i32 %281, 0
-  br i1 %.not207, label %sub_1128, label %.tail126
+  %.not208 = icmp eq i32 %281, 0
+  br i1 %.not208, label %sub_1129, label %.tail127
 
-sub_1128:                                         ; preds = %sub_0127
+sub_1129:                                         ; preds = %sub_0128
   %282 = getelementptr inbounds i8, ptr %258, i64 1
   %283 = load i8, ptr %282, align 1
   %284 = zext i8 %283 to i32
-  br label %.tail126
+  br label %.tail127
 
-.tail126:                                         ; preds = %sub_0127, %sub_1128
-  %285 = phi i32 [ %281, %sub_0127 ], [ %284, %sub_1128 ]
+.tail127:                                         ; preds = %sub_0128, %sub_1129
+  %285 = phi i32 [ %281, %sub_0128 ], [ %284, %sub_1129 ]
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %290, label %287
 
-287:                                              ; preds = %.tail126
+287:                                              ; preds = %.tail127
   %288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %258, ptr noundef nonnull dereferenceable(7) @.str.56) #19
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %290, label %291
 
-290:                                              ; preds = %287, %.tail126
+290:                                              ; preds = %287, %.tail127
   store i32 2, ptr @includewal, align 4
   br label %.backedge
 
@@ -1259,8 +1256,8 @@ backup_parse_compress_options.exit:               ; preds = %293, %297
 
 365:                                              ; preds = %360
   %366 = load ptr, ptr @backup_target, align 8
-  %.not210 = icmp eq ptr %366, null
-  br i1 %.not210, label %369, label %367
+  %.not105 = icmp eq ptr %366, null
+  br i1 %.not105, label %369, label %367
 
 367:                                              ; preds = %365
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.66) #18
@@ -1317,33 +1314,33 @@ backup_parse_compress_options.exit:               ; preds = %293, %297
   %391 = phi i1 [ %371, %.thread277 ], [ %381, %378 ]
   %392 = icmp eq i8 %390, 116
   %or.cond17 = select i1 %392, i1 %387, i1 false
-  br i1 %or.cond17, label %sub_0131, label %406
+  br i1 %or.cond17, label %sub_0132, label %406
 
-sub_0131:                                         ; preds = %386
+sub_0132:                                         ; preds = %386
   %393 = load ptr, ptr @basedir, align 8
   %394 = load i8, ptr %393, align 1
   %395 = zext i8 %394 to i32
   %396 = add nsw i32 %395, -45
   %.not211 = icmp eq i32 %396, 0
-  br i1 %.not211, label %sub_1132, label %.tail130
+  br i1 %.not211, label %sub_1133, label %.tail131
 
-sub_1132:                                         ; preds = %sub_0131
+sub_1133:                                         ; preds = %sub_0132
   %397 = getelementptr inbounds i8, ptr %393, i64 1
   %398 = load i8, ptr %397, align 1
   %399 = zext i8 %398 to i32
-  br label %.tail130
+  br label %.tail131
 
-.tail130:                                         ; preds = %sub_0131, %sub_1132
-  %400 = phi i32 [ %396, %sub_0131 ], [ %399, %sub_1132 ]
+.tail131:                                         ; preds = %sub_0132, %sub_1133
+  %400 = phi i32 [ %396, %sub_0132 ], [ %399, %sub_1133 ]
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %404, label %.thread99
 
-.thread99:                                        ; preds = %.tail130
+.thread99:                                        ; preds = %.tail131
   %402 = load ptr, ptr @replication_slot, align 8
   %403 = icmp ne ptr %402, null
   br label %412
 
-404:                                              ; preds = %.tail130
+404:                                              ; preds = %.tail131
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.70) #18
   %405 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.58, ptr noundef %405) #18
@@ -1524,31 +1521,31 @@ sub_1132:                                         ; preds = %sub_0131
 467:                                              ; preds = %465
   %468 = load i8, ptr @format, align 1
   %469 = icmp eq i8 %468, 112
-  br i1 %469, label %477, label %sub_0135
+  br i1 %469, label %477, label %sub_0136
 
-sub_0135:                                         ; preds = %467
+sub_0136:                                         ; preds = %467
   %470 = load i8, ptr %466, align 1
   %471 = zext i8 %470 to i32
   %472 = add nsw i32 %471, -45
   %.not212 = icmp eq i32 %472, 0
-  br i1 %.not212, label %sub_1136, label %.tail134
+  br i1 %.not212, label %sub_1137, label %.tail135
 
-sub_1136:                                         ; preds = %sub_0135
+sub_1137:                                         ; preds = %sub_0136
   %473 = getelementptr inbounds i8, ptr %466, i64 1
   %474 = load i8, ptr %473, align 1
   %475 = zext i8 %474 to i32
-  br label %.tail134
+  br label %.tail135
 
-.tail134:                                         ; preds = %sub_0135, %sub_1136
-  %476 = phi i32 [ %472, %sub_0135 ], [ %475, %sub_1136 ]
+.tail135:                                         ; preds = %sub_0136, %sub_1137
+  %476 = phi i32 [ %472, %sub_0136 ], [ %475, %sub_1137 ]
   %.not65 = icmp eq i32 %476, 0
   br i1 %.not65, label %478, label %477
 
-477:                                              ; preds = %.tail134, %467
+477:                                              ; preds = %.tail135, %467
   call fastcc void @verify_dir_is_empty_or_create(ptr noundef nonnull %466, ptr noundef nonnull @made_new_pgdata, ptr noundef nonnull @found_existing_pgdata)
   br label %478
 
-478:                                              ; preds = %477, %.tail134, %465
+478:                                              ; preds = %477, %.tail135, %465
   %479 = load ptr, ptr @conn, align 8
   %480 = call zeroext i1 @RetrieveWalSegSize(ptr noundef %479) #18
   br i1 %480, label %482, label %481

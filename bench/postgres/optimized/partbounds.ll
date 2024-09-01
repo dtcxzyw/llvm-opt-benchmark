@@ -1411,19 +1411,19 @@ get_non_null_list_datum_count.exit.thread.i:      ; preds = %85
   %.1.lcssa.i.i = phi i32 [ %.01227.i.i, %.lr.ph30.i.i ], [ %.01227.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %100 ]
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next35.i.i, %wide.trip.count37.i.i
-  br i1 %exitcond38.not.i.i, label %.lr.ph172.preheader.i, label %.lr.ph30.i.i, !llvm.loop !20
+  br i1 %exitcond38.not.i.i, label %get_non_null_list_datum_count.exit.i, label %.lr.ph30.i.i, !llvm.loop !20
 
-.lr.ph172.preheader.i:                            ; preds = %._crit_edge.i.i
+get_non_null_list_datum_count.exit.i:             ; preds = %._crit_edge.i.i
   %108 = sext i32 %.1.lcssa.i.i to i64
   %109 = shl nsw i64 %108, 4
   %110 = tail call ptr @palloc(i64 noundef %109) #11
   br label %.lr.ph172.i
 
-.lr.ph172.i:                                      ; preds = %.thread.i, %.lr.ph172.preheader.i
-  %indvars.iv185.i = phi i64 [ 0, %.lr.ph172.preheader.i ], [ %indvars.iv.next186.i, %.thread.i ]
-  %.0113167.i = phi i32 [ 0, %.lr.ph172.preheader.i ], [ %.1114.i, %.thread.i ]
-  %.0120166.i = phi i32 [ -1, %.lr.ph172.preheader.i ], [ %.1121.i, %.thread.i ]
-  %.0123165.i = phi i32 [ -1, %.lr.ph172.preheader.i ], [ %.1124.i, %.thread.i ]
+.lr.ph172.i:                                      ; preds = %.thread.i, %get_non_null_list_datum_count.exit.i
+  %indvars.iv185.i = phi i64 [ 0, %get_non_null_list_datum_count.exit.i ], [ %indvars.iv.next186.i, %.thread.i ]
+  %.0113167.i = phi i32 [ 0, %get_non_null_list_datum_count.exit.i ], [ %.1114.i, %.thread.i ]
+  %.0120166.i = phi i32 [ -1, %get_non_null_list_datum_count.exit.i ], [ %.1121.i, %.thread.i ]
+  %.0123165.i = phi i32 [ -1, %get_non_null_list_datum_count.exit.i ], [ %.1124.i, %.thread.i ]
   %111 = getelementptr ptr, ptr %0, i64 %indvars.iv185.i
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 4
@@ -3482,10 +3482,10 @@ merge_null_partitions.exit.i:                     ; preds = %377, %376, %375, %3
   br label %merge_default_partitions.exit.i
 
 merge_default_partitions.exit.i:                  ; preds = %413, %412, %411, %408, %404, %403, %400, %398, %388, %.thread46.i.i, %384, %382, %merge_null_partitions.exit.i
-  %414 = phi i8 [ %378, %merge_null_partitions.exit.i ], [ %378, %.thread46.i.i ], [ %378, %382 ], [ %378, %388 ], [ %378, %384 ], [ %378, %398 ], [ %378, %400 ], [ 1, %403 ], [ %378, %404 ], [ %378, %408 ], [ %378, %412 ], [ %378, %413 ], [ %378, %411 ]
-  %415 = phi i8 [ %379, %merge_null_partitions.exit.i ], [ %379, %.thread46.i.i ], [ %379, %382 ], [ %379, %388 ], [ %379, %384 ], [ %379, %398 ], [ %379, %400 ], [ %379, %403 ], [ 1, %404 ], [ %379, %408 ], [ %379, %412 ], [ %379, %413 ], [ %379, %411 ]
-  %.5259.i = phi i32 [ %.4258.i, %merge_null_partitions.exit.i ], [ %.4258.i, %.thread46.i.i ], [ %.4258.i, %382 ], [ %389, %388 ], [ %385, %384 ], [ %.4258.i, %398 ], [ %.4258.i, %400 ], [ %.4258.i, %403 ], [ %.4258.i, %404 ], [ %409, %408 ], [ %.4258.i, %412 ], [ %.4258.i, %413 ], [ %.4258.i, %411 ]
-  %.4.i = phi i32 [ %.0249.ph.i, %merge_null_partitions.exit.i ], [ %.0249.ph.i, %.thread46.i.i ], [ %.0249.ph.i, %382 ], [ %.4258.i, %388 ], [ %.4258.i, %384 ], [ %390, %398 ], [ -1, %400 ], [ %390, %403 ], [ %393, %404 ], [ %.4258.i, %408 ], [ -1, %412 ], [ %393, %413 ], [ %390, %411 ]
+  %414 = phi i8 [ %378, %merge_null_partitions.exit.i ], [ %378, %382 ], [ %378, %.thread46.i.i ], [ %378, %384 ], [ %378, %388 ], [ %378, %398 ], [ %378, %400 ], [ 1, %403 ], [ %378, %404 ], [ %378, %408 ], [ %378, %412 ], [ %378, %413 ], [ %378, %411 ]
+  %415 = phi i8 [ %379, %merge_null_partitions.exit.i ], [ %379, %382 ], [ %379, %.thread46.i.i ], [ %379, %384 ], [ %379, %388 ], [ %379, %398 ], [ %379, %400 ], [ %379, %403 ], [ 1, %404 ], [ %379, %408 ], [ %379, %412 ], [ %379, %413 ], [ %379, %411 ]
+  %.5259.i = phi i32 [ %.4258.i, %merge_null_partitions.exit.i ], [ %.4258.i, %382 ], [ %.4258.i, %.thread46.i.i ], [ %385, %384 ], [ %389, %388 ], [ %.4258.i, %398 ], [ %.4258.i, %400 ], [ %.4258.i, %403 ], [ %.4258.i, %404 ], [ %409, %408 ], [ %.4258.i, %412 ], [ %.4258.i, %413 ], [ %.4258.i, %411 ]
+  %.4.i = phi i32 [ %.0249.ph.i, %merge_null_partitions.exit.i ], [ %.0249.ph.i, %382 ], [ %.0249.ph.i, %.thread46.i.i ], [ %.4258.i, %384 ], [ %.4258.i, %388 ], [ %390, %398 ], [ -1, %400 ], [ %390, %403 ], [ %393, %404 ], [ %.4258.i, %408 ], [ -1, %412 ], [ %393, %413 ], [ %390, %411 ]
   %416 = icmp sgt i32 %.5259.i, 0
   br i1 %416, label %417, label %merge_list_bounds.exit
 
@@ -5394,8 +5394,8 @@ add_merged_range_bounds.exit.i:                   ; preds = %1094, %1084, %.crit
   br label %merge_default_partitions.exit.i24
 
 merge_default_partitions.exit.i24:                ; preds = %1175, %1174, %1173, %1170, %1164, %1161, %1158, %1156, %1137, %.thread46.i.i30, %1129, %1123, %._crit_edge.i23
-  %.4474.i = phi i32 [ %.0470.lcssa.i, %._crit_edge.i23 ], [ %.0470.lcssa.i, %.thread46.i.i30 ], [ %.0470.lcssa.i, %1123 ], [ %1138, %1137 ], [ %1130, %1129 ], [ %.0470.lcssa.i, %1156 ], [ %.0470.lcssa.i, %1158 ], [ %.0470.lcssa.i, %1161 ], [ %.0470.lcssa.i, %1164 ], [ %1171, %1170 ], [ %.0470.lcssa.i, %1174 ], [ %.0470.lcssa.i, %1175 ], [ %.0470.lcssa.i, %1173 ]
-  %.4466.i = phi i32 [ %.0462.lcssa.i, %._crit_edge.i23 ], [ %.0462.lcssa.i, %.thread46.i.i30 ], [ %.0462.lcssa.i, %1123 ], [ %.0470.lcssa.i, %1137 ], [ %.0470.lcssa.i, %1129 ], [ %1141, %1156 ], [ -1, %1158 ], [ %1141, %1161 ], [ %1149, %1164 ], [ %.0470.lcssa.i, %1170 ], [ -1, %1174 ], [ %1149, %1175 ], [ %1141, %1173 ]
+  %.4474.i = phi i32 [ %.0470.lcssa.i, %._crit_edge.i23 ], [ %.0470.lcssa.i, %1123 ], [ %.0470.lcssa.i, %.thread46.i.i30 ], [ %1130, %1129 ], [ %1138, %1137 ], [ %.0470.lcssa.i, %1156 ], [ %.0470.lcssa.i, %1158 ], [ %.0470.lcssa.i, %1161 ], [ %.0470.lcssa.i, %1164 ], [ %1171, %1170 ], [ %.0470.lcssa.i, %1174 ], [ %.0470.lcssa.i, %1175 ], [ %.0470.lcssa.i, %1173 ]
+  %.4466.i = phi i32 [ %.0462.lcssa.i, %._crit_edge.i23 ], [ %.0462.lcssa.i, %1123 ], [ %.0462.lcssa.i, %.thread46.i.i30 ], [ %.0470.lcssa.i, %1129 ], [ %.0470.lcssa.i, %1137 ], [ %1141, %1156 ], [ -1, %1158 ], [ %1141, %1161 ], [ %1149, %1164 ], [ %.0470.lcssa.i, %1170 ], [ -1, %1174 ], [ %1149, %1175 ], [ %1141, %1173 ]
   %1176 = icmp sgt i32 %.4474.i, 0
   br i1 %1176, label %1177, label %merge_range_bounds.exit
 

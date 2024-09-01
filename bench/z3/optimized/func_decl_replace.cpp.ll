@@ -634,14 +634,14 @@ if.else61:                                        ; preds = %if.else
 
 for.cond18.preheader.i.i.i197:                    ; preds = %for.inc.i.i.i194, %if.else61
   %cmp19.not32.i.i.i198 = icmp eq i32 %and.i.i.i185, 0
-  br i1 %cmp19.not32.i.i.i198, label %if.else77, label %for.body20.i.i.i199
+  br i1 %cmp19.not32.i.i.i198, label %lor.lhs.false.i246, label %for.body20.i.i.i199
 
 for.body.i.i.i191:                                ; preds = %if.else61, %for.inc.i.i.i194
   %curr.031.i.i.i192 = phi ptr [ %incdec.ptr.i.i.i195, %for.inc.i.i.i194 ], [ %add.ptr.i.i.i187, %if.else61 ]
   %93 = load ptr, ptr %curr.031.i.i.i192, align 8
   %magicptr25.i.i.i193 = ptrtoint ptr %93 to i64
   switch i64 %magicptr25.i.i.i193, label %if.then.i.i.i215 [
-    i64 0, label %if.else77
+    i64 0, label %lor.lhs.false.i246
     i64 1, label %for.inc.i.i.i194
   ]
 
@@ -663,7 +663,7 @@ for.body20.i.i.i199:                              ; preds = %for.cond18.preheade
   %95 = load ptr, ptr %curr.133.i.i.i200, align 8
   %magicptr27.i.i.i201 = ptrtoint ptr %95 to i64
   switch i64 %magicptr27.i.i.i201, label %if.then22.i.i.i207 [
-    i64 0, label %if.else77
+    i64 0, label %lor.lhs.false.i246
     i64 1, label %for.inc36.i.i.i202
   ]
 
@@ -678,7 +678,7 @@ if.then22.i.i.i207:                               ; preds = %for.body20.i.i.i199
 for.inc36.i.i.i202:                               ; preds = %if.then22.i.i.i207, %for.body20.i.i.i199
   %incdec.ptr37.i.i.i203 = getelementptr inbounds i8, ptr %curr.133.i.i.i200, i64 16
   %cmp19.not.i.i.i204 = icmp eq ptr %incdec.ptr37.i.i.i203, %add.ptr.i.i.i187
-  br i1 %cmp19.not.i.i.i204, label %if.else77, label %for.body20.i.i.i199, !llvm.loop !6
+  br i1 %cmp19.not.i.i.i204, label %lor.lhs.false.i246, label %for.body20.i.i.i199, !llvm.loop !6
 
 if.then66:                                        ; preds = %if.then.i.i.i215, %if.then22.i.i.i207
   %retval.0.i.i.i213 = phi ptr [ %curr.133.i.i.i200, %if.then22.i.i.i207 ], [ %curr.031.i.i.i192, %if.then.i.i.i215 ]
@@ -747,22 +747,22 @@ if.end74:                                         ; preds = %if.then66, %_ZN15re
   store i32 %dec.i244, ptr %arrayidx.i243, align 4
   br label %if.end83
 
-if.else77:                                        ; preds = %for.body.i.i.i191, %for.body20.i.i.i199, %for.inc36.i.i.i202, %for.cond18.preheader.i.i.i197
+lor.lhs.false.i246:                               ; preds = %for.body.i.i.i191, %for.inc36.i.i.i202, %for.body20.i.i.i199, %for.cond18.preheader.i.i.i197
   %arrayidx4.i248 = getelementptr inbounds i8, ptr %16, i64 -8
   %109 = load i32, ptr %arrayidx4.i248, align 4
   %cmp5.i249 = icmp eq i32 %17, %109
   br i1 %cmp5.i249, label %if.then.i255, label %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit259
 
-if.then.i255:                                     ; preds = %if.else77
+if.then.i255:                                     ; preds = %lor.lhs.false.i246
   call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo)
   %.pre.i256 = load ptr, ptr %m_todo, align 8
   %arrayidx8.phi.trans.insert.i257 = getelementptr inbounds i8, ptr %.pre.i256, i64 -4
   %.pre1.i258 = load i32, ptr %arrayidx8.phi.trans.insert.i257, align 4
   br label %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit259
 
-_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit259:  ; preds = %if.else77, %if.then.i255
-  %110 = phi i32 [ %.pre1.i258, %if.then.i255 ], [ %17, %if.else77 ]
-  %111 = phi ptr [ %.pre.i256, %if.then.i255 ], [ %16, %if.else77 ]
+_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit259:  ; preds = %lor.lhs.false.i246, %if.then.i255
+  %110 = phi i32 [ %.pre1.i258, %if.then.i255 ], [ %17, %lor.lhs.false.i246 ]
+  %111 = phi ptr [ %.pre.i256, %if.then.i255 ], [ %16, %lor.lhs.false.i246 ]
   %idx.ext.i251 = zext i32 %110 to i64
   %add.ptr.i252 = getelementptr inbounds ptr, ptr %111, i64 %idx.ext.i251
   store ptr %91, ptr %add.ptr.i252, align 8

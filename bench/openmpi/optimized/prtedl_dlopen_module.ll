@@ -315,39 +315,32 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr nocapture noundef re
   %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.next103
   %58 = load ptr, ptr %57, align 8
   %.not51 = icmp eq ptr %58, null
-  br i1 %.not51, label %.loopexit, label %.lr.ph92, !llvm.loop !7
+  br i1 %.not51, label %.thread69, label %.lr.ph92, !llvm.loop !7
 
 .lr.ph92:                                         ; preds = %.preheader, %55
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %55 ], [ 0, %.preheader ]
   %59 = phi ptr [ %58, %55 ], [ %54, %.preheader ]
   %60 = call i32 %1(ptr noundef nonnull %59, ptr noundef %2) #7
   %.not52 = icmp eq i32 %60, 0
-  br i1 %.not52, label %55, label %.loopexit
+  br i1 %.not52, label %55, label %.thread69
 
 .loopexit72:                                      ; preds = %.lr.ph84, %24
   %61 = call i32 @closedir(ptr noundef nonnull %12)
   br label %.thread69
 
-.loopexit:                                        ; preds = %55, %.lr.ph92
-  br i1 %.not, label %62, label %.thread69
-
-.thread69:                                        ; preds = %.lr.ph123, %.critedge, %.preheader, %.loopexit72, %.loopexit
-  %.0356367 = phi i32 [ %60, %.loopexit ], [ -11, %.loopexit72 ], [ 0, %.preheader ], [ 0, %.critedge ], [ -11, %.lr.ph123 ]
+.thread69:                                        ; preds = %.lr.ph123, %.lr.ph92, %55, %.critedge, %.preheader, %.loopexit72
+  %.0356367 = phi i32 [ -11, %.loopexit72 ], [ 0, %.preheader ], [ 0, %.critedge ], [ %60, %55 ], [ %60, %.lr.ph92 ], [ -11, %.lr.ph123 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #7
-  br label %62
-
-62:                                               ; preds = %.thread69, %.loopexit
-  %.0356368.ph = phi i32 [ %60, %.loopexit ], [ %.0356367, %.thread69 ]
   %.pr = load ptr, ptr %4, align 8
   %.not58 = icmp eq ptr %.pr, null
-  br i1 %.not58, label %.thread, label %63
+  br i1 %.not58, label %.thread, label %62
 
-63:                                               ; preds = %62
+62:                                               ; preds = %.thread69
   call void @PMIx_Argv_free(ptr noundef nonnull %.pr) #7
   br label %.thread
 
-.thread:                                          ; preds = %3, %63, %62
-  %.0356368114 = phi i32 [ %.0356368.ph, %63 ], [ %.0356368.ph, %62 ], [ 0, %3 ]
+.thread:                                          ; preds = %3, %62, %.thread69
+  %.0356368114 = phi i32 [ %.0356367, %62 ], [ %.0356367, %.thread69 ], [ 0, %3 ]
   ret i32 %.0356368114
 }
 

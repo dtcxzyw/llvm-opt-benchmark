@@ -1388,10 +1388,10 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 .split41.us:                                      ; preds = %210
   call void @_raw_spin_unlock_irqrestore(ptr noundef %177, i64 noundef %212) #7
-  br i1 %183, label %291, label %281
+  br label %291
 
 .thread12:                                        ; preds = %269, %220
-  %271 = phi i1 [ %183, %220 ], [ false, %269 ]
+  %271 = phi i1 [ true, %220 ], [ false, %269 ]
   %272 = phi i64 [ %175, %220 ], [ %191, %269 ]
   %273 = phi i64 [ 0, %220 ], [ %264, %269 ]
   %274 = phi i64 [ 0, %220 ], [ %265, %269 ]
@@ -1403,16 +1403,16 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %280 = phi i64 [ %217, %220 ], [ %243, %269 ]
   br i1 %271, label %291, label %281
 
-281:                                              ; preds = %.split41.us.loopexit57, %.split41.us, %.thread12
-  %282 = phi i64 [ %217, %.split41.us ], [ %280, %.thread12 ], [ %243, %.split41.us.loopexit57 ]
-  %283 = phi i64 [ %216, %.split41.us ], [ %279, %.thread12 ], [ %242, %.split41.us.loopexit57 ]
-  %284 = phi i64 [ %215, %.split41.us ], [ %278, %.thread12 ], [ %241, %.split41.us.loopexit57 ]
-  %285 = phi i64 [ %214, %.split41.us ], [ %277, %.thread12 ], [ %240, %.split41.us.loopexit57 ]
-  %286 = phi i64 [ %213, %.split41.us ], [ %276, %.thread12 ], [ %239, %.split41.us.loopexit57 ]
-  %287 = phi i64 [ 0, %.split41.us ], [ %275, %.thread12 ], [ %266, %.split41.us.loopexit57 ]
-  %288 = phi i64 [ 0, %.split41.us ], [ %274, %.thread12 ], [ %265, %.split41.us.loopexit57 ]
-  %289 = phi i64 [ 0, %.split41.us ], [ %273, %.thread12 ], [ %264, %.split41.us.loopexit57 ]
-  %290 = phi i64 [ %175, %.split41.us ], [ %272, %.thread12 ], [ %191, %.split41.us.loopexit57 ]
+281:                                              ; preds = %.split41.us.loopexit57, %.thread12
+  %282 = phi i64 [ %280, %.thread12 ], [ %243, %.split41.us.loopexit57 ]
+  %283 = phi i64 [ %279, %.thread12 ], [ %242, %.split41.us.loopexit57 ]
+  %284 = phi i64 [ %278, %.thread12 ], [ %241, %.split41.us.loopexit57 ]
+  %285 = phi i64 [ %277, %.thread12 ], [ %240, %.split41.us.loopexit57 ]
+  %286 = phi i64 [ %276, %.thread12 ], [ %239, %.split41.us.loopexit57 ]
+  %287 = phi i64 [ %275, %.thread12 ], [ %266, %.split41.us.loopexit57 ]
+  %288 = phi i64 [ %274, %.thread12 ], [ %265, %.split41.us.loopexit57 ]
+  %289 = phi i64 [ %273, %.thread12 ], [ %264, %.split41.us.loopexit57 ]
+  %290 = phi i64 [ %272, %.thread12 ], [ %191, %.split41.us.loopexit57 ]
   call void @thread_group_cputime_adjusted(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   br label %304
 

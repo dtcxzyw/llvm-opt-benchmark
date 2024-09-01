@@ -1166,8 +1166,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add25 = phi i64 [ %add21, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -1178,41 +1178,41 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2630 = phi i64 [ %add25, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1031, align 8
+  %3 = load ptr, ptr %cond1031, align 8
   %tobool12.not = icmp eq i64 %add2630, 1
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1031, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
-  %tobool16.not = icmp ne ptr %5, null
-  %6 = icmp eq i64 %add2630, 2
-  %spec.select = and i1 %6, %tobool16.not
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %tobool16.not = icmp ne ptr %4, null
+  %5 = icmp eq i64 %add2630, 2
+  %spec.select = and i1 %5, %tobool16.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end25
 
 if.end25:                                         ; preds = %skip_optional_pos
   %arrayidx26 = getelementptr i8, ptr %cond1031, i64 16
-  %7 = load ptr, ptr %arrayidx26, align 8
-  %call27 = call i32 @PyObject_IsTrue(ptr noundef %7) #9
+  %6 = load ptr, ptr %arrayidx26, align 8
+  %call27 = call i32 @PyObject_IsTrue(ptr noundef %6) #9
   %cmp28 = icmp slt i32 %call27, 0
   br i1 %cmp28, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end25, %skip_optional_pos
-  %data_obj.034 = phi ptr [ %5, %if.end25 ], [ %5, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.034 = phi ptr [ %4, %if.end25 ], [ %4, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call27, %if.end25 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i)
-  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull %name.i) #9
+  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %3, ptr noundef nonnull @.str.76, ptr noundef nonnull %name.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %skip_optional_kwonly
-  %8 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.77) #9
+  %7 = load ptr, ptr @PyExc_TypeError, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.77) #9
   br label %EVP_new_impl.exit
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
-  %9 = load ptr, ptr %name.i, align 8
-  %call1.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %9, ptr noundef %data_obj.034, i32 noundef %usedforsecurity.0)
+  %8 = load ptr, ptr %name.i, align 8
+  %call1.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %8, ptr noundef %data_obj.034, i32 noundef %usedforsecurity.0)
   br label %EVP_new_impl.exit
 
 EVP_new_impl.exit:                                ; preds = %if.then.i, %if.end.i
@@ -2218,8 +2218,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2234,21 +2234,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.2, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2274,8 +2274,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2290,21 +2290,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.4, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2330,8 +2330,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2346,21 +2346,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.6, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2386,8 +2386,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2402,21 +2402,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.8, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2442,8 +2442,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2458,21 +2458,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.10, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2498,8 +2498,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2514,21 +2514,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.12, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2554,8 +2554,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2570,21 +2570,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.20, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2610,8 +2610,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2626,21 +2626,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.22, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2666,8 +2666,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2682,21 +2682,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.24, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2722,8 +2722,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2738,21 +2738,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.26, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2778,8 +2778,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2794,21 +2794,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.28, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit
@@ -2834,8 +2834,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2850,21 +2850,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %3, null
-  %4 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %4, %tobool15.not
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp ne ptr %2, null
+  %3 = icmp eq i64 %add2529, 1
+  %spec.select = and i1 %3, %tobool15.not
   br i1 %spec.select, label %skip_optional_kwonly, label %if.end24
 
 if.end24:                                         ; preds = %skip_optional_pos
   %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #9
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #9
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
-  %data_obj.033 = phi ptr [ %3, %if.end24 ], [ %3, %skip_optional_pos ], [ null, %if.end ]
+  %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
   %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.30, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
   br label %exit

@@ -76,8 +76,8 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 46:                                               ; preds = %40
   store ptr %41, ptr %36, align 8
-  %.not37.not = icmp eq ptr %41, null
-  br i1 %.not37.not, label %49, label %47
+  %.not37 = icmp eq ptr %41, null
+  br i1 %.not37, label %49, label %47
 
 47:                                               ; preds = %46
   store ptr %41, ptr %33, align 8

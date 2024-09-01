@@ -1313,7 +1313,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %363 = zext nneg i32 %359 to i64
   br label %365
 
-.lr.ph179.i:                                      ; preds = %373
+.preheader.i581:                                  ; preds = %373
   %364 = getelementptr inbounds i8, ptr %227, i64 564
   br label %375
 
@@ -1338,11 +1338,11 @@ sub_2.i:                                          ; preds = %sub_1.i
   store i8 %.sink212.i, ptr %374, align 1
   %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next190.i, %363
-  br i1 %exitcond.not, label %.lr.ph179.i, label %365, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader.i581, label %365, !llvm.loop !11
 
-375:                                              ; preds = %382, %.lr.ph179.i
-  %indvars.iv192.i = phi i64 [ 0, %.lr.ph179.i ], [ %indvars.iv.next193.i, %382 ]
-  %.4177.i = phi i32 [ %.3.i, %.lr.ph179.i ], [ %.5.i, %382 ]
+375:                                              ; preds = %382, %.preheader.i581
+  %indvars.iv192.i = phi i64 [ 0, %.preheader.i581 ], [ %indvars.iv.next193.i, %382 ]
+  %.4177.i = phi i32 [ %.3.i, %.preheader.i581 ], [ %.5.i, %382 ]
   %376 = icmp ugt i32 %.025.lcssa.i, %.4177.i
   br i1 %376, label %377, label %382
 

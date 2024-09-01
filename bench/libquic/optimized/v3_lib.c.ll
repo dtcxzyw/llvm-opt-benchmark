@@ -703,7 +703,7 @@ if.else:                                          ; preds = %if.end
 if.end21:                                         ; preds = %if.then2
   %call22 = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %value) #10
   %tobool23.not = icmp eq ptr %call22, null
-  br i1 %tobool23.not, label %if.then24, label %if.end25
+  br i1 %tobool23.not, label %if.then24, label %if.then28
 
 if.end21.thread41:                                ; preds = %if.else
   %call2242 = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %value) #10
@@ -719,10 +719,7 @@ if.then24:                                        ; preds = %if.end21.thread41, 
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 338) #10
   br label %return
 
-if.end25:                                         ; preds = %if.end21
-  br i1 %cmp1, label %if.then28, label %if.end36
-
-if.then28:                                        ; preds = %if.end25
+if.then28:                                        ; preds = %if.end21
   %2 = load ptr, ptr %x, align 8
   %conv29 = zext nneg i32 %call to i64
   %call30 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %conv29) #10
@@ -733,8 +730,8 @@ if.then28:                                        ; preds = %if.end25
   %.20 = select i1 %tobool33.not, i32 -1, i32 1
   br label %return
 
-if.end36:                                         ; preds = %if.end21.thread41, %if.end21.thread, %if.end25
-  %call223640 = phi ptr [ %call22, %if.end25 ], [ %call2232, %if.end21.thread ], [ %call2242, %if.end21.thread41 ]
+if.end36:                                         ; preds = %if.end21.thread41, %if.end21.thread
+  %call223640 = phi ptr [ %call2232, %if.end21.thread ], [ %call2242, %if.end21.thread41 ]
   %4 = load ptr, ptr %x, align 8
   %tobool37.not = icmp eq ptr %4, null
   br i1 %tobool37.not, label %land.lhs.true, label %if.end41

@@ -463,17 +463,14 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
   store i32 %154, ptr @lenx, align 4
   %155 = sub nsw i32 %153, %151
   store i32 %155, ptr @leny, align 4
-  br i1 %135, label %.lr.ph141, label %._crit_edge142
-
-.lr.ph141:                                        ; preds = %._crit_edge138
   %.neg = sdiv i32 %155, -2
   %.neg147 = sdiv i32 %154, -2
   %.neg130 = sub i32 %.neg147, %146
   %.neg133 = sub i32 %.neg, %151
   br label %156
 
-156:                                              ; preds = %.lr.ph141, %156
-  %indvars.iv154 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next155, %156 ]
+156:                                              ; preds = %._crit_edge138, %156
+  %indvars.iv154 = phi i64 [ 0, %._crit_edge138 ], [ %indvars.iv.next155, %156 ]
   %157 = load ptr, ptr @pts, align 8
   %158 = getelementptr inbounds %"class.cv::Point_", ptr %157, i64 %indvars.iv154
   %159 = load i32, ptr %158, align 4
@@ -494,7 +491,7 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
   %171 = icmp slt i64 %indvars.iv.next155, %170
   br i1 %171, label %156, label %._crit_edge142, !llvm.loop !8
 
-._crit_edge142:                                   ; preds = %156, %._crit_edge138.thread, %._crit_edge138
+._crit_edge142:                                   ; preds = %156, %._crit_edge138.thread
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %172 unwind label %177
@@ -3249,17 +3246,14 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
   store i32 %729, ptr @lenx, align 4
   %730 = sub nsw i32 %728, %726
   store i32 %730, ptr @leny, align 4
-  br i1 %709, label %.lr.ph341, label %._crit_edge342
-
-.lr.ph341:                                        ; preds = %._crit_edge338
   %.neg = sdiv i32 %730, -2
   %.neg343 = sdiv i32 %729, -2
   %.neg326 = sub i32 %.neg343, %721
   %.neg329 = sub i32 %.neg, %726
   br label %731
 
-731:                                              ; preds = %.lr.ph341, %731
-  %indvars.iv354 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next355, %731 ]
+731:                                              ; preds = %._crit_edge338, %731
+  %indvars.iv354 = phi i64 [ 0, %._crit_edge338 ], [ %indvars.iv.next355, %731 ]
   %732 = load ptr, ptr @pts, align 8
   %733 = getelementptr inbounds %"class.cv::Point_", ptr %732, i64 %indvars.iv354
   %734 = load i32, ptr %733, align 4
@@ -3280,8 +3274,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
   %746 = icmp slt i64 %indvars.iv.next355, %745
   br i1 %746, label %731, label %._crit_edge342, !llvm.loop !20
 
-._crit_edge342:                                   ; preds = %731, %._crit_edge338.thread, %._crit_edge338
-  %.lcssa = phi i32 [ %.pre, %._crit_edge338 ], [ %710, %._crit_edge338.thread ], [ %744, %731 ]
+._crit_edge342:                                   ; preds = %731, %._crit_edge338.thread
+  %.lcssa = phi i32 [ %710, %._crit_edge338.thread ], [ %744, %731 ]
   store i32 %.lcssa, ptr @flag, align 4
   %747 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
   %748 = getelementptr inbounds i8, ptr %747, i64 4

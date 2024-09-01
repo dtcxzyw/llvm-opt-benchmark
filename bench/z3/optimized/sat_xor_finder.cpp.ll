@@ -2364,12 +2364,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %or.i = or i32 %shl.i, %filter.08.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.07.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
-  br i1 %cmp.not.i, label %_ZN3sat10xor_finder17get_clause_filterERNS_6clauseE.exit, label %for.body.i
+  br i1 %cmp.not.i, label %for.body11.preheader, label %for.body.i
 
-_ZN3sat10xor_finder17get_clause_filterERNS_6clauseE.exit: ; preds = %for.body.i
-  br i1 %cmp.not6.i, label %for.inc15, label %for.body11.preheader
-
-for.body11.preheader:                             ; preds = %_ZN3sat10xor_finder17get_clause_filterERNS_6clauseE.exit
+for.body11.preheader:                             ; preds = %for.body.i
   %m_lits.i.ptr = getelementptr inbounds i8, ptr %3, i64 20
   br label %for.body11
 
@@ -2487,7 +2484,7 @@ _ZN6vectorIN3sat10xor_finder13clause_filterELb0EjE9push_backERKS2_.exit: ; preds
   %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr.i
   br i1 %cmp10.not, label %for.inc15, label %for.body11
 
-for.inc15:                                        ; preds = %_ZN6vectorIN3sat10xor_finder13clause_filterELb0EjE9push_backERKS2_.exit, %if.then, %_ZN3sat10xor_finder17get_clause_filterERNS_6clauseE.exit, %for.body, %land.lhs.true
+for.inc15:                                        ; preds = %_ZN6vectorIN3sat10xor_finder13clause_filterELb0EjE9push_backERKS2_.exit, %if.then, %for.body, %land.lhs.true
   %incdec.ptr16 = getelementptr inbounds i8, ptr %__begin1.026, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr16, %add.ptr.i
   br i1 %cmp.not, label %for.end17, label %for.body

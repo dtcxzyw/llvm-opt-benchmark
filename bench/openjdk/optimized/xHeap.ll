@@ -883,8 +883,8 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
   %.sink4.i.sroa.gep = getelementptr inbounds i8, ptr %2, i64 200
   %.sink4.i.sroa.gep19 = getelementptr inbounds i8, ptr %2, i64 312
   %.sink4.i.sroa.gep20 = getelementptr inbounds i8, ptr %2, i64 88
-  %.not14.i35 = icmp eq i64 %9, 0
-  br i1 %.not14.i35, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
+  %.not10.i35 = icmp eq i64 %9, 0
+  br i1 %.not10.i35, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %1
   %11 = getelementptr inbounds i8, ptr %2, i64 336
@@ -907,8 +907,8 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
   br i1 %or.cond.i, label %16, label %_ZN18XPageTableIterator4nextEPP5XPage.exit
 
 16:                                               ; preds = %.lr.ph.i
-  %.not15.i = icmp eq ptr %15, %10
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  %.not11.i = icmp eq ptr %15, %10
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %14, i64 4
@@ -1068,8 +1068,8 @@ _ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i: ; pre
   br label %.backedge
 
 .backedge:                                        ; preds = %26, %_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit, %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i, %_ZN18XPageTableIterator4nextEPP5XPage.exit
-  %.not14.i = icmp eq ptr %15, %10
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !12
+  %.not10.i = icmp eq ptr %15, %10
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.backedge, %16, %1
   %85 = getelementptr inbounds i8, ptr %2, i64 336
@@ -1509,8 +1509,8 @@ define hidden void @_ZN5XHeap8pages_doEP12XPageClosure(ptr noundef nonnull align
   %5 = load ptr, ptr %4, align 32
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
-  %.not14.i10 = icmp eq i64 %6, 0
-  br i1 %.not14.i10, label %.loopexit, label %.lr.ph.i.preheader
+  %.not10.i10 = icmp eq i64 %6, 0
+  br i1 %.not10.i10, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2, %_ZN18XPageTableIterator4nextEPP5XPage.exit
   %.sroa.0.012 = phi ptr [ %10, %_ZN18XPageTableIterator4nextEPP5XPage.exit ], [ %5, %2 ]
@@ -1527,15 +1527,15 @@ define hidden void @_ZN5XHeap8pages_doEP12XPageClosure(ptr noundef nonnull align
   br i1 %or.cond.i, label %11, label %_ZN18XPageTableIterator4nextEPP5XPage.exit
 
 11:                                               ; preds = %.lr.ph.i
-  %.not15.i = icmp eq ptr %10, %7
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  %.not11.i = icmp eq ptr %10, %7
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9) #12
-  %.not14.i = icmp eq ptr %10, %7
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !16
+  %.not10.i = icmp eq ptr %10, %7
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit, %11, %2
   %14 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1627,8 +1627,8 @@ define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef no
   %12 = load ptr, ptr %11, align 32
   %13 = load i64, ptr %10, align 8
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  %.not14.i12 = icmp eq i64 %13, 0
-  br i1 %.not14.i12, label %.loopexit, label %.lr.ph.i.preheader
+  %.not10.i12 = icmp eq i64 %13, 0
+  br i1 %.not10.i12, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2, %_ZN18XPageTableIterator4nextEPP5XPage.exit
   %.sroa.0.014 = phi ptr [ %17, %_ZN18XPageTableIterator4nextEPP5XPage.exit ], [ %12, %2 ]
@@ -1645,13 +1645,13 @@ define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef no
   br i1 %or.cond.i, label %18, label %_ZN18XPageTableIterator4nextEPP5XPage.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %.not15.i = icmp eq ptr %17, %14
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  %.not11.i = icmp eq ptr %17, %14
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   tail call void @_ZNK5XPage8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull %1) #12
-  %.not14.i = icmp eq ptr %17, %14
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !17
+  %.not10.i = icmp eq ptr %17, %14
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit, %18, %2
   tail call void @_ZNK14XPageAllocator23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12

@@ -47,9 +47,8 @@ define dso_local void @qsort_arg(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %16 = icmp sgt i32 %15, 0
   %17 = icmp ugt ptr %14, %.0186.ph.lcssa270
   %or.cond = and i1 %16, %17
-  %brmerge = or i1 %or.cond, %13
   %.mux = select i1 %or.cond, ptr %14, ptr %.0188317
-  br i1 %brmerge, label %.lr.ph315.us, label %infloop, !llvm.loop !5
+  br label %.lr.ph315.us, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %.0188318 = phi ptr [ %.0188, %.critedge ], [ %.0188317, %.preheader.lr.ph ]
@@ -483,9 +482,6 @@ qsort_arg_swapn.exit251:                          ; preds = %.lr.ph.i248, %qsort
 
 .critedge218:                                     ; preds = %197, %209, %29, %36, %.critedge, %.preheader253
   ret void
-
-infloop:                                          ; preds = %.lr.ph315.us, %infloop
-  br label %infloop
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

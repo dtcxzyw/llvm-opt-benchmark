@@ -17677,7 +17677,7 @@ for.inc.i.i.i.i.i66:                              ; preds = %for.body.i.i.i.i.i5
   %incdec.ptr.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i59, i64 16
   %incdec.ptr.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i58, i64 16
   %cmp.i.i.not.i.i.i.i.i69 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i67, %2
-  br i1 %cmp.i.i.not.i.i.i.i.i69, label %for.body.i.i.i75.preheader, label %for.body.i.i.i.i.i57, !llvm.loop !185
+  br i1 %cmp.i.i.not.i.i.i.i.i69, label %invoke.cont35, label %for.body.i.i.i.i.i57, !llvm.loop !185
 
 lpad.i.i.i.i.i60:                                 ; preds = %for.body.i.i.i.i.i57
   %19 = landingpad { ptr, i32 }
@@ -17707,14 +17707,14 @@ terminate.lpad.i.i.i.i.i62:                       ; preds = %lpad7.i.i.i.i.i61
 unreachable.i.i.i.i.i65:                          ; preds = %invoke.cont8.i.i.i.i.i64
   unreachable
 
-for.body.i.i.i75.preheader:                       ; preds = %for.inc.i.i.i.i.i66
+invoke.cont35:                                    ; preds = %for.inc.i.i.i.i.i66
   %25 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %25, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i75
 
-for.body.i.i.i75:                                 ; preds = %for.body.i.i.i75.preheader, %call.i.i.i.noexc79
-  %__first.addr.04.i.i.i76 = phi ptr [ %incdec.ptr.i.i.i77, %call.i.i.i.noexc79 ], [ %__position.coerce, %for.body.i.i.i75.preheader ]
+for.body.i.i.i75:                                 ; preds = %invoke.cont35, %call.i.i.i.noexc79
+  %__first.addr.04.i.i.i76 = phi ptr [ %incdec.ptr.i.i.i77, %call.i.i.i.noexc79 ], [ %__position.coerce, %invoke.cont35 ]
   %call.i.i.i80 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i76, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i)
           to label %call.i.i.i.noexc79 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 

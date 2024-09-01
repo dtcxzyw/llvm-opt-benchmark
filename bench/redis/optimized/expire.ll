@@ -540,21 +540,21 @@ land.lhs.true:                                    ; preds = %if.then11
   %add.ptr17 = getelementptr inbounds %struct.redisDb, ptr %9, i64 %indvars.iv
   %call18 = tail call i32 @activeExpireCycleTryExpire(ptr noundef %add.ptr17, ptr noundef nonnull %call14, i64 noundef %call)
   %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %if.end21, label %if.then20
+  br i1 %tobool19.not, label %if.then25, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true
   tail call void @postExecutionUnitOperations() #9
   br label %if.end27
 
-if.end21:                                         ; preds = %land.lhs.true
+if.then25:                                        ; preds = %land.lhs.true
   %inc = add nsw i32 %noexpire.125, 1
   %shl = shl nuw i64 1, %indvars.iv
   %or = or i64 %shl, %new_dbids.023
   br label %if.end27
 
-if.end27:                                         ; preds = %if.then20, %if.then11, %if.end21, %while.body9
-  %new_dbids.1 = phi i64 [ %or, %if.end21 ], [ %new_dbids.023, %while.body9 ], [ %new_dbids.023, %if.then11 ], [ %new_dbids.023, %if.then20 ]
-  %noexpire.2 = phi i32 [ %inc, %if.end21 ], [ %noexpire.125, %while.body9 ], [ %noexpire.125, %if.then11 ], [ %noexpire.125, %if.then20 ]
+if.end27:                                         ; preds = %if.then20, %if.then11, %if.then25, %while.body9
+  %new_dbids.1 = phi i64 [ %or, %if.then25 ], [ %new_dbids.023, %while.body9 ], [ %new_dbids.023, %if.then11 ], [ %new_dbids.023, %if.then20 ]
+  %noexpire.2 = phi i32 [ %inc, %if.then25 ], [ %noexpire.125, %while.body9 ], [ %noexpire.125, %if.then11 ], [ %noexpire.125, %if.then20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %shr = lshr i64 %dbids.022, 1
   %tobool = icmp ugt i64 %dbids.022, 1

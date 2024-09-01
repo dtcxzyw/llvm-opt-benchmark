@@ -881,7 +881,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %330 = ashr exact i64 %329, 3
   %331 = uitofp i64 %330 to double
   %332 = fdiv double %319, %331
-  br i1 %.not339, label %._crit_edge350, label %.lr.ph349
+  br label %.lr.ph349
 
 .lr.ph349:                                        ; preds = %._crit_edge343, %.lr.ph349
   %.068347 = phi double [ %335, %.lr.ph349 ], [ 0.000000e+00, %._crit_edge343 ]
@@ -893,11 +893,11 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %.not198 = icmp eq ptr %.sroa.0174.0346, %.pn199
   br i1 %.not198, label %._crit_edge350, label %.lr.ph349, !llvm.loop !12
 
-._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge343.thread, %._crit_edge343
-  %337 = phi double [ %332, %._crit_edge343 ], [ %326, %._crit_edge343.thread ], [ %332, %.lr.ph349 ]
-  %338 = phi double [ %331, %._crit_edge343 ], [ %325, %._crit_edge343.thread ], [ %331, %.lr.ph349 ]
-  %.sroa.0183.0.lcssa395401 = phi ptr [ %.sroa.0183.1, %._crit_edge343 ], [ %.sroa.0183.0.lcssa395.ph, %._crit_edge343.thread ], [ %.sroa.0183.1, %.lr.ph349 ]
-  %.068.lcssa = phi double [ 0.000000e+00, %._crit_edge343 ], [ 0.000000e+00, %._crit_edge343.thread ], [ %335, %.lr.ph349 ]
+._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge343.thread
+  %337 = phi double [ %326, %._crit_edge343.thread ], [ %332, %.lr.ph349 ]
+  %338 = phi double [ %325, %._crit_edge343.thread ], [ %331, %.lr.ph349 ]
+  %.sroa.0183.0.lcssa395401 = phi ptr [ %.sroa.0183.0.lcssa395.ph, %._crit_edge343.thread ], [ %.sroa.0183.1, %.lr.ph349 ]
+  %.068.lcssa = phi double [ 0.000000e+00, %._crit_edge343.thread ], [ %335, %.lr.ph349 ]
   %339 = fdiv double %.068.lcssa, %338
   %340 = call double @sqrt(double noundef %339) #14
   %sqrt = call double @llvm.sqrt.f64(double %338)

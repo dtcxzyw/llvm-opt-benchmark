@@ -3018,7 +3018,7 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..util..sparse_set..SparseSet$GT$17h614c240b83c5a85fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13) #30
           to label %.body unwind label %222
 
-default.unreachable184:                           ; preds = %153
+default.unreachable175:                           ; preds = %153
   unreachable
 
 ._crit_edge135:                                   ; preds = %._crit_edge, %61
@@ -3146,11 +3146,11 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %120 = zext i32 %119 to i64
   %121 = load i64, ptr %67, align 8, !noundef !5
   %122 = icmp ugt i64 %121, %120
-  %.pre183 = load i64, ptr %70, align 8
+  %.pre174 = load i64, ptr %70, align 8
   br i1 %122, label %123, label %.noexc.thread
 
 123:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i"
-  %124 = icmp ugt i64 %.pre183, %120
+  %124 = icmp ugt i64 %.pre174, %120
   br i1 %124, label %.noexc, label %.invoke, !prof !83
 
 .noexc:                                           ; preds = %123
@@ -3163,14 +3163,14 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 .noexc.thread:                                    ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i", %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !336
   store i64 %121, ptr %11, align 8, !noalias !336
-  %128 = icmp ult i64 %121, %.pre183
+  %128 = icmp ult i64 %121, %.pre174
   br i1 %128, label %.noexc24, label %.noexc22
 
 .noexc22:                                         ; preds = %.noexc.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !336
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !336
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !336
-  store i64 %.pre183, ptr %8, align 8, !noalias !336
+  store i64 %.pre174, ptr %8, align 8, !noalias !336
   store ptr %11, ptr %9, align 8, !noalias !336
   %129 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h05610c046aa2fa7eE.llvm.4452766663292099101", ptr %129, align 8, !noalias !336
@@ -3211,8 +3211,8 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %141 = load i32, ptr %74, align 4, !noundef !5
   %142 = or i32 %141, %.0.lcssa
   store i32 %142, ptr %74, align 4
-  %.not185 = icmp eq ptr %88, %66
-  br i1 %.not185, label %._crit_edge135, label %86
+  %.not138 = icmp eq ptr %88, %66
+  br i1 %.not138, label %._crit_edge135, label %86
 
 143:                                              ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -3233,7 +3233,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 
 .invoke:                                          ; preds = %144, %.noexc24, %123, %.lr.ph
   %150 = phi i64 [ %116, %.lr.ph ], [ %120, %123 ], [ %116, %.noexc24 ], [ %116, %144 ]
-  %151 = phi i64 [ %.val10.i, %.lr.ph ], [ %.pre183, %123 ], [ %.val26, %.noexc24 ], [ %40, %144 ]
+  %151 = phi i64 [ %.val10.i, %.lr.ph ], [ %.pre174, %123 ], [ %.val26, %.noexc24 ], [ %40, %144 ]
   %152 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.214, %.lr.ph ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.215, %123 ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.213, %.noexc24 ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.71, %144 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %150, i64 noundef %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3245,7 +3245,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %.val29 = load ptr, ptr %72, align 8, !nonnull !5, !noundef !5
   %154 = getelementptr inbounds [0 x { i32, [5 x i32] }], ptr %.val29, i64 0, i64 %116
   %155 = load i32, ptr %154, align 8, !range !66, !noundef !5
-  switch i32 %155, label %default.unreachable184 [
+  switch i32 %155, label %default.unreachable175 [
     i32 0, label %thread-pre-splitthread-pre-split
     i32 1, label %thread-pre-splitthread-pre-split
     i32 2, label %thread-pre-splitthread-pre-split

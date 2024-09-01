@@ -181,14 +181,14 @@ define void @_ZN6google8protobuf15StripWhitespaceEPNSt7__cxx1112basic_stringIcSt
   %.027 = phi i32 [ %15, %12 ], [ %3, %11 ]
   %17 = add i32 %.027, -1
   %18 = icmp sgt i32 %.027, 0
-  br i1 %18, label %.lr.ph36.preheader, label %.critedge2.thread
+  br i1 %18, label %.lr.ph37.preheader, label %.critedge2.thread
 
-.lr.ph36.preheader:                               ; preds = %16
+.lr.ph37.preheader:                               ; preds = %16
   %19 = zext nneg i32 %17 to i64
-  br label %.lr.ph36
+  br label %.lr.ph37
 
-.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %22
-  %indvars.iv40 = phi i64 [ %19, %.lr.ph36.preheader ], [ %indvars.iv.next41, %22 ]
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %22
+  %indvars.iv40 = phi i64 [ %19, %.lr.ph37.preheader ], [ %indvars.iv.next41, %22 ]
   %20 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv40)
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %.critedge2 [
@@ -200,15 +200,15 @@ define void @_ZN6google8protobuf15StripWhitespaceEPNSt7__cxx1112basic_stringIcSt
     i8 13, label %22
   ]
 
-22:                                               ; preds = %.lr.ph36, %.lr.ph36, %.lr.ph36, %.lr.ph36, %.lr.ph36, %.lr.ph36
+22:                                               ; preds = %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
   %23 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %23, label %.lr.ph36, label %.critedge2.thread, !llvm.loop !7
+  br i1 %23, label %.lr.ph37, label %.critedge2.thread, !llvm.loop !7
 
-.critedge2:                                       ; preds = %.lr.ph36
+.critedge2:                                       ; preds = %.lr.ph37
   %24 = trunc nuw nsw i64 %indvars.iv40 to i32
-  %.not37 = icmp eq i32 %17, %24
-  br i1 %.not37, label %.critedge2.thread, label %25
+  %.not31 = icmp eq i32 %17, %24
+  br i1 %.not31, label %.critedge2.thread, label %25
 
 25:                                               ; preds = %.critedge2
   %26 = add nuw nsw i64 %indvars.iv40, 1
@@ -751,7 +751,7 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   %18 = add i32 %spec.select.i, %17
   %19 = getelementptr inbounds i8, ptr %.sroa.026.035.i, i64 32
   %.not30.i = icmp eq ptr %19, %8
-  br i1 %.not30.i, label %.lr.ph40.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 20:                                               ; preds = %11, %9
   %21 = landingpad { ptr, i32 }
@@ -759,15 +759,15 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   resume { ptr, i32 } %21
 
-.lr.ph40.i:                                       ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %22 = sext i32 %18 to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %22)
   %sext.i = shl i64 %13, 32
   %23 = ashr exact i64 %sext.i, 32
   br label %24
 
-24:                                               ; preds = %27, %.lr.ph40.i
-  %.sroa.0.038.i = phi ptr [ %6, %.lr.ph40.i ], [ %31, %27 ]
+24:                                               ; preds = %27, %._crit_edge.i
+  %.sroa.0.038.i = phi ptr [ %6, %._crit_edge.i ], [ %31, %27 ]
   %.not32.i = icmp eq ptr %.sroa.0.038.i, %6
   br i1 %.not32.i, label %27, label %25
 

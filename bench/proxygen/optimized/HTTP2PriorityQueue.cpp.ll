@@ -1820,8 +1820,8 @@ while.cond:                                       ; preds = %while.body, %entry
   %this.pn = phi ptr [ %this, %entry ], [ %cur.0, %while.body ]
   %cur.0.in = getelementptr inbounds i8, ptr %this.pn, i64 80
   %cur.0 = load ptr, ptr %cur.0.in, align 8
-  %tobool.not.not = icmp ne ptr %cur.0, null
-  br i1 %tobool.not.not, label %while.body, label %return
+  %tobool.not.not.not.not.not.not = icmp ne ptr %cur.0, null
+  br i1 %tobool.not.not.not.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %id_ = getelementptr inbounds i8, ptr %cur.0, i64 88
@@ -1831,7 +1831,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp, label %return, label %while.cond, !llvm.loop !20
 
 return:                                           ; preds = %while.cond, %while.body
-  ret i1 %tobool.not.not
+  ret i1 %tobool.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4353,8 +4353,8 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
   %this.pn.i = phi ptr [ %newParent.0, %if.end110 ], [ %cur.0.i, %while.body.i ]
   %cur.0.in.i = getelementptr inbounds i8, ptr %this.pn.i, i64 80
   %cur.0.i = load ptr, ptr %cur.0.in.i, align 8
-  %tobool.not.not.i.not = icmp eq ptr %cur.0.i, null
-  br i1 %tobool.not.not.i.not, label %if.end115, label %while.body.i
+  %tobool.not.not.not.not.i.not = icmp eq ptr %cur.0.i, null
+  br i1 %tobool.not.not.not.not.i.not, label %if.end115, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
   %id_.i40 = getelementptr inbounds i8, ptr %cur.0.i, i64 88
@@ -5542,7 +5542,7 @@ land.rhs.preheader:                               ; preds = %land.rhs63, %if.end
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit
-  %9 = phi ptr [ %storemerge.i, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit ], [ %.pre, %land.rhs.preheader ]
+  %9 = phi ptr [ %.pre, %land.rhs.preheader ], [ %storemerge.i, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit ]
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.i.not = icmp eq ptr %10, %9
   br i1 %cmp.i.i.not, label %while.end, label %while.body

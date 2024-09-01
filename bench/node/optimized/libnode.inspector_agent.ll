@@ -1583,8 +1583,8 @@ for.cond.i.i.i.i.preheader:                       ; preds = %lor.lhs.false.i.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i.preheader, %for.body.i.i.i.i
   %__begin2.sroa.0.0.in.i.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %81, %for.cond.i.i.i.i.preheader ]
   %__begin2.sroa.0.0.i.i.i.i = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i.i, align 8
-  %cmp.i.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
-  br i1 %cmp.i.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
+  %cmp.i.not.not.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
+  br i1 %cmp.i.not.not.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i.i, i64 16
@@ -3310,7 +3310,7 @@ do.body20:                                        ; preds = %do.body13
 
 do.end23:                                         ; preds = %land.lhs.true, %do.body13
   %11 = phi ptr [ %7, %do.body13 ], [ %.old, %land.lhs.true ]
-  %client_1460 = getelementptr inbounds i8, ptr %this, i64 8
+  %client_1459 = getelementptr inbounds i8, ptr %this, i64 8
   %parent_handle_ = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %parent_handle_, align 8
   %cmp.i.i6.not = icmp eq ptr %12, null
@@ -3320,19 +3320,19 @@ do.end23:                                         ; preds = %land.lhs.true, %do.
 _ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i.i: ; preds = %do.end23
   call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #22
   call void @_ZdlPv(ptr noundef nonnull %12) #23
-  %.pre55 = load ptr, ptr %client_1460, align 8
+  %.pre54 = load ptr, ptr %client_1459, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EE5resetEPS2_.exit
 
 _ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %do.end23, %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i.i
-  %13 = phi ptr [ %11, %do.end23 ], [ %.pre55, %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i.i ]
+  %13 = phi ptr [ %11, %do.end23 ], [ %.pre54, %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i.i ]
   %14 = getelementptr inbounds i8, ptr %13, i64 104
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EE5resetEPS2_.exit
   %__begin2.sroa.0.0.in.i = phi ptr [ %14, %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EE5resetEPS2_.exit ], [ %__begin2.sroa.0.0.i, %for.body.i ]
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.0.in.i, align 8
-  %cmp.i.not.i.not = icmp eq ptr %__begin2.sroa.0.0.i, null
-  br i1 %cmp.i.not.i.not, label %if.end33, label %for.body.i
+  %cmp.i.not.not.not.i.not = icmp eq ptr %__begin2.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.not.i.not, label %if.end33, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i, i64 16
@@ -3350,11 +3350,11 @@ if.then30:                                        ; preds = %_ZN4node9inspector1
   %17 = call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %16) #26
   %18 = load ptr, ptr @stderr, align 8
   %call32 = call i32 @fflush(ptr noundef %18)
-  %.pre56 = load ptr, ptr %client_1460, align 8
+  %.pre55 = load ptr, ptr %client_1459, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %for.cond.i, %_ZN4node9inspector19NodeInspectorClient20hasConnectedSessionsEv.exit, %if.then30
-  %19 = phi ptr [ %13, %_ZN4node9inspector19NodeInspectorClient20hasConnectedSessionsEv.exit ], [ %.pre56, %if.then30 ], [ %13, %for.cond.i ]
+  %19 = phi ptr [ %13, %_ZN4node9inspector19NodeInspectorClient20hasConnectedSessionsEv.exit ], [ %.pre55, %if.then30 ], [ %13, %for.cond.i ]
   %20 = getelementptr inbounds i8, ptr %19, i64 104
   %__begin2.sroa.0.03.i = load ptr, ptr %20, align 8
   %cmp.i.not4.i = icmp eq ptr %__begin2.sroa.0.03.i, null
@@ -3373,44 +3373,44 @@ for.body.i7:                                      ; preds = %if.end33, %for.body
   store i8 %frombool.i.i, ptr %retaining_context_.i.i, align 1
   %spec.select.i = select i1 %call2.i.i, i1 true, i1 %retaining_context.05.i
   %__begin2.sroa.0.0.i10 = load ptr, ptr %__begin2.sroa.0.06.i, align 8
-  %cmp.i.not.i11 = icmp eq ptr %__begin2.sroa.0.0.i10, null
-  br i1 %cmp.i.not.i11, label %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit, label %for.body.i7
+  %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i10, null
+  br i1 %cmp.i.not.i, label %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit, label %for.body.i7
 
 _ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit: ; preds = %for.body.i7
   br i1 %spec.select.i, label %if.else, label %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit.if.then37_crit_edge
 
 _ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit.if.then37_crit_edge: ; preds = %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit
-  %.pre57 = load ptr, ptr %client_1460, align 8
+  %.pre56 = load ptr, ptr %client_1459, align 8
   br label %if.then37
 
 if.then37:                                        ; preds = %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit.if.then37_crit_edge, %if.end33
-  %22 = phi ptr [ %.pre57, %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit.if.then37_crit_edge ], [ %19, %if.end33 ]
+  %22 = phi ptr [ %.pre56, %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit.if.then37_crit_edge ], [ %19, %if.end33 ]
   %23 = load ptr, ptr %this, align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %23, i64 2728
   %24 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %24, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %25 = load ptr, ptr %vfn.i, align 8
-  %call2.i12 = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %24) #22
+  %call2.i11 = call ptr %25(ptr noundef nonnull align 8 dereferenceable(872) %24) #22
   %client_.i = getelementptr inbounds i8, ptr %22, i64 24
   %26 = load ptr, ptr %client_.i, align 8
-  %vtable.i13 = load ptr, ptr %26, align 8
-  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 24
-  %27 = load ptr, ptr %vfn.i14, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr %call2.i12) #22
+  %vtable.i12 = load ptr, ptr %26, align 8
+  %vfn.i13 = getelementptr inbounds i8, ptr %vtable.i12, i64 24
+  %27 = load ptr, ptr %vfn.i13, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr %call2.i11) #22
   br label %if.end52
 
 if.else:                                          ; preds = %_ZN4node9inspector19NodeInspectorClient26notifyWaitingForDisconnectEv.exit
   br i1 %cmp.i.i6.not, label %if.end52, label %if.then48
 
 if.then48:                                        ; preds = %if.else
-  %28 = load ptr, ptr %client_1460, align 8
+  %28 = load ptr, ptr %client_1459, align 8
   %waiting_for_sessions_disconnect_.i = getelementptr inbounds i8, ptr %28, i64 150
   store i8 1, ptr %waiting_for_sessions_disconnect_.i, align 2
   %running_nested_loop_.i.i = getelementptr inbounds i8, ptr %28, i64 17
   %29 = load i8, ptr %running_nested_loop_.i.i, align 1
-  %tobool.i.i15 = trunc i8 %29 to i1
-  br i1 %tobool.i.i15, label %if.end52, label %if.end.i.i
+  %tobool.i.i14 = trunc i8 %29 to i1
+  br i1 %tobool.i.i14, label %if.end52, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then48
   store i8 1, ptr %running_nested_loop_.i.i, align 1
@@ -3442,8 +3442,8 @@ for.cond.i.i.i.i.preheader:                       ; preds = %lor.lhs.false.i.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i.preheader, %for.body.i.i.i.i
   %__begin2.sroa.0.0.in.i.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %30, %for.cond.i.i.i.i.preheader ]
   %__begin2.sroa.0.0.i.i.i.i = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i.i, align 8
-  %cmp.i.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
-  br i1 %cmp.i.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
+  %cmp.i.not.not.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
+  br i1 %cmp.i.not.not.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i.i, i64 16
@@ -3474,79 +3474,79 @@ while.end.i.i:                                    ; preds = %lor.lhs.false.i.i.i
 if.end52:                                         ; preds = %while.end.i.i, %if.then48, %if.else, %if.then37
   %io_ = getelementptr inbounds i8, ptr %this, i64 24
   %37 = load ptr, ptr %io_, align 8
-  %cmp.i.i16.not = icmp eq ptr %37, null
-  br i1 %cmp.i.i16.not, label %if.end59, label %if.then54
+  %cmp.i.i15.not = icmp eq ptr %37, null
+  br i1 %cmp.i.i15.not, label %if.end59, label %if.then54
 
 if.then54:                                        ; preds = %if.end52
   call void @_ZN4node9inspector11InspectorIo27StopAcceptingNewConnectionsEv(ptr noundef nonnull align 8 dereferenceable(216) %37) #22
-  %38 = load ptr, ptr %client_1460, align 8
-  %waiting_for_sessions_disconnect_.i17 = getelementptr inbounds i8, ptr %38, i64 150
-  store i8 1, ptr %waiting_for_sessions_disconnect_.i17, align 2
-  %running_nested_loop_.i.i18 = getelementptr inbounds i8, ptr %38, i64 17
-  %39 = load i8, ptr %running_nested_loop_.i.i18, align 1
-  %tobool.i.i19 = trunc i8 %39 to i1
-  br i1 %tobool.i.i19, label %if.end59, label %if.end.i.i20
+  %38 = load ptr, ptr %client_1459, align 8
+  %waiting_for_sessions_disconnect_.i16 = getelementptr inbounds i8, ptr %38, i64 150
+  store i8 1, ptr %waiting_for_sessions_disconnect_.i16, align 2
+  %running_nested_loop_.i.i17 = getelementptr inbounds i8, ptr %38, i64 17
+  %39 = load i8, ptr %running_nested_loop_.i.i17, align 1
+  %tobool.i.i18 = trunc i8 %39 to i1
+  br i1 %tobool.i.i18, label %if.end59, label %if.end.i.i19
 
-if.end.i.i20:                                     ; preds = %if.then54
-  store i8 1, ptr %running_nested_loop_.i.i18, align 1
-  %waiting_for_frontend_.i.i.i21 = getelementptr inbounds i8, ptr %38, i64 149
-  %waiting_for_resume_.i.i.i22 = getelementptr inbounds i8, ptr %38, i64 148
+if.end.i.i19:                                     ; preds = %if.then54
+  store i8 1, ptr %running_nested_loop_.i.i17, align 1
+  %waiting_for_frontend_.i.i.i20 = getelementptr inbounds i8, ptr %38, i64 149
+  %waiting_for_resume_.i.i.i21 = getelementptr inbounds i8, ptr %38, i64 148
   %40 = getelementptr inbounds i8, ptr %38, i64 104
-  %interface_.i.i23 = getelementptr inbounds i8, ptr %38, i64 152
-  %env_.i.i24 = getelementptr inbounds i8, ptr %38, i64 8
-  br label %while.cond.i.i25
+  %interface_.i.i22 = getelementptr inbounds i8, ptr %38, i64 152
+  %env_.i.i23 = getelementptr inbounds i8, ptr %38, i64 8
+  br label %while.cond.i.i24
 
-while.cond.i.i25:                                 ; preds = %if.end8.i.i46, %if.end.i.i20
-  %41 = load i8, ptr %waiting_for_frontend_.i.i.i21, align 1
-  %tobool.i.i.i26 = trunc i8 %41 to i1
-  br i1 %tobool.i.i.i26, label %while.body.i.i42, label %if.end.i.i.i27
+while.cond.i.i24:                                 ; preds = %if.end8.i.i45, %if.end.i.i19
+  %41 = load i8, ptr %waiting_for_frontend_.i.i.i20, align 1
+  %tobool.i.i.i25 = trunc i8 %41 to i1
+  br i1 %tobool.i.i.i25, label %while.body.i.i41, label %if.end.i.i.i26
 
-if.end.i.i.i27:                                   ; preds = %while.cond.i.i25
-  %42 = load i8, ptr %waiting_for_sessions_disconnect_.i17, align 2
-  %tobool2.i.i.i28 = trunc i8 %42 to i1
-  br i1 %tobool2.i.i.i28, label %for.cond.i.i.i.i33.preheader, label %lor.lhs.false.i.i.i29
+if.end.i.i.i26:                                   ; preds = %while.cond.i.i24
+  %42 = load i8, ptr %waiting_for_sessions_disconnect_.i16, align 2
+  %tobool2.i.i.i27 = trunc i8 %42 to i1
+  br i1 %tobool2.i.i.i27, label %for.cond.i.i.i.i32.preheader, label %lor.lhs.false.i.i.i28
 
-lor.lhs.false.i.i.i29:                            ; preds = %if.end.i.i.i27
-  %43 = load i8, ptr %waiting_for_resume_.i.i.i22, align 4
-  %tobool3.i.i.i30 = trunc i8 %43 to i1
-  br i1 %tobool3.i.i.i30, label %for.cond.i.i.i.i33.preheader, label %while.end.i.i31
+lor.lhs.false.i.i.i28:                            ; preds = %if.end.i.i.i26
+  %43 = load i8, ptr %waiting_for_resume_.i.i.i21, align 4
+  %tobool3.i.i.i29 = trunc i8 %43 to i1
+  br i1 %tobool3.i.i.i29, label %for.cond.i.i.i.i32.preheader, label %while.end.i.i30
 
-for.cond.i.i.i.i33.preheader:                     ; preds = %lor.lhs.false.i.i.i29, %if.end.i.i.i27
-  br label %for.cond.i.i.i.i33
+for.cond.i.i.i.i32.preheader:                     ; preds = %lor.lhs.false.i.i.i28, %if.end.i.i.i26
+  br label %for.cond.i.i.i.i32
 
-for.cond.i.i.i.i33:                               ; preds = %for.cond.i.i.i.i33.preheader, %for.body.i.i.i.i37
-  %__begin2.sroa.0.0.in.i.i.i.i34 = phi ptr [ %__begin2.sroa.0.0.i.i.i.i35, %for.body.i.i.i.i37 ], [ %40, %for.cond.i.i.i.i33.preheader ]
-  %__begin2.sroa.0.0.i.i.i.i35 = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i.i34, align 8
-  %cmp.i.not.i.not.not.i.i.i36 = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i35, null
-  br i1 %cmp.i.not.i.not.not.i.i.i36, label %while.end.i.i31, label %for.body.i.i.i.i37
+for.cond.i.i.i.i32:                               ; preds = %for.cond.i.i.i.i32.preheader, %for.body.i.i.i.i36
+  %__begin2.sroa.0.0.in.i.i.i.i33 = phi ptr [ %__begin2.sroa.0.0.i.i.i.i34, %for.body.i.i.i.i36 ], [ %40, %for.cond.i.i.i.i32.preheader ]
+  %__begin2.sroa.0.0.i.i.i.i34 = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i.i33, align 8
+  %cmp.i.not.not.not.i.not.not.i.i.i35 = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i34, null
+  br i1 %cmp.i.not.not.not.i.not.not.i.i.i35, label %while.end.i.i30, label %for.body.i.i.i.i36
 
-for.body.i.i.i.i37:                               ; preds = %for.cond.i.i.i.i33
-  %second.i.i.i.i38 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i.i35, i64 16
-  %second.val.i.i.i.i39 = load ptr, ptr %second.i.i.i.i38, align 8
-  %44 = getelementptr i8, ptr %second.val.i.i.i.i39, i64 64
-  %call8.val.i.i.i.i40 = load i8, ptr %44, align 8
-  %tobool.i.i.i.i.i41 = trunc i8 %call8.val.i.i.i.i40 to i1
-  br i1 %tobool.i.i.i.i.i41, label %while.body.i.i42, label %for.cond.i.i.i.i33
+for.body.i.i.i.i36:                               ; preds = %for.cond.i.i.i.i32
+  %second.i.i.i.i37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i.i34, i64 16
+  %second.val.i.i.i.i38 = load ptr, ptr %second.i.i.i.i37, align 8
+  %44 = getelementptr i8, ptr %second.val.i.i.i.i38, i64 64
+  %call8.val.i.i.i.i39 = load i8, ptr %44, align 8
+  %tobool.i.i.i.i.i40 = trunc i8 %call8.val.i.i.i.i39 to i1
+  br i1 %tobool.i.i.i.i.i40, label %while.body.i.i41, label %for.cond.i.i.i.i32
 
-while.body.i.i42:                                 ; preds = %for.body.i.i.i.i37, %while.cond.i.i25
-  %45 = load ptr, ptr %interface_.i.i23, align 8
-  %cmp.i.not.i.i43 = icmp eq ptr %45, null
-  br i1 %cmp.i.not.i.i43, label %if.end8.i.i46, label %if.then4.i.i44
+while.body.i.i41:                                 ; preds = %for.body.i.i.i.i36, %while.cond.i.i24
+  %45 = load ptr, ptr %interface_.i.i22, align 8
+  %cmp.i.not.i.i42 = icmp eq ptr %45, null
+  br i1 %cmp.i.not.i.i42, label %if.end8.i.i45, label %if.then4.i.i43
 
-if.then4.i.i44:                                   ; preds = %while.body.i.i42
-  %call7.i.i45 = call noundef zeroext i1 @_ZN4node9inspector19MainThreadInterface20WaitForFrontendEventEv(ptr noundef nonnull align 8 dereferenceable(352) %45) #22
-  br label %if.end8.i.i46
+if.then4.i.i43:                                   ; preds = %while.body.i.i41
+  %call7.i.i44 = call noundef zeroext i1 @_ZN4node9inspector19MainThreadInterface20WaitForFrontendEventEv(ptr noundef nonnull align 8 dereferenceable(352) %45) #22
+  br label %if.end8.i.i45
 
-if.end8.i.i46:                                    ; preds = %if.then4.i.i44, %while.body.i.i42
-  %46 = load ptr, ptr %env_.i.i24, align 8
+if.end8.i.i45:                                    ; preds = %if.then4.i.i43, %while.body.i.i41
+  %46 = load ptr, ptr %env_.i.i23, align 8
   call void @_ZN4node11Environment21RunAndClearInterruptsEv(ptr noundef nonnull align 8 dereferenceable(2872) %46) #22
-  br label %while.cond.i.i25, !llvm.loop !20
+  br label %while.cond.i.i24, !llvm.loop !20
 
-while.end.i.i31:                                  ; preds = %lor.lhs.false.i.i.i29, %for.cond.i.i.i.i33
-  store i8 0, ptr %running_nested_loop_.i.i18, align 1
+while.end.i.i30:                                  ; preds = %lor.lhs.false.i.i.i28, %for.cond.i.i.i.i32
+  store i8 0, ptr %running_nested_loop_.i.i17, align 1
   br label %if.end59
 
-if.end59:                                         ; preds = %while.end.i.i31, %if.then54, %if.end52, %_ZN4node9inspector12_GLOBAL__N_132ThrowUninitializedInspectorErrorEPNS_11EnvironmentE.exit, %if.then
+if.end59:                                         ; preds = %while.end.i.i30, %if.then54, %if.end52, %_ZN4node9inspector12_GLOBAL__N_132ThrowUninitializedInspectorErrorEPNS_11EnvironmentE.exit, %if.then
   ret void
 }
 
@@ -5093,8 +5093,8 @@ for.cond.i.i.i.i.preheader:                       ; preds = %lor.lhs.false.i.i.i
 for.cond.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i.preheader, %for.body.i.i.i.i
   %__begin2.sroa.0.0.in.i.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %13, %for.cond.i.i.i.i.preheader ]
   %__begin2.sroa.0.0.i.i.i.i = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i.i, align 8
-  %cmp.i.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
-  br i1 %cmp.i.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
+  %cmp.i.not.not.not.i.not.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, null
+  br i1 %cmp.i.not.not.not.i.not.not.i.i.i, label %while.end.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i.i, i64 16
@@ -7091,8 +7091,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector19NodeInspectorClientEED2Ev.exit, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector19NodeInspectorClientEED2Ev.exit, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -7244,8 +7244,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector19NodeInspectorClientEED2Ev.exit, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector19NodeInspectorClientEED2Ev.exit, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -8794,8 +8794,8 @@ for.cond.i.i.i.preheader:                         ; preds = %lor.lhs.false.i.i, 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.body.i.i.i
   %__begin2.sroa.0.0.in.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %1, %for.cond.i.i.i.preheader ]
   %__begin2.sroa.0.0.i.i.i = load ptr, ptr %__begin2.sroa.0.0.in.i.i.i, align 8
-  %cmp.i.not.i.not.not.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i, null
-  br i1 %cmp.i.not.i.not.not.i.i, label %while.end.i, label %for.body.i.i.i
+  %cmp.i.not.not.not.i.not.not.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i, null
+  br i1 %cmp.i.not.not.not.i.not.not.i.i, label %while.end.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %second.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i.i.i, i64 16

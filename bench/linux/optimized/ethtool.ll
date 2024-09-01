@@ -1130,11 +1130,11 @@ define internal i32 @e1000_set_pauseparam(ptr noundef %0, ptr nocapture noundef 
 30:                                               ; preds = %22
   tail call void @e1000e_down(ptr noundef %3, i1 noundef zeroext true) #15
   tail call void @e1000e_up(ptr noundef %3) #15
-  br label %53
+  br label %54
 
 31:                                               ; preds = %22
   tail call void @e1000e_reset(ptr noundef %3) #15
-  br label %53
+  br label %54
 
 32:                                               ; preds = %.loopexit
   %33 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1142,40 +1142,40 @@ define internal i32 @e1000_set_pauseparam(ptr noundef %0, ptr nocapture noundef 
   %35 = icmp eq i32 %34, 0
   %36 = getelementptr inbounds i8, ptr %1, i64 12
   %37 = load i32, ptr %36, align 4
-  %.not = icmp eq i32 %37, 0
-  %.mux = select i1 %.not, i32 0, i32 2
-  %spec.select = select i1 %.not, i32 1, i32 3
-  %38 = select i1 %35, i32 %.mux, i32 %spec.select
-  %39 = getelementptr i8, ptr %0, i64 4580
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr i8, ptr %0, i64 4576
-  store i32 %38, ptr %40, align 8
-  %41 = getelementptr i8, ptr %0, i64 4804
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 2
-  br i1 %43, label %44, label %48
+  %38 = icmp eq i32 %37, 0
+  %spec.select = select i1 %38, i32 1, i32 3
+  %spec.select1 = select i1 %38, i32 0, i32 2
+  %39 = select i1 %35, i32 %spec.select1, i32 %spec.select
+  %40 = getelementptr i8, ptr %0, i64 4580
+  store i32 %39, ptr %40, align 4
+  %41 = getelementptr i8, ptr %0, i64 4576
+  store i32 %39, ptr %41, align 8
+  %42 = getelementptr i8, ptr %0, i64 4804
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 2
+  br i1 %44, label %45, label %49
 
-44:                                               ; preds = %32
-  %45 = getelementptr i8, ptr %0, i64 3912
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46(ptr noundef %4) #15
-  br label %53
+45:                                               ; preds = %32
+  %46 = getelementptr i8, ptr %0, i64 3912
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 %47(ptr noundef %4) #15
+  br label %54
 
-48:                                               ; preds = %32
-  %49 = tail call i32 @e1000e_force_mac_fc(ptr noundef %4) #15
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %53
+49:                                               ; preds = %32
+  %50 = tail call i32 @e1000e_force_mac_fc(ptr noundef %4) #15
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %48
-  %52 = tail call i32 @e1000e_set_fc_watermarks(ptr noundef %4) #15
-  br label %53
+52:                                               ; preds = %49
+  %53 = tail call i32 @e1000e_set_fc_watermarks(ptr noundef %4) #15
+  br label %54
 
-53:                                               ; preds = %51, %48, %44, %31, %30
-  %54 = phi i32 [ 0, %30 ], [ 0, %31 ], [ %47, %44 ], [ %49, %48 ], [ 0, %51 ]
-  %55 = load ptr, ptr %17, align 8
-  %56 = tail call i32 @__pm_runtime_idle(ptr noundef %55, i32 noundef 4) #15
+54:                                               ; preds = %52, %49, %45, %31, %30
+  %55 = phi i32 [ 0, %30 ], [ 0, %31 ], [ %48, %45 ], [ %50, %49 ], [ 0, %52 ]
+  %56 = load ptr, ptr %17, align 8
+  %57 = tail call i32 @__pm_runtime_idle(ptr noundef %56, i32 noundef 4) #15
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 -3, ptr elementtype(i8) %10) #15, !srcloc !15
-  ret i32 %54
+  ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

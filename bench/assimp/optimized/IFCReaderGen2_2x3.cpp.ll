@@ -19771,7 +19771,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %if.then.i.i.i.i.i.i
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 -8
   %39 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %35, %39
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont24, label %if.then.i.i.i.i.i41
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont24, label %if.then4.i.i.i.i.i
 
 _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread:    ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
   store ptr %34, ptr %add.ptr.i.i, align 8
@@ -19780,10 +19780,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread:    ; preds = %_ZNSt10shared_ptrIK
   %cmp.not.i.i.i.i.i98 = icmp eq ptr %35, %40
   br i1 %cmp.not.i.i.i.i.i98, label %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit84, label %if.end.i.i.i.i.i
 
-if.then.i.i.i.i.i41:                              ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
-  br i1 %cmp.not.i.i.i.i39, label %if.end.i.i.i.i.i, label %if.then4.i.i.i.i.i
-
-if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i41
+if.then4.i.i.i.i.i:                               ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %41, 0
@@ -19803,9 +19800,9 @@ if.endthread-pre-split.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
   %.pr.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread, %if.endthread-pre-split.i.i.i.i.i, %if.then.i.i.i.i.i41
-  %_M_refcount.i.i.i.i99101 = phi ptr [ %_M_refcount.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %_M_refcount.i.i.i.i, %if.then.i.i.i.i.i41 ], [ %_M_refcount.i.i.i.i97, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
-  %44 = phi ptr [ %.pr.i.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %39, %if.then.i.i.i.i.i41 ], [ %40, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
+if.end.i.i.i.i.i:                                 ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread, %if.endthread-pre-split.i.i.i.i.i
+  %_M_refcount.i.i.i.i99101 = phi ptr [ %_M_refcount.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %_M_refcount.i.i.i.i97, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
+  %44 = phi ptr [ %.pr.i.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %40, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
   %cmp6.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %cmp6.not.i.i.i.i.i, label %if.end9.i.i.i.i.i, label %if.then7.i.i.i.i.i
 
@@ -22121,7 +22118,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %if.then.i.i.i.i.i.i
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 -8
   %39 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %35, %39
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i40
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont20, label %if.then4.i.i.i.i.i
 
 _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread:    ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
   store ptr %34, ptr %add.ptr.i.i, align 8
@@ -22130,10 +22127,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread:    ; preds = %_ZNSt10shared_ptrIK
   %cmp.not.i.i.i.i.i99 = icmp eq ptr %35, %40
   br i1 %cmp.not.i.i.i.i.i99, label %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit83, label %if.end.i.i.i.i.i
 
-if.then.i.i.i.i.i40:                              ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
-  br i1 %cmp.not.i.i.i.i38, label %if.end.i.i.i.i.i, label %if.then4.i.i.i.i.i
-
-if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i40
+if.then4.i.i.i.i.i:                               ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %41, 0
@@ -22153,9 +22147,9 @@ if.endthread-pre-split.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
   %.pr.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread, %if.endthread-pre-split.i.i.i.i.i, %if.then.i.i.i.i.i40
-  %_M_refcount.i.i.i.i100102 = phi ptr [ %_M_refcount.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %_M_refcount.i.i.i.i, %if.then.i.i.i.i.i40 ], [ %_M_refcount.i.i.i.i98, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
-  %44 = phi ptr [ %.pr.i.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %39, %if.then.i.i.i.i.i40 ], [ %40, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
+if.end.i.i.i.i.i:                                 ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread, %if.endthread-pre-split.i.i.i.i.i
+  %_M_refcount.i.i.i.i100102 = phi ptr [ %_M_refcount.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %_M_refcount.i.i.i.i98, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
+  %44 = phi ptr [ %.pr.i.i.i.i.i, %if.endthread-pre-split.i.i.i.i.i ], [ %40, %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit.thread ]
   %cmp6.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %cmp6.not.i.i.i.i.i, label %if.end9.i.i.i.i.i, label %if.then7.i.i.i.i.i
 

@@ -11429,12 +11429,12 @@ invoke.cont90:                                    ; preds = %for.cond.i.i.i498, 
   %95 = load ptr, ptr %retval.0.i497, align 8
   %96 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i224 = icmp eq i8 %96, 0
-  br i1 %guard.uninitialized.i.i224, label %init.check.i.i226, label %cleanup.action96, !prof !4
+  br i1 %guard.uninitialized.i.i224, label %init.check.i.i226, label %land.end, !prof !4
 
 init.check.i.i226:                                ; preds = %invoke.cont90
   %97 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20
   %tobool.not.i.i227 = icmp eq i32 %97, 0
-  br i1 %tobool.not.i.i227, label %cleanup.action96, label %init.i.i228
+  br i1 %tobool.not.i.i227, label %land.end, label %init.i.i228
 
 init.i.i228:                                      ; preds = %init.check.i.i226
   %call.i.i229 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -11448,7 +11448,7 @@ invoke.cont.i.i231:                               ; preds = %init.i.i228
   store i32 0, ptr %d_nchildren.i.i.i233, align 4
   store ptr %call.i.i229, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20
-  br label %cleanup.action96
+  br label %land.end
 
 lpad.i.i230:                                      ; preds = %init.i.i228
   %98 = landingpad { ptr, i32 }
@@ -11456,7 +11456,7 @@ lpad.i.i230:                                      ; preds = %init.i.i228
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20
   br label %lpad89.body
 
-cleanup.action96:                                 ; preds = %invoke.cont.i.i231, %init.check.i.i226, %invoke.cont90
+land.end:                                         ; preds = %invoke.cont90, %init.check.i.i226, %invoke.cont.i.i231
   %99 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i225.not = icmp eq ptr %95, %99
   %100 = load ptr, ptr %ref.tmp79, align 8
@@ -11465,7 +11465,7 @@ cleanup.action96:                                 ; preds = %invoke.cont.i.i231,
   %cmp.not.i.i237 = icmp eq i64 %101, 1152920405095219200
   br i1 %cmp.not.i.i237, label %cleanup.done104, label %if.then.i.i238
 
-if.then.i.i238:                                   ; preds = %cleanup.action96
+if.then.i.i238:                                   ; preds = %land.end
   %bf.value.i.i239 = add i64 %bf.load.i.i236, 1152920405095219200
   %bf.shl.i.i240 = and i64 %bf.value.i.i239, 1152920405095219200
   %bf.clear7.i.i241 = and i64 %bf.load.i.i236, -1152920405095219201
@@ -11485,7 +11485,7 @@ terminate.lpad.i245:                              ; preds = %if.then13.i.i244
   call void @__clang_call_terminate(ptr %103) #23
   unreachable
 
-cleanup.done104:                                  ; preds = %if.then13.i.i244, %if.then.i.i238, %cleanup.action96
+cleanup.done104:                                  ; preds = %if.then13.i.i244, %if.then.i.i238, %land.end
   br i1 %cmp.i225.not, label %while.end, label %while.body109
 
 while.body109:                                    ; preds = %cleanup.done104

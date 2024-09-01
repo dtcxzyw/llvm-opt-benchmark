@@ -548,15 +548,12 @@ for.inc20:                                        ; preds = %for.body13, %print_
 
 for.end22:                                        ; preds = %for.inc20
   store i32 0, ptr %reject_reasons, align 4
-  br i1 %tobool.not10.i, label %for.end74, label %for.body25.lr.ph
-
-for.body25.lr.ph:                                 ; preds = %for.end22
   %cmp40.not = icmp eq ptr %call3, null
   br label %for.body25
 
-for.body25:                                       ; preds = %for.body25.lr.ph, %for.inc72
-  %ref.286 = phi ptr [ %refs, %for.body25.lr.ph ], [ %26, %for.inc72 ]
-  %n.585 = phi i32 [ %n.4, %for.body25.lr.ph ], [ %n.6, %for.inc72 ]
+for.body25:                                       ; preds = %for.end22, %for.inc72
+  %ref.286 = phi ptr [ %refs, %for.end22 ], [ %26, %for.inc72 ]
+  %n.585 = phi i32 [ %n.4, %for.end22 ], [ %n.6, %for.inc72 ]
   %status26 = getelementptr inbounds i8, ptr %ref.286, i64 148
   %17 = load i32, ptr %status26, align 4
   switch i32 %17, label %if.then33 [
@@ -656,7 +653,7 @@ for.inc72:                                        ; preds = %for.inc72.sink.spli
   %tobool24.not = icmp eq ptr %26, null
   br i1 %tobool24.not, label %for.end74, label %for.body25, !llvm.loop !12
 
-for.end74:                                        ; preds = %for.inc72, %for.end22.thread, %for.end22
+for.end74:                                        ; preds = %for.inc72, %for.end22.thread
   call void @free(ptr noundef %call3) #20
   ret void
 }
@@ -2531,7 +2528,7 @@ if.then24:                                        ; preds = %for.end
   %12 = zext nneg i32 %inc to i64
   %13 = shl nuw nsw i64 %12, 3
   %call27 = tail call ptr @xmalloc(i64 noundef %13) #20
-  br i1 %tobool.not37, label %if.end37, label %for.body30
+  br label %for.body30
 
 for.body30:                                       ; preds = %if.then24, %for.body30
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body30 ], [ 0, %if.then24 ]
@@ -2547,9 +2544,9 @@ if.end37.loopexit:                                ; preds = %for.body30
   %15 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then24.thread, %if.end37.loopexit, %if.then24, %for.end
-  %nr_heads.2 = phi i32 [ %nr_heads.1, %for.end ], [ 0, %if.then24 ], [ %15, %if.end37.loopexit ], [ 0, %if.then24.thread ]
-  %heads.3 = phi ptr [ %heads.1, %for.end ], [ %call27, %if.then24 ], [ %call27, %if.end37.loopexit ], [ %call2757, %if.then24.thread ]
+if.end37:                                         ; preds = %if.then24.thread, %if.end37.loopexit, %for.end
+  %nr_heads.2 = phi i32 [ %nr_heads.1, %for.end ], [ %15, %if.end37.loopexit ], [ 0, %if.then24.thread ]
+  %heads.3 = phi ptr [ %heads.1, %for.end ], [ %call27, %if.end37.loopexit ], [ %call2757, %if.then24.thread ]
   %16 = load ptr, ptr %transport, align 8
   %fetch_refs = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %fetch_refs, align 8

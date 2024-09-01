@@ -207,8 +207,8 @@ for.body.i.i16:                                   ; preds = %for.cond.loopexit.i
   %19 = load ptr, ptr %categoryConfigs_3, align 8, !tbaa !33
   %arrayidx.i.i21 = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i.i20
   %20 = load ptr, ptr %arrayidx.i.i21, align 8, !tbaa !23
-  %tobool.not.i.not.i22.not.not = icmp ne ptr %20, null
-  br i1 %tobool.not.i.not.i22.not.not, label %if.end11.i.i23, label %land.end
+  %tobool.not.i.not.i22.not.not.not.not = icmp ne ptr %20, null
+  br i1 %tobool.not.i.not.i22.not.not.not.not, label %if.end11.i.i23, label %land.end
 
 if.end11.i.i23:                                   ; preds = %for.body.i.i16
   %21 = load ptr, ptr %20, align 8, !tbaa !16
@@ -255,7 +255,7 @@ lor.lhs.false.i.i33:                              ; preds = %if.end18.i.i31
   br i1 %cmp24.not.i.i36, label %for.cond12.i.i26, label %land.end, !llvm.loop !34
 
 land.end:                                         ; preds = %for.body.i.i, %lor.lhs.false.i.i, %if.end18.i.i, %for.body.i.i16, %for.cond.loopexit.i.i43, %lor.lhs.false.i.i33, %if.end18.i.i31, %if.end.i.i10, %land.rhs, %entry
-  %30 = phi i1 [ false, %land.rhs ], [ true, %if.end.i.i10 ], [ false, %entry ], [ false, %if.end18.i.i31 ], [ false, %lor.lhs.false.i.i33 ], [ false, %for.body.i.i16 ], [ %tobool.not.i.not.i22.not.not, %for.cond.loopexit.i.i43 ], [ false, %if.end18.i.i ], [ false, %lor.lhs.false.i.i ], [ false, %for.body.i.i ]
+  %30 = phi i1 [ false, %land.rhs ], [ true, %if.end.i.i10 ], [ false, %entry ], [ false, %if.end18.i.i31 ], [ false, %lor.lhs.false.i.i33 ], [ %tobool.not.i.not.i22.not.not.not.not, %for.cond.loopexit.i.i43 ], [ %tobool.not.i.not.i22.not.not.not.not, %for.body.i.i16 ], [ false, %if.end18.i.i ], [ false, %lor.lhs.false.i.i ], [ false, %for.body.i.i ]
   ret i1 %30
 }
 

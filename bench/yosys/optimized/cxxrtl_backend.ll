@@ -27002,8 +27002,8 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS0_4poolIPKNS_5RTLIL4Wi
   %.val1.i5.i = load ptr, ptr %354, align 8
   %7460 = icmp eq ptr %.val.i4.i, %.val1.i5.i
   %7461 = icmp slt i32 %7455, 1
-  %or.cond.i2786 = or i1 %7461, %7460
-  br i1 %or.cond.i2786, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS0_12hash_ptr_opsEE8do_eraseEii.exit, label %7462
+  %or.cond = or i1 %7461, %7460
+  br i1 %or.cond, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS0_12hash_ptr_opsEE8do_eraseEii.exit, label %7462
 
 7462:                                             ; preds = %.lr.ph8023
   %7463 = ptrtoint ptr %7459 to i64
@@ -30273,8 +30273,8 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS0_4poolIPKNS_5RTLIL4Wi
   %.val1.i5.i1910 = load ptr, ptr %438, align 8
   %8760 = icmp eq ptr %.val.i4.i1909, %.val1.i5.i1910
   %8761 = icmp slt i32 %8755, 1
-  %or.cond.i2845 = or i1 %8761, %8760
-  br i1 %or.cond.i2845, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS0_12hash_ptr_opsEE8do_eraseEii.exit2867, label %8762
+  %or.cond4314 = or i1 %8761, %8760
+  br i1 %or.cond4314, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS0_12hash_ptr_opsEE8do_eraseEii.exit2867, label %8762
 
 8762:                                             ; preds = %.lr.ph8124
   %8763 = ptrtoint ptr %8759 to i64

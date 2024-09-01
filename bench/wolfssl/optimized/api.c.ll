@@ -2468,7 +2468,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp9.not, label %while.cond, label %if.then13, !llvm.loop !7
 
 if.then13:                                        ; preds = %while.body, %while.cond
-  %ret.016 = phi i32 [ 0, %while.cond ], [ -1, %while.body ]
+  %ret.016 = phi i32 [ -1, %while.body ], [ 0, %while.cond ]
   %call14 = tail call i32 @fclose(ptr noundef nonnull %call)
   br label %if.end19.sink.split
 
@@ -35218,8 +35218,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %6 = load ptr, ptr %server_meth, align 8
   store ptr %6, ptr %server_cbf, align 8
   %call7 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %client_cbf, ptr noundef nonnull %server_cbf, ptr noundef null)
-  %cmp11.not = icmp ne i32 %call7, 0
-  br i1 %cmp11.not, label %for.inc, label %for.inc.thread
+  %cmp11.not.not = icmp eq i32 %call7, 0
+  br i1 %cmp11.not.not, label %for.inc.thread, label %for.inc
 
 for.inc.thread:                                   ; preds = %for.body
   %call14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 67314)
@@ -35236,8 +35236,7 @@ for.inc.thread:                                   ; preds = %for.body
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %14 = and i1 %cmp, %cmp11.not
-  br i1 %14, label %for.body, label %for.end, !llvm.loop !51
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !51
 
 for.end:                                          ; preds = %for.inc, %for.inc.thread
   %_ret.114 = phi i32 [ 0, %for.inc.thread ], [ 1, %for.inc ]

@@ -1872,51 +1872,48 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_cgroupfs_options(ptr
   br i1 %42, label %thread-pre-split.thread, label %.thread2
 
 43:                                               ; preds = %36
-  br i1 %25, label %44, label %.thread2
-
-44:                                               ; preds = %43
   store i16 %18, ptr %22, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %36, %44
-  %45 = phi i16 [ %18, %44 ], [ %24, %36 ]
-  %46 = icmp eq i16 %45, 0
-  br i1 %46, label %47, label %thread-pre-split.thread
+thread-pre-split:                                 ; preds = %36, %43
+  %44 = phi i16 [ %18, %43 ], [ %24, %36 ]
+  %45 = icmp eq i16 %44, 0
+  br i1 %45, label %46, label %thread-pre-split.thread
 
-47:                                               ; preds = %thread-pre-split
-  %48 = getelementptr inbounds i8, ptr %3, i64 64
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread2, label %.thread1
+46:                                               ; preds = %thread-pre-split
+  %47 = getelementptr inbounds i8, ptr %3, i64 64
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.thread2, label %.thread1
 
 thread-pre-split.thread:                          ; preds = %.thread, %thread-pre-split
-  %51 = phi i16 [ %45, %thread-pre-split ], [ %24, %.thread ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 48
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 2
-  %55 = icmp eq i32 %54, 0
-  %56 = icmp eq i16 %51, 1
-  %57 = or i1 %56, %55
-  br i1 %57, label %58, label %.thread2
+  %50 = phi i16 [ %44, %thread-pre-split ], [ %24, %.thread ]
+  %51 = getelementptr inbounds i8, ptr %3, i64 48
+  %52 = load i32, ptr %51, align 8
+  %53 = and i32 %52, 2
+  %54 = icmp eq i32 %53, 0
+  %55 = icmp eq i16 %50, 1
+  %56 = or i1 %55, %54
+  br i1 %56, label %57, label %.thread2
 
-58:                                               ; preds = %thread-pre-split.thread
-  %59 = getelementptr inbounds i8, ptr %3, i64 53
-  %60 = load i8, ptr %59, align 1, !range !57, !noundef !58
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %.thread1, label %.thread2
+57:                                               ; preds = %thread-pre-split.thread
+  %58 = getelementptr inbounds i8, ptr %3, i64 53
+  %59 = load i8, ptr %58, align 1, !range !57, !noundef !58
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %.thread1, label %.thread2
 
-.thread2:                                         ; preds = %.thread, %58, %thread-pre-split.thread, %47, %43
-  %62 = phi ptr [ @.str.30, %43 ], [ @.str.31, %47 ], [ @.str.32, %thread-pre-split.thread ], [ @.str.33, %58 ], [ @.str.30, %.thread ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 96
-  %64 = getelementptr inbounds i8, ptr %0, i64 104
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %63, align 8
-  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %65, ptr noundef %66, i8 noundef zeroext 101, ptr noundef nonnull %62) #18
+.thread2:                                         ; preds = %.thread, %57, %thread-pre-split.thread, %46
+  %61 = phi ptr [ @.str.31, %46 ], [ @.str.32, %thread-pre-split.thread ], [ @.str.33, %57 ], [ @.str.30, %.thread ]
+  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %63 = getelementptr inbounds i8, ptr %0, i64 104
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %62, align 8
+  tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %64, ptr noundef %65, i8 noundef zeroext 101, ptr noundef nonnull %61) #18
   br label %.thread1
 
-.thread1:                                         ; preds = %47, %.thread2, %58
-  %67 = phi i32 [ 0, %58 ], [ -22, %.thread2 ], [ 0, %47 ]
-  ret i32 %67
+.thread1:                                         ; preds = %46, %.thread2, %57
+  %66 = phi i32 [ 0, %57 ], [ -22, %.thread2 ], [ 0, %46 ]
+  ret i32 %66
 }
 
 ; Function Attrs: cold null_pointer_is_valid

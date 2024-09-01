@@ -8408,8 +8408,8 @@ define void @"_ZN91_$LT$actix_web..redirect..Redirect$u20$as$u20$actix_web..resp
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %10, i64 32
   %25 = load i8, ptr %24, align 8, !range !912, !noundef !4
-  %.not.not = icmp eq i8 %25, 2
-  br i1 %.not.not, label %46, label %26
+  %.not = icmp eq i8 %25, 2
+  br i1 %.not, label %46, label %26
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)

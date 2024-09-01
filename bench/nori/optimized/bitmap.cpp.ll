@@ -809,14 +809,11 @@ _ZL17stbi__zlib_countmPhS_i.exit:                 ; preds = %85, %80, %._crit_ed
   %.1148 = phi ptr [ %.0147640, %74 ], [ %spec.select599, %_ZL17stbi__zlib_countmPhS_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread758, label %74, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %87
-  br i1 %.not179, label %.thread593, label %._crit_edge.thread758
-
-._crit_edge.thread758:                            ; preds = %64, %._crit_edge
-  %.0147.lcssa762 = phi ptr [ %.1148, %._crit_edge ], [ null, %64 ]
-  %.0150.lcssa761 = phi i32 [ %.1151, %._crit_edge ], [ 3, %64 ]
+._crit_edge.thread758:                            ; preds = %87, %64
+  %.0147.lcssa762 = phi ptr [ null, %64 ], [ %.1148, %87 ]
+  %.0150.lcssa761 = phi i32 [ 3, %64 ], [ %.1151, %87 ]
   %88 = getelementptr inbounds i8, ptr %63, i64 -4
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, %35
@@ -841,10 +838,10 @@ _ZL17stbi__zlib_countmPhS_i.exit:                 ; preds = %85, %80, %._crit_ed
   %100 = or disjoint i32 %99, 1
   br label %.thread593
 
-.thread593:                                       ; preds = %40, %._crit_edge, %98
-  %.0147.lcssa757 = phi ptr [ %.0147.lcssa762, %98 ], [ %.1148, %._crit_edge ], [ null, %40 ]
-  %.0150.lcssa755 = phi i32 [ %.0150.lcssa761, %98 ], [ %.1151, %._crit_edge ], [ 3, %40 ]
-  %101 = phi i32 [ %100, %98 ], [ 2, %._crit_edge ], [ 2, %40 ]
+.thread593:                                       ; preds = %40, %98
+  %.0147.lcssa757 = phi ptr [ %.0147.lcssa762, %98 ], [ null, %40 ]
+  %.0150.lcssa755 = phi i32 [ %.0150.lcssa761, %98 ], [ 3, %40 ]
+  %101 = phi i32 [ %100, %98 ], [ 2, %40 ]
   %102 = getelementptr inbounds i8, ptr %63, i64 -8
   %spec.select.i213 = select i1 %.not179, ptr null, ptr %102
   %103 = shl nsw i32 %101, 3

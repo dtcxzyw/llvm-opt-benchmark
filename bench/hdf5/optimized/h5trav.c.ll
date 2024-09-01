@@ -1466,7 +1466,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @symlink_is_visited(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #7 {
+define noundef zeroext i1 @symlink_is_visited(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not20 = icmp eq i64 %6, 0
@@ -1477,29 +1477,27 @@ define zeroext i1 @symlink_is_visited(ptr nocapture noundef readonly %0, i32 nou
   %8 = load ptr, ptr %7, align 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %18
-  %10 = phi i1 [ true, %.lr.ph ], [ %20, %18 ]
-  %.017 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
-  %11 = getelementptr inbounds %struct.symlink_trav_path_t, ptr %8, i64 %.017
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %1
-  br i1 %13, label %14, label %18
+9:                                                ; preds = %.lr.ph, %17
+  %.017 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
+  %10 = getelementptr inbounds %struct.symlink_trav_path_t, ptr %8, i64 %.017
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %11, %1
+  br i1 %12, label %13, label %17
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %3) #20
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %._crit_edge, label %18
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #20
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %._crit_edge, label %17
 
-18:                                               ; preds = %9, %14
-  %19 = add nuw i64 %.017, 1
-  %20 = icmp ult i64 %19, %6
-  %exitcond.not = icmp eq i64 %19, %6
+17:                                               ; preds = %9, %13
+  %18 = add nuw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %18, %6
   br i1 %exitcond.not, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %18, %14, %4
-  %.lcssa = phi i1 [ false, %4 ], [ %10, %14 ], [ %20, %18 ]
+._crit_edge:                                      ; preds = %17, %13, %4
+  %.lcssa = phi i1 [ false, %4 ], [ true, %13 ], [ false, %17 ]
   ret i1 %.lcssa
 }
 

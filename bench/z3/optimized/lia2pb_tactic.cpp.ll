@@ -4384,24 +4384,23 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.b
 
 for.body.lr.ph:                                   ; preds = %_ZNK4goal4sizeEv.exit
   %m_inconsistent.i.i = getelementptr inbounds i8, ptr %g, i64 120
-  %9 = zext i32 %retval.0.i.i.i to i64
+  %wide.trip.count = zext i32 %retval.0.i.i.i to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %cmp22 = phi i1 [ false, %for.body.lr.ph ], [ %cmp, %for.inc ]
   %bf.load.i.i = load i32, ptr %m_inconsistent.i.i, align 8
-  %10 = and i32 %bf.load.i.i, 536870912
-  %tobool.i.not.i = icmp eq i32 %10, 0
-  %11 = load ptr, ptr %g, align 8
+  %9 = and i32 %bf.load.i.i, 536870912
+  %tobool.i.not.i = icmp eq i32 %9, 0
+  %10 = load ptr, ptr %g, align 8
   br i1 %tobool.i.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %m_false.i.i = getelementptr inbounds i8, ptr %11, i64 864
+  %m_false.i.i = getelementptr inbounds i8, ptr %10, i64 864
   br label %invoke.cont3
 
 cond.false.i:                                     ; preds = %for.body
-  %m_expr_array_manager.i.i = getelementptr inbounds i8, ptr %11, i64 616
+  %m_expr_array_manager.i.i = getelementptr inbounds i8, ptr %10, i64 616
   br label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.epilog.i.i.i
@@ -4409,10 +4408,10 @@ if.then.i.i.i:                                    ; preds = %sw.epilog.i.i.i
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
-  %12 = load ptr, ptr %m_forms.i, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %11 = load ptr, ptr %m_forms.i, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   br label %invoke.cont3
 
 if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %cond.false.i
@@ -4429,10 +4428,10 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   ]
 
 sw.bb.i.i.i8:                                     ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %15 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = zext i32 %16 to i64
-  %cmp4.i.i.i = icmp eq i64 %indvars.iv, %17
+  %14 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = zext i32 %15 to i64
+  %cmp4.i.i.i = icmp eq i64 %indvars.iv, %16
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i8
@@ -4440,9 +4439,9 @@ if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i8
   br label %invoke.cont3
 
 sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i
-  %18 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %arrayidx14.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %17 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %arrayidx14.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
   br label %invoke.cont3
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb.i.i.i8, %if.end.i.i.i
@@ -4459,38 +4458,37 @@ invoke.cont3:                                     ; preds = %sw.bb12.i.i.i, %if.
 
 for.inc:                                          ; preds = %invoke.cont3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %9
-  %exitcond = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 lpad:                                             ; preds = %if.then.i.i.i, %invoke.cont3
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN13lia2pb_tactic3imp6failedE
-  %21 = extractvalue { ptr, i32 } %20, 1
+  %20 = extractvalue { ptr, i32 } %19, 1
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #19
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN13lia2pb_tactic3imp6failedE) #19
-  %matches = icmp eq i32 %21, %22
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN13lia2pb_tactic3imp6failedE) #19
+  %matches = icmp eq i32 %20, %21
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %lpad
-  %23 = extractvalue { ptr, i32 } %20, 0
-  %24 = call ptr @__cxa_begin_catch(ptr %23) #19
+  %22 = extractvalue { ptr, i32 } %19, 0
+  %23 = call ptr @__cxa_begin_catch(ptr %22) #19
   call void @__cxa_end_catch()
   br label %return
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %visited, align 8
-  %.pre32 = load i32, ptr %m_pos.i.i.i, align 8
-  %idx.ext.i.i.i = zext i32 %.pre32 to i64
+  %.pre30 = load i32, ptr %m_pos.i.i.i, align 8
+  %idx.ext.i.i.i = zext i32 %.pre30 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %.pre, i64 %idx.ext.i.i.i
-  %cmp.not4.i.i = icmp eq i32 %.pre32, 0
+  %cmp.not4.i.i = icmp eq i32 %.pre30, 0
   br i1 %cmp.not4.i.i, label %invoke.cont.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.end, %for.body.i.i
   %__begin2.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %.pre, %for.end ]
-  %25 = load ptr, ptr %__begin2.05.i.i, align 8
-  %m_mark1.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 4
+  %24 = load ptr, ptr %__begin2.05.i.i, align 8
+  %m_mark1.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 4
   %bf.load.i.i.i.i10 = load i32, ptr %m_mark1.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i10, -65537
   store i32 %bf.clear.i.i.i.i, ptr %m_mark1.i.i.i.i, align 4
@@ -4503,30 +4501,30 @@ invoke.cont.loopexit.i:                           ; preds = %for.body.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %for.end
-  %26 = phi ptr [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre, %for.end ]
+  %25 = phi ptr [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre, %for.end ]
   store i32 0, ptr %m_pos.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %26, %m_initial_buffer.i.i.i
-  %cmp.i.i.i.i.i.i = icmp eq ptr %26, null
+  %cmp.not.i.i.i.i.i = icmp eq ptr %25, %m_initial_buffer.i.i.i
+  %cmp.i.i.i.i.i.i = icmp eq ptr %25, null
   %or.cond.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i, %cmp.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %return, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %invoke.cont.i
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %26)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %25)
           to label %return unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #20
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
 return:                                           ; preds = %_ZNK4goal4sizeEv.exit, %entry, %if.end.i.i.i.i.i.i, %invoke.cont.i, %catch
-  %cmp16 = phi i1 [ %cmp, %if.end.i.i.i.i.i.i ], [ %cmp, %invoke.cont.i ], [ %cmp22, %catch ], [ true, %entry ], [ true, %_ZNK4goal4sizeEv.exit ]
+  %cmp16 = phi i1 [ true, %if.end.i.i.i.i.i.i ], [ true, %invoke.cont.i ], [ false, %catch ], [ true, %entry ], [ true, %_ZNK4goal4sizeEv.exit ]
   ret i1 %cmp16
 
 eh.resume:                                        ; preds = %lpad
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable

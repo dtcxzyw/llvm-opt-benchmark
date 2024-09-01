@@ -1550,7 +1550,6 @@ call.i.i.noexc:                                   ; preds = %sw.bb2.i
   br i1 %cmp3.not.i.i, label %cleanup, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %call.i.i.noexc, %for.inc.i.i
-  %cmp5.i.i = phi i1 [ %cmp.i.i, %for.inc.i.i ], [ true, %call.i.i.noexc ]
   %i.04.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %call.i.i.noexc ]
   %vtable2.i.i = load ptr, ptr %this, align 8
   %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 240
@@ -1564,7 +1563,7 @@ call4.i.i.noexc:                                  ; preds = %for.body.i.i
   %trunc.i.i = trunc i32 %bf.load.i.i.i.i.i to i16
   switch i16 %trunc.i.i, label %for.inc.i.i [
     i16 0, label %cond.true.i.i.i
-    i16 2, label %invoke.cont71
+    i16 2, label %land.lhs.true
   ]
 
 cond.true.i.i.i:                                  ; preds = %call4.i.i.noexc
@@ -1578,13 +1577,12 @@ cond.true.i.i.i:                                  ; preds = %call4.i.i.noexc
   %bf.load.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
   %24 = and i32 %bf.load.i.i.i.i, 131072
   %tobool.i.i.not.i.i = icmp eq i32 %24, 0
-  br i1 %tobool.i.i.not.i.i, label %for.inc.i.i, label %invoke.cont71
+  br i1 %tobool.i.i.not.i.i, label %for.inc.i.i, label %land.lhs.true
 
 for.inc.i.i:                                      ; preds = %cond.true.i.i.i, %call4.i.i.noexc
   %inc.i.i = add nuw i32 %i.04.i.i, 1
-  %cmp.i.i = icmp ult i32 %inc.i.i, %call.i.i12
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call.i.i12
-  br i1 %exitcond.not.i.i, label %invoke.cont71, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %cleanup, label %for.body.i.i, !llvm.loop !4
 
 sw.default.i:                                     ; preds = %lor.lhs.false70
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 112, ptr noundef nonnull @.str.20)
@@ -1594,12 +1592,8 @@ sw.default.i:                                     ; preds = %lor.lhs.false70
   call void @exit(i32 noundef 114) #17
   unreachable
 
-invoke.cont71:                                    ; preds = %call4.i.i.noexc, %cond.true.i.i.i, %for.inc.i.i
-  %cmp.lcssa.i.ph.i = phi i1 [ %cmp5.i.i, %call4.i.i.noexc ], [ %cmp5.i.i, %cond.true.i.i.i ], [ %cmp.i.i, %for.inc.i.i ]
-  br i1 %cmp.lcssa.i.ph.i, label %land.lhs.true, label %cleanup
-
-land.lhs.true:                                    ; preds = %lor.lhs.false70, %invoke.cont71, %try.cont
-  %r53.022 = phi i32 [ 0, %invoke.cont71 ], [ %call61, %try.cont ], [ %20, %lor.lhs.false70 ]
+land.lhs.true:                                    ; preds = %call4.i.i.noexc, %cond.true.i.i.i, %lor.lhs.false70, %try.cont
+  %r53.022 = phi i32 [ %call61, %try.cont ], [ %20, %lor.lhs.false70 ], [ 0, %cond.true.i.i.i ], [ 0, %call4.i.i.noexc ]
   %25 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
   %tobool.i.i14 = trunc i8 %25 to i1
   br label %cleanup
@@ -1614,9 +1608,9 @@ lpad66.loopexit.split-lp:                         ; preds = %if.end65, %sw.bb2.i
           cleanup
   br label %ehcleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %lor.lhs.false70, %call.i.i.noexc, %invoke.cont71
-  %r53.020 = phi i32 [ 0, %invoke.cont71 ], [ 0, %call.i.i.noexc ], [ 0, %lor.lhs.false70 ], [ %r53.022, %land.lhs.true ]
-  %switch = phi i1 [ true, %invoke.cont71 ], [ true, %call.i.i.noexc ], [ true, %lor.lhs.false70 ], [ %tobool.i.i14, %land.lhs.true ]
+cleanup:                                          ; preds = %for.inc.i.i, %land.lhs.true, %lor.lhs.false70, %call.i.i.noexc
+  %r53.020 = phi i32 [ 0, %call.i.i.noexc ], [ 0, %lor.lhs.false70 ], [ %r53.022, %land.lhs.true ], [ 0, %for.inc.i.i ]
+  %switch = phi i1 [ true, %call.i.i.noexc ], [ true, %lor.lhs.false70 ], [ %tobool.i.i14, %land.lhs.true ], [ true, %for.inc.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
   %26 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
   %tobool.i.i.i = trunc i8 %26 to i1
@@ -2225,7 +2219,6 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp3.not.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %sw.bb2, %for.inc.i
-  %cmp5.i = phi i1 [ %cmp.i, %for.inc.i ], [ true, %sw.bb2 ]
   %i.04.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %sw.bb2 ]
   %vtable2.i = load ptr, ptr %this, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 240
@@ -2236,7 +2229,7 @@ for.body.i:                                       ; preds = %sw.bb2, %for.inc.i
   %trunc.i = trunc i32 %bf.load.i.i.i.i to i16
   switch i16 %trunc.i, label %for.inc.i [
     i16 0, label %cond.true.i.i
-    i16 2, label %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit
+    i16 2, label %return
   ]
 
 cond.true.i.i:                                    ; preds = %for.body.i
@@ -2250,18 +2243,12 @@ cond.true.i.i:                                    ; preds = %for.body.i
   %bf.load.i.i.i = load i32, ptr %cond.i.i.i.i, align 4
   %4 = and i32 %bf.load.i.i.i, 131072
   %tobool.i.i.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.i.i.not.i, label %for.inc.i, label %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit
+  br i1 %tobool.i.i.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %cond.true.i.i, %for.body.i
   %inc.i = add nuw i32 %i.04.i, 1
-  %cmp.i = icmp ult i32 %inc.i, %call.i
   %exitcond.not.i = icmp eq i32 %inc.i, %call.i
-  br i1 %exitcond.not.i, label %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit, label %for.body.i, !llvm.loop !4
-
-_ZNK15combined_solver15has_quantifiersEv.exit.loopexit: ; preds = %for.inc.i, %cond.true.i.i, %for.body.i
-  %cmp.lcssa.i.ph = phi i1 [ %cmp5.i, %for.body.i ], [ %cmp5.i, %cond.true.i.i ], [ %cmp.i, %for.inc.i ]
-  %5 = xor i1 %cmp.lcssa.i.ph, true
-  br label %return
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 sw.bb3:                                           ; preds = %entry
   br label %return
@@ -2271,8 +2258,8 @@ sw.default:                                       ; preds = %entry
   tail call void @exit(i32 noundef 114) #17
   unreachable
 
-return:                                           ; preds = %sw.bb2, %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit, %entry, %sw.bb3
-  %retval.0 = phi i1 [ true, %sw.bb3 ], [ false, %entry ], [ true, %sw.bb2 ], [ %5, %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit ]
+return:                                           ; preds = %for.inc.i, %cond.true.i.i, %for.body.i, %sw.bb2, %entry, %sw.bb3
+  %retval.0 = phi i1 [ true, %sw.bb3 ], [ false, %entry ], [ true, %sw.bb2 ], [ true, %for.inc.i ], [ false, %cond.true.i.i ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 

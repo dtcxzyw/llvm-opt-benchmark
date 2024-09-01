@@ -4406,9 +4406,6 @@ define void @_ZNK9FaceGroup11UpdateCacheEv(ptr nocapture noundef nonnull align 8
   %.not52 = icmp eq ptr %3, %5
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not52, label %._crit_edge, label %.lr.ph70
-
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.02758 = phi double [ %18, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.02857 = phi double [ %59, %.lr.ph ], [ 0.000000e+00, %1 ]
@@ -4503,12 +4500,12 @@ define void @_ZNK9FaceGroup11UpdateCacheEv(ptr nocapture noundef nonnull align 8
   %80 = fadd double %.sroa.6.054, %77
   %81 = getelementptr inbounds i8, ptr %.sroa.046.053, i64 8
   %.not = icmp eq ptr %81, %5
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.lr.ph70, label %.lr.ph
 
-.lr.ph70:                                         ; preds = %.preheader, %129
-  %.02969 = phi double [ %.2, %129 ], [ 0.000000e+00, %.preheader ]
-  %.03068 = phi double [ %.232, %129 ], [ 0.000000e+00, %.preheader ]
-  %.sroa.035.067 = phi ptr [ %130, %129 ], [ %3, %.preheader ]
+.lr.ph70:                                         ; preds = %.lr.ph, %129
+  %.02969 = phi double [ %.2, %129 ], [ 0.000000e+00, %.lr.ph ]
+  %.03068 = phi double [ %.232, %129 ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.035.067 = phi ptr [ %130, %129 ], [ %3, %.lr.ph ]
   %82 = load ptr, ptr %.sroa.035.067, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 32
   %84 = getelementptr inbounds i8, ptr %82, i64 8
@@ -4583,14 +4580,14 @@ define void @_ZNK9FaceGroup11UpdateCacheEv(ptr nocapture noundef nonnull align 8
   %.not51 = icmp eq ptr %130, %5
   br i1 %.not51, label %._crit_edge, label %.lr.ph70
 
-._crit_edge:                                      ; preds = %129, %1, %.preheader
-  %.027.lcssa88 = phi double [ %18, %.preheader ], [ 0.000000e+00, %1 ], [ %18, %129 ]
-  %.028.lcssa87 = phi double [ %59, %.preheader ], [ 0.000000e+00, %1 ], [ %59, %129 ]
-  %.sroa.049.0.lcssa86 = phi double [ %78, %.preheader ], [ 0.000000e+00, %1 ], [ %78, %129 ]
-  %.sroa.450.0.lcssa85 = phi double [ %79, %.preheader ], [ 0.000000e+00, %1 ], [ %79, %129 ]
-  %.sroa.6.0.lcssa84 = phi double [ %80, %.preheader ], [ 0.000000e+00, %1 ], [ %80, %129 ]
-  %.030.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %1 ], [ %.232, %129 ]
-  %.029.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %1 ], [ %.2, %129 ]
+._crit_edge:                                      ; preds = %129, %1
+  %.027.lcssa88 = phi double [ 0.000000e+00, %1 ], [ %18, %129 ]
+  %.028.lcssa87 = phi double [ 0.000000e+00, %1 ], [ %59, %129 ]
+  %.sroa.049.0.lcssa86 = phi double [ 0.000000e+00, %1 ], [ %78, %129 ]
+  %.sroa.450.0.lcssa85 = phi double [ 0.000000e+00, %1 ], [ %79, %129 ]
+  %.sroa.6.0.lcssa84 = phi double [ 0.000000e+00, %1 ], [ %80, %129 ]
+  %.030.lcssa = phi double [ 0.000000e+00, %1 ], [ %.232, %129 ]
+  %.029.lcssa = phi double [ 0.000000e+00, %1 ], [ %.2, %129 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 128
   %132 = getelementptr inbounds i8, ptr %0, i64 136
   store double %.028.lcssa87, ptr %132, align 8

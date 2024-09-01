@@ -746,8 +746,8 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   br label %176
 
 176:                                              ; preds = %getline_from_mbox.exit.i.i, %170
-  %.0248.i.i = phi i1 [ false, %170 ], [ %.1249253.i.i, %getline_from_mbox.exit.i.i ]
-  %.0245.i.i = phi i64 [ 0, %170 ], [ %.1246.i.i, %getline_from_mbox.exit.i.i ]
+  %.0246.i.i = phi i1 [ false, %170 ], [ %.1247251.i.i, %getline_from_mbox.exit.i.i ]
+  %.0243.i.i = phi i64 [ 0, %170 ], [ %.1244.i.i, %getline_from_mbox.exit.i.i ]
   %.0166.i.i = phi i1 [ false, %170 ], [ %.1167.i.i, %getline_from_mbox.exit.i.i ]
   %.0163.i.i = phi i1 [ false, %170 ], [ %.1164.i.i, %getline_from_mbox.exit.i.i ]
   %.0159.i.i = phi i1 [ true, %170 ], [ %.1160.i.i, %getline_from_mbox.exit.i.i ]
@@ -792,16 +792,16 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   br i1 %or.cond.i.i.i, label %183, label %.sink.split.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %183, %.preheader.i.i.i
-  br i1 %.0248.i.i, label %doContinueMultipleEmptyOptions.exit.i.i, label %.critedge.i..sink.split.i_crit_edge.i.i
+  br i1 %.0246.i.i, label %doContinueMultipleEmptyOptions.exit.i.i, label %.critedge.i..sink.split.i_crit_edge.i.i
 
 .critedge.i..sink.split.i_crit_edge.i.i:          ; preds = %.critedge.i.i.i
-  %.pre431.i.i = tail call ptr @__ctype_b_loc() #22
-  %.pre250.i = load ptr, ptr %.pre431.i.i, align 8
+  %.pre429.i.i = tail call ptr @__ctype_b_loc() #22
+  %.pre250.i = load ptr, ptr %.pre429.i.i, align 8
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %185, %.critedge.i..sink.split.i_crit_edge.i.i
   %193 = phi ptr [ %.pre250.i, %.critedge.i..sink.split.i_crit_edge.i.i ], [ %182, %185 ]
-  %.1249.ph.i.i = phi i1 [ true, %.critedge.i..sink.split.i_crit_edge.i.i ], [ false, %185 ]
+  %.1247.ph.i.i = phi i1 [ true, %.critedge.i..sink.split.i_crit_edge.i.i ], [ false, %185 ]
   %194 = sext i8 %178 to i64
   %195 = getelementptr inbounds i16, ptr %193, i64 %194
   %196 = load i16, ptr %195, align 2
@@ -810,7 +810,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   br i1 %.not10.i.i.i, label %.thread.i.i, label %198
 
 198:                                              ; preds = %.sink.split.i.i.i
-  %199 = add i64 %.0245.i.i, 1
+  %199 = add i64 %.0243.i.i, 1
   %200 = icmp ugt i64 %199, 262143
   br i1 %200, label %201, label %.thread.i.i
 
@@ -821,24 +821,24 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   %205 = load i32, ptr %204, align 4
   %206 = and i32 %205, 4
   %.not11.i.i.i = icmp eq i32 %206, 0
-  br i1 %.not11.i.i.i, label %hitLineFoldCnt.exit.thread350.i.i, label %207
+  br i1 %.not11.i.i.i, label %hitLineFoldCnt.exit.thread348.i.i, label %207
 
 207:                                              ; preds = %201
   %208 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.45) #19
   store i8 1, ptr %12, align 1
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
 .thread.i.i:                                      ; preds = %198, %.sink.split.i.i.i, %176
-  %.1249.ph255.ph.i.i = phi i1 [ %.1249.ph.i.i, %.sink.split.i.i.i ], [ %.1249.ph.i.i, %198 ], [ %.0248.i.i, %176 ]
-  %.2247.ph.i.i = phi i64 [ 0, %.sink.split.i.i.i ], [ %199, %198 ], [ %.0245.i.i, %176 ]
+  %.1247.ph253.ph.i.i = phi i1 [ %.1247.ph.i.i, %.sink.split.i.i.i ], [ %.1247.ph.i.i, %198 ], [ %.0246.i.i, %176 ]
+  %.2245.ph.i.i = phi i64 [ 0, %.sink.split.i.i.i ], [ %199, %198 ], [ %.0243.i.i, %176 ]
   br i1 %.0166.i.i, label %209, label %211
 
 209:                                              ; preds = %.thread.i.i
   %210 = call fastcc i32 @boundaryStart(ptr noundef nonnull %3, ptr noundef %.1150.i.i)
   %.not.i105.i = icmp eq i32 %210, 0
-  br i1 %.not.i105.i, label %211, label %.thread261.i.i
+  br i1 %.not.i105.i, label %211, label %.thread259.i.i
 
-.thread261.i.i:                                   ; preds = %209
+.thread259.i.i:                                   ; preds = %209
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.307) #19
   br label %427
 
@@ -847,7 +847,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
 
 212:                                              ; preds = %211
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.308, ptr noundef nonnull %3) #19
-  br i1 %179, label %.thread268.i.i, label %213
+  br i1 %179, label %.thread266.i.i, label %213
 
 213:                                              ; preds = %212
   %214 = tail call ptr @__ctype_b_loc() #22
@@ -858,7 +858,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %.loopexit.sin
   %219 = load i16, ptr %218, align 2
   %220 = and i16 %219, 8192
   %.not182.i.i = icmp eq i16 %220, 0
-  br i1 %.not182.i.i, label %.thread284.i.i, label %221
+  br i1 %.not182.i.i, label %.thread282.i.i, label %221
 
 221:                                              ; preds = %213
   %222 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %3) #19
@@ -909,7 +909,7 @@ switch.early.test.i.i.i.i:                        ; preds = %235
 strstrip.exit.i.i:                                ; preds = %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %235, %232, %221
   %242 = load i8, ptr %4, align 16
   %243 = icmp eq i8 %242, 0
-  br i1 %243, label %244, label %.thread284.i.i
+  br i1 %243, label %244, label %.thread282.i.i
 
 244:                                              ; preds = %strstrip.exit.i.i
   %245 = load i64, ptr %172, align 8
@@ -965,8 +965,8 @@ getMallocedBufferFromList.exit.i.i:               ; preds = %.lr.ph36.i.i.i
   %270 = getelementptr inbounds i8, ptr %269, i64 8
   %271 = load i32, ptr %270, align 4
   %272 = and i32 %271, 4
-  %.not.i200.i.i = icmp eq i32 %272, 0
-  br i1 %.not.i200.i.i, label %275, label %273
+  %.not.i199.i.i = icmp eq i32 %272, 0
+  br i1 %.not.i199.i.i, label %275, label %273
 
 273:                                              ; preds = %267
   %274 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.54) #19
@@ -975,7 +975,7 @@ getMallocedBufferFromList.exit.i.i:               ; preds = %.lr.ph36.i.i.i
 
 275:                                              ; preds = %273, %267
   call void @free(ptr noundef nonnull %253) #19
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
 haveTooManyEmailHeaders.exit.i.i:                 ; preds = %getMallocedBufferFromList.exit.i.i
   %276 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %253, ptr noundef %164, ptr noundef %1, ptr noundef nonnull %12)
@@ -983,7 +983,7 @@ haveTooManyEmailHeaders.exit.i.i:                 ; preds = %getMallocedBufferFr
   %278 = load i8, ptr %12, align 1
   %279 = trunc i8 %278 to i1
   call void @free(ptr noundef nonnull %253) #19
-  br i1 %279, label %hitLineFoldCnt.exit.thread350.i.i, label %280
+  br i1 %279, label %hitLineFoldCnt.exit.thread348.i.i, label %280
 
 280:                                              ; preds = %haveTooManyEmailHeaders.exit.i.i
   %.not184.i.i = icmp eq ptr %.0137.i.i, %168
@@ -992,17 +992,17 @@ haveTooManyEmailHeaders.exit.i.i:                 ; preds = %getMallocedBufferFr
 281:                                              ; preds = %280
   %282 = load ptr, ptr %173, align 8
   %.not5.i.i.i = icmp eq ptr %282, null
-  br i1 %.not5.i.i.i, label %freeList.exit.i.i, label %.lr.ph.i201.i.i
+  br i1 %.not5.i.i.i, label %freeList.exit.i.i, label %.lr.ph.i200.i.i
 
-.lr.ph.i201.i.i:                                  ; preds = %281, %.lr.ph.i201.i.i
-  %.06.i.i.i = phi ptr [ %284, %.lr.ph.i201.i.i ], [ %282, %281 ]
+.lr.ph.i200.i.i:                                  ; preds = %281, %.lr.ph.i200.i.i
+  %.06.i.i.i = phi ptr [ %284, %.lr.ph.i200.i.i ], [ %282, %281 ]
   %283 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 1040
   %284 = load ptr, ptr %283, align 8
   call void @free(ptr noundef nonnull %.06.i.i.i) #19
-  %.not.i202.i.i = icmp eq ptr %284, null
-  br i1 %.not.i202.i.i, label %freeList.exit.i.i, label %.lr.ph.i201.i.i
+  %.not.i201.i.i = icmp eq ptr %284, null
+  br i1 %.not.i201.i.i, label %freeList.exit.i.i, label %.lr.ph.i200.i.i
 
-freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %281, %280
+freeList.exit.i.i:                                ; preds = %.lr.ph.i200.i.i, %281, %280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   br i1 %277, label %doContinueMultipleEmptyOptions.exit.i.i, label %285
 
@@ -1015,14 +1015,14 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %2
 286:                                              ; preds = %285
   %287 = call ptr @messageFindArgument(ptr noundef nonnull %165, ptr noundef nonnull @.str.100) #19
   %.not186.i.i = icmp eq ptr %287, null
-  br i1 %.not186.i.i, label %.thread284.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
+  br i1 %.not186.i.i, label %.thread282.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
 
-.thread268.i.i:                                   ; preds = %212
+.thread266.i.i:                                   ; preds = %212
   %288 = load i64, ptr %172, align 8
   %289 = icmp eq i64 %288, 0
   br i1 %289, label %290, label %haveTooManyHeaderBytes.exit.i.i
 
-290:                                              ; preds = %.thread268.i.i
+290:                                              ; preds = %.thread266.i.i
   %291 = trunc nuw i8 %.1155.i.i to i1
   br i1 %291, label %292, label %doContinueMultipleEmptyOptions.exit.i.i
 
@@ -1030,15 +1030,15 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37) #19
   br label %doContinueMultipleEmptyOptions.exit.i.i
 
-.thread284.i.i:                                   ; preds = %286, %strstrip.exit.i.i, %213
-  %.2139282.i.i = phi ptr [ %.0137.i.i, %213 ], [ %.3.i.i, %286 ], [ %.0137.i.i, %strstrip.exit.i.i ]
-  %.2142280.i.i = phi i64 [ %.0140.i.i, %213 ], [ %.3143.i.i, %286 ], [ %.0140.i.i, %strstrip.exit.i.i ]
-  %.4153279.i.i = phi ptr [ %.1150.i.i, %213 ], [ null, %286 ], [ %.1150.i.i, %strstrip.exit.i.i ]
+.thread282.i.i:                                   ; preds = %286, %strstrip.exit.i.i, %213
+  %.2139280.i.i = phi ptr [ %.0137.i.i, %213 ], [ %.3.i.i, %286 ], [ %.0137.i.i, %strstrip.exit.i.i ]
+  %.2142278.i.i = phi i64 [ %.0140.i.i, %213 ], [ %.3143.i.i, %286 ], [ %.0140.i.i, %strstrip.exit.i.i ]
+  %.4153277.i.i = phi ptr [ %.1150.i.i, %213 ], [ null, %286 ], [ %.1150.i.i, %strstrip.exit.i.i ]
   %293 = load i64, ptr %172, align 8
   %294 = icmp eq i64 %293, 0
-  br i1 %294, label %.thread284._crit_edge.i.i, label %326
+  br i1 %294, label %.thread282._crit_edge.i.i, label %326
 
-.thread284._crit_edge.i.i:                        ; preds = %.thread284.i.i
+.thread282._crit_edge.i.i:                        ; preds = %.thread282.i.i
   %295 = load ptr, ptr %214, align 8
   %296 = load i8, ptr %..i104.i, align 16
   %297 = sext i8 %296 to i64
@@ -1048,7 +1048,7 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %2
   %.not187.i.i = icmp eq i16 %300, 0
   br i1 %.not187.i.i, label %301, label %doContinueMultipleEmptyOptions.exit.i.i
 
-301:                                              ; preds = %.thread284._crit_edge.i.i
+301:                                              ; preds = %.thread282._crit_edge.i.i
   %302 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %..i104.i, i32 noundef 58) #21
   %303 = icmp eq ptr %302, null
   br i1 %303, label %307, label %304
@@ -1093,18 +1093,18 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i201.i.i, %2
   br label %usefulHeader.exit.i.i
 
 usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
-  %.0.i204.i.i = phi i1 [ true, %316 ], [ true, %319 ], [ %324, %322 ]
-  %325 = zext i1 %.0.i204.i.i to i8
+  %.0.i203.i.i = phi i1 [ true, %316 ], [ true, %319 ], [ %324, %322 ]
+  %325 = zext i1 %.0.i203.i.i to i8
   br label %doContinueMultipleEmptyOptions.exit.i.i
 
-326:                                              ; preds = %310, %.thread284.i.i
-  %.4158.ph.i.i = phi i8 [ 1, %310 ], [ %.1155.i.i, %.thread284.i.i ]
-  %327 = getelementptr inbounds i8, ptr %.2139282.i.i, i64 1032
+326:                                              ; preds = %310, %.thread282.i.i
+  %.4158.ph.i.i = phi i8 [ 1, %310 ], [ %.1155.i.i, %.thread282.i.i ]
+  %327 = getelementptr inbounds i8, ptr %.2139280.i.i, i64 1032
   %328 = load i64, ptr %327, align 8
   %329 = sub i64 1024, %328
   %330 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #21
   %331 = icmp ugt i64 %330, %329
-  %332 = getelementptr inbounds [1025 x i8], ptr %.2139282.i.i, i64 0, i64 %328
+  %332 = getelementptr inbounds [1025 x i8], ptr %.2139280.i.i, i64 0, i64 %328
   br i1 %331, label %333, label %346
 
 333:                                              ; preds = %326
@@ -1119,7 +1119,7 @@ usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
   br i1 %339, label %appendReadStruct.exit.i, label %340
 
 340:                                              ; preds = %333
-  %341 = getelementptr inbounds i8, ptr %.2139282.i.i, i64 1040
+  %341 = getelementptr inbounds i8, ptr %.2139280.i.i, i64 1040
   store ptr %338, ptr %341, align 8
   %342 = getelementptr inbounds i8, ptr %3, i64 %334
   %343 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %338, ptr noundef nonnull readonly dereferenceable(1) %342) #19
@@ -1137,7 +1137,7 @@ usefulHeader.exit.i.i:                            ; preds = %322, %319, %316
   br label %appendReadStruct.exit.i
 
 appendReadStruct.exit.i:                          ; preds = %346, %340, %333
-  %.0.i106.i = phi ptr [ %.2139282.i.i, %333 ], [ %338, %340 ], [ %.2139282.i.i, %346 ]
+  %.0.i106.i = phi ptr [ %.2139280.i.i, %333 ], [ %338, %340 ], [ %.2139280.i.i, %346 ]
   %351 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %..i104.i) #21
   %352 = add i64 %351, %.0145.i.i
   %353 = icmp ugt i64 %352, 262144
@@ -1149,25 +1149,25 @@ appendReadStruct.exit.i:                          ; preds = %346, %340, %333
   %357 = getelementptr inbounds i8, ptr %356, i64 8
   %358 = load i32, ptr %357, align 4
   %359 = and i32 %358, 4
-  %.not.i205.i.i = icmp eq i32 %359, 0
-  br i1 %.not.i205.i.i, label %hitLineFoldCnt.exit.thread350.i.i, label %360
+  %.not.i204.i.i = icmp eq i32 %359, 0
+  br i1 %.not.i204.i.i, label %hitLineFoldCnt.exit.thread348.i.i, label %360
 
 360:                                              ; preds = %354
   %361 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.53) #19
   store i8 1, ptr %12, align 1
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
-haveTooManyHeaderBytes.exit.i.i:                  ; preds = %appendReadStruct.exit.i, %.thread268.i.i
-  %.4334.i.i = phi ptr [ %.0.i106.i, %appendReadStruct.exit.i ], [ %.0137.i.i, %.thread268.i.i ]
-  %.4158332.i.i = phi i8 [ %.4158.ph.i.i, %appendReadStruct.exit.i ], [ %.1155.i.i, %.thread268.i.i ]
-  %.2142280298330.i.i = phi i64 [ %.2142280.i.i, %appendReadStruct.exit.i ], [ %.0140.i.i, %.thread268.i.i ]
-  %.4153279302328.i.i = phi ptr [ %.4153279.i.i, %appendReadStruct.exit.i ], [ %.1150.i.i, %.thread268.i.i ]
-  %.2147.i.i = phi i64 [ %352, %appendReadStruct.exit.i ], [ %.0145.i.i, %.thread268.i.i ]
+haveTooManyHeaderBytes.exit.i.i:                  ; preds = %appendReadStruct.exit.i, %.thread266.i.i
+  %.4332.i.i = phi ptr [ %.0.i106.i, %appendReadStruct.exit.i ], [ %.0137.i.i, %.thread266.i.i ]
+  %.4158330.i.i = phi i8 [ %.4158.ph.i.i, %appendReadStruct.exit.i ], [ %.1155.i.i, %.thread266.i.i ]
+  %.2142278296328.i.i = phi i64 [ %.2142278.i.i, %appendReadStruct.exit.i ], [ %.0140.i.i, %.thread266.i.i ]
+  %.4153277300326.i.i = phi ptr [ %.4153277.i.i, %appendReadStruct.exit.i ], [ %.1150.i.i, %.thread266.i.i ]
+  %.2147.i.i = phi i64 [ %352, %appendReadStruct.exit.i ], [ %.0145.i.i, %.thread266.i.i ]
   %362 = load i64, ptr %9, align 8
   %363 = load ptr, ptr %174, align 8
   %364 = call ptr %363(ptr noundef %17, i64 noundef %362, i64 noundef 1, i32 noundef 0) #19
   %.not189.i.i = icmp eq ptr %364, null
-  br i1 %.not189.i.i, label %.lr.ph.i207.i.i.preheader, label %365
+  br i1 %.not189.i.i, label %.lr.ph.i206.i.i.preheader, label %365
 
 365:                                              ; preds = %haveTooManyHeaderBytes.exit.i.i
   %366 = tail call ptr @__ctype_b_loc() #22
@@ -1178,95 +1178,95 @@ haveTooManyHeaderBytes.exit.i.i:                  ; preds = %appendReadStruct.ex
   %371 = load i16, ptr %370, align 2
   %372 = and i16 %371, 1
   %.not190.i.i = icmp eq i16 %372, 0
-  br i1 %.not190.i.i, label %.lr.ph.i207.i.i.preheader, label %doContinueMultipleEmptyOptions.exit.i.i
+  br i1 %.not190.i.i, label %.lr.ph.i206.i.i.preheader, label %doContinueMultipleEmptyOptions.exit.i.i
 
-.lr.ph.i207.i.i.preheader:                        ; preds = %365, %haveTooManyHeaderBytes.exit.i.i
-  br label %.lr.ph.i207.i.i
+.lr.ph.i206.i.i.preheader:                        ; preds = %365, %haveTooManyHeaderBytes.exit.i.i
+  br label %.lr.ph.i206.i.i
 
-.lr.ph.i207.i.i:                                  ; preds = %.lr.ph.i207.i.i.preheader, %.lr.ph.i207.i.i
-  %.02332.i208.i.i = phi i32 [ %376, %.lr.ph.i207.i.i ], [ 1, %.lr.ph.i207.i.i.preheader ]
-  %.02431.i209.i.i = phi ptr [ %378, %.lr.ph.i207.i.i ], [ %168, %.lr.ph.i207.i.i.preheader ]
-  %373 = getelementptr inbounds i8, ptr %.02431.i209.i.i, i64 1032
+.lr.ph.i206.i.i:                                  ; preds = %.lr.ph.i206.i.i.preheader, %.lr.ph.i206.i.i
+  %.02332.i207.i.i = phi i32 [ %376, %.lr.ph.i206.i.i ], [ 1, %.lr.ph.i206.i.i.preheader ]
+  %.02431.i208.i.i = phi ptr [ %378, %.lr.ph.i206.i.i ], [ %168, %.lr.ph.i206.i.i.preheader ]
+  %373 = getelementptr inbounds i8, ptr %.02431.i208.i.i, i64 1032
   %374 = load i64, ptr %373, align 8
   %375 = trunc i64 %374 to i32
-  %376 = add i32 %.02332.i208.i.i, %375
-  %377 = getelementptr inbounds i8, ptr %.02431.i209.i.i, i64 1040
+  %376 = add i32 %.02332.i207.i.i, %375
+  %377 = getelementptr inbounds i8, ptr %.02431.i208.i.i, i64 1040
   %378 = load ptr, ptr %377, align 8
-  %.not.i210.i.i = icmp eq ptr %378, null
-  br i1 %.not.i210.i.i, label %._crit_edge.i211.i.i, label %.lr.ph.i207.i.i
+  %.not.i209.i.i = icmp eq ptr %378, null
+  br i1 %.not.i209.i.i, label %._crit_edge.i210.i.i, label %.lr.ph.i206.i.i
 
-._crit_edge.i211.i.i:                             ; preds = %.lr.ph.i207.i.i
+._crit_edge.i210.i.i:                             ; preds = %.lr.ph.i206.i.i
   %379 = sext i32 %376 to i64
   %380 = call ptr @cli_max_malloc(i64 noundef %379) #19
   %381 = icmp eq ptr %380, null
-  br i1 %381, label %hitLineFoldCnt.exit.i.i, label %.lr.ph36.i213.i.i
+  br i1 %381, label %hitLineFoldCnt.exit.i.i, label %.lr.ph36.i211.i.i
 
-.lr.ph36.i213.i.i:                                ; preds = %._crit_edge.i211.i.i, %.lr.ph36.i213.i.i
-  %.135.i214.i.i = phi i64 [ %387, %.lr.ph36.i213.i.i ], [ 0, %._crit_edge.i211.i.i ]
-  %.12534.i215.i.i = phi ptr [ %391, %.lr.ph36.i213.i.i ], [ %168, %._crit_edge.i211.i.i ]
-  %sext.i216.i.i = shl i64 %.135.i214.i.i, 32
-  %382 = ashr exact i64 %sext.i216.i.i, 32
+.lr.ph36.i211.i.i:                                ; preds = %._crit_edge.i210.i.i, %.lr.ph36.i211.i.i
+  %.135.i212.i.i = phi i64 [ %387, %.lr.ph36.i211.i.i ], [ 0, %._crit_edge.i210.i.i ]
+  %.12534.i213.i.i = phi ptr [ %391, %.lr.ph36.i211.i.i ], [ %168, %._crit_edge.i210.i.i ]
+  %sext.i214.i.i = shl i64 %.135.i212.i.i, 32
+  %382 = ashr exact i64 %sext.i214.i.i, 32
   %383 = getelementptr inbounds i8, ptr %380, i64 %382
-  %384 = getelementptr inbounds i8, ptr %.12534.i215.i.i, i64 1032
+  %384 = getelementptr inbounds i8, ptr %.12534.i213.i.i, i64 1032
   %385 = load i64, ptr %384, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %383, ptr nonnull align 8 %.12534.i215.i.i, i64 %385, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %383, ptr nonnull align 8 %.12534.i213.i.i, i64 %385, i1 false)
   %386 = load i64, ptr %384, align 8
   %387 = add i64 %386, %382
-  %sext29.i217.i.i = shl i64 %387, 32
-  %388 = ashr exact i64 %sext29.i217.i.i, 32
+  %sext29.i215.i.i = shl i64 %387, 32
+  %388 = ashr exact i64 %sext29.i215.i.i, 32
   %389 = getelementptr inbounds i8, ptr %380, i64 %388
   store i8 0, ptr %389, align 1
-  %390 = getelementptr inbounds i8, ptr %.12534.i215.i.i, i64 1040
+  %390 = getelementptr inbounds i8, ptr %.12534.i213.i.i, i64 1040
   %391 = load ptr, ptr %390, align 8
-  %.not28.i218.i.i = icmp eq ptr %391, null
-  br i1 %.not28.i218.i.i, label %getMallocedBufferFromList.exit220.i.i, label %.lr.ph36.i213.i.i
+  %.not28.i216.i.i = icmp eq ptr %391, null
+  br i1 %.not28.i216.i.i, label %getMallocedBufferFromList.exit218.i.i, label %.lr.ph36.i211.i.i
 
-getMallocedBufferFromList.exit220.i.i:            ; preds = %.lr.ph36.i213.i.i
+getMallocedBufferFromList.exit218.i.i:            ; preds = %.lr.ph36.i211.i.i
   %392 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #21
   %393 = getelementptr i8, ptr %380, i64 %392
   %394 = getelementptr i8, ptr %393, i64 -1
   %395 = load i8, ptr %394, align 1
   %.not191.i.i = icmp eq i8 %395, 59
-  br i1 %.not191.i.i, label %.thread342.i.i, label %396
+  br i1 %.not191.i.i, label %.thread340.i.i, label %396
 
-396:                                              ; preds = %getMallocedBufferFromList.exit220.i.i
-  br i1 %179, label %.thread338.i.i, label %397
+396:                                              ; preds = %getMallocedBufferFromList.exit218.i.i
+  br i1 %179, label %.thread336.i.i, label %397
 
 397:                                              ; preds = %396
   %398 = load i8, ptr %380, align 1
-  %.not5.i221.i.i = icmp eq i8 %398, 0
-  br i1 %.not5.i221.i.i, label %.thread338.i.i, label %.lr.ph.i222.i.i
+  %.not5.i219.i.i = icmp eq i8 %398, 0
+  br i1 %.not5.i219.i.i, label %.thread336.i.i, label %.lr.ph.i220.i.i
 
-.lr.ph.i222.i.i:                                  ; preds = %397, %.lr.ph.i222.i.i
-  %399 = phi i8 [ %403, %.lr.ph.i222.i.i ], [ %398, %397 ]
-  %.07.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i222.i.i ], [ 0, %397 ]
-  %.036.i.i.i = phi ptr [ %400, %.lr.ph.i222.i.i ], [ %380, %397 ]
+.lr.ph.i220.i.i:                                  ; preds = %397, %.lr.ph.i220.i.i
+  %399 = phi i8 [ %403, %.lr.ph.i220.i.i ], [ %398, %397 ]
+  %.07.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i220.i.i ], [ 0, %397 ]
+  %.036.i.i.i = phi ptr [ %400, %.lr.ph.i220.i.i ], [ %380, %397 ]
   %400 = getelementptr inbounds i8, ptr %.036.i.i.i, i64 1
   %401 = icmp eq i8 %399, 34
   %402 = zext i1 %401 to i32
   %spec.select.i.i.i = add nuw nsw i32 %.07.i.i.i, %402
   %403 = load i8, ptr %400, align 1
-  %.not.i223.i.i = icmp eq i8 %403, 0
-  br i1 %.not.i223.i.i, label %404, label %.lr.ph.i222.i.i
+  %.not.i221.i.i = icmp eq i8 %403, 0
+  br i1 %.not.i221.i.i, label %404, label %.lr.ph.i220.i.i
 
-404:                                              ; preds = %.lr.ph.i222.i.i
+404:                                              ; preds = %.lr.ph.i220.i.i
   %405 = and i32 %spec.select.i.i.i, 1
   %406 = icmp eq i32 %405, 0
-  br i1 %406, label %.thread338.i.i, label %.thread342.i.i
+  br i1 %406, label %.thread336.i.i, label %.thread340.i.i
 
-.thread338.i.i:                                   ; preds = %404, %397, %396
-  %407 = add i64 %.2142280298330.i.i, 1
+.thread336.i.i:                                   ; preds = %404, %397, %396
+  %407 = add i64 %.2142278296328.i.i, 1
   %408 = icmp ugt i64 %407, 1024
-  br i1 %408, label %409, label %haveTooManyEmailHeaders.exit226.i.i
+  br i1 %408, label %409, label %haveTooManyEmailHeaders.exit224.i.i
 
-409:                                              ; preds = %.thread338.i.i
+409:                                              ; preds = %.thread336.i.i
   %410 = getelementptr inbounds i8, ptr %1, i64 64
   %411 = load ptr, ptr %410, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 8
   %413 = load i32, ptr %412, align 4
   %414 = and i32 %413, 4
-  %.not.i225.i.i = icmp eq i32 %414, 0
-  br i1 %.not.i225.i.i, label %417, label %415
+  %.not.i223.i.i = icmp eq i32 %414, 0
+  br i1 %.not.i223.i.i, label %417, label %415
 
 415:                                              ; preds = %409
   %416 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.54) #19
@@ -1275,45 +1275,45 @@ getMallocedBufferFromList.exit220.i.i:            ; preds = %.lr.ph36.i213.i.i
 
 417:                                              ; preds = %415, %409
   call void @free(ptr noundef %380) #19
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
-haveTooManyEmailHeaders.exit226.i.i:              ; preds = %.thread338.i.i
+haveTooManyEmailHeaders.exit224.i.i:              ; preds = %.thread336.i.i
   %418 = call fastcc i32 @parseEmailHeader(ptr noundef nonnull %165, ptr noundef nonnull %380, ptr noundef %164, ptr noundef %1, ptr noundef nonnull %12)
   %419 = load i8, ptr %12, align 1
   %420 = trunc i8 %419 to i1
   call void @free(ptr noundef %380) #19
-  br i1 %420, label %hitLineFoldCnt.exit.thread350.i.i, label %421
+  br i1 %420, label %hitLineFoldCnt.exit.thread348.i.i, label %421
 
-.thread342.i.i:                                   ; preds = %404, %getMallocedBufferFromList.exit220.i.i
+.thread340.i.i:                                   ; preds = %404, %getMallocedBufferFromList.exit218.i.i
   call void @free(ptr noundef %380) #19
   br label %doContinueMultipleEmptyOptions.exit.i.i
 
-421:                                              ; preds = %haveTooManyEmailHeaders.exit226.i.i
+421:                                              ; preds = %haveTooManyEmailHeaders.exit224.i.i
   %.not192.i.i = icmp sgt i32 %418, -1
   br i1 %.not192.i.i, label %422, label %doContinueMultipleEmptyOptions.exit.i.i
 
 422:                                              ; preds = %421
-  %.not193.i.i = icmp eq ptr %.4334.i.i, %168
-  br i1 %.not193.i.i, label %freeList.exit232.i.i, label %423
+  %.not193.i.i = icmp eq ptr %.4332.i.i, %168
+  br i1 %.not193.i.i, label %freeList.exit230.i.i, label %423
 
 423:                                              ; preds = %422
   %424 = load ptr, ptr %173, align 8
-  %.not5.i227.i.i = icmp eq ptr %424, null
-  br i1 %.not5.i227.i.i, label %freeList.exit232.i.i, label %.lr.ph.i228.i.i
+  %.not5.i225.i.i = icmp eq ptr %424, null
+  br i1 %.not5.i225.i.i, label %freeList.exit230.i.i, label %.lr.ph.i226.i.i
 
-.lr.ph.i228.i.i:                                  ; preds = %423, %.lr.ph.i228.i.i
-  %.06.i229.i.i = phi ptr [ %426, %.lr.ph.i228.i.i ], [ %424, %423 ]
-  %425 = getelementptr inbounds i8, ptr %.06.i229.i.i, i64 1040
+.lr.ph.i226.i.i:                                  ; preds = %423, %.lr.ph.i226.i.i
+  %.06.i227.i.i = phi ptr [ %426, %.lr.ph.i226.i.i ], [ %424, %423 ]
+  %425 = getelementptr inbounds i8, ptr %.06.i227.i.i, i64 1040
   %426 = load ptr, ptr %425, align 8
-  call void @free(ptr noundef nonnull %.06.i229.i.i) #19
-  %.not.i230.i.i = icmp eq ptr %426, null
-  br i1 %.not.i230.i.i, label %freeList.exit232.i.i, label %.lr.ph.i228.i.i
+  call void @free(ptr noundef nonnull %.06.i227.i.i) #19
+  %.not.i228.i.i = icmp eq ptr %426, null
+  br i1 %.not.i228.i.i, label %freeList.exit230.i.i, label %.lr.ph.i226.i.i
 
-freeList.exit232.i.i:                             ; preds = %.lr.ph.i228.i.i, %423, %422
+freeList.exit230.i.i:                             ; preds = %.lr.ph.i226.i.i, %423, %422
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   br label %doContinueMultipleEmptyOptions.exit.i.i
 
-427:                                              ; preds = %211, %.thread261.i.i
+427:                                              ; preds = %211, %.thread259.i.i
   br i1 %179, label %436, label %428
 
 428:                                              ; preds = %427
@@ -1329,7 +1329,7 @@ freeList.exit232.i.i:                             ; preds = %.lr.ph.i228.i.i, %4
 433:                                              ; preds = %430
   %434 = call i32 @messageAddStr(ptr noundef nonnull %165, ptr noundef nonnull %3) #19
   %435 = icmp slt i32 %434, 0
-  br i1 %435, label %hitLineFoldCnt.exit.thread350.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
+  br i1 %435, label %hitLineFoldCnt.exit.thread348.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
 
 436:                                              ; preds = %427
   br i1 %.0163.i.i, label %437, label %445
@@ -1353,8 +1353,8 @@ freeList.exit232.i.i:                             ; preds = %.lr.ph.i228.i.i, %4
   br i1 %442, label %doContinueMultipleEmptyOptions.exit.i.i, label %443
 
 443:                                              ; preds = %441
-  %bcmp356.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @.str.81, i64 6)
-  %444 = icmp eq i32 %bcmp356.i.i, 0
+  %bcmp354.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @.str.81, i64 6)
+  %444 = icmp eq i32 %bcmp354.i.i, 0
   br i1 %444, label %doContinueMultipleEmptyOptions.exit.i.i, label %newline_in_header.exit.i.i
 
 newline_in_header.exit.i.i:                       ; preds = %443
@@ -1365,34 +1365,34 @@ newline_in_header.exit.i.i:                       ; preds = %443
   %.2161.i.i = phi i1 [ %.0159.i.i, %437 ], [ %.0159.i.i, %436 ], [ false, %newline_in_header.exit.i.i ], [ false, %440 ]
   %446 = call i32 @messageAddStr(ptr noundef nonnull %165, ptr noundef %..i104.i) #19
   %447 = icmp slt i32 %446, 0
-  br i1 %447, label %hitLineFoldCnt.exit.thread350.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
+  br i1 %447, label %hitLineFoldCnt.exit.thread348.i.i, label %doContinueMultipleEmptyOptions.exit.i.i
 
-doContinueMultipleEmptyOptions.exit.i.i:          ; preds = %445, %443, %441, %439, %433, %430, %freeList.exit232.i.i, %421, %.thread342.i.i, %365, %usefulHeader.exit.i.i, %314, %307, %.thread284._crit_edge.i.i, %292, %290, %286, %285, %freeList.exit.i.i, %.critedge.i.i.i
-  %.1249253.i.i = phi i1 [ %.1249.ph255.ph.i.i, %292 ], [ %.1249.ph255.ph.i.i, %290 ], [ %.1249.ph255.ph.i.i, %307 ], [ %.1249.ph255.ph.i.i, %freeList.exit232.i.i ], [ %.1249.ph255.ph.i.i, %421 ], [ %.1249.ph255.ph.i.i, %365 ], [ %.1249.ph255.ph.i.i, %314 ], [ %.1249.ph255.ph.i.i, %usefulHeader.exit.i.i ], [ %.1249.ph255.ph.i.i, %.thread284._crit_edge.i.i ], [ %.1249.ph255.ph.i.i, %286 ], [ %.1249.ph255.ph.i.i, %285 ], [ %.1249.ph255.ph.i.i, %freeList.exit.i.i ], [ %.1249.ph255.ph.i.i, %445 ], [ %.1249.ph255.ph.i.i, %439 ], [ %.1249.ph255.ph.i.i, %433 ], [ %.1249.ph255.ph.i.i, %430 ], [ true, %.critedge.i.i.i ], [ %.1249.ph255.ph.i.i, %.thread342.i.i ], [ %.1249.ph255.ph.i.i, %441 ], [ %.1249.ph255.ph.i.i, %443 ]
-  %.1246.i.i = phi i64 [ %.2247.ph.i.i, %292 ], [ %.2247.ph.i.i, %290 ], [ %.2247.ph.i.i, %307 ], [ %.2247.ph.i.i, %freeList.exit232.i.i ], [ %.2247.ph.i.i, %421 ], [ %.2247.ph.i.i, %365 ], [ %.2247.ph.i.i, %314 ], [ %.2247.ph.i.i, %usefulHeader.exit.i.i ], [ %.2247.ph.i.i, %.thread284._crit_edge.i.i ], [ %.2247.ph.i.i, %286 ], [ %.2247.ph.i.i, %285 ], [ %.2247.ph.i.i, %freeList.exit.i.i ], [ %.2247.ph.i.i, %445 ], [ %.2247.ph.i.i, %439 ], [ %.2247.ph.i.i, %433 ], [ %.2247.ph.i.i, %430 ], [ %.0245.i.i, %.critedge.i.i.i ], [ %.2247.ph.i.i, %.thread342.i.i ], [ %.2247.ph.i.i, %441 ], [ %.2247.ph.i.i, %443 ]
-  %.1167.i.i = phi i1 [ false, %292 ], [ false, %290 ], [ false, %307 ], [ false, %freeList.exit232.i.i ], [ false, %421 ], [ false, %365 ], [ false, %314 ], [ false, %usefulHeader.exit.i.i ], [ false, %.thread284._crit_edge.i.i ], [ true, %286 ], [ true, %285 ], [ false, %freeList.exit.i.i ], [ false, %445 ], [ false, %439 ], [ false, %433 ], [ false, %430 ], [ %.0166.i.i, %.critedge.i.i.i ], [ false, %.thread342.i.i ], [ false, %441 ], [ false, %443 ]
-  %.1164.i.i = phi i1 [ %.0163.i.i, %292 ], [ %.0163.i.i, %290 ], [ %.0163.i.i, %307 ], [ %.0163.i.i, %freeList.exit232.i.i ], [ %.0163.i.i, %421 ], [ %.0163.i.i, %365 ], [ %.0163.i.i, %314 ], [ %.0163.i.i, %usefulHeader.exit.i.i ], [ %.0163.i.i, %.thread284._crit_edge.i.i ], [ %.0163.i.i, %286 ], [ %.0163.i.i, %285 ], [ %.0163.i.i, %freeList.exit.i.i ], [ %179, %445 ], [ true, %439 ], [ %.0163.i.i, %433 ], [ %.0163.i.i, %430 ], [ %.0163.i.i, %.critedge.i.i.i ], [ %.0163.i.i, %.thread342.i.i ], [ %.0163.i.i, %441 ], [ %.0163.i.i, %443 ]
-  %.1160.i.i = phi i1 [ true, %292 ], [ %.0159.i.i, %290 ], [ %.0159.i.i, %307 ], [ %.0159.i.i, %freeList.exit232.i.i ], [ %.0159.i.i, %421 ], [ %.0159.i.i, %365 ], [ %.0159.i.i, %314 ], [ %.0159.i.i, %usefulHeader.exit.i.i ], [ %.0159.i.i, %.thread284._crit_edge.i.i ], [ %.0159.i.i, %286 ], [ %.0159.i.i, %285 ], [ %.0159.i.i, %freeList.exit.i.i ], [ %.2161.i.i, %445 ], [ %.0159.i.i, %439 ], [ false, %433 ], [ false, %430 ], [ %.0159.i.i, %.critedge.i.i.i ], [ %.0159.i.i, %.thread342.i.i ], [ true, %441 ], [ true, %443 ]
-  %.2156.i.i = phi i8 [ %.1155.i.i, %292 ], [ %.1155.i.i, %290 ], [ %spec.select.i.i, %307 ], [ %.4158332.i.i, %freeList.exit232.i.i ], [ %.4158332.i.i, %421 ], [ %.4158332.i.i, %365 ], [ %.1155.i.i, %314 ], [ %325, %usefulHeader.exit.i.i ], [ %.1155.i.i, %.thread284._crit_edge.i.i ], [ %.1155.i.i, %286 ], [ %.1155.i.i, %285 ], [ %.1155.i.i, %freeList.exit.i.i ], [ %.1155.i.i, %445 ], [ %.1155.i.i, %439 ], [ %.1155.i.i, %433 ], [ %.1155.i.i, %430 ], [ %.1155.i.i, %.critedge.i.i.i ], [ %.4158332.i.i, %.thread342.i.i ], [ %.1155.i.i, %441 ], [ %.1155.i.i, %443 ]
-  %.2151.i.i = phi ptr [ %.1150.i.i, %292 ], [ %.1150.i.i, %290 ], [ %.4153279.i.i, %307 ], [ %.4153279302328.i.i, %freeList.exit232.i.i ], [ %.4153279302328.i.i, %421 ], [ %.4153279302328.i.i, %365 ], [ %.4153279.i.i, %314 ], [ %.4153279.i.i, %usefulHeader.exit.i.i ], [ %.4153279.i.i, %.thread284._crit_edge.i.i ], [ %287, %286 ], [ %.1150.i.i, %285 ], [ %.1150.i.i, %freeList.exit.i.i ], [ %.1150.i.i, %445 ], [ %.1150.i.i, %439 ], [ %.1150.i.i, %433 ], [ %.1150.i.i, %430 ], [ %.1150.i.i, %.critedge.i.i.i ], [ %.4153279302328.i.i, %.thread342.i.i ], [ %.1150.i.i, %441 ], [ %.1150.i.i, %443 ]
-  %.1146.i.i = phi i64 [ %.0145.i.i, %292 ], [ %.0145.i.i, %290 ], [ %.0145.i.i, %307 ], [ %.2147.i.i, %freeList.exit232.i.i ], [ %.2147.i.i, %421 ], [ %.2147.i.i, %365 ], [ %.0145.i.i, %314 ], [ %.0145.i.i, %usefulHeader.exit.i.i ], [ %.0145.i.i, %.thread284._crit_edge.i.i ], [ %.0145.i.i, %286 ], [ %.0145.i.i, %285 ], [ %.0145.i.i, %freeList.exit.i.i ], [ %.0145.i.i, %445 ], [ %.0145.i.i, %439 ], [ %.0145.i.i, %433 ], [ %.0145.i.i, %430 ], [ %.0145.i.i, %.critedge.i.i.i ], [ %.2147.i.i, %.thread342.i.i ], [ %.0145.i.i, %441 ], [ %.0145.i.i, %443 ]
-  %.1141.i.i = phi i64 [ %.0140.i.i, %292 ], [ %.0140.i.i, %290 ], [ %.2142280.i.i, %307 ], [ %407, %freeList.exit232.i.i ], [ %407, %421 ], [ %.2142280298330.i.i, %365 ], [ %.2142280.i.i, %314 ], [ %.2142280.i.i, %usefulHeader.exit.i.i ], [ %.2142280.i.i, %.thread284._crit_edge.i.i ], [ %.3143.i.i, %286 ], [ %.3143.i.i, %285 ], [ %265, %freeList.exit.i.i ], [ %.0140.i.i, %445 ], [ %.0140.i.i, %439 ], [ %.0140.i.i, %433 ], [ %.0140.i.i, %430 ], [ %.0140.i.i, %.critedge.i.i.i ], [ %.2142280298330.i.i, %.thread342.i.i ], [ %.0140.i.i, %441 ], [ %.0140.i.i, %443 ]
-  %.1138.i.i = phi ptr [ %.0137.i.i, %292 ], [ %.0137.i.i, %290 ], [ %.2139282.i.i, %307 ], [ %168, %freeList.exit232.i.i ], [ %.4334.i.i, %421 ], [ %.4334.i.i, %365 ], [ %.2139282.i.i, %314 ], [ %.2139282.i.i, %usefulHeader.exit.i.i ], [ %.2139282.i.i, %.thread284._crit_edge.i.i ], [ %.3.i.i, %286 ], [ %.3.i.i, %285 ], [ %168, %freeList.exit.i.i ], [ %.0137.i.i, %445 ], [ %.0137.i.i, %439 ], [ %.0137.i.i, %433 ], [ %.0137.i.i, %430 ], [ %.0137.i.i, %.critedge.i.i.i ], [ %.4334.i.i, %.thread342.i.i ], [ %.0137.i.i, %441 ], [ %.0137.i.i, %443 ]
-  %.1135.i.i = phi i1 [ false, %292 ], [ true, %290 ], [ true, %307 ], [ true, %freeList.exit232.i.i ], [ true, %421 ], [ true, %365 ], [ true, %314 ], [ true, %usefulHeader.exit.i.i ], [ true, %.thread284._crit_edge.i.i ], [ true, %286 ], [ true, %285 ], [ true, %freeList.exit.i.i ], [ false, %445 ], [ false, %439 ], [ false, %433 ], [ false, %430 ], [ %.0134.i.i, %.critedge.i.i.i ], [ true, %.thread342.i.i ], [ false, %441 ], [ false, %443 ]
+doContinueMultipleEmptyOptions.exit.i.i:          ; preds = %445, %443, %441, %439, %433, %430, %freeList.exit230.i.i, %421, %.thread340.i.i, %365, %usefulHeader.exit.i.i, %314, %307, %.thread282._crit_edge.i.i, %292, %290, %286, %285, %freeList.exit.i.i, %.critedge.i.i.i
+  %.1247251.i.i = phi i1 [ %.1247.ph253.ph.i.i, %292 ], [ %.1247.ph253.ph.i.i, %290 ], [ %.1247.ph253.ph.i.i, %307 ], [ %.1247.ph253.ph.i.i, %freeList.exit230.i.i ], [ %.1247.ph253.ph.i.i, %421 ], [ %.1247.ph253.ph.i.i, %365 ], [ %.1247.ph253.ph.i.i, %314 ], [ %.1247.ph253.ph.i.i, %usefulHeader.exit.i.i ], [ %.1247.ph253.ph.i.i, %.thread282._crit_edge.i.i ], [ %.1247.ph253.ph.i.i, %286 ], [ %.1247.ph253.ph.i.i, %285 ], [ %.1247.ph253.ph.i.i, %freeList.exit.i.i ], [ %.1247.ph253.ph.i.i, %445 ], [ %.1247.ph253.ph.i.i, %439 ], [ %.1247.ph253.ph.i.i, %433 ], [ %.1247.ph253.ph.i.i, %430 ], [ true, %.critedge.i.i.i ], [ %.1247.ph253.ph.i.i, %.thread340.i.i ], [ %.1247.ph253.ph.i.i, %441 ], [ %.1247.ph253.ph.i.i, %443 ]
+  %.1244.i.i = phi i64 [ %.2245.ph.i.i, %292 ], [ %.2245.ph.i.i, %290 ], [ %.2245.ph.i.i, %307 ], [ %.2245.ph.i.i, %freeList.exit230.i.i ], [ %.2245.ph.i.i, %421 ], [ %.2245.ph.i.i, %365 ], [ %.2245.ph.i.i, %314 ], [ %.2245.ph.i.i, %usefulHeader.exit.i.i ], [ %.2245.ph.i.i, %.thread282._crit_edge.i.i ], [ %.2245.ph.i.i, %286 ], [ %.2245.ph.i.i, %285 ], [ %.2245.ph.i.i, %freeList.exit.i.i ], [ %.2245.ph.i.i, %445 ], [ %.2245.ph.i.i, %439 ], [ %.2245.ph.i.i, %433 ], [ %.2245.ph.i.i, %430 ], [ %.0243.i.i, %.critedge.i.i.i ], [ %.2245.ph.i.i, %.thread340.i.i ], [ %.2245.ph.i.i, %441 ], [ %.2245.ph.i.i, %443 ]
+  %.1167.i.i = phi i1 [ false, %292 ], [ false, %290 ], [ false, %307 ], [ false, %freeList.exit230.i.i ], [ false, %421 ], [ false, %365 ], [ false, %314 ], [ false, %usefulHeader.exit.i.i ], [ false, %.thread282._crit_edge.i.i ], [ true, %286 ], [ true, %285 ], [ false, %freeList.exit.i.i ], [ false, %445 ], [ false, %439 ], [ false, %433 ], [ false, %430 ], [ %.0166.i.i, %.critedge.i.i.i ], [ false, %.thread340.i.i ], [ false, %441 ], [ false, %443 ]
+  %.1164.i.i = phi i1 [ %.0163.i.i, %292 ], [ %.0163.i.i, %290 ], [ %.0163.i.i, %307 ], [ %.0163.i.i, %freeList.exit230.i.i ], [ %.0163.i.i, %421 ], [ %.0163.i.i, %365 ], [ %.0163.i.i, %314 ], [ %.0163.i.i, %usefulHeader.exit.i.i ], [ %.0163.i.i, %.thread282._crit_edge.i.i ], [ %.0163.i.i, %286 ], [ %.0163.i.i, %285 ], [ %.0163.i.i, %freeList.exit.i.i ], [ %179, %445 ], [ true, %439 ], [ %.0163.i.i, %433 ], [ %.0163.i.i, %430 ], [ %.0163.i.i, %.critedge.i.i.i ], [ %.0163.i.i, %.thread340.i.i ], [ %.0163.i.i, %441 ], [ %.0163.i.i, %443 ]
+  %.1160.i.i = phi i1 [ true, %292 ], [ %.0159.i.i, %290 ], [ %.0159.i.i, %307 ], [ %.0159.i.i, %freeList.exit230.i.i ], [ %.0159.i.i, %421 ], [ %.0159.i.i, %365 ], [ %.0159.i.i, %314 ], [ %.0159.i.i, %usefulHeader.exit.i.i ], [ %.0159.i.i, %.thread282._crit_edge.i.i ], [ %.0159.i.i, %286 ], [ %.0159.i.i, %285 ], [ %.0159.i.i, %freeList.exit.i.i ], [ %.2161.i.i, %445 ], [ %.0159.i.i, %439 ], [ false, %433 ], [ false, %430 ], [ %.0159.i.i, %.critedge.i.i.i ], [ %.0159.i.i, %.thread340.i.i ], [ true, %441 ], [ true, %443 ]
+  %.2156.i.i = phi i8 [ %.1155.i.i, %292 ], [ %.1155.i.i, %290 ], [ %spec.select.i.i, %307 ], [ %.4158330.i.i, %freeList.exit230.i.i ], [ %.4158330.i.i, %421 ], [ %.4158330.i.i, %365 ], [ %.1155.i.i, %314 ], [ %325, %usefulHeader.exit.i.i ], [ %.1155.i.i, %.thread282._crit_edge.i.i ], [ %.1155.i.i, %286 ], [ %.1155.i.i, %285 ], [ %.1155.i.i, %freeList.exit.i.i ], [ %.1155.i.i, %445 ], [ %.1155.i.i, %439 ], [ %.1155.i.i, %433 ], [ %.1155.i.i, %430 ], [ %.1155.i.i, %.critedge.i.i.i ], [ %.4158330.i.i, %.thread340.i.i ], [ %.1155.i.i, %441 ], [ %.1155.i.i, %443 ]
+  %.2151.i.i = phi ptr [ %.1150.i.i, %292 ], [ %.1150.i.i, %290 ], [ %.4153277.i.i, %307 ], [ %.4153277300326.i.i, %freeList.exit230.i.i ], [ %.4153277300326.i.i, %421 ], [ %.4153277300326.i.i, %365 ], [ %.4153277.i.i, %314 ], [ %.4153277.i.i, %usefulHeader.exit.i.i ], [ %.4153277.i.i, %.thread282._crit_edge.i.i ], [ %287, %286 ], [ %.1150.i.i, %285 ], [ %.1150.i.i, %freeList.exit.i.i ], [ %.1150.i.i, %445 ], [ %.1150.i.i, %439 ], [ %.1150.i.i, %433 ], [ %.1150.i.i, %430 ], [ %.1150.i.i, %.critedge.i.i.i ], [ %.4153277300326.i.i, %.thread340.i.i ], [ %.1150.i.i, %441 ], [ %.1150.i.i, %443 ]
+  %.1146.i.i = phi i64 [ %.0145.i.i, %292 ], [ %.0145.i.i, %290 ], [ %.0145.i.i, %307 ], [ %.2147.i.i, %freeList.exit230.i.i ], [ %.2147.i.i, %421 ], [ %.2147.i.i, %365 ], [ %.0145.i.i, %314 ], [ %.0145.i.i, %usefulHeader.exit.i.i ], [ %.0145.i.i, %.thread282._crit_edge.i.i ], [ %.0145.i.i, %286 ], [ %.0145.i.i, %285 ], [ %.0145.i.i, %freeList.exit.i.i ], [ %.0145.i.i, %445 ], [ %.0145.i.i, %439 ], [ %.0145.i.i, %433 ], [ %.0145.i.i, %430 ], [ %.0145.i.i, %.critedge.i.i.i ], [ %.2147.i.i, %.thread340.i.i ], [ %.0145.i.i, %441 ], [ %.0145.i.i, %443 ]
+  %.1141.i.i = phi i64 [ %.0140.i.i, %292 ], [ %.0140.i.i, %290 ], [ %.2142278.i.i, %307 ], [ %407, %freeList.exit230.i.i ], [ %407, %421 ], [ %.2142278296328.i.i, %365 ], [ %.2142278.i.i, %314 ], [ %.2142278.i.i, %usefulHeader.exit.i.i ], [ %.2142278.i.i, %.thread282._crit_edge.i.i ], [ %.3143.i.i, %286 ], [ %.3143.i.i, %285 ], [ %265, %freeList.exit.i.i ], [ %.0140.i.i, %445 ], [ %.0140.i.i, %439 ], [ %.0140.i.i, %433 ], [ %.0140.i.i, %430 ], [ %.0140.i.i, %.critedge.i.i.i ], [ %.2142278296328.i.i, %.thread340.i.i ], [ %.0140.i.i, %441 ], [ %.0140.i.i, %443 ]
+  %.1138.i.i = phi ptr [ %.0137.i.i, %292 ], [ %.0137.i.i, %290 ], [ %.2139280.i.i, %307 ], [ %168, %freeList.exit230.i.i ], [ %.4332.i.i, %421 ], [ %.4332.i.i, %365 ], [ %.2139280.i.i, %314 ], [ %.2139280.i.i, %usefulHeader.exit.i.i ], [ %.2139280.i.i, %.thread282._crit_edge.i.i ], [ %.3.i.i, %286 ], [ %.3.i.i, %285 ], [ %168, %freeList.exit.i.i ], [ %.0137.i.i, %445 ], [ %.0137.i.i, %439 ], [ %.0137.i.i, %433 ], [ %.0137.i.i, %430 ], [ %.0137.i.i, %.critedge.i.i.i ], [ %.4332.i.i, %.thread340.i.i ], [ %.0137.i.i, %441 ], [ %.0137.i.i, %443 ]
+  %.1135.i.i = phi i1 [ false, %292 ], [ true, %290 ], [ true, %307 ], [ true, %freeList.exit230.i.i ], [ true, %421 ], [ true, %365 ], [ true, %314 ], [ true, %usefulHeader.exit.i.i ], [ true, %.thread282._crit_edge.i.i ], [ true, %286 ], [ true, %285 ], [ true, %freeList.exit.i.i ], [ false, %445 ], [ false, %439 ], [ false, %433 ], [ false, %430 ], [ %.0134.i.i, %.critedge.i.i.i ], [ true, %.thread340.i.i ], [ false, %441 ], [ false, %443 ]
   %448 = load i64, ptr %175, align 8
   %449 = load i64, ptr %9, align 8
   %450 = sub i64 %448, %449
   %..i.i.i = call i64 @llvm.umin.i64(i64 %450, i64 1001)
   %451 = load ptr, ptr %174, align 8
   %452 = call ptr %451(ptr noundef %17, i64 noundef %449, i64 noundef %..i.i.i, i32 noundef 0) #19
-  %.not.i234.i.i = icmp eq ptr %452, null
-  br i1 %.not.i234.i.i, label %453, label %.preheader.i235.i.i
+  %.not.i232.i.i = icmp eq ptr %452, null
+  br i1 %.not.i232.i.i, label %453, label %.preheader.i233.i.i
 
 453:                                              ; preds = %doContinueMultipleEmptyOptions.exit.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.304) #19
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
-.preheader.i235.i.i:                              ; preds = %doContinueMultipleEmptyOptions.exit.i.i, %466
+.preheader.i233.i.i:                              ; preds = %doContinueMultipleEmptyOptions.exit.i.i, %466
   %.03865.i.i.i = phi i64 [ %454, %466 ], [ %..i.i.i, %doContinueMultipleEmptyOptions.exit.i.i ]
   %.03964.i.i.i = phi i64 [ %467, %466 ], [ 0, %doContinueMultipleEmptyOptions.exit.i.i ]
   %.04063.i.i.i = phi ptr [ %.2.i.i.i, %466 ], [ %3, %doContinueMultipleEmptyOptions.exit.i.i ]
@@ -1401,11 +1401,11 @@ doContinueMultipleEmptyOptions.exit.i.i:          ; preds = %445, %443, %441, %4
   %.not48.i.i.i = icmp eq i64 %.03865.i.i.i, 0
   br i1 %.not48.i.i.i, label %455, label %457
 
-455:                                              ; preds = %.preheader.i235.i.i
+455:                                              ; preds = %.preheader.i233.i.i
   %456 = icmp eq ptr %.04063.i.i.i, %3
-  br i1 %456, label %hitLineFoldCnt.exit.thread350.i.i, label %getline_from_mbox.exit.i.i
+  br i1 %456, label %hitLineFoldCnt.exit.thread348.i.i, label %getline_from_mbox.exit.i.i
 
-457:                                              ; preds = %.preheader.i235.i.i
+457:                                              ; preds = %.preheader.i233.i.i
   %458 = getelementptr inbounds i8, ptr %.04162.i.i.i, i64 1
   %459 = load i8, ptr %.04162.i.i.i, align 1
   switch i8 %459, label %464 [
@@ -1434,8 +1434,8 @@ doContinueMultipleEmptyOptions.exit.i.i:          ; preds = %445, %443, %441, %4
 466:                                              ; preds = %464, %457
   %.2.i.i.i = phi ptr [ %465, %464 ], [ %.04063.i.i.i, %457 ]
   %467 = add nuw nsw i64 %.03964.i.i.i, 1
-  %exitcond.not.i237.i.i = icmp eq i64 %467, 999
-  br i1 %exitcond.not.i237.i.i, label %getline_from_mbox.exit.i.i, label %.preheader.i235.i.i
+  %exitcond.not.i235.i.i = icmp eq i64 %467, 999
+  br i1 %exitcond.not.i235.i.i, label %getline_from_mbox.exit.i.i, label %.preheader.i233.i.i
 
 .loopexit.sink.split.i.i.i:                       ; preds = %462, %460
   %.sink92.i.i.i = phi i8 [ 13, %460 ], [ 10, %462 ]
@@ -1458,48 +1458,48 @@ getline_from_mbox.exit.i.i:                       ; preds = %466, %.loopexit.sin
   store i8 0, ptr %.1.i.i.i, align 1
   br label %176
 
-hitLineFoldCnt.exit.i.i:                          ; preds = %._crit_edge.i211.i.i, %._crit_edge.i.i.i, %167
-  %.0154.i.i = phi i8 [ 0, %167 ], [ %.4158332.i.i, %._crit_edge.i211.i.i ], [ %.1155.i.i, %._crit_edge.i.i.i ]
-  %.0149.i.i = phi ptr [ null, %167 ], [ %.4153279302328.i.i, %._crit_edge.i211.i.i ], [ %.1150.i.i, %._crit_edge.i.i.i ]
+hitLineFoldCnt.exit.i.i:                          ; preds = %._crit_edge.i210.i.i, %._crit_edge.i.i.i, %167
+  %.0154.i.i = phi i8 [ 0, %167 ], [ %.4158330.i.i, %._crit_edge.i210.i.i ], [ %.1155.i.i, %._crit_edge.i.i.i ]
+  %.0149.i.i = phi ptr [ null, %167 ], [ %.4153277300326.i.i, %._crit_edge.i210.i.i ], [ %.1150.i.i, %._crit_edge.i.i.i ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.310) #19
   %476 = getelementptr inbounds i8, ptr %165, i64 123
   %477 = load i8, ptr %476, align 1
   %478 = or i8 %477, 2
   store i8 %478, ptr %476, align 1
-  br label %hitLineFoldCnt.exit.thread350.i.i
+  br label %hitLineFoldCnt.exit.thread348.i.i
 
-hitLineFoldCnt.exit.thread350.i.i:                ; preds = %455, %445, %433, %haveTooManyEmailHeaders.exit226.i.i, %haveTooManyEmailHeaders.exit.i.i, %hitLineFoldCnt.exit.i.i, %453, %417, %360, %354, %275, %207, %201
-  %.0149355.i.i = phi ptr [ %.0149.i.i, %hitLineFoldCnt.exit.i.i ], [ %.1150.i.i, %207 ], [ %.1150.i.i, %201 ], [ %.4153279302328.i.i, %417 ], [ %.1150.i.i, %275 ], [ %.4153279.i.i, %354 ], [ %.4153279.i.i, %360 ], [ %.2151.i.i, %453 ], [ %.2151.i.i, %455 ], [ %.1150.i.i, %433 ], [ %.1150.i.i, %445 ], [ %.4153279302328.i.i, %haveTooManyEmailHeaders.exit226.i.i ], [ %.1150.i.i, %haveTooManyEmailHeaders.exit.i.i ]
-  %.0154354.i.i = phi i8 [ %.0154.i.i, %hitLineFoldCnt.exit.i.i ], [ %.1155.i.i, %207 ], [ %.1155.i.i, %201 ], [ %.4158332.i.i, %417 ], [ %.1155.i.i, %275 ], [ %.4158.ph.i.i, %354 ], [ %.4158.ph.i.i, %360 ], [ %.2156.i.i, %453 ], [ %.2156.i.i, %455 ], [ %.1155.i.i, %433 ], [ %.1155.i.i, %445 ], [ %.4158332.i.i, %haveTooManyEmailHeaders.exit226.i.i ], [ %.1155.i.i, %haveTooManyEmailHeaders.exit.i.i ]
-  %.not196.i.i = icmp eq ptr %.0149355.i.i, null
+hitLineFoldCnt.exit.thread348.i.i:                ; preds = %455, %445, %433, %haveTooManyEmailHeaders.exit224.i.i, %haveTooManyEmailHeaders.exit.i.i, %hitLineFoldCnt.exit.i.i, %453, %417, %360, %354, %275, %207, %201
+  %.0149353.i.i = phi ptr [ %.0149.i.i, %hitLineFoldCnt.exit.i.i ], [ %.1150.i.i, %207 ], [ %.1150.i.i, %201 ], [ %.4153277300326.i.i, %417 ], [ %.1150.i.i, %275 ], [ %.4153277.i.i, %354 ], [ %.4153277.i.i, %360 ], [ %.2151.i.i, %453 ], [ %.2151.i.i, %455 ], [ %.1150.i.i, %433 ], [ %.1150.i.i, %445 ], [ %.4153277300326.i.i, %haveTooManyEmailHeaders.exit224.i.i ], [ %.1150.i.i, %haveTooManyEmailHeaders.exit.i.i ]
+  %.0154352.i.i = phi i8 [ %.0154.i.i, %hitLineFoldCnt.exit.i.i ], [ %.1155.i.i, %207 ], [ %.1155.i.i, %201 ], [ %.4158330.i.i, %417 ], [ %.1155.i.i, %275 ], [ %.4158.ph.i.i, %354 ], [ %.4158.ph.i.i, %360 ], [ %.2156.i.i, %453 ], [ %.2156.i.i, %455 ], [ %.1155.i.i, %433 ], [ %.1155.i.i, %445 ], [ %.4158330.i.i, %haveTooManyEmailHeaders.exit224.i.i ], [ %.1155.i.i, %haveTooManyEmailHeaders.exit.i.i ]
+  %.not196.i.i = icmp eq ptr %.0149353.i.i, null
   br i1 %.not196.i.i, label %480, label %479
 
-479:                                              ; preds = %hitLineFoldCnt.exit.thread350.i.i
-  call void @free(ptr noundef nonnull %.0149355.i.i) #19
+479:                                              ; preds = %hitLineFoldCnt.exit.thread348.i.i
+  call void @free(ptr noundef nonnull %.0149353.i.i) #19
   br label %480
 
-480:                                              ; preds = %479, %hitLineFoldCnt.exit.thread350.i.i
-  br i1 %169, label %freeList.exit243.i.i, label %.lr.ph.i239.i.i
+480:                                              ; preds = %479, %hitLineFoldCnt.exit.thread348.i.i
+  br i1 %169, label %freeList.exit241.i.i, label %.lr.ph.i237.i.i
 
-.lr.ph.i239.i.i:                                  ; preds = %480, %.lr.ph.i239.i.i
-  %.06.i240.i.i = phi ptr [ %482, %.lr.ph.i239.i.i ], [ %168, %480 ]
-  %481 = getelementptr inbounds i8, ptr %.06.i240.i.i, i64 1040
+.lr.ph.i237.i.i:                                  ; preds = %480, %.lr.ph.i237.i.i
+  %.06.i238.i.i = phi ptr [ %482, %.lr.ph.i237.i.i ], [ %168, %480 ]
+  %481 = getelementptr inbounds i8, ptr %.06.i238.i.i, i64 1040
   %482 = load ptr, ptr %481, align 8
-  call void @free(ptr noundef nonnull %.06.i240.i.i) #19
-  %.not.i241.i.i = icmp eq ptr %482, null
-  br i1 %.not.i241.i.i, label %freeList.exit243.i.i, label %.lr.ph.i239.i.i
+  call void @free(ptr noundef nonnull %.06.i238.i.i) #19
+  %.not.i239.i.i = icmp eq ptr %482, null
+  br i1 %.not.i239.i.i, label %freeList.exit241.i.i, label %.lr.ph.i237.i.i
 
-freeList.exit243.i.i:                             ; preds = %.lr.ph.i239.i.i, %480
-  %483 = trunc nuw i8 %.0154354.i.i to i1
+freeList.exit241.i.i:                             ; preds = %.lr.ph.i237.i.i, %480
+  %483 = trunc nuw i8 %.0154352.i.i to i1
   br i1 %483, label %484, label %.sink.split.sink.split.i.i
 
-484:                                              ; preds = %freeList.exit243.i.i
+484:                                              ; preds = %freeList.exit241.i.i
   %485 = load i8, ptr %12, align 1
   %486 = trunc i8 %485 to i1
   br i1 %486, label %.sink.split.sink.split.i.i, label %.sink.split.i.i
 
-.sink.split.sink.split.i.i:                       ; preds = %484, %freeList.exit243.i.i
-  %.str.313.sink.ph.i.i = phi ptr [ @.str.311, %freeList.exit243.i.i ], [ @.str.312, %484 ]
+.sink.split.sink.split.i.i:                       ; preds = %484, %freeList.exit241.i.i
+  %.str.313.sink.ph.i.i = phi ptr [ @.str.311, %freeList.exit241.i.i ], [ @.str.312, %484 ]
   call void @messageDestroy(ptr noundef nonnull %165) #19
   br label %.sink.split.i.i
 

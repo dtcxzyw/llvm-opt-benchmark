@@ -1617,10 +1617,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.preheader1:                                      ; preds = %.lr.ph
-  br i1 %.not16, label %._crit_edge15, label %.lr.ph14
-
-.lr.ph14:                                         ; preds = %.preheader1
+.lr.ph14:                                         ; preds = %.lr.ph
   %7 = and i64 %5, 1
   %.not = icmp eq i64 %7, 0
   %8 = add i32 %14, -1
@@ -1637,7 +1634,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %14 = add i32 %13, %.0612
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph14, label %.lr.ph, !llvm.loop !13
 
 15:                                               ; preds = %.lr.ph14, %61
   %.113 = phi i32 [ 0, %.lr.ph14 ], [ %62, %61 ]
@@ -1734,7 +1731,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %exitcond24.not = icmp eq i32 %62, %1
   br i1 %exitcond24.not, label %._crit_edge15, label %15, !llvm.loop !16
 
-._crit_edge15:                                    ; preds = %61, %6, %.preheader1
+._crit_edge15:                                    ; preds = %61, %6
   ret void
 }
 

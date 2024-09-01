@@ -55,9 +55,8 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
   %20 = icmp sgt i32 %19, 0
   %21 = icmp ugt ptr %18, %.0186.ph
   %or.cond = and i1 %20, %21
-  %brmerge = or i1 %or.cond, %17
   %.mux = select i1 %or.cond, ptr %18, ptr %7
-  br i1 %brmerge, label %.lr.ph301.us, label %infloop, !llvm.loop !5
+  br label %.lr.ph301.us, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %.0188304 = phi ptr [ %.0188, %.critedge ], [ %7, %.preheader.lr.ph ]
@@ -490,9 +489,6 @@ qsort_interruptible_swapn.exit256:                ; preds = %.lr.ph.i253, %qsort
 
 .critedge223:                                     ; preds = %203, %215, %33, %40, %.critedge, %.preheader258
   ret void
-
-infloop:                                          ; preds = %.lr.ph301.us, %infloop
-  br label %infloop
 }
 
 declare void @ProcessInterrupts() local_unnamed_addr #1

@@ -1736,40 +1736,37 @@ _ZNSt6vectorIhSaIhEED2Ev.exit36:                  ; preds = %246, %244, %96
   call void @_ZdlPvm(ptr noundef nonnull %251, i64 noundef %256) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit38
 
-_ZNSt6vectorIhSaIhEED2Ev.exit34:                  ; preds = %239, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  br i1 %19, label %257, label %_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit
+_ZNSt6vectorIhSaIhEED2Ev.exit34:                  ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %239
+  %257 = getelementptr inbounds i8, ptr %3, i64 8
+  %258 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = load ptr, ptr %258, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %259, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %260
 
-257:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit34
-  %258 = getelementptr inbounds i8, ptr %3, i64 8
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
-  %260 = load ptr, ptr %259, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %260, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %261
-
-261:                                              ; preds = %257
-  %262 = getelementptr inbounds i8, ptr %3, i64 48
-  %263 = load ptr, ptr %262, align 8
-  %264 = ptrtoint ptr %263 to i64
-  %265 = ptrtoint ptr %260 to i64
-  %266 = sub i64 %264, %265
-  call void @_ZdlPvm(ptr noundef nonnull %260, i64 noundef %266) #19
+260:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit34
+  %261 = getelementptr inbounds i8, ptr %3, i64 48
+  %262 = load ptr, ptr %261, align 8
+  %263 = ptrtoint ptr %262 to i64
+  %264 = ptrtoint ptr %259 to i64
+  %265 = sub i64 %263, %264
+  call void @_ZdlPvm(ptr noundef nonnull %259, i64 noundef %265) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %261, %257
-  %267 = load ptr, ptr %258, align 8
-  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %267, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit, label %268
+_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %260, %_ZNSt6vectorIhSaIhEED2Ev.exit34
+  %266 = load ptr, ptr %257, align 8
+  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %266, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit, label %267
 
-268:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  %269 = getelementptr inbounds i8, ptr %3, i64 24
-  %270 = load ptr, ptr %269, align 8
-  %271 = ptrtoint ptr %270 to i64
-  %272 = ptrtoint ptr %267 to i64
-  %273 = sub i64 %271, %272
-  call void @_ZdlPvm(ptr noundef nonnull %267, i64 noundef %273) #19
+267:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
+  %268 = getelementptr inbounds i8, ptr %3, i64 24
+  %269 = load ptr, ptr %268, align 8
+  %270 = ptrtoint ptr %269 to i64
+  %271 = ptrtoint ptr %266 to i64
+  %272 = sub i64 %270, %271
+  call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %272) #19
   br label %_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit
 
-_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit34.thread, %_ZNSt6vectorIhSaIhEED2Ev.exit34, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %268
+_ZN5cxx208expectedISt4pairISt6vectorIhSaIhEES4_EN8WasmEdge7ErrCodeEED2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit34.thread, %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %267
   ret void
 
 _ZNSt6vectorIhSaIhEED2Ev.exit38:                  ; preds = %252, %_ZNSt6vectorIhSaIhEED2Ev.exit36, %23

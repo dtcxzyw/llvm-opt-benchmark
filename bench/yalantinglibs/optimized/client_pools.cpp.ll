@@ -15470,7 +15470,6 @@ do.body:                                          ; preds = %do.body.backedge, %
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body
-  %cmp11.i.i = phi i1 [ true, %do.body ], [ %cmp.i.i, %for.inc.i.i ]
   %__i.010.i.i = phi i32 [ 0, %do.body ], [ %inc.i.i, %for.inc.i.i ]
   %1 = load atomic i32, ptr %__pred.coerce acquire, align 4
   %cmp.i.i.i.i = icmp eq i32 %1, 0
@@ -15480,7 +15479,7 @@ _ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i: ; preds = %for.bo
   %sub.i.i.i.i = add nsw i32 %1, -1
   %2 = cmpxchg ptr %__pred.coerce, i32 %1, i32 %sub.i.i.i.i acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit, label %if.end.i.i
+  br i1 %3, label %do.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i, %for.body.i.i
   %cmp1.i.i = icmp ult i32 %__i.010.i.i, 12
@@ -15496,15 +15495,10 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then2.i.i
   %inc.i.i = add nuw nsw i32 %__i.010.i.i, 1
-  %cmp.i.i = icmp ult i32 %__i.010.i.i, 15
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 16
-  br i1 %exitcond.not.i.i, label %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit, label %for.body.i.i, !llvm.loop !97
+  br i1 %exitcond.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !97
 
-_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit: ; preds = %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i, %for.inc.i.i
-  %cmp.lcssa.i.i = phi i1 [ %cmp.i.i, %for.inc.i.i ], [ %cmp11.i.i, %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i ]
-  br i1 %cmp.lcssa.i.i, label %do.end, label %if.end
-
-if.end:                                           ; preds = %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit
+if.end:                                           ; preds = %for.inc.i.i
   %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %__addr, i32 noundef 0, i32 noundef %0, ptr null) #26
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit, label %lor.lhs.false.i
@@ -15533,19 +15527,19 @@ terminate.lpad.i:                                 ; preds = %if.then4.i
 
 _ZNSt8__detail15__platform_waitIiEEvPKT_i.exit:   ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false.i
   %7 = load atomic i32, ptr %__pred.coerce acquire, align 4
-  %cmp.i.i2 = icmp eq i32 %7, 0
-  br i1 %cmp.i.i2, label %do.body.backedge, label %if.end.i.i3
+  %cmp.i.i = icmp eq i32 %7, 0
+  br i1 %cmp.i.i, label %do.body.backedge, label %if.end.i.i2
 
-if.end.i.i3:                                      ; preds = %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
+if.end.i.i2:                                      ; preds = %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
   %sub.i.i = add nsw i32 %7, -1
   %8 = cmpxchg ptr %__pred.coerce, i32 %7, i32 %sub.i.i acquire monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
   br i1 %9, label %do.end, label %do.body.backedge
 
-do.body.backedge:                                 ; preds = %if.end.i.i3, %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
+do.body.backedge:                                 ; preds = %if.end.i.i2, %_ZNSt8__detail15__platform_waitIiEEvPKT_i.exit
   br label %do.body, !llvm.loop !98
 
-do.end:                                           ; preds = %if.end.i.i3, %_ZNSt8__detail13__waiter_baseINS_13__waiter_poolEE10_S_do_spinIZNSt18__atomic_semaphore10_M_acquireEvEUlvE_NS_21__default_spin_policyEEEbPKiT_RiT0_.exit
+do.end:                                           ; preds = %if.end.i.i2, %_ZZNSt18__atomic_semaphore10_M_acquireEvENKUlvE_clEv.exit.i.i
   ret void
 }
 
@@ -33397,8 +33391,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.then
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %2, %land.lhs.true.i.i.i.i ], [ %5, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.end57, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.end57, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -33443,8 +33437,8 @@ land.lhs.true.i.i.i.i5:                           ; preds = %land.lhs.true.i.i.i
 
 do.body.i.i.i.i.i7:                               ; preds = %do.cond.i.i.i.i.i10, %land.lhs.true.i.i.i.i5
   %__count.0.i.i.i.i.i8 = phi i32 [ %12, %land.lhs.true.i.i.i.i5 ], [ %15, %do.cond.i.i.i.i.i10 ]
-  %cmp.not.i.not.i.i.i.i9 = icmp eq i32 %__count.0.i.i.i.i.i8, 0
-  br i1 %cmp.not.i.not.i.i.i.i9, label %while.end, label %do.cond.i.i.i.i.i10
+  %cmp.not.not.not.i.not.i.i.i.i9 = icmp eq i32 %__count.0.i.i.i.i.i8, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i9, label %while.end, label %do.cond.i.i.i.i.i10
 
 do.cond.i.i.i.i.i10:                              ; preds = %do.body.i.i.i.i.i7
   %add.i.i.i.i.i11 = add nsw i32 %__count.0.i.i.i.i.i8, 1
@@ -67062,8 +67056,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %37, %lor.lhs.false.i.i.i.i ], [ %40, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i98, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i98, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -68869,16 +68863,13 @@ _ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit:
 while.end:                                        ; preds = %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit
   %sub46 = sub i64 %cond38, %index.0
   fence release
-  br i1 %cmp42.not70, label %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE5Block14set_many_emptyILNS8_17InnerQueueContextE1EEEbmm.exit, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %while.end
   %and.i67 = and i64 %index.0, 31
   %emptyFlags.i = getelementptr inbounds i8, ptr %13, i64 272
   %15 = add i64 %and.i67, %sub46
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %j.06.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %while.end
+  %j.06.i = phi i64 [ 0, %while.end ], [ %inc.i, %for.body.i ]
   %reass.sub = sub i64 %j.06.i, %15
   %add3.i = add i64 %reass.sub, 32
   %arrayidx.i = getelementptr inbounds [32 x %"struct.std::atomic.50"], ptr %emptyFlags.i, i64 0, i64 %add3.i
@@ -68887,8 +68878,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.not.i69 = icmp eq i64 %inc.i, %sub46
   br i1 %cmp.not.i69, label %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE5Block14set_many_emptyILNS8_17InnerQueueContextE1EEEbmm.exit, label %for.body.i, !llvm.loop !769
 
-_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE5Block14set_many_emptyILNS8_17InnerQueueContextE1EEEbmm.exit: ; preds = %for.body.i, %while.end.thread, %while.end
-  %index.1.lcssa74 = phi i64 [ %index.0, %while.end.thread ], [ %cond38, %while.end ], [ %cond38, %for.body.i ]
+_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE5Block14set_many_emptyILNS8_17InnerQueueContextE1EEEbmm.exit: ; preds = %for.body.i, %while.end.thread
+  %index.1.lcssa74 = phi i64 [ %index.0, %while.end.thread ], [ %cond38, %for.body.i ]
   %add48 = add i64 %indexIndex.0, 1
   %16 = load i64, ptr %atomic-temp.i.0.i, align 8
   %sub50 = add i64 %16, -1
@@ -76713,8 +76704,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %init.ready
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %6, %land.lhs.true.i.i.i.i ], [ %9, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -77018,8 +77009,8 @@ land.lhs.true.i.i.i.i57:                          ; preds = %_ZN12async_simple4c
 
 do.body.i.i.i.i.i59:                              ; preds = %do.cond.i.i.i.i.i62, %land.lhs.true.i.i.i.i57
   %__count.0.i.i.i.i.i60 = phi i32 [ %53, %land.lhs.true.i.i.i.i57 ], [ %56, %do.cond.i.i.i.i.i62 ]
-  %cmp.not.i.not.i.i.i.i61 = icmp eq i32 %__count.0.i.i.i.i.i60, 0
-  br i1 %cmp.not.i.not.i.i.i.i61, label %if.then.i.i.i.i72, label %do.cond.i.i.i.i.i62
+  %cmp.not.not.not.i.not.i.i.i.i61 = icmp eq i32 %__count.0.i.i.i.i.i60, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i61, label %if.then.i.i.i.i72, label %do.cond.i.i.i.i.i62
 
 do.cond.i.i.i.i.i62:                              ; preds = %do.body.i.i.i.i.i59
   %add.i.i.i.i.i63 = add nsw i32 %__count.0.i.i.i.i.i60, 1
@@ -81578,8 +81569,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %invoke.cont65
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %22, %lor.lhs.false.i.i.i.i ], [ %25, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i86, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i86, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1

@@ -1012,8 +1012,8 @@ for.cond:                                         ; preds = %for.inc, %_ZNKSt5de
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 4
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
-  %cmp.not = icmp uge i64 %i.0, %add12.i.i
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %i.0, %add12.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %10 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !19
@@ -1084,7 +1084,7 @@ for.inc:                                          ; preds = %invoke.cont
   br label %for.cond, !llvm.loop !22
 
 return:                                           ; preds = %for.cond, %cleanup
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

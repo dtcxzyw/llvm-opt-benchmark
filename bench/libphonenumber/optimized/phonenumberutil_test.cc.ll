@@ -6593,7 +6593,7 @@ _ZN7testing15AssertionResultD2Ev.exit178:         ; preds = %339, %_ZNKSt14defau
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   %341 = getelementptr inbounds i8, ptr %.sroa.0211.0236, i64 32
   %.not229 = icmp eq ptr %341, %213
-  br i1 %.not229, label %._crit_edge239, label %218
+  br i1 %.not229, label %.lr.ph.i.i.i.i, label %218
 
 342:                                              ; preds = %_ZN7testing7MessageD2Ev.exit175, %316
   %.pn63.pn = phi { ptr, i32 } [ %.pn63, %_ZN7testing7MessageD2Ev.exit175 ], [ %317, %316 ]
@@ -6605,17 +6605,14 @@ _ZN7testing15AssertionResultD2Ev.exit178:         ; preds = %339, %_ZNKSt14defau
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   br label %350
 
-._crit_edge239:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit178
-  br i1 %.not229235, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge239, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %344, %.lr.ph.i.i.i.i ], [ %212, %._crit_edge239 ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit178, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %344, %.lr.ph.i.i.i.i ], [ %212, %_ZN7testing15AssertionResultD2Ev.exit178 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #18
   %344 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %344, %213
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %211, %._crit_edge239
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %211
   %.not.i.i.i179 = icmp eq ptr %212, null
   br i1 %.not.i.i.i179, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %345
 

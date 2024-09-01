@@ -3872,7 +3872,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %54, %56, %58, %60
   %141 = getelementptr inbounds i32, ptr %140, i64 %139
   %142 = trunc nuw nsw i64 %indvars.iv209 to i32
   store i32 %142, ptr %141, align 4
-  br i1 %61, label %.lr.ph182, label %.loopexit170
+  br label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %138, %.sink.split.i.i127
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.sink.split.i.i127 ], [ 0, %138 ]
@@ -3974,7 +3974,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %54, %56, %58, %60
   store i32 %188, ptr %186, align 4
   br label %.loopexit170
 
-.loopexit170:                                     ; preds = %.sink.split.i.i127, %138, %._crit_edge179.thread
+.loopexit170:                                     ; preds = %.sink.split.i.i127, %._crit_edge179.thread
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
   br i1 %exitcond213.not, label %.preheader, label %70, !llvm.loop !24

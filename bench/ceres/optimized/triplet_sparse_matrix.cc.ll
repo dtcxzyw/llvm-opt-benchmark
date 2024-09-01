@@ -1163,40 +1163,33 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal19TripletSparseMatrix23AllT
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %14 = load i32, ptr %6, align 4
-  %15 = icmp sgt i32 %14, -1
-  %.not17 = icmp slt i32 %14, %8
-  %or.cond18 = select i1 %15, i1 %.not17, i1 false
-  br i1 %or.cond18, label %.lr.ph20, label %._crit_edge
+  br label %14
 
-16:                                               ; preds = %.lr.ph20
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv19, 1
-  %17 = icmp uge i64 %indvars.iv.next, %13
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %18, !llvm.loop !15
+13:                                               ; preds = %18
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next
+14:                                               ; preds = %.lr.ph, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %15 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp sgt i32 %16, -1
+  %.not = icmp slt i32 %16, %8
+  %or.cond = select i1 %17, i1 %.not, i1 false
+  br i1 %or.cond, label %18, label %._crit_edge
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
-  %.not = icmp slt i32 %20, %8
-  %or.cond = select i1 %21, i1 %.not, i1 false
-  br i1 %or.cond, label %.lr.ph20, label %._crit_edge, !llvm.loop !15
+  %.not8 = icmp slt i32 %20, %12
+  %or.cond11 = select i1 %21, i1 %.not8, i1 false
+  br i1 %or.cond11, label %13, label %._crit_edge
 
-.lr.ph20:                                         ; preds = %.lr.ph, %18
-  %22 = phi i1 [ %17, %18 ], [ false, %.lr.ph ]
-  %indvars.iv19 = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv19
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp sgt i32 %24, -1
-  %.not8 = icmp slt i32 %24, %12
-  %or.cond11 = select i1 %25, i1 %.not8, i1 false
-  br i1 %or.cond11, label %16, label %._crit_edge
-
-._crit_edge:                                      ; preds = %16, %18, %.lr.ph20, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %22, %.lr.ph20 ], [ %17, %18 ], [ %17, %16 ]
+._crit_edge:                                      ; preds = %18, %14, %13, %1
+  %.lcssa = phi i1 [ true, %1 ], [ true, %13 ], [ false, %14 ], [ false, %18 ]
   ret i1 %.lcssa
 }
 

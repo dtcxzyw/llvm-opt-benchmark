@@ -23419,8 +23419,8 @@ common.resume:                                    ; preds = %98, %73
   call void @_ZN3hir6Module4name17h6ae631a1a099d0b6E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %16, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 1 %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0ab522f289baf4cd42b9be0acdbaeb6.20)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   %79 = load i8, ptr %16, align 8, !range !1599, !noundef !8
-  %.not7.not = icmp eq i8 %79, 27
-  br i1 %.not7.not, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h852c0cc8bc06109eE.exit", label %93
+  %.not7 = icmp eq i8 %79, 27
+  br i1 %.not7, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h852c0cc8bc06109eE.exit", label %93
 
 80:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h852c0cc8bc06109eE.exit", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ec0027f7eb91ee4E.exit"
   %81 = getelementptr inbounds i8, ptr %2, i64 8

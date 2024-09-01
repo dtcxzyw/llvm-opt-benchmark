@@ -11038,81 +11038,79 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
   br i1 %exitcond266.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %314
-  %not. = xor i1 %21, true
-  %316 = select i1 %not., i1 true, i1 %217
-  br i1 %316, label %.loopexit, label %317
+  br i1 %217, label %.loopexit, label %316
 
-317:                                              ; preds = %._crit_edge
-  %318 = load i32, ptr %215, align 8
-  %319 = icmp eq i32 %318, 1
-  br i1 %319, label %.loopexit, label %320
+316:                                              ; preds = %._crit_edge
+  %317 = load i32, ptr %215, align 8
+  %318 = icmp eq i32 %317, 1
+  br i1 %318, label %.loopexit, label %319
 
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %0, i64 56
-  %322 = getelementptr inbounds i8, ptr %8, i64 20
-  %323 = load i32, ptr %322, align 4
-  %324 = icmp sgt i32 %323, 1
-  %325 = select i1 %324, i32 0, i32 128
-  %326 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %321, i32 noundef %325, i32 noundef -1)
-  %.not139 = icmp eq i32 %326, 0
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds i8, ptr %0, i64 56
+  %321 = getelementptr inbounds i8, ptr %8, i64 20
+  %322 = load i32, ptr %321, align 4
+  %323 = icmp sgt i32 %322, 1
+  %324 = select i1 %323, i32 0, i32 128
+  %325 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %320, i32 noundef %324, i32 noundef -1)
+  %.not139 = icmp eq i32 %325, 0
   br i1 %.not139, label %.loopexit, label %add_ctype_to_cc_by_range.exit
 
-.preheader175:                                    ; preds = %281, %342
-  %.5204 = phi i32 [ %343, %342 ], [ 0, %281 ]
-  br i1 %217, label %331, label %327
+.preheader175:                                    ; preds = %281, %341
+  %.5204 = phi i32 [ %342, %341 ], [ 0, %281 ]
+  br i1 %217, label %330, label %326
 
-327:                                              ; preds = %.preheader175
-  %328 = load ptr, ptr %282, align 8
-  %329 = call i32 %328(i32 noundef %.5204) #25
-  %330 = icmp eq i32 %329, 1
-  br i1 %330, label %331, label %342
+326:                                              ; preds = %.preheader175
+  %327 = load ptr, ptr %282, align 8
+  %328 = call i32 %327(i32 noundef %.5204) #25
+  %329 = icmp eq i32 %328, 1
+  br i1 %329, label %330, label %341
 
-331:                                              ; preds = %327, %.preheader175
-  %332 = load ptr, ptr %283, align 8
-  %333 = call i32 %332(i32 noundef %.5204, i32 noundef %1) #25
-  %.not138 = icmp eq i32 %333, 0
-  br i1 %.not138, label %342, label %334
+330:                                              ; preds = %326, %.preheader175
+  %331 = load ptr, ptr %283, align 8
+  %332 = call i32 %331(i32 noundef %.5204, i32 noundef %1) #25
+  %.not138 = icmp eq i32 %332, 0
+  br i1 %.not138, label %341, label %333
 
-334:                                              ; preds = %331
-  %335 = and i32 %.5204, 31
-  %336 = shl nuw i32 1, %335
-  %337 = lshr i32 %.5204, 5
-  %338 = zext nneg i32 %337 to i64
-  %339 = getelementptr inbounds [8 x i32], ptr %284, i64 0, i64 %338
-  %340 = load i32, ptr %339, align 4
-  %341 = or i32 %340, %336
-  store i32 %341, ptr %339, align 4
-  br label %342
+333:                                              ; preds = %330
+  %334 = and i32 %.5204, 31
+  %335 = shl nuw i32 1, %334
+  %336 = lshr i32 %.5204, 5
+  %337 = zext nneg i32 %336 to i64
+  %338 = getelementptr inbounds [8 x i32], ptr %284, i64 0, i64 %337
+  %339 = load i32, ptr %338, align 4
+  %340 = or i32 %339, %335
+  store i32 %340, ptr %338, align 4
+  br label %341
 
-342:                                              ; preds = %327, %331, %334
-  %343 = add nuw nsw i32 %.5204, 1
-  %exitcond268.not = icmp eq i32 %343, %218
-  br i1 %exitcond268.not, label %344, label %.preheader175, !llvm.loop !70
+341:                                              ; preds = %326, %330, %333
+  %342 = add nuw nsw i32 %.5204, 1
+  %exitcond268.not = icmp eq i32 %342, %218
+  br i1 %exitcond268.not, label %343, label %.preheader175, !llvm.loop !70
 
-344:                                              ; preds = %342
-  %345 = select i1 %21, i1 true, i1 %217
-  br i1 %345, label %.loopexit, label %346
+343:                                              ; preds = %341
+  %344 = select i1 %21, i1 true, i1 %217
+  br i1 %344, label %.loopexit, label %345
 
-346:                                              ; preds = %344
-  %347 = load i32, ptr %215, align 8
-  %348 = icmp eq i32 %347, 1
-  br i1 %348, label %.loopexit, label %349
+345:                                              ; preds = %343
+  %346 = load i32, ptr %215, align 8
+  %347 = icmp eq i32 %346, 1
+  br i1 %347, label %.loopexit, label %348
 
-349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %0, i64 56
-  %351 = getelementptr inbounds i8, ptr %8, i64 20
-  %352 = load i32, ptr %351, align 4
-  %353 = icmp sgt i32 %352, 1
-  %354 = select i1 %353, i32 0, i32 128
-  %355 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %350, i32 noundef %354, i32 noundef -1)
-  %.not137 = icmp eq i32 %355, 0
+348:                                              ; preds = %345
+  %349 = getelementptr inbounds i8, ptr %0, i64 56
+  %350 = getelementptr inbounds i8, ptr %8, i64 20
+  %351 = load i32, ptr %350, align 4
+  %352 = icmp sgt i32 %351, 1
+  %353 = select i1 %352, i32 0, i32 128
+  %354 = call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %349, i32 noundef %353, i32 noundef -1)
+  %.not137 = icmp eq i32 %354, 0
   br i1 %.not137, label %.loopexit, label %add_ctype_to_cc_by_range.exit
 
-.loopexit:                                        ; preds = %279, %.preheader176, %320, %317, %._crit_edge, %349, %346, %344, %257, %254, %._crit_edge208
+.loopexit:                                        ; preds = %279, %.preheader176, %319, %316, %._crit_edge, %348, %345, %343, %257, %254, %._crit_edge208
   br label %add_ctype_to_cc_by_range.exit
 
-add_ctype_to_cc_by_range.exit:                    ; preds = %106, %62, %206, %156, %.loopexit.i148, %._crit_edge39.i, %131, %.loopexit.i, %._crit_edge32.i, %45, %214, %349, %320, %257, %20, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ %24, %20 ], [ %263, %257 ], [ %326, %320 ], [ %355, %349 ], [ -11, %214 ], [ 0, %.loopexit.i ], [ %47, %45 ], [ %114, %._crit_edge32.i ], [ 0, %.loopexit.i148 ], [ %133, %131 ], [ %213, %._crit_edge39.i ], [ %158, %156 ], [ %208, %206 ], [ %68, %62 ], [ %108, %106 ]
+add_ctype_to_cc_by_range.exit:                    ; preds = %106, %62, %206, %156, %.loopexit.i148, %._crit_edge39.i, %131, %.loopexit.i, %._crit_edge32.i, %45, %214, %348, %319, %257, %20, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ %24, %20 ], [ %263, %257 ], [ %325, %319 ], [ %354, %348 ], [ -11, %214 ], [ 0, %.loopexit.i ], [ %47, %45 ], [ %114, %._crit_edge32.i ], [ 0, %.loopexit.i148 ], [ %133, %131 ], [ %213, %._crit_edge39.i ], [ %158, %156 ], [ %208, %206 ], [ %68, %62 ], [ %108, %106 ]
   ret i32 %.0
 }
 
@@ -12760,12 +12758,9 @@ define internal fastcc noundef ptr @node_new_backref(i32 noundef %0, ptr nocaptu
 
 .loopexit58:                                      ; preds = %46, %43
   %47 = icmp slt i32 %0, 7
-  br i1 %47, label %.preheader, label %51
+  br i1 %47, label %.lr.ph63, label %51
 
-.preheader:                                       ; preds = %.loopexit58
-  br i1 %28, label %.lr.ph63, label %.loopexit
-
-.lr.ph63:                                         ; preds = %.preheader
+.lr.ph63:                                         ; preds = %.loopexit58
   %48 = getelementptr inbounds i8, ptr %calloc.i, i64 20
   %49 = zext nneg i32 %0 to i64
   %50 = shl nuw nsw i64 %49, 2
@@ -12789,7 +12784,7 @@ onig_node_free.exit:                              ; preds = %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull align 4 %1, i64 %53, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %.lr.ph61.preheader, %.lr.ph63, %.preheader
+.loopexit:                                        ; preds = %26, %.lr.ph61.preheader, %.lr.ph63
   %56 = getelementptr inbounds i8, ptr %5, i64 232
   %57 = load i32, ptr %56, align 8
   %58 = add nsw i32 %57, 1

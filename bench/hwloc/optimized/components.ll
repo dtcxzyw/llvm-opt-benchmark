@@ -1011,61 +1011,61 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
   %.not109145 = icmp eq i8 %5, 0
   br i1 %.not109145, label %.critedge131, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader141, %.lr.ph._crit_edge
-  %6 = phi i8 [ %21, %.lr.ph._crit_edge ], [ %5, %.preheader141 ]
-  %.098146 = phi ptr [ %spec.select, %.lr.ph._crit_edge ], [ %4, %.preheader141 ]
-  %7 = tail call i64 @strcspn(ptr noundef nonnull %.098146, ptr noundef nonnull @.str.6) #23
-  %.not127 = icmp ne i64 %7, 0
-  %.not128 = icmp eq i8 %6, 45
-  %or.cond = and i1 %.not128, %.not127
-  %8 = getelementptr inbounds i8, ptr %.098146, i64 %7
-  %9 = load i8, ptr %8, align 1
-  br i1 %or.cond, label %10, label %.lr.ph._crit_edge
-
-10:                                               ; preds = %.lr.ph
-  store i8 0, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %.098146, i64 1
-  %12 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef %0, ptr noundef nonnull %11)
-  br label %13
-
-13:                                               ; preds = %10, %13
-  %14 = phi i64 [ 0, %10 ], [ %17, %13 ]
-  %.096144 = phi i32 [ 0, %10 ], [ %16, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.098146, i64 %14
-  store i8 44, ptr %15, align 1
-  %16 = add i32 %.096144, 1
-  %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %7, %17
-  br i1 %18, label %13, label %19, !llvm.loop !13
-
-19:                                               ; preds = %13
-  store i8 %9, ptr %8, align 1
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %19
-  %20 = getelementptr inbounds i8, ptr %.098146, i64 %7
-  %.not129 = icmp ne i8 %9, 0
-  %spec.select.idx = zext i1 %.not129 to i64
-  %spec.select = getelementptr inbounds i8, ptr %20, i64 %spec.select.idx
-  %21 = load i8, ptr %spec.select, align 1
-  %.not109 = icmp eq i8 %21, 0
-  br i1 %.not109, label %.preheader139, label %.lr.ph, !llvm.loop !14
-
 .preheader139:                                    ; preds = %.lr.ph._crit_edge
-  %.pre178 = load i8, ptr %4, align 1
-  %22 = icmp eq i8 %.pre178, 0
-  br i1 %22, label %.critedge131, label %.lr.ph152
+  %.pre176 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %.pre176, 0
+  br i1 %6, label %.critedge131, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.preheader139
-  %23 = getelementptr inbounds i8, ptr %0, i64 904
-  %24 = getelementptr inbounds i8, ptr %0, i64 912
+  %7 = getelementptr inbounds i8, ptr %0, i64 904
+  %8 = getelementptr inbounds i8, ptr %0, i64 912
   br label %25
 
-25:                                               ; preds = %.lr.ph152, %._crit_edge
-  %.094150 = phi ptr [ %4, %.lr.ph152 ], [ %spec.select130, %._crit_edge ]
+.lr.ph:                                           ; preds = %.preheader141, %.lr.ph._crit_edge
+  %9 = phi i8 [ %24, %.lr.ph._crit_edge ], [ %5, %.preheader141 ]
+  %.098146 = phi ptr [ %spec.select, %.lr.ph._crit_edge ], [ %4, %.preheader141 ]
+  %10 = tail call i64 @strcspn(ptr noundef nonnull %.098146, ptr noundef nonnull @.str.6) #23
+  %.not127 = icmp ne i64 %10, 0
+  %.not128 = icmp eq i8 %9, 45
+  %or.cond = and i1 %.not128, %.not127
+  %11 = getelementptr inbounds i8, ptr %.098146, i64 %10
+  %12 = load i8, ptr %11, align 1
+  br i1 %or.cond, label %13, label %.lr.ph._crit_edge
+
+13:                                               ; preds = %.lr.ph
+  store i8 0, ptr %11, align 1
+  %14 = getelementptr inbounds i8, ptr %.098146, i64 1
+  %15 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef %0, ptr noundef nonnull %14)
+  br label %16
+
+16:                                               ; preds = %13, %16
+  %17 = phi i64 [ 0, %13 ], [ %20, %16 ]
+  %.096144 = phi i32 [ 0, %13 ], [ %19, %16 ]
+  %18 = getelementptr inbounds i8, ptr %.098146, i64 %17
+  store i8 44, ptr %18, align 1
+  %19 = add i32 %.096144, 1
+  %20 = zext i32 %19 to i64
+  %21 = icmp ugt i64 %10, %20
+  br i1 %21, label %16, label %22, !llvm.loop !13
+
+22:                                               ; preds = %16
+  store i8 %12, ptr %11, align 1
+  br label %.lr.ph._crit_edge
+
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %22
+  %23 = getelementptr inbounds i8, ptr %.098146, i64 %10
+  %.not129 = icmp ne i8 %12, 0
+  %spec.select.idx = zext i1 %.not129 to i64
+  %spec.select = getelementptr inbounds i8, ptr %23, i64 %spec.select.idx
+  %24 = load i8, ptr %spec.select, align 1
+  %.not109 = icmp eq i8 %24, 0
+  br i1 %.not109, label %.preheader139, label %.lr.ph, !llvm.loop !14
+
+25:                                               ; preds = %.lr.ph152, %._crit_edge177
+  %.094150 = phi ptr [ %4, %.lr.ph152 ], [ %spec.select130, %._crit_edge177 ]
   %26 = tail call i64 @strcspn(ptr noundef nonnull %.094150, ptr noundef nonnull @.str.6) #23
   %.not111 = icmp eq i64 %26, 0
-  br i1 %.not111, label %._crit_edge, label %27
+  br i1 %.not111, label %._crit_edge177, label %27
 
 27:                                               ; preds = %25
   %28 = tail call i32 @strncmp(ptr noundef nonnull %.094150, ptr noundef nonnull @.str.7, i64 noundef %26) #23
@@ -1125,12 +1125,12 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
   br i1 %.not23.i, label %hwloc_disc_component_find.exit.preheader, label %53
 
 hwloc_disc_component_find.exit.preheader:         ; preds = %.lr.ph.i
-  %51 = load i32, ptr %23, align 8
-  %.not165 = icmp eq i32 %51, 0
-  br i1 %.not165, label %.loopexit137, label %.lr.ph148
+  %51 = load i32, ptr %7, align 8
+  %.not163 = icmp eq i32 %51, 0
+  br i1 %.not163, label %.loopexit137, label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %hwloc_disc_component_find.exit.preheader
-  %52 = load ptr, ptr %24, align 8
+  %52 = load ptr, ptr %8, align 8
   %wide.trip.count = zext i32 %51 to i64
   br label %55
 
@@ -1182,9 +1182,9 @@ hwloc_disc_component_find.exit:                   ; preds = %55
 
 72:                                               ; preds = %.loopexit138, %69, %.loopexit137, %66
   store i8 %31, ptr %30, align 1
-  br label %._crit_edge
+  br label %._crit_edge177
 
-._crit_edge:                                      ; preds = %25, %72
+._crit_edge177:                                   ; preds = %25, %72
   %73 = phi i8 [ %31, %72 ], [ 1, %25 ]
   %74 = getelementptr inbounds i8, ptr %.094150, i64 %26
   %.not126 = icmp ne i8 %73, 0
@@ -1194,8 +1194,8 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   %.not110 = icmp eq i8 %75, 0
   br i1 %.not110, label %.critedge131, label %25, !llvm.loop !16
 
-.critedge131:                                     ; preds = %._crit_edge, %.preheader141, %.preheader139, %1, %3
-  %76 = phi ptr [ null, %3 ], [ null, %1 ], [ %4, %.preheader139 ], [ %4, %.preheader141 ], [ %4, %._crit_edge ]
+.critedge131:                                     ; preds = %._crit_edge177, %.preheader141, %.preheader139, %1, %3
+  %76 = phi ptr [ null, %3 ], [ null, %1 ], [ %4, %.preheader139 ], [ %4, %.preheader141 ], [ %4, %._crit_edge177 ]
   %.092155 = load ptr, ptr @hwloc_disc_components, align 8
   %.not114156 = icmp eq ptr %.092155, null
   br i1 %.not114156, label %.critedge, label %.lr.ph158
@@ -1215,22 +1215,22 @@ hwloc_disc_component_find.exit:                   ; preds = %55
 
 .preheader:                                       ; preds = %80
   %83 = load i32, ptr %77, align 8
-  %.not166 = icmp eq i32 %83, 0
-  br i1 %.not166, label %.loopexit, label %.lr.ph154
+  %.not164 = icmp eq i32 %83, 0
+  br i1 %.not164, label %.loopexit, label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %.preheader
   %84 = load ptr, ptr %78, align 8
-  %wide.trip.count176 = zext i32 %83 to i64
+  %wide.trip.count174 = zext i32 %83 to i64
   br label %86
 
 85:                                               ; preds = %86
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.loopexit, label %86, !llvm.loop !17
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
+  br i1 %exitcond175.not, label %.loopexit, label %86, !llvm.loop !17
 
 86:                                               ; preds = %.lr.ph154, %85
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next174, %85 ]
-  %87 = getelementptr inbounds %struct.hwloc_topology_forced_component_s, ptr %84, i64 %indvars.iv173
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next172, %85 ]
+  %87 = getelementptr inbounds %struct.hwloc_topology_forced_component_s, ptr %84, i64 %indvars.iv171
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %.092157, %88
   br i1 %89, label %90, label %85
@@ -1325,11 +1325,11 @@ hwloc_disc_component_try_enable.exit:             ; preds = %124, %120, %110, %1
   %136 = load ptr, ptr @stderr, align 8
   %137 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 51, i64 1, ptr %136) #26
   %.not116159 = icmp eq ptr %135, null
-  br i1 %.not116159, label %._crit_edge164, label %.lr.ph163
+  br i1 %.not116159, label %._crit_edge, label %.lr.ph162
 
-.lr.ph163:                                        ; preds = %133, %.lr.ph163
-  %.not117161 = phi ptr [ @.str.6, %.lr.ph163 ], [ @.str.16, %133 ]
-  %.093160 = phi ptr [ %145, %.lr.ph163 ], [ %135, %133 ]
+.lr.ph162:                                        ; preds = %133, %.lr.ph162
+  %.not117161 = phi ptr [ @.str.6, %.lr.ph162 ], [ @.str.16, %133 ]
+  %.093160 = phi ptr [ %145, %.lr.ph162 ], [ %135, %133 ]
   %138 = load ptr, ptr @stderr, align 8
   %139 = load ptr, ptr %.093160, align 8
   %140 = load ptr, ptr %139, align 8
@@ -1339,14 +1339,14 @@ hwloc_disc_component_try_enable.exit:             ; preds = %124, %120, %110, %1
   %144 = getelementptr inbounds i8, ptr %.093160, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not116 = icmp eq ptr %145, null
-  br i1 %.not116, label %._crit_edge164, label %.lr.ph163, !llvm.loop !19
+  br i1 %.not116, label %._crit_edge, label %.lr.ph162, !llvm.loop !19
 
-._crit_edge164:                                   ; preds = %.lr.ph163, %133
+._crit_edge:                                      ; preds = %.lr.ph162, %133
   %146 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %146)
   br label %147
 
-147:                                              ; preds = %._crit_edge164, %.critedge
+147:                                              ; preds = %._crit_edge, %.critedge
   tail call void @free(ptr noundef %131) #22
   ret void
 }
@@ -1564,7 +1564,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
   %13 = and i64 %12, 2
   %.not18 = icmp eq i64 %13, 0
   %spec.select24 = select i1 %.not18, i32 %.1, i32 1
-  br i1 %.not27, label %._crit_edge36, label %.lr.ph35
+  br label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %._crit_edge, %20
   %.11633 = phi ptr [ %.116, %20 ], [ %.01526, %._crit_edge ]
@@ -1588,8 +1588,8 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
   %.not19 = icmp eq ptr %.116, null
   br i1 %.not19, label %._crit_edge36, label %.lr.ph35, !llvm.loop !22
 
-._crit_edge36:                                    ; preds = %20, %1, %._crit_edge
-  %.3.lcssa = phi i32 [ %spec.select24, %._crit_edge ], [ 1, %1 ], [ %.4, %20 ]
+._crit_edge36:                                    ; preds = %20, %1
+  %.3.lcssa = phi i32 [ 1, %1 ], [ %.4, %20 ]
   %22 = tail call ptr @getenv(ptr noundef nonnull @.str.22) #22
   %.not20 = icmp eq ptr %22, null
   br i1 %.not20, label %25, label %23

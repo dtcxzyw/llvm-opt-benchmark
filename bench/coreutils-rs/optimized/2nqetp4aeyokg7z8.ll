@@ -1453,7 +1453,7 @@ _ZN5xattr4list17hd4dcecdffa308025E.exit:          ; preds = %"_ZN4core6result19R
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %73 = load i64, ptr %11, align 8, !range !167, !alias.scope !384, !noundef !10
   %74 = icmp eq i64 %73, -9223372036854775808
-  br i1 %74, label %.thread75, label %75
+  br i1 %74, label %.thread73, label %75
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !387
@@ -1477,13 +1477,13 @@ _ZN5xattr4list17hd4dcecdffa308025E.exit:          ; preds = %"_ZN4core6result19R
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27c2dbf984afc942E.exit.i": ; preds = %80, %77, %.noexc45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !387
-  br label %.thread75
+  br label %.thread73
 
-.thread75:                                        ; preds = %72, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27c2dbf984afc942E.exit.i"
+.thread73:                                        ; preds = %72, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27c2dbf984afc942E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %82
 
-82:                                               ; preds = %.thread75, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h4940749e1c7dc53bE.exit49"
+82:                                               ; preds = %.thread73, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h4940749e1c7dc53bE.exit49"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %43

@@ -9469,7 +9469,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i: ; preds = %1919, %.noexc2
 
 .invoke.i227:                                     ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i
   %1926 = phi i64 [ %indvars.iv.i223, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i ], [ %1930, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i ]
-  %1927 = phi i64 [ %1925, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i ], [ %.pre-phi613.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i ]
+  %1927 = phi i64 [ %1925, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i ], [ %.pre-phi596.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.20, i64 noundef %1926, i64 noundef %1927) #25
           to label %.cont.i230 unwind label %.loopexit.split-lp.i228
 
@@ -9493,17 +9493,17 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i388.i: ; preds = %1919, %.noexc2
 
 ._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i: ; preds = %1934
   %.pre.i231 = load ptr, ptr %1788, align 8
-  %.pre604.i = load ptr, ptr %1787, align 8
-  %.pre607.i = ptrtoint ptr %.pre.i231 to i64
-  %.pre608.i = ptrtoint ptr %.pre604.i to i64
-  %.pre610.i = sub i64 %.pre607.i, %.pre608.i
-  %.pre612.i = ashr exact i64 %.pre610.i, 4
+  %.pre587.i = load ptr, ptr %1787, align 8
+  %.pre590.i = ptrtoint ptr %.pre.i231 to i64
+  %.pre591.i = ptrtoint ptr %.pre587.i to i64
+  %.pre593.i = sub i64 %.pre590.i, %.pre591.i
+  %.pre595.i = ashr exact i64 %.pre593.i, 4
   br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i
 
 _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i: ; preds = %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i, %1928
-  %.pre-phi613.i = phi i64 [ %.pre612.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i ], [ %1925, %1928 ]
-  %1935 = phi ptr [ %.pre604.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i ], [ %1921, %1928 ]
-  %.not.i.i.i394.i = icmp ugt i64 %.pre-phi613.i, %1930
+  %.pre-phi596.i = phi i64 [ %.pre595.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i ], [ %1925, %1928 ]
+  %1935 = phi ptr [ %.pre587.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393_crit_edge.i ], [ %1921, %1928 ]
+  %.not.i.i.i394.i = icmp ugt i64 %.pre-phi596.i, %1930
   br i1 %.not.i.i.i394.i, label %1936, label %.invoke.i227
 
 1936:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i
@@ -9783,7 +9783,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i: ; preds = %2024, %.noexc2
   %2030 = sub i64 %2028, %2029
   %2031 = ashr exact i64 %2030, 4
   %.not.i.i.i434.i = icmp ugt i64 %2031, %2025
-  br i1 %.not.i.i.i434.i, label %2032, label %.invoke630.i
+  br i1 %.not.i.i.i434.i, label %2032, label %.invoke613.i
 
 2032:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i
   %2033 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %2027, i64 %2025
@@ -9800,26 +9800,26 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i: ; preds = %2024, %.noexc2
           to label %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i unwind label %.loopexit746
 
 ._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i: ; preds = %2037
-  %.pre605.i = load ptr, ptr %1788, align 8
-  %.pre606.i = load ptr, ptr %1787, align 8
-  %.pre614.i = ptrtoint ptr %.pre605.i to i64
-  %.pre616.i = ptrtoint ptr %.pre606.i to i64
-  %.pre618.i = sub i64 %.pre614.i, %.pre616.i
-  %.pre620.i = ashr exact i64 %.pre618.i, 4
+  %.pre588.i = load ptr, ptr %1788, align 8
+  %.pre589.i = load ptr, ptr %1787, align 8
+  %.pre597.i = ptrtoint ptr %.pre588.i to i64
+  %.pre599.i = ptrtoint ptr %.pre589.i to i64
+  %.pre601.i = sub i64 %.pre597.i, %.pre599.i
+  %.pre603.i = ashr exact i64 %.pre601.i, 4
   br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i
 
 _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i: ; preds = %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i, %2032
-  %.pre-phi621.i = phi i64 [ %.pre620.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i ], [ %2031, %2032 ]
-  %2038 = phi ptr [ %.pre606.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i ], [ %2027, %2032 ]
-  %.not.i.i.i439.i = icmp ugt i64 %.pre-phi621.i, %2025
-  br i1 %.not.i.i.i439.i, label %2040, label %.invoke630.i
+  %.pre-phi604.i = phi i64 [ %.pre603.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i ], [ %2031, %2032 ]
+  %2038 = phi ptr [ %.pre589.i, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438_crit_edge.i ], [ %2027, %2032 ]
+  %.not.i.i.i439.i = icmp ugt i64 %.pre-phi604.i, %2025
+  br i1 %.not.i.i.i439.i, label %2040, label %.invoke613.i
 
-.invoke630.i:                                     ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i
-  %2039 = phi i64 [ %2031, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i ], [ %.pre-phi621.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i ]
+.invoke613.i:                                     ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i
+  %2039 = phi i64 [ %2031, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i433.i ], [ %.pre-phi604.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.20, i64 noundef %2025, i64 noundef %2039) #25
-          to label %.cont631.i unwind label %.loopexit.split-lp747
+          to label %.cont614.i unwind label %.loopexit.split-lp747
 
-.cont631.i:                                       ; preds = %.invoke630.i
+.cont614.i:                                       ; preds = %.invoke613.i
   unreachable
 
 2040:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i
@@ -9918,7 +9918,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i: ; preds = %._ZNK5Yosys5RT
           cleanup
   br label %2076
 
-.loopexit.split-lp747:                            ; preds = %.invoke630.i
+.loopexit.split-lp747:                            ; preds = %.invoke613.i
   %lpad.loopexit.split-lp749 = landingpad { ptr, i32 }
           cleanup
   br label %2076
@@ -17678,10 +17678,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i596: ; preds = %643, %638
   %669 = add i32 %668, -1
   br label %699
 
-.preheader1380:                                   ; preds = %._crit_edge1928
-  br i1 %.not3781929, label %._crit_edge1939, label %.lr.ph1938
-
-.lr.ph1938:                                       ; preds = %.preheader1380
+.lr.ph1938:                                       ; preds = %._crit_edge1928
   %670 = getelementptr inbounds i8, ptr %74, i64 16
   %671 = getelementptr inbounds i8, ptr %74, i64 24
   %672 = getelementptr inbounds i8, ptr %74, i64 40
@@ -18021,7 +18018,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit614:             ; preds = %756, %762, %769
 ._crit_edge1928:                                  ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit614, %.preheader1391
   %801 = add nuw nsw i32 %.03551930, 1
   %exitcond2434.not = icmp eq i32 %.03551930, %260
-  br i1 %exitcond2434.not, label %.preheader1380, label %.preheader1391, !llvm.loop !84
+  br i1 %exitcond2434.not, label %.lr.ph1938, label %.preheader1391, !llvm.loop !84
 
 802:                                              ; preds = %.lr.ph1938, %1066
   %indvars.iv2440 = phi i64 [ 1, %.lr.ph1938 ], [ %indvars.iv.next2441, %1066 ]
@@ -18692,7 +18689,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i689: ; preds = %1057, %1052
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #22
   br label %2815
 
-._crit_edge1939:                                  ; preds = %1066, %.preheader1402, %.preheader1380
+._crit_edge1939:                                  ; preds = %1066, %.preheader1402
   store ptr null, ptr %143, align 8
   %1072 = getelementptr inbounds i8, ptr %143, i64 8
   store i8 0, ptr %1072, align 8

@@ -2841,8 +2841,8 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
 
 43:                                               ; preds = %45, %2
   %44 = phi ptr [ %46, %45 ], [ %39, %2 ]
-  %.not.i.not = icmp ne ptr %44, %42
-  br i1 %.not.i.not, label %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdf3776450defb4dcE.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %44, %42
+  br i1 %.not.not.not.i.not.not.not.not.not, label %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdf3776450defb4dcE.exit"
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %44, i64 32
@@ -3129,7 +3129,7 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %.sroa.033.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.033, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %110 = zext i1 %.not.i.not to i8
+  %110 = zext i1 %.not.not.not.i.not.not.not.not.not to i8
   %.sroa.033.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.033, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %.sroa.033.72..sroa_idx = getelementptr inbounds i8, ptr %.sroa.033, i64 72
@@ -4965,8 +4965,8 @@ define void @_ZN6ignore5types12TypesBuilder7add_def17h806929900640a240E(ptr noal
 
 .noexc:                                           ; preds = %72
   %74 = extractvalue { ptr, i64 } %73, 0
-  %.not.not.i.not = icmp eq ptr %74, null
-  br i1 %.not.not.i.not, label %78, label %75
+  %.not.not.not.not.i.not = icmp eq ptr %74, null
+  br i1 %.not.not.not.not.i.not, label %78, label %75
 
 75:                                               ; preds = %.noexc
   %76 = extractvalue { ptr, i64 } %73, 1

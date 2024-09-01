@@ -2182,9 +2182,9 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
 ._crit_edge9.i:                                   ; preds = %.lr.ph8.i, %._crit_edge.i54
   %423 = getelementptr inbounds i8, ptr %.sroa.01.011.i, i64 8
   %.not2.i = icmp eq ptr %423, %.sroa.9.2
-  br i1 %.not2.i, label %.lr.ph.i55, label %.lr.ph13.i
+  br i1 %.not2.i, label %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit, label %.lr.ph13.i
 
-.lr.ph.i55:                                       ; preds = %._crit_edge9.i
+_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit: ; preds = %._crit_edge9.i
   %.val9 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -2198,8 +2198,8 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
   %429 = getelementptr inbounds i8, ptr %16, i64 24
   br label %430
 
-430:                                              ; preds = %567, %.lr.ph.i55
-  %.sroa.04.020.i = phi ptr [ %.sroa.0.2, %.lr.ph.i55 ], [ %568, %567 ]
+430:                                              ; preds = %567, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit
+  %.sroa.04.020.i = phi ptr [ %.sroa.0.2, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit ], [ %568, %567 ]
   %431 = load ptr, ptr %.sroa.04.020.i, align 8
   %432 = getelementptr i8, ptr %431, i64 80
   %.val.i56 = load ptr, ptr %432, align 8

@@ -1798,8 +1798,8 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
   br i1 %64, label %.preheader, label %.preheader84
 
 .preheader84:                                     ; preds = %62
-  %65 = icmp slt i64 %58, 1
-  br i1 %65, label %N_VScale_Serial.exit, label %.lr.ph97
+  %65 = icmp sgt i64 %58, 0
+  br i1 %65, label %.lr.ph97, label %N_VScale_Serial.exit
 
 .preheader:                                       ; preds = %62
   %66 = icmp sgt i32 %0, 1
@@ -1841,8 +1841,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
 
 .preheader82:                                     ; preds = %.lr.ph97
   %82 = icmp slt i32 %0, 2
-  %brmerge = or i1 %82, %65
-  br i1 %brmerge, label %N_VScale_Serial.exit, label %.lr.ph99.us.preheader
+  br i1 %82, label %N_VScale_Serial.exit, label %.lr.ph99.us.preheader
 
 .lr.ph99.us.preheader:                            ; preds = %.preheader82
   %wide.trip.count125 = zext nneg i32 %0 to i64
@@ -1891,13 +1890,12 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
   %103 = load ptr, ptr %5, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = icmp slt i64 %58, 1
-  br i1 %106, label %N_VScale_Serial.exit, label %.lr.ph
+  %106 = icmp sgt i64 %58, 0
+  br i1 %106, label %.lr.ph, label %N_VScale_Serial.exit
 
 .preheader85:                                     ; preds = %.lr.ph
   %107 = icmp slt i32 %0, 2
-  %brmerge142 = or i1 %107, %106
-  br i1 %brmerge142, label %N_VScale_Serial.exit, label %.lr.ph93.us.preheader
+  br i1 %107, label %N_VScale_Serial.exit, label %.lr.ph93.us.preheader
 
 .lr.ph93.us.preheader:                            ; preds = %.preheader85
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -3658,11 +3656,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   br i1 %96, label %.lr.ph164, label %N_VScale_Serial.exit
 
 .lr.ph164:                                        ; preds = %.critedge.preheader
-  %97 = icmp slt i64 %94, 1
+  %97 = icmp sgt i64 %94, 0
   %98 = icmp slt i32 %1, 2
   %wide.trip.count215 = zext nneg i32 %0 to i64
   %wide.trip.count210 = zext nneg i32 %1 to i64
-  %brmerge255 = or i1 %98, %97
   br label %155
 
 99:                                               ; preds = %91
@@ -3671,11 +3668,21 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %102 = icmp sgt i32 %0, 0
   br i1 %101, label %.preheader, label %.preheader148
 
+.preheader148:                                    ; preds = %99
+  br i1 %102, label %.lr.ph176, label %N_VScale_Serial.exit
+
+.lr.ph176:                                        ; preds = %.preheader148
+  %103 = icmp sgt i64 %94, 0
+  %104 = icmp slt i32 %1, 2
+  %wide.trip.count227 = zext nneg i32 %0 to i64
+  %wide.trip.count222 = zext nneg i32 %1 to i64
+  br label %128
+
 .preheader:                                       ; preds = %99
-  %103 = icmp sgt i32 %1, 1
-  %or.cond = and i1 %102, %103
-  %104 = icmp sgt i64 %94, 0
-  %or.cond251 = select i1 %or.cond, i1 %104, i1 false
+  %105 = icmp sgt i32 %1, 1
+  %or.cond = and i1 %102, %105
+  %106 = icmp sgt i64 %94, 0
+  %or.cond251 = select i1 %or.cond, i1 %106, i1 false
   br i1 %or.cond251, label %.lr.ph183.us.us.preheader, label %N_VScale_Serial.exit
 
 .lr.ph183.us.us.preheader:                        ; preds = %.preheader
@@ -3685,39 +3692,39 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 .lr.ph183.us.us:                                  ; preds = %.lr.ph183.us.us.preheader, %._crit_edge184.split.us.us.us
   %indvars.iv235 = phi i64 [ 0, %.lr.ph183.us.us.preheader ], [ %indvars.iv.next236, %._crit_edge184.split.us.us.us ]
-  %105 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv235
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %107 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv235
+  %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
   br label %.lr.ph179.us.us.us
 
 .lr.ph179.us.us.us:                               ; preds = %._crit_edge180.us.us.us, %.lr.ph183.us.us
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %._crit_edge180.us.us.us ], [ 1, %.lr.ph183.us.us ]
-  %110 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv230
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv235
+  %112 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv230
   %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv235
+  %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds double, ptr %2, i64 %indvars.iv230
-  br label %118
+  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds double, ptr %2, i64 %indvars.iv230
+  br label %120
 
-118:                                              ; preds = %118, %.lr.ph179.us.us.us
-  %.0132177.us.us.us = phi i64 [ 0, %.lr.ph179.us.us.us ], [ %125, %118 ]
-  %119 = load double, ptr %117, align 8
-  %120 = getelementptr inbounds double, ptr %116, i64 %.0132177.us.us.us
-  %121 = load double, ptr %120, align 8
-  %122 = getelementptr inbounds double, ptr %109, i64 %.0132177.us.us.us
+120:                                              ; preds = %120, %.lr.ph179.us.us.us
+  %.0132177.us.us.us = phi i64 [ 0, %.lr.ph179.us.us.us ], [ %127, %120 ]
+  %121 = load double, ptr %119, align 8
+  %122 = getelementptr inbounds double, ptr %118, i64 %.0132177.us.us.us
   %123 = load double, ptr %122, align 8
-  %124 = tail call double @llvm.fmuladd.f64(double %119, double %121, double %123)
-  store double %124, ptr %122, align 8
-  %125 = add nuw nsw i64 %.0132177.us.us.us, 1
-  %exitcond229.not = icmp eq i64 %125, %94
-  br i1 %exitcond229.not, label %._crit_edge180.us.us.us, label %118
+  %124 = getelementptr inbounds double, ptr %111, i64 %.0132177.us.us.us
+  %125 = load double, ptr %124, align 8
+  %126 = tail call double @llvm.fmuladd.f64(double %121, double %123, double %125)
+  store double %126, ptr %124, align 8
+  %127 = add nuw nsw i64 %.0132177.us.us.us, 1
+  %exitcond229.not = icmp eq i64 %127, %94
+  br i1 %exitcond229.not, label %._crit_edge180.us.us.us, label %120
 
-._crit_edge180.us.us.us:                          ; preds = %118
+._crit_edge180.us.us.us:                          ; preds = %120
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
   br i1 %exitcond234.not, label %._crit_edge184.split.us.us.us, label %.lr.ph179.us.us.us
@@ -3727,17 +3734,6 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %N_VScale_Serial.exit, label %.lr.ph183.us.us
 
-.preheader148:                                    ; preds = %99
-  br i1 %102, label %.lr.ph176, label %N_VScale_Serial.exit
-
-.lr.ph176:                                        ; preds = %.preheader148
-  %126 = icmp slt i64 %94, 1
-  %127 = icmp slt i32 %1, 2
-  %wide.trip.count227 = zext nneg i32 %0 to i64
-  %wide.trip.count222 = zext nneg i32 %1 to i64
-  %brmerge = or i1 %127, %126
-  br label %128
-
 128:                                              ; preds = %.lr.ph176, %._crit_edge174
   %indvars.iv224 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next225, %._crit_edge174 ]
   %129 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv224
@@ -3745,10 +3741,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
-  br i1 %126, label %._crit_edge174, label %.lr.ph167
+  br i1 %103, label %.lr.ph167, label %._crit_edge174
 
 .preheader147:                                    ; preds = %.lr.ph167
-  br i1 %brmerge, label %._crit_edge174, label %.lr.ph170.us
+  br i1 %104, label %._crit_edge174, label %.lr.ph170.us
 
 .lr.ph170.us:                                     ; preds = %.preheader147, %._crit_edge171.us
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %._crit_edge171.us ], [ 1, %.preheader147 ]
@@ -3809,10 +3805,10 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  br i1 %97, label %.critedge, label %.lr.ph155
+  br i1 %97, label %.lr.ph155, label %.critedge
 
 .preheader150:                                    ; preds = %.lr.ph155
-  br i1 %brmerge255, label %.critedge, label %.lr.ph158.us
+  br i1 %98, label %.critedge, label %.lr.ph158.us
 
 .lr.ph158.us:                                     ; preds = %.preheader150, %._crit_edge159.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %._crit_edge159.us ], [ 1, %.preheader150 ]

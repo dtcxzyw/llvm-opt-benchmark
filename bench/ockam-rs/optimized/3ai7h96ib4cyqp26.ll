@@ -57055,8 +57055,8 @@ define void @"_ZN10ockam_node7context17context_lifecycle89_$LT$impl$u20$core..op
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   store i64 0, ptr %37, align 8
-  %.not.not = icmp eq i64 %38, 0
-  br i1 %.not.not, label %255, label %43
+  %.not = icmp eq i64 %38, 0
+  br i1 %.not, label %255, label %43
 
 41:                                               ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit144", %48, %79, %72, %69, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
   %42 = landingpad { ptr, i32 }
@@ -57407,8 +57407,8 @@ _ZN10ockam_node7context7context7Context7address17hce21c71bb82b8ec5E.exit147: ; p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %153 = load ptr, ptr %21, align 8, !noundef !4
-  %.not121.not = icmp eq ptr %153, null
-  br i1 %.not121.not, label %.thread, label %156
+  %.not121 = icmp eq ptr %153, null
+  br i1 %.not121, label %.thread, label %156
 
 154:                                              ; preds = %.invoke261, %249, %.noexc182, %.noexc181, %.critedge9.i179, %224, %161, %210, %192, %185, %182, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit160.thread
   %155 = landingpad { ptr, i32 }

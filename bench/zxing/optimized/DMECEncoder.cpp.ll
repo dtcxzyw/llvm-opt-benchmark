@@ -410,8 +410,7 @@ _ZN5ZXing10DataMatrixL4multEhh.exit:              ; preds = %.lr.ph.split, %82
   %95 = load ptr, ptr %.1.i.i, align 8
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, 0
-  %or.cond.i35 = or i1 %.fr, %97
-  br i1 %or.cond.i35, label %_ZN5ZXing10DataMatrixL4multEhh.exit38, label %98
+  br i1 %97, label %_ZN5ZXing10DataMatrixL4multEhh.exit38, label %98
 
 98:                                               ; preds = %._crit_edge
   %99 = load i8, ptr %74, align 1

@@ -3133,7 +3133,7 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %33) #16
   %42 = load volatile ptr, ptr %3, align 8
   %43 = icmp eq ptr %42, %3
-  br i1 %43, label %split, label %.preheader
+  br i1 %43, label %62, label %.preheader
 
 .preheader:                                       ; preds = %41, %59
   %44 = phi ptr [ %45, %59 ], [ %42, %41 ]
@@ -3196,7 +3196,7 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   %61 = icmp eq ptr %45, %3
   br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !64
 
-split:                                            ; preds = %41
+62:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   ret void
 }

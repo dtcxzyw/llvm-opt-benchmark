@@ -2980,8 +2980,7 @@ new.cont169:                                      ; preds = %new.notnull160
   %or.cond1 = or i1 %or.cond, %new.isnull111
   %or.cond2 = or i1 %or.cond1, %new.isnull123
   %or.cond3 = or i1 %or.cond2, %new.isnull135
-  %or.cond4 = or i1 %or.cond3, %new.isnull159
-  %or.cond5 = or i1 %new.isnull147, %or.cond4
+  %or.cond5 = or i1 %new.isnull147, %or.cond3
   br i1 %or.cond5, label %if.then183, label %if.end220
 
 if.then183:                                       ; preds = %new.cont157, %new.cont169

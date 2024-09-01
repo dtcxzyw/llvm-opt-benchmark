@@ -10522,35 +10522,35 @@ entry:
   %m_rev.i.i.i.i = getelementptr inbounds i8, ptr %m, i64 24
   %m_column_permutation.i.i = getelementptr inbounds i8, ptr %m, i64 16
   %0 = load ptr, ptr %m_data.i, align 8
-  %.fr.i39 = freeze ptr %0
-  %cmp.i.i40 = icmp eq ptr %.fr.i39, null
-  br i1 %cmp.i.i40, label %return, label %_ZNK2lp14general_matrix9row_countEv.exit.thread
+  %.fr.i36 = freeze ptr %0
+  %cmp.i.i37 = icmp eq ptr %.fr.i36, null
+  br i1 %cmp.i.i37, label %return, label %_ZNK2lp14general_matrix9row_countEv.exit.thread
 
 for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge: ; preds = %for.inc
   %1 = trunc nuw i64 %indvars.iv.next to i32
   br label %return
 
 _ZNK2lp14general_matrix9row_countEv.exit.thread:  ; preds = %entry, %for.inc
-  %.fr.i43 = phi ptr [ %.fr.i, %for.inc ], [ %.fr.i39, %entry ]
-  %indvars.iv41 = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %.fr.i43, i64 -4
+  %.fr.i39 = phi ptr [ %.fr.i, %for.inc ], [ %.fr.i36, %entry ]
+  %indvars.iv38 = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %.fr.i39, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
-  %cmp30 = icmp ult i64 %indvars.iv41, %3
-  %4 = trunc nuw i64 %indvars.iv41 to i32
-  br i1 %cmp30, label %entry.split.split.i, label %return
+  %cmp23 = icmp ult i64 %indvars.iv38, %3
+  %4 = trunc nuw i64 %indvars.iv38 to i32
+  br i1 %cmp23, label %entry.split.split.i, label %return
 
 entry.split.split.i:                              ; preds = %_ZNK2lp14general_matrix9row_countEv.exit.thread
   %5 = load ptr, ptr %m, align 8
   %6 = load ptr, ptr %m_rev.i.i.i.i, align 8
-  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %.fr.i43, i64 -4
+  %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %.fr.i39, i64 -4
   %7 = load i32, ptr %arrayidx.i.i20.i, align 4
   %8 = zext i32 %7 to i64
-  %cmp82.i = icmp ult i64 %indvars.iv41, %8
+  %cmp82.i = icmp ult i64 %indvars.iv38, %8
   br i1 %cmp82.i, label %for.cond1.preheader.lr.ph.split.i, label %return
 
 for.cond1.preheader.lr.ph.split.i:                ; preds = %entry.split.split.i
-  %9 = load ptr, ptr %.fr.i43, align 8
+  %9 = load ptr, ptr %.fr.i39, align 8
   %cmp.i2.i.i = icmp eq ptr %9, null
   br i1 %cmp.i2.i.i, label %return, label %for.cond1.preheader.lr.ph.split.split.i
 
@@ -10558,21 +10558,20 @@ for.cond1.preheader.lr.ph.split.split.i:          ; preds = %for.cond1.preheader
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i3.i.i, align 4
   %11 = zext i32 %10 to i64
-  %cmp376.i = icmp ult i64 %indvars.iv41, %11
+  %cmp376.i = icmp ult i64 %indvars.iv38, %11
   br i1 %cmp376.i, label %for.cond1.preheader.us102.i, label %return
 
 for.cond1.preheader.us102.i:                      ; preds = %for.cond1.preheader.lr.ph.split.split.i, %for.cond1.for.inc14.split.split.split_crit_edge.us.i
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.cond1.for.inc14.split.split.split_crit_edge.us.i ], [ %indvars.iv41, %for.cond1.preheader.lr.ph.split.split.i ]
-  %cmp86.us103.i = phi i1 [ %cmp.us108.i, %for.cond1.for.inc14.split.split.split_crit_edge.us.i ], [ true, %for.cond1.preheader.lr.ph.split.split.i ]
-  %arrayidx.i.i.i.i.us106.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv26
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.cond1.for.inc14.split.split.split_crit_edge.us.i ], [ %indvars.iv38, %for.cond1.preheader.lr.ph.split.split.i ]
+  %arrayidx.i.i.i.i.us106.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv18
   %12 = load i32, ptr %arrayidx.i.i.i.i.us106.i, align 4
   %idxprom.i.i.us.i = zext i32 %12 to i64
-  %arrayidx.i.i23.us.i = getelementptr inbounds %class.vector.4, ptr %.fr.i43, i64 %idxprom.i.i.us.i
+  %arrayidx.i.i23.us.i = getelementptr inbounds %class.vector.4, ptr %.fr.i39, i64 %idxprom.i.i.us.i
   %13 = load ptr, ptr %arrayidx.i.i23.us.i, align 8
   br label %for.body4.us.i
 
 for.body4.us.i:                                   ; preds = %for.inc.us.i, %for.cond1.preheader.us102.i
-  %indvars.iv.i = phi i64 [ %indvars.iv41, %for.cond1.preheader.us102.i ], [ %indvars.iv.next.i, %for.inc.us.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv38, %for.cond1.preheader.us102.i ], [ %indvars.iv.next.i, %for.inc.us.i ]
   %arrayidx.i.i.i.i25.us.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   %14 = load i32, ptr %arrayidx.i.i.i.i25.us.i, align 4
   %idxprom.i.i26.us.i = zext i32 %14 to i64
@@ -10583,54 +10582,49 @@ for.body4.us.i:                                   ; preds = %for.inc.us.i, %for.
 
 for.inc.us.i:                                     ; preds = %for.body4.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond122.not.i = icmp eq i64 %indvars.iv.next.i, %11
-  br i1 %exitcond122.not.i, label %for.cond1.for.inc14.split.split.split_crit_edge.us.i, label %for.body4.us.i, !llvm.loop !119
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
+  br i1 %exitcond.not.i, label %for.cond1.for.inc14.split.split.split_crit_edge.us.i, label %for.body4.us.i, !llvm.loop !119
 
 for.cond1.for.inc14.split.split.split_crit_edge.us.i: ; preds = %for.inc.us.i
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %cmp.us108.i = icmp ult i64 %indvars.iv.next27, %8
-  %exitcond123.not.i = icmp eq i64 %indvars.iv.next27, %8
-  br i1 %exitcond123.not.i, label %_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit, label %for.cond1.preheader.us102.i, !llvm.loop !120
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond121.not.i = icmp eq i64 %indvars.iv.next19, %8
+  br i1 %exitcond121.not.i, label %return, label %for.cond1.preheader.us102.i, !llvm.loop !120
 
 if.then.i:                                        ; preds = %for.body4.us.i
   %16 = trunc nuw i64 %indvars.iv.i to i32
-  %17 = and i64 %indvars.iv26, 4294967295
-  %cmp8.not.i = icmp eq i64 %17, %indvars.iv41
+  %17 = and i64 %indvars.iv18, 4294967295
+  %cmp8.not.i = icmp eq i64 %17, %indvars.iv38
   br i1 %cmp8.not.i, label %if.end.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then.i
-  %18 = trunc nuw i64 %indvars.iv26 to i32
+  %18 = trunc nuw i64 %indvars.iv18 to i32
   tail call void @_ZN2lp18permutation_matrixI8rationalS1_E20transpose_from_rightEjj(ptr noundef nonnull align 8 dereferenceable(16) %m, i32 noundef %18, i32 noundef %4)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then.i
   %19 = and i64 %indvars.iv.i, 4294967295
-  %cmp10.not.i = icmp eq i64 %indvars.iv41, %19
-  br i1 %cmp10.not.i, label %_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit, label %if.then11.i
+  %cmp10.not.i = icmp eq i64 %indvars.iv38, %19
+  br i1 %cmp10.not.i, label %if.end, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
   tail call void @_ZN2lp18permutation_matrixI8rationalS1_E19transpose_from_leftEjj(ptr noundef nonnull align 8 dereferenceable(16) %m_column_permutation.i.i, i32 noundef %16, i32 noundef %4)
-  br i1 %cmp86.us103.i, label %if.end, label %return
+  br label %if.end
 
-_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit: ; preds = %for.cond1.for.inc14.split.split.split_crit_edge.us.i, %if.end.i
-  %cmp31.i = phi i1 [ %cmp86.us103.i, %if.end.i ], [ %cmp.us108.i, %for.cond1.for.inc14.split.split.split_crit_edge.us.i ]
-  br i1 %cmp31.i, label %if.end, label %return
-
-if.end:                                           ; preds = %if.then11.i, %_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit
+if.end:                                           ; preds = %if.then11.i, %if.end.i
   tail call void @_ZN2lp8hnf_calc27pivot_column_non_fractionalINS_14general_matrixEEEvRT_jRbRK8rational(ptr noundef nonnull align 8 dereferenceable(40) %m, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %overflow, ptr noundef nonnull align 8 dereferenceable(32) %big_number)
   %20 = load i8, ptr %overflow, align 1
   %tobool = trunc i8 %20 to i1
   br i1 %tobool, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv38, 1
   %21 = load ptr, ptr %m_data.i, align 8
   %.fr.i = freeze ptr %21
   %cmp.i.i = icmp eq ptr %.fr.i, null
   br i1 %cmp.i.i, label %for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge, label %_ZNK2lp14general_matrix9row_countEv.exit.thread, !llvm.loop !121
 
-return:                                           ; preds = %entry.split.split.i, %if.then11.i, %if.end, %_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit, %_ZNK2lp14general_matrix9row_countEv.exit.thread, %for.cond1.preheader.lr.ph.split.split.i, %for.cond1.preheader.lr.ph.split.i, %entry, %for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge
-  %retval.0 = phi i32 [ %1, %for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge ], [ 0, %entry ], [ %4, %_ZNK2lp14general_matrix9row_countEv.exit.thread ], [ %4, %entry.split.split.i ], [ %4, %if.then11.i ], [ 0, %if.end ], [ %4, %_ZN2lp8hnf_calc32prepare_pivot_for_lower_triangleINS_14general_matrixEEEbRT_j.exit ], [ %4, %for.cond1.preheader.lr.ph.split.split.i ], [ %4, %for.cond1.preheader.lr.ph.split.i ]
+return:                                           ; preds = %for.cond1.preheader.lr.ph.split.split.i, %for.cond1.preheader.lr.ph.split.i, %entry.split.split.i, %if.end, %_ZNK2lp14general_matrix9row_countEv.exit.thread, %for.cond1.for.inc14.split.split.split_crit_edge.us.i, %entry, %for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge
+  %retval.0 = phi i32 [ %1, %for.cond._ZNK2lp14general_matrix9row_countEv.exit_crit_edge ], [ 0, %entry ], [ %4, %for.cond1.for.inc14.split.split.split_crit_edge.us.i ], [ %4, %_ZNK2lp14general_matrix9row_countEv.exit.thread ], [ %4, %for.cond1.preheader.lr.ph.split.split.i ], [ %4, %for.cond1.preheader.lr.ph.split.i ], [ %4, %entry.split.split.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -11083,7 +11077,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc107, %entry
   %1 = phi ptr [ %6, %for.inc107 ], [ %.pre, %entry ]
-  %indvars.iv222 = phi i64 [ %indvars.iv.next223, %for.inc107 ], [ %0, %entry ]
+  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %for.inc107 ], [ %0, %entry ]
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_ZNK2lp14general_matrix12column_countEv.exit, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit.i
 
@@ -11106,7 +11100,7 @@ if.end.i.i:                                       ; preds = %cond.true.i
 _ZNK2lp14general_matrix12column_countEv.exit:     ; preds = %for.cond, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit.i, %cond.true.i, %if.end.i.i
   %cond.i = phi i32 [ 0, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit.i ], [ %4, %if.end.i.i ], [ 0, %cond.true.i ], [ 0, %for.cond ]
   %5 = zext i32 %cond.i to i64
-  %cmp = icmp ult i64 %indvars.iv222, %5
+  %cmp = icmp ult i64 %indvars.iv220, %5
   br i1 %cmp, label %for.cond2, label %for.end109
 
 for.cond2:                                        ; preds = %_ZNK2lp14general_matrix12column_countEv.exit, %cleanup.done102
@@ -11145,7 +11139,7 @@ invoke.cont23:                                    ; preds = %for.body5
   %14 = load i32, ptr %arrayidx.i.i.i.i53, align 4
   %idxprom.i.i54 = zext i32 %14 to i64
   %arrayidx.i.i55 = getelementptr inbounds %class.vector.4, ptr %6, i64 %idxprom.i.i54
-  %arrayidx.i.i.i.i61 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv222
+  %arrayidx.i.i.i.i61 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv220
   %15 = load i32, ptr %arrayidx.i.i.i.i61, align 4
   %16 = load ptr, ptr %arrayidx.i.i55, align 8
   %idxprom.i.i62 = zext i32 %15 to i64
@@ -11167,7 +11161,7 @@ invoke.cont23:                                    ; preds = %for.body5
   %23 = load i32, ptr %arrayidx.i.i.i.i79, align 4
   %idxprom.i.i80 = zext i32 %23 to i64
   %arrayidx.i.i81 = getelementptr inbounds %class.vector.4, ptr %19, i64 %idxprom.i.i80
-  %arrayidx.i.i.i.i87 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv222
+  %arrayidx.i.i.i.i87 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv220
   %24 = load i32, ptr %arrayidx.i.i.i.i87, align 4
   %25 = load ptr, ptr %arrayidx.i.i81, align 8
   %idxprom.i.i88 = zext i32 %24 to i64
@@ -11213,7 +11207,7 @@ invoke.cont47:                                    ; preds = %for.body5
   %37 = load i32, ptr %arrayidx.i.i.i.i116, align 4
   %idxprom.i.i117 = zext i32 %37 to i64
   %arrayidx.i.i118 = getelementptr inbounds %class.vector.4, ptr %6, i64 %idxprom.i.i117
-  %arrayidx.i.i.i.i124 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv222
+  %arrayidx.i.i.i.i124 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv220
   %38 = load i32, ptr %arrayidx.i.i.i.i124, align 4
   %39 = load ptr, ptr %arrayidx.i.i118, align 8
   %idxprom.i.i125 = zext i32 %38 to i64
@@ -11233,7 +11227,7 @@ invoke.cont47:                                    ; preds = %for.body5
   %46 = load i32, ptr %40, align 4
   %idxprom.i.i141 = zext i32 %46 to i64
   %arrayidx.i.i142 = getelementptr inbounds %class.vector.4, ptr %42, i64 %idxprom.i.i141
-  %arrayidx.i.i.i.i148 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv222
+  %arrayidx.i.i.i.i148 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv220
   %47 = load i32, ptr %arrayidx.i.i.i.i148, align 4
   %48 = load ptr, ptr %arrayidx.i.i142, align 8
   %idxprom.i.i149 = zext i32 %47 to i64
@@ -11253,7 +11247,7 @@ invoke.cont71:                                    ; preds = %invoke.cont63, %inv
   %idxprom.i.i154 = zext i32 %50 to i64
   %arrayidx.i.i155 = getelementptr inbounds %class.vector.4, ptr %51, i64 %idxprom.i.i154
   %52 = load ptr, ptr %m_rev.i.i.i, align 8
-  %arrayidx.i.i.i.i161 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv222
+  %arrayidx.i.i.i.i161 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv220
   %53 = load i32, ptr %arrayidx.i.i.i.i161, align 4
   %54 = load ptr, ptr %arrayidx.i.i155, align 8
   %idxprom.i.i162 = zext i32 %53 to i64
@@ -11508,17 +11502,17 @@ cleanup.action84:                                 ; preds = %ehcleanup, %ehclean
   br label %eh.resume
 
 cleanup.action91:                                 ; preds = %ehcleanup, %lpad31.thread
-  %.pn.pn.pn198 = phi { ptr, i32 } [ %32, %lpad31.thread ], [ %91, %ehcleanup ]
+  %.pn.pn.pn197 = phi { ptr, i32 } [ %32, %lpad31.thread ], [ %91, %ehcleanup ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #22
   br label %cleanup.action98
 
 cleanup.action98:                                 ; preds = %lpad27, %cleanup.action91
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn198, %cleanup.action91 ], [ %88, %lpad27 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn197, %cleanup.action91 ], [ %88, %lpad27 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #22
   br label %eh.resume
 
 for.inc107:                                       ; preds = %_ZNK2lp14general_matrix9row_countEv.exit
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   br label %for.cond, !llvm.loop !131
 
 for.end109:                                       ; preds = %_ZNK2lp14general_matrix12column_countEv.exit, %if.then
@@ -11526,9 +11520,9 @@ for.end109:                                       ; preds = %_ZNK2lp14general_ma
 
 eh.resume:                                        ; preds = %lpad, %cleanup.action98, %cleanup.action84, %cleanup.action84.thread
   %ref.tmp38.sink = phi ptr [ %ref.tmp38, %cleanup.action84 ], [ %ref.tmp38, %cleanup.action84.thread ], [ %ref.tmp8, %cleanup.action98 ], [ %ref.tmp8, %lpad ]
-  %.pn.pn.pn.pn.pn204 = phi { ptr, i32 } [ %.pn190, %cleanup.action84 ], [ %89, %cleanup.action84.thread ], [ %.pn.pn.pn.pn, %cleanup.action98 ], [ %87, %lpad ]
+  %.pn.pn.pn.pn.pn202 = phi { ptr, i32 } [ %.pn190, %cleanup.action84 ], [ %89, %cleanup.action84.thread ], [ %.pn.pn.pn.pn, %cleanup.action98 ], [ %87, %lpad ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink) #22
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn204
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn202
 }
 
 declare void @_ZN2lp18permutation_matrixI8rationalS1_E20transpose_from_rightEjj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0

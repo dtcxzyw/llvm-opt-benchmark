@@ -378,8 +378,8 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr nocapture noundef read
   %18 = shl i32 %16, %17
   %19 = tail call i32 @htonl(i32 noundef %18) #15
   %20 = and i32 %19, %8
-  %.not15 = icmp ne i32 %13, %20
-  br i1 %.not15, label %9, label %.loopexit
+  %.not15.not = icmp ne i32 %13, %20
+  br i1 %.not15.not, label %9, label %.loopexit
 
 21:                                               ; preds = %1
   %22 = zext i16 %2 to i32
@@ -387,7 +387,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr nocapture noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %9, %.preheader, %3, %1, %21
-  %.08 = phi i1 [ false, %21 ], [ false, %1 ], [ true, %3 ], [ true, %.preheader ], [ %.not15, %9 ], [ %.not15, %12 ]
+  %.08 = phi i1 [ false, %21 ], [ false, %1 ], [ true, %3 ], [ true, %.preheader ], [ %.not15.not, %9 ], [ %.not15.not, %12 ]
   ret i1 %.08
 }
 

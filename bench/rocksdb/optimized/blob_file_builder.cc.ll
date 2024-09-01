@@ -4710,7 +4710,7 @@ if.then38:                                        ; preds = %if.end31
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end31, %if.then38, %if.then22
-  %retval.0.ph = phi i1 [ false, %if.then22 ], [ %cmp37, %if.then38 ], [ %cmp37, %if.end31 ]
+  %retval.0.ph = phi i1 [ false, %if.then22 ], [ true, %if.then38 ], [ false, %if.end31 ]
   %call43 = call i32 @deflateEnd(ptr noundef nonnull %_stream)
   br label %return
 

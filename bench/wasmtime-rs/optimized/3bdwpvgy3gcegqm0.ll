@@ -343,8 +343,8 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 5:                                                ; preds = %8, %2
   %6 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %.not = icmp ne ptr %7, %6
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %6
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit"
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %7, i64 32
@@ -353,7 +353,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit", label %5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit": ; preds = %5, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -363,15 +363,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 3:                                                ; preds = %5, %1
   %4 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd831ea6c1d94edb9E"(ptr align 8 %0)
-  %.not.not = icmp ne ptr %4, null
-  br i1 %.not.not, label %5, label %7
+  %.not.not.not.not.not.not = icmp ne ptr %4, null
+  br i1 %.not.not.not.not.not.not, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN85_$LT$witx..ast..RecordDatatype$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h5ee7db5a53073a7aE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -381,15 +381,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 3:                                                ; preds = %5, %1
   %4 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71c7ddc288d56ca6E"(ptr align 8 %0)
-  %.not.not = icmp ne ptr %4, null
-  br i1 %.not.not, label %5, label %7
+  %.not.not.not.not.not.not = icmp ne ptr %4, null
+  br i1 %.not.not.not.not.not.not, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN78_$LT$witx..ast..Variant$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h76c10a031bf5755bE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

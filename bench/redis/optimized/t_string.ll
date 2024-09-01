@@ -2093,40 +2093,34 @@ if.end7.thread48:                                 ; preds = %if.end
 for.body12.lr.ph.thread:                          ; preds = %if.end7.thread48
   %argv1353 = getelementptr inbounds i8, ptr %c, i64 96
   %db2254 = getelementptr inbounds i8, ptr %c, i64 32
-  br label %for.body12.us.preheader
+  br label %for.body12.us
 
 for.body12.lr.ph:                                 ; preds = %if.end7
   %argv13 = getelementptr inbounds i8, ptr %c, i64 96
   %db22 = getelementptr inbounds i8, ptr %c, i64 32
-  br i1 %tobool.not, label %for.body12.us.preheader, label %for.body12
+  br label %for.body12
 
-for.body12.us.preheader:                          ; preds = %for.body12.lr.ph.thread, %for.body12.lr.ph
-  %db2257 = phi ptr [ %db2254, %for.body12.lr.ph.thread ], [ %db22, %for.body12.lr.ph ]
-  %argv1356 = phi ptr [ %argv1353, %for.body12.lr.ph.thread ], [ %argv13, %for.body12.lr.ph ]
-  %cond5155 = phi i32 [ 0, %for.body12.lr.ph.thread ], [ 8, %for.body12.lr.ph ]
-  br label %for.body12.us
-
-for.body12.us:                                    ; preds = %for.body12.us.preheader, %for.body12.us
-  %indvars.iv42 = phi i64 [ 1, %for.body12.us.preheader ], [ %indvars.iv.next43, %for.body12.us ]
-  %8 = load ptr, ptr %argv1356, align 8
+for.body12.us:                                    ; preds = %for.body12.lr.ph.thread, %for.body12.us
+  %indvars.iv42 = phi i64 [ 1, %for.body12.lr.ph.thread ], [ %indvars.iv.next43, %for.body12.us ]
+  %8 = load ptr, ptr %argv1353, align 8
   %9 = add nuw nsw i64 %indvars.iv42, 1
   %arrayidx16.us = getelementptr inbounds ptr, ptr %8, i64 %9
   %10 = load ptr, ptr %arrayidx16.us, align 8
   %call17.us = tail call ptr @tryObjectEncoding(ptr noundef %10) #10
-  %11 = load ptr, ptr %argv1356, align 8
+  %11 = load ptr, ptr %argv1353, align 8
   %arrayidx21.us = getelementptr inbounds ptr, ptr %11, i64 %9
   store ptr %call17.us, ptr %arrayidx21.us, align 8
-  %12 = load ptr, ptr %db2257, align 8
-  %13 = load ptr, ptr %argv1356, align 8
+  %12 = load ptr, ptr %db2254, align 8
+  %13 = load ptr, ptr %argv1353, align 8
   %arrayidx25.us = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv42
   %14 = load ptr, ptr %arrayidx25.us, align 8
   %arrayidx29.us = getelementptr inbounds ptr, ptr %13, i64 %9
   %15 = load ptr, ptr %arrayidx29.us, align 8
-  tail call void @setKey(ptr noundef nonnull %c, ptr noundef %12, ptr noundef %14, ptr noundef %15, i32 noundef %cond5155) #10
-  %16 = load ptr, ptr %argv1356, align 8
+  tail call void @setKey(ptr noundef nonnull %c, ptr noundef %12, ptr noundef %14, ptr noundef %15, i32 noundef 0) #10
+  %16 = load ptr, ptr %argv1353, align 8
   %arrayidx32.us = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv42
   %17 = load ptr, ptr %arrayidx32.us, align 8
-  %18 = load ptr, ptr %db2257, align 8
+  %18 = load ptr, ptr %db2254, align 8
   %id.us = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load i32, ptr %id.us, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %17, i32 noundef %19) #10

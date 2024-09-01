@@ -10340,8 +10340,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond17 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -10357,13 +10357,13 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %if.end.i, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end
-  %3 = load ptr, ptr %cond1023, align 8
-  %cmp.i10.i = icmp eq ptr %3, @_Py_NoneStruct
+  %2 = load ptr, ptr %cond1023, align 8
+  %cmp.i10.i = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp.i10.i, label %if.end.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %skip_optional_pos
-  %4 = getelementptr i8, ptr %3, i64 8
-  %p.val3.i.i = load ptr, ptr %4, align 8
+  %3 = getelementptr i8, ptr %2, i64 8
+  %p.val3.i.i = load ptr, ptr %3, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %p.val3.i.i, @PyDateTime_TZInfoType
   br i1 %cmp.i.not.i.i.i, label %if.end.i, label %PyObject_TypeCheck.exit.i.i
 
@@ -10373,16 +10373,16 @@ PyObject_TypeCheck.exit.i.i:                      ; preds = %lor.lhs.false.i.i
   br i1 %tobool3.i.not.i.i, label %check_tzinfo_subclass.exit.i, label %if.end.i
 
 check_tzinfo_subclass.exit.i:                     ; preds = %PyObject_TypeCheck.exit.i.i
-  %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %p.val.i.i = load ptr, ptr %4, align 8
+  %4 = load ptr, ptr @PyExc_TypeError, align 8
+  %p.val.i.i = load ptr, ptr %3, align 8
   %tp_name.i.i = getelementptr inbounds i8, ptr %p.val.i.i, i64 24
-  %6 = load ptr, ptr %tp_name.i.i, align 8
-  %call2.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.184, ptr noundef %6) #15
+  %5 = load ptr, ptr %tp_name.i.i, align 8
+  %call2.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.184, ptr noundef %5) #15
   br label %exit
 
 if.end.i:                                         ; preds = %if.end, %PyObject_TypeCheck.exit.i.i, %lor.lhs.false.i.i, %skip_optional_pos
   %cmp.i10.i27 = phi ptr [ @_PyTime_gmtime, %PyObject_TypeCheck.exit.i.i ], [ @_PyTime_gmtime, %lor.lhs.false.i.i ], [ @_PyTime_localtime, %skip_optional_pos ], [ @_PyTime_localtime, %if.end ]
-  %tz.026 = phi ptr [ %3, %PyObject_TypeCheck.exit.i.i ], [ %3, %lor.lhs.false.i.i ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
+  %tz.026 = phi ptr [ %2, %PyObject_TypeCheck.exit.i.i ], [ %2, %lor.lhs.false.i.i ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %secs.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %us.i.i)
   %call.i.i = call i64 @_PyTime_GetSystemClock() #15
@@ -10396,9 +10396,9 @@ datetime_best_possible.exit.thread.i:             ; preds = %if.end.i
   br label %exit
 
 datetime_best_possible.exit.i:                    ; preds = %if.end.i
-  %7 = load i64, ptr %secs.i.i, align 8
-  %8 = load i32, ptr %us.i.i, align 4
-  %call2.i14.i = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %type, ptr noundef nonnull %cmp.i10.i27, i64 noundef %7, i32 noundef %8, ptr noundef %tz.026)
+  %6 = load i64, ptr %secs.i.i, align 8
+  %7 = load i32, ptr %us.i.i, align 4
+  %call2.i14.i = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %type, ptr noundef nonnull %cmp.i10.i27, i64 noundef %6, i32 noundef %7, ptr noundef %tz.026)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %secs.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %us.i.i)
   %cmp3.i = icmp ne ptr %call2.i14.i, null
@@ -10413,13 +10413,13 @@ if.then5.i:                                       ; preds = %datetime_best_possi
   store ptr %call2.i14.i, ptr %arrayinit.element.i.i, align 8
   %call.i16.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46232), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
-  %9 = load i64, ptr %call2.i14.i, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i9.not.i = icmp eq i64 %10, 0
+  %8 = load i64, ptr %call2.i14.i, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i9.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i9.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %if.then5.i
-  %dec.i.i = add i64 %9, -1
+  %dec.i.i = add i64 %8, -1
   store i64 %dec.i.i, ptr %call2.i14.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit

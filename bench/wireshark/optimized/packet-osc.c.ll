@@ -468,8 +468,8 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   br label %10
 
-10:                                               ; preds = %50, %.lr.ph.i
-  %.03910.i = phi i32 [ 0, %.lr.ph.i ], [ %51, %50 ]
+10:                                               ; preds = %51, %.lr.ph.i
+  %.03910.i = phi i32 [ 0, %.lr.ph.i ], [ %52, %51 ]
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03910.i) #5
   %12 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.03910.i, i32 noundef -1) #5
   %13 = sext i32 %11 to i64
@@ -492,7 +492,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
   %25 = icmp ugt i32 %24, 1
-  br i1 %25, label %26, label %50
+  br i1 %25, label %26, label %51
 
 26:                                               ; preds = %19
   %27 = and i64 %23, 4294967295
@@ -536,61 +536,61 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 slip_decoded_len.exit.i:                          ; preds = %35
   %.not43.i = icmp eq i32 %.01217.i.i, -1
-  br i1 %.not43.i, label %dissect_osc_tcp_1_1.exit, label %.lr.ph.i44.preheader.i
+  br i1 %.not43.i, label %dissect_osc_tcp_1_1.exit, label %40
 
-.lr.ph.i44.preheader.i:                           ; preds = %slip_decoded_len.exit.i
-  %40 = load ptr, ptr %9, align 8
-  %41 = sext i32 %.01217.i.i to i64
-  %42 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %41) #5
+40:                                               ; preds = %slip_decoded_len.exit.i
+  %41 = load ptr, ptr %9, align 8
+  %42 = sext i32 %.01217.i.i to i64
+  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef %42) #5
   br label %.lr.ph.i44.i
 
-.lr.ph.i44.i:                                     ; preds = %47, %.lr.ph.i44.preheader.i
-  %.013.i.i = phi ptr [ %48, %47 ], [ %12, %.lr.ph.i44.preheader.i ]
-  %.01112.i.i = phi ptr [ %.1.i45.i, %47 ], [ %42, %.lr.ph.i44.preheader.i ]
-  %43 = load i8, ptr %.013.i.i, align 1
-  switch i8 %43, label %45 [
+.lr.ph.i44.i:                                     ; preds = %48, %40
+  %.013.i.i = phi ptr [ %49, %48 ], [ %12, %40 ]
+  %.01112.i.i = phi ptr [ %.1.i45.i, %48 ], [ %43, %40 ]
+  %44 = load i8, ptr %.013.i.i, align 1
+  switch i8 %44, label %46 [
     i8 -64, label %slip_decode.exit.i
-    i8 -37, label %47
+    i8 -37, label %48
     i8 -36, label %.sink.split.i.i
-    i8 -35, label %44
+    i8 -35, label %45
   ]
-
-44:                                               ; preds = %.lr.ph.i44.i
-  br label %.sink.split.i.i
 
 45:                                               ; preds = %.lr.ph.i44.i
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %45, %44, %.lr.ph.i44.i
-  %.sink.i.i = phi i8 [ -37, %44 ], [ %43, %45 ], [ -64, %.lr.ph.i44.i ]
-  %46 = getelementptr i8, ptr %.01112.i.i, i64 1
-  store i8 %.sink.i.i, ptr %.01112.i.i, align 1
-  br label %47
+46:                                               ; preds = %.lr.ph.i44.i
+  br label %.sink.split.i.i
 
-47:                                               ; preds = %.sink.split.i.i, %.lr.ph.i44.i
-  %.1.i45.i = phi ptr [ %.01112.i.i, %.lr.ph.i44.i ], [ %46, %.sink.split.i.i ]
-  %48 = getelementptr i8, ptr %.013.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %48, %28
+.sink.split.i.i:                                  ; preds = %46, %45, %.lr.ph.i44.i
+  %.sink.i.i = phi i8 [ -37, %45 ], [ %44, %46 ], [ -64, %.lr.ph.i44.i ]
+  %47 = getelementptr i8, ptr %.01112.i.i, i64 1
+  store i8 %.sink.i.i, ptr %.01112.i.i, align 1
+  br label %48
+
+48:                                               ; preds = %.sink.split.i.i, %.lr.ph.i44.i
+  %.1.i45.i = phi ptr [ %.01112.i.i, %.lr.ph.i44.i ], [ %47, %.sink.split.i.i ]
+  %49 = getelementptr i8, ptr %.013.i.i, i64 1
+  %exitcond.not.i.i = icmp eq ptr %49, %28
   br i1 %exitcond.not.i.i, label %slip_decode.exit.i, label %.lr.ph.i44.i, !llvm.loop !6
 
-slip_decode.exit.i:                               ; preds = %47, %.lr.ph.i44.i
-  %49 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %42, i32 noundef %.01217.i.i, i32 noundef %.01217.i.i) #5
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @.str.328) #5
-  tail call fastcc void @dissect_osc_pdu_common(ptr noundef %49, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.01217.i.i)
-  br label %50
+slip_decode.exit.i:                               ; preds = %48, %.lr.ph.i44.i
+  %50 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %43, i32 noundef %.01217.i.i, i32 noundef %.01217.i.i) #5
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @.str.328) #5
+  tail call fastcc void @dissect_osc_pdu_common(ptr noundef %50, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %.01217.i.i)
+  br label %51
 
-50:                                               ; preds = %slip_decode.exit.i, %19
-  %51 = add i32 %.03910.i, %24
-  %52 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %53 = icmp ult i32 %51, %52
-  br i1 %53, label %10, label %._crit_edge.i, !llvm.loop !7
+51:                                               ; preds = %slip_decode.exit.i, %19
+  %52 = add i32 %.03910.i, %24
+  %53 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %54 = icmp ult i32 %52, %53
+  br i1 %54, label %10, label %._crit_edge.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %50, %.critedge
-  %54 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
+._crit_edge.i:                                    ; preds = %51, %.critedge
+  %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %dissect_osc_tcp_1_1.exit
 
 dissect_osc_tcp_1_1.exit:                         ; preds = %slip_decoded_len.exit.i, %26, %38, %31, %._crit_edge.i, %15, %6
-  %.0 = phi i32 [ %7, %6 ], [ %18, %15 ], [ %54, %._crit_edge.i ], [ 0, %31 ], [ 0, %38 ], [ 0, %26 ], [ 0, %slip_decoded_len.exit.i ]
+  %.0 = phi i32 [ %7, %6 ], [ %18, %15 ], [ %55, %._crit_edge.i ], [ 0, %31 ], [ 0, %38 ], [ 0, %26 ], [ 0, %slip_decoded_len.exit.i ]
   ret i32 %.0
 }
 

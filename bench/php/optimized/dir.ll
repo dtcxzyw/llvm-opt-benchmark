@@ -1691,14 +1691,11 @@ thread-pre-split:                                 ; preds = %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %.not218, label %._crit_edge.thread, label %74
-
-74:                                               ; preds = %._crit_edge
-  %75 = load ptr, ptr %5, align 8
-  call void @_efree(ptr noundef %75) #13
+  %74 = load ptr, ptr %5, align 8
+  call void @_efree(ptr noundef %74) #13
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %67, %74, %._crit_edge, %62, %45, %43
+._crit_edge.thread:                               ; preds = %67, %._crit_edge, %62, %45, %43
   ret void
 }
 

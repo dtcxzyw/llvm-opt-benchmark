@@ -3186,8 +3186,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %lor.lhs.false.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -3401,8 +3401,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %1, %lor.lhs.false.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -7110,8 +7110,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %3, %land.lhs.true.i.i.i.i ], [ %6, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -8964,7 +8964,7 @@ if.then:                                          ; preds = %_ZNK9grpc_core8Acti
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.25, i32 noundef 577, ptr noundef nonnull @.str.26) #31
   unreachable
 
-while.body:                                       ; preds = %if.end13, %while.body.preheader
+while.body:                                       ; preds = %invoke.cont.thread, %while.body.preheader
   %11 = load i8, ptr %done_, align 8
   %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then5, label %do.end7
@@ -9904,7 +9904,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8Con
   br label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i"
 
 common.resume:                                    ; preds = %ehcleanup30.i.i.i.i.i.i.i.i.i, %if.then.i71.i.i.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i.i.i, %lpad13.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %207, %lpad ], [ %198, %lpad13.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i71.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %ehcleanup30.i.i.i.i.i.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %208, %lpad ], [ %198, %lpad13.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i71.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %ehcleanup30.i.i.i.i.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i": ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb43.i.i.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit134.i.i.i.i.i, %sw.bb.i.i.i.i.i
@@ -10244,7 +10244,12 @@ invoke.cont.thread:                               ; preds = %"_ZN9grpc_core14pro
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lc.i.i), !noalias !147
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp11.i.i), !noalias !147
   store i8 0, ptr %r, align 8, !alias.scope !258
-  br label %if.end13
+  %205 = load i8, ptr %action_during_run_.i, align 4
+  store i8 0, ptr %action_during_run_.i, align 4
+  switch i8 %205, label %while.body [
+    i8 0, label %return
+    i8 2, label %sw.bb17
+  ]
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202308026StatusEEEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i.i), !noalias !147
@@ -10253,17 +10258,14 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core4PollI
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp11.i.i), !noalias !147
   store i8 1, ptr %r, align 8, !alias.scope !258
   store i64 %ref.tmp.sroa.3.131.i, ptr %10, align 8, !alias.scope !258
-  br i1 %tobool.i.i.i.i.i.i, label %if.then10, label %if.end13
-
-if.then10:                                        ; preds = %invoke.cont
-  %205 = load i8, ptr %done_, align 8
-  %tobool.i.i.i = trunc i8 %205 to i1
+  %206 = load i8, ptr %done_, align 8
+  %tobool.i.i.i = trunc i8 %206 to i1
   store i8 1, ptr %done_, align 8
   br i1 %tobool.i.i.i, label %if.then.i14.invoke, label %do.end.i
 
-do.end.i:                                         ; preds = %if.then10
-  %206 = load i8, ptr %started_.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %206 to i1
+do.end.i:                                         ; preds = %invoke.cont
+  %207 = load i8, ptr %started_.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %207 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i3, label %if.then.i23
 
 if.then.i.i.i.i3:                                 ; preds = %do.end.i
@@ -10271,26 +10273,18 @@ if.then.i.i.i.i3:                                 ; preds = %do.end.i
   br label %if.then.i23
 
 lpad:                                             ; preds = %if.then.i14.invoke
-  %207 = landingpad { ptr, i32 }
+  %208 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #27
   br label %common.resume
 
-if.end13:                                         ; preds = %invoke.cont.thread, %invoke.cont
-  %208 = load i8, ptr %action_during_run_.i, align 4
-  store i8 0, ptr %action_during_run_.i, align 4
-  switch i8 %208, label %while.body [
-    i8 0, label %return
-    i8 2, label %sw.bb17
-  ]
-
-sw.bb17:                                          ; preds = %if.end13
+sw.bb17:                                          ; preds = %invoke.cont.thread
   %209 = load i8, ptr %done_, align 8
   %tobool.i.i.i8 = trunc i8 %209 to i1
   store i8 1, ptr %done_, align 8
   br i1 %tobool.i.i.i8, label %if.then.i14.invoke, label %do.end.i9
 
-if.then.i14.invoke:                               ; preds = %if.then10, %sw.bb17
+if.then.i14.invoke:                               ; preds = %invoke.cont, %sw.bb17
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.25, i32 noundef 532, ptr noundef nonnull @.str.36) #31
           to label %if.then.i14.cont unwind label %lpad
 
@@ -10321,8 +10315,8 @@ return.sink.split:                                ; preds = %if.then.i23, %_ZN4a
   store i64 %.sink, ptr %agg.result, align 8
   br label %return
 
-return:                                           ; preds = %if.end13, %return.sink.split
-  %storemerge = phi i8 [ 1, %return.sink.split ], [ %208, %if.end13 ]
+return:                                           ; preds = %invoke.cont.thread, %return.sink.split
+  %storemerge = phi i8 [ 1, %return.sink.split ], [ %205, %invoke.cont.thread ]
   %_M_engaged.i.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %storemerge, ptr %_M_engaged.i.i.i.i.i17, align 8
   ret void

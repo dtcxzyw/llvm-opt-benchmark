@@ -5543,6 +5543,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   br label %61
 
 .thread86:                                        ; preds = %.invoke, %50, %"_ZN4core3ptr145drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h0872d02869e45417E.llvm.14689451251361528239.exit.i"
+  %or.cond.i.i.i134 = phi i1 [ %or.cond.i.i.i, %.invoke ], [ false, %50 ], [ false, %"_ZN4core3ptr145drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h0872d02869e45417E.llvm.14689451251361528239.exit.i" ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread66
@@ -5852,7 +5853,7 @@ common.resume:                                    ; preds = %.thread82, %121, %1
 
 .thread66:                                        ; preds = %34, %.body49, %.thread86
   %.pn4073 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread86 ], [ %.pn, %.body49 ], [ %35, %34 ]
-  %.271 = phi i1 [ %or.cond.i.i.i, %.thread86 ], [ false, %.body49 ], [ false, %34 ]
+  %.271 = phi i1 [ %or.cond.i.i.i134, %.thread86 ], [ false, %.body49 ], [ false, %34 ]
   invoke void @"_ZN4core3ptr193drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h6743311ee7d5d81dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #25
           to label %.thread82 unwind label %85
 
@@ -7061,8 +7062,8 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %72 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %72, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %72, 1
-  %.not52.not = icmp eq ptr %.fca.0.extract12, null
-  br i1 %.not52.not, label %"_ZN4core3ptr177drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h96b4eec060e803b0E.exit87", label %75
+  %.not52 = icmp eq ptr %.fca.0.extract12, null
+  br i1 %.not52, label %"_ZN4core3ptr177drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h96b4eec060e803b0E.exit87", label %75
 
 73:                                               ; preds = %67
   %74 = icmp eq i64 %63, 0
@@ -7403,8 +7404,8 @@ common.resume:                                    ; preds = %.body87, %.body, %4
   %84 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %84, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %84, 1
-  %.not52.not = icmp eq ptr %.fca.0.extract12, null
-  br i1 %.not52.not, label %"_ZN4core3ptr207drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hf0b056df5ace4d78E.exit98", label %87
+  %.not52 = icmp eq ptr %.fca.0.extract12, null
+  br i1 %.not52, label %"_ZN4core3ptr207drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hf0b056df5ace4d78E.exit98", label %87
 
 85:                                               ; preds = %79
   %86 = icmp eq i64 %75, 0
@@ -7851,8 +7852,8 @@ common.resume:                                    ; preds = %.body105, %.body, %
   %105 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %105, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %105, 1
-  %.not52.not = icmp eq ptr %.fca.0.extract12, null
-  br i1 %.not52.not, label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit96.thread", label %108
+  %.not52 = icmp eq ptr %.fca.0.extract12, null
+  br i1 %.not52, label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit96.thread", label %108
 
 106:                                              ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit102"
   %107 = icmp eq i64 %86, 0

@@ -17701,18 +17701,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !77
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !77
 
-_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit: ; preds = %for.body.i.i.i.i.i.i
-  br i1 %cmp.i, label %_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE7destroyEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNK6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit
+if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit.thread, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit.thread ], [ %add.ptr28, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit ], [ %add.ptr28, %if.then.i ]
+_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit.thread, %if.then.i
+  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEEjS8_ES0_IT_T1_ES9_T0_SA_.exit.thread ], [ %add.ptr28, %if.then.i ]
   store ptr %add.ptr282832, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32
@@ -22055,7 +22052,7 @@ invoke.cont20:                                    ; preds = %for.body18
   %12 = or i1 %found.145, %call21
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.044, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %if.end, label %for.body18
+  br i1 %cmp.not, label %land.lhs.true26, label %for.body18
 
 lpad.loopexit:                                    ; preds = %for.body18
   %lpad.loopexit40 = landingpad { ptr, i32 }
@@ -22072,10 +22069,10 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZN13obj_hashtableI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %already_found) #23
   resume { ptr, i32 } %lpad.phi
 
-if.end:                                           ; preds = %invoke.cont20
+land.lhs.true26:                                  ; preds = %invoke.cont20
   br i1 %12, label %for.inc35, label %land.lhs.true28
 
-land.lhs.true28:                                  ; preds = %if.then, %if.end, %invoke.cont11
+land.lhs.true28:                                  ; preds = %if.then, %invoke.cont11, %land.lhs.true26
   %m_hash.i.i.i.i.i = getelementptr inbounds i8, ptr %call10, i64 12
   %13 = load i32, ptr %m_hash.i.i.i.i.i, align 4
   %14 = load i32, ptr %m_capacity.i.i, align 8
@@ -22212,7 +22209,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6inse
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
   br label %for.inc35
 
-for.inc35:                                        ; preds = %if.then.i.i, %if.then22.i.i, %if.end, %invoke.cont9, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit
+for.inc35:                                        ; preds = %if.then.i.i, %if.then22.i.i, %invoke.cont9, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit, %land.lhs.true26
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.047, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, label %land.rhs.i.i

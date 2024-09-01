@@ -53,63 +53,48 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN13GuardedMemory9free_copyEPv(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %17, label %.preheader.i
+  br i1 %2, label %12, label %3
 
-.preheader.i:                                     ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 -32
-  %4 = load i8, ptr %3, align 1
-  %.not.i9.i = icmp eq i8 %4, -85
-  br i1 %.not.i9.i, label %.lr.ph.i, label %_ZNK13GuardedMemory13verify_guardsEv.exit
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 -32
+  br label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %5
-  %.07.idx8.i10.i = phi i64 [ %.07.add.i.i, %5 ], [ 0, %.preheader.i ]
-  %.07.add.i.i = add nuw nsw i64 %.07.idx8.i10.i, 1
-  %exitcond.i.i = icmp eq i64 %.07.add.i.i, 16
-  br i1 %exitcond.i.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i, label %5, !llvm.loop !6
+.preheader.i:                                     ; preds = %3, %.preheader.i
+  %.07.idx8.i.i = phi i64 [ %.07.add.i.i, %.preheader.i ], [ 0, %3 ]
+  %.07.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.07.idx8.i.i
+  %5 = load i8, ptr %.07.ptr.i.i, align 1
+  %.not.i.i = icmp eq i8 %5, -85
+  %.07.add.i.i = add nuw nsw i64 %.07.idx8.i.i, 1
+  %exitcond.i.i = icmp ne i64 %.07.add.i.i, 16
+  %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %.preheader.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.i, !llvm.loop !6
 
-5:                                                ; preds = %.lr.ph.i
-  %.07.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %.07.add.i.i
-  %6 = load i8, ptr %.07.ptr.i.i, align 1
-  %.not.i.i = icmp eq i8 %6, -85
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.i, !llvm.loop !6
+_ZNK13GuardedMemory5Guard6verifyEv.exit.i:        ; preds = %.preheader.i
+  %6 = getelementptr inbounds i8, ptr %0, i64 -16
+  %7 = load i64, ptr %6, align 8
+  br i1 %.not.i.i, label %8, label %_ZNK13GuardedMemory13verify_guardsEv.exit
 
-_ZNK13GuardedMemory5Guard6verifyEv.exit.i:        ; preds = %5
-  %7 = icmp ugt i64 %.07.idx8.i10.i, 14
-  br i1 %7, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i, label %_ZNK13GuardedMemory13verify_guardsEv.exit
+8:                                                ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit.i
+  %9 = getelementptr inbounds i8, ptr %0, i64 %7
+  br label %10
 
-_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i: ; preds = %.lr.ph.i, %_ZNK13GuardedMemory5Guard6verifyEv.exit.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 -16
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %.not.i413.i = icmp eq i8 %11, -85
-  br i1 %.not.i413.i, label %.lr.ph15.i, label %_ZNK13GuardedMemory13verify_guardsEv.exit
+10:                                               ; preds = %10, %8
+  %.07.idx8.i2.i = phi i64 [ 0, %8 ], [ %.07.add.i5.i, %10 ]
+  %.07.ptr.i3.i = getelementptr inbounds i8, ptr %9, i64 %.07.idx8.i2.i
+  %11 = load i8, ptr %.07.ptr.i3.i, align 1
+  %.not.i4.i = icmp eq i8 %11, -85
+  %.07.add.i5.i = add nuw nsw i64 %.07.idx8.i2.i, 1
+  %exitcond.i6.i = icmp ne i64 %.07.add.i5.i, 16
+  %or.cond.not.i7.i = select i1 %.not.i4.i, i1 %exitcond.i6.i, i1 false
+  br i1 %or.cond.not.i7.i, label %10, label %_ZNK13GuardedMemory13verify_guardsEv.exit, !llvm.loop !6
 
-.lr.ph15.i:                                       ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i, %12
-  %.07.idx8.i214.i = phi i64 [ %.07.add.i6.i, %12 ], [ 0, %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i ]
-  %.07.add.i6.i = add nuw nsw i64 %.07.idx8.i214.i, 1
-  %exitcond.i7.i = icmp eq i64 %.07.add.i6.i, 16
-  br i1 %exitcond.i7.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit8.loopexit.i, label %12, !llvm.loop !6
+_ZNK13GuardedMemory13verify_guardsEv.exit:        ; preds = %10, %_ZNK13GuardedMemory5Guard6verifyEv.exit.i
+  %.0.i = phi i1 [ false, %_ZNK13GuardedMemory5Guard6verifyEv.exit.i ], [ %.not.i4.i, %10 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %0, i8 -70, i64 %7, i1 false)
+  tail call void @_ZN2os4freeEPv(ptr noundef nonnull %4) #4
+  br label %12
 
-12:                                               ; preds = %.lr.ph15.i
-  %.07.ptr.i3.i = getelementptr inbounds i8, ptr %10, i64 %.07.add.i6.i
-  %13 = load i8, ptr %.07.ptr.i3.i, align 1
-  %.not.i4.i = icmp eq i8 %13, -85
-  br i1 %.not.i4.i, label %.lr.ph15.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit8.loopexit.i, !llvm.loop !6
-
-_ZNK13GuardedMemory5Guard6verifyEv.exit8.loopexit.i: ; preds = %12, %.lr.ph15.i
-  %14 = icmp ugt i64 %.07.idx8.i214.i, 14
-  br label %_ZNK13GuardedMemory13verify_guardsEv.exit
-
-_ZNK13GuardedMemory13verify_guardsEv.exit:        ; preds = %.preheader.i, %_ZNK13GuardedMemory5Guard6verifyEv.exit.i, %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i, %_ZNK13GuardedMemory5Guard6verifyEv.exit8.loopexit.i
-  %.0.i = phi i1 [ false, %_ZNK13GuardedMemory5Guard6verifyEv.exit.i ], [ false, %_ZNK13GuardedMemory5Guard6verifyEv.exit.thread.i ], [ false, %.preheader.i ], [ %14, %_ZNK13GuardedMemory5Guard6verifyEv.exit8.loopexit.i ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 -16
-  %16 = load i64, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %0, i8 -70, i64 %16, i1 false)
-  tail call void @_ZN2os4freeEPv(ptr noundef nonnull %3) #4
-  br label %17
-
-17:                                               ; preds = %1, %_ZNK13GuardedMemory13verify_guardsEv.exit
+12:                                               ; preds = %1, %_ZNK13GuardedMemory13verify_guardsEv.exit
   %.0 = phi i1 [ %.0.i, %_ZNK13GuardedMemory13verify_guardsEv.exit ], [ true, %1 ]
   ret i1 %.0
 }
@@ -126,7 +111,7 @@ define hidden void @_ZNK13GuardedMemory8print_onEP12outputStream(ptr noundef non
 
 7:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %6) #4
-  br label %41
+  br label %37
 
 8:                                                ; preds = %2
   %9 = ptrtoint ptr %4 to i64
@@ -139,82 +124,64 @@ define hidden void @_ZNK13GuardedMemory8print_onEP12outputStream(ptr noundef non
   %16 = ptrtoint ptr %15 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i64 noundef %6, i64 noundef %9, i64 noundef %12, i64 noundef %14, i64 noundef %16) #4
   %17 = load ptr, ptr %3, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = load i8, ptr %17, align 1
-  %.not.i19 = icmp eq i8 %19, -85
-  br i1 %.not.i19, label %.lr.ph, label %_ZNK13GuardedMemory5Guard6verifyEv.exit
+  br label %18
 
-.lr.ph:                                           ; preds = %8, %20
-  %.07.idx8.i20 = phi i64 [ %.07.add.i, %20 ], [ 0, %8 ]
-  %.07.add.i = add nuw nsw i64 %.07.idx8.i20, 1
-  %exitcond.i = icmp eq i64 %.07.add.i, 16
-  br i1 %exitcond.i, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.loopexit, label %20, !llvm.loop !6
+18:                                               ; preds = %18, %8
+  %.07.idx8.i = phi i64 [ 0, %8 ], [ %.07.add.i, %18 ]
+  %.07.ptr.i = getelementptr inbounds i8, ptr %17, i64 %.07.idx8.i
+  %19 = load i8, ptr %.07.ptr.i, align 1
+  %.not.i = icmp eq i8 %19, -85
+  %.07.add.i = add nuw nsw i64 %.07.idx8.i, 1
+  %exitcond.i = icmp ne i64 %.07.add.i, 16
+  %or.cond.not.i = select i1 %.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %18, label %_ZNK13GuardedMemory5Guard6verifyEv.exit, !llvm.loop !6
 
-20:                                               ; preds = %.lr.ph
-  %.07.ptr.i = getelementptr inbounds i8, ptr %17, i64 %.07.add.i
-  %21 = load i8, ptr %.07.ptr.i, align 1
-  %.not.i = icmp eq i8 %21, -85
-  br i1 %.not.i, label %.lr.ph, label %_ZNK13GuardedMemory5Guard6verifyEv.exit.loopexit, !llvm.loop !6
+_ZNK13GuardedMemory5Guard6verifyEv.exit:          ; preds = %18
+  %20 = ptrtoint ptr %17 to i64
+  %21 = select i1 %.not.i, ptr @.str.6, ptr @.str.7
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %20, ptr noundef nonnull %21) #4
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  br label %27
 
-_ZNK13GuardedMemory5Guard6verifyEv.exit.loopexit: ; preds = %.lr.ph, %20
-  %22 = icmp ugt i64 %.07.idx8.i20, 14
-  %23 = select i1 %22, ptr @.str.6, ptr @.str.7
-  br label %_ZNK13GuardedMemory5Guard6verifyEv.exit
+27:                                               ; preds = %27, %_ZNK13GuardedMemory5Guard6verifyEv.exit
+  %.07.idx8.i12 = phi i64 [ 0, %_ZNK13GuardedMemory5Guard6verifyEv.exit ], [ %.07.add.i15, %27 ]
+  %.07.ptr.i13 = getelementptr inbounds i8, ptr %26, i64 %.07.idx8.i12
+  %28 = load i8, ptr %.07.ptr.i13, align 1
+  %.not.i14 = icmp eq i8 %28, -85
+  %.07.add.i15 = add nuw nsw i64 %.07.idx8.i12, 1
+  %exitcond.i16 = icmp ne i64 %.07.add.i15, 16
+  %or.cond.not.i17 = select i1 %.not.i14, i1 %exitcond.i16, i1 false
+  br i1 %or.cond.not.i17, label %27, label %_ZNK13GuardedMemory5Guard6verifyEv.exit18, !llvm.loop !6
 
-_ZNK13GuardedMemory5Guard6verifyEv.exit:          ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit.loopexit, %8
-  %.lcssa.i = phi ptr [ @.str.7, %8 ], [ %23, %_ZNK13GuardedMemory5Guard6verifyEv.exit.loopexit ]
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %18, ptr noundef nonnull %.lcssa.i) #4
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  %29 = ptrtoint ptr %28 to i64
-  %30 = load i8, ptr %28, align 1
-  %.not.i1423 = icmp eq i8 %30, -85
-  br i1 %.not.i1423, label %.lr.ph25, label %_ZNK13GuardedMemory5Guard6verifyEv.exit18
-
-.lr.ph25:                                         ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit, %31
-  %.07.idx8.i1224 = phi i64 [ %.07.add.i16, %31 ], [ 0, %_ZNK13GuardedMemory5Guard6verifyEv.exit ]
-  %.07.add.i16 = add nuw nsw i64 %.07.idx8.i1224, 1
-  %exitcond.i17 = icmp eq i64 %.07.add.i16, 16
-  br i1 %exitcond.i17, label %_ZNK13GuardedMemory5Guard6verifyEv.exit18.loopexit, label %31, !llvm.loop !6
-
-31:                                               ; preds = %.lr.ph25
-  %.07.ptr.i13 = getelementptr inbounds i8, ptr %28, i64 %.07.add.i16
-  %32 = load i8, ptr %.07.ptr.i13, align 1
-  %.not.i14 = icmp eq i8 %32, -85
-  br i1 %.not.i14, label %.lr.ph25, label %_ZNK13GuardedMemory5Guard6verifyEv.exit18.loopexit, !llvm.loop !6
-
-_ZNK13GuardedMemory5Guard6verifyEv.exit18.loopexit: ; preds = %.lr.ph25, %31
-  %33 = icmp ugt i64 %.07.idx8.i1224, 14
-  %34 = select i1 %33, ptr @.str.6, ptr @.str.7
-  br label %_ZNK13GuardedMemory5Guard6verifyEv.exit18
-
-_ZNK13GuardedMemory5Guard6verifyEv.exit18:        ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18.loopexit, %_ZNK13GuardedMemory5Guard6verifyEv.exit
-  %.lcssa.i15 = phi ptr [ @.str.7, %_ZNK13GuardedMemory5Guard6verifyEv.exit ], [ %34, %_ZNK13GuardedMemory5Guard6verifyEv.exit18.loopexit ]
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i64 noundef %29, ptr noundef nonnull %.lcssa.i15) #4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
-  %37 = load i8, ptr %36, align 1
-  switch i8 %37, label %40 [
-    i8 -15, label %38
-    i8 -70, label %39
+_ZNK13GuardedMemory5Guard6verifyEv.exit18:        ; preds = %27
+  %29 = ptrtoint ptr %26 to i64
+  %30 = select i1 %.not.i14, ptr @.str.6, ptr @.str.7
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i64 noundef %29, ptr noundef nonnull %30) #4
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = load i8, ptr %32, align 1
+  switch i8 %33, label %36 [
+    i8 -15, label %34
+    i8 -70, label %35
   ]
 
-38:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
+34:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9) #4
-  br label %41
+  br label %37
 
-39:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
+35:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10) #4
-  br label %41
+  br label %37
 
-40:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
+36:                                               ; preds = %_ZNK13GuardedMemory5Guard6verifyEv.exit18
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #4
-  br label %41
+  br label %37
 
-41:                                               ; preds = %40, %39, %38, %7
+37:                                               ; preds = %36, %35, %34, %7
   ret void
 }
 

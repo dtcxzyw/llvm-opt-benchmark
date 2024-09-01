@@ -1263,8 +1263,8 @@ define dso_local noundef zeroext i1 @acpi_device_is_battery(ptr noundef readonly
 3:                                                ; preds = %6, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %6 ]
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp ne ptr %5, %2
-  br i1 %.not, label %6, label %11
+  %.not.not.not.not.not = icmp ne ptr %5, %2
+  br i1 %.not.not.not.not.not, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1274,7 +1274,7 @@ define dso_local noundef zeroext i1 @acpi_device_is_battery(ptr noundef readonly
   br i1 %10, label %11, label %3, !llvm.loop !14
 
 11:                                               ; preds = %6, %3
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -4705,7 +4705,11 @@ define internal void @acpi_device_del_work_fn(ptr nocapture readnone %0) #0 alig
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_del_lock) #19
   %2 = load volatile ptr, ptr @acpi_device_del_list, align 8
   %3 = icmp eq ptr %2, @acpi_device_del_list
-  br i1 %3, label %.loopexit4, label %.lr.ph
+  br i1 %3, label %.thread, label %.lr.ph
+
+.thread:                                          ; preds = %55, %1
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_del_lock) #19
+  ret void
 
 .lr.ph:                                           ; preds = %1, %55
   %4 = phi ptr [ %56, %55 ], [ %2, %1 ]
@@ -4809,11 +4813,7 @@ define internal void @acpi_device_del_work_fn(ptr nocapture readnone %0) #0 alig
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_del_lock) #19
   %56 = load volatile ptr, ptr @acpi_device_del_list, align 8
   %57 = icmp eq ptr %56, @acpi_device_del_list
-  br i1 %57, label %.loopexit4, label %.lr.ph
-
-.loopexit4:                                       ; preds = %55, %1
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_del_lock) #19
-  ret void
+  br i1 %57, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: null_pointer_is_valid

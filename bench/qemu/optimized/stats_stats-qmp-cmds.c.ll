@@ -352,8 +352,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %value = getelementptr inbounds i8, ptr %str_list.04, i64 8
   %0 = load ptr, ptr %value, align 8
   %call = tail call i32 @g_str_equal(ptr noundef %string, ptr noundef %0) #8
-  %tobool2.not.not = icmp ne i32 %call, 0
-  br i1 %tobool2.not.not, label %return, label %for.inc
+  %tobool2.not.not.not = icmp ne i32 %call, 0
+  br i1 %tobool2.not.not.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %1 = load ptr, ptr %str_list.04, align 8
@@ -361,7 +361,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool1.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.inc, %for.body, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %tobool2.not.not, %for.body ], [ %tobool2.not.not, %for.inc ]
+  %retval.0 = phi i1 [ true, %entry ], [ %tobool2.not.not.not, %for.body ], [ %tobool2.not.not.not, %for.inc ]
   ret i1 %retval.0
 }
 

@@ -1004,7 +1004,7 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
   %16 = shl nuw nsw i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %3, i64 %16, i1 false)
   %17 = icmp sgt i32 %1, 1
-  br i1 %17, label %.preheader.us.preheader, label %._crit_edge100
+  br i1 %17, label %.preheader.us.preheader, label %.lr.ph103.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader91
   %18 = zext nneg i32 %0 to i64
@@ -1036,7 +1036,7 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
 ._crit_edge.us:                                   ; preds = %20
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge100, label %.preheader.us
+  br i1 %exitcond114.not, label %.lr.ph103.preheader, label %.preheader.us
 
 ._crit_edge100.thread:                            ; preds = %.preheader93
   %28 = load double, ptr %7, align 8
@@ -1044,13 +1044,10 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
   %30 = fsub double %28, %29
   br label %._crit_edge
 
-._crit_edge100:                                   ; preds = %._crit_edge.us, %.preheader91
+.lr.ph103.preheader:                              ; preds = %._crit_edge.us, %.preheader91
   %31 = load double, ptr %7, align 8
   %32 = load double, ptr %6, align 8
   %33 = fsub double %31, %32
-  br i1 %12, label %.lr.ph103.preheader, label %._crit_edge
-
-.lr.ph103.preheader:                              ; preds = %._crit_edge100
   %wide.trip.count118 = zext nneg i32 %0 to i64
   br label %.lr.ph103
 
@@ -1071,8 +1068,8 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %._crit_edge, label %.lr.ph103
 
-._crit_edge:                                      ; preds = %.lr.ph103, %._crit_edge100.thread, %._crit_edge100
-  %.084.lcssa = phi double [ %33, %._crit_edge100 ], [ %30, %._crit_edge100.thread ], [ %42, %.lr.ph103 ]
+._crit_edge:                                      ; preds = %.lr.ph103, %._crit_edge100.thread
+  %.084.lcssa = phi double [ %30, %._crit_edge100.thread ], [ %42, %.lr.ph103 ]
   %43 = tail call double @llvm.maxnum.f64(double %.084.lcssa, double 1.000000e-05)
   %44 = fmul double %43, 5.200000e-01
   %45 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15

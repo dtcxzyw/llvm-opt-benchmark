@@ -13429,46 +13429,41 @@ entry:
 
 if.then:                                          ; preds = %entry
   %pdf.i.i = getelementptr inbounds i8, ptr %lambda, i64 16
-  %arrayidx.i.i4.i = getelementptr inbounds i8, ptr %lambda, i64 20
-  %4 = load float, ptr %arrayidx.i.i4.i, align 4
-  %cmp2.i5.i = fcmp une float %4, 0.000000e+00
-  br i1 %cmp2.i5.i, label %for.cond.preheader.i, label %for.cond.i.i
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %if.then, %for.body.i.i
-  %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 1, %if.then ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i6.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.i.i, label %if.end, label %for.body.i.i, !llvm.loop !202
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %pdf.i.i, i64 0, i64 %indvars.iv.next.i.i
-  %5 = load float, ptr %arrayidx.i.i.i, align 4
-  %cmp2.i.i = fcmp une float %5, 0.000000e+00
-  br i1 %cmp2.i.i, label %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, label %for.cond.i.i, !llvm.loop !202
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then
+  %indvars.iv.i.i = phi i64 [ 1, %if.then ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %pdf.i.i, i64 0, i64 %indvars.iv.i.i
+  %4 = load float, ptr %arrayidx.i.i.i, align 4
+  %cmp2.i.i = fcmp oeq float %4, 0.000000e+00
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 4
+  %or.cond.not.i.i = select i1 %cmp2.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, !llvm.loop !202
 
 _ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i6.i, 2
-  br i1 %cmp.i.le.i, label %if.end, label %for.cond.preheader.i
+  br i1 %cmp2.i.i, label %if.end, label %for.body.preheader.i
 
-for.cond.preheader.i:                             ; preds = %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, %if.then
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i4.i, i8 0, i64 12, i1 false)
-  %6 = load float, ptr %pdf.i.i, align 4
-  %div.i = fmul float %6, 2.500000e-01
+for.body.preheader.i:                             ; preds = %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i
+  %scevgep.i = getelementptr inbounds i8, ptr %lambda, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false)
+  %5 = load float, ptr %pdf.i.i, align 4
+  %div.i = fmul float %5, 2.500000e-01
   store float %div.i, ptr %pdf.i.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %for.cond.i.i, %for.cond.preheader.i, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, %entry
+if.end:                                           ; preds = %for.body.preheader.i, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, %entry
   %uRoughness = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i64, ptr %uRoughness, align 8
-  store i64 %7, ptr %agg.tmp, align 8
+  %6 = load i64, ptr %uRoughness, align 8
+  store i64 %6, ptr %agg.tmp, align 8
   %call8 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %ctx)
   %vRoughness = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %vRoughness, align 8
-  store i64 %8, ptr %agg.tmp9, align 8
+  %7 = load i64, ptr %vRoughness, align 8
+  store i64 %7, ptr %agg.tmp9, align 8
   %call11 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp9, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %ctx)
   %remapRoughness = getelementptr inbounds i8, ptr %this, i64 32
-  %9 = load i8, ptr %remapRoughness, align 8
-  %tobool = trunc i8 %9 to i1
+  %8 = load i8, ptr %remapRoughness, align 8
+  %tobool = trunc i8 %8 to i1
   br i1 %tobool, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end
@@ -13482,8 +13477,8 @@ if.end15:                                         ; preds = %if.then12, %if.end
   %distrib.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %urough.0, i64 0
   %distrib.sroa.0.4.vec.insert = insertelement <2 x float> %distrib.sroa.0.0.vec.insert, float %vrough.0, i64 1
   %cmp.i.i.i = fcmp olt float %urough.0, %vrough.0
-  %10 = select i1 %cmp.i.i.i, float %vrough.0, float %urough.0
-  %cmp.i.i = fcmp olt float %10, 0x3F50624DE0000000
+  %9 = select i1 %cmp.i.i.i, float %vrough.0, float %urough.0
+  %cmp.i.i = fcmp olt float %9, 0x3F50624DE0000000
   br i1 %cmp.i.i, label %_ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15
@@ -13503,9 +13498,9 @@ _ZN4pbrt27TrowbridgeReitzDistributionC2Eff.exit:  ; preds = %if.end15, %if.then.
   %retval.4.retval.4.retval.4.mfDistrib3.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 4
   store <2 x float> %distrib.sroa.0.0, ptr %retval.4.retval.4.retval.4.mfDistrib3.i.sroa_idx, align 4
   %retval.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload = load <2 x float>, ptr %retval, align 8
-  %11 = extractelement <2 x float> %distrib.sroa.0.0, i64 1
+  %10 = extractelement <2 x float> %distrib.sroa.0.0, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %11, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %10, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -14866,55 +14861,50 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %pdf.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %arrayidx.i.i4.i.i = getelementptr inbounds i8, ptr %2, i64 20
-  %7 = load float, ptr %arrayidx.i.i4.i.i, align 4
-  %cmp2.i5.i.i = fcmp une float %7, 0.000000e+00
-  br i1 %cmp2.i5.i.i, label %for.cond.preheader.i.i, label %for.cond.i.i.i
+  br label %for.body.i.i.i
 
-for.cond.i.i.i:                                   ; preds = %if.then.i, %for.body.i.i.i
-  %indvars.iv.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 1, %if.then.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
-  %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.i.i.i, label %_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit, label %for.body.i.i.i, !llvm.loop !202
-
-for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x float], ptr %pdf.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i
-  %8 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %cmp2.i.i.i = fcmp une float %8, 0.000000e+00
-  br i1 %cmp2.i.i.i, label %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, label %for.cond.i.i.i, !llvm.loop !202
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i
+  %indvars.iv.i.i.i = phi i64 [ 1, %if.then.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
+  %arrayidx.i.i.i.i = getelementptr inbounds [4 x float], ptr %pdf.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %7 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %cmp2.i.i.i = fcmp oeq float %7, 0.000000e+00
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, 4
+  %or.cond.not.i.i.i = select i1 %cmp2.i.i.i, i1 %exitcond.i.i.i, i1 false
+  br i1 %or.cond.not.i.i.i, label %for.body.i.i.i, label %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, !llvm.loop !202
 
 _ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i: ; preds = %for.body.i.i.i
-  %cmp.i.le.i.i = icmp ugt i64 %indvars.iv.i6.i.i, 2
-  br i1 %cmp.i.le.i.i, label %_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit, label %for.cond.preheader.i.i
+  br i1 %cmp2.i.i.i, label %_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit, label %for.body.preheader.i.i
 
-for.cond.preheader.i.i:                           ; preds = %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, %if.then.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i4.i.i, i8 0, i64 12, i1 false)
-  %9 = load float, ptr %pdf.i.i.i, align 4
-  %div.i.i = fmul float %9, 2.500000e-01
+for.body.preheader.i.i:                           ; preds = %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i
+  %scevgep.i.i = getelementptr inbounds i8, ptr %2, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
+  %8 = load float, ptr %pdf.i.i.i, align 4
+  %div.i.i = fmul float %8, 2.500000e-01
   store float %div.i.i, ptr %pdf.i.i.i, align 4
   br label %_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit
 
-_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit: ; preds = %for.cond.i.i.i, %entry, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, %for.cond.preheader.i.i
-  %10 = getelementptr inbounds i8, ptr %this, i64 16
+_ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18ThinDielectricBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE.exit: ; preds = %entry, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i.i, %for.body.preheader.i.i
+  %9 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i = fcmp oeq float %call3.i.i.i, 0.000000e+00
   %sampledEta.0.i = select i1 %cmp.i, float 1.000000e+00, float %call3.i.i.i
   store float %sampledEta.0.i, ptr %call, align 4
-  %11 = load ptr, ptr %10, align 8
-  %ns = getelementptr inbounds i8, ptr %11, i64 88
+  %10 = load ptr, ptr %9, align 8
+  %ns = getelementptr inbounds i8, ptr %10, i64 88
   %agg.tmp4.sroa.0.0.copyload = load <2 x float>, ptr %ns, align 4
-  %agg.tmp4.sroa.2.0.ns.sroa_idx = getelementptr inbounds i8, ptr %11, i64 96
+  %agg.tmp4.sroa.2.0.ns.sroa_idx = getelementptr inbounds i8, ptr %10, i64 96
   %agg.tmp4.sroa.2.0.copyload = load float, ptr %agg.tmp4.sroa.2.0.ns.sroa_idx, align 4
-  %dpdus = getelementptr inbounds i8, ptr %11, i64 100
+  %dpdus = getelementptr inbounds i8, ptr %10, i64 100
   %agg.tmp5.sroa.0.0.copyload = load <2 x float>, ptr %dpdus, align 4
-  %agg.tmp5.sroa.2.0.dpdus.sroa_idx = getelementptr inbounds i8, ptr %11, i64 108
+  %agg.tmp5.sroa.2.0.dpdus.sroa_idx = getelementptr inbounds i8, ptr %10, i64 108
   %agg.tmp5.sroa.2.0.copyload = load float, ptr %agg.tmp5.sroa.2.0.dpdus.sroa_idx, align 4
-  %12 = ptrtoint ptr %call to i64
-  %or.i.i = or i64 %12, 864691128455135232
+  %11 = ptrtoint ptr %call to i64
+  %or.i.i = or i64 %11, 864691128455135232
   store i64 %or.i.i, ptr %agg.result, align 8
   %shadingFrame.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %v.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp5.sroa.0.0.copyload, i64 0
-  %13 = fmul <2 x float> %agg.tmp5.sroa.0.0.copyload, %agg.tmp5.sroa.0.0.copyload
-  %mul.i.i.i.i.i = extractelement <2 x float> %13, i64 0
+  %12 = fmul <2 x float> %agg.tmp5.sroa.0.0.copyload, %agg.tmp5.sroa.0.0.copyload
+  %mul.i.i.i.i.i = extractelement <2 x float> %12, i64 0
   %v.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp5.sroa.0.0.copyload, i64 1
   %mul.i1.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i
   %add.i.i.i.i = fadd float %mul.i.i.i.i.i, %mul.i1.i.i.i.i
@@ -14930,22 +14920,22 @@ _ZNK4pbrt22ThinDielectricMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_18
   %n.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload, i64 1
   %mul.i.i.i.i = fmul float %agg.tmp4.sroa.2.0.copyload, %div2.i.i.i
   %fneg.i.i.i.i = fneg float %mul.i.i.i.i
-  %14 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i, float %div3.i.i.i, float %fneg.i.i.i.i)
+  %13 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i, float %div3.i.i.i, float %fneg.i.i.i.i)
   %fneg1.i.i.i.i = fneg float %agg.tmp4.sroa.2.0.copyload
-  %15 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i, float %div2.i.i.i, float %mul.i.i.i.i)
-  %add.i.i.i1.i = fadd float %14, %15
+  %14 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i, float %div2.i.i.i, float %mul.i.i.i.i)
+  %add.i.i.i1.i = fadd float %13, %14
   %mul.i11.i.i.i = fmul float %n.sroa.0.0.vec.extract.i.i, %div3.i.i.i
   %fneg.i12.i.i.i = fneg float %mul.i11.i.i.i
-  %16 = call noundef float @llvm.fma.f32(float %agg.tmp4.sroa.2.0.copyload, float %div.i.i.i, float %fneg.i12.i.i.i)
+  %15 = call noundef float @llvm.fma.f32(float %agg.tmp4.sroa.2.0.copyload, float %div.i.i.i, float %fneg.i12.i.i.i)
   %fneg1.i13.i.i.i = fneg float %n.sroa.0.0.vec.extract.i.i
-  %17 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i, float %div3.i.i.i, float %mul.i11.i.i.i)
-  %add.i14.i.i.i = fadd float %16, %17
+  %16 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i, float %div3.i.i.i, float %mul.i11.i.i.i)
+  %add.i14.i.i.i = fadd float %15, %16
   %mul.i15.i.i.i = fmul float %n.sroa.0.4.vec.extract.i.i, %div.i.i.i
   %fneg.i16.i.i.i = fneg float %mul.i15.i.i.i
-  %18 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i, float %div2.i.i.i, float %fneg.i16.i.i.i)
+  %17 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i, float %div2.i.i.i, float %fneg.i16.i.i.i)
   %fneg1.i17.i.i.i = fneg float %n.sroa.0.4.vec.extract.i.i
-  %19 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i, float %div.i.i.i, float %mul.i15.i.i.i)
-  %add.i18.i.i.i = fadd float %18, %19
+  %18 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i, float %div.i.i.i, float %mul.i15.i.i.i)
+  %add.i18.i.i.i = fadd float %17, %18
   %retval.sroa.0.0.vec.insert.i.i2.i = insertelement <2 x float> poison, float %add.i.i.i1.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i3.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i, float %add.i14.i.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %shadingFrame.i, align 8, !alias.scope !207

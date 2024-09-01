@@ -704,7 +704,7 @@ arrayctor.loop34:                                 ; preds = %arrayctor.loop34, %
 arrayctor.cont38:                                 ; preds = %arrayctor.loop34
   %mFaces = getelementptr inbounds i8, ptr %call2, i64 208
   store ptr %14, ptr %mFaces, align 8
-  br i1 %isempty31, label %return, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %arrayctor.cont38, %for.inc67
   %15 = phi i32 [ %24, %for.inc67 ], [ %conv24, %arrayctor.cont38 ]
@@ -782,8 +782,8 @@ for.inc67:                                        ; preds = %for.end, %if.then47
   %cmp = icmp ult i32 %i.1, %24
   br i1 %cmp, label %for.body, label %return, !llvm.loop !19
 
-return:                                           ; preds = %for.inc67, %arrayctor.cont38, %arrayctor.cont38.thread, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call2, %arrayctor.cont38.thread ], [ %call2, %arrayctor.cont38 ], [ %call2, %for.inc67 ]
+return:                                           ; preds = %for.inc67, %arrayctor.cont38.thread, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call2, %arrayctor.cont38.thread ], [ %call2, %for.inc67 ]
   ret ptr %retval.0
 }
 
@@ -1864,16 +1864,13 @@ for.end:                                          ; preds = %for.body
   store ptr %10, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %facesByVertex, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.end31, label %for.cond13.preheader.lr.ph
-
-for.cond13.preheader.lr.ph:                       ; preds = %for.end
   %_M_node.i.i = getelementptr inbounds i8, ptr %__z.i, i64 8
   br label %for.cond13.preheader
 
-for.cond13.preheader:                             ; preds = %for.cond13.preheader.lr.ph, %for.inc29
-  %11 = phi ptr [ %6, %for.cond13.preheader.lr.ph ], [ %52, %for.inc29 ]
-  %12 = phi ptr [ %5, %for.cond13.preheader.lr.ph ], [ %53, %for.inc29 ]
-  %storemerge868 = phi i64 [ 0, %for.cond13.preheader.lr.ph ], [ %inc30, %for.inc29 ]
+for.cond13.preheader:                             ; preds = %for.end, %for.inc29
+  %11 = phi ptr [ %6, %for.end ], [ %52, %for.inc29 ]
+  %12 = phi ptr [ %5, %for.end ], [ %53, %for.inc29 ]
+  %storemerge868 = phi i64 [ 0, %for.end ], [ %inc30, %for.inc29 ]
   %add.ptr.i81859 = getelementptr inbounds i32, ptr %11, i64 %storemerge868
   %13 = load i32, ptr %add.ptr.i81859, align 4
   %cmp17861.not = icmp eq i32 %13, 0
@@ -2192,15 +2189,15 @@ for.end31.loopexit:                               ; preds = %for.inc29
   %.pre929 = load ptr, ptr %this, align 8
   br label %for.end31
 
-for.end31:                                        ; preds = %for.end.thread, %for.end31.loopexit, %for.end
-  %_M_node_count.i.i.i.i.i947 = phi ptr [ %_M_node_count.i.i.i.i.i, %for.end31.loopexit ], [ %_M_node_count.i.i.i.i.i, %for.end ], [ %_M_node_count.i.i.i.i.i943, %for.end.thread ]
-  %_M_parent.i.i.i.i.i946 = phi ptr [ %_M_parent.i.i.i.i.i, %for.end31.loopexit ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i940, %for.end.thread ]
-  %54 = phi ptr [ %10, %for.end31.loopexit ], [ %10, %for.end ], [ %7, %for.end.thread ]
-  %faceStartIndices.sroa.0.0937944 = phi ptr [ %call5.i.i.i.i2.i.i69, %for.end31.loopexit ], [ %call5.i.i.i.i2.i.i69, %for.end ], [ null, %for.end.thread ]
-  %55 = phi ptr [ %52, %for.end31.loopexit ], [ %6, %for.end ], [ %6, %for.end.thread ]
-  %56 = phi ptr [ %53, %for.end31.loopexit ], [ %5, %for.end ], [ %5, %for.end.thread ]
-  %57 = phi ptr [ %.pre929, %for.end31.loopexit ], [ %0, %for.end ], [ %0, %for.end.thread ]
-  %58 = phi ptr [ %.pre928, %for.end31.loopexit ], [ %1, %for.end ], [ %1, %for.end.thread ]
+for.end31:                                        ; preds = %for.end.thread, %for.end31.loopexit
+  %_M_node_count.i.i.i.i.i947 = phi ptr [ %_M_node_count.i.i.i.i.i, %for.end31.loopexit ], [ %_M_node_count.i.i.i.i.i943, %for.end.thread ]
+  %_M_parent.i.i.i.i.i946 = phi ptr [ %_M_parent.i.i.i.i.i, %for.end31.loopexit ], [ %_M_parent.i.i.i.i.i940, %for.end.thread ]
+  %54 = phi ptr [ %10, %for.end31.loopexit ], [ %7, %for.end.thread ]
+  %faceStartIndices.sroa.0.0937944 = phi ptr [ %call5.i.i.i.i2.i.i69, %for.end31.loopexit ], [ null, %for.end.thread ]
+  %55 = phi ptr [ %52, %for.end31.loopexit ], [ %6, %for.end.thread ]
+  %56 = phi ptr [ %53, %for.end31.loopexit ], [ %5, %for.end.thread ]
+  %57 = phi ptr [ %.pre929, %for.end31.loopexit ], [ %0, %for.end.thread ]
+  %58 = phi ptr [ %.pre928, %for.end31.loopexit ], [ %1, %for.end.thread ]
   %sub.ptr.lhs.cast.i100 = ptrtoint ptr %58 to i64
   %sub.ptr.rhs.cast.i101 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i102 = sub i64 %sub.ptr.lhs.cast.i100, %sub.ptr.rhs.cast.i101

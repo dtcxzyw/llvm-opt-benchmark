@@ -9823,10 +9823,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_keys to i64
   br label %for.body
 
-for.cond10.preheader:                             ; preds = %for.body
-  br i1 %cmp16, label %for.body12.lr.ph, label %for.end22
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %for.body
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %kNumDoubleProbes.i = getelementptr inbounds i8, ptr %this, i64 4
   %wide.trip.count24 = zext nneg i32 %num_keys to i64
@@ -9853,7 +9850,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %shr.i.i.i, ptr %arrayidx.i.i13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !100
+  br i1 %exitcond.not, label %for.body12.lr.ph, label %for.body, !llvm.loop !100
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit
   %indvars.iv21 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next22, %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit ]
@@ -9920,7 +9917,7 @@ _ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit:  ; preds = %if.else.i, %if.then
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end22, label %for.body12, !llvm.loop !101
 
-for.end22:                                        ; preds = %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit, %entry, %for.cond10.preheader
+for.end22:                                        ; preds = %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit, %entry
   ret void
 }
 

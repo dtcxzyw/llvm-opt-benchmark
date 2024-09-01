@@ -8022,13 +8022,13 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.
   store ptr %add.ptr.i88, ptr %_M_finish.i.i73, align 8
   %add.ptr21.i89 = getelementptr inbounds i8, ptr %call5.i.i.i.i93, i64 %sub.ptr.sub.i63
   store ptr %add.ptr21.i89, ptr %_M_end_of_storage.i.i67, align 8
-  %.pre789 = load ptr, ptr %tables, align 8
-  %.pre790 = load ptr, ptr %_M_finish.i, align 8
+  %.pre787 = load ptr, ptr %tables, align 8
+  %.pre788 = load ptr, ptr %_M_finish.i, align 8
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.exit.i, %if.end.i66
-  %36 = phi ptr [ %.pre790, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %28, %if.end.i66 ]
-  %37 = phi ptr [ %.pre789, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %29, %if.end.i66 ]
+  %36 = phi ptr [ %.pre788, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %28, %if.end.i66 ]
+  %37 = phi ptr [ %.pre787, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5TableEESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %29, %if.end.i66 ]
   %cmp.i95.not776 = icmp eq ptr %37, %36
   br i1 %cmp.i95.not776, label %cleanup65, label %for.body38.lr.ph
 
@@ -8756,11 +8756,11 @@ if.then.i.i.i.i.i300:                             ; preds = %if.then.i.i.i297
 
 if.else.i.i.i.i.i302:                             ; preds = %if.then.i.i.i297
   %142 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i298, i32 1 acq_rel, align 4
-  %.pre791 = load ptr, ptr %schema, align 8
+  %.pre789 = load ptr, ptr %schema, align 8
   br label %_ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit303
 
 _ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit303: ; preds = %if.end114, %if.then.i.i.i.i.i300, %if.else.i.i.i.i.i302
-  %143 = phi ptr [ %138, %if.end114 ], [ %138, %if.then.i.i.i.i.i300 ], [ %.pre791, %if.else.i.i.i.i.i302 ]
+  %143 = phi ptr [ %138, %if.end114 ], [ %138, %if.then.i.i.i.i.i300 ], [ %.pre789, %if.else.i.i.i.i.i302 ]
   %call122 = invoke noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32) %143)
           to label %invoke.cont121 unwind label %lpad120
 
@@ -8808,7 +8808,7 @@ for.body130:                                      ; preds = %for.body130.lr.ph, 
   %145 = load ptr, ptr %tables_to_concat.2, align 8
   %146 = load ptr, ptr %_M_finish.i311, align 8
   %cmp.i312.not781 = icmp eq ptr %145, %146
-  %.pre797 = trunc nuw nsw i64 %indvars.iv to i32
+  %.pre795 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %cmp.i312.not781, label %for.end165, label %for.body140
 
 for.body140:                                      ; preds = %for.body130, %for.inc163
@@ -8817,7 +8817,7 @@ for.body140:                                      ; preds = %for.body130, %for.i
   %vtable = load ptr, ptr %147, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %148 = load ptr, ptr %vfn, align 8
-  invoke void %148(ptr nonnull sret(%"class.std::shared_ptr.42") align 8 %ref.tmp142, ptr noundef nonnull align 8 dereferenceable(32) %147, i32 noundef %.pre797)
+  invoke void %148(ptr nonnull sret(%"class.std::shared_ptr.42") align 8 %ref.tmp142, ptr noundef nonnull align 8 dereferenceable(32) %147, i32 noundef %.pre795)
           to label %invoke.cont145 unwind label %lpad144.loopexit.split-lp.loopexit
 
 invoke.cont145:                                   ; preds = %for.body140
@@ -8902,11 +8902,11 @@ _ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit: ; preds = %invoke.cont145, %
   br i1 %cmp.i345.not779, label %for.inc163, label %for.body157.preheader
 
 for.body157.preheader:                            ; preds = %_ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit
-  %.pre792 = load ptr, ptr %_M_finish.i346, align 8
+  %.pre790 = load ptr, ptr %_M_finish.i346, align 8
   br label %for.body157
 
 for.body157:                                      ; preds = %for.body157.preheader, %for.inc160
-  %163 = phi ptr [ %180, %for.inc160 ], [ %.pre792, %for.body157.preheader ]
+  %163 = phi ptr [ %180, %for.inc160 ], [ %.pre790, %for.body157.preheader ]
   %__begin3.sroa.0.0780 = phi ptr [ %incdec.ptr.i363, %for.inc160 ], [ %161, %for.body157.preheader ]
   %164 = load ptr, ptr %_M_end_of_storage.i347, align 8
   %cmp.not.i348 = icmp eq ptr %163, %164
@@ -9089,7 +9089,7 @@ for.inc163:                                       ; preds = %for.inc160, %_ZNSt1
 
 for.end165:                                       ; preds = %for.inc163, %for.body130
   %183 = load ptr, ptr %schema, align 8
-  %call169 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5fieldEi(ptr noundef nonnull align 8 dereferenceable(32) %183, i32 noundef %.pre797)
+  %call169 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5fieldEi(ptr noundef nonnull align 8 dereferenceable(32) %183, i32 noundef %.pre795)
           to label %invoke.cont168 unwind label %lpad144.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont168:                                   ; preds = %for.end165
@@ -9297,17 +9297,17 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %invoke.
   br i1 %exitcond.not, label %for.end180.loopexit, label %for.body130, !llvm.loop !132
 
 for.end180.loopexit:                              ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit
-  %.pre793 = load ptr, ptr %schema, align 8
-  %.pre794 = load ptr, ptr %columns, align 8
-  %.pre795 = load ptr, ptr %_M_finish.i.i7.i, align 8
-  %.pre796 = load ptr, ptr %144, align 8
+  %.pre791 = load ptr, ptr %schema, align 8
+  %.pre792 = load ptr, ptr %columns, align 8
+  %.pre793 = load ptr, ptr %_M_finish.i.i7.i, align 8
+  %.pre794 = load ptr, ptr %144, align 8
   br label %for.end180
 
 for.end180:                                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %for.end180.loopexit
-  %212 = phi ptr [ %.pre796, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %213 = phi ptr [ %.pre795, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %214 = phi ptr [ %.pre794, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %215 = phi ptr [ %.pre793, %for.end180.loopexit ], [ %143, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %212 = phi ptr [ %.pre794, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %213 = phi ptr [ %.pre793, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %214 = phi ptr [ %.pre792, %for.end180.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %215 = phi ptr [ %.pre791, %for.end180.loopexit ], [ %143, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   store ptr %215, ptr %agg.tmp182, align 8
   %_M_refcount.i.i475 = getelementptr inbounds i8, ptr %agg.tmp182, i64 8
   %216 = load ptr, ptr %_M_refcount.i.i294, align 8

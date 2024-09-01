@@ -3800,9 +3800,9 @@ _ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit: ; preds =
   %vfn.i17180 = getelementptr inbounds i8, ptr %vtable.i16179, i64 24
   %22 = load ptr, ptr %vfn.i17180, align 8
   %call2.i181 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(200) %21)
-  br i1 %call2.i181, label %land.lhs.true.i18, label %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread194
+  br i1 %call2.i181, label %land.lhs.true.i18, label %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread193
 
-_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread194: ; preds = %_ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit
+_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread193: ; preds = %_ZN7rocksdb25TruncatedRangeDelIterator11SeekForPrevERKNS_5SliceE.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
   br label %if.then27
@@ -4036,7 +4036,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread: ; preds = %f
 for.end:                                          ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit, %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
   br i1 %checked_candidate_tombstones.0182, label %for.inc46, label %if.then27
 
-if.then27:                                        ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread194, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread, %for.end
+if.then27:                                        ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread.thread193, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread, %for.end
   %74 = load ptr, ptr %__begin1.sroa.0.0185, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i70)
   %smallest_.i71 = getelementptr inbounds i8, ptr %74, i64 16

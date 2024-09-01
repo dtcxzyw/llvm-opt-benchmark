@@ -128,7 +128,7 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_WriteEquivClassesInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noalias ptr @Gia_WriteEquivClassesInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val, 1
@@ -193,28 +193,22 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsH
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #10
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   store i8 1, ptr %31, align 1
-  br i1 %4, label %.lr.ph120, label %.preheader
-
-.lr.ph120:                                        ; preds = %._crit_edge
   %32 = getelementptr i8, ptr %0, i64 192
   %.val73 = load ptr, ptr %32, align 8
   %wide.trip.count142 = zext nneg i32 %.val to i64
   br label %35
 
-.preheader107:                                    ; preds = %56
-  br i1 %4, label %.lr.ph133, label %.preheader
-
-.lr.ph133:                                        ; preds = %.preheader107
+.lr.ph133:                                        ; preds = %56
   %33 = getelementptr i8, ptr %0, i64 192
   %.val.i79 = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %0, i64 200
   %wide.trip.count147 = zext nneg i32 %.val to i64
   br label %58
 
-35:                                               ; preds = %.lr.ph120, %56
-  %indvars.iv139 = phi i64 [ 1, %.lr.ph120 ], [ %indvars.iv.next140, %56 ]
-  %.0118 = phi i32 [ 5, %.lr.ph120 ], [ %.1, %56 ]
-  %.058117 = phi i32 [ 0, %.lr.ph120 ], [ %.159, %56 ]
+35:                                               ; preds = %._crit_edge, %56
+  %indvars.iv139 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next140, %56 ]
+  %.0118 = phi i32 [ 5, %._crit_edge ], [ %.1, %56 ]
+  %.058117 = phi i32 [ 0, %._crit_edge ], [ %.159, %56 ]
   %36 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val73, i64 %indvars.iv139
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 268435455
@@ -266,11 +260,11 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %39, %._crit_edge.lo
   %.1 = phi i32 [ %53, %Gia_AigerWriteUnsignedBuffer.exit ], [ %.0118, %35 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %.preheader107, label %35, !llvm.loop !12
+  br i1 %exitcond143.not, label %.lr.ph133, label %35, !llvm.loop !12
 
-.preheader:                                       ; preds = %Gia_ObjIsHead.exit81.thread, %._crit_edge, %._crit_edge.thread, %.preheader107
-  %57 = phi ptr [ %30, %.preheader107 ], [ %5, %._crit_edge.thread ], [ %30, %._crit_edge ], [ %30, %Gia_ObjIsHead.exit81.thread ]
-  %.2.lcssa = phi i32 [ %.1, %.preheader107 ], [ 5, %._crit_edge.thread ], [ 5, %._crit_edge ], [ %.4, %Gia_ObjIsHead.exit81.thread ]
+.preheader:                                       ; preds = %Gia_ObjIsHead.exit81.thread, %._crit_edge.thread
+  %57 = phi ptr [ %5, %._crit_edge.thread ], [ %30, %Gia_ObjIsHead.exit81.thread ]
+  %.2.lcssa = phi i32 [ 5, %._crit_edge.thread ], [ %.4, %Gia_ObjIsHead.exit81.thread ]
   br label %98
 
 58:                                               ; preds = %.lr.ph133, %Gia_ObjIsHead.exit81.thread
@@ -573,7 +567,7 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_AigerWriteMappingInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noalias ptr @Gia_AigerWriteMappingInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val48 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val48, 1
@@ -618,9 +612,6 @@ define noalias noundef ptr @Gia_AigerWriteMappingInt(ptr nocapture noundef reado
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #10
-  br i1 %4, label %.lr.ph95, label %.preheader
-
-.lr.ph95:                                         ; preds = %._crit_edge
   %22 = getelementptr i8, ptr %0, i64 264
   %.val50 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.val50, i64 8
@@ -628,15 +619,15 @@ define noalias noundef ptr @Gia_AigerWriteMappingInt(ptr nocapture noundef reado
   %wide.trip.count112 = zext nneg i32 %.val48 to i64
   br label %25
 
-.preheader:                                       ; preds = %94, %._crit_edge.thread, %._crit_edge
-  %24 = phi ptr [ %21, %._crit_edge ], [ %5, %._crit_edge.thread ], [ %21, %94 ]
-  %.0.lcssa = phi i32 [ 4, %._crit_edge ], [ 4, %._crit_edge.thread ], [ %.2, %94 ]
+.preheader:                                       ; preds = %94, %._crit_edge.thread
+  %24 = phi ptr [ %5, %._crit_edge.thread ], [ %21, %94 ]
+  %.0.lcssa = phi i32 [ 4, %._crit_edge.thread ], [ %.2, %94 ]
   br label %95
 
-25:                                               ; preds = %.lr.ph95, %94
-  %indvars.iv109 = phi i64 [ 1, %.lr.ph95 ], [ %indvars.iv.next110, %94 ]
-  %.093 = phi i32 [ 4, %.lr.ph95 ], [ %.2, %94 ]
-  %.04391 = phi i32 [ 0, %.lr.ph95 ], [ %.245, %94 ]
+25:                                               ; preds = %._crit_edge, %94
+  %indvars.iv109 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next110, %94 ]
+  %.093 = phi i32 [ 4, %._crit_edge ], [ %.2, %94 ]
+  %.04391 = phi i32 [ 0, %._crit_edge ], [ %.245, %94 ]
   %26 = getelementptr inbounds i32, ptr %.val50.val, i64 %indvars.iv109
   %27 = load i32, ptr %26, align 4
   %.not76 = icmp eq i32 %27, 0

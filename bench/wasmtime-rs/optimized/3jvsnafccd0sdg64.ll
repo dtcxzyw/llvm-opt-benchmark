@@ -136,12 +136,39 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
 
 61:                                               ; preds = %59
   %62 = load i64, ptr %19, align 8, !range !4, !noundef !3
-  %.not.i.not = icmp eq i64 %62, -9223372036854775808
-  br i1 %.not.i.not, label %63, label %64
+  %.not.not.not.i.not = icmp eq i64 %62, -9223372036854775808
+  br i1 %.not.not.not.i.not, label %63, label %64
 
 63:                                               ; preds = %61
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$$GT$17he01d0bab66cfd7dfE"(ptr nonnull align 8 %20)
-          to label %131 unwind label %44
+          to label %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread unwind label %44
+
+_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread: ; preds = %63
+  call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h634cdd2a5cc9255bE"(ptr nonnull align 8 %24)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
+  %.not = icmp eq i64 %30, 1
+  br i1 %.not, label %130, label %131
 
 64:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false)
@@ -151,7 +178,7 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
           to label %66 unwind label %.loopexit73.i
 
 65:                                               ; preds = %82, %72, %.loopexit.split-lp74.i, %.loopexit73.i
-  %.139.i = phi i1 [ false, %82 ], [ true, %72 ], [ %.038.ph.i, %.loopexit73.i ], [ %.not115.i.not, %.loopexit.split-lp74.i ]
+  %.139.i = phi i1 [ false, %82 ], [ true, %72 ], [ %.038.ph.i, %.loopexit73.i ], [ %.not.not.i.not.not.not.not.not, %.loopexit.split-lp74.i ]
   %.136.i = phi i1 [ false, %82 ], [ false, %72 ], [ %.035.ph.i, %.loopexit73.i ], [ false, %.loopexit.split-lp74.i ]
   %.pn47.i = phi { ptr, i32 } [ %.pn45.i, %82 ], [ %.pn.i, %72 ], [ %lpad.loopexit76.i, %.loopexit73.i ], [ %lpad.loopexit.split-lp77.i, %.loopexit.split-lp74.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %18) #7
@@ -206,8 +233,8 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
 
 73:                                               ; preds = %71
   %74 = load i64, ptr %12, align 8, !range !5, !noundef !3
-  %.not115.i.not = icmp ne i64 %74, 0
-  br i1 %.not115.i.not, label %76, label %75
+  %.not.not.i.not.not.not.not.not = icmp ne i64 %74, 0
+  br i1 %.not.not.i.not.not.not.not.not, label %76, label %75
 
 75:                                               ; preds = %73
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$$GT$17h2a11719c21c739c2E"(ptr nonnull align 8 %13)
@@ -280,8 +307,8 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
           to label %59 unwind label %.loopexit68.i
 
 .loopexit79.i:                                    ; preds = %90, %68, %112, %100
-  %92 = phi i1 [ false, %100 ], [ false, %112 ], [ %67, %90 ], [ true, %68 ]
-  %.240.i = phi i1 [ false, %100 ], [ true, %112 ], [ %67, %90 ], [ true, %68 ]
+  %92 = phi i1 [ false, %100 ], [ false, %112 ], [ %67, %68 ], [ %67, %90 ]
+  %.240.i = phi i1 [ false, %100 ], [ true, %112 ], [ %67, %68 ], [ %67, %90 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %18)
           to label %115 unwind label %113
 
@@ -433,44 +460,17 @@ _ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit: ; preds = %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %130
 
-130:                                              ; preds = %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit, %132, %131, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit ], [ false, %131 ], [ %134, %132 ]
+130:                                              ; preds = %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit, %131, %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit ], [ false, %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread ], [ %133, %131 ]
   ret i1 %.0
 
-131:                                              ; preds = %63
-  call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h634cdd2a5cc9255bE"(ptr nonnull align 8 %24)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
-  %.not = icmp eq i64 %30, 1
-  br i1 %.not, label %130, label %132
-
-132:                                              ; preds = %131
+131:                                              ; preds = %_ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread
   store i64 %30, ptr %25, align 8
   store ptr %25, ptr %26, align 8
-  %133 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %133, align 8
+  %132 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %132, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %27, ptr nonnull align 8 @anon.91f94faf8c1dec04dadce5b429f18ffe.2, i64 2, ptr nonnull align 8 %26, i64 1)
-  %134 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr align 8 %1, ptr nonnull align 8 %27)
+  %133 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr align 8 %1, ptr nonnull align 8 %27)
   br label %130
 }
 

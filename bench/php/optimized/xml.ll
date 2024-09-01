@@ -1855,7 +1855,7 @@ define hidden void @_xml_startElementHandler(ptr noundef %0, ptr noundef %1, ptr
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %268, label %12
+  br i1 %.not, label %267, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 472
@@ -2114,12 +2114,12 @@ _xml_decode_tag.exit282:                          ; preds = %_xml_xmlcharlen.exi
   %143 = getelementptr inbounds i8, ptr %0, i64 448
   %144 = load i8, ptr %143, align 8
   %145 = icmp eq i8 %144, 0
-  br i1 %145, label %258, label %146
+  br i1 %145, label %257, label %146
 
 146:                                              ; preds = %141
   %147 = load i32, ptr %13, align 8
   %148 = icmp slt i32 %147, 256
-  br i1 %148, label %149, label %255
+  br i1 %148, label %149, label %254
 
 149:                                              ; preds = %146
   %150 = call ptr @_zend_new_array_0() #16
@@ -2311,53 +2311,50 @@ _xml_decode_tag.exit291:                          ; preds = %_xml_xmlcharlen.exi
   br i1 %.not259, label %.critedge2, label %.lr.ph317
 
 .critedge2:                                       ; preds = %246
-  br i1 %.not259314, label %.critedge2.thread, label %248
+  %248 = load ptr, ptr %9, align 8
+  %249 = call ptr @zend_hash_str_add(ptr noundef %248, ptr noundef nonnull @.str.15, i64 noundef 10, ptr noundef nonnull %10) #16
+  br label %250
 
-248:                                              ; preds = %.critedge2
-  %249 = load ptr, ptr %9, align 8
-  %250 = call ptr @zend_hash_str_add(ptr noundef %249, ptr noundef nonnull @.str.15, i64 noundef 10, ptr noundef nonnull %10) #16
-  br label %251
-
-.critedge2.thread:                                ; preds = %.lr.ph300, %_xml_add_to_info.exit, %.critedge2
+.critedge2.thread:                                ; preds = %.lr.ph300, %_xml_add_to_info.exit
   call void @zval_ptr_dtor(ptr noundef nonnull %10) #16
-  br label %251
+  br label %250
 
-251:                                              ; preds = %.critedge2.thread, %248
-  %252 = load ptr, ptr %142, align 8
-  %253 = call ptr @zend_hash_next_index_insert(ptr noundef %252, ptr noundef nonnull %9) #16
-  %254 = getelementptr inbounds i8, ptr %0, i64 488
-  store ptr %253, ptr %254, align 8
-  br label %258
+250:                                              ; preds = %.critedge2.thread, %.critedge2
+  %251 = load ptr, ptr %142, align 8
+  %252 = call ptr @zend_hash_next_index_insert(ptr noundef %251, ptr noundef nonnull %9) #16
+  %253 = getelementptr inbounds i8, ptr %0, i64 488
+  store ptr %252, ptr %253, align 8
+  br label %257
 
-255:                                              ; preds = %146
-  %256 = icmp eq i32 %147, 256
-  br i1 %256, label %257, label %258
+254:                                              ; preds = %146
+  %255 = icmp eq i32 %147, 256
+  br i1 %255, label %256, label %257
 
-257:                                              ; preds = %255
+256:                                              ; preds = %254
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #16
-  br label %258
+  br label %257
 
-258:                                              ; preds = %251, %257, %255, %141
-  %259 = getelementptr inbounds i8, ptr %23, i64 4
-  %260 = load i32, ptr %259, align 4
-  %261 = and i32 %260, 64
-  %.not264 = icmp eq i32 %261, 0
-  br i1 %.not264, label %262, label %268
+257:                                              ; preds = %250, %256, %254, %141
+  %258 = getelementptr inbounds i8, ptr %23, i64 4
+  %259 = load i32, ptr %258, align 4
+  %260 = and i32 %259, 64
+  %.not264 = icmp eq i32 %260, 0
+  br i1 %.not264, label %261, label %267
 
-262:                                              ; preds = %258
-  %263 = load i32, ptr %23, align 4
-  %264 = icmp ne i32 %263, 0
-  call void @llvm.assume(i1 %264)
-  %265 = add i32 %263, -1
-  store i32 %265, ptr %23, align 4
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %267, label %268
+261:                                              ; preds = %257
+  %262 = load i32, ptr %23, align 4
+  %263 = icmp ne i32 %262, 0
+  call void @llvm.assume(i1 %263)
+  %264 = add i32 %262, -1
+  store i32 %264, ptr %23, align 4
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %267
 
-267:                                              ; preds = %262
+266:                                              ; preds = %261
   call void @_efree(ptr noundef nonnull %23) #16
-  br label %268
+  br label %267
 
-268:                                              ; preds = %258, %267, %262, %3
+267:                                              ; preds = %257, %266, %261, %3
   ret void
 }
 

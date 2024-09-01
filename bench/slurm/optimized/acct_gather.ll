@@ -281,11 +281,11 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
 .split57.us:                                      ; preds = %16
   %22 = tail call i32 @get_log_level() #9
   %23 = icmp sgt i32 %22, 4
-  br i1 %23, label %24, label %59
+  br i1 %23, label %24, label %62
 
 24:                                               ; preds = %.split57.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.030.ph66, i32 noundef 4) #9
-  br label %59
+  br label %62
 
 .split.us:                                        ; preds = %18, %.lr.ph.split.us
   %.us-phi = phi i64 [ %12, %.lr.ph.split.us ], [ %19, %18 ]
@@ -310,94 +310,94 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
 
 .outer45._crit_edge:                              ; preds = %.split.us
   %33 = icmp sgt i32 %10, 0
-  br i1 %33, label %.lr.ph68.split.us.preheader, label %.outer._crit_edge
+  br i1 %33, label %.lr.ph68.preheader, label %.outer._crit_edge
 
-.lr.ph68.split.us.preheader:                      ; preds = %.outer45._crit_edge
-  %.pre = load ptr, ptr @acct_gather_options_buf, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre97 = load ptr, ptr %.phi.trans.insert, align 8
+.lr.ph68.preheader:                               ; preds = %.outer45._crit_edge
+  %34 = load ptr, ptr @acct_gather_options_buf, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
   br label %.lr.ph68.split.us
 
-.lr.ph68.split.us:                                ; preds = %.lr.ph68.split.us.backedge, %.lr.ph68.split.us.preheader
-  %.032.ph85 = phi ptr [ %.pre97, %.lr.ph68.split.us.preheader ], [ %49, %.lr.ph68.split.us.backedge ]
-  %.033.ph83 = phi i32 [ %10, %.lr.ph68.split.us.preheader ], [ %50, %.lr.ph68.split.us.backedge ]
-  %34 = zext nneg i32 %.033.ph83 to i64
-  %35 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %34) #9
-  %36 = trunc i64 %35 to i32
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.lr.ph80, label %.split71.us
+.lr.ph68.split.us:                                ; preds = %.lr.ph68.split.us.backedge, %.lr.ph68.preheader
+  %.032.ph85 = phi ptr [ %36, %.lr.ph68.preheader ], [ %52, %.lr.ph68.split.us.backedge ]
+  %.033.ph83 = phi i32 [ %10, %.lr.ph68.preheader ], [ %53, %.lr.ph68.split.us.backedge ]
+  %37 = zext nneg i32 %.033.ph83 to i64
+  %38 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %37) #9
+  %39 = trunc i64 %38 to i32
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %.lr.ph80, label %.split71.us
 
 .lr.ph80:                                         ; preds = %.lr.ph68.split.us
-  %38 = tail call ptr @__errno_location() #11
-  br label %39
+  %41 = tail call ptr @__errno_location() #11
+  br label %42
 
-39:                                               ; preds = %.lr.ph80, %41
-  %40 = load i32, ptr %38, align 4
-  switch i32 %40, label %.split75.us [
-    i32 11, label %41
-    i32 4, label %41
+42:                                               ; preds = %.lr.ph80, %44
+  %43 = load i32, ptr %41, align 4
+  switch i32 %43, label %.split75.us [
+    i32 11, label %44
+    i32 4, label %44
   ]
 
-41:                                               ; preds = %39, %39
-  %42 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %34) #9
-  %43 = trunc i64 %42 to i32
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %39, label %.split71.us
+44:                                               ; preds = %42, %42
+  %45 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %37) #9
+  %46 = trunc i64 %45 to i32
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %42, label %.split71.us
 
-.split75.us:                                      ; preds = %39
-  %45 = tail call i32 @get_log_level() #9
-  %46 = icmp sgt i32 %45, 4
-  br i1 %46, label %47, label %59
+.split75.us:                                      ; preds = %42
+  %48 = tail call i32 @get_log_level() #9
+  %49 = icmp sgt i32 %48, 4
+  br i1 %49, label %50, label %62
 
-47:                                               ; preds = %.split75.us
+50:                                               ; preds = %.split75.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.033.ph83, i32 noundef %10) #9
-  br label %59
+  br label %62
 
-.split71.us:                                      ; preds = %41, %.lr.ph68.split.us
-  %.us-phi72 = phi i64 [ %35, %.lr.ph68.split.us ], [ %42, %41 ]
-  %.us-phi73 = phi i32 [ %36, %.lr.ph68.split.us ], [ %43, %41 ]
-  %48 = and i64 %.us-phi72, 2147483647
-  %49 = getelementptr inbounds i8, ptr %.032.ph85, i64 %48
-  %50 = sub nsw i32 %.033.ph83, %.us-phi73
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %.outer._crit_edge
+.split71.us:                                      ; preds = %44, %.lr.ph68.split.us
+  %.us-phi72 = phi i64 [ %38, %.lr.ph68.split.us ], [ %45, %44 ]
+  %.us-phi73 = phi i32 [ %39, %.lr.ph68.split.us ], [ %46, %44 ]
+  %51 = and i64 %.us-phi72, 2147483647
+  %52 = getelementptr inbounds i8, ptr %.032.ph85, i64 %51
+  %53 = sub nsw i32 %.033.ph83, %.us-phi73
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %.outer._crit_edge
 
-52:                                               ; preds = %.split71.us
-  %53 = tail call i32 @get_log_level() #9
-  %54 = icmp sgt i32 %53, 6
-  br i1 %54, label %55, label %.lr.ph68.split.us.backedge
+55:                                               ; preds = %.split71.us
+  %56 = tail call i32 @get_log_level() #9
+  %57 = icmp sgt i32 %56, 6
+  br i1 %57, label %58, label %.lr.ph68.split.us.backedge
 
-55:                                               ; preds = %52
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %50, i32 noundef %10) #9
+58:                                               ; preds = %55
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %53, i32 noundef %10) #9
   br label %.lr.ph68.split.us.backedge
 
-.lr.ph68.split.us.backedge:                       ; preds = %55, %52
+.lr.ph68.split.us.backedge:                       ; preds = %58, %55
   br label %.lr.ph68.split.us, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.split71.us, %.outer45._crit_edge
-  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
-  %.not43 = icmp eq i32 %56, 0
-  br i1 %.not43, label %63, label %57
+  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
+  %.not43 = icmp eq i32 %59, 0
+  br i1 %.not43, label %66, label %60
 
-57:                                               ; preds = %.outer._crit_edge
-  %58 = tail call ptr @__errno_location() #11
-  store i32 %56, ptr %58, align 4
+60:                                               ; preds = %.outer._crit_edge
+  %61 = tail call ptr @__errno_location() #11
+  store i32 %59, ptr %61, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.acct_gather_write_conf) #10
   unreachable
 
-59:                                               ; preds = %24, %.split57.us, %47, %.split75.us
-  %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
-  %.not44 = icmp eq i32 %60, 0
-  br i1 %.not44, label %63, label %61
+62:                                               ; preds = %24, %.split57.us, %50, %.split75.us
+  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
+  %.not44 = icmp eq i32 %63, 0
+  br i1 %.not44, label %66, label %64
 
-61:                                               ; preds = %59
-  %62 = tail call ptr @__errno_location() #11
-  store i32 %60, ptr %62, align 4
+64:                                               ; preds = %62
+  %65 = tail call ptr @__errno_location() #11
+  store i32 %63, ptr %65, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @__func__.acct_gather_write_conf) #10
   unreachable
 
-63:                                               ; preds = %59, %.outer._crit_edge
-  %.0 = phi i32 [ 0, %.outer._crit_edge ], [ -1, %59 ]
+66:                                               ; preds = %62, %.outer._crit_edge
+  %.0 = phi i32 [ 0, %.outer._crit_edge ], [ -1, %62 ]
   ret i32 %.0
 }
 
@@ -433,24 +433,24 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
 
 .lr.ph112.preheader:                              ; preds = %.lr.ph.split.us.split.us
   %8 = icmp slt i32 %6, 0
-  br i1 %8, label %.lr.ph333.preheader, label %.split71.us
+  br i1 %8, label %.lr.ph332.preheader, label %.split71.us
 
-.lr.ph333.preheader:                              ; preds = %.lr.ph112.preheader
+.lr.ph332.preheader:                              ; preds = %.lr.ph112.preheader
   %9 = tail call ptr @__errno_location() #11
-  br label %.lr.ph333
+  br label %.lr.ph332
 
 .lr.ph112:                                        ; preds = %12
   %10 = icmp slt i32 %14, 0
-  br i1 %10, label %.lr.ph333, label %.split71.us
+  br i1 %10, label %.lr.ph332, label %.split71.us
 
-.lr.ph333:                                        ; preds = %.lr.ph333.preheader, %.lr.ph112
+.lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph112
   %11 = load i32, ptr %9, align 4
   switch i32 %11, label %.split75.us [
     i32 11, label %12
     i32 4, label %12
   ]
 
-12:                                               ; preds = %.lr.ph333, %.lr.ph333
+12:                                               ; preds = %.lr.ph332, %.lr.ph332
   %13 = call i64 @read(i32 noundef %0, ptr noundef %.039.ph114, i64 noundef %3) #9
   %14 = trunc i64 %13 to i32
   %15 = icmp eq i32 %14, 0
@@ -461,24 +461,24 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
 
 .lr.ph96.preheader.preheader:                     ; preds = %.lr.ph.split.split.us
   %16 = icmp slt i32 %6, 0
-  br i1 %16, label %.lr.ph335.preheader, label %.split71.us
+  br i1 %16, label %.lr.ph334.preheader, label %.split71.us
 
-.lr.ph335.preheader:                              ; preds = %.lr.ph96.preheader.preheader
+.lr.ph334.preheader:                              ; preds = %.lr.ph96.preheader.preheader
   %17 = tail call ptr @__errno_location() #11
-  br label %.lr.ph335
+  br label %.lr.ph334
 
 .lr.ph96.preheader:                               ; preds = %20
   %18 = icmp slt i32 %22, 0
-  br i1 %18, label %.lr.ph335, label %.split71.us
+  br i1 %18, label %.lr.ph334, label %.split71.us
 
-.lr.ph335:                                        ; preds = %.lr.ph335.preheader, %.lr.ph96.preheader
+.lr.ph334:                                        ; preds = %.lr.ph334.preheader, %.lr.ph96.preheader
   %19 = load i32, ptr %17, align 4
   switch i32 %19, label %.split75.us [
     i32 11, label %20
     i32 4, label %20
   ]
 
-20:                                               ; preds = %.lr.ph335, %.lr.ph335
+20:                                               ; preds = %.lr.ph334, %.lr.ph334
   %21 = call i64 @read(i32 noundef %0, ptr noundef %.039.ph114, i64 noundef %3) #9
   %22 = trunc i64 %21 to i32
   %23 = icmp eq i32 %22, 0
@@ -487,30 +487,30 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
 .split78.us:                                      ; preds = %.lr.ph.split.split.us, %20
   %24 = tail call i32 @get_log_level() #9
   %25 = icmp sgt i32 %24, 4
-  br i1 %25, label %26, label %87
+  br i1 %25, label %26, label %88
 
 26:                                               ; preds = %.split78.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.acct_gather_read_conf) #9
-  br label %87
+  br label %88
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %12
   %27 = tail call i32 @get_log_level() #9
   %28 = icmp sgt i32 %27, 4
-  br i1 %28, label %29, label %87
+  br i1 %28, label %29, label %88
 
 29:                                               ; preds = %.split.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.038.ph116, i32 noundef 4) #9
-  br label %87
+  br label %88
 
-.split75.us:                                      ; preds = %.lr.ph333, %.lr.ph335
-  %.038.ph116231 = phi i32 [ 4, %.lr.ph335 ], [ %.038.ph116, %.lr.ph333 ]
+.split75.us:                                      ; preds = %.lr.ph332, %.lr.ph334
+  %.038.ph116231 = phi i32 [ 4, %.lr.ph334 ], [ %.038.ph116, %.lr.ph332 ]
   %30 = tail call i32 @get_log_level() #9
   %31 = icmp sgt i32 %30, 4
-  br i1 %31, label %32, label %87
+  br i1 %31, label %32, label %88
 
 32:                                               ; preds = %.split75.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.038.ph116231, i32 noundef 4) #9
-  br label %87
+  br label %88
 
 .split71.us:                                      ; preds = %.lr.ph112, %.lr.ph96.preheader, %.lr.ph112.preheader, %.lr.ph96.preheader.preheader
   %.us-phi72 = phi i64 [ %5, %.lr.ph96.preheader.preheader ], [ %5, %.lr.ph112.preheader ], [ %21, %.lr.ph96.preheader ], [ %13, %.lr.ph112 ]
@@ -534,150 +534,146 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   br label %.lr.ph, !llvm.loop !10
 
 .outer49._crit_edge:                              ; preds = %.split71.us
-  %.pre = load i32, ptr %2, align 4
-  %41 = tail call ptr @init_buf(i32 noundef %.pre) #9
-  store ptr %41, ptr @acct_gather_options_buf, align 8
-  %42 = icmp sgt i32 %.pre, 0
-  br i1 %42, label %.lr.ph118.preheader, label %.outer._crit_edge
+  %41 = load i32, ptr %2, align 4
+  %42 = tail call ptr @init_buf(i32 noundef %41) #9
+  store ptr %42, ptr @acct_gather_options_buf, align 8
+  %43 = icmp sgt i32 %41, 0
+  br i1 %43, label %.lr.ph118.preheader, label %.outer._crit_edge
 
 .lr.ph118.preheader:                              ; preds = %.outer49._crit_edge
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
-  %44 = load ptr, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.backedge, %.lr.ph118.preheader
-  %.036.ph171 = phi ptr [ %44, %.lr.ph118.preheader ], [ %76, %.lr.ph118.backedge ]
-  %.037.ph169 = phi i32 [ %.pre, %.lr.ph118.preheader ], [ %77, %.lr.ph118.backedge ]
-  %45 = zext nneg i32 %.037.ph169 to i64
-  %46 = icmp eq i32 %.037.ph169, %.pre
-  %47 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %45) #9
-  %48 = trunc i64 %47 to i32
-  %49 = icmp eq i32 %48, 0
-  br i1 %46, label %.lr.ph118.split.split.us, label %.lr.ph118.split.us.split.us
+  %.036.ph171 = phi ptr [ %45, %.lr.ph118.preheader ], [ %77, %.lr.ph118.backedge ]
+  %.037.ph169 = phi i32 [ %41, %.lr.ph118.preheader ], [ %78, %.lr.ph118.backedge ]
+  %46 = zext nneg i32 %.037.ph169 to i64
+  %47 = icmp eq i32 %.037.ph169, %41
+  %48 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %46) #9
+  %49 = trunc i64 %48 to i32
+  %50 = icmp eq i32 %49, 0
+  br i1 %47, label %.lr.ph118.split.split.us, label %.lr.ph118.split.us.split.us
 
 .lr.ph118.split.us.split.us:                      ; preds = %.lr.ph118
-  br i1 %49, label %.split121.us, label %.lr.ph166.preheader
+  br i1 %50, label %.split121.us, label %.lr.ph166.preheader
 
 .lr.ph166.preheader:                              ; preds = %.lr.ph118.split.us.split.us
-  %50 = icmp slt i32 %48, 0
-  br i1 %50, label %.lr.ph338.preheader, label %.split124.us
+  %51 = icmp slt i32 %49, 0
+  br i1 %51, label %.lr.ph337.preheader, label %.split124.us
 
-.lr.ph338.preheader:                              ; preds = %.lr.ph166.preheader
-  %51 = tail call ptr @__errno_location() #11
-  br label %.lr.ph338
+.lr.ph337.preheader:                              ; preds = %.lr.ph166.preheader
+  %52 = tail call ptr @__errno_location() #11
+  br label %.lr.ph337
 
-.lr.ph166:                                        ; preds = %54
-  %52 = icmp slt i32 %56, 0
-  br i1 %52, label %.lr.ph338, label %.split124.us
+.lr.ph166:                                        ; preds = %55
+  %53 = icmp slt i32 %57, 0
+  br i1 %53, label %.lr.ph337, label %.split124.us
 
-.lr.ph338:                                        ; preds = %.lr.ph338.preheader, %.lr.ph166
-  %53 = load i32, ptr %51, align 4
-  switch i32 %53, label %.split128.us [
-    i32 11, label %54
-    i32 4, label %54
+.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph166
+  %54 = load i32, ptr %52, align 4
+  switch i32 %54, label %.split128.us [
+    i32 11, label %55
+    i32 4, label %55
   ]
 
-54:                                               ; preds = %.lr.ph338, %.lr.ph338
-  %55 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %45) #9
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.split121.us, label %.lr.ph166
+55:                                               ; preds = %.lr.ph337, %.lr.ph337
+  %56 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %46) #9
+  %57 = trunc i64 %56 to i32
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %.split121.us, label %.lr.ph166
 
 .lr.ph118.split.split.us:                         ; preds = %.lr.ph118
-  br i1 %49, label %.split132.us, label %.lr.ph150.preheader.preheader
+  br i1 %50, label %.split132.us, label %.lr.ph150.preheader.preheader
 
 .lr.ph150.preheader.preheader:                    ; preds = %.lr.ph118.split.split.us
-  %58 = icmp slt i32 %48, 0
-  br i1 %58, label %.lr.ph341.preheader, label %.split124.us
+  %59 = icmp slt i32 %49, 0
+  br i1 %59, label %.lr.ph340.preheader, label %.split124.us
 
-.lr.ph341.preheader:                              ; preds = %.lr.ph150.preheader.preheader
-  %59 = tail call ptr @__errno_location() #11
-  br label %.lr.ph341
+.lr.ph340.preheader:                              ; preds = %.lr.ph150.preheader.preheader
+  %60 = tail call ptr @__errno_location() #11
+  br label %.lr.ph340
 
-.lr.ph150.preheader:                              ; preds = %62
-  %60 = icmp slt i32 %64, 0
-  br i1 %60, label %.lr.ph341, label %.split124.us
+.lr.ph150.preheader:                              ; preds = %63
+  %61 = icmp slt i32 %65, 0
+  br i1 %61, label %.lr.ph340, label %.split124.us
 
-.lr.ph341:                                        ; preds = %.lr.ph341.preheader, %.lr.ph150.preheader
-  %61 = load i32, ptr %59, align 4
-  switch i32 %61, label %.split128.us [
-    i32 11, label %62
-    i32 4, label %62
+.lr.ph340:                                        ; preds = %.lr.ph340.preheader, %.lr.ph150.preheader
+  %62 = load i32, ptr %60, align 4
+  switch i32 %62, label %.split128.us [
+    i32 11, label %63
+    i32 4, label %63
   ]
 
-62:                                               ; preds = %.lr.ph341, %.lr.ph341
-  %63 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %45) #9
-  %64 = trunc i64 %63 to i32
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.split132.us, label %.lr.ph150.preheader
+63:                                               ; preds = %.lr.ph340, %.lr.ph340
+  %64 = tail call i64 @read(i32 noundef %0, ptr noundef %.036.ph171, i64 noundef %46) #9
+  %65 = trunc i64 %64 to i32
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.split132.us, label %.lr.ph150.preheader
 
-.split132.us:                                     ; preds = %.lr.ph118.split.split.us, %62
-  %66 = tail call i32 @get_log_level() #9
-  %67 = icmp sgt i32 %66, 4
-  br i1 %67, label %68, label %87
+.split132.us:                                     ; preds = %.lr.ph118.split.split.us, %63
+  %67 = tail call i32 @get_log_level() #9
+  %68 = icmp sgt i32 %67, 4
+  br i1 %68, label %69, label %88
 
-68:                                               ; preds = %.split132.us
+69:                                               ; preds = %.split132.us
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf) #9
-  br label %87
+  br label %88
 
-.split121.us:                                     ; preds = %.lr.ph118.split.us.split.us, %54
-  %69 = tail call i32 @get_log_level() #9
-  %70 = icmp sgt i32 %69, 4
-  br i1 %70, label %71, label %87
+.split121.us:                                     ; preds = %.lr.ph118.split.us.split.us, %55
+  %70 = tail call i32 @get_log_level() #9
+  %71 = icmp sgt i32 %70, 4
+  br i1 %71, label %72, label %88
 
-71:                                               ; preds = %.split121.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.037.ph169, i32 noundef %.pre) #9
-  br label %87
+72:                                               ; preds = %.split121.us
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.037.ph169, i32 noundef %41) #9
+  br label %88
 
-.split128.us:                                     ; preds = %.lr.ph338, %.lr.ph341
-  %.037.ph169206 = phi i32 [ %.pre, %.lr.ph341 ], [ %.037.ph169, %.lr.ph338 ]
-  %72 = tail call i32 @get_log_level() #9
-  %73 = icmp sgt i32 %72, 4
-  br i1 %73, label %74, label %87
+.split128.us:                                     ; preds = %.lr.ph337, %.lr.ph340
+  %.037.ph169206 = phi i32 [ %41, %.lr.ph340 ], [ %.037.ph169, %.lr.ph337 ]
+  %73 = tail call i32 @get_log_level() #9
+  %74 = icmp sgt i32 %73, 4
+  br i1 %74, label %75, label %88
 
-74:                                               ; preds = %.split128.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.037.ph169206, i32 noundef %.pre) #9
-  br label %87
+75:                                               ; preds = %.split128.us
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %.037.ph169206, i32 noundef %41) #9
+  br label %88
 
 .split124.us:                                     ; preds = %.lr.ph166, %.lr.ph150.preheader, %.lr.ph166.preheader, %.lr.ph150.preheader.preheader
-  %.us-phi125 = phi i64 [ %47, %.lr.ph150.preheader.preheader ], [ %47, %.lr.ph166.preheader ], [ %63, %.lr.ph150.preheader ], [ %55, %.lr.ph166 ]
-  %.us-phi126 = phi i32 [ %48, %.lr.ph150.preheader.preheader ], [ %48, %.lr.ph166.preheader ], [ %64, %.lr.ph150.preheader ], [ %56, %.lr.ph166 ]
-  %75 = and i64 %.us-phi125, 2147483647
-  %76 = getelementptr inbounds i8, ptr %.036.ph171, i64 %75
-  %77 = sub i32 %.037.ph169, %.us-phi126
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %79, label %.outer._crit_edge.loopexit
+  %.us-phi125 = phi i64 [ %48, %.lr.ph150.preheader.preheader ], [ %48, %.lr.ph166.preheader ], [ %64, %.lr.ph150.preheader ], [ %56, %.lr.ph166 ]
+  %.us-phi126 = phi i32 [ %49, %.lr.ph150.preheader.preheader ], [ %49, %.lr.ph166.preheader ], [ %65, %.lr.ph150.preheader ], [ %57, %.lr.ph166 ]
+  %76 = and i64 %.us-phi125, 2147483647
+  %77 = getelementptr inbounds i8, ptr %.036.ph171, i64 %76
+  %78 = sub i32 %.037.ph169, %.us-phi126
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %80, label %.outer._crit_edge
 
-79:                                               ; preds = %.split124.us
-  %80 = tail call i32 @get_log_level() #9
-  %81 = icmp sgt i32 %80, 6
-  br i1 %81, label %82, label %.lr.ph118.backedge
+80:                                               ; preds = %.split124.us
+  %81 = tail call i32 @get_log_level() #9
+  %82 = icmp sgt i32 %81, 6
+  br i1 %82, label %83, label %.lr.ph118.backedge
 
-82:                                               ; preds = %79
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %77, i32 noundef %.pre) #9
+83:                                               ; preds = %80
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.acct_gather_read_conf, i32 noundef %78, i32 noundef %41) #9
   br label %.lr.ph118.backedge
 
-.lr.ph118.backedge:                               ; preds = %82, %79
+.lr.ph118.backedge:                               ; preds = %83, %80
   br label %.lr.ph118, !llvm.loop !11
 
-.outer._crit_edge.loopexit:                       ; preds = %.split124.us
-  %.pre242 = load ptr, ptr @acct_gather_options_buf, align 8
-  br label %.outer._crit_edge
+.outer._crit_edge:                                ; preds = %.split124.us, %.outer49._crit_edge
+  %84 = load ptr, ptr @acct_gather_options_buf, align 8
+  %85 = tail call ptr @s_p_unpack_hashtbl(ptr noundef %84) #9
+  %.not = icmp eq ptr %85, null
+  br i1 %.not, label %88, label %86
 
-.outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit, %.outer49._crit_edge
-  %83 = phi ptr [ %.pre242, %.outer._crit_edge.loopexit ], [ %41, %.outer49._crit_edge ]
-  %84 = tail call ptr @s_p_unpack_hashtbl(ptr noundef %83) #9
-  %.not = icmp eq ptr %84, null
-  br i1 %.not, label %87, label %85
-
-85:                                               ; preds = %.outer._crit_edge
+86:                                               ; preds = %.outer._crit_edge
   store i1 true, ptr @inited, align 1
-  %86 = tail call fastcc i32 @_process_tbl(ptr noundef nonnull %84)
-  tail call void @s_p_hashtbl_destroy(ptr noundef nonnull %84) #9
-  br label %87
+  %87 = tail call fastcc i32 @_process_tbl(ptr noundef nonnull %85)
+  tail call void @s_p_hashtbl_destroy(ptr noundef nonnull %85) #9
+  br label %88
 
-87:                                               ; preds = %26, %.split78.us, %29, %.split.us, %32, %.split75.us, %68, %.split132.us, %71, %.split121.us, %74, %.split128.us, %.outer._crit_edge, %85
-  %.0 = phi i32 [ 0, %85 ], [ -1, %.outer._crit_edge ], [ -1, %.split128.us ], [ -1, %74 ], [ -1, %.split121.us ], [ -1, %71 ], [ -1, %.split132.us ], [ -1, %68 ], [ -1, %.split75.us ], [ -1, %32 ], [ -1, %.split.us ], [ -1, %29 ], [ -1, %.split78.us ], [ -1, %26 ]
+88:                                               ; preds = %26, %.split78.us, %29, %.split.us, %32, %.split75.us, %69, %.split132.us, %72, %.split121.us, %75, %.split128.us, %.outer._crit_edge, %86
+  %.0 = phi i32 [ 0, %86 ], [ -1, %.outer._crit_edge ], [ -1, %.split128.us ], [ -1, %75 ], [ -1, %.split121.us ], [ -1, %72 ], [ -1, %.split132.us ], [ -1, %69 ], [ -1, %.split75.us ], [ -1, %32 ], [ -1, %.split.us ], [ -1, %29 ], [ -1, %.split78.us ], [ -1, %26 ]
   ret i32 %.0
 }
 

@@ -9528,7 +9528,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %87 = phi i32 [ %82, %sub_1 ], [ %86, %sub_2 ]
   %.not279 = icmp eq i32 %87, 0
-  br i1 %.not279, label %98, label %sub_0325
+  br i1 %.not279, label %98, label %sub_1326
 
 sub_0321:                                         ; preds = %70
   %88 = add nsw i32 %77, -105
@@ -9553,7 +9553,7 @@ sub_2323:                                         ; preds = %sub_1322
 .critedge.tail:                                   ; preds = %sub_1322, %sub_2323
   %97 = phi i32 [ %92, %sub_1322 ], [ %96, %sub_2323 ]
   %.not280 = icmp eq i32 %97, 0
-  br i1 %.not280, label %98, label %sub_0329
+  br i1 %.not280, label %98, label %sub_1330
 
 98:                                               ; preds = %.critedge.tail, %.tail
   %99 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
@@ -9588,10 +9588,7 @@ sub_2323:                                         ; preds = %sub_1322
   %127 = load ptr, ptr @ip_handle, align 8
   br label %300
 
-sub_0325:                                         ; preds = %.tail
-  br i1 %.not395, label %sub_1326, label %.critedge296.tail
-
-sub_1326:                                         ; preds = %sub_0325
+sub_1326:                                         ; preds = %.tail
   %128 = getelementptr inbounds i8, ptr %75, i64 1
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
@@ -9606,15 +9603,12 @@ sub_2327:                                         ; preds = %sub_1326
   %135 = add nsw i32 %134, -67
   br label %.critedge296.tail
 
-.critedge296.tail:                                ; preds = %sub_0, %sub_0325, %sub_1326, %sub_2327
-  %136 = phi i32 [ %78, %sub_0325 ], [ %131, %sub_1326 ], [ %135, %sub_2327 ], [ %78, %sub_0 ]
+.critedge296.tail:                                ; preds = %sub_0, %sub_1326, %sub_2327
+  %136 = phi i32 [ %131, %sub_1326 ], [ %135, %sub_2327 ], [ %78, %sub_0 ]
   %.not281 = icmp eq i32 %136, 0
   br i1 %.not281, label %146, label %sub_0333
 
-sub_0329:                                         ; preds = %.critedge.tail
-  br i1 %.not387, label %sub_1330, label %.critedge298.tail
-
-sub_1330:                                         ; preds = %sub_0329
+sub_1330:                                         ; preds = %.critedge.tail
   %137 = getelementptr inbounds i8, ptr %75, i64 1
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
@@ -9629,8 +9623,8 @@ sub_2331:                                         ; preds = %sub_1330
   %144 = add nsw i32 %143, -99
   br label %.critedge298.tail
 
-.critedge298.tail:                                ; preds = %sub_0321, %sub_0329, %sub_1330, %sub_2331
-  %145 = phi i32 [ %88, %sub_0329 ], [ %140, %sub_1330 ], [ %144, %sub_2331 ], [ %88, %sub_0321 ]
+.critedge298.tail:                                ; preds = %sub_0321, %sub_1330, %sub_2331
+  %145 = phi i32 [ %140, %sub_1330 ], [ %144, %sub_2331 ], [ %88, %sub_0321 ]
   %.not282 = icmp eq i32 %145, 0
   br i1 %.not282, label %146, label %sub_0337
 
@@ -9690,7 +9684,7 @@ sub_2335:                                         ; preds = %sub_1334
 .critedge300.tail:                                ; preds = %sub_1334, %sub_2335
   %185 = phi i32 [ %180, %sub_1334 ], [ %184, %sub_2335 ]
   %.not283 = icmp eq i32 %185, 0
-  br i1 %.not283, label %196, label %sub_0341
+  br i1 %.not283, label %196, label %sub_1342
 
 sub_0337:                                         ; preds = %.critedge298.tail
   %186 = add nsw i32 %77, -100
@@ -9715,7 +9709,7 @@ sub_2339:                                         ; preds = %sub_1338
 .critedge302.tail:                                ; preds = %sub_1338, %sub_2339
   %195 = phi i32 [ %190, %sub_1338 ], [ %194, %sub_2339 ]
   %.not284 = icmp eq i32 %195, 0
-  br i1 %.not284, label %196, label %sub_0345
+  br i1 %.not284, label %196, label %sub_1346
 
 196:                                              ; preds = %.critedge302.tail, %.critedge300.tail
   %197 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
@@ -9755,10 +9749,7 @@ sub_2339:                                         ; preds = %sub_1338
   %spec.select = select i1 %228, ptr %229, ptr %227
   br label %300
 
-sub_0341:                                         ; preds = %.critedge300.tail
-  br i1 %.not399, label %sub_1342, label %.critedge304.tail
-
-sub_1342:                                         ; preds = %sub_0341
+sub_1342:                                         ; preds = %.critedge300.tail
   %230 = getelementptr inbounds i8, ptr %75, i64 1
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i32
@@ -9773,15 +9764,12 @@ sub_2343:                                         ; preds = %sub_1342
   %237 = add nsw i32 %236, -67
   br label %.critedge304.tail
 
-.critedge304.tail:                                ; preds = %sub_0333, %sub_0341, %sub_1342, %sub_2343
-  %238 = phi i32 [ %176, %sub_0341 ], [ %233, %sub_1342 ], [ %237, %sub_2343 ], [ %176, %sub_0333 ]
+.critedge304.tail:                                ; preds = %sub_0333, %sub_1342, %sub_2343
+  %238 = phi i32 [ %233, %sub_1342 ], [ %237, %sub_2343 ], [ %176, %sub_0333 ]
   %.not285 = icmp eq i32 %238, 0
   br i1 %.not285, label %248, label %.critedge308
 
-sub_0345:                                         ; preds = %.critedge302.tail
-  br i1 %.not391, label %sub_1346, label %.critedge306.tail
-
-sub_1346:                                         ; preds = %sub_0345
+sub_1346:                                         ; preds = %.critedge302.tail
   %239 = getelementptr inbounds i8, ptr %75, i64 1
   %240 = load i8, ptr %239, align 1
   %241 = zext i8 %240 to i32
@@ -9796,8 +9784,8 @@ sub_2347:                                         ; preds = %sub_1346
   %246 = add nsw i32 %245, -99
   br label %.critedge306.tail
 
-.critedge306.tail:                                ; preds = %sub_0337, %sub_0345, %sub_1346, %sub_2347
-  %247 = phi i32 [ %186, %sub_0345 ], [ %242, %sub_1346 ], [ %246, %sub_2347 ], [ %186, %sub_0337 ]
+.critedge306.tail:                                ; preds = %sub_0337, %sub_1346, %sub_2347
+  %247 = phi i32 [ %242, %sub_1346 ], [ %246, %sub_2347 ], [ %186, %sub_0337 ]
   %.not286 = icmp eq i32 %247, 0
   br i1 %.not286, label %248, label %.critedge310
 

@@ -37,7 +37,7 @@ define void @TransposetoAxes(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %18 = add nsw i32 %1, -1
   %19 = shl i32 2, %18
   %.not3748 = icmp eq i32 %18, 0
-  br i1 %.not3748, label %._crit_edge52, label %.lr.ph51
+  br i1 %.not3748, label %._crit_edge52, label %.lr.ph46.preheader
 
 ._crit_edge.thread:                               ; preds = %3
   %20 = load i32, ptr %0, align 4
@@ -46,92 +46,84 @@ define void @TransposetoAxes(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %22 = add nsw i32 %1, -1
   %23 = shl i32 2, %22
   %.not374858 = icmp eq i32 %22, 0
-  br i1 %.not374858, label %._crit_edge52, label %.lr.ph51.split.us.preheader
+  br i1 %.not374858, label %._crit_edge52, label %.lr.ph51.split.us
 
-.lr.ph51:                                         ; preds = %._crit_edge
-  br i1 %.not41, label %.lr.ph51.split.us.preheader, label %.lr.ph46.preheader
-
-.lr.ph46.preheader:                               ; preds = %.lr.ph51
+.lr.ph46.preheader:                               ; preds = %._crit_edge
   %24 = sext i32 %2 to i64
   %25 = add nsw i64 %24, -1
   br label %.lr.ph46
 
-.lr.ph51.split.us.preheader:                      ; preds = %._crit_edge.thread, %.lr.ph51
-  %26 = phi i32 [ %17, %.lr.ph51 ], [ %21, %._crit_edge.thread ]
-  %27 = phi i32 [ %19, %.lr.ph51 ], [ %23, %._crit_edge.thread ]
-  br label %.lr.ph51.split.us
+.lr.ph51.split.us:                                ; preds = %._crit_edge.thread, %31
+  %26 = phi i32 [ %32, %31 ], [ %21, %._crit_edge.thread ]
+  %.03649.us = phi i32 [ %33, %31 ], [ 2, %._crit_edge.thread ]
+  %27 = and i32 %26, %.03649.us
+  %.not39.us = icmp eq i32 %27, 0
+  br i1 %.not39.us, label %31, label %28
 
-.lr.ph51.split.us:                                ; preds = %.lr.ph51.split.us.preheader, %33
-  %28 = phi i32 [ %34, %33 ], [ %26, %.lr.ph51.split.us.preheader ]
-  %.03649.us = phi i32 [ %35, %33 ], [ 2, %.lr.ph51.split.us.preheader ]
-  %29 = and i32 %28, %.03649.us
-  %.not39.us = icmp eq i32 %29, 0
-  br i1 %.not39.us, label %33, label %30
+28:                                               ; preds = %.lr.ph51.split.us
+  %29 = add i32 %.03649.us, -1
+  %30 = xor i32 %26, %29
+  store i32 %30, ptr %0, align 4
+  br label %31
 
-30:                                               ; preds = %.lr.ph51.split.us
-  %31 = add i32 %.03649.us, -1
-  %32 = xor i32 %28, %31
-  store i32 %32, ptr %0, align 4
-  br label %33
-
-33:                                               ; preds = %30, %.lr.ph51.split.us
-  %34 = phi i32 [ %28, %.lr.ph51.split.us ], [ %32, %30 ]
-  %35 = shl i32 %.03649.us, 1
-  %.not37.us = icmp eq i32 %35, %27
+31:                                               ; preds = %28, %.lr.ph51.split.us
+  %32 = phi i32 [ %26, %.lr.ph51.split.us ], [ %30, %28 ]
+  %33 = shl i32 %.03649.us, 1
+  %.not37.us = icmp eq i32 %33, %23
   br i1 %.not37.us, label %._crit_edge52, label %.lr.ph51.split.us, !llvm.loop !8
 
-.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %55
-  %36 = phi i32 [ %56, %55 ], [ %17, %.lr.ph46.preheader ]
-  %.03649 = phi i32 [ %57, %55 ], [ 2, %.lr.ph46.preheader ]
-  %37 = add i32 %.03649, -1
-  br label %38
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %53
+  %34 = phi i32 [ %54, %53 ], [ %17, %.lr.ph46.preheader ]
+  %.03649 = phi i32 [ %55, %53 ], [ 2, %.lr.ph46.preheader ]
+  %35 = add i32 %.03649, -1
+  br label %36
 
-38:                                               ; preds = %.lr.ph46, %50
-  %indvars.iv55 = phi i64 [ %25, %.lr.ph46 ], [ %indvars.iv.next56, %50 ]
-  %39 = phi i32 [ %36, %.lr.ph46 ], [ %51, %50 ]
-  %40 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv55
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, %.03649
-  %.not40 = icmp eq i32 %42, 0
-  br i1 %.not40, label %45, label %43
+36:                                               ; preds = %.lr.ph46, %48
+  %indvars.iv55 = phi i64 [ %25, %.lr.ph46 ], [ %indvars.iv.next56, %48 ]
+  %37 = phi i32 [ %34, %.lr.ph46 ], [ %49, %48 ]
+  %38 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv55
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %39, %.03649
+  %.not40 = icmp eq i32 %40, 0
+  br i1 %.not40, label %43, label %41
 
-43:                                               ; preds = %38
-  %44 = xor i32 %39, %37
-  store i32 %44, ptr %0, align 4
-  br label %50
+41:                                               ; preds = %36
+  %42 = xor i32 %37, %35
+  store i32 %42, ptr %0, align 4
+  br label %48
 
-45:                                               ; preds = %38
-  %46 = xor i32 %39, %41
-  %47 = and i32 %46, %37
-  %48 = xor i32 %47, %39
-  store i32 %48, ptr %0, align 4
-  %49 = xor i32 %47, %41
-  store i32 %49, ptr %40, align 4
-  br label %50
+43:                                               ; preds = %36
+  %44 = xor i32 %37, %39
+  %45 = and i32 %44, %35
+  %46 = xor i32 %45, %37
+  store i32 %46, ptr %0, align 4
+  %47 = xor i32 %45, %39
+  store i32 %47, ptr %38, align 4
+  br label %48
 
-50:                                               ; preds = %43, %45
-  %51 = phi i32 [ %44, %43 ], [ %48, %45 ]
+48:                                               ; preds = %41, %43
+  %49 = phi i32 [ %42, %41 ], [ %46, %43 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %.not38 = icmp eq i64 %indvars.iv.next56, 0
-  br i1 %.not38, label %._crit_edge47, label %38, !llvm.loop !9
+  br i1 %.not38, label %._crit_edge47, label %36, !llvm.loop !9
 
-._crit_edge47:                                    ; preds = %50
-  %52 = and i32 %51, %.03649
-  %.not39 = icmp eq i32 %52, 0
-  br i1 %.not39, label %55, label %53
+._crit_edge47:                                    ; preds = %48
+  %50 = and i32 %49, %.03649
+  %.not39 = icmp eq i32 %50, 0
+  br i1 %.not39, label %53, label %51
 
-53:                                               ; preds = %._crit_edge47
-  %54 = xor i32 %51, %37
-  store i32 %54, ptr %0, align 4
-  br label %55
+51:                                               ; preds = %._crit_edge47
+  %52 = xor i32 %49, %35
+  store i32 %52, ptr %0, align 4
+  br label %53
 
-55:                                               ; preds = %._crit_edge47, %53
-  %56 = phi i32 [ %51, %._crit_edge47 ], [ %54, %53 ]
-  %57 = shl i32 %.03649, 1
-  %.not37 = icmp eq i32 %57, %19
+53:                                               ; preds = %._crit_edge47, %51
+  %54 = phi i32 [ %49, %._crit_edge47 ], [ %52, %51 ]
+  %55 = shl i32 %.03649, 1
+  %.not37 = icmp eq i32 %55, %19
   br i1 %.not37, label %._crit_edge52, label %.lr.ph46, !llvm.loop !8
 
-._crit_edge52:                                    ; preds = %55, %33, %._crit_edge.thread, %._crit_edge
+._crit_edge52:                                    ; preds = %53, %31, %._crit_edge.thread, %._crit_edge
   ret void
 }
 

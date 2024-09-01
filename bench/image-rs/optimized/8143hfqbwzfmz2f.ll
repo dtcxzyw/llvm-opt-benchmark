@@ -29002,8 +29002,8 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
 
 77:                                               ; preds = %79, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha26ecade21f8cc0cE.exit170"
   %78 = call noundef align 1 dereferenceable_or_null(3) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !7108
-  %.not.not.i.not.i.not = icmp eq ptr %78, null
-  br i1 %.not.not.i.not.i.not, label %429, label %79
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %78, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %429, label %79
 
 79:                                               ; preds = %77
   %80 = load i24, ptr %78, align 1, !alias.scope !7111, !noalias !7118
@@ -30251,8 +30251,8 @@ _ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit.i: ; preds = %9
 
 99:                                               ; preds = %100, %_ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit.i
   %.idx.i = phi i64 [ %.add.i, %100 ], [ 0, %_ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit.i ]
-  %.not16.i.not.i.not.i.not.i.not.i.i.not.i = icmp eq i64 %.idx.i, 16
-  br i1 %.not16.i.not.i.not.i.not.i.not.i.i.not.i, label %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i, label %100
+  %.not16.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.not.i = icmp eq i64 %.idx.i, 16
+  br i1 %.not16.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.not.i, label %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i, label %100
 
 100:                                              ; preds = %99
   %.ptr.i = getelementptr inbounds i8, ptr %8, i64 %.idx.i
@@ -30288,8 +30288,8 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i: ; pred
 
 108:                                              ; preds = %109, %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i
   %.idx114.i = phi i64 [ %.add115.i, %109 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i ]
-  %.not16.i.not.i.not.i.not.i.not.i.i69.not.i = icmp eq i64 %.idx114.i, 16
-  br i1 %.not16.i.not.i.not.i.not.i.not.i.i69.not.i, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h9813b99652d2db9bE.exit.i, label %109
+  %.not16.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i69.not.i = icmp eq i64 %.idx114.i, 16
+  br i1 %.not16.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i69.not.i, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h9813b99652d2db9bE.exit.i, label %109
 
 109:                                              ; preds = %108
   %.ptr116.i = getelementptr inbounds i8, ptr %8, i64 %.idx114.i

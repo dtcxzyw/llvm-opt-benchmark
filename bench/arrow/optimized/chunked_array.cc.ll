@@ -3123,8 +3123,7 @@ while.end:                                        ; preds = %while.body, %while.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_chunks, i8 0, i64 24, i1 false)
   %cmp25 = icmp eq i64 %length, 0
   %or.cond = or i1 %cmp25, %cmp11
-  %or.cond11 = select i1 %cmp13112, i1 %or.cond, i1 false
-  br i1 %or.cond11, label %if.then, label %while.cond39.preheader
+  br i1 %or.cond, label %if.then, label %while.cond39.preheader
 
 while.cond39.preheader:                           ; preds = %while.end.thread, %while.end
   %offset.addr.0.lcssa142 = phi i64 [ %offset, %while.end.thread ], [ %offset.addr.0.lcssa, %while.end ]

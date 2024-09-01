@@ -19188,7 +19188,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i2998: ; preds = %while.body.i
   br i1 %cmp.i.not.i2999, label %invoke.cont657, label %for.body.i2993, !llvm.loop !574
 
 invoke.cont657:                                   ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i2998, %for.body.i2993, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit
-  %cmp.i.not.lcssa.i = phi i1 [ true, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit ], [ %cmp.i1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i2998 ], [ false, %for.body.i2993 ]
+  %cmp.i.not.lcssa.i = phi i1 [ true, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit ], [ %cmp.i1.i, %for.body.i2993 ], [ %cmp.i1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i2998 ]
   %call660 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.not.lcssa.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 589, ptr noundef nonnull @.str.51)
           to label %invoke.cont659 unwind label %lpad620.loopexit.split-lp
 
@@ -19241,7 +19241,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3030: ; preds = %while.body.i
   br i1 %cmp.i.not.i3033, label %invoke.cont670, label %for.body.i3021, !llvm.loop !575
 
 invoke.cont670:                                   ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3030, %for.body.i3021, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit3014
-  %cmp.i.not.lcssa.i3025 = phi i1 [ true, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit3014 ], [ %cmp.i1.i3024, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3030 ], [ false, %for.body.i3021 ]
+  %cmp.i.not.lcssa.i3025 = phi i1 [ true, %_ZN5eastl5beginINS_8hash_setIiNS_4hashIiEENS_8equal_toIiEE17InstanceAllocatorLb0EEEEEDTcldtfp_5beginEERT_.exit3014 ], [ %cmp.i1.i3024, %for.body.i3021 ], [ %cmp.i1.i3024, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3030 ]
   %call673 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.not.lcssa.i3025, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 590, ptr noundef nonnull @.str.52)
           to label %invoke.cont672 unwind label %lpad620.loopexit.split-lp
 
@@ -19992,7 +19992,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3416: ; preds = %while.body.i
   br i1 %cmp.i.not.i3419, label %invoke.cont755, label %for.body.i3408, !llvm.loop !579
 
 invoke.cont755:                                   ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3416, %for.body.i3408, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3402
-  %retval.0.i3423 = phi i1 [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3402 ], [ %cmp.i4.i3411, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3416 ], [ true, %for.body.i3408 ]
+  %retval.0.i3423 = phi i1 [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3402 ], [ %cmp.i4.i3411, %for.body.i3408 ], [ %cmp.i4.i3411, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3416 ]
   %call759 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3423, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 623, ptr noundef nonnull @.str.54)
           to label %invoke.cont758 unwind label %lpad720
 
@@ -20021,8 +20021,8 @@ _ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiE
 for.body.i3446:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454
   %temp.sroa.6.018.i3447 = phi ptr [ %temp.sroa.6.1.i3456, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454 ], [ %retval.sroa.4.0.i.i3441, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440 ]
   %temp.sroa.0.017.i3448 = phi ptr [ %temp.sroa.0.1.i3455, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454 ], [ %retval.sroa.0.0.i.i3442, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440 ]
-  %cmp.i4.i3449 = icmp ne ptr %temp.sroa.0.017.i3448, %969
-  br i1 %cmp.i4.i3449, label %for.inc.i3450, label %invoke.cont764
+  %cmp.i4.i3449.not.not = icmp ne ptr %temp.sroa.0.017.i3448, %969
+  br i1 %cmp.i4.i3449.not.not, label %for.inc.i3450, label %invoke.cont764
 
 for.inc.i3450:                                    ; preds = %for.body.i3446
   %mpNext.i.i.i3451 = getelementptr inbounds i8, ptr %temp.sroa.0.017.i3448, i64 8
@@ -20044,7 +20044,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454: ; preds = %while.body.i
   br i1 %cmp.i.not.i3457, label %invoke.cont764, label %for.body.i3446, !llvm.loop !579
 
 invoke.cont764:                                   ; preds = %for.body.i3446, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440
-  %cmp766 = phi i1 [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440 ], [ false, %for.body.i3446 ], [ %cmp.i4.i3449, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454 ]
+  %cmp766 = phi i1 [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i3440 ], [ %cmp.i4.i3449.not.not, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i3454 ], [ %cmp.i4.i3449.not.not, %for.body.i3446 ]
   %call768 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp766, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 627, ptr noundef nonnull @.str.55)
           to label %invoke.cont767 unwind label %lpad720
 

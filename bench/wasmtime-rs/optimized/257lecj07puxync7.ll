@@ -153,8 +153,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -230,8 +230,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -307,8 +307,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -384,8 +384,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -461,8 +461,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -538,8 +538,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -615,8 +615,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -692,8 +692,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -769,8 +769,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -846,8 +846,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
   %9 = load ptr, ptr %8, align 8, !noundef !3
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %30, label %11
+  %.not = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)

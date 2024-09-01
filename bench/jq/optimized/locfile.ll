@@ -71,15 +71,12 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   %30 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %29, ptr %30, align 8
   store i32 0, ptr %29, align 4
-  br i1 %16, label %.lr.ph41.preheader, label %._crit_edge42
-
-.lr.ph41.preheader:                               ; preds = %._crit_edge
   %wide.trip.count47 = zext nneg i32 %3 to i64
   br label %.lr.ph41
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41._crit_edge
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41.preheader ], [ %34, %.lr.ph41._crit_edge ]
-  %.03438 = phi i32 [ 1, %.lr.ph41.preheader ], [ %.1, %.lr.ph41._crit_edge ]
+.lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41._crit_edge
+  %indvars.iv44 = phi i64 [ 0, %._crit_edge ], [ %34, %.lr.ph41._crit_edge ]
+  %.03438 = phi i32 [ 1, %._crit_edge ], [ %.1, %.lr.ph41._crit_edge ]
   %31 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 10
@@ -100,8 +97,8 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   %exitcond48.not = icmp eq i64 %34, %wide.trip.count47
   br i1 %exitcond48.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !6
 
-._crit_edge42:                                    ; preds = %.lr.ph41._crit_edge, %._crit_edge.thread, %._crit_edge
-  %41 = phi ptr [ %18, %._crit_edge.thread ], [ %30, %._crit_edge ], [ %30, %.lr.ph41._crit_edge ]
+._crit_edge42:                                    ; preds = %.lr.ph41._crit_edge, %._crit_edge.thread
+  %41 = phi ptr [ %18, %._crit_edge.thread ], [ %30, %.lr.ph41._crit_edge ]
   %42 = add nsw i32 %3, 1
   %43 = load ptr, ptr %41, align 8
   %44 = load i32, ptr %14, align 8

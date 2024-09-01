@@ -247,8 +247,8 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %.not20 = icmp eq i32 %1, 0
-  br i1 %.not20, label %.critedge.thread, label %4
+  %.not18 = icmp eq i32 %1, 0
+  br i1 %.not18, label %.critedge.thread, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @agisdirected(ptr noundef %0) #14
@@ -263,8 +263,8 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef %0, i32 noundef %1)
   tail call void @aginit(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef 24, i32 noundef 1) #14
   %9 = load i32, ptr @flags, align 4
   %10 = and i32 %9, 8
-  %.not21 = icmp eq i32 %10, 0
-  br i1 %.not21, label %.critedge.thread, label %11
+  %.not19 = icmp eq i32 %10, 0
+  br i1 %.not19, label %.critedge.thread, label %11
 
 11:                                               ; preds = %.critedge
   %12 = call i32 @agapply(ptr noundef %0, ptr noundef %0, ptr noundef nonnull @cntCluster, ptr noundef nonnull %3, i32 noundef 0) #14
@@ -494,10 +494,10 @@ cc_decompose.exit.i:                              ; preds = %cc_dfs.exit.i.i, %.
   %.not17.i = icmp eq i32 %120, 0
   %spec.select.i = select i1 %.not17.i, i32 0, i32 %13
   %121 = load ptr, ptr @fname, align 8
-  %.0.i = select i1 %.not20, ptr null, ptr %121
+  %.0.i = select i1 %.not18, ptr null, ptr %121
   %122 = call ptr @agnameof(ptr noundef %0) #14
   call fastcc void @wcp(i32 noundef %15, i32 noundef %14, i32 noundef %.016.i, i32 noundef %spec.select.i, ptr noundef %122, ptr noundef %.0.i)
-  br i1 %.not20, label %emit.exit, label %123
+  br i1 %.not18, label %emit.exit, label %123
 
 123:                                              ; preds = %cc_decompose.exit.i
   %124 = load i32, ptr @n_graphs, align 4
@@ -526,13 +526,13 @@ emit.exit:                                        ; preds = %cc_decompose.exit.i
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr @n_indent, align 4
   %137 = call ptr @agfstsubg(ptr noundef %0) #14
-  %.not1618 = icmp eq ptr %137, null
-  br i1 %.not1618, label %._crit_edge, label %.lr.ph
+  %.not1620 = icmp eq ptr %137, null
+  br i1 %.not1620, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %134, %.lr.ph
-  %.019 = phi ptr [ %139, %.lr.ph ], [ %137, %134 ]
-  %138 = call fastcc i32 @eval(ptr noundef nonnull %.019, i32 noundef 0)
-  %139 = call ptr @agnxtsubg(ptr noundef nonnull %.019) #14
+  %.021 = phi ptr [ %139, %.lr.ph ], [ %137, %134 ]
+  %138 = call fastcc i32 @eval(ptr noundef nonnull %.021, i32 noundef 0)
+  %139 = call ptr @agnxtsubg(ptr noundef nonnull %.021) #14
   %.not16 = icmp eq ptr %139, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 

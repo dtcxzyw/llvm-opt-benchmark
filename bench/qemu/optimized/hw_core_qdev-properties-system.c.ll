@@ -1607,15 +1607,15 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.end48:                                         ; preds = %if.end39
   store ptr %call29, ptr %call1, align 8
-  br i1 %tobool21.not, label %if.then50, label %if.end51
+  br label %if.then50
 
 fail:                                             ; preds = %if.end35
   %call38 = call ptr @object_get_typename(ptr noundef %call.i) #10
   %12 = load ptr, ptr %str, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 162, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.42, ptr noundef %call38, ptr noundef %name, ptr noundef %12) #10
-  br i1 %tobool24.not.not, label %if.end51, label %if.then50
+  br label %if.then50
 
-if.then50:                                        ; preds = %if.end48, %if.else, %if.then46, %cond.end, %fail
+if.then50:                                        ; preds = %fail, %if.end48, %if.else, %if.then46, %cond.end
   %blk.152 = phi ptr [ null, %fail ], [ %call29, %cond.end ], [ %blk.04857, %if.then46 ], [ %blk.04857, %if.else ], [ %call29, %if.end48 ]
   call void @blk_unref(ptr noundef %blk.152) #10
   br label %if.end51
@@ -1626,7 +1626,7 @@ if.end51.critedge:                                ; preds = %if.then22
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 162, ptr noundef nonnull @__func__.set_drive_helper, ptr noundef nonnull @.str.42, ptr noundef %call38.c, ptr noundef %name, ptr noundef %13) #10
   br label %if.end51
 
-if.end51:                                         ; preds = %if.end51.critedge, %if.end48.thread, %if.end48, %if.else, %if.then46, %if.then50, %fail
+if.end51:                                         ; preds = %if.end51.critedge, %if.end48.thread, %if.else, %if.then46, %if.then50
   %14 = load ptr, ptr %str, align 8
   call void @g_free(ptr noundef %14) #10
   br label %return

@@ -2193,8 +2193,8 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$stdx..thread..JoinHandle$LT
 
 7:                                                ; preds = %1
   store i64 0, ptr %0, align 8, !alias.scope !805
-  %.not.not.i = icmp eq i64 %.pre3, 0
-  br i1 %.not.not.i, label %"_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit.i.thread", label %.thread.i
+  %.not.i = icmp eq i64 %.pre3, 0
+  br i1 %.not.i, label %"_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit.i.thread", label %.thread.i
 
 "_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit.i.thread": ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -13443,8 +13443,8 @@ define hidden void @"_ZN73_$LT$jod_thread..JoinHandle$LT$T$GT$$u20$as$u20$core..
   %.sroa.5.0..sroa_idx26 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx26, i64 16, i1 false)
   store ptr null, ptr %0, align 8
-  %.not.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not, label %46, label %5
+  %.not = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not, label %46, label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -13581,8 +13581,8 @@ define hidden void @"_ZN75_$LT$stdx..thread..JoinHandle$LT$T$GT$$u20$as$u20$core
 7:                                                ; preds = %1
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   store i64 0, ptr %0, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %.not.not, label %"_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit", label %.thread
+  %.not = icmp eq i64 %.sroa.0.0.copyload, 0
+  br i1 %.not, label %"_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit", label %.thread
 
 "_ZN4core3ptr139drop_in_place$LT$jod_thread..JoinHandle$LT$core..result..Result$LT$$LP$bool$C$alloc..string..String$RP$$C$std..io..error..Error$GT$$GT$$GT$17hfc078d5ad061ac9eE.exit": ; preds = %.thread, %7, %1
   ret void

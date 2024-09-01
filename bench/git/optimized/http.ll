@@ -5288,17 +5288,17 @@ do.cond.i:                                        ; preds = %do.body.i
 
 do.body.i21.preheader:                            ; preds = %do.cond.i
   %10 = getelementptr i8, ptr %0, i64 %offset
-  %scevgep100 = getelementptr i8, ptr %10, i64 20
+  %scevgep99 = getelementptr i8, ptr %10, i64 20
   br label %do.body.i21
 
 do.body.i21:                                      ; preds = %do.body.i21.preheader, %do.cond.i25
   %str.addr.0.i22 = phi ptr [ %incdec.ptr.i26, %do.cond.i25 ], [ %add.ptr, %do.body.i21.preheader ]
   %prefix.addr.0.i23.idx = phi i64 [ %prefix.addr.0.i23.add, %do.cond.i25 ], [ 0, %do.body.i21.preheader ]
-  %exitcond101 = icmp eq i64 %prefix.addr.0.i23.idx, 20
-  br i1 %exitcond101, label %while.cond.preheader, label %do.cond.i25
+  %exitcond100 = icmp eq i64 %prefix.addr.0.i23.idx, 20
+  br i1 %exitcond100, label %while.cond.preheader, label %do.cond.i25
 
 while.cond.preheader:                             ; preds = %do.body.i, %do.body.i21
-  %sensitive_header.2.ph = phi ptr [ %scevgep100, %do.body.i21 ], [ %scevgep, %do.body.i ]
+  %sensitive_header.2.ph = phi ptr [ %scevgep99, %do.body.i21 ], [ %scevgep, %do.body.i ]
   br label %while.cond
 
 do.cond.i25:                                      ; preds = %do.body.i21
@@ -5384,14 +5384,14 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 
 land.lhs.true21:                                  ; preds = %do.cond.i25
   %27 = getelementptr i8, ptr %0, i64 %offset
-  %scevgep102 = getelementptr i8, ptr %27, i64 7
+  %scevgep101 = getelementptr i8, ptr %27, i64 7
   br label %do.body.i40
 
 do.body.i40:                                      ; preds = %do.cond.i44, %land.lhs.true21
   %str.addr.0.i41 = phi ptr [ %add.ptr, %land.lhs.true21 ], [ %incdec.ptr.i45, %do.cond.i44 ]
   %prefix.addr.0.i42.idx = phi i64 [ 0, %land.lhs.true21 ], [ %prefix.addr.0.i42.add, %do.cond.i44 ]
-  %exitcond103 = icmp eq i64 %prefix.addr.0.i42.idx, 7
-  br i1 %exitcond103, label %if.then26, label %do.cond.i44
+  %exitcond102 = icmp eq i64 %prefix.addr.0.i42.idx, 7
+  br i1 %exitcond102, label %if.then26, label %do.cond.i44
 
 do.cond.i44:                                      ; preds = %do.body.i40
   %prefix.addr.0.i42.ptr = getelementptr inbounds i8, ptr @.str.67, i64 %prefix.addr.0.i42.idx
@@ -5419,7 +5419,7 @@ if.then26:                                        ; preds = %do.body.i40
   br label %while.cond27
 
 while.cond27:                                     ; preds = %while.cond27, %if.then26
-  %sensitive_header.4 = phi ptr [ %scevgep102, %if.then26 ], [ %incdec.ptr35, %while.cond27 ]
+  %sensitive_header.4 = phi ptr [ %scevgep101, %if.then26 ], [ %incdec.ptr35, %while.cond27 ]
   %36 = load i8, ptr %sensitive_header.4, align 1
   %idxprom28 = zext i8 %36 to i64
   %arrayidx29 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom28
@@ -5466,12 +5466,12 @@ while.body39.preheader:                           ; preds = %while.cond27, %if.e
   br label %while.body39
 
 while.end55:                                      ; preds = %if.end46
-  %.pre = load ptr, ptr %buf, align 8
-  %.pre104 = load i64, ptr %header, align 8
+  %39 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast57 = ptrtoint ptr %sensitive_header.4 to i64
-  %sub.ptr.rhs.cast58 = ptrtoint ptr %.pre to i64
+  %sub.ptr.rhs.cast58 = ptrtoint ptr %39 to i64
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
-  %spec.select.i60 = call i64 @llvm.usub.sat.i64(i64 %.pre104, i64 1)
+  %40 = load i64, ptr %header, align 8
+  %spec.select.i60 = call i64 @llvm.usub.sat.i64(i64 %40, i64 1)
   %cmp.i61 = icmp ugt i64 %sub.ptr.sub59, %spec.select.i60
   br i1 %cmp.i61, label %if.then.i68, label %if.end.i62
 
@@ -5482,11 +5482,11 @@ if.then.i68:                                      ; preds = %while.end55
 if.end.i62:                                       ; preds = %while.end55
   %len2.i63 = getelementptr inbounds i8, ptr %header, i64 8
   store i64 %sub.ptr.sub59, ptr %len2.i63, align 8
-  %cmp3.not.i65 = icmp eq ptr %.pre, @strbuf_slopbuf
+  %cmp3.not.i65 = icmp eq ptr %39, @strbuf_slopbuf
   br i1 %cmp3.not.i65, label %strbuf_setlen.exit69, label %if.then4.i66
 
 if.then4.i66:                                     ; preds = %if.end.i62
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %.pre, i64 %sub.ptr.sub59
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %39, i64 %sub.ptr.sub59
   store i8 0, ptr %arrayidx.i67, align 1
   br label %strbuf_setlen.exit69
 

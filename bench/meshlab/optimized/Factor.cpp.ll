@@ -947,10 +947,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
   %invariant.gep = getelementptr inbounds double, ptr %14, i64 %indvars.iv164
   br label %.lr.ph128
 
-.preheader:                                       ; preds = %._crit_edge140
-  br i1 %19, label %.lr.ph143.preheader, label %._crit_edge144
-
-.lr.ph143.preheader:                              ; preds = %.preheader
+.lr.ph143.preheader:                              ; preds = %._crit_edge140
   %wide.trip.count172 = zext nneg i32 %3 to i64
   br label %.lr.ph143
 
@@ -1066,7 +1063,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
 ._crit_edge140:                                   ; preds = %64
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %23
-  br i1 %exitcond168.not, label %.preheader, label %.lr.ph128.preheader, !llvm.loop !10
+  br i1 %exitcond168.not, label %.lr.ph143.preheader, label %.lr.ph128.preheader, !llvm.loop !10
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv169 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next170, %.lr.ph143 ]
@@ -1081,8 +1078,8 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
   br i1 %exitcond173.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !11
 
-._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %.preheader, %4, %.preheader121
-  %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
+._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %4, %.preheader121
+  %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
   tail call void @_ZdaPv(ptr noundef nonnull %9) #14
   tail call void @_ZdaPv(ptr noundef nonnull %17) #14
   tail call void @_ZdaPv(ptr noundef nonnull %14) #14

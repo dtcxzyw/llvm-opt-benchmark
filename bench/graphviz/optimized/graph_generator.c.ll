@@ -683,14 +683,11 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call fastcc void @constructSierpinski(i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef %3, ptr noundef nonnull %14)
-  br i1 %.not36, label %._crit_edge44, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %._crit_edge
   %wide.trip.count52 = zext i32 %12 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge41
-  %indvars.iv49 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next50, %._crit_edge41 ]
+.preheader:                                       ; preds = %._crit_edge, %._crit_edge41
+  %indvars.iv49 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next50, %._crit_edge41 ]
   %21 = getelementptr inbounds %struct.vtx_data, ptr %14, i64 %indvars.iv49
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
@@ -728,7 +725,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge44, label %.preheader
 
-._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread, %._crit_edge
+._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread
   %38 = getelementptr inbounds i8, ptr %14, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void @free(ptr noundef %39) #14
@@ -890,14 +887,11 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call fastcc void @constructTetrix(i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %11)
-  br i1 %.not36, label %._crit_edge44, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %._crit_edge
   %wide.trip.count52 = zext i32 %9 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge41
-  %indvars.iv49 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next50, %._crit_edge41 ]
+.preheader:                                       ; preds = %._crit_edge, %._crit_edge41
+  %indvars.iv49 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next50, %._crit_edge41 ]
   %18 = getelementptr inbounds %struct.vtx_data, ptr %11, i64 %indvars.iv49
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
@@ -935,7 +929,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge44, label %.preheader
 
-._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread, %._crit_edge
+._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread
   %35 = getelementptr inbounds i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #14

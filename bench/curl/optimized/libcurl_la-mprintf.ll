@@ -279,8 +279,8 @@ while.cond155.i.preheader:                        ; preds = %if.end113.i, %if.th
   %num.2.i.ph = phi i64 [ %16, %if.then120.i ], [ %41, %if.then480.i ], [ %16, %if.end113.i ]
   %cmp142.i = icmp eq i32 %prec.0.i, -1
   %spec.store.select2.i = select i1 %cmp142.i, i32 1, i32 %prec.0.i
-  %cmp156.not.i612 = icmp eq i64 %num.2.i.ph, 0
-  br i1 %cmp156.not.i612, label %sw.epilog.i, label %while.body158.i.preheader
+  %cmp156.not.i608 = icmp eq i64 %num.2.i.ph, 0
+  br i1 %cmp156.not.i608, label %sw.epilog.i, label %while.body158.i.preheader
 
 while.body158.i.preheader:                        ; preds = %while.cond155.i.preheader
   %17 = add nsw i64 %base.0.i316.ph, -1
@@ -295,33 +295,33 @@ if.else124.i:                                     ; preds = %if.else117.i
   %num.1.i.ph = select i1 %tobool126.not.i, i64 %spec.select.i, i64 %16
   %cmp142.i764 = icmp eq i32 %prec.0.i, -1
   %spec.store.select2.i765 = select i1 %cmp142.i764, i32 1, i32 %prec.0.i
-  %cmp148.not.i608 = icmp eq i64 %num.1.i.ph, 0
-  br i1 %cmp148.not.i608, label %sw.epilog.i.thread, label %while.body150.i
+  %cmp148.not.i612 = icmp eq i64 %num.1.i.ph, 0
+  br i1 %cmp148.not.i612, label %sw.epilog.i.thread, label %while.body150.i
 
 while.body150.i:                                  ; preds = %if.else124.i, %while.body150.i
-  %w.0.idx.i610 = phi i64 [ %w.0.add.i, %while.body150.i ], [ 324, %if.else124.i ]
-  %num.1.i609 = phi i64 [ %div.i, %while.body150.i ], [ %num.1.i.ph, %if.else124.i ]
-  %w.0.ptr.i = getelementptr inbounds i8, ptr %work.i, i64 %w.0.idx.i610
-  %rem.i = urem i64 %num.1.i609, 10
+  %w.0.idx.i614 = phi i64 [ %w.0.add.i, %while.body150.i ], [ 324, %if.else124.i ]
+  %num.1.i613 = phi i64 [ %div.i, %while.body150.i ], [ %num.1.i.ph, %if.else124.i ]
+  %w.0.ptr.i = getelementptr inbounds i8, ptr %work.i, i64 %w.0.idx.i614
+  %rem.i = urem i64 %num.1.i613, 10
   %18 = trunc nuw nsw i64 %rem.i to i8
   %conv152.i = or disjoint i8 %18, 48
-  %w.0.add.i = add nsw i64 %w.0.idx.i610, -1
+  %w.0.add.i = add nsw i64 %w.0.idx.i614, -1
   store i8 %conv152.i, ptr %w.0.ptr.i, align 1
-  %div.i = udiv i64 %num.1.i609, 10
-  %cmp148.not.i = icmp ult i64 %num.1.i609, 10
+  %div.i = udiv i64 %num.1.i613, 10
+  %cmp148.not.i = icmp ult i64 %num.1.i613, 10
   br i1 %cmp148.not.i, label %sw.epilog.i.thread, label %while.body150.i, !llvm.loop !8
 
 while.body158.i:                                  ; preds = %while.body158.i.preheader, %while.body158.i
-  %w.2.idx.i614 = phi i64 [ %w.2.add.i, %while.body158.i ], [ 324, %while.body158.i.preheader ]
-  %num.2.i613 = phi i64 [ %div162.i, %while.body158.i ], [ %num.2.i.ph, %while.body158.i.preheader ]
-  %w.2.ptr.i = getelementptr inbounds i8, ptr %work.i, i64 %w.2.idx.i614
-  %rem159.i = and i64 %num.2.i613, %17
+  %w.2.idx.i610 = phi i64 [ %w.2.add.i, %while.body158.i ], [ 324, %while.body158.i.preheader ]
+  %num.2.i609 = phi i64 [ %div162.i, %while.body158.i ], [ %num.2.i.ph, %while.body158.i.preheader ]
+  %w.2.ptr.i = getelementptr inbounds i8, ptr %work.i, i64 %w.2.idx.i610
+  %rem159.i = and i64 %num.2.i609, %17
   %arrayidx160.i = getelementptr inbounds i8, ptr %digits.2.i301.ph, i64 %rem159.i
   %19 = load i8, ptr %arrayidx160.i, align 1
-  %w.2.add.i = add nsw i64 %w.2.idx.i614, -1
+  %w.2.add.i = add nsw i64 %w.2.idx.i610, -1
   store i8 %19, ptr %w.2.ptr.i, align 1
-  %div162.i = udiv i64 %num.2.i613, %base.0.i316.ph
-  %cmp156.not.i = icmp ugt i64 %base.0.i316.ph, %num.2.i613
+  %div162.i = udiv i64 %num.2.i609, %base.0.i316.ph
+  %cmp156.not.i = icmp ugt i64 %base.0.i316.ph, %num.2.i609
   br i1 %cmp156.not.i, label %sw.epilog.i, label %while.body158.i, !llvm.loop !9
 
 sw.epilog.i.thread:                               ; preds = %while.body150.i, %if.else124.i
@@ -1351,8 +1351,8 @@ while.cond155.preheader:                          ; preds = %if.end113, %if.then
   %num.2.ph = phi i64 [ %14, %if.then120 ], [ %50, %if.then480 ], [ %14, %if.end113 ]
   %cmp142 = icmp eq i32 %prec.0, -1
   %spec.store.select2 = select i1 %cmp142, i32 1, i32 %prec.0
-  %cmp156.not410 = icmp eq i64 %num.2.ph, 0
-  br i1 %cmp156.not410, label %sw.epilog, label %while.body158.preheader
+  %cmp156.not406 = icmp eq i64 %num.2.ph, 0
+  br i1 %cmp156.not406, label %sw.epilog, label %while.body158.preheader
 
 while.body158.preheader:                          ; preds = %while.cond155.preheader
   %17 = add nsw i64 %base.0304.ph, -1
@@ -1367,33 +1367,33 @@ if.else124:                                       ; preds = %if.else117
   %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %14
   %cmp142510 = icmp eq i32 %prec.0, -1
   %spec.store.select2511 = select i1 %cmp142510, i32 1, i32 %prec.0
-  %cmp148.not406 = icmp eq i64 %num.1.ph, 0
-  br i1 %cmp148.not406, label %sw.epilog.thread, label %while.body150
+  %cmp148.not410 = icmp eq i64 %num.1.ph, 0
+  br i1 %cmp148.not410, label %sw.epilog.thread, label %while.body150
 
 while.body150:                                    ; preds = %if.else124, %while.body150
-  %w.0.idx408 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
-  %num.1407 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
-  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx408
-  %rem = urem i64 %num.1407, 10
+  %w.0.idx412 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.1411 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
+  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx412
+  %rem = urem i64 %num.1411, 10
   %18 = trunc nuw nsw i64 %rem to i8
   %conv152 = or disjoint i8 %18, 48
-  %w.0.add = add nsw i64 %w.0.idx408, -1
+  %w.0.add = add nsw i64 %w.0.idx412, -1
   store i8 %conv152, ptr %w.0.ptr, align 1
-  %div = udiv i64 %num.1407, 10
-  %cmp148.not = icmp ult i64 %num.1407, 10
+  %div = udiv i64 %num.1411, 10
+  %cmp148.not = icmp ult i64 %num.1411, 10
   br i1 %cmp148.not, label %sw.epilog.thread, label %while.body150, !llvm.loop !8
 
 while.body158:                                    ; preds = %while.body158.preheader, %while.body158
-  %w.2.idx412 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
-  %num.2411 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
-  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx412
-  %rem159 = and i64 %num.2411, %17
+  %w.2.idx408 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
+  %num.2407 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
+  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx408
+  %rem159 = and i64 %num.2407, %17
   %arrayidx160 = getelementptr inbounds i8, ptr %digits.2290.ph, i64 %rem159
   %19 = load i8, ptr %arrayidx160, align 1
-  %w.2.add = add nsw i64 %w.2.idx412, -1
+  %w.2.add = add nsw i64 %w.2.idx408, -1
   store i8 %19, ptr %w.2.ptr, align 1
-  %div162 = udiv i64 %num.2411, %base.0304.ph
-  %cmp156.not = icmp ugt i64 %base.0304.ph, %num.2411
+  %div162 = udiv i64 %num.2407, %base.0304.ph
+  %cmp156.not = icmp ugt i64 %base.0304.ph, %num.2407
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
 sw.epilog.thread:                                 ; preds = %while.body150, %if.else124
@@ -3561,8 +3561,8 @@ while.cond155.preheader:                          ; preds = %if.end113, %if.then
   %num.2.ph = phi i64 [ %14, %if.then120 ], [ %50, %if.then480 ], [ %14, %if.end113 ]
   %cmp142 = icmp eq i32 %prec.0, -1
   %spec.store.select2 = select i1 %cmp142, i32 1, i32 %prec.0
-  %cmp156.not124 = icmp eq i64 %num.2.ph, 0
-  br i1 %cmp156.not124, label %sw.epilog, label %while.body158.preheader
+  %cmp156.not120 = icmp eq i64 %num.2.ph, 0
+  br i1 %cmp156.not120, label %sw.epilog, label %while.body158.preheader
 
 while.body158.preheader:                          ; preds = %while.cond155.preheader
   %17 = add nsw i64 %base.018.ph, -1
@@ -3577,33 +3577,33 @@ if.else124:                                       ; preds = %if.else117
   %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %14
   %cmp142224 = icmp eq i32 %prec.0, -1
   %spec.store.select2225 = select i1 %cmp142224, i32 1, i32 %prec.0
-  %cmp148.not120 = icmp eq i64 %num.1.ph, 0
-  br i1 %cmp148.not120, label %sw.epilog.thread, label %while.body150
+  %cmp148.not124 = icmp eq i64 %num.1.ph, 0
+  br i1 %cmp148.not124, label %sw.epilog.thread, label %while.body150
 
 while.body150:                                    ; preds = %if.else124, %while.body150
-  %w.0.idx122 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
-  %num.1121 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
-  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx122
-  %rem = urem i64 %num.1121, 10
+  %w.0.idx126 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.1125 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
+  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx126
+  %rem = urem i64 %num.1125, 10
   %18 = trunc nuw nsw i64 %rem to i8
   %conv152 = or disjoint i8 %18, 48
-  %w.0.add = add nsw i64 %w.0.idx122, -1
+  %w.0.add = add nsw i64 %w.0.idx126, -1
   store i8 %conv152, ptr %w.0.ptr, align 1
-  %div = udiv i64 %num.1121, 10
-  %cmp148.not = icmp ult i64 %num.1121, 10
+  %div = udiv i64 %num.1125, 10
+  %cmp148.not = icmp ult i64 %num.1125, 10
   br i1 %cmp148.not, label %sw.epilog.thread, label %while.body150, !llvm.loop !8
 
 while.body158:                                    ; preds = %while.body158.preheader, %while.body158
-  %w.2.idx126 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
-  %num.2125 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
-  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx126
-  %rem159 = and i64 %num.2125, %17
+  %w.2.idx122 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
+  %num.2121 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
+  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx122
+  %rem159 = and i64 %num.2121, %17
   %arrayidx160 = getelementptr inbounds i8, ptr %digits.23.ph, i64 %rem159
   %19 = load i8, ptr %arrayidx160, align 1
-  %w.2.add = add nsw i64 %w.2.idx126, -1
+  %w.2.add = add nsw i64 %w.2.idx122, -1
   store i8 %19, ptr %w.2.ptr, align 1
-  %div162 = udiv i64 %num.2125, %base.018.ph
-  %cmp156.not = icmp ugt i64 %base.018.ph, %num.2125
+  %div162 = udiv i64 %num.2121, %base.018.ph
+  %cmp156.not = icmp ugt i64 %base.018.ph, %num.2121
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
 sw.epilog.thread:                                 ; preds = %while.body150, %if.else124
@@ -4573,8 +4573,8 @@ while.cond155.preheader:                          ; preds = %if.end113, %if.then
   %num.2.ph = phi i64 [ %16, %if.then120 ], [ %81, %if.then480 ], [ %16, %if.end113 ]
   %cmp142 = icmp eq i32 %prec.0, -1
   %spec.store.select2 = select i1 %cmp142, i32 1, i32 %prec.0
-  %cmp156.not88 = icmp eq i64 %num.2.ph, 0
-  br i1 %cmp156.not88, label %sw.epilog, label %while.body158.preheader
+  %cmp156.not84 = icmp eq i64 %num.2.ph, 0
+  br i1 %cmp156.not84, label %sw.epilog, label %while.body158.preheader
 
 while.body158.preheader:                          ; preds = %while.cond155.preheader
   %24 = add nsw i64 %base.018.ph, -1
@@ -4589,33 +4589,33 @@ if.else124:                                       ; preds = %if.else117
   %num.1.ph = select i1 %tobool126.not, i64 %spec.select, i64 %16
   %cmp142155 = icmp eq i32 %prec.0, -1
   %spec.store.select2156 = select i1 %cmp142155, i32 1, i32 %prec.0
-  %cmp148.not84 = icmp eq i64 %num.1.ph, 0
-  br i1 %cmp148.not84, label %sw.epilog.thread, label %while.body150
+  %cmp148.not88 = icmp eq i64 %num.1.ph, 0
+  br i1 %cmp148.not88, label %sw.epilog.thread, label %while.body150
 
 while.body150:                                    ; preds = %if.else124, %while.body150
-  %w.0.idx86 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
-  %num.185 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
-  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx86
-  %rem = urem i64 %num.185, 10
+  %w.0.idx90 = phi i64 [ %w.0.add, %while.body150 ], [ 324, %if.else124 ]
+  %num.189 = phi i64 [ %div, %while.body150 ], [ %num.1.ph, %if.else124 ]
+  %w.0.ptr = getelementptr inbounds i8, ptr %work, i64 %w.0.idx90
+  %rem = urem i64 %num.189, 10
   %25 = trunc nuw nsw i64 %rem to i8
   %conv152 = or disjoint i8 %25, 48
-  %w.0.add = add nsw i64 %w.0.idx86, -1
+  %w.0.add = add nsw i64 %w.0.idx90, -1
   store i8 %conv152, ptr %w.0.ptr, align 1
-  %div = udiv i64 %num.185, 10
-  %cmp148.not = icmp ult i64 %num.185, 10
+  %div = udiv i64 %num.189, 10
+  %cmp148.not = icmp ult i64 %num.189, 10
   br i1 %cmp148.not, label %sw.epilog.thread, label %while.body150, !llvm.loop !8
 
 while.body158:                                    ; preds = %while.body158.preheader, %while.body158
-  %w.2.idx90 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
-  %num.289 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
-  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx90
-  %rem159 = and i64 %num.289, %24
+  %w.2.idx86 = phi i64 [ %w.2.add, %while.body158 ], [ 324, %while.body158.preheader ]
+  %num.285 = phi i64 [ %div162, %while.body158 ], [ %num.2.ph, %while.body158.preheader ]
+  %w.2.ptr = getelementptr inbounds i8, ptr %work, i64 %w.2.idx86
+  %rem159 = and i64 %num.285, %24
   %arrayidx160 = getelementptr inbounds i8, ptr %digits.23.ph, i64 %rem159
   %26 = load i8, ptr %arrayidx160, align 1
-  %w.2.add = add nsw i64 %w.2.idx90, -1
+  %w.2.add = add nsw i64 %w.2.idx86, -1
   store i8 %26, ptr %w.2.ptr, align 1
-  %div162 = udiv i64 %num.289, %base.018.ph
-  %cmp156.not = icmp ugt i64 %base.018.ph, %num.289
+  %div162 = udiv i64 %num.285, %base.018.ph
+  %cmp156.not = icmp ugt i64 %base.018.ph, %num.285
   br i1 %cmp156.not, label %sw.epilog, label %while.body158, !llvm.loop !9
 
 sw.epilog.thread:                                 ; preds = %while.body150, %if.else124

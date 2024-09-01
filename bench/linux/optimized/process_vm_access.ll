@@ -265,8 +265,8 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %100 = add i64 %99, %98
   %101 = lshr i64 %100, 12
   %102 = lshr i64 %98, 12
-  %reass.sub21 = sub nsw i64 %101, %102
-  %103 = add nsw i64 %reass.sub21, 1
+  %reass.sub23 = sub nsw i64 %101, %102
+  %103 = add nsw i64 %reass.sub23, 1
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %.loopexit, label %.lr.ph.preheader
 
@@ -275,11 +275,11 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %106 = and i64 %98, 4095
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.split20.us
-  %107 = phi i64 [ %165, %.split20.us ], [ %94, %.lr.ph.preheader ]
-  %108 = phi i64 [ %167, %.split20.us ], [ %105, %.lr.ph.preheader ]
-  %109 = phi i64 [ %166, %.split20.us ], [ %103, %.lr.ph.preheader ]
-  %110 = phi i64 [ 0, %.split20.us ], [ %106, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.split22.us
+  %107 = phi i64 [ %165, %.split22.us ], [ %94, %.lr.ph.preheader ]
+  %108 = phi i64 [ %167, %.split22.us ], [ %105, %.lr.ph.preheader ]
+  %109 = phi i64 [ %166, %.split22.us ], [ %103, %.lr.ph.preheader ]
+  %110 = phi i64 [ 0, %.split22.us ], [ %106, %.lr.ph.preheader ]
   %111 = call i64 @llvm.umin.i64(i64 %109, i64 1024)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   store i32 1, ptr %8, align 4
@@ -331,18 +331,18 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %127 = shl nuw nsw i64 %126, 12
   %128 = sub nsw i64 %127, %110
   %129 = call i64 @llvm.umin.i64(i64 %128, i64 %107)
-  %.pre25 = load i64, ptr %22, align 8
+  %.pre27 = load i64, ptr %22, align 8
   br i1 %78, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %125, %136
-  %130 = phi i64 [ %144, %136 ], [ %.pre25, %125 ]
+  %130 = phi i64 [ %144, %136 ], [ %.pre27, %125 ]
   %131 = phi i64 [ 0, %136 ], [ %110, %125 ]
   %132 = phi i64 [ %142, %136 ], [ %129, %125 ]
   %133 = phi ptr [ %137, %136 ], [ %68, %125 ]
   %134 = icmp ne i64 %132, 0
   %135 = icmp ne i64 %130, 0
-  %.not30 = select i1 %134, i1 %135, i1 false
-  br i1 %.not30, label %136, label %.split20.us
+  %.not32 = select i1 %134, i1 %135, i1 false
+  br i1 %.not32, label %136, label %.split22.us
 
 136:                                              ; preds = %.split.us
   %137 = getelementptr i8, ptr %133, i64 8
@@ -355,17 +355,17 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %144 = load i64, ptr %22, align 8
   %145 = icmp eq i64 %144, 0
   %146 = select i1 %143, i1 true, i1 %145
-  br i1 %146, label %.split.us, label %.split20.us
+  br i1 %146, label %.split.us, label %.split22.us
 
 .split:                                           ; preds = %125, %153
-  %147 = phi i64 [ %161, %153 ], [ %.pre25, %125 ]
+  %147 = phi i64 [ %161, %153 ], [ %.pre27, %125 ]
   %148 = phi i64 [ 0, %153 ], [ %110, %125 ]
   %149 = phi i64 [ %159, %153 ], [ %129, %125 ]
   %150 = phi ptr [ %154, %153 ], [ %68, %125 ]
   %151 = icmp ne i64 %149, 0
   %152 = icmp ne i64 %147, 0
-  %.not28 = select i1 %151, i1 %152, i1 false
-  br i1 %.not28, label %153, label %.split20.us
+  %.not30 = select i1 %151, i1 %152, i1 false
+  br i1 %.not30, label %153, label %.split22.us
 
 153:                                              ; preds = %.split
   %154 = getelementptr i8, ptr %150, i64 8
@@ -378,10 +378,10 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %161 = load i64, ptr %22, align 8
   %162 = icmp eq i64 %161, 0
   %163 = select i1 %160, i1 true, i1 %162
-  br i1 %163, label %.split, label %.split20.us
+  br i1 %163, label %.split, label %.split22.us
 
-.split20.us:                                      ; preds = %153, %.split, %.split.us, %136
-  %164 = phi i1 [ %.not30, %136 ], [ %.not30, %.split.us ], [ %.not28, %.split ], [ %.not28, %153 ]
+.split22.us:                                      ; preds = %153, %.split, %.split.us, %136
+  %164 = phi i1 [ %.not32, %136 ], [ %.not32, %.split.us ], [ %.not30, %.split ], [ %.not30, %153 ]
   %.us-phi = phi i64 [ 0, %.split.us ], [ -14, %136 ], [ -14, %153 ], [ 0, %.split ]
   %165 = sub i64 %107, %129
   %166 = sub i64 %109, %126
@@ -393,20 +393,20 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %170 = load i64, ptr %22, align 8
   %171 = icmp eq i64 %170, 0
   %172 = select i1 %169, i1 true, i1 %171
-  br i1 %172, label %.loopexit, label %.lr.ph
+  br i1 %172, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.split20.us, %96, %.thread16, %91
-  %173 = phi i64 [ 0, %91 ], [ -14, %.thread16 ], [ 0, %96 ], [ %.us-phi, %.split20.us ]
+.loopexit:                                        ; preds = %.split22.us, %96, %.thread16, %91
+  %173 = phi i64 [ 0, %91 ], [ -14, %.thread16 ], [ 0, %96 ], [ %.us-phi, %.split22.us ]
   %174 = add nuw i64 %85, 1
   %175 = icmp eq i64 %174, %4
-  br i1 %175, label %.loopexit._crit_edge, label %84, !llvm.loop !11
+  br i1 %175, label %.loopexit._crit_edge, label %84, !llvm.loop !12
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre26 = load i64, ptr %22, align 8
+  %.pre28 = load i64, ptr %22, align 8
   br label %split
 
 split:                                            ; preds = %84, %.loopexit._crit_edge
-  %176 = phi i64 [ %.pre26, %.loopexit._crit_edge ], [ %87, %84 ]
+  %176 = phi i64 [ %.pre28, %.loopexit._crit_edge ], [ %87, %84 ]
   %177 = phi i64 [ %173, %.loopexit._crit_edge ], [ %86, %84 ]
   %178 = sub i64 %37, %176
   %179 = icmp eq i64 %37, %176
@@ -417,20 +417,20 @@ split:                                            ; preds = %84, %.loopexit._cri
 181:                                              ; preds = %split, %79
   %182 = phi i64 [ %83, %79 ], [ %180, %split ]
   %183 = getelementptr inbounds i8, ptr %69, i64 40
-  %184 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %183, i32 -1, ptr elementtype(i32) %183) #6, !srcloc !12
+  %184 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %183, i32 -1, ptr elementtype(i32) %183) #6, !srcloc !13
   %185 = icmp eq i32 %184, 1
   br i1 %185, label %189, label %186
 
 186:                                              ; preds = %181
   %187 = icmp sgt i32 %184, 0
-  br i1 %187, label %.thread17, label %188, !prof !13
+  br i1 %187, label %.thread17, label %188, !prof !14
 
 188:                                              ; preds = %186
   call void @refcount_warn_saturate(ptr noundef %183, i32 noundef 3) #6
   br label %.thread17
 
 189:                                              ; preds = %181
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   call void @__put_task_struct(ptr noundef nonnull %69) #6
   br label %.thread17
 
@@ -555,6 +555,7 @@ attributes #8 = { nounwind allocsize(0) }
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = !{i64 548373, i64 548417, i64 2148035392, i64 2148035413, i64 2148035439, i64 2148035472, i64 2148035506, i64 2148035530}
 !11 = distinct !{!11, !8, !9}
-!12 = !{i64 2148714742, i64 2148714781, i64 2148714802, i64 2148714839, i64 2148714862, i64 2148714871}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = !{i64 2149721054}
+!12 = distinct !{!12, !8, !9}
+!13 = !{i64 2148714742, i64 2148714781, i64 2148714802, i64 2148714839, i64 2148714862, i64 2148714871}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = !{i64 2149721054}

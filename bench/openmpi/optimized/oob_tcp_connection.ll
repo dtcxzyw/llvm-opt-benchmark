@@ -513,7 +513,7 @@ pmix_obj_new_tma.exit310.thread342:               ; preds = %.lr.ph.i.i307, %64
   br label %.backedge
 
 .backedge:                                        ; preds = %370, %.lr.ph406, %212, %214, %219, %195, %197, %202, %.preheader348, %431
-  br i1 %brmerge, label %.thread, label %.preheader.lr.ph.split.us, !llvm.loop !11
+  br label %.preheader.lr.ph.split.us, !llvm.loop !11
 
 207:                                              ; preds = %191
   %208 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 296), align 8
@@ -927,7 +927,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %397
   %or.cond301 = icmp ult i32 %433, 64
   br i1 %or.cond301, label %543, label %551
 
-.thread:                                          ; preds = %._crit_edge382, %.backedge, %.thread449
+.thread:                                          ; preds = %._crit_edge382, %.thread449
   %434 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1700), align 4
   %435 = icmp sgt i32 %434, 0
   br i1 %435, label %436, label %489
@@ -2660,8 +2660,8 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef
   br label %12
 
 12:                                               ; preds = %10, %5, %3
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split.us
+  %.not32 = icmp eq i64 %2, 0
+  br i1 %.not32, label %.outer._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %12, %.outer
   %.015.ph31 = phi i64 [ %28, %.outer ], [ 0, %12 ]

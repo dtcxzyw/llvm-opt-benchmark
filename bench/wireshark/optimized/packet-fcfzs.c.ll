@@ -386,9 +386,9 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 109:                                              ; preds = %106, %101
   %.1 = phi i32 [ %25, %101 ], [ %., %106 ]
   %.0143 = phi i32 [ 0, %101 ], [ %.183, %106 ]
-  %.not180 = icmp eq i32 %.1, 32769
+  %.not176 = icmp eq i32 %.1, 32769
   %110 = load ptr, ptr %9, align 8
-  br i1 %.not180, label %.thread173, label %112
+  br i1 %.not176, label %.thread173, label %112
 
 .thread173:                                       ; preds = %109
   %111 = call ptr @val_to_str(i32 noundef %.0143, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.102) #4

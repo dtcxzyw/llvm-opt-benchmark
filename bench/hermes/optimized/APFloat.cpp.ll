@@ -5724,34 +5724,34 @@ land.rhs8.i:                                      ; preds = %while.cond6.i
 _ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit: ; preds = %land.rhs.i, %land.rhs8.i, %entry
   %dot.2 = phi ptr [ %add.ptr.i, %entry ], [ %p.017.i, %land.rhs8.i ], [ %add.ptr.i, %land.rhs.i ]
   %p.1.i = phi ptr [ %s.coerce0, %entry ], [ %p.2.i, %land.rhs8.i ], [ %p.017.i, %land.rhs.i ]
-  %cmp.not6783 = icmp eq ptr %p.1.i, %add.ptr.i
-  br i1 %cmp.not6783, label %while.end, label %while.body.lr.ph.lr.ph
+  %cmp.not6177 = icmp eq ptr %p.1.i, %add.ptr.i
+  br i1 %cmp.not6177, label %while.end, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit
   %end14.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.then
-  %lost_fraction.0.ph88 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %lost_fraction.071, %if.then ]
-  %p.0.ph87 = phi ptr [ %p.1.i, %while.body.lr.ph.lr.ph ], [ %incdec.ptr, %if.then ]
-  %bitPos.0.ph86 = phi i32 [ %div1.i.i, %while.body.lr.ph.lr.ph ], [ %bitPos.069, %if.then ]
-  %computedTrailingFraction.0.ph85 = phi i1 [ false, %while.body.lr.ph.lr.ph ], [ %computedTrailingFraction.068, %if.then ]
-  %dot.0.ph84 = phi ptr [ %dot.2, %while.body.lr.ph.lr.ph ], [ %p.070, %if.then ]
+  %lost_fraction.0.ph82 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %lost_fraction.065, %if.then ]
+  %p.0.ph81 = phi ptr [ %p.1.i, %while.body.lr.ph.lr.ph ], [ %incdec.ptr, %if.then ]
+  %bitPos.0.ph80 = phi i32 [ %div1.i.i, %while.body.lr.ph.lr.ph ], [ %bitPos.063, %if.then ]
+  %computedTrailingFraction.0.ph79 = phi i1 [ false, %while.body.lr.ph.lr.ph ], [ %computedTrailingFraction.062, %if.then ]
+  %dot.0.ph78 = phi ptr [ %dot.2, %while.body.lr.ph.lr.ph ], [ %p.064, %if.then ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
-  %lost_fraction.071 = phi i32 [ %lost_fraction.0.ph88, %while.body.lr.ph ], [ %lost_fraction.1, %if.end19 ]
-  %p.070 = phi ptr [ %p.0.ph87, %while.body.lr.ph ], [ %incdec.ptr12, %if.end19 ]
-  %bitPos.069 = phi i32 [ %bitPos.0.ph86, %while.body.lr.ph ], [ %bitPos.1, %if.end19 ]
-  %computedTrailingFraction.068 = phi i1 [ %computedTrailingFraction.0.ph85, %while.body.lr.ph ], [ %computedTrailingFraction.1, %if.end19 ]
-  %11 = load i8, ptr %p.070, align 1
+  %lost_fraction.065 = phi i32 [ %lost_fraction.0.ph82, %while.body.lr.ph ], [ %lost_fraction.1, %if.end19 ]
+  %p.064 = phi ptr [ %p.0.ph81, %while.body.lr.ph ], [ %incdec.ptr12, %if.end19 ]
+  %bitPos.063 = phi i32 [ %bitPos.0.ph80, %while.body.lr.ph ], [ %bitPos.1, %if.end19 ]
+  %computedTrailingFraction.062 = phi i1 [ %computedTrailingFraction.0.ph79, %while.body.lr.ph ], [ %computedTrailingFraction.1, %if.end19 ]
+  %11 = load i8, ptr %p.064, align 1
   %cmp6 = icmp eq i8 %11, 46
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.070, i64 1
-  %cmp.not67 = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not67, label %while.end, label %while.body.lr.ph, !llvm.loop !25
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.064, i64 1
+  %cmp.not61 = icmp eq ptr %incdec.ptr, %add.ptr.i
+  br i1 %cmp.not61, label %while.end, label %while.body.lr.ph, !llvm.loop !25
 
 if.end:                                           ; preds = %while.body
   %conv.i = sext i8 %11 to i32
@@ -5785,12 +5785,12 @@ _ZN4llvh13hexDigitValueEc.exit:                   ; preds = %if.end12.i, %if.the
   br i1 %cmp9, label %while.end, label %if.end11
 
 if.end11:                                         ; preds = %_ZN4llvh13hexDigitValueEc.exit
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %p.070, i64 1
-  %tobool.not = icmp eq i32 %bitPos.069, 0
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %p.064, i64 1
+  %tobool.not = icmp eq i32 %bitPos.063, 0
   br i1 %tobool.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %sub = add i32 %bitPos.069, -4
+  %sub = add i32 %bitPos.063, -4
   %rem = and i32 %sub, 63
   %sh_prom = zext nneg i32 %rem to i64
   %shl = shl i64 %conv8, %sh_prom
@@ -5803,7 +5803,7 @@ if.then13:                                        ; preds = %if.end11
   br label %if.end19
 
 if.else:                                          ; preds = %if.end11
-  br i1 %computedTrailingFraction.068, label %if.end19, label %if.then15
+  br i1 %computedTrailingFraction.062, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.else
   %p15.i = ptrtoint ptr %incdec.ptr12 to i64
@@ -5880,23 +5880,23 @@ if.else12.i:                                      ; preds = %_ZN4llvh13hexDigitV
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else12.i, %if.then10.i, %if.else.i, %if.then15, %if.else, %if.then13
-  %computedTrailingFraction.1 = phi i1 [ %computedTrailingFraction.068, %if.then13 ], [ true, %if.else ], [ true, %if.then15 ], [ true, %if.else.i ], [ true, %if.then10.i ], [ true, %if.else12.i ]
+  %computedTrailingFraction.1 = phi i1 [ %computedTrailingFraction.062, %if.then13 ], [ true, %if.else ], [ true, %if.then15 ], [ true, %if.else.i ], [ true, %if.then10.i ], [ true, %if.else12.i ]
   %bitPos.1 = phi i32 [ %sub, %if.then13 ], [ 0, %if.else ], [ 0, %if.then15 ], [ 0, %if.else.i ], [ 0, %if.then10.i ], [ 0, %if.else12.i ]
-  %lost_fraction.1 = phi i32 [ %lost_fraction.071, %if.then13 ], [ %lost_fraction.071, %if.else ], [ 3, %if.then15 ], [ 1, %if.else.i ], [ %cond.i, %if.then10.i ], [ %cond14.i, %if.else12.i ]
+  %lost_fraction.1 = phi i32 [ %lost_fraction.065, %if.then13 ], [ %lost_fraction.065, %if.else ], [ 3, %if.then15 ], [ 1, %if.else.i ], [ %cond.i, %if.then10.i ], [ %cond14.i, %if.else12.i ]
   %cmp.not = icmp eq ptr %incdec.ptr12, %add.ptr.i
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
 
 while.end:                                        ; preds = %if.then, %if.end19, %_ZN4llvh13hexDigitValueEc.exit, %if.end12.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit
-  %dot.0.ph.lcssa = phi ptr [ %dot.2, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %dot.0.ph84, %if.end12.i ], [ %dot.0.ph84, %_ZN4llvh13hexDigitValueEc.exit ], [ %dot.0.ph84, %if.end19 ], [ %p.070, %if.then ]
-  %p.0.lcssa = phi ptr [ %add.ptr.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %incdec.ptr12, %if.end19 ], [ %p.070, %_ZN4llvh13hexDigitValueEc.exit ], [ %p.070, %if.end12.i ], [ %incdec.ptr, %if.then ]
-  %lost_fraction.0.lcssa = phi i32 [ 0, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %lost_fraction.1, %if.end19 ], [ %lost_fraction.071, %_ZN4llvh13hexDigitValueEc.exit ], [ %lost_fraction.071, %if.end12.i ], [ %lost_fraction.071, %if.then ]
+  %dot.0.ph.lcssa = phi ptr [ %dot.2, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %dot.0.ph78, %if.end12.i ], [ %dot.0.ph78, %_ZN4llvh13hexDigitValueEc.exit ], [ %dot.0.ph78, %if.end19 ], [ %p.064, %if.then ]
+  %p.0.lcssa = phi ptr [ %add.ptr.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %incdec.ptr12, %if.end19 ], [ %p.064, %_ZN4llvh13hexDigitValueEc.exit ], [ %p.064, %if.end12.i ], [ %incdec.ptr, %if.then ]
+  %lost_fraction.0.lcssa = phi i32 [ 0, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit ], [ %lost_fraction.1, %if.end19 ], [ %lost_fraction.065, %_ZN4llvh13hexDigitValueEc.exit ], [ %lost_fraction.065, %if.end12.i ], [ %lost_fraction.065, %if.then ]
   %cmp20.not = icmp eq ptr %p.0.lcssa, %p.1.i
   br i1 %cmp20.not, label %if.end36, label %if.then21
 
 if.then21:                                        ; preds = %while.end
   %cmp22 = icmp eq ptr %dot.0.ph.lcssa, %add.ptr.i
-  %spec.select58 = select i1 %cmp22, ptr %p.0.lcssa, ptr %dot.0.ph.lcssa
-  %sub.ptr.lhs.cast = ptrtoint ptr %spec.select58 to i64
+  %spec.select53 = select i1 %cmp22, ptr %p.0.lcssa, ptr %dot.0.ph.lcssa
+  %sub.ptr.lhs.cast = ptrtoint ptr %spec.select53 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.1.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv25 = trunc i64 %sub.ptr.sub to i32
@@ -5933,19 +5933,19 @@ for.body.i:                                       ; preds = %if.then21, %for.con
   %sub.i.i40 = add i32 %mul.i, -48
   %add.i41 = add i32 %sub.i.i40, %conv6.i
   %cmp7.i = icmp sgt i32 %add.i41, 32767
-  br i1 %cmp7.i, label %_ZN4llvhL13totalExponentEPKcS1_i.exit.thread, label %for.cond.i
+  br i1 %cmp7.i, label %if.end26.thread.i, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then21
   %unsignedExponent.1.i = phi i32 [ 0, %if.then21 ], [ %add.i41, %for.cond.i ]
   %27 = add i32 %sub32, -32768
   %or.cond.i43 = icmp ult i32 %27, -65536
-  br i1 %or.cond.i43, label %_ZN4llvhL13totalExponentEPKcS1_i.exit.thread, label %_ZN4llvhL13totalExponentEPKcS1_i.exit
+  br i1 %or.cond.i43, label %if.end26.thread.i, label %if.end26.i
 
-_ZN4llvhL13totalExponentEPKcS1_i.exit.thread:     ; preds = %for.body.i, %for.end.i
-  %cond.i4755 = select i1 %cmp.i39, i32 -32768, i32 32767
-  br label %29
+if.end26.thread.i:                                ; preds = %for.body.i, %for.end.i
+  %cond30.i = select i1 %cmp.i39, i32 -32768, i32 32767
+  br label %_ZN4llvhL13totalExponentEPKcS1_i.exit
 
-_ZN4llvhL13totalExponentEPKcS1_i.exit:            ; preds = %for.end.i
+if.end26.i:                                       ; preds = %for.end.i
   %sub.i45 = sub nsw i32 0, %unsignedExponent.1.i
   %spec.select19.i = select i1 %cmp.i39, i32 %sub.i45, i32 %unsignedExponent.1.i
   %add20.i = add nsw i32 %spec.select19.i, %sub32
@@ -5953,18 +5953,18 @@ _ZN4llvhL13totalExponentEPKcS1_i.exit:            ; preds = %for.end.i
   %28 = add i32 %add20.i.fr, -32768
   %or.cond1.i46 = icmp ult i32 %28, -65536
   %cond.i47 = select i1 %cmp.i39, i32 -32768, i32 32767
-  %spec.select59 = select i1 %or.cond1.i46, i32 %cond.i47, i32 %add20.i.fr
-  br label %29
+  %spec.select33.i = select i1 %or.cond1.i46, i32 %cond.i47, i32 %add20.i.fr
+  br label %_ZN4llvhL13totalExponentEPKcS1_i.exit
 
-29:                                               ; preds = %_ZN4llvhL13totalExponentEPKcS1_i.exit, %_ZN4llvhL13totalExponentEPKcS1_i.exit.thread
-  %30 = phi i32 [ %cond.i4755, %_ZN4llvhL13totalExponentEPKcS1_i.exit.thread ], [ %spec.select59, %_ZN4llvhL13totalExponentEPKcS1_i.exit ]
-  %conv34 = trunc i32 %30 to i16
+_ZN4llvhL13totalExponentEPKcS1_i.exit:            ; preds = %if.end26.thread.i, %if.end26.i
+  %29 = phi i32 [ %cond30.i, %if.end26.thread.i ], [ %spec.select33.i, %if.end26.i ]
+  %conv34 = trunc i32 %29 to i16
   store i16 %conv34, ptr %exponent, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %while.body.i, %while.cond6.i, %29, %while.end
-  %lost_fraction.0.lcssa110 = phi i32 [ %lost_fraction.0.lcssa, %29 ], [ %lost_fraction.0.lcssa, %while.end ], [ 0, %while.cond6.i ], [ 0, %while.body.i ]
-  %call37 = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat9normalizeENS_11APFloatBase12roundingModeENS_12lostFractionE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %rounding_mode, i32 noundef %lost_fraction.0.lcssa110)
+if.end36:                                         ; preds = %while.body.i, %while.cond6.i, %_ZN4llvhL13totalExponentEPKcS1_i.exit, %while.end
+  %lost_fraction.0.lcssa104 = phi i32 [ %lost_fraction.0.lcssa, %_ZN4llvhL13totalExponentEPKcS1_i.exit ], [ %lost_fraction.0.lcssa, %while.end ], [ 0, %while.cond6.i ], [ 0, %while.body.i ]
+  %call37 = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat9normalizeENS_11APFloatBase12roundingModeENS_12lostFractionE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %rounding_mode, i32 noundef %lost_fraction.0.lcssa104)
   ret i32 %call37
 }
 
@@ -6528,12 +6528,12 @@ _ZN4llvhL12readExponentEPKcS1_.exit.i:            ; preds = %if.end12.i.i, %for.
   %spec.select.i = select i1 %cmp15.i, ptr %p.2.i, ptr %dot.2.i
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then.i, %for.inc.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i, %for.end.i
-  %p.1.i101 = phi ptr [ %p.2.i, %for.end.i ], [ %p.2.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %add.ptr.i, %for.inc.i ], [ %add.ptr.i, %if.then.i ]
-  %D.sroa.8.0 = phi i32 [ 0, %for.end.i ], [ %retval.0.i.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ 0, %for.inc.i ], [ 0, %if.then.i ]
-  %dot.3.i = phi ptr [ %dot.2.i, %for.end.i ], [ %spec.select.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %p.054.i, %if.then.i ], [ %dot.2.i, %for.inc.i ]
+if.end18.i:                                       ; preds = %for.inc.i, %if.then.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i, %for.end.i
+  %p.1.i101 = phi ptr [ %p.2.i, %for.end.i ], [ %p.2.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %add.ptr.i, %if.then.i ], [ %add.ptr.i, %for.inc.i ]
+  %D.sroa.8.0 = phi i32 [ 0, %for.end.i ], [ %retval.0.i.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ 0, %if.then.i ], [ 0, %for.inc.i ]
+  %dot.3.i = phi ptr [ %dot.2.i, %for.end.i ], [ %spec.select.i, %_ZN4llvhL12readExponentEPKcS1_.exit.i ], [ %dot.2.i, %for.inc.i ], [ %p.054.i, %if.then.i ]
   %cmp20.not.i = icmp eq ptr %p.1.i101, %p.1.i.i
-  br i1 %cmp20.not.i, label %_ZN4llvhL16interpretDecimalEPKcS1_PNS_11decimalInfoE.exit, label %if.then21.i
+  br i1 %cmp20.not.i, label %lor.lhs.false.thread, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end18.i
   %cmp22.not.i = icmp eq ptr %p.1.i101, %str.coerce0
@@ -6586,19 +6586,13 @@ if.end36.i:                                       ; preds = %land.rhs.i, %if.end
   %sext41.i = shl i32 %conv54.i, 16
   %conv55.i = ashr exact i32 %sext41.i, 16
   %add56.i = add nsw i32 %add.i, %conv55.i
-  br i1 %cmp.not52.i, label %if.then, label %lor.lhs.false
-
-_ZN4llvhL16interpretDecimalEPKcS1_PNS_11decimalInfoE.exit: ; preds = %if.end18.i
-  br i1 %cmp.not52.i, label %if.then, label %lor.lhs.false.thread
-
-lor.lhs.false:                                    ; preds = %if.end36.i
   %11 = load i8, ptr %p.1.i.i, align 1
   %conv = sext i8 %11 to i32
   %12 = add nsw i32 %conv, -58
   %cmp6 = icmp ult i32 %12, -10
   br i1 %cmp6, label %if.then, label %if.else
 
-lor.lhs.false.thread:                             ; preds = %_ZN4llvhL16interpretDecimalEPKcS1_PNS_11decimalInfoE.exit
+lor.lhs.false.thread:                             ; preds = %if.end18.i
   %13 = load i8, ptr %p.1.i.i, align 1
   %conv105 = sext i8 %13 to i32
   %14 = add nsw i32 %conv105, -58
@@ -6609,7 +6603,7 @@ if.else10.thread:                                 ; preds = %lor.lhs.false.threa
   %.pre97121 = load ptr, ptr %this, align 8
   br label %lor.lhs.false14
 
-if.then:                                          ; preds = %while.body.i.i, %while.cond6.i.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i, %lor.lhs.false.thread, %if.end36.i, %lor.lhs.false, %_ZN4llvhL16interpretDecimalEPKcS1_PNS_11decimalInfoE.exit
+if.then:                                          ; preds = %while.body.i.i, %while.cond6.i.i, %_ZN4llvhL26skipLeadingZeroesAndAnyDotEPKcS1_PS1_.exit.i, %lor.lhs.false.thread, %if.end36.i
   %category = getelementptr inbounds i8, ptr %this, i64 18
   %bf.load = load i8, ptr %category, align 2
   %bf.clear = and i8 %bf.load, -8
@@ -6617,7 +6611,7 @@ if.then:                                          ; preds = %while.body.i.i, %wh
   store i8 %bf.set, ptr %category, align 2
   br label %if.end81
 
-if.else:                                          ; preds = %lor.lhs.false
+if.else:                                          ; preds = %if.end36.i
   %cmp7 = icmp sgt i32 %add56.i, 51084
   br i1 %cmp7, label %if.then8, label %if.else10
 
@@ -10596,11 +10590,10 @@ _ZN4llvh5APIntC2Ejmb.exit302:                     ; preds = %_ZN4llvh5APInt15cle
 
 while.cond80.outer:                               ; preds = %if.then87, %_ZN4llvh5APIntC2Ejmb.exit302
   %exp.1.ph = phi i32 [ %inc, %if.then87 ], [ %exp.5, %_ZN4llvh5APIntC2Ejmb.exit302 ]
-  %inTrail.0.ph = phi i1 [ %or.cond.not, %if.then87 ], [ true, %_ZN4llvh5APIntC2Ejmb.exit302 ]
   br label %while.cond80
 
 while.cond80:                                     ; preds = %while.cond80.outer, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit320
-  %inTrail.0 = phi i1 [ %or.cond.not, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit320 ], [ %inTrail.0.ph, %while.cond80.outer ]
+  %inTrail.0 = phi i1 [ false, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit320 ], [ true, %while.cond80.outer ]
   %80 = load i32, ptr %BitWidth.i.i, align 8
   %cmp.i.i.i304 = icmp ult i32 %80, 65
   br i1 %cmp.i.i.i304, label %_ZNK4llvh5APIntneEm.exit, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
@@ -12690,21 +12683,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
-  %cmp58 = icmp eq ptr %0, %1
-  br i1 %cmp58, label %land.lhs.true.preheader, label %if.else
-
-land.lhs.true.preheader:                          ; preds = %entry
+  %cmp58 = icmp ne ptr %0, %1
   %Floats131 = getelementptr inbounds i8, ptr %RHS, i64 8
   %2 = load ptr, ptr %Floats131, align 8
-  %cmp.i.not132 = icmp ne ptr %2, null
-  br i1 %cmp.i.not132, label %if.then, label %if.else
+  %cmp.i.not132.not = icmp eq ptr %2, null
+  %or.cond = select i1 %cmp58, i1 true, i1 %cmp.i.not132.not
+  br i1 %or.cond, label %if.else, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true.preheader, %if.then7.i30
-  %3 = phi ptr [ %14, %if.then7.i30 ], [ %2, %land.lhs.true.preheader ]
-  %Floats136 = phi ptr [ %Floats, %if.then7.i30 ], [ %Floats131, %land.lhs.true.preheader ]
-  %this.tr59135 = phi ptr [ %U.i7, %if.then7.i30 ], [ %this, %land.lhs.true.preheader ]
-  %ret.tr61134 = phi ptr [ %current.ret.tr, %if.then7.i30 ], [ poison, %land.lhs.true.preheader ]
-  %ret.known.tr62133 = phi i1 [ true, %if.then7.i30 ], [ false, %land.lhs.true.preheader ]
+if.then:                                          ; preds = %entry, %if.then7.i30
+  %3 = phi ptr [ %14, %if.then7.i30 ], [ %2, %entry ]
+  %Floats136 = phi ptr [ %Floats, %if.then7.i30 ], [ %Floats131, %entry ]
+  %this.tr59135 = phi ptr [ %U.i7, %if.then7.i30 ], [ %this, %entry ]
+  %ret.tr61134 = phi ptr [ %current.ret.tr, %if.then7.i30 ], [ poison, %entry ]
+  %ret.known.tr62133 = phi i1 [ true, %if.then7.i30 ], [ false, %entry ]
   %Floats5 = getelementptr inbounds i8, ptr %this.tr59135, i64 8
   %4 = load ptr, ptr %Floats5, align 8
   %U.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -12830,11 +12821,11 @@ if.else.loopexit:                                 ; preds = %if.then7.i30
   %U2.i8.le = getelementptr inbounds i8, ptr %10, i64 40
   br label %if.else
 
-if.else:                                          ; preds = %if.else.loopexit, %land.lhs.true.preheader, %entry
-  %this.tr.lcssa = phi ptr [ %this, %entry ], [ %this, %land.lhs.true.preheader ], [ %U.i7, %if.else.loopexit ]
-  %RHS.tr.lcssa = phi ptr [ %RHS, %entry ], [ %RHS, %land.lhs.true.preheader ], [ %U2.i8.le, %if.else.loopexit ]
-  %ret.tr.lcssa = phi ptr [ poison, %entry ], [ poison, %land.lhs.true.preheader ], [ %current.ret.tr, %if.else.loopexit ]
-  %ret.known.tr.lcssa = phi i1 [ false, %entry ], [ %cmp.i.not132, %land.lhs.true.preheader ], [ %cmp.i.not132, %if.else.loopexit ]
+if.else:                                          ; preds = %if.else.loopexit, %entry
+  %this.tr.lcssa = phi ptr [ %this, %entry ], [ %U.i7, %if.else.loopexit ]
+  %RHS.tr.lcssa = phi ptr [ %RHS, %entry ], [ %U2.i8.le, %if.else.loopexit ]
+  %ret.tr.lcssa = phi ptr [ poison, %entry ], [ %current.ret.tr, %if.else.loopexit ]
+  %ret.known.tr.lcssa = phi i1 [ false, %entry ], [ true, %if.else.loopexit ]
   %cmp13.not = icmp eq ptr %this.tr.lcssa, %RHS.tr.lcssa
   br i1 %cmp13.not, label %if.end15, label %if.then14
 

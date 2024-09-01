@@ -892,22 +892,22 @@ pushString.exit84:                                ; preds = %121
   %139 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i88
   %140 = load ptr, ptr %139, align 8
   %.not.i89 = icmp eq ptr %140, null
-  br i1 %.not.i89, label %.lr.ph.i93.preheader, label %.lr.ph.i86
+  br i1 %.not.i89, label %get_xml_attr.exit91.thread, label %.lr.ph.i86
 
 get_xml_attr.exit91:                              ; preds = %.lr.ph.i86
   %141 = and i64 %indvars.iv.i87, 4294967294
   %142 = or disjoint i64 %141, 1
   %143 = getelementptr inbounds ptr, ptr %2, i64 %142
   %144 = load ptr, ptr %143, align 8
-  br label %.lr.ph.i93.preheader
+  br label %get_xml_attr.exit91.thread
 
-.lr.ph.i93.preheader:                             ; preds = %138, %get_xml_attr.exit91
+get_xml_attr.exit91.thread:                       ; preds = %138, %get_xml_attr.exit91
   %.0 = phi ptr [ %144, %get_xml_attr.exit91 ], [ @.str.16, %138 ]
   br label %.lr.ph.i93
 
-.lr.ph.i93:                                       ; preds = %.lr.ph.i93.preheader, %148
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %148 ], [ 0, %.lr.ph.i93.preheader ]
-  %145 = phi ptr [ %150, %148 ], [ %134, %.lr.ph.i93.preheader ]
+.lr.ph.i93:                                       ; preds = %get_xml_attr.exit91.thread, %148
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %148 ], [ 0, %get_xml_attr.exit91.thread ]
+  %145 = phi ptr [ %150, %148 ], [ %134, %get_xml_attr.exit91.thread ]
   %146 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %145) #22
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %get_xml_attr.exit98, label %148

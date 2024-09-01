@@ -199,21 +199,21 @@ if.then20.i:                                      ; preds = %if.else16.i
 for.inc.i:                                        ; preds = %if.else16.i
   %inc.i150 = add nuw nsw i64 %i.023.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i150, %conv.i
-  br i1 %exitcond.not.i, label %for.body.i153.preheader, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %cond.true69, label %for.body.i, !llvm.loop !8
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit:       ; preds = %if.then.i, %if.then12.i, %if.then20.i
   %retval.0.i = phi i32 [ %or.i, %if.then.i ], [ %shl14.i, %if.then12.i ], [ %or23.i, %if.then20.i ]
   %cmp68 = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp68, label %for.body.i153.preheader, label %if.else
+  br i1 %cmp68, label %cond.true69, label %if.else
 
-for.body.i153.preheader:                          ; preds = %for.inc.i, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
+cond.true69:                                      ; preds = %for.inc.i, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit
   %retval.0.i301 = phi i32 [ %retval.0.i, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit ], [ -1, %for.inc.i ]
   %cond76 = select i1 %tobool.not, i32 %strip.sroa.0.0358, i32 %14
   %cond82 = select i1 %tobool.not, i32 %14, i32 %strip.sroa.0.0358
   br label %for.body.i153
 
-for.body.i153:                                    ; preds = %for.body.i153.preheader, %for.inc.i169
-  %i.023.i154 = phi i64 [ %inc.i170, %for.inc.i169 ], [ 0, %for.body.i153.preheader ]
+for.body.i153:                                    ; preds = %cond.true69, %for.inc.i169
+  %i.023.i154 = phi i64 [ %inc.i170, %for.inc.i169 ], [ 0, %cond.true69 ]
   %arrayidx.i155 = getelementptr inbounds [3 x i32], ptr %buffer, i64 %i.023.i154
   %22 = load i32, ptr %arrayidx.i155, align 4
   %arrayidx3.i156 = getelementptr inbounds i8, ptr %arrayidx.i155, i64 4
@@ -371,7 +371,7 @@ if.then.i222:                                     ; preds = %for.body.i195
   %conv8.i223 = trunc nuw i64 %i.023.i196 to i32
   %shl.i224 = shl i32 %conv8.i223, 2
   %or.i225 = or disjoint i32 %shl.i224, 2
-  br label %for.body.i229.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226
 
 if.else.i203:                                     ; preds = %for.body.i195
   %cmp9.i204 = icmp eq i32 %33, %39
@@ -382,7 +382,7 @@ if.else.i203:                                     ; preds = %for.body.i195
 if.then12.i219:                                   ; preds = %if.else.i203
   %conv13.i220 = trunc nuw i64 %i.023.i196 to i32
   %shl14.i221 = shl i32 %conv13.i220, 2
-  br label %for.body.i229.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226
 
 if.else16.i207:                                   ; preds = %if.else.i203
   %cmp17.i208 = icmp eq i32 %33, %40
@@ -394,20 +394,20 @@ if.then20.i215:                                   ; preds = %if.else16.i207
   %conv21.i216 = trunc nuw i64 %i.023.i196 to i32
   %shl22.i217 = shl i32 %conv21.i216, 2
   %or23.i218 = or disjoint i32 %shl22.i217, 1
-  br label %for.body.i229.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226
 
 for.inc.i211:                                     ; preds = %if.else16.i207
   %inc.i212 = add nuw nsw i64 %i.023.i196, 1
   %exitcond.not.i213 = icmp eq i64 %inc.i212, %conv.i193
-  br i1 %exitcond.not.i213, label %for.body.i229.preheader, label %for.body.i195, !llvm.loop !8
+  br i1 %exitcond.not.i213, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226, label %for.body.i195, !llvm.loop !8
 
-for.body.i229.preheader:                          ; preds = %for.inc.i211, %if.then20.i215, %if.then12.i219, %if.then.i222
+_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226:    ; preds = %for.inc.i211, %if.then.i222, %if.then12.i219, %if.then20.i215
   %retval.0.i214 = phi i32 [ %or.i225, %if.then.i222 ], [ %shl14.i221, %if.then12.i219 ], [ %or23.i218, %if.then20.i215 ], [ -1, %for.inc.i211 ]
   %retval.0.i214.fr = freeze i32 %retval.0.i214
   br label %for.body.i229
 
-for.body.i229:                                    ; preds = %for.body.i229.preheader, %for.inc.i245
-  %i.023.i230 = phi i64 [ %inc.i246, %for.inc.i245 ], [ 0, %for.body.i229.preheader ]
+for.body.i229:                                    ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226, %for.inc.i245
+  %i.023.i230 = phi i64 [ %inc.i246, %for.inc.i245 ], [ 0, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit226 ]
   %arrayidx.i231 = getelementptr inbounds [3 x i32], ptr %buffer, i64 %i.023.i230
   %41 = load i32, ptr %arrayidx.i231, align 4
   %arrayidx3.i232 = getelementptr inbounds i8, ptr %arrayidx.i231, i64 4
@@ -423,7 +423,7 @@ if.then.i256:                                     ; preds = %for.body.i229
   %conv8.i257 = trunc nuw i64 %i.023.i230 to i32
   %shl.i258 = shl i32 %conv8.i257, 2
   %or.i259 = or disjoint i32 %shl.i258, 2
-  br label %for.body.i263.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260
 
 if.else.i237:                                     ; preds = %for.body.i229
   %cmp9.i238 = icmp eq i32 %31, %42
@@ -434,7 +434,7 @@ if.else.i237:                                     ; preds = %for.body.i229
 if.then12.i253:                                   ; preds = %if.else.i237
   %conv13.i254 = trunc nuw i64 %i.023.i230 to i32
   %shl14.i255 = shl i32 %conv13.i254, 2
-  br label %for.body.i263.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260
 
 if.else16.i241:                                   ; preds = %if.else.i237
   %cmp17.i242 = icmp eq i32 %31, %43
@@ -446,19 +446,19 @@ if.then20.i249:                                   ; preds = %if.else16.i241
   %conv21.i250 = trunc nuw i64 %i.023.i230 to i32
   %shl22.i251 = shl i32 %conv21.i250, 2
   %or23.i252 = or disjoint i32 %shl22.i251, 1
-  br label %for.body.i263.preheader
+  br label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260
 
 for.inc.i245:                                     ; preds = %if.else16.i241
   %inc.i246 = add nuw nsw i64 %i.023.i230, 1
   %exitcond.not.i247 = icmp eq i64 %inc.i246, %conv.i193
-  br i1 %exitcond.not.i247, label %for.body.i263.preheader, label %for.body.i229, !llvm.loop !8
+  br i1 %exitcond.not.i247, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260, label %for.body.i229, !llvm.loop !8
 
-for.body.i263.preheader:                          ; preds = %for.inc.i245, %if.then20.i249, %if.then12.i253, %if.then.i256
+_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260:    ; preds = %for.inc.i245, %if.then.i256, %if.then12.i253, %if.then20.i249
   %retval.0.i248 = phi i32 [ %or.i259, %if.then.i256 ], [ %shl14.i255, %if.then12.i253 ], [ %or23.i252, %if.then20.i249 ], [ -1, %for.inc.i245 ]
   br label %for.body.i263
 
-for.body.i263:                                    ; preds = %for.body.i263.preheader, %for.inc.i279
-  %i.023.i264 = phi i64 [ %inc.i280, %for.inc.i279 ], [ 0, %for.body.i263.preheader ]
+for.body.i263:                                    ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260, %for.inc.i279
+  %i.023.i264 = phi i64 [ %inc.i280, %for.inc.i279 ], [ 0, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit260 ]
   %arrayidx.i265 = getelementptr inbounds [3 x i32], ptr %buffer, i64 %i.023.i264
   %44 = load i32, ptr %arrayidx.i265, align 4
   %arrayidx3.i266 = getelementptr inbounds i8, ptr %arrayidx.i265, i64 4

@@ -7967,7 +7967,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.cond10.preheader.i:                           ; preds = %for.body.i
   %cmp1138.not.i = icmp eq i32 %num_syms, 1
-  br i1 %cmp1138.not.i, label %for.body24.lr.ph.i, label %for.body13.i
+  br i1 %cmp1138.not.i, label %for.cond21.preheader.i, label %for.body13.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
@@ -7983,7 +7983,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
   br i1 %exitcond.not.i, label %for.cond10.preheader.i, label %for.body.i
 
-for.body24.lr.ph.i:                               ; preds = %for.body13.i, %for.cond10.preheader.i
+for.cond21.preheader.i:                           ; preds = %for.body13.i, %for.cond10.preheader.i
   %num_used_syms.0.lcssa.i = phi i32 [ 0, %for.cond10.preheader.i ], [ %add.i, %for.body13.i ]
   br label %for.body24.i
 
@@ -7996,10 +7996,10 @@ for.body13.i:                                     ; preds = %for.cond10.preheade
   %add.i = add i32 %2, %num_used_syms.039.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %conv.i
-  br i1 %exitcond53.not.i, label %for.body24.lr.ph.i, label %for.body13.i
+  br i1 %exitcond53.not.i, label %for.cond21.preheader.i, label %for.body13.i
 
-for.body24.i:                                     ; preds = %for.inc44.i, %for.body24.lr.ph.i
-  %indvars.iv54.i = phi i64 [ 0, %for.body24.lr.ph.i ], [ %indvars.iv.next55.i, %for.inc44.i ]
+for.body24.i:                                     ; preds = %for.inc44.i, %for.cond21.preheader.i
+  %indvars.iv54.i = phi i64 [ 0, %for.cond21.preheader.i ], [ %indvars.iv.next55.i, %for.inc44.i ]
   %arrayidx26.i = getelementptr inbounds i32, ptr %freqs, i64 %indvars.iv54.i
   %3 = load i32, ptr %arrayidx26.i, align 4
   %cmp27.not.i = icmp eq i32 %3, 0

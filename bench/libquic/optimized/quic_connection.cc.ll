@@ -3184,11 +3184,10 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %.pre59.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %.pre58.i.i.i.i
   %sub.ptr.div.i18.i.i.i.i.us = ashr exact i64 %.pre59.i.i.i.i, 2
   %incdec.ptr.i20.i.i.i.i.us = getelementptr inbounds i8, ptr %scevgep.i.i.i.i, i64 4
-  %umax137 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
+  %umax131 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %cmp19.us = phi i1 [ true, %for.body.lr.ph.split.us ], [ %cmp.us, %for.inc.us ]
   %i.018.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
   %add.ptr.i.us = getelementptr inbounds i32, ptr %1, i64 %i.018.us
   %5 = load i32, ptr %add.ptr.i.us, align 4
@@ -3205,19 +3204,19 @@ if.end.i.i.i.i.us:                                ; preds = %for.body.i.i.i.i.us
   %incdec.ptr.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 4
   %7 = load i32, ptr %incdec.ptr.i.i.i.i.i.us, align 4
   %cmp.i9.i.i.i.i.us = icmp eq i32 %7, %5
-  br i1 %cmp.i9.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155, label %if.end10.i.i.i.i.us
+  br i1 %cmp.i9.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit143, label %if.end10.i.i.i.i.us
 
 if.end10.i.i.i.i.us:                              ; preds = %if.end.i.i.i.i.us
   %incdec.ptr.i10.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 8
   %8 = load i32, ptr %incdec.ptr.i10.i.i.i.i.us, align 4
   %cmp.i11.i.i.i.i.us = icmp eq i32 %8, %5
-  br i1 %cmp.i11.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157, label %if.end16.i.i.i.i.us
+  br i1 %cmp.i11.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit145, label %if.end16.i.i.i.i.us
 
 if.end16.i.i.i.i.us:                              ; preds = %if.end10.i.i.i.i.us
   %incdec.ptr.i12.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 12
   %9 = load i32, ptr %incdec.ptr.i12.i.i.i.i.us, align 4
   %cmp.i13.i.i.i.i.us = icmp eq i32 %9, %5
-  br i1 %cmp.i13.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159, label %if.end22.i.i.i.i.us
+  br i1 %cmp.i13.i.i.i.i.us, label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit147, label %if.end22.i.i.i.i.us
 
 if.end22.i.i.i.i.us:                              ; preds = %if.end16.i.i.i.i.us
   %incdec.ptr.i14.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 16
@@ -3254,50 +3253,44 @@ sw.bb38.i.i.i.i.us:                               ; preds = %for.end.loopexit.i.
   %spec.select.i.i.i.i.us = select i1 %cmp.i23.i.i.i.i.us, ptr %__first.sroa.0.2.i.i.i.i.us, ptr %3
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
-_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155: ; preds = %if.end.i.i.i.i.us
+_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit143: ; preds = %if.end.i.i.i.i.us
   %incdec.ptr.i.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 4
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
-_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157: ; preds = %if.end10.i.i.i.i.us
+_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit145: ; preds = %if.end10.i.i.i.i.us
   %incdec.ptr.i10.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 8
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
-_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159: ; preds = %if.end16.i.i.i.i.us
+_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit147: ; preds = %if.end16.i.i.i.i.us
   %incdec.ptr.i12.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i.i.us, i64 12
   br label %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us
 
-_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us: ; preds = %for.body.i.i.i.i.us, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159, %sw.bb38.i.i.i.i.us, %sw.bb31.i.i.i.i.us, %sw.bb.i.i.i.i.us
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %sw.bb.i.i.i.i.us ], [ %__first.sroa.0.1.i.i.i.i.us, %sw.bb31.i.i.i.i.us ], [ %spec.select.i.i.i.i.us, %sw.bb38.i.i.i.i.us ], [ %incdec.ptr.i.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit155 ], [ %incdec.ptr.i10.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit157 ], [ %incdec.ptr.i12.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit159 ], [ %__first.sroa.0.051.i.i.i.i.us, %for.body.i.i.i.i.us ]
+_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us: ; preds = %for.body.i.i.i.i.us, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit143, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit145, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit147, %sw.bb38.i.i.i.i.us, %sw.bb31.i.i.i.i.us, %sw.bb.i.i.i.i.us
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.us = phi ptr [ %scevgep.i.i.i.i, %sw.bb.i.i.i.i.us ], [ %__first.sroa.0.1.i.i.i.i.us, %sw.bb31.i.i.i.i.us ], [ %spec.select.i.i.i.i.us, %sw.bb38.i.i.i.i.us ], [ %incdec.ptr.i.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit143 ], [ %incdec.ptr.i10.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit145 ], [ %incdec.ptr.i12.i.i.i.i.us.le, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us.loopexit.split.loop.exit147 ], [ %__first.sroa.0.051.i.i.i.i.us, %for.body.i.i.i.i.us ]
   %cmp.i.i.not.us = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.us, %3
   br i1 %cmp.i.i.not.us, label %for.inc.us, label %if.then
 
 for.inc.us:                                       ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %for.end.loopexit.i.i.i.i.us
   %inc.us = add nuw i64 %i.018.us, 1
-  %cmp.us = icmp ult i64 %inc.us, %sub.ptr.div.i
-  %exitcond138.not = icmp eq i64 %inc.us, %umax137
-  br i1 %exitcond138.not, label %return, label %for.body.us, !llvm.loop !34
+  %exitcond132.not = icmp eq i64 %inc.us, %umax131
+  br i1 %exitcond132.not, label %return, label %for.body.us, !llvm.loop !34
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %sub.ptr.div.i18.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %incdec.ptr.i20.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
-  switch i64 %sub.ptr.div.i18.i.i.i.i, label %for.body.preheader [
+  switch i64 %sub.ptr.div.i18.i.i.i.i, label %return [
     i64 3, label %for.body.lr.ph.split.split.us
     i64 2, label %for.body.lr.ph.split.split.us50
     i64 1, label %for.body.lr.ph.split.split.us78
   ]
 
-for.body.preheader:                               ; preds = %for.body.lr.ph.split
-  %umax135 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
-
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
   %13 = load i32, ptr %2, align 4
   %incdec.ptr.i22.i.i.i.i.us33 = getelementptr inbounds i8, ptr %2, i64 8
-  %umax133 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
+  %umax129 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us22
 
 for.body.us22:                                    ; preds = %for.inc.us41, %for.body.lr.ph.split.split.us
-  %cmp19.us23 = phi i1 [ true, %for.body.lr.ph.split.split.us ], [ %cmp.us43, %for.inc.us41 ]
   %i.018.us24 = phi i64 [ 0, %for.body.lr.ph.split.split.us ], [ %inc.us42, %for.inc.us41 ]
   %add.ptr.i.us25 = getelementptr inbounds i32, ptr %1, i64 %i.018.us24
   %14 = load i32, ptr %add.ptr.i.us25, align 4
@@ -3322,17 +3315,15 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 for.inc.us41:                                     ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38
   %inc.us42 = add nuw i64 %i.018.us24, 1
-  %cmp.us43 = icmp ult i64 %inc.us42, %sub.ptr.div.i
-  %exitcond134.not = icmp eq i64 %inc.us42, %umax133
-  br i1 %exitcond134.not, label %return, label %for.body.us22, !llvm.loop !34
+  %exitcond130.not = icmp eq i64 %inc.us42, %umax129
+  br i1 %exitcond130.not, label %return, label %for.body.us22, !llvm.loop !34
 
 for.body.lr.ph.split.split.us50:                  ; preds = %for.body.lr.ph.split
   %17 = load i32, ptr %2, align 4
-  %umax131 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
+  %umax127 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.us51
 
 for.body.us51:                                    ; preds = %for.inc.us69, %for.body.lr.ph.split.split.us50
-  %cmp19.us52 = phi i1 [ true, %for.body.lr.ph.split.split.us50 ], [ %cmp.us71, %for.inc.us69 ]
   %i.018.us53 = phi i64 [ 0, %for.body.lr.ph.split.split.us50 ], [ %inc.us70, %for.inc.us69 ]
   %add.ptr.i.us54 = getelementptr inbounds i32, ptr %1, i64 %i.018.us53
   %.pre.i.i.i.i.us56 = load i32, ptr %add.ptr.i.us54, align 4
@@ -3352,9 +3343,8 @@ _ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exi
 
 for.inc.us69:                                     ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66
   %inc.us70 = add nuw i64 %i.018.us53, 1
-  %cmp.us71 = icmp ult i64 %inc.us70, %sub.ptr.div.i
-  %exitcond132.not = icmp eq i64 %inc.us70, %umax131
-  br i1 %exitcond132.not, label %return, label %for.body.us51, !llvm.loop !34
+  %exitcond128.not = icmp eq i64 %inc.us70, %umax127
+  br i1 %exitcond128.not, label %return, label %for.body.us51, !llvm.loop !34
 
 for.body.lr.ph.split.split.us78:                  ; preds = %for.body.lr.ph.split
   %19 = load i32, ptr %2, align 4
@@ -3370,44 +3360,25 @@ for.inc.us97.preheader:                           ; preds = %for.body.lr.ph.spli
   br label %for.inc.us97
 
 for.body.us79:                                    ; preds = %for.inc.us97
+  %inc.us98 = add nuw i64 %i.018.us81110, 1
   %add.ptr.i.us82 = getelementptr inbounds i32, ptr %1, i64 %inc.us98
   %.pre57.i.i.i.i.us84 = load i32, ptr %add.ptr.i.us82, align 4
   %cmp.i23.i.i.i.i.us92 = icmp ne i32 %19, %.pre57.i.i.i.i.us84
   %cmp.i.i.not.us96 = or i1 %cmp.i23.i.i.i.i.us92, %cmp.i.i.not.us96109113
-  br i1 %cmp.i.i.not.us96, label %for.inc.us97, label %if.then.loopexit144, !llvm.loop !34
+  br i1 %cmp.i.i.not.us96, label %for.inc.us97, label %if.then, !llvm.loop !34
 
 for.inc.us97:                                     ; preds = %for.inc.us97.preheader, %for.body.us79
   %i.018.us81110 = phi i64 [ %inc.us98, %for.body.us79 ], [ 0, %for.inc.us97.preheader ]
-  %inc.us98 = add nuw i64 %i.018.us81110, 1
   %exitcond.not = icmp eq i64 %i.018.us81110, %20
-  br i1 %exitcond.not, label %return.loopexit143, label %for.body.us79, !llvm.loop !34
+  br i1 %exitcond.not, label %return, label %for.body.us79, !llvm.loop !34
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.018 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i64 %i.018, 1
-  %exitcond136.not = icmp eq i64 %inc, %umax135
-  br i1 %exitcond136.not, label %return.loopexit115, label %for.body, !llvm.loop !34
-
-if.then.loopexit144:                              ; preds = %for.body.us79
-  %cmp.us99.le = icmp ult i64 %inc.us98, %sub.ptr.div.i
-  br label %if.then
-
-if.then:                                          ; preds = %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %if.then.loopexit144, %for.body.lr.ph.split.split.us78
-  %21 = phi i32 [ %19, %for.body.lr.ph.split.split.us78 ], [ %19, %if.then.loopexit144 ], [ %5, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %14, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38 ], [ %.pre.i.i.i.i.us56, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66 ]
-  %.us-phi20 = phi i1 [ true, %for.body.lr.ph.split.split.us78 ], [ %cmp.us99.le, %if.then.loopexit144 ], [ %cmp19.us, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %cmp19.us23, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38 ], [ %cmp19.us52, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66 ]
+if.then:                                          ; preds = %for.body.us79, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us, %for.body.lr.ph.split.split.us78
+  %21 = phi i32 [ %19, %for.body.lr.ph.split.split.us78 ], [ %5, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us ], [ %14, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us38 ], [ %.pre.i.i.i.i.us56, %_ZN4base13ContainsValueISt6vectorIN3net11QuicVersionESaIS3_EES3_EEbRKT_RKT0_.exit.us66 ], [ %19, %for.body.us79 ]
   tail call void @_ZN3net10QuicFramer11set_versionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, i32 noundef %21)
   br label %return
 
-return.loopexit115:                               ; preds = %for.body
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br label %return
-
-return.loopexit143:                               ; preds = %for.inc.us97
-  %cmp.us99.le153 = icmp ult i64 %inc.us98, %sub.ptr.div.i
-  br label %return
-
-return:                                           ; preds = %for.inc.us69, %for.inc.us41, %for.inc.us, %return.loopexit143, %return.loopexit115, %entry, %if.then
-  %cmp8 = phi i1 [ %.us-phi20, %if.then ], [ false, %entry ], [ %cmp, %return.loopexit115 ], [ %cmp.us99.le153, %return.loopexit143 ], [ %cmp.us, %for.inc.us ], [ %cmp.us43, %for.inc.us41 ], [ %cmp.us71, %for.inc.us69 ]
+return:                                           ; preds = %for.inc.us97, %for.inc.us69, %for.inc.us41, %for.inc.us, %for.body.lr.ph.split, %entry, %if.then
+  %cmp8 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.body.lr.ph.split ], [ false, %for.inc.us ], [ false, %for.inc.us41 ], [ false, %for.inc.us69 ], [ false, %for.inc.us97 ]
   ret i1 %cmp8
 }
 

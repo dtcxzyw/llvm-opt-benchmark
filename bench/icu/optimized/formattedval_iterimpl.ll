@@ -680,7 +680,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cmp54 = phi i1 [ true, %for.body.lr.ph ], [ %cmp, %for.inc ]
   %i.053 = phi i32 [ %conv, %for.body.lr.ph ], [ %inc, %for.inc ]
   %mul = shl nsw i32 %i.053, 2
   %cmp.i = icmp sgt i32 %i.053, -1
@@ -751,20 +750,18 @@ _ZNK6icu_759UVector3210elementAtiEi.exit47:       ; preds = %_ZNK6icu_759UVector
 
 for.inc:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit27
   %inc = add i32 %i.053, 1
-  %cmp = icmp slt i32 %inc, %div
   %exitcond.not = icmp eq i32 %inc, %div
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNK6icu_759UVector3210elementAtiEi.exit47
   %i.051 = phi i32 [ %i.053, %_ZNK6icu_759UVector3210elementAtiEi.exit47 ], [ %conv, %entry ], [ %div, %for.inc ]
-  %cmp49 = phi i1 [ %cmp54, %_ZNK6icu_759UVector3210elementAtiEi.exit47 ], [ false, %entry ], [ %cmp, %for.inc ]
+  %cmp49 = phi i8 [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit47 ], [ 0, %entry ], [ 0, %for.inc ]
   %cmp17 = icmp ne i32 %i.051, %div
   %add18 = zext i1 %cmp17 to i32
   %cond = add nsw i32 %i.051, %add18
   %conv19 = sext i32 %cond to i64
   tail call void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i64 noundef %conv19)
-  %conv21 = zext i1 %cmp49 to i8
-  ret i8 %conv21
+  ret i8 %cmp49
 }
 
 declare noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef) local_unnamed_addr #6

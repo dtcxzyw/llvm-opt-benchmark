@@ -2445,155 +2445,164 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22Int
   %.val62 = load i8, ptr %40, align 1
   %41 = trunc i8 %.val62 to i1
   %.pre.i = trunc i8 %.val to i1
-  %brmerge1.i = select i1 %41, i1 true, i1 %.pre.i
-  %not..i = xor i1 %41, true
-  %.pre.mux.i = select i1 %not..i, i1 true, i1 %.pre.i
-  %..i = select i1 %.pre.mux.i, i32 2, i32 3
+  br i1 %41, label %._crit_edge.i, label %43
+
+._crit_edge.i:                                    ; preds = %19
+  %42 = select i1 %.pre.i, i32 2, i32 3
+  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
+
+43:                                               ; preds = %19
+  br i1 %.pre.i, label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, label %44
+
+44:                                               ; preds = %43
   %.not.i = xor i1 %38, true
   %brmerge.i = or i1 %35, %.not.i
   %spec.select.i = zext i1 %brmerge.i to i32
-  %.0.i = select i1 %brmerge1.i, i32 %..i, i32 %spec.select.i
+  br label %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
+
+_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit: ; preds = %._crit_edge.i, %43, %44
+  %.0.i = phi i32 [ %spec.select.i, %44 ], [ %42, %._crit_edge.i ], [ 2, %43 ]
   switch i32 %1, label %_ZL17IS_RESTRAINT_TYPEi.exit [
-    i32 59, label %42
-    i32 58, label %42
-    i32 57, label %42
-    i32 56, label %42
-    i32 55, label %42
-    i32 54, label %42
-    i32 53, label %42
-    i32 52, label %42
-    i32 9, label %42
-    i32 60, label %42
+    i32 59, label %45
+    i32 58, label %45
+    i32 57, label %45
+    i32 56, label %45
+    i32 55, label %45
+    i32 54, label %45
+    i32 53, label %45
+    i32 52, label %45
+    i32 9, label %45
+    i32 60, label %45
   ]
 
-42:                                               ; preds = %19, %19, %19, %19, %19, %19, %19, %19, %19, %19
+45:                                               ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit
   br label %_ZL17IS_RESTRAINT_TYPEi.exit
 
-_ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %19, %42
-  %43 = phi i64 [ 5, %42 ], [ 4, %19 ]
-  %44 = sext i32 %1 to i64
-  %45 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %44, i32 2
-  %46 = load i32, ptr %45, align 16
-  %47 = add nsw i32 %46, 1
-  %48 = sext i32 %47 to i64
-  %49 = sdiv i64 %33, %48
-  %50 = trunc i64 %49 to i32
-  %51 = mul nsw i32 %.0.val, %1
-  %52 = add nsw i32 %51, %0
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %.8.val, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = add nsw i32 %0, 1
-  %57 = add nsw i32 %56, %51
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %.8.val, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = sub nsw i32 %60, %55
-  %62 = load ptr, ptr %2, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = add i32 %1, -33
-  %65 = icmp ult i32 %64, 4
-  br i1 %65, label %103, label %66
+_ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit, %45
+  %46 = phi i64 [ 5, %45 ], [ 4, %_ZN12_GLOBAL__N_124selectBondedKernelFlavorERKN3gmx12StepWorkloadEbb.exit ]
+  %47 = sext i32 %1 to i64
+  %48 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %47, i32 2
+  %49 = load i32, ptr %48, align 16
+  %50 = add nsw i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = sdiv i64 %33, %51
+  %53 = trunc i64 %52 to i32
+  %54 = mul nsw i32 %.0.val, %1
+  %55 = add nsw i32 %54, %0
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i32, ptr %.8.val, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %59 = add nsw i32 %0, 1
+  %60 = add nsw i32 %59, %54
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i32, ptr %.8.val, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = sub nsw i32 %63, %58
+  %65 = load ptr, ptr %2, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = add i32 %1, -33
+  %68 = icmp ult i32 %67, 4
+  br i1 %68, label %106, label %69
 
-66:                                               ; preds = %_ZL17IS_RESTRAINT_TYPEi.exit
-  %67 = icmp eq i32 %1, 27
-  %68 = sext i32 %55 to i64
-  %69 = getelementptr inbounds i32, ptr %3, i64 %68
-  br i1 %67, label %70, label %85
+69:                                               ; preds = %_ZL17IS_RESTRAINT_TYPEi.exit
+  %70 = icmp eq i32 %1, 27
+  %71 = sext i32 %58 to i64
+  %72 = getelementptr inbounds i32, ptr %3, i64 %71
+  br i1 %70, label %73, label %88
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %2, i64 2704
-  %72 = load i64, ptr %13, align 8
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds float, ptr %73, i64 %43
-  %75 = load float, ptr %74, align 4
-  %76 = load i64, ptr %14, align 8
-  %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds float, ptr %77, i64 %43
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %2, i64 2704
+  %75 = load i64, ptr %13, align 8
+  %76 = inttoptr i64 %75 to ptr
+  %77 = getelementptr inbounds float, ptr %76, i64 %46
+  %78 = load float, ptr %77, align 4
+  %79 = load i64, ptr %14, align 8
+  %80 = inttoptr i64 %79 to ptr
+  %81 = getelementptr inbounds float, ptr %80, i64 %46
   store ptr %.0.val1, ptr %20, align 8
-  %79 = getelementptr inbounds i8, ptr %20, i64 8
-  %80 = ptrtoint ptr %.8.val3 to i64
-  %81 = ptrtoint ptr %.0.val1 to i64
-  %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds i8, ptr %.0.val1, i64 %82
-  store ptr %83, ptr %79, align 8
-  %84 = tail call noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %61, ptr noundef %69, ptr noundef %63, ptr noundef nonnull %71, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, float noundef %75, ptr noundef nonnull %78, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %20, ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef %18)
-  br label %128
+  %82 = getelementptr inbounds i8, ptr %20, i64 8
+  %83 = ptrtoint ptr %.8.val3 to i64
+  %84 = ptrtoint ptr %.0.val1 to i64
+  %85 = sub i64 %83, %84
+  %86 = getelementptr inbounds i8, ptr %.0.val1, i64 %85
+  store ptr %86, ptr %82, align 8
+  %87 = tail call noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %64, ptr noundef %72, ptr noundef %66, ptr noundef nonnull %74, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, float noundef %78, ptr noundef nonnull %81, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %20, ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef %18)
+  br label %131
 
-85:                                               ; preds = %66
-  %86 = load i64, ptr %13, align 8
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds float, ptr %87, i64 %43
-  %89 = load float, ptr %88, align 4
-  %90 = load i64, ptr %14, align 8
-  %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds float, ptr %91, i64 %43
+88:                                               ; preds = %69
+  %89 = load i64, ptr %13, align 8
+  %90 = inttoptr i64 %89 to ptr
+  %91 = getelementptr inbounds float, ptr %90, i64 %46
+  %92 = load float, ptr %91, align 4
+  %93 = load i64, ptr %14, align 8
+  %94 = inttoptr i64 %93 to ptr
+  %95 = getelementptr inbounds float, ptr %94, i64 %46
   store ptr %.0.val1, ptr %21, align 8
-  %93 = getelementptr inbounds i8, ptr %21, i64 8
-  %94 = ptrtoint ptr %.8.val3 to i64
-  %95 = ptrtoint ptr %.0.val1 to i64
-  %96 = sub i64 %94, %95
-  %97 = getelementptr inbounds i8, ptr %.0.val1, i64 %96
-  store ptr %97, ptr %93, align 8
-  %98 = getelementptr inbounds i8, ptr %16, i64 72
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %16, i64 80
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %1, i32 noundef %61, ptr noundef %69, ptr noundef %63, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, float noundef %89, ptr noundef nonnull %92, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %21, ptr noundef %16, ptr noundef %99, ptr noundef %101, ptr noundef %18, i32 noundef %.0.i)
-  br label %128
+  %96 = getelementptr inbounds i8, ptr %21, i64 8
+  %97 = ptrtoint ptr %.8.val3 to i64
+  %98 = ptrtoint ptr %.0.val1 to i64
+  %99 = sub i64 %97, %98
+  %100 = getelementptr inbounds i8, ptr %.0.val1, i64 %99
+  store ptr %100, ptr %96, align 8
+  %101 = getelementptr inbounds i8, ptr %16, i64 72
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %16, i64 80
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %1, i32 noundef %64, ptr noundef %72, ptr noundef %66, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, float noundef %92, ptr noundef nonnull %95, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %21, ptr noundef %16, ptr noundef %102, ptr noundef %104, ptr noundef %18, i32 noundef %.0.i)
+  br label %131
 
-103:                                              ; preds = %_ZL17IS_RESTRAINT_TYPEi.exit
-  %104 = sext i32 %55 to i64
-  %105 = getelementptr inbounds i32, ptr %3, i64 %104
-  %106 = load ptr, ptr %13, align 8
-  %107 = load ptr, ptr %14, align 8
+106:                                              ; preds = %_ZL17IS_RESTRAINT_TYPEi.exit
+  %107 = sext i32 %58 to i64
+  %108 = getelementptr inbounds i32, ptr %3, i64 %107
+  %109 = load ptr, ptr %13, align 8
+  %110 = load ptr, ptr %14, align 8
   store ptr %.0.val1, ptr %22, align 8
-  %108 = getelementptr inbounds i8, ptr %22, i64 8
-  %109 = ptrtoint ptr %.8.val3 to i64
-  %110 = ptrtoint ptr %.0.val1 to i64
-  %111 = sub i64 %109, %110
-  %112 = getelementptr inbounds i8, ptr %.0.val1, i64 %111
-  store ptr %112, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %22, i64 8
+  %112 = ptrtoint ptr %.8.val3 to i64
+  %113 = ptrtoint ptr %.0.val1 to i64
+  %114 = sub i64 %112, %113
+  %115 = getelementptr inbounds i8, ptr %.0.val1, i64 %114
+  store ptr %115, ptr %111, align 8
   store ptr %.0.val5, ptr %23, align 8
-  %113 = getelementptr inbounds i8, ptr %23, i64 8
-  %114 = ptrtoint ptr %.8.val7 to i64
-  %115 = ptrtoint ptr %.0.val5 to i64
-  %116 = sub i64 %114, %115
-  %117 = getelementptr inbounds i8, ptr %.0.val5, i64 %116
-  store ptr %117, ptr %113, align 8
+  %116 = getelementptr inbounds i8, ptr %23, i64 8
+  %117 = ptrtoint ptr %.8.val7 to i64
+  %118 = ptrtoint ptr %.0.val5 to i64
+  %119 = sub i64 %117, %118
+  %120 = getelementptr inbounds i8, ptr %.0.val5, i64 %119
+  store ptr %120, ptr %116, align 8
   store ptr %.0.val9, ptr %24, align 8
-  %118 = getelementptr inbounds i8, ptr %24, i64 8
-  %119 = ptrtoint ptr %.8.val11 to i64
-  %120 = ptrtoint ptr %.0.val9 to i64
-  %121 = sub i64 %119, %120
-  %122 = getelementptr inbounds i8, ptr %.0.val9, i64 %121
-  store ptr %122, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %24, i64 8
+  %122 = ptrtoint ptr %.8.val11 to i64
+  %123 = ptrtoint ptr %.0.val9 to i64
+  %124 = sub i64 %122, %123
+  %125 = getelementptr inbounds i8, ptr %.0.val9, i64 %124
+  store ptr %125, ptr %121, align 8
   store ptr %.0.val13, ptr %25, align 8
-  %123 = getelementptr inbounds i8, ptr %25, i64 8
-  %124 = ptrtoint ptr %.8.val15 to i64
-  %125 = ptrtoint ptr %.0.val13 to i64
-  %126 = sub i64 %124, %125
-  %127 = getelementptr inbounds i8, ptr %.0.val13, i64 %126
-  store ptr %127, ptr %123, align 8
-  tail call void @_Z8do_pairsiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS4_PfN3gmx8ArrayRefIS4_EESI_NSH_IKbEENSH_IKtEEiPK10t_forcerecbRKNSG_12StepWorkloadEP17gmx_grppairener_tPi(i32 noundef %1, i32 noundef %61, ptr noundef %105, ptr noundef %63, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %106, ptr noundef %107, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.108") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.111") align 8 %25, i32 noundef %15, ptr noundef nonnull %9, i1 noundef zeroext %35, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %11, ptr noundef %18)
-  br label %128
+  %126 = getelementptr inbounds i8, ptr %25, i64 8
+  %127 = ptrtoint ptr %.8.val15 to i64
+  %128 = ptrtoint ptr %.0.val13 to i64
+  %129 = sub i64 %127, %128
+  %130 = getelementptr inbounds i8, ptr %.0.val13, i64 %129
+  store ptr %130, ptr %126, align 8
+  tail call void @_Z8do_pairsiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS4_PfN3gmx8ArrayRefIS4_EESI_NSH_IKbEENSH_IKtEEiPK10t_forcerecbRKNSG_12StepWorkloadEP17gmx_grppairener_tPi(i32 noundef %1, i32 noundef %64, ptr noundef %108, ptr noundef %66, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %109, ptr noundef %110, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.108") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.111") align 8 %25, i32 noundef %15, ptr noundef nonnull %9, i1 noundef zeroext %35, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %11, ptr noundef %18)
+  br label %131
 
-128:                                              ; preds = %70, %85, %103
-  %.0 = phi float [ 0.000000e+00, %103 ], [ %84, %70 ], [ %102, %85 ]
-  %129 = icmp eq i32 %0, 0
-  br i1 %129, label %130, label %137
+131:                                              ; preds = %73, %88, %106
+  %.0 = phi float [ 0.000000e+00, %106 ], [ %87, %73 ], [ %105, %88 ]
+  %132 = icmp eq i32 %0, 0
+  br i1 %132, label %133, label %140
 
-130:                                              ; preds = %128
-  %131 = tail call noundef i32 @_Z9nrnbIndexi(i32 noundef %1)
-  %132 = sitofp i32 %50 to double
-  %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds [116 x double], ptr %12, i64 0, i64 %133
-  %135 = load double, ptr %134, align 8
-  %136 = fadd double %135, %132
-  store double %136, ptr %134, align 8
-  br label %137
+133:                                              ; preds = %131
+  %134 = tail call noundef i32 @_Z9nrnbIndexi(i32 noundef %1)
+  %135 = sitofp i32 %53 to double
+  %136 = sext i32 %134 to i64
+  %137 = getelementptr inbounds [116 x double], ptr %12, i64 0, i64 %136
+  %138 = load double, ptr %137, align 8
+  %139 = fadd double %138, %135
+  store double %139, ptr %137, align 8
+  br label %140
 
-137:                                              ; preds = %130, %128
+140:                                              ; preds = %133, %131
   ret float %.0
 }
 

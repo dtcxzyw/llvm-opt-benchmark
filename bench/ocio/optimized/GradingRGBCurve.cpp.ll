@@ -2138,15 +2138,8 @@ entry:
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
 
-for.cond:                                         ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ugt i64 %indvars.iv, 2
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !10
-
-for.body:                                         ; preds = %entry, %for.cond
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %cmp12 = phi i1 [ false, %entry ], [ %cmp, %for.cond ]
+for.body:                                         ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit, %entry
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit ]
   %arrayidx = getelementptr inbounds [4 x %"class.std::shared_ptr"], ptr %m_curves, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   store ptr %0, ptr %ref.tmp, align 8
@@ -2250,7 +2243,10 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  br i1 %call, label %for.cond, label %return
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp ne i64 %indvars.iv.next, 4
+  %or.cond.not = select i1 %call, i1 %exitcond, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !10
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit
   %16 = landingpad { ptr, i32 }
@@ -2258,9 +2254,8 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #16
   resume { ptr, i32 } %16
 
-return:                                           ; preds = %for.cond, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit
-  %cmp.lcssa = phi i1 [ %cmp, %for.cond ], [ %cmp12, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEED2Ev.exit
+  ret i1 %call
 }
 
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev22IsGradingCurveIdentityERKSt10shared_ptrIKNS_19GradingBSplineCurveEE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2

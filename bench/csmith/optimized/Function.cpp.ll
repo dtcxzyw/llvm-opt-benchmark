@@ -2649,8 +2649,8 @@ define dso_local noundef zeroext i1 @_ZNK8Function15is_var_on_stackEPK8VariableP
   %.pn = phi ptr [ %.0, %21 ], [ %2, %.preheader.preheader ]
   %.0.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %21, label %.loopexit
+  %.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not, label %21, label %.loopexit
 
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds i8, ptr %.0, i64 80
@@ -2659,7 +2659,7 @@ define dso_local noundef zeroext i1 @_ZNK8Function15is_var_on_stackEPK8VariableP
   br i1 %.not12, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %21
-  %.011 = phi i1 [ %.not.not, %21 ], [ %.not.not, %.preheader ], [ true, %.lr.ph ]
+  %.011 = phi i1 [ %.not.not.not, %21 ], [ %.not.not.not, %.preheader ], [ true, %.lr.ph ]
   ret i1 %.011
 }
 
@@ -2707,8 +2707,8 @@ define dso_local noundef zeroext i1 @_ZNK8Function14is_var_visibleEPK8VariablePK
   %.pn.i = phi ptr [ %.0.i, %26 ], [ %2, %.preheader.i.preheader ]
   %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %.not.not.i.not = icmp ne ptr %.0.i, null
-  br i1 %.not.not.i.not, label %26, label %_ZNK8Function15is_var_on_stackEPK8VariablePK9Statement.exit
+  %.not.not.i.not.not = icmp ne ptr %.0.i, null
+  br i1 %.not.not.i.not.not, label %26, label %_ZNK8Function15is_var_on_stackEPK8VariablePK9Statement.exit
 
 26:                                               ; preds = %.preheader.i
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 80
@@ -2717,7 +2717,7 @@ define dso_local noundef zeroext i1 @_ZNK8Function14is_var_visibleEPK8VariablePK
   br i1 %.not12.i, label %.preheader.i, label %_ZNK8Function15is_var_on_stackEPK8VariablePK9Statement.exit, !llvm.loop !15
 
 _ZNK8Function15is_var_on_stackEPK8VariablePK9Statement.exit: ; preds = %.lr.ph.i, %26, %.preheader.i, %3
-  %29 = phi i1 [ true, %3 ], [ %.not.not.i.not, %.preheader.i ], [ %.not.not.i.not, %26 ], [ true, %.lr.ph.i ]
+  %29 = phi i1 [ true, %3 ], [ %.not.not.i.not.not, %.preheader.i ], [ %.not.not.i.not.not, %26 ], [ true, %.lr.ph.i ]
   ret i1 %29
 }
 
@@ -2798,11 +2798,11 @@ _ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit: ; preds = %.lr.ph
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 80
   %45 = tail call noundef i32 @_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull %1)
-  %.not.not = icmp ne i32 %45, -1
-  br i1 %.not.not, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit
+  %.not.not.not = icmp ne i32 %45, -1
+  br i1 %.not.not.not, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread, label %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit
 
 _ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.thread: ; preds = %.lr.ph.i.i, %30, %.lr.ph, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader, %3
-  %.07 = phi i1 [ false, %3 ], [ false, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader ], [ %.not.not, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit ], [ %.not.not, %.lr.ph ], [ false, %30 ], [ false, %.lr.ph.i.i ]
+  %.07 = phi i1 [ false, %3 ], [ false, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit.preheader ], [ %.not.not.not, %_ZNK8Function14is_var_visibleEPK8VariablePK9Statement.exit ], [ %.not.not.not, %.lr.ph ], [ false, %30 ], [ false, %.lr.ph.i.i ]
   ret i1 %.07
 }
 

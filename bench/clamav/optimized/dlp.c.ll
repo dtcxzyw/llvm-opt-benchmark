@@ -819,19 +819,19 @@ define noundef i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %27 = sub i64 %.neg.i, %26
   %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0)
   %.not29.i = icmp eq i32 %28, 0
-  br i1 %.not29.i, label %29, label %.lr.ph.i5
+  br i1 %.not29.i, label %29, label %contains_ssn.exit
 
 29:                                               ; preds = %25, %18, %.lr.ph.split.i
   %30 = getelementptr inbounds i8, ptr %.02431.i, i64 1
   %31 = icmp ult ptr %30, %6
-  br i1 %31, label %.lr.ph.split.i, label %.lr.ph.i5
+  br i1 %31, label %.lr.ph.split.i, label %contains_ssn.exit
 
-.lr.ph.i5:                                        ; preds = %29, %25
+contains_ssn.exit:                                ; preds = %29, %25
   %.023.i = phi i32 [ 1, %25 ], [ 0, %29 ]
   br label %.lr.ph.split.i7
 
-.lr.ph.split.i7:                                  ; preds = %51, %.lr.ph.i5
-  %.02431.i8 = phi ptr [ %52, %51 ], [ %0, %.lr.ph.i5 ]
+.lr.ph.split.i7:                                  ; preds = %51, %contains_ssn.exit
+  %.02431.i8 = phi ptr [ %52, %51 ], [ %0, %contains_ssn.exit ]
   %32 = load ptr, ptr %8, align 8
   %33 = load i8, ptr %.02431.i8, align 1
   %34 = zext i8 %33 to i64

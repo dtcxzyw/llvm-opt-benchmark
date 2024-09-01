@@ -384,7 +384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .loopexit:                                        ; preds = %.lr.ph
   %62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %61, ptr noundef %62) #21
-  br i1 %.not48, label %._crit_edge, label %.lr.ph47.preheader
+  br label %.lr.ph47.preheader
 
 .lr.ph47.preheader:                               ; preds = %58, %.loopexit
   br label %.lr.ph47
@@ -406,7 +406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %exitcond51.not = icmp eq i64 %70, %5
   br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %69, %55, %.loopexit
+._crit_edge:                                      ; preds = %69, %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   ret void
 

@@ -2944,11 +2944,11 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i.i.i, 
 if.end5.i.i.i.if.then7.i.i.i_crit_edge:           ; preds = %if.end5.i.i.i
   %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i.i.phi.trans.insert, align 8
-  %.pre83 = zext i16 %.pre to i64
+  %.pre85 = zext i16 %.pre to i64
   br label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i.if.then7.i.i.i_crit_edge, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i
-  %conv.i.i6.i.i.i.pre-phi = phi i64 [ %.pre83, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %conv.i.i.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
+  %conv.i.i6.i.i.i.pre-phi = phi i64 [ %.pre85, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %conv.i.i.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
   %5 = phi i16 [ %.pre, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %2, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
   %add.i.i.i.i = add nuw nsw i64 %div34.i.i.i, %conv.i.i6.i.i.i.pre-phi
   %cmp4.i.i.i.i = icmp ult i64 %add.i.i.i.i, 63
@@ -3007,67 +3007,54 @@ _ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i: ; preds = %if.else.i.i
   %retval.i.0.i = phi i64 [ %or.i.i, %if.else.i.i ], [ %12, %if.else10.i ]
   %.in.i = icmp ne i64 %.in.in.i, 0
   %cmp3.i23.i = icmp ugt i16 %9, 2
-  br i1 %cmp3.i23.i, label %while.body.i.preheader.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77
+  br i1 %cmp3.i23.i, label %while.body.i.i, label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
 
-while.body.i.preheader.i:                         ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i
-  %sub4.i.i25.i = add nsw i64 %conv.i.i18, -3
-  %arrayidx.i.i26.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub4.i.i25.i
-  %15 = load i64, ptr %arrayidx.i.i26.i, align 8
-  %cmp3.not.i27.i = icmp eq i64 %15, 0
-  br i1 %cmp3.not.i27.i, label %while.cond.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77
-
-while.cond.i.i:                                   ; preds = %while.body.i.preheader.i, %while.body.i.i
-  %index.addr.04.i28.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ 2, %while.body.i.preheader.i ]
-  %inc.i.i = add nuw nsw i64 %index.addr.04.i28.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i.i18
-  br i1 %exitcond.not.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, label %while.body.i.i, !llvm.loop !43
-
-while.body.i.i:                                   ; preds = %while.cond.i.i
-  %sub4.i.i.i = sub nsw i64 %sub4.i21.i, %index.addr.04.i28.i
+while.body.i.i:                                   ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %while.body.i.i
+  %index.addr.04.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ 2, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ]
+  %15 = xor i64 %index.addr.04.i.i, -1
+  %sub4.i.i.i = add nsw i64 %15, %conv.i.i18
   %arrayidx.i.i.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub4.i.i.i
   %16 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp3.not.i.i = icmp eq i64 %16, 0
-  br i1 %cmp3.not.i.i, label %while.cond.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, !llvm.loop !43
+  %cmp3.not.not.i.i.not = icmp ne i64 %16, 0
+  %inc.i.i = add nuw nsw i64 %index.addr.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i.i18
+  %or.cond = select i1 %cmp3.not.not.i.i.not, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, label %while.body.i.i, !llvm.loop !43
 
-_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77: ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %while.body.i.preheader.i
-  %17 = or i1 %cmp3.i23.i, %.in.i
+_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit: ; preds = %while.body.i.i
+  %17 = or i64 %16, %.in.in.i
+  %18 = icmp ne i64 %17, 0
   br label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
 
-_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit: ; preds = %while.cond.i.i, %while.body.i.i
-  %inc.i.i.lcssa = phi i64 [ %conv.i.i18, %while.cond.i.i ], [ %inc.i.i, %while.body.i.i ]
-  %cmp.i24.le.i = icmp ult i64 %inc.i.i.lcssa, %conv.i.i18
-  %18 = or i1 %.in.i, %cmp.i24.le.i
-  br label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
-
-_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit
-  %.pre-phi = phi i64 [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ %11, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
-  %retval.0.i1976 = phi i64 [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ %shl1.i.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
-  %truncated.075 = phi i1 [ %18, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %17, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ false, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit
+  %.pre-phi = phi i64 [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %14, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ %11, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+  %retval.0.i1976 = phi i64 [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %retval.i.0.i, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ %shl1.i.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+  %truncated.075 = phi i1 [ %18, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %.in.i, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ false, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
   %cast.i.i.i = trunc nuw nsw i64 %.pre-phi to i32
   %19 = xor i1 %truncated.075, true
   %and.i.i34 = and i64 %retval.0.i1976, 1099511627775
   %cmp9.i.i41 = icmp ult i64 %and.i.i34, 549755813889
   %cmp10.i.i40 = icmp ne i64 %and.i.i34, 549755813888
   %brmerge = select i1 %cmp10.i.i40, i1 true, i1 %19
-  %or.cond = select i1 %cmp9.i.i41, i1 %brmerge, i1 false
-  br i1 %or.cond, label %lor.rhs.i.i47, label %_ZZN14arrow_vendored10fast_float19positive_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
+  %or.cond107 = select i1 %cmp9.i.i41, i1 %brmerge, i1 false
+  br i1 %or.cond107, label %lor.rhs.i.i47, label %_ZZN14arrow_vendored10fast_float19positive_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
 
 lor.rhs.i.i47:                                    ; preds = %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
-  %retval.0.i197089102 = phi i64 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
-  %retval.0.i.i92101 = phi i32 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
-  %20 = and i64 %retval.0.i197089102, 2199023255551
+  %retval.0.i197091104 = phi i64 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
+  %retval.0.i.i94103 = phi i32 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
+  %20 = and i64 %retval.0.i197091104, 2199023255551
   %21 = icmp eq i64 %20, 1649267441664
   %22 = zext i1 %21 to i64
   br label %_ZZN14arrow_vendored10fast_float19positive_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
 
 _ZZN14arrow_vendored10fast_float19positive_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52: ; preds = %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit, %lor.rhs.i.i47
-  %retval.0.i.i93 = phi i32 [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i.i92101, %lor.rhs.i.i47 ]
-  %retval.0.i197090 = phi i64 [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i197089102, %lor.rhs.i.i47 ]
+  %retval.0.i.i95 = phi i32 [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i.i94103, %lor.rhs.i.i47 ]
+  %retval.0.i197092 = phi i64 [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i197091104, %lor.rhs.i.i47 ]
   %conv.i.i48 = phi i64 [ 1, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %22, %lor.rhs.i.i47 ]
-  %shr.i.i31 = lshr i64 %retval.0.i197090, 40
+  %shr.i.i31 = lshr i64 %retval.0.i197092, 40
   %call2.tr.i = zext i16 %9 to i32
   %conv.i = shl nuw nsw i32 %call2.tr.i, 6
-  %sub.i = sub nsw i32 %conv.i, %retval.0.i.i93
+  %sub.i = sub nsw i32 %conv.i, %retval.0.i.i95
   %add23.i.i49 = add nuw nsw i64 %conv.i.i48, %shr.i.i31
   %cmp15.i.not = icmp ult i64 %add23.i.i49, 16777216
   %spec.select.v = select i1 %cmp15.i.not, i32 126, i32 127
@@ -4070,11 +4057,11 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i.i.i, 
 if.end5.i.i.i.if.then7.i.i.i_crit_edge:           ; preds = %if.end5.i.i.i
   %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i.i.phi.trans.insert, align 8
-  %.pre83 = zext i16 %.pre to i64
+  %.pre85 = zext i16 %.pre to i64
   br label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i.if.then7.i.i.i_crit_edge, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i
-  %conv.i.i6.i.i.i.pre-phi = phi i64 [ %.pre83, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %conv.i.i.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
+  %conv.i.i6.i.i.i.pre-phi = phi i64 [ %.pre85, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %conv.i.i.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
   %5 = phi i16 [ %.pre, %if.end5.i.i.i.if.then7.i.i.i_crit_edge ], [ %2, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i ]
   %add.i.i.i.i = add nuw nsw i64 %div34.i.i.i, %conv.i.i6.i.i.i.pre-phi
   %cmp4.i.i.i.i = icmp ult i64 %add.i.i.i.i, 63
@@ -4133,67 +4120,54 @@ _ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i: ; preds = %if.else.i.i
   %retval.i.0.i = phi i64 [ %or.i.i, %if.else.i.i ], [ %12, %if.else10.i ]
   %.in.i = icmp ne i64 %.in.in.i, 0
   %cmp3.i23.i = icmp ugt i16 %9, 2
-  br i1 %cmp3.i23.i, label %while.body.i.preheader.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77
+  br i1 %cmp3.i23.i, label %while.body.i.i, label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
 
-while.body.i.preheader.i:                         ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i
-  %sub4.i.i25.i = add nsw i64 %conv.i.i18, -3
-  %arrayidx.i.i26.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub4.i.i25.i
-  %15 = load i64, ptr %arrayidx.i.i26.i, align 8
-  %cmp3.not.i27.i = icmp eq i64 %15, 0
-  br i1 %cmp3.not.i27.i, label %while.cond.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77
-
-while.cond.i.i:                                   ; preds = %while.body.i.preheader.i, %while.body.i.i
-  %index.addr.04.i28.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ 2, %while.body.i.preheader.i ]
-  %inc.i.i = add nuw nsw i64 %index.addr.04.i28.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i.i18
-  br i1 %exitcond.not.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, label %while.body.i.i, !llvm.loop !43
-
-while.body.i.i:                                   ; preds = %while.cond.i.i
-  %sub4.i.i.i = sub nsw i64 %sub4.i21.i, %index.addr.04.i28.i
+while.body.i.i:                                   ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %while.body.i.i
+  %index.addr.04.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ 2, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ]
+  %15 = xor i64 %index.addr.04.i.i, -1
+  %sub4.i.i.i = add nsw i64 %15, %conv.i.i18
   %arrayidx.i.i.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub4.i.i.i
   %16 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp3.not.i.i = icmp eq i64 %16, 0
-  br i1 %cmp3.not.i.i, label %while.cond.i.i, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, !llvm.loop !43
+  %cmp3.not.not.i.i.not = icmp ne i64 %16, 0
+  %inc.i.i = add nuw nsw i64 %index.addr.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i.i18
+  %or.cond = select i1 %cmp3.not.not.i.i.not, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond, label %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit, label %while.body.i.i, !llvm.loop !43
 
-_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77: ; preds = %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %while.body.i.preheader.i
-  %17 = or i1 %cmp3.i23.i, %.in.i
+_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit: ; preds = %while.body.i.i
+  %17 = or i64 %16, %.in.in.i
+  %18 = icmp ne i64 %17, 0
   br label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
 
-_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit: ; preds = %while.cond.i.i, %while.body.i.i
-  %inc.i.i.lcssa = phi i64 [ %conv.i.i18, %while.cond.i.i ], [ %inc.i.i, %while.body.i.i ]
-  %cmp.i24.le.i = icmp ult i64 %inc.i.i.lcssa, %conv.i.i18
-  %18 = or i1 %.in.i, %cmp.i24.le.i
-  br label %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit
-
-_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit
-  %.pre-phi = phi i64 [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ %11, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
-  %retval.0.i1976 = phi i64 [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ %shl1.i.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
-  %truncated.075 = phi i1 [ %18, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %17, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread77 ], [ false, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit
+  %.pre-phi = phi i64 [ %14, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %14, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ %11, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+  %retval.0.i1976 = phi i64 [ %retval.i.0.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %retval.i.0.i, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ %shl1.i.i, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
+  %truncated.075 = phi i1 [ %18, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit ], [ %.in.i, %_ZN14arrow_vendored10fast_float11uint64_hi64EmmRb.exit.i ], [ false, %_ZNK14arrow_vendored10fast_float6bigint4hi64ERb.exit.thread71 ]
   %cast.i.i.i = trunc nuw nsw i64 %.pre-phi to i32
   %19 = xor i1 %truncated.075, true
   %and.i.i34 = and i64 %retval.0.i1976, 2047
   %cmp9.i.i41 = icmp ult i64 %and.i.i34, 1025
   %cmp10.i.i40 = icmp ne i64 %and.i.i34, 1024
   %brmerge = select i1 %cmp10.i.i40, i1 true, i1 %19
-  %or.cond = select i1 %cmp9.i.i41, i1 %brmerge, i1 false
-  br i1 %or.cond, label %lor.rhs.i.i47, label %_ZZN14arrow_vendored10fast_float19positive_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
+  %or.cond107 = select i1 %cmp9.i.i41, i1 %brmerge, i1 false
+  br i1 %or.cond107, label %lor.rhs.i.i47, label %_ZZN14arrow_vendored10fast_float19positive_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
 
 lor.rhs.i.i47:                                    ; preds = %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
-  %retval.0.i197089102 = phi i64 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
-  %retval.0.i.i92101 = phi i32 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
-  %20 = and i64 %retval.0.i197089102, 4095
+  %retval.0.i197091104 = phi i64 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
+  %retval.0.i.i94103 = phi i32 [ 0, %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit ], [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ]
+  %20 = and i64 %retval.0.i197091104, 4095
   %21 = icmp eq i64 %20, 3072
   %22 = zext i1 %21 to i64
   br label %_ZZN14arrow_vendored10fast_float19positive_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52
 
 _ZZN14arrow_vendored10fast_float19positive_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintEiENKUlRS2_iE_clES5_i.exit52: ; preds = %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit, %lor.rhs.i.i47
-  %retval.0.i.i93 = phi i32 [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i.i92101, %lor.rhs.i.i47 ]
-  %retval.0.i197090 = phi i64 [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i197089102, %lor.rhs.i.i47 ]
+  %retval.0.i.i95 = phi i32 [ %cast.i.i.i, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i.i94103, %lor.rhs.i.i47 ]
+  %retval.0.i197092 = phi i64 [ %retval.0.i1976, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %retval.0.i197091104, %lor.rhs.i.i47 ]
   %conv.i.i48 = phi i64 [ 1, %_ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit ], [ %22, %lor.rhs.i.i47 ]
-  %shr.i.i31 = lshr i64 %retval.0.i197090, 11
+  %shr.i.i31 = lshr i64 %retval.0.i197092, 11
   %call2.tr.i = zext i16 %9 to i32
   %conv.i = shl nuw nsw i32 %call2.tr.i, 6
-  %sub.i = sub nsw i32 %conv.i, %retval.0.i.i93
+  %sub.i = sub nsw i32 %conv.i, %retval.0.i.i95
   %add23.i.i49 = add nuw nsw i64 %conv.i.i48, %shr.i.i31
   %cmp14.i.not = icmp ult i64 %add23.i.i49, 9007199254740992
   %spec.select.v = select i1 %cmp14.i.not, i32 1022, i32 1023

@@ -251,7 +251,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %50, %57, %71, %73
   br i1 %.not113, label %40, label %._crit_edge131
 
 ._crit_edge131:                                   ; preds = %130, %126, %115, %112, %103, %89, %ompi_comm_peer_lookup.exit, %40, %.preheader
-  %.088 = phi i32 [ 0, %.preheader ], [ %132, %130 ], [ %129, %126 ], [ %123, %115 ], [ %114, %112 ], [ %111, %103 ], [ %97, %89 ], [ %88, %ompi_comm_peer_lookup.exit ], [ 0, %40 ]
+  %.088 = phi i32 [ 0, %.preheader ], [ 0, %40 ], [ %88, %ompi_comm_peer_lookup.exit ], [ %97, %89 ], [ %111, %103 ], [ %114, %112 ], [ %123, %115 ], [ %129, %126 ], [ %132, %130 ]
   call void @free(ptr noundef nonnull %34) #6
   br label %.thread
 
@@ -504,12 +504,9 @@ define i32 @ompi_coll_base_alltoallv_intra_basic_linear(ptr noundef %0, ptr noca
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %.lr.ph.split
 
-.preheader144:                                    ; preds = %73
-  br i1 %53, label %.lr.ph162, label %._crit_edge
-
-.lr.ph162:                                        ; preds = %.lr.ph, %.preheader144
-  %.0102.lcssa192 = phi ptr [ %.1103, %.preheader144 ], [ %51, %.lr.ph ]
-  %.1106.lcssa191 = phi i32 [ %.2107, %.preheader144 ], [ 0, %.lr.ph ]
+.lr.ph162:                                        ; preds = %73, %.lr.ph
+  %.0102.lcssa192 = phi ptr [ %51, %.lr.ph ], [ %.1103, %73 ]
+  %.1106.lcssa191 = phi i32 [ 0, %.lr.ph ], [ %.2107, %73 ]
   br i1 %32, label %.lr.ph162.split.preheader, label %._crit_edge
 
 .lr.ph162.split.preheader:                        ; preds = %.lr.ph162
@@ -550,7 +547,7 @@ define i32 @ompi_coll_base_alltoallv_intra_basic_linear(ptr noundef %0, ptr noca
   %.1103 = phi ptr [ %.0102155, %.lr.ph.split ], [ %70, %61 ], [ %.0102155, %57 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader144, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph162, label %.lr.ph.split, !llvm.loop !8
 
 .lr.ph162.split:                                  ; preds = %.lr.ph162.split.preheader, %91
   %indvars.iv179 = phi i64 [ 0, %.lr.ph162.split.preheader ], [ %indvars.iv.next180, %91 ]
@@ -587,8 +584,8 @@ define i32 @ompi_coll_base_alltoallv_intra_basic_linear(ptr noundef %0, ptr noca
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
   br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph162.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %91, %.preheader146, %.lr.ph162, %.preheader144
-  %.3108.lcssa = phi i32 [ %.2107, %.preheader144 ], [ %.1106.lcssa191, %.lr.ph162 ], [ 0, %.preheader146 ], [ %.4, %91 ]
+._crit_edge:                                      ; preds = %91, %.preheader146, %.lr.ph162
+  %.3108.lcssa = phi i32 [ %.1106.lcssa191, %.lr.ph162 ], [ 0, %.preheader146 ], [ %.4, %91 ]
   %92 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 120), align 8
   %93 = sext i32 %.3108.lcssa to i64
   %94 = tail call i32 %92(i64 noundef %93, ptr noundef nonnull %51) #6

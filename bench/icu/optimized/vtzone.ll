@@ -336,9 +336,6 @@ lpad22:                                           ; preds = %new.notnull
 lpad25:                                           ; preds = %invoke.cont36, %invoke.cont32, %for.body
   %11 = landingpad { ptr, i32 }
           cleanup
-  br i1 %new.isnull, label %ehcleanup, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %lpad25
   %vtable.i = load ptr, ptr %call21, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %12 = load ptr, ptr %vfn.i, align 8
@@ -372,27 +369,24 @@ invoke.cont40:                                    ; preds = %invoke.cont36
   %cmp.i19 = icmp sgt i32 %15, 0
   %cmp44 = icmp eq ptr %call37, null
   %or.cond = or i1 %cmp44, %cmp.i19
-  br i1 %or.cond, label %cleanup, label %for.cond
+  br i1 %or.cond, label %delete.notnull.i22, label %for.cond
 
 cleanup.thread:                                   ; preds = %for.cond, %for.cond.preheader
   store ptr %call21, ptr %vtzlines, align 8
   br label %if.end50
 
-cleanup:                                          ; preds = %invoke.cont40
-  br i1 %new.isnull, label %if.end50, label %delete.notnull.i22
-
-delete.notnull.i22:                               ; preds = %invoke.cont24, %cleanup
+delete.notnull.i22:                               ; preds = %invoke.cont40, %invoke.cont24
   %vtable.i23 = load ptr, ptr %call21, align 8
   %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 8
   %16 = load ptr, ptr %vfn.i24, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(40) %call21) #15
   br label %if.end50
 
-if.end50:                                         ; preds = %if.then17, %delete.notnull.i22, %cleanup, %cleanup.thread, %if.end
+if.end50:                                         ; preds = %if.then17, %delete.notnull.i22, %cleanup.thread, %if.end
   ret void
 
-ehcleanup:                                        ; preds = %delete.notnull.i, %lpad25, %lpad22, %lpad12
-  %.pn = phi { ptr, i32 } [ %6, %lpad12 ], [ %10, %lpad22 ], [ %11, %lpad25 ], [ %11, %delete.notnull.i ]
+ehcleanup:                                        ; preds = %lpad25, %lpad22, %lpad12
+  %.pn = phi { ptr, i32 } [ %6, %lpad12 ], [ %10, %lpad22 ], [ %11, %lpad25 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %icutzver) #15
   br label %ehcleanup51
 
@@ -604,7 +598,7 @@ invoke.cont48:                                    ; preds = %if.then.i23, %invok
 _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %invoke.cont48
   %13 = load i32, ptr %status, align 4
   %cmp.i24 = icmp slt i32 %13, 1
-  br i1 %cmp.i24, label %for.cond, label %if.end68
+  br i1 %cmp.i24, label %for.cond, label %delete.notnull.i34
 
 lpad:                                             ; preds = %new.notnull
   %14 = landingpad { ptr, i32 }
@@ -615,39 +609,33 @@ lpad:                                             ; preds = %new.notnull
 lpad36:                                           ; preds = %invoke.cont42, %for.body
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i38
 
 _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit30: ; preds = %invoke.cont48
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i38
 
 if.end68.thread:                                  ; preds = %for.cond, %for.cond.preheader
   store ptr %call35, ptr %vtzlines, align 8
   br label %if.end69
 
-if.end68:                                         ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit
-  br i1 %new.isnull, label %if.end69, label %delete.notnull.i34
-
-delete.notnull.i34:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %if.end68
+delete.notnull.i34:                               ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %vtable.i35 = load ptr, ptr %call35, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 8
   %17 = load ptr, ptr %vfn.i36, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(40) %call35) #15
   br label %if.end69
 
-ehcleanup:                                        ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit30, %lpad36
+delete.notnull.i38:                               ; preds = %lpad36, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit30
   %.pn = phi { ptr, i32 } [ %16, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit30 ], [ %15, %lpad36 ]
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i38
-
-delete.notnull.i38:                               ; preds = %ehcleanup
   %vtable.i39 = load ptr, ptr %call35, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
   %18 = load ptr, ptr %vfn.i40, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(40) %call35) #15
   br label %eh.resume
 
-if.end69:                                         ; preds = %if.end68.thread57, %delete.notnull.i34, %if.end68, %if.end68.thread, %if.end29
+if.end69:                                         ; preds = %if.end68.thread57, %delete.notnull.i34, %if.end68.thread, %if.end29
   %tzurl = getelementptr inbounds i8, ptr %right, i64 88
   %tzurl70 = getelementptr inbounds i8, ptr %this, i64 88
   %call71 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %tzurl70, ptr noundef nonnull align 8 dereferenceable(64) %tzurl)
@@ -666,8 +654,8 @@ if.end69:                                         ; preds = %if.end68.thread57, 
 return:                                           ; preds = %if.end, %if.end69, %entry
   ret ptr %this
 
-eh.resume:                                        ; preds = %delete.notnull.i38, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %14, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i38 ]
+eh.resume:                                        ; preds = %delete.notnull.i38, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %14, %lpad ], [ %.pn, %delete.notnull.i38 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3814,7 +3802,7 @@ for.end486:                                       ; preds = %for.inc484
 
 if.then488:                                       ; preds = %for.end486
   store i32 1, ptr %status, align 4
-  br label %cleanup638
+  br label %cleanup640
 
 if.end489:                                        ; preds = %for.end486
   %cmp490 = icmp eq i32 %finalRuleCount.1, 1
@@ -4020,7 +4008,7 @@ delete.notnull.i407:                              ; preds = %invoke.cont597
   br label %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit411
 
 _ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit411: ; preds = %invoke.cont597, %delete.notnull.i407
-  br i1 %cmp.i404, label %while.cond611.preheader, label %cleanup638
+  br i1 %cmp.i404, label %while.cond611.preheader, label %cleanup640
 
 ehcleanup604:                                     ; preds = %lpad570, %lpad548, %lpad561
   %.pn = phi { ptr, i32 } [ %156, %lpad561 ], [ %155, %lpad548 ], [ %158, %lpad570 ]
@@ -4052,7 +4040,7 @@ invoke.cont616:                                   ; preds = %while.body615
 invoke.cont620:                                   ; preds = %invoke.cont616
   %167 = load i32, ptr %status, align 4
   %cmp.i421 = icmp slt i32 %167, 1
-  br i1 %cmp.i421, label %while.cond611, label %cleanup638, !llvm.loop !16
+  br i1 %cmp.i421, label %while.cond611, label %cleanup640, !llvm.loop !16
 
 while.end626:                                     ; preds = %while.cond611
   invoke void @_ZN6icu_7517RuleBasedTimeZone8completeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %call444, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -4061,7 +4049,7 @@ while.end626:                                     ; preds = %while.cond611
 invoke.cont629:                                   ; preds = %while.end626
   %168 = load i32, ptr %status, align 4
   %cmp.i423 = icmp slt i32 %168, 1
-  br i1 %cmp.i423, label %if.end634, label %cleanup638
+  br i1 %cmp.i423, label %if.end634, label %cleanup640
 
 if.end634:                                        ; preds = %invoke.cont629
   %tz = getelementptr inbounds i8, ptr %this, i64 72
@@ -4074,20 +4062,17 @@ cleanup638.critedge:                              ; preds = %if.end588
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tznam) #15
   %169 = load ptr, ptr %newRule, align 8
   %isnull.i426 = icmp eq ptr %169, null
-  br i1 %isnull.i426, label %cleanup638, label %delete.notnull.i427
+  br i1 %isnull.i426, label %cleanup640, label %delete.notnull.i427
 
 delete.notnull.i427:                              ; preds = %cleanup638.critedge
   %vtable.i428 = load ptr, ptr %169, align 8
   %vfn.i429 = getelementptr inbounds i8, ptr %vtable.i428, i64 8
   %170 = load ptr, ptr %vfn.i429, align 8
   call void %170(ptr noundef nonnull align 8 dereferenceable(80) %169) #15
-  br label %cleanup638
+  br label %cleanup640
 
-cleanup638:                                       ; preds = %invoke.cont620, %delete.notnull.i427, %cleanup638.critedge, %invoke.cont629, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit411, %if.then488
-  br i1 %new.isnull445, label %cleanup642, label %cleanup640
-
-cleanup640:                                       ; preds = %invoke.cont458, %cleanup638
-  %initialRule.sroa.0.2652 = phi ptr [ null, %cleanup638 ], [ %call425, %invoke.cont458 ]
+cleanup640:                                       ; preds = %invoke.cont620, %if.then488, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit411, %invoke.cont629, %cleanup638.critedge, %delete.notnull.i427, %invoke.cont458
+  %initialRule.sroa.0.2652 = phi ptr [ %call425, %invoke.cont458 ], [ null, %delete.notnull.i427 ], [ null, %cleanup638.critedge ], [ null, %invoke.cont629 ], [ null, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit411 ], [ null, %if.then488 ], [ null, %invoke.cont620 ]
   %vtable.i434 = load ptr, ptr %call444, align 8
   %vfn.i435 = getelementptr inbounds i8, ptr %vtable.i434, i64 8
   %171 = load ptr, ptr %vfn.i435, align 8
@@ -4103,7 +4088,7 @@ delete.notnull.i438:                              ; preds = %if.then.i395, %new.
   call void %172(ptr noundef nonnull align 8 dereferenceable(80) %initialRule.sroa.0.0659) #15
   br label %cleanup642
 
-cleanup642:                                       ; preds = %invoke.cont336, %if.then274, %invoke.cont317, %invoke.cont321, %invoke.cont325, %if.then220, %invoke.cont122, %invoke.cont129, %invoke.cont93, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378, %delete.notnull.i374, %invoke.cont257, %new.cont436, %if.then.i389, %cleanup638, %if.end634, %delete.notnull.i438, %cleanup640, %for.end, %invoke.cont20
+cleanup642:                                       ; preds = %invoke.cont336, %if.then274, %invoke.cont317, %invoke.cont321, %invoke.cont325, %if.then220, %invoke.cont122, %invoke.cont129, %invoke.cont93, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378, %delete.notnull.i374, %invoke.cont257, %new.cont436, %if.then.i389, %if.end634, %delete.notnull.i438, %cleanup640, %for.end, %invoke.cont20
   call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dates) #15
   call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %rules) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %value) #15

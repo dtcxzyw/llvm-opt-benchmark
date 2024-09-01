@@ -818,8 +818,8 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux11sparse_copy17haf112e2359598
   store ptr %59, ptr %60, align 8, !alias.scope !127
   %61 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %.sroa.665.0.copyload, ptr %61, align 8, !alias.scope !127
-  %.not120 = icmp eq i64 %.sroa.657.0.copyload, 0
-  br i1 %.not120, label %._crit_edge, label %.lr.ph
+  %.not119 = icmp eq i64 %.sroa.657.0.copyload, 0
+  br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17ha52850ec55a52794E.exit"
   %62 = getelementptr inbounds i8, ptr %8, i64 8
@@ -877,8 +877,8 @@ define hidden noundef ptr @_ZN5uu_cp8platform5linux11sparse_copy17haf112e2359598
 
 79:                                               ; preds = %81, %75
   %80 = phi ptr [ %82, %81 ], [ %76, %75 ]
-  %.not8.i.not = icmp eq ptr %80, %78
-  br i1 %.not8.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8b7c00a42a0d03fbE.exit", label %81
+  %.not8.not.not.i.not = icmp eq ptr %80, %78
+  br i1 %.not8.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8b7c00a42a0d03fbE.exit", label %81
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %80, i64 1

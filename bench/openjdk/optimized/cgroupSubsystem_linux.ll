@@ -869,23 +869,23 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 193:                                              ; preds = %.tail.i, %192
   %194 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #13
-  %.not.not.i.not = icmp ne ptr %194, null
-  br i1 %.not.not.i.not, label %sub_0.i, label %_ZL11find_ro_optPc.exit
+  %.not.not.not.not.i.not.not.not.not.not = icmp ne ptr %194, null
+  br i1 %.not.not.not.not.i.not.not.not.not.not, label %sub_0.i, label %_ZL11find_ro_optPc.exit
 
 sub_0.i:                                          ; preds = %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = add nsw i32 %196, -114
-  %.not4.i = icmp eq i32 %197, 0
-  br i1 %.not4.i, label %sub_1.i, label %.tail.i
+  %.not.i = icmp eq i32 %197, 0
+  br i1 %.not.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
   %198 = getelementptr inbounds i8, ptr %194, i64 1
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
   %201 = add nsw i32 %200, -111
-  %.not5.i = icmp eq i32 %201, 0
-  br i1 %.not5.i, label %sub_2.i, label %.tail.i
+  %.not4.i = icmp eq i32 %201, 0
+  br i1 %.not4.i, label %sub_2.i, label %.tail.i
 
 sub_2.i:                                          ; preds = %sub_1.i
   %202 = getelementptr inbounds i8, ptr %194, i64 2
@@ -904,7 +904,7 @@ _ZL11find_ro_optPc.exit:                          ; preds = %193, %.tail.i
 
 207:                                              ; preds = %_ZL11find_ro_optPc.exit, %207
   %.0129247 = phi i32 [ 0, %_ZL11find_ro_optPc.exit ], [ %208, %207 ]
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef %.0129247, ptr noundef nonnull @.str.25, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef %.0129247, ptr noundef nonnull @.str.25, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i.not.not.not.not.not)
   %208 = add nuw nsw i32 %.0129247, 1
   %exitcond263.not = icmp eq i32 %208, 5
   br i1 %exitcond263.not, label %.loopexit229, label %207, !llvm.loop !14
@@ -941,23 +941,23 @@ _ZL11find_ro_optPc.exit:                          ; preds = %193, %.tail.i
 
 218:                                              ; preds = %.tail.i172, %217
   %219 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #13
-  %.not.not.i169.not = icmp ne ptr %219, null
-  br i1 %.not.not.i169.not, label %sub_0.i170, label %_ZL11find_ro_optPc.exit176
+  %.not.not.not.not.i169.not.not.not.not.not = icmp ne ptr %219, null
+  br i1 %.not.not.not.not.i169.not.not.not.not.not, label %sub_0.i170, label %_ZL11find_ro_optPc.exit176
 
 sub_0.i170:                                       ; preds = %218
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = add nsw i32 %221, -114
-  %.not4.i171 = icmp eq i32 %222, 0
-  br i1 %.not4.i171, label %sub_1.i173, label %.tail.i172
+  %.not.i171 = icmp eq i32 %222, 0
+  br i1 %.not.i171, label %sub_1.i173, label %.tail.i172
 
 sub_1.i173:                                       ; preds = %sub_0.i170
   %223 = getelementptr inbounds i8, ptr %219, i64 1
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i32
   %226 = add nsw i32 %225, -111
-  %.not5.i174 = icmp eq i32 %226, 0
-  br i1 %.not5.i174, label %sub_2.i175, label %.tail.i172
+  %.not4.i174 = icmp eq i32 %226, 0
+  br i1 %.not4.i174, label %sub_2.i175, label %.tail.i172
 
 sub_2.i175:                                       ; preds = %sub_1.i173
   %227 = getelementptr inbounds i8, ptr %219, i64 2
@@ -972,7 +972,7 @@ sub_2.i175:                                       ; preds = %sub_1.i173
 
 _ZL11find_ro_optPc.exit176:                       ; preds = %218, %.tail.i172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i169.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i169.not.not.not.not.not)
   br label %.sink.split272
 
 232:                                              ; preds = %.lr.ph250
@@ -987,23 +987,23 @@ _ZL11find_ro_optPc.exit176:                       ; preds = %218, %.tail.i172
 
 236:                                              ; preds = %.tail.i180, %235
   %237 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #13
-  %.not.not.i177.not = icmp ne ptr %237, null
-  br i1 %.not.not.i177.not, label %sub_0.i178, label %_ZL11find_ro_optPc.exit184
+  %.not.not.not.not.i177.not.not.not.not.not = icmp ne ptr %237, null
+  br i1 %.not.not.not.not.i177.not.not.not.not.not, label %sub_0.i178, label %_ZL11find_ro_optPc.exit184
 
 sub_0.i178:                                       ; preds = %236
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
   %240 = add nsw i32 %239, -114
-  %.not4.i179 = icmp eq i32 %240, 0
-  br i1 %.not4.i179, label %sub_1.i181, label %.tail.i180
+  %.not.i179 = icmp eq i32 %240, 0
+  br i1 %.not.i179, label %sub_1.i181, label %.tail.i180
 
 sub_1.i181:                                       ; preds = %sub_0.i178
   %241 = getelementptr inbounds i8, ptr %237, i64 1
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   %244 = add nsw i32 %243, -111
-  %.not5.i182 = icmp eq i32 %244, 0
-  br i1 %.not5.i182, label %sub_2.i183, label %.tail.i180
+  %.not4.i182 = icmp eq i32 %244, 0
+  br i1 %.not4.i182, label %sub_2.i183, label %.tail.i180
 
 sub_2.i183:                                       ; preds = %sub_1.i181
   %245 = getelementptr inbounds i8, ptr %237, i64 2
@@ -1018,7 +1018,7 @@ sub_2.i183:                                       ; preds = %sub_1.i181
 
 _ZL11find_ro_optPc.exit184:                       ; preds = %236, %.tail.i180
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i177.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i177.not.not.not.not.not)
   br label %.sink.split272
 
 250:                                              ; preds = %232
@@ -1033,23 +1033,23 @@ _ZL11find_ro_optPc.exit184:                       ; preds = %236, %.tail.i180
 
 254:                                              ; preds = %.tail.i188, %253
   %255 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #13
-  %.not.not.i185.not = icmp ne ptr %255, null
-  br i1 %.not.not.i185.not, label %sub_0.i186, label %_ZL11find_ro_optPc.exit192
+  %.not.not.not.not.i185.not.not.not.not.not = icmp ne ptr %255, null
+  br i1 %.not.not.not.not.i185.not.not.not.not.not, label %sub_0.i186, label %_ZL11find_ro_optPc.exit192
 
 sub_0.i186:                                       ; preds = %254
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i32
   %258 = add nsw i32 %257, -114
-  %.not4.i187 = icmp eq i32 %258, 0
-  br i1 %.not4.i187, label %sub_1.i189, label %.tail.i188
+  %.not.i187 = icmp eq i32 %258, 0
+  br i1 %.not.i187, label %sub_1.i189, label %.tail.i188
 
 sub_1.i189:                                       ; preds = %sub_0.i186
   %259 = getelementptr inbounds i8, ptr %255, i64 1
   %260 = load i8, ptr %259, align 1
   %261 = zext i8 %260 to i32
   %262 = add nsw i32 %261, -111
-  %.not5.i190 = icmp eq i32 %262, 0
-  br i1 %.not5.i190, label %sub_2.i191, label %.tail.i188
+  %.not4.i190 = icmp eq i32 %262, 0
+  br i1 %.not4.i190, label %sub_2.i191, label %.tail.i188
 
 sub_2.i191:                                       ; preds = %sub_1.i189
   %263 = getelementptr inbounds i8, ptr %255, i64 2
@@ -1064,7 +1064,7 @@ sub_2.i191:                                       ; preds = %sub_1.i189
 
 _ZL11find_ro_optPc.exit192:                       ; preds = %254, %.tail.i188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i185.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i185.not.not.not.not.not)
   br label %.sink.split272
 
 268:                                              ; preds = %250
@@ -1079,23 +1079,23 @@ _ZL11find_ro_optPc.exit192:                       ; preds = %254, %.tail.i188
 
 272:                                              ; preds = %.tail.i196, %271
   %273 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #13
-  %.not.not.i193.not = icmp ne ptr %273, null
-  br i1 %.not.not.i193.not, label %sub_0.i194, label %_ZL11find_ro_optPc.exit200
+  %.not.not.not.not.i193.not.not.not.not.not = icmp ne ptr %273, null
+  br i1 %.not.not.not.not.i193.not.not.not.not.not, label %sub_0.i194, label %_ZL11find_ro_optPc.exit200
 
 sub_0.i194:                                       ; preds = %272
   %274 = load i8, ptr %273, align 1
   %275 = zext i8 %274 to i32
   %276 = add nsw i32 %275, -114
-  %.not4.i195 = icmp eq i32 %276, 0
-  br i1 %.not4.i195, label %sub_1.i197, label %.tail.i196
+  %.not.i195 = icmp eq i32 %276, 0
+  br i1 %.not.i195, label %sub_1.i197, label %.tail.i196
 
 sub_1.i197:                                       ; preds = %sub_0.i194
   %277 = getelementptr inbounds i8, ptr %273, i64 1
   %278 = load i8, ptr %277, align 1
   %279 = zext i8 %278 to i32
   %280 = add nsw i32 %279, -111
-  %.not5.i198 = icmp eq i32 %280, 0
-  br i1 %.not5.i198, label %sub_2.i199, label %.tail.i196
+  %.not4.i198 = icmp eq i32 %280, 0
+  br i1 %.not4.i198, label %sub_2.i199, label %.tail.i196
 
 sub_2.i199:                                       ; preds = %sub_1.i197
   %281 = getelementptr inbounds i8, ptr %273, i64 2
@@ -1110,7 +1110,7 @@ sub_2.i199:                                       ; preds = %sub_1.i197
 
 _ZL11find_ro_optPc.exit200:                       ; preds = %272, %.tail.i196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i193.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i193.not.not.not.not.not)
   br label %.sink.split272
 
 286:                                              ; preds = %268
@@ -1125,23 +1125,23 @@ _ZL11find_ro_optPc.exit200:                       ; preds = %272, %.tail.i196
 
 290:                                              ; preds = %.tail.i204, %289
   %291 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #13
-  %.not.not.i201.not = icmp ne ptr %291, null
-  br i1 %.not.not.i201.not, label %sub_0.i202, label %_ZL11find_ro_optPc.exit208
+  %.not.not.not.not.i201.not.not.not.not.not = icmp ne ptr %291, null
+  br i1 %.not.not.not.not.i201.not.not.not.not.not, label %sub_0.i202, label %_ZL11find_ro_optPc.exit208
 
 sub_0.i202:                                       ; preds = %290
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i32
   %294 = add nsw i32 %293, -114
-  %.not4.i203 = icmp eq i32 %294, 0
-  br i1 %.not4.i203, label %sub_1.i205, label %.tail.i204
+  %.not.i203 = icmp eq i32 %294, 0
+  br i1 %.not.i203, label %sub_1.i205, label %.tail.i204
 
 sub_1.i205:                                       ; preds = %sub_0.i202
   %295 = getelementptr inbounds i8, ptr %291, i64 1
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
   %298 = add nsw i32 %297, -111
-  %.not5.i206 = icmp eq i32 %298, 0
-  br i1 %.not5.i206, label %sub_2.i207, label %.tail.i204
+  %.not4.i206 = icmp eq i32 %298, 0
+  br i1 %.not4.i206, label %sub_2.i207, label %.tail.i204
 
 sub_2.i207:                                       ; preds = %sub_1.i205
   %299 = getelementptr inbounds i8, ptr %291, i64 2
@@ -1156,7 +1156,7 @@ sub_2.i207:                                       ; preds = %sub_1.i205
 
 _ZL11find_ro_optPc.exit208:                       ; preds = %290, %.tail.i204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.i201.not)
+  call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %214, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i201.not.not.not.not.not)
   br label %.sink.split272
 
 .sink.split272:                                   ; preds = %_ZL11find_ro_optPc.exit176, %_ZL11find_ro_optPc.exit192, %_ZL11find_ro_optPc.exit208, %_ZL11find_ro_optPc.exit200, %_ZL11find_ro_optPc.exit184

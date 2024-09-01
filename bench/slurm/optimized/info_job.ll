@@ -1449,8 +1449,8 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 .preheader:                                       ; preds = %198
   %199 = load ptr, ptr %139, align 8
-  %.not136161 = icmp ne ptr %199, null
-  br i1 %.not136161, label %.lr.ph163, label %._crit_edge
+  %.not136161.not = icmp eq ptr %199, null
+  br i1 %.not136161.not, label %._crit_edge, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %.preheader, %.lr.ph163
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.lr.ph163 ], [ 0, %.preheader ]
@@ -1465,7 +1465,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not136, label %._crit_edge, label %.lr.ph163, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph163, %.loopexit.thread, %.preheader, %198, %196
-  %.079 = phi i1 [ false, %196 ], [ false, %198 ], [ false, %.preheader ], [ false, %.loopexit.thread ], [ %.not136161, %.lr.ph163 ]
+  %.079 = phi i1 [ false, %196 ], [ false, %198 ], [ false, %.preheader ], [ false, %.loopexit.thread ], [ true, %.lr.ph163 ]
   %205 = load ptr, ptr @mime_type, align 8
   %206 = icmp ne ptr %205, null
   %or.cond7 = or i1 %.079, %206
@@ -2717,11 +2717,11 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   %17 = call ptr @log_build_step_id_str(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 0) #13
   %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.67, ptr noundef %17) #16
   store i32 1, ptr @exit_code, align 4
-  br label %68
+  br label %64
 
 19:                                               ; preds = %11
   call void @perror(ptr noundef nonnull @.str.68) #14
-  br label %68
+  br label %64
 
 20:                                               ; preds = %2
   %21 = call ptr @log_build_step_id_str(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 6) #13
@@ -2765,62 +2765,55 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   %46 = call i32 @stepd_list_pids(i32 noundef %9, i16 noundef zeroext %45, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %47 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge28, label %.lr.ph27
+  br i1 %.not, label %._crit_edge25, label %.lr.ph24
 
-.lr.ph27:                                         ; preds = %._crit_edge, %.critedge
-  %48 = phi i32 [ %64, %.critedge ], [ %47, %._crit_edge ]
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.critedge ], [ 0, %._crit_edge ]
+.lr.ph24:                                         ; preds = %._crit_edge, %_in_task_array.exit
+  %48 = phi i32 [ %60, %_in_task_array.exit ], [ %47, %._crit_edge ]
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %_in_task_array.exit ], [ 0, %._crit_edge ]
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv30
+  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv27
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %3, align 8
   %53 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %53, 0
-  br i1 %.not.i, label %_in_task_array.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph27
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
+.lr.ph.preheader.i:                               ; preds = %.lr.ph24
+  %wide.trip.count.i = zext i32 %53 to i64
+  br label %.lr.ph.i
+
+54:                                               ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !28
+
+.lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %54 ]
+  %55 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %52, i64 %indvars.iv.i, i32 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %51, %56
-  br i1 %57, label %.critedge, label %.lr.ph23
+  br i1 %57, label %_in_task_array.exit, label %54
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i22, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %54
-  br i1 %exitcond.not.i, label %_in_task_array.exit, label %.lr.ph.i, !llvm.loop !28
+.loopexit:                                        ; preds = %54, %.lr.ph24
+  %58 = load i32, ptr %1, align 4
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %51, i32 noundef %58, ptr noundef nonnull %8, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
+  %.pre30 = load i32, ptr %5, align 4
+  br label %_in_task_array.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph23
-  %58 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %52, i64 %indvars.iv.next.i, i32 4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %51, %59
-  br i1 %60, label %_in_task_array.exit, label %.lr.ph23, !llvm.loop !28
+_in_task_array.exit:                              ; preds = %.lr.ph.i, %.loopexit
+  %60 = phi i32 [ %.pre30, %.loopexit ], [ %48, %.lr.ph.i ]
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %61 = zext i32 %60 to i64
+  %62 = icmp ult i64 %indvars.iv.next28, %61
+  br i1 %62, label %.lr.ph24, label %._crit_edge25, !llvm.loop !29
 
-_in_task_array.exit:                              ; preds = %.lr.ph.i, %.lr.ph23
-  %61 = icmp ult i64 %indvars.iv.next.i, %54
-  br i1 %61, label %.critedge, label %_in_task_array.exit.thread
-
-_in_task_array.exit.thread:                       ; preds = %.lr.ph27, %_in_task_array.exit
-  %62 = load i32, ptr %1, align 4
-  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %51, i32 noundef %62, ptr noundef nonnull %8, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
-  %.pre33 = load i32, ptr %5, align 4
-  br label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %_in_task_array.exit, %_in_task_array.exit.thread
-  %64 = phi i32 [ %48, %.lr.ph.preheader.i ], [ %48, %_in_task_array.exit ], [ %.pre33, %_in_task_array.exit.thread ]
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next31, %65
-  br i1 %66, label %.lr.ph27, label %._crit_edge28, !llvm.loop !29
-
-._crit_edge28:                                    ; preds = %.critedge, %._crit_edge
+._crit_edge25:                                    ; preds = %_in_task_array.exit, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %4) #13
   call void @slurm_xfree(ptr noundef nonnull %3) #13
-  %67 = call i32 @close(i32 noundef %9) #13
-  br label %68
+  %63 = call i32 @close(i32 noundef %9) #13
+  br label %64
 
-68:                                               ; preds = %15, %19, %._crit_edge28
+64:                                               ; preds = %15, %19, %._crit_edge25
   ret void
 }
 

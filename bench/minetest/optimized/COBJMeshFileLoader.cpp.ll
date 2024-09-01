@@ -5973,7 +5973,7 @@ if.end56:                                         ; preds = %if.then42, %if.then
   br i1 %cmp.not, label %cleanup, label %while.body, !llvm.loop !232
 
 cleanup:                                          ; preds = %if.end56, %while.body, %while.body51.preheader, %while.cond48.preheader, %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit
-  %retval.0 = phi i1 [ true, %while.cond48.preheader ], [ true, %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit ], [ true, %while.body51.preheader ], [ %cmp2, %if.end56 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ true, %while.cond48.preheader ], [ true, %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit ], [ true, %while.body51.preheader ], [ %cmp2, %while.body ], [ %cmp2, %if.end56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %word) #27
   ret i1 %retval.0
 }

@@ -60,7 +60,6 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %cleanup.i, %entry
-  %cmp4.i = phi i1 [ false, %entry ], [ %cmp.i, %cleanup.i ]
   %i.03.i = phi i32 [ 0, %entry ], [ %inc.i, %cleanup.i ]
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i)
   %call.i = invoke noundef zeroext i1 @_ZN9SPAKE2Run3RunEv(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i)
@@ -72,7 +71,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
 if.then.i:                                        ; preds = %invoke.cont.i
   %0 = load ptr, ptr @stderr, align 8
   %1 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %0) #11
-  br label %return.critedge.i
+  br label %cleanup.i
 
 common.resume:                                    ; preds = %lpad.i36, %lpad.i16, %lpad.i3, %lpad.i
   %spake2.i27.sink = phi ptr [ %spake2.i27, %lpad.i36 ], [ %spake2.i14, %lpad.i16 ], [ %spake2.i1, %lpad.i3 ], [ %spake2.i, %lpad.i ]
@@ -93,9 +92,10 @@ if.end.i:                                         ; preds = %invoke.cont.i
 if.then5.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr @stderr, align 8
   %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 38, i64 1, ptr %4) #11
-  br label %return.critedge.i
+  br label %cleanup.i
 
-cleanup.i:                                        ; preds = %if.end.i
+cleanup.i:                                        ; preds = %if.then5.i, %if.end.i, %if.then.i
+  %switch.i = phi i1 [ false, %if.then5.i ], [ false, %if.then.i ], [ true, %if.end.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i) #12
@@ -103,25 +103,15 @@ cleanup.i:                                        ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i) #12
   %inc.i = add nuw nsw i32 %i.03.i, 1
-  %cmp.i = icmp ugt i32 %i.03.i, 18
-  %exitcond.i = icmp eq i32 %inc.i, 20
-  br i1 %exitcond.i, label %_ZL10TestSPAKE2v.exit, label %for.body.i, !llvm.loop !7
-
-return.critedge.i:                                ; preds = %if.then5.i, %if.then.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alice_names.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i) #12
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i)
-  br i1 %cmp4.i, label %lor.lhs.false, label %return
+  %exitcond.i = icmp ne i32 %inc.i, 20
+  %or.cond.not.i = select i1 %switch.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i, label %_ZL10TestSPAKE2v.exit, !llvm.loop !7
 
 _ZL10TestSPAKE2v.exit:                            ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i)
-  br label %lor.lhs.false
+  br i1 %switch.i, label %lor.lhs.false, label %return
 
-lor.lhs.false:                                    ; preds = %_ZL10TestSPAKE2v.exit, %return.critedge.i
+lor.lhs.false:                                    ; preds = %_ZL10TestSPAKE2v.exit
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %spake2.i1)
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i1)
   %bob_password.i = getelementptr inbounds i8, ptr %spake2.i1, i64 32
@@ -233,8 +223,7 @@ _ZL14TestWrongNamesv.exit:                        ; preds = %if.end.i24
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %cleanup.i38, %_ZL14TestWrongNamesv.exit
-  %cmp6.i = phi i1 [ false, %_ZL14TestWrongNamesv.exit ], [ %cmp.i40, %cleanup.i38 ]
-  %i.05.i = phi i32 [ 0, %_ZL14TestWrongNamesv.exit ], [ %inc.i39, %cleanup.i38 ]
+  %i.05.i = phi i32 [ 0, %_ZL14TestWrongNamesv.exit ], [ %inc.i40, %cleanup.i38 ]
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i27)
   store i32 %i.05.i, ptr %alice_corrupt_msg_bit.i, align 8
   %call.i35 = invoke noundef zeroext i1 @_ZN9SPAKE2Run3RunEv(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i27)
@@ -251,37 +240,31 @@ land.lhs.true.i:                                  ; preds = %invoke.cont.i37
 if.then.i44:                                      ; preds = %land.lhs.true.i
   %19 = load ptr, ptr @stderr, align 8
   %call3.i45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.10, i32 noundef %i.05.i) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i30) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i29) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i32) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alice_names.i.i31) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i33) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i27) #12
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i27)
-  br i1 %cmp6.i, label %if.end, label %return
+  br label %cleanup.i38
 
 lpad.i36:                                         ; preds = %for.body.i34
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-cleanup.i38:                                      ; preds = %land.lhs.true.i, %invoke.cont.i37
+cleanup.i38:                                      ; preds = %if.then.i44, %land.lhs.true.i, %invoke.cont.i37
+  %switch.i39 = phi i1 [ false, %if.then.i44 ], [ true, %land.lhs.true.i ], [ true, %invoke.cont.i37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i30) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i29) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i32) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alice_names.i.i31) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i33) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i27) #12
-  %inc.i39 = add nuw nsw i32 %i.05.i, 1
-  %cmp.i40 = icmp ugt i32 %i.05.i, 254
-  %exitcond.i41 = icmp eq i32 %inc.i39, 256
-  br i1 %exitcond.i41, label %_ZL19TestCorruptMessagesv.exit, label %for.body.i34, !llvm.loop !9
+  %inc.i40 = add nuw nsw i32 %i.05.i, 1
+  %exitcond.i41 = icmp ne i32 %inc.i40, 256
+  %or.cond.not.i42 = select i1 %switch.i39, i1 %exitcond.i41, i1 false
+  br i1 %or.cond.not.i42, label %for.body.i34, label %_ZL19TestCorruptMessagesv.exit, !llvm.loop !9
 
 _ZL19TestCorruptMessagesv.exit:                   ; preds = %cleanup.i38
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i27)
-  br label %if.end
+  br i1 %switch.i39, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZL19TestCorruptMessagesv.exit, %if.then.i44
+if.end:                                           ; preds = %_ZL19TestCorruptMessagesv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
@@ -298,8 +281,8 @@ return.critedge:                                  ; preds = %if.then.i18, %if.th
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i14)
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.then.i44, %return.critedge.i, %_ZL17TestWrongPasswordv.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL17TestWrongPasswordv.exit ], [ 1, %return.critedge.i ], [ 1, %if.then.i44 ], [ 1, %return.critedge ]
+return:                                           ; preds = %return.critedge, %_ZL10TestSPAKE2v.exit, %_ZL17TestWrongPasswordv.exit, %_ZL19TestCorruptMessagesv.exit, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL19TestCorruptMessagesv.exit ], [ 1, %_ZL17TestWrongPasswordv.exit ], [ 1, %_ZL10TestSPAKE2v.exit ], [ 1, %return.critedge ]
   ret i32 %retval.0
 }
 

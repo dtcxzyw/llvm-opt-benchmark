@@ -1315,8 +1315,8 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit: ; preds = %17
-  %23 = icmp sgt i32 %19, -1
-  br i1 %23, label %24, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread
+  %23 = icmp slt i32 %19, 0
+  br i1 %23, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread, label %24
 
 24:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit
   %25 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
@@ -1336,10 +1336,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.01118 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
-  %31 = call float @strtof(ptr noundef %.01118, ptr noundef nonnull %6) #12
+  %.01116 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
+  %31 = call float @strtof(ptr noundef %.01116, ptr noundef nonnull %6) #12
   %32 = load ptr, ptr %6, align 8
-  %33 = icmp eq ptr %.01118, %32
+  %33 = icmp eq ptr %.01116, %32
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %.lr.ph

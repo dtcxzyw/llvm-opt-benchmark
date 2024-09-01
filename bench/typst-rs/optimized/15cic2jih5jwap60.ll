@@ -450,8 +450,8 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source7replace17h736cdb1f6f08da8cE
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h022dbae7b88aad2fE.exit.thread": ; preds = %3
   %16 = or i64 %9, %2
-  %or.cond96 = icmp eq i64 %16, 0
-  br i1 %or.cond96, label %96, label %._crit_edge
+  %or.cond93 = icmp eq i64 %16, 0
+  br i1 %or.cond93, label %96, label %._crit_edge
 
 .preheader:                                       ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h022dbae7b88aad2fE.exit"
   %17 = icmp eq i64 %.1.i.i, 0

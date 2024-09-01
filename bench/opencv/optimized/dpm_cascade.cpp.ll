@@ -3500,17 +3500,14 @@ _ZN2cv3dpm7Feature20getPyramidParametersEv.exit:  ; preds = %7, %17
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %.not.us159.not = icmp slt i64 %indvars.iv225, %99
   %indvars.iv.next219 = add i32 %indvars.iv218, %54
-  br i1 %.not.us159.not, label %.lr.ph.us, label %.preheader, !llvm.loop !38
+  br i1 %.not.us159.not, label %.lr.ph.us, label %.lr.ph181, !llvm.loop !38
 
 .split.us.split.us:                               ; preds = %124
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %207
 
-.preheader:                                       ; preds = %._crit_edge.split, %._crit_edge.split.us.us
-  br i1 %.not153, label %._crit_edge182, label %.lr.ph181
-
-.lr.ph181:                                        ; preds = %.lr.ph157, %.preheader
+.lr.ph181:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.lr.ph157
   %.not142161 = icmp sgt i32 %49, %69
   %137 = getelementptr inbounds i8, ptr %0, i64 80
   %138 = load ptr, ptr %137, align 8
@@ -3664,7 +3661,7 @@ _ZN2cv3dpm16PyramidParameterD2Ev.exit:            ; preds = %207, %208
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %.not.not = icmp slt i64 %indvars.iv213, %99
   %indvars.iv.next207 = add i32 %indvars.iv206, %54
-  br i1 %.not.not, label %.lr.ph, label %.preheader, !llvm.loop !38
+  br i1 %.not.not, label %.lr.ph, label %.lr.ph181, !llvm.loop !38
 
 .lr.ph167:                                        ; preds = %.lr.ph181.split, %._crit_edge.split171
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %._crit_edge.split171 ], [ %159, %.lr.ph181.split ]
@@ -3708,10 +3705,10 @@ _ZN2cv3dpm16PyramidParameterD2Ev.exit:            ; preds = %207, %208
   %indvars.iv.next231 = add i32 %indvars.iv230, %54
   br i1 %.not141.not, label %.lr.ph167, label %._crit_edge182, !llvm.loop !40
 
-._crit_edge182:                                   ; preds = %._crit_edge.split171, %._crit_edge.split171.us.us, %47, %.lr.ph181, %.preheader
-  %.0131.lcssa = phi double [ 0xFFF0000000000000, %.preheader ], [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133.us.us, %._crit_edge.split171.us.us ], [ %.2133, %._crit_edge.split171 ]
-  %.0128.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130.us.us, %._crit_edge.split171.us.us ], [ %.2130, %._crit_edge.split171 ]
-  %.0127.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2.us.us, %._crit_edge.split171.us.us ], [ %.2, %._crit_edge.split171 ]
+._crit_edge182:                                   ; preds = %._crit_edge.split171, %._crit_edge.split171.us.us, %47, %.lr.ph181
+  %.0131.lcssa = phi double [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133.us.us, %._crit_edge.split171.us.us ], [ %.2133, %._crit_edge.split171 ]
+  %.0128.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130.us.us, %._crit_edge.split171.us.us ], [ %.2130, %._crit_edge.split171 ]
+  %.0127.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2.us.us, %._crit_edge.split171.us.us ], [ %.2, %._crit_edge.split171 ]
   %. = select i1 %5, i64 176, i64 152
   %.264 = select i1 %5, i64 224, i64 200
   %225 = getelementptr inbounds i8, ptr %0, i64 %.

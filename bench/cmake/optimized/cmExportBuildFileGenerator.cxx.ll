@@ -1544,23 +1544,23 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0022Ev.exit216: ; preds = %438
           to label %_ZN19cmListFileBacktraceD2Ev.exit206 unwind label %389
 
 _ZN19cmListFileBacktraceD2Ev.exit206.sink.split.sink.split: ; preds = %407, %313
-  %.sink331 = phi ptr [ %314, %313 ], [ %408, %407 ]
-  %.sink330 = phi ptr [ %312, %313 ], [ %406, %407 ]
-  store i32 0, ptr %.sink331, align 8
-  %447 = getelementptr inbounds i8, ptr %.sink330, i64 12
+  %.sink324 = phi ptr [ %314, %313 ], [ %408, %407 ]
+  %.sink323 = phi ptr [ %312, %313 ], [ %406, %407 ]
+  store i32 0, ptr %.sink324, align 8
+  %447 = getelementptr inbounds i8, ptr %.sink323, i64 12
   store i32 0, ptr %447, align 4
-  %448 = load ptr, ptr %.sink330, align 8
+  %448 = load ptr, ptr %.sink323, align 8
   %449 = getelementptr inbounds i8, ptr %448, i64 16
   %450 = load ptr, ptr %449, align 8
-  call void %450(ptr noundef nonnull align 8 dereferenceable(16) %.sink330) #18
+  call void %450(ptr noundef nonnull align 8 dereferenceable(16) %.sink323) #18
   br label %_ZN19cmListFileBacktraceD2Ev.exit206.sink.split
 
 _ZN19cmListFileBacktraceD2Ev.exit206.sink.split:  ; preds = %_ZN19cmListFileBacktraceD2Ev.exit206.sink.split.sink.split, %431, %337
-  %.sink324 = phi ptr [ %312, %337 ], [ %406, %431 ], [ %.sink330, %_ZN19cmListFileBacktraceD2Ev.exit206.sink.split.sink.split ]
-  %451 = load ptr, ptr %.sink324, align 8
+  %.sink317 = phi ptr [ %312, %337 ], [ %406, %431 ], [ %.sink323, %_ZN19cmListFileBacktraceD2Ev.exit206.sink.split.sink.split ]
+  %451 = load ptr, ptr %.sink317, align 8
   %452 = getelementptr inbounds i8, ptr %451, i64 24
   %453 = load ptr, ptr %452, align 8
-  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %.sink324) #18
+  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %.sink317) #18
   br label %_ZN19cmListFileBacktraceD2Ev.exit206
 
 _ZN19cmListFileBacktraceD2Ev.exit206:             ; preds = %_ZN19cmListFileBacktraceD2Ev.exit206.sink.split, %431, %418, %405, %337, %324, %311, %446
@@ -1701,8 +1701,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 ._crit_edge301:                                   ; preds = %487
   %.pre = load ptr, ptr %483, align 8
-  %.pre316 = load ptr, ptr %485, align 8
-  %.not244302 = icmp eq ptr %.pre, %.pre316
+  %.pre309 = load ptr, ptr %485, align 8
+  %.not244302 = icmp eq ptr %.pre, %.pre309
   br i1 %.not244302, label %._crit_edge306, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %._crit_edge301, %491
@@ -1717,7 +1717,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 491:                                              ; preds = %489
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #18
   %492 = getelementptr inbounds i8, ptr %.sroa.0217.0303, i64 32
-  %.not244 = icmp eq ptr %492, %.pre316
+  %.not244 = icmp eq ptr %492, %.pre309
   br i1 %.not244, label %._crit_edge306, label %.lr.ph305
 
 493:                                              ; preds = %489

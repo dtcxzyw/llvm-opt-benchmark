@@ -438,20 +438,20 @@ slot_getallattrs.exit38:                          ; preds = %slot_getallattrs.ex
   %75 = load i64, ptr %74, align 8
   %76 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %67, i32 noundef %69, i64 noundef %72, i64 noundef %75) #5
   %.not40 = icmp eq i64 %76, 0
-  br i1 %.not40, label %._crit_edge, label %._crit_edge50
+  br i1 %.not40, label %._crit_edge, label %._crit_edge52
 
-._crit_edge50:                                    ; preds = %66
+._crit_edge52:                                    ; preds = %66
   %.pre = load ptr, ptr %4, align 8
-  %.pre51 = load i32, ptr %.pre, align 8
+  %.pre53 = load i32, ptr %.pre, align 8
   br label %77
 
-77:                                               ; preds = %._crit_edge50, %47, %27, %35
-  %78 = phi i32 [ %.pre51, %._crit_edge50 ], [ %28, %47 ], [ %28, %27 ], [ %28, %35 ]
-  %79 = phi ptr [ %.pre, %._crit_edge50 ], [ %29, %47 ], [ %29, %27 ], [ %29, %35 ]
+77:                                               ; preds = %._crit_edge52, %47, %27, %35
+  %78 = phi i32 [ %.pre53, %._crit_edge52 ], [ %28, %47 ], [ %28, %27 ], [ %28, %35 ]
+  %79 = phi ptr [ %.pre, %._crit_edge52 ], [ %29, %47 ], [ %29, %27 ], [ %29, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = sext i32 %78 to i64
-  %.not52 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %.not52, label %27, label %._crit_edge, !llvm.loop !8
+  %.not49 = icmp slt i64 %indvars.iv.next, %80
+  br i1 %.not49, label %27, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %38, %66, %77, %slot_getallattrs.exit38
   %.lcssa41 = phi i1 [ true, %slot_getallattrs.exit38 ], [ true, %77 ], [ false, %66 ], [ false, %38 ]

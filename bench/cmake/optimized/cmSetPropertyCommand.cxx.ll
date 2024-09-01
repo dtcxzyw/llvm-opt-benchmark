@@ -203,21 +203,21 @@ define dso_local noundef zeroext i1 @_ZN18SetPropertyCommand31HandleSourceFileDi
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %23, %25
-  br i1 %26, label %.loopexit119, label %.lr.ph
+  br i1 %26, label %.loopexit119, label %.preheader118
 
-.lr.ph:                                           ; preds = %4
+.preheader118:                                    ; preds = %4
   %27 = getelementptr inbounds i8, ptr %9, i64 24
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   br label %30
 
-30:                                               ; preds = %.lr.ph, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread105
-  %.sroa.097.0139 = phi ptr [ %23, %.lr.ph ], [ %106, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread105 ]
+30:                                               ; preds = %.preheader118, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread105
+  %.sroa.097.0137 = phi ptr [ %23, %.preheader118 ], [ %106, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread105 ]
   %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile25GetCurrentSourceDirectoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(3520) %22)
           to label %32 unwind label %.loopexit.split-lp.loopexit
 
 32:                                               ; preds = %30
-  invoke void @_ZN5cmsys11SystemTools16CollapseFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0139, ptr noundef nonnull align 8 dereferenceable(32) %31)
+  invoke void @_ZN5cmsys11SystemTools16CollapseFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0137, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
 33:                                               ; preds = %32
@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @_ZN18SetPropertyCommand31HandleSourceFileDi
   %40 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %40, align 8, !alias.scope !5, !noalias !8
   %41 = getelementptr inbounds i8, ptr %8, i64 24
-  %42 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0139) #18, !noalias !8
+  %42 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.097.0137) #18, !noalias !8
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
   store i64 %43, ptr %41, align 8, !alias.scope !11, !noalias !8
@@ -430,7 +430,7 @@ _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE6insertERK
 
 _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.thread105: ; preds = %69, %53, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE6insertERKS1_.exit, %64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %106 = getelementptr inbounds i8, ptr %.sroa.097.0139, i64 32
+  %106 = getelementptr inbounds i8, ptr %.sroa.097.0137, i64 32
   %.not107 = icmp eq ptr %106, %25
   br i1 %.not107, label %.loopexit119, label %30
 
@@ -453,8 +453,8 @@ _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   br label %115
 
 115:                                              ; preds = %.preheader111, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit61
-  %.sroa.091.0140 = phi ptr [ %108, %.preheader111 ], [ %199, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit61 ]
-  %116 = invoke noundef ptr @_ZNK10cmMakefile15FindTargetToUseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(3520) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.091.0140, i1 noundef zeroext false)
+  %.sroa.091.0138 = phi ptr [ %108, %.preheader111 ], [ %199, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit61 ]
+  %116 = invoke noundef ptr @_ZNK10cmMakefile15FindTargetToUseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(3520) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.091.0138, i1 noundef zeroext false)
           to label %117 unwind label %.loopexit113
 
 117:                                              ; preds = %115
@@ -469,7 +469,7 @@ _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %119 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr null, ptr %119, align 8, !alias.scope !17, !noalias !20
   %120 = getelementptr inbounds i8, ptr %6, i64 24
-  %121 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.091.0140) #18, !noalias !20
+  %121 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.091.0138) #18, !noalias !20
   %122 = extractvalue { i64, ptr } %121, 0
   %123 = extractvalue { i64, ptr } %121, 1
   store i64 %122, ptr %120, align 8, !alias.scope !23, !noalias !20
@@ -676,7 +676,7 @@ _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE6insertERK
   br label %.loopexit.split-lp
 
 _ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit61: ; preds = %159, %143, %154, %_ZNSt13unordered_setIP10cmMakefileSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE6insertERKS1_.exit74
-  %199 = getelementptr inbounds i8, ptr %.sroa.091.0140, i64 32
+  %199 = getelementptr inbounds i8, ptr %.sroa.091.0138, i64 32
   %.not108 = icmp eq ptr %199, %110
   br i1 %.not108, label %.loopexit112, label %115
 
@@ -3339,7 +3339,7 @@ _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11
 _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   %.pre = load ptr, ptr %12, align 8
-  %.pre106 = load ptr, ptr %30, align 8
+  %.pre99 = load ptr, ptr %30, align 8
   br label %.loopexit62
 
 80:                                               ; preds = %77
@@ -3359,7 +3359,7 @@ _ZN12_GLOBAL__N_112HandleSourceEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11
   br i1 %.not60, label %.loopexit62, label %.lr.ph86.split, !llvm.loop !130
 
 .loopexit62:                                      ; preds = %._crit_edge, %.lr.ph86, %31, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %84 = phi ptr [ %.pre106, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %26, %31 ], [ %26, %.lr.ph86 ], [ %26, %._crit_edge ]
+  %84 = phi ptr [ %.pre99, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %26, %31 ], [ %26, %.lr.ph86 ], [ %26, %._crit_edge ]
   %85 = phi ptr [ %.pre, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %23, %31 ], [ %23, %.lr.ph86 ], [ %23, %._crit_edge ]
   %.not6067 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %31 ], [ true, %.lr.ph86 ], [ true, %._crit_edge ]
   %.not4.i.i.i.i34 = icmp eq ptr %85, %84

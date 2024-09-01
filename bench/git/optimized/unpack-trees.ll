@@ -5161,14 +5161,11 @@ for.end:                                          ; preds = %cond.end
   %src_index15 = getelementptr inbounds i8, ptr %o, i64 136
   %12 = load ptr, ptr %src_index15, align 8
   %call17 = call i32 @traverse_trees(ptr noundef %12, i32 noundef %n, ptr noundef nonnull %t, ptr noundef nonnull %info) #17
-  br i1 %cmp20, label %for.body20.preheader, label %for.end25
-
-for.body20.preheader:                             ; preds = %for.end
   %wide.trip.count28 = zext nneg i32 %n to i64
   br label %for.body20
 
-for.body20:                                       ; preds = %for.body20.preheader, %for.body20
-  %indvars.iv25 = phi i64 [ 0, %for.body20.preheader ], [ %indvars.iv.next26, %for.body20 ]
+for.body20:                                       ; preds = %for.end, %for.body20
+  %indvars.iv25 = phi i64 [ 0, %for.end ], [ %indvars.iv.next26, %for.body20 ]
   %arrayidx22 = getelementptr inbounds [9 x ptr], ptr %tree_bufs, i64 0, i64 %indvars.iv25
   %13 = load ptr, ptr %arrayidx22, align 8
   call void @free(ptr noundef %13) #17
@@ -5176,8 +5173,8 @@ for.body20:                                       ; preds = %for.body20.preheade
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
   br i1 %exitcond29.not, label %for.end25, label %for.body20, !llvm.loop !42
 
-for.end25:                                        ; preds = %for.body20, %for.end.thread, %for.end
-  %call1732 = phi i32 [ %call1731, %for.end.thread ], [ %call17, %for.end ], [ %call17, %for.body20 ]
+for.end25:                                        ; preds = %for.body20, %for.end.thread
+  %call1732 = phi i32 [ %call1731, %for.end.thread ], [ %call17, %for.body20 ]
   ret i32 %call1732
 }
 
@@ -7048,17 +7045,14 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 for.end:                                          ; preds = %for.inc
   %36 = load i32, ptr %0, align 8
   %tobool56.not = icmp eq i32 %36, 0
-  br i1 %tobool56.not, label %for.cond76.preheader, label %if.then57
+  br i1 %tobool56.not, label %for.body79.lr.ph, label %if.then57
 
 for.end.thread:                                   ; preds = %if.end17
   %37 = load i32, ptr %0, align 8
   %tobool56.not90 = icmp eq i32 %37, 0
   br i1 %tobool56.not90, label %return, label %if.then57
 
-for.cond76.preheader:                             ; preds = %for.end
-  br i1 %cmp1873, label %for.body79.lr.ph, label %return
-
-for.body79.lr.ph:                                 ; preds = %for.cond76.preheader
+for.body79.lr.ph:                                 ; preds = %for.end
   %df_conflict_entry86 = getelementptr inbounds i8, ptr %0, i64 112
   %result.i = getelementptr inbounds i8, ptr %0, i64 848
   %wide.trip.count88 = zext nneg i32 %n to i64
@@ -7126,8 +7120,8 @@ return.sink.split:                                ; preds = %while.end, %entry_i
   store i32 0, ptr %is_new_sparse_dir, align 4
   br label %return
 
-return:                                           ; preds = %for.inc72, %if.then89, %for.inc97, %return.sink.split, %for.end.thread, %if.then57, %for.cond76.preheader, %entry_is_new_sparse_dir.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %entry_is_new_sparse_dir.exit ], [ 0, %for.cond76.preheader ], [ %spec.store.select.i, %if.then57 ], [ 0, %for.end.thread ], [ 0, %return.sink.split ], [ -1, %if.then89 ], [ 0, %for.inc97 ], [ %spec.store.select.i, %for.inc72 ]
+return:                                           ; preds = %for.inc72, %if.then89, %for.inc97, %return.sink.split, %for.end.thread, %if.then57, %entry_is_new_sparse_dir.exit, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %entry_is_new_sparse_dir.exit ], [ %spec.store.select.i, %if.then57 ], [ 0, %for.end.thread ], [ 0, %return.sink.split ], [ -1, %if.then89 ], [ 0, %for.inc97 ], [ %spec.store.select.i, %for.inc72 ]
   ret i32 %retval.0
 }
 

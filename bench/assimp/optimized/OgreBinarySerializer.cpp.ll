@@ -4185,8 +4185,7 @@ for.end41:                                        ; preds = %for.inc39
   %cmp42 = fcmp uge float %sum.1, 0x3FEE666660000000
   %cmp44 = fcmp ule float %sum.1, 0x3FF0CCCCC0000000
   %or.cond.not41 = and i1 %cmp42, %cmp44
-  %or.cond40 = or i1 %or.cond.not41, %cmp.i18.not33
-  br i1 %or.cond40, label %for.inc64, label %for.body53
+  br i1 %or.cond.not41, label %for.inc64, label %for.body53
 
 for.body53:                                       ; preds = %for.end41, %for.inc60
   %__begin4.sroa.0.037 = phi ptr [ %incdec.ptr.i22, %for.inc60 ], [ %12, %for.end41 ]

@@ -703,7 +703,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   call void @sat_solver_setnvars(ptr noundef %20, i32 noundef 1000) #15
   call void @Sbd_ProblemAddClausesInit(ptr noundef %20, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %12, ptr noundef %9)
   store i32 0, ptr %16, align 4
-  br i1 %44, label %.lr.ph181, label %.preheader165
+  br label %.lr.ph181
 
 .preheader165.critedge:                           ; preds = %.preheader166
   %64 = call i32 @Sbd_ProblemAddClauses(ptr noundef %19, i32 noundef %.val143, i32 noundef %8, ptr noundef nonnull %11, ptr noundef %9)
@@ -712,7 +712,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   store i32 0, ptr %16, align 4
   br label %.preheader165
 
-.preheader165:                                    ; preds = %Vec_IntPush.exit, %.preheader165.critedge, %._crit_edge
+.preheader165:                                    ; preds = %Vec_IntPush.exit, %.preheader165.critedge
   %.not197 = icmp eq i32 %.val143, 31
   br i1 %.not197, label %thread-pre-split, label %.lr.ph195
 

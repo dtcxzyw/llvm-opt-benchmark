@@ -309,14 +309,14 @@ _Z17is_reference_type9BasicTypeb.exit.lr.ph:      ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %.pre = load ptr, ptr %9, align 8
-  %.pre20 = load i64, ptr %.pre, align 8
-  %.pre21 = load ptr, ptr %11, align 8
-  %.pre22 = load i8, ptr %.pre21, align 1
+  %.pre18 = load i64, ptr %.pre, align 8
+  %.pre19 = load ptr, ptr %11, align 8
+  %.pre20 = load i8, ptr %.pre19, align 1
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_Z17is_reference_type9BasicTypeb.exit.lr.ph, %_Z17is_reference_type9BasicTypeb.exit13
-  %13 = phi i8 [ %.pre22, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %32, %_Z17is_reference_type9BasicTypeb.exit13 ]
-  %14 = phi i64 [ %.pre20, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %57, %_Z17is_reference_type9BasicTypeb.exit13 ]
+  %13 = phi i8 [ %.pre20, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %32, %_Z17is_reference_type9BasicTypeb.exit13 ]
+  %14 = phi i64 [ %.pre18, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %57, %_Z17is_reference_type9BasicTypeb.exit13 ]
   %15 = phi i64 [ %5, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %60, %_Z17is_reference_type9BasicTypeb.exit13 ]
   %.01016 = phi i64 [ 0, %_Z17is_reference_type9BasicTypeb.exit.lr.ph ], [ %58, %_Z17is_reference_type9BasicTypeb.exit13 ]
   %16 = load ptr, ptr %7, align 8
@@ -388,8 +388,8 @@ _Z17is_reference_type9BasicTypeb.exit13:          ; preds = %_Z17is_reference_ty
   %58 = add i64 %57, %.01016
   %59 = load ptr, ptr %0, align 8
   %60 = load i64, ptr %59, align 8
-  %.not23 = icmp ult i64 %58, %60
-  br i1 %.not23, label %_Z17is_reference_type9BasicTypeb.exit, label %.loopexit, !llvm.loop !8
+  %.not17 = icmp ult i64 %58, %60
+  br i1 %.not17, label %_Z17is_reference_type9BasicTypeb.exit, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %_Z17is_reference_type9BasicTypeb.exit13, %1, %"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit.thread"
   %61 = phi i1 [ false, %"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit.thread" ], [ true, %1 ], [ true, %_Z17is_reference_type9BasicTypeb.exit13 ]

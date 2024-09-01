@@ -2994,8 +2994,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
 
 20:                                               ; preds = %22, %10
   %21 = phi i64 [ %23, %22 ], [ 0, %10 ]
-  %exitcond.i.i = icmp eq i64 %21, %17
-  br i1 %exitcond.i.i, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17ha08a2bb41e38b28bE.exit", label %22
+  %exitcond.not.i.i = icmp eq i64 %21, %17
+  br i1 %exitcond.not.i.i, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17ha08a2bb41e38b28bE.exit", label %22
 
 22:                                               ; preds = %20
   %23 = add i64 %21, 1
@@ -3015,7 +3015,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
   br i1 %.not.i.i.i, label %20, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17ha08a2bb41e38b28bE.exit"
 
 "_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17ha08a2bb41e38b28bE.exit": ; preds = %22, %20, %3
-  %.0 = phi i1 [ false, %3 ], [ %exitcond.i.i, %20 ], [ %exitcond.i.i, %22 ]
+  %.0 = phi i1 [ false, %3 ], [ %exitcond.not.i.i, %20 ], [ %exitcond.not.i.i, %22 ]
   ret i1 %.0
 }
 
@@ -4202,8 +4202,8 @@ thread-pre-split:                                 ; preds = %173, %.critedge
 
 200:                                              ; preds = %202, %189
   %201 = phi i64 [ %203, %202 ], [ 0, %189 ]
-  %exitcond.i.i.i = icmp eq i64 %201, %197
-  br i1 %exitcond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit", label %202
+  %exitcond.not.i.i.i = icmp eq i64 %201, %197
+  br i1 %exitcond.not.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h368f71317f54d0d6E.exit", label %202
 
 202:                                              ; preds = %200
   %203 = add i64 %201, 1

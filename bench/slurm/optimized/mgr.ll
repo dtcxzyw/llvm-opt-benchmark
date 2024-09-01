@@ -1487,21 +1487,18 @@ define internal fastcc void @_one_step_complete_msg(ptr nocapture noundef readon
   br i1 %81, label %.lr.ph31, label %._crit_edge32, !llvm.loop !14
 
 ._crit_edge32:                                    ; preds = %77
-  br i1 %71, label %82, label %.loopexit
+  %82 = call i32 @get_log_level() #15
+  %83 = icmp sgt i32 %82, 2
+  br i1 %83, label %84, label %.loopexit
 
-82:                                               ; preds = %._crit_edge32
-  %83 = call i32 @get_log_level() #15
-  %84 = icmp sgt i32 %83, 2
-  br i1 %84, label %85, label %.loopexit
-
-85:                                               ; preds = %82
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.50, i32 noundef %86) #15
+84:                                               ; preds = %._crit_edge32
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.50, i32 noundef %85) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %68, %._crit_edge32, %85, %82
-  %87 = load ptr, ptr %23, align 8
-  call void @jobacctinfo_destroy(ptr noundef %87) #15
+.loopexit:                                        ; preds = %59, %68, %84, %._crit_edge32
+  %86 = load ptr, ptr %23, align 8
+  call void @jobacctinfo_destroy(ptr noundef %86) #15
   ret void
 }
 
@@ -4312,9 +4309,9 @@ define internal fastcc void @_wait_for_all_tasks(ptr noundef %0) unnamed_addr #0
   br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader
-  br i1 %30, label %.lr.ph40, label %._crit_edge41, !llvm.loop !29
+  br label %.lr.ph40, !llvm.loop !29
 
-._crit_edge41:                                    ; preds = %29, %.loopexit, %19
+._crit_edge41:                                    ; preds = %29, %19
   ret void
 }
 

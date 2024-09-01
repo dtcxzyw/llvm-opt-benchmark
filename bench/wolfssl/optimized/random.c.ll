@@ -949,7 +949,7 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
   br i1 %exitcond.not.i, label %for.cond.preheader.i.i, label %for.body.i, !llvm.loop !13
 
 for.cond.preheader.i.i:                           ; preds = %for.inc.i, %if.end17.i, %if.end17.thread.i, %if.else
-  %cmp5 = phi i1 [ false, %if.end17.thread.i ], [ false, %if.else ], [ %cmp19.i, %for.inc.i ], [ false, %if.end17.i ]
+  %cmp5 = phi i1 [ false, %if.end17.thread.i ], [ false, %if.else ], [ %cmp19.i, %if.end17.i ], [ %cmp19.i, %for.inc.i ]
   br label %for.body.i16.i
 
 for.body.i16.i:                                   ; preds = %for.body.i16.i, %for.cond.preheader.i.i

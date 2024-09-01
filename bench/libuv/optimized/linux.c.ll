@@ -5184,12 +5184,12 @@ if.end.i:                                         ; preds = %if.then19.i, %while
 if.then23.i:                                      ; preds = %if.end.i
   %10 = load ptr, ptr %8, align 8
   %cmp26.i = icmp eq ptr %10, %elm.addr.0.i
-  %spec.select154.idx.i = select i1 %cmp26.i, i64 0, i64 8
-  %spec.select154.i = getelementptr inbounds i8, ptr %8, i64 %spec.select154.idx.i
+  %spec.select157.idx.i = select i1 %cmp26.i, i64 0, i64 8
+  %spec.select157.i = getelementptr inbounds i8, ptr %8, i64 %spec.select157.idx.i
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then23.i, %if.end.i
-  %.sink.i = phi ptr [ %inotify_watchers.i, %if.end.i ], [ %spec.select154.i, %if.then23.i ]
+  %.sink.i = phi ptr [ %inotify_watchers.i, %if.end.i ], [ %spec.select157.i, %if.then23.i ]
   store ptr %7, ptr %.sink.i, align 8
   %11 = load ptr, ptr %rbe_parent.i, align 8
   %cmp38.i = icmp eq ptr %11, %w
@@ -5203,13 +5203,13 @@ if.end35.i:                                       ; preds = %if.then23.i, %if.en
 if.then46.i:                                      ; preds = %if.end35.i
   %13 = load ptr, ptr %12, align 8
   %cmp51.i = icmp eq ptr %13, %w
-  %spec.select155.idx.i = select i1 %cmp51.i, i64 0, i64 8
-  %spec.select155.i = getelementptr inbounds i8, ptr %12, i64 %spec.select155.idx.i
+  %spec.select158.idx.i = select i1 %cmp51.i, i64 0, i64 8
+  %spec.select158.i = getelementptr inbounds i8, ptr %12, i64 %spec.select158.idx.i
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then46.i, %if.end35.i
-  %.sink153.i = phi ptr [ %inotify_watchers.i, %if.end35.i ], [ %spec.select155.i, %if.then46.i ]
-  store ptr %elm.addr.0.i, ptr %.sink153.i, align 8
+  %.sink156.i = phi ptr [ %inotify_watchers.i, %if.end35.i ], [ %spec.select158.i, %if.then46.i ]
+  store ptr %elm.addr.0.i, ptr %.sink156.i, align 8
   %14 = load ptr, ptr %w, align 8
   %rbe_parent71.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %elm.addr.0.i, ptr %rbe_parent71.i, align 8
@@ -5259,12 +5259,12 @@ if.end101.i:                                      ; preds = %if.then98.i, %if.en
 if.then103.i:                                     ; preds = %if.end101.i
   %23 = load ptr, ptr %22, align 8
   %cmp106.i = icmp eq ptr %23, %w
-  %spec.select156.idx.i = select i1 %cmp106.i, i64 0, i64 8
-  %spec.select156.i = getelementptr inbounds i8, ptr %22, i64 %spec.select156.idx.i
+  %spec.select159.idx.i = select i1 %cmp106.i, i64 0, i64 8
+  %spec.select159.i = getelementptr inbounds i8, ptr %22, i64 %spec.select159.idx.i
   br label %color120.sink.split.i
 
 color120.sink.split.i:                            ; preds = %if.then103.i, %if.end101.i
-  %head.sink.i = phi ptr [ %inotify_watchers.i, %if.end101.i ], [ %spec.select156.i, %if.then103.i ]
+  %head.sink.i = phi ptr [ %inotify_watchers.i, %if.end101.i ], [ %spec.select159.i, %if.then103.i ]
   store ptr %child.070.i, ptr %head.sink.i, align 8
   br label %color120.i
 
@@ -5375,10 +5375,10 @@ if.else92.i.i:                                    ; preds = %lor.lhs.false72.i.i
   br i1 %cmp95.i.i, label %if.end109.i.i, label %lor.lhs.false96.i.thread.i
 
 lor.lhs.false96.i.thread.i:                       ; preds = %if.else92.i.i
-  %rbe_color100.i71.i = getelementptr inbounds i8, ptr %.pre220.i.i, i64 24
-  %38 = load i32, ptr %rbe_color100.i71.i, align 8
-  %cmp101.i72.i = icmp eq i32 %38, 0
-  br i1 %cmp101.i72.i, label %if.end109.i.i, label %if.end169.i.i
+  %rbe_color100.i72.i = getelementptr inbounds i8, ptr %.pre220.i.i, i64 24
+  %38 = load i32, ptr %rbe_color100.i72.i, align 8
+  %cmp101.i73.i = icmp eq i32 %38, 0
+  br i1 %cmp101.i73.i, label %if.end109.i.i, label %if.end169.i.i
 
 if.end109.i.i:                                    ; preds = %lor.lhs.false96.i.thread.i, %if.else92.i.i
   store i32 0, ptr %rbe_color76.i.i.le, align 8

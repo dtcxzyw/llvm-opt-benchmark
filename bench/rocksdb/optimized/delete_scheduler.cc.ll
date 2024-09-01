@@ -3301,7 +3301,7 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD
   br label %ehcleanup95
 
 cleanup:                                          ; preds = %land.rhs, %_ZN7rocksdb6StatusD2Ev.exit31, %land.rhs14, %invoke.cont7, %while.end
-  %tobool6.pre-phi66 = phi i1 [ false, %invoke.cont7 ], [ true, %while.end ], [ %tobool, %land.rhs14 ], [ %tobool, %_ZN7rocksdb6StatusD2Ev.exit31 ], [ true, %land.rhs ]
+  %tobool6.pre-phi66 = phi i1 [ false, %invoke.cont7 ], [ true, %while.end ], [ false, %land.rhs14 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit31 ], [ true, %land.rhs ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mu_)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 

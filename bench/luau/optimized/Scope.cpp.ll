@@ -3209,8 +3209,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau14subsumesStrictEPNS_5ScopeES1_(ptr
 
 3:                                                ; preds = %4, %2
   %.0 = phi ptr [ %1, %2 ], [ %5, %4 ]
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %4, label %7
+  %.not.not.not.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not.not.not.not, label %4, label %7
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %.0, align 8
@@ -3218,7 +3218,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau14subsumesStrictEPNS_5ScopeES1_(ptr
   br i1 %6, label %7, label %3, !llvm.loop !29
 
 7:                                                ; preds = %3, %4
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3228,8 +3228,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau8subsumesEPNS_5ScopeES1_(ptr nounde
 
 .preheader:                                       ; preds = %2, %4
   %.0.i = phi ptr [ %5, %4 ], [ %1, %2 ]
-  %.not.not.i.not.not = icmp ne ptr %.0.i, null
-  br i1 %.not.not.i.not.not, label %4, label %_ZN4Luau14subsumesStrictEPNS_5ScopeES1_.exit
+  %.not.not.not.not.i.not.not.not = icmp ne ptr %.0.i, null
+  br i1 %.not.not.not.not.i.not.not.not, label %4, label %_ZN4Luau14subsumesStrictEPNS_5ScopeES1_.exit
 
 4:                                                ; preds = %.preheader
   %5 = load ptr, ptr %.0.i, align 8
@@ -3237,7 +3237,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8subsumesEPNS_5ScopeES1_(ptr nounde
   br i1 %6, label %_ZN4Luau14subsumesStrictEPNS_5ScopeES1_.exit, label %.preheader, !llvm.loop !29
 
 _ZN4Luau14subsumesStrictEPNS_5ScopeES1_.exit:     ; preds = %4, %.preheader, %2
-  %7 = phi i1 [ true, %2 ], [ %.not.not.i.not.not, %.preheader ], [ %.not.not.i.not.not, %4 ]
+  %7 = phi i1 [ true, %2 ], [ %.not.not.not.not.i.not.not.not, %.preheader ], [ %.not.not.not.not.i.not.not.not, %4 ]
   ret i1 %7
 }
 

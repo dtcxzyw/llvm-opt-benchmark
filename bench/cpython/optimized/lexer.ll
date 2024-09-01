@@ -692,8 +692,8 @@ land.rhs.i.i:                                     ; preds = %if.end37.i.i
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %if.end37.i.i
   %73 = phi i1 [ false, %if.end37.i.i ], [ %cmp42.i.i, %land.rhs.i.i ]
-  %cmp44.i.not.i.not = icmp ne i32 %retval.0.i303480.i.i, -1
-  br i1 %cmp44.i.not.i.not, label %lor.lhs.false.i.i, label %if.then51.i.i
+  %cmp44.not.i.not.not.not.i.not.not.not.not.not = icmp ne i32 %retval.0.i303480.i.i, -1
+  br i1 %cmp44.not.i.not.not.not.i.not.not.not.not.not, label %lor.lhs.false.i.i, label %if.then51.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.end.i.i
   %74 = load i32, ptr %f_string_quote_size.i.i, align 8
@@ -713,7 +713,7 @@ if.then52.i.i:                                    ; preds = %if.then51.i.i
   br label %tok_get.exit
 
 if.end54.i.i:                                     ; preds = %if.then51.i.i
-  %or.cond1.i.i = and i1 %cmp44.i.not.i.not, %73
+  %or.cond1.i.i = and i1 %cmp44.not.i.not.not.not.i.not.not.not.not.not, %73
   br i1 %or.cond1.i.i, label %if.then59.i.i, label %if.end68.i.i
 
 if.then59.i.i:                                    ; preds = %if.end54.i.i

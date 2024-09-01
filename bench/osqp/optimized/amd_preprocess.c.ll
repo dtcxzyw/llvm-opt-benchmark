@@ -8,9 +8,6 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   %8 = icmp sgt i64 %0, 0
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
 
-.preheader75:                                     ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph80, label %._crit_edge.thread
-
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.06976 = phi i64 [ %11, %.lr.ph ], [ 0, %7 ]
   %9 = getelementptr inbounds i64, ptr %5, i64 %.06976
@@ -19,14 +16,14 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   store i64 -1, ptr %10, align 8
   %11 = add nuw nsw i64 %.06976, 1
   %exitcond.not = icmp eq i64 %11, %0
-  br i1 %exitcond.not, label %.preheader75, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph80, label %.lr.ph, !llvm.loop !4
 
 .loopexit74:                                      ; preds = %26, %.lr.ph80
   %exitcond93.not = icmp eq i64 %12, %0
   br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !6
 
-.lr.ph80:                                         ; preds = %.preheader75, %.loopexit74
-  %.06779 = phi i64 [ %12, %.loopexit74 ], [ 0, %.preheader75 ]
+.lr.ph80:                                         ; preds = %.lr.ph, %.loopexit74
+  %.06779 = phi i64 [ %12, %.loopexit74 ], [ 0, %.lr.ph ]
   %12 = add nuw nsw i64 %.06779, 1
   %13 = getelementptr inbounds i64, ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8
@@ -57,16 +54,13 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   %exitcond92.not = icmp eq i64 %27, %14
   br i1 %exitcond92.not, label %.loopexit74, label %.lr.ph78, !llvm.loop !7
 
-._crit_edge.thread:                               ; preds = %.preheader75, %7
+._crit_edge.thread:                               ; preds = %7
   store i64 0, ptr %3, align 8
   br label %._crit_edge91
 
 ._crit_edge:                                      ; preds = %.loopexit74
   store i64 0, ptr %3, align 8
-  br i1 %8, label %.lr.ph83, label %._crit_edge91
-
-.preheader73:                                     ; preds = %.lr.ph83
-  br i1 %8, label %.lr.ph85, label %._crit_edge91
+  br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %._crit_edge, %.lr.ph83
   %28 = phi i64 [ %31, %.lr.ph83 ], [ 0, %._crit_edge ]
@@ -78,13 +72,10 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   %33 = getelementptr inbounds i64, ptr %3, i64 %32
   store i64 %31, ptr %33, align 8
   %exitcond94.not = icmp eq i64 %32, %0
-  br i1 %exitcond94.not, label %.preheader73, label %.lr.ph83, !llvm.loop !8
+  br i1 %exitcond94.not, label %.lr.ph85, label %.lr.ph83, !llvm.loop !8
 
-.preheader:                                       ; preds = %.lr.ph85
-  br i1 %8, label %.lr.ph90, label %._crit_edge91
-
-.lr.ph85:                                         ; preds = %.preheader73, %.lr.ph85
-  %.284 = phi i64 [ %38, %.lr.ph85 ], [ 0, %.preheader73 ]
+.lr.ph85:                                         ; preds = %.lr.ph83, %.lr.ph85
+  %.284 = phi i64 [ %38, %.lr.ph85 ], [ 0, %.lr.ph83 ]
   %34 = getelementptr inbounds i64, ptr %3, i64 %.284
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i64, ptr %5, i64 %.284
@@ -93,14 +84,14 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   store i64 -1, ptr %37, align 8
   %38 = add nuw nsw i64 %.284, 1
   %exitcond95.not = icmp eq i64 %38, %0
-  br i1 %exitcond95.not, label %.preheader, label %.lr.ph85, !llvm.loop !9
+  br i1 %exitcond95.not, label %.lr.ph90, label %.lr.ph85, !llvm.loop !9
 
 .loopexit:                                        ; preds = %54, %.lr.ph90
   %exitcond97.not = icmp eq i64 %39, %0
   br i1 %exitcond97.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !10
 
-.lr.ph90:                                         ; preds = %.preheader, %.loopexit
-  %.16889 = phi i64 [ %39, %.loopexit ], [ 0, %.preheader ]
+.lr.ph90:                                         ; preds = %.lr.ph85, %.loopexit
+  %.16889 = phi i64 [ %39, %.loopexit ], [ 0, %.lr.ph85 ]
   %39 = add nuw nsw i64 %.16889, 1
   %40 = getelementptr inbounds i64, ptr %1, i64 %39
   %41 = load i64, ptr %40, align 8
@@ -133,7 +124,7 @@ define void @amd_l_preprocess(i64 noundef %0, ptr nocapture noundef readonly %1,
   %exitcond96.not = icmp eq i64 %55, %41
   br i1 %exitcond96.not, label %.loopexit, label %.lr.ph88, !llvm.loop !11
 
-._crit_edge91:                                    ; preds = %.loopexit, %._crit_edge, %._crit_edge.thread, %.preheader73, %.preheader
+._crit_edge91:                                    ; preds = %.loopexit, %._crit_edge.thread
   ret void
 }
 

@@ -4606,12 +4606,9 @@ sub_2297:                                         ; preds = %sub_1296
 .tail294:                                         ; preds = %sub_1296, %sub_2297
   %86 = phi i32 [ %82, %sub_1296 ], [ %85, %sub_2297 ]
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %97, label %sub_0300
+  br i1 %87, label %97, label %sub_1301
 
-sub_0300:                                         ; preds = %.tail294
-  br i1 %.not337, label %sub_1301, label %.tail299
-
-sub_1301:                                         ; preds = %sub_0300
+sub_1301:                                         ; preds = %.tail294
   %88 = getelementptr inbounds i8, ptr %57, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
@@ -4625,8 +4622,8 @@ sub_2302:                                         ; preds = %sub_1301
   %94 = zext i8 %93 to i32
   br label %.tail299
 
-.tail299:                                         ; preds = %sub_0295, %sub_0300, %sub_1301, %sub_2302
-  %95 = phi i32 [ %78, %sub_0300 ], [ %91, %sub_1301 ], [ %94, %sub_2302 ], [ %78, %sub_0295 ]
+.tail299:                                         ; preds = %sub_0295, %sub_1301, %sub_2302
+  %95 = phi i32 [ %91, %sub_1301 ], [ %94, %sub_2302 ], [ %78, %sub_0295 ]
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %136
 

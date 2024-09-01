@@ -4382,17 +4382,25 @@ if.end141:                                        ; preds = %if.end.i367, %if.en
   %cmp174884.not = icmp eq i32 %cond84, 0
   br i1 %cmp142, label %for.cond173.preheader, label %for.cond242.preheader
 
-if.end141.thread:                                 ; preds = %if.end96
-  %cmp142718 = fcmp une float %call32, 1.000000e+00
-  br i1 %cmp142718, label %if.then145, label %if.then210
+for.cond242.preheader:                            ; preds = %if.end141
+  br i1 %cmp174884.not, label %if.end278, label %for.body244.preheader
+
+for.body244.preheader:                            ; preds = %for.cond242.preheader
+  %91 = zext i32 %51 to i64
+  %wide.trip.count996 = zext i32 %cond84 to i64
+  br label %for.body244
 
 for.cond173.preheader:                            ; preds = %if.end141
   br i1 %cmp174884.not, label %if.end278, label %for.body175.preheader
 
 for.body175.preheader:                            ; preds = %for.cond173.preheader
-  %91 = zext i32 %51 to i64
+  %92 = zext i32 %51 to i64
   %wide.trip.count1001 = zext i32 %cond84 to i64
   br label %for.body175
+
+if.end141.thread:                                 ; preds = %if.end96
+  %cmp142718 = fcmp une float %call32, 1.000000e+00
+  br i1 %cmp142718, label %if.then145, label %if.then210
 
 if.then145:                                       ; preds = %if.end141.thread
   br i1 %cmp117880, label %for.body155, label %do.cond
@@ -4401,25 +4409,25 @@ for.body155:                                      ; preds = %if.then145, %for.bo
   %indvars.iv1008 = phi i64 [ %indvars.iv.next1009, %for.body155 ], [ %41, %if.then145 ]
   %arrayidx158 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.2, i64 %indvars.iv1008
   %arrayidx161 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.4.ph, i64 %indvars.iv1008
-  %92 = load i32, ptr %arrayidx161, align 4
-  %conv162 = sitofp i32 %92 to float
-  %93 = load float, ptr %arrayidx158, align 4
-  %94 = call float @llvm.fmuladd.f32(float %conv162, float %call32, float %93)
-  store float %94, ptr %arrayidx158, align 4
+  %93 = load i32, ptr %arrayidx161, align 4
+  %conv162 = sitofp i32 %93 to float
+  %94 = load float, ptr %arrayidx158, align 4
+  %95 = call float @llvm.fmuladd.f32(float %conv162, float %call32, float %94)
+  store float %95, ptr %arrayidx158, align 4
   %arrayidx166 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.4.ph, i64 %indvars.iv1008
-  %95 = load i32, ptr %arrayidx166, align 4
-  %conv167 = sitofp i32 %95 to float
+  %96 = load i32, ptr %arrayidx166, align 4
+  %conv167 = sitofp i32 %96 to float
   %y = getelementptr inbounds i8, ptr %arrayidx158, i64 4
-  %96 = load float, ptr %y, align 4
-  %97 = call float @llvm.fmuladd.f32(float %conv167, float %call32, float %96)
-  store float %97, ptr %y, align 4
+  %97 = load float, ptr %y, align 4
+  %98 = call float @llvm.fmuladd.f32(float %conv167, float %call32, float %97)
+  store float %98, ptr %y, align 4
   %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1009, %wide.trip.count1011
   br i1 %exitcond1012.not, label %if.end278, label %for.body155, !llvm.loop !35
 
 for.body175:                                      ; preds = %for.body175.preheader, %for.inc204
   %indvars.iv998 = phi i64 [ 0, %for.body175.preheader ], [ %indvars.iv.next999, %for.inc204 ]
-  %cmp.not.i.i = icmp ult i64 %indvars.iv998, %91
+  %cmp.not.i.i = icmp ult i64 %indvars.iv998, %92
   br i1 %cmp.not.i.i, label %if.end.i.i371, label %if.then.i.i370
 
 if.then.i.i370:                                   ; preds = %for.body175
@@ -4432,45 +4440,37 @@ if.end.i.i371:                                    ; preds = %for.body175
   br label %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
 
 _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit:       ; preds = %if.then.i.i370, %if.end.i.i371
-  %98 = phi i32 [ 0, %if.then.i.i370 ], [ %.pre1028, %if.end.i.i371 ]
-  %cmp179.not = icmp uge i32 %98, %deltas.sroa.16.2
-  %cmp185 = icmp ult i32 %98, %sub113
+  %99 = phi i32 [ 0, %if.then.i.i370 ], [ %.pre1028, %if.end.i.i371 ]
+  %cmp179.not = icmp uge i32 %99, %deltas.sroa.16.2
+  %cmp185 = icmp ult i32 %99, %sub113
   %or.cond = select i1 %phantom_only, i1 %cmp185, i1 false
   %or.cond907 = select i1 %cmp179.not, i1 true, i1 %or.cond
   br i1 %or.cond907, label %for.inc204, label %if.end187
 
 if.end187:                                        ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
-  %idxprom190 = zext i32 %98 to i64
+  %idxprom190 = zext i32 %99 to i64
   %arrayidx191 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.2, i64 %idxprom190
   %flag = getelementptr inbounds i8, ptr %arrayidx191, i64 8
   store i8 1, ptr %flag, align 4
   %arrayidx194 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.4.ph, i64 %indvars.iv998
-  %99 = load i32, ptr %arrayidx194, align 4
-  %conv195 = sitofp i32 %99 to float
-  %100 = load float, ptr %arrayidx191, align 4
-  %101 = call float @llvm.fmuladd.f32(float %conv195, float %call32, float %100)
-  store float %101, ptr %arrayidx191, align 4
+  %100 = load i32, ptr %arrayidx194, align 4
+  %conv195 = sitofp i32 %100 to float
+  %101 = load float, ptr %arrayidx191, align 4
+  %102 = call float @llvm.fmuladd.f32(float %conv195, float %call32, float %101)
+  store float %102, ptr %arrayidx191, align 4
   %arrayidx200 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.4.ph, i64 %indvars.iv998
-  %102 = load i32, ptr %arrayidx200, align 4
-  %conv201 = sitofp i32 %102 to float
+  %103 = load i32, ptr %arrayidx200, align 4
+  %conv201 = sitofp i32 %103 to float
   %y203 = getelementptr inbounds i8, ptr %arrayidx191, i64 4
-  %103 = load float, ptr %y203, align 4
-  %104 = call float @llvm.fmuladd.f32(float %conv201, float %call32, float %103)
-  store float %104, ptr %y203, align 4
+  %104 = load float, ptr %y203, align 4
+  %105 = call float @llvm.fmuladd.f32(float %conv201, float %call32, float %104)
+  store float %105, ptr %y203, align 4
   br label %for.inc204
 
 for.inc204:                                       ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit, %if.end187
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %exitcond1002.not = icmp eq i64 %indvars.iv.next999, %wide.trip.count1001
   br i1 %exitcond1002.not, label %if.end278, label %for.body175, !llvm.loop !36
-
-for.cond242.preheader:                            ; preds = %if.end141
-  br i1 %cmp174884.not, label %if.end278, label %for.body244.preheader
-
-for.body244.preheader:                            ; preds = %for.cond242.preheader
-  %105 = zext i32 %51 to i64
-  %wide.trip.count996 = zext i32 %cond84 to i64
-  br label %for.body244
 
 if.then210:                                       ; preds = %if.end141.thread
   br i1 %cmp117880, label %for.body220, label %do.cond
@@ -4497,7 +4497,7 @@ for.body220:                                      ; preds = %if.then210, %for.bo
 
 for.body244:                                      ; preds = %for.body244.preheader, %for.inc274
   %indvars.iv993 = phi i64 [ 0, %for.body244.preheader ], [ %indvars.iv.next994, %for.inc274 ]
-  %cmp.not.i.i373 = icmp ult i64 %indvars.iv993, %105
+  %cmp.not.i.i373 = icmp ult i64 %indvars.iv993, %91
   br i1 %cmp.not.i.i373, label %if.end.i.i376, label %if.then.i.i374
 
 if.then.i.i374:                                   ; preds = %for.body244

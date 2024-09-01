@@ -24972,7 +24972,7 @@ default.unreachable25:                            ; preds = %19, %2
 
 common.ret:                                       ; preds = %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$wasmtime_wasi..stream..StreamError$GT$$GT$$GT$17h9addde86dd3a6c08E.exit", %37, %7, %10
   %storemerge = phi i8 [ 1, %10 ], [ 1, %7 ], [ 1, %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$wasmtime_wasi..stream..StreamError$GT$$GT$$GT$17h9addde86dd3a6c08E.exit" ], [ 3, %37 ]
-  %common.ret.op = phi i1 [ false, %10 ], [ false, %7 ], [ %34, %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$wasmtime_wasi..stream..StreamError$GT$$GT$$GT$17h9addde86dd3a6c08E.exit" ], [ %34, %37 ]
+  %common.ret.op = phi i1 [ false, %10 ], [ false, %7 ], [ false, %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$wasmtime_wasi..stream..StreamError$GT$$GT$$GT$17h9addde86dd3a6c08E.exit" ], [ true, %37 ]
   store i8 %storemerge, ptr %5, align 8
   ret i1 %common.ret.op
 

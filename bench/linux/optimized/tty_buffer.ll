@@ -366,8 +366,8 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr nocaptu
   %10 = sub i64 %4, %7
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 1792)
   %12 = tail call fastcc i32 @__tty_buffer_request_room(ptr noundef %0, i64 noundef %11, i1 noundef zeroext true)
-  %.not5 = icmp eq i32 %12, 0
-  br i1 %.not5, label %.thread, label %13, !prof !21
+  %.not.us = icmp eq i32 %12, 0
+  br i1 %.not.us, label %.thread, label %13, !prof !21
 
 13:                                               ; preds = %.split.us
   %14 = load ptr, ptr %6, align 8
@@ -397,10 +397,10 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr nocaptu
 
 .split:                                           ; preds = %5
   %34 = load i8, ptr %2, align 1
-  %.fr3 = freeze i8 %34
-  %.not17 = icmp eq i8 %.fr3, 0
+  %.fr4 = freeze i8 %34
+  %.not16 = icmp eq i8 %.fr4, 0
   %35 = getelementptr inbounds i8, ptr %0, i64 128
-  br i1 %.not17, label %.split.split, label %.split.split.us, !prof !13
+  br i1 %.not16, label %.split.split, label %.split.split.us, !prof !13
 
 .split.split.us:                                  ; preds = %.split, %62
   %36 = phi i64 [ %65, %62 ], [ 0, %.split ]
@@ -410,8 +410,8 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr nocaptu
   %40 = tail call fastcc i32 @__tty_buffer_request_room(ptr noundef %0, i64 noundef %39, i1 noundef zeroext true)
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr %35, align 8
-  %.not4 = icmp eq i32 %40, 0
-  br i1 %.not4, label %.thread, label %43, !prof !21
+  %.not.us2 = icmp eq i32 %40, 0
+  br i1 %.not.us2, label %.thread, label %43, !prof !21
 
 43:                                               ; preds = %.split.split.us
   %44 = getelementptr inbounds i8, ptr %42, i64 8

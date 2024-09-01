@@ -8618,7 +8618,7 @@ for.body13:                                       ; preds = %for.body13.preheade
   br i1 %call16, label %for.cond11, label %return
 
 return:                                           ; preds = %for.body13, %for.cond11, %for.body, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit, %if.end9, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.end9 ], [ false, %for.body ], [ %call6, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit ], [ %call16, %for.cond11 ], [ %call16, %for.body13 ]
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.end9 ], [ %call6, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit ], [ %call6, %for.body ], [ %call16, %for.cond11 ], [ %call16, %for.body13 ]
   ret i1 %retval.0
 }
 

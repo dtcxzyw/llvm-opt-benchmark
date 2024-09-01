@@ -236,7 +236,7 @@ for.cond38.for.inc61_crit_edge.us.i:              ; preds = %for.cond38.us.i
 
 _ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit:         ; preds = %for.cond38.for.inc61_crit_edge.us.i
   %tobool.not.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool.not.i, label %_ZN3ue2L20prune_leading_statesERNS_7raw_dfaEj.exit, label %for.cond.preheader.i
+  br i1 %tobool.not.i, label %_ZN3ue2L20prune_leading_statesERNS_7raw_dfaEj.exit, label %for.body.lr.ph.i
 
 _ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread30: ; preds = %for.cond38.preheader.lr.ph.i
   %tobool.not.i31 = icmp eq i32 %sub.i, 0
@@ -246,10 +246,7 @@ _ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread:  ; preds = %validate.i
   %tobool.not.i29 = icmp eq i32 %sub.i, 0
   br i1 %tobool.not.i29, label %_ZN3ue2L20prune_leading_statesERNS_7raw_dfaEj.exit, label %for.end34.i
 
-for.cond.preheader.i:                             ; preds = %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit
-  br i1 %cmp3574.i, label %for.body.lr.ph.i, label %for.end34.i
-
-for.body.lr.ph.i:                                 ; preds = %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread30, %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread30
   %19 = trunc i32 %sub.i to i16
   %alpha_size.i = getelementptr inbounds i8, ptr %raw, i64 44
   br label %for.body.i
@@ -325,11 +322,11 @@ for.inc.i:                                        ; preds = %if.then24.i, %for.b
   %cmp19.i = icmp ult i64 %indvars.iv.next.i8, %34
   br i1 %cmp19.i, label %for.body20.i, label %for.cond.loopexit.i, !llvm.loop !11
 
-for.end34.i:                                      ; preds = %for.cond.loopexit.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread, %for.cond.preheader.i
-  %.lcssa30.i = phi ptr [ %0, %for.cond.preheader.i ], [ %0, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %20, %for.cond.loopexit.i ]
-  %.lcssa.i = phi ptr [ %1, %for.cond.preheader.i ], [ %1, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %21, %for.cond.loopexit.i ]
-  %sub.ptr.rhs.cast.i.lcssa.i = phi i64 [ %sub.ptr.rhs.cast.i.i, %for.cond.preheader.i ], [ %sub.ptr.rhs.cast.i.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %sub.ptr.rhs.cast.i.i11, %for.cond.loopexit.i ]
-  %sub.ptr.sub.i.lcssa.i = phi i64 [ %sub.ptr.sub.i.i, %for.cond.preheader.i ], [ %sub.ptr.sub.i.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %sub.ptr.sub.i.i12, %for.cond.loopexit.i ]
+for.end34.i:                                      ; preds = %for.cond.loopexit.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread
+  %.lcssa30.i = phi ptr [ %0, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %20, %for.cond.loopexit.i ]
+  %.lcssa.i = phi ptr [ %1, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %21, %for.cond.loopexit.i ]
+  %sub.ptr.rhs.cast.i.lcssa.i = phi i64 [ %sub.ptr.rhs.cast.i.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %sub.ptr.rhs.cast.i.i11, %for.cond.loopexit.i ]
+  %sub.ptr.sub.i.lcssa.i = phi i64 [ %sub.ptr.sub.i.i, %_ZN3ue2L10count_dotsERKNS_7raw_dfaE.exit.thread ], [ %sub.ptr.sub.i.i12, %for.cond.loopexit.i ]
   %conv39.i = zext i32 %sub.i to i64
   %idx.neg.i.i = sub nsw i64 0, %conv39.i
   %add.ptr.i28.i = getelementptr inbounds %"struct.ue2::dstate", ptr %.lcssa30.i, i64 %idx.neg.i.i
@@ -1169,7 +1166,7 @@ _ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit: ; preds = %_ZN3ue211hash_detai
   store ptr %9, ptr %_M_right.i.i.i.i.i.i, align 8, !alias.scope !50
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !alias.scope !50
-  br i1 %cmp.i.not20.i, label %invoke.cont, label %for.body.i4
+  br label %for.body.i4
 
 for.body.i4:                                      ; preds = %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit, %for.inc.i
   %__begin1.sroa.0.011.i = phi ptr [ %incdec.ptr.i.i5, %for.inc.i ], [ %2, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit ]
@@ -1239,10 +1236,10 @@ _ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.
   %16 = mul i64 %add.i.i.i9, 814605021516865831
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit
-  %v.0.lcssa.i1926 = phi i64 [ %v.0.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %v.0.i, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ %v.019.i, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ], [ %v.0.i, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit ]
-  %_M_parent.i.i.i.i.i.i2025 = phi ptr [ %_M_parent.i.i.i.i.i.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %_M_parent.i.i.i.i.i.i, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ %_M_parent.i.i.i.i.i.i15, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ], [ %_M_parent.i.i.i.i.i.i, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit ]
-  %v.0.lcssa.i.i = phi i64 [ 0, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %16, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ 0, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ], [ 0, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit ]
+invoke.cont:                                      ; preds = %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit
+  %v.0.lcssa.i1926 = phi i64 [ %v.0.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %v.0.i, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ %v.019.i, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ]
+  %_M_parent.i.i.i.i.i.i2025 = phi ptr [ %_M_parent.i.i.i.i.i.i, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %_M_parent.i.i.i.i.i.i, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ %_M_parent.i.i.i.i.i.i15, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ]
+  %v.0.lcssa.i.i = phi i64 [ 0, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ], [ %16, %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i ], [ 0, %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread ]
   %17 = load ptr, ptr %_M_parent.i.i.i.i.i.i2025, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef %17)
           to label %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit unwind label %terminate.lpad.i.i

@@ -1772,7 +1772,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread, %._crit_edge
-  %102 = phi i1 [ false, %._crit_edge ], [ false, %._crit_edge.thread ], [ %98, %.lr.ph.i ]
+  %102 = phi i1 [ false, %._crit_edge ], [ false, %._crit_edge.thread ], [ true, %.lr.ph.i ]
   %.val127187 = phi i32 [ %.val127, %._crit_edge ], [ %.val127184, %._crit_edge.thread ], [ %.val127, %.lr.ph.i ]
   %103 = phi ptr [ %97, %._crit_edge ], [ %63, %._crit_edge.thread ], [ %97, %.lr.ph.i ]
   %.val129186 = phi i32 [ %.val129.pre, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.val129.pre, %.lr.ph.i ]
@@ -1800,14 +1800,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %113, ptr %111, align 4
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count19.i
-  br i1 %exitcond20.not.i, label %.lr.ph8.i, label %.lr.ph4.i, !llvm.loop !24
+  br i1 %exitcond20.not.i, label %._crit_edge5.i, label %.lr.ph4.i, !llvm.loop !24
 
-.lr.ph8.i:                                        ; preds = %.lr.ph4.i
+._crit_edge5.i:                                   ; preds = %.lr.ph4.i
   store i32 %104, ptr %4, align 4
   br label %114
 
-114:                                              ; preds = %114, %.lr.ph8.i
-  %indvars.iv21.i = phi i64 [ 0, %.lr.ph8.i ], [ %indvars.iv.next22.i, %114 ]
+114:                                              ; preds = %114, %._crit_edge5.i
+  %indvars.iv21.i = phi i64 [ 0, %._crit_edge5.i ], [ %indvars.iv.next22.i, %114 ]
   %115 = getelementptr inbounds i32, ptr %.val130185, i64 %indvars.iv21.i
   %116 = load i32, ptr %115, align 4
   %117 = shl nsw i32 %116, 1
@@ -1816,21 +1816,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %119 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef nonnull %4, ptr noundef nonnull %57) #14
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count19.i
-  br i1 %exitcond25.not.i, label %.lr.ph13.i, label %114, !llvm.loop !25
+  br i1 %exitcond25.not.i, label %.preheader.i, label %114, !llvm.loop !25
 
-.loopexit.i:                                      ; preds = %122, %.lr.ph13.i
+.loopexit.i:                                      ; preds = %122, %.preheader.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count19.i
-  br i1 %exitcond37.not.i, label %sat_solver_add_choice.exit, label %.lr.ph13.i, !llvm.loop !26
+  br i1 %exitcond37.not.i, label %sat_solver_add_choice.exit, label %.preheader.i, !llvm.loop !26
 
-.lr.ph13.i:                                       ; preds = %114, %.loopexit.i
+.preheader.i:                                     ; preds = %114, %.loopexit.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.loopexit.i ], [ 0, %114 ]
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.loopexit.i ], [ 1, %114 ]
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %120 = icmp slt i64 %indvars.iv.next34.i, %107
   br i1 %120, label %.lr.ph11.i, label %.loopexit.i
 
-.lr.ph11.i:                                       ; preds = %.lr.ph13.i
+.lr.ph11.i:                                       ; preds = %.preheader.i
   %121 = getelementptr inbounds i32, ptr %.val130185, i64 %indvars.iv33.i
   br label %122
 

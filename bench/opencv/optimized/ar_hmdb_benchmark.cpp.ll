@@ -6472,9 +6472,6 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph57.i92, %.pre
 ._crit_edge144:                                   ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100
   %166 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv186
   store i32 %113, ptr %166, align 4
-  br i1 %28, label %.lr.ph150, label %._crit_edge151
-
-.lr.ph150:                                        ; preds = %._crit_edge144
   %.pre192 = sext i32 %.074.lcssa to i64
   %167 = getelementptr inbounds i32, ptr %2, i64 %.pre192
   %168 = load ptr, ptr %41, align 8
@@ -6486,8 +6483,8 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph57.i92, %.pre
   %174 = load i64, ptr %43, align 8
   br label %175
 
-175:                                              ; preds = %.lr.ph150, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114
-  %indvars.iv181 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next182, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114 ]
+175:                                              ; preds = %._crit_edge144, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114
+  %indvars.iv181 = phi i64 [ 0, %._crit_edge144 ], [ %indvars.iv.next182, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114 ]
   %176 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv181
   %177 = load i32, ptr %176, align 4
   %178 = sext i32 %177 to i64
@@ -6561,8 +6558,8 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114:     ; preds = %.lr.ph57.i106, %.pr
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %7
   br i1 %exitcond185.not, label %._crit_edge151, label %175, !llvm.loop !59
 
-._crit_edge151:                                   ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114, %._crit_edge144.thread, %._crit_edge144
-  %.076.lcssa195 = phi double [ 0.000000e+00, %._crit_edge144.thread ], [ %165, %._crit_edge144 ], [ %165, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114 ]
+._crit_edge151:                                   ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114, %._crit_edge144.thread
+  %.076.lcssa195 = phi double [ 0.000000e+00, %._crit_edge144.thread ], [ %165, %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit114 ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
   br i1 %exitcond190.not, label %._crit_edge154, label %.preheader, !llvm.loop !60

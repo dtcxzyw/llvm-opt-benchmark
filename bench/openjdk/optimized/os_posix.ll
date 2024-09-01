@@ -739,7 +739,6 @@ define hidden noundef zeroext i1 @_ZN2os12dir_is_emptyEPKc(ptr nocapture noundef
   br i1 %.not22, label %.critedge, label %sub_0
 
 sub_0:                                            ; preds = %.preheader.preheader, %.preheader.backedge
-  %.not23 = phi i1 [ %.not, %.preheader.backedge ], [ %.not22, %.preheader.preheader ]
   %5 = phi ptr [ %20, %.preheader.backedge ], [ %4, %.preheader.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
@@ -779,7 +778,7 @@ sub_2:                                            ; preds = %sub_115
   br i1 %.not, label %.critedge, label %sub_0, !llvm.loop !12
 
 .critedge:                                        ; preds = %.preheader.backedge, %.tail13, %.preheader.preheader
-  %.not.lcssa = phi i1 [ %.not22, %.preheader.preheader ], [ %.not, %.preheader.backedge ], [ %.not23, %.tail13 ]
+  %.not.lcssa = phi i1 [ true, %.preheader.preheader ], [ true, %.preheader.backedge ], [ false, %.tail13 ]
   %21 = tail call i32 @closedir(ptr noundef nonnull %2)
   br label %22
 

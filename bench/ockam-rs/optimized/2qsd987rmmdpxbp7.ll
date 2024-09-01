@@ -13637,8 +13637,8 @@ common.ret:                                       ; preds = %164, %32
   br i1 %122, label %123, label %160
 
 123:                                              ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h099651281937defaE.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
-  br i1 %.not.not.i, label %163, label %124
+  %.not.i = icmp eq ptr %.sroa.3.i.sroa.0.0.copyload, null
+  br i1 %.not.i, label %163, label %124
 
 124:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !1981

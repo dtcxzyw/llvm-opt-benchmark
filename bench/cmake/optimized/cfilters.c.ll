@@ -426,8 +426,8 @@ define dso_local noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef %0, pt
   %.pn = phi ptr [ %0, %4 ], [ %6, %7 ]
   %.015 = getelementptr inbounds i8, ptr %.pn, i64 8
   %6 = load ptr, ptr %.015, align 8
-  %.not.not = icmp ne ptr %6, null
-  br i1 %.not.not, label %7, label %.critedge
+  %.not.not.not.not.not.not = icmp ne ptr %6, null
+  br i1 %.not.not.not.not.not.not, label %7, label %.critedge
 
 7:                                                ; preds = %5
   %8 = icmp eq ptr %6, %0
@@ -455,7 +455,8 @@ define dso_local noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef %0, pt
   br label %18
 
 18:                                               ; preds = %12, %.critedge
-  ret i1 %.not.not
+  %.not.not.not25 = phi i1 [ %.not.not.not.not.not.not, %12 ], [ false, %.critedge ]
+  ret i1 %.not.not.not25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -799,8 +800,8 @@ define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr nocapture nou
   %10 = getelementptr inbounds i8, ptr %.011, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = and i8 %11, 1
-  %.not7.not = icmp ne i8 %12, 0
-  br i1 %.not7.not, label %._crit_edge, label %13
+  %.not7.not.not = icmp ne i8 %12, 0
+  br i1 %.not7.not.not, label %._crit_edge, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %.011, align 8
@@ -811,7 +812,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr nocapture nou
   br i1 %.not8, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13, %8, %2
-  %.06 = phi i1 [ false, %2 ], [ %.not7.not, %8 ], [ %.not7.not, %13 ], [ %.not7.not, %.lr.ph ]
+  %.06 = phi i1 [ false, %2 ], [ %.not7.not.not, %8 ], [ %.not7.not.not, %13 ], [ %.not7.not.not, %.lr.ph ]
   ret i1 %.06
 }
 

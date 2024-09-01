@@ -1225,8 +1225,8 @@ define void @_ZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEP
 41:                                               ; preds = %43, %30
   %.052.i.i = phi i64 [ %40, %30 ], [ %46, %43 ]
   %42 = add i64 %.052.i.i, %36
-  %.not.i.not.i.not = icmp ugt i64 %42, %38
-  br i1 %.not.i.not.i.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %43
+  %.not.not.not.i.not.not.not.i.not = icmp ugt i64 %42, %38
+  br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, label %43
 
 43:                                               ; preds = %41
   %44 = cmpxchg weak ptr %39, i64 %.052.i.i, i64 %42 monotonic monotonic, align 8
@@ -2301,8 +2301,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge10Statistics10Statist
 12:                                               ; preds = %16, %2
   %.052.i = phi i64 [ %11, %2 ], [ %19, %16 ]
   %13 = add i64 %.052.i, %7
-  %.not.i.not = icmp ule i64 %13, %9
-  br i1 %.not.i.not, label %16, label %14
+  %.not.not.not.i.not.not.not.not.not = icmp ule i64 %13, %9
+  br i1 %.not.not.not.i.not.not.not.not.not, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv()
@@ -2316,7 +2316,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge10Statistics10Statist
   br i1 %18, label %_ZN8WasmEdge10Statistics10Statistics7addCostEm.exit, label %12, !llvm.loop !4
 
 _ZN8WasmEdge10Statistics10Statistics7addCostEm.exit: ; preds = %16, %14
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75037,48 +75037,45 @@ _ZNKSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__
   store ptr %3, ptr %71, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
-.loopexit:                                        ; preds = %.lr.ph.i, %50
-  br i1 %.not.i, label %.loopexit.thread, label %72
+.loopexit:                                        ; preds = %50, %.lr.ph.i
+  %72 = load ptr, ptr %40, align 8
+  store ptr %72, ptr %3, align 8
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %30
+  %75 = load ptr, ptr %74, align 8
+  store ptr %3, ptr %75, align 8
+  br label %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
-72:                                               ; preds = %.loopexit
-  %73 = load ptr, ptr %40, align 8
-  store ptr %73, ptr %3, align 8
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %30
-  %76 = load ptr, ptr %75, align 8
+.loopexit.thread:                                 ; preds = %37
+  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %3, align 8
   store ptr %3, ptr %76, align 8
+  %78 = load ptr, ptr %3, align 8
+  %.not11.i = icmp eq ptr %78, null
+  br i1 %.not11.i, label %87, label %79
+
+79:                                               ; preds = %.loopexit.thread
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 8
+  %82 = load i64, ptr %8, align 8
+  %83 = load i32, ptr %81, align 4
+  %84 = zext i32 %83 to i64
+  %85 = urem i64 %84, %82
+  %86 = getelementptr inbounds ptr, ptr %80, i64 %85
+  store ptr %3, ptr %86, align 8
+  br label %87
+
+87:                                               ; preds = %79, %.loopexit.thread
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %30
+  store ptr %76, ptr %89, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
-.loopexit.thread:                                 ; preds = %37, %.loopexit
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
-  %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %3, align 8
-  store ptr %3, ptr %77, align 8
-  %79 = load ptr, ptr %3, align 8
-  %.not11.i = icmp eq ptr %79, null
-  br i1 %.not11.i, label %88, label %80
-
-80:                                               ; preds = %.loopexit.thread
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
-  %83 = load i64, ptr %8, align 8
-  %84 = load i32, ptr %82, align 4
-  %85 = zext i32 %84 to i64
-  %86 = urem i64 %85, %83
-  %87 = getelementptr inbounds ptr, ptr %81, i64 %86
-  store ptr %3, ptr %87, align 8
-  br label %88
-
-88:                                               ; preds = %80, %.loopexit.thread
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %30
-  store ptr %77, ptr %90, align 8
-  br label %_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
-
-_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit: ; preds = %88, %72, %_ZNKSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_find_before_nodeEmRS1_m.exit, %65, %69, %60, %58
-  %91 = load i64, ptr %10, align 8
-  %92 = add i64 %91, 1
-  store i64 %92, ptr %10, align 8
+_ZNSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit: ; preds = %87, %.loopexit, %_ZNKSt10_HashtableIjSt4pairIKjN8WasmEdge8Executor8Executor6WaiterEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_find_before_nodeEmRS1_m.exit, %65, %69, %60, %58
+  %90 = load i64, ptr %10, align 8
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %10, align 8
   ret ptr %3
 }
 

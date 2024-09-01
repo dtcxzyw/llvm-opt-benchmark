@@ -3532,8 +3532,8 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %14
 _ZL13getGTKWindowsv.exit:                         ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %20, %22
   %24 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8
-  %.not41 = icmp eq ptr %24, %25
-  br i1 %.not41, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %.lr.ph
+  %.not38 = icmp eq ptr %24, %25
+  br i1 %.not38, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL13getGTKWindowsv.exit, %39
   %.sroa.029.037 = phi ptr [ %40, %39 ], [ %24, %_ZL13getGTKWindowsv.exit ]
@@ -3560,8 +3560,8 @@ _ZL13getGTKWindowsv.exit:                         ; preds = %_ZNSt10lock_guardIS
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds i8, ptr %.sroa.029.037, i64 16
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8
-  %.not42 = icmp eq ptr %40, %41
-  br i1 %.not42, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %.lr.ph, !llvm.loop !15
+  %.not39 = icmp eq ptr %40, %41
+  br i1 %.not39, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %.lr.ph, !llvm.loop !15
 
 _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %39, %_ZL13getGTKWindowsv.exit, %30
   %42 = phi i1 [ true, %30 ], [ false, %_ZL13getGTKWindowsv.exit ], [ false, %39 ]
@@ -9607,8 +9607,8 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %.noexc
 _ZL13getGTKWindowsv.exit.i:                       ; preds = %22, %20, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
   %24 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8
-  %.not32.i = icmp eq ptr %24, %25
-  br i1 %.not32.i, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, label %.lr.ph.i
+  %.not29.i = icmp eq ptr %24, %25
+  br i1 %.not29.i, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZL13getGTKWindowsv.exit.i, %36
   %.sroa.020.028.i = phi ptr [ %37, %36 ], [ %24, %_ZL13getGTKWindowsv.exit.i ]
@@ -9631,8 +9631,8 @@ _ZL13getGTKWindowsv.exit.i:                       ; preds = %22, %20, %_ZNSt10lo
 
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds i8, ptr %.sroa.020.028.i, i64 16
-  %.not33.i = icmp eq ptr %37, %25
-  br i1 %.not33.i, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, label %.lr.ph.i, !llvm.loop !26
+  %.not30.i = icmp eq ptr %37, %25
+  br i1 %.not30.i, label %_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i, label %.lr.ph.i, !llvm.loop !26
 
 _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit.i: ; preds = %36, %28, %_ZL13getGTKWindowsv.exit.i
   %38 = phi i1 [ true, %28 ], [ false, %_ZL13getGTKWindowsv.exit.i ], [ false, %36 ]
@@ -11998,8 +11998,8 @@ _ZNKSt10__weak_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit: ; pre
 
 15:                                               ; preds = %16, %12
   %.06.i.i.i.i.i = phi i32 [ %14, %12 ], [ %20, %16 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %16
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -12183,8 +12183,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow6imshowERKNS_11_InputArray
 
 17:                                               ; preds = %18, %14
   %.06.i.i.i.i.i = phi i32 [ %16, %14 ], [ %22, %18 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %18
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %18
 
 18:                                               ; preds = %17
   %19 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -12462,8 +12462,8 @@ define linkonce_odr hidden noundef double @_ZNK2cv4impl9GTKWindow11getPropertyEi
 
 13:                                               ; preds = %14, %10
   %.06.i.i.i.i.i = phi i32 [ %12, %10 ], [ %18, %14 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %13
   %15 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -12667,8 +12667,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4impl9GTKWindow11setPropert
 
 14:                                               ; preds = %15, %11
   %.06.i.i.i.i.i = phi i32 [ %13, %11 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -12849,8 +12849,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow6resizeEii(ptr noundef non
 
 14:                                               ; preds = %15, %11
   %.06.i.i.i.i.i = phi i32 [ %13, %11 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -13019,8 +13019,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow4moveEii(ptr noundef nonnu
 
 14:                                               ; preds = %15, %11
   %.06.i.i.i.i.i = phi i32 [ %13, %11 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -13196,8 +13196,8 @@ define linkonce_odr hidden { i64, i64 } @_ZNK2cv4impl9GTKWindow12getImageRectEv(
 
 12:                                               ; preds = %13, %9
   %.06.i.i.i.i.i = phi i32 [ %11, %9 ], [ %17, %13 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -13366,8 +13366,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow8setTitleERKNSt7__cxx1112b
 
 13:                                               ; preds = %14, %10
   %.06.i.i.i.i.i = phi i32 [ %12, %10 ], [ %18, %14 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %13
   %15 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -13544,8 +13544,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow16setMouseCallbackEPFviiii
 
 14:                                               ; preds = %15, %11
   %.06.i.i.i.i.i = phi i32 [ %13, %11 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -13714,8 +13714,8 @@ define linkonce_odr hidden void @_ZN2cv4impl9GTKWindow14createTrackbarERKNSt7__c
 
 26:                                               ; preds = %27, %23
   %.06.i.i.i.i.i = phi i32 [ %25, %23 ], [ %31, %27 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %27
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %27
 
 27:                                               ; preds = %26
   %28 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -14123,8 +14123,8 @@ _ZNSt6vectorISt10shared_ptrI10CvTrackbarESaIS2_EE9push_backERKS2_.exit.i: ; pred
 
 179:                                              ; preds = %180, %176
   %.06.i.i.i.i.i28 = phi i32 [ %178, %176 ], [ %184, %180 ]
-  %.not.i.not.i.i.i.i29 = icmp eq i32 %.06.i.i.i.i.i28, 0
-  br i1 %.not.i.not.i.i.i.i29, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i30, label %180
+  %.not.not.not.i.not.i.i.i.i29 = icmp eq i32 %.06.i.i.i.i.i28, 0
+  br i1 %.not.not.not.i.not.i.i.i.i29, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i30, label %180
 
 180:                                              ; preds = %179
   %181 = add nsw i32 %.06.i.i.i.i.i28, 1
@@ -15301,8 +15301,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4impl11GTKTrackbar6getPosEv(ptr n
 
 12:                                               ; preds = %13, %9
   %.06.i.i.i.i.i = phi i32 [ %11, %9 ], [ %17, %13 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -15460,8 +15460,8 @@ define linkonce_odr hidden void @_ZN2cv4impl11GTKTrackbar6setPosEi(ptr noundef n
 
 13:                                               ; preds = %14, %10
   %.06.i.i.i.i.i = phi i32 [ %12, %10 ], [ %18, %14 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %13
   %15 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -15630,8 +15630,8 @@ define linkonce_odr hidden i64 @_ZNK2cv4impl11GTKTrackbar8getRangeEv(ptr noundef
 
 12:                                               ; preds = %13, %9
   %.06.i.i.i.i.i = phi i32 [ %11, %9 ], [ %17, %13 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -15795,8 +15795,8 @@ define linkonce_odr hidden void @_ZN2cv4impl11GTKTrackbar8setRangeERKNS_5RangeE(
 
 13:                                               ; preds = %14, %10
   %.06.i.i.i.i.i = phi i32 [ %12, %10 ], [ %18, %14 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %13
   %15 = add nsw i32 %.06.i.i.i.i.i, 1

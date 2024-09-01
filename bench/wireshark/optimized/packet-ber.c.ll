@@ -2144,8 +2144,8 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
 
 85:                                               ; preds = %80
   %86 = load i8, ptr %16, align 1
-  %.fr129 = freeze i8 %86
-  %87 = trunc i8 %.fr129 to i1
+  %.fr126 = freeze i8 %86
+  %87 = trunc i8 %.fr126 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr null, ptr %12, align 8
@@ -2177,13 +2177,13 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   br i1 %87, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %94, %117
-  %.056.not.i119.us = phi i1 [ true, %117 ], [ false, %94 ]
-  %.057.i118.us = phi i8 [ %.1.i.us, %117 ], [ 1, %94 ]
-  %.058.i117.us = phi i32 [ %.2.i.us, %117 ], [ %.082, %94 ]
-  %100 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i117.us, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %98, i32 noundef 0)
+  %.056.not.i117.us = phi i1 [ true, %117 ], [ false, %94 ]
+  %.057.i116.us = phi i8 [ %.1.i.us, %117 ], [ 1, %94 ]
+  %.058.i115.us = phi i32 [ %.2.i.us, %117 ], [ %.082, %94 ]
+  %100 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i115.us, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %98, i32 noundef 0)
   %101 = load ptr, ptr %12, align 8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.split121.us, label %103
+  br i1 %102, label %.split119.us, label %103
 
 103:                                              ; preds = %.split.us
   %104 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %100) #14
@@ -2196,21 +2196,21 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %109 = icmp eq i8 %108, 0
   %110 = add i32 %100, 2
   %spec.select.i.us = select i1 %109, i32 %110, i32 %100
-  %spec.select72.i.us = select i1 %109, i8 0, i8 %.057.i118.us
+  %spec.select72.i.us = select i1 %109, i8 0, i8 %.057.i116.us
   br label %111
 
 111:                                              ; preds = %106, %103
   %.2.i.us = phi i32 [ %100, %103 ], [ %spec.select.i.us, %106 ]
-  %.1.i.us = phi i8 [ %.057.i118.us, %103 ], [ %spec.select72.i.us, %106 ]
+  %.1.i.us = phi i8 [ %.057.i116.us, %103 ], [ %spec.select72.i.us, %106 ]
   %112 = trunc nuw i8 %.1.i.us to i1
-  %brmerge.i.us = or i1 %.056.not.i119.us, %112
-  br i1 %brmerge.i.us, label %113, label %.split123.us
+  %brmerge.i.us = or i1 %.056.not.i117.us, %112
+  br i1 %brmerge.i.us, label %113, label %.split121.us
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %12, align 8
   %115 = call i32 @tvb_reported_length(ptr noundef %114) #14
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.split126.us, label %117
+  br i1 %116, label %.split123.us, label %117
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %12, align 8
@@ -2223,27 +2223,27 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   br i1 %.not69.i.us, label %.split.us, label %.thread, !llvm.loop !12
 
 .split:                                           ; preds = %94, %150
-  %.056.not.i119 = phi i1 [ true, %150 ], [ false, %94 ]
-  %.057.i118 = phi i8 [ %spec.select73.i, %150 ], [ 1, %94 ]
-  %.058.i117 = phi i32 [ %123, %150 ], [ %.082, %94 ]
-  %123 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i117, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %98, i32 noundef 0)
+  %.056.not.i117 = phi i1 [ true, %150 ], [ false, %94 ]
+  %.057.i116 = phi i8 [ %spec.select73.i, %150 ], [ 1, %94 ]
+  %.058.i115 = phi i32 [ %123, %150 ], [ %.082, %94 ]
+  %123 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i115, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %98, i32 noundef 0)
   %124 = load ptr, ptr %12, align 8
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.split121.us, label %126
+  br i1 %125, label %.split119.us, label %126
 
-.split121.us:                                     ; preds = %.split, %.split.us
+.split119.us:                                     ; preds = %.split, %.split.us
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
 126:                                              ; preds = %.split
   %127 = sub i32 %123, %.082
   %.not70.i = icmp ult i32 %127, %81
-  %spec.select73.i = select i1 %.not70.i, i8 %.057.i118, i8 0
+  %spec.select73.i = select i1 %.not70.i, i8 %.057.i116, i8 0
   %128 = trunc nuw i8 %spec.select73.i to i1
-  %brmerge.i = or i1 %.056.not.i119, %128
-  br i1 %brmerge.i, label %147, label %.split123.us
+  %brmerge.i = or i1 %.056.not.i117, %128
+  br i1 %brmerge.i, label %147, label %.split121.us
 
-.split123.us:                                     ; preds = %126, %111
+.split121.us:                                     ; preds = %126, %111
   %.us-phi = phi i32 [ %.2.i.us, %111 ], [ %123, %126 ]
   %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.082) #14
   %130 = lshr i8 %129, 6
@@ -2254,9 +2254,9 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %134 = icmp eq i8 %132, 31
   br i1 %134, label %.preheader.i, label %get_ber_identifier.exit
 
-.preheader.i:                                     ; preds = %.split123.us, %137
-  %.129.i.in = phi i32 [ %.129.i, %137 ], [ %.082, %.split123.us ]
-  %.1.i99 = phi i32 [ %142, %137 ], [ 0, %.split123.us ]
+.preheader.i:                                     ; preds = %.split121.us, %137
+  %.129.i.in = phi i32 [ %.129.i, %137 ], [ %.082, %.split121.us ]
+  %.1.i99 = phi i32 [ %142, %137 ], [ 0, %.split121.us ]
   %.129.i = add i32 %.129.i.in, 1
   %135 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i) #14
   %136 = icmp sgt i32 %135, 0
@@ -2271,8 +2271,8 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %.not.i100 = icmp sgt i8 %138, -1
   br i1 %.not.i100, label %get_ber_identifier.exit, label %.preheader.i, !llvm.loop !4
 
-get_ber_identifier.exit:                          ; preds = %.preheader.i, %137, %.split123.us
-  %.0.i98 = phi i32 [ %133, %.split123.us ], [ %142, %137 ], [ %.1.i99, %.preheader.i ]
+get_ber_identifier.exit:                          ; preds = %.preheader.i, %137, %.split121.us
+  %.0.i98 = phi i32 [ %133, %.split121.us ], [ %142, %137 ], [ %.1.i99, %.preheader.i ]
   store i8 %130, ptr @last_class, align 1
   store i8 %.lobit.i, ptr @last_pc, align 1
   store i32 %.0.i98, ptr @last_tag, align 4
@@ -2288,9 +2288,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %137,
 147:                                              ; preds = %126
   %148 = call i32 @tvb_reported_length(ptr noundef nonnull %124) #14
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.split126.us, label %150
+  br i1 %149, label %.split123.us, label %150
 
-.split126.us:                                     ; preds = %147, %113
+.split123.us:                                     ; preds = %147, %113
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
@@ -2309,15 +2309,15 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %137,
   br label %170
 
 .thread:                                          ; preds = %150, %117
-  %.us-phi127 = phi ptr [ %122, %117 ], [ %155, %150 ]
-  %.us-phi128 = phi i32 [ %.2.i.us, %117 ], [ %123, %150 ]
-  %158 = load ptr, ptr %.us-phi127, align 8
+  %.us-phi124 = phi ptr [ %122, %117 ], [ %155, %150 ]
+  %.us-phi125 = phi i32 [ %.2.i.us, %117 ], [ %123, %150 ]
+  %158 = load ptr, ptr %.us-phi124, align 8
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %170, label %159
 
 159:                                              ; preds = %.thread
   %160 = load ptr, ptr %12, align 8
-  %161 = getelementptr inbounds i8, ptr %.us-phi127, i64 56
+  %161 = getelementptr inbounds i8, ptr %.us-phi124, i64 56
   %162 = load ptr, ptr %161, align 8
   %163 = call ptr @tvb_new_chain(ptr noundef %160, ptr noundef %162) #14
   %164 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %163, i32 noundef 0, i32 noundef -1, i32 noundef 0) #14
@@ -2327,11 +2327,11 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %137,
   %167 = load ptr, ptr %95, align 8
   call void @add_new_data_source(ptr noundef %167, ptr noundef %163, ptr noundef nonnull @.str.340) #14
   %168 = load ptr, ptr %95, align 8
-  %169 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %.us-phi127, ptr noundef nonnull @octet_string_frag_items, ptr noundef %166, ptr noundef %168, ptr noundef %163, ptr noundef nonnull %13) #14
+  %169 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %.us-phi124, ptr noundef nonnull @octet_string_frag_items, ptr noundef %166, ptr noundef %168, ptr noundef %163, ptr noundef nonnull %13) #14
   br label %170
 
 170:                                              ; preds = %156, %159, %.thread
-  %.159.i107 = phi i32 [ %.us-phi128, %159 ], [ %.us-phi128, %.thread ], [ %.us-phi, %156 ]
+  %.159.i107 = phi i32 [ %.us-phi125, %159 ], [ %.us-phi125, %.thread ], [ %.us-phi, %156 ]
   %.162.i = phi ptr [ %163, %159 ], [ null, %.thread ], [ %157, %156 ]
   br i1 %.not, label %172, label %171
 
@@ -4449,12 +4449,12 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %.not, label %191, label %.outer129._crit_edge.thread
 
 .outer129._crit_edge.thread:                      ; preds = %.split.us, %.outer129._crit_edge
-  %.0106.ph.lcssa142259 = phi i32 [ %.0106.ph.lcssa142, %.outer129._crit_edge ], [ %.0106.ph205, %.split.us ]
+  %.0106.ph.lcssa142253 = phi i32 [ %.0106.ph.lcssa142, %.outer129._crit_edge ], [ %.0106.ph205, %.split.us ]
   store i32 -1, ptr %7, align 4
   br label %191
 
 191:                                              ; preds = %.outer129._crit_edge, %.outer129._crit_edge.thread, %175, %183, %178, %46, %15
-  %.0102 = phi i32 [ %3, %15 ], [ %39, %46 ], [ %39, %178 ], [ %39, %183 ], [ %39, %175 ], [ %.0106.ph.lcssa142259, %.outer129._crit_edge.thread ], [ %.0106.ph.lcssa142, %.outer129._crit_edge ]
+  %.0102 = phi i32 [ %3, %15 ], [ %39, %46 ], [ %39, %178 ], [ %39, %183 ], [ %39, %175 ], [ %.0106.ph.lcssa142253, %.outer129._crit_edge.thread ], [ %.0106.ph.lcssa142, %.outer129._crit_edge ]
   ret i32 %.0102
 }
 

@@ -477,7 +477,7 @@ for.end:                                          ; preds = %for.inc
   %7 = load ptr, ptr %parent, align 8
   %call24 = tail call i32 %.pre(ptr noundef %7, i32 noundef %add, i1 noundef zeroext true) #11
   %cmp25 = icmp slt i32 %call24, 0
-  br i1 %cmp25, label %if.then27, label %for.cond29.preheader
+  br i1 %cmp25, label %if.then27, label %for.body32.lr.ph
 
 for.end.thread:                                   ; preds = %for.cond.preheader
   %parent124 = getelementptr inbounds i8, ptr %call.i47, i64 40
@@ -486,10 +486,7 @@ for.end.thread:                                   ; preds = %for.cond.preheader
   %cmp25126 = icmp slt i32 %call24125, 0
   br i1 %cmp25126, label %if.then27, label %return
 
-for.cond29.preheader:                             ; preds = %for.end
-  br i1 %cmp103, label %for.body32.lr.ph, label %return
-
-for.body32.lr.ph:                                 ; preds = %for.cond29.preheader
+for.body32.lr.ph:                                 ; preds = %for.end
   %max_queue_pairs38 = getelementptr inbounds i8, ptr %call.i50, i64 8948
   %fd.i = getelementptr inbounds i8, ptr %file.i, i64 4
   br label %for.body32
@@ -813,8 +810,8 @@ if.then73:                                        ; preds = %while.end
   %call75 = call i32 @fflush(ptr noundef %46)
   br label %return
 
-return:                                           ; preds = %for.inc57, %for.end.thread, %for.cond29.preheader, %if.then27, %if.then73, %while.end, %if.then10
-  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call24128, %if.then27 ], [ %r.1, %if.then73 ], [ %r.1, %while.end ], [ 0, %for.cond29.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
+return:                                           ; preds = %for.inc57, %for.end.thread, %if.then27, %if.then73, %while.end, %if.then10
+  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call24128, %if.then27 ], [ %r.1, %if.then73 ], [ %r.1, %while.end ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
   ret i32 %retval.0
 }
 

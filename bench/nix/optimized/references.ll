@@ -1721,12 +1721,12 @@ define internal void @_ZN3nixL42gtest_referencesRewriteTest_EvalGenerator_Ev(ptr
 .thread:                                          ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread97
+  br label %.thread96
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %9, i64 64
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA4_KcSB_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 1 dereferenceable(4) @.str.18, ptr noundef nonnull align 1 dereferenceable(4) @.str.19)
-          to label %24 unwind label %.thread97.loopexit
+          to label %24 unwind label %.thread96.loopexit
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %6, i64 72
@@ -2123,11 +2123,11 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit78:
           cleanup
   br label %187
 
-.thread97.loopexit:                               ; preds = %22
+.thread96.loopexit:                               ; preds = %22
   %157 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #25
-  br label %.thread97
+  br label %.thread96
 
 158:                                              ; preds = %34
   %159 = landingpad { ptr, i32 }
@@ -2233,10 +2233,10 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit78:
   br i1 %184, label %185, label %181
 
 185:                                              ; preds = %181
-  br i1 %.230, label %.thread97, label %186
+  br i1 %.230, label %.thread96, label %186
 
-.thread97:                                        ; preds = %.thread97.loopexit, %.thread, %185
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn101 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %21, %.thread ], [ %157, %.thread97.loopexit ]
+.thread96:                                        ; preds = %.thread96.loopexit, %.thread, %185
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn99 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %21, %.thread ], [ %157, %.thread96.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   br label %187
 
@@ -2244,8 +2244,8 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit78:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   br label %188
 
-187:                                              ; preds = %.thread97, %155
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn101, %.thread97 ]
+187:                                              ; preds = %.thread96, %155
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn99, %.thread96 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %188
@@ -2296,12 +2296,12 @@ define internal void @_ZN3nixL45gtest_referencesRewriteTest_EvalGenerateName_B5c
 .thread:                                          ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread94
+  br label %.thread93
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %11, i64 64
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA4_KcSB_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 1 dereferenceable(4) @.str.18, ptr noundef nonnull align 1 dereferenceable(4) @.str.19)
-          to label %28 unwind label %.thread94.loopexit
+          to label %28 unwind label %.thread93.loopexit
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %8, i64 72
@@ -2686,11 +2686,11 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit75:
           cleanup
   br label %186
 
-.thread94.loopexit:                               ; preds = %26
+.thread93.loopexit:                               ; preds = %26
   %159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #25
-  br label %.thread94
+  br label %.thread93
 
 160:                                              ; preds = %38
   %161 = landingpad { ptr, i32 }
@@ -2782,10 +2782,10 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit75:
   br i1 %183, label %184, label %180
 
 184:                                              ; preds = %180
-  br i1 %.230, label %.thread94, label %185
+  br i1 %.230, label %.thread93, label %185
 
-.thread94:                                        ; preds = %.thread94.loopexit, %.thread, %184
-  %.pn.pn.pn.pn.pn.pn.pn.pn98 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %25, %.thread ], [ %159, %.thread94.loopexit ]
+.thread93:                                        ; preds = %.thread93.loopexit, %.thread, %184
+  %.pn.pn.pn.pn.pn.pn.pn.pn96 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %25, %.thread ], [ %159, %.thread93.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   br label %186
 
@@ -2793,8 +2793,8 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit75:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   br label %187
 
-186:                                              ; preds = %.thread94, %157
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %158, %157 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn98, %.thread94 ]
+186:                                              ; preds = %.thread93, %157
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %158, %157 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn96, %.thread93 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   br label %187

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @FSE_normalizeCount.rtbTable = internal unnamed_addr constant [8 x i32] [i32 0, i32 473195, i32 504333, i32 520860, i32 550000, i32 700000, i32 750000, i32 830000], align 16
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = shl nuw i32 1, %3
   %8 = add i32 %7, -1
@@ -51,7 +51,6 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %35 = getelementptr inbounds i16, ptr %4, i64 %34
   store i16 %33, ptr %35, align 2
   %36 = zext i32 %7 to i64
-  %37 = getelementptr inbounds i8, ptr %20, i64 %36
   br label %.preheader173
 
 .lr.ph.preheader:                                 ; preds = %28
@@ -59,72 +58,70 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %wide.trip.count = zext i32 %umax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.0147179 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %53 ]
-  %38 = add nsw i64 %indvars.iv, -1
-  %39 = getelementptr inbounds i16, ptr %1, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = icmp eq i16 %40, -1
-  %42 = getelementptr inbounds i16, ptr %4, i64 %38
-  %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
-  br i1 %41, label %45, label %51
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
+  %.0147179 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %52 ]
+  %37 = add nsw i64 %indvars.iv, -1
+  %38 = getelementptr inbounds i16, ptr %1, i64 %37
+  %39 = load i16, ptr %38, align 2
+  %40 = icmp eq i16 %39, -1
+  %41 = getelementptr inbounds i16, ptr %4, i64 %37
+  %42 = load i16, ptr %41, align 2
+  %43 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
+  br i1 %40, label %44, label %50
 
-45:                                               ; preds = %.lr.ph
-  %46 = add i16 %43, 1
-  store i16 %46, ptr %44, align 2
-  %47 = trunc i64 %38 to i8
-  %48 = add i32 %.0147179, -1
-  %49 = zext i32 %.0147179 to i64
-  %50 = getelementptr inbounds i8, ptr %20, i64 %49
-  store i8 %47, ptr %50, align 1
-  br label %53
+44:                                               ; preds = %.lr.ph
+  %45 = add i16 %42, 1
+  store i16 %45, ptr %43, align 2
+  %46 = trunc i64 %37 to i8
+  %47 = add i32 %.0147179, -1
+  %48 = zext i32 %.0147179 to i64
+  %49 = getelementptr inbounds i8, ptr %20, i64 %48
+  store i8 %46, ptr %49, align 1
+  br label %52
 
-51:                                               ; preds = %.lr.ph
-  %52 = add i16 %43, %40
-  store i16 %52, ptr %44, align 2
-  br label %53
+50:                                               ; preds = %.lr.ph
+  %51 = add i16 %42, %39
+  store i16 %51, ptr %43, align 2
+  br label %52
 
-53:                                               ; preds = %45, %51
-  %.1 = phi i32 [ %48, %45 ], [ %.0147179, %51 ]
+52:                                               ; preds = %44, %50
+  %.1 = phi i32 [ %47, %44 ], [ %.0147179, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %53
-  %54 = trunc i32 %7 to i16
-  %55 = add i16 %54, 1
-  %56 = zext i32 %17 to i64
-  %57 = getelementptr inbounds i16, ptr %4, i64 %56
-  store i16 %55, ptr %57, align 2
-  %58 = icmp eq i32 %.1, %8
-  br i1 %58, label %59, label %.preheader175
+._crit_edge:                                      ; preds = %52
+  %53 = trunc i32 %7 to i16
+  %54 = add i16 %53, 1
+  %55 = zext i32 %17 to i64
+  %56 = getelementptr inbounds i16, ptr %4, i64 %55
+  store i16 %54, ptr %56, align 2
+  %57 = icmp eq i32 %.1, %8
+  br i1 %57, label %58, label %.lr.ph188
 
-.preheader175:                                    ; preds = %._crit_edge
-  br i1 %.not170177, label %.loopexit174, label %.lr.ph188
+58:                                               ; preds = %._crit_edge
+  %59 = zext i32 %7 to i64
+  %60 = getelementptr inbounds i8, ptr %20, i64 %59
+  br label %.lr.ph197
 
-59:                                               ; preds = %._crit_edge
-  %60 = zext i32 %7 to i64
-  %61 = getelementptr inbounds i8, ptr %20, i64 %60
-  br i1 %.not170177, label %.preheader173, label %.lr.ph197
-
-.preheader173:                                    ; preds = %._crit_edge192, %.thread, %59
-  %62 = phi ptr [ %37, %.thread ], [ %61, %59 ], [ %61, %._crit_edge192 ]
-  %63 = phi i64 [ %36, %.thread ], [ %60, %59 ], [ %60, %._crit_edge192 ]
-  %64 = zext nneg i32 %16 to i64
-  %65 = zext nneg i32 %8 to i64
-  %66 = shl nuw i32 %16, 1
-  %67 = zext i32 %66 to i64
+.preheader173:                                    ; preds = %._crit_edge192, %.thread
+  %61 = phi i64 [ %36, %.thread ], [ %59, %._crit_edge192 ]
+  %62 = zext nneg i32 %16 to i64
+  %63 = zext nneg i32 %8 to i64
+  %64 = shl nuw i32 %16, 1
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %20, i64 %61
+  %67 = getelementptr inbounds i8, ptr %20, i64 %61
   br label %.preheader172
 
-.lr.ph197:                                        ; preds = %59, %._crit_edge192
-  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %._crit_edge192 ], [ 0, %59 ]
-  %.0153195 = phi i64 [ %76, %._crit_edge192 ], [ 0, %59 ]
-  %.0158194 = phi i64 [ %77, %._crit_edge192 ], [ 0, %59 ]
+.lr.ph197:                                        ; preds = %58, %._crit_edge192
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %._crit_edge192 ], [ 0, %58 ]
+  %.0153195 = phi i64 [ %76, %._crit_edge192 ], [ 0, %58 ]
+  %.0158194 = phi i64 [ %77, %._crit_edge192 ], [ 0, %58 ]
   %68 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv217
   %69 = load i16, ptr %68, align 2
-  %70 = getelementptr inbounds i8, ptr %61, i64 %.0153195
+  %70 = getelementptr inbounds i8, ptr %60, i64 %.0153195
   store i64 %.0158194, ptr %70, align 1
   %71 = icmp sgt i16 %69, 8
   br i1 %71, label %.lr.ph191.preheader, label %._crit_edge192
@@ -146,33 +143,33 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %76 = add i64 %.0153195, %75
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %77 = add i64 %.0158194, 72340172838076673
-  %exitcond221.not = icmp eq i64 %indvars.iv.next218, %56
+  %exitcond221.not = icmp eq i64 %indvars.iv.next218, %55
   br i1 %exitcond221.not, label %.preheader173, label %.lr.ph197, !llvm.loop !8
 
 .preheader172:                                    ; preds = %.preheader173, %.preheader172
   %.0161200 = phi i64 [ 0, %.preheader173 ], [ %90, %.preheader172 ]
   %.0162199 = phi i64 [ 0, %.preheader173 ], [ %89, %.preheader172 ]
-  %78 = and i64 %.0162199, %65
-  %79 = getelementptr inbounds i8, ptr %62, i64 %.0161200
+  %78 = and i64 %.0162199, %63
+  %79 = getelementptr inbounds i8, ptr %66, i64 %.0161200
   %80 = load i8, ptr %79, align 1
   %81 = getelementptr inbounds i8, ptr %20, i64 %78
   store i8 %80, ptr %81, align 1
-  %82 = add nuw nsw i64 %.0162199, %64
-  %83 = and i64 %82, %65
+  %82 = add nuw nsw i64 %.0162199, %62
+  %83 = and i64 %82, %63
   %84 = or disjoint i64 %.0161200, 1
-  %85 = getelementptr inbounds i8, ptr %62, i64 %84
+  %85 = getelementptr inbounds i8, ptr %67, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds i8, ptr %20, i64 %83
   store i8 %86, ptr %87, align 1
-  %88 = add nuw nsw i64 %.0162199, %67
-  %89 = and i64 %88, %65
+  %88 = add nuw nsw i64 %.0162199, %65
+  %89 = and i64 %88, %63
   %90 = add nuw nsw i64 %.0161200, 2
-  %91 = icmp ult i64 %90, %63
+  %91 = icmp ult i64 %90, %61
   br i1 %91, label %.preheader172, label %.loopexit174, !llvm.loop !9
 
-.lr.ph188:                                        ; preds = %.preheader175, %._crit_edge184
-  %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %.preheader175 ]
-  %.0156186 = phi i32 [ %.1157.lcssa, %._crit_edge184 ], [ 0, %.preheader175 ]
+.lr.ph188:                                        ; preds = %._crit_edge, %._crit_edge184
+  %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %._crit_edge ]
+  %.0156186 = phi i32 [ %.1157.lcssa, %._crit_edge184 ], [ 0, %._crit_edge ]
   %92 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv209
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i32
@@ -206,10 +203,10 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 ._crit_edge184:                                   ; preds = %102, %.lr.ph188
   %.1157.lcssa = phi i32 [ %.0156186, %.lr.ph188 ], [ %.2, %102 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %56
+  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %55
   br i1 %exitcond213.not, label %.loopexit174, label %.lr.ph188, !llvm.loop !12
 
-.loopexit174:                                     ; preds = %._crit_edge184, %.preheader172, %.preheader175
+.loopexit174:                                     ; preds = %._crit_edge184, %.preheader172
   %wide.trip.count226 = zext i32 %7 to i64
   br label %108
 
@@ -643,7 +640,7 @@ define dso_local range(i32 1, 0) i32 @FSE_optimalTableLog(i32 noundef %0, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %7, i32 11, i32 %1
   %8 = icmp ult i32 %spec.store.select, 5
@@ -992,7 +989,7 @@ FSE_normalizeM2.exit.thread:                      ; preds = %30, %171, %184, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 0, ptr %0, align 2
@@ -1442,26 +1439,27 @@ define dso_local noundef i64 @FSE_compressBound(i64 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #5
+declare i16 @llvm.umax.i16(i16, i16) #6
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

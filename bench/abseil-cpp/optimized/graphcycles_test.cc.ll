@@ -879,7 +879,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %ehcleanup805
 
-lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.end798, %sw.bb596, %if.else15.i.i.i655, %if.then.i.i.i633, %if.else15.i.i.i618, %if.then.i.i.i596, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, %if.end.i.i501, %if.then.i.i502, %if.else15.i.i.i473, %if.then.i.i.i451, %if.else15.i.i.i394, %if.then.i.i.i372, %if.else15.i.i.i357, %if.then.i.i.i335, %cleanup.cont166, %if.end.i.i281, %if.then.i.i282, %if.else15.i.i.i, %if.then.i.i.i244, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %if.end.i.i198, %if.then.i.i199, %if.else.i, %if.then.i, %if.then.i.i162, %invoke.cont614, %if.then613, %invoke.cont379, %invoke.cont374, %invoke.cont369, %invoke.cont355, %invoke.cont352, %cleanup.cont349, %if.then219, %invoke.cont213, %invoke.cont208, %if.then204, %invoke.cont139, %invoke.cont124, %invoke.cont84, %cleanup.cont82, %if.then50, %invoke.cont44, %for.end
+lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.end798, %sw.bb596, %invoke.cont366.thread1192, %if.then.i.i.i633, %if.else15.i.i.i618, %if.then.i.i.i596, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552, %_ZN4absl24synchronization_internalL9EdgeIndexEPSt6vectorINS0_4EdgeESaIS2_EEii.exit552.thread, %if.end.i.i501, %if.then.i.i502, %if.else15.i.i.i473, %if.then.i.i.i451, %invoke.cont192.thread1185, %if.then.i.i.i372, %if.else15.i.i.i357, %if.then.i.i.i335, %cleanup.cont166, %if.end.i.i281, %if.then.i.i282, %if.else15.i.i.i, %if.then.i.i.i244, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %if.end.i.i198, %if.then.i.i199, %if.else.i, %if.then.i, %if.then.i.i162, %invoke.cont614, %if.then613, %invoke.cont379, %invoke.cont374, %invoke.cont369, %invoke.cont355, %invoke.cont352, %cleanup.cont349, %if.then219, %invoke.cont213, %invoke.cont208, %if.then204, %invoke.cont139, %invoke.cont124, %invoke.cont84, %cleanup.cont82, %if.then50, %invoke.cont44, %for.end
   %lpad.loopexit1234 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup805
@@ -1708,7 +1708,12 @@ call4.i.i.i.i.noexc360:                           ; preds = %while.body.i.i.i.i3
 
 if.else15.i.i.i357:                               ; preds = %if.then190
   %call16.i.i.i363 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
-          to label %if.else15.i.i.i394 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont192.thread1185 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+invoke.cont192.thread1185:                        ; preds = %if.else15.i.i.i357
+  %88 = trunc i64 %call16.i.i.i363 to i32
+  %call16.i.i.i400 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
+          to label %invoke.cont195 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont192:                                   ; preds = %call4.i.i.i.i.noexc360
   %extract1414 = lshr i128 %mul7.i.i.i.i351, 64
@@ -1751,14 +1756,9 @@ while.cond.if.end.loopexit_crit_edge.i.i.i.i391:  ; preds = %call4.i.i.i.i.noexc
   %extract.t14.le.i.i.i.i393 = trunc nuw i128 %extract13.le.i.i.i.i392 to i64
   br label %invoke.cont195
 
-if.else15.i.i.i394:                               ; preds = %if.else15.i.i.i357
-  %88 = trunc i64 %call16.i.i.i363 to i32
-  %call16.i.i.i400 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
-          to label %invoke.cont195 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-invoke.cont195:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i391, %if.then.i.i.i.i382, %call.i.i.i.i.noexc395, %if.else15.i.i.i394
-  %89 = phi i32 [ %extract13.le.i.i.i.i355.sink.in.off64, %call.i.i.i.i.noexc395 ], [ %extract13.le.i.i.i.i355.sink.in.off64, %while.cond.if.end.loopexit_crit_edge.i.i.i.i391 ], [ %extract13.le.i.i.i.i355.sink.in.off64, %if.then.i.i.i.i382 ], [ %88, %if.else15.i.i.i394 ]
-  %__ret.0.i.i.i381 = phi i64 [ %extract.t10.i.i.i.i380, %call.i.i.i.i.noexc395 ], [ %extract.t14.le.i.i.i.i393, %while.cond.if.end.loopexit_crit_edge.i.i.i.i391 ], [ %extract.t10.i.i.i.i380, %if.then.i.i.i.i382 ], [ %call16.i.i.i400, %if.else15.i.i.i394 ]
+invoke.cont195:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i391, %if.then.i.i.i.i382, %call.i.i.i.i.noexc395, %invoke.cont192.thread1185
+  %89 = phi i32 [ %extract13.le.i.i.i.i355.sink.in.off64, %call.i.i.i.i.noexc395 ], [ %extract13.le.i.i.i.i355.sink.in.off64, %while.cond.if.end.loopexit_crit_edge.i.i.i.i391 ], [ %extract13.le.i.i.i.i355.sink.in.off64, %if.then.i.i.i.i382 ], [ %88, %invoke.cont192.thread1185 ]
+  %__ret.0.i.i.i381 = phi i64 [ %extract.t10.i.i.i.i380, %call.i.i.i.i.noexc395 ], [ %extract.t14.le.i.i.i.i393, %while.cond.if.end.loopexit_crit_edge.i.i.i.i391 ], [ %extract.t10.i.i.i.i380, %if.then.i.i.i.i382 ], [ %call16.i.i.i400, %invoke.cont192.thread1185 ]
   %conv197 = sext i32 %89 to i64
   %add.ptr.i402 = getelementptr inbounds i32, ptr %2, i64 %conv197
   %90 = load i32, ptr %add.ptr.i402, align 4
@@ -2393,7 +2393,12 @@ call4.i.i.i.i.noexc621:                           ; preds = %while.body.i.i.i.i6
 
 if.else15.i.i.i618:                               ; preds = %if.then364
   %call16.i.i.i624 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
-          to label %if.else15.i.i.i655 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont366.thread1192 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+invoke.cont366.thread1192:                        ; preds = %if.else15.i.i.i618
+  %156 = trunc i64 %call16.i.i.i624 to i32
+  %call16.i.i.i661 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
+          to label %invoke.cont369 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont366:                                   ; preds = %call4.i.i.i.i.noexc621
   %extract = lshr i128 %mul7.i.i.i.i612, 64
@@ -2436,14 +2441,9 @@ while.cond.if.end.loopexit_crit_edge.i.i.i.i652:  ; preds = %call4.i.i.i.i.noexc
   %extract.t14.le.i.i.i.i654 = trunc nuw i128 %extract13.le.i.i.i.i653 to i64
   br label %invoke.cont369
 
-if.else15.i.i.i655:                               ; preds = %if.else15.i.i.i618
-  %156 = trunc i64 %call16.i.i.i624 to i32
-  %call16.i.i.i661 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)
-          to label %invoke.cont369 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-invoke.cont369:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i652, %if.then.i.i.i.i643, %call.i.i.i.i.noexc656, %if.else15.i.i.i655
-  %157 = phi i32 [ %extract13.le.i.i.i.i616.sink.in.off64, %call.i.i.i.i.noexc656 ], [ %extract13.le.i.i.i.i616.sink.in.off64, %while.cond.if.end.loopexit_crit_edge.i.i.i.i652 ], [ %extract13.le.i.i.i.i616.sink.in.off64, %if.then.i.i.i.i643 ], [ %156, %if.else15.i.i.i655 ]
-  %__ret.0.i.i.i642 = phi i64 [ %extract.t10.i.i.i.i641, %call.i.i.i.i.noexc656 ], [ %extract.t14.le.i.i.i.i654, %while.cond.if.end.loopexit_crit_edge.i.i.i.i652 ], [ %extract.t10.i.i.i.i641, %if.then.i.i.i.i643 ], [ %call16.i.i.i661, %if.else15.i.i.i655 ]
+invoke.cont369:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i652, %if.then.i.i.i.i643, %call.i.i.i.i.noexc656, %invoke.cont366.thread1192
+  %157 = phi i32 [ %extract13.le.i.i.i.i616.sink.in.off64, %call.i.i.i.i.noexc656 ], [ %extract13.le.i.i.i.i616.sink.in.off64, %while.cond.if.end.loopexit_crit_edge.i.i.i.i652 ], [ %extract13.le.i.i.i.i616.sink.in.off64, %if.then.i.i.i.i643 ], [ %156, %invoke.cont366.thread1192 ]
+  %__ret.0.i.i.i642 = phi i64 [ %extract.t10.i.i.i.i641, %call.i.i.i.i.noexc656 ], [ %extract.t14.le.i.i.i.i654, %while.cond.if.end.loopexit_crit_edge.i.i.i.i652 ], [ %extract.t10.i.i.i.i641, %if.then.i.i.i.i643 ], [ %call16.i.i.i661, %invoke.cont366.thread1192 ]
   %conv372 = sext i32 %157 to i64
   %add.ptr.i663 = getelementptr inbounds i32, ptr %2, i64 %conv372
   %call375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i663)
@@ -5382,26 +5382,26 @@ while.body.i.i.i.i.i:                             ; preds = %for.body, %while.bo
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp slt i32 %storemerge89, %2
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, %mul
@@ -5549,26 +5549,26 @@ while.body.i.i.i.i.i20:                           ; preds = %_ZN7testing15Assert
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30: ; preds = %while.body.i.i.i.i.i20
   %cmp.i.i.i.i.i31 = icmp eq ptr %__y.addr.1.i.i.i.i.i25, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i31, label %while.body.i.i.i.i4.preheader.i38, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32
+  br i1 %cmp.i.i.i.i.i31, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30
   %_M_storage.i.i.i3.i.i.i.i33 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i25, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i33, align 4
   %cmp.i4.i.i.i.i34 = icmp slt i32 %storemerge89, %16
-  br i1 %cmp.i4.i.i.i.i34, label %while.body.i.i.i.i4.preheader.i38, label %cond.false.i.i35
+  br i1 %cmp.i4.i.i.i.i34, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38, label %cond.false.i.i35
 
 cond.false.i.i35:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32
   %second.i.i36 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i25, i64 40
   %retval.sroa.0.0.copyload.i.i37 = load i64, ptr %second.i.i36, align 8
-  br label %while.body.i.i.i.i4.preheader.i38
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38
 
-while.body.i.i.i.i4.preheader.i38:                ; preds = %cond.false.i.i35, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38: ; preds = %cond.false.i.i35, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30
   %retval.sroa.0.0.i.i39 = phi i64 [ %retval.sroa.0.0.copyload.i.i37, %cond.false.i.i35 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30 ]
   br label %while.body.i.i.i.i4.i40
 
-while.body.i.i.i.i4.i40:                          ; preds = %while.body.i.i.i.i4.i40, %while.body.i.i.i.i4.preheader.i38
-  %__x.addr.07.i.i.i.i5.i41 = phi ptr [ %__x.addr.1.i.i.i.i12.i48, %while.body.i.i.i.i4.i40 ], [ %14, %while.body.i.i.i.i4.preheader.i38 ]
-  %__y.addr.06.i.i.i.i6.i42 = phi ptr [ %__y.addr.1.i.i.i.i9.i45, %while.body.i.i.i.i4.i40 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i38 ]
+while.body.i.i.i.i4.i40:                          ; preds = %while.body.i.i.i.i4.i40, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38
+  %__x.addr.07.i.i.i.i5.i41 = phi ptr [ %__x.addr.1.i.i.i.i12.i48, %while.body.i.i.i.i4.i40 ], [ %14, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38 ]
+  %__y.addr.06.i.i.i.i6.i42 = phi ptr [ %__y.addr.1.i.i.i.i9.i45, %while.body.i.i.i.i4.i40 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i38 ]
   %_M_storage.i.i.i.i.i.i7.i43 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i41, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i43, align 4
   %cmp.i.i.i.i.i8.i44 = icmp slt i32 %17, %mul19
@@ -5765,26 +5765,26 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp sgt i32 %2, 8
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, 4
@@ -6085,26 +6085,26 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i7.preheader, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
+  br i1 %cmp.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
   %cmp.i4.i.i.i = icmp slt i32 %x, %2
-  br i1 %cmp.i4.i.i.i, label %while.body.i.i.i.i7.preheader, label %cond.false.i
+  br i1 %cmp.i4.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i = load i64, ptr %second.i, align 8
-  br label %while.body.i.i.i.i7.preheader
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit
 
-while.body.i.i.i.i7.preheader:                    ; preds = %cond.false.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i, %cond.false.i
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
   br label %while.body.i.i.i.i7
 
-while.body.i.i.i.i7:                              ; preds = %while.body.i.i.i.i7.preheader, %while.body.i.i.i.i7
-  %__x.addr.07.i.i.i.i8 = phi ptr [ %__x.addr.1.i.i.i.i15, %while.body.i.i.i.i7 ], [ %0, %while.body.i.i.i.i7.preheader ]
-  %__y.addr.06.i.i.i.i9 = phi ptr [ %__y.addr.1.i.i.i.i12, %while.body.i.i.i.i7 ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i7.preheader ]
+while.body.i.i.i.i7:                              ; preds = %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, %while.body.i.i.i.i7
+  %__x.addr.07.i.i.i.i8 = phi ptr [ %__x.addr.1.i.i.i.i15, %while.body.i.i.i.i7 ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit ]
+  %__y.addr.06.i.i.i.i9 = phi ptr [ %__y.addr.1.i.i.i.i12, %while.body.i.i.i.i7 ], [ %add.ptr.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit ]
   %_M_storage.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i8, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i10, align 4
   %cmp.i.i.i.i.i11 = icmp slt i32 %3, %y
@@ -6235,26 +6235,26 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp sgt i32 %2, 16
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, 9
@@ -6418,26 +6418,26 @@ while.body.i.i.i.i.i22:                           ; preds = %_ZN4absl24synchroni
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i32: ; preds = %while.body.i.i.i.i.i22
   %cmp.i.i.i.i.i33 = icmp eq ptr %__y.addr.1.i.i.i.i.i27, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i33, label %while.body.i.i.i.i4.preheader.i40, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34
+  br i1 %cmp.i.i.i.i.i33, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i32
   %_M_storage.i.i.i3.i.i.i.i35 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i27, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i35, align 4
   %cmp.i4.i.i.i.i36 = icmp sgt i32 %16, 9
-  br i1 %cmp.i4.i.i.i.i36, label %while.body.i.i.i.i4.preheader.i40, label %cond.false.i.i37
+  br i1 %cmp.i4.i.i.i.i36, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40, label %cond.false.i.i37
 
 cond.false.i.i37:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34
   %second.i.i38 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i27, i64 40
   %retval.sroa.0.0.copyload.i.i39 = load i64, ptr %second.i.i38, align 8
-  br label %while.body.i.i.i.i4.preheader.i40
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40
 
-while.body.i.i.i.i4.preheader.i40:                ; preds = %cond.false.i.i37, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i32
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40: ; preds = %cond.false.i.i37, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i32
   %retval.sroa.0.0.i.i41 = phi i64 [ %retval.sroa.0.0.copyload.i.i39, %cond.false.i.i37 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i34 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i32 ]
   br label %while.body.i.i.i.i4.i42
 
-while.body.i.i.i.i4.i42:                          ; preds = %while.body.i.i.i.i4.i42, %while.body.i.i.i.i4.preheader.i40
-  %__x.addr.07.i.i.i.i5.i43 = phi ptr [ %__x.addr.1.i.i.i.i12.i50, %while.body.i.i.i.i4.i42 ], [ %14, %while.body.i.i.i.i4.preheader.i40 ]
-  %__y.addr.06.i.i.i.i6.i44 = phi ptr [ %__y.addr.1.i.i.i.i9.i47, %while.body.i.i.i.i4.i42 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i40 ]
+while.body.i.i.i.i4.i42:                          ; preds = %while.body.i.i.i.i4.i42, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40
+  %__x.addr.07.i.i.i.i5.i43 = phi ptr [ %__x.addr.1.i.i.i.i12.i50, %while.body.i.i.i.i4.i42 ], [ %14, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40 ]
+  %__y.addr.06.i.i.i.i6.i44 = phi ptr [ %__y.addr.1.i.i.i.i9.i47, %while.body.i.i.i.i4.i42 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i40 ]
   %_M_storage.i.i.i.i.i.i7.i45 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i43, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i45, align 4
   %cmp.i.i.i.i.i8.i46 = icmp slt i32 %17, 2
@@ -6767,26 +6767,26 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp sgt i32 %2, 2
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, 4
@@ -6928,26 +6928,26 @@ while.body.i.i.i.i.i48:                           ; preds = %cleanup.cont, %whil
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i58: ; preds = %while.body.i.i.i.i.i48
   %cmp.i.i.i.i.i59 = icmp eq ptr %__y.addr.1.i.i.i.i.i53, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i59, label %while.body.i.i.i.i4.preheader.i66, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60
+  br i1 %cmp.i.i.i.i.i59, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i58
   %_M_storage.i.i.i3.i.i.i.i61 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i53, i64 32
   %15 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i61, align 4
   %cmp.i4.i.i.i.i62 = icmp sgt i32 %15, 4
-  br i1 %cmp.i4.i.i.i.i62, label %while.body.i.i.i.i4.preheader.i66, label %cond.false.i.i63
+  br i1 %cmp.i4.i.i.i.i62, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66, label %cond.false.i.i63
 
 cond.false.i.i63:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60
   %second.i.i64 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i53, i64 40
   %retval.sroa.0.0.copyload.i.i65 = load i64, ptr %second.i.i64, align 8
-  br label %while.body.i.i.i.i4.preheader.i66
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66
 
-while.body.i.i.i.i4.preheader.i66:                ; preds = %cond.false.i.i63, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i58
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66: ; preds = %cond.false.i.i63, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i58
   %retval.sroa.0.0.i.i67 = phi i64 [ %retval.sroa.0.0.copyload.i.i65, %cond.false.i.i63 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i60 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i58 ]
   br label %while.body.i.i.i.i4.i68
 
-while.body.i.i.i.i4.i68:                          ; preds = %while.body.i.i.i.i4.i68, %while.body.i.i.i.i4.preheader.i66
-  %__x.addr.07.i.i.i.i5.i69 = phi ptr [ %__x.addr.1.i.i.i.i12.i76, %while.body.i.i.i.i4.i68 ], [ %13, %while.body.i.i.i.i4.preheader.i66 ]
-  %__y.addr.06.i.i.i.i6.i70 = phi ptr [ %__y.addr.1.i.i.i.i9.i73, %while.body.i.i.i.i4.i68 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i66 ]
+while.body.i.i.i.i4.i68:                          ; preds = %while.body.i.i.i.i4.i68, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66
+  %__x.addr.07.i.i.i.i5.i69 = phi ptr [ %__x.addr.1.i.i.i.i12.i76, %while.body.i.i.i.i4.i68 ], [ %13, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66 ]
+  %__y.addr.06.i.i.i.i6.i70 = phi ptr [ %__y.addr.1.i.i.i.i9.i73, %while.body.i.i.i.i4.i68 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i66 ]
   %_M_storage.i.i.i.i.i.i7.i71 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i69, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i71, align 4
   %cmp.i.i.i.i.i8.i72 = icmp slt i32 %16, 6
@@ -7093,26 +7093,26 @@ while.body.i.i.i.i.i111:                          ; preds = %cleanup.cont42, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i121: ; preds = %while.body.i.i.i.i.i111
   %cmp.i.i.i.i.i122 = icmp eq ptr %__y.addr.1.i.i.i.i.i116, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i122, label %while.body.i.i.i.i4.preheader.i129, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123
+  br i1 %cmp.i.i.i.i.i122, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i121
   %_M_storage.i.i.i3.i.i.i.i124 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i116, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i124, align 4
   %cmp.i4.i.i.i.i125 = icmp sgt i32 %28, 6
-  br i1 %cmp.i4.i.i.i.i125, label %while.body.i.i.i.i4.preheader.i129, label %cond.false.i.i126
+  br i1 %cmp.i4.i.i.i.i125, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129, label %cond.false.i.i126
 
 cond.false.i.i126:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123
   %second.i.i127 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i116, i64 40
   %retval.sroa.0.0.copyload.i.i128 = load i64, ptr %second.i.i127, align 8
-  br label %while.body.i.i.i.i4.preheader.i129
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129
 
-while.body.i.i.i.i4.preheader.i129:               ; preds = %cond.false.i.i126, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i121
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129: ; preds = %cond.false.i.i126, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i121
   %retval.sroa.0.0.i.i130 = phi i64 [ %retval.sroa.0.0.copyload.i.i128, %cond.false.i.i126 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i123 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i121 ]
   br label %while.body.i.i.i.i4.i131
 
-while.body.i.i.i.i4.i131:                         ; preds = %while.body.i.i.i.i4.i131, %while.body.i.i.i.i4.preheader.i129
-  %__x.addr.07.i.i.i.i5.i132 = phi ptr [ %__x.addr.1.i.i.i.i12.i139, %while.body.i.i.i.i4.i131 ], [ %26, %while.body.i.i.i.i4.preheader.i129 ]
-  %__y.addr.06.i.i.i.i6.i133 = phi ptr [ %__y.addr.1.i.i.i.i9.i136, %while.body.i.i.i.i4.i131 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i129 ]
+while.body.i.i.i.i4.i131:                         ; preds = %while.body.i.i.i.i4.i131, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129
+  %__x.addr.07.i.i.i.i5.i132 = phi ptr [ %__x.addr.1.i.i.i.i12.i139, %while.body.i.i.i.i4.i131 ], [ %26, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129 ]
+  %__y.addr.06.i.i.i.i6.i133 = phi ptr [ %__y.addr.1.i.i.i.i9.i136, %while.body.i.i.i.i4.i131 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i129 ]
   %_M_storage.i.i.i.i.i.i7.i134 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i132, i64 32
   %29 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i134, align 4
   %cmp.i.i.i.i.i8.i135 = icmp slt i32 %29, 8
@@ -7258,26 +7258,26 @@ while.body.i.i.i.i.i174:                          ; preds = %cleanup.cont70, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i184: ; preds = %while.body.i.i.i.i.i174
   %cmp.i.i.i.i.i185 = icmp eq ptr %__y.addr.1.i.i.i.i.i179, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i185, label %while.body.i.i.i.i4.preheader.i192, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186
+  br i1 %cmp.i.i.i.i.i185, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i184
   %_M_storage.i.i.i3.i.i.i.i187 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i179, i64 32
   %41 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i187, align 4
   %cmp.i4.i.i.i.i188 = icmp sgt i32 %41, 8
-  br i1 %cmp.i4.i.i.i.i188, label %while.body.i.i.i.i4.preheader.i192, label %cond.false.i.i189
+  br i1 %cmp.i4.i.i.i.i188, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192, label %cond.false.i.i189
 
 cond.false.i.i189:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186
   %second.i.i190 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i179, i64 40
   %retval.sroa.0.0.copyload.i.i191 = load i64, ptr %second.i.i190, align 8
-  br label %while.body.i.i.i.i4.preheader.i192
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192
 
-while.body.i.i.i.i4.preheader.i192:               ; preds = %cond.false.i.i189, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i184
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192: ; preds = %cond.false.i.i189, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i184
   %retval.sroa.0.0.i.i193 = phi i64 [ %retval.sroa.0.0.copyload.i.i191, %cond.false.i.i189 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i186 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i184 ]
   br label %while.body.i.i.i.i4.i194
 
-while.body.i.i.i.i4.i194:                         ; preds = %while.body.i.i.i.i4.i194, %while.body.i.i.i.i4.preheader.i192
-  %__x.addr.07.i.i.i.i5.i195 = phi ptr [ %__x.addr.1.i.i.i.i12.i202, %while.body.i.i.i.i4.i194 ], [ %39, %while.body.i.i.i.i4.preheader.i192 ]
-  %__y.addr.06.i.i.i.i6.i196 = phi ptr [ %__y.addr.1.i.i.i.i9.i199, %while.body.i.i.i.i4.i194 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i192 ]
+while.body.i.i.i.i4.i194:                         ; preds = %while.body.i.i.i.i4.i194, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192
+  %__x.addr.07.i.i.i.i5.i195 = phi ptr [ %__x.addr.1.i.i.i.i12.i202, %while.body.i.i.i.i4.i194 ], [ %39, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192 ]
+  %__y.addr.06.i.i.i.i6.i196 = phi ptr [ %__y.addr.1.i.i.i.i9.i199, %while.body.i.i.i.i4.i194 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i192 ]
   %_M_storage.i.i.i.i.i.i7.i197 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i195, i64 32
   %42 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i197, align 4
   %cmp.i.i.i.i.i8.i198 = icmp slt i32 %42, 10
@@ -7423,26 +7423,26 @@ while.body.i.i.i.i.i237:                          ; preds = %cleanup.cont98, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i247: ; preds = %while.body.i.i.i.i.i237
   %cmp.i.i.i.i.i248 = icmp eq ptr %__y.addr.1.i.i.i.i.i242, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i248, label %while.body.i.i.i.i4.preheader.i255, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249
+  br i1 %cmp.i.i.i.i.i248, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i247
   %_M_storage.i.i.i3.i.i.i.i250 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i242, i64 32
   %54 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i250, align 4
   %cmp.i4.i.i.i.i251 = icmp sgt i32 %54, 10
-  br i1 %cmp.i4.i.i.i.i251, label %while.body.i.i.i.i4.preheader.i255, label %cond.false.i.i252
+  br i1 %cmp.i4.i.i.i.i251, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255, label %cond.false.i.i252
 
 cond.false.i.i252:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249
   %second.i.i253 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i242, i64 40
   %retval.sroa.0.0.copyload.i.i254 = load i64, ptr %second.i.i253, align 8
-  br label %while.body.i.i.i.i4.preheader.i255
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255
 
-while.body.i.i.i.i4.preheader.i255:               ; preds = %cond.false.i.i252, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i247
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255: ; preds = %cond.false.i.i252, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i247
   %retval.sroa.0.0.i.i256 = phi i64 [ %retval.sroa.0.0.copyload.i.i254, %cond.false.i.i252 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i249 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i247 ]
   br label %while.body.i.i.i.i4.i257
 
-while.body.i.i.i.i4.i257:                         ; preds = %while.body.i.i.i.i4.i257, %while.body.i.i.i.i4.preheader.i255
-  %__x.addr.07.i.i.i.i5.i258 = phi ptr [ %__x.addr.1.i.i.i.i12.i265, %while.body.i.i.i.i4.i257 ], [ %52, %while.body.i.i.i.i4.preheader.i255 ]
-  %__y.addr.06.i.i.i.i6.i259 = phi ptr [ %__y.addr.1.i.i.i.i9.i262, %while.body.i.i.i.i4.i257 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i255 ]
+while.body.i.i.i.i4.i257:                         ; preds = %while.body.i.i.i.i4.i257, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255
+  %__x.addr.07.i.i.i.i5.i258 = phi ptr [ %__x.addr.1.i.i.i.i12.i265, %while.body.i.i.i.i4.i257 ], [ %52, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255 ]
+  %__y.addr.06.i.i.i.i6.i259 = phi ptr [ %__y.addr.1.i.i.i.i9.i262, %while.body.i.i.i.i4.i257 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i255 ]
   %_M_storage.i.i.i.i.i.i7.i260 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i258, i64 32
   %55 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i260, align 4
   %cmp.i.i.i.i.i8.i261 = icmp slt i32 %55, 12
@@ -7588,26 +7588,26 @@ while.body.i.i.i.i.i300:                          ; preds = %cleanup.cont126, %w
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i310: ; preds = %while.body.i.i.i.i.i300
   %cmp.i.i.i.i.i311 = icmp eq ptr %__y.addr.1.i.i.i.i.i305, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i311, label %while.body.i.i.i.i4.preheader.i318, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312
+  br i1 %cmp.i.i.i.i.i311, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i310
   %_M_storage.i.i.i3.i.i.i.i313 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i305, i64 32
   %67 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i313, align 4
   %cmp.i4.i.i.i.i314 = icmp sgt i32 %67, 12
-  br i1 %cmp.i4.i.i.i.i314, label %while.body.i.i.i.i4.preheader.i318, label %cond.false.i.i315
+  br i1 %cmp.i4.i.i.i.i314, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318, label %cond.false.i.i315
 
 cond.false.i.i315:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312
   %second.i.i316 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i305, i64 40
   %retval.sroa.0.0.copyload.i.i317 = load i64, ptr %second.i.i316, align 8
-  br label %while.body.i.i.i.i4.preheader.i318
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318
 
-while.body.i.i.i.i4.preheader.i318:               ; preds = %cond.false.i.i315, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i310
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318: ; preds = %cond.false.i.i315, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i310
   %retval.sroa.0.0.i.i319 = phi i64 [ %retval.sroa.0.0.copyload.i.i317, %cond.false.i.i315 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i312 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i310 ]
   br label %while.body.i.i.i.i4.i320
 
-while.body.i.i.i.i4.i320:                         ; preds = %while.body.i.i.i.i4.i320, %while.body.i.i.i.i4.preheader.i318
-  %__x.addr.07.i.i.i.i5.i321 = phi ptr [ %__x.addr.1.i.i.i.i12.i328, %while.body.i.i.i.i4.i320 ], [ %65, %while.body.i.i.i.i4.preheader.i318 ]
-  %__y.addr.06.i.i.i.i6.i322 = phi ptr [ %__y.addr.1.i.i.i.i9.i325, %while.body.i.i.i.i4.i320 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i318 ]
+while.body.i.i.i.i4.i320:                         ; preds = %while.body.i.i.i.i4.i320, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318
+  %__x.addr.07.i.i.i.i5.i321 = phi ptr [ %__x.addr.1.i.i.i.i12.i328, %while.body.i.i.i.i4.i320 ], [ %65, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318 ]
+  %__y.addr.06.i.i.i.i6.i322 = phi ptr [ %__y.addr.1.i.i.i.i9.i325, %while.body.i.i.i.i4.i320 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i318 ]
   %_M_storage.i.i.i.i.i.i7.i323 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i321, i64 32
   %68 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i323, align 4
   %cmp.i.i.i.i.i8.i324 = icmp slt i32 %68, 2
@@ -7912,26 +7912,26 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp sgt i32 %2, 1
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, 2
@@ -8068,26 +8068,26 @@ while.body.i.i.i.i.i37:                           ; preds = %cleanup.cont, %whil
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i47: ; preds = %while.body.i.i.i.i.i37
   %cmp.i.i.i.i.i48 = icmp eq ptr %__y.addr.1.i.i.i.i.i42, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i48, label %while.body.i.i.i.i4.preheader.i55, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49
+  br i1 %cmp.i.i.i.i.i48, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i47
   %_M_storage.i.i.i3.i.i.i.i50 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i42, i64 32
   %15 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i50, align 4
   %cmp.i4.i.i.i.i51 = icmp sgt i32 %15, 2
-  br i1 %cmp.i4.i.i.i.i51, label %while.body.i.i.i.i4.preheader.i55, label %cond.false.i.i52
+  br i1 %cmp.i4.i.i.i.i51, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55, label %cond.false.i.i52
 
 cond.false.i.i52:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49
   %second.i.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i42, i64 40
   %retval.sroa.0.0.copyload.i.i54 = load i64, ptr %second.i.i53, align 8
-  br label %while.body.i.i.i.i4.preheader.i55
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55
 
-while.body.i.i.i.i4.preheader.i55:                ; preds = %cond.false.i.i52, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i47
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55: ; preds = %cond.false.i.i52, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i47
   %retval.sroa.0.0.i.i56 = phi i64 [ %retval.sroa.0.0.copyload.i.i54, %cond.false.i.i52 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i49 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i47 ]
   br label %while.body.i.i.i.i4.i57
 
-while.body.i.i.i.i4.i57:                          ; preds = %while.body.i.i.i.i4.i57, %while.body.i.i.i.i4.preheader.i55
-  %__x.addr.07.i.i.i.i5.i58 = phi ptr [ %__x.addr.1.i.i.i.i12.i65, %while.body.i.i.i.i4.i57 ], [ %13, %while.body.i.i.i.i4.preheader.i55 ]
-  %__y.addr.06.i.i.i.i6.i59 = phi ptr [ %__y.addr.1.i.i.i.i9.i62, %while.body.i.i.i.i4.i57 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i55 ]
+while.body.i.i.i.i4.i57:                          ; preds = %while.body.i.i.i.i4.i57, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55
+  %__x.addr.07.i.i.i.i5.i58 = phi ptr [ %__x.addr.1.i.i.i.i12.i65, %while.body.i.i.i.i4.i57 ], [ %13, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55 ]
+  %__y.addr.06.i.i.i.i6.i59 = phi ptr [ %__y.addr.1.i.i.i.i9.i62, %while.body.i.i.i.i4.i57 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i55 ]
   %_M_storage.i.i.i.i.i.i7.i60 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i58, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i60, align 4
   %cmp.i.i.i.i.i8.i61 = icmp slt i32 %16, 3
@@ -8223,26 +8223,26 @@ while.body.i.i.i.i.i100:                          ; preds = %cleanup.cont42, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i110: ; preds = %while.body.i.i.i.i.i100
   %cmp.i.i.i.i.i111 = icmp eq ptr %__y.addr.1.i.i.i.i.i105, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i111, label %while.body.i.i.i.i4.preheader.i118, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112
+  br i1 %cmp.i.i.i.i.i111, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i110
   %_M_storage.i.i.i3.i.i.i.i113 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i105, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i113, align 4
   %cmp.i4.i.i.i.i114 = icmp sgt i32 %28, 3
-  br i1 %cmp.i4.i.i.i.i114, label %while.body.i.i.i.i4.preheader.i118, label %cond.false.i.i115
+  br i1 %cmp.i4.i.i.i.i114, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118, label %cond.false.i.i115
 
 cond.false.i.i115:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112
   %second.i.i116 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i105, i64 40
   %retval.sroa.0.0.copyload.i.i117 = load i64, ptr %second.i.i116, align 8
-  br label %while.body.i.i.i.i4.preheader.i118
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118
 
-while.body.i.i.i.i4.preheader.i118:               ; preds = %cond.false.i.i115, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i110
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118: ; preds = %cond.false.i.i115, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i110
   %retval.sroa.0.0.i.i119 = phi i64 [ %retval.sroa.0.0.copyload.i.i117, %cond.false.i.i115 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i112 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i110 ]
   br label %while.body.i.i.i.i4.i120
 
-while.body.i.i.i.i4.i120:                         ; preds = %while.body.i.i.i.i4.i120, %while.body.i.i.i.i4.preheader.i118
-  %__x.addr.07.i.i.i.i5.i121 = phi ptr [ %__x.addr.1.i.i.i.i12.i128, %while.body.i.i.i.i4.i120 ], [ %26, %while.body.i.i.i.i4.preheader.i118 ]
-  %__y.addr.06.i.i.i.i6.i122 = phi ptr [ %__y.addr.1.i.i.i.i9.i125, %while.body.i.i.i.i4.i120 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i118 ]
+while.body.i.i.i.i4.i120:                         ; preds = %while.body.i.i.i.i4.i120, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118
+  %__x.addr.07.i.i.i.i5.i121 = phi ptr [ %__x.addr.1.i.i.i.i12.i128, %while.body.i.i.i.i4.i120 ], [ %26, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118 ]
+  %__y.addr.06.i.i.i.i6.i122 = phi ptr [ %__y.addr.1.i.i.i.i9.i125, %while.body.i.i.i.i4.i120 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i118 ]
   %_M_storage.i.i.i.i.i.i7.i123 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i121, i64 32
   %29 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i123, align 4
   %cmp.i.i.i.i.i8.i124 = icmp slt i32 %29, 4
@@ -8378,26 +8378,26 @@ while.body.i.i.i.i.i163:                          ; preds = %cleanup.cont70, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i173: ; preds = %while.body.i.i.i.i.i163
   %cmp.i.i.i.i.i174 = icmp eq ptr %__y.addr.1.i.i.i.i.i168, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i174, label %while.body.i.i.i.i4.preheader.i181, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175
+  br i1 %cmp.i.i.i.i.i174, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i173
   %_M_storage.i.i.i3.i.i.i.i176 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i168, i64 32
   %41 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i176, align 4
   %cmp.i4.i.i.i.i177 = icmp sgt i32 %41, 4
-  br i1 %cmp.i4.i.i.i.i177, label %while.body.i.i.i.i4.preheader.i181, label %cond.false.i.i178
+  br i1 %cmp.i4.i.i.i.i177, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181, label %cond.false.i.i178
 
 cond.false.i.i178:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175
   %second.i.i179 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i168, i64 40
   %retval.sroa.0.0.copyload.i.i180 = load i64, ptr %second.i.i179, align 8
-  br label %while.body.i.i.i.i4.preheader.i181
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181
 
-while.body.i.i.i.i4.preheader.i181:               ; preds = %cond.false.i.i178, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i173
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181: ; preds = %cond.false.i.i178, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i173
   %retval.sroa.0.0.i.i182 = phi i64 [ %retval.sroa.0.0.copyload.i.i180, %cond.false.i.i178 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i175 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i173 ]
   br label %while.body.i.i.i.i4.i183
 
-while.body.i.i.i.i4.i183:                         ; preds = %while.body.i.i.i.i4.i183, %while.body.i.i.i.i4.preheader.i181
-  %__x.addr.07.i.i.i.i5.i184 = phi ptr [ %__x.addr.1.i.i.i.i12.i191, %while.body.i.i.i.i4.i183 ], [ %39, %while.body.i.i.i.i4.preheader.i181 ]
-  %__y.addr.06.i.i.i.i6.i185 = phi ptr [ %__y.addr.1.i.i.i.i9.i188, %while.body.i.i.i.i4.i183 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i181 ]
+while.body.i.i.i.i4.i183:                         ; preds = %while.body.i.i.i.i4.i183, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181
+  %__x.addr.07.i.i.i.i5.i184 = phi ptr [ %__x.addr.1.i.i.i.i12.i191, %while.body.i.i.i.i4.i183 ], [ %39, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181 ]
+  %__y.addr.06.i.i.i.i6.i185 = phi ptr [ %__y.addr.1.i.i.i.i9.i188, %while.body.i.i.i.i4.i183 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i181 ]
   %_M_storage.i.i.i.i.i.i7.i186 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i184, i64 32
   %42 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i186, align 4
   %cmp.i.i.i.i.i8.i187 = icmp slt i32 %42, 5
@@ -8541,26 +8541,26 @@ while.body.i.i.i.i.i226:                          ; preds = %cleanup.cont98, %wh
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i236: ; preds = %while.body.i.i.i.i.i226
   %cmp.i.i.i.i.i237 = icmp eq ptr %__y.addr.1.i.i.i.i.i231, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i237, label %while.body.i.i.i.i4.preheader.i244, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238
+  br i1 %cmp.i.i.i.i.i237, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i236
   %_M_storage.i.i.i3.i.i.i.i239 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i231, i64 32
   %54 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i239, align 4
   %cmp.i4.i.i.i.i240 = icmp sgt i32 %54, 5
-  br i1 %cmp.i4.i.i.i.i240, label %while.body.i.i.i.i4.preheader.i244, label %cond.false.i.i241
+  br i1 %cmp.i4.i.i.i.i240, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244, label %cond.false.i.i241
 
 cond.false.i.i241:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238
   %second.i.i242 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i231, i64 40
   %retval.sroa.0.0.copyload.i.i243 = load i64, ptr %second.i.i242, align 8
-  br label %while.body.i.i.i.i4.preheader.i244
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244
 
-while.body.i.i.i.i4.preheader.i244:               ; preds = %cond.false.i.i241, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i236
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244: ; preds = %cond.false.i.i241, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i236
   %retval.sroa.0.0.i.i245 = phi i64 [ %retval.sroa.0.0.copyload.i.i243, %cond.false.i.i241 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i238 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i236 ]
   br label %while.body.i.i.i.i4.i246
 
-while.body.i.i.i.i4.i246:                         ; preds = %while.body.i.i.i.i4.i246, %while.body.i.i.i.i4.preheader.i244
-  %__x.addr.07.i.i.i.i5.i247 = phi ptr [ %__x.addr.1.i.i.i.i12.i254, %while.body.i.i.i.i4.i246 ], [ %52, %while.body.i.i.i.i4.preheader.i244 ]
-  %__y.addr.06.i.i.i.i6.i248 = phi ptr [ %__y.addr.1.i.i.i.i9.i251, %while.body.i.i.i.i4.i246 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i244 ]
+while.body.i.i.i.i4.i246:                         ; preds = %while.body.i.i.i.i4.i246, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244
+  %__x.addr.07.i.i.i.i5.i247 = phi ptr [ %__x.addr.1.i.i.i.i12.i254, %while.body.i.i.i.i4.i246 ], [ %52, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244 ]
+  %__y.addr.06.i.i.i.i6.i248 = phi ptr [ %__y.addr.1.i.i.i.i9.i251, %while.body.i.i.i.i4.i246 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i244 ]
   %_M_storage.i.i.i.i.i.i7.i249 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i247, i64 32
   %55 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i249, align 4
   %cmp.i.i.i.i.i8.i250 = icmp slt i32 %55, 1
@@ -8828,26 +8828,26 @@ while.body.i.i.i.i.i:                             ; preds = %for.body4, %while.b
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
   %cmp.i4.i.i.i.i = icmp slt i32 %i.0170, %2
-  br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
+  br i1 %cmp.i4.i.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
   %second.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %second.i.i, align 8
-  br label %while.body.i.i.i.i4.preheader.i
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
 
-while.body.i.i.i.i4.preheader.i:                  ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i: ; preds = %cond.false.i.i, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %cond.false.i.i ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
   br label %while.body.i.i.i.i4.i
 
-while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %while.body.i.i.i.i4.preheader.i
-  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %while.body.i.i.i.i4.preheader.i ]
-  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i ]
+while.body.i.i.i.i4.i:                            ; preds = %while.body.i.i.i.i4.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i
+  %__x.addr.07.i.i.i.i5.i = phi ptr [ %__x.addr.1.i.i.i.i12.i, %while.body.i.i.i.i4.i ], [ %0, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
+  %__y.addr.06.i.i.i.i6.i = phi ptr [ %__y.addr.1.i.i.i.i9.i, %while.body.i.i.i.i4.i ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i ]
   %_M_storage.i.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i8.i = icmp slt i32 %3, %add
@@ -9018,26 +9018,26 @@ while.body.i.i.i.i.i32:                           ; preds = %_ZN4absl24synchroni
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i42: ; preds = %while.body.i.i.i.i.i32
   %cmp.i.i.i.i.i43 = icmp eq ptr %__y.addr.1.i.i.i.i.i37, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i43, label %while.body.i.i.i.i4.preheader.i50, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44
+  br i1 %cmp.i.i.i.i.i43, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i42
   %_M_storage.i.i.i3.i.i.i.i45 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i37, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i45, align 4
   %cmp.i4.i.i.i.i46 = icmp sgt i32 %16, 99
-  br i1 %cmp.i4.i.i.i.i46, label %while.body.i.i.i.i4.preheader.i50, label %cond.false.i.i47
+  br i1 %cmp.i4.i.i.i.i46, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50, label %cond.false.i.i47
 
 cond.false.i.i47:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44
   %second.i.i48 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i37, i64 40
   %retval.sroa.0.0.copyload.i.i49 = load i64, ptr %second.i.i48, align 8
-  br label %while.body.i.i.i.i4.preheader.i50
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50
 
-while.body.i.i.i.i4.preheader.i50:                ; preds = %cond.false.i.i47, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i42
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50: ; preds = %cond.false.i.i47, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i42
   %retval.sroa.0.0.i.i51 = phi i64 [ %retval.sroa.0.0.copyload.i.i49, %cond.false.i.i47 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i44 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i42 ]
   br label %while.body.i.i.i.i4.i52
 
-while.body.i.i.i.i4.i52:                          ; preds = %while.body.i.i.i.i4.i52, %while.body.i.i.i.i4.preheader.i50
-  %__x.addr.07.i.i.i.i5.i53 = phi ptr [ %__x.addr.1.i.i.i.i12.i60, %while.body.i.i.i.i4.i52 ], [ %14, %while.body.i.i.i.i4.preheader.i50 ]
-  %__y.addr.06.i.i.i.i6.i54 = phi ptr [ %__y.addr.1.i.i.i.i9.i57, %while.body.i.i.i.i4.i52 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i50 ]
+while.body.i.i.i.i4.i52:                          ; preds = %while.body.i.i.i.i4.i52, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50
+  %__x.addr.07.i.i.i.i5.i53 = phi ptr [ %__x.addr.1.i.i.i.i12.i60, %while.body.i.i.i.i4.i52 ], [ %14, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50 ]
+  %__y.addr.06.i.i.i.i6.i54 = phi ptr [ %__y.addr.1.i.i.i.i9.i57, %while.body.i.i.i.i4.i52 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i50 ]
   %_M_storage.i.i.i.i.i.i7.i55 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i53, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i55, align 4
   %cmp.i.i.i.i.i8.i56 = icmp slt i32 %17, 0
@@ -9199,26 +9199,26 @@ while.body.i.i.i.i.i101:                          ; preds = %_ZN4absl24synchroni
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i111: ; preds = %while.body.i.i.i.i.i101
   %cmp.i.i.i.i.i112 = icmp eq ptr %__y.addr.1.i.i.i.i.i106, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i112, label %while.body.i.i.i.i4.preheader.i119, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113
+  br i1 %cmp.i.i.i.i.i112, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119, label %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113
 
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i111
   %_M_storage.i.i.i3.i.i.i.i114 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i106, i64 32
   %30 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i114, align 4
   %cmp.i4.i.i.i.i115 = icmp sgt i32 %30, 10
-  br i1 %cmp.i4.i.i.i.i115, label %while.body.i.i.i.i4.preheader.i119, label %cond.false.i.i116
+  br i1 %cmp.i4.i.i.i.i115, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119, label %cond.false.i.i116
 
 cond.false.i.i116:                                ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113
   %second.i.i117 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i106, i64 40
   %retval.sroa.0.0.copyload.i.i118 = load i64, ptr %second.i.i117, align 8
-  br label %while.body.i.i.i.i4.preheader.i119
+  br label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119
 
-while.body.i.i.i.i4.preheader.i119:               ; preds = %cond.false.i.i116, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i111
+_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119: ; preds = %cond.false.i.i116, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i111
   %retval.sroa.0.0.i.i120 = phi i64 [ %retval.sroa.0.0.copyload.i.i118, %cond.false.i.i116 ], [ 0, %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i113 ], [ 0, %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i111 ]
   br label %while.body.i.i.i.i4.i121
 
-while.body.i.i.i.i4.i121:                         ; preds = %while.body.i.i.i.i4.i121, %while.body.i.i.i.i4.preheader.i119
-  %__x.addr.07.i.i.i.i5.i122 = phi ptr [ %__x.addr.1.i.i.i.i12.i129, %while.body.i.i.i.i4.i121 ], [ %28, %while.body.i.i.i.i4.preheader.i119 ]
-  %__y.addr.06.i.i.i.i6.i123 = phi ptr [ %__y.addr.1.i.i.i.i9.i126, %while.body.i.i.i.i4.i121 ], [ %add.ptr.i.i.i.i.i, %while.body.i.i.i.i4.preheader.i119 ]
+while.body.i.i.i.i4.i121:                         ; preds = %while.body.i.i.i.i4.i121, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119
+  %__x.addr.07.i.i.i.i5.i122 = phi ptr [ %__x.addr.1.i.i.i.i12.i129, %while.body.i.i.i.i4.i121 ], [ %28, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119 ]
+  %__y.addr.06.i.i.i.i6.i123 = phi ptr [ %__y.addr.1.i.i.i.i9.i126, %while.body.i.i.i.i4.i121 ], [ %add.ptr.i.i.i.i.i, %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit.i119 ]
   %_M_storage.i.i.i.i.i.i7.i124 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i5.i122, i64 32
   %31 = load i32, ptr %_M_storage.i.i.i.i.i.i7.i124, align 4
   %cmp.i.i.i.i.i8.i125 = icmp slt i32 %31, 9

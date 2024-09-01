@@ -4942,12 +4942,9 @@ for.body.i.i.i.i.i.i.i.i.i19:                     ; preds = %for.body.i.i.i.i.i.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i.i14, i64 32, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i20, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i21, %add.ptr.i.i.i15
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i22, label %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i19, !llvm.loop !21
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i22, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i19, !llvm.loop !21
 
-_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i19
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.then.i.i.i.i.i12, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit
+for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i12
   %.pre48 = load i32, ptr %in_ptr.addr, align 4
   br label %for.body
 
@@ -4966,10 +4963,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp = icmp ult i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
-for.end:                                          ; preds = %for.body, %do.end19, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit
-  %out.sroa.0.053 = phi ptr [ %call5.i.i.i.i.i.i14, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ null, %do.end19 ], [ %call5.i.i.i.i.i.i14, %for.body ]
-  %in.sroa.0.03352 = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ null, %do.end19 ], [ %call5.i.i.i.i.i.i, %for.body ]
-  %.lcssa = phi i32 [ 0, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %do.end19 ], [ %12, %for.body ]
+for.end:                                          ; preds = %for.body, %do.end19
+  %out.sroa.0.053 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i14, %for.body ]
+  %in.sroa.0.03352 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i, %for.body ]
+  %.lcssa = phi i32 [ 0, %do.end19 ], [ %12, %for.body ]
   %uvw_ = getelementptr inbounds i8, ptr %wasi, i64 40
   %call28 = call zeroext i16 @uvwasi_poll_oneoff(ptr noundef nonnull %uvw_, ptr noundef %in.sroa.0.03352, ptr noundef %out.sroa.0.053, i32 noundef %.lcssa, ptr noundef nonnull %nevents) #23
   %cmp30 = icmp eq i16 %call28, 0

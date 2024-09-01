@@ -338,10 +338,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   %wide.trip.count633 = zext nneg i32 %1 to i64
   br label %.lr.ph561
 
-.preheader552:                                    ; preds = %.lr.ph561
-  br i1 %67, label %.lr.ph563.preheader, label %Vec_IntPush.exit
-
-.lr.ph563.preheader:                              ; preds = %.preheader552
+.lr.ph563.preheader:                              ; preds = %.lr.ph561
   %wide.trip.count638 = zext nneg i32 %1 to i64
   br label %.lr.ph563
 
@@ -353,7 +350,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   store i64 %92, ptr %93, align 8
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
-  br i1 %exitcond634.not, label %.preheader552, label %.lr.ph561, !llvm.loop !7
+  br i1 %exitcond634.not, label %.lr.ph563.preheader, label %.lr.ph561, !llvm.loop !7
 
 .lr.ph563:                                        ; preds = %.lr.ph563.preheader, %.lr.ph563
   %indvars.iv635 = phi i64 [ 0, %.lr.ph563.preheader ], [ %indvars.iv.next636, %.lr.ph563 ]
@@ -372,7 +369,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   %exitcond639.not = icmp eq i64 %indvars.iv.next636, %wide.trip.count638
   br i1 %exitcond639.not, label %Vec_IntPush.exit, label %.lr.ph563, !llvm.loop !8
 
-Vec_IntPush.exit:                                 ; preds = %.lr.ph563, %._crit_edge, %.preheader552
+Vec_IntPush.exit:                                 ; preds = %.lr.ph563, %._crit_edge
   store i32 1, ptr %77, align 4
   store ptr %90, ptr %78, align 8
   store i32 1, ptr %81, align 4

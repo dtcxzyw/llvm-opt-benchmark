@@ -946,7 +946,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   br i1 %150, label %._crit_edge, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.in2261 = phi i8 [ %182, %.lr.ph ], [ %138, %.lr.ph.preheader ]
+  %.in2361 = phi i8 [ %182, %.lr.ph ], [ %138, %.lr.ph.preheader ]
   %151 = phi i32 [ %183, %.lr.ph ], [ %128, %.lr.ph.preheader ]
   %152 = phi ptr [ %188, %.lr.ph ], [ %136, %.lr.ph.preheader ]
   %153 = phi i32 [ %179, %.lr.ph ], [ %129, %.lr.ph.preheader ]
@@ -1026,7 +1026,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   br i1 %192, label %._crit_edge, label %.lr.ph, !prof !8
 
 ._crit_edge:                                      ; preds = %186, %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %132
-  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2261, %172 ], [ %.in2261, %156 ], [ %.in2261, %174 ], [ %.in2261, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
+  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2361, %172 ], [ %.in2361, %156 ], [ %.in2361, %174 ], [ %.in2361, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
   %193 = getelementptr inbounds i8, ptr %0, i64 129
   %194 = load i24, ptr %193, align 1
   %195 = and i24 %194, 8192
@@ -1054,8 +1054,8 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   br label %.thread15
 
 211:                                              ; preds = %._crit_edge
-  %.not35 = icmp eq i8 %.in.lcssa, 17
-  br i1 %.not35, label %212, label %.thread15
+  %.not20 = icmp eq i8 %.in.lcssa, 17
+  br i1 %.not20, label %212, label %.thread15
 
 212:                                              ; preds = %211
   %213 = load ptr, ptr %6, align 8
@@ -1188,7 +1188,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   store i16 %310, ptr %311, align 8
   %312 = call i32 @ip6_find_1stfragopt(ptr noundef nonnull %265, ptr noundef nonnull %3) #8
   %313 = icmp sgt i32 %312, -1
-  br i1 %313, label %314, label %.split34.us
+  br i1 %313, label %314, label %.split35.us
 
 314:                                              ; preds = %298
   %315 = zext nneg i32 %312 to i64
@@ -1363,7 +1363,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   store i16 %436, ptr %437, align 8
   br i1 %115, label %446, label %440
 
-.split34.us:                                      ; preds = %298
+.split35.us:                                      ; preds = %298
   call void @kfree_skb_list_reason(ptr noundef nonnull %239, i32 noundef 2) #8
   %438 = sext i32 %312 to i64
   %439 = inttoptr i64 %438 to ptr
@@ -1385,8 +1385,8 @@ define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   %448 = icmp eq ptr %447, null
   br i1 %448, label %.thread17, label %.split.split, !llvm.loop !20
 
-.thread17:                                        ; preds = %446, %.split.split.us.split, %.split.split.us.split.us, %335, %.thread15, %227, %241, %.split34.us, %251, %108, %106, %65
-  %449 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %251 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %439, %.split34.us ], [ inttoptr (i64 -93 to ptr), %.thread15 ], [ inttoptr (i64 -93 to ptr), %227 ], [ null, %241 ], [ %239, %335 ], [ %239, %.split.split.us.split.us ], [ %239, %.split.split.us.split ], [ %239, %446 ]
+.thread17:                                        ; preds = %446, %.split.split.us.split, %.split.split.us.split.us, %335, %.thread15, %227, %241, %.split35.us, %251, %108, %106, %65
+  %449 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %251 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %439, %.split35.us ], [ inttoptr (i64 -93 to ptr), %.thread15 ], [ inttoptr (i64 -93 to ptr), %227 ], [ null, %241 ], [ %239, %335 ], [ %239, %.split.split.us.split.us ], [ %239, %.split.split.us.split ], [ %239, %446 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret ptr %449
 }

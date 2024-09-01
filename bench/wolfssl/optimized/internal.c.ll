@@ -7495,8 +7495,8 @@ if.end398:                                        ; preds = %lor.lhs.false2.i, %
   %call449 = call i32 @DoVerifyCallback(ptr noundef %67, ptr noundef nonnull %ssl, i32 noundef %ret.9, ptr noundef nonnull %args)
   %bf.load452 = load i64, ptr %tls1_3, align 8
   %68 = and i64 %bf.load452, 128
-  %tobool457.not = icmp ne i64 %68, 0
-  br i1 %tobool457.not, label %land.lhs.true458, label %if.end470
+  %tobool457.not.not = icmp eq i64 %68, 0
+  br i1 %tobool457.not.not, label %if.end470, label %land.lhs.true458
 
 land.lhs.true458:                                 ; preds = %if.end398
   switch i32 %call449, label %if.end536.thread307 [
@@ -7520,8 +7520,7 @@ land.lhs.true473:                                 ; preds = %if.end470
   %bf.load477 = load i32, ptr %isCA476, align 8
   %70 = and i32 %bf.load477, 16
   %tobool482.not = icmp eq i32 %70, 0
-  %brmerge = or i1 %tobool457.not, %tobool482.not
-  br i1 %brmerge, label %if.end536.thread, label %if.then493
+  br i1 %tobool482.not, label %if.end536.thread, label %if.then493
 
 if.then493:                                       ; preds = %land.lhs.true473
   %71 = load ptr, ptr %args, align 16

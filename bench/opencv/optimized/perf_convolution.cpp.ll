@@ -8082,13 +8082,10 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %20, i64 88, i1 false)
   %24 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, %21
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !44
 
-_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.noexc11, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit
-  %.0.i.i.i.i.i39 = phi ptr [ %21, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit ], [ %22, %.noexc11 ]
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc11
+  %.0.i.i.i.i.i39 = phi ptr [ %22, %.noexc11 ], [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %25 = load ptr, ptr %1, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %.026, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -8103,9 +8100,9 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %26, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit
-  %.0.i.i.i.i.i34 = phi ptr [ %21, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit ], [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i39, %26 ]
-  %.sroa.0.032 = phi ptr [ %20, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EEC2EmRKS2_.exit ], [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %26 ]
+._crit_edge:                                      ; preds = %26, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %.0.i.i.i.i.i34 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i39, %26 ]
+  %.sroa.0.032 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %26 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %29 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27

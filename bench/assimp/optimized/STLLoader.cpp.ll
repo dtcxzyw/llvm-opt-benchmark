@@ -239,7 +239,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %mFaces = getelementptr inbounds i8, ptr %pMesh, i64 208
   store ptr %3, ptr %mFaces, align 8
-  br i1 %isempty, label %for.end13, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %arrayctor.cont, %for.inc11
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %for.inc11 ], [ 0, %arrayctor.cont ]
@@ -270,7 +270,7 @@ for.inc11:                                        ; preds = %for.body6
   %cmp = icmp ult i64 %indvars.iv.next18, %7
   br i1 %cmp, label %for.body, label %for.end13, !llvm.loop !6
 
-for.end13:                                        ; preds = %for.inc11, %arrayctor.cont.thread, %arrayctor.cont
+for.end13:                                        ; preds = %for.inc11, %arrayctor.cont.thread
   ret void
 }
 
@@ -945,11 +945,11 @@ for.body140:                                      ; preds = %for.body140.prehead
   br i1 %cmp139, label %for.body140, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.body140
-  %.pre144 = load ptr, ptr %mColors, align 8
+  %.pre143 = load ptr, ptr %mColors, align 8
   br label %for.end
 
 for.end:                                          ; preds = %arrayctor.cont134.thread, %for.end.loopexit
-  %36 = phi ptr [ %.pre144, %for.end.loopexit ], [ %call126, %arrayctor.cont134.thread ]
+  %36 = phi ptr [ %.pre143, %for.end.loopexit ], [ %call126, %arrayctor.cont134.thread ]
   %.lcssa = phi i32 [ %35, %for.end.loopexit ], [ 0, %arrayctor.cont134.thread ]
   %idx.ext = zext i32 %.lcssa to i64
   %idx.neg = sub nsw i64 0, %idx.ext
@@ -957,11 +957,11 @@ for.end:                                          ; preds = %arrayctor.cont134.t
   store ptr %add.ptr148, ptr %mColors, align 8
   %call149 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call149, ptr noundef nonnull @.str.30)
-  %.pre145 = load ptr, ptr %mColors, align 8
+  %.pre144 = load ptr, ptr %mColors, align 8
   br label %if.end150
 
 if.end150:                                        ; preds = %for.end, %if.then120
-  %37 = phi ptr [ %.pre145, %for.end ], [ %31, %if.then120 ]
+  %37 = phi ptr [ %.pre144, %for.end ], [ %31, %if.then120 ]
   %mul153 = mul i64 %indvars.iv, 3
   %idxprom = and i64 %mul153, 4294967295
   %arrayidx154 = getelementptr inbounds %class.aiColor4t, ptr %37, i64 %idxprom
@@ -989,11 +989,11 @@ if.end150:                                        ; preds = %for.end, %if.then12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr192, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx154, i64 16, i1 false)
   %add.ptr193 = getelementptr inbounds i8, ptr %arrayidx154, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr193, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx154, i64 16, i1 false)
-  %.pre146 = load i32, ptr %mNumFaces.i, align 8
+  %.pre145 = load i32, ptr %mNumFaces.i, align 8
   br label %for.inc195
 
 for.inc195:                                       ; preds = %for.body, %if.end150
-  %40 = phi i32 [ %29, %for.body ], [ %.pre146, %if.end150 ]
+  %40 = phi i32 [ %29, %for.body ], [ %.pre145, %if.end150 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
   %cmp85 = icmp ult i64 %indvars.iv.next, %41
@@ -1032,7 +1032,7 @@ arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   store ptr %44, ptr %mFaces.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %arrayctor.cont.i, %for.inc11.i
+for.body.i:                                       ; preds = %for.inc11.i, %arrayctor.cont.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc11.i ], [ 0, %arrayctor.cont.i ]
   %p.014.i = phi i32 [ %inc10.i, %for.inc11.i ], [ 0, %arrayctor.cont.i ]
   %45 = load ptr, ptr %mFaces.i, align 8
@@ -1093,17 +1093,17 @@ invoke.cont202:                                   ; preds = %_ZN6Assimp14addFace
   br i1 %cmp220135.not, label %for.end227, label %for.body221
 
 for.body221:                                      ; preds = %invoke.cont202, %for.body221
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body221 ], [ 0, %invoke.cont202 ]
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %for.body221 ], [ 0, %invoke.cont202 ]
   %55 = load ptr, ptr %mMeshes215, align 8
-  %arrayidx224 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv141
-  %56 = trunc nuw i64 %indvars.iv141 to i32
+  %arrayidx224 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv140
+  %56 = trunc nuw i64 %indvars.iv140 to i32
   store i32 %56, ptr %arrayidx224, align 4
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %57 = load ptr, ptr %mScene, align 8
   %mNumMeshes219 = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load i32, ptr %mNumMeshes219, align 8
   %59 = zext i32 %58 to i64
-  %cmp220 = icmp ult i64 %indvars.iv.next142, %59
+  %cmp220 = icmp ult i64 %indvars.iv.next141, %59
   br i1 %cmp220, label %for.body221, label %for.end227, !llvm.loop !11
 
 lpad201:                                          ; preds = %_ZN6Assimp14addFacesToMeshEP6aiMesh.exit
@@ -2346,7 +2346,7 @@ arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
   store ptr %66, ptr %mFaces.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %arrayctor.cont.i, %for.inc11.i
+for.body.i:                                       ; preds = %for.inc11.i, %arrayctor.cont.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc11.i ], [ 0, %arrayctor.cont.i ]
   %p.014.i = phi i32 [ %inc10.i, %for.inc11.i ], [ 0, %arrayctor.cont.i ]
   %67 = load ptr, ptr %mFaces.i, align 8

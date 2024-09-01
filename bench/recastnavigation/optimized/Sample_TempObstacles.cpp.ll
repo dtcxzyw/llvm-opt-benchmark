@@ -1530,16 +1530,16 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %.025 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %76 ]
-  %.01423 = phi ptr [ null, %.lr.ph ], [ %.115, %76 ]
+17:                                               ; preds = %.lr.ph, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
+  %.027 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %75 ]
+  %.01425 = phi ptr [ null, %.lr.ph ], [ %.115, %75 ]
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds %struct.dtTileCacheObstacle, ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 99
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %76, label %23
+  br i1 %22, label %75, label %23
 
 23:                                               ; preds = %17
   call void @_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -1558,92 +1558,91 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
   store float %32, ptr %16, align 4
   br label %33
 
-33:                                               ; preds = %70, %23
-  %.020 = phi float [ 0.000000e+00, %23 ], [ %.222, %70 ]
-  %.018 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %.2, %70 ]
-  %34 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %71, %70 ]
-  %35 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %72, %70 ]
-  %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %70 ]
-  %36 = phi i1 [ false, %23 ], [ %73, %70 ]
-  %37 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %38 = load float, ptr %37, align 4
-  %39 = call float @llvm.fabs.f32(float %38)
-  %40 = fcmp olt float %39, 0x3EB0C6F7A0000000
-  br i1 %40, label %41, label %51
+33:                                               ; preds = %69, %23
+  %.020 = phi float [ 0.000000e+00, %23 ], [ %.222, %69 ]
+  %.018 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %.2, %69 ]
+  %34 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %70, %69 ]
+  %35 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %71, %69 ]
+  %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %69 ]
+  %36 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %37 = load float, ptr %36, align 4
+  %38 = call float @llvm.fabs.f32(float %37)
+  %39 = fcmp olt float %38, 0x3EB0C6F7A0000000
+  br i1 %39, label %40, label %50
 
-41:                                               ; preds = %33
-  %42 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
-  %45 = load float, ptr %44, align 4
-  %46 = fcmp olt float %43, %45
-  br i1 %46, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %47
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %42 = load float, ptr %41, align 4
+  %43 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
+  %44 = load float, ptr %43, align 4
+  %45 = fcmp olt float %42, %44
+  br i1 %45, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %46
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
-  %49 = load float, ptr %48, align 4
-  %50 = fcmp ogt float %43, %49
-  br i1 %50, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %70
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
+  %48 = load float, ptr %47, align 4
+  %49 = fcmp ogt float %42, %48
+  br i1 %49, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %69
 
-51:                                               ; preds = %33
-  %52 = fdiv float 1.000000e+00, %38
-  %53 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
-  %54 = load float, ptr %53, align 4
-  %55 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %56 = load float, ptr %55, align 4
-  %57 = fsub float %54, %56
-  %58 = fmul float %52, %57
-  %59 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
-  %60 = load float, ptr %59, align 4
-  %61 = fsub float %60, %56
-  %62 = fmul float %52, %61
-  %63 = fcmp ogt float %58, %62
-  %.039.i = select i1 %63, float %62, float %58
-  %.0.i = select i1 %63, float %58, float %62
-  %64 = fcmp ogt float %.039.i, %.020
-  %.121 = select i1 %64, float %.039.i, float %.020
-  %65 = select i1 %64, float %.018, float %34
-  %66 = select i1 %64, float %.018, float %35
-  %67 = fcmp olt float %.0.i, %66
-  %.119 = select i1 %67, float %.0.i, float %.018
-  %68 = select i1 %67, float %.0.i, float %65
-  %69 = fcmp ogt float %.121, %68
-  br i1 %69, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %70
+50:                                               ; preds = %33
+  %51 = fdiv float 1.000000e+00, %37
+  %52 = getelementptr inbounds float, ptr %5, i64 %indvars.iv.i
+  %53 = load float, ptr %52, align 4
+  %54 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %55 = load float, ptr %54, align 4
+  %56 = fsub float %53, %55
+  %57 = fmul float %51, %56
+  %58 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
+  %59 = load float, ptr %58, align 4
+  %60 = fsub float %59, %55
+  %61 = fmul float %51, %60
+  %62 = fcmp ogt float %57, %61
+  %.039.i = select i1 %62, float %61, float %57
+  %.0.i = select i1 %62, float %57, float %61
+  %63 = fcmp ogt float %.039.i, %.020
+  %.121 = select i1 %63, float %.039.i, float %.020
+  %64 = select i1 %63, float %.018, float %34
+  %65 = select i1 %63, float %.018, float %35
+  %66 = fcmp olt float %.0.i, %65
+  %.119 = select i1 %66, float %.0.i, float %.018
+  %67 = select i1 %66, float %.0.i, float %64
+  %68 = fcmp ogt float %.121, %67
+  br i1 %68, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %69
 
-70:                                               ; preds = %51, %47
-  %.222 = phi float [ %.020, %47 ], [ %.121, %51 ]
-  %.2 = phi float [ %.018, %47 ], [ %.119, %51 ]
-  %71 = phi float [ %34, %47 ], [ %68, %51 ]
-  %72 = phi float [ %35, %47 ], [ %68, %51 ]
+69:                                               ; preds = %50, %46
+  %.222 = phi float [ %.020, %46 ], [ %.121, %50 ]
+  %.2 = phi float [ %.018, %46 ], [ %.119, %50 ]
+  %70 = phi float [ %34, %46 ], [ %67, %50 ]
+  %71 = phi float [ %35, %46 ], [ %67, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %73 = icmp ugt i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %33, !llvm.loop !15
+  br i1 %exitcond.i, label %72, label %33, !llvm.loop !15
 
-_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %41, %47, %51, %70
-  %.3 = phi float [ %.020, %41 ], [ %.020, %47 ], [ %.222, %70 ], [ %.121, %51 ]
-  %.lcssa.i = phi i1 [ %36, %41 ], [ %36, %47 ], [ %73, %70 ], [ %36, %51 ]
+_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %50, %40, %46
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %74 = fcmp olt float %.3, %.025
-  %or.cond = select i1 %.lcssa.i, i1 %74, i1 false
-  br i1 %or.cond, label %75, label %76
+  br label %75
 
-75:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit
-  br label %76
+72:                                               ; preds = %69
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  %73 = fcmp olt float %.222, %.027
+  br i1 %73, label %74, label %75
 
-76:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, %75, %17
-  %.115 = phi ptr [ %.01423, %17 ], [ %19, %75 ], [ %.01423, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ]
-  %.1 = phi float [ %.025, %17 ], [ %.3, %75 ], [ %.025, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ]
+74:                                               ; preds = %72
+  br label %75
+
+75:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, %74, %72, %17
+  %.115 = phi ptr [ %.01425, %17 ], [ %19, %74 ], [ %.01425, %72 ], [ %.01425, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
+  %.1 = phi float [ %.027, %17 ], [ %.222, %74 ], [ %.027, %72 ], [ %.027, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %7, align 8
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %17, label %._crit_edge, !llvm.loop !16
+  %76 = load i32, ptr %7, align 8
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %17, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %76, %3
-  %.014.lcssa = phi ptr [ null, %3 ], [ %.115, %76 ]
-  %80 = call noundef i32 @_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef %.014.lcssa)
-  ret i32 %80
+._crit_edge:                                      ; preds = %75, %3
+  %.014.lcssa = phi ptr [ null, %3 ], [ %.115, %75 ]
+  %79 = call noundef i32 @_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef %.014.lcssa)
+  ret i32 %79
 }
 
 declare void @_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

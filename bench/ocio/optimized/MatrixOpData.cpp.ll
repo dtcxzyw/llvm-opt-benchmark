@@ -1787,7 +1787,6 @@ for.cond3.preheader.lr.ph:                        ; preds = %entry
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.inc17
-  %cmp20 = phi i1 [ false, %for.cond3.preheader.lr.ph ], [ %cmp, %for.inc17 ]
   %i.019 = phi i64 [ 0, %for.cond3.preheader.lr.ph ], [ %inc18, %for.inc17 ]
   %mul10 = mul i64 %i.019, %call
   %2 = getelementptr double, ptr %1, i64 %mul10
@@ -1817,12 +1816,11 @@ for.inc:                                          ; preds = %if.then, %if.else
 
 for.inc17:                                        ; preds = %for.inc
   %inc18 = add nuw i64 %i.019, 1
-  %cmp = icmp uge i64 %inc18, %call
-  %exitcond23 = icmp eq i64 %inc18, %call
-  br i1 %exitcond23, label %return, label %for.cond3.preheader, !llvm.loop !29
+  %exitcond22.not = icmp eq i64 %inc18, %call
+  br i1 %exitcond22.not, label %return, label %for.cond3.preheader, !llvm.loop !29
 
 return:                                           ; preds = %for.inc17, %if.else, %if.then, %entry
-  %cmp16 = phi i1 [ true, %entry ], [ %cmp20, %if.then ], [ %cmp20, %if.else ], [ %cmp, %for.inc17 ]
+  %cmp16 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.else ], [ true, %for.inc17 ]
   ret i1 %cmp16
 }
 
@@ -3106,7 +3104,6 @@ for.cond3.preheader.lr.ph.i:                      ; preds = %entry
   br label %for.cond3.preheader.i
 
 for.cond3.preheader.i:                            ; preds = %for.inc17.i, %for.cond3.preheader.lr.ph.i
-  %cmp20.i = phi i1 [ false, %for.cond3.preheader.lr.ph.i ], [ %cmp.i, %for.inc17.i ]
   %i.019.i = phi i64 [ 0, %for.cond3.preheader.lr.ph.i ], [ %inc18.i, %for.inc17.i ]
   %mul10.i = mul i64 %i.019.i, %call.i
   %2 = getelementptr double, ptr %1, i64 %mul10.i
@@ -3136,12 +3133,11 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
 
 for.inc17.i:                                      ; preds = %for.inc.i
   %inc18.i = add nuw i64 %i.019.i, 1
-  %cmp.i = icmp uge i64 %inc18.i, %call.i
-  %exitcond23.i = icmp eq i64 %inc18.i, %call.i
-  br i1 %exitcond23.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit, label %for.cond3.preheader.i, !llvm.loop !29
+  %exitcond22.not.i = icmp eq i64 %inc18.i, %call.i
+  br i1 %exitcond22.not.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit, label %for.cond3.preheader.i, !llvm.loop !29
 
 _ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit: ; preds = %for.inc17.i, %if.then.i, %if.else.i, %entry
-  %cmp16.i = phi i1 [ true, %entry ], [ %cmp20.i, %if.else.i ], [ %cmp20.i, %if.then.i ], [ %cmp.i, %for.inc17.i ]
+  %cmp16.i = phi i1 [ true, %entry ], [ false, %if.else.i ], [ false, %if.then.i ], [ true, %for.inc17.i ]
   ret i1 %cmp16.i
 }
 
@@ -3242,73 +3238,67 @@ for.body.lr.ph.i:                                 ; preds = %lor.lhs.false3
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %cmp8.i12 = phi i1 [ false, %for.body.lr.ph.i ], [ %cmp.i14, %for.inc.i ]
   %idx.07.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %rem.i = urem i64 %idx.07.i, %add.i
   %cmp7.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp7.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %add.ptr.i.i13 = getelementptr inbounds double, ptr %14, i64 %idx.07.i
-  %15 = load double, ptr %add.ptr.i.i13, align 8
+  %add.ptr.i.i12 = getelementptr inbounds double, ptr %14, i64 %idx.07.i
+  %15 = load double, ptr %add.ptr.i.i12, align 8
   %cmp9.i = fcmp une double %15, 0.000000e+00
-  br i1 %cmp9.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit, label %for.inc.i
+  br i1 %cmp9.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %inc.i = add nuw i64 %idx.07.i, 1
-  %cmp.i14 = icmp uge i64 %inc.i, %call3.i
-  %exitcond.i = icmp eq i64 %inc.i, %call3.i
-  br i1 %exitcond.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit, label %for.body.i, !llvm.loop !46
+  %exitcond.not.i = icmp eq i64 %inc.i, %call3.i
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !46
 
-_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit: ; preds = %if.then.i, %for.inc.i
-  %cmp.lcssa.i = phi i1 [ %cmp.i14, %for.inc.i ], [ %cmp8.i12, %if.then.i ]
-  br i1 %cmp.lcssa.i, label %if.end, label %return
-
-if.end:                                           ; preds = %lor.lhs.false3, %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit
+if.end:                                           ; preds = %for.inc.i, %lor.lhs.false3
   %vtable = load ptr, ptr %m_array.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %16 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i.i)
-  %cmp20.not = icmp eq i64 %call7, 0
-  br i1 %cmp20.not, label %return, label %for.cond8.preheader.lr.ph
+  %cmp19.not = icmp eq i64 %call7, 0
+  br i1 %cmp19.not, label %return, label %for.cond8.preheader.lr.ph
 
 for.cond8.preheader.lr.ph:                        ; preds = %if.end
   %17 = load ptr, ptr %m_data.i.i, align 8
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.lr.ph, %for.inc18
-  %i.021 = phi i64 [ 0, %for.cond8.preheader.lr.ph ], [ %inc19, %for.inc18 ]
-  %mul = mul i64 %i.021, %call7
+  %i.020 = phi i64 [ 0, %for.cond8.preheader.lr.ph ], [ %inc19, %for.inc18 ]
+  %mul = mul i64 %i.020, %call7
   %18 = getelementptr double, ptr %17, i64 %mul
-  %add.ptr.i = getelementptr double, ptr %18, i64 %i.021
+  %add.ptr.i = getelementptr double, ptr %18, i64 %i.020
   br label %for.body10
 
 for.body10:                                       ; preds = %for.cond8.preheader, %for.inc
-  %j.019 = phi i64 [ 0, %for.cond8.preheader ], [ %inc, %for.inc ]
-  %cmp11 = icmp eq i64 %i.021, %j.019
+  %j.018 = phi i64 [ 0, %for.cond8.preheader ], [ %inc, %for.inc ]
+  %cmp11 = icmp eq i64 %i.020, %j.018
   br i1 %cmp11, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %for.body10
   %19 = load double, ptr %add.ptr.i, align 8
-  %cmp.i15 = fcmp ogt double %19, 1.000000e+00
+  %cmp.i13 = fcmp ogt double %19, 1.000000e+00
   %sub.i = fadd double %19, -1.000000e+00
   %sub1.i = fsub double 1.000000e+00, %19
-  %cond.i = select i1 %cmp.i15, double %sub.i, double %sub1.i
+  %cond.i = select i1 %cmp.i13, double %sub.i, double %sub1.i
   %cmp2.i = fcmp ugt double %cond.i, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp2.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body10, %if.then12
-  %inc = add nuw i64 %j.019, 1
+  %inc = add nuw i64 %j.018, 1
   %exitcond.not = icmp eq i64 %inc, %call7
   br i1 %exitcond.not, label %for.inc18, label %for.body10, !llvm.loop !47
 
 for.inc18:                                        ; preds = %for.inc
-  %inc19 = add nuw i64 %i.021, 1
+  %inc19 = add nuw i64 %i.020, 1
   %exitcond23.not = icmp eq i64 %inc19, %call7
   br i1 %exitcond23.not, label %return, label %for.cond8.preheader, !llvm.loop !48
 
-return:                                           ; preds = %for.inc18, %if.then12, %if.end, %lor.lhs.false, %lor.lhs.false.i, %lor.lhs.false6.i, %lor.lhs.false9.i, %lor.lhs.false12.i, %lor.lhs.false15.i, %lor.lhs.false18.i, %entry, %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit
-  %retval.0 = phi i1 [ false, %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit ], [ false, %entry ], [ false, %lor.lhs.false18.i ], [ false, %lor.lhs.false15.i ], [ false, %lor.lhs.false12.i ], [ false, %lor.lhs.false9.i ], [ false, %lor.lhs.false6.i ], [ false, %lor.lhs.false.i ], [ false, %lor.lhs.false ], [ true, %if.end ], [ false, %if.then12 ], [ true, %for.inc18 ]
+return:                                           ; preds = %if.then.i, %for.inc18, %if.then12, %if.end, %lor.lhs.false, %lor.lhs.false.i, %lor.lhs.false6.i, %lor.lhs.false9.i, %lor.lhs.false12.i, %lor.lhs.false15.i, %lor.lhs.false18.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %lor.lhs.false18.i ], [ false, %lor.lhs.false15.i ], [ false, %lor.lhs.false12.i ], [ false, %lor.lhs.false9.i ], [ false, %lor.lhs.false6.i ], [ false, %lor.lhs.false.i ], [ false, %lor.lhs.false ], [ true, %if.end ], [ false, %if.then12 ], [ true, %for.inc18 ], [ false, %if.then.i ]
   ret i1 %retval.0
 }
 
@@ -3395,7 +3385,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cmp8 = phi i1 [ false, %for.body.lr.ph ], [ %cmp, %for.inc ]
   %idx.07 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %rem = urem i64 %idx.07, %add
   %cmp7.not = icmp eq i64 %rem, 0
@@ -3409,12 +3398,11 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %idx.07, 1
-  %cmp = icmp uge i64 %inc, %call3
-  %exitcond = icmp eq i64 %inc, %call3
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !46
+  %exitcond.not = icmp eq i64 %inc, %call3
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !46
 
 return:                                           ; preds = %if.then, %for.inc, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp, %for.inc ], [ %cmp8, %if.then ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %if.then ]
   ret i1 %cmp.lcssa
 }
 
@@ -4644,7 +4632,6 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %cmp8.i = phi i1 [ false, %for.body.lr.ph.i ], [ %cmp.i, %for.inc.i ]
   %idx.07.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %rem.i = urem i64 %idx.07.i, %add.i
   %cmp7.not.i = icmp eq i64 %rem.i, 0
@@ -4654,22 +4641,16 @@ if.then.i:                                        ; preds = %for.body.i
   %add.ptr.i.i = getelementptr inbounds double, ptr %2, i64 %idx.07.i
   %3 = load double, ptr %add.ptr.i.i, align 8
   %cmp9.i = fcmp une double %3, 0.000000e+00
-  br i1 %cmp9.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit.loopexit, label %for.inc.i
+  br i1 %cmp9.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %inc.i = add nuw i64 %idx.07.i, 1
-  %cmp.i = icmp uge i64 %inc.i, %call3.i
-  %exitcond.i = icmp eq i64 %inc.i, %call3.i
-  br i1 %exitcond.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit.loopexit, label %for.body.i, !llvm.loop !46
+  %exitcond.not.i = icmp eq i64 %inc.i, %call3.i
+  br i1 %exitcond.not.i, label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit, label %for.body.i, !llvm.loop !46
 
-_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit.loopexit: ; preds = %for.inc.i, %if.then.i
-  %cmp.lcssa.i.ph = phi i1 [ %cmp.i, %for.inc.i ], [ %cmp8.i, %if.then.i ]
-  %4 = xor i1 %cmp.lcssa.i.ph, true
-  br label %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit
-
-_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit.loopexit, %entry
-  %cmp.lcssa.i = phi i1 [ false, %entry ], [ %4, %_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit.loopexit ]
-  ret i1 %cmp.lcssa.i
+_ZNK19OpenColorIO_v2_4dev12MatrixOpData10isDiagonalEv.exit: ; preds = %if.then.i, %for.inc.i, %entry
+  %lnot = phi i1 [ false, %entry ], [ true, %if.then.i ], [ false, %for.inc.i ]
+  ret i1 %lnot
 }
 
 ; Function Attrs: mustprogress uwtable

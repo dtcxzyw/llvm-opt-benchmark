@@ -25,7 +25,7 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
   %15 = and i16 %14, 4099
   %narrow = icmp eq i16 %15, 1
   %not. = sext i1 %narrow to i32
-  br label %67
+  br label %66
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %4, align 8
@@ -42,103 +42,103 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
   %24 = load i32, ptr %3, align 4
   %25 = icmp slt i32 %24, 0
   %or.cond.i = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond.i, label %26, label %40
+  br i1 %or.cond.i, label %30, label %pthread_notifywaiters.exit.thread
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %17, i64 48
-  %28 = add nsw i32 %24, 1
-  %29 = call i32 @nxsem_init(ptr noundef nonnull %27, i32 noundef 0, i32 noundef %28) #6
-  br label %30
-
-30:                                               ; preds = %33, %26
-  %31 = call i32 @pthread_sem_give(ptr noundef nonnull %21) #6
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %pthread_notifywaiters.exit
-
-33:                                               ; preds = %30
-  %34 = call i32 @nxsem_get_value(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
-  %35 = load i32, ptr %3, align 4
-  %36 = icmp slt i32 %35, 0
-  %37 = icmp eq i32 %34, 0
-  %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %30, label %pthread_notifywaiters.exit, !llvm.loop !6
-
-pthread_notifywaiters.exit:                       ; preds = %30, %33
-  %39 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %27) #6
+pthread_notifywaiters.exit.thread:                ; preds = %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %65
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 9
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %44, label %64
 
-40:                                               ; preds = %16
+30:                                               ; preds = %16
+  %31 = getelementptr inbounds i8, ptr %17, i64 48
+  %32 = add nsw i32 %24, 1
+  %33 = call i32 @nxsem_init(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %32) #6
+  br label %34
+
+34:                                               ; preds = %37, %30
+  %35 = call i32 @pthread_sem_give(ptr noundef nonnull %21) #6
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %pthread_notifywaiters.exit
+
+37:                                               ; preds = %34
+  %38 = call i32 @nxsem_get_value(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
+  %39 = load i32, ptr %3, align 4
+  %40 = icmp slt i32 %39, 0
+  %41 = icmp eq i32 %38, 0
+  %42 = select i1 %40, i1 %41, i1 false
+  br i1 %42, label %34, label %pthread_notifywaiters.exit, !llvm.loop !6
+
+pthread_notifywaiters.exit:                       ; preds = %34, %37
+  %43 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %31) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 9
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %65
+  br label %64
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %41, i64 12
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %7, i64 88
-  br label %49
+44:                                               ; preds = %pthread_notifywaiters.exit.thread
+  %45 = getelementptr inbounds i8, ptr %26, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %7, i64 88
+  br label %48
 
-49:                                               ; preds = %50, %45
-  %.018.i.i = phi ptr [ null, %45 ], [ %.0.i.i, %50 ]
-  %.0.in.i.i = phi ptr [ %48, %45 ], [ %.0.i.i, %50 ]
+48:                                               ; preds = %49, %44
+  %.018.i.i = phi ptr [ null, %44 ], [ %.0.i.i, %49 ]
+  %.0.in.i.i = phi ptr [ %47, %44 ], [ %.0.i.i, %49 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %pthread_destroyjoin.exit, label %50
+  br i1 %.not.i.i, label %pthread_destroyjoin.exit, label %49
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  %52 = load i32, ptr %51, align 4
-  %.not21.i.i = icmp eq i32 %52, %47
-  br i1 %.not21.i.i, label %.critedge.i.i, label %49, !llvm.loop !8
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %51 = load i32, ptr %50, align 4
+  %.not21.i.i = icmp eq i32 %51, %46
+  br i1 %.not21.i.i, label %.critedge.i.i, label %48, !llvm.loop !8
 
-.critedge.i.i:                                    ; preds = %50
+.critedge.i.i:                                    ; preds = %49
   %.not22.i.i = icmp eq ptr %.018.i.i, null
-  %53 = load ptr, ptr %.0.i.i, align 8
-  %.not23.i.i = icmp eq ptr %53, null
-  br i1 %.not22.i.i, label %54, label %57
+  %52 = load ptr, ptr %.0.i.i, align 8
+  %.not23.i.i = icmp eq ptr %52, null
+  br i1 %.not22.i.i, label %53, label %56
 
-54:                                               ; preds = %.critedge.i.i
-  br i1 %.not23.i.i, label %55, label %56
+53:                                               ; preds = %.critedge.i.i
+  br i1 %.not23.i.i, label %54, label %55
 
-55:                                               ; preds = %54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+54:                                               ; preds = %53
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   br label %pthread_destroyjoin.exit
 
-56:                                               ; preds = %54
-  store ptr %53, ptr %48, align 8
+55:                                               ; preds = %53
+  store ptr %52, ptr %47, align 8
   br label %pthread_destroyjoin.exit
 
-57:                                               ; preds = %.critedge.i.i
-  br i1 %.not23.i.i, label %58, label %60
+56:                                               ; preds = %.critedge.i.i
+  br i1 %.not23.i.i, label %57, label %59
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr %.018.i.i, ptr %59, align 8
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds i8, ptr %7, i64 96
+  store ptr %.018.i.i, ptr %58, align 8
   store ptr null, ptr %.018.i.i, align 8
   br label %pthread_destroyjoin.exit
 
-60:                                               ; preds = %57
-  store ptr %53, ptr %.018.i.i, align 8
+59:                                               ; preds = %56
+  store ptr %52, ptr %.018.i.i, align 8
   br label %pthread_destroyjoin.exit
 
-pthread_destroyjoin.exit:                         ; preds = %49, %55, %56, %58, %60
-  %61 = getelementptr inbounds i8, ptr %41, i64 48
-  %62 = call i32 @nxsem_destroy(ptr noundef nonnull %61) #6
-  %63 = getelementptr inbounds i8, ptr %41, i64 16
-  %64 = call i32 @nxsem_destroy(ptr noundef nonnull %63) #6
-  call void @free(ptr noundef %41)
-  br label %65
+pthread_destroyjoin.exit:                         ; preds = %48, %54, %55, %57, %59
+  %60 = getelementptr inbounds i8, ptr %26, i64 48
+  %61 = call i32 @nxsem_destroy(ptr noundef nonnull %60) #6
+  %62 = getelementptr inbounds i8, ptr %26, i64 16
+  %63 = call i32 @nxsem_destroy(ptr noundef nonnull %62) #6
+  call void @free(ptr noundef %26)
+  br label %64
 
-65:                                               ; preds = %pthread_notifywaiters.exit, %pthread_destroyjoin.exit, %40
-  %66 = call i32 @nxmutex_unlock(ptr noundef nonnull %8) #6
-  br label %67
+64:                                               ; preds = %pthread_notifywaiters.exit, %pthread_destroyjoin.exit, %pthread_notifywaiters.exit.thread
+  %65 = call i32 @nxmutex_unlock(ptr noundef nonnull %8) #6
+  br label %66
 
-67:                                               ; preds = %65, %11
-  %.0 = phi i32 [ %not., %11 ], [ 0, %65 ]
+66:                                               ; preds = %64, %11
+  %.0 = phi i32 [ %not., %11 ], [ 0, %64 ]
   ret i32 %.0
 }
 

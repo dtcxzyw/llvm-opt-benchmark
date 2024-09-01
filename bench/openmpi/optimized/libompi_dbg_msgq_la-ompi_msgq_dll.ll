@@ -894,16 +894,16 @@ group_decref.exit.i:                              ; preds = %322, %314
   store ptr %.0.i3, ptr %343, align 8
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next165.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph156.preheader.i, label %.lr.ph152.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge153.i, label %.lr.ph152.i, !llvm.loop !14
 
-.lr.ph156.preheader.i:                            ; preds = %.lr.ph152.i
+._crit_edge153.i:                                 ; preds = %.lr.ph152.i
   call void @qsort(ptr noundef nonnull %341, i64 noundef %339, i64 noundef 8, ptr noundef nonnull @compare_comms) #12
   store ptr null, ptr %39, align 8
   br label %.lr.ph156.i
 
-.lr.ph156.i:                                      ; preds = %.lr.ph156.i, %.lr.ph156.preheader.i
-  %344 = phi ptr [ null, %.lr.ph156.preheader.i ], [ %346, %.lr.ph156.i ]
-  %indvars.iv167.i = phi i64 [ 0, %.lr.ph156.preheader.i ], [ %indvars.iv.next168.i, %.lr.ph156.i ]
+.lr.ph156.i:                                      ; preds = %.lr.ph156.i, %._crit_edge153.i
+  %344 = phi ptr [ null, %._crit_edge153.i ], [ %346, %.lr.ph156.i ]
+  %indvars.iv167.i = phi i64 [ 0, %._crit_edge153.i ], [ %indvars.iv.next168.i, %.lr.ph156.i ]
   %345 = getelementptr inbounds ptr, ptr %341, i64 %indvars.iv167.i
   %346 = load ptr, ptr %345, align 8
   store ptr %344, ptr %346, align 8

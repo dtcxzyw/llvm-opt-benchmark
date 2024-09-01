@@ -46236,9 +46236,9 @@ _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread.us45: ; pr
   br label %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31.us44
 
 _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31.us44: ; preds = %54, %60, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.us43, %48, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread.us45
-  %.sink85 = phi i64 [ 16, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread.us45 ], [ 24, %48 ], [ 24, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.us43 ], [ 24, %60 ], [ 24, %54 ]
+  %.sink86 = phi i64 [ 16, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread.us45 ], [ 24, %48 ], [ 24, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.us43 ], [ 24, %60 ], [ 24, %54 ]
   %69 = phi i1 [ true, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread.us45 ], [ false, %48 ], [ false, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.us43 ], [ false, %60 ], [ false, %54 ]
-  %70 = getelementptr inbounds i8, ptr %.02936.us39, i64 %.sink85
+  %70 = getelementptr inbounds i8, ptr %.02936.us39, i64 %.sink86
   %.029.us47 = load ptr, ptr %70, align 8
   %.not.us48 = icmp eq ptr %.029.us47, null
   br i1 %.not.us48, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !471
@@ -46302,9 +46302,9 @@ _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31: ; preds
   br label %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread
 
 _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread: ; preds = %97, %92, %79, %74, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31
-  %.sink86 = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31 ], [ 16, %74 ], [ 16, %79 ], [ 16, %92 ], [ 16, %97 ]
+  %.sink87 = phi i64 [ 24, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31 ], [ 16, %74 ], [ 16, %79 ], [ 16, %92 ], [ 16, %97 ]
   %102 = phi i1 [ false, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread31 ], [ true, %74 ], [ true, %79 ], [ true, %92 ], [ true, %97 ]
-  %103 = getelementptr inbounds i8, ptr %.02936, i64 %.sink86
+  %103 = getelementptr inbounds i8, ptr %.02936, i64 %.sink87
   %.029 = load ptr, ptr %103, align 8
   %.not = icmp eq ptr %.029, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !471
@@ -46315,18 +46315,18 @@ _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit.thread: ; preds =
   br i1 %.0.lcssa, label %._crit_edge.thread, label %109
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa80 = phi ptr [ %.028.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa81 = phi ptr [ %.028.lcssa, %._crit_edge ], [ %4, %2 ]
   %104 = getelementptr inbounds i8, ptr %0, i64 24
   %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %.028.lcssa80, %105
+  %106 = icmp eq ptr %.028.lcssa81, %105
   br i1 %106, label %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread, label %107
 
 107:                                              ; preds = %._crit_edge.thread
-  %108 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa80) #29
+  %108 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa81) #29
   br label %109
 
 109:                                              ; preds = %107, %._crit_edge
-  %.028.lcssa79 = phi ptr [ %.028.lcssa80, %107 ], [ %.028.lcssa, %._crit_edge ]
+  %.028.lcssa80 = phi ptr [ %.028.lcssa81, %107 ], [ %.028.lcssa, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %108, %107 ], [ %.028.lcssa, %._crit_edge ]
   %110 = getelementptr inbounds i8, ptr %.sroa.014.0, i64 32
   %111 = load ptr, ptr %110, align 8
@@ -46436,7 +46436,7 @@ _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread33: ; pre
 
 _ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread: ; preds = %117, %128, %122, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i11, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13, %156, %162, %151, %._crit_edge.thread, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread33
   %.sroa.027.0 = phi ptr [ %.sroa.014.0, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread33 ], [ null, %._crit_edge.thread ], [ null, %151 ], [ null, %162 ], [ null, %156 ], [ null, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13 ], [ null, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i11 ], [ null, %122 ], [ null, %128 ], [ null, %117 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread33 ], [ %.028.lcssa80, %._crit_edge.thread ], [ %.028.lcssa79, %151 ], [ %.028.lcssa79, %162 ], [ %.028.lcssa79, %156 ], [ %.028.lcssa79, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13 ], [ %.028.lcssa79, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i11 ], [ %.028.lcssa79, %122 ], [ %.028.lcssa79, %128 ], [ %.028.lcssa79, %117 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13.thread33 ], [ %.028.lcssa81, %._crit_edge.thread ], [ %.028.lcssa80, %151 ], [ %.028.lcssa80, %162 ], [ %.028.lcssa80, %156 ], [ %.028.lcssa80, %_ZNKSt4lessISt4pairIN5Yosys5RTLIL6SigBitES3_EEclERKS4_S7_.exit13 ], [ %.028.lcssa80, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i11 ], [ %.028.lcssa80, %122 ], [ %.028.lcssa80, %128 ], [ %.028.lcssa80, %117 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

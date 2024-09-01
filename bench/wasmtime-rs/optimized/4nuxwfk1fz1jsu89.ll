@@ -9659,8 +9659,8 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %.sroa.6.0..sroa_idx11.i = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %20, ptr %.sroa.6.0..sroa_idx11.i, align 8, !alias.scope !870
   store ptr %23, ptr %7, align 8, !alias.scope !870
-  %.not18.i = icmp eq ptr %15, %13
-  br i1 %.not18.i, label %27, label %28
+  %.not16.i = icmp eq ptr %15, %13
+  br i1 %.not16.i, label %27, label %28
 
 27:                                               ; preds = %26
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.161) #32
@@ -9668,10 +9668,10 @@ common.resume:                                    ; preds = %87, %66, %45, %24
 
 28:                                               ; preds = %26, %1
   %29 = phi ptr [ %8, %1 ], [ %23, %26 ]
-  %.sink20.i = phi ptr [ %10, %1 ], [ %21, %26 ]
-  %30 = getelementptr inbounds i8, ptr %.sink20.i, i64 1
+  %.sink18.i = phi ptr [ %10, %1 ], [ %21, %26 ]
+  %30 = getelementptr inbounds i8, ptr %.sink18.i, i64 1
   store ptr %30, ptr %9, align 8, !alias.scope !870
-  %31 = load i8, ptr %.sink20.i, align 1, !noalias !5, !noundef !5
+  %31 = load i8, ptr %.sink18.i, align 1, !noalias !5, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !900)
   %.not.i13 = icmp eq ptr %30, %29
   br i1 %.not.i13, label %32, label %49
@@ -9709,8 +9709,8 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %.sroa.6.0..sroa_idx11.i19 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %41, ptr %.sroa.6.0..sroa_idx11.i19, align 8, !alias.scope !900
   store ptr %44, ptr %7, align 8, !alias.scope !900
-  %.not18.i20 = icmp eq ptr %36, %34
-  br i1 %.not18.i20, label %48, label %49
+  %.not16.i20 = icmp eq ptr %36, %34
+  br i1 %.not16.i20, label %48, label %49
 
 48:                                               ; preds = %47
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.162) #32
@@ -9718,10 +9718,10 @@ common.resume:                                    ; preds = %87, %66, %45, %24
 
 49:                                               ; preds = %47, %28
   %50 = phi ptr [ %29, %28 ], [ %44, %47 ]
-  %.sink20.i15 = phi ptr [ %30, %28 ], [ %42, %47 ]
-  %51 = getelementptr inbounds i8, ptr %.sink20.i15, i64 1
+  %.sink18.i15 = phi ptr [ %30, %28 ], [ %42, %47 ]
+  %51 = getelementptr inbounds i8, ptr %.sink18.i15, i64 1
   store ptr %51, ptr %9, align 8, !alias.scope !900
-  %52 = load i8, ptr %.sink20.i15, align 1, !noalias !5, !noundef !5
+  %52 = load i8, ptr %.sink18.i15, align 1, !noalias !5, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
   %.not.i22 = icmp eq ptr %51, %50
   br i1 %.not.i22, label %53, label %70
@@ -9759,8 +9759,8 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %.sroa.6.0..sroa_idx11.i28 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %62, ptr %.sroa.6.0..sroa_idx11.i28, align 8, !alias.scope !927
   store ptr %65, ptr %7, align 8, !alias.scope !927
-  %.not18.i29 = icmp eq ptr %57, %55
-  br i1 %.not18.i29, label %69, label %70
+  %.not16.i29 = icmp eq ptr %57, %55
+  br i1 %.not16.i29, label %69, label %70
 
 69:                                               ; preds = %68
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.163) #32
@@ -9768,10 +9768,10 @@ common.resume:                                    ; preds = %87, %66, %45, %24
 
 70:                                               ; preds = %68, %49
   %71 = phi ptr [ %50, %49 ], [ %65, %68 ]
-  %.sink20.i24 = phi ptr [ %51, %49 ], [ %63, %68 ]
-  %72 = getelementptr inbounds i8, ptr %.sink20.i24, i64 1
+  %.sink18.i24 = phi ptr [ %51, %49 ], [ %63, %68 ]
+  %72 = getelementptr inbounds i8, ptr %.sink18.i24, i64 1
   store ptr %72, ptr %9, align 8, !alias.scope !927
-  %73 = load i8, ptr %.sink20.i24, align 1, !noalias !5, !noundef !5
+  %73 = load i8, ptr %.sink18.i24, align 1, !noalias !5, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !954)
   %.not.i31 = icmp eq ptr %72, %71
   br i1 %.not.i31, label %74, label %91
@@ -9809,18 +9809,18 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   %.sroa.6.0..sroa_idx11.i37 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %83, ptr %.sroa.6.0..sroa_idx11.i37, align 8, !alias.scope !954
   store ptr %86, ptr %7, align 8, !alias.scope !954
-  %.not18.i38 = icmp eq ptr %78, %76
-  br i1 %.not18.i38, label %90, label %91
+  %.not16.i38 = icmp eq ptr %78, %76
+  br i1 %.not16.i38, label %90, label %91
 
 90:                                               ; preds = %89
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.164) #32
   unreachable
 
 91:                                               ; preds = %89, %70
-  %.sink20.i33 = phi ptr [ %72, %70 ], [ %84, %89 ]
-  %92 = getelementptr inbounds i8, ptr %.sink20.i33, i64 1
+  %.sink18.i33 = phi ptr [ %72, %70 ], [ %84, %89 ]
+  %92 = getelementptr inbounds i8, ptr %.sink18.i33, i64 1
   store ptr %92, ptr %9, align 8, !alias.scope !954
-  %93 = load i8, ptr %.sink20.i33, align 1, !noalias !5, !noundef !5
+  %93 = load i8, ptr %.sink18.i33, align 1, !noalias !5, !noundef !5
   %94 = zext i8 %31 to i32
   %95 = shl nuw i32 %94, 24
   %96 = zext i8 %52 to i32
@@ -9909,8 +9909,8 @@ define void @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$rand_cor
   store ptr %24, ptr %9, align 8, !alias.scope !986
   store i64 %23, ptr %.sroa.6.0..sroa_idx11.i, align 8, !alias.scope !986
   store ptr %26, ptr %8, align 8, !alias.scope !986
-  %.not18.i = icmp eq ptr %18, %17
-  br i1 %.not18.i, label %30, label %31
+  %.not16.i = icmp eq ptr %18, %17
+  br i1 %.not16.i, label %30, label %31
 
 30:                                               ; preds = %29
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.165) #32
@@ -9918,10 +9918,10 @@ define void @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$rand_cor
 
 31:                                               ; preds = %29, %12
   %32 = phi ptr [ %14, %12 ], [ %26, %29 ]
-  %.sink20.i = phi ptr [ %13, %12 ], [ %24, %29 ]
-  %33 = getelementptr inbounds i8, ptr %.sink20.i, i64 1
+  %.sink18.i = phi ptr [ %13, %12 ], [ %24, %29 ]
+  %33 = getelementptr inbounds i8, ptr %.sink18.i, i64 1
   store ptr %33, ptr %9, align 8, !alias.scope !986
-  %34 = load i8, ptr %.sink20.i, align 1, !noalias !5, !noundef !5
+  %34 = load i8, ptr %.sink18.i, align 1, !noalias !5, !noundef !5
   store i8 %34, ptr %.sroa.0.020, align 1
   %35 = icmp eq ptr %15, %5
   br i1 %35, label %._crit_edge, label %12
@@ -9990,8 +9990,8 @@ define { ptr, ptr } @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$
   store ptr %24, ptr %9, align 8, !alias.scope !1046, !noalias !1014
   store i64 %23, ptr %.sroa.6.0..sroa_idx11.i.i, align 8, !alias.scope !1046, !noalias !1014
   store ptr %26, ptr %8, align 8, !alias.scope !1046, !noalias !1014
-  %.not18.i.i = icmp eq ptr %18, %17
-  br i1 %.not18.i.i, label %30, label %31
+  %.not16.i.i = icmp eq ptr %18, %17
+  br i1 %.not16.i.i, label %30, label %31
 
 30:                                               ; preds = %29
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6a8939ff2fac874f95e30fdedcd89b3e.159, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.165) #32
@@ -9999,10 +9999,10 @@ define { ptr, ptr } @"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$
 
 31:                                               ; preds = %29, %12
   %32 = phi ptr [ %14, %12 ], [ %26, %29 ]
-  %.sink20.i.i = phi ptr [ %13, %12 ], [ %24, %29 ]
-  %33 = getelementptr inbounds i8, ptr %.sink20.i.i, i64 1
+  %.sink18.i.i = phi ptr [ %13, %12 ], [ %24, %29 ]
+  %33 = getelementptr inbounds i8, ptr %.sink18.i.i, i64 1
   store ptr %33, ptr %9, align 8, !alias.scope !1046, !noalias !1014
-  %34 = load i8, ptr %.sink20.i.i, align 1, !noalias !5, !noundef !5
+  %34 = load i8, ptr %.sink18.i.i, align 1, !noalias !5, !noundef !5
   store i8 %34, ptr %.sroa.0.020.i, align 1, !alias.scope !1014, !noalias !1011
   %35 = icmp eq ptr %15, %5
   br i1 %35, label %"_ZN75_$LT$wasmtime_wasi..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hf963680a4ab88ba7E.exit", label %12

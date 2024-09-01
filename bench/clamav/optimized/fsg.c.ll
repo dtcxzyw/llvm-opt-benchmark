@@ -60,7 +60,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 
 .preheader107:                                    ; preds = %42
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.preheader, label %.preheader106.us.preheader
+  br i1 %.not, label %.lr.ph118.preheader, label %.preheader106.us.preheader
 
 .preheader106.us.preheader:                       ; preds = %.preheader107
   %wide.trip.count123 = zext nneg i32 %5 to i64
@@ -106,7 +106,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 
 ..loopexit_crit_edge.us:                          ; preds = %29
   %.not98.us = icmp eq i32 %.290.us, 0
-  br i1 %.not98.us, label %.preheader, label %.preheader106.us
+  br i1 %.not98.us, label %.lr.ph118.preheader, label %.preheader106.us
 
 31:                                               ; preds = %.lr.ph, %42
   %32 = phi ptr [ %1, %.lr.ph ], [ %45, %42 ]
@@ -140,14 +140,11 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader107, label %31
 
-.preheader:                                       ; preds = %..loopexit_crit_edge.us, %.preheader107
-  br i1 %.not109, label %.preheader.._crit_edge_crit_edge, label %.lr.ph118.preheader
-
-.preheader.._crit_edge_crit_edge:                 ; preds = %9, %.preheader
+.preheader.._crit_edge_crit_edge:                 ; preds = %9
   %.pre134 = add nsw i32 %5, 1
   br label %._crit_edge
 
-.lr.ph118.preheader:                              ; preds = %.preheader
+.lr.ph118.preheader:                              ; preds = %..loopexit_crit_edge.us, %.preheader107
   %51 = zext nneg i32 %5 to i64
   %52 = add nuw i32 %5, 1
   %wide.trip.count128 = zext i32 %52 to i64

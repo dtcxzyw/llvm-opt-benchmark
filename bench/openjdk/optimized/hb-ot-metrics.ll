@@ -5392,9 +5392,9 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %52, %75
   br i1 %or.cond40, label %.preheader.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit
 
 .preheader.i:                                     ; preds = %_ZNK9hb_face_t14get_num_glyphsEv.exit, %.preheader.i
-  %.142.i = phi i32 [ %82, %.preheader.i ], [ %78, %_ZNK9hb_face_t14get_num_glyphsEv.exit ]
-  %80 = lshr i32 %.142.i, 1
-  %81 = add i32 %.142.i, 8
+  %.143.i = phi i32 [ %82, %.preheader.i ], [ %78, %_ZNK9hb_face_t14get_num_glyphsEv.exit ]
+  %80 = lshr i32 %.143.i, 1
+  %81 = add i32 %.143.i, 8
   %82 = add i32 %81, %80
   %83 = icmp ugt i32 %.sroa.speculated, %82
   br i1 %83, label %.preheader.i, label %.thread.i, !llvm.loop !14
@@ -5413,8 +5413,8 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %88 = shl nuw i32 %82, 2
   %89 = zext i32 %88 to i64
   %90 = call ptr @realloc(ptr noundef %87, i64 noundef %89) #15
-  %.not43.i = icmp eq ptr %90, null
-  br i1 %.not43.i, label %91, label %95
+  %.not42.i = icmp eq ptr %90, null
+  br i1 %.not42.i, label %91, label %95
 
 91:                                               ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i
   %92 = load i32, ptr %5, align 8
@@ -5475,9 +5475,9 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit:            ; preds = %.sink.split.i, %91,
   br i1 %.not.i.i33.not, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %117, %.preheader.i.i
-  %.142.i.i = phi i32 [ %120, %.preheader.i.i ], [ %114, %117 ]
-  %118 = lshr i32 %.142.i.i, 1
-  %119 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %120, %.preheader.i.i ], [ %114, %117 ]
+  %118 = lshr i32 %.143.i.i, 1
+  %119 = add i32 %.143.i.i, 8
   %120 = add i32 %119, %118
   %.not47 = icmp ult i32 %104, %120
   br i1 %.not47, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !14
@@ -5491,8 +5491,8 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %123 = shl nuw i32 %120, 2
   %124 = zext i32 %123 to i64
   %125 = call ptr @realloc(ptr noundef %122, i64 noundef %124) #15
-  %.not43.i.i = icmp eq ptr %125, null
-  br i1 %.not43.i.i, label %126, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %125, null
+  br i1 %.not42.i.i, label %126, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
 126:                                              ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i
   %127 = load i32, ptr %5, align 8

@@ -2759,10 +2759,10 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocaptu
   br label %20
 
 20:                                               ; preds = %196, %5
-  %21 = phi i64 [ 0, %5 ], [ %198, %196 ]
-  %22 = phi i64 [ %3, %5 ], [ %200, %196 ]
+  %21 = phi i64 [ 0, %5 ], [ %200, %196 ]
+  %22 = phi i64 [ %3, %5 ], [ %199, %196 ]
   %23 = phi ptr [ %2, %5 ], [ %197, %196 ]
-  %24 = phi ptr [ %1, %5 ], [ %199, %196 ]
+  %24 = phi ptr [ %1, %5 ], [ %198, %196 ]
   %25 = load volatile i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !52
   %26 = load i64, ptr %7, align 8
@@ -3050,16 +3050,16 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocaptu
 
 196:                                              ; preds = %193, %.thread8
   %197 = phi ptr [ %68, %.thread8 ], [ %195, %193 ]
-  %198 = add i64 %60, %21
-  %199 = getelementptr i8, ptr %24, i64 %60
-  %200 = sub i64 %22, %60
+  %198 = getelementptr i8, ptr %24, i64 %60
+  %199 = sub i64 %22, %60
+  %200 = add i64 %60, %21
   %201 = load volatile i64, ptr %19, align 8
   %202 = and i64 %201, 1048576
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %20, label %.thread7, !llvm.loop !56
 
 .thread7:                                         ; preds = %56, %196
-  %204 = phi i64 [ %198, %196 ], [ %21, %56 ]
+  %204 = phi i64 [ %200, %196 ], [ %21, %56 ]
   %205 = getelementptr inbounds i8, ptr %0, i64 428
   store i32 %57, ptr %205, align 4
   %206 = getelementptr inbounds i8, ptr %0, i64 16

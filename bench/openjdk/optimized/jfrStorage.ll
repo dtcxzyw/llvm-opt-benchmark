@@ -641,8 +641,8 @@ define hidden noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonn
   %.0813.i.i = phi i64 [ %29, %_ZN14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES5_Lb0EE16add_to_free_listEPS3_.exit.loopexit.i.i ], [ 0, %.lr.ph.i.i ]
   %19 = load i64, ptr %14, align 8
   %20 = add i64 %19, -1
-  %or.cond27.i.i = icmp slt i64 %20, 0
-  br i1 %or.cond27.i.i, label %.loopexit, label %21
+  %or.cond28.i.i = icmp slt i64 %20, 0
+  br i1 %or.cond28.i.i, label %.loopexit, label %21
 
 21:                                               ; preds = %.lr.ph.split.i.i
   %22 = add nuw i64 %19, 48
@@ -666,8 +666,8 @@ define hidden noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonn
 
 _ZN14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES5_Lb0EE16add_to_free_listEPS3_.exit.loopexit.i.i: ; preds = %26
   %29 = add nuw i64 %.0813.i.i, 1
-  %exitcond.i.i = icmp eq i64 %29, %2
-  br i1 %exitcond.i.i, label %.loopexit, label %.lr.ph.split.i.i, !llvm.loop !19
+  %exitcond.not.i.i = icmp eq i64 %29, %2
+  br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.split.i.i, !llvm.loop !19
 
 _ZL13create_mspaceI14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb0EES1_EPT_mmmbPT0_.exit: ; preds = %7
   %30 = getelementptr inbounds i8, ptr %0, i64 8

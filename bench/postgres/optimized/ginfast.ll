@@ -796,8 +796,8 @@ BufferGetPage.exit.i:                             ; preds = %130, %126
 141:                                              ; preds = %._crit_edge95.i, %BufferGetPage.exit.i
   %.0.i81 = phi i32 [ %134, %BufferGetPage.exit.i ], [ %.1.lcssa.i, %._crit_edge95.i ]
   store i32 0, ptr %77, align 8
-  %.not113.i = icmp eq i32 %.0.i81, %125
-  br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not96.i = icmp eq i32 %.0.i81, %125
+  br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %141, %BufferGetPage.exit66.i
   %142 = phi i32 [ %166, %BufferGetPage.exit66.i ], [ 0, %141 ]
@@ -988,15 +988,15 @@ BufferGetPage.exit68.i:                           ; preds = %219, %213
   br i1 %249, label %.lr.ph83.i, label %._crit_edge84.i
 
 .lr.ph83.i:                                       ; preds = %247, %.lr.ph83.i
-  %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %.lr.ph83.i ], [ 0, %247 ]
-  %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %250 = trunc i64 %indvars.iv.next102.i to i8
-  %251 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv101.i
+  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %.lr.ph83.i ], [ 0, %247 ]
+  %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
+  %250 = trunc i64 %indvars.iv.next103.i to i8
+  %251 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv102.i
   %252 = load i32, ptr %251, align 4
   call void @XLogRegisterBuffer(i8 noundef zeroext %250, i32 noundef %252, i8 noundef zeroext 6) #9
   %253 = load i32, ptr %77, align 8
   %254 = sext i32 %253 to i64
-  %255 = icmp slt i64 %indvars.iv.next102.i, %254
+  %255 = icmp slt i64 %indvars.iv.next103.i, %254
   br i1 %255, label %.lr.ph83.i, label %._crit_edge84.i, !llvm.loop !12
 
 ._crit_edge84.i:                                  ; preds = %.lr.ph83.i, %247
@@ -1013,8 +1013,8 @@ BufferGetPage.exit68.i:                           ; preds = %219, %213
   br i1 %261, label %.lr.ph87.i, label %._crit_edge91.thread.i
 
 .lr.ph87.i:                                       ; preds = %._crit_edge84.i, %BufferGetPage.exit70.i
-  %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %BufferGetPage.exit70.i ], [ 0, %._crit_edge84.i ]
-  %262 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv104.i
+  %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %BufferGetPage.exit70.i ], [ 0, %._crit_edge84.i ]
+  %262 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv105.i
   %263 = load i32, ptr %262, align 4
   %264 = icmp slt i32 %263, 0
   br i1 %264, label %265, label %271
@@ -1040,10 +1040,10 @@ BufferGetPage.exit70.i:                           ; preds = %271, %265
   store i32 %258, ptr %.0.i.i69.i, align 4
   %277 = getelementptr inbounds i8, ptr %.0.i.i69.i, i64 4
   store i32 %259, ptr %277, align 4
-  %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
+  %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %278 = load i32, ptr %77, align 8
   %279 = sext i32 %278 to i64
-  %280 = icmp slt i64 %indvars.iv.next105.i, %279
+  %280 = icmp slt i64 %indvars.iv.next106.i, %279
   br i1 %280, label %.lr.ph87.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %BufferGetPage.exit70.i, %244, %241, %._crit_edge80.i
@@ -1052,14 +1052,14 @@ BufferGetPage.exit70.i:                           ; preds = %271, %265
   br i1 %282, label %.lr.ph90.i, label %._crit_edge91.thread.i
 
 .lr.ph90.i:                                       ; preds = %.loopexit.i, %.lr.ph90.i
-  %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.lr.ph90.i ], [ 0, %.loopexit.i ]
-  %283 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv107.i
+  %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %.lr.ph90.i ], [ 0, %.loopexit.i ]
+  %283 = getelementptr [16 x i32], ptr %7, i64 0, i64 %indvars.iv108.i
   %284 = load i32, ptr %283, align 4
   call void @UnlockReleaseBuffer(i32 noundef %284) #9
-  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
+  %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %285 = load i32, ptr %77, align 8
   %286 = sext i32 %285 to i64
-  %287 = icmp slt i64 %indvars.iv.next108.i, %286
+  %287 = icmp slt i64 %indvars.iv.next109.i, %286
   br i1 %287, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !14
 
 ._crit_edge91.thread.i:                           ; preds = %.loopexit.i, %._crit_edge84.i
@@ -1077,14 +1077,14 @@ BufferGetPage.exit70.i:                           ; preds = %271, %265
   br i1 %293, label %.lr.ph94.split.i, label %._crit_edge95.i
 
 .lr.ph94.split.i:                                 ; preds = %._crit_edge91.i, %.lr.ph94.split.i
-  %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %.lr.ph94.split.i ], [ 0, %._crit_edge91.i ]
-  %294 = getelementptr [16 x i32], ptr %8, i64 0, i64 %indvars.iv110.i
+  %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %.lr.ph94.split.i ], [ 0, %._crit_edge91.i ]
+  %294 = getelementptr [16 x i32], ptr %8, i64 0, i64 %indvars.iv111.i
   %295 = load i32, ptr %294, align 4
   call void @RecordFreeIndexPage(ptr noundef %15, i32 noundef %295) #9
-  %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %296 = load i32, ptr %77, align 8
   %297 = sext i32 %296 to i64
-  %298 = icmp slt i64 %indvars.iv.next111.i, %297
+  %298 = icmp slt i64 %indvars.iv.next112.i, %297
   br i1 %298, label %.lr.ph94.split.i, label %._crit_edge95.i, !llvm.loop !15
 
 ._crit_edge95.i:                                  ; preds = %.lr.ph94.split.i, %._crit_edge91.i, %._crit_edge91.thread.i

@@ -1557,7 +1557,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val57.i = phi i32 [ %.val51, %.lr.ph58.i ], [ %.val.i59, %.loopexit.i ]
   %.val41.i = load ptr, ptr %53, align 8
   %.not.i58 = icmp eq ptr %.val41.i, null
-  br i1 %.not.i58, label %Gia_ManInseInit.exit, label %56
+  br i1 %.not.i58, label %.lr.ph, label %56
 
 56:                                               ; preds = %55
   %.val38.i = load ptr, ptr %54, align 8
@@ -1637,12 +1637,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val.i59 = load i32, ptr %24, align 8
   %89 = sext i32 %.val.i59 to i64
   %90 = icmp slt i64 %indvars.iv.next70.i, %89
-  br i1 %90, label %55, label %Gia_ManInseInit.exit, !llvm.loop !8
+  br i1 %90, label %55, label %.lr.ph, !llvm.loop !8
 
-Gia_ManInseInit.exit:                             ; preds = %55, %.loopexit.i
-  br i1 %.not.i.i, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %Gia_ManInseInit.exit
+.lr.ph:                                           ; preds = %.loopexit.i, %55
   %wide.trip.count = zext nneg i32 %.val51 to i64
   br label %91
 
@@ -1658,8 +1655,8 @@ Gia_ManInseInit.exit:                             ; preds = %55, %.loopexit.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %91, !llvm.loop !29
 
-.critedge:                                        ; preds = %91, %Vec_IntStart.exit, %Gia_ManInseInit.exit
-  %.046.lcssa = phi i32 [ 0, %Gia_ManInseInit.exit ], [ 0, %Vec_IntStart.exit ], [ %96, %91 ]
+.critedge:                                        ; preds = %91, %Vec_IntStart.exit
+  %.046.lcssa = phi i32 [ 0, %Vec_IntStart.exit ], [ %96, %91 ]
   br i1 %.not, label %99, label %97
 
 97:                                               ; preds = %.critedge

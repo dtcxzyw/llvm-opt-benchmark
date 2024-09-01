@@ -62,8 +62,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
 
 10:                                               ; preds = %12, %4
   %11 = phi ptr [ %13, %12 ], [ %3, %4 ]
-  %.not.i.not = icmp eq ptr %11, %6
-  br i1 %.not.i.not, label %18, label %12
+  %.not.not.not.i.not = icmp eq ptr %11, %6
+  br i1 %.not.not.not.i.not, label %18, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %11, i64 24
@@ -93,8 +93,8 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
 
 25:                                               ; preds = %27, %19
   %26 = phi ptr [ %28, %27 ], [ %17, %19 ]
-  %.not.i8.not.not = icmp ne ptr %26, %21
-  br i1 %.not.i8.not.not, label %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit
+  %.not.not.not.i8.not.not.not = icmp ne ptr %26, %21
+  br i1 %.not.not.not.i8.not.not.not, label %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %26, i64 24
@@ -103,7 +103,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit, label %25
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hba24066c8eb4d65dE.exit: ; preds = %12, %25, %27, %15
-  %.0 = phi i1 [ false, %15 ], [ %.not.i8.not.not, %27 ], [ %.not.i8.not.not, %25 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %15 ], [ %.not.not.not.i8.not.not.not, %27 ], [ %.not.not.not.i8.not.not.not, %25 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -780,8 +780,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 6:                                                ; preds = %8, %3
   %7 = phi ptr [ %9, %8 ], [ %1, %3 ]
-  %.not.i.not = icmp ne ptr %7, %4
-  br i1 %.not.i.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3ab25b56f1a98e98E.llvm.3167359504713930506.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.i.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3ab25b56f1a98e98E.llvm.3167359504713930506.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -790,7 +790,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3ab25b56f1a98e98E.llvm.3167359504713930506.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3ab25b56f1a98e98E.llvm.3167359504713930506.exit": ; preds = %6, %8
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
@@ -1313,8 +1313,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %7, %4
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f26d0b2860ff859E.llvm.3167359504713930506.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f26d0b2860ff859E.llvm.3167359504713930506.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1324,7 +1324,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f26d0b2860ff859E.llvm.3167359504713930506.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f26d0b2860ff859E.llvm.3167359504713930506.exit": ; preds = %6, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

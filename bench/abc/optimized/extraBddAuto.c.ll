@@ -2097,8 +2097,7 @@ define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %.lr.ph
   %30 = load ptr, ptr %15, align 8
   %31 = icmp eq ptr %19, %30
-  %or.cond = or i1 %.not4750, %31
-  br i1 %or.cond, label %Extra_zddLitCountComb.exit.thread, label %.lr.ph.i
+  br i1 %31, label %Extra_zddLitCountComb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.012.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %._crit_edge ]

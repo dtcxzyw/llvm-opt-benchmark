@@ -2512,7 +2512,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_config_3_CHNAM(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_config_3_CHNAM(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -2541,7 +2541,7 @@ define internal fastcc noundef i32 @dissect_config_3_CHNAM(ptr noundef %0, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph
   %16 = load i32, ptr @ett_conf_phnam, align 4
   %17 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %13, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef %4, i32 noundef %3) #6
-  br i1 %7, label %.lr.ph55, label %.loopexit
+  br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge, %.lr.ph55
   %.153 = phi i32 [ %25, %.lr.ph55 ], [ 0, %._crit_edge ]
@@ -2563,8 +2563,8 @@ define internal fastcc noundef i32 @dissect_config_3_CHNAM(ptr noundef %0, ptr n
   %exitcond58.not = icmp eq i32 %25, %3
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph55, !llvm.loop !29
 
-.loopexit:                                        ; preds = %.lr.ph55, %._crit_edge.thread, %._crit_edge, %5
-  %.0 = phi i32 [ %2, %5 ], [ %2, %._crit_edge ], [ %2, %._crit_edge.thread ], [ %31, %.lr.ph55 ]
+.loopexit:                                        ; preds = %.lr.ph55, %._crit_edge.thread, %5
+  %.0 = phi i32 [ %2, %5 ], [ %2, %._crit_edge.thread ], [ %31, %.lr.ph55 ]
   ret i32 %.0
 }
 

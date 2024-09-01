@@ -1232,8 +1232,8 @@ forkdata_print.exit373:                           ; preds = %208, %212
   %244 = shl nuw nsw i16 %rev.i.i, 1
   %245 = sub i16 %219, %244
   %246 = add i16 %245, -2
-  %.not194.i = icmp eq i16 %.sroa.11.0.copyload.i, 0
-  br i1 %.not194.i, label %.loopexit.i, label %.lr.ph.i
+  %.not192.i = icmp eq i16 %.sroa.11.0.copyload.i, 0
+  br i1 %.not192.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %243
   %247 = zext i16 %246 to i32
@@ -1244,7 +1244,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 249:                                              ; preds = %300, %.lr.ph.i
   %indvars.iv.i374 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i376, %300 ]
-  %.0111190.i = phi i16 [ 14, %.lr.ph.i ], [ %261, %300 ]
+  %.0111188.i = phi i16 [ 14, %.lr.ph.i ], [ %261, %300 ]
   %250 = trunc nuw i64 %indvars.iv.i374 to i16
   %251 = shl i16 %250, 1
   %252 = sub i16 %224, %251
@@ -1259,7 +1259,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
   %261 = or disjoint i16 %257, %260
   %262 = zext i16 %261 to i32
   %.not134.i = icmp ule i16 %246, %261
-  %263 = icmp ult i16 %261, %.0111190.i
+  %263 = icmp ult i16 %261, %.0111188.i
   %or.cond149.i = or i1 %.not134.i, %263
   br i1 %or.cond149.i, label %264, label %267
 
@@ -1351,8 +1351,8 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 .loopexit.i:                                      ; preds = %300, %243
   %301 = add nuw nsw i32 %228, 1
-  %exitcond221.i = icmp eq i32 %228, %225
-  br i1 %exitcond221.i, label %.thread51, label %227
+  %exitcond219.i = icmp eq i32 %228, %225
+  br i1 %exitcond219.i, label %.thread51, label %227
 
 hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %264, %242, %239, %230, %296
   call void @free(ptr noundef nonnull %221) #12

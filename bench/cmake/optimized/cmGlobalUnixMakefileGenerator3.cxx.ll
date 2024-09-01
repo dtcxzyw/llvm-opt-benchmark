@@ -956,7 +956,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 0, ptr %3, align 8
-  br i1 %.not32, label %._crit_edge39, label %.lr.ph38
+  br label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %._crit_edge, %.lr.ph38
   %.sroa.022.036 = phi ptr [ %34, %.lr.ph38 ], [ %27, %._crit_edge ]
@@ -966,7 +966,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %.not29 = icmp eq ptr %34, %28
   br i1 %.not29, label %._crit_edge39, label %.lr.ph38
 
-._crit_edge39:                                    ; preds = %.lr.ph38, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5clearEv.exit17, %._crit_edge
+._crit_edge39:                                    ; preds = %.lr.ph38, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5clearEv.exit17
   %35 = getelementptr inbounds i8, ptr %0, i64 152
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 160

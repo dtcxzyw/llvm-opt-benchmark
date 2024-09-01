@@ -292,10 +292,9 @@ entry:
   br i1 %.not, label %while.body.lr.ph.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %2 = load i8, ptr %byte.addr, align 1
-  store i8 %2, ptr %1, align 1
-  %3 = load ptr, ptr %buf_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %byte, ptr %1, align 1
+  %2 = load ptr, ptr %buf_, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i.i.i, ptr %buf_, align 8
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit
 
@@ -307,47 +306,47 @@ while.body.lr.ph.i.i:                             ; preds = %entry
 while.body.i.i:                                   ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %while.body.lr.ph.i.i
   %buf.addr.131.i.i = phi ptr [ %byte.addr, %while.body.lr.ph.i.i ], [ %add.ptr14.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i ]
   %storemerge30.i.i = phi i64 [ 1, %while.body.lr.ph.i.i ], [ %sub16.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i ]
-  %4 = load ptr, ptr %queue_.i.i.i, align 8
-  %5 = load i64, ptr %growth_.i.i, align 8
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %storemerge30.i.i)
-  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
-  %6 = load ptr, ptr %cachePtr_.i.i.i.i, align 8
-  %7 = load ptr, ptr %6, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %3 = load ptr, ptr %queue_.i.i.i, align 8
+  %4 = load i64, ptr %growth_.i.i, align 8
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %storemerge30.i.i)
+  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = load ptr, ptr %cachePtr_.i.i.i.i, align 8
+  %6 = load ptr, ptr %5, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i
-  %second.i.i13.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %second.i.i13.i.i, align 8
-  %sub.ptr.lhs.cast.i.i14.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i15.i.i = ptrtoint ptr %7 to i64
+  %second.i.i13.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = load ptr, ptr %second.i.i13.i.i, align 8
+  %sub.ptr.lhs.cast.i.i14.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i15.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i16.i.i = sub i64 %sub.ptr.lhs.cast.i.i14.i.i, %sub.ptr.rhs.cast.i.i15.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.ptr.sub.i.i16.i.i, %.sroa.speculated.i.i
   br i1 %cmp3.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i16.i.i, i64 %storemerge30.i.i)
-  %.fca.0.insert.i.i.i.i = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %.fca.0.insert.i.i.i.i = insertvalue { ptr, i64 } poison, ptr %6, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.i, i64 %.sroa.speculated.i.i.i, 1
   br label %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i.i.i, %while.body.i.i
-  %call9.i.i.i = tail call { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %.sroa.speculated.i.i, i64 noundef %5, i64 noundef %storemerge30.i.i)
+  %call9.i.i.i = tail call { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef nonnull align 8 dereferenceable(72) %3, i64 noundef %.sroa.speculated.i.i, i64 noundef %4, i64 noundef %storemerge30.i.i)
   br label %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i
 
 _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %if.end.i.i.i, %if.then.i.i.i
   %call8.pn.i.i.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ %call9.i.i.i, %if.end.i.i.i ]
-  %9 = extractvalue { ptr, i64 } %call8.pn.i.i.i, 0
-  %10 = extractvalue { ptr, i64 } %call8.pn.i.i.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %buf.addr.131.i.i, i64 %10, i1 false)
-  %11 = load ptr, ptr %queue_.i.i.i, align 8
-  %cachePtr_13.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %12 = load ptr, ptr %cachePtr_13.i.i.i, align 8
-  %13 = load ptr, ptr %12, align 8
-  %add.ptr16.i.i.i = getelementptr inbounds i8, ptr %13, i64 %10
-  store ptr %add.ptr16.i.i.i, ptr %12, align 8
-  %add.ptr14.i.i = getelementptr inbounds i8, ptr %buf.addr.131.i.i, i64 %10
-  %sub16.i.i = sub i64 %storemerge30.i.i, %10
+  %8 = extractvalue { ptr, i64 } %call8.pn.i.i.i, 0
+  %9 = extractvalue { ptr, i64 } %call8.pn.i.i.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %buf.addr.131.i.i, i64 %9, i1 false)
+  %10 = load ptr, ptr %queue_.i.i.i, align 8
+  %cachePtr_13.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = load ptr, ptr %cachePtr_13.i.i.i, align 8
+  %12 = load ptr, ptr %11, align 8
+  %add.ptr16.i.i.i = getelementptr inbounds i8, ptr %12, i64 %9
+  store ptr %add.ptr16.i.i.i, ptr %11, align 8
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %buf.addr.131.i.i, i64 %9
+  %sub16.i.i = sub i64 %storemerge30.i.i, %9
   %cmp4.not.i.i = icmp eq i64 %sub16.i.i, 0
   br i1 %cmp4.not.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit, label %while.body.i.i, !llvm.loop !4
 

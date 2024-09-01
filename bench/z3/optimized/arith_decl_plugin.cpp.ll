@@ -7769,8 +7769,8 @@ if.end:                                           ; preds = %entry
   %cmp2 = icmp ne i32 %arity, 0
   %0 = add i32 %k, -37
   %1 = icmp ult i32 %0, 2
-  %or.cond73 = or i1 %1, %cmp2
-  br i1 %or.cond73, label %if.end5, label %if.then4
+  %or.cond72 = or i1 %1, %cmp2
+  br i1 %or.cond72, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -8019,29 +8019,21 @@ if.then57:                                        ; preds = %land.lhs.true55, %l
   br i1 %cmp2, label %for.body.preheader.i, label %_ZL12has_real_argjPKP4sortS0_.exit
 
 for.body.preheader.i:                             ; preds = %if.then57
-  %40 = zext i32 %arity to i64
-  %41 = load ptr, ptr %domain, align 8
-  %cmp1.i74 = icmp eq ptr %41, %39
-  br i1 %cmp1.i74, label %_ZL12has_real_argjPKP4sortS0_.exit, label %for.cond.i
+  %wide.trip.count.i = zext i32 %arity to i64
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %for.body.preheader.i, %for.body.i
-  %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %40
-  br i1 %exitcond.not.i, label %_ZL12has_real_argjPKP4sortS0_.exit.loopexit, label %for.body.i, !llvm.loop !9
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds ptr, ptr %domain, i64 %indvars.iv.i
+  %40 = load ptr, ptr %arrayidx.i, align 8
+  %cmp1.i = icmp eq ptr %40, %39
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %or.cond73 = select i1 %cmp1.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond73, label %_ZL12has_real_argjPKP4sortS0_.exit, label %for.body.i, !llvm.loop !9
 
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %domain, i64 %indvars.iv.next.i
-  %42 = load ptr, ptr %arrayidx.i, align 8
-  %cmp1.i = icmp eq ptr %42, %39
-  br i1 %cmp1.i, label %_ZL12has_real_argjPKP4sortS0_.exit.loopexit, label %for.cond.i, !llvm.loop !9
-
-_ZL12has_real_argjPKP4sortS0_.exit.loopexit:      ; preds = %for.cond.i, %for.body.i
-  %cmp.i67.le = icmp ult i64 %indvars.iv.next.i, %40
-  br label %_ZL12has_real_argjPKP4sortS0_.exit
-
-_ZL12has_real_argjPKP4sortS0_.exit:               ; preds = %_ZL12has_real_argjPKP4sortS0_.exit.loopexit, %for.body.preheader.i, %if.then57
-  %cmp.lcssa.i = phi i1 [ false, %if.then57 ], [ true, %for.body.preheader.i ], [ %cmp.i67.le, %_ZL12has_real_argjPKP4sortS0_.exit.loopexit ]
+_ZL12has_real_argjPKP4sortS0_.exit:               ; preds = %for.body.i, %if.then57
+  %cmp.lcssa.i = phi i1 [ false, %if.then57 ], [ %cmp1.i, %for.body.i ]
   %call60 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i, i1 noundef zeroext %cmp.lcssa.i)
   br label %return
 
@@ -8049,19 +8041,19 @@ if.else:                                          ; preds = %land.lhs.true55, %i
   br i1 %cmp2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.else
-  %43 = load ptr, ptr %domain, align 8
+  %41 = load ptr, ptr %domain, align 8
   %m_real_decl63 = getelementptr inbounds i8, ptr %this, i64 56
-  %44 = load ptr, ptr %m_real_decl63, align 8
-  %cmp64 = icmp eq ptr %43, %44
+  %42 = load ptr, ptr %m_real_decl63, align 8
+  %cmp64 = icmp eq ptr %41, %42
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.else
-  %45 = phi i1 [ false, %if.else ], [ %cmp64, %land.rhs ]
-  %cmp.i68 = icmp eq i32 %k, 7
-  %cmp2.i69 = icmp eq i32 %arity, 1
-  %or.cond.i70 = and i1 %cmp.i68, %cmp2.i69
-  %.k.i71 = select i1 %or.cond.i70, i32 8, i32 %k
-  %call66 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i71, i1 noundef zeroext %45)
+  %43 = phi i1 [ false, %if.else ], [ %cmp64, %land.rhs ]
+  %cmp.i67 = icmp eq i32 %k, 7
+  %cmp2.i68 = icmp eq i32 %arity, 1
+  %or.cond.i69 = and i1 %cmp.i67, %cmp2.i68
+  %.k.i70 = select i1 %or.cond.i69, i32 8, i32 %k
+  %call66 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i70, i1 noundef zeroext %43)
   br label %return
 
 return:                                           ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i62, %invoke.cont50, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont, %land.end, %_ZL12has_real_argjPKP4sortS0_.exit, %if.then
@@ -8634,8 +8626,8 @@ if.end:                                           ; preds = %entry
   %cmp2 = icmp ne i32 %num_args, 0
   %0 = add i32 %k, -37
   %1 = icmp ult i32 %0, 2
-  %or.cond72 = or i1 %1, %cmp2
-  br i1 %or.cond72, label %if.end5, label %if.then4
+  %or.cond71 = or i1 %1, %cmp2
+  br i1 %or.cond71, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -8891,31 +8883,22 @@ if.then62:                                        ; preds = %land.lhs.true60, %l
   br i1 %cmp2, label %for.body.preheader.i, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit
 
 for.body.preheader.i:                             ; preds = %if.then62
-  %41 = zext i32 %num_args to i64
-  %42 = load ptr, ptr %args, align 8
-  %call.i73 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %42)
-  %cmp1.i74 = icmp eq ptr %call.i73, %40
-  br i1 %cmp1.i74, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit, label %for.cond.i
+  %wide.trip.count.i = zext i32 %num_args to i64
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %for.body.preheader.i, %for.body.i
-  %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %41
-  br i1 %exitcond.not.i, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit.loopexit, label %for.body.i, !llvm.loop !10
-
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.next.i
-  %43 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %43)
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv.i
+  %41 = load ptr, ptr %arrayidx.i, align 8
+  %call.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %41)
   %cmp1.i = icmp eq ptr %call.i, %40
-  br i1 %cmp1.i, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit.loopexit, label %for.cond.i, !llvm.loop !10
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %or.cond72 = select i1 %cmp1.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond72, label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit, label %for.body.i, !llvm.loop !10
 
-_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit.loopexit: ; preds = %for.cond.i, %for.body.i
-  %cmp.i66.le = icmp ult i64 %indvars.iv.next.i, %41
-  br label %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit
-
-_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit: ; preds = %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit.loopexit, %for.body.preheader.i, %if.then62
-  %cmp.lcssa.i = phi i1 [ false, %if.then62 ], [ true, %for.body.preheader.i ], [ %cmp.i66.le, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit.loopexit ]
+_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit: ; preds = %for.body.i, %if.then62
+  %cmp.lcssa.i = phi i1 [ false, %if.then62 ], [ %cmp1.i, %for.body.i ]
   %call66 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i, i1 noundef zeroext %cmp.lcssa.i)
   br label %return
 
@@ -8923,20 +8906,20 @@ if.else:                                          ; preds = %land.lhs.true60, %i
   br i1 %cmp2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.else
-  %44 = load ptr, ptr %args, align 8
-  %call69 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %44)
+  %42 = load ptr, ptr %args, align 8
+  %call69 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %42)
   %m_real_decl70 = getelementptr inbounds i8, ptr %this, i64 56
-  %45 = load ptr, ptr %m_real_decl70, align 8
-  %cmp71 = icmp eq ptr %call69, %45
+  %43 = load ptr, ptr %m_real_decl70, align 8
+  %cmp71 = icmp eq ptr %call69, %43
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.else
-  %46 = phi i1 [ false, %if.else ], [ %cmp71, %land.rhs ]
-  %cmp.i67 = icmp eq i32 %k, 7
-  %cmp2.i68 = icmp eq i32 %num_args, 1
-  %or.cond.i69 = and i1 %cmp.i67, %cmp2.i68
-  %.k.i70 = select i1 %or.cond.i69, i32 8, i32 %k
-  %call73 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i70, i1 noundef zeroext %46)
+  %44 = phi i1 [ false, %if.else ], [ %cmp71, %land.rhs ]
+  %cmp.i66 = icmp eq i32 %k, 7
+  %cmp2.i67 = icmp eq i32 %num_args, 1
+  %or.cond.i68 = and i1 %cmp.i66, %cmp2.i67
+  %.k.i69 = select i1 %or.cond.i68, i32 8, i32 %k
+  %call73 = tail call noundef ptr @_ZN17arith_decl_plugin12mk_func_declEib(ptr noundef nonnull align 8 dereferenceable(441) %this, i32 noundef %.k.i69, i1 noundef zeroext %44)
   br label %return
 
 return:                                           ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i61, %invoke.cont55, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont, %land.end, %_ZL12has_real_argP11ast_managerjPKP4exprP4sort.exit, %if.then

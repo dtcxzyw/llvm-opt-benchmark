@@ -292,9 +292,6 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 ._crit_edge451:                                   ; preds = %.lr.ph450.split, %.lr.ph450.split.us
   %fputc339 = tail call i32 @fputc(i32 10, ptr %0)
-  br i1 %104, label %.preheader423.lr.ph, label %.preheader421
-
-.preheader423.lr.ph:                              ; preds = %._crit_edge451
   %111 = icmp sgt i32 %.0, -6
   %.not494 = icmp eq i32 %92, 31
   %112 = tail call i32 @llvm.smax.i32(i32 %91, i32 -2)
@@ -302,11 +299,11 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %113 = add nsw i32 %112, 2
   br label %.preheader423
 
-.preheader423:                                    ; preds = %.preheader423.lr.ph, %._crit_edge456
-  %.1457 = phi i32 [ 0, %.preheader423.lr.ph ], [ %124, %._crit_edge456 ]
+.preheader423:                                    ; preds = %._crit_edge451, %._crit_edge456
+  %.1457 = phi i32 [ 0, %._crit_edge451 ], [ %124, %._crit_edge456 ]
   br i1 %111, label %.lr.ph453, label %.preheader422
 
-.preheader421:                                    ; preds = %._crit_edge456, %._crit_edge451.thread, %._crit_edge451
+.preheader421:                                    ; preds = %._crit_edge456, %._crit_edge451.thread
   %.not340458 = icmp slt i32 %.0, -1
   br i1 %.not340458, label %._crit_edge461, label %.lr.ph460
 
@@ -688,9 +685,6 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
 
 ._crit_edge327:                                   ; preds = %.lr.ph326
   %fputc241 = tail call i32 @fputc(i32 10, ptr %0)
-  br i1 %38, label %.preheader322.lr.ph, label %.preheader320
-
-.preheader322.lr.ph:                              ; preds = %._crit_edge327
   %41 = icmp sgt i32 %4, -3
   %.not370 = icmp eq i32 %5, 31
   %42 = add i32 %4, 2
@@ -698,11 +692,11 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
   %smax379 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   br label %.preheader322
 
-.preheader322:                                    ; preds = %.preheader322.lr.ph, %._crit_edge332
-  %.0333 = phi i32 [ 0, %.preheader322.lr.ph ], [ %53, %._crit_edge332 ]
+.preheader322:                                    ; preds = %._crit_edge327, %._crit_edge332
+  %.0333 = phi i32 [ 0, %._crit_edge327 ], [ %53, %._crit_edge332 ]
   br i1 %41, label %.lr.ph329, label %.preheader321
 
-.preheader320:                                    ; preds = %._crit_edge332, %._crit_edge327.thread, %._crit_edge327
+.preheader320:                                    ; preds = %._crit_edge332, %._crit_edge327.thread
   %.not242334 = icmp slt i32 %4, 0
   br i1 %.not242334, label %._crit_edge337, label %.lr.ph336
 

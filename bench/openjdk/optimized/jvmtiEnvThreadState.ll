@@ -146,73 +146,62 @@ define hidden void @_ZN14JvmtiFramePops5clearER13JvmtiFramePop(ptr nocapture nou
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %3, align 8
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph.i.i, label %_ZN17GrowableArrayViewIiE18remove_if_existingERKi.exit.thread.i
+  br i1 %6, label %.lr.ph.i.i, label %.loopexit2.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = zext nneg i32 %5 to i64
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp eq i32 %10, %4
-  br i1 %11, label %._crit_edge.i, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %5 to i64
+  br label %9
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i.i
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, %4
-  br i1 %15, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+9:                                                ; preds = %26, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
+  %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i.i
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %4
+  br i1 %12, label %13, label %26
 
-._crit_edge.loopexit.i:                           ; preds = %12
-  %16 = icmp ult i64 %indvars.iv.next.i.i, %9
-  br label %._crit_edge.i
+13:                                               ; preds = %9
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %14, 1
+  %15 = icmp slt i32 %.06.i.i.i, %5
+  br i1 %15, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIiE6removeERKi.exit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
-  %indvars.iv.i.lcssa.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.loopexit.i ]
-  %.lcssa2.i = phi i1 [ true, %.lr.ph.i.i ], [ %16, %._crit_edge.loopexit.i ]
-  %17 = trunc nuw nsw i64 %indvars.iv.i.lcssa.i to i32
-  %.06.i.i.i = add nuw nsw i32 %17, 1
-  %18 = icmp slt i32 %.06.i.i.i, %5
-  br i1 %18, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit.i.i
+.lr.ph.i.i.i:                                     ; preds = %13
+  %16 = and i64 %indvars.iv.i.i, 4294967295
+  %17 = add nuw nsw i64 %16, 1
+  br label %18
 
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i
-  %19 = and i64 %indvars.iv.i.lcssa.i, 4294967295
-  %20 = add nuw nsw i64 %19, 1
-  br label %21
-
-21:                                               ; preds = %21, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %21 ]
-  %indvars.iv.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.i.i.i
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv10.i.i.i
-  store i32 %24, ptr %25, align 4
+18:                                               ; preds = %18, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %18 ]
+  %indvars.iv.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %18 ]
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i.i.i
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv10.i.i.i
+  store i32 %21, ptr %22, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %26 = load i32, ptr %3, align 8
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next.i.i.i, %27
+  %23 = load i32, ptr %3, align 8
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next.i.i.i, %24
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %28, label %21, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit.i.i, !llvm.loop !9
+  br i1 %25, label %18, label %_ZN17GrowableArrayViewIiE6removeERKi.exit, !llvm.loop !8
 
-_ZN17GrowableArrayViewIiE9remove_atEi.exit.i.i:   ; preds = %21, %._crit_edge.i
-  %.lcssa.i.i.i = phi i32 [ %5, %._crit_edge.i ], [ %26, %21 ]
-  %29 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %29, ptr %3, align 8
-  br i1 %.lcssa2.i, label %_ZN17GrowableArrayViewIiE6removeERKi.exit, label %_ZN17GrowableArrayViewIiE18remove_if_existingERKi.exit.thread.i
+26:                                               ; preds = %9
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %9, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %12
-  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i5.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %9
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIiE18remove_if_existingERKi.exit.thread.i, label %12, !llvm.loop !8
-
-_ZN17GrowableArrayViewIiE18remove_if_existingERKi.exit.thread.i: ; preds = %.lr.ph.i, %_ZN17GrowableArrayViewIiE9remove_atEi.exit.i.i, %2
-  %30 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %30, align 1
+.loopexit2.i:                                     ; preds = %26, %2
+  %27 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %27, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.8, i32 noundef 256) #13
   unreachable
 
-_ZN17GrowableArrayViewIiE6removeERKi.exit:        ; preds = %_ZN17GrowableArrayViewIiE9remove_atEi.exit.i.i
+_ZN17GrowableArrayViewIiE6removeERKi.exit:        ; preds = %18, %13
+  %.lcssa.i.i.i = phi i32 [ %5, %13 ], [ %23, %18 ]
+  %28 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %28, ptr %3, align 8
   ret void
 }
 
@@ -259,7 +248,7 @@ define hidden noundef i32 @_ZN14JvmtiFramePops8clear_toER13JvmtiFramePop(ptr noc
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next.i, %23
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, 1
-  br i1 %24, label %17, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit, !llvm.loop !9
+  br i1 %24, label %17, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit, !llvm.loop !8
 
 _ZN17GrowableArrayViewIiE9remove_atEi.exit:       ; preds = %17, %14
   %.lcssa.i = phi i32 [ %6, %14 ], [ %22, %17 ]
@@ -591,30 +580,21 @@ _ZN19JvmtiEnvThreadState14get_frame_popsEv.exit:  ; preds = %2
 .lr.ph.i.i:                                       ; preds = %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %12 to i64
-  %17 = load i32, ptr %15, align 4
-  %18 = icmp eq i32 %17, %1
-  br i1 %18, label %_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %12 to i64
+  br label %16
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %19
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %19 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %16
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIiE8containsERKi.exit.loopexit.i, label %19, !llvm.loop !11
+16:                                               ; preds = %16, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
+  %17 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i.i
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, %1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %or.cond5 = select i1 %19, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond5, label %_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit, label %16, !llvm.loop !11
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next.i.i
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %1
-  br i1 %22, label %_ZNK17GrowableArrayViewIiE8containsERKi.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !11
-
-_ZNK17GrowableArrayViewIiE8containsERKi.exit.loopexit.i: ; preds = %19, %.lr.ph.i
-  %indvars.iv.next.i.i.lcssa = phi i64 [ %indvars.iv.next.i.i, %19 ], [ %16, %.lr.ph.i ]
-  %23 = icmp ult i64 %indvars.iv.next.i.i.lcssa, %16
-  br label %_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit
-
-_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit: ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit.loopexit.i, %.lr.ph.i.i, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit ], [ true, %.lr.ph.i.i ], [ %23, %_ZNK17GrowableArrayViewIiE8containsERKi.exit.loopexit.i ]
+_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit: ; preds = %16, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit ], [ %19, %16 ]
   ret i1 %.0
 }
 

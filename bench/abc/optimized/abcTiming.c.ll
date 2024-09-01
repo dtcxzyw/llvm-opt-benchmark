@@ -3382,17 +3382,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %22
 .critedge5:                                       ; preds = %27
   %49 = icmp eq ptr %1, null
   %or.cond7 = and i1 %49, %7
-  br i1 %or.cond7, label %.preheader, label %.critedge9
+  br i1 %or.cond7, label %.lr.ph232, label %.critedge9
 
 .critedge5.thread:                                ; preds = %Vec_PtrFree.exit
   %50 = icmp eq ptr %1, null
   %or.cond7271 = and i1 %50, %7
   br i1 %or.cond7271, label %.critedge9.thread, label %.critedge9
 
-.preheader:                                       ; preds = %.critedge5
-  br i1 %25, label %.lr.ph232, label %.critedge9.thread
-
-.lr.ph232:                                        ; preds = %.preheader
+.lr.ph232:                                        ; preds = %.critedge5
   %51 = getelementptr i8, ptr %.val153, i64 8
   %.val154.val = load ptr, ptr %51, align 8
   %wide.trip.count254 = zext nneg i32 %.val153.val to i64
@@ -3442,9 +3439,9 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %22
   %.0 = phi ptr [ %1, %.critedge5 ], [ %1, %.critedge5.thread ], [ %.2, %52 ]
   br i1 %7, label %.critedge9.thread, label %300
 
-.critedge9.thread:                                ; preds = %.critedge5.thread, %.preheader, %.critedge9
-  %.0279 = phi ptr [ %.0, %.critedge9 ], [ null, %.preheader ], [ null, %.critedge5.thread ]
-  %.0129.lcssa272278 = phi float [ %.0129.lcssa272, %.critedge9 ], [ %.1130, %.preheader ], [ -1.000000e+09, %.critedge5.thread ]
+.critedge9.thread:                                ; preds = %.critedge5.thread, %.critedge9
+  %.0279 = phi ptr [ %.0, %.critedge9 ], [ null, %.critedge5.thread ]
+  %.0129.lcssa272278 = phi float [ %.0129.lcssa272, %.critedge9 ], [ -1.000000e+09, %.critedge5.thread ]
   %74 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %75 = getelementptr inbounds i8, ptr %74, i64 4
   store i32 0, ptr %75, align 4

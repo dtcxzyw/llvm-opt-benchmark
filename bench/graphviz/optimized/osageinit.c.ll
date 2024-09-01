@@ -1047,14 +1047,14 @@ indent.exit50:                                    ; preds = %53
   %74 = getelementptr inbounds i8, ptr %73, i64 236
   %75 = load i32, ptr %74, align 4
   %.not4656 = icmp slt i32 %75, 1
-  br i1 %.not4656, label %._crit_edge, label %.lr.ph58
+  br i1 %.not4656, label %._crit_edge, label %.lr.ph58.split.preheader
 
 .loopexit.thread66:                               ; preds = %17
   %76 = load ptr, ptr %3, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 236
   %78 = load i32, ptr %77, align 4
   %.not465667 = icmp slt i32 %78, 1
-  br i1 %.not465667, label %._crit_edge, label %.lr.ph58.split.us.preheader
+  br i1 %.not465667, label %._crit_edge, label %.lr.ph58.split.us
 
 .loopexit.thread:                                 ; preds = %18
   %79 = load ptr, ptr %3, align 8
@@ -1063,22 +1063,15 @@ indent.exit50:                                    ; preds = %53
   %.not465665 = icmp slt i32 %81, 1
   br i1 %.not465665, label %._crit_edge, label %.lr.ph58.split.preheader
 
-.lr.ph58:                                         ; preds = %.loopexit
-  br i1 %.not, label %.lr.ph58.split.us.preheader, label %.lr.ph58.split.preheader
-
-.lr.ph58.split.us.preheader:                      ; preds = %.loopexit.thread66, %.lr.ph58
-  %.ph = phi ptr [ %73, %.lr.ph58 ], [ %76, %.loopexit.thread66 ]
-  br label %.lr.ph58.split.us
-
-.lr.ph58.split.preheader:                         ; preds = %.loopexit.thread, %.lr.ph58
-  %82 = phi ptr [ %73, %.lr.ph58 ], [ %79, %.loopexit.thread ]
+.lr.ph58.split.preheader:                         ; preds = %.loopexit, %.loopexit.thread
+  %82 = phi ptr [ %79, %.loopexit.thread ], [ %73, %.loopexit ]
   %83 = icmp sgt i32 %1, 0
   %84 = add nsw i32 %1, 1
   br label %.lr.ph58.split
 
-.lr.ph58.split.us:                                ; preds = %.lr.ph58.split.us.preheader, %.lr.ph58.split.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph58.split.us ], [ 1, %.lr.ph58.split.us.preheader ]
-  %85 = phi ptr [ %90, %.lr.ph58.split.us ], [ %.ph, %.lr.ph58.split.us.preheader ]
+.lr.ph58.split.us:                                ; preds = %.loopexit.thread66, %.lr.ph58.split.us
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph58.split.us ], [ 1, %.loopexit.thread66 ]
+  %85 = phi ptr [ %90, %.lr.ph58.split.us ], [ %76, %.loopexit.thread66 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 240
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv62

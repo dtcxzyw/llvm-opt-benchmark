@@ -13247,12 +13247,9 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit48:        ; preds = %21
 
 ._crit_edge.us:                                   ; preds = %32
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.preheader86, label %.preheader87.us, !llvm.loop !177
+  br i1 %exitcond101.not, label %.lr.ph, label %.preheader87.us, !llvm.loop !177
 
-.preheader86:                                     ; preds = %._crit_edge.us
-  br i1 %28, label %.lr.ph, label %.preheader
-
-.lr.ph:                                           ; preds = %.preheader86
+.lr.ph:                                           ; preds = %._crit_edge.us
   %34 = getelementptr inbounds i8, ptr %2, i64 104
   %35 = zext nneg i32 %27 to i64
   %36 = getelementptr inbounds i8, ptr %2, i64 80
@@ -13268,7 +13265,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit48:        ; preds = %21
           cleanup
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit66
 
-.preheader:                                       ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit62, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit48, %.preheader86
+.preheader:                                       ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit62, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit48
   %42 = icmp sgt i32 %10, 0
   br i1 %42, label %.lr.ph92, label %._crit_edge
 

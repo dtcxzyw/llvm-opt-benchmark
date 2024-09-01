@@ -3557,7 +3557,7 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %14, !llvm.loop !15
 
-22:                                               ; preds = %19, %14
+22:                                               ; preds = %14, %19
   %23 = phi i32 [ 0, %19 ], [ %15, %14 ]
   %24 = icmp ult i32 %23, 7
   %25 = getelementptr i8, ptr %4, i64 434
@@ -3612,7 +3612,7 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
   %62 = trunc i32 %52 to i8
   %63 = getelementptr i8, ptr %1, i64 5
   store i8 %62, ptr %63, align 1
-  %64 = or i1 %42, %43
+  %64 = or i1 %43, %42
   %65 = select i1 %40, i1 true, i1 %64
   %66 = select i1 %65, i8 0, i8 %44
   %67 = getelementptr i8, ptr %1, i64 7

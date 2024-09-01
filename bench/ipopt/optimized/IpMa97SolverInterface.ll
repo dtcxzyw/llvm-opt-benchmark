@@ -7832,9 +7832,9 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma97SolverInterface10MultiSolveEb
 34:                                               ; preds = %18, %22, %26
   %35 = getelementptr inbounds i8, ptr %0, i64 336
   %36 = load i32, ptr %35, align 8
-  %37 = add i32 %36, -5
-  %switch = icmp ult i32 %37, 2
-  br i1 %switch, label %39, label %.thread42
+  %37 = add i32 %36, -7
+  %switch = icmp ult i32 %37, -2
+  br i1 %switch, label %.thread42, label %39
 
 .thread:                                          ; preds = %14
   %38 = getelementptr inbounds i8, ptr %0, i64 144

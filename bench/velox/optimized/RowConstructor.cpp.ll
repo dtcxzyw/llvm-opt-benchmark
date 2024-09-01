@@ -149,6 +149,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont4.thread, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
 
+invoke.cont4.thread:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
+  %_M_finish.i.i7.i1981 = getelementptr inbounds i8, ptr %types, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
+  br label %for.end
+
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #17
@@ -166,21 +172,15 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %dec.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !4
 
-invoke.cont4.thread:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
-  %_M_finish.i.i7.i1981 = getelementptr inbounds i8, ptr %types, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
-  br label %for.end
-
-for.body.preheader.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #17
           to label %invoke.cont4 unwind label %lpad3
 
-invoke.cont4:                                     ; preds = %for.body.preheader.i.i.i.i.i
+invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call5.i.i.i.i2.i.i23, ptr %types, align 8
   %add.ptr.i.i.i17 = getelementptr i8, ptr %call5.i.i.i.i2.i.i23, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i23, i8 0, i64 %sub.ptr.sub.i, i1 false)
@@ -188,14 +188,11 @@ invoke.cont4:                                     ; preds = %for.body.preheader.
   %2 = getelementptr inbounds i8, ptr %types, i64 16
   store ptr %add.ptr.i.i.i17, ptr %2, align 8
   store ptr %add.ptr.i.i.i17, ptr %_M_finish.i.i7.i19, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %invoke.cont4
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont14
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont14 ]
+for.body:                                         ; preds = %invoke.cont4, %invoke.cont14
+  %indvars.iv = phi i64 [ 0, %invoke.cont4 ], [ %indvars.iv.next, %invoke.cont14 ]
   %3 = load ptr, ptr %argTypes, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %types, align 8
@@ -324,7 +321,7 @@ invoke.cont14:                                    ; preds = %call2.i.noexc
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
-lpad3:                                            ; preds = %for.body.preheader.i.i.i.i.i
+lpad3:                                            ; preds = %invoke.cont
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -344,8 +341,8 @@ lpad11:                                           ; preds = %lpad11.loopexit.spl
   call void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %types) #18
   br label %ehcleanup
 
-for.end:                                          ; preds = %invoke.cont14, %invoke.cont4.thread, %invoke.cont4
-  %_M_finish.i.i7.i1982 = phi ptr [ %_M_finish.i.i7.i1981, %invoke.cont4.thread ], [ %_M_finish.i.i7.i19, %invoke.cont4 ], [ %_M_finish.i.i7.i19, %invoke.cont14 ]
+for.end:                                          ; preds = %invoke.cont14, %invoke.cont4.thread
+  %_M_finish.i.i7.i1982 = phi ptr [ %_M_finish.i.i7.i1981, %invoke.cont4.thread ], [ %_M_finish.i.i7.i19, %invoke.cont14 ]
   invoke void @_ZN8facebook5velox3ROWEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOS1_ISt10shared_ptrIKNS0_4TypeEESaISE_EE(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(24) %names, ptr noundef nonnull align 8 dereferenceable(24) %types)
           to label %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit unwind label %lpad11.loopexit.split-lp
 

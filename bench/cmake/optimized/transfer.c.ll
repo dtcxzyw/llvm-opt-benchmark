@@ -1090,11 +1090,11 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br i1 %262, label %..thread209_crit_edge.i, label %265
 
 ..thread209_crit_edge.i:                          ; preds = %261
-  %.pre217.i = load i32, ptr %39, align 4
+  %.pre218.i = load i32, ptr %39, align 4
   br label %.thread209.i
 
 .thread209.i:                                     ; preds = %..thread209_crit_edge.i, %.thread201.i
-  %263 = phi i32 [ %.pre217.i, %..thread209_crit_edge.i ], [ %259, %.thread201.i ]
+  %263 = phi i32 [ %.pre218.i, %..thread209_crit_edge.i ], [ %259, %.thread201.i ]
   %264 = and i32 %263, -3
   store i32 %264, ptr %39, align 4
   call void @Curl_conn_ev_data_done_send(ptr noundef nonnull %0) #10
@@ -1157,18 +1157,18 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br label %292
 
 292:                                              ; preds = %311, %.lr.ph.i
-  %.0141215.i = phi i64 [ %175, %.lr.ph.i ], [ %312, %311 ]
-  %.0142214.i = phi i64 [ %175, %.lr.ph.i ], [ %313, %311 ]
+  %.0141216.i = phi i64 [ %175, %.lr.ph.i ], [ %312, %311 ]
+  %.0142215.i = phi i64 [ %175, %.lr.ph.i ], [ %313, %311 ]
   %293 = load ptr, ptr %212, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 %.0141215.i
+  %294 = getelementptr inbounds i8, ptr %293, i64 %.0141216.i
   %295 = load i8, ptr %294, align 1
   %296 = icmp eq i8 %295, 10
   %297 = load ptr, ptr %275, align 8
   br i1 %296, label %298, label %309
 
 298:                                              ; preds = %292
-  %299 = add nsw i64 %.0142214.i, 1
-  %300 = getelementptr inbounds i8, ptr %297, i64 %.0142214.i
+  %299 = add nsw i64 %.0142215.i, 1
+  %300 = getelementptr inbounds i8, ptr %297, i64 %.0142215.i
   store i8 13, ptr %300, align 1
   %301 = load ptr, ptr %275, align 8
   %302 = getelementptr inbounds i8, ptr %301, i64 %299
@@ -1189,13 +1189,13 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br label %311
 
 309:                                              ; preds = %292
-  %310 = getelementptr inbounds i8, ptr %297, i64 %.0142214.i
+  %310 = getelementptr inbounds i8, ptr %297, i64 %.0142215.i
   store i8 %295, ptr %310, align 1
   br label %311
 
 311:                                              ; preds = %309, %307, %305, %298
-  %.1.i108 = phi i64 [ %299, %298 ], [ %299, %307 ], [ %299, %305 ], [ %.0142214.i, %309 ]
-  %312 = add nsw i64 %.0141215.i, 1
+  %.1.i108 = phi i64 [ %299, %298 ], [ %299, %307 ], [ %299, %305 ], [ %.0142215.i, %309 ]
+  %312 = add nsw i64 %.0141216.i, 1
   %313 = add nsw i64 %.1.i108, 1
   %exitcond.not.i = icmp eq i64 %312, %258
   br i1 %exitcond.not.i, label %._crit_edge.i, label %292, !llvm.loop !8
@@ -1206,7 +1206,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br i1 %.not176.i, label %._crit_edge._crit_edge.i, label %314
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
-  %.pre216.i = load i64, ptr %174, align 8
+  %.pre217.i = load i64, ptr %174, align 8
   br label %.thread219.i
 
 314:                                              ; preds = %._crit_edge.i
@@ -1216,7 +1216,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br label %.thread219.i
 
 .thread219.i:                                     ; preds = %314, %._crit_edge._crit_edge.i, %270, %265, %186, %182, %176
-  %316 = phi i64 [ %.pre216.i, %._crit_edge._crit_edge.i ], [ %258, %265 ], [ %258, %270 ], [ %.0142.lcssa.i, %314 ], [ %175, %182 ], [ %175, %176 ], [ %175, %186 ]
+  %316 = phi i64 [ %.pre217.i, %._crit_edge._crit_edge.i ], [ %258, %265 ], [ %258, %270 ], [ %.0142.lcssa.i, %314 ], [ %175, %182 ], [ %175, %176 ], [ %175, %186 ]
   %317 = getelementptr inbounds i8, ptr %8, i64 716
   %318 = load i32, ptr %317, align 4
   %319 = getelementptr inbounds i8, ptr %0, i64 376
@@ -2431,122 +2431,122 @@ define dso_local range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %0, ptr no
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = sub nsw i64 0, %19
-  %.not53 = icmp eq i64 %16, %20
-  br i1 %.not53, label %21, label %.thread51
+  %21 = icmp eq i64 %16, %20
+  br i1 %21, label %22, label %.thread51
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %4, i64 672
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 128
-  %.not38 = icmp eq i32 %24, 0
-  br i1 %.not38, label %35, label %25
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds i8, ptr %4, i64 672
+  %24 = load i32, ptr %23, align 8
+  %25 = and i32 %24, 128
+  %.not38 = icmp eq i32 %25, 0
+  br i1 %.not38, label %36, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 403
-  %27 = load i16, ptr %26, align 1
-  %28 = and i16 %27, 4096
-  %.not39 = icmp eq i16 %28, 0
-  br i1 %.not39, label %.critedge, label %29
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 403
+  %28 = load i16, ptr %27, align 1
+  %29 = and i16 %28, 4096
+  %.not39 = icmp eq i16 %29, 0
+  br i1 %.not39, label %.critedge, label %30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %4, i64 680
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 132
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, 3
-  %.not40 = icmp eq i32 %34, 0
-  br i1 %.not40, label %35, label %.critedge
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %4, i64 680
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 132
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 3
+  %.not40 = icmp eq i32 %35, 0
+  br i1 %.not40, label %36, label %.critedge
 
-35:                                               ; preds = %29, %21
-  %36 = and i32 %6, 4
-  %.not41 = icmp eq i32 %36, 0
-  br i1 %.not41, label %.thread51, label %37
+36:                                               ; preds = %30, %22
+  %37 = and i32 %6, 4
+  %.not41 = icmp eq i32 %37, 0
+  br i1 %.not41, label %.thread51, label %38
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 2642
-  %39 = load i64, ptr %38, align 2
-  %40 = and i64 %39, 268435456
-  %.not43 = icmp eq i64 %40, 0
-  br i1 %.not43, label %42, label %41
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %0, i64 2642
+  %40 = load i64, ptr %39, align 2
+  %41 = and i64 %40, 268435456
+  %.not43 = icmp eq i64 %41, 0
+  br i1 %.not43, label %43, label %42
 
-41:                                               ; preds = %37
+42:                                               ; preds = %38
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #10
   %.pre = load i32, ptr %5, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %37, %41
-  %43 = phi i32 [ %6, %37 ], [ %.pre, %41 ]
-  %44 = and i32 %43, -5
-  store i32 %44, ptr %5, align 4
+43:                                               ; preds = %38, %42
+  %44 = phi i32 [ %6, %38 ], [ %.pre, %42 ]
+  %45 = and i32 %44, -5
+  store i32 %45, ptr %5, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %29, %42
-  %45 = getelementptr inbounds i8, ptr %0, i64 3192
-  %46 = load i32, ptr %45, align 8
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 8
-  %48 = icmp sgt i32 %46, 4
-  br i1 %48, label %49, label %50
-
-49:                                               ; preds = %.critedge
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i32 noundef 5) #10
-  store i32 0, ptr %45, align 8
-  br label %.thread51
+.critedge:                                        ; preds = %26, %30, %43
+  %46 = getelementptr inbounds i8, ptr %0, i64 3192
+  %47 = load i32, ptr %46, align 8
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %46, align 8
+  %49 = icmp sgt i32 %47, 4
+  br i1 %49, label %50, label %51
 
 50:                                               ; preds = %.critedge
-  %51 = getelementptr inbounds i8, ptr %0, i64 2642
-  %52 = load i64, ptr %51, align 2
-  %53 = and i64 %52, 268435456
-  %.not45 = icmp eq i64 %53, 0
-  br i1 %.not45, label %55, label %54
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i32 noundef 5) #10
+  store i32 0, ptr %46, align 8
+  br label %.thread51
 
-54:                                               ; preds = %50
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %47) #10
-  br label %55
+51:                                               ; preds = %.critedge
+  %52 = getelementptr inbounds i8, ptr %0, i64 2642
+  %53 = load i64, ptr %52, align 2
+  %54 = and i64 %53, 268435456
+  %.not45 = icmp eq i64 %54, 0
+  br i1 %.not45, label %56, label %55
 
-55:                                               ; preds = %50, %54
-  %56 = load ptr, ptr @Curl_cstrdup, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 4592
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call ptr %56(ptr noundef %58) #10
-  store ptr %59, ptr %1, align 8
-  %.not46 = icmp eq ptr %59, null
-  br i1 %.not46, label %.thread51, label %60
+55:                                               ; preds = %51
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %48) #10
+  br label %56
 
-60:                                               ; preds = %55
+56:                                               ; preds = %51, %55
+  %57 = load ptr, ptr @Curl_cstrdup, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 4592
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call ptr %57(ptr noundef %59) #10
+  store ptr %60, ptr %1, align 8
+  %.not46 = icmp eq ptr %60, null
+  br i1 %.not46, label %.thread51, label %61
+
+61:                                               ; preds = %56
   tail call void @Curl_conncontrol(ptr noundef nonnull %4, i32 noundef 1) #10
-  %61 = load i32, ptr %22, align 8
-  %62 = or i32 %61, 32768
-  store i32 %62, ptr %22, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 680
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 132
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 3
-  %.not47 = icmp eq i32 %67, 0
-  br i1 %.not47, label %.thread51, label %68
+  %62 = load i32, ptr %23, align 8
+  %63 = or i32 %62, 32768
+  store i32 %63, ptr %23, align 8
+  %64 = getelementptr inbounds i8, ptr %4, i64 680
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 132
+  %67 = load i32, ptr %66, align 4
+  %68 = and i32 %67, 3
+  %.not47 = icmp eq i32 %68, 0
+  br i1 %.not47, label %.thread51, label %69
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %0, i64 240
-  %70 = load i64, ptr %69, align 8
-  %.not48 = icmp eq i64 %70, 0
-  br i1 %.not48, label %.thread51, label %71
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds i8, ptr %0, i64 240
+  %71 = load i64, ptr %70, align 8
+  %.not48 = icmp eq i64 %71, 0
+  br i1 %.not48, label %.thread51, label %72
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %5, align 4
-  %73 = or i32 %72, 524288
-  store i32 %73, ptr %5, align 4
-  %74 = load i64, ptr %51, align 2
-  %75 = and i64 %74, 268435456
-  %.not49 = icmp eq i64 %75, 0
-  br i1 %.not49, label %.thread51, label %76
+72:                                               ; preds = %69
+  %73 = load i32, ptr %5, align 4
+  %74 = or i32 %73, 524288
+  store i32 %74, ptr %5, align 4
+  %75 = load i64, ptr %52, align 2
+  %76 = and i64 %75, 268435456
+  %.not49 = icmp eq i64 %76, 0
+  br i1 %.not49, label %.thread51, label %77
 
-76:                                               ; preds = %71
+77:                                               ; preds = %72
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #10
   br label %.thread51
 
-.thread51:                                        ; preds = %35, %14, %76, %71, %68, %60, %55, %8, %49
-  %.035 = phi i32 [ 55, %49 ], [ 0, %8 ], [ 27, %55 ], [ 0, %35 ], [ 0, %60 ], [ 0, %68 ], [ 0, %71 ], [ 0, %76 ], [ 0, %14 ]
+.thread51:                                        ; preds = %36, %14, %77, %72, %69, %61, %56, %8, %50
+  %.035 = phi i32 [ 55, %50 ], [ 0, %8 ], [ 27, %56 ], [ 0, %36 ], [ 0, %61 ], [ 0, %69 ], [ 0, %72 ], [ 0, %77 ], [ 0, %14 ]
   ret i32 %.035
 }
 

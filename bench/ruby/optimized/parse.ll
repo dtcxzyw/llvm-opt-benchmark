@@ -16603,78 +16603,78 @@ define internal fastcc void @forwarding_arg_check(ptr nocapture noundef %0, i64 
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %.03382 = load ptr, ptr %6, align 8
-  %.03483 = load ptr, ptr %7, align 8
-  %.not84 = icmp eq ptr %.03483, null
-  br i1 %.not84, label %.critedge44, label %.lr.ph
+  %.03381 = load ptr, ptr %6, align 8
+  %.03482 = load ptr, ptr %7, align 8
+  %.not83 = icmp eq ptr %.03482, null
+  br i1 %.not83, label %.critedge44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not43 = icmp eq i64 %2, 0
   br i1 %.not43, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %vtable_included.exit.thread.us
-  %.03488.us = phi ptr [ %9, %vtable_included.exit.thread.us ], [ %.03483, %.lr.ph ]
-  %.03386.us = phi ptr [ %.033.us, %vtable_included.exit.thread.us ], [ %.03382, %.lr.ph ]
-  %.03585.us = phi i1 [ %21, %vtable_included.exit.thread.us ], [ false, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %.03488.us, i64 16
+  %.03487.us = phi ptr [ %9, %vtable_included.exit.thread.us ], [ %.03482, %.lr.ph ]
+  %.03385.us = phi ptr [ %.033.us, %vtable_included.exit.thread.us ], [ %.03381, %.lr.ph ]
+  %.03584.us = phi i1 [ %21, %vtable_included.exit.thread.us ], [ false, %.lr.ph ]
+  %8 = getelementptr inbounds i8, ptr %.03487.us, i64 16
   %9 = load ptr, ptr %8, align 8
   %switch.us = icmp ult ptr %9, inttoptr (i64 2 to ptr)
   br i1 %switch.us, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %switch.i.us = icmp ult ptr %.03386.us, inttoptr (i64 2 to ptr)
+  %switch.i.us = icmp ult ptr %.03385.us, inttoptr (i64 2 to ptr)
   br i1 %switch.i.us, label %vtable_included.exit.thread.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %.03386.us, i64 8
+  %11 = getelementptr inbounds i8, ptr %.03385.us, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i.us, label %vtable_included.exit.thread.us
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us
-  %14 = load ptr, ptr %.03386.us, align 8
+  %14 = load ptr, ptr %.03385.us, align 8
   %15 = zext nneg i32 %12 to i64
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.us
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next112, %16 ]
-  %17 = getelementptr i64, ptr %14, i64 %indvars.iv111
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next111, %16 ]
+  %17 = getelementptr i64, ptr %14, i64 %indvars.iv110
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next112, %15
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next111, %15
   %or.cond = select i1 %19, i1 true, i1 %exitcond.not.i.us
   br i1 %or.cond, label %vtable_included.exit.thread.us, label %16, !llvm.loop !23
 
 vtable_included.exit.thread.us:                   ; preds = %16, %.preheader.i.us, %10
   %20 = phi i1 [ false, %10 ], [ false, %.preheader.i.us ], [ %19, %16 ]
-  %21 = or i1 %.03585.us, %20
-  %22 = getelementptr inbounds i8, ptr %.03386.us, i64 16
+  %21 = or i1 %.03584.us, %20
+  %22 = getelementptr inbounds i8, ptr %.03385.us, i64 16
   %.033.us = load ptr, ptr %22, align 8
   %.not.us = icmp eq ptr %9, null
   br i1 %.not.us, label %.critedge44, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %vtable_included.exit.thread
-  %.03488 = phi ptr [ %24, %vtable_included.exit.thread ], [ %.03483, %.lr.ph ]
-  %.03386 = phi ptr [ %.033, %vtable_included.exit.thread ], [ %.03382, %.lr.ph ]
-  %.03585 = phi i1 [ %39, %vtable_included.exit.thread ], [ false, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %.03488, i64 16
+  %.03487 = phi ptr [ %24, %vtable_included.exit.thread ], [ %.03482, %.lr.ph ]
+  %.03385 = phi ptr [ %.033, %vtable_included.exit.thread ], [ %.03381, %.lr.ph ]
+  %.03584 = phi i1 [ %39, %vtable_included.exit.thread ], [ false, %.lr.ph ]
+  %23 = getelementptr inbounds i8, ptr %.03487, i64 16
   %24 = load ptr, ptr %23, align 8
   %switch = icmp ult ptr %24, inttoptr (i64 2 to ptr)
   br i1 %switch, label %.critedge, label %25
 
 25:                                               ; preds = %.lr.ph.split
-  %switch.i = icmp ult ptr %.03386, inttoptr (i64 2 to ptr)
+  %switch.i = icmp ult ptr %.03385, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %vtable_included.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %25
-  %26 = getelementptr inbounds i8, ptr %.03386, i64 8
+  %26 = getelementptr inbounds i8, ptr %.03385, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.i, label %vtable_included.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %29 = load ptr, ptr %.03386, align 8
+  %29 = load ptr, ptr %.03385, align 8
   %30 = zext nneg i32 %27 to i64
   br label %31
 
@@ -16691,27 +16691,27 @@ vtable_included.exit.thread.us:                   ; preds = %16, %.preheader.i.u
   br i1 %exitcond.not.i, label %vtable_included.exit.thread, label %31, !llvm.loop !23
 
 .lr.ph.i52:                                       ; preds = %31, %.lr.ph.i52
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.i52 ], [ 0, %31 ]
-  %36 = getelementptr i64, ptr %29, i64 %indvars.iv108
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph.i52 ], [ 0, %31 ]
+  %36 = getelementptr i64, ptr %29, i64 %indvars.iv107
   %37 = load i64, ptr %36, align 8
-  %.not134 = icmp ne i64 %37, %2
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond.not.i54 = icmp ne i64 %indvars.iv.next109, %30
-  %or.cond149.not = select i1 %.not134, i1 %exitcond.not.i54, i1 false
-  br i1 %or.cond149.not, label %.lr.ph.i52, label %vtable_included.exit.thread, !llvm.loop !23
+  %.not133 = icmp ne i64 %37, %2
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond.not.i54 = icmp ne i64 %indvars.iv.next108, %30
+  %or.cond148.not = select i1 %.not133, i1 %exitcond.not.i54, i1 false
+  br i1 %or.cond148.not, label %.lr.ph.i52, label %vtable_included.exit.thread, !llvm.loop !23
 
 vtable_included.exit.thread:                      ; preds = %35, %.lr.ph.i52, %.preheader.i, %25
-  %38 = phi i1 [ false, %25 ], [ false, %.preheader.i ], [ %.not134, %.lr.ph.i52 ], [ false, %35 ]
-  %39 = or i1 %.03585, %38
-  %40 = getelementptr inbounds i8, ptr %.03386, i64 16
+  %38 = phi i1 [ false, %25 ], [ false, %.preheader.i ], [ %.not133, %.lr.ph.i52 ], [ false, %35 ]
+  %39 = or i1 %.03584, %38
+  %40 = getelementptr inbounds i8, ptr %.03385, i64 16
   %.033 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge44, label %.lr.ph.split, !llvm.loop !35
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %9, %.lr.ph.split.us ], [ %24, %.lr.ph.split ]
-  %.us-phi90 = phi i1 [ %.03585.us, %.lr.ph.split.us ], [ %.03585, %.lr.ph.split ]
-  %.us-phi91 = phi ptr [ %.03386.us, %.lr.ph.split.us ], [ %.03386, %.lr.ph.split ]
+  %.us-phi89 = phi i1 [ %.03584.us, %.lr.ph.split.us ], [ %.03584, %.lr.ph.split ]
+  %.us-phi90 = phi ptr [ %.03385.us, %.lr.ph.split.us ], [ %.03385, %.lr.ph.split ]
   %41 = icmp eq ptr %.us-phi, inttoptr (i64 1 to ptr)
   br i1 %41, label %42, label %.critedge44
 
@@ -16732,32 +16732,32 @@ vtable_included.exit.thread:                      ; preds = %35, %.lr.ph.i52, %.
   br i1 %50, label %.critedge48, label %.sink.split
 
 .critedge44:                                      ; preds = %vtable_included.exit.thread, %vtable_included.exit.thread.us, %4, %.critedge
-  %.03581 = phi i1 [ %.us-phi90, %.critedge ], [ false, %4 ], [ %21, %vtable_included.exit.thread.us ], [ %39, %vtable_included.exit.thread ]
-  %.03378 = phi ptr [ %.us-phi91, %.critedge ], [ %.03382, %4 ], [ %.033.us, %vtable_included.exit.thread.us ], [ %.033, %vtable_included.exit.thread ]
-  %switch.i56 = icmp ult ptr %.03378, inttoptr (i64 2 to ptr)
+  %.03580 = phi i1 [ %.us-phi89, %.critedge ], [ false, %4 ], [ %21, %vtable_included.exit.thread.us ], [ %39, %vtable_included.exit.thread ]
+  %.03377 = phi ptr [ %.us-phi90, %.critedge ], [ %.03381, %4 ], [ %.033.us, %vtable_included.exit.thread.us ], [ %.033, %vtable_included.exit.thread ]
+  %switch.i56 = icmp ult ptr %.03377, inttoptr (i64 2 to ptr)
   br i1 %switch.i56, label %.sink.split, label %.preheader.i57
 
 .preheader.i57:                                   ; preds = %.critedge44
-  %51 = getelementptr inbounds i8, ptr %.03378, i64 8
+  %51 = getelementptr inbounds i8, ptr %.03377, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.i59, label %.sink.split
 
 .lr.ph.i59:                                       ; preds = %.preheader.i57
-  %54 = load ptr, ptr %.03378, align 8
+  %54 = load ptr, ptr %.03377, align 8
   %55 = zext nneg i32 %52 to i64
   br label %56
 
 56:                                               ; preds = %60, %.lr.ph.i59
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %60 ], [ 0, %.lr.ph.i59 ]
-  %57 = getelementptr i64, ptr %54, i64 %indvars.iv114
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %60 ], [ 0, %.lr.ph.i59 ]
+  %57 = getelementptr i64, ptr %54, i64 %indvars.iv113
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, %1
   br i1 %59, label %vtable_included.exit62, label %60
 
 60:                                               ; preds = %56
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next115, %55
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next114, %55
   br i1 %exitcond.not.i61, label %.sink.split, label %56, !llvm.loop !23
 
 vtable_included.exit62:                           ; preds = %56
@@ -16765,20 +16765,20 @@ vtable_included.exit62:                           ; preds = %56
   br i1 %.not39, label %.critedge48, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %vtable_included.exit62, %64
-  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %64 ], [ 0, %vtable_included.exit62 ]
-  %61 = getelementptr i64, ptr %54, i64 %indvars.iv117
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %64 ], [ 0, %vtable_included.exit62 ]
+  %61 = getelementptr i64, ptr %54, i64 %indvars.iv116
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, %2
   br i1 %63, label %.sink.split, label %64
 
 64:                                               ; preds = %.lr.ph.i66
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next118, %55
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next117, %55
   br i1 %exitcond.not.i68, label %.critedge48, label %.lr.ph.i66, !llvm.loop !23
 
 .critedge48:                                      ; preds = %64, %vtable_included.exit62, %47, %46
-  %.03580 = phi i1 [ %.03581, %vtable_included.exit62 ], [ %.us-phi90, %47 ], [ %.us-phi90, %46 ], [ %.03581, %64 ]
-  br i1 %.03580, label %.sink.split, label %65
+  %.03579 = phi i1 [ %.03580, %vtable_included.exit62 ], [ %.us-phi89, %47 ], [ %.us-phi89, %46 ], [ %.03580, %64 ]
+  br i1 %.03579, label %.sink.split, label %65
 
 .sink.split:                                      ; preds = %60, %.lr.ph.i66, %.critedge48, %42, %47, %.critedge44, %.preheader.i57
   %.str.1054.sink = phi ptr [ @.str.1053, %.preheader.i57 ], [ @.str.1053, %.critedge44 ], [ @.str.1053, %47 ], [ @.str.1053, %42 ], [ @.str.1054, %.critedge48 ], [ @.str.1053, %.lr.ph.i66 ], [ @.str.1053, %60 ]

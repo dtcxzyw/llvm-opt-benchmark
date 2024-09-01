@@ -1506,17 +1506,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115CompileDeferredEP9
   %.not.i = icmp eq ptr %4, null
   %invariant.gep106.i = getelementptr i8, ptr %47, i64 16
   %69 = shl nuw nsw i64 %wide.trip.count.i, 3
-  br i1 %.not.i, label %.lr.ph109.preheader.i, label %.lr.ph105.preheader.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader99.i
 
-.lr.ph105.preheader.i:                            ; preds = %._crit_edge.i
+.preheader99.i:                                   ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %invariant.gep106.i, ptr nonnull readonly align 8 %4, i64 %69, i1 false)
   br label %.loopexit98.i
 
-.lr.ph109.preheader.i:                            ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %._crit_edge.i
   call void @llvm.memset.p0.i64(ptr align 8 %invariant.gep106.i, i8 0, i64 %69, i1 false)
   br label %.loopexit98.i
 
-.loopexit98.i:                                    ; preds = %.lr.ph109.preheader.i, %.lr.ph105.preheader.i, %38
+.loopexit98.i:                                    ; preds = %.preheader.i, %.preheader99.i, %38
   %70 = and i32 %13, 64
   %.not138.i = icmp eq i32 %70, 0
   %71 = select i1 %.not138.i, i32 1, i32 2
@@ -4559,17 +4559,17 @@ define noundef zeroext i1 @_ZN7glslang7TShader10preprocessEPK16TBuiltInResourcei
   %.not.i.i = icmp eq ptr %55, null
   %invariant.gep270.i.i = getelementptr i8, ptr %74, i64 16
   %96 = shl nuw nsw i64 %wide.trip.count.i.i, 3
-  br i1 %.not.i.i, label %.lr.ph273.preheader.i.i, label %.lr.ph269.preheader.i.i
+  br i1 %.not.i.i, label %.preheader.i.i, label %.preheader263.i.i
 
-.lr.ph269.preheader.i.i:                          ; preds = %._crit_edge.i.i
+.preheader263.i.i:                                ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %invariant.gep270.i.i, ptr nonnull readonly align 8 %55, i64 %96, i1 false)
   br label %.loopexit262.i.i
 
-.lr.ph273.preheader.i.i:                          ; preds = %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %invariant.gep270.i.i, i8 0, i64 %96, i1 false)
   br label %.loopexit262.i.i
 
-.loopexit262.i.i:                                 ; preds = %.lr.ph273.preheader.i.i, %.lr.ph269.preheader.i.i, %66
+.loopexit262.i.i:                                 ; preds = %.preheader.i.i, %.preheader263.i.i, %66
   %97 = and i32 %6, 64
   %.not138.i.i = icmp eq i32 %97, 0
   %98 = select i1 %.not138.i.i, i32 1, i32 2
@@ -7951,7 +7951,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
 
 thread-pre-split:                                 ; preds = %33, %29, %30, %25, %21, %19, %20
   %.sink = phi i32 [ 8, %20 ], [ 8, %19 ], [ %., %21 ], [ %.139, %25 ], [ 8, %30 ], [ 8, %29 ], [ %.140, %33 ]
-  %.0.ph = phi i1 [ false, %20 ], [ true, %19 ], [ true, %21 ], [ false, %25 ], [ %.not, %30 ], [ %.not, %29 ], [ false, %33 ]
+  %.0.ph = phi i1 [ false, %20 ], [ true, %19 ], [ true, %21 ], [ false, %25 ], [ false, %30 ], [ true, %29 ], [ false, %33 ]
   store i32 %.sink, ptr %6, align 4
   %.pr = load i32, ptr %5, align 4
   br label %36

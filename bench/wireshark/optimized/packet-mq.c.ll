@@ -3433,8 +3433,8 @@ define internal fastcc noundef i32 @dissect_mq_od(ptr noundef %0, ptr noundef re
   %33 = getelementptr inbounds i8, ptr %4, i64 16
   %34 = load i32, ptr %33, align 4
   %35 = tail call ptr @tvb_get_string_enc(ptr noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 48, i32 noundef %34) #7
-  %.not173 = icmp eq ptr %1, null
-  br i1 %.not173, label %.thread170, label %37
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %.thread170, label %37
 
 .thread170:                                       ; preds = %.thread167
   %36 = tail call i32 @strip_trailing_blanks(ptr noundef %35, i32 noundef 48) #7
@@ -3539,8 +3539,8 @@ define internal fastcc noundef i32 @dissect_mq_od(ptr noundef %0, ptr noundef re
   %118 = add i32 %3, 288
   %119 = load i32, ptr %33, align 4
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 48, i32 noundef %119) #7
-  %.not = icmp eq i32 %17, 3
-  br i1 %.not, label %.thread172, label %121
+  %.not173 = icmp eq i32 %17, 3
+  br i1 %.not173, label %.thread172, label %121
 
 121:                                              ; preds = %108
   %122 = add i32 %3, 336

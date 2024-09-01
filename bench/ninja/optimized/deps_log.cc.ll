@@ -622,7 +622,7 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %28
 48:                                               ; preds = %49
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.loopexit62, label %49, !llvm.loop !10
+  br i1 %exitcond80.not, label %.loopexit, label %49, !llvm.loop !10
 
 49:                                               ; preds = %.lr.ph68, %48
   %indvars.iv76 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next77, %48 ]
@@ -633,10 +633,7 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %28
   %.not56 = icmp eq ptr %51, %53
   br i1 %.not56, label %48, label %.thread
 
-.loopexit62:                                      ; preds = %48
-  br i1 %24, label %.thread, label %.loopexit
-
-.thread:                                          ; preds = %49, %._crit_edge, %25, %28, %_ZN7DepsLog7GetDepsEP4Node.exit, %41, %43, %.loopexit62
+.thread:                                          ; preds = %49, %._crit_edge, %25, %28, %_ZN7DepsLog7GetDepsEP4Node.exit, %41, %43
   %54 = shl i32 %3, 2
   %55 = add i32 %54, 12
   %56 = icmp ugt i32 %55, 524287
@@ -754,8 +751,8 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %93
   %109 = tail call noundef zeroext i1 @_ZN7DepsLog10UpdateDepsEiPNS_4DepsE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %108, ptr noundef nonnull %94)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %.lr.ph70, %.preheader61, %._crit_edge71, %77, %72, %67, %61, %59, %.loopexit62, %12, %._crit_edge74, %57
-  %.047 = phi i1 [ false, %57 ], [ true, %._crit_edge74 ], [ false, %12 ], [ true, %.loopexit62 ], [ false, %59 ], [ false, %61 ], [ false, %67 ], [ false, %72 ], [ false, %77 ], [ false, %._crit_edge71 ], [ true, %.preheader61 ], [ false, %.lr.ph70 ], [ false, %21 ]
+.loopexit:                                        ; preds = %21, %48, %.lr.ph70, %.preheader61, %._crit_edge71, %77, %72, %67, %61, %59, %12, %._crit_edge74, %57
+  %.047 = phi i1 [ false, %57 ], [ true, %._crit_edge74 ], [ false, %12 ], [ false, %59 ], [ false, %61 ], [ false, %67 ], [ false, %72 ], [ false, %77 ], [ false, %._crit_edge71 ], [ true, %.preheader61 ], [ false, %.lr.ph70 ], [ true, %48 ], [ false, %21 ]
   ret i1 %.047
 }
 

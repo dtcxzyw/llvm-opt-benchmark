@@ -141,11 +141,11 @@ define noundef range(i32 0, 3) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef 
 
 .preheader:                                       ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8228
-  %7 = getelementptr inbounds i8, ptr %0, i64 8220
-  %8 = getelementptr inbounds i8, ptr %1, i64 8204
-  %9 = getelementptr inbounds i8, ptr %0, i64 8216
-  %10 = getelementptr inbounds i8, ptr %0, i64 24840
-  %11 = getelementptr inbounds i8, ptr %0, i64 24800
+  %7 = getelementptr inbounds i8, ptr %1, i64 8204
+  %8 = getelementptr inbounds i8, ptr %0, i64 8216
+  %9 = getelementptr inbounds i8, ptr %0, i64 24840
+  %10 = getelementptr inbounds i8, ptr %0, i64 24800
+  %11 = getelementptr inbounds i8, ptr %0, i64 8220
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
@@ -166,19 +166,19 @@ define noundef range(i32 0, 3) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef 
     i32 1, label %26
   ]
 
-.backedge.backedge:                               ; preds = %16, %18, %26, %30, %21
-  br label %.backedge, !llvm.loop !6
-
 18:                                               ; preds = %16
-  %19 = load i32, ptr %7, align 4
+  %19 = load i32, ptr %11, align 4
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %7, align 4
+  store i32 %20, ptr %11, align 4
   br label %.backedge.backedge
 
+.backedge.backedge:                               ; preds = %18, %26, %30, %21, %16
+  br label %.backedge, !llvm.loop !6
+
 21:                                               ; preds = %16
-  %22 = load i8, ptr %8, align 4
+  %22 = load i8, ptr %7, align 4
   %23 = trunc i8 %22 to i1
-  %24 = load i32, ptr %9, align 8
+  %24 = load i32, ptr %8, align 8
   %25 = icmp eq i32 %24, 0
   %or.cond15 = select i1 %23, i1 %25, i1 false
   br i1 %or.cond15, label %.backedge.backedge, label %28
@@ -191,12 +191,12 @@ default.unreachable:                              ; preds = %16
   br i1 %27, label %.backedge.backedge, label %.thread16
 
 28:                                               ; preds = %21
-  %29 = load i64, ptr %10, align 8
+  %29 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %.thread16, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr noundef nonnull %11, i1 noundef zeroext %23, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef 6)
+  %31 = tail call noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr noundef nonnull %10, i1 noundef zeroext %23, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef 6)
   br i1 %31, label %.thread16, label %.backedge.backedge
 
 .thread16:                                        ; preds = %26, %30, %28, %14, %2

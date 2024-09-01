@@ -10078,7 +10078,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %.thread456
 
 .critedge250:                                     ; preds = %.critedge252, %.preheader, %182, %.preheader470
-  %.0169635639 = phi i1 [ true, %.preheader470 ], [ false, %182 ], [ %.0169.ph, %.preheader ], [ %.0169.ph, %.critedge252 ]
+  %.0169635639 = phi i1 [ true, %.preheader470 ], [ false, %182 ], [ true, %.preheader ], [ true, %.critedge252 ]
   %.sroa.0.23 = phi ptr [ %163, %.preheader470 ], [ %.sroa.0.22, %182 ], [ %.sroa.0.21, %.preheader ], [ %170, %.critedge252 ]
   %.3 = phi i32 [ %165, %.preheader470 ], [ %.2, %182 ], [ %173, %.preheader ], [ %173, %.critedge252 ]
   %200 = sub nsw i32 0, %.3

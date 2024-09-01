@@ -1237,154 +1237,153 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   br label %._crit_edge
 
 .lr.ph130:                                        ; preds = %.lr.ph.preheader, %34, %43
-  %45 = zext i1 %23 to i32
-  %46 = getelementptr inbounds i8, ptr %.085113, i64 108
-  store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 1032
-  %48 = getelementptr inbounds i8, ptr %.085113, i64 8
+  %45 = getelementptr inbounds i8, ptr %.085113, i64 108
+  store i32 1, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 1032
+  %47 = getelementptr inbounds i8, ptr %.085113, i64 8
   %wide.trip.count = zext nneg i32 %22 to i64
-  br label %49
+  br label %48
 
-49:                                               ; preds = %.lr.ph130, %97
-  %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %97 ]
-  %50 = call i32 @pqGets(ptr noundef nonnull %47, ptr noundef nonnull %0) #16
-  %.not98 = icmp eq i32 %50, 0
-  br i1 %.not98, label %51, label %.thread117
+48:                                               ; preds = %.lr.ph130, %96
+  %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %96 ]
+  %49 = call i32 @pqGets(ptr noundef nonnull %46, ptr noundef nonnull %0) #16
+  %.not98 = icmp eq i32 %49, 0
+  br i1 %.not98, label %50, label %.thread117
 
-51:                                               ; preds = %49
-  %52 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %0) #16
-  %.not99 = icmp eq i32 %52, 0
-  br i1 %.not99, label %53, label %.thread117
+50:                                               ; preds = %48
+  %51 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %0) #16
+  %.not99 = icmp eq i32 %51, 0
+  br i1 %.not99, label %52, label %.thread117
 
-53:                                               ; preds = %51
-  %54 = call i32 @pqGetInt(ptr noundef nonnull %4, i64 noundef 2, ptr noundef nonnull %0) #16
-  %.not100 = icmp eq i32 %54, 0
-  br i1 %.not100, label %55, label %.thread117
+52:                                               ; preds = %50
+  %53 = call i32 @pqGetInt(ptr noundef nonnull %4, i64 noundef 2, ptr noundef nonnull %0) #16
+  %.not100 = icmp eq i32 %53, 0
+  br i1 %.not100, label %54, label %.thread117
 
-55:                                               ; preds = %53
-  %56 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
-  %.not101 = icmp eq i32 %56, 0
-  br i1 %.not101, label %57, label %.thread117
+54:                                               ; preds = %52
+  %55 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
+  %.not101 = icmp eq i32 %55, 0
+  br i1 %.not101, label %56, label %.thread117
 
-57:                                               ; preds = %55
-  %58 = call i32 @pqGetInt(ptr noundef nonnull %6, i64 noundef 2, ptr noundef nonnull %0) #16
-  %.not102 = icmp eq i32 %58, 0
-  br i1 %.not102, label %59, label %.thread117
+56:                                               ; preds = %54
+  %57 = call i32 @pqGetInt(ptr noundef nonnull %6, i64 noundef 2, ptr noundef nonnull %0) #16
+  %.not102 = icmp eq i32 %57, 0
+  br i1 %.not102, label %58, label %.thread117
 
-59:                                               ; preds = %57
-  %60 = call i32 @pqGetInt(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %0) #16
-  %.not103 = icmp eq i32 %60, 0
-  br i1 %.not103, label %61, label %.thread117
+58:                                               ; preds = %56
+  %59 = call i32 @pqGetInt(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %0) #16
+  %.not103 = icmp eq i32 %59, 0
+  br i1 %.not103, label %60, label %.thread117
 
-61:                                               ; preds = %59
-  %62 = call i32 @pqGetInt(ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull %0) #16
-  %.not104 = icmp eq i32 %62, 0
-  br i1 %.not104, label %63, label %.thread117
+60:                                               ; preds = %58
+  %61 = call i32 @pqGetInt(ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull %0) #16
+  %.not104 = icmp eq i32 %61, 0
+  br i1 %.not104, label %62, label %.thread117
 
-63:                                               ; preds = %61
-  %64 = load i32, ptr %4, align 4
-  %sext = shl i32 %64, 16
-  %65 = ashr exact i32 %sext, 16
-  store i32 %65, ptr %4, align 4
-  %66 = load i32, ptr %6, align 4
-  %sext105 = shl i32 %66, 16
-  %67 = ashr exact i32 %sext105, 16
-  store i32 %67, ptr %6, align 4
-  %68 = load i32, ptr %8, align 4
-  %sext106 = shl i32 %68, 16
-  %69 = ashr exact i32 %sext106, 16
-  store i32 %69, ptr %8, align 4
-  %70 = load ptr, ptr %47, align 8
-  %71 = call ptr @pqResultStrdup(ptr noundef nonnull %.085113, ptr noundef %70) #16
-  %72 = load ptr, ptr %48, align 8
-  %73 = getelementptr %struct.pgresAttDesc, ptr %72, i64 %indvars.iv
-  store ptr %71, ptr %73, align 8
-  %74 = load ptr, ptr %48, align 8
-  %75 = getelementptr %struct.pgresAttDesc, ptr %74, i64 %indvars.iv
-  %76 = load ptr, ptr %75, align 8
-  %.not107 = icmp eq ptr %76, null
-  br i1 %.not107, label %.thread117, label %77
+62:                                               ; preds = %60
+  %63 = load i32, ptr %4, align 4
+  %sext = shl i32 %63, 16
+  %64 = ashr exact i32 %sext, 16
+  store i32 %64, ptr %4, align 4
+  %65 = load i32, ptr %6, align 4
+  %sext105 = shl i32 %65, 16
+  %66 = ashr exact i32 %sext105, 16
+  store i32 %66, ptr %6, align 4
+  %67 = load i32, ptr %8, align 4
+  %sext106 = shl i32 %67, 16
+  %68 = ashr exact i32 %sext106, 16
+  store i32 %68, ptr %8, align 4
+  %69 = load ptr, ptr %46, align 8
+  %70 = call ptr @pqResultStrdup(ptr noundef nonnull %.085113, ptr noundef %69) #16
+  %71 = load ptr, ptr %47, align 8
+  %72 = getelementptr %struct.pgresAttDesc, ptr %71, i64 %indvars.iv
+  store ptr %70, ptr %72, align 8
+  %73 = load ptr, ptr %47, align 8
+  %74 = getelementptr %struct.pgresAttDesc, ptr %73, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8
+  %.not107 = icmp eq ptr %75, null
+  br i1 %.not107, label %.thread117, label %76
 
-77:                                               ; preds = %63
-  %78 = load i32, ptr %3, align 4
-  %79 = getelementptr inbounds i8, ptr %75, i64 8
-  store i32 %78, ptr %79, align 8
-  %80 = load i32, ptr %4, align 4
-  %81 = load ptr, ptr %48, align 8
-  %82 = getelementptr %struct.pgresAttDesc, ptr %81, i64 %indvars.iv, i32 2
-  store i32 %80, ptr %82, align 4
-  %83 = load i32, ptr %8, align 4
-  %84 = load ptr, ptr %48, align 8
-  %85 = getelementptr %struct.pgresAttDesc, ptr %84, i64 %indvars.iv, i32 3
-  store i32 %83, ptr %85, align 8
-  %86 = load i32, ptr %5, align 4
-  %87 = load ptr, ptr %48, align 8
-  %88 = getelementptr %struct.pgresAttDesc, ptr %87, i64 %indvars.iv, i32 4
-  store i32 %86, ptr %88, align 4
-  %89 = load i32, ptr %6, align 4
-  %90 = load ptr, ptr %48, align 8
-  %91 = getelementptr %struct.pgresAttDesc, ptr %90, i64 %indvars.iv, i32 5
-  store i32 %89, ptr %91, align 8
-  %92 = load i32, ptr %7, align 4
-  %93 = load ptr, ptr %48, align 8
-  %94 = getelementptr %struct.pgresAttDesc, ptr %93, i64 %indvars.iv, i32 6
-  store i32 %92, ptr %94, align 4
-  %95 = load i32, ptr %8, align 4
-  %.not108 = icmp eq i32 %95, 1
-  br i1 %.not108, label %97, label %96
+76:                                               ; preds = %62
+  %77 = load i32, ptr %3, align 4
+  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  store i32 %77, ptr %78, align 8
+  %79 = load i32, ptr %4, align 4
+  %80 = load ptr, ptr %47, align 8
+  %81 = getelementptr %struct.pgresAttDesc, ptr %80, i64 %indvars.iv, i32 2
+  store i32 %79, ptr %81, align 4
+  %82 = load i32, ptr %8, align 4
+  %83 = load ptr, ptr %47, align 8
+  %84 = getelementptr %struct.pgresAttDesc, ptr %83, i64 %indvars.iv, i32 3
+  store i32 %82, ptr %84, align 8
+  %85 = load i32, ptr %5, align 4
+  %86 = load ptr, ptr %47, align 8
+  %87 = getelementptr %struct.pgresAttDesc, ptr %86, i64 %indvars.iv, i32 4
+  store i32 %85, ptr %87, align 4
+  %88 = load i32, ptr %6, align 4
+  %89 = load ptr, ptr %47, align 8
+  %90 = getelementptr %struct.pgresAttDesc, ptr %89, i64 %indvars.iv, i32 5
+  store i32 %88, ptr %90, align 8
+  %91 = load i32, ptr %7, align 4
+  %92 = load ptr, ptr %47, align 8
+  %93 = getelementptr %struct.pgresAttDesc, ptr %92, i64 %indvars.iv, i32 6
+  store i32 %91, ptr %93, align 4
+  %94 = load i32, ptr %8, align 4
+  %.not108 = icmp eq i32 %94, 1
+  br i1 %.not108, label %96, label %95
 
-96:                                               ; preds = %77
-  store i32 0, ptr %46, align 4
-  br label %97
+95:                                               ; preds = %76
+  store i32 0, ptr %45, align 4
+  br label %96
 
-97:                                               ; preds = %77, %96
+96:                                               ; preds = %76, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %97, %.loopexit
-  %98 = getelementptr inbounds i8, ptr %0, i64 952
-  store ptr %.085113, ptr %98, align 8
-  %99 = load ptr, ptr %9, align 8
-  %.not97 = icmp eq ptr %99, null
-  br i1 %.not97, label %103, label %100
+._crit_edge:                                      ; preds = %96, %.loopexit
+  %97 = getelementptr inbounds i8, ptr %0, i64 952
+  store ptr %.085113, ptr %97, align 8
+  %98 = load ptr, ptr %9, align 8
+  %.not97 = icmp eq ptr %98, null
+  br i1 %.not97, label %102, label %99
 
-100:                                              ; preds = %._crit_edge
-  %101 = load i32, ptr %99, align 8
-  %102 = icmp eq i32 %101, 3
-  br i1 %102, label %103, label %114
+99:                                               ; preds = %._crit_edge
+  %100 = load i32, ptr %98, align 8
+  %101 = icmp eq i32 %100, 3
+  br i1 %101, label %102, label %113
 
-103:                                              ; preds = %100, %._crit_edge
-  %104 = getelementptr inbounds i8, ptr %0, i64 380
-  store i32 2, ptr %104, align 4
-  br label %114
+102:                                              ; preds = %99, %._crit_edge
+  %103 = getelementptr inbounds i8, ptr %0, i64 380
+  store i32 2, ptr %103, align 4
+  br label %113
 
-.thread117:                                       ; preds = %61, %59, %57, %55, %53, %51, %49, %63, %24, %.thread
-  %.not110122 = phi ptr [ @.str.36, %24 ], [ @.str.35, %.thread ], [ @.str.36, %63 ], [ @.str.35, %49 ], [ @.str.35, %51 ], [ @.str.35, %53 ], [ @.str.35, %55 ], [ @.str.35, %57 ], [ @.str.35, %59 ], [ @.str.35, %61 ]
-  %105 = getelementptr inbounds i8, ptr %0, i64 952
-  %106 = load ptr, ptr %105, align 8
-  %.not109 = icmp eq ptr %.085113, %106
-  br i1 %.not109, label %.thread124, label %107
+.thread117:                                       ; preds = %60, %58, %56, %54, %52, %50, %48, %62, %24, %.thread
+  %.not110122 = phi ptr [ @.str.36, %24 ], [ @.str.35, %.thread ], [ @.str.36, %62 ], [ @.str.35, %48 ], [ @.str.35, %50 ], [ @.str.35, %52 ], [ @.str.35, %54 ], [ @.str.35, %56 ], [ @.str.35, %58 ], [ @.str.35, %60 ]
+  %104 = getelementptr inbounds i8, ptr %0, i64 952
+  %105 = load ptr, ptr %104, align 8
+  %.not109 = icmp eq ptr %.085113, %105
+  br i1 %.not109, label %.thread124, label %106
 
-107:                                              ; preds = %.thread117
+106:                                              ; preds = %.thread117
   call void @PQclear(ptr noundef nonnull %.085113) #16
   br label %.thread124
 
-.thread124:                                       ; preds = %17, %107, %.thread117
-  %.not110123 = phi ptr [ %.not110122, %107 ], [ %.not110122, %.thread117 ], [ @.str.36, %17 ]
+.thread124:                                       ; preds = %17, %106, %.thread117
+  %.not110123 = phi ptr [ %.not110122, %106 ], [ %.not110122, %.thread117 ], [ @.str.36, %17 ]
   call void @pqClearAsyncResult(ptr noundef nonnull %0) #16
-  %108 = getelementptr inbounds i8, ptr %0, i64 1000
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %108, ptr noundef nonnull @.str.8, ptr noundef nonnull %.not110123) #16
+  %107 = getelementptr inbounds i8, ptr %0, i64 1000
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %107, ptr noundef nonnull @.str.8, ptr noundef nonnull %.not110123) #16
   call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
-  %109 = getelementptr inbounds i8, ptr %0, i64 900
-  %110 = load i32, ptr %109, align 4
-  %111 = add i32 %1, 5
-  %112 = add i32 %111, %110
-  %113 = getelementptr inbounds i8, ptr %0, i64 904
-  store i32 %112, ptr %113, align 8
-  br label %114
+  %108 = getelementptr inbounds i8, ptr %0, i64 900
+  %109 = load i32, ptr %108, align 4
+  %110 = add i32 %1, 5
+  %111 = add i32 %110, %109
+  %112 = getelementptr inbounds i8, ptr %0, i64 904
+  store i32 %111, ptr %112, align 8
+  br label %113
 
-114:                                              ; preds = %100, %.thread124, %103
+113:                                              ; preds = %99, %.thread124, %102
   ret void
 }
 

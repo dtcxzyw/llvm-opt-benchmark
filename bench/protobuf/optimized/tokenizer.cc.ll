@@ -5843,16 +5843,16 @@ for.body.i.i.i.i.i54:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i56, i64 32
   %incdec.ptr.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i55, i64 32
   %cmp.i.i.not.i.i.i.i.i59 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i57, %2
-  br i1 %cmp.i.i.not.i.i.i.i.i59, label %for.body.i.i.i63.preheader, label %for.body.i.i.i.i.i54, !llvm.loop !28
+  br i1 %cmp.i.i.not.i.i.i.i.i59, label %invoke.cont35, label %for.body.i.i.i.i.i54, !llvm.loop !28
 
-for.body.i.i.i63.preheader:                       ; preds = %for.body.i.i.i.i.i54
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i54
   %11 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i63
 
-for.body.i.i.i63:                                 ; preds = %for.body.i.i.i63.preheader, %call.i.i.i.noexc67
-  %__first.addr.04.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i65, %call.i.i.i.noexc67 ], [ %__position.coerce, %for.body.i.i.i63.preheader ]
+for.body.i.i.i63:                                 ; preds = %invoke.cont35, %call.i.i.i.noexc67
+  %__first.addr.04.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i65, %call.i.i.i.noexc67 ], [ %__position.coerce, %invoke.cont35 ]
   %call.i.i.i68 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i64, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i)
           to label %call.i.i.i.noexc67 unwind label %lpad.loopexit.split-lp
 

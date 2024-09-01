@@ -11399,9 +11399,9 @@ _ZNK6hermes2vm10StringView5beginEv.exit.split.us: ; preds = %if.then.i, %if.else
   %retval.0.i.sink.i.i = phi ptr [ %str.coerce0, %if.then.i ], [ %call.i.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then5.i.i.i ], [ %add.ptr.i.i.i4.i.i.i, %if.then10.i.i.i ], [ %call.i.i.i.i.i, %if.else13.i.i.i ]
   %bf.clear8.i.i = and i64 %str.coerce1, 1073741823
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i, i64 %bf.clear8.i.i
-  %add169 = add nsw i32 %radix, 48
-  %sub17170 = add nsw i32 %radix, 87
-  %conv.i72171 = sitofp i32 %digitCallback.coerce1 to double
+  %add171 = add nsw i32 %radix, 48
+  %sub17172 = add nsw i32 %radix, 87
+  %conv.i72173 = sitofp i32 %digitCallback.coerce1 to double
   %7 = and i32 %str.sroa.5.8.extract.trunc, 1073741824
   %tobool.not.i.i41 = icmp eq i32 %7, 0
   br i1 %tobool.not.i.i41, label %_ZNK6hermes2vm10StringView5beginEv.exit.split.us.split.us, label %for.cond.us
@@ -11426,7 +11426,7 @@ for.body.us.us:                                   ; preds = %for.body.us.us.preh
   %12 = add nsw i16 %11, -48
   %or.cond.us.us = icmp ult i16 %12, 10
   %conv.us.us = zext nneg i16 %11 to i32
-  %cmp9.us.us = icmp sgt i32 %add169, %conv.us.us
+  %cmp9.us.us = icmp sgt i32 %add171, %conv.us.us
   %or.cond154 = select i1 %or.cond.us.us, i1 %cmp9.us.us, i1 false
   br i1 %or.cond154, label %for.inc.us.us, label %if.else.us.us
 
@@ -11434,23 +11434,23 @@ if.else.us.us:                                    ; preds = %for.body.us.us
   %13 = or i16 %11, 32
   %cmp13.us.us = icmp ugt i16 %13, 96
   %conv12.us.us = zext i16 %13 to i32
-  %cmp18.us.us = icmp sgt i32 %sub17170, %conv12.us.us
+  %cmp18.us.us = icmp sgt i32 %sub17172, %conv12.us.us
   %or.cond160 = select i1 %cmp13.us.us, i1 %cmp18.us.us, i1 false
   br i1 %or.cond160, label %for.inc.us.us, label %return
 
 for.inc.us.us:                                    ; preds = %for.body.us.us, %if.else.us.us
   %cond.i.us.us.sink = phi i16 [ %13, %if.else.us.us ], [ %11, %for.body.us.us ]
-  %.sink196 = phi i8 [ -87, %if.else.us.us ], [ -48, %for.body.us.us ]
+  %.sink198 = phi i8 [ -87, %if.else.us.us ], [ -48, %for.body.us.us ]
   %14 = trunc nsw i16 %cond.i.us.us.sink to i8
-  %conv11.us.us = add i8 %.sink196, %14
+  %conv11.us.us = add i8 %.sink198, %14
   %15 = load double, ptr %digitCallback.coerce0, align 8
-  %mul.i.us.us = fmul double %15, %conv.i72171
+  %mul.i.us.us = fmul double %15, %conv.i72173
   %conv3.i.us.us = uitofp i8 %conv11.us.us to double
   %add.i.us.us = fadd double %mul.i.us.us, %conv3.i.us.us
   store double %add.i.us.us, ptr %digitCallback.coerce0, align 8
   %incdec.ptr.i.us.us = getelementptr inbounds i8, ptr %it.sroa.0.0.us.us147, i64 1
-  %cmp5.i.i.not.us.us201 = icmp eq ptr %add.ptr.i.us.us, %incdec.ptr.i.us.us
-  br i1 %cmp5.i.i.not.us.us201, label %return, label %for.body.us.us, !llvm.loop !68
+  %cmp5.i.i.not.us.us203 = icmp eq ptr %add.ptr.i.us.us, %incdec.ptr.i.us.us
+  br i1 %cmp5.i.i.not.us.us203, label %return, label %for.body.us.us, !llvm.loop !68
 
 for.cond.us:                                      ; preds = %_ZNK6hermes2vm10StringView5beginEv.exit.split.us, %for.inc.us
   %it.sroa.0.0.us = phi ptr [ %it.sroa.0.1.us, %for.inc.us ], [ %add.ptr10.i.i, %_ZNK6hermes2vm10StringView5beginEv.exit.split.us ]
@@ -11518,7 +11518,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us: ; preds = %cond.false.i.
   %21 = add i16 %cond.i.us, -48
   %or.cond.us = icmp ult i16 %21, 10
   %conv.us = zext nneg i16 %cond.i.us to i32
-  %cmp9.us = icmp sgt i32 %add169, %conv.us
+  %cmp9.us = icmp sgt i32 %add171, %conv.us
   %or.cond155 = select i1 %or.cond.us, i1 %cmp9.us, i1 false
   br i1 %or.cond155, label %for.inc.us, label %if.else.us
 
@@ -11526,17 +11526,17 @@ if.else.us:                                       ; preds = %_ZNK6hermes2vm10Str
   %22 = or i16 %cond.i.us, 32
   %cmp13.us = icmp ugt i16 %22, 96
   %conv12.us = zext i16 %22 to i32
-  %cmp18.us = icmp sgt i32 %sub17170, %conv12.us
+  %cmp18.us = icmp sgt i32 %sub17172, %conv12.us
   %or.cond156 = select i1 %cmp13.us, i1 %cmp18.us, i1 false
   br i1 %or.cond156, label %for.inc.us, label %return
 
 for.inc.us:                                       ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us, %if.else.us
   %cond.i.us.sink = phi i16 [ %22, %if.else.us ], [ %cond.i.us, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us ]
-  %.sink197 = phi i8 [ -87, %if.else.us ], [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us ]
+  %.sink199 = phi i8 [ -87, %if.else.us ], [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us ]
   %23 = trunc i16 %cond.i.us.sink to i8
-  %conv11.us = add i8 %.sink197, %23
+  %conv11.us = add i8 %.sink199, %23
   %24 = load double, ptr %digitCallback.coerce0, align 8
-  %mul.i.us = fmul double %24, %conv.i72171
+  %mul.i.us = fmul double %24, %conv.i72173
   %conv3.i.us = uitofp i8 %conv11.us to double
   %add.i.us = fadd double %mul.i.us, %conv3.i.us
   store double %add.i.us, ptr %digitCallback.coerce0, align 8
@@ -11548,11 +11548,11 @@ for.inc.us:                                       ; preds = %_ZNK6hermes2vm10Str
 
 for.cond.preheader:                               ; preds = %if.else13.i.i20.i, %if.then10.i.i12.i, %if.then5.i.i18.i, %if.then.i.i25.i
   %retval.0.i.sink.i14.i.ph = phi ptr [ %6, %if.else13.i.i20.i ], [ %add.ptr.i.i.i4.i.i13.i, %if.then10.i.i12.i ], [ %add.ptr.i.i.i.i.i19.i, %if.then5.i.i18.i ], [ %4, %if.then.i.i25.i ]
-  %bf.clear8.i15.i179 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i180 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i.ph, i64 %bf.clear8.i15.i179
-  %add181 = add nsw i32 %radix, 48
-  %sub17182 = add nsw i32 %radix, 87
-  %conv.i72183 = sitofp i32 %digitCallback.coerce1 to double
+  %bf.clear8.i15.i181 = and i64 %str.coerce1, 1073741823
+  %add.ptr10.i17.i182 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i.ph, i64 %bf.clear8.i15.i181
+  %add183 = add nsw i32 %radix, 48
+  %sub17184 = add nsw i32 %radix, 87
+  %conv.i72185 = sitofp i32 %digitCallback.coerce1 to double
   br label %for.cond
 
 _ZNK6hermes2vm10StringView5beginEv.exit.split.split.us: ; preds = %if.end.i
@@ -11585,10 +11585,10 @@ if.else.us109:                                    ; preds = %_ZNK6hermes2vm10Str
   br i1 %or.cond161, label %for.inc.us124, label %return
 
 for.inc.us124:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us103, %if.else.us109
-  %.sink199 = phi i16 [ %27, %if.else.us109 ], [ %25, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us103 ]
-  %.sink198 = phi i8 [ -87, %if.else.us109 ], [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us103 ]
-  %28 = trunc i16 %.sink199 to i8
-  %conv11.us120 = add i8 %.sink198, %28
+  %.sink201 = phi i16 [ %27, %if.else.us109 ], [ %25, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us103 ]
+  %.sink200 = phi i8 [ -87, %if.else.us109 ], [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.us103 ]
+  %28 = trunc i16 %.sink201 to i8
+  %conv11.us120 = add i8 %.sink200, %28
   %29 = load double, ptr %digitCallback.coerce0, align 8
   %mul.i.us121 = fmul double %29, %conv.i72
   %conv3.i.us122 = uitofp i8 %conv11.us120 to double
@@ -11600,7 +11600,7 @@ for.inc.us124:                                    ; preds = %_ZNK6hermes2vm10Str
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
   %it.sroa.0.0 = phi ptr [ %it.sroa.0.1, %for.inc ], [ null, %for.cond.preheader ]
-  %it.sroa.5.0 = phi ptr [ %it.sroa.5.1, %for.inc ], [ %add.ptr10.i17.i180, %for.cond.preheader ]
+  %it.sroa.5.0 = phi ptr [ %it.sroa.5.1, %for.inc ], [ %add.ptr10.i17.i182, %for.cond.preheader ]
   %retval.sroa.0.0.copyload.i.i.i.i6.i14 = load i64, ptr %str.coerce0, align 8
   %and.i.i.i.i.i.i7.i15 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i14, 281474976710655
   %31 = inttoptr i64 %and.i.i.i.i.i.i7.i15 to ptr
@@ -11639,7 +11639,7 @@ if.else13.i.i20.i33:                              ; preds = %if.else.i.i10.i18
 
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i22: ; preds = %if.else13.i.i20.i33, %if.then10.i.i12.i20, %if.then5.i.i18.i31, %if.then.i.i25.i38
   %retval.0.i.sink.i14.i23 = phi ptr [ %32, %if.then.i.i25.i38 ], [ %add.ptr.i.i.i.i.i19.i32, %if.then5.i.i18.i31 ], [ %add.ptr.i.i.i4.i.i13.i21, %if.then10.i.i12.i20 ], [ %34, %if.else13.i.i20.i33 ]
-  %add.ptr10.i17.i26 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i23, i64 %bf.clear8.i15.i179
+  %add.ptr10.i17.i26 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i23, i64 %bf.clear8.i15.i181
   %add.ptr6.i = getelementptr inbounds i16, ptr %add.ptr10.i17.i26, i64 %str.sroa.10.8.extract.shift
   %tobool.not.i.i71 = icmp eq ptr %it.sroa.0.0, null
   %.sink.i.i = select i1 %tobool.not.i.i71, ptr %it.sroa.5.0, ptr %it.sroa.0.0
@@ -11664,7 +11664,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %cond.true.i, %co
   %38 = add i16 %cond.i, -48
   %or.cond = icmp ult i16 %38, 10
   %conv = zext nneg i16 %cond.i to i32
-  %cmp9 = icmp sgt i32 %add181, %conv
+  %cmp9 = icmp sgt i32 %add183, %conv
   %or.cond158 = select i1 %or.cond, i1 %cmp9, i1 false
   br i1 %or.cond158, label %for.inc, label %if.else
 
@@ -11672,17 +11672,17 @@ if.else:                                          ; preds = %_ZNK6hermes2vm10Str
   %39 = or i16 %cond.i, 32
   %cmp13 = icmp ugt i16 %39, 96
   %conv12 = zext i16 %39 to i32
-  %cmp18 = icmp sgt i32 %sub17182, %conv12
+  %cmp18 = icmp sgt i32 %sub17184, %conv12
   %or.cond159 = select i1 %cmp13, i1 %cmp18, i1 false
   br i1 %or.cond159, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.else, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
   %cond.i.sink = phi i16 [ %cond.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit ], [ %39, %if.else ]
-  %.sink200 = phi i8 [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit ], [ -87, %if.else ]
+  %.sink202 = phi i8 [ -48, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit ], [ -87, %if.else ]
   %40 = trunc i16 %cond.i.sink to i8
-  %conv11 = add i8 %.sink200, %40
+  %conv11 = add i8 %.sink202, %40
   %41 = load double, ptr %digitCallback.coerce0, align 8
-  %mul.i = fmul double %41, %conv.i72183
+  %mul.i = fmul double %41, %conv.i72185
   %conv3.i = uitofp i8 %conv11 to double
   %add.i = fadd double %mul.i, %conv3.i
   store double %add.i, ptr %digitCallback.coerce0, align 8

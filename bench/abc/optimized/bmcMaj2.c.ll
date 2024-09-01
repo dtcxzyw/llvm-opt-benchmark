@@ -867,7 +867,7 @@ Vec_WecPush.exit139.i.i:                          ; preds = %377, %Vec_IntGrow.e
   %407 = zext nneg i32 %391 to i64
   br label %.lr.ph173.i.us.i
 
-.lr.ph173.i.us.i:                                 ; preds = %.lr.ph173.i.preheader.i, %._crit_edge169.i.loopexit.us.i
+.lr.ph173.i.us.i:                                 ; preds = %._crit_edge169.i.loopexit.us.i, %.lr.ph173.i.preheader.i
   %indvars.iv208.i.us.i = phi i64 [ %indvars.iv.next209.i.us.i, %._crit_edge169.i.loopexit.us.i ], [ 0, %.lr.ph173.i.preheader.i ]
   %408 = trunc nuw nsw i64 %indvars.iv208.i.us.i to i32
   %409 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %408)
@@ -1403,8 +1403,8 @@ Maj_ManValue.exit.i:                              ; preds = %.lr.ph.i.i43
   br label %._crit_edge.i33
 
 ._crit_edge.i33:                                  ; preds = %._crit_edge.i33.loopexit, %Maj_ManValue.exit.thread.i
-  %.in.i = phi i1 [ %600, %Maj_ManValue.exit.thread.i ], [ %612, %._crit_edge.i33.loopexit ]
-  %613 = zext i1 %.in.i to i32
+  %.shrunk.i = phi i1 [ %600, %Maj_ManValue.exit.thread.i ], [ %612, %._crit_edge.i33.loopexit ]
+  %613 = zext i1 %.shrunk.i to i32
   %614 = load ptr, ptr %489, align 8
   %615 = load i32, ptr %49, align 8
   %616 = load i32, ptr %26, align 4

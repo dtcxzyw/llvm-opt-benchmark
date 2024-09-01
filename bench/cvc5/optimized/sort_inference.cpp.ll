@@ -621,11 +621,11 @@ for.body:                                         ; preds = %entry, %for.cond
   %6 = load i32, ptr %second, align 4
   %call.i = tail call noundef i32 @_ZN4cvc58internal6theory13SortInference9UnionFind17getRepresentativeEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %5)
   %call2.i = tail call noundef i32 @_ZN4cvc58internal6theory13SortInference9UnionFind17getRepresentativeEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %6)
-  %cmp.i.not = icmp ne i32 %call.i, %call2.i
-  br i1 %cmp.i.not, label %for.cond, label %return
+  %cmp.i.not.not = icmp ne i32 %call.i, %call2.i
+  br i1 %cmp.i.not.not, label %for.cond, label %return
 
 return:                                           ; preds = %for.body, %for.cond, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp.i.not, %for.cond ], [ %cmp.i.not, %for.body ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp.i.not.not, %for.cond ], [ %cmp.i.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 

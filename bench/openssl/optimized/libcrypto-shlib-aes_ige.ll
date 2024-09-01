@@ -353,12 +353,9 @@ for.end35:                                        ; preds = %for.body26
   %add.ptr37 = getelementptr inbounds i8, ptr %in.addr.0128, i64 16
   %add.ptr38 = getelementptr inbounds i8, ptr %out.addr.0127, i64 16
   %cmp17 = icmp ugt i64 %sub, 15
-  br i1 %cmp17, label %for.cond.preheader, label %while.end, !llvm.loop !11
+  br i1 %cmp17, label %for.cond.preheader, label %while.body44.preheader, !llvm.loop !11
 
-while.end:                                        ; preds = %for.end35
-  br i1 %cmp17126, label %while.body44.preheader, label %if.end
-
-while.body44.preheader:                           ; preds = %while.end
+while.body44.preheader:                           ; preds = %for.end35
   %add.ptr40 = getelementptr inbounds i8, ptr %ivec, i64 48
   %add.ptr39 = getelementptr inbounds i8, ptr %ivec, i64 32
   br label %while.body44
@@ -460,12 +457,9 @@ for.end116:                                       ; preds = %for.body107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp3, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
   %sub120 = add i64 %len.2114, -16
   %cmp83 = icmp ugt i64 %sub120, 15
-  br i1 %cmp83, label %while.body85, label %while.end121, !llvm.loop !17
+  br i1 %cmp83, label %while.body85, label %while.body126.preheader, !llvm.loop !17
 
-while.end121:                                     ; preds = %for.end116
-  br i1 %cmp17126, label %while.body126.preheader, label %if.end
-
-while.body126.preheader:                          ; preds = %while.end121
+while.body126.preheader:                          ; preds = %for.end116
   %add.ptr122 = getelementptr inbounds i8, ptr %ivec, i64 16
   br label %while.body126
 
@@ -513,7 +507,7 @@ for.end155:                                       ; preds = %for.body146
   %cmp124 = icmp ugt i64 %sub159, 15
   br i1 %cmp124, label %while.body126, label %if.end, !llvm.loop !20
 
-if.end:                                           ; preds = %for.end155, %for.end72, %if.else, %if.then, %while.end121, %while.end
+if.end:                                           ; preds = %for.end155, %for.end72, %if.else, %if.then
   ret void
 }
 

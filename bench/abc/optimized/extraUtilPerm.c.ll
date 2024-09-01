@@ -2447,7 +2447,7 @@ tailrecurse:                                      ; preds = %52, %4
   store i32 %23, ptr %24, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %14, !llvm.loop !20
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %25 = icmp eq i64 %indvars.iv, 0
@@ -2457,10 +2457,7 @@ tailrecurse:                                      ; preds = %52, %4
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
   br label %Abc_ZddCombPrint.exit
 
-._crit_edge:                                      ; preds = %14
-  br i1 %9, label %.lr.ph.preheader.i, label %Abc_ZddCombPrint.exit
-
-.lr.ph.preheader.i:                               ; preds = %._crit_edge
+.lr.ph.preheader.i:                               ; preds = %14
   %wide.trip.count.i = and i64 %indvars.iv, 4294967295
   br label %.lr.ph.i
 
@@ -2475,7 +2472,7 @@ tailrecurse:                                      ; preds = %52, %4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_ZddCombPrint.exit, label %.lr.ph.i, !llvm.loop !15
 
-Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_edge.thread, %.thread.i, %._crit_edge
+Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_edge.thread, %.thread.i
   %putchar.i = tail call i32 @putchar(i32 10)
   %32 = getelementptr inbounds i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4

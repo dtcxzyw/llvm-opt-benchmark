@@ -3226,12 +3226,9 @@ define range(i32 -1, 2) i32 @Aig_ObjCollectSuper_rec(ptr noundef %0, ptr noundef
 15:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !34
+  br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !34
 
-.preheader:                                       ; preds = %15
-  br i1 %12, label %.lr.ph52, label %.loopexit
-
-.lr.ph52:                                         ; preds = %.preheader
+.lr.ph52:                                         ; preds = %15
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = xor i64 %4, 1
@@ -3372,8 +3369,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %86 = zext i1 %85 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %25, %24, %.preheader47, %.preheader, %73, %82, %Vec_PtrPush.exit
-  %.033 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %86, %82 ], [ -1, %73 ], [ 0, %.preheader ], [ 0, %.preheader47 ], [ -1, %25 ], [ 0, %24 ], [ 1, %20 ]
+.loopexit:                                        ; preds = %20, %25, %24, %.preheader47, %73, %82, %Vec_PtrPush.exit
+  %.033 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %86, %82 ], [ -1, %73 ], [ 0, %.preheader47 ], [ -1, %25 ], [ 0, %24 ], [ 1, %20 ]
   ret i32 %.033
 }
 

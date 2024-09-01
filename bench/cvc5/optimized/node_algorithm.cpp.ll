@@ -2426,13 +2426,13 @@ if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   %6 = load ptr, ptr %incdec.ptr.i10.i.i.i, align 8
   %cmp.i.i11.i.i.i = icmp eq ptr %6, %2
-  br i1 %cmp.i.i11.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit313, label %if.end16.i.i.i
+  br i1 %cmp.i.i11.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit307, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %incdec.ptr.i12.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   %7 = load ptr, ptr %incdec.ptr.i12.i.i.i, align 8
   %cmp.i.i13.i.i.i = icmp eq ptr %7, %2
-  br i1 %cmp.i.i13.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit315, label %if.end22.i.i.i
+  br i1 %cmp.i.i13.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit309, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end16.i.i.i
   %incdec.ptr.i14.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 32
@@ -2496,16 +2496,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit313: ; preds = %if.end10.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit307: ; preds = %if.end10.i.i.i
   %incdec.ptr.i10.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit315: ; preds = %if.end16.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit309: ; preds = %if.end16.i.i.i
   %incdec.ptr.i12.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit313, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit315, %sw.bb.i.i.i, %sw.bb31.i.i.i, %sw.bb38.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit313 ], [ %incdec.ptr.i12.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit315 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit307, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit309, %sw.bb.i.i.i, %sw.bb31.i.i.i, %sw.bb38.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit307 ], [ %incdec.ptr.i12.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS4_ILb0EEEET_SD_SD_RKT0_.exit.loopexit.split.loop.exit309 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
   %cmp.i.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %1
   br i1 %cmp.i.not, label %cond.true.i.i.i, label %return
 
@@ -2718,13 +2718,13 @@ if.end.i.i.i78:                                   ; preds = %for.body.i.i.i74
   %incdec.ptr.i.i.i.i79 = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 8
   %35 = load ptr, ptr %incdec.ptr.i.i.i.i79, align 8
   %cmp.i.i9.i.i.i80 = icmp eq ptr %35, %32
-  br i1 %cmp.i.i9.i.i.i80, label %invoke.cont55.loopexit.split.loop.exit323, label %if.end10.i.i.i81
+  br i1 %cmp.i.i9.i.i.i80, label %invoke.cont55.loopexit.split.loop.exit317, label %if.end10.i.i.i81
 
 if.end10.i.i.i81:                                 ; preds = %if.end.i.i.i78
   %incdec.ptr.i10.i.i.i82 = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 16
   %36 = load ptr, ptr %incdec.ptr.i10.i.i.i82, align 8
   %cmp.i.i11.i.i.i83 = icmp eq ptr %36, %32
-  br i1 %cmp.i.i11.i.i.i83, label %invoke.cont55.loopexit.split.loop.exit321, label %if.end16.i.i.i84
+  br i1 %cmp.i.i11.i.i.i83, label %invoke.cont55.loopexit.split.loop.exit315, label %if.end16.i.i.i84
 
 if.end16.i.i.i84:                                 ; preds = %if.end10.i.i.i81
   %incdec.ptr.i12.i.i.i85 = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 24
@@ -2794,16 +2794,16 @@ invoke.cont55.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i84
   %incdec.ptr.i12.i.i.i85.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 24
   br label %invoke.cont55
 
-invoke.cont55.loopexit.split.loop.exit321:        ; preds = %if.end10.i.i.i81
+invoke.cont55.loopexit.split.loop.exit315:        ; preds = %if.end10.i.i.i81
   %incdec.ptr.i10.i.i.i82.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 16
   br label %invoke.cont55
 
-invoke.cont55.loopexit.split.loop.exit323:        ; preds = %if.end.i.i.i78
+invoke.cont55.loopexit.split.loop.exit317:        ; preds = %if.end.i.i.i78
   %incdec.ptr.i.i.i.i79.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i76, i64 8
   br label %invoke.cont55
 
-invoke.cont55:                                    ; preds = %for.body.i.i.i74, %invoke.cont55.loopexit.split.loop.exit, %invoke.cont55.loopexit.split.loop.exit321, %invoke.cont55.loopexit.split.loop.exit323, %sw.bb38.i.i.i56, %sw.bb31.i.i.i63, %sw.bb.i.i.i68
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i60 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i52, %sw.bb.i.i.i68 ], [ %__first.sroa.0.1.i.i.i64, %sw.bb31.i.i.i63 ], [ %spec.select.i.i.i59, %sw.bb38.i.i.i56 ], [ %incdec.ptr.i12.i.i.i85.le, %invoke.cont55.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i82.le, %invoke.cont55.loopexit.split.loop.exit321 ], [ %incdec.ptr.i.i.i.i79.le, %invoke.cont55.loopexit.split.loop.exit323 ], [ %__first.sroa.0.051.i.i.i76, %for.body.i.i.i74 ]
+invoke.cont55:                                    ; preds = %for.body.i.i.i74, %invoke.cont55.loopexit.split.loop.exit, %invoke.cont55.loopexit.split.loop.exit315, %invoke.cont55.loopexit.split.loop.exit317, %sw.bb38.i.i.i56, %sw.bb31.i.i.i63, %sw.bb.i.i.i68
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i60 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i52, %sw.bb.i.i.i68 ], [ %__first.sroa.0.1.i.i.i64, %sw.bb31.i.i.i63 ], [ %spec.select.i.i.i59, %sw.bb38.i.i.i56 ], [ %incdec.ptr.i12.i.i.i85.le, %invoke.cont55.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i82.le, %invoke.cont55.loopexit.split.loop.exit315 ], [ %incdec.ptr.i.i.i.i79.le, %invoke.cont55.loopexit.split.loop.exit317 ], [ %__first.sroa.0.051.i.i.i76, %for.body.i.i.i74 ]
   %cmp.i102.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i60, %31
   br i1 %cmp.i102.not, label %if.end63, label %cleanup87
 

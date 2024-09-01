@@ -817,6 +817,33 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %225, %228
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
   br i1 %exitcond371.not, label %._crit_edge310, label %314, !llvm.loop !12
 
+.thread:                                          ; preds = %.lr.ph324
+  %337 = load ptr, ptr %241, align 8
+  %338 = load ptr, ptr %51, align 8
+  %339 = getelementptr inbounds i32, ptr %338, i64 %indvars.iv382
+  %340 = load i32, ptr %339, align 4
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr inbounds %struct.t_atom, ptr %337, i64 %341
+  %343 = load float, ptr %342, align 4
+  %344 = load ptr, ptr %242, align 8
+  %345 = getelementptr inbounds [3 x float], ptr %344, i64 %341
+  %346 = load float, ptr %345, align 4
+  %347 = fmul float %343, %346
+  %348 = getelementptr inbounds i8, ptr %345, i64 4
+  %349 = load float, ptr %348, align 4
+  %350 = fmul float %343, %349
+  %351 = getelementptr inbounds i8, ptr %345, i64 8
+  %352 = load float, ptr %351, align 4
+  %353 = fmul float %343, %352
+  %354 = load ptr, ptr %243, align 8
+  %355 = getelementptr inbounds [3 x float], ptr %354, i64 %341
+  %356 = load float, ptr %355, align 4
+  %357 = getelementptr inbounds i8, ptr %355, i64 4
+  %358 = load float, ptr %357, align 4
+  %359 = getelementptr inbounds i8, ptr %355, i64 8
+  %360 = load float, ptr %359, align 4
+  br label %.lr.ph321.preheader
+
 ._crit_edge310:                                   ; preds = %314, %.preheader
   %.sroa.8228.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %323, %314 ]
   %.sroa.0223.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %320, %314 ]
@@ -825,46 +852,19 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %225, %228
   %.sroa.0.2.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %329, %314 ]
   %.sroa.16233.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %326, %314 ]
   %.0121.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %336, %314 ]
-  %337 = fdiv float 1.000000e+00, %.0121.lcssa
-  %338 = fmul float %.sroa.0.2.lcssa, %337
-  %339 = fmul float %.sroa.8.2.lcssa, %337
-  %340 = fmul float %.sroa.16.2.lcssa, %337
-  br label %.lr.ph321.preheader
-
-.thread:                                          ; preds = %.lr.ph324
-  %341 = load ptr, ptr %241, align 8
-  %342 = load ptr, ptr %51, align 8
-  %343 = getelementptr inbounds i32, ptr %342, i64 %indvars.iv382
-  %344 = load i32, ptr %343, align 4
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr inbounds %struct.t_atom, ptr %341, i64 %345
-  %347 = load float, ptr %346, align 4
-  %348 = load ptr, ptr %242, align 8
-  %349 = getelementptr inbounds [3 x float], ptr %348, i64 %345
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
-  %351 = load float, ptr %350, align 4
-  %352 = fmul float %347, %351
-  %353 = getelementptr inbounds i8, ptr %349, i64 4
-  %354 = load float, ptr %353, align 4
-  %355 = fmul float %347, %354
-  %356 = load float, ptr %349, align 4
-  %357 = fmul float %347, %356
-  %358 = load ptr, ptr %243, align 8
-  %359 = getelementptr inbounds [3 x float], ptr %358, i64 %345
-  %360 = load float, ptr %359, align 4
-  %361 = getelementptr inbounds i8, ptr %359, i64 4
-  %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds i8, ptr %359, i64 8
-  %364 = load float, ptr %363, align 4
+  %361 = fdiv float 1.000000e+00, %.0121.lcssa
+  %362 = fmul float %.sroa.0.2.lcssa, %361
+  %363 = fmul float %.sroa.8.2.lcssa, %361
+  %364 = fmul float %.sroa.16.2.lcssa, %361
   br label %.lr.ph321.preheader
 
 .lr.ph321.preheader:                              ; preds = %.thread, %._crit_edge310
-  %.sroa.16233.1257 = phi float [ %.sroa.16233.0.lcssa, %._crit_edge310 ], [ %352, %.thread ]
-  %.sroa.0223.1255 = phi float [ %.sroa.0223.0.lcssa, %._crit_edge310 ], [ %357, %.thread ]
-  %.sroa.8228.1253 = phi float [ %.sroa.8228.0.lcssa, %._crit_edge310 ], [ %355, %.thread ]
-  %.sroa.16.4 = phi float [ %340, %._crit_edge310 ], [ %364, %.thread ]
-  %.sroa.8.4 = phi float [ %339, %._crit_edge310 ], [ %362, %.thread ]
-  %.sroa.0.4 = phi float [ %338, %._crit_edge310 ], [ %360, %.thread ]
+  %.sroa.16233.1257 = phi float [ %.sroa.16233.0.lcssa, %._crit_edge310 ], [ %353, %.thread ]
+  %.sroa.0223.1255 = phi float [ %.sroa.0223.0.lcssa, %._crit_edge310 ], [ %347, %.thread ]
+  %.sroa.8228.1253 = phi float [ %.sroa.8228.0.lcssa, %._crit_edge310 ], [ %350, %.thread ]
+  %.sroa.16.4 = phi float [ %364, %._crit_edge310 ], [ %360, %.thread ]
+  %.sroa.8.4 = phi float [ %363, %._crit_edge310 ], [ %358, %.thread ]
+  %.sroa.0.4 = phi float [ %362, %._crit_edge310 ], [ %356, %.thread ]
   br label %.lr.ph321
 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %.lr.ph321

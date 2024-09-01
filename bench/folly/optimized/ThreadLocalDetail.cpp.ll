@@ -1523,11 +1523,11 @@ for.body:                                         ; preds = %entry, %for.cond
   %te.06 = phi ptr [ %te.0, %for.cond ], [ %te.04, %entry ]
   %removed_ = getelementptr inbounds i8, ptr %te.06, i64 40
   %1 = load i8, ptr %removed_, align 8, !tbaa !20, !range !21, !noundef !22
-  %tobool1.not.not.not.not = icmp ne i8 %1, 0
-  br i1 %tobool1.not.not.not.not, label %cleanup, label %for.cond
+  %tobool1.not.not.not.not.not = icmp ne i8 %1, 0
+  br i1 %tobool1.not.not.not.not.not, label %cleanup, label %for.cond
 
 cleanup:                                          ; preds = %for.body, %for.cond, %entry
-  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1.not.not.not.not, %for.cond ], [ %tobool1.not.not.not.not, %for.body ]
+  %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool1.not.not.not.not.not, %for.cond ], [ %tobool1.not.not.not.not.not, %for.body ]
   ret i1 %tobool.not.lcssa
 }
 

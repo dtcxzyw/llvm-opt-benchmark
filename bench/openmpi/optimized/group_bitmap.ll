@@ -15,44 +15,36 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @ompi_group_calc_bmap(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %0, 2
-  br i1 %4, label %check_ranks.exit.thread, label %.lr.ph.preheader.i
+  br i1 %4, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i8, ptr %2, i64 4
-  %7 = load i32, ptr %2, align 4
-  %8 = load i32, ptr %6, align 4
-  %9 = icmp sgt i32 %7, %8
-  br i1 %9, label %.critedge, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %0 to i64
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i4, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %5
-  br i1 %exitcond.i, label %check_ranks.exit, label %.lr.ph.i, !llvm.loop !4
+5:                                                ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %10 = getelementptr i32, ptr %2, i64 %indvars.iv.next.i
-  %11 = getelementptr i8, ptr %10, i64 -4
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %10, align 4
-  %14 = icmp sgt i32 %12, %13
-  br i1 %14, label %check_ranks.exit, label %.lr.ph, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr i8, ptr %6, i64 -4
+  %8 = load i32, ptr %7, align 4
+  %9 = load i32, ptr %6, align 4
+  %.not.i = icmp sgt i32 %8, %9
+  br i1 %.not.i, label %check_ranks.exit, label %5
 
-check_ranks.exit:                                 ; preds = %.lr.ph.i, %.lr.ph
-  %.not.le = icmp ult i64 %indvars.iv.next.i, %5
-  br i1 %.not.le, label %.critedge, label %check_ranks.exit.thread
+.loopexit:                                        ; preds = %5, %3
+  %10 = and i32 %1, 7
+  %11 = icmp ne i32 %10, 0
+  %12 = sdiv i32 %1, 8
+  %13 = zext i1 %11 to i32
+  %.0.i = add nsw i32 %12, %13
+  br label %check_ranks.exit
 
-check_ranks.exit.thread:                          ; preds = %3, %check_ranks.exit
-  %15 = and i32 %1, 7
-  %16 = icmp ne i32 %15, 0
-  %17 = sdiv i32 %1, 8
-  %18 = zext i1 %16 to i32
-  %.0.i = add nsw i32 %17, %18
-  br label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %check_ranks.exit, %check_ranks.exit.thread
-  %.0 = phi i32 [ %.0.i, %check_ranks.exit.thread ], [ -1, %check_ranks.exit ], [ -1, %.lr.ph.preheader.i ]
+check_ranks.exit:                                 ; preds = %.lr.ph.i, %.loopexit
+  %.0 = phi i32 [ %.0.i, %.loopexit ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 

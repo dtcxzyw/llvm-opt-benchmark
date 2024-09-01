@@ -1573,9 +1573,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIi
   %44 = load i32, ptr %23, align 8
   br label %45
 
-.preheader56:                                     ; preds = %45
-  br i1 %43, label %.lr.ph61, label %.preheader
-
 45:                                               ; preds = %.lr.ph, %45
   %.03159 = phi i32 [ 0, %.lr.ph ], [ %52, %45 ]
   %.03258 = phi double [ %42, %.lr.ph ], [ %51, %45 ]
@@ -1587,16 +1584,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIi
   %51 = fmul double %.03258, %50
   %52 = add nuw nsw i32 %.03159, 1
   %exitcond.not = icmp eq i32 %52, %39
-  br i1 %exitcond.not, label %.preheader56, label %45, !llvm.loop !31
+  br i1 %exitcond.not, label %.lr.ph61, label %45, !llvm.loop !31
 
 53:                                               ; preds = %28, %27
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %85
 
-.preheader:                                       ; preds = %.lr.ph61, %_ZNSt6vectorIiSaIiEED2Ev.exit, %.preheader56
-  %.032.lcssa79 = phi double [ %51, %.preheader56 ], [ %42, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %51, %.lr.ph61 ]
-  %.lcssa57 = phi i32 [ %39, %.preheader56 ], [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %60, %.lr.ph61 ]
+.preheader:                                       ; preds = %.lr.ph61, %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %.032.lcssa79 = phi double [ %42, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %51, %.lr.ph61 ]
+  %.lcssa57 = phi i32 [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %60, %.lr.ph61 ]
   %55 = load i32, ptr %23, align 8
   %56 = icmp slt i32 %.lcssa57, %55
   br i1 %56, label %.lr.ph66.preheader, label %._crit_edge
@@ -1606,8 +1603,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIi
   %.pre76 = load ptr, ptr %8, align 8
   br label %.lr.ph66
 
-.lr.ph61:                                         ; preds = %.preheader56, %.lr.ph61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %.preheader56 ]
+.lr.ph61:                                         ; preds = %45, %.lr.ph61
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %45 ]
   %58 = load ptr, ptr %8, align 8
   %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
   store i32 1, ptr %59, align 4

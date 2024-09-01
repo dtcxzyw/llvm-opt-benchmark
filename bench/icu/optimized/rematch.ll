@@ -9119,12 +9119,13 @@ invoke.cont2903:                                  ; preds = %do.end2902
   br i1 %cmp2905.not, label %while.cond2844, label %while.end2908, !llvm.loop !25
 
 while.end2908:                                    ; preds = %invoke.cont2903, %while.cond2844, %if.then2875
+  %cmp28451302 = phi i1 [ true, %if.then2875 ], [ %cmp2845, %while.cond2844 ], [ %cmp2845, %invoke.cont2903 ]
   %call2910 = invoke noundef signext i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %inputIterator)
           to label %invoke.cont2909 unwind label %lpad2847.loopexit.split-lp
 
 invoke.cont2909:                                  ; preds = %while.end2908
   %tobool2911.not = icmp ne i8 %call2910, 0
-  %tobool2914.not = or i1 %cmp2845, %tobool2911.not
+  %tobool2914.not = or i1 %cmp28451302, %tobool2911.not
   br i1 %tobool2914.not, label %if.else2938, label %if.then2915
 
 if.then2915:                                      ; preds = %invoke.cont2909
@@ -12852,12 +12853,9 @@ for.inc1377:                                      ; preds = %if.end1369
   %inc1378 = add i64 %groupIndex.01333, 1
   %inc1379 = add nsw i64 %inputIndex.01334, 1
   %exitcond.not = icmp eq i64 %inc1378, %392
-  br i1 %exitcond.not, label %land.lhs.true1382, label %for.body1364, !llvm.loop !32
+  br i1 %exitcond.not, label %land.lhs.true1384, label %for.body1364, !llvm.loop !32
 
-land.lhs.true1382:                                ; preds = %for.inc1377
-  br i1 %cmp13631332, label %land.lhs.true1384, label %if.then1401
-
-land.lhs.true1384:                                ; preds = %land.lhs.true1382
+land.lhs.true1384:                                ; preds = %for.inc1377
   %gep1351 = getelementptr i16, ptr %invariant.gep1350, i64 %392
   %403 = load i16, ptr %gep1351, align 2
   %404 = and i16 %403, -1024
@@ -12874,8 +12872,8 @@ land.lhs.true1393:                                ; preds = %land.lhs.true1384
   %cmp1397 = icmp eq i16 %407, -9216
   br i1 %cmp1397, label %if.else1403, label %if.then1401
 
-if.then1401:                                      ; preds = %if.end1360, %land.lhs.true1384, %land.lhs.true1382, %land.lhs.true1393
-  %inputIndex.0.lcssa1400 = phi i64 [ %400, %land.lhs.true1384 ], [ %400, %land.lhs.true1382 ], [ %400, %land.lhs.true1393 ], [ %397, %if.end1360 ]
+if.then1401:                                      ; preds = %if.end1360, %land.lhs.true1384, %land.lhs.true1393
+  %inputIndex.0.lcssa1400 = phi i64 [ %400, %land.lhs.true1384 ], [ %400, %land.lhs.true1393 ], [ %397, %if.end1360 ]
   store i64 %inputIndex.0.lcssa1400, ptr %fp.0, align 8
   br label %sw.epilog
 
@@ -16348,14 +16346,11 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body
   %call10 = call noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %inputText, ptr noundef nonnull %call3, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br i1 %cmp618, label %for.body13.preheader, label %for.end19
-
-for.body13.preheader:                             ; preds = %for.end
   %wide.trip.count26 = zext nneg i32 %destCapacity to i64
   br label %for.body13
 
-for.body13:                                       ; preds = %for.body13.preheader, %for.body13
-  %indvars.iv23 = phi i64 [ 0, %for.body13.preheader ], [ %indvars.iv.next24, %for.body13 ]
+for.body13:                                       ; preds = %for.end, %for.body13
+  %indvars.iv23 = phi i64 [ 0, %for.end ], [ %indvars.iv.next24, %for.body13 ]
   %arrayidx15 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv23
   %2 = load ptr, ptr %arrayidx15, align 8
   %call16 = call ptr @utext_close_75(ptr noundef %2)
@@ -16363,8 +16358,8 @@ for.body13:                                       ; preds = %for.body13.preheade
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %for.end19, label %for.body13, !llvm.loop !41
 
-for.end19:                                        ; preds = %for.body13, %for.end.thread, %for.end
-  %call1029 = phi i32 [ %call1028, %for.end.thread ], [ %call10, %for.end ], [ %call10, %for.body13 ]
+for.end19:                                        ; preds = %for.body13, %for.end.thread
+  %call1029 = phi i32 [ %call1028, %for.end.thread ], [ %call10, %for.body13 ]
   call void @uprv_free_75(ptr noundef nonnull %call3)
   %call20 = call ptr @utext_close_75(ptr noundef nonnull %inputText)
   br label %return

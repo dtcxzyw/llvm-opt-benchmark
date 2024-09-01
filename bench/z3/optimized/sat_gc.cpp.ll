@@ -1615,19 +1615,19 @@ _ZNK3sat14clause_wrapper3endEv.exit:              ; preds = %_ZNK3sat14clause_wr
   %m_size.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %m_size.i.i.i, align 4
   %cmp.i.not11 = icmp eq i32 %4, 0
-  br i1 %cmp.i.not11, label %return, label %for.body.lr.ph
+  br i1 %cmp.i.not11, label %return, label %if.else.i.i.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZNK3sat14clause_wrapper3endEv.exit
+if.else.i.i.lr.ph:                                ; preds = %_ZNK3sat14clause_wrapper3endEv.exit
   %m_lits.i.i.i = getelementptr inbounds i8, ptr %2, i64 20
   %m_assignment.i = getelementptr inbounds i8, ptr %this, i64 3440
   %5 = load ptr, ptr %m_assignment.i, align 8
   %m_justification.i = getelementptr inbounds i8, ptr %this, i64 3448
   %6 = load ptr, ptr %m_justification.i, align 8
-  br label %for.body
+  br label %if.else.i.i
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %seen_true.013 = phi i1 [ false, %for.body.lr.ph ], [ %seen_true.1, %for.inc ]
-  %__begin1.sroa.0.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc.i, %for.inc ]
+if.else.i.i:                                      ; preds = %if.else.i.i.lr.ph, %for.inc
+  %seen_true.013 = phi i1 [ false, %if.else.i.i.lr.ph ], [ %seen_true.1, %for.inc ]
+  %__begin1.sroa.0.012 = phi i32 [ 0, %if.else.i.i.lr.ph ], [ %inc.i, %for.inc ]
   %idxprom.i.i.i = zext i32 %__begin1.sroa.0.012 to i64
   %arrayidx.i.i.i = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i.i.i, i64 0, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i, align 4
@@ -1639,7 +1639,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
     i32 0, label %return
   ]
 
-sw.bb:                                            ; preds = %for.body
+sw.bb:                                            ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %retval.sroa.0.0.copyload.i.i, 1
   %idxprom.i.i7 = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i8 = getelementptr inbounds %"class.sat::justification", ptr %6, i64 %idxprom.i.i7
@@ -1648,14 +1648,14 @@ sw.bb:                                            ; preds = %for.body
   %brmerge = select i1 %cmp, i1 true, i1 %seen_true.013
   br i1 %brmerge, label %return, label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %for.body
-  %seen_true.1 = phi i1 [ %seen_true.013, %for.body ], [ true, %sw.bb ]
+for.inc:                                          ; preds = %sw.bb, %if.else.i.i
+  %seen_true.1 = phi i1 [ %seen_true.013, %if.else.i.i ], [ true, %sw.bb ]
   %inc.i = add nuw i32 %__begin1.sroa.0.012, 1
   %cmp.i.not = icmp eq i32 %inc.i, %4
-  br i1 %cmp.i.not, label %return, label %for.body
+  br i1 %cmp.i.not, label %return, label %if.else.i.i
 
-return:                                           ; preds = %for.body, %for.inc, %sw.bb, %_ZNK3sat14clause_wrapper3endEv.exit, %entry, %_ZNK3sat14clause_wrapper10is_learnedEv.exit
-  %retval.0 = phi i1 [ true, %_ZNK3sat14clause_wrapper10is_learnedEv.exit ], [ true, %entry ], [ true, %_ZNK3sat14clause_wrapper3endEv.exit ], [ false, %for.body ], [ true, %for.inc ], [ false, %sw.bb ]
+return:                                           ; preds = %if.else.i.i, %for.inc, %sw.bb, %_ZNK3sat14clause_wrapper3endEv.exit, %entry, %_ZNK3sat14clause_wrapper10is_learnedEv.exit
+  %retval.0 = phi i1 [ true, %_ZNK3sat14clause_wrapper10is_learnedEv.exit ], [ true, %entry ], [ true, %_ZNK3sat14clause_wrapper3endEv.exit ], [ false, %if.else.i.i ], [ true, %for.inc ], [ false, %sw.bb ]
   ret i1 %retval.0
 }
 

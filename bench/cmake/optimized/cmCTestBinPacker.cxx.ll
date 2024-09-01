@@ -1119,8 +1119,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
-  %.not219 = icmp eq ptr %10, %11
-  br i1 %.not219, label %._crit_edge, label %.lr.ph
+  %.not161 = icmp eq ptr %10, %11
+  br i1 %.not161, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1522,7 +1522,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %2
-  %.pre209 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre210 = load ptr, ptr %.phi.trans.insert, align 8
   br label %160
 
 159:                                              ; preds = %.body, %145
@@ -1531,7 +1531,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
   resume { ptr, i32 } %.pn
 
 160:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit
-  %161 = phi ptr [ %.pre209, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge ], [ %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit ]
+  %161 = phi ptr [ %.pre210, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge ], [ %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit ]
   %162 = getelementptr inbounds i8, ptr %161, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %162) #18
   %163 = load ptr, ptr %9, align 8
@@ -1683,18 +1683,18 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourc
   br i1 %221, label %191, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge, !llvm.loop !26
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79
-  %.pre210 = load ptr, ptr %9, align 8
-  %.pre211 = load ptr, ptr %1, align 8
-  %.pre212 = ptrtoint ptr %.pre210 to i64
+  %.pre211 = load ptr, ptr %9, align 8
+  %.pre212 = load ptr, ptr %1, align 8
   %.pre213 = ptrtoint ptr %.pre211 to i64
-  %.pre215 = sub i64 %.pre212, %.pre213
-  %.pre217 = ashr exact i64 %.pre215, 5
+  %.pre214 = ptrtoint ptr %.pre212 to i64
+  %.pre216 = sub i64 %.pre213, %.pre214
+  %.pre218 = ashr exact i64 %.pre216, 5
   br label %.critedge
 
 .critedge:                                        ; preds = %191, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge
-  %.pre-phi218 = phi i64 [ %.pre217, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge ], [ %198, %191 ]
-  %222 = phi ptr [ %.pre211, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge ], [ %194, %191 ]
-  %223 = icmp ult i64 %192, %.pre-phi218
+  %.pre-phi219 = phi i64 [ %.pre218, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge ], [ %198, %191 ]
+  %222 = phi ptr [ %.pre212, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit79..critedge_crit_edge ], [ %194, %191 ]
+  %223 = icmp ult i64 %192, %.pre-phi219
   br i1 %223, label %23, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %51, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %.critedge, %4
@@ -6555,8 +6555,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
-  %.not159 = icmp eq ptr %10, %11
-  br i1 %.not159, label %._crit_edge, label %.lr.ph
+  %.not124 = icmp eq ptr %10, %11
+  br i1 %.not124, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6821,7 +6821,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %2
-  %.pre149 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre150 = load ptr, ptr %.phi.trans.insert, align 8
   br label %115
 
 114:                                              ; preds = %.body, %100
@@ -6830,7 +6830,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
   resume { ptr, i32 } %.pn
 
 115:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit
-  %116 = phi ptr [ %.pre149, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge ], [ %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit ]
+  %116 = phi ptr [ %.pre150, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge ], [ %48, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit ]
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #18
   %118 = load ptr, ptr %9, align 8
@@ -6982,18 +6982,18 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourc
   br i1 %176, label %146, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge, !llvm.loop !486
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78
-  %.pre150 = load ptr, ptr %9, align 8
-  %.pre151 = load ptr, ptr %1, align 8
-  %.pre152 = ptrtoint ptr %.pre150 to i64
+  %.pre151 = load ptr, ptr %9, align 8
+  %.pre152 = load ptr, ptr %1, align 8
   %.pre153 = ptrtoint ptr %.pre151 to i64
-  %.pre155 = sub i64 %.pre152, %.pre153
-  %.pre157 = ashr exact i64 %.pre155, 5
+  %.pre154 = ptrtoint ptr %.pre152 to i64
+  %.pre156 = sub i64 %.pre153, %.pre154
+  %.pre158 = ashr exact i64 %.pre156, 5
   br label %.critedge
 
 .critedge:                                        ; preds = %146, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge
-  %.pre-phi158 = phi i64 [ %.pre157, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge ], [ %153, %146 ]
-  %177 = phi ptr [ %.pre151, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge ], [ %149, %146 ]
-  %178 = icmp ult i64 %147, %.pre-phi158
+  %.pre-phi159 = phi i64 [ %.pre158, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge ], [ %153, %146 ]
+  %177 = phi ptr [ %.pre152, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_.exit78..critedge_crit_edge ], [ %149, %146 ]
+  %178 = icmp ult i64 %147, %.pre-phi159
   br i1 %178, label %23, label %._crit_edge, !llvm.loop !487
 
 ._crit_edge:                                      ; preds = %51, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %.critedge, %4

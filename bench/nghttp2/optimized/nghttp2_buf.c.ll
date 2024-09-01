@@ -989,14 +989,11 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.i = sub i64 %sub.ptr.sub.i, %sub.ptr.rhs.cast.i
   %ci.0.i = load ptr, ptr %ci.08.i, align 8
   %tobool.not.i = icmp eq ptr %ci.0.i, null
-  br i1 %tobool.not.i, label %nghttp2_buf_wrap_init.exit, label %for.body.i, !llvm.loop !8
+  br i1 %tobool.not.i, label %for.body, label %for.body.i, !llvm.loop !8
 
-nghttp2_buf_wrap_init.exit:                       ; preds = %for.body.i
-  br i1 %tobool.not6.i, label %for.end, label %for.body
-
-for.body:                                         ; preds = %nghttp2_buf_wrap_init.exit, %for.body
-  %chain.016 = phi ptr [ %chain.0, %for.body ], [ %ci.05.i, %nghttp2_buf_wrap_init.exit ]
-  %resbuf.sroa.4.015 = phi ptr [ %call4, %for.body ], [ %out, %nghttp2_buf_wrap_init.exit ]
+for.body:                                         ; preds = %for.body.i, %for.body
+  %chain.016 = phi ptr [ %chain.0, %for.body ], [ %ci.05.i, %for.body.i ]
+  %resbuf.sroa.4.015 = phi ptr [ %call4, %for.body ], [ %out, %for.body.i ]
   %pos = getelementptr inbounds i8, ptr %chain.016, i64 24
   %2 = load ptr, ptr %pos, align 8
   %last2 = getelementptr inbounds i8, ptr %chain.016, i64 32
@@ -1009,8 +1006,8 @@ for.body:                                         ; preds = %nghttp2_buf_wrap_in
   %tobool.not = icmp eq ptr %chain.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %for.body, %entry, %nghttp2_buf_wrap_init.exit
-  %len.0.lcssa.i1218 = phi i64 [ %add.i, %nghttp2_buf_wrap_init.exit ], [ 0, %entry ], [ %add.i, %for.body ]
+for.end:                                          ; preds = %for.body, %entry
+  %len.0.lcssa.i1218 = phi i64 [ 0, %entry ], [ %add.i, %for.body ]
   ret i64 %len.0.lcssa.i1218
 }
 

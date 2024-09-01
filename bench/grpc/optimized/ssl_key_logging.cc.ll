@@ -873,8 +873,8 @@ if.then22:                                        ; preds = %invoke.cont13
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %if.then22
   %count.0.i.i.i = phi i64 [ %11, %if.then22 ], [ %14, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %invoke.cont24.thread, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %invoke.cont24.thread, label %do.cond.i.i.i
 
 invoke.cont24.thread:                             ; preds = %do.body.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !15

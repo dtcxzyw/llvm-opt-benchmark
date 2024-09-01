@@ -721,12 +721,7 @@ for.cond.preheader:                               ; preds = %entry
   %ctx2 = getelementptr inbounds i8, ptr %s, i64 8
   %client_random = getelementptr inbounds i8, ptr %s, i64 320
   %server_random = getelementptr inbounds i8, ptr %s, i64 288
-  %0 = load ptr, ptr %ctx2, align 8
-  %sha139 = getelementptr inbounds i8, ptr %0, i64 264
-  %1 = load ptr, ptr %sha139, align 8
-  %call340 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %1, ptr noundef null) #8
-  %cmp441 = icmp slt i32 %call340, 1
-  br i1 %cmp441, label %if.then42, label %lor.lhs.false
+  br label %for.body
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #8
@@ -734,24 +729,22 @@ if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #8
   br label %return
 
-for.body:                                         ; preds = %if.end43
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.02945, i64 %idx.ext
-  %2 = load ptr, ptr %ctx2, align 8
-  %sha1 = getelementptr inbounds i8, ptr %2, i64 264
-  %3 = load ptr, ptr %sha1, align 8
-  %call3 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %3, ptr noundef null) #8
+for.body:                                         ; preds = %for.cond.preheader, %if.end43
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %if.end43 ]
+  %ret_secret_size.031 = phi i64 [ 0, %for.cond.preheader ], [ %add, %if.end43 ]
+  %out.addr.029 = phi ptr [ %out, %for.cond.preheader ], [ %add.ptr, %if.end43 ]
+  %0 = load ptr, ptr %ctx2, align 8
+  %sha1 = getelementptr inbounds i8, ptr %0, i64 264
+  %1 = load ptr, ptr %sha1, align 8
+  %call3 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %1, ptr noundef null) #8
   %cmp4 = icmp slt i32 %call3, 1
-  br i1 %cmp4, label %if.then42, label %lor.lhs.false, !llvm.loop !6
+  br i1 %cmp4, label %if.then42, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %for.cond.preheader, %for.body
-  %out.addr.02945 = phi ptr [ %add.ptr, %for.body ], [ %out, %for.cond.preheader ]
-  %ret_secret_size.03144 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
-  %cmp13243 = phi i1 [ %cmp1, %for.body ], [ true, %for.cond.preheader ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv42
-  %4 = load ptr, ptr %arrayidx, align 8
-  %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
-  %call8 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %4, i64 noundef %call7) #8
+lor.lhs.false:                                    ; preds = %for.body
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv
+  %2 = load ptr, ptr %arrayidx, align 8
+  %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
+  %call8 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %2, i64 noundef %call7) #8
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %if.then42, label %lor.lhs.false10
 
@@ -776,10 +769,10 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false17
   br i1 %cmp24, label %if.then42, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %5 = load ptr, ptr %ctx2, align 8
-  %md5 = getelementptr inbounds i8, ptr %5, i64 256
-  %6 = load ptr, ptr %md5, align 8
-  %call28 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %6, ptr noundef null) #8
+  %3 = load ptr, ptr %ctx2, align 8
+  %md5 = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = load ptr, ptr %md5, align 8
+  %call28 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %4, ptr noundef null) #8
   %cmp29 = icmp slt i32 %call28, 1
   br i1 %cmp29, label %if.then42, label %lor.lhs.false30
 
@@ -789,37 +782,35 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false25
   br i1 %cmp32, label %if.then42, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
-  %7 = load i32, ptr %n, align 4
-  %conv = zext i32 %7 to i64
+  %5 = load i32, ptr %n, align 4
+  %conv = zext i32 %5 to i64
   %call35 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %buf, i64 noundef %conv) #8
   %cmp36 = icmp slt i32 %call35, 1
   br i1 %cmp36, label %if.then42, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false33
-  %call39 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef %out.addr.02945, ptr noundef nonnull %n) #8
+  %call39 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef %out.addr.029, ptr noundef nonnull %n) #8
   %cmp40 = icmp slt i32 %call39, 1
   br i1 %cmp40, label %if.then42, label %if.end43
 
-if.then42:                                        ; preds = %for.body, %lor.lhs.false, %lor.lhs.false10, %lor.lhs.false13, %lor.lhs.false17, %lor.lhs.false22, %lor.lhs.false25, %lor.lhs.false30, %lor.lhs.false33, %lor.lhs.false38, %for.cond.preheader
-  %cmp132.lcssa = phi i1 [ true, %for.cond.preheader ], [ %cmp1, %for.body ], [ %cmp13243, %lor.lhs.false ], [ %cmp13243, %lor.lhs.false10 ], [ %cmp13243, %lor.lhs.false13 ], [ %cmp13243, %lor.lhs.false17 ], [ %cmp13243, %lor.lhs.false22 ], [ %cmp13243, %lor.lhs.false25 ], [ %cmp13243, %lor.lhs.false30 ], [ %cmp13243, %lor.lhs.false33 ], [ %cmp13243, %lor.lhs.false38 ]
-  %ret_secret_size.031.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.body ], [ %ret_secret_size.03144, %lor.lhs.false ], [ %ret_secret_size.03144, %lor.lhs.false10 ], [ %ret_secret_size.03144, %lor.lhs.false13 ], [ %ret_secret_size.03144, %lor.lhs.false17 ], [ %ret_secret_size.03144, %lor.lhs.false22 ], [ %ret_secret_size.03144, %lor.lhs.false25 ], [ %ret_secret_size.03144, %lor.lhs.false30 ], [ %ret_secret_size.03144, %lor.lhs.false33 ], [ %ret_secret_size.03144, %lor.lhs.false38 ]
+if.then42:                                        ; preds = %lor.lhs.false38, %lor.lhs.false33, %lor.lhs.false30, %lor.lhs.false25, %lor.lhs.false22, %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false10, %lor.lhs.false, %for.body
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 412, ptr noundef nonnull @__func__.ssl3_generate_master_secret) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %for.end
 
 if.end43:                                         ; preds = %lor.lhs.false38
-  %8 = load i32, ptr %n, align 4
-  %idx.ext = zext i32 %8 to i64
-  %add = add i64 %ret_secret_size.03144, %idx.ext
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv42, 1
-  %cmp1 = icmp ult i64 %indvars.iv42, 2
+  %6 = load i32, ptr %n, align 4
+  %idx.ext = zext i32 %6 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.029, i64 %idx.ext
+  %add = add i64 %ret_secret_size.031, %idx.ext
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %if.end43, %if.then42
-  %ret_secret_size.028 = phi i64 [ %ret_secret_size.031.lcssa, %if.then42 ], [ %add, %if.end43 ]
-  %cmp126 = phi i1 [ %cmp132.lcssa, %if.then42 ], [ %cmp1, %if.end43 ]
+  %ret_secret_size.028 = phi i64 [ %ret_secret_size.031, %if.then42 ], [ %add, %if.end43 ]
+  %cmp126 = phi i1 [ true, %if.then42 ], [ false, %if.end43 ]
   %ret.0 = phi i32 [ 0, %if.then42 ], [ 1, %if.end43 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 64) #8

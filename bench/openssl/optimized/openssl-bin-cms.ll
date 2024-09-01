@@ -1858,8 +1858,8 @@ for.body728:                                      ; preds = %for.body728.lr.ph, 
 for.body734:                                      ; preds = %for.body728, %for.inc739
   %kparam.01323 = phi ptr [ %57, %for.inc739 ], [ %key_first.1.lcssa1532165917521840, %for.body728 ]
   %56 = load i32, ptr %kparam.01323, align 8
-  %cmp736.not = icmp ne i32 %56, %i.01331
-  br i1 %cmp736.not, label %for.inc739, label %for.end741
+  %cmp736.not.not = icmp ne i32 %56, %i.01331
+  br i1 %cmp736.not.not, label %for.inc739, label %for.end741
 
 for.inc739:                                       ; preds = %for.body734
   %next740 = getelementptr inbounds i8, ptr %kparam.01323, i64 16
@@ -1869,7 +1869,7 @@ for.inc739:                                       ; preds = %for.body734
 
 for.end741:                                       ; preds = %for.inc739, %for.body734, %for.body728
   %kparam.0.lcssa = phi ptr [ null, %for.body728 ], [ %kparam.01323, %for.body734 ], [ null, %for.inc739 ]
-  %tobool733.not.lcssa = phi i1 [ true, %for.body728 ], [ %cmp736.not, %for.body734 ], [ %cmp736.not, %for.inc739 ]
+  %tobool733.not.lcssa = phi i1 [ true, %for.body728 ], [ %cmp736.not.not, %for.body734 ], [ %cmp736.not.not, %for.inc739 ]
   %call742 = call ptr @CMS_add1_recipient(ptr noundef nonnull %call720, ptr noundef %call731, ptr noundef %key.1, ptr noundef %originator.0, i32 noundef %or729) #2
   %cmp743 = icmp eq ptr %call742, null
   br i1 %cmp743, label %if.then1145, label %if.end745

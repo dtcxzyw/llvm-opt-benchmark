@@ -11044,55 +11044,65 @@ define noundef zeroext i1 @_ZN23MLDefaultMeshDecorators23cleanMeshDecorationData
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %11 to i1
   %.pre = trunc i8 %13 to i1
-  %brmerge = select i1 %24, i1 true, i1 %.pre
-  br i1 %brmerge, label %._crit_edge30, label %27
+  br i1 %24, label %._crit_edge30, label %26
 
 ._crit_edge30:                                    ; preds = %9
-  %25 = xor i1 %24, true
-  %.pre.not = xor i1 %.pre, true
-  %26 = select i1 %24, i1 %.pre.not, i1 false
-  tail call void @_ZN23MLDefaultMeshDecorators26cleanBoundaryDecoratorDataER9MeshModelbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, i1 noundef zeroext %25, i1 noundef zeroext %26)
+  %25 = xor i1 %.pre, true
   br label %27
 
-27:                                               ; preds = %9, %._crit_edge30
-  %28 = trunc i8 %15 to i1
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %9
+  br i1 %.pre, label %27, label %29
 
-29:                                               ; preds = %27
+27:                                               ; preds = %._crit_edge30, %26
+  %.pre-phi = phi i1 [ %25, %._crit_edge30 ], [ false, %26 ]
+  %28 = xor i1 %24, true
+  tail call void @_ZN23MLDefaultMeshDecorators26cleanBoundaryDecoratorDataER9MeshModelbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, i1 noundef zeroext %28, i1 noundef zeroext %.pre-phi)
+  br label %29
+
+29:                                               ; preds = %27, %26
+  %30 = trunc i8 %15 to i1
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %29
   tail call void @_ZN23MLDefaultMeshDecorators30cleanNonManifEdgeDecoratorDataER9MeshModel(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1)
-  br label %30
+  br label %32
 
-30:                                               ; preds = %29, %27
-  %31 = trunc i8 %17 to i1
-  br i1 %31, label %32, label %33
+32:                                               ; preds = %31, %29
+  %33 = trunc i8 %17 to i1
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %30
+34:                                               ; preds = %32
   tail call void @_ZN23MLDefaultMeshDecorators30cleanNonManifVertDecoratorDataER9MeshModel(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %32, %30
-  %34 = trunc i8 %19 to i1
-  br i1 %34, label %35, label %36
+35:                                               ; preds = %34, %32
+  %36 = trunc i8 %19 to i1
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %33
+37:                                               ; preds = %35
   tail call void @_ZN23MLDefaultMeshDecorators30cleanBoundaryTextDecoratorDataER9MeshModel(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1)
-  br label %36
+  br label %38
 
-36:                                               ; preds = %35, %33
-  %37 = trunc i8 %23 to i1
+38:                                               ; preds = %37, %35
+  %39 = trunc i8 %23 to i1
   %.pre31 = trunc i8 %21 to i1
-  %brmerge33 = select i1 %37, i1 true, i1 %.pre31
-  br i1 %brmerge33, label %._crit_edge, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+  br i1 %39, label %._crit_edge, label %41
 
-._crit_edge:                                      ; preds = %36
-  %38 = xor i1 %37, true
-  %.pre31.not = xor i1 %.pre31, true
-  %39 = select i1 %37, i1 %.pre31.not, i1 false
-  tail call void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshModelbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, i1 noundef zeroext %38, i1 noundef zeroext %39)
+._crit_edge:                                      ; preds = %38
+  %40 = xor i1 %.pre31, true
+  br label %42
+
+41:                                               ; preds = %38
+  br i1 %.pre31, label %42, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+
+42:                                               ; preds = %._crit_edge, %41
+  %.pre-phi32 = phi i1 [ %40, %._crit_edge ], [ false, %41 ]
+  %43 = xor i1 %39, true
+  tail call void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshModelbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, i1 noundef zeroext %43, i1 noundef zeroext %.pre-phi32)
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
 
-_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %36, %._crit_edge, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ true, %36 ]
+_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %42, %41, %6, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %41 ], [ true, %42 ]
   ret i1 %.0
 }
 
@@ -11178,7 +11188,7 @@ _ZNKSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE12_M_check_len
 _ZNSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE6resizeEm.exit: ; preds = %_ZNKSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %._crit_edge87
   %.sroa.9.0 = phi ptr [ %31, %_ZNKSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %._crit_edge87 ]
   %.sroa.055.2 = phi ptr [ %30, %_ZNKSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %._crit_edge87 ]
-  br i1 %.not7582, label %._crit_edge94, label %.lr.ph93
+  br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %_ZNSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE6resizeEm.exit, %.loopexit
   %32 = phi ptr [ %57, %.loopexit ], [ %20, %_ZNSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE6resizeEm.exit ]
@@ -11242,7 +11252,7 @@ _ZNSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE6resizeEm.exit:
   %.not77 = icmp eq ptr %58, %57
   br i1 %.not77, label %._crit_edge94, label %.lr.ph93, !llvm.loop !182
 
-._crit_edge94:                                    ; preds = %.loopexit, %_ZNSt6vectorIN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESaIS5_EE6resizeEm.exit
+._crit_edge94:                                    ; preds = %.loopexit
   %.not.i.i = icmp eq ptr %.sroa.055.2, %.sroa.9.0
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri11UpdateFlagsI6CMeshOE10EdgeSorterESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %59
 

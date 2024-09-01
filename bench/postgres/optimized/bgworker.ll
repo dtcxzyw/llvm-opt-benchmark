@@ -1211,8 +1211,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %49 = getelementptr i8, ptr %48, i64 4224
   tail call void @LWLockRelease(ptr noundef %49) #14
   tail call void @SendPostmasterSignal(i32 noundef 5) #14
-  %.not40 = icmp eq ptr %1, null
-  br i1 %.not40, label %54, label %50
+  %.not36 = icmp eq ptr %1, null
+  br i1 %.not36, label %54, label %50
 
 50:                                               ; preds = %47
   %51 = tail call ptr @palloc(i64 noundef 16) #14

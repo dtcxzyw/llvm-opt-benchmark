@@ -3578,7 +3578,9 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %151
 
 ._crit_edge.thread:                               ; preds = %Vec_IntFree.exit
   %putchar310 = tail call i32 @putchar(i32 10)
-  br label %.preheader224.thread
+  %putchar128315 = tail call i32 @putchar(i32 10)
+  store i32 0, ptr %50, align 4
+  br label %._crit_edge255
 
 .lr.ph232:                                        ; preds = %Vec_IntFree.exit
   %164 = getelementptr i8, ptr %161, i64 8
@@ -3599,16 +3601,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %151
 
 ._crit_edge:                                      ; preds = %165
   %putchar = tail call i32 @putchar(i32 10)
-  br i1 %163, label %.lr.ph244, label %.preheader224.thread
-
-.lr.ph244:                                        ; preds = %._crit_edge
   %170 = getelementptr i8, ptr %161, i64 8
   br label %173
-
-.preheader224.thread:                             ; preds = %._crit_edge, %._crit_edge.thread
-  %putchar128315 = tail call i32 @putchar(i32 10)
-  store i32 0, ptr %50, align 4
-  br label %._crit_edge255
 
 .preheader224:                                    ; preds = %229
   %171 = icmp sgt i32 %.val167, 0
@@ -3625,10 +3619,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %151
   %wide.trip.count281 = zext nneg i32 %.val167 to i64
   br label %232
 
-173:                                              ; preds = %.lr.ph244, %229
-  %.val174300 = phi ptr [ %.val176, %.lr.ph244 ], [ %.val174, %229 ]
-  %.val166237 = phi i32 [ %.val169, %.lr.ph244 ], [ %.val167, %229 ]
-  %indvars.iv275 = phi i64 [ 0, %.lr.ph244 ], [ %indvars.iv.next276, %229 ]
+173:                                              ; preds = %._crit_edge, %229
+  %.val174300 = phi ptr [ %.val176, %._crit_edge ], [ %.val174, %229 ]
+  %.val166237 = phi i32 [ %.val169, %._crit_edge ], [ %.val167, %229 ]
+  %indvars.iv275 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next276, %229 ]
   store i32 0, ptr %50, align 4
   %174 = icmp sgt i32 %.val166237, 0
   br i1 %174, label %.preheader225.preheader, label %._crit_edge239
@@ -3787,17 +3781,14 @@ Vec_IntPush.exit191:                              ; preds = %.Vec_IntGrow.exit10
 ._crit_edge248:                                   ; preds = %232
   %putchar128 = tail call i32 @putchar(i32 10)
   store i32 0, ptr %50, align 4
-  br i1 %171, label %.preheader.lr.ph, label %._crit_edge255
-
-.preheader.lr.ph:                                 ; preds = %._crit_edge248
   %237 = getelementptr i8, ptr %161, i64 8
   %.val158249.pre = load ptr, ptr %237, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.critedge6
-  %.val164305 = phi i32 [ %.val167, %.preheader.lr.ph ], [ %.val164, %.critedge6 ]
-  %.val158249 = phi ptr [ %.val158249.pre, %.preheader.lr.ph ], [ %.val158249303, %.critedge6 ]
-  %indvars.iv286 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next287, %.critedge6 ]
+.preheader:                                       ; preds = %._crit_edge248, %.critedge6
+  %.val164305 = phi i32 [ %.val167, %._crit_edge248 ], [ %.val164, %.critedge6 ]
+  %.val158249 = phi ptr [ %.val158249.pre, %._crit_edge248 ], [ %.val158249303, %.critedge6 ]
+  %indvars.iv286 = phi i64 [ 0, %._crit_edge248 ], [ %indvars.iv.next287, %.critedge6 ]
   %238 = getelementptr inbounds ptr, ptr %.val158249, i64 %indvars.iv286
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr i8, ptr %239, i64 4
@@ -3899,8 +3890,8 @@ Vec_IntPush.exit198:                              ; preds = %.Vec_IntGrow.exit10
   %.val133.pre = load i32, ptr %50, align 4
   br label %._crit_edge255
 
-._crit_edge255:                                   ; preds = %.preheader224.thread, %._crit_edge248.thread, %._crit_edge255.loopexit, %._crit_edge248
-  %.val131256 = phi i32 [ %.val133.pre, %._crit_edge255.loopexit ], [ 0, %._crit_edge248 ], [ 0, %._crit_edge248.thread ], [ 0, %.preheader224.thread ]
+._crit_edge255:                                   ; preds = %._crit_edge.thread, %._crit_edge248.thread, %._crit_edge255.loopexit
+  %.val131256 = phi i32 [ %.val133.pre, %._crit_edge255.loopexit ], [ 0, %._crit_edge248.thread ], [ 0, %._crit_edge.thread ]
   %.val172 = load ptr, ptr %56, align 8
   %280 = sext i32 %.val131256 to i64
   %281 = getelementptr inbounds i32, ptr %.val172, i64 %280

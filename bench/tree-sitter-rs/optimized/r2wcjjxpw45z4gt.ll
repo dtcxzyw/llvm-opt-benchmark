@@ -8222,8 +8222,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h221f
   %11 = load ptr, ptr %10, align 8, !alias.scope !1693, !noalias !1696, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %11, i64 %7
   %.sroa.0.0.copyload = load i64, ptr %12, align 8, !noalias !1693
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %.not.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h5f207e3b0b6910e7E.llvm.4513845701186752324.exit.thread", label %13
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h5f207e3b0b6910e7E.llvm.4513845701186752324.exit.thread", label %13
 
 13:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h5f207e3b0b6910e7E.llvm.4513845701186752324.exit"
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 96
@@ -8254,8 +8254,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h221f
 
 24:                                               ; preds = %29, %20
   %.020.i.i = phi i16 [ %23, %20 ], [ %31, %29 ]
-  %.not.not.i.i.not.i.not = icmp eq i16 %.020.i.i, 0
-  br i1 %.not.not.i.i.not.i.not, label %25, label %29
+  %.not.not.i.i.not.not.not.i.not = icmp eq i16 %.020.i.i, 0
+  br i1 %.not.not.i.i.not.not.not.i.not, label %25, label %29
 
 25:                                               ; preds = %24
   %26 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -43448,8 +43448,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT
 
 13:                                               ; preds = %18, %9
   %.020.i = phi i16 [ %12, %9 ], [ %20, %18 ]
-  %.not.not.i.i.not = icmp ne i16 %.020.i, 0
-  br i1 %.not.not.i.i.not, label %18, label %14
+  %.not.not.i.i.not.not.not.not.not = icmp ne i16 %.020.i, 0
+  br i1 %.not.not.i.i.not.not.not.not.not, label %18, label %14
 
 14:                                               ; preds = %13
   %15 = icmp eq <16 x i8> %.0.copyload.i29.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -43516,7 +43516,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT
   br label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h8e8757bebb61e3b1E.llvm.4513845701186752324.exit"
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h8e8757bebb61e3b1E.llvm.4513845701186752324.exit": ; preds = %14, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$5erase17ha8da39bca9d744c7E.llvm.4513845701186752324.exit"
-  ret i1 %.not.not.i.i.not
+  ret i1 %.not.not.i.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable

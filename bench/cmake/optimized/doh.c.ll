@@ -1261,22 +1261,22 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %318 = load i32, ptr %40, align 8
   %319 = icmp sgt i32 %318, 0
-  br i1 %319, label %.lr.ph.split.us.preheader.i, label %showdoh.exit
+  br i1 %319, label %.lr.ph.thread.i, label %showdoh.exit
 
-.lr.ph.i85:                                       ; preds = %315
+.lr.ph.thread.i:                                  ; preds = %.thread.i
   %320 = getelementptr inbounds i8, ptr %5, i64 128
   %321 = getelementptr inbounds i8, ptr %3, i64 10
-  br label %.lr.ph.split.i
-
-.lr.ph.split.us.preheader.i:                      ; preds = %.thread.i
-  %322 = getelementptr inbounds i8, ptr %3, i64 10
-  %323 = getelementptr inbounds i8, ptr %5, i64 128
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %344, %.lr.ph.split.us.preheader.i
-  %324 = phi i32 [ %318, %.lr.ph.split.us.preheader.i ], [ %345, %344 ]
-  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next71.i, %344 ]
-  %325 = getelementptr inbounds [24 x %struct.dohaddr], ptr %323, i64 0, i64 %indvars.iv70.i
+.lr.ph.i85:                                       ; preds = %315
+  %322 = getelementptr inbounds i8, ptr %5, i64 128
+  %323 = getelementptr inbounds i8, ptr %3, i64 10
+  br label %.lr.ph.split.i
+
+.lr.ph.split.us.i:                                ; preds = %344, %.lr.ph.thread.i
+  %324 = phi i32 [ %318, %.lr.ph.thread.i ], [ %345, %344 ]
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.thread.i ], [ %indvars.iv.next71.i, %344 ]
+  %325 = getelementptr inbounds [24 x %struct.dohaddr], ptr %320, i64 0, i64 %indvars.iv70.i
   %326 = load i32, ptr %325, align 4
   %cond.i = icmp eq i32 %326, 28
   br i1 %cond.i, label %327, label %344
@@ -1289,7 +1289,7 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
 330:                                              ; preds = %330, %327
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %330 ], [ 0, %327 ]
   %.04457.us.i = phi i64 [ %341, %330 ], [ 118, %327 ]
-  %.04556.us.i = phi ptr [ %342, %330 ], [ %322, %327 ]
+  %.04556.us.i = phi ptr [ %342, %330 ], [ %321, %327 ]
   %.not53.us.i = icmp eq i64 %indvars.iv67.i, 0
   %331 = select i1 %.not53.us.i, ptr @.str.10, ptr @.str.30
   %332 = getelementptr inbounds [16 x i8], ptr %329, i64 0, i64 %indvars.iv67.i
@@ -1334,9 +1334,9 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
   %.ph = phi i32 [ %349, %.preheader.i ], [ %351, %.preheader.i.thread ]
   br label %.lr.ph60.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i85, %392
+.lr.ph.split.i:                                   ; preds = %392, %.lr.ph.i85
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %392 ], [ 0, %.lr.ph.i85 ]
-  %353 = getelementptr inbounds [24 x %struct.dohaddr], ptr %320, i64 0, i64 %indvars.iv64.i
+  %353 = getelementptr inbounds [24 x %struct.dohaddr], ptr %322, i64 0, i64 %indvars.iv64.i
   %354 = load i32, ptr %353, align 4
   switch i32 %354, label %392 [
     i32 1, label %355
@@ -1373,7 +1373,7 @@ de_init.exit:                                     ; preds = %doh_decode.exit, %2
 374:                                              ; preds = %374, %371
   %indvars.iv.i86 = phi i64 [ 0, %371 ], [ %indvars.iv.next.i87, %374 ]
   %.04457.i = phi i64 [ 118, %371 ], [ %385, %374 ]
-  %.04556.i = phi ptr [ %321, %371 ], [ %386, %374 ]
+  %.04556.i = phi ptr [ %323, %371 ], [ %386, %374 ]
   %.not53.i = icmp eq i64 %indvars.iv.i86, 0
   %375 = select i1 %.not53.i, ptr @.str.10, ptr @.str.30
   %376 = getelementptr inbounds [16 x i8], ptr %373, i64 0, i64 %indvars.iv.i86

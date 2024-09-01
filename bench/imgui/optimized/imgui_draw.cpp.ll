@@ -5094,10 +5094,7 @@ for.body28.preheader:                             ; preds = %_ZN8ImVectorI6ImVec
   %wide.trip.count = zext nneg i32 %points_count to i64
   br label %for.body28
 
-for.cond55.preheader:                             ; preds = %if.end42
-  br i1 %cmp2790, label %for.body57.lr.ph, label %for.end163
-
-for.body57.lr.ph:                                 ; preds = %for.cond55.preheader
+for.body57.lr.ph:                                 ; preds = %if.end42
   %mul81 = fmul float %3, 5.000000e-01
   %_VtxWritePtr = getelementptr inbounds i8, ptr %this, i64 72
   %_IdxWritePtr132 = getelementptr inbounds i8, ptr %this, i64 80
@@ -5142,7 +5139,7 @@ if.end42:                                         ; preds = %if.then39, %for.bod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond101.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond101.not, label %for.cond55.preheader, label %for.body28, !llvm.loop !20
+  br i1 %exitcond101.not, label %for.body57.lr.ph, label %for.body28, !llvm.loop !20
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %if.end80
   %indvars.iv102 = phi i64 [ 0, %for.body57.lr.ph ], [ %indvars.iv.next103, %if.end80 ]
@@ -5250,7 +5247,7 @@ if.end80:                                         ; preds = %if.then74, %for.bod
   %exitcond107.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count106
   br i1 %exitcond107.not, label %for.end163, label %for.body57, !llvm.loop !21
 
-for.end163:                                       ; preds = %if.end80, %_ZN8ImVectorI6ImVec2E15reserve_discardEi.exit, %for.cond55.preheader
+for.end163:                                       ; preds = %if.end80, %_ZN8ImVectorI6ImVec2E15reserve_discardEi.exit
   %conv165 = and i32 %mul7, 65534
   br label %if.end219.sink.split
 
@@ -14315,25 +14312,25 @@ for.body.lr.ph:                                   ; preds = %invoke.cont5
   br label %for.body
 
 for.cond72.preheader.loopexit:                    ; preds = %for.end61
-  %.pre982 = load i32, ptr %src_tmp_array, align 8
+  %.pre978 = load i32, ptr %src_tmp_array, align 8
   br label %for.cond72.preheader
 
 for.cond72.preheader:                             ; preds = %for.cond72.preheader.loopexit, %invoke.cont5
   %9 = phi ptr [ %248, %for.cond72.preheader.loopexit ], [ %7, %invoke.cont5 ]
-  %10 = phi i32 [ %.pre982, %for.cond72.preheader.loopexit ], [ %2, %invoke.cont5 ]
+  %10 = phi i32 [ %.pre978, %for.cond72.preheader.loopexit ], [ %2, %invoke.cont5 ]
   %cmp74882 = icmp sgt i32 %10, 0
   br i1 %cmp74882, label %for.body75.preheader, label %for.cond157.preheader
 
 for.body75.preheader:                             ; preds = %for.cond72.preheader
-  %.pre983 = load ptr, ptr %Data, align 8
+  %.pre979 = load ptr, ptr %Data, align 8
   br label %for.body75
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end61
-  %indvars.iv947 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next948, %for.end61 ]
+  %indvars.iv942 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next943, %for.end61 ]
   %11 = load ptr, ptr %Data, align 8
-  %arrayidx.i = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %11, i64 %indvars.iv947
+  %arrayidx.i = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %11, i64 %indvars.iv942
   %12 = load ptr, ptr %Data.i255, align 8
-  %arrayidx.i257 = getelementptr inbounds %struct.ImFontConfig, ptr %12, i64 %indvars.iv947
+  %arrayidx.i257 = getelementptr inbounds %struct.ImFontConfig, ptr %12, i64 %indvars.iv942
   %DstIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 224
   store i32 -1, ptr %DstIndex, align 8
   %13 = load i32, ptr %Fonts, align 8
@@ -15883,13 +15880,13 @@ if.end.i758:                                      ; preds = %_ZL14stbtt__buf_get
   %222 = or i32 %sub4.i, %.o.i735.i.i
   %or.cond.not.i.i = icmp slt i32 %222, 0
   %cmp6.i.i = icmp sgt i32 %221, %209
-  %or.cond1032 = or i1 %or.cond.not.i.i, %cmp6.i.i
+  %or.cond1028 = or i1 %or.cond.not.i.i, %cmp6.i.i
   %idx.ext.i.i760 = zext nneg i32 %.o.i735.i.i to i64
   %add.ptr.i.i761 = getelementptr inbounds i8, ptr %208, i64 %idx.ext.i.i760
   %223 = zext nneg i32 %sub4.i to i64
   %224 = shl nuw nsw i64 %223, 32
-  %retval.sroa.0.0.i.i = select i1 %or.cond1032, ptr null, ptr %add.ptr.i.i761
-  %retval.sroa.5.0.i.i = select i1 %or.cond1032, i64 0, i64 %224
+  %retval.sroa.0.0.i.i = select i1 %or.cond1028, ptr null, ptr %add.ptr.i.i761
+  %retval.sroa.5.0.i.i = select i1 %or.cond1028, i64 0, i64 %224
   %charstrings72.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   store ptr %retval.sroa.0.0.i.i, ptr %charstrings72.i.i, align 8
   %ref.tmp70.sroa.2.0.charstrings72.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
@@ -16145,10 +16142,10 @@ for.end61:                                        ; preds = %land.rhs50, %for.bo
   %256 = load i32, ptr %GlyphsHighest64, align 4
   %cond.i278 = tail call noundef i32 @llvm.smax.i32(i32 %255, i32 %256)
   store i32 %cond.i278, ptr %GlyphsHighest63, align 4
-  %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
+  %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
   %257 = load i32, ptr %ConfigData, align 8
   %258 = sext i32 %257 to i64
-  %cmp.not = icmp slt i64 %indvars.iv.next948, %258
+  %cmp.not = icmp slt i64 %indvars.iv.next943, %258
   br i1 %cmp.not, label %for.body, label %for.cond72.preheader.loopexit, !llvm.loop !55
 
 for.cond140.preheader:                            ; preds = %for.inc136
@@ -16156,14 +16153,14 @@ for.cond140.preheader:                            ; preds = %for.inc136
   br i1 %cmp142886, label %for.body143.preheader, label %for.cond157.preheader
 
 for.body143.preheader:                            ; preds = %for.cond140.preheader
-  %.pre985 = load ptr, ptr %Data, align 8
+  %.pre981 = load ptr, ptr %Data, align 8
   %259 = zext nneg i32 %291 to i64
   br label %for.body143
 
 for.body75:                                       ; preds = %for.body75.preheader, %for.inc136
-  %indvars.iv949 = phi i64 [ 0, %for.body75.preheader ], [ %indvars.iv.next950, %for.inc136 ]
+  %indvars.iv945 = phi i64 [ 0, %for.body75.preheader ], [ %indvars.iv.next946, %for.inc136 ]
   %total_glyphs_count.0884 = phi i32 [ 0, %for.body75.preheader ], [ %total_glyphs_count.1.lcssa, %for.inc136 ]
-  %arrayidx.i281 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre983, i64 %indvars.iv949
+  %arrayidx.i281 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre979, i64 %indvars.iv945
   %DstIndex80 = getelementptr inbounds i8, ptr %arrayidx.i281, i64 224
   %260 = load i32, ptr %DstIndex80, align 8
   %idxprom.i283 = sext i32 %260 to i64
@@ -16364,11 +16361,11 @@ invoke.cont128:                                   ; preds = %if.end115
   %or.i.i336 = or i32 %288, %shl.i
   store i32 %or.i.i336, ptr %arrayidx.i.i335, align 4
   %inc129 = add nsw i32 %total_glyphs_count.2875, 1
-  %.pre984 = load i16, ptr %arrayidx100, align 2
+  %.pre980 = load i16, ptr %arrayidx100, align 2
   br label %for.inc130
 
 for.inc130:                                       ; preds = %if.end115, %for.body110, %invoke.cont128
-  %289 = phi i16 [ %280, %for.body110 ], [ %.pre984, %invoke.cont128 ], [ %280, %if.end115 ]
+  %289 = phi i16 [ %280, %for.body110 ], [ %.pre980, %invoke.cont128 ], [ %280, %if.end115 ]
   %total_glyphs_count.3 = phi i32 [ %total_glyphs_count.2875, %for.body110 ], [ %inc129, %invoke.cont128 ], [ %total_glyphs_count.2875, %if.end115 ]
   %inc131 = add nuw nsw i32 %codepoint.0874, 1
   %conv108 = zext i16 %289 to i32
@@ -16384,10 +16381,10 @@ for.inc133:                                       ; preds = %for.inc130, %for.bo
 
 for.inc136:                                       ; preds = %for.inc133, %land.rhs99, %if.end93
   %total_glyphs_count.1.lcssa = phi i32 [ %total_glyphs_count.0884, %if.end93 ], [ %total_glyphs_count.1879, %land.rhs99 ], [ %total_glyphs_count.2.lcssa, %for.inc133 ]
-  %indvars.iv.next950 = add nuw nsw i64 %indvars.iv949, 1
+  %indvars.iv.next946 = add nuw nsw i64 %indvars.iv945, 1
   %291 = load i32, ptr %src_tmp_array, align 8
   %292 = sext i32 %291 to i64
-  %cmp74 = icmp slt i64 %indvars.iv.next950, %292
+  %cmp74 = icmp slt i64 %indvars.iv.next946, %292
   br i1 %cmp74, label %for.body75, label %for.cond140.preheader, !llvm.loop !58
 
 for.cond157.preheader:                            ; preds = %for.inc154, %for.cond72.preheader, %for.cond140.preheader
@@ -16397,8 +16394,8 @@ for.cond157.preheader:                            ; preds = %for.inc154, %for.co
   br i1 %cmp159888, label %for.body160, label %for.end167
 
 for.body143:                                      ; preds = %for.body143.preheader, %for.inc154
-  %indvars.iv952 = phi i64 [ 0, %for.body143.preheader ], [ %indvars.iv.next953, %for.inc154 ]
-  %arrayidx.i339 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre985, i64 %indvars.iv952
+  %indvars.iv948 = phi i64 [ 0, %for.body143.preheader ], [ %indvars.iv.next949, %for.inc154 ]
+  %arrayidx.i339 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre981, i64 %indvars.iv948
   %GlyphsList = getelementptr inbounds i8, ptr %arrayidx.i339, i64 256
   %GlyphsCount147 = getelementptr inbounds i8, ptr %arrayidx.i339, i64 232
   %295 = load i32, ptr %GlyphsCount147, align 8
@@ -16559,14 +16556,14 @@ if.then.i.i381:                                   ; preds = %invoke.cont151
   br label %for.inc154
 
 for.inc154:                                       ; preds = %.noexc383, %invoke.cont151
-  %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
-  %cmp142 = icmp ult i64 %indvars.iv.next953, %259
+  %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
+  %cmp142 = icmp ult i64 %indvars.iv.next949, %259
   br i1 %cmp142, label %for.body143, label %for.cond157.preheader, !llvm.loop !61
 
 for.body160:                                      ; preds = %for.cond157.preheader, %for.inc165
   %312 = phi i32 [ %314, %for.inc165 ], [ %294, %for.cond157.preheader ]
-  %indvars.iv955 = phi i64 [ %indvars.iv.next956, %for.inc165 ], [ 0, %for.cond157.preheader ]
-  %GlyphsSet163 = getelementptr inbounds %struct.ImFontBuildDstData, ptr %9, i64 %indvars.iv955, i32 3
+  %indvars.iv951 = phi i64 [ %indvars.iv.next952, %for.inc165 ], [ 0, %for.cond157.preheader ]
+  %GlyphsSet163 = getelementptr inbounds %struct.ImFontBuildDstData, ptr %9, i64 %indvars.iv951, i32 3
   %Data.i.i387 = getelementptr inbounds i8, ptr %GlyphsSet163, i64 8
   %313 = load ptr, ptr %Data.i.i387, align 8
   %tobool.not.i.i388 = icmp eq ptr %313, null
@@ -16581,14 +16578,14 @@ if.then.i.i389:                                   ; preds = %for.body160
 
 .noexc391:                                        ; preds = %if.then.i.i389
   store ptr null, ptr %Data.i.i387, align 8
-  %.pre986 = load i32, ptr %dst_tmp_array, align 8
+  %.pre982 = load i32, ptr %dst_tmp_array, align 8
   br label %for.inc165
 
 for.inc165:                                       ; preds = %.noexc391, %for.body160
-  %314 = phi i32 [ %.pre986, %.noexc391 ], [ %312, %for.body160 ]
-  %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
+  %314 = phi i32 [ %.pre982, %.noexc391 ], [ %312, %for.body160 ]
+  %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
   %315 = sext i32 %314 to i64
-  %cmp159 = icmp slt i64 %indvars.iv.next956, %315
+  %cmp159 = icmp slt i64 %indvars.iv.next952, %315
   br i1 %cmp159, label %for.body160, label %if.then.i395, !llvm.loop !62
 
 for.end167:                                       ; preds = %for.cond157.preheader
@@ -16635,10 +16632,10 @@ _ZNK8ImVectorI16stbtt_packedcharE14_grow_capacityEi.exit.i: ; preds = %_ZNK8ImVe
           to label %if.end7.i.i437 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end7.i.i437:                                   ; preds = %_ZNK8ImVectorI16stbtt_packedcharE14_grow_capacityEi.exit.i
-  %Capacity.i4201001 = getelementptr inbounds i8, ptr %buf_packedchars, i64 4
+  %Capacity.i420997 = getelementptr inbounds i8, ptr %buf_packedchars, i64 4
   %Data.i.i432 = getelementptr inbounds i8, ptr %buf_packedchars, i64 8
   store ptr %call.i.i439, ptr %Data.i.i432, align 8
-  store i32 %317, ptr %Capacity.i4201001, align 4
+  store i32 %317, ptr %Capacity.i420997, align 4
   br label %invoke.cont174
 
 invoke.cont174:                                   ; preds = %invoke.cont173, %if.end7.i.i437
@@ -16660,16 +16657,16 @@ invoke.cont174:                                   ; preds = %invoke.cont173, %if
 for.body187.lr.ph:                                ; preds = %invoke.cont174
   %Data.i452 = getelementptr inbounds i8, ptr %atlas, i64 128
   %TexGlyphPadding = getelementptr inbounds i8, ptr %atlas, i64 20
-  %.pre987 = load ptr, ptr %Data, align 8
+  %.pre983 = load ptr, ptr %Data, align 8
   %321 = zext nneg i32 %320 to i64
   br label %for.body187
 
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc284
-  %indvars.iv961 = phi i64 [ 0, %for.body187.lr.ph ], [ %indvars.iv.next962, %for.inc284 ]
+  %indvars.iv957 = phi i64 [ 0, %for.body187.lr.ph ], [ %indvars.iv.next958, %for.inc284 ]
   %total_surface.0898 = phi i32 [ 0, %for.body187.lr.ph ], [ %total_surface.1, %for.inc284 ]
   %buf_rects_out_n.0897 = phi i32 [ 0, %for.body187.lr.ph ], [ %buf_rects_out_n.1, %for.inc284 ]
   %buf_packedchars_out_n.0896 = phi i32 [ 0, %for.body187.lr.ph ], [ %buf_packedchars_out_n.1, %for.inc284 ]
-  %arrayidx.i445 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre987, i64 %indvars.iv961
+  %arrayidx.i445 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre983, i64 %indvars.iv957
   %GlyphsCount191 = getelementptr inbounds i8, ptr %arrayidx.i445, i64 232
   %322 = load i32, ptr %GlyphsCount191, align 8
   %cmp192 = icmp eq i32 %322, 0
@@ -16733,7 +16730,7 @@ if.end194:                                        ; preds = %for.body187
   %add200 = add nsw i32 %322, %buf_rects_out_n.0897
   %add202 = add nsw i32 %322, %buf_packedchars_out_n.0896
   %323 = load ptr, ptr %Data.i452, align 8
-  %arrayidx.i454 = getelementptr inbounds %struct.ImFontConfig, ptr %323, i64 %indvars.iv961
+  %arrayidx.i454 = getelementptr inbounds %struct.ImFontConfig, ptr %323, i64 %indvars.iv957
   %SizePixels = getelementptr inbounds i8, ptr %arrayidx.i454, i64 20
   %324 = load float, ptr %SizePixels, align 4
   %RasterizerDensity = getelementptr inbounds i8, ptr %arrayidx.i454, i64 84
@@ -16834,10 +16831,10 @@ for.body242.lr.ph:                                ; preds = %cond.end236
   br label %for.body242
 
 for.body242:                                      ; preds = %for.body242.lr.ph, %for.body242
-  %indvars.iv958 = phi i64 [ 0, %for.body242.lr.ph ], [ %indvars.iv.next959, %for.body242 ]
+  %indvars.iv954 = phi i64 [ 0, %for.body242.lr.ph ], [ %indvars.iv.next955, %for.body242 ]
   %total_surface.2892 = phi i32 [ %total_surface.0898, %for.body242.lr.ph ], [ %add280, %for.body242 ]
   %343 = load ptr, ptr %Data209, align 8
-  %arrayidx.i471 = getelementptr inbounds i32, ptr %343, i64 %indvars.iv958
+  %arrayidx.i471 = getelementptr inbounds i32, ptr %343, i64 %indvars.iv954
   %344 = load i32, ptr %arrayidx.i471, align 4
   %call190.val = load ptr, ptr %341, align 8
   %call190.val222 = load i32, ptr %342, align 8
@@ -16856,7 +16853,7 @@ for.body242:                                      ; preds = %for.body242.lr.ph, 
   %add259 = sub i32 %add257, %348
   %sub260 = add i32 %add259, %349
   %350 = load ptr, ptr %Rects, align 8
-  %w = getelementptr inbounds %struct.stbrp_rect, ptr %350, i64 %indvars.iv958, i32 1
+  %w = getelementptr inbounds %struct.stbrp_rect, ptr %350, i64 %indvars.iv954, i32 1
   store i32 %sub260, ptr %w, align 4
   %351 = load i32, ptr %y1, align 4
   %352 = load i32, ptr %y0, align 4
@@ -16865,28 +16862,28 @@ for.body242:                                      ; preds = %for.body242.lr.ph, 
   %add266 = sub i32 %add264, %352
   %sub267 = add i32 %add266, %353
   %354 = load ptr, ptr %Rects, align 8
-  %h = getelementptr inbounds %struct.stbrp_rect, ptr %354, i64 %indvars.iv958, i32 2
+  %h = getelementptr inbounds %struct.stbrp_rect, ptr %354, i64 %indvars.iv954, i32 2
   store i32 %sub267, ptr %h, align 4
   %355 = load ptr, ptr %Rects, align 8
-  %arrayidx273 = getelementptr inbounds %struct.stbrp_rect, ptr %355, i64 %indvars.iv958
+  %arrayidx273 = getelementptr inbounds %struct.stbrp_rect, ptr %355, i64 %indvars.iv954
   %w274 = getelementptr inbounds i8, ptr %arrayidx273, i64 4
   %356 = load i32, ptr %w274, align 4
   %h278 = getelementptr inbounds i8, ptr %arrayidx273, i64 8
   %357 = load i32, ptr %h278, align 4
   %mul279 = mul nsw i32 %357, %356
   %add280 = add nsw i32 %mul279, %total_surface.2892
-  %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
+  %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %358 = load i32, ptr %GlyphsList208, align 8
   %359 = sext i32 %358 to i64
-  %cmp241 = icmp slt i64 %indvars.iv.next959, %359
+  %cmp241 = icmp slt i64 %indvars.iv.next955, %359
   br i1 %cmp241, label %for.body242, label %for.inc284, !llvm.loop !63
 
 for.inc284:                                       ; preds = %for.body242, %cond.end236, %for.body187
   %buf_packedchars_out_n.1 = phi i32 [ %buf_packedchars_out_n.0896, %for.body187 ], [ %add202, %cond.end236 ], [ %add202, %for.body242 ]
   %buf_rects_out_n.1 = phi i32 [ %buf_rects_out_n.0897, %for.body187 ], [ %add200, %cond.end236 ], [ %add200, %for.body242 ]
   %total_surface.1 = phi i32 [ %total_surface.0898, %for.body187 ], [ %total_surface.0898, %cond.end236 ], [ %add280, %for.body242 ]
-  %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
-  %cmp186 = icmp ult i64 %indvars.iv.next962, %321
+  %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
+  %cmp186 = icmp ult i64 %indvars.iv.next958, %321
   br i1 %cmp186, label %for.body187, label %for.end286, !llvm.loop !64
 
 for.end286:                                       ; preds = %for.inc284, %invoke.cont174
@@ -17010,13 +17007,13 @@ for.cond319.preheader:                            ; preds = %invoke.cont315
   br i1 %cmp186894, label %for.body322.preheader, label %for.end363
 
 for.body322.preheader:                            ; preds = %for.cond319.preheader
-  %.pre988 = load ptr, ptr %Data, align 8
+  %.pre984 = load ptr, ptr %Data, align 8
   %362 = zext nneg i32 %320 to i64
   br label %for.body322
 
 for.body322:                                      ; preds = %for.body322.preheader, %for.inc361
-  %indvars.iv967 = phi i64 [ 0, %for.body322.preheader ], [ %indvars.iv.next968, %for.inc361 ]
-  %arrayidx.i495 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre988, i64 %indvars.iv967
+  %indvars.iv963 = phi i64 [ 0, %for.body322.preheader ], [ %indvars.iv.next964, %for.inc361 ]
+  %arrayidx.i495 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre984, i64 %indvars.iv963
   %GlyphsCount326 = getelementptr inbounds i8, ptr %arrayidx.i495, i64 232
   %363 = load i32, ptr %GlyphsCount326, align 8
   %cmp327 = icmp eq i32 %363, 0
@@ -17035,9 +17032,9 @@ for.cond336.preheader:                            ; preds = %if.end329
 
 for.body339:                                      ; preds = %for.cond336.preheader, %for.inc358
   %366 = phi i32 [ %372, %for.inc358 ], [ %365, %for.cond336.preheader ]
-  %indvars.iv964 = phi i64 [ %indvars.iv.next965, %for.inc358 ], [ 0, %for.cond336.preheader ]
+  %indvars.iv960 = phi i64 [ %indvars.iv.next961, %for.inc358 ], [ 0, %for.cond336.preheader ]
   %367 = load ptr, ptr %Rects331, align 8
-  %arrayidx342 = getelementptr inbounds %struct.stbrp_rect, ptr %367, i64 %indvars.iv964
+  %arrayidx342 = getelementptr inbounds %struct.stbrp_rect, ptr %367, i64 %indvars.iv960
   %was_packed = getelementptr inbounds i8, ptr %arrayidx342, i64 20
   %368 = load i32, ptr %was_packed, align 4
   %tobool343.not = icmp eq i32 %368, 0
@@ -17052,19 +17049,19 @@ if.then344:                                       ; preds = %for.body339
   %add353 = add nsw i32 %371, %370
   %cond.i496 = call noundef i32 @llvm.smax.i32(i32 %369, i32 %add353)
   store i32 %cond.i496, ptr %TexHeight, align 4
-  %.pre989 = load i32, ptr %GlyphsCount326, align 8
+  %.pre985 = load i32, ptr %GlyphsCount326, align 8
   br label %for.inc358
 
 for.inc358:                                       ; preds = %for.body339, %if.then344
-  %372 = phi i32 [ %366, %for.body339 ], [ %.pre989, %if.then344 ]
-  %indvars.iv.next965 = add nuw nsw i64 %indvars.iv964, 1
+  %372 = phi i32 [ %366, %for.body339 ], [ %.pre985, %if.then344 ]
+  %indvars.iv.next961 = add nuw nsw i64 %indvars.iv960, 1
   %373 = sext i32 %372 to i64
-  %cmp338 = icmp slt i64 %indvars.iv.next965, %373
+  %cmp338 = icmp slt i64 %indvars.iv.next961, %373
   br i1 %cmp338, label %for.body339, label %for.inc361, !llvm.loop !66
 
 for.inc361:                                       ; preds = %for.inc358, %for.cond336.preheader, %for.body322
-  %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 1
-  %cmp321 = icmp ult i64 %indvars.iv.next968, %362
+  %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
+  %cmp321 = icmp ult i64 %indvars.iv.next964, %362
   br i1 %cmp321, label %for.body322, label %for.end363, !llvm.loop !67
 
 for.end363:                                       ; preds = %for.inc361, %for.cond319.preheader
@@ -17123,10 +17120,10 @@ for.body400.lr.ph:                                ; preds = %invoke.cont387
 
 for.body400:                                      ; preds = %for.body400.lr.ph, %for.inc443
   %380 = phi i32 [ %320, %for.body400.lr.ph ], [ %772, %for.inc443 ]
-  %indvars.iv970 = phi i64 [ 0, %for.body400.lr.ph ], [ %indvars.iv.next971, %for.inc443 ]
+  %indvars.iv966 = phi i64 [ 0, %for.body400.lr.ph ], [ %indvars.iv.next967, %for.inc443 ]
   %381 = load ptr, ptr %Data.i500, align 8
   %382 = load ptr, ptr %Data, align 8
-  %arrayidx.i505 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %382, i64 %indvars.iv970
+  %arrayidx.i505 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %382, i64 %indvars.iv966
   %GlyphsCount408 = getelementptr inbounds i8, ptr %arrayidx.i505, i64 232
   %383 = load i32, ptr %GlyphsCount408, align 8
   %cmp409 = icmp eq i32 %383, 0
@@ -17826,8 +17823,8 @@ for.inc77.i.i.i.i:                                ; preds = %if.end48.i.i.i.i, %
   %.pre-phi.i.i.i.i = trunc i64 %indvars.iv18.i18.i.i.i to i32
   %indvars.iv.next19.i20.i.i.i = add nuw nsw i64 %indvars.iv18.i18.i.i.i, 1
   %486 = sext i32 %485 to i64
-  %cmp14.i21.i.i.i = icmp slt i64 %indvars.iv.next19.i20.i.i.i, %486
-  br i1 %cmp14.i21.i.i.i, label %for.body15.i.i.i.i, label %for.inc80.i.i.i.i, !llvm.loop !72
+  %cmp14.i.i.i.i = icmp slt i64 %indvars.iv.next19.i20.i.i.i, %486
+  br i1 %cmp14.i.i.i.i, label %for.body15.i.i.i.i, label %for.inc80.i.i.i.i, !llvm.loop !72
 
 for.inc80.i.i.i.i:                                ; preds = %for.inc77.i.i.i.i, %for.body5.i.i.i.i
   %n.2.lcssa.i.i.i.i = phi i32 [ %n.114.i.i.i.i, %for.body5.i.i.i.i ], [ %n.3.i.i.i.i, %for.inc77.i.i.i.i ]
@@ -20390,7 +20387,7 @@ invoke.cont415:                                   ; preds = %if.end173.i, %cond.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %x1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y1.i)
-  %RasterizerMultiply = getelementptr inbounds %struct.ImFontConfig, ptr %381, i64 %indvars.iv970, i32 15
+  %RasterizerMultiply = getelementptr inbounds %struct.ImFontConfig, ptr %381, i64 %indvars.iv966, i32 15
   %757 = load float, ptr %RasterizerMultiply, align 8
   %cmp417 = fcmp une float %757, 1.000000e+00
   br i1 %cmp417, label %for.body.i590, label %if.end441
@@ -20480,11 +20477,11 @@ for.cond3.for.inc6_crit_edge.us.i:                ; preds = %for.body5.us.i
   br i1 %cmp.us.i, label %for.cond3.preheader.us.i, label %for.inc438.loopexit, !llvm.loop !49
 
 for.inc438.loopexit:                              ; preds = %for.cond3.for.inc6_crit_edge.us.i
-  %.pre990 = load i32, ptr %GlyphsCount408, align 8
+  %.pre986 = load i32, ptr %GlyphsCount408, align 8
   br label %for.inc438
 
 for.inc438:                                       ; preds = %for.inc438.loopexit, %for.cond3.preheader.lr.ph.i, %if.then429, %for.body426
-  %771 = phi i32 [ %.pre990, %for.inc438.loopexit ], [ %761, %for.cond3.preheader.lr.ph.i ], [ %761, %if.then429 ], [ %761, %for.body426 ]
+  %771 = phi i32 [ %.pre986, %for.inc438.loopexit ], [ %761, %for.cond3.preheader.lr.ph.i ], [ %761, %if.then429 ], [ %761, %for.body426 ]
   %inc439 = add nuw nsw i32 %glyph_i422.0906, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %r.0905, i64 24
   %cmp425 = icmp slt i32 %inc439, %771
@@ -20492,14 +20489,14 @@ for.inc438:                                       ; preds = %for.inc438.loopexit
 
 if.end441:                                        ; preds = %for.inc438, %_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf.exit, %invoke.cont415
   store ptr null, ptr %Rects414, align 8
-  %.pre991 = load i32, ptr %src_tmp_array, align 8
+  %.pre987 = load i32, ptr %src_tmp_array, align 8
   br label %for.inc443
 
 for.inc443:                                       ; preds = %for.body400, %if.end441
-  %772 = phi i32 [ %380, %for.body400 ], [ %.pre991, %if.end441 ]
-  %indvars.iv.next971 = add nuw nsw i64 %indvars.iv970, 1
+  %772 = phi i32 [ %380, %for.body400 ], [ %.pre987, %if.end441 ]
+  %indvars.iv.next967 = add nuw nsw i64 %indvars.iv966, 1
   %773 = sext i32 %772 to i64
-  %cmp399 = icmp slt i64 %indvars.iv.next971, %773
+  %cmp399 = icmp slt i64 %indvars.iv.next967, %773
   br i1 %cmp399, label %for.body400, label %for.end445, !llvm.loop !101
 
 for.end445:                                       ; preds = %for.inc443, %invoke.cont387
@@ -20528,7 +20525,7 @@ if.then.i606:                                     ; preds = %invoke.cont446
 
 _ZN8ImVectorI10stbrp_rectE5clearEv.exit:          ; preds = %invoke.cont446, %.noexc609
   %cmp451911 = icmp sgt i32 %774, 0
-  %.pre996.pre997 = load ptr, ptr %Data, align 8
+  %.pre992.pre993 = load ptr, ptr %Data, align 8
   br i1 %cmp451911, label %for.body452.lr.ph, label %for.end.i
 
 for.body452.lr.ph:                                ; preds = %_ZN8ImVectorI10stbrp_rectE5clearEv.exit
@@ -20537,10 +20534,10 @@ for.body452.lr.ph:                                ; preds = %_ZN8ImVectorI10stbr
   br label %for.body452
 
 for.body452:                                      ; preds = %for.body452.lr.ph, %for.inc527
-  %indvars.iv976 = phi i64 [ 0, %for.body452.lr.ph ], [ %indvars.iv.next977, %for.inc527 ]
-  %arrayidx.i612 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre996.pre997, i64 %indvars.iv976
+  %indvars.iv972 = phi i64 [ 0, %for.body452.lr.ph ], [ %indvars.iv.next973, %for.inc527 ]
+  %arrayidx.i612 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre992.pre993, i64 %indvars.iv972
   %777 = load ptr, ptr %Data.i613, align 8
-  %arrayidx.i615 = getelementptr inbounds %struct.ImFontConfig, ptr %777, i64 %indvars.iv976
+  %arrayidx.i615 = getelementptr inbounds %struct.ImFontConfig, ptr %777, i64 %indvars.iv972
   %DstFont460 = getelementptr inbounds i8, ptr %arrayidx.i615, i64 136
   %778 = load ptr, ptr %DstFont460, align 8
   %SizePixels462 = getelementptr inbounds i8, ptr %arrayidx.i615, i64 20
@@ -20591,7 +20588,7 @@ for.body452:                                      ; preds = %for.body452.lr.ph, 
 
 for.body452.invoke.cont483_crit_edge:             ; preds = %for.body452
   %Ascent.phi.trans.insert = getelementptr inbounds i8, ptr %778, i64 104
-  %.pre993 = load float, ptr %Ascent.phi.trans.insert, align 8
+  %.pre989 = load float, ptr %Ascent.phi.trans.insert, align 8
   br label %invoke.cont483
 
 if.then.i651:                                     ; preds = %for.body452
@@ -20671,7 +20668,7 @@ _ZN6ImFont15ClearOutputDataEv.exit.i:             ; preds = %.noexc659, %_ZN8ImV
   br label %invoke.cont483
 
 invoke.cont483:                                   ; preds = %for.body452.invoke.cont483_crit_edge, %_ZN6ImFont15ClearOutputDataEv.exit.i
-  %791 = phi float [ %.pre993, %for.body452.invoke.cont483_crit_edge ], [ %conv1.i648, %_ZN6ImFont15ClearOutputDataEv.exit.i ]
+  %791 = phi float [ %.pre989, %for.body452.invoke.cont483_crit_edge ], [ %conv1.i648, %_ZN6ImFont15ClearOutputDataEv.exit.i ]
   %GlyphOffset = getelementptr inbounds i8, ptr %arrayidx.i615, i64 44
   %792 = load float, ptr %GlyphOffset, align 4
   %y486 = getelementptr inbounds i8, ptr %arrayidx.i615, i64 48
@@ -20704,14 +20701,14 @@ for.body497.lr.ph:                                ; preds = %invoke.cont483
   br label %for.body497
 
 for.body497:                                      ; preds = %for.body497.lr.ph, %for.inc524
-  %indvars.iv973 = phi i64 [ 0, %for.body497.lr.ph ], [ %indvars.iv.next974, %for.inc524 ]
+  %indvars.iv969 = phi i64 [ 0, %for.body497.lr.ph ], [ %indvars.iv.next970, %for.inc524 ]
   %796 = load ptr, ptr %Data.i660, align 8
-  %arrayidx.i662 = getelementptr inbounds i32, ptr %796, i64 %indvars.iv973
+  %arrayidx.i662 = getelementptr inbounds i32, ptr %796, i64 %indvars.iv969
   %797 = load i32, ptr %arrayidx.i662, align 4
   %798 = load ptr, ptr %PackedChars502, align 8
   %799 = load i32, ptr %TexWidth, align 8
   %800 = load i32, ptr %TexHeight, align 4
-  %add.ptr.i664 = getelementptr inbounds %struct.stbtt_packedchar, ptr %798, i64 %indvars.iv973
+  %add.ptr.i664 = getelementptr inbounds %struct.stbtt_packedchar, ptr %798, i64 %indvars.iv969
   %xoff16.i = getelementptr inbounds i8, ptr %add.ptr.i664, i64 8
   %801 = load float, ptr %xoff16.i, align 4
   %add17.i = fadd float %801, 0.000000e+00
@@ -20747,7 +20744,7 @@ for.body497:                                      ; preds = %for.body497.lr.ph, 
   %810 = call float @llvm.fmuladd.f32(float %add20.i, float %div492, float %add490)
   %811 = call float @llvm.fmuladd.f32(float %add23.i, float %div492, float %792)
   %812 = call float @llvm.fmuladd.f32(float %add26.i, float %div492, float %add490)
-  %xadvance = getelementptr inbounds %struct.stbtt_packedchar, ptr %798, i64 %indvars.iv973, i32 6
+  %xadvance = getelementptr inbounds %struct.stbtt_packedchar, ptr %798, i64 %indvars.iv969, i32 6
   %813 = load float, ptr %xadvance, align 4
   %mul522 = fmul float %div492, %813
   %814 = load float, ptr %GlyphMinAdvanceX.i, align 8
@@ -20884,27 +20881,24 @@ for.inc524:                                       ; preds = %if.end7.i.i.i694, %
   %837 = load i32, ptr %MetricsTotalSurface.i, align 8
   %add49.i = add nsw i32 %mul48.i, %837
   store i32 %add49.i, ptr %MetricsTotalSurface.i, align 8
-  %indvars.iv.next974 = add nuw nsw i64 %indvars.iv973, 1
+  %indvars.iv.next970 = add nuw nsw i64 %indvars.iv969, 1
   %838 = load i32, ptr %GlyphsCount495, align 8
   %839 = sext i32 %838 to i64
-  %cmp496 = icmp slt i64 %indvars.iv.next974, %839
+  %cmp496 = icmp slt i64 %indvars.iv.next970, %839
   br i1 %cmp496, label %for.body497, label %for.inc527, !llvm.loop !102
 
 for.inc527:                                       ; preds = %for.inc524, %invoke.cont483
-  %indvars.iv.next977 = add nuw nsw i64 %indvars.iv976, 1
-  %cmp451 = icmp ult i64 %indvars.iv.next977, %776
-  br i1 %cmp451, label %for.body452, label %for.end529, !llvm.loop !103
+  %indvars.iv.next973 = add nuw nsw i64 %indvars.iv972, 1
+  %cmp451 = icmp ult i64 %indvars.iv.next973, %776
+  br i1 %cmp451, label %for.body452, label %for.body.i712.preheader, !llvm.loop !103
 
-for.end529:                                       ; preds = %for.inc527
-  br i1 %cmp451911, label %for.body.i712.preheader, label %if.then.i.i708
-
-for.body.i712.preheader:                          ; preds = %for.end529
+for.body.i712.preheader:                          ; preds = %for.inc527
   %840 = zext nneg i32 %774 to i64
   br label %for.body.i712
 
 for.body.i712:                                    ; preds = %for.body.i712.preheader, %_ZN18ImFontBuildSrcDataD2Ev.exit.i
   %indvars.iv.i713 = phi i64 [ %indvars.iv.next.i718, %_ZN18ImFontBuildSrcDataD2Ev.exit.i ], [ 0, %for.body.i712.preheader ]
-  %arrayidx.i714 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre996.pre997, i64 %indvars.iv.i713
+  %arrayidx.i714 = getelementptr inbounds %struct.ImFontBuildSrcData, ptr %.pre992.pre993, i64 %indvars.iv.i713
   %Data.i.i.i715 = getelementptr inbounds i8, ptr %arrayidx.i714, i64 264
   %841 = load ptr, ptr %Data.i.i.i715, align 8
   %tobool.not.i.i.i716 = icmp eq ptr %841, null
@@ -20944,13 +20938,13 @@ _ZN18ImFontBuildSrcDataD2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_
   br i1 %cmp.i719, label %for.body.i712, label %if.then.i.i708, !llvm.loop !104
 
 for.end.i:                                        ; preds = %_ZN8ImVectorI10stbrp_rectE5clearEv.exit
-  %tobool.not.i.i707 = icmp eq ptr %.pre996.pre997, null
+  %tobool.not.i.i707 = icmp eq ptr %.pre992.pre993, null
   br i1 %tobool.not.i.i707, label %invoke.cont530, label %if.then.i.i708
 
-if.then.i.i708:                                   ; preds = %_ZN18ImFontBuildSrcDataD2Ev.exit.i, %for.end529, %for.end.i
+if.then.i.i708:                                   ; preds = %_ZN18ImFontBuildSrcDataD2Ev.exit.i, %for.end.i
   store i32 0, ptr %Capacity.i, align 4
   store i32 0, ptr %src_tmp_array, align 8
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.pre996.pre997)
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %.pre992.pre993)
           to label %.noexc720 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc720:                                        ; preds = %if.then.i.i708
@@ -24329,7 +24323,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cmp.not9 = phi i1 [ false, %for.body.lr.ph ], [ %cmp.not, %for.inc ]
   %page_n.08 = phi i32 [ %div5, %for.body.lr.ph ], [ %inc, %for.inc ]
   %cmp3 = icmp ult i32 %page_n.08, 16
   br i1 %cmp3, label %if.then, label %for.inc
@@ -24348,12 +24341,11 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw nsw i32 %page_n.08, 1
-  %cmp.not = icmp uge i32 %page_n.08, %div26
-  %exitcond = icmp eq i32 %page_n.08, %div26
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !136
+  %exitcond.not = icmp eq i32 %page_n.08, %div26
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !136
 
 return:                                           ; preds = %if.then, %for.inc, %entry
-  %cmp.not.lcssa = phi i1 [ true, %entry ], [ %cmp.not, %for.inc ], [ %cmp.not9, %if.then ]
+  %cmp.not.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %if.then ]
   ret i1 %cmp.not.lcssa
 }
 
@@ -24386,16 +24378,16 @@ if.end.thread:                                    ; preds = %land.lhs.true
 if.end:                                           ; preds = %entry
   %conv6 = zext i16 %src to i32
   %cmp7.not = icmp ugt i32 %0, %conv6
-  br i1 %cmp7.not, label %if.end12.cond.true_crit_edge, label %return
+  br i1 %cmp7.not, label %if.end12, label %return
 
-if.end12.cond.true_crit_edge:                     ; preds = %if.end
+if.end12:                                         ; preds = %if.end
   %add = add nuw nsw i32 %conv, 1
   tail call void @_ZN6ImFont9GrowIndexEi(ptr noundef nonnull align 8 dereferenceable(118) %this, i32 noundef %add)
-  %.pre26 = zext i16 %dst to i64
+  %.pre25 = zext i16 %dst to i64
   br label %cond.true
 
-cond.true:                                        ; preds = %if.end12.cond.true_crit_edge, %if.end.thread
-  %idxprom.i.pre-phi = phi i64 [ %.pre26, %if.end12.cond.true_crit_edge ], [ %idxprom, %if.end.thread ]
+cond.true:                                        ; preds = %if.end12, %if.end.thread
+  %idxprom.i.pre-phi = phi i64 [ %.pre25, %if.end12 ], [ %idxprom, %if.end.thread ]
   %Data17 = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %Data17, align 8
   %idxprom18 = zext i16 %src to i64
@@ -24410,8 +24402,7 @@ cond.true:                                        ; preds = %if.end12.cond.true_
   br label %cond.end29
 
 cond.end29.critedge:                              ; preds = %if.end.thread
-  %Data.i14 = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = load ptr, ptr %Data.i14, align 8
+  %7 = load ptr, ptr %Data, align 8
   %arrayidx.i16 = getelementptr inbounds i16, ptr %7, i64 %idxprom
   store i16 -1, ptr %arrayidx.i16, align 2
   %Data.i17.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8

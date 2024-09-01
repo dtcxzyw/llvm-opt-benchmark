@@ -1507,7 +1507,6 @@ define dso_local noundef zeroext i1 @x64_contains_float_at_offset(ptr nocapture 
   br i1 %or.cond25, label %tailrecurse._crit_edge, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %2, %tailrecurse.backedge
-  %or.cond28 = phi i1 [ %or.cond, %tailrecurse.backedge ], [ %or.cond25, %2 ]
   %6 = phi i32 [ %35, %tailrecurse.backedge ], [ %4, %2 ]
   %.tr1927 = phi i32 [ %.tr19.be, %tailrecurse.backedge ], [ %1, %2 ]
   %.tr26 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
@@ -1583,7 +1582,7 @@ tailrecurse.backedge:                             ; preds = %x64_get_member_at_o
   br label %tailrecurse.backedge
 
 tailrecurse._crit_edge:                           ; preds = %thread-pre-split, %tailrecurse.backedge, %2
-  %or.cond.lcssa = phi i1 [ %or.cond25, %2 ], [ %or.cond28, %thread-pre-split ], [ %or.cond, %tailrecurse.backedge ]
+  %or.cond.lcssa = phi i1 [ true, %2 ], [ false, %thread-pre-split ], [ true, %tailrecurse.backedge ]
   ret i1 %or.cond.lcssa
 }
 

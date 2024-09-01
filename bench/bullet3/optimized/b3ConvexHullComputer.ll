@@ -2424,13 +2424,13 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit397: ; preds = %if.end.
 
 if.end167:                                        ; preds = %_ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit397, %if.then157
   %tobool168.not = icmp eq ptr %pendingTail0.1494504, null
-  br i1 %tobool168.not, label %if.end179, label %if.then169
+  br i1 %tobool168.not, label %if.end179, label %if.then171
 
 if.end167.thread:                                 ; preds = %if.then155
   %tobool168.not506 = icmp eq ptr %pendingTail0.1494504, null
   br i1 %tobool168.not506, label %if.end179, label %if.else172
 
-if.then169:                                       ; preds = %if.end167
+if.then171:                                       ; preds = %if.end167
   store ptr %toPrev0.0, ptr %pendingHead0.1495503, align 8
   br label %if.end174
 
@@ -2440,9 +2440,9 @@ if.else172:                                       ; preds = %if.end167.thread
   %prev.i399 = getelementptr inbounds i8, ptr %107, i64 8
   br label %if.end174
 
-if.end174:                                        ; preds = %if.else172, %if.then169
-  %prev.i399.sink = phi ptr [ %prev.i399, %if.else172 ], [ %prev159, %if.then169 ]
-  %firstNew0.1 = phi ptr [ %pendingHead0.1495503, %if.else172 ], [ %firstNew0.0, %if.then169 ]
+if.end174:                                        ; preds = %if.else172, %if.then171
+  %prev.i399.sink = phi ptr [ %prev.i399, %if.else172 ], [ %prev159, %if.then171 ]
+  %firstNew0.1 = phi ptr [ %pendingHead0.1495503, %if.else172 ], [ %firstNew0.0, %if.then171 ]
   store ptr %pendingHead0.1495503, ptr %prev.i399.sink, align 8
   store ptr %pendingTail0.1494504, ptr %call81, align 8
   %prev.i400 = getelementptr inbounds i8, ptr %pendingTail0.1494504, i64 8
@@ -4202,7 +4202,7 @@ invoke.cont94:                                    ; preds = %if.then.i22.i, %if.
   store ptr %call.i.i.i262, ptr %m_data.i.i, align 8
   store i32 %_Count.addr.0.i459, ptr %m_capacity.i.i, align 8
   store i32 %count, ptr %m_size.i.i, align 4
-  br i1 %doubleCoords, label %for.cond98.preheader, label %for.cond156.preheader
+  br i1 %doubleCoords, label %invoke.cont122.lr.ph, label %invoke.cont177.lr.ph
 
 invoke.cont94.thread462:                          ; preds = %if.end.i256
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -4215,10 +4215,7 @@ invoke.cont94.thread:                             ; preds = %if.end54
   store i32 %count, ptr %m_size.i.i, align 4
   br label %invoke.cont215
 
-for.cond156.preheader:                            ; preds = %invoke.cont94
-  br i1 %cmp4.i, label %invoke.cont177.lr.ph, label %invoke.cont215
-
-invoke.cont177.lr.ph:                             ; preds = %invoke.cont94.thread462, %for.cond156.preheader
+invoke.cont177.lr.ph:                             ; preds = %invoke.cont94, %invoke.cont94.thread462
   %16 = getelementptr inbounds i8, ptr %p160, i64 8
   %idx.ext168 = sext i32 %stride to i64
   %arrayidx3.i180 = getelementptr inbounds i8, ptr %this, i64 20
@@ -4228,10 +4225,7 @@ invoke.cont177.lr.ph:                             ; preds = %invoke.cont94.threa
   %wide.trip.count = zext nneg i32 %count to i64
   br label %invoke.cont177
 
-for.cond98.preheader:                             ; preds = %invoke.cont94
-  br i1 %cmp4.i, label %invoke.cont122.lr.ph, label %invoke.cont215
-
-invoke.cont122.lr.ph:                             ; preds = %invoke.cont94.thread462, %for.cond98.preheader
+invoke.cont122.lr.ph:                             ; preds = %invoke.cont94, %invoke.cont94.thread462
   %17 = getelementptr inbounds i8, ptr %p102, i64 8
   %idx.ext113 = sext i32 %stride to i64
   %arrayidx3.i143 = getelementptr inbounds i8, ptr %this, i64 20
@@ -4379,7 +4373,7 @@ if.then.i:                                        ; preds = %if.end214
   invoke void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE17quickSortInternalIFbRKS1_S5_EEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %points, ptr noundef nonnull @_ZL10b3PointCmpRKN20b3ConvexHullInternal7Point32ES2_, i32 noundef 0, i32 noundef %sub.i216)
           to label %invoke.cont215 unwind label %lpad.loopexit.split-lp
 
-invoke.cont215:                                   ; preds = %invoke.cont94.thread, %for.cond98.preheader, %for.cond156.preheader, %if.end214, %if.then.i
+invoke.cont215:                                   ; preds = %invoke.cont94.thread, %if.end214, %if.then.i
   %vertexPool = getelementptr inbounds i8, ptr %this, i64 32
   %52 = load ptr, ptr %vertexPool, align 16
   %nextArray.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5664,10 +5658,7 @@ for.body166.preheader:                            ; preds = %if.end162
   %wide.trip.count615 = zext nneg i32 %faces.sroa.0.1 to i64
   br label %for.body166
 
-for.cond177.preheader:                            ; preds = %for.body166
-  br i1 %cmp165601, label %invoke.cont182.lr.ph, label %if.then3.i.i.i284
-
-invoke.cont182.lr.ph:                             ; preds = %for.cond177.preheader
+invoke.cont182.lr.ph:                             ; preds = %for.body166
   %m_ownsMemory.i.i269 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %m_data.i.i270 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_size.i.i271 = getelementptr inbounds i8, ptr %agg.tmp, i64 4
@@ -5690,7 +5681,7 @@ for.body166:                                      ; preds = %for.body166.prehead
   %mul174 = mul i32 %seed.0602, 1664525
   %add = add i32 %mul174, 1013904223
   %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
-  br i1 %exitcond616.not, label %for.cond177.preheader, label %for.body166, !llvm.loop !49
+  br i1 %exitcond616.not, label %invoke.cont182.lr.ph, label %for.body166, !llvm.loop !49
 
 for.cond177:                                      ; preds = %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEED2Ev.exit
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
@@ -5751,8 +5742,8 @@ cleanup:                                          ; preds = %if.end162, %while.e
   %tobool.not.i.i.i277 = icmp eq ptr %faces.sroa.16.2, null
   br i1 %tobool.not.i.i.i277, label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEED2Ev.exit, label %if.then3.i.i.i284
 
-if.then3.i.i.i284:                                ; preds = %for.cond177, %for.end, %for.cond177.preheader, %cleanup, %cleanup.thread
-  %retval.1533 = phi float [ %fneg, %cleanup.thread ], [ %retval.1, %cleanup ], [ %amount.addr.0, %for.cond177.preheader ], [ 0.000000e+00, %for.end ], [ %amount.addr.0, %for.cond177 ]
+if.then3.i.i.i284:                                ; preds = %for.cond177, %for.end, %cleanup, %cleanup.thread
+  %retval.1533 = phi float [ %fneg, %cleanup.thread ], [ %retval.1, %cleanup ], [ 0.000000e+00, %for.end ], [ %amount.addr.0, %for.cond177 ]
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %faces.sroa.16.2)
           to label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEED2Ev.exit unwind label %terminate.lpad.i285
 

@@ -672,21 +672,21 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %96, %_ZNSt6vectorIN
 
 ._crit_edge.i:                                    ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %165, label %.lr.ph370.i
+  br i1 %.not.i, label %165, label %.preheader356.i
 
 ._crit_edge.thread.i:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i
   %.not427.i = icmp eq ptr %1, null
   br i1 %.not427.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %.thread445.i
 
-.lr.ph370.i:                                      ; preds = %._crit_edge.i
+.preheader356.i:                                  ; preds = %._crit_edge.i
   %105 = getelementptr inbounds i8, ptr %18, i64 32
   br label %106
 
-106:                                              ; preds = %121, %.lr.ph370.i
-  %indvars.iv389.i = phi i64 [ 0, %.lr.ph370.i ], [ %indvars.iv.next390.i, %121 ]
-  %.0136368.i = phi i32 [ 0, %.lr.ph370.i ], [ %.1137.i, %121 ]
-  %.0138367.i = phi i32 [ -1, %.lr.ph370.i ], [ %.1139.fr.i, %121 ]
-  %.0140366.i = phi i32 [ -1, %.lr.ph370.i ], [ %.1141.i, %121 ]
+106:                                              ; preds = %121, %.preheader356.i
+  %indvars.iv389.i = phi i64 [ 0, %.preheader356.i ], [ %indvars.iv.next390.i, %121 ]
+  %.0136368.i = phi i32 [ 0, %.preheader356.i ], [ %.1137.i, %121 ]
+  %.0138367.i = phi i32 [ -1, %.preheader356.i ], [ %.1139.fr.i, %121 ]
+  %.0140366.i = phi i32 [ -1, %.preheader356.i ], [ %.1141.i, %121 ]
   %107 = load ptr, ptr %13, align 8, !noalias !5
   %108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %107, i64 %indvars.iv389.i
   %109 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull %1) #27
@@ -5541,7 +5541,7 @@ _ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader: ; preds = %_ZL16c
 .preheader:                                       ; preds = %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit
   %210 = trunc nuw nsw i64 %indvars.iv521 to i32
   %spec.select = select i1 %214, i32 -1, i32 %210
-  br i1 %51, label %.lr.ph352, label %._crit_edge
+  br label %.lr.ph352
 
 _ZL17check_restp_typesRK17PreprocessResidueS1_.exit: ; preds = %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit
   %indvars.iv521 = phi i64 [ %indvars.iv.next522, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit ], [ 0, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader ]
@@ -5618,9 +5618,9 @@ _ZL17check_restp_typesRK17PreprocessResidueS1_.exit: ; preds = %_ZL17check_restp
   %spec.select137 = select i1 %233, i32 -1, i32 %236
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader, %._crit_edge.loopexit, %.preheader
-  %.0119.lcssa533 = phi i32 [ %spec.select, %.preheader ], [ %spec.select, %._crit_edge.loopexit ], [ -1, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader ]
-  %.0122.lcssa = phi i32 [ -1, %.preheader ], [ %spec.select137, %._crit_edge.loopexit ], [ -1, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader ]
+._crit_edge:                                      ; preds = %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader, %._crit_edge.loopexit
+  %.0119.lcssa533 = phi i32 [ %spec.select, %._crit_edge.loopexit ], [ -1, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader ]
+  %.0122.lcssa = phi i32 [ %spec.select137, %._crit_edge.loopexit ], [ -1, %_ZL17check_restp_typesRK17PreprocessResidueS1_.exit.preheader ]
   %237 = load ptr, ptr %32, align 8
   %238 = load ptr, ptr %0, align 8
   %239 = ptrtoint ptr %237 to i64

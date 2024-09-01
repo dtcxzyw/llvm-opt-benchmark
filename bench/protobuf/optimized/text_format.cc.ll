@@ -12998,7 +12998,7 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i
   %136 = load ptr, ptr %reserved_names_.i.i, align 8
-  %arrayidx.i.us.i = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv.next16.i
+  %arrayidx.i.us.i = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv.next18.i
   %137 = load ptr, ptr %arrayidx.i.us.i, align 8
   %call4.us.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #36
   %138 = extractvalue { i64, ptr } %call4.us.i, 0
@@ -13006,11 +13006,11 @@ for.body.us.i:                                    ; preds = %for.inc.us.i
   br i1 %cmp.i.us.i, label %cleanup.done375, label %for.inc.us.i, !llvm.loop !135
 
 for.inc.us.i:                                     ; preds = %for.body.lr.ph.split.us.i, %for.body.us.i
-  %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %for.body.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
-  %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.body.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %139 = load i32, ptr %reserved_name_count_.i.i, align 4
   %140 = sext i32 %139 to i64
-  %cmp.us.i = icmp slt i64 %indvars.iv.next16.i, %140
+  %cmp.us.i = icmp slt i64 %indvars.iv.next18.i, %140
   br i1 %cmp.us.i, label %for.body.us.i, label %if.then307, !llvm.loop !135
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i

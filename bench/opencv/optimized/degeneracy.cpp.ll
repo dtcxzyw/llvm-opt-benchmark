@@ -1149,48 +1149,43 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4usac30EpipolarGeometryDeg
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %45 = zext nneg i32 %43 to i64
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %.lr.ph
 
-46:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %45 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4
+  %47 = shl nsw i32 %46, 2
+  %48 = or disjoint i32 %47, 2
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds float, ptr %8, i64 %49
+  %51 = load float, ptr %50, align 4
+  %52 = fpext float %51 to double
+  %53 = or disjoint i32 %47, 3
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds float, ptr %8, i64 %54
+  %56 = load float, ptr %55, align 4
+  %57 = fpext float %56 to double
+  %58 = fmul double %19, %57
+  %59 = call double @llvm.fmuladd.f64(double %12, double %52, double %58)
+  %60 = fadd double %28, %59
+  %61 = fmul double %41, %60
+  %62 = or disjoint i32 %47, 1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds float, ptr %8, i64 %63
+  %65 = load float, ptr %64, align 4
+  %66 = fpext float %65 to double
+  %67 = call double @llvm.fmuladd.f64(double %39, double %66, double %31)
+  %68 = fmul double %67, %61
+  %69 = fcmp uge double %68, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp uge i64 %indvars.iv.next, %45
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %69, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %48 = phi i1 [ false, %.lr.ph.preheader ], [ %47, %46 ]
-  %49 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4
-  %51 = shl nsw i32 %50, 2
-  %52 = or disjoint i32 %51, 2
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %8, i64 %53
-  %55 = load float, ptr %54, align 4
-  %56 = fpext float %55 to double
-  %57 = or disjoint i32 %51, 3
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds float, ptr %8, i64 %58
-  %60 = load float, ptr %59, align 4
-  %61 = fpext float %60 to double
-  %62 = fmul double %19, %61
-  %63 = call double @llvm.fmuladd.f64(double %12, double %56, double %62)
-  %64 = fadd double %28, %63
-  %65 = fmul double %41, %64
-  %66 = or disjoint i32 %51, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %8, i64 %67
-  %69 = load float, ptr %68, align 4
-  %70 = fpext float %69 to double
-  %71 = call double @llvm.fmuladd.f64(double %39, double %70, double %31)
-  %72 = fmul double %71, %65
-  %73 = fcmp olt double %72, 0.000000e+00
-  br i1 %73, label %._crit_edge, label %46
-
-._crit_edge:                                      ; preds = %.lr.ph, %46, %3
-  %.lcssa = phi i1 [ true, %3 ], [ %47, %46 ], [ %48, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %69, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -9736,7 +9731,7 @@ _ZN2cv3MatC2IdLi3ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit44: ; preds = %139
   br i1 %230, label %201, label %_ZN2cv4usac25FundamentalDegeneracyImpl12getOutliersHERKNS_3MatE.exit, !llvm.loop !99
 
 _ZN2cv4usac25FundamentalDegeneracyImpl12getOutliersHERKNS_3MatE.exit: ; preds = %227, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit, %185, %._crit_edge77
-  %.033.lcssa82 = phi i1 [ %.1, %185 ], [ false, %._crit_edge77 ], [ false, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit ], [ %.1, %227 ]
+  %.033.lcssa82 = phi i1 [ true, %185 ], [ false, %._crit_edge77 ], [ false, %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit ], [ true, %227 ]
   ret i1 %.033.lcssa82
 }
 

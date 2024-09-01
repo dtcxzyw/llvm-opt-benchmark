@@ -218,7 +218,7 @@ ChunkSearchNextInList.exit.loopexit:              ; preds = %.lr.ph.i19
 
 ChunkSearchNextInList.exit24.thread:              ; preds = %ChunkSearchNextInList.exit.loopexit, %.lr.ph, %14, %ChunkSearchNextInList.exit.preheader
   %.01431 = phi ptr [ %.06.i, %ChunkSearchNextInList.exit.preheader ], [ %.01434, %14 ], [ %.06.i20, %ChunkSearchNextInList.exit.loopexit ], [ %.01434, %.lr.ph ]
-  %17 = phi i1 [ false, %ChunkSearchNextInList.exit.preheader ], [ true, %14 ], [ %.not5.i18, %ChunkSearchNextInList.exit.loopexit ], [ true, %.lr.ph ]
+  %17 = phi i1 [ false, %ChunkSearchNextInList.exit.preheader ], [ true, %14 ], [ %.not5.i18, %.lr.ph ], [ %.not5.i18, %ChunkSearchNextInList.exit.loopexit ]
   %18 = icmp ne i32 %1, 0
   %or.cond = and i1 %18, %17
   %19 = select i1 %or.cond, ptr null, ptr %.01431

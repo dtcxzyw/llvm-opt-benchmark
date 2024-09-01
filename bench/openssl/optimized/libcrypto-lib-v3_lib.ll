@@ -627,7 +627,7 @@ if.else:                                          ; preds = %if.end
 if.end21:                                         ; preds = %if.then2
   %call22 = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %value) #7
   %tobool.not = icmp eq ptr %call22, null
-  br i1 %tobool.not, label %if.then23, label %if.end24
+  br i1 %tobool.not, label %if.then23, label %if.then26
 
 if.end21.thread46:                                ; preds = %if.else
   %call2247 = tail call ptr @X509V3_EXT_i2d(i32 noundef %nid, i32 noundef %crit, ptr noundef %value) #7
@@ -645,10 +645,7 @@ if.then23:                                        ; preds = %if.end21.thread46, 
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 144, ptr noundef null) #7
   br label %return
 
-if.end24:                                         ; preds = %if.end21
-  br i1 %cmp1, label %if.then26, label %if.end35
-
-if.then26:                                        ; preds = %if.end24
+if.then26:                                        ; preds = %if.end21
   %2 = load ptr, ptr %x, align 8
   %call28 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %call) #7
   tail call void @X509_EXTENSION_free(ptr noundef %call28) #7
@@ -658,8 +655,8 @@ if.then26:                                        ; preds = %if.end24
   %. = select i1 %tobool32.not, i32 -1, i32 1
   br label %return
 
-if.end35:                                         ; preds = %if.end21.thread46, %if.end21.thread, %if.end24
-  %call224145 = phi ptr [ %call22, %if.end24 ], [ %call2237, %if.end21.thread ], [ %call2247, %if.end21.thread46 ]
+if.end35:                                         ; preds = %if.end21.thread46, %if.end21.thread
+  %call224145 = phi ptr [ %call2237, %if.end21.thread ], [ %call2247, %if.end21.thread46 ]
   %4 = load ptr, ptr %x, align 8
   %cmp36 = icmp eq ptr %4, null
   br i1 %cmp36, label %land.lhs.true, label %if.end40

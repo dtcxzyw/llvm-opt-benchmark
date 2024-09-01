@@ -720,13 +720,13 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %.not104.us, label %.thread, label %67
 
 .split:                                           ; preds = %65
-  br i1 %.not105, label %.outer.us137.outer, label %.split.split
+  br i1 %.not105, label %.outer.us135.outer, label %.split.split
 
-.outer.us137.outer:                               ; preds = %.split, %104
-  %.1.ph.us138.ph = phi i32 [ %105, %104 ], [ 0, %.split ]
-  br label %.outer.us137
+.outer.us135.outer:                               ; preds = %.split, %104
+  %.1.ph.us136.ph = phi i32 [ %105, %104 ], [ 0, %.split ]
+  br label %.outer.us135
 
-.outer.us137:                                     ; preds = %.outer.us137.outer, %92
+.outer.us135:                                     ; preds = %.outer.us135.outer, %92
   br label %106
 
 88:                                               ; preds = %106
@@ -741,17 +741,17 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   %93 = call i32 @os_getParentPidAndTimings(ptr noundef nonnull %0, i32 noundef %90, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %94 = icmp sgt i32 %93, -1
   %95 = icmp eq i32 %93, %8
-  %or.cond.us140 = or i1 %66, %95
-  %or.cond153 = and i1 %94, %or.cond.us140
-  br i1 %or.cond153, label %96, label %.outer.us137, !llvm.loop !11
+  %or.cond.us138 = or i1 %66, %95
+  %or.cond151 = and i1 %94, %or.cond.us138
+  br i1 %or.cond151, label %96, label %.outer.us135, !llvm.loop !11
 
 96:                                               ; preds = %92
-  %97 = icmp slt i32 %.1.ph.us138.ph, %12
+  %97 = icmp slt i32 %.1.ph.us136.ph, %12
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %90 to i64
-  %100 = zext nneg i32 %.1.ph.us138.ph to i64
+  %100 = zext nneg i32 %.1.ph.us136.ph to i64
   %101 = getelementptr inbounds i64, ptr %49, i64 %100
   store i64 %99, ptr %101, align 8
   %102 = load i64, ptr %7, align 8
@@ -760,16 +760,16 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %104
 
 104:                                              ; preds = %98, %96
-  %105 = add nuw nsw i32 %.1.ph.us138.ph, 1
-  br label %.outer.us137.outer, !llvm.loop !11
+  %105 = add nuw nsw i32 %.1.ph.us136.ph, 1
+  br label %.outer.us135.outer, !llvm.loop !11
 
-106:                                              ; preds = %88, %.outer.us137
+106:                                              ; preds = %88, %.outer.us135
   %107 = call ptr @readdir64(ptr noundef nonnull %42) #11
-  %.not104.us142 = icmp eq ptr %107, null
-  br i1 %.not104.us142, label %.thread, label %88
+  %.not104.us140 = icmp eq ptr %107, null
+  br i1 %.not104.us140, label %.thread, label %88
 
 .split.split:                                     ; preds = %.split
-  br i1 %66, label %.outer.us145.outer, label %.outer.preheader
+  br i1 %66, label %.outer.us143.outer, label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %.split.split
   %108 = and i64 %1, 4294967295
@@ -779,7 +779,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   %.1.ph.ph = phi i32 [ %150, %149 ], [ 0, %.outer.preheader ]
   br label %.outer
 
-.outer.us145:                                     ; preds = %.outer.us145.outer, %113
+.outer.us143:                                     ; preds = %.outer.us143.outer, %113
   br label %128
 
 109:                                              ; preds = %128
@@ -793,15 +793,15 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 113:                                              ; preds = %109
   %114 = call i32 @os_getParentPidAndTimings(ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %115 = icmp sgt i32 %114, -1
-  br i1 %115, label %116, label %.outer.us145, !llvm.loop !11
+  br i1 %115, label %116, label %.outer.us143, !llvm.loop !11
 
 116:                                              ; preds = %113
-  %117 = icmp slt i32 %.1.ph.us146.ph, %12
+  %117 = icmp slt i32 %.1.ph.us144.ph, %12
   br i1 %117, label %118, label %126
 
 118:                                              ; preds = %116
   %119 = zext nneg i32 %111 to i64
-  %120 = zext nneg i32 %.1.ph.us146.ph to i64
+  %120 = zext nneg i32 %.1.ph.us144.ph to i64
   %121 = getelementptr inbounds i64, ptr %49, i64 %120
   store i64 %119, ptr %121, align 8
   %122 = zext nneg i32 %114 to i64
@@ -813,17 +813,17 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %126
 
 126:                                              ; preds = %118, %116
-  %127 = add nuw nsw i32 %.1.ph.us146.ph, 1
-  br label %.outer.us145.outer, !llvm.loop !11
+  %127 = add nuw nsw i32 %.1.ph.us144.ph, 1
+  br label %.outer.us143.outer, !llvm.loop !11
 
-.outer.us145.outer:                               ; preds = %.split.split, %126
-  %.1.ph.us146.ph = phi i32 [ %127, %126 ], [ 0, %.split.split ]
-  br label %.outer.us145
+.outer.us143.outer:                               ; preds = %.split.split, %126
+  %.1.ph.us144.ph = phi i32 [ %127, %126 ], [ 0, %.split.split ]
+  br label %.outer.us143
 
-128:                                              ; preds = %109, %.outer.us145
+128:                                              ; preds = %109, %.outer.us143
   %129 = call ptr @readdir64(ptr noundef nonnull %42) #11
-  %.not104.us150 = icmp eq ptr %129, null
-  br i1 %.not104.us150, label %.thread, label %109
+  %.not104.us148 = icmp eq ptr %129, null
+  br i1 %.not104.us148, label %.thread, label %109
 
 .outer:                                           ; preds = %.outer.outer, %136
   br label %130
@@ -845,8 +845,8 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   %137 = call i32 @os_getParentPidAndTimings(ptr noundef nonnull %0, i32 noundef %134, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %138 = icmp sgt i32 %137, -1
   %139 = icmp eq i32 %137, %8
-  %or.cond154 = and i1 %138, %139
-  br i1 %or.cond154, label %140, label %.outer, !llvm.loop !11
+  %or.cond152 = and i1 %138, %139
+  br i1 %or.cond152, label %140, label %.outer, !llvm.loop !11
 
 140:                                              ; preds = %136
   %141 = icmp slt i32 %.1.ph.ph, %12
@@ -869,7 +869,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %.outer.outer, !llvm.loop !11
 
 .thread:                                          ; preds = %130, %128, %106, %86, %52, %59
-  %.078117 = phi i32 [ 0, %59 ], [ 0, %52 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us138.ph, %106 ], [ %.1.ph.us146.ph, %128 ], [ %.1.ph.ph, %130 ]
+  %.078117 = phi i32 [ 0, %59 ], [ 0, %52 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us136.ph, %106 ], [ %.1.ph.us144.ph, %128 ], [ %.1.ph.ph, %130 ]
   %.079115 = phi ptr [ null, %59 ], [ null, %52 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %128 ], [ %.180.fr, %130 ]
   %.081113 = phi ptr [ %.182.fr, %59 ], [ null, %52 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %128 ], [ %.182.fr, %130 ]
   %151 = load ptr, ptr %0, align 8

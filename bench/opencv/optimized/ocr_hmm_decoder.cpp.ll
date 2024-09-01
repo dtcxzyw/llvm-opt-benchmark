@@ -9714,9 +9714,6 @@ define hidden noundef double @_ZN2cv4text19OCRHMMClassifierCNN12eval_featureERNS
   %65 = icmp slt i64 %indvars.iv.next74, %64
   br i1 %65, label %.lr.ph54, label %.preheader43, !llvm.loop !165
 
-.preheader:                                       ; preds = %66
-  br i1 %52, label %.lr.ph61, label %._crit_edge62
-
 66:                                               ; preds = %.lr.ph58, %66
   %indvars.iv76 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next77, %66 ]
   %.03756 = phi double [ 0.000000e+00, %.lr.ph58 ], [ %69, %66 ]
@@ -9725,10 +9722,10 @@ define hidden noundef double @_ZN2cv4text19OCRHMMClassifierCNN12eval_featureERNS
   %69 = fadd double %.03756, %68
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.preheader, label %66, !llvm.loop !166
+  br i1 %exitcond80.not, label %.lr.ph61, label %66, !llvm.loop !166
 
-.lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.lr.ph61 ], [ 0, %.preheader ]
+.lr.ph61:                                         ; preds = %66, %.lr.ph61
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.lr.ph61 ], [ 0, %66 ]
   %70 = load ptr, ptr %2, align 8
   %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv81
   %72 = load double, ptr %71, align 8
@@ -9740,8 +9737,8 @@ define hidden noundef double @_ZN2cv4text19OCRHMMClassifierCNN12eval_featureERNS
   %76 = icmp slt i64 %indvars.iv.next82, %75
   br i1 %76, label %.lr.ph61, label %._crit_edge62, !llvm.loop !167
 
-._crit_edge62:                                    ; preds = %.lr.ph61, %.preheader46.lr.ph, %.preheader43, %.preheader44, %.preheader
-  %.040.lcssa868992 = phi double [ %.040.lcssa, %.preheader ], [ %.040.lcssa, %.preheader44 ], [ %.040.lcssa, %.preheader43 ], [ 0.000000e+00, %.preheader46.lr.ph ], [ %.040.lcssa, %.lr.ph61 ]
+._crit_edge62:                                    ; preds = %.lr.ph61, %.preheader46.lr.ph, %.preheader43, %.preheader44
+  %.040.lcssa868992 = phi double [ %.040.lcssa, %.preheader44 ], [ %.040.lcssa, %.preheader43 ], [ 0.000000e+00, %.preheader46.lr.ph ], [ %.040.lcssa, %.lr.ph61 ]
   ret double %.040.lcssa868992
 }
 

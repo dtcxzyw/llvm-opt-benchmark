@@ -5863,16 +5863,16 @@ while.condthread-pre-split:                       ; preds = %_ZN4Data10loadPixel
 
 while.cond:                                       ; preds = %while.condthread-pre-split, %if.end58
   %5 = phi i32 [ %4, %while.condthread-pre-split ], [ %22, %if.end58 ]
-  switch i32 %5, label %if.then43 [
+  switch i32 %5, label %if.else41 [
     i32 0, label %if.end77
-    i32 57, label %if.end13
-    i32 58, label %if.end20
-    i32 69, label %if.end29
-    i32 30, label %if.end39
-    i32 63, label %if.end39
+    i32 57, label %if.then8
+    i32 58, label %if.then15
+    i32 69, label %if.then24
+    i32 30, label %if.then34
+    i32 63, label %if.then34
   ]
 
-if.end13:                                         ; preds = %while.cond
+if.then8:                                         ; preds = %while.cond
   tail call void @_Z9showErrorR4DataRK7Options(ptr noundef nonnull align 8 dereferenceable(638) %data, ptr noundef nonnull align 4 dereferenceable(36) %options)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.89)
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5882,11 +5882,11 @@ if.end13:                                         ; preds = %while.cond
   %cmp.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i, label %_ZN4Data8loadFileEv.exit.i, label %_ZN4Data8loadFileEv.exit.thread.i
 
-_ZN4Data8loadFileEv.exit.thread.i:                ; preds = %if.end13
+_ZN4Data8loadFileEv.exit.thread.i:                ; preds = %if.then8
   store i32 0, ptr %error1, align 8
   br label %if.end.i
 
-_ZN4Data8loadFileEv.exit.i:                       ; preds = %if.end13
+_ZN4Data8loadFileEv.exit.i:                       ; preds = %if.then8
   %call3.i.i = tail call noundef i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %data)
   store i32 %call3.i.i, ptr %error1, align 8
   %tobool.not.i = icmp eq i32 %call3.i.i, 0
@@ -5899,9 +5899,9 @@ if.end.i:                                         ; preds = %_ZN4Data8loadFileEv
   %8 = load ptr, ptr %pixels.i, align 8
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %9, %8
-  br i1 %tobool.not.i.i.i, label %if.end50, label %if.end50.sink.split
+  br i1 %tobool.not.i.i.i, label %if.then52, label %if.then52.sink.split
 
-if.end20:                                         ; preds = %while.cond
+if.then15:                                        ; preds = %while.cond
   tail call void @_Z9showErrorR4DataRK7Options(ptr noundef nonnull align 8 dereferenceable(638) %data, ptr noundef nonnull align 4 dereferenceable(36) %options)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.90)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5911,11 +5911,11 @@ if.end20:                                         ; preds = %while.cond
   %cmp.i.i.i.i41 = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i41, label %_ZN4Data8loadFileEv.exit.i56, label %_ZN4Data8loadFileEv.exit.thread.i42
 
-_ZN4Data8loadFileEv.exit.thread.i42:              ; preds = %if.end20
+_ZN4Data8loadFileEv.exit.thread.i42:              ; preds = %if.then15
   store i32 0, ptr %error1, align 8
   br label %if.end.i43
 
-_ZN4Data8loadFileEv.exit.i56:                     ; preds = %if.end20
+_ZN4Data8loadFileEv.exit.i56:                     ; preds = %if.then15
   %call3.i.i57 = tail call noundef i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %data)
   store i32 %call3.i.i57, ptr %error1, align 8
   %tobool.not.i58 = icmp eq i32 %call3.i.i57, 0
@@ -5928,9 +5928,9 @@ if.end.i43:                                       ; preds = %_ZN4Data8loadFileEv
   %12 = load ptr, ptr %pixels.i, align 8
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i50 = icmp eq ptr %13, %12
-  br i1 %tobool.not.i.i.i50, label %if.end50, label %if.end50.sink.split
+  br i1 %tobool.not.i.i.i50, label %if.then52, label %if.then52.sink.split
 
-if.end29:                                         ; preds = %while.cond
+if.then24:                                        ; preds = %while.cond
   tail call void @_Z9showErrorR4DataRK7Options(ptr noundef nonnull align 8 dereferenceable(638) %data, ptr noundef nonnull align 4 dereferenceable(36) %options)
   %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.91)
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call27, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5940,11 +5940,11 @@ if.end29:                                         ; preds = %while.cond
   %cmp.i.i.i.i62 = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i62, label %_ZN4Data8loadFileEv.exit.i77, label %_ZN4Data8loadFileEv.exit.thread.i63
 
-_ZN4Data8loadFileEv.exit.thread.i63:              ; preds = %if.end29
+_ZN4Data8loadFileEv.exit.thread.i63:              ; preds = %if.then24
   store i32 0, ptr %error1, align 8
   br label %if.end.i64
 
-_ZN4Data8loadFileEv.exit.i77:                     ; preds = %if.end29
+_ZN4Data8loadFileEv.exit.i77:                     ; preds = %if.then24
   %call3.i.i78 = tail call noundef i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %data)
   store i32 %call3.i.i78, ptr %error1, align 8
   %tobool.not.i79 = icmp eq i32 %call3.i.i78, 0
@@ -5957,9 +5957,9 @@ if.end.i64:                                       ; preds = %_ZN4Data8loadFileEv
   %16 = load ptr, ptr %pixels.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i71 = icmp eq ptr %17, %16
-  br i1 %tobool.not.i.i.i71, label %if.end50, label %if.end50.sink.split
+  br i1 %tobool.not.i.i.i71, label %if.then52, label %if.then52.sink.split
 
-if.end39:                                         ; preds = %while.cond, %while.cond
+if.then34:                                        ; preds = %while.cond, %while.cond
   tail call void @_Z9showErrorR4DataRK7Options(ptr noundef nonnull align 8 dereferenceable(638) %data, ptr noundef nonnull align 4 dereferenceable(36) %options)
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.92)
   %call38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -5969,11 +5969,11 @@ if.end39:                                         ; preds = %while.cond, %while.
   %cmp.i.i.i.i83 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i.i83, label %_ZN4Data8loadFileEv.exit.i98, label %_ZN4Data8loadFileEv.exit.thread.i84
 
-_ZN4Data8loadFileEv.exit.thread.i84:              ; preds = %if.end39
+_ZN4Data8loadFileEv.exit.thread.i84:              ; preds = %if.then34
   store i32 0, ptr %error1, align 8
   br label %if.end.i85
 
-_ZN4Data8loadFileEv.exit.i98:                     ; preds = %if.end39
+_ZN4Data8loadFileEv.exit.i98:                     ; preds = %if.then34
   %call3.i.i99 = tail call noundef i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %data)
   store i32 %call3.i.i99, ptr %error1, align 8
   %tobool.not.i100 = icmp eq i32 %call3.i.i99, 0
@@ -5986,32 +5986,32 @@ if.end.i85:                                       ; preds = %_ZN4Data8loadFileEv
   %20 = load ptr, ptr %pixels.i, align 8
   %21 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i92 = icmp eq ptr %21, %20
-  br i1 %tobool.not.i.i.i92, label %if.end50, label %if.end50.sink.split
+  br i1 %tobool.not.i.i.i92, label %if.then52, label %if.then52.sink.split
 
-if.then43:                                        ; preds = %while.cond
+if.else41:                                        ; preds = %while.cond
   tail call void @_Z9showErrorR4DataRK7Options(ptr noundef nonnull align 8 dereferenceable(638) %data, ptr noundef nonnull align 4 dereferenceable(36) %options)
   %call44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.93)
   br label %if.end77.sink.split
 
-if.end50.sink.split:                              ; preds = %if.end.i85, %if.end.i64, %if.end.i43, %if.end.i
+if.then52.sink.split:                             ; preds = %if.end.i85, %if.end.i64, %if.end.i43, %if.end.i
   %.sink = phi ptr [ %8, %if.end.i ], [ %12, %if.end.i43 ], [ %16, %if.end.i64 ], [ %20, %if.end.i85 ]
   store ptr %.sink, ptr %_M_finish.i.i.i, align 8
-  br label %if.end50
+  br label %if.then52
 
-if.end50:                                         ; preds = %if.end50.sink.split, %if.end.i85, %if.end.i64, %if.end.i43, %if.end.i
+if.then52:                                        ; preds = %if.then52.sink.split, %if.end.i85, %if.end.i64, %if.end.i43, %if.end.i
   %call.i97 = tail call noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %pixels.i, ptr noundef nonnull align 4 dereferenceable(4) %w.i95, ptr noundef nonnull align 4 dereferenceable(4) %h.i96, ptr noundef nonnull align 8 dereferenceable(544) %state2, ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i81)
   store i32 %call.i97, ptr %error1, align 8
-  %cmp53.not = icmp eq i32 %call.i97, 0
-  br i1 %cmp53.not, label %if.then54, label %if.end58
+  %cmp53 = icmp eq i32 %call.i97, 0
+  br i1 %cmp53, label %if.then54, label %if.end58
 
-if.then54:                                        ; preds = %if.end50
+if.then54:                                        ; preds = %if.then52
   %call55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.94)
   %call56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call55, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %.pre = load i32, ptr %error1, align 8
   br label %if.end58
 
-if.end58:                                         ; preds = %_ZN4Data8loadFileEv.exit.i, %_ZN4Data8loadFileEv.exit.i56, %_ZN4Data8loadFileEv.exit.i77, %_ZN4Data8loadFileEv.exit.i98, %if.then54, %if.end50
-  %22 = phi i32 [ %.pre, %if.then54 ], [ %call.i97, %if.end50 ], [ %call3.i.i, %_ZN4Data8loadFileEv.exit.i ], [ %call3.i.i57, %_ZN4Data8loadFileEv.exit.i56 ], [ %call3.i.i78, %_ZN4Data8loadFileEv.exit.i77 ], [ %call3.i.i99, %_ZN4Data8loadFileEv.exit.i98 ]
+if.end58:                                         ; preds = %_ZN4Data8loadFileEv.exit.i, %_ZN4Data8loadFileEv.exit.i56, %_ZN4Data8loadFileEv.exit.i77, %_ZN4Data8loadFileEv.exit.i98, %if.then52, %if.then54
+  %22 = phi i32 [ %call3.i.i, %_ZN4Data8loadFileEv.exit.i ], [ %call3.i.i57, %_ZN4Data8loadFileEv.exit.i56 ], [ %call3.i.i78, %_ZN4Data8loadFileEv.exit.i77 ], [ %call3.i.i99, %_ZN4Data8loadFileEv.exit.i98 ], [ %call.i97, %if.then52 ], [ %.pre, %if.then54 ]
   %cmp59 = icmp eq i32 %22, %5
   br i1 %cmp59, label %if.then62, label %while.cond, !llvm.loop !63
 
@@ -6019,8 +6019,8 @@ if.then62:                                        ; preds = %if.end58
   %call63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.95)
   br label %if.end77.sink.split
 
-if.end77.sink.split:                              ; preds = %if.then4, %if.then62, %if.then43
-  %call44.sink = phi ptr [ %call44, %if.then43 ], [ %call63, %if.then62 ], [ %call, %if.then4 ]
+if.end77.sink.split:                              ; preds = %if.then4, %if.then62, %if.else41
+  %call44.sink = phi ptr [ %call44, %if.else41 ], [ %call63, %if.then62 ], [ %call, %if.then4 ]
   %call45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call44.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %if.end77
 

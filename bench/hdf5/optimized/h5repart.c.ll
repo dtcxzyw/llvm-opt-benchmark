@@ -72,8 +72,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %17 = getelementptr inbounds ptr, ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr %18, align 1
-  %.not436 = icmp ne i8 %19, 45
-  br i1 %.not436, label %.critedge, label %sub_1
+  %.not436.not = icmp ne i8 %19, 45
+  br i1 %.not436.not, label %.critedge, label %sub_1
 
 sub_1:                                            ; preds = %.lr.ph
   %20 = getelementptr inbounds i8, ptr %18, i64 1
@@ -180,7 +180,7 @@ sub_2247:                                         ; preds = %sub_1246
   %.0166.lcssa = phi i64 [ 1073741824, %2 ], [ %.1167, %56 ], [ %.0166315, %.lr.ph ]
   %.0165.lcssa = phi i64 [ 1024, %2 ], [ %.1, %56 ], [ %.0165316, %.lr.ph ]
   %.lcssa305 = phi i32 [ 1, %2 ], [ %58, %56 ], [ %15, %.lr.ph ]
-  %.lcssa = phi i1 [ false, %2 ], [ %.not436, %56 ], [ %.not436, %.lr.ph ]
+  %.lcssa = phi i1 [ false, %2 ], [ %.not436.not, %56 ], [ %.not436.not, %.lr.ph ]
   %61 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 4096, i64 noundef 1) #19
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %64

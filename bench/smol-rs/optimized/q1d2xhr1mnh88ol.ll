@@ -593,21 +593,21 @@ define hidden void @_ZN12futures_lite6stream9StreamExt9poll_next17h9a6c24040302b
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c461380164176bfE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %.not20 = icmp eq i64 %1, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq i64 %1, 0
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load ptr, ptr %4, align 8
-  %.promoted22 = load i64, ptr %5, align 8
+  %.promoted21 = load i64, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %7 = phi i64 [ %.promoted22, %.lr.ph ], [ %18, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %7 = phi i64 [ %.promoted21, %.lr.ph ], [ %18, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %8 = phi ptr [ %.promoted, %.lr.ph ], [ %15, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %.121 = phi i64 [ %1, %.lr.ph ], [ %9, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %9 = add i64 %.121, -1
+  %.120 = phi i64 [ %1, %.lr.ph ], [ %9, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %9 = add i64 %.120, -1
   %10 = icmp eq ptr %8, null
   br i1 %10, label %11, label %13
 
@@ -616,7 +616,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c4
   ret i64 %.0
 
 11:                                               ; preds = %6
-  %12 = sub i64 %1, %.121
+  %12 = sub i64 %1, %.120
   br label %.loopexit
 
 13:                                               ; preds = %6
@@ -653,19 +653,19 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
 
 7:                                                ; preds = %2
   %8 = sub nuw i64 %1, %5
-  %.not20 = icmp eq i64 %8, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq i64 %8, 0
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted22 = load ptr, ptr %9, align 8
+  %.promoted21 = load ptr, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %11 = phi ptr [ %.promoted22, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %.121 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %11 = phi ptr [ %.promoted21, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %.120 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %12 = phi i64 [ %5, %.lr.ph ], [ %22, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %13 = add i64 %.121, -1
+  %13 = add i64 %.120, -1
   %14 = icmp eq ptr %11, null
   br i1 %14, label %15, label %17
 
@@ -674,7 +674,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
   ret i64 %.0
 
 15:                                               ; preds = %10
-  %16 = sub i64 %8, %.121
+  %16 = sub i64 %8, %.120
   br label %.loopexit
 
 17:                                               ; preds = %10
@@ -718,17 +718,17 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
 
 10:                                               ; preds = %15, %2
   %.011 = phi i64 [ %.val, %2 ], [ %16, %15 ]
-  %.not22 = icmp eq i64 %.011, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph
+  %.not21 = icmp eq i64 %.011, 0
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = getelementptr inbounds i8, ptr %1, i64 9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load ptr, ptr %11, align 8
-  %.promoted24 = load i8, ptr %12, align 1, !alias.scope !76
-  %.promoted25 = load i64, ptr %13, align 8
-  %14 = trunc nuw i8 %.promoted24 to i1
+  %.promoted23 = load i8, ptr %12, align 1, !alias.scope !76
+  %.promoted24 = load i64, ptr %13, align 8
+  %14 = trunc nuw i8 %.promoted23 to i1
   br label %17
 
 15:                                               ; preds = %6
@@ -736,11 +736,11 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   br label %10
 
 17:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %18 = phi i64 [ %.promoted25, %.lr.ph ], [ %28, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %18 = phi i64 [ %.promoted24, %.lr.ph ], [ %28, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %trunc.i.i.i = phi i1 [ %14, %.lr.ph ], [ false, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %19 = phi ptr [ %.promoted, %.lr.ph ], [ %24, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %.123 = phi i64 [ %.011, %.lr.ph ], [ %20, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %20 = add i64 %.123, -1
+  %.122 = phi i64 [ %.011, %.lr.ph ], [ %20, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %20 = add i64 %.122, -1
   %21 = icmp eq ptr %19, null
   br i1 %21, label %.loopexit, label %22
 
@@ -792,19 +792,19 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
 
 7:                                                ; preds = %2
   %8 = sub nuw i64 %1, %5
-  %.not20 = icmp eq i64 %8, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq i64 %8, 0
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted22 = load ptr, ptr %9, align 8
+  %.promoted21 = load ptr, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit"
-  %11 = phi ptr [ %.promoted22, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
-  %.121 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
+  %11 = phi ptr [ %.promoted21, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
+  %.120 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
   %12 = phi i64 [ %5, %.lr.ph ], [ %22, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
-  %13 = add i64 %.121, -1
+  %13 = add i64 %.120, -1
   %14 = icmp eq ptr %11, null
   br i1 %14, label %15, label %17
 
@@ -813,7 +813,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
   ret i64 %.0
 
 15:                                               ; preds = %10
-  %16 = sub i64 %8, %.121
+  %16 = sub i64 %8, %.120
   br label %.loopexit
 
 17:                                               ; preds = %10

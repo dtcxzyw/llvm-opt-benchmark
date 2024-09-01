@@ -795,7 +795,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i148: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i141
   %cmp.i.i.i149 = icmp eq ptr %__y.addr.1.i.i.i143, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i149, label %land.end, label %lor.lhs.false.i.i150
+  br i1 %cmp.i.i.i149, label %cleanup.action, label %lor.lhs.false.i.i150
 
 lor.lhs.false.i.i150:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i148
   %_M_storage.i.i.i3.i.i151 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i143, i64 32
@@ -812,9 +812,9 @@ terminate.lpad.i.i.i.i153:                        ; preds = %lor.lhs.false.i.i15
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i154: ; preds = %lor.lhs.false.i.i150
   %cmp.i.i.i.i155 = icmp slt i32 %call.i.i.i.i152, 0
   %spec.select.i.i156 = select i1 %cmp.i.i.i.i155, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i143
-  br label %land.end
+  br label %cleanup.action
 
-land.end:                                         ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i148, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i154
+cleanup.action:                                   ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i154, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i148
   %retval.sroa.0.0.i.i157 = phi ptr [ %add.ptr.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i148 ], [ %spec.select.i.i156, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i154 ]
   %cmp.i159 = icmp eq ptr %retval.sroa.0.0.i.i157, %add.ptr.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84) #21
@@ -826,7 +826,7 @@ for.cond109.critedge:                             ; preds = %invoke.cont90
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #21
   br label %for.cond109.preheader
 
-for.cond109.preheader:                            ; preds = %land.end, %for.cond109.critedge
+for.cond109.preheader:                            ; preds = %cleanup.action, %for.cond109.critedge
   %mNumMeshes110 = getelementptr inbounds i8, ptr %100, i64 1120
   %108 = load i32, ptr %mNumMeshes110, align 8
   %cmp111475.not = icmp eq i32 %108, 0
@@ -1049,9 +1049,9 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   %cmp.i121.not = icmp eq ptr %180, %child_nodes
   br i1 %cmp.i121.not, label %for.end146, label %for.body78, !llvm.loop !9
 
-if.end144:                                        ; preds = %for.body78, %land.end, %for.end121, %if.then126
-  %it70.sroa.0.0481528 = phi ptr [ %it70.sroa.0.0.ph485, %if.then126 ], [ %it70.sroa.0.0481, %for.end121 ], [ %it70.sroa.0.0481, %land.end ], [ %it70.sroa.0.0481, %for.body78 ]
-  %join_master.1 = phi ptr [ %100, %if.then126 ], [ %join_master.0.ph486, %for.end121 ], [ %join_master.0.ph486, %land.end ], [ %join_master.0.ph486, %for.body78 ]
+if.end144:                                        ; preds = %for.body78, %cleanup.action, %for.end121, %if.then126
+  %it70.sroa.0.0481528 = phi ptr [ %it70.sroa.0.0.ph485, %if.then126 ], [ %it70.sroa.0.0481, %for.end121 ], [ %it70.sroa.0.0481, %cleanup.action ], [ %it70.sroa.0.0481, %for.body78 ]
+  %join_master.1 = phi ptr [ %100, %if.then126 ], [ %join_master.0.ph486, %for.end121 ], [ %join_master.0.ph486, %cleanup.action ], [ %join_master.0.ph486, %for.body78 ]
   %182 = load ptr, ptr %it70.sroa.0.0481528, align 8
   %cmp.i121.not480 = icmp eq ptr %182, %child_nodes
   br i1 %cmp.i121.not480, label %for.end146, label %for.body78.lr.ph, !llvm.loop !9
@@ -1104,17 +1104,14 @@ if.then172:                                       ; preds = %for.end170
 for.cond179.preheader:                            ; preds = %if.then172
   %191 = load i32, ptr %mNumMeshes173, align 8
   %cmp181492.not = icmp eq i32 %191, 0
-  br i1 %cmp181492.not, label %for.cond193.preheader, label %for.body182.lr.ph
+  br i1 %cmp181492.not, label %for.body195.lr.ph, label %for.body182.lr.ph
 
 for.body182.lr.ph:                                ; preds = %for.cond179.preheader
   %mMeshes183 = getelementptr inbounds i8, ptr %join_master.0.ph.lcssa472, i64 1128
   br label %for.body182
 
-for.cond193.preheader:                            ; preds = %for.body182, %for.cond179.preheader
+for.body195.lr.ph:                                ; preds = %for.body182, %for.cond179.preheader
   %tmp.0.lcssa = phi ptr [ %call177, %for.cond179.preheader ], [ %incdec.ptr, %for.body182 ]
-  br i1 %cmp.i172.not488, label %for.end262, label %for.body195.lr.ph
-
-for.body195.lr.ph:                                ; preds = %for.cond193.preheader
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body195
 
@@ -1130,7 +1127,7 @@ for.body182:                                      ; preds = %for.body182.lr.ph, 
   %194 = load i32, ptr %mNumMeshes173, align 8
   %195 = zext i32 %194 to i64
   %cmp181 = icmp ult i64 %indvars.iv.next541, %195
-  br i1 %cmp181, label %for.body182, label %for.cond193.preheader, !llvm.loop !11
+  br i1 %cmp181, label %for.body182, label %for.body195.lr.ph, !llvm.loop !11
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.inc260
   %tmp.1504 = phi ptr [ %tmp.0.lcssa, %for.body195.lr.ph ], [ %tmp.2.lcssa, %for.inc260 ]
@@ -1507,7 +1504,7 @@ for.inc260:                                       ; preds = %for.inc254, %for.bo
   %cmp.i174.not = icmp eq ptr %333, %join
   br i1 %cmp.i174.not, label %for.end262, label %for.body195
 
-for.end262:                                       ; preds = %for.inc260, %for.cond193.preheader
+for.end262:                                       ; preds = %for.inc260
   %mMeshes263 = getelementptr inbounds i8, ptr %join_master.0.ph.lcssa472, i64 1128
   %334 = load ptr, ptr %mMeshes263, align 8
   %isnull264 = icmp eq ptr %334, null

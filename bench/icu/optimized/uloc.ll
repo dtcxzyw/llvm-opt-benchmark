@@ -2010,19 +2010,19 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %gep = getelementptr i8, ptr %call.pn, i64 %indvars.iv114
   %7 = load i8, ptr %gep, align 1
   %cmp82 = icmp eq i8 %7, 32
-  br i1 %cmp82, label %while.body83, label %while.end84.loopexit.split.loop.exit147
+  br i1 %cmp82, label %while.body83, label %while.end84.loopexit.split.loop.exit148
 
 while.body83:                                     ; preds = %land.rhs
   %indvars.iv.next115 = add nsw i64 %indvars.iv114, -1
   %tobool77.not = icmp eq i64 %indvars.iv.next115, 0
   br i1 %tobool77.not, label %while.end84, label %land.rhs, !llvm.loop !8
 
-while.end84.loopexit.split.loop.exit147:          ; preds = %land.rhs
+while.end84.loopexit.split.loop.exit148:          ; preds = %land.rhs
   %8 = trunc nsw i64 %indvars.iv114 to i32
   br label %while.end84
 
-while.end84:                                      ; preds = %while.body83, %while.end84.loopexit.split.loop.exit147, %if.else
-  %i.2.lcssa = phi i32 [ 0, %if.else ], [ %8, %while.end84.loopexit.split.loop.exit147 ], [ 0, %while.body83 ]
+while.end84:                                      ; preds = %while.body83, %while.end84.loopexit.split.loop.exit148, %if.else
+  %i.2.lcssa = phi i32 [ 0, %if.else ], [ %8, %while.end84.loopexit.split.loop.exit148 ], [ 0, %while.body83 ]
   %valueLen87 = getelementptr inbounds i8, ptr %arrayidx37, i64 40
   store i32 %i.2.lcssa, ptr %valueLen87, align 8
   br label %if.end88
@@ -2030,33 +2030,23 @@ while.end84:                                      ; preds = %while.body83, %whil
 if.end88:                                         ; preds = %while.end84, %while.end65
   %pos.2 = phi ptr [ %incdec.ptr73, %while.end65 ], [ null, %while.end84 ]
   %cmp90.not93 = icmp eq i32 %numKeywords.0, 0
-  br i1 %cmp90.not93, label %for.end105, label %for.body91.preheader
+  br i1 %cmp90.not93, label %for.end105, label %for.body91
 
-for.body91.preheader:                             ; preds = %if.end88
-  %call99159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keywordList, ptr noundef nonnull dereferenceable(1) %arrayidx37) #21
-  %cmp100160 = icmp eq i32 %call99159, 0
-  br i1 %cmp100160, label %for.end105, label %for.cond89
+for.cond89:                                       ; preds = %for.body91
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next121, %idxprom36
+  br i1 %exitcond.not, label %for.end105, label %for.body91, !llvm.loop !9
 
-for.cond89:                                       ; preds = %for.body91.preheader, %for.body91
-  %indvars.iv120161 = phi i64 [ %indvars.iv.next121, %for.body91 ], [ 0, %for.body91.preheader ]
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120161, 1
-  %exitcond = icmp eq i64 %indvars.iv.next121, %idxprom36
-  br i1 %exitcond, label %for.end105.loopexit, label %for.body91, !llvm.loop !9
-
-for.body91:                                       ; preds = %for.cond89
-  %arrayidx93 = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv.next121
+for.body91:                                       ; preds = %if.end88, %for.cond89
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %for.cond89 ], [ 0, %if.end88 ]
+  %arrayidx93 = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv120
   %call99 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx93, ptr noundef nonnull dereferenceable(1) %arrayidx37) #21
   %cmp100 = icmp eq i32 %call99, 0
-  br i1 %cmp100, label %for.end105.loopexit, label %for.cond89, !llvm.loop !9
+  br i1 %cmp100, label %for.end105, label %for.cond89
 
-for.end105.loopexit:                              ; preds = %for.cond89, %for.body91
-  %cmp90.not.le = icmp uge i64 %indvars.iv.next121, %idxprom36
-  br label %for.end105
-
-for.end105:                                       ; preds = %for.end105.loopexit, %for.body91.preheader, %if.end88
-  %cmp90.not.lcssa = phi i1 [ true, %if.end88 ], [ false, %for.body91.preheader ], [ %cmp90.not.le, %for.end105.loopexit ]
-  %inc108 = zext i1 %cmp90.not.lcssa to i32
-  %spec.select = add nuw nsw i32 %numKeywords.0, %inc108
+for.end105:                                       ; preds = %for.cond89, %for.body91, %if.end88
+  %cmp90.not.lcssa = phi i32 [ 1, %if.end88 ], [ 0, %for.body91 ], [ 1, %for.cond89 ]
+  %spec.select = add nuw nsw i32 %cmp90.not.lcssa, %numKeywords.0
   %tobool110.not = icmp eq ptr %pos.2, null
   br i1 %tobool110.not, label %do.end, label %do.body, !llvm.loop !10
 
@@ -2073,16 +2063,16 @@ for.body114.lr.ph:                                ; preds = %do.end
 for.body114.preheader:                            ; preds = %for.body114.lr.ph
   %sub134 = add nsw i32 %numKeywords.1, -1
   %9 = zext nneg i32 %sub134 to i64
-  %wide.trip.count125 = zext nneg i32 %numKeywords.1 to i64
+  %wide.trip.count126 = zext nneg i32 %numKeywords.1 to i64
   br label %for.body114
 
 for.body114.us.preheader:                         ; preds = %for.body114.lr.ph
-  %wide.trip.count130 = zext nneg i32 %numKeywords.1 to i64
+  %wide.trip.count131 = zext nneg i32 %numKeywords.1 to i64
   br label %for.body114.us
 
 for.body114.us:                                   ; preds = %for.body114.us.preheader, %for.body114.us
-  %indvars.iv127 = phi i64 [ 0, %for.body114.us.preheader ], [ %indvars.iv.next128, %for.body114.us ]
-  %arrayidx116.us = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv127
+  %indvars.iv128 = phi i64 [ 0, %for.body114.us.preheader ], [ %indvars.iv.next129, %for.body114.us ]
+  %arrayidx116.us = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv128
   %keywordLen121.us = getelementptr inbounds i8, ptr %arrayidx116.us, i64 28
   %10 = load i32, ptr %keywordLen121.us, align 4
   %vtable.us = load ptr, ptr %sink, align 8
@@ -2093,13 +2083,13 @@ for.body114.us:                                   ; preds = %for.body114.us.preh
   %vfn142.us = getelementptr inbounds i8, ptr %vtable141.us, i64 16
   %12 = load ptr, ptr %vfn142.us, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @.str.2, i32 noundef 1)
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %if.end147, label %for.body114.us, !llvm.loop !11
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
+  br i1 %exitcond132.not, label %if.end147, label %for.body114.us, !llvm.loop !11
 
 for.body114:                                      ; preds = %for.body114.preheader, %for.inc144
-  %indvars.iv122 = phi i64 [ 0, %for.body114.preheader ], [ %indvars.iv.next123, %for.inc144 ]
-  %arrayidx116 = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv122
+  %indvars.iv123 = phi i64 [ 0, %for.body114.preheader ], [ %indvars.iv.next124, %for.inc144 ]
+  %arrayidx116 = getelementptr inbounds [25 x %struct.KeywordStruct], ptr %keywordList, i64 0, i64 %indvars.iv123
   %keywordLen121 = getelementptr inbounds i8, ptr %arrayidx116, i64 28
   %13 = load i32, ptr %keywordLen121, align 4
   %vtable = load ptr, ptr %sink, align 8
@@ -2118,7 +2108,7 @@ for.body114:                                      ; preds = %for.body114.prehead
   %vfn133 = getelementptr inbounds i8, ptr %vtable132, i64 16
   %18 = load ptr, ptr %vfn133, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %16, i32 noundef %17)
-  %cmp135 = icmp ult i64 %indvars.iv122, %9
+  %cmp135 = icmp ult i64 %indvars.iv123, %9
   br i1 %cmp135, label %if.then136, label %for.inc144
 
 if.then136:                                       ; preds = %for.body114
@@ -2129,9 +2119,9 @@ if.then136:                                       ; preds = %for.body114
   br label %for.inc144
 
 for.inc144:                                       ; preds = %if.then136, %for.body114
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %if.end147, label %for.body114, !llvm.loop !11
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
+  br i1 %exitcond127.not, label %if.end147, label %for.body114, !llvm.loop !11
 
 if.end147.sink.split:                             ; preds = %lor.lhs.false51, %for.end, %for.cond.preheader, %if.end12, %if.end6, %lor.lhs.false, %if.end, %while.cond44
   %.sink = phi i32 [ 3, %while.cond44 ], [ 5, %if.end ], [ 3, %lor.lhs.false ], [ 3, %if.end6 ], [ 5, %if.end12 ], [ 3, %for.cond.preheader ], [ 3, %for.end ], [ 3, %lor.lhs.false51 ]

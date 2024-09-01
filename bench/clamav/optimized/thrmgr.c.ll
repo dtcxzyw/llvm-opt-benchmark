@@ -1387,14 +1387,14 @@ define internal noundef ptr @thrmgr_worker(ptr noundef %0) #0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 328
   br label %18
 
-._crit_edge:                                      ; preds = %131, %1
+._crit_edge:                                      ; preds = %132, %1
   %17 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35) #12
   call void @exit(i32 noundef -2) #14
   unreachable
 
-18:                                               ; preds = %.lr.ph, %131
-  %.not2743 = phi i1 [ true, %.lr.ph ], [ false, %131 ]
-  %.02442 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %131 ]
+18:                                               ; preds = %.lr.ph, %132
+  %.not2743 = phi i1 [ true, %.lr.ph ], [ false, %132 ]
+  %.02442 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %132 ]
   br i1 %.not2743, label %19, label %stats_init.exit
 
 19:                                               ; preds = %18
@@ -1634,118 +1634,119 @@ thrmgr_pop.exit:                                  ; preds = %101, %thrmgr_conten
   br label %.critedge
 
 .critedge:                                        ; preds = %thrmgr_pop.exit, %115, %..critedge_crit_edge
-  %120 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %.pre44, %thrmgr_pop.exit ], [ 2, %115 ]
+  %120 = phi i1 [ true, %..critedge_crit_edge ], [ %114, %115 ], [ %114, %thrmgr_pop.exit ]
+  %121 = phi i32 [ %.pre, %..critedge_crit_edge ], [ 2, %115 ], [ %.pre44, %thrmgr_pop.exit ]
   %.125 = phi i32 [ 1, %..critedge_crit_edge ], [ %.02442, %115 ], [ %.02442, %thrmgr_pop.exit ]
-  %121 = load i32, ptr %7, align 8
-  %122 = add nsw i32 %121, -1
-  store i32 %122, ptr %7, align 8
-  %123 = icmp eq i32 %120, 2
-  %spec.select = select i1 %123, i32 1, i32 %.125
-  %124 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
-  %.not29 = icmp eq i32 %124, 0
-  br i1 %.not29, label %127, label %125
+  %122 = load i32, ptr %7, align 8
+  %123 = add nsw i32 %122, -1
+  store i32 %123, ptr %7, align 8
+  %124 = icmp eq i32 %121, 2
+  %spec.select = select i1 %124, i32 1, i32 %.125
+  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
+  %.not29 = icmp eq i32 %125, 0
+  br i1 %.not29, label %128, label %126
 
-125:                                              ; preds = %.critedge
-  %126 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36) #12
+126:                                              ; preds = %.critedge
+  %127 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36) #12
   call void @exit(i32 noundef -2) #14
   unreachable
 
-127:                                              ; preds = %.critedge
-  br i1 %114, label %130, label %128
+128:                                              ; preds = %.critedge
+  br i1 %120, label %131, label %129
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %16, align 8
-  call void %129(ptr noundef nonnull %.021.i) #12
-  br label %131
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %16, align 8
+  call void %130(ptr noundef nonnull %.021.i) #12
+  br label %132
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   %.not31 = icmp eq i32 %spec.select, 0
-  br i1 %.not31, label %131, label %133
+  br i1 %.not31, label %132, label %134
 
-131:                                              ; preds = %130, %128
-  %132 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #12
-  %.not = icmp eq i32 %132, 0
+132:                                              ; preds = %131, %129
+  %133 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #12
+  %.not = icmp eq i32 %133, 0
   br i1 %.not, label %18, label %._crit_edge
 
-133:                                              ; preds = %130
-  %134 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #12
-  %.not32 = icmp eq i32 %134, 0
-  br i1 %.not32, label %137, label %135
+134:                                              ; preds = %131
+  %135 = call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #12
+  %.not32 = icmp eq i32 %135, 0
+  br i1 %.not32, label %138, label %136
 
-135:                                              ; preds = %133
-  %136 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35) #12
+136:                                              ; preds = %134
+  %137 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35) #12
   call void @exit(i32 noundef -2) #14
   unreachable
 
-137:                                              ; preds = %133
-  %138 = load i32, ptr %12, align 4
-  %139 = add nsw i32 %138, -1
-  store i32 %139, ptr %12, align 4
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %143
+138:                                              ; preds = %134
+  %139 = load i32, ptr %12, align 4
+  %140 = add nsw i32 %139, -1
+  store i32 %140, ptr %12, align 4
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %144
 
-141:                                              ; preds = %137
-  %142 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %15) #12
-  br label %143
+142:                                              ; preds = %138
+  %143 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %15) #12
+  br label %144
 
-143:                                              ; preds = %141, %137
-  %144 = load i32, ptr @stats_tls_key, align 4
-  %145 = call ptr @pthread_getspecific(i32 noundef %144) #12
-  %.not.i37 = icmp eq ptr %145, null
-  br i1 %.not.i37, label %stats_destroy.exit, label %146
+144:                                              ; preds = %142, %138
+  %145 = load i32, ptr @stats_tls_key, align 4
+  %146 = call ptr @pthread_getspecific(i32 noundef %145) #12
+  %.not.i37 = icmp eq ptr %146, null
+  br i1 %.not.i37, label %stats_destroy.exit, label %147
 
-146:                                              ; preds = %143
-  %147 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pools_lock) #12
-  %148 = getelementptr inbounds i8, ptr %145, i64 32
-  %149 = load ptr, ptr %148, align 8
-  %.not14.i = icmp eq ptr %149, null
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %145, i64 40
+147:                                              ; preds = %144
+  %148 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pools_lock) #12
+  %149 = getelementptr inbounds i8, ptr %146, i64 32
+  %150 = load ptr, ptr %149, align 8
+  %.not14.i = icmp eq ptr %150, null
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %146, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not14.i, label %._crit_edge.i, label %150
+  br i1 %.not14.i, label %._crit_edge.i, label %151
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %149, i64 40
-  store ptr %.pre.i, ptr %151, align 8
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds i8, ptr %150, i64 40
+  store ptr %.pre.i, ptr %152, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %150, %146
+._crit_edge.i:                                    ; preds = %151, %147
   %.not15.i = icmp eq ptr %.pre.i, null
-  br i1 %.not15.i, label %155, label %152
+  br i1 %.not15.i, label %156, label %153
 
-152:                                              ; preds = %._crit_edge.i
-  %153 = load ptr, ptr %148, align 8
-  %154 = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  store ptr %153, ptr %154, align 8
-  br label %155
+153:                                              ; preds = %._crit_edge.i
+  %154 = load ptr, ptr %149, align 8
+  %155 = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  store ptr %154, ptr %155, align 8
+  br label %156
 
-155:                                              ; preds = %152, %._crit_edge.i
-  %156 = load ptr, ptr %4, align 8
-  %157 = icmp eq ptr %156, %145
-  br i1 %157, label %158, label %160
+156:                                              ; preds = %153, %._crit_edge.i
+  %157 = load ptr, ptr %4, align 8
+  %158 = icmp eq ptr %157, %146
+  br i1 %158, label %159, label %161
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %.phi.trans.insert.i, align 8
-  store ptr %159, ptr %4, align 8
-  br label %160
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %.phi.trans.insert.i, align 8
+  store ptr %160, ptr %4, align 8
+  br label %161
 
-160:                                              ; preds = %158, %155
-  call void @free(ptr noundef nonnull %145) #12
-  %161 = load i32, ptr @stats_tls_key, align 4
-  %162 = call i32 @pthread_setspecific(i32 noundef %161, ptr noundef null) #12
-  %163 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @pools_lock) #12
+161:                                              ; preds = %159, %156
+  call void @free(ptr noundef nonnull %146) #12
+  %162 = load i32, ptr @stats_tls_key, align 4
+  %163 = call i32 @pthread_setspecific(i32 noundef %162, ptr noundef null) #12
+  %164 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @pools_lock) #12
   br label %stats_destroy.exit
 
-stats_destroy.exit:                               ; preds = %143, %160
-  %164 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
-  %.not33 = icmp eq i32 %164, 0
-  br i1 %.not33, label %167, label %165
+stats_destroy.exit:                               ; preds = %144, %161
+  %165 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
+  %.not33 = icmp eq i32 %165, 0
+  br i1 %.not33, label %168, label %166
 
-165:                                              ; preds = %stats_destroy.exit
-  %166 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36) #12
+166:                                              ; preds = %stats_destroy.exit
+  %167 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36) #12
   call void @exit(i32 noundef -2) #14
   unreachable
 
-167:                                              ; preds = %stats_destroy.exit
+168:                                              ; preds = %stats_destroy.exit
   ret ptr null
 }
 

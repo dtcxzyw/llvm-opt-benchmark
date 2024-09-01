@@ -1878,77 +1878,74 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %35
   %43 = icmp slt i32 %spec.select, 1
   br i1 %43, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, %52
-  %44 = phi i1 [ %54, %52 ], [ false, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ]
-  %.01223 = phi i32 [ %53, %52 ], [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ]
-  %45 = invoke noundef i32 @_ZN2cv2ml10DTreesImpl7addTreeERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %46 unwind label %.loopexit
+.lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, %51
+  %.01223 = phi i32 [ %52, %51 ], [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ]
+  %44 = invoke noundef i32 @_ZN2cv2ml10DTreesImpl7addTreeERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %45 unwind label %.loopexit
 
-46:                                               ; preds = %.lr.ph
-  %47 = icmp slt i32 %45, 0
-  br i1 %47, label %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, label %51
+45:                                               ; preds = %.lr.ph
+  %46 = icmp slt i32 %44, 0
+  br i1 %46, label %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, label %50
 
-.loopexit:                                        ; preds = %.lr.ph, %51
+.loopexit:                                        ; preds = %.lr.ph, %50
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-48:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %49 = load ptr, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %50
+  %48 = load ptr, ptr %6, align 8
+  %.not.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %49
 
-50:                                               ; preds = %48
-  call void @_ZdlPv(ptr noundef nonnull %49) #21
+49:                                               ; preds = %47
+  call void @_ZdlPv(ptr noundef nonnull %48) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-51:                                               ; preds = %46
+50:                                               ; preds = %45
   invoke void @_ZN2cv2ml18DTreesImplForBoost20updateWeightsAndTrimEiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %.01223, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %52 unwind label %.loopexit
+          to label %51 unwind label %.loopexit
 
-52:                                               ; preds = %51
-  %53 = add nuw nsw i32 %.01223, 1
-  %54 = icmp sge i32 %53, %spec.select
-  %exitcond = icmp eq i32 %53, %spec.select
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+51:                                               ; preds = %50
+  %52 = add nuw nsw i32 %.01223, 1
+  %exitcond.not = icmp eq i32 %52, %spec.select
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %52, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %.lcssa = phi i1 [ true, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ %54, %52 ]
+._crit_edge:                                      ; preds = %51, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   invoke void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %0, i64 464
-  %56 = load ptr, ptr %55, align 8
-  %.not.i.i.i.i18 = icmp eq ptr %56, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i18, label %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, label %57
+  %53 = getelementptr inbounds i8, ptr %0, i64 464
+  %54 = load ptr, ptr %53, align 8
+  %.not.i.i.i.i18 = icmp eq ptr %54, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i18, label %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, label %55
 
-57:                                               ; preds = %.noexc
-  call void @_ZdlPv(ptr noundef nonnull %56) #21
+55:                                               ; preds = %.noexc
+  call void @_ZdlPv(ptr noundef nonnull %54) #21
   br label %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit
 
-_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit: ; preds = %46, %57, %.noexc
-  %58 = phi i1 [ %.lcssa, %57 ], [ %.lcssa, %.noexc ], [ %44, %46 ]
-  %59 = load ptr, ptr %6, align 8
-  %.not.i.i.i19 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i19, label %_ZNSt6vectorIiSaIiEED2Ev.exit20, label %60
+_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit: ; preds = %45, %55, %.noexc
+  %56 = phi i1 [ true, %55 ], [ true, %.noexc ], [ false, %45 ]
+  %57 = load ptr, ptr %6, align 8
+  %.not.i.i.i19 = icmp eq ptr %57, null
+  br i1 %.not.i.i.i19, label %_ZNSt6vectorIiSaIiEED2Ev.exit20, label %58
 
-60:                                               ; preds = %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit
-  call void @_ZdlPv(ptr noundef nonnull %59) #21
+58:                                               ; preds = %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit
+  call void @_ZdlPv(ptr noundef nonnull %57) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit20
 
-_ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, %60
-  ret i1 %58
+_ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %_ZN2cv2ml18DTreesImplForBoost11endTrainingEv.exit, %58
+  ret i1 %56
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %50, %48, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %16 ], [ %lpad.phi, %48 ], [ %lpad.phi, %50 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %49, %47, %16
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %16 ], [ %lpad.phi, %47 ], [ %lpad.phi, %49 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2390,17 +2387,17 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   %92 = fadd double %.01719.i, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %86, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %86, !llvm.loop !22
 
-.lr.ph23.preheader.i:                             ; preds = %86
+._crit_edge.i:                                    ; preds = %86
   %93 = fcmp ogt double %92, 0x3CB0000000000000
   %94 = fdiv double 1.000000e+00, %92
   %.016.i = select i1 %93, double %94, double 0.000000e+00
   %.015.i = select i1 %93, double 0.000000e+00, double 1.000000e+00
   br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
-  %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.preheader.i ], [ %indvars.iv.next27.i, %.lr.ph23.i ]
+.lr.ph23.i:                                       ; preds = %.lr.ph23.i, %._crit_edge.i
+  %indvars.iv26.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next27.i, %.lr.ph23.i ]
   %95 = load ptr, ptr %19, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 184
   %97 = getelementptr inbounds i8, ptr %95, i64 256
@@ -3342,17 +3339,17 @@ _ZN2cv2ml18DTreesImplForBoost9scaleTreeEid.exit:  ; preds = %242, %185, %156
   %272 = fadd double %.01719.i, %271
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %266, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %266, !llvm.loop !22
 
-.lr.ph23.preheader.i:                             ; preds = %266
+._crit_edge.i:                                    ; preds = %266
   %273 = fcmp ogt double %272, 0x3CB0000000000000
   %274 = fdiv double 1.000000e+00, %272
   %.016.i = select i1 %273, double %274, double 0.000000e+00
   %.015.i = select i1 %273, double 0.000000e+00, double 1.000000e+00
   br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
-  %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.preheader.i ], [ %indvars.iv.next27.i, %.lr.ph23.i ]
+.lr.ph23.i:                                       ; preds = %.lr.ph23.i, %._crit_edge.i
+  %indvars.iv26.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next27.i, %.lr.ph23.i ]
   %275 = load ptr, ptr %12, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 184
   %277 = getelementptr inbounds i8, ptr %275, i64 256

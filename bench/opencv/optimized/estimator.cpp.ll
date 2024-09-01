@@ -6227,17 +6227,14 @@ define linkonce_odr hidden void @_ZNK2cv4usac17NormTransformImpl21getNormTransfo
   %46 = fdiv double %31, %44
   %47 = fdiv double %37, %44
   %48 = fdiv double %43, %44
-  br i1 %10, label %.lr.ph142, label %._crit_edge143
-
-.lr.ph142:                                        ; preds = %._crit_edge
   %49 = load ptr, ptr %2, align 8
   %wide.trip.count160 = zext nneg i32 %3 to i64
   br label %50
 
-50:                                               ; preds = %.lr.ph142, %50
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next158, %50 ]
-  %.0116140 = phi double [ 0.000000e+00, %.lr.ph142 ], [ %79, %50 ]
-  %.0117139 = phi double [ 0.000000e+00, %.lr.ph142 ], [ %82, %50 ]
+50:                                               ; preds = %._crit_edge, %50
+  %indvars.iv157 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next158, %50 ]
+  %.0116140 = phi double [ 0.000000e+00, %._crit_edge ], [ %79, %50 ]
+  %.0117139 = phi double [ 0.000000e+00, %._crit_edge ], [ %82, %50 ]
   %51 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv157
   %52 = load i32, ptr %51, align 4
   %53 = shl nsw i32 %52, 2
@@ -6276,14 +6273,14 @@ define linkonce_odr hidden void @_ZNK2cv4usac17NormTransformImpl21getNormTransfo
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %._crit_edge143, label %50, !llvm.loop !81
 
-._crit_edge143:                                   ; preds = %50, %._crit_edge.thread, %._crit_edge
-  %83 = phi double [ %48, %._crit_edge ], [ %15, %._crit_edge.thread ], [ %48, %50 ]
-  %84 = phi double [ %47, %._crit_edge ], [ %14, %._crit_edge.thread ], [ %47, %50 ]
-  %85 = phi double [ %46, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %46, %50 ]
-  %86 = phi double [ %45, %._crit_edge ], [ %12, %._crit_edge.thread ], [ %45, %50 ]
-  %87 = phi double [ %44, %._crit_edge ], [ %11, %._crit_edge.thread ], [ %44, %50 ]
-  %.0117.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %82, %50 ]
-  %.0116.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %79, %50 ]
+._crit_edge143:                                   ; preds = %50, %._crit_edge.thread
+  %83 = phi double [ %15, %._crit_edge.thread ], [ %48, %50 ]
+  %84 = phi double [ %14, %._crit_edge.thread ], [ %47, %50 ]
+  %85 = phi double [ %13, %._crit_edge.thread ], [ %46, %50 ]
+  %86 = phi double [ %12, %._crit_edge.thread ], [ %45, %50 ]
+  %87 = phi double [ %11, %._crit_edge.thread ], [ %44, %50 ]
+  %.0117.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %82, %50 ]
+  %.0116.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %79, %50 ]
   %88 = fdiv double %.0116.lcssa, %87
   %89 = fdiv double 0x3FF6A09E667F3BCD, %88
   %90 = fdiv double %.0117.lcssa, %87

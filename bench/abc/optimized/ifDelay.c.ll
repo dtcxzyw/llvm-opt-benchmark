@@ -214,7 +214,7 @@ define i32 @If_CutSopBalancePinDelaysInt(ptr nocapture noundef readonly %0, ptr 
   %10 = getelementptr i8, ptr %0, i64 4
   %.val32 = load i32, ptr %10, align 4
   %11 = icmp sgt i32 %.val32, 70
-  br i1 %11, label %229, label %.preheader
+  br i1 %11, label %220, label %.preheader
 
 .preheader:                                       ; preds = %5
   %12 = icmp sgt i32 %.val32, 0
@@ -231,7 +231,7 @@ define i32 @If_CutSopBalancePinDelaysInt(ptr nocapture noundef readonly %0, ptr 
 
 15:                                               ; preds = %.lr.ph113, %If_LogCounterPinDelays.exit76
   %indvars.iv133 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next134, %If_LogCounterPinDelays.exit76 ]
-  %.027112 = phi i32 [ 0, %.lr.ph113 ], [ %195, %If_LogCounterPinDelays.exit76 ]
+  %.027112 = phi i32 [ 0, %.lr.ph113 ], [ %186, %If_LogCounterPinDelays.exit76 ]
   %.098110 = phi i32 [ 0, %.lr.ph113 ], [ %.0.i47, %If_LogCounterPinDelays.exit76 ]
   %16 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv133
   %17 = load i32, ptr %16, align 4
@@ -374,312 +374,298 @@ If_LogCounterPinDelays.exit:                      ; preds = %.preheader.split.us
 
 .lr.ph.i34:                                       ; preds = %._crit_edge
   %83 = zext nneg i32 %.1100 to i64
-  br i1 %14, label %.lr.ph.preheader.i.us.i36, label %If_CutPinDelayMax.exit.preheader.i
-
-If_CutPinDelayMax.exit.preheader.i:               ; preds = %.lr.ph.i34
-  %84 = shl nuw nsw i64 %83, 3
-  %85 = add nsw i64 %84, -16
-  %86 = add nsw i32 %.1100, -2
-  %87 = zext nneg i32 %86 to i64
-  %88 = shl nuw nsw i64 %87, 3
-  %89 = sub nsw i64 %85, %88
-  %scevgep.i = getelementptr i8, ptr %6, i64 %89
-  %90 = add nsw i32 %.1100, -1
-  %91 = zext nneg i32 %90 to i64
-  %92 = shl nuw nsw i64 %91, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %92, i1 false)
-  br label %If_LogPinDelaysMulti.exit
+  br label %.lr.ph.preheader.i.us.i36
 
 .lr.ph.preheader.i.us.i36:                        ; preds = %.lr.ph.i34, %If_CutPinDelayMax.exit.loopexit.us.i46
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i38, %If_CutPinDelayMax.exit.loopexit.us.i46 ], [ %83, %.lr.ph.i34 ]
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, -1
-  %93 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next.i38
-  %94 = load i64, ptr %93, align 8
+  %84 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next.i38
+  %85 = load i64, ptr %84, align 8
   %gep.us.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i37
-  %95 = load i64, ptr %gep.us.i, align 8
+  %86 = load i64, ptr %gep.us.i, align 8
   br label %.lr.ph.i.us.i39
 
-.lr.ph.i.us.i39:                                  ; preds = %111, %.lr.ph.preheader.i.us.i36
-  %indvars.iv.i.us.i40 = phi i64 [ 0, %.lr.ph.preheader.i.us.i36 ], [ %indvars.iv.next.i.us.i44, %111 ]
-  %.01213.i.us.i41 = phi i64 [ 0, %.lr.ph.preheader.i.us.i36 ], [ %.1.i.us.i43, %111 ]
-  %96 = shl i64 %indvars.iv.i.us.i40, 2
-  %97 = and i64 %96, 4294967292
-  %98 = lshr i64 %94, %97
-  %99 = trunc i64 %98 to i32
-  %100 = and i32 %99, 15
-  %101 = lshr i64 %95, %97
-  %102 = trunc i64 %101 to i32
-  %103 = and i32 %102, 15
-  %104 = tail call i32 @llvm.umax.i32(i32 %100, i32 %103)
-  %.not.i.us.i42 = icmp eq i32 %104, 0
-  br i1 %.not.i.us.i42, label %111, label %105
+.lr.ph.i.us.i39:                                  ; preds = %102, %.lr.ph.preheader.i.us.i36
+  %indvars.iv.i.us.i40 = phi i64 [ 0, %.lr.ph.preheader.i.us.i36 ], [ %indvars.iv.next.i.us.i44, %102 ]
+  %.01213.i.us.i41 = phi i64 [ 0, %.lr.ph.preheader.i.us.i36 ], [ %.1.i.us.i43, %102 ]
+  %87 = shl i64 %indvars.iv.i.us.i40, 2
+  %88 = and i64 %87, 4294967292
+  %89 = lshr i64 %85, %88
+  %90 = trunc i64 %89 to i32
+  %91 = and i32 %90, 15
+  %92 = lshr i64 %86, %88
+  %93 = trunc i64 %92 to i32
+  %94 = and i32 %93, 15
+  %95 = tail call i32 @llvm.umax.i32(i32 %91, i32 %94)
+  %.not.i.us.i42 = icmp eq i32 %95, 0
+  br i1 %.not.i.us.i42, label %102, label %96
 
-105:                                              ; preds = %.lr.ph.i.us.i39
-  %106 = tail call i32 @llvm.umin.i32(i32 %104, i32 14)
-  %107 = add nuw nsw i32 %106, 1
-  %108 = zext nneg i32 %107 to i64
-  %109 = shl i64 %108, %97
-  %110 = or i64 %109, %.01213.i.us.i41
-  br label %111
+96:                                               ; preds = %.lr.ph.i.us.i39
+  %97 = tail call i32 @llvm.umin.i32(i32 %95, i32 14)
+  %98 = add nuw nsw i32 %97, 1
+  %99 = zext nneg i32 %98 to i64
+  %100 = shl i64 %99, %88
+  %101 = or i64 %100, %.01213.i.us.i41
+  br label %102
 
-111:                                              ; preds = %105, %.lr.ph.i.us.i39
-  %.1.i.us.i43 = phi i64 [ %.01213.i.us.i41, %.lr.ph.i.us.i39 ], [ %110, %105 ]
+102:                                              ; preds = %96, %.lr.ph.i.us.i39
+  %.1.i.us.i43 = phi i64 [ %.01213.i.us.i41, %.lr.ph.i.us.i39 ], [ %101, %96 ]
   %indvars.iv.next.i.us.i44 = add nuw nsw i64 %indvars.iv.i.us.i40, 1
   %exitcond.not.i.us.i45 = icmp eq i64 %indvars.iv.next.i.us.i44, %wide.trip.count.i.i
   br i1 %exitcond.not.i.us.i45, label %If_CutPinDelayMax.exit.loopexit.us.i46, label %.lr.ph.i.us.i39, !llvm.loop !9
 
-If_CutPinDelayMax.exit.loopexit.us.i46:           ; preds = %111
+If_CutPinDelayMax.exit.loopexit.us.i46:           ; preds = %102
   store i64 %.1.i.us.i43, ptr %gep.us.i, align 8
-  %112 = icmp sgt i64 %indvars.iv.i37, 2
-  br i1 %112, label %.lr.ph.preheader.i.us.i36, label %If_LogPinDelaysMulti.exit, !llvm.loop !13
+  %103 = icmp sgt i64 %indvars.iv.i37, 2
+  br i1 %103, label %.lr.ph.preheader.i.us.i36, label %If_LogPinDelaysMulti.exit, !llvm.loop !13
 
-If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i46, %15, %._crit_edge, %If_CutPinDelayMax.exit.preheader.i
-  %.1.lcssa140 = phi i32 [ %.2, %._crit_edge ], [ %.2, %If_CutPinDelayMax.exit.preheader.i ], [ %.027112, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
-  %113 = load i64, ptr %6, align 16
-  %114 = sext i32 %.098110 to i64
-  %115 = getelementptr inbounds i64, ptr %7, i64 %114
-  store i64 %113, ptr %115, align 8
-  %116 = add nsw i32 %.098110, 1
-  %117 = getelementptr inbounds i32, ptr %9, i64 %114
-  store i32 %.1.lcssa140, ptr %117, align 4
-  %118 = icmp sgt i32 %.098110, 0
-  br i1 %118, label %.preheader.i48, label %If_LogCounterPinDelays.exit76
+If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i46, %15, %._crit_edge
+  %.1.lcssa140 = phi i32 [ %.2, %._crit_edge ], [ %.027112, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
+  %104 = load i64, ptr %6, align 16
+  %105 = sext i32 %.098110 to i64
+  %106 = getelementptr inbounds i64, ptr %7, i64 %105
+  store i64 %104, ptr %106, align 8
+  %107 = add nsw i32 %.098110, 1
+  %108 = getelementptr inbounds i32, ptr %9, i64 %105
+  store i32 %.1.lcssa140, ptr %108, align 4
+  %109 = icmp sgt i32 %.098110, 0
+  br i1 %109, label %.preheader.i48, label %If_LogCounterPinDelays.exit76
 
 .preheader.i48:                                   ; preds = %If_LogPinDelaysMulti.exit
   br i1 %14, label %.preheader.split.us.i59, label %.preheader.split.i50
 
 .preheader.split.us.i59:                          ; preds = %.preheader.i48, %.loopexit.us.i71
-  %.175.us.i60 = phi i32 [ %.2.us.i72, %.loopexit.us.i71 ], [ %116, %.preheader.i48 ]
-  %.06674.us.i61 = phi i32 [ %122, %.loopexit.us.i71 ], [ %.098110, %.preheader.i48 ]
-  %119 = zext nneg i32 %.06674.us.i61 to i64
-  %120 = getelementptr inbounds i32, ptr %9, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = add nsw i32 %.06674.us.i61, -1
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %9, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %121, %125
-  br i1 %126, label %If_LogCounterPinDelays.exit76, label %127
+  %.175.us.i60 = phi i32 [ %.2.us.i72, %.loopexit.us.i71 ], [ %107, %.preheader.i48 ]
+  %.06674.us.i61 = phi i32 [ %113, %.loopexit.us.i71 ], [ %.098110, %.preheader.i48 ]
+  %110 = zext nneg i32 %.06674.us.i61 to i64
+  %111 = getelementptr inbounds i32, ptr %9, i64 %110
+  %112 = load i32, ptr %111, align 4
+  %113 = add nsw i32 %.06674.us.i61, -1
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds i32, ptr %9, i64 %114
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp slt i32 %112, %116
+  br i1 %117, label %If_LogCounterPinDelays.exit76, label %118
 
-127:                                              ; preds = %.preheader.split.us.i59
-  %128 = icmp sgt i32 %121, %125
-  %129 = getelementptr inbounds i64, ptr %7, i64 %119
-  %130 = getelementptr inbounds i64, ptr %7, i64 %123
-  br i1 %128, label %158, label %.lr.ph.preheader.i.us.i62
+118:                                              ; preds = %.preheader.split.us.i59
+  %119 = icmp sgt i32 %112, %116
+  %120 = getelementptr inbounds i64, ptr %7, i64 %110
+  %121 = getelementptr inbounds i64, ptr %7, i64 %114
+  br i1 %119, label %149, label %.lr.ph.preheader.i.us.i62
 
-.lr.ph.preheader.i.us.i62:                        ; preds = %127
-  %131 = add nsw i32 %125, 1
-  store i32 %131, ptr %124, align 4
-  %132 = load i64, ptr %129, align 8
-  %133 = load i64, ptr %130, align 8
+.lr.ph.preheader.i.us.i62:                        ; preds = %118
+  %122 = add nsw i32 %116, 1
+  store i32 %122, ptr %115, align 4
+  %123 = load i64, ptr %120, align 8
+  %124 = load i64, ptr %121, align 8
   br label %.lr.ph.i.us.i63
 
-.lr.ph.i.us.i63:                                  ; preds = %149, %.lr.ph.preheader.i.us.i62
-  %indvars.iv.i.us.i64 = phi i64 [ 0, %.lr.ph.preheader.i.us.i62 ], [ %indvars.iv.next.i.us.i68, %149 ]
-  %.01213.i.us.i65 = phi i64 [ 0, %.lr.ph.preheader.i.us.i62 ], [ %.1.i.us.i67, %149 ]
-  %134 = shl i64 %indvars.iv.i.us.i64, 2
-  %135 = and i64 %134, 4294967292
-  %136 = lshr i64 %132, %135
-  %137 = trunc i64 %136 to i32
-  %138 = and i32 %137, 15
-  %139 = lshr i64 %133, %135
-  %140 = trunc i64 %139 to i32
-  %141 = and i32 %140, 15
-  %142 = tail call i32 @llvm.umax.i32(i32 %138, i32 %141)
-  %.not.i.us.i66 = icmp eq i32 %142, 0
-  br i1 %.not.i.us.i66, label %149, label %143
+.lr.ph.i.us.i63:                                  ; preds = %140, %.lr.ph.preheader.i.us.i62
+  %indvars.iv.i.us.i64 = phi i64 [ 0, %.lr.ph.preheader.i.us.i62 ], [ %indvars.iv.next.i.us.i68, %140 ]
+  %.01213.i.us.i65 = phi i64 [ 0, %.lr.ph.preheader.i.us.i62 ], [ %.1.i.us.i67, %140 ]
+  %125 = shl i64 %indvars.iv.i.us.i64, 2
+  %126 = and i64 %125, 4294967292
+  %127 = lshr i64 %123, %126
+  %128 = trunc i64 %127 to i32
+  %129 = and i32 %128, 15
+  %130 = lshr i64 %124, %126
+  %131 = trunc i64 %130 to i32
+  %132 = and i32 %131, 15
+  %133 = tail call i32 @llvm.umax.i32(i32 %129, i32 %132)
+  %.not.i.us.i66 = icmp eq i32 %133, 0
+  br i1 %.not.i.us.i66, label %140, label %134
 
-143:                                              ; preds = %.lr.ph.i.us.i63
-  %144 = tail call i32 @llvm.umin.i32(i32 %142, i32 14)
-  %145 = add nuw nsw i32 %144, 1
-  %146 = zext nneg i32 %145 to i64
-  %147 = shl i64 %146, %135
-  %148 = or i64 %147, %.01213.i.us.i65
-  br label %149
+134:                                              ; preds = %.lr.ph.i.us.i63
+  %135 = tail call i32 @llvm.umin.i32(i32 %133, i32 14)
+  %136 = add nuw nsw i32 %135, 1
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl i64 %137, %126
+  %139 = or i64 %138, %.01213.i.us.i65
+  br label %140
 
-149:                                              ; preds = %143, %.lr.ph.i.us.i63
-  %.1.i.us.i67 = phi i64 [ %.01213.i.us.i65, %.lr.ph.i.us.i63 ], [ %148, %143 ]
+140:                                              ; preds = %134, %.lr.ph.i.us.i63
+  %.1.i.us.i67 = phi i64 [ %.01213.i.us.i65, %.lr.ph.i.us.i63 ], [ %139, %134 ]
   %indvars.iv.next.i.us.i68 = add nuw nsw i64 %indvars.iv.i.us.i64, 1
   %exitcond.not.i.us.i69 = icmp eq i64 %indvars.iv.next.i.us.i68, %wide.trip.count.i.i
   br i1 %exitcond.not.i.us.i69, label %If_CutPinDelayMax.exit.loopexit.us.i70, label %.lr.ph.i.us.i63, !llvm.loop !9
 
 .lr.ph.us.i73:                                    ; preds = %If_CutPinDelayMax.exit.loopexit.us.i70, %.lr.ph.us.i73
-  %indvars.iv79.i74 = phi i64 [ %indvars.iv.next80.i75, %.lr.ph.us.i73 ], [ %119, %If_CutPinDelayMax.exit.loopexit.us.i70 ]
+  %indvars.iv79.i74 = phi i64 [ %indvars.iv.next80.i75, %.lr.ph.us.i73 ], [ %110, %If_CutPinDelayMax.exit.loopexit.us.i70 ]
   %indvars.iv.next80.i75 = add nuw nsw i64 %indvars.iv79.i74, 1
-  %150 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next80.i75
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv79.i74
-  store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next80.i75
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv79.i74
-  store i64 %154, ptr %155, align 8
-  %156 = trunc nuw i64 %indvars.iv.next80.i75 to i32
-  %157 = icmp sgt i32 %162, %156
-  br i1 %157, label %.lr.ph.us.i73, label %.loopexit.us.i71, !llvm.loop !10
+  %141 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next80.i75
+  %142 = load i32, ptr %141, align 4
+  %143 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv79.i74
+  store i32 %142, ptr %143, align 4
+  %144 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next80.i75
+  %145 = load i64, ptr %144, align 8
+  %146 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv79.i74
+  store i64 %145, ptr %146, align 8
+  %147 = trunc nuw i64 %indvars.iv.next80.i75 to i32
+  %148 = icmp sgt i32 %153, %147
+  br i1 %148, label %.lr.ph.us.i73, label %.loopexit.us.i71, !llvm.loop !10
 
-158:                                              ; preds = %127
-  store i32 %125, ptr %120, align 4
-  store i32 %121, ptr %124, align 4
-  %159 = load i64, ptr %129, align 8
-  %160 = load i64, ptr %130, align 8
-  store i64 %160, ptr %129, align 8
-  store i64 %159, ptr %130, align 8
+149:                                              ; preds = %118
+  store i32 %116, ptr %111, align 4
+  store i32 %112, ptr %115, align 4
+  %150 = load i64, ptr %120, align 8
+  %151 = load i64, ptr %121, align 8
+  store i64 %151, ptr %120, align 8
+  store i64 %150, ptr %121, align 8
   br label %.loopexit.us.i71
 
-.loopexit.us.i71:                                 ; preds = %.lr.ph.us.i73, %If_CutPinDelayMax.exit.loopexit.us.i70, %158
-  %.2.us.i72 = phi i32 [ %.175.us.i60, %158 ], [ %162, %If_CutPinDelayMax.exit.loopexit.us.i70 ], [ %162, %.lr.ph.us.i73 ]
-  %161 = icmp sgt i32 %.06674.us.i61, 1
-  br i1 %161, label %.preheader.split.us.i59, label %If_LogCounterPinDelays.exit76, !llvm.loop !11
+.loopexit.us.i71:                                 ; preds = %.lr.ph.us.i73, %If_CutPinDelayMax.exit.loopexit.us.i70, %149
+  %.2.us.i72 = phi i32 [ %.175.us.i60, %149 ], [ %153, %If_CutPinDelayMax.exit.loopexit.us.i70 ], [ %153, %.lr.ph.us.i73 ]
+  %152 = icmp sgt i32 %.06674.us.i61, 1
+  br i1 %152, label %.preheader.split.us.i59, label %If_LogCounterPinDelays.exit76, !llvm.loop !11
 
-If_CutPinDelayMax.exit.loopexit.us.i70:           ; preds = %149
-  store i64 %.1.i.us.i67, ptr %130, align 8
-  %162 = add nsw i32 %.175.us.i60, -1
-  %163 = icmp slt i32 %.06674.us.i61, %162
-  br i1 %163, label %.lr.ph.us.i73, label %.loopexit.us.i71
+If_CutPinDelayMax.exit.loopexit.us.i70:           ; preds = %140
+  store i64 %.1.i.us.i67, ptr %121, align 8
+  %153 = add nsw i32 %.175.us.i60, -1
+  %154 = icmp slt i32 %.06674.us.i61, %153
+  br i1 %154, label %.lr.ph.us.i73, label %.loopexit.us.i71
 
 .preheader.split.i50:                             ; preds = %.preheader.i48, %.loopexit.i54
-  %.175.i51 = phi i32 [ %.2.i55, %.loopexit.i54 ], [ %116, %.preheader.i48 ]
-  %.06674.i52 = phi i32 [ %167, %.loopexit.i54 ], [ %.098110, %.preheader.i48 ]
-  %164 = zext nneg i32 %.06674.i52 to i64
-  %165 = getelementptr inbounds i32, ptr %9, i64 %164
-  %166 = load i32, ptr %165, align 4
-  %167 = add nsw i32 %.06674.i52, -1
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds i32, ptr %9, i64 %168
-  %170 = load i32, ptr %169, align 4
-  %171 = icmp slt i32 %166, %170
-  br i1 %171, label %If_LogCounterPinDelays.exit76, label %172
+  %.175.i51 = phi i32 [ %.2.i55, %.loopexit.i54 ], [ %107, %.preheader.i48 ]
+  %.06674.i52 = phi i32 [ %158, %.loopexit.i54 ], [ %.098110, %.preheader.i48 ]
+  %155 = zext nneg i32 %.06674.i52 to i64
+  %156 = getelementptr inbounds i32, ptr %9, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = add nsw i32 %.06674.i52, -1
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds i32, ptr %9, i64 %159
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp slt i32 %157, %161
+  br i1 %162, label %If_LogCounterPinDelays.exit76, label %163
 
-172:                                              ; preds = %.preheader.split.i50
-  %173 = icmp sgt i32 %166, %170
-  br i1 %173, label %174, label %If_CutPinDelayMax.exit.i53
+163:                                              ; preds = %.preheader.split.i50
+  %164 = icmp sgt i32 %157, %161
+  br i1 %164, label %165, label %If_CutPinDelayMax.exit.i53
 
-174:                                              ; preds = %172
-  store i32 %170, ptr %165, align 4
-  store i32 %166, ptr %169, align 4
-  %175 = getelementptr inbounds i64, ptr %7, i64 %164
-  %176 = load i64, ptr %175, align 8
-  %177 = getelementptr inbounds i64, ptr %7, i64 %168
-  %178 = load i64, ptr %177, align 8
-  store i64 %178, ptr %175, align 8
-  store i64 %176, ptr %177, align 8
+165:                                              ; preds = %163
+  store i32 %161, ptr %156, align 4
+  store i32 %157, ptr %160, align 4
+  %166 = getelementptr inbounds i64, ptr %7, i64 %155
+  %167 = load i64, ptr %166, align 8
+  %168 = getelementptr inbounds i64, ptr %7, i64 %159
+  %169 = load i64, ptr %168, align 8
+  store i64 %169, ptr %166, align 8
+  store i64 %167, ptr %168, align 8
   br label %.loopexit.i54
 
-If_CutPinDelayMax.exit.i53:                       ; preds = %172
-  %179 = add nsw i32 %170, 1
-  store i32 %179, ptr %169, align 4
-  %180 = getelementptr inbounds i64, ptr %7, i64 %168
-  store i64 0, ptr %180, align 8
-  %181 = add nsw i32 %.175.i51, -1
-  %182 = icmp slt i32 %.06674.i52, %181
-  br i1 %182, label %.lr.ph.i56, label %.loopexit.i54
+If_CutPinDelayMax.exit.i53:                       ; preds = %163
+  %170 = add nsw i32 %161, 1
+  store i32 %170, ptr %160, align 4
+  %171 = getelementptr inbounds i64, ptr %7, i64 %159
+  store i64 0, ptr %171, align 8
+  %172 = add nsw i32 %.175.i51, -1
+  %173 = icmp slt i32 %.06674.i52, %172
+  br i1 %173, label %.lr.ph.i56, label %.loopexit.i54
 
 .lr.ph.i56:                                       ; preds = %If_CutPinDelayMax.exit.i53, %.lr.ph.i56
-  %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i56 ], [ %164, %If_CutPinDelayMax.exit.i53 ]
+  %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i56 ], [ %155, %If_CutPinDelayMax.exit.i53 ]
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
-  %183 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next.i58
-  %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i57
-  store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next.i58
-  %187 = load i64, ptr %186, align 8
-  %188 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i57
-  store i64 %187, ptr %188, align 8
-  %189 = trunc nuw i64 %indvars.iv.next.i58 to i32
-  %190 = icmp sgt i32 %181, %189
-  br i1 %190, label %.lr.ph.i56, label %.loopexit.i54, !llvm.loop !10
+  %174 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next.i58
+  %175 = load i32, ptr %174, align 4
+  %176 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i57
+  store i32 %175, ptr %176, align 4
+  %177 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next.i58
+  %178 = load i64, ptr %177, align 8
+  %179 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i57
+  store i64 %178, ptr %179, align 8
+  %180 = trunc nuw i64 %indvars.iv.next.i58 to i32
+  %181 = icmp sgt i32 %172, %180
+  br i1 %181, label %.lr.ph.i56, label %.loopexit.i54, !llvm.loop !10
 
-.loopexit.i54:                                    ; preds = %.lr.ph.i56, %If_CutPinDelayMax.exit.i53, %174
-  %.2.i55 = phi i32 [ %.175.i51, %174 ], [ %181, %If_CutPinDelayMax.exit.i53 ], [ %181, %.lr.ph.i56 ]
-  %191 = icmp sgt i32 %.06674.i52, 1
-  br i1 %191, label %.preheader.split.i50, label %If_LogCounterPinDelays.exit76, !llvm.loop !11
+.loopexit.i54:                                    ; preds = %.lr.ph.i56, %If_CutPinDelayMax.exit.i53, %165
+  %.2.i55 = phi i32 [ %.175.i51, %165 ], [ %172, %If_CutPinDelayMax.exit.i53 ], [ %172, %.lr.ph.i56 ]
+  %182 = icmp sgt i32 %.06674.i52, 1
+  br i1 %182, label %.preheader.split.i50, label %If_LogCounterPinDelays.exit76, !llvm.loop !11
 
 If_LogCounterPinDelays.exit76:                    ; preds = %.preheader.split.i50, %.loopexit.i54, %.preheader.split.us.i59, %.loopexit.us.i71, %If_LogPinDelaysMulti.exit
-  %.0.i47 = phi i32 [ %116, %If_LogPinDelaysMulti.exit ], [ %.2.us.i72, %.loopexit.us.i71 ], [ %.175.us.i60, %.preheader.split.us.i59 ], [ %.2.i55, %.loopexit.i54 ], [ %.175.i51, %.preheader.split.i50 ]
-  %192 = load i32, ptr %9, align 16
-  %193 = icmp sgt i32 %.0.i47, 1
-  %194 = zext i1 %193 to i32
-  %195 = add nsw i32 %192, %194
+  %.0.i47 = phi i32 [ %107, %If_LogPinDelaysMulti.exit ], [ %.2.us.i72, %.loopexit.us.i71 ], [ %.175.us.i60, %.preheader.split.us.i59 ], [ %.2.i55, %.loopexit.i54 ], [ %.175.i51, %.preheader.split.i50 ]
+  %183 = load i32, ptr %9, align 16
+  %184 = icmp sgt i32 %.0.i47, 1
+  %185 = zext i1 %184 to i32
+  %186 = add nsw i32 %183, %185
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %.critedge, label %15, !llvm.loop !14
 
 .critedge:                                        ; preds = %If_LogCounterPinDelays.exit76
   %invariant.gep.i77 = getelementptr i8, ptr %7, i64 -16
-  %196 = icmp sgt i32 %.0.i47, 1
-  br i1 %196, label %.lr.ph.i78, label %If_LogPinDelaysMulti.exit94
+  %187 = icmp sgt i32 %.0.i47, 1
+  br i1 %187, label %.lr.ph.i78, label %If_LogPinDelaysMulti.exit94
 
 .lr.ph.i78:                                       ; preds = %.critedge
-  %197 = icmp sgt i32 %3, 0
+  %188 = icmp sgt i32 %3, 0
   %wide.trip.count.i.i79 = zext nneg i32 %3 to i64
-  %198 = zext nneg i32 %.0.i47 to i64
-  br i1 %197, label %.lr.ph.preheader.i.us.i82, label %If_CutPinDelayMax.exit.preheader.i80
+  %189 = zext nneg i32 %.0.i47 to i64
+  br i1 %188, label %.lr.ph.preheader.i.us.i82, label %If_CutPinDelayMax.exit.preheader.i80
 
 If_CutPinDelayMax.exit.preheader.i80:             ; preds = %.lr.ph.i78
-  %199 = shl nuw nsw i64 %198, 3
-  %200 = add nsw i64 %199, -16
-  %201 = add nsw i32 %.0.i47, -2
-  %202 = zext nneg i32 %201 to i64
-  %203 = shl nuw nsw i64 %202, 3
-  %204 = sub nsw i64 %200, %203
-  %scevgep.i81 = getelementptr i8, ptr %7, i64 %204
-  %205 = add nsw i32 %.0.i47, -1
-  %206 = zext nneg i32 %205 to i64
-  %207 = shl nuw nsw i64 %206, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i81, i8 0, i64 %207, i1 false)
+  %190 = shl nuw nsw i64 %189, 3
+  %191 = add nsw i64 %190, -16
+  %192 = add nsw i32 %.0.i47, -2
+  %193 = zext nneg i32 %192 to i64
+  %194 = shl nuw nsw i64 %193, 3
+  %195 = sub nsw i64 %191, %194
+  %scevgep.i81 = getelementptr i8, ptr %7, i64 %195
+  %196 = add nsw i32 %.0.i47, -1
+  %197 = zext nneg i32 %196 to i64
+  %198 = shl nuw nsw i64 %197, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i81, i8 0, i64 %198, i1 false)
   br label %If_LogPinDelaysMulti.exit94
 
 .lr.ph.preheader.i.us.i82:                        ; preds = %.lr.ph.i78, %If_CutPinDelayMax.exit.loopexit.us.i93
-  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %If_CutPinDelayMax.exit.loopexit.us.i93 ], [ %198, %.lr.ph.i78 ]
+  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %If_CutPinDelayMax.exit.loopexit.us.i93 ], [ %189, %.lr.ph.i78 ]
   %indvars.iv.next.i84 = add nsw i64 %indvars.iv.i83, -1
-  %208 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next.i84
-  %209 = load i64, ptr %208, align 8
+  %199 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next.i84
+  %200 = load i64, ptr %199, align 8
   %gep.us.i85 = getelementptr i64, ptr %invariant.gep.i77, i64 %indvars.iv.i83
-  %210 = load i64, ptr %gep.us.i85, align 8
+  %201 = load i64, ptr %gep.us.i85, align 8
   br label %.lr.ph.i.us.i86
 
-.lr.ph.i.us.i86:                                  ; preds = %226, %.lr.ph.preheader.i.us.i82
-  %indvars.iv.i.us.i87 = phi i64 [ 0, %.lr.ph.preheader.i.us.i82 ], [ %indvars.iv.next.i.us.i91, %226 ]
-  %.01213.i.us.i88 = phi i64 [ 0, %.lr.ph.preheader.i.us.i82 ], [ %.1.i.us.i90, %226 ]
-  %211 = shl i64 %indvars.iv.i.us.i87, 2
-  %212 = and i64 %211, 4294967292
-  %213 = lshr i64 %209, %212
-  %214 = trunc i64 %213 to i32
-  %215 = and i32 %214, 15
-  %216 = lshr i64 %210, %212
-  %217 = trunc i64 %216 to i32
-  %218 = and i32 %217, 15
-  %219 = tail call i32 @llvm.umax.i32(i32 %215, i32 %218)
-  %.not.i.us.i89 = icmp eq i32 %219, 0
-  br i1 %.not.i.us.i89, label %226, label %220
+.lr.ph.i.us.i86:                                  ; preds = %217, %.lr.ph.preheader.i.us.i82
+  %indvars.iv.i.us.i87 = phi i64 [ 0, %.lr.ph.preheader.i.us.i82 ], [ %indvars.iv.next.i.us.i91, %217 ]
+  %.01213.i.us.i88 = phi i64 [ 0, %.lr.ph.preheader.i.us.i82 ], [ %.1.i.us.i90, %217 ]
+  %202 = shl i64 %indvars.iv.i.us.i87, 2
+  %203 = and i64 %202, 4294967292
+  %204 = lshr i64 %200, %203
+  %205 = trunc i64 %204 to i32
+  %206 = and i32 %205, 15
+  %207 = lshr i64 %201, %203
+  %208 = trunc i64 %207 to i32
+  %209 = and i32 %208, 15
+  %210 = tail call i32 @llvm.umax.i32(i32 %206, i32 %209)
+  %.not.i.us.i89 = icmp eq i32 %210, 0
+  br i1 %.not.i.us.i89, label %217, label %211
 
-220:                                              ; preds = %.lr.ph.i.us.i86
-  %221 = tail call i32 @llvm.umin.i32(i32 %219, i32 14)
-  %222 = add nuw nsw i32 %221, 1
-  %223 = zext nneg i32 %222 to i64
-  %224 = shl i64 %223, %212
-  %225 = or i64 %224, %.01213.i.us.i88
-  br label %226
+211:                                              ; preds = %.lr.ph.i.us.i86
+  %212 = tail call i32 @llvm.umin.i32(i32 %210, i32 14)
+  %213 = add nuw nsw i32 %212, 1
+  %214 = zext nneg i32 %213 to i64
+  %215 = shl i64 %214, %203
+  %216 = or i64 %215, %.01213.i.us.i88
+  br label %217
 
-226:                                              ; preds = %220, %.lr.ph.i.us.i86
-  %.1.i.us.i90 = phi i64 [ %.01213.i.us.i88, %.lr.ph.i.us.i86 ], [ %225, %220 ]
+217:                                              ; preds = %211, %.lr.ph.i.us.i86
+  %.1.i.us.i90 = phi i64 [ %.01213.i.us.i88, %.lr.ph.i.us.i86 ], [ %216, %211 ]
   %indvars.iv.next.i.us.i91 = add nuw nsw i64 %indvars.iv.i.us.i87, 1
   %exitcond.not.i.us.i92 = icmp eq i64 %indvars.iv.next.i.us.i91, %wide.trip.count.i.i79
   br i1 %exitcond.not.i.us.i92, label %If_CutPinDelayMax.exit.loopexit.us.i93, label %.lr.ph.i.us.i86, !llvm.loop !9
 
-If_CutPinDelayMax.exit.loopexit.us.i93:           ; preds = %226
+If_CutPinDelayMax.exit.loopexit.us.i93:           ; preds = %217
   store i64 %.1.i.us.i90, ptr %gep.us.i85, align 8
-  %227 = icmp sgt i64 %indvars.iv.i83, 2
-  br i1 %227, label %.lr.ph.preheader.i.us.i82, label %If_LogPinDelaysMulti.exit94, !llvm.loop !13
+  %218 = icmp sgt i64 %indvars.iv.i83, 2
+  br i1 %218, label %.lr.ph.preheader.i.us.i82, label %If_LogPinDelaysMulti.exit94, !llvm.loop !13
 
 If_LogPinDelaysMulti.exit94:                      ; preds = %If_CutPinDelayMax.exit.loopexit.us.i93, %.preheader, %.critedge, %If_CutPinDelayMax.exit.preheader.i80
-  %.027.lcssa144 = phi i32 [ %195, %.critedge ], [ %195, %If_CutPinDelayMax.exit.preheader.i80 ], [ 0, %.preheader ], [ %195, %If_CutPinDelayMax.exit.loopexit.us.i93 ]
-  %228 = load i64, ptr %7, align 16
-  store i64 %228, ptr %4, align 8
-  br label %229
+  %.027.lcssa144 = phi i32 [ %186, %.critedge ], [ %186, %If_CutPinDelayMax.exit.preheader.i80 ], [ 0, %.preheader ], [ %186, %If_CutPinDelayMax.exit.loopexit.us.i93 ]
+  %219 = load i64, ptr %7, align 16
+  store i64 %219, ptr %4, align 8
+  br label %220
 
-229:                                              ; preds = %5, %If_LogPinDelaysMulti.exit94
+220:                                              ; preds = %5, %If_LogPinDelaysMulti.exit94
   %.0 = phi i32 [ %.027.lcssa144, %If_LogPinDelaysMulti.exit94 ], [ -1, %5 ]
   ret i32 %.0
 }
@@ -713,14 +699,11 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr nocapture noundef readonly %0, p
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5)
   %14 = load i64, ptr %5, align 8
-  br i1 %7, label %.lr.ph.preheader.i, label %If_CutPinDelayTranslate.exit
-
-.lr.ph.preheader.i:                               ; preds = %._crit_edge
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %._crit_edge
+  %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = shl i64 %indvars.iv.i, 2
   %16 = and i64 %15, 4294967292
   %17 = lshr i64 %14, %16
@@ -733,8 +716,8 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr nocapture noundef readonly %0, p
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %If_CutPinDelayTranslate.exit, label %.lr.ph.i, !llvm.loop !16
 
-If_CutPinDelayTranslate.exit:                     ; preds = %.lr.ph.i, %._crit_edge.thread, %._crit_edge
-  %22 = phi i32 [ %8, %._crit_edge.thread ], [ %13, %._crit_edge ], [ %13, %.lr.ph.i ]
+If_CutPinDelayTranslate.exit:                     ; preds = %.lr.ph.i, %._crit_edge.thread
+  %22 = phi i32 [ %8, %._crit_edge.thread ], [ %13, %.lr.ph.i ]
   ret i32 %22
 }
 
@@ -827,15 +810,15 @@ define i32 @If_CutSopBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   store i64 %52, ptr %53, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
-.lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %54 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef readonly %34, ptr noundef nonnull readonly %6, ptr noundef nonnull %5, i32 noundef %10, ptr noundef nonnull %4)
   %55 = load i64, ptr %4, align 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %._crit_edge.i
+  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %56 = shl i64 %indvars.iv.i.i, 2
   %57 = and i64 %56, 4294967292
   %58 = lshr i64 %55, %57

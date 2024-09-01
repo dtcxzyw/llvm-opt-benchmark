@@ -2013,7 +2013,7 @@ set_proc_descriptor_from_array.exit:              ; preds = %set_proc_descriptor
   br i1 %exitcond.not.i509, label %close_all_descriptors.exit, label %.lr.ph.i505
 
 close_parentends_of_pipes.exit:                   ; preds = %613, %._crit_edge.thread, %._crit_edge
-  %624 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ %591, %613 ]
+  %624 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %613 ]
   %.0404.lcssa673 = phi i32 [ 0, %._crit_edge.thread ], [ %.1405, %._crit_edge ], [ %.1405, %613 ]
   %.not457 = icmp eq ptr %.0421, null
   br i1 %.not457, label %629, label %625

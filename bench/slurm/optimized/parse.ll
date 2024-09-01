@@ -1278,7 +1278,7 @@ _set_options.exit:                                ; preds = %31, %34
   %.0.i20 = phi i32 [ %33, %31 ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %36 = icmp slt i32 %.0.i20, %.040
-  br i1 %36, label %.lr.ph34.preheader, label %44
+  br i1 %36, label %.lr.ph34.preheader, label %.lr.ph.preheader
 
 .lr.ph34.preheader:                               ; preds = %_set_options.exit
   %37 = load ptr, ptr %4, align 8
@@ -1299,24 +1299,21 @@ _set_options.exit:                                ; preds = %31, %34
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !21
 
-44:                                               ; preds = %_set_options.exit
-  br i1 %21, label %.lr.ph.preheader, label %._crit_edge35
-
-.lr.ph.preheader:                                 ; preds = %44
+.lr.ph.preheader:                                 ; preds = %_set_options.exit
   %wide.trip.count = and i64 %indvars.iv, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv42 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next43, %.lr.ph ]
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv42
-  call void @slurm_xfree(ptr noundef nonnull %46) #8
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv42
+  call void @slurm_xfree(ptr noundef nonnull %45) #8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph, !llvm.loop !22
 
-._crit_edge35:                                    ; preds = %.lr.ph, %.lr.ph34, %44, %get_argument.exit.thread
-  %.017 = phi i32 [ 0, %get_argument.exit.thread ], [ 0, %44 ], [ -1, %.lr.ph34 ], [ 0, %.lr.ph ]
+._crit_edge35:                                    ; preds = %.lr.ph, %.lr.ph34, %get_argument.exit.thread
+  %.017 = phi i32 [ 0, %get_argument.exit.thread ], [ -1, %.lr.ph34 ], [ 0, %.lr.ph ]
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   ret i32 %.017
 }

@@ -7059,7 +7059,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   %30 = select i1 %29, ptr @.str.2088, ptr @.str.52
   %31 = load i32, ptr @ett_r3checksumresults, align 4
   %32 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0, i32 noundef %12, i32 noundef %31, ptr noundef null, ptr noundef nonnull @.str.2087, ptr noundef nonnull %30) #5
-  br i1 %17, label %.lr.ph63, label %.critedge2
+  br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.critedge, %34
   %.162 = phi i32 [ %55, %34 ], [ 0, %.critedge ]
@@ -7094,7 +7094,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   %56 = icmp slt i32 %55, %12
   br i1 %56, label %.lr.ph63, label %.critedge2, !llvm.loop !26
 
-.critedge2:                                       ; preds = %34, %.lr.ph63, %.critedge.thread, %.thread.thread, %.critedge, %.thread, %14
+.critedge2:                                       ; preds = %34, %.lr.ph63, %.critedge.thread, %.thread.thread, %.thread, %14
   ret void
 }
 

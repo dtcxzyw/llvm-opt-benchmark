@@ -861,13 +861,13 @@ invoke.cont19.us:                                 ; preds = %while.body.us
   br i1 %call20.us, label %for.body.us, label %cleanup
 
 for.cond42.us:                                    ; preds = %invoke.cont48.us
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, 4
-  br i1 %exitcond82.not, label %while.cond.loopexit.us, label %for.body44.us, !llvm.loop !9
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, 4
+  br i1 %exitcond76.not, label %while.cond.loopexit.us, label %for.body44.us, !llvm.loop !9
 
 for.body44.us:                                    ; preds = %invoke.cont25.us, %for.cond42.us
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %for.cond42.us ], [ 0, %invoke.cont25.us ]
-  %5 = mul nuw nsw i64 %indvars.iv78, %2
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.cond42.us ], [ 0, %invoke.cont25.us ]
+  %5 = mul nuw nsw i64 %indvars.iv72, %2
   %arrayidx47.us = getelementptr inbounds i8, ptr %buffer.0, i64 %5
   %call49.us = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09HdrOutput19RGBE_WriteBytes_RLEEPhi(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull %arrayidx47.us, i32 noundef %scanline_width)
           to label %invoke.cont48.us unwind label %lpad.loopexit.split.us
@@ -876,7 +876,7 @@ invoke.cont48.us:                                 ; preds = %for.body44.us
   br i1 %call49.us, label %for.cond42.us, label %cleanup
 
 for.body.us:                                      ; preds = %invoke.cont19.us, %invoke.cont25.us
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %invoke.cont25.us ], [ 0, %invoke.cont19.us ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %invoke.cont25.us ], [ 0, %invoke.cont19.us ]
   %data.addr.145.us = phi ptr [ %add.ptr.us, %invoke.cont25.us ], [ %data.addr.050.us, %invoke.cont19.us ]
   %6 = load float, ptr %data.addr.145.us, align 4
   %arrayidx1.i.us = getelementptr inbounds i8, ptr %data.addr.145.us, i64 4
@@ -917,21 +917,21 @@ invoke.cont25.us:                                 ; preds = %if.else.i.i.us, %fo
   store i8 %conv13.sink.i.i.us, ptr %arrayidx14, align 1
   store i8 %conv10.sink.i.i.us, ptr %rgbe, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %e.i.i)
-  %arrayidx27.us = getelementptr inbounds i8, ptr %buffer.0, i64 %indvars.iv71
+  %arrayidx27.us = getelementptr inbounds i8, ptr %buffer.0, i64 %indvars.iv65
   store i8 %conv10.sink.i.i.us, ptr %arrayidx27.us, align 1
-  %11 = add nuw nsw i64 %indvars.iv71, %2
+  %11 = add nuw nsw i64 %indvars.iv65, %2
   %arrayidx30.us = getelementptr inbounds i8, ptr %buffer.0, i64 %11
   store i8 %conv13.sink.i.i.us, ptr %arrayidx30.us, align 1
-  %12 = add nuw nsw i64 %indvars.iv71, %3
+  %12 = add nuw nsw i64 %indvars.iv65, %3
   %arrayidx35.us = getelementptr inbounds i8, ptr %buffer.0, i64 %12
   store i8 %conv16.sink.i.i.us, ptr %arrayidx35.us, align 1
-  %13 = add nuw nsw i64 %indvars.iv71, %4
+  %13 = add nuw nsw i64 %indvars.iv65, %4
   %arrayidx40.us = getelementptr inbounds i8, ptr %buffer.0, i64 %13
   store i8 %conv18.sink.i.i.us, ptr %arrayidx40.us, align 1
   %add.ptr.us = getelementptr inbounds i8, ptr %data.addr.145.us, i64 12
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next72, %2
-  br i1 %exitcond77.not, label %for.body44.us, label %for.body.us, !llvm.loop !10
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next66, %2
+  br i1 %exitcond71.not, label %for.body44.us, label %for.body.us, !llvm.loop !10
 
 while.cond.loopexit.us:                           ; preds = %for.cond42.us
   %cmp13.us = icmp slt i32 %dec51.us.in, 2
@@ -948,7 +948,7 @@ lpad.loopexit.split.us:                           ; preds = %for.body44.us
   br label %lpad
 
 cleanup:                                          ; preds = %invoke.cont19.us, %while.cond.loopexit.us, %invoke.cont48.us, %if.end12
-  %cmp1343 = phi i1 [ true, %if.end12 ], [ false, %invoke.cont48.us ], [ false, %invoke.cont19.us ], [ %call20.us, %while.cond.loopexit.us ]
+  %cmp1343 = phi i1 [ true, %if.end12 ], [ false, %invoke.cont48.us ], [ %call20.us, %while.cond.loopexit.us ], [ %call20.us, %invoke.cont19.us ]
   %cmp.not.i29 = icmp eq ptr %buffer___heap.sroa.0.0, null
   br i1 %cmp.not.i29, label %return, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 

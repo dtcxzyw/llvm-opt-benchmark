@@ -39120,8 +39120,8 @@ _ZN4core3ops8function6FnOnce9call_once17h512899210d472e13E.exit.thread.i14.i: ; 
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac6a3047bb252a7fE.exit": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5f40465a78d7335bE.exit.i, %.split26.i, %_ZN4core3ops8function6FnOnce9call_once17h512899210d472e13E.exit.thread.i14.i, %52
   %.sroa.3.0.i12.pn.i = phi i8 [ %30, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5f40465a78d7335bE.exit.i ], [ undef, %.split26.i ], [ undef, %52 ], [ %50, %_ZN4core3ops8function6FnOnce9call_once17h512899210d472e13E.exit.thread.i14.i ]
-  %.sroa.0.0.in.i = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5f40465a78d7335bE.exit.i ], [ false, %.split26.i ], [ false, %52 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h512899210d472e13E.exit.thread.i14.i ]
-  %54 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.in.i, 0
+  %.sroa.0.0.i = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h5f40465a78d7335bE.exit.i ], [ false, %.split26.i ], [ false, %52 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h512899210d472e13E.exit.thread.i14.i ]
+  %54 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.i, 0
   %55 = insertvalue { i1, i8 } %54, i8 %.sroa.3.0.i12.pn.i, 1
   ret { i1, i8 } %55
 }
@@ -80237,8 +80237,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
 
 .preheader.split.i:                               ; preds = %2, %11
   %.sroa.01.0.i = phi i64 [ %12, %11 ], [ 0, %2 ]
-  %exitcond.not.i.not = icmp ne i64 %.sroa.01.0.i, %6
-  br i1 %exitcond.not.i.not, label %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit"
+  %exitcond.not.i.not.not = icmp ne i64 %.sroa.01.0.i, %6
+  br i1 %exitcond.not.i.not.not, label %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit"
 
 11:                                               ; preds = %.preheader.split.i
   %12 = add i64 %.sroa.01.0.i, 1
@@ -80248,7 +80248,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
   br i1 %15, label %.preheader.split.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit": ; preds = %.preheader.split.i, %11, %2
-  %16 = phi i1 [ true, %2 ], [ %exitcond.not.i.not, %11 ], [ %exitcond.not.i.not, %.preheader.split.i ]
+  %16 = phi i1 [ true, %2 ], [ %exitcond.not.i.not.not, %11 ], [ %exitcond.not.i.not.not, %.preheader.split.i ]
   ret i1 %16
 }
 
@@ -80267,8 +80267,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
 
 .preheader.split.i:                               ; preds = %2, %11
   %.sroa.01.0.i = phi i64 [ %12, %11 ], [ 0, %2 ]
-  %exitcond.not.i.not = icmp ne i64 %.sroa.01.0.i, %6
-  br i1 %exitcond.not.i.not, label %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec541e5412636c97E.exit"
+  %exitcond.not.i.not.not = icmp ne i64 %.sroa.01.0.i, %6
+  br i1 %exitcond.not.i.not.not, label %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec541e5412636c97E.exit"
 
 11:                                               ; preds = %.preheader.split.i
   %12 = add i64 %.sroa.01.0.i, 1
@@ -80278,7 +80278,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
   br i1 %15, label %.preheader.split.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec541e5412636c97E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hec541e5412636c97E.exit": ; preds = %.preheader.split.i, %11, %2
-  %16 = phi i1 [ true, %2 ], [ %exitcond.not.i.not, %11 ], [ %exitcond.not.i.not, %.preheader.split.i ]
+  %16 = phi i1 [ true, %2 ], [ %exitcond.not.i.not.not, %11 ], [ %exitcond.not.i.not.not, %.preheader.split.i ]
   ret i1 %16
 }
 
@@ -120809,7 +120809,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.loopexit", %.lr.ph, %16, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.preheader", %4
-  %.0 = phi i1 [ false, %4 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.preheader" ], [ false, %16 ], [ %.not.i.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.loopexit" ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %4 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.preheader" ], [ false, %16 ], [ %.not.i.i, %.lr.ph ], [ %.not.i.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.loopexit" ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.preheader", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h054879b7cd0271ebE.llvm.6826332220492402883.exit.loopexit"
@@ -120857,7 +120857,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.loopexit", %.lr.ph, %16, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.preheader", %4
-  %.0 = phi i1 [ false, %4 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.preheader" ], [ false, %16 ], [ %.not.i.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.loopexit" ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %4 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.preheader" ], [ false, %16 ], [ %.not.i.i, %.lr.ph ], [ %.not.i.i, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.loopexit" ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.preheader", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h71ada20bfc7eaf33E.llvm.6826332220492402883.exit.loopexit"

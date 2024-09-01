@@ -2133,7 +2133,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
 
 .preheader.i.i:                                   ; preds = %bit_ffs.exit
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 16
-  br i1 %2, label %.lr.ph.i.i, label %bit_fls.exit
+  br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %20
   %.01923.i.in.i = phi i64 [ %.01923.i.i, %20 ], [ %.pre.i.i, %.preheader.i.i ]
@@ -2180,8 +2180,8 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   %31 = icmp sgt i64 %.120.ph37.i.i, 63
   br i1 %31, label %.lr.ph31.i.i, label %bit_fls.exit, !llvm.loop !32
 
-bit_fls.exit:                                     ; preds = %14, %20, %.outer.i.i, %.preheader.i.i, %.lr.ph31.split.i.i
-  %.0.i.i = phi i64 [ %28, %.lr.ph31.split.i.i ], [ -1, %.preheader.i.i ], [ -1, %.outer.i.i ], [ -1, %20 ], [ %.01923.i.i, %14 ]
+bit_fls.exit:                                     ; preds = %14, %20, %.outer.i.i, %.lr.ph31.split.i.i
+  %.0.i.i = phi i64 [ %28, %.lr.ph31.split.i.i ], [ -1, %.outer.i.i ], [ -1, %20 ], [ %.01923.i.i, %14 ]
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not20.i = icmp sle i64 %9, %.0.i.i
   %32 = and i64 %9, -9223372036854775801

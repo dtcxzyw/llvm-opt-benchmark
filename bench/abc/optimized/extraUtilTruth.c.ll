@@ -411,9 +411,6 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   %.0106138 = phi ptr [ %1, %.preheader110.lr.ph ], [ %95, %._crit_edge ]
   br i1 %.not, label %._crit_edge, label %.lr.ph131
 
-.preheader109:                                    ; preds = %.lr.ph131
-  br i1 %.not, label %._crit_edge, label %.lr.ph133
-
 .lr.ph131:                                        ; preds = %.preheader110, %.lr.ph131
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.lr.ph131 ], [ 0, %.preheader110 ]
   %77 = getelementptr inbounds i32, ptr %.0140, i64 %indvars.iv168
@@ -422,13 +419,10 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   store i32 %78, ptr %79, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.preheader109, label %.lr.ph131, !llvm.loop !20
+  br i1 %exitcond172.not, label %.lr.ph133, label %.lr.ph131, !llvm.loop !20
 
-.preheader108:                                    ; preds = %.lr.ph133
-  br i1 %.not, label %._crit_edge, label %.lr.ph135
-
-.lr.ph133:                                        ; preds = %.preheader109, %.lr.ph133
-  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph133 ], [ 0, %.preheader109 ]
+.lr.ph133:                                        ; preds = %.lr.ph131, %.lr.ph133
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph133 ], [ 0, %.lr.ph131 ]
   %80 = add nuw nsw i64 %indvars.iv174, %74
   %81 = getelementptr inbounds i32, ptr %.0140, i64 %80
   %82 = load i32, ptr %81, align 4
@@ -437,13 +431,10 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   store i32 %82, ptr %84, align 4
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
-  br i1 %exitcond179.not, label %.preheader108, label %.lr.ph133, !llvm.loop !21
+  br i1 %exitcond179.not, label %.lr.ph135, label %.lr.ph133, !llvm.loop !21
 
-.preheader:                                       ; preds = %.lr.ph135
-  br i1 %.not, label %._crit_edge, label %.lr.ph137
-
-.lr.ph135:                                        ; preds = %.preheader108, %.lr.ph135
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph135 ], [ 0, %.preheader108 ]
+.lr.ph135:                                        ; preds = %.lr.ph133, %.lr.ph135
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph135 ], [ 0, %.lr.ph133 ]
   %85 = add nuw nsw i64 %indvars.iv181, %75
   %86 = getelementptr inbounds i32, ptr %.0140, i64 %85
   %87 = load i32, ptr %86, align 4
@@ -452,10 +443,10 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   store i32 %87, ptr %89, align 4
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count185
-  br i1 %exitcond186.not, label %.preheader, label %.lr.ph135, !llvm.loop !22
+  br i1 %exitcond186.not, label %.lr.ph137, label %.lr.ph135, !llvm.loop !22
 
-.lr.ph137:                                        ; preds = %.preheader, %.lr.ph137
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %.lr.ph137 ], [ 0, %.preheader ]
+.lr.ph137:                                        ; preds = %.lr.ph135, %.lr.ph137
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %.lr.ph137 ], [ 0, %.lr.ph135 ]
   %90 = add nsw i64 %indvars.iv188, %76
   %91 = getelementptr inbounds i32, ptr %.0140, i64 %90
   %92 = load i32, ptr %91, align 4
@@ -465,7 +456,7 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   %exitcond193.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count192
   br i1 %exitcond193.not, label %._crit_edge, label %.lr.ph137, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.lr.ph137, %.preheader110, %.preheader109, %.preheader108, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph137, %.preheader110
   %94 = getelementptr i32, ptr %.0140, i64 %73
   %95 = getelementptr i32, ptr %.0106138, i64 %73
   %96 = add nsw i32 %.0104139, %72

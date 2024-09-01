@@ -5063,8 +5063,8 @@ for.body.i.i.i:                                   ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i = urem i64 %37, %35
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %36, i64 %rem.i.i.i.i.i.i
   %38 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %tobool.not.i.not.i.not.i = icmp eq ptr %38, null
-  br i1 %tobool.not.i.not.i.not.i, label %if.then85, label %if.end11.i.i.i
+  %tobool.not.not.i.not.i.i = icmp eq ptr %38, null
+  br i1 %tobool.not.not.i.not.i.i, label %if.then85, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %for.body.i.i.i
   %39 = load ptr, ptr %38, align 8

@@ -1587,40 +1587,40 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr nocapture noun
   unreachable
 
 21:                                               ; preds = %18
-  %22 = icmp ne i32 %2, 1
+  %.not19 = icmp eq i32 %2, 1
   %.pre = zext nneg i32 %1 to i64
-  br i1 %22, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %23 = and i64 %14, 2147483647
+  %22 = and i64 %14, 2147483647
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.not = icmp eq i64 %indvars.iv, %.pre
-  br i1 %.not, label %28, label %24
+  br i1 %.not, label %27, label %23
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp sgt i32 %26, 1
-  br label %28
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp sgt i32 %25, 1
+  br label %27
 
-28:                                               ; preds = %24, %.lr.ph
-  %.1 = phi i1 [ false, %.lr.ph ], [ %27, %24 ]
+27:                                               ; preds = %23, %.lr.ph
+  %.1 = phi i1 [ false, %.lr.ph ], [ %26, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = icmp uge i64 %indvars.iv.next, %23
-  %.not15 = select i1 %29, i1 true, i1 %.1
+  %28 = icmp uge i64 %indvars.iv.next, %22
+  %.not15 = select i1 %28, i1 true, i1 %.1
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %28, %21
-  %.013.lcssa = phi i1 [ %22, %21 ], [ %.1, %28 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 1, i1 noundef zeroext %.013.lcssa)
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %.pre
-  store i32 %2, ptr %33, align 4
+._crit_edge:                                      ; preds = %27, %21
+  %.013.lcssa = phi i1 [ true, %21 ], [ %.1, %27 ]
+  %29 = getelementptr inbounds i8, ptr %7, i64 32
+  tail call void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 1, i1 noundef zeroext %.013.lcssa)
+  %30 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i32, ptr %31, i64 %.pre
+  store i32 %2, ptr %32, align 4
   ret void
 }
 

@@ -1200,14 +1200,14 @@ if.then.i.i.i7:                                   ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %cmp.i1.not.i.i.i, label %if.else.i.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.then.i.i.i7
-  br i1 %cmp.i.not2.i.i.i.i, label %_ZN5eastl6searchINS_16reverse_iteratorIPKcEES4_EET_S5_S5_T0_S6_.exit.i.i, label %while.cond5.preheader.i.i.preheader.i
+  br i1 %cmp.i.not2.i.i.i.i, label %_ZN5eastl6searchINS_16reverse_iteratorIPKcEES4_EET_S5_S5_T0_S6_.exit.i.i, label %while.cond5.preheader.i.preheader.i.i
 
-while.cond5.preheader.i.i.preheader.i:            ; preds = %while.cond.preheader.i.i.i
+while.cond5.preheader.i.preheader.i.i:            ; preds = %while.cond.preheader.i.i.i
   %7 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !18
   br label %land.rhs.i.i.i
 
-land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.backedge, %while.cond5.preheader.i.i.preheader.i
-  %8 = phi ptr [ %cond.i.i, %while.cond5.preheader.i.i.preheader.i ], [ %incdec.ptr.i4.i.i.i, %land.rhs.i.i.i.backedge ]
+land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.backedge, %while.cond5.preheader.i.preheader.i.i
+  %8 = phi ptr [ %cond.i.i, %while.cond5.preheader.i.preheader.i.i ], [ %incdec.ptr.i4.i.i.i, %land.rhs.i.i.i.backedge ]
   %incdec.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %incdec.ptr.i4.i.i.i, align 1, !noalias !18
   %cmp.not.i.i.i = icmp eq i8 %9, %7
@@ -1762,19 +1762,18 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i1433 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i1434 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i1433, %9
-  br i1 %cmp.not.i.i.i.i.i.i1434, label %for.body.preheader.i.i.i.i1437, label %for.inc.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i.i.i.i1434, label %invoke.cont14.i, label %for.inc.i.i.i.i.i.i, !llvm.loop !27
 
-for.body.preheader.i.i.i.i1437:                   ; preds = %for.inc.i.i.i.i.i.i
-  %incdec.ptr.i1435 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 48
+invoke.cont14.i:                                  ; preds = %for.inc.i.i.i.i.i.i
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1438 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1440 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %for.body.i.i.i.i1441
 
-for.body.i.i.i.i1441:                             ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449, %for.body.preheader.i.i.i.i1437
-  %__first.addr.011.i.i.i.i1442 = phi ptr [ %incdec.ptr.i.i.i.i1453, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %16, %for.body.preheader.i.i.i.i1437 ]
-  %inc.i.i410.i.i.i.i1443 = phi i32 [ %inc.i.i3.i.i.i.i1450, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1440, %for.body.preheader.i.i.i.i1437 ]
-  %dec.i.i59.i.i.i.i1444 = phi i64 [ %dec.i.i.i.i.i.i1451, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %inc.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i1437 ]
-  %inc3.i.i68.i.i.i.i1445 = phi i64 [ %inc3.i.i.i.i.i.i1452, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1438, %for.body.preheader.i.i.i.i1437 ]
+for.body.i.i.i.i1441:                             ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449, %invoke.cont14.i
+  %__first.addr.011.i.i.i.i1442 = phi ptr [ %incdec.ptr.i.i.i.i1453, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %16, %invoke.cont14.i ]
+  %inc.i.i410.i.i.i.i1443 = phi i32 [ %inc.i.i3.i.i.i.i1450, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1440, %invoke.cont14.i ]
+  %dec.i.i59.i.i.i.i1444 = phi i64 [ %dec.i.i.i.i.i.i1451, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %inc.i.i.i.i.i.i.i.i, %invoke.cont14.i ]
+  %inc3.i.i68.i.i.i.i1445 = phi i64 [ %inc3.i.i.i.i.i.i1452, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1438, %invoke.cont14.i ]
   %mMagicValue.i.i.i.i.i.i1446 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i1442, i64 16
   %23 = load i32, ptr %mMagicValue.i.i.i.i.i.i1446, align 8
   %cmp.not.i.i.i.i.i38.i = icmp eq i32 %23, 32623592
@@ -1795,6 +1794,7 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449: ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i1454, label %for.cond.for.end_crit_edge.i.i.i.i1455, label %for.body.i.i.i.i1441, !llvm.loop !28
 
 for.cond.for.end_crit_edge.i.i.i.i1455:           ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1449
+  %incdec.ptr.i1435 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 48
   store i64 %dec.i.i.i.i.i.i1451, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i.i1452, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %_ZSt8_DestroyIP10TestObjectS0_EvT_S2_RSaIT0_E.exit.i
@@ -2377,19 +2377,18 @@ for.inc.i.i.i.i.i.i1553:                          ; preds = %for.inc.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i1568 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i1558, i64 24
   %incdec.ptr1.i.i.i.i.i.i1569 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i1557, i64 24
   %cmp.not.i.i.i.i.i.i1570 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i1568, %60
-  br i1 %cmp.not.i.i.i.i.i.i1570, label %for.body.preheader.i.i.i.i1593, label %for.inc.i.i.i.i.i.i1553, !llvm.loop !27
+  br i1 %cmp.not.i.i.i.i.i.i1570, label %invoke.cont14.i1590, label %for.inc.i.i.i.i.i.i1553, !llvm.loop !27
 
-for.body.preheader.i.i.i.i1593:                   ; preds = %for.inc.i.i.i.i.i.i1553
-  %incdec.ptr.i1573 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i1557, i64 48
+invoke.cont14.i1590:                              ; preds = %for.inc.i.i.i.i.i.i1553
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1594 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1596 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %for.body.i.i.i.i1597
 
-for.body.i.i.i.i1597:                             ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606, %for.body.preheader.i.i.i.i1593
-  %__first.addr.011.i.i.i.i1598 = phi ptr [ %incdec.ptr.i.i.i.i1610, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %67, %for.body.preheader.i.i.i.i1593 ]
-  %inc.i.i410.i.i.i.i1599 = phi i32 [ %inc.i.i3.i.i.i.i1607, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1596, %for.body.preheader.i.i.i.i1593 ]
-  %dec.i.i59.i.i.i.i1600 = phi i64 [ %dec.i.i.i.i.i.i1608, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %inc.i.i.i.i.i.i.i.i1564, %for.body.preheader.i.i.i.i1593 ]
-  %inc3.i.i68.i.i.i.i1601 = phi i64 [ %inc3.i.i.i.i.i.i1609, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1594, %for.body.preheader.i.i.i.i1593 ]
+for.body.i.i.i.i1597:                             ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606, %invoke.cont14.i1590
+  %__first.addr.011.i.i.i.i1598 = phi ptr [ %incdec.ptr.i.i.i.i1610, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %67, %invoke.cont14.i1590 ]
+  %inc.i.i410.i.i.i.i1599 = phi i32 [ %inc.i.i3.i.i.i.i1607, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i1596, %invoke.cont14.i1590 ]
+  %dec.i.i59.i.i.i.i1600 = phi i64 [ %dec.i.i.i.i.i.i1608, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %inc.i.i.i.i.i.i.i.i1564, %invoke.cont14.i1590 ]
+  %inc3.i.i68.i.i.i.i1601 = phi i64 [ %inc3.i.i.i.i.i.i1609, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i1594, %invoke.cont14.i1590 ]
   %mMagicValue.i.i.i.i.i.i1602 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i1598, i64 16
   %74 = load i32, ptr %mMagicValue.i.i.i.i.i.i1602, align 8
   %cmp.not.i.i.i.i.i38.i1603 = icmp eq i32 %74, 32623592
@@ -2410,6 +2409,7 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606: ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i1611, label %for.cond.for.end_crit_edge.i.i.i.i1612, label %for.body.i.i.i.i1597, !llvm.loop !28
 
 for.cond.for.end_crit_edge.i.i.i.i1612:           ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i1606
+  %incdec.ptr.i1573 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i1557, i64 48
   store i64 %dec.i.i.i.i.i.i1608, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i.i1609, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %_ZSt8_DestroyIP10TestObjectS0_EvT_S2_RSaIT0_E.exit.i1613

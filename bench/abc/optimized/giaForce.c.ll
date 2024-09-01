@@ -2805,9 +2805,6 @@ define void @Frc_ManPlaceRandom(ptr nocapture noundef readonly %0) local_unnamed
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.preheader37:                                     ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph40, label %.preheader
-
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
@@ -2815,17 +2812,17 @@ define void @Frc_ManPlaceRandom(ptr nocapture noundef readonly %0) local_unnamed
   store i32 %9, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader37, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph40, label %.lr.ph, !llvm.loop !29
 
-.preheader:                                       ; preds = %.lr.ph40, %1, %.preheader37
+.preheader:                                       ; preds = %.lr.ph40, %1
   %10 = getelementptr i8, ptr %0, i64 32
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph43, label %.critedge
 
-.lr.ph40:                                         ; preds = %.preheader37, %.lr.ph40
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph40 ], [ 0, %.preheader37 ]
+.lr.ph40:                                         ; preds = %.lr.ph, %.lr.ph40
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph40 ], [ 0, %.lr.ph ]
   %14 = tail call i32 @Gia_ManRandom(i32 noundef 0) #19
   %15 = load i32, ptr %2, align 8
   %16 = urem i32 %14, %15

@@ -8314,14 +8314,14 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 4
   %.not109 = icmp eq ptr %163, null
-  br i1 %.not109, label %._crit_edge154, label %.lr.ph153
+  br i1 %.not109, label %._crit_edge155, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %161
   %165 = getelementptr inbounds i8, ptr %163, i64 16
   %166 = getelementptr inbounds i8, ptr %15, i64 120
   %167 = load i32, ptr %164, align 4
   %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %.lr.ph158, label %._crit_edge154
+  br i1 %168, label %.lr.ph158, label %._crit_edge155
 
 .lr.ph158:                                        ; preds = %.lr.ph153, %.lr.ph158
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %.lr.ph158 ], [ 0, %.lr.ph153 ]
@@ -8339,10 +8339,14 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   %178 = load i32, ptr %164, align 4
   %179 = sext i32 %178 to i64
   %180 = icmp slt i64 %indvars.iv.next168, %179
-  br i1 %180, label %.lr.ph158, label %._crit_edge154
+  br i1 %180, label %.lr.ph158, label %._crit_edge155.loopexit
 
-._crit_edge154:                                   ; preds = %.lr.ph158, %161, %.lr.ph153
-  %181 = load ptr, ptr %162, align 8
+._crit_edge155.loopexit:                          ; preds = %.lr.ph158
+  %.pre174 = load ptr, ptr %162, align 8
+  br label %._crit_edge155
+
+._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.lr.ph153, %161
+  %181 = phi ptr [ %.pre174, %._crit_edge155.loopexit ], [ %163, %.lr.ph153 ], [ null, %161 ]
   %182 = getelementptr inbounds i8, ptr %1, i64 104
   %183 = load i32, ptr %182, align 8
   %184 = tail call noundef ptr @palloc0(i64 noundef 160) #12
@@ -8398,8 +8402,8 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   store i32 %196, ptr %208, align 8
   br label %209
 
-209:                                              ; preds = %.critedge, %._crit_edge154
-  %.0 = phi ptr [ %184, %._crit_edge154 ], [ %197, %.critedge ]
+209:                                              ; preds = %.critedge, %._crit_edge155
+  %.0 = phi ptr [ %184, %._crit_edge155 ], [ %197, %.critedge ]
   %210 = getelementptr inbounds i8, ptr %1, i64 48
   %211 = load double, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -8522,8 +8526,8 @@ list_length.exit:                                 ; preds = %2
   br label %42
 
 42:                                               ; preds = %.lr.ph80, %55
-  %.06477 = phi i32 [ %41, %.lr.ph80 ], [ %56, %55 ]
-  %43 = zext nneg i32 %.06477 to i64
+  %.06478 = phi i32 [ %41, %.lr.ph80 ], [ %56, %55 ]
+  %43 = zext nneg i32 %.06478 to i64
   %44 = getelementptr %struct.QualItem, ptr %10, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = getelementptr i8, ptr %44, i64 -8
@@ -8543,12 +8547,12 @@ list_length.exit:                                 ; preds = %2
 
 55:                                               ; preds = %51, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  %56 = add nsw i32 %.06477, -1
-  %57 = icmp sgt i32 %.06477, 1
+  %56 = add nsw i32 %.06478, -1
+  %57 = icmp sgt i32 %.06478, 1
   br i1 %57, label %42, label %58, !llvm.loop !16
 
 58:                                               ; preds = %42, %51, %55
-  %.064.lcssa = phi i32 [ %.06477, %42 ], [ %.06477, %51 ], [ 0, %55 ]
+  %.064.lcssa = phi i32 [ %.06478, %42 ], [ %.06478, %51 ], [ 0, %55 ]
   %59 = sext i32 %.064.lcssa to i64
   %60 = getelementptr %struct.QualItem, ptr %10, i64 %59
   store ptr %.sroa.0.0.copyload, ptr %60, align 8

@@ -659,10 +659,7 @@ aux_copy_obj.exit:                                ; preds = %236, %258, %.lr.ph5
   %336 = zext nneg i32 %.0 to i64
   br label %339
 
-.preheader240:                                    ; preds = %357
-  br i1 %334, label %.lr.ph253.preheader, label %.loopexit241
-
-.lr.ph253.preheader:                              ; preds = %.preheader240
+.lr.ph253.preheader:                              ; preds = %357
   %337 = zext nneg i32 %.0 to i64
   %338 = shl nuw nsw i64 %337, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %332, ptr nonnull align 16 %14, i64 %338, i1 false)
@@ -712,9 +709,9 @@ aux_copy_obj.exit:                                ; preds = %236, %258, %.lr.ph5
   store i64 %.spec.store.select, ptr %362, align 8
   %363 = mul i64 %.spec.store.select, %.0143249
   %364 = icmp sgt i64 %indvars.iv, 1
-  br i1 %364, label %339, label %.preheader240
+  br i1 %364, label %339, label %.lr.ph253.preheader
 
-.loopexit241:                                     ; preds = %331, %.lr.ph253.preheader, %.preheader240, %328
+.loopexit241:                                     ; preds = %331, %.lr.ph253.preheader, %328
   %365 = icmp sgt i32 %327, 0
   br i1 %365, label %.lr.ph255, label %.loopexit239
 

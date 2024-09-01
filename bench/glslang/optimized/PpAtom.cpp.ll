@@ -715,16 +715,16 @@ _ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7g
   %42 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i53, i64 8
   %43 = getelementptr inbounds i8, ptr %.010.i.i52, i64 8
   %.not.i.i54 = icmp eq ptr %42, %9
-  br i1 %.not.i.i54, label %.lr.ph.i.i.i58.preheader, label %.lr.ph.i.i51, !llvm.loop !11
+  br i1 %.not.i.i54, label %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56, label %.lr.ph.i.i51, !llvm.loop !11
 
-.lr.ph.i.i.i58.preheader:                         ; preds = %.lr.ph.i.i51
+_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56: ; preds = %.lr.ph.i.i51
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 %17
   store ptr %45, ptr %8, align 8
   br label %.lr.ph.i.i.i58
 
-.lr.ph.i.i.i58:                                   ; preds = %.lr.ph.i.i.i58.preheader, %.lr.ph.i.i.i58
-  %.07.i.i.i59 = phi ptr [ %46, %.lr.ph.i.i.i58 ], [ %1, %.lr.ph.i.i.i58.preheader ]
+.lr.ph.i.i.i58:                                   ; preds = %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56, %.lr.ph.i.i.i58
+  %.07.i.i.i59 = phi ptr [ %46, %.lr.ph.i.i.i58 ], [ %1, %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit56 ]
   store ptr %15, ptr %.07.i.i.i59, align 8
   %46 = getelementptr inbounds i8, ptr %.07.i.i.i59, i64 8
   %.not.i.i.i60 = icmp eq ptr %46, %9

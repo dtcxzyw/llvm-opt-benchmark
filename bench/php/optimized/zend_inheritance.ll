@@ -12095,7 +12095,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %146 = load i32, ptr %145, align 8
   br label %147
 
-147:                                              ; preds = %142, %139
+147:                                              ; preds = %139, %142
   %148 = phi ptr [ %144, %142 ], [ null, %139 ]
   %149 = phi i32 [ %146, %142 ], [ 0, %139 ]
   %150 = getelementptr inbounds i8, ptr %.0379.val432, i64 8
@@ -12131,7 +12131,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %169 = load i32, ptr %168, align 8
   br label %170
 
-170:                                              ; preds = %165, %164
+170:                                              ; preds = %164, %165
   %171 = phi ptr [ %167, %165 ], [ null, %164 ]
   %172 = phi i32 [ %169, %165 ], [ 0, %164 ]
   %173 = getelementptr inbounds i8, ptr %.0379.val432, i64 8
@@ -12156,7 +12156,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %187 = load i32, ptr %186, align 8
   br label %188
 
-188:                                              ; preds = %183, %182
+188:                                              ; preds = %182, %183
   %189 = phi ptr [ %185, %183 ], [ null, %182 ]
   %190 = phi i32 [ %187, %183 ], [ 0, %182 ]
   %191 = getelementptr inbounds i8, ptr %.0379.val432, i64 8
@@ -12188,7 +12188,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %210 = load i32, ptr %209, align 8
   br label %211
 
-211:                                              ; preds = %206, %203
+211:                                              ; preds = %203, %206
   %212 = phi ptr [ %208, %206 ], [ null, %203 ]
   %213 = phi i32 [ %210, %206 ], [ 0, %203 ]
   %214 = getelementptr inbounds i8, ptr %.0379.val432, i64 8

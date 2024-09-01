@@ -5624,9 +5624,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i191:   ; preds = %233
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit106
 
 _ZN7QStringD2Ev.exit163.sink.split:               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161
-  %.sink252 = phi ptr [ %10, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161 ], [ %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187 ]
+  %.sink247 = phi ptr [ %10, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161 ], [ %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187 ]
   %.0.ph = phi ptr [ %.3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161 ], [ %205, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187 ]
-  %238 = load ptr, ptr %.sink252, align 8
+  %238 = load ptr, ptr %.sink247, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %238, i64 noundef 2, i64 noundef 8) #17
   br label %_ZN7QStringD2Ev.exit163
 

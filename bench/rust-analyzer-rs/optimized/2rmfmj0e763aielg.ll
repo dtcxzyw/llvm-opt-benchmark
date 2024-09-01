@@ -631,8 +631,8 @@ define void @_ZN10line_index9LineIndex12try_line_col17h1d47f607c226e7daE(ptr noa
 
 66:                                               ; preds = %68, %63
   %67 = phi ptr [ %69, %68 ], [ %62, %63 ]
-  %.not.i.not.i18.not.i = icmp eq ptr %67, %65
-  br i1 %.not.i.not.i18.not.i, label %.loopexit, label %68
+  %.not.not.not.i.not.not.not.i18.not.i = icmp eq ptr %67, %65
+  br i1 %.not.not.not.i.not.not.not.i18.not.i, label %.loopexit, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %67, i64 8

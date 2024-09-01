@@ -243,8 +243,8 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder20InitPrediction
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.010)
   %20 = tail call noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %15, i32 noundef %19)
-  %.not13 = icmp ne i32 %20, -1
-  br i1 %.not13, label %21, label %._crit_edge
+  %.not13.not = icmp ne i32 %20, -1
+  br i1 %.not13.not, label %21, label %._crit_edge
 
 21:                                               ; preds = %12
   %22 = load ptr, ptr %10, align 8
@@ -326,7 +326,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %24, %_ZNSt6vectorIi
   br i1 %.not, label %12, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %2
-  %.lcssa = phi i1 [ true, %2 ], [ %.not13, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.not13, %12 ]
+  %.lcssa = phi i1 [ true, %2 ], [ %.not13.not, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.not13.not, %12 ]
   ret i1 %.lcssa
 }
 

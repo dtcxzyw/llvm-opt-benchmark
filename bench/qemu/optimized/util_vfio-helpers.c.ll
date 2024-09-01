@@ -713,8 +713,8 @@ declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -2147483648, 1) i32 @qemu_vfio_dma_map(ptr noundef %s, ptr noundef %host, i64 noundef %size, i1 noundef zeroext %temporary, ptr noundef %iova, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %_now.i.i93 = alloca %struct.timeval, align 8
-  %_now.i.i.i53 = alloca %struct.timeval, align 8
+  %_now.i.i92 = alloca %struct.timeval, align 8
+  %_now.i.i.i52 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %index = alloca i32, align 4
@@ -803,8 +803,8 @@ if.else16:                                        ; preds = %trace_qemu_vfio_dma
   %s.val = load i64, ptr %9, align 8
   %10 = getelementptr i8, ptr %s, i64 352
   %s.val42 = load i64, ptr %10, align 8
-  %reass.sub118 = sub i64 %s.val42, %s.val
-  %add.i = add i64 %reass.sub118, 1
+  %reass.sub117 = sub i64 %s.val42, %s.val
+  %add.i = add i64 %reass.sub117, 1
   %cmp.i = icmp ult i64 %add.i, %size
   br i1 %cmp.i, label %qemu_vfio_water_mark_reached.exit.thread, label %if.end19
 
@@ -813,75 +813,66 @@ qemu_vfio_water_mark_reached.exit.thread:         ; preds = %if.else16
   br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
 if.end19:                                         ; preds = %if.else16
-  %nb_iova_ranges.i76 = getelementptr inbounds i8, ptr %s, i64 336
-  %11 = load i8, ptr %nb_iova_ranges.i76, align 8
+  %nb_iova_ranges.i75 = getelementptr inbounds i8, ptr %s, i64 336
+  %11 = load i8, ptr %nb_iova_ranges.i75, align 8
   %cmp24.not.i = icmp eq i8 %11, 0
   br i1 %temporary, label %if.else35, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  br i1 %cmp24.not.i, label %for.end.i.thread, label %for.body.lr.ph.i
-
-for.end.i.thread:                                 ; preds = %if.then21
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @__func__.qemu_vfio_find_fixed_iova, ptr noundef nonnull @.str.54) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit.cont
+  br i1 %cmp24.not.i, label %qemu_vfio_find_fixed_iova.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then21
   %usable_iova_ranges.i = getelementptr inbounds i8, ptr %s, i64 328
   %12 = load ptr, ptr %usable_iova_ranges.i, align 8
-  %13 = zext i8 %11 to i64
+  %wide.trip.count.i = zext i8 %11 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %14 = phi i64 [ %s.val, %for.body.lr.ph.i ], [ %18, %for.inc.i ]
-  %cmp24.i = phi i1 [ true, %for.body.lr.ph.i ], [ %cmp.i47, %for.inc.i ]
+  %13 = phi i64 [ %s.val, %for.body.lr.ph.i ], [ %17, %for.inc.i ]
   %arrayidx.i = getelementptr %struct.IOVARange, ptr %12, i64 %indvars.iv.i
   %end.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %15 = load i64, ptr %end.i, align 8
-  %cmp2.i = icmp ult i64 %15, %14
+  %14 = load i64, ptr %end.i, align 8
+  %cmp2.i = icmp ult i64 %14, %13
   br i1 %cmp2.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %16 = load i64, ptr %arrayidx.i, align 8
-  %cond.i45 = tail call i64 @llvm.umax.i64(i64 %14, i64 %16)
+  %15 = load i64, ptr %arrayidx.i, align 8
+  %cond.i45 = tail call i64 @llvm.umax.i64(i64 %13, i64 %15)
   store i64 %cond.i45, ptr %9, align 8
   %end14.i = getelementptr %struct.IOVARange, ptr %12, i64 %indvars.iv.i, i32 1
-  %17 = load i64, ptr %end14.i, align 8
-  %sub.i = sub i64 %17, %cond.i45
+  %16 = load i64, ptr %end14.i, align 8
+  %sub.i = sub i64 %16, %cond.i45
   %add.i46 = add i64 %sub.i, 1
   %cmp16.not.i = icmp uge i64 %add.i46, %size
   %cmp25.i = icmp eq i64 %add.i46, 0
   %or.cond.i = or i1 %cmp16.not.i, %cmp25.i
-  br i1 %or.cond.i, label %qemu_vfio_find_fixed_iova.exit, label %for.inc.i
+  br i1 %or.cond.i, label %if.end.i48, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %18 = phi i64 [ %cond.i45, %if.end.i ], [ %14, %for.body.i ]
+  %17 = phi i64 [ %cond.i45, %if.end.i ], [ %13, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i47 = icmp ult i64 %indvars.iv.next.i, %13
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %qemu_vfio_find_fixed_iova.exit, label %for.body.i, !llvm.loop !7
 
-for.end.i:                                        ; preds = %for.inc.i
+qemu_vfio_find_fixed_iova.exit:                   ; preds = %for.inc.i, %if.then21
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @__func__.qemu_vfio_find_fixed_iova, ptr noundef nonnull @.str.54) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit.cont121
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
-qemu_vfio_find_fixed_iova.exit:                   ; preds = %if.end.i
+if.end.i48:                                       ; preds = %if.end.i
   %add30.i = add i64 %cond.i45, %size
   store i64 %add30.i, ptr %9, align 8
-  br i1 %cmp24.i, label %if.end.i49, label %glib_autoptr_cleanup_QemuLockable.exit.cont
-
-if.end.i49:                                       ; preds = %qemu_vfio_find_fixed_iova.exit
-  %19 = load i32, ptr %index, align 4
-  %add25 = add i32 %19, 1
+  %18 = load i32, ptr %index, align 4
+  %add25 = add i32 %18, 1
   %rem5.i = urem i64 %add30.i, %conv.i
   %cmp6.i = icmp eq i64 %rem5.i, 0
   br i1 %cmp6.i, label %if.end9.i, label %if.else8.i
 
-if.else8.i:                                       ; preds = %if.end.i49
+if.else8.i:                                       ; preds = %if.end.i48
   tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_vfio_add_mapping) #15
   unreachable
 
-if.end9.i:                                        ; preds = %if.end.i49
+if.end9.i:                                        ; preds = %if.end.i48
   %rem11.i = urem i64 %s.val42, %conv.i
   %cmp12.i = icmp eq i64 %rem11.i, 0
   br i1 %cmp12.i, label %if.end15.i, label %if.else14.i
@@ -892,31 +883,31 @@ if.else14.i:                                      ; preds = %if.end9.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_QEMU_VFIO_NEW_MAPPING_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %21, 0
+  %19 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %19, 0
+  %20 = load i16, ptr @_TRACE_QEMU_VFIO_NEW_MAPPING_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %20, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_qemu_vfio_new_mapping.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end15.i
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %22, 32768
+  %21 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %21, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_qemu_vfio_new_mapping.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %23 to i1
+  %22 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %22 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
-  %24 = load i64, ptr %_now.i.i.i, align 8
+  %23 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %25 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %24, i64 noundef %25, ptr noundef nonnull %s, ptr noundef %host, i64 noundef %size, i32 noundef %add25, i64 noundef %cond.i45) #16
+  %24 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %s, ptr noundef %host, i64 noundef %size, i32 noundef %add25, i64 noundef %cond.i45) #16
   br label %trace_qemu_vfio_new_mapping.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -934,143 +925,143 @@ if.else18.i:                                      ; preds = %trace_qemu_vfio_new
 
 if.end19.i:                                       ; preds = %trace_qemu_vfio_new_mapping.exit.i
   %nr_mappings.i = getelementptr inbounds i8, ptr %s, i64 368
-  %26 = load i32, ptr %nr_mappings.i, align 8
-  %inc.i = add i32 %26, 1
+  %25 = load i32, ptr %nr_mappings.i, align 8
+  %inc.i = add i32 %25, 1
   store i32 %inc.i, ptr %nr_mappings.i, align 8
   %mappings.i = getelementptr inbounds i8, ptr %s, i64 360
-  %27 = load ptr, ptr %mappings.i, align 8
-  %conv.i51 = sext i32 %inc.i to i64
-  %call21.i = tail call ptr @g_realloc_n(ptr noundef %27, i64 noundef %conv.i51, i64 noundef 24) #16
+  %26 = load ptr, ptr %mappings.i, align 8
+  %conv.i50 = sext i32 %inc.i to i64
+  %call21.i = tail call ptr @g_realloc_n(ptr noundef %26, i64 noundef %conv.i50, i64 noundef 24) #16
   store ptr %call21.i, ptr %mappings.i, align 8
   %idxprom.i = zext nneg i32 %add25 to i64
-  %arrayidx.i52 = getelementptr %struct.IOVAMapping, ptr %call21.i, i64 %idxprom.i
-  %28 = load i32, ptr %nr_mappings.i, align 8
-  %reass.sub = sub i32 %28, %19
+  %arrayidx.i51 = getelementptr %struct.IOVAMapping, ptr %call21.i, i64 %idxprom.i
+  %27 = load i32, ptr %nr_mappings.i, align 8
+  %reass.sub = sub i32 %27, %18
   %sub25.i = add i32 %reass.sub, -2
   %tobool.not.i = icmp eq i32 %sub25.i, 0
   br i1 %tobool.not.i, label %qemu_vfio_add_mapping.exit, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end19.i
-  %add.ptr.i = getelementptr i8, ptr %arrayidx.i52, i64 24
+  %add.ptr.i = getelementptr i8, ptr %arrayidx.i51, i64 24
   %conv27.i = sext i32 %sub25.i to i64
   %mul.i = mul nsw i64 %conv27.i, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %arrayidx.i52, i64 %mul.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %arrayidx.i51, i64 %mul.i, i1 false)
   br label %qemu_vfio_add_mapping.exit
 
 qemu_vfio_add_mapping.exit:                       ; preds = %if.end19.i, %if.then26.i
-  store ptr %host, ptr %arrayidx.i52, align 8
-  %m.sroa.2.0.insert.0.2.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i52, i64 8
+  store ptr %host, ptr %arrayidx.i51, align 8
+  %m.sroa.2.0.insert.0.2.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i51, i64 8
   store i64 %size, ptr %m.sroa.2.0.insert.0.2.sroa_idx.i, align 8
-  %m.sroa.3.0.insert.0.2.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i52, i64 16
+  %m.sroa.3.0.insert.0.2.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i51, i64 16
   store i64 %cond.i45, ptr %m.sroa.3.0.insert.0.2.sroa_idx.i, align 8
   %call31 = tail call fastcc i32 @qemu_vfio_do_mapping(ptr noundef nonnull %s, ptr noundef %host, i64 noundef %size, i64 noundef %cond.i45, ptr noundef %errp)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %qemu_vfio_add_mapping.exit
-  tail call fastcc void @qemu_vfio_undo_mapping(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx.i52)
+  tail call fastcc void @qemu_vfio_undo_mapping(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx.i51)
   br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
 if.end34:                                         ; preds = %qemu_vfio_add_mapping.exit
-  %29 = load i32, ptr %nr_mappings.i, align 8
-  %cmp8.i = icmp sgt i32 %29, 0
-  br i1 %cmp8.i, label %for.body.lr.ph.i56, label %if.end44
+  %28 = load i32, ptr %nr_mappings.i, align 8
+  %cmp8.i = icmp sgt i32 %28, 0
+  br i1 %cmp8.i, label %for.body.lr.ph.i55, label %if.end44
 
-for.body.lr.ph.i56:                               ; preds = %if.end34
-  %tv_usec.i.i.i58 = getelementptr inbounds i8, ptr %_now.i.i.i53, i64 8
-  br label %for.body.i59
+for.body.lr.ph.i55:                               ; preds = %if.end34
+  %tv_usec.i.i.i57 = getelementptr inbounds i8, ptr %_now.i.i.i52, i64 8
+  br label %for.body.i58
 
-for.body.i59:                                     ; preds = %trace_qemu_vfio_dump_mapping.exit.i, %for.body.lr.ph.i56
-  %indvars.iv.i60 = phi i64 [ 0, %for.body.lr.ph.i56 ], [ %indvars.iv.next.i65, %trace_qemu_vfio_dump_mapping.exit.i ]
-  %30 = load ptr, ptr %mappings.i, align 8
-  %arrayidx.i61 = getelementptr %struct.IOVAMapping, ptr %30, i64 %indvars.iv.i60
-  %31 = load ptr, ptr %arrayidx.i61, align 8
-  %iova.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 16
-  %32 = load i64, ptr %iova.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 8
-  %33 = load i64, ptr %size.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i53)
-  %34 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i62 = icmp ne i32 %34, 0
-  %35 = load i16, ptr @_TRACE_QEMU_VFIO_DUMP_MAPPING_DSTATE, align 2
-  %tobool4.i.i.i63 = icmp ne i16 %35, 0
-  %or.cond.i.i.i64 = select i1 %tobool.i.i.i62, i1 %tobool4.i.i.i63, i1 false
-  br i1 %or.cond.i.i.i64, label %land.lhs.true5.i.i.i67, label %trace_qemu_vfio_dump_mapping.exit.i
+for.body.i58:                                     ; preds = %trace_qemu_vfio_dump_mapping.exit.i, %for.body.lr.ph.i55
+  %indvars.iv.i59 = phi i64 [ 0, %for.body.lr.ph.i55 ], [ %indvars.iv.next.i64, %trace_qemu_vfio_dump_mapping.exit.i ]
+  %29 = load ptr, ptr %mappings.i, align 8
+  %arrayidx.i60 = getelementptr %struct.IOVAMapping, ptr %29, i64 %indvars.iv.i59
+  %30 = load ptr, ptr %arrayidx.i60, align 8
+  %iova.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 16
+  %31 = load i64, ptr %iova.i, align 8
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i60, i64 8
+  %32 = load i64, ptr %size.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i52)
+  %33 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i61 = icmp ne i32 %33, 0
+  %34 = load i16, ptr @_TRACE_QEMU_VFIO_DUMP_MAPPING_DSTATE, align 2
+  %tobool4.i.i.i62 = icmp ne i16 %34, 0
+  %or.cond.i.i.i63 = select i1 %tobool.i.i.i61, i1 %tobool4.i.i.i62, i1 false
+  br i1 %or.cond.i.i.i63, label %land.lhs.true5.i.i.i66, label %trace_qemu_vfio_dump_mapping.exit.i
 
-land.lhs.true5.i.i.i67:                           ; preds = %for.body.i59
-  %36 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i68 = and i32 %36, 32768
-  %cmp.i.not.i.i.i69 = icmp eq i32 %and.i.i.i.i68, 0
-  br i1 %cmp.i.not.i.i.i69, label %trace_qemu_vfio_dump_mapping.exit.i, label %if.then.i.i.i70
+land.lhs.true5.i.i.i66:                           ; preds = %for.body.i58
+  %35 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i67 = and i32 %35, 32768
+  %cmp.i.not.i.i.i68 = icmp eq i32 %and.i.i.i.i67, 0
+  br i1 %cmp.i.not.i.i.i68, label %trace_qemu_vfio_dump_mapping.exit.i, label %if.then.i.i.i69
 
-if.then.i.i.i70:                                  ; preds = %land.lhs.true5.i.i.i67
-  %37 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i71 = trunc i8 %37 to i1
-  br i1 %tobool7.i.i.i71, label %if.then8.i.i.i73, label %if.else.i.i.i72
+if.then.i.i.i69:                                  ; preds = %land.lhs.true5.i.i.i66
+  %36 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i70 = trunc i8 %36 to i1
+  br i1 %tobool7.i.i.i70, label %if.then8.i.i.i72, label %if.else.i.i.i71
 
-if.then8.i.i.i73:                                 ; preds = %if.then.i.i.i70
-  %call9.i.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i53, ptr noundef null) #16
-  %call10.i.i.i75 = tail call i32 @qemu_get_thread_id() #16
-  %38 = load i64, ptr %_now.i.i.i53, align 8
-  %39 = load i64, ptr %tv_usec.i.i.i58, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i.i75, i64 noundef %38, i64 noundef %39, ptr noundef %31, i64 noundef %32, i64 noundef %33) #16
+if.then8.i.i.i72:                                 ; preds = %if.then.i.i.i69
+  %call9.i.i.i73 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i52, ptr noundef null) #16
+  %call10.i.i.i74 = tail call i32 @qemu_get_thread_id() #16
+  %37 = load i64, ptr %_now.i.i.i52, align 8
+  %38 = load i64, ptr %tv_usec.i.i.i57, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i.i74, i64 noundef %37, i64 noundef %38, ptr noundef %30, i64 noundef %31, i64 noundef %32) #16
   br label %trace_qemu_vfio_dump_mapping.exit.i
 
-if.else.i.i.i72:                                  ; preds = %if.then.i.i.i70
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef %31, i64 noundef %32, i64 noundef %33) #16
+if.else.i.i.i71:                                  ; preds = %if.then.i.i.i69
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef %30, i64 noundef %31, i64 noundef %32) #16
   br label %trace_qemu_vfio_dump_mapping.exit.i
 
-trace_qemu_vfio_dump_mapping.exit.i:              ; preds = %if.else.i.i.i72, %if.then8.i.i.i73, %land.lhs.true5.i.i.i67, %for.body.i59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i53)
-  %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i60, 1
-  %40 = load i32, ptr %nr_mappings.i, align 8
-  %41 = sext i32 %40 to i64
-  %cmp.i66 = icmp slt i64 %indvars.iv.next.i65, %41
-  br i1 %cmp.i66, label %for.body.i59, label %if.end44, !llvm.loop !8
+trace_qemu_vfio_dump_mapping.exit.i:              ; preds = %if.else.i.i.i71, %if.then8.i.i.i72, %land.lhs.true5.i.i.i66, %for.body.i58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i52)
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i59, 1
+  %39 = load i32, ptr %nr_mappings.i, align 8
+  %40 = sext i32 %39 to i64
+  %cmp.i65 = icmp slt i64 %indvars.iv.next.i64, %40
+  br i1 %cmp.i65, label %for.body.i58, label %if.end44, !llvm.loop !8
 
 if.else35:                                        ; preds = %if.end19
-  br i1 %cmp24.not.i, label %qemu_vfio_find_temp_iova.exit, label %for.body.lr.ph.i77
+  br i1 %cmp24.not.i, label %qemu_vfio_find_temp_iova.exit, label %for.body.lr.ph.i76
 
-for.body.lr.ph.i77:                               ; preds = %if.else35
-  %usable_iova_ranges.i78 = getelementptr inbounds i8, ptr %s, i64 328
-  %42 = load ptr, ptr %usable_iova_ranges.i78, align 8
-  %43 = zext i8 %11 to i64
-  br label %for.body.i80
+for.body.lr.ph.i76:                               ; preds = %if.else35
+  %usable_iova_ranges.i77 = getelementptr inbounds i8, ptr %s, i64 328
+  %41 = load ptr, ptr %usable_iova_ranges.i77, align 8
+  %42 = zext i8 %11 to i64
+  br label %for.body.i79
 
-for.body.i80:                                     ; preds = %for.inc.i90, %for.body.lr.ph.i77
-  %indvars.iv.i81 = phi i64 [ %43, %for.body.lr.ph.i77 ], [ %indvars.iv.next.i82, %for.inc.i90 ]
-  %44 = phi i64 [ %s.val42, %for.body.lr.ph.i77 ], [ %48, %for.inc.i90 ]
-  %indvars.iv.next.i82 = add nsw i64 %indvars.iv.i81, -1
-  %arrayidx.i83 = getelementptr %struct.IOVARange, ptr %42, i64 %indvars.iv.next.i82
-  %45 = load i64, ptr %arrayidx.i83, align 8
-  %cmp2.i84 = icmp ugt i64 %45, %44
-  br i1 %cmp2.i84, label %for.inc.i90, label %if.end.i85
+for.body.i79:                                     ; preds = %for.inc.i89, %for.body.lr.ph.i76
+  %indvars.iv.i80 = phi i64 [ %42, %for.body.lr.ph.i76 ], [ %indvars.iv.next.i81, %for.inc.i89 ]
+  %43 = phi i64 [ %s.val42, %for.body.lr.ph.i76 ], [ %47, %for.inc.i89 ]
+  %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, -1
+  %arrayidx.i82 = getelementptr %struct.IOVARange, ptr %41, i64 %indvars.iv.next.i81
+  %44 = load i64, ptr %arrayidx.i82, align 8
+  %cmp2.i83 = icmp ugt i64 %44, %43
+  br i1 %cmp2.i83, label %for.inc.i89, label %if.end.i84
 
-if.end.i85:                                       ; preds = %for.body.i80
-  %end.i86 = getelementptr inbounds i8, ptr %arrayidx.i83, i64 8
-  %46 = load i64, ptr %end.i86, align 8
-  %add.i87 = add i64 %46, 1
-  %cond.i88 = tail call i64 @llvm.umin.i64(i64 %44, i64 %add.i87)
-  store i64 %cond.i88, ptr %10, align 8
-  %47 = load i64, ptr %arrayidx.i83, align 8
-  %sub16.i = sub i64 %cond.i88, %47
+if.end.i84:                                       ; preds = %for.body.i79
+  %end.i85 = getelementptr inbounds i8, ptr %arrayidx.i82, i64 8
+  %45 = load i64, ptr %end.i85, align 8
+  %add.i86 = add i64 %45, 1
+  %cond.i87 = tail call i64 @llvm.umin.i64(i64 %43, i64 %add.i86)
+  store i64 %cond.i87, ptr %10, align 8
+  %46 = load i64, ptr %arrayidx.i82, align 8
+  %sub16.i = sub i64 %cond.i87, %46
   %add17.i = add i64 %sub16.i, 1
   %cmp18.not.i = icmp uge i64 %add17.i, %size
   %cmp27.i = icmp eq i64 %add17.i, 0
-  %or.cond.i89 = or i1 %cmp18.not.i, %cmp27.i
-  br i1 %or.cond.i89, label %if.end38, label %for.inc.i90
+  %or.cond.i88 = or i1 %cmp18.not.i, %cmp27.i
+  br i1 %or.cond.i88, label %if.end38, label %for.inc.i89
 
-for.inc.i90:                                      ; preds = %if.end.i85, %for.body.i80
-  %48 = phi i64 [ %cond.i88, %if.end.i85 ], [ %44, %for.body.i80 ]
-  %cmp.i91 = icmp ugt i64 %indvars.iv.i81, 1
-  br i1 %cmp.i91, label %for.body.i80, label %qemu_vfio_find_temp_iova.exit, !llvm.loop !9
+for.inc.i89:                                      ; preds = %if.end.i84, %for.body.i79
+  %47 = phi i64 [ %cond.i87, %if.end.i84 ], [ %43, %for.body.i79 ]
+  %cmp.i90 = icmp ugt i64 %indvars.iv.i80, 1
+  br i1 %cmp.i90, label %for.body.i79, label %qemu_vfio_find_temp_iova.exit, !llvm.loop !9
 
-qemu_vfio_find_temp_iova.exit:                    ; preds = %for.inc.i90, %if.else35
+qemu_vfio_find_temp_iova.exit:                    ; preds = %for.inc.i89, %if.else35
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qemu_vfio_find_temp_iova, ptr noundef nonnull @.str.69) #16
-  br label %glib_autoptr_cleanup_QemuLockable.exit.cont121
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
-if.end38:                                         ; preds = %if.end.i85
-  %sub31.i = sub i64 %cond.i88, %size
+if.end38:                                         ; preds = %if.end.i84
+  %sub31.i = sub i64 %cond.i87, %size
   store i64 %sub31.i, ptr %10, align 8
   %call39 = tail call fastcc i32 @qemu_vfio_do_mapping(ptr noundef nonnull %s, ptr noundef %host, i64 noundef %size, i64 noundef %sub31.i, ptr noundef %errp)
   %cmp40 = icmp slt i32 %call39, 0
@@ -1078,60 +1069,60 @@ if.end38:                                         ; preds = %if.end.i85
 
 if.end44:                                         ; preds = %trace_qemu_vfio_dump_mapping.exit.i, %if.end34, %if.end38, %if.then13
   %iova0.0 = phi i64 [ %sub31.i, %if.end38 ], [ %add, %if.then13 ], [ %cond.i45, %if.end34 ], [ %cond.i45, %trace_qemu_vfio_dump_mapping.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i93)
-  %49 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i94 = icmp ne i32 %49, 0
-  %50 = load i16, ptr @_TRACE_QEMU_VFIO_DMA_MAPPED_DSTATE, align 2
-  %tobool4.i.i95 = icmp ne i16 %50, 0
-  %or.cond.i.i96 = select i1 %tobool.i.i94, i1 %tobool4.i.i95, i1 false
-  br i1 %or.cond.i.i96, label %land.lhs.true5.i.i97, label %trace_qemu_vfio_dma_mapped.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i92)
+  %48 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i93 = icmp ne i32 %48, 0
+  %49 = load i16, ptr @_TRACE_QEMU_VFIO_DMA_MAPPED_DSTATE, align 2
+  %tobool4.i.i94 = icmp ne i16 %49, 0
+  %or.cond.i.i95 = select i1 %tobool.i.i93, i1 %tobool4.i.i94, i1 false
+  br i1 %or.cond.i.i95, label %land.lhs.true5.i.i96, label %trace_qemu_vfio_dma_mapped.exit
 
-land.lhs.true5.i.i97:                             ; preds = %if.end44
-  %51 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i98 = and i32 %51, 32768
-  %cmp.i.not.i.i99 = icmp eq i32 %and.i.i.i98, 0
-  br i1 %cmp.i.not.i.i99, label %trace_qemu_vfio_dma_mapped.exit, label %if.then.i.i100
+land.lhs.true5.i.i96:                             ; preds = %if.end44
+  %50 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i97 = and i32 %50, 32768
+  %cmp.i.not.i.i98 = icmp eq i32 %and.i.i.i97, 0
+  br i1 %cmp.i.not.i.i98, label %trace_qemu_vfio_dma_mapped.exit, label %if.then.i.i99
 
-if.then.i.i100:                                   ; preds = %land.lhs.true5.i.i97
-  %52 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i101 = trunc i8 %52 to i1
-  br i1 %tobool7.i.i101, label %if.then8.i.i103, label %if.else.i.i102
+if.then.i.i99:                                    ; preds = %land.lhs.true5.i.i96
+  %51 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i100 = trunc i8 %51 to i1
+  br i1 %tobool7.i.i100, label %if.then8.i.i102, label %if.else.i.i101
 
-if.then8.i.i103:                                  ; preds = %if.then.i.i100
-  %call9.i.i104 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93, ptr noundef null) #16
-  %call10.i.i105 = tail call i32 @qemu_get_thread_id() #16
-  %53 = load i64, ptr %_now.i.i93, align 8
-  %tv_usec.i.i106 = getelementptr inbounds i8, ptr %_now.i.i93, i64 8
-  %54 = load i64, ptr %tv_usec.i.i106, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i105, i64 noundef %53, i64 noundef %54, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.0, i64 noundef %size) #16
+if.then8.i.i102:                                  ; preds = %if.then.i.i99
+  %call9.i.i103 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i92, ptr noundef null) #16
+  %call10.i.i104 = tail call i32 @qemu_get_thread_id() #16
+  %52 = load i64, ptr %_now.i.i92, align 8
+  %tv_usec.i.i105 = getelementptr inbounds i8, ptr %_now.i.i92, i64 8
+  %53 = load i64, ptr %tv_usec.i.i105, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i104, i64 noundef %52, i64 noundef %53, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.0, i64 noundef %size) #16
   br label %trace_qemu_vfio_dma_mapped.exit
 
-if.else.i.i102:                                   ; preds = %if.then.i.i100
+if.else.i.i101:                                   ; preds = %if.then.i.i99
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.0, i64 noundef %size) #16
   br label %trace_qemu_vfio_dma_mapped.exit
 
-trace_qemu_vfio_dma_mapped.exit:                  ; preds = %if.end44, %land.lhs.true5.i.i97, %if.then8.i.i103, %if.else.i.i102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i93)
+trace_qemu_vfio_dma_mapped.exit:                  ; preds = %if.end44, %land.lhs.true5.i.i96, %if.then8.i.i102, %if.else.i.i101
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i92)
   %tobool45.not = icmp eq ptr %iova, null
-  br i1 %tobool45.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont121, label %if.then46
+  br i1 %tobool45.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont119, label %if.then46
 
 if.then46:                                        ; preds = %trace_qemu_vfio_dma_mapped.exit
   store i64 %iova0.0, ptr %iova, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit.cont121
+  br label %glib_autoptr_cleanup_QemuLockable.exit.cont119
 
-glib_autoptr_cleanup_QemuLockable.exit.cont121:   ; preds = %if.then46, %trace_qemu_vfio_dma_mapped.exit, %qemu_vfio_find_temp_iova.exit, %for.end.i
-  %retval.0 = phi i32 [ -12, %qemu_vfio_find_temp_iova.exit ], [ 0, %if.then46 ], [ 0, %trace_qemu_vfio_dma_mapped.exit ], [ -12, %for.end.i ]
+glib_autoptr_cleanup_QemuLockable.exit.cont119:   ; preds = %if.then46, %trace_qemu_vfio_dma_mapped.exit, %qemu_vfio_find_fixed_iova.exit, %qemu_vfio_find_temp_iova.exit
+  %retval.0 = phi i32 [ -12, %qemu_vfio_find_fixed_iova.exit ], [ -12, %qemu_vfio_find_temp_iova.exit ], [ 0, %if.then46 ], [ 0, %trace_qemu_vfio_dma_mapped.exit ]
   br i1 %tobool.i.not, label %glib_autoptr_cleanup_QemuLockable.exit.then, label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.exit.then:      ; preds = %glib_autoptr_cleanup_QemuLockable.exit.cont121
+glib_autoptr_cleanup_QemuLockable.exit.then:      ; preds = %glib_autoptr_cleanup_QemuLockable.exit.cont119
   %_ptr.val2.i.i.then.val = load ptr, ptr inttoptr (i64 16 to ptr), align 16
   br label %glib_autoptr_cleanup_QemuLockable.exit.cont
 
-glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %for.end.i.thread, %qemu_vfio_water_mark_reached.exit.thread, %if.end38, %qemu_vfio_find_fixed_iova.exit, %if.then33, %glib_autoptr_cleanup_QemuLockable.exit.cont121, %glib_autoptr_cleanup_QemuLockable.exit.then
-  %retval.0126128 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.cont121 ], [ -12, %for.end.i.thread ], [ -12, %qemu_vfio_water_mark_reached.exit.thread ], [ %call39, %if.end38 ], [ -12, %qemu_vfio_find_fixed_iova.exit ], [ %call31, %if.then33 ]
-  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.exit.cont121 ], [ @qemu_mutex_unlock, %for.end.i.thread ], [ @qemu_mutex_unlock, %qemu_vfio_water_mark_reached.exit.thread ], [ @qemu_mutex_unlock, %if.end38 ], [ @qemu_mutex_unlock, %qemu_vfio_find_fixed_iova.exit ], [ @qemu_mutex_unlock, %if.then33 ]
+glib_autoptr_cleanup_QemuLockable.exit.cont:      ; preds = %qemu_vfio_water_mark_reached.exit.thread, %if.end38, %if.then33, %glib_autoptr_cleanup_QemuLockable.exit.cont119, %glib_autoptr_cleanup_QemuLockable.exit.then
+  %retval.0124126 = phi i32 [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit.cont119 ], [ -12, %qemu_vfio_water_mark_reached.exit.thread ], [ %call39, %if.end38 ], [ %call31, %if.then33 ]
+  %_ptr.val2.i.i = phi ptr [ %_ptr.val2.i.i.then.val, %glib_autoptr_cleanup_QemuLockable.exit.then ], [ @qemu_mutex_unlock, %glib_autoptr_cleanup_QemuLockable.exit.cont119 ], [ @qemu_mutex_unlock, %qemu_vfio_water_mark_reached.exit.thread ], [ @qemu_mutex_unlock, %if.end38 ], [ @qemu_mutex_unlock, %if.then33 ]
   tail call void %_ptr.val2.i.i(ptr noundef %s) #16
-  ret i32 %retval.0126128
+  ret i32 %retval.0124126
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

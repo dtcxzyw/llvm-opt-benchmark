@@ -5844,16 +5844,13 @@ _ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit: ; preds = %_ZNSt10shared_ptr
   store i8 %frombool34, ptr %gtest_ar_25, align 8
   %message_.i200 = getelementptr inbounds i8, ptr %gtest_ar_25, i64 8
   store ptr null, ptr %message_.i200, align 8
-  br i1 %cmp.not.i.i.i187, label %_ZNSt10shared_ptrIKiED2Ev.exit, label %if.then.i.i.i.i203
-
-if.then.i.i.i.i203:                               ; preds = %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit
   %_M_use_count.i.i.i.i.i204 = getelementptr inbounds i8, ptr %45, i64 8
   %49 = load atomic i64, ptr %_M_use_count.i.i.i.i.i204 acquire, align 8
   %cmp.i.i.i.i.i205 = icmp eq i64 %49, 4294967297
   %50 = trunc i64 %49 to i32
   br i1 %cmp.i.i.i.i.i205, label %if.then.i.i.i.i.i228, label %if.end.i.i.i.i.i206
 
-if.then.i.i.i.i.i228:                             ; preds = %if.then.i.i.i.i203
+if.then.i.i.i.i.i228:                             ; preds = %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit
   store i32 0, ptr %_M_use_count.i.i.i.i.i204, align 8
   %_M_weak_count.i.i.i.i.i229 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i229, align 4
@@ -5863,7 +5860,7 @@ if.then.i.i.i.i.i228:                             ; preds = %if.then.i.i.i.i203
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %45) #20
   br label %if.end8.sink.split.i.i.i.i.i223
 
-if.end.i.i.i.i.i206:                              ; preds = %if.then.i.i.i.i203
+if.end.i.i.i.i.i206:                              ; preds = %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i207 = icmp eq i8 %52, 0
   br i1 %tobool.i.not.i.i.i.i.i207, label %if.else.i.i.i.i.i.i227, label %if.then.i.i.i.i.i.i208
@@ -5914,8 +5911,8 @@ if.end8.sink.split.i.i.i.i.i223:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %45) #20
   br label %_ZNSt10shared_ptrIKiED2Ev.exit
 
-_ZNSt10shared_ptrIKiED2Ev.exit:                   ; preds = %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread, %if.end8.sink.split.i.i.i.i.i223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i220, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i210, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit
-  %message_.i2002975 = phi ptr [ %message_.i2002974, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread ], [ %message_.i200, %if.end8.sink.split.i.i.i.i.i223 ], [ %message_.i200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i220 ], [ %message_.i200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i210 ], [ %message_.i200, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit ]
+_ZNSt10shared_ptrIKiED2Ev.exit:                   ; preds = %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread, %if.end8.sink.split.i.i.i.i.i223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i220, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i210
+  %message_.i2002975 = phi ptr [ %message_.i2002974, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread ], [ %message_.i200, %if.end8.sink.split.i.i.i.i.i223 ], [ %message_.i200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i220 ], [ %message_.i200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i210 ]
   br i1 %cmp.not.i.i.i172, label %_ZNSt10shared_ptrIiED2Ev.exit326, label %if.then.i.i.i.i265
 
 if.then.i.i.i.i265:                               ; preds = %_ZNSt10shared_ptrIKiED2Ev.exit
@@ -6158,16 +6155,13 @@ _ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371: ; preds = %_ZNSt10shared_p
   store i8 %frombool71, ptr %gtest_ar_62, align 8
   %message_.i374 = getelementptr inbounds i8, ptr %gtest_ar_62, i64 8
   store ptr null, ptr %message_.i374, align 8
-  br i1 %cmp.not.i.i.i359, label %_ZNSt10shared_ptrIiED2Ev.exit438, label %if.then.i.i.i.i377
-
-if.then.i.i.i.i377:                               ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371
   %_M_use_count.i.i.i.i.i378 = getelementptr inbounds i8, ptr %85, i64 8
   %89 = load atomic i64, ptr %_M_use_count.i.i.i.i.i378 acquire, align 8
   %cmp.i.i.i.i.i379 = icmp eq i64 %89, 4294967297
   %90 = trunc i64 %89 to i32
   br i1 %cmp.i.i.i.i.i379, label %if.then.i.i.i.i.i402, label %if.end.i.i.i.i.i380
 
-if.then.i.i.i.i.i402:                             ; preds = %if.then.i.i.i.i377
+if.then.i.i.i.i.i402:                             ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371
   store i32 0, ptr %_M_use_count.i.i.i.i.i378, align 8
   %_M_weak_count.i.i.i.i.i403 = getelementptr inbounds i8, ptr %85, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i403, align 4
@@ -6177,7 +6171,7 @@ if.then.i.i.i.i.i402:                             ; preds = %if.then.i.i.i.i377
   call void %91(ptr noundef nonnull align 8 dereferenceable(16) %85) #20
   br label %if.end8.sink.split.i.i.i.i.i397
 
-if.end.i.i.i.i.i380:                              ; preds = %if.then.i.i.i.i377
+if.end.i.i.i.i.i380:                              ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371
   %92 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i381 = icmp eq i8 %92, 0
   br i1 %tobool.i.not.i.i.i.i.i381, label %if.else.i.i.i.i.i.i401, label %if.then.i.i.i.i.i.i382
@@ -6228,8 +6222,8 @@ if.end8.sink.split.i.i.i.i.i397:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #20
   br label %_ZNSt10shared_ptrIiED2Ev.exit438
 
-_ZNSt10shared_ptrIiED2Ev.exit438:                 ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371.thread, %if.end8.sink.split.i.i.i.i.i397, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i384, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371
-  %message_.i3742980 = phi ptr [ %message_.i3742979, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371.thread ], [ %message_.i374, %if.end8.sink.split.i.i.i.i.i397 ], [ %message_.i374, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i394 ], [ %message_.i374, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i384 ], [ %message_.i374, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371 ]
+_ZNSt10shared_ptrIiED2Ev.exit438:                 ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371.thread, %if.end8.sink.split.i.i.i.i.i397, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i384
+  %message_.i3742980 = phi ptr [ %message_.i3742979, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit371.thread ], [ %message_.i374, %if.end8.sink.split.i.i.i.i.i397 ], [ %message_.i374, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i394 ], [ %message_.i374, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i384 ]
   br i1 %cmp.not.i.i.i344, label %_ZNSt10shared_ptrIiED2Ev.exit502, label %if.then.i.i.i.i441
 
 if.then.i.i.i.i441:                               ; preds = %_ZNSt10shared_ptrIiED2Ev.exit438
@@ -6782,16 +6776,13 @@ _ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723: ; preds = %_ZNSt10shared_p
   store i8 %frombool145, ptr %gtest_ar_136, align 8
   %message_.i726 = getelementptr inbounds i8, ptr %gtest_ar_136, i64 8
   store ptr null, ptr %message_.i726, align 8
-  br i1 %cmp.not.i.i.i711, label %_ZNSt10shared_ptrIiED2Ev.exit790, label %if.then.i.i.i.i729
-
-if.then.i.i.i.i729:                               ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723
   %_M_use_count.i.i.i.i.i730 = getelementptr inbounds i8, ptr %165, i64 8
   %169 = load atomic i64, ptr %_M_use_count.i.i.i.i.i730 acquire, align 8
   %cmp.i.i.i.i.i731 = icmp eq i64 %169, 4294967297
   %170 = trunc i64 %169 to i32
   br i1 %cmp.i.i.i.i.i731, label %if.then.i.i.i.i.i754, label %if.end.i.i.i.i.i732
 
-if.then.i.i.i.i.i754:                             ; preds = %if.then.i.i.i.i729
+if.then.i.i.i.i.i754:                             ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723
   store i32 0, ptr %_M_use_count.i.i.i.i.i730, align 8
   %_M_weak_count.i.i.i.i.i755 = getelementptr inbounds i8, ptr %165, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i755, align 4
@@ -6801,7 +6792,7 @@ if.then.i.i.i.i.i754:                             ; preds = %if.then.i.i.i.i729
   call void %171(ptr noundef nonnull align 8 dereferenceable(16) %165) #20
   br label %if.end8.sink.split.i.i.i.i.i749
 
-if.end.i.i.i.i.i732:                              ; preds = %if.then.i.i.i.i729
+if.end.i.i.i.i.i732:                              ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723
   %172 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i733 = icmp eq i8 %172, 0
   br i1 %tobool.i.not.i.i.i.i.i733, label %if.else.i.i.i.i.i.i753, label %if.then.i.i.i.i.i.i734
@@ -6852,8 +6843,8 @@ if.end8.sink.split.i.i.i.i.i749:                  ; preds = %_ZN9__gnu_cxx27__ex
   call void %178(ptr noundef nonnull align 8 dereferenceable(16) %165) #20
   br label %_ZNSt10shared_ptrIiED2Ev.exit790
 
-_ZNSt10shared_ptrIiED2Ev.exit790:                 ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723.thread, %if.end8.sink.split.i.i.i.i.i749, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i746, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i736, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723
-  %message_.i7262985 = phi ptr [ %message_.i7262984, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723.thread ], [ %message_.i726, %if.end8.sink.split.i.i.i.i.i749 ], [ %message_.i726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i746 ], [ %message_.i726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i736 ], [ %message_.i726, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723 ]
+_ZNSt10shared_ptrIiED2Ev.exit790:                 ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723.thread, %if.end8.sink.split.i.i.i.i.i749, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i746, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i736
+  %message_.i7262985 = phi ptr [ %message_.i7262984, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit723.thread ], [ %message_.i726, %if.end8.sink.split.i.i.i.i.i749 ], [ %message_.i726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i746 ], [ %message_.i726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i736 ]
   br i1 %cmp.not.i.i.i696, label %_ZNSt10shared_ptrIiED2Ev.exit854, label %if.then.i.i.i.i793
 
 if.then.i.i.i.i793:                               ; preds = %_ZNSt10shared_ptrIiED2Ev.exit790
@@ -7706,16 +7697,13 @@ _ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253: ; preds = %_ZNSt10shared_
   store i8 %frombool260, ptr %gtest_ar_251, align 8
   %message_.i1256 = getelementptr inbounds i8, ptr %gtest_ar_251, i64 8
   store ptr null, ptr %message_.i1256, align 8
-  br i1 %cmp.not.i.i.i1241, label %_ZNSt10shared_ptrIiED2Ev.exit1320, label %if.then.i.i.i.i1259
-
-if.then.i.i.i.i1259:                              ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253
   %_M_use_count.i.i.i.i.i1260 = getelementptr inbounds i8, ptr %291, i64 8
   %295 = load atomic i64, ptr %_M_use_count.i.i.i.i.i1260 acquire, align 8
   %cmp.i.i.i.i.i1261 = icmp eq i64 %295, 4294967297
   %296 = trunc i64 %295 to i32
   br i1 %cmp.i.i.i.i.i1261, label %if.then.i.i.i.i.i1284, label %if.end.i.i.i.i.i1262
 
-if.then.i.i.i.i.i1284:                            ; preds = %if.then.i.i.i.i1259
+if.then.i.i.i.i.i1284:                            ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253
   store i32 0, ptr %_M_use_count.i.i.i.i.i1260, align 8
   %_M_weak_count.i.i.i.i.i1285 = getelementptr inbounds i8, ptr %291, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i1285, align 4
@@ -7725,7 +7713,7 @@ if.then.i.i.i.i.i1284:                            ; preds = %if.then.i.i.i.i1259
   call void %297(ptr noundef nonnull align 8 dereferenceable(16) %291) #20
   br label %if.end8.sink.split.i.i.i.i.i1279
 
-if.end.i.i.i.i.i1262:                             ; preds = %if.then.i.i.i.i1259
+if.end.i.i.i.i.i1262:                             ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253
   %298 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i1263 = icmp eq i8 %298, 0
   br i1 %tobool.i.not.i.i.i.i.i1263, label %if.else.i.i.i.i.i.i1283, label %if.then.i.i.i.i.i.i1264
@@ -7776,8 +7764,8 @@ if.end8.sink.split.i.i.i.i.i1279:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %304(ptr noundef nonnull align 8 dereferenceable(16) %291) #20
   br label %_ZNSt10shared_ptrIiED2Ev.exit1320
 
-_ZNSt10shared_ptrIiED2Ev.exit1320:                ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253.thread, %if.end8.sink.split.i.i.i.i.i1279, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1276, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1266, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253
-  %message_.i12562990 = phi ptr [ %message_.i12562989, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253.thread ], [ %message_.i1256, %if.end8.sink.split.i.i.i.i.i1279 ], [ %message_.i1256, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1276 ], [ %message_.i1256, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1266 ], [ %message_.i1256, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253 ]
+_ZNSt10shared_ptrIiED2Ev.exit1320:                ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253.thread, %if.end8.sink.split.i.i.i.i.i1279, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1276, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1266
+  %message_.i12562990 = phi ptr [ %message_.i12562989, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit1253.thread ], [ %message_.i1256, %if.end8.sink.split.i.i.i.i.i1279 ], [ %message_.i1256, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1276 ], [ %message_.i1256, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1266 ]
   br i1 %cmp.not.i.i.i1226, label %_ZNSt10shared_ptrIiED2Ev.exit1384, label %if.then.i.i.i.i1323
 
 if.then.i.i.i.i1323:                              ; preds = %_ZNSt10shared_ptrIiED2Ev.exit1320

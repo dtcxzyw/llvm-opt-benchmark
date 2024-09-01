@@ -61,21 +61,21 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   store volatile ptr %25, ptr %28, align 8
   %29 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #7
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit39, label %.preheader40
+  br i1 %30, label %.loopexit38, label %.preheader39
 
-.preheader40:                                     ; preds = %27, %50
+.preheader39:                                     ; preds = %27, %50
   %31 = phi ptr [ %56, %50 ], [ %29, %27 ]
   %32 = phi i32 [ %55, %50 ], [ 0, %27 ]
   br label %36
 
-.loopexit39:                                      ; preds = %50, %58, %27
+.loopexit38:                                      ; preds = %50, %58, %27
   %33 = phi i32 [ 0, %27 ], [ %32, %58 ], [ %55, %50 ]
   %34 = load ptr, ptr %25, align 8
   %35 = icmp eq ptr %34, %25
-  br i1 %35, label %.loopexit38, label %.preheader37
+  br i1 %35, label %.loopexit37, label %.preheader36
 
-36:                                               ; preds = %58, %.preheader40
-  %37 = phi ptr [ %31, %.preheader40 ], [ %59, %58 ]
+36:                                               ; preds = %58, %.preheader39
+  %37 = phi ptr [ %31, %.preheader39 ], [ %59, %58 ]
   %38 = call zeroext i8 @pci_find_capability(ptr noundef nonnull %37, i32 noundef 2) #7
   store i8 %38, ptr %9, align 1
   %39 = icmp eq i8 %38, 0
@@ -96,7 +96,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %48 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 32) #8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit41, label %50
+  br i1 %49, label %.loopexit40, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %48, i64 24
@@ -111,15 +111,15 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %55 = add i32 %32, 1
   %56 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %37) #7
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit39, label %.preheader40, !llvm.loop !6
+  br i1 %57, label %.loopexit38, label %.preheader39, !llvm.loop !6
 
 58:                                               ; preds = %40, %36
   %59 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %37) #7
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit39, label %36, !llvm.loop !6
+  br i1 %60, label %.loopexit38, label %36, !llvm.loop !6
 
-.preheader37:                                     ; preds = %.loopexit39, %122
-  %61 = phi ptr [ %123, %122 ], [ %34, %.loopexit39 ]
+.preheader36:                                     ; preds = %.loopexit38, %122
+  %61 = phi ptr [ %123, %122 ], [ %34, %.loopexit38 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @pci_read_config_word(ptr noundef %63, i32 noundef 6, ptr noundef nonnull %13) #7
@@ -128,35 +128,35 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %122, label %68
 
-68:                                               ; preds = %.preheader37
+68:                                               ; preds = %.preheader36
   %69 = call i32 @pci_read_config_byte(ptr noundef %63, i32 noundef 52, ptr noundef nonnull %9) #7
   %70 = load i8, ptr %9, align 1
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %.thread25, label %.preheader35
+  br i1 %71, label %.thread25, label %.preheader34
 
-.preheader35:                                     ; preds = %68, %78
+.preheader34:                                     ; preds = %68, %78
   %72 = phi i8 [ %80, %78 ], [ %70, %68 ]
   %73 = zext i8 %72 to i32
   %74 = call i32 @pci_read_config_dword(ptr noundef %63, i32 noundef %73, ptr noundef nonnull %12) #7
   %75 = load i32, ptr %12, align 4
   %76 = and i32 %75, 255
   %77 = icmp eq i32 %76, 2
-  br i1 %77, label %.loopexit36, label %78
+  br i1 %77, label %.loopexit35, label %78
 
-78:                                               ; preds = %.preheader35
+78:                                               ; preds = %.preheader34
   %79 = lshr i32 %75, 8
   %80 = trunc i32 %79 to i8
   store i8 %80, ptr %9, align 1
   %.not = icmp eq i8 %80, 0
-  br i1 %.not, label %.thread25, label %.preheader35, !llvm.loop !9
+  br i1 %.not, label %.thread25, label %.preheader34, !llvm.loop !9
 
-.loopexit36:                                      ; preds = %.preheader35
+.loopexit35:                                      ; preds = %.preheader34
   %.pr = load i8, ptr %9, align 1
   %81 = zext i8 %.pr to i32
   %82 = icmp eq i8 %.pr, 0
   br i1 %82, label %.thread25, label %92
 
-.thread25:                                        ; preds = %68, %.loopexit36, %78
+.thread25:                                        ; preds = %68, %.loopexit35, %78
   %83 = getelementptr inbounds i8, ptr %15, i64 184
   %84 = getelementptr inbounds i8, ptr %63, i64 264
   %85 = load ptr, ptr %84, align 8
@@ -171,9 +171,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 90:                                               ; preds = %87, %.thread25
   %91 = phi ptr [ %89, %87 ], [ %85, %.thread25 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %83, ptr noundef nonnull @.str.1, ptr noundef %91) #9
-  br label %.loopexit41
+  br label %.loopexit40
 
-92:                                               ; preds = %.loopexit36
+92:                                               ; preds = %.loopexit35
   %93 = and i32 %75, 15728640
   %94 = icmp ult i32 %93, 3145728
   br i1 %94, label %95, label %105
@@ -193,7 +193,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 103:                                              ; preds = %100, %95
   %104 = phi ptr [ %102, %100 ], [ %98, %95 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %96, ptr noundef nonnull @.str.2, ptr noundef %104) #9
-  br label %.loopexit41
+  br label %.loopexit40
 
 105:                                              ; preds = %92
   %106 = getelementptr inbounds i8, ptr %61, i64 16
@@ -220,14 +220,14 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 120:                                              ; preds = %117, %112
   %121 = phi ptr [ %119, %117 ], [ %115, %112 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %113, ptr noundef nonnull @.str.3, ptr noundef %121) #9
-  br label %.loopexit41
+  br label %.loopexit40
 
-122:                                              ; preds = %105, %.preheader37
+122:                                              ; preds = %105, %.preheader36
   %123 = load ptr, ptr %61, align 8
   %124 = icmp eq ptr %123, %25
-  br i1 %124, label %.loopexit38, label %.preheader37, !llvm.loop !10
+  br i1 %124, label %.loopexit37, label %.preheader36, !llvm.loop !10
 
-.loopexit38:                                      ; preds = %122, %.loopexit39
+.loopexit37:                                      ; preds = %122, %.loopexit38
   %125 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   store i32 0, ptr %3, align 4, !annotation !5
@@ -247,16 +247,16 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %129 = icmp eq ptr %128, null
   br i1 %129, label %.thread29, label %130
 
-130:                                              ; preds = %.loopexit38
+130:                                              ; preds = %.loopexit37
   %131 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
   store i32 0, ptr %2, align 4, !annotation !5
   store volatile ptr %25, ptr %25, align 8
   store volatile ptr %25, ptr %28, align 8
   %132 = icmp eq ptr %131, %25
-  br i1 %132, label %.loopexit34, label %.preheader33
+  br i1 %132, label %.loopexit33, label %.preheader32
 
-.preheader33:                                     ; preds = %130, %154
+.preheader32:                                     ; preds = %130, %154
   %133 = phi ptr [ %145, %154 ], [ %131, %130 ]
   %134 = getelementptr inbounds i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
@@ -273,8 +273,8 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %145 = load ptr, ptr %133, align 8
   br label %146
 
-146:                                              ; preds = %150, %.preheader33
-  %147 = phi ptr [ %25, %.preheader33 ], [ %148, %150 ]
+146:                                              ; preds = %150, %.preheader32
+  %147 = phi ptr [ %25, %.preheader32 ], [ %148, %150 ]
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, %25
   br i1 %149, label %154, label %150
@@ -294,9 +294,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   store ptr %156, ptr %157, align 8
   store volatile ptr %133, ptr %156, align 8
   %158 = icmp eq ptr %145, %25
-  br i1 %158, label %.loopexit34, label %.preheader33, !llvm.loop !12
+  br i1 %158, label %.loopexit33, label %.preheader32, !llvm.loop !12
 
-.loopexit34:                                      ; preds = %154, %130
+.loopexit33:                                      ; preds = %154, %130
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   %159 = load i32, ptr %16, align 8
   %160 = add i32 %159, 12
@@ -313,13 +313,13 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %171 = lshr i32 %170, 24
   %172 = load ptr, ptr %25, align 8
   %173 = icmp eq ptr %172, %25
-  br i1 %173, label %.thread26, label %.preheader32
+  br i1 %173, label %.thread26, label %.preheader31
 
-.preheader32:                                     ; preds = %.loopexit34, %.preheader32
-  %174 = phi ptr [ %200, %.preheader32 ], [ %172, %.loopexit34 ]
-  %175 = phi i32 [ %198, %.preheader32 ], [ %169, %.loopexit34 ]
-  %176 = phi i32 [ %197, %.preheader32 ], [ 0, %.loopexit34 ]
-  %177 = phi i32 [ %199, %.preheader32 ], [ 0, %.loopexit34 ]
+.preheader31:                                     ; preds = %.loopexit33, %.preheader31
+  %174 = phi ptr [ %200, %.preheader31 ], [ %172, %.loopexit33 ]
+  %175 = phi i32 [ %198, %.preheader31 ], [ %169, %.loopexit33 ]
+  %176 = phi i32 [ %197, %.preheader31 ], [ 0, %.loopexit33 ]
+  %177 = phi i32 [ %199, %.preheader31 ], [ 0, %.loopexit33 ]
   %178 = getelementptr inbounds i8, ptr %174, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %174, i64 16
@@ -348,14 +348,14 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %199 = add i32 %177, 1
   %200 = load ptr, ptr %174, align 8
   %201 = icmp eq ptr %200, %25
-  br i1 %201, label %202, label %.preheader32, !llvm.loop !13
+  br i1 %201, label %202, label %.preheader31, !llvm.loop !13
 
-202:                                              ; preds = %.preheader32
+202:                                              ; preds = %.preheader31
   %203 = icmp ugt i32 %197, %167
   br i1 %203, label %324, label %.thread26
 
-.thread26:                                        ; preds = %.loopexit34, %202
-  %204 = phi i32 [ %198, %202 ], [ %169, %.loopexit34 ]
+.thread26:                                        ; preds = %.loopexit33, %202
+  %204 = phi i32 [ %198, %202 ], [ %169, %.loopexit33 ]
   %205 = load i32, ptr %16, align 8
   %206 = add i32 %205, 32
   %207 = call i32 @pci_read_config_word(ptr noundef %125, i32 noundef %206, ptr noundef nonnull %7) #7
@@ -398,9 +398,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 236:                                              ; preds = %225
   %237 = icmp ugt i32 %233, %221
-  br i1 %237, label %324, label %.preheader31
+  br i1 %237, label %324, label %.preheader92
 
-.preheader31:                                     ; preds = %236, %250
+.preheader92:                                     ; preds = %236, %250
   %238 = phi i64 [ %253, %250 ], [ 0, %236 ]
   %239 = phi i32 [ %252, %250 ], [ 0, %236 ]
   %240 = getelementptr %struct.isoch_data, ptr %128, i64 %238
@@ -413,18 +413,18 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %246 = icmp ugt i32 %245, 1
   br i1 %246, label %247, label %250
 
-247:                                              ; preds = %.preheader31
+247:                                              ; preds = %.preheader92
   %248 = add i32 %245, -1
   %249 = shl i32 %242, %248
   store i32 %249, ptr %243, align 8
   br label %250
 
-250:                                              ; preds = %247, %.preheader31
-  %251 = phi i32 [ %249, %247 ], [ %242, %.preheader31 ]
+250:                                              ; preds = %247, %.preheader92
+  %251 = phi i32 [ %249, %247 ], [ %242, %.preheader92 ]
   %252 = add i32 %251, %239
   %253 = add nuw nsw i64 %238, 1
   %254 = icmp eq i64 %253, %126
-  br i1 %254, label %.thread28.loopexit, label %.preheader31, !llvm.loop !15
+  br i1 %254, label %.thread28.loopexit, label %.preheader92, !llvm.loop !15
 
 .thread28.loopexit:                               ; preds = %250
   %255 = sub nuw nsw i32 %221, %233
@@ -517,7 +517,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  br label %.loopexit41
+  br label %.loopexit40
 
 324:                                              ; preds = %202, %236, %.thread28
   %325 = phi ptr [ @.str.6, %202 ], [ @.str.7, %236 ], [ @.str.8, %.thread28 ]
@@ -526,8 +526,8 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   call void @kfree(ptr noundef nonnull %128) #7
   br label %.thread29
 
-.thread29:                                        ; preds = %.loopexit38, %324
-  %327 = phi i32 [ -19, %324 ], [ -12, %.loopexit38 ]
+.thread29:                                        ; preds = %.loopexit37, %324
+  %327 = phi i32 [ -19, %324 ], [ -12, %.loopexit37 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -539,22 +539,22 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %.val = load ptr, ptr %14, align 8
   %.val24 = load i32, ptr %16, align 8
   call fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.val, i32 %.val24, ptr noundef nonnull %25, i32 noundef %33)
-  br label %.loopexit41
+  br label %.loopexit40
 
-.loopexit41:                                      ; preds = %46, %.thread30, %.thread29, %120, %103, %90
+.loopexit40:                                      ; preds = %46, %.thread30, %.thread29, %120, %103, %90
   %329 = phi i32 [ -19, %90 ], [ -19, %103 ], [ -19, %120 ], [ %327, %.thread29 ], [ 0, %.thread30 ], [ -12, %46 ]
   %330 = load ptr, ptr %25, align 8
   %331 = icmp eq ptr %330, %25
   br i1 %331, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit41, %.preheader
-  %332 = phi ptr [ %333, %.preheader ], [ %330, %.loopexit41 ]
+.preheader:                                       ; preds = %.loopexit40, %.preheader
+  %332 = phi ptr [ %333, %.preheader ], [ %330, %.loopexit40 ]
   %333 = load ptr, ptr %332, align 8
   call void @kfree(ptr noundef %332) #7
   %334 = icmp eq ptr %333, %25
   br i1 %334, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit41
+.loopexit:                                        ; preds = %.preheader, %.loopexit40
   call void @kfree(ptr noundef nonnull %25) #7
   br label %335
 

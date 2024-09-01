@@ -1492,7 +1492,7 @@ common.resume.i.i.i.i:                            ; preds = %151, %125, %117, %1
   %.sroa.5.0..sroa_idx69.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 12
   br label %89
 
-.lr.ph65.i.i.i.i:                                 ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h9bd3cca07d4dff76E.exit1.i.i.i.i"
+_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h9bd3cca07d4dff76E.exit1.i.i.i.i"
   %86 = getelementptr inbounds i8, ptr %6, i64 16
   %87 = getelementptr inbounds i8, ptr %4, i64 8
   %88 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1582,7 +1582,7 @@ common.resume.i.i.i.i:                            ; preds = %151, %125, %117, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !332
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !332
   %104 = icmp eq ptr %90, %75
-  br i1 %104, label %.lr.ph65.i.i.i.i, label %89
+  br i1 %104, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i, label %89
 
 105:                                              ; preds = %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h56838b056003622cE.exit.i.i.i.i.i", %.lr.ph.i.i.i.i
   %.sroa.4.1.i.i58.i.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.i ], [ %.sroa.4.1.i.i.i.i.i.i, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h56838b056003622cE.exit.i.i.i.i.i" ]
@@ -1773,8 +1773,8 @@ common.resume.i.i.i.i:                            ; preds = %151, %125, %117, %1
   %.sroa.4.1.i.i.i.i.i.i = add i64 %.sroa.4.1.i.i58.i.i.i.i, %145
   br i1 %142, label %105, label %._crit_edge.i.i.i.i
 
-146:                                              ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %.lr.ph65.i.i.i.i
-  %.sroa.05.0.i.i64.i.i.i.i = phi i64 [ 0, %.lr.ph65.i.i.i.i ], [ %147, %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i" ]
+146:                                              ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i", %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i
+  %.sroa.05.0.i.i64.i.i.i.i = phi i64 [ 0, %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17ha8f78e22546c17e7E.exit.i.preheader.i.i.i.i ], [ %147, %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i.i.i.i.i" ]
   %147 = add nuw nsw i64 %.sroa.05.0.i.i64.i.i.i.i, 1
   %148 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %50, i64 %.sroa.05.0.i.i64.i.i.i.i
   %149 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %51, i64 %.sroa.05.0.i.i64.i.i.i.i
@@ -2265,10 +2265,7 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   %146 = load <2 x i64>, ptr %145, align 16
   br label %150
 
-_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader: ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i"
-  br i1 %112, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %.lr.ph66
-
-.lr.ph66:                                         ; preds = %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader
+.lr.ph66:                                         ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit.i"
   %147 = getelementptr inbounds i8, ptr %6, i64 16
   %148 = getelementptr inbounds i8, ptr %4, i64 8
   %149 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2334,7 +2331,7 @@ _ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit
   %176 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %175, <2 x i64> %146) #29
   store <2 x i64> %176, ptr %.sroa.022.061, align 1, !noalias !578
   %177 = icmp eq ptr %155, %111
-  br i1 %177, label %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader, label %150
+  br i1 %177, label %.lr.ph66, label %150
 
 178:                                              ; preds = %.lr.ph, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i"
   %.sroa.4.1.i.i59 = phi i64 [ 1, %.lr.ph ], [ %.sroa.4.1.i.i, %"_ZN5inout5inout93InOut$LT$generic_array..GenericArray$LT$generic_array..GenericArray$LT$u8$C$N$GT$$C$M$GT$$GT$10xor_in2out17h90a072124bc98d96E.exit.i" ]
@@ -2768,7 +2765,7 @@ _ZN3aes2ni6aes2568encrypt817h4e2f0a4931a43febE.exit: ; preds = %_ZN3aes2ni5utils
   %exitcond69.not = icmp eq i64 %285, %35
   br i1 %exitcond69.not, label %"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit", label %284
 
-"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %110, %_ZN6cipher11stream_core13StreamBackend15gen_tail_blocks17h9be0976c3f3fc38bE.exit.i.preheader
+"_ZN88_$LT$ctr..backend..Closure$LT$F$C$BS$C$SC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h1ca8da35bfa82f1cE.exit": ; preds = %"_ZN5inout5inout54InOut$LT$generic_array..GenericArray$LT$u8$C$N$GT$$GT$10xor_in2out17hb5aceffc68d96023E.exit.i", %110
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %31), !noalias !534
   ret void
 }

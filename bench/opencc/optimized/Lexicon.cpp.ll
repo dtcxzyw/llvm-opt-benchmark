@@ -752,8 +752,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
-  %.not30 = icmp ult i64 %47, %53
-  br i1 %.not30, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  %.not22 = icmp ult i64 %47, %53
+  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %46, %2, %.loopexit13, %36
   %54 = phi i1 [ false, %.loopexit13 ], [ false, %36 ], [ true, %2 ], [ true, %46 ]

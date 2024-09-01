@@ -587,14 +587,14 @@ for.body9.i.i:                                    ; preds = %for.body9.i.i, %for
   store i32 0, ptr %arrayidx12.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.body.lr.ph.i, label %for.body9.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i, label %for.body9.i.i, !llvm.loop !8
 
-for.body.lr.ph.i:                                 ; preds = %for.body9.i.i
+_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %for.body9.i.i
   store i32 %9, ptr %m_size.i.i, align 4
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i ], [ %indvars.iv.next.i, %for.body.i ]
   %11 = load ptr, ptr %m_data.i7.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
   %12 = load i32, ptr %arrayidx.i.i, align 4
@@ -8726,15 +8726,15 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %f
   store i32 0, ptr %arrayidx12.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.body.lr.ph.i.i, label %for.body9.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i, label %for.body9.i.i.i, !llvm.loop !8
 
-for.body.lr.ph.i.i:                               ; preds = %for.body9.i.i.i
+_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i: ; preds = %for.body9.i.i.i
   store i32 %3, ptr %m_size.i.i.i, align 4
   %m_data.i7.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %5 = load ptr, ptr %m_data.i7.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i.i
   %6 = load i32, ptr %arrayidx.i.i.i, align 4

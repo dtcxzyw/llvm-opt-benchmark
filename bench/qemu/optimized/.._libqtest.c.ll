@@ -3206,11 +3206,11 @@ if.else42:                                        ; preds = %qobject_type.exit.i
 do.end44:                                         ; preds = %qobject_type.exit.i24
   %call45 = tail call ptr @qstring_get_str(ptr noundef nonnull %call31) #23
   %call46 = tail call i32 @g_str_equal(ptr noundef %call45, ptr noundef %device) #23
-  %tobool47.not.not = icmp ne i32 %call46, 0
-  br i1 %tobool47.not.not, label %return, label %for.cond
+  %tobool47.not.not.not = icmp ne i32 %call46, 0
+  br i1 %tobool47.not.not.not, label %return, label %for.cond
 
 return:                                           ; preds = %do.end44, %for.cond, %if.end20
-  %tobool22.not.lcssa = phi i1 [ false, %if.end20 ], [ %tobool47.not.not, %for.cond ], [ %tobool47.not.not, %do.end44 ]
+  %tobool22.not.lcssa = phi i1 [ false, %if.end20 ], [ %tobool47.not.not.not, %for.cond ], [ %tobool47.not.not.not, %do.end44 ]
   ret i1 %tobool22.not.lcssa
 }
 

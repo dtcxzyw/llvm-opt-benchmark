@@ -1263,10 +1263,7 @@ for.body267.preheader:                            ; preds = %if.end262
   %wide.trip.count350 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body267
 
-for.cond289.preheader:                            ; preds = %for.inc285
-  br i1 %cmp266304, label %for.body291.preheader, label %for.end312
-
-for.body291.preheader:                            ; preds = %for.cond289.preheader
+for.body291.preheader:                            ; preds = %for.inc285
   %69 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body291
 
@@ -1337,7 +1334,7 @@ for.inc285:                                       ; preds = %_ZN7msdfgenL11switc
   %initialColor.1 = phi i32 [ %initialColor.0308, %for.body267 ], [ %spec.select, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
-  br i1 %exitcond351.not, label %for.cond289.preheader, label %for.body267, !llvm.loop !19
+  br i1 %exitcond351.not, label %for.body291.preheader, label %for.body267, !llvm.loop !19
 
 for.body291:                                      ; preds = %for.body291.preheader, %for.inc310
   %indvars.iv353 = phi i64 [ 0, %for.body291.preheader ], [ %indvars.iv.next354.pre-phi, %for.inc310 ]
@@ -1373,8 +1370,8 @@ for.inc310:                                       ; preds = %if.then296, %if.els
   %exitcond358.not = icmp eq i64 %indvars.iv.next354.pre-phi, %69
   br i1 %exitcond358.not, label %for.end312, label %for.body291, !llvm.loop !20
 
-for.end312:                                       ; preds = %for.inc310, %if.end262, %for.cond289.preheader
-  %seed.addr.1.lcssa377 = phi i64 [ %seed.addr.2, %for.cond289.preheader ], [ %seed.addr.0330, %if.end262 ], [ %seed.addr.2, %for.inc310 ]
+for.end312:                                       ; preds = %for.inc310, %if.end262
+  %seed.addr.1.lcssa377 = phi i64 [ %seed.addr.0330, %if.end262 ], [ %seed.addr.2, %for.inc310 ]
   %80 = load i32, ptr %corners.sroa.0.4, align 8
   %81 = load ptr, ptr %_M_finish.i.i53, align 8
   %82 = load ptr, ptr %contour.sroa.0.0326, align 8

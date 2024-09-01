@@ -445,7 +445,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 10:                                               ; preds = %.lr.ph136, %.loopexit
   %.0135 = phi ptr [ null, %.lr.ph136 ], [ %.1, %.loopexit ]
   %.071134 = phi ptr [ %1, %.lr.ph136 ], [ %.3, %.loopexit ]
-  %.078133 = phi i32 [ 0, %.lr.ph136 ], [ %285, %.loopexit ]
+  %.078133 = phi i32 [ 0, %.lr.ph136 ], [ %284, %.loopexit ]
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 8
   %13 = mul nsw i32 %12, %.078133
@@ -906,8 +906,8 @@ getRGBA.exit100:                                  ; preds = %202, %206
   br i1 %265, label %.preheader103, label %.loopexit
 
 .preheader103:                                    ; preds = %260
-  %266 = icmp slt i32 %259, 1
-  br i1 %266, label %.critedge4.thread, label %.lr.ph125.preheader
+  %266 = icmp sgt i32 %259, 0
+  br i1 %266, label %.lr.ph125.preheader, label %.critedge4.thread
 
 .lr.ph125.preheader:                              ; preds = %.preheader103
   %wide.trip.count = and i64 %258, 2147483647
@@ -938,15 +938,14 @@ getRGBA.exit100:                                  ; preds = %202, %206
 .critedge4:                                       ; preds = %272, %.lr.ph125, %278
   %.377.lcssa = phi i64 [ %indvars.iv, %272 ], [ %indvars.iv, %.lr.ph125 ], [ %258, %278 ]
   %279 = and i64 %.377.lcssa, 4294967295
-  %280 = icmp ne i64 %263, %279
-  %brmerge = or i1 %280, %266
-  %.273.mux = select i1 %280, ptr %.273, ptr %.071134
-  %.071134.mux = select i1 %280, ptr %.071134, ptr %.0135
-  br i1 %brmerge, label %.loopexit, label %.lr.ph132.preheader
+  %.not = icmp eq i64 %263, %279
+  %.273.mux = select i1 %.not, ptr %.071134, ptr %.273
+  %.071134.mux = select i1 %.not, ptr %.0135, ptr %.071134
+  br i1 %.not, label %.lr.ph132.preheader, label %.loopexit
 
 .critedge4.thread:                                ; preds = %.preheader103
-  %281 = icmp eq ptr %.071134, %.0135
-  %spec.select = select i1 %281, ptr %.071134, ptr %.273
+  %280 = icmp eq ptr %.071134, %.0135
+  %spec.select = select i1 %280, ptr %.071134, ptr %.273
   br label %.loopexit
 
 .lr.ph132.preheader:                              ; preds = %.critedge4
@@ -955,10 +954,10 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
   %indvars.iv144 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next145, %.lr.ph132 ]
-  %282 = getelementptr inbounds %struct.XRectangle, ptr %.0135, i64 %indvars.iv144, i32 3
-  %283 = load i16, ptr %282, align 2
-  %284 = add i16 %283, 1
-  store i16 %284, ptr %282, align 2
+  %281 = getelementptr inbounds %struct.XRectangle, ptr %.0135, i64 %indvars.iv144, i32 3
+  %282 = load i16, ptr %281, align 2
+  %283 = add i16 %282, 1
+  store i16 %283, ptr %281, align 2
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %.loopexit, label %.lr.ph132, !llvm.loop !13
@@ -966,19 +965,19 @@ getRGBA.exit100:                                  ; preds = %202, %206
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %260
   %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %260 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
   %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %260 ], [ %.071134, %.critedge.thread ], [ %.071134, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
-  %285 = add nuw nsw i32 %.078133, 1
-  %286 = load i32, ptr %0, align 8
-  %287 = icmp slt i32 %285, %286
-  br i1 %287, label %10, label %._crit_edge, !llvm.loop !14
+  %284 = add nuw nsw i32 %.078133, 1
+  %285 = load i32, ptr %0, align 8
+  %286 = icmp slt i32 %284, %285
+  br i1 %286, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.071.lcssa = phi ptr [ %1, %2 ], [ %.3, %.loopexit ]
-  %288 = ptrtoint ptr %.071.lcssa to i64
-  %289 = ptrtoint ptr %1 to i64
-  %290 = sub i64 %288, %289
-  %291 = lshr exact i64 %290, 3
-  %292 = trunc i64 %291 to i32
-  ret i32 %292
+  %287 = ptrtoint ptr %.071.lcssa to i64
+  %288 = ptrtoint ptr %1 to i64
+  %289 = sub i64 %287, %288
+  %290 = lshr exact i64 %289, 3
+  %291 = trunc i64 %290 to i32
+  ret i32 %291
 }
 
 ; Function Attrs: nounwind uwtable

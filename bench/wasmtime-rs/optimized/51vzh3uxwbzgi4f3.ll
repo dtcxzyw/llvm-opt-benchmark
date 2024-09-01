@@ -547,10 +547,11 @@ define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr nocaptur
           to label %229 unwind label %.loopexit303
 
 226:                                              ; preds = %.loopexit303, %211
+  %or.cond498727 = phi i1 [ false, %211 ], [ %or.cond498, %.loopexit303 ]
   %.pn271 = phi { ptr, i32 } [ %lpad.phi302, %211 ], [ %lpad.loopexit305, %.loopexit303 ]
   %227 = load i64, ptr %11, align 8, !range !3
   %228 = icmp eq i64 %227, 0
-  %or.cond7 = select i1 %or.cond498, i1 true, i1 %228
+  %or.cond7 = select i1 %or.cond498727, i1 true, i1 %228
   br i1 %or.cond7, label %.thread283, label %273
 
 .loopexit303:                                     ; preds = %225, %257, %261, %262, %269

@@ -9720,8 +9720,8 @@ if.then77:                                        ; preds = %if.else75
   %call85 = call noalias noundef nonnull ptr @_Znam(i64 noundef %mul83) #32
   %depth = getelementptr inbounds i8, ptr %out, i64 28
   %47 = load i32, ptr %depth, align 4
-  %cmp86.not265 = icmp sgt i32 %47, 0
-  br i1 %cmp86.not265, label %for.body.lr.ph, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit174.thread
+  %cmp86265 = icmp sgt i32 %47, 0
+  br i1 %cmp86265, label %for.body.lr.ph, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit174.thread
 
 for.body.lr.ph:                                   ; preds = %if.then77
   %z88 = getelementptr inbounds i8, ptr %out, i64 16
@@ -9863,8 +9863,8 @@ for.inc170:                                       ; preds = %for.inc170.loopexit
   %74 = phi i32 [ %51, %for.body ], [ %69, %for.inc170.loopexit ]
   %ok.2.lcssa = phi i8 [ %ok.1267, %for.body ], [ %frombool152.le, %for.inc170.loopexit ]
   %add172 = add nsw i32 %72, %z.0266
-  %cmp86.not = icmp slt i32 %add172, %71
-  br i1 %cmp86.not, label %for.body, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit174.thread, !llvm.loop !85
+  %cmp86 = icmp slt i32 %add172, %71
+  br i1 %cmp86, label %for.body, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit174.thread, !llvm.loop !85
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit174: ; preds = %invoke.cont163
   call void @_ZdaPv(ptr noundef nonnull %call85) #31
@@ -9883,8 +9883,8 @@ if.else174:                                       ; preds = %if.else75
   %call186 = call noalias noundef nonnull ptr @_Znam(i64 noundef %mul185) #32
   %depth189 = getelementptr inbounds i8, ptr %out, i64 28
   %75 = load i32, ptr %depth189, align 4
-  %cmp190.not273 = icmp sgt i32 %75, 0
-  br i1 %cmp190.not273, label %for.cond193.preheader.lr.ph, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit203.thread
+  %cmp190273 = icmp sgt i32 %75, 0
+  br i1 %cmp190273, label %for.cond193.preheader.lr.ph, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit203.thread
 
 for.cond193.preheader.lr.ph:                      ; preds = %if.else174
   %height194 = getelementptr inbounds i8, ptr %out, i64 24
@@ -10013,8 +10013,8 @@ for.inc270:                                       ; preds = %for.inc270.loopexit
   %94 = phi i32 [ %77, %for.cond193.preheader ], [ %91, %for.inc270.loopexit ]
   %ok.5.lcssa = phi i8 [ %ok.4274, %for.cond193.preheader ], [ %frombool250.le, %for.inc270.loopexit ]
   %inc = add nuw nsw i32 %z187.0275, 1
-  %cmp190.not = icmp slt i32 %inc, %93
-  br i1 %cmp190.not, label %for.cond193.preheader, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit203.thread, !llvm.loop !87
+  %cmp190 = icmp slt i32 %inc, %93
+  br i1 %cmp190, label %for.cond193.preheader, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit203.thread, !llvm.loop !87
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit203: ; preds = %invoke.cont262
   call void @_ZdaPv(ptr noundef nonnull %call186) #31
@@ -87403,9 +87403,9 @@ for.body.i.i.i.i.i52:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i54, i64 8
   %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i53, i64 8
   %cmp.i.i.not.i.i.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i62, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i64, label %for.body.i.i.i68.preheader, label %for.body.i.i.i.i.i52, !llvm.loop !553
+  br i1 %cmp.i.i.not.i.i.i.i.i64, label %invoke.cont35, label %for.body.i.i.i.i.i52, !llvm.loop !553
 
-for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i52
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i52
   %17 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
@@ -87421,8 +87421,8 @@ for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i5
   %__tmp.sroa.1.8.insert.insert130 = or disjoint i64 %__tmp.sroa.6.8.insert.insert135, %__tmp.sroa.11.8.insert.shift148
   br label %for.body.i.i.i68
 
-for.body.i.i.i68:                                 ; preds = %for.body.i.i.i68.preheader, %for.body.i.i.i68
-  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %for.body.i.i.i68.preheader ]
+for.body.i.i.i68:                                 ; preds = %invoke.cont35, %for.body.i.i.i68
+  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %invoke.cont35 ]
   store i64 %__tmp.sroa.1.8.insert.insert130, ptr %__first.addr.04.i.i.i69, align 4
   %incdec.ptr.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i69, i64 8
   %cmp.not.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i70, %1

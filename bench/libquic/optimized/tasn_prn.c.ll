@@ -669,10 +669,10 @@ if.end35:                                         ; preds = %if.end9.thread, %if
   %5 = load ptr, ptr %fld, align 8
   %call3639 = tail call i64 @sk_num(ptr noundef %5) #7
   %cmp3740.not = icmp eq i64 %call3639, 0
+  %add54 = add nsw i32 %indent, 2
   br i1 %cmp3740.not, label %land.lhs.true53, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end35
-  %add = add nsw i32 %indent, 2
   %item47 = getelementptr inbounds i8, ptr %tt, i64 32
   br label %for.body
 
@@ -690,7 +690,7 @@ if.end45:                                         ; preds = %land.lhs.true, %for
   %call46 = call ptr @sk_value(ptr noundef %5, i64 noundef %i.041) #7
   store ptr %call46, ptr %skitem, align 8
   %6 = load ptr, ptr %item47, align 8
-  %call48 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add, ptr noundef %6, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx)
+  %call48 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add54, ptr noundef %6, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %return, label %for.inc
 
@@ -698,18 +698,14 @@ for.inc:                                          ; preds = %if.end45
   %inc = add nuw i64 %i.041, 1
   %call36 = call i64 @sk_num(ptr noundef %5) #7
   %cmp37 = icmp ult i64 %inc, %call36
-  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp37, label %for.body, label %if.end59, !llvm.loop !9
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp3740.not, label %land.lhs.true53, label %if.end59
-
-land.lhs.true53:                                  ; preds = %if.end35, %for.end
-  %add54 = add nsw i32 %indent, 2
-  %call55 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %add54, ptr noundef nonnull @.str.4) #7
+land.lhs.true53:                                  ; preds = %if.end35
+  %call55 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %add54, ptr noundef nonnull @.str.4) #7
   %cmp56 = icmp slt i32 %call55, 1
   br i1 %cmp56, label %return, label %if.end59
 
-if.end59:                                         ; preds = %land.lhs.true53, %for.end
+if.end59:                                         ; preds = %for.inc, %land.lhs.true53
   %7 = load i64, ptr %pctx, align 8
   %and61 = and i64 %7, 2
   %tobool62.not = icmp eq i64 %and61, 0

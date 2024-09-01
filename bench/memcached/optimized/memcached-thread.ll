@@ -1625,10 +1625,7 @@ if.then44:                                        ; preds = %for.end40
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-for.cond63.preheader:                             ; preds = %setup_thread.exit
-  br i1 %cmp4747, label %for.body66.preheader, label %for.end71
-
-for.body66.preheader:                             ; preds = %for.cond63.preheader
+for.body66.preheader:                             ; preds = %setup_thread.exit
   %wide.trip.count63 = zext nneg i32 %nthreads to i64
   br label %for.body66
 
@@ -1821,7 +1818,7 @@ setup_thread.exit:                                ; preds = %if.end37.i, %if.the
   store i32 %add, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond59.not, label %for.cond63.preheader, label %for.body49, !llvm.loop !20
+  br i1 %exitcond59.not, label %for.body66.preheader, label %for.body49, !llvm.loop !20
 
 for.body66:                                       ; preds = %for.body66.preheader, %create_worker.exit
   %indvars.iv60 = phi i64 [ 0, %for.body66.preheader ], [ %indvars.iv.next61, %create_worker.exit ]
@@ -1848,7 +1845,7 @@ create_worker.exit:                               ; preds = %for.body66
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
   br i1 %exitcond64.not, label %for.end71, label %for.body66, !llvm.loop !21
 
-for.end71:                                        ; preds = %create_worker.exit, %for.cond46.preheader, %for.cond63.preheader
+for.end71:                                        ; preds = %create_worker.exit, %for.cond46.preheader
   %call72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %37 = load i32, ptr @init_count, align 4
   %cmp1.i = icmp slt i32 %37, %nthreads

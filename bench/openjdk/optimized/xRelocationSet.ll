@@ -282,8 +282,8 @@ define linkonce_odr hidden void @_ZN25XRelocationSetInstallTask4workEv(ptr nound
 10:                                               ; preds = %15, %8
   %.011.i.i = phi ptr [ %9, %8 ], [ %17, %15 ]
   %11 = load ptr, ptr %3, align 8
-  %.not.i.not.i.not = icmp eq ptr %.011.i.i, %11
-  br i1 %.not.i.not.i.not, label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader, label %15
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.011.i.i, %11
+  br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader, label %15
 
 _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader: ; preds = %10
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -370,8 +370,8 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit: ; preds = %_ZN18XArrayItera
 52:                                               ; preds = %54, %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit
   %.011.i.i3 = phi ptr [ %51, %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit ], [ %56, %54 ]
   %53 = load ptr, ptr %13, align 8
-  %.not.i.not.i4.not = icmp eq ptr %.011.i.i3, %53
-  br i1 %.not.i.not.i4.not, label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit5, label %54
+  %.not.not.not.i.not.not.not.i4.not = icmp eq ptr %.011.i.i3, %53
+  br i1 %.not.not.not.i.not.not.not.i4.not, label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit5, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %.011.i.i3, i64 8

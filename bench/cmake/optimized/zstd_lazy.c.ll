@@ -47510,10 +47510,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %invariant.gep433 = getelementptr inbounds i32, ptr %197, i64 %198
   br label %203
 
-.preheader:                                       ; preds = %203
-  br i1 %.not405, label %.loopexit, label %.lr.ph398
-
-.lr.ph398:                                        ; preds = %.preheader
+.lr.ph398:                                        ; preds = %203
   %199 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg361 = add i32 %21, 3
   %200 = add i32 %.neg361, %.neg403
@@ -47530,7 +47527,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %206, i32 0, i32 3, i32 1)
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next420, %wide.trip.count422
-  br i1 %exitcond423.not, label %.preheader, label %203, !llvm.loop !41
+  br i1 %exitcond423.not, label %.lr.ph398, label %203, !llvm.loop !41
 
 207:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv424 = phi i64 [ %202, %.lr.ph398 ], [ %indvars.iv.next425, %.thread357 ]
@@ -47568,8 +47565,8 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %exitcond426.not = icmp eq i32 %224, %196
   br i1 %exitcond426.not, label %.loopexit, label %207, !llvm.loop !42
 
-.loopexit:                                        ; preds = %174, %188, %.thread357, %219, %._crit_edge389, %.preheader
-  %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %217, %219 ], [ %186, %188 ], [ %.0317386, %174 ]
+.loopexit:                                        ; preds = %174, %188, %.thread357, %219, %._crit_edge389
+  %.0 = phi i64 [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %217, %219 ], [ %186, %188 ], [ %.0317386, %174 ]
   ret i64 %.0
 }
 
@@ -47948,10 +47945,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %invariant.gep433 = getelementptr inbounds i32, ptr %195, i64 %196
   br label %201
 
-.preheader:                                       ; preds = %201
-  br i1 %.not405, label %.loopexit, label %.lr.ph398
-
-.lr.ph398:                                        ; preds = %.preheader
+.lr.ph398:                                        ; preds = %201
   %197 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg361 = add i32 %21, 3
   %198 = add i32 %.neg361, %.neg403
@@ -47968,7 +47962,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %204, i32 0, i32 3, i32 1)
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next420, %wide.trip.count422
-  br i1 %exitcond423.not, label %.preheader, label %201, !llvm.loop !41
+  br i1 %exitcond423.not, label %.lr.ph398, label %201, !llvm.loop !41
 
 205:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv424 = phi i64 [ %200, %.lr.ph398 ], [ %indvars.iv.next425, %.thread357 ]
@@ -48006,8 +48000,8 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %exitcond426.not = icmp eq i32 %222, %194
   br i1 %exitcond426.not, label %.loopexit, label %205, !llvm.loop !42
 
-.loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389, %.preheader
-  %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
+.loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389
+  %.0 = phi i64 [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
   ret i64 %.0
 }
 
@@ -48386,10 +48380,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %invariant.gep433 = getelementptr inbounds i32, ptr %195, i64 %196
   br label %201
 
-.preheader:                                       ; preds = %201
-  br i1 %.not405, label %.loopexit, label %.lr.ph398
-
-.lr.ph398:                                        ; preds = %.preheader
+.lr.ph398:                                        ; preds = %201
   %197 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg361 = add i32 %21, 3
   %198 = add i32 %.neg361, %.neg403
@@ -48406,7 +48397,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %204, i32 0, i32 3, i32 1)
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next420, %wide.trip.count422
-  br i1 %exitcond423.not, label %.preheader, label %201, !llvm.loop !41
+  br i1 %exitcond423.not, label %.lr.ph398, label %201, !llvm.loop !41
 
 205:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv424 = phi i64 [ %200, %.lr.ph398 ], [ %indvars.iv.next425, %.thread357 ]
@@ -48444,8 +48435,8 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %exitcond426.not = icmp eq i32 %222, %194
   br i1 %exitcond426.not, label %.loopexit, label %205, !llvm.loop !42
 
-.loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389, %.preheader
-  %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
+.loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389
+  %.0 = phi i64 [ %.0317.lcssa, %._crit_edge389 ], [ %.4, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
   ret i64 %.0
 }
 
@@ -49058,10 +49049,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %invariant.gep1028 = getelementptr inbounds i32, ptr %355, i64 %356
   br label %361
 
-.preheader:                                       ; preds = %361
-  br i1 %.not988, label %.loopexit, label %.lr.ph980
-
-.lr.ph980:                                        ; preds = %.preheader
+.lr.ph980:                                        ; preds = %361
   %357 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %358 = add i32 %.neg927, %.neg986
@@ -49078,7 +49066,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %364, i32 0, i32 3, i32 1)
   %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %exitcond1016.not = icmp eq i64 %indvars.iv.next1013, %wide.trip.count1015
-  br i1 %exitcond1016.not, label %.preheader, label %361, !llvm.loop !41
+  br i1 %exitcond1016.not, label %.lr.ph980, label %361, !llvm.loop !41
 
 365:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1017 = phi i64 [ %360, %.lr.ph980 ], [ %indvars.iv.next1018, %.thread922 ]
@@ -49116,8 +49104,8 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %exitcond1019.not = icmp eq i32 %382, %354
   br i1 %exitcond1019.not, label %.loopexit, label %365, !llvm.loop !42
 
-.loopexit:                                        ; preds = %332, %346, %.thread922, %377, %._crit_edge971, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %375, %377 ], [ %344, %346 ], [ %.0851968, %332 ]
+.loopexit:                                        ; preds = %332, %346, %.thread922, %377, %._crit_edge971
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %375, %377 ], [ %344, %346 ], [ %.0851968, %332 ]
   ret i64 %.0849
 }
 
@@ -49744,10 +49732,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %311, %ZSTD_co
   %invariant.gep1033 = getelementptr inbounds i32, ptr %365, i64 %366
   br label %371
 
-.preheader:                                       ; preds = %371
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %371
   %367 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %368 = add i32 %.neg927, %.neg988
@@ -49764,7 +49749,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %311, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %374, i32 0, i32 3, i32 1)
   %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
   %exitcond1021.not = icmp eq i64 %indvars.iv.next1018, %wide.trip.count1020
-  br i1 %exitcond1021.not, label %.preheader, label %371, !llvm.loop !41
+  br i1 %exitcond1021.not, label %.lr.ph982, label %371, !llvm.loop !41
 
 375:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1022 = phi i64 [ %370, %.lr.ph982 ], [ %indvars.iv.next1023, %.thread922 ]
@@ -49802,8 +49787,8 @@ ZSTD_count.exit.thread:                           ; preds = %265, %311, %ZSTD_co
   %exitcond1024.not = icmp eq i32 %392, %364
   br i1 %exitcond1024.not, label %.loopexit, label %375, !llvm.loop !42
 
-.loopexit:                                        ; preds = %342, %356, %.thread922, %387, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %385, %387 ], [ %354, %356 ], [ %.0851970, %342 ]
+.loopexit:                                        ; preds = %342, %356, %.thread922, %387, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %385, %387 ], [ %354, %356 ], [ %.0851970, %342 ]
   ret i64 %.0849
 }
 
@@ -50463,10 +50448,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %invariant.gep1034 = getelementptr inbounds i32, ptr %386, i64 %387
   br label %392
 
-.preheader:                                       ; preds = %392
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %392
   %388 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %24, 3
   %389 = add i32 %.neg927, %.neg988
@@ -50483,7 +50465,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %395, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %392, !llvm.loop !41
+  br i1 %exitcond1022.not, label %.lr.ph982, label %392, !llvm.loop !41
 
 396:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %391, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -50521,8 +50503,8 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %exitcond1025.not = icmp eq i32 %413, %385
   br i1 %exitcond1025.not, label %.loopexit, label %396, !llvm.loop !42
 
-.loopexit:                                        ; preds = %363, %377, %.thread922, %408, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %406, %408 ], [ %375, %377 ], [ %.0851970, %363 ]
+.loopexit:                                        ; preds = %363, %377, %.thread922, %408, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %406, %408 ], [ %375, %377 ], [ %.0851970, %363 ]
   ret i64 %.0849
 }
 
@@ -51136,10 +51118,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %invariant.gep1028 = getelementptr inbounds i32, ptr %356, i64 %357
   br label %362
 
-.preheader:                                       ; preds = %362
-  br i1 %.not988, label %.loopexit, label %.lr.ph980
-
-.lr.ph980:                                        ; preds = %.preheader
+.lr.ph980:                                        ; preds = %362
   %358 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %359 = add i32 %.neg927, %.neg986
@@ -51156,7 +51135,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %365, i32 0, i32 3, i32 1)
   %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %exitcond1016.not = icmp eq i64 %indvars.iv.next1013, %wide.trip.count1015
-  br i1 %exitcond1016.not, label %.preheader, label %362, !llvm.loop !41
+  br i1 %exitcond1016.not, label %.lr.ph980, label %362, !llvm.loop !41
 
 366:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1017 = phi i64 [ %361, %.lr.ph980 ], [ %indvars.iv.next1018, %.thread922 ]
@@ -51194,8 +51173,8 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %exitcond1019.not = icmp eq i32 %383, %355
   br i1 %exitcond1019.not, label %.loopexit, label %366, !llvm.loop !42
 
-.loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
+.loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
   ret i64 %.0849
 }
 
@@ -51823,10 +51802,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %invariant.gep1033 = getelementptr inbounds i32, ptr %366, i64 %367
   br label %372
 
-.preheader:                                       ; preds = %372
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %372
   %368 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %369 = add i32 %.neg927, %.neg988
@@ -51843,7 +51819,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %375, i32 0, i32 3, i32 1)
   %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
   %exitcond1021.not = icmp eq i64 %indvars.iv.next1018, %wide.trip.count1020
-  br i1 %exitcond1021.not, label %.preheader, label %372, !llvm.loop !41
+  br i1 %exitcond1021.not, label %.lr.ph982, label %372, !llvm.loop !41
 
 376:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1022 = phi i64 [ %371, %.lr.ph982 ], [ %indvars.iv.next1023, %.thread922 ]
@@ -51881,8 +51857,8 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %exitcond1024.not = icmp eq i32 %393, %365
   br i1 %exitcond1024.not, label %.loopexit, label %376, !llvm.loop !42
 
-.loopexit:                                        ; preds = %343, %357, %.thread922, %388, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %386, %388 ], [ %355, %357 ], [ %.0851970, %343 ]
+.loopexit:                                        ; preds = %343, %357, %.thread922, %388, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %386, %388 ], [ %355, %357 ], [ %.0851970, %343 ]
   ret i64 %.0849
 }
 
@@ -52543,10 +52519,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %invariant.gep1034 = getelementptr inbounds i32, ptr %387, i64 %388
   br label %393
 
-.preheader:                                       ; preds = %393
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %393
   %389 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %24, 3
   %390 = add i32 %.neg927, %.neg988
@@ -52563,7 +52536,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %396, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %393, !llvm.loop !41
+  br i1 %exitcond1022.not, label %.lr.ph982, label %393, !llvm.loop !41
 
 397:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %392, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -52601,8 +52574,8 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %exitcond1025.not = icmp eq i32 %414, %386
   br i1 %exitcond1025.not, label %.loopexit, label %397, !llvm.loop !42
 
-.loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
+.loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
   ret i64 %.0849
 }
 
@@ -53216,10 +53189,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %invariant.gep1028 = getelementptr inbounds i32, ptr %356, i64 %357
   br label %362
 
-.preheader:                                       ; preds = %362
-  br i1 %.not988, label %.loopexit, label %.lr.ph980
-
-.lr.ph980:                                        ; preds = %.preheader
+.lr.ph980:                                        ; preds = %362
   %358 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %359 = add i32 %.neg927, %.neg986
@@ -53236,7 +53206,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %365, i32 0, i32 3, i32 1)
   %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %exitcond1016.not = icmp eq i64 %indvars.iv.next1013, %wide.trip.count1015
-  br i1 %exitcond1016.not, label %.preheader, label %362, !llvm.loop !41
+  br i1 %exitcond1016.not, label %.lr.ph980, label %362, !llvm.loop !41
 
 366:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1017 = phi i64 [ %361, %.lr.ph980 ], [ %indvars.iv.next1018, %.thread922 ]
@@ -53274,8 +53244,8 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %exitcond1019.not = icmp eq i32 %383, %355
   br i1 %exitcond1019.not, label %.loopexit, label %366, !llvm.loop !42
 
-.loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
+.loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge971 ], [ %.4, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
   ret i64 %.0849
 }
 
@@ -53903,10 +53873,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %invariant.gep1033 = getelementptr inbounds i32, ptr %366, i64 %367
   br label %372
 
-.preheader:                                       ; preds = %372
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %372
   %368 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %23, 3
   %369 = add i32 %.neg927, %.neg988
@@ -53923,7 +53890,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %375, i32 0, i32 3, i32 1)
   %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
   %exitcond1021.not = icmp eq i64 %indvars.iv.next1018, %wide.trip.count1020
-  br i1 %exitcond1021.not, label %.preheader, label %372, !llvm.loop !41
+  br i1 %exitcond1021.not, label %.lr.ph982, label %372, !llvm.loop !41
 
 376:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1022 = phi i64 [ %371, %.lr.ph982 ], [ %indvars.iv.next1023, %.thread922 ]
@@ -53961,8 +53928,8 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %exitcond1024.not = icmp eq i32 %393, %365
   br i1 %exitcond1024.not, label %.loopexit, label %376, !llvm.loop !42
 
-.loopexit:                                        ; preds = %343, %357, %.thread922, %388, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %386, %388 ], [ %355, %357 ], [ %.0851970, %343 ]
+.loopexit:                                        ; preds = %343, %357, %.thread922, %388, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %386, %388 ], [ %355, %357 ], [ %.0851970, %343 ]
   ret i64 %.0849
 }
 
@@ -54623,10 +54590,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %invariant.gep1034 = getelementptr inbounds i32, ptr %387, i64 %388
   br label %393
 
-.preheader:                                       ; preds = %393
-  br i1 %.not990, label %.loopexit, label %.lr.ph982
-
-.lr.ph982:                                        ; preds = %.preheader
+.lr.ph982:                                        ; preds = %393
   %389 = getelementptr inbounds i8, ptr %1, i64 4
   %.neg927 = add i32 %24, 3
   %390 = add i32 %.neg927, %.neg988
@@ -54643,7 +54607,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %396, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %393, !llvm.loop !41
+  br i1 %exitcond1022.not, label %.lr.ph982, label %393, !llvm.loop !41
 
 397:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %392, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -54681,8 +54645,8 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %exitcond1025.not = icmp eq i32 %414, %386
   br i1 %exitcond1025.not, label %.loopexit, label %397, !llvm.loop !42
 
-.loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973, %.preheader
-  %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
+.loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973
+  %.0849 = phi i64 [ %.0851.lcssa, %._crit_edge973 ], [ %.4, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
   ret i64 %.0849
 }
 

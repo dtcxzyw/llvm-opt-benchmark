@@ -12008,8 +12008,8 @@ while.body.i:                                     ; preds = %if.end7.i, %while.c
   %and.i.i.i.i = and i64 %conv.i.i.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
   %and2.i.i.i.i = and i64 %shl.i.i.i.i, %18
-  %tobool.i.i.i.not.not.i.not = icmp ne i64 %and2.i.i.i.i, 0
-  br i1 %tobool.i.i.i.not.not.i.not, label %if.end7.i, label %return
+  %tobool.i.i.i.not.not.i.not.not = icmp ne i64 %and2.i.i.i.i, 0
+  br i1 %tobool.i.i.i.not.not.i.not.not, label %if.end7.i, label %return
 
 if.end7.i:                                        ; preds = %while.body.i
   %sub.i27 = add nsw i64 %word.07.i, -1
@@ -12205,8 +12205,8 @@ while.body.i106:                                  ; preds = %if.end7.i119, %whil
   %and.i.i.i.i115 = and i64 %conv.i.i.i.i112, 63
   %shl.i.i.i.i116 = shl nuw i64 1, %and.i.i.i.i115
   %and2.i.i.i.i117 = and i64 %shl.i.i.i.i116, %69
-  %tobool.i.i.i.not.not.i118.not = icmp ne i64 %and2.i.i.i.i117, 0
-  br i1 %tobool.i.i.i.not.not.i118.not, label %if.end7.i119, label %return
+  %tobool.i.i.i.not.not.i118.not.not = icmp ne i64 %and2.i.i.i.i117, 0
+  br i1 %tobool.i.i.i.not.not.i118.not.not, label %if.end7.i119, label %return
 
 if.end7.i119:                                     ; preds = %while.body.i106
   %sub.i120 = add nsw i64 %word.07.i107, -1
@@ -12215,7 +12215,7 @@ if.end7.i119:                                     ; preds = %while.body.i106
   br i1 %tobool5.not.i122, label %return, label %while.body.i106, !llvm.loop !204
 
 return:                                           ; preds = %while.body.i45, %while.body.i74, %if.end7.i119, %while.body.i106, %if.end7.i, %while.body.i, %if.then26, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then26 ], [ %tobool.i.i.i.not.not.i.not, %while.body.i ], [ %tobool.i.i.i.not.not.i.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i118.not, %while.body.i106 ], [ %tobool.i.i.i.not.not.i118.not, %if.end7.i119 ], [ false, %while.body.i74 ], [ false, %while.body.i45 ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then26 ], [ %tobool.i.i.i.not.not.i.not.not, %while.body.i ], [ %tobool.i.i.i.not.not.i.not.not, %if.end7.i ], [ %tobool.i.i.i.not.not.i118.not.not, %while.body.i106 ], [ %tobool.i.i.i.not.not.i118.not.not, %if.end7.i119 ], [ false, %while.body.i74 ], [ false, %while.body.i45 ]
   ret i1 %retval.0
 }
 

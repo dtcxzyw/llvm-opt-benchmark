@@ -12381,9 +12381,9 @@ entry:
   %HasError.i = getelementptr inbounds i8, ptr %ygFootprint, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.cast.i = trunc i8 %bf.load.i to i1
-  br i1 %bf.cast.i, label %if.then, label %if.end
+  br i1 %bf.cast.i, label %_ZNK4llvh7ErrorOrImE8getErrorEv.exit.i.i, label %if.end
 
-if.then:                                          ; preds = %entry
+_ZNK4llvh7ErrorOrImE8getErrorEv.exit.i.i:         ; preds = %entry
   %HasError6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load7.i.i = load i8, ptr %HasError6.i.i, align 8
   %bf.set9.i.i = or i8 %bf.load7.i.i, 1
@@ -12459,7 +12459,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
   store i64 %footprint.0.lcssa, ptr %agg.result, align 8
   br label %cleanup14
 
-cleanup14:                                        ; preds = %for.body, %if.then, %for.end
+cleanup14:                                        ; preds = %for.body, %_ZNK4llvh7ErrorOrImE8getErrorEv.exit.i.i, %for.end
   ret void
 }
 

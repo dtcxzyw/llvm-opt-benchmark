@@ -332,85 +332,74 @@ _ZN17MemoryFileTracker10MemoryFileC2EPKc.exit:    ; preds = %6
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %33, label %4
+  br i1 %3, label %31, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i
+  br i1 %7, label %.lr.ph.i.i, label %.loopexit2.i
 
 .lr.ph.i.i:                                       ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = zext nneg i32 %6 to i64
-  %11 = load ptr, ptr %9, align 8
-  %12 = icmp eq ptr %11, %1
-  br i1 %12, label %._crit_edge.i, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %6 to i64
+  br label %10
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next.i.i
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
-  br i1 %16, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !12
+10:                                               ; preds = %27, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, %1
+  br i1 %13, label %14, label %27
 
-._crit_edge.loopexit.i:                           ; preds = %13
-  %17 = icmp ult i64 %indvars.iv.next.i.i, %10
-  br label %._crit_edge.i
+14:                                               ; preds = %10
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %15, 1
+  %16 = icmp slt i32 %.06.i.i.i, %6
+  br i1 %16, label %.lr.ph.i.i.i, label %.loopexit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
-  %indvars.iv.i.lcssa.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.loopexit.i ]
-  %.lcssa2.i = phi i1 [ true, %.lr.ph.i.i ], [ %17, %._crit_edge.loopexit.i ]
-  %18 = trunc nuw nsw i64 %indvars.iv.i.lcssa.i to i32
-  %.06.i.i.i = add nuw nsw i32 %18, 1
-  %19 = icmp slt i32 %.06.i.i.i, %6
-  br i1 %19, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i
+.lr.ph.i.i.i:                                     ; preds = %14
+  %17 = and i64 %indvars.iv.i.i, 4294967295
+  %18 = add nuw nsw i64 %17, 1
+  br label %19
 
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i
-  %20 = and i64 %indvars.iv.i.lcssa.i, 4294967295
-  %21 = add nuw nsw i64 %20, 1
-  br label %22
-
-22:                                               ; preds = %22, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %22 ]
-  %indvars.iv.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %22 ]
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i.i.i
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv10.i.i.i
-  store ptr %25, ptr %26, align 8
+19:                                               ; preds = %19, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %19 ]
+  %indvars.iv.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv10.i.i.i
+  store ptr %22, ptr %23, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %27 = load i32, ptr %5, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next.i.i.i, %28
+  %24 = load i32, ptr %5, align 8
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next.i.i.i, %25
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %29, label %22, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i, !llvm.loop !13
+  br i1 %26, label %19, label %.loopexit, !llvm.loop !12
 
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i: ; preds = %22, %._crit_edge.i
-  %.lcssa.i.i.i = phi i32 [ %6, %._crit_edge.i ], [ %27, %22 ]
-  %30 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %30, ptr %5, align 8
-  br i1 %.lcssa2.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i
+27:                                               ; preds = %10
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %10, !llvm.loop !13
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %13
-  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i5.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %10
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i, label %13, !llvm.loop !12
-
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i: ; preds = %.lr.ph.i, %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i, %4
-  %31 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %31, align 1
+.loopexit2.i:                                     ; preds = %27, %4
+  %28 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %28, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.6, i32 noundef 256) #11
   unreachable
 
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit: ; preds = %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i
-  %32 = getelementptr inbounds i8, ptr %1, i64 680
-  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %32)
+.loopexit:                                        ; preds = %19, %14
+  %.lcssa.i.i.i = phi i32 [ %6, %14 ], [ %24, %19 ]
+  %29 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %29, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 680
+  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %30)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %1) #10
-  br label %33
+  br label %31
 
-33:                                               ; preds = %2, %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit
+31:                                               ; preds = %2, %.loopexit
   ret void
 }
 
@@ -577,79 +566,68 @@ define hidden void @_ZN17MemoryFileTracker8Instance9free_fileEPNS_10MemoryFileE(
   %5 = getelementptr inbounds i8, ptr %2, i64 96
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i.i
+  br i1 %7, label %.lr.ph.i.i.i, label %.loopexit2.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %8 = getelementptr inbounds i8, ptr %2, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = zext nneg i32 %6 to i64
-  %11 = load ptr, ptr %9, align 8
-  %12 = icmp eq ptr %11, %0
-  br i1 %12, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
+  br label %10
 
-13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next.i.i.i
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %0
-  br i1 %16, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !12
+10:                                               ; preds = %27, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, %0
+  br i1 %13, label %14, label %27
 
-._crit_edge.loopexit.i.i:                         ; preds = %13
-  %17 = icmp ult i64 %indvars.iv.next.i.i.i, %10
-  br label %._crit_edge.i.i
+14:                                               ; preds = %10
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %.06.i.i.i.i = add nuw nsw i32 %15, 1
+  %16 = icmp slt i32 %.06.i.i.i.i, %6
+  br i1 %16, label %.lr.ph.i.i.i.i, label %.loopexit.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i.i.i
-  %indvars.iv.i.lcssa.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %._crit_edge.loopexit.i.i ]
-  %.lcssa2.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ %17, %._crit_edge.loopexit.i.i ]
-  %18 = trunc nuw nsw i64 %indvars.iv.i.lcssa.i.i to i32
-  %.06.i.i.i.i = add nuw nsw i32 %18, 1
-  %19 = icmp slt i32 %.06.i.i.i.i, %6
-  br i1 %19, label %.lr.ph.i.i.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %14
+  %17 = and i64 %indvars.iv.i.i.i, 4294967295
+  %18 = add nuw nsw i64 %17, 1
+  br label %19
 
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.i.i
-  %20 = and i64 %indvars.iv.i.lcssa.i.i, 4294967295
-  %21 = add nuw nsw i64 %20, 1
-  br label %22
-
-22:                                               ; preds = %22, %.lr.ph.i.i.i.i
-  %indvars.iv10.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i ], [ %indvars.iv.next11.i.i.i.i, %22 ]
-  %indvars.iv.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %22 ]
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i.i.i.i
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv10.i.i.i.i
-  store ptr %25, ptr %26, align 8
+19:                                               ; preds = %19, %.lr.ph.i.i.i.i
+  %indvars.iv10.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i ], [ %indvars.iv.next11.i.i.i.i, %19 ]
+  %indvars.iv.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %19 ]
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i.i.i.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv10.i.i.i.i
+  store ptr %22, ptr %23, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %27 = load i32, ptr %5, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next.i.i.i.i, %28
+  %24 = load i32, ptr %5, align 8
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next.i.i.i.i, %25
   %indvars.iv.next11.i.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i.i, 1
-  br i1 %29, label %22, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i.i, !llvm.loop !13
+  br i1 %26, label %19, label %.loopexit.i, !llvm.loop !12
 
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i.i: ; preds = %22, %._crit_edge.i.i
-  %.lcssa.i.i.i.i = phi i32 [ %6, %._crit_edge.i.i ], [ %27, %22 ]
-  %30 = add nsw i32 %.lcssa.i.i.i.i, -1
-  store i32 %30, ptr %5, align 8
-  br i1 %.lcssa2.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i.i
+27:                                               ; preds = %10
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %10, !llvm.loop !13
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %13
-  %indvars.iv.i5.i.i = phi i64 [ %indvars.iv.next.i.i.i, %13 ], [ 0, %.lr.ph.i.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i5.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %10
-  br i1 %exitcond.not.i.i.i, label %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i.i, label %13, !llvm.loop !12
-
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE18remove_if_existingERKS2_.exit.thread.i.i: ; preds = %.lr.ph.i.i, %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i.i, %4
-  %31 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %31, align 1
+.loopexit2.i.i:                                   ; preds = %27, %4
+  %28 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %28, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.6, i32 noundef 256) #11
   unreachable
 
-_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit.i: ; preds = %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE9remove_atEi.exit.i.i.i
-  %32 = getelementptr inbounds i8, ptr %0, i64 680
-  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %32)
+.loopexit.i:                                      ; preds = %19, %14
+  %.lcssa.i.i.i.i = phi i32 [ %6, %14 ], [ %24, %19 ]
+  %29 = add nsw i32 %.lcssa.i.i.i.i, -1
+  store i32 %29, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 680
+  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %30)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   br label %_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE.exit
 
-_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE.exit: ; preds = %1, %_ZN17GrowableArrayViewIPN17MemoryFileTracker10MemoryFileEE6removeERKS2_.exit.i
+_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE.exit: ; preds = %1, %.loopexit.i
   ret void
 }
 

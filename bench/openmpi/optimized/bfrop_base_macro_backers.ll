@@ -1255,7 +1255,7 @@ pmix_bfrops_base_tma_argv_append_nosize.exit.i:   ; preds = %33, %31
   %60 = load ptr, ptr %5, align 8
   br label %.lr.ph.i.i34.i
 
-.lr.ph.i.i34.i:                                   ; preds = %.preheader.i.i32.i, %.lr.ph.i.i34.i
+.lr.ph.i.i34.i:                                   ; preds = %.lr.ph.i.i34.i, %.preheader.i.i32.i
   %.03.i.i35.i = phi i32 [ %61, %.lr.ph.i.i34.i ], [ 0, %.preheader.i.i32.i ]
   %.062.i.i36.i = phi ptr [ %62, %.lr.ph.i.i34.i ], [ %43, %.preheader.i.i32.i ]
   %61 = add nuw nsw i32 %.03.i.i35.i, 1

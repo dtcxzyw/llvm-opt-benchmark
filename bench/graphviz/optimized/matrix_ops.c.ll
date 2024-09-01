@@ -726,8 +726,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 .preheader37:                                     ; preds = %34
   %14 = icmp sgt i32 %4, 0
-  %or.cond = and i1 %12, %14
-  br i1 %or.cond, label %.preheader36.lr.ph.split.us, label %._crit_edge
+  br i1 %14, label %.preheader36.lr.ph.split.us, label %._crit_edge
 
 .preheader36.lr.ph.split.us:                      ; preds = %.preheader37
   %15 = icmp sgt i32 %3, 0
@@ -833,8 +832,7 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .preheader37:                                     ; preds = %33
   %14 = icmp sgt i32 %4, 0
-  %or.cond = and i1 %12, %14
-  br i1 %or.cond, label %.preheader36.lr.ph.split.us, label %._crit_edge
+  br i1 %14, label %.preheader36.lr.ph.split.us, label %._crit_edge
 
 .preheader36.lr.ph.split.us:                      ; preds = %.preheader37
   %15 = icmp sgt i32 %3, 0
@@ -936,8 +934,7 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
 
 .preheader42:                                     ; preds = %39
   %13 = icmp sgt i32 %3, 0
-  %or.cond = and i1 %11, %13
-  br i1 %or.cond, label %.preheader.lr.ph.us.preheader, label %._crit_edge
+  br i1 %13, label %.preheader.lr.ph.us.preheader, label %._crit_edge
 
 .preheader.lr.ph.us.preheader:                    ; preds = %.preheader42
   %wide.trip.count73 = zext nneg i32 %2 to i64
@@ -1038,7 +1035,7 @@ define void @orthog1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_add
 ._crit_edge:                                      ; preds = %.lr.ph
   %7 = sitofp i32 %0 to double
   %8 = fdiv double %5, %7
-  br i1 %.not17, label %._crit_edge26, label %.lr.ph25
+  br label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
   %.123 = phi ptr [ %9, %.lr.ph25 ], [ %1, %._crit_edge ]
@@ -1051,7 +1048,7 @@ define void @orthog1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_add
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %._crit_edge26, label %.lr.ph25
 
-._crit_edge26:                                    ; preds = %.lr.ph25, %2, %._crit_edge
+._crit_edge26:                                    ; preds = %.lr.ph25, %2
   ret void
 }
 
@@ -1095,7 +1092,7 @@ define void @init_vec_orth1(i32 noundef %0, ptr nocapture noundef %1) local_unna
   %13 = fdiv double %10, %12
   br label %.lr.ph25.i
 
-.lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.i
+.lr.ph25.i:                                       ; preds = %.lr.ph25.i, %._crit_edge.i
   %.123.i = phi ptr [ %14, %.lr.ph25.i ], [ %1, %._crit_edge.i ]
   %.11522.i = phi i32 [ %17, %.lr.ph25.i ], [ %0, %._crit_edge.i ]
   %14 = getelementptr inbounds i8, ptr %.123.i, i64 8
@@ -1347,7 +1344,7 @@ define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_ad
 ._crit_edge:                                      ; preds = %.lr.ph
   %7 = sitofp i32 %0 to float
   %8 = fdiv float %5, %7
-  br i1 %.not17, label %._crit_edge26, label %.lr.ph25
+  br label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
   %.123 = phi ptr [ %9, %.lr.ph25 ], [ %1, %._crit_edge ]
@@ -1360,7 +1357,7 @@ define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %._crit_edge26, label %.lr.ph25
 
-._crit_edge26:                                    ; preds = %.lr.ph25, %2, %._crit_edge
+._crit_edge26:                                    ; preds = %.lr.ph25, %2
   ret void
 }
 

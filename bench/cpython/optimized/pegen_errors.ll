@@ -396,7 +396,7 @@ if.end16:                                         ; preds = %land.lhs.true11, %l
   %known_err_token = getelementptr inbounds i8, ptr %p, i64 136
   %3 = load ptr, ptr %known_err_token, align 8
   %cmp17.not = icmp eq ptr %3, null
-  br i1 %cmp17.not, label %cond.false, label %cond.end24
+  br i1 %cmp17.not, label %cond.true20, label %cond.end24
 
 if.end16.thread:                                  ; preds = %if.end6
   %known_err_token31 = getelementptr inbounds i8, ptr %p, i64 136
@@ -408,12 +408,12 @@ cond.false.thread:                                ; preds = %if.end16.thread
   %sub = add i32 %1, -1
   br label %cond.end
 
-cond.false:                                       ; preds = %if.end16
+cond.true20:                                      ; preds = %if.end16
   %5 = load i32, ptr %mark, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false.thread, %cond.false
-  %cond = phi i32 [ %5, %cond.false ], [ %sub, %cond.false.thread ]
+cond.end:                                         ; preds = %cond.false.thread, %cond.true20
+  %cond = phi i32 [ %5, %cond.true20 ], [ %sub, %cond.false.thread ]
   %.in = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %.in, align 8
   %idxprom = sext i32 %cond to i64

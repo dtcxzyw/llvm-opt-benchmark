@@ -2124,10 +2124,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingBackward(ptr noundef %0
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %ddSymmGroupMoveBackward.exit.thread, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not38, label %ddSymmGroupMoveBackward.exit.thread, label %.lr.ph43
-
-.lr.ph43:                                         ; preds = %.preheader
+.lr.ph43:                                         ; preds = %.lr.ph
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   br label %9
 
@@ -2140,7 +2137,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingBackward(ptr noundef %0
   %7 = getelementptr inbounds i8, ptr %.02440, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %.lr.ph43, label %.lr.ph, !llvm.loop !54
 
 9:                                                ; preds = %.lr.ph43, %69
   %.142 = phi ptr [ %1, %.lr.ph43 ], [ %71, %69 ]
@@ -2296,8 +2293,8 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %._crit_edge89.i, %2
   %.not31 = icmp eq ptr %71, null
   br i1 %.not31, label %ddSymmGroupMoveBackward.exit.thread, label %9, !llvm.loop !60
 
-ddSymmGroupMoveBackward.exit.thread:              ; preds = %9, %ddSymmGroupMoveBackward.exit, %69, %44, %3, %.preheader
-  %.027 = phi i32 [ 1, %.preheader ], [ 1, %3 ], [ 0, %44 ], [ 1, %9 ], [ 0, %ddSymmGroupMoveBackward.exit ], [ 1, %69 ]
+ddSymmGroupMoveBackward.exit.thread:              ; preds = %9, %ddSymmGroupMoveBackward.exit, %69, %44, %3
+  %.027 = phi i32 [ 1, %3 ], [ 0, %44 ], [ 1, %9 ], [ 0, %ddSymmGroupMoveBackward.exit ], [ 1, %69 ]
   ret i32 %.027
 }
 

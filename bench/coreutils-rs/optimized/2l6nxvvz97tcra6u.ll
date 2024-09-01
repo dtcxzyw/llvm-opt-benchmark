@@ -1841,8 +1841,8 @@ define hidden void @_ZN7uu_join5State5reset17h784107f14b1333c0E(ptr noalias noun
 
 "_ZN4core3ptr44drop_in_place$LT$$u5b$uu_join..Line$u5d$$GT$17hcb750223bc826b51E.llvm.2011083569936217469.exit": ; preds = %8
   %23 = load i64, ptr %1, align 8, !range !7, !noundef !4
-  %.not.not = icmp eq i64 %23, -9223372036854775808
-  br i1 %.not.not, label %37, label %24
+  %.not = icmp eq i64 %23, -9223372036854775808
+  br i1 %.not, label %37, label %24
 
 24:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$$u5b$uu_join..Line$u5d$$GT$17hcb750223bc826b51E.llvm.2011083569936217469.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -1991,8 +1991,8 @@ define internal fastcc noundef i64 @_ZN7uu_join5State10initialize17h67197185bc65
 
 15:                                               ; preds = %4
   %.sroa.0.0.copyload = load i64, ptr %12, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %.not.not, label %.thread, label %20
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %.not, label %.thread, label %20
 
 16:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -2419,8 +2419,8 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
   %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.523.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  %.not.not = icmp eq i64 %20, -9223372036854775808
-  br i1 %.not.not, label %154, label %27
+  %.not = icmp eq i64 %20, -9223372036854775808
+  br i1 %.not, label %154, label %27
 
 25:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)

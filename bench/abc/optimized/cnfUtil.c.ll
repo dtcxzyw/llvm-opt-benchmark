@@ -1444,12 +1444,9 @@ define noalias noundef ptr @Cnf_DataDeriveLitPolarities(ptr nocapture noundef re
 
 .loopexit96:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %34
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %34, label %.preheader98, !llvm.loop !22
+  br i1 %30, label %34, label %.lr.ph111, !llvm.loop !22
 
-.preheader98:                                     ; preds = %.loopexit96
-  br i1 %26, label %.lr.ph111, label %.loopexit97
-
-.lr.ph111:                                        ; preds = %.preheader98
+.lr.ph111:                                        ; preds = %.loopexit96
   %31 = load ptr, ptr %16, align 8
   %32 = sext i32 %24 to i64
   %33 = sext i32 %25 to i64
@@ -1510,12 +1507,9 @@ define noalias noundef ptr @Cnf_DataDeriveLitPolarities(ptr nocapture noundef re
 
 .loopexit95:                                      ; preds = %.loopexit95.sink.split, %63
   %59 = icmp slt i64 %indvars.iv.next123, %33
-  br i1 %59, label %63, label %.preheader, !llvm.loop !24
+  br i1 %59, label %63, label %.lr.ph116, !llvm.loop !24
 
-.preheader:                                       ; preds = %.loopexit95
-  br i1 %26, label %.lr.ph116, label %.loopexit97
-
-.lr.ph116:                                        ; preds = %.preheader
+.lr.ph116:                                        ; preds = %.loopexit95
   %60 = load ptr, ptr %16, align 8
   %61 = sext i32 %24 to i64
   %62 = sext i32 %25 to i64
@@ -1609,7 +1603,7 @@ define noalias noundef ptr @Cnf_DataDeriveLitPolarities(ptr nocapture noundef re
   %113 = icmp ult ptr %.2, %106
   br i1 %113, label %.lr.ph114, label %.loopexit, !llvm.loop !27
 
-.loopexit97:                                      ; preds = %.loopexit, %21, %.preheader98, %.preheader, %17
+.loopexit97:                                      ; preds = %.loopexit, %21, %17
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !28

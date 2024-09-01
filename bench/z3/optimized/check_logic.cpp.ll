@@ -3287,9 +3287,6 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 if.end.i79:                                       ; preds = %for.cond.i
   %m_args.i.i80 = getelementptr inbounds i8, ptr %12, i64 32
   %35 = load ptr, ptr %m_args.i.i80, align 8
-  br i1 %cmp37.not.i, label %return, label %for.body.preheader.i82
-
-for.body.preheader.i82:                           ; preds = %if.end.i79
   %wide.trip.count.i83 = zext i32 %31 to i64
   br label %for.body.i84
 
@@ -3298,8 +3295,8 @@ for.cond.i89:                                     ; preds = %for.body.i84
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i83
   br i1 %exitcond.not.i91, label %return, label %for.body.i84, !llvm.loop !17
 
-for.body.i84:                                     ; preds = %for.cond.i89, %for.body.preheader.i82
-  %indvars.iv.i85 = phi i64 [ 1, %for.body.preheader.i82 ], [ %indvars.iv.next.i90, %for.cond.i89 ]
+for.body.i84:                                     ; preds = %for.cond.i89, %if.end.i79
+  %indvars.iv.i85 = phi i64 [ 1, %if.end.i79 ], [ %indvars.iv.next.i90, %for.cond.i89 ]
   %arrayidx.i.i86 = getelementptr inbounds [0 x ptr], ptr %m_args.i.i80, i64 0, i64 %indvars.iv.i85
   %36 = load ptr, ptr %arrayidx.i.i86, align 8
   %cmp5.not.i87 = icmp eq ptr %36, %35
@@ -3319,7 +3316,7 @@ if.end48:                                         ; preds = %land.rhs.i.i60, %la
   tail call void @__cxa_throw(ptr %exception.i.i99, ptr nonnull @_ZTIN11check_logic3imp6failedE, ptr null) #20
   unreachable
 
-return:                                           ; preds = %for.cond.i89, %if.end.i, %if.end.i79, %land.lhs.true.i33, %_ZNK4decl13get_family_idEv.exit.i37, %entry, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit43, %land.lhs.true, %_ZNK11check_logic3imp8is_arithEP4expr.exit
+return:                                           ; preds = %for.cond.i89, %if.end.i, %land.lhs.true.i33, %_ZNK4decl13get_family_idEv.exit.i37, %entry, %_ZNK11check_logic3imp11is_diff_varEP4expr.exit43, %land.lhs.true, %_ZNK11check_logic3imp8is_arithEP4expr.exit
   ret void
 }
 

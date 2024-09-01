@@ -22701,8 +22701,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !3134
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %14), !noalias !3134
   %272 = load i64, ptr %15, align 8, !range !37, !noalias !3134, !noundef !5
-  %.not7.not.i.not = icmp eq i64 %272, -9223372036854775807
-  br i1 %.not7.not.i.not, label %291, label %273
+  %.not7.not.not.not.i = icmp eq i64 %272, -9223372036854775807
+  br i1 %.not7.not.not.not.i, label %291, label %273
 
 273:                                              ; preds = %271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %15, i64 384, i1 false), !noalias !3132
@@ -22974,8 +22974,8 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
   %352 = landingpad { ptr, i32 }
           cleanup
   %353 = load i64, ptr %24, align 8, !range !112, !noundef !5
-  %.not3.not = icmp eq i64 %353, 3
-  br i1 %.not3.not, label %.thread, label %357
+  %.not3 = icmp eq i64 %353, 3
+  br i1 %.not3, label %.thread, label %357
 
 354:                                              ; preds = %357, %.body
   %355 = landingpad { ptr, i32 }

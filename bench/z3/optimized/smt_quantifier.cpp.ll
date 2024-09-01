@@ -507,7 +507,7 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then, %_ZNK3smt5enode12get_num_argsEv.exit
-  %cmp94.not107 = phi i1 [ true, %_ZNK3smt5enode12get_num_argsEv.exit ], [ true, %if.then ], [ %cmp94.not, %for.end.loopexit ]
+  %cmp94.not107 = phi i1 [ true, %_ZNK3smt5enode12get_num_argsEv.exit ], [ true, %if.then ], [ false, %for.end.loopexit ]
   %cond.i106 = phi i64 [ 0, %_ZNK3smt5enode12get_num_argsEv.exit ], [ 0, %if.then ], [ %19, %for.end.loopexit ]
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
   %20 = load ptr, ptr %en, align 8
@@ -4309,74 +4309,62 @@ for.body.lr.ph:                                   ; preds = %if.end
   %idx.ext.i.i.i = zext i32 %3 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i, i64 %idx.ext.i.i.i
   %add.ptr.i.i = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
-  %4 = zext i32 %2 to i64
-  %5 = load ptr, ptr %add.ptr.i.i, align 8
-  %m_num_args.i41 = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load i32, ptr %m_num_args.i41, align 8
-  %cmp642 = icmp eq i32 %6, 1
-  br i1 %cmp642, label %for.end, label %for.cond
+  %wide.trip.count = zext i32 %2 to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv43 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond, label %for.end.loopexit, label %for.body, !llvm.loop !27
+for.cond:                                         ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %indvars.iv.next
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %m_num_args.i = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load i32, ptr %m_num_args.i, align 8
-  %cmp6 = icmp eq i32 %8, 1
-  br i1 %cmp6, label %for.end.loopexit, label %for.cond, !llvm.loop !27
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %indvars.iv
+  %4 = load ptr, ptr %arrayidx.i, align 8
+  %m_num_args.i = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = load i32, ptr %m_num_args.i, align 8
+  %cmp6 = icmp eq i32 %5, 1
+  br i1 %cmp6, label %for.end, label %for.cond
 
-for.end.loopexit:                                 ; preds = %for.cond, %for.body
-  %cmp.le = icmp uge i64 %indvars.iv.next, %4
-  %9 = zext i1 %cmp.le to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %for.body.lr.ph
-  %cmp.lcssa.ph = phi i32 [ 0, %for.body.lr.ph ], [ %9, %for.end.loopexit ]
+for.end:                                          ; preds = %for.cond, %for.body
+  %cmp.lcssa = phi i32 [ 1, %for.cond ], [ 0, %for.body ]
   %m_qi_max_eager_multipatterns = getelementptr inbounds i8, ptr %0, i64 184
-  %10 = load i32, ptr %m_qi_max_eager_multipatterns, align 8
-  %spec.select = add i32 %10, %cmp.lcssa.ph
-  br i1 %cmp24, label %for.end37, label %for.body17.lr.ph
-
-for.body17.lr.ph:                                 ; preds = %for.end
+  %6 = load i32, ptr %m_qi_max_eager_multipatterns, align 8
+  %spec.select = add i32 %6, %cmp.lcssa
   %m_patterns_decls.i.i.i.i16 = getelementptr inbounds i8, ptr %q, i64 80
   %m_num_decls.i.i.i17 = getelementptr inbounds i8, ptr %q, i64 20
-  %wide.trip.count34 = zext i32 %2 to i64
+  %wide.trip.count35 = zext i32 %2 to i64
   br label %for.body17
 
-for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
-  %indvars.iv31 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next32, %for.body17 ]
-  %j.030 = phi i32 [ 0, %for.body17.lr.ph ], [ %spec.select15, %for.body17 ]
-  %11 = load i32, ptr %m_num_decls.i.i.i17, align 4
-  %idx.ext.i.i.i18 = zext i32 %11 to i64
+for.body17:                                       ; preds = %for.end, %for.body17
+  %indvars.iv32 = phi i64 [ 0, %for.end ], [ %indvars.iv.next33, %for.body17 ]
+  %j.030 = phi i32 [ 0, %for.end ], [ %spec.select15, %for.body17 ]
+  %7 = load i32, ptr %m_num_decls.i.i.i17, align 4
+  %idx.ext.i.i.i18 = zext i32 %7 to i64
   %add.ptr.i.i.i19 = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i16, i64 %idx.ext.i.i.i18
   %add.ptr.i.i20 = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i19, i64 %idx.ext.i.i.i18
-  %arrayidx.i22 = getelementptr inbounds ptr, ptr %add.ptr.i.i20, i64 %indvars.iv31
-  %12 = load ptr, ptr %arrayidx.i22, align 8
-  %m_num_args.i23 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load i32, ptr %m_num_args.i23, align 8
-  %cmp22 = icmp eq i32 %13, 1
+  %arrayidx.i22 = getelementptr inbounds ptr, ptr %add.ptr.i.i20, i64 %indvars.iv32
+  %8 = load ptr, ptr %arrayidx.i22, align 8
+  %m_num_args.i23 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = load i32, ptr %m_num_args.i23, align 8
+  %cmp22 = icmp eq i32 %9, 1
   %cmp24.not = icmp ult i32 %j.030, %spec.select
   %or.cond = select i1 %cmp22, i1 true, i1 %cmp24.not
   %m_mam.m_lazy_mam.v = select i1 %or.cond, i64 32, i64 40
   %m_mam.m_lazy_mam = getelementptr inbounds i8, ptr %this, i64 %m_mam.m_lazy_mam.v
-  %14 = load ptr, ptr %m_mam.m_lazy_mam, align 8
-  %vtable28 = load ptr, ptr %14, align 8
+  %10 = load ptr, ptr %m_mam.m_lazy_mam, align 8
+  %vtable28 = load ptr, ptr %10, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 16
-  %15 = load ptr, ptr %vfn29, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %q, ptr noundef nonnull %12)
+  %11 = load ptr, ptr %vfn29, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %q, ptr noundef nonnull %8)
   %not.cmp22 = xor i1 %cmp22, true
   %inc33 = zext i1 %not.cmp22 to i32
   %spec.select15 = add i32 %j.030, %inc33
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %for.end37, label %for.body17, !llvm.loop !28
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %for.end37, label %for.body17, !llvm.loop !28
 
-for.end37:                                        ; preds = %for.body17, %if.end, %for.end, %entry
+for.end37:                                        ; preds = %for.body17, %if.end, %entry
   ret void
 }
 

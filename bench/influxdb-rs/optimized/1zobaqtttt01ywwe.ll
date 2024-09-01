@@ -19553,8 +19553,8 @@ default.unreachable475:                           ; preds = %"_ZN5alloc11collect
 
 .noexc87:                                         ; preds = %497
   %.fca.0.extract.i.i.i.i80 = extractvalue { i64, i64 } %498, 0
-  %switch.i.i.i.not.i.not = icmp eq i64 %.fca.0.extract.i.i.i.i80, 0
-  br i1 %switch.i.i.i.not.i.not, label %499, label %502
+  %switch.i.i.i.not.not.not.i.not = icmp eq i64 %.fca.0.extract.i.i.i.i80, 0
+  br i1 %switch.i.i.i.not.not.not.i.not, label %499, label %502
 
 499:                                              ; preds = %.noexc87
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23), !noalias !3517

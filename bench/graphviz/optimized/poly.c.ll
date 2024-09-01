@@ -1394,10 +1394,7 @@ gv_calloc.exit:                                   ; preds = %12
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %24
 
-.preheader:                                       ; preds = %24
-  br i1 %22, label %.lr.ph46, label %.loopexit
-
-.lr.ph46:                                         ; preds = %.preheader
+.lr.ph46:                                         ; preds = %24
   %23 = add nsw i32 %1, -1
   %wide.trip.count51 = zext nneg i32 %1 to i64
   br label %33
@@ -1416,7 +1413,7 @@ gv_calloc.exit:                                   ; preds = %12
   store double %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %24
+  br i1 %exitcond.not, label %.lr.ph46, label %24
 
 33:                                               ; preds = %.lr.ph46, %75
   %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %75 ]
@@ -1502,8 +1499,8 @@ gv_calloc.exit:                                   ; preds = %12
   %79 = zext i1 %78 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %47, %20, %.preheader, %._crit_edge.loopexit
-  %.036 = phi i32 [ 0, %.preheader ], [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
+.loopexit:                                        ; preds = %57, %47, %20, %._crit_edge.loopexit
+  %.036 = phi i32 [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
   ret i32 %.036
 }
 

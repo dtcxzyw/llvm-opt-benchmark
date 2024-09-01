@@ -533,20 +533,20 @@ invoke.cont52.i:                                  ; preds = %invoke.cont50.i
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i56.i) #6
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count87.i
-  br i1 %exitcond88.not.i, label %if.then58.i, label %for.body19.i, !llvm.loop !13
+  br i1 %exitcond88.not.i, label %for.end56.i, label %for.body19.i, !llvm.loop !13
 
 lpad49.i:                                         ; preds = %invoke.cont50.i, %if.end45.i
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i58
 
-if.then58.i:                                      ; preds = %invoke.cont52.i
+for.end56.i:                                      ; preds = %invoke.cont52.i
   %call59.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
   br label %if.end60.i
 
-if.end60.i:                                       ; preds = %if.then58.i, %_ZNK11func_interp11num_entriesEv.exit.i, %for.end.i55
-  %retval.0.i.i5199104.i = phi i32 [ %44, %if.then58.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ], [ 0, %for.end.i55 ]
-  %cmp1871.not100103.i = phi i1 [ false, %if.then58.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ], [ true, %for.end.i55 ]
+if.end60.i:                                       ; preds = %for.end56.i, %_ZNK11func_interp11num_entriesEv.exit.i, %for.end.i55
+  %retval.0.i.i5199104.i = phi i32 [ %44, %for.end56.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ], [ 0, %for.end.i55 ]
+  %cmp1871.not100103.i = phi i1 [ false, %for.end56.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ], [ true, %for.end.i55 ]
   %m_else.i.i = getelementptr inbounds i8, ptr %42, i64 24
   %53 = load ptr, ptr %m_else.i.i, align 8
   %cmp.i58.i = icmp eq ptr %53, null

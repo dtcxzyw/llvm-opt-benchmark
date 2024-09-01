@@ -2773,8 +2773,8 @@ if.end13:                                         ; preds = %if.else, %if.then4
 
 if.then14:                                        ; preds = %if.end13
   %call15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %infilename) #25
-  %cmp16 = icmp ult i64 %call15, 4
-  br i1 %cmp16, label %if.end83.thread, label %land.lhs.true
+  %cmp16 = icmp ugt i64 %call15, 3
+  br i1 %cmp16, label %land.lhs.true, label %if.end83.thread
 
 land.lhs.true:                                    ; preds = %if.then14
   %13 = getelementptr i8, ptr %infilename, i64 %call15

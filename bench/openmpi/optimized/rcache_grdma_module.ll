@@ -1067,8 +1067,8 @@ define internal noundef zeroext i1 @mca_rcache_grdma_evict(ptr nocapture noundef
   %9 = getelementptr inbounds i8, ptr %8, i64 1416
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #7
   %11 = load volatile i64, ptr %5, align 8
-  %.not.i.not = icmp ne i64 %11, 0
-  br i1 %.not.i.not, label %opal_list_remove_first.exit.i.i, label %mca_rcache_grdma_remove_lru_head.exit.i
+  %.not.not.not.i.not.not.not.not.not = icmp ne i64 %11, 0
+  br i1 %.not.not.not.i.not.not.not.not.not, label %opal_list_remove_first.exit.i.i, label %mca_rcache_grdma_remove_lru_head.exit.i
 
 opal_list_remove_first.exit.i.i:                  ; preds = %7
   %12 = load volatile i64, ptr %5, align 8
@@ -1190,7 +1190,7 @@ dereg_mem.exit.i:                                 ; preds = %73, %70, %67, %opal
   br label %mca_rcache_grdma_evict_lru_local.exit
 
 mca_rcache_grdma_evict_lru_local.exit:            ; preds = %mca_rcache_grdma_remove_lru_head.exit.i, %dereg_mem.exit.i
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1

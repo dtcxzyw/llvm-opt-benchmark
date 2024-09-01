@@ -39,8 +39,8 @@ define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly %0, ptr
   %.018.i = phi ptr [ %18, %16 ], [ %1, %5 ]
   %.0817.i = phi ptr [ %17, %16 ], [ %0, %5 ]
   %8 = load i8, ptr %.018.i, align 1
-  %.not10.not.i.not = icmp ne i8 %8, 0
-  br i1 %.not10.not.i.not, label %9, label %.critedge.i
+  %.not10.not.i.not.not = icmp ne i8 %8, 0
+  br i1 %.not10.not.i.not.not, label %9, label %.critedge.i
 
 9:                                                ; preds = %.lr.ph.i
   %10 = zext i8 %7 to i64
@@ -61,7 +61,7 @@ define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly %0, ptr
 
 .critedge.i:                                      ; preds = %16, %.lr.ph.i, %5
   %.0.lcssa.i = phi ptr [ %1, %5 ], [ %.018.i, %.lr.ph.i ], [ %18, %16 ]
-  %.not.lcssa.i = phi i1 [ true, %5 ], [ %.not10.not.i.not, %.lr.ph.i ], [ %.not10.not.i.not, %16 ]
+  %.not.lcssa.i = phi i1 [ true, %5 ], [ %.not10.not.i.not.not, %.lr.ph.i ], [ %.not10.not.i.not.not, %16 ]
   %20 = load i8, ptr %.0.lcssa.i, align 1
   %21 = icmp ne i8 %20, 0
   %22 = xor i1 %.not.lcssa.i, %21

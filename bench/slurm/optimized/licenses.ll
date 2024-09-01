@@ -2085,8 +2085,8 @@ define dso_local noundef zeroext i1 @license_list_overlap(ptr noundef %0, ptr no
 
 7:                                                ; preds = %9, %5
   %8 = tail call ptr @list_next(ptr noundef %6) #11
-  %.not.not = icmp ne ptr %8, null
-  br i1 %.not.not, label %9, label %12
+  %.not.not.not.not.not.not = icmp ne ptr %8, null
+  br i1 %.not.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %8, align 8
@@ -2099,7 +2099,7 @@ define dso_local noundef zeroext i1 @license_list_overlap(ptr noundef %0, ptr no
   br label %13
 
 13:                                               ; preds = %2, %12
-  %.09 = phi i1 [ %.not.not, %12 ], [ false, %2 ]
+  %.09 = phi i1 [ %.not.not.not.not.not.not, %12 ], [ false, %2 ]
   ret i1 %.09
 }
 

@@ -1017,8 +1017,8 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   store volatile ptr %24, ptr %189, align 8
   br label %.thread11
 
-.thread11:                                        ; preds = %120, %157, %.thread, %178, %184, %.loopexit, %96, %68, %67, %58, %22, %16, %7
-  %191 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %96 ], [ 0, %184 ], [ 0, %178 ], [ 0, %.thread ], [ 0, %157 ], [ 0, %120 ]
+.thread11:                                        ; preds = %120, %.thread, %157, %178, %184, %.loopexit, %96, %68, %67, %58, %22, %16, %7
+  %191 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %96 ], [ 0, %184 ], [ 0, %178 ], [ 0, %157 ], [ 0, %.thread ], [ 0, %120 ]
   ret i32 %191
 }
 

@@ -5655,15 +5655,12 @@ define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr no
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %40, ptr %41, align 8
   store i32 %23, ptr %0, align 8
-  br i1 %.not, label %._crit_edge33, label %.lr.ph32.preheader
-
-.lr.ph32.preheader:                               ; preds = %._crit_edge
   %smax39 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
   %wide.trip.count40 = zext nneg i32 %smax39 to i64
   br label %.lr.ph32
 
-.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
-  %indvars.iv36 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next37, %.lr.ph32 ]
+.lr.ph32:                                         ; preds = %._crit_edge, %.lr.ph32
+  %indvars.iv36 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next37, %.lr.ph32 ]
   %42 = load ptr, ptr %32, align 8
   %43 = getelementptr %struct.hyperLogLogState, ptr %42, i64 %indvars.iv36
   tail call void @initHyperLogLog(ptr noundef %43, i8 noundef zeroext 5) #12
@@ -5683,7 +5680,7 @@ define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr no
   store i32 %23, ptr %0, align 8
   br label %._crit_edge33
 
-._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge33.critedge, %._crit_edge
+._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge33.critedge
   ret void
 }
 

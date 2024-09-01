@@ -2004,13 +2004,13 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %expanded_record
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
-  br label %123
+  br label %119
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds i8, ptr %0, i64 112
   %50 = load i64, ptr %49, align 8
   %.not60 = icmp eq i64 %50, 0
-  br i1 %.not60, label %51, label %123
+  br i1 %.not60, label %51, label %119
 
 51:                                               ; preds = %48
   %52 = and i32 %41, 4
@@ -2029,11 +2029,11 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %expanded_record
   %58 = and i32 %55, 16
   %.not62 = icmp eq i32 %58, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 104
-  %.pre76 = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not62, label %._crit_edge75, label %.preheader
+  %.pre75 = load i32, ptr %.phi.trans.insert, align 8
+  br i1 %.not62, label %._crit_edge74, label %.preheader
 
 .preheader:                                       ; preds = %54
-  %59 = icmp sgt i32 %.pre76, 0
+  %59 = icmp sgt i32 %.pre75, 0
   br i1 %59, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2043,7 +2043,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %expanded_record
   br label %63
 
 63:                                               ; preds = %.lr.ph, %88
-  %64 = phi i32 [ %.pre76, %.lr.ph ], [ %89, %88 ]
+  %64 = phi i32 [ %.pre75, %.lr.ph ], [ %89, %88 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %65 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %60, i64 0, i64 %indvars.iv
   %66 = load ptr, ptr %61, align 8
@@ -2077,91 +2077,78 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %expanded_record
   %86 = trunc i64 %indvars.iv to i32
   %87 = add i32 %86, 1
   tail call void @expanded_record_set_field_internal(ptr noundef nonnull %0, i32 noundef %87, i64 noundef %81, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
-  %.pre73 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre72 = load i32, ptr %.phi.trans.insert, align 8
   br label %88
 
 88:                                               ; preds = %63, %70, %74, %78, %85
-  %89 = phi i32 [ %64, %63 ], [ %64, %70 ], [ %64, %74 ], [ %64, %78 ], [ %.pre73, %85 ]
+  %89 = phi i32 [ %64, %63 ], [ %64, %70 ], [ %64, %74 ], [ %64, %78 ], [ %.pre72, %85 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
   br i1 %91, label %63, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %88
-  %.pre74 = load i32, ptr %40, align 4
+  %.pre73 = load i32, ptr %40, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %92 = phi i32 [ %89, %._crit_edge.loopexit ], [ %.pre76, %.preheader ]
-  %93 = phi i32 [ %.pre74, %._crit_edge.loopexit ], [ %55, %.preheader ]
+  %92 = phi i32 [ %89, %._crit_edge.loopexit ], [ %.pre75, %.preheader ]
+  %93 = phi i32 [ %.pre73, %._crit_edge.loopexit ], [ %55, %.preheader ]
   %94 = and i32 %93, -17
   store i32 %94, ptr %40, align 4
-  br label %._crit_edge75
+  br label %._crit_edge74
 
-._crit_edge75:                                    ; preds = %54, %._crit_edge
-  %95 = phi i32 [ %92, %._crit_edge ], [ %.pre76, %54 ]
+._crit_edge74:                                    ; preds = %54, %._crit_edge
+  %95 = phi i32 [ %92, %._crit_edge ], [ %.pre75, %54 ]
   %96 = icmp sgt i32 %95, 0
   %97 = getelementptr inbounds i8, ptr %0, i64 96
   %98 = load ptr, ptr %97, align 8
   br i1 %96, label %.lr.ph67, label %.critedge
 
-.lr.ph67:                                         ; preds = %._crit_edge75
-  %99 = zext nneg i32 %95 to i64
+.lr.ph67:                                         ; preds = %._crit_edge74
   %wide.trip.count = zext nneg i32 %95 to i64
-  %100 = load i8, ptr %98, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %._crit_edge87, label %.lr.ph86
+  br label %100
 
-.lr.ph86:                                         ; preds = %.lr.ph67, %102
-  %indvars.iv7185 = phi i64 [ %indvars.iv.next72, %102 ], [ 0, %.lr.ph67 ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv7185, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %102, !llvm.loop !10
+99:                                               ; preds = %100
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %100, !llvm.loop !10
 
-102:                                              ; preds = %.lr.ph86
-  %103 = getelementptr i8, ptr %98, i64 %indvars.iv.next72
-  %104 = load i8, ptr %103, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %._crit_edge87.loopexit, label %.lr.ph86, !llvm.loop !10
+100:                                              ; preds = %.lr.ph67, %99
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next70, %99 ]
+  %101 = getelementptr i8, ptr %98, i64 %indvars.iv69
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %99
 
-._crit_edge87.loopexit:                           ; preds = %102
-  %106 = icmp ult i64 %indvars.iv.next72, %99
-  br label %._crit_edge87
-
-._crit_edge87:                                    ; preds = %._crit_edge87.loopexit, %.lr.ph67
-  %.lcssa = phi i1 [ true, %.lr.ph67 ], [ %106, %._crit_edge87.loopexit ]
-  %107 = load i32, ptr %57, align 8
-  %108 = add i32 %107, 7
-  %109 = sdiv i32 %108, 8
-  %narrow = add nsw i32 %109, 30
-  %110 = and i32 %narrow, -8
-  %111 = sext i32 %110 to i64
+104:                                              ; preds = %100
+  %105 = load i32, ptr %57, align 8
+  %106 = add i32 %105, 7
+  %107 = sdiv i32 %106, 8
+  %narrow = add nsw i32 %107, 30
+  %108 = and i32 %narrow, -8
+  %109 = sext i32 %108 to i64
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph86
-  %112 = icmp ult i64 %indvars.iv.next72, %99
-  br label %.critedge
+.critedge:                                        ; preds = %99, %._crit_edge74, %104
+  %110 = phi i8 [ 1, %104 ], [ 0, %._crit_edge74 ], [ 0, %99 ]
+  %.057 = phi i64 [ %109, %104 ], [ 24, %._crit_edge74 ], [ 24, %99 ]
+  %111 = trunc nsw i64 %.057 to i32
+  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call i64 @heap_compute_data_size(ptr noundef %57, ptr noundef %113, ptr noundef %98) #7
+  %115 = add i64 %114, %.057
+  store i64 %115, ptr %49, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 %114, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 %111, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 132
+  store i8 %110, ptr %118, align 4
+  br label %119
 
-.critedge:                                        ; preds = %.critedge.loopexit, %._crit_edge75, %._crit_edge87
-  %113 = phi i1 [ %.lcssa, %._crit_edge87 ], [ false, %._crit_edge75 ], [ %112, %.critedge.loopexit ]
-  %.057 = phi i64 [ %111, %._crit_edge87 ], [ 24, %._crit_edge75 ], [ 24, %.critedge.loopexit ]
-  %114 = trunc nsw i64 %.057 to i32
-  %115 = getelementptr inbounds i8, ptr %0, i64 88
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call i64 @heap_compute_data_size(ptr noundef %57, ptr noundef %116, ptr noundef %98) #7
-  %118 = add i64 %117, %.057
-  store i64 %118, ptr %49, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 120
-  store i64 %117, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 %114, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 132
-  %122 = zext i1 %113 to i8
-  store i8 %122, ptr %121, align 4
-  br label %123
-
-123:                                              ; preds = %48, %.critedge, %43
-  %.0 = phi i64 [ %118, %.critedge ], [ %47, %43 ], [ %50, %48 ]
+119:                                              ; preds = %48, %.critedge, %43
+  %.0 = phi i64 [ %115, %.critedge ], [ %47, %43 ], [ %50, %48 ]
   ret i64 %.0
 }
 

@@ -4295,8 +4295,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   br label %666
 
 649:                                              ; preds = %spa_pod_is_object.exit.i.i, %283, %281, %281, %170, %163
-  %.not130.ph.i = phi i64 [ 16, %283 ], [ 16, %281 ], [ 16, %spa_pod_is_object.exit.i.i ], [ 16, %170 ], [ 0, %163 ], [ 16, %281 ]
-  %.2.idx175.i = select i1 %160, i64 %.not130.ph.i, i64 0
+  %.lcssa47 = phi i1 [ %160, %spa_pod_is_object.exit.i.i ], [ %160, %283 ], [ %160, %281 ], [ %160, %281 ], [ %160, %170 ], [ true, %163 ]
+  %.not130.ph.i = phi i64 [ 16, %spa_pod_is_object.exit.i.i ], [ 16, %283 ], [ 16, %281 ], [ 16, %281 ], [ 16, %170 ], [ 0, %163 ]
+  %.2.idx175.i = select i1 %.lcssa47, i64 %.not130.ph.i, i64 0
   %.2176.i = getelementptr inbounds i8, ptr %.193145.i, i64 %.2.idx175.i
   %650 = icmp ult i32 %104, 41
   br i1 %650, label %651, label %656

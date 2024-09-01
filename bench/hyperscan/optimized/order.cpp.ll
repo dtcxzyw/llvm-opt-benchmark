@@ -17339,7 +17339,7 @@ cleanup.cont408.thread:                           ; preds = %_ZN7testing15Assert
 for.cond.i:                                       ; preds = %for.body.i1338
   %incdec.ptr.i.i1339 = getelementptr inbounds i8, ptr %it.sroa.0.014.i, i64 16
   %cmp.i.not.i1340 = icmp eq ptr %incdec.ptr.i.i1339, %530
-  br i1 %cmp.i.not.i1340, label %invoke.cont.i.i, label %for.body.i1338, !llvm.loop !20
+  br i1 %cmp.i.not.i1340, label %cleanup.cont408, label %for.body.i1338, !llvm.loop !20
 
 for.body.i1338:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1336, %for.cond.i
   %lastMatch.015.i = phi i64 [ %531, %for.cond.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit1336 ]
@@ -17529,12 +17529,12 @@ ehcleanup402:                                     ; preds = %ehcleanup399, %lpad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_377) #21
   br label %ehcleanup453
 
-invoke.cont.i.i:                                  ; preds = %for.cond.i
+cleanup.cont408:                                  ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_377) #21
   store ptr %529, ptr %_M_finish.i.i1098, align 8
   br label %_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit
 
-_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %invoke.cont.i.i, %cleanup.cont408.thread
+_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %cleanup.cont408, %cleanup.cont408.thread
   %555 = load ptr, ptr %stream, align 8
   %556 = load ptr, ptr %scratch, align 8
   %call412 = invoke i32 @hs_close_stream(ptr noundef %555, ptr noundef %556, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
@@ -20871,7 +20871,7 @@ cleanup.cont394.thread:                           ; preds = %_ZN7testing15Assert
 for.cond.i:                                       ; preds = %for.body.i1254
   %incdec.ptr.i.i1255 = getelementptr inbounds i8, ptr %it.sroa.0.014.i, i64 16
   %cmp.i.not.i1256 = icmp eq ptr %incdec.ptr.i.i1255, %512
-  br i1 %cmp.i.not.i1256, label %invoke.cont.i.i, label %for.body.i1254, !llvm.loop !20
+  br i1 %cmp.i.not.i1256, label %cleanup.cont394, label %for.body.i1254, !llvm.loop !20
 
 for.body.i1254:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1252, %for.cond.i
   %lastMatch.015.i = phi i64 [ %513, %for.cond.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit1252 ]
@@ -21061,12 +21061,12 @@ ehcleanup388:                                     ; preds = %ehcleanup385, %lpad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_363) #21
   br label %ehcleanup439
 
-invoke.cont.i.i:                                  ; preds = %for.cond.i
+cleanup.cont394:                                  ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_363) #21
   store ptr %511, ptr %_M_finish.i.i1015, align 8
   br label %_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit
 
-_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %invoke.cont.i.i, %cleanup.cont394.thread
+_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %cleanup.cont394, %cleanup.cont394.thread
   %537 = load ptr, ptr %stream, align 8
   %538 = load ptr, ptr %scratch, align 8
   %call398 = invoke i32 @hs_close_stream(ptr noundef %537, ptr noundef %538, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
@@ -24258,7 +24258,7 @@ cleanup.cont380.thread:                           ; preds = %_ZN7testing15Assert
 for.cond.i:                                       ; preds = %for.body.i1171
   %incdec.ptr.i.i1172 = getelementptr inbounds i8, ptr %it.sroa.0.014.i, i64 16
   %cmp.i.not.i1173 = icmp eq ptr %incdec.ptr.i.i1172, %494
-  br i1 %cmp.i.not.i1173, label %invoke.cont.i.i, label %for.body.i1171, !llvm.loop !20
+  br i1 %cmp.i.not.i1173, label %cleanup.cont380, label %for.body.i1171, !llvm.loop !20
 
 for.body.i1171:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1169, %for.cond.i
   %lastMatch.015.i = phi i64 [ %495, %for.cond.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit1169 ]
@@ -24448,12 +24448,12 @@ ehcleanup374:                                     ; preds = %ehcleanup371, %lpad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_349) #21
   br label %ehcleanup425
 
-invoke.cont.i.i:                                  ; preds = %for.cond.i
+cleanup.cont380:                                  ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_349) #21
   store ptr %493, ptr %_M_finish.i.i932, align 8
   br label %_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit
 
-_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %invoke.cont.i.i, %cleanup.cont380.thread
+_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %cleanup.cont380, %cleanup.cont380.thread
   %519 = load ptr, ptr %stream, align 8
   %520 = load ptr, ptr %scratch, align 8
   %call384 = invoke i32 @hs_close_stream(ptr noundef %519, ptr noundef %520, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)
@@ -27654,7 +27654,7 @@ cleanup.cont380.thread:                           ; preds = %_ZN7testing15Assert
 for.cond.i:                                       ; preds = %for.body.i1171
   %incdec.ptr.i.i1172 = getelementptr inbounds i8, ptr %it.sroa.0.014.i, i64 16
   %cmp.i.not.i1173 = icmp eq ptr %incdec.ptr.i.i1172, %494
-  br i1 %cmp.i.not.i1173, label %invoke.cont.i.i, label %for.body.i1171, !llvm.loop !20
+  br i1 %cmp.i.not.i1173, label %cleanup.cont380, label %for.body.i1171, !llvm.loop !20
 
 for.body.i1171:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1169, %for.cond.i
   %lastMatch.015.i = phi i64 [ %495, %for.cond.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit1169 ]
@@ -27844,12 +27844,12 @@ ehcleanup374:                                     ; preds = %ehcleanup371, %lpad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_349) #21
   br label %ehcleanup425
 
-invoke.cont.i.i:                                  ; preds = %for.cond.i
+cleanup.cont380:                                  ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_349) #21
   store ptr %493, ptr %_M_finish.i.i932, align 8
   br label %_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit
 
-_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %invoke.cont.i.i, %cleanup.cont380.thread
+_ZNSt6vectorI11MatchRecordSaIS0_EE5clearEv.exit:  ; preds = %cleanup.cont380, %cleanup.cont380.thread
   %519 = load ptr, ptr %stream, align 8
   %520 = load ptr, ptr %scratch, align 8
   %call384 = invoke i32 @hs_close_stream(ptr noundef %519, ptr noundef %520, ptr noundef nonnull @_Z9record_cbjyyjPv, ptr noundef nonnull %c)

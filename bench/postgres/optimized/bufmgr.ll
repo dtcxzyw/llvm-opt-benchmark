@@ -3981,7 +3981,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr nocapture noundef
   %29 = sdiv i32 %.pre117, 32
   %30 = sext i32 %29 to i64
   %31 = icmp ult i64 %26, %30
-  br i1 %31, label %.preheader, label %.thread
+  br i1 %31, label %.lr.ph86.preheader, label %.thread
 
 .thread123:                                       ; preds = %.preheader77
   %.pre117120 = load i32, ptr @NBuffers, align 4
@@ -3989,10 +3989,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr nocapture noundef
   %.not129 = icmp ult i32 %.pre117120.off, 63
   br i1 %.not129, label %.thread, label %.loopexit
 
-.preheader:                                       ; preds = %28
-  br i1 %7, label %.lr.ph86.preheader, label %.loopexit
-
-.lr.ph86.preheader:                               ; preds = %.preheader
+.lr.ph86.preheader:                               ; preds = %28
   %wide.trip.count107 = zext nneg i32 %2 to i64
   br label %.lr.ph86
 
@@ -4131,7 +4128,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %45, %50, %.thread74
   %79 = icmp slt i64 %indvars.iv.next115, %78
   br i1 %79, label %45, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph86, %BufTagMatchesRelFileLocator.exit.thread, %.thread123, %.preheader, %.thread, %8
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph86, %BufTagMatchesRelFileLocator.exit.thread, %.thread123, %.thread, %8
   ret void
 }
 
@@ -4554,7 +4551,7 @@ define dso_local void @DropRelationsAllBuffers(ptr nocapture noundef readonly %0
   %48 = sdiv i32 %47, 32
   %49 = sext i32 %48 to i64
   %50 = icmp ult i64 %.2104, %49
-  br i1 %50, label %.preheader119, label %._crit_edge130
+  br i1 %50, label %.preheader.preheader, label %._crit_edge130
 
 .thread187:                                       ; preds = %25
   %51 = load i32, ptr @NBuffers, align 4
@@ -4562,10 +4559,7 @@ define dso_local void @DropRelationsAllBuffers(ptr nocapture noundef readonly %0
   %.not191 = icmp ult i32 %.off, 63
   br i1 %.not191, label %._crit_edge130, label %._crit_edge145
 
-.preheader119:                                    ; preds = %46
-  br i1 %29, label %.preheader.preheader, label %._crit_edge145
-
-.preheader.preheader:                             ; preds = %.preheader119
+.preheader.preheader:                             ; preds = %46
   %wide.trip.count175 = zext nneg i32 %.1101 to i64
   br label %.preheader
 
@@ -4600,7 +4594,7 @@ define dso_local void @DropRelationsAllBuffers(ptr nocapture noundef readonly %0
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
   br i1 %exitcond176.not, label %._crit_edge145, label %.preheader, !llvm.loop !33
 
-._crit_edge145:                                   ; preds = %60, %.thread187, %.preheader119
+._crit_edge145:                                   ; preds = %60, %.thread187
   tail call void @pfree(ptr noundef %28) #14
   tail call void @pfree(ptr noundef %9) #14
   br label %123

@@ -363,15 +363,15 @@ Super_AddGateToTable.exit.i:                      ; preds = %139, %._crit_edge.i
   store ptr %119, ptr %148, align 8
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count84.i
-  br i1 %exitcond85.not.i, label %.preheader64.us.preheader.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond85.not.i, label %._crit_edge69.i, label %.lr.ph.i, !llvm.loop !6
 
-.preheader64.us.preheader.i:                      ; preds = %Super_AddGateToTable.exit.i
+._crit_edge69.i:                                  ; preds = %Super_AddGateToTable.exit.i
   %149 = call i32 @llvm.smin.i32(i32 %1, i32 5)
   %wide.trip.count89.i = zext nneg i32 %149 to i64
   br label %.preheader64.us.i
 
-.preheader64.us.i:                                ; preds = %._crit_edge72.us.i, %.preheader64.us.preheader.i
-  %.173.us.i = phi i32 [ %163, %._crit_edge72.us.i ], [ 0, %.preheader64.us.preheader.i ]
+.preheader64.us.i:                                ; preds = %._crit_edge72.us.i, %._crit_edge69.i
+  %.173.us.i = phi i32 [ %163, %._crit_edge72.us.i ], [ 0, %._crit_edge69.i ]
   %150 = shl nuw i32 1, %.173.us.i
   br label %151
 

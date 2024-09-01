@@ -701,7 +701,7 @@ if.else:                                          ; preds = %for.end
 
 if.end24.thread:                                  ; preds = %if.else
   store i32 %sub9, ptr %shift, align 4
-  br label %for.cond28.preheader
+  br label %for.body31.preheader
 
 if.else18:                                        ; preds = %if.else
   %cmp19 = icmp slt i32 %sub14, %notmask
@@ -709,12 +709,9 @@ if.else18:                                        ; preds = %if.else
 
 if.end24:                                         ; preds = %if.else18
   %cmp25 = icmp sgt i32 %sub14, -1
-  br i1 %cmp25, label %for.cond28.preheader, label %if.else55
+  br i1 %cmp25, label %for.body31.preheader, label %for.body62.lr.ph
 
-for.cond28.preheader:                             ; preds = %if.end24.thread, %if.end24
-  br i1 %cmp50.not, label %return, label %for.body31.preheader
-
-for.body31.preheader:                             ; preds = %for.cond28.preheader
+for.body31.preheader:                             ; preds = %if.end24, %if.end24.thread
   %wide.trip.count68 = zext i32 %order to i64
   br label %for.body31
 
@@ -742,10 +739,7 @@ for.body31:                                       ; preds = %for.body31.preheade
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %return, label %for.body31, !llvm.loop !32
 
-if.else55:                                        ; preds = %if.end24
-  br i1 %cmp50.not, label %for.end86, label %for.body62.lr.ph
-
-for.body62.lr.ph:                                 ; preds = %if.else55
+for.body62.lr.ph:                                 ; preds = %if.end24
   %sub56 = sub nsw i32 0, %sub14
   %shl65 = shl nuw i32 1, %sub56
   %conv66 = sitofp i32 %shl65 to float
@@ -774,12 +768,12 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
   br i1 %exitcond64.not, label %for.end86, label %for.body62, !llvm.loop !33
 
-for.end86:                                        ; preds = %for.body62, %if.else55
+for.end86:                                        ; preds = %for.body62
   store i32 0, ptr %shift, align 4
   br label %return
 
-return:                                           ; preds = %for.body31, %entry, %for.cond28.preheader, %for.end86, %if.else18, %for.end
-  %retval.0 = phi i32 [ 2, %for.end ], [ 1, %if.else18 ], [ 0, %for.end86 ], [ 0, %for.cond28.preheader ], [ 2, %entry ], [ 0, %for.body31 ]
+return:                                           ; preds = %for.body31, %entry, %for.end86, %if.else18, %for.end
+  %retval.0 = phi i32 [ 2, %for.end ], [ 1, %if.else18 ], [ 0, %for.end86 ], [ 2, %entry ], [ 0, %for.body31 ]
   ret i32 %retval.0
 }
 

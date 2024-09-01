@@ -9342,9 +9342,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit19.i:        ; preds = %_ZNSt11unique_lockI
   resume { ptr, i32 } %0
 
 _ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %cmp.i.i.not.not.not.not.not = icmp ne ptr %call.i10.i, null
+  %cmp.i.i.not.not.not.not.not.not.not.not.not = icmp ne ptr %call.i10.i, null
   %call1.i.i.i.i12.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i26) #31
-  br i1 %cmp.i.i.not.not.not.not.not, label %return, label %if.end
+  br i1 %cmp.i.i.not.not.not.not.not.not.not.not.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %m_hierarchy.i = getelementptr inbounds i8, ptr %this.tr25, i64 224
@@ -9373,7 +9373,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool.not.i.i, label %for.cond.i.i, label %tailrecurse.loopexit, !llvm.loop !32
 
 return:                                           ; preds = %if.end, %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %for.cond.i.i
-  ret i1 %cmp.i.i.not.not.not.not.not
+  %cmp.i.i.not.not.not.not.not.not.not.not37 = phi i1 [ false, %for.cond.i.i ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %if.end ]
+  ret i1 %cmp.i.i.not.not.not.not.not.not.not.not37
 }
 
 ; Function Attrs: mustprogress uwtable

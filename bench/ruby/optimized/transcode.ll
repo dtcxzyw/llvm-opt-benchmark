@@ -4366,7 +4366,7 @@ define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1
   call void @ruby_xfree(ptr noundef nonnull %19) #21
   %.pre = load ptr, ptr %12, align 8
   %.not4557 = icmp eq ptr %.pre, null
-  br i1 %.not4557, label %.loopexit71, label %.lr.ph58
+  br i1 %.not4557, label %.loopexit70, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.loopexit49, %.lr.ph58
   %39 = phi ptr [ %41, %.lr.ph58 ], [ %.pre, %.loopexit49 ]
@@ -4375,15 +4375,15 @@ define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1
   call void @ruby_xfree(ptr noundef nonnull %39) #21
   %41 = load ptr, ptr %12, align 8
   %.not45 = icmp eq ptr %41, null
-  br i1 %.not45, label %.loopexit71, label %.lr.ph58, !llvm.loop !85
+  br i1 %.not45, label %.loopexit70, label %.lr.ph58, !llvm.loop !85
 
-.loopexit71:                                      ; preds = %.lr.ph58, %.loopexit49
+.loopexit70:                                      ; preds = %.lr.ph58, %.loopexit49
   %42 = ptrtoint ptr %1 to i64
   br label %43
 
-43:                                               ; preds = %43, %.loopexit71
-  %.135 = phi i32 [ 0, %.loopexit71 ], [ %47, %43 ]
-  %.033 = phi i64 [ %42, %.loopexit71 ], [ %46, %43 ]
+43:                                               ; preds = %43, %.loopexit70
+  %.135 = phi i32 [ 0, %.loopexit70 ], [ %47, %43 ]
+  %.033 = phi i64 [ %42, %.loopexit70 ], [ %46, %43 ]
   %44 = load ptr, ptr %5, align 8
   %45 = call i32 @rb_st_lookup(ptr noundef %44, i64 noundef %.033, ptr noundef nonnull %6) #21
   %46 = load i64, ptr %6, align 8

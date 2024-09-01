@@ -735,11 +735,11 @@ define dso_local noundef zeroext i1 @propagation_would_overmount(ptr nocapture n
   %34 = phi ptr [ %36, %30 ], [ %1, %22 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 232
   %36 = load ptr, ptr %35, align 8
-  %.not5.not = icmp ne ptr %36, null
-  br i1 %.not5.not, label %30, label %.loopexit, !llvm.loop !18
+  %.not5.not.not = icmp ne ptr %36, null
+  br i1 %.not5.not.not, label %30, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %30, %.preheader.split, %22, %16, %12, %8, %3
-  %37 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %8 ], [ false, %16 ], [ %29, %22 ], [ %.not5.not, %.preheader.split ], [ %.not5.not, %30 ]
+  %37 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %8 ], [ false, %16 ], [ %29, %22 ], [ %.not5.not.not, %.preheader.split ], [ %.not5.not.not, %30 ]
   ret i1 %37
 }
 

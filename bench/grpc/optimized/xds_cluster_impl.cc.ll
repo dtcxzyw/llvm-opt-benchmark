@@ -4295,8 +4295,8 @@ if.else.i:                                        ; preds = %invoke.cont3.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %if.else.i
   %count.0.i.i.i.i = phi i64 [ %60, %if.else.i ], [ %63, %do.cond.i.i.i.i ]
-  %cmp.not.i.not.i.not.i.i = icmp eq i64 %count.0.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i.i, label %if.then24.i, label %do.cond.i.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i.i = icmp eq i64 %count.0.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i.i, label %if.then24.i, label %do.cond.i.i.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %add.i.i.i.i = add nsw i64 %count.0.i.i.i.i, 1

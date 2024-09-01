@@ -191,7 +191,7 @@ define dso_local ptr @dma_fence_chain_walk(ptr noundef %0) #0 align 16 {
   br i1 %89, label %.thread24, label %20, !llvm.loop !9
 
 .thread24:                                        ; preds = %32, %38, %49, %53, %.thread23, %7
-  %90 = phi ptr [ null, %7 ], [ null, %.thread23 ], [ %21, %32 ], [ %21, %38 ], [ %21, %49 ], [ %21, %53 ]
+  %90 = phi ptr [ null, %7 ], [ %21, %53 ], [ %21, %49 ], [ %21, %38 ], [ %21, %32 ], [ null, %.thread23 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 56
   %92 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %91, i32 -1, ptr elementtype(i32) %91) #6, !srcloc !5
   %93 = icmp eq i32 %92, 1

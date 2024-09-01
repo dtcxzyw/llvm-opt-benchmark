@@ -5233,8 +5233,8 @@ _ZL26select_different_registers8RegisterS_RS_S0_.exit: ; preds = %_ZL26select_di
 87:                                               ; preds = %90, %69
   %88 = load i8, ptr %86, align 1
   %89 = and i8 %88, 1
-  %.not10.i.not.i.i.not.i = icmp eq i8 %89, 0
-  br i1 %.not10.i.not.i.i.not.i, label %90, label %_ZN7BitData23null_seen_byte_constantEv.exit
+  %.not10.not.not.i.not.i.i.not.i = icmp eq i8 %89, 0
+  br i1 %.not10.not.not.i.not.i.i.not.i, label %90, label %_ZN7BitData23null_seen_byte_constantEv.exit
 
 90:                                               ; preds = %87
   %91 = or disjoint i8 %88, 1
@@ -5675,8 +5675,8 @@ define hidden void @_ZN13LIR_Assembler16emit_opTypeCheckEP15LIR_OpTypeCheck(ptr 
 80:                                               ; preds = %83, %62
   %81 = load i8, ptr %79, align 1
   %82 = and i8 %81, 1
-  %.not10.i.not.i.i.not.i = icmp eq i8 %82, 0
-  br i1 %.not10.i.not.i.i.not.i, label %83, label %_ZN7BitData23null_seen_byte_constantEv.exit
+  %.not10.not.not.i.not.i.i.not.i = icmp eq i8 %82, 0
+  br i1 %.not10.not.not.i.not.i.i.not.i, label %83, label %_ZN7BitData23null_seen_byte_constantEv.exit
 
 83:                                               ; preds = %80
   %84 = or disjoint i8 %81, 1

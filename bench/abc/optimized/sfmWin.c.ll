@@ -868,7 +868,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 60:                                               ; preds = %65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Sfm_NtkCheckRoot.exit, label %61, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.lr.ph, label %61, !llvm.loop !17
 
 61:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
@@ -885,9 +885,6 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, %2
   br i1 %69, label %.loopexit, label %60
-
-Sfm_NtkCheckRoot.exit:                            ; preds = %60
-  br i1 %56, label %.lr.ph, label %.critedge
 
 .loopexit:                                        ; preds = %65, %61, %50, %46
   %70 = getelementptr inbounds i8, ptr %3, i64 4
@@ -958,9 +955,9 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %1, ptr %100, align 4
   br label %.critedge
 
-.lr.ph:                                           ; preds = %Sfm_NtkCheckRoot.exit, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Sfm_NtkCheckRoot.exit ]
-  %.val44 = phi ptr [ %.val, %.lr.ph ], [ %.val19.i, %Sfm_NtkCheckRoot.exit ]
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %60 ]
+  %.val44 = phi ptr [ %.val, %.lr.ph ], [ %.val19.i, %60 ]
   %101 = getelementptr %struct.Vec_Int_t_, ptr %.val44, i64 %8, i32 2
   %.val2.i = load ptr, ptr %101, align 8
   %102 = getelementptr inbounds i32, ptr %.val2.i, i64 %indvars.iv
@@ -974,7 +971,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   %106 = icmp slt i64 %indvars.iv.next, %105
   br i1 %106, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %.lr.ph, %.preheader.i, %Sfm_NtkCheckRoot.exit, %5, %Vec_IntPush.exit38
+.critedge:                                        ; preds = %.lr.ph, %.preheader.i, %5, %Vec_IntPush.exit38
   ret void
 }
 

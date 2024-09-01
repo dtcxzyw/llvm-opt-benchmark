@@ -1518,7 +1518,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   br i1 %515, label %.lr.ph1063, label %.loopexit941
 
 .lr.ph1063:                                       ; preds = %.preheader940
-  %516 = icmp slt i64 %507, 1
+  %516 = icmp sgt i64 %507, 0
   %517 = getelementptr inbounds i8, ptr %1, i64 16
   %518 = getelementptr i8, ptr %invariant.gep1058, i64 4
   %519 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1583,7 +1583,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   %.138081061 = phi i64 [ %.10805.lcssa, %.lr.ph1063 ], [ %.16811.lcssa, %.loopexit ]
   %.08131060 = phi i64 [ %461, %.lr.ph1063 ], [ %.138081061, %.loopexit ]
   %.neg871 = sub i64 %.08131060, %.138081061
-  br i1 %516, label %._crit_edge1044.thread, label %.lr.ph1043
+  br i1 %516, label %.lr.ph1043, label %._crit_edge1044.thread
 
 .lr.ph1043:                                       ; preds = %545
   %546 = getelementptr i32, ptr %518, i64 %.97901062
@@ -1636,8 +1636,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   %573 = getelementptr inbounds i32, ptr %24, i64 %572
   %574 = load i32, ptr %573, align 4
   %575 = icmp slt i32 %574, 2
-  %brmerge = or i1 %575, %516
-  br i1 %brmerge, label %.loopexit, label %.preheader939.us
+  br i1 %575, label %.loopexit, label %.preheader939.us
 
 ._crit_edge1044.thread:                           ; preds = %545
   %576 = add nuw nsw i64 %.97901062, 1
@@ -2341,7 +2340,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   br i1 %929, label %.lr.ph992, label %.loopexit941
 
 .lr.ph992:                                        ; preds = %.preheader948
-  %930 = icmp slt i64 %896, 1
+  %930 = icmp sgt i64 %896, 0
   %931 = getelementptr inbounds i8, ptr %1, i64 16
   %932 = getelementptr inbounds i8, ptr %1, i64 24
   br label %934
@@ -2358,7 +2357,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %.26990 = phi i64 [ %.23.lcssa, %.lr.ph992 ], [ %.29.lcssa, %.loopexit947 ]
   %.1814989 = phi i64 [ %837, %.lr.ph992 ], [ %.26990, %.loopexit947 ]
   %.neg = sub i64 %.1814989, %.26990
-  br i1 %930, label %._crit_edge.thread, label %.lr.ph976
+  br i1 %930, label %.lr.ph976, label %._crit_edge.thread
 
 .lr.ph976:                                        ; preds = %934
   %935 = getelementptr inbounds i64, ptr %29, i64 %.15991
@@ -2408,8 +2407,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %960 = getelementptr inbounds i32, ptr %24, i64 %959
   %961 = load i32, ptr %960, align 4
   %962 = icmp slt i32 %961, 2
-  %brmerge1276 = or i1 %962, %930
-  br i1 %brmerge1276, label %.loopexit947, label %.preheader946.us
+  br i1 %962, label %.loopexit947, label %.preheader946.us
 
 ._crit_edge.thread:                               ; preds = %934
   %963 = add nuw nsw i64 %.15991, 1

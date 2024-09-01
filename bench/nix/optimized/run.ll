@@ -9596,17 +9596,17 @@ _ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcE
   %85 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i.i.i73, i64 136
   %86 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i72, i64 136
   %87 = icmp eq ptr %85, %35
-  br i1 %87, label %.lr.ph.i.i.i77, label %.lr.ph.i.i.i.i.i71, !llvm.loop !33
+  br i1 %87, label %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75, label %.lr.ph.i.i.i.i.i71, !llvm.loop !33
 
-.lr.ph.i.i.i77:                                   ; preds = %.lr.ph.i.i.i.i.i71
+_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i71
   %88 = load ptr, ptr %9, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 %38
   store ptr %89, ptr %9, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 120
   br label %91
 
-91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %.lr.ph.i.i.i77
-  %.06.i.i.i78 = phi ptr [ %1, %.lr.ph.i.i.i77 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
+91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75
+  %.06.i.i.i78 = phi ptr [ %1, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
   %92 = load i32, ptr %16, align 8
   store i32 %92, ptr %.06.i.i.i78, align 8
   %93 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 8
@@ -16500,12 +16500,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   br label %176
 
 .body66:                                          ; preds = %.body81.thread, %.body81, %88
-  %eh.lpad-body82107 = phi { ptr, i32 } [ %87, %.body81.thread ], [ %82, %.body81 ], [ %82, %88 ]
+  %eh.lpad-body82106 = phi { ptr, i32 } [ %87, %.body81.thread ], [ %82, %.body81 ], [ %82, %88 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   br label %.body
 
 .body:                                            ; preds = %.body66, %66
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body82107, %.body66 ]
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body82106, %.body66 ]
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
   br label %176
 
@@ -16538,7 +16538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 183:                                              ; preds = %125
   %184 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit98
+  br label %.loopexit97
 
 185:                                              ; preds = %_ZN3nix4Args7HandlerC2EOSt8functionIFvSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEE.exit
   %186 = landingpad { ptr, i32 }
@@ -16569,9 +16569,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %195 = getelementptr inbounds i8, ptr %194, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %195) #30
   %196 = icmp eq ptr %195, %11
-  br i1 %196, label %.loopexit98, label %193
+  br i1 %196, label %.loopexit97, label %193
 
-.loopexit98:                                      ; preds = %193, %183
+.loopexit97:                                      ; preds = %193, %183
   %.pn53.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn53, %193 ]
   %197 = phi i1 [ false, %183 ], [ true, %193 ]
   %.2 = phi i1 [ true, %183 ], [ %.3, %193 ]
@@ -16579,15 +16579,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #30
   br i1 %197, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.loopexit98
+.preheader.preheader:                             ; preds = %.loopexit97
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %.loopexit98
+.loopexit:                                        ; preds = %.preheader.preheader, %.loopexit97
   br i1 %.2, label %198, label %.critedge
 
 198:                                              ; preds = %.thread90, %.loopexit
-  %.pn53.pn.pn8894 = phi { ptr, i32 } [ %182, %.thread90 ], [ %.pn53.pn, %.loopexit ]
+  %.pn53.pn.pn8893 = phi { ptr, i32 } [ %182, %.thread90 ], [ %.pn53.pn, %.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #30
   br label %199
@@ -16597,7 +16597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   br label %.critedge65
 
 199:                                              ; preds = %198, %180
-  %.pn53.pn.pn.pn.ph = phi { ptr, i32 } [ %181, %180 ], [ %.pn53.pn.pn8894, %198 ]
+  %.pn53.pn.pn.pn.ph = phi { ptr, i32 } [ %181, %180 ], [ %.pn53.pn.pn8893, %198 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30

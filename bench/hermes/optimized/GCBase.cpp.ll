@@ -2315,8 +2315,8 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.e
   %6 = phi i32 [ %7, %if.end13.i.i.i ], [ %5, %if.end.i.i.i ]
   %BucketNo.025.i.i.i = phi i32 [ %BucketNo.0.i.i.i, %if.end13.i.i.i ], [ %BucketNo.019.i.i.i, %if.end.i.i.i ]
   %ProbeAmt.024.i.i.i = phi i32 [ %inc.i.i.i, %if.end13.i.i.i ], [ 1, %if.end.i.i.i ]
-  %cmp.i15.i.i.not.i.not = icmp ne i32 %6, -1
-  br i1 %cmp.i15.i.i.not.i.not, label %if.end13.i.i.i, label %_ZN6hermes2vm6GCBase9IDTracker11hasObjectIDENS0_17CompressedPointerE.exit
+  %cmp.i15.i.i.not.i.not.not = icmp ne i32 %6, -1
+  br i1 %cmp.i15.i.i.not.i.not.not, label %if.end13.i.i.i, label %_ZN6hermes2vm6GCBase9IDTracker11hasObjectIDENS0_17CompressedPointerE.exit
 
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %inc.i.i.i = add i32 %ProbeAmt.024.i.i.i, 1
@@ -2329,7 +2329,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm6GCBase9IDTracker11hasObjectIDENS0_17CompressedPointerE.exit, label %if.end9.i.i.i, !llvm.loop !28
 
 _ZN6hermes2vm6GCBase9IDTracker11hasObjectIDENS0_17CompressedPointerE.exit: ; preds = %if.end9.i.i.i, %if.end13.i.i.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, %if.end.i.i.i
-  %tobool.i = phi i1 [ false, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i ], [ true, %if.end.i.i.i ], [ %cmp.i15.i.i.not.i.not, %if.end13.i.i.i ], [ %cmp.i15.i.i.not.i.not, %if.end9.i.i.i ]
+  %tobool.i = phi i1 [ false, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i ], [ true, %if.end.i.i.i ], [ %cmp.i15.i.i.not.i.not.not, %if.end13.i.i.i ], [ %cmp.i15.i.i.not.i.not.not, %if.end9.i.i.i ]
   %call1.i.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %idTracker_) #27
   ret i1 %tobool.i
 }
@@ -2367,8 +2367,8 @@ if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end
   %3 = phi i32 [ %4, %if.end13.i.i ], [ %2, %if.end.i.i ]
   %BucketNo.025.i.i = phi i32 [ %BucketNo.0.i.i, %if.end13.i.i ], [ %BucketNo.019.i.i, %if.end.i.i ]
   %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end13.i.i ], [ 1, %if.end.i.i ]
-  %cmp.i15.i.i.not = icmp ne i32 %3, -1
-  br i1 %cmp.i15.i.i.not, label %if.end13.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5countERKj.exit
+  %cmp.i15.i.i.not.not = icmp ne i32 %3, -1
+  br i1 %cmp.i15.i.i.not.not, label %if.end13.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5countERKj.exit
 
 if.end13.i.i:                                     ; preds = %if.end9.i.i
   %inc.i.i = add i32 %ProbeAmt.024.i.i, 1
@@ -2381,7 +2381,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   br i1 %cmp.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5countERKj.exit, label %if.end9.i.i, !llvm.loop !28
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5countERKj.exit: ; preds = %if.end9.i.i, %if.end13.i.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %if.end.i.i
-  %tobool = phi i1 [ false, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ], [ true, %if.end.i.i ], [ %cmp.i15.i.i.not, %if.end13.i.i ], [ %cmp.i15.i.i.not, %if.end9.i.i ]
+  %tobool = phi i1 [ false, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ], [ true, %if.end.i.i ], [ %cmp.i15.i.i.not.not, %if.end13.i.i ], [ %cmp.i15.i.i.not.not, %if.end9.i.i ]
   %call1.i.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #27
   ret i1 %tobool
 }

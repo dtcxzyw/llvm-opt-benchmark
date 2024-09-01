@@ -3526,7 +3526,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %or.cond16 = icmp ult i32 %3, 8
-  br i1 %or.cond16, label %.lr.ph7, label %.loopexit
+  br i1 %or.cond16, label %.lr.ph7, label %.lr.ph13.preheader
 
 .lr.ph7:                                          ; preds = %._crit_edge, %.lr.ph7
   %.03556 = phi i32 [ %168, %.lr.ph7 ], [ %3, %._crit_edge ]
@@ -3536,13 +3536,10 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %167 = add i32 %.35, 2
   %168 = add i32 %.03556, 1
   %exitcond23.not = icmp eq i32 %168, 8
-  br i1 %exitcond23.not, label %.loopexit, label %.lr.ph7, !llvm.loop !34
+  br i1 %exitcond23.not, label %.lr.ph13.preheader, label %.lr.ph7, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph7, %._crit_edge
+.lr.ph13.preheader:                               ; preds = %.lr.ph7, %._crit_edge
   %.2 = phi i32 [ %164, %._crit_edge ], [ %167, %.lr.ph7 ]
-  br i1 %155, label %.lr.ph13.preheader, label %._crit_edge14
-
-.lr.ph13.preheader:                               ; preds = %.loopexit
   %wide.trip.count31 = zext nneg i32 %3 to i64
   br label %.lr.ph13
 
@@ -3806,8 +3803,8 @@ switch.hole_check:                                ; preds = %291
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !36
 
-._crit_edge14:                                    ; preds = %323, %129, %.loopexit
-  %.4.lcssa = phi i32 [ %.2, %.loopexit ], [ %154, %129 ], [ %.7, %323 ]
+._crit_edge14:                                    ; preds = %323, %129
+  %.4.lcssa = phi i32 [ %154, %129 ], [ %.7, %323 ]
   %324 = ashr i32 %.4.lcssa, 3
   ret i32 %324
 }

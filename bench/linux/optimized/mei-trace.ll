@@ -260,9 +260,8 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr noc
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %20
-  %21 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %21, ptr @.str, ptr %.fr
+  %21 = icmp eq ptr %20, null
+  %spec.select = select i1 %21, ptr @.str, ptr %20
   br label %.thread2
 
 .thread2:                                         ; preds = %19, %16
@@ -284,18 +283,17 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr noc
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
-  %.not9 = icmp eq ptr %35, null
-  br i1 %.not9, label %36, label %.thread6
+  %.not8 = icmp eq ptr %35, null
+  br i1 %.not8, label %36, label %.thread6
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %37
-  %38 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %38, ptr @.str, ptr %.fr8
+  %38 = icmp eq ptr %37, null
+  %spec.select9 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select10, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -324,9 +322,8 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %11
-  %12 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %12, ptr @.str, ptr %.fr
+  %12 = icmp eq ptr %11, null
+  %spec.select = select i1 %12, ptr @.str, ptr %11
   br label %.thread2
 
 .thread2:                                         ; preds = %10, %5
@@ -377,18 +374,17 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
-  %.not9 = icmp eq ptr %46, null
-  br i1 %.not9, label %47, label %.thread6
+  %.not8 = icmp eq ptr %46, null
+  br i1 %.not8, label %47, label %.thread6
 
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %48
-  %49 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %49, ptr @.str, ptr %.fr8
+  %49 = icmp eq ptr %48, null
+  %spec.select9 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select10, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
@@ -440,9 +436,8 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %20
-  %21 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %21, ptr @.str, ptr %.fr
+  %21 = icmp eq ptr %20, null
+  %spec.select = select i1 %21, ptr @.str, ptr %20
   br label %.thread2
 
 .thread2:                                         ; preds = %19, %16
@@ -464,18 +459,17 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
-  %.not9 = icmp eq ptr %35, null
-  br i1 %.not9, label %36, label %.thread6
+  %.not8 = icmp eq ptr %35, null
+  br i1 %.not8, label %36, label %.thread6
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %37
-  %38 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %38, ptr @.str, ptr %.fr8
+  %38 = icmp eq ptr %37, null
+  %spec.select9 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select10, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -504,9 +498,8 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %11
-  %12 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %12, ptr @.str, ptr %.fr
+  %12 = icmp eq ptr %11, null
+  %spec.select = select i1 %12, ptr @.str, ptr %11
   br label %.thread2
 
 .thread2:                                         ; preds = %10, %5
@@ -557,18 +550,17 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
-  %.not9 = icmp eq ptr %46, null
-  br i1 %.not9, label %47, label %.thread6
+  %.not8 = icmp eq ptr %46, null
+  br i1 %.not8, label %47, label %.thread6
 
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %48
-  %49 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %49, ptr @.str, ptr %.fr8
+  %49 = icmp eq ptr %48, null
+  %spec.select9 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select10, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
@@ -614,9 +606,8 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %20
-  %21 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %21, ptr @.str, ptr %.fr
+  %21 = icmp eq ptr %20, null
+  %spec.select = select i1 %21, ptr @.str, ptr %20
   br label %.thread2
 
 .thread2:                                         ; preds = %19, %16
@@ -638,18 +629,17 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
-  %.not9 = icmp eq ptr %35, null
-  br i1 %.not9, label %36, label %.thread6
+  %.not8 = icmp eq ptr %35, null
+  br i1 %.not8, label %36, label %.thread6
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %37
-  %38 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %38, ptr @.str, ptr %.fr8
+  %38 = icmp eq ptr %37, null
+  %spec.select9 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select10, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -678,9 +668,8 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %11
-  %12 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %12, ptr @.str, ptr %.fr
+  %12 = icmp eq ptr %11, null
+  %spec.select = select i1 %12, ptr @.str, ptr %11
   br label %.thread2
 
 .thread2:                                         ; preds = %10, %5
@@ -731,18 +720,17 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
-  %.not9 = icmp eq ptr %46, null
-  br i1 %.not9, label %47, label %.thread6
+  %.not8 = icmp eq ptr %46, null
+  br i1 %.not8, label %47, label %.thread6
 
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %48
-  %49 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %49, ptr @.str, ptr %.fr8
+  %49 = icmp eq ptr %48, null
+  %spec.select9 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select10, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8

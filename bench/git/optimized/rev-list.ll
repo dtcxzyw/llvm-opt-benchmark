@@ -182,7 +182,7 @@ for.body.preheader:                               ; preds = %if.end
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.body12.lr.ph, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -198,12 +198,9 @@ if.then5:                                         ; preds = %for.body
   %bf.load6 = load i64, ptr %exclude_promisor_objects, align 8
   %bf.set8 = or i64 %bf.load6, 8796093022208
   store i64 %bf.set8, ptr %exclude_promisor_objects, align 8
-  br label %for.end
+  br label %for.body12.lr.ph
 
-for.end:                                          ; preds = %for.cond, %if.then5
-  br i1 %cmp1192, label %for.body12.lr.ph, label %for.end32
-
-for.body12.lr.ph:                                 ; preds = %for.end
+for.body12.lr.ph:                                 ; preds = %for.cond, %if.then5
   %exclude_promisor_objects18 = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load19 = load i64, ptr %exclude_promisor_objects18, align 8
   %bf.load19.fr = freeze i64 %bf.load19
@@ -300,7 +297,7 @@ for.inc30.loopexit:                               ; preds = %do.cond.i
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count246
   br i1 %exitcond241.not, label %for.end32, label %for.body12, !llvm.loop !8
 
-for.end32:                                        ; preds = %for.inc30.loopexit, %for.inc30.us, %if.end, %for.end, %parse_missing_action_value.exit
+for.end32:                                        ; preds = %for.inc30.loopexit, %for.inc30.us, %if.end, %parse_missing_action_value.exit
   %22 = load i32, ptr @arg_missing_action, align 4
   %tobool33.not = icmp eq i32 %22, 0
   br i1 %tobool33.not, label %if.end38, label %if.then34

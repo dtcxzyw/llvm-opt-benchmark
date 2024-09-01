@@ -1169,7 +1169,7 @@ if.end3:                                          ; preds = %_ZNSt15_Deque_itera
   %start_it.sroa.18.0 = phi ptr [ %start_it.sroa.18.5, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit ], [ %agg.tmp.sroa.6.2.i.i, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit ]
   %start_it.sroa.30.0 = phi ptr [ %start_it.sroa.30.5, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit ], [ %agg.tmp.sroa.11.2.i.i, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit ]
   %start_it.sroa.42.0 = phi ptr [ %start_it.sroa.42.5, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EmmEi.exit ], [ %agg.tmp.sroa.17.2.i.i, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit ]
-  br i1 %cmp43.i.i.i, label %while.body.i.i.i48, label %return
+  br label %while.body.i.i.i48
 
 while.body.i.i.i48:                               ; preds = %if.end3, %if.end.i.i.i88
   %agg.tmp.sroa.0.0.i.i49 = phi ptr [ %agg.tmp.sroa.0.2.i.i89, %if.end.i.i.i88 ], [ %0, %if.end3 ]
@@ -1674,7 +1674,7 @@ _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_des
   call void @_ZdlPv(ptr noundef %47) #20
   br label %return
 
-return:                                           ; preds = %if.end, %if.end3, %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i, %for.end84, %if.end8, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit110, %entry
+return:                                           ; preds = %if.end, %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i, %for.end84, %if.end8, %_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm.exit110, %entry
   ret void
 }
 

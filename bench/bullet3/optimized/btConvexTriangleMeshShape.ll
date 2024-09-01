@@ -200,10 +200,7 @@ for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %numVectors to i64
   br label %for.body
 
-for.cond3.preheader:                              ; preds = %for.body
-  br i1 %cmp13, label %invoke.cont11.lr.ph, label %for.end22
-
-invoke.cont11.lr.ph:                              ; preds = %for.cond3.preheader
+invoke.cont11.lr.ph:                              ; preds = %for.body
   %m_supportVertexLocal.i = getelementptr inbounds i8, ptr %supportCallback, i64 8
   %m_maxDot.i = getelementptr inbounds i8, ptr %supportCallback, i64 24
   %m_supportVecLocal.i = getelementptr inbounds i8, ptr %supportCallback, i64 28
@@ -222,7 +219,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store float 0xC3ABC16D60000000, ptr %arrayidx2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %invoke.cont11.lr.ph, label %for.body, !llvm.loop !5
 
 invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph, %invoke.cont13
   %indvars.iv18 = phi i64 [ 0, %invoke.cont11.lr.ph ], [ %indvars.iv.next19, %invoke.cont13 ]
@@ -262,7 +259,7 @@ lpad:                                             ; preds = %invoke.cont11
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %supportCallback) #16
   resume { ptr, i32 } %3
 
-for.end22:                                        ; preds = %invoke.cont13, %entry, %for.cond3.preheader
+for.end22:                                        ; preds = %invoke.cont13, %entry
   ret void
 }
 

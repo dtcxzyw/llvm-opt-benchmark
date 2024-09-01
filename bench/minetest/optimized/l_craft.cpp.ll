@@ -765,8 +765,8 @@ while.body.lr.ph:                                 ; preds = %if.end5
 
 while.body:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %while.body.lr.ph
   %call8 = call i32 @lua_isstring(ptr noundef %L, i32 noundef -1)
-  %tobool.not.not.not.not = icmp ne i32 %call8, 0
-  br i1 %tobool.not.not.not.not, label %if.end10, label %return
+  %tobool.not.not.not.not.not = icmp ne i32 %call8, 0
+  br i1 %tobool.not.not.not.not.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
@@ -859,7 +859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %if.
   resume { ptr, i32 } %10
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %while.body, %if.end5, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.end5 ], [ %tobool.not.not.not.not, %while.body ], [ %tobool.not.not.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.end5 ], [ %tobool.not.not.not.not.not, %while.body ], [ %tobool.not.not.not.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i1 %retval.0
 }
 

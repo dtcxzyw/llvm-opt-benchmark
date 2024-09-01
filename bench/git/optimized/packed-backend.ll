@@ -2291,8 +2291,8 @@ if.end9.i.i75.i:                                  ; preds = %while.body.i18.i.i9
   br i1 %cmp.not.i.i78.i, label %find_reference_location_end.exit.i, label %while.body.i.i53.i, !llvm.loop !15
 
 find_reference_location_end.exit.i:               ; preds = %if.end9.i.i75.i, %cmp_record_to_refname.exit.i.i99.i
-  %retval.0.i.i79.ph.i = phi ptr [ %lo.1.i.i77.i, %if.end9.i.i75.i ], [ %p.addr.0.lcssa.i.i.i63.i, %cmp_record_to_refname.exit.i.i99.i ]
-  %cmp.i = icmp eq ptr %retval.0.i.i.i, %retval.0.i.i79.ph.i
+  %retval.0.i.i79.i = phi ptr [ %lo.1.i.i77.i, %if.end9.i.i75.i ], [ %p.addr.0.lcssa.i.i.i63.i, %cmp_record_to_refname.exit.i.i99.i ]
+  %cmp.i = icmp eq ptr %retval.0.i.i.i, %retval.0.i.i79.i
   br i1 %cmp.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %find_reference_location_end.exit.i
@@ -2336,7 +2336,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   %arrayidx.i = getelementptr inbounds %struct.jump_list_entry, ptr %59, i64 %58
   store ptr %retval.0.i.i.i, ptr %arrayidx.i, align 8
   %end34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  store ptr %retval.0.i.i79.ph.i, ptr %end34.i, align 8
+  store ptr %retval.0.i.i79.i, ptr %end34.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i.i, %do.end.i, %find_reference_location_end.exit.i, %if.end4.i

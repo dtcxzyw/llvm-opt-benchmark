@@ -1130,8 +1130,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %15 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %15, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i46.i.not = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i46.i.not, label %if.end.i, label %if.then.i
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end.i, label %if.then.i
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i: ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.4.0.i26.ph.i = phi ptr [ %11, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %13, %for.cond.i.i.i.i.i.i ]
@@ -1279,15 +1279,13 @@ if.then.i.i:                                      ; preds = %for.body.i, %for.en
   %14 = getelementptr inbounds i8, ptr %this, i64 712
   %idx.ext.i = zext nneg i32 %0 to i64
   %add.ptr.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %14, i64 %idx.ext.i
-  %cmp4.i.i46 = icmp ne ptr %add.ptr.i, %retval.sroa.0.0.i
-  %cmp4.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp4.i.i46
-  br i1 %cmp4.i.i.not, label %if.then, label %if.end
+  %cmp4.i.i = icmp eq ptr %retval.sroa.0.0.i, %add.ptr.i
+  br i1 %cmp4.i.i, label %if.end, label %if.then
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i.i.i, %for.body.i.i.i, %for.cond.i.i.i
   %retval.sroa.4.0.i.ph = phi ptr [ null, %for.cond.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ], [ null, %if.end3.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, null
-  %or.cond = and i1 %cmp.i, %cmp.i.i.i
-  br i1 %or.cond, label %if.end, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40
+  br i1 %cmp.i.i.i, label %if.end, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40: ; preds = %if.end.i.i.i.i.i, %if.else.i.i
   %retval.sroa.4.0.i26.ph = phi ptr [ %retval.sroa.4.0.i.ph, %if.else.i.i ], [ %10, %if.end.i.i.i.i.i ]
@@ -1536,8 +1534,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %16 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %16, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i21.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i21.i, label %if.end, label %if.then
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i
   %connection_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1722,15 +1720,13 @@ if.then.i.i:                                      ; preds = %for.body.i, %for.en
   %14 = getelementptr inbounds i8, ptr %this, i64 776
   %idx.ext.i = zext nneg i32 %0 to i64
   %add.ptr.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %14, i64 %idx.ext.i
-  %cmp4.i.i59 = icmp ne ptr %add.ptr.i, %retval.sroa.0.0.i
-  %cmp4.i.i.not = select i1 %cmp.i, i1 true, i1 %cmp4.i.i59
-  br i1 %cmp4.i.i.not, label %if.then, label %if.end
+  %cmp4.i.i = icmp eq ptr %retval.sroa.0.0.i, %add.ptr.i
+  br i1 %cmp4.i.i, label %if.end, label %if.then
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i.i.i, %for.body.i.i.i, %for.cond.i.i.i
   %retval.sroa.4.0.i.ph = phi ptr [ null, %for.cond.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %12, %for.cond.i.i.i.i.i ], [ null, %if.end3.i.i.i.i.i ], [ null, %lor.lhs.false.i.i.i.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, null
-  %or.cond = and i1 %cmp.i, %cmp.i.i.i
-  br i1 %or.cond, label %if.end, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread51
+  br i1 %cmp.i.i.i, label %if.end, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread51
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread51: ; preds = %if.end.i.i.i.i.i, %if.else.i.i
   %retval.sroa.4.0.i37.ph = phi ptr [ %retval.sroa.4.0.i.ph, %if.else.i.i ], [ %10, %if.end.i.i.i.i.i ]
@@ -1962,13 +1958,13 @@ for.cond.i.i.i:                                   ; preds = %_ZN4base8SmallMapIS
   %retval.sroa.0.0.in.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %_M_before_begin.i.i.i.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i ]
   %retval.sroa.0.0.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %if.else.i.i, label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %if.end31, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
   %13 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %7, %13
-  br i1 %cmp.i.i.i.i.i, label %if.else.i.i, label %for.cond.i.i.i, !llvm.loop !13
+  br i1 %cmp.i.i.i.i.i, label %if.then13, label %for.cond.i.i.i, !llvm.loop !13
 
 if.end15.i.i.i:                                   ; preds = %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i
   %conv.i.i.i.i.i = zext i32 %7 to i64
@@ -1989,13 +1985,13 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end15.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %7, %20
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.else.i.i, label %if.end3.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then13, label %if.end3.i.i.i.i.i, !llvm.loop !9
 
 if.end3.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i, %for.cond.i.i.i.i.i
   %__p.010.i.i.i.i.i = phi ptr [ %19, %for.cond.i.i.i.i.i ], [ %17, %if.end.i.i.i.i.i ]
   %19 = load ptr, ptr %__p.010.i.i.i.i.i, align 8
   %tobool5.not.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %tobool5.not.i.i.i.i.i, label %if.else.i.i, label %lor.lhs.false.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i, label %if.end31, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %add.ptr7.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
@@ -2003,22 +1999,16 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i = zext i32 %20 to i64
   %rem.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i, %14
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.else.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.end31, !llvm.loop !9
 
 if.then.i.i:                                      ; preds = %for.body.i, %for.end.i
   %retval.sroa.0.0.i9 = phi ptr [ %add.ptr9.i, %for.end.i ], [ %arrayidx.i, %for.body.i ]
   %idx.ext.i = zext nneg i32 %10 to i64
   %add.ptr.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %4, i64 %idx.ext.i
-  %cmp4.i.i49 = icmp ne ptr %add.ptr.i, %retval.sroa.0.0.i9
-  %cmp4.i.i.not = select i1 %cmp.i7, i1 true, i1 %cmp4.i.i49
-  br i1 %cmp4.i.i.not, label %if.then13, label %if.end31
+  %cmp4.i.i = icmp eq ptr %retval.sroa.0.0.i9, %add.ptr.i
+  br i1 %cmp4.i.i, label %if.end31, label %if.then13
 
-if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i.i.i, %for.body.i.i.i, %for.cond.i.i.i
-  %retval.sroa.4.0.i.ph = phi i1 [ %cmp.i.not.i.i.i, %for.cond.i.i.i ], [ %cmp.i.not.i.i.i, %for.body.i.i.i ], [ false, %for.cond.i.i.i.i.i ], [ true, %if.end3.i.i.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i ]
-  %or.cond = and i1 %cmp.i7, %retval.sroa.4.0.i.ph
-  br i1 %or.cond, label %if.end31, label %if.then13
-
-if.then13:                                        ; preds = %if.end.i.i.i.i.i, %if.then.i.i, %if.else.i.i
+if.then13:                                        ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i
   %call14 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %call14, label %invoke.cont18, label %cleanup.done
 
@@ -2054,8 +2044,8 @@ lpad:                                             ; preds = %invoke.cont21, %inv
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp16) #23
   resume { ptr, i32 } %24
 
-if.end31:                                         ; preds = %if.else.i.i, %if.end15.i.i.i, %if.then.i.i, %cleanup.done
-  %25 = phi i32 [ %.pre, %cleanup.done ], [ %10, %if.then.i.i ], [ %10, %if.end15.i.i.i ], [ %10, %if.else.i.i ]
+if.end31:                                         ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %if.then.i.i, %cleanup.done
+  %25 = phi i32 [ %.pre, %cleanup.done ], [ %10, %if.then.i.i ], [ %10, %if.end15.i.i.i ], [ %10, %for.cond.i.i.i ], [ %10, %if.end3.i.i.i.i.i ], [ %10, %lor.lhs.false.i.i.i.i.i ]
   %cmp3.i = icmp eq i32 %25, 0
   %26 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %26, 0
@@ -2196,8 +2186,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %16 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %16, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i46.i.not = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i46.i.not, label %if.end.i, label %if.then.i
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end.i, label %if.then.i
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i: ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.4.0.i26.ph.i = phi ptr [ %12, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %14, %for.cond.i.i.i.i.i.i ]
@@ -2360,7 +2350,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #23
   br label %cleanup
 
-lpad.loopexit:                                    ; preds = %if.end42, %land.lhs.true, %if.then59, %if.end6.i, %cond.false.i.i, %if.end.i27
+lpad.loopexit:                                    ; preds = %if.end42, %land.lhs.true, %if.then59, %if.end6.i, %cond.false.i.i, %if.end.i29
   %lpad.loopexit39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup65
@@ -2505,7 +2495,7 @@ for.cond.i.i.i.i:                                 ; preds = %_ZN4base8SmallMapIS
   %retval.sroa.0.0.in.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %_M_before_begin.i.i.i.i.i.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i ]
   %retval.sroa.0.0.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i, label %if.end.i27, label %for.body.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %if.end.i29, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
@@ -2521,7 +2511,7 @@ if.end15.i.i.i.i:                                 ; preds = %_ZN4base8SmallMapIS
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %35, i64 %rem.i.i.i.i.i.i.i
   %36 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i27, label %if.end.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i29, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %37 = load ptr, ptr %36, align 8
@@ -2538,7 +2528,7 @@ if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i,
   %__p.010.i.i.i.i.i.i = phi ptr [ %39, %for.cond.i.i.i.i.i.i ], [ %37, %if.end.i.i.i.i.i.i ]
   %39 = load ptr, ptr %__p.010.i.i.i.i.i.i, align 8
   %tobool5.not.i.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %tobool5.not.i.i.i.i.i.i, label %if.end.i27, label %lor.lhs.false.i.i.i.i.i.i
+  br i1 %tobool5.not.i.i.i.i.i.i, label %if.end.i29, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %add.ptr7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
@@ -2546,32 +2536,32 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %40 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i.i, %34
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.end.i27, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %if.end.i29, !llvm.loop !9
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.end.i.i
   %idx.ext.i.i.pre-phi = phi i64 [ %.pre.pre-phi, %for.end.i.i ], [ %wide.trip.count.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %10, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i46.i.not = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i46.i.not, label %if.end.i27, label %if.then.i29
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end.i29, label %if.then.i27
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i: ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.4.0.i26.ph.i = phi ptr [ %37, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %39, %for.cond.i.i.i.i.i.i ]
   %add.ptr.i.i36.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i26.ph.i, i64 8
-  br label %if.then.i29
+  br label %if.then.i27
 
-if.then.i29:                                      ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i, %if.then.i.i.i
+if.then.i27:                                      ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i, %if.then.i.i.i
   %41 = phi ptr [ %add.ptr.i.i36.i, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i ], [ %retval.sroa.0.0.i.i, %if.then.i.i.i ]
   %second.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %second.i, align 8
   br label %invoke.cont52
 
-if.end.i27:                                       ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.then.i.i.i, %if.end15.i.i.i.i
+if.end.i29:                                       ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.then.i.i.i, %if.end15.i.i.i.i
   %call6.i31 = invoke noundef ptr @_ZN3net11QuicSession24GetOrCreateDynamicStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %this, i32 noundef %retval.0.i)
           to label %invoke.cont52 unwind label %lpad.loopexit
 
-invoke.cont52:                                    ; preds = %if.then.i29, %if.end.i27
-  %retval.0.i28 = phi ptr [ %42, %if.then.i29 ], [ %call6.i31, %if.end.i27 ]
+invoke.cont52:                                    ; preds = %if.then.i27, %if.end.i29
+  %retval.0.i28 = phi ptr [ %42, %if.then.i27 ], [ %call6.i31, %if.end.i29 ]
   %cmp54.not = icmp eq ptr %retval.0.i28, null
   br i1 %cmp54.not, label %if.end63, label %land.lhs.true
 
@@ -2935,8 +2925,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %14 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %14, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i21.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i21.i, label %if.end, label %if.then
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i
   %call2 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -3168,8 +3158,8 @@ entry:
   store i32 %stream_id, ptr %stream_id.addr, align 4
   %dynamic_stream_map_ = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i32, ptr %dynamic_stream_map_, align 8
-  %cmp.i = icmp sgt i32 %0, -1
-  br i1 %cmp.i, label %for.cond.preheader.i, label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i
+  %cmp.i = icmp slt i32 %0, 0
+  br i1 %cmp.i, label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %cmp39.not.i = icmp eq i32 %0, 0
@@ -3265,8 +3255,7 @@ if.then.i:                                        ; preds = %for.body.i, %for.en
   %15 = getelementptr inbounds i8, ptr %this, i64 776
   %idx.ext.i = zext nneg i32 %0 to i64
   %add.ptr.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %15, i64 %idx.ext.i
-  %cmp4.i69 = icmp eq ptr %add.ptr.i, %retval.sroa.0.0.i
-  %cmp4.i = select i1 %cmp.i, i1 %cmp4.i69, i1 false
+  %cmp4.i = icmp eq ptr %retval.sroa.0.0.i, %add.ptr.i
   br i1 %cmp4.i, label %return, label %if.end
 
 if.else.i.thread:                                 ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -3274,49 +3263,45 @@ if.else.i.thread:                                 ; preds = %for.cond.i.i.i.i.i,
   store ptr null, ptr %it, align 8
   %16 = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %retval.sroa.4.0.i.ph.ph, ptr %16, align 8
-  br label %17
+  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.ph, i64 8
+  br label %if.end
 
 if.else.i:                                        ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it, i8 0, i64 16, i1 false)
-  br i1 %cmp.i, label %17, label %return
+  br label %return
 
-17:                                               ; preds = %if.else.i, %if.else.i.thread
-  %retval.sroa.4.0.i50.ph = phi ptr [ %retval.sroa.4.0.i.ph.ph, %if.else.i.thread ], [ null, %if.else.i ]
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i50.ph, i64 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then.i, %17
-  %18 = phi ptr [ %add.ptr.i.i60, %17 ], [ %retval.sroa.0.0.i, %if.then.i ]
-  %second = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %second, align 8
+if.end:                                           ; preds = %if.then.i, %if.else.i.thread
+  %17 = phi ptr [ %add.ptr.i.i60, %if.else.i.thread ], [ %retval.sroa.0.0.i, %if.then.i ]
+  %second = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %second, align 8
   br i1 %locally_reset, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %rst_sent_.i = getelementptr inbounds i8, ptr %19, i64 261
+  %rst_sent_.i = getelementptr inbounds i8, ptr %18, i64 261
   store i8 1, ptr %rst_sent_.i, align 1
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end
   %closed_streams_ = getelementptr inbounds i8, ptr %this, i64 64
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
-  %20 = load ptr, ptr %_M_finish.i, align 8
+  %19 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 80
-  %21 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i16 = icmp eq ptr %20, %21
+  %20 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i16 = icmp eq ptr %19, %20
   br i1 %cmp.not.i16, label %if.else.i18, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.end7
-  %22 = load ptr, ptr %second, align 8
-  store ptr %22, ptr %20, align 8
-  %23 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %23, i64 8
+  %21 = load ptr, ptr %second, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit
 
 if.else.i18:                                      ; preds = %if.end7
-  %24 = load ptr, ptr %closed_streams_, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %24 to i64
+  %23 = load ptr, ptr %closed_streams_, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i21, label %_ZNKSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -3330,8 +3315,8 @@ _ZNKSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ;
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %25 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %25
+  %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %24
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -3343,23 +3328,23 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN3ne
 _ZNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i19 = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %26 = load ptr, ptr %second, align 8
-  store ptr %26, ptr %add.ptr.i.i19, align 8
+  %25 = load ptr, ptr %second, align 8
+  store ptr %25, ptr %add.ptr.i.i19, align 8
   %cmp.i.i.i.i.i20 = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i20, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %24, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %23, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
 _ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN3net18ReliableQuicStreamESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %24, null
+  %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
@@ -3370,35 +3355,35 @@ _ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
   br label %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i17, %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %fin_received_.i = getelementptr inbounds i8, ptr %19, i64 260
-  %27 = load i8, ptr %fin_received_.i, align 4
-  %tobool.i = trunc i8 %27 to i1
-  %rst_received_.i = getelementptr inbounds i8, ptr %19, i64 262
-  %28 = load i8, ptr %rst_received_.i, align 2
-  %tobool2.i = trunc i8 %28 to i1
-  %29 = select i1 %tobool.i, i1 true, i1 %tobool2.i
-  br i1 %29, label %if.end14, label %if.then11
+  %fin_received_.i = getelementptr inbounds i8, ptr %18, i64 260
+  %26 = load i8, ptr %fin_received_.i, align 4
+  %tobool.i = trunc i8 %26 to i1
+  %rst_received_.i = getelementptr inbounds i8, ptr %18, i64 262
+  %27 = load i8, ptr %rst_received_.i, align 2
+  %tobool2.i = trunc i8 %27 to i1
+  %28 = select i1 %tobool.i, i1 true, i1 %tobool2.i
+  br i1 %28, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit
-  %highest_received_byte_offset_.i = getelementptr inbounds i8, ptr %19, i64 312
-  %30 = load i64, ptr %highest_received_byte_offset_.i, align 8
+  %highest_received_byte_offset_.i = getelementptr inbounds i8, ptr %18, i64 312
+  %29 = load i64, ptr %highest_received_byte_offset_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
   store i32 %stream_id, ptr %id.addr.i, align 4
   %locally_closed_streams_highest_offset_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIjmSt4lessIjESaISt4pairIKjmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %locally_closed_streams_highest_offset_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
-  store i64 %30, ptr %call.i, align 8
-  %31 = load i32, ptr %id.addr.i, align 4
+  store i64 %29, ptr %call.i, align 8
+  %30 = load i32, ptr %id.addr.i, align 4
   %next_outgoing_stream_id_.i.i = getelementptr inbounds i8, ptr %this, i64 936
-  %32 = load i32, ptr %next_outgoing_stream_id_.i.i, align 8
-  %33 = xor i32 %32, %31
-  %34 = and i32 %33, 1
-  %cmp.i.not.i = icmp eq i32 %34, 0
+  %31 = load i32, ptr %next_outgoing_stream_id_.i.i, align 8
+  %32 = xor i32 %31, %30
+  %33 = and i32 %32, 1
+  %cmp.i.not.i = icmp eq i32 %33, 0
   br i1 %cmp.i.not.i, label %_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then11
   %num_locally_closed_incoming_streams_highest_offset_.i = getelementptr inbounds i8, ptr %this, i64 1928
-  %35 = load i64, ptr %num_locally_closed_incoming_streams_highest_offset_.i, align 8
-  %inc.i = add i64 %35, 1
+  %34 = load i64, ptr %num_locally_closed_incoming_streams_highest_offset_.i, align 8
+  %inc.i = add i64 %34, 1
   store i64 %inc.i, ptr %num_locally_closed_incoming_streams_highest_offset_.i, align 8
   br label %_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit
 
@@ -3409,24 +3394,24 @@ _ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit: ; preds =
 if.end14:                                         ; preds = %_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit, %_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit
   %call16 = call { ptr, ptr } @_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE5eraseERKNSH_8iteratorE(ptr noundef nonnull align 8 dereferenceable(168) %dynamic_stream_map_, ptr noundef nonnull align 8 dereferenceable(16) %it)
   %next_outgoing_stream_id_.i = getelementptr inbounds i8, ptr %this, i64 936
-  %36 = load i32, ptr %next_outgoing_stream_id_.i, align 8
-  %37 = xor i32 %36, %stream_id
-  %38 = and i32 %37, 1
-  %cmp.i23.not = icmp eq i32 %38, 0
+  %35 = load i32, ptr %next_outgoing_stream_id_.i, align 8
+  %36 = xor i32 %35, %stream_id
+  %37 = and i32 %36, 1
+  %cmp.i23.not = icmp eq i32 %37, 0
   br i1 %cmp.i23.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
   %num_dynamic_incoming_streams_ = getelementptr inbounds i8, ptr %this, i64 1912
-  %39 = load i64, ptr %num_dynamic_incoming_streams_, align 8
-  %dec = add i64 %39, -1
+  %38 = load i64, ptr %num_dynamic_incoming_streams_, align 8
+  %dec = add i64 %38, -1
   store i64 %dec, ptr %num_dynamic_incoming_streams_, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end14
   %draining_streams_ = getelementptr inbounds i8, ptr %this, i64 1000
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 1024
-  %40 = load i64, ptr %_M_element_count.i.i.i, align 8
-  %cmp.not.not.i.i = icmp eq i64 %40, 0
+  %39 = load i64, ptr %_M_element_count.i.i.i, align 8
+  %cmp.not.not.i.i = icmp eq i64 %39, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %if.end19
@@ -3441,43 +3426,43 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
-  %41 = load i32, ptr %add.ptr.i.i24, align 4
-  %cmp.i.i.i.i = icmp eq i32 %stream_id, %41
+  %40 = load i32, ptr %add.ptr.i.i24, align 4
+  %cmp.i.i.i.i = icmp eq i32 %stream_id, %40
   br i1 %cmp.i.i.i.i, label %land.rhs, label %for.cond.i.i, !llvm.loop !22
 
 if.end15.i.i:                                     ; preds = %if.end19
   %conv.i.i.i.i = zext i32 %stream_id to i64
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 1008
-  %42 = load i64, ptr %_M_bucket_count.i.i.i, align 8
-  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %42
-  %43 = load ptr, ptr %draining_streams_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %43, i64 %rem.i.i.i.i.i
-  %44 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %44, null
+  %41 = load i64, ptr %_M_bucket_count.i.i.i, align 8
+  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %41
+  %42 = load ptr, ptr %draining_streams_, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %42, i64 %rem.i.i.i.i.i
+  %43 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i, label %if.end32, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
-  %45 = load ptr, ptr %44, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load i32, ptr %add.ptr8.i.i.i.i, align 4
-  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %46
+  %44 = load ptr, ptr %43, align 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = load i32, ptr %add.ptr8.i.i.i.i, align 4
+  %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %45
   br i1 %cmp.i.i.i9.i.i.i.i, label %land.rhs, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %stream_id, %48
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %stream_id, %47
   br i1 %cmp.i.i.i.i.i.i.i, label %land.rhs, label %if.end3.i.i.i.i, !llvm.loop !19
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
-  %__p.010.i.i.i.i = phi ptr [ %47, %for.cond.i.i.i.i ], [ %45, %if.end.i.i.i.i ]
-  %47 = load ptr, ptr %__p.010.i.i.i.i, align 8
-  %tobool5.not.i.i.i.i = icmp eq ptr %47, null
+  %__p.010.i.i.i.i = phi ptr [ %46, %for.cond.i.i.i.i ], [ %44, %if.end.i.i.i.i ]
+  %46 = load ptr, ptr %__p.010.i.i.i.i, align 8
+  %tobool5.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %tobool5.not.i.i.i.i, label %if.end32, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load i32, ptr %add.ptr7.i.i.i.i, align 4
-  %conv.i.i.i.i.i.i.i.i = zext i32 %48 to i64
-  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %42
+  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load i32, ptr %add.ptr7.i.i.i.i, align 4
+  %conv.i.i.i.i.i.i.i.i = zext i32 %47 to i64
+  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %41
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end32, !llvm.loop !19
 
@@ -3486,26 +3471,26 @@ land.rhs:                                         ; preds = %for.cond.i.i.i.i, %
 
 if.then30:                                        ; preds = %land.rhs
   %num_draining_incoming_streams_ = getelementptr inbounds i8, ptr %this, i64 1920
-  %49 = load i64, ptr %num_draining_incoming_streams_, align 8
-  %dec31 = add i64 %49, -1
+  %48 = load i64, ptr %num_draining_incoming_streams_, align 8
+  %dec31 = add i64 %48, -1
   store i64 %dec31, ptr %num_draining_incoming_streams_, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %if.then30, %land.rhs
   %call.i.i = call noundef i64 @_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKj(ptr noundef nonnull align 8 dereferenceable(56) %draining_streams_, ptr noundef nonnull align 4 dereferenceable(4) %stream_id.addr)
-  %vtable = load ptr, ptr %19, align 8
+  %vtable = load ptr, ptr %18, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %50 = load ptr, ptr %vfn, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(377) %19)
+  %49 = load ptr, ptr %vfn, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(377) %18)
   %connection_ = getelementptr inbounds i8, ptr %this, i64 56
-  %51 = load ptr, ptr %connection_, align 8
-  %52 = load i32, ptr %dynamic_stream_map_, align 8
-  %conv.i = zext nneg i32 %52 to i64
+  %50 = load ptr, ptr %connection_, align 8
+  %51 = load i32, ptr %dynamic_stream_map_, align 8
+  %conv.i = zext nneg i32 %51 to i64
   %_M_element_count.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 800
-  %53 = load i64, ptr %_M_element_count.i.i.i28, align 8
-  %cmp1.i = icmp slt i32 %52, 0
-  %retval.0.i29 = select i1 %cmp1.i, i64 %53, i64 %conv.i
-  call void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr noundef nonnull align 8 dereferenceable(3372) %51, i64 noundef %retval.0.i29)
+  %52 = load i64, ptr %_M_element_count.i.i.i28, align 8
+  %cmp1.i = icmp slt i32 %51, 0
+  %retval.0.i29 = select i1 %cmp1.i, i64 %52, i64 %conv.i
+  call void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr noundef nonnull align 8 dereferenceable(3372) %50, i64 noundef %retval.0.i29)
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then.i, %if.end32
@@ -5140,9 +5125,9 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %for.cond.preheader.i.i
-  %.pre75.pre-phi = phi i64 [ 0, %for.cond.preheader.i.i ], [ %wide.trip.count.i.i, %for.cond.i.i ]
+  %.pre72.pre-phi = phi i64 [ 0, %for.cond.preheader.i.i ], [ %wide.trip.count.i.i, %for.cond.i.i ]
   %3 = getelementptr inbounds i8, ptr %this, i64 712
-  %add.ptr9.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %3, i64 %.pre75.pre-phi
+  %add.ptr9.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %3, i64 %.pre72.pre-phi
   br label %if.then.i.i.i
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i: ; preds = %if.end
@@ -5205,12 +5190,12 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false, !llvm.loop !9
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.end.i.i
-  %idx.ext.i.i.pre-phi = phi i64 [ %.pre75.pre-phi, %for.end.i.i ], [ %wide.trip.count.i.i, %for.body.i.i ]
+  %idx.ext.i.i.pre-phi = phi i64 [ %.pre72.pre-phi, %for.end.i.i ], [ %wide.trip.count.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %14 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %14, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i21.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i21.i, label %lor.lhs.false, label %return
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i, %if.then.i.i.i
   %dynamic_stream_map_ = getelementptr inbounds i8, ptr %this, i64 768
@@ -5246,84 +5231,84 @@ for.end.i.i13:                                    ; preds = %for.cond.i.i10, %fo
   br label %if.then.i.i.i16
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i: ; preds = %lor.lhs.false
-  %_M_element_count.i.i.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 800
-  %19 = load i64, ptr %_M_element_count.i.i.i.i.i25, align 8
-  %cmp.not.not.i.i.i.i26 = icmp eq i64 %19, 0
-  br i1 %cmp.not.not.i.i.i.i26, label %if.then.i.i.i.i50, label %if.end15.i.i.i.i27
+  %_M_element_count.i.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 800
+  %19 = load i64, ptr %_M_element_count.i.i.i.i.i23, align 8
+  %cmp.not.not.i.i.i.i24 = icmp eq i64 %19, 0
+  br i1 %cmp.not.not.i.i.i.i24, label %if.then.i.i.i.i47, label %if.end15.i.i.i.i25
 
-if.then.i.i.i.i50:                                ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i
-  %_M_before_begin.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 792
-  br label %for.cond.i.i.i.i52
+if.then.i.i.i.i47:                                ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i
+  %_M_before_begin.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 792
+  br label %for.cond.i.i.i.i49
 
-for.cond.i.i.i.i52:                               ; preds = %for.body.i.i.i.i56, %if.then.i.i.i.i50
-  %retval.sroa.0.0.in.i.i.i.i53 = phi ptr [ %_M_before_begin.i.i.i.i.i.i51, %if.then.i.i.i.i50 ], [ %retval.sroa.0.0.i.i.i.i54, %for.body.i.i.i.i56 ]
-  %retval.sroa.0.0.i.i.i.i54 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i53, align 8
-  %cmp.i.not.i.i.i.i55 = icmp eq ptr %retval.sroa.0.0.i.i.i.i54, null
-  br i1 %cmp.i.not.i.i.i.i55, label %if.else.i.i.i44, label %for.body.i.i.i.i56
+for.cond.i.i.i.i49:                               ; preds = %for.body.i.i.i.i53, %if.then.i.i.i.i47
+  %retval.sroa.0.0.in.i.i.i.i50 = phi ptr [ %_M_before_begin.i.i.i.i.i.i48, %if.then.i.i.i.i47 ], [ %retval.sroa.0.0.i.i.i.i51, %for.body.i.i.i.i53 ]
+  %retval.sroa.0.0.i.i.i.i51 = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i50, align 8
+  %cmp.i.not.i.i.i.i52 = icmp eq ptr %retval.sroa.0.0.i.i.i.i51, null
+  br i1 %cmp.i.not.i.i.i.i52, label %if.else.i.i.i42, label %for.body.i.i.i.i53
 
-for.body.i.i.i.i56:                               ; preds = %for.cond.i.i.i.i52
-  %add.ptr.i.i.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i54, i64 8
-  %20 = load i32, ptr %add.ptr.i.i.i.i57, align 4
-  %cmp.i.i.i.i.i.i58 = icmp eq i32 %id, %20
-  br i1 %cmp.i.i.i.i.i.i58, label %if.else.i.i.i44, label %for.cond.i.i.i.i52, !llvm.loop !16
+for.body.i.i.i.i53:                               ; preds = %for.cond.i.i.i.i49
+  %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i51, i64 8
+  %20 = load i32, ptr %add.ptr.i.i.i.i54, align 4
+  %cmp.i.i.i.i.i.i55 = icmp eq i32 %id, %20
+  br i1 %cmp.i.i.i.i.i.i55, label %if.else.i.i.i42, label %for.cond.i.i.i.i49, !llvm.loop !16
 
-if.end15.i.i.i.i27:                               ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i
+if.end15.i.i.i.i25:                               ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i.i
   %21 = getelementptr inbounds i8, ptr %this, i64 776
-  %conv.i.i.i.i.i.i28 = zext i32 %id to i64
-  %_M_bucket_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 784
-  %22 = load i64, ptr %_M_bucket_count.i.i.i.i.i29, align 8
-  %rem.i.i.i.i.i.i.i30 = urem i64 %conv.i.i.i.i.i.i28, %22
+  %conv.i.i.i.i.i.i26 = zext i32 %id to i64
+  %_M_bucket_count.i.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 784
+  %22 = load i64, ptr %_M_bucket_count.i.i.i.i.i27, align 8
+  %rem.i.i.i.i.i.i.i28 = urem i64 %conv.i.i.i.i.i.i26, %22
   %23 = load ptr, ptr %21, align 8
-  %arrayidx.i.i.i.i.i.i31 = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i.i.i.i30
-  %24 = load ptr, ptr %arrayidx.i.i.i.i.i.i31, align 8
-  %tobool.not.i.i.i.i.i.i32 = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i.i.i.i.i32, label %if.else.i.i.i44, label %if.end.i.i.i.i.i.i33
+  %arrayidx.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i.i.i.i28
+  %24 = load ptr, ptr %arrayidx.i.i.i.i.i.i29, align 8
+  %tobool.not.i.i.i.i.i.i30 = icmp eq ptr %24, null
+  br i1 %tobool.not.i.i.i.i.i.i30, label %if.else.i.i.i42, label %if.end.i.i.i.i.i.i31
 
-if.end.i.i.i.i.i.i33:                             ; preds = %if.end15.i.i.i.i27
+if.end.i.i.i.i.i.i31:                             ; preds = %if.end15.i.i.i.i25
   %25 = load ptr, ptr %24, align 8
-  %add.ptr8.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load i32, ptr %add.ptr8.i.i.i.i.i.i34, align 4
-  %cmp.i.i.i9.i.i.i.i.i.i35 = icmp eq i32 %id, %26
-  br i1 %cmp.i.i.i9.i.i.i.i.i.i35, label %if.else.i.i.i44, label %if.end3.i.i.i.i.i.i36
+  %add.ptr8.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load i32, ptr %add.ptr8.i.i.i.i.i.i32, align 4
+  %cmp.i.i.i9.i.i.i.i.i.i33 = icmp eq i32 %id, %26
+  br i1 %cmp.i.i.i9.i.i.i.i.i.i33, label %if.else.i.i.i42, label %if.end3.i.i.i.i.i.i34
 
-for.cond.i.i.i.i.i.i48:                           ; preds = %lor.lhs.false.i.i.i.i.i.i39
-  %cmp.i.i.i.i.i.i.i.i.i49 = icmp eq i32 %id, %28
-  br i1 %cmp.i.i.i.i.i.i.i.i.i49, label %if.else.i.i.i44, label %if.end3.i.i.i.i.i.i36, !llvm.loop !9
+for.cond.i.i.i.i.i.i45:                           ; preds = %lor.lhs.false.i.i.i.i.i.i37
+  %cmp.i.i.i.i.i.i.i.i.i46 = icmp eq i32 %id, %28
+  br i1 %cmp.i.i.i.i.i.i.i.i.i46, label %if.else.i.i.i42, label %if.end3.i.i.i.i.i.i34, !llvm.loop !9
 
-if.end3.i.i.i.i.i.i36:                            ; preds = %if.end.i.i.i.i.i.i33, %for.cond.i.i.i.i.i.i48
-  %__p.010.i.i.i.i.i.i37 = phi ptr [ %27, %for.cond.i.i.i.i.i.i48 ], [ %25, %if.end.i.i.i.i.i.i33 ]
-  %27 = load ptr, ptr %__p.010.i.i.i.i.i.i37, align 8
-  %tobool5.not.i.i.i.i.i.i38 = icmp eq ptr %27, null
-  br i1 %tobool5.not.i.i.i.i.i.i38, label %if.else.i.i.i44, label %lor.lhs.false.i.i.i.i.i.i39
+if.end3.i.i.i.i.i.i34:                            ; preds = %if.end.i.i.i.i.i.i31, %for.cond.i.i.i.i.i.i45
+  %__p.010.i.i.i.i.i.i35 = phi ptr [ %27, %for.cond.i.i.i.i.i.i45 ], [ %25, %if.end.i.i.i.i.i.i31 ]
+  %27 = load ptr, ptr %__p.010.i.i.i.i.i.i35, align 8
+  %tobool5.not.i.i.i.i.i.i36 = icmp eq ptr %27, null
+  br i1 %tobool5.not.i.i.i.i.i.i36, label %if.else.i.i.i42, label %lor.lhs.false.i.i.i.i.i.i37
 
-lor.lhs.false.i.i.i.i.i.i39:                      ; preds = %if.end3.i.i.i.i.i.i36
-  %add.ptr7.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load i32, ptr %add.ptr7.i.i.i.i.i.i40, align 4
-  %conv.i.i.i.i.i.i.i.i.i.i41 = zext i32 %28 to i64
-  %rem.i.i.i.i.i.i.i.i.i42 = urem i64 %conv.i.i.i.i.i.i.i.i.i.i41, %22
-  %cmp.not.i.i.i.i.i.i43 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i42, %rem.i.i.i.i.i.i.i30
-  br i1 %cmp.not.i.i.i.i.i.i43, label %for.cond.i.i.i.i.i.i48, label %if.else.i.i.i44, !llvm.loop !9
+lor.lhs.false.i.i.i.i.i.i37:                      ; preds = %if.end3.i.i.i.i.i.i34
+  %add.ptr7.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i32, ptr %add.ptr7.i.i.i.i.i.i38, align 4
+  %conv.i.i.i.i.i.i.i.i.i.i39 = zext i32 %28 to i64
+  %rem.i.i.i.i.i.i.i.i.i40 = urem i64 %conv.i.i.i.i.i.i.i.i.i.i39, %22
+  %cmp.not.i.i.i.i.i.i41 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i40, %rem.i.i.i.i.i.i.i28
+  br i1 %cmp.not.i.i.i.i.i.i41, label %for.cond.i.i.i.i.i.i45, label %if.else.i.i.i42, !llvm.loop !9
 
 if.then.i.i.i16:                                  ; preds = %for.body.i.i6, %for.end.i.i13
   %idx.ext.i.i18.pre-phi = phi i64 [ %.pre.pre-phi, %for.end.i.i13 ], [ %wide.trip.count.i.i5, %for.body.i.i6 ]
   %retval.sroa.0.0.i.i17 = phi ptr [ %add.ptr9.i.i15, %for.end.i.i13 ], [ %arrayidx.i.i8, %for.body.i.i6 ]
   %29 = getelementptr inbounds i8, ptr %this, i64 776
   %add.ptr.i.i19 = getelementptr inbounds %"class.base::ManualConstructor", ptr %29, i64 %idx.ext.i.i18.pre-phi
-  %cmp4.i.i21.i20 = icmp eq ptr %add.ptr.i.i19, %retval.sroa.0.0.i.i17
+  %cmp4.i.i.i20 = icmp eq ptr %retval.sroa.0.0.i.i17, %add.ptr.i.i19
   br label %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit
 
-if.else.i.i.i44:                                  ; preds = %lor.lhs.false.i.i.i.i.i.i39, %if.end3.i.i.i.i.i.i36, %for.cond.i.i.i.i.i.i48, %for.body.i.i.i.i56, %for.cond.i.i.i.i52, %if.end.i.i.i.i.i.i33, %if.end15.i.i.i.i27
-  %retval.sroa.4.0.i.ph.i45 = phi ptr [ %25, %if.end.i.i.i.i.i.i33 ], [ null, %if.end15.i.i.i.i27 ], [ %retval.sroa.0.0.i.i.i.i54, %for.body.i.i.i.i56 ], [ null, %for.cond.i.i.i.i52 ], [ null, %lor.lhs.false.i.i.i.i.i.i39 ], [ null, %if.end3.i.i.i.i.i.i36 ], [ %27, %for.cond.i.i.i.i.i.i48 ]
-  %cmp.i.i.i.i46 = icmp eq ptr %retval.sroa.4.0.i.ph.i45, null
+if.else.i.i.i42:                                  ; preds = %lor.lhs.false.i.i.i.i.i.i37, %if.end3.i.i.i.i.i.i34, %for.cond.i.i.i.i.i.i45, %for.body.i.i.i.i53, %for.cond.i.i.i.i49, %if.end.i.i.i.i.i.i31, %if.end15.i.i.i.i25
+  %retval.sroa.4.0.i.ph.i43 = phi ptr [ %25, %if.end.i.i.i.i.i.i31 ], [ null, %if.end15.i.i.i.i25 ], [ %retval.sroa.0.0.i.i.i.i51, %for.body.i.i.i.i53 ], [ null, %for.cond.i.i.i.i49 ], [ null, %lor.lhs.false.i.i.i.i.i.i37 ], [ null, %if.end3.i.i.i.i.i.i34 ], [ %27, %for.cond.i.i.i.i.i.i45 ]
+  %cmp.i.i.i.i44 = icmp eq ptr %retval.sroa.4.0.i.ph.i43, null
   br label %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit
 
-_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit: ; preds = %if.then.i.i.i16, %if.else.i.i.i44
-  %retval.0.i.i.i23 = phi i1 [ %cmp4.i.i21.i20, %if.then.i.i.i16 ], [ %cmp.i.i.i.i46, %if.else.i.i.i44 ]
-  %lnot.i.i24 = xor i1 %retval.0.i.i.i23, true
+_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit: ; preds = %if.then.i.i.i16, %if.else.i.i.i42
+  %retval.0.i.i.i21 = phi i1 [ %cmp4.i.i.i20, %if.then.i.i.i16 ], [ %cmp.i.i.i.i44, %if.else.i.i.i42 ]
+  %lnot.i.i22 = xor i1 %retval.0.i.i.i21, true
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i, %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit
-  %retval.0 = phi i1 [ %lnot.i.i24, %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit ], [ true, %if.then.i.i.i ], [ true, %if.end.i.i.i.i.i.i ], [ true, %for.body.i.i.i.i ], [ true, %for.cond.i.i.i.i.i.i ]
+  %retval.0 = phi i1 [ %lnot.i.i22, %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit ], [ true, %if.then.i.i.i ], [ true, %if.end.i.i.i.i.i.i ], [ true, %for.body.i.i.i.i ], [ true, %for.cond.i.i.i.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -5535,8 +5520,8 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %for.
   %retval.sroa.0.0.i.i = phi ptr [ %add.ptr9.i.i, %for.end.i.i ], [ %arrayidx.i.i, %for.body.i.i ]
   %14 = getelementptr inbounds i8, ptr %this, i64 712
   %add.ptr.i.i = getelementptr inbounds %"class.base::ManualConstructor", ptr %14, i64 %idx.ext.i.i.pre-phi
-  %cmp4.i.i46.i.not = icmp eq ptr %add.ptr.i.i, %retval.sroa.0.0.i.i
-  br i1 %cmp4.i.i46.i.not, label %if.end.i, label %if.then.i
+  %cmp4.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr.i.i
+  br i1 %cmp4.i.i.i, label %if.end.i, label %if.then.i
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi2ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread40.i: ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.4.0.i26.ph.i = phi ptr [ %10, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %12, %for.cond.i.i.i.i.i.i ]
@@ -5806,10 +5791,9 @@ for.cond13.us.preheader:                          ; preds = %for.end
   %_M_before_begin.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 792
   %10 = load ptr, ptr %_M_before_begin.i.i.i.i10, align 8
   %cmp.i.i.i31.us86 = icmp eq ptr %10, null
-  br i1 %cmp.i.i.i31.us86, label %return.loopexit, label %for.body15.us
+  br i1 %cmp.i.i.i31.us86, label %return, label %for.body15.us
 
 for.body15.us:                                    ; preds = %for.cond13.us.preheader, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us
-  %retval.0.i.i24.us90 = phi i1 [ %retval.0.i.i24.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ %cmp.i.i.i31.us86, %for.cond13.us.preheader ]
   %cmp.not.i.i21.us89 = phi i1 [ %cmp.not.i.i21.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ true, %for.cond13.us.preheader ]
   %__begin19.sroa.0.0.us88 = phi ptr [ %__begin19.sroa.0.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ null, %for.cond13.us.preheader ]
   %__begin19.sroa.5.0.us87 = phi ptr [ %__begin19.sroa.5.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ %10, %for.cond13.us.preheader ]
@@ -5819,7 +5803,7 @@ for.body15.us:                                    ; preds = %for.cond13.us.prehe
   %11 = load ptr, ptr %second18.us, align 8
   %flow_controller_.i36.us = getelementptr inbounds i8, ptr %11, i64 272
   %call20.us = tail call noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_.i36.us)
-  br i1 %call20.us, label %return.loopexit, label %for.inc23.us
+  br i1 %call20.us, label %return, label %for.inc23.us
 
 for.inc23.us:                                     ; preds = %for.body15.us
   br i1 %cmp.not.i.i21.us89, label %if.else.i40.us, label %if.then.i38.us
@@ -5839,7 +5823,7 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
   %cmp4.i.i23.us = icmp eq ptr %__begin19.sroa.0.1.us, %retval.sroa.0.0.i18
   %cmp.i.i.i31.us = icmp eq ptr %__begin19.sroa.5.1.us, null
   %retval.0.i.i24.us = select i1 %cmp.not.i.i21.us, i1 %cmp.i.i.i31.us, i1 %cmp4.i.i23.us
-  br i1 %retval.0.i.i24.us, label %return.loopexit, label %for.body15.us
+  br i1 %retval.0.i.i24.us, label %return, label %for.body15.us
 
 for.cond13:                                       ; preds = %for.cond13.outer, %if.then.i38
   %__begin19.sroa.0.0 = phi ptr [ %incdec.ptr.i39, %if.then.i38 ], [ %__begin19.sroa.0.0.ph, %for.cond13.outer ]
@@ -5877,13 +5861,8 @@ for.cond13.outer:                                 ; preds = %for.end, %if.else.i
   %__begin19.sroa.0.0.ph = phi ptr [ null, %if.else.i40 ], [ %9, %for.end ]
   br label %for.cond13
 
-return.loopexit:                                  ; preds = %for.body15.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us, %for.cond13.us.preheader
-  %retval.0.i.i24.us.lcssa = phi i1 [ %cmp.i.i.i31.us86, %for.cond13.us.preheader ], [ %retval.0.i.i24.us90, %for.body15.us ], [ %retval.0.i.i24.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ]
-  %retval.0.ph = xor i1 %retval.0.i.i24.us.lcssa, true
-  br label %return
-
-return:                                           ; preds = %for.body, %if.else.i.i, %for.body.us, %for.body15, %if.then.i.i22, %if.else.i.i26, %return.loopexit
-  %retval.0 = phi i1 [ %retval.0.ph, %return.loopexit ], [ %cmp4.i.i23, %for.body15 ], [ %cmp4.i.i23, %if.then.i.i22 ], [ true, %if.else.i.i26 ], [ true, %for.body.us ], [ true, %if.else.i.i ], [ true, %for.body ]
+return:                                           ; preds = %for.body, %if.else.i.i, %for.body.us, %for.body15, %if.then.i.i22, %if.else.i.i26, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us, %for.body15.us, %for.cond13.us.preheader
+  %retval.0 = phi i1 [ false, %for.cond13.us.preheader ], [ %call20.us, %for.body15.us ], [ %call20.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ %cmp4.i.i23, %for.body15 ], [ %cmp4.i.i23, %if.then.i.i22 ], [ true, %if.else.i.i26 ], [ true, %for.body.us ], [ true, %if.else.i.i ], [ true, %for.body ]
   ret i1 %retval.0
 }
 

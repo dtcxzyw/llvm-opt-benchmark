@@ -1435,110 +1435,106 @@ define dso_local void @usb_unlink_anchored_urbs(ptr noundef %0) #2 align 16 {
   %13 = add i32 %10, 1
   %14 = or i32 %13, %10
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %usb_get_from_anchor.exit, label %16, !prof !6
+  br i1 %15, label %.preheader.preheader, label %16, !prof !6
 
 16:                                               ; preds = %12, %9
   %17 = phi i32 [ 2, %9 ], [ 1, %12 ]
   tail call void @refcount_warn_saturate(ptr noundef nonnull %7, i32 noundef %17) #10
-  br label %usb_get_from_anchor.exit
+  br label %.preheader.preheader
 
-usb_get_from_anchor.exit:                         ; preds = %12, %16
-  tail call fastcc void @__usb_unanchor_urb(ptr noundef nonnull %7, ptr noundef %0)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
-  br i1 %8, label %.loopexit, label %.preheader
+.preheader.preheader:                             ; preds = %12, %16
+  br label %.preheader
 
-.preheader:                                       ; preds = %usb_get_from_anchor.exit, %usb_get_from_anchor.exit3
-  %18 = phi ptr [ %47, %usb_get_from_anchor.exit3 ], [ %7, %usb_get_from_anchor.exit ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %28, label %22
+.preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
+  %.sink11 = phi ptr [ %7, %.preheader.preheader ], [ %46, %.preheader.backedge ]
+  %.sink10 = phi i64 [ %3, %.preheader.preheader ], [ %42, %.preheader.backedge ]
+  tail call fastcc void @__usb_unanchor_urb(ptr noundef nonnull %.sink11, ptr noundef %0)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %.sink10) #10
+  %18 = getelementptr inbounds i8, ptr %.sink11, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %27, label %21
 
-22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %18, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %28, label %26
+21:                                               ; preds = %.preheader
+  %22 = getelementptr inbounds i8, ptr %.sink11, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %27, label %25
 
-26:                                               ; preds = %22
-  %27 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %18, i32 noundef -104) #10
-  br label %28
+25:                                               ; preds = %21
+  %26 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %.sink11, i32 noundef -104) #10
+  br label %27
 
-28:                                               ; preds = %26, %22, %.preheader
-  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, i32 -1, ptr nonnull elementtype(i32) %18) #10, !srcloc !5
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %34, label %31
+27:                                               ; preds = %25, %21, %.preheader
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.sink11, i32 -1, ptr nonnull elementtype(i32) %.sink11) #10, !srcloc !5
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %33, label %30
 
-31:                                               ; preds = %28
-  %32 = icmp sgt i32 %29, 0
-  br i1 %32, label %.thread, label %33, !prof !6
+30:                                               ; preds = %27
+  %31 = icmp sgt i32 %28, 0
+  br i1 %31, label %.thread, label %32, !prof !6
 
-33:                                               ; preds = %31
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %18, i32 noundef 3) #10
+32:                                               ; preds = %30
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %.sink11, i32 noundef 3) #10
   br label %.thread
 
-34:                                               ; preds = %28
+33:                                               ; preds = %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %35 = getelementptr inbounds i8, ptr %18, i64 92
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 256
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %42, label %39
+  %34 = getelementptr inbounds i8, ptr %.sink11, i64 92
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 256
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %41, label %38
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %18, i64 96
-  %41 = load ptr, ptr %40, align 8
-  tail call void @kfree(ptr noundef %41) #10
-  br label %42
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %.sink11, i64 96
+  %40 = load ptr, ptr %39, align 8
+  tail call void @kfree(ptr noundef %40) #10
+  br label %41
 
-42:                                               ; preds = %39, %34
-  tail call void @kfree(ptr noundef nonnull %18) #10
+41:                                               ; preds = %38, %33
+  tail call void @kfree(ptr noundef nonnull %.sink11) #10
   br label %.thread
 
-.thread:                                          ; preds = %31, %33, %42
-  %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %44 = load volatile ptr, ptr %0, align 8
-  %45 = icmp eq ptr %44, %0
-  br i1 %45, label %.loopexit.sink.split, label %46
+.thread:                                          ; preds = %30, %32, %41
+  %42 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
+  %43 = load volatile ptr, ptr %0, align 8
+  %44 = icmp eq ptr %43, %0
+  br i1 %44, label %.loopexit.sink.split, label %45
 
-46:                                               ; preds = %.thread
-  %47 = getelementptr i8, ptr %44, i64 -40
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit.sink.split.sink.split, label %49
+45:                                               ; preds = %.thread
+  %46 = getelementptr i8, ptr %43, i64 -40
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %.loopexit.sink.split.sink.split, label %48
 
-49:                                               ; preds = %46
-  %50 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %47, i32 1, ptr nonnull elementtype(i32) %47) #10, !srcloc !8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %56, label %52, !prof !9
+48:                                               ; preds = %45
+  %49 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, i32 1, ptr nonnull elementtype(i32) %46) #10, !srcloc !8
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %55, label %51, !prof !9
 
-52:                                               ; preds = %49
-  %53 = add i32 %50, 1
-  %54 = or i32 %53, %50
-  %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %usb_get_from_anchor.exit3, label %56, !prof !6
+51:                                               ; preds = %48
+  %52 = add i32 %49, 1
+  %53 = or i32 %52, %49
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %.preheader.backedge, label %55, !prof !6
 
-56:                                               ; preds = %52, %49
-  %57 = phi i32 [ 2, %49 ], [ 1, %52 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %47, i32 noundef %57) #10
-  br label %usb_get_from_anchor.exit3
+.preheader.backedge:                              ; preds = %51, %55
+  br label %.preheader, !llvm.loop !44
 
-usb_get_from_anchor.exit3:                        ; preds = %52, %56
-  tail call fastcc void @__usb_unanchor_urb(ptr noundef nonnull %47, ptr noundef %0)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %43) #10
-  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !44
+55:                                               ; preds = %51, %48
+  %56 = phi i32 [ 2, %48 ], [ 1, %51 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %46, i32 noundef %56) #10
+  br label %.preheader.backedge
 
-.loopexit.sink.split.sink.split:                  ; preds = %46, %6
-  %.sink7 = phi ptr [ %7, %6 ], [ %47, %46 ]
-  %.sink.ph = phi i64 [ %3, %6 ], [ %43, %46 ]
+.loopexit.sink.split.sink.split:                  ; preds = %45, %6
+  %.sink7 = phi ptr [ %7, %6 ], [ %46, %45 ]
+  %.sink.ph = phi i64 [ %3, %6 ], [ %42, %45 ]
   tail call fastcc void @__usb_unanchor_urb(ptr noundef %.sink7, ptr noundef %0)
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.thread, %.loopexit.sink.split.sink.split, %1
-  %.sink = phi i64 [ %3, %1 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ], [ %43, %.thread ]
+  %.sink = phi i64 [ %3, %1 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ], [ %42, %.thread ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %.sink) #10
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %usb_get_from_anchor.exit3, %.loopexit.sink.split, %usb_get_from_anchor.exit
   ret void
 }
 

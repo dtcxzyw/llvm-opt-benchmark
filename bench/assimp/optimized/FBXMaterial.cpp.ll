@@ -4059,7 +4059,7 @@ if.end117:                                        ; preds = %for.end
 invoke.cont118:                                   ; preds = %if.end117
   store ptr %call119, ptr %content, align 8
   store i64 %add, ptr %contentLength, align 8
-  br i1 %cmp85185.not, label %for.end151, label %for.body126
+  br label %for.body126
 
 for.body126:                                      ; preds = %invoke.cont118, %invoke.cont146
   %tokenIdx122.0190 = phi i32 [ %inc150, %invoke.cont146 ], [ 0, %invoke.cont118 ]
@@ -4089,9 +4089,8 @@ invoke.cont146:                                   ; preds = %invoke.cont128
   %cmp125 = icmp ugt i64 %sub.ptr.div.i, %conv124
   br i1 %cmp125, label %for.body126, label %for.end151, !llvm.loop !12
 
-for.end151:                                       ; preds = %invoke.cont146, %invoke.cont118
-  %dst_offset.0.lcssa = phi i64 [ 0, %invoke.cont118 ], [ %add148, %invoke.cont146 ]
-  %cmp152.not = icmp eq i64 %add, %dst_offset.0.lcssa
+for.end151:                                       ; preds = %invoke.cont146
+  %cmp152.not = icmp eq i64 %add, %add148
   br i1 %cmp152.not, label %if.end217, label %if.then153
 
 if.then153:                                       ; preds = %for.end151

@@ -407,15 +407,12 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251:       ; preds = %.lr.ph344, %_ZL13gm
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251
   %157 = load ptr, ptr @stdout, align 8
   %158 = call i64 @fwrite(ptr nonnull @.str.36, i64 15, i64 1, ptr %157)
-  br i1 %142, label %.lr.ph347.preheader, label %._crit_edge
-
-.lr.ph347.preheader:                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge
   %smax419 = call i32 @llvm.smax.i32(i32 %139, i32 1)
   %wide.trip.count420 = zext nneg i32 %smax419 to i64
   br label %.lr.ph347
 
-.lr.ph347:                                        ; preds = %.lr.ph347.preheader, %.lr.ph347
-  %indvars.iv416 = phi i64 [ 0, %.lr.ph347.preheader ], [ %indvars.iv.next417, %.lr.ph347 ]
+.lr.ph347:                                        ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge, %.lr.ph347
+  %indvars.iv416 = phi i64 [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge ], [ %indvars.iv.next417, %.lr.ph347 ]
   %159 = getelementptr inbounds float, ptr %141, i64 %indvars.iv416
   %160 = load float, ptr %159, align 4
   %161 = fdiv float %160, %156
@@ -427,7 +424,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge: ; preds = %_ZL13gmx_snew_
   %exitcond421.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count420
   br i1 %exitcond421.not, label %._crit_edge, label %.lr.ph347, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph347, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge.thread, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph347, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit251._crit_edge.thread
   %165 = load ptr, ptr @stdout, align 8
   %fputc = call i32 @fputc(i32 10, ptr %165)
   %166 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34, i32 noundef 183, i64 noundef %140, i64 noundef 4)
@@ -630,9 +627,6 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %210, %213
   %231 = load ptr, ptr %gep397, align 8
   br i1 %185, label %.preheader320, label %.loopexit328
 
-.preheader327:                                    ; preds = %237
-  br i1 %185, label %.preheader319, label %.loopexit328
-
 .preheader320:                                    ; preds = %230, %237
   %.1221354 = phi i32 [ %238, %237 ], [ 0, %230 ]
   br label %232
@@ -651,10 +645,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %210, %213
 237:                                              ; preds = %232
   %238 = add nuw nsw i32 %.1221354, 1
   %exitcond437.not = icmp eq i32 %238, %178
-  br i1 %exitcond437.not, label %.preheader327, label %.preheader320, !llvm.loop !13
+  br i1 %exitcond437.not, label %.preheader319, label %.preheader320, !llvm.loop !13
 
-.preheader319:                                    ; preds = %.preheader327, %269
-  %indvars.iv457 = phi i64 [ %indvars.iv.next458, %269 ], [ 0, %.preheader327 ]
+.preheader319:                                    ; preds = %237, %269
+  %indvars.iv457 = phi i64 [ %indvars.iv.next458, %269 ], [ 0, %237 ]
   br label %239
 
 239:                                              ; preds = %.preheader319, %.loopexit313
@@ -737,7 +731,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %210, %213
   %exitcond461.not = icmp eq i64 %indvars.iv.next458, %223
   br i1 %exitcond461.not, label %.loopexit328, label %.preheader319, !llvm.loop !17
 
-.loopexit328:                                     ; preds = %269, %230, %.preheader327, %225
+.loopexit328:                                     ; preds = %269, %230, %225
   br i1 %.0214.shrunk, label %270, label %271
 
 270:                                              ; preds = %.loopexit328
@@ -970,8 +964,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %210, %213
 ._crit_edge387:                                   ; preds = %364
   %365 = load i8, ptr @_ZZ10gmx_filteriPPcE4bFit, align 1
   %366 = trunc i8 %365 to i1
-  %brmerge.not = and i1 %185, %366
-  br i1 %brmerge.not, label %.lr.ph389, label %.loopexit322
+  br i1 %366, label %.lr.ph389, label %.loopexit322
 
 .lr.ph389:                                        ; preds = %._crit_edge387, %.lr.ph389
   %indvars.iv507 = phi i64 [ %indvars.iv.next508, %.lr.ph389 ], [ 0, %._crit_edge387 ]
@@ -995,7 +988,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit259:       ; preds = %210, %213
   br i1 %exitcond511.not, label %.loopexit322, label %.lr.ph389, !llvm.loop !27
 
 .loopexit322:                                     ; preds = %.lr.ph389, %._crit_edge387.thread, %._crit_edge387
-  %379 = phi i1 [ %350, %._crit_edge387.thread ], [ %366, %._crit_edge387 ], [ %366, %.lr.ph389 ]
+  %379 = phi i1 [ %350, %._crit_edge387.thread ], [ false, %._crit_edge387 ], [ true, %.lr.ph389 ]
   %380 = load i32, ptr @_ZZ10gmx_filteriPPcE2nf, align 4
   %381 = sext i32 %380 to i64
   br label %.preheader315

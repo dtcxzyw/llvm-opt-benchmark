@@ -6572,8 +6572,8 @@ land.rhs.us:                                      ; preds = %invoke.cont, %for.i
   %sub.ptr.rhs.cast.i.i27.us = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i28.us = sub i64 %sub.ptr.lhs.cast.i.i26.us, %sub.ptr.rhs.cast.i.i27.us
   %sub.ptr.div.i.i29.us = sdiv exact i64 %sub.ptr.sub.i.i28.us, 24
-  %cmp9.not.us = icmp ne i64 %storemerge183.us, %sub.ptr.div.i.i29.us
-  br i1 %cmp9.not.us, label %for.body.us, label %for.end
+  %cmp9.not.us.not = icmp ne i64 %storemerge183.us, %sub.ptr.div.i.i29.us
+  br i1 %cmp9.not.us.not, label %for.body.us, label %for.end
 
 for.body.us:                                      ; preds = %land.rhs.us
   store ptr %add.ptr.i30, ptr %stream_.i.i, align 8
@@ -6657,8 +6657,8 @@ land.rhs:                                         ; preds = %invoke.cont, %for.i
   %sub.ptr.rhs.cast.i.i27 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i26, %sub.ptr.rhs.cast.i.i27
   %sub.ptr.div.i.i29 = sdiv exact i64 %sub.ptr.sub.i.i28, 24
-  %cmp9.not = icmp ne i64 %storemerge183, %sub.ptr.div.i.i29
-  br i1 %cmp9.not, label %for.body, label %for.end
+  %cmp9.not.not = icmp ne i64 %storemerge183, %sub.ptr.div.i.i29
+  br i1 %cmp9.not.not, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
   %add.ptr.i42 = getelementptr inbounds %"class.testing::Matcher.55", ptr %13, i64 %storemerge183
@@ -6734,7 +6734,7 @@ for.inc:                                          ; preds = %if.end
 for.end:                                          ; preds = %land.rhs, %if.end, %land.rhs.us, %invoke.cont17.us
   %.us-phi = phi i64 [ %storemerge183.us, %invoke.cont17.us ], [ %storemerge183.us, %land.rhs.us ], [ %storemerge183, %if.end ], [ %storemerge183, %land.rhs ]
   %.us-phi186 = phi i64 [ %it.0.idx184.us, %invoke.cont17.us ], [ %it.0.idx184.us, %land.rhs.us ], [ %it.0.idx184, %if.end ], [ %it.0.idx184, %land.rhs ]
-  %.us-phi187 = phi i1 [ %cmp9.not.us, %invoke.cont17.us ], [ %cmp9.not.us, %land.rhs.us ], [ %cmp9.not, %if.end ], [ %cmp9.not, %land.rhs ]
+  %.us-phi187 = phi i1 [ %cmp9.not.us.not, %invoke.cont17.us ], [ %cmp9.not.us.not, %land.rhs.us ], [ %cmp9.not.not, %if.end ], [ %cmp9.not.not, %land.rhs ]
   %cmp30.not193 = icmp eq i64 %.us-phi186, 96
   %18 = sub nsw i64 64, %.us-phi186
   %19 = lshr exact i64 %18, 5

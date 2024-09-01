@@ -1425,7 +1425,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr nocapture noundef %0, 
   %34 = getelementptr inbounds i8, ptr %19, i64 408
   br label %35
 
-.lr.ph112.preheader.i:                            ; preds = %.backedge.i
+.preheader.i:                                     ; preds = %.backedge.i
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %.lr.ph112.i
 
@@ -1487,10 +1487,10 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr nocapture noundef %0, 
 
 .backedge.i:                                      ; preds = %.loopexit.i, %35
   %67 = icmp slt i32 %44, %22
-  br i1 %67, label %35, label %.lr.ph112.preheader.i, !llvm.loop !8
+  br i1 %67, label %35, label %.preheader.i, !llvm.loop !8
 
-.lr.ph112.i:                                      ; preds = %.lr.ph112.i, %.lr.ph112.preheader.i
-  %indvars.iv118.i = phi i64 [ 0, %.lr.ph112.preheader.i ], [ %indvars.iv.next119.i, %.lr.ph112.i ]
+.lr.ph112.i:                                      ; preds = %.lr.ph112.i, %.preheader.i
+  %indvars.iv118.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next119.i, %.lr.ph112.i ]
   %68 = getelementptr ptr, ptr %18, i64 %indvars.iv118.i
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8

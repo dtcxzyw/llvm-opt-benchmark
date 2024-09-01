@@ -5325,7 +5325,7 @@ if.then19:                                        ; preds = %for.end
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call21, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %for.body.i.preheader, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -5337,16 +5337,13 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %6 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
+  br label %for.body.i.preheader
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
+  br label %for.body.i.preheader
 
-_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %if.then19, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  br i1 %cmp.not281, label %_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit, label %for.body.i.preheader
-
-for.body.i.preheader:                             ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
+for.body.i.preheader:                             ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then19
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %for.body.i
 
@@ -5464,7 +5461,7 @@ _ZN5arrow10TypeHolderaSERKS0_.exit.i:             ; preds = %if.end9.i.i.i.i.i, 
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr
   br i1 %cmp.not.i, label %_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit, label %for.body.i, !llvm.loop !11
 
-_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit: ; preds = %_ZN5arrow10TypeHolderaSERKS0_.exit.i, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
+_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit: ; preds = %_ZN5arrow10TypeHolderaSERKS0_.exit.i
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m.exit
@@ -5541,14 +5538,11 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %if.end8.sink.split.
 
 if.end22:                                         ; preds = %for.end
   store i32 0, ptr %common_precision, align 4
-  br i1 %cmp.not281, label %if.else65.thread, label %for.body26.lr.ph
-
-for.body26.lr.ph:                                 ; preds = %if.end22
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   br label %for.body26
 
-for.body26:                                       ; preds = %for.body26.lr.ph, %for.inc60
-  %it23.0289 = phi ptr [ %begin, %for.body26.lr.ph ], [ %incdec.ptr61, %for.inc60 ]
+for.body26:                                       ; preds = %if.end22, %for.inc60
+  %it23.0289 = phi ptr [ %begin, %if.end22 ], [ %incdec.ptr61, %for.inc60 ]
   %33 = load ptr, ptr %it23.0289, align 8
   %id_.i59 = getelementptr inbounds i8, ptr %33, i64 40
   %34 = load i32, ptr %id_.i59, align 8
@@ -5766,10 +5760,10 @@ if.else65:                                        ; preds = %for.end62
   %spec.select312 = select i1 %cmp66, i32 24, i32 %casted_type_id.1
   br label %if.else65.thread
 
-if.else65.thread:                                 ; preds = %if.else65, %if.end22, %if.end22.thread
-  %max_scale.0.lcssa296301306311 = phi i32 [ 0, %if.end22.thread ], [ %max_scale.1, %if.end22 ], [ %max_scale.1, %if.else65 ]
-  %60 = phi i32 [ 0, %if.end22.thread ], [ 0, %if.end22 ], [ %.pre292, %if.else65 ]
-  %61 = phi i32 [ 23, %if.end22.thread ], [ %casted_type_id.1, %if.end22 ], [ %spec.select312, %if.else65 ]
+if.else65.thread:                                 ; preds = %if.else65, %if.end22.thread
+  %max_scale.0.lcssa296301306311 = phi i32 [ 0, %if.end22.thread ], [ %max_scale.1, %if.else65 ]
+  %60 = phi i32 [ 0, %if.end22.thread ], [ %.pre292, %if.else65 ]
+  %61 = phi i32 [ 23, %if.end22.thread ], [ %spec.select312, %if.else65 ]
   call void @_ZN5arrow11DecimalType4MakeENS_4Type4typeEii(ptr nonnull sret(%"class.arrow::Result.34") align 8 %ref.tmp70, i32 noundef %61, i32 noundef %60, i32 noundef %max_scale.0.lcssa296301306311)
   %62 = load ptr, ptr %ref.tmp70, align 8
   %cmp.i.i94 = icmp eq ptr %62, null

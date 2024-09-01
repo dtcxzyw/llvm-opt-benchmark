@@ -325,6 +325,7 @@ lor.lhs.false48:                                  ; preds = %lor.lhs.false40
   br i1 %cmp32.not.not, label %if.else, label %if.then52
 
 if.then52:                                        ; preds = %lor.lhs.false48, %land.lhs.true43, %if.end35
+  %cmp32.not.not.lcssa = phi i1 [ false, %lor.lhs.false48 ], [ %cmp32.not.not, %land.lhs.true43 ], [ %cmp32.not.not, %if.end35 ]
   %tobool53.not = icmp eq ptr %report_path, null
   br i1 %tobool53.not, label %if.then74, label %if.then54
 
@@ -339,7 +340,7 @@ if.end3.i23:                                      ; preds = %if.then54
 
 _.exit26:                                         ; preds = %if.then54, %if.end3.i23
   %retval.0.i25 = phi ptr [ %call.i24, %if.end3.i23 ], [ @.str.1, %if.then54 ]
-  %cond = select i1 %cmp32.not.not, ptr @.str.2, ptr @.str.3
+  %cond = select i1 %cmp32.not.not.lcssa, ptr @.str.2, ptr @.str.3
   %23 = load ptr, ptr %buf1, align 8
   %24 = load i64, ptr %len, align 8
   %conv59 = trunc i64 %24 to i32

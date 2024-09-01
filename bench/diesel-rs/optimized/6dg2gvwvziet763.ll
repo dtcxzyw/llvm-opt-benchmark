@@ -4396,8 +4396,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %29, i64 60
   %62 = load i32, ptr %61, align 4, !range !658, !noundef !4
-  %.not642.not = icmp eq i32 %62, 1114112
-  br i1 %.not642.not, label %.thread552, label %63
+  %.not642 = icmp eq i32 %62, 1114112
+  br i1 %.not642, label %.thread552, label %63
 
 .thread552:                                       ; preds = %60
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29)

@@ -6263,16 +6263,16 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %554 = add nsw i64 %.057.i.i.i.i.i.i, -1
   %555 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq i64 %554, 0
-  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.preheader.i37, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit31.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
-.lr.ph.preheader.i37:                             ; preds = %.lr.ph.i.i.i.i.i.i
+.loopexit31.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %555, ptr %63, align 8
   %smax.i = call i32 @llvm.smax.i32(i32 %548, i32 1)
   %wide.trip.count.i38 = zext nneg i32 %smax.i to i64
   br label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %564, %.lr.ph.preheader.i37
-  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %564 ]
+.lr.ph.i39:                                       ; preds = %564, %.loopexit31.i
+  %indvars.iv.i40 = phi i64 [ 0, %.loopexit31.i ], [ %indvars.iv.next.i42, %564 ]
   %556 = trunc nuw nsw i64 %indvars.iv.i40 to i32
   %557 = invoke noundef ptr @_ZNK6google8protobuf10Reflection15GetRepeatedEnumERKNS0_7MessageEPKNS0_15FieldDescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %207, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %91, i32 noundef %556)
           to label %558 unwind label %.loopexit.i

@@ -605,7 +605,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %43, %._crit_edge, %81, %84
-  %85 = phi i1 [ false, %._crit_edge ], [ %60, %81 ], [ %60, %84 ], [ false, %43 ]
+  %85 = phi i1 [ false, %._crit_edge ], [ true, %81 ], [ true, %84 ], [ false, %43 ]
   call void @systable_endscan(ptr noundef %13) #6
   call void @table_close(ptr noundef %11, i32 noundef 3) #6
   ret i1 %85

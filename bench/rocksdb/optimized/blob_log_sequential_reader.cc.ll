@@ -423,7 +423,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i65 = getelementptr inbounds i8, ptr %read_sw, i64 33
   %37 = load i8, ptr %stats_enabled_.i65, align 1
   %tobool21.i = trunc i8 %37 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
+  br i1 %tobool21.i, label %cond.true.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb6StatusD2Ev.exit57
   %stats_enabled_.i6586 = getelementptr inbounds i8, ptr %read_sw, i64 33
@@ -431,14 +431,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb6StatusD
   %tobool21.i87 = trunc i8 %38 to i1
   br i1 %tobool21.i87, label %cond.false.i, label %_ZN7rocksdb9StopWatchD2Ev.exit
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i59, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.then22.i
+cond.true.i:                                      ; preds = %if.end20.i
   %39 = load i64, ptr %27, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %40 = load ptr, ptr %read_sw, align 8
   %vtable26.i = load ptr, ptr %40, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152

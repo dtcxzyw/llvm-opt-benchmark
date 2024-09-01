@@ -1848,7 +1848,7 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i.
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %invoke.cont.i, %invoke.cont17.i
+for.body.i:                                       ; preds = %invoke.cont17.i, %invoke.cont.i
   %i.025.i = phi i64 [ %inc.i, %invoke.cont17.i ], [ 0, %invoke.cont.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %6, i64 %i.025.i
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !22

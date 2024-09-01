@@ -728,14 +728,11 @@ for.end68:                                        ; preds = %for.body59
   %_packedDc = getelementptr inbounds i8, ptr %this, i64 40
   %26 = load ptr, ptr %_packedDc, align 8
   store ptr %26, ptr %currDcComp.sroa.0.0, align 8
-  br i1 %cmp58387, label %for.body73.lr.ph, label %for.cond83.preheader
-
-for.body73.lr.ph:                                 ; preds = %for.end68
   %mul76 = mul nsw i32 %conv7, %conv3
   %idx.ext77 = sext i32 %mul76 to i64
   br label %for.body73
 
-for.cond83.preheader:                             ; preds = %for.body73, %for.end68.thread, %for.end68
+for.cond83.preheader:                             ; preds = %for.body73, %for.end68.thread
   %cmp84432 = icmp sgt i32 %conv7, 0
   br i1 %cmp84432, label %for.body85.lr.ph, label %for.cond547.preheader
 
@@ -756,9 +753,9 @@ for.body85.lr.ph:                                 ; preds = %for.cond83.preheade
   %wide.trip.count486 = zext nneg i32 %conv18 to i64
   br label %for.body85
 
-for.body73:                                       ; preds = %for.body73.lr.ph, %for.body73
-  %28 = phi ptr [ %26, %for.body73.lr.ph ], [ %add.ptr78, %for.body73 ]
-  %comp70.0390 = phi i64 [ 1, %for.body73.lr.ph ], [ %inc81, %for.body73 ]
+for.body73:                                       ; preds = %for.end68, %for.body73
+  %28 = phi ptr [ %26, %for.end68 ], [ %add.ptr78, %for.body73 ]
+  %comp70.0390 = phi i64 [ 1, %for.end68 ], [ %inc81, %for.body73 ]
   %add.ptr78 = getelementptr inbounds i16, ptr %28, i64 %idx.ext77
   %add.ptr.i232 = getelementptr inbounds ptr, ptr %currDcComp.sroa.0.0, i64 %comp70.0390
   store ptr %add.ptr78, ptr %add.ptr.i232, align 8
@@ -1486,7 +1483,7 @@ for.body327:                                      ; preds = %for.body327.lr.ph, 
   br i1 %cmp326, label %for.body327, label %for.end338, !llvm.loop !18
 
 for.end338:                                       ; preds = %for.body327
-  br i1 %spec.select196, label %for.cond343.preheader, label %for.body435.lr.ph
+  br i1 %spec.select196, label %for.body347.lr.ph, label %for.body435.lr.ph
 
 for.body435.lr.ph:                                ; preds = %for.end338
   br i1 %cmp443410, label %for.body435.lr.ph.split.us, label %if.end500
@@ -1586,10 +1583,7 @@ for.cond442.for.inc497_crit_edge.us:              ; preds = %for.body444.us
   %cmp434.us = icmp sgt i32 %add325, %221
   br i1 %cmp434.us, label %for.body435.us, label %if.end500, !llvm.loop !20
 
-for.cond343.preheader:                            ; preds = %for.end338
-  br i1 %cmp326405, label %for.body347.lr.ph, label %for.inc541
-
-for.body347.lr.ph:                                ; preds = %for.cond343.preheader
+for.body347.lr.ph:                                ; preds = %for.end338
   %arrayidx353 = getelementptr inbounds [3 x ptr], ptr %rowBlock, i64 0, i64 %comp318.0428
   %222 = load ptr, ptr %arrayidx353, align 8
   br label %for.body347
@@ -1725,7 +1719,7 @@ for.inc537:                                       ; preds = %for.body528, %for.b
   %cmp508 = icmp sgt i32 %add325, %267
   br i1 %cmp508, label %for.body509, label %for.inc541, !llvm.loop !24
 
-for.inc541:                                       ; preds = %for.inc537, %for.body321, %for.cond343.preheader, %if.end500
+for.inc541:                                       ; preds = %for.inc537, %for.body321, %if.end500
   %inc542 = add nuw i64 %comp318.0428, 1
   %exitcond500.not = icmp eq i64 %inc542, %umax
   br i1 %exitcond500.not, label %for.inc544, label %for.body321, !llvm.loop !25
@@ -2506,7 +2500,7 @@ if.then.i.i86:                                    ; preds = %for.end
 
 _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.end
   %cmp.not.i.i.i.i76 = icmp eq i32 %tmpHalfBufferElements.1, 0
-  br i1 %cmp.not.i.i.i.i76, label %invoke.cont23, label %if.then.i.i.i.i.i77
+  br i1 %cmp.not.i.i.i.i76, label %for.body33.lr.ph, label %if.then.i.i.i.i.i77
 
 if.then.i.i.i.i.i77:                              ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = shl nuw i32 %tmpHalfBufferElements.1, 1
@@ -2517,19 +2511,16 @@ if.then.i.i.i.i.i77:                              ; preds = %_ZNSt6vectorItSaItE
 call5.i.i.i.i2.i.i.noexc88:                       ; preds = %if.then.i.i.i.i.i77
   store i16 0, ptr %call5.i.i.i.i2.i.i89, align 2
   %cmp.i.i.i.i.i.i.i82 = icmp eq i32 %tmpHalfBufferElements.1, 1
-  br i1 %cmp.i.i.i.i.i.i.i82, label %invoke.cont23, label %if.end.i.i.i.i.i.i.i83
+  br i1 %cmp.i.i.i.i.i.i.i82, label %for.body33.lr.ph, label %if.end.i.i.i.i.i.i.i83
 
 if.end.i.i.i.i.i.i.i83:                           ; preds = %call5.i.i.i.i2.i.i.noexc88
   %incdec.ptr.i.i.i.i.i81 = getelementptr i8, ptr %call5.i.i.i.i2.i.i89, i64 2
   %19 = add nsw i64 %mul.i.i.i.i.i.i78, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i81, i8 0, i64 %19, i1 false)
-  br label %invoke.cont23
+  br label %for.body33.lr.ph
 
-invoke.cont23:                                    ; preds = %if.end.i.i.i.i.i.i.i83, %call5.i.i.i.i2.i.i.noexc88, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
+for.body33.lr.ph:                                 ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc88, %if.end.i.i.i.i.i.i.i83
   %tmpHalfBuffer.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i89, %call5.i.i.i.i2.i.i.noexc88 ], [ %call5.i.i.i.i2.i.i89, %if.end.i.i.i.i.i.i.i83 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  br i1 %cmp363.not, label %for.end90, label %for.body33.lr.ph
-
-for.body33.lr.ph:                                 ; preds = %invoke.cont23
   %_type34 = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx3.i = getelementptr inbounds i8, ptr %b.i106, i64 1
   %.pre = load i32, ptr %_height, align 8
@@ -2749,11 +2740,11 @@ for.inc88:                                        ; preds = %for.inc88.loopexit,
   %cmp32 = icmp ugt i64 %sub.ptr.div.i95, %conv29
   br i1 %cmp32, label %for.body33, label %for.end90, !llvm.loop !40
 
-for.end90:                                        ; preds = %for.inc88, %invoke.cont11, %invoke.cont23
-  %tmpHalfBuffer.sroa.0.0470 = phi ptr [ %tmpHalfBuffer.sroa.0.0, %invoke.cont23 ], [ null, %invoke.cont11 ], [ %tmpHalfBuffer.sroa.0.0, %for.inc88 ]
-  %51 = phi ptr [ %11, %invoke.cont23 ], [ %11, %invoke.cont11 ], [ %48, %for.inc88 ]
-  %52 = phi ptr [ %11, %invoke.cont23 ], [ %11, %invoke.cont11 ], [ %49, %for.inc88 ]
-  %sub.ptr.div.i95.lcssa = phi i64 [ %sub.ptr.div.i73, %invoke.cont23 ], [ %sub.ptr.div.i73, %invoke.cont11 ], [ %sub.ptr.div.i95, %for.inc88 ]
+for.end90:                                        ; preds = %for.inc88, %invoke.cont11
+  %tmpHalfBuffer.sroa.0.0470 = phi ptr [ null, %invoke.cont11 ], [ %tmpHalfBuffer.sroa.0.0, %for.inc88 ]
+  %51 = phi ptr [ %11, %invoke.cont11 ], [ %48, %for.inc88 ]
+  %52 = phi ptr [ %11, %invoke.cont11 ], [ %49, %for.inc88 ]
+  %sub.ptr.div.i95.lcssa = phi i64 [ %sub.ptr.div.i73, %invoke.cont11 ], [ %sub.ptr.div.i95, %for.inc88 ]
   %_packedDc = getelementptr inbounds i8, ptr %this, i64 120
   %53 = load ptr, ptr %_packedDc, align 8
   store ptr %53, ptr %currDcComp.sroa.0.0, align 8
@@ -13250,7 +13241,7 @@ entry:
   %avx = getelementptr inbounds i8, ptr %cpuId, i64 5
   %0 = load i8, ptr %avx, align 1
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else
+  br i1 %tobool, label %land.lhs.true, label %if.else.critedge
 
 land.lhs.true:                                    ; preds = %entry
   %f16c = getelementptr inbounds i8, ptr %cpuId, i64 6
@@ -13263,7 +13254,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr @_ZN7Imf_3_212_GLOBAL__N_119fromHalfZigZag_f16cEPtPf, ptr @_ZN7Imf_3_212_GLOBAL__N_114fromHalfZigZagE, align 8
   br label %if.end8.sink.split
 
-if.else:                                          ; preds = %entry
+if.else.critedge:                                 ; preds = %entry
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi0EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E, align 8
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi1EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E, align 8
   store ptr @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi2EEEvPf, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_2E, align 8
@@ -13276,15 +13267,15 @@ if.else:                                          ; preds = %entry
   %tobool5 = trunc i8 %2 to i1
   br i1 %tobool5, label %if.end8.sink.split, label %if.end8
 
-if.end8.sink.split:                               ; preds = %if.else, %if.then, %land.lhs.true
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf, %if.else ]
-  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf, %if.else ]
+if.end8.sink.split:                               ; preds = %if.else.critedge, %land.lhs.true, %if.then
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi0EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi1EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi2EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi3EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi4EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi5EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi6EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf, %if.else.critedge ]
+  %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink = phi ptr [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %if.then ], [ @_ZN7Imf_3_212_GLOBAL__N_117dctInverse8x8_avxILi7EEEvPf, %land.lhs.true ], [ @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf, %if.else.critedge ]
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E, align 8
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E, align 8
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_2E, align 8
@@ -13295,7 +13286,7 @@ if.end8.sink.split:                               ; preds = %if.else, %if.then, 
   store ptr %_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf.sink, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_7E, align 8
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end8.sink.split, %if.else
+if.end8:                                          ; preds = %if.end8.sink.split, %if.else.critedge
   ret void
 }
 

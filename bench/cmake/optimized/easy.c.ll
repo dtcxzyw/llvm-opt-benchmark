@@ -302,56 +302,56 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
 44:                                               ; preds = %.thread.i.i, %sigpipe_ignore.exit.i
   store i32 0, ptr %2, align 4
   %45 = call i32 @curl_multi_poll(ptr noundef nonnull %.025.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
-  %.fr.i = freeze i32 %45
-  switch i32 %.fr.i, label %.loopexit [
-    i32 0, label %46
-    i32 3, label %.loopexit.loopexit
-  ]
+  %.not19.i.i = icmp eq i32 %45, 0
+  br i1 %.not19.i.i, label %48, label %easy_transfer.exit.thread41.i
 
-46:                                               ; preds = %44
-  %47 = call i32 @curl_multi_perform(ptr noundef nonnull %.025.i, ptr noundef nonnull %2) #12
-  %48 = icmp ne i32 %47, 0
-  %49 = load i32, ptr %2, align 4
+easy_transfer.exit.thread41.i:                    ; preds = %44
+  %46 = icmp eq i32 %45, 3
+  %47 = select i1 %46, i32 27, i32 43
+  br label %59
+
+48:                                               ; preds = %44
+  %49 = call i32 @curl_multi_perform(ptr noundef nonnull %.025.i, ptr noundef nonnull %2) #12
   %50 = icmp ne i32 %49, 0
-  %or.cond.i.i = select i1 %48, i1 true, i1 %50
-  br i1 %or.cond.i.i, label %.thread.i.i, label %51
+  %51 = load i32, ptr %2, align 4
+  %52 = icmp ne i32 %51, 0
+  %or.cond.i.i = select i1 %50, i1 true, i1 %52
+  br i1 %or.cond.i.i, label %.thread.i.i, label %53
 
-51:                                               ; preds = %46
-  %52 = call ptr @curl_multi_info_read(ptr noundef nonnull %.025.i, ptr noundef nonnull %3) #12
-  %.not20.i.i = icmp eq ptr %52, null
-  br i1 %.not20.i.i, label %.thread.i.i, label %.thread.i
+53:                                               ; preds = %48
+  %54 = call ptr @curl_multi_info_read(ptr noundef nonnull %.025.i, ptr noundef nonnull %3) #12
+  %.not20.i.i = icmp eq ptr %54, null
+  br i1 %.not20.i.i, label %.thread.i.i, label %easy_transfer.exit.i
 
-.thread.i:                                        ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load i32, ptr %53, align 8
-  br label %.loopexit
-
-.thread.i.i:                                      ; preds = %51, %46
-  br i1 %48, label %easy_transfer.exit.thread.i, label %44, !llvm.loop !5
+.thread.i.i:                                      ; preds = %53, %48
+  %.not.not.i.i = icmp eq i32 %49, 0
+  br i1 %.not.not.i.i, label %44, label %easy_transfer.exit.thread.i, !llvm.loop !5
 
 easy_transfer.exit.thread.i:                      ; preds = %.thread.i.i
-  %55 = icmp eq i32 %47, 3
+  %55 = icmp eq i32 %49, 3
   %56 = select i1 %55, i32 27, i32 43
-  br label %.loopexit
+  br label %59
 
-.loopexit.loopexit:                               ; preds = %44
-  br label %.loopexit
+easy_transfer.exit.i:                             ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %58 = load i32, ptr %57, align 8
+  br label %59
 
-.loopexit:                                        ; preds = %44, %.loopexit.loopexit, %easy_transfer.exit.thread.i, %.thread.i
-  %57 = phi i32 [ %54, %.thread.i ], [ %56, %easy_transfer.exit.thread.i ], [ 27, %.loopexit.loopexit ], [ 43, %44 ]
+59:                                               ; preds = %easy_transfer.exit.i, %easy_transfer.exit.thread.i, %easy_transfer.exit.thread41.i
+  %60 = phi i32 [ %58, %easy_transfer.exit.i ], [ %56, %easy_transfer.exit.thread.i ], [ %47, %easy_transfer.exit.thread41.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %58 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.025.i, ptr noundef nonnull %0) #12
-  %59 = load i8, ptr %36, align 8
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %easy_perform.exit, label %61
+  %61 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.025.i, ptr noundef nonnull %0) #12
+  %62 = load i8, ptr %36, align 8
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %easy_perform.exit, label %64
 
-61:                                               ; preds = %.loopexit
-  %62 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #12
+64:                                               ; preds = %59
+  %65 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #12
   br label %easy_perform.exit
 
-easy_perform.exit:                                ; preds = %1, %13, %17, %20, %30, %.loopexit, %61
-  %.0.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %57, %.loopexit ], [ %57, %61 ]
+easy_perform.exit:                                ; preds = %1, %13, %17, %20, %30, %59, %64
+  %.0.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %60, %59 ], [ %60, %64 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   ret i32 %.0.i
 }

@@ -134,8 +134,8 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
 
 34:                                               ; preds = %36, %33
   %35 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #6
-  %.not = icmp ne ptr %35, null
-  br i1 %.not, label %36, label %40
+  %.not.not.not.not.not = icmp ne ptr %35, null
+  br i1 %.not.not.not.not.not, label %36, label %40
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %35, i64 1712
@@ -146,7 +146,7 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
 40:                                               ; preds = %36, %34
   call void @drm_connector_list_iter_end(ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

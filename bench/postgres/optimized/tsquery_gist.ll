@@ -362,7 +362,7 @@ hemdist.exit141:                                  ; preds = %66
 
 ._crit_edge174:                                   ; preds = %hemdist.exit141
   tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @comparecost) #7
-  br i1 %.not170, label %._crit_edge182, label %.lr.ph181
+  br label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %._crit_edge174, %116
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %116 ], [ 0, %._crit_edge174 ]
@@ -461,11 +461,11 @@ hemdist.exit151:                                  ; preds = %94
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %49
   br i1 %exitcond203.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !11
 
-._crit_edge182:                                   ; preds = %116, %._crit_edge174.thread, %._crit_edge174
-  %.0120.lcssa = phi i64 [ %43, %._crit_edge174 ], [ %43, %._crit_edge174.thread ], [ %.1121, %116 ]
-  %.0118.lcssa = phi i64 [ %46, %._crit_edge174 ], [ %46, %._crit_edge174.thread ], [ %.1119, %116 ]
-  %.0103.lcssa = phi ptr [ %14, %._crit_edge174 ], [ %14, %._crit_edge174.thread ], [ %.1104, %116 ]
-  %.0.lcssa = phi ptr [ %15, %._crit_edge174 ], [ %15, %._crit_edge174.thread ], [ %.1, %116 ]
+._crit_edge182:                                   ; preds = %116, %._crit_edge174.thread
+  %.0120.lcssa = phi i64 [ %43, %._crit_edge174.thread ], [ %.1121, %116 ]
+  %.0118.lcssa = phi i64 [ %46, %._crit_edge174.thread ], [ %.1119, %116 ]
+  %.0103.lcssa = phi ptr [ %14, %._crit_edge174.thread ], [ %.1104, %116 ]
+  %.0.lcssa = phi ptr [ %15, %._crit_edge174.thread ], [ %.1, %116 ]
   store i16 1, ptr %.0103.lcssa, align 2
   store i16 1, ptr %.0.lcssa, align 2
   %119 = getelementptr inbounds i8, ptr %7, i64 16

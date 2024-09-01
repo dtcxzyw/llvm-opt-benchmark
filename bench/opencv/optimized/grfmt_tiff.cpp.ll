@@ -7137,7 +7137,7 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %124 = add i64 %.04.i, 2
   %125 = or disjoint i64 %124, 1
   %126 = icmp ult i64 %125, %121
-  br i1 %126, label %.lr.ph.i, label %.lr.ph.i426.preheader, !llvm.loop !48
+  br i1 %126, label %.lr.ph.i, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit, !llvm.loop !48
 
 .lr.ph.i:                                         ; preds = %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit, %123
   %.04.i = phi i64 [ %124, %123 ], [ 0, %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit ]
@@ -7150,9 +7150,9 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %131 = or disjoint i64 %.04.i, 1
   %132 = getelementptr inbounds i32, ptr %.val424, i64 %131
   %133 = load i32, ptr %132, align 4
-  br label %.lr.ph.i426.preheader
+  br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit
 
-.lr.ph.i426.preheader:                            ; preds = %123, %130
+_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit:    ; preds = %123, %130
   %.0 = phi i32 [ %133, %130 ], [ 5, %123 ]
   br label %.lr.ph.i426
 
@@ -7160,10 +7160,10 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %135 = add i64 %.04.i427, 2
   %136 = or disjoint i64 %135, 1
   %137 = icmp ult i64 %136, %121
-  br i1 %137, label %.lr.ph.i426, label %.lr.ph.i429.preheader, !llvm.loop !48
+  br i1 %137, label %.lr.ph.i426, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit428, !llvm.loop !48
 
-.lr.ph.i426:                                      ; preds = %.lr.ph.i426.preheader, %134
-  %.04.i427 = phi i64 [ %135, %134 ], [ 0, %.lr.ph.i426.preheader ]
+.lr.ph.i426:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit, %134
+  %.04.i427 = phi i64 [ %135, %134 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit ]
   %138 = getelementptr inbounds i32, ptr %.val424, i64 %.04.i427
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 317
@@ -7173,9 +7173,9 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %142 = or disjoint i64 %.04.i427, 1
   %143 = getelementptr inbounds i32, ptr %.val424, i64 %142
   %144 = load i32, ptr %143, align 4
-  br label %.lr.ph.i429.preheader
+  br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit428
 
-.lr.ph.i429.preheader:                            ; preds = %134, %141
+_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit428: ; preds = %134, %141
   %.0470 = phi i32 [ %144, %141 ], [ 2, %134 ]
   br label %.lr.ph.i429
 
@@ -7183,10 +7183,10 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %146 = add i64 %.04.i430, 2
   %147 = or disjoint i64 %146, 1
   %148 = icmp ult i64 %147, %121
-  br i1 %148, label %.lr.ph.i429, label %.lr.ph.i432.preheader, !llvm.loop !48
+  br i1 %148, label %.lr.ph.i429, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit431, !llvm.loop !48
 
-.lr.ph.i429:                                      ; preds = %.lr.ph.i429.preheader, %145
-  %.04.i430 = phi i64 [ %146, %145 ], [ 0, %.lr.ph.i429.preheader ]
+.lr.ph.i429:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit428, %145
+  %.04.i430 = phi i64 [ %146, %145 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit428 ]
   %149 = getelementptr inbounds i32, ptr %.val424, i64 %.04.i430
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 256
@@ -7196,9 +7196,9 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %153 = or disjoint i64 %.04.i430, 1
   %154 = getelementptr inbounds i32, ptr %.val424, i64 %153
   %155 = load i32, ptr %154, align 4
-  br label %.lr.ph.i432.preheader
+  br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit431
 
-.lr.ph.i432.preheader:                            ; preds = %145, %152
+_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit431: ; preds = %145, %152
   %.0471 = phi i32 [ %155, %152 ], [ -1, %145 ]
   br label %.lr.ph.i432
 
@@ -7206,10 +7206,10 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %157 = add i64 %.04.i433, 2
   %158 = or disjoint i64 %157, 1
   %159 = icmp ult i64 %158, %121
-  br i1 %159, label %.lr.ph.i432, label %.lr.ph.i435.preheader, !llvm.loop !48
+  br i1 %159, label %.lr.ph.i432, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit434, !llvm.loop !48
 
-.lr.ph.i432:                                      ; preds = %.lr.ph.i432.preheader, %156
-  %.04.i433 = phi i64 [ %157, %156 ], [ 0, %.lr.ph.i432.preheader ]
+.lr.ph.i432:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit431, %156
+  %.04.i433 = phi i64 [ %157, %156 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit431 ]
   %160 = getelementptr inbounds i32, ptr %.val424, i64 %.04.i433
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %161, 257
@@ -7219,9 +7219,9 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %164 = or disjoint i64 %.04.i433, 1
   %165 = getelementptr inbounds i32, ptr %.val424, i64 %164
   %166 = load i32, ptr %165, align 4
-  br label %.lr.ph.i435.preheader
+  br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit434
 
-.lr.ph.i435.preheader:                            ; preds = %156, %163
+_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit434: ; preds = %156, %163
   %.0474 = phi i32 [ %166, %163 ], [ -1, %156 ]
   br label %.lr.ph.i435
 
@@ -7231,8 +7231,8 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
   %170 = icmp ult i64 %169, %121
   br i1 %170, label %.lr.ph.i435, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit437, !llvm.loop !48
 
-.lr.ph.i435:                                      ; preds = %.lr.ph.i435.preheader, %167
-  %.04.i436 = phi i64 [ %168, %167 ], [ 0, %.lr.ph.i435.preheader ]
+.lr.ph.i435:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit434, %167
+  %.04.i436 = phi i64 [ %168, %167 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit434 ]
   %171 = getelementptr inbounds i32, ptr %.val424, i64 %.04.i436
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, 258
@@ -9182,7 +9182,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %911
   %930 = mul i64 %929, %indvars.iv
   %931 = getelementptr inbounds i8, ptr %927, i64 %930
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %915, ptr align 1 %931, i64 %910, i1 false)
-  %.pre628 = trunc nuw nsw i64 %indvars.iv to i32
+  %.pre629 = trunc nuw nsw i64 %indvars.iv to i32
   br label %952
 
 .loopexit:                                        ; preds = %952, %932, %938
@@ -9289,7 +9289,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %911
   br label %.loopexit.split-lp
 
 952:                                              ; preds = %941, %935, %926
-  %.pre-phi = phi i32 [ %939, %941 ], [ %933, %935 ], [ %.pre628, %926 ]
+  %.pre-phi = phi i32 [ %939, %941 ], [ %933, %935 ], [ %.pre629, %926 ]
   %953 = invoke i32 @TIFFWriteScanline(ptr noundef %.0236, ptr noundef nonnull %915, i32 noundef %.pre-phi, i16 noundef zeroext 0)
           to label %954 unwind label %.loopexit
 
@@ -9526,8 +9526,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1035, %1030, %_ZN2c
   %1040 = ptrtoint ptr %1038 to i64
   %1041 = sub i64 %1039, %1040
   %1042 = sdiv exact i64 %1041, 96
-  %.not629 = icmp ult i64 %1036, %1042
-  br i1 %.not629, label %207, label %._crit_edge590, !llvm.loop !50
+  %.not593 = icmp ult i64 %1036, %1042
+  br i1 %.not593, label %207, label %._crit_edge590, !llvm.loop !50
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1029, %1021, %990, %982, %951, %942, %936
   %.pn331.pn = phi { ptr, i32 } [ %.pn331, %951 ], [ %.pn329, %990 ], [ %.pn327, %982 ], [ %943, %942 ], [ %937, %936 ], [ %.pn317, %1029 ], [ %.pn315, %1021 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit505, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp.loopexit.split-lp ]

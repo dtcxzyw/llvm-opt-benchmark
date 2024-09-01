@@ -84626,12 +84626,9 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i
 _ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
-  br i1 %exitcond.not.i, label %"_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendLengthsIZNS3_13appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPS4_RNS0_7ScratchEE3$_0EEvS7_SC_iT_.exit", label %for.body.i, !llvm.loop !664
+  br i1 %exitcond.not.i, label %for.body.lr.ph, label %for.body.i, !llvm.loop !664
 
-"_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendLengthsIZNS3_13appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPS4_RNS0_7ScratchEE3$_0EEvS7_SC_iT_.exit": ; preds = %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i
-  br i1 %cmp2.not.i, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %"_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendLengthsIZNS3_13appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPS4_RNS0_7ScratchEE3$_0EEvS7_SC_iT_.exit"
+for.body.lr.ph:                                   ; preds = %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i
   %values_.i = getelementptr inbounds i8, ptr %stream, i64 192
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
@@ -84989,7 +84986,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i88
   call void @__clang_call_terminate(ptr %47) #39
   unreachable
 
-return:                                           ; preds = %for.body, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i, %"_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendLengthsIZNS3_13appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPS4_RNS0_7ScratchEE3$_0EEvS7_SC_iT_.exit", %if.end.i85, %for.end40
+return:                                           ; preds = %for.body, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i, %if.end.i85, %for.end40
   ret void
 }
 

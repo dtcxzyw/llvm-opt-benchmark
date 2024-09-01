@@ -252,7 +252,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i57: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i50
   %cmp.i.i.i58 = icmp eq ptr %__y.addr.1.i.i.i52, %add.ptr.i.i
-  br i1 %cmp.i.i.i58, label %land.end, label %lor.lhs.false.i.i59
+  br i1 %cmp.i.i.i58, label %cleanup.action, label %lor.lhs.false.i.i59
 
 lor.lhs.false.i.i59:                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i57
   %_M_storage.i.i.i3.i.i60 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i52, i64 32
@@ -269,9 +269,9 @@ terminate.lpad.i.i.i.i62:                         ; preds = %lor.lhs.false.i.i59
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i63: ; preds = %lor.lhs.false.i.i59
   %cmp.i.i.i.i64 = icmp slt i32 %call.i.i.i.i61, 0
   %spec.select.i.i65 = select i1 %cmp.i.i.i.i64, ptr %add.ptr.i.i, ptr %__y.addr.1.i.i.i52
-  br label %land.end
+  br label %cleanup.action
 
-land.end:                                         ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i63
+cleanup.action:                                   ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i63, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i57
   %retval.sroa.0.0.i.i66 = phi ptr [ %add.ptr.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i57 ], [ %spec.select.i.i65, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i63 ]
   %cmp.i69 = icmp eq ptr %retval.sroa.0.0.i.i66, %add.ptr.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #14
@@ -283,7 +283,7 @@ if.then78.critedge:                               ; preds = %invoke.cont
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #14
   br label %if.then78
 
-if.then78:                                        ; preds = %land.end, %if.then78.critedge
+if.then78:                                        ; preds = %cleanup.action, %if.then78.critedge
   %33 = load ptr, ptr @stderr, align 8
   %34 = load ptr, ptr %arrayidx46102, align 8
   %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.4, ptr noundef %34) #16
@@ -295,7 +295,7 @@ lpad:                                             ; preds = %land.rhs
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #14
   resume { ptr, i32 } %35
 
-for.inc82:                                        ; preds = %for.body51, %land.end
+for.inc82:                                        ; preds = %for.body51, %cleanup.action
   %inc83 = add i64 %j44.0101, 1
   %arrayidx46 = getelementptr inbounds %struct.argument, ptr %templates, i64 %inc83
   %36 = load ptr, ptr %arrayidx46, align 8

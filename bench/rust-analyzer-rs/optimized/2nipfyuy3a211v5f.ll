@@ -39,8 +39,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 
 7:                                                ; preds = %9, %.lr.ph.split.i
   %8 = phi ptr [ %10, %9 ], [ %.val5.i, %.lr.ph.split.i ]
-  %.not.i.not.i.not.i.not.i.not.i = icmp eq ptr %8, %6
-  br i1 %.not.i.not.i.not.i.not.i.not.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i", label %9
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %8, %6
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i", label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 8
@@ -175,8 +175,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 7:                                                ; preds = %9, %.lr.ph.split
   %8 = phi ptr [ %10, %9 ], [ %.val5, %.lr.ph.split ]
-  %.not.i.not.i.not.i.not.i.not = icmp eq ptr %8, %6
-  br i1 %.not.i.not.i.not.i.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit", label %9
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %8, %6
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit", label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 8

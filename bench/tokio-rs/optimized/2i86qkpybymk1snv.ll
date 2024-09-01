@@ -9539,8 +9539,8 @@ _ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm.103380525842535361
 41:                                               ; preds = %.thread169.i, %.outer.i
   %.048.i = phi i64 [ %.sroa.07.0.i175.i, %.thread169.i ], [ %.048.ph.i, %.outer.i ]
   %42 = and i64 %.048.i, 1
-  %.not.i.not = icmp ne i64 %42, 0
-  br i1 %.not.i.not, label %.thread119.i, label %43
+  %.not.i.not.not.not.not = icmp ne i64 %42, 0
+  br i1 %.not.i.not.not.not.not, label %.thread119.i, label %43
 
 43:                                               ; preds = %41
   %44 = load i64, ptr %9, align 8, !noalias !1669, !noundef !4
@@ -9912,7 +9912,7 @@ _ZN5tokio7runtime4coop12poll_proceed17h8e5fe15c124786d4E.llvm.103380525842535361
           to label %35 unwind label %170, !noalias !1669
 
 178:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..sync..batch_semaphore..Waitlist$GT$$GT$17hd47ac5dabb8ce105E.exit90.i", %.thread119.i
-  %.0125.i = phi i1 [ %.not.i.not, %.thread119.i ], [ %78, %"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..sync..batch_semaphore..Waitlist$GT$$GT$17hd47ac5dabb8ce105E.exit90.i" ]
+  %.0125.i = phi i1 [ %.not.i.not.not.not.not, %.thread119.i ], [ %78, %"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..sync..batch_semaphore..Waitlist$GT$$GT$17hd47ac5dabb8ce105E.exit90.i" ]
   %.4123.i = phi ptr [ %.4.ph.i, %.thread119.i ], [ %.3100178185.i, %"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..sync..batch_semaphore..Waitlist$GT$$GT$17hd47ac5dabb8ce105E.exit90.i" ]
   %179 = icmp eq ptr %.4123.i, null
   br i1 %179, label %192, label %180

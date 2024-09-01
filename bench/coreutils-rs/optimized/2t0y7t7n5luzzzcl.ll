@@ -2420,19 +2420,19 @@ define hidden void @_ZN5uu_cp15handle_preserve17h52beeb9370ebb41aE(ptr noalias n
 .noexc49.i:                                       ; preds = %93
   %94 = load i64, ptr %46, align 8, !range !82, !noalias !411, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i, label %.thread53.i, label %95
+  br i1 %.not.i.i.i.i, label %.thread45.i, label %95
 
 95:                                               ; preds = %.noexc49.i
   %96 = load i64, ptr %47, align 8, !noalias !411, !noundef !19
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %.thread53.i, label %98
+  br i1 %97, label %.thread45.i, label %98
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %14, align 8, !noalias !411, !nonnull !19, !noundef !19
   call void @__rust_dealloc(ptr noundef nonnull %99, i64 noundef %96, i64 noundef %94) #22, !noalias !359
-  br label %.thread53.i
+  br label %.thread45.i
 
-.thread53.i:                                      ; preds = %98, %95, %.noexc49.i
+.thread45.i:                                      ; preds = %98, %95, %.noexc49.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !411
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !359
   br label %112
@@ -2470,7 +2470,7 @@ define hidden void @_ZN5uu_cp15handle_preserve17h52beeb9370ebb41aE(ptr noalias n
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25, !noalias !359
   unreachable
 
-112:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17ha196ada878ccabb5E.exit.i", %.thread53.i
+112:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17ha196ada878ccabb5E.exit.i", %.thread45.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !359
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !359
   br label %52

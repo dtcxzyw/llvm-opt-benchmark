@@ -8944,8 +8944,8 @@ define noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEqu
 .preheader:                                       ; preds = %.loopexit, %59
   %.sroa.08.0.in.i38 = phi ptr [ %.sroa.08.0.i39, %59 ], [ %7, %.loopexit ]
   %.sroa.08.0.i39 = load ptr, ptr %.sroa.08.0.in.i38, align 8
-  %.not.not.i40.not = icmp ne ptr %.sroa.08.0.i39, %7
-  br i1 %.not.not.i40.not, label %59, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
+  %.not.not.i40.not.not = icmp ne ptr %.sroa.08.0.i39, %7
+  br i1 %.not.not.i40.not.not, label %59, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds i8, ptr %.sroa.08.0.i39, i64 16
@@ -8954,7 +8954,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEqu
   br i1 %62, label %"_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit", label %.preheader
 
 "_ZZNK5osgeo4proj5datum22GeodeticReferenceFrame29hasEquivalentNameToUsingAliasEPKNS0_6common16IdentifiedObjectERKSt10shared_ptrINS0_2io15DatabaseContextEEENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %.preheader57, %59, %.preheader, %.loopexit
-  %63 = phi i1 [ true, %.loopexit ], [ %.not.not.i40.not, %.preheader ], [ %.not.not.i40.not, %59 ], [ false, %.preheader57 ]
+  %63 = phi i1 [ true, %.loopexit ], [ %.not.not.i40.not.not, %.preheader ], [ %.not.not.i40.not.not, %59 ], [ false, %.preheader57 ]
   %64 = load ptr, ptr %7, align 8
   %.not8.i.i.i = icmp eq ptr %64, %7
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i

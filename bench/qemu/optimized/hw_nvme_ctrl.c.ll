@@ -15906,27 +15906,26 @@ for.cond:                                         ; preds = %sw.bb2.i, %sw.bb4.i
 for.end:                                          ; preds = %for.cond, %for.body, %for.cond.us
   %nr_zones.0.lcssa = phi i64 [ %19, %for.cond.us ], [ %nr_zones.0104, %for.body ], [ %22, %for.cond ]
   store i64 %nr_zones.0.lcssa, ptr %call39, align 1
-  %cmp58109 = icmp ule i64 %zone_entry_sz.0, %sub
-  %23 = select i1 %cmp40103, i1 %cmp58109, i1 false
-  br i1 %23, label %for.body60.lr.ph, label %for.end107
+  %cmp58109.not = icmp ugt i64 %zone_entry_sz.0, %sub
+  br i1 %cmp58109.not, label %for.end107, label %for.body60.lr.ph
 
 for.body60.lr.ph:                                 ; preds = %for.end
   %add.ptr = getelementptr i8, ptr %call39, i64 64
-  %24 = getelementptr i8, ptr %0, i64 8640
-  %25 = getelementptr i8, ptr %0, i64 8736
+  %23 = getelementptr i8, ptr %0, i64 8640
+  %24 = getelementptr i8, ptr %0, i64 8736
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc105
-  %26 = phi i32 [ %14, %for.body60.lr.ph ], [ %43, %for.inc105 ]
-  %27 = phi i32 [ %13, %for.body60.lr.ph ], [ %inc106, %for.inc105 ]
+  %25 = phi i32 [ %14, %for.body60.lr.ph ], [ %42, %for.inc105 ]
+  %26 = phi i32 [ %13, %for.body60.lr.ph ], [ %inc106, %for.inc105 ]
   %buf_p.0111 = phi ptr [ %add.ptr, %for.body60.lr.ph ], [ %buf_p.2, %for.inc105 ]
   %max_zones.0110 = phi i64 [ %div, %for.body60.lr.ph ], [ %max_zones.1, %for.inc105 ]
-  %28 = load ptr, ptr %zone_array, align 8
-  %idxprom62 = zext i32 %27 to i64
-  %arrayidx63 = getelementptr %struct.NvmeZone, ptr %28, i64 %idxprom62
-  %29 = getelementptr i8, ptr %arrayidx63, i64 1
-  %arrayidx63.val = load i8, ptr %29, align 1
-  %30 = lshr i8 %arrayidx63.val, 4
+  %27 = load ptr, ptr %zone_array, align 8
+  %idxprom62 = zext i32 %26 to i64
+  %arrayidx63 = getelementptr %struct.NvmeZone, ptr %27, i64 %idxprom62
+  %28 = getelementptr i8, ptr %arrayidx63, i64 1
+  %arrayidx63.val = load i8, ptr %28, align 1
+  %29 = lshr i8 %arrayidx63.val, 4
   switch i32 %and14, label %default.unreachable.i79 [
     i32 0, label %if.then65
     i32 1, label %nvme_zone_matches_filter.exit80
@@ -15939,85 +15938,85 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   ]
 
 sw.bb2.i75:                                       ; preds = %for.body60
-  %cmp3.i76 = icmp eq i8 %30, 2
+  %cmp3.i76 = icmp eq i8 %29, 2
   br i1 %cmp3.i76, label %if.then65, label %for.inc105
 
 sw.bb4.i73:                                       ; preds = %for.body60
-  %cmp5.i74 = icmp eq i8 %30, 3
+  %cmp5.i74 = icmp eq i8 %29, 3
   br i1 %cmp5.i74, label %if.then65, label %for.inc105
 
 sw.bb6.i71:                                       ; preds = %for.body60
-  %cmp7.i72 = icmp eq i8 %30, 4
+  %cmp7.i72 = icmp eq i8 %29, 4
   br i1 %cmp7.i72, label %if.then65, label %for.inc105
 
 sw.bb8.i69:                                       ; preds = %for.body60
-  %cmp9.i70 = icmp eq i8 %30, 14
+  %cmp9.i70 = icmp eq i8 %29, 14
   br i1 %cmp9.i70, label %if.then65, label %for.inc105
 
 sw.bb10.i67:                                      ; preds = %for.body60
-  %cmp11.i68 = icmp eq i8 %30, 13
+  %cmp11.i68 = icmp eq i8 %29, 13
   br i1 %cmp11.i68, label %if.then65, label %for.inc105
 
 sw.bb12.i64:                                      ; preds = %for.body60
-  %cmp13.i65 = icmp eq i8 %30, 15
+  %cmp13.i65 = icmp eq i8 %29, 15
   br i1 %cmp13.i65, label %if.then65, label %for.inc105
 
 default.unreachable.i79:                          ; preds = %for.body60
   unreachable
 
 nvme_zone_matches_filter.exit80:                  ; preds = %for.body60
-  %cmp.i78 = icmp eq i8 %30, 1
+  %cmp.i78 = icmp eq i8 %29, 1
   br i1 %cmp.i78, label %if.then65, label %for.inc105
 
 if.then65:                                        ; preds = %for.body60, %sw.bb2.i75, %sw.bb4.i73, %sw.bb6.i71, %sw.bb8.i69, %sw.bb10.i67, %sw.bb12.i64, %nvme_zone_matches_filter.exit80
   %add.ptr66 = getelementptr i8, ptr %buf_p.0111, i64 64
-  %31 = load i8, ptr %arrayidx63, align 8
-  store i8 %31, ptr %buf_p.0111, align 1
-  %32 = load i8, ptr %29, align 1
+  %30 = load i8, ptr %arrayidx63, align 8
+  store i8 %30, ptr %buf_p.0111, align 1
+  %31 = load i8, ptr %28, align 1
   %zs69 = getelementptr inbounds i8, ptr %buf_p.0111, i64 1
-  store i8 %32, ptr %zs69, align 1
+  store i8 %31, ptr %zs69, align 1
   %zcap = getelementptr inbounds i8, ptr %arrayidx63, i64 8
-  %33 = load i64, ptr %zcap, align 8
+  %32 = load i64, ptr %zcap, align 8
   %zcap72 = getelementptr inbounds i8, ptr %buf_p.0111, i64 8
-  store i64 %33, ptr %zcap72, align 1
+  store i64 %32, ptr %zcap72, align 1
   %zslba = getelementptr inbounds i8, ptr %arrayidx63, i64 16
-  %34 = load i64, ptr %zslba, align 8
+  %33 = load i64, ptr %zslba, align 8
   %zslba75 = getelementptr inbounds i8, ptr %buf_p.0111, i64 16
-  store i64 %34, ptr %zslba75, align 1
+  store i64 %33, ptr %zslba75, align 1
   %za = getelementptr inbounds i8, ptr %arrayidx63, i64 2
-  %35 = load i8, ptr %za, align 2
+  %34 = load i8, ptr %za, align 2
   %za77 = getelementptr inbounds i8, ptr %buf_p.0111, i64 2
-  store i8 %35, ptr %za77, align 1
-  %arrayidx63.val61 = load i8, ptr %29, align 1
-  %36 = lshr i8 %arrayidx63.val61, 4
-  %shr.i.i = zext nneg i8 %36 to i32
-  %37 = add nsw i32 %shr.i.i, -15
-  %or.cond.i = icmp ult i32 %37, -2
-  %cmp7.i81 = icmp ne i8 %36, 15
+  store i8 %34, ptr %za77, align 1
+  %arrayidx63.val61 = load i8, ptr %28, align 1
+  %35 = lshr i8 %arrayidx63.val61, 4
+  %shr.i.i = zext nneg i8 %35 to i32
+  %36 = add nsw i32 %shr.i.i, -15
+  %or.cond.i = icmp ult i32 %36, -2
+  %cmp7.i81 = icmp ne i8 %35, 15
   %spec.select.i = and i1 %cmp7.i81, %or.cond.i
   br i1 %spec.select.i, label %if.then79, label %if.end85
 
 if.then79:                                        ; preds = %if.then65
   %wp = getelementptr inbounds i8, ptr %arrayidx63, i64 24
-  %38 = load i64, ptr %wp, align 8
+  %37 = load i64, ptr %wp, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then65, %if.then79
-  %.sink = phi i64 [ %38, %if.then79 ], [ -1, %if.then65 ]
-  %39 = getelementptr inbounds i8, ptr %buf_p.0111, i64 24
-  store i64 %.sink, ptr %39, align 1
+  %.sink = phi i64 [ %37, %if.then79 ], [ -1, %if.then65 ]
+  %38 = getelementptr inbounds i8, ptr %buf_p.0111, i64 24
+  store i64 %.sink, ptr %38, align 1
   br i1 %cmp9, label %if.then88, label %if.end103
 
 if.then88:                                        ; preds = %if.end85
-  %40 = load i8, ptr %za, align 2
-  %tobool93.not = icmp sgt i8 %40, -1
+  %39 = load i8, ptr %za, align 2
+  %tobool93.not = icmp sgt i8 %39, -1
   br i1 %tobool93.not, label %if.end99, label %if.then94
 
 if.then94:                                        ; preds = %if.then88
-  %41 = load i32, ptr %zone_idx, align 4
-  %.val = load ptr, ptr %24, align 8
-  %.val60 = load i32, ptr %25, align 8
-  %mul.i = mul i32 %.val60, %41
+  %40 = load i32, ptr %zone_idx, align 4
+  %.val = load ptr, ptr %23, align 8
+  %.val60 = load i32, ptr %24, align 8
+  %mul.i = mul i32 %.val60, %40
   %idxprom.i = zext i32 %mul.i to i64
   %arrayidx.i = getelementptr i8, ptr %.val, i64 %idxprom.i
   %conv98 = zext i32 %.val60 to i64
@@ -16025,8 +16024,8 @@ if.then94:                                        ; preds = %if.then88
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then94, %if.then88
-  %42 = load i32, ptr %25, align 8
-  %idx.ext = zext i32 %42 to i64
+  %41 = load i32, ptr %24, align 8
+  %idx.ext = zext i32 %41 to i64
   %add.ptr102 = getelementptr i8, ptr %add.ptr66, i64 %idx.ext
   br label %if.end103
 
@@ -16038,16 +16037,16 @@ if.end103:                                        ; preds = %if.end99, %if.end85
   br label %for.inc105
 
 for.inc105:                                       ; preds = %sw.bb2.i75, %sw.bb4.i73, %sw.bb6.i71, %sw.bb8.i69, %sw.bb10.i67, %sw.bb12.i64, %nvme_zone_matches_filter.exit80, %if.end103
-  %43 = phi i32 [ %.pre115, %if.end103 ], [ %26, %nvme_zone_matches_filter.exit80 ], [ %26, %sw.bb12.i64 ], [ %26, %sw.bb10.i67 ], [ %26, %sw.bb8.i69 ], [ %26, %sw.bb6.i71 ], [ %26, %sw.bb4.i73 ], [ %26, %sw.bb2.i75 ]
-  %44 = phi i32 [ %.pre, %if.end103 ], [ %27, %nvme_zone_matches_filter.exit80 ], [ %27, %sw.bb12.i64 ], [ %27, %sw.bb10.i67 ], [ %27, %sw.bb8.i69 ], [ %27, %sw.bb6.i71 ], [ %27, %sw.bb4.i73 ], [ %27, %sw.bb2.i75 ]
+  %42 = phi i32 [ %.pre115, %if.end103 ], [ %25, %nvme_zone_matches_filter.exit80 ], [ %25, %sw.bb12.i64 ], [ %25, %sw.bb10.i67 ], [ %25, %sw.bb8.i69 ], [ %25, %sw.bb6.i71 ], [ %25, %sw.bb4.i73 ], [ %25, %sw.bb2.i75 ]
+  %43 = phi i32 [ %.pre, %if.end103 ], [ %26, %nvme_zone_matches_filter.exit80 ], [ %26, %sw.bb12.i64 ], [ %26, %sw.bb10.i67 ], [ %26, %sw.bb8.i69 ], [ %26, %sw.bb6.i71 ], [ %26, %sw.bb4.i73 ], [ %26, %sw.bb2.i75 ]
   %max_zones.1 = phi i64 [ %dec, %if.end103 ], [ %max_zones.0110, %nvme_zone_matches_filter.exit80 ], [ %max_zones.0110, %sw.bb12.i64 ], [ %max_zones.0110, %sw.bb10.i67 ], [ %max_zones.0110, %sw.bb8.i69 ], [ %max_zones.0110, %sw.bb6.i71 ], [ %max_zones.0110, %sw.bb4.i73 ], [ %max_zones.0110, %sw.bb2.i75 ]
   %buf_p.2 = phi ptr [ %buf_p.1, %if.end103 ], [ %buf_p.0111, %nvme_zone_matches_filter.exit80 ], [ %buf_p.0111, %sw.bb12.i64 ], [ %buf_p.0111, %sw.bb10.i67 ], [ %buf_p.0111, %sw.bb8.i69 ], [ %buf_p.0111, %sw.bb6.i71 ], [ %buf_p.0111, %sw.bb4.i73 ], [ %buf_p.0111, %sw.bb2.i75 ]
-  %inc106 = add i32 %44, 1
+  %inc106 = add i32 %43, 1
   store i32 %inc106, ptr %zone_idx, align 4
-  %cmp56 = icmp ult i32 %inc106, %43
+  %cmp56 = icmp ult i32 %inc106, %42
   %cmp58 = icmp ne i64 %max_zones.1, 0
-  %45 = select i1 %cmp56, i1 %cmp58, i1 false
-  br i1 %45, label %for.body60, label %for.end107, !llvm.loop !43
+  %44 = select i1 %cmp56, i1 %cmp58, i1 false
+  br i1 %44, label %for.body60, label %for.end107, !llvm.loop !43
 
 for.end107:                                       ; preds = %for.inc105, %for.end.thread, %for.end
   %call108 = tail call fastcc zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef nonnull %call39, i32 noundef %shl, ptr noundef %req)
@@ -23557,38 +23556,35 @@ if.end12:                                         ; preds = %nvme_subsys_ns.exit
 
 if.end12.thread:                                  ; preds = %if.end
   %cmp143547 = icmp ult i16 %1, 256
-  br i1 %cmp143547, label %nvme_subsys_ctrl.exit.preheader, label %for.end
+  br i1 %cmp143547, label %nvme_subsys_ctrl.exit.lr.ph.thread, label %for.end
+
+nvme_subsys_ctrl.exit.lr.ph.thread:               ; preds = %if.end12.thread
+  %ctrls.i48 = getelementptr inbounds i8, ptr %9, i64 544
+  %13 = zext nneg i16 %1 to i64
+  br label %nvme_subsys_ctrl.exit
 
 nvme_subsys_ctrl.exit.lr.ph:                      ; preds = %if.end12
   %ctrls.i = getelementptr inbounds i8, ptr %9, i64 544
   %idxprom.i24 = zext nneg i32 %.fr39 to i64
-  br i1 %attached, label %nvme_subsys_ctrl.exit.us.preheader, label %nvme_subsys_ctrl.exit.preheader
-
-nvme_subsys_ctrl.exit.preheader:                  ; preds = %if.end12.thread, %nvme_subsys_ctrl.exit.lr.ph
-  %13 = zext nneg i16 %1 to i64
-  %14 = getelementptr inbounds i8, ptr %9, i64 544
-  br label %nvme_subsys_ctrl.exit
-
-nvme_subsys_ctrl.exit.us.preheader:               ; preds = %nvme_subsys_ctrl.exit.lr.ph
-  %15 = zext nneg i16 %1 to i64
+  %14 = zext nneg i16 %1 to i64
   br label %nvme_subsys_ctrl.exit.us
 
-nvme_subsys_ctrl.exit.us:                         ; preds = %nvme_subsys_ctrl.exit.us.preheader, %for.inc.us
-  %indvars.iv43 = phi i64 [ %15, %nvme_subsys_ctrl.exit.us.preheader ], [ %indvars.iv.next44, %for.inc.us ]
-  %nr_ids.037.us = phi i32 [ 0, %nvme_subsys_ctrl.exit.us.preheader ], [ %nr_ids.1.us, %for.inc.us ]
+nvme_subsys_ctrl.exit.us:                         ; preds = %nvme_subsys_ctrl.exit.lr.ph, %for.inc.us
+  %indvars.iv43 = phi i64 [ %14, %nvme_subsys_ctrl.exit.lr.ph ], [ %indvars.iv.next44, %for.inc.us ]
+  %nr_ids.037.us = phi i32 [ 0, %nvme_subsys_ctrl.exit.lr.ph ], [ %nr_ids.1.us, %for.inc.us ]
   %arrayidx.i19.us = getelementptr [256 x ptr], ptr %ctrls.i, i64 0, i64 %indvars.iv43
-  %16 = load ptr, ptr %arrayidx.i19.us, align 8
-  %magicptr.us = ptrtoint ptr %16 to i64
+  %15 = load ptr, ptr %arrayidx.i19.us, align 8
+  %magicptr.us = ptrtoint ptr %15 to i64
   switch i64 %magicptr.us, label %if.end20.us [
     i64 65535, label %for.inc.us
     i64 0, label %for.inc.us
   ]
 
 if.end20.us:                                      ; preds = %nvme_subsys_ctrl.exit.us
-  %namespaces.i23.us = getelementptr inbounds i8, ptr %16, i64 16744
+  %namespaces.i23.us = getelementptr inbounds i8, ptr %15, i64 16744
   %arrayidx.i25.us = getelementptr [257 x ptr], ptr %namespaces.i23.us, i64 0, i64 %idxprom.i24
-  %17 = load ptr, ptr %arrayidx.i25.us, align 8
-  %tobool24.not.us = icmp eq ptr %17, null
+  %16 = load ptr, ptr %arrayidx.i25.us, align 8
+  %tobool24.not.us = icmp eq ptr %16, null
   br i1 %tobool24.not.us, label %for.inc.us, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end20.us
@@ -23605,12 +23601,12 @@ for.inc.us:                                       ; preds = %if.end26.us, %if.en
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 256
   br i1 %exitcond46.not, label %for.end, label %nvme_subsys_ctrl.exit.us, !llvm.loop !63
 
-nvme_subsys_ctrl.exit:                            ; preds = %nvme_subsys_ctrl.exit.preheader, %for.inc
-  %indvars.iv = phi i64 [ %13, %nvme_subsys_ctrl.exit.preheader ], [ %indvars.iv.next, %for.inc ]
-  %nr_ids.037 = phi i32 [ 0, %nvme_subsys_ctrl.exit.preheader ], [ %nr_ids.1, %for.inc ]
-  %arrayidx.i19 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %indvars.iv
-  %18 = load ptr, ptr %arrayidx.i19, align 8
-  %magicptr = ptrtoint ptr %18 to i64
+nvme_subsys_ctrl.exit:                            ; preds = %nvme_subsys_ctrl.exit.lr.ph.thread, %for.inc
+  %indvars.iv = phi i64 [ %13, %nvme_subsys_ctrl.exit.lr.ph.thread ], [ %indvars.iv.next, %for.inc ]
+  %nr_ids.037 = phi i32 [ 0, %nvme_subsys_ctrl.exit.lr.ph.thread ], [ %nr_ids.1, %for.inc ]
+  %arrayidx.i19 = getelementptr [256 x ptr], ptr %ctrls.i48, i64 0, i64 %indvars.iv
+  %17 = load ptr, ptr %arrayidx.i19, align 8
+  %magicptr = ptrtoint ptr %17 to i64
   switch i64 %magicptr, label %if.end20 [
     i64 65535, label %for.inc
     i64 0, label %for.inc

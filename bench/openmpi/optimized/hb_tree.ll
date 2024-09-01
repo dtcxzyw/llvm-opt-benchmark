@@ -2195,7 +2195,7 @@ define internal range(i32 0, 2) i32 @hb_itor_search(ptr nocapture noundef %0, pt
   %6 = load ptr, ptr %.014, align 8
   %7 = tail call i32 %5(ptr noundef %1, ptr noundef %6) #11
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge.loopexit, label %9
+  br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = icmp slt i32 %7, 0
@@ -2203,18 +2203,13 @@ define internal range(i32 0, 2) i32 @hb_itor_search(ptr nocapture noundef %0, pt
   %.in = getelementptr inbounds i8, ptr %.014, i64 %.in.v
   %.0 = load ptr, ptr %.in, align 8
   %.not19 = icmp eq ptr %.0, null
-  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %9
-  %.0.lcssa.ph = phi ptr [ null, %9 ], [ %.014, %.lr.ph ]
-  %11 = zext i1 %8 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %2 ], [ %11, %._crit_edge.loopexit ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0.lcssa, ptr %12, align 8
+._crit_edge:                                      ; preds = %9, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ %.014, %.lr.ph ], [ null, %9 ]
+  %.lcssa = phi i32 [ 0, %2 ], [ 1, %.lr.ph ], [ 0, %9 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.0.lcssa, ptr %11, align 8
   ret i32 %.lcssa
 }
 

@@ -1615,8 +1615,8 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 93:                                               ; preds = %77
   %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %80) #13
   %95 = load i8, ptr %75, align 8
-  %.not195.not = icmp eq i8 %95, 8
-  br i1 %.not195.not, label %.thread, label %.preheader
+  %.not195 = icmp eq i8 %95, 8
+  br i1 %.not195, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %93
   %96 = zext i8 %95 to i32

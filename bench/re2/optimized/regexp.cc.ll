@@ -3442,7 +3442,7 @@ if.end42:                                         ; preds = %_ZNSt8_Rb_treeIN3re
 
 if.then44:                                        ; preds = %if.end42
   %sub48 = add nsw i32 %lo, -1
-  br i1 %cmp.not5.i.i.i, label %if.end78, label %while.body.i.i.i30
+  br label %while.body.i.i.i30
 
 while.body.i.i.i30:                               ; preds = %if.then44, %while.body.i.i.i30
   %__x.addr.07.i.i.i31 = phi ptr [ %__x.addr.1.i.i.i38, %while.body.i.i.i30 ], [ %2, %if.then44 ]
@@ -3488,10 +3488,10 @@ if.then56:                                        ; preds = %_ZNSt3setIN3re29Run
   %.pre191.pre = load ptr, ptr %_M_parent.i.i.i.i, align 8
   br label %if.end78
 
-if.end78:                                         ; preds = %if.end27, %if.then44, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48, %if.then56, %if.end42
-  %.pre191 = phi ptr [ %.pre191.pre, %if.then56 ], [ %2, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %2, %if.end42 ], [ %2, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ null, %if.then44 ], [ null, %if.end27 ]
-  %hi.addr.0 = phi i32 [ %spec.select, %if.then56 ], [ %hi, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %hi, %if.end42 ], [ %hi, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ %hi, %if.then44 ], [ %hi, %if.end27 ]
-  %lo.addr.0 = phi i32 [ %8, %if.then56 ], [ %lo, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %lo, %if.end42 ], [ %lo, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ %lo, %if.then44 ], [ %lo, %if.end27 ]
+if.end78:                                         ; preds = %if.end27, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48, %if.then56, %if.end42
+  %.pre191 = phi ptr [ %.pre191.pre, %if.then56 ], [ %2, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %2, %if.end42 ], [ %2, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ null, %if.end27 ]
+  %hi.addr.0 = phi i32 [ %spec.select, %if.then56 ], [ %hi, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %hi, %if.end42 ], [ %hi, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ %hi, %if.end27 ]
+  %lo.addr.0 = phi i32 [ %8, %if.then56 ], [ %lo, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE4findERKS1_.exit48 ], [ %lo, %if.end42 ], [ %lo, %_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i40 ], [ %lo, %if.end27 ]
   %cmp79 = icmp slt i32 %hi.addr.0, 1114111
   br i1 %cmp79, label %if.then80, label %if.end110
 

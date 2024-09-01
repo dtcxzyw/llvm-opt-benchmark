@@ -3312,8 +3312,8 @@ land.rhs.i:                                       ; preds = %entry
   %9 = load ptr, ptr %_operator.i, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i, align 8
-  %cmp.i.i.not = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i, 1
-  br i1 %cmp.i.i.not, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, label %if.end61
+  %cmp.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i, 1
+  br i1 %cmp.i.i, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, label %if.end61
 
 _ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %land.rhs.i
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %9, align 8
@@ -3540,12 +3540,12 @@ tailrecurse.i163:                                 ; preds = %_ZN6hermes12_GLOBAL
 land.lhs.true.i167:                               ; preds = %tailrecurse.i163
   %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0)
   %cmp.i169 = icmp eq i32 %call.i168, 1
-  br i1 %cmp.i169, label %land.rhs.i204, label %if.end.i170
+  br i1 %cmp.i169, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %if.end.i170
 
 if.end.i170:                                      ; preds = %land.lhs.true.i167, %tailrecurse.i163
   %kind_.i.i.i.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 16
   %30 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i269, align 8
-  switch i32 %30, label %land.rhs.i204 [
+  switch i32 %30, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210 [
     i32 52, label %land.rhs.i.i285
     i32 53, label %land.lhs.true.i.i273
     i32 34, label %land.rhs.i18.i270
@@ -3591,7 +3591,7 @@ land.rhs.i18.i270:                                ; preds = %if.end.i170
   %_value.i.i271 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
   %35 = load double, ptr %_value.i.i271, align 8
   %cmp.i.i272 = fcmp olt double %35, 0.000000e+00
-  br i1 %cmp.i.i272, label %if.then40, label %land.rhs.i204
+  br i1 %cmp.i.i272, label %if.then40, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293: ; preds = %land.rhs.i9.i277
   %agg.tmp.sroa.0.0.copyload.i11.i283 = load ptr, ptr %34, align 8
@@ -3612,23 +3612,20 @@ if.then43.i188:                                   ; preds = %land.lhs.true.i.i27
   %_prefix.i189 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
   %37 = load i8, ptr %_prefix.i189, align 8
   %tobool44.i190 = trunc i8 %37 to i1
-  br i1 %tobool44.i190, label %land.rhs.i204, label %tailrecurse.backedge.i178
+  br i1 %tobool44.i190, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %tailrecurse.backedge.i178
 
 if.then49.i195:                                   ; preds = %land.rhs.i.i285, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290
   %_prefix50.i196 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
   %38 = load i8, ptr %_prefix50.i196, align 8
   %tobool51.i197 = trunc i8 %38 to i1
-  br i1 %tobool51.i197, label %land.rhs.i204, label %tailrecurse.backedge.i178
+  br i1 %tobool51.i197, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %tailrecurse.backedge.i178
 
 if.then40:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293, %land.rhs.i18.i270
   %tobool42 = trunc i8 %this.8.val to i1
   %cond43 = select i1 %tobool42, i32 1, i32 2
   br label %return
 
-land.rhs.i204:                                    ; preds = %if.then49.i195, %if.then43.i188, %land.lhs.true.i167, %if.end.i170, %land.rhs.i18.i270
-  br i1 %cmp.i.i52, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %if.end61
-
-_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210: ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %land.rhs.i204
+_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210: ; preds = %land.lhs.true.i167, %if.then43.i188, %if.then49.i195, %if.end.i170, %land.rhs.i18.i270, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
   %agg.tmp.sroa.0.0.copyload.i206 = load ptr, ptr %28, align 8
   %lhsc9 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i206, align 1
   %39 = icmp eq i8 %lhsc9, 43
@@ -3721,7 +3718,7 @@ if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL
   %cond54 = select i1 %tobool53, i32 1, i32 2
   br label %return
 
-if.end61:                                         ; preds = %if.end.i218, %if.then49.i243, %if.then43.i236, %land.lhs.true.i215, %land.rhs.i47, %land.rhs.i, %land.rhs.i204, %if.else33, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %if.then, %land.lhs.true
+if.end61:                                         ; preds = %if.end.i218, %if.then49.i243, %if.then43.i236, %land.lhs.true.i215, %land.rhs.i47, %land.rhs.i, %if.else33, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %if.then, %land.lhs.true
   %call62 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef %child)
   %childPr.sroa.0.0.extract.trunc = trunc i64 %call62 to i32
   %cmp63 = icmp eq i32 %childPr.sroa.0.0.extract.trunc, 0
@@ -4114,8 +4111,8 @@ entry:
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, 19
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %node, ptr null
-  %tobool.not = icmp ne ptr %spec.select.i, null
-  br i1 %tobool.not, label %land.lhs.true, label %lor.lhs.false
+  %tobool.not.not = icmp eq ptr %spec.select.i, null
+  br i1 %tobool.not.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %_body = getelementptr inbounds i8, ptr %spec.select.i, i64 56
@@ -4164,8 +4161,7 @@ if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %brmerge = or i1 %forceBlock, %tobool.not
-  br i1 %brmerge, label %if.then8, label %if.else17
+  br i1 %forceBlock, label %if.then8, label %if.else17
 
 if.then8:                                         ; preds = %land.lhs.true, %if.end
   %7 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4214,7 +4210,7 @@ if.then.i18:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i18
-  br i1 %tobool.not, label %if.then12, label %if.else
+  br i1 %tobool.not.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
   %_body13 = getelementptr inbounds i8, ptr %spec.select.i, i64 56

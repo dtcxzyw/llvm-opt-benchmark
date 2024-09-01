@@ -7343,14 +7343,14 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit: ; preds = %_ZNSt10unique_pt
 if.end399:                                        ; preds = %if.end324
   %176 = load ptr, ptr %script_.i, align 8
   %cmp.i.i2535 = icmp eq ptr %176, null
-  br i1 %cmp.i.i2535, label %_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit, label %if.end.i2536
+  br i1 %cmp.i.i2535, label %if.end.i2540, label %if.end.i2536
 
 if.end.i2536:                                     ; preds = %if.end399
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %176) #21
   store ptr null, ptr %script_.i, align 8
-  br label %_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
+  br label %if.end.i2540
 
-_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit: ; preds = %if.end399, %if.end.i2536
+if.end.i2540:                                     ; preds = %if.end399, %if.end.i2536
   %177 = load i64, ptr %call371, align 8
   %call2.i2541 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %177) #21
   store ptr %call2.i2541, ptr %script_.i, align 8
@@ -7364,7 +7364,7 @@ _ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5Local
   %cmp.i.i.i208 = icmp eq i8 %180, 2
   br i1 %cmp.i.i.i208, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i, label %_ZNK4node10BaseObject6objectEv.exit
 
-_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
+_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %if.end.i2540
   %181 = load ptr, ptr %realm_.i.i203, align 8
   %env_.i.i.i204 = getelementptr inbounds i8, ptr %181, i64 176
   %182 = load ptr, ptr %env_.i.i.i204, align 8
@@ -7374,8 +7374,8 @@ _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS
   %call.i.i.i.i210 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %183, i64 noundef %184) #21
   br label %_ZNK4node10BaseObject6objectEv.exit
 
-_ZNK4node10BaseObject6objectEv.exit:              ; preds = %_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
-  %retval.sroa.0.0.i.i209 = phi ptr [ %call.i.i.i.i210, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %178, %_ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit ]
+_ZNK4node10BaseObject6objectEv.exit:              ; preds = %if.end.i2540, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
+  %retval.sroa.0.0.i.i209 = phi ptr [ %call.i.i.i.i210, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %178, %if.end.i2540 ]
   call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i209, i32 noundef 2, ptr nonnull %call371) #21
   br i1 %produce_cached_data.0, label %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EE5resetEPS2_.exit, label %if.end422
 
@@ -9435,7 +9435,7 @@ if.end137:                                        ; preds = %if.end100
 
 if.end144.thread:                                 ; preds = %if.end137
   store i64 0, ptr %agg.tmp148, align 8
-  %call15236 = call i16 @_ZN4node10contextify20StoreCodeCacheResultEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS3_14ScriptCompiler14CompileOptionsERKNS7_6SourceEbSt10unique_ptrINS7_10CachedDataESt14default_deleteISD_EE(ptr noundef nonnull %env, ptr nonnull %call62, i32 noundef %options, ptr noundef nonnull align 8 dereferenceable(80) %source, i1 noundef zeroext %produce_cached_data, ptr noundef nonnull %agg.tmp148)
+  %call15236 = call i16 @_ZN4node10contextify20StoreCodeCacheResultEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS3_14ScriptCompiler14CompileOptionsERKNS7_6SourceEbSt10unique_ptrINS7_10CachedDataESt14default_deleteISD_EE(ptr noundef nonnull %env, ptr nonnull %call62, i32 noundef %options, ptr noundef nonnull align 8 dereferenceable(80) %source, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp148)
   %tobool.i37 = trunc i16 %call15236 to i1
   br i1 %tobool.i37, label %return, label %if.then154
 
@@ -9443,7 +9443,7 @@ if.end144:                                        ; preds = %if.end137
   %call143 = call noundef ptr @_ZN2v814ScriptCompiler26CreateCodeCacheForFunctionENS_5LocalINS_8FunctionEEE(ptr nonnull %call12) #21
   %16 = ptrtoint ptr %call143 to i64
   store i64 %16, ptr %agg.tmp148, align 8
-  %call152 = call i16 @_ZN4node10contextify20StoreCodeCacheResultEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS3_14ScriptCompiler14CompileOptionsERKNS7_6SourceEbSt10unique_ptrINS7_10CachedDataESt14default_deleteISD_EE(ptr noundef nonnull %env, ptr nonnull %call62, i32 noundef %options, ptr noundef nonnull align 8 dereferenceable(80) %source, i1 noundef zeroext %produce_cached_data, ptr noundef nonnull %agg.tmp148)
+  %call152 = call i16 @_ZN4node10contextify20StoreCodeCacheResultEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS3_14ScriptCompiler14CompileOptionsERKNS7_6SourceEbSt10unique_ptrINS7_10CachedDataESt14default_deleteISD_EE(ptr noundef nonnull %env, ptr nonnull %call62, i32 noundef %options, ptr noundef nonnull align 8 dereferenceable(80) %source, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp148)
   %tobool.i = trunc i16 %call152 to i1
   %cmp.not.i = icmp eq ptr %call143, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i

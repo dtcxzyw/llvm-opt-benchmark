@@ -107,8 +107,8 @@ entry:
   %0 = load i32, ptr %tcg_cflags.i, align 16
   %singlestep_enabled.i = getelementptr i8, ptr %env, i64 -9956
   %1 = load i32, ptr %singlestep_enabled.i, align 4
-  %tobool.not.i.not = icmp eq i32 %1, 0
-  br i1 %tobool.not.i.not, label %while.end.i, label %curr_cflags.exit.thread
+  %tobool.not.i = icmp eq i32 %1, 0
+  br i1 %tobool.not.i, label %while.end.i, label %curr_cflags.exit.thread
 
 while.end.i:                                      ; preds = %entry
   %2 = load atomic i8, ptr @one_insn_per_tb monotonic, align 1
@@ -928,8 +928,11 @@ if.end:                                           ; preds = %if.then4.i, %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cs_base.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
   %exception_index.i.i = getelementptr inbounds i8, ptr %cpu, i64 728
-  %watchpoint_hit.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 616
-  %watchpoints.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 600
+  %3 = load i32, ptr %exception_index.i.i, align 8
+  %cmp.i29.i = icmp sgt i32 %3, -1
+  br i1 %cmp.i29.i, label %if.end.i.i, label %while.body.lr.ph.i
+
+while.body.lr.ph.i:                               ; preds = %if.end
   %cflags_next_tb.i.i = getelementptr inbounds i8, ptr %cpu, i64 212
   %icount_decr.i.i = getelementptr inbounds i8, ptr %cpu, i64 10160
   %high.i.i = getelementptr inbounds i8, ptr %cpu, i64 10162
@@ -952,23 +955,23 @@ if.end:                                           ; preds = %if.then4.i, %if.end
   %cflags3.i.i = getelementptr inbounds i8, ptr %desc.i.i, i64 36
   %page_addr0.i.i = getelementptr inbounds i8, ptr %desc.i.i, i64 24
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %3 = load i32, ptr %exception_index.i.i, align 8
-  %cmp.i.i5 = icmp sgt i32 %3, -1
-  br i1 %cmp.i.i5, label %if.end.i.i, label %while.body.i
+  br label %while.body.i
 
 if.end.i.i:                                       ; preds = %while.end44.i, %if.end
-  %.lcssa1 = phi i32 [ %3, %if.end ], [ %84, %while.end44.i ]
-  %cmp5.i.i = icmp eq i32 %.lcssa1, 65538
+  %.lcssa22.i = phi i32 [ %3, %if.end ], [ %84, %while.end44.i ]
+  %cmp5.i.i = icmp eq i32 %.lcssa22.i, 65538
   br i1 %cmp5.i.i, label %if.then6.i.i, label %cpu_exec_loop.exit
 
-if.then6.i.i:                                     ; preds = %if.end.i.i.thread, %if.end.i.i
+if.then6.i.i:                                     ; preds = %if.end.i.thread.i, %if.end.i.i
   %call.i.i.i.i = call ptr @object_get_class(ptr noundef nonnull %cpu) #12
   %call1.i.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #12
+  %watchpoint_hit.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 616
   %4 = load ptr, ptr %watchpoint_hit.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i.i
+  %watchpoints.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 600
   %wp.07.i.i.i = load ptr, ptr %watchpoints.i.i.i, align 8
   %tobool1.not8.i.i.i = icmp eq ptr %wp.07.i.i.i, null
   br i1 %tobool1.not8.i.i.i, label %if.end.i.i.i, label %for.body.i.i.i
@@ -996,7 +999,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   call void %7(ptr noundef %cpu) #12
   br label %cpu_exec_loop.exit
 
-while.body.i:                                     ; preds = %if.end, %while.end44.i
+while.body.i:                                     ; preds = %while.end44.i, %while.body.lr.ph.i
   store i32 0, ptr %tb_exit.i, align 4
   br label %while.cond1.i
 
@@ -1028,7 +1031,7 @@ if.then29.i.i:                                    ; preds = %if.then13.i.i
   store i32 %and31.i.i, ptr %interrupt_request.i.i, align 8
   store i32 65538, ptr %exception_index.i.i, align 8
   call void @qemu_mutex_unlock_iothread() #12
-  %.pre = load i32, ptr %exception_index.i.i, align 8
+  %.pre.i = load i32, ptr %exception_index.i.i, align 8
   br label %while.end44.i
 
 if.end32.i.i:                                     ; preds = %if.then13.i.i
@@ -1147,7 +1150,7 @@ do.body.i.i.i:                                    ; preds = %if.then3.i.i.i
 if.end11.i.i.i:                                   ; preds = %if.then3.i.i.i
   %and.i.i29.i = and i32 %28, 16
   %tobool4.not.not.not.i.i.i = icmp eq i32 %and.i.i29.i, 0
-  br i1 %tobool4.not.not.not.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.thread
+  br i1 %tobool4.not.not.not.i.i.i, label %for.inc.i.i.i, label %if.end.i.thread.i
 
 if.else15.i.i.i:                                  ; preds = %for.body.i.i26.i
   %xor.i.i.i = xor i64 %27, %24
@@ -1170,7 +1173,7 @@ if.then24.i.i.i:                                  ; preds = %for.end.i.i.i
   %or26.i.i.i = or disjoint i32 %and25.i.i.i, 513
   br label %if.end10.i
 
-if.end.i.i.thread:                                ; preds = %if.end11.i.i.i
+if.end.i.thread.i:                                ; preds = %if.end11.i.i.i
   store i32 65538, ptr %exception_index.i.i, align 8
   br label %if.then6.i.i
 
@@ -1592,18 +1595,18 @@ if.else.i54.i:                                    ; preds = %if.end.i51.i
   unreachable
 
 while.end44.i:                                    ; preds = %while.end76.i.i, %if.then29.i.i
-  %84 = phi i32 [ %17, %while.end76.i.i ], [ %.pre, %if.then29.i.i ]
+  %84 = phi i32 [ %17, %while.end76.i.i ], [ %.pre.i, %if.then29.i.i ]
   %cmp.i.i = icmp sgt i32 %84, -1
   br i1 %cmp.i.i, label %if.end.i.i, label %while.body.i, !llvm.loop !15
 
 cpu_exec_loop.exit:                               ; preds = %while.end76.i.i, %if.end.i.i, %if.end.i.i.i, %if.then4.i.i.i
-  %.lcssa110 = phi i32 [ %.lcssa1, %if.end.i.i ], [ 65538, %if.end.i.i.i ], [ 65538, %if.then4.i.i.i ], [ 65536, %while.end76.i.i ]
+  %.lcssa2235.i = phi i32 [ 65538, %if.then4.i.i.i ], [ 65538, %if.end.i.i.i ], [ %.lcssa22.i, %if.end.i.i ], [ 65536, %while.end76.i.i ]
   store i32 -1, ptr %exception_index.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tb_exit.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pc.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cs_base.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
-  ret i32 %.lcssa110
+  ret i32 %.lcssa2235.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

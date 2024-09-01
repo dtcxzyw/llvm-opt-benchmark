@@ -5112,14 +5112,14 @@ jbd2_free.exit:                                   ; preds = %jbd2_free.exit.back
   %99 = add i64 %97, %98
   %100 = inttoptr i64 %99 to ptr
   %101 = getelementptr i8, ptr %100, i64 %93
-  %.not51 = icmp eq i32 %88, 0
-  br i1 %.not51, label %104, label %.thread
+  %.not = icmp eq i32 %88, 0
+  br i1 %.not, label %104, label %.thread
 
 .thread:                                          ; preds = %85
   %102 = trunc i64 %92 to i32
   %103 = load i32, ptr %101, align 4
-  %.not = icmp eq i32 %103, -1741079616
-  br i1 %.not, label %.thread4, label %select.unfold
+  %.not5 = icmp eq i32 %103, -1741079616
+  br i1 %.not5, label %.thread4, label %select.unfold
 
 104:                                              ; preds = %85
   %105 = load ptr, ptr %16, align 8

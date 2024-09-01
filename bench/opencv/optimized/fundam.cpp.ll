@@ -6878,18 +6878,15 @@ _ZNK2cv11_InputArray6getMatEi.exit103:            ; preds = %37, %40
   %91 = fdiv double %66, %89
   %92 = fdiv double %70, %89
   %93 = fdiv double %74, %89
-  br i1 %53, label %.lr.ph164.preheader, label %._crit_edge165
-
-.lr.ph164.preheader:                              ; preds = %._crit_edge
   %wide.trip.count186 = zext nneg i32 %41 to i64
   br label %.lr.ph164
 
-.lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
-  %indvars.iv183 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next184, %.lr.ph164 ]
-  %.sroa.0.0161 = phi double [ 0.000000e+00, %.lr.ph164.preheader ], [ %99, %.lr.ph164 ]
-  %.sroa.7.0160 = phi double [ 0.000000e+00, %.lr.ph164.preheader ], [ %105, %.lr.ph164 ]
-  %.sroa.0114.0159 = phi double [ 0.000000e+00, %.lr.ph164.preheader ], [ %111, %.lr.ph164 ]
-  %.sroa.9.0158 = phi double [ 0.000000e+00, %.lr.ph164.preheader ], [ %117, %.lr.ph164 ]
+.lr.ph164:                                        ; preds = %._crit_edge, %.lr.ph164
+  %indvars.iv183 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next184, %.lr.ph164 ]
+  %.sroa.0.0161 = phi double [ 0.000000e+00, %._crit_edge ], [ %99, %.lr.ph164 ]
+  %.sroa.7.0160 = phi double [ 0.000000e+00, %._crit_edge ], [ %105, %.lr.ph164 ]
+  %.sroa.0114.0159 = phi double [ 0.000000e+00, %._crit_edge ], [ %111, %.lr.ph164 ]
+  %.sroa.9.0158 = phi double [ 0.000000e+00, %._crit_edge ], [ %117, %.lr.ph164 ]
   %94 = getelementptr inbounds %"class.cv::Point_", ptr %46, i64 %indvars.iv183
   %95 = load float, ptr %94, align 4
   %96 = fpext float %95 to double
@@ -6918,16 +6915,16 @@ _ZNK2cv11_InputArray6getMatEi.exit103:            ; preds = %37, %40
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !138
 
-._crit_edge165:                                   ; preds = %.lr.ph164, %._crit_edge.thread, %._crit_edge
-  %118 = phi double [ %93, %._crit_edge ], [ %58, %._crit_edge.thread ], [ %93, %.lr.ph164 ]
-  %119 = phi double [ %92, %._crit_edge ], [ %57, %._crit_edge.thread ], [ %92, %.lr.ph164 ]
-  %120 = phi double [ %91, %._crit_edge ], [ %56, %._crit_edge.thread ], [ %91, %.lr.ph164 ]
-  %121 = phi double [ %90, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %90, %.lr.ph164 ]
-  %122 = phi double [ %89, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %89, %.lr.ph164 ]
-  %.sroa.9.0.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %117, %.lr.ph164 ]
-  %.sroa.0114.0.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %111, %.lr.ph164 ]
-  %.sroa.7.0.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %105, %.lr.ph164 ]
-  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %99, %.lr.ph164 ]
+._crit_edge165:                                   ; preds = %.lr.ph164, %._crit_edge.thread
+  %118 = phi double [ %58, %._crit_edge.thread ], [ %93, %.lr.ph164 ]
+  %119 = phi double [ %57, %._crit_edge.thread ], [ %92, %.lr.ph164 ]
+  %120 = phi double [ %56, %._crit_edge.thread ], [ %91, %.lr.ph164 ]
+  %121 = phi double [ %55, %._crit_edge.thread ], [ %90, %.lr.ph164 ]
+  %122 = phi double [ %54, %._crit_edge.thread ], [ %89, %.lr.ph164 ]
+  %.sroa.9.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %117, %.lr.ph164 ]
+  %.sroa.0114.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %111, %.lr.ph164 ]
+  %.sroa.7.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %105, %.lr.ph164 ]
+  %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %99, %.lr.ph164 ]
   %123 = call double @llvm.fabs.f64(double %.sroa.0.0.lcssa)
   %124 = fcmp olt double %123, 0x3CB0000000000000
   %125 = call double @llvm.fabs.f64(double %.sroa.7.0.lcssa)
@@ -7494,7 +7491,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv27HomographyEstimatorCallb
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %13 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc unwind label %102
+          to label %.noexc unwind label %96
 
 .noexc:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %14 = icmp eq i32 %13, 65536
@@ -7504,11 +7501,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !158
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit48 unwind label %102
+          to label %_ZNK2cv11_InputArray6getMatEi.exit48 unwind label %96
 
 18:                                               ; preds = %.noexc
   invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit48 unwind label %102
+          to label %_ZNK2cv11_InputArray6getMatEi.exit48 unwind label %96
 
 _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
   %19 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7526,222 +7523,210 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
   br label %27
 
 27:                                               ; preds = %._crit_edge.i, %.lr.ph6.i
-  %indvars.iv11.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next12.i, %._crit_edge.i ]
-  %28 = phi i1 [ true, %.lr.ph6.i ], [ %60, %._crit_edge.i ]
-  %29 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv11.i
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  %31 = load float, ptr %30, align 4
-  %32 = fsub float %31, %26
-  %33 = fpext float %32 to double
-  %.not.i = icmp eq i64 %indvars.iv11.i, 0
+  %indvars.iv9.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next10.i, %._crit_edge.i ]
+  %28 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv9.i
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = load float, ptr %29, align 4
+  %31 = fsub float %30, %26
+  %32 = fpext float %31 to double
+  %.not.i = icmp eq i64 %indvars.iv9.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27
-  %34 = load float, ptr %29, align 4
-  %35 = fsub float %34, %24
-  %36 = fpext float %35 to double
-  %37 = fneg double %36
-  %38 = call double @llvm.fabs.f64(double %36)
-  %39 = call double @llvm.fabs.f64(double %33)
-  %40 = fadd double %39, %38
-  br label %42
+  %33 = load float, ptr %28, align 4
+  %34 = fsub float %33, %24
+  %35 = fpext float %34 to double
+  %36 = fneg double %35
+  %37 = call double @llvm.fabs.f64(double %35)
+  %38 = call double @llvm.fabs.f64(double %32)
+  %39 = fadd double %38, %37
+  br label %41
 
-41:                                               ; preds = %42
+40:                                               ; preds = %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv11.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !161
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv9.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %41, !llvm.loop !161
 
-42:                                               ; preds = %41, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i
-  %44 = load float, ptr %43, align 4
-  %45 = fsub float %44, %24
-  %46 = fpext float %45 to double
-  %47 = getelementptr inbounds i8, ptr %43, i64 4
-  %48 = load float, ptr %47, align 4
-  %49 = fsub float %48, %26
-  %50 = fpext float %49 to double
-  %51 = fmul double %37, %50
-  %52 = call double @llvm.fmuladd.f64(double %46, double %33, double %51)
-  %53 = call double @llvm.fabs.f64(double %52)
-  %54 = call double @llvm.fabs.f64(double %46)
-  %55 = fadd double %40, %54
-  %56 = call double @llvm.fabs.f64(double %50)
-  %57 = fadd double %55, %56
-  %58 = fmul double %57, 0x3E80000000000000
-  %59 = fcmp ugt double %53, %58
-  br i1 %59, label %41, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
+41:                                               ; preds = %40, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
+  %42 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i
+  %43 = load float, ptr %42, align 4
+  %44 = fsub float %43, %24
+  %45 = fpext float %44 to double
+  %46 = getelementptr inbounds i8, ptr %42, i64 4
+  %47 = load float, ptr %46, align 4
+  %48 = fsub float %47, %26
+  %49 = fpext float %48 to double
+  %50 = fmul double %36, %49
+  %51 = call double @llvm.fmuladd.f64(double %45, double %32, double %50)
+  %52 = call double @llvm.fabs.f64(double %51)
+  %53 = call double @llvm.fabs.f64(double %45)
+  %54 = fadd double %39, %53
+  %55 = call double @llvm.fabs.f64(double %49)
+  %56 = fadd double %54, %55
+  %57 = fmul double %56, 0x3E80000000000000
+  %58 = fcmp ugt double %52, %57
+  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i:                                    ; preds = %41, %27
-  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
-  %60 = icmp ult i64 %indvars.iv.next12.i, %22
-  %exitcond14.not.i = icmp eq i64 %indvars.iv.next12.i, %22
-  br i1 %exitcond14.not.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %27, !llvm.loop !162
+._crit_edge.i:                                    ; preds = %40, %27
+  %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
+  %exitcond13.not.i = icmp eq i64 %indvars.iv.next10.i, %22
+  br i1 %exitcond13.not.i, label %.lr.ph6.i49, label %27, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %42
-  %61 = phi i1 [ %28, %42 ], [ %60, %._crit_edge.i ]
-  br i1 %61, label %175, label %.lr.ph6.i49
+.lr.ph6.i49:                                      ; preds = %._crit_edge.i
+  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %.val44 = load ptr, ptr %59, align 8
+  %60 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %22
+  %61 = load float, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %63 = load float, ptr %62, align 4
+  br label %64
 
-.lr.ph6.i49:                                      ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
-  %.val44 = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %22
-  %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
-  %66 = load float, ptr %65, align 4
-  br label %67
-
-67:                                               ; preds = %._crit_edge.i57, %.lr.ph6.i49
-  %indvars.iv11.i51 = phi i64 [ 0, %.lr.ph6.i49 ], [ %indvars.iv.next12.i58, %._crit_edge.i57 ]
-  %68 = phi i1 [ true, %.lr.ph6.i49 ], [ %100, %._crit_edge.i57 ]
-  %69 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv11.i51
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %71 = load float, ptr %70, align 4
-  %72 = fsub float %71, %66
-  %73 = fpext float %72 to double
-  %.not.i52 = icmp eq i64 %indvars.iv11.i51, 0
+64:                                               ; preds = %._crit_edge.i57, %.lr.ph6.i49
+  %indvars.iv9.i51 = phi i64 [ 0, %.lr.ph6.i49 ], [ %indvars.iv.next10.i58, %._crit_edge.i57 ]
+  %65 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv9.i51
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = load float, ptr %66, align 4
+  %68 = fsub float %67, %63
+  %69 = fpext float %68 to double
+  %.not.i52 = icmp eq i64 %indvars.iv9.i51, 0
   br i1 %.not.i52, label %._crit_edge.i57, label %.lr.ph.i53
 
-.lr.ph.i53:                                       ; preds = %67
-  %74 = load float, ptr %69, align 4
-  %75 = fsub float %74, %64
-  %76 = fpext float %75 to double
-  %77 = fneg double %76
-  %78 = call double @llvm.fabs.f64(double %76)
-  %79 = call double @llvm.fabs.f64(double %73)
-  %80 = fadd double %79, %78
-  br label %82
+.lr.ph.i53:                                       ; preds = %64
+  %70 = load float, ptr %65, align 4
+  %71 = fsub float %70, %61
+  %72 = fpext float %71 to double
+  %73 = fneg double %72
+  %74 = call double @llvm.fabs.f64(double %72)
+  %75 = call double @llvm.fabs.f64(double %69)
+  %76 = fadd double %75, %74
+  br label %78
 
-81:                                               ; preds = %82
+77:                                               ; preds = %78
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
-  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %indvars.iv11.i51
-  br i1 %exitcond.not.i56, label %._crit_edge.i57, label %82, !llvm.loop !161
+  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %indvars.iv9.i51
+  br i1 %exitcond.not.i56, label %._crit_edge.i57, label %78, !llvm.loop !161
 
-82:                                               ; preds = %81, %.lr.ph.i53
-  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %81 ]
-  %83 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv.i54
+78:                                               ; preds = %77, %.lr.ph.i53
+  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %77 ]
+  %79 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %indvars.iv.i54
+  %80 = load float, ptr %79, align 4
+  %81 = fsub float %80, %61
+  %82 = fpext float %81 to double
+  %83 = getelementptr inbounds i8, ptr %79, i64 4
   %84 = load float, ptr %83, align 4
-  %85 = fsub float %84, %64
+  %85 = fsub float %84, %63
   %86 = fpext float %85 to double
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
-  %88 = load float, ptr %87, align 4
-  %89 = fsub float %88, %66
-  %90 = fpext float %89 to double
-  %91 = fmul double %77, %90
-  %92 = call double @llvm.fmuladd.f64(double %86, double %73, double %91)
-  %93 = call double @llvm.fabs.f64(double %92)
-  %94 = call double @llvm.fabs.f64(double %86)
-  %95 = fadd double %80, %94
-  %96 = call double @llvm.fabs.f64(double %90)
-  %97 = fadd double %95, %96
-  %98 = fmul double %97, 0x3E80000000000000
-  %99 = fcmp ugt double %93, %98
-  br i1 %99, label %81, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60
+  %87 = fmul double %73, %86
+  %88 = call double @llvm.fmuladd.f64(double %82, double %69, double %87)
+  %89 = call double @llvm.fabs.f64(double %88)
+  %90 = call double @llvm.fabs.f64(double %82)
+  %91 = fadd double %76, %90
+  %92 = call double @llvm.fabs.f64(double %86)
+  %93 = fadd double %91, %92
+  %94 = fmul double %93, 0x3E80000000000000
+  %95 = fcmp ugt double %89, %94
+  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i57:                                  ; preds = %81, %67
-  %indvars.iv.next12.i58 = add nuw nsw i64 %indvars.iv11.i51, 1
-  %100 = icmp ult i64 %indvars.iv.next12.i58, %22
-  %exitcond14.not.i59 = icmp eq i64 %indvars.iv.next12.i58, %22
-  br i1 %exitcond14.not.i59, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60, label %67, !llvm.loop !162
+._crit_edge.i57:                                  ; preds = %77, %64
+  %indvars.iv.next10.i58 = add nuw nsw i64 %indvars.iv9.i51, 1
+  %exitcond13.not.i59 = icmp eq i64 %indvars.iv.next10.i58, %22
+  br i1 %exitcond13.not.i59, label %98, label %64, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60:  ; preds = %._crit_edge.i57, %82
-  %101 = phi i1 [ %68, %82 ], [ %100, %._crit_edge.i57 ]
-  br i1 %101, label %175, label %104
-
-102:                                              ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
-  %103 = landingpad { ptr, i32 }
+96:                                               ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
+  %97 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
-  resume { ptr, i32 } %103
+  resume { ptr, i32 } %97
 
-104:                                              ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60
-  %105 = icmp eq i32 %3, 4
-  br i1 %105, label %.preheader, label %.thread75
+98:                                               ; preds = %._crit_edge.i57
+  %99 = icmp eq i32 %3, 4
+  br i1 %99, label %.preheader, label %.thread75
 
-.preheader:                                       ; preds = %104, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %104 ]
-  %.03984 = phi i32 [ %172, %.preheader ], [ 0, %104 ]
-  %106 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZZNK2cv27HomographyEstimatorCallback11checkSubsetERKNS_11_InputArrayES3_iE2tt, i64 0, i64 %indvars.iv
-  %107 = load i32, ptr %106, align 4
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %108
-  %110 = load float, ptr %109, align 4
-  %111 = fpext float %110 to double
-  %112 = getelementptr inbounds i8, ptr %109, i64 4
+.preheader:                                       ; preds = %98, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %98 ]
+  %.03978 = phi i32 [ %166, %.preheader ], [ 0, %98 ]
+  %100 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZZNK2cv27HomographyEstimatorCallback11checkSubsetERKNS_11_InputArrayES3_iE2tt, i64 0, i64 %indvars.iv
+  %101 = load i32, ptr %100, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %102
+  %104 = load float, ptr %103, align 4
+  %105 = fpext float %104 to double
+  %106 = getelementptr inbounds i8, ptr %103, i64 4
+  %107 = load float, ptr %106, align 4
+  %108 = fpext float %107 to double
+  %109 = getelementptr inbounds i8, ptr %100, i64 4
+  %110 = load i32, ptr %109, align 4
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %111
   %113 = load float, ptr %112, align 4
   %114 = fpext float %113 to double
-  %115 = getelementptr inbounds i8, ptr %106, i64 4
-  %116 = load i32, ptr %115, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %117
-  %119 = load float, ptr %118, align 4
-  %120 = fpext float %119 to double
-  %121 = getelementptr inbounds i8, ptr %118, i64 4
+  %115 = getelementptr inbounds i8, ptr %112, i64 4
+  %116 = load float, ptr %115, align 4
+  %117 = fpext float %116 to double
+  %118 = getelementptr inbounds i8, ptr %100, i64 8
+  %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %120
   %122 = load float, ptr %121, align 4
   %123 = fpext float %122 to double
-  %124 = getelementptr inbounds i8, ptr %106, i64 8
-  %125 = load i32, ptr %124, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %126
+  %124 = getelementptr inbounds i8, ptr %121, i64 4
+  %125 = load float, ptr %124, align 4
+  %126 = fpext float %125 to double
+  %127 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %102
   %128 = load float, ptr %127, align 4
   %129 = fpext float %128 to double
   %130 = getelementptr inbounds i8, ptr %127, i64 4
   %131 = load float, ptr %130, align 4
   %132 = fpext float %131 to double
-  %133 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %108
+  %133 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %111
   %134 = load float, ptr %133, align 4
   %135 = fpext float %134 to double
   %136 = getelementptr inbounds i8, ptr %133, i64 4
   %137 = load float, ptr %136, align 4
   %138 = fpext float %137 to double
-  %139 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %117
+  %139 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %120
   %140 = load float, ptr %139, align 4
   %141 = fpext float %140 to double
   %142 = getelementptr inbounds i8, ptr %139, i64 4
   %143 = load float, ptr %142, align 4
   %144 = fpext float %143 to double
-  %145 = getelementptr inbounds %"class.cv::Point_", ptr %.val44, i64 %126
-  %146 = load float, ptr %145, align 4
-  %147 = fpext float %146 to double
-  %148 = getelementptr inbounds i8, ptr %145, i64 4
-  %149 = load float, ptr %148, align 4
-  %150 = fpext float %149 to double
-  %151 = fsub double %123, %132
-  %152 = fsub double %120, %129
-  %153 = fneg double %152
-  %154 = fmul double %114, %153
-  %155 = call double @llvm.fmuladd.f64(double %111, double %151, double %154)
-  %156 = fneg double %123
-  %157 = fmul double %156, %129
-  %158 = call double @llvm.fmuladd.f64(double %120, double %132, double %157)
-  %159 = fadd double %158, %155
-  %160 = fsub double %144, %150
-  %161 = fsub double %141, %147
-  %162 = fneg double %161
-  %163 = fmul double %138, %162
-  %164 = call double @llvm.fmuladd.f64(double %135, double %160, double %163)
-  %165 = fneg double %144
-  %166 = fmul double %165, %147
-  %167 = call double @llvm.fmuladd.f64(double %141, double %150, double %166)
-  %168 = fadd double %167, %164
-  %169 = fmul double %159, %168
-  %170 = fcmp olt double %169, 0.000000e+00
-  %171 = zext i1 %170 to i32
-  %172 = add nuw nsw i32 %.03984, %171
+  %145 = fsub double %117, %126
+  %146 = fsub double %114, %123
+  %147 = fneg double %146
+  %148 = fmul double %108, %147
+  %149 = call double @llvm.fmuladd.f64(double %105, double %145, double %148)
+  %150 = fneg double %117
+  %151 = fmul double %150, %123
+  %152 = call double @llvm.fmuladd.f64(double %114, double %126, double %151)
+  %153 = fadd double %152, %149
+  %154 = fsub double %138, %144
+  %155 = fsub double %135, %141
+  %156 = fneg double %155
+  %157 = fmul double %132, %156
+  %158 = call double @llvm.fmuladd.f64(double %129, double %154, double %157)
+  %159 = fneg double %138
+  %160 = fmul double %159, %141
+  %161 = call double @llvm.fmuladd.f64(double %135, double %144, double %160)
+  %162 = fadd double %161, %158
+  %163 = fmul double %153, %162
+  %164 = fcmp olt double %163, 0.000000e+00
+  %165 = zext i1 %164 to i32
+  %166 = add nuw nsw i32 %.03978, %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %173, label %.preheader, !llvm.loop !163
+  br i1 %exitcond.not, label %167, label %.preheader, !llvm.loop !163
 
-173:                                              ; preds = %.preheader
-  %174 = and i32 %172, 2147483643
-  %or.cond.not = icmp eq i32 %174, 0
-  br i1 %or.cond.not, label %.thread75, label %175
+167:                                              ; preds = %.preheader
+  %168 = and i32 %166, 2147483643
+  %or.cond.not = icmp eq i32 %168, 0
+  br i1 %or.cond.not, label %.thread75, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-.thread75:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit48, %173, %104
-  br label %175
+.thread75:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit48, %167, %98
+  br label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-175:                                              ; preds = %173, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60, %.thread75
-  %.0 = phi i1 [ true, %.thread75 ], [ false, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit60 ], [ false, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit ], [ false, %173 ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %78, %167, %.thread75
+  %.0 = phi i1 [ true, %.thread75 ], [ false, %167 ], [ false, %78 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
   ret i1 %.0
@@ -9400,9 +9385,9 @@ _ZN2cvL9run7PointERKNS_3MatES2_RS0_.exit:         ; preds = %519, %157, %345
   %580 = fadd double %.sroa.8.0211.i, %578
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i31
-  br i1 %exitcond.not.i35, label %.lr.ph222.preheader.i, label %.lr.ph.i32, !llvm.loop !204
+  br i1 %exitcond.not.i35, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !204
 
-.lr.ph222.preheader.i:                            ; preds = %.lr.ph.i32
+._crit_edge.i:                                    ; preds = %.lr.ph.i32
   %581 = sitofp i32 %560 to double
   %582 = fdiv double 1.000000e+00, %581
   %583 = fmul double %582, %571
@@ -9411,10 +9396,10 @@ _ZN2cvL9run7PointERKNS_3MatES2_RS0_.exit:         ; preds = %519, %157, %345
   %586 = fmul double %582, %580
   br label %.lr.ph222.i
 
-.lr.ph222.i:                                      ; preds = %.lr.ph222.i, %.lr.ph222.preheader.i
-  %indvars.iv242.i = phi i64 [ 0, %.lr.ph222.preheader.i ], [ %indvars.iv.next243.i, %.lr.ph222.i ]
-  %.081220.i = phi double [ 0.000000e+00, %.lr.ph222.preheader.i ], [ %597, %.lr.ph222.i ]
-  %.082219.i = phi double [ 0.000000e+00, %.lr.ph222.preheader.i ], [ %608, %.lr.ph222.i ]
+.lr.ph222.i:                                      ; preds = %.lr.ph222.i, %._crit_edge.i
+  %indvars.iv242.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next243.i, %.lr.ph222.i ]
+  %.081220.i = phi double [ 0.000000e+00, %._crit_edge.i ], [ %597, %.lr.ph222.i ]
+  %.082219.i = phi double [ 0.000000e+00, %._crit_edge.i ], [ %608, %.lr.ph222.i ]
   %587 = getelementptr inbounds %"class.cv::Point_", ptr %529, i64 %indvars.iv242.i
   %588 = load float, ptr %587, align 4
   %589 = fpext float %588 to double
@@ -10259,7 +10244,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv19FMEstimatorCallback11che
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %13 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc unwind label %105
+          to label %.noexc unwind label %97
 
 .noexc:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %14 = icmp eq i32 %13, 65536
@@ -10269,17 +10254,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !256
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit12 unwind label %105
+          to label %_ZNK2cv11_InputArray6getMatEi.exit12 unwind label %97
 
 18:                                               ; preds = %.noexc
   invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit12 unwind label %105
+          to label %_ZNK2cv11_InputArray6getMatEi.exit12 unwind label %97
 
 _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %.val8 = load ptr, ptr %19, align 8
   %20 = icmp sgt i32 %3, 1
-  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24
+  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 .lr.ph6.i:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit12
   %21 = add nsw i32 %3, -1
@@ -10291,140 +10276,127 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   br label %27
 
 27:                                               ; preds = %._crit_edge.i, %.lr.ph6.i
-  %indvars.iv11.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next12.i, %._crit_edge.i ]
-  %28 = phi i1 [ true, %.lr.ph6.i ], [ %60, %._crit_edge.i ]
-  %29 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv11.i
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  %31 = load float, ptr %30, align 4
-  %32 = fsub float %31, %26
-  %33 = fpext float %32 to double
-  %.not.i = icmp eq i64 %indvars.iv11.i, 0
+  %indvars.iv9.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next10.i, %._crit_edge.i ]
+  %28 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv9.i
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = load float, ptr %29, align 4
+  %31 = fsub float %30, %26
+  %32 = fpext float %31 to double
+  %.not.i = icmp eq i64 %indvars.iv9.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27
-  %34 = load float, ptr %29, align 4
-  %35 = fsub float %34, %24
-  %36 = fpext float %35 to double
-  %37 = fneg double %36
-  %38 = call double @llvm.fabs.f64(double %36)
-  %39 = call double @llvm.fabs.f64(double %33)
-  %40 = fadd double %39, %38
-  br label %42
+  %33 = load float, ptr %28, align 4
+  %34 = fsub float %33, %24
+  %35 = fpext float %34 to double
+  %36 = fneg double %35
+  %37 = call double @llvm.fabs.f64(double %35)
+  %38 = call double @llvm.fabs.f64(double %32)
+  %39 = fadd double %38, %37
+  br label %41
 
-41:                                               ; preds = %42
+40:                                               ; preds = %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv11.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !161
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv9.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %41, !llvm.loop !161
 
-42:                                               ; preds = %41, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv.i
-  %44 = load float, ptr %43, align 4
-  %45 = fsub float %44, %24
-  %46 = fpext float %45 to double
-  %47 = getelementptr inbounds i8, ptr %43, i64 4
-  %48 = load float, ptr %47, align 4
-  %49 = fsub float %48, %26
-  %50 = fpext float %49 to double
-  %51 = fmul double %37, %50
-  %52 = call double @llvm.fmuladd.f64(double %46, double %33, double %51)
-  %53 = call double @llvm.fabs.f64(double %52)
-  %54 = call double @llvm.fabs.f64(double %46)
-  %55 = fadd double %40, %54
-  %56 = call double @llvm.fabs.f64(double %50)
-  %57 = fadd double %55, %56
-  %58 = fmul double %57, 0x3E80000000000000
-  %59 = fcmp ugt double %53, %58
-  br i1 %59, label %41, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
+41:                                               ; preds = %40, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
+  %42 = getelementptr inbounds %"class.cv::Point_", ptr %.val8, i64 %indvars.iv.i
+  %43 = load float, ptr %42, align 4
+  %44 = fsub float %43, %24
+  %45 = fpext float %44 to double
+  %46 = getelementptr inbounds i8, ptr %42, i64 4
+  %47 = load float, ptr %46, align 4
+  %48 = fsub float %47, %26
+  %49 = fpext float %48 to double
+  %50 = fmul double %36, %49
+  %51 = call double @llvm.fmuladd.f64(double %45, double %32, double %50)
+  %52 = call double @llvm.fabs.f64(double %51)
+  %53 = call double @llvm.fabs.f64(double %45)
+  %54 = fadd double %39, %53
+  %55 = call double @llvm.fabs.f64(double %49)
+  %56 = fadd double %54, %55
+  %57 = fmul double %56, 0x3E80000000000000
+  %58 = fcmp ugt double %52, %57
+  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i:                                    ; preds = %41, %27
-  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
-  %60 = icmp ult i64 %indvars.iv.next12.i, %22
-  %exitcond14.not.i = icmp eq i64 %indvars.iv.next12.i, %22
-  br i1 %exitcond14.not.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %27, !llvm.loop !162
+._crit_edge.i:                                    ; preds = %40, %27
+  %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
+  %exitcond13.not.i = icmp eq i64 %indvars.iv.next10.i, %22
+  br i1 %exitcond13.not.i, label %.lr.ph6.i13, label %27, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %._crit_edge.i, %42
-  %61 = phi i1 [ %28, %42 ], [ %60, %._crit_edge.i ]
-  br i1 %61, label %103, label %.lr.ph6.i13
+.lr.ph6.i13:                                      ; preds = %._crit_edge.i
+  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %.val = load ptr, ptr %59, align 8
+  %60 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %22
+  %61 = load float, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %63 = load float, ptr %62, align 4
+  br label %64
 
-.lr.ph6.i13:                                      ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
-  %.val = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %22
-  %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
-  %66 = load float, ptr %65, align 4
-  br label %67
-
-67:                                               ; preds = %._crit_edge.i21, %.lr.ph6.i13
-  %indvars.iv11.i15 = phi i64 [ 0, %.lr.ph6.i13 ], [ %indvars.iv.next12.i22, %._crit_edge.i21 ]
-  %68 = phi i1 [ true, %.lr.ph6.i13 ], [ %100, %._crit_edge.i21 ]
-  %69 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv11.i15
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %71 = load float, ptr %70, align 4
-  %72 = fsub float %71, %66
-  %73 = fpext float %72 to double
-  %.not.i16 = icmp eq i64 %indvars.iv11.i15, 0
+64:                                               ; preds = %._crit_edge.i21, %.lr.ph6.i13
+  %indvars.iv9.i15 = phi i64 [ 0, %.lr.ph6.i13 ], [ %indvars.iv.next10.i22, %._crit_edge.i21 ]
+  %65 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv9.i15
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = load float, ptr %66, align 4
+  %68 = fsub float %67, %63
+  %69 = fpext float %68 to double
+  %.not.i16 = icmp eq i64 %indvars.iv9.i15, 0
   br i1 %.not.i16, label %._crit_edge.i21, label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %67
-  %74 = load float, ptr %69, align 4
-  %75 = fsub float %74, %64
-  %76 = fpext float %75 to double
-  %77 = fneg double %76
-  %78 = call double @llvm.fabs.f64(double %76)
-  %79 = call double @llvm.fabs.f64(double %73)
-  %80 = fadd double %79, %78
-  br label %82
+.lr.ph.i17:                                       ; preds = %64
+  %70 = load float, ptr %65, align 4
+  %71 = fsub float %70, %61
+  %72 = fpext float %71 to double
+  %73 = fneg double %72
+  %74 = call double @llvm.fabs.f64(double %72)
+  %75 = call double @llvm.fabs.f64(double %69)
+  %76 = fadd double %75, %74
+  br label %78
 
-81:                                               ; preds = %82
+77:                                               ; preds = %78
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %indvars.iv11.i15
-  br i1 %exitcond.not.i20, label %._crit_edge.i21, label %82, !llvm.loop !161
+  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %indvars.iv9.i15
+  br i1 %exitcond.not.i20, label %._crit_edge.i21, label %78, !llvm.loop !161
 
-82:                                               ; preds = %81, %.lr.ph.i17
-  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i19, %81 ]
-  %83 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i18
+78:                                               ; preds = %77, %.lr.ph.i17
+  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i19, %77 ]
+  %79 = getelementptr inbounds %"class.cv::Point_", ptr %.val, i64 %indvars.iv.i18
+  %80 = load float, ptr %79, align 4
+  %81 = fsub float %80, %61
+  %82 = fpext float %81 to double
+  %83 = getelementptr inbounds i8, ptr %79, i64 4
   %84 = load float, ptr %83, align 4
-  %85 = fsub float %84, %64
+  %85 = fsub float %84, %63
   %86 = fpext float %85 to double
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
-  %88 = load float, ptr %87, align 4
-  %89 = fsub float %88, %66
-  %90 = fpext float %89 to double
-  %91 = fmul double %77, %90
-  %92 = call double @llvm.fmuladd.f64(double %86, double %73, double %91)
-  %93 = call double @llvm.fabs.f64(double %92)
-  %94 = call double @llvm.fabs.f64(double %86)
-  %95 = fadd double %80, %94
-  %96 = call double @llvm.fabs.f64(double %90)
-  %97 = fadd double %95, %96
-  %98 = fmul double %97, 0x3E80000000000000
-  %99 = fcmp ugt double %93, %98
-  br i1 %99, label %81, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24
+  %87 = fmul double %73, %86
+  %88 = call double @llvm.fmuladd.f64(double %82, double %69, double %87)
+  %89 = call double @llvm.fabs.f64(double %88)
+  %90 = call double @llvm.fabs.f64(double %82)
+  %91 = fadd double %76, %90
+  %92 = call double @llvm.fabs.f64(double %86)
+  %93 = fadd double %91, %92
+  %94 = fmul double %93, 0x3E80000000000000
+  %95 = fcmp ugt double %89, %94
+  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-._crit_edge.i21:                                  ; preds = %81, %67
-  %indvars.iv.next12.i22 = add nuw nsw i64 %indvars.iv11.i15, 1
-  %100 = icmp ult i64 %indvars.iv.next12.i22, %22
-  %exitcond14.not.i23 = icmp eq i64 %indvars.iv.next12.i22, %22
-  br i1 %exitcond14.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24, label %67, !llvm.loop !162
+._crit_edge.i21:                                  ; preds = %77, %64
+  %indvars.iv.next10.i22 = add nuw nsw i64 %indvars.iv9.i15, 1
+  %exitcond13.not.i23 = icmp eq i64 %indvars.iv.next10.i22, %22
+  br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %64, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24:  ; preds = %._crit_edge.i21, %82, %_ZNK2cv11_InputArray6getMatEi.exit12
-  %101 = phi i1 [ false, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ %68, %82 ], [ %100, %._crit_edge.i21 ]
-  %102 = xor i1 %101, true
-  br label %103
-
-103:                                              ; preds = %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
-  %104 = phi i1 [ false, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit ], [ %102, %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit24 ]
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %._crit_edge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
+  %96 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ false, %78 ], [ true, %._crit_edge.i21 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
-  ret i1 %104
+  ret i1 %96
 
-105:                                              ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
-  %106 = landingpad { ptr, i32 }
+97:                                               ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
-  resume { ptr, i32 } %106
+  resume { ptr, i32 } %98
 }
 
 declare void @_ZN2cv8SVDecompERKNS_11_InputArrayERKNS_12_OutputArrayES5_S5_i(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0

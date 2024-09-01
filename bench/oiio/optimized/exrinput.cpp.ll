@@ -7782,7 +7782,7 @@ for.inc.i420:                                     ; preds = %_ZSt25__unguarded_l
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cnh.sroa.0.1, i64 1280
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.sroa.7.i370)
   %cmp.i.not1.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %cnh.sroa.24.0
-  br i1 %cmp.i.not1.i.i.i.i, label %invoke.cont32, label %for.body.i.i.i.i
+  br i1 %cmp.i.not1.i.i.i.i, label %for.body40.lr.ph, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %.noexc71, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i.i.i.i
   %__i.sroa.0.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %.noexc71 ]
@@ -7895,7 +7895,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.i.i.i.i.i.sroa.13)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.02.i.i.i.i, i64 80
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cnh.sroa.24.0
-  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont32, label %for.body.i.i.i.i, !llvm.loop !56
+  br i1 %cmp.i.not.i.i.i.i, label %for.body40.lr.ph, label %for.body.i.i.i.i, !llvm.loop !56
 
 for.cond.preheader.i:                             ; preds = %.noexc70
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__val.sroa.7.i)
@@ -8126,12 +8126,9 @@ for.inc.i347:                                     ; preds = %_ZSt25__unguarded_l
 
 .noexc72:                                         ; preds = %for.inc.i347, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.sroa.7.i)
-  br label %invoke.cont32
+  br label %for.body40.lr.ph
 
-invoke.cont32:                                    ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i.i.i.i, %.noexc72, %.noexc71
-  br i1 %cmp.i.not.i.i, label %for.end97thread-pre-split, label %for.body40.lr.ph
-
-for.body40.lr.ph:                                 ; preds = %invoke.cont32
+for.body40.lr.ph:                                 ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i.i.i.i, %.noexc71, %.noexc72
   %m_len.i.i87 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %m_len.i6.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
   %m_len.i.i99 = getelementptr inbounds i8, ptr %agg.tmp.i94, i64 8
@@ -8214,14 +8211,14 @@ for.body.i:                                       ; preds = %while.end, %for.con
           to label %call3.i.noexc unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call3.i.noexc:                                    ; preds = %for.body.i
-  br i1 %call3.i89, label %for.body.i102.preheader, label %for.cond.i
+  br i1 %call3.i89, label %land.lhs.true, label %for.cond.i
 
 invoke.cont60.thread:                             ; preds = %for.cond.i, %while.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
   br label %if.else
 
-for.body.i102.preheader:                          ; preds = %call3.i.noexc
+land.lhs.true:                                    ; preds = %call3.i.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i94)
@@ -8231,10 +8228,10 @@ for.body.i102.preheader:                          ; preds = %call3.i.noexc
 for.cond.i106:                                    ; preds = %call3.i.noexc110
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %__begin2.09.i103, i64 80
   %cmp.not.not.i108 = icmp eq ptr %incdec.ptr.i107, %add.ptr.i.i86
-  br i1 %cmp.not.not.i108, label %for.body.i125.preheader, label %for.body.i102
+  br i1 %cmp.not.not.i108, label %lor.lhs.false, label %for.body.i102
 
-for.body.i102:                                    ; preds = %for.body.i102.preheader, %for.cond.i106
-  %__begin2.09.i103 = phi ptr [ %incdec.ptr.i107, %for.cond.i106 ], [ %96, %for.body.i102.preheader ]
+for.body.i102:                                    ; preds = %for.cond.i106, %land.lhs.true
+  %__begin2.09.i103 = phi ptr [ %96, %land.lhs.true ], [ %incdec.ptr.i107, %for.cond.i106 ]
   store ptr @.str.114, ptr %agg.tmp.i94, align 8
   store i64 1, ptr %m_len.i.i99, align 8
   %suffix.i104 = getelementptr inbounds i8, ptr %__begin2.09.i103, i64 32
@@ -8254,7 +8251,7 @@ invoke.cont64:                                    ; preds = %call3.i.noexc110
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i95)
   br label %for.body74.preheader
 
-for.body.i125.preheader:                          ; preds = %for.cond.i106
+lor.lhs.false:                                    ; preds = %for.cond.i106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i94)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i117)
@@ -8266,8 +8263,8 @@ for.cond.i129:                                    ; preds = %call3.i.noexc133
   %cmp.not.not.i131 = icmp eq ptr %incdec.ptr.i130, %add.ptr.i.i86
   br i1 %cmp.not.not.i131, label %invoke.cont68.thread, label %for.body.i125
 
-for.body.i125:                                    ; preds = %for.body.i125.preheader, %for.cond.i129
-  %__begin2.09.i126 = phi ptr [ %incdec.ptr.i130, %for.cond.i129 ], [ %96, %for.body.i125.preheader ]
+for.body.i125:                                    ; preds = %for.cond.i129, %lor.lhs.false
+  %__begin2.09.i126 = phi ptr [ %96, %lor.lhs.false ], [ %incdec.ptr.i130, %for.cond.i129 ]
   store ptr @.str.115, ptr %agg.tmp.i117, align 8
   store i64 1, ptr %m_len.i.i122, align 8
   %suffix.i127 = getelementptr inbounds i8, ptr %__begin2.09.i126, i64 32
@@ -9371,7 +9368,7 @@ invoke.cont96:                                    ; preds = %_ZSt25__unguarded_l
   %cmp.i.not = icmp eq ptr %cnh.sroa.24.0, %layerend.sroa.0.0.ptr.lcssa
   br i1 %cmp.i.not, label %for.end97thread-pre-split, label %for.body40, !llvm.loop !60
 
-for.end97thread-pre-split:                        ; preds = %invoke.cont96, %invoke.cont32
+for.end97thread-pre-split:                        ; preds = %invoke.cont96
   %.pr = load i32, ptr %nchannels, align 4
   br label %for.end97
 
@@ -15117,9 +15114,9 @@ for.body.i.i.i.i.i52:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i54, i64 8
   %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i53, i64 8
   %cmp.i.i.not.i.i.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i62, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i64, label %for.body.i.i.i68.preheader, label %for.body.i.i.i.i.i52, !llvm.loop !122
+  br i1 %cmp.i.i.not.i.i.i.i.i64, label %invoke.cont35, label %for.body.i.i.i.i.i52, !llvm.loop !122
 
-for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i52
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i52
   %17 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
@@ -15135,8 +15132,8 @@ for.body.i.i.i68.preheader:                       ; preds = %for.body.i.i.i.i.i5
   %__tmp.sroa.1.8.insert.insert130 = or disjoint i64 %__tmp.sroa.6.8.insert.insert135, %__tmp.sroa.11.8.insert.shift148
   br label %for.body.i.i.i68
 
-for.body.i.i.i68:                                 ; preds = %for.body.i.i.i68.preheader, %for.body.i.i.i68
-  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %for.body.i.i.i68.preheader ]
+for.body.i.i.i68:                                 ; preds = %invoke.cont35, %for.body.i.i.i68
+  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i70, %for.body.i.i.i68 ], [ %__position.coerce, %invoke.cont35 ]
   store i64 %__tmp.sroa.1.8.insert.insert130, ptr %__first.addr.04.i.i.i69, align 4
   %incdec.ptr.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i69, i64 8
   %cmp.not.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i70, %1

@@ -813,7 +813,10 @@ for.end.thread:                                   ; preds = %if.end13
   %mul.i9 = mul i32 %time_ms, 1000
   %call.i10 = tail call i32 @usleep(i32 noundef %mul.i9) #5
   store atomic i32 1, ptr %bench_data seq_cst, align 8
-  br label %for.end26.thread
+  %total_iters2711 = getelementptr inbounds i8, ptr %bench_data, i64 240
+  %0 = load i64, ptr %total_iters2711, align 8
+  %call2812 = tail call i64 @_PyTime_GetMonotonicClock() #5
+  br label %for.end40
 
 for.body:                                         ; preds = %if.end13, %for.body
   %i.02 = phi i64 [ %inc, %for.body ], [ 0, %if.end13 ]
@@ -828,7 +831,7 @@ for.end:                                          ; preds = %for.body
   %mul.i = mul i32 %time_ms, 1000
   %call.i = call i32 @usleep(i32 noundef %mul.i) #5
   store atomic i32 1, ptr %bench_data seq_cst, align 8
-  br i1 %cmp151, label %for.body22, label %for.end26.thread
+  br label %for.body22
 
 for.body22:                                       ; preds = %for.end, %for.body22
   %i19.04 = phi i64 [ %inc25, %for.body22 ], [ 0, %for.end ]
@@ -838,26 +841,17 @@ for.body22:                                       ; preds = %for.end, %for.body2
   %exitcond7.not = icmp eq i64 %inc25, %num_threads
   br i1 %exitcond7.not, label %for.end26, label %for.body22, !llvm.loop !15
 
-for.end26.thread:                                 ; preds = %for.end.thread, %for.end
-  %total_iters2711 = getelementptr inbounds i8, ptr %bench_data, i64 240
-  %0 = load i64, ptr %total_iters2711, align 8
-  %call2812 = call i64 @_PyTime_GetMonotonicClock() #5
-  br label %for.end40
-
 for.end26:                                        ; preds = %for.body22
   %total_iters27 = getelementptr inbounds i8, ptr %bench_data, i64 240
   %1 = load i64, ptr %total_iters27, align 8
   %call28 = call i64 @_PyTime_GetMonotonicClock() #5
-  br i1 %cmp151, label %for.body32.lr.ph, label %for.end40
-
-for.body32.lr.ph:                                 ; preds = %for.end26
   %2 = getelementptr i8, ptr %call10, i64 8
   %allocated.i = getelementptr inbounds i8, ptr %call10, i64 32
   %ob_item.i = getelementptr inbounds i8, ptr %call10, i64 24
   br label %for.body32
 
-for.body32:                                       ; preds = %for.body32.lr.ph, %PyList_SET_ITEM.exit
-  %i29.06 = phi i64 [ 0, %for.body32.lr.ph ], [ %inc39, %PyList_SET_ITEM.exit ]
+for.body32:                                       ; preds = %for.end26, %PyList_SET_ITEM.exit
+  %i29.06 = phi i64 [ 0, %for.end26 ], [ %inc39, %PyList_SET_ITEM.exit ]
   %iters = getelementptr %struct.bench_thread_data, ptr %call5, i64 %i29.06, i32 1
   %3 = load i64, ptr %iters, align 8
   %call34 = call ptr @PyLong_FromSsize_t(i64 noundef %3) #5
@@ -893,9 +887,9 @@ PyList_SET_ITEM.exit:                             ; preds = %cond.end4.i
   %exitcond8.not = icmp eq i64 %inc39, %num_threads
   br i1 %exitcond8.not, label %for.end40, label %for.body32, !llvm.loop !16
 
-for.end40:                                        ; preds = %PyList_SET_ITEM.exit, %for.end26.thread, %for.end26
-  %call2813 = phi i64 [ %call2812, %for.end26.thread ], [ %call28, %for.end26 ], [ %call28, %PyList_SET_ITEM.exit ]
-  %8 = phi i64 [ %0, %for.end26.thread ], [ %1, %for.end26 ], [ %1, %PyList_SET_ITEM.exit ]
+for.end40:                                        ; preds = %PyList_SET_ITEM.exit, %for.end.thread
+  %call2813 = phi i64 [ %call2812, %for.end.thread ], [ %call28, %PyList_SET_ITEM.exit ]
+  %8 = phi i64 [ %0, %for.end.thread ], [ %1, %PyList_SET_ITEM.exit ]
   %conv = sitofp i64 %8 to double
   %mul = fmul double %conv, 1.000000e+09
   %sub = sub i64 %call2813, %call14

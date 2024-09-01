@@ -34,7 +34,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = icmp eq i32 %1, -1
-  br i1 %11, label %.loopexit, label %13
+  br i1 %11, label %.loopexit, label %.lr.ph37.preheader
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %12 = icmp eq i32 %1, -1
@@ -44,35 +44,32 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @srand(i32 noundef %1) #3
   br label %.loopexit
 
-13:                                               ; preds = %._crit_edge
+.lr.ph37.preheader:                               ; preds = %._crit_edge
   tail call void @srand(i32 noundef %1) #3
-  br i1 %6, label %.lr.ph37.preheader, label %.loopexit
-
-.lr.ph37.preheader:                               ; preds = %13
   %wide.trip.count42 = zext nneg i32 %0 to i64
   br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %.lr.ph37 ]
-  %14 = tail call i32 @rand() #3
-  %15 = trunc i64 %indvars.iv39 to i32
-  %16 = sub i32 %0, %15
-  %17 = srem i32 %14, %16
-  %18 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %19 = add nsw i32 %17, %18
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %5, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv39
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %21, align 4
-  store i32 %22, ptr %23, align 4
+  %13 = tail call i32 @rand() #3
+  %14 = trunc i64 %indvars.iv39 to i32
+  %15 = sub i32 %0, %14
+  %16 = srem i32 %13, %15
+  %17 = trunc nuw nsw i64 %indvars.iv39 to i32
+  %18 = add nsw i32 %16, %17
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i32, ptr %5, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv39
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr %20, align 4
+  store i32 %21, ptr %22, align 4
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
   br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph37, %.thread, %._crit_edge.thread, %13, %._crit_edge, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %._crit_edge ], [ %5, %13 ], [ %5, %._crit_edge.thread ], [ %5, %.thread ], [ %5, %.lr.ph37 ]
+.loopexit:                                        ; preds = %.lr.ph37, %.thread, %._crit_edge.thread, %._crit_edge, %4, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %._crit_edge ], [ %5, %._crit_edge.thread ], [ %5, %.thread ], [ %5, %.lr.ph37 ]
   ret ptr %.0
 }
 

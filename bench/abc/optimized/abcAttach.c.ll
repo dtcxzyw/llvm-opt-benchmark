@@ -626,9 +626,6 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   %wide.trip.count190 = zext nneg i32 %.val121 to i64
   br label %256
 
-.critedge2.preheader:                             ; preds = %268
-  br i1 %254, label %.lr.ph167, label %.critedge4
-
 256:                                              ; preds = %.lr.ph164, %268
   %indvars.iv187 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next188, %268 ]
   %257 = getelementptr inbounds ptr, ptr %.val124.val, i64 %indvars.iv187
@@ -656,11 +653,11 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
 268:                                              ; preds = %260, %256, %263
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %.critedge2.preheader, label %256, !llvm.loop !22
+  br i1 %exitcond191.not, label %.lr.ph167, label %256, !llvm.loop !22
 
-.lr.ph167:                                        ; preds = %.critedge2.preheader, %.critedge2
-  %269 = phi ptr [ %281, %.critedge2 ], [ %252, %.critedge2.preheader ]
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.critedge2 ], [ 0, %.critedge2.preheader ]
+.lr.ph167:                                        ; preds = %268, %.critedge2
+  %269 = phi ptr [ %281, %.critedge2 ], [ %252, %268 ]
+  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.critedge2 ], [ 0, %268 ]
   %270 = getelementptr i8, ptr %269, i64 8
   %.val125.val = load ptr, ptr %270, align 8
   %271 = getelementptr inbounds ptr, ptr %.val125.val, i64 %indvars.iv192
@@ -693,7 +690,7 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   %284 = icmp slt i64 %indvars.iv.next193, %283
   br i1 %284, label %.lr.ph167, label %.critedge4, !llvm.loop !23
 
-.critedge4:                                       ; preds = %.critedge2, %251, %.critedge2.preheader
+.critedge4:                                       ; preds = %.critedge2, %251
   %285 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 4, ptr %285, align 4
   %286 = getelementptr inbounds i8, ptr %0, i64 256

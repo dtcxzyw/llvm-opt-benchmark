@@ -3484,12 +3484,9 @@ for.body.i:                                       ; preds = %_ZN4llvh23SmallVect
   %inc.i = add nuw i32 %i.05.i, 1
   %36 = load i32, ptr %depthCount_, align 8
   %cmp.i9 = icmp ult i32 %inc.i, %36
-  br i1 %cmp.i9, label %for.body.i, label %if.end28, !llvm.loop !51
+  br i1 %cmp.i9, label %for.body.i, label %for.body.lr.ph, !llvm.loop !51
 
-if.end28:                                         ; preds = %for.body.i
-  br i1 %cmp26.not, label %for.end.thread, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.then27, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i, %if.end28
+for.body.lr.ph:                                   ; preds = %for.body.i, %if.then27, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i
   %add.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 112
   %gap_.i23 = getelementptr inbounds i8, ptr %this, i64 16
   %operationStrHolder_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -3616,7 +3613,7 @@ for.inc:                                          ; preds = %if.end56, %if.then5
   %exitcond.not = icmp eq i64 %inc64, %26
   br i1 %exitcond.not, label %if.then68, label %for.body, !llvm.loop !52
 
-for.end.thread:                                   ; preds = %if.end28, %if.end24
+for.end.thread:                                   ; preds = %if.end24
   store i32 %4, ptr %depthCount_, align 8
   br label %if.end69
 

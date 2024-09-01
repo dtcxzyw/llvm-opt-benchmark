@@ -13890,8 +13890,8 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
-  %.not = icmp ne i32 %15, 0
-  br i1 %.not, label %16, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+  %.not.i.not.not = icmp ne i32 %15, 0
+  br i1 %.not.i.not.not, label %16, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %12, i64 32
@@ -13944,7 +13944,7 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
   br i1 %.not.i.i3.i.i, label %40, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !23
 
 _ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i, %10, %26, %43, %1
-  %50 = phi i1 [ true, %1 ], [ false, %43 ], [ false, %26 ], [ %.not, %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i ], [ false, %10 ]
+  %50 = phi i1 [ true, %1 ], [ false, %43 ], [ false, %26 ], [ %.not.i.not.not, %10 ], [ %.not.i.not.not, %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i ]
   ret i1 %50
 }
 

@@ -30944,8 +30944,8 @@ _ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit.preheader: ; preds = %
   %44 = zext nneg i32 %.1110 to i64
   %45 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
-  %.not118 = icmp ne i8 %46, 48
-  br i1 %.not118, label %.critedge, label %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit
+  %.not118.not = icmp ne i8 %46, 48
+  br i1 %.not118.not, label %.critedge, label %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit
 
 _ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit: ; preds = %.lr.ph
   %47 = add nsw i32 %.1110, -1
@@ -30954,7 +30954,7 @@ _ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit: ; preds = %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit.preheader
   %.1.lcssa = phi i32 [ %.0, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit.preheader ], [ 0, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit ], [ %.1110, %.lr.ph ]
-  %.lcssa109 = phi i1 [ false, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit.preheader ], [ %.not118, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit ], [ %.not118, %.lr.ph ]
+  %.lcssa109 = phi i1 [ false, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit.preheader ], [ %.not118.not, %_ZN3fmt3v106detail11format_uintILj4EcoEEPT0_S4_T1_ib.exit ], [ %.not118.not, %.lr.ph ]
   %49 = getelementptr inbounds i8, ptr %3, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 1
@@ -46764,8 +46764,8 @@ _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader: ; preds = %
   %39 = zext nneg i32 %.199 to i64
   %40 = getelementptr inbounds [16 x i8], ptr %6, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
-  %.not107 = icmp ne i8 %41, 48
-  br i1 %.not107, label %.critedge, label %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit
+  %.not107.not = icmp ne i8 %41, 48
+  br i1 %.not107.not, label %.critedge, label %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit
 
 _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit: ; preds = %.lr.ph
   %42 = add nsw i32 %.199, -1
@@ -46774,7 +46774,7 @@ _ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit: ; preds = %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader
   %.1.lcssa = phi i32 [ %.0, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader ], [ 0, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit ], [ %.199, %.lr.ph ]
-  %.lcssa98 = phi i1 [ false, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader ], [ %.not107, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit ], [ %.not107, %.lr.ph ]
+  %.lcssa98 = phi i1 [ false, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit.preheader ], [ %.not107.not, %_ZN3fmt3v106detail11format_uintILj4EcmEEPT0_S4_T1_ib.exit ], [ %.not107.not, %.lr.ph ]
   %44 = getelementptr inbounds i8, ptr %3, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 1

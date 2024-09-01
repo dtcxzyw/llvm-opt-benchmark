@@ -724,16 +724,16 @@ positive_int.exit.i483:                           ; preds = %284, %278
 positive_int.exit.thread.i480:                    ; preds = %positive_int.exit.i483, %282
   %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i479, 1
   %exitcond.not.i482 = icmp eq i64 %indvars.iv.next.i481, 3
-  br i1 %exitcond.not.i482, label %.preheader.i490, label %278, !llvm.loop !19
+  br i1 %exitcond.not.i482, label %is_quite_large.exit486, label %278, !llvm.loop !19
 
-.preheader.i490:                                  ; preds = %positive_int.exit.thread.i480, %positive_int.exit.thread.i492
+is_quite_large.exit486:                           ; preds = %positive_int.exit.thread.i480, %positive_int.exit.thread.i492
   %indvars.iv.i491 = phi i64 [ %indvars.iv.next.i493, %positive_int.exit.thread.i492 ], [ 0, %positive_int.exit.thread.i480 ]
   %290 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv.i491
   %291 = load i32, ptr %290, align 4
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %positive_int.exit.i495, label %293
 
-293:                                              ; preds = %.preheader.i490
+293:                                              ; preds = %is_quite_large.exit486
   %294 = icmp slt i32 %291, 0
   br i1 %294, label %295, label %positive_int.exit.thread.i492
 
@@ -741,9 +741,9 @@ positive_int.exit.thread.i480:                    ; preds = %positive_int.exit.i
   %296 = xor i32 %291, -1
   br label %positive_int.exit.i495
 
-positive_int.exit.i495:                           ; preds = %295, %.preheader.i490
-  %.sink13.i496 = phi i32 [ %296, %295 ], [ %291, %.preheader.i490 ]
-  %.sink12.i497 = phi i32 [ 2, %295 ], [ -1, %.preheader.i490 ]
+positive_int.exit.i495:                           ; preds = %295, %is_quite_large.exit486
+  %.sink13.i496 = phi i32 [ %296, %295 ], [ %291, %is_quite_large.exit486 ]
+  %.sink12.i497 = phi i32 [ 2, %295 ], [ -1, %is_quite_large.exit486 ]
   %297 = shl nuw i32 %.sink13.i496, 1
   %298 = add i32 %297, %.sink12.i497
   %299 = load i32, ptr %277, align 4
@@ -753,7 +753,7 @@ positive_int.exit.i495:                           ; preds = %295, %.preheader.i4
 positive_int.exit.thread.i492:                    ; preds = %positive_int.exit.i495, %293
   %indvars.iv.next.i493 = add nuw nsw i64 %indvars.iv.i491, 1
   %exitcond.not.i494 = icmp eq i64 %indvars.iv.next.i493, 3
-  br i1 %exitcond.not.i494, label %is_quite_large.exit498, label %.preheader.i490, !llvm.loop !19
+  br i1 %exitcond.not.i494, label %is_quite_large.exit498, label %is_quite_large.exit486, !llvm.loop !19
 
 is_quite_large.exit498:                           ; preds = %positive_int.exit.thread.i492
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)

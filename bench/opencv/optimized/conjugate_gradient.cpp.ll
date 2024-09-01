@@ -167,10 +167,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %16
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %22, label %.lr.ph40, label %._crit_edge
-
-.lr.ph40:                                         ; preds = %.preheader
+.lr.ph40:                                         ; preds = %.lr.ph
   %23 = fmul double %8, 2.000000e+00
   %wide.trip.count45 = zext nneg i32 %12 to i64
   br label %32
@@ -183,7 +180,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %16
   store double %25, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph40, label %.lr.ph, !llvm.loop !4
 
 27:                                               ; preds = %41, %32
   %28 = landingpad { ptr, i32 }
@@ -235,7 +232,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %31, %27
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %._crit_edge, label %32, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %48, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit, %.preheader
+._crit_edge:                                      ; preds = %48, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
   %53 = load ptr, ptr %4, align 8
   %.not.i.i36 = icmp eq ptr %53, %14
   %54 = icmp eq ptr %53, null

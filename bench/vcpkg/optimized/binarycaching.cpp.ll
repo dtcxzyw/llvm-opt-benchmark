@@ -4469,9 +4469,9 @@ _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv.exit: ; preds = %_
   %92 = getelementptr inbounds i8, ptr %16, i64 600
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
-  br i1 %94, label %.critedge, label %102
+  br i1 %94, label %_ZNO5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEE5errorEv.exit, label %102
 
-.critedge:                                        ; preds = %91
+_ZNO5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEE5errorEv.exit: ; preds = %91
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   %95 = getelementptr inbounds i8, ptr %0, i64 176
   store i8 1, ptr %95, align 8
@@ -4479,11 +4479,11 @@ _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv.exit: ; preds = %_
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %99
 
-98:                                               ; preds = %.critedge
+98:                                               ; preds = %_ZNO5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEE5errorEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 
-99:                                               ; preds = %.critedge
+99:                                               ; preds = %_ZNO5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEE5errorEv.exit
   call void @_ZN5vcpkg23BinaryConfigParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %16) #25
   br label %_ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEED2Ev.exit
 
@@ -12383,8 +12383,8 @@ _ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEEC2IRKS2_T
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 %3
-  %.not2580 = icmp eq i64 %3, 0
-  br i1 %.not2580, label %._crit_edge, label %.lr.ph
+  %.not2579 = icmp eq i64 %3, 0
+  br i1 %.not2579, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %39 = getelementptr inbounds i8, ptr %10, i64 8
@@ -12396,8 +12396,8 @@ _ZN5vcpkg9ExpectedTINS_23BinaryConfigParserStateENS_15LocalizedStringEEC2IRKS2_T
   br label %45
 
 45:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_118BinaryConfigParserD2Ev.exit44
-  %.02081 = phi ptr [ %2, %.lr.ph ], [ %74, %_ZN12_GLOBAL__N_118BinaryConfigParserD2Ev.exit44 ]
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.02081) #25
+  %.02080 = phi ptr [ %2, %.lr.ph ], [ %74, %_ZN12_GLOBAL__N_118BinaryConfigParserD2Ev.exit44 ]
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %.02080) #25
   %46 = load ptr, ptr %10, align 8
   %47 = load i64, ptr %39, align 8
   invoke void @_ZN5vcpkg10ParserBaseC2ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr %46, i64 %47, ptr nonnull @.str.8, i64 9, i64 0)
@@ -12507,7 +12507,7 @@ _ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i.i.i.i43: ; preds = %70, %
   br label %_ZN12_GLOBAL__N_118BinaryConfigParserD2Ev.exit44
 
 _ZN12_GLOBAL__N_118BinaryConfigParserD2Ev.exit44: ; preds = %73, %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i.i.i.i43
-  %74 = getelementptr inbounds i8, ptr %.02081, i64 32
+  %74 = getelementptr inbounds i8, ptr %.02080, i64 32
   %.not25 = icmp eq ptr %74, %38
   br i1 %.not25, label %._crit_edge, label %45
 

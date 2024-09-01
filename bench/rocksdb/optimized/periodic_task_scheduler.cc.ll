@@ -1703,8 +1703,8 @@ if.end:                                           ; preds = %entry, %_ZNSt8_Rb_t
 for.cond.i:                                       ; preds = %for.body.i, %.noexc
   %__begin2.sroa.0.0.in.i = phi ptr [ %_M_before_begin.i.i.i.i, %.noexc ], [ %__begin2.sroa.0.0.i, %for.body.i ]
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.0.in.i, align 8
-  %cmp.i.not.i.not = icmp eq ptr %__begin2.sroa.0.0.i, null
-  br i1 %cmp.i.not.i.not, label %cleanup.i, label %for.body.i
+  %cmp.i.not.not.not.i.not = icmp eq ptr %__begin2.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.not.i.not, label %cleanup.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i, i64 40
@@ -1726,7 +1726,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup.i
   unreachable
 
 invoke.cont14:                                    ; preds = %cleanup.i
-  br i1 %cmp.i.not.i.not, label %if.then16, label %invoke.cont21
+  br i1 %cmp.i.not.not.not.i.not, label %if.then16, label %invoke.cont21
 
 if.then16:                                        ; preds = %invoke.cont14
   %13 = load ptr, ptr %timer_13, align 8

@@ -6424,8 +6424,8 @@ _ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_triviall
   %67 = shl nuw i32 %.sroa.speculated.i.i.i, 2
   %68 = zext i32 %67 to i64
   %69 = tail call ptr @realloc(ptr noundef %66, i64 noundef %68) #10
-  %.not43.i.i.i = icmp eq ptr %69, null
-  br i1 %.not43.i.i.i, label %70, label %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.i.i
+  %.not42.i.i.i = icmp eq ptr %69, null
+  br i1 %.not42.i.i.i, label %70, label %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.i.i
 
 70:                                               ; preds = %_ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPfj11hb_priorityILj0EE.exit.i.i.i
   %71 = load i32, ptr %56, align 8

@@ -3279,8 +3279,7 @@ define internal i32 @H5P__ocrt_pipeline_cmp(ptr nocapture noundef readonly %0, p
 
 67:                                               ; preds = %63
   %.not106 = icmp eq i64 %50, 0
-  %or.cond = or i1 %.not106, %59
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %.not106, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %67
   %68 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %16, i64 %.082113, i32 6

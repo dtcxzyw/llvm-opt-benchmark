@@ -2535,8 +2535,8 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr align 1 %27, i64 %31, i1 false)
   br label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110setunset_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i
 
-common.resume.i:                                  ; preds = %163, %33
-  %common.resume.op.i = phi { ptr, i32 } [ %34, %33 ], [ %164, %163 ]
+common.resume.i:                                  ; preds = %164, %33
+  %common.resume.op.i = phi { ptr, i32 } [ %34, %33 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 33:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
@@ -2648,7 +2648,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %82 = extractvalue { ptr, i32 } %81, 0
   %83 = tail call ptr @__cxa_begin_catch(ptr %82) #20
   tail call fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %57, ptr noundef nonnull %57)
-  br label %165
+  br label %166
 
 84:                                               ; preds = %77, %.noexc5.i.i.i.thread.i.i
   %85 = phi ptr [ %72, %.noexc5.i.i.i.thread.i.i ], [ %79, %77 ]
@@ -2764,7 +2764,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %131 = getelementptr inbounds i8, ptr %.01217.i.i.i.i.i, i64 48
   %132 = getelementptr inbounds i8, ptr %.018.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i8 = icmp eq ptr %131, %4
-  br i1 %.not.i.i.i.i.i8, label %.lr.ph.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i6, !llvm.loop !22
+  br i1 %.not.i.i.i.i.i8, label %139, label %.lr.ph.i.i.i.i.i6, !llvm.loop !22
 
 133:                                              ; preds = %.body.i.i.i.i.i
   %134 = landingpad { ptr, i32 }
@@ -2782,96 +2782,96 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 138:                                              ; preds = %.body.i.i.i.i.i
   unreachable
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %125
-  %139 = getelementptr inbounds i8, ptr %.018.i.i.i.i.i, i64 96
+139:                                              ; preds = %125
+  %140 = getelementptr inbounds i8, ptr %.018.i.i.i.i.i, i64 96
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %158, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i ], [ %.val.i.i, %.lr.ph.i.i.i.i.i.preheader ]
-  %140 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %141 = load ptr, ptr %140, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %141, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i, label %142
+.lr.ph.i.i.i.i.i:                                 ; preds = %139, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %159, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i ], [ %.val.i.i, %139 ]
+  %141 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %142, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i, label %143
 
-142:                                              ; preds = %.lr.ph.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %141) #21
+143:                                              ; preds = %.lr.ph.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %142) #21
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i:     ; preds = %142, %.lr.ph.i.i.i.i.i
-  %143 = load i32, ptr %.05.i.i.i.i.i, align 4
-  %144 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
-  %145 = trunc i8 %144 to i1
-  %146 = icmp ne i32 %143, 0
-  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %146, %145
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %147, label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i
+_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i:     ; preds = %143, %.lr.ph.i.i.i.i.i
+  %144 = load i32, ptr %.05.i.i.i.i.i, align 4
+  %145 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
+  %146 = trunc i8 %145 to i1
+  %147 = icmp ne i32 %144, 0
+  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %147, %146
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %148, label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i
 
-147:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i
-  %148 = sext i32 %143 to i64
-  %149 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %150 = getelementptr inbounds i32, ptr %149, i64 %148
-  %151 = load i32, ptr %150, align 4
-  %152 = add nsw i32 %151, -1
-  store i32 %152, ptr %150, align 4
-  %153 = icmp sgt i32 %151, 1
-  br i1 %153, label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i, label %154
+148:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i
+  %149 = sext i32 %144 to i64
+  %150 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %151 = getelementptr inbounds i32, ptr %150, i64 %149
+  %152 = load i32, ptr %151, align 4
+  %153 = add nsw i32 %152, -1
+  store i32 %153, ptr %151, align 4
+  %154 = icmp sgt i32 %152, 1
+  br i1 %154, label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i, label %155
 
-154:                                              ; preds = %147
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %143)
-          to label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i unwind label %155
+155:                                              ; preds = %148
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %144)
+          to label %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i unwind label %156
 
-155:                                              ; preds = %154
-  %156 = landingpad { ptr, i32 }
+156:                                              ; preds = %155
+  %157 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  tail call void @__clang_call_terminate(ptr %157) #22
+  %158 = extractvalue { ptr, i32 } %157, 0
+  tail call void @__clang_call_terminate(ptr %158) #22
   unreachable
 
-_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i: ; preds = %154, %147, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i
-  %158 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i = icmp eq ptr %158, %4
+_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i: ; preds = %155, %148, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i
+  %159 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i = icmp eq ptr %159, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i, %.thread
-  %159 = phi ptr [ %91, %.thread ], [ %139, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i ]
+  %160 = phi ptr [ %91, %.thread ], [ %140, %_ZSt8_DestroyIN12_GLOBAL__N_110setunset_tEEvPT_.exit.i.i.i.i.i ]
   %.not.i32.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i32.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %160
+  br i1 %.not.i32.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %161
 
-160:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i
+161:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i) #21
   br label %_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 .body:                                            ; preds = %133
-  %161 = extractvalue { ptr, i32 } %134, 0
-  %162 = tail call ptr @__cxa_begin_catch(ptr %161) #20
+  %162 = extractvalue { ptr, i32 } %134, 0
+  %163 = tail call ptr @__cxa_begin_catch(ptr %162) #20
   tail call fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110setunset_tEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull %58) #20
-  br label %165
+  br label %166
 
-163:                                              ; preds = %165
-  %164 = landingpad { ptr, i32 }
+164:                                              ; preds = %166
+  %165 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume.i unwind label %166
+          to label %common.resume.i unwind label %167
 
-165:                                              ; preds = %.body.thread.i.i, %.body
+166:                                              ; preds = %.body.thread.i.i, %.body
   tail call void @_ZdlPv(ptr noundef nonnull %57) #21
   invoke void @__cxa_rethrow() #23
-          to label %169 unwind label %163
+          to label %170 unwind label %164
 
-166:                                              ; preds = %163
-  %167 = landingpad { ptr, i32 }
+167:                                              ; preds = %164
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %168 = extractvalue { ptr, i32 } %167, 0
-  tail call void @__clang_call_terminate(ptr %168) #22
+  %169 = extractvalue { ptr, i32 } %168, 0
+  tail call void @__clang_call_terminate(ptr %169) #22
   unreachable
 
-169:                                              ; preds = %165
+170:                                              ; preds = %166
   unreachable
 
-_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %160, %_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %161, %_ZSt8_DestroyIPN12_GLOBAL__N_110setunset_tES1_EvT_S3_RSaIT0_E.exit.i.i
   store ptr %57, ptr %0, align 8
-  store ptr %159, ptr %3, align 8
-  %170 = getelementptr inbounds %"struct.(anonymous namespace)::setunset_t", ptr %57, i64 %53
-  store ptr %170, ptr %5, align 8
+  store ptr %160, ptr %3, align 8
+  %171 = getelementptr inbounds %"struct.(anonymous namespace)::setunset_t", ptr %57, i64 %53
+  store ptr %171, ptr %5, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110setunset_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i, %_ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i

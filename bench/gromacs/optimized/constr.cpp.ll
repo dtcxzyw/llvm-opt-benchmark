@@ -283,43 +283,41 @@ define noundef zeroext i1 @_ZNK3gmx11Constraints24havePerturbedConstraintsEv(ptr
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 2
   %.not = icmp eq ptr %8, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = ashr exact i64 %12, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %14 = phi i1 [ %27, %25 ], [ true, %.lr.ph.preheader ]
-  %.013 = phi i64 [ %26, %25 ], [ 0, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds i32, ptr %9, i64 %.013
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, -2
-  %switch = icmp eq i32 %17, 62
-  br i1 %switch, label %18, label %25
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %.013 = phi i64 [ %25, %24 ], [ 0, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds i32, ptr %9, i64 %.013
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, -2
+  %switch = icmp eq i32 %16, 62
+  br i1 %switch, label %17, label %24
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %union.t_iparams, ptr %19, i64 %.013
-  %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
-  %23 = load float, ptr %22, align 4
-  %24 = fcmp une float %21, %23
-  br i1 %24, label %._crit_edge, label %25
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %union.t_iparams, ptr %18, i64 %.013
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = load float, ptr %21, align 4
+  %23 = fcmp une float %20, %22
+  br i1 %23, label %._crit_edge, label %24
 
-25:                                               ; preds = %.lr.ph, %18
-  %26 = add nuw i64 %.013, 1
-  %27 = icmp ult i64 %26, %13
-  %exitcond.not = icmp eq i64 %26, %umax
+24:                                               ; preds = %.lr.ph, %17
+  %25 = add nuw i64 %.013, 1
+  %exitcond.not = icmp eq i64 %25, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %18, %25, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %27, %25 ], [ %14, %18 ]
+._crit_edge:                                      ; preds = %17, %24, %1
+  %.lcssa = phi i1 [ false, %1 ], [ false, %24 ], [ true, %17 ]
   ret i1 %.lcssa
 }
 
@@ -6174,16 +6172,16 @@ _ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23A
   %38 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i71, i64 12
   %39 = getelementptr inbounds i8, ptr %.015.i.i70, i64 12
   %.not.i.i72 = icmp eq ptr %38, %9
-  br i1 %.not.i.i72, label %.lr.ph.i.i.i76.preheader, label %.lr.ph.i.i69, !llvm.loop !88
+  br i1 %.not.i.i72, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74, label %.lr.ph.i.i69, !llvm.loop !88
 
-.lr.ph.i.i.i76.preheader:                         ; preds = %.lr.ph.i.i69
+_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74: ; preds = %.lr.ph.i.i69
   %40 = load ptr, ptr %8, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %16
   store ptr %41, ptr %8, align 8
   br label %.lr.ph.i.i.i76
 
-.lr.ph.i.i.i76:                                   ; preds = %.lr.ph.i.i.i76.preheader, %.lr.ph.i.i.i76
-  %.06.i.i.i77 = phi ptr [ %42, %.lr.ph.i.i.i76 ], [ %1, %.lr.ph.i.i.i76.preheader ]
+.lr.ph.i.i.i76:                                   ; preds = %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74, %.lr.ph.i.i.i76
+  %.06.i.i.i77 = phi ptr [ %42, %.lr.ph.i.i.i76 ], [ %1, %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET0_T_S8_S7_RT1_.exit74 ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i77, align 4
   %.sroa.6.8..06.i.i.i77.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i77, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.8..06.i.i.i77.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)

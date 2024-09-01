@@ -437,8 +437,8 @@ if.end10:                                         ; preds = %land.lhs.true6, %if
 
 if.end.i:                                         ; preds = %if.end10
   %0 = load ptr, ptr %pbags, align 8
-  %cmp1.not.i = icmp ne ptr %0, null
-  br i1 %cmp1.not.i, label %if.end6.i.thread, label %if.then2.i
+  %cmp1.not.i.not = icmp eq ptr %0, null
+  br i1 %cmp1.not.i.not, label %if.then2.i, label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i
   %call9.i12 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %call) #3
@@ -453,9 +453,8 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %call9.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #3
-  %tobool.not.i = icmp ne i32 %call9.i, 0
-  %brmerge.i = or i1 %cmp1.not.i, %tobool.not.i
-  br i1 %brmerge.i, label %pkcs12_add_bag.exit, label %if.then12.i
+  %tobool.not.i.not = icmp eq i32 %call9.i, 0
+  br i1 %tobool.not.i.not, label %if.then12.i, label %return
 
 if.then12.i:                                      ; preds = %if.end6.i
   %1 = load ptr, ptr %pbags, align 8
@@ -463,15 +462,12 @@ if.then12.i:                                      ; preds = %if.end6.i
   store ptr null, ptr %pbags, align 8
   br label %err
 
-pkcs12_add_bag.exit:                              ; preds = %if.end6.i
-  br i1 %tobool.not.i, label %return, label %err
-
-err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %pkcs12_add_bag.exit, %land.lhs.true6, %land.lhs.true, %entry
+err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %land.lhs.true6, %land.lhs.true, %entry
   tail call void @PKCS12_SAFEBAG_free(ptr noundef %call) #3
   br label %return
 
-return:                                           ; preds = %if.end6.i.thread, %if.end10, %pkcs12_add_bag.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %call, %pkcs12_add_bag.exit ], [ %call, %if.end10 ], [ %call, %if.end6.i.thread ]
+return:                                           ; preds = %if.end6.i, %if.end6.i.thread, %if.end10, %err
+  %retval.0 = phi ptr [ null, %err ], [ %call, %if.end10 ], [ %call, %if.end6.i.thread ], [ %call, %if.end6.i ]
   ret ptr %retval.0
 }
 
@@ -613,8 +609,8 @@ if.end12:                                         ; preds = %if.end9
 
 if.end.i:                                         ; preds = %if.end12
   %0 = load ptr, ptr %pbags, align 8
-  %cmp1.not.i = icmp ne ptr %0, null
-  br i1 %cmp1.not.i, label %if.end6.i.thread, label %if.then2.i
+  %cmp1.not.i.not = icmp eq ptr %0, null
+  br i1 %cmp1.not.i.not, label %if.then2.i, label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i
   %call9.i14 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %bag.1) #3
@@ -629,9 +625,8 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %call9.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %bag.1) #3
-  %tobool.not.i = icmp ne i32 %call9.i, 0
-  %brmerge.i = or i1 %cmp1.not.i, %tobool.not.i
-  br i1 %brmerge.i, label %pkcs12_add_bag.exit, label %if.then12.i
+  %tobool.not.i.not = icmp eq i32 %call9.i, 0
+  br i1 %tobool.not.i.not, label %if.then12.i, label %return
 
 if.then12.i:                                      ; preds = %if.end6.i
   %1 = load ptr, ptr %pbags, align 8
@@ -639,16 +634,13 @@ if.then12.i:                                      ; preds = %if.end6.i
   store ptr null, ptr %pbags, align 8
   br label %err
 
-pkcs12_add_bag.exit:                              ; preds = %if.end6.i
-  br i1 %tobool.not.i, label %return, label %err
-
-err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %pkcs12_add_bag.exit, %if.end9, %land.lhs.true, %entry
-  %bag.0 = phi ptr [ null, %entry ], [ %bag.1, %pkcs12_add_bag.exit ], [ null, %if.end9 ], [ null, %land.lhs.true ], [ %bag.1, %if.then2.i ], [ %bag.1, %if.then12.i ], [ %bag.1, %if.end6.i.thread ]
+err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %if.end9, %land.lhs.true, %entry
+  %bag.0 = phi ptr [ null, %entry ], [ null, %if.end9 ], [ null, %land.lhs.true ], [ %bag.1, %if.then2.i ], [ %bag.1, %if.then12.i ], [ %bag.1, %if.end6.i.thread ]
   tail call void @PKCS12_SAFEBAG_free(ptr noundef %bag.0) #3
   br label %return
 
-return:                                           ; preds = %if.end6.i.thread, %if.end12, %pkcs12_add_bag.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %bag.1, %pkcs12_add_bag.exit ], [ %bag.1, %if.end12 ], [ %bag.1, %if.end6.i.thread ]
+return:                                           ; preds = %if.end6.i, %if.end6.i.thread, %if.end12, %err
+  %retval.0 = phi ptr [ null, %err ], [ %bag.1, %if.end12 ], [ %bag.1, %if.end6.i.thread ], [ %bag.1, %if.end6.i ]
   ret ptr %retval.0
 }
 
@@ -736,8 +728,8 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %0 = load ptr, ptr %pbags, align 8
-  %cmp1.not.i = icmp ne ptr %0, null
-  br i1 %cmp1.not.i, label %if.end6.i.thread, label %if.then2.i
+  %cmp1.not.i.not = icmp eq ptr %0, null
+  br i1 %cmp1.not.i.not, label %if.then2.i, label %if.end6.i.thread
 
 if.end6.i.thread:                                 ; preds = %if.end.i
   %call9.i8 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %call) #3
@@ -752,9 +744,8 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   %call9.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #3
-  %tobool.not.i = icmp ne i32 %call9.i, 0
-  %brmerge.i = or i1 %cmp1.not.i, %tobool.not.i
-  br i1 %brmerge.i, label %pkcs12_add_bag.exit, label %if.then12.i
+  %tobool.not.i.not = icmp eq i32 %call9.i, 0
+  br i1 %tobool.not.i.not, label %if.then12.i, label %return
 
 if.then12.i:                                      ; preds = %if.end6.i
   %1 = load ptr, ptr %pbags, align 8
@@ -762,15 +753,12 @@ if.then12.i:                                      ; preds = %if.end6.i
   store ptr null, ptr %pbags, align 8
   br label %err
 
-pkcs12_add_bag.exit:                              ; preds = %if.end6.i
-  br i1 %tobool.not.i, label %return, label %err
-
-err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %pkcs12_add_bag.exit, %entry
+err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %entry
   tail call void @PKCS12_SAFEBAG_free(ptr noundef %call) #3
   br label %return
 
-return:                                           ; preds = %if.end6.i.thread, %if.end, %pkcs12_add_bag.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %call, %pkcs12_add_bag.exit ], [ %call, %if.end ], [ %call, %if.end6.i.thread ]
+return:                                           ; preds = %if.end6.i, %if.end6.i.thread, %if.end, %err
+  %retval.0 = phi ptr [ null, %err ], [ %call, %if.end ], [ %call, %if.end6.i.thread ], [ %call, %if.end6.i ]
   ret ptr %retval.0
 }
 

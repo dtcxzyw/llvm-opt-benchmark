@@ -745,7 +745,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   %311 = getelementptr inbounds i8, ptr %.fr764, i64 12270
   %312 = load i32, ptr %311, align 1
   %.not635 = icmp eq i32 %312, 0
-  br i1 %.not635, label %401, label %.preheader688
+  br i1 %.not635, label %401, label %.lr.ph749.preheader
 
 .thread:                                          ; preds = %.preheader690
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26) #7
@@ -754,10 +754,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   %.not635822 = icmp eq i32 %314, 0
   br i1 %.not635822, label %401, label %._crit_edge750
 
-.preheader688:                                    ; preds = %310
-  br i1 %140, label %.lr.ph749.preheader, label %._crit_edge750
-
-.lr.ph749.preheader:                              ; preds = %.preheader688
+.lr.ph749.preheader:                              ; preds = %310
   %wide.trip.count798 = zext nneg i32 %3 to i64
   br label %.lr.ph749
 
@@ -813,10 +810,10 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   %339 = trunc nuw nsw i64 %indvars.iv795 to i32
   br label %._crit_edge750
 
-._crit_edge750:                                   ; preds = %._crit_edge750.loopexit, %.thread, %.preheader688
-  %.0551704814823825 = phi i32 [ %.1552, %.preheader688 ], [ 0, %.thread ], [ %.1552, %._crit_edge750.loopexit ]
-  %340 = phi i32 [ %312, %.preheader688 ], [ %314, %.thread ], [ %312, %._crit_edge750.loopexit ]
-  %.4548.lcssa = phi i32 [ 0, %.preheader688 ], [ 0, %.thread ], [ %339, %._crit_edge750.loopexit ]
+._crit_edge750:                                   ; preds = %._crit_edge750.loopexit, %.thread
+  %.0551704814823825 = phi i32 [ 0, %.thread ], [ %.1552, %._crit_edge750.loopexit ]
+  %340 = phi i32 [ %314, %.thread ], [ %312, %._crit_edge750.loopexit ]
+  %.4548.lcssa = phi i32 [ 0, %.thread ], [ %339, %._crit_edge750.loopexit ]
   %.not641 = icmp eq i32 %.4548.lcssa, %3
   br i1 %.not641, label %._crit_edge750.thread, label %341
 

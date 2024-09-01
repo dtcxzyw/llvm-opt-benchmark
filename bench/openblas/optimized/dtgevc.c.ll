@@ -2548,7 +2548,7 @@ thread-pre-split135:                              ; preds = %.split208.us, %.loo
   %1751 = mul nsw i64 %1750, %1736
   %1752 = getelementptr double, ptr %53, i64 %1749
   %1753 = getelementptr double, ptr %53, i64 %1751
-  br i1 %1733, label %.split211.us, label %.split209
+  br label %.split209
 
 1754:                                             ; preds = %1754, %1740
   %1755 = phi i64 [ 1, %1740 ], [ %1761, %1754 ]
@@ -2587,7 +2587,7 @@ thread-pre-split135:                              ; preds = %.split208.us, %.loo
   %1778 = icmp eq i64 %1777, %1067
   br i1 %1778, label %.split211.us, label %.split209, !llvm.loop !46
 
-.split211.us:                                     ; preds = %.loopexit, %.loopexit151.thread, %1747
+.split211.us:                                     ; preds = %.loopexit, %.loopexit151.thread
   store i32 %1731, ptr %18, align 4, !tbaa !3
   br label %1779
 

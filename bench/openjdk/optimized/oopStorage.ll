@@ -1443,8 +1443,8 @@ define hidden noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr
 
 4:                                                ; preds = %5, %1
   %.021 = phi ptr [ %3, %1 ], [ %9, %5 ]
-  %.not29 = icmp ne ptr %.021, null
-  br i1 %.not29, label %5, label %.loopexit
+  %.not27.not.not.not.not = icmp ne ptr %.021, null
+  br i1 %.not27.not.not.not.not, label %5, label %.loopexit
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %.021, i64 560
@@ -1583,7 +1583,7 @@ _ZN10OopStorage14AllocationList10push_frontERKNS_5BlockE.exit: ; preds = %52, %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %59, %57
-  ret i1 %.not29
+  ret i1 %.not27.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

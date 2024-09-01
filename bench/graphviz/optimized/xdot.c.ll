@@ -5424,8 +5424,8 @@ parseReal.exit59.i:                               ; preds = %34
 45:                                               ; preds = %39
   %sext.i = shl i64 %41, 32
   %46 = ashr exact i64 %sext.i, 32
-  %.not78.i = icmp eq i64 %sext.i, 0
-  br i1 %.not78.i, label %.thread.i, label %48
+  %.not76.i = icmp eq i64 %sext.i, 0
+  br i1 %.not76.i, label %.thread.i, label %48
 
 .thread.i:                                        ; preds = %45
   %47 = tail call noalias ptr @calloc(i64 noundef %46, i64 noundef 16) #18
@@ -5467,11 +5467,11 @@ gv_calloc.exit.i:                                 ; preds = %52, %.thread.i
 
 .lr.ph.i:                                         ; preds = %gv_calloc.exit.i, %61
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %gv_calloc.exit.i ]
-  %.03976.i = phi ptr [ %72, %61 ], [ %43, %gv_calloc.exit.i ]
+  %.03977.i = phi ptr [ %72, %61 ], [ %43, %gv_calloc.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %65 = call double @strtod(ptr noundef nonnull %.03976.i, ptr noundef nonnull %11) #21
+  %65 = call double @strtod(ptr noundef nonnull %.03977.i, ptr noundef nonnull %11) #21
   %66 = load ptr, ptr %11, align 8
-  %67 = icmp eq ptr %66, %.03976.i
+  %67 = icmp eq ptr %66, %.03977.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %.not52.i = icmp eq ptr %66, null
   %or.cond.i = or i1 %67, %.not52.i
@@ -5625,8 +5625,8 @@ parseReal.exit75.i:                               ; preds = %101
 112:                                              ; preds = %106
   %sext.i17 = shl i64 %108, 32
   %113 = ashr exact i64 %sext.i17, 32
-  %.not98.i = icmp eq i64 %sext.i17, 0
-  br i1 %.not98.i, label %.thread.i26, label %115
+  %.not96.i = icmp eq i64 %sext.i17, 0
+  br i1 %.not96.i, label %.thread.i26, label %115
 
 .thread.i26:                                      ; preds = %112
   %114 = tail call noalias ptr @calloc(i64 noundef %113, i64 noundef 16) #18
@@ -5668,11 +5668,11 @@ gv_calloc.exit.i19:                               ; preds = %119, %.thread.i26
 
 .lr.ph.i21:                                       ; preds = %gv_calloc.exit.i19, %128
   %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i24, %128 ], [ 0, %gv_calloc.exit.i19 ]
-  %.04796.i = phi ptr [ %139, %128 ], [ %110, %gv_calloc.exit.i19 ]
+  %.04797.i = phi ptr [ %139, %128 ], [ %110, %gv_calloc.exit.i19 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %132 = call double @strtod(ptr noundef nonnull %.04796.i, ptr noundef nonnull %3) #21
+  %132 = call double @strtod(ptr noundef nonnull %.04797.i, ptr noundef nonnull %3) #21
   %133 = load ptr, ptr %3, align 8
-  %134 = icmp eq ptr %133, %.04796.i
+  %134 = icmp eq ptr %133, %.04797.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not64.i = icmp eq ptr %133, null
   %or.cond.i23 = or i1 %134, %.not64.i
@@ -5820,8 +5820,8 @@ define internal fastcc ptr @parsePolyline(ptr noundef %0, ptr nocapture noundef 
 
 8:                                                ; preds = %2
   %9 = and i64 %5, 4294967295
-  %.not33 = icmp eq i64 %9, 0
-  br i1 %.not33, label %gv_calloc.exit.thread, label %11
+  %.not28 = icmp eq i64 %9, 0
+  br i1 %.not28, label %gv_calloc.exit.thread, label %11
 
 gv_calloc.exit.thread:                            ; preds = %8
   %10 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 24) #18
@@ -5845,13 +5845,13 @@ gv_calloc.exit.thread:                            ; preds = %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %.032 = phi ptr [ %30, %28 ], [ %12, %.lr.ph.preheader ]
-  %.01931 = phi ptr [ %25, %28 ], [ %6, %.lr.ph.preheader ]
-  %storemerge30 = phi i32 [ %31, %28 ], [ 0, %.lr.ph.preheader ]
-  %18 = call double @strtod(ptr noundef %.01931, ptr noundef nonnull %4) #21
-  store double %18, ptr %.032, align 8
+  %.033 = phi ptr [ %30, %28 ], [ %12, %.lr.ph.preheader ]
+  %.01932 = phi ptr [ %25, %28 ], [ %6, %.lr.ph.preheader ]
+  %storemerge31 = phi i32 [ %31, %28 ], [ 0, %.lr.ph.preheader ]
+  %18 = call double @strtod(ptr noundef %.01932, ptr noundef nonnull %4) #21
+  store double %18, ptr %.033, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = icmp eq ptr %.01931, %19
+  %20 = icmp eq ptr %.01932, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph
@@ -5860,7 +5860,7 @@ gv_calloc.exit.thread:                            ; preds = %8
 
 22:                                               ; preds = %.lr.ph
   %23 = call double @strtod(ptr noundef %19, ptr noundef nonnull %4) #21
-  %24 = getelementptr inbounds i8, ptr %.032, i64 8
+  %24 = getelementptr inbounds i8, ptr %.033, i64 8
   store double %23, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = icmp eq ptr %19, %25
@@ -5871,10 +5871,10 @@ gv_calloc.exit.thread:                            ; preds = %8
   br label %37
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %.032, i64 16
+  %29 = getelementptr inbounds i8, ptr %.033, i64 16
   store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.032, i64 24
-  %31 = add i32 %storemerge30, 1
+  %30 = getelementptr inbounds i8, ptr %.033, i64 24
+  %31 = add i32 %storemerge31, 1
   %32 = zext i32 %31 to i64
   %33 = load i64, ptr %1, align 8
   %34 = icmp ugt i64 %33, %32

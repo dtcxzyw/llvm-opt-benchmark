@@ -5833,7 +5833,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   store i32 %145, ptr %9, align 8
   store i32 %146, ptr @dump_indent, align 4
   call void @h5tools_str_close(ptr noundef nonnull %2) #14
-  br i1 %.not98, label %._crit_edge97, label %.lr.ph96
+  br label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %._crit_edge93, %.lr.ph96
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph96 ], [ 0, %._crit_edge93 ]
@@ -5844,7 +5844,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %52
   br i1 %exitcond113.not, label %._crit_edge97, label %.lr.ph96
 
-._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge93.thread, %._crit_edge93
+._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge93.thread
   call void @free(ptr noundef %53) #14
   call void @free(ptr noundef %60) #14
   %150 = call i32 @H5Tclose(i64 noundef %25) #14

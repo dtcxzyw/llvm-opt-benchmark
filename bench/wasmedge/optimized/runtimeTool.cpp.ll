@@ -1663,8 +1663,8 @@ _ZNK8WasmEdge2VM2VM15getFunctionListB5cxx11Ev.exit.i: ; preds = %_ZNSt11shared_l
 519:                                              ; preds = %514, %508, %.lr.ph.i
   %.2.i = phi i1 [ true, %514 ], [ true, %508 ], [ %.030.i, %.lr.ph.i ]
   %520 = getelementptr inbounds i8, ptr %.sroa.021.029.i, i64 40
-  %.not35.i = icmp eq ptr %520, %503
-  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not32.i = icmp eq ptr %520, %503
+  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %519
   br i1 %.2.i, label %521, label %.thread.i209

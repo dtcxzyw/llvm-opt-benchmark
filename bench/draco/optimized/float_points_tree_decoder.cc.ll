@@ -2727,8 +2727,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %115 = add i32 %114, 1
   store i32 %115, ptr %49, align 8
   %116 = add nuw i32 %.069168, 1
-  %exitcond191.not = icmp eq i32 %116, %.sroa.0.0.copyload141
-  br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !14
+  %exitcond187.not = icmp eq i32 %116, %.sroa.0.0.copyload141
+  br i1 %exitcond187.not, label %.backedge, label %.lr.ph169, !llvm.loop !14
 
 117:                                              ; preds = %89
   %118 = icmp ult i32 %.sroa.0.0.copyload141, 3
@@ -2771,9 +2771,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %136 = load ptr, ptr %54, align 8
-  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv188
+  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv184
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %55, align 8
@@ -2781,7 +2781,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %141, align 4
   %142 = load i32, ptr %0, align 8
   %143 = load ptr, ptr %54, align 8
-  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv188
+  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv184
   %145 = load i32, ptr %144, align 4
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %83, align 8
@@ -2848,7 +2848,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %176, %168, %160, %.lr.ph166
   %186 = load ptr, ptr %54, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv188
+  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv184
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
   %190 = load ptr, ptr %81, align 8
@@ -2859,10 +2859,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, %192
   store i32 %196, ptr %194, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next189, %198
+  %199 = icmp ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -4230,8 +4230,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %125 = add i32 %124, 1
   store i32 %125, ptr %50, align 8
   %126 = add nuw i32 %.069173, 1
-  %exitcond195.not = icmp eq i32 %126, %.sroa.0.0.copyload144
-  br i1 %exitcond195.not, label %.backedge, label %.lr.ph174, !llvm.loop !32
+  %exitcond191.not = icmp eq i32 %126, %.sroa.0.0.copyload144
+  br i1 %exitcond191.not, label %.backedge, label %.lr.ph174, !llvm.loop !32
 
 127:                                              ; preds = %99
   %128 = icmp ult i32 %.sroa.0.0.copyload144, 3
@@ -4274,9 +4274,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not183, label %._crit_edge, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %146 = load ptr, ptr %62, align 8
-  %147 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv192
+  %147 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv188
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
   %150 = load ptr, ptr %63, align 8
@@ -4284,7 +4284,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %151, align 4
   %152 = load i32, ptr %0, align 8
   %153 = load ptr, ptr %62, align 8
-  %154 = getelementptr inbounds i32, ptr %153, i64 %indvars.iv192
+  %154 = getelementptr inbounds i32, ptr %153, i64 %indvars.iv188
   %155 = load i32, ptr %154, align 4
   %156 = zext i32 %155 to i64
   %157 = load ptr, ptr %91, align 8
@@ -4351,7 +4351,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %186, %178, %170, %.lr.ph171
   %196 = load ptr, ptr %62, align 8
-  %197 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv192
+  %197 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv188
   %198 = load i32, ptr %197, align 4
   %199 = zext i32 %198 to i64
   %200 = load ptr, ptr %89, align 8
@@ -4362,10 +4362,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, %202
   store i32 %206, ptr %204, align 4
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %207 = load i32, ptr %10, align 4
   %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next193, %208
+  %209 = icmp ult i64 %indvars.iv.next189, %208
   br i1 %209, label %.lr.ph171, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -5414,8 +5414,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %115 = add i32 %114, 1
   store i32 %115, ptr %49, align 8
   %116 = add nuw i32 %.069168, 1
-  %exitcond191.not = icmp eq i32 %116, %.sroa.0.0.copyload141
-  br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !48
+  %exitcond187.not = icmp eq i32 %116, %.sroa.0.0.copyload141
+  br i1 %exitcond187.not, label %.backedge, label %.lr.ph169, !llvm.loop !48
 
 117:                                              ; preds = %89
   %118 = icmp ult i32 %.sroa.0.0.copyload141, 3
@@ -5458,9 +5458,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %136 = load ptr, ptr %54, align 8
-  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv188
+  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv184
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %55, align 8
@@ -5468,7 +5468,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %141, align 4
   %142 = load i32, ptr %0, align 8
   %143 = load ptr, ptr %54, align 8
-  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv188
+  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv184
   %145 = load i32, ptr %144, align 4
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %83, align 8
@@ -5535,7 +5535,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %176, %168, %160, %.lr.ph166
   %186 = load ptr, ptr %54, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv188
+  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv184
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
   %190 = load ptr, ptr %81, align 8
@@ -5546,10 +5546,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, %192
   store i32 %196, ptr %194, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next189, %198
+  %199 = icmp ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -6566,8 +6566,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %124 = add i32 %123, 1
   store i32 %124, ptr %51, align 8
   %125 = add nuw i32 %.069169, 1
-  %exitcond191.not = icmp eq i32 %125, %.sroa.0.0.copyload142
-  br i1 %exitcond191.not, label %.backedge, label %.lr.ph170, !llvm.loop !64
+  %exitcond187.not = icmp eq i32 %125, %.sroa.0.0.copyload142
+  br i1 %exitcond187.not, label %.backedge, label %.lr.ph170, !llvm.loop !64
 
 126:                                              ; preds = %98
   %127 = icmp ult i32 %.sroa.0.0.copyload142, 3
@@ -6610,9 +6610,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not179, label %._crit_edge, label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %145 = load ptr, ptr %61, align 8
-  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv188
+  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv184
   %147 = load i32, ptr %146, align 4
   %148 = zext i32 %147 to i64
   %149 = load ptr, ptr %62, align 8
@@ -6620,7 +6620,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %150, align 4
   %151 = load i32, ptr %0, align 8
   %152 = load ptr, ptr %61, align 8
-  %153 = getelementptr inbounds i32, ptr %152, i64 %indvars.iv188
+  %153 = getelementptr inbounds i32, ptr %152, i64 %indvars.iv184
   %154 = load i32, ptr %153, align 4
   %155 = zext i32 %154 to i64
   %156 = load ptr, ptr %90, align 8
@@ -6687,7 +6687,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %185, %177, %169, %.lr.ph167
   %195 = load ptr, ptr %61, align 8
-  %196 = getelementptr inbounds i32, ptr %195, i64 %indvars.iv188
+  %196 = getelementptr inbounds i32, ptr %195, i64 %indvars.iv184
   %197 = load i32, ptr %196, align 4
   %198 = zext i32 %197 to i64
   %199 = load ptr, ptr %88, align 8
@@ -6698,10 +6698,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %204 = load i32, ptr %203, align 4
   %205 = or i32 %204, %201
   store i32 %205, ptr %203, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %206 = load i32, ptr %11, align 4
   %207 = zext i32 %206 to i64
-  %208 = icmp ult i64 %indvars.iv.next189, %207
+  %208 = icmp ult i64 %indvars.iv.next185, %207
   br i1 %208, label %.lr.ph167, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -7715,8 +7715,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %115 = add i32 %114, 1
   store i32 %115, ptr %49, align 8
   %116 = add nuw i32 %.069168, 1
-  %exitcond191.not = icmp eq i32 %116, %.sroa.0.0.copyload141
-  br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !81
+  %exitcond187.not = icmp eq i32 %116, %.sroa.0.0.copyload141
+  br i1 %exitcond187.not, label %.backedge, label %.lr.ph169, !llvm.loop !81
 
 117:                                              ; preds = %89
   %118 = icmp ult i32 %.sroa.0.0.copyload141, 3
@@ -7759,9 +7759,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %136 = load ptr, ptr %54, align 8
-  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv188
+  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv184
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %55, align 8
@@ -7769,7 +7769,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %141, align 4
   %142 = load i32, ptr %0, align 8
   %143 = load ptr, ptr %54, align 8
-  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv188
+  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv184
   %145 = load i32, ptr %144, align 4
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %83, align 8
@@ -7836,7 +7836,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %176, %168, %160, %.lr.ph166
   %186 = load ptr, ptr %54, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv188
+  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv184
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
   %190 = load ptr, ptr %81, align 8
@@ -7847,10 +7847,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, %192
   store i32 %196, ptr %194, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next189, %198
+  %199 = icmp ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -8884,8 +8884,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %123 = add i32 %122, 1
   store i32 %123, ptr %50, align 8
   %124 = add nuw i32 %.069177, 1
-  %exitcond201.not = icmp eq i32 %124, %.sroa.0.0.copyload143
-  br i1 %exitcond201.not, label %.backedge, label %.lr.ph178, !llvm.loop !97
+  %exitcond195.not = icmp eq i32 %124, %.sroa.0.0.copyload143
+  br i1 %exitcond195.not, label %.backedge, label %.lr.ph178, !llvm.loop !97
 
 125:                                              ; preds = %97
   %126 = icmp ult i32 %.sroa.0.0.copyload143, 3
@@ -8928,9 +8928,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not187, label %._crit_edge, label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %144 = load ptr, ptr %60, align 8
-  %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv198
+  %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv192
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
   %148 = load ptr, ptr %61, align 8
@@ -8938,7 +8938,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %149, align 4
   %150 = load i32, ptr %0, align 8
   %151 = load ptr, ptr %60, align 8
-  %152 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv198
+  %152 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv192
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
   %155 = load ptr, ptr %89, align 8
@@ -9005,7 +9005,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %184, %176, %168, %.lr.ph175
   %194 = load ptr, ptr %60, align 8
-  %195 = getelementptr inbounds i32, ptr %194, i64 %indvars.iv198
+  %195 = getelementptr inbounds i32, ptr %194, i64 %indvars.iv192
   %196 = load i32, ptr %195, align 4
   %197 = zext i32 %196 to i64
   %198 = load ptr, ptr %87, align 8
@@ -9016,10 +9016,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %203 = load i32, ptr %202, align 4
   %204 = or i32 %203, %200
   store i32 %204, ptr %202, align 4
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %205 = load i32, ptr %10, align 4
   %206 = zext i32 %205 to i64
-  %207 = icmp ult i64 %indvars.iv.next199, %206
+  %207 = icmp ult i64 %indvars.iv.next193, %206
   br i1 %207, label %.lr.ph175, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader
@@ -10046,8 +10046,8 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %115 = add i32 %114, 1
   store i32 %115, ptr %49, align 8
   %116 = add nuw i32 %.069168, 1
-  %exitcond191.not = icmp eq i32 %116, %.sroa.0.0.copyload141
-  br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !114
+  %exitcond187.not = icmp eq i32 %116, %.sroa.0.0.copyload141
+  br i1 %exitcond187.not, label %.backedge, label %.lr.ph169, !llvm.loop !114
 
 117:                                              ; preds = %89
   %118 = icmp ult i32 %.sroa.0.0.copyload141, 3
@@ -10090,9 +10090,9 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.preheader, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread ], [ 0, %.preheader ]
   %136 = load ptr, ptr %54, align 8
-  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv188
+  %137 = getelementptr inbounds i32, ptr %136, i64 %indvars.iv184
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
   %140 = load ptr, ptr %55, align 8
@@ -10100,7 +10100,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   store i32 0, ptr %141, align 4
   %142 = load i32, ptr %0, align 8
   %143 = load ptr, ptr %54, align 8
-  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv188
+  %144 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv184
   %145 = load i32, ptr %144, align 4
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %83, align 8
@@ -10167,7 +10167,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; preds = %176, %168, %160, %.lr.ph166
   %186 = load ptr, ptr %54, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv188
+  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv184
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
   %190 = load ptr, ptr %81, align 8
@@ -10178,10 +10178,10 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread: ; pre
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, %192
   store i32 %196, ptr %194, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %197 = load i32, ptr %11, align 4
   %198 = zext i32 %197 to i64
-  %199 = icmp ult i64 %indvars.iv.next189, %198
+  %199 = icmp ult i64 %indvars.iv.next185, %198
   br i1 %199, label %.lr.ph166, label %._crit_edge, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit.thread, %.preheader

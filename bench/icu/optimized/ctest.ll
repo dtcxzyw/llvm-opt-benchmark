@@ -1461,16 +1461,13 @@ sub_293:                                          ; preds = %sub_192
 if.else42.tail:                                   ; preds = %sub_192, %sub_293
   %36 = phi i32 [ %32, %sub_192 ], [ %35, %sub_293 ]
   %cmp46 = icmp eq i32 %36, 0
-  br i1 %cmp46, label %if.then48, label %sub_095
+  br i1 %cmp46, label %if.then48, label %sub_196
 
 if.then48:                                        ; preds = %if.else42.tail
   store i32 0, ptr @QUICK, align 4
   br label %for.inc
 
-sub_095:                                          ; preds = %if.else42.tail
-  br i1 %.not, label %sub_196, label %if.else49.tail
-
-sub_196:                                          ; preds = %sub_095
+sub_196:                                          ; preds = %if.else42.tail
   %37 = getelementptr inbounds i8, ptr %1, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -1484,8 +1481,8 @@ sub_297:                                          ; preds = %sub_196
   %43 = zext i8 %42 to i32
   br label %if.else49.tail
 
-if.else49.tail:                                   ; preds = %sub_091, %sub_095, %sub_196, %sub_297
-  %44 = phi i32 [ %4, %sub_095 ], [ %40, %sub_196 ], [ %43, %sub_297 ], [ %4, %sub_091 ]
+if.else49.tail:                                   ; preds = %sub_091, %sub_196, %sub_297
+  %44 = phi i32 [ %40, %sub_196 ], [ %43, %sub_297 ], [ %4, %sub_091 ]
   %cmp53 = icmp eq i32 %44, 0
   br i1 %cmp53, label %if.then55, label %sub_099
 
@@ -1524,16 +1521,13 @@ sub_2104:                                         ; preds = %sub_1103
 if.else65.tail:                                   ; preds = %sub_1103, %sub_2104
   %54 = phi i32 [ %50, %sub_1103 ], [ %53, %sub_2104 ]
   %cmp69 = icmp eq i32 %54, 0
-  br i1 %cmp69, label %if.then71, label %sub_0106
+  br i1 %cmp69, label %if.then71, label %sub_1107
 
 if.then71:                                        ; preds = %if.else65.tail
   store i32 1, ptr @WARN_ON_MISSING_DATA, align 4
   br label %for.inc
 
-sub_0106:                                         ; preds = %if.else65.tail
-  br i1 %.not, label %sub_1107, label %if.else118.tail
-
-sub_1107:                                         ; preds = %sub_0106
+sub_1107:                                         ; preds = %if.else65.tail
   %55 = getelementptr inbounds i8, ptr %1, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
@@ -1550,7 +1544,7 @@ sub_2108:                                         ; preds = %sub_1107
 if.else72.tail:                                   ; preds = %sub_1107, %sub_2108
   %62 = phi i32 [ %58, %sub_1107 ], [ %61, %sub_2108 ]
   %cmp76 = icmp eq i32 %62, 0
-  br i1 %cmp76, label %if.then78, label %sub_0110
+  br i1 %cmp76, label %if.then78, label %sub_1111
 
 if.then78:                                        ; preds = %if.else72.tail
   store i32 0, ptr %errorCode, align 4
@@ -1609,10 +1603,7 @@ if.then114:                                       ; preds = %if.end111
   %call116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %call115)
   br label %return
 
-sub_0110:                                         ; preds = %if.else72.tail
-  br i1 %.not, label %sub_1111, label %if.else118.tail
-
-sub_1111:                                         ; preds = %sub_0110
+sub_1111:                                         ; preds = %if.else72.tail
   %72 = getelementptr inbounds i8, ptr %1, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
@@ -1626,8 +1617,8 @@ sub_2112:                                         ; preds = %sub_1111
   %78 = zext i8 %77 to i32
   br label %if.else118.tail
 
-if.else118.tail:                                  ; preds = %sub_099, %sub_0106, %sub_0110, %sub_1111, %sub_2112
-  %79 = phi i32 [ %4, %sub_0110 ], [ %75, %sub_1111 ], [ %78, %sub_2112 ], [ %4, %sub_0106 ], [ %4, %sub_099 ]
+if.else118.tail:                                  ; preds = %sub_099, %sub_1111, %sub_2112
+  %79 = phi i32 [ %75, %sub_1111 ], [ %78, %sub_2112 ], [ %4, %sub_099 ]
   %cmp122 = icmp eq i32 %79, 0
   br i1 %cmp122, label %if.then130, label %lor.lhs.false124
 
@@ -1660,7 +1651,7 @@ sub_2116:                                         ; preds = %sub_1115
 if.else131.tail:                                  ; preds = %sub_1115, %sub_2116
   %87 = phi i32 [ %83, %sub_1115 ], [ %86, %sub_2116 ]
   %cmp135 = icmp eq i32 %87, 0
-  br i1 %cmp135, label %if.then137, label %sub_0118
+  br i1 %cmp135, label %if.then137, label %sub_1119
 
 if.then137:                                       ; preds = %if.else131.tail
   %88 = load i32, ptr @REPEAT_TESTS_INIT, align 4
@@ -1673,10 +1664,7 @@ if.then138:                                       ; preds = %if.then137
   store i32 %inc139, ptr @REPEAT_TESTS, align 4
   br label %for.inc
 
-sub_0118:                                         ; preds = %if.else131.tail
-  br i1 %.not, label %sub_1119, label %if.else141.tail
-
-sub_1119:                                         ; preds = %sub_0118
+sub_1119:                                         ; preds = %if.else131.tail
   %90 = getelementptr inbounds i8, ptr %1, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
@@ -1690,8 +1678,8 @@ sub_2120:                                         ; preds = %sub_1119
   %96 = zext i8 %95 to i32
   br label %if.else141.tail
 
-if.else141.tail:                                  ; preds = %sub_0114, %sub_0118, %sub_1119, %sub_2120
-  %97 = phi i32 [ %4, %sub_0118 ], [ %93, %sub_1119 ], [ %96, %sub_2120 ], [ %4, %sub_0114 ]
+if.else141.tail:                                  ; preds = %sub_0114, %sub_1119, %sub_2120
+  %97 = phi i32 [ %93, %sub_1119 ], [ %96, %sub_2120 ], [ %4, %sub_0114 ]
   %cmp145 = icmp eq i32 %97, 0
   br i1 %cmp145, label %if.then147, label %if.else160
 
@@ -1776,16 +1764,13 @@ sub_2124:                                         ; preds = %sub_1123
 if.else195.tail:                                  ; preds = %sub_1123, %sub_2124
   %106 = phi i32 [ %102, %sub_1123 ], [ %105, %sub_2124 ]
   %cmp199 = icmp eq i32 %106, 0
-  br i1 %cmp199, label %if.then201, label %sub_0126
+  br i1 %cmp199, label %if.then201, label %sub_1127
 
 if.then201:                                       ; preds = %if.else195.tail
   store i32 1, ptr @WRITE_GOLDEN_DATA, align 4
   br label %for.inc
 
-sub_0126:                                         ; preds = %if.else195.tail
-  br i1 %.not, label %sub_1127, label %if.else202.tail
-
-sub_1127:                                         ; preds = %sub_0126
+sub_1127:                                         ; preds = %if.else195.tail
   %107 = getelementptr inbounds i8, ptr %1, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
@@ -1799,8 +1784,8 @@ sub_2128:                                         ; preds = %sub_1127
   %113 = zext i8 %112 to i32
   br label %if.else202.tail
 
-if.else202.tail:                                  ; preds = %sub_0122, %sub_0126, %sub_1127, %sub_2128
-  %114 = phi i32 [ %4, %sub_0126 ], [ %110, %sub_1127 ], [ %113, %sub_2128 ], [ %4, %sub_0122 ]
+if.else202.tail:                                  ; preds = %sub_0122, %sub_1127, %sub_2128
+  %114 = phi i32 [ %110, %sub_1127 ], [ %113, %sub_2128 ], [ %4, %sub_0122 ]
   %cmp206 = icmp eq i32 %114, 0
   br i1 %cmp206, label %if.then214, label %lor.lhs.false208
 

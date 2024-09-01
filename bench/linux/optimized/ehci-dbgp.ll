@@ -823,11 +823,11 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   br i1 %172, label %162, label %169, !llvm.loop !24
 
 173:                                              ; preds = %.thread6, %165
-  %174 = phi i32 [ %294, %.thread6 ], [ 3, %165 ]
+  %174 = phi i32 [ %292, %.thread6 ], [ 3, %165 ]
   br label %175
 
-175:                                              ; preds = %252, %173
-  %176 = phi i32 [ 0, %173 ], [ %253, %252 ]
+175:                                              ; preds = %.sink.split, %173
+  %176 = phi i32 [ 0, %173 ], [ %253, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
   store i64 1125900074616448, ptr %1, align 8, !annotation !5
   %177 = load ptr, ptr @ehci_debug, align 8
@@ -846,11 +846,11 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %188 = or i32 %187, %181
   %189 = add nuw nsw i64 %180, 1
   %190 = icmp eq i64 %189, 4
-  br i1 %190, label %.preheader55, label %179, !llvm.loop !18
+  br i1 %190, label %.preheader57, label %179, !llvm.loop !18
 
-.preheader55:                                     ; preds = %179, %.preheader55
-  %191 = phi i64 [ %201, %.preheader55 ], [ 4, %179 ]
-  %192 = phi i32 [ %200, %.preheader55 ], [ 0, %179 ]
+.preheader57:                                     ; preds = %179, %.preheader57
+  %191 = phi i64 [ %201, %.preheader57 ], [ 4, %179 ]
+  %192 = phi i32 [ %200, %.preheader57 ], [ 0, %179 ]
   %193 = getelementptr i8, ptr %1, i64 %191
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
@@ -861,9 +861,9 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %200 = or i32 %199, %192
   %201 = add nuw nsw i64 %191, 1
   %202 = icmp eq i64 %201, 8
-  br i1 %202, label %203, label %.preheader55, !llvm.loop !19
+  br i1 %202, label %203, label %.preheader57, !llvm.loop !19
 
-203:                                              ; preds = %.preheader55
+203:                                              ; preds = %.preheader57
   %204 = and i32 %178, -64
   %205 = shl i32 %176, 8
   %206 = or disjoint i32 %204, 56
@@ -932,84 +932,78 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
 
 dbgp_control_msg.exit:                            ; preds = %243
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  br i1 %.not, label %252, label %255
+  %252 = icmp ugt i32 %176, 127
+  br i1 %252, label %.thread6, label %255
 
 .sink.split:                                      ; preds = %233, %217, %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  br label %252
-
-252:                                              ; preds = %.sink.split, %dbgp_control_msg.exit
   %253 = add nuw nsw i32 %176, 1
   %254 = icmp eq i32 %253, 128
   br i1 %254, label %.thread6, label %175, !llvm.loop !31
 
 255:                                              ; preds = %dbgp_control_msg.exit
-  %256 = icmp ugt i32 %176, 127
-  br i1 %256, label %.thread6, label %257
+  %256 = load i8, ptr %166, align 1
+  %257 = zext i8 %256 to i32
+  store i32 %257, ptr @dbgp_endpoint_out, align 4
+  %258 = icmp eq i32 %176, 127
+  br i1 %258, label %262, label %259
 
-257:                                              ; preds = %255
-  %258 = load i8, ptr %166, align 1
-  %259 = zext i8 %258 to i32
-  store i32 %259, ptr @dbgp_endpoint_out, align 4
-  %260 = icmp eq i32 %176, 127
-  br i1 %260, label %264, label %261
+259:                                              ; preds = %255
+  %260 = tail call fastcc i32 @dbgp_control_msg(i32 noundef %176, i32 noundef 0, i32 noundef 5, i32 noundef 127, ptr noundef null, i32 noundef 0)
+  %261 = icmp slt i32 %260, 0
+  br i1 %261, label %.thread6, label %262
 
-261:                                              ; preds = %257
-  %262 = tail call fastcc i32 @dbgp_control_msg(i32 noundef %176, i32 noundef 0, i32 noundef 5, i32 noundef 127, ptr noundef null, i32 noundef 0)
-  %263 = icmp slt i32 %262, 0
-  br i1 %263, label %.thread6, label %264
+262:                                              ; preds = %259, %255
+  %263 = tail call fastcc i32 @dbgp_control_msg(i32 noundef 127, i32 noundef 0, i32 noundef 3, i32 noundef 6, ptr noundef null, i32 noundef 0)
+  %264 = icmp slt i32 %263, 0
+  br i1 %264, label %.thread6, label %265
 
-264:                                              ; preds = %261, %257
-  %265 = tail call fastcc i32 @dbgp_control_msg(i32 noundef 127, i32 noundef 0, i32 noundef 3, i32 noundef 6, ptr noundef null, i32 noundef 0)
-  %266 = icmp slt i32 %265, 0
-  br i1 %266, label %.thread6, label %267
-
-267:                                              ; preds = %264
-  %268 = load i32, ptr @dbgp_endpoint_out, align 4
-  %269 = load ptr, ptr @ehci_debug, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 4
-  %271 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %270) #7, !srcloc !6
-  %272 = load i32, ptr @dbgp_pid_write_update.data0, align 4
-  %273 = xor i32 %272, 136
-  store i32 %273, ptr @dbgp_pid_write_update.data0, align 4
-  %274 = load ptr, ptr @ehci_debug, align 8
-  %275 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %274) #7, !srcloc !6
-  %276 = and i32 %275, -64
-  %277 = and i32 %271, -65536
-  %278 = shl nuw nsw i32 %273, 8
-  %279 = or i32 %268, 32512
-  %280 = or i32 %277, %278
-  %281 = or disjoint i32 %280, 225
-  %282 = or disjoint i32 %276, 49
+265:                                              ; preds = %262
+  %266 = load i32, ptr @dbgp_endpoint_out, align 4
+  %267 = load ptr, ptr @ehci_debug, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 4
+  %269 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %268) #7, !srcloc !6
+  %270 = load i32, ptr @dbgp_pid_write_update.data0, align 4
+  %271 = xor i32 %270, 136
+  store i32 %271, ptr @dbgp_pid_write_update.data0, align 4
+  %272 = load ptr, ptr @ehci_debug, align 8
+  %273 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %272) #7, !srcloc !6
+  %274 = and i32 %273, -64
+  %275 = and i32 %269, -65536
+  %276 = shl nuw nsw i32 %271, 8
+  %277 = or i32 %266, 32512
+  %278 = or i32 %275, %276
+  %279 = or disjoint i32 %278, 225
+  %280 = or disjoint i32 %274, 49
+  %281 = load ptr, ptr @ehci_debug, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32, ptr elementtype(i32) %282) #7, !srcloc !15
   %283 = load ptr, ptr @ehci_debug, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32, ptr elementtype(i32) %284) #7, !srcloc !15
+  %284 = getelementptr inbounds i8, ptr %283, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %284) #7, !srcloc !15
   %285 = load ptr, ptr @ehci_debug, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %286) #7, !srcloc !15
+  %286 = getelementptr inbounds i8, ptr %285, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %277, ptr elementtype(i32) %286) #7, !srcloc !15
   %287 = load ptr, ptr @ehci_debug, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 16
+  %288 = getelementptr inbounds i8, ptr %287, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %279, ptr elementtype(i32) %288) #7, !srcloc !15
-  %289 = load ptr, ptr @ehci_debug, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %281, ptr elementtype(i32) %290) #7, !srcloc !15
-  %291 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %282)
-  %292 = icmp slt i32 %291, 0
-  br i1 %292, label %.thread6, label %293
+  %289 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %280)
+  %290 = icmp slt i32 %289, 0
+  br i1 %290, label %.thread6, label %291
 
-293:                                              ; preds = %267
+291:                                              ; preds = %265
   store i1 false, ptr @dbgp_not_safe, align 4
   br label %.thread
 
-.thread6:                                         ; preds = %252, %267, %264, %261, %255
-  %294 = add nsw i32 %174, -1
-  %295 = icmp eq i32 %174, 0
-  br i1 %295, label %.thread, label %173
+.thread6:                                         ; preds = %.sink.split, %265, %262, %259, %dbgp_control_msg.exit
+  %292 = add nsw i32 %174, -1
+  %293 = icmp eq i32 %174, 0
+  br i1 %293, label %.thread, label %173
 
-.thread:                                          ; preds = %138, %31, %.thread6, %293, %150
-  %296 = phi i32 [ -19, %150 ], [ 0, %293 ], [ -19, %.thread6 ], [ -19, %31 ], [ -5, %138 ]
+.thread:                                          ; preds = %138, %31, %.thread6, %291, %150
+  %294 = phi i32 [ -19, %150 ], [ 0, %291 ], [ -19, %.thread6 ], [ -19, %31 ], [ -5, %138 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  ret i32 %296
+  ret i32 %294
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

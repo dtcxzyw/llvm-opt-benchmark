@@ -8495,8 +8495,8 @@ define hidden void @_ZN13wasmtime_wasi8preview19WasiP1Ctx8transact17h00bc25f0647
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 16 dereferenceable(48) %6, i64 48, i1 false)
   store i64 -9223372036854775808, ptr %6, align 16
   %7 = load i64, ptr %4, align 8, !range !13, !noundef !11
-  %.not = icmp ne i64 %7, -9223372036854775808
-  br i1 %.not, label %.thread, label %9
+  %.not.not = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not.not, label %9, label %.thread
 
 .thread:                                          ; preds = %2
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -8525,8 +8525,7 @@ define hidden void @_ZN13wasmtime_wasi8preview19WasiP1Ctx8transact17h00bc25f0647
   store ptr %19, ptr %.sroa.3.0..sroa_idx7, align 8
   %.sroa.4.0..sroa_idx9 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
-  %brmerge = or i1 %.not, %11
-  br i1 %brmerge, label %25, label %26
+  br i1 %11, label %25, label %26
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }

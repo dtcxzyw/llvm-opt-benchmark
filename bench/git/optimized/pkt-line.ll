@@ -153,8 +153,8 @@ if.then.i29:                                      ; preds = %if.then13
   br label %if.end19
 
 if.else.i21:                                      ; preds = %if.then13
-  %tobool1.not.i22.not = icmp eq i32 %len, 0
-  br i1 %tobool1.not.i22.not, label %if.end19, label %if.then3.i26
+  %tobool1.not.i22 = icmp eq i32 %len, 0
+  br i1 %tobool1.not.i22, label %if.end19, label %if.then3.i26
 
 if.then3.i26:                                     ; preds = %if.else.i21
   %add.ptr.i27 = getelementptr inbounds i8, ptr %buf, i64 1

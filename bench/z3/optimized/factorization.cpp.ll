@@ -1236,8 +1236,8 @@ for.cond.preheader.split.i.i:                     ; preds = %_ZNK6vectorIbLb0EjE
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %for.cond.preheader.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.cond.preheader.split.i.i ]
-  %exitcond.not.i.i.not = icmp ne i64 %indvars.iv.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.not, label %for.body.i.i, label %_ZNK3nla18const_iterator_moneqERKS0_.exit
+  %exitcond.not.i.i.not.not = icmp ne i64 %indvars.iv.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i.not.not, label %for.body.i.i, label %_ZNK3nla18const_iterator_moneqERKS0_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
@@ -1251,7 +1251,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp12.not.i.i, label %for.cond.i.i, label %_ZNK3nla18const_iterator_moneqERKS0_.exit, !llvm.loop !10
 
 _ZNK3nla18const_iterator_moneqERKS0_.exit:        ; preds = %for.cond.i.i, %for.body.i.i, %entry, %land.rhs.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit10.i.i
-  %lnot = phi i1 [ true, %entry ], [ false, %land.rhs.i ], [ %cmp3.not.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit10.i.i ], [ %exitcond.not.i.i.not, %for.body.i.i ], [ %exitcond.not.i.i.not, %for.cond.i.i ]
+  %lnot = phi i1 [ true, %entry ], [ false, %land.rhs.i ], [ %cmp3.not.i.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit10.i.i ], [ %exitcond.not.i.i.not.not, %for.body.i.i ], [ %exitcond.not.i.i.not.not, %for.cond.i.i ]
   ret i1 %lnot
 }
 

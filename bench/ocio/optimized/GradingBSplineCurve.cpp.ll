@@ -1527,37 +1527,29 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_slopesArray, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp3 = icmp eq ptr %0, %1
   br i1 %cmp3, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %2 = load float, ptr %1, align 4
-  %cmp47 = fcmp une float %2, 0.000000e+00
-  br i1 %cmp47, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %i.048 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i64 %i.048, 1
-  %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !22
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %i.04 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.body ]
+  %add.ptr.i = getelementptr inbounds float, ptr %1, i64 %i.04
+  %2 = load float, ptr %add.ptr.i, align 4
+  %cmp4 = fcmp oeq float %2, 0.000000e+00
+  %inc = add nuw i64 %i.04, 1
+  %exitcond.not = icmp ne i64 %inc, %umax
+  %or.cond.not = select i1 %cmp4, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !22
 
-for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds float, ptr %1, i64 %inc
-  %3 = load float, ptr %add.ptr.i, align 4
-  %cmp4 = fcmp une float %3, 0.000000e+00
-  br i1 %cmp4, label %return.loopexit, label %for.cond, !llvm.loop !22
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i64 %inc, %sub.ptr.div.i
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp4, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -1951,7 +1943,7 @@ if.end69.i:                                       ; preds = %if.then.i, %_ZNSt12
   store ptr %add.ptr72.i, ptr %_M_finish74.i, align 8
   br label %if.end
 
-lpad:                                             ; preds = %invoke.cont122, %invoke.cont103, %invoke.cont85, %if.end54, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i, %if.then3.i.i.i.i.i, %invoke.cont53, %_ZNSt6vectorIfSaIfEE5clearEv.exit, %if.end, %if.else
+lpad:                                             ; preds = %invoke.cont122, %invoke.cont103, %invoke.cont85, %if.end54, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i, %if.then3.i.i.i.i.i, %invoke.cont53, %invoke.cont.i.i, %if.end, %if.else
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2714,12 +2706,12 @@ if.end52.i.thread:                                ; preds = %if.then.i68
   store float %mul48.i, ptr %add.ptr.i58.i.le, align 4
   %inc53.i213 = add nuw i64 %j.068.i, 1
   %exitcond.not.i66214 = icmp eq i64 %inc53.i213, %umax.i
-  br i1 %exitcond.not.i66214, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %while.body.i.outer, !llvm.loop !28
+  br i1 %exitcond.not.i66214, label %invoke.cont.i.i, label %while.body.i.outer, !llvm.loop !28
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit: ; preds = %if.end52.i
-  br i1 %adjustment_done.070.i.ph, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %if.end36
+  br i1 %adjustment_done.070.i.ph, label %invoke.cont.i.i, label %if.end36
 
-_ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %if.end52.i.thread, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
+invoke.cont.i.i:                                  ; preds = %if.end52.i.thread, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
   store ptr %69, ptr %_M_finish.i.i59, align 8
   %84 = load ptr, ptr %coefsA, align 8
   %_M_finish.i.i77 = getelementptr inbounds i8, ptr %coefsA, i64 8
@@ -2731,16 +2723,16 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %if.end52.i.thread, 
   %_M_finish.i.i85 = getelementptr inbounds i8, ptr %coefsC, i64 8
   store ptr %86, ptr %_M_finish.i.i85, align 8
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19FitSplineERKSt6vectorINS_19GradingControlPointESaIS2_EERKS1_IfSaIfEERS8_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %m_controlPoints, ptr noundef nonnull align 8 dereferenceable(24) %slopes, ptr noundef nonnull align 8 dereferenceable(24) %knots, ptr noundef nonnull align 8 dereferenceable(24) %coefsA, ptr noundef nonnull align 8 dereferenceable(24) %coefsB, ptr noundef nonnull align 8 dereferenceable(24) %coefsC)
-          to label %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge unwind label %lpad
+          to label %invoke.cont.i.i.if.end36_crit_edge unwind label %lpad
 
-_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge: ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit
+invoke.cont.i.i.if.end36_crit_edge:               ; preds = %invoke.cont.i.i
   %.pre205 = load ptr, ptr %_M_finish.i.i59, align 8
   %.pre206 = load ptr, ptr %knots, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge, %invoke.cont29, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
-  %87 = phi ptr [ %.pre206, %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge ], [ %69, %invoke.cont29 ], [ %69, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
-  %88 = phi ptr [ %.pre205, %_ZNSt6vectorIfSaIfEE5clearEv.exit.if.end36_crit_edge ], [ %68, %invoke.cont29 ], [ %68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
+if.end36:                                         ; preds = %invoke.cont.i.i.if.end36_crit_edge, %invoke.cont29, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit
+  %87 = phi ptr [ %.pre206, %invoke.cont.i.i.if.end36_crit_edge ], [ %69, %invoke.cont29 ], [ %69, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
+  %88 = phi ptr [ %.pre205, %invoke.cont.i.i.if.end36_crit_edge ], [ %68, %invoke.cont29 ], [ %68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AdjustSlopesERKSt6vectorINS_19GradingControlPointESaIS2_EERS1_IfSaIfEES9_.exit ]
   %m_knotsArray = getelementptr inbounds i8, ptr %knotsCoefs, i64 80
   %_M_finish.i89 = getelementptr inbounds i8, ptr %knotsCoefs, i64 88
   %89 = load ptr, ptr %_M_finish.i89, align 8

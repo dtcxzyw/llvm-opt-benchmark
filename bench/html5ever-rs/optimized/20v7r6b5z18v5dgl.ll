@@ -343,8 +343,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 19:                                               ; preds = %.noexc6, %15
   %.026.i.i = phi i16 [ %18, %15 ], [ %32, %.noexc6 ]
-  %.not.not.i.i.i.not = icmp ne i16 %.026.i.i, 0
-  br i1 %.not.not.i.i.i.not, label %21, label %20
+  %.not.not.i.i.i.not.not.not.not.not = icmp ne i16 %.026.i.i, 0
+  br i1 %.not.not.i.i.i.not.not.not.not.not, label %21, label %20
 
 20:                                               ; preds = %19
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -443,7 +443,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %75
 
 75:                                               ; preds = %.thread, %76
-  ret i1 %.not.not.i.i.i.not
+  ret i1 %.not.not.i.i.i.not.not.not.not.not
 
 76:                                               ; preds = %.noexc6
   tail call void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h885545ae33c9f40dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)

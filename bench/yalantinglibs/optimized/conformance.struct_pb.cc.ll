@@ -197,8 +197,8 @@ entry:
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
   %pos.promoted = phi i64 [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %entry ]
-  %cmp = icmp uge i64 %pos.promoted, %size
-  br i1 %cmp, label %return, label %land.lhs.true.i159
+  %cmp.not.not = icmp uge i64 %pos.promoted, %size
+  br i1 %cmp.not.not, label %return, label %land.lhs.true.i159
 
 land.lhs.true.i159:                               ; preds = %while.cond
   %arrayidx.i160 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
@@ -714,7 +714,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %while.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168, %while.body.i56, %sw.default
-  %retval.1 = phi i1 [ %call13, %sw.default ], [ false, %while.body.i56 ], [ true, %while.cond ], [ %cmp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168 ]
+  %retval.1 = phi i1 [ %call13, %sw.default ], [ false, %while.body.i56 ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168 ], [ %cmp.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %cmp.not.not, %while.cond ]
   ret i1 %retval.1
 }
 

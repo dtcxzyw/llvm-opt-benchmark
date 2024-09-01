@@ -868,12 +868,9 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   %427 = shl nuw nsw i64 %422, 2
   %428 = call noalias ptr @malloc(i64 noundef %427) #11
   %429 = icmp eq ptr %428, null
-  br i1 %429, label %.loopexit807.sink.split, label %.preheader809
+  br i1 %429, label %.loopexit807.sink.split, label %.preheader803.preheader
 
-.preheader809:                                    ; preds = %426
-  br i1 %409, label %.preheader803.preheader, label %._crit_edge948
-
-.preheader803.preheader:                          ; preds = %.preheader809
+.preheader803.preheader:                          ; preds = %426
   %wide.trip.count1134 = zext nneg i32 %408 to i64
   br label %.preheader803
 
@@ -928,7 +925,7 @@ define noundef i32 @mca_fcoll_dynamic_file_write_all(ptr noundef %0, ptr noundef
   %exitcond1135.not = icmp eq i64 %indvars.iv.next1132, %wide.trip.count1134
   br i1 %exitcond1135.not, label %._crit_edge948, label %.preheader803, !llvm.loop !15
 
-._crit_edge948:                                   ; preds = %._crit_edge944, %.preheader809
+._crit_edge948:                                   ; preds = %._crit_edge944
   call fastcc void @local_heap_sort(ptr noundef nonnull %424, i32 noundef %.3660.lcssa, ptr noundef nonnull %428)
   %452 = shl nuw nsw i64 %422, 3
   %453 = call noalias ptr @malloc(i64 noundef %452) #11

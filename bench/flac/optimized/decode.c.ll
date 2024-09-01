@@ -1892,10 +1892,7 @@ for.body570.preheader:                            ; preds = %if.then562
   %100 = zext i32 %mul630 to i64
   br label %for.body570
 
-for.cond602.preheader:                            ; preds = %for.body570
-  br i1 %cmp632419.not, label %if.end655, label %for.body605.preheader
-
-for.body605.preheader:                            ; preds = %for.cond602.preheader
+for.body605.preheader:                            ; preds = %for.body570
   %101 = zext i32 %mul630 to i64
   br label %for.body605
 
@@ -1918,7 +1915,7 @@ for.body570:                                      ; preds = %for.body570.prehead
   store i8 %106, ptr %arrayidx586, align 2
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 4
   %cmp568 = icmp ult i64 %indvars.iv.next542, %100
-  br i1 %cmp568, label %for.body570, label %for.cond602.preheader, !llvm.loop !25
+  br i1 %cmp568, label %for.body570, label %for.body605.preheader, !llvm.loop !25
 
 for.body605:                                      ; preds = %for.body605.preheader, %for.body605
   %indvars.iv551 = phi i64 [ 0, %for.body605.preheader ], [ %indvars.iv.next552, %for.body605 ]
@@ -1976,7 +1973,7 @@ for.body634:                                      ; preds = %for.body634.prehead
   %cmp632 = icmp ult i64 %indvars.iv.next564, %117
   br i1 %cmp632, label %for.body634, label %if.end655, !llvm.loop !27
 
-if.end655:                                        ; preds = %for.body605, %for.body634, %if.then562, %for.cond602.preheader, %if.else626
+if.end655:                                        ; preds = %for.body605, %for.body634, %if.then562, %if.else626
   %mul656 = mul i32 %sample.13, 3
   %conv657 = zext i32 %mul656 to i64
   br label %if.end814

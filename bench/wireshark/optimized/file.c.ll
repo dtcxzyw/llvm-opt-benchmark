@@ -5272,7 +5272,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %49 = getelementptr i8, ptr %9, i64 %.088
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %48, %50
-  br i1 %51, label %52, label %._crit_edge
+  br i1 %51, label %52, label %.lr.ph93.preheader
 
 52:                                               ; preds = %.lr.ph
   %53 = add i64 %.088, 1
@@ -5295,15 +5295,15 @@ cf_read_record.exit.thread:                       ; preds = %5
   %63 = and i64 %53, 4294967295
   %64 = getelementptr i8, ptr %43, i64 %63
   %65 = icmp ult ptr %64, %31
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %65, label %.lr.ph, label %.lr.ph93.preheader, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %62, %.lr.ph
-  br i1 %45, label %.lr.ph93, label %._crit_edge94
+.lr.ph93.preheader:                               ; preds = %62, %.lr.ph
+  br label %.lr.ph93
 
-.lr.ph93:                                         ; preds = %._crit_edge, %86
-  %66 = phi ptr [ %90, %86 ], [ %43, %._crit_edge ]
-  %.191 = phi i64 [ %73, %86 ], [ 0, %._crit_edge ]
-  %.16690 = phi i32 [ %88, %86 ], [ 0, %._crit_edge ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %86
+  %66 = phi ptr [ %90, %86 ], [ %43, %.lr.ph93.preheader ]
+  %.191 = phi i64 [ %73, %86 ], [ 0, %.lr.ph93.preheader ]
+  %.16690 = phi i32 [ %88, %86 ], [ 0, %.lr.ph93.preheader ]
   %67 = load i8, ptr %66, align 1
   %68 = call signext i8 @g_ascii_toupper(i8 noundef signext %67) #27
   store i8 %68, ptr %8, align 1
@@ -5345,7 +5345,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %or.cond = select i1 %.not81, i1 %91, i1 false
   br i1 %or.cond, label %.lr.ph93, label %._crit_edge94, !llvm.loop !25
 
-._crit_edge94:                                    ; preds = %.lr.ph93, %82, %86, %.preheader, %._crit_edge
+._crit_edge94:                                    ; preds = %.lr.ph93, %82, %86, %.preheader
   %92 = getelementptr i8, ptr %43, i64 1
   %93 = icmp ult ptr %92, %31
   br i1 %93, label %40, label %.loopexit, !llvm.loop !26
@@ -5456,7 +5456,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %57 = getelementptr i8, ptr %9, i64 %.098
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %56, %58
-  br i1 %59, label %60, label %._crit_edge
+  br i1 %59, label %60, label %.lr.ph103.preheader
 
 60:                                               ; preds = %.lr.ph
   %61 = add i64 %.098, 1
@@ -5478,15 +5478,15 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = and i64 %61, 4294967295
   %71 = getelementptr i8, ptr %51, i64 %70
   %72 = icmp ult ptr %71, %33
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %72, label %.lr.ph, label %.lr.ph103.preheader, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %69, %.lr.ph
-  br i1 %53, label %.lr.ph103, label %._crit_edge104
+.lr.ph103.preheader:                              ; preds = %69, %.lr.ph
+  br label %.lr.ph103
 
-.lr.ph103:                                        ; preds = %._crit_edge, %92
-  %73 = phi ptr [ %96, %92 ], [ %51, %._crit_edge ]
-  %.1101 = phi i64 [ %80, %92 ], [ 0, %._crit_edge ]
-  %.170100 = phi i32 [ %94, %92 ], [ 0, %._crit_edge ]
+.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %92
+  %73 = phi ptr [ %96, %92 ], [ %51, %.lr.ph103.preheader ]
+  %.1101 = phi i64 [ %80, %92 ], [ 0, %.lr.ph103.preheader ]
+  %.170100 = phi i32 [ %94, %92 ], [ 0, %.lr.ph103.preheader ]
   %74 = load i8, ptr %73, align 1
   %75 = call signext i8 @g_ascii_toupper(i8 noundef signext %74) #27
   store i8 %75, ptr %8, align 1
@@ -5527,7 +5527,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %or.cond = select i1 %.not89, i1 %97, i1 false
   br i1 %or.cond, label %.lr.ph103, label %._crit_edge104, !llvm.loop !28
 
-._crit_edge104:                                   ; preds = %.lr.ph103, %88, %92, %.preheader, %._crit_edge
+._crit_edge104:                                   ; preds = %.lr.ph103, %88, %92, %.preheader
   %98 = getelementptr i8, ptr %51, i64 -1
   %.not87 = icmp ult ptr %98, %32
   br i1 %.not87, label %.loopexit, label %48, !llvm.loop !29
@@ -6138,7 +6138,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %49 = getelementptr i8, ptr %8, i64 %.089
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %48, %50
-  br i1 %51, label %52, label %._crit_edge
+  br i1 %51, label %52, label %.lr.ph94.preheader
 
 52:                                               ; preds = %.lr.ph
   %53 = add i64 %.089, 1
@@ -6159,15 +6159,15 @@ cf_read_record.exit.thread:                       ; preds = %5
   %62 = and i64 %53, 4294967295
   %63 = getelementptr i8, ptr %44, i64 %62
   %64 = icmp ult ptr %63, %28
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %64, label %.lr.ph, label %.lr.ph94.preheader, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %61, %.lr.ph
-  br i1 %46, label %.lr.ph94, label %._crit_edge95
+.lr.ph94.preheader:                               ; preds = %61, %.lr.ph
+  br label %.lr.ph94
 
-.lr.ph94:                                         ; preds = %._crit_edge, %84
-  %65 = phi ptr [ %88, %84 ], [ %44, %._crit_edge ]
-  %.192 = phi i64 [ %71, %84 ], [ 0, %._crit_edge ]
-  %.16791 = phi i32 [ %86, %84 ], [ 0, %._crit_edge ]
+.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %84
+  %65 = phi ptr [ %88, %84 ], [ %44, %.lr.ph94.preheader ]
+  %.192 = phi i64 [ %71, %84 ], [ 0, %.lr.ph94.preheader ]
+  %.16791 = phi i32 [ %86, %84 ], [ 0, %.lr.ph94.preheader ]
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr i8, ptr %8, i64 %.192
   %68 = load i8, ptr %67, align 1
@@ -6207,7 +6207,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %or.cond = select i1 %.not82, i1 %89, i1 false
   br i1 %or.cond, label %.lr.ph94, label %._crit_edge95, !llvm.loop !39
 
-._crit_edge95:                                    ; preds = %.lr.ph94, %80, %84, %.preheader, %._crit_edge
+._crit_edge95:                                    ; preds = %.lr.ph94, %80, %84, %.preheader
   %90 = getelementptr i8, ptr %44, i64 1
   %91 = icmp ult ptr %90, %28
   br i1 %91, label %41, label %.loopexit, !llvm.loop !40
@@ -6317,7 +6317,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %58 = getelementptr i8, ptr %8, i64 %.097
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %57, %59
-  br i1 %60, label %61, label %._crit_edge
+  br i1 %60, label %61, label %.lr.ph102.preheader
 
 61:                                               ; preds = %.lr.ph
   %62 = add i64 %.097, 1
@@ -6337,15 +6337,15 @@ cf_read_record.exit.thread:                       ; preds = %5
   %70 = and i64 %62, 4294967295
   %71 = getelementptr i8, ptr %53, i64 %70
   %72 = icmp ult ptr %71, %30
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %72, label %.lr.ph, label %.lr.ph102.preheader, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %69, %.lr.ph
-  br i1 %55, label %.lr.ph102, label %._crit_edge103
+.lr.ph102.preheader:                              ; preds = %69, %.lr.ph
+  br label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %._crit_edge, %91
-  %73 = phi ptr [ %95, %91 ], [ %53, %._crit_edge ]
-  %.1100 = phi i64 [ %79, %91 ], [ 0, %._crit_edge ]
-  %.17199 = phi i32 [ %93, %91 ], [ 0, %._crit_edge ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %91
+  %73 = phi ptr [ %95, %91 ], [ %53, %.lr.ph102.preheader ]
+  %.1100 = phi i64 [ %79, %91 ], [ 0, %.lr.ph102.preheader ]
+  %.17199 = phi i32 [ %93, %91 ], [ 0, %.lr.ph102.preheader ]
   %74 = load i8, ptr %73, align 1
   %75 = getelementptr i8, ptr %8, i64 %.1100
   %76 = load i8, ptr %75, align 1
@@ -6384,7 +6384,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %or.cond = select i1 %.not88, i1 %96, i1 false
   br i1 %or.cond, label %.lr.ph102, label %._crit_edge103, !llvm.loop !42
 
-._crit_edge103:                                   ; preds = %.lr.ph102, %87, %91, %.preheader, %._crit_edge
+._crit_edge103:                                   ; preds = %.lr.ph102, %87, %91, %.preheader
   %97 = getelementptr i8, ptr %53, i64 1
   %98 = icmp ult ptr %97, %30
   br i1 %98, label %48, label %.loopexit, !llvm.loop !43

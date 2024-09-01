@@ -976,10 +976,7 @@ sub_2:                                            ; preds = %sub_1
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #19
   resume { ptr, i32 } %170
 
-.preheader:                                       ; preds = %.lr.ph209
-  br i1 %.not172206, label %._crit_edge213, label %.lr.ph212.preheader
-
-.lr.ph212.preheader:                              ; preds = %.preheader
+.lr.ph212.preheader:                              ; preds = %.lr.ph209
   %wide.trip.count250 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph212
 
@@ -992,7 +989,7 @@ sub_2:                                            ; preds = %sub_1
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count245
-  br i1 %exitcond246.not, label %.preheader, label %.lr.ph209, !llvm.loop !23
+  br i1 %exitcond246.not, label %.lr.ph212.preheader, label %.lr.ph209, !llvm.loop !23
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
   %indvars.iv247 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next248, %.lr.ph212 ]
@@ -1014,7 +1011,7 @@ sub_2:                                            ; preds = %sub_1
   %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
   br i1 %exitcond251.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !24
 
-._crit_edge213:                                   ; preds = %.lr.ph212, %.preheader174, %.preheader
+._crit_edge213:                                   ; preds = %.lr.ph212, %.preheader174
   store i32 %.sroa.speculated, ptr %1, align 4
   %187 = mul nsw i32 %.sroa.speculated, 6
   store i32 %187, ptr %2, align 4

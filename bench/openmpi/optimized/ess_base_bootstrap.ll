@@ -717,7 +717,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread138.i, %._cr
   br i1 %.not114, label %.loopexit, label %.lr.ph214, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph214, %.preheader, %257, %250, %245, %91
-  %265 = phi i1 [ true, %91 ], [ %90, %245 ], [ %90, %250 ], [ %90, %257 ], [ %90, %.preheader ], [ %90, %.lr.ph214 ]
+  %265 = phi i1 [ true, %91 ], [ false, %245 ], [ false, %250 ], [ false, %257 ], [ false, %.preheader ], [ false, %.lr.ph214 ]
   %.088.ph.lcssa156280 = phi ptr [ %.088.ph.lcssa156281, %91 ], [ %.088.ph.lcssa156, %245 ], [ %.088.ph.lcssa156, %250 ], [ %.088.ph.lcssa156, %257 ], [ %.088.ph.lcssa156, %.preheader ], [ %.088.ph.lcssa156, %.lr.ph214 ]
   %.089.ph.lcssa158278 = phi ptr [ %.089.ph.lcssa158279, %91 ], [ %.089.ph.lcssa158, %245 ], [ %.089.ph.lcssa158, %250 ], [ %.089.ph.lcssa158, %257 ], [ %.089.ph.lcssa158, %.preheader ], [ %.089.ph.lcssa158, %.lr.ph214 ]
   %.091.ph.lcssa160276 = phi ptr [ %.091.ph.lcssa160277, %91 ], [ %.091.ph.lcssa160, %245 ], [ %.091.ph.lcssa160, %250 ], [ %.091.ph.lcssa160, %257 ], [ %.091.ph.lcssa160, %.preheader ], [ %.091.ph.lcssa160, %.lr.ph214 ]

@@ -391,7 +391,7 @@ _ZNSt12_Vector_baseISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit.i: ; preds = 
 _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %.sroa.098.0 = phi ptr [ null, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ], [ %25, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i ], [ %31, %.lr.ph.i.i.i.i.i ]
-  br i1 %.not151, label %._crit_edge161, label %.lr.ph160
+  br label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit, %._crit_edge158
   %32 = phi ptr [ %72, %._crit_edge158 ], [ %9, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit ]
@@ -508,9 +508,9 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %78 = icmp ugt i64 %77, %indvars.iv.next
   br i1 %78, label %.lr.ph160, label %._crit_edge161, !llvm.loop !9
 
-._crit_edge161:                                   ; preds = %._crit_edge158, %2, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit
-  %.0.lcssa.i.i.i.i.i201 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit ], [ null, %2 ], [ %.0.lcssa.i.i.i.i.i, %._crit_edge158 ]
-  %.sroa.098.0199 = phi ptr [ %.sroa.098.0, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit ], [ null, %2 ], [ %.sroa.098.0, %._crit_edge158 ]
+._crit_edge161:                                   ; preds = %._crit_edge158, %2
+  %.0.lcssa.i.i.i.i.i201 = phi ptr [ null, %2 ], [ %.0.lcssa.i.i.i.i.i, %._crit_edge158 ]
+  %.sroa.098.0199 = phi ptr [ null, %2 ], [ %.sroa.098.0, %._crit_edge158 ]
   %79 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %79, ptr %3, align 8
   %80 = getelementptr inbounds i8, ptr %3, i64 8

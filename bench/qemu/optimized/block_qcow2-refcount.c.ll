@@ -2817,14 +2817,11 @@ for.end190:                                       ; preds = %for.body185
   %file191 = getelementptr inbounds i8, ptr %bs, i64 16840
   %54 = load ptr, ptr %file191, align 8
   %call192 = call i32 @bdrv_pwrite_sync(ptr noundef %54, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef nonnull %l1_table.0, i32 noundef 0) #17
-  br i1 %cmp183190, label %for.body196.preheader, label %if.end202
-
-for.body196.preheader:                            ; preds = %for.end190
   %wide.trip.count248 = zext nneg i32 %l1_size to i64
   br label %for.body196
 
-for.body196:                                      ; preds = %for.body196.preheader, %for.body196
-  %indvars.iv245 = phi i64 [ 0, %for.body196.preheader ], [ %indvars.iv.next246, %for.body196 ]
+for.body196:                                      ; preds = %for.end190, %for.body196
+  %indvars.iv245 = phi i64 [ 0, %for.end190 ], [ %indvars.iv.next246, %for.body196 ]
   %arrayidx198 = getelementptr i64, ptr %l1_table.0, i64 %indvars.iv245
   %55 = load i64, ptr %arrayidx198, align 8
   %56 = call i64 @llvm.bswap.i64(i64 %55)
@@ -2833,8 +2830,8 @@ for.body196:                                      ; preds = %for.body196.prehead
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
   br i1 %exitcond249.not, label %if.end202, label %for.body196, !llvm.loop !25
 
-if.end202:                                        ; preds = %for.body196, %for.end190.thread, %for.end190, %if.end172
-  %ret.1 = phi i32 [ %ret.0, %if.end172 ], [ %call192, %for.end190 ], [ %call192256, %for.end190.thread ], [ %call192, %for.body196 ]
+if.end202:                                        ; preds = %for.body196, %for.end190.thread, %if.end172
+  %ret.1 = phi i32 [ %ret.0, %if.end172 ], [ %call192256, %for.end190.thread ], [ %call192, %for.body196 ]
   br i1 %l1_allocated.0, label %if.then204, label %if.end205
 
 if.then204:                                       ; preds = %if.end202
@@ -6505,10 +6502,7 @@ if.then12:                                        ; preds = %if.end8
   %4 = call i64 @fwrite(ptr nonnull @.str.61, i64 39, i64 1, ptr %3) #19
   br label %cleanup.sink.split
 
-for.cond20.preheader:                             ; preds = %for.body
-  br i1 %cmp1742, label %for.body23.lr.ph, label %cleanup
-
-for.body23.lr.ph:                                 ; preds = %for.cond20.preheader
+for.body23.lr.ph:                                 ; preds = %for.body
   %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
   %wide.trip.count52 = zext nneg i32 %l1_size to i64
   br label %for.body23
@@ -6521,7 +6515,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %6, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond20.preheader, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %for.body23.lr.ph, label %for.body, !llvm.loop !56
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.inc60
   %indvars.iv49 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next50, %for.inc60 ]
@@ -6588,9 +6582,9 @@ cleanup.sink.split:                               ; preds = %if.end3, %if.then12
   store i32 %inc15, ptr %check_errors14, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end37, %if.end53, %for.inc60, %cleanup.sink.split, %for.cond.preheader, %for.cond20.preheader, %if.end, %entry
-  %l1_table.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call4, %for.cond20.preheader ], [ %call4, %for.cond.preheader ], [ %l1_table.0.ph, %cleanup.sink.split ], [ %call4, %for.inc60 ], [ %call4, %if.end53 ], [ %call4, %if.end37 ]
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.end ], [ 0, %for.cond20.preheader ], [ 0, %for.cond.preheader ], [ %retval.0.ph, %cleanup.sink.split ], [ %call42, %if.end37 ], [ %call55, %if.end53 ], [ 0, %for.inc60 ]
+cleanup:                                          ; preds = %if.end37, %if.end53, %for.inc60, %cleanup.sink.split, %for.cond.preheader, %if.end, %entry
+  %l1_table.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call4, %for.cond.preheader ], [ %l1_table.0.ph, %cleanup.sink.split ], [ %call4, %for.inc60 ], [ %call4, %if.end53 ], [ %call4, %if.end37 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.end ], [ 0, %for.cond.preheader ], [ %retval.0.ph, %cleanup.sink.split ], [ %call42, %if.end37 ], [ %call55, %if.end53 ], [ 0, %for.inc60 ]
   call void @g_free(ptr noundef %l1_table.0) #17
   ret i32 %retval.0
 }

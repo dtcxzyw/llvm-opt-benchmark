@@ -120,47 +120,34 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = sdiv exact i64 %7, 12
-  %9 = icmp eq ptr %3, %4
-  br i1 %9, label %._crit_edge, label %.lr.ph.preheader
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %4 to i64
+  %8 = sub i64 %6, %7
+  %9 = sdiv exact i64 %8, 12
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.01017 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01116 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %4, i64 %.01017, i32 1
   %11 = load float, ptr %10, align 4
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, 1.000000e+00
-  %or.cond.not1520 = and i1 %12, %13
-  %14 = fcmp ugt float %11, -1.000000e+00
-  %or.cond1321 = and i1 %14, %or.cond.not1520
-  br i1 %or.cond1321, label %.lr.ph23, label %._crit_edge
+  %or.cond.not15 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01116
+  %or.cond13 = and i1 %14, %or.cond.not15
+  %15 = add nuw i64 %.01017, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %or.cond13, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.0101722, 1
-  %exitcond = icmp eq i64 %16, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
-
-.lr.ph:                                           ; preds = %.lr.ph23
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %4, i64 %16, i32 1
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp uge float %18, 0.000000e+00
-  %20 = fcmp ule float %18, 1.000000e+00
-  %or.cond.not15 = and i1 %19, %20
-  %21 = fcmp ugt float %18, %15
-  %or.cond13 = and i1 %21, %or.cond.not15
-  br i1 %or.cond13, label %.lr.ph23, label %._crit_edge.loopexit, !llvm.loop !5
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph23
-  %22 = icmp uge i64 %16, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %22, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %or.cond13, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -228,47 +215,34 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = ashr exact i64 %7, 4
-  %9 = icmp eq ptr %3, %4
-  br i1 %9, label %._crit_edge, label %.lr.ph.preheader
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %4 to i64
+  %8 = sub i64 %6, %7
+  %9 = ashr exact i64 %8, 4
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.01017 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01116 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i64 %.01017, i32 1
   %11 = load float, ptr %10, align 4
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, 1.000000e+00
-  %or.cond.not1520 = and i1 %12, %13
-  %14 = fcmp ugt float %11, -1.000000e+00
-  %or.cond1321 = and i1 %14, %or.cond.not1520
-  br i1 %or.cond1321, label %.lr.ph23, label %._crit_edge
+  %or.cond.not15 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01116
+  %or.cond13 = and i1 %14, %or.cond.not15
+  %15 = add nuw i64 %.01017, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %or.cond13, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.0101722, 1
-  %exitcond = icmp eq i64 %16, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
-
-.lr.ph:                                           ; preds = %.lr.ph23
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i64 %16, i32 1
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp uge float %18, 0.000000e+00
-  %20 = fcmp ule float %18, 1.000000e+00
-  %or.cond.not15 = and i1 %19, %20
-  %21 = fcmp ugt float %18, %15
-  %or.cond13 = and i1 %21, %or.cond.not15
-  br i1 %or.cond13, label %.lr.ph23, label %._crit_edge.loopexit, !llvm.loop !7
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph23
-  %22 = icmp uge i64 %16, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %22, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %or.cond13, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -330,47 +304,34 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = sdiv exact i64 %7, 20
-  %9 = icmp eq ptr %3, %4
-  br i1 %9, label %._crit_edge, label %.lr.ph.preheader
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %4 to i64
+  %8 = sub i64 %6, %7
+  %9 = sdiv exact i64 %8, 20
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.01017 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01116 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i64 %.01017, i32 1
   %11 = load float, ptr %10, align 4
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, 1.000000e+00
-  %or.cond.not1520 = and i1 %12, %13
-  %14 = fcmp ugt float %11, -1.000000e+00
-  %or.cond1321 = and i1 %14, %or.cond.not1520
-  br i1 %or.cond1321, label %.lr.ph23, label %._crit_edge
+  %or.cond.not15 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01116
+  %or.cond13 = and i1 %14, %or.cond.not15
+  %15 = add nuw i64 %.01017, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %or.cond13, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.0101722, 1
-  %exitcond = icmp eq i64 %16, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %.lr.ph23
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i64 %16, i32 1
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp uge float %18, 0.000000e+00
-  %20 = fcmp ule float %18, 1.000000e+00
-  %or.cond.not15 = and i1 %19, %20
-  %21 = fcmp ugt float %18, %15
-  %or.cond13 = and i1 %21, %or.cond.not15
-  br i1 %or.cond13, label %.lr.ph23, label %._crit_edge.loopexit, !llvm.loop !8
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph23
-  %22 = icmp uge i64 %16, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %22, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %or.cond13, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -432,47 +393,34 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = sdiv exact i64 %7, 24
-  %9 = icmp eq ptr %3, %4
-  br i1 %9, label %._crit_edge, label %.lr.ph.preheader
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %4 to i64
+  %8 = sub i64 %6, %7
+  %9 = sdiv exact i64 %8, 24
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.01017 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01116 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i64 %.01017, i32 1
   %11 = load float, ptr %10, align 4
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, 1.000000e+00
-  %or.cond.not1520 = and i1 %12, %13
-  %14 = fcmp ugt float %11, -1.000000e+00
-  %or.cond1321 = and i1 %14, %or.cond.not1520
-  br i1 %or.cond1321, label %.lr.ph23, label %._crit_edge
+  %or.cond.not15 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01116
+  %or.cond13 = and i1 %14, %or.cond.not15
+  %15 = add nuw i64 %.01017, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %or.cond13, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.0101722, 1
-  %exitcond = icmp eq i64 %16, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
-
-.lr.ph:                                           ; preds = %.lr.ph23
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i64 %16, i32 1
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp uge float %18, 0.000000e+00
-  %20 = fcmp ule float %18, 1.000000e+00
-  %or.cond.not15 = and i1 %19, %20
-  %21 = fcmp ugt float %18, %15
-  %or.cond13 = and i1 %21, %or.cond.not15
-  br i1 %or.cond13, label %.lr.ph23, label %._crit_edge.loopexit, !llvm.loop !9
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph23
-  %22 = icmp uge i64 %16, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %22, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %or.cond13, %.lr.ph ]
   ret i1 %.lcssa
 }
 
@@ -534,47 +482,34 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = sdiv exact i64 %7, 24
-  %9 = icmp eq ptr %3, %4
-  br i1 %9, label %._crit_edge, label %.lr.ph.preheader
+  %5 = icmp eq ptr %3, %4
+  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %4 to i64
+  %8 = sub i64 %6, %7
+  %9 = sdiv exact i64 %8, 24
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.01017 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %.01116 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i64 %.01017, i32 1
   %11 = load float, ptr %10, align 4
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, 1.000000e+00
-  %or.cond.not1520 = and i1 %12, %13
-  %14 = fcmp ugt float %11, -1.000000e+00
-  %or.cond1321 = and i1 %14, %or.cond.not1520
-  br i1 %or.cond1321, label %.lr.ph23, label %._crit_edge
+  %or.cond.not15 = and i1 %12, %13
+  %14 = fcmp ugt float %11, %.01116
+  %or.cond13 = and i1 %14, %or.cond.not15
+  %15 = add nuw i64 %.01017, 1
+  %exitcond.not = icmp ne i64 %15, %umax
+  %or.cond.not = select i1 %or.cond13, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.0101722, 1
-  %exitcond = icmp eq i64 %16, %umax
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
-
-.lr.ph:                                           ; preds = %.lr.ph23
-  %17 = getelementptr inbounds %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i64 %16, i32 1
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp uge float %18, 0.000000e+00
-  %20 = fcmp ule float %18, 1.000000e+00
-  %or.cond.not15 = and i1 %19, %20
-  %21 = fcmp ugt float %18, %15
-  %or.cond13 = and i1 %21, %or.cond.not15
-  br i1 %or.cond13, label %.lr.ph23, label %._crit_edge.loopexit, !llvm.loop !10
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph23
-  %22 = icmp uge i64 %16, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph.preheader ], [ %22, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %or.cond13, %.lr.ph ]
   ret i1 %.lcssa
 }
 

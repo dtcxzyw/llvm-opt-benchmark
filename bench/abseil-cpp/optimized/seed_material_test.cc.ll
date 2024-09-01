@@ -3621,16 +3621,13 @@ if.end8:                                          ; preds = %if.then, %for.body
   %inc = add nuw nsw i64 %count.017, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.016, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %if.then11, label %for.body
 
-for.end:                                          ; preds = %if.end8
-  br i1 %cmp.not15, label %if.end13, label %if.then11
-
-if.then11:                                        ; preds = %for.end.thread, %for.end
+if.then11:                                        ; preds = %if.end8, %for.end.thread
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 32)
   br label %if.end13
 
-if.end13:                                         ; preds = %entry, %if.then11, %for.end
+if.end13:                                         ; preds = %entry, %if.then11
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 125)
   ret void
 }

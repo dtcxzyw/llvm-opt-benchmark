@@ -320,8 +320,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph323.preheader:                              ; preds = %142
   %143 = zext nneg i32 %7 to i64
-  %smax359 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count360 = zext nneg i32 %smax359 to i64
+  %smax358 = call i32 @llvm.smax.i32(i32 %7, i32 1)
+  %wide.trip.count359 = zext nneg i32 %smax358 to i64
   br label %.lr.ph323
 
 144:                                              ; preds = %142
@@ -342,17 +342,17 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %171
 
 .lr.ph323:                                        ; preds = %.lr.ph323.preheader, %165
-  %indvars.iv356 = phi i64 [ 0, %.lr.ph323.preheader ], [ %indvars.iv.next357, %165 ]
+  %indvars.iv355 = phi i64 [ 0, %.lr.ph323.preheader ], [ %indvars.iv.next356, %165 ]
   %.0206322 = phi i32 [ 0, %.lr.ph323.preheader ], [ %160, %165 ]
-  %154 = getelementptr ptr, ptr %16, i64 %indvars.iv356
+  %154 = getelementptr ptr, ptr %16, i64 %indvars.iv355
   %155 = load ptr, ptr %154, align 8
   %156 = call i32 @fputs(ptr noundef %155, ptr noundef %.2)
   %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #14
   %158 = add i64 %157, %12
   %159 = trunc i64 %158 to i32
   %160 = add i32 %.0206322, %159
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
-  %161 = icmp ult i64 %indvars.iv.next357, %143
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
+  %161 = icmp ult i64 %indvars.iv.next356, %143
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %.lr.ph323
@@ -361,8 +361,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %165
 
 165:                                              ; preds = %.lr.ph323, %162
-  %exitcond361.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count360
-  br i1 %exitcond361.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !6
+  %exitcond360.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count359
+  br i1 %exitcond360.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !6
 
 ._crit_edge324:                                   ; preds = %165
   %166 = call i32 @fputc(i32 noundef 10, ptr noundef %.2)
@@ -418,8 +418,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %188 = getelementptr inbounds i8, ptr %1, i64 156
   %189 = sub i32 %spec.select, %13
   %190 = zext nneg i32 %7 to i64
-  %smax365 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count366 = zext nneg i32 %smax365 to i64
+  %smax364 = call i32 @llvm.smax.i32(i32 %7, i32 1)
+  %wide.trip.count365 = zext nneg i32 %smax364 to i64
   br label %191
 
 191:                                              ; preds = %.lr.ph339, %282
@@ -449,8 +449,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %201
 
 201:                                              ; preds = %.lr.ph335, %276
-  %indvars.iv362 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next363, %276 ]
-  %202 = trunc nuw nsw i64 %indvars.iv362 to i32
+  %indvars.iv361 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next362, %276 ]
+  %202 = trunc nuw nsw i64 %indvars.iv361 to i32
   %203 = call i32 @PQgetlength(ptr noundef %1, i32 noundef %.0208337, i32 noundef %202) #13
   %204 = call ptr @PQgetvalue(ptr noundef %1, i32 noundef %.0208337, i32 noundef %202) #13
   %205 = icmp sgt i32 %203, 0
@@ -480,7 +480,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %.not119.i, label %226, label %215
 
 215:                                              ; preds = %213
-  %216 = getelementptr i8, ptr %17, i64 %indvars.iv362
+  %216 = getelementptr i8, ptr %17, i64 %indvars.iv361
   %217 = load i8, ptr %216, align 1
   %.not120.i = icmp eq i8 %217, 0
   br i1 %.not120.i, label %.lr.ph.i, label %226
@@ -541,7 +541,7 @@ switch.early.test:                                ; preds = %.loopexit.i
   br i1 %.not124.i, label %264, label %232
 
 232:                                              ; preds = %230, %228
-  %233 = getelementptr i32, ptr %18, i64 %indvars.iv362
+  %233 = getelementptr i32, ptr %18, i64 %indvars.iv361
   %234 = load i32, ptr %233, align 4
   %235 = icmp sgt i32 %203, %234
   br i1 %235, label %236, label %237
@@ -571,9 +571,9 @@ switch.early.test:                                ; preds = %.loopexit.i
   br i1 %.not128.i, label %255, label %248
 
 248:                                              ; preds = %246
-  %249 = getelementptr ptr, ptr %16, i64 %indvars.iv362
+  %249 = getelementptr ptr, ptr %16, i64 %indvars.iv361
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr i8, ptr %17, i64 %indvars.iv362
+  %251 = getelementptr i8, ptr %17, i64 %indvars.iv361
   %252 = load i8, ptr %251, align 1
   %.not130.i = icmp eq i8 %252, 0
   %253 = select i1 %.not130.i, ptr @.str.29, ptr @.str.28
@@ -583,7 +583,7 @@ switch.early.test:                                ; preds = %.loopexit.i
 255:                                              ; preds = %246
   %256 = load i8, ptr %187, align 1
   %.not129.i = icmp eq i8 %256, 0
-  %257 = getelementptr ptr, ptr %16, i64 %indvars.iv362
+  %257 = getelementptr ptr, ptr %16, i64 %indvars.iv361
   %258 = load ptr, ptr %257, align 8
   %259 = load ptr, ptr %10, align 8
   br i1 %.not129.i, label %262, label %260
@@ -601,7 +601,7 @@ switch.early.test:                                ; preds = %.loopexit.i
   br label %266
 
 266:                                              ; preds = %264, %211
-  %267 = add nuw nsw i64 %indvars.iv362, 1
+  %267 = add nuw nsw i64 %indvars.iv361, 1
   %268 = icmp ult i64 %267, %190
   br i1 %268, label %269, label %272
 
@@ -620,9 +620,9 @@ do_field.exit:                                    ; preds = %237
   br label %382
 
 276:                                              ; preds = %211, %209, %244, %272, %269, %248, %262, %260
-  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
-  %exitcond367.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count366
-  br i1 %exitcond367.not, label %._crit_edge336, label %201, !llvm.loop !9
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %exitcond366.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count365
+  br i1 %exitcond366.not, label %._crit_edge336, label %201, !llvm.loop !9
 
 ._crit_edge336:                                   ; preds = %276
   %277 = load i8, ptr %185, align 1
@@ -640,8 +640,8 @@ do_field.exit:                                    ; preds = %237
 
 282:                                              ; preds = %._crit_edge336, %278, %280
   %283 = add nuw nsw i32 %.0208337, 1
-  %exitcond368.not = icmp eq i32 %283, %14
-  br i1 %exitcond368.not, label %._crit_edge340, label %191, !llvm.loop !10
+  %exitcond367.not = icmp eq i32 %283, %14
+  br i1 %exitcond367.not, label %._crit_edge340, label %191, !llvm.loop !10
 
 ._crit_edge340:                                   ; preds = %282, %183
   %284 = load i8, ptr %121, align 4
@@ -658,9 +658,9 @@ do_field.exit:                                    ; preds = %237
 
 290:                                              ; preds = %285
   %.not272 = icmp eq i8 %289, 0
-  br i1 %.not272, label %.loopexit, label %.thread372
+  br i1 %.not272, label %.loopexit, label %.thread371
 
-.thread372:                                       ; preds = %290
+.thread371:                                       ; preds = %290
   %291 = getelementptr inbounds i8, ptr %2, i64 3
   br label %294
 
@@ -669,8 +669,8 @@ do_field.exit:                                    ; preds = %237
   %.not273 = icmp eq i8 %289, 0
   br i1 %.not273, label %310, label %294
 
-294:                                              ; preds = %.thread372, %292
-  %295 = phi ptr [ %291, %.thread372 ], [ %293, %292 ]
+294:                                              ; preds = %.thread371, %292
+  %295 = phi ptr [ %291, %.thread371 ], [ %293, %292 ]
   %296 = load i8, ptr %2, align 8
   %.not274 = icmp eq i8 %296, 0
   br i1 %.not274, label %306, label %297
@@ -814,8 +814,8 @@ do_field.exit:                                    ; preds = %237
 output_row.exit:                                  ; preds = %357, %359, %361
   %363 = call i32 @fputc(i32 noundef 10, ptr noundef %.2)
   %364 = add nuw nsw i32 %.1209341, 1
-  %exitcond369.not = icmp eq i32 %364, %14
-  br i1 %exitcond369.not, label %.loopexit, label %317, !llvm.loop !12
+  %exitcond368.not = icmp eq i32 %364, %14
+  br i1 %exitcond368.not, label %.loopexit, label %317, !llvm.loop !12
 
 .loopexit:                                        ; preds = %output_row.exit, %315, %290, %._crit_edge340
   %.1224 = phi ptr [ null, %._crit_edge340 ], [ null, %290 ], [ %.2225, %315 ], [ %.2225, %output_row.exit ]
@@ -1343,17 +1343,14 @@ fill.exit:                                        ; preds = %.lr.ph.i, %.lr.ph.s
 
 ._crit_edge:                                      ; preds = %fill.exit, %fill.exit.us
   %58 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.19) #13
-  br i1 %39, label %.lr.ph104, label %._crit_edge105
-
-.lr.ph104:                                        ; preds = %._crit_edge
   br i1 %.not, label %fill.exit91.us, label %.lr.ph104.split.preheader
 
-.lr.ph104.split.preheader:                        ; preds = %.lr.ph104
+.lr.ph104.split.preheader:                        ; preds = %._crit_edge
   %wide.trip.count138 = zext nneg i32 %8 to i64
   br label %.lr.ph104.split
 
-fill.exit91.us:                                   ; preds = %.lr.ph104, %fill.exit91.us
-  %.2102.us = phi i32 [ %60, %fill.exit91.us ], [ 0, %.lr.ph104 ]
+fill.exit91.us:                                   ; preds = %._crit_edge, %fill.exit91.us
+  %.2102.us = phi i32 [ %60, %fill.exit91.us ], [ 0, %._crit_edge ]
   %59 = tail call i32 @fputs(ptr noundef nonnull %spec.store.select, ptr noundef %spec.select)
   %60 = add nuw nsw i32 %.2102.us, 1
   %exitcond140.not = icmp eq i32 %60, %8
@@ -1379,7 +1376,7 @@ fill.exit91:                                      ; preds = %.lr.ph.i88, %.lr.ph
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge105, label %.lr.ph104.split, !llvm.loop !23
 
-._crit_edge105:                                   ; preds = %fill.exit91, %fill.exit91.us, %._crit_edge.thread, %._crit_edge
+._crit_edge105:                                   ; preds = %fill.exit91, %fill.exit91.us, %._crit_edge.thread
   %67 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.19) #13
   br label %68
 

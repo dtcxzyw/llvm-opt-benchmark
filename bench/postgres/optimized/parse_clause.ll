@@ -911,13 +911,13 @@ list_length.exit.i392:                            ; preds = %265, %249
 
 .preheader.i:                                     ; preds = %381
   %.not154.i = icmp eq ptr %.0138203.i, null
-  br i1 %.not154.i, label %._crit_edge194.i, label %.lr.ph193.i
+  br i1 %.not154.i, label %._crit_edge195.i, label %.lr.ph193.i
 
 .lr.ph193.i:                                      ; preds = %.preheader.i
   %392 = getelementptr inbounds i8, ptr %.0138203.i, i64 4
   %393 = load i32, ptr %392, align 4
   %394 = icmp sgt i32 %393, 0
-  br i1 %394, label %.lr.ph198.i, label %._crit_edge194.i
+  br i1 %394, label %.lr.ph198.i, label %._crit_edge195.i
 
 .lr.ph198.i:                                      ; preds = %.lr.ph193.i
   %395 = getelementptr inbounds i8, ptr %.0138203.i, i64 16
@@ -955,7 +955,7 @@ list_length.exit.i392:                            ; preds = %265, %249
 414:                                              ; preds = %401, %397
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
   %exitcond230.not.i = icmp eq i64 %indvars.iv.next228.i, %wide.trip.count.i
-  br i1 %exitcond230.not.i, label %._crit_edge194.i, label %397
+  br i1 %exitcond230.not.i, label %._crit_edge195.i, label %397
 
 415:                                              ; preds = %381
   br i1 %.0137205.i, label %416, label %.thread169.i
@@ -971,13 +971,13 @@ list_length.exit.i392:                            ; preds = %265, %249
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.transformRangeTableFunc) #9
   unreachable
 
-._crit_edge194.i:                                 ; preds = %414, %.lr.ph193.i, %.preheader.i
+._crit_edge195.i:                                 ; preds = %414, %.lr.ph193.i, %.preheader.i
   %423 = call ptr @makeString(ptr noundef nonnull %391) #9
   br label %.thread169.i
 
-.thread169.i:                                     ; preds = %._crit_edge194.i, %415
-  %.1171.i = phi i1 [ %.0137205.i, %._crit_edge194.i ], [ true, %415 ]
-  %424 = phi ptr [ %423, %._crit_edge194.i ], [ null, %415 ]
+.thread169.i:                                     ; preds = %._crit_edge195.i, %415
+  %.1171.i = phi i1 [ %.0137205.i, %._crit_edge195.i ], [ true, %415 ]
+  %424 = phi ptr [ %423, %._crit_edge195.i ], [ null, %415 ]
   %425 = call ptr @lappend(ptr noundef %.0138203.i, ptr noundef %424) #9
   %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i, 1
   %426 = load i32, ptr %378, align 4

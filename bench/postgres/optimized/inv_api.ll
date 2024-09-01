@@ -1361,7 +1361,7 @@ getdatafield.exit:                                ; preds = %78
   call void @heap_freetuple(ptr noundef %162) #9
   br label %.preheader
 
-.preheader:                                       ; preds = %.loopexit103, %.loopexit102
+.preheader:                                       ; preds = %.loopexit102, %.loopexit103
   %165 = call ptr @systable_getnext_ordered(ptr noundef %52, i32 noundef 1) #9
   %.not92107 = icmp eq ptr %165, null
   br i1 %.not92107, label %.loopexit, label %.lr.ph108

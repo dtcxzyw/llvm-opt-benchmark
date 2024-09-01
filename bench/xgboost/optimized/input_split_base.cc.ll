@@ -6530,8 +6530,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase9NextChunkEPN
 5:                                                ; preds = %13, %2
   %6 = load ptr, ptr %3, align 8, !tbaa !134
   %7 = load ptr, ptr %4, align 8, !tbaa !135
-  %.not = icmp ne ptr %6, %7
-  br i1 %.not, label %8, label %13
+  %.not.not.not.not.not = icmp ne ptr %6, %7
+  br i1 %.not.not.not.not.not, label %8, label %13
 
 8:                                                ; preds = %5
   store ptr %6, ptr %1, align 8, !tbaa !136
@@ -6551,7 +6551,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase9NextChunkEPN
   br i1 %17, label %5, label %.loopexit, !llvm.loop !141
 
 .loopexit:                                        ; preds = %13, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -35720,8 +35720,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
 55:                                               ; preds = %62, %52
   %56 = load ptr, ptr %33, align 8, !tbaa !52
   %57 = load ptr, ptr %54, align 8, !tbaa !52
-  %.not.not = icmp ne ptr %56, %57
-  br i1 %.not.not, label %58, label %.loopexit19
+  %.not.not.not = icmp ne ptr %56, %57
+  br i1 %.not.not.not, label %58, label %.loopexit19
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %56, i64 1
@@ -35735,7 +35735,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   br i1 %61, label %.loopexit19, label %55, !llvm.loop !693
 
 .loopexit19:                                      ; preds = %62, %55, %47, %46, %36
-  %63 = phi i1 [ %37, %36 ], [ true, %46 ], [ false, %47 ], [ %.not.not, %55 ], [ %.not.not, %62 ]
+  %63 = phi i1 [ %37, %36 ], [ true, %46 ], [ false, %47 ], [ %.not.not.not, %55 ], [ %.not.not.not, %62 ]
   %64 = getelementptr inbounds i8, ptr %10, i64 96
   %65 = getelementptr inbounds i8, ptr %10, i64 120
   %66 = load ptr, ptr %65, align 8, !tbaa !694
@@ -36431,8 +36431,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__
 22:                                               ; preds = %25, %19
   %23 = load ptr, ptr %2, align 8, !tbaa !52
   %24 = load ptr, ptr %21, align 8, !tbaa !52
-  %.not.not = icmp ne ptr %23, %24
-  br i1 %.not.not, label %25, label %.loopexit
+  %.not.not.not = icmp ne ptr %23, %24
+  br i1 %.not.not.not, label %25, label %.loopexit
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %23, i64 1
@@ -36450,7 +36450,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__
   br i1 %32, label %.loopexit, label %22, !llvm.loop !728
 
 .loopexit:                                        ; preds = %25, %22, %14, %1
-  %33 = phi i1 [ true, %1 ], [ false, %14 ], [ %.not.not, %22 ], [ %.not.not, %25 ]
+  %33 = phi i1 [ true, %1 ], [ false, %14 ], [ %.not.not.not, %22 ], [ %.not.not.not, %25 ]
   ret i1 %33
 }
 

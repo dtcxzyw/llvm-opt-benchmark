@@ -1215,7 +1215,7 @@ _ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit: ; preds = %53, %50, %54, %_
   br i1 %.not, label %.critedge, label %23, !llvm.loop !14
 
 .critedge:                                        ; preds = %_ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit, %23, %.lr.ph, %3
-  %.0.lcssa = phi i1 [ false, %3 ], [ %22, %.lr.ph ], [ %22, %23 ], [ %22, %_ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ true, %23 ], [ true, %_ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit ]
   ret i1 %.0.lcssa
 }
 

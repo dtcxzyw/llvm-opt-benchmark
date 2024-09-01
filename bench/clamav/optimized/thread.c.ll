@@ -287,9 +287,9 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br i1 %15, label %114, label %.thread
+  br label %.thread
 
-.thread:                                          ; preds = %.thread56, %.thread55, %.thread54, %102, %onas_scan_thread_handle_file.exit52, %98, %95, %onas_scan_thread_handle_file.exit, %58, %104
+.thread:                                          ; preds = %104, %.thread56, %.thread55, %.thread54, %102, %onas_scan_thread_handle_file.exit52, %98, %95, %onas_scan_thread_handle_file.exit, %58
   %106 = getelementptr inbounds i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 1
   %.not44 = icmp eq ptr %107, null
@@ -314,7 +314,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   call void @free(ptr noundef nonnull %0) #9
   br label %114
 
-114:                                              ; preds = %.thread53, %113, %104
+114:                                              ; preds = %.thread53, %113
   ret ptr null
 }
 

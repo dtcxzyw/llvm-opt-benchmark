@@ -6001,10 +6001,7 @@ if.end:                                           ; preds = %for.body
 for.cond17:                                       ; preds = %for.body19
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0602, i64 8
   %cmp.i53.not = icmp eq ptr %incdec.ptr.i, %7
-  br i1 %cmp.i53.not, label %for.cond249.preheader, label %for.body19
-
-for.cond249.preheader:                            ; preds = %for.cond17
-  br i1 %cmp.i53.not601, label %for.inc279, label %for.body251
+  br i1 %cmp.i53.not, label %for.body251, label %for.body19
 
 for.body19:                                       ; preds = %if.end, %for.cond17
   %__begin3.sroa.0.0602 = phi ptr [ %incdec.ptr.i, %for.cond17 ], [ %6, %if.end ]
@@ -6990,8 +6987,8 @@ for.inc223:                                       ; preds = %_ZNSt6vectorI10aiVe
 _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN6Assimp3IFC22ProjectedWindowContourES_IS5_SaIS5_EEEENS2_IPK10aiVector2tIdES_ISC_SaISC_EEEEESaISI_EED2Ev.exit440: ; preds = %lpad83, %if.then.i.i.i
   resume { ptr, i32 } %53
 
-for.body251:                                      ; preds = %for.cond249.preheader, %for.inc275
-  %__begin4.sroa.0.0625 = phi ptr [ %incdec.ptr.i531, %for.inc275 ], [ %6, %for.cond249.preheader ]
+for.body251:                                      ; preds = %for.cond17, %for.inc275
+  %__begin4.sroa.0.0625 = phi ptr [ %incdec.ptr.i531, %for.inc275 ], [ %6, %for.cond17 ]
   %134 = load ptr, ptr %__begin4.sroa.0.0625, align 8
   %wallPoints254 = getelementptr inbounds i8, ptr %134, i64 64
   %_M_end_of_storage.i444 = getelementptr inbounds i8, ptr %134, i64 80
@@ -7179,8 +7176,8 @@ for.inc275:                                       ; preds = %_ZNSt6vectorI10aiVe
   %cmp.i443.not = icmp eq ptr %incdec.ptr.i531, %7
   br i1 %cmp.i443.not, label %for.inc279, label %for.body251
 
-for.inc279:                                       ; preds = %for.inc223, %for.inc275, %if.end, %if.end95, %for.cond249.preheader, %for.body
-  %closed.1 = phi i64 [ %closed.0633, %for.body ], [ %closed.0633, %for.cond249.preheader ], [ %closed.0633, %if.end95 ], [ %closed.0633, %if.end ], [ %closed.0633, %for.inc275 ], [ %closed.4, %for.inc223 ]
+for.inc279:                                       ; preds = %for.inc223, %for.inc275, %if.end, %if.end95, %for.body
+  %closed.1 = phi i64 [ %closed.0633, %for.body ], [ %closed.0633, %if.end95 ], [ %closed.0633, %if.end ], [ %closed.0633, %for.inc275 ], [ %closed.4, %for.inc223 ]
   %incdec.ptr.i532 = getelementptr inbounds i8, ptr %it.sroa.0.0630, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i532, %1
   br i1 %cmp.i.not, label %for.end281, label %for.body, !llvm.loop !172

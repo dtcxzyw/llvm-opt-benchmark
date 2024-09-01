@@ -1132,20 +1132,20 @@ if.else.i:                                        ; preds = %entry
   %d2.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %d2.i, align 8
   %cmp.i.i.i = icmp eq i32 %1, -1
-  br i1 %cmp.i.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread24
+  br i1 %cmp.i.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread23
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit: ; preds = %if.else.i
   %cmp.not = icmp eq i32 %idx, 0
   br i1 %cmp.not, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit19, label %return
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread24: ; preds = %if.else.i
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread23: ; preds = %if.else.i
   %nodes.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %nodes.i.i, align 8
   %idxprom.i.i = zext i32 %1 to i64
   %weight.i.i = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %2, i64 %idxprom.i.i, i32 1
   %3 = load i32, ptr %weight.i.i, align 8
-  %cmp26 = icmp ugt i32 %idx, %3
-  br i1 %cmp26, label %return, label %if.else.i.i12
+  %cmp25 = icmp ugt i32 %idx, %3
+  br i1 %cmp25, label %return, label %if.else.i.i12
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread: ; preds = %entry
   %num_values.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -1153,7 +1153,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread: ; preds = %entry
   %cmp22 = icmp ugt i32 %idx, %4
   br i1 %cmp22, label %return, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit19
 
-if.else.i.i12:                                    ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread24
+if.else.i.i12:                                    ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread23
   %nodes.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %nodes.i.i13, align 8
   %idxprom.i.i14 = zext i32 %1 to i64
@@ -1202,11 +1202,11 @@ _ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv.exit: ; preds = %land.lhs
   store i32 -1, ptr %d, align 8
   tail call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %d, ptr noundef %arrayidx.i, i32 noundef %8)
   tail call void @_Z9toku_freePv(ptr noundef %10)
-  %.pre23 = load i8, ptr %this, align 8
+  %.pre = load i8, ptr %this, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true4, %_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv.exit, %land.lhs.true, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit19
-  %12 = phi i8 [ %7, %land.lhs.true4 ], [ %.pre23, %_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv.exit ], [ %7, %land.lhs.true ], [ %7, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit19 ]
+  %12 = phi i8 [ %7, %land.lhs.true4 ], [ %.pre, %_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE15convert_to_treeEv.exit ], [ %7, %land.lhs.true ], [ %7, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit19 ]
   %tobool11 = trunc i8 %12 to i1
   br i1 %tobool11, label %if.then12, label %if.else32
 
@@ -1252,8 +1252,8 @@ if.then35:                                        ; preds = %if.else32
   call void @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %18)
   br label %return
 
-return:                                           ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread24, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread, %if.end29, %if.then35, %if.else32, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
-  %retval.0 = phi i32 [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit ], [ 0, %if.else32 ], [ 0, %if.then35 ], [ 0, %if.end29 ], [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread ], [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread24 ]
+return:                                           ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread23, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread, %if.end29, %if.then35, %if.else32, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
+  %retval.0 = phi i32 [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit ], [ 0, %if.else32 ], [ 0, %if.then35 ], [ 0, %if.end29 ], [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread ], [ 22, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread23 ]
   ret i32 %retval.0
 }
 

@@ -44,8 +44,8 @@ define range(i32 0, 2) i32 @req_resp_hdrs_do_reassembly(ptr noundef %0, i32 noun
   unreachable
 
 22:                                               ; preds = %9
-  %.not312 = icmp eq i32 %4, 0
-  br i1 %.not312, label %38, label %23
+  %.not282 = icmp eq i32 %4, 0
+  br i1 %.not282, label %38, label %23
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -391,8 +391,8 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %155, label %.loopexit, label %156
 
 156:                                              ; preds = %153
-  %.not282 = icmp eq i32 %154, 0
-  br i1 %.not282, label %157, label %163
+  %.not283 = icmp eq i32 %154, 0
+  br i1 %.not283, label %157, label %163
 
 157:                                              ; preds = %156
   %158 = load i32, ptr %14, align 4
@@ -480,11 +480,11 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %195, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %193
-  %.pre311 = load i32, ptr %12, align 4
+  %.pre312 = load i32, ptr %12, align 4
   br label %196
 
 196:                                              ; preds = %._crit_edge, %180
-  %197 = phi i32 [ %.pre311, %._crit_edge ], [ %181, %180 ]
+  %197 = phi i32 [ %.pre312, %._crit_edge ], [ %181, %180 ]
   %198 = load i32, ptr %11, align 4
   %199 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %198, i32 noundef %197) #6
   %.not221 = icmp eq i32 %199, 0

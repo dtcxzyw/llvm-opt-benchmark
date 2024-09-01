@@ -2465,8 +2465,8 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8DfgScope19canUpdateDefinitionENS_
 .loopexit:                                        ; preds = %26, %28, %8, %13
   %31 = getelementptr inbounds i8, ptr %.0712, i64 8
   %32 = load i32, ptr %31, align 8
-  %.not15 = icmp ne i32 %32, 1
-  br i1 %.not15, label %33, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit
+  %.not15.not = icmp ne i32 %32, 1
+  br i1 %.not15.not, label %33, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit
 
 33:                                               ; preds = %.loopexit
   %34 = load ptr, ptr %.0712, align 8
@@ -2474,7 +2474,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8DfgScope19canUpdateDefinitionENS_
   br i1 %.not, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit, label %8, !llvm.loop !17
 
 _ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE4findERKS3_.exit: ; preds = %33, %.loopexit, %22
-  %.0 = phi i1 [ true, %22 ], [ %.not15, %.loopexit ], [ %.not15, %33 ]
+  %.0 = phi i1 [ true, %22 ], [ %.not15.not, %.loopexit ], [ %.not15.not, %33 ]
   ret i1 %.0
 }
 

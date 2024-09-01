@@ -1062,16 +1062,13 @@ define dso_local i64 @record_recv(ptr nocapture noundef readonly %0) local_unnam
 
 ._crit_edge:                                      ; preds = %74
   %.not149 = icmp eq i32 %71, %spec.select
-  br i1 %.not149, label %.preheader, label %87
+  br i1 %.not149, label %.lr.ph169, label %87
 
 ._crit_edge.thread:                               ; preds = %67
   %.not149190 = icmp eq i32 %71, 0
   br i1 %.not149190, label %._crit_edge170, label %87
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %72, label %.lr.ph169, label %._crit_edge170
-
-.lr.ph169:                                        ; preds = %.preheader
+.lr.ph169:                                        ; preds = %._crit_edge
   %80 = getelementptr inbounds i8, ptr %19, i64 24
   %81 = getelementptr inbounds i8, ptr %.0, i64 16
   %82 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1218,7 +1215,7 @@ define dso_local i64 @record_recv(ptr nocapture noundef readonly %0) local_unnam
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge170, label %91, !llvm.loop !14
 
-._crit_edge170:                                   ; preds = %160, %._crit_edge.thread, %.preheader
+._crit_edge170:                                   ; preds = %160, %._crit_edge.thread
   %161 = call ptr @heap_form_tuple(ptr noundef nonnull %19, ptr noundef %69, ptr noundef %70) #11
   %162 = load i32, ptr %161, align 8
   %163 = zext i32 %162 to i64
@@ -1630,7 +1627,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %
 60:                                               ; preds = %._crit_edge, %47
   %61 = phi i32 [ 0, %47 ], [ %.pre, %._crit_edge ]
   %.0170 = phi ptr [ %58, %47 ], [ %42, %._crit_edge ]
-  %.0170292 = ptrtoint ptr %.0170 to i64
+  %.0170291 = ptrtoint ptr %.0170 to i64
   %62 = getelementptr inbounds i8, ptr %.0170, i64 4
   %.not = icmp eq i32 %61, %14
   br i1 %.not, label %63, label %72
@@ -1670,12 +1667,12 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %
   br i1 %82, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %80
-  %83 = add i64 %75, %.0170292
+  %83 = add i64 %75, %.0170291
   %84 = add i64 %83, 24
-  %85 = add i64 %.0170292, 32
+  %85 = add i64 %.0170291, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %84, i64 %85)
   %86 = add i64 %umax, -25
-  %87 = sub i64 %86, %.0170292
+  %87 = sub i64 %86, %.0170291
   %88 = and i64 %87, -8
   %89 = add i64 %88, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %89, i1 false)
@@ -1757,15 +1754,15 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %
   br label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %128
-  %indvars.iv293 = phi i64 [ %123, %.lr.ph247.preheader ], [ %indvars.iv.next294, %128 ]
-  %125 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %106, i64 0, i64 %indvars.iv293, i32 17
+  %indvars.iv292 = phi i64 [ %123, %.lr.ph247.preheader ], [ %indvars.iv.next293, %128 ]
+  %125 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %106, i64 0, i64 %indvars.iv292, i32 17
   %126 = load i8, ptr %125, align 1
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %.split.us.loopexit.split.loop.exit334
 
 128:                                              ; preds = %.lr.ph247
-  %indvars.iv.next294 = add nsw i64 %indvars.iv293, 1
-  %129 = icmp slt i64 %indvars.iv.next294, %95
+  %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
+  %129 = icmp slt i64 %indvars.iv.next293, %95
   br i1 %129, label %.lr.ph247, label %.split.us.loopexit
 
 .lr.ph240.split:                                  ; preds = %.lr.ph240.split.preheader, %135
@@ -1785,7 +1782,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %
   br i1 %136, label %.lr.ph240.split, label %.thread.loopexit, !llvm.loop !29
 
 .split.us.loopexit.split.loop.exit334:            ; preds = %.lr.ph247
-  %137 = trunc nsw i64 %indvars.iv293 to i32
+  %137 = trunc nsw i64 %indvars.iv292 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %128, %.split.us.loopexit.split.loop.exit334
@@ -2129,7 +2126,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef re
 60:                                               ; preds = %._crit_edge, %47
   %61 = phi i32 [ 0, %47 ], [ %.pre, %._crit_edge ]
   %.0169 = phi ptr [ %58, %47 ], [ %42, %._crit_edge ]
-  %.0169291 = ptrtoint ptr %.0169 to i64
+  %.0169290 = ptrtoint ptr %.0169 to i64
   %62 = getelementptr inbounds i8, ptr %.0169, i64 4
   %.not = icmp eq i32 %61, %14
   br i1 %.not, label %63, label %72
@@ -2169,12 +2166,12 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef re
   br i1 %82, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %80
-  %83 = add i64 %75, %.0169291
+  %83 = add i64 %75, %.0169290
   %84 = add i64 %83, 24
-  %85 = add i64 %.0169291, 32
+  %85 = add i64 %.0169290, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %84, i64 %85)
   %86 = add i64 %umax, -25
-  %87 = sub i64 %86, %.0169291
+  %87 = sub i64 %86, %.0169290
   %88 = and i64 %87, -8
   %89 = add i64 %88, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %89, i1 false)
@@ -2256,15 +2253,15 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef re
   br label %.lr.ph246
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %128
-  %indvars.iv292 = phi i64 [ %123, %.lr.ph246.preheader ], [ %indvars.iv.next293, %128 ]
-  %125 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %106, i64 0, i64 %indvars.iv292, i32 17
+  %indvars.iv291 = phi i64 [ %123, %.lr.ph246.preheader ], [ %indvars.iv.next292, %128 ]
+  %125 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %106, i64 0, i64 %indvars.iv291, i32 17
   %126 = load i8, ptr %125, align 1
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %.split.us.loopexit.split.loop.exit333
 
 128:                                              ; preds = %.lr.ph246
-  %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
-  %129 = icmp slt i64 %indvars.iv.next293, %95
+  %indvars.iv.next292 = add nsw i64 %indvars.iv291, 1
+  %129 = icmp slt i64 %indvars.iv.next292, %95
   br i1 %129, label %.lr.ph246, label %.split.us.loopexit
 
 .lr.ph239.split:                                  ; preds = %.lr.ph239.split.preheader, %135
@@ -2284,7 +2281,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef re
   br i1 %136, label %.lr.ph239.split, label %.thread.loopexit, !llvm.loop !30
 
 .split.us.loopexit.split.loop.exit333:            ; preds = %.lr.ph246
-  %137 = trunc nsw i64 %indvars.iv292 to i32
+  %137 = trunc nsw i64 %indvars.iv291 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %128, %.split.us.loopexit.split.loop.exit333
@@ -2640,7 +2637,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef read
 59:                                               ; preds = %._crit_edge, %46
   %60 = phi i32 [ 0, %46 ], [ %.pre, %._crit_edge ]
   %.0142 = phi ptr [ %57, %46 ], [ %41, %._crit_edge ]
-  %.0142244 = ptrtoint ptr %.0142 to i64
+  %.0142243 = ptrtoint ptr %.0142 to i64
   %61 = getelementptr inbounds i8, ptr %.0142, i64 4
   %.not = icmp eq i32 %60, %13
   br i1 %.not, label %62, label %71
@@ -2680,12 +2677,12 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef read
   br i1 %81, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %79
-  %82 = add i64 %74, %.0142244
+  %82 = add i64 %74, %.0142243
   %83 = add i64 %82, 24
-  %84 = add i64 %.0142244, 32
+  %84 = add i64 %.0142243, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %83, i64 %84)
   %85 = add i64 %umax, -25
-  %86 = sub i64 %85, %.0142244
+  %86 = sub i64 %85, %.0142243
   %87 = and i64 %86, -8
   %88 = add i64 %87, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %72, i8 0, i64 %88, i1 false)
@@ -2758,15 +2755,15 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef read
   br label %.lr.ph204
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %118
-  %indvars.iv245 = phi i64 [ %113, %.lr.ph204.preheader ], [ %indvars.iv.next246, %118 ]
-  %115 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %105, i64 0, i64 %indvars.iv245, i32 17
+  %indvars.iv244 = phi i64 [ %113, %.lr.ph204.preheader ], [ %indvars.iv.next245, %118 ]
+  %115 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %105, i64 0, i64 %indvars.iv244, i32 17
   %116 = load i8, ptr %115, align 1
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %.split.us.loopexit.split.loop.exit282
 
 118:                                              ; preds = %.lr.ph204
-  %indvars.iv.next246 = add nsw i64 %indvars.iv245, 1
-  %119 = icmp slt i64 %indvars.iv.next246, %94
+  %indvars.iv.next245 = add nsw i64 %indvars.iv244, 1
+  %119 = icmp slt i64 %indvars.iv.next245, %94
   br i1 %119, label %.lr.ph204, label %.split.us.loopexit
 
 .lr.ph197.split:                                  ; preds = %.lr.ph197.split.preheader, %125
@@ -2786,7 +2783,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef read
   br i1 %126, label %.lr.ph197.split, label %.thread.loopexit, !llvm.loop !31
 
 .split.us.loopexit.split.loop.exit282:            ; preds = %.lr.ph204
-  %127 = trunc nsw i64 %indvars.iv245 to i32
+  %127 = trunc nsw i64 %indvars.iv244 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %118, %.split.us.loopexit.split.loop.exit282
@@ -3077,7 +3074,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
 59:                                               ; preds = %._crit_edge, %46
   %60 = phi i32 [ 0, %46 ], [ %.pre, %._crit_edge ]
   %.0185 = phi ptr [ %57, %46 ], [ %41, %._crit_edge ]
-  %.0185337 = ptrtoint ptr %.0185 to i64
+  %.0185336 = ptrtoint ptr %.0185 to i64
   %61 = getelementptr inbounds i8, ptr %.0185, i64 4
   %.not = icmp eq i32 %60, %13
   br i1 %.not, label %62, label %71
@@ -3117,12 +3114,12 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   br i1 %81, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %79
-  %82 = add i64 %74, %.0185337
+  %82 = add i64 %74, %.0185336
   %83 = add i64 %82, 24
-  %84 = add i64 %.0185337, 32
+  %84 = add i64 %.0185336, 32
   %umax = tail call i64 @llvm.umax.i64(i64 %83, i64 %84)
   %85 = add i64 %umax, -25
-  %86 = sub i64 %85, %.0185337
+  %86 = sub i64 %85, %.0185336
   %87 = and i64 %86, -8
   %88 = add i64 %87, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %72, i8 0, i64 %88, i1 false)
@@ -3195,15 +3192,15 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   br label %.lr.ph289
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %118
-  %indvars.iv338 = phi i64 [ %113, %.lr.ph289.preheader ], [ %indvars.iv.next339, %118 ]
-  %115 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %105, i64 0, i64 %indvars.iv338, i32 17
+  %indvars.iv337 = phi i64 [ %113, %.lr.ph289.preheader ], [ %indvars.iv.next338, %118 ]
+  %115 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %105, i64 0, i64 %indvars.iv337, i32 17
   %116 = load i8, ptr %115, align 1
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %.split.us.loopexit.split.loop.exit384
 
 118:                                              ; preds = %.lr.ph289
-  %indvars.iv.next339 = add nsw i64 %indvars.iv338, 1
-  %119 = icmp slt i64 %indvars.iv.next339, %94
+  %indvars.iv.next338 = add nsw i64 %indvars.iv337, 1
+  %119 = icmp slt i64 %indvars.iv.next338, %94
   br i1 %119, label %.lr.ph289, label %.split.us.loopexit
 
 .lr.ph282.split:                                  ; preds = %.lr.ph282.split.preheader, %125
@@ -3223,7 +3220,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   br i1 %126, label %.lr.ph282.split, label %.thread.loopexit, !llvm.loop !32
 
 .split.us.loopexit.split.loop.exit384:            ; preds = %.lr.ph289
-  %127 = trunc nsw i64 %indvars.iv338 to i32
+  %127 = trunc nsw i64 %indvars.iv337 to i32
   br label %.split.us.loopexit
 
 .split.us.loopexit:                               ; preds = %118, %.split.us.loopexit.split.loop.exit384

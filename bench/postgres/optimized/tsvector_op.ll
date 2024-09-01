@@ -850,8 +850,8 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread58, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not41.i = icmp ult i32 %.02032.us.i, 2
-  br i1 %.not41.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
   %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]
@@ -1111,8 +1111,8 @@ tsvector_bsearch.exit.thread32:                   ; preds = %tsCompareString.exi
   br label %94
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not41.i = icmp ult i32 %.02032.us.i, 2
-  br i1 %.not41.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.preheader.i, %tsCompareString.exit.thread25.i
   %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]
@@ -1442,8 +1442,8 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread31, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not41.i = icmp ult i32 %.02032.us.i, 2
-  br i1 %.not41.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
+  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
   %.01933.i = phi i32 [ %.1.i, %tsCompareString.exit.thread25.i ], [ 0, %.lr.ph.split.preheader.i ]

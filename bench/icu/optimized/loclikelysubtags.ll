@@ -938,7 +938,7 @@ invoke.cont7.i:                                   ; preds = %.noexc.i, %_ZN6icu_
 lpad2.i:                                          ; preds = %for.body.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i19.i
+  br label %ehcleanup.i
 
 lpad4.loopexit.i:                                 ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -953,7 +953,7 @@ lpad4.loopexit.split-lp.i:                        ; preds = %_ZN6icu_7512LocalPo
 lpad4.body.i:                                     ; preds = %lpad4.loopexit.split-lp.i, %lpad4.loopexit.i, %lpad25.i.i, %lpad10.i.i, %lpad.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %23, %lpad10.i.i ], [ %25, %lpad25.i.i ], [ %21, %lpad.i.i ], [ %lpad.loopexit.i, %lpad4.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad4.loopexit.split-lp.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %regionName.i) #14
-  br label %delete.notnull.i19.i
+  br label %ehcleanup.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont7.i, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i
   %vtable.i.i = load ptr, ptr %call.i, align 8
@@ -962,7 +962,7 @@ delete.notnull.i.i:                               ; preds = %invoke.cont7.i, %_Z
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %call.i) #14
   br label %invoke.cont5
 
-delete.notnull.i19.i:                             ; preds = %lpad2.i, %lpad4.body.i
+ehcleanup.i:                                      ; preds = %lpad4.body.i, %lpad2.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad4.body.i ], [ %27, %lpad2.i ]
   %vtable.i20.i = load ptr, ptr %call.i, align 8
   %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
@@ -1022,8 +1022,8 @@ cleanup:                                          ; preds = %if.end16, %invoke.c
   call void @_ZN6icu_7517LikelySubtagsDataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %data) #14
   ret void
 
-ehcleanup:                                        ; preds = %lpad.i, %delete.notnull.i19.i, %lpad, %lpad3
-  %.pn = phi { ptr, i32 } [ %34, %lpad3 ], [ %1, %lpad ], [ %4, %lpad.i ], [ %.pn.i, %delete.notnull.i19.i ]
+ehcleanup:                                        ; preds = %lpad.i, %ehcleanup.i, %lpad, %lpad3
+  %.pn = phi { ptr, i32 } [ %34, %lpad3 ], [ %1, %lpad ], [ %4, %lpad.i ], [ %.pn.i, %ehcleanup.i ]
   call void @_ZN6icu_7517LikelySubtagsDataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %data) #14
   resume { ptr, i32 } %.pn
 }

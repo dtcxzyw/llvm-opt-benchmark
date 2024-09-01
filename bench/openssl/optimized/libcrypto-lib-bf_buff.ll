@@ -381,7 +381,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then11:                                        ; preds = %for.body
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %6, 1
-  %.pre54 = load i32, ptr %ibuf_len, align 8
+  %.pre53 = load i32, ptr %ibuf_len, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
@@ -398,7 +398,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then, %if.then11
-  %11 = phi i32 [ %.pre54, %if.then11 ], [ %1, %if.then ], [ %7, %for.end.loopexit ]
+  %11 = phi i32 [ %.pre53, %if.then11 ], [ %1, %if.then ], [ %7, %for.end.loopexit ]
   %12 = phi i1 [ true, %if.then11 ], [ false, %if.then ], [ false, %for.end.loopexit ]
   %buf.addr.2 = phi ptr [ %incdec.ptr, %if.then11 ], [ %buf.addr.0.ph, %if.then ], [ %incdec.ptr, %for.end.loopexit ]
   %i.1 = phi i32 [ %inc, %if.then11 ], [ 0, %if.then ], [ %10, %for.end.loopexit ]

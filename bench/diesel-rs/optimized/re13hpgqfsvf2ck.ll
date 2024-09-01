@@ -3356,13 +3356,13 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
 35:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %.sroa.0.0.copyload = load i64, ptr %15, align 8
-  %.sroa.455.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !21, !noundef !21
-  %.sroa.556.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %36 = getelementptr inbounds i8, ptr %.sroa.455.0.copyload, i64 %.sroa.556.0.copyload
-  %.sroa.057.0.copyload = load i64, ptr %27, align 8
-  %.sroa.458.0.copyload = load ptr, ptr %.sroa.420.0..sroa_idx, align 8, !nonnull !21, !noundef !21
-  %.sroa.559.0.copyload = load i64, ptr %.sroa.521.0..sroa_idx, align 8
-  %37 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.458.0.copyload, i64 %.sroa.559.0.copyload
+  %.sroa.454.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !21, !noundef !21
+  %.sroa.555.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
+  %.sroa.056.0.copyload = load i64, ptr %27, align 8
+  %.sroa.457.0.copyload = load ptr, ptr %.sroa.420.0..sroa_idx, align 8, !nonnull !21, !noundef !21
+  %.sroa.558.0.copyload = load i64, ptr %.sroa.521.0..sroa_idx, align 8
+  %37 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.457.0.copyload, i64 %.sroa.558.0.copyload
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 64
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -3371,19 +3371,19 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
   %39 = getelementptr inbounds i8, ptr %17, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !21, !align !89
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  store ptr %.sroa.455.0.copyload, ptr %9, align 8, !noalias !483
-  %.sroa.461.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sroa.0.0.copyload, ptr %.sroa.461.0..sroa_idx, align 8, !noalias !483
-  %.sroa.562.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %.sroa.455.0.copyload, ptr %.sroa.562.0..sroa_idx, align 8, !noalias !483
-  %.sroa.663.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %36, ptr %.sroa.663.0..sroa_idx, align 8, !noalias !483
-  %.sroa.764.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %.sroa.458.0.copyload, ptr %.sroa.764.0..sroa_idx, align 8, !noalias !483
-  %.sroa.865.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
-  store i64 %.sroa.057.0.copyload, ptr %.sroa.865.0..sroa_idx, align 8, !noalias !483
-  %.sroa.966.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
-  store ptr %.sroa.458.0.copyload, ptr %.sroa.966.0..sroa_idx, align 8, !noalias !483
+  store ptr %.sroa.454.0.copyload, ptr %9, align 8, !noalias !483
+  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %.sroa.0.0.copyload, ptr %.sroa.460.0..sroa_idx, align 8, !noalias !483
+  %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %.sroa.454.0.copyload, ptr %.sroa.561.0..sroa_idx, align 8, !noalias !483
+  %.sroa.662.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %36, ptr %.sroa.662.0..sroa_idx, align 8, !noalias !483
+  %.sroa.763.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %.sroa.457.0.copyload, ptr %.sroa.763.0..sroa_idx, align 8, !noalias !483
+  %.sroa.864.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
+  store i64 %.sroa.056.0.copyload, ptr %.sroa.864.0..sroa_idx, align 8, !noalias !483
+  %.sroa.965.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr %.sroa.457.0.copyload, ptr %.sroa.965.0..sroa_idx, align 8, !noalias !483
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %37, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !483
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !486
@@ -3403,7 +3403,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %44 = load i64, ptr %13, align 8, !range !45, !noundef !21
   %45 = icmp eq i64 %44, -9223372036854775798
-  br i1 %45, label %46, label %.thread80
+  br i1 %45, label %46, label %.thread78
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -3413,7 +3413,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   br label %49
 
-.thread80:                                        ; preds = %43
+.thread78:                                        ; preds = %43
   %.sroa.431.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.233, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.431.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -3439,48 +3439,48 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !489
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7c43effb07ee246E.llvm.2909037117879540835"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %50
   %52 = getelementptr inbounds i8, ptr %8, i64 8
   %53 = load i64, ptr %52, align 8, !range !49, !noalias !489, !noundef !21
   %.not.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i, label %58, label %54
+  br i1 %.not.i.i.i, label %60, label %54
 
 54:                                               ; preds = %.noexc
   %55 = load ptr, ptr %8, align 8, !noalias !489, !nonnull !21, !noundef !21
   %56 = getelementptr inbounds i8, ptr %8, i64 16
   %57 = load i64, ptr %56, align 8, !noalias !489, !noundef !21
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.0..sroa_idx, ptr noundef nonnull %55, i64 noundef %53, i64 noundef %57)
-          to label %58 unwind label %62
+          to label %60 unwind label %58
 
-.critedge:                                        ; preds = %.thread80, %58
+58:                                               ; preds = %54, %50
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h4d3f80850691e408E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #40
+          to label %61 unwind label %64
+
+.critedge:                                        ; preds = %.thread78, %60
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
   br label %49
 
-58:                                               ; preds = %.noexc, %54
+60:                                               ; preds = %.noexc, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !489
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h4d3f80850691e408E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-          to label %.critedge unwind label %60
+          to label %.critedge unwind label %62
 
-59:                                               ; preds = %66, %.thread82, %62, %60
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %lpad.thr_comm.split-lp, %.thread82 ], [ %lpad.thr_comm, %66 ]
+61:                                               ; preds = %66, %.thread80, %58, %62
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %59, %58 ], [ %lpad.thr_comm.split-lp, %.thread80 ], [ %lpad.thr_comm, %66 ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #40
           to label %68 unwind label %64
 
-60:                                               ; preds = %58
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  br label %59
-
-62:                                               ; preds = %50, %54
+62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h4d3f80850691e408E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #40
-          to label %59 unwind label %64
+  br label %61
 
-64:                                               ; preds = %.thread82, %67, %62, %59
+64:                                               ; preds = %.thread80, %67, %58, %61
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
@@ -3489,19 +3489,19 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h2bc4fe61aded0
 66:                                               ; preds = %41, %35
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %61
 
 67:                                               ; preds = %26
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..backend..MysqlType$GT$$GT$17h6563b45d836976eeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #40
-          to label %.thread82 unwind label %64
+          to label %.thread80 unwind label %64
 
-.thread82:                                        ; preds = %67
+.thread80:                                        ; preds = %67
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h4d3f80850691e408E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #40
-          to label %59 unwind label %64
+          to label %61 unwind label %64
 
-68:                                               ; preds = %59
+68:                                               ; preds = %61
   resume { ptr, i32 } %.pn
 }
 

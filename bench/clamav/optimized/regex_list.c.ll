@@ -1621,7 +1621,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
 4:                                                ; preds = %3
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %.not43 = icmp ugt i64 %2, %5
-  br i1 %.not43, label %53, label %.sink.split
+  br i1 %.not43, label %52, label %.sink.split
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1665,64 +1665,64 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br label %.preheader
 
 .critedge:                                        ; preds = %18
-  %28 = icmp ne i64 %14, 0
-  br i1 %28, label %.preheader49, label %.preheader
+  %.not70 = icmp eq i64 %14, 0
+  br i1 %.not70, label %.preheader, label %.preheader49
 
-.preheader49:                                     ; preds = %.critedge, %34
-  %.156 = phi i64 [ %33, %34 ], [ %.052, %.critedge ]
-  %.03955 = phi i64 [ %35, %34 ], [ %14, %.critedge ]
-  br label %29
+.preheader49:                                     ; preds = %.critedge, %33
+  %.156 = phi i64 [ %32, %33 ], [ %.052, %.critedge ]
+  %.03955 = phi i64 [ %34, %33 ], [ %14, %.critedge ]
+  br label %28
 
-.preheader:                                       ; preds = %34, %.critedge.thread, %.critedge
-  %.1.lcssa = phi i64 [ %.052, %.critedge ], [ %.0.lcssa.ph, %.critedge.thread ], [ %33, %34 ]
-  %.lcssa50 = phi i1 [ %28, %.critedge ], [ %27, %.critedge.thread ], [ %39, %34 ]
-  br label %41
+.preheader:                                       ; preds = %33, %.critedge.thread, %.critedge
+  %.1.lcssa = phi i64 [ %.052, %.critedge ], [ %.0.lcssa.ph, %.critedge.thread ], [ %32, %33 ]
+  %.lcssa50 = phi i1 [ false, %.critedge ], [ %27, %.critedge.thread ], [ %38, %33 ]
+  br label %40
 
-29:                                               ; preds = %29, %.preheader49
-  %.2 = phi i64 [ %33, %29 ], [ %.156, %.preheader49 ]
-  %30 = getelementptr inbounds i8, ptr %8, i64 %.2
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp eq i8 %31, 32
-  %33 = add i64 %.2, 1
-  br i1 %32, label %29, label %34
+28:                                               ; preds = %28, %.preheader49
+  %.2 = phi i64 [ %32, %28 ], [ %.156, %.preheader49 ]
+  %29 = getelementptr inbounds i8, ptr %8, i64 %.2
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 32
+  %32 = add i64 %.2, 1
+  br i1 %31, label %28, label %33
 
-34:                                               ; preds = %29
-  %35 = add i64 %.03955, -1
-  %36 = getelementptr inbounds i8, ptr %8, i64 %33
-  %37 = load i8, ptr %36, align 1
-  %38 = icmp ne i8 %37, 0
-  %39 = icmp ne i64 %35, 0
-  %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %.preheader49, label %.preheader
+33:                                               ; preds = %28
+  %34 = add i64 %.03955, -1
+  %35 = getelementptr inbounds i8, ptr %8, i64 %32
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp ne i8 %36, 0
+  %38 = icmp ne i64 %34, 0
+  %39 = select i1 %37, i1 %38, i1 false
+  br i1 %39, label %.preheader49, label %.preheader
 
-41:                                               ; preds = %41, %.preheader
-  %.3 = phi i64 [ %45, %41 ], [ %.1.lcssa, %.preheader ]
-  %42 = getelementptr inbounds i8, ptr %8, i64 %.3
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, 32
-  %45 = add i64 %.3, 1
-  br i1 %44, label %41, label %46
+40:                                               ; preds = %40, %.preheader
+  %.3 = phi i64 [ %44, %40 ], [ %.1.lcssa, %.preheader ]
+  %41 = getelementptr inbounds i8, ptr %8, i64 %.3
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 32
+  %44 = add i64 %.3, 1
+  br i1 %43, label %40, label %45
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %8, i64 %.3
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %47) #13
-  br i1 %.lcssa50, label %48, label %.sink.split
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %8, i64 %.3
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %46) #13
+  br i1 %.lcssa50, label %47, label %.sink.split
 
-48:                                               ; preds = %46
-  %49 = load i8, ptr %47, align 1
-  %.not47 = icmp eq i8 %49, 0
-  br i1 %.not47, label %53, label %.sink.split
+47:                                               ; preds = %45
+  %48 = load i8, ptr %46, align 1
+  %.not47 = icmp eq i8 %48, 0
+  br i1 %.not47, label %52, label %.sink.split
 
-.sink.split:                                      ; preds = %46, %48, %4
-  %.3.lcssa67.sink = phi i64 [ %2, %4 ], [ %.3, %48 ], [ %.3, %46 ]
-  %.sink68 = phi ptr [ %1, %4 ], [ %8, %48 ], [ %8, %46 ]
-  %50 = tail call i64 @llvm.usub.sat.i64(i64 %.3.lcssa67.sink, i64 1)
-  %51 = getelementptr inbounds i8, ptr %.sink68, i64 %50
-  %52 = load i8, ptr %51, align 1
-  br label %53
+.sink.split:                                      ; preds = %45, %47, %4
+  %.3.lcssa67.sink = phi i64 [ %2, %4 ], [ %.3, %47 ], [ %.3, %45 ]
+  %.sink68 = phi ptr [ %1, %4 ], [ %8, %47 ], [ %8, %45 ]
+  %49 = tail call i64 @llvm.usub.sat.i64(i64 %.3.lcssa67.sink, i64 1)
+  %50 = getelementptr inbounds i8, ptr %.sink68, i64 %49
+  %51 = load i8, ptr %50, align 1
+  br label %52
 
-53:                                               ; preds = %.sink.split, %48, %4
-  %.038 = phi i8 [ 0, %4 ], [ 0, %48 ], [ %52, %.sink.split ]
+52:                                               ; preds = %.sink.split, %47, %4
+  %.038 = phi i8 [ 0, %4 ], [ 0, %47 ], [ %51, %.sink.split ]
   ret i8 %.038
 }
 

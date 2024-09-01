@@ -5587,9 +5587,9 @@ define hidden void @_ZN12typst_syntax6parser10code_exprs17h609faefca7ef5bc7E.llv
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = getelementptr inbounds i8, ptr %0, i64 73
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds i8, ptr %0, i64 73
   br label %12
 
 12:                                               ; preds = %.lr.ph, %74
@@ -5656,7 +5656,7 @@ _ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %.p
 46:                                               ; preds = %44
   tail call void @_ZN12typst_syntax6parser6Parser4save17ha308e097e54b41deE.llvm.17794941744620341598(ptr noalias noundef nonnull align 8 dereferenceable(264) %0)
   tail call void @_ZN12typst_syntax6parser6Parser3lex17h397541c91631bbdbE.llvm.17794941744620341598(ptr noalias noundef nonnull align 8 dereferenceable(264) %0)
-  %47 = load i8, ptr %9, align 1, !range !571, !alias.scope !981, !noundef !4
+  %47 = load i8, ptr %11, align 1, !range !571, !alias.scope !981, !noundef !4
   %.not.i.i.i = icmp eq i8 %47, 0
   br i1 %.not.i.i.i, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit, label %.preheader.i.i.i
 
@@ -5681,12 +5681,12 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread4: ; preds
 
 51:                                               ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread4
   %52 = add i64 %50, -1
-  %53 = load i64, ptr %10, align 8, !alias.scope !994, !noalias !991, !noundef !4
+  %53 = load i64, ptr %9, align 8, !alias.scope !994, !noalias !991, !noundef !4
   %54 = icmp ult i64 %52, %53
   br i1 %54, label %55, label %68, !prof !965
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr %11, align 8, !alias.scope !994, !noalias !991, !nonnull !4, !noundef !4
+  %56 = load ptr, ptr %10, align 8, !alias.scope !994, !noalias !991, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %56, i64 0, i64 %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !998)
   %58 = getelementptr inbounds i8, ptr %57, i64 24

@@ -371,9 +371,8 @@ define internal void @trace_event_raw_event_rpm_internal(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %18
-  %19 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %19, ptr @.str, ptr %.fr
+  %19 = icmp eq ptr %18, null
+  %spec.select = select i1 %19, ptr @.str, ptr %18
   br label %.thread2
 
 .thread2:                                         ; preds = %17, %14
@@ -395,18 +394,17 @@ define internal void @trace_event_raw_event_rpm_internal(ptr noundef %0, ptr nou
   store i32 %30, ptr %31, align 4
   %32 = getelementptr i8, ptr %26, i64 40
   %33 = load ptr, ptr %15, align 8
-  %.not9 = icmp eq ptr %33, null
-  br i1 %.not9, label %34, label %.thread6
+  %.not8 = icmp eq ptr %33, null
+  br i1 %.not8, label %34, label %.thread6
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %35
-  %36 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %36, ptr @.str, ptr %.fr8
+  %36 = icmp eq ptr %35, null
+  %spec.select9 = select i1 %36, ptr @.str, ptr %35
   br label %.thread6
 
 .thread6:                                         ; preds = %34, %28
-  %37 = phi ptr [ %33, %28 ], [ %spec.select10, %34 ]
+  %37 = phi ptr [ %33, %28 ], [ %spec.select9, %34 ]
   %38 = call ptr @strcpy(ptr noundef %32, ptr noundef nonnull dereferenceable(1) %37) #8
   %39 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 %2, ptr %39, align 4
@@ -463,9 +461,8 @@ define internal void @perf_trace_rpm_internal(ptr noundef %0, ptr noundef %1, i3
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %9
-  %10 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %10, ptr @.str, ptr %.fr
+  %10 = icmp eq ptr %9, null
+  %spec.select = select i1 %10, ptr @.str, ptr %9
   br label %.thread2
 
 .thread2:                                         ; preds = %8, %3
@@ -516,18 +513,17 @@ define internal void @perf_trace_rpm_internal(ptr noundef %0, ptr noundef %1, i3
   store i32 %15, ptr %42, align 4
   %43 = getelementptr i8, ptr %30, i64 40
   %44 = load ptr, ptr %6, align 8
-  %.not9 = icmp eq ptr %44, null
-  br i1 %.not9, label %45, label %.thread6
+  %.not8 = icmp eq ptr %44, null
+  br i1 %.not8, label %45, label %.thread6
 
 45:                                               ; preds = %32
   %46 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %46
-  %47 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %47, ptr @.str, ptr %.fr8
+  %47 = icmp eq ptr %46, null
+  %spec.select9 = select i1 %47, ptr @.str, ptr %46
   br label %.thread6
 
 .thread6:                                         ; preds = %45, %32
-  %48 = phi ptr [ %44, %32 ], [ %spec.select10, %45 ]
+  %48 = phi ptr [ %44, %32 ], [ %spec.select9, %45 ]
   %49 = call ptr @strcpy(ptr noundef %43, ptr noundef nonnull dereferenceable(1) %48) #8
   %50 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 %2, ptr %50, align 4
@@ -607,9 +603,8 @@ define internal void @trace_event_raw_event_rpm_return_int(ptr noundef %0, ptr n
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %19
-  %20 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %20, ptr @.str, ptr %.fr
+  %20 = icmp eq ptr %19, null
+  %spec.select = select i1 %20, ptr @.str, ptr %19
   br label %.thread2
 
 .thread2:                                         ; preds = %18, %15
@@ -631,18 +626,17 @@ define internal void @trace_event_raw_event_rpm_return_int(ptr noundef %0, ptr n
   store i32 %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %27, i64 28
   %34 = load ptr, ptr %16, align 8
-  %.not9 = icmp eq ptr %34, null
-  br i1 %.not9, label %35, label %.thread6
+  %.not8 = icmp eq ptr %34, null
+  br i1 %.not8, label %35, label %.thread6
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %36
-  %37 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %37, ptr @.str, ptr %.fr8
+  %37 = icmp eq ptr %36, null
+  %spec.select9 = select i1 %37, ptr @.str, ptr %36
   br label %.thread6
 
 .thread6:                                         ; preds = %35, %29
-  %38 = phi ptr [ %34, %29 ], [ %spec.select10, %35 ]
+  %38 = phi ptr [ %34, %29 ], [ %spec.select9, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #8
   %40 = getelementptr inbounds i8, ptr %27, i64 16
   store i64 %2, ptr %40, align 8
@@ -669,9 +663,8 @@ define internal void @perf_trace_rpm_return_int(ptr noundef %0, ptr nocapture no
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %10
-  %11 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %11, ptr @.str, ptr %.fr
+  %11 = icmp eq ptr %10, null
+  %spec.select = select i1 %11, ptr @.str, ptr %10
   br label %.thread2
 
 .thread2:                                         ; preds = %9, %4
@@ -722,18 +715,17 @@ define internal void @perf_trace_rpm_return_int(ptr noundef %0, ptr nocapture no
   store i32 %16, ptr %43, align 8
   %44 = getelementptr i8, ptr %31, i64 28
   %45 = load ptr, ptr %7, align 8
-  %.not9 = icmp eq ptr %45, null
-  br i1 %.not9, label %46, label %.thread6
+  %.not8 = icmp eq ptr %45, null
+  br i1 %.not8, label %46, label %.thread6
 
 46:                                               ; preds = %33
   %47 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %47
-  %48 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %48, ptr @.str, ptr %.fr8
+  %48 = icmp eq ptr %47, null
+  %spec.select9 = select i1 %48, ptr @.str, ptr %47
   br label %.thread6
 
 .thread6:                                         ; preds = %46, %33
-  %49 = phi ptr [ %45, %33 ], [ %spec.select10, %46 ]
+  %49 = phi ptr [ %45, %33 ], [ %spec.select9, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #8
   %51 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %2, ptr %51, align 8

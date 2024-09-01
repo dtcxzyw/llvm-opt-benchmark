@@ -942,8 +942,8 @@ define hidden noundef zeroext i1 @_ZN3vas2ot7Tracker21RemoveOneLostTrackletEv(pt
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.sroa.03.09, i64 16
-  %.not13 = icmp eq ptr %17, %5
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  %.not10 = icmp eq ptr %17, %5
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %16, %1, %10
   %18 = phi i1 [ true, %10 ], [ false, %1 ], [ false, %16 ]

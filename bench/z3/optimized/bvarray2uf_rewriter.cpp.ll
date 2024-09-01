@@ -1184,8 +1184,8 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i.i
 _ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %if.end.i.i.i.i, %cond.false.i.i, %for.cond.i
   %cond.i.i = phi i32 [ 0, %for.cond.i ], [ %7, %if.end.i.i.i.i ], [ 0, %cond.false.i.i ]
   %8 = zext i32 %cond.i.i to i64
-  %cmp.not.i.not = icmp uge i64 %indvars.iv.i, %8
-  br i1 %cmp.not.i.not, label %_ZN23bvarray2uf_rewriter_cfg11is_bv_arrayEP4sort.exit, label %for.body.i
+  %cmp.not.i.not.not = icmp uge i64 %indvars.iv.i, %8
+  br i1 %cmp.not.i.not.not, label %_ZN23bvarray2uf_rewriter_cfg11is_bv_arrayEP4sort.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK4decl18get_num_parametersEv.exit.i
   %m_parameters.i.i8.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1210,7 +1210,7 @@ _ZNK9parameter7get_astEv.exit17.i:                ; preds = %_ZNK9parameter7get_
   br i1 %call11.i, label %for.cond.i, label %_ZN23bvarray2uf_rewriter_cfg11is_bv_arrayEP4sort.exit, !llvm.loop !8
 
 _ZN23bvarray2uf_rewriter_cfg11is_bv_arrayEP4sort.exit: ; preds = %_ZNK4decl18get_num_parametersEv.exit.i, %for.body.i, %_ZNK9parameter7get_astEv.exit.i, %_ZNK9parameter7get_astEv.exit17.i, %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK17array_recognizers8is_arrayEP4sort.exit.i
-  %retval.0.i = phi i1 [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %entry ], [ %cmp.not.i.not, %_ZNK9parameter7get_astEv.exit17.i ], [ %cmp.not.i.not, %_ZNK9parameter7get_astEv.exit.i ], [ %cmp.not.i.not, %for.body.i ], [ %cmp.not.i.not, %_ZNK4decl18get_num_parametersEv.exit.i ]
+  %retval.0.i = phi i1 [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %entry ], [ %cmp.not.i.not.not, %_ZNK9parameter7get_astEv.exit17.i ], [ %cmp.not.i.not.not, %_ZNK9parameter7get_astEv.exit.i ], [ %cmp.not.i.not.not, %for.body.i ], [ %cmp.not.i.not.not, %_ZNK4decl18get_num_parametersEv.exit.i ]
   ret i1 %retval.0.i
 }
 
@@ -1259,8 +1259,8 @@ if.end.i.i.i:                                     ; preds = %cond.false.i
 _ZNK4decl18get_num_parametersEv.exit:             ; preds = %for.cond, %cond.false.i, %if.end.i.i.i
   %cond.i = phi i32 [ 0, %for.cond ], [ %7, %if.end.i.i.i ], [ 0, %cond.false.i ]
   %8 = zext i32 %cond.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %8
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not = icmp uge i64 %indvars.iv, %8
+  br i1 %cmp.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK4decl18get_num_parametersEv.exit
   %m_parameters.i.i8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1285,7 +1285,7 @@ _ZNK9parameter7get_astEv.exit17:                  ; preds = %_ZNK9parameter7get_
   br i1 %call11, label %for.cond, label %return, !llvm.loop !8
 
 return:                                           ; preds = %_ZNK4decl18get_num_parametersEv.exit, %for.body, %_ZNK9parameter7get_astEv.exit, %_ZNK9parameter7get_astEv.exit17, %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK17array_recognizers8is_arrayEP4sort.exit
-  %retval.0 = phi i1 [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ false, %entry ], [ %cmp.not, %_ZNK9parameter7get_astEv.exit17 ], [ %cmp.not, %_ZNK9parameter7get_astEv.exit ], [ %cmp.not, %for.body ], [ %cmp.not, %_ZNK4decl18get_num_parametersEv.exit ]
+  %retval.0 = phi i1 [ false, %_ZNK17array_recognizers8is_arrayEP4sort.exit ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ false, %entry ], [ %cmp.not.not, %_ZNK9parameter7get_astEv.exit17 ], [ %cmp.not.not, %_ZNK9parameter7get_astEv.exit ], [ %cmp.not.not, %for.body ], [ %cmp.not.not, %_ZNK4decl18get_num_parametersEv.exit ]
   ret i1 %retval.0
 }
 

@@ -15378,15 +15378,12 @@ for.inc540.thread:                                ; preds = %if.then522
 
 for.end542:                                       ; preds = %for.inc540
   %cmp543 = icmp slt i32 %depth, 8
-  br i1 %cmp543, label %for.cond545.preheader, label %if.else869
+  br i1 %cmp543, label %for.body547.lr.ph, label %if.else869
 
 for.end542.thread:                                ; preds = %for.cond.preheader
   br i1 %cmp, label %if.then871, label %return
 
-for.cond545.preheader:                            ; preds = %for.end542
-  br i1 %cmp2.i.i.i, label %return, label %for.body547.lr.ph
-
-for.body547.lr.ph:                                ; preds = %for.cond545.preheader
+for.body547.lr.ph:                                ; preds = %for.end542
   %idx.ext558 = zext i32 %mul to i64
   %idx.ext560 = zext nneg i32 %shr to i64
   %idx.neg561 = sub nsw i64 0, %idx.ext560
@@ -15755,8 +15752,8 @@ return.sink.split:                                ; preds = %for.body.backedge, 
   store ptr %.str.31.sink, ptr %152, align 8
   br label %return
 
-return:                                           ; preds = %for.inc866, %for.body878, %return.sink.split, %for.end542.thread, %if.then871, %for.cond545.preheader, %if.else869
-  %retval.0 = phi i32 [ 1, %if.else869 ], [ 1, %for.cond545.preheader ], [ 1, %if.then871 ], [ 1, %for.end542.thread ], [ 0, %return.sink.split ], [ 1, %for.body878 ], [ 1, %for.inc866 ]
+return:                                           ; preds = %for.inc866, %for.body878, %return.sink.split, %for.end542.thread, %if.then871, %if.else869
+  %retval.0 = phi i32 [ 1, %if.else869 ], [ 1, %if.then871 ], [ 1, %for.end542.thread ], [ 0, %return.sink.split ], [ 1, %for.body878 ], [ 1, %for.inc866 ]
   ret i32 %retval.0
 }
 

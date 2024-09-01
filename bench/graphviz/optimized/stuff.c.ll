@@ -1178,10 +1178,7 @@ define void @diffeq_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %17 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv102
   br label %20
 
-.preheader82:                                     ; preds = %._crit_edge
-  br i1 %15, label %.preheader81.lr.ph, label %.preheader80
-
-.preheader81.lr.ph:                               ; preds = %.preheader82
+.preheader81.lr.ph:                               ; preds = %._crit_edge
   %18 = load i32, ptr @Ndim, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.preheader81.preheader, label %.preheader80.thread
@@ -1232,7 +1229,7 @@ define void @diffeq_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 
 ._crit_edge:                                      ; preds = %40, %.preheader83
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %.preheader82, label %.preheader83
+  br i1 %exitcond106.not, label %.preheader81.lr.ph, label %.preheader83
 
 .preheader81:                                     ; preds = %.preheader81.preheader, %._crit_edge88
   %46 = phi i32 [ %18, %.preheader81.preheader ], [ %146, %._crit_edge88 ]
@@ -1240,7 +1237,7 @@ define void @diffeq_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph87, label %._crit_edge88
 
-.preheader80:                                     ; preds = %._crit_edge88, %8, %.preheader82
+.preheader80:                                     ; preds = %._crit_edge88, %8
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 184
   %50 = load ptr, ptr %49, align 8

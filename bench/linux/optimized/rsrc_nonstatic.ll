@@ -1179,14 +1179,14 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   call void @kfree(ptr noundef nonnull %28) #11
   %52 = call i32 @release_resource(ptr noundef nonnull %26) #11
   call void @kfree(ptr noundef nonnull %26) #11
-  br i1 %50, label %55, label %106
+  br i1 %50, label %55, label %105
 
 .thread29:                                        ; preds = %44
   %53 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
   tail call void @kfree(ptr noundef nonnull %28) #11
   %54 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
   tail call void @kfree(ptr noundef nonnull %26) #11
-  br label %106
+  br label %105
 
 55:                                               ; preds = %46
   %.pre = load i32, ptr %5, align 4
@@ -1194,97 +1194,96 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   %56 = icmp ne i32 %.pre, %.pre28
   %57 = icmp eq i32 %.pre, 0
   %58 = or i1 %57, %56
-  %59 = or i1 %45, %58
-  %60 = select i1 %58, i32 -22, i32 0
-  br i1 %59, label %106, label %65
+  %59 = select i1 %58, i32 -22, i32 0
+  br i1 %58, label %105, label %64
 
 .thread19.thread:                                 ; preds = %43
-  %61 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
+  %60 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
   tail call void @kfree(ptr noundef nonnull %28) #11
-  br label %106
+  br label %105
 
 .thread19:                                        ; preds = %42, %25
-  %62 = icmp eq ptr %26, null
-  br i1 %62, label %106, label %63
+  %61 = icmp eq ptr %26, null
+  br i1 %61, label %105, label %62
 
-63:                                               ; preds = %.thread19
-  %64 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
+62:                                               ; preds = %.thread19
+  %63 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
   tail call void @kfree(ptr noundef nonnull %26) #11
-  br label %106
+  br label %105
 
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds i8, ptr %0, i64 256
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %106
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds i8, ptr %0, i64 256
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %105
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %8, i64 24
-  %71 = add i64 %2, %1
-  %72 = add i64 %71, -1
-  br label %73
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %8, i64 24
+  %70 = add i64 %2, %1
+  %71 = add i64 %70, -1
+  br label %72
 
-73:                                               ; preds = %90, %69
-  %74 = phi ptr [ %70, %69 ], [ %88, %90 ]
-  %75 = icmp eq ptr %74, %70
-  br i1 %75, label %86, label %76
+72:                                               ; preds = %89, %68
+  %73 = phi ptr [ %69, %68 ], [ %87, %89 ]
+  %74 = icmp eq ptr %73, %69
+  br i1 %74, label %85, label %75
 
-76:                                               ; preds = %73
-  %77 = load i64, ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
-  %79 = load i64, ptr %78, align 8
-  %80 = add i64 %79, %77
-  %81 = icmp ult i64 %80, %1
-  br i1 %81, label %86, label %82
+75:                                               ; preds = %72
+  %76 = load i64, ptr %73, align 8
+  %77 = getelementptr inbounds i8, ptr %73, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = add i64 %78, %76
+  %80 = icmp ult i64 %79, %1
+  br i1 %80, label %85, label %81
 
-82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %74, i64 8
-  %84 = sub i64 %71, %77
-  %85 = call i64 @llvm.umax.i64(i64 %84, i64 %79)
-  store i64 %85, ptr %83, align 8
-  br label %104
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds i8, ptr %73, i64 8
+  %83 = sub i64 %70, %76
+  %84 = call i64 @llvm.umax.i64(i64 %83, i64 %78)
+  store i64 %84, ptr %82, align 8
+  br label %103
 
-86:                                               ; preds = %76, %73
-  %87 = getelementptr inbounds i8, ptr %74, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %70
-  br i1 %89, label %93, label %90
+85:                                               ; preds = %75, %72
+  %86 = getelementptr inbounds i8, ptr %73, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, %69
+  br i1 %88, label %92, label %89
 
-90:                                               ; preds = %86
-  %91 = load i64, ptr %88, align 8
-  %92 = icmp ugt i64 %91, %72
-  br i1 %92, label %93, label %73, !llvm.loop !13
+89:                                               ; preds = %85
+  %90 = load i64, ptr %87, align 8
+  %91 = icmp ugt i64 %90, %71
+  br i1 %91, label %92, label %72, !llvm.loop !13
 
-93:                                               ; preds = %90, %86
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %95 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %94, i32 noundef 3264, i64 noundef 24) #12
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %99
+92:                                               ; preds = %89, %85
+  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %94 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %93, i32 noundef 3264, i64 noundef 24) #12
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %93
-  %98 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #13
-  br label %104
+96:                                               ; preds = %92
+  %97 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #13
+  br label %103
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %74, i64 16
-  store i64 %1, ptr %95, align 8
-  %101 = getelementptr inbounds i8, ptr %95, i64 8
-  store i64 %2, ptr %101, align 8
-  %102 = load ptr, ptr %100, align 8
-  %103 = getelementptr inbounds i8, ptr %95, i64 16
-  store ptr %102, ptr %103, align 8
-  store ptr %95, ptr %100, align 8
-  br label %104
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds i8, ptr %73, i64 16
+  store i64 %1, ptr %94, align 8
+  %100 = getelementptr inbounds i8, ptr %94, i64 8
+  store i64 %2, ptr %100, align 8
+  %101 = load ptr, ptr %99, align 8
+  %102 = getelementptr inbounds i8, ptr %94, i64 16
+  store ptr %101, ptr %102, align 8
+  store ptr %94, ptr %99, align 8
+  br label %103
 
-104:                                              ; preds = %99, %97, %82
-  %105 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
-  br label %106
+103:                                              ; preds = %98, %96, %81
+  %104 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
+  br label %105
 
-106:                                              ; preds = %.thread19.thread, %.thread29, %104, %65, %63, %.thread19, %55, %46
-  %107 = phi i32 [ %60, %55 ], [ -22, %46 ], [ 0, %104 ], [ 0, %65 ], [ -22, %.thread19 ], [ -22, %63 ], [ 0, %.thread29 ], [ -22, %.thread19.thread ]
+105:                                              ; preds = %.thread19.thread, %.thread29, %103, %64, %62, %.thread19, %55, %46
+  %106 = phi i32 [ %59, %55 ], [ -22, %46 ], [ 0, %103 ], [ 0, %64 ], [ -22, %.thread19 ], [ -22, %62 ], [ 0, %.thread29 ], [ -22, %.thread19.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  ret i32 %107
+  ret i32 %106
 }
 
 ; Function Attrs: cold null_pointer_is_valid

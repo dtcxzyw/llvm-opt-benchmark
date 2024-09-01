@@ -1082,9 +1082,9 @@ define noundef zeroext i1 @_ZN8uu_tsort5Graph10is_acyclic17hdde1ecb3f54f991cE(pt
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %13 = getelementptr inbounds i8, ptr %4, i64 32
-  %.not13.i.not3438 = icmp ne i64 %12, 0
-  %.not13.i.not34.not = select i1 %.not, i1 %.not13.i.not3438, i1 false
-  br i1 %.not13.i.not34.not, label %.lr.ph, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he46f7a9189d14cb3E.exit
+  %.not11.not.not.i.not3438 = icmp ne i64 %12, 0
+  %.not11.not.not.i.not34.not = select i1 %.not, i1 %.not11.not.not.i.not3438, i1 false
+  br i1 %.not11.not.not.i.not34.not, label %.lr.ph, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he46f7a9189d14cb3E.exit
 
 .lr.ph:                                           ; preds = %1, %24
   %14 = phi i64 [ %.pr, %24 ], [ %12, %1 ]
@@ -1136,14 +1136,14 @@ define noundef zeroext i1 @_ZN8uu_tsort5Graph10is_acyclic17hdde1ecb3f54f991cE(pt
   %.val.i = load i64, ptr %26, align 8, !noundef !30
   %.not.i = icmp eq i64 %.val.i, 0
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.not13.i.not = icmp ne i64 %.pr, 0
-  %or.cond.not = select i1 %.not.i, i1 %.not13.i.not, i1 false
+  %.not11.not.not.i.not = icmp ne i64 %.pr, 0
+  %or.cond.not = select i1 %.not.i, i1 %.not11.not.not.i.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he46f7a9189d14cb3E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17he46f7a9189d14cb3E.exit: ; preds = %24, %1
-  %.not13.i.not.lcssa = phi i1 [ true, %1 ], [ %.not.i, %24 ]
+  %.not11.not.not.i.not.lcssa = phi i1 [ true, %1 ], [ %.not.i, %24 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  ret i1 %.not13.i.not.lcssa
+  ret i1 %.not11.not.not.i.not.lcssa
 }
 
 ; Function Attrs: nonlazybind uwtable

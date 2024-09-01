@@ -177,9 +177,6 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph72, label %._crit_edge
 
-.preheader:                                       ; preds = %.critedge
-  br i1 %7, label %.lr.ph74, label %._crit_edge
-
 .lr.ph72:                                         ; preds = %5, %.critedge
   %.06171 = phi ptr [ %15, %.critedge ], [ %6, %5 ]
   %8 = load i32, ptr %.06171, align 4
@@ -203,15 +200,15 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
   store i32 %8, ptr %.060.lcssa, align 4
   %15 = getelementptr inbounds i8, ptr %.06171, i64 4
   %16 = icmp ult ptr %15, %2
-  br i1 %16, label %.lr.ph72, label %.preheader, !llvm.loop !8
+  br i1 %16, label %.lr.ph72, label %.lr.ph74, !llvm.loop !8
 
 17:                                               ; preds = %.lr.ph74
   %18 = getelementptr inbounds i8, ptr %.173, i64 4
   %19 = icmp ult ptr %18, %2
   br i1 %19, label %.lr.ph74, label %._crit_edge, !llvm.loop !9
 
-.lr.ph74:                                         ; preds = %.preheader, %17
-  %.173 = phi ptr [ %18, %17 ], [ %6, %.preheader ]
+.lr.ph74:                                         ; preds = %.critedge, %17
+  %.173 = phi ptr [ %18, %17 ], [ %6, %.critedge ]
   %20 = getelementptr inbounds i8, ptr %.173, i64 -4
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %.173, align 4
@@ -223,7 +220,7 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %21, i32 noundef %22)
   br label %87
 
-._crit_edge:                                      ; preds = %17, %5, %.preheader
+._crit_edge:                                      ; preds = %17, %5
   %26 = load i32, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 -4
   %28 = load i32, ptr %27, align 4

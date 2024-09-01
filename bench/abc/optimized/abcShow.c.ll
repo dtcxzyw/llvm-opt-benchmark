@@ -563,14 +563,11 @@ Abc_ShowGetFileName.exit:                         ; preds = %108, %.critedge
   %132 = getelementptr i8, ptr %.val84, i64 4
   %.val84.val = load i32, ptr %132, align 4
   %133 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val, ptr noundef nonnull %125, ptr noundef %117, ptr noundef %118, ptr noundef nonnull %111) #9
-  br i1 %126, label %.lr.ph102.preheader, label %.critedge4.thread
-
-.lr.ph102.preheader:                              ; preds = %.critedge2
   %wide.trip.count112 = zext nneg i32 %.val to i64
   br label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next110, %.lr.ph102 ]
+.lr.ph102:                                        ; preds = %.critedge2, %.lr.ph102
+  %indvars.iv109 = phi i64 [ 0, %.critedge2 ], [ %indvars.iv.next110, %.lr.ph102 ]
   %134 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv109
   %135 = load ptr, ptr %134, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %135) #9
@@ -586,7 +583,7 @@ Abc_ShowGetFileName.exit:                         ; preds = %108, %.critedge
   %.not75 = icmp eq ptr %125, null
   br i1 %.not75, label %138, label %.critedge4.thread
 
-.critedge4.thread:                                ; preds = %.lr.ph102, %.critedge2, %.critedge4
+.critedge4.thread:                                ; preds = %.lr.ph102, %.critedge4
   tail call void @free(ptr noundef nonnull %125) #9
   br label %138
 

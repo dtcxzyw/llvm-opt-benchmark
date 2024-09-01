@@ -98,16 +98,16 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
   %.not63.i = icmp eq ptr %.04262.i, null
   br i1 %.not63.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
-.lr.ph72.i:                                       ; preds = %19
+.preheader.i:                                     ; preds = %19
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %.not54.i = icmp eq i32 %8, 0
   br i1 %.not54.i, label %.lr.ph72.split.us.i, label %.lr.ph72.split.i
 
-.lr.ph72.split.us.i:                              ; preds = %.lr.ph72.i, %.lr.ph72.split.us.i
-  %.271.us.i = phi ptr [ %.2.us.i, %.lr.ph72.split.us.i ], [ %.04262.i, %.lr.ph72.i ]
-  %.04470.us.i = phi ptr [ %.145.us.i, %.lr.ph72.split.us.i ], [ null, %.lr.ph72.i ]
-  %.04669.us.i = phi i64 [ %.147.us.i, %.lr.ph72.split.us.i ], [ 0, %.lr.ph72.i ]
+.lr.ph72.split.us.i:                              ; preds = %.preheader.i, %.lr.ph72.split.us.i
+  %.271.us.i = phi ptr [ %.2.us.i, %.lr.ph72.split.us.i ], [ %.04262.i, %.preheader.i ]
+  %.04470.us.i = phi ptr [ %.145.us.i, %.lr.ph72.split.us.i ], [ null, %.preheader.i ]
+  %.04669.us.i = phi i64 [ %.147.us.i, %.lr.ph72.split.us.i ], [ 0, %.preheader.i ]
   %9 = icmp eq i64 %.04669.us.i, 0
   %.pre.i = load i64, ptr %.271.us.i, align 8
   %10 = icmp slt i64 %.pre.i, %.04669.us.i
@@ -138,12 +138,12 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
   %20 = getelementptr inbounds i8, ptr %.04265.i, i64 64
   %.042.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.042.i, null
-  br i1 %.not.i, label %.lr.ph72.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !7
 
-.lr.ph72.split.i:                                 ; preds = %.lr.ph72.i, %25
-  %.271.i = phi ptr [ %.2.i, %25 ], [ %.04262.i, %.lr.ph72.i ]
-  %.04470.i = phi ptr [ %.145.i, %25 ], [ null, %.lr.ph72.i ]
-  %.04669.i = phi i64 [ %.147.i, %25 ], [ 0, %.lr.ph72.i ]
+.lr.ph72.split.i:                                 ; preds = %.preheader.i, %25
+  %.271.i = phi ptr [ %.2.i, %25 ], [ %.04262.i, %.preheader.i ]
+  %.04470.i = phi ptr [ %.145.i, %25 ], [ null, %.preheader.i ]
+  %.04669.i = phi i64 [ %.147.i, %25 ], [ 0, %.preheader.i ]
   %21 = load i64, ptr %.271.i, align 8
   %22 = sub nsw i64 %6, %21
   %23 = trunc i64 %22 to i32
@@ -172,24 +172,24 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
   %32 = getelementptr inbounds i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %ssl_cache_pick_writing_slot.exit.thread34
+  br i1 %34, label %35, label %.thread38
 
 35:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %.0.lcssa82.i52 = phi ptr [ null, %._crit_edge.i.thread ], [ %.04265.i, %._crit_edge.i ]
+  %.0.lcssa82.i32 = phi ptr [ null, %._crit_edge.i.thread ], [ %.04265.i, %._crit_edge.i ]
   %36 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #11
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %ssl_cache_pick_writing_slot.exit.thread34, label %.loopexit.sink.split.i
+  br i1 %37, label %.thread38, label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %35
-  %38 = icmp eq ptr %.0.lcssa82.i52, null
-  %39 = getelementptr inbounds i8, ptr %.0.lcssa82.i52, i64 64
+  %38 = icmp eq ptr %.0.lcssa82.i32, null
+  %39 = getelementptr inbounds i8, ptr %.0.lcssa82.i32, i64 64
   %.sink.i = select i1 %38, ptr %0, ptr %39
   store ptr %36, ptr %.sink.i, align 8
   br label %.loopexit.i
 
 40:                                               ; preds = %._crit_edge.i
   %41 = icmp eq ptr %.044.lcssa.i, null
-  br i1 %41, label %ssl_cache_pick_writing_slot.exit.thread34, label %.loopexit.i
+  br i1 %41, label %.thread38, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %16, %.lr.ph72.split.i, %40, %.loopexit.sink.split.i
   %.1.i = phi ptr [ %.044.lcssa.i, %40 ], [ %36, %.loopexit.sink.split.i ], [ %.271.i, %.lr.ph72.split.i ], [ %.04265.i, %16 ]
@@ -197,55 +197,55 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
   %42 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %43 = load ptr, ptr %42, align 8
   %.not55.i = icmp eq ptr %43, null
-  br i1 %.not55.i, label %46, label %44
+  br i1 %.not55.i, label %ssl_cache_pick_writing_slot.exit, label %44
 
 44:                                               ; preds = %.loopexit.i
   tail call void @free(ptr noundef nonnull %43) #10
   %45 = getelementptr inbounds i8, ptr %.1.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 56, i1 false)
-  br label %46
+  br label %ssl_cache_pick_writing_slot.exit
 
-46:                                               ; preds = %44, %.loopexit.i
-  %47 = call i32 @mbedtls_ssl_session_save(ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #10
-  %.not24 = icmp eq i32 %47, -27136
-  br i1 %.not24, label %48, label %ssl_cache_pick_writing_slot.exit.thread34
+ssl_cache_pick_writing_slot.exit:                 ; preds = %44, %.loopexit.i
+  %46 = call i32 @mbedtls_ssl_session_save(ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #10
+  %.not24 = icmp eq i32 %46, -27136
+  br i1 %.not24, label %47, label %.thread38
 
-48:                                               ; preds = %46
-  %49 = load i64, ptr %5, align 8
-  %50 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %49) #11
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %ssl_cache_pick_writing_slot.exit.thread34, label %52
+47:                                               ; preds = %ssl_cache_pick_writing_slot.exit
+  %48 = load i64, ptr %5, align 8
+  %49 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %48) #11
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.thread38, label %51
 
-52:                                               ; preds = %48
-  %53 = call i32 @mbedtls_ssl_session_save(ptr noundef %3, ptr noundef nonnull %50, i64 noundef %49, ptr noundef nonnull %5) #10
-  %.not25 = icmp eq i32 %53, 0
-  br i1 %.not25, label %54, label %ssl_cache_pick_writing_slot.exit
+51:                                               ; preds = %47
+  %52 = call i32 @mbedtls_ssl_session_save(ptr noundef %3, ptr noundef nonnull %49, i64 noundef %48, ptr noundef nonnull %5) #10
+  %.not25 = icmp eq i32 %52, 0
+  br i1 %.not25, label %53, label %60
 
-54:                                               ; preds = %52
-  %55 = icmp ugt i64 %2, 32
-  br i1 %55, label %ssl_cache_pick_writing_slot.exit, label %56
+53:                                               ; preds = %51
+  %54 = icmp ugt i64 %2, 32
+  br i1 %54, label %60, label %55
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.1.i, i64 40
-  store i64 %2, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr align 1 %1, i64 %2, i1 false)
-  store ptr %50, ptr %42, align 8
-  %59 = load i64, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %.1.i, i64 56
-  store i64 %59, ptr %60, align 8
-  br label %ssl_cache_pick_writing_slot.exit.thread34
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %.1.i, i64 40
+  store i64 %2, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr align 1 %1, i64 %2, i1 false)
+  store ptr %49, ptr %42, align 8
+  %58 = load i64, ptr %5, align 8
+  %59 = getelementptr inbounds i8, ptr %.1.i, i64 56
+  store i64 %58, ptr %59, align 8
+  br label %.thread38
 
-ssl_cache_pick_writing_slot.exit:                 ; preds = %52, %54
-  %.019 = phi i32 [ %53, %52 ], [ 1, %54 ]
+60:                                               ; preds = %51, %53
+  %.019 = phi i32 [ %52, %51 ], [ 1, %53 ]
   %61 = load i64, ptr %5, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %50, i64 noundef %61) #10
-  call void @free(ptr noundef nonnull %50) #10
-  br label %ssl_cache_pick_writing_slot.exit.thread34
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %49, i64 noundef %61) #10
+  call void @free(ptr noundef nonnull %49) #10
+  br label %.thread38
 
-ssl_cache_pick_writing_slot.exit.thread34:        ; preds = %._crit_edge.i.thread, %40, %35, %48, %46, %56, %ssl_cache_pick_writing_slot.exit
-  %.01938 = phi i32 [ %.019, %ssl_cache_pick_writing_slot.exit ], [ 1, %40 ], [ 1, %35 ], [ -32512, %48 ], [ 1, %46 ], [ 0, %56 ], [ 1, %._crit_edge.i.thread ]
-  ret i32 %.01938
+.thread38:                                        ; preds = %._crit_edge.i.thread, %40, %35, %47, %ssl_cache_pick_writing_slot.exit, %55, %60
+  %.01942 = phi i32 [ %.019, %60 ], [ -32512, %47 ], [ 1, %ssl_cache_pick_writing_slot.exit ], [ 0, %55 ], [ 1, %35 ], [ 1, %40 ], [ 1, %._crit_edge.i.thread ]
+  ret i32 %.01942
 }
 
 declare i32 @mbedtls_ssl_session_save(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3

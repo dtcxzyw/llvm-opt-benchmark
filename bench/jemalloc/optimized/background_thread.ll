@@ -1354,18 +1354,15 @@ entry:
   %.fr = freeze i64 %0
   %vla = alloca i8, i64 %.fr, align 16
   %cmp31 = icmp ugt i64 %.fr, 1
-  br i1 %cmp31, label %for.body, label %while.cond.preheader56
-
-while.cond.preheader56:                           ; preds = %while.cond.preheader, %entry
-  br label %while.cond
+  br i1 %cmp31, label %for.body, label %while.cond
 
 while.cond.preheader:                             ; preds = %for.body
   %state.i.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 824
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
-  br i1 %cmp31, label %while.cond.outer.us, label %while.cond.preheader56
+  br label %while.cond.outer.us
 
-while.cond.outer.us:                              ; preds = %while.cond.preheader, %while.cond.outer.us.backedge
-  %n_created.0.ph.us = phi i32 [ %n_created.0.ph.us.be, %while.cond.outer.us.backedge ], [ 1, %while.cond.preheader ]
+while.cond.outer.us:                              ; preds = %while.cond.outer.us.backedge, %while.cond.preheader
+  %n_created.0.ph.us = phi i32 [ 1, %while.cond.preheader ], [ %n_created.0.ph.us.be, %while.cond.outer.us.backedge ]
   br label %while.cond.us
 
 while.body.us:                                    ; preds = %while.cond.us
@@ -1570,7 +1567,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp = icmp ugt i64 %.fr, %conv
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !27
 
-while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader56
+while.cond:                                       ; preds = %entry, %while.cond.backedge
   %23 = load ptr, ptr @background_thread_info, align 8
   %state = getelementptr inbounds i8, ptr %23, i64 168
   %24 = load i32, ptr %state, align 8

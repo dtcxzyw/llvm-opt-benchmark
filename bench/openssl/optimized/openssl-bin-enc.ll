@@ -866,7 +866,7 @@ if.end459:                                        ; preds = %if.else449, %if.end
   %.call355 = select i1 %cmp460, i64 512, i64 %call355
   call void @OPENSSL_cleanse(ptr noundef nonnull %str.3, i64 noundef %.call355) #11
   %cmp466.not = icmp eq ptr %hiv.0, null
-  br i1 %cmp466.not, label %if.end482, label %if.then468
+  br i1 %cmp466.not, label %if.end497, label %if.then468
 
 if.end465.thread:                                 ; preds = %if.then351
   %cmp466.not480 = icmp eq ptr %hiv.0, null
@@ -893,10 +893,7 @@ if.then478:                                       ; preds = %if.else474
   %call479 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.106) #11
   br label %end
 
-if.end482:                                        ; preds = %if.end459
-  br i1 %cmp352.not, label %land.lhs.true488, label %if.end497
-
-land.lhs.true488:                                 ; preds = %if.end465.thread, %if.end482
+land.lhs.true488:                                 ; preds = %if.end465.thread
   %57 = load ptr, ptr %cipher, align 8
   %call489 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %57) #11
   %cmp490 = icmp ne i32 %call489, 0
@@ -908,8 +905,8 @@ if.then495:                                       ; preds = %land.lhs.true488
   %call496 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %58, ptr noundef nonnull @.str.107) #11
   br label %end
 
-if.end497:                                        ; preds = %if.else474, %if.then472, %land.lhs.true488, %if.end482
-  %cmp466.not481 = phi i1 [ false, %if.else474 ], [ false, %if.then472 ], [ true, %land.lhs.true488 ], [ true, %if.end482 ]
+if.end497:                                        ; preds = %if.end459, %if.else474, %if.then472, %land.lhs.true488
+  %cmp466.not481 = phi i1 [ false, %if.else474 ], [ false, %if.then472 ], [ true, %land.lhs.true488 ], [ true, %if.end459 ]
   br i1 %cmp259, label %if.end508, label %if.then500
 
 if.then500:                                       ; preds = %if.end497

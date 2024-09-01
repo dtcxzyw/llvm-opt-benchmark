@@ -1265,7 +1265,7 @@ if.then198:                                       ; preds = %if.end.i
   br label %return
 
 if.end201:                                        ; preds = %while.end119.i, %for.end195.thread, %for.end195
-  %tobool.not86.i262 = phi i1 [ true, %for.end195 ], [ true, %for.end195.thread ], [ %tobool.not86.i, %while.end119.i ]
+  %tobool.not86.i262 = phi i1 [ true, %for.end195 ], [ true, %for.end195.thread ], [ false, %while.end119.i ]
   %o.sroa.0.0.lcssa255 = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %call191, %while.end119.i ]
   %o.sroa.12.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.12.3, %while.end119.i ]
   %o.sroa.8.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.8.3, %while.end119.i ]
@@ -3021,9 +3021,9 @@ cleanup:                                          ; preds = %lor.lhs.false
   %9 = load ptr, ptr @progname, align 8
   %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.162, ptr noundef %9, ptr noundef %cmd) #22
   store i8 0, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, align 16
-  br i1 %cmp.i.not, label %_ZN20LocalPipeFilePointerD2Ev.exit11, label %if.then.i9
+  br label %if.then.i9
 
-if.then.i9:                                       ; preds = %lor.lhs.false, %cleanup
+if.then.i9:                                       ; preds = %cleanup, %lor.lhs.false
   %retval.06 = phi i8 [ 0, %cleanup ], [ 1, %lor.lhs.false ]
   %call.i10 = call i32 @pclose(ptr noundef nonnull %call11)
   br label %_ZN20LocalPipeFilePointerD2Ev.exit11
@@ -3035,8 +3035,8 @@ _ZN20LocalPipeFilePointerD2Ev.exit11.critedge:    ; preds = %invoke.cont12
   store i8 0, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, align 16
   br label %_ZN20LocalPipeFilePointerD2Ev.exit11
 
-_ZN20LocalPipeFilePointerD2Ev.exit11:             ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge, %cleanup, %if.then.i9
-  %retval.07 = phi i8 [ 0, %cleanup ], [ %retval.06, %if.then.i9 ], [ 0, %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge ]
+_ZN20LocalPipeFilePointerD2Ev.exit11:             ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge, %if.then.i9
+  %retval.07 = phi i8 [ %retval.06, %if.then.i9 ], [ 0, %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf) #19
   ret i8 %retval.07
 }

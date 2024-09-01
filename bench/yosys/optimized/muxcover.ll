@@ -11365,14 +11365,14 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_
 _ZN12_GLOBAL__N_114MuxcoverWorker6tree_tD2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EED2Ev.exit.i.i, %3677
   %3678 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i534, i64 128
   %.not.i.i.i.i.i535 = icmp eq ptr %3678, %3623
-  br i1 %.not.i.i.i.i.i535, label %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit, label %.lr.ph.i.i.i.i.i533, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i535, label %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i533, !llvm.loop !14
 
-_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit: ; preds = %_ZN12_GLOBAL__N_114MuxcoverWorker6tree_tD2Ev.exit
+_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i: ; preds = %_ZN12_GLOBAL__N_114MuxcoverWorker6tree_tD2Ev.exit
   %.ptr.i.i = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i, i64 256
   br label %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i
-  %.ptr.i5.i = phi ptr [ %.ptr.i4.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i ], [ %.ptr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i
+  %.ptr.i5.i = phi ptr [ %.ptr.i4.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i ], [ %.ptr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_114MuxcoverWorker6tree_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i ]
   %.not.i48.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i48.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114MuxcoverWorker6tree_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %3679
 

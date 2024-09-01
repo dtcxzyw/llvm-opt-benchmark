@@ -32000,7 +32000,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont38:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  br i1 %cmp.i21.not39, label %while.end80, label %for.body47
+  br label %for.body47
 
 for.body47:                                       ; preds = %invoke.cont38, %for.inc70
   %out_indices.sroa.0.048 = phi ptr [ %out_indices.sroa.0.1.lcssa, %for.inc70 ], [ %call5.i.i.i.i2.i.i32, %invoke.cont38 ]
@@ -32076,7 +32076,7 @@ for.inc70:                                        ; preds = %for.body61, %invoke
   %cmp.i34.not = icmp eq ptr %incdec.ptr.i67, %44
   br i1 %cmp.i34.not, label %while.end80, label %for.body47
 
-while.end80:                                      ; preds = %for.inc70, %invoke.cont38
+while.end80:                                      ; preds = %for.inc70
   store ptr %call5.i.i.i.i2.i.i32, ptr %agg.tmp, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8

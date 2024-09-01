@@ -3542,17 +3542,14 @@ cond.end59:                                       ; preds = %cond.false, %cond.f
   %cond60 = phi i32 [ 2, %cond.false ], [ %cond54, %cond.false47 ], [ 3, %cond.false44 ]
   %add61 = add nsw i32 %cond60, %destLen.017
   %cmp62 = icmp slt i32 %add61, %destCap.addr.118
-  br i1 %cmp62, label %if.then63, label %if.else191
+  br i1 %cmp62, label %if.else101, label %if.else191
 
 cond.end59.thread:                                ; preds = %if.end40
   %add6129 = add nsw i32 %destLen.017, 1
   %cmp6230 = icmp slt i32 %add6129, %destCap.addr.118
   br i1 %cmp6230, label %if.then65, label %if.else191
 
-if.then63:                                        ; preds = %cond.end59
-  br i1 %cmp41, label %if.then65, label %if.else101
-
-if.then65:                                        ; preds = %cond.end59.thread, %if.then63
+if.then65:                                        ; preds = %cond.end59.thread
   switch i32 %c.0, label %sw.default [
     i32 38, label %sw.bb
     i32 60, label %sw.bb68
@@ -3640,7 +3637,7 @@ sw.default:                                       ; preds = %if.then65
   store i8 %conv90, ptr %arrayidx93, align 1
   br label %if.end202
 
-if.else101:                                       ; preds = %if.then63
+if.else101:                                       ; preds = %cond.end59
   %cmp102 = icmp ult i32 %c.0, 2048
   br i1 %cmp102, label %land.lhs.true103, label %if.else117
 

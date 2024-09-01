@@ -666,7 +666,8 @@ while.body.i.backedge:                            ; preds = %if.end12.i, %if.the
   br label %while.body.i, !llvm.loop !9
 
 _ZN4YAML7Scanner19EnsureTokensInQueueEv.exit:     ; preds = %if.then.i, %if.end10.i
-  ret i1 %cmp.i.i.i.i
+  %cmp.i.i.i.i.lcssa = phi i1 [ false, %if.then.i ], [ %cmp.i.i.i.i, %if.end10.i ]
+  ret i1 %cmp.i.i.i.i.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

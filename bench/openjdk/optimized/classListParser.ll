@@ -650,9 +650,6 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr nocapture no
   %wide.trip.count = and i64 %4, 2147483647
   br label %.lr.ph
 
-.preheader:                                       ; preds = %11
-  br i1 %6, label %.lr.ph18, label %._crit_edge
-
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %7 = load ptr, ptr %2, align 8
@@ -672,10 +669,10 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr nocapture no
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph18, label %.lr.ph, !llvm.loop !9
 
-.lr.ph18:                                         ; preds = %.preheader, %18
-  %.01317 = phi i32 [ %19, %18 ], [ %5, %.preheader ]
+.lr.ph18:                                         ; preds = %11, %18
+  %.01317 = phi i32 [ %19, %18 ], [ %5, %11 ]
   %12 = load ptr, ptr %2, align 8
   %13 = zext nneg i32 %.01317 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
@@ -690,8 +687,8 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr nocapture no
   %20 = icmp sgt i32 %.01317, 1
   br i1 %20, label %.lr.ph18, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %18, %.lr.ph18, %1, %.preheader
-  %.013.lcssa = phi i32 [ %5, %.preheader ], [ %5, %1 ], [ %.01317, %.lr.ph18 ], [ 0, %18 ]
+._crit_edge:                                      ; preds = %18, %.lr.ph18, %1
+  %.013.lcssa = phi i32 [ %5, %1 ], [ %.01317, %.lr.ph18 ], [ 0, %18 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 %.013.lcssa, ptr %21, align 8
   ret void

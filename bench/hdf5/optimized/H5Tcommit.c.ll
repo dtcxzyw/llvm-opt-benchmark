@@ -1958,8 +1958,8 @@ define ptr @H5T__open_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   store ptr %3, ptr %7, align 8
   %8 = call i32 @H5G_loc_reset(ptr noundef nonnull %5) #7
   %9 = call i32 @H5G_loc_find(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #7
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %15
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %2
   %12 = load i64, ptr @H5E_DATATYPE_g, align 8

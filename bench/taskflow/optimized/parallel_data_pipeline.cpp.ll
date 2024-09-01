@@ -4176,7 +4176,7 @@ entry:
   %next.i.i56 = getelementptr inbounds i8, ptr %this, i64 56
   br label %do.body
 
-do.body:                                          ; preds = %do.body.backedge, %entry
+do.body:                                          ; preds = %do.body.backedge.sink.split, %entry
   %1 = load atomic i64, ptr %0 monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %1 to ptr
   %cmp = icmp eq i64 %1, 0
@@ -4203,7 +4203,7 @@ if.end.thread:                                    ; preds = %_ZNSt10lock_guardIS
   %4 = load i64, ptr %u12, align 8
   %sub = add i64 %4, -1
   store i64 %sub, ptr %u12, align 8
-  br label %do.end.sink.split
+  br label %do.end
 
 if.else:                                          ; preds = %do.body
   %call1.i.i.i40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %atomic-temp.i.0.i) #31
@@ -4271,13 +4271,13 @@ if.end29:                                         ; preds = %if.then27, %if.then
   %a = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 128
   %17 = load i64, ptr %a, align 8
   %cmp31 = icmp ult i64 %add, %17
-  br i1 %cmp31, label %land.lhs.true, label %do.end.sink.split
+  br i1 %cmp31, label %land.lhs.true, label %do.end
 
 land.lhs.true:                                    ; preds = %if.end29
   %mul = mul i64 %17, 3
   %div37 = lshr i64 %mul, 2
   %cmp34 = icmp ult i64 %16, %div37
-  br i1 %cmp34, label %for.cond.preheader, label %do.end.sink.split
+  br i1 %cmp34, label %for.cond.preheader, label %do.end
 
 for.cond.preheader:                               ; preds = %land.lhs.true
   %lists37 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 40
@@ -4286,7 +4286,7 @@ for.cond.preheader:                               ; preds = %land.lhs.true
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.067, 1
   %exitcond.not = icmp eq i64 %inc, 4
-  br i1 %exitcond.not, label %do.cond, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %do.end, label %for.body, !llvm.loop !56
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.067 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.cond ]
@@ -4329,26 +4329,16 @@ invoke.cont62:                                    ; preds = %invoke.cont44
   store ptr %list, ptr %18, align 8
   store ptr %18, ptr %next.i.i56, align 8
   %call1.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_gheap56) #31
-  br label %do.cond
-
-do.cond:                                          ; preds = %for.cond, %invoke.cont62
-  %call1.i.i.i59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i) #31
-  br i1 %cmp10, label %do.end, label %do.body.backedge
+  br label %do.end
 
 do.body.backedge.sink.split:                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit43, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %atomic-temp.i.0.i.sink = phi ptr [ %_gheap56, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %atomic-temp.i.0.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit43 ]
   %call1.i.i.i59.c = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i.sink) #31
-  br label %do.body.backedge
-
-do.body.backedge:                                 ; preds = %do.body.backedge.sink.split, %do.cond
   br label %do.body, !llvm.loop !57
 
-do.end.sink.split:                                ; preds = %if.end29, %land.lhs.true, %if.end.thread
-  %_gheap56.sink = phi ptr [ %_gheap56, %if.end.thread ], [ %atomic-temp.i.0.i, %land.lhs.true ], [ %atomic-temp.i.0.i, %if.end29 ]
-  %call1.i.i.i3974 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_gheap56.sink) #31
-  br label %do.end
-
-do.end:                                           ; preds = %do.cond, %do.end.sink.split
+do.end:                                           ; preds = %for.cond, %if.end.thread, %land.lhs.true, %if.end29, %invoke.cont62
+  %atomic-temp.i.0.i.sink91 = phi ptr [ %atomic-temp.i.0.i, %invoke.cont62 ], [ %_gheap56, %if.end.thread ], [ %atomic-temp.i.0.i, %land.lhs.true ], [ %atomic-temp.i.0.i, %if.end29 ], [ %atomic-temp.i.0.i, %for.cond ]
+  %call1.i.i.i59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i.sink91) #31
   ret void
 }
 
@@ -6358,8 +6348,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN2tf8Executor14_wait_for_tas
 entry:
   tail call void @_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %this, ptr noundef nonnull align 128 dereferenceable(1032) %worker, ptr noundef nonnull align 8 dereferenceable(8) %t)
   %0 = load ptr, ptr %t, align 8
-  %tobool.not76.not = icmp eq ptr %0, null
-  br i1 %tobool.not76.not, label %if.end.lr.ph, label %if.then
+  %tobool.not64.not = icmp eq ptr %0, null
+  br i1 %tobool.not64.not, label %if.end.lr.ph, label %if.then
 
 if.end.lr.ph:                                     ; preds = %entry
   %_notifier2 = getelementptr inbounds i8, ptr %this, i64 312
@@ -6383,215 +6373,203 @@ if.end:                                           ; preds = %if.end.lr.ph, %expl
   %epoch.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %2, ptr %epoch.i, align 8
   fence seq_cst
-  %3 = load atomic i64, ptr %_bottom.i.i monotonic, align 128
-  %4 = load atomic i64, ptr %_wsq monotonic, align 128
-  %cmp.i.not.i67 = icmp sgt i64 %3, %4
-  br i1 %cmp.i.not.i67, label %if.then3, label %for.cond.i
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %if.end, %for.body.i
-  %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i68, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %if.end6, label %for.body.i, !llvm.loop !73
-
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i.i = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_bottom.i.i, i64 0, i64 %indvars.iv.next.i
-  %5 = load atomic i64, ptr %arrayidx.i.i monotonic, align 128
-  %arrayidx3.i.i = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_wsq, i64 0, i64 %indvars.iv.next.i
-  %6 = load atomic i64, ptr %arrayidx3.i.i monotonic, align 128
-  %cmp.i.not.i = icmp sgt i64 %5, %6
-  br i1 %cmp.i.not.i, label %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit, label %for.cond.i, !llvm.loop !73
+for.body.i:                                       ; preds = %for.body.i, %if.end
+  %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i.i = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_bottom.i.i, i64 0, i64 %indvars.iv.i
+  %3 = load atomic i64, ptr %arrayidx.i.i monotonic, align 128
+  %arrayidx3.i.i = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_wsq, i64 0, i64 %indvars.iv.i
+  %4 = load atomic i64, ptr %arrayidx3.i.i monotonic, align 128
+  %cmp.i.not.not.i = icmp sle i64 %3, %4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp ne i64 %indvars.iv.next.i, 3
+  %or.cond.not.i = select i1 %cmp.i.not.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i, label %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit, !llvm.loop !73
 
 _ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit:   ; preds = %for.body.i
-  %cmp.i.le = icmp ugt i64 %indvars.iv.i68, 1
-  br i1 %cmp.i.le, label %if.end6, label %if.then3
+  br i1 %cmp.i.not.not.i, label %if.end6, label %if.then3
 
-if.then3:                                         ; preds = %if.end, %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit
-  %7 = load ptr, ptr %_waiter, align 32
-  %epoch2.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load i64, ptr %epoch2.i, align 8
-  %and.i = and i64 %8, -4294967296
-  %9 = shl i64 %8, 16
-  %shl.i = and i64 %9, 281470681743360
+if.then3:                                         ; preds = %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit
+  %5 = load ptr, ptr %_waiter, align 32
+  %epoch2.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i64, ptr %epoch2.i, align 8
+  %and.i = and i64 %6, -4294967296
+  %7 = shl i64 %6, 16
+  %shl.i = and i64 %7, 281470681743360
   %add.i = add i64 %shl.i, %and.i
-  br label %for.cond.i13.sink.split
+  br label %for.cond.i.sink.split
 
-for.cond.i13.sink.split:                          ; preds = %if.then3, %if.then.i
-  %10 = load atomic i64, ptr %_notifier2 monotonic, align 8
-  br label %for.cond.i13
+for.cond.i.sink.split:                            ; preds = %if.then3, %if.then.i
+  %8 = load atomic i64, ptr %_notifier2 monotonic, align 8
+  br label %for.cond.i
 
-for.cond.i13:                                     ; preds = %for.cond.i13.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
-  %state.0.i = phi i64 [ %13, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ], [ %10, %for.cond.i13.sink.split ]
+for.cond.i:                                       ; preds = %for.cond.i.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
+  %state.0.i = phi i64 [ %11, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ], [ %8, %for.cond.i.sink.split ]
   %sub.i = sub i64 %state.0.i, %add.i
-  %cmp.i14 = icmp slt i64 %sub.i, 0
-  br i1 %cmp.i14, label %if.then.i, label %if.end.i
+  %cmp.i = icmp slt i64 %sub.i, 0
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %for.cond.i13
+if.then.i:                                        ; preds = %for.cond.i
   %call.i.i.i = tail call noundef i32 @sched_yield() #31
-  br label %for.cond.i13.sink.split, !llvm.loop !74
+  br label %for.cond.i.sink.split, !llvm.loop !74
 
-if.end.i:                                         ; preds = %for.cond.i13
+if.end.i:                                         ; preds = %for.cond.i
   %and5.i = and i64 %state.0.i, -4294967296
   %cmp10.not.i = icmp eq i64 %and5.i, %add.i
   br i1 %cmp10.not.i, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %if.end.i
   %add15.i = add i64 %state.0.i, 4294901760
-  %11 = cmpxchg weak ptr %_notifier2, i64 %state.0.i, i64 %add15.i monotonic monotonic, align 8
-  %12 = extractvalue { i64, i1 } %11, 1
-  %13 = extractvalue { i64, i1 } %11, 0
-  br i1 %12, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit, label %for.cond.i13, !llvm.loop !74
+  %9 = cmpxchg weak ptr %_notifier2, i64 %state.0.i, i64 %add15.i monotonic monotonic, align 8
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  br i1 %10, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit, label %for.cond.i, !llvm.loop !74
 
 _ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit:  ; preds = %if.end.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
-  %14 = load i64, ptr %worker, align 128
-  store i64 %14, ptr %_vtm, align 8
+  %12 = load i64, ptr %worker, align 128
+  store i64 %12, ptr %_vtm, align 8
   br label %explore_task.backedge
 
-explore_task.backedge:                            ; preds = %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit, %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit63, %for.end
+explore_task.backedge:                            ; preds = %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit, %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit58, %for.end
   tail call void @_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(1344) %this, ptr noundef nonnull align 128 dereferenceable(1032) %worker, ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %15 = load ptr, ptr %t, align 8
-  %tobool.not.not = icmp eq ptr %15, null
+  %13 = load ptr, ptr %t, align 8
+  %tobool.not.not = icmp eq ptr %13, null
   br i1 %tobool.not.not, label %if.end, label %if.then
 
-if.end6:                                          ; preds = %for.cond.i, %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit
-  %16 = load atomic i8, ptr %_done seq_cst, align 128
-  %tobool.i.i = trunc i8 %16 to i1
+if.end6:                                          ; preds = %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit
+  %14 = load atomic i8, ptr %_done seq_cst, align 128
+  %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %if.then8, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end6
-  %17 = load ptr, ptr %_M_finish.i, align 16
-  %18 = load ptr, ptr %_workers, align 8
-  %cmp74.not = icmp eq ptr %17, %18
-  br i1 %cmp74.not, label %for.end, label %for.body.preheader
+  %15 = load ptr, ptr %_M_finish.i, align 16
+  %16 = load ptr, ptr %_workers, align 8
+  %cmp62.not = icmp eq ptr %15, %16
+  br i1 %cmp62.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 1152
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 if.then8:                                         ; preds = %if.end6
-  %19 = load ptr, ptr %_waiter, align 32
-  %epoch2.i15 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i64, ptr %epoch2.i15, align 8
-  %and.i16 = and i64 %20, -4294967296
-  %21 = shl i64 %20, 16
-  %shl.i17 = and i64 %21, 281470681743360
-  %add.i18 = add i64 %shl.i17, %and.i16
-  br label %for.cond.i19.sink.split
+  %17 = load ptr, ptr %_waiter, align 32
+  %epoch2.i13 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i64, ptr %epoch2.i13, align 8
+  %and.i14 = and i64 %18, -4294967296
+  %19 = shl i64 %18, 16
+  %shl.i15 = and i64 %19, 281470681743360
+  %add.i16 = add i64 %shl.i15, %and.i14
+  br label %for.cond.i17.sink.split
 
-for.cond.i19.sink.split:                          ; preds = %if.then8, %if.then.i30
-  %22 = load atomic i64, ptr %_notifier2 monotonic, align 8
-  br label %for.cond.i19
+for.cond.i17.sink.split:                          ; preds = %if.then8, %if.then.i28
+  %20 = load atomic i64, ptr %_notifier2 monotonic, align 8
+  br label %for.cond.i17
 
-for.cond.i19:                                     ; preds = %for.cond.i19.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i26
-  %state.0.i20 = phi i64 [ %25, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i26 ], [ %22, %for.cond.i19.sink.split ]
-  %sub.i21 = sub i64 %state.0.i20, %add.i18
-  %cmp.i22 = icmp slt i64 %sub.i21, 0
-  br i1 %cmp.i22, label %if.then.i30, label %if.end.i23
+for.cond.i17:                                     ; preds = %for.cond.i17.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
+  %state.0.i18 = phi i64 [ %23, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24 ], [ %20, %for.cond.i17.sink.split ]
+  %sub.i19 = sub i64 %state.0.i18, %add.i16
+  %cmp.i20 = icmp slt i64 %sub.i19, 0
+  br i1 %cmp.i20, label %if.then.i28, label %if.end.i21
 
-if.then.i30:                                      ; preds = %for.cond.i19
-  %call.i.i.i31 = tail call noundef i32 @sched_yield() #31
-  br label %for.cond.i19.sink.split, !llvm.loop !74
+if.then.i28:                                      ; preds = %for.cond.i17
+  %call.i.i.i29 = tail call noundef i32 @sched_yield() #31
+  br label %for.cond.i17.sink.split, !llvm.loop !74
 
-if.end.i23:                                       ; preds = %for.cond.i19
-  %and5.i24 = and i64 %state.0.i20, -4294967296
-  %cmp10.not.i25 = icmp eq i64 %and5.i24, %add.i18
-  br i1 %cmp10.not.i25, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i26, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit32
+if.end.i21:                                       ; preds = %for.cond.i17
+  %and5.i22 = and i64 %state.0.i18, -4294967296
+  %cmp10.not.i23 = icmp eq i64 %and5.i22, %add.i16
+  br i1 %cmp10.not.i23, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit30
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i26: ; preds = %if.end.i23
-  %add15.i27 = add i64 %state.0.i20, 4294901760
-  %23 = cmpxchg weak ptr %_notifier2, i64 %state.0.i20, i64 %add15.i27 monotonic monotonic, align 8
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
-  br i1 %24, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit32, label %for.cond.i19, !llvm.loop !74
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24: ; preds = %if.end.i21
+  %add15.i25 = add i64 %state.0.i18, 4294901760
+  %21 = cmpxchg weak ptr %_notifier2, i64 %state.0.i18, i64 %add15.i25 monotonic monotonic, align 8
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  br i1 %22, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit30, label %for.cond.i17, !llvm.loop !74
 
-_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit32: ; preds = %if.end.i23, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i26
+_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit30: ; preds = %if.end.i21, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
   tail call void @_ZN2tf8Notifier6notifyEb(ptr noundef nonnull align 8 dereferenceable(32) %_notifier2, i1 noundef zeroext true)
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %vtm.075 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %_wsq16 = getelementptr inbounds %"class.tf::Worker", ptr %18, i64 %vtm.075, i32 7
-  %_bottom.i.i33 = getelementptr inbounds i8, ptr %_wsq16, i64 384
-  %26 = load atomic i64, ptr %_bottom.i.i33 monotonic, align 8
-  %27 = load atomic i64, ptr %_wsq16 monotonic, align 8
-  %cmp.i.not.i3970 = icmp sgt i64 %26, %27
-  br i1 %cmp.i.not.i3970, label %if.then18, label %for.cond.i40
+  %vtm.063 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %_wsq16 = getelementptr inbounds %"class.tf::Worker", ptr %16, i64 %vtm.063, i32 7
+  %_bottom.i.i31 = getelementptr inbounds i8, ptr %_wsq16, i64 384
+  br label %for.body.i32
 
-for.cond.i40:                                     ; preds = %for.body, %for.body.i34
-  %indvars.iv.i3571 = phi i64 [ %indvars.iv.next.i41, %for.body.i34 ], [ 0, %for.body ]
-  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i3571, 1
-  %exitcond.i43 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.i43, label %for.inc, label %for.body.i34, !llvm.loop !73
+for.body.i32:                                     ; preds = %for.body.i32, %for.body
+  %indvars.iv.i33 = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i37, %for.body.i32 ]
+  %arrayidx.i.i34 = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_bottom.i.i31, i64 0, i64 %indvars.iv.i33
+  %24 = load atomic i64, ptr %arrayidx.i.i34 monotonic, align 8
+  %arrayidx3.i.i35 = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_wsq16, i64 0, i64 %indvars.iv.i33
+  %25 = load atomic i64, ptr %arrayidx3.i.i35 monotonic, align 8
+  %cmp.i.not.not.i36 = icmp sle i64 %24, %25
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i33, 1
+  %exitcond.i38 = icmp ne i64 %indvars.iv.next.i37, 3
+  %or.cond.not.i39 = select i1 %cmp.i.not.not.i36, i1 %exitcond.i38, i1 false
+  br i1 %or.cond.not.i39, label %for.body.i32, label %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit40, !llvm.loop !73
 
-for.body.i34:                                     ; preds = %for.cond.i40
-  %arrayidx.i.i37 = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_bottom.i.i33, i64 0, i64 %indvars.iv.next.i41
-  %28 = load atomic i64, ptr %arrayidx.i.i37 monotonic, align 8
-  %arrayidx3.i.i38 = getelementptr inbounds [3 x %"struct.tf::CachelineAligned"], ptr %_wsq16, i64 0, i64 %indvars.iv.next.i41
-  %29 = load atomic i64, ptr %arrayidx3.i.i38 monotonic, align 8
-  %cmp.i.not.i39 = icmp sgt i64 %28, %29
-  br i1 %cmp.i.not.i39, label %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit45, label %for.cond.i40, !llvm.loop !73
+_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit40: ; preds = %for.body.i32
+  br i1 %cmp.i.not.not.i36, label %for.inc, label %if.then18
 
-_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit45: ; preds = %for.body.i34
-  %cmp.i42.le = icmp ugt i64 %indvars.iv.i3571, 1
-  br i1 %cmp.i42.le, label %for.inc, label %if.then18
+if.then18:                                        ; preds = %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit40
+  %26 = load ptr, ptr %_waiter, align 32
+  %epoch2.i41 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i64, ptr %epoch2.i41, align 8
+  %and.i42 = and i64 %27, -4294967296
+  %28 = shl i64 %27, 16
+  %shl.i43 = and i64 %28, 281470681743360
+  %add.i44 = add i64 %shl.i43, %and.i42
+  br label %for.cond.i45.sink.split
 
-if.then18:                                        ; preds = %for.body, %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit45
-  %30 = load ptr, ptr %_waiter, align 32
-  %epoch2.i46 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load i64, ptr %epoch2.i46, align 8
-  %and.i47 = and i64 %31, -4294967296
-  %32 = shl i64 %31, 16
-  %shl.i48 = and i64 %32, 281470681743360
-  %add.i49 = add i64 %shl.i48, %and.i47
-  br label %for.cond.i50.sink.split
+for.cond.i45.sink.split:                          ; preds = %if.then18, %if.then.i56
+  %29 = load atomic i64, ptr %_notifier2 monotonic, align 8
+  br label %for.cond.i45
 
-for.cond.i50.sink.split:                          ; preds = %if.then18, %if.then.i61
-  %33 = load atomic i64, ptr %_notifier2 monotonic, align 8
-  br label %for.cond.i50
+for.cond.i45:                                     ; preds = %for.cond.i45.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i52
+  %state.0.i46 = phi i64 [ %32, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i52 ], [ %29, %for.cond.i45.sink.split ]
+  %sub.i47 = sub i64 %state.0.i46, %add.i44
+  %cmp.i48 = icmp slt i64 %sub.i47, 0
+  br i1 %cmp.i48, label %if.then.i56, label %if.end.i49
 
-for.cond.i50:                                     ; preds = %for.cond.i50.sink.split, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i57
-  %state.0.i51 = phi i64 [ %36, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i57 ], [ %33, %for.cond.i50.sink.split ]
-  %sub.i52 = sub i64 %state.0.i51, %add.i49
-  %cmp.i53 = icmp slt i64 %sub.i52, 0
-  br i1 %cmp.i53, label %if.then.i61, label %if.end.i54
+if.then.i56:                                      ; preds = %for.cond.i45
+  %call.i.i.i57 = tail call noundef i32 @sched_yield() #31
+  br label %for.cond.i45.sink.split, !llvm.loop !74
 
-if.then.i61:                                      ; preds = %for.cond.i50
-  %call.i.i.i62 = tail call noundef i32 @sched_yield() #31
-  br label %for.cond.i50.sink.split, !llvm.loop !74
+if.end.i49:                                       ; preds = %for.cond.i45
+  %and5.i50 = and i64 %state.0.i46, -4294967296
+  %cmp10.not.i51 = icmp eq i64 %and5.i50, %add.i44
+  br i1 %cmp10.not.i51, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i52, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit58
 
-if.end.i54:                                       ; preds = %for.cond.i50
-  %and5.i55 = and i64 %state.0.i51, -4294967296
-  %cmp10.not.i56 = icmp eq i64 %and5.i55, %add.i49
-  br i1 %cmp10.not.i56, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i57, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit63
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i52: ; preds = %if.end.i49
+  %add15.i53 = add i64 %state.0.i46, 4294901760
+  %30 = cmpxchg weak ptr %_notifier2, i64 %state.0.i46, i64 %add15.i53 monotonic monotonic, align 8
+  %31 = extractvalue { i64, i1 } %30, 1
+  %32 = extractvalue { i64, i1 } %30, 0
+  br i1 %31, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit58, label %for.cond.i45, !llvm.loop !74
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i57: ; preds = %if.end.i54
-  %add15.i58 = add i64 %state.0.i51, 4294901760
-  %34 = cmpxchg weak ptr %_notifier2, i64 %state.0.i51, i64 %add15.i58 monotonic monotonic, align 8
-  %35 = extractvalue { i64, i1 } %34, 1
-  %36 = extractvalue { i64, i1 } %34, 0
-  br i1 %35, label %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit63, label %for.cond.i50, !llvm.loop !74
-
-_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit63: ; preds = %if.end.i54, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i57
-  store i64 %vtm.075, ptr %_vtm, align 8
+_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit58: ; preds = %if.end.i49, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i52
+  store i64 %vtm.063, ptr %_vtm, align 8
   br label %explore_task.backedge
 
-for.inc:                                          ; preds = %for.cond.i40, %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit45
-  %inc = add nuw i64 %vtm.075, 1
+for.inc:                                          ; preds = %_ZNK2tf9TaskQueueIPNS_4NodeELj3EE5emptyEv.exit40
+  %inc = add nuw i64 %vtm.063, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %37 = load ptr, ptr %_waiter, align 32
-  tail call void @_ZN2tf8Notifier11commit_waitEPNS0_6WaiterE(ptr noundef nonnull align 8 dereferenceable(32) %_notifier2, ptr noundef %37)
+  %33 = load ptr, ptr %_waiter, align 32
+  tail call void @_ZN2tf8Notifier11commit_waitEPNS0_6WaiterE(ptr noundef nonnull align 8 dereferenceable(32) %_notifier2, ptr noundef %33)
   br label %explore_task.backedge
 
-return:                                           ; preds = %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit32, %if.then
-  %tobool.not66 = phi i1 [ false, %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit32 ], [ true, %if.then ]
-  ret i1 %tobool.not66
+return:                                           ; preds = %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit30, %if.then
+  %tobool.not61 = phi i1 [ false, %_ZN2tf8Notifier11cancel_waitEPNS0_6WaiterE.exit30 ], [ true, %if.then ]
+  ret i1 %tobool.not61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7795,8 +7773,8 @@ if.end.i393:                                      ; preds = %return.i, %for.cond
   %state.0.i1261 = phi i64 [ %state.0.i.be, %for.cond.i.backedge ], [ %101, %return.i ]
   %and.i3911262 = and i64 %state.0.i1261, 65535
   %103 = and i64 %state.0.i1261, 4294901760
-  %tobool8.not.i.not = icmp eq i64 %103, 0
-  br i1 %tobool8.not.i.not, label %if.else11.i, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i.thread
+  %tobool8.not.i = icmp eq i64 %103, 0
+  br i1 %tobool8.not.i, label %if.else11.i, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i.thread
 
 if.else11.i:                                      ; preds = %if.end.i393
   %104 = load ptr, ptr %_waiters.i664, align 64
@@ -8217,8 +8195,8 @@ if.end.i487:                                      ; preds = %return.i212, %for.c
   %state.0.i4841265 = phi i64 [ %state.0.i484.be, %for.cond.i483.backedge ], [ %155, %return.i212 ]
   %and.i4851266 = and i64 %state.0.i4841265, 65535
   %157 = and i64 %state.0.i4841265, 4294901760
-  %tobool8.not.i490.not = icmp eq i64 %157, 0
-  br i1 %tobool8.not.i490.not, label %if.else11.i518, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i493.thread
+  %tobool8.not.i490 = icmp eq i64 %157, 0
+  br i1 %tobool8.not.i490, label %if.else11.i518, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i493.thread
 
 if.else11.i518:                                   ; preds = %if.end.i487
   %158 = load ptr, ptr %_waiters.i664, align 64
@@ -8665,8 +8643,8 @@ if.end.i669:                                      ; preds = %return.i278, %for.c
   %state.0.i6661246 = phi i64 [ %state.0.i666.be, %for.cond.i665.backedge ], [ %215, %return.i278 ]
   %and.i6671247 = and i64 %state.0.i6661246, 65535
   %217 = and i64 %state.0.i6661246, 4294901760
-  %tobool8.not.i672.not = icmp eq i64 %217, 0
-  br i1 %tobool8.not.i672.not, label %if.else11.i700, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i675.thread
+  %tobool8.not.i672 = icmp eq i64 %217, 0
+  br i1 %tobool8.not.i672, label %if.else11.i700, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i675.thread
 
 if.else11.i700:                                   ; preds = %if.end.i669
   %218 = load ptr, ptr %_waiters.i664, align 64
@@ -9087,8 +9065,8 @@ if.end.i851:                                      ; preds = %return.i338, %for.c
   %state.0.i8481250 = phi i64 [ %state.0.i848.be, %for.cond.i847.backedge ], [ %269, %return.i338 ]
   %and.i8491251 = and i64 %state.0.i8481250, 65535
   %271 = and i64 %state.0.i8481250, 4294901760
-  %tobool8.not.i854.not = icmp eq i64 %271, 0
-  br i1 %tobool8.not.i854.not, label %if.else11.i882, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i857.thread
+  %tobool8.not.i854 = icmp eq i64 %271, 0
+  br i1 %tobool8.not.i854, label %if.else11.i882, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i857.thread
 
 if.else11.i882:                                   ; preds = %if.end.i851
   %272 = load ptr, ptr %_waiters.i664, align 64

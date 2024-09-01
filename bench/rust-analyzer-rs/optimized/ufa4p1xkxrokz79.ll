@@ -260,8 +260,8 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 66:                                               ; preds = %68, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit.thread"
   %67 = phi ptr [ %69, %68 ], [ %65, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit.thread" ]
-  %.not8.i.not = icmp ne ptr %67, %21
-  br i1 %.not8.i.not, label %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4dd7ba157f204768E.exit"
+  %.not8.not.not.i.not.not.not.not.not = icmp ne ptr %67, %21
+  br i1 %.not8.not.not.i.not.not.not.not.not, label %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4dd7ba157f204768E.exit"
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %67, i64 80
@@ -272,7 +272,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4dd7ba157f204768E.exit": ; preds = %66, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %71 = insertvalue { i1, i1 } poison, i1 %.not8.i.not, 0
+  %71 = insertvalue { i1, i1 } poison, i1 %.not8.not.not.i.not.not.not.not.not, 0
   %72 = insertvalue { i1, i1 } %71, i1 %.052.lcssa, 1
   ret { i1, i1 } %72
 
@@ -349,8 +349,8 @@ select.unfold:                                    ; preds = %37, %50
   store ptr %106, ptr %7, align 8
   store ptr %80, ptr %12, align 8
   %107 = call noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  %.not61.not = icmp eq ptr %107, null
-  br i1 %.not61.not, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %109
+  %.not61 = icmp eq ptr %107, null
+  br i1 %.not61, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %109
 
 108:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit"
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #14

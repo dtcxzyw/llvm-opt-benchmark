@@ -7625,7 +7625,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nocap
 
 .thread6:                                         ; preds = %.lr.ph, %159, %.lr.ph.preheader, %3
   %.lcssa9 = phi i32 [ %11, %3 ], [ %11, %.lr.ph.preheader ], [ %52, %159 ], [ %52, %.lr.ph ]
-  %.lcssa8 = phi i1 [ false, %3 ], [ %30, %.lr.ph.preheader ], [ %30, %159 ], [ %30, %.lr.ph ]
+  %.lcssa8 = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %159 ], [ true, %.lr.ph ]
   %.lcssa7 = phi i32 [ 0, %3 ], [ 0, %.lr.ph.preheader ], [ %152, %159 ], [ %152, %.lr.ph ]
   %.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph.preheader ], [ %153, %159 ], [ %153, %.lr.ph ]
   %164 = trunc i32 %.lcssa9 to i16
@@ -8320,7 +8320,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 
 .thread8:                                         ; preds = %.lr.ph, %432, %.lr.ph.preheader, %3
   %.lcssa11 = phi i32 [ %11, %3 ], [ %11, %.lr.ph.preheader ], [ %48, %432 ], [ %48, %.lr.ph ]
-  %.lcssa10 = phi i1 [ false, %3 ], [ %28, %.lr.ph.preheader ], [ %28, %432 ], [ %28, %.lr.ph ]
+  %.lcssa10 = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %432 ], [ true, %.lr.ph ]
   %.lcssa9 = phi i32 [ 0, %3 ], [ 0, %.lr.ph.preheader ], [ %425, %432 ], [ %425, %.lr.ph ]
   %.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph.preheader ], [ %426, %432 ], [ %426, %.lr.ph ]
   %437 = trunc i32 %.lcssa11 to i16

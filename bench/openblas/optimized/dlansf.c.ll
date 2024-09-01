@@ -334,7 +334,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 179:                                              ; preds = %176
   %180 = load i8, ptr %0, align 1, !tbaa !19
   %181 = icmp eq i8 %180, 49
-  br i1 %181, label %182, label %1363
+  br i1 %181, label %182, label %1362
 
 182:                                              ; preds = %179, %176, %173
   %183 = load i32, ptr %3, align 4, !tbaa !3
@@ -1888,320 +1888,317 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1202 = fadd double %1195, %1201
   store double %1202, ptr %1200, align 8, !tbaa !7
   %1203 = getelementptr i8, ptr %5, i64 -8
-  br i1 %1174, label %1204, label %.thread71
+  %1204 = sext i32 %34 to i64
+  %1205 = zext nneg i32 %184 to i64
+  %1206 = zext nneg i32 %951 to i64
+  %1207 = tail call i32 @llvm.smax.i32(i32 %184, i32 2)
+  %1208 = add nsw i32 %1207, -1
+  %1209 = zext nneg i32 %1208 to i64
+  br label %1210
 
-1204:                                             ; preds = %1198
-  %1205 = sext i32 %34 to i64
-  %1206 = zext nneg i32 %184 to i64
-  %1207 = zext nneg i32 %951 to i64
-  %1208 = tail call i32 @llvm.smax.i32(i32 %184, i32 2)
-  %1209 = add nsw i32 %1208, -1
-  %1210 = zext nneg i32 %1209 to i64
-  br label %1211
-
-1211:                                             ; preds = %.loopexit96, %1204
-  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %.loopexit96 ], [ %1206, %1204 ]
-  %1212 = phi i64 [ %1275, %.loopexit96 ], [ 1, %1204 ]
-  %1213 = phi i64 [ %1276, %.loopexit96 ], [ 0, %1204 ]
+1210:                                             ; preds = %.loopexit96, %1198
+  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %.loopexit96 ], [ %1205, %1198 ]
+  %1211 = phi i64 [ %1274, %.loopexit96 ], [ 1, %1198 ]
+  %1212 = phi i64 [ %1275, %.loopexit96 ], [ 0, %1198 ]
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %1214 = icmp ult i64 %1212, 2
-  %.pre425 = mul nsw i64 %1212, %1205
-  br i1 %1214, label %._crit_edge409, label %1215
+  %1213 = icmp ult i64 %1211, 2
+  %.pre425 = mul nsw i64 %1211, %1204
+  br i1 %1213, label %._crit_edge409, label %1214
 
-1215:                                             ; preds = %1211
-  %1216 = getelementptr double, ptr %4, i64 %.pre425
-  br label %1217
+1214:                                             ; preds = %1210
+  %1215 = getelementptr double, ptr %4, i64 %.pre425
+  br label %1216
 
-1217:                                             ; preds = %1217, %1215
-  %1218 = phi i64 [ 0, %1215 ], [ %1229, %1217 ]
-  %1219 = phi double [ 0.000000e+00, %1215 ], [ %1228, %1217 ]
-  %1220 = getelementptr double, ptr %1216, i64 %1218
-  %1221 = load double, ptr %1220, align 8, !tbaa !7
-  %1222 = fcmp oge double %1221, 0.000000e+00
-  %1223 = fneg double %1221
-  %1224 = select i1 %1222, double %1221, double %1223
-  %1225 = getelementptr inbounds double, ptr %5, i64 %1218
-  %1226 = load double, ptr %1225, align 8, !tbaa !7
-  %1227 = fadd double %1226, %1224
-  store double %1227, ptr %1225, align 8, !tbaa !7
-  %1228 = fadd double %1219, %1224
-  %1229 = add nuw nsw i64 %1218, 1
-  %1230 = icmp eq i64 %1229, %1213
-  br i1 %1230, label %1231, label %1217, !llvm.loop !59
+1216:                                             ; preds = %1216, %1214
+  %1217 = phi i64 [ 0, %1214 ], [ %1228, %1216 ]
+  %1218 = phi double [ 0.000000e+00, %1214 ], [ %1227, %1216 ]
+  %1219 = getelementptr double, ptr %1215, i64 %1217
+  %1220 = load double, ptr %1219, align 8, !tbaa !7
+  %1221 = fcmp oge double %1220, 0.000000e+00
+  %1222 = fneg double %1220
+  %1223 = select i1 %1221, double %1220, double %1222
+  %1224 = getelementptr inbounds double, ptr %5, i64 %1217
+  %1225 = load double, ptr %1224, align 8, !tbaa !7
+  %1226 = fadd double %1225, %1223
+  store double %1226, ptr %1224, align 8, !tbaa !7
+  %1227 = fadd double %1218, %1223
+  %1228 = add nuw nsw i64 %1217, 1
+  %1229 = icmp eq i64 %1228, %1212
+  br i1 %1229, label %1230, label %1216, !llvm.loop !59
 
-1231:                                             ; preds = %1217
-  %1232 = trunc i64 %1213 to i32
+1230:                                             ; preds = %1216
+  %1231 = trunc i64 %1212 to i32
   br label %._crit_edge409
 
-._crit_edge409:                                   ; preds = %1211, %1231
-  %1233 = phi double [ %1228, %1231 ], [ 0.000000e+00, %1211 ]
-  %1234 = phi i32 [ %1232, %1231 ], [ 0, %1211 ]
-  %1235 = sext i32 %1234 to i64
-  %1236 = getelementptr double, ptr %4, i64 %.pre425
-  %1237 = getelementptr double, ptr %1236, i64 %1235
-  %1238 = load double, ptr %1237, align 8, !tbaa !7
-  %1239 = fcmp oge double %1238, 0.000000e+00
-  %1240 = fneg double %1238
-  %1241 = select i1 %1239, double %1238, double %1240
-  %1242 = fadd double %1233, %1241
-  %1243 = getelementptr double, ptr %1203, i64 %1212
-  store double %1242, ptr %1243, align 8, !tbaa !7
-  %1244 = getelementptr i8, ptr %1237, i64 8
-  %1245 = load double, ptr %1244, align 8, !tbaa !7
-  %1246 = fcmp oge double %1245, 0.000000e+00
-  %1247 = fneg double %1245
-  %1248 = select i1 %1246, double %1245, double %1247
-  %1249 = add nuw nsw i64 %1212, %1206
-  %1250 = icmp ult i64 %1249, %1207
-  br i1 %1250, label %1251, label %.loopexit96
+._crit_edge409:                                   ; preds = %1210, %1230
+  %1232 = phi double [ %1227, %1230 ], [ 0.000000e+00, %1210 ]
+  %1233 = phi i32 [ %1231, %1230 ], [ 0, %1210 ]
+  %1234 = sext i32 %1233 to i64
+  %1235 = getelementptr double, ptr %4, i64 %.pre425
+  %1236 = getelementptr double, ptr %1235, i64 %1234
+  %1237 = load double, ptr %1236, align 8, !tbaa !7
+  %1238 = fcmp oge double %1237, 0.000000e+00
+  %1239 = fneg double %1237
+  %1240 = select i1 %1238, double %1237, double %1239
+  %1241 = fadd double %1232, %1240
+  %1242 = getelementptr double, ptr %1203, i64 %1211
+  store double %1241, ptr %1242, align 8, !tbaa !7
+  %1243 = getelementptr i8, ptr %1236, i64 8
+  %1244 = load double, ptr %1243, align 8, !tbaa !7
+  %1245 = fcmp oge double %1244, 0.000000e+00
+  %1246 = fneg double %1244
+  %1247 = select i1 %1245, double %1244, double %1246
+  %1248 = add nuw nsw i64 %1211, %1205
+  %1249 = icmp ult i64 %1248, %1206
+  br i1 %1249, label %1250, label %.loopexit96
 
-1251:                                             ; preds = %._crit_edge409
-  %1252 = zext nneg i32 %1234 to i64
-  %1253 = add nuw nsw i64 %1252, 1
-  br label %1254
+1250:                                             ; preds = %._crit_edge409
+  %1251 = zext nneg i32 %1233 to i64
+  %1252 = add nuw nsw i64 %1251, 1
+  br label %1253
 
-1254:                                             ; preds = %1254, %1251
-  %1255 = phi i64 [ %1253, %1251 ], [ %1259, %1254 ]
-  %1256 = phi i64 [ %indvars.iv.next335, %1251 ], [ %1258, %1254 ]
-  %1257 = phi double [ %1248, %1251 ], [ %1265, %1254 ]
-  %1258 = add nuw nsw i64 %1256, 1
-  %1259 = add nuw nsw i64 %1255, 1
-  %1260 = getelementptr double, ptr %1236, i64 %1259
-  %1261 = load double, ptr %1260, align 8, !tbaa !7
-  %1262 = fcmp oge double %1261, 0.000000e+00
-  %1263 = fneg double %1261
-  %1264 = select i1 %1262, double %1261, double %1263
-  %1265 = fadd double %1257, %1264
-  %1266 = getelementptr inbounds double, ptr %5, i64 %1258
-  %1267 = load double, ptr %1266, align 8, !tbaa !7
-  %1268 = fadd double %1267, %1264
-  store double %1268, ptr %1266, align 8, !tbaa !7
-  %1269 = trunc i64 %1258 to i32
-  %1270 = icmp sgt i32 %951, %1269
-  br i1 %1270, label %1254, label %.loopexit96, !llvm.loop !60
+1253:                                             ; preds = %1253, %1250
+  %1254 = phi i64 [ %1252, %1250 ], [ %1258, %1253 ]
+  %1255 = phi i64 [ %indvars.iv.next335, %1250 ], [ %1257, %1253 ]
+  %1256 = phi double [ %1247, %1250 ], [ %1264, %1253 ]
+  %1257 = add nuw nsw i64 %1255, 1
+  %1258 = add nuw nsw i64 %1254, 1
+  %1259 = getelementptr double, ptr %1235, i64 %1258
+  %1260 = load double, ptr %1259, align 8, !tbaa !7
+  %1261 = fcmp oge double %1260, 0.000000e+00
+  %1262 = fneg double %1260
+  %1263 = select i1 %1261, double %1260, double %1262
+  %1264 = fadd double %1256, %1263
+  %1265 = getelementptr inbounds double, ptr %5, i64 %1257
+  %1266 = load double, ptr %1265, align 8, !tbaa !7
+  %1267 = fadd double %1266, %1263
+  store double %1267, ptr %1265, align 8, !tbaa !7
+  %1268 = trunc i64 %1257 to i32
+  %1269 = icmp sgt i32 %951, %1268
+  br i1 %1269, label %1253, label %.loopexit96, !llvm.loop !60
 
-.loopexit96:                                      ; preds = %1254, %._crit_edge409
-  %1271 = phi double [ %1248, %._crit_edge409 ], [ %1265, %1254 ]
-  %1272 = getelementptr inbounds double, ptr %5, i64 %1249
-  %1273 = load double, ptr %1272, align 8, !tbaa !7
-  %1274 = fadd double %1271, %1273
-  store double %1274, ptr %1272, align 8, !tbaa !7
+.loopexit96:                                      ; preds = %1253, %._crit_edge409
+  %1270 = phi double [ %1247, %._crit_edge409 ], [ %1264, %1253 ]
+  %1271 = getelementptr inbounds double, ptr %5, i64 %1248
+  %1272 = load double, ptr %1271, align 8, !tbaa !7
+  %1273 = fadd double %1270, %1272
+  store double %1273, ptr %1271, align 8, !tbaa !7
+  %1274 = add nuw nsw i64 %1211, 1
   %1275 = add nuw nsw i64 %1212, 1
-  %1276 = add nuw nsw i64 %1213, 1
-  %1277 = icmp eq i64 %1276, %1210
-  br i1 %1277, label %1278, label %1211, !llvm.loop !61
+  %1276 = icmp eq i64 %1275, %1209
+  br i1 %1276, label %1277, label %1210, !llvm.loop !61
 
-1278:                                             ; preds = %.loopexit96
-  %1279 = trunc i64 %1275 to i32
-  store i32 %1279, ptr %10, align 4, !tbaa !3
-  %1280 = mul nsw i32 %34, %1279
-  %1281 = sext i32 %1280 to i64
-  %1282 = tail call i32 @llvm.smax.i32(i32 %184, i32 2)
-  %1283 = add nsw i32 %1282, -1
-  %1284 = zext nneg i32 %1283 to i64
-  %1285 = getelementptr double, ptr %4, i64 %1281
-  br label %1286
+1277:                                             ; preds = %.loopexit96
+  %1278 = trunc i64 %1274 to i32
+  store i32 %1278, ptr %10, align 4, !tbaa !3
+  %1279 = mul nsw i32 %34, %1278
+  %1280 = sext i32 %1279 to i64
+  %1281 = tail call i32 @llvm.smax.i32(i32 %184, i32 2)
+  %1282 = add nsw i32 %1281, -1
+  %1283 = zext nneg i32 %1282 to i64
+  %1284 = getelementptr double, ptr %4, i64 %1280
+  br label %1285
 
-1286:                                             ; preds = %1286, %1278
-  %1287 = phi i64 [ 0, %1278 ], [ %1298, %1286 ]
-  %1288 = phi double [ 0.000000e+00, %1278 ], [ %1297, %1286 ]
-  %1289 = getelementptr double, ptr %1285, i64 %1287
-  %1290 = load double, ptr %1289, align 8, !tbaa !7
-  %1291 = fcmp oge double %1290, 0.000000e+00
-  %1292 = fneg double %1290
-  %1293 = select i1 %1291, double %1290, double %1292
-  %1294 = getelementptr inbounds double, ptr %5, i64 %1287
-  %1295 = load double, ptr %1294, align 8, !tbaa !7
-  %1296 = fadd double %1295, %1293
-  store double %1296, ptr %1294, align 8, !tbaa !7
-  %1297 = fadd double %1288, %1293
-  %1298 = add nuw nsw i64 %1287, 1
-  %1299 = icmp eq i64 %1298, %1284
-  br i1 %1299, label %.thread71, label %1286, !llvm.loop !62
+1285:                                             ; preds = %1285, %1277
+  %1286 = phi i64 [ 0, %1277 ], [ %1297, %1285 ]
+  %1287 = phi double [ 0.000000e+00, %1277 ], [ %1296, %1285 ]
+  %1288 = getelementptr double, ptr %1284, i64 %1286
+  %1289 = load double, ptr %1288, align 8, !tbaa !7
+  %1290 = fcmp oge double %1289, 0.000000e+00
+  %1291 = fneg double %1289
+  %1292 = select i1 %1290, double %1289, double %1291
+  %1293 = getelementptr inbounds double, ptr %5, i64 %1286
+  %1294 = load double, ptr %1293, align 8, !tbaa !7
+  %1295 = fadd double %1294, %1292
+  store double %1295, ptr %1293, align 8, !tbaa !7
+  %1296 = fadd double %1287, %1292
+  %1297 = add nuw nsw i64 %1286, 1
+  %1298 = icmp eq i64 %1297, %1283
+  br i1 %1298, label %.thread71, label %1285, !llvm.loop !62
 
-.thread71:                                        ; preds = %1286, %1198, %.thread442
-  %1300 = phi double [ 0.000000e+00, %.thread442 ], [ 0.000000e+00, %1198 ], [ %1297, %1286 ]
-  %1301 = phi i32 [ 1, %.thread442 ], [ 1, %1198 ], [ %1279, %1286 ]
-  %1302 = phi i32 [ 0, %.thread442 ], [ 0, %1198 ], [ %1283, %1286 ]
-  %1303 = mul nsw i32 %1301, %34
-  %1304 = add nsw i32 %1302, %1303
-  %1305 = sext i32 %1304 to i64
-  %1306 = getelementptr inbounds double, ptr %4, i64 %1305
-  %1307 = load double, ptr %1306, align 8, !tbaa !7
-  %1308 = fcmp oge double %1307, 0.000000e+00
-  %1309 = fneg double %1307
-  %1310 = select i1 %1308, double %1307, double %1309
-  %1311 = fadd double %1300, %1310
-  store double %1311, ptr %12, align 8, !tbaa !7
-  %1312 = zext nneg i32 %1302 to i64
-  %1313 = getelementptr inbounds double, ptr %5, i64 %1312
-  store double %1311, ptr %1313, align 8, !tbaa !7
-  br i1 %952, label %1315, label %.thread443
+.thread71:                                        ; preds = %1285, %.thread442
+  %1299 = phi double [ 0.000000e+00, %.thread442 ], [ %1296, %1285 ]
+  %1300 = phi i32 [ 1, %.thread442 ], [ %1278, %1285 ]
+  %1301 = phi i32 [ 0, %.thread442 ], [ %1282, %1285 ]
+  %1302 = mul nsw i32 %1300, %34
+  %1303 = add nsw i32 %1301, %1302
+  %1304 = sext i32 %1303 to i64
+  %1305 = getelementptr inbounds double, ptr %4, i64 %1304
+  %1306 = load double, ptr %1305, align 8, !tbaa !7
+  %1307 = fcmp oge double %1306, 0.000000e+00
+  %1308 = fneg double %1306
+  %1309 = select i1 %1307, double %1306, double %1308
+  %1310 = fadd double %1299, %1309
+  store double %1310, ptr %12, align 8, !tbaa !7
+  %1311 = zext nneg i32 %1301 to i64
+  %1312 = getelementptr inbounds double, ptr %5, i64 %1311
+  store double %1310, ptr %1312, align 8, !tbaa !7
+  br i1 %952, label %1314, label %.thread443
 
 .thread443:                                       ; preds = %.thread71
-  %1314 = load double, ptr %5, align 8, !tbaa !7
+  %1313 = load double, ptr %5, align 8, !tbaa !7
   br label %.loopexit
 
-1315:                                             ; preds = %.thread71
-  %1316 = add nuw nsw i32 %184, 1
+1314:                                             ; preds = %.thread71
+  %1315 = add nuw nsw i32 %184, 1
   %.not81 = icmp eq i32 %183, 1
-  %1317 = tail call i32 @llvm.smax.i32(i32 %1316, i32 %183)
-  %1318 = zext nneg i32 %184 to i64
-  %1319 = getelementptr i8, ptr %5, i64 -8
-  br label %1320
+  %1316 = tail call i32 @llvm.smax.i32(i32 %1315, i32 %183)
+  %1317 = zext nneg i32 %184 to i64
+  %1318 = getelementptr i8, ptr %5, i64 -8
+  br label %1319
 
-1320:                                             ; preds = %.loopexit95, %1315
-  %1321 = phi i32 [ %1316, %1315 ], [ %1345, %.loopexit95 ]
-  br i1 %.not81, label %.loopexit95, label %1322
+1319:                                             ; preds = %.loopexit95, %1314
+  %1320 = phi i32 [ %1315, %1314 ], [ %1344, %.loopexit95 ]
+  br i1 %.not81, label %.loopexit95, label %1321
 
-1322:                                             ; preds = %1320
-  %1323 = mul nsw i32 %1321, %34
-  %1324 = sext i32 %1323 to i64
-  %1325 = getelementptr double, ptr %4, i64 %1324
-  br label %1326
+1321:                                             ; preds = %1319
+  %1322 = mul nsw i32 %1320, %34
+  %1323 = sext i32 %1322 to i64
+  %1324 = getelementptr double, ptr %4, i64 %1323
+  br label %1325
 
-1326:                                             ; preds = %1326, %1322
-  %1327 = phi i64 [ 0, %1322 ], [ %1338, %1326 ]
-  %1328 = phi double [ 0.000000e+00, %1322 ], [ %1337, %1326 ]
-  %1329 = getelementptr double, ptr %1325, i64 %1327
-  %1330 = load double, ptr %1329, align 8, !tbaa !7
-  %1331 = fcmp oge double %1330, 0.000000e+00
-  %1332 = fneg double %1330
-  %1333 = select i1 %1331, double %1330, double %1332
-  %1334 = getelementptr inbounds double, ptr %5, i64 %1327
-  %1335 = load double, ptr %1334, align 8, !tbaa !7
-  %1336 = fadd double %1335, %1333
-  store double %1336, ptr %1334, align 8, !tbaa !7
-  %1337 = fadd double %1328, %1333
-  %1338 = add nuw nsw i64 %1327, 1
-  %1339 = icmp eq i64 %1338, %1318
-  br i1 %1339, label %.loopexit95, label %1326, !llvm.loop !63
+1325:                                             ; preds = %1325, %1321
+  %1326 = phi i64 [ 0, %1321 ], [ %1337, %1325 ]
+  %1327 = phi double [ 0.000000e+00, %1321 ], [ %1336, %1325 ]
+  %1328 = getelementptr double, ptr %1324, i64 %1326
+  %1329 = load double, ptr %1328, align 8, !tbaa !7
+  %1330 = fcmp oge double %1329, 0.000000e+00
+  %1331 = fneg double %1329
+  %1332 = select i1 %1330, double %1329, double %1331
+  %1333 = getelementptr inbounds double, ptr %5, i64 %1326
+  %1334 = load double, ptr %1333, align 8, !tbaa !7
+  %1335 = fadd double %1334, %1332
+  store double %1335, ptr %1333, align 8, !tbaa !7
+  %1336 = fadd double %1327, %1332
+  %1337 = add nuw nsw i64 %1326, 1
+  %1338 = icmp eq i64 %1337, %1317
+  br i1 %1338, label %.loopexit95, label %1325, !llvm.loop !63
 
-.loopexit95:                                      ; preds = %1326, %1320
-  %1340 = phi double [ 0.000000e+00, %1320 ], [ %1337, %1326 ]
-  %1341 = sext i32 %1321 to i64
-  %1342 = getelementptr double, ptr %1319, i64 %1341
-  %1343 = load double, ptr %1342, align 8, !tbaa !7
-  %1344 = fadd double %1340, %1343
-  store double %1344, ptr %1342, align 8, !tbaa !7
-  %1345 = add i32 %1321, 1
-  %1346 = icmp eq i32 %1321, %1317
-  br i1 %1346, label %1347, label %1320, !llvm.loop !64
+.loopexit95:                                      ; preds = %1325, %1319
+  %1339 = phi double [ 0.000000e+00, %1319 ], [ %1336, %1325 ]
+  %1340 = sext i32 %1320 to i64
+  %1341 = getelementptr double, ptr %1318, i64 %1340
+  %1342 = load double, ptr %1341, align 8, !tbaa !7
+  %1343 = fadd double %1339, %1342
+  store double %1343, ptr %1341, align 8, !tbaa !7
+  %1344 = add i32 %1320, 1
+  %1345 = icmp eq i32 %1320, %1316
+  br i1 %1345, label %1346, label %1319, !llvm.loop !64
 
-1347:                                             ; preds = %.loopexit95
-  store double %1340, ptr %12, align 8, !tbaa !7
-  store i32 %1345, ptr %10, align 4, !tbaa !3
+1346:                                             ; preds = %.loopexit95
+  store double %1339, ptr %12, align 8, !tbaa !7
+  store i32 %1344, ptr %10, align 4, !tbaa !3
   store i32 %1173, ptr %8, align 4, !tbaa !3
-  %1348 = load double, ptr %5, align 8, !tbaa !7
+  %1347 = load double, ptr %5, align 8, !tbaa !7
   store i32 %951, ptr %7, align 4, !tbaa !3
-  %1349 = icmp eq i32 %183, 1
-  br i1 %1349, label %.loopexit, label %.preheader93
+  %1348 = icmp eq i32 %183, 1
+  br i1 %1348, label %.loopexit, label %.preheader93
 
-.preheader93:                                     ; preds = %1347, %._crit_edge385
-  %1350 = phi i64 [ %1359, %._crit_edge385 ], [ 1, %1347 ]
-  %1351 = phi double [ %1358, %._crit_edge385 ], [ %1348, %1347 ]
-  %1352 = getelementptr inbounds double, ptr %5, i64 %1350
-  %1353 = load double, ptr %1352, align 8, !tbaa !7
-  store double %1353, ptr %9, align 8, !tbaa !7
-  %1354 = fcmp olt double %1351, %1353
-  br i1 %1354, label %._crit_edge385, label %1355
+.preheader93:                                     ; preds = %1346, %._crit_edge385
+  %1349 = phi i64 [ %1358, %._crit_edge385 ], [ 1, %1346 ]
+  %1350 = phi double [ %1357, %._crit_edge385 ], [ %1347, %1346 ]
+  %1351 = getelementptr inbounds double, ptr %5, i64 %1349
+  %1352 = load double, ptr %1351, align 8, !tbaa !7
+  store double %1352, ptr %9, align 8, !tbaa !7
+  %1353 = fcmp olt double %1350, %1352
+  br i1 %1353, label %._crit_edge385, label %1354
 
-1355:                                             ; preds = %.preheader93
-  %1356 = call i32 @disnan_(ptr noundef nonnull %9) #6
-  %1357 = icmp eq i32 %1356, 0
+1354:                                             ; preds = %.preheader93
+  %1355 = call i32 @disnan_(ptr noundef nonnull %9) #6
+  %1356 = icmp eq i32 %1355, 0
   %.pre386 = load double, ptr %9, align 8
-  %spec.select525 = select i1 %1357, double %1351, double %.pre386
+  %spec.select525 = select i1 %1356, double %1350, double %.pre386
   br label %._crit_edge385
 
-._crit_edge385:                                   ; preds = %1355, %.preheader93
-  %1358 = phi double [ %1353, %.preheader93 ], [ %spec.select525, %1355 ]
-  %1359 = add nuw nsw i64 %1350, 1
-  %1360 = load i32, ptr %7, align 4, !tbaa !3
-  %1361 = sext i32 %1360 to i64
-  %1362 = icmp slt i64 %1350, %1361
-  br i1 %1362, label %.preheader93, label %.loopexit, !llvm.loop !65
+._crit_edge385:                                   ; preds = %1354, %.preheader93
+  %1357 = phi double [ %1352, %.preheader93 ], [ %spec.select525, %1354 ]
+  %1358 = add nuw nsw i64 %1349, 1
+  %1359 = load i32, ptr %7, align 4, !tbaa !3
+  %1360 = sext i32 %1359 to i64
+  %1361 = icmp slt i64 %1349, %1360
+  br i1 %1361, label %.preheader93, label %.loopexit, !llvm.loop !65
 
-1363:                                             ; preds = %179
-  %1364 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #6
-  %1365 = icmp eq i32 %1364, 0
-  br i1 %1365, label %1366, label %1369
+1362:                                             ; preds = %179
+  %1363 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #6
+  %1364 = icmp eq i32 %1363, 0
+  br i1 %1364, label %1365, label %1368
 
-1366:                                             ; preds = %1363
-  %1367 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #6
-  %1368 = icmp eq i32 %1367, 0
-  br i1 %1368, label %.loopexit, label %1369
+1365:                                             ; preds = %1362
+  %1366 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #6
+  %1367 = icmp eq i32 %1366, 0
+  br i1 %1367, label %.loopexit, label %1368
 
-1369:                                             ; preds = %1366, %1363
-  %1370 = load i32, ptr %3, align 4, !tbaa !3
-  %1371 = add nsw i32 %1370, 1
-  %1372 = sdiv i32 %1371, 2
-  store i32 %1372, ptr %11, align 4, !tbaa !3
+1368:                                             ; preds = %1365, %1362
+  %1369 = load i32, ptr %3, align 4, !tbaa !3
+  %1370 = add nsw i32 %1369, 1
+  %1371 = sdiv i32 %1370, 2
+  store i32 %1371, ptr %11, align 4, !tbaa !3
   store double 0.000000e+00, ptr %13, align 8, !tbaa !7
   store double 1.000000e+00, ptr %12, align 8, !tbaa !7
-  %1373 = icmp eq i32 %21, 0
-  br i1 %1373, label %1551, label %1374
+  %1372 = icmp eq i32 %21, 0
+  br i1 %1372, label %1550, label %1373
 
-1374:                                             ; preds = %1369
-  br i1 %23, label %1375, label %1451
+1373:                                             ; preds = %1368
+  br i1 %23, label %1374, label %1450
+
+1374:                                             ; preds = %1373
+  br i1 %25, label %1415, label %1375
 
 1375:                                             ; preds = %1374
-  br i1 %25, label %1416, label %1376
-
-1376:                                             ; preds = %1375
-  %1377 = add nsw i32 %1372, -3
-  store i32 %1377, ptr %7, align 4, !tbaa !3
+  %1376 = add nsw i32 %1371, -3
+  store i32 %1376, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1378 = icmp slt i32 %1370, 5
-  br i1 %1378, label %.loopexit133, label %.preheader132
+  %1377 = icmp slt i32 %1369, 5
+  br i1 %1377, label %.loopexit133, label %.preheader132
 
-.preheader132:                                    ; preds = %1376, %.preheader132
-  %1379 = phi i32 [ %1389, %.preheader132 ], [ 0, %1376 ]
-  %1380 = load i32, ptr %11, align 4, !tbaa !3
-  %reass.sub240 = sub i32 %1380, %1379
-  %1381 = add i32 %reass.sub240, -2
-  store i32 %1381, ptr %8, align 4, !tbaa !3
-  %1382 = mul nsw i32 %1379, %34
-  %1383 = add i32 %1379, 1
-  %1384 = add i32 %1383, %1382
-  %1385 = add i32 %1384, %1380
-  %1386 = sext i32 %1385 to i64
-  %1387 = getelementptr inbounds double, ptr %4, i64 %1386
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1387, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1388 = load i32, ptr %10, align 4, !tbaa !3
-  %1389 = add nsw i32 %1388, 1
-  store i32 %1389, ptr %10, align 4, !tbaa !3
-  %1390 = load i32, ptr %7, align 4, !tbaa !3
-  %1391 = icmp slt i32 %1388, %1390
-  br i1 %1391, label %.preheader132, label %.loopexit133.loopexit, !llvm.loop !66
+.preheader132:                                    ; preds = %1375, %.preheader132
+  %1378 = phi i32 [ %1388, %.preheader132 ], [ 0, %1375 ]
+  %1379 = load i32, ptr %11, align 4, !tbaa !3
+  %reass.sub240 = sub i32 %1379, %1378
+  %1380 = add i32 %reass.sub240, -2
+  store i32 %1380, ptr %8, align 4, !tbaa !3
+  %1381 = mul nsw i32 %1378, %34
+  %1382 = add i32 %1378, 1
+  %1383 = add i32 %1382, %1381
+  %1384 = add i32 %1383, %1379
+  %1385 = sext i32 %1384 to i64
+  %1386 = getelementptr inbounds double, ptr %4, i64 %1385
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1386, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1387 = load i32, ptr %10, align 4, !tbaa !3
+  %1388 = add nsw i32 %1387, 1
+  store i32 %1388, ptr %10, align 4, !tbaa !3
+  %1389 = load i32, ptr %7, align 4, !tbaa !3
+  %1390 = icmp slt i32 %1387, %1389
+  br i1 %1390, label %.preheader132, label %.loopexit133.loopexit, !llvm.loop !66
 
 .loopexit133.loopexit:                            ; preds = %.preheader132
   %.pre369 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit133
 
-.loopexit133:                                     ; preds = %.loopexit133.loopexit, %1376
-  %1392 = phi i32 [ %.pre369, %.loopexit133.loopexit ], [ %1372, %1376 ]
-  %1393 = add nsw i32 %1392, -1
-  store i32 %1393, ptr %7, align 4, !tbaa !3
+.loopexit133:                                     ; preds = %.loopexit133.loopexit, %1375
+  %1391 = phi i32 [ %.pre369, %.loopexit133.loopexit ], [ %1371, %1375 ]
+  %1392 = add nsw i32 %1391, -1
+  store i32 %1392, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1394 = icmp slt i32 %1392, 1
-  br i1 %1394, label %.loopexit131, label %.preheader130
+  %1393 = icmp slt i32 %1391, 1
+  br i1 %1393, label %.loopexit131, label %.preheader130
 
 .preheader130:                                    ; preds = %.loopexit133, %.preheader130
-  %1395 = phi i32 [ %1403, %.preheader130 ], [ 0, %.loopexit133 ]
-  %1396 = load i32, ptr %11, align 4, !tbaa !3
-  %1397 = add nsw i32 %1395, -1
-  %1398 = add i32 %1397, %1396
-  store i32 %1398, ptr %8, align 4, !tbaa !3
-  %1399 = mul nsw i32 %1395, %34
-  %1400 = sext i32 %1399 to i64
-  %1401 = getelementptr inbounds double, ptr %4, i64 %1400
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1401, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1402 = load i32, ptr %10, align 4, !tbaa !3
-  %1403 = add nsw i32 %1402, 1
-  store i32 %1403, ptr %10, align 4, !tbaa !3
-  %1404 = load i32, ptr %7, align 4, !tbaa !3
-  %1405 = icmp slt i32 %1402, %1404
-  br i1 %1405, label %.preheader130, label %.loopexit131.loopexit, !llvm.loop !67
+  %1394 = phi i32 [ %1402, %.preheader130 ], [ 0, %.loopexit133 ]
+  %1395 = load i32, ptr %11, align 4, !tbaa !3
+  %1396 = add nsw i32 %1394, -1
+  %1397 = add i32 %1396, %1395
+  store i32 %1397, ptr %8, align 4, !tbaa !3
+  %1398 = mul nsw i32 %1394, %34
+  %1399 = sext i32 %1398 to i64
+  %1400 = getelementptr inbounds double, ptr %4, i64 %1399
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1400, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1401 = load i32, ptr %10, align 4, !tbaa !3
+  %1402 = add nsw i32 %1401, 1
+  store i32 %1402, ptr %10, align 4, !tbaa !3
+  %1403 = load i32, ptr %7, align 4, !tbaa !3
+  %1404 = icmp slt i32 %1401, %1403
+  br i1 %1404, label %.preheader130, label %.loopexit131.loopexit, !llvm.loop !67
 
 .loopexit131.loopexit:                            ; preds = %.preheader130
   %.pre370 = load i32, ptr %11, align 4, !tbaa !3
@@ -2209,640 +2206,640 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %.loopexit131.loopexit, %.loopexit133
-  %.pre-phi403 = phi i32 [ %.pre402, %.loopexit131.loopexit ], [ %1393, %.loopexit133 ]
-  %1406 = phi i32 [ %.pre370, %.loopexit131.loopexit ], [ %1392, %.loopexit133 ]
-  %1407 = load double, ptr %12, align 8, !tbaa !7
-  %1408 = fadd double %1407, %1407
-  store double %1408, ptr %12, align 8, !tbaa !7
+  %.pre-phi403 = phi i32 [ %.pre402, %.loopexit131.loopexit ], [ %1392, %.loopexit133 ]
+  %1405 = phi i32 [ %.pre370, %.loopexit131.loopexit ], [ %1391, %.loopexit133 ]
+  %1406 = load double, ptr %12, align 8, !tbaa !7
+  %1407 = fadd double %1406, %1406
+  store double %1407, ptr %12, align 8, !tbaa !7
   store i32 %.pre-phi403, ptr %7, align 4, !tbaa !3
-  %1409 = add nsw i32 %34, 1
-  store i32 %1409, ptr %8, align 4, !tbaa !3
-  %1410 = sext i32 %1406 to i64
-  %1411 = getelementptr inbounds double, ptr %4, i64 %1410
-  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1411, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1409, ptr %7, align 4, !tbaa !3
-  %1412 = load i32, ptr %11, align 4, !tbaa !3
-  %1413 = sext i32 %1412 to i64
-  %1414 = getelementptr double, ptr %4, i64 %1413
-  %1415 = getelementptr i8, ptr %1414, i64 -8
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1415, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  %1408 = add nsw i32 %34, 1
+  store i32 %1408, ptr %8, align 4, !tbaa !3
+  %1409 = sext i32 %1405 to i64
+  %1410 = getelementptr inbounds double, ptr %4, i64 %1409
+  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1410, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  store i32 %1408, ptr %7, align 4, !tbaa !3
+  %1411 = load i32, ptr %11, align 4, !tbaa !3
+  %1412 = sext i32 %1411 to i64
+  %1413 = getelementptr double, ptr %4, i64 %1412
+  %1414 = getelementptr i8, ptr %1413, i64 -8
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1414, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1416:                                             ; preds = %1375
-  %1417 = add nsw i32 %1372, -1
-  store i32 %1417, ptr %7, align 4, !tbaa !3
+1415:                                             ; preds = %1374
+  %1416 = add nsw i32 %1371, -1
+  store i32 %1416, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1418 = icmp slt i32 %1370, 1
-  br i1 %1418, label %.loopexit129, label %.preheader128
+  %1417 = icmp slt i32 %1369, 1
+  br i1 %1417, label %.loopexit129, label %.preheader128
 
-.preheader128:                                    ; preds = %1416, %.preheader128
-  %1419 = phi i32 [ %1429, %.preheader128 ], [ 0, %1416 ]
-  %1420 = load i32, ptr %3, align 4, !tbaa !3
-  %1421 = xor i32 %1419, -1
-  %1422 = add i32 %1420, %1421
-  store i32 %1422, ptr %8, align 4, !tbaa !3
-  %1423 = add nsw i32 %1419, 1
-  %1424 = mul nsw i32 %1419, %34
-  %1425 = add nsw i32 %1423, %1424
-  %1426 = sext i32 %1425 to i64
-  %1427 = getelementptr inbounds double, ptr %4, i64 %1426
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1427, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1428 = load i32, ptr %10, align 4, !tbaa !3
-  %1429 = add nsw i32 %1428, 1
-  store i32 %1429, ptr %10, align 4, !tbaa !3
-  %1430 = load i32, ptr %7, align 4, !tbaa !3
-  %1431 = icmp slt i32 %1428, %1430
-  br i1 %1431, label %.preheader128, label %.loopexit129.loopexit, !llvm.loop !68
+.preheader128:                                    ; preds = %1415, %.preheader128
+  %1418 = phi i32 [ %1428, %.preheader128 ], [ 0, %1415 ]
+  %1419 = load i32, ptr %3, align 4, !tbaa !3
+  %1420 = xor i32 %1418, -1
+  %1421 = add i32 %1419, %1420
+  store i32 %1421, ptr %8, align 4, !tbaa !3
+  %1422 = add nsw i32 %1418, 1
+  %1423 = mul nsw i32 %1418, %34
+  %1424 = add nsw i32 %1422, %1423
+  %1425 = sext i32 %1424 to i64
+  %1426 = getelementptr inbounds double, ptr %4, i64 %1425
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1426, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1427 = load i32, ptr %10, align 4, !tbaa !3
+  %1428 = add nsw i32 %1427, 1
+  store i32 %1428, ptr %10, align 4, !tbaa !3
+  %1429 = load i32, ptr %7, align 4, !tbaa !3
+  %1430 = icmp slt i32 %1427, %1429
+  br i1 %1430, label %.preheader128, label %.loopexit129.loopexit, !llvm.loop !68
 
 .loopexit129.loopexit:                            ; preds = %.preheader128
   %.pre371 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit129
 
-.loopexit129:                                     ; preds = %.loopexit129.loopexit, %1416
-  %1432 = phi i32 [ %.pre371, %.loopexit129.loopexit ], [ %1372, %1416 ]
-  %1433 = add nsw i32 %1432, -2
-  store i32 %1433, ptr %7, align 4, !tbaa !3
+.loopexit129:                                     ; preds = %.loopexit129.loopexit, %1415
+  %1431 = phi i32 [ %.pre371, %.loopexit129.loopexit ], [ %1371, %1415 ]
+  %1432 = add nsw i32 %1431, -2
+  store i32 %1432, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1434 = icmp slt i32 %1432, 2
-  br i1 %1434, label %.loopexit127, label %.preheader126
+  %1433 = icmp slt i32 %1431, 2
+  br i1 %1433, label %.loopexit127, label %.preheader126
 
 .preheader126:                                    ; preds = %.loopexit129, %.preheader126
-  %1435 = phi i32 [ %1441, %.preheader126 ], [ 0, %.loopexit129 ]
-  %1436 = add nsw i32 %1435, 1
-  %1437 = mul nsw i32 %1436, %34
-  %1438 = sext i32 %1437 to i64
-  %1439 = getelementptr inbounds double, ptr %4, i64 %1438
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1439, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1440 = load i32, ptr %10, align 4, !tbaa !3
-  %1441 = add nsw i32 %1440, 1
-  store i32 %1441, ptr %10, align 4, !tbaa !3
-  %1442 = load i32, ptr %7, align 4, !tbaa !3
-  %1443 = icmp slt i32 %1440, %1442
-  br i1 %1443, label %.preheader126, label %.loopexit127, !llvm.loop !69
+  %1434 = phi i32 [ %1440, %.preheader126 ], [ 0, %.loopexit129 ]
+  %1435 = add nsw i32 %1434, 1
+  %1436 = mul nsw i32 %1435, %34
+  %1437 = sext i32 %1436 to i64
+  %1438 = getelementptr inbounds double, ptr %4, i64 %1437
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1438, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1439 = load i32, ptr %10, align 4, !tbaa !3
+  %1440 = add nsw i32 %1439, 1
+  store i32 %1440, ptr %10, align 4, !tbaa !3
+  %1441 = load i32, ptr %7, align 4, !tbaa !3
+  %1442 = icmp slt i32 %1439, %1441
+  br i1 %1442, label %.preheader126, label %.loopexit127, !llvm.loop !69
 
 .loopexit127:                                     ; preds = %.preheader126, %.loopexit129
-  %1444 = load double, ptr %12, align 8, !tbaa !7
-  %1445 = fadd double %1444, %1444
-  store double %1445, ptr %12, align 8, !tbaa !7
-  %1446 = add nsw i32 %34, 1
-  store i32 %1446, ptr %7, align 4, !tbaa !3
+  %1443 = load double, ptr %12, align 8, !tbaa !7
+  %1444 = fadd double %1443, %1443
+  store double %1444, ptr %12, align 8, !tbaa !7
+  %1445 = add nsw i32 %34, 1
+  store i32 %1445, ptr %7, align 4, !tbaa !3
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1447 = load i32, ptr %11, align 4, !tbaa !3
-  %1448 = add nsw i32 %1447, -1
-  store i32 %1448, ptr %7, align 4, !tbaa !3
-  store i32 %1446, ptr %8, align 4, !tbaa !3
-  %1449 = sext i32 %34 to i64
-  %1450 = getelementptr inbounds double, ptr %4, i64 %1449
-  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1450, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  %1446 = load i32, ptr %11, align 4, !tbaa !3
+  %1447 = add nsw i32 %1446, -1
+  store i32 %1447, ptr %7, align 4, !tbaa !3
+  store i32 %1445, ptr %8, align 4, !tbaa !3
+  %1448 = sext i32 %34 to i64
+  %1449 = getelementptr inbounds double, ptr %4, i64 %1448
+  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1449, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1451:                                             ; preds = %1374
-  br i1 %25, label %1506, label %1452
+1450:                                             ; preds = %1373
+  br i1 %25, label %1505, label %1451
 
-1452:                                             ; preds = %1451
-  %1453 = add nsw i32 %1372, -2
-  store i32 %1453, ptr %7, align 4, !tbaa !3
+1451:                                             ; preds = %1450
+  %1452 = add nsw i32 %1371, -2
+  store i32 %1452, ptr %7, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %1454 = icmp slt i32 %1370, 5
-  br i1 %1454, label %.loopexit143, label %.preheader142
+  %1453 = icmp slt i32 %1369, 5
+  br i1 %1453, label %.loopexit143, label %.preheader142
 
-.preheader142:                                    ; preds = %1452, %.preheader142
-  %1455 = phi i32 [ %1462, %.preheader142 ], [ 1, %1452 ]
-  %1456 = load i32, ptr %11, align 4, !tbaa !3
-  %1457 = add nsw i32 %1456, %1455
-  %1458 = mul nsw i32 %1457, %34
-  %1459 = sext i32 %1458 to i64
-  %1460 = getelementptr inbounds double, ptr %4, i64 %1459
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1460, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1461 = load i32, ptr %10, align 4, !tbaa !3
-  %1462 = add nsw i32 %1461, 1
-  store i32 %1462, ptr %10, align 4, !tbaa !3
-  %1463 = load i32, ptr %7, align 4, !tbaa !3
-  %1464 = icmp slt i32 %1461, %1463
-  br i1 %1464, label %.preheader142, label %.loopexit143.loopexit, !llvm.loop !70
+.preheader142:                                    ; preds = %1451, %.preheader142
+  %1454 = phi i32 [ %1461, %.preheader142 ], [ 1, %1451 ]
+  %1455 = load i32, ptr %11, align 4, !tbaa !3
+  %1456 = add nsw i32 %1455, %1454
+  %1457 = mul nsw i32 %1456, %34
+  %1458 = sext i32 %1457 to i64
+  %1459 = getelementptr inbounds double, ptr %4, i64 %1458
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1459, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1460 = load i32, ptr %10, align 4, !tbaa !3
+  %1461 = add nsw i32 %1460, 1
+  store i32 %1461, ptr %10, align 4, !tbaa !3
+  %1462 = load i32, ptr %7, align 4, !tbaa !3
+  %1463 = icmp slt i32 %1460, %1462
+  br i1 %1463, label %.preheader142, label %.loopexit143.loopexit, !llvm.loop !70
 
 .loopexit143.loopexit:                            ; preds = %.preheader142
   %.pre365 = load i32, ptr %11, align 4, !tbaa !3
   %.pre404 = add nsw i32 %.pre365, -2
   br label %.loopexit143
 
-.loopexit143:                                     ; preds = %.loopexit143.loopexit, %1452
-  %.pre-phi405 = phi i32 [ %.pre404, %.loopexit143.loopexit ], [ %1453, %1452 ]
-  %1465 = phi i32 [ %.pre365, %.loopexit143.loopexit ], [ %1372, %1452 ]
+.loopexit143:                                     ; preds = %.loopexit143.loopexit, %1451
+  %.pre-phi405 = phi i32 [ %.pre404, %.loopexit143.loopexit ], [ %1452, %1451 ]
+  %1464 = phi i32 [ %.pre365, %.loopexit143.loopexit ], [ %1371, %1451 ]
   store i32 %.pre-phi405, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1466 = icmp slt i32 %1465, 2
-  br i1 %1466, label %.loopexit140, label %.preheader141
+  %1465 = icmp slt i32 %1464, 2
+  br i1 %1465, label %.loopexit140, label %.preheader141
 
 .preheader141:                                    ; preds = %.loopexit143, %.preheader141
-  %1467 = phi i32 [ %1472, %.preheader141 ], [ 0, %.loopexit143 ]
-  %1468 = mul nsw i32 %1467, %34
-  %1469 = sext i32 %1468 to i64
-  %1470 = getelementptr inbounds double, ptr %4, i64 %1469
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1470, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1471 = load i32, ptr %10, align 4, !tbaa !3
-  %1472 = add nsw i32 %1471, 1
-  store i32 %1472, ptr %10, align 4, !tbaa !3
-  %1473 = load i32, ptr %7, align 4, !tbaa !3
-  %1474 = icmp slt i32 %1471, %1473
-  br i1 %1474, label %.preheader141, label %1475, !llvm.loop !71
+  %1466 = phi i32 [ %1471, %.preheader141 ], [ 0, %.loopexit143 ]
+  %1467 = mul nsw i32 %1466, %34
+  %1468 = sext i32 %1467 to i64
+  %1469 = getelementptr inbounds double, ptr %4, i64 %1468
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1469, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1470 = load i32, ptr %10, align 4, !tbaa !3
+  %1471 = add nsw i32 %1470, 1
+  store i32 %1471, ptr %10, align 4, !tbaa !3
+  %1472 = load i32, ptr %7, align 4, !tbaa !3
+  %1473 = icmp slt i32 %1470, %1472
+  br i1 %1473, label %.preheader141, label %1474, !llvm.loop !71
 
-1475:                                             ; preds = %.preheader141
+1474:                                             ; preds = %.preheader141
   %.pr = load i32, ptr %11, align 4, !tbaa !3
-  %1476 = add nsw i32 %.pr, -2
-  store i32 %1476, ptr %7, align 4, !tbaa !3
+  %1475 = add nsw i32 %.pr, -2
+  store i32 %1475, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1477 = icmp slt i32 %.pr, 2
-  br i1 %1477, label %.loopexit140, label %.preheader139
+  %1476 = icmp slt i32 %.pr, 2
+  br i1 %1476, label %.loopexit140, label %.preheader139
 
-.preheader139:                                    ; preds = %1475, %.preheader139
-  %1478 = phi i32 [ %1490, %.preheader139 ], [ 0, %1475 ]
-  %1479 = load i32, ptr %11, align 4, !tbaa !3
-  %1480 = xor i32 %1478, -1
-  %1481 = add i32 %1479, %1480
-  store i32 %1481, ptr %8, align 4, !tbaa !3
-  %1482 = add nsw i32 %1478, 1
-  %1483 = add nsw i32 %1478, -1
-  %1484 = add i32 %1483, %1479
-  %1485 = mul nsw i32 %1484, %34
-  %1486 = add nsw i32 %1482, %1485
-  %1487 = sext i32 %1486 to i64
-  %1488 = getelementptr inbounds double, ptr %4, i64 %1487
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1488, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1489 = load i32, ptr %10, align 4, !tbaa !3
-  %1490 = add nsw i32 %1489, 1
-  store i32 %1490, ptr %10, align 4, !tbaa !3
-  %1491 = load i32, ptr %7, align 4, !tbaa !3
-  %1492 = icmp slt i32 %1489, %1491
-  br i1 %1492, label %.preheader139, label %.loopexit140.loopexit, !llvm.loop !72
+.preheader139:                                    ; preds = %1474, %.preheader139
+  %1477 = phi i32 [ %1489, %.preheader139 ], [ 0, %1474 ]
+  %1478 = load i32, ptr %11, align 4, !tbaa !3
+  %1479 = xor i32 %1477, -1
+  %1480 = add i32 %1478, %1479
+  store i32 %1480, ptr %8, align 4, !tbaa !3
+  %1481 = add nsw i32 %1477, 1
+  %1482 = add nsw i32 %1477, -1
+  %1483 = add i32 %1482, %1478
+  %1484 = mul nsw i32 %1483, %34
+  %1485 = add nsw i32 %1481, %1484
+  %1486 = sext i32 %1485 to i64
+  %1487 = getelementptr inbounds double, ptr %4, i64 %1486
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1487, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1488 = load i32, ptr %10, align 4, !tbaa !3
+  %1489 = add nsw i32 %1488, 1
+  store i32 %1489, ptr %10, align 4, !tbaa !3
+  %1490 = load i32, ptr %7, align 4, !tbaa !3
+  %1491 = icmp slt i32 %1488, %1490
+  br i1 %1491, label %.preheader139, label %.loopexit140.loopexit, !llvm.loop !72
 
 .loopexit140.loopexit:                            ; preds = %.preheader139
   %.pre366 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit140
 
-.loopexit140:                                     ; preds = %.loopexit143, %.loopexit140.loopexit, %1475
-  %1493 = phi i32 [ %.pre366, %.loopexit140.loopexit ], [ %.pr, %1475 ], [ %1465, %.loopexit143 ]
-  %1494 = load double, ptr %12, align 8, !tbaa !7
-  %1495 = fadd double %1494, %1494
-  store double %1495, ptr %12, align 8, !tbaa !7
-  %1496 = add nsw i32 %1493, -1
+.loopexit140:                                     ; preds = %.loopexit143, %.loopexit140.loopexit, %1474
+  %1492 = phi i32 [ %.pre366, %.loopexit140.loopexit ], [ %.pr, %1474 ], [ %1464, %.loopexit143 ]
+  %1493 = load double, ptr %12, align 8, !tbaa !7
+  %1494 = fadd double %1493, %1493
+  store double %1494, ptr %12, align 8, !tbaa !7
+  %1495 = add nsw i32 %1492, -1
+  store i32 %1495, ptr %7, align 4, !tbaa !3
+  %1496 = add nsw i32 %34, 1
+  store i32 %1496, ptr %8, align 4, !tbaa !3
+  %1497 = mul nsw i32 %1492, %34
+  %1498 = sext i32 %1497 to i64
+  %1499 = getelementptr inbounds double, ptr %4, i64 %1498
+  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1499, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
   store i32 %1496, ptr %7, align 4, !tbaa !3
-  %1497 = add nsw i32 %34, 1
-  store i32 %1497, ptr %8, align 4, !tbaa !3
-  %1498 = mul nsw i32 %1493, %34
-  %1499 = sext i32 %1498 to i64
-  %1500 = getelementptr inbounds double, ptr %4, i64 %1499
-  call void @dlassq_(ptr noundef nonnull %7, ptr noundef %1500, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1497, ptr %7, align 4, !tbaa !3
-  %1501 = load i32, ptr %11, align 4, !tbaa !3
-  %1502 = add nsw i32 %1501, -1
-  %1503 = mul nsw i32 %1502, %34
-  %1504 = sext i32 %1503 to i64
-  %1505 = getelementptr inbounds double, ptr %4, i64 %1504
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1505, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  %1500 = load i32, ptr %11, align 4, !tbaa !3
+  %1501 = add nsw i32 %1500, -1
+  %1502 = mul nsw i32 %1501, %34
+  %1503 = sext i32 %1502 to i64
+  %1504 = getelementptr inbounds double, ptr %4, i64 %1503
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1504, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1506:                                             ; preds = %1451
-  %1507 = add nsw i32 %1372, -1
-  store i32 %1507, ptr %7, align 4, !tbaa !3
+1505:                                             ; preds = %1450
+  %1506 = add nsw i32 %1371, -1
+  store i32 %1506, ptr %7, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %1508 = icmp slt i32 %1370, 3
-  br i1 %1508, label %.loopexit138, label %.preheader137
+  %1507 = icmp slt i32 %1369, 3
+  br i1 %1507, label %.loopexit138, label %.preheader137
 
-.preheader137:                                    ; preds = %1506, %.preheader137
-  %1509 = phi i32 [ %1514, %.preheader137 ], [ 1, %1506 ]
-  %1510 = mul nsw i32 %1509, %34
-  %1511 = sext i32 %1510 to i64
-  %1512 = getelementptr inbounds double, ptr %4, i64 %1511
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1512, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1513 = load i32, ptr %10, align 4, !tbaa !3
-  %1514 = add nsw i32 %1513, 1
-  store i32 %1514, ptr %10, align 4, !tbaa !3
-  %1515 = load i32, ptr %7, align 4, !tbaa !3
-  %1516 = icmp slt i32 %1513, %1515
-  br i1 %1516, label %.preheader137, label %.loopexit138.loopexit, !llvm.loop !73
+.preheader137:                                    ; preds = %1505, %.preheader137
+  %1508 = phi i32 [ %1513, %.preheader137 ], [ 1, %1505 ]
+  %1509 = mul nsw i32 %1508, %34
+  %1510 = sext i32 %1509 to i64
+  %1511 = getelementptr inbounds double, ptr %4, i64 %1510
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1511, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1512 = load i32, ptr %10, align 4, !tbaa !3
+  %1513 = add nsw i32 %1512, 1
+  store i32 %1513, ptr %10, align 4, !tbaa !3
+  %1514 = load i32, ptr %7, align 4, !tbaa !3
+  %1515 = icmp slt i32 %1512, %1514
+  br i1 %1515, label %.preheader137, label %.loopexit138.loopexit, !llvm.loop !73
 
 .loopexit138.loopexit:                            ; preds = %.preheader137
   %.pre367 = load i32, ptr %3, align 4, !tbaa !3
   %.pre368 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit138
 
-.loopexit138:                                     ; preds = %.loopexit138.loopexit, %1506
-  %1517 = phi i32 [ %.pre368, %.loopexit138.loopexit ], [ %1372, %1506 ]
-  %1518 = phi i32 [ %.pre367, %.loopexit138.loopexit ], [ %1370, %1506 ]
-  %1519 = add nsw i32 %1518, -1
-  store i32 %1519, ptr %7, align 4, !tbaa !3
-  store i32 %1517, ptr %10, align 4, !tbaa !3
-  %1520 = icmp slt i32 %1517, %1518
-  br i1 %1520, label %.preheader136, label %1529
+.loopexit138:                                     ; preds = %.loopexit138.loopexit, %1505
+  %1516 = phi i32 [ %.pre368, %.loopexit138.loopexit ], [ %1371, %1505 ]
+  %1517 = phi i32 [ %.pre367, %.loopexit138.loopexit ], [ %1369, %1505 ]
+  %1518 = add nsw i32 %1517, -1
+  store i32 %1518, ptr %7, align 4, !tbaa !3
+  store i32 %1516, ptr %10, align 4, !tbaa !3
+  %1519 = icmp slt i32 %1516, %1517
+  br i1 %1519, label %.preheader136, label %1528
 
 .preheader136:                                    ; preds = %.loopexit138, %.preheader136
-  %1521 = phi i32 [ %1526, %.preheader136 ], [ %1517, %.loopexit138 ]
-  %1522 = mul nsw i32 %1521, %34
-  %1523 = sext i32 %1522 to i64
-  %1524 = getelementptr inbounds double, ptr %4, i64 %1523
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1524, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1525 = load i32, ptr %10, align 4, !tbaa !3
-  %1526 = add nsw i32 %1525, 1
-  store i32 %1526, ptr %10, align 4, !tbaa !3
-  %1527 = load i32, ptr %7, align 4, !tbaa !3
-  %1528 = icmp slt i32 %1525, %1527
-  br i1 %1528, label %.preheader136, label %thread-pre-split73, !llvm.loop !74
+  %1520 = phi i32 [ %1525, %.preheader136 ], [ %1516, %.loopexit138 ]
+  %1521 = mul nsw i32 %1520, %34
+  %1522 = sext i32 %1521 to i64
+  %1523 = getelementptr inbounds double, ptr %4, i64 %1522
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1523, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1524 = load i32, ptr %10, align 4, !tbaa !3
+  %1525 = add nsw i32 %1524, 1
+  store i32 %1525, ptr %10, align 4, !tbaa !3
+  %1526 = load i32, ptr %7, align 4, !tbaa !3
+  %1527 = icmp slt i32 %1524, %1526
+  br i1 %1527, label %.preheader136, label %thread-pre-split73, !llvm.loop !74
 
 thread-pre-split73:                               ; preds = %.preheader136
   %.pr74 = load i32, ptr %11, align 4, !tbaa !3
-  br label %1529
+  br label %1528
 
-1529:                                             ; preds = %thread-pre-split73, %.loopexit138
-  %1530 = phi i32 [ %.pr74, %thread-pre-split73 ], [ %1517, %.loopexit138 ]
-  %1531 = add nsw i32 %1530, -3
-  store i32 %1531, ptr %7, align 4, !tbaa !3
+1528:                                             ; preds = %thread-pre-split73, %.loopexit138
+  %1529 = phi i32 [ %.pr74, %thread-pre-split73 ], [ %1516, %.loopexit138 ]
+  %1530 = add nsw i32 %1529, -3
+  store i32 %1530, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1532 = icmp slt i32 %1530, 3
-  br i1 %1532, label %.loopexit135, label %.preheader134
+  %1531 = icmp slt i32 %1529, 3
+  br i1 %1531, label %.loopexit135, label %.preheader134
 
-.preheader134:                                    ; preds = %1529, %.preheader134
-  %1533 = phi i32 [ %1542, %.preheader134 ], [ 0, %1529 ]
-  %1534 = load i32, ptr %11, align 4, !tbaa !3
-  %reass.sub = sub i32 %1534, %1533
-  %1535 = add i32 %reass.sub, -2
-  store i32 %1535, ptr %8, align 4, !tbaa !3
-  %1536 = add nsw i32 %1533, 2
-  %1537 = mul nsw i32 %1533, %34
-  %1538 = add nsw i32 %1536, %1537
-  %1539 = sext i32 %1538 to i64
-  %1540 = getelementptr inbounds double, ptr %4, i64 %1539
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1540, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1541 = load i32, ptr %10, align 4, !tbaa !3
-  %1542 = add nsw i32 %1541, 1
-  store i32 %1542, ptr %10, align 4, !tbaa !3
-  %1543 = load i32, ptr %7, align 4, !tbaa !3
-  %1544 = icmp slt i32 %1541, %1543
-  br i1 %1544, label %.preheader134, label %.loopexit135, !llvm.loop !75
+.preheader134:                                    ; preds = %1528, %.preheader134
+  %1532 = phi i32 [ %1541, %.preheader134 ], [ 0, %1528 ]
+  %1533 = load i32, ptr %11, align 4, !tbaa !3
+  %reass.sub = sub i32 %1533, %1532
+  %1534 = add i32 %reass.sub, -2
+  store i32 %1534, ptr %8, align 4, !tbaa !3
+  %1535 = add nsw i32 %1532, 2
+  %1536 = mul nsw i32 %1532, %34
+  %1537 = add nsw i32 %1535, %1536
+  %1538 = sext i32 %1537 to i64
+  %1539 = getelementptr inbounds double, ptr %4, i64 %1538
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1539, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1540 = load i32, ptr %10, align 4, !tbaa !3
+  %1541 = add nsw i32 %1540, 1
+  store i32 %1541, ptr %10, align 4, !tbaa !3
+  %1542 = load i32, ptr %7, align 4, !tbaa !3
+  %1543 = icmp slt i32 %1540, %1542
+  br i1 %1543, label %.preheader134, label %.loopexit135, !llvm.loop !75
 
-.loopexit135:                                     ; preds = %.preheader134, %1529
-  %1545 = load double, ptr %12, align 8, !tbaa !7
-  %1546 = fadd double %1545, %1545
-  store double %1546, ptr %12, align 8, !tbaa !7
-  %1547 = add nsw i32 %34, 1
-  store i32 %1547, ptr %7, align 4, !tbaa !3
+.loopexit135:                                     ; preds = %.preheader134, %1528
+  %1544 = load double, ptr %12, align 8, !tbaa !7
+  %1545 = fadd double %1544, %1544
+  store double %1545, ptr %12, align 8, !tbaa !7
+  %1546 = add nsw i32 %34, 1
+  store i32 %1546, ptr %7, align 4, !tbaa !3
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1548 = load i32, ptr %11, align 4, !tbaa !3
-  %1549 = add nsw i32 %1548, -1
-  store i32 %1549, ptr %7, align 4, !tbaa !3
-  store i32 %1547, ptr %8, align 4, !tbaa !3
-  %1550 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %1550, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  %1547 = load i32, ptr %11, align 4, !tbaa !3
+  %1548 = add nsw i32 %1547, -1
+  store i32 %1548, ptr %7, align 4, !tbaa !3
+  store i32 %1546, ptr %8, align 4, !tbaa !3
+  %1549 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %1549, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1551:                                             ; preds = %1369
-  br i1 %23, label %1552, label %1623
+1550:                                             ; preds = %1368
+  br i1 %23, label %1551, label %1622
+
+1551:                                             ; preds = %1550
+  br i1 %25, label %1592, label %1552
 
 1552:                                             ; preds = %1551
-  br i1 %25, label %1593, label %1553
-
-1553:                                             ; preds = %1552
-  %1554 = add nsw i32 %1372, -2
-  store i32 %1554, ptr %7, align 4, !tbaa !3
+  %1553 = add nsw i32 %1371, -2
+  store i32 %1553, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1555 = icmp slt i32 %1370, 3
-  br i1 %1555, label %.loopexit115, label %.preheader114
+  %1554 = icmp slt i32 %1369, 3
+  br i1 %1554, label %.loopexit115, label %.preheader114
 
-.preheader114:                                    ; preds = %1553, %.preheader114
-  %1556 = phi i32 [ %1567, %.preheader114 ], [ 0, %1553 ]
-  %1557 = load i32, ptr %11, align 4, !tbaa !3
-  %1558 = xor i32 %1556, -1
-  %1559 = add i32 %1557, %1558
-  store i32 %1559, ptr %8, align 4, !tbaa !3
-  %1560 = mul nsw i32 %1556, %34
-  %1561 = add i32 %1556, 2
-  %1562 = add i32 %1561, %1560
-  %1563 = add i32 %1562, %1557
-  %1564 = sext i32 %1563 to i64
-  %1565 = getelementptr inbounds double, ptr %4, i64 %1564
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1565, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1566 = load i32, ptr %10, align 4, !tbaa !3
-  %1567 = add nsw i32 %1566, 1
-  store i32 %1567, ptr %10, align 4, !tbaa !3
-  %1568 = load i32, ptr %7, align 4, !tbaa !3
-  %1569 = icmp slt i32 %1566, %1568
-  br i1 %1569, label %.preheader114, label %.loopexit115.loopexit, !llvm.loop !76
+.preheader114:                                    ; preds = %1552, %.preheader114
+  %1555 = phi i32 [ %1566, %.preheader114 ], [ 0, %1552 ]
+  %1556 = load i32, ptr %11, align 4, !tbaa !3
+  %1557 = xor i32 %1555, -1
+  %1558 = add i32 %1556, %1557
+  store i32 %1558, ptr %8, align 4, !tbaa !3
+  %1559 = mul nsw i32 %1555, %34
+  %1560 = add i32 %1555, 2
+  %1561 = add i32 %1560, %1559
+  %1562 = add i32 %1561, %1556
+  %1563 = sext i32 %1562 to i64
+  %1564 = getelementptr inbounds double, ptr %4, i64 %1563
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1564, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1565 = load i32, ptr %10, align 4, !tbaa !3
+  %1566 = add nsw i32 %1565, 1
+  store i32 %1566, ptr %10, align 4, !tbaa !3
+  %1567 = load i32, ptr %7, align 4, !tbaa !3
+  %1568 = icmp slt i32 %1565, %1567
+  br i1 %1568, label %.preheader114, label %.loopexit115.loopexit, !llvm.loop !76
 
 .loopexit115.loopexit:                            ; preds = %.preheader114
   %.pre376 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit115
 
-.loopexit115:                                     ; preds = %.loopexit115.loopexit, %1553
-  %1570 = phi i32 [ %.pre376, %.loopexit115.loopexit ], [ %1372, %1553 ]
-  %1571 = add nsw i32 %1570, -1
-  store i32 %1571, ptr %7, align 4, !tbaa !3
+.loopexit115:                                     ; preds = %.loopexit115.loopexit, %1552
+  %1569 = phi i32 [ %.pre376, %.loopexit115.loopexit ], [ %1371, %1552 ]
+  %1570 = add nsw i32 %1569, -1
+  store i32 %1570, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1572 = icmp slt i32 %1570, 1
-  br i1 %1572, label %.loopexit113, label %.preheader112
+  %1571 = icmp slt i32 %1569, 1
+  br i1 %1571, label %.loopexit113, label %.preheader112
 
 .preheader112:                                    ; preds = %.loopexit115, %.preheader112
-  %1573 = phi i32 [ %1580, %.preheader112 ], [ 0, %.loopexit115 ]
-  %1574 = load i32, ptr %11, align 4, !tbaa !3
-  %1575 = add nsw i32 %1574, %1573
-  store i32 %1575, ptr %8, align 4, !tbaa !3
-  %1576 = mul nsw i32 %1573, %34
-  %1577 = sext i32 %1576 to i64
-  %1578 = getelementptr inbounds double, ptr %4, i64 %1577
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1578, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1579 = load i32, ptr %10, align 4, !tbaa !3
-  %1580 = add nsw i32 %1579, 1
-  store i32 %1580, ptr %10, align 4, !tbaa !3
-  %1581 = load i32, ptr %7, align 4, !tbaa !3
-  %1582 = icmp slt i32 %1579, %1581
-  br i1 %1582, label %.preheader112, label %.loopexit113.loopexit, !llvm.loop !77
+  %1572 = phi i32 [ %1579, %.preheader112 ], [ 0, %.loopexit115 ]
+  %1573 = load i32, ptr %11, align 4, !tbaa !3
+  %1574 = add nsw i32 %1573, %1572
+  store i32 %1574, ptr %8, align 4, !tbaa !3
+  %1575 = mul nsw i32 %1572, %34
+  %1576 = sext i32 %1575 to i64
+  %1577 = getelementptr inbounds double, ptr %4, i64 %1576
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1577, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1578 = load i32, ptr %10, align 4, !tbaa !3
+  %1579 = add nsw i32 %1578, 1
+  store i32 %1579, ptr %10, align 4, !tbaa !3
+  %1580 = load i32, ptr %7, align 4, !tbaa !3
+  %1581 = icmp slt i32 %1578, %1580
+  br i1 %1581, label %.preheader112, label %.loopexit113.loopexit, !llvm.loop !77
 
 .loopexit113.loopexit:                            ; preds = %.preheader112
   %.pre377 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.loopexit113.loopexit, %.loopexit115
-  %1583 = phi i32 [ %.pre377, %.loopexit113.loopexit ], [ %1570, %.loopexit115 ]
-  %1584 = load double, ptr %12, align 8, !tbaa !7
-  %1585 = fadd double %1584, %1584
-  store double %1585, ptr %12, align 8, !tbaa !7
-  %1586 = add nsw i32 %34, 1
-  store i32 %1586, ptr %7, align 4, !tbaa !3
-  %1587 = sext i32 %1583 to i64
-  %1588 = getelementptr double, ptr %4, i64 %1587
-  %1589 = getelementptr i8, ptr %1588, i64 8
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1589, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1586, ptr %7, align 4, !tbaa !3
-  %1590 = load i32, ptr %11, align 4, !tbaa !3
-  %1591 = sext i32 %1590 to i64
-  %1592 = getelementptr inbounds double, ptr %4, i64 %1591
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1592, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  %1582 = phi i32 [ %.pre377, %.loopexit113.loopexit ], [ %1569, %.loopexit115 ]
+  %1583 = load double, ptr %12, align 8, !tbaa !7
+  %1584 = fadd double %1583, %1583
+  store double %1584, ptr %12, align 8, !tbaa !7
+  %1585 = add nsw i32 %34, 1
+  store i32 %1585, ptr %7, align 4, !tbaa !3
+  %1586 = sext i32 %1582 to i64
+  %1587 = getelementptr double, ptr %4, i64 %1586
+  %1588 = getelementptr i8, ptr %1587, i64 8
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1588, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  store i32 %1585, ptr %7, align 4, !tbaa !3
+  %1589 = load i32, ptr %11, align 4, !tbaa !3
+  %1590 = sext i32 %1589 to i64
+  %1591 = getelementptr inbounds double, ptr %4, i64 %1590
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1591, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1593:                                             ; preds = %1552
-  %1594 = add nsw i32 %1372, -1
-  store i32 %1594, ptr %7, align 4, !tbaa !3
+1592:                                             ; preds = %1551
+  %1593 = add nsw i32 %1371, -1
+  store i32 %1593, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1595 = icmp slt i32 %1370, 1
-  br i1 %1595, label %.loopexit111, label %.preheader110
+  %1594 = icmp slt i32 %1369, 1
+  br i1 %1594, label %.loopexit111, label %.preheader110
 
-.preheader110:                                    ; preds = %1593, %.preheader110
-  %1596 = phi i32 [ %1606, %.preheader110 ], [ 0, %1593 ]
-  %1597 = load i32, ptr %3, align 4, !tbaa !3
-  %1598 = xor i32 %1596, -1
-  %1599 = add i32 %1597, %1598
-  store i32 %1599, ptr %8, align 4, !tbaa !3
-  %1600 = add nsw i32 %1596, 2
-  %1601 = mul nsw i32 %1596, %34
-  %1602 = add nsw i32 %1600, %1601
-  %1603 = sext i32 %1602 to i64
-  %1604 = getelementptr inbounds double, ptr %4, i64 %1603
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1604, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1605 = load i32, ptr %10, align 4, !tbaa !3
-  %1606 = add nsw i32 %1605, 1
-  store i32 %1606, ptr %10, align 4, !tbaa !3
-  %1607 = load i32, ptr %7, align 4, !tbaa !3
-  %1608 = icmp slt i32 %1605, %1607
-  br i1 %1608, label %.preheader110, label %.loopexit111.loopexit, !llvm.loop !78
+.preheader110:                                    ; preds = %1592, %.preheader110
+  %1595 = phi i32 [ %1605, %.preheader110 ], [ 0, %1592 ]
+  %1596 = load i32, ptr %3, align 4, !tbaa !3
+  %1597 = xor i32 %1595, -1
+  %1598 = add i32 %1596, %1597
+  store i32 %1598, ptr %8, align 4, !tbaa !3
+  %1599 = add nsw i32 %1595, 2
+  %1600 = mul nsw i32 %1595, %34
+  %1601 = add nsw i32 %1599, %1600
+  %1602 = sext i32 %1601 to i64
+  %1603 = getelementptr inbounds double, ptr %4, i64 %1602
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1603, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1604 = load i32, ptr %10, align 4, !tbaa !3
+  %1605 = add nsw i32 %1604, 1
+  store i32 %1605, ptr %10, align 4, !tbaa !3
+  %1606 = load i32, ptr %7, align 4, !tbaa !3
+  %1607 = icmp slt i32 %1604, %1606
+  br i1 %1607, label %.preheader110, label %.loopexit111.loopexit, !llvm.loop !78
 
 .loopexit111.loopexit:                            ; preds = %.preheader110
   %.pre378 = load i32, ptr %11, align 4, !tbaa !3
   %.pre399 = add nsw i32 %.pre378, -1
   br label %.loopexit111
 
-.loopexit111:                                     ; preds = %.loopexit111.loopexit, %1593
-  %.pre-phi = phi i32 [ %.pre399, %.loopexit111.loopexit ], [ %1594, %1593 ]
-  %1609 = phi i32 [ %.pre378, %.loopexit111.loopexit ], [ %1372, %1593 ]
+.loopexit111:                                     ; preds = %.loopexit111.loopexit, %1592
+  %.pre-phi = phi i32 [ %.pre399, %.loopexit111.loopexit ], [ %1593, %1592 ]
+  %1608 = phi i32 [ %.pre378, %.loopexit111.loopexit ], [ %1371, %1592 ]
   store i32 %.pre-phi, ptr %7, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %1610 = icmp slt i32 %1609, 2
-  br i1 %1610, label %.loopexit109, label %.preheader108
+  %1609 = icmp slt i32 %1608, 2
+  br i1 %1609, label %.loopexit109, label %.preheader108
 
 .preheader108:                                    ; preds = %.loopexit111, %.preheader108
-  %1611 = phi i32 [ %1616, %.preheader108 ], [ 1, %.loopexit111 ]
-  %1612 = mul nsw i32 %1611, %34
-  %1613 = sext i32 %1612 to i64
-  %1614 = getelementptr inbounds double, ptr %4, i64 %1613
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1614, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1615 = load i32, ptr %10, align 4, !tbaa !3
-  %1616 = add nsw i32 %1615, 1
-  store i32 %1616, ptr %10, align 4, !tbaa !3
-  %1617 = load i32, ptr %7, align 4, !tbaa !3
-  %1618 = icmp slt i32 %1615, %1617
-  br i1 %1618, label %.preheader108, label %.loopexit109, !llvm.loop !79
+  %1610 = phi i32 [ %1615, %.preheader108 ], [ 1, %.loopexit111 ]
+  %1611 = mul nsw i32 %1610, %34
+  %1612 = sext i32 %1611 to i64
+  %1613 = getelementptr inbounds double, ptr %4, i64 %1612
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1613, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1614 = load i32, ptr %10, align 4, !tbaa !3
+  %1615 = add nsw i32 %1614, 1
+  store i32 %1615, ptr %10, align 4, !tbaa !3
+  %1616 = load i32, ptr %7, align 4, !tbaa !3
+  %1617 = icmp slt i32 %1614, %1616
+  br i1 %1617, label %.preheader108, label %.loopexit109, !llvm.loop !79
 
 .loopexit109:                                     ; preds = %.preheader108, %.loopexit111
-  %1619 = load double, ptr %12, align 8, !tbaa !7
-  %1620 = fadd double %1619, %1619
-  store double %1620, ptr %12, align 8, !tbaa !7
-  %1621 = add nsw i32 %34, 1
-  store i32 %1621, ptr %7, align 4, !tbaa !3
-  %1622 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef nonnull %1622, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1621, ptr %7, align 4, !tbaa !3
+  %1618 = load double, ptr %12, align 8, !tbaa !7
+  %1619 = fadd double %1618, %1618
+  store double %1619, ptr %12, align 8, !tbaa !7
+  %1620 = add nsw i32 %34, 1
+  store i32 %1620, ptr %7, align 4, !tbaa !3
+  %1621 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef nonnull %1621, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  store i32 %1620, ptr %7, align 4, !tbaa !3
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  br label %1720
 
-1623:                                             ; preds = %1551
-  %1624 = add nsw i32 %1372, -1
-  store i32 %1624, ptr %7, align 4, !tbaa !3
+1622:                                             ; preds = %1550
+  %1623 = add nsw i32 %1371, -1
+  store i32 %1623, ptr %7, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %1625 = icmp slt i32 %1370, 3
-  br i1 %25, label %1677, label %1626
+  %1624 = icmp slt i32 %1369, 3
+  br i1 %25, label %1676, label %1625
 
-1626:                                             ; preds = %1623
-  br i1 %1625, label %.loopexit125, label %.preheader124
+1625:                                             ; preds = %1622
+  br i1 %1624, label %.loopexit125, label %.preheader124
 
-.preheader124:                                    ; preds = %1626, %.preheader124
-  %1627 = phi i32 [ %1635, %.preheader124 ], [ 1, %1626 ]
-  %1628 = load i32, ptr %11, align 4, !tbaa !3
-  %1629 = add i32 %1627, 1
-  %1630 = add i32 %1629, %1628
-  %1631 = mul nsw i32 %1630, %34
-  %1632 = sext i32 %1631 to i64
-  %1633 = getelementptr inbounds double, ptr %4, i64 %1632
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1633, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1634 = load i32, ptr %10, align 4, !tbaa !3
-  %1635 = add nsw i32 %1634, 1
-  store i32 %1635, ptr %10, align 4, !tbaa !3
-  %1636 = load i32, ptr %7, align 4, !tbaa !3
-  %1637 = icmp slt i32 %1634, %1636
-  br i1 %1637, label %.preheader124, label %.loopexit125.loopexit, !llvm.loop !80
+.preheader124:                                    ; preds = %1625, %.preheader124
+  %1626 = phi i32 [ %1634, %.preheader124 ], [ 1, %1625 ]
+  %1627 = load i32, ptr %11, align 4, !tbaa !3
+  %1628 = add i32 %1626, 1
+  %1629 = add i32 %1628, %1627
+  %1630 = mul nsw i32 %1629, %34
+  %1631 = sext i32 %1630 to i64
+  %1632 = getelementptr inbounds double, ptr %4, i64 %1631
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1632, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1633 = load i32, ptr %10, align 4, !tbaa !3
+  %1634 = add nsw i32 %1633, 1
+  store i32 %1634, ptr %10, align 4, !tbaa !3
+  %1635 = load i32, ptr %7, align 4, !tbaa !3
+  %1636 = icmp slt i32 %1633, %1635
+  br i1 %1636, label %.preheader124, label %.loopexit125.loopexit, !llvm.loop !80
 
 .loopexit125.loopexit:                            ; preds = %.preheader124
   %.pre372 = load i32, ptr %11, align 4, !tbaa !3
   %.pre400 = add nsw i32 %.pre372, -1
   br label %.loopexit125
 
-.loopexit125:                                     ; preds = %.loopexit125.loopexit, %1626
-  %.pre-phi401 = phi i32 [ %.pre400, %.loopexit125.loopexit ], [ %1624, %1626 ]
-  %1638 = phi i32 [ %.pre372, %.loopexit125.loopexit ], [ %1372, %1626 ]
+.loopexit125:                                     ; preds = %.loopexit125.loopexit, %1625
+  %.pre-phi401 = phi i32 [ %.pre400, %.loopexit125.loopexit ], [ %1623, %1625 ]
+  %1637 = phi i32 [ %.pre372, %.loopexit125.loopexit ], [ %1371, %1625 ]
   store i32 %.pre-phi401, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1639 = icmp slt i32 %1638, 1
-  br i1 %1639, label %.loopexit122, label %.preheader123
+  %1638 = icmp slt i32 %1637, 1
+  br i1 %1638, label %.loopexit122, label %.preheader123
 
 .preheader123:                                    ; preds = %.loopexit125, %.preheader123
-  %1640 = phi i32 [ %1645, %.preheader123 ], [ 0, %.loopexit125 ]
-  %1641 = mul nsw i32 %1640, %34
-  %1642 = sext i32 %1641 to i64
-  %1643 = getelementptr inbounds double, ptr %4, i64 %1642
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1643, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1644 = load i32, ptr %10, align 4, !tbaa !3
-  %1645 = add nsw i32 %1644, 1
-  store i32 %1645, ptr %10, align 4, !tbaa !3
-  %1646 = load i32, ptr %7, align 4, !tbaa !3
-  %1647 = icmp slt i32 %1644, %1646
-  br i1 %1647, label %.preheader123, label %1648, !llvm.loop !81
+  %1639 = phi i32 [ %1644, %.preheader123 ], [ 0, %.loopexit125 ]
+  %1640 = mul nsw i32 %1639, %34
+  %1641 = sext i32 %1640 to i64
+  %1642 = getelementptr inbounds double, ptr %4, i64 %1641
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1642, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1643 = load i32, ptr %10, align 4, !tbaa !3
+  %1644 = add nsw i32 %1643, 1
+  store i32 %1644, ptr %10, align 4, !tbaa !3
+  %1645 = load i32, ptr %7, align 4, !tbaa !3
+  %1646 = icmp slt i32 %1643, %1645
+  br i1 %1646, label %.preheader123, label %1647, !llvm.loop !81
 
-1648:                                             ; preds = %.preheader123
+1647:                                             ; preds = %.preheader123
   %.pr76 = load i32, ptr %11, align 4, !tbaa !3
-  %1649 = add nsw i32 %.pr76, -2
-  store i32 %1649, ptr %7, align 4, !tbaa !3
+  %1648 = add nsw i32 %.pr76, -2
+  store i32 %1648, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1650 = icmp slt i32 %.pr76, 2
-  br i1 %1650, label %.loopexit122, label %.preheader121
+  %1649 = icmp slt i32 %.pr76, 2
+  br i1 %1649, label %.loopexit122, label %.preheader121
 
-.preheader121:                                    ; preds = %1648, %.preheader121
-  %1651 = phi i32 [ %1662, %.preheader121 ], [ 0, %1648 ]
-  %1652 = load i32, ptr %11, align 4, !tbaa !3
-  %1653 = xor i32 %1651, -1
-  %1654 = add i32 %1652, %1653
-  store i32 %1654, ptr %8, align 4, !tbaa !3
-  %1655 = add nsw i32 %1651, 1
-  %1656 = add nsw i32 %1652, %1651
-  %1657 = mul nsw i32 %1656, %34
-  %1658 = add nsw i32 %1655, %1657
-  %1659 = sext i32 %1658 to i64
-  %1660 = getelementptr inbounds double, ptr %4, i64 %1659
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1660, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1661 = load i32, ptr %10, align 4, !tbaa !3
-  %1662 = add nsw i32 %1661, 1
-  store i32 %1662, ptr %10, align 4, !tbaa !3
-  %1663 = load i32, ptr %7, align 4, !tbaa !3
-  %1664 = icmp slt i32 %1661, %1663
-  br i1 %1664, label %.preheader121, label %.loopexit122.loopexit, !llvm.loop !82
+.preheader121:                                    ; preds = %1647, %.preheader121
+  %1650 = phi i32 [ %1661, %.preheader121 ], [ 0, %1647 ]
+  %1651 = load i32, ptr %11, align 4, !tbaa !3
+  %1652 = xor i32 %1650, -1
+  %1653 = add i32 %1651, %1652
+  store i32 %1653, ptr %8, align 4, !tbaa !3
+  %1654 = add nsw i32 %1650, 1
+  %1655 = add nsw i32 %1651, %1650
+  %1656 = mul nsw i32 %1655, %34
+  %1657 = add nsw i32 %1654, %1656
+  %1658 = sext i32 %1657 to i64
+  %1659 = getelementptr inbounds double, ptr %4, i64 %1658
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1659, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1660 = load i32, ptr %10, align 4, !tbaa !3
+  %1661 = add nsw i32 %1660, 1
+  store i32 %1661, ptr %10, align 4, !tbaa !3
+  %1662 = load i32, ptr %7, align 4, !tbaa !3
+  %1663 = icmp slt i32 %1660, %1662
+  br i1 %1663, label %.preheader121, label %.loopexit122.loopexit, !llvm.loop !82
 
 .loopexit122.loopexit:                            ; preds = %.preheader121
   %.pre373 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit122
 
-.loopexit122:                                     ; preds = %.loopexit125, %.loopexit122.loopexit, %1648
-  %1665 = phi i32 [ %.pre373, %.loopexit122.loopexit ], [ %.pr76, %1648 ], [ %1638, %.loopexit125 ]
-  %1666 = load double, ptr %12, align 8, !tbaa !7
-  %1667 = fadd double %1666, %1666
-  store double %1667, ptr %12, align 8, !tbaa !7
-  %1668 = add nsw i32 %34, 1
-  store i32 %1668, ptr %7, align 4, !tbaa !3
-  %1669 = add nsw i32 %1665, 1
-  %1670 = mul nsw i32 %1669, %34
-  %1671 = sext i32 %1670 to i64
-  %1672 = getelementptr inbounds double, ptr %4, i64 %1671
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1672, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1668, ptr %7, align 4, !tbaa !3
-  %1673 = load i32, ptr %11, align 4, !tbaa !3
-  %1674 = mul nsw i32 %1673, %34
-  %1675 = sext i32 %1674 to i64
-  %1676 = getelementptr inbounds double, ptr %4, i64 %1675
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1676, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+.loopexit122:                                     ; preds = %.loopexit125, %.loopexit122.loopexit, %1647
+  %1664 = phi i32 [ %.pre373, %.loopexit122.loopexit ], [ %.pr76, %1647 ], [ %1637, %.loopexit125 ]
+  %1665 = load double, ptr %12, align 8, !tbaa !7
+  %1666 = fadd double %1665, %1665
+  store double %1666, ptr %12, align 8, !tbaa !7
+  %1667 = add nsw i32 %34, 1
+  store i32 %1667, ptr %7, align 4, !tbaa !3
+  %1668 = add nsw i32 %1664, 1
+  %1669 = mul nsw i32 %1668, %34
+  %1670 = sext i32 %1669 to i64
+  %1671 = getelementptr inbounds double, ptr %4, i64 %1670
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1671, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  store i32 %1667, ptr %7, align 4, !tbaa !3
+  %1672 = load i32, ptr %11, align 4, !tbaa !3
+  %1673 = mul nsw i32 %1672, %34
+  %1674 = sext i32 %1673 to i64
+  %1675 = getelementptr inbounds double, ptr %4, i64 %1674
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1675, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  br label %1720
 
-1677:                                             ; preds = %1623
-  br i1 %1625, label %.loopexit120, label %.preheader119
+1676:                                             ; preds = %1622
+  br i1 %1624, label %.loopexit120, label %.preheader119
 
-.preheader119:                                    ; preds = %1677, %.preheader119
-  %1678 = phi i32 [ %1684, %.preheader119 ], [ 1, %1677 ]
-  %1679 = add nsw i32 %1678, 1
-  %1680 = mul nsw i32 %1679, %34
-  %1681 = sext i32 %1680 to i64
-  %1682 = getelementptr inbounds double, ptr %4, i64 %1681
-  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1682, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1683 = load i32, ptr %10, align 4, !tbaa !3
-  %1684 = add nsw i32 %1683, 1
-  store i32 %1684, ptr %10, align 4, !tbaa !3
-  %1685 = load i32, ptr %7, align 4, !tbaa !3
-  %1686 = icmp slt i32 %1683, %1685
-  br i1 %1686, label %.preheader119, label %.loopexit120.loopexit, !llvm.loop !83
+.preheader119:                                    ; preds = %1676, %.preheader119
+  %1677 = phi i32 [ %1683, %.preheader119 ], [ 1, %1676 ]
+  %1678 = add nsw i32 %1677, 1
+  %1679 = mul nsw i32 %1678, %34
+  %1680 = sext i32 %1679 to i64
+  %1681 = getelementptr inbounds double, ptr %4, i64 %1680
+  call void @dlassq_(ptr noundef nonnull %10, ptr noundef %1681, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1682 = load i32, ptr %10, align 4, !tbaa !3
+  %1683 = add nsw i32 %1682, 1
+  store i32 %1683, ptr %10, align 4, !tbaa !3
+  %1684 = load i32, ptr %7, align 4, !tbaa !3
+  %1685 = icmp slt i32 %1682, %1684
+  br i1 %1685, label %.preheader119, label %.loopexit120.loopexit, !llvm.loop !83
 
 .loopexit120.loopexit:                            ; preds = %.preheader119
   %.pre374 = load i32, ptr %3, align 4, !tbaa !3
   %.pre375 = load i32, ptr %11, align 4, !tbaa !3
   br label %.loopexit120
 
-.loopexit120:                                     ; preds = %.loopexit120.loopexit, %1677
-  %1687 = phi i32 [ %.pre375, %.loopexit120.loopexit ], [ %1372, %1677 ]
-  %1688 = phi i32 [ %.pre374, %.loopexit120.loopexit ], [ %1370, %1677 ]
-  store i32 %1688, ptr %7, align 4, !tbaa !3
-  %1689 = add nsw i32 %1687, 1
-  store i32 %1689, ptr %10, align 4, !tbaa !3
-  %1690 = icmp slt i32 %1687, %1688
-  br i1 %1690, label %.preheader118, label %1699
+.loopexit120:                                     ; preds = %.loopexit120.loopexit, %1676
+  %1686 = phi i32 [ %.pre375, %.loopexit120.loopexit ], [ %1371, %1676 ]
+  %1687 = phi i32 [ %.pre374, %.loopexit120.loopexit ], [ %1369, %1676 ]
+  store i32 %1687, ptr %7, align 4, !tbaa !3
+  %1688 = add nsw i32 %1686, 1
+  store i32 %1688, ptr %10, align 4, !tbaa !3
+  %1689 = icmp slt i32 %1686, %1687
+  br i1 %1689, label %.preheader118, label %1698
 
 .preheader118:                                    ; preds = %.loopexit120, %.preheader118
-  %1691 = phi i32 [ %1696, %.preheader118 ], [ %1689, %.loopexit120 ]
-  %1692 = mul nsw i32 %1691, %34
-  %1693 = sext i32 %1692 to i64
-  %1694 = getelementptr inbounds double, ptr %4, i64 %1693
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1694, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1695 = load i32, ptr %10, align 4, !tbaa !3
-  %1696 = add nsw i32 %1695, 1
-  store i32 %1696, ptr %10, align 4, !tbaa !3
-  %1697 = load i32, ptr %7, align 4, !tbaa !3
-  %1698 = icmp slt i32 %1695, %1697
-  br i1 %1698, label %.preheader118, label %thread-pre-split78, !llvm.loop !84
+  %1690 = phi i32 [ %1695, %.preheader118 ], [ %1688, %.loopexit120 ]
+  %1691 = mul nsw i32 %1690, %34
+  %1692 = sext i32 %1691 to i64
+  %1693 = getelementptr inbounds double, ptr %4, i64 %1692
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1693, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1694 = load i32, ptr %10, align 4, !tbaa !3
+  %1695 = add nsw i32 %1694, 1
+  store i32 %1695, ptr %10, align 4, !tbaa !3
+  %1696 = load i32, ptr %7, align 4, !tbaa !3
+  %1697 = icmp slt i32 %1694, %1696
+  br i1 %1697, label %.preheader118, label %thread-pre-split78, !llvm.loop !84
 
 thread-pre-split78:                               ; preds = %.preheader118
   %.pr79 = load i32, ptr %11, align 4, !tbaa !3
-  br label %1699
+  br label %1698
 
-1699:                                             ; preds = %thread-pre-split78, %.loopexit120
-  %1700 = phi i32 [ %.pr79, %thread-pre-split78 ], [ %1687, %.loopexit120 ]
-  %1701 = add nsw i32 %1700, -2
-  store i32 %1701, ptr %7, align 4, !tbaa !3
+1698:                                             ; preds = %thread-pre-split78, %.loopexit120
+  %1699 = phi i32 [ %.pr79, %thread-pre-split78 ], [ %1686, %.loopexit120 ]
+  %1700 = add nsw i32 %1699, -2
+  store i32 %1700, ptr %7, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
-  %1702 = icmp slt i32 %1700, 2
-  br i1 %1702, label %.loopexit117, label %.preheader116
+  %1701 = icmp slt i32 %1699, 2
+  br i1 %1701, label %.loopexit117, label %.preheader116
 
-.preheader116:                                    ; preds = %1699, %.preheader116
-  %1703 = phi i32 [ %1713, %.preheader116 ], [ 0, %1699 ]
-  %1704 = load i32, ptr %11, align 4, !tbaa !3
-  %1705 = xor i32 %1703, -1
-  %1706 = add i32 %1704, %1705
-  store i32 %1706, ptr %8, align 4, !tbaa !3
-  %1707 = add nsw i32 %1703, 1
-  %1708 = mul nsw i32 %1703, %34
-  %1709 = add nsw i32 %1707, %1708
-  %1710 = sext i32 %1709 to i64
-  %1711 = getelementptr inbounds double, ptr %4, i64 %1710
-  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1711, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %1712 = load i32, ptr %10, align 4, !tbaa !3
-  %1713 = add nsw i32 %1712, 1
-  store i32 %1713, ptr %10, align 4, !tbaa !3
-  %1714 = load i32, ptr %7, align 4, !tbaa !3
-  %1715 = icmp slt i32 %1712, %1714
-  br i1 %1715, label %.preheader116, label %.loopexit117, !llvm.loop !85
+.preheader116:                                    ; preds = %1698, %.preheader116
+  %1702 = phi i32 [ %1712, %.preheader116 ], [ 0, %1698 ]
+  %1703 = load i32, ptr %11, align 4, !tbaa !3
+  %1704 = xor i32 %1702, -1
+  %1705 = add i32 %1703, %1704
+  store i32 %1705, ptr %8, align 4, !tbaa !3
+  %1706 = add nsw i32 %1702, 1
+  %1707 = mul nsw i32 %1702, %34
+  %1708 = add nsw i32 %1706, %1707
+  %1709 = sext i32 %1708 to i64
+  %1710 = getelementptr inbounds double, ptr %4, i64 %1709
+  call void @dlassq_(ptr noundef nonnull %8, ptr noundef %1710, ptr noundef nonnull @c__1, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  %1711 = load i32, ptr %10, align 4, !tbaa !3
+  %1712 = add nsw i32 %1711, 1
+  store i32 %1712, ptr %10, align 4, !tbaa !3
+  %1713 = load i32, ptr %7, align 4, !tbaa !3
+  %1714 = icmp slt i32 %1711, %1713
+  br i1 %1714, label %.preheader116, label %.loopexit117, !llvm.loop !85
 
-.loopexit117:                                     ; preds = %.preheader116, %1699
-  %1716 = load double, ptr %12, align 8, !tbaa !7
-  %1717 = fadd double %1716, %1716
-  store double %1717, ptr %12, align 8, !tbaa !7
-  %1718 = add nsw i32 %34, 1
-  store i32 %1718, ptr %7, align 4, !tbaa !3
-  %1719 = sext i32 %34 to i64
-  %1720 = getelementptr inbounds double, ptr %4, i64 %1719
-  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1720, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  store i32 %1718, ptr %7, align 4, !tbaa !3
+.loopexit117:                                     ; preds = %.preheader116, %1698
+  %1715 = load double, ptr %12, align 8, !tbaa !7
+  %1716 = fadd double %1715, %1715
+  store double %1716, ptr %12, align 8, !tbaa !7
+  %1717 = add nsw i32 %34, 1
+  store i32 %1717, ptr %7, align 4, !tbaa !3
+  %1718 = sext i32 %34 to i64
+  %1719 = getelementptr inbounds double, ptr %4, i64 %1718
+  call void @dlassq_(ptr noundef nonnull %11, ptr noundef %1719, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
+  store i32 %1717, ptr %7, align 4, !tbaa !3
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  br label %1721
+  br label %1720
 
-1721:                                             ; preds = %.loopexit117, %.loopexit122, %.loopexit109, %.loopexit113, %.loopexit135, %.loopexit140, %.loopexit127, %.loopexit131
-  %1722 = load double, ptr %13, align 8, !tbaa !7
-  %1723 = load double, ptr %12, align 8, !tbaa !7
-  %1724 = call double @sqrt(double noundef %1723) #6
-  %1725 = fmul double %1722, %1724
+1720:                                             ; preds = %.loopexit117, %.loopexit122, %.loopexit109, %.loopexit113, %.loopexit135, %.loopexit140, %.loopexit127, %.loopexit131
+  %1721 = load double, ptr %13, align 8, !tbaa !7
+  %1722 = load double, ptr %12, align 8, !tbaa !7
+  %1723 = call double @sqrt(double noundef %1722) #6
+  %1724 = fmul double %1721, %1723
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit157, %.loopexit153, %.loopexit149, %.loopexit145, %._crit_edge379, %._crit_edge381, %._crit_edge383, %._crit_edge385, %._crit_edge388, %._crit_edge391, %._crit_edge394, %._crit_edge397, %.thread443, %.thread441, %.thread439, %.thread67, %.thread65, %1721, %1366, %1347, %._crit_edge407, %932, %767, %393, %279, %141, %109, %76, %44, %15, %6
-  %1726 = phi double [ %19, %15 ], [ 0.000000e+00, %6 ], [ %1725, %1721 ], [ undef, %1366 ], [ %395, %393 ], [ %281, %279 ], [ %1348, %1347 ], [ %1143, %._crit_edge407 ], [ %935, %932 ], [ %770, %767 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %141 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %76 ], [ %196, %.thread65 ], [ %414, %.thread67 ], [ %313, %.thread439 ], [ %596, %.thread441 ], [ %1314, %.thread443 ], [ %608, %._crit_edge397 ], [ %502, %._crit_edge394 ], [ %405, %._crit_edge391 ], [ %292, %._crit_edge388 ], [ %1358, %._crit_edge385 ], [ %1153, %._crit_edge383 ], [ %945, %._crit_edge381 ], [ %779, %._crit_edge379 ], [ %138, %.loopexit145 ], [ %170, %.loopexit149 ], [ %73, %.loopexit153 ], [ %105, %.loopexit157 ]
+.loopexit:                                        ; preds = %.loopexit157, %.loopexit153, %.loopexit149, %.loopexit145, %._crit_edge379, %._crit_edge381, %._crit_edge383, %._crit_edge385, %._crit_edge388, %._crit_edge391, %._crit_edge394, %._crit_edge397, %.thread443, %.thread441, %.thread439, %.thread67, %.thread65, %1720, %1365, %1346, %._crit_edge407, %932, %767, %393, %279, %141, %109, %76, %44, %15, %6
+  %1725 = phi double [ %19, %15 ], [ 0.000000e+00, %6 ], [ %1724, %1720 ], [ undef, %1365 ], [ %395, %393 ], [ %281, %279 ], [ %1347, %1346 ], [ %1143, %._crit_edge407 ], [ %935, %932 ], [ %770, %767 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %141 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %76 ], [ %196, %.thread65 ], [ %414, %.thread67 ], [ %313, %.thread439 ], [ %596, %.thread441 ], [ %1313, %.thread443 ], [ %608, %._crit_edge397 ], [ %502, %._crit_edge394 ], [ %405, %._crit_edge391 ], [ %292, %._crit_edge388 ], [ %1357, %._crit_edge385 ], [ %1153, %._crit_edge383 ], [ %945, %._crit_edge381 ], [ %779, %._crit_edge379 ], [ %138, %.loopexit145 ], [ %170, %.loopexit149 ], [ %73, %.loopexit153 ], [ %105, %.loopexit157 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
@@ -2850,7 +2847,7 @@ thread-pre-split78:                               ; preds = %.preheader118
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  ret double %1726
+  ret double %1725
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

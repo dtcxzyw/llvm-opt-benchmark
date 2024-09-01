@@ -327,8 +327,8 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN14ShenandoahHeap18set_unload_classesEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext %91) #10
-  %spec.select86 = zext i1 %87 to i32
   %spec.select = select i1 %87, i32 26, i32 34
+  %spec.select86 = zext i1 %87 to i32
   %92 = load i8, ptr @ShenandoahAlwaysClearSoftRefs, align 1
   %93 = trunc i8 %92 to i1
   br i1 %93, label %.thread, label %94

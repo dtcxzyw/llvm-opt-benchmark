@@ -563,7 +563,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93:          ; preds = %.noexc92, %._crit_e
 
 .preheader77.i:                                   ; preds = %271
   %261 = icmp ugt i32 %253, 32
-  br i1 %261, label %.lr.ph88.preheader.i, label %.lr.ph94.preheader.i
+  br i1 %261, label %.lr.ph88.preheader.i, label %._crit_edge.i
 
 .lr.ph88.preheader.i:                             ; preds = %.preheader77.i
   %wide.trip.count117.i = and i64 %252, 4294967295
@@ -598,7 +598,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93:          ; preds = %.noexc92, %._crit_e
   store float %279, ptr %272, align 4
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count117.i
-  br i1 %exitcond118.not.i, label %.lr.ph94.preheader.i, label %.lr.ph88.i, !llvm.loop !21
+  br i1 %exitcond118.not.i, label %._crit_edge.i, label %.lr.ph88.i, !llvm.loop !21
 
 .lr.ph88.i:                                       ; preds = %.loopexit.i, %.lr.ph88.preheader.i
   %indvars.iv114.i = phi i64 [ 32, %.lr.ph88.preheader.i ], [ %indvars.iv.next115.i, %.loopexit.i ]
@@ -619,7 +619,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93:          ; preds = %.noexc92, %._crit_e
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 33
   br i1 %exitcond113.not.i, label %.loopexit.i, label %273, !llvm.loop !22
 
-.lr.ph94.preheader.i:                             ; preds = %.loopexit.i, %.preheader77.i
+._crit_edge.i:                                    ; preds = %.loopexit.i, %.preheader77.i
   %280 = sub nuw nsw i64 124, %258
   %scevgep161 = getelementptr i8, ptr %190, i64 %280
   %281 = add i64 %251, 17179869056
@@ -630,7 +630,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93:          ; preds = %.noexc92, %._crit_e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep161, ptr noundef nonnull align 4 dereferenceable(1) %scevgep162, i64 %259, i1 false)
   br label %_ZN2cv6signalL7fir_f32EPKfPfS2_S3_jj.exit
 
-_ZN2cv6signalL7fir_f32EPKfPfS2_S3_jj.exit:        ; preds = %.lr.ph94.preheader.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93
+_ZN2cv6signalL7fir_f32EPKfPfS2_S3_jj.exit:        ; preds = %._crit_edge.i, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit93
   %285 = add i32 %191, -1
   %286 = icmp ult i32 %285, -34
   br i1 %286, label %.lr.ph154, label %._crit_edge155

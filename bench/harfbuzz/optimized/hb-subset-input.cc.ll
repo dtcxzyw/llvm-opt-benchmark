@@ -652,45 +652,33 @@ if.end6.i:                                        ; preds = %if.end.i
   %4 = load i32, ptr %length.i.i.i.i.i, align 4
   %retval.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %4 to i64
   %cmp12.not.i.i.i.i.i.i = icmp eq i32 %4, 0
-  br i1 %cmp12.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %for.body.lr.ph.i.i.i.i.i.i
+  br i1 %cmp12.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %for.body.i.i.i.i.i.i
 
-for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.end6.i
-  %arrayidx.val.i12.i.i.i.i.i = load ptr, ptr %3, align 8
-  %cmp.i.i.i.i13.i.i.i.i.i = icmp eq ptr %arrayidx.val.i12.i.i.i.i.i, %key
-  br i1 %cmp.i.i.i.i13.i.i.i.i.i, label %6, label %for.inc.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %3, i64 %indvars.iv.next.i.i.i.i.i.i
+for.body.i.i.i.i.i.i:                             ; preds = %if.end6.i, %for.inc.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ 0, %if.end6.i ]
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %3, i64 %indvars.iv.i.i.i.i.i.i
   %arrayidx.val.i.i.i.i.i.i = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %arrayidx.val.i.i.i.i.i.i, %key
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %5, label %for.inc.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %cmp.i.le25.i.i.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i.i.i.i
-  %cond.fr.le.i.i.i.i.i = freeze i1 %cmp.i.le25.i.i.i.i.i
-  %5 = and i64 %indvars.iv.next.i.i.i.i.i.i, 4294967295
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %3, i64 %5
-  br i1 %cond.fr.le.i.i.i.i.i, label %6, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-
-for.inc.i.i.i.i.i.i:                              ; preds = %for.body.lr.ph.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %indvars.iv.i14.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %for.body.lr.ph.i.i.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i14.i.i.i.i.i, 1
+for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
+  %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
-6:                                                ; preds = %if.then.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
-  %7 = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i.i ], [ %arrayidx7.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
-  %item.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %item.sroa.2.0.copyload.i.i = load ptr, ptr %item.sroa.2.0..sroa_idx.i.i, align 8
+5:                                                ; preds = %for.body.i.i.i.i.i.i
+  %idxprom.i.i.i.i.i = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
+  %item.sroa.2.0.arrayidx.i.i.i.sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %3, i64 %idxprom.i.i.i.i.i, i32 1
+  %item.sroa.2.0.copyload.i.i = load ptr, ptr %item.sroa.2.0.arrayidx.i.i.i.sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
-_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %for.inc.i.i.i.i.i.i, %6, %if.then.i.i.i.i.i.i, %if.end6.i
-  %8 = phi ptr [ %item.sroa.2.0.copyload.i.i, %6 ], [ null, %if.end6.i ], [ null, %if.then.i.i.i.i.i.i ], [ null, %for.inc.i.i.i.i.i.i ]
+_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %for.inc.i.i.i.i.i.i, %5, %if.end6.i
+  %6 = phi ptr [ %item.sroa.2.0.copyload.i.i, %5 ], [ null, %if.end6.i ], [ null, %for.inc.i.i.i.i.i.i ]
   %call.i4.i3.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #16
   br label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %entry, %lor.lhs.false.i, %if.end.i, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %retval.0.i = phi ptr [ %8, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %lor.lhs.false.i ], [ null, %entry ], [ null, %if.end.i ]
+  %retval.0.i = phi ptr [ %6, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %lor.lhs.false.i ], [ null, %entry ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }
 
@@ -1640,65 +1628,51 @@ if.then6:                                         ; preds = %if.then3
   %1 = load i32, ptr %length.i.i.i, align 4
   %retval.sroa.2.8.insert.ext.i.i.i.i = zext i32 %1 to i64
   %cmp12.not.i.i.i.i = icmp eq i32 %1, 0
-  br i1 %cmp12.not.i.i.i.i, label %if.else.i, label %for.body.lr.ph.i.i.i.i
+  br i1 %cmp12.not.i.i.i.i, label %if.else.i, label %for.body.i.i.i.i
 
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.then6
-  %arrayidx.val.i12.i.i.i = load ptr, ptr %0, align 8
-  %cmp.i.i.i.i13.i.i.i = icmp eq ptr %arrayidx.val.i12.i.i.i, %key
-  br i1 %cmp.i.i.i.i13.i.i.i, label %if.end.i.i.i, label %for.inc.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %indvars.iv.next.i.i.i.i
+for.body.i.i.i.i:                                 ; preds = %if.then6, %for.inc.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %if.then6 ]
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %indvars.iv.i.i.i.i
   %arrayidx.val.i.i.i.i = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %arrayidx.val.i.i.i.i, %key
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i, label %for.inc.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp.i.le25.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i.i
-  %cond.fr.le.i.i.i = freeze i1 %cmp.i.le25.i.i.i
-  br i1 %cond.fr.le.i.i.i, label %if.then.i, label %if.else.i
-
-for.inc.i.i.i.i:                                  ; preds = %for.body.lr.ph.i.i.i.i, %for.body.i.i.i.i
-  %indvars.iv.i14.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.lr.ph.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i14.i.i.i, 1
+for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %if.else.i, label %for.body.i.i.i.i, !llvm.loop !9
 
-if.then.i:                                        ; preds = %if.then.i.i.i.i
-  %2 = and i64 %indvars.iv.next.i.i.i.i, 4294967295
-  %arrayidx7.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %2
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i, %for.body.lr.ph.i.i.i.i
-  %3 = phi ptr [ %arrayidx7.i.i.i, %if.then.i ], [ %0, %for.body.lr.ph.i.i.i.i ]
-  %old.sroa.1.0.copyload21.in.i = getelementptr inbounds i8, ptr %3, i64 8
-  %old.sroa.1.0.copyload21.i = load ptr, ptr %old.sroa.1.0.copyload21.in.i, align 8
-  %old.sroa.2.0.copyload23.in.i = getelementptr inbounds i8, ptr %3, i64 16
-  %old.sroa.2.0.copyload23.i = load ptr, ptr %old.sroa.2.0.copyload23.in.i, align 8
-  %sub.i.i = add i32 %1, -1
-  %idxprom.i.i.i = zext i32 %sub.i.i to i64
+if.then.i:                                        ; preds = %for.body.i.i.i.i
+  %idxprom.i.i.i = and i64 %indvars.iv.i.i.i.i, 4294967295
   %arrayidx.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %idxprom.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i, i64 24, i1 false)
-  %4 = load i32, ptr %length.i.i.i, align 4, !noalias !17
-  %tobool.not.i.i = icmp eq i32 %4, 0
+  %old.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %old.sroa.1.0.copyload.i = load ptr, ptr %old.sroa.1.0..sroa_idx.i, align 8
+  %old.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %old.sroa.2.0.copyload.i = load ptr, ptr %old.sroa.2.0..sroa_idx.i, align 8
+  %sub.i.i = add i32 %1, -1
+  %idxprom.i.i6.i = zext i32 %sub.i.i to i64
+  %arrayidx.i.i7.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %idxprom.i.i6.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i7.i, i64 24, i1 false)
+  %2 = load i32, ptr %length.i.i.i, align 4, !noalias !17
+  %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.i.i.i
-  %sub.i7.i = add i32 %4, -1
-  store i32 %sub.i7.i, ptr %length.i.i.i, align 4, !noalias !17
+if.end.i.i:                                       ; preds = %if.then.i
+  %sub.i9.i = add i32 %2, -1
+  store i32 %sub.i9.i, ptr %length.i.i.i, align 4, !noalias !17
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
-_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %if.end.i.i, %if.end.i.i.i
-  %call.i8.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
-  %tobool.not.i9.i = icmp eq ptr %old.sroa.2.0.copyload23.i, null
-  br i1 %tobool.not.i9.i, label %return, label %if.then.i10.i
+_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %if.end.i.i, %if.then.i
+  %call.i10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+  %tobool.not.i11.i = icmp eq ptr %old.sroa.2.0.copyload.i, null
+  br i1 %tobool.not.i11.i, label %return, label %if.then.i12.i
 
-if.then.i10.i:                                    ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
-  tail call void %old.sroa.2.0.copyload23.i(ptr noundef %old.sroa.1.0.copyload21.i) #16
+if.then.i12.i:                                    ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
+  tail call void %old.sroa.2.0.copyload.i(ptr noundef %old.sroa.1.0.copyload.i) #16
   br label %return
 
-if.else.i:                                        ; preds = %for.inc.i.i.i.i, %if.then.i.i.i.i, %if.then6
-  %call.i12.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+if.else.i:                                        ; preds = %for.inc.i.i.i.i, %if.then6
+  %call.i14.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
   br label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -1712,8 +1686,8 @@ if.end8:                                          ; preds = %if.then3, %if.end
   %tobool15 = icmp ne ptr %call, null
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then.i10.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, %entry, %if.end8
-  %retval.0 = phi i1 [ %tobool15, %if.end8 ], [ false, %entry ], [ true, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i ], [ true, %if.then.i10.i ], [ true, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then.i12.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, %entry, %if.end8
+  %retval.0 = phi i1 [ %tobool15, %if.end8 ], [ false, %entry ], [ true, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i ], [ true, %if.then.i12.i ], [ true, %if.else.i ]
   ret i1 %retval.0
 }
 
@@ -1734,39 +1708,31 @@ entry:
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %x.val.i.i.i = load ptr, ptr %v, align 8
-  %arrayidx.val.i12.i.i = load ptr, ptr %0, align 8
-  %cmp.i.i.i.i13.i.i = icmp eq ptr %x.val.i.i.i, %arrayidx.val.i12.i.i
-  br i1 %cmp.i.i.i.i13.i.i, label %if.then, label %for.inc.i.i.i
+  br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %indvars.iv.next.i.i.i
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %indvars.iv.i.i.i
   %arrayidx.val.i.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %x.val.i.i.i, %arrayidx.val.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i, !llvm.loop !20
+  br i1 %cmp.i.i.i.i.i.i, label %if.then, label %for.inc.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %cmp.i.le25.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i
-  %cond.fr.le.i.i = freeze i1 %cmp.i.le25.i.i
-  %2 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %arrayidx7.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %2
-  br i1 %cond.fr.le.i.i, label %if.then, label %if.else4
-
-for.inc.i.i.i:                                    ; preds = %for.body.lr.ph.i.i.i, %for.body.i.i.i
-  %indvars.iv.i14.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 0, %for.body.lr.ph.i.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i14.i.i, 1
+for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %retval.sroa.2.8.insert.ext.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.else4, label %for.body.i.i.i, !llvm.loop !20
 
-if.then:                                          ; preds = %if.then.i.i.i, %for.body.lr.ph.i.i.i
-  %3 = phi ptr [ %0, %for.body.lr.ph.i.i.i ], [ %arrayidx7.i.i, %if.then.i.i.i ]
+if.then:                                          ; preds = %for.body.i.i.i
+  %idxprom.i.i = and i64 %indvars.iv.i.i.i, 4294967295
+  %arrayidx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %0, i64 %idxprom.i.i
   br i1 %replace, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %old.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %old.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %old.sroa.1.0.copyload = load ptr, ptr %old.sroa.1.0..sroa_idx, align 8
-  %old.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %old.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
   %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
   %tobool.not.i = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i, label %if.end7, label %if.then.i
@@ -1779,22 +1745,22 @@ if.else:                                          ; preds = %if.then
   %call.i8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
   br label %if.end7
 
-if.else4:                                         ; preds = %for.inc.i.i.i, %if.then.i.i.i, %entry
-  %4 = load i32, ptr %this, align 8
-  %cmp.not.i = icmp slt i32 %1, %4
+if.else4:                                         ; preds = %for.inc.i.i.i, %entry
+  %2 = load i32, ptr %this, align 8
+  %cmp.not.i = icmp slt i32 %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else4
   %add.i = add i32 %1, 1
-  %cmp.i.i.i = icmp slt i32 %4, 0
+  %cmp.i.i.i = icmp slt i32 %2, 0
   br i1 %cmp.i.i.i, label %if.then.i9, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ugt i32 %add.i, %4
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %2
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
-  %new_allocated.133.i.i = phi i32 [ %add15.i.i, %while.body.i.i ], [ %4, %if.end.i.i ]
+  %new_allocated.133.i.i = phi i32 [ %add15.i.i, %while.body.i.i ], [ %2, %if.end.i.i ]
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
@@ -1802,8 +1768,8 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !21
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
-  %5 = icmp ugt i32 %add15.i.i, 178956970
-  br i1 %5, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread5.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %3 = icmp ugt i32 %add15.i.i, 178956970
+  br i1 %3, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread5.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
@@ -1813,8 +1779,8 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vec
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i
 
 if.then28.i.i:                                    ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  %6 = load i32, ptr %this, align 8
-  %cmp30.not.i.i = icmp ugt i32 %add15.i.i, %6
+  %4 = load i32, ptr %this, align 8
+  %cmp30.not.i.i = icmp ugt i32 %add15.i.i, %4
   br i1 %cmp30.not.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread5.i, label %if.then28.i.i.if.end.i_crit_edge
 
 if.then28.i.i.if.end.i_crit_edge:                 ; preds = %if.then28.i.i
@@ -1822,7 +1788,7 @@ if.then28.i.i.if.end.i_crit_edge:                 ; preds = %if.then28.i.i
   br label %if.end.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread5.i: ; preds = %if.then28.i.i, %lor.rhs.i.i
-  %new_allocated.028.sink.i.ph.in.i = phi i32 [ %4, %lor.rhs.i.i ], [ %6, %if.then28.i.i ]
+  %new_allocated.028.sink.i.ph.in.i = phi i32 [ %2, %lor.rhs.i.i ], [ %4, %if.then28.i.i ]
   %new_allocated.028.sink.i.ph.i = xor i32 %new_allocated.028.sink.i.ph.in.i, -1
   store i32 %new_allocated.028.sink.i.ph.i, ptr %this, align 8
   br label %if.then.i9
@@ -1837,12 +1803,12 @@ if.then.i9:                                       ; preds = %_ZN11hb_vector_tIN2
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
 if.end.i:                                         ; preds = %if.then28.i.i.if.end.i_crit_edge, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i, %if.end.i.i, %if.else4
-  %7 = phi ptr [ %.pre, %if.then28.i.i.if.end.i_crit_edge ], [ %call.i.i.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i ], [ %0, %if.end.i.i ], [ %0, %if.else4 ]
-  %8 = load i32, ptr %length.i.i, align 4
-  %inc.i = add i32 %8, 1
+  %5 = phi ptr [ %.pre, %if.then28.i.i.if.end.i_crit_edge ], [ %call.i.i.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i ], [ %0, %if.end.i.i ], [ %0, %if.else4 ]
+  %6 = load i32, ptr %length.i.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %length.i.i, align 4
-  %idxprom.i = zext i32 %8 to i64
-  %arrayidx.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %idxprom.i
+  %idxprom.i = zext i32 %6 to i64
+  %arrayidx.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %5, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
@@ -1852,9 +1818,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i, %if.then3, %if.else, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %item.0 = phi ptr [ null, %if.else ], [ %retval.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %3, %if.then3 ], [ %3, %if.then.i ]
-  %9 = load i32, ptr %this, align 8
-  %cmp.i = icmp slt i32 %9, 0
+  %item.0 = phi ptr [ null, %if.else ], [ %retval.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %arrayidx.i.i, %if.then3 ], [ %arrayidx.i.i, %if.then.i ]
+  %7 = load i32, ptr %this, align 8
+  %cmp.i = icmp slt i32 %7, 0
   %cond = select i1 %cmp.i, ptr null, ptr %item.0
   ret ptr %cond
 }

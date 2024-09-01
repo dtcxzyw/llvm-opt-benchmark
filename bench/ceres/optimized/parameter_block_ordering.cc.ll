@@ -1772,7 +1772,7 @@ _ZNSt10_HashtableIPN5ceres8internal14ParameterBlockESt4pairIKS3_cESaIS6_ENSt8__d
 ._crit_edge210:                                   ; preds = %.loopexit173
   %.pre236 = load ptr, ptr %21, align 8
   %.pre237 = load ptr, ptr %1, align 8
-  br i1 %.not.i.i.i.i, label %._crit_edge215, label %.lr.ph214
+  br label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %._crit_edge210, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE9push_backERKS3_.exit121
   %.sroa.0135.0212 = phi ptr [ %279, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE9push_backERKS3_.exit121 ], [ %58, %._crit_edge210 ]
@@ -1921,11 +1921,11 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE9push_backERKS3_.exit121:
   %.pre239 = load ptr, ptr %1, align 8
   br label %._crit_edge215
 
-._crit_edge215:                                   ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit, %._crit_edge215.loopexit, %._crit_edge210
-  %280 = phi ptr [ %.pre236, %._crit_edge215.loopexit ], [ %.pre236, %._crit_edge210 ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
-  %281 = phi ptr [ %.pre237, %._crit_edge215.loopexit ], [ %.pre237, %._crit_edge210 ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
-  %282 = phi ptr [ %.pre239, %._crit_edge215.loopexit ], [ %.pre237, %._crit_edge210 ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
-  %283 = phi ptr [ %.pre238, %._crit_edge215.loopexit ], [ %.pre236, %._crit_edge210 ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
+._crit_edge215:                                   ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit, %._crit_edge215.loopexit
+  %280 = phi ptr [ %.pre236, %._crit_edge215.loopexit ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
+  %281 = phi ptr [ %.pre237, %._crit_edge215.loopexit ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
+  %282 = phi ptr [ %.pre239, %._crit_edge215.loopexit ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
+  %283 = phi ptr [ %.pre238, %._crit_edge215.loopexit ], [ %108, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE7reserveEm.exit ]
   %284 = ptrtoint ptr %283 to i64
   %285 = ptrtoint ptr %282 to i64
   %286 = sub i64 %284, %285

@@ -2574,17 +2574,14 @@ Abc_Clock.exit216:                                ; preds = %339, %342
 ._crit_edge243:                                   ; preds = %360
   %371 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 0, ptr %371, align 4
-  br i1 %.not253, label %._crit_edge249, label %.lr.ph248
-
-.lr.ph248:                                        ; preds = %._crit_edge243
   %372 = getelementptr inbounds i8, ptr %1, i64 36
   %umax272 = call i32 @llvm.umax.i32(i32 %356, i32 1)
   %wide.trip.count273 = zext nneg i32 %umax272 to i64
   br label %373
 
-373:                                              ; preds = %.lr.ph248, %384
-  %374 = phi i32 [ 0, %.lr.ph248 ], [ %385, %384 ]
-  %indvars.iv269 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next270, %384 ]
+373:                                              ; preds = %._crit_edge243, %384
+  %374 = phi i32 [ 0, %._crit_edge243 ], [ %385, %384 ]
+  %indvars.iv269 = phi i64 [ 0, %._crit_edge243 ], [ %indvars.iv.next270, %384 ]
   %375 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %indvars.iv269
   %376 = load i32, ptr %375, align 4
   %377 = ashr i32 %376, 1
@@ -2607,7 +2604,7 @@ Abc_Clock.exit216:                                ; preds = %339, %342
   %exitcond274.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count273
   br i1 %exitcond274.not, label %._crit_edge249, label %373, !llvm.loop !39
 
-._crit_edge249:                                   ; preds = %384, %._crit_edge243.thread, %._crit_edge243
+._crit_edge249:                                   ; preds = %384, %._crit_edge243.thread
   br i1 %.not160, label %397, label %386
 
 386:                                              ; preds = %._crit_edge249
@@ -3610,16 +3607,13 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
   %.val114 = load ptr, ptr %329, align 8
   %330 = sext i32 %328 to i64
   %331 = getelementptr inbounds i8, ptr %.val114, i64 %330
-  br i1 %.not166, label %._crit_edge160.thread, label %.lr.ph159
-
-.lr.ph159:                                        ; preds = %._crit_edge155
   %332 = getelementptr inbounds i8, ptr %1, i64 36
   %umax182 = tail call i32 @llvm.umax.i32(i32 %301, i32 1)
   %wide.trip.count183 = zext nneg i32 %umax182 to i64
   br label %333
 
-333:                                              ; preds = %.lr.ph159, %333
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next180, %333 ]
+333:                                              ; preds = %._crit_edge155, %333
+  %indvars.iv179 = phi i64 [ 0, %._crit_edge155 ], [ %indvars.iv.next180, %333 ]
   %334 = getelementptr inbounds i8, ptr %331, i64 %indvars.iv179
   %335 = load i8, ptr %334, align 1
   %336 = sext i8 %335 to i32
@@ -3635,7 +3629,7 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
   %exitcond184.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count183
   br i1 %exitcond184.not, label %._crit_edge160, label %333, !llvm.loop !49
 
-._crit_edge160.thread:                            ; preds = %._crit_edge155, %291
+._crit_edge160.thread:                            ; preds = %291
   %344 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 0, ptr %344, align 4
   br label %._crit_edge164
@@ -3643,17 +3637,14 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
 ._crit_edge160:                                   ; preds = %333
   %345 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 0, ptr %345, align 4
-  br i1 %.not166, label %._crit_edge164, label %.lr.ph163
-
-.lr.ph163:                                        ; preds = %._crit_edge160
   %346 = getelementptr inbounds i8, ptr %1, i64 36
   %umax188 = tail call i32 @llvm.umax.i32(i32 %301, i32 1)
   %wide.trip.count189 = zext nneg i32 %umax188 to i64
   br label %347
 
-347:                                              ; preds = %.lr.ph163, %358
-  %348 = phi i32 [ 0, %.lr.ph163 ], [ %359, %358 ]
-  %indvars.iv185 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next186, %358 ]
+347:                                              ; preds = %._crit_edge160, %358
+  %348 = phi i32 [ 0, %._crit_edge160 ], [ %359, %358 ]
+  %indvars.iv185 = phi i64 [ 0, %._crit_edge160 ], [ %indvars.iv.next186, %358 ]
   %349 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %indvars.iv185
   %350 = load i32, ptr %349, align 4
   %351 = ashr i32 %350, 1
@@ -3676,7 +3667,7 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
   %exitcond190.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count189
   br i1 %exitcond190.not, label %._crit_edge164, label %347, !llvm.loop !50
 
-._crit_edge164:                                   ; preds = %358, %._crit_edge160.thread, %._crit_edge160
+._crit_edge164:                                   ; preds = %358, %._crit_edge160.thread
   %360 = getelementptr inbounds i8, ptr %0, i64 2028
   %361 = load i32, ptr %360, align 4
   %362 = add nsw i32 %361, 1

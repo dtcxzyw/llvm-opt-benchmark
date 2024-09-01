@@ -247,15 +247,8 @@ for.cond.preheader:                               ; preds = %if.end3
   %sub = add nsw i32 %shr, -100
   br label %for.body
 
-for.cond:                                         ; preds = %if.end16
-  %inc = add nuw nsw i32 %i.018, 1
-  %cmp8 = icmp ult i32 %i.018, 999
-  %exitcond.not = icmp eq i32 %inc, 1000
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
-
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %cmp819 = phi i1 [ true, %for.cond.preheader ], [ %cmp8, %for.cond ]
-  %i.018 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %if.end16, %for.cond.preheader
+  %i.018 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end16 ]
   %call9 = tail call i32 @BN_priv_rand_ex(ptr noundef %Xq, i32 noundef %shr, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %ctx) #2
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %if.end12
@@ -268,12 +261,14 @@ if.end12:                                         ; preds = %for.body
 if.end16:                                         ; preds = %if.end12
   %call17 = tail call i32 @BN_num_bits(ptr noundef nonnull %call4) #2
   %cmp18 = icmp sgt i32 %call17, %sub
-  br i1 %cmp18, label %for.end, label %for.cond
+  %inc = add nuw nsw i32 %i.018, 1
+  %exitcond.not = icmp eq i32 %inc, 1000
+  %or.cond20 = select i1 %cmp18, i1 true, i1 %exitcond.not
+  br i1 %or.cond20, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %if.end16, %for.cond
-  %cmp8.lcssa = phi i1 [ %cmp819, %if.end16 ], [ %cmp8, %for.cond ]
+for.end:                                          ; preds = %if.end16
   tail call void @BN_CTX_end(ptr noundef %ctx) #2
-  %. = zext i1 %cmp8.lcssa to i32
+  %. = zext i1 %cmp18 to i32
   br label %return
 
 err:                                              ; preds = %if.end12, %for.body, %if.end3

@@ -1256,8 +1256,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %__begin1.sroa.0.0.in = phi ptr [ %m_header.i.i.i.i.i.i, %entry ], [ %__begin1.sroa.0.0, %for.body ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
-  %cmp.i.i.i.i.i.i.i.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.not.not.not, label %for.body, label %cleanup5
+  %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not, label %for.body, label %cleanup5
 
 for.body:                                         ; preds = %for.cond
   %source.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 16
@@ -1268,7 +1268,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %1, label %cleanup5, label %for.cond
 
 cleanup5:                                         ; preds = %for.body, %for.cond
-  ret i1 %cmp.i.i.i.i.i.i.i.not.not.not
+  ret i1 %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1291,8 +1291,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %__begin1.sroa.0.0.in = phi ptr [ %m_header.i.i.i.i.i.i, %entry ], [ %__begin1.sroa.0.0, %for.body ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
-  %cmp.i.i.i.i.i.i.i.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.not.not.not, label %for.body, label %cleanup5
+  %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not, label %for.body, label %cleanup5
 
 for.body:                                         ; preds = %for.cond
   %source.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 16
@@ -1303,7 +1303,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %1, label %for.cond, label %cleanup5
 
 cleanup5:                                         ; preds = %for.body, %for.cond
-  ret i1 %cmp.i.i.i.i.i.i.i.not.not.not
+  ret i1 %cmp.i.i.i.i.i.i.i.not.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1315,8 +1315,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %__begin1.sroa.0.0.in = phi ptr [ %m_header.i.i.i.i.i, %entry ], [ %__begin1.sroa.0.0, %for.body ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
-  %cmp.i.i.i.i.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.not.not.not, label %for.body, label %cleanup6
+  %cmp.i.i.i.i.not.not.not.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.not.not.not.not.not.not.not, label %for.body, label %cleanup6
 
 for.body:                                         ; preds = %for.cond
   %history = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 80
@@ -1325,7 +1325,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp.not, label %cleanup6, label %for.cond
 
 cleanup6:                                         ; preds = %for.body, %for.cond
-  ret i1 %cmp.i.i.i.i.not.not.not
+  ret i1 %cmp.i.i.i.i.not.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1337,8 +1337,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %__begin1.sroa.0.0.in = phi ptr [ %m_header.i.i.i.i.i, %entry ], [ %__begin1.sroa.0.0, %for.body ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
-  %cmp.i.i.i.i.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.not.not.not, label %for.body, label %cleanup6
+  %cmp.i.i.i.i.not.not.not.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.not.not.not.not.not.not.not, label %for.body, label %cleanup6
 
 for.body:                                         ; preds = %for.cond
   %history = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 80
@@ -1347,7 +1347,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp.not, label %cleanup6, label %for.cond
 
 cleanup6:                                         ; preds = %for.body, %for.cond
-  ret i1 %cmp.i.i.i.i.not.not.not
+  ret i1 %cmp.i.i.i.i.not.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1116,16 +1116,13 @@ for.end108:                                       ; preds = %for.body99
   %weak_field_map_offset = getelementptr inbounds i8, ptr %call12, i64 72
   store i32 -1, ptr %weak_field_map_offset, align 8
   store i32 %add105, ptr %call12, align 8
-  br i1 %cmp98161, label %for.cond116.preheader.lr.ph, label %for.end131
-
-for.cond116.preheader.lr.ph:                      ; preds = %for.end108
   %oneof_decls_.i.i = getelementptr inbounds i8, ptr %type, i64 64
   %85 = load ptr, ptr %oneof_decls_.i.i, align 8
   %wide.trip.count186 = zext nneg i32 %47 to i64
   br label %for.cond116.preheader
 
-for.cond116.preheader:                            ; preds = %for.cond116.preheader.lr.ph, %for.inc129
-  %indvars.iv183 = phi i64 [ 0, %for.cond116.preheader.lr.ph ], [ %indvars.iv.next184, %for.inc129 ]
+for.cond116.preheader:                            ; preds = %for.end108, %for.inc129
+  %indvars.iv183 = phi i64 [ 0, %for.end108 ], [ %indvars.iv.next184, %for.inc129 ]
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::OneofDescriptor", ptr %85, i64 %indvars.iv183
   %field_count_.i104 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %86 = load i32, ptr %field_count_.i104, align 4
@@ -1190,9 +1187,9 @@ for.inc129:                                       ; preds = %_ZNK6google8protobu
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %for.end131, label %for.cond116.preheader, !llvm.loop !18
 
-for.end131:                                       ; preds = %for.inc129, %for.end108.thread, %for.end108
-  %weak_field_map_offset194 = phi ptr [ %weak_field_map_offset192, %for.end108.thread ], [ %weak_field_map_offset, %for.end108 ], [ %weak_field_map_offset, %for.inc129 ]
-  %size.5.lcssa193 = phi i32 [ %size.3.lcssa, %for.end108.thread ], [ %add105, %for.end108 ], [ %add105, %for.inc129 ]
+for.end131:                                       ; preds = %for.inc129, %for.end108.thread
+  %weak_field_map_offset194 = phi ptr [ %weak_field_map_offset192, %for.end108.thread ], [ %weak_field_map_offset, %for.inc129 ]
+  %size.5.lcssa193 = phi i32 [ %size.3.lcssa, %for.end108.thread ], [ %add105, %for.inc129 ]
   %conv132 = sext i32 %size.5.lcssa193 to i64
   %call133 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv132) #24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call133, i8 0, i64 %conv132, i1 false)

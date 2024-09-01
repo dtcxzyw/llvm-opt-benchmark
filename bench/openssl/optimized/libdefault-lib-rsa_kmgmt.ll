@@ -639,12 +639,12 @@ land.rhs20:                                       ; preds = %if.end13
   %and17 = and i32 %selection, 1
   %call21 = call i32 @ossl_rsa_fromdata(ptr noundef nonnull %keydata, ptr noundef %params, i32 noundef %and17) #5
   %tobool22 = icmp ne i32 %call21, 0
+  %0 = zext i1 %tobool22 to i32
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %land.rhs, %if.end13, %land.rhs20, %entry
-  %retval.0.shrunk = phi i1 [ false, %entry ], [ %cmp15.not, %if.end13 ], [ %tobool22, %land.rhs20 ], [ false, %land.rhs ], [ false, %land.lhs.true.i ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
-  ret i32 %retval.0
+  %retval.0.shrunk = phi i32 [ 0, %entry ], [ 1, %if.end13 ], [ %0, %land.rhs20 ], [ 0, %land.rhs ], [ 0, %land.lhs.true.i ]
+  ret i32 %retval.0.shrunk
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

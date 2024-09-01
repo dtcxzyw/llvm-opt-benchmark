@@ -2962,14 +2962,14 @@ for.body.i.preheader:                             ; preds = %sw.bb
   %tobool.not.i.i = icmp eq ptr %9, null
   %10 = load ptr, ptr %right_validity, align 8, !tbaa !19
   %tobool.not.i31.i = icmp eq ptr %10, null
-  %.pre63 = load ptr, ptr %right_ptr, align 8, !tbaa !17
+  %.pre62 = load ptr, ptr %right_ptr, align 8, !tbaa !17
   br i1 %tobool.not.i.i, label %for.body.i.us.preheader, label %for.body.i.preheader.split
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
   br i1 %tobool.not.i31.i, label %for.body.i.us.us, label %for.body.i.us
 
 for.body.i.us.us:                                 ; preds = %for.body.i.us.preheader, %for.cond.i.us.us
-  %11 = phi ptr [ %add.ptr1.i.i.us.us, %for.cond.i.us.us ], [ %.pre63, %for.body.i.us.preheader ]
+  %11 = phi ptr [ %add.ptr1.i.i.us.us, %for.cond.i.us.us ], [ %.pre62, %for.body.i.us.preheader ]
   %i.046.i.us.us = phi i64 [ %inc.i.us.us, %for.cond.i.us.us ], [ 0, %for.body.i.us.preheader ]
   %12 = load ptr, ptr %left_ptr, align 8, !tbaa !17
   %ret.0.copyload.i.i.i.i.us.us = load i8, ptr %12, align 1
@@ -2983,8 +2983,8 @@ for.body.i.us.us:                                 ; preds = %for.body.i.us.prehe
   br i1 %cmp.i.i.i.i.us.us, label %for.cond.i.us.us, label %.thread
 
 .thread:                                          ; preds = %for.body.i.us.us
-  %cmp.i.i.i.i.i.us68 = icmp sgt i8 %ret.0.copyload.i7.i.i.i.us.us, %ret.0.copyload.i.i.i.i.us.us
-  %..i.i.i.us69 = select i1 %cmp.i.i.i.i.i.us68, i32 -1, i32 1
+  %cmp.i.i.i.i.i.us67 = icmp sgt i8 %ret.0.copyload.i7.i.i.i.us.us, %ret.0.copyload.i.i.i.i.us.us
+  %..i.i.i.us68 = select i1 %cmp.i.i.i.i.i.us67, i32 -1, i32 1
   br label %if.end164
 
 for.cond.i.us.us:                                 ; preds = %for.body.i.us.us
@@ -2993,7 +2993,7 @@ for.cond.i.us.us:                                 ; preds = %for.body.i.us.us
   br i1 %exitcond.not.i.us.us, label %land.lhs.true157, label %for.body.i.us.us, !llvm.loop !119
 
 for.body.i.us:                                    ; preds = %for.body.i.us.preheader, %for.cond.i.us
-  %14 = phi ptr [ %add.ptr1.i.i.us, %for.cond.i.us ], [ %.pre63, %for.body.i.us.preheader ]
+  %14 = phi ptr [ %add.ptr1.i.i.us, %for.cond.i.us ], [ %.pre62, %for.body.i.us.preheader ]
   %i.046.i.us = phi i64 [ %inc.i.us, %for.cond.i.us ], [ 0, %for.body.i.us.preheader ]
   %15 = trunc i64 %i.046.i.us to i32
   %conv2.i.i.us = and i32 %15, 7
@@ -3026,7 +3026,7 @@ for.body.i.preheader.split:                       ; preds = %for.body.i.preheade
   br i1 %tobool.not.i31.i, label %for.body.i.us374, label %for.body.i
 
 for.body.i.us374:                                 ; preds = %for.body.i.preheader.split, %for.cond.i.us399
-  %19 = phi ptr [ %add.ptr1.i.i.us394, %for.cond.i.us399 ], [ %.pre63, %for.body.i.preheader.split ]
+  %19 = phi ptr [ %add.ptr1.i.i.us394, %for.cond.i.us399 ], [ %.pre62, %for.body.i.preheader.split ]
   %i.046.i.us375 = phi i64 [ %inc.i.us400, %for.cond.i.us399 ], [ 0, %for.body.i.preheader.split ]
   %div2.i.i.us376 = lshr i64 %i.046.i.us375, 3
   %arrayidx.i.i.i.us = getelementptr inbounds i8, ptr %9, i64 %div2.i.i.us376
@@ -3060,7 +3060,7 @@ for.cond.i:                                       ; preds = %for.body.i
   br i1 %exitcond.not.i, label %land.lhs.true157, label %for.body.i, !llvm.loop !119
 
 for.body.i:                                       ; preds = %for.body.i.preheader.split, %for.cond.i
-  %24 = phi ptr [ %add.ptr1.i.i, %for.cond.i ], [ %.pre63, %for.body.i.preheader.split ]
+  %24 = phi ptr [ %add.ptr1.i.i, %for.cond.i ], [ %.pre62, %for.body.i.preheader.split ]
   %i.046.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.body.i.preheader.split ]
   %div2.i.i = lshr i64 %i.046.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %div2.i.i
@@ -3514,7 +3514,7 @@ if.end164.loopexit.split.loop.exit370:            ; preds = %if.else135
   br label %if.end164
 
 if.end164:                                        ; preds = %if.end146, %sw.bb103, %76, %.thread, %75, %if.end164.loopexit.split.loop.exit370, %if.then159, %land.lhs.true157, %if.end155, %if.end155.loopexit404, %if.end14.i
-  %comp_res.4 = phi i32 [ 0, %land.lhs.true157 ], [ %comp_res.3, %if.end155 ], [ %.259, %if.then159 ], [ %..i, %if.end14.i ], [ %..le, %if.end164.loopexit.split.loop.exit370 ], [ 1, %if.end155.loopexit404 ], [ -1, %75 ], [ %..i.i.i.us69, %.thread ], [ %spec.select, %76 ], [ %call6.i, %sw.bb103 ], [ %comp_res.1, %if.end146 ]
+  %comp_res.4 = phi i32 [ 0, %land.lhs.true157 ], [ %comp_res.3, %if.end155 ], [ %.259, %if.then159 ], [ %..i, %if.end14.i ], [ %..le, %if.end164.loopexit.split.loop.exit370 ], [ 1, %if.end155.loopexit404 ], [ -1, %75 ], [ %..i.i.i.us68, %.thread ], [ %spec.select, %76 ], [ %call6.i, %sw.bb103 ], [ %comp_res.1, %if.end146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %count) #30
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %right_validity, i64 16
   %77 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !43
@@ -3973,14 +3973,14 @@ for.body.i.preheader:                             ; preds = %sw.bb
   %tobool.not.i.i = icmp eq ptr %7, null
   %8 = load ptr, ptr %right_validity, align 8, !tbaa !19
   %tobool.not.i31.i = icmp eq ptr %8, null
-  %.pre59 = load ptr, ptr %right_ptr, align 8, !tbaa !17
+  %.pre58 = load ptr, ptr %right_ptr, align 8, !tbaa !17
   br i1 %tobool.not.i.i, label %for.body.i.us.preheader, label %for.body.i.preheader.split
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
   br i1 %tobool.not.i31.i, label %for.body.i.us.us, label %for.body.i.us
 
 for.body.i.us.us:                                 ; preds = %for.body.i.us.preheader, %for.cond.i.us.us
-  %9 = phi ptr [ %add.ptr1.i.i.us.us, %for.cond.i.us.us ], [ %.pre59, %for.body.i.us.preheader ]
+  %9 = phi ptr [ %add.ptr1.i.i.us.us, %for.cond.i.us.us ], [ %.pre58, %for.body.i.us.preheader ]
   %i.046.i.us.us = phi i64 [ %inc.i.us.us, %for.cond.i.us.us ], [ 0, %for.body.i.us.preheader ]
   %10 = load ptr, ptr %left_ptr, align 8, !tbaa !17
   %ret.0.copyload.i.i.i.i.us.us = load i8, ptr %10, align 1
@@ -3994,8 +3994,8 @@ for.body.i.us.us:                                 ; preds = %for.body.i.us.prehe
   br i1 %cmp.i.i.i.i.us.us, label %for.cond.i.us.us, label %.thread
 
 .thread:                                          ; preds = %for.body.i.us.us
-  %cmp.i.i.i.i.i.us.le65 = icmp sgt i8 %ret.0.copyload.i7.i.i.i.us.us, %ret.0.copyload.i.i.i.i.us.us
-  %..i.i.i.us.le66 = select i1 %cmp.i.i.i.i.i.us.le65, i32 -1, i32 1
+  %cmp.i.i.i.i.i.us.le64 = icmp sgt i8 %ret.0.copyload.i7.i.i.i.us.us, %ret.0.copyload.i.i.i.i.us.us
+  %..i.i.i.us.le65 = select i1 %cmp.i.i.i.i.i.us.le64, i32 -1, i32 1
   br label %if.end149
 
 for.cond.i.us.us:                                 ; preds = %for.body.i.us.us
@@ -4004,7 +4004,7 @@ for.cond.i.us.us:                                 ; preds = %for.body.i.us.us
   br i1 %exitcond.not.i.us.us, label %if.end149, label %for.body.i.us.us, !llvm.loop !119
 
 for.body.i.us:                                    ; preds = %for.body.i.us.preheader, %for.cond.i.us
-  %12 = phi ptr [ %add.ptr1.i.i.us, %for.cond.i.us ], [ %.pre59, %for.body.i.us.preheader ]
+  %12 = phi ptr [ %add.ptr1.i.i.us, %for.cond.i.us ], [ %.pre58, %for.body.i.us.preheader ]
   %i.046.i.us = phi i64 [ %inc.i.us, %for.cond.i.us ], [ 0, %for.body.i.us.preheader ]
   %13 = trunc i64 %i.046.i.us to i32
   %conv2.i.i.us = and i32 %13, 7
@@ -4020,13 +4020,13 @@ for.body.i.us:                                    ; preds = %for.body.i.us.prehe
   %ret.0.copyload.i.i.i.i.us = load i8, ptr %15, align 1
   %ret.0.copyload.i7.i.i.i.us = load i8, ptr %12, align 1
   %cmp.i.i.i.i.us = icmp eq i8 %ret.0.copyload.i.i.i.i.us, %ret.0.copyload.i7.i.i.i.us
-  %cond.fr60 = freeze i1 %cmp.i.i.i.i.us
+  %cond.fr59 = freeze i1 %cmp.i.i.i.i.us
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %add.ptr.i.i.us, ptr %left_ptr, align 8, !tbaa !17
   %16 = load ptr, ptr %right_ptr, align 8, !tbaa !17
   %add.ptr1.i.i.us = getelementptr inbounds i8, ptr %16, i64 1
   store ptr %add.ptr1.i.i.us, ptr %right_ptr, align 8, !tbaa !17
-  %cmp15.not.i.us = and i1 %tobool.i41.not.i.us, %cond.fr60
+  %cmp15.not.i.us = and i1 %tobool.i41.not.i.us, %cond.fr59
   br i1 %cmp15.not.i.us, label %for.cond.i.us, label %if.end149.loopexit.split.loop.exit
 
 for.cond.i.us:                                    ; preds = %for.body.i.us
@@ -4038,7 +4038,7 @@ for.body.i.preheader.split:                       ; preds = %for.body.i.preheade
   br i1 %tobool.not.i31.i, label %for.body.i.us334, label %for.body.i
 
 for.body.i.us334:                                 ; preds = %for.body.i.preheader.split, %for.cond.i.us359
-  %17 = phi ptr [ %add.ptr1.i.i.us354, %for.cond.i.us359 ], [ %.pre59, %for.body.i.preheader.split ]
+  %17 = phi ptr [ %add.ptr1.i.i.us354, %for.cond.i.us359 ], [ %.pre58, %for.body.i.preheader.split ]
   %i.046.i.us335 = phi i64 [ %inc.i.us360, %for.cond.i.us359 ], [ 0, %for.body.i.preheader.split ]
   %div2.i.i.us336 = lshr i64 %i.046.i.us335, 3
   %arrayidx.i.i.i.us = getelementptr inbounds i8, ptr %7, i64 %div2.i.i.us336
@@ -4072,7 +4072,7 @@ for.cond.i:                                       ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end149, label %for.body.i, !llvm.loop !119
 
 for.body.i:                                       ; preds = %for.body.i.preheader.split, %for.cond.i
-  %22 = phi ptr [ %add.ptr1.i.i, %for.cond.i ], [ %.pre59, %for.body.i.preheader.split ]
+  %22 = phi ptr [ %add.ptr1.i.i, %for.cond.i ], [ %.pre58, %for.body.i.preheader.split ]
   %i.046.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.body.i.preheader.split ]
   %div2.i.i = lshr i64 %i.046.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %div2.i.i
@@ -4495,7 +4495,7 @@ if.end149.loopexit324.split.loop.exit330:         ; preds = %if.else129
 if.end149.loopexit.split.loop.exit:               ; preds = %for.body.i.us
   %cmp.i.i.i.i.i.us.le = icmp sgt i8 %ret.0.copyload.i7.i.i.i.us, %ret.0.copyload.i.i.i.i.us
   %..i.i.i.us.le = select i1 %cmp.i.i.i.i.i.us.le, i32 -1, i32 1
-  %...i.i.i.us.le = select i1 %cond.fr60, i32 0, i32 %..i.i.i.us.le
+  %...i.i.i.us.le = select i1 %cond.fr59, i32 0, i32 %..i.i.i.us.le
   %spec.select = select i1 %tobool.i41.not.i.us, i32 %...i.i.i.us.le, i32 -1
   br label %if.end149
 
@@ -4507,7 +4507,7 @@ if.end149.loopexit377.split.loop.exit387:         ; preds = %for.body.i.us334
   br label %if.end149
 
 if.end149:                                        ; preds = %for.inc, %if.end140, %sw.bb97, %for.body.i, %for.cond.i, %for.cond.i.us359, %for.cond.i.us, %for.cond.i.us.us, %if.end149.loopexit.split.loop.exit, %.thread, %if.end149.loopexit377.split.loop.exit387, %if.end149.loopexit324.split.loop.exit330, %if.end14.i, %if.else, %sw.bb43, %sw.bb40, %sw.bb37, %sw.bb34, %sw.bb31, %sw.bb28, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb
-  %comp_res.3 = phi i32 [ %call15, %sw.bb13 ], [ %call18, %sw.bb16 ], [ %call21, %sw.bb19 ], [ %call24, %sw.bb22 ], [ %call27, %sw.bb25 ], [ %call30, %sw.bb28 ], [ %call33, %sw.bb31 ], [ %call36, %sw.bb34 ], [ %call39, %sw.bb37 ], [ %call42, %sw.bb40 ], [ %call45, %sw.bb43 ], [ 0, %sw.bb ], [ %..i, %if.end14.i ], [ %..le, %if.end149.loopexit324.split.loop.exit330 ], [ 0, %if.else ], [ %comp_res.1.i.us357.le, %if.end149.loopexit377.split.loop.exit387 ], [ %..i.i.i.us.le66, %.thread ], [ %spec.select, %if.end149.loopexit.split.loop.exit ], [ 0, %for.cond.i.us.us ], [ 0, %for.cond.i.us ], [ 0, %for.cond.i.us359 ], [ %comp_res.1.i, %for.body.i ], [ 0, %for.cond.i ], [ %call6.i, %sw.bb97 ], [ 0, %for.inc ], [ %comp_res.1, %if.end140 ]
+  %comp_res.3 = phi i32 [ %call15, %sw.bb13 ], [ %call18, %sw.bb16 ], [ %call21, %sw.bb19 ], [ %call24, %sw.bb22 ], [ %call27, %sw.bb25 ], [ %call30, %sw.bb28 ], [ %call33, %sw.bb31 ], [ %call36, %sw.bb34 ], [ %call39, %sw.bb37 ], [ %call42, %sw.bb40 ], [ %call45, %sw.bb43 ], [ 0, %sw.bb ], [ %..i, %if.end14.i ], [ %..le, %if.end149.loopexit324.split.loop.exit330 ], [ 0, %if.else ], [ %comp_res.1.i.us357.le, %if.end149.loopexit377.split.loop.exit387 ], [ %..i.i.i.us.le65, %.thread ], [ %spec.select, %if.end149.loopexit.split.loop.exit ], [ 0, %for.cond.i.us.us ], [ 0, %for.cond.i.us ], [ 0, %for.cond.i.us359 ], [ %comp_res.1.i, %for.body.i ], [ 0, %for.cond.i ], [ %call6.i, %sw.bb97 ], [ 0, %for.inc ], [ %comp_res.1, %if.end140 ]
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %right_validity, i64 16
   %73 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !43
   %cmp.not.i.i.i = icmp eq ptr %73, null

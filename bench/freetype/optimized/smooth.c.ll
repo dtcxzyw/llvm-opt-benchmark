@@ -2375,7 +2375,7 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr nocapture noundef reado
   %54 = getelementptr inbounds i8, ptr %0, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %4) #11
-  br i1 %39, label %.lr.ph37, label %.loopexit
+  br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %._crit_edge, %.lr.ph37
   %.135 = phi ptr [ %62, %.lr.ph37 ], [ %7, %._crit_edge ]
@@ -2390,8 +2390,8 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr nocapture noundef reado
   %63 = icmp ult ptr %62, %14
   br i1 %63, label %.lr.ph37, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge.thread, %._crit_edge, %13
-  %.029 = phi i32 [ 98, %13 ], [ %56, %._crit_edge ], [ %44, %._crit_edge.thread ], [ %56, %.lr.ph37 ]
+.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge.thread, %13
+  %.029 = phi i32 [ 98, %13 ], [ %44, %._crit_edge.thread ], [ %56, %.lr.ph37 ]
   ret i32 %.029
 }
 

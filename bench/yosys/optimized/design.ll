@@ -1623,7 +1623,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit304: ; preds = %397, %396, %
   br label %.body446
 
 .loopexit1109.thread:                             ; preds = %.preheader1108, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331, %.loopexit1109
-  %434 = phi i1 [ true, %.loopexit1109 ], [ %275, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331 ], [ true, %.preheader1108 ]
+  %434 = phi i1 [ true, %.loopexit1109 ], [ false, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331 ], [ true, %.preheader1108 ]
   %.014942060 = phi i8 [ %.01494, %.loopexit1109 ], [ %.01494, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331 ], [ 0, %.preheader1108 ]
   %.018215052059 = phi i1 [ %.01821505, %.loopexit1109 ], [ %.01821505, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331 ], [ false, %.preheader1108 ]
   %.018515162058 = phi i1 [ %.01851516, %.loopexit1109 ], [ %.01851516, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit331 ], [ false, %.preheader1108 ]

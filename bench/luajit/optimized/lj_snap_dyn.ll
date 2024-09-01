@@ -1599,9 +1599,6 @@ if.then72:                                        ; preds = %for.end
   %21 = load i16, ptr %ref74, align 4
   %idxprom75 = zext i16 %21 to i64
   %arrayidx76 = getelementptr inbounds %union.IRIns, ptr %20, i64 %idxprom75
-  br i1 %cmp648.not, label %if.end411, label %for.body80.lr.ph
-
-for.body80.lr.ph:                                 ; preds = %if.then72
   %wide.trip.count.i.i395 = zext i8 %4 to i64
   %slot.i.i415 = getelementptr inbounds i8, ptr %J, i64 604
   %fold.i.i409 = getelementptr inbounds i8, ptr %J, i64 184
@@ -1625,9 +1622,9 @@ for.body190.lr.ph:                                ; preds = %for.cond183.prehead
   %22 = zext i8 %4 to i64
   br label %for.body190
 
-for.body80:                                       ; preds = %for.body80.lr.ph, %for.inc180
-  %indvars.iv689 = phi i64 [ 0, %for.body80.lr.ph ], [ %indvars.iv.next690, %for.inc180 ]
-  %pass23.3659 = phi i32 [ 0, %for.body80.lr.ph ], [ %pass23.4, %for.inc180 ]
+for.body80:                                       ; preds = %if.then72, %for.inc180
+  %indvars.iv689 = phi i64 [ 0, %if.then72 ], [ %indvars.iv.next690, %for.inc180 ]
+  %pass23.3659 = phi i32 [ 0, %if.then72 ], [ %pass23.4, %for.inc180 ]
   %arrayidx83 = getelementptr inbounds i32, ptr %arrayidx3, i64 %indvars.iv689
   %23 = load i32, ptr %arrayidx83, align 4
   %and84 = and i32 %23, 65535
@@ -2609,8 +2606,8 @@ for.inc408:                                       ; preds = %for.inc403, %for.in
   %cmp186 = icmp ult i64 %indvars.iv.next695, %22
   br i1 %cmp186, label %for.body190, label %if.end411, !llvm.loop !30
 
-if.end411:                                        ; preds = %for.inc408, %if.then72, %entry, %for.cond183.preheader, %for.end
-  %pass23.2 = phi i1 [ true, %for.end ], [ true, %for.cond183.preheader ], [ true, %entry ], [ true, %if.then72 ], [ false, %for.inc408 ]
+if.end411:                                        ; preds = %for.inc408, %entry, %for.cond183.preheader, %for.end
+  %pass23.2 = phi i1 [ true, %for.end ], [ true, %for.cond183.preheader ], [ true, %entry ], [ false, %for.inc408 ]
   %slot412 = getelementptr inbounds i8, ptr %J, i64 604
   %baseslot413 = getelementptr inbounds i8, ptr %J, i64 176
   %155 = load i32, ptr %baseslot413, align 8

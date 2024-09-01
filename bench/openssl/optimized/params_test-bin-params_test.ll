@@ -731,7 +731,7 @@ sub_2:                                            ; preds = %sub_1
 for.body.tail:                                    ; preds = %sub_1, %sub_2
   %12 = phi i32 [ %8, %sub_1 ], [ %11, %sub_2 ]
   %cmp2 = icmp eq i32 %12, 0
-  br i1 %cmp2, label %if.then, label %sub_034
+  br i1 %cmp2, label %if.then, label %sub_135
 
 if.then:                                          ; preds = %for.body.tail
   %data = getelementptr inbounds i8, ptr %params.addr.055, i64 16
@@ -740,10 +740,7 @@ if.then:                                          ; preds = %for.body.tail
   store i32 %14, ptr %vobj, align 8
   br label %for.inc
 
-sub_034:                                          ; preds = %for.body.tail
-  br i1 %.not, label %sub_135, label %if.else.tail
-
-sub_135:                                          ; preds = %sub_034
+sub_135:                                          ; preds = %for.body.tail
   %15 = getelementptr inbounds i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
@@ -757,8 +754,8 @@ sub_236:                                          ; preds = %sub_135
   %21 = zext i8 %20 to i32
   br label %if.else.tail
 
-if.else.tail:                                     ; preds = %sub_0, %sub_034, %sub_135, %sub_236
-  %22 = phi i32 [ %4, %sub_034 ], [ %18, %sub_135 ], [ %21, %sub_236 ], [ %4, %sub_0 ]
+if.else.tail:                                     ; preds = %sub_0, %sub_135, %sub_236
+  %22 = phi i32 [ %18, %sub_135 ], [ %21, %sub_236 ], [ %4, %sub_0 ]
   %cmp5 = icmp eq i32 %22, 0
   br i1 %cmp5, label %if.then6, label %sub_038
 
@@ -789,7 +786,7 @@ sub_240:                                          ; preds = %sub_139
 if.else8.tail:                                    ; preds = %sub_139, %sub_240
   %32 = phi i32 [ %28, %sub_139 ], [ %31, %sub_240 ]
   %cmp11 = icmp eq i32 %32, 0
-  br i1 %cmp11, label %if.then12, label %sub_042
+  br i1 %cmp11, label %if.then12, label %sub_143
 
 if.then12:                                        ; preds = %if.else8.tail
   %33 = load ptr, ptr %p3, align 8
@@ -805,10 +802,7 @@ if.then12:                                        ; preds = %if.else8.tail
   %tobool.not = icmp eq i32 %call16, 0
   br i1 %tobool.not, label %return, label %for.inc
 
-sub_042:                                          ; preds = %if.else8.tail
-  br i1 %.not, label %sub_143, label %if.else18.tail
-
-sub_143:                                          ; preds = %sub_042
+sub_143:                                          ; preds = %if.else8.tail
   %36 = getelementptr inbounds i8, ptr %1, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
@@ -822,8 +816,8 @@ sub_244:                                          ; preds = %sub_143
   %42 = zext i8 %41 to i32
   br label %if.else18.tail
 
-if.else18.tail:                                   ; preds = %sub_038, %sub_042, %sub_143, %sub_244
-  %43 = phi i32 [ %4, %sub_042 ], [ %39, %sub_143 ], [ %42, %sub_244 ], [ %4, %sub_038 ]
+if.else18.tail:                                   ; preds = %sub_038, %sub_143, %sub_244
+  %43 = phi i32 [ %39, %sub_143 ], [ %42, %sub_244 ], [ %4, %sub_038 ]
   %cmp21 = icmp eq i32 %43, 0
   br i1 %cmp21, label %if.then23, label %sub_046
 
@@ -866,7 +860,7 @@ sub_248:                                          ; preds = %sub_147
 if.else34.tail:                                   ; preds = %sub_147, %sub_248
   %55 = phi i32 [ %51, %sub_147 ], [ %54, %sub_248 ]
   %cmp37 = icmp eq i32 %55, 0
-  br i1 %cmp37, label %if.then39, label %sub_050
+  br i1 %cmp37, label %if.then39, label %sub_151
 
 if.then39:                                        ; preds = %if.else34.tail
   %data40 = getelementptr inbounds i8, ptr %params.addr.055, i64 16
@@ -887,10 +881,7 @@ if.end46:                                         ; preds = %if.then39
   store i64 %call52, ptr %p5_l, align 8
   br label %for.inc
 
-sub_050:                                          ; preds = %if.else34.tail
-  br i1 %.not, label %sub_151, label %if.else53.tail
-
-sub_151:                                          ; preds = %sub_050
+sub_151:                                          ; preds = %if.else34.tail
   %59 = getelementptr inbounds i8, ptr %1, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -904,8 +895,8 @@ sub_252:                                          ; preds = %sub_151
   %65 = zext i8 %64 to i32
   br label %if.else53.tail
 
-if.else53.tail:                                   ; preds = %sub_046, %sub_050, %sub_151, %sub_252
-  %66 = phi i32 [ %4, %sub_050 ], [ %62, %sub_151 ], [ %65, %sub_252 ], [ %4, %sub_046 ]
+if.else53.tail:                                   ; preds = %sub_046, %sub_151, %sub_252
+  %66 = phi i32 [ %62, %sub_151 ], [ %65, %sub_252 ], [ %4, %sub_046 ]
   %cmp56 = icmp eq i32 %66, 0
   br i1 %cmp56, label %if.then58, label %for.inc
 
@@ -971,7 +962,7 @@ sub_2:                                            ; preds = %sub_1
 for.body.tail:                                    ; preds = %sub_1, %sub_2
   %12 = phi i32 [ %8, %sub_1 ], [ %11, %sub_2 ]
   %cmp2 = icmp eq i32 %12, 0
-  br i1 %cmp2, label %if.then, label %sub_036
+  br i1 %cmp2, label %if.then, label %sub_137
 
 if.then:                                          ; preds = %for.body.tail
   %return_size = getelementptr inbounds i8, ptr %params.addr.057, i64 32
@@ -982,10 +973,7 @@ if.then:                                          ; preds = %for.body.tail
   store i32 %13, ptr %14, align 4
   br label %for.inc
 
-sub_036:                                          ; preds = %for.body.tail
-  br i1 %.not, label %sub_137, label %if.else.tail
-
-sub_137:                                          ; preds = %sub_036
+sub_137:                                          ; preds = %for.body.tail
   %15 = getelementptr inbounds i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
@@ -999,8 +987,8 @@ sub_238:                                          ; preds = %sub_137
   %21 = zext i8 %20 to i32
   br label %if.else.tail
 
-if.else.tail:                                     ; preds = %sub_0, %sub_036, %sub_137, %sub_238
-  %22 = phi i32 [ %4, %sub_036 ], [ %18, %sub_137 ], [ %21, %sub_238 ], [ %4, %sub_0 ]
+if.else.tail:                                     ; preds = %sub_0, %sub_137, %sub_238
+  %22 = phi i32 [ %18, %sub_137 ], [ %21, %sub_238 ], [ %4, %sub_0 ]
   %cmp5 = icmp eq i32 %22, 0
   br i1 %cmp5, label %if.then6, label %sub_040
 
@@ -1033,7 +1021,7 @@ sub_242:                                          ; preds = %sub_141
 if.else9.tail:                                    ; preds = %sub_141, %sub_242
   %32 = phi i32 [ %28, %sub_141 ], [ %31, %sub_242 ]
   %cmp12 = icmp eq i32 %32, 0
-  br i1 %cmp12, label %if.then13, label %sub_044
+  br i1 %cmp12, label %if.then13, label %sub_145
 
 if.then13:                                        ; preds = %if.else9.tail
   %33 = load ptr, ptr %p3, align 8
@@ -1058,10 +1046,7 @@ if.end:                                           ; preds = %if.then13
   %call23 = tail call i32 @BN_bn2nativepad(ptr noundef %35, ptr noundef %36, i32 noundef %conv22) #6
   br label %for.inc
 
-sub_044:                                          ; preds = %if.else9.tail
-  br i1 %.not, label %sub_145, label %if.else24.tail
-
-sub_145:                                          ; preds = %sub_044
+sub_145:                                          ; preds = %if.else9.tail
   %38 = getelementptr inbounds i8, ptr %1, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
@@ -1075,8 +1060,8 @@ sub_246:                                          ; preds = %sub_145
   %44 = zext i8 %43 to i32
   br label %if.else24.tail
 
-if.else24.tail:                                   ; preds = %sub_040, %sub_044, %sub_145, %sub_246
-  %45 = phi i32 [ %4, %sub_044 ], [ %41, %sub_145 ], [ %44, %sub_246 ], [ %4, %sub_040 ]
+if.else24.tail:                                   ; preds = %sub_040, %sub_145, %sub_246
+  %45 = phi i32 [ %41, %sub_145 ], [ %44, %sub_246 ], [ %4, %sub_040 ]
   %cmp27 = icmp eq i32 %45, 0
   br i1 %cmp27, label %if.then29, label %sub_048
 
@@ -1118,7 +1103,7 @@ sub_250:                                          ; preds = %sub_149
 if.else41.tail:                                   ; preds = %sub_149, %sub_250
   %57 = phi i32 [ %53, %sub_149 ], [ %56, %sub_250 ]
   %cmp44 = icmp eq i32 %57, 0
-  br i1 %cmp44, label %if.then46, label %sub_052
+  br i1 %cmp44, label %if.then46, label %sub_153
 
 if.then46:                                        ; preds = %if.else41.tail
   %call47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p5) #7
@@ -1136,10 +1121,7 @@ if.end54:                                         ; preds = %if.then46
   %call58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %p5) #6
   br label %for.inc
 
-sub_052:                                          ; preds = %if.else41.tail
-  br i1 %.not, label %sub_153, label %if.else59.tail
-
-sub_153:                                          ; preds = %sub_052
+sub_153:                                          ; preds = %if.else41.tail
   %60 = getelementptr inbounds i8, ptr %1, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
@@ -1153,8 +1135,8 @@ sub_254:                                          ; preds = %sub_153
   %66 = zext i8 %65 to i32
   br label %if.else59.tail
 
-if.else59.tail:                                   ; preds = %sub_048, %sub_052, %sub_153, %sub_254
-  %67 = phi i32 [ %4, %sub_052 ], [ %63, %sub_153 ], [ %66, %sub_254 ], [ %4, %sub_048 ]
+if.else59.tail:                                   ; preds = %sub_048, %sub_153, %sub_254
+  %67 = phi i32 [ %63, %sub_153 ], [ %66, %sub_254 ], [ %4, %sub_048 ]
   %cmp62 = icmp eq i32 %67, 0
   br i1 %cmp62, label %if.then64, label %for.inc
 

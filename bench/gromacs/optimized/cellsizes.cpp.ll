@@ -1199,9 +1199,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %116, %1
   %.sroa.speculated.i.i.i = select i1 %223, float %222, float %.0239247.i.i.i
   %indvars.iv.next275.i.i.i = add nuw nsw i64 %indvars.iv274.i.i.i, 1
   %exitcond278.not.i.i.i = icmp eq i64 %indvars.iv.next275.i.i.i, %wide.trip.count277.i.i.i
-  br i1 %exitcond278.not.i.i.i, label %.lr.ph254.i.i.i, label %214, !llvm.loop !20
+  br i1 %exitcond278.not.i.i.i, label %._crit_edge251.i.i.i, label %214, !llvm.loop !20
 
-.lr.ph254.i.i.i:                                  ; preds = %214
+._crit_edge251.i.i.i:                             ; preds = %214
   %224 = fcmp ogt float %.sroa.speculated.i.i.i, %171
   %225 = fdiv float %171, %.sroa.speculated.i.i.i
   %226 = fmul float %225, 5.000000e-01
@@ -1209,8 +1209,8 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %116, %1
   %227 = getelementptr inbounds i8, ptr %166, i64 40
   br label %228
 
-228:                                              ; preds = %228, %.lr.ph254.i.i.i
-  %indvars.iv279.i.i.i = phi i64 [ 0, %.lr.ph254.i.i.i ], [ %indvars.iv.next280.i.i.i, %228 ]
+228:                                              ; preds = %228, %._crit_edge251.i.i.i
+  %indvars.iv279.i.i.i = phi i64 [ 0, %._crit_edge251.i.i.i ], [ %indvars.iv.next280.i.i.i, %228 ]
   %229 = load ptr, ptr %200, align 8
   %230 = getelementptr inbounds %struct.domdec_load, ptr %229, i64 %indvars.iv.i.i
   %231 = getelementptr inbounds i8, ptr %230, i64 8
@@ -2201,11 +2201,11 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %57, label %.lr.ph, label %.preheader.preheader, !llvm.loop !32
 
 .preheader.preheader:                             ; preds = %.lr.ph, %39
-  %.ph444 = phi i32 [ %40, %39 ], [ %55, %.lr.ph ]
+  %.ph443 = phi i32 [ %40, %39 ], [ %55, %.lr.ph ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge326
-  %58 = phi i32 [ %119, %._crit_edge326 ], [ %.ph444, %.preheader.preheader ]
+  %58 = phi i32 [ %119, %._crit_edge326 ], [ %.ph443, %.preheader.preheader ]
   %.0250 = phi i32 [ %.2, %._crit_edge326 ], [ 0, %.preheader.preheader ]
   %59 = load i32, ptr %8, align 4
   %60 = icmp slt i32 %59, %58
@@ -2252,15 +2252,12 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %79 = fneg float %78
   %80 = tail call float @llvm.fmuladd.f32(float %79, float %7, float %25)
   %81 = fdiv float %80, %.1258
-  br i1 %60, label %.lr.ph325.preheader, label %._crit_edge326.thread
-
-.lr.ph325.preheader:                              ; preds = %._crit_edge
   %82 = sext i32 %59 to i64
   br label %.lr.ph325
 
-.lr.ph325:                                        ; preds = %.lr.ph325.preheader, %.lr.ph325._crit_edge
-  %indvars.iv372 = phi i64 [ %82, %.lr.ph325.preheader ], [ %indvars.iv.next373, %.lr.ph325._crit_edge ]
-  %.1251323 = phi i32 [ %.0250, %.lr.ph325.preheader ], [ %.2, %.lr.ph325._crit_edge ]
+.lr.ph325:                                        ; preds = %._crit_edge, %.lr.ph325._crit_edge
+  %indvars.iv372 = phi i64 [ %82, %._crit_edge ], [ %indvars.iv.next373, %.lr.ph325._crit_edge ]
+  %.1251323 = phi i32 [ %.0250, %._crit_edge ], [ %.2, %.lr.ph325._crit_edge ]
   %83 = load ptr, ptr %3, align 8
   %84 = trunc nsw i64 %indvars.iv372 to i32
   %85 = sdiv i32 %84, 64
@@ -2332,9 +2329,9 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %122 = icmp sgt i32 %.2, %.0250
   br i1 %122, label %.preheader, label %._crit_edge326.thread, !llvm.loop !35
 
-._crit_edge326.thread:                            ; preds = %.preheader, %._crit_edge, %._crit_edge326
-  %.1251.lcssa404 = phi i32 [ %.2, %._crit_edge326 ], [ %.0250, %._crit_edge ], [ %.0250, %.preheader ]
-  %123 = phi i32 [ %119, %._crit_edge326 ], [ %58, %._crit_edge ], [ %58, %.preheader ]
+._crit_edge326.thread:                            ; preds = %.preheader, %._crit_edge326
+  %.1251.lcssa403 = phi i32 [ %.2, %._crit_edge326 ], [ %.0250, %.preheader ]
+  %123 = phi i32 [ %119, %._crit_edge326 ], [ %58, %.preheader ]
   %124 = add nsw i32 %123, -1
   %125 = sext i32 %123 to i64
   %126 = load ptr, ptr %17, align 8
@@ -2392,7 +2389,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   resume { ptr, i32 } %160
 
 161:                                              ; preds = %134, %._crit_edge326.thread
-  %162 = icmp sgt i32 %.1251.lcssa404, 0
+  %162 = icmp sgt i32 %.1251.lcssa403, 0
   br i1 %162, label %170, label %163
 
 163:                                              ; preds = %161
@@ -2446,7 +2443,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %195, label %196, label %..loopexit310_crit_edge
 
 ..loopexit310_crit_edge:                          ; preds = %183
-  %.pre401 = add nsw i64 %indvars.iv385, 1
+  %.pre400 = add nsw i64 %indvars.iv385, 1
   br label %.loopexit310
 
 196:                                              ; preds = %183
@@ -2485,7 +2482,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %214, label %.lr.ph333, label %.loopexit310, !llvm.loop !36
 
 .loopexit310:                                     ; preds = %211, %..loopexit310_crit_edge, %196
-  %indvars.iv.next386.pre-phi = phi i64 [ %.pre401, %..loopexit310_crit_edge ], [ %197, %196 ], [ %197, %211 ]
+  %indvars.iv.next386.pre-phi = phi i64 [ %.pre400, %..loopexit310_crit_edge ], [ %197, %196 ], [ %197, %211 ]
   %215 = load ptr, ptr %178, align 8
   %216 = getelementptr inbounds float, ptr %215, i64 %indvars.iv385
   %217 = load float, ptr %216, align 4
@@ -2541,180 +2538,180 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
 ._crit_edge342:                                   ; preds = %.loopexit309, %173
   %244 = phi i32 [ %176, %173 ], [ %241, %.loopexit309 ]
   %245 = icmp sgt i32 %1, 0
-  br i1 %245, label %265, label %.loopexit
+  br i1 %245, label %266, label %.loopexit
 
 .thread:                                          ; preds = %170
   %246 = icmp sgt i32 %1, 0
   br i1 %246, label %.thread301, label %.loopexit
 
 .thread301:                                       ; preds = %.thread
-  %.pre400 = load i32, ptr %15, align 4
   %247 = load i32, ptr %8, align 4
-  %248 = icmp slt i32 %247, %.pre400
-  br i1 %248, label %.lr.ph356, label %.loopexit
+  %248 = load i32, ptr %15, align 4
+  %249 = icmp slt i32 %247, %248
+  br i1 %249, label %.lr.ph356, label %.loopexit
 
 .lr.ph356:                                        ; preds = %.thread301
-  %249 = getelementptr inbounds i8, ptr %3, i64 88
-  %250 = sext i32 %247 to i64
-  br label %251
+  %250 = getelementptr inbounds i8, ptr %3, i64 88
+  %251 = sext i32 %247 to i64
+  br label %252
 
-251:                                              ; preds = %.lr.ph356, %251
-  %indvars.iv391 = phi i64 [ %250, %.lr.ph356 ], [ %indvars.iv.next392, %251 ]
-  %252 = load ptr, ptr %17, align 8
-  %253 = getelementptr inbounds float, ptr %252, i64 %indvars.iv391
-  %254 = load float, ptr %253, align 4
-  %255 = load ptr, ptr %249, align 8
-  %256 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %255, i64 %indvars.iv391
-  store float %254, ptr %256, align 4
+252:                                              ; preds = %.lr.ph356, %252
+  %indvars.iv391 = phi i64 [ %251, %.lr.ph356 ], [ %indvars.iv.next392, %252 ]
+  %253 = load ptr, ptr %17, align 8
+  %254 = getelementptr inbounds float, ptr %253, i64 %indvars.iv391
+  %255 = load float, ptr %254, align 4
+  %256 = load ptr, ptr %250, align 8
+  %257 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %256, i64 %indvars.iv391
+  store float %255, ptr %257, align 4
   %indvars.iv.next392 = add nsw i64 %indvars.iv391, 1
-  %257 = load ptr, ptr %17, align 8
-  %258 = getelementptr inbounds float, ptr %257, i64 %indvars.iv.next392
-  %259 = load float, ptr %258, align 4
-  %260 = load ptr, ptr %249, align 8
-  %261 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %260, i64 %indvars.iv391, i32 1
-  store float %259, ptr %261, align 4
-  %262 = load i32, ptr %15, align 4
-  %263 = sext i32 %262 to i64
-  %264 = icmp slt i64 %indvars.iv.next392, %263
-  br i1 %264, label %251, label %.loopexit, !llvm.loop !39
+  %258 = load ptr, ptr %17, align 8
+  %259 = getelementptr inbounds float, ptr %258, i64 %indvars.iv.next392
+  %260 = load float, ptr %259, align 4
+  %261 = load ptr, ptr %250, align 8
+  %262 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %261, i64 %indvars.iv391, i32 1
+  store float %260, ptr %262, align 4
+  %263 = load i32, ptr %15, align 4
+  %264 = sext i32 %263 to i64
+  %265 = icmp slt i64 %indvars.iv.next392, %264
+  br i1 %265, label %252, label %.loopexit, !llvm.loop !39
 
-265:                                              ; preds = %._crit_edge342
-  %266 = load i32, ptr %8, align 4
-  %.0252347 = add nsw i32 %266, 1
-  %267 = icmp slt i32 %.0252347, %244
-  br i1 %267, label %.lr.ph352, label %._crit_edge353
+266:                                              ; preds = %._crit_edge342
+  %267 = load i32, ptr %8, align 4
+  %.0252347 = add nsw i32 %267, 1
+  %268 = icmp slt i32 %.0252347, %244
+  br i1 %268, label %.lr.ph352, label %._crit_edge353
 
-.lr.ph352:                                        ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %3, i64 88
-  %269 = sext i32 %266 to i64
-  %270 = add nsw i64 %269, 1
-  br label %271
+.lr.ph352:                                        ; preds = %266
+  %269 = getelementptr inbounds i8, ptr %3, i64 88
+  %270 = sext i32 %267 to i64
+  %271 = add nsw i64 %270, 1
+  br label %272
 
-271:                                              ; preds = %.lr.ph352, %310
-  %272 = phi i32 [ %13, %.lr.ph352 ], [ %311, %310 ]
-  %273 = phi i32 [ %244, %.lr.ph352 ], [ %312, %310 ]
-  %indvars.iv389 = phi i64 [ %270, %.lr.ph352 ], [ %indvars.iv.next390, %310 ]
-  %.0349 = phi i1 [ false, %.lr.ph352 ], [ %.1, %310 ]
-  %.0252346348 = phi i32 [ %16, %.lr.ph352 ], [ %.0252345, %310 ]
-  %274 = load ptr, ptr %268, align 8
-  %275 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %274, i64 %indvars.iv389
-  %276 = load ptr, ptr %17, align 8
-  %277 = getelementptr inbounds float, ptr %276, i64 %indvars.iv389
-  %278 = load float, ptr %277, align 4
-  %279 = getelementptr inbounds i8, ptr %275, i64 8
-  %280 = load float, ptr %279, align 4
-  %281 = fcmp uge float %278, %280
-  %282 = getelementptr inbounds i8, ptr %275, i64 12
-  %283 = load float, ptr %282, align 4
-  %284 = fcmp ule float %278, %283
-  %brmerge = select i1 %281, i1 true, i1 %284
-  br i1 %brmerge, label %291, label %285
+272:                                              ; preds = %.lr.ph352, %311
+  %273 = phi i32 [ %13, %.lr.ph352 ], [ %312, %311 ]
+  %274 = phi i32 [ %244, %.lr.ph352 ], [ %313, %311 ]
+  %indvars.iv389 = phi i64 [ %271, %.lr.ph352 ], [ %indvars.iv.next390, %311 ]
+  %.0349 = phi i1 [ false, %.lr.ph352 ], [ %.1, %311 ]
+  %.0252346348 = phi i32 [ %16, %.lr.ph352 ], [ %.0252345, %311 ]
+  %275 = load ptr, ptr %269, align 8
+  %276 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %275, i64 %indvars.iv389
+  %277 = load ptr, ptr %17, align 8
+  %278 = getelementptr inbounds float, ptr %277, i64 %indvars.iv389
+  %279 = load float, ptr %278, align 4
+  %280 = getelementptr inbounds i8, ptr %276, i64 8
+  %281 = load float, ptr %280, align 4
+  %282 = fcmp uge float %279, %281
+  %283 = getelementptr inbounds i8, ptr %276, i64 12
+  %284 = load float, ptr %283, align 4
+  %285 = fcmp ule float %279, %284
+  %brmerge = select i1 %282, i1 true, i1 %285
+  br i1 %brmerge, label %292, label %286
 
-285:                                              ; preds = %271
-  %286 = getelementptr inbounds float, ptr %276, i64 %indvars.iv389
-  %287 = trunc nsw i64 %indvars.iv389 to i32
-  %288 = fadd float %280, %283
-  %289 = fmul float %288, 5.000000e-01
-  store float %289, ptr %286, align 4
-  %290 = load i32, ptr %8, align 4
-  store i32 %290, ptr %10, align 4
-  store i32 %287, ptr %14, align 4
+286:                                              ; preds = %272
+  %287 = getelementptr inbounds float, ptr %277, i64 %indvars.iv389
+  %288 = trunc nsw i64 %indvars.iv389 to i32
+  %289 = fadd float %281, %284
+  %290 = fmul float %289, 5.000000e-01
+  store float %290, ptr %287, align 4
+  %291 = load i32, ptr %8, align 4
+  store i32 %291, ptr %10, align 4
+  store i32 %288, ptr %14, align 4
   br label %.loopexit.sink.split.sink.split
 
-291:                                              ; preds = %271
-  br i1 %281, label %294, label %292
+292:                                              ; preds = %272
+  br i1 %282, label %295, label %293
 
-292:                                              ; preds = %291
-  %293 = trunc nsw i64 %indvars.iv389 to i32
+293:                                              ; preds = %292
+  %294 = trunc nsw i64 %indvars.iv389 to i32
   br label %.sink.split
 
-294:                                              ; preds = %291
-  %brmerge308 = select i1 %284, i1 true, i1 %.0349
-  br i1 %brmerge308, label %310, label %295
+295:                                              ; preds = %292
+  %brmerge308 = select i1 %285, i1 true, i1 %.0349
+  br i1 %brmerge308, label %311, label %296
 
-295:                                              ; preds = %294
-  %296 = icmp slt i32 %.0252346348, %273
-  br i1 %296, label %297, label %302
+296:                                              ; preds = %295
+  %297 = icmp slt i32 %.0252346348, %274
+  br i1 %297, label %298, label %303
 
-297:                                              ; preds = %295
-  %298 = sext i32 %.0252346348 to i64
-  %299 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %274, i64 %298, i32 2
-  %300 = load float, ptr %299, align 4
-  %301 = getelementptr inbounds float, ptr %276, i64 %298
-  store float %300, ptr %301, align 4
+298:                                              ; preds = %296
+  %299 = sext i32 %.0252346348 to i64
+  %300 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %275, i64 %299, i32 2
+  %301 = load float, ptr %300, align 4
+  %302 = getelementptr inbounds float, ptr %277, i64 %299
+  store float %301, ptr %302, align 4
   call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
   store i32 %.0252346348, ptr %10, align 4
-  %.pre398 = load ptr, ptr %268, align 8
+  %.pre398 = load ptr, ptr %269, align 8
   %.pre399 = load ptr, ptr %17, align 8
-  br label %302
+  br label %303
 
-302:                                              ; preds = %297, %295
-  %303 = phi ptr [ %.pre399, %297 ], [ %276, %295 ]
-  %304 = phi ptr [ %.pre398, %297 ], [ %274, %295 ]
-  %305 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %304, i64 %indvars.iv389, i32 3
-  %306 = load float, ptr %305, align 4
-  %307 = getelementptr inbounds float, ptr %303, i64 %indvars.iv389
-  store float %306, ptr %307, align 4
-  %308 = trunc nsw i64 %indvars.iv389 to i32
-  store i32 %308, ptr %14, align 4
+303:                                              ; preds = %298, %296
+  %304 = phi ptr [ %.pre399, %298 ], [ %277, %296 ]
+  %305 = phi ptr [ %.pre398, %298 ], [ %275, %296 ]
+  %306 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %305, i64 %indvars.iv389, i32 3
+  %307 = load float, ptr %306, align 4
+  %308 = getelementptr inbounds float, ptr %304, i64 %indvars.iv389
+  store float %307, ptr %308, align 4
+  %309 = trunc nsw i64 %indvars.iv389 to i32
+  store i32 %309, ptr %14, align 4
   call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
-  store i32 %308, ptr %10, align 4
-  %309 = load i32, ptr %15, align 4
+  store i32 %309, ptr %10, align 4
+  %310 = load i32, ptr %15, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %292, %302
-  %.sink = phi i32 [ %309, %302 ], [ %293, %292 ]
-  %.ph = phi i32 [ %308, %302 ], [ %272, %292 ]
-  %.ph419 = phi i32 [ %309, %302 ], [ %273, %292 ]
+.sink.split:                                      ; preds = %293, %303
+  %.sink = phi i32 [ %310, %303 ], [ %294, %293 ]
+  %.ph = phi i32 [ %309, %303 ], [ %273, %293 ]
+  %.ph418 = phi i32 [ %310, %303 ], [ %274, %293 ]
   store i32 %.sink, ptr %14, align 4
-  br label %310
+  br label %311
 
-310:                                              ; preds = %.sink.split, %294
-  %311 = phi i32 [ %272, %294 ], [ %.ph, %.sink.split ]
-  %312 = phi i32 [ %273, %294 ], [ %.ph419, %.sink.split ]
-  %.0252345 = phi i32 [ %.0252346348, %294 ], [ %.sink, %.sink.split ]
-  %.1 = phi i1 [ %.0349, %294 ], [ %281, %.sink.split ]
+311:                                              ; preds = %.sink.split, %295
+  %312 = phi i32 [ %273, %295 ], [ %.ph, %.sink.split ]
+  %313 = phi i32 [ %274, %295 ], [ %.ph418, %.sink.split ]
+  %.0252345 = phi i32 [ %.0252346348, %295 ], [ %.sink, %.sink.split ]
+  %.1 = phi i1 [ %.0349, %295 ], [ %282, %.sink.split ]
   %indvars.iv.next390 = add nsw i64 %indvars.iv389, 1
-  %313 = sext i32 %312 to i64
-  %314 = icmp slt i64 %indvars.iv.next390, %313
-  br i1 %314, label %271, label %._crit_edge353, !llvm.loop !40
+  %314 = sext i32 %313 to i64
+  %315 = icmp slt i64 %indvars.iv.next390, %314
+  br i1 %315, label %272, label %._crit_edge353, !llvm.loop !40
 
-._crit_edge353:                                   ; preds = %310, %265
-  %315 = phi i32 [ %13, %265 ], [ %311, %310 ]
-  %316 = phi i32 [ %16, %265 ], [ %.0252345, %310 ]
-  %.lcssa = phi i32 [ %244, %265 ], [ %312, %310 ]
-  %317 = icmp slt i32 %316, %.lcssa
-  br i1 %317, label %318, label %326
+._crit_edge353:                                   ; preds = %311, %266
+  %316 = phi i32 [ %13, %266 ], [ %312, %311 ]
+  %317 = phi i32 [ %16, %266 ], [ %.0252345, %311 ]
+  %.lcssa = phi i32 [ %244, %266 ], [ %313, %311 ]
+  %318 = icmp slt i32 %317, %.lcssa
+  br i1 %318, label %319, label %327
 
-318:                                              ; preds = %._crit_edge353
-  %319 = getelementptr inbounds i8, ptr %3, i64 88
-  %320 = sext i32 %316 to i64
-  %321 = load ptr, ptr %319, align 8
-  %322 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %321, i64 %320, i32 2
-  %323 = load float, ptr %322, align 4
-  %324 = load ptr, ptr %17, align 8
-  %325 = getelementptr inbounds float, ptr %324, i64 %320
-  store float %323, ptr %325, align 4
+319:                                              ; preds = %._crit_edge353
+  %320 = getelementptr inbounds i8, ptr %3, i64 88
+  %321 = sext i32 %317 to i64
+  %322 = load ptr, ptr %320, align 8
+  %323 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %322, i64 %321, i32 2
+  %324 = load float, ptr %323, align 4
+  %325 = load ptr, ptr %17, align 8
+  %326 = getelementptr inbounds float, ptr %325, i64 %321
+  store float %324, ptr %326, align 4
   br label %.loopexit.sink.split.sink.split
 
-326:                                              ; preds = %._crit_edge353
-  %327 = load i32, ptr %8, align 4
-  %328 = icmp sgt i32 %315, %327
-  br i1 %328, label %.loopexit.sink.split, label %.loopexit
+327:                                              ; preds = %._crit_edge353
+  %328 = load i32, ptr %8, align 4
+  %329 = icmp sgt i32 %316, %328
+  br i1 %329, label %.loopexit.sink.split, label %.loopexit
 
-.loopexit.sink.split.sink.split:                  ; preds = %318, %285
-  %.sink421 = phi i32 [ %287, %285 ], [ %316, %318 ]
+.loopexit.sink.split.sink.split:                  ; preds = %319, %286
+  %.sink420 = phi i32 [ %288, %286 ], [ %317, %319 ]
   call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
-  store i32 %.sink421, ptr %10, align 4
-  %329 = load i32, ptr %15, align 4
-  store i32 %329, ptr %14, align 4
+  store i32 %.sink420, ptr %10, align 4
+  %330 = load i32, ptr %15, align 4
+  store i32 %330, ptr %14, align 4
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %326
+.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %327
   call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %251, %.loopexit.sink.split, %.thread301, %.thread, %326, %._crit_edge342
+.loopexit:                                        ; preds = %252, %.loopexit.sink.split, %.thread301, %.thread, %327, %._crit_edge342
   ret void
 }
 

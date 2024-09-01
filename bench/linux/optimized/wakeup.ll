@@ -318,8 +318,8 @@ define dso_local noundef zeroext i1 @acpi_check_wakeup_handlers() local_unnamed_
 1:                                                ; preds = %4, %0
   %2 = phi ptr [ @acpi_wakeup_handler_head, %0 ], [ %3, %4 ]
   %3 = load ptr, ptr %2, align 8
-  %.not = icmp ne ptr %3, @acpi_wakeup_handler_head
-  br i1 %.not, label %4, label %10
+  %.not.not.not.not.not = icmp ne ptr %3, @acpi_wakeup_handler_head
+  br i1 %.not.not.not.not.not, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -330,7 +330,7 @@ define dso_local noundef zeroext i1 @acpi_check_wakeup_handlers() local_unnamed_
   br i1 %9, label %10, label %1, !llvm.loop !11
 
 10:                                               ; preds = %4, %1
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

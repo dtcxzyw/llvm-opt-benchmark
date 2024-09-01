@@ -4353,131 +4353,126 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %58 = getelementptr inbounds i8, ptr %1, i64 24
   %59 = getelementptr inbounds i8, ptr %1, i64 28
   %60 = zext nneg i32 %2 to i64
-  br i1 %9, label %.preheader.us.preheader, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %._crit_edge.thread, %.preheader.lr.ph
-  %61 = phi i32 [ %48, %.preheader.lr.ph ], [ %54, %._crit_edge.thread ]
-  %62 = phi ptr [ %50, %.preheader.lr.ph ], [ %55, %._crit_edge.thread ]
-  %wide.trip.count104 = zext nneg i32 %61 to i64
-  br label %.preheader
-
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count114 = zext nneg i32 %48 to i64
   %wide.trip.count109 = zext nneg i32 %2 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %113
-  %indvars.iv111 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next112, %113 ]
-  br label %63
+.preheader.preheader:                             ; preds = %._crit_edge.thread
+  %wide.trip.count104 = zext nneg i32 %54 to i64
+  br label %.preheader
 
-63:                                               ; preds = %.preheader.us, %112
-  %indvars.iv106 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next107, %112 ]
-  %.388.us = phi i32 [ 0, %.preheader.us ], [ %.4.us, %112 ]
-  %64 = load ptr, ptr %57, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv106
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %68, label %112
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %111
+  %indvars.iv111 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next112, %111 ]
+  br label %61
 
-68:                                               ; preds = %63
-  %69 = load i32, ptr %58, align 8
-  %.not81.us = icmp eq i32 %69, 0
-  br i1 %.not81.us, label %98, label %70
+61:                                               ; preds = %.preheader.us, %110
+  %indvars.iv106 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next107, %110 ]
+  %.388.us = phi i32 [ 0, %.preheader.us ], [ %.4.us, %110 ]
+  %62 = load ptr, ptr %57, align 8
+  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv106
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %64, -1
+  br i1 %65, label %66, label %110
 
-70:                                               ; preds = %68
-  %71 = load i32, ptr %59, align 4
-  %.not82.us = icmp eq i32 %71, 0
-  %72 = load ptr, ptr %46, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
+66:                                               ; preds = %61
+  %67 = load i32, ptr %58, align 8
+  %.not81.us = icmp eq i32 %67, 0
+  br i1 %.not81.us, label %96, label %68
+
+68:                                               ; preds = %66
+  %69 = load i32, ptr %59, align 4
+  %.not82.us = icmp eq i32 %69, 0
+  %70 = load ptr, ptr %46, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv111
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv111
+  %75 = getelementptr inbounds ptr, ptr %74, i64 %60
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %60
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv106
-  %80 = load double, ptr %79, align 8
-  %81 = fmul double %49, %80
-  %82 = sext i32 %.388.us to i64
-  %83 = getelementptr inbounds double, ptr %6, i64 %82
-  store double %81, ptr %83, align 8
-  br i1 %.not82.us, label %96, label %84
+  %77 = getelementptr inbounds double, ptr %76, i64 %indvars.iv106
+  %78 = load double, ptr %77, align 8
+  %79 = fmul double %49, %78
+  %80 = sext i32 %.388.us to i64
+  %81 = getelementptr inbounds double, ptr %6, i64 %80
+  store double %79, ptr %81, align 8
+  br i1 %.not82.us, label %94, label %82
 
-84:                                               ; preds = %70
-  %85 = load ptr, ptr %46, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 32
+82:                                               ; preds = %68
+  %83 = load ptr, ptr %46, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv111
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv111
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %60
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %60
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds double, ptr %91, i64 %indvars.iv106
-  %93 = load double, ptr %92, align 8
-  %94 = fmul double %49, %93
-  %gep.us = getelementptr double, ptr %invariant.gep, i64 %82
-  store double %94, ptr %gep.us, align 8
-  %95 = add nsw i32 %.388.us, 2
-  br label %112
+  %90 = getelementptr inbounds double, ptr %89, i64 %indvars.iv106
+  %91 = load double, ptr %90, align 8
+  %92 = fmul double %49, %91
+  %gep.us = getelementptr double, ptr %invariant.gep, i64 %80
+  store double %92, ptr %gep.us, align 8
+  %93 = add nsw i32 %.388.us, 2
+  br label %110
 
-96:                                               ; preds = %70
-  %97 = add nsw i32 %.388.us, 1
-  br label %112
+94:                                               ; preds = %68
+  %95 = add nsw i32 %.388.us, 1
+  br label %110
 
-98:                                               ; preds = %68
-  %99 = load ptr, ptr %46, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 32
+96:                                               ; preds = %66
+  %97 = load ptr, ptr %46, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 32
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv111
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv111
+  %102 = getelementptr inbounds ptr, ptr %101, i64 %60
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %60
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds double, ptr %105, i64 %indvars.iv106
-  %107 = load double, ptr %106, align 8
-  %108 = fmul double %49, %107
-  %109 = sext i32 %.388.us to i64
-  %110 = getelementptr inbounds double, ptr %6, i64 %109
-  store double %108, ptr %110, align 8
-  %111 = add nsw i32 %.388.us, 1
-  br label %112
+  %104 = getelementptr inbounds double, ptr %103, i64 %indvars.iv106
+  %105 = load double, ptr %104, align 8
+  %106 = fmul double %49, %105
+  %107 = sext i32 %.388.us to i64
+  %108 = getelementptr inbounds double, ptr %6, i64 %107
+  store double %106, ptr %108, align 8
+  %109 = add nsw i32 %.388.us, 1
+  br label %110
 
-112:                                              ; preds = %98, %96, %84, %63
-  %.4.us = phi i32 [ %95, %84 ], [ %97, %96 ], [ %111, %98 ], [ %.388.us, %63 ]
+110:                                              ; preds = %96, %94, %82, %61
+  %.4.us = phi i32 [ %93, %82 ], [ %95, %94 ], [ %109, %96 ], [ %.388.us, %61 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge91.us, label %63
+  br i1 %exitcond110.not, label %._crit_edge91.us, label %61
 
-113:                                              ; preds = %._crit_edge91.us
+111:                                              ; preds = %._crit_edge91.us
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %._crit_edge93, label %.preheader.us
 
-._crit_edge91.us:                                 ; preds = %112
-  %114 = load ptr, ptr %50, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 24
+._crit_edge91.us:                                 ; preds = %110
+  %112 = load ptr, ptr %50, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv111
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv111
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call i32 @N_VLinearCombination(i32 noundef %.4.us, ptr noundef %6, ptr noundef %8, ptr noundef %118) #12
-  %.not.us = icmp eq i32 %119, 0
-  br i1 %.not.us, label %113, label %._crit_edge93
+  %117 = tail call i32 @N_VLinearCombination(i32 noundef %.4.us, ptr noundef %6, ptr noundef %8, ptr noundef %116) #12
+  %.not.us = icmp eq i32 %117, 0
+  br i1 %.not.us, label %111, label %._crit_edge93
 
-120:                                              ; preds = %.preheader
+118:                                              ; preds = %.preheader
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %._crit_edge93, label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %120
-  %indvars.iv101 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next102, %120 ]
-  %121 = load ptr, ptr %62, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
+.preheader:                                       ; preds = %.preheader.preheader, %118
+  %indvars.iv101 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next102, %118 ]
+  %119 = load ptr, ptr %55, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv101
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv101
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call i32 @N_VLinearCombination(i32 noundef 0, ptr noundef %6, ptr noundef %8, ptr noundef %125) #12
-  %.not = icmp eq i32 %126, 0
-  br i1 %.not, label %120, label %._crit_edge93
+  %124 = tail call i32 @N_VLinearCombination(i32 noundef 0, ptr noundef %6, ptr noundef %8, ptr noundef %123) #12
+  %.not = icmp eq i32 %124, 0
+  br i1 %.not, label %118, label %._crit_edge93
 
-._crit_edge93:                                    ; preds = %.preheader, %120, %._crit_edge91.us, %113, %._crit_edge.thread, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %113 ], [ -28, %._crit_edge91.us ], [ 0, %120 ], [ -28, %.preheader ]
+._crit_edge93:                                    ; preds = %.preheader, %118, %._crit_edge91.us, %111, %._crit_edge.thread, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %111 ], [ -28, %._crit_edge91.us ], [ 0, %118 ], [ -28, %.preheader ]
   ret i32 %.0
 }
 
@@ -4737,12 +4732,9 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %55 = icmp eq i32 %54, -1
-  br i1 %55, label %._crit_edge.thread, label %.preheader
+  br i1 %55, label %._crit_edge.thread, label %.lr.ph108
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %43, label %.lr.ph108, label %._crit_edge109
-
-.lr.ph108:                                        ; preds = %.preheader
+.lr.ph108:                                        ; preds = %._crit_edge
   %56 = getelementptr inbounds i8, ptr %5, i64 88
   %wide.trip.count115 = zext nneg i32 %1 to i64
   br label %57
@@ -4775,9 +4767,8 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %._crit_edge109, label %57
 
-._crit_edge109:                                   ; preds = %71, %.preheader
-  %.187.lcssa = phi i32 [ %54, %.preheader ], [ %.2, %71 ]
-  %72 = sext i32 %.187.lcssa to i64
+._crit_edge109:                                   ; preds = %71
+  %72 = sext i32 %.2 to i64
   %73 = getelementptr inbounds double, ptr %31, i64 %72
   %74 = load double, ptr %73, align 8
   %75 = fmul double %36, %74

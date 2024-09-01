@@ -4679,8 +4679,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us.us:    ; preds = %10, %10, %10, %.lr.
 
 .thread.us.us:                                    ; preds = %_ZN11V3ErrorCode7isUnderES_.exit.thread.us.us, %10
   %13 = getelementptr inbounds i8, ptr %.sroa.08.015.us.us, i64 40
-  %.not40 = icmp eq ptr %13, %7
-  br i1 %.not40, label %._crit_edge, label %.lr.ph.split.us.split.us
+  %.not34 = icmp eq ptr %13, %7
+  br i1 %.not34, label %._crit_edge, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
   %.sroa.08.015.us = phi ptr [ %18, %.thread.us ], [ %5, %.lr.ph.split.us ]
@@ -4701,8 +4701,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us:       ; preds = %15, %15, %.lr.ph.sp
 
 .thread.us:                                       ; preds = %_ZN11V3ErrorCode7isUnderES_.exit.thread.us, %15
   %18 = getelementptr inbounds i8, ptr %.sroa.08.015.us, i64 40
-  %.not39 = icmp eq ptr %18, %7
-  br i1 %.not39, label %._crit_edge, label %.lr.ph.split.us.split
+  %.not33 = icmp eq ptr %18, %7
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %switch.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -4726,8 +4726,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us21:     ; preds = %20, %20, %.lr.ph.sp
 
 .thread.us22:                                     ; preds = %_ZN11V3ErrorCode7isUnderES_.exit.thread.us21, %20
   %23 = getelementptr inbounds i8, ptr %.sroa.08.015.us18, i64 40
-  %.not38 = icmp eq ptr %23, %7
-  br i1 %.not38, label %._crit_edge, label %.lr.ph.split.split.us
+  %.not32 = icmp eq ptr %23, %7
+  br i1 %.not32, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
   %.sroa.08.015 = phi ptr [ %27, %.thread ], [ %5, %.lr.ph.split ]
@@ -4744,8 +4744,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread:          ; preds = %.lr.ph.split.split
 
 .thread:                                          ; preds = %.lr.ph.split.split, %_ZN11V3ErrorCode7isUnderES_.exit.thread
   %27 = getelementptr inbounds i8, ptr %.sroa.08.015, i64 40
-  %.not37 = icmp eq ptr %27, %7
-  br i1 %.not37, label %._crit_edge, label %.lr.ph.split.split
+  %.not31 = icmp eq ptr %27, %7
+  br i1 %.not31, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %_ZN11V3ErrorCode7isUnderES_.exit.thread, %.thread, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us21, %.thread.us22, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us, %.thread.us, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us.us, %.thread.us.us, %3
   %.lcssa = phi i1 [ false, %3 ], [ false, %.thread.us.us ], [ true, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us.us ], [ false, %.thread.us ], [ true, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us ], [ false, %.thread.us22 ], [ true, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us21 ], [ false, %.thread ], [ true, %_ZN11V3ErrorCode7isUnderES_.exit.thread ]

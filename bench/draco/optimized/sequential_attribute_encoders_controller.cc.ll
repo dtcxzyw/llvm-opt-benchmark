@@ -479,8 +479,8 @@ _ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds %"class.std::unique_ptr.24", ptr %39, i64 %27
   %41 = load ptr, ptr %40, align 8
-  %.not.i11.not = icmp ne ptr %41, null
-  br i1 %.not.i11.not, label %42, label %._crit_edge
+  %.not.i11.not.not = icmp ne ptr %41, null
+  br i1 %.not.i11.not.not, label %42, label %._crit_edge
 
 42:                                               ; preds = %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit
   %43 = load ptr, ptr %21, align 8
@@ -523,7 +523,7 @@ _ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2
   br i1 %.not14, label %23, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit, %61, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not.i11.not, %61 ], [ %.not.i11.not, %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.i11.not.not, %61 ], [ %.not.i11.not.not, %_ZNSt10unique_ptrIN5draco26SequentialAttributeEncoderESt14default_deleteIS1_EED2Ev.exit ]
   ret i1 %.lcssa
 }
 

@@ -207,9 +207,9 @@ define void @_ZN2cv11minAreaRectERKNS_11_InputArrayE(ptr dead_on_unwind noalias 
   %71 = getelementptr inbounds float, ptr %49, i64 %indvars.iv.i
   store float %70, ptr %71, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not.i, label %.lr.ph295.preheader.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph295.preheader.i:                            ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %72 = getelementptr %"class.cv::Point_", ptr %51, i64 %50
   %73 = getelementptr i8, ptr %72, i64 -4
   %74 = load float, ptr %73, align 4
@@ -224,10 +224,10 @@ define void @_ZN2cv11minAreaRectERKNS_11_InputArrayE(ptr dead_on_unwind noalias 
   %exitcond320.not.i = icmp eq i64 %indvars.iv.next317.i, %50
   br i1 %exitcond320.not.i, label %.critedge.i, label %.lr.ph295.i, !llvm.loop !6
 
-.lr.ph295.i:                                      ; preds = %79, %.lr.ph295.preheader.i
-  %indvars.iv316.i = phi i64 [ 0, %.lr.ph295.preheader.i ], [ %indvars.iv.next317.i, %79 ]
-  %.0241292.i = phi double [ %78, %.lr.ph295.preheader.i ], [ %82, %79 ]
-  %.0242291.i = phi double [ %75, %.lr.ph295.preheader.i ], [ %85, %79 ]
+.lr.ph295.i:                                      ; preds = %79, %._crit_edge.i
+  %indvars.iv316.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next317.i, %79 ]
+  %.0241292.i = phi double [ %78, %._crit_edge.i ], [ %82, %79 ]
+  %.0242291.i = phi double [ %75, %._crit_edge.i ], [ %85, %79 ]
   %80 = getelementptr inbounds %"class.cv::Point_", ptr %51, i64 %indvars.iv316.i
   %81 = load float, ptr %80, align 4
   %82 = fpext float %81 to double

@@ -2069,7 +2069,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
 
 38:                                               ; preds = %28, %31, %14
   %.044.sink = phi ptr [ %3, %14 ], [ %29, %28 ], [ %3, %31 ]
-  %.042 = phi i1 [ true, %14 ], [ %30, %28 ], [ %30, %31 ]
+  %.042 = phi i1 [ true, %14 ], [ false, %28 ], [ true, %31 ]
   %39 = getelementptr inbounds i8, ptr %.044.sink, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #15

@@ -1543,17 +1543,14 @@ define void @Sbd_ManSolverPrint(ptr nocapture noundef readonly %0) local_unnamed
 Sbd_ManSolverSupp.exit:                           ; preds = %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %3, i8 0, i64 65, i1 false)
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.preheader, label %.preheader
+  br i1 %24, label %.lr.ph.preheader, label %.lr.ph23
 
 .lr.ph.preheader:                                 ; preds = %Sbd_ManSolverSupp.exit
   %25 = zext nneg i32 %23 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 45, i64 %25, i1 false)
-  br label %.preheader
+  br label %.lr.ph23
 
-.preheader:                                       ; preds = %.lr.ph.preheader, %Sbd_ManSolverSupp.exit
-  br i1 %5, label %.lr.ph23, label %.critedge
-
-.lr.ph23:                                         ; preds = %.preheader
+.lr.ph23:                                         ; preds = %Sbd_ManSolverSupp.exit, %.lr.ph.preheader
   %26 = getelementptr i8, ptr %0, i64 8
   br i1 %24, label %.lr.ph23.split.us.preheader, label %.lr.ph23.split
 
@@ -1630,7 +1627,7 @@ Sbd_ManSolverSupp.exit:                           ; preds = %22
   %58 = icmp slt i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph23.split, label %.critedge, !llvm.loop !17
 
-.critedge:                                        ; preds = %56, %..loopexit_crit_edge.us, %1, %.preheader
+.critedge:                                        ; preds = %56, %..loopexit_crit_edge.us, %1
   ret void
 }
 

@@ -1364,7 +1364,6 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit: ; preds = %.loop
   %319 = load float, ptr %318, align 4
   %320 = load i32, ptr %.pre42, align 4
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %3)
-  %321 = mul nsw i32 %320, %84
   %factor.op.mul76.i = mul i32 %320, %.67
   br i1 %123, label %.preheader70.lr.ph.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
 
@@ -1374,20 +1373,18 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
   br label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
 
 .preheader70.lr.ph.i:                             ; preds = %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit
+  %321 = mul nsw i32 %320, %84
   %322 = icmp sgt i32 %.67, 0
   %wide.trip.count.i.i = zext nneg i32 %.67 to i64
-  br i1 %125, label %.preheader70.us.preheader.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
-
-.preheader70.us.preheader.i:                      ; preds = %.preheader70.lr.ph.i
   %323 = mul nsw i32 %320, 12
   %324 = sext i32 %323 to i64
   %325 = sext i32 %321 to i64
   %326 = sext i32 %320 to i64
   br label %.preheader70.us.i
 
-.preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.us.preheader.i
-  %indvars.iv32 = phi i32 [ %indvars.iv.next33, %._crit_edge.us.i ], [ %., %.preheader70.us.preheader.i ]
-  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.us.preheader.i ]
+.preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.lr.ph.i
+  %indvars.iv32 = phi i32 [ %indvars.iv.next33, %._crit_edge.us.i ], [ %., %.preheader70.lr.ph.i ]
+  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.lr.ph.i ]
   %327 = tail call i32 @llvm.smin.i32(i32 %indvars.iv32, i32 8)
   %328 = tail call i32 @llvm.smax.i32(i32 %327, i32 1)
   %smax36 = zext nneg i32 %328 to i64
@@ -1545,7 +1542,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %369
   %indvars.iv.next33 = add i32 %indvars.iv32, -8
   br i1 %385, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 
-_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit: ; preds = %._crit_edge.us.i, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit, %.preheader70.lr.ph.i
+_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit: ; preds = %._crit_edge.us.i, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %3)
   %386 = load ptr, ptr %18, align 8
   %387 = load i32, ptr %386, align 4
@@ -6069,7 +6066,6 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit: ; preds = %.loop
   %347 = load float, ptr %346, align 4
   %348 = load i32, ptr %.pre42, align 4
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %3)
-  %349 = mul nsw i32 %348, %92
   %factor.op.mul76.i = mul i32 %348, %.76
   br i1 %155, label %.preheader70.lr.ph.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
 
@@ -6079,20 +6075,18 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
   br label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
 
 .preheader70.lr.ph.i:                             ; preds = %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit
+  %349 = mul nsw i32 %348, %92
   %350 = icmp sgt i32 %.76, 0
   %wide.trip.count.i.i = zext nneg i32 %.76 to i64
-  br i1 %157, label %.preheader70.us.preheader.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit
-
-.preheader70.us.preheader.i:                      ; preds = %.preheader70.lr.ph.i
   %351 = mul nsw i32 %348, 12
   %352 = sext i32 %351 to i64
   %353 = sext i32 %349 to i64
   %354 = sext i32 %348 to i64
   br label %.preheader70.us.i
 
-.preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.us.preheader.i
-  %indvars.iv32 = phi i32 [ %indvars.iv.next33, %._crit_edge.us.i ], [ %., %.preheader70.us.preheader.i ]
-  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.us.preheader.i ]
+.preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.lr.ph.i
+  %indvars.iv32 = phi i32 [ %indvars.iv.next33, %._crit_edge.us.i ], [ %., %.preheader70.lr.ph.i ]
+  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.lr.ph.i ]
   %355 = tail call i32 @llvm.smin.i32(i32 %indvars.iv32, i32 8)
   %356 = tail call i32 @llvm.smax.i32(i32 %355, i32 1)
   %smax36 = zext nneg i32 %356 to i64
@@ -6250,7 +6244,7 @@ _ZN2cv3dnn12cpu_baselineL13fast_gemm_f32EiPKcS3_Pcif.exit.us.i: ; preds = %397
   %indvars.iv.next33 = add i32 %indvars.iv32, -8
   br i1 %413, label %.preheader70.us.i, label %_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit, !llvm.loop !26
 
-_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit: ; preds = %._crit_edge.us.i, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit, %.preheader70.lr.ph.i
+_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii.exit: ; preds = %._crit_edge.us.i, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %3)
   %414 = load ptr, ptr %18, align 8
   %415 = load i32, ptr %414, align 4

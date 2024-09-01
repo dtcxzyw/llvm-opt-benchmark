@@ -3416,8 +3416,8 @@ for.body159.lr.ph:                                ; preds = %for.end149
   %cmp236.not663.fr = freeze i1 %cmp205.not661
   br label %for.body159
 
-for.body159:                                      ; preds = %for.body159.lr.ph, %for.inc278
-  %__begin1151.sroa.0.0669 = phi ptr [ %124, %for.body159.lr.ph ], [ %call.i356, %for.inc278 ]
+for.body159:                                      ; preds = %for.body159.lr.ph, %invoke.cont273
+  %__begin1151.sroa.0.0669 = phi ptr [ %124, %for.body159.lr.ph ], [ %call.i356, %invoke.cont273 ]
   %_M_storage.i.i271 = getelementptr inbounds i8, ptr %__begin1151.sroa.0.0669, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166, ptr noundef nonnull align 8 dereferenceable(32) %output_dir_)
           to label %.noexc274 unwind label %lpad17.loopexit
@@ -3827,9 +3827,9 @@ ehcleanup269:                                     ; preds = %lpad239.loopexit, %
 
 for.end272:                                       ; preds = %invoke.cont267, %invoke.cont267.us, %invoke.cont221
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %out)
-          to label %for.inc278 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont273 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp
 
-for.inc278:                                       ; preds = %for.end272
+invoke.cont273:                                   ; preds = %for.end272
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header) #24
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %out) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_miss_ratio_timeline_path) #24
@@ -3857,7 +3857,7 @@ cleanup281.critedge:                              ; preds = %invoke.cont196
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_miss_ratio_timeline_path) #24
   br label %cleanup281
 
-cleanup281:                                       ; preds = %for.inc278, %for.end149, %cleanup281.critedge
+cleanup281:                                       ; preds = %invoke.cont273, %for.end149, %cleanup281.critedge
   %_M_parent.i.i.i.i357 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %145 = load ptr, ptr %_M_parent.i.i.i.i357, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef %145)
@@ -5207,8 +5207,8 @@ for.body125.lr.ph:                                ; preds = %for.end115
   %cmp201.not471.fr = freeze i1 %cmp170.not469
   br label %for.body125
 
-for.body125:                                      ; preds = %for.body125.lr.ph, %for.inc243
-  %__begin1117.sroa.0.0477 = phi ptr [ %86, %for.body125.lr.ph ], [ %call.i247, %for.inc243 ]
+for.body125:                                      ; preds = %for.body125.lr.ph, %invoke.cont238
+  %__begin1117.sroa.0.0477 = phi ptr [ %86, %for.body125.lr.ph ], [ %call.i247, %invoke.cont238 ]
   %_M_storage.i.i180 = getelementptr inbounds i8, ptr %__begin1117.sroa.0.0477, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(32) %output_dir_)
           to label %.noexc183 unwind label %lpad11.loopexit
@@ -5618,9 +5618,9 @@ ehcleanup234:                                     ; preds = %lpad204.loopexit, %
 
 for.end237:                                       ; preds = %invoke.cont232, %invoke.cont232.us, %invoke.cont186
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %out)
-          to label %for.inc243 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont238 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp
 
-for.inc243:                                       ; preds = %for.end237
+invoke.cont238:                                   ; preds = %for.end237
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header) #24
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %out) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_miss_ratio_timeline_path) #24
@@ -5648,7 +5648,7 @@ cleanup246.critedge:                              ; preds = %invoke.cont161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_miss_ratio_timeline_path) #24
   br label %cleanup246
 
-cleanup246:                                       ; preds = %for.inc243, %for.end115, %cleanup246.critedge
+cleanup246:                                       ; preds = %invoke.cont238, %for.end115, %cleanup246.critedge
   %_M_parent.i.i.i.i248 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %107 = load ptr, ptr %_M_parent.i.i.i.i248, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %107)
@@ -12633,7 +12633,7 @@ invoke.cont19:                                    ; preds = %invoke.cont15
 invoke.cont21:                                    ; preds = %invoke.cont19
   br i1 %call, label %if.end, label %cleanup179
 
-lpad:                                             ; preds = %cleanup.cont, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjN7rocksdb9TraceTypeES7_mRKNS8_15BlockAccessInfoEEED2Ev.exit, %entry
+lpad:                                             ; preds = %invoke.cont73, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjN7rocksdb9TraceTypeES7_mRKNS8_15BlockAccessInfoEEED2Ev.exit, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
@@ -12836,16 +12836,16 @@ ehcleanup69:                                      ; preds = %lpad61, %lpad59, %l
 
 for.end72:                                        ; preds = %invoke.cont67, %invoke.cont39
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %out)
-          to label %cleanup.cont unwind label %lpad31.loopexit.split-lp
+          to label %invoke.cont73 unwind label %lpad31.loopexit.split-lp
 
-cleanup.cont:                                     ; preds = %for.end72
+invoke.cont73:                                    ; preds = %for.end72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header) #24
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %out) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_path) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81, ptr noundef nonnull align 8 dereferenceable(32) %output_dir_)
           to label %.noexc63 unwind label %lpad
 
-.noexc63:                                         ; preds = %cleanup.cont
+.noexc63:                                         ; preds = %invoke.cont73
   %call.i61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81, ptr noundef nonnull @.str.194)
           to label %invoke.cont83 unwind label %lpad.i62
 
@@ -16801,13 +16801,10 @@ for.inc163.us:                                    ; preds = %if.then159.us, %for
   %naccesses139.1.us = phi i64 [ %add161.us, %if.then159.us ], [ %naccesses139.0300.us, %for.body150.us ]
   %call.i145.us = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3142.sroa.0.0299.us) #27
   %cmp.i141.not.us = icmp eq ptr %call.i145.us, %add.ptr.i.i140
-  br i1 %cmp.i141.not.us, label %for.cond174.preheader, label %for.body150.us
+  br i1 %cmp.i141.not.us, label %for.body176.lr.ph, label %for.body150.us
 
-for.cond174.preheader:                            ; preds = %for.body150, %for.inc163.us
+for.body176.lr.ph:                                ; preds = %for.body150, %for.inc163.us
   %naccesses139.0.lcssa = phi i64 [ %naccesses139.1.us, %for.inc163.us ], [ %add161, %for.body150 ]
-  br i1 %cmp.i141.not298, label %for.end208, label %for.body176.lr.ph
-
-for.body176.lr.ph:                                ; preds = %for.cond174.preheader
   %cmp.i152 = icmp eq i64 %naccesses139.0.lcssa, 0
   %conv1.i155 = uitofp i64 %naccesses139.0.lcssa to double
   br label %for.body176
@@ -16820,7 +16817,7 @@ for.body150:                                      ; preds = %for.body150.lr.ph, 
   %add161 = add i64 %70, %naccesses139.0300
   %call.i145 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3142.sroa.0.0299) #27
   %cmp.i141.not = icmp eq ptr %call.i145, %add.ptr.i.i140
-  br i1 %cmp.i141.not, label %for.cond174.preheader, label %for.body150
+  br i1 %cmp.i141.not, label %for.body176.lr.ph, label %for.body150
 
 lpad136:                                          ; preds = %call.i131.noexc, %invoke.cont129
   %71 = landingpad { ptr, i32 }
@@ -16908,8 +16905,8 @@ for.inc206:                                       ; preds = %lor.lhs.false180, %
   %cmp.i148.not = icmp eq ptr %call.i160, %add.ptr.i.i140
   br i1 %cmp.i148.not, label %for.end208, label %for.body176
 
-for.end208:                                       ; preds = %for.inc206, %invoke.cont137, %for.cond174.preheader
-  %naccesses139.0.lcssa342 = phi i64 [ %naccesses139.0.lcssa, %for.cond174.preheader ], [ 0, %invoke.cont137 ], [ %naccesses139.0.lcssa, %for.inc206 ]
+for.end208:                                       ; preds = %for.inc206, %invoke.cont137
+  %naccesses139.0.lcssa342 = phi i64 [ 0, %invoke.cont137 ], [ %naccesses139.0.lcssa, %for.inc206 ]
   %_M_left.i.i161 = getelementptr inbounds i8, ptr %64, i64 88
   %78 = load ptr, ptr %_M_left.i.i161, align 8
   %add.ptr.i.i162 = getelementptr inbounds i8, ptr %64, i64 72

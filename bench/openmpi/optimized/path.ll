@@ -461,81 +461,85 @@ path_env_load.exit:                               ; preds = %30, %21, %list_env_
 .preheader:                                       ; preds = %path_env_load.exit
   %34 = load i32, ptr %6, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %sub_0.preheader, label %._crit_edge.thread
+  br i1 %35, label %sub_0.preheader, label %.critedge
 
 sub_0.preheader:                                  ; preds = %.preheader
   %.pre = load ptr, ptr %5, align 8
+  br label %sub_0.outer
+
+sub_0.outer:                                      ; preds = %.thread41, %sub_0.preheader
+  %.ph = phi i32 [ %.pre40, %.thread41 ], [ %34, %sub_0.preheader ]
+  %.ph46 = phi ptr [ %51, %.thread41 ], [ %.pre, %sub_0.preheader ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next43, %.thread41 ], [ 0, %sub_0.preheader ]
+  %.136.ph = phi i1 [ true, %.thread41 ], [ false, %sub_0.preheader ]
+  %36 = sext i32 %.ph to i64
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.preheader, %56
-  %36 = phi i32 [ %34, %sub_0.preheader ], [ %57, %56 ]
-  %37 = phi ptr [ %.pre, %sub_0.preheader ], [ %58, %56 ]
-  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %56 ]
-  %.136 = phi i1 [ false, %sub_0.preheader ], [ %.2, %56 ]
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = add nsw i32 %41, -46
-  %.not = icmp eq i32 %42, 0
+sub_0:                                            ; preds = %sub_0.outer, %55
+  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ %indvars.iv.ph, %sub_0.outer ]
+  %37 = getelementptr inbounds ptr, ptr %.ph46, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add nsw i32 %40, -46
+  %.not = icmp eq i32 %41, 0
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %43 = getelementptr inbounds i8, ptr %39, i64 1
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
+  %42 = getelementptr inbounds i8, ptr %38, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
   br label %.tail
 
 .tail:                                            ; preds = %sub_0, %sub_1
-  %46 = phi i32 [ %42, %sub_0 ], [ %45, %sub_1 ]
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %56
+  %45 = phi i32 [ %41, %sub_0 ], [ %44, %sub_1 ]
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %55
 
-48:                                               ; preds = %.tail
-  call void @free(ptr noundef nonnull %39) #14
-  %49 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %._crit_edge39
+47:                                               ; preds = %.tail
+  call void @free(ptr noundef nonnull %38) #14
+  %48 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
+  store ptr %48, ptr %50, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.loopexit, label %.thread41
 
-._crit_edge39:                                    ; preds = %48
-  %.pre40 = load i32, ptr %6, align 4
-  br label %56
-
-56:                                               ; preds = %._crit_edge39, %.tail
-  %57 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.tail ]
-  %58 = phi ptr [ %52, %._crit_edge39 ], [ %37, %.tail ]
-  %.2 = phi i1 [ true, %._crit_edge39 ], [ %.136, %.tail ]
+55:                                               ; preds = %.tail
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = sext i32 %57 to i64
-  %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %sub_0, label %._crit_edge, !llvm.loop !9
+  %56 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %56, label %sub_0, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %56
-  br i1 %.2, label %.thread, label %._crit_edge.thread
+.thread41:                                        ; preds = %47
+  %.pre40 = load i32, ptr %6, align 4
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv, 1
+  %57 = sext i32 %.pre40 to i64
+  %58 = icmp slt i64 %indvars.iv.next43, %57
+  br i1 %58, label %sub_0.outer, label %.thread, !llvm.loop !9
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %61 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14
+._crit_edge:                                      ; preds = %55
+  br i1 %.136.ph, label %.thread, label %.critedge
+
+.critedge:                                        ; preds = %.preheader, %._crit_edge
+  %59 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14
   br label %.thread
 
-.thread:                                          ; preds = %path_env_load.exit, %._crit_edge.thread, %._crit_edge
-  %62 = load ptr, ptr %5, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %64
+.thread:                                          ; preds = %.thread41, %path_env_load.exit, %.critedge, %._crit_edge
+  %60 = load ptr, ptr %5, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.loopexit, label %62
 
-64:                                               ; preds = %.thread
-  %65 = call noalias ptr @opal_path_find(ptr noundef %0, ptr noundef nonnull %62, i32 noundef %1, ptr noundef %2)
-  %66 = load ptr, ptr %5, align 8
-  call void @opal_argv_free(ptr noundef %66) #14
+62:                                               ; preds = %.thread
+  %63 = call noalias ptr @opal_path_find(ptr noundef %0, ptr noundef nonnull %60, i32 noundef %1, ptr noundef %2)
+  %64 = load ptr, ptr %5, align 8
+  call void @opal_argv_free(ptr noundef %64) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %48, %.thread, %64
-  %.019 = phi ptr [ %65, %64 ], [ null, %.thread ], [ null, %48 ]
+.loopexit:                                        ; preds = %47, %.thread, %62
+  %.019 = phi ptr [ %63, %62 ], [ null, %.thread ], [ null, %47 ]
   ret ptr %.019
 }
 

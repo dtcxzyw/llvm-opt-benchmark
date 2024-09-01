@@ -8843,8 +8843,8 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
 _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEaSERKS6_.exit.preheader.i: ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i650
   %1310 = phi ptr [ %1263, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i650 ], [ %1302, %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i ]
   %1311 = phi ptr [ %1264, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i650 ], [ %1303, %_ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i ]
-  %.not160.i = icmp eq ptr %1311, %1310
-  br i1 %.not160.i, label %.loopexit132.i, label %.lr.ph149.i
+  %.not150.i = icmp eq ptr %1311, %1310
+  br i1 %.not150.i, label %.loopexit132.i, label %.lr.ph149.i
 
 .lr.ph149.i:                                      ; preds = %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEaSERKS6_.exit.preheader.i, %._crit_edge.i
   %.sroa.55.3 = phi ptr [ %.sroa.55.4.lcssa, %._crit_edge.i ], [ null, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEaSERKS6_.exit.preheader.i ]
@@ -10456,18 +10456,18 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i:            ; preds = %1981, %._crit_edge
   br i1 %.not128146.i, label %.loopexit132.i, label %.lr.ph148.preheader.i
 
 .lr.ph148.preheader.i:                            ; preds = %1985
-  %sext161.i = shl i64 %1988, 28
-  %1990 = ashr i64 %sext161.i, 32
+  %sext157.i = shl i64 %1988, 28
+  %1990 = ashr i64 %sext157.i, 32
   br label %.lr.ph148.i
 
 .loopexit.i:                                      ; preds = %.loopexit2452, %.loopexit2465
-  %.not128.i = icmp eq i64 %indvars.iv.next158.i, 0
+  %.not128.i = icmp eq i64 %indvars.iv.next155.i, 0
   br i1 %.not128.i, label %._crit_edge.i, label %.lr.ph148.i
 
 .lr.ph148.i:                                      ; preds = %.loopexit.i, %.lr.ph148.preheader.i
-  %indvars.iv157.i = phi i64 [ %1990, %.lr.ph148.preheader.i ], [ %indvars.iv.next158.i, %.loopexit.i ]
-  %indvars.iv.next158.i = add nsw i64 %indvars.iv157.i, -1
-  %1991 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::Cell *>::entry_t", ptr %.sroa.59.5.lcssa, i64 %indvars.iv.next158.i
+  %indvars.iv154.i = phi i64 [ %1990, %.lr.ph148.preheader.i ], [ %indvars.iv.next155.i, %.loopexit.i ]
+  %indvars.iv.next155.i = add nsw i64 %indvars.iv154.i, -1
+  %1991 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::Cell *>::entry_t", ptr %.sroa.59.5.lcssa, i64 %indvars.iv.next155.i
   %1992 = load ptr, ptr %1991, align 8
   %1993 = load ptr, ptr %152, align 8
   %1994 = load ptr, ptr %163, align 8
@@ -12440,8 +12440,8 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit: 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %.pre6114 = load ptr, ptr %145, align 8
   %.pre6115 = load ptr, ptr %148, align 8
-  %.not162.i = icmp eq ptr %.pre6114, %.pre6115
-  br i1 %.not162.i, label %.loopexit132.i, label %.lr.ph149.i, !llvm.loop !101
+  %.not151.i = icmp eq ptr %.pre6114, %.pre6115
+  br i1 %.not151.i, label %.loopexit132.i, label %.lr.ph149.i, !llvm.loop !101
 
 .loopexit132.i:                                   ; preds = %1985, %._crit_edge.i, %2563, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i548, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEaSERKS6_.exit.preheader.i
   %.sroa.59.8 = phi ptr [ null, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEaSERKS6_.exit.preheader.i ], [ %.sroa.59.5.lcssa, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i548 ], [ %.sroa.59.5.lcssa, %2563 ], [ %.sroa.59.5.lcssa, %._crit_edge.i ], [ %.sroa.59.5.lcssa, %1985 ]

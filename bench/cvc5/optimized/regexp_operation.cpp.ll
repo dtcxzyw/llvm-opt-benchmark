@@ -5341,7 +5341,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit134: ; preds = %invoke.cont49, %if
   br i1 %call50, label %if.end56, label %for.cond
 
 if.end56:                                         ; preds = %for.cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit134
-  %ret.2 = phi i32 [ 2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit134 ], [ 0, %for.cond ]
+  %ret.2 = phi i32 [ 0, %for.cond ], [ 2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit134 ]
   br i1 %call50, label %if.end71, label %if.then58
 
 if.then58:                                        ; preds = %invoke.cont41, %if.else34, %if.end56

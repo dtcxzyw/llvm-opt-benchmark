@@ -1793,8 +1793,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hdf4b0e012d19c1
           to label %.noexc.i.i.i unwind label %38, !noalias !603
 
 .noexc.i.i.i:                                     ; preds = %31
-  %.not.not.i.not.i.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.not.i.not.i.not.i.i.i, label %36, label %33
+  %.not.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i.i.i, label %36, label %33
 
 33:                                               ; preds = %.noexc.i.i.i
   %34 = load i64, ptr %32, align 8, !alias.scope !613, !noalias !618, !noundef !4
@@ -1980,8 +1980,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2d
           to label %.noexc.i.i.i unwind label %33, !noalias !664
 
 .noexc.i.i.i:                                     ; preds = %26
-  %.not.not.i.not.i.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.not.i.not.i.not.i.i.i, label %31, label %28
+  %.not.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i.i.i, label %31, label %28
 
 28:                                               ; preds = %.noexc.i.i.i
   %29 = load i64, ptr %27, align 8, !alias.scope !675, !noalias !680, !noundef !4

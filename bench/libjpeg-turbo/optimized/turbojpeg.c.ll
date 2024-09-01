@@ -8237,12 +8237,9 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %164 = sext i32 %130 to i64
   %165 = call noalias ptr @malloc(i64 noundef %164) #28
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %.preheader249
+  br i1 %166, label %167, label %.lr.ph275.preheader
 
-.preheader249:                                    ; preds = %163
-  br i1 %91, label %.lr.ph275.preheader, label %.loopexit
-
-.lr.ph275.preheader:                              ; preds = %.preheader249
+.lr.ph275.preheader:                              ; preds = %163
   %wide.trip.count323 = zext nneg i32 %90 to i64
   br label %.lr.ph275
 
@@ -8302,9 +8299,9 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
   br i1 %exitcond324.not, label %.loopexit, label %.lr.ph275, !llvm.loop !41
 
-.loopexit:                                        ; preds = %._crit_edge271, %87, %.preheader249, %._crit_edge266
-  %.0214.lcssa361 = phi i1 [ true, %._crit_edge266 ], [ false, %.preheader249 ], [ true, %87 ], [ %162, %._crit_edge271 ]
-  %.1213 = phi ptr [ null, %._crit_edge266 ], [ %165, %.preheader249 ], [ null, %87 ], [ %165, %._crit_edge271 ]
+.loopexit:                                        ; preds = %._crit_edge271, %87, %._crit_edge266
+  %.0214.lcssa361 = phi i1 [ true, %._crit_edge266 ], [ true, %87 ], [ false, %._crit_edge271 ]
+  %.1213 = phi ptr [ null, %._crit_edge266 ], [ null, %87 ], [ %165, %._crit_edge271 ]
   %191 = call i32 @_setjmp(ptr noundef nonnull %76) #27
   %.not237 = icmp eq i32 %191, 0
   br i1 %.not237, label %.preheader247, label %280
@@ -11468,7 +11465,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   br i1 %exitcond319.not, label %.loopexit255, label %.lr.ph278, !llvm.loop !63
 
 .loopexit255:                                     ; preds = %._crit_edge274, %149, %.preheader254, %._crit_edge269
-  %.not232341 = phi i1 [ true, %._crit_edge269 ], [ false, %.preheader254 ], [ true, %149 ], [ %.not232, %._crit_edge274 ]
+  %.not232341 = phi i1 [ true, %._crit_edge269 ], [ false, %.preheader254 ], [ true, %149 ], [ false, %._crit_edge274 ]
   %.1209 = phi ptr [ null, %._crit_edge269 ], [ %266, %.preheader254 ], [ null, %149 ], [ %266, %._crit_edge274 ]
   %293 = call i32 @_setjmp(ptr noundef nonnull %57) #27
   %.not233 = icmp eq i32 %293, 0

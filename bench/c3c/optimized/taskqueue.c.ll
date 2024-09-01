@@ -36,10 +36,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !7
-
-.preheader:                                       ; preds = %11
-  br i1 %9, label %.lr.ph19, label %._crit_edge
+  br i1 %exitcond.not, label %.lr.ph19, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader16, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader16 ]
@@ -57,8 +54,8 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %4
   br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
 
-.lr.ph19:                                         ; preds = %.preheader, %15
-  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %15 ], [ 0, %.preheader ]
+.lr.ph19:                                         ; preds = %11, %15
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %15 ], [ 0, %11 ]
   %16 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv21
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @pthread_join(i64 noundef %17, ptr noundef null) #9
@@ -69,7 +66,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2) #10
   unreachable
 
-._crit_edge:                                      ; preds = %15, %.preheader16, %.preheader
+._crit_edge:                                      ; preds = %15, %.preheader16
   call void @free(ptr noundef %6) #9
   %20 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
   ret void

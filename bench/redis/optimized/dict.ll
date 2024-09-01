@@ -2105,7 +2105,7 @@ for.body:                                         ; preds = %for.body.backedge, 
 land.lhs.true:                                    ; preds = %for.body
   %7 = load i64, ptr %rehashidx, align 8
   %cmp25 = icmp slt i64 %and, %7
-  br i1 %cmp25, label %for.inc, label %if.end28
+  br i1 %cmp25, label %for.body.backedge, label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.044
@@ -2194,14 +2194,11 @@ while.end:                                        ; preds = %if.end.i36, %if.end
   %brmerge.not = and i1 %cmp50.not, %cmp22
   br i1 %brmerge.not, label %for.body.backedge, label %return
 
-for.inc:                                          ; preds = %land.lhs.true
-  br i1 %cmp22, label %for.body.backedge, label %return
-
-for.body.backedge:                                ; preds = %for.inc, %while.end
+for.body.backedge:                                ; preds = %while.end, %land.lhs.true
   br label %for.body, !llvm.loop !19
 
-return:                                           ; preds = %for.inc, %while.end, %entry, %if.then45
-  %retval.0 = phi ptr [ %17, %if.then45 ], [ null, %entry ], [ null, %while.end ], [ null, %for.inc ]
+return:                                           ; preds = %while.end, %entry, %if.then45
+  %retval.0 = phi ptr [ %17, %if.then45 ], [ null, %entry ], [ null, %while.end ]
   ret ptr %retval.0
 }
 

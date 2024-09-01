@@ -542,7 +542,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %53 = icmp sgt i32 %52, 1
   br label %54
 
-54:                                               ; preds = %.lr.ph142, %.loopexit
+54:                                               ; preds = %.loopexit, %.lr.ph142
   %55 = phi i32 [ %9, %.lr.ph142 ], [ %106, %.loopexit ]
   %56 = phi i32 [ %5, %.lr.ph142 ], [ %107, %.loopexit ]
   %storemerge62141 = phi i32 [ 0, %.lr.ph142 ], [ %108, %.loopexit ]
@@ -673,9 +673,9 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   br i1 %exitcond164.not, label %.loopexit, label %.lr.ph140, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph140, %110
-  br i1 %109, label %54, label %._crit_edge143, !llvm.loop !12
+  br label %54, !llvm.loop !12
 
-._crit_edge143:                                   ; preds = %._crit_edge136, %.loopexit
+._crit_edge143:                                   ; preds = %._crit_edge136
   tail call void @free(ptr noundef %30) #10
   br label %127
 

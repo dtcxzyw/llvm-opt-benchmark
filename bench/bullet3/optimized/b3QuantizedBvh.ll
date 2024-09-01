@@ -957,9 +957,6 @@ for.end:                                          ; preds = %for.body, %for.body
   %mul3.i = fmul float %div, %means.sroa.0.4.vec.extract226
   %means.sroa.11.8.vec.extract233 = extractelement <2 x float> %means.sroa.11.0.lcssa, i64 0
   %mul5.i = fmul float %div, %means.sroa.11.8.vec.extract233
-  br i1 %cmp254, label %for.body26.lr.ph, label %for.end54
-
-for.body26.lr.ph:                                 ; preds = %for.end
   %m_useQuantization.i52 = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load i8, ptr %m_useQuantization.i52, align 8
   %tobool.i53 = trunc i8 %20 to i1
@@ -983,10 +980,10 @@ for.body26.lr.ph:                                 ; preds = %for.end
   %wide.trip.count284 = sext i32 %endIndex to i64
   br i1 %tobool.i53, label %for.body26.us, label %for.body26
 
-for.body26.us:                                    ; preds = %for.body26.lr.ph, %for.body26.us
-  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.body26.us ], [ %29, %for.body26.lr.ph ]
-  %variance.sroa.11.0262.us = phi <2 x float> [ %variance.sroa.11.8.vec.insert.us, %for.body26.us ], [ zeroinitializer, %for.body26.lr.ph ]
-  %variance.sroa.0.0261.us = phi <2 x float> [ %variance.sroa.0.4.vec.insert.us, %for.body26.us ], [ zeroinitializer, %for.body26.lr.ph ]
+for.body26.us:                                    ; preds = %for.end, %for.body26.us
+  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.body26.us ], [ %29, %for.end ]
+  %variance.sroa.11.0262.us = phi <2 x float> [ %variance.sroa.11.8.vec.insert.us, %for.body26.us ], [ zeroinitializer, %for.end ]
+  %variance.sroa.0.0261.us = phi <2 x float> [ %variance.sroa.0.4.vec.insert.us, %for.body26.us ], [ zeroinitializer, %for.end ]
   %m_quantizedAabbMax.i68.us = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %22, i64 %indvars.iv281, i32 0, i32 1
   %30 = load i16, ptr %m_quantizedAabbMax.i68.us, align 2
   %conv.i.i69.us = uitofp i16 %30 to float
@@ -1042,10 +1039,10 @@ for.body26.us:                                    ; preds = %for.body26.lr.ph, %
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %for.end54, label %for.body26.us, !llvm.loop !9
 
-for.body26:                                       ; preds = %for.body26.lr.ph, %for.body26
-  %indvars.iv276 = phi i64 [ %indvars.iv.next277, %for.body26 ], [ %29, %for.body26.lr.ph ]
-  %variance.sroa.11.0262 = phi <2 x float> [ %variance.sroa.11.8.vec.insert, %for.body26 ], [ zeroinitializer, %for.body26.lr.ph ]
-  %variance.sroa.0.0261 = phi <2 x float> [ %variance.sroa.0.4.vec.insert, %for.body26 ], [ zeroinitializer, %for.body26.lr.ph ]
+for.body26:                                       ; preds = %for.end, %for.body26
+  %indvars.iv276 = phi i64 [ %indvars.iv.next277, %for.body26 ], [ %29, %for.end ]
+  %variance.sroa.11.0262 = phi <2 x float> [ %variance.sroa.11.8.vec.insert, %for.body26 ], [ zeroinitializer, %for.end ]
+  %variance.sroa.0.0261 = phi <2 x float> [ %variance.sroa.0.4.vec.insert, %for.body26 ], [ zeroinitializer, %for.end ]
   %arrayidx.i4.i57 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %21, i64 %indvars.iv276
   %m_aabbMaxOrg.i58 = getelementptr inbounds i8, ptr %arrayidx.i4.i57, i64 16
   %retval.sroa.0.0.copyload.i59 = load <2 x float>, ptr %m_aabbMaxOrg.i58, align 16
@@ -1083,10 +1080,10 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count284
   br i1 %exitcond280.not, label %for.end54, label %for.body26, !llvm.loop !9
 
-for.end54:                                        ; preds = %for.body26, %for.body26.us, %for.end.thread, %for.end
-  %conv296 = phi float [ %conv, %for.end ], [ %conv288, %for.end.thread ], [ %conv, %for.body26.us ], [ %conv, %for.body26 ]
-  %variance.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %for.end ], [ zeroinitializer, %for.end.thread ], [ %variance.sroa.0.4.vec.insert.us, %for.body26.us ], [ %variance.sroa.0.4.vec.insert, %for.body26 ]
-  %variance.sroa.11.0.lcssa = phi <2 x float> [ zeroinitializer, %for.end ], [ zeroinitializer, %for.end.thread ], [ %variance.sroa.11.8.vec.insert.us, %for.body26.us ], [ %variance.sroa.11.8.vec.insert, %for.body26 ]
+for.end54:                                        ; preds = %for.body26, %for.body26.us, %for.end.thread
+  %conv296 = phi float [ %conv288, %for.end.thread ], [ %conv, %for.body26.us ], [ %conv, %for.body26 ]
+  %variance.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %for.end.thread ], [ %variance.sroa.0.4.vec.insert.us, %for.body26.us ], [ %variance.sroa.0.4.vec.insert, %for.body26 ]
+  %variance.sroa.11.0.lcssa = phi <2 x float> [ zeroinitializer, %for.end.thread ], [ %variance.sroa.11.8.vec.insert.us, %for.body26.us ], [ %variance.sroa.11.8.vec.insert, %for.body26 ]
   %sub57 = fadd float %conv296, -1.000000e+00
   %div58 = fdiv float 1.000000e+00, %sub57
   %variance.sroa.0.0.vec.extract198 = extractelement <2 x float> %variance.sroa.0.0.lcssa, i64 0

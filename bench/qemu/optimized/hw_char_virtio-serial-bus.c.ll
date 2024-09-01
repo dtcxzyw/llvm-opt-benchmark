@@ -582,8 +582,8 @@ for.body.i:                                       ; preds = %land.rhs, %for.inc.
   %port.07.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.05.i, %land.rhs ]
   %id1.i = getelementptr inbounds i8, ptr %port.07.i, i64 208
   %3 = load i32, ptr %id1.i, align 8
-  %cmp2.i.not = icmp ne i32 %3, 0
-  br i1 %cmp2.i.not, label %for.inc.i, label %land.end
+  %cmp2.i.not.not = icmp ne i32 %3, 0
+  br i1 %cmp2.i.not.not, label %for.inc.i, label %land.end
 
 for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 160
@@ -592,7 +592,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %land.end, label %for.body.i, !llvm.loop !7
 
 land.end:                                         ; preds = %for.inc.i, %for.body.i, %land.rhs, %if.end
-  %4 = phi i1 [ false, %if.end ], [ true, %land.rhs ], [ %cmp2.i.not, %for.body.i ], [ %cmp2.i.not, %for.inc.i ]
+  %4 = phi i1 [ false, %if.end ], [ true, %land.rhs ], [ %cmp2.i.not.not, %for.body.i ], [ %cmp2.i.not.not, %for.inc.i ]
   %id = getelementptr inbounds i8, ptr %call.i, i64 208
   %5 = load i32, ptr %id, align 8
   %cmp.i = icmp eq i32 %5, -1

@@ -4365,7 +4365,7 @@ Cec5_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   br i1 %.not.i28, label %57, label %.lr.ph.preheader.i31
 
 .lr.ph.preheader.i31:                             ; preds = %.lr.ph.i26, %.lr.ph8.i
-  %.0166986 = trunc i64 %indvars.iv to i32
+  %.0166984 = trunc i64 %indvars.iv to i32
   %wide.trip.count.i32 = zext nneg i32 %.val24 to i64
   br label %.lr.ph.i33
 
@@ -4427,7 +4427,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %91, %65
   %93 = getelementptr i8, ptr %.val20.i, i64 4
   %.val20.val.i = load i32, ptr %93, align 4
   %94 = tail call ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val20.val.i, i32 noundef 1) #24
-  store i32 %.0166986, ptr %94, align 4
+  store i32 %.0166984, ptr %94, align 4
   %95 = icmp eq i32 %.08.i, -1
   br i1 %95, label %Cec5_ManDeriveCex.exit, label %.preheader.i38
 
@@ -6214,10 +6214,7 @@ define range(i32 0, 2) i32 @Cec5_ManPackAddPatternTry(ptr nocapture noundef read
   %wide.trip.count = zext nneg i32 %.val39 to i64
   br label %25
 
-.critedge.preheader:                              ; preds = %42
-  br i1 %5, label %.lr.ph51, label %.critedge2
-
-.lr.ph51:                                         ; preds = %.critedge.preheader
+.lr.ph51:                                         ; preds = %42
   %17 = getelementptr i8, ptr %2, i64 8
   %18 = getelementptr inbounds i8, ptr %0, i64 832
   %19 = getelementptr inbounds i8, ptr %0, i64 816
@@ -6257,7 +6254,7 @@ define range(i32 0, 2) i32 @Cec5_ManPackAddPatternTry(ptr nocapture noundef read
 42:                                               ; preds = %25, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %25, !llvm.loop !58
+  br i1 %exitcond.not, label %.lr.ph51, label %25, !llvm.loop !58
 
 43:                                               ; preds = %.lr.ph51, %.critedge
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %.critedge ]
@@ -6300,8 +6297,8 @@ define range(i32 0, 2) i32 @Cec5_ManPackAddPatternTry(ptr nocapture noundef read
   %67 = icmp slt i64 %indvars.iv.next55, %66
   br i1 %67, label %43, label %.critedge2, !llvm.loop !59
 
-.critedge2:                                       ; preds = %33, %.critedge, %3, %.critedge.preheader
-  %.0 = phi i32 [ 1, %.critedge.preheader ], [ 1, %3 ], [ 1, %.critedge ], [ 0, %33 ]
+.critedge2:                                       ; preds = %33, %.critedge, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 0, %33 ]
   ret i32 %.0
 }
 

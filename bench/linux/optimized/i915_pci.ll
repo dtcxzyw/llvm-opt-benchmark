@@ -336,8 +336,8 @@ sub_05:                                           ; preds = %10
 21:                                               ; preds = %.tail.thread
   store ptr %19, ptr %4, align 8
   %22 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
-  %.not15 = icmp eq ptr %22, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
@@ -366,8 +366,8 @@ sub_05:                                           ; preds = %10
 
 .backedge.us:                                     ; preds = %27, %26
   %34 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
-  %.not17 = icmp eq ptr %34, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph.split.us
+  %.not15 = icmp eq ptr %34, null
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %35 = phi ptr [ %44, %.backedge ], [ %22, %.lr.ph ]
@@ -388,8 +388,8 @@ sub_05:                                           ; preds = %10
 
 .backedge:                                        ; preds = %38, %45
   %44 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
-  %.not16 = icmp eq ptr %44, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph.split
+  %.not14 = icmp eq ptr %44, null
+  br i1 %.not14, label %._crit_edge, label %.lr.ph.split
 
 45:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5

@@ -2675,8 +2675,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %m_kind.i.i = getelementptr inbounds i8, ptr %8, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %cmp.i.not = icmp eq i32 %bf.clear.i.i, 0
-  br i1 %cmp.i.not, label %land.lhs.true.i, label %return
+  %cmp.i = icmp eq i32 %bf.clear.i.i, 0
+  br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %for.body
   %m_num_args.i.i = getelementptr inbounds i8, ptr %8, i64 24
@@ -5897,10 +5897,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %wide.trip.count86 = zext i32 %0 to i64
   br label %for.body
 
-for.cond30.preheader:                             ; preds = %for.inc26
-  br i1 %cmp362.not, label %for.end43, label %for.body32.lr.ph
-
-for.body32.lr.ph:                                 ; preds = %for.cond30.preheader
+for.body32.lr.ph:                                 ; preds = %for.inc26
   %m_args.i44 = getelementptr inbounds i8, ptr %cls, i64 32
   %m_util = getelementptr inbounds i8, ptr %this, i64 32
   %wide.trip.count91 = zext i32 %0 to i64
@@ -6144,7 +6141,7 @@ for.inc26:                                        ; preds = %land.rhs.i.i.i.i, %
   %val.1 = phi i32 [ %mul, %if.end25 ], [ %val.064, %land.rhs.i.i.i.i ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %for.cond30.preheader, label %for.body, !llvm.loop !40
+  br i1 %exitcond87.not, label %for.body32.lr.ph, label %for.body, !llvm.loop !40
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc41
   %indvars.iv88 = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next89, %for.inc41 ]
@@ -6208,8 +6205,8 @@ for.end43.loopexit.split.loop.exit112:            ; preds = %lor.lhs.false
   %57 = trunc nuw i64 %indvars.iv88 to i32
   br label %for.end43
 
-for.end43:                                        ; preds = %for.inc41, %for.end43.loopexit.split.loop.exit, %for.end43.loopexit.split.loop.exit112, %if.end, %for.cond30.preheader
-  %i29.0.lcssa = phi i32 [ 0, %for.cond30.preheader ], [ 0, %if.end ], [ %56, %for.end43.loopexit.split.loop.exit ], [ %57, %for.end43.loopexit.split.loop.exit112 ], [ %0, %for.inc41 ]
+for.end43:                                        ; preds = %for.inc41, %for.end43.loopexit.split.loop.exit, %for.end43.loopexit.split.loop.exit112, %if.end
+  %i29.0.lcssa = phi i32 [ 0, %if.end ], [ %56, %for.end43.loopexit.split.loop.exit ], [ %57, %for.end43.loopexit.split.loop.exit112 ], [ %0, %for.inc41 ]
   %cmp44 = icmp ne i32 %i29.0.lcssa, %0
   br label %return
 

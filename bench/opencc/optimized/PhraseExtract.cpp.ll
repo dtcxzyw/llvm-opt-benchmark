@@ -4984,9 +4984,6 @@ define noundef double @_ZNK6opencc13PhraseExtract16CalculateEntropyERKSt13unorde
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not25, label %._crit_edge, label %.lr.ph31
-
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.027 = phi double [ %8, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.sroa.021.026 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
@@ -4996,11 +4993,11 @@ define noundef double @_ZNK6opencc13PhraseExtract16CalculateEntropyERKSt13unorde
   %8 = fadd double %.027, %7
   %9 = load ptr, ptr %.sroa.021.026, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.lr.ph31, label %.lr.ph
 
-.lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
-  %.01630 = phi double [ %15, %.lr.ph31 ], [ 0.000000e+00, %.preheader ]
-  %.sroa.017.029 = phi ptr [ %16, %.lr.ph31 ], [ %4, %.preheader ]
+.lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
+  %.01630 = phi double [ %15, %.lr.ph31 ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.017.029 = phi ptr [ %16, %.lr.ph31 ], [ %4, %.lr.ph ]
   %10 = getelementptr inbounds i8, ptr %.sroa.017.029, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = uitofp i64 %11 to double
@@ -5011,8 +5008,8 @@ define noundef double @_ZNK6opencc13PhraseExtract16CalculateEntropyERKSt13unorde
   %.not24 = icmp eq ptr %16, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph31
 
-._crit_edge:                                      ; preds = %.lr.ph31, %2, %.preheader
-  %.016.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %2 ], [ %15, %.lr.ph31 ]
+._crit_edge:                                      ; preds = %.lr.ph31, %2
+  %.016.lcssa = phi double [ 0.000000e+00, %2 ], [ %15, %.lr.ph31 ]
   %17 = fcmp une double %.016.lcssa, 0.000000e+00
   %18 = fneg double %.016.lcssa
   %.1 = select i1 %17, double %18, double %.016.lcssa

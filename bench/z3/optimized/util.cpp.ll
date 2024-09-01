@@ -151,38 +151,28 @@ entry:
   br i1 %cmp8.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext i32 %n to i64
-  %1 = load i32, ptr %it, align 4
-  %inc12 = add i32 %1, 1
-  store i32 %inc12, ptr %it, align 4
-  %2 = load i32, ptr %sz, align 4
-  %cmp513 = icmp ult i32 %inc12, %2
-  br i1 %cmp513, label %return, label %if.end
+  %wide.trip.count = zext i32 %n to i64
+  br label %for.body
 
-for.body:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds i32, ptr %it, i64 %indvars.iv.next
-  %3 = load i32, ptr %arrayidx, align 4
-  %inc = add i32 %3, 1
+for.body:                                         ; preds = %for.body.preheader, %if.end
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
+  %arrayidx = getelementptr inbounds i32, ptr %it, i64 %indvars.iv
+  %0 = load i32, ptr %arrayidx, align 4
+  %inc = add i32 %0, 1
   store i32 %inc, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %sz, i64 %indvars.iv.next
-  %4 = load i32, ptr %arrayidx4, align 4
-  %cmp5 = icmp ult i32 %inc, %4
-  br i1 %cmp5, label %return.loopexit, label %if.end, !llvm.loop !4
+  %arrayidx4 = getelementptr inbounds i32, ptr %sz, i64 %indvars.iv
+  %1 = load i32, ptr %arrayidx4, align 4
+  %cmp5 = icmp ult i32 %inc, %1
+  br i1 %cmp5, label %return, label %if.end
 
-if.end:                                           ; preds = %for.body.preheader, %for.body
-  %indvars.iv14 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx15 = getelementptr inbounds i32, ptr %it, i64 %indvars.iv14
-  store i32 0, ptr %arrayidx15, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv14, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !4
+if.end:                                           ; preds = %for.body
+  store i32 0, ptr %arrayidx, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return.loopexit:                                  ; preds = %for.body, %if.end
-  %cmp.le = icmp ult i64 %indvars.iv.next, %0
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %if.end, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp5, %if.end ], [ %cmp5, %for.body ]
   ret i1 %cmp.lcssa
 }
 

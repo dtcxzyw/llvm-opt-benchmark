@@ -3074,12 +3074,10 @@ _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EE5resetEPS1_.
   %tobool = trunc i8 %3 to i1
   %use_mmap_writes = getelementptr inbounds i8, ptr %options, i64 1
   %4 = load i8, ptr %use_mmap_writes, align 1
-  %tobool2 = trunc i8 %4 to i1
-  %tobool.not = xor i1 %tobool, true
-  %brmerge = select i1 %tobool.not, i1 true, i1 %tobool2
-  %tobool2.mux = select i1 %tobool, i1 true, i1 %tobool2
-  %. = select i1 %tobool2.mux, i32 2, i32 1
-  %flags.0 = select i1 %brmerge, i32 %., i32 16385
+  %.fr = freeze i8 %4
+  %tobool2 = trunc i8 %.fr to i1
+  %. = select i1 %tobool, i32 16385, i32 1
+  %flags.0 = select i1 %tobool2, i32 2, i32 %.
   %set_fd_cloexec.i = getelementptr inbounds i8, ptr %options, i64 5
   %5 = load i8, ptr %set_fd_cloexec.i, align 1
   %tobool.i = trunc i8 %5 to i1

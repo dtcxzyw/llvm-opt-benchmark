@@ -8717,7 +8717,6 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next.pre-phi, %for.inc ]
-  %cmp21 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
   %cmp1 = icmp eq i64 %indvars.iv, 5
   br i1 %cmp1, label %for.inc, label %if.end
 
@@ -8838,12 +8837,11 @@ _ZN6icu_7515MeasureUnitImplD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i
 
 for.inc:                                          ; preds = %for.body, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit
   %indvars.iv.next.pre-phi = phi i64 [ %1, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread ], [ %1, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit ], [ 6, %for.body ]
-  %cmp = icmp ult i64 %indvars.iv, 22
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 23
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %_ZN6icu_7515MeasureUnitImplD2Ev.exit.i, %if.then5
-  %cmp17 = phi i1 [ %cmp21, %_ZN6icu_7515MeasureUnitImplD2Ev.exit.i ], [ %cmp21, %if.then5 ], [ %cmp, %for.inc ]
+  %cmp17 = phi i1 [ true, %_ZN6icu_7515MeasureUnitImplD2Ev.exit.i ], [ true, %if.then5 ], [ false, %for.inc ]
   ret i1 %cmp17
 }
 

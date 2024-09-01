@@ -1760,8 +1760,8 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 
 175:                                              ; preds = %.thread.i
   %176 = load i64, ptr %32, align 8, !range !234, !noalias !199, !noundef !8
-  %.not141.not.i.not = icmp ne i64 %176, 2
-  br i1 %.not141.not.i.not, label %177, label %178
+  %.not141.not.not.not.i.not.not.not.not.not = icmp ne i64 %176, 2
+  br i1 %.not141.not.not.not.i.not.not.not.not.not, label %177, label %178
 
 177:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %31), !noalias !199
@@ -2262,10 +2262,11 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   br label %273
 
 "_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit184.i": ; preds = %355, %.loopexit.split-lp380.i, %.loopexit379.i
+  %.not141.not.not.not.i.not.not156 = phi i1 [ false, %355 ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit379.i ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit.split-lp380.i ]
   %eh.lpad-body240.i = phi { ptr, i32 } [ %356, %355 ], [ %lpad.loopexit381.i, %.loopexit379.i ], [ %lpad.loopexit.split-lp382.i, %.loopexit.split-lp380.i ]
   %335 = load i64, ptr %32, align 8, !range !234, !noalias !199, !noundef !8
   %.not150.i = icmp eq i64 %335, 2
-  %brmerge166.i = or i1 %.not141.not.i.not, %.not150.i
+  %brmerge166.i = or i1 %.not141.not.not.not.i.not.not156, %.not150.i
   br i1 %brmerge166.i, label %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i", label %384
 
 .loopexit379.i:                                   ; preds = %273, %178

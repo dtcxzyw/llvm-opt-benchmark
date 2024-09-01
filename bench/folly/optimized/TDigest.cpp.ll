@@ -2346,9 +2346,9 @@ for.body.i.i.i.i.i145:                            ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i.i148 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i147, i64 16
   %incdec.ptr.i.i.i.i.i149 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i.i146, i64 16
   %cmp.i.i.not.i.i.i.i.i150 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i148, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i150, label %if.then.i.i.i.i.i157, label %for.body.i.i.i.i.i145, !llvm.loop !82
+  br i1 %cmp.i.i.not.i.i.i.i.i150, label %_ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit152.loopexit, label %for.body.i.i.i.i.i145, !llvm.loop !82
 
-if.then.i.i.i.i.i157:                             ; preds = %for.body.i.i.i.i.i145
+_ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit152.loopexit: ; preds = %for.body.i.i.i.i.i145
   %.pre197 = load ptr, ptr %_M_finish, align 8, !tbaa !22
   %add.ptr58 = getelementptr inbounds i8, ptr %.pre197, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8, !tbaa !22
@@ -2443,7 +2443,7 @@ if.end109.critedge:                               ; preds = %_ZSt22__uninitializ
   store ptr %add.ptr58.c, ptr %_M_finish, align 8, !tbaa !22
   br label %if.end109
 
-if.end109:                                        ; preds = %if.end109.critedge, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit, %if.then.i.i.i.i.i157, %if.then.i.i.i.i.i141, %entry
+if.end109:                                        ; preds = %if.end109.critedge, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit152.loopexit, %if.then.i.i.i.i.i141, %entry
   ret void
 }
 

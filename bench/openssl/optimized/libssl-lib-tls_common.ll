@@ -461,9 +461,9 @@ if.end:                                           ; preds = %entry
 
 if.end.if.end9_crit_edge:                         ; preds = %if.end
   %packet_length10.phi.trans.insert = getelementptr inbounds i8, ptr %rl, i64 4088
-  %.pre166 = load i64, ptr %packet_length10.phi.trans.insert, align 8
+  %.pre161 = load i64, ptr %packet_length10.phi.trans.insert, align 8
   %packet13.phi.trans.insert = getelementptr inbounds i8, ptr %rl, i64 4080
-  %.pre167 = load ptr, ptr %packet13.phi.trans.insert, align 8
+  %.pre162 = load ptr, ptr %packet13.phi.trans.insert, align 8
   br label %if.end9
 
 if.then3:                                         ; preds = %if.end
@@ -489,8 +489,8 @@ if.end6:                                          ; preds = %if.then3.if.end6_cr
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.if.end9_crit_edge, %if.end6
-  %5 = phi ptr [ %.pre167, %if.end.if.end9_crit_edge ], [ %add.ptr, %if.end6 ]
-  %6 = phi i64 [ %.pre166, %if.end.if.end9_crit_edge ], [ 0, %if.end6 ]
+  %5 = phi ptr [ %.pre162, %if.end.if.end9_crit_edge ], [ %add.ptr, %if.end6 ]
+  %6 = phi i64 [ %.pre161, %if.end.if.end9_crit_edge ], [ 0, %if.end6 ]
   %packet_length10 = getelementptr inbounds i8, ptr %rl, i64 4088
   %add.ptr12 = getelementptr inbounds i8, ptr %1, i64 %sub2
   %cmp14 = icmp ne ptr %5, %add.ptr12
@@ -576,11 +576,11 @@ while.body.us.preheader:                          ; preds = %if.end123, %while.b
   %add.ptr76 = getelementptr inbounds i8, ptr %add.ptr75, i64 %left.0.ph143
   %sub77 = sub i64 %max.addr.0, %left.0.ph143
   %conv = trunc i64 %sub77 to i32
-  %.pre168 = load ptr, ptr %prev, align 8
+  %.pre163 = load ptr, ptr %prev, align 8
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %if.then90.us
-  %15 = phi ptr [ %.pre168, %while.body.us.preheader ], [ null, %if.then90.us ]
+  %15 = phi ptr [ %.pre163, %while.body.us.preheader ], [ null, %if.then90.us ]
   %cmp70.not.us = icmp eq ptr %15, null
   br i1 %cmp70.not.us, label %cond.end.us, label %cond.end.thread.us
 
@@ -652,23 +652,23 @@ if.then119:                                       ; preds = %land.lhs.true112
   br label %return
 
 if.end123:                                        ; preds = %if.then74.us
-  %.pre169 = load i32, ptr %isdtls, align 8
+  %.pre164 = load i32, ptr %isdtls, align 8
   %conv82 = zext nneg i32 %call78.us to i64
   %add124 = add i64 %left.0.ph143, %conv82
-  %tobool126.not.not = icmp eq i32 %.pre169, 0
+  %tobool126.not.not = icmp eq i32 %.pre164, 0
   %21 = tail call i64 @llvm.umin.i64(i64 %n.addr.1.ph144, i64 %add124)
   %n.addr.2 = select i1 %tobool126.not.not, i64 %n.addr.1.ph144, i64 %21
   %cmp69 = icmp ult i64 %add124, %n.addr.2
   br i1 %cmp69, label %while.body.us.preheader, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end123
-  %.pre170 = load i64, ptr %offset46, align 8
-  %add134 = add i64 %.pre170, %n.addr.2
+  %22 = load i64, ptr %offset46, align 8
+  %add134 = add i64 %22, %n.addr.2
   store i64 %add134, ptr %offset46, align 8
   %sub135 = sub nuw i64 %add124, %n.addr.2
   store i64 %sub135, ptr %left1, align 8
-  %22 = load i64, ptr %packet_length10, align 8
-  %add138 = add i64 %22, %n.addr.2
+  %23 = load i64, ptr %packet_length10, align 8
+  %add138 = add i64 %23, %n.addr.2
   store i64 %add138, ptr %packet_length10, align 8
   store i64 %n.addr.2, ptr %readbytes, align 8
   br label %return

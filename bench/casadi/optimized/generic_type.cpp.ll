@@ -15800,8 +15800,8 @@ _ZNK6casadi11GenericType20is_int_vector_vectorEv.exit114: ; preds = %173
   %210 = ptrtoint ptr %208 to i64
   %211 = ptrtoint ptr %209 to i64
   %212 = sub i64 %210, %211
-  %.not83 = icmp ne i64 %204, %212
-  br i1 %.not83, label %.loopexit174, label %.preheader173
+  %.not83.not.not = icmp ne i64 %204, %212
+  br i1 %.not83.not.not, label %.loopexit174, label %.preheader173
 
 .preheader173:                                    ; preds = %.lr.ph187
   %.not202 = icmp eq ptr %200, %201
@@ -15831,7 +15831,7 @@ _ZNK6casadi11GenericType20is_int_vector_vectorEv.exit114: ; preds = %173
   br i1 %exitcond212.not, label %.loopexit174, label %.lr.ph187, !llvm.loop !169
 
 .loopexit174:                                     ; preds = %.lr.ph187, %._crit_edge, %.lr.ph185, %.preheader175, %182
-  %.3 = phi i1 [ true, %182 ], [ false, %.preheader175 ], [ true, %.lr.ph185 ], [ true, %.lr.ph187 ], [ %.not83, %._crit_edge ]
+  %.3 = phi i1 [ true, %182 ], [ false, %.preheader175 ], [ true, %.lr.ph185 ], [ %.not83.not.not, %._crit_edge ], [ %.not83.not.not, %.lr.ph187 ]
   %.not4.i.i.i.i = icmp eq ptr %192, %191
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -15964,8 +15964,8 @@ _ZNK6casadi11GenericType23is_double_vector_vectorEv.exit129: ; preds = %235
   %272 = ptrtoint ptr %270 to i64
   %273 = ptrtoint ptr %271 to i64
   %274 = sub i64 %272, %273
-  %.not81 = icmp ne i64 %266, %274
-  br i1 %.not81, label %.loopexit, label %.preheader
+  %.not81.not.not = icmp ne i64 %266, %274
+  br i1 %.not81.not.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph194
   %.not204 = icmp eq ptr %262, %263
@@ -15995,7 +15995,7 @@ _ZNK6casadi11GenericType23is_double_vector_vectorEv.exit129: ; preds = %235
   br i1 %exitcond216.not, label %.loopexit, label %.lr.ph194, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.lr.ph194, %._crit_edge192, %.lr.ph191, %.preheader171, %244
-  %.4 = phi i1 [ true, %244 ], [ false, %.preheader171 ], [ true, %.lr.ph191 ], [ true, %.lr.ph194 ], [ %.not81, %._crit_edge192 ]
+  %.4 = phi i1 [ true, %244 ], [ false, %.preheader171 ], [ true, %.lr.ph191 ], [ %.not81.not.not, %._crit_edge192 ], [ %.not81.not.not, %.lr.ph194 ]
   %.not4.i.i.i.i130 = icmp eq ptr %254, %253
   br i1 %.not4.i.i.i.i130, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i131
 

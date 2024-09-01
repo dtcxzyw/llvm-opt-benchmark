@@ -20590,10 +20590,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %message_.i.i86 = getelementptr inbounds i8, ptr %gtest_ar21, i64 8
   br label %for.body
 
-for.cond51.preheader:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
-  br i1 %cmp337, label %for.body53.lr.ph, label %for.end121
-
-for.body53.lr.ph:                                 ; preds = %for.cond51.preheader
+for.body53.lr.ph:                                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
   %_M_manager.i.i107 = getelementptr inbounds i8, ptr %input_generator, i64 16
   %_M_invoker.i110 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %_M_manager.i.i119 = getelementptr inbounds i8, ptr %expected_generator, i64 16
@@ -20932,7 +20929,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end46, %_ZNKSt14
   %add.i = add i32 %step.0339, 1
   %add1.i = add i32 %add.i, %shr.i
   %cmp = icmp slt i32 %add, %upper_bound
-  br i1 %cmp, label %for.body, label %for.cond51.preheader, !llvm.loop !640
+  br i1 %cmp, label %for.body, label %for.body53.lr.ph, !llvm.loop !640
 
 ehcleanup47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit101, %lpad27
   %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %27, %lpad27 ]
@@ -21282,7 +21279,7 @@ ehcleanup117:                                     ; preds = %lpad58.loopexit, %l
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   br label %eh.resume
 
-for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit196, %entry, %for.cond51.preheader
+for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit196, %entry
   %cmp124343 = icmp sgt i32 %lower_bound, -999999
   br i1 %cmp124343, label %for.body125.lr.ph, label %for.end184
 
@@ -22184,10 +22181,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %message_.i.i86 = getelementptr inbounds i8, ptr %gtest_ar21, i64 8
   br label %for.body
 
-for.cond51.preheader:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
-  br i1 %cmp340, label %for.body53.lr.ph, label %for.end121
-
-for.body53.lr.ph:                                 ; preds = %for.cond51.preheader
+for.body53.lr.ph:                                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
   %_M_manager.i.i107 = getelementptr inbounds i8, ptr %input_generator, i64 16
   %_M_invoker.i110 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %_M_manager.i.i119 = getelementptr inbounds i8, ptr %expected_generator, i64 16
@@ -22530,7 +22524,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end46, %_ZNKSt14
   %add.i = add i32 %step.0342, 1
   %add1.i = add i32 %add.i, %shr.i
   %cmp = icmp slt i32 %add, %upper_bound
-  br i1 %cmp, label %for.body, label %for.cond51.preheader, !llvm.loop !686
+  br i1 %cmp, label %for.body, label %for.body53.lr.ph, !llvm.loop !686
 
 ehcleanup47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit101, %lpad27
   %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %29, %lpad27 ]
@@ -22884,7 +22878,7 @@ ehcleanup117:                                     ; preds = %lpad58.loopexit, %l
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   br label %eh.resume
 
-for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit198, %entry, %for.cond51.preheader
+for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit198, %entry
   %cmp124346 = icmp sgt i32 %lower_bound, -999999
   br i1 %cmp124346, label %for.body125.lr.ph, label %for.end184
 

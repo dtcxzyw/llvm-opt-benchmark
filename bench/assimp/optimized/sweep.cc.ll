@@ -1836,7 +1836,6 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %cmp50 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x i8], ptr %delaunay_edge, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %tobool = trunc i8 %0 to i1
@@ -1950,12 +1949,11 @@ if.end45:                                         ; preds = %if.then44, %if.end3
 
 for.inc:                                          ; preds = %if.end.i, %if.end22, %if.end, %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit, %for.body, %if.then14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return:                                           ; preds = %for.inc, %if.end45
-  %cmp47 = phi i1 [ %cmp50, %if.end45 ], [ %cmp, %for.inc ]
+  %cmp47 = phi i1 [ true, %if.end45 ], [ false, %for.inc ]
   ret i1 %cmp47
 }
 

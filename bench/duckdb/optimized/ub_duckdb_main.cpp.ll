@@ -35016,8 +35016,8 @@ if.end10:                                         ; preds = %if.end6
 for.cond:                                         ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit, %if.end10
   %__begin1.sroa.0.0.in = phi ptr [ %_M_before_begin.i.i.i, %if.end10 ], [ %__begin1.sroa.0.0, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8, !tbaa !268
-  %cmp.i47.not.not = icmp ne ptr %__begin1.sroa.0.0, null
-  br i1 %cmp.i47.not.not, label %for.body, label %cleanup39
+  %cmp.i47.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, null
+  br i1 %cmp.i47.not.not.not.not, label %for.body, label %cleanup39
 
 for.body:                                         ; preds = %for.cond
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 8
@@ -35093,7 +35093,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckd
   br i1 %call.i, label %for.cond, label %cleanup39
 
 cleanup39:                                        ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit, %for.cond, %if.end6, %if.end, %cond.end
-  %retval.3 = phi i1 [ false, %cond.end ], [ true, %if.end ], [ true, %if.end6 ], [ %cmp.i47.not.not, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit ], [ false, %for.cond ]
+  %retval.3 = phi i1 [ false, %cond.end ], [ true, %if.end ], [ true, %if.end6 ], [ %cmp.i47.not.not.not.not, %for.cond ], [ %cmp.i47.not.not.not.not, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEE4findERSB_.exit ]
   ret i1 %retval.3
 }
 

@@ -95,10 +95,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %56, label %.lr.ph182.preheader, label %._crit_edge183
-
-.lr.ph182.preheader:                              ; preds = %.preheader
+.lr.ph182.preheader:                              ; preds = %.lr.ph
   %wide.trip.count200 = zext nneg i32 %16 to i64
   br label %.lr.ph182
 
@@ -112,7 +109,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   store i32 %58, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph182.preheader, label %.lr.ph, !llvm.loop !4
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %122
   %indvars.iv197 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next198, %122 ]
@@ -257,7 +254,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
   br i1 %exitcond201.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !9
 
-._crit_edge183:                                   ; preds = %122, %49, %.preheader
+._crit_edge183:                                   ; preds = %122, %49
   %130 = load i32, ptr %44, align 4
   %131 = getelementptr inbounds i32, ptr %51, i64 %36
   store i32 %130, ptr %131, align 4

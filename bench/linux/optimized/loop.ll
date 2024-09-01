@@ -3336,8 +3336,8 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 440
   %35 = tail call i32 @mutex_lock_killable(ptr noundef %34) #14
-  %.not33 = icmp eq i32 %35, 0
-  br i1 %.not33, label %.thread34, label %.thread18.sink.split
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %.thread34, label %.thread18.sink.split
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %0, i64 440
@@ -3369,8 +3369,8 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %53 = getelementptr inbounds i8, ptr %48, i64 76
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, -1048576
-  %.not = icmp eq i32 %55, 7340032
-  br i1 %.not, label %56, label %.thread20
+  %.not31 = icmp eq i32 %55, 7340032
+  br i1 %.not31, label %56, label %.thread20
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %46, align 4

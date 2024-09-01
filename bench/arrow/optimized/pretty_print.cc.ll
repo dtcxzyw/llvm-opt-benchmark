@@ -22974,14 +22974,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %null_rep.i = getelementptr inbounds i8, ptr %column_options, i64 16
   br label %for.body
 
-for.cond:                                         ; preds = %cleanup23
-  %inc = add nuw nsw i32 %i.050, 1
-  %call = call noundef i32 @_ZNK5arrow11RecordBatch11num_columnsEv(ptr noundef nonnull align 8 dereferenceable(32) %batch)
-  %cmp = icmp slt i32 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !651
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.050 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.lr.ph, %cleanup23
+  %i.050 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %cleanup23 ]
   %call1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow11RecordBatch11column_nameB5cxx11Ei(ptr noundef nonnull align 8 dereferenceable(32) %batch, i32 noundef %i.050)
   call void @_ZN5arrow18PrettyPrintOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %column_options, ptr noundef nonnull align 8 dereferenceable(248) %options)
   %0 = load i32, ptr %column_options, align 8
@@ -23004,19 +22998,19 @@ do.body:                                          ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %do.body
   %2 = load ptr, ptr %ref.tmp5, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %printer.i)
-  store ptr %column_options, ptr %printer.i, align 8, !noalias !652
-  %3 = load i32, ptr %column_options, align 8, !noalias !652
-  store i32 %3, ptr %indent_.i.i.i, align 8, !noalias !652
-  store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !652
+  store ptr %column_options, ptr %printer.i, align 8, !noalias !651
+  %3 = load i32, ptr %column_options, align 8, !noalias !651
+  store i32 %3, ptr %indent_.i.i.i, align 8, !noalias !651
+  store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !651
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %printer.i)
-  call void @llvm.experimental.noalias.scope.decl(metadata !655)
-  %4 = load ptr, ptr %ref.tmp, align 8, !noalias !655
-  store ptr %4, ptr %agg.result, align 8, !alias.scope !655
-  store ptr null, ptr %ref.tmp, align 8, !noalias !655
+  call void @llvm.experimental.noalias.scope.decl(metadata !654)
+  %4 = load ptr, ptr %ref.tmp, align 8, !noalias !654
+  store ptr %4, ptr %agg.result, align 8, !alias.scope !654
+  store ptr null, ptr %ref.tmp, align 8, !noalias !654
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, label %if.then.i.i.i
@@ -23121,14 +23115,17 @@ cleanup23:                                        ; preds = %_ZN5arrow6StatusD2E
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %close.i2.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %array_delimiters.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %null_rep.i) #18
-  br i1 %cmp.i, label %for.cond, label %return
+  %inc = add nuw nsw i32 %i.050, 1
+  %call = call noundef i32 @_ZNK5arrow11RecordBatch11num_columnsEv(ptr noundef nonnull align 8 dereferenceable(32) %batch)
+  %cmp = icmp slt i32 %inc, %call
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !657
 
 ehcleanup26:                                      ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %17, %lpad ], [ %18, %lpad8 ]
   call void @_ZN5arrow18PrettyPrintOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %column_options) #18
   resume { ptr, i32 } %.pn
 
-for.end:                                          ; preds = %for.cond, %entry
+for.end:                                          ; preds = %cleanup23, %entry
   %call27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   store ptr null, ptr %agg.result, align 8, !alias.scope !658
   br label %return
@@ -23143,7 +23140,7 @@ return.loopexit.critedge:                         ; preds = %_ZNSt10shared_ptrIN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %null_rep.i) #18
   br label %return
 
-return:                                           ; preds = %cleanup23, %return.loopexit.critedge, %for.end
+return:                                           ; preds = %return.loopexit.critedge, %for.end
   ret void
 }
 
@@ -31647,13 +31644,13 @@ attributes #22 = { noreturn nounwind }
 !648 = !{!649}
 !649 = distinct !{!649, !650, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !650 = distinct !{!650, !"_ZN5arrow6Status2OKEv"}
-!651 = distinct !{!651, !23}
-!652 = !{!653}
-!653 = distinct !{!653, !654, !"_ZN5arrow11PrettyPrintERKNS_5ArrayERKNS_18PrettyPrintOptionsEPSo: %agg.result"}
-!654 = distinct !{!654, !"_ZN5arrow11PrettyPrintERKNS_5ArrayERKNS_18PrettyPrintOptionsEPSo"}
-!655 = !{!656}
-!656 = distinct !{!656, !657, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
-!657 = distinct !{!657, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
+!651 = !{!652}
+!652 = distinct !{!652, !653, !"_ZN5arrow11PrettyPrintERKNS_5ArrayERKNS_18PrettyPrintOptionsEPSo: %agg.result"}
+!653 = distinct !{!653, !"_ZN5arrow11PrettyPrintERKNS_5ArrayERKNS_18PrettyPrintOptionsEPSo"}
+!654 = !{!655}
+!655 = distinct !{!655, !656, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
+!656 = distinct !{!656, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
+!657 = distinct !{!657, !23}
 !658 = !{!659}
 !659 = distinct !{!659, !660, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !660 = distinct !{!660, !"_ZN5arrow6Status2OKEv"}

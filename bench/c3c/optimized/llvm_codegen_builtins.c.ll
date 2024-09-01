@@ -2544,7 +2544,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %13, %.thread, %7
-  %.not310 = phi i1 [ true, %.thread ], [ true, %7 ], [ %.not3, %13 ]
+  %.not310 = phi i1 [ true, %.thread ], [ true, %7 ], [ false, %13 ]
   %19 = phi ptr [ %6, %.thread ], [ %11, %7 ], [ %11, %13 ]
   %.08 = phi i32 [ 0, %.thread ], [ 0, %7 ], [ %9, %13 ]
   %20 = call ptr @LLVMFunctionType(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %.08, i32 noundef 0) #8

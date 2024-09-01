@@ -4939,7 +4939,7 @@ for.body98:                                       ; preds = %if.end88, %for.body
   br i1 %cmp.i109.not, label %return, label %for.body98
 
 return:                                           ; preds = %for.body98, %if.end88, %invoke.cont87
-  %cmp.not136 = phi i1 [ true, %if.end88 ], [ false, %invoke.cont87 ], [ %cmp.not, %for.body98 ]
+  %cmp.not136 = phi i1 [ true, %if.end88 ], [ false, %invoke.cont87 ], [ true, %for.body98 ]
   ret i1 %cmp.not136
 
 eh.resume:                                        ; preds = %lpad44.loopexit, %lpad44.loopexit.split-lp.loopexit.split-lp, %lpad44.loopexit.split-lp.loopexit, %lpad

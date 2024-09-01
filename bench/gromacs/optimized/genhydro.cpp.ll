@@ -452,21 +452,21 @@ _ZL25getMoleculePatchDatabasesPK7t_atomsN3gmx8ArrayRefIK21MoleculePatchDatabaseE
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i147, 1
   %104 = icmp sge i64 %indvars.iv.next.i148, %100
   %.not31.i = select i1 %104, i1 true, i1 %103
-  br i1 %.not31.i, label %.lr.ph8.i, label %.lr.ph.i146, !llvm.loop !13
+  br i1 %.not31.i, label %.preheader.i149, label %.lr.ph.i146, !llvm.loop !13
 
-.lr.ph8.i:                                        ; preds = %.lr.ph.i146, %.lr.ph8.i
-  %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %.lr.ph8.i ], [ 0, %.lr.ph.i146 ]
+.preheader.i149:                                  ; preds = %.lr.ph.i146, %.preheader.i149
+  %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %.preheader.i149 ], [ 0, %.lr.ph.i146 ]
   %105 = getelementptr inbounds i32, ptr %.0.val9, i64 %indvars.iv14.i
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %.pre20.i, %106
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %108 = icmp sge i64 %indvars.iv.next15.i, %100
   %.not32.i = select i1 %108, i1 true, i1 %107
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph8.i, !llvm.loop !14
+  br i1 %.not32.i, label %._crit_edge.i, label %.preheader.i149, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %.lr.ph8.i, %.preheader5.i
-  %.029.lcssa22.i = phi i1 [ false, %.preheader5.i ], [ %103, %.lr.ph8.i ]
-  %.027.lcssa.i = phi i1 [ false, %.preheader5.i ], [ %107, %.lr.ph8.i ]
+._crit_edge.i:                                    ; preds = %.preheader.i149, %.preheader5.i
+  %.029.lcssa22.i = phi i1 [ false, %.preheader5.i ], [ %103, %.preheader.i149 ]
+  %.027.lcssa.i = phi i1 [ false, %.preheader5.i ], [ %107, %.preheader.i149 ]
   %109 = sext i32 %.pre20.i to i64
   %110 = getelementptr inbounds %struct.MoleculePatchDatabase, ptr %92, i64 %109
   %111 = load ptr, ptr %99, align 8

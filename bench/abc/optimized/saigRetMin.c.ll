@@ -1607,8 +1607,8 @@ define noalias noundef ptr @Saig_ManGetRegistersToExclude(ptr nocapture noundef 
   br label %12
 
 .critedge.preheader:                              ; preds = %12
-  %6 = icmp slt i32 %.val67, 1
-  br i1 %6, label %.critedge2, label %.lr.ph72
+  %6 = icmp sgt i32 %.val67, 0
+  br i1 %6, label %.lr.ph72, label %.critedge2
 
 .lr.ph72:                                         ; preds = %.critedge.preheader
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1674,7 +1674,7 @@ define noalias noundef ptr @Saig_ManGetRegistersToExclude(ptr nocapture noundef 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %1, %.critedge2.loopexit, %.critedge.preheader
-  %.not = phi i1 [ true, %.critedge.preheader ], [ %6, %.critedge2.loopexit ], [ true, %1 ]
+  %.not = phi i1 [ true, %.critedge.preheader ], [ false, %.critedge2.loopexit ], [ true, %1 ]
   %.val657486 = phi i32 [ %.val67, %.critedge.preheader ], [ %.val67, %.critedge2.loopexit ], [ %.val6768, %1 ]
   %.0.lcssa = phi i1 [ true, %.critedge.preheader ], [ %40, %.critedge2.loopexit ], [ true, %1 ]
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14

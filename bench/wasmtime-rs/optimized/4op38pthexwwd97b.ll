@@ -49148,8 +49148,8 @@ define internal fastcc { i32, i32 } @"_ZN9regalloc23ion5moves63_$LT$impl$u20$reg
 
 55:                                               ; preds = %57, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc617c94eb88451aeE.exit.thread"
   %56 = phi ptr [ %58, %57 ], [ %.sink5.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc617c94eb88451aeE.exit.thread" ]
-  %.not.i.not = icmp eq ptr %56, %54
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h112fecee6ce3bde9E.exit", label %57
+  %.not.not.not.i.not = icmp eq ptr %56, %54
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h112fecee6ce3bde9E.exit", label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %56, i64 20
@@ -50482,8 +50482,8 @@ define hidden void @"_ZN9regalloc25moves66MoveAndScratchResolver$LT$GetReg$C$Get
 
 93:                                               ; preds = %.noexc, %84
   %94 = phi ptr [ %98, %.noexc ], [ %.sink5.i, %84 ]
-  %.not.i.not = icmp eq ptr %94, %91
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0b8580d0166bcc02E.exit", label %95
+  %.not.not.not.i.not = icmp eq ptr %94, %91
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0b8580d0166bcc02E.exit", label %95
 
 95:                                               ; preds = %93
   %.val3.i = load i32, ptr %94, align 4, !noalias !19499, !noundef !4

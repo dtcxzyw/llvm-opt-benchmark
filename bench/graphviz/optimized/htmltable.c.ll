@@ -3846,393 +3846,375 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr nocapture noundef
 ._crit_edge.thread:                               ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 1, ptr %9, align 8
-  br label %._crit_edge212.thread
+  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  store double 0.000000e+00, ptr %10, align 8
+  br label %223
 
 .lr.ph:                                           ; preds = %3
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = icmp ugt i64 %15, 1
-  br i1 %16, label %._crit_edge, label %.lr.ph14
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %15
 
-17:                                               ; preds = %54
-  %18 = getelementptr inbounds %struct.htextspan_t, ptr %10, i64 %55, i32 1
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp ugt i64 %19, 1
-  br i1 %20, label %._crit_edge, label %.lr.ph14
+15:                                               ; preds = %.lr.ph, %52
+  %.0153187 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
+  %.0154186 = phi ptr [ null, %.lr.ph ], [ %.1, %52 ]
+  %.0155185 = phi double [ -1.000000e+00, %.lr.ph ], [ %.1156, %52 ]
+  %16 = getelementptr inbounds %struct.htextspan_t, ptr %11, i64 %.0153187
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp ugt i64 %18, 1
+  br i1 %19, label %.preheader.lr.ph, label %20
 
-.lr.ph14:                                         ; preds = %.lr.ph, %17
-  %.015518513 = phi double [ %.1156, %17 ], [ -1.000000e+00, %.lr.ph ]
-  %.015418612 = phi ptr [ %.1, %17 ], [ null, %.lr.ph ]
-  %.015318711 = phi i64 [ %55, %17 ], [ 0, %.lr.ph ]
-  %21 = phi i1 [ %56, %17 ], [ false, %.lr.ph ]
-  %22 = getelementptr inbounds %struct.htextspan_t, ptr %10, i64 %.015318711
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %16, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %42, label %26
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %40, label %24
 
-26:                                               ; preds = %.lr.ph14
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
-  %28 = load i32, ptr %27, align 8
-  %29 = and i32 %28, 127
-  %.not174 = icmp eq i32 %29, 0
-  br i1 %.not174, label %30, label %._crit_edge
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 127
+  %.not174 = icmp eq i32 %27, 0
+  br i1 %.not174, label %28, label %.preheader.lr.ph
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %25, i64 24
-  %32 = load double, ptr %31, align 8
-  %33 = fcmp ogt double %32, 0.000000e+00
-  br i1 %33, label %36, label %34
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %23, i64 24
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp ogt double %30, 0.000000e+00
+  br i1 %31, label %34, label %32
 
-34:                                               ; preds = %30
-  %35 = load double, ptr %11, align 8
-  br label %36
+32:                                               ; preds = %28
+  %33 = load double, ptr %12, align 8
+  br label %34
 
-36:                                               ; preds = %30, %34
-  %37 = phi double [ %35, %34 ], [ %32, %30 ]
-  store double %37, ptr %12, align 8
-  %38 = load ptr, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %40, align 8
-  %.not175 = icmp eq ptr %41, null
-  br i1 %.not175, label %.sink.split, label %45
+34:                                               ; preds = %28, %32
+  %35 = phi double [ %33, %32 ], [ %30, %28 ]
+  store double %35, ptr %13, align 8
+  %36 = load ptr, ptr %16, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %38, align 8
+  %.not175 = icmp eq ptr %39, null
+  br i1 %.not175, label %.sink.split, label %43
 
-42:                                               ; preds = %.lr.ph14
-  %43 = load double, ptr %11, align 8
-  store double %43, ptr %12, align 8
+40:                                               ; preds = %20
+  %41 = load double, ptr %12, align 8
+  store double %41, ptr %13, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %42
-  %.ph = phi double [ %43, %42 ], [ %37, %36 ]
-  %44 = load ptr, ptr %13, align 8
-  br label %45
+.sink.split:                                      ; preds = %34, %40
+  %.ph = phi double [ %41, %40 ], [ %35, %34 ]
+  %42 = load ptr, ptr %14, align 8
+  br label %43
 
-45:                                               ; preds = %.sink.split, %36
-  %.sink = phi ptr [ %41, %36 ], [ %44, %.sink.split ]
-  %46 = phi double [ %37, %36 ], [ %.ph, %.sink.split ]
+43:                                               ; preds = %.sink.split, %34
+  %.sink = phi ptr [ %39, %34 ], [ %42, %.sink.split ]
+  %44 = phi double [ %35, %34 ], [ %.ph, %.sink.split ]
   store ptr %.sink, ptr %5, align 8
-  %47 = icmp eq i64 %.015318711, 0
-  br i1 %47, label %50, label %48
+  %45 = icmp eq i64 %.0153187, 0
+  br i1 %45, label %48, label %46
 
-48:                                               ; preds = %45
-  %49 = fcmp une double %46, %.015518513
-  br i1 %49, label %._crit_edge, label %50
+46:                                               ; preds = %43
+  %47 = fcmp une double %44, %.0155185
+  br i1 %47, label %.preheader.lr.ph, label %48
 
-50:                                               ; preds = %45, %48
-  %.1156 = phi double [ %.015518513, %48 ], [ %46, %45 ]
-  %51 = icmp eq ptr %.015418612, null
-  br i1 %51, label %54, label %52
+48:                                               ; preds = %43, %46
+  %.1156 = phi double [ %.0155185, %46 ], [ %44, %43 ]
+  %49 = icmp eq ptr %.0154186, null
+  br i1 %49, label %52, label %50
 
-52:                                               ; preds = %50
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sink, ptr noundef nonnull dereferenceable(1) %.015418612) #25
-  %.not176 = icmp eq i32 %53, 0
-  br i1 %.not176, label %54, label %._crit_edge
+50:                                               ; preds = %48
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sink, ptr noundef nonnull dereferenceable(1) %.0154186) #25
+  %.not176 = icmp eq i32 %51, 0
+  br i1 %.not176, label %52, label %.preheader.lr.ph
 
-54:                                               ; preds = %50, %52
-  %.1 = phi ptr [ %.015418612, %52 ], [ %.sink, %50 ]
-  %55 = add nuw i64 %.015318711, 1
-  %56 = icmp uge i64 %55, %7
-  %exitcond = icmp eq i64 %55, %7
-  br i1 %exitcond, label %._crit_edge.thread229, label %17
+52:                                               ; preds = %48, %50
+  %.1 = phi ptr [ %.0154186, %50 ], [ %.sink, %48 ]
+  %53 = add nuw i64 %.0153187, 1
+  %exitcond.not = icmp eq i64 %53, %7
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %15
 
-._crit_edge.thread229:                            ; preds = %54
-  %57 = zext i1 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
-  store i8 %57, ptr %58, align 8
-  br label %.preheader.lr.ph
-
-._crit_edge:                                      ; preds = %52, %48, %26, %17, %.lr.ph
-  %.lcssa8 = phi i1 [ false, %.lr.ph ], [ %21, %52 ], [ %21, %48 ], [ %21, %26 ], [ %56, %17 ]
-  %59 = zext i1 %.lcssa8 to i8
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
-  store i8 %59, ptr %60, align 8
-  br i1 %8, label %._crit_edge212.thread, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %._crit_edge.thread229, %._crit_edge
-  %.lcssa183231 = phi i1 [ %56, %._crit_edge.thread229 ], [ %.lcssa8, %._crit_edge ]
-  %61 = getelementptr inbounds i8, ptr %2, i64 56
-  %62 = getelementptr inbounds i8, ptr %5, i64 32
-  %63 = getelementptr inbounds i8, ptr %2, i64 48
-  %64 = getelementptr inbounds i8, ptr %2, i64 40
-  %65 = getelementptr inbounds i8, ptr %5, i64 24
-  %66 = getelementptr inbounds i8, ptr %2, i64 16
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 24
-  %69 = getelementptr inbounds i8, ptr %0, i64 256
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 32
-  %72 = getelementptr inbounds i8, ptr %4, i64 40
-  %73 = getelementptr inbounds i8, ptr %4, i64 16
-  %74 = getelementptr inbounds i8, ptr %4, i64 24
+.preheader.lr.ph:                                 ; preds = %50, %46, %24, %15, %52
+  %.sink8 = phi i8 [ 1, %52 ], [ 0, %15 ], [ 0, %24 ], [ 0, %46 ], [ 0, %50 ]
+  %.lcssa183232 = phi i1 [ true, %52 ], [ false, %15 ], [ false, %24 ], [ false, %46 ], [ false, %50 ]
+  %54 = getelementptr inbounds i8, ptr %1, i64 16
+  store i8 %.sink8, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 56
+  %56 = getelementptr inbounds i8, ptr %5, i64 32
+  %57 = getelementptr inbounds i8, ptr %2, i64 48
+  %58 = getelementptr inbounds i8, ptr %2, i64 40
+  %59 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds i8, ptr %2, i64 16
+  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 24
+  %63 = getelementptr inbounds i8, ptr %0, i64 256
+  %64 = getelementptr inbounds i8, ptr %4, i64 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = getelementptr inbounds i8, ptr %4, i64 40
+  %67 = getelementptr inbounds i8, ptr %4, i64 16
+  %68 = getelementptr inbounds i8, ptr %4, i64 24
   %.pre = load ptr, ptr %1, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %215
-  %75 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %216, %215 ]
-  %.0211 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %221, %215 ]
-  %.0150210 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %222, %215 ]
-  %.0152209 = phi i64 [ 0, %.preheader.lr.ph ], [ %223, %215 ]
-  %.0164208 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %219, %215 ]
-  %76 = getelementptr inbounds %struct.htextspan_t, ptr %75, i64 %.0152209
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  %78 = load i64, ptr %77, align 8
-  %.not218 = icmp eq i64 %78, 0
-  br i1 %.not218, label %._crit_edge202, label %.lr.ph201
+.preheader:                                       ; preds = %.preheader.lr.ph, %209
+  %69 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %210, %209 ]
+  %.0211 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %215, %209 ]
+  %.0150210 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %216, %209 ]
+  %.0152209 = phi i64 [ 0, %.preheader.lr.ph ], [ %217, %209 ]
+  %.0164208 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %213, %209 ]
+  %70 = getelementptr inbounds %struct.htextspan_t, ptr %69, i64 %.0152209
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i64, ptr %71, align 8
+  %.not219 = icmp eq i64 %72, 0
+  br i1 %.not219, label %._crit_edge202, label %.lr.ph201
 
-.lr.ph201:                                        ; preds = %.preheader, %134
-  %79 = phi ptr [ %191, %134 ], [ %76, %.preheader ]
-  %.0151200 = phi i64 [ %189, %134 ], [ 0, %.preheader ]
-  %.1159199 = phi double [ %185, %134 ], [ 0.000000e+00, %.preheader ]
-  %.0160198 = phi double [ %188, %134 ], [ 0.000000e+00, %.preheader ]
-  %.0161197 = phi double [ %180, %134 ], [ 0.000000e+00, %.preheader ]
-  %.0163196 = phi double [ %183, %134 ], [ 0.000000e+00, %.preheader ]
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.textspan_t, ptr %80, i64 %.0151200
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %61, align 8
-  %84 = call ptr @strdup_and_subst_obj(ptr noundef %82, ptr noundef %83) #22
-  store ptr %84, ptr %4, align 8
-  %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds %struct.htextspan_t, ptr %85, i64 %.0152209
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.textspan_t, ptr %87, i64 %.0151200, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %.not177 = icmp eq ptr %89, null
-  br i1 %.not177, label %125, label %90
+.lr.ph201:                                        ; preds = %.preheader, %128
+  %73 = phi ptr [ %185, %128 ], [ %70, %.preheader ]
+  %.0151200 = phi i64 [ %183, %128 ], [ 0, %.preheader ]
+  %.1159199 = phi double [ %179, %128 ], [ 0.000000e+00, %.preheader ]
+  %.0160198 = phi double [ %182, %128 ], [ 0.000000e+00, %.preheader ]
+  %.0161197 = phi double [ %174, %128 ], [ 0.000000e+00, %.preheader ]
+  %.0163196 = phi double [ %177, %128 ], [ 0.000000e+00, %.preheader ]
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds %struct.textspan_t, ptr %74, i64 %.0151200
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %55, align 8
+  %78 = call ptr @strdup_and_subst_obj(ptr noundef %76, ptr noundef %77) #22
+  store ptr %78, ptr %4, align 8
+  %79 = load ptr, ptr %1, align 8
+  %80 = getelementptr inbounds %struct.htextspan_t, ptr %79, i64 %.0152209
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.textspan_t, ptr %81, i64 %.0151200, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %.not177 = icmp eq ptr %83, null
+  br i1 %.not177, label %119, label %84
 
-90:                                               ; preds = %.lr.ph201
-  %91 = getelementptr inbounds i8, ptr %89, i64 32
-  %92 = load i32, ptr %91, align 8
-  %93 = and i32 %92, 127
-  %.not178 = icmp eq i32 %93, 0
-  br i1 %.not178, label %94, label %97
+84:                                               ; preds = %.lr.ph201
+  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 127
+  %.not178 = icmp eq i32 %87, 0
+  br i1 %.not178, label %88, label %91
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %63, align 8
-  %96 = and i32 %95, 127
-  br label %97
+88:                                               ; preds = %84
+  %89 = load i32, ptr %57, align 8
+  %90 = and i32 %89, 127
+  br label %91
 
-97:                                               ; preds = %90, %94
-  %.sink22 = phi i32 [ %96, %94 ], [ %93, %90 ]
-  %98 = load i32, ptr %62, align 8
-  %99 = and i32 %98, -128
-  %100 = or disjoint i32 %99, %.sink22
-  store i32 %100, ptr %62, align 8
-  %101 = load ptr, ptr %86, align 8
-  %102 = getelementptr inbounds %struct.textspan_t, ptr %101, i64 %.0151200, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp ogt double %105, 0.000000e+00
-  br i1 %106, label %109, label %107
+91:                                               ; preds = %84, %88
+  %.sink11 = phi i32 [ %90, %88 ], [ %87, %84 ]
+  %92 = load i32, ptr %56, align 8
+  %93 = and i32 %92, -128
+  %94 = or disjoint i32 %93, %.sink11
+  store i32 %94, ptr %56, align 8
+  %95 = load ptr, ptr %80, align 8
+  %96 = getelementptr inbounds %struct.textspan_t, ptr %95, i64 %.0151200, i32 1
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %99 = load double, ptr %98, align 8
+  %100 = fcmp ogt double %99, 0.000000e+00
+  br i1 %100, label %103, label %101
 
-107:                                              ; preds = %97
-  %108 = load double, ptr %64, align 8
-  br label %109
+101:                                              ; preds = %91
+  %102 = load double, ptr %58, align 8
+  br label %103
 
-109:                                              ; preds = %97, %107
-  %storemerge227 = phi double [ %108, %107 ], [ %105, %97 ]
-  store double %storemerge227, ptr %65, align 8
-  %110 = load ptr, ptr %86, align 8
-  %111 = getelementptr inbounds %struct.textspan_t, ptr %110, i64 %.0151200, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %112, align 8
-  %.not180 = icmp eq ptr %113, null
-  br i1 %.not180, label %114, label %116
+103:                                              ; preds = %91, %101
+  %storemerge228 = phi double [ %102, %101 ], [ %99, %91 ]
+  store double %storemerge228, ptr %59, align 8
+  %104 = load ptr, ptr %80, align 8
+  %105 = getelementptr inbounds %struct.textspan_t, ptr %104, i64 %.0151200, i32 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %106, align 8
+  %.not180 = icmp eq ptr %107, null
+  br i1 %.not180, label %108, label %110
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %66, align 8
-  br label %116
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %60, align 8
+  br label %110
 
-116:                                              ; preds = %109, %114
-  %storemerge = phi ptr [ %115, %114 ], [ %113, %109 ]
+110:                                              ; preds = %103, %108
+  %storemerge = phi ptr [ %109, %108 ], [ %107, %103 ]
   store ptr %storemerge, ptr %5, align 8
-  %117 = load ptr, ptr %86, align 8
-  %118 = getelementptr inbounds %struct.textspan_t, ptr %117, i64 %.0151200, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %.not181 = icmp eq ptr %121, null
-  br i1 %.not181, label %123, label %122
+  %111 = load ptr, ptr %80, align 8
+  %112 = getelementptr inbounds %struct.textspan_t, ptr %111, i64 %.0151200, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %.not181 = icmp eq ptr %115, null
+  br i1 %.not181, label %117, label %116
 
-122:                                              ; preds = %116
-  store ptr %121, ptr %67, align 8
-  br label %134
+116:                                              ; preds = %110
+  store ptr %115, ptr %61, align 8
+  br label %128
 
-123:                                              ; preds = %116
-  %124 = load ptr, ptr %68, align 8
-  store ptr %124, ptr %67, align 8
-  br label %134
+117:                                              ; preds = %110
+  %118 = load ptr, ptr %62, align 8
+  store ptr %118, ptr %61, align 8
+  br label %128
 
-125:                                              ; preds = %.lr.ph201
-  %126 = load double, ptr %64, align 8
-  store double %126, ptr %65, align 8
-  %127 = load ptr, ptr %66, align 8
-  store ptr %127, ptr %5, align 8
-  %128 = load ptr, ptr %68, align 8
-  store ptr %128, ptr %67, align 8
-  %129 = load i32, ptr %63, align 8
-  %130 = and i32 %129, 127
-  %131 = load i32, ptr %62, align 8
-  %132 = and i32 %131, -128
-  %133 = or disjoint i32 %132, %130
-  store i32 %133, ptr %62, align 8
-  br label %134
+119:                                              ; preds = %.lr.ph201
+  %120 = load double, ptr %58, align 8
+  store double %120, ptr %59, align 8
+  %121 = load ptr, ptr %60, align 8
+  store ptr %121, ptr %5, align 8
+  %122 = load ptr, ptr %62, align 8
+  store ptr %122, ptr %61, align 8
+  %123 = load i32, ptr %57, align 8
+  %124 = and i32 %123, 127
+  %125 = load i32, ptr %56, align 8
+  %126 = and i32 %125, -128
+  %127 = or disjoint i32 %126, %124
+  store i32 %127, ptr %56, align 8
+  br label %128
 
-134:                                              ; preds = %122, %123, %125
-  %135 = load ptr, ptr %69, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = call ptr %136(ptr noundef nonnull %135, ptr noundef nonnull %5, i32 noundef 1) #22
-  store ptr %137, ptr %70, align 8
-  %138 = call { double, double } @textspan_size(ptr noundef %0, ptr noundef nonnull %4) #22
-  %139 = extractvalue { double, double } %138, 0
-  %140 = extractvalue { double, double } %138, 1
+128:                                              ; preds = %116, %117, %119
+  %129 = load ptr, ptr %63, align 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = call ptr %130(ptr noundef nonnull %129, ptr noundef nonnull %5, i32 noundef 1) #22
+  store ptr %131, ptr %64, align 8
+  %132 = call { double, double } @textspan_size(ptr noundef %0, ptr noundef nonnull %4) #22
+  %133 = extractvalue { double, double } %132, 0
+  %134 = extractvalue { double, double } %132, 1
+  %135 = load ptr, ptr %1, align 8
+  %136 = getelementptr inbounds %struct.htextspan_t, ptr %135, i64 %.0152209
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.textspan_t, ptr %137, i64 %.0151200
+  %139 = load ptr, ptr %138, align 8
+  call void @free(ptr noundef %139) #22
+  %140 = load ptr, ptr %4, align 8
   %141 = load ptr, ptr %1, align 8
   %142 = getelementptr inbounds %struct.htextspan_t, ptr %141, i64 %.0152209
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds %struct.textspan_t, ptr %143, i64 %.0151200
-  %145 = load ptr, ptr %144, align 8
-  call void @free(ptr noundef %145) #22
-  %146 = load ptr, ptr %4, align 8
-  %147 = load ptr, ptr %1, align 8
-  %148 = getelementptr inbounds %struct.htextspan_t, ptr %147, i64 %.0152209
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.textspan_t, ptr %149, i64 %.0151200
-  store ptr %146, ptr %150, align 8
-  %151 = load ptr, ptr %1, align 8
-  %152 = getelementptr inbounds %struct.htextspan_t, ptr %151, i64 %.0152209
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct.textspan_t, ptr %153, i64 %.0151200, i32 6
-  store double %139, ptr %154, align 8
-  %155 = load double, ptr %71, align 8
-  %156 = load ptr, ptr %1, align 8
-  %157 = getelementptr inbounds %struct.htextspan_t, ptr %156, i64 %.0152209
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds %struct.textspan_t, ptr %158, i64 %.0151200, i32 4
-  store double %155, ptr %159, align 8
-  %160 = load double, ptr %72, align 8
-  %161 = load ptr, ptr %1, align 8
-  %162 = getelementptr inbounds %struct.htextspan_t, ptr %161, i64 %.0152209
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds %struct.textspan_t, ptr %163, i64 %.0151200, i32 5
-  store double %160, ptr %164, align 8
-  %165 = load ptr, ptr %70, align 8
-  %166 = load ptr, ptr %1, align 8
-  %167 = getelementptr inbounds %struct.htextspan_t, ptr %166, i64 %.0152209
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %struct.textspan_t, ptr %168, i64 %.0151200, i32 1
-  store ptr %165, ptr %169, align 8
-  %170 = load ptr, ptr %73, align 8
-  %171 = load ptr, ptr %1, align 8
-  %172 = getelementptr inbounds %struct.htextspan_t, ptr %171, i64 %.0152209
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds %struct.textspan_t, ptr %173, i64 %.0151200, i32 2
-  store ptr %170, ptr %174, align 8
-  %175 = load ptr, ptr %74, align 8
-  %176 = load ptr, ptr %1, align 8
-  %177 = getelementptr inbounds %struct.htextspan_t, ptr %176, i64 %.0152209
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct.textspan_t, ptr %178, i64 %.0151200, i32 3
-  store ptr %175, ptr %179, align 8
-  %180 = fadd double %.0161197, %139
-  %181 = load double, ptr %65, align 8
-  %182 = fcmp ogt double %181, %.0163196
-  %183 = select i1 %182, double %181, double %.0163196
-  %184 = fcmp ogt double %140, %.1159199
-  %185 = select i1 %184, double %140, double %.1159199
-  %186 = load double, ptr %72, align 8
-  %187 = fcmp ogt double %186, %.0160198
-  %188 = select i1 %187, double %186, double %.0160198
-  %189 = add nuw i64 %.0151200, 1
-  %190 = load ptr, ptr %1, align 8
-  %191 = getelementptr inbounds %struct.htextspan_t, ptr %190, i64 %.0152209
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
-  %193 = load i64, ptr %192, align 8
-  %194 = icmp ult i64 %189, %193
-  br i1 %194, label %.lr.ph201, label %._crit_edge202
+  store ptr %140, ptr %144, align 8
+  %145 = load ptr, ptr %1, align 8
+  %146 = getelementptr inbounds %struct.htextspan_t, ptr %145, i64 %.0152209
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.textspan_t, ptr %147, i64 %.0151200, i32 6
+  store double %133, ptr %148, align 8
+  %149 = load double, ptr %65, align 8
+  %150 = load ptr, ptr %1, align 8
+  %151 = getelementptr inbounds %struct.htextspan_t, ptr %150, i64 %.0152209
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.textspan_t, ptr %152, i64 %.0151200, i32 4
+  store double %149, ptr %153, align 8
+  %154 = load double, ptr %66, align 8
+  %155 = load ptr, ptr %1, align 8
+  %156 = getelementptr inbounds %struct.htextspan_t, ptr %155, i64 %.0152209
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds %struct.textspan_t, ptr %157, i64 %.0151200, i32 5
+  store double %154, ptr %158, align 8
+  %159 = load ptr, ptr %64, align 8
+  %160 = load ptr, ptr %1, align 8
+  %161 = getelementptr inbounds %struct.htextspan_t, ptr %160, i64 %.0152209
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds %struct.textspan_t, ptr %162, i64 %.0151200, i32 1
+  store ptr %159, ptr %163, align 8
+  %164 = load ptr, ptr %67, align 8
+  %165 = load ptr, ptr %1, align 8
+  %166 = getelementptr inbounds %struct.htextspan_t, ptr %165, i64 %.0152209
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct.textspan_t, ptr %167, i64 %.0151200, i32 2
+  store ptr %164, ptr %168, align 8
+  %169 = load ptr, ptr %68, align 8
+  %170 = load ptr, ptr %1, align 8
+  %171 = getelementptr inbounds %struct.htextspan_t, ptr %170, i64 %.0152209
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds %struct.textspan_t, ptr %172, i64 %.0151200, i32 3
+  store ptr %169, ptr %173, align 8
+  %174 = fadd double %.0161197, %133
+  %175 = load double, ptr %59, align 8
+  %176 = fcmp ogt double %175, %.0163196
+  %177 = select i1 %176, double %175, double %.0163196
+  %178 = fcmp ogt double %134, %.1159199
+  %179 = select i1 %178, double %134, double %.1159199
+  %180 = load double, ptr %66, align 8
+  %181 = fcmp ogt double %180, %.0160198
+  %182 = select i1 %181, double %180, double %.0160198
+  %183 = add nuw i64 %.0151200, 1
+  %184 = load ptr, ptr %1, align 8
+  %185 = getelementptr inbounds %struct.htextspan_t, ptr %184, i64 %.0152209
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %187 = load i64, ptr %186, align 8
+  %188 = icmp ult i64 %183, %187
+  br i1 %188, label %.lr.ph201, label %._crit_edge202
 
-._crit_edge202:                                   ; preds = %134, %.preheader
-  %.0163.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %183, %134 ]
-  %.0161.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %180, %134 ]
-  %.0160.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %188, %134 ]
-  %.1159.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %185, %134 ]
-  %195 = phi ptr [ %75, %.preheader ], [ %190, %134 ]
-  %196 = getelementptr inbounds %struct.htextspan_t, ptr %195, i64 %.0152209, i32 3
-  store double %.0161.lcssa, ptr %196, align 8
-  %197 = icmp eq i64 %.0152209, 0
-  br i1 %.lcssa183231, label %198, label %204
+._crit_edge202:                                   ; preds = %128, %.preheader
+  %.0163.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %177, %128 ]
+  %.0161.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %174, %128 ]
+  %.0160.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %182, %128 ]
+  %.1159.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %179, %128 ]
+  %189 = phi ptr [ %69, %.preheader ], [ %184, %128 ]
+  %190 = getelementptr inbounds %struct.htextspan_t, ptr %189, i64 %.0152209, i32 3
+  store double %.0161.lcssa, ptr %190, align 8
+  %191 = icmp eq i64 %.0152209, 0
+  br i1 %.lcssa183232, label %192, label %198
+
+192:                                              ; preds = %._crit_edge202
+  %193 = load ptr, ptr %1, align 8
+  br i1 %191, label %194, label %196
+
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds i8, ptr %193, i64 32
+  store double %.0163.lcssa, ptr %195, align 8
+  br label %209
+
+196:                                              ; preds = %192
+  %197 = getelementptr inbounds %struct.htextspan_t, ptr %193, i64 %.0152209, i32 4
+  store double %.1159.lcssa, ptr %197, align 8
+  br label %209
 
 198:                                              ; preds = %._crit_edge202
-  %199 = load ptr, ptr %1, align 8
-  br i1 %197, label %200, label %202
+  br i1 %191, label %199, label %203
 
-200:                                              ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %199, i64 32
-  store double %.0163.lcssa, ptr %201, align 8
-  br label %215
+199:                                              ; preds = %198
+  %200 = fsub double %.0163.lcssa, %.0160.lcssa
+  %201 = load ptr, ptr %1, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 32
+  store double %200, ptr %202, align 8
+  br label %209
 
-202:                                              ; preds = %198
-  %203 = getelementptr inbounds %struct.htextspan_t, ptr %199, i64 %.0152209, i32 4
-  store double %.1159.lcssa, ptr %203, align 8
-  br label %215
-
-204:                                              ; preds = %._crit_edge202
-  br i1 %197, label %205, label %209
-
-205:                                              ; preds = %204
-  %206 = fsub double %.0163.lcssa, %.0160.lcssa
+203:                                              ; preds = %198
+  %204 = fadd double %.0150210, %.0163.lcssa
+  %205 = fsub double %204, %.0164208
+  %206 = fsub double %205, %.0160.lcssa
   %207 = load ptr, ptr %1, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 32
+  %208 = getelementptr inbounds %struct.htextspan_t, ptr %207, i64 %.0152209, i32 4
   store double %206, ptr %208, align 8
-  br label %215
+  br label %209
 
-209:                                              ; preds = %204
-  %210 = fadd double %.0150210, %.0163.lcssa
-  %211 = fsub double %210, %.0164208
-  %212 = fsub double %211, %.0160.lcssa
-  %213 = load ptr, ptr %1, align 8
-  %214 = getelementptr inbounds %struct.htextspan_t, ptr %213, i64 %.0152209, i32 4
-  store double %212, ptr %214, align 8
-  br label %215
+209:                                              ; preds = %199, %203, %194, %196
+  %.0162 = phi double [ %.1159.lcssa, %194 ], [ %.1159.lcssa, %196 ], [ %.0163.lcssa, %199 ], [ %.0163.lcssa, %203 ]
+  %210 = load ptr, ptr %1, align 8
+  %211 = getelementptr inbounds %struct.htextspan_t, ptr %210, i64 %.0152209, i32 4
+  %212 = load double, ptr %211, align 8
+  %213 = fadd double %.0164208, %212
+  %214 = fcmp ogt double %.0161.lcssa, %.0211
+  %215 = select i1 %214, double %.0161.lcssa, double %.0211
+  %216 = fadd double %.0150210, %.0162
+  %217 = add nuw i64 %.0152209, 1
+  %218 = load i64, ptr %6, align 8
+  %219 = icmp ult i64 %217, %218
+  br i1 %219, label %.preheader, label %._crit_edge212
 
-215:                                              ; preds = %205, %209, %200, %202
-  %.0162 = phi double [ %.1159.lcssa, %200 ], [ %.1159.lcssa, %202 ], [ %.0163.lcssa, %205 ], [ %.0163.lcssa, %209 ]
-  %216 = load ptr, ptr %1, align 8
-  %217 = getelementptr inbounds %struct.htextspan_t, ptr %216, i64 %.0152209, i32 4
-  %218 = load double, ptr %217, align 8
-  %219 = fadd double %.0164208, %218
-  %220 = fcmp ogt double %.0161.lcssa, %.0211
-  %221 = select i1 %220, double %.0161.lcssa, double %.0211
-  %222 = fadd double %.0150210, %.0162
-  %223 = add nuw i64 %.0152209, 1
-  %224 = load i64, ptr %6, align 8
-  %225 = icmp ult i64 %223, %224
-  br i1 %225, label %.preheader, label %._crit_edge212
+._crit_edge212:                                   ; preds = %209
+  %220 = icmp eq i64 %218, 1
+  %221 = getelementptr inbounds i8, ptr %1, i64 40
+  store double %215, ptr %221, align 8
+  br i1 %220, label %223, label %222
 
-._crit_edge212.thread:                            ; preds = %._crit_edge, %._crit_edge.thread
-  %226 = getelementptr inbounds i8, ptr %1, i64 40
-  store double 0.000000e+00, ptr %226, align 8
-  br label %230
+222:                                              ; preds = %._crit_edge212
+  br label %223
 
-._crit_edge212:                                   ; preds = %215
-  %227 = icmp eq i64 %224, 1
-  %228 = getelementptr inbounds i8, ptr %1, i64 40
-  store double %221, ptr %228, align 8
-  br i1 %227, label %230, label %229
-
-229:                                              ; preds = %._crit_edge212
-  br label %230
-
-230:                                              ; preds = %._crit_edge212.thread, %._crit_edge212, %229
-  %.0150.lcssa.sink = phi double [ %.1159.lcssa, %._crit_edge212 ], [ 0.000000e+00, %._crit_edge212.thread ], [ %222, %229 ]
-  %231 = getelementptr inbounds i8, ptr %1, i64 48
-  store double %.0150.lcssa.sink, ptr %231, align 8
+223:                                              ; preds = %._crit_edge.thread, %._crit_edge212, %222
+  %.0150.lcssa.sink = phi double [ %.1159.lcssa, %._crit_edge212 ], [ 0.000000e+00, %._crit_edge.thread ], [ %216, %222 ]
+  %224 = getelementptr inbounds i8, ptr %1, i64 48
+  store double %.0150.lcssa.sink, ptr %224, align 8
   ret void
 }
 

@@ -571,11 +571,11 @@ for.inc.i:                                        ; preds = %if.end24.i
 
 invoke.cont35.loopexit.i:                         ; preds = %for.inc.i
   %.pre.i = load ptr, ptr %set.i, align 8
-  %.pre27.i = load ptr, ptr %rightmost_.i.i.i.i.i, align 8
+  %.pre24.i = load ptr, ptr %rightmost_.i.i.i.i.i, align 8
   br label %invoke.cont35.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont35.loopexit.i, %invoke.cont3.i
-  %10 = phi ptr [ %.pre27.i, %invoke.cont35.loopexit.i ], [ @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, %invoke.cont3.i ]
+  %10 = phi ptr [ %.pre24.i, %invoke.cont35.loopexit.i ], [ @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, %invoke.cont3.i ]
   %11 = phi ptr [ %.pre.i, %invoke.cont35.loopexit.i ], [ @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, %invoke.cont3.i ]
   %_M_finish.i8.i = getelementptr inbounds i8, ptr %output, i64 8
   %12 = load ptr, ptr %_M_finish.i8.i, align 8
@@ -6093,15 +6093,8 @@ invoke.cont.lr.ph:                                ; preds = %if.then
   %name_.i.i = getelementptr inbounds i8, ptr %output, i64 176
   br label %invoke.cont
 
-for.cond5:                                        ; preds = %invoke.cont13
-  %inc = add nuw i64 %j.018, 1
-  %cmp6 = icmp uge i64 %inc, %i.016
-  %exitcond = icmp eq i64 %inc, %i.016
-  br i1 %exitcond, label %cleanup, label %invoke.cont, !llvm.loop !98
-
-invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond5
-  %cmp619 = phi i1 [ false, %invoke.cont.lr.ph ], [ %cmp6, %for.cond5 ]
-  %j.018 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %for.cond5 ]
+invoke.cont:                                      ; preds = %invoke.cont13, %invoke.cont.lr.ph
+  %j.018 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %invoke.cont13 ]
   %5 = load ptr, ptr %sources_, align 8
   %add.ptr.i7 = getelementptr inbounds ptr, ptr %5, i64 %j.018
   %6 = load ptr, ptr %add.ptr.i7, align 8
@@ -6116,7 +6109,10 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  br i1 %call14, label %cleanup, label %for.cond5
+  %inc = add nuw i64 %j.018, 1
+  %exitcond.not = icmp eq i64 %inc, %i.016
+  %or.cond = select i1 %call14, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %cleanup.loopexit, label %invoke.cont, !llvm.loop !98
 
 lpad:                                             ; preds = %invoke.cont
   %11 = landingpad { ptr, i32 }
@@ -6124,8 +6120,12 @@ lpad:                                             ; preds = %invoke.cont
   call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %temp) #29
   resume { ptr, i32 } %11
 
-cleanup:                                          ; preds = %invoke.cont13, %for.cond5, %if.then
-  %cmp6.lcssa = phi i1 [ true, %if.then ], [ %cmp6, %for.cond5 ], [ %cmp619, %invoke.cont13 ]
+cleanup.loopexit:                                 ; preds = %invoke.cont13
+  %cmp6.lcssa.ph = xor i1 %call14, true
+  br label %cleanup
+
+cleanup:                                          ; preds = %cleanup.loopexit, %if.then
+  %cmp6.lcssa = phi i1 [ true, %if.then ], [ %cmp6.lcssa.ph, %cleanup.loopexit ]
   call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %temp) #29
   br label %return
 
@@ -6176,15 +6176,8 @@ invoke.cont.lr.ph:                                ; preds = %if.then
   %name_.i.i = getelementptr inbounds i8, ptr %output, i64 176
   br label %invoke.cont
 
-for.cond5:                                        ; preds = %invoke.cont13
-  %inc = add nuw i64 %j.018, 1
-  %cmp6 = icmp uge i64 %inc, %i.016
-  %exitcond = icmp eq i64 %inc, %i.016
-  br i1 %exitcond, label %cleanup, label %invoke.cont, !llvm.loop !100
-
-invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond5
-  %cmp619 = phi i1 [ false, %invoke.cont.lr.ph ], [ %cmp6, %for.cond5 ]
-  %j.018 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %for.cond5 ]
+invoke.cont:                                      ; preds = %invoke.cont13, %invoke.cont.lr.ph
+  %j.018 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %invoke.cont13 ]
   %5 = load ptr, ptr %sources_, align 8
   %add.ptr.i7 = getelementptr inbounds ptr, ptr %5, i64 %j.018
   %6 = load ptr, ptr %add.ptr.i7, align 8
@@ -6199,7 +6192,10 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  br i1 %call14, label %cleanup, label %for.cond5
+  %inc = add nuw i64 %j.018, 1
+  %exitcond.not = icmp eq i64 %inc, %i.016
+  %or.cond = select i1 %call14, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %cleanup.loopexit, label %invoke.cont, !llvm.loop !100
 
 lpad:                                             ; preds = %invoke.cont
   %11 = landingpad { ptr, i32 }
@@ -6207,8 +6203,12 @@ lpad:                                             ; preds = %invoke.cont
   call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %temp) #29
   resume { ptr, i32 } %11
 
-cleanup:                                          ; preds = %invoke.cont13, %for.cond5, %if.then
-  %cmp6.lcssa = phi i1 [ true, %if.then ], [ %cmp6, %for.cond5 ], [ %cmp619, %invoke.cont13 ]
+cleanup.loopexit:                                 ; preds = %invoke.cont13
+  %cmp6.lcssa.ph = xor i1 %call14, true
+  br label %cleanup
+
+cleanup:                                          ; preds = %cleanup.loopexit, %if.then
+  %cmp6.lcssa = phi i1 [ true, %if.then ], [ %cmp6.lcssa.ph, %cleanup.loopexit ]
   call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %temp) #29
   br label %return
 

@@ -755,7 +755,7 @@ sub_2137.i:                                       ; preds = %sub_1136.i
 if.else149.tail.i:                                ; preds = %sub_2137.i, %sub_1136.i
   %96 = phi i32 [ %92, %sub_1136.i ], [ %95, %sub_2137.i ]
   %cmp151.i = icmp eq i32 %96, 0
-  br i1 %cmp151.i, label %if.then152.i, label %sub_1140.i
+  br i1 %cmp151.i, label %if.then152.i, label %sub_0139.i
 
 if.then152.i:                                     ; preds = %if.else149.tail.i
   %tobool153.not.i = icmp eq ptr %opt_arg.0.i, null
@@ -777,19 +777,19 @@ if.end157.i:                                      ; preds = %.noexc44, %if.then1
   call void @exit(i32 noundef 0) #15
   unreachable
 
-sub_1140.i:                                       ; preds = %if.else149.tail.i
+sub_0139.i:                                       ; preds = %if.else149.tail.i
   %97 = add nsw i32 %91, -112
   %.not225.i = icmp eq i32 %97, 0
   br i1 %.not225.i, label %sub_2141.i, label %if.else158.tail.i
 
-sub_2141.i:                                       ; preds = %sub_1140.i
+sub_2141.i:                                       ; preds = %sub_0139.i
   %98 = getelementptr inbounds i8, ptr %spec.select.i, i64 2
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   br label %if.else158.tail.i
 
-if.else158.tail.i:                                ; preds = %sub_2141.i, %sub_1140.i, %sub_0135.i
-  %101 = phi i32 [ %97, %sub_1140.i ], [ %100, %sub_2141.i ], [ %80, %sub_0135.i ]
+if.else158.tail.i:                                ; preds = %sub_2141.i, %sub_0139.i, %sub_0135.i
+  %101 = phi i32 [ %97, %sub_0139.i ], [ %100, %sub_2141.i ], [ %80, %sub_0135.i ]
   %cmp160.i = icmp eq i32 %101, 0
   br i1 %cmp160.i, label %if.then161.i, label %if.else165.i
 

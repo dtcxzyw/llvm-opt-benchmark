@@ -68,56 +68,56 @@ _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; pre
   %.01821 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %21 = call noundef i32 @_ZN18CompiledDirectCall19to_interp_stub_sizeEv() #3
   %22 = call noundef ptr @_ZN17AbstractAssembler12start_a_stubEi(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %21) #3
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %.loopexit
+  %.not.not = icmp ne ptr %22, null
+  br i1 %.not.not, label %23, label %.loopexit
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %7, align 8
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %7, align 8
   %sext = shl i64 %.01821, 32
-  %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %25, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  br label %29
+  %25 = ashr exact i64 %sext, 32
+  %26 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %24, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  br label %28
 
-29:                                               ; preds = %42, %24
-  %30 = phi ptr [ %43, %42 ], [ %25, %24 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ %26, %24 ]
-  %31 = load ptr, ptr %15, align 8
-  %32 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %30, i64 %indvars.iv, i32 1
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %31, i64 %34
+28:                                               ; preds = %41, %23
+  %29 = phi ptr [ %42, %41 ], [ %24, %23 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ %25, %23 ]
+  %30 = load ptr, ptr %15, align 8
+  %31 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %29, i64 %indvars.iv, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %30, i64 %33
   store ptr null, ptr %16, align 8, !alias.scope !6
   store i32 5, ptr %17, align 8, !alias.scope !6
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %4, align 8, !alias.scope !6
-  store ptr %35, ptr %18, align 8, !alias.scope !6
-  %36 = load ptr, ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #3
+  store ptr %34, ptr %18, align 8, !alias.scope !6
+  %35 = load ptr, ptr %19, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %35, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %1, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %42, label %.critedge
+  %38 = load i32, ptr %1, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %41, label %.critedge
 
-42:                                               ; preds = %29
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %43, i64 %indvars.iv.next
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %28
-  br i1 %46, label %29, label %.critedge, !llvm.loop !11
+41:                                               ; preds = %28
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %class.SharedStubToInterpRequest, ptr %42, i64 %indvars.iv.next
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %27
+  br i1 %45, label %28, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %29, %42
-  %47 = trunc nsw i64 %indvars.iv.next to i32
+.critedge:                                        ; preds = %28, %41
+  %46 = trunc nsw i64 %indvars.iv.next to i32
   call void @_ZN14MacroAssembler21emit_static_call_stubEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   call void @_ZN17AbstractAssembler10end_a_stubEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  %48 = load i32, ptr %1, align 4
-  %49 = icmp sgt i32 %48, %47
-  br i1 %49, label %20, label %.loopexit, !llvm.loop !13
+  %47 = load i32, ptr %1, align 4
+  %48 = icmp sgt i32 %47, %46
+  br i1 %48, label %20, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %.critedge, %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit ], [ false, %20 ], [ %23, %.critedge ]
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit ], [ %.not.not, %.critedge ], [ %.not.not, %20 ]
   ret i1 %.0
 }
 

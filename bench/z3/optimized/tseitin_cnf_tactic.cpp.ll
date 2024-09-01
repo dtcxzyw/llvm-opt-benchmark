@@ -5790,15 +5790,12 @@ lpad103:                                          ; preds = %lpad103.loopexit.sp
   br label %ehcleanup303
 
 for.end109:                                       ; preds = %for.inc107
-  br i1 %root, label %invoke.cont134.invoke, label %for.cond118.preheader
+  br i1 %root, label %invoke.cont134.invoke, label %invoke.cont121.lr.ph
 
 for.end109.thread:                                ; preds = %invoke.cont94
   br i1 %root, label %invoke.cont134.invoke, label %for.end129
 
-for.cond118.preheader:                            ; preds = %for.end109
-  br i1 %cmp100746.not, label %for.end129, label %invoke.cont121.lr.ph
-
-invoke.cont121.lr.ph:                             ; preds = %for.cond118.preheader
+invoke.cont121.lr.ph:                             ; preds = %for.end109
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ls.i, i64 8
   %wide.trip.count795 = zext i32 %41 to i64
   br label %invoke.cont121
@@ -5825,7 +5822,7 @@ for.inc127:                                       ; preds = %invoke.cont123
   %exitcond796.not = icmp eq i64 %indvars.iv.next793, %wide.trip.count795
   br i1 %exitcond796.not, label %for.end129, label %invoke.cont121, !llvm.loop !25
 
-for.end129:                                       ; preds = %for.inc127, %for.end109.thread, %for.cond118.preheader
+for.end129:                                       ; preds = %for.inc127, %for.end109.thread
   %tobool.not.i.i.i.i158 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i158, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i162, label %if.then.i.i.i.i159
 

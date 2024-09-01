@@ -336,8 +336,8 @@ default.unreachable387:                           ; preds = %2
 58:                                               ; preds = %48
   %59 = getelementptr inbounds i8, ptr %40, i64 40
   %60 = load i8, ptr %59, align 8, !range !7, !noundef !5
-  %.not.not = icmp eq i8 %60, 23
-  br i1 %.not.not, label %193, label %61
+  %.not = icmp eq i8 %60, 23
+  br i1 %.not, label %193, label %61
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
@@ -831,8 +831,8 @@ default.unreachable387:                           ; preds = %2
 206:                                              ; preds = %198
   %207 = getelementptr inbounds i8, ptr %23, i64 40
   %208 = load i8, ptr %207, align 8, !range !7, !noundef !5
-  %.not90.not = icmp eq i8 %208, 23
-  br i1 %.not90.not, label %339, label %209
+  %.not90 = icmp eq i8 %208, 23
+  br i1 %.not90, label %339, label %209
 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
@@ -15888,8 +15888,8 @@ default.unreachable387:                           ; preds = %2
 58:                                               ; preds = %48
   %59 = getelementptr inbounds i8, ptr %40, i64 40
   %60 = load i8, ptr %59, align 8, !range !7, !noundef !5
-  %.not.not = icmp eq i8 %60, 23
-  br i1 %.not.not, label %193, label %61
+  %.not = icmp eq i8 %60, 23
+  br i1 %.not, label %193, label %61
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
@@ -16383,8 +16383,8 @@ default.unreachable387:                           ; preds = %2
 206:                                              ; preds = %198
   %207 = getelementptr inbounds i8, ptr %23, i64 40
   %208 = load i8, ptr %207, align 8, !range !7, !noundef !5
-  %.not90.not = icmp eq i8 %208, 23
-  br i1 %.not90.not, label %339, label %209
+  %.not90 = icmp eq i8 %208, 23
+  br i1 %.not90, label %339, label %209
 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)

@@ -994,7 +994,7 @@ lpad:                                             ; preds = %if.then.i.i.invoke,
   br i1 %1, label %if.else.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.else.i.i:                                      ; preds = %lpad.thread, %lpad
-  %lpad.phi39 = phi { ptr, i32 } [ %lpad.loopexit21, %lpad.thread ], [ %lpad.loopexit.split-lp22, %lpad ]
+  %lpad.phi37 = phi { ptr, i32 } [ %lpad.loopexit21, %lpad.thread ], [ %lpad.loopexit.split-lp22, %lpad ]
   %2 = load ptr, ptr %lock, align 8
   %tobool2.not.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
@@ -1004,8 +1004,8 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i, %if.then3.i.i
-  %lpad.phi38 = phi { ptr, i32 } [ %lpad.loopexit.split-lp22, %lpad ], [ %lpad.phi39, %if.else.i.i ], [ %lpad.phi39, %if.then3.i.i ]
-  resume { ptr, i32 } %lpad.phi38
+  %lpad.phi36 = phi { ptr, i32 } [ %lpad.loopexit.split-lp22, %lpad ], [ %lpad.phi37, %if.else.i.i ], [ %lpad.phi37, %if.then3.i.i ]
+  resume { ptr, i32 } %lpad.phi36
 
 if.end:                                           ; preds = %invoke.cont
   %activeWorkers = getelementptr inbounds i8, ptr %job.030, i64 8

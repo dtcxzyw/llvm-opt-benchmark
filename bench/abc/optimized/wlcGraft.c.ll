@@ -278,8 +278,8 @@ define void @Wlc_NtkSaveOneNode(ptr nocapture noundef readonly %0, ptr noundef %
   %31 = load i64, ptr %30, align 8
   %32 = trunc i64 %31 to i32
   %33 = and i32 %32, 1
-  %.not.not.us = icmp eq i32 %33, 0
-  br i1 %.not.not.us, label %Abc_TtNot.exit.thread.us, label %.lr.ph.i.us
+  %.not.us = icmp eq i32 %33, 0
+  br i1 %.not.us, label %Abc_TtNot.exit.thread.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %.split.us ]
@@ -2951,18 +2951,18 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %113
 146:                                              ; preds = %142
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i107
-  br i1 %exitcond.not.i110, label %Vec_IntFind.exit, label %142, !llvm.loop !39
+  br i1 %exitcond.not.i110, label %.lr.ph.i113, label %142, !llvm.loop !39
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %142
   %147 = trunc nuw nsw i64 %indvars.iv.i108 to i32
-  br label %Vec_IntFind.exit
+  br label %.lr.ph.i113
 
-Vec_IntFind.exit:                                 ; preds = %146, %._crit_edge.loopexit.split.loop.exit12.i
+.lr.ph.i113:                                      ; preds = %146, %._crit_edge.loopexit.split.loop.exit12.i
   %.07.i = phi i32 [ %147, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %146 ]
   br label %148
 
-148:                                              ; preds = %153, %Vec_IntFind.exit
-  %indvars.iv.i115 = phi i64 [ 0, %Vec_IntFind.exit ], [ %indvars.iv.next.i116, %153 ]
+148:                                              ; preds = %153, %.lr.ph.i113
+  %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i113 ], [ %indvars.iv.next.i116, %153 ]
   %149 = getelementptr inbounds i32, ptr %141, i64 %indvars.iv.i115
   %150 = load i32, ptr %149, align 4
   %151 = xor i32 %150, %138

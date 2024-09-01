@@ -4159,7 +4159,7 @@ do.cond:                                          ; preds = %tokenize_command.ex
   br i1 %cmp192.not, label %stop, label %do.body, !llvm.loop !18
 
 stop:                                             ; preds = %while.end, %do.cond, %tokenize_command.exit, %while.body, %if.then174, %if.then51
-  %fail_length.0 = phi i1 [ false, %if.then51 ], [ true, %while.body ], [ %cmp11, %if.then174 ], [ false, %tokenize_command.exit ], [ false, %do.cond ], [ false, %while.end ]
+  %fail_length.0 = phi i1 [ false, %if.then51 ], [ %cmp11, %if.then174 ], [ %cmp11, %while.body ], [ false, %tokenize_command.exit ], [ false, %do.cond ], [ false, %while.end ]
   %resp.2 = phi ptr [ %resp.1115, %if.then51 ], [ %resp.1115, %if.then174 ], [ %resp.1115, %while.body ], [ %resp.1.lcssa, %while.end ], [ %65, %do.cond ], [ %resp.1.lcssa, %tokenize_command.exit ]
   %key_token.3 = phi ptr [ %key_token.2117, %if.then51 ], [ %key_token.2117, %while.body ], [ %incdec.ptr170, %if.then174 ], [ %key_token.2.lcssa, %while.end ], [ %tokens, %do.cond ], [ %tokens, %tokenize_command.exit ]
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8

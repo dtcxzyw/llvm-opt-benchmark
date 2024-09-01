@@ -13723,7 +13723,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   %55 = load atomic i64, ptr %54 acquire, align 8
   %56 = icmp eq i64 %55, 4294967297
   %57 = trunc i64 %55 to i32
-  br i1 %56, label %.critedge14.sink.split.sink.split.i.i.i.i, label %58
+  br i1 %56, label %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.sink.split.i.i.i.i, label %58
 
 58:                                               ; preds = %53
   %59 = load i8, ptr @__libc_single_threaded, align 1, !noalias !98
@@ -13767,25 +13767,25 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
 77:                                               ; preds = %75, %72
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %73, %72 ], [ %76, %75 ]
   %78 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %78, label %.critedge14.sink.split.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i"
+  br i1 %78, label %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i"
 
 .critedge.i.i.i.i:                                ; preds = %41
   %79 = getelementptr inbounds i8, ptr %8, i64 8
   %80 = load ptr, ptr %79, align 8, !noalias !98
-  %.not.i.i.i15.i.i.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i15.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i", label %81
+  %.not.i.i.i11.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i11.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i", label %81
 
 81:                                               ; preds = %.critedge.i.i.i.i
   %82 = getelementptr inbounds i8, ptr %80, i64 8
   %83 = load atomic i64, ptr %82 acquire, align 8
   %84 = icmp eq i64 %83, 4294967297
   %85 = trunc i64 %83 to i32
-  br i1 %84, label %.critedge14.sink.split.sink.split.i.i.i.i, label %86
+  br i1 %84, label %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.sink.split.i.i.i.i, label %86
 
 86:                                               ; preds = %81
   %87 = load i8, ptr @__libc_single_threaded, align 1, !noalias !98
-  %.not.i.i.i.i16.i.i.i.i = icmp eq i8 %87, 0
-  br i1 %.not.i.i.i.i16.i.i.i.i, label %90, label %88
+  %.not.i.i.i.i12.i.i.i.i = icmp eq i8 %87, 0
+  br i1 %.not.i.i.i.i12.i.i.i.i, label %90, label %88
 
 88:                                               ; preds = %86
   %89 = add nsw i32 %85, -1
@@ -13797,8 +13797,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   br label %92
 
 92:                                               ; preds = %90, %88
-  %.0.i.i.i.i17.i.i.i.i = phi i32 [ %85, %88 ], [ %91, %90 ]
-  %93 = icmp eq i32 %.0.i.i.i.i17.i.i.i.i, 1
+  %.0.i.i.i.i13.i.i.i.i = phi i32 [ %85, %88 ], [ %91, %90 ]
+  %93 = icmp eq i32 %.0.i.i.i.i13.i.i.i.i, 1
   br i1 %93, label %94, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i"
 
 94:                                               ; preds = %92
@@ -13808,8 +13808,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   call void %97(ptr noundef nonnull align 8 dereferenceable(16) %80) #21
   %98 = getelementptr inbounds i8, ptr %80, i64 12
   %99 = load i8, ptr @__libc_single_threaded, align 1, !noalias !98
-  %.not.i.i.i.i.i.i18.i.i.i.i = icmp eq i8 %99, 0
-  br i1 %.not.i.i.i.i.i.i18.i.i.i.i, label %103, label %100
+  %.not.i.i.i.i.i.i14.i.i.i.i = icmp eq i8 %99, 0
+  br i1 %.not.i.i.i.i.i.i14.i.i.i.i, label %103, label %100
 
 100:                                              ; preds = %94
   %101 = load i32, ptr %98, align 4
@@ -13822,11 +13822,11 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   br label %105
 
 105:                                              ; preds = %103, %100
-  %.0.i.i.i.i.i.i19.i.i.i.i = phi i32 [ %101, %100 ], [ %104, %103 ]
-  %106 = icmp eq i32 %.0.i.i.i.i.i.i19.i.i.i.i, 1
-  br i1 %106, label %.critedge14.sink.split.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i"
+  %.0.i.i.i.i.i.i15.i.i.i.i = phi i32 [ %101, %100 ], [ %104, %103 ]
+  %106 = icmp eq i32 %.0.i.i.i.i.i.i15.i.i.i.i, 1
+  br i1 %106, label %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.i.i.i.i, label %"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i"
 
-.critedge14.sink.split.sink.split.i.i.i.i:        ; preds = %81, %53
+_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.sink.split.i.i.i.i: ; preds = %81, %53
   %.sink12.i.i.i.i = phi ptr [ %54, %53 ], [ %82, %81 ]
   %.sink11.i.i.i.i = phi ptr [ %52, %53 ], [ %80, %81 ]
   store i32 0, ptr %.sink12.i.i.i.i, align 8
@@ -13836,10 +13836,10 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   %109 = getelementptr inbounds i8, ptr %108, i64 16
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %.sink11.i.i.i.i) #21
-  br label %.critedge14.sink.split.i.i.i.i
+  br label %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.i.i.i.i
 
-.critedge14.sink.split.i.i.i.i:                   ; preds = %.critedge14.sink.split.sink.split.i.i.i.i, %105, %77
-  %.sink5.i.i.i.i = phi ptr [ %52, %77 ], [ %80, %105 ], [ %.sink11.i.i.i.i, %.critedge14.sink.split.sink.split.i.i.i.i ]
+_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.i.i.i.i: ; preds = %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.sink.split.i.i.i.i, %105, %77
+  %.sink5.i.i.i.i = phi ptr [ %52, %77 ], [ %80, %105 ], [ %.sink11.i.i.i.i, %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.sink.split.i.i.i.i ]
   %111 = load ptr, ptr %.sink5.i.i.i.i, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
@@ -13852,7 +13852,7 @@ common.resume.i.i.i:                              ; preds = %127, %125, %48, %46
   call void @_ZN3dap16EvaluateResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %.sink.i.i.i) #21
   resume { ptr, i32 } %common.resume.op.i.i.i
 
-"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i": ; preds = %.critedge14.sink.split.i.i.i.i, %105, %92, %.critedge.i.i.i.i, %77, %64, %50, %4
+"_ZZN10cmDebugger17cmDebuggerAdapterC1ESt10shared_ptrINS_20cmDebuggerConnectionEESt8optionalIS1_IN3dap6WriterEEEENK4$_14clERKNS5_15EvaluateRequestE.exit.i.i.i": ; preds = %_ZNSt10shared_ptrIN10cmDebugger20cmDebuggerStackFrameEED2Ev.exit.sink.split.i.i.i.i, %105, %92, %.critedge.i.i.i.i, %77, %64, %50, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   invoke void @_ZN3dap15ResponseOrErrorINS_16EvaluateResponseEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(312) %9, ptr noundef nonnull align 8 dereferenceable(280) %10)
           to label %114 unwind label %125

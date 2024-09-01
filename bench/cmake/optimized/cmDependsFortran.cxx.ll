@@ -4307,8 +4307,8 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran10FindModuleERKNSt7__c
 
 34:                                               ; preds = %61
   %35 = getelementptr inbounds i8, ptr %.sroa.018.025, i64 32
-  %.not30 = icmp eq ptr %35, %17
-  br i1 %.not30, label %.loopexit, label %36
+  %.not26 = icmp eq ptr %35, %17
+  br i1 %.not26, label %.loopexit, label %36
 
 36:                                               ; preds = %.lr.ph, %34
   %.sroa.018.025 = phi ptr [ %15, %.lr.ph ], [ %35, %34 ]

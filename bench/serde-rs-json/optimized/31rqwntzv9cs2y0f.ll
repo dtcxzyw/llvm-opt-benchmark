@@ -489,7 +489,7 @@ define noundef nonnull ptr @"_ZN10serde_json5error103_$LT$impl$u20$core..convert
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h63f136b54a0d01beE.llvm.12266911530922283489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.critedge15 unwind label %13
+          to label %.critedge14 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -507,25 +507,25 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !81
   store ptr %0, ptr %2, align 8, !noalias !88
   %16 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.17788874430417167(ptr noalias noundef nonnull readonly align 1 @anon.f288aba1288e7a615443dffa1f18fa93.6.llvm.17788874430417167, i64 noundef 8, i64 noundef 8, i1 noundef zeroext false)
-          to label %.noexc.i.i.i19 unwind label %19
+          to label %.noexc.i.i.i18 unwind label %19
 
-.noexc.i.i.i19:                                   ; preds = %_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit
-  %.fca.0.extract.i.i.i.i20 = extractvalue { ptr, i64 } %16, 0
-  %17 = icmp eq ptr %.fca.0.extract.i.i.i.i20, null
-  br i1 %17, label %18, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i21"
+.noexc.i.i.i18:                                   ; preds = %_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit
+  %.fca.0.extract.i.i.i.i19 = extractvalue { ptr, i64 } %16, 0
+  %17 = icmp eq ptr %.fca.0.extract.i.i.i.i19, null
+  br i1 %17, label %18, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20"
 
-18:                                               ; preds = %.noexc.i.i.i19
+18:                                               ; preds = %.noexc.i.i.i18
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 8) #19
-          to label %.noexc1.i.i.i22 unwind label %19
+          to label %.noexc1.i.i.i21 unwind label %19
 
-.noexc1.i.i.i22:                                  ; preds = %18
+.noexc1.i.i.i21:                                  ; preds = %18
   unreachable
 
 19:                                               ; preds = %18, %_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h63f136b54a0d01beE.llvm.12266911530922283489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %.critedge15 unwind label %21
+          to label %.critedge14 unwind label %21
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -533,15 +533,15 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
   unreachable
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i21": ; preds = %.noexc.i.i.i19
-  store ptr %0, ptr %.fca.0.extract.i.i.i.i20, align 8
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20": ; preds = %.noexc.i.i.i18
+  store ptr %0, ptr %.fca.0.extract.i.i.i.i19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !81
-  %23 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 37, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
+  %23 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 37, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
   br label %.critedge
 
-.critedge:                                        ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i21", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i", %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit"
-  %.033 = phi ptr [ %25, %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit" ], [ %15, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i" ], [ %23, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i21" ]
-  ret ptr %.033
+.critedge:                                        ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i", %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit"
+  %.032 = phi ptr [ %25, %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit" ], [ %15, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i" ], [ %23, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20" ]
+  ret ptr %.032
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit": ; preds = %1
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -549,9 +549,9 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 40, i64 noundef 8) #18
   br label %.critedge
 
-.critedge15:                                      ; preds = %19, %11
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %20, %19 ]
-  resume { ptr, i32 } %.pn
+.critedge14:                                      ; preds = %19, %11
+  %eh.lpad-body.ph.pn = phi { ptr, i32 } [ %12, %11 ], [ %20, %19 ]
+  resume { ptr, i32 } %eh.lpad-body.ph.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

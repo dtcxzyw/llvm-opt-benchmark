@@ -2442,7 +2442,7 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   %18 = load ptr, ptr @spl_ce_SplMaxHeap, align 8
   %19 = load ptr, ptr @spl_ce_SplHeap, align 8
   %20 = icmp eq ptr %0, %16
-  br i1 %20, label %.loopexit, label %.lr.ph117
+  br i1 %20, label %.loopexit, label %.lr.ph113
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -2524,17 +2524,17 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   store ptr %65, ptr %66, align 8
   br label %112
 
-.lr.ph117:                                        ; preds = %.lr.ph, %81
-  %.06689116 = phi ptr [ %83, %81 ], [ %0, %.lr.ph ]
-  %.not7290115 = phi i1 [ false, %81 ], [ true, %.lr.ph ]
-  %67 = icmp eq ptr %.06689116, %17
-  %68 = icmp eq ptr %.06689116, %18
+.lr.ph113:                                        ; preds = %.lr.ph, %81
+  %.06689112 = phi ptr [ %83, %81 ], [ %0, %.lr.ph ]
+  %.not7290111 = phi i1 [ false, %81 ], [ true, %.lr.ph ]
+  %67 = icmp eq ptr %.06689112, %17
+  %68 = icmp eq ptr %.06689112, %18
   %or.cond = select i1 %67, i1 true, i1 %68
-  %69 = icmp eq ptr %.06689116, %19
+  %69 = icmp eq ptr %.06689112, %19
   %or.cond78 = select i1 %or.cond, i1 true, i1 %69
   br i1 %or.cond78, label %70, label %81
 
-70:                                               ; preds = %.lr.ph117
+70:                                               ; preds = %.lr.ph113
   %71 = select i1 %67, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
   %72 = tail call noalias ptr @_emalloc_56() #15
   %73 = getelementptr inbounds i8, ptr %72, i64 16
@@ -2554,13 +2554,13 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %80 = getelementptr inbounds i8, ptr %72, i64 48
   store i64 16, ptr %80, align 8
   store ptr %72, ptr %14, align 8
-  br i1 %.not7290115, label %112, label %95
+  br i1 %.not7290111, label %112, label %95
 
-81:                                               ; preds = %.lr.ph117
-  %82 = getelementptr inbounds i8, ptr %.06689116, i64 16
+81:                                               ; preds = %.lr.ph113
+  %82 = getelementptr inbounds i8, ptr %.06689112, i64 16
   %83 = load ptr, ptr %82, align 8, !nonnull !4, !noundef !4
   %84 = icmp eq ptr %83, %16
-  br i1 %84, label %.loopexit, label %.lr.ph117
+  br i1 %84, label %.loopexit, label %.lr.ph113
 
 .loopexit:                                        ; preds = %81, %.lr.ph
   %85 = tail call noalias ptr @_emalloc_56() #15
@@ -2586,7 +2586,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   br i1 %20, label %112, label %95
 
 95:                                               ; preds = %70, %.loopexit
-  %.06687107 = phi ptr [ %16, %.loopexit ], [ %.06689116, %70 ]
+  %.06687103 = phi ptr [ %16, %.loopexit ], [ %.06689112, %70 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 64
   %97 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.6, i64 noundef 7) #15
   %.not73 = icmp ne ptr %97, null
@@ -2596,7 +2596,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %98, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, %.06687107
+  %102 = icmp eq ptr %101, %.06687103
   %spec.store.select = select i1 %102, ptr null, ptr %98
   store ptr %spec.store.select, ptr %99, align 8
   %103 = load ptr, ptr @zend_known_strings, align 8
@@ -2610,7 +2610,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %107, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, %.06687107
+  %111 = icmp eq ptr %110, %.06687103
   %spec.store.select79 = select i1 %111, ptr null, ptr %107
   store ptr %spec.store.select79, ptr %108, align 8
   br label %112

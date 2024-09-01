@@ -1913,14 +1913,11 @@ while.body77:                                     ; preds = %pack_list_size.exit
 
 while.end81:                                      ; preds = %while.body77
   %219 = load ptr, ptr @stderr, align 8
-  br i1 %tobool76.not464, label %pack_set_bytecount.exit, label %while.cond.preheader.i241
-
-while.cond.preheader.i241:                        ; preds = %while.end81
   %220 = load ptr, ptr %min.1, align 8
   %tobool1.not36.i = icmp eq ptr %220, null
-  br i1 %tobool1.not36.i, label %while.body.i265.preheader, label %while.cond2.preheader.lr.ph.i
+  br i1 %tobool1.not36.i, label %get_pack_redundancy.exit, label %while.cond2.preheader.lr.ph.i
 
-while.cond2.preheader.lr.ph.i:                    ; preds = %while.cond.preheader.i241
+while.cond2.preheader.lr.ph.i:                    ; preds = %while.end81
   %221 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i242 = getelementptr inbounds i8, ptr %221, i64 256
   %222 = load ptr, ptr %hash_algo.i.i242, align 8
@@ -1955,7 +1952,7 @@ while.cond.loopexit.us.i:                         ; preds = %sizeof_union.exit.u
   %.us-phi.us.i = phi i64 [ %ret.038.us.i, %while.cond2.preheader.us.i ], [ %add.us32.us.i, %sizeof_union.exit.us30.us.i ]
   %229 = load ptr, ptr %224, align 8
   %tobool1.not.us.i = icmp eq ptr %229, null
-  br i1 %tobool1.not.us.i, label %while.body.i265.preheader, label %while.cond2.preheader.us.i, !llvm.loop !35
+  br i1 %tobool1.not.us.i, label %get_pack_redundancy.exit, label %while.cond2.preheader.us.i, !llvm.loop !35
 
 while.body4.us18.us.i:                            ; preds = %while.cond2.preheader.us.i, %sizeof_union.exit.us30.us.i
   %ret.117.us19.us.i = phi i64 [ %add.us32.us.i, %sizeof_union.exit.us30.us.i ], [ %ret.038.us.i, %while.cond2.preheader.us.i ]
@@ -2022,7 +2019,7 @@ while.cond.loopexit.i256:                         ; preds = %sizeof_union.exit.i
   %.us-phi.i = phi i64 [ %ret.038.i, %while.cond2.preheader.i245 ], [ %add.i, %sizeof_union.exit.i ]
   %235 = load ptr, ptr %236, align 8
   %tobool1.not.i257 = icmp eq ptr %235, null
-  br i1 %tobool1.not.i257, label %while.body.i265.preheader, label %while.cond2.preheader.i245, !llvm.loop !35
+  br i1 %tobool1.not.i257, label %get_pack_redundancy.exit, label %while.cond2.preheader.i245, !llvm.loop !35
 
 while.cond2.preheader.i245:                       ; preds = %while.cond2.preheader.lr.ph.i, %while.cond.loopexit.i256
   %236 = phi ptr [ %235, %while.cond.loopexit.i256 ], [ %220, %while.cond2.preheader.lr.ph.i ]
@@ -2110,13 +2107,13 @@ sizeof_union.exit.i:                              ; preds = %if.then.split.i.i, 
   %tobool3.not.i255 = icmp eq ptr %245, null
   br i1 %tobool3.not.i255, label %while.cond.loopexit.i256, label %while.body4.i, !llvm.loop !37
 
-while.body.i265.preheader:                        ; preds = %while.cond.loopexit.i256, %while.cond.loopexit.us.i, %while.cond.preheader.i241
-  %retval.0.i = phi i64 [ 0, %while.cond.preheader.i241 ], [ %.us-phi.us.i, %while.cond.loopexit.us.i ], [ %.us-phi.i, %while.cond.loopexit.i256 ]
+get_pack_redundancy.exit:                         ; preds = %while.cond.loopexit.i256, %while.cond.loopexit.us.i, %while.end81
+  %retval.0.i = phi i64 [ 0, %while.end81 ], [ %.us-phi.us.i, %while.cond.loopexit.us.i ], [ %.us-phi.i, %while.cond.loopexit.i256 ]
   br label %while.body.i265
 
-while.body.i265:                                  ; preds = %while.body.i265.preheader, %while.body.i265
-  %ret.08.i = phi i64 [ %add2.i, %while.body.i265 ], [ 0, %while.body.i265.preheader ]
-  %pl.addr.07.i = phi ptr [ %249, %while.body.i265 ], [ %min.1, %while.body.i265.preheader ]
+while.body.i265:                                  ; preds = %get_pack_redundancy.exit, %while.body.i265
+  %ret.08.i = phi i64 [ %add2.i, %while.body.i265 ], [ 0, %get_pack_redundancy.exit ]
+  %pl.addr.07.i = phi ptr [ %249, %while.body.i265 ], [ %min.1, %get_pack_redundancy.exit ]
   %pack.i266 = getelementptr inbounds i8, ptr %pl.addr.07.i, i64 8
   %246 = load ptr, ptr %pack.i266, align 8
   %pack_size.i = getelementptr inbounds i8, ptr %246, i64 48
@@ -2133,10 +2130,10 @@ pack_set_bytecount.exit.loopexit:                 ; preds = %while.body.i265
   %250 = lshr i64 %add2.i, 10
   br label %pack_set_bytecount.exit
 
-pack_set_bytecount.exit:                          ; preds = %while.end81.thread, %pack_set_bytecount.exit.loopexit, %while.end81
-  %251 = phi ptr [ %219, %while.end81 ], [ %219, %pack_set_bytecount.exit.loopexit ], [ %216, %while.end81.thread ]
-  %retval.0.i301 = phi i64 [ 0, %while.end81 ], [ %retval.0.i, %pack_set_bytecount.exit.loopexit ], [ 0, %while.end81.thread ]
-  %ret.0.lcssa.i270 = phi i64 [ 0, %while.end81 ], [ %250, %pack_set_bytecount.exit.loopexit ], [ 0, %while.end81.thread ]
+pack_set_bytecount.exit:                          ; preds = %while.end81.thread, %pack_set_bytecount.exit.loopexit
+  %251 = phi ptr [ %219, %pack_set_bytecount.exit.loopexit ], [ %216, %while.end81.thread ]
+  %retval.0.i301 = phi i64 [ %retval.0.i, %pack_set_bytecount.exit.loopexit ], [ 0, %while.end81.thread ]
+  %ret.0.lcssa.i270 = phi i64 [ %250, %pack_set_bytecount.exit.loopexit ], [ 0, %while.end81.thread ]
   %call84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.13, i64 noundef %retval.0.i301, i64 noundef %ret.0.lcssa.i270) #15
   %252 = load ptr, ptr @stderr, align 8
   %253 = load ptr, ptr @all_objects, align 8
@@ -2180,7 +2177,7 @@ if.then102.thread:                                ; preds = %while.end100.thread
 
 if.then102:                                       ; preds = %while.end100
   %262 = load ptr, ptr @stderr, align 8
-  br i1 %tobool90.not466, label %pack_set_bytecount.exit283, label %while.body.i272
+  br label %while.body.i272
 
 while.body.i272:                                  ; preds = %if.then102, %while.body.i272
   %ret.08.i273 = phi i64 [ %add2.i279, %while.body.i272 ], [ 0, %if.then102 ]
@@ -2201,9 +2198,9 @@ pack_set_bytecount.exit283.loopexit:              ; preds = %while.body.i272
   %267 = lshr i64 %add2.i279, 20
   br label %pack_set_bytecount.exit283
 
-pack_set_bytecount.exit283:                       ; preds = %if.then102.thread, %pack_set_bytecount.exit283.loopexit, %if.then102
-  %268 = phi ptr [ %262, %if.then102 ], [ %262, %pack_set_bytecount.exit283.loopexit ], [ %261, %if.then102.thread ]
-  %ret.0.lcssa.i282 = phi i64 [ 0, %if.then102 ], [ %267, %pack_set_bytecount.exit283.loopexit ], [ 0, %if.then102.thread ]
+pack_set_bytecount.exit283:                       ; preds = %if.then102.thread, %pack_set_bytecount.exit283.loopexit
+  %268 = phi ptr [ %262, %pack_set_bytecount.exit283.loopexit ], [ %261, %if.then102.thread ]
+  %ret.0.lcssa.i282 = phi i64 [ %267, %pack_set_bytecount.exit283.loopexit ], [ 0, %if.then102.thread ]
   %call105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef nonnull @.str.17, i64 noundef %ret.0.lcssa.i282) #15
   br label %if.end106
 

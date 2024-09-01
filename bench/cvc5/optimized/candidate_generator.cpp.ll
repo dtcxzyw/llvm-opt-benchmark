@@ -1478,8 +1478,8 @@ entry:
 
 while.cond89.preheader:                           ; preds = %entry
   %d_eqc_iter = getelementptr inbounds i8, ptr %this, i64 40
-  %call90532 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(16) %d_eqc_iter)
-  br i1 %call90532, label %if.end180, label %while.body91
+  %call90531 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(16) %d_eqc_iter)
+  br i1 %call90531, label %if.end180, label %while.body91
 
 if.then:                                          ; preds = %entry
   %d_termIterList = getelementptr inbounds i8, ptr %this, i64 64
@@ -1528,8 +1528,8 @@ cond.end:                                         ; preds = %if.then
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %d_termIter = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i64, ptr %d_termIter, align 8
-  %cmp10544 = icmp ult i64 %6, %sub.ptr.div.i.i
-  br i1 %cmp10544, label %while.body.lr.ph, label %if.end180
+  %cmp10543 = icmp ult i64 %6, %sub.ptr.div.i.i
+  br i1 %cmp10543, label %while.body.lr.ph, label %if.end180
 
 while.body.lr.ph:                                 ; preds = %cond.end
   %d_treg = getelementptr inbounds i8, ptr %this, i64 24
@@ -1863,7 +1863,7 @@ terminate.lpad.i184:                              ; preds = %if.then13.i.i183
   call void @__clang_call_terminate(ptr %44) #16
   unreachable
 
-nrvo.unused:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.end69.critedge, %if.then.i.i177, %if.then13.i.i183
+nrvo.unused:                                      ; preds = %if.then13.i.i183, %if.then.i.i177, %if.end69.critedge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %45 = load ptr, ptr %agg.result, align 8
   %bf.load.i.i186 = load i64, ptr %45, align 8
   %46 = and i64 %bf.load.i.i186, 1152920405095219200
@@ -2335,7 +2335,7 @@ if.then13.i.i.i503:                               ; preds = %if.else.i.i.i501
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %92), !noalias !13
   br label %return
 
-return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit265, %if.then27, %if.then13.i.i172, %if.then.i.i166, %cond.true51, %if.then13.i.i.i503, %if.else.i.i.i501, %if.then.i.i.i505, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit485, %if.then13.i.i.i, %if.else.i.i.i, %if.then.i.i.i
+return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit265, %if.then27, %cond.true51, %if.then.i.i166, %if.then13.i.i172, %if.then13.i.i.i503, %if.else.i.i.i501, %if.then.i.i.i505, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit485, %if.then13.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   ret void
 }
 

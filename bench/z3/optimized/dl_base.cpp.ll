@@ -3308,20 +3308,20 @@ for.cond34.preheader:                             ; preds = %for.cond22.for.end_
 
 for.body36.preheader:                             ; preds = %for.cond34.preheader
   %28 = zext i32 %sub.fr to i64
-  %wide.trip.count73 = zext i32 %retval.0.i to i64
+  %wide.trip.count72 = zext i32 %retval.0.i to i64
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.preheader, %for.body36
-  %indvars.iv70 = phi i64 [ %28, %for.body36.preheader ], [ %indvars.iv.next71, %for.body36 ]
+  %indvars.iv69 = phi i64 [ %28, %for.body36.preheader ], [ %indvars.iv.next70, %for.body36 ]
   %29 = load ptr, ptr %row, align 8
-  %arrayidx.i23 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv70
+  %arrayidx.i23 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv69
   %30 = load i64, ptr %arrayidx.i23, align 8
   %31 = load ptr, ptr %f, align 8
-  %arrayidx.i25 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv70
+  %arrayidx.i25 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv69
   store i64 %30, ptr %arrayidx.i25, align 8
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %cleanup, label %for.body36, !llvm.loop !26
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
+  br i1 %exitcond73.not, label %cleanup, label %for.body36, !llvm.loop !26
 
 cleanup:                                          ; preds = %for.body36, %for.cond34.preheader
   %32 = load ptr, ptr %__end2, align 8

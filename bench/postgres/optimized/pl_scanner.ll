@@ -440,29 +440,21 @@ push_back_token.exit:                             ; preds = %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef %0) local_unnamed_addr #3 {
-  %2 = icmp eq i32 %0, 280
-  br i1 %2, label %._crit_edge, label %.lr.ph
+  br label %2
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv7 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
+2:                                                ; preds = %2, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr [83 x i16], ptr @UnreservedPLKeywordTokens, i64 0, i64 %indvars.iv
+  %4 = load i16, ptr %3, align 2
+  %5 = zext i16 %4 to i32
+  %6 = icmp eq i32 %0, %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 83
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %3, !llvm.loop !4
+  %or.cond = select i1 %6, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %7, label %2, !llvm.loop !4
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr [83 x i16], ptr @UnreservedPLKeywordTokens, i64 0, i64 %indvars.iv.next
-  %5 = load i16, ptr %4, align 2
-  %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %0, %6
-  br i1 %7, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %3
-  %8 = icmp ult i64 %indvars.iv7, 82
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %8, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+7:                                                ; preds = %2
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable

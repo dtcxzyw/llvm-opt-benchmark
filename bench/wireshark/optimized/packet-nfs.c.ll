@@ -11249,10 +11249,7 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %584, %
   %wide.trip.count985 = zext i32 %.0875.lcssa to i64
   br label %.lr.ph972
 
-.preheader:                                       ; preds = %821
-  br i1 %.not978, label %._crit_edge977, label %.lr.ph976
-
-.lr.ph976:                                        ; preds = %.preheader
+.lr.ph976:                                        ; preds = %821
   %813 = getelementptr inbounds i8, ptr %2, i64 8
   %wide.trip.count990 = zext i32 %.0875.lcssa to i64
   br label %823
@@ -11276,7 +11273,7 @@ dissect_nfs4_layoutreturn.exit:                   ; preds = %.lr.ph78.i, %584, %
   %spec.select = call i32 @llvm.umin.i32(i32 %822, i32 %.0870970)
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %exitcond986.not = icmp eq i64 %indvars.iv.next983, %wide.trip.count985
-  br i1 %exitcond986.not, label %.preheader, label %.lr.ph972, !llvm.loop !11
+  br i1 %exitcond986.not, label %.lr.ph976, label %.lr.ph972, !llvm.loop !11
 
 823:                                              ; preds = %.lr.ph976, %859
   %indvars.iv987 = phi i64 [ 0, %.lr.ph976 ], [ %indvars.iv.next988, %859 ]
@@ -11352,8 +11349,8 @@ proto_item_set_generated.exit:                    ; preds = %845, %842, %838, %8
   %exitcond991.not = icmp eq i64 %indvars.iv.next988, %wide.trip.count990
   br i1 %exitcond991.not, label %._crit_edge977, label %823, !llvm.loop !12
 
-._crit_edge977:                                   ; preds = %859, %23, %._crit_edge, %.preheader
-  %.0.lcssa9961002 = phi i32 [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %._crit_edge ], [ %19, %23 ], [ %.0.lcssa, %859 ]
+._crit_edge977:                                   ; preds = %859, %23, %._crit_edge
+  %.0.lcssa9961002 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %19, %23 ], [ %.0.lcssa, %859 ]
   ret i32 %.0.lcssa9961002
 }
 
@@ -14683,10 +14680,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %525, %521, %518, %5
   %wide.trip.count552 = zext i32 %.0448.lcssa to i64
   br label %.lr.ph526
 
-.preheader:                                       ; preds = %769
-  br i1 %.not533, label %._crit_edge531, label %.lr.ph530
-
-.lr.ph530:                                        ; preds = %.preheader
+.lr.ph530:                                        ; preds = %769
   %761 = getelementptr inbounds i8, ptr %2, i64 8
   %wide.trip.count557 = zext i32 %.0448.lcssa to i64
   br label %771
@@ -14710,7 +14704,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %525, %521, %518, %5
   %spec.select = call i32 @llvm.umin.i32(i32 %770, i32 %.0442524)
   %indvars.iv.next550 = add nuw nsw i64 %indvars.iv549, 1
   %exitcond553.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count552
-  br i1 %exitcond553.not, label %.preheader, label %.lr.ph526, !llvm.loop !44
+  br i1 %exitcond553.not, label %.lr.ph530, label %.lr.ph526, !llvm.loop !44
 
 771:                                              ; preds = %.lr.ph530, %811
   %indvars.iv554 = phi i64 [ 0, %.lr.ph530 ], [ %indvars.iv.next555, %811 ]
@@ -14792,8 +14786,8 @@ proto_item_set_generated.exit:                    ; preds = %797, %794, %790, %7
   %exitcond558.not = icmp eq i64 %indvars.iv.next555, %wide.trip.count557
   br i1 %exitcond558.not, label %._crit_edge531, label %771, !llvm.loop !45
 
-._crit_edge531:                                   ; preds = %811, %38, %._crit_edge, %.preheader
-  %.0.lcssa564570 = phi i32 [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %._crit_edge ], [ %30, %38 ], [ %.0.lcssa, %811 ]
+._crit_edge531:                                   ; preds = %811, %38, %._crit_edge
+  %.0.lcssa564570 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %30, %38 ], [ %.0.lcssa, %811 ]
   ret i32 %.0.lcssa564570
 }
 

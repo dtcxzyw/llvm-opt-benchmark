@@ -1487,8 +1487,8 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr nocapture noundef readonly %
 209:                                              ; preds = %165
   %210 = getelementptr inbounds i8, ptr %168, i64 2816
   %211 = load i32, ptr %210, align 4
-  %.not73 = icmp eq i32 %211, 0
-  br i1 %.not73, label %212, label %.thread23
+  %.not46 = icmp eq i32 %211, 0
+  br i1 %.not46, label %212, label %.thread23
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds i8, ptr %168, i64 2968
@@ -1615,8 +1615,8 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr nocapture noundef readonly %
   %279 = load ptr, ptr %278, align 8
   %280 = load i8, ptr %17, align 1
   %281 = and i8 %280, 1
-  %.not74 = icmp eq i8 %281, 0
-  br i1 %.not74, label %320, label %282
+  %.not47 = icmp eq i8 %281, 0
+  br i1 %.not47, label %320, label %282
 
 282:                                              ; preds = %276
   %283 = load ptr, ptr %18, align 8
@@ -1673,8 +1673,8 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr nocapture noundef readonly %
 320:                                              ; preds = %276
   %321 = getelementptr inbounds i8, ptr %279, i64 2816
   %322 = load i32, ptr %321, align 4
-  %.not75 = icmp eq i32 %322, 0
-  br i1 %.not75, label %323, label %.thread40
+  %.not48 = icmp eq i32 %322, 0
+  br i1 %.not48, label %323, label %.thread40
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds i8, ptr %279, i64 2968

@@ -962,8 +962,8 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
 
 53:                                               ; preds = %55, %49
   %54 = phi ptr [ %56, %55 ], [ %50, %49 ]
-  %.not8.i.not = icmp ne ptr %54, %52
-  br i1 %.not8.i.not, label %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5dd88a575a6c79eE.exit"
+  %.not8.not.not.i.not.not.not.not.not = icmp ne ptr %54, %52
+  br i1 %.not8.not.not.i.not.not.not.not.not, label %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5dd88a575a6c79eE.exit"
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 1
@@ -978,7 +978,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   br label %60
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5dd88a575a6c79eE.exit": ; preds = %55, %53
-  %59 = zext i1 %.not8.i.not to i8
+  %59 = zext i1 %.not8.not.not.i.not.not.not.not.not to i8
   store i64 0, ptr %0, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %59, ptr %.sroa.421.0..sroa_idx, align 8

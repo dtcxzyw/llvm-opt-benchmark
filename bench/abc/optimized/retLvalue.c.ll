@@ -616,7 +616,6 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr nocapture
   br i1 %29, label %.lr.ph, label %.critedge.preheader, !llvm.loop !9
 
 30:                                               ; preds = %.lr.ph67, %.critedge
-  %.not66 = phi i1 [ false, %.lr.ph67 ], [ %.not, %.critedge ]
   %.02765 = phi i32 [ 1, %.lr.ph67 ], [ %104, %.critedge ]
   %.val363.i = load i32, ptr %11, align 4
   %31 = icmp sgt i32 %.val363.i, 0
@@ -783,38 +782,33 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
   %101 = ptrtoint ptr %.val9.i to i64
   %102 = trunc i64 %101 to i32
   %103 = icmp slt i32 %3, %102
-  br i1 %103, label %Abc_NtkRetimePosOverLimit.exit.loopexit, label %90
+  br i1 %103, label %Abc_NtkRetimePosOverLimit.exit, label %90
 
 .critedge:                                        ; preds = %90, %86
   %104 = add nuw i32 %.02765, 1
-  %.not = icmp sge i32 %.02765, %4
-  %exitcond = icmp eq i32 %.02765, %4
-  br i1 %exitcond, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !14
+  %exitcond.not = icmp eq i32 %.02765, %4
+  br i1 %exitcond.not, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !14
 
-Abc_NtkRetimePosOverLimit.exit.loopexit:          ; preds = %91
-  %105 = select i1 %.not66, ptr @.str.4, ptr @.str.5
-  br label %Abc_NtkRetimePosOverLimit.exit
-
-Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %Abc_NtkRetimePosOverLimit.exit.loopexit, %.critedge.preheader
-  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %Abc_NtkRetimePosOverLimit.exit.loopexit ], [ %16, %.critedge ]
-  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ %105, %Abc_NtkRetimePosOverLimit.exit.loopexit ], [ @.str.4, %.critedge ]
+Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %91, %.critedge.preheader
+  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %91 ], [ %16, %.critedge ]
+  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ @.str.5, %91 ], [ @.str.4, %.critedge ]
   %.not31 = icmp eq i32 %5, 0
-  br i1 %.not31, label %110, label %106
+  br i1 %.not31, label %109, label %105
 
 Abc_NtkRetimePosOverLimit.exit.thread45:          ; preds = %Abc_NtkRetimeUpdateLValue.exit
   %.not3148 = icmp eq i32 %5, 0
-  br i1 %.not3148, label %110, label %108
+  br i1 %.not3148, label %109, label %107
 
-106:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit
-  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %3, i32 noundef %.02761, ptr noundef nonnull %.not58)
-  br label %110
+105:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit
+  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %3, i32 noundef %.02761, ptr noundef nonnull %.not58)
+  br label %109
 
-108:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45
-  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %3, i32 noundef %.02765)
-  br label %110
+107:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45
+  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %3, i32 noundef %.02765)
+  br label %109
 
-110:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45, %106, %108, %Abc_NtkRetimePosOverLimit.exit
-  %.051 = phi i32 [ 1, %Abc_NtkRetimePosOverLimit.exit.thread45 ], [ 0, %106 ], [ 1, %108 ], [ 0, %Abc_NtkRetimePosOverLimit.exit ]
+109:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45, %105, %107, %Abc_NtkRetimePosOverLimit.exit
+  %.051 = phi i32 [ 1, %Abc_NtkRetimePosOverLimit.exit.thread45 ], [ 0, %105 ], [ 1, %107 ], [ 0, %Abc_NtkRetimePosOverLimit.exit ]
   ret i32 %.051
 }
 

@@ -163,7 +163,7 @@ if.end:                                           ; preds = %entry
 
 if.end.if.end21_crit_edge:                        ; preds = %if.end
   %ibuf_off.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
-  %.pre74 = load i32, ptr %ibuf_off.i.phi.trans.insert, align 4
+  %.pre73 = load i32, ptr %ibuf_off.i.phi.trans.insert, align 4
   br label %if.end21
 
 if.then2:                                         ; preds = %if.end
@@ -229,7 +229,7 @@ if.then19:                                        ; preds = %for.end
   br label %return
 
 if.end21:                                         ; preds = %if.end.if.end21_crit_edge, %for.end
-  %14 = phi i32 [ %add16, %for.end ], [ %.pre74, %if.end.if.end21_crit_edge ]
+  %14 = phi i32 [ %add16, %for.end ], [ %.pre73, %if.end.if.end21_crit_edge ]
   %size.addr.0 = phi i32 [ %sub, %for.end ], [ %dec, %if.end.if.end21_crit_edge ]
   %buf.addr.0 = phi ptr [ %buf.addr.2, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
   %num.0 = phi i32 [ %num_chars.1, %for.end ], [ 0, %if.end.if.end21_crit_edge ]

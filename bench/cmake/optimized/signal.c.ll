@@ -401,23 +401,23 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 split.i.i:                                        ; preds = %117
   %129 = getelementptr inbounds i8, ptr %.0.i.i, i64 112
   %130 = getelementptr inbounds i8, ptr %115, i64 136
-  %.phi.trans.insert58.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 120
-  %.pre59.i.i = load ptr, ptr %.phi.trans.insert58.i.i, align 8
-  %131 = icmp eq ptr %.pre59.i.i, null
+  %.phi.trans.insert57.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 120
+  %.pre58.i.i = load ptr, ptr %.phi.trans.insert57.i.i, align 8
+  %131 = icmp eq ptr %.pre58.i.i, null
   br i1 %131, label %135, label %split.thread.i.thread.i
 
 split.thread.i.thread.i:                          ; preds = %split.i.i
-  %132 = getelementptr inbounds i8, ptr %.pre59.i.i, i64 136
+  %132 = getelementptr inbounds i8, ptr %.pre58.i.i, i64 136
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %split.thread.i.i
 
 135:                                              ; preds = %split.thread.i.thread.i, %split.i.i
   store i32 0, ptr %130, align 8
-  %.pre60.i.i = load ptr, ptr %129, align 8
+  %.pre59.i.i = load ptr, ptr %129, align 8
   %136 = getelementptr inbounds i8, ptr %.0.i.i, i64 136
   store i32 1, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %.pre60.i.i, i64 120
+  %137 = getelementptr inbounds i8, ptr %.pre59.i.i, i64 120
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %129, align 8
   %.not203.i.i = icmp eq ptr %138, null
@@ -431,7 +431,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
 141:                                              ; preds = %139, %135
   %142 = getelementptr inbounds i8, ptr %.0.i.i, i64 128
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %.pre60.i.i, i64 128
+  %144 = getelementptr inbounds i8, ptr %.pre59.i.i, i64 128
   store ptr %143, ptr %144, align 8
   %.not204.i.i = icmp eq ptr %143, null
   br i1 %.not204.i.i, label %150, label %145
@@ -441,20 +441,20 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %.0.i.i, %147
   %149 = getelementptr inbounds i8, ptr %143, i64 120
-  %spec.select124.i.i = select i1 %148, ptr %146, ptr %149
+  %spec.select123.i.i = select i1 %148, ptr %146, ptr %149
   br label %150
 
 150:                                              ; preds = %145, %141
-  %.sink118.i.i = phi ptr [ @uv__signal_tree, %141 ], [ %spec.select124.i.i, %145 ]
-  %.117767.i.i = phi ptr [ %.pre60.i.i, %141 ], [ %113, %145 ]
-  store ptr %.pre60.i.i, ptr %.sink118.i.i, align 8
+  %.sink117.i.i = phi ptr [ @uv__signal_tree, %141 ], [ %spec.select123.i.i, %145 ]
+  %.117766.i.i = phi ptr [ %.pre59.i.i, %141 ], [ %113, %145 ]
+  store ptr %.pre59.i.i, ptr %.sink117.i.i, align 8
   store ptr %.0.i.i, ptr %137, align 8
-  store ptr %.pre60.i.i, ptr %142, align 8
+  store ptr %.pre59.i.i, ptr %142, align 8
   %151 = load ptr, ptr %88, align 8
   br label %split.thread.i.i
 
 split.thread.i.i:                                 ; preds = %125, %150, %split.thread.i.thread.i
-  %.117766.i.i = phi ptr [ %.117767.i.i, %150 ], [ %113, %split.thread.i.thread.i ], [ %113, %125 ]
+  %.117765.i.i = phi ptr [ %.117766.i.i, %150 ], [ %113, %split.thread.i.thread.i ], [ %113, %125 ]
   %.1.i.i = phi ptr [ %151, %150 ], [ %.0.i.i, %split.thread.i.thread.i ], [ %.0.i.i, %125 ]
   %152 = getelementptr inbounds i8, ptr %.0179.i.i, i64 136
   %153 = load i32, ptr %152, align 8
@@ -497,13 +497,13 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %.0179.i.i, %171
   %173 = getelementptr inbounds i8, ptr %167, i64 120
-  %spec.select125.i.i = select i1 %172, ptr %170, ptr %173
+  %spec.select124.i.i = select i1 %172, ptr %170, ptr %173
   br label %174
 
 174:                                              ; preds = %169, %165
-  %.sink119.i.i = phi ptr [ @uv__signal_tree, %165 ], [ %spec.select125.i.i, %169 ]
-  %.117762.i.i = phi ptr [ %160, %165 ], [ %.117766.i.i, %169 ]
-  store ptr %160, ptr %.sink119.i.i, align 8
+  %.sink118.i.i = phi ptr [ @uv__signal_tree, %165 ], [ %spec.select124.i.i, %169 ]
+  %.117761.i.i = phi ptr [ %160, %165 ], [ %.117765.i.i, %169 ]
+  store ptr %160, ptr %.sink118.i.i, align 8
   store ptr %.0179.i.i, ptr %161, align 8
   store ptr %160, ptr %166, align 8
   br label %.critedge.i.i
@@ -543,13 +543,13 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %.0179.i.i, %192
   %194 = getelementptr inbounds i8, ptr %188, i64 120
-  %spec.select126.i.i = select i1 %193, ptr %191, ptr %194
+  %spec.select125.i.i = select i1 %193, ptr %191, ptr %194
   br label %195
 
 195:                                              ; preds = %190, %186
-  %.sink120.i.i = phi ptr [ @uv__signal_tree, %186 ], [ %spec.select126.i.i, %190 ]
+  %.sink119.i.i = phi ptr [ @uv__signal_tree, %186 ], [ %spec.select125.i.i, %190 ]
   %196 = phi ptr [ %181, %186 ], [ %76, %190 ]
-  store ptr %181, ptr %.sink120.i.i, align 8
+  store ptr %181, ptr %.sink119.i.i, align 8
   store ptr %.0179.i.i, ptr %182, align 8
   store ptr %181, ptr %187, align 8
   %197 = load ptr, ptr %84, align 8
@@ -594,10 +594,10 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
 
 219:                                              ; preds = %.thread.i.i, %215
   store i32 0, ptr %217, align 8
-  %.pre57.i.i = load ptr, ptr %216, align 8
+  %.pre56.i.i = load ptr, ptr %216, align 8
   %220 = getelementptr inbounds i8, ptr %.2.i.i, i64 136
   store i32 1, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %.pre57.i.i, i64 112
+  %221 = getelementptr inbounds i8, ptr %.pre56.i.i, i64 112
   %222 = load ptr, ptr %221, align 8
   store ptr %222, ptr %216, align 8
   %.not195.i.i = icmp eq ptr %222, null
@@ -611,7 +611,7 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
 225:                                              ; preds = %223, %219
   %226 = getelementptr inbounds i8, ptr %.2.i.i, i64 128
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %.pre57.i.i, i64 128
+  %228 = getelementptr inbounds i8, ptr %.pre56.i.i, i64 128
   store ptr %227, ptr %228, align 8
   %.not196.i.i = icmp eq ptr %227, null
   br i1 %.not196.i.i, label %234, label %229
@@ -621,20 +621,20 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %.2.i.i, %231
   %233 = getelementptr inbounds i8, ptr %227, i64 120
-  %spec.select127.i.i = select i1 %232, ptr %230, ptr %233
+  %spec.select126.i.i = select i1 %232, ptr %230, ptr %233
   br label %234
 
 234:                                              ; preds = %229, %225
-  %.sink121.i.i = phi ptr [ @uv__signal_tree, %225 ], [ %spec.select127.i.i, %229 ]
-  %.117765.i.i = phi ptr [ %.pre57.i.i, %225 ], [ %199, %229 ]
-  store ptr %.pre57.i.i, ptr %.sink121.i.i, align 8
+  %.sink120.i.i = phi ptr [ @uv__signal_tree, %225 ], [ %spec.select126.i.i, %229 ]
+  %.117764.i.i = phi ptr [ %.pre56.i.i, %225 ], [ %199, %229 ]
+  store ptr %.pre56.i.i, ptr %.sink120.i.i, align 8
   store ptr %.2.i.i, ptr %221, align 8
-  store ptr %.pre57.i.i, ptr %226, align 8
+  store ptr %.pre56.i.i, ptr %226, align 8
   %235 = load ptr, ptr %84, align 8
   br label %.thread.thread.i.i
 
 .thread.thread.i.i:                               ; preds = %203, %234, %.thread.i.i
-  %.117764.i.i = phi ptr [ %.117765.i.i, %234 ], [ %199, %.thread.i.i ], [ %199, %203 ]
+  %.117763.i.i = phi ptr [ %.117764.i.i, %234 ], [ %199, %.thread.i.i ], [ %199, %203 ]
   %.3.i.i = phi ptr [ %235, %234 ], [ %.2.i.i, %.thread.i.i ], [ %.2.i.i, %203 ]
   %236 = getelementptr inbounds i8, ptr %.0179.i.i, i64 136
   %237 = load i32, ptr %236, align 8
@@ -677,13 +677,13 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
   %255 = load ptr, ptr %254, align 8
   %256 = icmp eq ptr %.0179.i.i, %255
   %257 = getelementptr inbounds i8, ptr %251, i64 120
-  %spec.select128.i.i = select i1 %256, ptr %254, ptr %257
+  %spec.select127.i.i = select i1 %256, ptr %254, ptr %257
   br label %258
 
 258:                                              ; preds = %253, %249
-  %.sink122.i.i = phi ptr [ @uv__signal_tree, %249 ], [ %spec.select128.i.i, %253 ]
-  %.117763.i.i = phi ptr [ %244, %249 ], [ %.117764.i.i, %253 ]
-  store ptr %244, ptr %.sink122.i.i, align 8
+  %.sink121.i.i = phi ptr [ @uv__signal_tree, %249 ], [ %spec.select127.i.i, %253 ]
+  %.117762.i.i = phi ptr [ %244, %249 ], [ %.117763.i.i, %253 ]
+  store ptr %244, ptr %.sink121.i.i, align 8
   store ptr %.0179.i.i, ptr %245, align 8
   store ptr %244, ptr %250, align 8
   br label %.critedge.i.i
@@ -698,7 +698,7 @@ split.thread.i.i:                                 ; preds = %125, %150, %split.t
   br label %75, !llvm.loop !8
 
 .critedge.i.i:                                    ; preds = %258, %174
-  %.1177.i.i = phi ptr [ %.117763.i.i, %258 ], [ %.117762.i.i, %174 ]
+  %.1177.i.i = phi ptr [ %.117762.i.i, %258 ], [ %.117761.i.i, %174 ]
   %.not208.i.i = icmp eq ptr %.1177.i.i, null
   br i1 %.not208.i.i, label %uv__signal_tree_s_RB_REMOVE.exit, label %.critedge.thread3.i.i
 
@@ -833,8 +833,8 @@ uv__signal_register_handler.exit:                 ; preds = %296
   %304 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %305 = call i64 @write(i32 noundef %304, ptr noundef nonnull %2, i64 noundef 1) #10
   %306 = and i64 %305, 2147483648
-  %.not.not.i.not.i = icmp eq i64 %306, 0
-  br i1 %.not.not.i.not.i, label %312, label %307
+  %.not.not.not.not.i.not.i = icmp eq i64 %306, 0
+  br i1 %.not.not.not.not.i.not.i, label %312, label %307
 
 307:                                              ; preds = %303
   %308 = tail call ptr @__errno_location() #12
@@ -1144,8 +1144,8 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %66 = call i64 @write(i32 noundef %65, ptr noundef nonnull %6, i64 noundef 1) #10
   %67 = and i64 %66, 2147483648
-  %.not.not.i.not.i = icmp eq i64 %67, 0
-  br i1 %.not.not.i.not.i, label %73, label %68
+  %.not.not.not.not.i.not.i = icmp eq i64 %67, 0
+  br i1 %.not.not.not.not.i.not.i, label %73, label %68
 
 68:                                               ; preds = %64
   %69 = tail call ptr @__errno_location() #12
@@ -1525,8 +1525,8 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %uv__signal_compare.
   %230 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %231 = call i64 @write(i32 noundef %230, ptr noundef nonnull %5, i64 noundef 1) #10
   %232 = and i64 %231, 2147483648
-  %.not.not.i.not.i48 = icmp eq i64 %232, 0
-  br i1 %.not.not.i.not.i48, label %238, label %233
+  %.not.not.not.not.i.not.i48 = icmp eq i64 %232, 0
+  br i1 %.not.not.not.not.i.not.i48, label %238, label %233
 
 233:                                              ; preds = %229
   %234 = tail call ptr @__errno_location() #12
@@ -1634,8 +1634,8 @@ uv__signal_cleanup.exit:                          ; preds = %5, %7
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %14 = call i64 @write(i32 noundef %13, ptr noundef nonnull %1, i64 noundef 1) #10
   %15 = and i64 %14, 2147483648
-  %.not.not.i.not = icmp eq i64 %15, 0
-  br i1 %.not.not.i.not, label %21, label %16
+  %.not.not.not.not.i.not = icmp eq i64 %15, 0
+  br i1 %.not.not.not.not.i.not, label %21, label %16
 
 16:                                               ; preds = %12
   %17 = tail call ptr @__errno_location() #12
@@ -1824,8 +1824,8 @@ define internal fastcc void @uv__signal_block_and_lock(ptr noundef %0) unnamed_a
   %12 = load i32, ptr @uv__signal_lock_pipefd, align 4
   %13 = call i64 @read(i32 noundef %12, ptr noundef nonnull %2, i64 noundef 1) #10
   %14 = and i64 %13, 2147483648
-  %.not.not.i.not = icmp eq i64 %14, 0
-  br i1 %.not.not.i.not, label %20, label %15
+  %.not.not.not.not.i.not = icmp eq i64 %14, 0
+  br i1 %.not.not.not.not.i.not, label %20, label %15
 
 15:                                               ; preds = %11
   %16 = tail call ptr @__errno_location() #12
@@ -1872,8 +1872,8 @@ define internal void @uv__signal_handler(i32 noundef %0) #8 {
   %10 = load i32, ptr @uv__signal_lock_pipefd, align 4
   %11 = call i64 @read(i32 noundef %10, ptr noundef nonnull %4, i64 noundef 1) #10
   %12 = and i64 %11, 2147483648
-  %.not.not.i.not = icmp eq i64 %12, 0
-  br i1 %.not.not.i.not, label %16, label %13
+  %.not.not.not.not.i.not = icmp eq i64 %12, 0
+  br i1 %.not.not.not.not.i.not, label %16, label %13
 
 13:                                               ; preds = %9
   %14 = load i32, ptr %6, align 4
@@ -2048,8 +2048,8 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %69, 
   %77 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %78 = call i64 @write(i32 noundef %77, ptr noundef nonnull %2, i64 noundef 1) #10
   %79 = and i64 %78, 2147483648
-  %.not.not.i19.not = icmp eq i64 %79, 0
-  br i1 %.not.not.i19.not, label %uv__signal_unlock.exit, label %80
+  %.not.not.not.not.i19.not = icmp eq i64 %79, 0
+  br i1 %.not.not.not.not.i19.not, label %uv__signal_unlock.exit, label %80
 
 80:                                               ; preds = %76
   %81 = load i32, ptr %6, align 4

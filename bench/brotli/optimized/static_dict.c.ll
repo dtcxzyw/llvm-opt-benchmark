@@ -167,7 +167,7 @@ while.cond.i3388.preheader:                       ; preds = %if.end.i3409, %if.t
   br i1 %tobool.i3389.not1554, label %while.end.i3391, label %land.rhs.i3399.preheader
 
 land.rhs.i3399.preheader:                         ; preds = %while.cond.i3388.preheader
-  %scevgep1790 = getelementptr i8, ptr %s1.addr.i3379.0.lcssa, i64 %limit.addr.i3381.0.lcssa
+  %scevgep1788 = getelementptr i8, ptr %s1.addr.i3379.0.lcssa, i64 %limit.addr.i3381.0.lcssa
   br label %land.rhs.i3399
 
 for.body.i3403:                                   ; preds = %if.then, %if.end.i3409
@@ -213,7 +213,7 @@ while.body.i3395:                                 ; preds = %land.rhs.i3399
   br i1 %tobool.i3389.not, label %while.end.i3391, label %land.rhs.i3399, !llvm.loop !8
 
 while.end.i3391:                                  ; preds = %land.rhs.i3399, %while.body.i3395, %while.cond.i3388.preheader
-  %s1.addr.i3379.1.lcssa = phi ptr [ %s1.addr.i3379.0.lcssa, %while.cond.i3388.preheader ], [ %scevgep1790, %while.body.i3395 ], [ %s1.addr.i3379.11557, %land.rhs.i3399 ]
+  %s1.addr.i3379.1.lcssa = phi ptr [ %s1.addr.i3379.0.lcssa, %while.cond.i3388.preheader ], [ %scevgep1788, %while.body.i3395 ], [ %s1.addr.i3379.11557, %land.rhs.i3399 ]
   %sub.ptr.lhs.cast9.i3392 = ptrtoint ptr %s1.addr.i3379.1.lcssa to i64
   %sub.ptr.rhs.cast10.i3393 = ptrtoint ptr %arrayidx2.i to i64
   %sub.ptr.sub11.i3394 = sub i64 %sub.ptr.lhs.cast9.i3392, %sub.ptr.rhs.cast10.i3393
@@ -334,16 +334,16 @@ lor.lhs.false:                                    ; preds = %for.end
   br i1 %cmp84.not, label %if.end87, label %while.cond.outer.backedge
 
 while.cond.outer.backedge.sink.split:             ; preds = %if.then883, %if.then930, %if.then967, %if.then1008, %if.then996, %if.then979, %if.then954, %if.then906, %if.then177, %if.then264, %if.then239, %if.then328, %if.then422, %if.then373, %if.then353, %if.then390, %if.then286, %if.then301, %if.then197, %if.then212, %if.then105, %if.then133, %if.then153, %if.then118, %if.then509, %if.then489, %if.then549, %if.then568, %if.then586, %if.then630, %if.then713, %if.then805, %if.then790, %if.then832, %if.then738, %if.then758, %if.then650, %if.then685, %if.then665, %if.then600, %if.then609, %if.then577, %if.then559, %if.then531, %if.then448
-  %arrayidx.i2297.sink1904 = phi ptr [ %arrayidx.i2297, %if.then448 ], [ %arrayidx.i2231, %if.then531 ], [ %gep1594, %if.then559 ], [ %gep1590, %if.then577 ], [ %gep1584, %if.then609 ], [ %gep1586, %if.then600 ], [ %gep1578, %if.then665 ], [ %gep1576, %if.then685 ], [ %gep1580, %if.then650 ], [ %gep1570, %if.then758 ], [ %gep1572, %if.then738 ], [ %gep1564, %if.then832 ], [ %gep1568, %if.then790 ], [ %gep1566, %if.then805 ], [ %gep1574, %if.then713 ], [ %gep1582, %if.then630 ], [ %gep1588, %if.then586 ], [ %gep1592, %if.then568 ], [ %arrayidx.i2209, %if.then549 ], [ %arrayidx.i2264, %if.then489 ], [ %arrayidx.i2253, %if.then509 ], [ %arrayidx.i2473, %if.then118 ], [ %arrayidx.i2451, %if.then153 ], [ %arrayidx.i2462, %if.then133 ], [ %arrayidx.i2484, %if.then105 ], [ %arrayidx.i2418, %if.then212 ], [ %arrayidx.i2429, %if.then197 ], [ %arrayidx.i2374, %if.then301 ], [ %arrayidx.i2385, %if.then286 ], [ %arrayidx.i2330, %if.then390 ], [ %arrayidx.i2352, %if.then353 ], [ %arrayidx.i2341, %if.then373 ], [ %arrayidx.i2319, %if.then422 ], [ %arrayidx.i2363, %if.then328 ], [ %arrayidx.i2407, %if.then239 ], [ %arrayidx.i2396, %if.then264 ], [ %arrayidx.i2440, %if.then177 ], [ %arrayidx.i1989, %if.then906 ], [ %arrayidx.i1945, %if.then954 ], [ %arrayidx.i1923, %if.then979 ], [ %arrayidx.i1912, %if.then996 ], [ %arrayidx.i1901, %if.then1008 ], [ %arrayidx.i1934, %if.then967 ], [ %arrayidx.i1967, %if.then930 ], [ %arrayidx.i2011, %if.then883 ]
+  %arrayidx.i2297.sink1902 = phi ptr [ %arrayidx.i2297, %if.then448 ], [ %arrayidx.i2231, %if.then531 ], [ %gep1594, %if.then559 ], [ %gep1590, %if.then577 ], [ %gep1584, %if.then609 ], [ %gep1586, %if.then600 ], [ %gep1578, %if.then665 ], [ %gep1576, %if.then685 ], [ %gep1580, %if.then650 ], [ %gep1570, %if.then758 ], [ %gep1572, %if.then738 ], [ %gep1564, %if.then832 ], [ %gep1568, %if.then790 ], [ %gep1566, %if.then805 ], [ %gep1574, %if.then713 ], [ %gep1582, %if.then630 ], [ %gep1588, %if.then586 ], [ %gep1592, %if.then568 ], [ %arrayidx.i2209, %if.then549 ], [ %arrayidx.i2264, %if.then489 ], [ %arrayidx.i2253, %if.then509 ], [ %arrayidx.i2473, %if.then118 ], [ %arrayidx.i2451, %if.then153 ], [ %arrayidx.i2462, %if.then133 ], [ %arrayidx.i2484, %if.then105 ], [ %arrayidx.i2418, %if.then212 ], [ %arrayidx.i2429, %if.then197 ], [ %arrayidx.i2374, %if.then301 ], [ %arrayidx.i2385, %if.then286 ], [ %arrayidx.i2330, %if.then390 ], [ %arrayidx.i2352, %if.then353 ], [ %arrayidx.i2341, %if.then373 ], [ %arrayidx.i2319, %if.then422 ], [ %arrayidx.i2363, %if.then328 ], [ %arrayidx.i2407, %if.then239 ], [ %arrayidx.i2396, %if.then264 ], [ %arrayidx.i2440, %if.then177 ], [ %arrayidx.i1989, %if.then906 ], [ %arrayidx.i1945, %if.then954 ], [ %arrayidx.i1923, %if.then979 ], [ %arrayidx.i1912, %if.then996 ], [ %arrayidx.i1901, %if.then1008 ], [ %arrayidx.i1934, %if.then967 ], [ %arrayidx.i1967, %if.then930 ], [ %arrayidx.i2011, %if.then883 ]
   %mul4491387.pn = phi i64 [ %mul4491387, %if.then448 ], [ %mul5321381, %if.then531 ], [ %mul5601377, %if.then559 ], [ %mul5781375, %if.then577 ], [ %mul6101372, %if.then609 ], [ %mul6011373, %if.then600 ], [ %mul6661369, %if.then665 ], [ %mul6861368, %if.then685 ], [ %mul6511370, %if.then650 ], [ %mul7591365, %if.then758 ], [ %mul7391366, %if.then738 ], [ %mul8331362, %if.then832 ], [ %mul7911364, %if.then790 ], [ %mul8061363, %if.then805 ], [ %mul7141367, %if.then713 ], [ %mul6311371, %if.then630 ], [ %mul5871374, %if.then586 ], [ %mul5691376, %if.then568 ], [ %mul5501379, %if.then549 ], [ %mul4901385, %if.then489 ], [ %mul5101384, %if.then509 ], [ %mul1191400, %if.then118 ], [ %mul1541398, %if.then153 ], [ %mul1341399, %if.then133 ], [ %mul1061401, %if.then105 ], [ %mul2131396, %if.then212 ], [ %mul198, %if.then197 ], [ %mul3021393, %if.then301 ], [ %mul287, %if.then286 ], [ %mul3911389, %if.then390 ], [ %mul3541391, %if.then353 ], [ %mul3741390, %if.then373 ], [ %mul4231388, %if.then422 ], [ %mul3291392, %if.then328 ], [ %mul2401395, %if.then239 ], [ %mul2651394, %if.then264 ], [ %mul1781397, %if.then177 ], [ %mul9101358, %if.then906 ], [ %mul9581354, %if.then954 ], [ %mul9831351, %if.then979 ], [ %mul10001350, %if.then996 ], [ %mul10121349, %if.then1008 ], [ %mul9711352, %if.then967 ], [ %mul9341356, %if.then930 ], [ %mul8871359, %if.then883 ]
   %has_found_match.0.ph.be.ph = phi i32 [ %has_found_match.3.lcssa, %if.then448 ], [ %has_found_match.3.lcssa, %if.then531 ], [ %has_found_match.3.lcssa, %if.then559 ], [ %has_found_match.3.lcssa, %if.then577 ], [ %has_found_match.3.lcssa, %if.then609 ], [ %has_found_match.3.lcssa, %if.then600 ], [ %has_found_match.3.lcssa, %if.then665 ], [ %has_found_match.3.lcssa, %if.then685 ], [ %has_found_match.3.lcssa, %if.then650 ], [ %has_found_match.3.lcssa, %if.then758 ], [ %has_found_match.3.lcssa, %if.then738 ], [ %has_found_match.3.lcssa, %if.then832 ], [ %has_found_match.3.lcssa, %if.then790 ], [ %has_found_match.3.lcssa, %if.then805 ], [ %has_found_match.3.lcssa, %if.then713 ], [ %has_found_match.3.lcssa, %if.then630 ], [ %has_found_match.3.lcssa, %if.then586 ], [ %has_found_match.3.lcssa, %if.then568 ], [ %has_found_match.3.lcssa, %if.then549 ], [ %has_found_match.3.lcssa, %if.then489 ], [ %has_found_match.3.lcssa, %if.then509 ], [ %has_found_match.3.lcssa, %if.then118 ], [ %has_found_match.3.lcssa, %if.then153 ], [ %has_found_match.3.lcssa, %if.then133 ], [ %has_found_match.3.lcssa, %if.then105 ], [ %has_found_match.3.lcssa, %if.then212 ], [ %has_found_match.3.lcssa, %if.then197 ], [ %has_found_match.3.lcssa, %if.then301 ], [ %has_found_match.3.lcssa, %if.then286 ], [ %has_found_match.3.lcssa, %if.then390 ], [ %has_found_match.3.lcssa, %if.then353 ], [ %has_found_match.3.lcssa, %if.then373 ], [ %has_found_match.3.lcssa, %if.then422 ], [ %has_found_match.3.lcssa, %if.then328 ], [ %has_found_match.3.lcssa, %if.then239 ], [ %has_found_match.3.lcssa, %if.then264 ], [ %has_found_match.3.lcssa, %if.then177 ], [ 1, %if.then906 ], [ 1, %if.then954 ], [ 1, %if.then979 ], [ 1, %if.then996 ], [ 1, %if.then1008 ], [ 1, %if.then967 ], [ 1, %if.then930 ], [ 1, %if.then883 ]
   %shl.i2294.pn.in = add i64 %mul4491387.pn, %conv9
   %shl.i2294.pn = shl i64 %shl.i2294.pn.in, 5
   %conv.i2296.sink.in = or disjoint i64 %shl.i2294.pn, %conv6
   %conv.i2296.sink = trunc i64 %conv.i2296.sink.in to i32
-  %21 = load i32, ptr %arrayidx.i2297.sink1904, align 4
+  %21 = load i32, ptr %arrayidx.i2297.sink1902, align 4
   %cond.i3622 = tail call i32 @llvm.umin.i32(i32 %21, i32 %conv.i2296.sink)
-  store i32 %cond.i3622, ptr %arrayidx.i2297.sink1904, align 4
+  store i32 %cond.i3622, ptr %arrayidx.i2297.sink1902, align 4
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %while.cond.outer.backedge.sink.split, %if.then440, %if.then523, %if.then660, %if.then675, %land.lhs.true680, %if.then645, %land.lhs.true753, %if.then748, %if.then728, %land.lhs.true733, %land.lhs.true827, %land.lhs.true822, %if.then817, %land.lhs.true785, %land.lhs.true780, %if.then775, %if.then800, %if.then698, %land.lhs.true703, %land.lhs.true708, %if.then620, %land.lhs.true625, %if.then541, %if.then458, %if.then484, %if.then499, %land.lhs.true504, %land.lhs.true474, %if.then466, %if.then113, %land.lhs.true148, %if.then143, %if.then128, %if.then207, %if.then192, %if.then296, %if.then281, %if.then385, %if.then348, %if.then363, %land.lhs.true368, %if.then402, %land.lhs.true407, %land.lhs.true412, %land.lhs.true417, %if.then313, %land.lhs.true318, %land.lhs.true323, %land.lhs.true234, %if.then229, %if.then249, %land.lhs.true254, %land.lhs.true259, %if.then167, %land.lhs.true172, %if.then895, %if.then943, %if.then919, %if.then100, %if.then187, %if.then224, %if.then276, %if.then343, %if.then338, %if.then93, %if.then479, %if.then595, %if.then640, %if.then723, %if.then770, %if.end87, %if.end877, %if.then991, %for.end, %lor.lhs.false, %if.end867.thread
@@ -1194,12 +1194,12 @@ if.end867:                                        ; preds = %IsMatch.exit2968
   br label %if.end867.thread
 
 if.end867.thread:                                 ; preds = %for.cond.i2904.preheader, %if.end88.i2919, %if.end867
-  %cmp856.not17861801 = phi i1 [ %cmp856.not, %if.end867 ], [ false, %if.end88.i2919 ], [ false, %for.cond.i2904.preheader ]
+  %cmp856.not14951799 = phi i1 [ %cmp856.not, %if.end867 ], [ false, %if.end88.i2919 ], [ false, %for.cond.i2904.preheader ]
   %116 = phi i64 [ %spec.select, %if.end867 ], [ 44, %if.end88.i2919 ], [ 44, %for.cond.i2904.preheader ]
-  %sh_prom14801802.in.in = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %conv6
-  %sh_prom14801802.in = load i8, ptr %sh_prom14801802.in.in, align 1
-  %sh_prom14801802 = zext i8 %sh_prom14801802.in to i64
-  %mul8711348 = shl i64 %116, %sh_prom14801802
+  %sh_prom14801800.in.in = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %conv6
+  %sh_prom14801800.in = load i8, ptr %sh_prom14801800.in.in, align 1
+  %sh_prom14801800 = zext i8 %sh_prom14801800.in to i64
+  %mul8711348 = shl i64 %116, %sh_prom14801800
   %add872 = add i64 %mul8711348, %conv9
   %shl.i2019 = shl i64 %add872, 5
   %add.i2020 = or disjoint i64 %shl.i2019, %conv6
@@ -1226,14 +1226,14 @@ if.end877:                                        ; preds = %if.end867.thread
   ]
 
 if.then883:                                       ; preds = %if.end877
-  %conv886 = select i1 %cmp856.not17861801, i64 4, i64 68
-  %mul8871359 = shl i64 %conv886, %sh_prom14801802
+  %conv886 = select i1 %cmp856.not14951799, i64 4, i64 68
+  %mul8871359 = shl i64 %conv886, %sh_prom14801800
   %arrayidx.i2011 = getelementptr inbounds i32, ptr %matches, i64 %add873
   br label %while.cond.outer.backedge.sink.split
 
 if.then895:                                       ; preds = %if.end877
-  %conv898 = select i1 %cmp856.not17861801, i64 66, i64 87
-  %mul8991357 = shl i64 %conv898, %sh_prom14801802
+  %conv898 = select i1 %cmp856.not14951799, i64 66, i64 87
+  %mul8991357 = shl i64 %conv898, %sh_prom14801800
   %add900 = add i64 %mul8991357, %conv9
   %shl.i1997 = shl i64 %add900, 5
   %add.i1998 = or disjoint i64 %shl.i1997, %conv6
@@ -1248,14 +1248,14 @@ if.then895:                                       ; preds = %if.end877
   br i1 %cmp904, label %if.then906, label %while.cond.outer.backedge
 
 if.then906:                                       ; preds = %if.then895
-  %conv909 = select i1 %cmp856.not17861801, i64 69, i64 97
-  %mul9101358 = shl i64 %conv909, %sh_prom14801802
+  %conv909 = select i1 %cmp856.not14951799, i64 69, i64 97
+  %mul9101358 = shl i64 %conv909, %sh_prom14801800
   %arrayidx.i1989 = getelementptr inbounds i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then919:                                       ; preds = %if.end877
-  %conv922 = select i1 %cmp856.not17861801, i64 79, i64 101
-  %mul9231355 = shl i64 %conv922, %sh_prom14801802
+  %conv922 = select i1 %cmp856.not14951799, i64 79, i64 101
+  %mul9231355 = shl i64 %conv922, %sh_prom14801800
   %add924 = add i64 %mul9231355, %conv9
   %shl.i1975 = shl i64 %add924, 5
   %add.i1976 = or disjoint i64 %shl.i1975, %conv6
@@ -1270,14 +1270,14 @@ if.then919:                                       ; preds = %if.end877
   br i1 %cmp928, label %if.then930, label %while.cond.outer.backedge
 
 if.then930:                                       ; preds = %if.then919
-  %conv933 = select i1 %cmp856.not17861801, i64 88, i64 114
-  %mul9341356 = shl i64 %conv933, %sh_prom14801802
+  %conv933 = select i1 %cmp856.not14951799, i64 88, i64 114
+  %mul9341356 = shl i64 %conv933, %sh_prom14801800
   %arrayidx.i1967 = getelementptr inbounds i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then943:                                       ; preds = %if.end877
-  %conv946 = select i1 %cmp856.not17861801, i64 99, i64 112
-  %mul9471353 = shl i64 %conv946, %sh_prom14801802
+  %conv946 = select i1 %cmp856.not14951799, i64 99, i64 112
+  %mul9471353 = shl i64 %conv946, %sh_prom14801800
   %add948 = add i64 %mul9471353, %conv9
   %shl.i1953 = shl i64 %add948, 5
   %add.i1954 = or disjoint i64 %shl.i1953, %conv6
@@ -1292,20 +1292,20 @@ if.then943:                                       ; preds = %if.end877
   br i1 %cmp952, label %if.then954, label %while.cond.outer.backedge
 
 if.then954:                                       ; preds = %if.then943
-  %conv957 = select i1 %cmp856.not17861801, i64 58, i64 107
-  %mul9581354 = shl i64 %conv957, %sh_prom14801802
+  %conv957 = select i1 %cmp856.not14951799, i64 58, i64 107
+  %mul9581354 = shl i64 %conv957, %sh_prom14801800
   %arrayidx.i1945 = getelementptr inbounds i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then967:                                       ; preds = %if.end877
-  %conv970 = select i1 %cmp856.not17861801, i64 74, i64 94
-  %mul9711352 = shl i64 %conv970, %sh_prom14801802
+  %conv970 = select i1 %cmp856.not14951799, i64 74, i64 94
+  %mul9711352 = shl i64 %conv970, %sh_prom14801800
   %arrayidx.i1934 = getelementptr inbounds i32, ptr %matches, i64 %add873
   br label %while.cond.outer.backedge.sink.split
 
 if.then979:                                       ; preds = %if.end877
-  %conv982 = select i1 %cmp856.not17861801, i64 78, i64 113
-  %mul9831351 = shl i64 %conv982, %sh_prom14801802
+  %conv982 = select i1 %cmp856.not14951799, i64 78, i64 113
+  %mul9831351 = shl i64 %conv982, %sh_prom14801800
   %arrayidx.i1923 = getelementptr inbounds i32, ptr %matches, i64 %add873
   br label %while.cond.outer.backedge.sink.split
 
@@ -1318,14 +1318,14 @@ if.then991:                                       ; preds = %if.end877
   ]
 
 if.then996:                                       ; preds = %if.then991
-  %conv999 = select i1 %cmp856.not17861801, i64 104, i64 105
-  %mul10001350 = shl i64 %conv999, %sh_prom14801802
+  %conv999 = select i1 %cmp856.not14951799, i64 104, i64 105
+  %mul10001350 = shl i64 %conv999, %sh_prom14801800
   %arrayidx.i1912 = getelementptr inbounds i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
 if.then1008:                                      ; preds = %if.then991
-  %conv1011 = select i1 %cmp856.not17861801, i64 108, i64 116
-  %mul10121349 = shl i64 %conv1011, %sh_prom14801802
+  %conv1011 = select i1 %cmp856.not14951799, i64 108, i64 116
+  %mul10121349 = shl i64 %conv1011, %sh_prom14801800
   %arrayidx.i1901 = getelementptr inbounds i8, ptr %arrayidx.i2022, i64 8
   br label %while.cond.outer.backedge.sink.split
 
@@ -1409,7 +1409,7 @@ while.cond.i3044.preheader:                       ; preds = %if.end.i3065, %if.e
   br i1 %tobool.i3045.not1629, label %while.end.i3047, label %land.rhs.i3055.preheader
 
 land.rhs.i3055.preheader:                         ; preds = %while.cond.i3044.preheader
-  %scevgep1793 = getelementptr i8, ptr %s1.addr.i3035.0.lcssa, i64 %limit.addr.i3037.0.lcssa
+  %scevgep1791 = getelementptr i8, ptr %s1.addr.i3035.0.lcssa, i64 %limit.addr.i3037.0.lcssa
   br label %land.rhs.i3055
 
 for.body.i3059:                                   ; preds = %if.else.i2789, %if.end.i3065
@@ -1455,7 +1455,7 @@ while.body.i3051:                                 ; preds = %land.rhs.i3055
   br i1 %tobool.i3045.not, label %while.end.i3047, label %land.rhs.i3055, !llvm.loop !8
 
 while.end.i3047:                                  ; preds = %land.rhs.i3055, %while.body.i3051, %while.cond.i3044.preheader
-  %s1.addr.i3035.1.lcssa = phi ptr [ %s1.addr.i3035.0.lcssa, %while.cond.i3044.preheader ], [ %scevgep1793, %while.body.i3051 ], [ %s1.addr.i3035.11632, %land.rhs.i3055 ]
+  %s1.addr.i3035.1.lcssa = phi ptr [ %s1.addr.i3035.0.lcssa, %while.cond.i3044.preheader ], [ %scevgep1791, %while.body.i3051 ], [ %s1.addr.i3035.11632, %land.rhs.i3055 ]
   %sub.ptr.lhs.cast9.i3048 = ptrtoint ptr %s1.addr.i3035.1.lcssa to i64
   %sub.ptr.rhs.cast10.i3049 = ptrtoint ptr %arrayidx8.i2800 to i64
   %sub.ptr.sub11.i3050 = sub i64 %sub.ptr.lhs.cast9.i3048, %sub.ptr.rhs.cast10.i3049
@@ -1488,15 +1488,15 @@ if.end1104:                                       ; preds = %IsMatch.exit2873
   br i1 %cmp1112.not, label %if.end1115, label %while.cond1058.outer.backedge
 
 while.cond1058.outer.backedge.sink.split:         ; preds = %if.then1271, %if.then1325, %if.then1313, %if.then1295, %if.then1248, %if.then1122, %if.then1174, %if.then1189, %if.then1198, %if.then1156, %if.then1134
-  %arrayidx.i1868.sink1905 = phi ptr [ %arrayidx.i1868, %if.then1134 ], [ %gep1673, %if.then1156 ], [ %gep1667, %if.then1198 ], [ %gep1669, %if.then1189 ], [ %gep1671, %if.then1174 ], [ %arrayidx.i1879, %if.then1122 ], [ %arrayidx.i1780, %if.then1248 ], [ %gep1663, %if.then1295 ], [ %gep1661, %if.then1313 ], [ %gep1659, %if.then1325 ], [ %gep1665, %if.then1271 ]
+  %arrayidx.i1868.sink1903 = phi ptr [ %arrayidx.i1868, %if.then1134 ], [ %gep1673, %if.then1156 ], [ %gep1667, %if.then1198 ], [ %gep1669, %if.then1189 ], [ %gep1671, %if.then1174 ], [ %arrayidx.i1879, %if.then1122 ], [ %arrayidx.i1780, %if.then1248 ], [ %gep1663, %if.then1295 ], [ %gep1661, %if.then1313 ], [ %gep1659, %if.then1325 ], [ %gep1665, %if.then1271 ]
   %mul11381346.pn = phi i64 [ %mul11381346, %if.then1134 ], [ %mul11571345, %if.then1156 ], [ %mul11991340, %if.then1198 ], [ %mul11901341, %if.then1189 ], [ %mul11751343, %if.then1174 ], [ %mul11261347, %if.then1122 ], [ %mul12521338, %if.then1248 ], [ %mul12991335, %if.then1295 ], [ %mul13171333, %if.then1313 ], [ %mul13291332, %if.then1325 ], [ %mul12751337, %if.then1271 ]
   %shl.i1865.pn.in = add i64 %mul11381346.pn, %conv1081
   %shl.i1865.pn = shl i64 %shl.i1865.pn.in, 5
   %conv.i1867.sink.in = or disjoint i64 %shl.i1865.pn, %conv1071
   %conv.i1867.sink = trunc i64 %conv.i1867.sink.in to i32
-  %140 = load i32, ptr %arrayidx.i1868.sink1905, align 4
+  %140 = load i32, ptr %arrayidx.i1868.sink1903, align 4
   %cond.i3895 = tail call i32 @llvm.umin.i32(i32 %140, i32 %conv.i1867.sink)
-  store i32 %cond.i3895, ptr %arrayidx.i1868.sink1905, align 4
+  store i32 %cond.i3895, ptr %arrayidx.i1868.sink1903, align 4
   br label %while.cond1058.outer.backedge
 
 while.cond1058.outer.backedge:                    ; preds = %if.else1210, %while.cond1058.outer.backedge.sink.split, %if.then1148, %if.then1166, %if.else1141, %if.then1284, %if.end1266, %if.then1143, %if.then1184, %if.end1241, %if.then1308, %if.end1104, %if.end1230.thread
@@ -1593,11 +1593,11 @@ if.else1210:                                      ; preds = %while.body1062
   br i1 %cmp1040, label %if.then1212, label %while.cond1058.outer.backedge
 
 if.then1212:                                      ; preds = %if.else1210
-  %cmp1216.not = icmp eq i8 %w1063.sroa.6.0.copyload, 10
   %cmp.i2693 = icmp ult i64 %sub1226, %conv1071
   br i1 %cmp.i2693, label %while.cond1058.backedge, label %if.else.i2694
 
 if.else.i2694:                                    ; preds = %if.then1212
+  %cmp1216.not = icmp eq i8 %w1063.sroa.6.0.copyload, 10
   %arrayidx.i2697 = getelementptr inbounds [32 x i32], ptr %offsets_by_length.i2695, i64 0, i64 %conv1071
   %147 = load i32, ptr %arrayidx.i2697, align 4
   %conv3.i2698 = zext i32 %147 to i64
@@ -1638,7 +1638,7 @@ while.cond.i3173.preheader:                       ; preds = %if.end.i3194, %land
   br i1 %tobool.i3174.not1616, label %while.end.i3176, label %land.rhs.i3184.preheader
 
 land.rhs.i3184.preheader:                         ; preds = %while.cond.i3173.preheader
-  %scevgep1792 = getelementptr i8, ptr %s1.addr.i3164.0.lcssa, i64 %limit.addr.i3166.0.lcssa
+  %scevgep1790 = getelementptr i8, ptr %s1.addr.i3164.0.lcssa, i64 %limit.addr.i3166.0.lcssa
   br label %land.rhs.i3184
 
 for.body.i3188:                                   ; preds = %land.rhs.i2759, %if.end.i3194
@@ -1684,7 +1684,7 @@ while.body.i3180:                                 ; preds = %land.rhs.i3184
   br i1 %tobool.i3174.not, label %while.end.i3176, label %land.rhs.i3184, !llvm.loop !8
 
 while.end.i3176:                                  ; preds = %land.rhs.i3184, %while.body.i3180, %while.cond.i3173.preheader
-  %s1.addr.i3164.1.lcssa = phi ptr [ %s1.addr.i3164.0.lcssa, %while.cond.i3173.preheader ], [ %scevgep1792, %while.body.i3180 ], [ %s1.addr.i3164.11619, %land.rhs.i3184 ]
+  %s1.addr.i3164.1.lcssa = phi ptr [ %s1.addr.i3164.0.lcssa, %while.cond.i3173.preheader ], [ %scevgep1790, %while.body.i3180 ], [ %s1.addr.i3164.11619, %land.rhs.i3184 ]
   %sub.ptr.lhs.cast9.i3177 = ptrtoint ptr %s1.addr.i3164.1.lcssa to i64
   %sub.ptr.rhs.cast10.i3178 = ptrtoint ptr %arrayidx41.i2760 to i64
   %sub.ptr.sub11.i3179 = sub i64 %sub.ptr.lhs.cast9.i3177, %sub.ptr.rhs.cast10.i3178
@@ -1711,25 +1711,21 @@ if.else79.i2722:                                  ; preds = %for.body.i2718
 
 if.end88.i2729:                                   ; preds = %if.else79.i2722, %if.then70.i2736
   %inc.i2730 = add nuw nsw i64 %i.i2691.01596, 1
-  %exitcond1791.not = icmp eq i64 %inc.i2730, %conv1071
-  br i1 %exitcond1791.not, label %if.end1230.thread, label %for.body.i2718, !llvm.loop !11
+  %exitcond1789.not = icmp eq i64 %inc.i2730, %conv1071
+  br i1 %exitcond1789.not, label %if.end1230.thread, label %for.body.i2718, !llvm.loop !11
 
 IsMatch.exit2778:                                 ; preds = %if.then.i3197, %while.end.i3176
   %retval.i3163.0 = phi i64 [ %add.i3204, %if.then.i3197 ], [ %sub.ptr.sub11.i3179, %while.end.i3176 ]
   %cmp51.i2769.not = icmp eq i64 %retval.i3163.0, %conv45.i2764
-  br i1 %cmp51.i2769.not, label %if.end1230, label %while.cond1058.backedge
+  br i1 %cmp51.i2769.not, label %if.end1230.thread, label %while.cond1058.backedge
 
-if.end1230:                                       ; preds = %IsMatch.exit2778
-  %spec.select1906 = select i1 %cmp1216.not, i64 30, i64 85
-  br label %if.end1230.thread
-
-if.end1230.thread:                                ; preds = %for.cond.i2714.preheader, %if.end88.i2729, %if.end1230
-  %cmp1216.not17281817 = phi i1 [ %cmp1216.not, %if.end1230 ], [ false, %if.end88.i2729 ], [ false, %for.cond.i2714.preheader ]
-  %161 = phi i64 [ %spec.select1906, %if.end1230 ], [ 85, %if.end88.i2729 ], [ 85, %for.cond.i2714.preheader ]
-  %sh_prom107714541818.in.in = getelementptr inbounds [32 x i8], ptr %130, i64 0, i64 %conv1071
-  %sh_prom107714541818.in = load i8, ptr %sh_prom107714541818.in.in, align 1
-  %sh_prom107714541818 = zext i8 %sh_prom107714541818.in to i64
-  %mul12341331 = shl i64 %161, %sh_prom107714541818
+if.end1230.thread:                                ; preds = %IsMatch.exit2778, %for.cond.i2714.preheader, %if.end88.i2729
+  %cmp1216.not2016 = phi i1 [ false, %if.end88.i2729 ], [ %cmp1216.not, %for.cond.i2714.preheader ], [ %cmp1216.not, %IsMatch.exit2778 ]
+  %161 = phi i64 [ 85, %if.end88.i2729 ], [ 85, %for.cond.i2714.preheader ], [ 30, %IsMatch.exit2778 ]
+  %sh_prom107714541816.in.in = getelementptr inbounds [32 x i8], ptr %130, i64 0, i64 %conv1071
+  %sh_prom107714541816.in = load i8, ptr %sh_prom107714541816.in.in, align 1
+  %sh_prom107714541816 = zext i8 %sh_prom107714541816.in to i64
+  %mul12341331 = shl i64 %161, %sh_prom107714541816
   %add1235 = add i64 %mul12341331, %conv1081
   %add1236 = add nuw nsw i64 %conv1071, 1
   %shl.i1788 = shl i64 %add1235, 5
@@ -1754,16 +1750,16 @@ if.end1241:                                       ; preds = %if.end1230.thread
   ]
 
 if.then1248:                                      ; preds = %if.end1241
-  %conv1251 = select i1 %cmp1216.not17281817, i64 15, i64 83
-  %mul12521338 = shl i64 %conv1251, %sh_prom107714541818
+  %conv1251 = select i1 %cmp1216.not2016, i64 15, i64 83
+  %mul12521338 = shl i64 %conv1251, %sh_prom107714541816
   %arrayidx.i1780 = getelementptr inbounds i32, ptr %matches, i64 %add1237
   br label %while.cond1058.outer.backedge.sink.split
 
 if.then1260:                                      ; preds = %if.end1241
-  br i1 %cmp1216.not17281817, label %if.then1262, label %if.end1266
+  br i1 %cmp1216.not2016, label %if.then1262, label %if.end1266
 
 if.then1262:                                      ; preds = %if.then1260
-  %mul12631336 = shl i64 109, %sh_prom107714541818
+  %mul12631336 = shl i64 109, %sh_prom107714541816
   %add1264 = add nuw i64 %mul12631336, %conv1081
   %shl.i1766 = shl i64 %add1264, 5
   %add.i1767 = or disjoint i64 %shl.i1766, %conv1071
@@ -1781,14 +1777,14 @@ if.end1266:                                       ; preds = %if.then1262, %if.th
   br i1 %cmp1269, label %if.then1271, label %while.cond1058.outer.backedge
 
 if.then1271:                                      ; preds = %if.end1266
-  %conv1274 = select i1 %cmp1216.not17281817, i64 65, i64 111
-  %mul12751337 = shl i64 %conv1274, %sh_prom107714541818
+  %conv1274 = select i1 %cmp1216.not2016, i64 65, i64 111
+  %mul12751337 = shl i64 %conv1274, %sh_prom107714541816
   %gep1665 = getelementptr i32, ptr %invariant.gep, i64 %conv1071
   br label %while.cond1058.outer.backedge.sink.split
 
 if.then1284:                                      ; preds = %if.end1241
-  %conv1287 = select i1 %cmp1216.not17281817, i64 96, i64 115
-  %mul12881334 = shl i64 %conv1287, %sh_prom107714541818
+  %conv1287 = select i1 %cmp1216.not2016, i64 96, i64 115
+  %mul12881334 = shl i64 %conv1287, %sh_prom107714541816
   %add1289 = add i64 %mul12881334, %conv1081
   %shl.i1744 = shl i64 %add1289, 5
   %add.i1745 = or disjoint i64 %shl.i1744, %conv1071
@@ -1803,8 +1799,8 @@ if.then1284:                                      ; preds = %if.end1241
   br i1 %cmp1293, label %if.then1295, label %while.cond1058.outer.backedge
 
 if.then1295:                                      ; preds = %if.then1284
-  %conv1298 = select i1 %cmp1216.not17281817, i64 91, i64 117
-  %mul12991335 = shl i64 %conv1298, %sh_prom107714541818
+  %conv1298 = select i1 %cmp1216.not2016, i64 91, i64 117
+  %mul12991335 = shl i64 %conv1298, %sh_prom107714541816
   %gep1663 = getelementptr i32, ptr %invariant.gep, i64 %conv1071
   br label %while.cond1058.outer.backedge.sink.split
 
@@ -1817,14 +1813,14 @@ if.then1308:                                      ; preds = %if.end1241
   ]
 
 if.then1313:                                      ; preds = %if.then1308
-  %conv1316 = select i1 %cmp1216.not17281817, i64 118, i64 110
-  %mul13171333 = shl i64 %conv1316, %sh_prom107714541818
+  %conv1316 = select i1 %cmp1216.not2016, i64 118, i64 110
+  %mul13171333 = shl i64 %conv1316, %sh_prom107714541816
   %gep1661 = getelementptr i32, ptr %invariant.gep, i64 %conv1071
   br label %while.cond1058.outer.backedge.sink.split
 
 if.then1325:                                      ; preds = %if.then1308
-  %conv1328 = select i1 %cmp1216.not17281817, i64 120, i64 119
-  %mul13291332 = shl i64 %conv1328, %sh_prom107714541818
+  %conv1328 = select i1 %cmp1216.not2016, i64 120, i64 119
+  %mul13291332 = shl i64 %conv1328, %sh_prom107714541816
   %gep1659 = getelementptr i32, ptr %invariant.gep, i64 %conv1071
   br label %while.cond1058.outer.backedge.sink.split
 
@@ -1914,7 +1910,7 @@ while.cond.i3216.preheader:                       ; preds = %if.end.i3237, %if.e
   br i1 %tobool.i3217.not1684, label %while.end.i3219, label %land.rhs.i3227.preheader
 
 land.rhs.i3227.preheader:                         ; preds = %while.cond.i3216.preheader
-  %scevgep1794 = getelementptr i8, ptr %s1.addr.i3207.0.lcssa, i64 %limit.addr.i3209.0.lcssa
+  %scevgep1792 = getelementptr i8, ptr %s1.addr.i3207.0.lcssa, i64 %limit.addr.i3209.0.lcssa
   br label %land.rhs.i3227
 
 for.body.i3231:                                   ; preds = %if.else.i2599, %if.end.i3237
@@ -1960,7 +1956,7 @@ while.body.i3223:                                 ; preds = %land.rhs.i3227
   br i1 %tobool.i3217.not, label %while.end.i3219, label %land.rhs.i3227, !llvm.loop !8
 
 while.end.i3219:                                  ; preds = %land.rhs.i3227, %while.body.i3223, %while.cond.i3216.preheader
-  %s1.addr.i3207.1.lcssa = phi ptr [ %s1.addr.i3207.0.lcssa, %while.cond.i3216.preheader ], [ %scevgep1794, %while.body.i3223 ], [ %s1.addr.i3207.11687, %land.rhs.i3227 ]
+  %s1.addr.i3207.1.lcssa = phi ptr [ %s1.addr.i3207.0.lcssa, %while.cond.i3216.preheader ], [ %scevgep1792, %while.body.i3223 ], [ %s1.addr.i3207.11687, %land.rhs.i3227 ]
   %sub.ptr.lhs.cast9.i3220 = ptrtoint ptr %s1.addr.i3207.1.lcssa to i64
   %sub.ptr.rhs.cast10.i3221 = ptrtoint ptr %arrayidx8.i2610 to i64
   %sub.ptr.sub11.i3222 = sub i64 %sub.ptr.lhs.cast9.i3220, %sub.ptr.rhs.cast10.i3221
@@ -2133,7 +2129,7 @@ while.cond.i3302.preheader:                       ; preds = %if.end.i3323, %if.e
   br i1 %tobool.i3303.not1704, label %while.end.i3305, label %land.rhs.i3313.preheader
 
 land.rhs.i3313.preheader:                         ; preds = %while.cond.i3302.preheader
-  %scevgep1795 = getelementptr i8, ptr %s1.addr.i3293.0.lcssa, i64 %limit.addr.i3295.0.lcssa
+  %scevgep1793 = getelementptr i8, ptr %s1.addr.i3293.0.lcssa, i64 %limit.addr.i3295.0.lcssa
   br label %land.rhs.i3313
 
 for.body.i3317:                                   ; preds = %if.else.i, %if.end.i3323
@@ -2179,7 +2175,7 @@ while.body.i3309:                                 ; preds = %land.rhs.i3313
   br i1 %tobool.i3303.not, label %while.end.i3305, label %land.rhs.i3313, !llvm.loop !8
 
 while.end.i3305:                                  ; preds = %land.rhs.i3313, %while.body.i3309, %while.cond.i3302.preheader
-  %s1.addr.i3293.1.lcssa = phi ptr [ %s1.addr.i3293.0.lcssa, %while.cond.i3302.preheader ], [ %scevgep1795, %while.body.i3309 ], [ %s1.addr.i3293.11707, %land.rhs.i3313 ]
+  %s1.addr.i3293.1.lcssa = phi ptr [ %s1.addr.i3293.0.lcssa, %while.cond.i3302.preheader ], [ %scevgep1793, %while.body.i3309 ], [ %s1.addr.i3293.11707, %land.rhs.i3313 ]
   %sub.ptr.lhs.cast9.i3306 = ptrtoint ptr %s1.addr.i3293.1.lcssa to i64
   %sub.ptr.rhs.cast10.i3307 = ptrtoint ptr %arrayidx8.i to i64
   %sub.ptr.sub11.i3308 = sub i64 %sub.ptr.lhs.cast9.i3306, %sub.ptr.rhs.cast10.i3307

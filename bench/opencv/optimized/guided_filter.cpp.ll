@@ -2070,25 +2070,22 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %._crit_edge, %._ZNS
 40:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
   %41 = sub nuw nsw i64 %.036.lcssa75, %38
   invoke void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %41)
-          to label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43 unwind label %80
+          to label %.preheader.preheader unwind label %80
 
 42:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
   %43 = icmp ugt i64 %38, %.036.lcssa75
-  br i1 %43, label %44, label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43
+  br i1 %43, label %44, label %.preheader.preheader
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds ptr, ptr %32, i64 %.036.lcssa75
   %.not.i.i41 = icmp eq ptr %33, %45
-  br i1 %.not.i.i41, label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43, label %46
+  br i1 %.not.i.i41, label %.preheader.preheader, label %46
 
 46:                                               ; preds = %44
   store ptr %45, ptr %34, align 8
-  br label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43
+  br label %.preheader.preheader
 
-_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43:  ; preds = %40, %42, %44, %46
-  br i1 %19, label %.preheader.preheader, label %._crit_edge55
-
-.preheader.preheader:                             ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43
+.preheader.preheader:                             ; preds = %46, %44, %42, %40
   %wide.trip.count68 = and i64 %17, 2147483647
   %.pre72 = load ptr, ptr %2, align 8
   br label %.preheader
@@ -2179,7 +2176,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit45:       ; preds = %_ZNSt6vectorIPN2cv3
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge55, label %.preheader, !llvm.loop !42
 
-._crit_edge55:                                    ; preds = %._crit_edge51, %6, %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43
+._crit_edge55:                                    ; preds = %._crit_edge51, %6
   ret void
 }
 

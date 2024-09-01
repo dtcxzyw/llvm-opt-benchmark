@@ -918,15 +918,12 @@ _ZL14opt_raise_flagP7OPTARGSi.exit:               ; preds = %_ZL14opt_raise_flag
   %203 = getelementptr inbounds ptr, ptr %1, i64 %202
   %204 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %203, ptr %204, align 8
-  br i1 %96, label %sub_0.preheader, label %.preheader
-
-sub_0.preheader:                                  ; preds = %._crit_edge352
   %wide.trip.count407 = zext nneg i32 %0 to i64
   br label %sub_0
 
-.preheader:                                       ; preds = %223, %._crit_edge352.thread, %._crit_edge352
-  %205 = phi i64 [ 1, %._crit_edge352.thread ], [ %202, %._crit_edge352 ], [ %202, %223 ]
-  %.6.lcssa414 = phi i32 [ 1, %._crit_edge352.thread ], [ %.6.lcssa, %._crit_edge352 ], [ %.6.lcssa, %223 ]
+.preheader:                                       ; preds = %223, %._crit_edge352.thread
+  %205 = phi i64 [ 1, %._crit_edge352.thread ], [ %202, %223 ]
+  %.6.lcssa414 = phi i32 [ 1, %._crit_edge352.thread ], [ %.6.lcssa, %223 ]
   %206 = icmp slt i32 %.6.lcssa414, %0
   br i1 %206, label %.lr.ph358, label %._crit_edge359
 
@@ -934,8 +931,8 @@ sub_0.preheader:                                  ; preds = %._crit_edge352
   %207 = getelementptr inbounds i8, ptr %10, i64 8
   br label %237
 
-sub_0:                                            ; preds = %sub_0.preheader, %223
-  %indvars.iv404 = phi i64 [ 1, %sub_0.preheader ], [ %indvars.iv.next405, %223 ]
+sub_0:                                            ; preds = %._crit_edge352, %223
+  %indvars.iv404 = phi i64 [ 1, %._crit_edge352 ], [ %indvars.iv.next405, %223 ]
   %208 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv404
   %209 = load ptr, ptr %208, align 8
   %210 = load i8, ptr %209, align 1

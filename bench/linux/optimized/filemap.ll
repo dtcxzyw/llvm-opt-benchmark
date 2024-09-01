@@ -6983,8 +6983,8 @@ define internal fastcc i32 @filemap_get_pages(ptr nocapture noundef %0, i64 noun
 
 82:                                               ; preds = %81, %77
   %83 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %83, null
-  br i1 %.not, label %85, label %84
+  %.not36 = icmp eq ptr %83, null
+  br i1 %.not36, label %85, label %84
 
 84:                                               ; preds = %82
   call void @workingset_refault(ptr noundef nonnull %68, ptr noundef nonnull %83) #14
@@ -7220,8 +7220,8 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   %199 = load i64, ptr %13, align 8
   %200 = load volatile i64, ptr %129, align 8
   %201 = and i64 %200, 8
-  %.not36 = icmp eq i64 %201, 0
-  br i1 %.not36, label %202, label %.thread23
+  %.not = icmp eq i64 %201, 0
+  br i1 %.not, label %202, label %.thread23
 
 .thread23:                                        ; preds = %198
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !85
@@ -8117,7 +8117,7 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
   %15 = icmp eq i32 %3, 3
   %16 = icmp sgt i64 %2, %1
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  br i1 %16, label %17, label %217
+  br i1 %16, label %17, label %219
 
 17:                                               ; preds = %4
   tail call void @__rcu_read_lock() #14
@@ -8447,35 +8447,37 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
   br label %21
 
 .thread13:                                        ; preds = %193, %79
-  %206 = phi i64 [ %22, %79 ], [ %191, %193 ]
-  %207 = select i1 %15, i64 -6, i64 %206
+  %206 = phi i1 [ true, %79 ], [ %30, %193 ]
+  %207 = phi i64 [ %22, %79 ], [ %191, %193 ]
+  %208 = select i1 %15, i64 -6, i64 %207
   br label %.thread12
 
 .thread12:                                        ; preds = %.thread, %190, %.thread13
-  %208 = phi i64 [ %207, %.thread13 ], [ %191, %190 ], [ %22, %.thread ]
+  %209 = phi i1 [ %206, %.thread13 ], [ %30, %190 ], [ %30, %.thread ]
+  %210 = phi i64 [ %208, %.thread13 ], [ %22, %.thread ], [ %191, %190 ]
   call void @__rcu_read_unlock() #14
-  br i1 %30, label %215, label %209
+  br i1 %209, label %217, label %211
 
-209:                                              ; preds = %.thread12
-  %210 = getelementptr inbounds i8, ptr %24, i64 52
-  %211 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210, ptr elementtype(i32) %210) #14, !srcloc !48
-  %212 = icmp ult i8 %211, 2
-  call void @llvm.assume(i1 %212)
-  %213 = icmp eq i8 %211, 0
-  br i1 %213, label %215, label %214
+211:                                              ; preds = %.thread12
+  %212 = getelementptr inbounds i8, ptr %24, i64 52
+  %213 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %212, ptr elementtype(i32) %212) #14, !srcloc !48
+  %214 = icmp ult i8 %213, 2
+  call void @llvm.assume(i1 %214)
+  %215 = icmp eq i8 %213, 0
+  br i1 %215, label %217, label %216
 
-214:                                              ; preds = %209
+216:                                              ; preds = %211
   call void @__folio_put(ptr noundef nonnull %24) #14
-  br label %215
-
-215:                                              ; preds = %214, %209, %.thread12
-  %216 = call i64 @llvm.smin.i64(i64 %208, i64 %2)
   br label %217
 
-217:                                              ; preds = %215, %4
-  %218 = phi i64 [ -6, %4 ], [ %216, %215 ]
+217:                                              ; preds = %216, %211, %.thread12
+  %218 = call i64 @llvm.smin.i64(i64 %210, i64 %2)
+  br label %219
+
+219:                                              ; preds = %217, %4
+  %220 = phi i64 [ -6, %4 ], [ %218, %217 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
-  ret i64 %218
+  ret i64 %220
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

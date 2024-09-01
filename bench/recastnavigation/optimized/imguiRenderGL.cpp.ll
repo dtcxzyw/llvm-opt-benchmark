@@ -3708,7 +3708,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %85, %77, %67, %59,
   tail call void @free(ptr noundef nonnull %29) #28
   br label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %12, %26, %.split.us.i, %._crit_edge.i
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %._crit_edge.i, %.split.us.i, %26, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %1346
 
@@ -3717,36 +3717,36 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   br i1 %.not.i87.us.i, label %1346, label %.lr.ph.preheader.i22
 
 .lr.ph.preheader.i22:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
-  %.not.i = icmp eq i32 %10, 0
   %93 = fneg float %5
-  %94 = select i1 %.not.i, float %5, float %93
   br label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i22
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i26, %.lr.ph.i24 ]
-  %.0854.i = phi i32 [ 0, %.lr.ph.preheader.i22 ], [ %97, %.lr.ph.i24 ]
-  %95 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i25
-  %96 = load i32, ptr %95, align 4
-  %97 = add nsw i32 %96, %.0854.i
+  %.0854.i = phi i32 [ 0, %.lr.ph.preheader.i22 ], [ %96, %.lr.ph.i24 ]
+  %94 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i25
+  %95 = load i32, ptr %94, align 4
+  %96 = add nsw i32 %95, %.0854.i
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %27
   br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i28:                                  ; preds = %.lr.ph.i24
-  %98 = add nsw i32 %97, 1
+  %.not.i = icmp eq i32 %10, 0
+  %97 = select i1 %.not.i, float %5, float %93
+  %98 = add nsw i32 %96, 1
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %99, 20
   %101 = tail call noalias noundef ptr @malloc(i64 noundef %100) #27
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, label %.lr.ph15.i
+  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, label %.preheader.i29
 
-.lr.ph15.i:                                       ; preds = %._crit_edge.i28
+.preheader.i29:                                   ; preds = %._crit_edge.i28
   br i1 %.not.i, label %.lr.ph15.split.us.i, label %.lr.ph15.split.i
 
-.lr.ph15.split.us.i:                              ; preds = %.lr.ph15.i, %._crit_edge10.split.us.us.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge10.split.us.us.i ], [ 0, %.lr.ph15.i ]
-  %.114.us.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ 0, %.lr.ph15.i ]
-  %.08812.us.i = phi i32 [ %107, %._crit_edge10.split.us.us.i ], [ 0, %.lr.ph15.i ]
+.lr.ph15.split.us.i:                              ; preds = %.preheader.i29, %._crit_edge10.split.us.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i29 ]
+  %.114.us.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i29 ]
+  %.08812.us.i = phi i32 [ %107, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i29 ]
   %103 = sext i32 %.08812.us.i to i64
   %104 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %103
   %105 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv40.i
@@ -3795,7 +3795,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   store float %123, ptr %118, align 4
   %124 = getelementptr inbounds i8, ptr %121, i64 4
   %125 = load float, ptr %124, align 4
-  %126 = tail call float @llvm.fmuladd.f32(float %125, float %94, float %7)
+  %126 = tail call float @llvm.fmuladd.f32(float %125, float %97, float %7)
   %127 = getelementptr inbounds i8, ptr %118, i64 4
   store float %126, ptr %127, align 4
   %128 = getelementptr inbounds %struct.stbtt__point, ptr %104, i64 %.pre45..i
@@ -3805,7 +3805,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   store float %130, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %128, i64 4
   %133 = load float, ptr %132, align 4
-  %134 = tail call float @llvm.fmuladd.f32(float %133, float %94, float %7)
+  %134 = tail call float @llvm.fmuladd.f32(float %133, float %97, float %7)
   %135 = getelementptr inbounds i8, ptr %118, i64 12
   store float %134, ptr %135, align 4
   %136 = add nsw i32 %.27.us.us.i, 1
@@ -3818,10 +3818,10 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %._crit_edge10.split.us.us.i, label %.lr.ph9.us.i, !llvm.loop !22
 
-.lr.ph15.split.i:                                 ; preds = %.lr.ph15.i, %._crit_edge10.split.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge10.split.i ], [ 0, %.lr.ph15.i ]
-  %.114.i = phi i32 [ %.2.lcssa.i, %._crit_edge10.split.i ], [ 0, %.lr.ph15.i ]
-  %.08812.i = phi i32 [ %141, %._crit_edge10.split.i ], [ 0, %.lr.ph15.i ]
+.lr.ph15.split.i:                                 ; preds = %.preheader.i29, %._crit_edge10.split.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge10.split.i ], [ 0, %.preheader.i29 ]
+  %.114.i = phi i32 [ %.2.lcssa.i, %._crit_edge10.split.i ], [ 0, %.preheader.i29 ]
+  %.08812.i = phi i32 [ %141, %._crit_edge10.split.i ], [ 0, %.preheader.i29 ]
   %137 = sext i32 %.08812.i to i64
   %138 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %137
   %139 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv30.i
@@ -3864,7 +3864,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   store float %157, ptr %152, align 4
   %158 = getelementptr inbounds i8, ptr %155, i64 4
   %159 = load float, ptr %158, align 4
-  %160 = tail call float @llvm.fmuladd.f32(float %159, float %94, float %7)
+  %160 = tail call float @llvm.fmuladd.f32(float %159, float %97, float %7)
   %161 = getelementptr inbounds i8, ptr %152, i64 4
   store float %160, ptr %161, align 4
   %162 = getelementptr inbounds %struct.stbtt__point, ptr %138, i64 %.pre..i
@@ -3874,7 +3874,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   store float %164, ptr %165, align 4
   %166 = getelementptr inbounds i8, ptr %162, i64 4
   %167 = load float, ptr %166, align 4
-  %168 = tail call float @llvm.fmuladd.f32(float %167, float %94, float %7)
+  %168 = tail call float @llvm.fmuladd.f32(float %167, float %97, float %7)
   %169 = getelementptr inbounds i8, ptr %152, i64 12
   store float %168, ptr %169, align 4
   %170 = add nsw i32 %.27.i, 1
@@ -7972,10 +7972,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   br label %13
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %7, label %.lr.ph58.preheader, label %._crit_edge59
-
-.lr.ph58.preheader:                               ; preds = %.preheader
+.lr.ph58.preheader:                               ; preds = %._crit_edge
   %wide.trip.count69 = zext nneg i32 %4 to i64
   br label %.lr.ph58
 
@@ -8002,7 +7999,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
 ._crit_edge:                                      ; preds = %13, %.preheader52
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader52, !llvm.loop !56
+  br i1 %exitcond.not, label %.lr.ph58.preheader, label %.preheader52, !llvm.loop !56
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %.lr.ph58 ]
@@ -8019,8 +8016,8 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
   %29 = mul nsw i64 %28, 24
   br label %._crit_edge59
 
-._crit_edge59:                                    ; preds = %5, %._crit_edge59.loopexit, %.preheader
-  %.046.lcssa = phi i64 [ 0, %.preheader ], [ %29, %._crit_edge59.loopexit ], [ 0, %5 ]
+._crit_edge59:                                    ; preds = %5, %._crit_edge59.loopexit
+  %.046.lcssa = phi i64 [ %29, %._crit_edge59.loopexit ], [ 0, %5 ]
   %30 = tail call noalias noundef ptr @malloc(i64 noundef %.046.lcssa) #27
   %31 = icmp eq ptr %30, null
   br i1 %31, label %74, label %32
@@ -8805,9 +8802,8 @@ _ZL17stbtt__find_tablePhjPKc.exit.i:              ; preds = %102, %83
   %.val48.i = load i8, ptr %gep, align 1
   %103 = and i8 %.val48.i, 7
   %104 = zext nneg i8 %103 to i32
-  %.not40.i = icmp ne i32 %8, %104
-  %or.cond = or i1 %.not40.i, %.not.i52.i.old
-  br i1 %or.cond, label %.loopexit, label %.lr.ph.i53.i
+  %.not40.i.not = icmp eq i32 %8, %104
+  br i1 %.not40.i.not, label %.lr.ph.i53.i, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %62
   br i1 %.not.i52.i.old, label %.loopexit, label %.lr.ph.i53.i
@@ -9731,10 +9727,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %.not, label %._crit_edge103.thread.critedge, label %.lr.ph98.preheader
-
-.lr.ph98.preheader:                               ; preds = %.preheader
+.lr.ph98.preheader:                               ; preds = %.lr.ph
   %wide.trip.count114 = zext i32 %1 to i64
   br label %.lr.ph98
 
@@ -9773,7 +9766,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %.lr.ph98.preheader, label %.lr.ph, !llvm.loop !71
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %57
   %indvars.iv111 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next112, %57 ]
@@ -9832,26 +9825,20 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   store i32 %67, ptr %5, align 4
   tail call void @glBegin(i32 noundef 4)
   call void @glColor4ubv(ptr noundef nonnull %4)
-  br i1 %.not, label %._crit_edge103.thread, label %.lr.ph102.preheader
+  %wide.trip.count119 = zext i32 %1 to i64
+  br label %.lr.ph102
 
-._crit_edge103.thread.critedge:                   ; preds = %.preheader, %3
+._crit_edge103.thread.critedge:                   ; preds = %3
   %68 = and i32 %2, 16777215
   store i32 %68, ptr %5, align 4
   tail call void @glBegin(i32 noundef 4)
   call void @glColor4ubv(ptr noundef nonnull %4)
-  br label %._crit_edge103.thread
-
-._crit_edge103.thread:                            ; preds = %._crit_edge103.thread.critedge, %._crit_edge
   call void @glColor4ubv(ptr noundef nonnull %4)
   br label %._crit_edge107
 
-.lr.ph102.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count119 = zext i32 %1 to i64
-  br label %.lr.ph102
-
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next117, %.lr.ph102 ]
-  %.080100 = phi i32 [ %6, %.lr.ph102.preheader ], [ %76, %.lr.ph102 ]
+.lr.ph102:                                        ; preds = %._crit_edge, %.lr.ph102
+  %indvars.iv116 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next117, %.lr.ph102 ]
+  %.080100 = phi i32 [ %6, %._crit_edge ], [ %76, %.lr.ph102 ]
   %69 = shl nuw nsw i64 %indvars.iv116, 1
   %70 = getelementptr inbounds float, ptr %0, i64 %69
   call void @glVertex2fv(ptr noundef %70)
@@ -9894,7 +9881,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %0, i32 noundef 
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !74
 
-._crit_edge107:                                   ; preds = %.lr.ph106, %._crit_edge103.thread, %._crit_edge103
+._crit_edge107:                                   ; preds = %.lr.ph106, %._crit_edge103.thread.critedge, %._crit_edge103
   call void @glEnd()
   ret void
 }

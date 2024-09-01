@@ -209,29 +209,21 @@ entry:
   br i1 %cmp6.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %2 = zext i32 %.sroa.speculated to i64
-  %retval.sroa.0.0.copyload.i10 = load i32, ptr %m_lits.i, align 8
-  %cmp.i311 = icmp eq i32 %retval.sroa.0.0.copyload.i10, %l.coerce
-  br i1 %cmp.i311, label %return, label %for.cond
+  %wide.trip.count = zext i32 %.sroa.speculated to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv12 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv12, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !7
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx.i = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i, i64 0, i64 %indvars.iv.next
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx.i = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i, i64 0, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   %cmp.i3 = icmp eq i32 %retval.sroa.0.0.copyload.i, %l.coerce
-  br i1 %cmp.i3, label %return.loopexit, label %for.cond, !llvm.loop !7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp.i3, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !7
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %2
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.i3, %for.body ]
   ret i1 %cmp.lcssa
 }
 

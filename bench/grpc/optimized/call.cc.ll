@@ -5113,7 +5113,6 @@ entry:
   br i1 %cmp51, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %cmp53 = phi i1 [ %cmp, %for.inc ], [ false, %entry ]
   %i.052 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %metadata, i64 %i.052
   call void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
@@ -5326,9 +5325,8 @@ terminate.lpad.i40:                               ; preds = %if.then.i.i.i39
 
 for.inc:                                          ; preds = %if.then.i.i.i39, %if.then.i.i37, %invoke.cont46, %if.else27
   %inc = add nuw i64 %i.052, 1
-  %cmp = icmp uge i64 %inc, %count
-  %exitcond = icmp eq i64 %inc, %count
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !64
+  %exitcond.not = icmp eq i64 %inc, %count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !64
 
 lpad44:                                           ; preds = %invoke.cont45
   %32 = landingpad { ptr, i32 }
@@ -5337,7 +5335,7 @@ lpad44:                                           ; preds = %invoke.cont45
   br label %eh.resume
 
 return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup.done, %cond.end23, %for.inc, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp, %for.inc ], [ %cmp53, %cond.end23 ], [ %cmp53, %cleanup.done ], [ %cmp53, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %cond.end23 ], [ false, %cleanup.done ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   ret i1 %cmp.lcssa
 
 eh.resume:                                        ; preds = %lpad.i22, %lpad44, %lpad.i
@@ -41458,9 +41456,6 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %server_to_client_messages_.i.i.i = getelementptr inbounds i8, ptr %22, i64 1128
   %37 = load ptr, ptr %server_to_client_messages_.i.i.i, align 8, !noalias !1111
   tail call void @_ZN9grpc_core10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE5CloseEv(ptr noundef nonnull align 8 dereferenceable(8) %37), !noalias !1111
-  br i1 %tobool.i.i.i.i3, label %if.then5, label %cleanup
-
-if.then5:                                         ; preds = %invoke.cont
   %38 = getelementptr inbounds i8, ptr %this, i64 48
   %39 = load i8, ptr %38, align 8, !noalias !1111
   %40 = trunc i8 %39 to i1
@@ -41468,16 +41463,16 @@ if.then5:                                         ; preds = %invoke.cont
   %41 = load ptr, ptr %on_complete_, align 8
   br i1 %40, label %if.end.i, label %if.then.i
 
-if.then.i:                                        ; preds = %invoke.cont.thread17, %if.then5
-  %42 = phi ptr [ %36, %invoke.cont.thread17 ], [ %41, %if.then5 ]
+if.then.i:                                        ; preds = %invoke.cont.thread17, %invoke.cont
+  %42 = phi ptr [ %36, %invoke.cont.thread17 ], [ %41, %invoke.cont ]
   %failed_before_recv_message_.i.i = getelementptr inbounds i8, ptr %42, i64 941
   store atomic i8 1, ptr %failed_before_recv_message_.i.i monotonic, align 1
   %43 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN9grpc_core16PromiseBasedCall14FailCompletionERKNS0_10CompletionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1096) %42, ptr noundef nonnull align 1 dereferenceable(1) %43, ptr nonnull @.str.7, i32 3502)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %invoke.cont.thread17, %if.then.i, %if.then5
-  %44 = phi ptr [ %36, %invoke.cont.thread17 ], [ %42, %if.then.i ], [ %41, %if.then5 ]
+if.end.i:                                         ; preds = %invoke.cont.thread17, %if.then.i, %invoke.cont
+  %44 = phi ptr [ %36, %invoke.cont.thread17 ], [ %42, %if.then.i ], [ %41, %invoke.cont ]
   %45 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN9grpc_core16PromiseBasedCall20FinishOpOnCompletionEPNS0_10CompletionENS0_9PendingOpE(ptr noundef nonnull align 8 dereferenceable(1096) %44, ptr noundef nonnull %45, i32 noundef 6)
   %46 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
@@ -41539,7 +41534,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end, %invoke.cont, %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_3ZNS4_11CommitBatchES7_mSB_E3$_4EEEEvPT_.exit"
+cleanup:                                          ; preds = %if.end, %"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_3ZNS4_11CommitBatchES7_mSB_E3$_4EEEEvPT_.exit"
   ret i1 %tobool.i.i.i.i3
 }
 

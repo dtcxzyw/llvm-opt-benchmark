@@ -40,28 +40,22 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
   store i32 %15, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.preheader131.preheader, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %13, label %.preheader131.preheader, label %._crit_edge140
-
-.preheader131.preheader:                          ; preds = %._crit_edge
+.preheader131.preheader:                          ; preds = %.lr.ph
   %16 = lshr i32 %1, 1
   br label %.preheader131
 
 .loopexit:                                        ; preds = %53
   %17 = icmp sgt i32 %.1114135.in, 1
-  br i1 %17, label %.preheader131, label %.preheader, !llvm.loop !6
+  br i1 %17, label %.preheader131, label %.lr.ph139.preheader, !llvm.loop !6
 
 .preheader131:                                    ; preds = %.preheader131.preheader, %.loopexit
   %.1114135.in = phi i32 [ %.1114135, %.loopexit ], [ %16, %.preheader131.preheader ]
   %.1114135 = add nsw i32 %.1114135.in, -1
   br label %19
 
-.preheader:                                       ; preds = %.loopexit
-  br i1 %13, label %.lr.ph139.preheader, label %._crit_edge140
-
-.lr.ph139.preheader:                              ; preds = %.preheader
+.lr.ph139.preheader:                              ; preds = %.loopexit
   %18 = zext nneg i32 %4 to i64
   br label %.lr.ph139
 
@@ -214,7 +208,7 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
   %109 = icmp sgt i64 %indvars.iv142, 1
   br i1 %109, label %.lr.ph139, label %._crit_edge140, !llvm.loop !7
 
-._crit_edge140:                                   ; preds = %106, %12, %._crit_edge, %.preheader
+._crit_edge140:                                   ; preds = %106, %12
   %110 = load i32, ptr %9, align 4
   store i32 %110, ptr %2, align 4
   tail call void @free(ptr noundef %9) #5

@@ -1104,8 +1104,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %sub.ptr.sub.neg23 = sub i64 %2, %sub.ptr.lhs.cast21
   %sub24 = add i64 %sub.ptr.sub.neg23, %sub.ptr.rhs.cast22
   %call325 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef %conv, i64 noundef %sub24) #25
-  %cmp26 = icmp ne ptr %call325, null
-  br i1 %cmp26, label %if.end, label %while.end
+  %cmp26.not = icmp eq ptr %call325, null
+  br i1 %cmp26.not, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body.lr.ph, %if.end
   %call329 = phi ptr [ %call3, %if.end ], [ %call325, %while.body.lr.ph ]
@@ -1133,7 +1133,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.end, label %if.end
 
 while.end:                                        ; preds = %if.end, %while.body.lr.ph, %entry
-  %removed.0.lcssa = phi i1 [ false, %entry ], [ %cmp26, %while.body.lr.ph ], [ %cmp26, %if.end ]
+  %removed.0.lcssa = phi i1 [ false, %entry ], [ false, %while.body.lr.ph ], [ true, %if.end ]
   ret i1 %removed.0.lcssa
 }
 
@@ -2173,8 +2173,8 @@ while.body28.lr.ph:                               ; preds = %if.else
   %sub.ptr.sub34.neg99 = sub i64 %32, %sub.ptr.lhs.cast3297
   %sub35100 = add i64 %sub.ptr.sub34.neg99, %sub.ptr.rhs.cast3398
   %call36101 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i37, i32 noundef %conv, i64 noundef %sub35100) #25
-  %cmp37102 = icmp ne ptr %call36101, null
-  br i1 %cmp37102, label %if.end39, label %if.end55
+  %cmp37102.not = icmp eq ptr %call36101, null
+  br i1 %cmp37102.not, label %if.end55, label %if.end39
 
 if.end39:                                         ; preds = %while.body28.lr.ph, %if.end39
   %call36104 = phi ptr [ %call36, %if.end39 ], [ %call36101, %while.body28.lr.ph ]
@@ -2213,7 +2213,7 @@ if.end39:                                         ; preds = %while.body28.lr.ph,
   br i1 %cmp37, label %if.end55, label %if.end39
 
 if.end55:                                         ; preds = %if.end39, %if.end23, %if.end23.us, %while.body28.lr.ph, %if.else, %if.then, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split
-  %transferred.2 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ %cmp37102, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ %cmp37102, %if.end39 ]
+  %transferred.2 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ false, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ true, %if.end39 ]
   ret i1 %transferred.2
 }
 

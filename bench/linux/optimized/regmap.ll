@@ -10241,8 +10241,8 @@ define dso_local i32 @regmap_bulk_read(ptr noundef %0, i32 noundef %1, ptr nound
   %28 = load i32, ptr %11, align 4
   %29 = add i32 %28, -1
   %30 = and i32 %29, %1
-  %.not16 = icmp eq i32 %30, 0
-  br i1 %.not16, label %31, label %.thread
+  %.not15 = icmp eq i32 %30, 0
+  br i1 %.not15, label %31, label %.thread
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 464

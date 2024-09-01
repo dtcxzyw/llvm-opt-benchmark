@@ -1384,12 +1384,9 @@ define hidden noundef i64 @_ZNK16XObjectAllocator4usedEv(ptr nocapture noundef n
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %.0421
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit, label %5, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph25, label %5, !llvm.loop !14
 
-_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit: ; preds = %5
-  br i1 %.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5, label %.lr.ph25
-
-.lr.ph25:                                         ; preds = %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit
+.lr.ph25:                                         ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %wide.trip.count33 = zext i32 %2 to i64
@@ -1405,13 +1402,15 @@ _ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit: ; preds = %5
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %.024
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5, label %13, !llvm.loop !15
+  br i1 %exitcond34.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit, label %13, !llvm.loop !15
 
-_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5: ; preds = %13, %1, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit
-  %.04.lcssa36 = phi i64 [ %10, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit ], [ 0, %1 ], [ %10, %13 ]
-  %.0.lcssa = phi i64 [ 0, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit ], [ 0, %1 ], [ %18, %13 ]
-  %19 = sub i64 %.04.lcssa36, %.0.lcssa
-  ret i64 %19
+_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit: ; preds = %13
+  %19 = sub i64 %10, %18
+  br label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5
+
+_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5: ; preds = %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit, %1
+  %20 = phi i64 [ 0, %1 ], [ %19, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit ]
+  ret i64 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1492,12 +1491,9 @@ define hidden noundef i64 @_ZNK16XObjectAllocator9relocatedEv(ptr nocapture noun
   %9 = load volatile i64, ptr %8, align 8
   %10 = add i64 %9, %.0421
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit, label %5, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph25, label %5, !llvm.loop !16
 
-_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit: ; preds = %5
-  br i1 %.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5, label %.lr.ph25
-
-.lr.ph25:                                         ; preds = %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit
+.lr.ph25:                                         ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %wide.trip.count33 = zext i32 %2 to i64
@@ -1513,13 +1509,15 @@ _ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit: ; preds = %5
   %17 = load volatile i64, ptr %16, align 8
   %18 = add i64 %17, %.024
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5, label %13, !llvm.loop !17
+  br i1 %exitcond34.not, label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit, label %13, !llvm.loop !17
 
-_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5: ; preds = %13, %1, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit
-  %.04.lcssa36 = phi i64 [ %10, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit ], [ 0, %1 ], [ %10, %13 ]
-  %.0.lcssa = phi i64 [ 0, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit ], [ 0, %1 ], [ %18, %13 ]
-  %19 = sub i64 %.04.lcssa36, %.0.lcssa
-  ret i64 %19
+_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit: ; preds = %13
+  %19 = sub i64 %10, %18
+  br label %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5
+
+_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5: ; preds = %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit, %1
+  %20 = phi i64 [ 0, %1 ], [ %19, %_ZN19XValueConstIteratorI14XPerCPUStoragemE4nextEPPKm.exit5.loopexit ]
+  ret i64 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

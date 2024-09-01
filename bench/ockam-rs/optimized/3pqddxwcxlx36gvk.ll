@@ -5626,8 +5626,8 @@ define noundef zeroext i1 @"_ZN114_$LT$ockam_core..flow_control..flow_controls..
 34:                                               ; preds = %36, %27
   %.pn = phi ptr [ %35, %36 ], [ %20, %27 ]
   %35 = getelementptr inbounds i8, ptr %.pn, i64 24
-  %.not.i.not.not.i.not = icmp ne ptr %35, %28
-  br i1 %.not.i.not.not.i.not, label %36, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit"
+  %.not.not.not.i.not.not.i.not.not = icmp ne ptr %35, %28
+  br i1 %.not.not.not.i.not.not.i.not.not, label %36, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit"
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !923
@@ -5648,7 +5648,7 @@ define noundef zeroext i1 @"_ZN114_$LT$ockam_core..flow_control..flow_controls..
   br i1 %37, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit", label %34
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit": ; preds = %36, %34, %13, %19
-  %.0 = phi i1 [ %18, %13 ], [ true, %19 ], [ %.not.i.not.not.i.not, %34 ], [ %.not.i.not.not.i.not, %36 ]
+  %.0 = phi i1 [ %18, %13 ], [ true, %19 ], [ %.not.not.not.i.not.not.i.not.not, %34 ], [ %.not.not.not.i.not.not.i.not.not, %36 ]
   ret i1 %.0
 }
 

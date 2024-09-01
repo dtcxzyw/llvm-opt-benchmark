@@ -2309,8 +2309,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit13.i:         ; preds = %if.end.i10.i, %_ZNK
 
 for.cond.i:                                       ; preds = %for.body.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit13.i
   %indvars.iv.i = phi i64 [ %11, %for.body.i ], [ %retval.0.i12.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit13.i ]
-  %cmp6.not.i.not = icmp ne i64 %indvars.iv.i, 0
-  br i1 %cmp6.not.i.not, label %for.body.i, label %_ZNK8subterms8iteratoreqERKS0_.exit
+  %cmp6.not.i.not.not = icmp ne i64 %indvars.iv.i, 0
+  br i1 %cmp6.not.i.not.not, label %for.body.i, label %_ZNK8subterms8iteratoreqERKS0_.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %11 = add nsw i64 %indvars.iv.i, -1
@@ -2322,7 +2322,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp11.not.i, label %for.cond.i, label %_ZNK8subterms8iteratoreqERKS0_.exit, !llvm.loop !16
 
 _ZNK8subterms8iteratoreqERKS0_.exit:              ; preds = %for.cond.i, %for.body.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.thread.i
-  %lnot = phi i1 [ true, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.i ], [ true, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.thread.i ], [ %cmp6.not.i.not, %for.body.i ], [ %cmp6.not.i.not, %for.cond.i ]
+  %lnot = phi i1 [ true, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.i ], [ true, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit8.thread.i ], [ %cmp6.not.i.not.not, %for.body.i ], [ %cmp6.not.i.not.not, %for.cond.i ]
   ret i1 %lnot
 }
 
@@ -3355,8 +3355,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 
 for.cond.i:                                       ; preds = %for.body.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15.i
   %indvars.iv.i = phi i64 [ %8, %for.body.i ], [ %retval.0.i.i14.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15.i ]
-  %cmp6.not.i.not = icmp ne i64 %indvars.iv.i, 0
-  br i1 %cmp6.not.i.not, label %for.body.i, label %_ZNK18subterms_postorder8iteratoreqERKS0_.exit
+  %cmp6.not.i.not.not = icmp ne i64 %indvars.iv.i, 0
+  br i1 %cmp6.not.i.not.not, label %for.body.i, label %_ZNK18subterms_postorder8iteratoreqERKS0_.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %8 = add nsw i64 %indvars.iv.i, -1
@@ -3368,7 +3368,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp11.not.i, label %for.cond.i, label %_ZNK18subterms_postorder8iteratoreqERKS0_.exit, !llvm.loop !18
 
 _ZNK18subterms_postorder8iteratoreqERKS0_.exit:   ; preds = %for.cond.i, %for.body.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.thread.i
-  %lnot = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.i ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.thread.i ], [ %cmp6.not.i.not, %for.body.i ], [ %cmp6.not.i.not, %for.cond.i ]
+  %lnot = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.i ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9.thread.i ], [ %cmp6.not.i.not.not, %for.body.i ], [ %cmp6.not.i.not.not, %for.cond.i ]
   ret i1 %lnot
 }
 

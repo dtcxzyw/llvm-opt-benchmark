@@ -293,18 +293,15 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds =
   call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.011.034) #18
   %40 = getelementptr inbounds i8, ptr %.sroa.011.034, i64 8
   %.not = icmp eq ptr %.sroa.011.034, %.0.lcssa.i.i.i.i.i.pn
-  br i1 %.not, label %._crit_edge, label %.lr.ph35
-
-._crit_edge:                                      ; preds = %.lr.ph35
-  br i1 %.not33, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
+  br i1 %.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, label %.lr.ph35
 
 41:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.0.lcssa.i.i.i.i.i.pn
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, !llvm.loop !13
 
-_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %41
-  %.05.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.020.1, %._crit_edge ]
+_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %.lr.ph35, %41
+  %.05.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.020.1, %.lr.ph35 ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i9 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i9, label %41, label %43
@@ -313,7 +310,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %._crit_edge, %41
   call void @_ZSt9terminatev() #21
   unreachable
 
-_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %41, %.preheader, %._crit_edge
+_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %41, %.preheader
   %.not.i.i.i10 = icmp eq ptr %.sroa.020.1, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %44
 

@@ -2965,18 +2965,17 @@ while.body33:                                     ; preds = %while.cond30.prehea
   %curr.0216 = phi ptr [ %19, %if.end37 ], [ %overrideList.0221, %while.cond30.preheader ]
   %hash = getelementptr inbounds i8, ptr %curr.0216, i64 8
   %18 = load i32, ptr %hash, align 8
-  %cmp34 = icmp ne i32 %18, %call.i89
-  br i1 %cmp34, label %if.end37, label %while.end
+  %cmp34.not = icmp eq i32 %18, %call.i89
+  br i1 %cmp34.not, label %while.end, label %if.end37
 
 if.end37:                                         ; preds = %while.body33
   %next = getelementptr inbounds i8, ptr %curr.0216, i64 16
   %19 = load ptr, ptr %next, align 8
-  %tobool31 = icmp ne ptr %19, null
-  %20 = and i1 %tobool31, %cmp34
-  br i1 %20, label %while.body33, label %if.then39, !llvm.loop !9
+  %tobool31.not = icmp eq ptr %19, null
+  br i1 %tobool31.not, label %if.then39, label %while.body33, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body33
-  %21 = load ptr, ptr %curr.0216, align 8
+  %20 = load ptr, ptr %curr.0216, align 8
   br label %if.end95
 
 if.then39:                                        ; preds = %if.end37
@@ -3005,10 +3004,10 @@ if.then48:                                        ; preds = %if.then39.thread, %
           to label %invoke.cont51 unwind label %lpad44
 
 invoke.cont51:                                    ; preds = %if.then48
-  %22 = load ptr, ptr %baseName.i, align 8
-  %23 = load i32, ptr %variantBegin.i, align 8
-  %idxprom.i = sext i32 %23 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %22, i64 %idxprom.i
+  %21 = load ptr, ptr %baseName.i, align 8
+  %22 = load i32, ptr %variantBegin.i, align 8
+  %idxprom.i = sext i32 %22 to i64
+  %arrayidx.i = getelementptr inbounds i8, ptr %21, i64 %idxprom.i
   invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ovrLoc, ptr noundef nonnull %language.i, ptr noundef nonnull %country.i, ptr noundef %arrayidx.i, ptr noundef nonnull %kw)
           to label %invoke.cont60 unwind label %lpad44
 
@@ -3019,16 +3018,16 @@ invoke.cont60:                                    ; preds = %invoke.cont51
           to label %invoke.cont68 unwind label %lpad61
 
 invoke.cont68:                                    ; preds = %invoke.cont60
-  %24 = load ptr, ptr %call40260, align 8
-  %cmp.not.i = icmp eq ptr %call69, %24
+  %23 = load ptr, ptr %call40260, align 8
+  %cmp.not.i = icmp eq ptr %call69, %23
   br i1 %cmp.not.i, label %invoke.cont73, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont68
-  %cmp1.not.i = icmp eq ptr %24, null
+  %cmp1.not.i = icmp eq ptr %23, null
   br i1 %cmp1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
           to label %if.end.i unwind label %lpad61
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
@@ -3041,44 +3040,44 @@ if.then4.i:                                       ; preds = %if.end.i
           to label %invoke.cont73 unwind label %lpad61
 
 invoke.cont73:                                    ; preds = %if.end.i, %invoke.cont68, %if.then4.i
-  %25 = load i32, ptr %status, align 4
-  %cmp.i94 = icmp slt i32 %25, 1
+  %24 = load i32, ptr %status, align 4
+  %cmp.i94 = icmp slt i32 %24, 1
   br i1 %cmp.i94, label %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit, label %if.then77
 
 if.then77:                                        ; preds = %invoke.cont73
   br i1 %tobool31215.not, label %delete.notnull.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then77, %while.body.i
-  %cur.03.i = phi ptr [ %26, %while.body.i ], [ %overrideList.0221, %if.then77 ]
+  %cur.03.i = phi ptr [ %25, %while.body.i ], [ %overrideList.0221, %if.then77 ]
   %next.i96 = getelementptr inbounds i8, ptr %cur.03.i, i64 16
-  %26 = load ptr, ptr %next.i96, align 8
+  %25 = load ptr, ptr %next.i96, align 8
   call void @_ZN6icu_7516SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %cur.03.i) #21
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %cur.03.i) #21
-  %tobool.not.i = icmp eq ptr %26, null
+  %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %delete.notnull.i, label %while.body.i, !llvm.loop !4
 
 lpad44:                                           ; preds = %invoke.cont51, %if.then48
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit104
 
 lpad61:                                           ; preds = %if.then4.i, %if.then2.i, %invoke.cont60
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ovrLoc) #21
   br label %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit104
 
 if.else87:                                        ; preds = %if.then39
   store i32 7, ptr %status, align 4
-  br i1 %tobool31215.not, label %cleanup141.thread, label %while.body.i97
+  br label %while.body.i97
 
 while.body.i97:                                   ; preds = %if.else87, %while.body.i97
-  %cur.03.i98 = phi ptr [ %29, %while.body.i97 ], [ %overrideList.0221, %if.else87 ]
+  %cur.03.i98 = phi ptr [ %28, %while.body.i97 ], [ %overrideList.0221, %if.else87 ]
   %next.i99 = getelementptr inbounds i8, ptr %cur.03.i98, i64 16
-  %29 = load ptr, ptr %next.i99, align 8
+  %28 = load ptr, ptr %next.i99, align 8
   call void @_ZN6icu_7516SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %cur.03.i98) #21
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %cur.03.i98) #21
-  %tobool.not.i100 = icmp eq ptr %29, null
+  %tobool.not.i100 = icmp eq ptr %28, null
   br i1 %tobool.not.i100, label %cleanup141.thread, label %while.body.i97, !llvm.loop !4
 
 delete.notnull.i:                                 ; preds = %while.body.i, %if.then77
@@ -3088,22 +3087,22 @@ delete.notnull.i:                                 ; preds = %while.body.i, %if.t
   br label %cleanup141.thread
 
 _ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit: ; preds = %invoke.cont73
-  %30 = load ptr, ptr %call40260, align 8
+  %29 = load ptr, ptr %call40260, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ovrLoc) #21
   br label %if.end95
 
 _ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit104: ; preds = %lpad61, %lpad44
-  %.pn = phi { ptr, i32 } [ %28, %lpad61 ], [ %27, %lpad44 ]
+  %.pn = phi { ptr, i32 } [ %27, %lpad61 ], [ %26, %lpad44 ]
   call void @_ZN6icu_7516SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %call40260) #21
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call40260) #21
   br label %ehcleanup144
 
 if.end95:                                         ; preds = %while.end, %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit
   %overrideList.1 = phi ptr [ %overrideList.0221, %while.end ], [ %call40260, %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit ]
-  %snf.2 = phi ptr [ %21, %while.end ], [ %30, %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit ]
+  %snf.2 = phi ptr [ %20, %while.end ], [ %29, %_ZN6icu_7512LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit ]
   %snf.2.fr = freeze ptr %snf.2
-  %31 = load i16, ptr %fUnion2.i48, align 8
-  %conv2.i106195 = and i16 %31, 1
+  %30 = load i16, ptr %fUnion2.i48, align 8
+  %conv2.i106195 = and i16 %30, 1
   %tobool98.not = icmp eq i16 %conv2.i106195, 0
   br i1 %tobool98.not, label %if.else124, label %if.then99
 
@@ -3120,17 +3119,17 @@ sw.bb:                                            ; preds = %if.then99, %if.then
 
 for.body.us:                                      ; preds = %sw.bb, %for.inc.us
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %for.inc.us ], [ 0, %sw.bb ]
-  %32 = load ptr, ptr %fSharedNumberFormatters, align 8
+  %31 = load ptr, ptr %fSharedNumberFormatters, align 8
   %arrayidx.us = getelementptr inbounds [16 x i32], ptr @_ZN6icu_75L11kDateFieldsE, i64 0, i64 %indvars.iv244
-  %33 = load i32, ptr %arrayidx.us, align 4
-  %idxprom102.us = zext i32 %33 to i64
-  %arrayidx103.us = getelementptr inbounds ptr, ptr %32, i64 %idxprom102.us
-  %34 = load ptr, ptr %arrayidx103.us, align 8
-  %cmp.not.i107.us = icmp eq ptr %34, null
+  %32 = load i32, ptr %arrayidx.us, align 4
+  %idxprom102.us = zext i32 %32 to i64
+  %arrayidx103.us = getelementptr inbounds ptr, ptr %31, i64 %idxprom102.us
+  %33 = load ptr, ptr %arrayidx103.us, align 8
+  %cmp.not.i107.us = icmp eq ptr %33, null
   br i1 %cmp.not.i107.us, label %for.inc.us, label %if.then2.i110.us
 
 if.then2.i110.us:                                 ; preds = %for.body.us
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %if.end.i111.us unwind label %lpad14.loopexit.split-lp.loopexit.split.us
 
 if.end.i111.us:                                   ; preds = %if.then2.i110.us
@@ -3149,21 +3148,21 @@ lpad14.loopexit.split-lp.loopexit.split.us:       ; preds = %if.then2.i110.us
 
 for.body:                                         ; preds = %sw.bb, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sw.bb ]
-  %35 = load ptr, ptr %fSharedNumberFormatters, align 8
+  %34 = load ptr, ptr %fSharedNumberFormatters, align 8
   %arrayidx = getelementptr inbounds [16 x i32], ptr @_ZN6icu_75L11kDateFieldsE, i64 0, i64 %indvars.iv
-  %36 = load i32, ptr %arrayidx, align 4
-  %idxprom102 = zext i32 %36 to i64
-  %arrayidx103 = getelementptr inbounds ptr, ptr %35, i64 %idxprom102
-  %37 = load ptr, ptr %arrayidx103, align 8
-  %cmp.not.i107 = icmp eq ptr %snf.2.fr, %37
+  %35 = load i32, ptr %arrayidx, align 4
+  %idxprom102 = zext i32 %35 to i64
+  %arrayidx103 = getelementptr inbounds ptr, ptr %34, i64 %idxprom102
+  %36 = load ptr, ptr %arrayidx103, align 8
+  %cmp.not.i107 = icmp eq ptr %snf.2.fr, %36
   br i1 %cmp.not.i107, label %for.inc, label %if.then.i108
 
 if.then.i108:                                     ; preds = %for.body
-  %cmp1.not.i109 = icmp eq ptr %37, null
+  %cmp1.not.i109 = icmp eq ptr %36, null
   br i1 %cmp1.not.i109, label %if.end.i111, label %if.then2.i110
 
 if.then2.i110:                                    ; preds = %if.then.i108
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %37)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %36)
           to label %if.end.i111 unwind label %lpad14.loopexit.split-lp.loopexit.split
 
 if.end.i111:                                      ; preds = %if.then2.i110, %if.then.i108
@@ -3185,21 +3184,21 @@ sw.bb109:                                         ; preds = %for.end, %if.then99
 
 for.body114:                                      ; preds = %sw.bb109, %for.inc121
   %indvars.iv248 = phi i64 [ 0, %sw.bb109 ], [ %indvars.iv.next249, %for.inc121 ]
-  %38 = load ptr, ptr %fSharedNumberFormatters, align 8
+  %37 = load ptr, ptr %fSharedNumberFormatters, align 8
   %arrayidx117 = getelementptr inbounds [10 x i32], ptr @_ZN6icu_75L11kTimeFieldsE, i64 0, i64 %indvars.iv248
-  %39 = load i32, ptr %arrayidx117, align 4
-  %idxprom118 = zext i32 %39 to i64
-  %arrayidx119 = getelementptr inbounds ptr, ptr %38, i64 %idxprom118
-  %40 = load ptr, ptr %arrayidx119, align 8
-  %cmp.not.i117 = icmp eq ptr %snf.2.fr, %40
+  %38 = load i32, ptr %arrayidx117, align 4
+  %idxprom118 = zext i32 %38 to i64
+  %arrayidx119 = getelementptr inbounds ptr, ptr %37, i64 %idxprom118
+  %39 = load ptr, ptr %arrayidx119, align 8
+  %cmp.not.i117 = icmp eq ptr %snf.2.fr, %39
   br i1 %cmp.not.i117, label %for.inc121, label %if.then.i118
 
 if.then.i118:                                     ; preds = %for.body114
-  %cmp1.not.i119 = icmp eq ptr %40, null
+  %cmp1.not.i119 = icmp eq ptr %39, null
   br i1 %cmp1.not.i119, label %if.end.i121, label %if.then2.i120
 
 if.then2.i120:                                    ; preds = %if.then.i118
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %39)
           to label %if.end.i121 unwind label %lpad14.loopexit
 
 if.end.i121:                                      ; preds = %if.then2.i120, %if.then.i118
@@ -3216,24 +3215,24 @@ for.inc121:                                       ; preds = %if.end.i121, %for.b
   br i1 %exitcond251.not, label %cleanup141, label %for.body114, !llvm.loop !11
 
 if.else124:                                       ; preds = %if.end95
-  %cmp.i.i.i.i127 = icmp slt i16 %31, 0
-  %41 = ashr i16 %31, 5
-  %shr.i.i.i.i128 = sext i16 %41 to i32
-  %42 = load i32, ptr %fLength.i.i85, align 4
-  %cond.i.i.i130 = select i1 %cmp.i.i.i.i127, i32 %42, i32 %shr.i.i.i.i128
+  %cmp.i.i.i.i127 = icmp slt i16 %30, 0
+  %40 = ashr i16 %30, 5
+  %shr.i.i.i.i128 = sext i16 %40 to i32
+  %41 = load i32, ptr %fLength.i.i85, align 4
+  %cond.i.i.i130 = select i1 %cmp.i.i.i.i127, i32 %41, i32 %shr.i.i.i.i128
   %cmp.i.i131.not = icmp eq i32 %cond.i.i.i130, 0
   br i1 %cmp.i.i131.not, label %invoke.cont125, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else124
-  %43 = and i16 %31, 2
-  %tobool.not.i.i.i = icmp eq i16 %43, 0
-  %44 = load ptr, ptr %fArray.i.i.i, align 8
-  %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %44, ptr %fBuffer.i.i.i
-  %45 = load i16, ptr %cond.i2.i.i, align 2
+  %42 = and i16 %30, 2
+  %tobool.not.i.i.i = icmp eq i16 %42, 0
+  %43 = load ptr, ptr %fArray.i.i.i, align 8
+  %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %43, ptr %fBuffer.i.i.i
+  %44 = load i16, ptr %cond.i2.i.i, align 2
   br label %invoke.cont125
 
 invoke.cont125:                                   ; preds = %if.then.i.i, %if.else124
-  %retval.0.i.i = phi i16 [ %45, %if.then.i.i ], [ -1, %if.else124 ]
+  %retval.0.i.i = phi i16 [ %44, %if.then.i.i ], [ -1, %if.else124 ]
   %call128 = invoke noundef i32 @_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %retval.0.i.i)
           to label %invoke.cont127 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
@@ -3246,28 +3245,28 @@ if.then130:                                       ; preds = %invoke.cont127
   br label %while.body.i132
 
 while.body.i132:                                  ; preds = %if.then130, %while.body.i132
-  %cur.03.i133 = phi ptr [ %46, %while.body.i132 ], [ %overrideList.1, %if.then130 ]
+  %cur.03.i133 = phi ptr [ %45, %while.body.i132 ], [ %overrideList.1, %if.then130 ]
   %next.i134 = getelementptr inbounds i8, ptr %cur.03.i133, i64 16
-  %46 = load ptr, ptr %next.i134, align 8
+  %45 = load ptr, ptr %next.i134, align 8
   call void @_ZN6icu_7516SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %cur.03.i133) #21
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %cur.03.i133) #21
-  %tobool.not.i135 = icmp eq ptr %46, null
+  %tobool.not.i135 = icmp eq ptr %45, null
   br i1 %tobool.not.i135, label %cleanup141.thread, label %while.body.i132, !llvm.loop !4
 
 if.end134:                                        ; preds = %invoke.cont127
-  %47 = load ptr, ptr %fSharedNumberFormatters, align 8
+  %46 = load ptr, ptr %fSharedNumberFormatters, align 8
   %idxprom136 = zext i32 %call128 to i64
-  %arrayidx137 = getelementptr inbounds ptr, ptr %47, i64 %idxprom136
-  %48 = load ptr, ptr %arrayidx137, align 8
-  %cmp.not.i137 = icmp eq ptr %snf.2.fr, %48
+  %arrayidx137 = getelementptr inbounds ptr, ptr %46, i64 %idxprom136
+  %47 = load ptr, ptr %arrayidx137, align 8
+  %cmp.not.i137 = icmp eq ptr %snf.2.fr, %47
   br i1 %cmp.not.i137, label %cleanup141, label %if.then.i138
 
 if.then.i138:                                     ; preds = %if.end134
-  %cmp1.not.i139 = icmp eq ptr %48, null
+  %cmp1.not.i139 = icmp eq ptr %47, null
   br i1 %cmp1.not.i139, label %if.end.i141, label %if.then2.i140
 
 if.then2.i140:                                    ; preds = %if.then.i138
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
           to label %if.end.i141 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
 if.end.i141:                                      ; preds = %if.then2.i140, %if.then.i138
@@ -3279,7 +3278,7 @@ if.then4.i143:                                    ; preds = %if.end.i141
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %snf.2.fr)
           to label %cleanup141 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
-cleanup141.thread:                                ; preds = %while.body.i97, %while.body.i132, %if.else87.thread, %delete.notnull.i, %if.else87
+cleanup141.thread:                                ; preds = %while.body.i97, %while.body.i132, %if.else87.thread, %delete.notnull.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currentString) #21
   br label %cleanup149
 
@@ -3294,12 +3293,12 @@ ehcleanup144:                                     ; preds = %lpad14.loopexit, %l
   br label %ehcleanup150
 
 while.body.i147:                                  ; preds = %cleanup141, %while.body.i147
-  %cur.03.i148 = phi ptr [ %49, %while.body.i147 ], [ %overrideList.1, %cleanup141 ]
+  %cur.03.i148 = phi ptr [ %48, %while.body.i147 ], [ %overrideList.1, %cleanup141 ]
   %next.i149 = getelementptr inbounds i8, ptr %cur.03.i148, i64 16
-  %49 = load ptr, ptr %next.i149, align 8
+  %48 = load ptr, ptr %next.i149, align 8
   call void @_ZN6icu_7516SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %cur.03.i148) #21
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %cur.03.i148) #21
-  %tobool.not.i150 = icmp eq ptr %49, null
+  %tobool.not.i150 = icmp eq ptr %48, null
   br i1 %tobool.not.i150, label %cleanup149, label %while.body.i147, !llvm.loop !4
 
 cleanup149:                                       ; preds = %while.body.i147, %cleanup141.thread
@@ -12727,10 +12726,7 @@ for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %dataCount to i64
   br label %for.body
 
-for.cond3.preheader:                              ; preds = %for.body
-  br i1 %cmp22, label %for.body5.preheader, label %for.end15
-
-for.body5.preheader:                              ; preds = %for.cond3.preheader
+for.body5.preheader:                              ; preds = %for.body
   %wide.trip.count37 = zext nneg i32 %dataCount to i64
   br label %for.body5
 
@@ -12746,7 +12742,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %spec.select19 = select i1 %cmp2, i32 %0, i32 %bestMatch.025
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.body5.preheader, label %for.body, !llvm.loop !35
 
 for.body5:                                        ; preds = %for.body5.preheader, %for.body5
   %indvars.iv34 = phi i64 [ 0, %for.body5.preheader ], [ %indvars.iv.next35, %for.body5 ]
@@ -12762,10 +12758,8 @@ for.body5:                                        ; preds = %for.body5.preheader
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %for.end15, label %for.body5, !llvm.loop !36
 
-for.end15:                                        ; preds = %for.body5, %for.cond3.preheader
-  %bestMatchLength.2.lcssa = phi i32 [ %spec.select, %for.cond3.preheader ], [ %spec.select20, %for.body5 ]
-  %bestMatch.2.lcssa = phi i32 [ %spec.select19, %for.cond3.preheader ], [ %spec.select21, %for.body5 ]
-  %cmp16 = icmp sgt i32 %bestMatch.2.lcssa, -1
+for.end15:                                        ; preds = %for.body5
+  %cmp16 = icmp sgt i32 %spec.select21, -1
   br i1 %cmp16, label %if.then17, label %if.end23
 
 if.then17:                                        ; preds = %for.end15
@@ -12775,11 +12769,11 @@ if.then17:                                        ; preds = %for.end15
   %call18 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(618) %cal)
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call18, ptr noundef nonnull dereferenceable(7) @.str.16) #24
   %tobool = icmp eq i32 %call19, 0
-  %cmp20 = icmp eq i32 %bestMatch.2.lcssa, 13
+  %cmp20 = icmp eq i32 %spec.select21, 13
   %or.cond = and i1 %tobool, %cmp20
-  %.bestMatch.2.lcssa = select i1 %or.cond, i32 6, i32 %bestMatch.2.lcssa
+  %.bestMatch.2.lcssa = select i1 %or.cond, i32 6, i32 %spec.select21
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef 2, i32 noundef %.bestMatch.2.lcssa)
-  %add = add nsw i32 %bestMatchLength.2.lcssa, %start
+  %add = add nsw i32 %spec.select20, %start
   br label %return
 
 if.end23:                                         ; preds = %entry, %for.end15

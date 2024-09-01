@@ -262,9 +262,6 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
 
 .loopexit98:                                      ; preds = %.lr.ph.i.i.i.i.i64
   store ptr %62, ptr %58, align 8
-  br i1 %.not.i.i.i.i62, label %.preheader95, label %.lr.ph104
-
-.lr.ph104:                                        ; preds = %.loopexit98
   %63 = getelementptr inbounds i8, ptr %9, i64 208
   %64 = getelementptr inbounds i8, ptr %9, i64 112
   %65 = getelementptr inbounds i8, ptr %9, i64 16
@@ -272,9 +269,9 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %85
 
-.preheader95:                                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %.loopexit98.thread, %.loopexit98
-  %.0.lcssa.i.i.i.i.i68138 = phi ptr [ null, %.loopexit98.thread ], [ %62, %.loopexit98 ], [ %62, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
-  %.pr.i137 = phi ptr [ null, %.loopexit98.thread ], [ %57, %.loopexit98 ], [ %57, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+.preheader95:                                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %.loopexit98.thread
+  %.0.lcssa.i.i.i.i.i68138 = phi ptr [ null, %.loopexit98.thread ], [ %62, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+  %.pr.i137 = phi ptr [ null, %.loopexit98.thread ], [ %57, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
@@ -303,8 +300,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
   %wide.trip.count131 = zext nneg i32 %84 to i64
   br label %96
 
-85:                                               ; preds = %.lr.ph104, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+85:                                               ; preds = %.loopexit98, %_ZN2cv3MataSERKNS_7MatExprE.exit
+  %indvars.iv = phi i64 [ 0, %.loopexit98 ], [ %indvars.iv.next, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   invoke void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, i32 noundef 3, i32 noundef 3, i32 noundef 5)
           to label %86 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

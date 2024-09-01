@@ -3697,11 +3697,11 @@ define dso_local zeroext i1 @io_match_task_safe(ptr noundef readonly %0, ptr nou
   %30 = phi ptr [ %32, %25 ], [ %0, %21 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 192
   %32 = load ptr, ptr %31, align 8
-  %.not8.not = icmp ne ptr %32, null
-  br i1 %.not8.not, label %25, label %.loopexit12, !llvm.loop !45
+  %.not8.not.not = icmp ne ptr %32, null
+  br i1 %.not8.not.not, label %25, label %.loopexit12, !llvm.loop !45
 
 .loopexit12:                                      ; preds = %.preheader11, %25, %21, %17
-  %33 = phi i1 [ false, %17 ], [ true, %21 ], [ %.not8.not, %25 ], [ %.not8.not, %.preheader11 ]
+  %33 = phi i1 [ false, %17 ], [ true, %21 ], [ %.not8.not.not, %25 ], [ %.not8.not.not, %.preheader11 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef %20) #24
   br label %.loopexit
 
@@ -3725,11 +3725,11 @@ define dso_local zeroext i1 @io_match_task_safe(ptr noundef readonly %0, ptr nou
   %43 = phi ptr [ %45, %38 ], [ %0, %35 ]
   %44 = getelementptr inbounds i8, ptr %43, i64 192
   %45 = load ptr, ptr %44, align 8
-  %.not10.not = icmp ne ptr %45, null
-  br i1 %.not10.not, label %38, label %.loopexit, !llvm.loop !45
+  %.not10.not.not = icmp ne ptr %45, null
+  br i1 %.not10.not.not, label %38, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %38, %35, %34, %.loopexit12, %11, %5
-  %46 = phi i1 [ %10, %5 ], [ true, %11 ], [ %33, %.loopexit12 ], [ false, %34 ], [ true, %35 ], [ %.not10.not, %38 ], [ %.not10.not, %.preheader ]
+  %46 = phi i1 [ %10, %5 ], [ true, %11 ], [ %33, %.loopexit12 ], [ false, %34 ], [ true, %35 ], [ %.not10.not.not, %38 ], [ %.not10.not.not, %.preheader ]
   ret i1 %46
 }
 
@@ -12574,11 +12574,11 @@ define internal zeroext i1 @io_cancel_task_cb(ptr noundef readonly %0, ptr nocap
   %34 = phi ptr [ %36, %29 ], [ %3, %25 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 192
   %36 = load ptr, ptr %35, align 8
-  %.not8.not = icmp ne ptr %36, null
-  br i1 %.not8.not, label %29, label %.loopexit12, !llvm.loop !45
+  %.not8.not.not = icmp ne ptr %36, null
+  br i1 %.not8.not.not, label %29, label %.loopexit12, !llvm.loop !45
 
 .loopexit12:                                      ; preds = %.preheader11, %29, %25, %21
-  %37 = phi i1 [ false, %21 ], [ true, %25 ], [ %.not8.not, %29 ], [ %.not8.not, %.preheader11 ]
+  %37 = phi i1 [ false, %21 ], [ true, %25 ], [ %.not8.not.not, %29 ], [ %.not8.not.not, %.preheader11 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef %24) #24
   br label %.loopexit
 
@@ -12602,11 +12602,11 @@ define internal zeroext i1 @io_cancel_task_cb(ptr noundef readonly %0, ptr nocap
   %47 = phi ptr [ %49, %42 ], [ %3, %39 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 192
   %49 = load ptr, ptr %48, align 8
-  %.not10.not = icmp ne ptr %49, null
-  br i1 %.not10.not, label %42, label %.loopexit, !llvm.loop !45
+  %.not10.not.not = icmp ne ptr %49, null
+  br i1 %.not10.not.not, label %42, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %42, %39, %38, %.loopexit12, %15, %9
-  %50 = phi i1 [ %14, %9 ], [ true, %15 ], [ %37, %.loopexit12 ], [ false, %38 ], [ true, %39 ], [ %.not10.not, %42 ], [ %.not10.not, %.preheader ]
+  %50 = phi i1 [ %14, %9 ], [ true, %15 ], [ %37, %.loopexit12 ], [ false, %38 ], [ true, %39 ], [ %.not10.not.not, %42 ], [ %.not10.not.not, %.preheader ]
   ret i1 %50
 }
 

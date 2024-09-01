@@ -166,7 +166,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %28 = alloca [1024 x i8], align 16
   store ptr null, ptr %16, align 8
   %29 = and i32 %6, 1
-  %.not396 = icmp eq i32 %29, 0
+  %.not100 = icmp eq i32 %29, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store i8 0, ptr %15, align 16
   %30 = icmp slt i32 %5, 1
@@ -192,17 +192,17 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %41 = getelementptr inbounds i8, ptr %36, i64 24
   %42 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %41, i64 noundef 4, ptr noundef nonnull @.str.2, i64 noundef 4) #15
   %.not2727 = icmp eq i32 %42, 0
-  br i1 %.not2727, label %71, label %._crit_edge233
+  br i1 %.not2727, label %71, label %._crit_edge234
 
-._crit_edge233:                                   ; preds = %40
+._crit_edge234:                                   ; preds = %40
   %.pre = load ptr, ptr %33, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre234 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre235 = load i64, ptr %.phi.trans.insert, align 8
   br label %43
 
-43:                                               ; preds = %._crit_edge233, %35
-  %44 = phi i64 [ %.pre234, %._crit_edge233 ], [ %38, %35 ]
-  %45 = phi ptr [ %.pre, %._crit_edge233 ], [ %36, %35 ]
+43:                                               ; preds = %._crit_edge234, %35
+  %44 = phi i64 [ %.pre235, %._crit_edge234 ], [ %38, %35 ]
+  %45 = phi ptr [ %.pre, %._crit_edge234 ], [ %36, %35 ]
   %46 = icmp eq i64 %44, 5
   br i1 %46, label %47, label %50
 
@@ -540,14 +540,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 217:                                              ; preds = %209, %211
   %.02511 = phi i64 [ 8, %209 ], [ %214, %211 ]
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %.02511) #15
-  %.pre235 = load ptr, ptr %19, align 8
-  %.phi.trans.insert236 = getelementptr inbounds i8, ptr %.pre235, i64 16
-  %.pre237 = load i64, ptr %.phi.trans.insert236, align 8
+  %.pre236 = load ptr, ptr %19, align 8
+  %.phi.trans.insert237 = getelementptr inbounds i8, ptr %.pre236, i64 16
+  %.pre238 = load i64, ptr %.phi.trans.insert237, align 8
   br label %218
 
 218:                                              ; preds = %211, %217
-  %219 = phi i64 [ %.pre237, %217 ], [ %213, %211 ]
-  %220 = phi ptr [ %.pre235, %217 ], [ %210, %211 ]
+  %219 = phi i64 [ %.pre238, %217 ], [ %213, %211 ]
+  %220 = phi ptr [ %.pre236, %217 ], [ %210, %211 ]
   %.12512 = phi i64 [ %.02511, %217 ], [ %214, %211 ]
   %221 = getelementptr inbounds i8, ptr %220, i64 24
   %222 = getelementptr inbounds i8, ptr %221, i64 %219
@@ -567,14 +567,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 232:                                              ; preds = %218
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %229) #15
-  %.pre238 = load ptr, ptr %19, align 8
-  %.phi.trans.insert239 = getelementptr inbounds i8, ptr %.pre238, i64 16
-  %.pre240 = load i64, ptr %.phi.trans.insert239, align 8
+  %.pre239 = load ptr, ptr %19, align 8
+  %.phi.trans.insert240 = getelementptr inbounds i8, ptr %.pre239, i64 16
+  %.pre241 = load i64, ptr %.phi.trans.insert240, align 8
   br label %233
 
 233:                                              ; preds = %218, %232
-  %234 = phi i64 [ %.12512, %218 ], [ %.pre240, %232 ]
-  %235 = phi ptr [ %223, %218 ], [ %.pre238, %232 ]
+  %234 = phi i64 [ %.12512, %218 ], [ %.pre241, %232 ]
+  %235 = phi ptr [ %223, %218 ], [ %.pre239, %232 ]
   %236 = getelementptr inbounds i8, ptr %235, i64 24
   %237 = getelementptr inbounds i8, ptr %236, i64 %234
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %237, ptr nonnull align 1 %227, i64 %228, i1 false)
@@ -588,11 +588,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 242:                                              ; preds = %233
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %240) #15
-  %.pre241 = load ptr, ptr %19, align 8
+  %.pre242 = load ptr, ptr %19, align 8
   br label %243
 
 243:                                              ; preds = %242, %233
-  %244 = phi ptr [ %.pre241, %242 ], [ %238, %233 ]
+  %244 = phi ptr [ %.pre242, %242 ], [ %238, %233 ]
   %245 = getelementptr inbounds i8, ptr %244, i64 24
   %246 = getelementptr inbounds [1 x i8], ptr %245, i64 0, i64 %229
   store i8 58, ptr %246, align 1
@@ -635,14 +635,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 267:                                              ; preds = %259, %263
   %.02380 = phi i64 [ %262, %259 ], [ %265, %263 ]
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %.02380) #15
-  %.pre242 = load ptr, ptr %19, align 8
-  %.phi.trans.insert243 = getelementptr inbounds i8, ptr %.pre242, i64 16
-  %.pre244 = load i64, ptr %.phi.trans.insert243, align 8
+  %.pre243 = load ptr, ptr %19, align 8
+  %.phi.trans.insert244 = getelementptr inbounds i8, ptr %.pre243, i64 16
+  %.pre245 = load i64, ptr %.phi.trans.insert244, align 8
   br label %268
 
 268:                                              ; preds = %263, %267
-  %269 = phi i64 [ %.pre244, %267 ], [ %264, %263 ]
-  %270 = phi ptr [ %.pre242, %267 ], [ %247, %263 ]
+  %269 = phi i64 [ %.pre245, %267 ], [ %264, %263 ]
+  %270 = phi ptr [ %.pre243, %267 ], [ %247, %263 ]
   %.12381 = phi i64 [ %.02380, %267 ], [ %265, %263 ]
   %271 = getelementptr inbounds i8, ptr %270, i64 24
   %272 = getelementptr inbounds i8, ptr %271, i64 %269
@@ -657,14 +657,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 277:                                              ; preds = %268
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %275) #15
-  %.pre245 = load ptr, ptr %19, align 8
-  %.phi.trans.insert246 = getelementptr inbounds i8, ptr %.pre245, i64 16
-  %.pre247 = load i64, ptr %.phi.trans.insert246, align 8
+  %.pre246 = load ptr, ptr %19, align 8
+  %.phi.trans.insert247 = getelementptr inbounds i8, ptr %.pre246, i64 16
+  %.pre248 = load i64, ptr %.phi.trans.insert247, align 8
   br label %278
 
 278:                                              ; preds = %277, %268
-  %279 = phi i64 [ %.pre247, %277 ], [ %.12381, %268 ]
-  %280 = phi ptr [ %.pre245, %277 ], [ %273, %268 ]
+  %279 = phi i64 [ %.pre248, %277 ], [ %.12381, %268 ]
+  %280 = phi ptr [ %.pre246, %277 ], [ %273, %268 ]
   %281 = getelementptr inbounds i8, ptr %280, i64 24
   %282 = getelementptr inbounds i8, ptr %281, i64 %279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %282, ptr noundef nonnull align 1 dereferenceable(11) @.str.14, i64 11, i1 false)
@@ -676,12 +676,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 285:                                              ; preds = %278
   %286 = call ptr @php_stream_context_get_option(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #15
   %.not2755 = icmp eq ptr %286, null
-  br i1 %.not2755, label %.loopexit110, label %287
+  br i1 %.not2755, label %.loopexit111, label %287
 
 287:                                              ; preds = %285
   %288 = getelementptr inbounds i8, ptr %286, i64 8
   %289 = load i8, ptr %288, align 8
-  switch i8 %289, label %.loopexit110 [
+  switch i8 %289, label %.loopexit111 [
     i8 7, label %290
     i8 6, label %358
   ]
@@ -697,46 +697,46 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %298 = xor i32 %297, 16
   %narrow = add nuw nsw i32 %298, 16
   %299 = zext nneg i32 %narrow to i64
-  %.not2772133 = icmp eq i32 %293, 0
-  br i1 %.not2772133, label %.loopexit110, label %.lr.ph.preheader
+  %.not2772134 = icmp eq i32 %293, 0
+  br i1 %.not2772134, label %.loopexit111, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %290
   %300 = getelementptr inbounds i8, ptr %291, i64 16
   %301 = load ptr, ptr %300, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit107
-  %.02402135 = phi ptr [ %356, %.loopexit107 ], [ %301, %.lr.ph.preheader ]
-  %.02405134 = phi i32 [ %357, %.loopexit107 ], [ %293, %.lr.ph.preheader ]
-  %302 = getelementptr inbounds i8, ptr %.02402135, i64 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit108
+  %.02402136 = phi ptr [ %356, %.loopexit108 ], [ %301, %.lr.ph.preheader ]
+  %.02405135 = phi i32 [ %357, %.loopexit108 ], [ %293, %.lr.ph.preheader ]
+  %302 = getelementptr inbounds i8, ptr %.02402136, i64 8
   %303 = load i8, ptr %302, align 8
   %cond3010 = icmp eq i8 %303, 6
-  br i1 %cond3010, label %304, label %.loopexit107
+  br i1 %cond3010, label %304, label %.loopexit108
 
 304:                                              ; preds = %.lr.ph
-  %305 = load ptr, ptr %.02402135, align 8
+  %305 = load ptr, ptr %.02402136, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 24
-  br label %.loopexit106
+  br label %.loopexit107
 
-.loopexit106:                                     ; preds = %.loopexit106.backedge, %304
-  %.12411 = phi ptr [ %306, %304 ], [ %.12411.be, %.loopexit106.backedge ]
+.loopexit107:                                     ; preds = %.loopexit107.backedge, %304
+  %.12411 = phi ptr [ %306, %304 ], [ %.12411.be, %.loopexit107.backedge ]
   %307 = load i8, ptr %.12411, align 1
-  switch i8 %307, label %.preheader108 [
+  switch i8 %307, label %.preheader109 [
     i8 32, label %.critedge
     i8 9, label %.critedge
   ]
 
-.critedge:                                        ; preds = %.loopexit106, %.loopexit106
+.critedge:                                        ; preds = %.loopexit107, %.loopexit107
   %308 = getelementptr inbounds i8, ptr %.12411, i64 1
-  br label %.loopexit106.backedge
+  br label %.loopexit107.backedge
 
-.loopexit106.backedge:                            ; preds = %.critedge9, %.critedge
+.loopexit107.backedge:                            ; preds = %.critedge9, %.critedge
   %.12411.be = phi ptr [ %308, %.critedge ], [ %.22412, %.critedge9 ]
-  br label %.loopexit106
+  br label %.loopexit107
 
-.preheader108:                                    ; preds = %.loopexit106, %310
-  %309 = phi i8 [ %.pr, %310 ], [ %307, %.loopexit106 ]
-  %.02408 = phi ptr [ %311, %310 ], [ %.12411, %.loopexit106 ]
+.preheader109:                                    ; preds = %.loopexit107, %310
+  %309 = phi i8 [ %.pr, %310 ], [ %307, %.loopexit107 ]
+  %.02408 = phi ptr [ %311, %310 ], [ %.12411, %.loopexit107 ]
   switch i8 %309, label %310 [
     i8 58, label %312
     i8 0, label %.critedge9.preheader
@@ -744,12 +744,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 13, label %.critedge9.preheader
   ]
 
-310:                                              ; preds = %.preheader108
+310:                                              ; preds = %.preheader109
   %311 = getelementptr inbounds i8, ptr %.02408, i64 1
   %.pr = load i8, ptr %311, align 1
-  br label %.preheader108
+  br label %.preheader109
 
-312:                                              ; preds = %.preheader108
+312:                                              ; preds = %.preheader109
   %313 = getelementptr inbounds i8, ptr %.02408, i64 1
   %314 = ptrtoint ptr %313 to i64
   %315 = ptrtoint ptr %.12411 to i64
@@ -763,9 +763,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 318:                                              ; preds = %312
   %319 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.12411, i64 noundef 20, ptr noundef nonnull @.str.16, i64 noundef 20) #15
   %320 = icmp eq i32 %319, 0
-  br i1 %320, label %.preheader105, label %.preheader498
+  br i1 %320, label %.preheader106, label %.preheader498
 
-.preheader105:                                    ; preds = %318, %322
+.preheader106:                                    ; preds = %318, %322
   %.2 = phi ptr [ %323, %322 ], [ %313, %318 ]
   %321 = load i8, ptr %.2, align 1
   switch i8 %321, label %322 [
@@ -774,11 +774,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 10, label %.critedge7
   ]
 
-322:                                              ; preds = %.preheader105
+322:                                              ; preds = %.preheader106
   %323 = getelementptr inbounds i8, ptr %.2, i64 1
-  br label %.preheader105
+  br label %.preheader106
 
-.critedge7:                                       ; preds = %.preheader105, %.preheader105, %.preheader105
+.critedge7:                                       ; preds = %.preheader106, %.preheader106, %.preheader106
   %324 = ptrtoint ptr %.2 to i64
   %325 = sub i64 %324, %315
   %326 = load ptr, ptr %19, align 8
@@ -796,14 +796,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 332:                                              ; preds = %.critedge7, %327
   %.02515 = phi i64 [ %325, %.critedge7 ], [ %330, %327 ]
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %.02515) #15
-  %.pre256 = load ptr, ptr %19, align 8
-  %.phi.trans.insert257 = getelementptr inbounds i8, ptr %.pre256, i64 16
-  %.pre258 = load i64, ptr %.phi.trans.insert257, align 8
+  %.pre257 = load ptr, ptr %19, align 8
+  %.phi.trans.insert258 = getelementptr inbounds i8, ptr %.pre257, i64 16
+  %.pre259 = load i64, ptr %.phi.trans.insert258, align 8
   br label %333
 
 333:                                              ; preds = %327, %332
-  %334 = phi i64 [ %.pre258, %332 ], [ %329, %327 ]
-  %335 = phi ptr [ %.pre256, %332 ], [ %326, %327 ]
+  %334 = phi i64 [ %.pre259, %332 ], [ %329, %327 ]
+  %335 = phi ptr [ %.pre257, %332 ], [ %326, %327 ]
   %.12516 = phi i64 [ %.02515, %332 ], [ %330, %327 ]
   %336 = getelementptr inbounds i8, ptr %335, i64 24
   %337 = getelementptr inbounds i8, ptr %336, i64 %334
@@ -818,14 +818,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 342:                                              ; preds = %333
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %340) #15
-  %.pre259 = load ptr, ptr %19, align 8
-  %.phi.trans.insert260 = getelementptr inbounds i8, ptr %.pre259, i64 16
-  %.pre261 = load i64, ptr %.phi.trans.insert260, align 8
+  %.pre260 = load ptr, ptr %19, align 8
+  %.phi.trans.insert261 = getelementptr inbounds i8, ptr %.pre260, i64 16
+  %.pre262 = load i64, ptr %.phi.trans.insert261, align 8
   br label %343
 
 343:                                              ; preds = %342, %333
-  %344 = phi i64 [ %.pre261, %342 ], [ %.12516, %333 ]
-  %345 = phi ptr [ %.pre259, %342 ], [ %338, %333 ]
+  %344 = phi i64 [ %.pre262, %342 ], [ %.12516, %333 ]
+  %345 = phi ptr [ %.pre260, %342 ], [ %338, %333 ]
   %346 = getelementptr inbounds i8, ptr %345, i64 24
   %347 = getelementptr inbounds i8, ptr %346, i64 %344
   store i16 2573, ptr %347, align 1
@@ -843,9 +843,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 10, label %.critedge9.preheader
   ]
 
-.critedge9.preheader:                             ; preds = %.preheader108, %.preheader108, %.preheader108, %350, %350, %350
-  %.ph = phi i8 [ %351, %350 ], [ %351, %350 ], [ %351, %350 ], [ %309, %.preheader108 ], [ %309, %.preheader108 ], [ %309, %.preheader108 ]
-  %.22412.ph = phi ptr [ %.3, %350 ], [ %.3, %350 ], [ %.3, %350 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ], [ %.02408, %.preheader108 ]
+.critedge9.preheader:                             ; preds = %.preheader109, %.preheader109, %.preheader109, %350, %350, %350
+  %.ph = phi i8 [ %351, %350 ], [ %351, %350 ], [ %351, %350 ], [ %309, %.preheader109 ], [ %309, %.preheader109 ], [ %309, %.preheader109 ]
+  %.22412.ph = phi ptr [ %.3, %350 ], [ %.3, %350 ], [ %.3, %350 ], [ %.02408, %.preheader109 ], [ %.02408, %.preheader109 ], [ %.02408, %.preheader109 ]
   br label %.critedge9
 
 352:                                              ; preds = %350
@@ -853,55 +853,55 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %350
 
 .critedge9:                                       ; preds = %.critedge9.preheader, %.critedge11
-  %354 = phi i8 [ %.pre255, %.critedge11 ], [ %.ph, %.critedge9.preheader ]
+  %354 = phi i8 [ %.pre256, %.critedge11 ], [ %.ph, %.critedge9.preheader ]
   %.22412 = phi ptr [ %355, %.critedge11 ], [ %.22412.ph, %.critedge9.preheader ]
-  switch i8 %354, label %.loopexit106.backedge [
+  switch i8 %354, label %.loopexit107.backedge [
     i8 13, label %.critedge11
     i8 10, label %.critedge11
-    i8 0, label %.loopexit107
+    i8 0, label %.loopexit108
   ]
 
 .critedge11:                                      ; preds = %.critedge9, %.critedge9
   %355 = getelementptr inbounds i8, ptr %.22412, i64 1
-  %.pre255 = load i8, ptr %355, align 1
+  %.pre256 = load i8, ptr %355, align 1
   br label %.critedge9
 
-.loopexit107:                                     ; preds = %.critedge9, %.lr.ph
-  %356 = getelementptr inbounds i8, ptr %.02402135, i64 %299
-  %357 = add i32 %.02405134, -1
+.loopexit108:                                     ; preds = %.critedge9, %.lr.ph
+  %356 = getelementptr inbounds i8, ptr %.02402136, i64 %299
+  %357 = add i32 %.02405135, -1
   %.not2772 = icmp eq i32 %357, 0
-  br i1 %.not2772, label %.loopexit110, label %.lr.ph
+  br i1 %.not2772, label %.loopexit111, label %.lr.ph
 
 358:                                              ; preds = %287
   %359 = load ptr, ptr %286, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 16
   %361 = load i64, ptr %360, align 8
   %.not2756 = icmp eq i64 %361, 0
-  br i1 %.not2756, label %.loopexit110, label %362
+  br i1 %.not2756, label %.loopexit111, label %362
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds i8, ptr %359, i64 24
-  br label %.loopexit112
+  br label %.loopexit113
 
-.loopexit112:                                     ; preds = %.loopexit112.backedge, %362
-  %.42414 = phi ptr [ %363, %362 ], [ %.42414.be, %.loopexit112.backedge ]
+.loopexit113:                                     ; preds = %.loopexit113.backedge, %362
+  %.42414 = phi ptr [ %363, %362 ], [ %.42414.be, %.loopexit113.backedge ]
   %364 = load i8, ptr %.42414, align 1
-  switch i8 %364, label %.preheader114 [
+  switch i8 %364, label %.preheader115 [
     i8 32, label %.critedge13
     i8 9, label %.critedge13
   ]
 
-.critedge13:                                      ; preds = %.loopexit112, %.loopexit112
+.critedge13:                                      ; preds = %.loopexit113, %.loopexit113
   %365 = getelementptr inbounds i8, ptr %.42414, i64 1
-  br label %.loopexit112.backedge
+  br label %.loopexit113.backedge
 
-.loopexit112.backedge:                            ; preds = %.critedge19, %.critedge13
+.loopexit113.backedge:                            ; preds = %.critedge19, %.critedge13
   %.42414.be = phi ptr [ %365, %.critedge13 ], [ %.52415, %.critedge19 ]
-  br label %.loopexit112
+  br label %.loopexit113
 
-.preheader114:                                    ; preds = %.loopexit112, %367
-  %366 = phi i8 [ %.pr14, %367 ], [ %364, %.loopexit112 ]
-  %.4 = phi ptr [ %368, %367 ], [ %.42414, %.loopexit112 ]
+.preheader115:                                    ; preds = %.loopexit113, %367
+  %366 = phi i8 [ %.pr14, %367 ], [ %364, %.loopexit113 ]
+  %.4 = phi ptr [ %368, %367 ], [ %.42414, %.loopexit113 ]
   switch i8 %366, label %367 [
     i8 58, label %369
     i8 0, label %.critedge19.preheader
@@ -909,12 +909,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 13, label %.critedge19.preheader
   ]
 
-367:                                              ; preds = %.preheader114
+367:                                              ; preds = %.preheader115
   %368 = getelementptr inbounds i8, ptr %.4, i64 1
   %.pr14 = load i8, ptr %368, align 1
-  br label %.preheader114
+  br label %.preheader115
 
-369:                                              ; preds = %.preheader114
+369:                                              ; preds = %.preheader115
   %370 = getelementptr inbounds i8, ptr %.4, i64 1
   %371 = ptrtoint ptr %370 to i64
   %372 = ptrtoint ptr %.42414 to i64
@@ -928,9 +928,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 375:                                              ; preds = %369
   %376 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.42414, i64 noundef 20, ptr noundef nonnull @.str.16, i64 noundef 20) #15
   %377 = icmp eq i32 %376, 0
-  br i1 %377, label %.preheader111, label %.preheader510
+  br i1 %377, label %.preheader112, label %.preheader510
 
-.preheader111:                                    ; preds = %375, %379
+.preheader112:                                    ; preds = %375, %379
   %.6 = phi ptr [ %380, %379 ], [ %370, %375 ]
   %378 = load i8, ptr %.6, align 1
   switch i8 %378, label %379 [
@@ -939,11 +939,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 10, label %.critedge17
   ]
 
-379:                                              ; preds = %.preheader111
+379:                                              ; preds = %.preheader112
   %380 = getelementptr inbounds i8, ptr %.6, i64 1
-  br label %.preheader111
+  br label %.preheader112
 
-.critedge17:                                      ; preds = %.preheader111, %.preheader111, %.preheader111
+.critedge17:                                      ; preds = %.preheader112, %.preheader112, %.preheader112
   %381 = ptrtoint ptr %.6 to i64
   %382 = sub i64 %381, %372
   %383 = load ptr, ptr %19, align 8
@@ -961,14 +961,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 389:                                              ; preds = %.critedge17, %384
   %.02519 = phi i64 [ %382, %.critedge17 ], [ %387, %384 ]
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %.02519) #15
-  %.pre249 = load ptr, ptr %19, align 8
-  %.phi.trans.insert250 = getelementptr inbounds i8, ptr %.pre249, i64 16
-  %.pre251 = load i64, ptr %.phi.trans.insert250, align 8
+  %.pre250 = load ptr, ptr %19, align 8
+  %.phi.trans.insert251 = getelementptr inbounds i8, ptr %.pre250, i64 16
+  %.pre252 = load i64, ptr %.phi.trans.insert251, align 8
   br label %390
 
 390:                                              ; preds = %384, %389
-  %391 = phi i64 [ %.pre251, %389 ], [ %386, %384 ]
-  %392 = phi ptr [ %.pre249, %389 ], [ %383, %384 ]
+  %391 = phi i64 [ %.pre252, %389 ], [ %386, %384 ]
+  %392 = phi ptr [ %.pre250, %389 ], [ %383, %384 ]
   %.12520 = phi i64 [ %.02519, %389 ], [ %387, %384 ]
   %393 = getelementptr inbounds i8, ptr %392, i64 24
   %394 = getelementptr inbounds i8, ptr %393, i64 %391
@@ -983,14 +983,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 399:                                              ; preds = %390
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %397) #15
-  %.pre252 = load ptr, ptr %19, align 8
-  %.phi.trans.insert253 = getelementptr inbounds i8, ptr %.pre252, i64 16
-  %.pre254 = load i64, ptr %.phi.trans.insert253, align 8
+  %.pre253 = load ptr, ptr %19, align 8
+  %.phi.trans.insert254 = getelementptr inbounds i8, ptr %.pre253, i64 16
+  %.pre255 = load i64, ptr %.phi.trans.insert254, align 8
   br label %400
 
 400:                                              ; preds = %399, %390
-  %401 = phi i64 [ %.pre254, %399 ], [ %.12520, %390 ]
-  %402 = phi ptr [ %.pre252, %399 ], [ %395, %390 ]
+  %401 = phi i64 [ %.pre255, %399 ], [ %.12520, %390 ]
+  %402 = phi ptr [ %.pre253, %399 ], [ %395, %390 ]
   %403 = getelementptr inbounds i8, ptr %402, i64 24
   %404 = getelementptr inbounds i8, ptr %403, i64 %401
   store i16 2573, ptr %404, align 1
@@ -1008,9 +1008,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
     i8 10, label %.critedge19.preheader
   ]
 
-.critedge19.preheader:                            ; preds = %.preheader114, %.preheader114, %.preheader114, %407, %407, %407
-  %.ph508 = phi i8 [ %408, %407 ], [ %408, %407 ], [ %408, %407 ], [ %366, %.preheader114 ], [ %366, %.preheader114 ], [ %366, %.preheader114 ]
-  %.52415.ph = phi ptr [ %.7, %407 ], [ %.7, %407 ], [ %.7, %407 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ], [ %.4, %.preheader114 ]
+.critedge19.preheader:                            ; preds = %.preheader115, %.preheader115, %.preheader115, %407, %407, %407
+  %.ph508 = phi i8 [ %408, %407 ], [ %408, %407 ], [ %408, %407 ], [ %366, %.preheader115 ], [ %366, %.preheader115 ], [ %366, %.preheader115 ]
+  %.52415.ph = phi ptr [ %.7, %407 ], [ %.7, %407 ], [ %.7, %407 ], [ %.4, %.preheader115 ], [ %.4, %.preheader115 ], [ %.4, %.preheader115 ]
   br label %.critedge19
 
 409:                                              ; preds = %407
@@ -1018,48 +1018,48 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %407
 
 .critedge19:                                      ; preds = %.critedge19.preheader, %.critedge21
-  %411 = phi i8 [ %.pre248, %.critedge21 ], [ %.ph508, %.critedge19.preheader ]
+  %411 = phi i8 [ %.pre249, %.critedge21 ], [ %.ph508, %.critedge19.preheader ]
   %.52415 = phi ptr [ %412, %.critedge21 ], [ %.52415.ph, %.critedge19.preheader ]
-  switch i8 %411, label %.loopexit112.backedge [
+  switch i8 %411, label %.loopexit113.backedge [
     i8 13, label %.critedge21
     i8 10, label %.critedge21
-    i8 0, label %.loopexit110
+    i8 0, label %.loopexit111
   ]
 
 .critedge21:                                      ; preds = %.critedge19, %.critedge19
   %412 = getelementptr inbounds i8, ptr %.52415, i64 1
-  %.pre248 = load i8, ptr %412, align 1
+  %.pre249 = load i8, ptr %412, align 1
   br label %.critedge19
 
-.loopexit110:                                     ; preds = %.critedge19, %.loopexit107, %290, %287, %285, %358
+.loopexit111:                                     ; preds = %.critedge19, %.loopexit108, %290, %287, %285, %358
   %.pr15 = load ptr, ptr %19, align 8
   %.not2788 = icmp eq ptr %.pr15, null
-  br i1 %.not2788, label %417, label %.loopexit110..thread17_crit_edge
+  br i1 %.not2788, label %417, label %.loopexit111..thread17_crit_edge
 
-.loopexit110..thread17_crit_edge:                 ; preds = %.loopexit110
-  %.phi.trans.insert262 = getelementptr inbounds i8, ptr %.pr15, i64 16
-  %.pre263 = load i64, ptr %.phi.trans.insert262, align 8
+.loopexit111..thread17_crit_edge:                 ; preds = %.loopexit111
+  %.phi.trans.insert263 = getelementptr inbounds i8, ptr %.pr15, i64 16
+  %.pre264 = load i64, ptr %.phi.trans.insert263, align 8
   br label %.thread17
 
-.thread17:                                        ; preds = %.loopexit110..thread17_crit_edge, %343, %400, %278
-  %413 = phi i64 [ %.pre263, %.loopexit110..thread17_crit_edge ], [ %340, %343 ], [ %397, %400 ], [ %275, %278 ]
-  %414 = phi ptr [ %.pr15, %.loopexit110..thread17_crit_edge ], [ %348, %343 ], [ %405, %400 ], [ %283, %278 ]
+.thread17:                                        ; preds = %.loopexit111..thread17_crit_edge, %343, %400, %278
+  %413 = phi i64 [ %.pre264, %.loopexit111..thread17_crit_edge ], [ %340, %343 ], [ %397, %400 ], [ %275, %278 ]
+  %414 = phi ptr [ %.pr15, %.loopexit111..thread17_crit_edge ], [ %348, %343 ], [ %405, %400 ], [ %283, %278 ]
   %415 = add i64 %413, 2
   %416 = load i64, ptr %230, align 8
   %.not2789 = icmp ult i64 %415, %416
   br i1 %.not2789, label %418, label %417
 
-417:                                              ; preds = %.loopexit110, %.thread17
-  %.02523 = phi i64 [ 2, %.loopexit110 ], [ %415, %.thread17 ]
+417:                                              ; preds = %.loopexit111, %.thread17
+  %.02523 = phi i64 [ 2, %.loopexit111 ], [ %415, %.thread17 ]
   call void @smart_str_erealloc(ptr noundef nonnull %19, i64 noundef %.02523) #15
-  %.pre264 = load ptr, ptr %19, align 8
-  %.phi.trans.insert265 = getelementptr inbounds i8, ptr %.pre264, i64 16
-  %.pre266 = load i64, ptr %.phi.trans.insert265, align 8
+  %.pre265 = load ptr, ptr %19, align 8
+  %.phi.trans.insert266 = getelementptr inbounds i8, ptr %.pre265, i64 16
+  %.pre267 = load i64, ptr %.phi.trans.insert266, align 8
   br label %418
 
 418:                                              ; preds = %417, %.thread17
-  %419 = phi i64 [ %.pre266, %417 ], [ %413, %.thread17 ]
-  %420 = phi ptr [ %.pre264, %417 ], [ %414, %.thread17 ]
+  %419 = phi i64 [ %.pre267, %417 ], [ %413, %.thread17 ]
+  %420 = phi ptr [ %.pre265, %417 ], [ %414, %.thread17 ]
   %.12524 = phi i64 [ %.02523, %417 ], [ %415, %.thread17 ]
   %421 = getelementptr inbounds i8, ptr %420, i64 24
   %422 = getelementptr inbounds i8, ptr %421, i64 %419
@@ -1111,22 +1111,22 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 442:                                              ; preds = %.thread20, %441, %436
   %.not2793 = icmp eq ptr %.1247123, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  br i1 %.not2793, label %.critedge2997.thread, label %.preheader104
+  br i1 %.not2793, label %.critedge2997.thread, label %.preheader105
 
-.preheader104:                                    ; preds = %442, %444
+.preheader105:                                    ; preds = %442, %444
   %443 = call ptr @_php_stream_get_line(ptr noundef nonnull %.1247123, ptr noundef nonnull %20, i64 noundef 1023, ptr noundef null) #15
   %.not2794 = icmp eq ptr %443, null
   br i1 %.not2794, label %446, label %444
 
-444:                                              ; preds = %.preheader104
+444:                                              ; preds = %.preheader105
   %445 = load i8, ptr %20, align 16
-  switch i8 %445, label %.preheader104 [
+  switch i8 %445, label %.preheader105 [
     i8 13, label %446
     i8 10, label %446
     i8 0, label %446
   ]
 
-446:                                              ; preds = %.preheader104, %444, %444, %444
+446:                                              ; preds = %.preheader105, %444, %444, %444
   %447 = call i32 @php_stream_xport_crypto_setup(ptr noundef nonnull %.1247123, i32 noundef 57, ptr noundef null) #15
   %448 = icmp slt i32 %447, 0
   br i1 %448, label %452, label %449
@@ -1175,7 +1175,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %467
 
 467:                                              ; preds = %464, %466
-  br i1 %.not396, label %481, label %468
+  br i1 %.not100, label %481, label %468
 
 468:                                              ; preds = %467
   %469 = call ptr @php_stream_context_get_option(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.19) #15
@@ -1261,14 +1261,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 507:                                              ; preds = %498, %501
   %.02354 = phi i64 [ %490, %498 ], [ %504, %501 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02354) #15
-  %.pre267 = load ptr, ptr %18, align 8
-  %.phi.trans.insert268 = getelementptr inbounds i8, ptr %.pre267, i64 16
-  %.pre269 = load i64, ptr %.phi.trans.insert268, align 8
+  %.pre268 = load ptr, ptr %18, align 8
+  %.phi.trans.insert269 = getelementptr inbounds i8, ptr %.pre268, i64 16
+  %.pre270 = load i64, ptr %.phi.trans.insert269, align 8
   br label %508
 
 508:                                              ; preds = %501, %507
-  %509 = phi i64 [ %.pre269, %507 ], [ %503, %501 ]
-  %510 = phi ptr [ %.pre267, %507 ], [ %500, %501 ]
+  %509 = phi i64 [ %.pre270, %507 ], [ %503, %501 ]
+  %510 = phi ptr [ %.pre268, %507 ], [ %500, %501 ]
   %.12355 = phi i64 [ %.02354, %507 ], [ %504, %501 ]
   %511 = getelementptr inbounds i8, ptr %510, i64 24
   %512 = getelementptr inbounds i8, ptr %511, i64 %509
@@ -1284,11 +1284,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 518:                                              ; preds = %508
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %515) #15
-  %.pre270 = load ptr, ptr %18, align 8
+  %.pre271 = load ptr, ptr %18, align 8
   br label %.critedge2998
 
 .critedge2998:                                    ; preds = %518, %508
-  %519 = phi ptr [ %.pre270, %518 ], [ %513, %508 ]
+  %519 = phi ptr [ %.pre271, %518 ], [ %513, %508 ]
   %520 = getelementptr inbounds i8, ptr %519, i64 24
   %521 = getelementptr inbounds [1 x i8], ptr %520, i64 0, i64 %.12355
   store i8 32, ptr %521, align 1
@@ -1312,14 +1312,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 529:                                              ; preds = %.critedge37, %523
   %.02400 = phi i64 [ 4, %.critedge37 ], [ %526, %523 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02400) #15
-  %.pre271 = load ptr, ptr %18, align 8
-  %.phi.trans.insert272 = getelementptr inbounds i8, ptr %.pre271, i64 16
-  %.pre273 = load i64, ptr %.phi.trans.insert272, align 8
+  %.pre272 = load ptr, ptr %18, align 8
+  %.phi.trans.insert273 = getelementptr inbounds i8, ptr %.pre272, i64 16
+  %.pre274 = load i64, ptr %.phi.trans.insert273, align 8
   br label %530
 
 530:                                              ; preds = %529, %523
-  %531 = phi i64 [ %.pre273, %529 ], [ %525, %523 ]
-  %532 = phi ptr [ %.pre271, %529 ], [ %522, %523 ]
+  %531 = phi i64 [ %.pre274, %529 ], [ %525, %523 ]
+  %532 = phi ptr [ %.pre272, %529 ], [ %522, %523 ]
   %.12401 = phi i64 [ %.02400, %529 ], [ %526, %523 ]
   %533 = getelementptr inbounds i8, ptr %532, i64 24
   %534 = getelementptr inbounds i8, ptr %533, i64 %531
@@ -1371,14 +1371,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 556:                                              ; preds = %547, %550
   %.02403 = phi i64 [ %548, %547 ], [ %553, %550 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02403) #15
-  %.pre285 = load ptr, ptr %18, align 8
-  %.phi.trans.insert286 = getelementptr inbounds i8, ptr %.pre285, i64 16
-  %.pre287 = load i64, ptr %.phi.trans.insert286, align 8
+  %.pre286 = load ptr, ptr %18, align 8
+  %.phi.trans.insert287 = getelementptr inbounds i8, ptr %.pre286, i64 16
+  %.pre288 = load i64, ptr %.phi.trans.insert287, align 8
   br label %557
 
 557:                                              ; preds = %556, %550
-  %558 = phi i64 [ %.pre287, %556 ], [ %552, %550 ]
-  %559 = phi ptr [ %.pre285, %556 ], [ %549, %550 ]
+  %558 = phi i64 [ %.pre288, %556 ], [ %552, %550 ]
+  %559 = phi ptr [ %.pre286, %556 ], [ %549, %550 ]
   %.12404 = phi i64 [ %.02403, %556 ], [ %553, %550 ]
   %560 = getelementptr inbounds i8, ptr %559, i64 24
   %561 = getelementptr inbounds i8, ptr %560, i64 %558
@@ -1389,27 +1389,27 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %563 = getelementptr inbounds i8, ptr %33, i64 40
   %564 = load ptr, ptr %563, align 8
   %.not2810 = icmp eq ptr %564, null
-  br i1 %.not2810, label %._crit_edge277, label %565
+  br i1 %.not2810, label %._crit_edge278, label %565
 
-._crit_edge277:                                   ; preds = %562
-  %.pre278 = load ptr, ptr %18, align 8
+._crit_edge278:                                   ; preds = %562
+  %.pre279 = load ptr, ptr %18, align 8
   br label %583
 
 565:                                              ; preds = %562
   %566 = getelementptr inbounds i8, ptr %564, i64 16
   %567 = load i64, ptr %566, align 8
   %.not2811 = icmp eq i64 %567, 0
-  %.pre279 = load ptr, ptr %18, align 8
+  %.pre280 = load ptr, ptr %18, align 8
   br i1 %.not2811, label %583, label %568
 
 568:                                              ; preds = %565
   %569 = getelementptr inbounds i8, ptr %564, i64 24
   %570 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %569) #16
-  %.not2814 = icmp eq ptr %.pre279, null
+  %.not2814 = icmp eq ptr %.pre280, null
   br i1 %.not2814, label %577, label %571
 
 571:                                              ; preds = %568
-  %572 = getelementptr inbounds i8, ptr %.pre279, i64 16
+  %572 = getelementptr inbounds i8, ptr %.pre280, i64 16
   %573 = load i64, ptr %572, align 8
   %574 = add i64 %573, %570
   %575 = getelementptr inbounds i8, ptr %18, i64 8
@@ -1420,22 +1420,22 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 577:                                              ; preds = %568, %571
   %.02406 = phi i64 [ %570, %568 ], [ %574, %571 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02406) #15
-  %.pre274 = load ptr, ptr %18, align 8
-  %.phi.trans.insert275 = getelementptr inbounds i8, ptr %.pre274, i64 16
-  %.pre276 = load i64, ptr %.phi.trans.insert275, align 8
+  %.pre275 = load ptr, ptr %18, align 8
+  %.phi.trans.insert276 = getelementptr inbounds i8, ptr %.pre275, i64 16
+  %.pre277 = load i64, ptr %.phi.trans.insert276, align 8
   br label %578
 
 578:                                              ; preds = %577, %571
-  %579 = phi i64 [ %.pre276, %577 ], [ %573, %571 ]
-  %580 = phi ptr [ %.pre274, %577 ], [ %.pre279, %571 ]
+  %579 = phi i64 [ %.pre277, %577 ], [ %573, %571 ]
+  %580 = phi ptr [ %.pre275, %577 ], [ %.pre280, %571 ]
   %.12407 = phi i64 [ %.02406, %577 ], [ %574, %571 ]
   %581 = getelementptr inbounds i8, ptr %580, i64 24
   %582 = getelementptr inbounds i8, ptr %581, i64 %579
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %582, ptr nonnull align 1 %569, i64 %570, i1 false)
   br label %597
 
-583:                                              ; preds = %._crit_edge277, %565
-  %584 = phi ptr [ %.pre278, %._crit_edge277 ], [ %.pre279, %565 ]
+583:                                              ; preds = %._crit_edge278, %565
+  %584 = phi ptr [ %.pre279, %._crit_edge278 ], [ %.pre280, %565 ]
   %.not2812 = icmp eq ptr %584, null
   br i1 %.not2812, label %591, label %585
 
@@ -1451,11 +1451,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 591:                                              ; preds = %583, %585
   %.02386 = phi i64 [ 1, %583 ], [ %588, %585 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02386) #15
-  %.pre280 = load ptr, ptr %18, align 8
+  %.pre281 = load ptr, ptr %18, align 8
   br label %592
 
 592:                                              ; preds = %591, %585
-  %593 = phi ptr [ %.pre280, %591 ], [ %584, %585 ]
+  %593 = phi ptr [ %.pre281, %591 ], [ %584, %585 ]
   %.12387 = phi i64 [ %.02386, %591 ], [ %588, %585 ]
   %594 = getelementptr inbounds i8, ptr %593, i64 24
   %595 = add i64 %.12387, -1
@@ -1482,11 +1482,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 606:                                              ; preds = %602
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %603) #15
-  %.pre281 = load ptr, ptr %18, align 8
+  %.pre282 = load ptr, ptr %18, align 8
   br label %607
 
 607:                                              ; preds = %602, %606
-  %608 = phi ptr [ %.pre281, %606 ], [ %598, %602 ]
+  %608 = phi ptr [ %.pre282, %606 ], [ %598, %602 ]
   %609 = getelementptr inbounds i8, ptr %608, i64 24
   %610 = getelementptr inbounds [1 x i8], ptr %609, i64 0, i64 %.12387.sink
   store i8 63, ptr %610, align 1
@@ -1504,14 +1504,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 619:                                              ; preds = %607
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %616) #15
-  %.pre282 = load ptr, ptr %18, align 8
-  %.phi.trans.insert283 = getelementptr inbounds i8, ptr %.pre282, i64 16
-  %.pre284 = load i64, ptr %.phi.trans.insert283, align 8
+  %.pre283 = load ptr, ptr %18, align 8
+  %.phi.trans.insert284 = getelementptr inbounds i8, ptr %.pre283, i64 16
+  %.pre285 = load i64, ptr %.phi.trans.insert284, align 8
   br label %620
 
 620:                                              ; preds = %619, %607
-  %621 = phi i64 [ %.pre284, %619 ], [ %603, %607 ]
-  %622 = phi ptr [ %.pre282, %619 ], [ %611, %607 ]
+  %621 = phi i64 [ %.pre285, %619 ], [ %603, %607 ]
+  %622 = phi ptr [ %.pre283, %619 ], [ %611, %607 ]
   %623 = getelementptr inbounds i8, ptr %622, i64 24
   %624 = getelementptr inbounds i8, ptr %623, i64 %621
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %624, ptr nonnull align 1 %614, i64 %615, i1 false)
@@ -1566,14 +1566,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 649:                                              ; preds = %639, %643
   %.02418 = phi i64 [ 6, %639 ], [ %646, %643 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02418) #15
-  %.pre288 = load ptr, ptr %18, align 8
-  %.phi.trans.insert289 = getelementptr inbounds i8, ptr %.pre288, i64 16
-  %.pre290 = load i64, ptr %.phi.trans.insert289, align 8
+  %.pre289 = load ptr, ptr %18, align 8
+  %.phi.trans.insert290 = getelementptr inbounds i8, ptr %.pre289, i64 16
+  %.pre291 = load i64, ptr %.phi.trans.insert290, align 8
   br label %650
 
 650:                                              ; preds = %643, %649
-  %651 = phi i64 [ %.pre290, %649 ], [ %645, %643 ]
-  %652 = phi ptr [ %.pre288, %649 ], [ %642, %643 ]
+  %651 = phi i64 [ %.pre291, %649 ], [ %645, %643 ]
+  %652 = phi ptr [ %.pre289, %649 ], [ %642, %643 ]
   %.12419 = phi i64 [ %.02418, %649 ], [ %646, %643 ]
   %653 = getelementptr inbounds i8, ptr %652, i64 24
   %654 = getelementptr inbounds i8, ptr %653, i64 %651
@@ -1591,14 +1591,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 662:                                              ; preds = %650
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %659) #15
-  %.pre291 = load ptr, ptr %18, align 8
-  %.phi.trans.insert292 = getelementptr inbounds i8, ptr %.pre291, i64 16
-  %.pre293 = load i64, ptr %.phi.trans.insert292, align 8
+  %.pre292 = load ptr, ptr %18, align 8
+  %.phi.trans.insert293 = getelementptr inbounds i8, ptr %.pre292, i64 16
+  %.pre294 = load i64, ptr %.phi.trans.insert293, align 8
   br label %663
 
 663:                                              ; preds = %650, %662
-  %664 = phi i64 [ %.12419, %650 ], [ %.pre293, %662 ]
-  %665 = phi ptr [ %655, %650 ], [ %.pre291, %662 ]
+  %664 = phi i64 [ %.12419, %650 ], [ %.pre294, %662 ]
+  %665 = phi ptr [ %655, %650 ], [ %.pre292, %662 ]
   %666 = getelementptr inbounds i8, ptr %665, i64 24
   %667 = getelementptr inbounds i8, ptr %666, i64 %664
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %667, ptr align 1 %657, i64 %658, i1 false)
@@ -1612,14 +1612,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 672:                                              ; preds = %663
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %670) #15
-  %.pre294 = load ptr, ptr %18, align 8
-  %.phi.trans.insert295 = getelementptr inbounds i8, ptr %.pre294, i64 16
-  %.pre296 = load i64, ptr %.phi.trans.insert295, align 8
+  %.pre295 = load ptr, ptr %18, align 8
+  %.phi.trans.insert296 = getelementptr inbounds i8, ptr %.pre295, i64 16
+  %.pre297 = load i64, ptr %.phi.trans.insert296, align 8
   br label %.thread40
 
 .thread40:                                        ; preds = %663, %672
-  %673 = phi i64 [ %659, %663 ], [ %.pre296, %672 ]
-  %674 = phi ptr [ %668, %663 ], [ %.pre294, %672 ]
+  %673 = phi i64 [ %659, %663 ], [ %.pre297, %672 ]
+  %674 = phi ptr [ %668, %663 ], [ %.pre295, %672 ]
   %675 = getelementptr inbounds i8, ptr %674, i64 24
   %676 = getelementptr inbounds i8, ptr %675, i64 %673
   store i16 2573, ptr %676, align 1
@@ -1631,12 +1631,12 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %695
 
 680:                                              ; preds = %629
-  %.pre298 = load ptr, ptr %18, align 8
-  %.not2824 = icmp eq ptr %.pre298, null
+  %.pre299 = load ptr, ptr %18, align 8
+  %.not2824 = icmp eq ptr %.pre299, null
   br i1 %.not2824, label %687, label %.thread397
 
 .thread397:                                       ; preds = %627, %680
-  %681 = phi ptr [ %.pre298, %680 ], [ %628, %627 ]
+  %681 = phi ptr [ %.pre299, %680 ], [ %628, %627 ]
   %682 = getelementptr inbounds i8, ptr %681, i64 16
   %683 = load i64, ptr %682, align 8
   %684 = add i64 %683, 11
@@ -1648,14 +1648,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 687:                                              ; preds = %680, %.thread397
   %.02434 = phi i64 [ 11, %680 ], [ %684, %.thread397 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02434) #15
-  %.pre299 = load ptr, ptr %18, align 8
-  %.phi.trans.insert300 = getelementptr inbounds i8, ptr %.pre299, i64 16
-  %.pre301 = load i64, ptr %.phi.trans.insert300, align 8
+  %.pre300 = load ptr, ptr %18, align 8
+  %.phi.trans.insert301 = getelementptr inbounds i8, ptr %.pre300, i64 16
+  %.pre302 = load i64, ptr %.phi.trans.insert301, align 8
   br label %688
 
 688:                                              ; preds = %.thread397, %687
-  %689 = phi i64 [ %.pre301, %687 ], [ %683, %.thread397 ]
-  %690 = phi ptr [ %.pre299, %687 ], [ %681, %.thread397 ]
+  %689 = phi i64 [ %.pre302, %687 ], [ %683, %.thread397 ]
+  %690 = phi ptr [ %.pre300, %687 ], [ %681, %.thread397 ]
   %.12435 = phi i64 [ %.02434, %687 ], [ %684, %.thread397 ]
   %691 = getelementptr inbounds i8, ptr %690, i64 24
   %692 = getelementptr inbounds i8, ptr %691, i64 %689
@@ -1690,26 +1690,26 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %708 = xor i32 %707, 16
   %narrow2834 = add nuw nsw i32 %708, 16
   %709 = zext nneg i32 %narrow2834 to i64
-  %.not2835136 = icmp eq i32 %703, 0
-  br i1 %.not2835136, label %.thread64, label %.lr.ph139
+  %.not2835137 = icmp eq i32 %703, 0
+  br i1 %.not2835137, label %.thread64, label %.lr.ph140
 
-.lr.ph139:                                        ; preds = %700
+.lr.ph140:                                        ; preds = %700
   %710 = getelementptr inbounds i8, ptr %701, i64 16
   %711 = load ptr, ptr %710, align 8
   %712 = getelementptr inbounds i8, ptr %22, i64 8
   br label %713
 
-713:                                              ; preds = %.lr.ph139, %745
-  %714 = phi ptr [ null, %.lr.ph139 ], [ %746, %745 ]
-  %.02396138 = phi ptr [ %711, %.lr.ph139 ], [ %747, %745 ]
-  %.02399137 = phi i32 [ %703, %.lr.ph139 ], [ %748, %745 ]
-  %715 = getelementptr inbounds i8, ptr %.02396138, i64 8
+713:                                              ; preds = %.lr.ph140, %745
+  %714 = phi ptr [ null, %.lr.ph140 ], [ %746, %745 ]
+  %.02396139 = phi ptr [ %711, %.lr.ph140 ], [ %747, %745 ]
+  %.02399138 = phi i32 [ %703, %.lr.ph140 ], [ %748, %745 ]
+  %715 = getelementptr inbounds i8, ptr %.02396139, i64 8
   %716 = load i8, ptr %715, align 8
   %cond3011 = icmp eq i8 %716, 6
   br i1 %cond3011, label %717, label %745
 
 717:                                              ; preds = %713
-  %718 = load ptr, ptr %.02396138, align 8
+  %718 = load ptr, ptr %.02396139, align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 24
   %720 = getelementptr inbounds i8, ptr %718, i64 16
   %721 = load i64, ptr %720, align 8
@@ -1727,14 +1727,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 727:                                              ; preds = %717, %722
   %.0 = phi i64 [ %721, %717 ], [ %725, %722 ]
   call void @smart_str_erealloc(ptr noundef nonnull %22, i64 noundef %.0) #15
-  %.pre302 = load ptr, ptr %22, align 8
-  %.phi.trans.insert303 = getelementptr inbounds i8, ptr %.pre302, i64 16
-  %.pre304 = load i64, ptr %.phi.trans.insert303, align 8
+  %.pre303 = load ptr, ptr %22, align 8
+  %.phi.trans.insert304 = getelementptr inbounds i8, ptr %.pre303, i64 16
+  %.pre305 = load i64, ptr %.phi.trans.insert304, align 8
   br label %728
 
 728:                                              ; preds = %722, %727
-  %729 = phi i64 [ %.pre304, %727 ], [ %724, %722 ]
-  %730 = phi ptr [ %.pre302, %727 ], [ %714, %722 ]
+  %729 = phi i64 [ %.pre305, %727 ], [ %724, %722 ]
+  %730 = phi ptr [ %.pre303, %727 ], [ %714, %722 ]
   %.1 = phi i64 [ %.0, %727 ], [ %725, %722 ]
   %731 = getelementptr inbounds i8, ptr %730, i64 24
   %732 = getelementptr inbounds i8, ptr %731, i64 %729
@@ -1749,14 +1749,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 737:                                              ; preds = %728
   call void @smart_str_erealloc(ptr noundef nonnull %22, i64 noundef %735) #15
-  %.pre305 = load ptr, ptr %22, align 8
-  %.phi.trans.insert306 = getelementptr inbounds i8, ptr %.pre305, i64 16
-  %.pre307 = load i64, ptr %.phi.trans.insert306, align 8
+  %.pre306 = load ptr, ptr %22, align 8
+  %.phi.trans.insert307 = getelementptr inbounds i8, ptr %.pre306, i64 16
+  %.pre308 = load i64, ptr %.phi.trans.insert307, align 8
   br label %738
 
 738:                                              ; preds = %737, %728
-  %739 = phi i64 [ %.pre307, %737 ], [ %.1, %728 ]
-  %740 = phi ptr [ %.pre305, %737 ], [ %733, %728 ]
+  %739 = phi i64 [ %.pre308, %737 ], [ %.1, %728 ]
+  %740 = phi ptr [ %.pre306, %737 ], [ %733, %728 ]
   %741 = getelementptr inbounds i8, ptr %740, i64 24
   %742 = getelementptr inbounds i8, ptr %741, i64 %739
   store i16 2573, ptr %742, align 1
@@ -1767,8 +1767,8 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 745:                                              ; preds = %713, %738
   %746 = phi ptr [ %714, %713 ], [ %743, %738 ]
-  %747 = getelementptr inbounds i8, ptr %.02396138, i64 %709
-  %748 = add i32 %.02399137, -1
+  %747 = getelementptr inbounds i8, ptr %.02396139, i64 %709
+  %748 = add i32 %.02399138, -1
   %.not2835 = icmp eq i32 %748, 0
   br i1 %.not2835, label %._crit_edge, label %713
 
@@ -1937,23 +1937,23 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 828:                                              ; preds = %824, %822
   %829 = getelementptr inbounds i8, ptr %821, i64 20
   %830 = icmp ugt ptr %821, %801
-  br i1 %830, label %.lr.ph142, label %.critedge45
+  br i1 %830, label %.lr.ph143, label %.critedge45
 
-.lr.ph142:                                        ; preds = %828, %.critedge47
-  %.02394140 = phi ptr [ %831, %.critedge47 ], [ %821, %828 ]
-  %831 = getelementptr inbounds i8, ptr %.02394140, i64 -1
+.lr.ph143:                                        ; preds = %828, %.critedge47
+  %.02394141 = phi ptr [ %831, %.critedge47 ], [ %821, %828 ]
+  %831 = getelementptr inbounds i8, ptr %.02394141, i64 -1
   %832 = load i8, ptr %831, align 1
   switch i8 %832, label %.critedge45 [
     i8 32, label %.critedge47
     i8 9, label %.critedge47
   ]
 
-.critedge47:                                      ; preds = %.lr.ph142, %.lr.ph142
+.critedge47:                                      ; preds = %.lr.ph143, %.lr.ph143
   %833 = icmp ugt ptr %831, %801
-  br i1 %833, label %.lr.ph142, label %.critedge45
+  br i1 %833, label %.lr.ph143, label %.critedge45
 
-.critedge45:                                      ; preds = %.critedge47, %.lr.ph142, %828
-  %.02394.lcssa = phi ptr [ %821, %828 ], [ %.02394140, %.lr.ph142 ], [ %831, %.critedge47 ]
+.critedge45:                                      ; preds = %.critedge47, %.lr.ph143, %828
+  %.02394.lcssa = phi ptr [ %821, %828 ], [ %.02394141, %.lr.ph143 ], [ %831, %.critedge47 ]
   br label %834
 
 834:                                              ; preds = %836, %.critedge45
@@ -1973,7 +1973,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %834
 
 .critedge49:                                      ; preds = %.critedge49.preheader, %.critedge51
-  %838 = phi i8 [ %.pre308, %.critedge51 ], [ %835, %.critedge49.preheader ]
+  %838 = phi i8 [ %.pre309, %.critedge51 ], [ %835, %.critedge49.preheader ]
   %.12391 = phi ptr [ %839, %.critedge51 ], [ %.02390, %.critedge49.preheader ]
   switch i8 %838, label %851 [
     i8 13, label %.critedge51
@@ -1983,36 +1983,36 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 .critedge51:                                      ; preds = %.critedge49, %.critedge49
   %839 = getelementptr inbounds i8, ptr %.12391, i64 1
-  %.pre308 = load i8, ptr %839, align 1
+  %.pre309 = load i8, ptr %839, align 1
   br label %.critedge49
 
 840:                                              ; preds = %.critedge49
   %841 = icmp eq ptr %.02394.lcssa, %801
-  br i1 %841, label %843, label %.preheader103
+  br i1 %841, label %843, label %.preheader104
 
-.preheader103:                                    ; preds = %840
+.preheader104:                                    ; preds = %840
   %842 = icmp ugt ptr %.02394.lcssa, %801
-  br i1 %842, label %.lr.ph146, label %.critedge53
+  br i1 %842, label %.lr.ph147, label %.critedge53
 
 843:                                              ; preds = %840
   call void @_efree(ptr noundef %782) #15
   br label %.thread49
 
-.lr.ph146:                                        ; preds = %.preheader103, %.critedge55
-  %.12395145 = phi ptr [ %844, %.critedge55 ], [ %.02394.lcssa, %.preheader103 ]
-  %844 = getelementptr inbounds i8, ptr %.12395145, i64 -1
+.lr.ph147:                                        ; preds = %.preheader104, %.critedge55
+  %.12395146 = phi ptr [ %844, %.critedge55 ], [ %.02394.lcssa, %.preheader104 ]
+  %844 = getelementptr inbounds i8, ptr %.12395146, i64 -1
   %845 = load i8, ptr %844, align 1
   switch i8 %845, label %.critedge53 [
     i8 13, label %.critedge55
     i8 10, label %.critedge55
   ]
 
-.critedge55:                                      ; preds = %.lr.ph146, %.lr.ph146
+.critedge55:                                      ; preds = %.lr.ph147, %.lr.ph147
   %846 = icmp ugt ptr %844, %801
-  br i1 %846, label %.lr.ph146, label %.critedge53
+  br i1 %846, label %.lr.ph147, label %.critedge53
 
-.critedge53:                                      ; preds = %.critedge55, %.lr.ph146, %.preheader103
-  %.12395.lcssa = phi ptr [ %.02394.lcssa, %.preheader103 ], [ %.12395145, %.lr.ph146 ], [ %844, %.critedge55 ]
+.critedge53:                                      ; preds = %.critedge55, %.lr.ph147, %.preheader104
+  %.12395.lcssa = phi ptr [ %.02394.lcssa, %.preheader104 ], [ %.12395146, %.lr.ph147 ], [ %844, %.critedge55 ]
   %847 = ptrtoint ptr %.12395.lcssa to i64
   %848 = ptrtoint ptr %801 to i64
   %849 = sub i64 %847, %848
@@ -2118,17 +2118,17 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 907:                                              ; preds = %897, %901
   %.02436 = phi i64 [ 21, %897 ], [ %904, %901 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02436) #15
-  %.pre309 = load ptr, ptr %18, align 8
-  %.phi.trans.insert310 = getelementptr inbounds i8, ptr %.pre309, i64 16
-  %.pre311 = load i64, ptr %.phi.trans.insert310, align 8
-  %.phi.trans.insert312 = getelementptr inbounds i8, ptr %18, i64 8
-  %.pre313 = load i64, ptr %.phi.trans.insert312, align 8
+  %.pre310 = load ptr, ptr %18, align 8
+  %.phi.trans.insert311 = getelementptr inbounds i8, ptr %.pre310, i64 16
+  %.pre312 = load i64, ptr %.phi.trans.insert311, align 8
+  %.phi.trans.insert313 = getelementptr inbounds i8, ptr %18, i64 8
+  %.pre314 = load i64, ptr %.phi.trans.insert313, align 8
   br label %908
 
 908:                                              ; preds = %901, %907
-  %909 = phi i64 [ %.pre313, %907 ], [ %906, %901 ]
-  %910 = phi i64 [ %.pre311, %907 ], [ %903, %901 ]
-  %911 = phi ptr [ %.pre309, %907 ], [ %900, %901 ]
+  %909 = phi i64 [ %.pre314, %907 ], [ %906, %901 ]
+  %910 = phi i64 [ %.pre312, %907 ], [ %903, %901 ]
+  %911 = phi ptr [ %.pre310, %907 ], [ %900, %901 ]
   %.12437 = phi i64 [ %.02436, %907 ], [ %904, %901 ]
   %912 = getelementptr inbounds i8, ptr %911, i64 24
   %913 = getelementptr inbounds i8, ptr %911, i64 16
@@ -2144,14 +2144,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 919:                                              ; preds = %908
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %917) #15
-  %.pre314 = load ptr, ptr %18, align 8
-  %.phi.trans.insert315 = getelementptr inbounds i8, ptr %.pre314, i64 16
-  %.pre316 = load i64, ptr %.phi.trans.insert315, align 8
+  %.pre315 = load ptr, ptr %18, align 8
+  %.phi.trans.insert316 = getelementptr inbounds i8, ptr %.pre315, i64 16
+  %.pre317 = load i64, ptr %.phi.trans.insert316, align 8
   br label %920
 
 920:                                              ; preds = %908, %919
-  %921 = phi i64 [ %.12437, %908 ], [ %.pre316, %919 ]
-  %922 = phi ptr [ %911, %908 ], [ %.pre314, %919 ]
+  %921 = phi i64 [ %.12437, %908 ], [ %.pre317, %919 ]
+  %922 = phi ptr [ %911, %908 ], [ %.pre315, %919 ]
   %923 = getelementptr inbounds i8, ptr %922, i64 24
   %924 = getelementptr inbounds i8, ptr %923, i64 %921
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %924, ptr nonnull align 1 %915, i64 %916, i1 false)
@@ -2165,14 +2165,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 929:                                              ; preds = %920
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %927) #15
-  %.pre317 = load ptr, ptr %18, align 8
-  %.phi.trans.insert318 = getelementptr inbounds i8, ptr %.pre317, i64 16
-  %.pre319 = load i64, ptr %.phi.trans.insert318, align 8
+  %.pre318 = load ptr, ptr %18, align 8
+  %.phi.trans.insert319 = getelementptr inbounds i8, ptr %.pre318, i64 16
+  %.pre320 = load i64, ptr %.phi.trans.insert319, align 8
   br label %930
 
 930:                                              ; preds = %929, %920
-  %931 = phi i64 [ %.pre319, %929 ], [ %917, %920 ]
-  %932 = phi ptr [ %.pre317, %929 ], [ %925, %920 ]
+  %931 = phi i64 [ %.pre320, %929 ], [ %917, %920 ]
+  %932 = phi ptr [ %.pre318, %929 ], [ %925, %920 ]
   %933 = getelementptr inbounds i8, ptr %932, i64 24
   %934 = getelementptr inbounds i8, ptr %933, i64 %931
   store i16 2573, ptr %934, align 1
@@ -2241,14 +2241,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 960:                                              ; preds = %952, %954
   %.02478 = phi i64 [ 6, %952 ], [ %957, %954 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02478) #15
-  %.pre320 = load ptr, ptr %18, align 8
-  %.phi.trans.insert321 = getelementptr inbounds i8, ptr %.pre320, i64 16
-  %.pre322 = load i64, ptr %.phi.trans.insert321, align 8
+  %.pre321 = load ptr, ptr %18, align 8
+  %.phi.trans.insert322 = getelementptr inbounds i8, ptr %.pre321, i64 16
+  %.pre323 = load i64, ptr %.phi.trans.insert322, align 8
   br label %961
 
 961:                                              ; preds = %954, %960
-  %962 = phi i64 [ %.pre322, %960 ], [ %956, %954 ]
-  %963 = phi ptr [ %.pre320, %960 ], [ %953, %954 ]
+  %962 = phi i64 [ %.pre323, %960 ], [ %956, %954 ]
+  %963 = phi ptr [ %.pre321, %960 ], [ %953, %954 ]
   %.12479 = phi i64 [ %.02478, %960 ], [ %957, %954 ]
   %964 = getelementptr inbounds i8, ptr %963, i64 24
   %965 = getelementptr inbounds i8, ptr %964, i64 %962
@@ -2266,14 +2266,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 973:                                              ; preds = %961
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %970) #15
-  %.pre323 = load ptr, ptr %18, align 8
-  %.phi.trans.insert324 = getelementptr inbounds i8, ptr %.pre323, i64 16
-  %.pre325 = load i64, ptr %.phi.trans.insert324, align 8
+  %.pre324 = load ptr, ptr %18, align 8
+  %.phi.trans.insert325 = getelementptr inbounds i8, ptr %.pre324, i64 16
+  %.pre326 = load i64, ptr %.phi.trans.insert325, align 8
   br label %974
 
 974:                                              ; preds = %961, %973
-  %975 = phi i64 [ %.12479, %961 ], [ %.pre325, %973 ]
-  %976 = phi ptr [ %966, %961 ], [ %.pre323, %973 ]
+  %975 = phi i64 [ %.12479, %961 ], [ %.pre326, %973 ]
+  %976 = phi ptr [ %966, %961 ], [ %.pre324, %973 ]
   %977 = getelementptr inbounds i8, ptr %976, i64 24
   %978 = getelementptr inbounds i8, ptr %977, i64 %975
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %978, ptr align 1 %968, i64 %969, i1 false)
@@ -2287,14 +2287,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 983:                                              ; preds = %974
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %981) #15
-  %.pre326 = load ptr, ptr %18, align 8
-  %.phi.trans.insert327 = getelementptr inbounds i8, ptr %.pre326, i64 16
-  %.pre328 = load i64, ptr %.phi.trans.insert327, align 8
+  %.pre327 = load ptr, ptr %18, align 8
+  %.phi.trans.insert328 = getelementptr inbounds i8, ptr %.pre327, i64 16
+  %.pre329 = load i64, ptr %.phi.trans.insert328, align 8
   br label %984
 
 984:                                              ; preds = %983, %974
-  %985 = phi i64 [ %.pre328, %983 ], [ %970, %974 ]
-  %986 = phi ptr [ %.pre326, %983 ], [ %979, %974 ]
+  %985 = phi i64 [ %.pre329, %983 ], [ %970, %974 ]
+  %986 = phi ptr [ %.pre327, %983 ], [ %979, %974 ]
   %987 = getelementptr inbounds i8, ptr %986, i64 24
   %988 = getelementptr inbounds i8, ptr %987, i64 %985
   store i16 2573, ptr %988, align 1
@@ -2325,14 +2325,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1002:                                             ; preds = %994, %996
   %.02484 = phi i64 [ 6, %994 ], [ %999, %996 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02484) #15
-  %.pre329 = load ptr, ptr %18, align 8
-  %.phi.trans.insert330 = getelementptr inbounds i8, ptr %.pre329, i64 16
-  %.pre331 = load i64, ptr %.phi.trans.insert330, align 8
+  %.pre330 = load ptr, ptr %18, align 8
+  %.phi.trans.insert331 = getelementptr inbounds i8, ptr %.pre330, i64 16
+  %.pre332 = load i64, ptr %.phi.trans.insert331, align 8
   br label %1003
 
 1003:                                             ; preds = %996, %1002
-  %1004 = phi i64 [ %.pre331, %1002 ], [ %998, %996 ]
-  %1005 = phi ptr [ %.pre329, %1002 ], [ %995, %996 ]
+  %1004 = phi i64 [ %.pre332, %1002 ], [ %998, %996 ]
+  %1005 = phi ptr [ %.pre330, %1002 ], [ %995, %996 ]
   %.12485 = phi i64 [ %.02484, %1002 ], [ %999, %996 ]
   %1006 = getelementptr inbounds i8, ptr %1005, i64 24
   %1007 = getelementptr inbounds i8, ptr %1006, i64 %1004
@@ -2352,14 +2352,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1017:                                             ; preds = %1003
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1014) #15
-  %.pre332 = load ptr, ptr %18, align 8
-  %.phi.trans.insert333 = getelementptr inbounds i8, ptr %.pre332, i64 16
-  %.pre334 = load i64, ptr %.phi.trans.insert333, align 8
+  %.pre333 = load ptr, ptr %18, align 8
+  %.phi.trans.insert334 = getelementptr inbounds i8, ptr %.pre333, i64 16
+  %.pre335 = load i64, ptr %.phi.trans.insert334, align 8
   br label %1018
 
 1018:                                             ; preds = %1017, %1003
-  %1019 = phi i64 [ %.pre334, %1017 ], [ %.12485, %1003 ]
-  %1020 = phi ptr [ %.pre332, %1017 ], [ %1008, %1003 ]
+  %1019 = phi i64 [ %.pre335, %1017 ], [ %.12485, %1003 ]
+  %1020 = phi ptr [ %.pre333, %1017 ], [ %1008, %1003 ]
   %1021 = getelementptr inbounds i8, ptr %1020, i64 24
   %1022 = getelementptr inbounds i8, ptr %1021, i64 %1019
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1022, ptr nonnull align 1 %1012, i64 %1013, i1 false)
@@ -2390,11 +2390,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1031:                                             ; preds = %1028
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1029) #15
-  %.pre335 = load ptr, ptr %18, align 8
+  %.pre336 = load ptr, ptr %18, align 8
   br label %1032
 
 1032:                                             ; preds = %1031, %1028
-  %1033 = phi ptr [ %.pre335, %1031 ], [ %1023, %1028 ]
+  %1033 = phi ptr [ %.pre336, %1031 ], [ %1023, %1028 ]
   %1034 = getelementptr inbounds i8, ptr %1033, i64 24
   %1035 = getelementptr inbounds [1 x i8], ptr %1034, i64 0, i64 %1014
   store i8 58, ptr %1035, align 1
@@ -2437,14 +2437,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1056:                                             ; preds = %1048, %1052
   %.02378 = phi i64 [ %1051, %1048 ], [ %1054, %1052 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02378) #15
-  %.pre336 = load ptr, ptr %18, align 8
-  %.phi.trans.insert337 = getelementptr inbounds i8, ptr %.pre336, i64 16
-  %.pre338 = load i64, ptr %.phi.trans.insert337, align 8
+  %.pre337 = load ptr, ptr %18, align 8
+  %.phi.trans.insert338 = getelementptr inbounds i8, ptr %.pre337, i64 16
+  %.pre339 = load i64, ptr %.phi.trans.insert338, align 8
   br label %.thread75
 
 .thread75:                                        ; preds = %1052, %1056
-  %1057 = phi i64 [ %.pre338, %1056 ], [ %1053, %1052 ]
-  %1058 = phi ptr [ %.pre336, %1056 ], [ %1036, %1052 ]
+  %1057 = phi i64 [ %.pre339, %1056 ], [ %1053, %1052 ]
+  %1058 = phi ptr [ %.pre337, %1056 ], [ %1036, %1052 ]
   %.12379 = phi i64 [ %.02378, %1056 ], [ %1054, %1052 ]
   %1059 = getelementptr inbounds i8, ptr %1058, i64 24
   %1060 = getelementptr inbounds i8, ptr %1059, i64 %1057
@@ -2464,14 +2464,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1067:                                             ; preds = %.thread72
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1065) #15
-  %.pre339 = load ptr, ptr %18, align 8
-  %.phi.trans.insert340 = getelementptr inbounds i8, ptr %.pre339, i64 16
-  %.pre341 = load i64, ptr %.phi.trans.insert340, align 8
+  %.pre340 = load ptr, ptr %18, align 8
+  %.phi.trans.insert341 = getelementptr inbounds i8, ptr %.pre340, i64 16
+  %.pre342 = load i64, ptr %.phi.trans.insert341, align 8
   br label %1068
 
 1068:                                             ; preds = %1067, %.thread72
-  %1069 = phi i64 [ %.pre341, %1067 ], [ %1063, %.thread72 ]
-  %1070 = phi ptr [ %.pre339, %1067 ], [ %1064, %.thread72 ]
+  %1069 = phi i64 [ %.pre342, %1067 ], [ %1063, %.thread72 ]
+  %1070 = phi ptr [ %.pre340, %1067 ], [ %1064, %.thread72 ]
   %1071 = getelementptr inbounds i8, ptr %1070, i64 24
   %1072 = getelementptr inbounds i8, ptr %1071, i64 %1069
   store i16 2573, ptr %1072, align 1
@@ -2502,14 +2502,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1086:                                             ; preds = %1078, %1080
   %.02491 = phi i64 [ 19, %1078 ], [ %1083, %1080 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02491) #15
-  %.pre342 = load ptr, ptr %18, align 8
-  %.phi.trans.insert343 = getelementptr inbounds i8, ptr %.pre342, i64 16
-  %.pre344 = load i64, ptr %.phi.trans.insert343, align 8
+  %.pre343 = load ptr, ptr %18, align 8
+  %.phi.trans.insert344 = getelementptr inbounds i8, ptr %.pre343, i64 16
+  %.pre345 = load i64, ptr %.phi.trans.insert344, align 8
   br label %1087
 
 1087:                                             ; preds = %1086, %1080
-  %1088 = phi i64 [ %.pre344, %1086 ], [ %1082, %1080 ]
-  %1089 = phi ptr [ %.pre342, %1086 ], [ %1079, %1080 ]
+  %1088 = phi i64 [ %.pre345, %1086 ], [ %1082, %1080 ]
+  %1089 = phi ptr [ %.pre343, %1086 ], [ %1079, %1080 ]
   %.12492 = phi i64 [ %.02491, %1086 ], [ %1083, %1080 ]
   %1090 = getelementptr inbounds i8, ptr %1089, i64 24
   %1091 = getelementptr inbounds i8, ptr %1089, i64 16
@@ -2582,14 +2582,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1127:                                             ; preds = %1118, %1121
   %.02527 = phi i64 [ %1117, %1118 ], [ %1124, %1121 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02527) #15
-  %.pre345 = load ptr, ptr %18, align 8
-  %.phi.trans.insert346 = getelementptr inbounds i8, ptr %.pre345, i64 16
-  %.pre347 = load i64, ptr %.phi.trans.insert346, align 8
+  %.pre346 = load ptr, ptr %18, align 8
+  %.phi.trans.insert347 = getelementptr inbounds i8, ptr %.pre346, i64 16
+  %.pre348 = load i64, ptr %.phi.trans.insert347, align 8
   br label %1128
 
 1128:                                             ; preds = %1127, %1121
-  %1129 = phi i64 [ %.pre347, %1127 ], [ %1123, %1121 ]
-  %1130 = phi ptr [ %.pre345, %1127 ], [ %1120, %1121 ]
+  %1129 = phi i64 [ %.pre348, %1127 ], [ %1123, %1121 ]
+  %1130 = phi ptr [ %.pre346, %1127 ], [ %1120, %1121 ]
   %.12528 = phi i64 [ %.02527, %1127 ], [ %1124, %1121 ]
   %1131 = getelementptr inbounds i8, ptr %1130, i64 24
   %1132 = getelementptr inbounds i8, ptr %1131, i64 %1129
@@ -2609,11 +2609,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1137:                                             ; preds = %1109, %1136, %1105
   %.not2890 = icmp eq ptr %.0243869, null
-  %.pre393 = and i32 %6, 5
-  br i1 %.not2890, label %._crit_edge392, label %1138
+  %.pre394 = and i32 %6, 5
+  br i1 %.not2890, label %._crit_edge393, label %1138
 
 1138:                                             ; preds = %1137
-  %or.cond59 = icmp ne i32 %.pre393, 0
+  %or.cond59 = icmp ne i32 %.pre394, 0
   %1139 = and i32 %.0244367, 16
   %.not2891 = icmp eq i32 %1139, 0
   %1140 = and i1 %or.cond59, %.not2891
@@ -2655,14 +2655,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1159:                                             ; preds = %1151, %1153
   %.02493 = phi i64 [ 16, %1151 ], [ %1156, %1153 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02493) #15
-  %.pre348 = load ptr, ptr %18, align 8
-  %.phi.trans.insert349 = getelementptr inbounds i8, ptr %.pre348, i64 16
-  %.pre350 = load i64, ptr %.phi.trans.insert349, align 8
+  %.pre349 = load ptr, ptr %18, align 8
+  %.phi.trans.insert350 = getelementptr inbounds i8, ptr %.pre349, i64 16
+  %.pre351 = load i64, ptr %.phi.trans.insert350, align 8
   br label %1160
 
 1160:                                             ; preds = %1159, %1153
-  %1161 = phi i64 [ %.pre350, %1159 ], [ %1155, %1153 ]
-  %1162 = phi ptr [ %.pre348, %1159 ], [ %1152, %1153 ]
+  %1161 = phi i64 [ %.pre351, %1159 ], [ %1155, %1153 ]
+  %1162 = phi ptr [ %.pre349, %1159 ], [ %1152, %1153 ]
   %.12494 = phi i64 [ %.02493, %1159 ], [ %1156, %1153 ]
   %1163 = getelementptr inbounds i8, ptr %1162, i64 24
   %1164 = getelementptr inbounds i8, ptr %1163, i64 %1161
@@ -2707,14 +2707,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1186:                                             ; preds = %1177, %1181
   %.02376 = phi i64 [ %1180, %1177 ], [ %1183, %1181 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02376) #15
-  %.pre351 = load ptr, ptr %18, align 8
-  %.phi.trans.insert352 = getelementptr inbounds i8, ptr %.pre351, i64 16
-  %.pre353 = load i64, ptr %.phi.trans.insert352, align 8
+  %.pre352 = load ptr, ptr %18, align 8
+  %.phi.trans.insert353 = getelementptr inbounds i8, ptr %.pre352, i64 16
+  %.pre354 = load i64, ptr %.phi.trans.insert353, align 8
   br label %1187
 
 1187:                                             ; preds = %1181, %1186
-  %1188 = phi i64 [ %.pre353, %1186 ], [ %1182, %1181 ]
-  %1189 = phi ptr [ %.pre351, %1186 ], [ %1165, %1181 ]
+  %1188 = phi i64 [ %.pre354, %1186 ], [ %1182, %1181 ]
+  %1189 = phi ptr [ %.pre352, %1186 ], [ %1165, %1181 ]
   %.12377 = phi i64 [ %.02376, %1186 ], [ %1183, %1181 ]
   %1190 = getelementptr inbounds i8, ptr %1189, i64 24
   %1191 = getelementptr inbounds i8, ptr %1190, i64 %1188
@@ -2730,14 +2730,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1197:                                             ; preds = %1187
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1194) #15
-  %.pre354 = load ptr, ptr %18, align 8
-  %.phi.trans.insert355 = getelementptr inbounds i8, ptr %.pre354, i64 16
-  %.pre356 = load i64, ptr %.phi.trans.insert355, align 8
+  %.pre355 = load ptr, ptr %18, align 8
+  %.phi.trans.insert356 = getelementptr inbounds i8, ptr %.pre355, i64 16
+  %.pre357 = load i64, ptr %.phi.trans.insert356, align 8
   br label %.thread79
 
 .thread79:                                        ; preds = %1187, %1197
-  %1198 = phi i64 [ %.12377, %1187 ], [ %.pre356, %1197 ]
-  %1199 = phi ptr [ %1192, %1187 ], [ %.pre354, %1197 ]
+  %1198 = phi i64 [ %.12377, %1187 ], [ %.pre357, %1197 ]
+  %1199 = phi ptr [ %1192, %1187 ], [ %.pre355, %1197 ]
   %1200 = getelementptr inbounds i8, ptr %1199, i64 24
   %1201 = getelementptr inbounds i8, ptr %1200, i64 %1198
   store i16 2573, ptr %1201, align 1
@@ -2752,18 +2752,18 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.pr78 = load ptr, ptr %18, align 8
   %1207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0243869) #16
   %.not2901 = icmp eq ptr %.pr78, null
-  br i1 %.not2901, label %1215, label %._crit_edge357
+  br i1 %.not2901, label %1215, label %._crit_edge358
 
-._crit_edge357:                                   ; preds = %1206
-  %.phi.trans.insert358 = getelementptr inbounds i8, ptr %.pr78, i64 16
-  %.pre359 = load i64, ptr %.phi.trans.insert358, align 8
+._crit_edge358:                                   ; preds = %1206
+  %.phi.trans.insert359 = getelementptr inbounds i8, ptr %.pr78, i64 16
+  %.pre360 = load i64, ptr %.phi.trans.insert359, align 8
   br label %1208
 
-1208:                                             ; preds = %._crit_edge357, %.thread79
-  %1209 = phi i64 [ %1194, %.thread79 ], [ %.pre359, %._crit_edge357 ]
-  %1210 = phi i64 [ %1205, %.thread79 ], [ %1207, %._crit_edge357 ]
-  %.1084 = phi i32 [ %1204, %.thread79 ], [ %.0244367, %._crit_edge357 ]
-  %1211 = phi ptr [ %1202, %.thread79 ], [ %.pr78, %._crit_edge357 ]
+1208:                                             ; preds = %._crit_edge358, %.thread79
+  %1209 = phi i64 [ %1194, %.thread79 ], [ %.pre360, %._crit_edge358 ]
+  %1210 = phi i64 [ %1205, %.thread79 ], [ %1207, %._crit_edge358 ]
+  %.1084 = phi i32 [ %1204, %.thread79 ], [ %.0244367, %._crit_edge358 ]
+  %1211 = phi ptr [ %1202, %.thread79 ], [ %.pr78, %._crit_edge358 ]
   %1212 = add i64 %1209, %1210
   %1213 = getelementptr inbounds i8, ptr %18, i64 8
   %1214 = load i64, ptr %1213, align 8
@@ -2775,14 +2775,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.1082 = phi i32 [ %.0244367, %1206 ], [ %.1084, %1208 ]
   %.02497 = phi i64 [ %1207, %1206 ], [ %1212, %1208 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02497) #15
-  %.pre360 = load ptr, ptr %18, align 8
-  %.phi.trans.insert361 = getelementptr inbounds i8, ptr %.pre360, i64 16
-  %.pre362 = load i64, ptr %.phi.trans.insert361, align 8
+  %.pre361 = load ptr, ptr %18, align 8
+  %.phi.trans.insert362 = getelementptr inbounds i8, ptr %.pre361, i64 16
+  %.pre363 = load i64, ptr %.phi.trans.insert362, align 8
   br label %1217
 
 1217:                                             ; preds = %1208, %1215
-  %1218 = phi i64 [ %.pre362, %1215 ], [ %1209, %1208 ]
-  %1219 = phi ptr [ %.pre360, %1215 ], [ %1211, %1208 ]
+  %1218 = phi i64 [ %.pre363, %1215 ], [ %1209, %1208 ]
+  %1219 = phi ptr [ %.pre361, %1215 ], [ %1211, %1208 ]
   %1220 = phi i64 [ %1216, %1215 ], [ %1210, %1208 ]
   %.1083 = phi i32 [ %.1082, %1215 ], [ %.1084, %1208 ]
   %.12498 = phi i64 [ %.02497, %1215 ], [ %1212, %1208 ]
@@ -2800,14 +2800,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1228:                                             ; preds = %1217
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1225) #15
-  %.pre363 = load ptr, ptr %18, align 8
-  %.phi.trans.insert364 = getelementptr inbounds i8, ptr %.pre363, i64 16
-  %.pre365 = load i64, ptr %.phi.trans.insert364, align 8
+  %.pre364 = load ptr, ptr %18, align 8
+  %.phi.trans.insert365 = getelementptr inbounds i8, ptr %.pre364, i64 16
+  %.pre366 = load i64, ptr %.phi.trans.insert365, align 8
   br label %1229
 
 1229:                                             ; preds = %1228, %1217
-  %1230 = phi i64 [ %.pre365, %1228 ], [ %.12498, %1217 ]
-  %1231 = phi ptr [ %.pre363, %1228 ], [ %1223, %1217 ]
+  %1230 = phi i64 [ %.pre366, %1228 ], [ %.12498, %1217 ]
+  %1231 = phi ptr [ %.pre364, %1228 ], [ %1223, %1217 ]
   %1232 = getelementptr inbounds i8, ptr %1231, i64 24
   %1233 = getelementptr inbounds i8, ptr %1232, i64 %1230
   store i16 2573, ptr %1233, align 1
@@ -2815,15 +2815,15 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1235 = getelementptr inbounds i8, ptr %1234, i64 16
   store i64 %1225, ptr %1235, align 8
   call void @_efree(ptr noundef nonnull %.0243869) #15
-  br label %._crit_edge392
+  br label %._crit_edge393
 
-._crit_edge392:                                   ; preds = %1137, %1229
+._crit_edge393:                                   ; preds = %1137, %1229
   %.9 = phi i32 [ %.1083, %1229 ], [ %.0244367, %1137 ]
-  %or.cond63 = icmp ne i32 %.pre393, 0
+  %or.cond63 = icmp ne i32 %.pre394, 0
   %or.cond65 = and i1 %or.cond63, %148
   br i1 %or.cond65, label %1236, label %1346
 
-1236:                                             ; preds = %._crit_edge392
+1236:                                             ; preds = %._crit_edge393
   %1237 = call ptr @php_stream_context_get_option(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #15
   %.not2905 = icmp eq ptr %1237, null
   br i1 %.not2905, label %1346, label %1238
@@ -2844,15 +2844,15 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1246:                                             ; preds = %1242
   %1247 = and i32 %.9, 16
   %.not2909 = icmp eq i32 %1247, 0
-  %.pre379.pre = load ptr, ptr %18, align 8
+  %.pre380.pre = load ptr, ptr %18, align 8
   br i1 %.not2909, label %1248, label %1301
 
 1248:                                             ; preds = %1246
-  %.not2910 = icmp eq ptr %.pre379.pre, null
+  %.not2910 = icmp eq ptr %.pre380.pre, null
   br i1 %.not2910, label %1255, label %1249
 
 1249:                                             ; preds = %1248
-  %1250 = getelementptr inbounds i8, ptr %.pre379.pre, i64 16
+  %1250 = getelementptr inbounds i8, ptr %.pre380.pre, i64 16
   %1251 = load i64, ptr %1250, align 8
   %1252 = add i64 %1251, 16
   %1253 = getelementptr inbounds i8, ptr %18, i64 8
@@ -2863,14 +2863,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1255:                                             ; preds = %1248, %1249
   %.02501 = phi i64 [ 16, %1248 ], [ %1252, %1249 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02501) #15
-  %.pre366 = load ptr, ptr %18, align 8
-  %.phi.trans.insert367 = getelementptr inbounds i8, ptr %.pre366, i64 16
-  %.pre368 = load i64, ptr %.phi.trans.insert367, align 8
+  %.pre367 = load ptr, ptr %18, align 8
+  %.phi.trans.insert368 = getelementptr inbounds i8, ptr %.pre367, i64 16
+  %.pre369 = load i64, ptr %.phi.trans.insert368, align 8
   br label %1256
 
 1256:                                             ; preds = %1255, %1249
-  %1257 = phi i64 [ %.pre368, %1255 ], [ %1251, %1249 ]
-  %1258 = phi ptr [ %.pre366, %1255 ], [ %.pre379.pre, %1249 ]
+  %1257 = phi i64 [ %.pre369, %1255 ], [ %1251, %1249 ]
+  %1258 = phi ptr [ %.pre367, %1255 ], [ %.pre380.pre, %1249 ]
   %.12502 = phi i64 [ %.02501, %1255 ], [ %1252, %1249 ]
   %1259 = getelementptr inbounds i8, ptr %1258, i64 24
   %1260 = getelementptr inbounds i8, ptr %1259, i64 %1257
@@ -2915,14 +2915,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1282:                                             ; preds = %1273, %1277
   %.02374 = phi i64 [ %1276, %1273 ], [ %1279, %1277 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02374) #15
-  %.pre369 = load ptr, ptr %18, align 8
-  %.phi.trans.insert370 = getelementptr inbounds i8, ptr %.pre369, i64 16
-  %.pre371 = load i64, ptr %.phi.trans.insert370, align 8
+  %.pre370 = load ptr, ptr %18, align 8
+  %.phi.trans.insert371 = getelementptr inbounds i8, ptr %.pre370, i64 16
+  %.pre372 = load i64, ptr %.phi.trans.insert371, align 8
   br label %1283
 
 1283:                                             ; preds = %1277, %1282
-  %1284 = phi i64 [ %.pre371, %1282 ], [ %1278, %1277 ]
-  %1285 = phi ptr [ %.pre369, %1282 ], [ %1261, %1277 ]
+  %1284 = phi i64 [ %.pre372, %1282 ], [ %1278, %1277 ]
+  %1285 = phi ptr [ %.pre370, %1282 ], [ %1261, %1277 ]
   %.12375 = phi i64 [ %.02374, %1282 ], [ %1279, %1277 ]
   %1286 = getelementptr inbounds i8, ptr %1285, i64 24
   %1287 = getelementptr inbounds i8, ptr %1286, i64 %1284
@@ -2938,14 +2938,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1293:                                             ; preds = %1283
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1290) #15
-  %.pre372 = load ptr, ptr %18, align 8
-  %.phi.trans.insert373 = getelementptr inbounds i8, ptr %.pre372, i64 16
-  %.pre374 = load i64, ptr %.phi.trans.insert373, align 8
+  %.pre373 = load ptr, ptr %18, align 8
+  %.phi.trans.insert374 = getelementptr inbounds i8, ptr %.pre373, i64 16
+  %.pre375 = load i64, ptr %.phi.trans.insert374, align 8
   br label %1294
 
 1294:                                             ; preds = %1293, %1283
-  %1295 = phi i64 [ %.pre374, %1293 ], [ %.12375, %1283 ]
-  %1296 = phi ptr [ %.pre372, %1293 ], [ %1288, %1283 ]
+  %1295 = phi i64 [ %.pre375, %1293 ], [ %.12375, %1283 ]
+  %1296 = phi ptr [ %.pre373, %1293 ], [ %1288, %1283 ]
   %1297 = getelementptr inbounds i8, ptr %1296, i64 24
   %1298 = getelementptr inbounds i8, ptr %1297, i64 %1295
   store i16 2573, ptr %1298, align 1
@@ -2955,17 +2955,17 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1301
 
 1301:                                             ; preds = %1294, %1246
-  %.pre379 = phi ptr [ %1299, %1294 ], [ %.pre379.pre, %1246 ]
+  %.pre380 = phi ptr [ %1299, %1294 ], [ %.pre380.pre, %1246 ]
   %1302 = and i32 %.9, 32
   %.not2917 = icmp eq i32 %1302, 0
   br i1 %.not2917, label %1303, label %1317
 
 1303:                                             ; preds = %1301
-  %.not2918 = icmp eq ptr %.pre379, null
+  %.not2918 = icmp eq ptr %.pre380, null
   br i1 %.not2918, label %1310, label %1304
 
 1304:                                             ; preds = %1303
-  %1305 = getelementptr inbounds i8, ptr %.pre379, i64 16
+  %1305 = getelementptr inbounds i8, ptr %.pre380, i64 16
   %1306 = load i64, ptr %1305, align 8
   %1307 = add i64 %1306, 49
   %1308 = getelementptr inbounds i8, ptr %18, i64 8
@@ -2976,14 +2976,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1310:                                             ; preds = %1303, %1304
   %.02505 = phi i64 [ 49, %1303 ], [ %1307, %1304 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02505) #15
-  %.pre375 = load ptr, ptr %18, align 8
-  %.phi.trans.insert376 = getelementptr inbounds i8, ptr %.pre375, i64 16
-  %.pre377 = load i64, ptr %.phi.trans.insert376, align 8
+  %.pre376 = load ptr, ptr %18, align 8
+  %.phi.trans.insert377 = getelementptr inbounds i8, ptr %.pre376, i64 16
+  %.pre378 = load i64, ptr %.phi.trans.insert377, align 8
   br label %1311
 
 1311:                                             ; preds = %1310, %1304
-  %1312 = phi i64 [ %.pre377, %1310 ], [ %1306, %1304 ]
-  %1313 = phi ptr [ %.pre375, %1310 ], [ %.pre379, %1304 ]
+  %1312 = phi i64 [ %.pre378, %1310 ], [ %1306, %1304 ]
+  %1313 = phi ptr [ %.pre376, %1310 ], [ %.pre380, %1304 ]
   %.12506 = phi i64 [ %.02505, %1310 ], [ %1307, %1304 ]
   %1314 = getelementptr inbounds i8, ptr %1313, i64 24
   %1315 = getelementptr inbounds i8, ptr %1313, i64 16
@@ -2991,11 +2991,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %1316, ptr noundef nonnull align 1 dereferenceable(49) @.str.47, i64 49, i1 false)
   store i64 %.12506, ptr %1315, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.48) #15
-  %.pre378 = load ptr, ptr %18, align 8
+  %.pre379 = load ptr, ptr %18, align 8
   br label %1317
 
 1317:                                             ; preds = %1311, %1301
-  %1318 = phi ptr [ %.pre378, %1311 ], [ %.pre379, %1301 ]
+  %1318 = phi ptr [ %.pre379, %1311 ], [ %.pre380, %1301 ]
   %.not2920 = icmp eq ptr %1318, null
   br i1 %.not2920, label %1325, label %1319
 
@@ -3011,14 +3011,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1325:                                             ; preds = %1317, %1319
   %.02507 = phi i64 [ 2, %1317 ], [ %1322, %1319 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02507) #15
-  %.pre380 = load ptr, ptr %18, align 8
-  %.phi.trans.insert381 = getelementptr inbounds i8, ptr %.pre380, i64 16
-  %.pre382 = load i64, ptr %.phi.trans.insert381, align 8
+  %.pre381 = load ptr, ptr %18, align 8
+  %.phi.trans.insert382 = getelementptr inbounds i8, ptr %.pre381, i64 16
+  %.pre383 = load i64, ptr %.phi.trans.insert382, align 8
   br label %1326
 
 1326:                                             ; preds = %1319, %1325
-  %1327 = phi i64 [ %.pre382, %1325 ], [ %1321, %1319 ]
-  %1328 = phi ptr [ %.pre380, %1325 ], [ %1318, %1319 ]
+  %1327 = phi i64 [ %.pre383, %1325 ], [ %1321, %1319 ]
+  %1328 = phi ptr [ %.pre381, %1325 ], [ %1318, %1319 ]
   %.12508 = phi i64 [ %.02507, %1325 ], [ %1322, %1319 ]
   %1329 = getelementptr inbounds i8, ptr %1328, i64 24
   %1330 = getelementptr inbounds i8, ptr %1329, i64 %1327
@@ -3038,20 +3038,20 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1340:                                             ; preds = %1326
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %1337) #15
-  %.pre383 = load ptr, ptr %18, align 8
-  %.phi.trans.insert384 = getelementptr inbounds i8, ptr %.pre383, i64 16
-  %.pre385 = load i64, ptr %.phi.trans.insert384, align 8
+  %.pre384 = load ptr, ptr %18, align 8
+  %.phi.trans.insert385 = getelementptr inbounds i8, ptr %.pre384, i64 16
+  %.pre386 = load i64, ptr %.phi.trans.insert385, align 8
   br label %1341
 
 1341:                                             ; preds = %1340, %1326
-  %1342 = phi i64 [ %.pre385, %1340 ], [ %.12508, %1326 ]
-  %1343 = phi ptr [ %.pre383, %1340 ], [ %1331, %1326 ]
+  %1342 = phi i64 [ %.pre386, %1340 ], [ %.12508, %1326 ]
+  %1343 = phi ptr [ %.pre384, %1340 ], [ %1331, %1326 ]
   %1344 = getelementptr inbounds i8, ptr %1343, i64 24
   %1345 = getelementptr inbounds i8, ptr %1344, i64 %1342
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1345, ptr nonnull align 1 %1334, i64 %1336, i1 false)
   br label %1360
 
-1346:                                             ; preds = %._crit_edge392, %1242, %1238, %1236
+1346:                                             ; preds = %._crit_edge393, %1242, %1238, %1236
   %1347 = load ptr, ptr %18, align 8
   %.not2907 = icmp eq ptr %1347, null
   br i1 %.not2907, label %1354, label %1348
@@ -3068,14 +3068,14 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1354:                                             ; preds = %1346, %1348
   %.02509 = phi i64 [ 2, %1346 ], [ %1351, %1348 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.02509) #15
-  %.pre386 = load ptr, ptr %18, align 8
-  %.phi.trans.insert387 = getelementptr inbounds i8, ptr %.pre386, i64 16
-  %.pre388 = load i64, ptr %.phi.trans.insert387, align 8
+  %.pre387 = load ptr, ptr %18, align 8
+  %.phi.trans.insert388 = getelementptr inbounds i8, ptr %.pre387, i64 16
+  %.pre389 = load i64, ptr %.phi.trans.insert388, align 8
   br label %1355
 
 1355:                                             ; preds = %1354, %1348
-  %1356 = phi i64 [ %.pre388, %1354 ], [ %1350, %1348 ]
-  %1357 = phi ptr [ %.pre386, %1354 ], [ %1347, %1348 ]
+  %1356 = phi i64 [ %.pre389, %1354 ], [ %1350, %1348 ]
+  %1357 = phi ptr [ %.pre387, %1354 ], [ %1347, %1348 ]
   %.12510 = phi i64 [ %.02509, %1354 ], [ %1351, %1348 ]
   %1358 = getelementptr inbounds i8, ptr %1357, i64 24
   %1359 = getelementptr inbounds i8, ptr %1358, i64 %1356
@@ -3143,18 +3143,18 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %or.cond67 = icmp ult i32 %1388, 100
   %1389 = icmp ne i32 %.02423, 101
   %or.cond69 = and i1 %1389, %or.cond67
-  br i1 %or.cond69, label %.preheader102, label %1403
+  br i1 %or.cond69, label %.preheader103, label %1403
 
-.preheader102:                                    ; preds = %1386
+.preheader103:                                    ; preds = %1386
   %1390 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
-  br i1 %1390, label %.critedge71thread-pre-split, label %.lr.ph150
+  br i1 %1390, label %.critedge71thread-pre-split, label %.lr.ph151
 
-.lr.ph150:                                        ; preds = %.preheader102, %.critedge73
+.lr.ph151:                                        ; preds = %.preheader103, %.critedge73
   %1391 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef nonnull %15, i64 noundef 127, ptr noundef nonnull %23) #15
   %.not2927 = icmp eq ptr %1391, null
   br i1 %.not2927, label %.critedge71thread-pre-split, label %1392
 
-1392:                                             ; preds = %.lr.ph150
+1392:                                             ; preds = %.lr.ph151
   %1393 = load i64, ptr %23, align 8
   %1394 = icmp ult i64 %1393, 6
   br i1 %1394, label %.critedge73, label %1395
@@ -3166,9 +3166,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 .critedge73:                                      ; preds = %1392, %1395
   %1397 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
-  br i1 %1397, label %.critedge71thread-pre-split, label %.lr.ph150
+  br i1 %1397, label %.critedge71thread-pre-split, label %.lr.ph151
 
-.critedge71thread-pre-split:                      ; preds = %.lr.ph150, %.critedge73, %.preheader102
+.critedge71thread-pre-split:                      ; preds = %.lr.ph151, %.critedge73, %.preheader103
   %.pr85 = load i64, ptr %23, align 8
   br label %.critedge71
 
@@ -3193,7 +3193,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %cond, label %1406, label %..thread91_crit_edge
 
 ..thread91_crit_edge:                             ; preds = %1405
-  %.pre389 = load i64, ptr %23, align 8
+  %.pre390 = load i64, ptr %23, align 8
   br label %.thread91
 
 1406:                                             ; preds = %1405
@@ -3209,7 +3209,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1416
 
 .thread91:                                        ; preds = %..thread91_crit_edge, %.critedge71
-  %1410 = phi i64 [ %.pre389, %..thread91_crit_edge ], [ %1398, %.critedge71 ]
+  %1410 = phi i64 [ %.pre390, %..thread91_crit_edge ], [ %1398, %.critedge71 ]
   %.124248994 = phi i32 [ %.12424, %..thread91_crit_edge ], [ 0, %.critedge71 ]
   %.not2929 = icmp eq i64 %1410, 0
   br i1 %.not2929, label %1411, label %1412
@@ -3263,11 +3263,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 1430:                                             ; preds = %1418, %1416
   %1431 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   call void @_efree(ptr noundef %1431) #15
-  %.pre390 = load i64, ptr %23, align 8
+  %.pre391 = load i64, ptr %23, align 8
   br label %1432
 
 1432:                                             ; preds = %1430, %1429, %1424, %1423
-  %1433 = phi i64 [ 0, %1423 ], [ %1419, %1424 ], [ %1425, %1429 ], [ %.pre390, %1430 ]
+  %1433 = phi i64 [ 0, %1423 ], [ %1419, %1424 ], [ %1425, %1429 ], [ %.pre391, %1430 ]
   %1434 = and i64 %1433, -8
   %1435 = add i64 %1434, 32
   %1436 = call noalias ptr @_emalloc(i64 noundef %1435) #17
@@ -3288,9 +3288,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1443 = load ptr, ptr %7, align 8
   %1444 = call ptr @zend_hash_next_index_insert(ptr noundef %1443, ptr noundef nonnull %24) #15
   %1445 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
-  br i1 %1445, label %._crit_edge178, label %.lr.ph177
+  br i1 %1445, label %._crit_edge179, label %.lr.ph178
 
-.lr.ph177:                                        ; preds = %1432
+.lr.ph178:                                        ; preds = %1432
   %1446 = getelementptr inbounds i8, ptr %.0247031, i64 96
   %1447 = and i32 %.1242490, -4
   %or.cond89 = icmp eq i32 %1447, 300
@@ -3305,70 +3305,70 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.51) #15
   br label %.critedge2997.thread
 
-1453:                                             ; preds = %.lr.ph177, %.backedge
-  %.12426175 = phi ptr [ null, %.lr.ph177 ], [ %.12426.be, %.backedge ]
-  %.02429174 = phi i8 [ 1, %.lr.ph177 ], [ %.02429.be, %.backedge ]
-  %.12454173 = phi i64 [ 0, %.lr.ph177 ], [ %.12454.be, %.backedge ]
-  %.12459172 = phi ptr [ null, %.lr.ph177 ], [ %1456, %.backedge ]
-  %.not2934 = icmp eq ptr %.12459172, null
+1453:                                             ; preds = %.lr.ph178, %.backedge
+  %.12426176 = phi ptr [ null, %.lr.ph178 ], [ %.12426.be, %.backedge ]
+  %.02429175 = phi i8 [ 1, %.lr.ph178 ], [ %.02429.be, %.backedge ]
+  %.12454174 = phi i64 [ 0, %.lr.ph178 ], [ %.12454.be, %.backedge ]
+  %.12459173 = phi ptr [ null, %.lr.ph178 ], [ %1456, %.backedge ]
+  %.not2934 = icmp eq ptr %.12459173, null
   br i1 %.not2934, label %1455, label %1454
 
 1454:                                             ; preds = %1453
-  call void @_efree(ptr noundef nonnull %.12459172) #15
+  call void @_efree(ptr noundef nonnull %.12459173) #15
   br label %1455
 
 1455:                                             ; preds = %1454, %1453
   %1456 = call ptr @_php_stream_get_line(ptr noundef nonnull %.0247031, ptr noundef null, i64 noundef 0, ptr noundef nonnull %25) #15
   %.not2935 = icmp eq ptr %1456, null
-  br i1 %.not2935, label %._crit_edge178, label %1457
+  br i1 %.not2935, label %._crit_edge179, label %1457
 
 1457:                                             ; preds = %1455
   %1458 = load i8, ptr %1456, align 1
   switch i8 %1458, label %1459 [
-    i8 10, label %._crit_edge178
-    i8 13, label %._crit_edge178
+    i8 10, label %._crit_edge179
+    i8 13, label %._crit_edge179
   ]
 
 1459:                                             ; preds = %1457
   %1460 = load i64, ptr %25, align 8
   %1461 = getelementptr inbounds i8, ptr %1456, i64 %1460
-  %.02371152 = getelementptr inbounds i8, ptr %1461, i64 -1
-  %.not2964153 = icmp ult ptr %.02371152, %1456
-  br i1 %.not2964153, label %.critedge77, label %.lr.ph156
+  %.02371153 = getelementptr inbounds i8, ptr %1461, i64 -1
+  %.not2964154 = icmp ult ptr %.02371153, %1456
+  br i1 %.not2964154, label %.critedge77, label %.lr.ph157
 
-.lr.ph156:                                        ; preds = %1459, %.critedge79
-  %.02371154 = phi ptr [ %.02371, %.critedge79 ], [ %.02371152, %1459 ]
-  %1462 = load i8, ptr %.02371154, align 1
+.lr.ph157:                                        ; preds = %1459, %.critedge79
+  %.02371155 = phi ptr [ %.02371, %.critedge79 ], [ %.02371153, %1459 ]
+  %1462 = load i8, ptr %.02371155, align 1
   switch i8 %1462, label %.critedge77 [
     i8 10, label %.critedge79
     i8 13, label %.critedge79
   ]
 
-.critedge79:                                      ; preds = %.lr.ph156, %.lr.ph156
-  %.02371 = getelementptr inbounds i8, ptr %.02371154, i64 -1
+.critedge79:                                      ; preds = %.lr.ph157, %.lr.ph157
+  %.02371 = getelementptr inbounds i8, ptr %.02371155, i64 -1
   %.not2964 = icmp ult ptr %.02371, %1456
-  br i1 %.not2964, label %.critedge77, label %.lr.ph156
+  br i1 %.not2964, label %.critedge77, label %.lr.ph157
 
-.critedge77:                                      ; preds = %.critedge79, %.lr.ph156, %1459
-  %.02371.lcssa = phi ptr [ %.02371152, %1459 ], [ %.02371154, %.lr.ph156 ], [ %.02371, %.critedge79 ]
-  %.not2965160 = icmp ult ptr %.02371.lcssa, %1456
-  br i1 %.not2965160, label %.critedge81, label %.lr.ph162
+.critedge77:                                      ; preds = %.critedge79, %.lr.ph157, %1459
+  %.02371.lcssa = phi ptr [ %.02371153, %1459 ], [ %.02371155, %.lr.ph157 ], [ %.02371, %.critedge79 ]
+  %.not2965161 = icmp ult ptr %.02371.lcssa, %1456
+  br i1 %.not2965161, label %.critedge81, label %.lr.ph163
 
-.lr.ph162:                                        ; preds = %.critedge77, %.critedge83
-  %.12372161 = phi ptr [ %1464, %.critedge83 ], [ %.02371.lcssa, %.critedge77 ]
-  %1463 = load i8, ptr %.12372161, align 1
+.lr.ph163:                                        ; preds = %.critedge77, %.critedge83
+  %.12372162 = phi ptr [ %1464, %.critedge83 ], [ %.02371.lcssa, %.critedge77 ]
+  %1463 = load i8, ptr %.12372162, align 1
   switch i8 %1463, label %.critedge81 [
     i8 32, label %.critedge83
     i8 9, label %.critedge83
   ]
 
-.critedge83:                                      ; preds = %.lr.ph162, %.lr.ph162
-  %1464 = getelementptr inbounds i8, ptr %.12372161, i64 -1
+.critedge83:                                      ; preds = %.lr.ph163, %.lr.ph163
+  %1464 = getelementptr inbounds i8, ptr %.12372162, i64 -1
   %.not2965 = icmp ult ptr %1464, %1456
-  br i1 %.not2965, label %.critedge81, label %.lr.ph162
+  br i1 %.not2965, label %.critedge81, label %.lr.ph163
 
-.critedge81:                                      ; preds = %.critedge83, %.lr.ph162, %.critedge77
-  %.12372.lcssa = phi ptr [ %.02371.lcssa, %.critedge77 ], [ %.12372161, %.lr.ph162 ], [ %1464, %.critedge83 ]
+.critedge81:                                      ; preds = %.critedge83, %.lr.ph163, %.critedge77
+  %.12372.lcssa = phi ptr [ %.02371.lcssa, %.critedge77 ], [ %.12372162, %.lr.ph163 ], [ %1464, %.critedge83 ]
   %1465 = getelementptr inbounds i8, ptr %.12372.lcssa, i64 1
   store i8 0, ptr %1465, align 1
   %1466 = ptrtoint ptr %1465 to i64
@@ -3380,25 +3380,25 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2966, label %.critedge85, label %.preheader
 
 .preheader:                                       ; preds = %.critedge81
-  %.02369166 = getelementptr inbounds i8, ptr %1469, i64 1
+  %.02369167 = getelementptr inbounds i8, ptr %1469, i64 1
   %1470 = icmp ult ptr %1469, %.12372.lcssa
-  br i1 %1470, label %.lr.ph168, label %.critedge85
+  br i1 %1470, label %.lr.ph169, label %.critedge85
 
-.lr.ph168:                                        ; preds = %.preheader, %.critedge87
-  %.02369167 = phi ptr [ %.02369, %.critedge87 ], [ %.02369166, %.preheader ]
-  %1471 = load i8, ptr %.02369167, align 1
+.lr.ph169:                                        ; preds = %.preheader, %.critedge87
+  %.02369168 = phi ptr [ %.02369, %.critedge87 ], [ %.02369167, %.preheader ]
+  %1471 = load i8, ptr %.02369168, align 1
   switch i8 %1471, label %.critedge85 [
     i8 32, label %.critedge87
     i8 9, label %.critedge87
   ]
 
-.critedge87:                                      ; preds = %.lr.ph168, %.lr.ph168
-  %.02369 = getelementptr inbounds i8, ptr %.02369167, i64 1
-  %exitcond.not = icmp eq ptr %.02369167, %.12372.lcssa
-  br i1 %exitcond.not, label %.critedge85, label %.lr.ph168
+.critedge87:                                      ; preds = %.lr.ph169, %.lr.ph169
+  %.02369 = getelementptr inbounds i8, ptr %.02369168, i64 1
+  %exitcond.not = icmp eq ptr %.02369168, %.12372.lcssa
+  br i1 %exitcond.not, label %.critedge85, label %.lr.ph169
 
-.critedge85:                                      ; preds = %.critedge87, %.lr.ph168, %.preheader, %.critedge81
-  %.12370 = phi ptr [ %1465, %.critedge81 ], [ %.02369166, %.preheader ], [ %.02369, %.critedge87 ], [ %.02369167, %.lr.ph168 ]
+.critedge85:                                      ; preds = %.critedge87, %.lr.ph169, %.preheader, %.critedge81
+  %.12370 = phi ptr [ %1465, %.critedge81 ], [ %.02369167, %.preheader ], [ %.02369, %.critedge87 ], [ %.02369168, %.lr.ph169 ]
   %1472 = call i32 @strncasecmp(ptr noundef nonnull %1456, ptr noundef nonnull @.str.52, i64 noundef 9) #16
   %.not2967 = icmp eq i32 %1472, 0
   br i1 %.not2967, label %1473, label %1483
@@ -3418,7 +3418,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %1481
 
 1480:                                             ; preds = %1474, %1473
-  %spec.select3004 = select i1 %or.cond93, i8 %.02429174, i8 0
+  %spec.select3004 = select i1 %or.cond93, i8 %.02429175, i8 0
   br label %1481
 
 1481:                                             ; preds = %1480, %1476
@@ -3495,9 +3495,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2977, label %1511, label %.backedge
 
 1511:                                             ; preds = %1499, %1485, %1486, %1488, %1497, %1505, %.thread96, %1496, %1494, %1491, %1481
-  %.22455 = phi i64 [ %.12454173, %1497 ], [ %.12454173, %1499 ], [ %.12454173, %.thread96 ], [ %.12454173, %1505 ], [ %1493, %1496 ], [ %1493, %1494 ], [ %1493, %1491 ], [ %.12454173, %1488 ], [ %.12454173, %1486 ], [ %.12454173, %1485 ], [ %.12454173, %1481 ]
-  %.22431 = phi i8 [ %.02429174, %1497 ], [ %.02429174, %1499 ], [ %.02429174, %.thread96 ], [ %.02429174, %1505 ], [ %.02429174, %1496 ], [ %.02429174, %1494 ], [ %.02429174, %1491 ], [ %.02429174, %1488 ], [ %.02429174, %1486 ], [ %.02429174, %1485 ], [ %.12430, %1481 ]
-  %.22427 = phi ptr [ %.12426175, %1497 ], [ %.12426175, %1499 ], [ null, %.thread96 ], [ %.12426175, %1505 ], [ %.12426175, %1496 ], [ %.12426175, %1494 ], [ %.12426175, %1491 ], [ %.12426175, %1488 ], [ %.12426175, %1486 ], [ %.12426175, %1485 ], [ %.12426175, %1481 ]
+  %.22455 = phi i64 [ %.12454174, %1497 ], [ %.12454174, %1499 ], [ %.12454174, %.thread96 ], [ %.12454174, %1505 ], [ %1493, %1496 ], [ %1493, %1494 ], [ %1493, %1491 ], [ %.12454174, %1488 ], [ %.12454174, %1486 ], [ %.12454174, %1485 ], [ %.12454174, %1481 ]
+  %.22431 = phi i8 [ %.02429175, %1497 ], [ %.02429175, %1499 ], [ %.02429175, %.thread96 ], [ %.02429175, %1505 ], [ %.02429175, %1496 ], [ %.02429175, %1494 ], [ %.02429175, %1491 ], [ %.02429175, %1488 ], [ %.02429175, %1486 ], [ %.02429175, %1485 ], [ %.12430, %1481 ]
+  %.22427 = phi ptr [ %.12426176, %1497 ], [ %.12426176, %1499 ], [ null, %.thread96 ], [ %.12426176, %1505 ], [ %.12426176, %1496 ], [ %.12426176, %1494 ], [ %.12426176, %1491 ], [ %.12426176, %1488 ], [ %.12426176, %1486 ], [ %.12426176, %1485 ], [ %.12426176, %1481 ]
   %1512 = load i64, ptr %25, align 8
   %1513 = and i64 %1512, -8
   %1514 = add i64 %1513, 32
@@ -3520,20 +3520,20 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %.backedge
 
 .backedge:                                        ; preds = %1511, %.thread96
-  %.12454.be = phi i64 [ %.22455, %1511 ], [ %.12454173, %.thread96 ]
-  %.02429.be = phi i8 [ %.22431, %1511 ], [ %.02429174, %.thread96 ]
+  %.12454.be = phi i64 [ %.22455, %1511 ], [ %.12454174, %.thread96 ]
+  %.02429.be = phi i8 [ %.22431, %1511 ], [ %.02429175, %.thread96 ]
   %.12426.be = phi ptr [ %.22427, %1511 ], [ %1510, %.thread96 ]
   %1523 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0247031) #15
-  br i1 %1523, label %._crit_edge178, label %1453
+  br i1 %1523, label %._crit_edge179, label %1453
 
-._crit_edge178:                                   ; preds = %.backedge, %1455, %1457, %1457, %1432
-  %.12454.lcssa = phi i64 [ 0, %1432 ], [ %.12454173, %1457 ], [ %.12454173, %1457 ], [ %.12454173, %1455 ], [ %.12454.be, %.backedge ]
-  %.02429.lcssa = phi i8 [ 1, %1432 ], [ %.02429174, %1457 ], [ %.02429174, %1457 ], [ %.02429174, %1455 ], [ %.02429.be, %.backedge ]
-  %.12426.lcssa = phi ptr [ null, %1432 ], [ %.12426175, %1457 ], [ %.12426175, %1457 ], [ %.12426175, %1455 ], [ %.12426.be, %.backedge ]
+._crit_edge179:                                   ; preds = %.backedge, %1455, %1457, %1457, %1432
+  %.12454.lcssa = phi i64 [ 0, %1432 ], [ %.12454174, %1457 ], [ %.12454174, %1457 ], [ %.12454174, %1455 ], [ %.12454.be, %.backedge ]
+  %.02429.lcssa = phi i8 [ 1, %1432 ], [ %.02429175, %1457 ], [ %.02429175, %1457 ], [ %.02429175, %1455 ], [ %.02429.be, %.backedge ]
+  %.12426.lcssa = phi ptr [ null, %1432 ], [ %.12426176, %1457 ], [ %.12426176, %1457 ], [ %.12426176, %1455 ], [ %.12426.be, %.backedge ]
   %.22460 = phi ptr [ null, %1432 ], [ %1456, %1457 ], [ %1456, %1457 ], [ null, %1455 ], [ %1456, %.backedge ]
   br i1 %.12462.shrunk, label %1524, label %1528
 
-1524:                                             ; preds = %._crit_edge178
+1524:                                             ; preds = %._crit_edge179
   %1525 = load i8, ptr %14, align 16
   %.not2939 = icmp eq i8 %1525, 0
   br i1 %.not2939, label %.critedge2997.thread, label %1526
@@ -3542,9 +3542,9 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1527 = trunc nuw i8 %.02429.lcssa to i1
   br i1 %1527, label %.thread400, label %.critedge2997.thread
 
-1528:                                             ; preds = %._crit_edge178
-  %.pre394 = trunc nuw i8 %.02429.lcssa to i1
-  br i1 %.pre394, label %.thread400, label %.critedge2997.thread
+1528:                                             ; preds = %._crit_edge179
+  %.pre395 = trunc nuw i8 %.02429.lcssa to i1
+  br i1 %.pre395, label %.thread400, label %.critedge2997.thread
 
 .thread400:                                       ; preds = %1526, %1528
   %.old94 = icmp slt i32 %.0247737, 2
@@ -3777,7 +3777,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1634 = getelementptr inbounds i8, ptr %1626, i64 8
   %1635 = load ptr, ptr %1634, align 8
   %.not2958 = icmp eq ptr %1635, null
-  br i1 %.not2958, label %.loopexit101, label %1636
+  br i1 %.not2958, label %.loopexit102, label %1636
 
 1636:                                             ; preds = %1633
   %1637 = getelementptr inbounds i8, ptr %1635, i64 24
@@ -3791,24 +3791,24 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1644 = getelementptr inbounds i8, ptr %1643, i64 16
   %1645 = load i64, ptr %1644, align 8
   %1646 = getelementptr i8, ptr %1643, i64 %1645
-  %.ptr207 = getelementptr i8, ptr %1646, i64 24
+  %.ptr208 = getelementptr i8, ptr %1646, i64 24
   %1647 = icmp sgt i64 %1645, 0
-  br i1 %1647, label %.lr.ph200, label %.loopexit101
+  br i1 %1647, label %.lr.ph201, label %.loopexit102
 
-.lr.ph200:                                        ; preds = %1636
+.lr.ph201:                                        ; preds = %1636
   %.ptr = getelementptr inbounds i8, ptr %1643, i64 24
   %1648 = tail call ptr @__ctype_b_loc() #18
   %1649 = load ptr, ptr %1648, align 8
   br label %1653
 
 1650:                                             ; preds = %1653
-  %1651 = getelementptr inbounds i8, ptr %.02364198, i64 1
-  %1652 = icmp ult ptr %1651, %.ptr207
-  br i1 %1652, label %1653, label %.loopexit101
+  %1651 = getelementptr inbounds i8, ptr %.02364199, i64 1
+  %1652 = icmp ult ptr %1651, %.ptr208
+  br i1 %1652, label %1653, label %.loopexit102
 
-1653:                                             ; preds = %.lr.ph200, %1650
-  %.02364198 = phi ptr [ %.ptr, %.lr.ph200 ], [ %1651, %1650 ]
-  %1654 = load i8, ptr %.02364198, align 1
+1653:                                             ; preds = %.lr.ph201, %1650
+  %.02364199 = phi ptr [ %.ptr, %.lr.ph201 ], [ %1651, %1650 ]
+  %1654 = load i8, ptr %.02364199, align 1
   %1655 = zext i8 %1654 to i64
   %1656 = getelementptr inbounds i16, ptr %1649, i64 %1655
   %1657 = load i16, ptr %1656, align 2
@@ -3820,13 +3820,13 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.70, ptr noundef nonnull %27) #15
   br label %.critedge2997.thread
 
-.loopexit101:                                     ; preds = %1650, %1636, %1633
+.loopexit102:                                     ; preds = %1650, %1636, %1633
   %1660 = getelementptr inbounds i8, ptr %1626, i64 16
   %1661 = load ptr, ptr %1660, align 8
   %.not2959 = icmp eq ptr %1661, null
-  br i1 %.not2959, label %.loopexit100, label %1662
+  br i1 %.not2959, label %.loopexit101, label %1662
 
-1662:                                             ; preds = %.loopexit101
+1662:                                             ; preds = %.loopexit102
   %1663 = getelementptr inbounds i8, ptr %1661, i64 24
   %1664 = getelementptr inbounds i8, ptr %1661, i64 16
   %1665 = load i64, ptr %1664, align 8
@@ -3838,24 +3838,24 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1670 = getelementptr inbounds i8, ptr %1669, i64 16
   %1671 = load i64, ptr %1670, align 8
   %1672 = getelementptr i8, ptr %1669, i64 %1671
-  %.ptr209 = getelementptr i8, ptr %1672, i64 24
+  %.ptr210 = getelementptr i8, ptr %1672, i64 24
   %1673 = icmp sgt i64 %1671, 0
-  br i1 %1673, label %.lr.ph203, label %.loopexit100
+  br i1 %1673, label %.lr.ph204, label %.loopexit101
 
-.lr.ph203:                                        ; preds = %1662
-  %.ptr208 = getelementptr inbounds i8, ptr %1669, i64 24
+.lr.ph204:                                        ; preds = %1662
+  %.ptr209 = getelementptr inbounds i8, ptr %1669, i64 24
   %1674 = tail call ptr @__ctype_b_loc() #18
   %1675 = load ptr, ptr %1674, align 8
   br label %1679
 
 1676:                                             ; preds = %1679
-  %1677 = getelementptr inbounds i8, ptr %.02362201, i64 1
-  %1678 = icmp ult ptr %1677, %.ptr209
-  br i1 %1678, label %1679, label %.loopexit100
+  %1677 = getelementptr inbounds i8, ptr %.02362202, i64 1
+  %1678 = icmp ult ptr %1677, %.ptr210
+  br i1 %1678, label %1679, label %.loopexit101
 
-1679:                                             ; preds = %.lr.ph203, %1676
-  %.02362201 = phi ptr [ %.ptr208, %.lr.ph203 ], [ %1677, %1676 ]
-  %1680 = load i8, ptr %.02362201, align 1
+1679:                                             ; preds = %.lr.ph204, %1676
+  %.02362202 = phi ptr [ %.ptr209, %.lr.ph204 ], [ %1677, %1676 ]
+  %1680 = load i8, ptr %.02362202, align 1
   %1681 = zext i8 %1680 to i64
   %1682 = getelementptr inbounds i16, ptr %1675, i64 %1681
   %1683 = load i16, ptr %1682, align 2
@@ -3867,13 +3867,13 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.70, ptr noundef nonnull %27) #15
   br label %.critedge2997.thread
 
-.loopexit100:                                     ; preds = %1676, %1662, %.loopexit101
+.loopexit101:                                     ; preds = %1676, %1662, %.loopexit102
   %1686 = getelementptr inbounds i8, ptr %1626, i64 40
   %1687 = load ptr, ptr %1686, align 8
   %.not2960 = icmp eq ptr %1687, null
   br i1 %.not2960, label %.loopexit, label %1688
 
-1688:                                             ; preds = %.loopexit100
+1688:                                             ; preds = %.loopexit101
   %1689 = getelementptr inbounds i8, ptr %1687, i64 24
   %1690 = getelementptr inbounds i8, ptr %1687, i64 16
   %1691 = load i64, ptr %1690, align 8
@@ -3885,24 +3885,24 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %1696 = getelementptr inbounds i8, ptr %1695, i64 16
   %1697 = load i64, ptr %1696, align 8
   %1698 = getelementptr i8, ptr %1695, i64 %1697
-  %.ptr211 = getelementptr i8, ptr %1698, i64 24
+  %.ptr212 = getelementptr i8, ptr %1698, i64 24
   %1699 = icmp sgt i64 %1697, 0
-  br i1 %1699, label %.lr.ph206, label %.loopexit
+  br i1 %1699, label %.lr.ph207, label %.loopexit
 
-.lr.ph206:                                        ; preds = %1688
-  %.ptr210 = getelementptr inbounds i8, ptr %1695, i64 24
+.lr.ph207:                                        ; preds = %1688
+  %.ptr211 = getelementptr inbounds i8, ptr %1695, i64 24
   %1700 = tail call ptr @__ctype_b_loc() #18
   %1701 = load ptr, ptr %1700, align 8
   br label %1705
 
 1702:                                             ; preds = %1705
-  %1703 = getelementptr inbounds i8, ptr %.02360204, i64 1
-  %1704 = icmp ult ptr %1703, %.ptr211
+  %1703 = getelementptr inbounds i8, ptr %.02360205, i64 1
+  %1704 = icmp ult ptr %1703, %.ptr212
   br i1 %1704, label %1705, label %.loopexit
 
-1705:                                             ; preds = %.lr.ph206, %1702
-  %.02360204 = phi ptr [ %.ptr210, %.lr.ph206 ], [ %1703, %1702 ]
-  %1706 = load i8, ptr %.02360204, align 1
+1705:                                             ; preds = %.lr.ph207, %1702
+  %.02360205 = phi ptr [ %.ptr211, %.lr.ph207 ], [ %1703, %1702 ]
+  %1706 = load i8, ptr %.02360205, align 1
   %1707 = zext i8 %1706 to i64
   %1708 = getelementptr inbounds i16, ptr %1701, i64 %1707
   %1709 = load i16, ptr %1708, align 2
@@ -3914,7 +3914,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.70, ptr noundef nonnull %27) #15
   br label %.critedge2997.thread
 
-.loopexit:                                        ; preds = %1702, %1688, %.loopexit100, %1631
+.loopexit:                                        ; preds = %1702, %1688, %.loopexit101, %1631
   %1712 = add i32 %.1242490, -307
   %or.cond98 = icmp ult i32 %1712, 2
   %spec.select3009 = select i1 %or.cond98, i32 6, i32 2
@@ -3985,7 +3985,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2987, label %1793, label %1734
 
 1734:                                             ; preds = %1733
-  br i1 %.not396, label %1745, label %1735
+  br i1 %.not100, label %1745, label %1735
 
 1735:                                             ; preds = %1734
   %1736 = getelementptr inbounds i8, ptr %.22472, i64 80

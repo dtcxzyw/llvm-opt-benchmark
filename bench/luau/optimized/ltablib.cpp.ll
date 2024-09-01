@@ -1100,7 +1100,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %23 = lshr i32 %22, 1
   br label %.lr.ph.i
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i
+.preheader.i:                                     ; preds = %.lr.ph.i
   %invariant.op.i = add i32 %.096160, -1
   %24 = sext i32 %.096160 to i64
   %25 = zext nneg i32 %20 to i64
@@ -1111,10 +1111,10 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %.024.i = add nsw i32 %.024.in25.i, -1
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.098159, ptr noundef readonly %5, i32 noundef %.024.i)
   %26 = icmp ugt i32 %.024.in25.i, 1
-  br i1 %26, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !20
+  br i1 %26, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
 
-27:                                               ; preds = %27, %.lr.ph27.i
-  %indvars.iv.i = phi i64 [ %25, %.lr.ph27.i ], [ %indvars.iv.next.i, %27 ]
+27:                                               ; preds = %27, %.preheader.i
+  %indvars.iv.i = phi i64 [ %25, %.preheader.i ], [ %indvars.iv.next.i, %27 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %28 = load ptr, ptr %15, align 8
   %29 = getelementptr inbounds %struct.lua_TValue, ptr %28, i64 %24

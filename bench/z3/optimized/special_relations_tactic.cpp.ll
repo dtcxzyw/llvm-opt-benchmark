@@ -3799,7 +3799,7 @@ lpad3.loopexit.split-lp:                          ; preds = %for.end
   br label %ehcleanup104
 
 for.end:                                          ; preds = %for.inc, %invoke.cont2, %_ZNK4goal4sizeEv.exit
-  %cmp365.not390 = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %invoke.cont2 ], [ %cmp365.not, %for.inc ]
+  %cmp365.not390 = phi i1 [ true, %_ZNK4goal4sizeEv.exit ], [ true, %invoke.cont2 ], [ false, %for.inc ]
   %retval.0.i.i.i389 = phi i32 [ 0, %_ZNK4goal4sizeEv.exit ], [ 0, %invoke.cont2 ], [ %retval.0.i.i.i, %for.inc ]
   %m = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %m, align 8

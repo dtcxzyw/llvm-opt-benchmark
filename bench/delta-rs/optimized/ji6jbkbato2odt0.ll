@@ -24160,7 +24160,7 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
           to label %206 unwind label %.body.thread105
 
 162:                                              ; preds = %201
-  br i1 %.not.not.not, label %129, label %.thread113
+  br i1 %.not.not, label %129, label %.thread113
 
 163:                                              ; preds = %159
   %164 = landingpad { ptr, i32 }
@@ -24169,8 +24169,8 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
 
 165:                                              ; preds = %159
   %166 = load i64, ptr %13, align 8, !range !424, !noundef !14
-  %.not.not.not = icmp eq i64 %166, -9223372036854775808
-  br i1 %.not.not.not, label %195, label %167
+  %.not.not = icmp eq i64 %166, -9223372036854775808
+  br i1 %.not.not, label %195, label %167
 
 167:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -24342,7 +24342,7 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.013)
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.917)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %14)
-  br i1 %.not.not.not, label %204, label %205
+  br i1 %.not.not, label %204, label %205
 
 204:                                              ; preds = %205, %203
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %21)
@@ -24497,8 +24497,8 @@ define internal fastcc void @_ZN13deltalake_aws7storage16S3StorageOptions14ensur
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call fastcc void @_ZN13deltalake_aws7storage10str_option17hf9fb2ac8df5e7959E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %7 = load i64, ptr %6, align 8, !range !424, !noundef !14
-  %.not.not = icmp eq i64 %7, -9223372036854775808
-  br i1 %.not.not, label %27, label %8
+  %.not = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not, label %27, label %8
 
 8:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)

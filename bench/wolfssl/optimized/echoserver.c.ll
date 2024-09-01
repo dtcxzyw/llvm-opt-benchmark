@@ -212,9 +212,9 @@ if.end12:                                         ; preds = %tcp_listen.exit
 
 while.body.lr.ph.split.us.preheader:              ; preds = %if.end12
   store i32 16, ptr %client_len, align 4
-  %call22.us102144 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #16
-  %cmp23.us103145 = icmp slt i32 %call22.us102144, -1
-  br i1 %cmp23.us103145, label %if.then24, label %if.end25.us
+  %call22.us102142 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #16
+  %cmp23.us103143 = icmp slt i32 %call22.us102142, -1
+  br i1 %cmp23.us103143, label %if.then24, label %if.end25.us
 
 if.then15:                                        ; preds = %if.end12
   call fastcc void @err_sys(ptr noundef nonnull @.str.5) #14
@@ -387,7 +387,7 @@ while.body.lr.ph.split.us.critedge:               ; preds = %do.end134, %if.then
   br i1 %cmp23.us103, label %if.then24, label %if.end25.us.backedge
 
 if.end25.us:                                      ; preds = %while.body.lr.ph.split.us.preheader, %if.end25.us.backedge
-  %call22.us104 = phi i32 [ %call22.us104.be, %if.end25.us.backedge ], [ %call22.us102144, %while.body.lr.ph.split.us.preheader ]
+  %call22.us104 = phi i32 [ %call22.us104.be, %if.end25.us.backedge ], [ %call22.us102142, %while.body.lr.ph.split.us.preheader ]
   %call26.us = call ptr @wolfSSL_new(ptr noundef %call6) #16
   %cmp27.us = icmp eq ptr %call26.us, null
   br i1 %cmp27.us, label %if.then28, label %if.end29.us

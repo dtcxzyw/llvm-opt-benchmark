@@ -1528,13 +1528,13 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit52: ; preds = %._crit_edge.i43,
   %280 = sub i64 %277, %279
   %281 = sub i32 %276, %.0.i.i24
   %282 = icmp ugt i64 %280, %73
-  br i1 %282, label %203, label %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit, !llvm.loop !22
+  br i1 %282, label %203, label %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29, !llvm.loop !22
 
-_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit: ; preds = %._crit_edge.i.i26
+_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29: ; preds = %._crit_edge.i.i26
   %.not = icmp eq i64 %189, %280
   br i1 %.not, label %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit, label %_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42
 
-_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42: ; preds = %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit
+_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42: ; preds = %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29
   %283 = load ptr, ptr %84, align 8, !nonnull !19, !noundef !19
   %284 = load ptr, ptr %85, align 8
   %sext = shl i64 %189, 32
@@ -1655,7 +1655,7 @@ _ZNK3gmx17SelectionPosition11atomIndicesEv.exit42: ; preds = %_ZN3gmx22UniformIn
   store double %371, ptr %369, align 8
   br label %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit
 
-_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit: ; preds = %.lr.ph.i, %358, %.preheader.i, %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit
+_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit: ; preds = %.lr.ph.i, %358, %.preheader.i, %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29
   %372 = add nuw i64 %.0127, 1
   %exitcond.not = icmp eq i64 %372, %80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23

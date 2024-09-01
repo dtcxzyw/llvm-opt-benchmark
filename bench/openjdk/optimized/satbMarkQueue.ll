@@ -213,8 +213,8 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
 
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
   %.011.i.i = phi ptr [ %14, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %.011.i.i.be, %.backedge.i.i.backedge ]
-  %.not.i.i.not = icmp ne ptr %.011.i.i, null
-  br i1 %.not.i.i.not, label %.thread.i.i, label %15
+  %.not.i.i.not.not.not.not = icmp ne ptr %.011.i.i, null
+  br i1 %.not.i.i.not.not.not.not, label %.thread.i.i, label %15
 
 15:                                               ; preds = %.backedge.i.i
   %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull %13) #10, !srcloc !10
@@ -271,7 +271,7 @@ _ZN16SATBMarkQueueSet20get_completed_bufferEv.exit: ; preds = %23
   br label %37
 
 37:                                               ; preds = %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread, %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit
-  ret i1 %.not.i.i.not
+  ret i1 %.not.i.i.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

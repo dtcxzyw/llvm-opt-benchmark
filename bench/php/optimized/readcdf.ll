@@ -773,8 +773,8 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
 231:                                              ; preds = %.preheader, %243
   %.03859 = phi i64 [ 0, %.preheader ], [ %249, %243 ]
   %232 = load i64, ptr %230, align 8
-  %.not65 = icmp ult i64 %.03859, %232
-  br i1 %.not65, label %233, label %.critedge
+  %.not60 = icmp ult i64 %.03859, %232
+  br i1 %.not60, label %233, label %.critedge
 
 233:                                              ; preds = %231
   %234 = load ptr, ptr %6, align 8

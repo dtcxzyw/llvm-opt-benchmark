@@ -364,7 +364,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %66 = phi i32 [ %62, %sub_1 ], [ %65, %sub_2 ]
   %.not158 = icmp eq i32 %66, 0
-  br i1 %.not158, label %67, label %sub_0171
+  br i1 %.not158, label %67, label %sub_1172
 
 67:                                               ; preds = %.tail
   br i1 %.not162, label %71, label %68
@@ -379,18 +379,15 @@ sub_2:                                            ; preds = %sub_1
   store i32 0, ptr %44, align 4
   br label %.loopexit
 
-sub_0171:                                         ; preds = %.tail
-  br i1 %.not183, label %sub_1172, label %.tail170
-
-sub_1172:                                         ; preds = %sub_0171
+sub_1172:                                         ; preds = %.tail
   %72 = getelementptr inbounds i8, ptr %55, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %74, -118
   br label %.tail170
 
-.tail170:                                         ; preds = %sub_0, %sub_0171, %sub_1172
-  %76 = phi i32 [ %58, %sub_0171 ], [ %75, %sub_1172 ], [ %58, %sub_0 ]
+.tail170:                                         ; preds = %sub_0, %sub_1172
+  %76 = phi i32 [ %75, %sub_1172 ], [ %58, %sub_0 ]
   %.not160 = icmp eq i32 %76, 0
   br i1 %.not160, label %77, label %86
 

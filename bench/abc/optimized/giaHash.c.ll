@@ -3158,10 +3158,7 @@ define noalias noundef ptr @Gia_ManGenPerm(i32 noundef %0) local_unnamed_addr #1
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %6, label %.lr.ph23.preheader, label %._crit_edge
-
-.lr.ph23.preheader:                               ; preds = %.preheader
+.lr.ph23.preheader:                               ; preds = %.lr.ph
   %wide.trip.count28 = zext nneg i32 %0 to i64
   br label %.lr.ph23
 
@@ -3172,7 +3169,7 @@ define noalias noundef ptr @Gia_ManGenPerm(i32 noundef %0) local_unnamed_addr #1
   store i32 %8, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph23.preheader, label %.lr.ph, !llvm.loop !19
 
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %.lr.ph23
   %indvars.iv25 = phi i64 [ 0, %.lr.ph23.preheader ], [ %indvars.iv.next26, %.lr.ph23 ]
@@ -3189,7 +3186,7 @@ define noalias noundef ptr @Gia_ManGenPerm(i32 noundef %0) local_unnamed_addr #1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
   br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.lr.ph23, %1, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph23, %1
   ret ptr %3
 }
 
@@ -3417,8 +3414,9 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   br label %11
 
 ._crit_edge115.thread:                            ; preds = %._crit_edge115, %17
-  %67 = load i32, ptr %1, align 4
-  br i1 %12, label %.lr.ph131, label %._crit_edge132
+  %67 = phi i1 [ true, %17 ], [ %12, %._crit_edge115 ]
+  %68 = load i32, ptr %1, align 4
+  br i1 %67, label %.lr.ph131, label %._crit_edge132
 
 .lr.ph131:                                        ; preds = %._crit_edge115.thread
   %wide.trip.count166 = zext nneg i32 %.0 to i64
@@ -3428,46 +3426,46 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %.not107, label %.lr.ph131.split.us.split.us, label %.lr.ph131.split.us.split.preheader
 
 .lr.ph131.split.us.split.preheader:               ; preds = %.lr.ph131.split.us
-  %68 = xor i32 %67, 1
+  %69 = xor i32 %68, 1
   br label %.lr.ph131.split.us.split
 
 .lr.ph131.split.us.split.us:                      ; preds = %.lr.ph131.split.us, %.lr.ph131.split.us.split.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph131.split.us.split.us ], [ 1, %.lr.ph131.split.us ]
-  %.0101128.us.us = phi i32 [ %71, %.lr.ph131.split.us.split.us ], [ %67, %.lr.ph131.split.us ]
-  %69 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv163
-  %70 = load i32, ptr %69, align 4
-  %71 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us.us, i32 noundef %70)
+  %.0101128.us.us = phi i32 [ %72, %.lr.ph131.split.us.split.us ], [ %68, %.lr.ph131.split.us ]
+  %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv163
+  %71 = load i32, ptr %70, align 4
+  %72 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us.us, i32 noundef %71)
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
   br i1 %exitcond167.not, label %._crit_edge132, label %.lr.ph131.split.us.split.us, !llvm.loop !27
 
 .lr.ph131.split.us.split:                         ; preds = %.lr.ph131.split.us.split.preheader, %.lr.ph131.split.us.split
   %indvars.iv158 = phi i64 [ 1, %.lr.ph131.split.us.split.preheader ], [ %indvars.iv.next159, %.lr.ph131.split.us.split ]
-  %.0101128.us = phi i32 [ %68, %.lr.ph131.split.us.split.preheader ], [ %75, %.lr.ph131.split.us.split ]
-  %72 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv158
-  %73 = load i32, ptr %72, align 4
-  %74 = xor i32 %73, 1
-  %75 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us, i32 noundef %74)
+  %.0101128.us = phi i32 [ %69, %.lr.ph131.split.us.split.preheader ], [ %76, %.lr.ph131.split.us.split ]
+  %73 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv158
+  %74 = load i32, ptr %73, align 4
+  %75 = xor i32 %74, 1
+  %76 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us, i32 noundef %75)
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count166
   br i1 %exitcond162.not, label %._crit_edge132.loopexit135, label %.lr.ph131.split.us.split, !llvm.loop !27
 
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %.lr.ph131.split
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph131.split ], [ 1, %.lr.ph131 ]
-  %.0101128 = phi i32 [ %78, %.lr.ph131.split ], [ %67, %.lr.ph131 ]
-  %76 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv153
-  %77 = load i32, ptr %76, align 4
-  %78 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.0101128, i32 noundef %77)
+  %.0101128 = phi i32 [ %79, %.lr.ph131.split ], [ %68, %.lr.ph131 ]
+  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv153
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.0101128, i32 noundef %78)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count166
   br i1 %exitcond157.not, label %._crit_edge132, label %.lr.ph131.split, !llvm.loop !27
 
 ._crit_edge132.loopexit135:                       ; preds = %.lr.ph131.split.us.split
-  %79 = xor i32 %75, 1
+  %80 = xor i32 %76, 1
   br label %._crit_edge132
 
 ._crit_edge132:                                   ; preds = %.lr.ph131.split, %.lr.ph131.split.us.split.us, %._crit_edge132.loopexit135, %._crit_edge115.thread
-  %.0101.lcssa = phi i32 [ %67, %._crit_edge115.thread ], [ %79, %._crit_edge132.loopexit135 ], [ %71, %.lr.ph131.split.us.split.us ], [ %78, %.lr.ph131.split ]
+  %.0101.lcssa = phi i32 [ %68, %._crit_edge115.thread ], [ %80, %._crit_edge132.loopexit135 ], [ %72, %.lr.ph131.split.us.split.us ], [ %79, %.lr.ph131.split ]
   ret i32 %.0101.lcssa
 }
 
@@ -3983,14 +3981,11 @@ Gia_ManCube.exit50:                               ; preds = %40
   %48 = xor i32 %38, 1
   %49 = xor i32 %47, 1
   %50 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %48, i32 noundef %49)
-  br i1 %28, label %.lr.ph.i51, label %Gia_ManFindCond.exit
-
-.lr.ph.i51:                                       ; preds = %Gia_ManCube.exit50
   %51 = xor i32 %5, %4
   br label %52
 
-52:                                               ; preds = %62, %.lr.ph.i51
-  %.012.i = phi i32 [ 0, %.lr.ph.i51 ], [ %63, %62 ]
+52:                                               ; preds = %62, %Gia_ManCube.exit50
+  %.012.i = phi i32 [ 0, %Gia_ManCube.exit50 ], [ %63, %62 ]
   %53 = shl nuw i32 1, %.012.i
   %54 = and i32 %53, %51
   %.not.i = icmp eq i32 %54, 0
@@ -4010,9 +4005,9 @@ Gia_ManCube.exit50:                               ; preds = %40
   %exitcond.not.i52 = icmp eq i32 %63, %2
   br i1 %exitcond.not.i52, label %Gia_ManFindCond.exit, label %52, !llvm.loop !33
 
-Gia_ManFindCond.exit:                             ; preds = %62, %Gia_ManCube.exit50.thread, %Gia_ManCube.exit50, %55
-  %64 = phi i32 [ %50, %55 ], [ %50, %Gia_ManCube.exit50 ], [ %29, %Gia_ManCube.exit50.thread ], [ %50, %62 ]
-  %.010.i = phi i32 [ %61, %55 ], [ -1, %Gia_ManCube.exit50 ], [ -1, %Gia_ManCube.exit50.thread ], [ -1, %62 ]
+Gia_ManFindCond.exit:                             ; preds = %62, %Gia_ManCube.exit50.thread, %55
+  %64 = phi i32 [ %50, %55 ], [ %29, %Gia_ManCube.exit50.thread ], [ %50, %62 ]
+  %.010.i = phi i32 [ %61, %55 ], [ -1, %Gia_ManCube.exit50.thread ], [ -1, %62 ]
   %65 = xor i32 %64, 1
   %66 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.010.i, i32 noundef %14, i32 noundef %10)
   %67 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %65, i32 noundef %66, i32 noundef %27)
@@ -4170,19 +4165,19 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %spec.select13.i = select i1 %17, i32 %18, i32 %.016.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i92, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %Gia_ManEarliest.exit, label %.lr.ph.i, !llvm.loop !35
 
-.lr.ph.preheader.i92:                             ; preds = %.lr.ph.i
+Gia_ManEarliest.exit:                             ; preds = %.lr.ph.i
   %19 = add nsw i32 %spec.select13.i, %2
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %.lr.ph.i94
 
-.lr.ph.i94:                                       ; preds = %.lr.ph.i94, %.lr.ph.preheader.i92
-  %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.preheader.i92 ], [ %indvars.iv.next.i96, %.lr.ph.i94 ]
-  %.025.i = phi i32 [ -1, %.lr.ph.preheader.i92 ], [ %.1.i, %.lr.ph.i94 ]
-  %.01524.i = phi i32 [ -1, %.lr.ph.preheader.i92 ], [ %.116.i, %.lr.ph.i94 ]
+.lr.ph.i94:                                       ; preds = %.lr.ph.i94, %Gia_ManEarliest.exit
+  %indvars.iv.i95 = phi i64 [ 0, %Gia_ManEarliest.exit ], [ %indvars.iv.next.i96, %.lr.ph.i94 ]
+  %.025.i = phi i32 [ -1, %Gia_ManEarliest.exit ], [ %.1.i, %.lr.ph.i94 ]
+  %.01524.i = phi i32 [ -1, %Gia_ManEarliest.exit ], [ %.116.i, %.lr.ph.i94 ]
   %23 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i95
   %24 = load i32, ptr %23, align 4
   %25 = icmp sge i32 %.01524.i, %24

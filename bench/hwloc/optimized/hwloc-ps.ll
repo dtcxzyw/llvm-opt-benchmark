@@ -213,16 +213,13 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %29 = phi i32 [ %25, %sub_1 ], [ %28, %sub_2 ]
   %.not111 = icmp eq i32 %29, 0
-  br i1 %.not111, label %30, label %sub_0145
+  br i1 %.not111, label %30, label %sub_1146
 
 30:                                               ; preds = %.tail
   store i1 true, ptr @show_all, align 4
   br label %hwloc_utils_check_api_version.exit
 
-sub_0145:                                         ; preds = %.tail
-  br i1 %.not243, label %sub_1146, label %.tail144
-
-sub_1146:                                         ; preds = %sub_0145
+sub_1146:                                         ; preds = %.tail
   %31 = getelementptr inbounds i8, ptr %18, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
@@ -236,8 +233,8 @@ sub_2147:                                         ; preds = %sub_1146
   %37 = zext i8 %36 to i32
   br label %.tail144
 
-.tail144:                                         ; preds = %sub_0, %sub_0145, %sub_1146, %sub_2147
-  %38 = phi i32 [ %21, %sub_0145 ], [ %34, %sub_1146 ], [ %37, %sub_2147 ], [ %21, %sub_0 ]
+.tail144:                                         ; preds = %sub_0, %sub_1146, %sub_2147
+  %38 = phi i32 [ %34, %sub_1146 ], [ %37, %sub_2147 ], [ %21, %sub_0 ]
   %.not112 = icmp eq i32 %38, 0
   br i1 %.not112, label %41, label %39
 

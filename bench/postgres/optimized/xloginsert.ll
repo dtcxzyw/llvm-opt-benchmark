@@ -1770,17 +1770,14 @@ XLogRegisterBuffer.exit:                          ; preds = %101, %107
 
 ._crit_edge45:                                    ; preds = %XLogRegisterBuffer.exit
   %118 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
-  br i1 %79, label %.lr.ph48, label %._crit_edge49
-
-.lr.ph48:                                         ; preds = %._crit_edge45
   %119 = lshr i64 %118, 32
   %120 = trunc nuw i64 %119 to i32
   %121 = trunc i64 %118 to i32
   %wide.trip.count58 = zext nneg i32 %.132 to i64
   br label %122
 
-122:                                              ; preds = %.lr.ph48, %BufferGetPage.exit38
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next56, %BufferGetPage.exit38 ]
+122:                                              ; preds = %._crit_edge45, %BufferGetPage.exit38
+  %indvars.iv55 = phi i64 [ 0, %._crit_edge45 ], [ %indvars.iv.next56, %BufferGetPage.exit38 ]
   %123 = getelementptr [32 x i32], ptr %6, i64 0, i64 %indvars.iv55
   %124 = load i32, ptr %123, align 4
   %125 = icmp slt i32 %124, 0
@@ -1812,7 +1809,7 @@ BufferGetPage.exit38:                             ; preds = %126, %132
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge49, label %122, !llvm.loop !15
 
-._crit_edge49:                                    ; preds = %BufferGetPage.exit38, %._crit_edge45.thread, %._crit_edge45
+._crit_edge49:                                    ; preds = %BufferGetPage.exit38, %._crit_edge45.thread
   %139 = load volatile i32, ptr @CritSectionCount, align 4
   %140 = add i32 %139, -1
   store volatile i32 %140, ptr @CritSectionCount, align 4

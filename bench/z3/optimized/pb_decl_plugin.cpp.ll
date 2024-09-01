@@ -1347,12 +1347,9 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br i1 %16, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %_ZN8rationalD2Ev.exit
-  br i1 %12, label %for.cond4.preheader, label %for.body18.lr.ph
+  br i1 %12, label %for.body6.preheader, label %for.body18.lr.ph
 
-for.cond4.preheader:                              ; preds = %for.end
-  br i1 %cmp139.not, label %for.end13, label %for.body6.preheader
-
-for.body6.preheader:                              ; preds = %for.cond4.preheader
+for.body6.preheader:                              ; preds = %for.end
   %wide.trip.count160 = zext i32 %num_args to i64
   br label %for.body6
 
@@ -1364,7 +1361,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %for.end13, label %for.body6, !llvm.loop !13
 
-for.end13:                                        ; preds = %for.body6, %_ZN6vectorI8rationalLb1EjE5resetEv.exit, %for.cond4.preheader
+for.end13:                                        ; preds = %for.body6, %_ZN6vectorI8rationalLb1EjE5resetEv.exit
   %m_k = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_kind.i.i.i.i.i21 = getelementptr inbounds i8, ptr %k, i64 4

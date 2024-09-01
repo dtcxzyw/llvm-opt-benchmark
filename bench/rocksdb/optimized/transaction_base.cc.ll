@@ -4868,7 +4868,8 @@ for.end.thread:                                   ; preds = %_ZNSt6vectorINSt7__
 
 _ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread: ; preds = %for.end.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br label %invoke.cont18.thread
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  br label %return
 
 if.then.i.i66:                                    ; preds = %for.end.thread, %for.end
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
@@ -4876,13 +4877,6 @@ if.then.i.i66:                                    ; preds = %for.end.thread, %fo
 
 _ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59: ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br i1 %cmp481.not, label %invoke.cont18.thread, label %_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61
-
-invoke.cont18.thread:                             ; preds = %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br label %return
-
-_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59
   %call5.i.i.i.i2.i.i69 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #25
   store ptr %call5.i.i.i.i2.i.i69, ptr %agg.result, align 8
   %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i69, i64 %sub.ptr.sub.i
@@ -4890,9 +4884,9 @@ _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNS
   store ptr %add.ptr.i.i.i62, ptr %_M_end_of_storage.i.i.i63, align 8
   br label %for.inc.i.i.i.i.i
 
-for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61
-  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i64, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i69, %_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61 ]
-  %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61 ]
+for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59
+  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i64, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i69, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59 ]
+  %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59 ]
   %state_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store ptr null, ptr %state_.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.08.i.i.i.i.i, i8 0, i64 6, i1 false)
@@ -4904,9 +4898,6 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
 invoke.cont18:                                    ; preds = %for.inc.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %incdec.ptr.i.i.i.i.i64, ptr %_M_finish.i.i7.i, align 8
-  br i1 %cmp481.not, label %return, label %for.body23.lr.ph
-
-for.body23.lr.ph:                                 ; preds = %invoke.cont18
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 3
@@ -4916,8 +4907,8 @@ for.body23.lr.ph:                                 ; preds = %invoke.cont18
   %umax86 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body23
 
-for.body23:                                       ; preds = %for.body23.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit79
-  %i20.084 = phi i64 [ 0, %for.body23.lr.ph ], [ %inc35, %_ZN7rocksdb6StatusD2Ev.exit79 ]
+for.body23:                                       ; preds = %invoke.cont18, %_ZN7rocksdb6StatusD2Ev.exit79
+  %i20.084 = phi i64 [ 0, %invoke.cont18 ], [ %inc35, %_ZN7rocksdb6StatusD2Ev.exit79 ]
   %19 = load ptr, ptr %column_family, align 8
   %add.ptr.i70 = getelementptr inbounds ptr, ptr %19, i64 %i20.084
   %20 = load ptr, ptr %add.ptr.i70, align 8
@@ -4996,7 +4987,7 @@ lpad30:                                           ; preds = %for.body23
   call void @_ZNSt6vectorIN7rocksdb6StatusESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #23
   br label %eh.resume
 
-return:                                           ; preds = %_ZN7rocksdb6StatusD2Ev.exit53, %_ZN7rocksdb6StatusD2Ev.exit79, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %invoke.cont, %invoke.cont18.thread, %invoke.cont18
+return:                                           ; preds = %_ZN7rocksdb6StatusD2Ev.exit53, %_ZN7rocksdb6StatusD2Ev.exit79, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %invoke.cont, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread
   ret void
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i56, %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26, %lpad.body, %lpad30

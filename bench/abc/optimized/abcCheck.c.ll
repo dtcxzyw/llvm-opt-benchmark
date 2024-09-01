@@ -626,14 +626,14 @@ Abc_NtkCheckPis.exit:                             ; preds = %.critedge.i142, %.c
   br i1 %263, label %.lr.ph60.i, label %Abc_NtkCheckPos.exit, !llvm.loop !11
 
 Abc_NtkCheckPos.exit:                             ; preds = %.critedge.i151, %.critedge.preheader.i148
-  %.val120273 = phi i32 [ %.val58.i, %.critedge.preheader.i148 ], [ %.val.i152, %.critedge.i151 ]
+  %.val120270 = phi i32 [ %.val58.i, %.critedge.preheader.i148 ], [ %.val.i152, %.critedge.i151 ]
   %264 = phi ptr [ %200, %.critedge.preheader.i148 ], [ %260, %.critedge.i151 ]
   %.val117 = load i32, ptr %6, align 4
   %.not214 = icmp eq i32 %.val117, 6
   br i1 %.not214, label %Abc_NtkCheckNames.exit.thread, label %.preheader219
 
 .preheader219:                                    ; preds = %Abc_NtkCheckPos.exit
-  %265 = icmp sgt i32 %.val120273, 0
+  %265 = icmp sgt i32 %.val120270, 0
   br i1 %265, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader219, %273
@@ -652,11 +652,11 @@ Abc_NtkCheckPos.exit:                             ; preds = %.critedge.i151, %.c
   br i1 %.not105, label %Abc_NtkCheckNames.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %271
-  %.pre331 = load ptr, ptr %139, align 8
+  %.pre326 = load ptr, ptr %139, align 8
   br label %273
 
 273:                                              ; preds = %._crit_edge, %.lr.ph
-  %274 = phi ptr [ %.pre331, %._crit_edge ], [ %266, %.lr.ph ]
+  %274 = phi ptr [ %.pre326, %._crit_edge ], [ %266, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %275 = getelementptr i8, ptr %274, i64 4
   %.val120 = load i32, ptr %275, align 4
@@ -679,25 +679,25 @@ Abc_NtkCheckPos.exit:                             ; preds = %.critedge.i151, %.c
 282:                                              ; preds = %281
   %283 = load ptr, ptr @stdout, align 8
   %284 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 44, i64 1, ptr %283)
-  %.pre332 = load ptr, ptr %139, align 8
+  %.pre327 = load ptr, ptr %139, align 8
   br label %285
 
 285:                                              ; preds = %282, %281
-  %286 = phi ptr [ %.pre332, %282 ], [ %278, %281 ]
+  %286 = phi ptr [ %.pre327, %282 ], [ %278, %281 ]
   %287 = getelementptr i8, ptr %286, i64 4
   %.val121 = load i32, ptr %287, align 4
   %288 = icmp sgt i32 %.val121, 0
-  br i1 %288, label %.lr.ph276, label %.critedge2
+  br i1 %288, label %.lr.ph273, label %.critedge2
 
-.lr.ph276:                                        ; preds = %285
+.lr.ph273:                                        ; preds = %285
   %289 = getelementptr i8, ptr %286, i64 8
   %.val131.val = load ptr, ptr %289, align 8
   %wide.trip.count = zext nneg i32 %.val121 to i64
   br label %290
 
-290:                                              ; preds = %.lr.ph276, %Abc_NtkCheckNet.exit
-  %indvars.iv321 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next322, %Abc_NtkCheckNet.exit ]
-  %291 = getelementptr inbounds ptr, ptr %.val131.val, i64 %indvars.iv321
+290:                                              ; preds = %.lr.ph273, %Abc_NtkCheckNet.exit
+  %indvars.iv316 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next317, %Abc_NtkCheckNet.exit ]
+  %291 = getelementptr inbounds ptr, ptr %.val131.val, i64 %indvars.iv316
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %292, null
   br i1 %293, label %Abc_NtkCheckNet.exit, label %294
@@ -727,8 +727,8 @@ Abc_NtkCheckNet.exit.thread:                      ; preds = %297, %300
   br label %Abc_NtkCheckNames.exit.thread
 
 Abc_NtkCheckNet.exit:                             ; preds = %300, %294, %290
-  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %290, !llvm.loop !13
 
 305:                                              ; preds = %.critedge
@@ -747,11 +747,11 @@ Abc_NtkCheckNet.exit:                             ; preds = %300, %294, %290
 
 .preheader:                                       ; preds = %.critedge2
   %310 = getelementptr i8, ptr %309, i64 4
-  %.val122279 = load i32, ptr %310, align 4
-  %311 = icmp sgt i32 %.val122279, 0
-  br i1 %311, label %.lr.ph281, label %.critedge4
+  %.val122276 = load i32, ptr %310, align 4
+  %311 = icmp sgt i32 %.val122276, 0
+  br i1 %311, label %.lr.ph278, label %.critedge4
 
-.lr.ph281:                                        ; preds = %.preheader
+.lr.ph278:                                        ; preds = %.preheader
   %312 = getelementptr inbounds i8, ptr %0, i64 256
   br label %317
 
@@ -762,12 +762,12 @@ Abc_NtkCheckNet.exit:                             ; preds = %300, %294, %290
   %.not98 = icmp eq i32 %316, 0
   br i1 %.not98, label %Abc_NtkCheckNames.exit.thread, label %.critedge4
 
-317:                                              ; preds = %.lr.ph281, %Abc_NtkCheckNode.exit
-  %indvars.iv324 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next325, %Abc_NtkCheckNode.exit ]
-  %318 = phi ptr [ %309, %.lr.ph281 ], [ %404, %Abc_NtkCheckNode.exit ]
+317:                                              ; preds = %.lr.ph278, %Abc_NtkCheckNode.exit
+  %indvars.iv319 = phi i64 [ 0, %.lr.ph278 ], [ %indvars.iv.next320, %Abc_NtkCheckNode.exit ]
+  %318 = phi ptr [ %309, %.lr.ph278 ], [ %404, %Abc_NtkCheckNode.exit ]
   %319 = getelementptr i8, ptr %318, i64 8
   %.val132.val = load ptr, ptr %319, align 8
-  %320 = getelementptr inbounds ptr, ptr %.val132.val, i64 %indvars.iv324
+  %320 = getelementptr inbounds ptr, ptr %.val132.val, i64 %indvars.iv319
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, null
   br i1 %322, label %Abc_NtkCheckNode.exit, label %323
@@ -942,27 +942,27 @@ Abc_ObjNameNet.exit53.i:                          ; preds = %400, %392
   br label %Abc_NtkCheckNames.exit.thread
 
 Abc_NtkCheckNode.exit:                            ; preds = %381, %360, %359, %343, %323, %317
-  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
+  %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %404 = load ptr, ptr %139, align 8
   %405 = getelementptr i8, ptr %404, i64 4
   %.val122 = load i32, ptr %405, align 4
   %406 = sext i32 %.val122 to i64
-  %407 = icmp slt i64 %indvars.iv.next325, %406
+  %407 = icmp slt i64 %indvars.iv.next320, %406
   br i1 %407, label %317, label %.critedge4, !llvm.loop !14
 
 .critedge4:                                       ; preds = %Abc_NtkCheckNode.exit, %.preheader, %313
   %408 = load ptr, ptr %18, align 8
   %409 = getelementptr i8, ptr %408, i64 4
-  %.val123283 = load i32, ptr %409, align 4
-  %410 = icmp sgt i32 %.val123283, 0
-  br i1 %410, label %.lr.ph285, label %.critedge6
+  %.val123280 = load i32, ptr %409, align 4
+  %410 = icmp sgt i32 %.val123280, 0
+  br i1 %410, label %.lr.ph282, label %.critedge6
 
-.lr.ph285:                                        ; preds = %.critedge4, %495
+.lr.ph282:                                        ; preds = %.critedge4, %495
   %411 = phi ptr [ %496, %495 ], [ %408, %.critedge4 ]
-  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %495 ], [ 0, %.critedge4 ]
+  %indvars.iv322 = phi i64 [ %indvars.iv.next323, %495 ], [ 0, %.critedge4 ]
   %412 = getelementptr i8, ptr %411, i64 8
   %.val137.val = load ptr, ptr %412, align 8
-  %413 = getelementptr inbounds ptr, ptr %.val137.val, i64 %indvars.iv327
+  %413 = getelementptr inbounds ptr, ptr %.val137.val, i64 %indvars.iv322
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr i8, ptr %414, i64 20
   %.val138 = load i32, ptr %415, align 4
@@ -970,7 +970,7 @@ Abc_NtkCheckNode.exit:                            ; preds = %381, %360, %359, %3
   %.not218 = icmp eq i32 %416, 8
   br i1 %.not218, label %417, label %495
 
-417:                                              ; preds = %.lr.ph285
+417:                                              ; preds = %.lr.ph282
   %418 = getelementptr inbounds i8, ptr %414, i64 56
   %419 = load ptr, ptr %418, align 8
   %420 = ptrtoint ptr %419 to i64
@@ -1105,15 +1105,15 @@ Abc_NtkCheckNode.exit:                            ; preds = %381, %360, %359, %3
   %.phi.trans.insert12.i = getelementptr i8, ptr %.val.val.pre.i, i64 8
   %.val.val.val.pre.i = load ptr, ptr %.phi.trans.insert12.i, align 8
   %478 = getelementptr i8, ptr %414, i64 48
-  %.val27.i336 = load ptr, ptr %478, align 8
-  %.val27.val.i337 = load i32, ptr %.val27.i336, align 4
-  %479 = sext i32 %.val27.val.i337 to i64
+  %.val27.i331 = load ptr, ptr %478, align 8
+  %.val27.val.i332 = load i32, ptr %.val27.i331, align 4
+  %479 = sext i32 %.val27.val.i332 to i64
   %480 = getelementptr inbounds ptr, ptr %.val.val.val.pre.i, i64 %479
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr i8, ptr %481, i64 28
-  %.val48.i184338 = load i32, ptr %482, align 4
-  %.not26.i339 = icmp eq i32 %.val48.i184338, 1
-  br i1 %.not26.i339, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit.thread
+  %.val48.i184333 = load i32, ptr %482, align 4
+  %.not26.i334 = icmp eq i32 %.val48.i184333, 1
+  br i1 %.not26.i334, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit.thread
 
 Abc_NtkCheckLatch.exit.thread.loopexit:           ; preds = %463
   %483 = getelementptr i8, ptr %414, i64 48
@@ -1144,17 +1144,17 @@ Abc_NtkCheckLatch.exit:                           ; preds = %463
   br i1 %.not102, label %Abc_NtkCheckNames.exit.thread, label %Abc_NtkCheckLatch.exit._crit_edge
 
 Abc_NtkCheckLatch.exit._crit_edge:                ; preds = %Abc_NtkCheckLatch.exit
-  %.pre333 = load ptr, ptr %18, align 8
+  %.pre328 = load ptr, ptr %18, align 8
   br label %495
 
-495:                                              ; preds = %Abc_NtkCheckLatch.exit._crit_edge, %.lr.ph285
-  %496 = phi ptr [ %.pre333, %Abc_NtkCheckLatch.exit._crit_edge ], [ %411, %.lr.ph285 ]
-  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+495:                                              ; preds = %Abc_NtkCheckLatch.exit._crit_edge, %.lr.ph282
+  %496 = phi ptr [ %.pre328, %Abc_NtkCheckLatch.exit._crit_edge ], [ %411, %.lr.ph282 ]
+  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %497 = getelementptr i8, ptr %496, i64 4
   %.val123 = load i32, ptr %497, align 4
   %498 = sext i32 %.val123 to i64
-  %499 = icmp slt i64 %indvars.iv.next328, %498
-  br i1 %499, label %.lr.ph285, label %.critedge6, !llvm.loop !15
+  %499 = icmp slt i64 %indvars.iv.next323, %498
+  br i1 %499, label %.lr.ph282, label %.critedge6, !llvm.loop !15
 
 .critedge6:                                       ; preds = %495, %.critedge4
   %500 = tail call i32 @Abc_NtkIsAcyclic(ptr noundef nonnull %0) #11

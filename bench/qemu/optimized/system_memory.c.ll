@@ -1932,18 +1932,18 @@ return:                                           ; preds = %if.end, %if.end.sin
 define dso_local i32 @memory_region_dispatch_write(ptr noundef %mr, i64 noundef %addr, i64 noundef %data, i32 noundef %op, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %data.addr = alloca i64, align 8
-  %alias35 = getelementptr inbounds i8, ptr %mr, i64 160
-  %0 = load ptr, ptr %alias35, align 16
-  %tobool.not36 = icmp eq ptr %0, null
-  br i1 %tobool.not36, label %if.end, label %if.then
+  %alias34 = getelementptr inbounds i8, ptr %mr, i64 160
+  %0 = load ptr, ptr %alias34, align 16
+  %tobool.not35 = icmp eq ptr %0, null
+  br i1 %tobool.not35, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %if.then
   %1 = phi ptr [ %3, %if.then ], [ %0, %entry ]
-  %addr.tr38 = phi i64 [ %add, %if.then ], [ %addr, %entry ]
-  %mr.tr37 = phi ptr [ %1, %if.then ], [ %mr, %entry ]
-  %alias_offset = getelementptr inbounds i8, ptr %mr.tr37, i64 168
+  %addr.tr37 = phi i64 [ %add, %if.then ], [ %addr, %entry ]
+  %mr.tr36 = phi ptr [ %1, %if.then ], [ %mr, %entry ]
+  %alias_offset = getelementptr inbounds i8, ptr %mr.tr36, i64 168
   %2 = load i64, ptr %alias_offset, align 8
-  %add = add i64 %2, %addr.tr38
+  %add = add i64 %2, %addr.tr37
   %alias = getelementptr inbounds i8, ptr %1, i64 160
   %3 = load ptr, ptr %alias, align 16
   %tobool.not = icmp eq ptr %3, null
@@ -2014,66 +2014,70 @@ adjust_endianness.exit:                           ; preds = %if.end7, %if.then.i
 for.body.lr.ph.i:                                 ; preds = %adjust_endianness.exit
   %ioeventfds.i = getelementptr inbounds i8, ptr %mr.tr.lcssa, i64 248
   %11 = load ptr, ptr %ioeventfds.i, align 8
-  %12 = zext i32 %10 to i64
+  %wide.trip.count.i = zext i32 %10 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %cmp16.i = phi i1 [ true, %for.body.lr.ph.i ], [ %cmp.i, %for.inc.i ]
   %match_data8.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i, i32 1
-  %13 = load i8, ptr %match_data8.i, align 16
+  %12 = load i8, ptr %match_data8.i, align 16
   %arrayidx17.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i
-  %14 = load i128, ptr %arrayidx17.i, align 16
-  %cmp.i.i.i = icmp eq i128 %14, %start.sroa.0.0.insert.ext.i.i
+  %13 = load i128, ptr %arrayidx17.i, align 16
+  %cmp.i.i.i = icmp eq i128 %13, %start.sroa.0.0.insert.ext.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %for.inc.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i
   %size8.i.i = getelementptr inbounds i8, ptr %arrayidx17.i, i64 16
-  %15 = load i128, ptr %size8.i.i, align 16
-  %cmp.i22.not.i.i = icmp eq i128 %15, 0
-  br i1 %cmp.i22.not.i.i, label %if.then.i30, label %lor.lhs.false11.i.i
+  %14 = load i128, ptr %size8.i.i, align 16
+  %cmp.i22.not.i.i = icmp eq i128 %14, 0
+  br i1 %cmp.i22.not.i.i, label %memory_region_dispatch_write_eventfds.exit, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true.i.i
-  %cmp.i31.i.i = icmp eq i128 %15, %size.sroa.0.0.insert.ext.i.i
+  %cmp.i31.i.i = icmp eq i128 %14, %size.sroa.0.0.insert.ext.i.i
   br i1 %cmp.i31.i.i, label %land.lhs.true24.i.i, label %for.inc.i
 
 land.lhs.true24.i.i:                              ; preds = %lor.lhs.false11.i.i
-  %tobool.i.i = trunc i8 %13 to i1
-  br i1 %tobool.i.i, label %land.lhs.true28.i.i, label %if.then.i30
+  %tobool.i.i = trunc i8 %12 to i1
+  br i1 %tobool.i.i, label %land.lhs.true28.i.i, label %memory_region_dispatch_write_eventfds.exit
 
 land.lhs.true28.i.i:                              ; preds = %land.lhs.true24.i.i
   %data29.i.i = getelementptr inbounds i8, ptr %arrayidx17.i, i64 40
-  %16 = load i64, ptr %data29.i.i, align 8
-  %cmp30.i.i = icmp eq i64 %9, %16
-  br i1 %cmp30.i.i, label %if.then.i30, label %for.inc.i
-
-if.then.i30:                                      ; preds = %land.lhs.true28.i.i, %land.lhs.true24.i.i, %land.lhs.true.i.i
-  %e13.le.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i, i32 3
-  %17 = load ptr, ptr %e13.le.i, align 16
-  %call20.i = tail call i32 @event_notifier_set(ptr noundef %17) #19
-  br i1 %cmp16.i, label %return, label %if.end11
+  %15 = load i64, ptr %data29.i.i, align 8
+  %cmp30.i.i = icmp eq i64 %9, %15
+  br i1 %cmp30.i.i, label %memory_region_dispatch_write_eventfds.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true28.i.i, %lor.lhs.false11.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %12
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end11, label %for.body.i, !llvm.loop !27
 
-if.end11:                                         ; preds = %for.inc.i, %adjust_endianness.exit, %if.then.i30
-  %18 = load ptr, ptr %4, align 16
-  %write = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %write, align 8
-  %tobool12.not = icmp eq ptr %19, null
-  %impl20 = getelementptr inbounds i8, ptr %18, i64 64
-  %20 = load i32, ptr %impl20, align 8
-  %max_access_size24 = getelementptr inbounds i8, ptr %18, i64 68
-  %21 = load i32, ptr %max_access_size24, align 4
-  %memory_region_write_with_attrs_accessor.memory_region_write_accessor = select i1 %tobool12.not, ptr @memory_region_write_with_attrs_accessor, ptr @memory_region_write_accessor
-  %call26 = call fastcc i32 @access_with_adjusted_size(i64 noundef %addr.tr.lcssa, ptr noundef nonnull %data.addr, i32 noundef %shl.i.le, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %memory_region_write_with_attrs_accessor.memory_region_write_accessor, ptr noundef nonnull %mr.tr.lcssa, i32 %attrs.coerce)
+memory_region_dispatch_write_eventfds.exit:       ; preds = %land.lhs.true.i.i, %land.lhs.true24.i.i, %land.lhs.true28.i.i
+  %e13.le.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i, i32 3
+  %16 = load ptr, ptr %e13.le.i, align 16
+  %call20.i = tail call i32 @event_notifier_set(ptr noundef %16) #19
   br label %return
 
-return:                                           ; preds = %if.end11, %if.then.i30, %if.end
-  %retval.0 = phi i32 [ 2, %if.end ], [ 0, %if.then.i30 ], [ %call26, %if.end11 ]
+if.end11:                                         ; preds = %for.inc.i, %adjust_endianness.exit
+  %17 = load ptr, ptr %4, align 16
+  %write = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %write, align 8
+  %tobool12.not = icmp eq ptr %18, null
+  %impl20 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = load i32, ptr %impl20, align 8
+  %max_access_size24 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = load i32, ptr %max_access_size24, align 4
+  br i1 %tobool12.not, label %if.else, label %if.then13
+
+if.then13:                                        ; preds = %if.end11
+  %call18 = call fastcc i32 @access_with_adjusted_size(i64 noundef %addr.tr.lcssa, ptr noundef nonnull %data.addr, i32 noundef %shl.i.le, i32 noundef %19, i32 noundef %20, ptr noundef nonnull @memory_region_write_accessor, ptr noundef nonnull %mr.tr.lcssa, i32 %attrs.coerce)
+  br label %return
+
+if.else:                                          ; preds = %if.end11
+  %call26 = call fastcc i32 @access_with_adjusted_size(i64 noundef %addr.tr.lcssa, ptr noundef nonnull %data.addr, i32 noundef %shl.i.le, i32 noundef %19, i32 noundef %20, ptr noundef nonnull @memory_region_write_with_attrs_accessor, ptr noundef nonnull %mr.tr.lcssa, i32 %attrs.coerce)
+  br label %return
+
+return:                                           ; preds = %memory_region_dispatch_write_eventfds.exit, %if.end, %if.else, %if.then13
+  %retval.0 = phi i32 [ %call18, %if.then13 ], [ %call26, %if.else ], [ 0, %memory_region_dispatch_write_eventfds.exit ], [ 2, %if.end ]
   ret i32 %retval.0
 }
 

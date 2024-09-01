@@ -7973,7 +7973,7 @@ _ZN8WarpTestD2Ev.exit:                            ; preds = %_ZNSt10unique_ptrIA
   %or.cond.not = and i1 %112, %235
   %.1617 = select i1 %or.cond.not, float %230, float 0.000000e+00
   %.not.not = icmp eq i32 %79, 0
-  br i1 %.not.not, label %.loopexit690, label %.preheader689
+  br i1 %.not.not, label %.loopexit690, label %.lr.ph695
 
 ._crit_edge.thread:                               ; preds = %_ZN8WarpTestD2Ev.exit
   %236 = getelementptr inbounds i8, ptr %0, i64 528
@@ -7986,10 +7986,7 @@ _ZN8WarpTestD2Ev.exit:                            ; preds = %_ZNSt10unique_ptrIA
   %.not770 = icmp ne i32 %79, 0
   br label %.loopexit690
 
-.preheader689:                                    ; preds = %._crit_edge
-  br i1 %177, label %.lr.ph695, label %.loopexit690
-
-.lr.ph695:                                        ; preds = %.preheader689
+.lr.ph695:                                        ; preds = %._crit_edge
   %241 = getelementptr inbounds i8, ptr %18, i64 8
   %242 = fcmp oeq float %.1617, 0.000000e+00
   %243 = getelementptr inbounds i8, ptr %17, i64 8
@@ -8176,11 +8173,11 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14Cwis
   %331 = icmp slt i64 %indvars.iv.next720, %330
   br i1 %331, label %246, label %.loopexit690, !llvm.loop !98
 
-.loopexit690:                                     ; preds = %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, %._crit_edge.thread, %._crit_edge, %.preheader689
-  %.not774 = phi i1 [ true, %.preheader689 ], [ false, %._crit_edge ], [ %.not770, %._crit_edge.thread ], [ true, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %.1617772 = phi float [ %.1617, %.preheader689 ], [ %.1617, %._crit_edge ], [ %.1617769, %._crit_edge.thread ], [ %.1617, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %332 = phi ptr [ %231, %.preheader689 ], [ %231, %._crit_edge ], [ %236, %._crit_edge.thread ], [ %231, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %333 = phi i32 [ %176, %.preheader689 ], [ %176, %._crit_edge ], [ %176, %._crit_edge.thread ], [ %329, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+.loopexit690:                                     ; preds = %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, %._crit_edge.thread, %._crit_edge
+  %.not774 = phi i1 [ false, %._crit_edge ], [ %.not770, %._crit_edge.thread ], [ true, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %.1617772 = phi float [ %.1617, %._crit_edge ], [ %.1617769, %._crit_edge.thread ], [ %.1617, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %332 = phi ptr [ %231, %._crit_edge ], [ %236, %._crit_edge.thread ], [ %231, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
+  %333 = phi i32 [ %176, %._crit_edge ], [ %176, %._crit_edge.thread ], [ %329, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIfEENS1_IfLi3ELi1ELi0ELi3ELi1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   %334 = sext i32 %333 to i64
   %335 = icmp eq i32 %333, 0
   br i1 %335, label %._crit_edge699, label %336

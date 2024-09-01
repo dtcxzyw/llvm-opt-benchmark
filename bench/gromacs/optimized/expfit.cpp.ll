@@ -492,7 +492,7 @@ define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr n
 _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %.0.i = phi double [ %15, %14 ], [ 0x2DE6061812054CFA, %2 ], [ 0x51F73F60EA79F5B9, %12 ]
   %16 = fcmp une double %9, 0.000000e+00
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %47
 
 17:                                               ; preds = %_ZL8safe_expd.exit
   %18 = tail call double @llvm.fabs.f64(double %9)
@@ -501,7 +501,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %20 = fcmp ogt double %19, 1.000000e+02
   %.sroa.speculated = select i1 %20, double 1.000000e+02, double %19
   %21 = fcmp ogt double %9, 0.000000e+00
-  br i1 %21, label %22, label %43
+  br i1 %21, label %22, label %40
 
 22:                                               ; preds = %17
   %23 = fmul double %.0.i, 5.000000e-01
@@ -518,65 +518,56 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
 
 _ZL8safe_expd.exit30:                             ; preds = %26, %27
   %.0.i29 = phi double [ %28, %27 ], [ 0x51F73F60EA79F5B9, %26 ]
-  %29 = fneg double %.sroa.speculated
-  %30 = fcmp ult double %.sroa.speculated, 2.000000e+02
-  br i1 %30, label %31, label %_ZL8safe_expd.exit32
+  %29 = fcmp ult double %.sroa.speculated, 2.000000e+02
+  br i1 %29, label %31, label %_ZL8safe_expd.exit32
 
 _ZL8safe_expd.exit30.thread:                      ; preds = %22
-  br i1 %25, label %.thread, label %_ZL8safe_expd.exit36
-
-31:                                               ; preds = %_ZL8safe_expd.exit30
-  br i1 %24, label %35, label %.thread
+  %. = select i1 %25, double 0x51F73F60EA79F5B9, double 0x2DF6061812054CFA
+  %.66 = select i1 %25, double 0x51F73F60EA79F5B9, double 0x2DE6061812054CFA
+  br label %_ZL8safe_expd.exit36
 
 _ZL8safe_expd.exit32:                             ; preds = %_ZL8safe_expd.exit30
-  %32 = fadd double %.0.i29, 0x2DE6061812054CFA
-  br i1 %24, label %33, label %_ZL8safe_expd.exit36
-
-33:                                               ; preds = %_ZL8safe_expd.exit32
+  %30 = fadd double %.0.i29, 0x2DE6061812054CFA
   br label %_ZL8safe_expd.exit36
 
-.thread:                                          ; preds = %_ZL8safe_expd.exit30.thread, %31
-  %.0.i2938.ph.ph = phi double [ %.0.i29, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
-  %34 = fadd double %.0.i2938.ph.ph, 0x51F73F60EA79F5B9
+31:                                               ; preds = %_ZL8safe_expd.exit30
+  %32 = fneg double %.sroa.speculated
+  %33 = tail call double @exp(double noundef %32) #18
+  %34 = fadd double %.0.i29, %33
+  %35 = tail call double @exp(double noundef %.sroa.speculated) #18
+  %36 = tail call double @exp(double noundef %32) #18
   br label %_ZL8safe_expd.exit36
 
-35:                                               ; preds = %31
-  %36 = tail call double @exp(double noundef %29) #18
-  %37 = fadd double %.0.i29, %36
-  %38 = tail call double @exp(double noundef %.sroa.speculated) #18
-  %39 = tail call double @exp(double noundef %29) #18
-  br label %_ZL8safe_expd.exit36
+_ZL8safe_expd.exit36:                             ; preds = %_ZL8safe_expd.exit30.thread, %_ZL8safe_expd.exit32, %31
+  %.0.i3352 = phi double [ %35, %31 ], [ 0x51F73F60EA79F5B9, %_ZL8safe_expd.exit32 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
+  %.pn65 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit32 ], [ %., %_ZL8safe_expd.exit30.thread ]
+  %.0.i35 = phi double [ %36, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit32 ], [ %.66, %_ZL8safe_expd.exit30.thread ]
+  %37 = fmul double %23, %.pn65
+  %38 = fsub double %.0.i3352, %.0.i35
+  %39 = fmul double %23, %38
+  br label %45
 
-_ZL8safe_expd.exit36:                             ; preds = %_ZL8safe_expd.exit30.thread, %33, %_ZL8safe_expd.exit32, %.thread, %35
-  %.0.i3352 = phi double [ %38, %35 ], [ 0x2DE6061812054CFA, %.thread ], [ 0x51F73F60EA79F5B9, %33 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit32 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
-  %.pn65 = phi double [ %37, %35 ], [ %34, %.thread ], [ %32, %33 ], [ %32, %_ZL8safe_expd.exit32 ], [ 0x2DF6061812054CFA, %_ZL8safe_expd.exit30.thread ]
-  %.0.i35 = phi double [ %39, %35 ], [ 0x51F73F60EA79F5B9, %.thread ], [ 0x2DE6061812054CFA, %33 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit32 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit30.thread ]
-  %40 = fmul double %23, %.pn65
-  %41 = fsub double %.0.i3352, %.0.i35
-  %42 = fmul double %23, %41
-  br label %48
+40:                                               ; preds = %17
+  %41 = tail call double @cos(double noundef %.sroa.speculated) #18
+  %42 = fmul double %.0.i, %41
+  %43 = tail call double @sin(double noundef %.sroa.speculated) #18
+  %44 = fmul double %.0.i, %43
+  br label %45
 
-43:                                               ; preds = %17
-  %44 = tail call double @cos(double noundef %.sroa.speculated) #18
-  %45 = fmul double %.0.i, %44
-  %46 = tail call double @sin(double noundef %.sroa.speculated) #18
-  %47 = fmul double %.0.i, %46
-  br label %48
-
-48:                                               ; preds = %43, %_ZL8safe_expd.exit36
-  %.026 = phi double [ %40, %_ZL8safe_expd.exit36 ], [ %45, %43 ]
-  %.pn = phi double [ %42, %_ZL8safe_expd.exit36 ], [ %47, %43 ]
+45:                                               ; preds = %40, %_ZL8safe_expd.exit36
+  %.026 = phi double [ %37, %_ZL8safe_expd.exit36 ], [ %42, %40 ]
+  %.pn = phi double [ %39, %_ZL8safe_expd.exit36 ], [ %44, %40 ]
   %.0 = fdiv double %.pn, %sqrt
-  %49 = fadd double %.026, %.0
-  br label %53
+  %46 = fadd double %.026, %.0
+  br label %50
 
-50:                                               ; preds = %_ZL8safe_expd.exit
-  %51 = fadd double %6, 1.000000e+00
-  %52 = fmul double %51, %.0.i
-  br label %53
+47:                                               ; preds = %_ZL8safe_expd.exit
+  %48 = fadd double %6, 1.000000e+00
+  %49 = fmul double %48, %.0.i
+  br label %50
 
-53:                                               ; preds = %50, %48
-  %.027 = phi double [ %49, %48 ], [ %52, %50 ]
+50:                                               ; preds = %47, %45
+  %.027 = phi double [ %46, %45 ], [ %49, %47 ]
   ret double %.027
 }
 

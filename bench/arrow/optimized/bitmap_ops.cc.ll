@@ -436,23 +436,19 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %if.then7.i, 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
   %tobool3.not151176 = icmp eq i64 %spec.select.i, 0
-  br i1 %tobool3.not151176, label %while.cond6.preheader, label %while.body.us.preheader
+  br i1 %tobool3.not151176, label %while.cond6.preheader, label %while.body.us
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %sub.i43 = sub nsw i64 64, %rem.i21
   %not.i = xor i64 %conv.i33, -1
-  br i1 %tobool.not.i, label %while.body.us.preheader, label %while.body
+  br label %while.body
 
-while.body.us.preheader:                          ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %while.body.lr.ph
-  %writer.sroa.20.2178183 = phi i8 [ %writer.sroa.20.2, %while.body.lr.ph ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  br label %while.body.us
-
-while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
-  %nwords.0158.us = phi i64 [ %dec.us, %while.body.us ], [ %spec.select.i, %while.body.us.preheader ]
-  %reader.sroa.27.sroa.0.0157.us = phi i64 [ %reader.sroa.27.40.extract.shift123.us, %while.body.us ], [ %reader.sroa.27.sroa.0.1, %while.body.us.preheader ]
-  %writer.sroa.4.0156.us = phi ptr [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i24, %while.body.us.preheader ]
-  %reader.sroa.21.0155.us = phi i8 [ %reader.sroa.21.40.extract.trunc122.us, %while.body.us ], [ %reader.sroa.21.2, %while.body.us.preheader ]
-  %reader.sroa.4.0152.us = phi ptr [ %add.ptr.i39.us, %while.body.us ], [ %add.ptr.i, %while.body.us.preheader ]
+while.body.us:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %while.body.us
+  %nwords.0158.us = phi i64 [ %dec.us, %while.body.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.27.sroa.0.0157.us = phi i64 [ %reader.sroa.27.40.extract.shift123.us, %while.body.us ], [ %reader.sroa.27.sroa.0.1, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %writer.sroa.4.0156.us = phi ptr [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i24, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.21.0155.us = phi i8 [ %reader.sroa.21.40.extract.trunc122.us, %while.body.us ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.4.0152.us = phi ptr [ %add.ptr.i39.us, %while.body.us ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %dec.us = add nsw i64 %nwords.0158.us, -1
   %add.ptr.i39.us = getelementptr inbounds i8, ptr %reader.sroa.4.0152.us, i64 8
   %ret.0.copyload.i.i.i40.us = load i64, ptr %add.ptr.i39.us, align 1
@@ -469,7 +465,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
 
 while.cond6.preheader:                            ; preds = %while.body, %while.body.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %reader.sroa.4.0.lcssa = phi ptr [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr.i39.us, %while.body.us ], [ %add.ptr.i39, %while.body ]
-  %writer.sroa.20.0.lcssa = phi i8 [ %writer.sroa.20.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %writer.sroa.20.2178183, %while.body.us ], [ %writer.sroa.20.32.extract.trunc113, %while.body ]
+  %writer.sroa.20.0.lcssa = phi i8 [ %writer.sroa.20.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ undef, %while.body.us ], [ %writer.sroa.20.32.extract.trunc113, %while.body ]
   %reader.sroa.21.0.lcssa = phi i8 [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %reader.sroa.21.40.extract.trunc122.us, %while.body.us ], [ %reader.sroa.21.40.extract.trunc122, %while.body ]
   %writer.sroa.4.0.lcssa = phi ptr [ %add.ptr.i24, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i24, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i45, %while.body ]
   %tobool8.not165 = icmp eq i64 %add.i10.i, 0
@@ -674,23 +670,23 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i:   ; preds = %if.then12.i.i, %if.
   %writer.sroa.27.1.i = phi i64 [ %inc7.i.i, %if.then12.i.i ], [ %inc7.i.i, %if.then.i18.i ], [ %writer.sroa.27.048.i, %for.body.i75 ]
   %shr43.i = lshr i8 %byte.addr.049.i, 1
   %exitcond.not.i78 = icmp eq i64 %inc.i.i77, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %land.lhs.true.i.i, label %for.body.i75, !llvm.loop !15
+  br i1 %exitcond.not.i78, label %for.end.i79, label %for.body.i75, !llvm.loop !15
 
-land.lhs.true.i.i:                                ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
+for.end.i79:                                      ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
   %cmp2.not.i.not.i = icmp eq i8 %writer.sroa.20.1.i, 1
   br i1 %cmp2.not.i.not.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit, label %if.then.i27.i
 
-if.then.i27.i:                                    ; preds = %land.lhs.true.i.i
+if.then.i27.i:                                    ; preds = %for.end.i79
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %writer.sroa.4.1171, i64 %writer.sroa.27.1.i
   store i8 %writer.sroa.12.2.i, ptr %arrayidx.i30.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; preds = %if.then.i60, %if.end.i, %land.lhs.true.i.i, %if.then.i27.i
-  %reader.sroa.21.3138 = phi i8 [ %reader.sroa.21.3139, %if.end.i ], [ %reader.sroa.21.1170, %land.lhs.true.i.i ], [ %reader.sroa.21.1170, %if.then.i27.i ], [ %reader.sroa.21.1170, %if.then.i60 ]
-  %reader.sroa.13.1134 = phi i32 [ %reader.sroa.13.1135, %if.end.i ], [ 0, %land.lhs.true.i.i ], [ 0, %if.then.i27.i ], [ 0, %if.then.i60 ]
-  %reader.sroa.4.2132 = phi ptr [ %reader.sroa.4.2133, %if.end.i ], [ %reader.sroa.4.1166, %land.lhs.true.i.i ], [ %reader.sroa.4.1166, %if.then.i27.i ], [ %reader.sroa.4.1166, %if.then.i60 ]
-  %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.1168, %land.lhs.true.i.i ], [ %writer.sroa.20.1168, %if.then.i27.i ], [ %writer.sroa.20.1168, %if.then.i60 ]
-  %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i93, %if.end.i ], [ %writer.sroa.4.1171, %land.lhs.true.i.i ], [ %writer.sroa.4.1171, %if.then.i27.i ], [ %writer.sroa.4.1171, %if.then.i60 ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; preds = %if.then.i60, %if.end.i, %for.end.i79, %if.then.i27.i
+  %reader.sroa.21.3138 = phi i8 [ %reader.sroa.21.3139, %if.end.i ], [ %reader.sroa.21.1170, %for.end.i79 ], [ %reader.sroa.21.1170, %if.then.i27.i ], [ %reader.sroa.21.1170, %if.then.i60 ]
+  %reader.sroa.13.1134 = phi i32 [ %reader.sroa.13.1135, %if.end.i ], [ 0, %for.end.i79 ], [ 0, %if.then.i27.i ], [ 0, %if.then.i60 ]
+  %reader.sroa.4.2132 = phi ptr [ %reader.sroa.4.2133, %if.end.i ], [ %reader.sroa.4.1166, %for.end.i79 ], [ %reader.sroa.4.1166, %if.then.i27.i ], [ %reader.sroa.4.1166, %if.then.i60 ]
+  %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.1168, %for.end.i79 ], [ %writer.sroa.20.1168, %if.then.i27.i ], [ %writer.sroa.20.1168, %if.then.i60 ]
+  %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i93, %if.end.i ], [ %writer.sroa.4.1171, %for.end.i79 ], [ %writer.sroa.4.1171, %if.then.i27.i ], [ %writer.sroa.4.1171, %if.then.i60 ]
   %tobool8.not = icmp eq i32 %dec7, 0
   br i1 %tobool8.not, label %if.end35, label %while.body9, !llvm.loop !16
 
@@ -819,23 +815,19 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %if.then7.i, 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
   %tobool3.not156184 = icmp eq i64 %spec.select.i, 0
-  br i1 %tobool3.not156184, label %while.cond6.preheader, label %while.body.us.preheader
+  br i1 %tobool3.not156184, label %while.cond6.preheader, label %while.body.us
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %sub.i46 = sub nsw i64 64, %rem.i24
   %not.i = xor i64 %conv.i36, -1
-  br i1 %tobool.not.i, label %while.body.us.preheader, label %while.body
+  br label %while.body
 
-while.body.us.preheader:                          ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %while.body.lr.ph
-  %writer.sroa.20.2186191 = phi i8 [ %writer.sroa.20.2, %while.body.lr.ph ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  br label %while.body.us
-
-while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
-  %nwords.0163.us = phi i64 [ %dec.us, %while.body.us ], [ %spec.select.i, %while.body.us.preheader ]
-  %reader.sroa.27.sroa.0.0162.us = phi i64 [ %reader.sroa.27.40.extract.shift126.us, %while.body.us ], [ %reader.sroa.27.sroa.0.1, %while.body.us.preheader ]
-  %writer.sroa.4.0161.us = phi ptr [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i27, %while.body.us.preheader ]
-  %reader.sroa.21.0160.us = phi i8 [ %reader.sroa.21.40.extract.trunc125.us, %while.body.us ], [ %reader.sroa.21.2, %while.body.us.preheader ]
-  %reader.sroa.4.0157.us = phi ptr [ %add.ptr.i42.us, %while.body.us ], [ %add.ptr.i, %while.body.us.preheader ]
+while.body.us:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %while.body.us
+  %nwords.0163.us = phi i64 [ %dec.us, %while.body.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.27.sroa.0.0162.us = phi i64 [ %reader.sroa.27.40.extract.shift126.us, %while.body.us ], [ %reader.sroa.27.sroa.0.1, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %writer.sroa.4.0161.us = phi ptr [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i27, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.21.0160.us = phi i8 [ %reader.sroa.21.40.extract.trunc125.us, %while.body.us ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %reader.sroa.4.0157.us = phi ptr [ %add.ptr.i42.us, %while.body.us ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
   %dec.us = add nsw i64 %nwords.0163.us, -1
   %add.ptr.i42.us = getelementptr inbounds i8, ptr %reader.sroa.4.0157.us, i64 8
   %ret.0.copyload.i.i.i43.us = load i64, ptr %add.ptr.i42.us, align 1
@@ -853,7 +845,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
 
 while.cond6.preheader:                            ; preds = %while.body, %while.body.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %reader.sroa.4.0.lcssa = phi ptr [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr.i42.us, %while.body.us ], [ %add.ptr.i42, %while.body ]
-  %writer.sroa.20.0.lcssa = phi i8 [ %writer.sroa.20.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %writer.sroa.20.2186191, %while.body.us ], [ %writer.sroa.20.32.extract.trunc116, %while.body ]
+  %writer.sroa.20.0.lcssa = phi i8 [ %writer.sroa.20.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ undef, %while.body.us ], [ %writer.sroa.20.32.extract.trunc116, %while.body ]
   %reader.sroa.21.0.lcssa = phi i8 [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %reader.sroa.21.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %reader.sroa.21.40.extract.trunc125.us, %while.body.us ], [ %reader.sroa.21.40.extract.trunc125, %while.body ]
   %writer.sroa.4.0.lcssa = phi ptr [ %add.ptr.i27, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i27, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i48, %while.body ]
   %tobool8.not170 = icmp eq i64 %add.i10.i, 0
@@ -1061,23 +1053,23 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i:   ; preds = %if.then12.i.i, %if.
   %writer.sroa.27.1.i = phi i64 [ %inc7.i.i, %if.then12.i.i ], [ %inc7.i.i, %if.then.i18.i ], [ %writer.sroa.27.048.i, %for.body.i78 ]
   %shr43.i = lshr i8 %byte.addr.049.i, 1
   %exitcond.not.i81 = icmp eq i64 %inc.i.i80, %wide.trip.count.i
-  br i1 %exitcond.not.i81, label %land.lhs.true.i.i, label %for.body.i78, !llvm.loop !15
+  br i1 %exitcond.not.i81, label %for.end.i82, label %for.body.i78, !llvm.loop !15
 
-land.lhs.true.i.i:                                ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
+for.end.i82:                                      ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
   %cmp2.not.i.not.i = icmp eq i8 %writer.sroa.20.1.i, 1
   br i1 %cmp2.not.i.not.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit, label %if.then.i27.i
 
-if.then.i27.i:                                    ; preds = %land.lhs.true.i.i
+if.then.i27.i:                                    ; preds = %for.end.i82
   %arrayidx.i30.i = getelementptr inbounds i8, ptr %writer.sroa.4.1176, i64 %writer.sroa.27.1.i
   store i8 %writer.sroa.12.2.i, ptr %arrayidx.i30.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; preds = %if.then.i63, %if.end.i, %land.lhs.true.i.i, %if.then.i27.i
-  %reader.sroa.21.3142 = phi i8 [ %reader.sroa.21.3143, %if.end.i ], [ %reader.sroa.21.1175, %land.lhs.true.i.i ], [ %reader.sroa.21.1175, %if.then.i27.i ], [ %reader.sroa.21.1175, %if.then.i63 ]
-  %reader.sroa.13.1138 = phi i32 [ %reader.sroa.13.1139, %if.end.i ], [ 0, %land.lhs.true.i.i ], [ 0, %if.then.i27.i ], [ 0, %if.then.i63 ]
-  %reader.sroa.4.2136 = phi ptr [ %reader.sroa.4.2137, %if.end.i ], [ %reader.sroa.4.1171, %land.lhs.true.i.i ], [ %reader.sroa.4.1171, %if.then.i27.i ], [ %reader.sroa.4.1171, %if.then.i63 ]
-  %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.1173, %land.lhs.true.i.i ], [ %writer.sroa.20.1173, %if.then.i27.i ], [ %writer.sroa.20.1173, %if.then.i63 ]
-  %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i96, %if.end.i ], [ %writer.sroa.4.1176, %land.lhs.true.i.i ], [ %writer.sroa.4.1176, %if.then.i27.i ], [ %writer.sroa.4.1176, %if.then.i63 ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; preds = %if.then.i63, %if.end.i, %for.end.i82, %if.then.i27.i
+  %reader.sroa.21.3142 = phi i8 [ %reader.sroa.21.3143, %if.end.i ], [ %reader.sroa.21.1175, %for.end.i82 ], [ %reader.sroa.21.1175, %if.then.i27.i ], [ %reader.sroa.21.1175, %if.then.i63 ]
+  %reader.sroa.13.1138 = phi i32 [ %reader.sroa.13.1139, %if.end.i ], [ 0, %for.end.i82 ], [ 0, %if.then.i27.i ], [ 0, %if.then.i63 ]
+  %reader.sroa.4.2136 = phi ptr [ %reader.sroa.4.2137, %if.end.i ], [ %reader.sroa.4.1171, %for.end.i82 ], [ %reader.sroa.4.1171, %if.then.i27.i ], [ %reader.sroa.4.1171, %if.then.i63 ]
+  %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.1173, %for.end.i82 ], [ %writer.sroa.20.1173, %if.then.i27.i ], [ %writer.sroa.20.1173, %if.then.i63 ]
+  %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i96, %if.end.i ], [ %writer.sroa.4.1176, %for.end.i82 ], [ %writer.sroa.4.1176, %if.then.i27.i ], [ %writer.sroa.4.1176, %if.then.i63 ]
   %tobool8.not = icmp eq i32 %dec7, 0
   br i1 %tobool8.not, label %if.end45, label %while.body9, !llvm.loop !18
 
@@ -2271,7 +2263,7 @@ return.loopexit:                                  ; preds = %for.body
   br label %return
 
 return:                                           ; preds = %while.body, %while.cond26, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147, %return.loopexit, %if.end, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end ], [ %retval.0.ph, %return.loopexit ], [ true, %while.cond26 ], [ %tobool28.not, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end ], [ %retval.0.ph, %return.loopexit ], [ %tobool28.not, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147 ], [ %tobool28.not, %while.cond26 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -2616,7 +2608,7 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
   %not.i180.i = xor i64 %conv.i53.i, -1
   br label %while.body9.i
 
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
+while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %nwords.0226.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
   %left_reader.sroa.27.sroa.0.0225.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.1257.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.0224.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ], [ %left_reader.sroa.21.2255.i, %while.body.lr.ph.i ]
@@ -2914,20 +2906,20 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i163.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i166.i = icmp eq i64 %inc.i.i165.i, %wide.trip.count.i162.i
-  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !15
+  br i1 %exitcond.not.i166.i, label %for.end.i167.i, label %for.body.i163.i, !llvm.loop !15
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
+for.end.i167.i:                                   ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
   br i1 %cmp2.not.i.not.i.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, label %if.then.i27.i.i
 
-if.then.i27.i.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i27.i.i:                                  ; preds = %for.end.i167.i
   %arrayidx.i30.i.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 %writer.sroa.27.1.i.i
   store i8 %writer.sroa.12.2.i.i, ptr %arrayidx.i30.i.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %land.lhs.true.i.i.i, %if.else34.i.i, %if.end.i.i
-  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1241.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.1241.i, %if.then.i27.i.i ], [ %writer.sroa.20.1241.i, %if.else34.i.i ]
-  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %for.end.i167.i, %if.else34.i.i, %if.end.i.i
+  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1241.i, %for.end.i167.i ], [ %writer.sroa.20.1241.i, %if.then.i27.i.i ], [ %writer.sroa.20.1241.i, %if.else34.i.i ]
+  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %for.end.i167.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !57
 
@@ -3174,7 +3166,7 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
   %not.i180.i = xor i64 %conv.i53.i, -1
   br label %while.body9.i
 
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
+while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %nwords.0226.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
   %left_reader.sroa.27.sroa.0.0225.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.1257.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.0224.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ], [ %left_reader.sroa.21.2255.i, %while.body.lr.ph.i ]
@@ -3472,20 +3464,20 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i163.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i166.i = icmp eq i64 %inc.i.i165.i, %wide.trip.count.i162.i
-  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !15
+  br i1 %exitcond.not.i166.i, label %for.end.i167.i, label %for.body.i163.i, !llvm.loop !15
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
+for.end.i167.i:                                   ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
   br i1 %cmp2.not.i.not.i.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, label %if.then.i27.i.i
 
-if.then.i27.i.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i27.i.i:                                  ; preds = %for.end.i167.i
   %arrayidx.i30.i.i = getelementptr inbounds i8, ptr %writer.sroa.4.1243.i, i64 %writer.sroa.27.1.i.i
   store i8 %writer.sroa.12.2.i.i, ptr %arrayidx.i30.i.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %land.lhs.true.i.i.i, %if.else34.i.i, %if.end.i.i
-  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1241.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.1241.i, %if.then.i27.i.i ], [ %writer.sroa.20.1241.i, %if.else34.i.i ]
-  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %for.end.i167.i, %if.else34.i.i, %if.end.i.i
+  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1241.i, %for.end.i167.i ], [ %writer.sroa.20.1241.i, %if.then.i27.i.i ], [ %writer.sroa.20.1241.i, %if.else34.i.i ]
+  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %for.end.i167.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !68
 
@@ -3732,7 +3724,7 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
   %not.i179.i = xor i64 %conv.i53.i, -1
   br label %while.body9.i
 
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
+while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %nwords.0225.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
   %left_reader.sroa.27.sroa.0.0224.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.1256.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.0223.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc212.i, %while.body.i ], [ %left_reader.sroa.21.2254.i, %while.body.lr.ph.i ]
@@ -4030,20 +4022,20 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i162.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i165.i = icmp eq i64 %inc.i.i164.i, %wide.trip.count.i161.i
-  br i1 %exitcond.not.i165.i, label %land.lhs.true.i.i.i, label %for.body.i162.i, !llvm.loop !15
+  br i1 %exitcond.not.i165.i, label %for.end.i166.i, label %for.body.i162.i, !llvm.loop !15
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
+for.end.i166.i:                                   ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
   br i1 %cmp2.not.i.not.i.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, label %if.then.i27.i.i
 
-if.then.i27.i.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i27.i.i:                                  ; preds = %for.end.i166.i
   %arrayidx.i30.i.i = getelementptr inbounds i8, ptr %writer.sroa.4.1242.i, i64 %writer.sroa.27.1.i.i
   store i8 %writer.sroa.12.2.i.i, ptr %arrayidx.i30.i.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %land.lhs.true.i.i.i, %if.else34.i.i, %if.end.i.i
-  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1240.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.1240.i, %if.then.i27.i.i ], [ %writer.sroa.20.1240.i, %if.else34.i.i ]
-  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i180.i, %if.end.i.i ], [ %writer.sroa.4.1242.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1242.i, %if.then.i27.i.i ], [ %writer.sroa.4.1242.i, %if.else34.i.i ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %for.end.i166.i, %if.else34.i.i, %if.end.i.i
+  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1240.i, %for.end.i166.i ], [ %writer.sroa.20.1240.i, %if.then.i27.i.i ], [ %writer.sroa.20.1240.i, %if.else34.i.i ]
+  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i180.i, %if.end.i.i ], [ %writer.sroa.4.1242.i, %for.end.i166.i ], [ %writer.sroa.4.1242.i, %if.then.i27.i.i ], [ %writer.sroa.4.1242.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !79
 
@@ -4292,7 +4284,7 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
   %not.i183.i = xor i64 %conv.i53.i, -1
   br label %while.body9.i
 
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
+while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %nwords.0229.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
   %left_reader.sroa.27.sroa.0.0228.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.1260.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.0227.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ], [ %left_reader.sroa.21.2258.i, %while.body.lr.ph.i ]
@@ -4592,20 +4584,20 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i166.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i169.i = icmp eq i64 %inc.i.i168.i, %wide.trip.count.i165.i
-  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !15
+  br i1 %exitcond.not.i169.i, label %for.end.i170.i, label %for.body.i166.i, !llvm.loop !15
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
+for.end.i170.i:                                   ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
   br i1 %cmp2.not.i.not.i.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, label %if.then.i27.i.i
 
-if.then.i27.i.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i27.i.i:                                  ; preds = %for.end.i170.i
   %arrayidx.i30.i.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 %writer.sroa.27.1.i.i
   store i8 %writer.sroa.12.2.i.i, ptr %arrayidx.i30.i.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %land.lhs.true.i.i.i, %if.else34.i.i, %if.end.i.i
-  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1244.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.1244.i, %if.then.i27.i.i ], [ %writer.sroa.20.1244.i, %if.else34.i.i ]
-  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %for.end.i170.i, %if.else34.i.i, %if.end.i.i
+  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1244.i, %for.end.i170.i ], [ %writer.sroa.20.1244.i, %if.then.i27.i.i ], [ %writer.sroa.20.1244.i, %if.else34.i.i ]
+  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %for.end.i170.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !90
 
@@ -4854,7 +4846,7 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
   %not.i183.i = xor i64 %conv.i53.i, -1
   br label %while.body9.i
 
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
+while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %nwords.0229.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
   %left_reader.sroa.27.sroa.0.0228.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.1260.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.0227.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ], [ %left_reader.sroa.21.2258.i, %while.body.lr.ph.i ]
@@ -5154,20 +5146,20 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i166.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i169.i = icmp eq i64 %inc.i.i168.i, %wide.trip.count.i165.i
-  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !15
+  br i1 %exitcond.not.i169.i, label %for.end.i170.i, label %for.body.i166.i, !llvm.loop !15
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
+for.end.i170.i:                                   ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
   br i1 %cmp2.not.i.not.i.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, label %if.then.i27.i.i
 
-if.then.i27.i.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i27.i.i:                                  ; preds = %for.end.i170.i
   %arrayidx.i30.i.i = getelementptr inbounds i8, ptr %writer.sroa.4.1246.i, i64 %writer.sroa.27.1.i.i
   store i8 %writer.sroa.12.2.i.i, ptr %arrayidx.i30.i.i, align 1
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
-_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %land.lhs.true.i.i.i, %if.else34.i.i, %if.end.i.i
-  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1244.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.1244.i, %if.then.i27.i.i ], [ %writer.sroa.20.1244.i, %if.else34.i.i ]
-  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
+_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; preds = %if.then.i27.i.i, %for.end.i170.i, %if.else34.i.i, %if.end.i.i
+  %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.1244.i, %for.end.i170.i ], [ %writer.sroa.20.1244.i, %if.then.i27.i.i ], [ %writer.sroa.20.1244.i, %if.else34.i.i ]
+  %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %for.end.i170.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !101
 

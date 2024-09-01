@@ -176,11 +176,11 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_send_blocking(i32 noundef %0, ptr no
   br label %11
 
 11:                                               ; preds = %10, %5, %3
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split.us
+  %.not36 = icmp eq i64 %2, 0
+  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %11, %.outer
-  %.014.ph35 = phi i64 [ %39, %.outer ], [ 0, %11 ]
+  %.014.ph35 = phi i64 [ %40, %.outer ], [ 0, %11 ]
   %12 = getelementptr inbounds i8, ptr %1, i64 %.014.ph35
   %13 = sub nuw i64 %2, %.014.ph35
   %14 = tail call i64 @send(i32 noundef %0, ptr noundef %12, i64 noundef %13, i32 noundef 0) #13
@@ -223,48 +223,48 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_send_blocking(i32 noundef %0, ptr no
   br i1 %.not.us, label %.outer, label %17
 
 .split30.us:                                      ; preds = %17
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond24 = icmp ult i32 %.pre, 64
-  br i1 %or.cond24, label %30, label %48
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
+  %or.cond24 = icmp ult i32 %30, 64
+  br i1 %or.cond24, label %31, label %49
 
-30:                                               ; preds = %.split30.us
-  %31 = zext nneg i32 %.pre to i64
-  %32 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %33, 7
-  br i1 %34, label %35, label %48
+31:                                               ; preds = %.split30.us
+  %32 = zext nneg i32 %30 to i64
+  %33 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %32, i32 2
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, 7
+  br i1 %35, label %36, label %49
 
-35:                                               ; preds = %30
-  %36 = tail call ptr @strerror(i32 noundef %18) #13
-  %37 = load i32, ptr %16, align 4
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pre, ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %36, i32 noundef %37) #13
-  br label %48
+36:                                               ; preds = %31
+  %37 = tail call ptr @strerror(i32 noundef %18) #13
+  %38 = load i32, ptr %16, align 4
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %30, ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %37, i32 noundef %38) #13
+  br label %49
 
 .outer:                                           ; preds = %.backedge.us, %.lr.ph.split.us
   %.us-phi = phi i64 [ %14, %.lr.ph.split.us ], [ %28, %.backedge.us ]
-  %38 = and i64 %.us-phi, 2147483647
-  %39 = add i64 %38, %.014.ph35
-  %40 = icmp ult i64 %39, %2
-  br i1 %40, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !4
+  %39 = and i64 %.us-phi, 2147483647
+  %40 = add i64 %39, %.014.ph35
+  %41 = icmp ult i64 %40, %2
+  br i1 %41, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !4
 
 .outer._crit_edge:                                ; preds = %.outer, %11
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond25 = icmp ult i32 %41, 64
-  br i1 %or.cond25, label %42, label %48
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
+  %or.cond25 = icmp ult i32 %42, 64
+  br i1 %or.cond25, label %43, label %49
 
-42:                                               ; preds = %.outer._crit_edge
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %43, i32 2
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %45, 7
-  br i1 %46, label %47, label %48
+43:                                               ; preds = %.outer._crit_edge
+  %44 = zext nneg i32 %42 to i64
+  %45 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %44, i32 2
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 7
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %42
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %41, ptr noundef nonnull @.str.7, i32 noundef %0) #13
-  br label %48
+48:                                               ; preds = %43
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %42, ptr noundef nonnull @.str.7, i32 noundef %0) #13
+  br label %49
 
-48:                                               ; preds = %.outer._crit_edge, %42, %47, %.split30.us, %30, %35
-  %.0 = phi i32 [ -25, %35 ], [ -25, %30 ], [ -25, %.split30.us ], [ 0, %47 ], [ 0, %42 ], [ 0, %.outer._crit_edge ]
+49:                                               ; preds = %.outer._crit_edge, %43, %48, %.split30.us, %31, %36
+  %.0 = phi i32 [ -25, %36 ], [ -25, %31 ], [ -25, %.split30.us ], [ 0, %48 ], [ 0, %43 ], [ 0, %.outer._crit_edge ]
   ret i32 %.0
 }
 
@@ -292,7 +292,7 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_recv_blocking(i32 noundef %0, ptr no
   br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %11, %.outer
-  %.012.ph34 = phi i64 [ %48, %.outer ], [ 0, %11 ]
+  %.012.ph34 = phi i64 [ %49, %.outer ], [ 0, %11 ]
   %12 = getelementptr inbounds i8, ptr %1, i64 %.012.ph34
   %13 = sub nuw i64 %2, %.012.ph34
   %14 = tail call i64 @recv(i32 noundef %0, ptr noundef %12, i64 noundef %13, i32 noundef 256) #13
@@ -345,61 +345,61 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_recv_blocking(i32 noundef %0, ptr no
 .split.us:                                        ; preds = %.lr.ph.split.us, %.backedge.us
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
   %or.cond21 = icmp ult i32 %33, 64
-  br i1 %or.cond21, label %34, label %57
+  br i1 %or.cond21, label %34, label %58
 
 34:                                               ; preds = %.split.us
   %35 = zext nneg i32 %33 to i64
   %36 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %35, i32 2
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 7
-  br i1 %38, label %39, label %57
+  br i1 %38, label %39, label %58
 
 39:                                               ; preds = %34
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef nonnull @.str.9) #13
-  br label %57
+  br label %58
 
 .split31.us:                                      ; preds = %.lr.ph
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond23 = icmp ult i32 %.pre, 64
-  br i1 %or.cond23, label %40, label %57
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
+  %or.cond23 = icmp ult i32 %40, 64
+  br i1 %or.cond23, label %41, label %58
 
-40:                                               ; preds = %.split31.us
-  %41 = zext nneg i32 %.pre to i64
-  %42 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %41, i32 2
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp sgt i32 %43, 7
-  br i1 %44, label %45, label %57
+41:                                               ; preds = %.split31.us
+  %42 = zext nneg i32 %40 to i64
+  %43 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %42, i32 2
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp sgt i32 %44, 7
+  br i1 %45, label %46, label %58
 
-45:                                               ; preds = %40
-  %46 = tail call ptr @strerror(i32 noundef %20) #13
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pre, ptr noundef nonnull @.str.11, i32 noundef %20, ptr noundef %46) #13
-  br label %57
+46:                                               ; preds = %41
+  %47 = tail call ptr @strerror(i32 noundef %20) #13
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %40, ptr noundef nonnull @.str.11, i32 noundef %20, ptr noundef %47) #13
+  br label %58
 
 .outer:                                           ; preds = %.lr.ph33, %.lr.ph33.preheader
   %.lcssa = phi i64 [ %14, %.lr.ph33.preheader ], [ %30, %.lr.ph33 ]
-  %47 = and i64 %.lcssa, 2147483647
-  %48 = add i64 %47, %.012.ph34
-  %49 = icmp ult i64 %48, %2
-  br i1 %49, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !6
+  %48 = and i64 %.lcssa, 2147483647
+  %49 = add i64 %48, %.012.ph34
+  %50 = icmp ult i64 %49, %2
+  br i1 %50, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %11
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
-  %or.cond24 = icmp ult i32 %50, 64
-  br i1 %or.cond24, label %51, label %57
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
+  %or.cond24 = icmp ult i32 %51, 64
+  br i1 %or.cond24, label %52, label %58
 
-51:                                               ; preds = %.outer._crit_edge
-  %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %52, i32 2
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp sgt i32 %54, 7
-  br i1 %55, label %56, label %57
+52:                                               ; preds = %.outer._crit_edge
+  %53 = zext nneg i32 %51 to i64
+  %54 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %53, i32 2
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp sgt i32 %55, 7
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %51
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %50, ptr noundef nonnull @.str.12) #13
-  br label %57
+57:                                               ; preds = %52
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %51, ptr noundef nonnull @.str.12) #13
+  br label %58
 
-57:                                               ; preds = %.outer._crit_edge, %51, %56, %.split31.us, %40, %45, %.split.us, %34, %39
-  %.0 = phi i32 [ -25, %39 ], [ -25, %34 ], [ -25, %.split.us ], [ -25, %45 ], [ -25, %40 ], [ -25, %.split31.us ], [ 0, %56 ], [ 0, %51 ], [ 0, %.outer._crit_edge ]
+58:                                               ; preds = %.outer._crit_edge, %52, %57, %.split31.us, %41, %46, %.split.us, %34, %39
+  %.0 = phi i32 [ -25, %39 ], [ -25, %34 ], [ -25, %.split.us ], [ -25, %46 ], [ -25, %41 ], [ -25, %.split31.us ], [ 0, %57 ], [ 0, %52 ], [ 0, %.outer._crit_edge ]
   ret i32 %.0
 }
 

@@ -1759,11 +1759,16 @@ define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1
 
 ._crit_edge:                                      ; preds = %45
   %.not50 = icmp eq ptr %3, null
-  br i1 %.not50, label %.split, label %.preheader
+  br i1 %.not50, label %.split, label %.lr.ph75.preheader
 
 ._crit_edge.thread:                               ; preds = %.preheader72
   %.not5083 = icmp eq ptr %3, null
   br i1 %.not5083, label %.split, label %.split43
+
+.lr.ph75.preheader:                               ; preds = %._crit_edge
+  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %wide.trip.count81 = zext nneg i32 %smax to i64
+  br label %.lr.ph75
 
 .thread:                                          ; preds = %44
   %.not5052 = icmp eq ptr %3, null
@@ -1773,21 +1778,13 @@ define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1
   %53 = tail call i32 @H5S_set_extent_simple(ptr noundef nonnull %26, i32 noundef %1, ptr noundef %2, ptr noundef null)
   br label %69
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not, label %.split43, label %.lr.ph75.preheader
-
-.lr.ph75.preheader:                               ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count81 = zext nneg i32 %smax to i64
-  br label %.lr.ph75
-
 .thread53:                                        ; preds = %.thread
   %54 = load i64, ptr @H5E_ARGS_g, align 8
   %55 = load i64, ptr @H5E_BADVALUE_g, align 8
   %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5Sset_extent_simple, i32 noundef 1185, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.32) #8
   br label %.thread69
 
-.split43:                                         ; preds = %68, %._crit_edge.thread, %.preheader
+.split43:                                         ; preds = %68, %._crit_edge.thread
   %57 = tail call i32 @H5S_set_extent_simple(ptr noundef nonnull %26, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   br label %69
 

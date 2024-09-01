@@ -505,13 +505,13 @@ define void @_ZNK4LIEF8Function5flagsEv(ptr dead_on_unwind noalias nocapture wri
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %8 = icmp ugt i64 %.06.i.i.i.i, 2305843009213693950
-  br i1 %8, label %.noexc.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
+  br i1 %8, label %.noexc.i, label %_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
   unreachable
 
-.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i:             ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i
+_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit.i.i
   %9 = shl nuw nsw i64 %7, 2
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #18
   store ptr %10, ptr %0, align 8
@@ -520,9 +520,9 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIN4LIEF8Function5FLAGSEEENSt15iterator_
   store ptr %11, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
-  %.08.i.i.i.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %.sroa.03.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %4, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i
+  %.08.i.i.i.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %10, %_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.03.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseIN4LIEF8Function5FLAGSESaIS2_EE11_M_allocateEm.exit.i.i ]
   %13 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i.i.i, i64 32
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %.08.i.i.i.i.i.i.i.i.i.i, align 4

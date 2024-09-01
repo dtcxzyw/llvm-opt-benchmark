@@ -687,7 +687,7 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   br i1 %exitcond683.not, label %.preheader560, label %.preheader, !llvm.loop !13
 
 .preheader559:                                    ; preds = %.lr.ph614, %.preheader561, %.preheader560
-  %336 = phi i1 [ false, %.preheader560 ], [ false, %.preheader561 ], [ %316, %.lr.ph614 ]
+  %336 = phi i1 [ false, %.preheader560 ], [ false, %.preheader561 ], [ true, %.lr.ph614 ]
   %.0.lcssa = phi i32 [ 0, %.preheader560 ], [ 0, %.preheader561 ], [ %346, %.lr.ph614 ]
   %337 = icmp sgt i32 %.0443.lcssa, 0
   br i1 %337, label %.lr.ph618, label %._crit_edge619

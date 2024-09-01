@@ -616,7 +616,7 @@ define internal void @_ZN12_GLOBAL__N_118Ice40WrapCarryPass7executeESt6vectorINS
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph9981, %.lr.ph.preheader, %3
   %.065.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %104, %.lr.ph9981 ], [ %104, %.lr.ph ]
-  %.0.lcssa = phi i1 [ false, %3 ], [ %100, %.lr.ph.preheader ], [ %100, %.lr.ph9981 ], [ %100, %.lr.ph ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph9981 ], [ true, %.lr.ph ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %49, i64 noundef %.065.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %112 unwind label %2093
@@ -11061,8 +11061,7 @@ _ZN12_GLOBAL__N_118ice40_wrapcarry_pm7block_2Ei.exit.i.i.i.i: ; preds = %_ZNKSt8
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i: ; preds = %4539, %4543
   %4546 = phi i32 [ %4545, %4543 ], [ 0, %4539 ]
   %4547 = icmp slt i32 %.sink16.i772, 0
-  %or.cond.i751 = or i1 %4547, %4538
-  br i1 %or.cond.i751, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i, label %4548
+  br i1 %4547, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i, label %4548
 
 4548:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i
   %4549 = ptrtoint ptr %4537 to i64
@@ -11346,8 +11345,7 @@ _ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL7SigSpecES2_EED2Ev.exit750: ; preds = %_ZSt
 _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i: ; preds = %4660, %4664
   %4667 = phi i32 [ %4666, %4664 ], [ 0, %4660 ]
   %4668 = icmp slt i32 %.sink16.i816, 0
-  %or.cond.i = or i1 %4668, %4659
-  br i1 %or.cond.i, label %.noexc4.i, label %4669
+  br i1 %4668, label %.noexc4.i, label %4669
 
 4669:                                             ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i
   %4670 = ptrtoint ptr %4658 to i64

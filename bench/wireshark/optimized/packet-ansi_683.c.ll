@@ -2654,18 +2654,15 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
   %.neg = sub i32 %4, %.1
   %180 = add i32 %.neg, %3
   %181 = icmp ult i32 %180, %16
-  br i1 %181, label %182, label %.preheader
-
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not151, label %._crit_edge149, label %.lr.ph148
+  br i1 %181, label %182, label %.lr.ph148
 
 182:                                              ; preds = %._crit_edge
   %183 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_short_data, ptr noundef %0, i32 noundef %.1, i32 noundef %180) #3
   br label %201
 
-.lr.ph148:                                        ; preds = %.preheader, %.lr.ph148
-  %.2147 = phi i32 [ %190, %.lr.ph148 ], [ %.1, %.preheader ]
-  %.1128146 = phi i32 [ %187, %.lr.ph148 ], [ 0, %.preheader ]
+.lr.ph148:                                        ; preds = %._crit_edge, %.lr.ph148
+  %.2147 = phi i32 [ %190, %.lr.ph148 ], [ %.1, %._crit_edge ]
+  %.1128146 = phi i32 [ %187, %.lr.ph148 ], [ 0, %._crit_edge ]
   %184 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2147) #3
   %185 = load i32, ptr @hf_ansi_683_result_code, align 4
   %186 = zext i8 %184 to i32
@@ -2676,8 +2673,8 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
   %exitcond159.not = icmp eq i32 %187, %16
   br i1 %exitcond159.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !18
 
-._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader140, %.preheader
-  %.2.lcssa = phi i32 [ %.1, %.preheader ], [ %14, %.preheader140 ], [ %190, %.lr.ph148 ]
+._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader140
+  %.2.lcssa = phi i32 [ %14, %.preheader140 ], [ %190, %.lr.ph148 ]
   %191 = sub i32 %.2.lcssa, %4
   %192 = icmp ugt i32 %3, %191
   br i1 %192, label %193, label %196

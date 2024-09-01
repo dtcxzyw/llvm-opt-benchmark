@@ -866,7 +866,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @Z3_mk_enumeration_sort(ptr noundef %c, ptr noundef %name, i32 noundef %n, ptr noundef %enum_names, ptr noundef %enum_consts, ptr noundef %enum_testers) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_enumeration_sort(ptr noundef %c, ptr noundef %name, i32 noundef %n, ptr noundef %enum_names, ptr noundef %enum_consts, ptr noundef %enum_testers) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sorts = alloca %class.ref_vector.92, align 8
   %constrs = alloca %class.ptr_vector.108, align 8
@@ -1248,10 +1248,7 @@ for.body127.preheader:                            ; preds = %for.cond125.prehead
   %wide.trip.count102 = zext i32 %Z3ARG2.0 to i64
   br label %for.body127
 
-for.cond135.preheader:                            ; preds = %for.inc131
-  br i1 %cmp12687.not, label %cleanup, label %for.body137.preheader
-
-for.body137.preheader:                            ; preds = %for.cond135.preheader
+for.body137.preheader:                            ; preds = %for.inc131
   %wide.trip.count107 = zext i32 %Z3ARG2.0 to i64
   br label %for.body137
 
@@ -1266,7 +1263,7 @@ for.body127:                                      ; preds = %for.body127.prehead
 for.inc131:                                       ; preds = %for.body127
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %for.cond135.preheader, label %for.body127, !llvm.loop !14
+  br i1 %exitcond103.not, label %for.body137.preheader, label %for.body127, !llvm.loop !14
 
 for.body137:                                      ; preds = %for.body137.preheader, %for.inc141
   %indvars.iv104 = phi i64 [ 0, %for.body137.preheader ], [ %indvars.iv.next105, %for.inc141 ]
@@ -1281,8 +1278,8 @@ for.inc141:                                       ; preds = %for.body137
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
   br i1 %exitcond108.not, label %cleanup, label %for.body137, !llvm.loop !15
 
-cleanup:                                          ; preds = %for.inc141, %if.then36.invoke, %for.cond125.preheader, %for.cond135.preheader, %for.end117, %do.body73, %do.body
-  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body73 ], [ %31, %for.end117 ], [ %31, %for.cond135.preheader ], [ %31, %for.cond125.preheader ], [ null, %if.then36.invoke ], [ %31, %for.inc141 ]
+cleanup:                                          ; preds = %for.inc141, %if.then36.invoke, %for.cond125.preheader, %for.end117, %do.body73, %do.body
+  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body73 ], [ %31, %for.end117 ], [ %31, %for.cond125.preheader ], [ null, %if.then36.invoke ], [ %31, %for.inc141 ]
   %38 = load ptr, ptr %constrs, align 8
   %tobool.not.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i, label %_ZN10ptr_vectorIN8datatype11constructorEED2Ev.exit, label %if.then.i.i.i
@@ -3893,7 +3890,7 @@ do.body:                                          ; preds = %invoke.cont19
 
 if.then28:                                        ; preds = %do.body
   invoke void @_Z4SetRPv(ptr noundef %call20)
-          to label %if.then.i unwind label %lpad16
+          to label %if.end30 unwind label %lpad16
 
 lpad16:                                           ; preds = %invoke.cont13, %if.then28, %invoke.cont19, %invoke.cont17
   %4 = landingpad { ptr, i32 }
@@ -3903,7 +3900,7 @@ lpad16:                                           ; preds = %invoke.cont13, %if.
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %adt_util) #14
   br label %ehcleanup33
 
-if.then.i:                                        ; preds = %if.then28
+if.end30:                                         ; preds = %if.then28
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p) #14
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %adt_util) #14
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
@@ -3944,8 +3941,8 @@ return.critedge:                                  ; preds = %do.body
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %adt_util) #14
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.then.i, %invoke.cont37
-  %retval.0 = phi ptr [ null, %invoke.cont37 ], [ %call20, %if.then.i ], [ %call20, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.end30, %invoke.cont37
+  %retval.0 = phi ptr [ null, %invoke.cont37 ], [ %call20, %if.end30 ], [ %call20, %return.critedge ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad34, %_ZN10z3_log_ctxD2Ev.exit17
@@ -4244,20 +4241,15 @@ for.inc87:                                        ; preds = %_ZNK6vectorIP11cons
   br label %for.cond51, !llvm.loop !26
 
 for.end89:                                        ; preds = %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  br i1 %tobool.i, label %for.cond94.preheader, label %cleanup
+  %cmp9591.not = icmp ne i32 %Z3ARG1.0, 0
+  %or.cond.not = and i1 %cmp9591.not, %tobool.i
+  br i1 %or.cond.not, label %for.body96.preheader, label %cleanup
 
-for.cond94.preheader:                             ; preds = %for.end89
-  %cmp9591.not = icmp eq i32 %Z3ARG1.0, 0
-  br i1 %cmp9591.not, label %cleanup, label %for.body96.preheader
-
-for.body96.preheader:                             ; preds = %for.cond94.preheader
+for.body96.preheader:                             ; preds = %for.end89
   %wide.trip.count105 = zext i32 %Z3ARG1.0 to i64
   br label %for.body96
 
-for.cond104.preheader:                            ; preds = %for.inc100
-  br i1 %cmp9591.not, label %cleanup, label %for.body106.preheader
-
-for.body106.preheader:                            ; preds = %for.cond104.preheader
+for.body106.preheader:                            ; preds = %for.inc100
   %wide.trip.count110 = zext i32 %Z3ARG1.0 to i64
   br label %for.body106
 
@@ -4272,7 +4264,7 @@ for.body96:                                       ; preds = %for.body96.preheade
 for.inc100:                                       ; preds = %for.body96
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %for.cond104.preheader, label %for.body96, !llvm.loop !27
+  br i1 %exitcond106.not, label %for.body106.preheader, label %for.body96, !llvm.loop !27
 
 for.body106:                                      ; preds = %for.body106.preheader, %for.inc110
   %indvars.iv107 = phi i64 [ 0, %for.body106.preheader ], [ %indvars.iv.next108, %for.inc110 ]
@@ -4287,7 +4279,7 @@ for.inc110:                                       ; preds = %for.body106
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %cleanup, label %for.body106, !llvm.loop !28
 
-cleanup:                                          ; preds = %for.inc110, %for.cond94.preheader, %for.cond104.preheader, %for.end89, %if.then45
+cleanup:                                          ; preds = %for.inc110, %for.end89, %if.then45
   %41 = load ptr, ptr %m_nodes.i.i115, align 8
   %cmp.i.i.i68 = icmp eq ptr %41, null
   br i1 %cmp.i.i.i68, label %_ZN10ref_vectorI4sort11ast_managerED2Ev.exit, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i

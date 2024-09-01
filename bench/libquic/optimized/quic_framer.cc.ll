@@ -1029,37 +1029,29 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %supported_versions_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp3.not = icmp eq ptr %0, %1
   br i1 %cmp3.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %2 = load i32, ptr %1, align 4
-  %cmp47 = icmp eq i32 %version, %2
-  br i1 %cmp47, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %i.048 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw i64 %i.048, 1
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %i.04 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.body ]
+  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %i.04
+  %2 = load i32, ptr %add.ptr.i, align 4
+  %cmp4 = icmp eq i32 %version, %2
+  %inc = add nuw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !10
+  %or.cond = select i1 %cmp4, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !10
 
-for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %inc
-  %3 = load i32, ptr %add.ptr.i, align 4
-  %cmp4 = icmp eq i32 %version, %3
-  br i1 %cmp4, label %return.loopexit, label %for.cond, !llvm.loop !10
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %inc, %sub.ptr.div.i
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp4, %for.body ]
   ret i1 %cmp.lcssa
 }
 

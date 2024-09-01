@@ -9620,33 +9620,22 @@ define internal zeroext i1 @virtio_ringsize_needed(ptr nocapture noundef readonl
 entry:
   %vq = getelementptr inbounds i8, ptr %opaque, i64 232
   %0 = load ptr, ptr %vq, align 8
-  %1 = load i32, ptr %0, align 8
-  %num_default7 = getelementptr inbounds i8, ptr %0, i64 4
-  %2 = load i32, ptr %num_default7, align 4
-  %cmp5.not8 = icmp eq i32 %1, %2
-  br i1 %cmp5.not8, label %for.cond, label %return
+  br label %for.body
 
-for.cond:                                         ; preds = %entry, %for.body
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !57
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv.next
-  %3 = load i32, ptr %arrayidx, align 8
+for.body:                                         ; preds = %for.body, %entry
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv
+  %1 = load i32, ptr %arrayidx, align 8
   %num_default = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %4 = load i32, ptr %num_default, align 4
-  %cmp5.not = icmp eq i32 %3, %4
-  br i1 %cmp5.not, label %for.cond, label %return.loopexit, !llvm.loop !57
+  %2 = load i32, ptr %num_default, align 4
+  %cmp5.not.not = icmp ne i32 %1, %2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
+  %or.cond = select i1 %cmp5.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !57
 
-return.loopexit:                                  ; preds = %for.cond, %for.body
-  %cmp.le = icmp ult i64 %indvars.iv9, 1023
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp.le, %return.loopexit ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %for.body
+  ret i1 %cmp5.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
@@ -10054,14 +10043,11 @@ if.else:                                          ; preds = %if.end32
 
 while.end:                                        ; preds = %while.cond.backedge
   tail call void @memory_region_transaction_commit() #23
-  br i1 %cmp2437.not, label %return, label %while.body41.preheader
-
-while.body41.preheader:                           ; preds = %while.end
   %8 = zext i32 %indvars.iv48 to i64
   br label %while.body41
 
-while.body41:                                     ; preds = %while.body41.preheader, %while.cond38.backedge
-  %indvars.iv51 = phi i64 [ %8, %while.body41.preheader ], [ %indvars.iv.next52, %while.cond38.backedge ]
+while.body41:                                     ; preds = %while.end, %while.cond38.backedge
+  %indvars.iv51 = phi i64 [ %8, %while.end ], [ %indvars.iv.next52, %while.cond38.backedge ]
   %9 = load ptr, ptr %vq3, align 8
   %arrayidx.i32 = getelementptr %struct.VirtQueue, ptr %9, i64 %indvars.iv51
   %10 = load i32, ptr %arrayidx.i32, align 8
@@ -10083,8 +10069,8 @@ return.sink.split:                                ; preds = %for.inc21, %while.c
   tail call void @memory_region_transaction_commit() #23
   br label %return
 
-return:                                           ; preds = %while.cond38.backedge, %return.sink.split, %while.end
-  %retval.0 = phi i32 [ %call5, %while.end ], [ %retval.0.ph, %return.sink.split ], [ %call5, %while.cond38.backedge ]
+return:                                           ; preds = %while.cond38.backedge, %return.sink.split
+  %retval.0 = phi i32 [ %retval.0.ph, %return.sink.split ], [ %call5, %while.cond38.backedge ]
   ret i32 %retval.0
 }
 

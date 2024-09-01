@@ -4670,24 +4670,24 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 .split.us:                                        ; preds = %8
   switch i16 %0, label %.thread11 [
     i16 2, label %.thread9
-    i16 10, label %.split.us.split.us37
+    i16 10, label %.split.us.split.us40
   ]
 
-.split.us.split.us37:                             ; preds = %.split.us
+.split.us.split.us40:                             ; preds = %.split.us
   %10 = getelementptr i8, ptr %9, i64 488
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread11, label %.lr.ph47
+  br i1 %12, label %.thread11, label %.lr.ph50
 
-.lr.ph47:                                         ; preds = %.split.us.split.us37, %50
-  %13 = phi ptr [ %53, %50 ], [ %11, %.split.us.split.us37 ]
-  %.in48 = phi ptr [ %51, %50 ], [ %9, %.split.us.split.us37 ]
-  %14 = load ptr, ptr %.in48, align 8
+.lr.ph50:                                         ; preds = %.split.us.split.us40, %50
+  %13 = phi ptr [ %53, %50 ], [ %11, %.split.us.split.us40 ]
+  %.in51 = phi ptr [ %51, %50 ], [ %9, %.split.us.split.us40 ]
+  %14 = load ptr, ptr %.in51, align 8
   %15 = load i32, ptr %1, align 4
   br label %16
 
-16:                                               ; preds = %37, %.lr.ph47
-  %17 = phi ptr [ %13, %.lr.ph47 ], [ %39, %37 ]
+16:                                               ; preds = %37, %.lr.ph50
+  %17 = phi ptr [ %13, %.lr.ph50 ], [ %39, %37 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i32, ptr %17, align 4
   %20 = load i32, ptr %18, align 4
@@ -4699,7 +4699,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %23 = phi i64 [ %24, %26 ], [ 0, %16 ]
   %24 = add nuw nsw i64 %23, 1
   %25 = icmp eq i64 %24, 4
-  br i1 %25, label %.thread10.us.us38, label %26, !llvm.loop !71
+  br i1 %25, label %.thread10.us.us41, label %26, !llvm.loop !71
 
 26:                                               ; preds = %.preheader.us.us
   %27 = getelementptr i32, ptr %17, i64 %24
@@ -4714,7 +4714,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 
 35:                                               ; preds = %26
   %36 = icmp ugt i64 %23, 2
-  br i1 %36, label %.thread10.us.us38, label %37
+  br i1 %36, label %.thread10.us.us41, label %37
 
 37:                                               ; preds = %35, %16
   %38 = getelementptr inbounds i8, ptr %17, i64 192
@@ -4722,7 +4722,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread11, label %16, !llvm.loop !72
 
-.thread10.us.us38:                                ; preds = %35, %.preheader.us.us
+.thread10.us.us41:                                ; preds = %35, %.preheader.us.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 0, ptr %5, align 4, !annotation !13
   %41 = getelementptr inbounds i8, ptr %17, i64 184
@@ -4732,11 +4732,11 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.thread12
 
-44:                                               ; preds = %.thread10.us.us38
+44:                                               ; preds = %.thread10.us.us41
   %45 = getelementptr inbounds i8, ptr %17, i64 40
   %46 = call i32 @sidtab_context_to_sid(ptr noundef %14, ptr noundef %45, ptr noundef nonnull %5) #17
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.split23.us, label %48
+  br i1 %47, label %.split25.us, label %48
 
 48:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -4750,7 +4750,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %52 = getelementptr i8, ptr %51, i64 488
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread11, label %.lr.ph47
+  br i1 %54, label %.thread11, label %.lr.ph50
 
 .split.split.us:                                  ; preds = %8
   switch i16 %0, label %.thread11 [
@@ -4762,16 +4762,16 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %55 = getelementptr i8, ptr %9, i64 472
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread11, label %.preheader13.us26.us
+  br i1 %57, label %.thread11, label %.preheader13.us27.us
 
-58:                                               ; preds = %.preheader13.us26.us, %65
-  %59 = phi ptr [ %67, %65 ], [ %83, %.preheader13.us26.us ]
+58:                                               ; preds = %.preheader13.us27.us, %65
+  %59 = phi ptr [ %67, %65 ], [ %83, %.preheader13.us27.us ]
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, %85
   %64 = icmp eq i32 %60, %63
-  br i1 %64, label %.thread10.us25.us, label %65
+  br i1 %64, label %.thread10.loopexit14.us28.us, label %65
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds i8, ptr %59, i64 192
@@ -4779,7 +4779,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.thread11, label %58, !llvm.loop !73
 
-.thread10.us25.us:                                ; preds = %58
+.thread10.loopexit14.us28.us:                     ; preds = %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 0, ptr %5, align 4, !annotation !13
   %69 = getelementptr inbounds i8, ptr %59, i64 184
@@ -4789,11 +4789,11 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %.thread12
 
-72:                                               ; preds = %.thread10.us25.us
+72:                                               ; preds = %.thread10.loopexit14.us28.us
   %73 = getelementptr inbounds i8, ptr %59, i64 40
   %74 = call i32 @sidtab_context_to_sid(ptr noundef %84, ptr noundef %73, ptr noundef nonnull %5) #17
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.split23.us, label %76
+  br i1 %75, label %.split25.us, label %76
 
 76:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -4807,9 +4807,9 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %80 = getelementptr i8, ptr %79, i64 472
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread11, label %.preheader13.us26.us
+  br i1 %82, label %.thread11, label %.preheader13.us27.us
 
-.preheader13.us26.us:                             ; preds = %.split.split.us.split.us, %78
+.preheader13.us27.us:                             ; preds = %.split.split.us.split.us, %78
   %83 = phi ptr [ %81, %78 ], [ %56, %.split.split.us.split.us ]
   %.in = phi ptr [ %79, %78 ], [ %9, %.split.split.us.split.us ]
   %84 = load ptr, ptr %.in, align 8
@@ -4826,21 +4826,21 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
     i16 10, label %.thread9
   ]
 
-.split23.us:                                      ; preds = %72, %44
-  %.us-phi24 = phi ptr [ %17, %44 ], [ %59, %72 ]
-  %87 = getelementptr inbounds i8, ptr %.us-phi24, i64 184
+.split25.us:                                      ; preds = %72, %44
+  %.us-phi26 = phi ptr [ %17, %44 ], [ %59, %72 ]
+  %87 = getelementptr inbounds i8, ptr %.us-phi26, i64 184
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !67
   %88 = load i32, ptr %5, align 4
   store volatile i32 %88, ptr %87, align 4
   br label %.thread12
 
-.thread12:                                        ; preds = %.thread10.us25.us, %.thread10.us.us38, %.split23.us
-  %89 = phi i32 [ %88, %.split23.us ], [ %42, %.thread10.us.us38 ], [ %70, %.thread10.us25.us ]
+.thread12:                                        ; preds = %.thread10.loopexit14.us28.us, %.thread10.us.us41, %.split25.us
+  %89 = phi i32 [ %88, %.split25.us ], [ %42, %.thread10.us.us41 ], [ %70, %.thread10.loopexit14.us28.us ]
   store i32 %89, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   br label %.thread9
 
-.thread11:                                        ; preds = %78, %65, %50, %37, %.split.split.us, %.split.us, %.split.us.split.us37, %.split.split, %.split.split.us.split.us
+.thread11:                                        ; preds = %78, %65, %50, %37, %.split.split.us, %.split.us, %.split.us.split.us40, %.split.split, %.split.split.us.split.us
   store i32 12, ptr %3, align 4
   br label %.thread9
 

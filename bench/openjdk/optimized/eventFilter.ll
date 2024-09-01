@@ -891,16 +891,16 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nocapt
   br label %9
 
 9:                                                ; preds = %.lr.ph, %patternStringMatch.exit42.thread
-  %.047 = phi i32 [ 0, %.lr.ph ], [ %83, %patternStringMatch.exit42.thread ]
+  %.047 = phi i32 [ 0, %.lr.ph ], [ %82, %patternStringMatch.exit42.thread ]
   %.01746 = phi ptr [ null, %.lr.ph ], [ %.2, %patternStringMatch.exit42.thread ]
-  %.02044 = phi ptr [ %7, %.lr.ph ], [ %84, %patternStringMatch.exit42.thread ]
+  %.02044 = phi ptr [ %7, %.lr.ph ], [ %83, %patternStringMatch.exit42.thread ]
   %.02143 = phi i8 [ 0, %.lr.ph ], [ %.122, %patternStringMatch.exit42.thread ]
   %10 = load i8, ptr %.02044, align 8
   switch i8 %10, label %patternStringMatch.exit42.thread [
     i8 4, label %11
     i8 1, label %._crit_edge
     i8 5, label %28
-    i8 6, label %56
+    i8 6, label %55
   ]
 
 11:                                               ; preds = %9
@@ -941,7 +941,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nocapt
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %or.cond.i = or i1 %8, %31
-  br i1 %or.cond.i, label %patternStringMatch.exit.thread, label %32
+  br i1 %or.cond.i, label %patternStringMatch.exit42.thread, label %32
 
 32:                                               ; preds = %28
   %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #7
@@ -963,7 +963,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nocapt
   %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %2) #7
   %.fr67 = freeze i32 %42
   %43 = icmp eq i32 %.fr67, 0
-  br i1 %43, label %54, label %patternStringMatch.exit.thread
+  br i1 %43, label %54, label %patternStringMatch.exit42.thread
 
 44:                                               ; preds = %36, %32
   %45 = add nsw i32 %34, -1
@@ -971,7 +971,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nocapt
   %47 = trunc i64 %46 to i32
   %48 = sub nsw i32 %47, %45
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %patternStringMatch.exit.thread, label %patternStringMatch.exit
+  br i1 %49, label %patternStringMatch.exit42.thread, label %patternStringMatch.exit
 
 patternStringMatch.exit:                          ; preds = %44
   %50 = zext nneg i32 %48 to i64
@@ -983,79 +983,71 @@ patternStringMatch.exit:                          ; preds = %44
   %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef readonly %.021.i, i64 noundef %51) #7
   %.fr68 = freeze i32 %52
   %53 = icmp eq i32 %.fr68, 0
-  br i1 %53, label %54, label %patternStringMatch.exit.thread
+  br i1 %53, label %54, label %patternStringMatch.exit42.thread
 
 54:                                               ; preds = %41, %patternStringMatch.exit
-  %.0.shrunk.i54 = phi i1 [ %43, %41 ], [ %53, %patternStringMatch.exit ]
-  br label %patternStringMatch.exit.thread
-
-patternStringMatch.exit.thread:                   ; preds = %44, %28, %41, %patternStringMatch.exit, %54
-  %.0.shrunk.i52 = phi i1 [ %.0.shrunk.i54, %54 ], [ %53, %patternStringMatch.exit ], [ %43, %41 ], [ false, %28 ], [ false, %44 ]
-  %55 = phi i8 [ %.02143, %54 ], [ 1, %patternStringMatch.exit ], [ 1, %41 ], [ 1, %28 ], [ 1, %44 ]
-  %not..0.shrunk.i = xor i1 %.0.shrunk.i52, true
   br label %patternStringMatch.exit42.thread
 
-56:                                               ; preds = %9
-  %57 = getelementptr inbounds i8, ptr %.02044, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  %or.cond.i32 = or i1 %8, %59
-  br i1 %or.cond.i32, label %patternStringMatch.exit42.thread, label %60
+55:                                               ; preds = %9
+  %56 = getelementptr inbounds i8, ptr %.02044, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  %or.cond.i32 = or i1 %8, %58
+  br i1 %or.cond.i32, label %patternStringMatch.exit42.thread, label %59
 
-60:                                               ; preds = %56
-  %61 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %58) #7
-  %62 = trunc i64 %61 to i32
-  %63 = load i8, ptr %58, align 1
-  %.not.i33 = icmp eq i8 %63, 42
-  br i1 %.not.i33, label %72, label %64
+59:                                               ; preds = %55
+  %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %57) #7
+  %61 = trunc i64 %60 to i32
+  %62 = load i8, ptr %57, align 1
+  %.not.i33 = icmp eq i8 %62, 42
+  br i1 %.not.i33, label %71, label %63
 
-64:                                               ; preds = %60
-  %65 = shl i64 %61, 32
-  %sext.i34 = add i64 %65, -4294967296
-  %66 = ashr exact i64 %sext.i34, 32
-  %67 = getelementptr inbounds i8, ptr %58, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %.not26.i35 = icmp eq i8 %68, 42
-  br i1 %.not26.i35, label %72, label %69
+63:                                               ; preds = %59
+  %64 = shl i64 %60, 32
+  %sext.i34 = add i64 %64, -4294967296
+  %65 = ashr exact i64 %sext.i34, 32
+  %66 = getelementptr inbounds i8, ptr %57, i64 %65
+  %67 = load i8, ptr %66, align 1
+  %.not26.i35 = icmp eq i8 %67, 42
+  br i1 %.not26.i35, label %71, label %68
 
-69:                                               ; preds = %64
-  %70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %.fr = freeze i32 %70
-  %71 = icmp eq i32 %.fr, 0
-  br i1 %71, label %82, label %patternStringMatch.exit42.thread
+68:                                               ; preds = %63
+  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %.fr = freeze i32 %69
+  %70 = icmp eq i32 %.fr, 0
+  br i1 %70, label %81, label %patternStringMatch.exit42.thread
 
-72:                                               ; preds = %64, %60
-  %73 = add nsw i32 %62, -1
-  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %75 = trunc i64 %74 to i32
-  %76 = sub nsw i32 %75, %73
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %patternStringMatch.exit42.thread, label %patternStringMatch.exit42
+71:                                               ; preds = %63, %59
+  %72 = add nsw i32 %61, -1
+  %73 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %74 = trunc i64 %73 to i32
+  %75 = sub nsw i32 %74, %72
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %patternStringMatch.exit42.thread, label %patternStringMatch.exit42
 
-patternStringMatch.exit42:                        ; preds = %72
-  %78 = zext nneg i32 %76 to i64
+patternStringMatch.exit42:                        ; preds = %71
+  %77 = zext nneg i32 %75 to i64
   %.022.idx.i38 = zext i1 %.not.i33 to i64
-  %.022.i39 = getelementptr inbounds i8, ptr %58, i64 %.022.idx.i38
-  %.021.idx.i40 = select i1 %.not.i33, i64 %78, i64 0
+  %.022.i39 = getelementptr inbounds i8, ptr %57, i64 %.022.idx.i38
+  %.021.idx.i40 = select i1 %.not.i33, i64 %77, i64 0
   %.021.i41 = getelementptr inbounds i8, ptr %2, i64 %.021.idx.i40
-  %79 = sext i32 %73 to i64
-  %80 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef readonly %.021.i41, i64 noundef %79) #7
-  %.fr66 = freeze i32 %80
-  %81 = icmp eq i32 %.fr66, 0
-  br i1 %81, label %82, label %patternStringMatch.exit42.thread
+  %78 = sext i32 %72 to i64
+  %79 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef readonly %.021.i41, i64 noundef %78) #7
+  %.fr66 = freeze i32 %79
+  %80 = icmp eq i32 %.fr66, 0
+  br i1 %80, label %81, label %patternStringMatch.exit42.thread
 
-82:                                               ; preds = %69, %patternStringMatch.exit42
-  %.0.shrunk.i3660 = phi i1 [ %71, %69 ], [ %81, %patternStringMatch.exit42 ]
+81:                                               ; preds = %68, %patternStringMatch.exit42
   br label %patternStringMatch.exit42.thread
 
-patternStringMatch.exit42.thread:                 ; preds = %72, %56, %82, %patternStringMatch.exit42, %69, %patternStringMatch.exit.thread, %21, %9
-  %.122 = phi i8 [ %.02143, %9 ], [ %spec.select, %21 ], [ %55, %patternStringMatch.exit.thread ], [ 1, %82 ], [ %.02143, %patternStringMatch.exit42 ], [ %.02143, %69 ], [ %.02143, %56 ], [ %.02143, %72 ]
-  %.119.shrunk = phi i1 [ false, %9 ], [ %.not26, %21 ], [ %not..0.shrunk.i, %patternStringMatch.exit.thread ], [ %.0.shrunk.i3660, %82 ], [ %81, %patternStringMatch.exit42 ], [ %71, %69 ], [ false, %56 ], [ false, %72 ]
-  %.2 = phi ptr [ %.01746, %9 ], [ %.1, %21 ], [ %.01746, %patternStringMatch.exit.thread ], [ %.01746, %82 ], [ %.01746, %patternStringMatch.exit42 ], [ %.01746, %69 ], [ %.01746, %56 ], [ %.01746, %72 ]
-  %83 = add nuw nsw i32 %.047, 1
-  %84 = getelementptr inbounds i8, ptr %.02044, i64 32
-  %85 = icmp sge i32 %83, %5
-  %.not49 = select i1 %85, i1 true, i1 %.119.shrunk
+patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringMatch.exit, %41, %28, %44, %71, %55, %81, %patternStringMatch.exit42, %68, %21, %9
+  %.122 = phi i8 [ %.02143, %9 ], [ %spec.select, %21 ], [ 1, %81 ], [ %.02143, %patternStringMatch.exit42 ], [ %.02143, %68 ], [ %.02143, %55 ], [ %.02143, %71 ], [ %.02143, %54 ], [ 1, %patternStringMatch.exit ], [ 1, %41 ], [ 1, %28 ], [ 1, %44 ]
+  %.119.shrunk = phi i1 [ false, %9 ], [ %.not26, %21 ], [ true, %81 ], [ false, %patternStringMatch.exit42 ], [ false, %68 ], [ false, %55 ], [ false, %71 ], [ false, %54 ], [ true, %patternStringMatch.exit ], [ true, %41 ], [ true, %28 ], [ true, %44 ]
+  %.2 = phi ptr [ %.01746, %9 ], [ %.1, %21 ], [ %.01746, %81 ], [ %.01746, %patternStringMatch.exit42 ], [ %.01746, %68 ], [ %.01746, %55 ], [ %.01746, %71 ], [ %.01746, %54 ], [ %.01746, %patternStringMatch.exit ], [ %.01746, %41 ], [ %.01746, %28 ], [ %.01746, %44 ]
+  %82 = add nuw nsw i32 %.047, 1
+  %83 = getelementptr inbounds i8, ptr %.02044, i64 32
+  %84 = icmp sge i32 %82, %5
+  %.not49 = select i1 %84, i1 true, i1 %.119.shrunk
   br i1 %.not49, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %patternStringMatch.exit42.thread, %3

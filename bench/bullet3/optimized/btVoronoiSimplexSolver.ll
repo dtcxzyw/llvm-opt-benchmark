@@ -1675,83 +1675,64 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = load float, ptr %arrayidx11.i.i, align 4
   %m_equalVertexThreshold = getelementptr inbounds i8, ptr %this, i64 308
   %4 = load float, ptr %m_equalVertexThreshold, align 4
-  %5 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
-  %6 = load float, ptr %m_simplexVectorW, align 4
-  %sub.i.i8 = fsub float %1, %6
-  %arrayidx7.i.i9 = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load float, ptr %arrayidx7.i.i9, align 4
-  %sub8.i.i10 = fsub float %2, %7
-  %arrayidx13.i.i11 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load float, ptr %arrayidx13.i.i11, align 4
-  %sub14.i.i12 = fsub float %3, %8
-  %mul8.i.i.i13 = fmul float %sub8.i.i10, %sub8.i.i10
-  %9 = tail call float @llvm.fmuladd.f32(float %sub.i.i8, float %sub.i.i8, float %mul8.i.i.i13)
-  %10 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i12, float %sub14.i.i12, float %9)
-  %cmp314 = fcmp ugt float %10, %4
-  br i1 %cmp314, label %for.cond, label %for.end
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv.next
-  %11 = load float, ptr %arrayidx, align 4
-  %sub.i.i = fsub float %1, %11
+for.body:                                         ; preds = %for.body, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [5 x %class.btVector3], ptr %m_simplexVectorW, i64 0, i64 %indvars.iv
+  %5 = load float, ptr %arrayidx, align 4
+  %sub.i.i = fsub float %1, %5
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %12 = load float, ptr %arrayidx7.i.i, align 4
-  %sub8.i.i = fsub float %2, %12
+  %6 = load float, ptr %arrayidx7.i.i, align 4
+  %sub8.i.i = fsub float %2, %6
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %13 = load float, ptr %arrayidx13.i.i, align 4
-  %sub14.i.i = fsub float %3, %13
+  %7 = load float, ptr %arrayidx13.i.i, align 4
+  %sub14.i.i = fsub float %3, %7
   %mul8.i.i.i = fmul float %sub8.i.i, %sub8.i.i
-  %14 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul8.i.i.i)
-  %15 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %sub14.i.i, float %14)
-  %cmp3 = fcmp ugt float %15, %4
-  br i1 %cmp3, label %for.cond, label %for.end.loopexit, !llvm.loop !8
+  %8 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul8.i.i.i)
+  %9 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %sub14.i.i, float %8)
+  %cmp3 = fcmp ole float %9, %4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp3, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !8
 
-for.end.loopexit:                                 ; preds = %for.cond, %for.body
-  %cmp.le = icmp ult i64 %indvars.iv.next, %5
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %for.body.lr.ph, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.lr.ph ], [ %cmp.le, %for.end.loopexit ]
+for.end:                                          ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp3, %for.body ]
   %m_lastW = getelementptr inbounds i8, ptr %this, i64 292
   %arrayidx.i = getelementptr inbounds i8, ptr %w, i64 12
-  %16 = load float, ptr %arrayidx.i, align 4
+  %10 = load float, ptr %arrayidx.i, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 304
-  %17 = load float, ptr %arrayidx3.i, align 4
-  %cmp.i = fcmp oeq float %16, %17
+  %11 = load float, ptr %arrayidx3.i, align 4
+  %cmp.i = fcmp oeq float %10, %11
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZNK9btVector3eqERKS_.exit
 
 land.lhs.true.i:                                  ; preds = %for.end
   %arrayidx5.i = getelementptr inbounds i8, ptr %w, i64 8
-  %18 = load float, ptr %arrayidx5.i, align 4
+  %12 = load float, ptr %arrayidx5.i, align 4
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 300
-  %19 = load float, ptr %arrayidx7.i, align 4
-  %cmp8.i = fcmp oeq float %18, %19
+  %13 = load float, ptr %arrayidx7.i, align 4
+  %cmp8.i = fcmp oeq float %12, %13
   br i1 %cmp8.i, label %land.lhs.true9.i, label %_ZNK9btVector3eqERKS_.exit
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %w, i64 4
-  %20 = load float, ptr %arrayidx11.i, align 4
+  %14 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 296
-  %21 = load float, ptr %arrayidx13.i, align 4
-  %cmp14.i = fcmp oeq float %20, %21
+  %15 = load float, ptr %arrayidx13.i, align 4
+  %cmp14.i = fcmp oeq float %14, %15
   br i1 %cmp14.i, label %land.rhs.i, label %_ZNK9btVector3eqERKS_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true9.i
-  %22 = load float, ptr %w, align 4
-  %23 = load float, ptr %m_lastW, align 4
-  %cmp19.i = fcmp oeq float %22, %23
+  %16 = load float, ptr %w, align 4
+  %17 = load float, ptr %m_lastW, align 4
+  %cmp19.i = fcmp oeq float %16, %17
   br label %_ZNK9btVector3eqERKS_.exit
 
 _ZNK9btVector3eqERKS_.exit:                       ; preds = %for.end, %land.lhs.true.i, %land.lhs.true9.i, %land.rhs.i
-  %24 = phi i1 [ false, %land.lhs.true9.i ], [ false, %land.lhs.true.i ], [ false, %for.end ], [ %cmp19.i, %land.rhs.i ]
-  %.cmp = or i1 %cmp.lcssa, %24
+  %18 = phi i1 [ false, %land.lhs.true9.i ], [ false, %land.lhs.true.i ], [ false, %for.end ], [ %cmp19.i, %land.rhs.i ]
+  %.cmp = or i1 %cmp.lcssa, %18
   ret i1 %.cmp
 }
 

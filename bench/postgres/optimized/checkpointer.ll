@@ -1381,9 +1381,9 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %53
-  %.not9 = icmp eq i32 %.126.i, 0
+  %.not.i = icmp eq i32 %.126.i, 0
   call void @hash_destroy(ptr noundef %36) #13
-  br i1 %.not9, label %CompactCheckpointerRequestQueue.exit.thread, label %.preheader.i
+  br i1 %.not.i, label %CompactCheckpointerRequestQueue.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %61 = load ptr, ptr @CheckpointerShmem, align 8
@@ -1450,7 +1450,7 @@ CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge32.i, %8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.pre = load ptr, ptr @CheckpointerShmem, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
-  %.pre10 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre9 = load i32, ptr %.phi.trans.insert, align 8
   br label %91
 
 88:                                               ; preds = %CompactCheckpointerRequestQueue.exit.thread, %13
@@ -1460,7 +1460,7 @@ CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge32.i, %8
   br label %111
 
 91:                                               ; preds = %CompactCheckpointerRequestQueue.exit, %20
-  %92 = phi i32 [ %.pre10, %CompactCheckpointerRequestQueue.exit ], [ %22, %20 ]
+  %92 = phi i32 [ %.pre9, %CompactCheckpointerRequestQueue.exit ], [ %22, %20 ]
   %93 = phi ptr [ %.pre, %CompactCheckpointerRequestQueue.exit ], [ %17, %20 ]
   %94 = getelementptr inbounds i8, ptr %93, i64 56
   %95 = getelementptr inbounds i8, ptr %93, i64 48

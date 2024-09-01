@@ -2642,7 +2642,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
 _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i: ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i.i
   %130 = getelementptr inbounds i8, ptr %.sroa.7.1.lcssa, i64 -128
   %.not7.i.i = icmp eq ptr %130, %.sroa.081.2.lcssa
-  br i1 %.not7.i.i, label %.loopexit100, label %.lr.ph.i4.i
+  br i1 %.not7.i.i, label %.lr.ph148.preheader, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i
   %.sroa.05.08.i.i = phi ptr [ %131, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i ], [ %130, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i ]
@@ -2674,16 +2674,11 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %146 = getelementptr inbounds i8, ptr %.sroa.0.1.in.i.i, i64 -8
   store ptr %132, ptr %146, align 8
   %.not.i7.i = icmp eq ptr %131, %.sroa.081.2.lcssa
-  br i1 %.not.i7.i, label %.loopexit100, label %.lr.ph.i4.i, !llvm.loop !37
+  br i1 %.not.i7.i, label %.lr.ph148.preheader, label %.lr.ph.i4.i, !llvm.loop !37
 
 147:                                              ; preds = %.noexc59
   %.not17.i13.i = icmp eq ptr %.ptr49.i, %.sroa.081.2.lcssa
-  br i1 %.not17.i13.i, label %.loopexit100.thread169, label %.lr.ph.i15.i
-
-.loopexit100.thread169:                           ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.lr.ph148.preheader
+  br i1 %.not17.i13.i, label %.lr.ph148.preheader, label %.lr.ph.i15.i
 
 .lr.ph.i15.i:                                     ; preds = %147, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i
   %.sroa.010.018.i16.i = phi ptr [ %148, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i ], [ %.ptr49.i, %147 ]
@@ -2741,7 +2736,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %178 = getelementptr inbounds i8, ptr %.sink20.i18.i, i64 -8
   store ptr %149, ptr %178, align 8
   %.not.i21.i = icmp eq ptr %148, %.sroa.081.2.lcssa
-  br i1 %.not.i21.i, label %.loopexit100, label %.lr.ph.i15.i, !llvm.loop !36
+  br i1 %.not.i21.i, label %.lr.ph148.preheader, label %.lr.ph.i15.i, !llvm.loop !36
 
 .loopexit100.thread:                              ; preds = %._crit_edge.thread, %._crit_edge
   %.sroa.081.0.lcssa163.ph = phi ptr [ %.sroa.081.2.lcssa, %._crit_edge ], [ null, %._crit_edge.thread ]
@@ -2749,12 +2744,9 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %._crit_edge149
 
-.loopexit100:                                     ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i
+.lr.ph148.preheader:                              ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i, %147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not.i.i58, label %._crit_edge149, label %.lr.ph148.preheader
-
-.lr.ph148.preheader:                              ; preds = %.loopexit100.thread169, %.loopexit100
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %197
@@ -2793,8 +2785,8 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %.not99 = icmp eq ptr %198, %.sroa.7.1.lcssa
   br i1 %.not99, label %._crit_edge149, label %.lr.ph148
 
-._crit_edge149:                                   ; preds = %197, %.loopexit100.thread, %.loopexit100
-  %.sroa.081.0.lcssa163168 = phi ptr [ %.sroa.081.0.lcssa163.ph, %.loopexit100.thread ], [ %.sroa.081.2.lcssa, %.loopexit100 ], [ %.sroa.081.2.lcssa, %197 ]
+._crit_edge149:                                   ; preds = %197, %.loopexit100.thread
+  %.sroa.081.0.lcssa163168 = phi ptr [ %.sroa.081.0.lcssa163.ph, %.loopexit100.thread ], [ %.sroa.081.2.lcssa, %197 ]
   %.not.i.i.i61 = icmp eq ptr %.sroa.081.0.lcssa163168, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EED2Ev.exit62, label %199
 
@@ -6613,7 +6605,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
 _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i: ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i.i
   %103 = getelementptr inbounds i8, ptr %.sroa.7.1.lcssa, i64 -128
   %.not7.i.i = icmp eq ptr %103, %.sroa.088.2.lcssa
-  br i1 %.not7.i.i, label %.loopexit107, label %.noexc73
+  br i1 %.not7.i.i, label %.lr.ph154.preheader, label %.noexc73
 
 .noexc73:                                         ; preds = %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i
   %.sroa.05.08.i.i = phi ptr [ %104, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i ], [ %103, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i ]
@@ -6645,16 +6637,11 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %119 = getelementptr inbounds i8, ptr %.sroa.0.1.in.i.i, i64 -8
   store ptr %105, ptr %119, align 8
   %.not.i7.i = icmp eq ptr %104, %.sroa.088.2.lcssa
-  br i1 %.not.i7.i, label %.loopexit107, label %.noexc73, !llvm.loop !37
+  br i1 %.not.i7.i, label %.lr.ph154.preheader, label %.noexc73, !llvm.loop !37
 
 120:                                              ; preds = %.noexc58
   %.not17.i13.i = icmp eq ptr %.ptr49.i, %.sroa.088.2.lcssa
-  br i1 %.not17.i13.i, label %.loopexit107.thread173, label %.noexc75
-
-.loopexit107.thread173:                           ; preds = %120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.lr.ph154.preheader
+  br i1 %.not17.i13.i, label %.lr.ph154.preheader, label %.noexc75
 
 .noexc75:                                         ; preds = %120, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i
   %.sroa.010.018.i16.i = phi ptr [ %121, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i ], [ %.ptr49.i, %120 ]
@@ -6712,7 +6699,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %150 = getelementptr inbounds i8, ptr %.sink20.i18.i, i64 -8
   store ptr %122, ptr %150, align 8
   %.not.i21.i = icmp eq ptr %121, %.sroa.088.2.lcssa
-  br i1 %.not.i21.i, label %.loopexit107, label %.noexc75, !llvm.loop !36
+  br i1 %.not.i21.i, label %.lr.ph154.preheader, label %.noexc75, !llvm.loop !36
 
 .loopexit107.thread:                              ; preds = %._crit_edge.thread, %._crit_edge
   %.sroa.088.0.lcssa167.ph = phi ptr [ %.sroa.088.2.lcssa, %._crit_edge ], [ null, %._crit_edge.thread ]
@@ -6720,12 +6707,9 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %._crit_edge155
 
-.loopexit107:                                     ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i
+.lr.ph154.preheader:                              ; preds = %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i5.i, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_T0_.exit.i, %120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not.i.i57, label %._crit_edge155, label %.lr.ph154.preheader
-
-.lr.ph154.preheader:                              ; preds = %.loopexit107.thread173, %.loopexit107
   br label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %.lr.ph154.preheader, %169
@@ -6764,8 +6748,8 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %.not106 = icmp eq ptr %170, %.sroa.7.1.lcssa
   br i1 %.not106, label %._crit_edge155, label %.lr.ph154
 
-._crit_edge155:                                   ; preds = %169, %.loopexit107.thread, %.loopexit107
-  %.sroa.088.0.lcssa167172 = phi ptr [ %.sroa.088.0.lcssa167.ph, %.loopexit107.thread ], [ %.sroa.088.2.lcssa, %.loopexit107 ], [ %.sroa.088.2.lcssa, %169 ]
+._crit_edge155:                                   ; preds = %169, %.loopexit107.thread
+  %.sroa.088.0.lcssa167172 = phi ptr [ %.sroa.088.0.lcssa167.ph, %.loopexit107.thread ], [ %.sroa.088.2.lcssa, %169 ]
   %.not.i.i.i60 = icmp eq ptr %.sroa.088.0.lcssa167172, null
   br i1 %.not.i.i.i60, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EED2Ev.exit61, label %171
 

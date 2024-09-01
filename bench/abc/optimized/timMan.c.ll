@@ -2311,6 +2311,9 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.lr.ph231.preheader, label %.lr.ph.split.preheader
 
+.lr.ph231.preheader:                              ; preds = %.critedge, %.lr.ph
+  br label %.lr.ph231
+
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %36 to i64
   br label %.lr.ph.split
@@ -2345,17 +2348,11 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
 .critedge:                                        ; preds = %47, %42
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = icmp eq i32 %36, %53
-  br i1 %54, label %.critedge.thread, label %.preheader216
+  br i1 %54, label %.critedge.thread, label %.lr.ph231.preheader
 
 .critedge.thread337:                              ; preds = %Tim_ManBoxNum.exit
   %55 = icmp eq i32 %36, 0
   br i1 %55, label %.critedge.thread, label %.critedge2
-
-.preheader216:                                    ; preds = %.critedge
-  br i1 %37, label %.lr.ph231.preheader, label %.critedge2
-
-.lr.ph231.preheader:                              ; preds = %.lr.ph, %.preheader216
-  br label %.lr.ph231
 
 .critedge.thread:                                 ; preds = %52, %.critedge.thread337, %.critedge
   %56 = load float, ptr %34, align 4
@@ -2398,7 +2395,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %80 = icmp slt i64 %indvars.iv.next288, %79
   br i1 %80, label %.lr.ph231, label %.critedge2, !llvm.loop !37
 
-.critedge2:                                       ; preds = %77, %.lr.ph231, %.critedge.thread337, %.preheader216, %.critedge.thread
+.critedge2:                                       ; preds = %77, %.lr.ph231, %.critedge.thread337, %.critedge.thread
   %81 = getelementptr inbounds i8, ptr %0, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 16
@@ -2410,6 +2407,9 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
 .lr.ph234:                                        ; preds = %.critedge2
   %.not183 = icmp eq ptr %82, null
   br i1 %.not183, label %.lr.ph249.preheader, label %.lr.ph234.split.preheader
+
+.lr.ph249.preheader:                              ; preds = %.critedge4, %.lr.ph234
+  br label %.lr.ph249
 
 .lr.ph234.split.preheader:                        ; preds = %.lr.ph234
   %wide.trip.count293 = zext nneg i32 %85 to i64
@@ -2445,17 +2445,11 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
 .critedge4:                                       ; preds = %96, %91
   %102 = trunc nuw nsw i64 %indvars.iv290 to i32
   %103 = icmp eq i32 %85, %102
-  br i1 %103, label %.critedge4.thread, label %.preheader215
+  br i1 %103, label %.critedge4.thread, label %.lr.ph249.preheader
 
 .critedge4.thread343:                             ; preds = %.critedge2
   %104 = icmp eq i32 %85, 0
   br i1 %104, label %.critedge4.thread, label %.critedge6
-
-.preheader215:                                    ; preds = %.critedge4
-  br i1 %86, label %.lr.ph249.preheader, label %.critedge6
-
-.lr.ph249.preheader:                              ; preds = %.lr.ph234, %.preheader215
-  br label %.lr.ph249
 
 .critedge4.thread:                                ; preds = %101, %.critedge4.thread343, %.critedge4
   %105 = load float, ptr %83, align 4
@@ -2500,7 +2494,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %129 = icmp slt i64 %indvars.iv.next296, %128
   br i1 %129, label %.lr.ph249, label %.critedge6, !llvm.loop !39
 
-.critedge6:                                       ; preds = %126, %.lr.ph249, %.critedge4.thread343, %.preheader215, %.critedge4.thread
+.critedge6:                                       ; preds = %126, %.lr.ph249, %.critedge4.thread343, %.critedge4.thread
   %130 = load ptr, ptr %0, align 8
   %.not.i204 = icmp eq ptr %130, null
   br i1 %.not.i204, label %.critedge8, label %Tim_ManBoxNum.exit206

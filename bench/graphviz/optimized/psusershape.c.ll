@@ -101,7 +101,7 @@ user_init.exit.thread:                            ; preds = %19
   %.03447.i = phi i1 [ %spec.select.i, %.lr.ph.i.backedge ], [ false, %.preheader.i ]
   %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %24 = icmp eq i32 %23, 4
-  %spec.select.i = select i1 %24, i1 true, i1 %.03447.i
+  %spec.select.i = or i1 %24, %.03447.i
   %25 = load i8, ptr %2, align 16
   %.not42.i = icmp eq i8 %25, 37
   br i1 %.not42.i, label %28, label %26

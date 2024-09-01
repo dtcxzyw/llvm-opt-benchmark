@@ -452,7 +452,7 @@ for.cond7.preheader.lr.ph:                        ; preds = %lor.lhs.false
 
 for.cond7.preheader:                              ; preds = %for.cond7.preheader.lr.ph, %for.inc27
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.inc27 ], [ 0, %for.cond7.preheader.lr.ph ]
-  %3 = phi i8 [ %6, %for.inc27 ], [ %1, %for.cond7.preheader.lr.ph ]
+  %3 = phi i8 [ %7, %for.inc27 ], [ %1, %for.cond7.preheader.lr.ph ]
   br label %for.body11
 
 for.cond7:                                        ; preds = %for.body11
@@ -460,29 +460,29 @@ for.cond7:                                        ; preds = %for.body11
   %arrayidx9 = getelementptr inbounds i8, ptr %delim, i64 %indvars.iv.next
   %4 = load i8, ptr %arrayidx9, align 1
   %tobool10.not = icmp eq i8 %4, 0
-  br i1 %tobool10.not, label %for.cond7.for.end29_crit_edge, label %for.body11, !llvm.loop !7
+  br i1 %tobool10.not, label %for.cond7.for.cond35.preheader_crit_edge, label %for.body11, !llvm.loop !7
+
+for.cond7.for.cond35.preheader_crit_edge:         ; preds = %for.cond7
+  %arrayidx.le = getelementptr inbounds i8, ptr %str.addr.0, i64 %indvars.iv57
+  br label %for.cond40.preheader.preheader
+
+for.cond40.preheader.preheader:                   ; preds = %for.cond7.for.cond35.preheader_crit_edge, %for.cond7.preheader.lr.ph
+  %5 = phi i8 [ %3, %for.cond7.for.cond35.preheader_crit_edge ], [ %1, %for.cond7.preheader.lr.ph ]
+  %arrayidx.lcssa41 = phi ptr [ %arrayidx.le, %for.cond7.for.cond35.preheader_crit_edge ], [ %str.addr.0, %for.cond7.preheader.lr.ph ]
+  br label %for.cond40.preheader
 
 for.body11:                                       ; preds = %for.cond7.preheader, %for.cond7
   %indvars.iv = phi i64 [ 0, %for.cond7.preheader ], [ %indvars.iv.next, %for.cond7 ]
-  %5 = phi i8 [ %2, %for.cond7.preheader ], [ %4, %for.cond7 ]
-  %cmp18 = icmp eq i8 %5, %3
+  %6 = phi i8 [ %2, %for.cond7.preheader ], [ %4, %for.cond7 ]
+  %cmp18 = icmp eq i8 %6, %3
   br i1 %cmp18, label %for.inc27, label %for.cond7
 
 for.inc27:                                        ; preds = %for.body11
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %arrayidx = getelementptr inbounds i8, ptr %str.addr.0, i64 %indvars.iv.next58
-  %6 = load i8, ptr %arrayidx, align 1
-  %tobool6.not = icmp eq i8 %6, 0
+  %7 = load i8, ptr %arrayidx, align 1
+  %tobool6.not = icmp eq i8 %7, 0
   br i1 %tobool6.not, label %return, label %for.cond7.preheader, !llvm.loop !8
-
-for.cond7.for.end29_crit_edge:                    ; preds = %for.cond7
-  %arrayidx.le = getelementptr inbounds i8, ptr %str.addr.0, i64 %indvars.iv57
-  br label %for.cond40.preheader.preheader
-
-for.cond40.preheader.preheader:                   ; preds = %for.cond7.for.end29_crit_edge, %for.cond7.preheader.lr.ph
-  %7 = phi i8 [ %3, %for.cond7.for.end29_crit_edge ], [ %1, %for.cond7.preheader.lr.ph ]
-  %arrayidx.lcssa41 = phi ptr [ %arrayidx.le, %for.cond7.for.end29_crit_edge ], [ %str.addr.0, %for.cond7.preheader.lr.ph ]
-  br label %for.cond40.preheader
 
 for.cond35:                                       ; preds = %for.end57
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -493,7 +493,7 @@ for.cond35:                                       ; preds = %for.end57
 
 for.cond40.preheader:                             ; preds = %for.cond40.preheader.preheader, %for.cond35
   %indvars.iv62 = phi i64 [ 0, %for.cond40.preheader.preheader ], [ %indvars.iv.next63, %for.cond35 ]
-  %9 = phi i8 [ %7, %for.cond40.preheader.preheader ], [ %8, %for.cond35 ]
+  %9 = phi i8 [ %5, %for.cond40.preheader.preheader ], [ %8, %for.cond35 ]
   br label %for.cond40
 
 for.cond40:                                       ; preds = %for.cond40, %for.cond40.preheader
@@ -507,9 +507,9 @@ for.cond40:                                       ; preds = %for.cond40, %for.co
   br i1 %or.cond39, label %for.end57, label %for.cond40, !llvm.loop !10
 
 for.end57:                                        ; preds = %for.cond40
-  br i1 %cmp51, label %for.end70, label %for.cond35
+  br i1 %cmp51, label %if.then74, label %for.cond35
 
-for.end70:                                        ; preds = %for.end57
+if.then74:                                        ; preds = %for.end57
   %arrayidx37.le = getelementptr inbounds i8, ptr %arrayidx.lcssa41, i64 %indvars.iv62
   %incdec.ptr = getelementptr inbounds i8, ptr %arrayidx37.le, i64 1
   store i8 0, ptr %arrayidx37.le, align 1
@@ -519,8 +519,8 @@ if.end75.loopexit:                                ; preds = %for.cond35
   %arrayidx37.le50 = getelementptr inbounds i8, ptr %arrayidx.lcssa41, i64 %indvars.iv.next63
   br label %if.end75
 
-if.end75:                                         ; preds = %if.end75.loopexit, %for.end70
-  %str.addr.1 = phi ptr [ %incdec.ptr, %for.end70 ], [ %arrayidx37.le50, %if.end75.loopexit ]
+if.end75:                                         ; preds = %if.end75.loopexit, %if.then74
+  %str.addr.1 = phi ptr [ %incdec.ptr, %if.then74 ], [ %arrayidx37.le50, %if.end75.loopexit ]
   br i1 %tobool, label %if.then77, label %return
 
 if.then77:                                        ; preds = %if.end75

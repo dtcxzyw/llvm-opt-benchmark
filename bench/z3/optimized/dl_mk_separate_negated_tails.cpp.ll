@@ -1719,7 +1719,7 @@ invoke.cont3:                                     ; preds = %invoke.cont3.outer,
   %m_positive_cnt.i = getelementptr inbounds i8, ptr %5, i64 64
   %7 = load i32, ptr %m_positive_cnt.i, align 8
   %cmp1048 = icmp ult i32 %7, %6
-  br i1 %cmp1048, label %for.body11.lr.ph, label %if.then17.loopexit
+  br i1 %cmp1048, label %for.body11.lr.ph, label %if.then17
 
 for.body11.lr.ph:                                 ; preds = %invoke.cont3
   %m_head.i.i = getelementptr inbounds i8, ptr %5, i64 40
@@ -1972,7 +1972,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN6vectorIP4exprL
           cleanup
   br label %lpad.body
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %if.then17.loopexit
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %if.then17
   %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
@@ -1995,18 +1995,18 @@ lpad.body:                                        ; preds = %lpad.loopexit.split
 for.inc:                                          ; preds = %.noexc, %invoke.cont12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then17.loopexit.loopexit, label %for.body11, !llvm.loop !15
+  br i1 %exitcond.not, label %if.then17.loopexit, label %for.body11, !llvm.loop !15
 
-if.then17.loopexit.loopexit:                      ; preds = %for.inc
+if.then17.loopexit:                               ; preds = %for.inc
   %.pre59 = load ptr, ptr %result, align 8
-  br label %if.then17.loopexit
+  br label %if.then17
 
-if.then17.loopexit:                               ; preds = %if.then17.loopexit.loopexit, %invoke.cont3
-  %42 = phi ptr [ %.pre59, %if.then17.loopexit.loopexit ], [ %3, %invoke.cont3 ]
+if.then17:                                        ; preds = %if.then17.loopexit, %invoke.cont3
+  %42 = phi ptr [ %.pre59, %if.then17.loopexit ], [ %3, %invoke.cont3 ]
   invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %42, ptr noundef nonnull %5)
           to label %for.inc22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
-for.inc22:                                        ; preds = %if.then17.loopexit
+for.inc22:                                        ; preds = %if.then17
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count56
   br i1 %exitcond57.not, label %for.end24, label %invoke.cont3, !llvm.loop !16

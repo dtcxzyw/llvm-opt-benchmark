@@ -2367,58 +2367,58 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %21 = zext nneg i32 %14 to i64
-  %wide.trip.count82 = zext nneg i32 %.fr59 to i64
+  %wide.trip.count84 = zext nneg i32 %.fr59 to i64
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge40.us.us
-  %indvars.iv89 = phi i64 [ %21, %.preheader.us.us.preheader ], [ %indvars.iv.next90, %._crit_edge40.us.us ]
-  %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
+  %indvars.iv91 = phi i64 [ %21, %.preheader.us.us.preheader ], [ %indvars.iv.next92, %._crit_edge40.us.us ]
+  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   br label %39
 
 .lr.ph39.us.us:                                   ; preds = %._crit_edge.us.us
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = getelementptr inbounds [32 x %struct.anon.4], ptr %23, i64 0, i64 %indvars.iv.next90
+  %24 = getelementptr inbounds [32 x %struct.anon.4], ptr %23, i64 0, i64 %indvars.iv.next92
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph39.us.us
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %27 ], [ 0, %.lr.ph39.us.us ]
-  %28 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv84
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %27 ], [ 0, %.lr.ph39.us.us ]
+  %28 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv86
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = getelementptr inbounds [32 x %struct.anon.4], ptr %30, i64 0, i64 %indvars.iv.next90, i32 1
+  %31 = getelementptr inbounds [32 x %struct.anon.4], ptr %30, i64 0, i64 %indvars.iv.next92, i32 1
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv84
+  %34 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv86
   %35 = load ptr, ptr %34, align 8
   %36 = mul nsw i64 %26, %33
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   store ptr %38, ptr %34, align 8
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count82
-  br i1 %exitcond88.not, label %._crit_edge40.us.us, label %27, !llvm.loop !13
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count84
+  br i1 %exitcond90.not, label %._crit_edge40.us.us, label %27, !llvm.loop !13
 
 39:                                               ; preds = %.preheader.us.us, %39
-  %indvars.iv79 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next80, %39 ]
-  %40 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv79
+  %indvars.iv81 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next82, %39 ]
+  %40 = getelementptr inbounds [10 x ptr], ptr %19, i64 0, i64 %indvars.iv81
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 32
-  %43 = getelementptr inbounds [32 x %struct.anon.4], ptr %42, i64 0, i64 %indvars.iv.next90, i32 1
+  %43 = getelementptr inbounds [32 x %struct.anon.4], ptr %42, i64 0, i64 %indvars.iv.next92, i32 1
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv79
+  %45 = getelementptr inbounds [10 x ptr], ptr %20, i64 0, i64 %indvars.iv81
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
   store ptr %48, ptr %45, align 8
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge.us.us, label %39, !llvm.loop !14
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %._crit_edge.us.us, label %39, !llvm.loop !14
 
 ._crit_edge.us.us:                                ; preds = %39
-  %49 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv.next90
+  %49 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv.next92
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, -1
   store i32 %51, ptr %49, align 4
@@ -2427,7 +2427,7 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge40.us.us:                              ; preds = %27
   store i32 %25, ptr %49, align 4
-  %53 = icmp sgt i64 %indvars.iv89, 1
+  %53 = icmp sgt i64 %indvars.iv91, 1
   br i1 %53, label %.preheader.us.us, label %._crit_edge42, !llvm.loop !15
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph
@@ -2461,9 +2461,8 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
   br i1 %69, label %.preheader, label %._crit_edge42, !llvm.loop !15
 
 ._crit_edge42:                                    ; preds = %.lr.ph, %.preheader, %._crit_edge40.us.us, %._crit_edge.us.us, %.preheader.lr.ph.split.split, %12
-  %.lcssa35 = phi i1 [ false, %12 ], [ true, %.preheader.lr.ph.split.split ], [ %52, %._crit_edge40.us.us ], [ true, %._crit_edge.us.us ], [ %69, %.preheader ], [ %69, %.lr.ph ]
-  %70 = zext i1 %.lcssa35 to i32
-  ret i32 %70
+  %.lcssa35 = phi i32 [ 0, %12 ], [ 1, %.preheader.lr.ph.split.split ], [ 1, %._crit_edge.us.us ], [ 0, %._crit_edge40.us.us ], [ 1, %.preheader ], [ 0, %.lr.ph ]
+  ret i32 %.lcssa35
 }
 
 ; Function Attrs: mustprogress uwtable

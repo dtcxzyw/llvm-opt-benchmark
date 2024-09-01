@@ -990,8 +990,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i32
-  %.not = icmp sle i32 %.012, %11
-  br i1 %.not, label %19, label %12
+  %.not.not.not.not.not = icmp sle i32 %.012, %11
+  br i1 %.not.not.not.not.not, label %19, label %12
 
 12:                                               ; preds = %5
   %sext = shl i64 %10, 32
@@ -1014,7 +1014,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %19
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1113,8 +1113,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = trunc i64 %34 to i32
-  %.not45 = icmp sle i32 %.022, %35
-  br i1 %.not45, label %44, label %36
+  %.not41.not.not.not.not = icmp sle i32 %.022, %35
+  br i1 %.not41.not.not.not.not, label %44, label %36
 
 36:                                               ; preds = %29
   %.not30 = icmp eq i32 %35, 0
@@ -1144,7 +1144,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %44
-  ret i1 %.not45
+  ret i1 %.not41.not.not.not.not
 }
 
 ; Function Attrs: nounwind
@@ -1183,8 +1183,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleE
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = trunc i64 %17 to i32
-  %.not.i.not = icmp sgt i32 %.012.i, %18
-  br i1 %.not.i.not, label %19, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
+  %.not.not.not.i.not = icmp sgt i32 %.012.i, %18
+  br i1 %.not.not.not.i.not, label %19, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
 
 19:                                               ; preds = %.preheader
   %sext.i = shl i64 %17, 32
@@ -1242,8 +1242,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleE
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = trunc i64 %17 to i32
-  %.not.i.not = icmp sgt i32 %.012.i, %18
-  br i1 %.not.i.not, label %19, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
+  %.not.not.not.i.not = icmp sgt i32 %.012.i, %18
+  br i1 %.not.not.not.i.not, label %19, label %_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread
 
 19:                                               ; preds = %.preheader
   %sext.i = shl i64 %17, 32
@@ -2231,38 +2231,38 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint6
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
-4:                                                ; preds = %11, %2
-  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %2 ]
-  %.012 = phi i64 [ %17, %11 ], [ 0, %2 ]
-  %5 = icmp ne i64 %indvars.iv, 10
-  br i1 %5, label %.preheader, label %.loopexit
+4:                                                ; preds = %10, %2
+  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %2 ]
+  %.012 = phi i64 [ %16, %10 ], [ 0, %2 ]
+  %.not23 = icmp ne i64 %indvars.iv, 10
+  br i1 %.not23, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %4, %9
-  %6 = load ptr, ptr %0, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp eq ptr %6, %7
-  br i1 %8, label %9, label %11
+.preheader:                                       ; preds = %4, %8
+  %5 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %10
 
-9:                                                ; preds = %.preheader
-  %10 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !17
+8:                                                ; preds = %.preheader
+  %9 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
+  br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !17
 
-11:                                               ; preds = %.preheader
-  %12 = load i8, ptr %6, align 1
-  %13 = and i8 %12, 127
-  %14 = zext nneg i8 %13 to i64
-  %15 = mul nuw nsw i64 %indvars.iv, 7
-  %16 = shl i64 %14, %15
-  %17 = or i64 %16, %.012
-  %18 = getelementptr inbounds i8, ptr %6, i64 1
-  store ptr %18, ptr %0, align 8
+10:                                               ; preds = %.preheader
+  %11 = load i8, ptr %5, align 1
+  %12 = and i8 %11, 127
+  %13 = zext nneg i8 %12 to i64
+  %14 = mul nuw nsw i64 %indvars.iv, 7
+  %15 = shl i64 %13, %14
+  %16 = or i64 %15, %.012
+  %17 = getelementptr inbounds i8, ptr %5, i64 1
+  store ptr %17, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp sgt i8 %12, -1
+  %.not = icmp sgt i8 %11, -1
   br i1 %.not, label %.loopexit, label %4, !llvm.loop !18
 
-.loopexit:                                        ; preds = %11, %4, %9
-  %.lcssa20.sink = phi i64 [ 0, %9 ], [ 0, %4 ], [ %17, %11 ]
-  %.0 = phi i1 [ false, %9 ], [ %5, %4 ], [ %5, %11 ]
+.loopexit:                                        ; preds = %10, %4, %8
+  %.lcssa20.sink = phi i64 [ 0, %8 ], [ 0, %4 ], [ %16, %10 ]
+  %.0 = phi i1 [ false, %8 ], [ %.not23, %4 ], [ %.not23, %10 ]
   store i64 %.lcssa20.sink, ptr %1, align 8
   ret i1 %.0
 }

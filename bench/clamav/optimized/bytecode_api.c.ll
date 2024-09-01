@@ -2083,7 +2083,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %17
   %spec.select25.i = select i1 %.not23.i, i32 %23, i32 8192
   %24 = add i32 %2, -1
   %or.cond = icmp ult i32 %24, %spec.select25.i
-  br i1 %or.cond, label %30, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
+  br i1 %or.cond, label %32, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23:   ; preds = %get_buffer.exit.i
   %25 = getelementptr inbounds i8, ptr %12, i64 12
@@ -2095,27 +2095,23 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23:   ; preds = %get_buffer.exit.i
   %or.cond25 = icmp ult i32 %29, %spec.select.i
   br i1 %or.cond25, label %.thread, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
-30:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  br i1 %.not20.i, label %34, label %.thread
-
-.thread:                                          ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23, %30
-  %31 = phi i32 [ %19, %30 ], [ %28, %cli_bcapi_buffer_pipe_read_avail.exit.thread23 ]
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %13, i64 %32
+.thread:                                          ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23
+  %30 = zext i32 %28 to i64
+  %31 = getelementptr inbounds i8, ptr %13, i64 %30
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8
-  %37 = zext i32 %19 to i64
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds i8, ptr %36, i64 104
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr %40(ptr noundef %36, i64 noundef %37, i64 noundef %38, i32 noundef 1) #28
+32:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
+  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %35 = zext i32 %19 to i64
+  %36 = zext i32 %2 to i64
+  %37 = getelementptr inbounds i8, ptr %34, i64 104
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call ptr %38(ptr noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
-cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23, %14, %17, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_read_avail.exit, %34, %.thread
-  %.0 = phi ptr [ %33, %.thread ], [ %41, %34 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit ], [ null, %get_buffer.exit.thread ], [ null, %17 ], [ null, %14 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23 ]
+cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23, %14, %17, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_read_avail.exit, %32, %.thread
+  %.0 = phi ptr [ %31, %.thread ], [ %39, %32 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit ], [ null, %get_buffer.exit.thread ], [ null, %17 ], [ null, %14 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23 ]
   ret ptr %.0
 }
 
@@ -2557,7 +2553,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %66, i32 8192
   %67 = add i32 %.0.i63, -1
   %or.cond.i = icmp ult i32 %67, %spec.select25.i.i
-  br i1 %or.cond.i, label %75, label %cli_bcapi_buffer_pipe_read_get.exit
+  br i1 %or.cond.i, label %73, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %68 = getelementptr inbounds i8, ptr %55, i64 12
@@ -2569,21 +2565,21 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %or.cond25.i = icmp ult i32 %72, %spec.select.i.i
   br i1 %or.cond25.i, label %.thread.i, label %cli_bcapi_buffer_pipe_read_get.exit
 
+73:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
+  %74 = zext i32 %62 to i64
+  %75 = zext i32 %.0.i63 to i64
+  %76 = getelementptr inbounds i8, ptr %59, i64 104
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef %74, i64 noundef %75, i32 noundef 1) #28
+  br label %cli_bcapi_buffer_pipe_read_get.exit
+
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
-  %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds i8, ptr %56, i64 %73
+  %79 = zext i32 %71 to i64
+  %80 = getelementptr inbounds i8, ptr %56, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
-75:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
-  %76 = zext i32 %62 to i64
-  %77 = zext i32 %.0.i63 to i64
-  %78 = getelementptr inbounds i8, ptr %59, i64 104
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr %79(ptr noundef nonnull %59, i64 noundef %76, i64 noundef %77, i32 noundef 1) #28
-  br label %cli_bcapi_buffer_pipe_read_get.exit
-
-cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i66, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %75
-  %.0.i67 = phi ptr [ %74, %.thread.i ], [ %80, %75 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i66 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
+cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i66, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %73
+  %.0.i67 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i66 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
   store ptr %.0.i67, ptr %11, align 8
   %81 = load i32, ptr %16, align 4
   %82 = load ptr, ptr %20, align 8
@@ -3030,7 +3026,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %56
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %62, i32 8192
   %63 = add i32 %.0.i5078, -1
   %or.cond.i55 = icmp ult i32 %63, %spec.select25.i.i
-  br i1 %or.cond.i55, label %71, label %cli_bcapi_buffer_pipe_read_get.exit
+  br i1 %or.cond.i55, label %69, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %64 = getelementptr inbounds i8, ptr %51, i64 12
@@ -3042,20 +3038,20 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %or.cond25.i = icmp ult i32 %68, %spec.select.i.i
   br i1 %or.cond25.i, label %.thread.i, label %cli_bcapi_buffer_pipe_read_get.exit
 
+69:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
+  %70 = zext i32 %58 to i64
+  %71 = getelementptr inbounds i8, ptr %55, i64 104
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call ptr %72(ptr noundef nonnull %55, i64 noundef %70, i64 noundef %45, i32 noundef 1) #28
+  br label %cli_bcapi_buffer_pipe_read_get.exit
+
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
-  %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds i8, ptr %52, i64 %69
+  %74 = zext i32 %67 to i64
+  %75 = getelementptr inbounds i8, ptr %52, i64 %74
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
-71:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
-  %72 = zext i32 %58 to i64
-  %73 = getelementptr inbounds i8, ptr %55, i64 104
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr %74(ptr noundef nonnull %55, i64 noundef %72, i64 noundef %45, i32 noundef 1) #28
-  br label %cli_bcapi_buffer_pipe_read_get.exit
-
-cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i53, %53, %56, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %71
-  %.0.i54 = phi ptr [ %70, %.thread.i ], [ %75, %71 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i53 ], [ null, %56 ], [ null, %53 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
+cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i53, %53, %56, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %69
+  %.0.i54 = phi ptr [ %75, %.thread.i ], [ %73, %69 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i53 ], [ null, %56 ], [ null, %53 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
   %76 = getelementptr inbounds i8, ptr %42, i64 168
   store ptr %.0.i54, ptr %76, align 8
   %77 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %42, i64 noundef 0) #28
@@ -3318,7 +3314,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %61
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %67, i32 8192
   %68 = add i32 %.0.i46, -1
   %or.cond.i = icmp ult i32 %68, %spec.select25.i.i
-  br i1 %or.cond.i, label %76, label %cli_bcapi_buffer_pipe_read_get.exit
+  br i1 %or.cond.i, label %74, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %69 = getelementptr inbounds i8, ptr %56, i64 12
@@ -3330,20 +3326,20 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %or.cond25.i = icmp ult i32 %73, %spec.select.i.i
   br i1 %or.cond25.i, label %.thread.i, label %cli_bcapi_buffer_pipe_read_get.exit
 
+74:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
+  %75 = zext i32 %63 to i64
+  %76 = getelementptr inbounds i8, ptr %60, i64 104
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr %77(ptr noundef nonnull %60, i64 noundef %75, i64 noundef %47, i32 noundef 1) #28
+  br label %cli_bcapi_buffer_pipe_read_get.exit
+
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
-  %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds i8, ptr %57, i64 %74
+  %79 = zext i32 %72 to i64
+  %80 = getelementptr inbounds i8, ptr %57, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
-76:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
-  %77 = zext i32 %63 to i64
-  %78 = getelementptr inbounds i8, ptr %60, i64 104
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr %79(ptr noundef nonnull %60, i64 noundef %77, i64 noundef %47, i32 noundef 1) #28
-  br label %cli_bcapi_buffer_pipe_read_get.exit
-
-cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i49, %58, %61, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %76
-  %.0.i50 = phi ptr [ %75, %.thread.i ], [ %80, %76 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i49 ], [ null, %61 ], [ null, %58 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
+cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i49, %58, %61, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %74
+  %.0.i50 = phi ptr [ %80, %.thread.i ], [ %78, %74 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i49 ], [ null, %61 ], [ null, %58 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
   %81 = getelementptr inbounds i8, ptr %11, i64 168
   store ptr %.0.i50, ptr %81, align 8
   %82 = load i32, ptr %16, align 4
@@ -3840,7 +3836,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %66, i32 8192
   %67 = add i32 %.0.i43, -1
   %or.cond.i = icmp ult i32 %67, %spec.select25.i.i
-  br i1 %or.cond.i, label %75, label %cli_bcapi_buffer_pipe_read_get.exit
+  br i1 %or.cond.i, label %73, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %68 = getelementptr inbounds i8, ptr %55, i64 12
@@ -3852,21 +3848,21 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %or.cond25.i = icmp ult i32 %72, %spec.select.i.i
   br i1 %or.cond25.i, label %.thread.i, label %cli_bcapi_buffer_pipe_read_get.exit
 
+73:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
+  %74 = zext i32 %62 to i64
+  %75 = zext i32 %.0.i43 to i64
+  %76 = getelementptr inbounds i8, ptr %59, i64 104
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef %74, i64 noundef %75, i32 noundef 1) #28
+  br label %cli_bcapi_buffer_pipe_read_get.exit
+
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
-  %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds i8, ptr %56, i64 %73
+  %79 = zext i32 %71 to i64
+  %80 = getelementptr inbounds i8, ptr %56, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
-75:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
-  %76 = zext i32 %62 to i64
-  %77 = zext i32 %.0.i43 to i64
-  %78 = getelementptr inbounds i8, ptr %59, i64 104
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr %79(ptr noundef nonnull %59, i64 noundef %76, i64 noundef %77, i32 noundef 1) #28
-  br label %cli_bcapi_buffer_pipe_read_get.exit
-
-cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i46, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %75
-  %.0.i47 = phi ptr [ %74, %.thread.i ], [ %80, %75 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i46 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
+cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i46, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %73
+  %.0.i47 = phi ptr [ %80, %.thread.i ], [ %78, %73 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i46 ], [ null, %60 ], [ null, %57 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
   store ptr %.0.i47, ptr %11, align 8
   %81 = load i32, ptr %16, align 4
   %82 = load ptr, ptr %20, align 8
@@ -4365,7 +4361,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %59
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %65, i32 8192
   %66 = add i32 %.0.i32, -1
   %or.cond.i = icmp ult i32 %66, %spec.select25.i.i
-  br i1 %or.cond.i, label %74, label %get_jsnorm.exit.thread
+  br i1 %or.cond.i, label %72, label %get_jsnorm.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %67 = getelementptr inbounds i8, ptr %54, i64 12
@@ -4377,21 +4373,21 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %or.cond25.i = icmp ult i32 %71, %spec.select.i.i
   br i1 %or.cond25.i, label %.thread.i, label %get_jsnorm.exit.thread
 
+72:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
+  %73 = zext i32 %61 to i64
+  %74 = zext i32 %.0.i32 to i64
+  %75 = getelementptr inbounds i8, ptr %58, i64 104
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call ptr %76(ptr noundef nonnull %58, i64 noundef %73, i64 noundef %74, i32 noundef 1) #28
+  br label %cli_bcapi_buffer_pipe_read_get.exit
+
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
-  %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds i8, ptr %55, i64 %72
+  %78 = zext i32 %70 to i64
+  %79 = getelementptr inbounds i8, ptr %55, i64 %78
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
-74:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
-  %75 = zext i32 %61 to i64
-  %76 = zext i32 %.0.i32 to i64
-  %77 = getelementptr inbounds i8, ptr %58, i64 104
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call ptr %78(ptr noundef nonnull %58, i64 noundef %75, i64 noundef %76, i32 noundef 1) #28
-  br label %cli_bcapi_buffer_pipe_read_get.exit
-
-cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %.thread.i, %74
-  %.0.i36 = phi ptr [ %73, %.thread.i ], [ %79, %74 ]
+cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %.thread.i, %72
+  %.0.i36 = phi ptr [ %79, %.thread.i ], [ %77, %72 ]
   %.not = icmp eq ptr %.0.i36, null
   br i1 %.not, label %get_jsnorm.exit.thread, label %80
 

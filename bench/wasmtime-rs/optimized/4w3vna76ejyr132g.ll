@@ -483,8 +483,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
 
 93:                                               ; preds = %92
   %94 = load i64, ptr %7, align 8, !range !4, !noundef !3
-  %.not74.not = icmp eq i64 %94, -9223372036854775808
-  br i1 %.not74.not, label %.thread97, label %95
+  %.not74 = icmp eq i64 %94, -9223372036854775808
+  br i1 %.not74, label %.thread97, label %95
 
 95:                                               ; preds = %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)

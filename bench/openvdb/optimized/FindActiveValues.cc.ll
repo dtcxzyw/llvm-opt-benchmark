@@ -19139,8 +19139,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -19199,7 +19199,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call20, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -19855,8 +19855,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -19915,7 +19915,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -20077,8 +20077,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %leaf, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -20135,8 +20135,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeIbLj3EE13cbeginValueOnEv.exit: ; preds = %for.in
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIbLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIbLj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -20233,7 +20233,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i33, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -21100,8 +21100,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -21160,7 +21160,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -23376,8 +23376,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -23436,7 +23436,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -23599,8 +23599,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -23657,8 +23657,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeIiLj3EE13cbeginValueOnEv.exit: ; preds = %for.in
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIiLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIiLj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -23755,7 +23755,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIiLj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -24601,8 +24601,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -24661,7 +24661,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -26409,8 +26409,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -26469,7 +26469,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -26632,8 +26632,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -26690,8 +26690,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeIlLj3EE13cbeginValueOnEv.exit: ; preds = %for.in
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIlLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIlLj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -26788,7 +26788,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIlLj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -27634,8 +27634,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -27694,7 +27694,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -29609,8 +29609,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -29669,7 +29669,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -29832,8 +29832,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -29890,8 +29890,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit: ; preds = %for.in
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -29988,7 +29988,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -30834,8 +30834,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -30894,7 +30894,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -32808,8 +32808,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -32868,7 +32868,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -33031,8 +33031,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -33089,8 +33089,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit: ; preds = %for.in
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -33187,7 +33187,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -34031,8 +34031,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -34091,7 +34091,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -36117,8 +36117,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -36177,7 +36177,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -36340,8 +36340,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -36398,8 +36398,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE13cbeginValueOnEv.exit: 
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -36496,7 +36496,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -37340,8 +37340,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -37400,7 +37400,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -39439,8 +39439,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -39499,7 +39499,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -39662,8 +39662,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -39720,8 +39720,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE13cbeginValueOnEv.exit: 
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -39818,7 +39818,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -40662,8 +40662,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.019 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.019.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.019, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.019, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.019 to i64
@@ -40722,7 +40722,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds =
   br i1 %call17, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -42488,8 +42488,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
   %i.sroa.0.020 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %i.sroa.0.020.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.020, 4096
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.020, 4096
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.020 to i64
@@ -42548,7 +42548,7 @@ _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit: ; preds =
   br i1 %call.i12, label %cleanup, label %land.end
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -42711,8 +42711,8 @@ entry:
 for.cond.i:                                       ; preds = %entry, %land.rhs.i
   %n.0.i = phi i32 [ %dec.i, %land.rhs.i ], [ 8, %entry ]
   %w.0.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %mValueMask.i, %entry ]
-  %tobool.not.i.not.not = icmp ne i32 %n.0.i, 0
-  br i1 %tobool.not.i.not.not, label %land.rhs.i, label %return
+  %tobool.not.i.not.not.not = icmp ne i32 %n.0.i, 0
+  br i1 %tobool.not.i.not.not.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %dec.i = add nsw i32 %n.0.i, -1
@@ -42769,8 +42769,8 @@ _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE13cbeginValueOnEv.exit: 
 
 land.rhs:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE13cbeginValueOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEEppEv.exit
   %14 = phi i32 [ %cond.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE13cbeginValueOnEv.exit ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEEppEv.exit ]
-  %cmp.i.i.i.not = icmp ne i32 %14, 512
-  br i1 %cmp.i.i.i.not, label %for.body, label %return
+  %cmp.i.i.i.not.not.not = icmp ne i32 %14, 512
+  br i1 %cmp.i.i.i.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
   %call.i = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %i)
@@ -42867,7 +42867,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %lnot.i34, label %return, label %land.rhs
 
 return:                                           ; preds = %for.cond.i6, %land.rhs, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEEppEv.exit, %land.rhs.i, %for.cond.i
-  %retval.0 = phi i1 [ %tobool.not.i.not.not, %for.cond.i ], [ %tobool.not.i.not.not, %land.rhs.i ], [ false, %land.rhs ], [ %cmp.i.i.i.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEEppEv.exit ], [ true, %for.cond.i6 ]
+  %retval.0 = phi i1 [ %tobool.not.i.not.not.not, %for.cond.i ], [ %tobool.not.i.not.not.not, %land.rhs.i ], [ %cmp.i.i.i.not.not.not, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEEppEv.exit ], [ %cmp.i.i.i.not.not.not, %land.rhs ], [ true, %for.cond.i6 ]
   ret i1 %retval.0
 }
 
@@ -44734,8 +44734,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -44766,8 +44766,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -44828,10 +44828,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -44919,8 +44919,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -44951,8 +44951,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45013,10 +45013,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -45104,8 +45104,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -45136,8 +45136,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45198,10 +45198,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -45289,8 +45289,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -45321,8 +45321,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45383,10 +45383,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -45474,8 +45474,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -45506,8 +45506,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45568,10 +45568,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -45659,8 +45659,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -45691,8 +45691,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45753,10 +45753,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -45844,8 +45844,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -45876,8 +45876,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -45938,10 +45938,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -46029,8 +46029,8 @@ land.end.preheader:                               ; preds = %for.inc.i.i, %cond.
 
 land.end:                                         ; preds = %land.end.preheader, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
   %i.sroa.0.025 = phi i32 [ %retval.0.i.i.i, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %i.sroa.0.025.ph, %land.end.preheader ]
-  %cmp.i.i.not = icmp ne i32 %i.sroa.0.025, 32768
-  br i1 %cmp.i.i.not, label %for.body, label %cleanup
+  %cmp.i.i.not.not.not = icmp ne i32 %i.sroa.0.025, 32768
+  br i1 %cmp.i.i.not.not.not, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %land.end
   %idxprom = zext i32 %i.sroa.0.025 to i64
@@ -46061,8 +46061,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 for.cond.i.i:                                     ; preds = %for.body.i.i.i, %land.rhs.i.i12
   %n.0.i.i = phi i32 [ %dec.i.i13, %land.rhs.i.i12 ], [ 64, %for.body.i.i.i ]
   %w.0.i.i = phi ptr [ %incdec.ptr.i.i14, %land.rhs.i.i12 ], [ %tmp.i, %for.body.i.i.i ]
-  %tobool.not.i.not.i.not = icmp eq i32 %n.0.i.i, 0
-  br i1 %tobool.not.i.not.i.not, label %invoke.cont13, label %land.rhs.i.i12
+  %tobool.not.i.not.not.not.i.not.not = icmp eq i32 %n.0.i.i, 0
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %invoke.cont13, label %land.rhs.i.i12
 
 land.rhs.i.i12:                                   ; preds = %for.cond.i.i
   %dec.i.i13 = add nsw i32 %n.0.i.i, -1
@@ -46123,10 +46123,10 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
 
 _ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit: ; preds = %land.rhs.i.i.i, %invoke.cont13, %if.end.i.i.i, %cond.false.i.i.i
   %retval.0.i.i.i = phi i32 [ 32768, %invoke.cont13 ], [ %add.i.i16, %if.end.i.i.i ], [ %add.i.i.i, %cond.false.i.i.i ], [ 32768, %land.rhs.i.i.i ]
-  br i1 %tobool.not.i.not.i.not, label %land.end, label %cleanup
+  br i1 %tobool.not.i.not.not.not.i.not.not, label %land.end, label %cleanup
 
 cleanup:                                          ; preds = %land.rhs.i, %land.end, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
-  %retval.0 = phi i1 [ false, %land.end ], [ %cmp.i.i.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp.i.i.not.not.not, %_ZN7openvdb5v11_04util14OnMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit ], [ %cmp.i.i.not.not.not, %land.end ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -54745,7 +54745,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !611
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -57360,7 +57360,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !657
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -60134,7 +60134,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !689
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -71244,7 +71244,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !843
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -73859,7 +73859,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !889
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -76633,7 +76633,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !921
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -87751,7 +87751,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !1075
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -90366,7 +90366,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1121
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -93140,7 +93140,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1153
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -104258,7 +104258,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !1307
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -106873,7 +106873,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1353
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -109647,7 +109647,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1385
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -120765,7 +120765,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !1539
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -123380,7 +123380,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1585
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -126154,7 +126154,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1617
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -137272,7 +137272,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !1771
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -139887,7 +139887,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1817
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -142661,7 +142661,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !1849
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -153779,7 +153779,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !2003
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -156394,7 +156394,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !2049
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -159168,7 +159168,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !2081
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -170286,7 +170286,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4
   br i1 %cmp.i.i.i145.not.not, label %return, label %for.body37, !llvm.loop !2235
 
 return:                                           ; preds = %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, %for.body37, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit
-  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ], [ true, %for.body37 ]
+  %cmp.i.i.i145.not.lcssa = phi i1 [ false, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13cbeginChildOnEv.exit ], [ %or.cond248, %for.body37 ], [ %or.cond248, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit ]
   ret i1 %cmp.i.i.i145.not.lcssa
 }
 
@@ -172901,7 +172901,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !2281
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 
@@ -175675,7 +175675,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4
   br i1 %cmp.i.i.i149.not, label %return, label %for.body33, !llvm.loop !2313
 
 return:                                           ; preds = %for.inc.i.i.i144, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit218, %for.body33, %for.inc40, %land.rhs.i.i.i.i210, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv.exit ], [ %or.cond279, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit218 ], [ true, %for.body33 ], [ false, %for.inc.i.i.i144 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv.exit ], [ false, %land.rhs.i.i.i.i210 ], [ %or.cond279, %for.inc40 ], [ %or.cond279, %for.body33 ], [ %or.cond279, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit218 ], [ false, %for.inc.i.i.i144 ]
   ret i1 %retval.0
 }
 

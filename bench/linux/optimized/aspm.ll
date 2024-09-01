@@ -117,8 +117,8 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %25 = phi ptr [ %41, %39 ], [ %22, %1 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 100
   %27 = load i8, ptr %26, align 4
-  %.not = icmp ne i8 %27, 0
-  br i1 %.not, label %28, label %.loopexit
+  %.not.not = icmp ne i8 %27, 0
+  br i1 %.not.not, label %28, label %.loopexit
 
 28:                                               ; preds = %.preheader
   %29 = load i1, ptr @aspm_disabled, align 4
@@ -150,7 +150,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %39, %.preheader, %37, %1
-  %44 = phi i1 [ false, %37 ], [ true, %1 ], [ %.not, %.preheader ], [ %.not, %39 ]
+  %44 = phi i1 [ false, %37 ], [ true, %1 ], [ %.not.not, %.preheader ], [ %.not.not, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   %45 = load i1, ptr @aspm_support_enabled, align 1
   br i1 %45, label %593, label %46

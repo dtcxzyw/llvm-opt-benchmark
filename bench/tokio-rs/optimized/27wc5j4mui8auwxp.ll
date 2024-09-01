@@ -11213,9 +11213,9 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.loopexit.i.
 _ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.loopexit.i.i, %33
   %.013 = phi i64 [ 1, %33 ], [ %51, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.loopexit.i.i ]
   %.0 = phi ptr [ %39, %33 ], [ %47, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.loopexit.i.i ]
-  %.not2.not.i.i = icmp eq i64 %.sroa.0.0.copyload.pre, 0
+  %.not2.i.i = icmp eq i64 %.sroa.0.0.copyload.pre, 0
   %.not4.i.i.i = icmp eq ptr %.sroa.4.0.copyload.pre, null
-  %or.cond = select i1 %.not2.not.i.i, i1 true, i1 %.not4.i.i.i
+  %or.cond = select i1 %.not2.i.i, i1 true, i1 %.not4.i.i.i
   br i1 %or.cond, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit, label %.lr.ph.split.us.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i

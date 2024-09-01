@@ -3297,8 +3297,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add19 = phi i64 [ %add15, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -3309,18 +3309,18 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2024 = phi i64 [ %add19, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1025, align 8
+  %3 = load ptr, ptr %cond1025, align 8
   %tobool12.not = icmp eq i64 %add2024, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
+  %4 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end, %if.end14
-  %value.0 = phi ptr [ %5, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr @_PyDict_FromKeys(ptr noundef %type, ptr noundef %4, ptr noundef %value.0) #7
+  %value.0 = phi ptr [ %4, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
+  %call.i = call ptr @_PyDict_FromKeys(ptr noundef %type, ptr noundef %3, ptr noundef %value.0) #7
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_pos
@@ -3473,8 +3473,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add19 = phi i64 [ %add15, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -3485,24 +3485,24 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2024 = phi i64 [ %add19, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1025, align 8
+  %3 = load ptr, ptr %cond1025, align 8
   %tobool12.not = icmp eq i64 %add2024, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
+  %4 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end, %if.end14
-  %default_value.0 = phi ptr [ %5, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
-  %6 = getelementptr i8, ptr %self, i64 8
-  %self.val.i = load ptr, ptr %6, align 8
+  %default_value.0 = phi ptr [ %4, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
+  %5 = getelementptr i8, ptr %self, i64 8
+  %self.val.i = load ptr, ptr %5, align 8
   %cmp.i18.not.i = icmp eq ptr %self.val.i, @PyODict_Type
   br i1 %cmp.i18.not.i, label %if.then.i, label %if.else12.i
 
 if.then.i:                                        ; preds = %skip_optional_pos
-  %call1.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %self, ptr noundef %4) #7
+  %call1.i = call ptr @PyDict_GetItemWithError(ptr noundef nonnull %self, ptr noundef %3) #7
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
 
@@ -3512,18 +3512,18 @@ if.then2.i:                                       ; preds = %if.then.i
   br i1 %tobool4.not.i, label %if.end.i, label %exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %call.i.i = call i64 @PyObject_Hash(ptr noundef %4) #7
+  %call.i.i = call i64 @PyObject_Hash(ptr noundef %3) #7
   %cmp.i19.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp.i19.i, label %exit, label %PyODict_SetItem.exit.i
 
 PyODict_SetItem.exit.i:                           ; preds = %if.end.i
-  %call1.i.i = call fastcc i32 @_PyODict_SetItem_KnownHash(ptr noundef nonnull %self, ptr noundef %4, ptr noundef %default_value.0, i64 noundef %call.i.i)
+  %call1.i.i = call fastcc i32 @_PyODict_SetItem_KnownHash(ptr noundef nonnull %self, ptr noundef %3, ptr noundef %default_value.0, i64 noundef %call.i.i)
   %cmp7.i = icmp sgt i32 %call1.i.i, -1
   br i1 %cmp7.i, label %if.then8.i, label %exit
 
 if.then8.i:                                       ; preds = %PyODict_SetItem.exit.i
-  %7 = load i32, ptr %default_value.0, align 8
-  %add.i.i.i = add i32 %7, 1
+  %6 = load i32, ptr %default_value.0, align 8
+  %add.i.i.i = add i32 %6, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %exit, label %if.end.i.i.i
 
@@ -3532,8 +3532,8 @@ if.end.i.i.i:                                     ; preds = %if.then8.i
   br label %exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %8 = load i32, ptr %call1.i, align 8
-  %add.i.i = add i32 %8, 1
+  %7 = load i32, ptr %call1.i, align 8
+  %add.i.i = add i32 %7, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %exit, label %if.end.i.i
 
@@ -3542,7 +3542,7 @@ if.end.i.i:                                       ; preds = %if.else.i
   br label %exit
 
 if.else12.i:                                      ; preds = %skip_optional_pos
-  %call13.i = call i32 @PySequence_Contains(ptr noundef nonnull %self, ptr noundef %4) #7
+  %call13.i = call i32 @PySequence_Contains(ptr noundef nonnull %self, ptr noundef %3) #7
   %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %exit, label %if.else16.i
 
@@ -3551,17 +3551,17 @@ if.else16.i:                                      ; preds = %if.else12.i
   br i1 %tobool17.not.i, label %if.else20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.else16.i
-  %call19.i = call ptr @PyObject_GetItem(ptr noundef nonnull %self, ptr noundef %4) #7
+  %call19.i = call ptr @PyObject_GetItem(ptr noundef nonnull %self, ptr noundef %3) #7
   br label %exit
 
 if.else20.i:                                      ; preds = %if.else16.i
-  %call21.i = call i32 @PyObject_SetItem(ptr noundef nonnull %self, ptr noundef %4, ptr noundef %default_value.0) #7
+  %call21.i = call i32 @PyObject_SetItem(ptr noundef nonnull %self, ptr noundef %3, ptr noundef %default_value.0) #7
   %cmp22.i = icmp sgt i32 %call21.i, -1
   br i1 %cmp22.i, label %if.then23.i, label %exit
 
 if.then23.i:                                      ; preds = %if.else20.i
-  %9 = load i32, ptr %default_value.0, align 8
-  %add.i.i21.i = add i32 %9, 1
+  %8 = load i32, ptr %default_value.0, align 8
+  %add.i.i21.i = add i32 %8, 1
   %cmp.i.i22.i = icmp eq i32 %add.i.i21.i, 0
   br i1 %cmp.i.i22.i, label %exit, label %if.end.i.i23.i
 
@@ -3591,8 +3591,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add19 = phi i64 [ %add15, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -3603,23 +3603,23 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2024 = phi i64 [ %add19, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1025, align 8
+  %3 = load ptr, ptr %cond1025, align 8
   %tobool12.not = icmp eq i64 %add2024, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
+  %4 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end, %if.end14
-  %default_value.0 = phi ptr [ %5, %if.end14 ], [ null, %if.end ]
-  %call.i = call i64 @PyObject_Hash(ptr noundef %4) #7
+  %default_value.0 = phi ptr [ %4, %if.end14 ], [ null, %if.end ]
+  %call.i = call i64 @PyObject_Hash(ptr noundef %3) #7
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_pos
-  %call1.i = call fastcc ptr @_odict_popkey_hash(ptr noundef %self, ptr noundef %4, ptr noundef %default_value.0, i64 noundef %call.i)
+  %call1.i = call fastcc ptr @_odict_popkey_hash(ptr noundef %self, ptr noundef %3, ptr noundef %default_value.0, i64 noundef %call.i)
   br label %exit
 
 exit:                                             ; preds = %if.end.i, %skip_optional_pos, %cond.end9
@@ -3642,8 +3642,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond18 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -3659,26 +3659,26 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos.thread, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1024, align 8
-  %call15 = call i32 @PyObject_IsTrue(ptr noundef %3) #7
+  %2 = load ptr, ptr %cond1024, align 8
+  %call15 = call i32 @PyObject_IsTrue(ptr noundef %2) #7
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end14
   %od_first.i = getelementptr inbounds i8, ptr %self, i64 48
-  %4 = load ptr, ptr %od_first.i, align 8
-  %cmp.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %od_first.i, align 8
+  %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 skip_optional_pos.thread:                         ; preds = %if.end
   %od_first.i26 = getelementptr inbounds i8, ptr %self, i64 48
-  %5 = load ptr, ptr %od_first.i26, align 8
-  %cmp.i27 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %od_first.i26, align 8
+  %cmp.i27 = icmp eq ptr %4, null
   br i1 %cmp.i27, label %if.then.i, label %cond.true.i
 
 if.then.i:                                        ; preds = %skip_optional_pos.thread, %skip_optional_pos
-  %6 = load ptr, ptr @PyExc_KeyError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.30) #7
+  %5 = load ptr, ptr @PyExc_KeyError, align 8
+  call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.30) #7
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional_pos
@@ -3687,53 +3687,53 @@ if.end.i:                                         ; preds = %skip_optional_pos
 
 cond.true.i:                                      ; preds = %skip_optional_pos.thread, %if.end.i
   %od_last.i = getelementptr inbounds i8, ptr %self, i64 56
-  %7 = load ptr, ptr %od_last.i, align 8
+  %6 = load ptr, ptr %od_last.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
-  %cond.i = phi ptr [ %7, %cond.true.i ], [ %4, %if.end.i ]
-  %8 = load ptr, ptr %cond.i, align 8
-  %9 = load i32, ptr %8, align 8
-  %add.i.i.i = add i32 %9, 1
+  %cond.i = phi ptr [ %6, %cond.true.i ], [ %3, %if.end.i ]
+  %7 = load ptr, ptr %cond.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %add.i.i.i = add i32 %8, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %_Py_NewRef.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %cond.end.i
-  store i32 %add.i.i.i, ptr %8, align 8
+  store i32 %add.i.i.i, ptr %7, align 8
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %cond.end.i
   %hash.i = getelementptr inbounds i8, ptr %cond.i, i64 8
-  %10 = load i64, ptr %hash.i, align 8
-  %call3.i = call fastcc ptr @_odict_popkey_hash(ptr noundef nonnull %self, ptr noundef nonnull %8, ptr noundef null, i64 noundef %10)
+  %9 = load i64, ptr %hash.i, align 8
+  %call3.i = call fastcc ptr @_odict_popkey_hash(ptr noundef nonnull %self, ptr noundef nonnull %7, ptr noundef null, i64 noundef %9)
   %cmp4.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.i, label %exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %_Py_NewRef.exit.i
-  %call7.i = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef nonnull %8, ptr noundef nonnull %call3.i) #7
-  %11 = load i64, ptr %8, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i18.not.i = icmp eq i64 %12, 0
+  %call7.i = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %call3.i) #7
+  %10 = load i64, ptr %7, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i18.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i18.not.i, label %if.end.i11.i, label %Py_DECREF.exit16.i
 
 if.end.i11.i:                                     ; preds = %if.end6.i
-  %dec.i12.i = add i64 %11, -1
-  store i64 %dec.i12.i, ptr %8, align 8
+  %dec.i12.i = add i64 %10, -1
+  store i64 %dec.i12.i, ptr %7, align 8
   %cmp.i13.i = icmp eq i64 %dec.i12.i, 0
   br i1 %cmp.i13.i, label %if.then1.i14.i, label %Py_DECREF.exit16.i
 
 if.then1.i14.i:                                   ; preds = %if.end.i11.i
-  call void @_Py_Dealloc(ptr noundef nonnull %8) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %7) #7
   br label %Py_DECREF.exit16.i
 
 Py_DECREF.exit16.i:                               ; preds = %if.then1.i14.i, %if.end.i11.i, %if.end6.i
-  %13 = load i64, ptr %call3.i, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i21.not.i = icmp eq i64 %14, 0
+  %12 = load i64, ptr %call3.i, align 8
+  %13 = and i64 %12, 2147483648
+  %cmp.i21.not.i = icmp eq i64 %13, 0
   br i1 %cmp.i21.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %Py_DECREF.exit16.i
-  %dec.i.i = add i64 %13, -1
+  %dec.i.i = add i64 %12, -1
   store i64 %dec.i.i, ptr %call3.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit
@@ -4150,8 +4150,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 2
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add20 = phi i64 [ %add16, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -4162,32 +4162,32 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1026 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2125 = phi i64 [ %add20, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1026, align 8
+  %3 = load ptr, ptr %cond1026, align 8
   %tobool12.not = icmp eq i64 %add2125, 1
   br i1 %tobool12.not, label %skip_optional_pos.thread, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1026, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
-  %call16 = call i32 @PyObject_IsTrue(ptr noundef %5) #7
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %call16 = call i32 @PyObject_IsTrue(ptr noundef %4) #7
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end14
   %od_first.i = getelementptr inbounds i8, ptr %self, i64 48
-  %6 = load ptr, ptr %od_first.i, align 8
-  %cmp.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %od_first.i, align 8
+  %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 skip_optional_pos.thread:                         ; preds = %if.end
   %od_first.i28 = getelementptr inbounds i8, ptr %self, i64 48
-  %7 = load ptr, ptr %od_first.i28, align 8
-  %cmp.i29 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %od_first.i28, align 8
+  %cmp.i29 = icmp eq ptr %6, null
   br i1 %cmp.i29, label %if.then.i, label %cond.true.i
 
 if.then.i:                                        ; preds = %skip_optional_pos.thread, %skip_optional_pos
-  %8 = load ptr, ptr @PyExc_KeyError, align 8
-  call void @PyErr_SetObject(ptr noundef %8, ptr noundef %4) #7
+  %7 = load ptr, ptr @PyExc_KeyError, align 8
+  call void @PyErr_SetObject(ptr noundef %7, ptr noundef %3) #7
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional_pos
@@ -4197,33 +4197,33 @@ if.end.i:                                         ; preds = %skip_optional_pos
 cond.true.i:                                      ; preds = %skip_optional_pos.thread, %if.end.i
   %od_first.i3135 = phi ptr [ %od_first.i, %if.end.i ], [ %od_first.i28, %skip_optional_pos.thread ]
   %od_last.i = getelementptr inbounds i8, ptr %self, i64 56
-  %9 = load ptr, ptr %od_last.i, align 8
+  %8 = load ptr, ptr %od_last.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %tobool.not.i38 = phi i1 [ false, %cond.true.i ], [ true, %if.end.i ]
   %od_first.i3136 = phi ptr [ %od_first.i3135, %cond.true.i ], [ %od_first.i, %if.end.i ]
-  %cond.i = phi ptr [ %9, %cond.true.i ], [ %6, %if.end.i ]
-  %10 = load ptr, ptr %cond.i, align 8
-  %cmp3.not.i = icmp eq ptr %4, %10
+  %cond.i = phi ptr [ %8, %cond.true.i ], [ %5, %if.end.i ]
+  %9 = load ptr, ptr %cond.i, align 8
+  %cmp3.not.i = icmp eq ptr %3, %9
   br i1 %cmp3.not.i, label %exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end.i
-  %call.i.i = call i64 @PyObject_Hash(ptr noundef %4) #7
+  %call.i.i = call i64 @PyObject_Hash(ptr noundef %3) #7
   %cmp1.i.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp1.i.i, label %if.then6.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %call4.i.i = call fastcc i64 @_odict_get_index(ptr noundef nonnull %self, ptr noundef %4, i64 noundef %call.i.i)
+  %call4.i.i = call fastcc i64 @_odict_get_index(ptr noundef nonnull %self, ptr noundef %3, i64 noundef %call.i.i)
   %cmp5.i.i = icmp slt i64 %call4.i.i, 0
   br i1 %cmp5.i.i, label %if.then6.i, label %_odict_find_node.exit.i
 
 _odict_find_node.exit.i:                          ; preds = %if.end3.i.i
   %od_fast_nodes.i.i = getelementptr inbounds i8, ptr %self, i64 64
-  %11 = load ptr, ptr %od_fast_nodes.i.i, align 8
-  %arrayidx.i.i = getelementptr ptr, ptr %11, i64 %call4.i.i
-  %12 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp5.i = icmp eq ptr %12, null
+  %10 = load ptr, ptr %od_fast_nodes.i.i, align 8
+  %arrayidx.i.i = getelementptr ptr, ptr %10, i64 %call4.i.i
+  %11 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp5.i = icmp eq ptr %11, null
   br i1 %cmp5.i, label %if.then6.i, label %if.end11.i
 
 if.then6.i:                                       ; preds = %_odict_find_node.exit.i, %if.end3.i.i, %if.end.i.i
@@ -4232,8 +4232,8 @@ if.then6.i:                                       ; preds = %_odict_find_node.ex
   br i1 %tobool8.not.i, label %if.then9.i, label %exit
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %13 = load ptr, ptr @PyExc_KeyError, align 8
-  call void @PyErr_SetObject(ptr noundef %13, ptr noundef %4) #7
+  %12 = load ptr, ptr @PyExc_KeyError, align 8
+  call void @PyErr_SetObject(ptr noundef %12, ptr noundef %3) #7
   br label %exit
 
 if.end11.i:                                       ; preds = %_odict_find_node.exit.i
@@ -4241,139 +4241,139 @@ if.end11.i:                                       ; preds = %_odict_find_node.ex
 
 if.then13.i:                                      ; preds = %if.end11.i
   %od_last14.i = getelementptr inbounds i8, ptr %self, i64 56
-  %14 = load ptr, ptr %od_last14.i, align 8
-  %cmp15.not.i = icmp eq ptr %12, %14
+  %13 = load ptr, ptr %od_last14.i, align 8
+  %cmp15.not.i = icmp eq ptr %11, %13
   br i1 %cmp15.not.i, label %exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  %15 = load ptr, ptr %od_first.i3136, align 8
-  %cmp.i22.i = icmp eq ptr %15, %12
+  %14 = load ptr, ptr %od_first.i3136, align 8
+  %cmp.i22.i = icmp eq ptr %14, %11
   br i1 %cmp.i22.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then16.i
-  %next.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %16 = load ptr, ptr %next.i.i, align 8
-  store ptr %16, ptr %od_first.i3136, align 8
+  %next.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = load ptr, ptr %next.i.i, align 8
+  store ptr %15, ptr %od_first.i3136, align 8
   br label %if.end7.i23.i
 
 if.else.i.i:                                      ; preds = %if.then16.i
-  %prev.i.i = getelementptr inbounds i8, ptr %12, i64 24
-  %17 = load ptr, ptr %prev.i.i, align 8
-  %cmp2.not.i.i = icmp eq ptr %17, null
+  %prev.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = load ptr, ptr %prev.i.i, align 8
+  %cmp2.not.i.i = icmp eq ptr %16, null
   br i1 %cmp2.not.i.i, label %if.end7.i23.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %next4.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %18 = load ptr, ptr %next4.i.i, align 8
-  %next6.i.i = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %18, ptr %next6.i.i, align 8
+  %next4.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = load ptr, ptr %next4.i.i, align 8
+  %next6.i.i = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr %17, ptr %next6.i.i, align 8
   %.pre.i = load ptr, ptr %od_last14.i, align 8
   br label %if.end7.i23.i
 
 if.end7.i23.i:                                    ; preds = %if.then3.i.i, %if.else.i.i, %if.then.i.i
-  %19 = phi ptr [ %.pre.i, %if.then3.i.i ], [ %14, %if.else.i.i ], [ %14, %if.then.i.i ]
-  %cmp8.i.i = icmp eq ptr %19, %12
+  %18 = phi ptr [ %.pre.i, %if.then3.i.i ], [ %13, %if.else.i.i ], [ %13, %if.then.i.i ]
+  %cmp8.i.i = icmp eq ptr %18, %11
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.else12.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i23.i
-  %prev10.i.i = getelementptr inbounds i8, ptr %12, i64 24
-  %20 = load ptr, ptr %prev10.i.i, align 8
-  store ptr %20, ptr %od_last14.i, align 8
+  %prev10.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %19 = load ptr, ptr %prev10.i.i, align 8
+  store ptr %19, ptr %od_last14.i, align 8
   br label %_odict_remove_node.exit.i
 
 if.else12.i.i:                                    ; preds = %if.end7.i23.i
-  %next13.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %21 = load ptr, ptr %next13.i.i, align 8
-  %cmp14.not.i.i = icmp eq ptr %21, null
+  %next13.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = load ptr, ptr %next13.i.i, align 8
+  %cmp14.not.i.i = icmp eq ptr %20, null
   br i1 %cmp14.not.i.i, label %_odict_remove_node.exit.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.else12.i.i
-  %prev16.i.i = getelementptr inbounds i8, ptr %12, i64 24
-  %22 = load ptr, ptr %prev16.i.i, align 8
-  %prev18.i.i = getelementptr inbounds i8, ptr %21, i64 24
-  store ptr %22, ptr %prev18.i.i, align 8
+  %prev16.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = load ptr, ptr %prev16.i.i, align 8
+  %prev18.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  store ptr %21, ptr %prev18.i.i, align 8
   br label %_odict_remove_node.exit.i
 
 _odict_remove_node.exit.i:                        ; preds = %if.then15.i.i, %if.else12.i.i, %if.then9.i.i
-  %next22.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %next22.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %od_state.i.i = getelementptr inbounds i8, ptr %self, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next22.i.i, i8 0, i64 16, i1 false)
-  %23 = load i64, ptr %od_state.i.i, align 8
-  %inc.i.i = add i64 %23, 1
+  %22 = load i64, ptr %od_state.i.i, align 8
+  %inc.i.i = add i64 %22, 1
   store i64 %inc.i.i, ptr %od_state.i.i, align 8
-  %24 = load ptr, ptr %od_last14.i, align 8
-  %prev.i25.i = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr %24, ptr %prev.i25.i, align 8
+  %23 = load ptr, ptr %od_last14.i, align 8
+  %prev.i25.i = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %23, ptr %prev.i25.i, align 8
   store ptr null, ptr %next22.i.i, align 8
-  %25 = load ptr, ptr %od_last14.i, align 8
-  %cmp.i27.i = icmp eq ptr %25, null
-  %next3.i.i = getelementptr inbounds i8, ptr %25, i64 16
+  %24 = load ptr, ptr %od_last14.i, align 8
+  %cmp.i27.i = icmp eq ptr %24, null
+  %next3.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %next3.sink.i.i = select i1 %cmp.i27.i, ptr %od_first.i3136, ptr %next3.i.i
-  store ptr %12, ptr %next3.sink.i.i, align 8
-  store ptr %12, ptr %od_last14.i, align 8
-  %26 = load i64, ptr %od_state.i.i, align 8
-  %inc.i30.i = add i64 %26, 1
+  store ptr %11, ptr %next3.sink.i.i, align 8
+  store ptr %11, ptr %od_last14.i, align 8
+  %25 = load i64, ptr %od_state.i.i, align 8
+  %inc.i30.i = add i64 %25, 1
   store i64 %inc.i30.i, ptr %od_state.i.i, align 8
   br label %exit
 
 if.else.i:                                        ; preds = %if.end11.i
-  %27 = load ptr, ptr %od_first.i3136, align 8
-  %cmp19.not.i = icmp eq ptr %12, %27
+  %26 = load ptr, ptr %od_first.i3136, align 8
+  %cmp19.not.i = icmp eq ptr %11, %26
   br i1 %cmp19.not.i, label %exit, label %if.else.i33.i
 
 if.else.i33.i:                                    ; preds = %if.else.i
-  %prev.i34.i = getelementptr inbounds i8, ptr %12, i64 24
-  %28 = load ptr, ptr %prev.i34.i, align 8
-  %cmp2.not.i35.i = icmp eq ptr %28, null
+  %prev.i34.i = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = load ptr, ptr %prev.i34.i, align 8
+  %cmp2.not.i35.i = icmp eq ptr %27, null
   br i1 %cmp2.not.i35.i, label %if.end7.i39.i, label %if.then3.i36.i
 
 if.then3.i36.i:                                   ; preds = %if.else.i33.i
-  %next4.i37.i = getelementptr inbounds i8, ptr %12, i64 16
-  %29 = load ptr, ptr %next4.i37.i, align 8
-  %next6.i38.i = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr %29, ptr %next6.i38.i, align 8
+  %next4.i37.i = getelementptr inbounds i8, ptr %11, i64 16
+  %28 = load ptr, ptr %next4.i37.i, align 8
+  %next6.i38.i = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %28, ptr %next6.i38.i, align 8
   br label %if.end7.i39.i
 
 if.end7.i39.i:                                    ; preds = %if.then3.i36.i, %if.else.i33.i
   %od_last.i40.i = getelementptr inbounds i8, ptr %self, i64 56
-  %30 = load ptr, ptr %od_last.i40.i, align 8
-  %cmp8.i41.i = icmp eq ptr %30, %12
+  %29 = load ptr, ptr %od_last.i40.i, align 8
+  %cmp8.i41.i = icmp eq ptr %29, %11
   br i1 %cmp8.i41.i, label %if.then9.i51.i, label %if.else12.i42.i
 
 if.then9.i51.i:                                   ; preds = %if.end7.i39.i
-  %31 = load ptr, ptr %prev.i34.i, align 8
-  store ptr %31, ptr %od_last.i40.i, align 8
+  %30 = load ptr, ptr %prev.i34.i, align 8
+  store ptr %30, ptr %od_last.i40.i, align 8
   br label %_odict_remove_node.exit55.i
 
 if.else12.i42.i:                                  ; preds = %if.end7.i39.i
-  %next13.i43.i = getelementptr inbounds i8, ptr %12, i64 16
-  %32 = load ptr, ptr %next13.i43.i, align 8
-  %cmp14.not.i44.i = icmp eq ptr %32, null
+  %next13.i43.i = getelementptr inbounds i8, ptr %11, i64 16
+  %31 = load ptr, ptr %next13.i43.i, align 8
+  %cmp14.not.i44.i = icmp eq ptr %31, null
   br i1 %cmp14.not.i44.i, label %_odict_remove_node.exit55.i, label %if.then15.i45.i
 
 if.then15.i45.i:                                  ; preds = %if.else12.i42.i
-  %33 = load ptr, ptr %prev.i34.i, align 8
-  %prev18.i47.i = getelementptr inbounds i8, ptr %32, i64 24
-  store ptr %33, ptr %prev18.i47.i, align 8
+  %32 = load ptr, ptr %prev.i34.i, align 8
+  %prev18.i47.i = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr %32, ptr %prev18.i47.i, align 8
   br label %_odict_remove_node.exit55.i
 
 _odict_remove_node.exit55.i:                      ; preds = %if.then15.i45.i, %if.else12.i42.i, %if.then9.i51.i
-  %next22.i48.i = getelementptr inbounds i8, ptr %12, i64 16
+  %next22.i48.i = getelementptr inbounds i8, ptr %11, i64 16
   %od_state.i49.i = getelementptr inbounds i8, ptr %self, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next22.i48.i, i8 0, i64 16, i1 false)
-  %34 = load i64, ptr %od_state.i49.i, align 8
-  %inc.i50.i = add i64 %34, 1
+  %33 = load i64, ptr %od_state.i49.i, align 8
+  %inc.i50.i = add i64 %33, 1
   store i64 %inc.i50.i, ptr %od_state.i49.i, align 8
   store ptr null, ptr %prev.i34.i, align 8
-  %35 = load ptr, ptr %od_first.i3136, align 8
-  store ptr %35, ptr %next22.i48.i, align 8
-  %cmp.i59.i = icmp eq ptr %35, null
-  %prev3.i.i = getelementptr inbounds i8, ptr %35, i64 24
+  %34 = load ptr, ptr %od_first.i3136, align 8
+  store ptr %34, ptr %next22.i48.i, align 8
+  %cmp.i59.i = icmp eq ptr %34, null
+  %prev3.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %prev3.sink.i.i = select i1 %cmp.i59.i, ptr %od_last.i40.i, ptr %prev3.i.i
-  store ptr %12, ptr %prev3.sink.i.i, align 8
-  store ptr %12, ptr %od_first.i3136, align 8
-  %36 = load i64, ptr %od_state.i49.i, align 8
-  %inc.i62.i = add i64 %36, 1
+  store ptr %11, ptr %prev3.sink.i.i, align 8
+  store ptr %11, ptr %od_first.i3136, align 8
+  %35 = load i64, ptr %od_state.i49.i, align 8
+  %inc.i62.i = add i64 %35, 1
   store i64 %inc.i62.i, ptr %od_state.i49.i, align 8
   br label %exit
 

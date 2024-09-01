@@ -1249,8 +1249,8 @@ return:                                           ; preds = %for.end, %for.end49
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @print_block_info(ptr noundef %mon, ptr noundef readonly %info, ptr noundef readonly %inserted, i1 noundef zeroext %verbose) unnamed_addr #0 {
 entry:
-  %tobool.not = icmp eq ptr %info, null
-  br i1 %tobool.not, label %if.else16, label %lor.lhs.false
+  %tobool.not104 = icmp eq ptr %info, null
+  br i1 %tobool.not104, label %if.else16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %inserted1 = getelementptr inbounds i8, ptr %info, i64 32
@@ -1272,7 +1272,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 
 if.else16.thread:                                 ; preds = %land.lhs.true
   %tobool1984.not = icmp eq ptr %inserted, null
-  br i1 %tobool1984.not, label %if.end37, label %land.lhs.true24
+  br i1 %tobool1984.not, label %if.end49.thread.critedge, label %land.lhs.true24
 
 if.then7:                                         ; preds = %land.lhs.true
   %call = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %1) #9
@@ -1307,189 +1307,196 @@ land.lhs.true24.thread:                           ; preds = %if.else16
 land.lhs.true24:                                  ; preds = %if.else16.thread
   %node_name25 = getelementptr inbounds i8, ptr %inserted, i64 8
   %5 = load ptr, ptr %node_name25, align 8
-  %tobool26.not = icmp eq ptr %5, null
-  br i1 %tobool26.not, label %if.end37, label %if.end37.thread100
+  %tobool26.not.not = icmp eq ptr %5, null
+  br i1 %tobool26.not.not, label %land.lhs.true29, label %if.end37.thread100
+
+land.lhs.true29:                                  ; preds = %land.lhs.true24
+  %qdev = getelementptr inbounds i8, ptr %info, i64 8
+  %6 = load ptr, ptr %qdev, align 8
+  %tobool30.not = icmp eq ptr %6, null
+  %spec.select = select i1 %tobool30.not, ptr @.str.61, ptr %6
+  %call36 = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %spec.select) #9
+  br label %if.end49
 
 if.end37.thread100:                               ; preds = %land.lhs.true24, %land.lhs.true24.thread
   %cond35.ph = phi ptr [ %.mux92, %land.lhs.true24.thread ], [ %5, %land.lhs.true24 ]
   %call36102 = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %cond35.ph) #9
   br label %if.end49
 
-if.end37:                                         ; preds = %land.lhs.true24, %if.else16.thread
-  %qdev = getelementptr inbounds i8, ptr %info, i64 8
-  %6 = load ptr, ptr %qdev, align 8
-  %tobool30.not = icmp eq ptr %6, null
-  %spec.select = select i1 %tobool30.not, ptr @.str.61, ptr %6
-  %call36 = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %spec.select) #9
-  %tobool38.not = icmp eq ptr %inserted, null
-  br i1 %tobool38.not, label %if.end49.thread, label %if.end49
+if.end49.thread.critedge:                         ; preds = %if.else16.thread
+  %qdev.c = getelementptr inbounds i8, ptr %info, i64 8
+  %7 = load ptr, ptr %qdev.c, align 8
+  %tobool30.not.c = icmp eq ptr %7, null
+  %spec.select.c = select i1 %tobool30.not.c, ptr @.str.61, ptr %7
+  %call36.c = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %spec.select.c) #9
+  br label %if.end49.thread
 
-if.end49.thread:                                  ; preds = %if.end37, %if.then7
+if.end49.thread:                                  ; preds = %if.end49.thread.critedge, %if.then7
   %call48 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.66) #9
   br label %if.then51
 
-if.end49:                                         ; preds = %if.end37, %if.end37.thread100, %land.lhs.true10, %if.then12
-  %7 = load ptr, ptr %inserted, align 8
+if.end49:                                         ; preds = %land.lhs.true29, %if.end37.thread100, %land.lhs.true10, %if.then12
+  %8 = load ptr, ptr %inserted, align 8
   %drv = getelementptr inbounds i8, ptr %inserted, i64 24
-  %8 = load ptr, ptr %drv, align 8
+  %9 = load ptr, ptr %drv, align 8
   %ro = getelementptr inbounds i8, ptr %inserted, i64 16
-  %9 = load i8, ptr %ro, align 8
-  %tobool40 = trunc i8 %9 to i1
+  %10 = load i8, ptr %ro, align 8
+  %tobool40 = trunc i8 %10 to i1
   %cond42 = select i1 %tobool40, ptr @.str.63, ptr @.str.64
   %encrypted = getelementptr inbounds i8, ptr %inserted, i64 48
-  %10 = load i8, ptr %encrypted, align 8
-  %tobool43 = trunc i8 %10 to i1
+  %11 = load i8, ptr %encrypted, align 8
+  %tobool43 = trunc i8 %11 to i1
   %cond45 = select i1 %tobool43, ptr @.str.65, ptr @.str.64
-  %call46 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.62, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %cond42, ptr noundef nonnull %cond45) #9
-  br i1 %tobool.not, label %if.end81, label %if.then51
+  %call46 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.62, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %cond42, ptr noundef nonnull %cond45) #9
+  br i1 %tobool.not104, label %if.end81, label %if.then51
 
 if.then51:                                        ; preds = %if.end49.thread, %if.end49
-  %tobool38.not94105 = phi i1 [ true, %if.end49.thread ], [ false, %if.end49 ]
+  %tobool38.not94106 = phi i1 [ true, %if.end49.thread ], [ false, %if.end49 ]
   %qdev52 = getelementptr inbounds i8, ptr %info, i64 8
-  %11 = load ptr, ptr %qdev52, align 8
-  %tobool53.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %qdev52, align 8
+  %tobool53.not = icmp eq ptr %12, null
   br i1 %tobool53.not, label %if.end57, label %if.then54
 
 if.then54:                                        ; preds = %if.then51
-  %call56 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.67, ptr noundef nonnull %11) #9
+  %call56 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.67, ptr noundef nonnull %12) #9
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then54, %if.then51
   %has_io_status = getelementptr inbounds i8, ptr %info, i64 42
-  %12 = load i8, ptr %has_io_status, align 2
-  %tobool58 = trunc i8 %12 to i1
+  %13 = load i8, ptr %has_io_status, align 2
+  %tobool58 = trunc i8 %13 to i1
   br i1 %tobool58, label %land.lhs.true60, label %if.end67
 
 land.lhs.true60:                                  ; preds = %if.end57
   %io_status = getelementptr inbounds i8, ptr %info, i64 44
-  %13 = load i32, ptr %io_status, align 4
-  %cmp61.not = icmp eq i32 %13, 0
+  %14 = load i32, ptr %io_status, align 4
+  %cmp61.not = icmp eq i32 %14, 0
   br i1 %cmp61.not, label %if.end67, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true60
-  %call65 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockDeviceIoStatus_lookup, i32 noundef %13) #9
+  %call65 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockDeviceIoStatus_lookup, i32 noundef %14) #9
   %call66 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, ptr noundef %call65) #9
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then63, %land.lhs.true60, %if.end57
   %removable = getelementptr inbounds i8, ptr %info, i64 24
-  %14 = load i8, ptr %removable, align 8
-  %tobool68 = trunc i8 %14 to i1
+  %15 = load i8, ptr %removable, align 8
+  %tobool68 = trunc i8 %15 to i1
   br i1 %tobool68, label %if.then69, label %if.end78
 
 if.then69:                                        ; preds = %if.end67
   %locked = getelementptr inbounds i8, ptr %info, i64 25
-  %15 = load i8, ptr %locked, align 1
-  %tobool70 = trunc i8 %15 to i1
+  %16 = load i8, ptr %locked, align 1
+  %tobool70 = trunc i8 %16 to i1
   %cond72 = select i1 %tobool70, ptr @.str.64, ptr @.str.70
   %tray_open = getelementptr inbounds i8, ptr %info, i64 41
-  %16 = load i8, ptr %tray_open, align 1
-  %tobool73 = trunc i8 %16 to i1
+  %17 = load i8, ptr %tray_open, align 1
+  %tobool73 = trunc i8 %17 to i1
   %cond75 = select i1 %tobool73, ptr @.str.71, ptr @.str.72
   %call76 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.69, ptr noundef nonnull %cond72, ptr noundef nonnull %cond75) #9
-  br i1 %tobool38.not94105, label %if.end135, label %if.end81
+  br i1 %tobool38.not94106, label %if.end135, label %if.end81
 
 if.end78:                                         ; preds = %if.end67
-  br i1 %tobool38.not94105, label %if.end135, label %if.end81
+  br i1 %tobool38.not94106, label %if.end135, label %if.end81
 
 if.end81:                                         ; preds = %if.end49, %if.then69, %if.end78
   %cache = getelementptr inbounds i8, ptr %inserted, i64 328
-  %17 = load ptr, ptr %cache, align 8
-  %18 = load i8, ptr %17, align 1
-  %tobool82 = trunc i8 %18 to i1
+  %18 = load ptr, ptr %cache, align 8
+  %19 = load i8, ptr %18, align 1
+  %tobool82 = trunc i8 %19 to i1
   %cond84 = select i1 %tobool82, ptr @.str.74, ptr @.str.75
-  %direct = getelementptr inbounds i8, ptr %17, i64 1
-  %19 = load i8, ptr %direct, align 1
-  %tobool86 = trunc i8 %19 to i1
+  %direct = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = load i8, ptr %direct, align 1
+  %tobool86 = trunc i8 %20 to i1
   %cond88 = select i1 %tobool86, ptr @.str.76, ptr @.str.64
-  %no_flush = getelementptr inbounds i8, ptr %17, i64 2
-  %20 = load i8, ptr %no_flush, align 1
-  %tobool90 = trunc i8 %20 to i1
+  %no_flush = getelementptr inbounds i8, ptr %18, i64 2
+  %21 = load i8, ptr %no_flush, align 1
+  %tobool90 = trunc i8 %21 to i1
   %cond92 = select i1 %tobool90, ptr @.str.77, ptr @.str.64
   %call93 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.73, ptr noundef nonnull %cond84, ptr noundef nonnull %cond88, ptr noundef nonnull %cond92) #9
   %backing_file = getelementptr inbounds i8, ptr %inserted, i64 32
-  %21 = load ptr, ptr %backing_file, align 8
-  %tobool94.not = icmp eq ptr %21, null
+  %22 = load ptr, ptr %backing_file, align 8
+  %tobool94.not = icmp eq ptr %22, null
   br i1 %tobool94.not, label %if.end98, label %if.then95
 
 if.then95:                                        ; preds = %if.end81
   %backing_file_depth = getelementptr inbounds i8, ptr %inserted, i64 40
-  %22 = load i64, ptr %backing_file_depth, align 8
-  %call97 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.78, ptr noundef nonnull %21, i64 noundef %22) #9
+  %23 = load i64, ptr %backing_file_depth, align 8
+  %call97 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.78, ptr noundef nonnull %22, i64 noundef %23) #9
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then95, %if.end81
   %detect_zeroes = getelementptr inbounds i8, ptr %inserted, i64 52
-  %23 = load i32, ptr %detect_zeroes, align 4
-  %cmp99.not = icmp eq i32 %23, 0
+  %24 = load i32, ptr %detect_zeroes, align 4
+  %cmp99.not = icmp eq i32 %24, 0
   br i1 %cmp99.not, label %if.end105, label %if.then101
 
 if.then101:                                       ; preds = %if.end98
-  %call103 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockdevDetectZeroesOptions_lookup, i32 noundef %23) #9
+  %call103 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BlockdevDetectZeroesOptions_lookup, i32 noundef %24) #9
   %call104 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.79, ptr noundef %call103) #9
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then101, %if.end98
   %bps = getelementptr inbounds i8, ptr %inserted, i64 56
-  %24 = load i64, ptr %bps, align 8
-  %tobool106.not = icmp eq i64 %24, 0
+  %25 = load i64, ptr %bps, align 8
+  %tobool106.not = icmp eq i64 %25, 0
   %bps_rd = getelementptr inbounds i8, ptr %inserted, i64 64
-  %25 = load i64, ptr %bps_rd, align 8
-  %tobool108.not = icmp eq i64 %25, 0
+  %26 = load i64, ptr %bps_rd, align 8
+  %tobool108.not = icmp eq i64 %26, 0
   %or.cond = select i1 %tobool106.not, i1 %tobool108.not, i1 false
   br i1 %or.cond, label %lor.lhs.false109, label %if.then117
 
 lor.lhs.false109:                                 ; preds = %if.end105
   %bps_wr = getelementptr inbounds i8, ptr %inserted, i64 72
-  %26 = load i64, ptr %bps_wr, align 8
-  %tobool110.not = icmp eq i64 %26, 0
+  %27 = load i64, ptr %bps_wr, align 8
+  %tobool110.not = icmp eq i64 %27, 0
   br i1 %tobool110.not, label %lor.lhs.false111, label %if.then117
 
 lor.lhs.false111:                                 ; preds = %lor.lhs.false109
   %iops = getelementptr inbounds i8, ptr %inserted, i64 80
-  %27 = load i64, ptr %iops, align 8
-  %tobool112.not = icmp eq i64 %27, 0
+  %28 = load i64, ptr %iops, align 8
+  %tobool112.not = icmp eq i64 %28, 0
   br i1 %tobool112.not, label %lor.lhs.false113, label %if.then117
 
 lor.lhs.false113:                                 ; preds = %lor.lhs.false111
   %iops_rd = getelementptr inbounds i8, ptr %inserted, i64 88
-  %28 = load i64, ptr %iops_rd, align 8
-  %tobool114.not = icmp eq i64 %28, 0
+  %29 = load i64, ptr %iops_rd, align 8
+  %tobool114.not = icmp eq i64 %29, 0
   br i1 %tobool114.not, label %lor.lhs.false115, label %if.then117
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false113
   %iops_wr = getelementptr inbounds i8, ptr %inserted, i64 96
-  %29 = load i64, ptr %iops_wr, align 8
-  %tobool116.not = icmp eq i64 %29, 0
+  %30 = load i64, ptr %iops_wr, align 8
+  %tobool116.not = icmp eq i64 %30, 0
   br i1 %tobool116.not, label %if.end125, label %if.then117
 
 if.then117:                                       ; preds = %if.end105, %lor.lhs.false115, %lor.lhs.false113, %lor.lhs.false111, %lor.lhs.false109
-  %30 = phi i64 [ 0, %lor.lhs.false115 ], [ 0, %lor.lhs.false113 ], [ 0, %lor.lhs.false111 ], [ 0, %lor.lhs.false109 ], [ %25, %if.end105 ]
+  %31 = phi i64 [ 0, %lor.lhs.false115 ], [ 0, %lor.lhs.false113 ], [ 0, %lor.lhs.false111 ], [ 0, %lor.lhs.false109 ], [ %26, %if.end105 ]
   %bps_wr120 = getelementptr inbounds i8, ptr %inserted, i64 72
-  %31 = load i64, ptr %bps_wr120, align 8
+  %32 = load i64, ptr %bps_wr120, align 8
   %bps_max = getelementptr inbounds i8, ptr %inserted, i64 120
-  %32 = load i64, ptr %bps_max, align 8
+  %33 = load i64, ptr %bps_max, align 8
   %bps_rd_max = getelementptr inbounds i8, ptr %inserted, i64 136
-  %33 = load i64, ptr %bps_rd_max, align 8
+  %34 = load i64, ptr %bps_rd_max, align 8
   %bps_wr_max = getelementptr inbounds i8, ptr %inserted, i64 152
-  %34 = load i64, ptr %bps_wr_max, align 8
+  %35 = load i64, ptr %bps_wr_max, align 8
   %iops121 = getelementptr inbounds i8, ptr %inserted, i64 80
-  %35 = load i64, ptr %iops121, align 8
+  %36 = load i64, ptr %iops121, align 8
   %iops_rd122 = getelementptr inbounds i8, ptr %inserted, i64 88
-  %36 = load i64, ptr %iops_rd122, align 8
+  %37 = load i64, ptr %iops_rd122, align 8
   %iops_wr123 = getelementptr inbounds i8, ptr %inserted, i64 96
-  %37 = load i64, ptr %iops_wr123, align 8
+  %38 = load i64, ptr %iops_wr123, align 8
   %iops_max = getelementptr inbounds i8, ptr %inserted, i64 168
-  %38 = load i64, ptr %iops_max, align 8
+  %39 = load i64, ptr %iops_max, align 8
   %iops_rd_max = getelementptr inbounds i8, ptr %inserted, i64 184
-  %39 = load i64, ptr %iops_rd_max, align 8
+  %40 = load i64, ptr %iops_rd_max, align 8
   %iops_wr_max = getelementptr inbounds i8, ptr %inserted, i64 200
-  %40 = load i64, ptr %iops_wr_max, align 8
+  %41 = load i64, ptr %iops_wr_max, align 8
   %iops_size = getelementptr inbounds i8, ptr %inserted, i64 312
-  %41 = load i64, ptr %iops_size, align 8
+  %42 = load i64, ptr %iops_size, align 8
   %group = getelementptr inbounds i8, ptr %inserted, i64 320
-  %42 = load ptr, ptr %group, align 8
-  %call124 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.80, i64 noundef %24, i64 noundef %30, i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, ptr noundef %42) #9
+  %43 = load ptr, ptr %group, align 8
+  %call124 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.80, i64 noundef %25, i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %42, ptr noundef %43) #9
   br label %if.end125
 
 if.end125:                                        ; preds = %if.then117, %lor.lhs.false115
@@ -1498,15 +1505,15 @@ if.end125:                                        ; preds = %if.then117, %lor.lh
 if.then127:                                       ; preds = %if.end125
   %call128 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.81) #9
   %image = getelementptr inbounds i8, ptr %inserted, i64 104
-  %43 = load ptr, ptr %image, align 8
+  %44 = load ptr, ptr %image, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %if.then127
-  %image_info.0 = phi ptr [ %43, %if.then127 ], [ %44, %while.body ]
+  %image_info.0 = phi ptr [ %44, %if.then127 ], [ %45, %while.body ]
   tail call void @bdrv_node_info_dump(ptr noundef %image_info.0, i32 noundef 0, i1 noundef zeroext false) #9
   %backing_image = getelementptr inbounds i8, ptr %image_info.0, i64 112
-  %44 = load ptr, ptr %backing_image, align 8
-  %tobool130.not = icmp eq ptr %44, null
+  %45 = load ptr, ptr %backing_image, align 8
+  %tobool130.not = icmp eq ptr %45, null
   br i1 %tobool130.not, label %if.end135, label %while.body
 
 if.end135:                                        ; preds = %while.body, %if.then69, %if.end78, %if.end125

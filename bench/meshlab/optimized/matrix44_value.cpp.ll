@@ -246,35 +246,33 @@ define noundef zeroext i1 @_ZNK13Matrix44ValueeqERK5Value(ptr nocapture noundef 
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %23, %8
-  %indvars.iv20.i = phi i64 [ 0, %8 ], [ %indvars.iv.next21.i, %23 ]
-  %13 = phi i1 [ false, %8 ], [ %24, %23 ]
-  %14 = shl nuw nsw i64 %indvars.iv20.i, 2
-  br label %16
+.preheader.i:                                     ; preds = %22, %8
+  %indvars.iv19.i = phi i64 [ 0, %8 ], [ %indvars.iv.next20.i, %22 ]
+  %13 = shl nuw nsw i64 %indvars.iv19.i, 2
+  br label %15
 
-15:                                               ; preds = %16
+14:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %23, label %16, !llvm.loop !5
+  br i1 %exitcond.not.i, label %22, label %15, !llvm.loop !5
 
-16:                                               ; preds = %15, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %17 = add nuw nsw i64 %indvars.iv.i, %14
-  %18 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %17
-  %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %17
-  %21 = load float, ptr %20, align 4
-  %22 = fcmp une float %19, %21
-  br i1 %22, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit, label %15
+15:                                               ; preds = %14, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %14 ]
+  %16 = add nuw nsw i64 %indvars.iv.i, %13
+  %17 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %16
+  %18 = load float, ptr %17, align 4
+  %19 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %16
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp oeq float %18, %20
+  br i1 %21, label %14, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit
 
-23:                                               ; preds = %15
-  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %24 = icmp ugt i64 %indvars.iv20.i, 2
-  %exitcond22.i = icmp eq i64 %indvars.iv.next21.i, 4
+22:                                               ; preds = %14
+  %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
+  %exitcond22.i = icmp eq i64 %indvars.iv.next20.i, 4
   br i1 %exitcond22.i, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit, label %.preheader.i, !llvm.loop !7
 
-_ZNK3vcg8Matrix44IfEeqERKS1_.exit:                ; preds = %23, %16, %2
-  %.0 = phi i1 [ false, %2 ], [ %13, %16 ], [ %24, %23 ]
+_ZNK3vcg8Matrix44IfEeqERKS1_.exit:                ; preds = %22, %15, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %22 ]
   ret i1 %.0
 }
 

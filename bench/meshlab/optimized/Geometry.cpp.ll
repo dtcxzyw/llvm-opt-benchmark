@@ -254,8 +254,8 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr nocapture nou
   %.031 = phi i64 [ %9, %.lr.ph ], [ %21, %23 ]
   %.01730 = phi ptr [ %1, %.lr.ph ], [ %24, %23 ]
   %.01829 = phi i64 [ %2, %.lr.ph ], [ %22, %23 ]
-  %.not24.not = icmp ne i64 %14, 0
-  br i1 %.not24.not, label %15, label %.loopexit
+  %.not24.not.not = icmp ne i64 %14, 0
+  br i1 %.not24.not.not, label %15, label %.loopexit
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %10, align 8
@@ -294,7 +294,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %12, %._crit_edge, %3, %._crit_edge.thread
-  %.019 = phi i1 [ true, %._crit_edge.thread ], [ true, %3 ], [ false, %._crit_edge ], [ %.not24.not, %12 ], [ %.not24.not, %15 ]
+  %.019 = phi i1 [ true, %._crit_edge.thread ], [ true, %3 ], [ false, %._crit_edge ], [ %.not24.not.not, %12 ], [ %.not24.not.not, %15 ]
   ret i1 %.019
 }
 

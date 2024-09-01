@@ -3446,10 +3446,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %wide.trip.count276 = zext nneg i32 %spec.select to i64
   br label %209
 
-.preheader215:                                    ; preds = %209
-  br i1 %204, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %.preheader215
+.preheader.lr.ph:                                 ; preds = %209
   %206 = getelementptr inbounds i8, ptr %0, i64 368
   %207 = zext nneg i32 %spec.select to i64
   %208 = zext nneg i32 %spec.select to i64
@@ -3468,7 +3465,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   store double %216, ptr %217, align 8
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %.preheader215, label %209, !llvm.loop !14
+  br i1 %exitcond277.not, label %.preheader.lr.ph, label %209, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge244
   %indvars.iv278 = phi i64 [ %207, %.preheader.lr.ph ], [ %indvars.iv.next279, %._crit_edge244 ]
@@ -3524,7 +3521,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
   %246 = icmp sgt i64 %indvars.iv278, 1
   br i1 %246, label %.preheader, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %._crit_edge244, %.loopexit218, %.preheader215, %36
+.loopexit:                                        ; preds = %._crit_edge244, %.loopexit218, %36
   tail call void @free(ptr noundef %12) #12
   ret void
 }

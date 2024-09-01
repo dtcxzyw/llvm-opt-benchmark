@@ -80,14 +80,14 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %36 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 1) #6
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %.lr.ph11.i
+  br i1 %37, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %21
   %38 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 1) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %mca_coll_basic_alltoallw_intra_inplace.exit, label %._crit_edge12.i
 
-.lr.ph11.i:                                       ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %._crit_edge.i
   %40 = getelementptr inbounds i8, ptr %14, i64 8
   %41 = add nsw i32 %.val116.i, %.val.val.i
   %42 = getelementptr i8, ptr %8, i64 256
@@ -98,8 +98,8 @@ define i32 @mca_coll_basic_alltoallw_intra(ptr noundef %0, ptr nocapture noundef
   %exitcond27.not.i = icmp eq i32 %.19310.i, %23
   br i1 %exitcond27.not.i, label %._crit_edge12.i, label %45, !llvm.loop !6
 
-45:                                               ; preds = %43, %.lr.ph11.i
-  %.19310.i = phi i32 [ 1, %.lr.ph11.i ], [ %44, %43 ]
+45:                                               ; preds = %43, %.preheader.i
+  %.19310.i = phi i32 [ 1, %.preheader.i ], [ %44, %43 ]
   store ptr %36, ptr %14, align 8
   store i64 %34, ptr %40, align 8
   store i32 1, ptr %15, align 4
@@ -316,10 +316,7 @@ mca_coll_basic_alltoallw_intra_inplace.exit:      ; preds = %17, %._crit_edge.i,
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %219
-  br i1 %178, label %.lr.ph142.preheader, label %._crit_edge
-
-.lr.ph142.preheader:                              ; preds = %.preheader
+.lr.ph142.preheader:                              ; preds = %219
   %180 = zext i32 %.val106 to i64
   %wide.trip.count154 = zext nneg i32 %.val.val to i64
   br label %.lr.ph142
@@ -407,7 +404,7 @@ ompi_request_cancel.exit.i:                       ; preds = %210, %207
   %.1 = phi ptr [ %.091137, %.lr.ph ], [ %196, %190 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph142.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %240
   %indvars.iv151 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next152, %240 ]
@@ -450,8 +447,8 @@ ompi_request_cancel.exit.i:                       ; preds = %210, %207
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %240, %.preheader127, %.preheader
-  %.294.lcssa = phi i32 [ %.193, %.preheader ], [ 0, %.preheader127 ], [ %.395, %240 ]
+._crit_edge:                                      ; preds = %240, %.preheader127
+  %.294.lcssa = phi i32 [ 0, %.preheader127 ], [ %.395, %240 ]
   %241 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 120), align 8
   %242 = sext i32 %.294.lcssa to i64
   %243 = tail call i32 %241(i64 noundef %242, ptr noundef nonnull %176) #7
@@ -598,10 +595,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %63
-  br i1 %25, label %.lr.ph112.preheader, label %._crit_edge
-
-.lr.ph112.preheader:                              ; preds = %.preheader
+.lr.ph112.preheader:                              ; preds = %63
   %wide.trip.count125 = zext nneg i32 %19 to i64
   br label %.lr.ph112
 
@@ -686,7 +680,7 @@ ompi_request_cancel.exit.i:                       ; preds = %54, %51
   %.1 = phi ptr [ %.057107, %.lr.ph ], [ %40, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph112.preheader, label %.lr.ph, !llvm.loop !10
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %101
   %indvars.iv122 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next123, %101 ]
@@ -771,8 +765,8 @@ ompi_request_cancel.exit.i81:                     ; preds = %92, %89
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %._crit_edge, label %.lr.ph112, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %101, %.preheader98, %.preheader
-  %.262.lcssa = phi i32 [ %.161, %.preheader ], [ 0, %.preheader98 ], [ %.363, %101 ]
+._crit_edge:                                      ; preds = %101, %.preheader98
+  %.262.lcssa = phi i32 [ 0, %.preheader98 ], [ %.363, %101 ]
   %102 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 120), align 8
   %103 = sext i32 %.262.lcssa to i64
   %104 = tail call i32 %102(i64 noundef %103, ptr noundef nonnull %23) #7

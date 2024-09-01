@@ -2512,8 +2512,8 @@ define linkonce_odr dso_local void @_ZN11NameVisitor5visitEP8AstScope(ptr nounde
   %14 = getelementptr inbounds i8, ptr %1, i64 104
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
-  %.not.i156 = icmp eq i64 %16, 0
-  %.not.i = select i1 %13, i1 true, i1 %.not.i156
+  %.not.i154 = icmp eq i64 %16, 0
+  %.not.i = select i1 %13, i1 true, i1 %.not.i154
   br i1 %.not.i, label %17, label %_ZN7AstNode12user1SetOnceEv.exit
 
 17:                                               ; preds = %2
@@ -2552,17 +2552,17 @@ define linkonce_odr dso_local void @_ZN11NameVisitor5visitEP8AstScope(ptr nounde
 34:                                               ; preds = %31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
   %35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc unwind label %.thread132
+          to label %.noexc unwind label %.thread130
 
 .noexc:                                           ; preds = %34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %.noexc68 unwind label %.thread132
+          to label %.noexc68 unwind label %.thread130
 
 .noexc68:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.644, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.644, i64 3))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body.thread127
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body.thread125
 
-.body.thread127:                                  ; preds = %.noexc68
+.body.thread125:                                  ; preds = %.noexc68
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
@@ -2588,9 +2588,9 @@ _ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit: ; preds = %37
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(257) %39)
   %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.645)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.sink.split unwind label %.thread149
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.sink.split unwind label %.thread147
 
-.thread149:                                       ; preds = %41
+.thread147:                                       ; preds = %41
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
@@ -2602,9 +2602,9 @@ _ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit: ; preds = %37
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(257) %39)
   %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.645)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.sink.split unwind label %.thread141
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.sink.split unwind label %.thread139
 
-.thread141:                                       ; preds = %47
+.thread139:                                       ; preds = %47
   %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
@@ -2614,7 +2614,7 @@ _ZN7AstNode9privateIsI15AstClassPackagePK13AstNodeModuleEEbPKS_.exit.thread: ; p
   %53 = getelementptr inbounds i8, ptr %32, i64 152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %53)
   %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.646)
-          to label %55 unwind label %.thread145
+          to label %55 unwind label %.thread143
 
 55:                                               ; preds = %_ZN7AstNode9privateIsI15AstClassPackagePK13AstNodeModuleEEbPKS_.exit.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %54) #16
@@ -2698,12 +2698,12 @@ _ZN8AstScope4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ;
   call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
-.thread132:                                       ; preds = %.noexc, %34
+.thread130:                                       ; preds = %.noexc, %34
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %91
 
-.thread145:                                       ; preds = %_ZN7AstNode9privateIsI15AstClassPackagePK13AstNodeModuleEEbPKS_.exit.thread
+.thread143:                                       ; preds = %_ZN7AstNode9privateIsI15AstClassPackagePK13AstNodeModuleEEbPKS_.exit.thread
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
@@ -2744,10 +2744,10 @@ _ZN8AstScope4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ;
   br i1 %.030, label %88, label %89
 
 88:                                               ; preds = %86, %87
-  %.337117 = phi i1 [ %.539.ph, %86 ], [ %.034, %87 ]
-  %.pn.pn.pn.pn116 = phi { ptr, i32 } [ %.pn.pn.ph, %86 ], [ %84, %87 ]
+  %.337115 = phi i1 [ %.539.ph, %86 ], [ %.034, %87 ]
+  %.pn.pn.pn.pn114 = phi { ptr, i32 } [ %.pn.pn.ph, %86 ], [ %84, %87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  br i1 %.337117, label %90, label %.body
+  br i1 %.337115, label %90, label %.body
 
 89:                                               ; preds = %86, %87
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %87 ], [ %.pn.pn.ph, %86 ]
@@ -2755,25 +2755,25 @@ _ZN8AstScope4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ;
   br i1 %.236, label %90, label %.body
 
 90:                                               ; preds = %88, %89
-  %.pn.pn.pn.pn.pn123 = phi { ptr, i32 } [ %.pn.pn.pn.pn116, %88 ], [ %.pn.pn.pn.pn.pn, %89 ]
+  %.pn.pn.pn.pn.pn121 = phi { ptr, i32 } [ %.pn.pn.pn.pn114, %88 ], [ %.pn.pn.pn.pn.pn, %89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   br i1 %33, label %91, label %.body.thread
 
 .body:                                            ; preds = %88, %89
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %89 ], [ %.pn.pn.pn.pn116, %88 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %89 ], [ %.pn.pn.pn.pn114, %88 ]
   br i1 %33, label %91, label %.body.thread
 
-91:                                               ; preds = %.thread132, %90, %.body.thread127, %.body
-  %.pn.pn.pn.pn.pn.pn130 = phi { ptr, i32 } [ %36, %.body.thread127 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn123, %90 ], [ %lpad.thr_comm, %.thread132 ]
+91:                                               ; preds = %.thread130, %90, %.body.thread125, %.body
+  %.pn.pn.pn.pn.pn.pn128 = phi { ptr, i32 } [ %36, %.body.thread125 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn121, %90 ], [ %lpad.thr_comm, %.thread130 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
   br label %.body.thread
 
 _ZN7AstNode12user1SetOnceEv.exit:                 ; preds = %2, %76
   ret void
 
-.body.thread:                                     ; preds = %.thread145, %.thread141, %.thread149, %90, %.body, %91
-  %.pn.pn.pn.pn.pn.pn126 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn130, %91 ], [ %.pn.pn.pn.pn.pn123, %90 ], [ %46, %.thread149 ], [ %79, %.thread145 ], [ %52, %.thread141 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn126
+.body.thread:                                     ; preds = %.thread143, %.thread139, %.thread147, %90, %.body, %91
+  %.pn.pn.pn.pn.pn.pn124 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn128, %91 ], [ %.pn.pn.pn.pn.pn121, %90 ], [ %46, %.thread147 ], [ %79, %.thread143 ], [ %52, %.thread139 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn124
 }
 
 declare void @_ZN14VNVisitorConst5visitEP12AstScopeName(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0

@@ -478,8 +478,8 @@ invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i
 for.cond.i:                                       ; preds = %for.body.i, %invoke.cont
   %__begin2.sroa.0.0.in.i = phi ptr [ %_M_before_begin.i.i.i.i, %invoke.cont ], [ %__begin2.sroa.0.0.i, %for.body.i ]
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.0.in.i, align 8, !tbaa !60
-  %cmp.i.not.not.i.not.not = icmp ne ptr %__begin2.sroa.0.0.i, null
-  br i1 %cmp.i.not.not.i.not.not, label %for.body.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit
+  %cmp.i.not.not.i.not.not.not.not.not.not = icmp ne ptr %__begin2.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.i.not.not.not.not.not.not, label %for.body.i, label %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i, i64 8
@@ -510,7 +510,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 _ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_setISt4pairIllESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSH_22SynchronizedMutexLevelE2ELNSH_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then.i.i, %_ZZN5folly6fibers10StackCache11isProtectedElENKUlRKT_E_clISt13unordered_setISt4pairIllESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEEEDaS4_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #19
-  ret i1 %cmp.i.not.not.i.not.not
+  ret i1 %cmp.i.not.not.i.not.not.not.not.not.not
 }
 
 ; Function Attrs: nofree nounwind

@@ -230,15 +230,15 @@ while.end.loopexit:                               ; preds = %if.end
   br label %while.end
 
 while.end:                                        ; preds = %entry, %while.end.loopexit
-  %2 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
   %result.sroa.0.1 = phi i32 [ %retval.sroa.0.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ 0, %entry ]
+  %result.sroa.5.1 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
   %HasError.i14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i15 = load i8, ptr %HasError.i14, align 8
   %bf.set.i16 = or i8 %bf.load.i15, 1
   store i8 %bf.set.i16, ptr %HasError.i14, align 8
   store i32 %result.sroa.0.1, ptr %agg.result, align 8
   %EC.sroa.21.0.call.sroa_idx.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %2, ptr %EC.sroa.21.0.call.sroa_idx.i17, align 8
+  store ptr %result.sroa.5.1, ptr %EC.sroa.21.0.call.sroa_idx.i17, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %while.end, %if.then
@@ -385,9 +385,9 @@ entry:
   %HasError.i = getelementptr inbounds i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.cast.i = trunc i8 %bf.load.i to i1
-  br i1 %bf.cast.i, label %if.then, label %if.end
+  br i1 %bf.cast.i, label %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i.i, label %if.end
 
-if.then:                                          ; preds = %entry
+_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i.i:        ; preds = %entry
   %HasError6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load7.i.i = load i8, ptr %HasError6.i.i, align 8
   %bf.set9.i.i = or i8 %bf.load7.i.i, 1
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %entry
   store ptr %1, ptr %agg.result, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then, %if.end
+cleanup:                                          ; preds = %_ZNK4llvh7ErrorOrIPvE8getErrorEv.exit.i.i, %if.end
   ret void
 }
 

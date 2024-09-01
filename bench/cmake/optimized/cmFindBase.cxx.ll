@@ -1506,8 +1506,8 @@ define dso_local noundef zeroext i1 @_ZN10cmFindBase23CheckForVariableDefinedEv(
 
 19:                                               ; preds = %9
   %20 = call noundef i32 @_ZNK7cmState17GetCacheEntryTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(705) %11, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %.not31 = icmp eq i32 %20, 6
-  br i1 %.not31, label %.thread, label %21
+  %.not30 = icmp eq i32 %20, 6
+  br i1 %.not30, label %.thread, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 456
@@ -1537,8 +1537,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 27:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  %.not30 = icmp eq ptr %26, null
-  br i1 %.not30, label %.thread, label %28
+  %.not31 = icmp eq ptr %26, null
+  br i1 %.not31, label %.thread, label %28
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %0, i64 424

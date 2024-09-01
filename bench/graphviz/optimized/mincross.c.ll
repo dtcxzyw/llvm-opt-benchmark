@@ -3622,7 +3622,7 @@ define i32 @ncross(ptr nocapture readnone %0) local_unnamed_addr #0 {
   %wide.trip.count132.i = zext nneg i32 %39 to i64
   br label %.lr.ph98.i
 
-.lr.ph110.i:                                      ; preds = %._crit_edge92.i
+.preheader75.i:                                   ; preds = %._crit_edge92.i
   %41 = getelementptr inbounds i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %102
@@ -3737,7 +3737,7 @@ define i32 @ncross(ptr nocapture readnone %0) local_unnamed_addr #0 {
   %.163.lcssa.i = phi i32 [ %.06294.i, %.loopexit.i ], [ %.06294.i, %.preheader76.i ], [ %spec.select.i, %.lr.ph91.i ]
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count132.i
-  br i1 %exitcond133.not.i, label %.lr.ph110.i, label %.lr.ph98.i
+  br i1 %exitcond133.not.i, label %.preheader75.i, label %.lr.ph98.i
 
 .preheader.i:                                     ; preds = %166, %21
   %.4.lcssa.i = phi i32 [ 0, %21 ], [ %.5.i, %166 ]
@@ -3752,9 +3752,9 @@ define i32 @ncross(ptr nocapture readnone %0) local_unnamed_addr #0 {
   %wide.trip.count142.i = zext nneg i32 %98 to i64
   br label %167
 
-102:                                              ; preds = %166, %.lr.ph110.i
-  %indvars.iv134.i = phi i64 [ 0, %.lr.ph110.i ], [ %indvars.iv.next135.i, %166 ]
-  %.4108.i = phi i32 [ %.158152.i, %.lr.ph110.i ], [ %.5.i, %166 ]
+102:                                              ; preds = %166, %.preheader75.i
+  %indvars.iv134.i = phi i64 [ 0, %.preheader75.i ], [ %indvars.iv.next135.i, %166 ]
+  %.4108.i = phi i32 [ %.158152.i, %.preheader75.i ], [ %.5.i, %166 ]
   %103 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv134.i
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 16

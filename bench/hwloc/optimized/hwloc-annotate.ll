@@ -1645,25 +1645,25 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   %51 = icmp ne ptr %46, null
   %52 = icmp ne ptr %50, null
   %or.cond = and i1 %51, %52
-  br i1 %or.cond, label %.preheader126.preheader, label %141
+  br i1 %or.cond, label %.preheader127.preheader, label %141
 
-.preheader126.preheader:                          ; preds = %43
+.preheader127.preheader:                          ; preds = %43
   %wide.trip.count = and i64 %37, 4294967295
-  br label %.preheader126
+  br label %.preheader127
 
-.preheader126:                                    ; preds = %.preheader126.preheader, %73
-  %indvars.iv = phi i64 [ 0, %.preheader126.preheader ], [ %indvars.iv.next, %73 ]
+.preheader127:                                    ; preds = %.preheader127.preheader, %73
+  %indvars.iv = phi i64 [ 0, %.preheader127.preheader ], [ %indvars.iv.next, %73 ]
   %53 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 64, ptr noundef nonnull %9)
   %.not118 = icmp eq ptr %53, null
   br i1 %.not118, label %54, label %58
 
-54:                                               ; preds = %.preheader126
+54:                                               ; preds = %.preheader127
   %55 = trunc nuw i64 %indvars.iv to i32
   %56 = load ptr, ptr @stderr, align 8
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.103, i32 noundef %55) #26
   br label %141
 
-58:                                               ; preds = %.preheader126
+58:                                               ; preds = %.preheader127
   %59 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 10) #24
   %.not119 = icmp eq ptr %59, null
   br i1 %.not119, label %61, label %60
@@ -1699,7 +1699,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   store ptr %62, ptr %74, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %75, label %.preheader126, !llvm.loop !11
+  br i1 %exitcond.not, label %75, label %.preheader127, !llvm.loop !11
 
 75:                                               ; preds = %73
   %76 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 64, ptr noundef nonnull %9)
@@ -1818,8 +1818,8 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 .loopexit:                                        ; preds = %128, %119, %120
   %131 = call ptr @hwloc_distances_add_create(ptr noundef %0, ptr noundef %.1, i64 noundef %31, i64 noundef 0) #25
-  %.not134 = icmp eq ptr %131, null
-  br i1 %.not134, label %.thread, label %132
+  %.not124 = icmp eq ptr %131, null
+  br i1 %.not124, label %.thread, label %132
 
 132:                                              ; preds = %.loopexit
   %133 = call i32 @hwloc_distances_add_values(ptr noundef %0, ptr noundef nonnull %131, i32 noundef %38, ptr noundef nonnull %46, ptr noundef nonnull %50, i64 noundef 0) #25
@@ -2039,7 +2039,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %103 = load ptr, ptr %3, align 8
   %104 = load i32, ptr %103, align 8
   %.not86 = icmp eq i32 %104, 0
-  br i1 %.not86, label %._crit_edge77, label %.lr.ph76
+  br i1 %.not86, label %._crit_edge77, label %.lr.ph76.split
 
 .thread:                                          ; preds = %94
   %105 = load ptr, ptr %3, align 8
@@ -2049,29 +2049,12 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 
 .lr.ph76.thread:                                  ; preds = %.thread
   %.not65117 = icmp eq ptr %.050, null
-  br i1 %.not65117, label %.lr.ph76.split.us.split.us.preheader, label %.lr.ph76.split.us.split.preheader
+  br i1 %.not65117, label %.lr.ph76.split.us.split.us, label %.lr.ph76.split.us.split
 
-.lr.ph76:                                         ; preds = %102
-  %.not65 = icmp eq ptr %.050, null
-  br i1 %.not62.not.not, label %.lr.ph76.split.us, label %.lr.ph76.split
-
-.lr.ph76.split.us:                                ; preds = %.lr.ph76
-  br i1 %.not65, label %.lr.ph76.split.us.split.us.preheader, label %.lr.ph76.split.us.split.preheader
-
-.lr.ph76.split.us.split.preheader:                ; preds = %.lr.ph76.thread, %.lr.ph76.split.us
-  %.ph139 = phi i32 [ %104, %.lr.ph76.split.us ], [ %106, %.lr.ph76.thread ]
-  %.ph140 = phi ptr [ %103, %.lr.ph76.split.us ], [ %105, %.lr.ph76.thread ]
-  br label %.lr.ph76.split.us.split
-
-.lr.ph76.split.us.split.us.preheader:             ; preds = %.lr.ph76.thread, %.lr.ph76.split.us
-  %.ph = phi i32 [ %104, %.lr.ph76.split.us ], [ %106, %.lr.ph76.thread ]
-  %.ph137 = phi ptr [ %103, %.lr.ph76.split.us ], [ %105, %.lr.ph76.thread ]
-  br label %.lr.ph76.split.us.split.us
-
-.lr.ph76.split.us.split.us:                       ; preds = %.lr.ph76.split.us.split.us.preheader, %123
-  %107 = phi i32 [ %124, %123 ], [ %.ph, %.lr.ph76.split.us.split.us.preheader ]
-  %108 = phi ptr [ %125, %123 ], [ %.ph137, %.lr.ph76.split.us.split.us.preheader ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %123 ], [ 0, %.lr.ph76.split.us.split.us.preheader ]
+.lr.ph76.split.us.split.us:                       ; preds = %.lr.ph76.thread, %123
+  %107 = phi i32 [ %124, %123 ], [ %106, %.lr.ph76.thread ]
+  %108 = phi ptr [ %125, %123 ], [ %105, %.lr.ph76.thread ]
+  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %123 ], [ 0, %.lr.ph76.thread ]
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv105
@@ -2102,10 +2085,10 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %127 = icmp ult i64 %indvars.iv.next106, %126
   br i1 %127, label %.lr.ph76.split.us.split.us, label %._crit_edge77, !llvm.loop !16
 
-.lr.ph76.split.us.split:                          ; preds = %.lr.ph76.split.us.split.preheader, %149
-  %128 = phi i32 [ %150, %149 ], [ %.ph139, %.lr.ph76.split.us.split.preheader ]
-  %129 = phi ptr [ %151, %149 ], [ %.ph140, %.lr.ph76.split.us.split.preheader ]
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %149 ], [ 0, %.lr.ph76.split.us.split.preheader ]
+.lr.ph76.split.us.split:                          ; preds = %.lr.ph76.thread, %149
+  %128 = phi i32 [ %150, %149 ], [ %106, %.lr.ph76.thread ]
+  %129 = phi ptr [ %151, %149 ], [ %105, %.lr.ph76.thread ]
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %149 ], [ 0, %.lr.ph76.thread ]
   %130 = getelementptr inbounds i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv102
@@ -2147,7 +2130,8 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %153 = icmp ult i64 %indvars.iv.next103, %152
   br i1 %153, label %.lr.ph76.split.us.split, label %._crit_edge77, !llvm.loop !16
 
-.lr.ph76.split:                                   ; preds = %.lr.ph76
+.lr.ph76.split:                                   ; preds = %102
+  %.not65 = icmp eq ptr %.050, null
   br i1 %.not65, label %.lr.ph76.split.split.us, label %.lr.ph76.split.split
 
 .lr.ph76.split.split.us:                          ; preds = %.lr.ph76.split, %172
@@ -3958,8 +3942,8 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
 139:                                              ; preds = %.thread.i100, %132
   %140 = phi ptr [ %137, %.thread.i100 ], [ %134, %132 ]
   %141 = call i32 @hwloc_bitmap_intersects(ptr noundef %140, ptr noundef readonly %2) #24
-  %.not29.us.not.i = icmp eq i32 %141, 0
-  br i1 %.not29.us.not.i, label %.outer.us.i.backedge, label %142
+  %.not29.not.us.i = icmp eq i32 %141, 0
+  br i1 %.not29.not.us.i, label %.outer.us.i.backedge, label %142
 
 142:                                              ; preds = %139, %132
   %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef nonnull readonly %3)

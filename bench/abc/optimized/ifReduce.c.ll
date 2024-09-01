@@ -85,8 +85,8 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
-  %.val46.i = load i32, ptr %36, align 4
-  %37 = icmp sgt i32 %.val46.i, 0
+  %.val45.i = load i32, ptr %36, align 4
+  %37 = icmp sgt i32 %.val45.i, 0
   br i1 %37, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrAlloc.exit20.i
@@ -338,14 +338,14 @@ Vec_PtrPush.exit33.i.i.i:                         ; preds = %141, %Vec_PtrGrow.e
 If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.i.i.i, %.lr.ph.i.i.i, %53
   call void @If_ManImproveMark_rec(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull %30)
   %154 = call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
-  %.val.i.i2644.i = load i32, ptr %15, align 4
-  %155 = icmp sgt i32 %.val.i.i2644.i, 0
+  %.val.i.i2643.i = load i32, ptr %15, align 4
+  %155 = icmp sgt i32 %.val.i.i2643.i, 0
   br i1 %155, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i
 
 .lr.ph.i.i27.i:                                   ; preds = %If_ManImproveNodePrepare.exit.i.i, %If_ManImproveNodeFaninCompact_int.exit.i
-  %.val.i.i2645.i = phi i32 [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ], [ %.val.i.i2644.i, %If_ManImproveNodePrepare.exit.i.i ]
+  %.val.i.i2644.i = phi i32 [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ], [ %.val.i.i2643.i, %If_ManImproveNodePrepare.exit.i.i ]
   %.val16.i.i.i = load ptr, ptr %21, align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %.val.i.i2645.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %.val.i.i2644.i to i64
   br label %156
 
 156:                                              ; preds = %188, %.lr.ph.i.i27.i
@@ -423,7 +423,7 @@ If_ManImproveNodeFaninCost.exit.i.i.i:            ; preds = %182, %179
   br i1 %exitcond.not.i.i.i, label %thread-pre-split.i.i, label %156, !llvm.loop !6
 
 thread-pre-split.i.i:                             ; preds = %188
-  %189 = icmp slt i32 %.val.i.i2645.i, %12
+  %189 = icmp slt i32 %.val.i.i2644.i, %12
   br i1 %189, label %.lr.ph.i15.i.i, label %If_ManImproveCutCost.exit70.i.i
 
 .lr.ph.i15.i.i:                                   ; preds = %thread-pre-split.i.i, %215
@@ -491,7 +491,7 @@ If_ManImproveNodeFaninCompact_int.exit.i:         ; preds = %If_ManImproveNodeFa
   br i1 %216, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !8
 
 If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFaninCompact_int.exit.i, %thread-pre-split.i.i, %215, %If_ManImproveNodePrepare.exit.i.i
-  %.val17.i.i.i = phi i32 [ %.val.i.i2644.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i2645.i, %215 ], [ %.val.i.i2645.i, %thread-pre-split.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ]
+  %.val17.i.i.i = phi i32 [ %.val.i.i2643.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i2644.i, %215 ], [ %.val.i.i2644.i, %thread-pre-split.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ]
   %217 = call float @If_CutAreaRef(ptr noundef %0, ptr noundef nonnull %47) #13
   %.val94.i.i = load i32, ptr %31, align 4
   %218 = icmp sgt i32 %.val94.i.i, 0
@@ -609,8 +609,8 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
   %271 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i88.i.i
   store i32 %270, ptr %271, align 4
   %indvars.iv.next.i90.i.i = add nuw nsw i64 %indvars.iv.i88.i.i, 1
-  %exitcond55.not.i = icmp eq i64 %indvars.iv.next.i90.i.i, %266
-  br i1 %exitcond55.not.i, label %.critedge.i77.i.i, label %.lr.ph.i87.i.i, !llvm.loop !10
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next.i90.i.i, %266
+  br i1 %exitcond54.not.i, label %.critedge.i77.i.i, label %.lr.ph.i87.i.i, !llvm.loop !10
 
 .critedge.i77.i.i:                                ; preds = %.lr.ph.i87.i.i, %258
   call void @If_CutOrder(ptr noundef nonnull %47) #13
@@ -1650,8 +1650,7 @@ If_ManImproveNodeFaninCost.exit.i:                ; preds = %35, %32
 
 thread-pre-split:                                 ; preds = %41
   %42 = icmp slt i32 %.val.i, %2
-  %or.cond = and i1 %42, %7
-  br i1 %or.cond, label %.lr.ph.i15, label %If_ManImproveNodeFaninCompact1.exit.thread
+  br i1 %42, label %.lr.ph.i15, label %If_ManImproveNodeFaninCompact1.exit.thread
 
 .lr.ph.i15:                                       ; preds = %thread-pre-split
   %43 = getelementptr i8, ptr %3, i64 8

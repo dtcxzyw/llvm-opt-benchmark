@@ -177,20 +177,20 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline13ProcessTracksERN
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str)
   br label %7
 
-7:                                                ; preds = %5, %10
-  %.014 = phi i32 [ 0, %5 ], [ %13, %10 ]
+7:                                                ; preds = %5, %9
+  %.014 = phi i32 [ 0, %5 ], [ %12, %9 ]
   %8 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %9 = icmp uge i32 %.014, %8
-  br i1 %9, label %.critedge, label %10
+  %.not.not.not.not = icmp uge i32 %.014, %8
+  br i1 %.not.not.not.not, label %.critedge, label %9
 
-10:                                               ; preds = %7
-  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.014)
-  %12 = tail call fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_118ProcessImportTrackERNS1_11OzzImporterEPKcRKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %4)
-  %13 = add nuw i32 %.014, 1
-  br i1 %12, label %7, label %.critedge, !llvm.loop !5
+9:                                                ; preds = %7
+  %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.014)
+  %11 = tail call fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_118ProcessImportTrackERNS1_11OzzImporterEPKcRKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %4)
+  %12 = add nuw i32 %.014, 1
+  br i1 %11, label %7, label %.critedge, !llvm.loop !5
 
-.critedge:                                        ; preds = %10, %7
-  ret i1 %9
+.critedge:                                        ; preds = %9, %7
+  ret i1 %.not.not.not.not
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0

@@ -249,13 +249,10 @@ if.end.i:                                         ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv.i
-  br i1 %exitcond.not.i, label %cryptodev_vhost_user_stop.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.body, label %for.body.i, !llvm.loop !7
 
-cryptodev_vhost_user_stop.exit:                   ; preds = %for.inc.i
-  br i1 %cmp7.not.i, label %for.end, label %for.body
-
-for.body:                                         ; preds = %cryptodev_vhost_user_stop.exit, %for.inc
-  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %cryptodev_vhost_user_stop.exit ]
+for.body:                                         ; preds = %for.inc.i, %for.inc
+  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %for.inc.i ]
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %i.011
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -271,7 +268,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %exitcond.not = icmp eq i64 %inc, %conv.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc, %entry, %cryptodev_vhost_user_stop.exit
+for.end:                                          ; preds = %for.inc, %entry
   %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 1200
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
   ret void

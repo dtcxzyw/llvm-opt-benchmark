@@ -56760,8 +56760,8 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hb1648c0d42b80e44E.exit:
   %.sroa.8175.0 = phi i8 [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %325 ], [ %.sroa.8175.1, %280 ]
   %.sroa.0.0 = phi i64 [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %325 ], [ %.sroa.0.1, %280 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %.not64.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not64.not, label %.thread157, label %348
+  %.not64 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not64, label %.thread157, label %348
 
 348:                                              ; preds = %_ZN13rust_analyzer8dispatch25thread_result_to_response17hb1648c0d42b80e44E.exit
   store i64 %.sroa.0.0, ptr %34, align 8
@@ -58086,8 +58086,8 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17h0ca4ec9259492208E.exit:
   %.sroa.8177.0 = phi i8 [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %324 ], [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %331 ], [ %.sroa.8177.1, %286 ]
   %.sroa.0.0 = phi i64 [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %324 ], [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %331 ], [ %.sroa.0.1, %286 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  %.not64.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not64.not, label %.thread159, label %354
+  %.not64 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not64, label %.thread159, label %354
 
 354:                                              ; preds = %_ZN13rust_analyzer8dispatch25thread_result_to_response17h0ca4ec9259492208E.exit
   store i64 %.sroa.0.0, ptr %35, align 8
@@ -59392,8 +59392,8 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hc300463e009e77f7E.exit:
   %.sroa.8175.0 = phi i8 [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %314 ], [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %321 ], [ %.sroa.8175.1, %276 ]
   %.sroa.0.0 = phi i64 [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %314 ], [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %321 ], [ %.sroa.0.1, %276 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %.not64.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not64.not, label %.thread157, label %344
+  %.not64 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not64, label %.thread157, label %344
 
 344:                                              ; preds = %_ZN13rust_analyzer8dispatch25thread_result_to_response17hc300463e009e77f7E.exit
   store i64 %.sroa.0.0, ptr %34, align 8
@@ -60706,8 +60706,8 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hc1d1f9fb95fe3827E.exit:
   %.sroa.8175.0 = phi i8 [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %325 ], [ %.sroa.8175.1, %280 ]
   %.sroa.0.0 = phi i64 [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %325 ], [ %.sroa.0.1, %280 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %.not64.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not64.not, label %.thread157, label %348
+  %.not64 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not64, label %.thread157, label %348
 
 348:                                              ; preds = %_ZN13rust_analyzer8dispatch25thread_result_to_response17hc1d1f9fb95fe3827E.exit
   store i64 %.sroa.0.0, ptr %34, align 8
@@ -62020,8 +62020,8 @@ _ZN13rust_analyzer8dispatch25thread_result_to_response17hdfd5f141f0885104E.exit:
   %.sroa.8175.0 = phi i8 [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.4.0.copyload, %325 ], [ %.sroa.8175.1, %280 ]
   %.sroa.0.0 = phi i64 [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %318 ], [ %.sroa.020.sroa.0.i.sroa.0.0.copyload, %325 ], [ %.sroa.0.1, %280 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %.not64.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not64.not, label %.thread157, label %348
+  %.not64 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not64, label %.thread157, label %348
 
 348:                                              ; preds = %_ZN13rust_analyzer8dispatch25thread_result_to_response17hdfd5f141f0885104E.exit
   store i64 %.sroa.0.0, ptr %34, align 8

@@ -201,7 +201,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 18:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %12
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %59
 
 20:                                               ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit, %9, %3
   %21 = getelementptr inbounds i8, ptr %0, i64 8
@@ -212,109 +212,104 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %26 = ptrtoint ptr %22 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 24
-  %.not.i = icmp eq ptr %24, %22
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.preheader.i
+  %.not39.i = icmp eq ptr %24, %22
+  br i1 %.not39.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %20
   %umax.i = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge37.i, %.lr.ph.preheader.i
-  %29 = phi i1 [ %34, %._crit_edge37.i ], [ true, %.lr.ph.preheader.i ]
   %.01338.i = phi i64 [ %.pre.i, %._crit_edge37.i ], [ 0, %.lr.ph.preheader.i ]
-  %30 = getelementptr inbounds %"class.std::vector.69", ptr %22, i64 %.01338.i
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not35.i = icmp ne ptr %31, %33
+  %29 = getelementptr inbounds %"class.std::vector.69", ptr %22, i64 %.01338.i
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not35.i = icmp ne ptr %30, %32
   %.pre.i = add nuw i64 %.01338.i, 1
-  %34 = icmp ult i64 %.pre.i, %28
-  %or.cond.i = select i1 %.not35.i, i1 %34, i1 false
+  %33 = icmp ult i64 %.pre.i, %28
+  %or.cond.i = select i1 %.not35.i, i1 %33, i1 false
   br i1 %or.cond.i, label %.preheader.us.i, label %._crit_edge37.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph.i, %._crit_edge.us.i
-  %.sroa.020.036.us.i = phi ptr [ %49, %._crit_edge.us.i ], [ %31, %.lr.ph.i ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 4
-  br label %36
+  %.sroa.020.036.us.i = phi ptr [ %48, %._crit_edge.us.i ], [ %30, %.lr.ph.i ]
+  %34 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 4
+  br label %35
 
-36:                                               ; preds = %.loopexit.us.i, %.preheader.us.i
+35:                                               ; preds = %.loopexit.us.i, %.preheader.us.i
   %.01433.us.i = phi i64 [ %.pre.i, %.preheader.us.i ], [ %.014.us.i, %.loopexit.us.i ]
-  %37 = getelementptr inbounds %"class.std::vector.69", ptr %22, i64 %.01433.us.i
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not2630.us.i = icmp eq ptr %38, %40
+  %36 = getelementptr inbounds %"class.std::vector.69", ptr %22, i64 %.01433.us.i
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not2630.us.i = icmp eq ptr %37, %39
   br i1 %.not2630.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
 
-41:                                               ; preds = %43
-  %42 = getelementptr inbounds i8, ptr %.sroa.016.031.us.i, i64 8
-  %.not26.us.i = icmp eq ptr %42, %40
-  br i1 %.not26.us.i, label %.loopexit.us.i, label %43
+40:                                               ; preds = %42
+  %41 = getelementptr inbounds i8, ptr %.sroa.016.031.us.i, i64 8
+  %.not26.us.i = icmp eq ptr %41, %39
+  br i1 %.not26.us.i, label %.loopexit.us.i, label %42
 
-43:                                               ; preds = %.lr.ph.us.i, %41
-  %.sroa.016.031.us.i = phi ptr [ %38, %.lr.ph.us.i ], [ %42, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.016.031.us.i, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %48, %45
-  br i1 %46, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit, label %41
+42:                                               ; preds = %.lr.ph.us.i, %40
+  %.sroa.016.031.us.i = phi ptr [ %37, %.lr.ph.us.i ], [ %41, %40 ]
+  %43 = getelementptr inbounds i8, ptr %.sroa.016.031.us.i, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %47, %44
+  br i1 %45, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit, label %40
 
-.loopexit.us.i:                                   ; preds = %41, %36
+.loopexit.us.i:                                   ; preds = %40, %35
   %.014.us.i = add nuw i64 %.01433.us.i, 1
-  %47 = icmp ult i64 %.014.us.i, %28
-  br i1 %47, label %36, label %._crit_edge.us.i, !llvm.loop !4
+  %46 = icmp ult i64 %.014.us.i, %28
+  br i1 %46, label %35, label %._crit_edge.us.i, !llvm.loop !4
 
-.lr.ph.us.i:                                      ; preds = %36
-  %48 = load i32, ptr %35, align 4
-  br label %43
+.lr.ph.us.i:                                      ; preds = %35
+  %47 = load i32, ptr %34, align 4
+  br label %42
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
-  %49 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 8
-  %.not.us.i = icmp eq ptr %49, %33
+  %48 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 8
+  %.not.us.i = icmp eq ptr %48, %32
   br i1 %.not.us.i, label %._crit_edge37.i, label %.preheader.us.i
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %.pre.i, %umax.i
-  br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
-_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit: ; preds = %._crit_edge37.i, %43
-  %50 = phi i1 [ %29, %43 ], [ %34, %._crit_edge37.i ]
-  br i1 %50, label %51, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread
+_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit: ; preds = %42
+  %49 = load ptr, ptr %1, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %51
 
 51:                                               ; preds = %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
-  %52 = load ptr, ptr %1, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %54
-
-54:                                               ; preds = %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  %55 = getelementptr inbounds i8, ptr %5, i64 32
-  store i8 1, ptr %55, align 8
-  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7 unwind label %60
+  %52 = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 1, ptr %52, align 8
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1)
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7 unwind label %57
 
-_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7:    ; preds = %54
-  %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(33) %5)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8 unwind label %60
+_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7:    ; preds = %51
+  %54 = load ptr, ptr %49, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(33) %5)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8 unwind label %57
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   br label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread
 
-60:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7, %54
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7, %51
+  %58 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %59
 
-_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread: ; preds = %20, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8, %51, %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
+_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread: ; preds = %._crit_edge37.i, %20, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8, %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
   ret void
 
-62:                                               ; preds = %60, %18
-  %.sink = phi ptr [ %5, %60 ], [ %4, %18 ]
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %19, %18 ]
+59:                                               ; preds = %57, %18
+  %.sink = phi ptr [ %5, %57 ], [ %4, %18 ]
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %19, %18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
   resume { ptr, i32 } %.pn
 }

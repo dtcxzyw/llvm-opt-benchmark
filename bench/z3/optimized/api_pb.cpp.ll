@@ -143,7 +143,7 @@ do.body:                                          ; preds = %invoke.cont21
 
 if.then27:                                        ; preds = %do.body
   invoke void @_Z4SetRPv(ptr noundef %call18)
-          to label %if.then.i unwind label %lpad14
+          to label %if.end29 unwind label %lpad14
 
 lpad8:                                            ; preds = %.noexc, %invoke.cont11
   %3 = landingpad { ptr, i32 }
@@ -158,7 +158,7 @@ lpad14:                                           ; preds = %invoke.cont21, %if.
   call void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %util) #14
   br label %ehcleanup32
 
-if.then.i:                                        ; preds = %if.then27
+if.end29:                                         ; preds = %if.then27
   call void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %util) #14
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #14
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
@@ -204,8 +204,8 @@ return.critedge:                                  ; preds = %do.body
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #14
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.then.i, %invoke.cont36
-  %retval.0 = phi ptr [ null, %invoke.cont36 ], [ %call18, %if.then.i ], [ %call18, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.end29, %invoke.cont36
+  %retval.0 = phi ptr [ null, %invoke.cont36 ], [ %call18, %if.end29 ], [ %call18, %return.critedge ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad33, %_ZN10z3_log_ctxD2Ev.exit23
@@ -440,7 +440,7 @@ do.body:                                          ; preds = %invoke.cont21
 
 if.then27:                                        ; preds = %do.body
   invoke void @_Z4SetRPv(ptr noundef %call18)
-          to label %if.then.i unwind label %lpad14
+          to label %if.end29 unwind label %lpad14
 
 lpad8:                                            ; preds = %.noexc, %invoke.cont11
   %3 = landingpad { ptr, i32 }
@@ -455,7 +455,7 @@ lpad14:                                           ; preds = %invoke.cont21, %if.
   call void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %util) #14
   br label %ehcleanup32
 
-if.then.i:                                        ; preds = %if.then27
+if.end29:                                         ; preds = %if.then27
   call void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %util) #14
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #14
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
@@ -501,8 +501,8 @@ return.critedge:                                  ; preds = %do.body
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #14
   br label %return
 
-return:                                           ; preds = %return.critedge, %if.then.i, %invoke.cont36
-  %retval.0 = phi ptr [ null, %invoke.cont36 ], [ %call18, %if.then.i ], [ %call18, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.end29, %invoke.cont36
+  %retval.0 = phi ptr [ null, %invoke.cont36 ], [ %call18, %if.end29 ], [ %call18, %return.critedge ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad33, %_ZN10z3_log_ctxD2Ev.exit23

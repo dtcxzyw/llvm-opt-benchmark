@@ -402,59 +402,59 @@ pmix_cmd_line_get_nth_instance.exit226:           ; preds = %121, %pmix_cmd_line
   %131 = load ptr, ptr %130, align 8
   %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(11) @.str.14) #15
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %.lr.ph.i.i236.preheader, label %134
+  br i1 %133, label %pmix_cmd_line_is_taken.exit, label %134
 
 134:                                              ; preds = %.lr.ph.i.i229
   %135 = getelementptr inbounds i8, ptr %.011.i.i230, i64 120
   %.0.i.i231 = load ptr, ptr %135, align 8
   %.not.i.i232 = icmp eq ptr %.0.i.i231, %56
-  br i1 %.not.i.i232, label %.lr.ph.i.i236.preheader, label %.lr.ph.i.i229, !llvm.loop !9
+  br i1 %.not.i.i232, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i229, !llvm.loop !9
 
-.lr.ph.i.i236.preheader:                          ; preds = %134, %.lr.ph.i.i229
+pmix_cmd_line_is_taken.exit:                      ; preds = %.lr.ph.i.i229, %134
   %.08.i.ph.i = phi ptr [ null, %134 ], [ %.011.i.i230, %.lr.ph.i.i229 ]
   %136 = icmp ne ptr %.08.i.ph.i, null
   br label %.lr.ph.i.i236
 
-.lr.ph.i.i236:                                    ; preds = %.lr.ph.i.i236.preheader, %141
-  %.011.i.i237 = phi ptr [ %.0.i.i238, %141 ], [ %.09.i.i227, %.lr.ph.i.i236.preheader ]
+.lr.ph.i.i236:                                    ; preds = %pmix_cmd_line_is_taken.exit, %141
+  %.011.i.i237 = phi ptr [ %.0.i.i238, %141 ], [ %.09.i.i227, %pmix_cmd_line_is_taken.exit ]
   %137 = getelementptr inbounds i8, ptr %.011.i.i237, i64 144
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(11) @.str.15) #15
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %.lr.ph.i.i247.preheader, label %141
+  br i1 %140, label %pmix_cmd_line_is_taken.exit244, label %141
 
 141:                                              ; preds = %.lr.ph.i.i236
   %142 = getelementptr inbounds i8, ptr %.011.i.i237, i64 120
   %.0.i.i238 = load ptr, ptr %142, align 8
   %.not.i.i239 = icmp eq ptr %.0.i.i238, %56
-  br i1 %.not.i.i239, label %.lr.ph.i.i247.preheader, label %.lr.ph.i.i236, !llvm.loop !9
+  br i1 %.not.i.i239, label %pmix_cmd_line_is_taken.exit244, label %.lr.ph.i.i236, !llvm.loop !9
 
-.lr.ph.i.i247.preheader:                          ; preds = %141, %.lr.ph.i.i236
+pmix_cmd_line_is_taken.exit244:                   ; preds = %.lr.ph.i.i236, %141
   %.08.i.ph.i241 = phi ptr [ null, %141 ], [ %.011.i.i237, %.lr.ph.i.i236 ]
   %143 = icmp ne ptr %.08.i.ph.i241, null
   br label %.lr.ph.i.i247
 
-.lr.ph.i.i247:                                    ; preds = %.lr.ph.i.i247.preheader, %148
-  %.011.i.i248 = phi ptr [ %.0.i.i249, %148 ], [ %.09.i.i227, %.lr.ph.i.i247.preheader ]
+.lr.ph.i.i247:                                    ; preds = %pmix_cmd_line_is_taken.exit244, %148
+  %.011.i.i248 = phi ptr [ %.0.i.i249, %148 ], [ %.09.i.i227, %pmix_cmd_line_is_taken.exit244 ]
   %144 = getelementptr inbounds i8, ptr %.011.i.i248, i64 144
   %145 = load ptr, ptr %144, align 8
   %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull readonly dereferenceable(9) @.str.16) #15
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %.lr.ph.i.i258.preheader, label %148
+  br i1 %147, label %pmix_cmd_line_is_taken.exit255, label %148
 
 148:                                              ; preds = %.lr.ph.i.i247
   %149 = getelementptr inbounds i8, ptr %.011.i.i248, i64 120
   %.0.i.i249 = load ptr, ptr %149, align 8
   %.not.i.i250 = icmp eq ptr %.0.i.i249, %56
-  br i1 %.not.i.i250, label %.lr.ph.i.i258.preheader, label %.lr.ph.i.i247, !llvm.loop !9
+  br i1 %.not.i.i250, label %pmix_cmd_line_is_taken.exit255, label %.lr.ph.i.i247, !llvm.loop !9
 
-.lr.ph.i.i258.preheader:                          ; preds = %148, %.lr.ph.i.i247
+pmix_cmd_line_is_taken.exit255:                   ; preds = %.lr.ph.i.i247, %148
   %.08.i.ph.i252 = phi ptr [ null, %148 ], [ %.011.i.i248, %.lr.ph.i.i247 ]
   %150 = icmp ne ptr %.08.i.ph.i252, null
   br label %.lr.ph.i.i258
 
-.lr.ph.i.i258:                                    ; preds = %.lr.ph.i.i258.preheader, %155
-  %.011.i.i259 = phi ptr [ %.0.i.i260, %155 ], [ %.09.i.i227, %.lr.ph.i.i258.preheader ]
+.lr.ph.i.i258:                                    ; preds = %pmix_cmd_line_is_taken.exit255, %155
+  %.011.i.i259 = phi ptr [ %.0.i.i260, %155 ], [ %.09.i.i227, %pmix_cmd_line_is_taken.exit255 ]
   %151 = getelementptr inbounds i8, ptr %.011.i.i259, i64 144
   %152 = load ptr, ptr %151, align 8
   %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(9) @.str.17) #15
@@ -478,8 +478,8 @@ pmix_cmd_line_is_taken.exit266:                   ; preds = %pmix_cmd_line_get_n
   %.08.i.i243315319 = phi i1 [ %143, %pmix_cmd_line_get_param.exit.loopexit.i262 ], [ false, %pmix_cmd_line_get_nth_instance.exit226 ]
   %.08.i.i265 = phi i1 [ %157, %pmix_cmd_line_get_param.exit.loopexit.i262 ], [ false, %pmix_cmd_line_get_nth_instance.exit226 ]
   %brmerge = or i1 %.08.i.i311314320, %.08.i.i243315319
-  %brmerge197 = or i1 %.08.i.i254321, %brmerge
-  %brmerge198 = or i1 %.08.i.i265, %brmerge197
+  %brmerge197 = or i1 %brmerge, %.08.i.i254321
+  %brmerge198 = or i1 %brmerge197, %.08.i.i265
   br i1 %brmerge198, label %158, label %166
 
 158:                                              ; preds = %pmix_cmd_line_is_taken.exit266

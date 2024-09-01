@@ -3819,18 +3819,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body.i
   %tobool.not.i10 = icmp eq i32 %use_icc.0, 0
-  br i1 %tobool.not.i10, label %if.else.i, label %for.cond6.preheader.lr.ph.i
+  br i1 %tobool.not.i10, label %if.else.i, label %for.cond3.preheader.i
 
 for.end.thread.i:                                 ; preds = %if.end4
   %tobool.not68.i = icmp eq i32 %use_icc.0, 0
   br i1 %tobool.not68.i, label %if.else.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
 
-for.cond6.preheader.lr.ph.i:                      ; preds = %for.end.i
+for.cond3.preheader.i:                            ; preds = %for.end.i
   %trc.i = getelementptr inbounds i8, ptr %icc, i64 128
   br label %for.cond6.preheader.i
 
-for.cond6.preheader.i:                            ; preds = %for.inc18.i, %for.cond6.preheader.lr.ph.i
-  %i.153.i = phi i64 [ 0, %for.cond6.preheader.lr.ph.i ], [ %inc19.i, %for.inc18.i ]
+for.cond6.preheader.i:                            ; preds = %for.inc18.i, %for.cond3.preheader.i
+  %i.153.i = phi i64 [ 0, %for.cond3.preheader.i ], [ %inc19.i, %for.inc18.i ]
   %mul10.i = shl nuw nsw i64 %i.153.i, 2
   br label %for.body8.i
 

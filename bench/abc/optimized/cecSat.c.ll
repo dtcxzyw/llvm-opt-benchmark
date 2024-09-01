@@ -1372,7 +1372,7 @@ Cec2_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   br i1 %.not.i28, label %57, label %.lr.ph.preheader.i31
 
 .lr.ph.preheader.i31:                             ; preds = %.lr.ph.i26, %.lr.ph8.i
-  %.0166986 = trunc i64 %indvars.iv to i32
+  %.0166984 = trunc i64 %indvars.iv to i32
   %wide.trip.count.i32 = zext nneg i32 %.val24 to i64
   br label %.lr.ph.i33
 
@@ -1434,7 +1434,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %91, %65
   %93 = getelementptr i8, ptr %.val25.i38, i64 4
   %.val25.val.i39 = load i32, ptr %93, align 4
   %94 = tail call ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val25.val.i39, i32 noundef 1) #21
-  store i32 %.0166986, ptr %94, align 4
+  store i32 %.0166984, ptr %94, align 4
   %95 = icmp eq i32 %.08.i, -1
   br i1 %95, label %Cec2_ManDeriveCex.exit, label %.preheader.i40
 

@@ -11718,12 +11718,9 @@ for.inc:                                          ; preds = %cond.end269, %sw.bb
   %inc290 = add nsw i32 %j.1, 1
   %55 = load i32, ptr %argc, align 8
   %cmp1 = icmp slt i32 %inc290, %55
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !56
+  br i1 %cmp1, label %for.body, label %if.then292, !llvm.loop !56
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp1171, label %if.end301, label %if.then292
-
-if.then292:                                       ; preds = %for.end
+if.then292:                                       ; preds = %for.inc
   call fastcc void @sentinelFlushConfigAndReply(ptr noundef nonnull %c)
   br label %if.end301
 
@@ -11776,7 +11773,7 @@ if.end8.i:                                        ; preds = %do.body5.i
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.145) #29
   br label %if.end301
 
-if.end301:                                        ; preds = %for.cond.preheader, %if.end8.i, %do.body5.i, %if.end.i, %do.body.i, %sentinelGetMasterByNameOrReplyError.exit.thread, %for.end, %if.then292, %seterr
+if.end301:                                        ; preds = %for.cond.preheader, %if.end8.i, %do.body5.i, %if.end.i, %do.body.i, %sentinelGetMasterByNameOrReplyError.exit.thread, %if.then292, %seterr
   ret void
 }
 

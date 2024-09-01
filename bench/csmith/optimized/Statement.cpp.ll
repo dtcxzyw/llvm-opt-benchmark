@@ -2846,8 +2846,8 @@ define dso_local noundef zeroext i1 @_ZNK9Statement21contains_unfixed_gotoEv(ptr
   %16 = getelementptr inbounds i8, ptr %14, i64 344
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
-  %.not102 = icmp eq ptr %17, %18
-  br i1 %.not102, label %.loopexit93, label %.lr.ph
+  %.not100 = icmp eq ptr %17, %18
+  br i1 %.not100, label %.loopexit93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %19 = getelementptr inbounds i8, ptr %14, i64 288
@@ -4286,74 +4286,62 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit: ; pr
 24:                                               ; preds = %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZNK9Statement16get_called_funcsERSt6vectorIPK22FunctionInvocationUserSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %.preheader unwind label %46
+          to label %.preheader unwind label %40
 
 .preheader:                                       ; preds = %24
   %25 = getelementptr inbounds i8, ptr %5, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 3
   %.not = icmp eq ptr %26, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
+  %28 = ptrtoint ptr %26 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = ashr exact i64 %30, 3
   %umax = call i64 @llvm.umax.i64(i64 %31, i64 1)
-  %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 265
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %.thread, label %.lr.ph22
+  br label %.lr.ph
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01421 = phi i64 [ %38, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %38 = add nuw i64 %.01421, 1
-  %exitcond.not = icmp eq i64 %38, %umax
-  br i1 %exitcond.not, label %.thread.loopexit, label %.lr.ph, !llvm.loop !72
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %.014 = phi i64 [ 0, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %32 = getelementptr inbounds ptr, ptr %27, i64 %.014
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 265
+  %37 = load i8, ptr %36, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = add nuw i64 %.014, 1
+  %exitcond.not = icmp eq i64 %39, %umax
+  %or.cond = select i1 %38, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !72
 
-.lr.ph:                                           ; preds = %.lr.ph22
-  %39 = getelementptr inbounds ptr, ptr %27, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 265
-  %44 = load i8, ptr %43, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %.thread.loopexit, label %.lr.ph22, !llvm.loop !72
-
-46:                                               ; preds = %24
-  %47 = landingpad { ptr, i32 }
+40:                                               ; preds = %24
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %48 = load ptr, ptr %5, align 8
-  %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit, label %49
+  %42 = load ptr, ptr %5, align 8
+  %.not.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit, label %43
 
-49:                                               ; preds = %46
-  call void @_ZdlPv(ptr noundef nonnull %48) #23
+43:                                               ; preds = %40
+  call void @_ZdlPv(ptr noundef nonnull %42) #23
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit: ; preds = %46, %49
-  resume { ptr, i32 } %47
+_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit: ; preds = %40, %43
+  resume { ptr, i32 } %41
 
 ._crit_edge:                                      ; preds = %.preheader
   %.not.i.i.i8 = icmp eq ptr %27, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit9, label %.thread
 
-.thread.loopexit:                                 ; preds = %.lr.ph22, %.lr.ph
-  %50 = icmp ult i64 %38, %31
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.loopexit, %.lr.ph.preheader, %._crit_edge
-  %51 = phi i1 [ false, %._crit_edge ], [ true, %.lr.ph.preheader ], [ %50, %.thread.loopexit ]
+.thread:                                          ; preds = %.lr.ph, %._crit_edge
+  %44 = phi i1 [ false, %._crit_edge ], [ %38, %.lr.ph ]
   call void @_ZdlPv(ptr noundef nonnull %27) #23
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit9
 
 _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit9: ; preds = %.thread, %._crit_edge, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit
-  %.07 = phi i1 [ true, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit ], [ false, %._crit_edge ], [ %51, %.thread ]
+  %.07 = phi i1 [ true, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit ], [ false, %._crit_edge ], [ %44, %.thread ]
   ret i1 %.07
 }
 

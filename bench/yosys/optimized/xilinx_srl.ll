@@ -9485,8 +9485,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit
   %3758 = phi i32 [ %3757, %3755 ], [ 0, %3749 ]
   %3759 = load ptr, ptr %238, align 8
   %3760 = icmp slt i32 %.sroa.2.0.copyload.i.i.i.i.i.i.i, 0
-  %or.cond.i83 = or i1 %3760, %3748
-  br i1 %or.cond.i83, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i.i.i, label %3761
+  br i1 %3760, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i.i.i, label %3761
 
 3761:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i.i.i.i
   %3762 = ptrtoint ptr %3747 to i64
@@ -9875,8 +9874,7 @@ _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iterator
   %3942 = phi i32 [ %3941, %3939 ], [ 0, %3934 ]
   %3943 = load ptr, ptr %238, align 8
   %3944 = icmp slt i32 %.sink16.i, 0
-  %or.cond.i = or i1 %3944, %3933
-  br i1 %or.cond.i, label %.noexc4.i, label %3945
+  br i1 %3944, label %.noexc4.i, label %3945
 
 3945:                                             ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i
   %3946 = ptrtoint ptr %3932 to i64

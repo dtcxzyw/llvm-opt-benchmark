@@ -3058,13 +3058,11 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end14
 
 if.else:                                          ; preds = %land.lhs.true
-  %tobool.not = xor i1 %tobool, true
-  %.not = or i1 %paused, %tobool.not
   %exec_.i = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %exec_.i, align 8
-  %cmp.i.not = icmp eq ptr %3, null
-  %or.cond = select i1 %.not, i1 true, i1 %cmp.i.not
-  br i1 %or.cond, label %if.end14, label %if.then12
+  %cmp.i.not = icmp ne ptr %3, null
+  %or.cond.not = select i1 %tobool, i1 %cmp.i.not, i1 false
+  br i1 %or.cond.not, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.else
   %resumeHook_ = getelementptr inbounds i8, ptr %this, i64 96

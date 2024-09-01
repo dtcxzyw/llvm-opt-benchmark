@@ -3116,8 +3116,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %33 = getelementptr inbounds i8, ptr %0, i64 352
   %34 = load i64, ptr %33, align 8
   %35 = icmp ugt i64 %34, 4294967295
-  %brmerge61 = or i1 %35, %.not.i
-  br i1 %brmerge61, label %.loopexit, label %.lr.ph.preheader
+  br i1 %35, label %.loopexit, label %.lr.ph.preheader
 
 .loopexit45.thread:                               ; preds = %3
   %36 = getelementptr inbounds i8, ptr %0, i64 352
@@ -3140,7 +3139,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit45, %.loopexit45.thread
-  %42 = phi i1 [ %35, %.loopexit45 ], [ %38, %.loopexit45.thread ], [ false, %.lr.ph ]
+  %42 = phi i1 [ true, %.loopexit45 ], [ %38, %.loopexit45.thread ], [ false, %.lr.ph ]
   %43 = phi ptr [ %33, %.loopexit45 ], [ %36, %.loopexit45.thread ], [ %33, %.lr.ph ]
   %.039 = phi i1 [ false, %.loopexit45 ], [ false, %.loopexit45.thread ], [ %41, %.lr.ph ]
   %44 = call i32 @H5CX_get_libver_bounds(ptr noundef nonnull %4, ptr noundef nonnull %5) #14

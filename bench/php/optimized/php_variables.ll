@@ -938,11 +938,11 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
 257:                                              ; preds = %253
   %258 = load ptr, ptr %.0385, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %258, i64 8
-  %.pre556 = load i8, ptr %.phi.trans.insert, align 8
+  %.pre555 = load i8, ptr %.phi.trans.insert, align 8
   br label %259
 
 259:                                              ; preds = %257, %253
-  %260 = phi i8 [ %.pre556, %257 ], [ %255, %253 ]
+  %260 = phi i8 [ %.pre555, %257 ], [ %255, %253 ]
   %.1382 = phi ptr [ %258, %257 ], [ %.0385, %253 ]
   %261 = getelementptr inbounds i8, ptr %.1382, i64 8
   %.not441 = icmp eq i8 %260, 7
@@ -1009,8 +1009,8 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   store i8 0, ptr %288, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %292 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 528), align 8
-  %.not560 = icmp sgt i64 %292, %indvars.iv
-  br i1 %.not560, label %178, label %._crit_edge
+  %.not559 = icmp sgt i64 %292, %indvars.iv
+  br i1 %.not559, label %178, label %._crit_edge
 
 .loopexit:                                        ; preds = %286, %.thread483
   %.1387 = phi ptr [ %38, %.thread483 ], [ %.0375, %286 ]
@@ -1055,19 +1055,19 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   %307 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
   %308 = icmp eq ptr %.2499, %307
   %or.cond474 = select i1 %.not448, i1 %308, i1 false
-  %.pre559 = load i8, ptr %.1387497, align 1
+  %.pre558 = load i8, ptr %.1387497, align 1
   br i1 %or.cond474, label %309, label %335
 
 309:                                              ; preds = %305
-  %310 = icmp sgt i8 %.pre559, 57
+  %310 = icmp sgt i8 %.pre558, 57
   br i1 %310, label %.critedge477, label %311
 
 311:                                              ; preds = %309
-  %312 = icmp slt i8 %.pre559, 48
+  %312 = icmp slt i8 %.pre558, 48
   br i1 %312, label %313, label %318
 
 313:                                              ; preds = %311
-  %.not449 = icmp eq i8 %.pre559, 45
+  %.not449 = icmp eq i8 %.pre558, 45
   br i1 %.not449, label %314, label %.critedge477
 
 314:                                              ; preds = %313
@@ -1093,10 +1093,10 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
 324:                                              ; preds = %.critedge477, %320
   %.0373.in = phi ptr [ %322, %320 ], [ %323, %.critedge477 ]
   %.0373.not = icmp eq ptr %.0373.in, null
-  br i1 %.0373.not, label %._crit_edge557, label %325
+  br i1 %.0373.not, label %._crit_edge556, label %325
 
-._crit_edge557:                                   ; preds = %324
-  %.pre558 = load i8, ptr %.1387497, align 1
+._crit_edge556:                                   ; preds = %324
+  %.pre557 = load i8, ptr %.1387497, align 1
   br label %335
 
 325:                                              ; preds = %324
@@ -1120,8 +1120,8 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   call void @rc_dtor_func(ptr noundef %334) #17
   br label %362
 
-335:                                              ; preds = %._crit_edge557, %305
-  %336 = phi i8 [ %.pre558, %._crit_edge557 ], [ %.pre559, %305 ]
+335:                                              ; preds = %._crit_edge556, %305
+  %336 = phi i8 [ %.pre557, %._crit_edge556 ], [ %.pre558, %305 ]
   %337 = icmp sgt i8 %336, 57
   br i1 %337, label %.critedge480, label %338
 

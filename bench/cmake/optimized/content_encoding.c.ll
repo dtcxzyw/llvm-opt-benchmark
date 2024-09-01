@@ -144,8 +144,8 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %12 = getelementptr inbounds i8, ptr %.143, i64 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.critedge, %74
-  %.143.be = phi ptr [ %12, %.critedge ], [ %.2, %74 ]
+.backedge:                                        ; preds = %.critedge, %73
+  %.143.be = phi ptr [ %12, %.critedge ], [ %.2, %73 ]
   br label %9, !llvm.loop !8
 
 13:                                               ; preds = %.preheader, %20
@@ -178,7 +178,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
 
 .critedge2:                                       ; preds = %13, %13
   %.not50 = icmp eq i64 %.041, 0
-  br i1 %.not50, label %74, label %22
+  br i1 %.not50, label %73, label %22
 
 22:                                               ; preds = %.critedge2
   %23 = load i64, ptr %6, align 2
@@ -207,7 +207,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %31 = call i64 @Curl_cwriter_count(ptr noundef nonnull %0, i32 noundef 1) #7
   %32 = add i64 %31, -4
   %33 = icmp ult i64 %32, -5
-  br i1 %33, label %37, label %38
+  br i1 %33, label %37, label %.preheader.preheader.i
 
 .thread:                                          ; preds = %.critedge60
   %34 = call i64 @Curl_cwriter_count(ptr noundef nonnull %0, i32 noundef 3) #7
@@ -219,106 +219,103 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 5) #7
   br label %.loopexit
 
-38:                                               ; preds = %30
-  br i1 %.not.not, label %.loopexit47.i.preheader, label %.preheader.preheader.i
+.preheader.preheader.i:                           ; preds = %30
+  %38 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %7, i64 noundef %.041) #7
+  %.not42.i = icmp eq i32 %38, 0
+  br i1 %.not42.i, label %42, label %39
 
-.preheader.preheader.i:                           ; preds = %38
-  %39 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %7, i64 noundef %.041) #7
-  %.not42.i = icmp eq i32 %39, 0
-  br i1 %.not42.i, label %43, label %40
+39:                                               ; preds = %.preheader.preheader.i
+  %40 = getelementptr inbounds i8, ptr %7, i64 %.041
+  %41 = load i8, ptr %40, align 1
+  %.not43.i = icmp eq i8 %41, 0
+  br i1 %.not43.i, label %find_unencode_writer.exit, label %42
 
-40:                                               ; preds = %.preheader.preheader.i
-  %41 = getelementptr inbounds i8, ptr %7, i64 %.041
-  %42 = load i8, ptr %41, align 1
-  %.not43.i = icmp eq i8 %42, 0
-  br i1 %.not43.i, label %find_unencode_writer.exit, label %43
+42:                                               ; preds = %39, %.preheader.preheader.i
+  br i1 %.not44.i, label %.loopexit47.i.preheader, label %43
 
-43:                                               ; preds = %40, %.preheader.preheader.i
-  br i1 %.not44.i, label %.loopexit47.i.preheader, label %44
+43:                                               ; preds = %42
+  %44 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %8, i64 noundef %.041) #7
+  %.not45.i = icmp eq i32 %44, 0
+  br i1 %.not45.i, label %.loopexit47.i.preheader, label %45
 
-44:                                               ; preds = %43
-  %45 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %8, i64 noundef %.041) #7
-  %.not45.i = icmp eq i32 %45, 0
-  br i1 %.not45.i, label %.loopexit47.i.preheader, label %46
-
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %8, i64 %.041
-  %48 = load i8, ptr %47, align 1
-  %.not46.i = icmp eq i8 %48, 0
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %8, i64 %.041
+  %47 = load i8, ptr %46, align 1
+  %.not46.i = icmp eq i8 %47, 0
   br i1 %.not46.i, label %find_unencode_writer.exit, label %.loopexit47.i.preheader
 
-.loopexit47.i.preheader:                          ; preds = %.thread, %46, %44, %43, %38
+.loopexit47.i.preheader:                          ; preds = %.thread, %45, %43, %42
   br label %.loopexit47.i
 
-.loopexit47.i:                                    ; preds = %.loopexit47.i.preheader, %65
-  %49 = phi ptr [ %67, %65 ], [ @identity_encoding, %.loopexit47.i.preheader ]
-  %.151.i = phi ptr [ %66, %65 ], [ @general_unencoders, %.loopexit47.i.preheader ]
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %50, i64 noundef %.041) #7
-  %.not37.i = icmp eq i32 %51, 0
-  br i1 %.not37.i, label %56, label %52
+.loopexit47.i:                                    ; preds = %.loopexit47.i.preheader, %64
+  %48 = phi ptr [ %66, %64 ], [ @identity_encoding, %.loopexit47.i.preheader ]
+  %.151.i = phi ptr [ %65, %64 ], [ @general_unencoders, %.loopexit47.i.preheader ]
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %49, i64 noundef %.041) #7
+  %.not37.i = icmp eq i32 %50, 0
+  br i1 %.not37.i, label %55, label %51
 
-52:                                               ; preds = %.loopexit47.i
-  %53 = load ptr, ptr %49, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 %.041
-  %55 = load i8, ptr %54, align 1
-  %.not38.i = icmp eq i8 %55, 0
-  br i1 %.not38.i, label %find_unencode_writer.exit, label %56
+51:                                               ; preds = %.loopexit47.i
+  %52 = load ptr, ptr %48, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 %.041
+  %54 = load i8, ptr %53, align 1
+  %.not38.i = icmp eq i8 %54, 0
+  br i1 %.not38.i, label %find_unencode_writer.exit, label %55
 
-56:                                               ; preds = %52, %.loopexit47.i
-  %57 = getelementptr inbounds i8, ptr %49, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not39.i = icmp eq ptr %58, null
-  br i1 %.not39.i, label %65, label %59
+55:                                               ; preds = %51, %.loopexit47.i
+  %56 = getelementptr inbounds i8, ptr %48, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %.not39.i = icmp eq ptr %57, null
+  br i1 %.not39.i, label %64, label %58
 
-59:                                               ; preds = %56
-  %60 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %58, i64 noundef %.041) #7
-  %.not40.i = icmp eq i32 %60, 0
-  br i1 %.not40.i, label %65, label %61
+58:                                               ; preds = %55
+  %59 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %57, i64 noundef %.041) #7
+  %.not40.i = icmp eq i32 %59, 0
+  br i1 %.not40.i, label %64, label %60
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 %.041
-  %64 = load i8, ptr %63, align 1
-  %.not41.i = icmp eq i8 %64, 0
-  br i1 %.not41.i, label %find_unencode_writer.exit, label %65
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %56, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 %.041
+  %63 = load i8, ptr %62, align 1
+  %.not41.i = icmp eq i8 %63, 0
+  br i1 %.not41.i, label %find_unencode_writer.exit, label %64
 
-65:                                               ; preds = %61, %59, %56
-  %66 = getelementptr inbounds i8, ptr %.151.i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not36.i = icmp eq ptr %67, null
+64:                                               ; preds = %60, %58, %55
+  %65 = getelementptr inbounds i8, ptr %.151.i, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %.not36.i = icmp eq ptr %66, null
   br i1 %.not36.i, label %find_unencode_writer.exit, label %.loopexit47.i, !llvm.loop !10
 
-find_unencode_writer.exit:                        ; preds = %52, %61, %65, %40, %46
-  %.0.i = phi ptr [ @Curl_httpchunk_unencoder, %46 ], [ @Curl_httpchunk_unencoder, %40 ], [ %49, %61 ], [ %49, %52 ], [ null, %65 ]
+find_unencode_writer.exit:                        ; preds = %51, %60, %64, %39, %45
+  %.0.i = phi ptr [ @Curl_httpchunk_unencoder, %45 ], [ @Curl_httpchunk_unencoder, %39 ], [ %48, %60 ], [ %48, %51 ], [ null, %64 ]
   %.not55 = icmp eq ptr %.0.i, null
   %spec.store.select = select i1 %.not55, ptr @error_writer, ptr %.0.i
-  %68 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select, i32 noundef %5) #7
-  %.not56 = icmp eq i32 %68, 0
-  br i1 %.not56, label %69, label %.loopexit
+  %67 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select, i32 noundef %5) #7
+  %.not56 = icmp eq i32 %67, 0
+  br i1 %.not56, label %68, label %.loopexit
 
-69:                                               ; preds = %find_unencode_writer.exit
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %70) #7
-  %.not57 = icmp eq i32 %71, 0
-  br i1 %.not57, label %._crit_edge, label %72
+68:                                               ; preds = %find_unencode_writer.exit
+  %69 = load ptr, ptr %4, align 8
+  %70 = call i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %69) #7
+  %.not57 = icmp eq i32 %70, 0
+  br i1 %.not57, label %._crit_edge, label %71
 
-._crit_edge:                                      ; preds = %69
+._crit_edge:                                      ; preds = %68
   %.pre = load i8, ptr %.2, align 1
-  br label %74
+  br label %73
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %4, align 8
-  call void @Curl_cwriter_free(ptr noundef %0, ptr noundef %73) #7
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %4, align 8
+  call void @Curl_cwriter_free(ptr noundef %0, ptr noundef %72) #7
   br label %.loopexit
 
-74:                                               ; preds = %._crit_edge, %.critedge2
-  %75 = phi i8 [ %.pre, %._crit_edge ], [ %14, %.critedge2 ]
-  %.not58 = icmp eq i8 %75, 0
+73:                                               ; preds = %._crit_edge, %.critedge2
+  %74 = phi i8 [ %.pre, %._crit_edge ], [ %14, %.critedge2 ]
+  %.not58 = icmp eq i8 %74, 0
   br i1 %.not58, label %.loopexit, label %.backedge
 
-.loopexit:                                        ; preds = %74, %find_unencode_writer.exit, %26, %27, %.critedge60, %72, %37
-  %.0 = phi i32 [ 61, %37 ], [ %71, %72 ], [ 0, %74 ], [ %68, %find_unencode_writer.exit ], [ 0, %26 ], [ 0, %27 ], [ 0, %.critedge60 ]
+.loopexit:                                        ; preds = %73, %find_unencode_writer.exit, %26, %27, %.critedge60, %71, %37
+  %.0 = phi i32 [ 61, %37 ], [ %70, %71 ], [ 0, %73 ], [ %67, %find_unencode_writer.exit ], [ 0, %26 ], [ 0, %27 ], [ 0, %.critedge60 ]
   ret i32 %.0
 }
 

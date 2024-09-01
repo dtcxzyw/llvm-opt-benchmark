@@ -13895,11 +13895,8 @@ if.end.i:                                         ; preds = %if.end
 if.then3.i:                                       ; preds = %if.end.i
   %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %if.then5.i, label %if.then3.i21
-
-if.then5.i:                                       ; preds = %if.then3.i
   %call7.i = tail call noundef i32 @_Z4log2j(i32 noundef %0)
-  br label %return
+  br i1 %3, label %return, label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
 
 if.end8.i:                                        ; preds = %if.end.i
   %m_ptr.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -13924,7 +13921,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds i32, ptr %m_digits.i, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp9.not.i = icmp eq i32 %6, 0
-  br i1 %cmp9.not.i, label %for.cond.i, label %if.end.i10
+  br i1 %cmp9.not.i, label %for.cond.i, label %if.end5.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end8.i
   %idxprom13.pre-phi.i = phi i64 [ 0, %if.end8.i ], [ %wide.trip.count.i, %for.cond.i ]
@@ -13932,7 +13929,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   %7 = load i32, ptr %arrayidx14.i, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %or.cond.i = icmp eq i32 %8, 1
-  br i1 %or.cond.i, label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i, label %if.end.i10
+  br i1 %or.cond.i, label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i, label %if.end5.i
 
 _ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i:        ; preds = %for.end.i
   %mul.i.i = shl i32 %sub.i, 5
@@ -13940,14 +13937,7 @@ _ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i:        ; preds = %for.end.i
   %add.i.i = add i32 %call7.i.i, %mul.i.i
   br label %return
 
-if.end.i10:                                       ; preds = %for.body.i, %for.end.i
-  br i1 %cmp.i.i4, label %if.then3.i21, label %if.end5.i
-
-if.then3.i21:                                     ; preds = %if.then3.i, %if.end.i10
-  %call4.i = tail call noundef i32 @_Z4log2j(i32 noundef %0)
-  br label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
-
-if.end5.i:                                        ; preds = %if.end.i10
+if.end5.i:                                        ; preds = %for.body.i, %for.end.i
   %m_ptr.i15 = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load ptr, ptr %m_ptr.i15, align 8
   %10 = load i32, ptr %9, align 4
@@ -13961,13 +13951,13 @@ if.end5.i:                                        ; preds = %if.end.i10
   %add.i = add i32 %mul.i, %call7.i19
   br label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
 
-_ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %if.then3.i21, %if.end5.i
-  %retval.0.i20 = phi i32 [ %call4.i, %if.then3.i21 ], [ %add.i, %if.end5.i ]
+_ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %if.then3.i, %if.end5.i
+  %retval.0.i20 = phi i32 [ %add.i, %if.end5.i ], [ %call7.i, %if.then3.i ]
   %add = add i32 %retval.0.i20, 1
   br label %return
 
-return:                                           ; preds = %if.then5.i, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i, %if.end, %entry, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
-  %retval.0 = phi i32 [ %add, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit ], [ 0, %entry ], [ 0, %if.end ], [ %add.i.i, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i ], [ %call7.i, %if.then5.i ]
+return:                                           ; preds = %if.then3.i, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i, %if.end, %entry, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
+  %retval.0 = phi i32 [ %add, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit ], [ 0, %entry ], [ 0, %if.end ], [ %add.i.i, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i ], [ %call7.i, %if.then3.i ]
   ret i32 %retval.0
 }
 
@@ -28593,11 +28583,8 @@ if.end.i:                                         ; preds = %if.end
 if.then3.i:                                       ; preds = %if.end.i
   %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
-  br i1 %3, label %if.then5.i, label %if.then3.i21
-
-if.then5.i:                                       ; preds = %if.then3.i
   %call7.i = tail call noundef i32 @_Z4log2j(i32 noundef %0)
-  br label %return
+  br i1 %3, label %return, label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
 
 if.end8.i:                                        ; preds = %if.end.i
   %m_ptr.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -28622,7 +28609,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds i32, ptr %m_digits.i, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp9.not.i = icmp eq i32 %6, 0
-  br i1 %cmp9.not.i, label %for.cond.i, label %if.end.i10
+  br i1 %cmp9.not.i, label %for.cond.i, label %if.end5.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end8.i
   %idxprom13.pre-phi.i = phi i64 [ 0, %if.end8.i ], [ %wide.trip.count.i, %for.cond.i ]
@@ -28630,7 +28617,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   %7 = load i32, ptr %arrayidx14.i, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7)
   %or.cond.i = icmp eq i32 %8, 1
-  br i1 %or.cond.i, label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i, label %if.end.i10
+  br i1 %or.cond.i, label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i, label %if.end5.i
 
 _ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i:        ; preds = %for.end.i
   %mul.i.i = shl i32 %sub.i, 5
@@ -28638,14 +28625,7 @@ _ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i:        ; preds = %for.end.i
   %add.i.i = add i32 %call7.i.i, %mul.i.i
   br label %return
 
-if.end.i10:                                       ; preds = %for.body.i, %for.end.i
-  br i1 %cmp.i.i4, label %if.then3.i21, label %if.end5.i
-
-if.then3.i21:                                     ; preds = %if.then3.i, %if.end.i10
-  %call4.i = tail call noundef i32 @_Z4log2j(i32 noundef %0)
-  br label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
-
-if.end5.i:                                        ; preds = %if.end.i10
+if.end5.i:                                        ; preds = %for.body.i, %for.end.i
   %m_ptr.i15 = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load ptr, ptr %m_ptr.i15, align 8
   %10 = load i32, ptr %9, align 4
@@ -28659,13 +28639,13 @@ if.end5.i:                                        ; preds = %if.end.i10
   %add.i = add i32 %mul.i, %call7.i19
   br label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
 
-_ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %if.then3.i21, %if.end5.i
-  %retval.0.i20 = phi i32 [ %call4.i, %if.then3.i21 ], [ %add.i, %if.end5.i ]
+_ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %if.then3.i, %if.end5.i
+  %retval.0.i20 = phi i32 [ %add.i, %if.end5.i ], [ %call7.i, %if.then3.i ]
   %add = add i32 %retval.0.i20, 1
   br label %return
 
-return:                                           ; preds = %if.then5.i, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i, %if.end, %entry, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
-  %retval.0 = phi i32 [ %add, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit ], [ 0, %entry ], [ 0, %if.end ], [ %add.i.i, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i ], [ %call7.i, %if.then5.i ]
+return:                                           ; preds = %if.then3.i, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i, %if.end, %entry, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
+  %retval.0 = phi i32 [ %add, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit ], [ 0, %entry ], [ 0, %if.end ], [ %add.i.i, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i ], [ %call7.i, %if.then3.i ]
   ret i32 %retval.0
 }
 

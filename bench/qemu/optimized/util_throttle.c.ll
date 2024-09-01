@@ -332,40 +332,31 @@ for.body:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
   %arrayidx = getelementptr [2 x ptr], ptr %tt, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp ne ptr %0, null
-  %or.cond.not = or i1 %cmp.not, %tobool.not
+  %tobool.not.not = icmp ne ptr %0, null
+  %or.cond.not = or i1 %cmp.not, %tobool.not.not
   br i1 %or.cond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.body
-  ret i1 %tobool.not
+  ret i1 %tobool.not.not
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define dso_local zeroext i1 @throttle_enabled(ptr nocapture noundef readonly %cfg) local_unnamed_addr #5 {
 entry:
-  %0 = load i64, ptr %cfg, align 8
-  %cmp1.not5 = icmp eq i64 %0, 0
-  br i1 %cmp1.not5, label %for.cond, label %return
+  br label %for.body
 
-for.cond:                                         ; preds = %entry, %for.body
-  %indvars.iv6 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv6, 1
+for.body:                                         ; preds = %for.body, %entry
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %indvars.iv
+  %0 = load i64, ptr %arrayidx, align 8
+  %cmp1.not.not = icmp ne i64 %0, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !10
+  %or.cond = select i1 %cmp1.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !10
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %indvars.iv.next
-  %1 = load i64, ptr %arrayidx, align 8
-  %cmp1.not = icmp eq i64 %1, 0
-  br i1 %cmp1.not, label %for.cond, label %return.loopexit, !llvm.loop !10
-
-return.loopexit:                                  ; preds = %for.cond, %for.body
-  %cmp.le = icmp ult i64 %indvars.iv6, 5
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp.le, %return.loopexit ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %for.body
+  ret i1 %cmp1.not.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

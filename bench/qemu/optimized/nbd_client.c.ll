@@ -471,12 +471,9 @@ if.else.i:                                        ; preds = %if.end13.i
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   %spec.select.i = select i1 %tobool15.not.i, i1 true, i1 %found_export.028.i102
   %cmp4.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
+  br i1 %cmp4.i, label %if.else7.i, label %if.end13.i
 
-if.then5.i:                                       ; preds = %if.else.i
-  br i1 %cmp4.i101, label %nbd_receive_query_exports.exit, label %if.else7.i
-
-if.else7.i:                                       ; preds = %if.then5.i
+if.else7.i:                                       ; preds = %if.else.i
   br i1 %spec.select.i, label %if.end11.i57, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else7.i
@@ -534,7 +531,7 @@ nbd_receive_query_exports.exit.thread:            ; preds = %if.end13.i, %if.the
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i52)
   br label %cleanup
 
-nbd_receive_query_exports.exit:                   ; preds = %if.else.i.preheader, %if.then5.i, %trace_nbd_receive_query_exports_success.exit.i
+nbd_receive_query_exports.exit:                   ; preds = %if.else.i.preheader, %trace_nbd_receive_query_exports_success.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i52)
   br label %sw.bb46
 

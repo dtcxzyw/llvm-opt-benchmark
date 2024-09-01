@@ -4442,48 +4442,44 @@ define dso_local noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr nocapture no
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = ptrtoint ptr %4 to i64
-  %7 = ptrtoint ptr %5 to i64
-  %8 = sub i64 %6, %7
-  %9 = ashr exact i64 %8, 3
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
+  %6 = ptrtoint ptr %4 to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = sub i64 %6, %7
+  %9 = ashr exact i64 %8, 3
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %._crit_edge, label %.lr.ph13
+  br label %12
 
-14:                                               ; preds = %25
-  %15 = getelementptr inbounds i32, ptr %11, i64 %26
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %._crit_edge, label %.lr.ph13, !llvm.loop !22
+12:                                               ; preds = %.lr.ph, %23
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %13 = getelementptr inbounds i32, ptr %11, i64 %.07
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %._crit_edge, label %16
 
-.lr.ph13:                                         ; preds = %.lr.ph, %14
-  %.0712 = phi i64 [ %26, %14 ], [ 0, %.lr.ph ]
-  %18 = phi i1 [ %27, %14 ], [ true, %.lr.ph ]
-  %19 = getelementptr inbounds ptr, ptr %5, i64 %.0712
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, 3
-  br i1 %22, label %23, label %25
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds ptr, ptr %5, i64 %.07
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 3
+  br i1 %20, label %21, label %23
 
-23:                                               ; preds = %.lr.ph13
-  %24 = tail call noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonnull align 8 dereferenceable(136) %20)
-  br i1 %24, label %._crit_edge, label %25
+21:                                               ; preds = %16
+  %22 = tail call noundef zeroext i1 @_ZNK4Type13has_bitfieldsEv(ptr noundef nonnull align 8 dereferenceable(136) %18)
+  br i1 %22, label %._crit_edge, label %23
 
-25:                                               ; preds = %.lr.ph13, %23
-  %26 = add nuw i64 %.0712, 1
-  %27 = icmp ult i64 %26, %9
-  %exitcond.not = icmp eq i64 %26, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !22
+23:                                               ; preds = %16, %21
+  %24 = add nuw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %24, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %25, %23, %14, %.lr.ph, %1
-  %.lcssa = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ %27, %14 ], [ %18, %23 ], [ %27, %25 ]
+._crit_edge:                                      ; preds = %12, %21, %23, %1
+  %.lcssa = phi i1 [ false, %1 ], [ false, %23 ], [ true, %21 ], [ true, %12 ]
   ret i1 %.lcssa
 }
 

@@ -50,9 +50,9 @@ if.end:                                           ; preds = %entry
   %cmp1.not46.i = icmp eq ptr %0, null
   br i1 %cmp1.not46.i, label %ossl_param_dup.exit, label %for.body.us.i
 
-for.body.us.i:                                    ; preds = %if.end, %if.end20.us.i
-  %param_count.0 = phi i32 [ %inc39.us.i, %if.end20.us.i ], [ 1, %if.end ]
-  %in.047.us.i = phi ptr [ %incdec.ptr41.us.i, %if.end20.us.i ], [ %src, %if.end ]
+for.body.us.i:                                    ; preds = %if.end, %if.else32.us.i
+  %param_count.0 = phi i32 [ %inc39.us.i, %if.else32.us.i ], [ 1, %if.end ]
+  %in.047.us.i = phi ptr [ %incdec.ptr41.us.i, %if.else32.us.i ], [ %src, %if.end ]
   %data.us.i = getelementptr inbounds i8, ptr %in.047.us.i, i64 16
   %1 = load ptr, ptr %data.us.i, align 8
   %call.us.i = tail call i32 @CRYPTO_secure_allocated(ptr noundef %1) #7
@@ -60,14 +60,14 @@ for.body.us.i:                                    ; preds = %if.end, %if.end20.u
   %2 = load i32, ptr %data_type.us.i, align 8
   %3 = and i32 %2, -2
   %switch.us.i = icmp eq i32 %3, 6
-  br i1 %switch.us.i, label %if.end20.us.i, label %if.else.us.i
+  br i1 %switch.us.i, label %if.else32.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %for.body.us.i
   %data_size.us.i = getelementptr inbounds i8, ptr %in.047.us.i, i64 24
   %4 = load i64, ptr %data_size.us.i, align 8
-  br label %if.end20.us.i
+  br label %if.else32.us.i
 
-if.end20.us.i:                                    ; preds = %if.else.us.i, %for.body.us.i
+if.else32.us.i:                                   ; preds = %if.else.us.i, %for.body.us.i
   %param_sz.0.us.i = phi i64 [ %4, %if.else.us.i ], [ 8, %for.body.us.i ]
   %cmp22.us.i = icmp eq i32 %2, 4
   %spec.select.us.i = select i1 %cmp22.us.i, i64 8, i64 7
@@ -84,7 +84,7 @@ if.end20.us.i:                                    ; preds = %if.else.us.i, %for.
   %cmp1.not.us.i = icmp eq ptr %6, null
   br i1 %cmp1.not.us.i, label %ossl_param_dup.exit.loopexit, label %for.body.us.i, !llvm.loop !4
 
-ossl_param_dup.exit.loopexit:                     ; preds = %if.end20.us.i
+ossl_param_dup.exit.loopexit:                     ; preds = %if.else32.us.i
   %blocks.i.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 16
   %.pre = load i64, ptr %blocks.i.phi.trans.insert, align 16
   %7 = zext nneg i32 %inc39.us.i to i64

@@ -2263,7 +2263,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %18, %.thread
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @lxb_html_tree_check_scope_element(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @lxb_html_tree_check_scope_element(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2275,14 +2275,13 @@ define hidden zeroext i1 @lxb_html_tree_check_scope_element(ptr nocapture nounde
   %6 = load ptr, ptr %3, align 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %13
-  %8 = phi i1 [ true, %.lr.ph ], [ %15, %13 ]
-  %.07 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %.07
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load i64, ptr %11, align 8
-  switch i64 %12, label %13 [
+7:                                                ; preds = %.lr.ph, %12
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %.07
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8
+  switch i64 %11, label %12 [
     i64 44, label %._crit_edge
     i64 53, label %._crit_edge
     i64 113, label %._crit_edge
@@ -2303,14 +2302,13 @@ define hidden zeroext i1 @lxb_html_tree_check_scope_element(ptr nocapture nounde
     i64 101, label %._crit_edge
   ]
 
-13:                                               ; preds = %7
-  %14 = add nuw i64 %.07, 1
-  %15 = icmp ult i64 %14, %5
-  %exitcond.not = icmp eq i64 %14, %5
+12:                                               ; preds = %7
+  %13 = add nuw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %13, %5
   br i1 %exitcond.not, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %13, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %15, %13 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ], [ %8, %7 ]
+._crit_edge:                                      ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %12, %1
+  %.lcssa = phi i1 [ false, %1 ], [ false, %12 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ]
   ret i1 %.lcssa
 }
 

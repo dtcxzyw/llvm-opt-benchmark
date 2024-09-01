@@ -1624,11 +1624,11 @@ if.then32.critedge:                               ; preds = %if.end192.i, %if.th
 while.end:                                        ; preds = %if.then32.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it_info.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %io.i)
-  br i1 %cmp.i41.not, label %if.then41, label %for.inc.sink.split
+  br label %for.inc.sink.split
 
-if.then41:                                        ; preds = %while.end.thread, %storage_write.exit, %while.end
-  %do_sleep.23275 = phi i1 [ %do_sleep.243, %storage_write.exit ], [ false, %while.end ], [ %do_sleep.050, %while.end.thread ]
-  %to_sleep.43673 = phi i32 [ %to_sleep.442, %storage_write.exit ], [ %spec.select21, %while.end ], [ %to_sleep.249, %while.end.thread ]
+if.then41:                                        ; preds = %while.end.thread, %storage_write.exit
+  %do_sleep.23275 = phi i1 [ %do_sleep.243, %storage_write.exit ], [ %do_sleep.050, %while.end.thread ]
+  %to_sleep.43673 = phi i32 [ %to_sleep.442, %storage_write.exit ], [ %to_sleep.249, %while.end.thread ]
   %75 = load i32, ptr %arrayidx, align 4
   %inc44 = add i32 %75, 1
   br label %for.inc.sink.split
@@ -1818,14 +1818,14 @@ land.lhs.true:                                    ; preds = %if.end18
   call void @extstore_get_stats(ptr noundef %arg, ptr noundef nonnull %st.i) #22
   %7 = load i64, ptr %pages_used.i, align 8
   %cmp.i = icmp eq i64 %7, 0
-  br i1 %cmp.i, label %if.end34.thread86, label %if.end.i
+  br i1 %cmp.i, label %if.else136, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %8 = load i64, ptr %pages_free.i, align 8
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 284), align 4
   %conv.i = zext i32 %9 to i64
   %cmp1.i = icmp ugt i64 %8, %conv.i
-  br i1 %cmp1.i, label %if.end34.thread86, label %if.end4.i
+  br i1 %cmp1.i, label %if.else136, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %conv6.i = uitofp nneg i64 %8 to double
@@ -1862,7 +1862,7 @@ do.end.i:                                         ; preds = %if.then17.i, %if.en
 if.else.i.thread:                                 ; preds = %do.end.i
   %17 = load i64, ptr %page_size8.i, align 8
   call void @free(ptr noundef %.pre39.i) #22
-  br label %if.end34.thread86
+  br label %if.else136
 
 for.body.i:                                       ; preds = %do.end.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %do.end.i ]
@@ -1914,23 +1914,23 @@ for.end.i:                                        ; preds = %for.inc.i
 
 if.else.i:                                        ; preds = %for.end.i
   %cmp72.not.i = icmp eq i64 %lowest_version.1.i, -1
-  br i1 %cmp72.not.i, label %if.end34, label %land.lhs.true.i
+  br i1 %cmp72.not.i, label %if.else136, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
   %23 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 312), align 8
   %tobool74.i = trunc i8 %23 to i1
-  br i1 %tobool74.i, label %land.lhs.true76.i, label %if.end34
+  br i1 %tobool74.i, label %land.lhs.true76.i, label %if.else136
 
 land.lhs.true76.i:                                ; preds = %land.lhs.true.i
   %24 = load i64, ptr %pages_free.i, align 8
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 288), align 8
   %conv78.i = zext i32 %25 to i64
   %cmp79.not.i = icmp ugt i64 %24, %conv78.i
-  br i1 %cmp79.not.i, label %if.end34, label %if.end28
+  br i1 %cmp79.not.i, label %if.else136, label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true76.i, %for.end.i
-  %page_version.2 = phi i64 [ %low_version.1.i, %for.end.i ], [ %lowest_version.1.i, %land.lhs.true76.i ]
-  %page_id.2 = phi i32 [ %low_page.1.i, %for.end.i ], [ %lowest_page.1.i, %land.lhs.true76.i ]
+  %page_version.2 = phi i64 [ %lowest_version.1.i, %land.lhs.true76.i ], [ %low_version.1.i, %for.end.i ]
+  %page_id.2 = phi i32 [ %lowest_page.1.i, %land.lhs.true76.i ], [ %low_page.1.i, %for.end.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %26 = load i16, ptr %eflags.i, align 4
   %27 = and i16 %26, 2
@@ -1941,23 +1941,13 @@ if.then31:                                        ; preds = %if.end28
   %call32 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 10, ptr noundef null, i32 noundef %page_id.2, i64 noundef %page_version.2) #22
   br label %if.then36
 
-if.end34.thread86:                                ; preds = %if.else.i.thread, %if.end.i, %land.lhs.true
-  %page_size.2.ph.ph = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ]
-  %drop_unread.2.ph.ph = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
-  br label %if.else136
-
-if.end34:                                         ; preds = %land.lhs.true76.i, %land.lhs.true.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
-  br i1 %tobool20, label %if.then36, label %if.else136
-
-if.then36:                                        ; preds = %if.end18, %if.end34, %if.end28, %if.then31
-  %page_offset.183 = phi i32 [ 0, %if.then31 ], [ 0, %if.end28 ], [ %page_offset.0.ph, %if.end34 ], [ %page_offset.0.ph, %if.end18 ]
-  %compacting.182 = phi i8 [ 1, %if.then31 ], [ 1, %if.end28 ], [ %compacting.0.ph, %if.end34 ], [ %compacting.0.ph, %if.end18 ]
-  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.then31 ], [ %cmp69.not.i, %if.end28 ], [ %drop_unread.0, %if.end18 ], [ false, %if.end34 ]
-  %page_id.179 = phi i32 [ %page_id.2, %if.then31 ], [ %page_id.2, %if.end28 ], [ %page_id.0.ph, %if.end34 ], [ %page_id.0.ph, %if.end18 ]
-  %page_size.176 = phi i64 [ %22, %if.then31 ], [ %22, %if.end28 ], [ %page_size.0, %if.end18 ], [ %22, %if.end34 ]
-  %page_version.175 = phi i64 [ %page_version.2, %if.then31 ], [ %page_version.2, %if.end28 ], [ %page_version.0.ph, %if.end34 ], [ %page_version.0.ph, %if.end18 ]
+if.then36:                                        ; preds = %if.end18, %if.end28, %if.then31
+  %page_offset.183 = phi i32 [ 0, %if.then31 ], [ 0, %if.end28 ], [ %page_offset.0.ph, %if.end18 ]
+  %compacting.182 = phi i8 [ 1, %if.then31 ], [ 1, %if.end28 ], [ %compacting.0.ph, %if.end18 ]
+  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.then31 ], [ %cmp69.not.i, %if.end28 ], [ %drop_unread.0, %if.end18 ]
+  %page_id.179 = phi i32 [ %page_id.2, %if.then31 ], [ %page_id.2, %if.end28 ], [ %page_id.0.ph, %if.end18 ]
+  %page_size.176 = phi i64 [ %22, %if.then31 ], [ %22, %if.end28 ], [ %page_size.0, %if.end18 ]
+  %page_version.175 = phi i64 [ %page_version.2, %if.then31 ], [ %page_version.2, %if.end28 ], [ %page_version.0.ph, %if.end18 ]
   %call38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock) #22
   %conv39 = zext i32 %page_offset.183 to i64
   %cmp40 = icmp ugt i64 %page_size.176, %conv39
@@ -2373,9 +2363,10 @@ if.end133:                                        ; preds = %do.end77, %if.else1
   %call135 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock) #22
   br label %while.body.outer
 
-if.else136:                                       ; preds = %if.end34.thread86, %if.end34
-  %drop_unread.2.ph90 = phi i1 [ %drop_unread.2.ph.ph, %if.end34.thread86 ], [ false, %if.end34 ]
-  %page_size.2.ph89 = phi i64 [ %page_size.2.ph.ph, %if.end34.thread86 ], [ %22, %if.end34 ]
+if.else136:                                       ; preds = %if.else.i, %land.lhs.true.i, %land.lhs.true76.i, %land.lhs.true, %if.end.i, %if.else.i.thread
+  %drop_unread.2.ph90 = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ], [ false, %land.lhs.true76.i ], [ false, %land.lhs.true.i ], [ false, %if.else.i ]
+  %page_size.2.ph89 = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ], [ %22, %land.lhs.true76.i ], [ %22, %land.lhs.true.i ], [ %22, %if.else.i ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %98 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 292), align 4
   %cmp137 = icmp ult i32 %to_sleep.0, %98
   %add140 = select i1 %cmp137, i32 %98, i32 0

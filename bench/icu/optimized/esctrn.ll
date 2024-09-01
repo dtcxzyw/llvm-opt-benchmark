@@ -968,13 +968,13 @@ cleanup.action58:                                 ; preds = %ehcleanup56
   br label %cleanup.action65
 
 cleanup.action65:                                 ; preds = %lpad29, %ehcleanup56, %cleanup.action58
-  %.pn.pn.pn26 = phi { ptr, i32 } [ %.pn.pn.ph, %ehcleanup56 ], [ %.pn.pn.ph, %cleanup.action58 ], [ %5, %lpad29 ]
+  %.pn.pn.pn24 = phi { ptr, i32 } [ %.pn.pn.ph, %ehcleanup56 ], [ %.pn.pn.ph, %cleanup.action58 ], [ %5, %lpad29 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp5) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
   br label %cleanup.action79
 
 cleanup.action79:                                 ; preds = %lpad2, %cleanup.action65
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn26, %cleanup.action65 ], [ %3, %lpad2 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn24, %cleanup.action65 ], [ %3, %lpad2 ]
   %8 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !4
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #10

@@ -5932,8 +5932,8 @@ for.body:                                         ; preds = %for.body, %if.end36
   %cmp43 = icmp slt i64 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  %or.cond80 = select i1 %cmp43, i1 true, i1 %exitcond.not
-  br i1 %or.cond80, label %if.then50, label %for.body, !llvm.loop !22
+  %or.cond79 = select i1 %cmp43, i1 true, i1 %exitcond.not
+  br i1 %or.cond79, label %if.then50, label %for.body, !llvm.loop !22
 
 if.then50.sink.split:                             ; preds = %if.else27, %if.else24
   %.sink = phi i64 [ 80, %if.else24 ], [ 88, %if.else27 ]

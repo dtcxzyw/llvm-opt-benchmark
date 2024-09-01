@@ -741,12 +741,9 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
 ._crit_edge:                                      ; preds = %118, %._crit_edge.split.loop.exit231
   %.0105.lcssa = phi i32 [ %119, %._crit_edge.split.loop.exit231 ], [ %smax, %118 ]
   %120 = icmp eq i32 %.0105.lcssa, %102
-  br i1 %120, label %.critedge2, label %.preheader
+  br i1 %120, label %.critedge2, label %.lr.ph172.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not197, label %._crit_edge173.thread, label %.lr.ph172.preheader
-
-.lr.ph172.preheader:                              ; preds = %.preheader
+.lr.ph172.preheader:                              ; preds = %._crit_edge
   %smax207 = call i32 @llvm.smax.i32(i32 %102, i32 1)
   %wide.trip.count209 = zext nneg i32 %smax207 to i64
   br label %.lr.ph172
@@ -772,7 +769,7 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %125 = icmp eq i32 %.1106.lcssa, %102
   br i1 %125, label %.critedge2, label %._crit_edge173.thread
 
-._crit_edge173.thread:                            ; preds = %100, %.preheader, %86, %._crit_edge173
+._crit_edge173.thread:                            ; preds = %100, %86, %._crit_edge173
   %126 = getelementptr inbounds i8, ptr %83, i64 64
   %127 = load i32, ptr %126, align 8
   %.val137 = load ptr, ptr %27, align 8
@@ -1350,12 +1347,9 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
 ._crit_edge:                                      ; preds = %101, %._crit_edge.split.loop.exit220
   %.0101.lcssa = phi i32 [ %102, %._crit_edge.split.loop.exit220 ], [ %smax, %101 ]
   %103 = icmp eq i32 %.0101.lcssa, %89
-  br i1 %103, label %.critedge2, label %.preheader
+  br i1 %103, label %.critedge2, label %.lr.ph165.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not, label %._crit_edge166.thread, label %.lr.ph165.preheader
-
-.lr.ph165.preheader:                              ; preds = %.preheader
+.lr.ph165.preheader:                              ; preds = %._crit_edge
   %smax195 = call i32 @llvm.smax.i32(i32 %89, i32 1)
   %wide.trip.count197 = zext nneg i32 %smax195 to i64
   br label %.lr.ph165
@@ -1381,7 +1375,7 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %108 = icmp eq i32 %.1102.lcssa, %89
   br i1 %108, label %.critedge2, label %._crit_edge166.thread
 
-._crit_edge166.thread:                            ; preds = %87, %.preheader, %79, %._crit_edge166
+._crit_edge166.thread:                            ; preds = %87, %79, %._crit_edge166
   %109 = getelementptr inbounds i8, ptr %76, i64 64
   %110 = load i32, ptr %109, align 8
   %.val134 = load ptr, ptr %22, align 8
@@ -1802,9 +1796,6 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %19, label %.critedge.preheader, !llvm.loop !33
 
-.critedge2.preheader:                             ; preds = %.critedge
-  br i1 %17, label %.lr.ph116, label %.critedge4
-
 29:                                               ; preds = %.lr.ph113, %.critedge
   %indvars.iv124 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next125, %.critedge ]
   %30 = getelementptr inbounds ptr, ptr %.val89.val.pre, i64 %indvars.iv124
@@ -1836,11 +1827,11 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 .critedge:                                        ; preds = %33, %29, %40, %36
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %44 = icmp ult i64 %indvars.iv.next125, %18
-  br i1 %44, label %29, label %.critedge2.preheader, !llvm.loop !34
+  br i1 %44, label %29, label %.lr.ph116, !llvm.loop !34
 
-.lr.ph116:                                        ; preds = %.critedge2.preheader, %.critedge2
-  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %45 = phi ptr [ %58, %.critedge2 ], [ %.val97, %.critedge2.preheader ]
+.lr.ph116:                                        ; preds = %.critedge, %.critedge2
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.critedge2 ], [ 0, %.critedge ]
+  %45 = phi ptr [ %58, %.critedge2 ], [ %.val97, %.critedge ]
   %46 = getelementptr i8, ptr %45, i64 8
   %.val88.val = load ptr, ptr %46, align 8
   %47 = getelementptr inbounds ptr, ptr %.val88.val, i64 %indvars.iv127
@@ -1879,9 +1870,9 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
   %62 = icmp sgt i32 %.val82, 0
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge.preheader, %.critedge4.loopexit, %.critedge2.preheader
-  %.val120 = phi i1 [ %62, %.critedge4.loopexit ], [ false, %.critedge2.preheader ], [ false, %.critedge.preheader ]
-  %63 = phi ptr [ %58, %.critedge4.loopexit ], [ %.val97, %.critedge2.preheader ], [ %.val97, %.critedge.preheader ]
+.critedge4:                                       ; preds = %.critedge.preheader, %.critedge4.loopexit
+  %.val120 = phi i1 [ %62, %.critedge4.loopexit ], [ false, %.critedge.preheader ]
+  %63 = phi ptr [ %58, %.critedge4.loopexit ], [ %.val97, %.critedge.preheader ]
   %64 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %65 = getelementptr inbounds i8, ptr %64, i64 4
   store i32 0, ptr %65, align 4

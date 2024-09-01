@@ -458,7 +458,7 @@ for.end:                                          ; preds = %for.inc
   %type_.i = getelementptr inbounds i8, ptr %scoped_z, i64 8
   store i32 1, ptr %type_.i, align 8
   %cmp18.not = icmp eq i64 %uncompressed_size.1, 0
-  br i1 %cmp18.not, label %if.end73, label %if.then19
+  br i1 %cmp18.not, label %for.body.i71.preheader, label %if.then19
 
 if.then19:                                        ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %z, i8 0, i64 120, i1 false)
@@ -566,7 +566,7 @@ if.end70:                                         ; preds = %if.end64
 
 cleanup.thread:                                   ; preds = %if.end70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib_dict) #15
-  br i1 %cmp160.not, label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit, label %for.body.i71.preheader
+  br label %for.body.i71.preheader
 
 cleanup228.thread234:                             ; preds = %.noexc68
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp67) #15
@@ -578,12 +578,9 @@ ehcleanup:                                        ; preds = %lpad68.body, %lpad4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib_dict) #15
   br label %ehcleanup231.thread
 
-if.end73:                                         ; preds = %for.end
-  br i1 %cmp160.not, label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit, label %for.body.i71.preheader
-
-for.body.i71.preheader:                           ; preds = %cleanup.thread, %if.end73
-  %compressed_size.0231 = phi i64 [ %call72, %cleanup.thread ], [ 0, %if.end73 ]
-  %cond230 = phi i64 [ 4, %cleanup.thread ], [ 0, %if.end73 ]
+for.body.i71.preheader:                           ; preds = %for.end, %cleanup.thread
+  %compressed_size.0231 = phi i64 [ %call72, %cleanup.thread ], [ 0, %for.end ]
+  %cond230 = phi i64 [ 4, %cleanup.thread ], [ 0, %for.end ]
   br label %for.body.i71
 
 for.body.i71:                                     ; preds = %for.body.i71.preheader, %for.inc.i
@@ -614,16 +611,16 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   %29 = add i64 %entries_size.1.i, 1
   br label %_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit
 
-_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit: ; preds = %cleanup.thread, %if.end73.thread, %if.end73, %for.end.loopexit.i
-  %compressed_size.0223 = phi i64 [ 0, %if.end73 ], [ %compressed_size.0231, %for.end.loopexit.i ], [ 0, %if.end73.thread ], [ %call72, %cleanup.thread ]
-  %cond222 = phi i64 [ 0, %if.end73 ], [ %cond230, %for.end.loopexit.i ], [ 0, %if.end73.thread ], [ 4, %cleanup.thread ]
-  %cmp160.not195202221 = phi i1 [ true, %if.end73 ], [ false, %for.end.loopexit.i ], [ true, %if.end73.thread ], [ true, %cleanup.thread ]
-  %30 = phi ptr [ %19, %if.end73 ], [ %19, %for.end.loopexit.i ], [ %.ph, %if.end73.thread ], [ %19, %cleanup.thread ]
-  %entries.val193203220 = phi ptr [ %cond.i12.i.i.i156, %if.end73 ], [ %cond.i12.i.i.i156, %for.end.loopexit.i ], [ %entries.val193.ph, %if.end73.thread ], [ %cond.i12.i.i.i156, %cleanup.thread ]
-  %uncompressed_size.0.lcssa205219 = phi i64 [ 0, %if.end73 ], [ %uncompressed_size.1, %for.end.loopexit.i ], [ 0, %if.end73.thread ], [ %uncompressed_size.1, %cleanup.thread ]
-  %type_.i207218 = phi ptr [ %type_.i, %if.end73 ], [ %type_.i, %for.end.loopexit.i ], [ %type_.i200, %if.end73.thread ], [ %type_.i, %cleanup.thread ]
-  %cmp18.not208217 = phi i1 [ true, %if.end73 ], [ %cmp18.not, %for.end.loopexit.i ], [ true, %if.end73.thread ], [ false, %cleanup.thread ]
-  %entries_size.0.lcssa.i = phi i64 [ 1, %if.end73 ], [ %29, %for.end.loopexit.i ], [ 1, %if.end73.thread ], [ 1, %cleanup.thread ]
+_ZN3net12_GLOBAL__N_115CertEntriesSizeERKSt6vectorINS0_9CertEntryESaIS2_EE.exit: ; preds = %if.end73.thread, %for.end.loopexit.i
+  %compressed_size.0223 = phi i64 [ %compressed_size.0231, %for.end.loopexit.i ], [ 0, %if.end73.thread ]
+  %cond222 = phi i64 [ %cond230, %for.end.loopexit.i ], [ 0, %if.end73.thread ]
+  %cmp160.not195202221 = phi i1 [ false, %for.end.loopexit.i ], [ true, %if.end73.thread ]
+  %30 = phi ptr [ %19, %for.end.loopexit.i ], [ %.ph, %if.end73.thread ]
+  %entries.val193203220 = phi ptr [ %cond.i12.i.i.i156, %for.end.loopexit.i ], [ %entries.val193.ph, %if.end73.thread ]
+  %uncompressed_size.0.lcssa205219 = phi i64 [ %uncompressed_size.1, %for.end.loopexit.i ], [ 0, %if.end73.thread ]
+  %type_.i207218 = phi ptr [ %type_.i, %for.end.loopexit.i ], [ %type_.i200, %if.end73.thread ]
+  %cmp18.not208217 = phi i1 [ %cmp18.not, %for.end.loopexit.i ], [ true, %if.end73.thread ]
+  %entries_size.0.lcssa.i = phi i64 [ %29, %for.end.loopexit.i ], [ 1, %if.end73.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #15
   %add78 = add i64 %compressed_size.0223, %cond222
   %add79 = add i64 %add78, %entries_size.0.lcssa.i

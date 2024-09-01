@@ -5641,8 +5641,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 13:                                               ; preds = %15, %2
   %14 = call noundef align 4 dereferenceable_or_null(20) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e296a31c878daa6E.llvm.2919776409019166437"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !1096
-  %.not.not.i.not.i.not.i = icmp eq ptr %14, null
-  br i1 %.not.not.i.not.i.not.i, label %"_ZN11ide_assists8handlers18expand_glob_import4Refs18filter_out_by_defs28_$u7b$$u7b$closure$u7d$$u7d$17h7df24f9ccf75caf8E.llvm.6977743830891006301.exit", label %15
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %14, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %"_ZN11ide_assists8handlers18expand_glob_import4Refs18filter_out_by_defs28_$u7b$$u7b$closure$u7d$$u7d$17h7df24f9ccf75caf8E.llvm.6977743830891006301.exit", label %15
 
 15:                                               ; preds = %13
   %16 = call noundef zeroext i1 @"_ZN65_$LT$ide_db..defs..Definition$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab0f901ec60fdec2E.llvm.2919776409019166437"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %10), !noalias !1106
@@ -5650,7 +5650,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 "_ZN11ide_assists8handlers18expand_glob_import4Refs18filter_out_by_defs28_$u7b$$u7b$closure$u7d$$u7d$17h7df24f9ccf75caf8E.llvm.6977743830891006301.exit": ; preds = %13, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1102
-  ret i1 %.not.not.i.not.i.not.i
+  ret i1 %.not.not.not.not.i.not.not.not.i.not.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23443,7 +23443,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %.thread, label %5
 
 .thread:                                          ; preds = %.loopexit.i.i.i.i.i, %16, %12, %5, %.preheader.split, %_ZN4core3cmp9PartialEq2ne17h8a1502e7970bb3d3E.exit, %25, %.lr.ph.i10.i.i.i.i.i, %39, %46, %49, %54, %_ZN4core3cmp9PartialEq2ne17h55a6b46ee60ec0fcE.exit.i.i.i.i.i.i.i, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3cmp9PartialEq2ne17h55a6b46ee60ec0fcE.exit.i.i.i.i.i.i.i ], [ false, %54 ], [ false, %49 ], [ false, %46 ], [ false, %39 ], [ false, %.lr.ph.i10.i.i.i.i.i ], [ false, %25 ], [ %exitcond.not, %.loopexit.i.i.i.i.i ], [ false, %16 ], [ false, %12 ], [ false, %5 ], [ true, %.preheader.split ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h8a1502e7970bb3d3E.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3cmp9PartialEq2ne17h55a6b46ee60ec0fcE.exit.i.i.i.i.i.i.i ], [ false, %54 ], [ false, %49 ], [ false, %46 ], [ false, %39 ], [ false, %.lr.ph.i10.i.i.i.i.i ], [ false, %25 ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h8a1502e7970bb3d3E.exit ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %5 ], [ %exitcond.not, %12 ], [ %exitcond.not, %16 ], [ %exitcond.not, %.loopexit.i.i.i.i.i ]
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split
@@ -39476,8 +39476,8 @@ define hidden noundef zeroext i1 @"_ZN11ide_assists8handlers18expand_glob_import
 
 12:                                               ; preds = %14, %2
   %13 = call noundef align 4 dereferenceable_or_null(20) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e296a31c878daa6E.llvm.2919776409019166437"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-  %.not.not.i.not.i.not = icmp eq ptr %13, null
-  br i1 %.not.not.i.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb6bc43d382df0a10E.exit", label %14
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %13, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb6bc43d382df0a10E.exit", label %14
 
 14:                                               ; preds = %12
   %15 = call noundef zeroext i1 @"_ZN65_$LT$ide_db..defs..Definition$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab0f901ec60fdec2E.llvm.2919776409019166437"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %9), !noalias !9899
@@ -39485,7 +39485,7 @@ define hidden noundef zeroext i1 @"_ZN11ide_assists8handlers18expand_glob_import
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hb6bc43d382df0a10E.exit": ; preds = %12, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !9895
-  ret i1 %.not.not.i.not.i.not
+  ret i1 %.not.not.not.not.i.not.not.not.i.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

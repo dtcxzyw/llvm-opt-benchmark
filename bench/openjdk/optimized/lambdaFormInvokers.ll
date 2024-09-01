@@ -979,12 +979,12 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_70ELS1_0ELS1_
 define hidden void @_ZN18LambdaFormInvokers28dump_static_archive_invokersEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZN18LambdaFormInvokers17_lambdaform_linesE, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %57, label %2
+  br i1 %.not, label %55, label %2
 
 2:                                                ; preds = %0
   %3 = load i32, ptr %1, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.preheader, label %57
+  br i1 %4, label %.preheader, label %55
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -994,127 +994,113 @@ define hidden void @_ZN18LambdaFormInvokers28dump_static_archive_invokersEv() lo
 
 7:                                                ; preds = %.preheader, %_ZL18should_be_archivedPc.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZL18should_be_archivedPc.exit ]
-  %.038 = phi i32 [ 0, %.preheader ], [ %spec.select, %_ZL18should_be_archivedPc.exit ]
+  %.034 = phi i32 [ 0, %.preheader ], [ %spec.select, %_ZL18should_be_archivedPc.exit ]
   %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.25) #15
-  %.not.i33 = icmp eq ptr %10, null
-  br i1 %.not.i33, label %.lr.ph, label %_ZL18should_be_archivedPc.exit
+  br label %10
 
-.lr.ph:                                           ; preds = %7, %11
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %7 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i34, 1
+10:                                               ; preds = %10, %7
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %10 ]
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZL6filter, i64 0, i64 %indvars.iv.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %12) #15
+  %.not.not.i = icmp ne ptr %13, null
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZL18should_be_archivedPc.exit.loopexit, label %11, !llvm.loop !12
+  %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZL18should_be_archivedPc.exit, label %10, !llvm.loop !12
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds [4 x ptr], ptr @_ZL6filter, i64 0, i64 %indvars.iv.next.i
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %13) #15
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %.lr.ph, label %_ZL18should_be_archivedPc.exit.loopexit, !llvm.loop !12
-
-_ZL18should_be_archivedPc.exit.loopexit:          ; preds = %.lr.ph, %11
-  %15 = icmp ult i64 %indvars.iv.i34, 3
-  br label %_ZL18should_be_archivedPc.exit
-
-_ZL18should_be_archivedPc.exit:                   ; preds = %_ZL18should_be_archivedPc.exit.loopexit, %7
-  %.lcssa.i = phi i1 [ true, %7 ], [ %15, %_ZL18should_be_archivedPc.exit.loopexit ]
-  %16 = zext i1 %.lcssa.i to i32
-  %spec.select = add nuw nsw i32 %.038, %16
+_ZL18should_be_archivedPc.exit:                   ; preds = %10
+  %14 = zext i1 %.not.not.i to i32
+  %spec.select = add nuw nsw i32 %.034, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %17, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %15, label %7, !llvm.loop !13
 
-17:                                               ; preds = %_ZL18should_be_archivedPc.exit
-  %.not48 = icmp eq i32 %spec.select, 0
-  br i1 %.not48, label %.loopexit, label %.lr.ph47.preheader
+15:                                               ; preds = %_ZL18should_be_archivedPc.exit
+  %.not37 = icmp eq i32 %spec.select, 0
+  br i1 %.not37, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph47.preheader:                               ; preds = %17
-  %18 = add nsw i32 %spec.select, -1
-  %19 = zext nneg i32 %18 to i64
-  %20 = shl nuw nsw i64 %19, 3
-  %21 = add nuw nsw i64 %20, 16
-  %22 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 336
-  %24 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %23, i64 noundef %21) #13
-  store i32 %spec.select, ptr %24, align 8
-  store ptr %24, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
-  %.pre56 = load ptr, ptr @_ZN18LambdaFormInvokers17_lambdaform_linesE, align 8
-  br label %.lr.ph47
+.lr.ph.preheader:                                 ; preds = %15
+  %16 = add nsw i32 %spec.select, -1
+  %17 = zext nneg i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = add nuw nsw i64 %18, 16
+  %20 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 336
+  %22 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %21, i64 noundef %19) #13
+  store i32 %spec.select, ptr %22, align 8
+  store ptr %22, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
+  %.pre44 = load ptr, ptr @_ZN18LambdaFormInvokers17_lambdaform_linesE, align 8
+  br label %.lr.ph
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %_ZL18should_be_archivedPc.exit31.thread
-  %25 = phi ptr [ %.pre56, %.lr.ph47.preheader ], [ %54, %_ZL18should_be_archivedPc.exit31.thread ]
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next52, %_ZL18should_be_archivedPc.exit31.thread ]
-  %.02245 = phi i32 [ 0, %.lr.ph47.preheader ], [ %.123, %_ZL18should_be_archivedPc.exit31.thread ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
+  %23 = phi ptr [ %.pre44, %.lr.ph.preheader ], [ %52, %51 ]
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next40, %51 ]
+  %.02235 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %51 ]
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv39
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv51
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.25) #15
-  %.not.i2739 = icmp eq ptr %30, null
-  br i1 %.not.i2739, label %.lr.ph41, label %.critedge
+  br label %28
 
-.lr.ph41:                                         ; preds = %.lr.ph47, %31
-  %indvars.iv.i2640 = phi i64 [ %indvars.iv.next.i29, %31 ], [ 0, %.lr.ph47 ]
-  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i2640, 1
-  %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 4
-  br i1 %exitcond.not.i30, label %_ZL18should_be_archivedPc.exit31.thread, label %31, !llvm.loop !12
+28:                                               ; preds = %28, %.lr.ph
+  %indvars.iv.i26 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i28, %28 ]
+  %29 = getelementptr inbounds [4 x ptr], ptr @_ZL6filter, i64 0, i64 %indvars.iv.i26
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %30) #15
+  %.not.not.i27 = icmp ne ptr %31, null
+  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
+  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 4
+  %or.cond.i30 = select i1 %.not.not.i27, i1 true, i1 %exitcond.not.i29
+  br i1 %or.cond.i30, label %_ZL18should_be_archivedPc.exit31, label %28, !llvm.loop !12
 
-31:                                               ; preds = %.lr.ph41
-  %32 = getelementptr inbounds [4 x ptr], ptr @_ZL6filter, i64 0, i64 %indvars.iv.next.i29
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %33) #15
-  %.not.i27 = icmp eq ptr %34, null
-  br i1 %.not.i27, label %.lr.ph41, label %_ZL18should_be_archivedPc.exit31, !llvm.loop !12
+_ZL18should_be_archivedPc.exit31:                 ; preds = %28
+  br i1 %.not.not.i27, label %32, label %51
 
-_ZL18should_be_archivedPc.exit31:                 ; preds = %31
-  %35 = icmp ult i64 %indvars.iv.i2640, 3
-  br i1 %35, label %.critedge, label %_ZL18should_be_archivedPc.exit31.thread
-
-.critedge:                                        ; preds = %.lr.ph47, %_ZL18should_be_archivedPc.exit31
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #15
-  %37 = add i64 %36, 1
-  %38 = trunc i64 %37 to i32
-  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
-  %narrow.i = add nuw i32 %39, 7
-  %40 = zext i32 %narrow.i to i64
-  %41 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 336
-  %43 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %42, i64 noundef %40) #13
-  store i32 %38, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  %45 = tail call ptr @strncpy(ptr noundef nonnull %44, ptr noundef %29, i64 noundef %37) #13
-  %46 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = sext i32 %.02245 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  store ptr %43, ptr %49, align 8
-  %50 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %48
-  tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %52) #13
-  %53 = add nsw i32 %.02245, 1
+32:                                               ; preds = %_ZL18should_be_archivedPc.exit31
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #15
+  %34 = add i64 %33, 1
+  %35 = trunc i64 %34 to i32
+  %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 1)
+  %narrow.i = add nuw i32 %36, 7
+  %37 = zext i32 %narrow.i to i64
+  %38 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 336
+  %40 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %39, i64 noundef %37) #13
+  store i32 %35, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = tail call ptr @strncpy(ptr noundef nonnull %41, ptr noundef %27, i64 noundef %34) #13
+  %43 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = sext i32 %.02235 to i64
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  store ptr %40, ptr %46, align 8
+  %47 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %45
+  tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull %49) #13
+  %50 = add nsw i32 %.02235, 1
   %.pre = load ptr, ptr @_ZN18LambdaFormInvokers17_lambdaform_linesE, align 8
-  br label %_ZL18should_be_archivedPc.exit31.thread
+  br label %51
 
-_ZL18should_be_archivedPc.exit31.thread:          ; preds = %.lr.ph41, %_ZL18should_be_archivedPc.exit31, %.critedge
-  %54 = phi ptr [ %.pre, %.critedge ], [ %25, %_ZL18should_be_archivedPc.exit31 ], [ %25, %.lr.ph41 ]
-  %.123 = phi i32 [ %53, %.critedge ], [ %.02245, %_ZL18should_be_archivedPc.exit31 ], [ %.02245, %.lr.ph41 ]
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph47, !llvm.loop !14
+51:                                               ; preds = %_ZL18should_be_archivedPc.exit31, %32
+  %52 = phi ptr [ %.pre, %32 ], [ %23, %_ZL18should_be_archivedPc.exit31 ]
+  %.123 = phi i32 [ %50, %32 ], [ %.02235, %_ZL18should_be_archivedPc.exit31 ]
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_ZL18should_be_archivedPc.exit31.thread, %17
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not32 = icmp eq ptr %55, null
-  br i1 %.not32, label %57, label %56
+.loopexit:                                        ; preds = %51, %15
+  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not32 = icmp eq ptr %53, null
+  br i1 %.not32, label %55, label %54
 
-56:                                               ; preds = %.loopexit
+54:                                               ; preds = %.loopexit
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i32 noundef %spec.select)
-  br label %57
+  br label %55
 
-57:                                               ; preds = %56, %.loopexit, %2, %0
+55:                                               ; preds = %54, %.loopexit, %2, %0
   ret void
 }
 
@@ -2595,9 +2581,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -2605,20 +2590,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !17
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !17
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !18
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

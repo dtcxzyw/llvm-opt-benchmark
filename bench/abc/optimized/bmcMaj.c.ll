@@ -1297,15 +1297,12 @@ Maj_ManValue.exit.thread:                         ; preds = %2
 Maj_ManValue.exit:                                ; preds = %.lr.ph.i
   %12 = lshr i32 %5, 1
   %13 = icmp ugt i32 %10, %12
-  br i1 %6, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %Maj_ManValue.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 49192
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+15:                                               ; preds = %Maj_ManValue.exit, %15
+  %indvars.iv = phi i64 [ 0, %Maj_ManValue.exit ], [ %indvars.iv.next, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = lshr i32 %1, %16
   %18 = and i32 %17, 1
@@ -1316,9 +1313,9 @@ Maj_ManValue.exit:                                ; preds = %.lr.ph.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %15, %Maj_ManValue.exit.thread, %Maj_ManValue.exit
-  %.in = phi i1 [ %7, %Maj_ManValue.exit.thread ], [ %13, %Maj_ManValue.exit ], [ %13, %15 ]
-  %21 = zext i1 %.in to i32
+._crit_edge:                                      ; preds = %15, %Maj_ManValue.exit.thread
+  %.shrunk = phi i1 [ %7, %Maj_ManValue.exit.thread ], [ %13, %15 ]
+  %21 = zext i1 %.shrunk to i32
   %22 = getelementptr inbounds i8, ptr %0, i64 49464
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7132,7 +7129,7 @@ Exa3_ManEval.exit:                                ; preds = %.lr.ph.i84.i
 .loopexit:                                        ; preds = %902, %Exa3_ManEval.exit, %Exa3_ManEval.exit.thread, %Exa3_ManAddCnf.exit.thread, %Exa3_ManAddCnf2.exit
   %.051204 = phi i32 [ %.051213, %Exa3_ManAddCnf2.exit ], [ %.051213, %Exa3_ManAddCnf.exit.thread ], [ -1, %Exa3_ManEval.exit.thread ], [ -1, %Exa3_ManEval.exit ], [ %.051213, %902 ]
   %.049195 = phi i32 [ %.049215, %Exa3_ManAddCnf2.exit ], [ %.049215, %Exa3_ManAddCnf.exit.thread ], [ %1032, %Exa3_ManEval.exit.thread ], [ %1059, %Exa3_ManEval.exit ], [ %.049215, %902 ]
-  %.not54190 = phi i1 [ false, %Exa3_ManAddCnf2.exit ], [ false, %Exa3_ManAddCnf.exit.thread ], [ %or.cond, %Exa3_ManEval.exit.thread ], [ %or.cond, %Exa3_ManEval.exit ], [ false, %902 ]
+  %.not54190 = phi i1 [ false, %Exa3_ManAddCnf2.exit ], [ false, %Exa3_ManAddCnf.exit.thread ], [ true, %Exa3_ManEval.exit.thread ], [ %or.cond, %Exa3_ManEval.exit ], [ %or.cond, %902 ]
   %.2 = phi i32 [ %.1214, %Exa3_ManAddCnf2.exit ], [ %.1214, %Exa3_ManAddCnf.exit.thread ], [ %886, %Exa3_ManEval.exit.thread ], [ %886, %Exa3_ManEval.exit ], [ %886, %902 ]
   %1060 = load i32, ptr %534, align 8
   %1061 = icmp ne i32 %1060, 0
@@ -7637,9 +7634,9 @@ Mini_AigNodeIsAnd.exit.i81:                       ; preds = %34
 Mini_AigNodeIsAnd.exit.thread.i82:                ; preds = %41, %Mini_AigNodeIsAnd.exit.i81, %34
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i78
-  br i1 %exitcond.not.i84, label %.lr.ph51.i, label %34, !llvm.loop !135
+  br i1 %exitcond.not.i84, label %.preheader.i, label %34, !llvm.loop !135
 
-.lr.ph51.i:                                       ; preds = %Mini_AigNodeIsAnd.exit.thread.i82, %Mini_AigNodeIsPo.exit.thread.i
+.preheader.i:                                     ; preds = %Mini_AigNodeIsAnd.exit.thread.i82, %Mini_AigNodeIsPo.exit.thread.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %Mini_AigNodeIsPo.exit.thread.i ], [ 1, %Mini_AigNodeIsAnd.exit.thread.i82 ]
   %.03249.i = phi i32 [ %.133.i, %Mini_AigNodeIsPo.exit.thread.i ], [ 0, %Mini_AigNodeIsAnd.exit.thread.i82 ]
   %53 = shl nuw nsw i64 %indvars.iv53.i, 1
@@ -7648,7 +7645,7 @@ Mini_AigNodeIsAnd.exit.thread.i82:                ; preds = %41, %Mini_AigNodeIs
   %.not.i43.i = icmp eq i32 %55, 2147483647
   br i1 %.not.i43.i, label %Mini_AigNodeIsPo.exit.thread.i, label %Mini_AigNodeIsPo.exit.i
 
-Mini_AigNodeIsPo.exit.i:                          ; preds = %.lr.ph51.i
+Mini_AigNodeIsPo.exit.i:                          ; preds = %.preheader.i
   %56 = or disjoint i64 %53, 1
   %57 = getelementptr inbounds i32, ptr %.val.i.i, i64 %56
   %58 = load i32, ptr %57, align 4
@@ -7663,11 +7660,11 @@ Mini_AigNodeIsPo.exit.i:                          ; preds = %.lr.ph51.i
   %64 = tail call i32 @llvm.smax.i32(i32 %.03249.i, i32 %63)
   br label %Mini_AigNodeIsPo.exit.thread.i
 
-Mini_AigNodeIsPo.exit.thread.i:                   ; preds = %59, %Mini_AigNodeIsPo.exit.i, %.lr.ph51.i
-  %.133.i = phi i32 [ %64, %59 ], [ %.03249.i, %Mini_AigNodeIsPo.exit.i ], [ %.03249.i, %.lr.ph51.i ]
+Mini_AigNodeIsPo.exit.thread.i:                   ; preds = %59, %Mini_AigNodeIsPo.exit.i, %.preheader.i
+  %.133.i = phi i32 [ %64, %59 ], [ %.03249.i, %Mini_AigNodeIsPo.exit.i ], [ %.03249.i, %.preheader.i ]
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i78
-  br i1 %exitcond58.not.i, label %._crit_edge.i.loopexit, label %.lr.ph51.i, !llvm.loop !136
+  br i1 %exitcond58.not.i, label %._crit_edge.i.loopexit, label %.preheader.i, !llvm.loop !136
 
 ._crit_edge.i.loopexit:                           ; preds = %Mini_AigNodeIsPo.exit.thread.i
   %65 = add nuw nsw i32 %spec.select.i, 1
@@ -9046,7 +9043,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   %103 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
   %104 = load i32, ptr %103, align 4
   switch i32 %104, label %105 [
-    i32 1, label %Exa4_ManAddClause.exit
+    i32 1, label %.lr.ph447.preheader
     i32 0, label %112
   ]
 
@@ -9072,7 +9069,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 ._crit_edge.i:                                    ; preds = %112
   %113 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %113, null
-  br i1 %.not.i, label %Exa4_ManAddClause.exit, label %118
+  br i1 %.not.i, label %.lr.ph447.preheader, label %118
 
 ._crit_edge.thread.i:                             ; preds = %89, %._crit_edge
   %114 = load ptr, ptr %23, align 8
@@ -9114,16 +9111,13 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 ._crit_edge38.loopexit.i:                         ; preds = %.lr.ph37.i
   %.pre.i = load ptr, ptr %23, align 8
   %129 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 2, i64 1, ptr %.pre.i)
-  br i1 %101, label %.lr.ph447.preheader, label %._crit_edge448
+  br label %.lr.ph447.preheader
 
 ._crit_edge38.i:                                  ; preds = %118
   %130 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 2, i64 1, ptr nonnull %113)
-  br i1 %101, label %.lr.ph447.preheader, label %._crit_edge448
+  br label %.lr.ph447.preheader
 
-Exa4_ManAddClause.exit:                           ; preds = %102, %._crit_edge.i
-  br i1 %101, label %.lr.ph447.preheader, label %._crit_edge448
-
-.lr.ph447.preheader:                              ; preds = %._crit_edge38.loopexit.i, %._crit_edge38.i, %Exa4_ManAddClause.exit
+.lr.ph447.preheader:                              ; preds = %102, %._crit_edge.i, %._crit_edge38.loopexit.i, %._crit_edge38.i
   %131 = zext nneg i32 %.1209 to i64
   %wide.trip.count538 = zext nneg i32 %.1209 to i64
   br label %.lr.ph447
@@ -9232,7 +9226,7 @@ Exa4_ManAddClause4.exit:                          ; preds = %140, %._crit_edge.i
   %exitcond534.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count538
   br i1 %exitcond534.not, label %.loopexit428, label %136, !llvm.loop !161
 
-._crit_edge448:                                   ; preds = %.loopexit428, %._crit_edge38.loopexit.i, %._crit_edge38.i.thread, %._crit_edge.thread.i, %._crit_edge38.i, %Exa4_ManAddClause.exit
+._crit_edge448:                                   ; preds = %.loopexit428, %._crit_edge38.i.thread, %._crit_edge.thread.i
   br i1 %91, label %215, label %.preheader432
 
 .preheader432:                                    ; preds = %._crit_edge448
@@ -17130,10 +17124,7 @@ define i64 @Mini_AigWriteEntry(ptr nocapture noundef readonly %0) local_unnamed_
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %7
 
-.preheader:                                       ; preds = %Mini_AigNodeIsAnd.exit.thread
-  br i1 %4, label %.lr.ph50, label %._crit_edge
-
-.lr.ph50:                                         ; preds = %.preheader
+.lr.ph50:                                         ; preds = %Mini_AigNodeIsAnd.exit.thread
   %6 = getelementptr i8, ptr %0, i64 16
   %.val.i39 = load ptr, ptr %6, align 8
   %smax56 = tail call i32 @llvm.smax.i32(i32 %3, i32 2)
@@ -17193,7 +17184,7 @@ Mini_AigNodeIsAnd.exit.thread:                    ; preds = %7, %29, %Mini_AigNo
   %.2 = phi i64 [ %.1, %29 ], [ %.046, %Mini_AigNodeIsAnd.exit ], [ %.046, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !259
+  br i1 %exitcond.not, label %.lr.ph50, label %7, !llvm.loop !259
 
 33:                                               ; preds = %.lr.ph50, %Mini_AigNodeIsPo.exit.thread
   %indvars.iv53 = phi i64 [ 1, %.lr.ph50 ], [ %indvars.iv.next54, %Mini_AigNodeIsPo.exit.thread ]
@@ -17224,8 +17215,8 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %33, %40, %Mini_AigN
   %exitcond58.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count57
   br i1 %exitcond58.not, label %._crit_edge, label %33, !llvm.loop !260
 
-._crit_edge:                                      ; preds = %Mini_AigNodeIsPo.exit.thread, %1, %.preheader
-  %.3.lcssa = phi i64 [ %.2, %.preheader ], [ 0, %1 ], [ %.4, %Mini_AigNodeIsPo.exit.thread ]
+._crit_edge:                                      ; preds = %Mini_AigNodeIsPo.exit.thread, %1
+  %.3.lcssa = phi i64 [ 0, %1 ], [ %.4, %Mini_AigNodeIsPo.exit.thread ]
   ret i64 %.3.lcssa
 }
 
@@ -17518,9 +17509,9 @@ Mini_AigNodeIsAnd.exit.thread.i:                  ; preds = %75, %Mini_AigNodeIs
   %.2.i = phi i64 [ %.1.i, %75 ], [ %.046.i, %Mini_AigNodeIsAnd.exit.i ], [ %.046.i, %53 ]
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i46, label %.lr.ph50.i, label %53, !llvm.loop !259
+  br i1 %exitcond.not.i46, label %.preheader.i, label %53, !llvm.loop !259
 
-.lr.ph50.i:                                       ; preds = %Mini_AigNodeIsAnd.exit.thread.i, %Mini_AigNodeIsPo.exit.thread.i
+.preheader.i:                                     ; preds = %Mini_AigNodeIsAnd.exit.thread.i, %Mini_AigNodeIsPo.exit.thread.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %Mini_AigNodeIsPo.exit.thread.i ], [ 1, %Mini_AigNodeIsAnd.exit.thread.i ]
   %.349.i = phi i64 [ %.4.i, %Mini_AigNodeIsPo.exit.thread.i ], [ %.2.i, %Mini_AigNodeIsAnd.exit.thread.i ]
   %79 = shl nuw nsw i64 %indvars.iv53.i, 1
@@ -17529,7 +17520,7 @@ Mini_AigNodeIsAnd.exit.thread.i:                  ; preds = %75, %Mini_AigNodeIs
   %.not.i40.i = icmp eq i32 %81, 2147483647
   br i1 %.not.i40.i, label %Mini_AigNodeIsPo.exit.thread.i, label %Mini_AigNodeIsPo.exit.i
 
-Mini_AigNodeIsPo.exit.i:                          ; preds = %.lr.ph50.i
+Mini_AigNodeIsPo.exit.i:                          ; preds = %.preheader.i
   %82 = or disjoint i64 %79, 1
   %83 = getelementptr inbounds i32, ptr %.val.i.i, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -17543,11 +17534,11 @@ Mini_AigNodeIsPo.exit.i:                          ; preds = %.lr.ph50.i
   %spec.select.i = or i64 %88, %.349.i
   br label %Mini_AigNodeIsPo.exit.thread.i
 
-Mini_AigNodeIsPo.exit.thread.i:                   ; preds = %85, %Mini_AigNodeIsPo.exit.i, %.lr.ph50.i
-  %.4.i = phi i64 [ %.349.i, %Mini_AigNodeIsPo.exit.i ], [ %spec.select.i, %85 ], [ %.349.i, %.lr.ph50.i ]
+Mini_AigNodeIsPo.exit.thread.i:                   ; preds = %85, %Mini_AigNodeIsPo.exit.i, %.preheader.i
+  %.4.i = phi i64 [ %.349.i, %Mini_AigNodeIsPo.exit.i ], [ %spec.select.i, %85 ], [ %.349.i, %.preheader.i ]
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
-  br i1 %exitcond58.not.i, label %Mini_AigWriteEntry.exit, label %.lr.ph50.i, !llvm.loop !260
+  br i1 %exitcond58.not.i, label %Mini_AigWriteEntry.exit, label %.preheader.i, !llvm.loop !260
 
 Mini_AigWriteEntry.exit:                          ; preds = %Mini_AigNodeIsPo.exit.thread.i, %48
   %.3.lcssa.i = phi i64 [ 0, %48 ], [ %.4.i, %Mini_AigNodeIsPo.exit.thread.i ]
@@ -20024,7 +20015,7 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   %100 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4
   switch i32 %101, label %102 [
-    i32 1, label %Exa6_ManAddClause.exit
+    i32 1, label %.lr.ph425.preheader
     i32 0, label %111
   ]
 
@@ -20052,7 +20043,7 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 ._crit_edge.i:                                    ; preds = %111
   %112 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %112, null
-  br i1 %.not.i, label %Exa6_ManAddClause.exit, label %117
+  br i1 %.not.i, label %.lr.ph425.preheader, label %117
 
 ._crit_edge.thread.i:                             ; preds = %86, %._crit_edge
   %113 = load ptr, ptr %22, align 8
@@ -20094,16 +20085,13 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 ._crit_edge39.loopexit.i:                         ; preds = %.lr.ph38.i
   %.pre.i = load ptr, ptr %22, align 8
   %128 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 2, i64 1, ptr %.pre.i)
-  br i1 %98, label %.lr.ph425.preheader, label %._crit_edge426
+  br label %.lr.ph425.preheader
 
 ._crit_edge39.i:                                  ; preds = %117
   %129 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 2, i64 1, ptr nonnull %112)
-  br i1 %98, label %.lr.ph425.preheader, label %._crit_edge426
+  br label %.lr.ph425.preheader
 
-Exa6_ManAddClause.exit:                           ; preds = %99, %._crit_edge.i
-  br i1 %98, label %.lr.ph425.preheader, label %._crit_edge426
-
-.lr.ph425.preheader:                              ; preds = %._crit_edge39.loopexit.i, %._crit_edge39.i, %Exa6_ManAddClause.exit
+.lr.ph425.preheader:                              ; preds = %99, %._crit_edge.i, %._crit_edge39.loopexit.i, %._crit_edge39.i
   %130 = zext nneg i32 %.1207 to i64
   %wide.trip.count515 = zext nneg i32 %.1207 to i64
   br label %.lr.ph425
@@ -20214,7 +20202,7 @@ Exa6_ManAddClause4.exit:                          ; preds = %139, %._crit_edge.i
   %exitcond511.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count515
   br i1 %exitcond511.not, label %.loopexit406, label %135, !llvm.loop !309
 
-._crit_edge426:                                   ; preds = %.loopexit406, %._crit_edge39.loopexit.i, %._crit_edge39.i.thread, %._crit_edge.thread.i, %._crit_edge39.i, %Exa6_ManAddClause.exit
+._crit_edge426:                                   ; preds = %.loopexit406, %._crit_edge39.i.thread, %._crit_edge.thread.i
   br i1 %88, label %218, label %.preheader410
 
 .preheader410:                                    ; preds = %._crit_edge426
@@ -23172,10 +23160,7 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i77, %Mini_A
   %31 = zext nneg i32 %14 to i64
   br label %33
 
-.preheader92:                                     ; preds = %44
-  br i1 %5, label %.lr.ph98, label %Vec_IntFree.exit
-
-.lr.ph98:                                         ; preds = %.preheader92
+.lr.ph98:                                         ; preds = %44
   %32 = getelementptr i8, ptr %0, i64 16
   br label %48
 
@@ -23202,7 +23187,7 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i77, %Mini_A
   %.157 = phi i32 [ %38, %37 ], [ %.05694, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %45, label %33, label %.preheader92, !llvm.loop !356
+  br i1 %45, label %33, label %.lr.ph98, !llvm.loop !356
 
 .preheader:                                       ; preds = %Mini_AigNodeIsAnd.exit.thread
   %46 = icmp sgt i32 %.val62, 3
@@ -23323,7 +23308,7 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %82, %89, %Mini_AigN
   %101 = icmp slt i64 %indvars.iv.next108, %100
   br i1 %101, label %82, label %Vec_IntFree.exit, !llvm.loop !358
 
-Vec_IntFree.exit:                                 ; preds = %Mini_AigNodeIsPo.exit.thread, %Mini_AigStartSupport.exit, %.preheader92, %.preheader
+Vec_IntFree.exit:                                 ; preds = %Mini_AigNodeIsPo.exit.thread, %Mini_AigStartSupport.exit, %.preheader
   tail call void @free(ptr noundef nonnull %27) #33
   ret ptr %15
 }
@@ -23477,18 +23462,15 @@ Exa6_ManFindPolar.exit:                           ; preds = %Exa6_ManPolarMinter
 
 Exa6_ManFindPolar.exit.thread:                    ; preds = %Vec_WrdAlloc.exit
   %26 = icmp sgt i32 %.val12, 0
-  br i1 %26, label %Exa6_ManPolarMinterm.exit.us.preheader, label %.critedge
+  br i1 %26, label %Exa6_ManPolarMinterm.exit.us, label %.critedge
 
 .lr.ph:                                           ; preds = %Exa6_ManFindPolar.exit
   %27 = shl nuw nsw i32 1, %1
   %wide.trip.count.i = zext nneg i32 %27 to i64
-  br i1 %.not13.i, label %Exa6_ManPolarMinterm.exit.us.preheader, label %.lr.ph.preheader.i
+  br label %.lr.ph.preheader.i
 
-Exa6_ManPolarMinterm.exit.us.preheader:           ; preds = %Exa6_ManFindPolar.exit.thread, %.lr.ph
-  br label %Exa6_ManPolarMinterm.exit.us
-
-Exa6_ManPolarMinterm.exit.us:                     ; preds = %Exa6_ManPolarMinterm.exit.us.preheader, %Vec_WrdPush.exit.us
-  %.020.us = phi i32 [ %55, %Vec_WrdPush.exit.us ], [ 0, %Exa6_ManPolarMinterm.exit.us.preheader ]
+Exa6_ManPolarMinterm.exit.us:                     ; preds = %Exa6_ManFindPolar.exit.thread, %Vec_WrdPush.exit.us
+  %.020.us = phi i32 [ %55, %Vec_WrdPush.exit.us ], [ 0, %Exa6_ManFindPolar.exit.thread ]
   %28 = load i32, ptr %6, align 4
   %29 = load i32, ptr %4, align 8
   %30 = icmp eq i32 %28, %29

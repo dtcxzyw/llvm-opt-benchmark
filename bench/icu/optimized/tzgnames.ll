@@ -4008,7 +4008,7 @@ invoke.cont97:                                    ; preds = %call1.i.noexc, %cal
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont7, %if.end93, %invoke.cont97, %if.end19
-  %cmp.i4264 = phi i1 [ false, %if.end19 ], [ %cmp.i42, %invoke.cont97 ], [ true, %if.end93 ], [ false, %invoke.cont7 ]
+  %cmp.i4264 = phi i1 [ false, %if.end19 ], [ true, %invoke.cont97 ], [ true, %if.end93 ], [ false, %invoke.cont7 ]
   %cacheEntry.0 = phi ptr [ null, %if.end19 ], [ %cacheEntry.2, %invoke.cont97 ], [ %cacheEntry.2, %if.end93 ], [ null, %invoke.cont7 ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L9gTZGNLockE)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i

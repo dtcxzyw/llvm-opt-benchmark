@@ -4242,31 +4242,31 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph40.split.us.split
   %7 = load ptr, ptr %4, align 8
-  %wide.trip.count91 = zext nneg i32 %5 to i64
+  %wide.trip.count84 = zext nneg i32 %5 to i64
   br label %.lr.ph.us.us59
 
 .lr.ph.us.us59:                                   ; preds = %.thread33.us.us58, %.lr.ph56.split.us
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.thread33.us.us58 ], [ 0, %.lr.ph56.split.us ]
-  %.idx100 = shl i64 %indvars.iv88, 3
-  %8 = getelementptr i8, ptr %7, i64 %.idx100
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.thread33.us.us58 ], [ 0, %.lr.ph56.split.us ]
+  %.idx88 = shl i64 %indvars.iv81, 3
+  %8 = getelementptr i8, ptr %7, i64 %.idx88
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %13
 
 12:                                               ; preds = %15
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count91
-  br i1 %exitcond87.not, label %.thread33.us.us58, label %13, !llvm.loop !12
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
+  br i1 %exitcond80.not, label %.thread33.us.us58, label %13, !llvm.loop !12
 
 13:                                               ; preds = %.lr.ph.us.us59, %12
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph.us.us59 ], [ %indvars.iv.next84, %12 ]
-  %.idx99 = shl i64 %indvars.iv83, 3
-  %14 = icmp eq i64 %.idx99, %.idx100
+  %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.us59 ], [ %indvars.iv.next77, %12 ]
+  %.idx87 = shl i64 %indvars.iv76, 3
+  %14 = icmp eq i64 %.idx87, %.idx88
   br i1 %14, label %.thread33.us.us58, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr i8, ptr %7, i64 %.idx99
+  %16 = getelementptr i8, ptr %7, i64 %.idx87
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -4275,19 +4275,19 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
   br i1 %21, label %.split.us, label %12
 
 .thread33.us.us58:                                ; preds = %13, %12
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.us.us59
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.us.us59
 
 .lr.ph40.split.split:                             ; preds = %.lr.ph40
   br i1 %6, label %.lr.ph53, label %._crit_edge
 
 .lr.ph53:                                         ; preds = %.lr.ph40.split.split, %.thread33
   %22 = phi i32 [ %45, %.thread33 ], [ %5, %.lr.ph40.split.split ]
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.thread33 ], [ 0, %.lr.ph40.split.split ]
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.thread33 ], [ 0, %.lr.ph40.split.split ]
   %23 = load ptr, ptr %4, align 8
-  %.idx98 = shl i64 %indvars.iv73, 3
-  %24 = getelementptr i8, ptr %23, i64 %.idx98
+  %.idx86 = shl i64 %indvars.iv71, 3
+  %24 = getelementptr i8, ptr %23, i64 %.idx86
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -4306,7 +4306,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.idx = shl i64 %indvars.iv, 3
-  %31 = icmp eq i64 %.idx, %.idx98
+  %31 = icmp eq i64 %.idx, %.idx86
   br i1 %31, label %.thread33, label %32
 
 32:                                               ; preds = %30
@@ -4330,12 +4330,12 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 .thread33:                                        ; preds = %30, %29, %.lr.ph53
   %42 = tail call ptr @cstring_to_text(ptr noundef %27) #10
   %43 = ptrtoint ptr %42 to i64
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %44 = getelementptr i64, ptr %1, i64 %indvars.iv73
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %44 = getelementptr i64, ptr %1, i64 %indvars.iv71
   store i64 %43, ptr %44, align 8
   %45 = load i32, ptr %3, align 4
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next74, %46
+  %47 = icmp slt i64 %indvars.iv.next72, %46
   br i1 %47, label %.lr.ph53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread33, %.thread33.us.us58, %.lr.ph40.split.us.split, %.lr.ph40.split.split, %2

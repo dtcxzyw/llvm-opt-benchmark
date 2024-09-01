@@ -196,7 +196,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   store ptr %82, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %87, ptr %90, align 8
-  br i1 %84, label %.lr.ph.i36, label %Vec_IntPush.exit
+  br label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %Vec_PtrAllocSimInfo.exit, %.lr.ph.i36
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i38, %.lr.ph.i36 ], [ 0, %Vec_PtrAllocSimInfo.exit ]
@@ -218,7 +218,7 @@ Vec_IntPush.exit.critedge:                        ; preds = %.critedge
   store ptr %93, ptr %96, align 8
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.lr.ph.i36, %Vec_IntPush.exit.critedge, %Vec_PtrAllocSimInfo.exit
+Vec_IntPush.exit:                                 ; preds = %.lr.ph.i36, %Vec_IntPush.exit.critedge
   %97 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   store i32 100, ptr %97, align 8

@@ -53,7 +53,7 @@ _ZN15NumberlikeArrayItEC2EPKtj.exit:              ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store i16 %3, ptr %17, align 8
   %18 = icmp ult i16 %3, 2
-  br i1 %18, label %.invoke, label %.preheader
+  br i1 %18, label %.invoke, label %.lr.ph
 
 _ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -61,10 +61,7 @@ _ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %4
   %20 = icmp ult i16 %3, 2
   br i1 %20, label %.invoke, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit
 
-.preheader:                                       ; preds = %_ZN15NumberlikeArrayItEC2EPKtj.exit
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %_ZN15NumberlikeArrayItEC2EPKtj.exit
   %21 = load ptr, ptr %9, align 8
   br label %28
 
@@ -104,7 +101,7 @@ _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %22, %26
 .cont:                                            ; preds = %.invoke
   unreachable
 
-._crit_edge:                                      ; preds = %27, %.preheader
+._crit_edge:                                      ; preds = %27
   %.not1.i = icmp eq i32 %14, 0
   br i1 %.not1.i, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit, label %.lr.ph.i12
 

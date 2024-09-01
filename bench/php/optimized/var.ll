@@ -3628,9 +3628,9 @@ define hidden void @zif_var_export(ptr noundef %0, ptr nocapture noundef writeon
 
 18:                                               ; preds = %15, %.thread240
   %.0194250 = phi i32 [ 1, %.thread240 ], [ 9, %15 ]
-  %.0196249 = phi i32 [ 0, %.thread240 ], [ 2, %15 ]
   %.0197248 = phi ptr [ null, %.thread240 ], [ %16, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0194250, i32 noundef %.0196249, ptr noundef null, i32 noundef %.0196249, ptr noundef %.0197248) #12
+  %.0198247 = phi i32 [ 0, %.thread240 ], [ 2, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0194250, i32 noundef %.0198247, ptr noundef null, i32 noundef %.0198247, ptr noundef %.0197248) #12
   br label %102
 
 .thread232:                                       ; preds = %15, %.thread251, %8

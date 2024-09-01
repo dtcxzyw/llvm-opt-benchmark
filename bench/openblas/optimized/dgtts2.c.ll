@@ -50,17 +50,17 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %45 = zext nneg i32 %20 to i64
   %46 = getelementptr double, ptr %19, i64 %33
   %47 = getelementptr double, ptr %19, i64 %42
-  br i1 %32, label %.split21.us, label %.thread9
+  br i1 %32, label %.split20.us, label %.thread9
 
-.split21.us:                                      ; preds = %31, %.thread11.us
+.split20.us:                                      ; preds = %31, %.thread11.us
   %48 = phi i64 [ %126, %.thread11.us ], [ 1, %31 ]
   %49 = mul nsw i64 %48, %30
   %50 = add nsw i64 %49, 1
   %51 = getelementptr double, ptr %19, i64 %49
   br label %52
 
-52:                                               ; preds = %82, %.split21.us
-  %53 = phi i64 [ 1, %.split21.us ], [ %83, %82 ]
+52:                                               ; preds = %82, %.split20.us
+  %53 = phi i64 [ 1, %.split20.us ], [ %83, %82 ]
   %54 = getelementptr inbounds i32, ptr %15, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !3
   %56 = zext i32 %55 to i64
@@ -156,7 +156,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .thread11.us:                                     ; preds = %99, %85
   %126 = add nuw nsw i64 %48, 1
   %127 = icmp eq i64 %126, %44
-  br i1 %127, label %.thread8, label %.split21.us, !llvm.loop !13
+  br i1 %127, label %.thread8, label %.split20.us, !llvm.loop !13
 
 128:                                              ; preds = %29
   %129 = sext i32 %20 to i64
@@ -314,7 +314,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %250 = load double, ptr %223, align 8, !tbaa !7
   %251 = fdiv double %249, %250
   store double %251, ptr %245, align 8, !tbaa !7
-  br i1 %224, label %.preheader18.us.preheader, label %252
+  br i1 %224, label %.loopexit18.us.preheader, label %252
 
 252:                                              ; preds = %.split.us
   %253 = mul i64 %232, %237
@@ -344,13 +344,13 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %274, ptr %259, align 8, !tbaa !7
   %275 = add nuw nsw i64 %258, 1
   %276 = icmp eq i64 %275, %235
-  br i1 %276, label %.preheader18.us.preheader, label %256, !llvm.loop !16
+  br i1 %276, label %.loopexit18.us.preheader, label %256, !llvm.loop !16
 
-.preheader18.us.preheader:                        ; preds = %256, %.split.us
-  br label %.preheader18.us
+.loopexit18.us.preheader:                         ; preds = %256, %.split.us
+  br label %.loopexit18.us
 
-.preheader18.us:                                  ; preds = %.preheader18.us.preheader, %301
-  %277 = phi i64 [ %278, %301 ], [ %226, %.preheader18.us.preheader ]
+.loopexit18.us:                                   ; preds = %.loopexit18.us.preheader, %301
+  %277 = phi i64 [ %278, %301 ], [ %226, %.loopexit18.us.preheader ]
   %278 = add nsw i64 %277, -1
   %279 = getelementptr inbounds i32, ptr %15, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !3
@@ -358,7 +358,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %282 = icmp eq i64 %278, %281
   br i1 %282, label %292, label %283
 
-283:                                              ; preds = %.preheader18.us
+283:                                              ; preds = %.loopexit18.us
   %284 = getelementptr double, ptr %241, i64 %277
   %285 = load double, ptr %284, align 8, !tbaa !7
   %286 = getelementptr double, ptr %241, i64 %278
@@ -371,7 +371,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %285, ptr %286, align 8, !tbaa !7
   br label %301
 
-292:                                              ; preds = %.preheader18.us
+292:                                              ; preds = %.loopexit18.us
   %293 = getelementptr inbounds double, ptr %11, i64 %278
   %294 = load double, ptr %293, align 8, !tbaa !7
   %295 = getelementptr double, ptr %241, i64 %277
@@ -385,7 +385,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 301:                                              ; preds = %292, %283
   %302 = icmp sgt i64 %277, 2
-  br i1 %302, label %.preheader18.us, label %.thread15.loopexit.us, !llvm.loop !17
+  br i1 %302, label %.loopexit18.us, label %.thread15.loopexit.us, !llvm.loop !17
 
 .thread15.loopexit.us:                            ; preds = %301
   %303 = add nuw nsw i64 %238, 1
@@ -420,7 +420,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %323 = load double, ptr %317, align 8, !tbaa !7
   %324 = fdiv double %322, %323
   store double %324, ptr %318, align 8, !tbaa !7
-  br i1 %316, label %.preheader.preheader, label %325
+  br i1 %316, label %.loopexit.preheader, label %325
 
 325:                                              ; preds = %315
   %326 = zext i32 %307 to i64
@@ -454,13 +454,13 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %351, ptr %336, align 8, !tbaa !7
   %352 = add nuw nsw i64 %335, 1
   %353 = icmp eq i64 %352, %326
-  br i1 %353, label %.preheader.preheader, label %333, !llvm.loop !19
+  br i1 %353, label %.loopexit.preheader, label %333, !llvm.loop !19
 
-.preheader.preheader:                             ; preds = %333, %315
-  br label %.preheader
+.loopexit.preheader:                              ; preds = %333, %315
+  br label %.loopexit
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %354 = phi i64 [ %355, %.preheader ], [ %308, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
+  %354 = phi i64 [ %355, %.loopexit ], [ %308, %.loopexit.preheader ]
   %355 = add nsw i64 %354, -1
   %356 = getelementptr inbounds i32, ptr %15, i64 %355
   %357 = load i32, ptr %356, align 4, !tbaa !3
@@ -478,7 +478,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %368, ptr %358, align 8, !tbaa !7
   store double %365, ptr %367, align 8, !tbaa !7
   %369 = icmp sgt i64 %354, 2
-  br i1 %369, label %.preheader, label %.thread8, !llvm.loop !20
+  br i1 %369, label %.loopexit, label %.thread8, !llvm.loop !20
 
 .thread15:                                        ; preds = %.thread15, %.split
   %370 = phi i64 [ 1, %.split ], [ %375, %.thread15 ]
@@ -492,7 +492,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %376 = icmp eq i64 %375, %229
   br i1 %376, label %.thread8, label %.thread15, !llvm.loop !18
 
-.thread8:                                         ; preds = %.thread15, %.thread15.loopexit.us, %.preheader, %.thread9, %.thread11.us, %185, %306, %.thread, %170, %22, %10
+.thread8:                                         ; preds = %.thread15, %.thread15.loopexit.us, %.loopexit, %.thread9, %.thread11.us, %185, %306, %.thread, %170, %22, %10
   ret void
 }
 

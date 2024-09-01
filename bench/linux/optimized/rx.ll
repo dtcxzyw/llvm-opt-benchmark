@@ -1283,7 +1283,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %15 = icmp eq ptr %14, %1
   %16 = icmp eq ptr %14, null
   %17 = or i1 %15, %16
-  br i1 %17, label %.loopexit167, label %18
+  br i1 %17, label %.loopexit168, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1626,7 +1626,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %254 = getelementptr inbounds i8, ptr %148, i64 79
   %255 = load i8, ptr %254, align 1
   %256 = icmp eq i8 %255, 0
-  br i1 %256, label %.loopexit166, label %257
+  br i1 %256, label %.loopexit167, label %257
 
 257:                                              ; preds = %253
   %258 = getelementptr inbounds i8, ptr %147, i64 148
@@ -1676,15 +1676,15 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
 287:                                              ; preds = %285, %262
   %288 = add nuw nsw i64 %263, 1
   %289 = icmp eq i64 %288, 4
-  br i1 %289, label %.loopexit166, label %262, !llvm.loop !57
+  br i1 %289, label %.loopexit167, label %262, !llvm.loop !57
 
-.loopexit166:                                     ; preds = %287, %253
+.loopexit167:                                     ; preds = %287, %253
   %290 = load i16, ptr %151, align 2
   %291 = and i16 %290, 252
   %292 = icmp eq i16 %291, 28
   br i1 %292, label %368, label %293
 
-293:                                              ; preds = %.loopexit166
+293:                                              ; preds = %.loopexit167
   %294 = getelementptr inbounds i8, ptr %146, i64 72
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 88
@@ -1811,7 +1811,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   call void @consume_skb(ptr noundef %367) #18
   br label %.thread119
 
-368:                                              ; preds = %145, %.loopexit166, %338
+368:                                              ; preds = %145, %.loopexit167, %338
   %369 = load ptr, ptr %20, align 8
   %370 = getelementptr inbounds i8, ptr %369, i64 200
   %371 = load ptr, ptr %370, align 8
@@ -1987,8 +1987,8 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %482 = getelementptr inbounds i8, ptr %481, i64 48
   %483 = getelementptr [8 x ptr], ptr %482, i64 0, i64 %467
   %484 = load volatile ptr, ptr %483, align 8
-  %.not171 = icmp eq ptr %484, null
-  br i1 %.not171, label %485, label %.thread93
+  %.not164 = icmp eq ptr %484, null
+  br i1 %.not164, label %485, label %.thread93
 
 485:                                              ; preds = %480
   %486 = getelementptr [8 x ptr], ptr %476, i64 0, i64 %469
@@ -2136,7 +2136,7 @@ thread-pre-split:                                 ; preds = %500
 565:                                              ; preds = %561
   %566 = load ptr, ptr %24, align 8
   %567 = icmp eq ptr %566, null
-  br i1 %567, label %.loopexit165, label %568
+  br i1 %567, label %.loopexit166, label %568
 
 568:                                              ; preds = %565
   %569 = getelementptr inbounds i8, ptr %566, i64 32
@@ -2145,7 +2145,7 @@ thread-pre-split:                                 ; preds = %500
 570:                                              ; preds = %573
   %571 = add nuw nsw i64 %574, 1
   %572 = icmp eq i64 %571, 4
-  br i1 %572, label %.loopexit165, label %573, !llvm.loop !59
+  br i1 %572, label %.loopexit166, label %573, !llvm.loop !59
 
 573:                                              ; preds = %570, %568
   %574 = phi i64 [ 0, %568 ], [ %571, %570 ]
@@ -2154,7 +2154,7 @@ thread-pre-split:                                 ; preds = %500
   %577 = icmp eq ptr %576, null
   br i1 %577, label %570, label %.thread103
 
-.loopexit165:                                     ; preds = %570, %565
+.loopexit166:                                     ; preds = %570, %565
   %578 = load ptr, ptr %21, align 8
   %579 = getelementptr inbounds i8, ptr %578, i64 48
   br label %583
@@ -2164,8 +2164,8 @@ thread-pre-split:                                 ; preds = %500
   %582 = icmp eq i64 %581, 4
   br i1 %582, label %.thread121, label %583, !llvm.loop !60
 
-583:                                              ; preds = %580, %.loopexit165
-  %584 = phi i64 [ 0, %.loopexit165 ], [ %581, %580 ]
+583:                                              ; preds = %580, %.loopexit166
+  %584 = phi i64 [ 0, %.loopexit166 ], [ %581, %580 ]
   %585 = getelementptr [8 x ptr], ptr %579, i64 0, i64 %584
   %586 = load volatile ptr, ptr %585, align 8
   %587 = icmp eq ptr %586, null
@@ -4343,9 +4343,9 @@ thread-pre-split112:                              ; preds = %430, %651
   %1857 = icmp eq ptr %1856, %1
   %1858 = icmp eq ptr %1856, null
   %1859 = or i1 %1857, %1858
-  br i1 %1859, label %.loopexit167, label %46, !llvm.loop !68
+  br i1 %1859, label %.loopexit168, label %46, !llvm.loop !68
 
-.loopexit167:                                     ; preds = %.thread119, %2
+.loopexit168:                                     ; preds = %.thread119, %2
   %1860 = load ptr, ptr %11, align 8
   %1861 = getelementptr inbounds i8, ptr %1860, i64 1544
   call void @_raw_spin_unlock_bh(ptr noundef %1861) #18

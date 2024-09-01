@@ -62140,12 +62140,7 @@ for.cond1.preheader.lr.ph.i.us:                   ; preds = %for.cond43.for.inc5
   %y.0106.us = phi i64 [ %inc57.us, %for.cond43.for.inc56_crit_edge.us ], [ 0, %for.body.us.preheader ]
   %s.0105.us = phi ptr [ %add.ptr40.us196, %for.cond43.for.inc56_crit_edge.us ], [ %add.ptr29, %for.body.us.preheader ]
   %d.0104.us = phi ptr [ %.us-phi.us, %for.cond43.for.inc56_crit_edge.us ], [ %add.ptr, %for.body.us.preheader ]
-  br i1 %cmp211.i, label %for.cond1.preheader.us.i.us, label %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us.thread
-
-_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us.thread: ; preds = %for.cond1.preheader.lr.ph.i.us
-  %14 = getelementptr inbounds %class.half, ptr %s.0105.us, i64 %conv24
-  %add.ptr40.us195 = getelementptr inbounds %class.half, ptr %14, i64 %conv24
-  br label %for.cond43.for.inc56_crit_edge.us
+  br i1 %cmp211.i, label %for.cond1.preheader.us.i.us, label %for.cond43.for.inc56_crit_edge.us
 
 for.cond1.preheader.us.i.us:                      ; preds = %for.cond1.preheader.lr.ph.i.us, %for.cond1.for.inc6_crit_edge.us.i.us
   %i.019.us.i.us = phi i64 [ %add7.us.i.us, %for.cond1.for.inc6_crit_edge.us.i.us ], [ 0, %for.cond1.preheader.lr.ph.i.us ]
@@ -62157,16 +62152,16 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.014.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.113.us.i.us = phi ptr [ %dst.addr.018.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.112.us.i.us = phi ptr [ %s.addr.017.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr5.us.i.us, %for.body3.us.i.us ]
-  %15 = load i16, ptr %s.addr.112.us.i.us, align 2
-  %idxprom.i.us.i.us = zext i16 %15 to i64
+  %14 = load i16, ptr %s.addr.112.us.i.us, align 2
+  %idxprom.i.us.i.us = zext i16 %14 to i64
   %arrayidx.i.us.i.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.us.i.us
-  %16 = load float, ptr %arrayidx.i.us.i.us, align 4
+  %15 = load float, ptr %arrayidx.i.us.i.us, align 4
   %add.ptr.us.i.us = getelementptr inbounds %class.half, ptr %s.addr.112.us.i.us, i64 %idx.ext.i
-  %17 = load i16, ptr %add.ptr.us.i.us, align 2
-  %idxprom.i9.us.i.us = zext i16 %17 to i64
+  %16 = load i16, ptr %add.ptr.us.i.us, align 2
+  %idxprom.i9.us.i.us = zext i16 %16 to i64
   %arrayidx.i10.us.i.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i9.us.i.us
-  %18 = load float, ptr %arrayidx.i10.us.i.us, align 4
-  %add.us.i.us = fadd float %16, %18
+  %17 = load float, ptr %arrayidx.i10.us.i.us, align 4
+  %add.us.i.us = fadd float %15, %17
   %mul.us.i.us = fmul float %add.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.113.us.i.us, align 4
   %inc.us.i.us = add nuw nsw i32 %j.014.us.i.us, 1
@@ -62179,32 +62174,32 @@ for.cond1.for.inc6_crit_edge.us.i.us:             ; preds = %for.body3.us.i.us
   %add7.us.i.us = add nuw i64 %i.019.us.i.us, 2
   %add.ptr9.us.i.us = getelementptr inbounds %class.half, ptr %incdec.ptr5.us.i.us, i64 %idx.ext.i
   %cmp.us.i.us = icmp ult i64 %add7.us.i.us, %mul34
-  br i1 %cmp.us.i.us, label %for.cond1.preheader.us.i.us, label %for.cond1.preheader.us.i37.us.preheader, !llvm.loop !578
+  br i1 %cmp.us.i.us, label %for.cond1.preheader.us.i.us, label %_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us, !llvm.loop !578
 
-for.cond1.preheader.us.i37.us.preheader:          ; preds = %for.cond1.for.inc6_crit_edge.us.i.us
+_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us:      ; preds = %for.cond1.for.inc6_crit_edge.us.i.us
   %add.ptr37.us = getelementptr inbounds %class.half, ptr %s.0105.us, i64 %conv24
   br label %for.cond1.preheader.us.i37.us
 
-for.cond1.preheader.us.i37.us:                    ; preds = %for.cond1.preheader.us.i37.us.preheader, %for.cond1.for.inc6_crit_edge.us.i56.us
-  %i.019.us.i38.us = phi i64 [ %add7.us.i57.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ 0, %for.cond1.preheader.us.i37.us.preheader ]
-  %dst.addr.018.us.i39.us = phi ptr [ %incdec.ptr.us.i53.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ %call9, %for.cond1.preheader.us.i37.us.preheader ]
-  %s.addr.017.us.i40.us = phi ptr [ %add.ptr9.us.i58.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ %add.ptr37.us, %for.cond1.preheader.us.i37.us.preheader ]
+for.cond1.preheader.us.i37.us:                    ; preds = %for.cond1.for.inc6_crit_edge.us.i56.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us
+  %i.019.us.i38.us = phi i64 [ %add7.us.i57.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ 0, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us ]
+  %dst.addr.018.us.i39.us = phi ptr [ %incdec.ptr.us.i53.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ %call9, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us ]
+  %s.addr.017.us.i40.us = phi ptr [ %add.ptr9.us.i58.us, %for.cond1.for.inc6_crit_edge.us.i56.us ], [ %add.ptr37.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit.us ]
   br label %for.body3.us.i41.us
 
 for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us, %for.cond1.preheader.us.i37.us
   %j.014.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i52.us, %for.body3.us.i41.us ]
   %dst.addr.113.us.i43.us = phi ptr [ %dst.addr.018.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i53.us, %for.body3.us.i41.us ]
   %s.addr.112.us.i44.us = phi ptr [ %s.addr.017.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr5.us.i54.us, %for.body3.us.i41.us ]
-  %19 = load i16, ptr %s.addr.112.us.i44.us, align 2
-  %idxprom.i.us.i45.us = zext i16 %19 to i64
+  %18 = load i16, ptr %s.addr.112.us.i44.us, align 2
+  %idxprom.i.us.i45.us = zext i16 %18 to i64
   %arrayidx.i.us.i46.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.us.i45.us
-  %20 = load float, ptr %arrayidx.i.us.i46.us, align 4
+  %19 = load float, ptr %arrayidx.i.us.i46.us, align 4
   %add.ptr.us.i47.us = getelementptr inbounds %class.half, ptr %s.addr.112.us.i44.us, i64 %idx.ext.i36
-  %21 = load i16, ptr %add.ptr.us.i47.us, align 2
-  %idxprom.i9.us.i48.us = zext i16 %21 to i64
+  %20 = load i16, ptr %add.ptr.us.i47.us, align 2
+  %idxprom.i9.us.i48.us = zext i16 %20 to i64
   %arrayidx.i10.us.i49.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i9.us.i48.us
-  %22 = load float, ptr %arrayidx.i10.us.i49.us, align 4
-  %add.us.i50.us = fadd float %20, %22
+  %21 = load float, ptr %arrayidx.i10.us.i49.us, align 4
+  %add.us.i50.us = fadd float %19, %21
   %mul.us.i51.us = fmul float %add.us.i50.us, 5.000000e-01
   store float %mul.us.i51.us, ptr %dst.addr.113.us.i43.us, align 4
   %inc.us.i52.us = add nuw nsw i32 %j.014.us.i42.us, 1
@@ -62217,25 +62212,21 @@ for.cond1.for.inc6_crit_edge.us.i56.us:           ; preds = %for.body3.us.i41.us
   %add7.us.i57.us = add nuw i64 %i.019.us.i38.us, 2
   %add.ptr9.us.i58.us = getelementptr inbounds %class.half, ptr %incdec.ptr5.us.i54.us, i64 %idx.ext.i36
   %cmp.us.i59.us = icmp ult i64 %add7.us.i57.us, %mul34
-  br i1 %cmp.us.i59.us, label %for.cond1.preheader.us.i37.us, label %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us, !llvm.loop !578
+  br i1 %cmp.us.i59.us, label %for.cond1.preheader.us.i37.us, label %for.cond46.preheader.us.us, !llvm.loop !578
 
-_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us:    ; preds = %for.cond1.for.inc6_crit_edge.us.i56.us
-  %23 = getelementptr inbounds %class.half, ptr %s.0105.us, i64 %conv24
-  %add.ptr40.us = getelementptr inbounds %class.half, ptr %23, i64 %conv24
-  br i1 %cmp211.i, label %for.cond46.preheader.us.us, label %for.cond43.for.inc56_crit_edge.us
-
-for.cond43.for.inc56_crit_edge.us:                ; preds = %for.cond46.for.inc53_crit_edge.us.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us.thread
-  %add.ptr40.us196 = phi ptr [ %add.ptr40.us195, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us.thread ], [ %add.ptr40.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ], [ %add.ptr40.us, %for.cond46.for.inc53_crit_edge.us.us ]
-  %.us-phi.us = phi ptr [ %d.0104.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us.thread ], [ %d.0104.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ], [ %incdec.ptr52.us.us, %for.cond46.for.inc53_crit_edge.us.us ]
+for.cond43.for.inc56_crit_edge.us:                ; preds = %for.cond46.for.inc53_crit_edge.us.us, %for.cond1.preheader.lr.ph.i.us
+  %.us-phi.us = phi ptr [ %d.0104.us, %for.cond1.preheader.lr.ph.i.us ], [ %incdec.ptr52.us.us, %for.cond46.for.inc53_crit_edge.us.us ]
+  %.pn1 = getelementptr inbounds %class.half, ptr %s.0105.us, i64 %conv24
+  %add.ptr40.us196 = getelementptr inbounds %class.half, ptr %.pn1, i64 %conv24
   %inc57.us = add nuw i64 %y.0106.us, 1
   %exitcond192.not = icmp eq i64 %inc57.us, %umax191
   br i1 %exitcond192.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %for.cond1.preheader.lr.ph.i.us, !llvm.loop !579
 
-for.cond46.preheader.us.us:                       ; preds = %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us, %for.cond46.for.inc53_crit_edge.us.us
-  %x.0100.us.us = phi i64 [ %inc54.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ 0, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ]
-  %s1.099.us.us = phi ptr [ %incdec.ptr51.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %call9, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ]
-  %s0.098.us.us = phi ptr [ %incdec.ptr.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %call8, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ]
-  %d.197.us.us = phi ptr [ %incdec.ptr52.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %d.0104.us, %_ZL14halve_scanlineI4halfEvPKT_imPf.exit60.us ]
+for.cond46.preheader.us.us:                       ; preds = %for.cond1.for.inc6_crit_edge.us.i56.us, %for.cond46.for.inc53_crit_edge.us.us
+  %x.0100.us.us = phi i64 [ %inc54.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ 0, %for.cond1.for.inc6_crit_edge.us.i56.us ]
+  %s1.099.us.us = phi ptr [ %incdec.ptr51.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %call9, %for.cond1.for.inc6_crit_edge.us.i56.us ]
+  %s0.098.us.us = phi ptr [ %incdec.ptr.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %call8, %for.cond1.for.inc6_crit_edge.us.i56.us ]
+  %d.197.us.us = phi ptr [ %incdec.ptr52.us.us, %for.cond46.for.inc53_crit_edge.us.us ], [ %d.0104.us, %for.cond1.for.inc6_crit_edge.us.i56.us ]
   br label %for.body48.us.us
 
 for.body48.us.us:                                 ; preds = %invoke.cont50.us.us, %for.cond46.preheader.us.us
@@ -62243,39 +62234,39 @@ for.body48.us.us:                                 ; preds = %invoke.cont50.us.us
   %s1.192.us.us = phi ptr [ %s1.099.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr51.us.us, %invoke.cont50.us.us ]
   %s0.191.us.us = phi ptr [ %s0.098.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr.us.us, %invoke.cont50.us.us ]
   %d.290.us.us = phi ptr [ %d.197.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr52.us.us, %invoke.cont50.us.us ]
-  %24 = load float, ptr %s0.191.us.us, align 4
-  %25 = load float, ptr %s1.192.us.us, align 4
-  %add.us.us = fadd float %24, %25
+  %22 = load float, ptr %s0.191.us.us, align 4
+  %23 = load float, ptr %s1.192.us.us, align 4
+  %add.us.us = fadd float %22, %23
   %mul49.us.us = fmul float %add.us.us, 5.000000e-01
-  %26 = bitcast float %mul49.us.us to i32
+  %24 = bitcast float %mul49.us.us to i32
   %cmp.i.us.us = fcmp oeq float %mul49.us.us, 0.000000e+00
   br i1 %cmp.i.us.us, label %if.then.i.us.us, label %if.else.i.us.us
 
 if.else.i.us.us:                                  ; preds = %for.body48.us.us
-  %shr2.i.us.us = lshr i32 %26, 23
+  %shr2.i.us.us = lshr i32 %24, 23
   %idxprom.i.us.us = zext nneg i32 %shr2.i.us.us to i64
   %arrayidx.i.us.us = getelementptr inbounds [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.us.us
-  %27 = load i16, ptr %arrayidx.i.us.us, align 2
-  %tobool.not.i.us.us = icmp eq i16 %27, 0
+  %25 = load i16, ptr %arrayidx.i.us.us, align 2
+  %tobool.not.i.us.us = icmp eq i16 %25, 0
   br i1 %tobool.not.i.us.us, label %if.else13.i.us.us, label %if.then4.i.us.us
 
 if.then4.i.us.us:                                 ; preds = %if.else.i.us.us
-  %and5.i.us.us = and i32 %26, 8388607
+  %and5.i.us.us = and i32 %24, 8388607
   %add.i.us.us = add nuw nsw i32 %and5.i.us.us, 4095
-  %shr6.i.us.us = lshr i32 %26, 13
+  %shr6.i.us.us = lshr i32 %24, 13
   %and7.i.us.us = and i32 %shr6.i.us.us, 1
   %add8.i.us.us = add nuw nsw i32 %add.i.us.us, %and7.i.us.us
   %shr9.i.us.us = lshr i32 %add8.i.us.us, 13
-  %28 = trunc nuw nsw i32 %shr9.i.us.us to i16
-  %conv11.i.us.us = add i16 %27, %28
+  %26 = trunc nuw nsw i32 %shr9.i.us.us to i16
+  %conv11.i.us.us = add i16 %25, %26
   br label %invoke.cont50.us.us
 
 if.else13.i.us.us:                                ; preds = %if.else.i.us.us
-  %call.i61.us.us = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %26)
+  %call.i61.us.us = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %24)
           to label %invoke.cont50.us.us unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split.us.split.us
 
 if.then.i.us.us:                                  ; preds = %for.body48.us.us
-  %shr.i.us.us = lshr exact i32 %26, 16
+  %shr.i.us.us = lshr exact i32 %24, 16
   %conv.i.us.us = trunc nuw i32 %shr.i.us.us to i16
   br label %invoke.cont50.us.us
 
@@ -62300,7 +62291,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split.us.split.u
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 lpad:                                             ; preds = %if.end
-  %29 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit70
 
@@ -62320,7 +62311,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67: ; preds = %for.cond43.
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit70: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %29, %lpad ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %27, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 

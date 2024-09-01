@@ -370,8 +370,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 3
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add22 = phi i64 [ %add18, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -386,12 +386,12 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1028, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1028, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end25, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call18 = call i32 @PyObject_IsTrue(ptr noundef nonnull %3) #11
+  %call18 = call i32 @PyObject_IsTrue(ptr noundef nonnull %2) #11
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %exit, label %if.end21
 
@@ -402,12 +402,12 @@ if.end21:                                         ; preds = %if.then16
 if.end25:                                         ; preds = %if.end21, %if.end14
   %blocking.1 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
   %arrayidx26 = getelementptr i8, ptr %cond1028, i64 8
-  %4 = load ptr, ptr %arrayidx26, align 8
+  %3 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end21, %if.end, %if.end25
   %blocking.0 = phi i32 [ %blocking.1, %if.end25 ], [ %call18, %if.end21 ], [ 1, %if.end ]
-  %timeout_obj.0 = phi ptr [ %4, %if.end25 ], [ @_Py_NoneStruct, %if.end21 ], [ @_Py_NoneStruct, %if.end ]
+  %timeout_obj.0 = phi ptr [ %3, %if.end25 ], [ @_Py_NoneStruct, %if.end21 ], [ @_Py_NoneStruct, %if.end ]
   %call27 = call fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef %self, i32 noundef %blocking.0, ptr noundef %timeout_obj.0)
   br label %exit
 

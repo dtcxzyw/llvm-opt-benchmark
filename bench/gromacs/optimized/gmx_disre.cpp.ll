@@ -4466,14 +4466,11 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
   %42 = and i64 %38, 2147483647
   br label %.lr.ph183
 
-.preheader:                                       ; preds = %60
-  br i1 %40, label %.lr.ph191, label %.preheader.._crit_edge192_crit_edge
-
-.preheader.._crit_edge192_crit_edge:              ; preds = %._crit_edge, %.preheader
+.preheader.._crit_edge192_crit_edge:              ; preds = %._crit_edge
   %.pre222 = sext i32 %7 to i64
   br label %._crit_edge192
 
-.lr.ph191:                                        ; preds = %.preheader
+.lr.ph191:                                        ; preds = %60
   %43 = getelementptr inbounds i8, ptr %11, i64 72
   %44 = sext i32 %7 to i64
   %45 = getelementptr inbounds %struct.t_dr_result, ptr %6, i64 %44
@@ -4503,7 +4500,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
 60:                                               ; preds = %.lr.ph183
   %indvars.iv.next = add nsw i64 %indvars.iv, %41
   %61 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %61, label %.lr.ph183, label %.preheader, !llvm.loop !36
+  br i1 %61, label %.lr.ph183, label %.lr.ph191, !llvm.loop !36
 
 62:                                               ; preds = %.lr.ph183
   %63 = trunc nsw i64 %indvars.iv to i32

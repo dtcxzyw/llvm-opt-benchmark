@@ -159,7 +159,7 @@ if.end32:                                         ; preds = %if.end32.sink.split
   br label %for.inc
 
 sub_0173:                                         ; preds = %if.else15.tail
-  br i1 %.not, label %sub_1174, label %if.else48.tail
+  br i1 %.not, label %sub_1174, label %lor.lhs.false.tail
 
 sub_1174:                                         ; preds = %sub_0173
   %17 = getelementptr inbounds i8, ptr %0, i64 1
@@ -179,7 +179,7 @@ sub_2175:                                         ; preds = %sub_1174
 if.else34.tail:                                   ; preds = %sub_1174, %sub_2175
   %25 = phi i32 [ %20, %sub_1174 ], [ %24, %sub_2175 ]
   %cmp47 = icmp eq i32 %25, 0
-  br i1 %cmp47, label %if.then41, label %sub_0177
+  br i1 %cmp47, label %if.then41, label %if.else48.tail.thread
 
 if.then41:                                        ; preds = %if.else34.tail
   %add.ptr44 = getelementptr inbounds i8, ptr %0, i64 3
@@ -188,14 +188,7 @@ if.then41:                                        ; preds = %if.else34.tail
   %inc47 = add nsw i32 %nOptionCount.0185, 1
   br label %for.inc
 
-sub_0177:                                         ; preds = %if.else34.tail
-  br i1 %.not, label %if.else48.tail.thread, label %if.else48.tail
-
-if.else48.tail:                                   ; preds = %sub_0173, %sub_0177
-  %cmp49 = icmp eq i32 %3, 0
-  br i1 %cmp49, label %if.then61, label %lor.lhs.false.tail
-
-if.else48.tail.thread:                            ; preds = %sub_0177
+if.else48.tail.thread:                            ; preds = %if.else34.tail
   %26 = getelementptr inbounds i8, ptr %0, i64 1
   %27 = load i8, ptr %26, align 1
   %cmp49200 = icmp eq i8 %27, 63
@@ -208,12 +201,12 @@ sub_1181:                                         ; preds = %if.else48.tail.thre
   %31 = add nsw i32 %30, -104
   br label %lor.lhs.false.tail
 
-lor.lhs.false.tail:                               ; preds = %if.else48.tail, %sub_1181
-  %32 = phi i32 [ %31, %sub_1181 ], [ %3, %if.else48.tail ]
+lor.lhs.false.tail:                               ; preds = %sub_0173, %sub_1181
+  %32 = phi i32 [ %31, %sub_1181 ], [ 1, %sub_0173 ]
   %cmp51 = icmp eq i32 %32, 0
   br i1 %cmp51, label %if.then61, label %for.inc
 
-if.then61:                                        ; preds = %if.else48.tail.thread, %lor.lhs.false.tail, %if.else48.tail
+if.then61:                                        ; preds = %if.else48.tail.thread, %lor.lhs.false.tail
   %inc62 = add nsw i32 %nOptionCount.0185, 1
   br label %for.inc
 

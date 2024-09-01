@@ -4815,57 +4815,49 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br i1 %utf8, label %for.body.us.i, label %for.body.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
-  %cmp10.us.i = phi i1 [ %cmp.us.i, %for.inc.us.i ], [ false, %for.body.lr.ph.i ]
   %i.09.us.i = phi i64 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr inbounds i8, ptr %name, i64 %i.09.us.i
   %0 = load i8, ptr %arrayidx.us.i, align 1
   switch i8 %0, label %sw.default.us.i [
-    i8 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 34, label %if.else
+    i8 92, label %if.else
+    i8 44, label %if.else
+    i8 39, label %if.else
   ]
 
 sw.default.us.i:                                  ; preds = %for.body.us.i
   %cmp2.us.i = icmp ult i8 %0, 32
   %cmp4.us.i = icmp eq i8 %0, 127
   %or.cond.us.i = or i1 %cmp2.us.i, %cmp4.us.i
-  br i1 %or.cond.us.i, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit, label %for.inc.us.i
+  br i1 %or.cond.us.i, label %if.else, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %sw.default.us.i
   %inc.us.i = add nuw i64 %i.09.us.i, 1
-  %cmp.us.i = icmp uge i64 %inc.us.i, %length
-  %exitcond27.i = icmp eq i64 %inc.us.i, %length
-  br i1 %exitcond27.i, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit, label %for.body.us.i, !llvm.loop !30
+  %exitcond27.not.i = icmp eq i64 %inc.us.i, %length
+  br i1 %exitcond27.not.i, label %if.then, label %for.body.us.i, !llvm.loop !30
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
-  %cmp10.i = phi i1 [ %cmp.i, %for.inc.i ], [ false, %for.body.lr.ph.i ]
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %i.09.i
   %1 = load i8, ptr %arrayidx.i, align 1
   switch i8 %1, label %sw.default.i [
-    i8 34, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 92, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 44, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
-    i8 39, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+    i8 34, label %if.else
+    i8 92, label %if.else
+    i8 44, label %if.else
+    i8 39, label %if.else
   ]
 
 sw.default.i:                                     ; preds = %for.body.i
   %2 = add i8 %1, -127
   %or.cond1.i = icmp ult i8 %2, -95
-  br i1 %or.cond1.i, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit, label %for.inc.i
+  br i1 %or.cond1.i, label %if.else, label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.default.i
   %inc.i = add nuw i64 %i.09.i, 1
-  %cmp.i = icmp uge i64 %inc.i, %length
-  %exitcond.i = icmp eq i64 %inc.i, %length
-  br i1 %exitcond.i, label %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit, label %for.body.i, !llvm.loop !30
+  %exitcond.not.i = icmp eq i64 %inc.i, %length
+  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !30
 
-_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit:       ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i, %sw.default.i, %for.inc.i, %for.body.us.i, %for.body.us.i, %for.body.us.i, %for.body.us.i, %sw.default.us.i, %for.inc.us.i
-  %cmp.lcssa.i = phi i1 [ %cmp10.us.i, %for.body.us.i ], [ %cmp10.us.i, %for.body.us.i ], [ %cmp10.us.i, %for.body.us.i ], [ %cmp10.us.i, %for.body.us.i ], [ %cmp10.us.i, %sw.default.us.i ], [ %cmp.us.i, %for.inc.us.i ], [ %cmp10.i, %for.body.i ], [ %cmp10.i, %for.body.i ], [ %cmp10.i, %for.body.i ], [ %cmp10.i, %for.body.i ], [ %cmp10.i, %sw.default.i ], [ %cmp.i, %for.inc.i ]
-  br i1 %cmp.lcssa.i, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry, %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+if.then:                                          ; preds = %for.inc.i, %for.inc.us.i, %entry
   %cmp.not = icmp eq ptr %safe_prefix, null
   br i1 %cmp.not, label %if.end, label %if.then1
 
@@ -4880,7 +4872,7 @@ if.end:                                           ; preds = %if.then1, %if.then
   %call5 = tail call i32 @BIO_write(ptr noundef %4, ptr noundef %name, i32 noundef %conv) #17
   br label %if.end59
 
-if.else:                                          ; preds = %_ZN4node6cryptoL13IsSafeAltNameEPKcmb.exit
+if.else:                                          ; preds = %sw.default.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %sw.default.us.i, %for.body.us.i, %for.body.us.i, %for.body.us.i, %for.body.us.i
   %5 = load ptr, ptr %out, align 8
   %call7 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull @.str.96, i32 noundef 1) #17
   %cmp8.not = icmp eq ptr %safe_prefix, null

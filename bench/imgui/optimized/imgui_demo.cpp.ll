@@ -24545,13 +24545,13 @@ _ZN17ExampleAppConsole7StrtrimEPc.exit:           ; preds = %while.cond.i, %land
   store i8 0, ptr %str_end.0.i, align 1
   %28 = load i8, ptr %this, align 8
   %tobool82.not = icmp eq i8 %28, 0
-  br i1 %tobool82.not, label %if.then88, label %if.then83
+  br i1 %tobool82.not, label %if.end84, label %if.then83
 
 if.then83:                                        ; preds = %_ZN17ExampleAppConsole7StrtrimEPc.exit
   call void @_ZN17ExampleAppConsole11ExecCommandEPKc(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull %this)
-  br label %if.then88
+  br label %if.end84
 
-if.then88:                                        ; preds = %_ZN17ExampleAppConsole7StrtrimEPc.exit, %if.then83
+if.end84:                                         ; preds = %if.then83, %_ZN17ExampleAppConsole7StrtrimEPc.exit
   store i8 0, ptr %this, align 8
   call void @_ZN5ImGui19SetItemDefaultFocusEv()
   call void @_ZN5ImGui20SetKeyboardFocusHereEi(i32 noundef -1)
@@ -24561,7 +24561,7 @@ if.end89.critedge:                                ; preds = %if.end77
   call void @_ZN5ImGui19SetItemDefaultFocusEv()
   br label %return
 
-return:                                           ; preds = %if.then88, %if.end89.critedge, %entry
+return:                                           ; preds = %if.end84, %if.end89.critedge, %entry
   call void @_ZN5ImGui3EndEv()
   ret void
 }

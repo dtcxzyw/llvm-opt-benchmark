@@ -3701,9 +3701,6 @@ for.cond.preheader:                               ; preds = %if.end14
   %tobool17.not22 = icmp eq ptr %list, null
   br i1 %tobool17.not22, label %while.end, label %for.body
 
-while.cond.preheader:                             ; preds = %for.body
-  br i1 %tobool17.not22, label %while.end, label %while.body
-
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %l.023 = phi ptr [ %l.0, %for.body ], [ %list, %for.cond.preheader ]
   %2 = load ptr, ptr %l.023, align 8
@@ -3715,9 +3712,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %next = getelementptr inbounds i8, ptr %l.023, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %tobool17.not = icmp eq ptr %l.0, null
-  br i1 %tobool17.not, label %while.cond.preheader, label %for.body, !llvm.loop !33
+  br i1 %tobool17.not, label %while.body, label %for.body, !llvm.loop !33
 
-while.body:                                       ; preds = %while.cond.preheader, %while.cond.backedge
+while.body:                                       ; preds = %for.body, %while.cond.backedge
   %call22 = call ptr @pop_most_recent_commit(ptr noundef nonnull %list.addr, i32 noundef 1048576) #20
   %oid24 = getelementptr inbounds i8, ptr %call22, i64 4
   %call25 = call ptr @parse_object(ptr noundef %r, ptr noundef nonnull %oid24) #20
@@ -3756,8 +3753,8 @@ if.then35:                                        ; preds = %land.end
   store i32 %6, ptr %algo3.i, align 4
   br label %while.end
 
-while.end:                                        ; preds = %while.cond.backedge, %for.cond.preheader, %while.cond.preheader, %if.then35
-  %tobool21.not20 = phi i32 [ 0, %if.then35 ], [ -1, %while.cond.preheader ], [ -1, %for.cond.preheader ], [ -1, %while.cond.backedge ]
+while.end:                                        ; preds = %while.cond.backedge, %for.cond.preheader, %if.then35
+  %tobool21.not20 = phi i32 [ 0, %if.then35 ], [ -1, %for.cond.preheader ], [ -1, %while.cond.backedge ]
   call void @regfree(ptr noundef nonnull %regex) #20
   %7 = load ptr, ptr %list.addr, align 8
   call void @free_commit_list(ptr noundef %7) #20

@@ -965,10 +965,10 @@ _ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit: ; preds = %._crit_edge._c
   %.not7.i.i.i.i.i = icmp eq i32 %.8.val, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm6EELm107EEEEiRKT_RKT0_ffb.exit, label %.lr.ph.i.i.i.i.preheader.i
 
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %57, %93
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %93 ], [ 0, %57 ]
-  %.025.i = phi float [ %.1.i, %93 ], [ 2.500000e-01, %57 ]
-  %.01623.i = phi i32 [ %.117.i, %93 ], [ -1, %57 ]
+.lr.ph.i.i.i.i.preheader.i:                       ; preds = %57, %94
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %94 ], [ 0, %57 ]
+  %.025.i = phi float [ %.1.i, %94 ], [ 2.500000e-01, %57 ]
+  %.01623.i = phi i32 [ %.117.i, %94 ], [ -1, %57 ]
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -997,62 +997,62 @@ _ZN5ZXing6ReduceIPKtiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i: ; preds = %.lr.ph.i.
 
 _ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i: ; preds = %.lr.ph.i.i31.i.i.i
   %69 = icmp slt i32 %62, %67
-  br i1 %69, label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i, label %.lr.ph.i.preheader.i.i
+  br i1 %69, label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i, label %70
 
-.lr.ph.i.preheader.i.i:                           ; preds = %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i
-  %70 = uitofp nneg i32 %62 to float
-  %71 = sitofp i32 %67 to float
-  %72 = fdiv float %70, %71
-  %73 = fmul float %72, 0x3FE6666660000000
+70:                                               ; preds = %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i
+  %71 = uitofp nneg i32 %62 to float
+  %72 = sitofp i32 %67 to float
+  %73 = fdiv float %71, %72
+  %74 = fmul float %73, 0x3FE6666660000000
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %84, %.lr.ph.i.preheader.i.i
-  %.02636.i.i.i = phi i64 [ %86, %84 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.02735.i.i.i = phi float [ %85, %84 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i ]
-  %74 = getelementptr inbounds i16, ptr %.0.val, i64 %.02636.i.i.i
-  %75 = load i16, ptr %74, align 2
-  %76 = uitofp i16 %75 to float
-  %77 = getelementptr inbounds i32, ptr %64, i64 %.02636.i.i.i
-  %78 = load i32, ptr %77, align 4
-  %79 = sitofp i32 %78 to float
-  %80 = fneg float %79
-  %81 = tail call float @llvm.fmuladd.f32(float %80, float %72, float %76)
-  %82 = tail call noundef float @llvm.fabs.f32(float %81)
-  %83 = fcmp ogt float %82, %73
-  br i1 %83, label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i, label %84
+.lr.ph.i.i.i:                                     ; preds = %85, %70
+  %.02636.i.i.i = phi i64 [ %87, %85 ], [ 0, %70 ]
+  %.02735.i.i.i = phi float [ %86, %85 ], [ 0.000000e+00, %70 ]
+  %75 = getelementptr inbounds i16, ptr %.0.val, i64 %.02636.i.i.i
+  %76 = load i16, ptr %75, align 2
+  %77 = uitofp i16 %76 to float
+  %78 = getelementptr inbounds i32, ptr %64, i64 %.02636.i.i.i
+  %79 = load i32, ptr %78, align 4
+  %80 = sitofp i32 %79 to float
+  %81 = fneg float %80
+  %82 = tail call float @llvm.fmuladd.f32(float %81, float %73, float %77)
+  %83 = tail call noundef float @llvm.fabs.f32(float %82)
+  %84 = fcmp ogt float %83, %74
+  br i1 %84, label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i, label %85
 
-84:                                               ; preds = %.lr.ph.i.i.i
-  %85 = fadd float %.02735.i.i.i, %82
-  %86 = add nuw i64 %.02636.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %86, %58
+85:                                               ; preds = %.lr.ph.i.i.i
+  %86 = fadd float %.02735.i.i.i, %83
+  %87 = add nuw i64 %.02636.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %87, %58
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
-._crit_edge.i.loopexit.i.i:                       ; preds = %84
-  %87 = fdiv float %85, %70
+._crit_edge.i.loopexit.i.i:                       ; preds = %85
+  %88 = fdiv float %86, %71
   br label %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i
 
 _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.loopexit.i.i, %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i
-  %.0.i.i.i = phi float [ 0x47EFFFFFE0000000, %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i ], [ %87, %._crit_edge.i.loopexit.i.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i.i.i ]
-  %88 = fcmp uge float %.0.i.i.i, %.025.i
-  %89 = trunc nuw nsw i64 %indvars.iv50.i to i32
-  br i1 %88, label %90, label %93
+  %.0.i.i.i = phi float [ 0x47EFFFFFE0000000, %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i ], [ %88, %._crit_edge.i.loopexit.i.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i.i.i ]
+  %89 = fcmp uge float %.0.i.i.i, %.025.i
+  %90 = trunc nuw nsw i64 %indvars.iv50.i to i32
+  br i1 %89, label %91, label %94
 
-90:                                               ; preds = %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i
-  %91 = fcmp oeq float %.0.i.i.i, %.025.i
-  br i1 %91, label %92, label %93
+91:                                               ; preds = %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i
+  %92 = fcmp oeq float %.0.i.i.i, %.025.i
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %90
-  br label %93
+93:                                               ; preds = %91
+  br label %94
 
-93:                                               ; preds = %92, %90, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i
-  %.117.i = phi i32 [ -1, %92 ], [ %.01623.i, %90 ], [ %89, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i ]
-  %.1.i = phi float [ %.025.i, %92 ], [ %.025.i, %90 ], [ %.0.i.i.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i ]
+94:                                               ; preds = %93, %91, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i
+  %.117.i = phi i32 [ -1, %93 ], [ %.01623.i, %91 ], [ %90, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i ]
+  %.1.i = phi float [ %.025.i, %93 ], [ %.025.i, %91 ], [ %.0.i.i.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 107
   br i1 %exitcond53.not.i, label %_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm6EELm107EEEEiRKT_RKT0_ffb.exit, label %.lr.ph.i.i.i.i.preheader.i, !llvm.loop !16
 
-_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm6EELm107EEEEiRKT_RKT0_ffb.exit: ; preds = %93, %57, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit
-  %.0 = phi i32 [ %55, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit ], [ -1, %57 ], [ %.117.i, %93 ]
+_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm6EELm107EEEEiRKT_RKT0_ffb.exit: ; preds = %94, %57, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit
+  %.0 = phi i32 [ %55, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit ], [ -1, %57 ], [ %.117.i, %94 ]
   ret i32 %.0
 }
 

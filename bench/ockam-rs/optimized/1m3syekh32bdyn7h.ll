@@ -965,8 +965,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT
   %.pn = phi { i64, i64 } [ %16, %11 ], [ %10, %6 ]
   %.sroa.0.034.i.i = phi ptr [ %14, %11 ], [ %4, %6 ]
   %.sroa.3.033.i.i = phi i64 [ %15, %11 ], [ %8, %6 ]
-  %.not.i.not.i.i.not = icmp ne i64 %.sroa.3.033.i.i, 0
-  br i1 %.not.i.not.i.i.not, label %11, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit"
+  %.not.i.not.i.i.not.not = icmp ne i64 %.sroa.3.033.i.i, 0
+  br i1 %.not.i.not.i.i.not.not, label %11, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit"
 
 11:                                               ; preds = %.lr.ph.i.i
   %.fca.1.extract.i35.i.i = extractvalue { i64, i64 } %.pn, 1
@@ -984,7 +984,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT
   br i1 %trunc.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit": ; preds = %11, %.lr.ph.i.i, %6, %2
-  %.0.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not, %11 ]
+  %.0.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not.not, %11 ]
   ret i1 %.0.i
 }
 

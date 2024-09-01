@@ -1915,10 +1915,9 @@ for.end321:                                       ; preds = %cond.end293.us275, 
   br i1 %exitcond336.not, label %if.end326, label %for.body266, !llvm.loop !26
 
 if.end326:                                        ; preds = %for.end321, %if.end262, %for.end119
-  %tobool120.not343 = phi i1 [ true, %for.end119 ], [ %tobool120.not, %if.end262 ], [ %tobool120.not, %for.end321 ]
   %maxlen.0.lcssa342 = phi i64 [ 0, %for.end119 ], [ %maxlen.1, %if.end262 ], [ %maxlen.1, %for.end321 ]
   %res.0 = phi ptr [ null, %for.end119 ], [ %call122, %if.end262 ], [ %call122, %for.end321 ]
-  br i1 %cmp68212.not, label %for.end338, label %for.body330
+  br label %for.body330
 
 for.body330:                                      ; preds = %if.end326, %for.inc336
   %j.7307 = phi i64 [ %inc337, %for.inc336 ], [ 0, %if.end326 ]
@@ -1936,10 +1935,10 @@ for.inc336:                                       ; preds = %for.body330, %if.th
   %exitcond338.not = icmp eq i64 %inc337, %conv62
   br i1 %exitcond338.not, label %for.end338, label %for.body330, !llvm.loop !27
 
-for.end338:                                       ; preds = %for.inc336, %if.end60, %if.end326
-  %res.0349 = phi ptr [ %res.0, %if.end326 ], [ null, %if.end60 ], [ %res.0, %for.inc336 ]
-  %maxlen.0.lcssa342348 = phi i64 [ %maxlen.0.lcssa342, %if.end326 ], [ 0, %if.end60 ], [ %maxlen.0.lcssa342, %for.inc336 ]
-  %tobool120.not343347 = phi i1 [ %tobool120.not343, %if.end326 ], [ true, %if.end60 ], [ %tobool120.not343, %for.inc336 ]
+for.end338:                                       ; preds = %for.inc336, %if.end60
+  %res.0349 = phi ptr [ null, %if.end60 ], [ %res.0, %for.inc336 ]
+  %maxlen.0.lcssa342348 = phi i64 [ 0, %if.end60 ], [ %maxlen.0.lcssa342, %for.inc336 ]
+  %tobool120.not343347 = phi i1 [ true, %if.end60 ], [ %tobool120.not, %for.inc336 ]
   tail call void @zfree(ptr noundef %call63) #16
   tail call void @zfree(ptr noundef %call65) #16
   tail call void @zfree(ptr noundef %call67) #16

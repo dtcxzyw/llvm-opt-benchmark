@@ -1027,8 +1027,8 @@ for.inc:                                          ; preds = %if.then.i.i.i.i45, 
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %masks, align 8
-  %.pre95 = load ptr, ptr %_M_finish.i.i34, align 8
-  %cmp.i47.not86 = icmp eq ptr %.pre, %.pre95
+  %.pre90 = load ptr, ptr %_M_finish.i.i34, align 8
+  %cmp.i47.not86 = icmp eq ptr %.pre, %.pre90
   br i1 %cmp.i47.not86, label %cleanup69, label %for.body51
 
 for.body51:                                       ; preds = %for.end, %for.inc63
@@ -1048,7 +1048,7 @@ for.body51:                                       ; preds = %for.end, %for.inc63
 
 for.inc63:                                        ; preds = %for.body51
   %incdec.ptr.i48 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 64
-  %cmp.i47.not = icmp eq ptr %incdec.ptr.i48, %.pre95
+  %cmp.i47.not = icmp eq ptr %incdec.ptr.i48, %.pre90
   br i1 %cmp.i47.not, label %cleanup69, label %for.body51
 
 cleanup69.critedge:                               ; preds = %invoke.cont33

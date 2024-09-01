@@ -2477,7 +2477,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   br i1 %cmp.i16.not, label %return, label %for.body20
 
 return:                                           ; preds = %for.body, %while.body.i.i.i.i, %for.body20, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit, %land.rhs.i, %for.end, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit
-  %retval.0 = phi i1 [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ false, %for.end ], [ false, %land.rhs.i ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ true, %for.body20 ], [ %call24, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ false, %while.body.i.i.i.i ], [ true, %for.body ]
+  %retval.0 = phi i1 [ false, %_ZNK26model_reconstruction_trail5entry7is_hideEv.exit ], [ false, %for.end ], [ false, %land.rhs.i ], [ false, %_ZNK7obj_mapI4exprPS0_E5beginEv.exit ], [ %call24, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ %call24, %for.body20 ], [ false, %while.body.i.i.i.i ], [ true, %for.body ]
   ret i1 %retval.0
 }
 

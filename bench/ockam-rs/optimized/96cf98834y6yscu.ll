@@ -6318,8 +6318,8 @@ define { ptr, ptr } @_ZN5ockam6remote7options18RemoteRelayOptions21create_access
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %7 = load ptr, ptr %2, align 8, !noundef !14
-  %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %14, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)

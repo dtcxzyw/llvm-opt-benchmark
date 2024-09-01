@@ -1012,8 +1012,8 @@ while.body:                                       ; preds = %_ZN10ODDLParser13Op
   %current.035 = phi ptr [ %call2.i, %if.end35 ], [ %19, %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit ]
   %call.i = call noundef ptr @_ZN10ODDLParser13OpenDDLParser11parseHeaderEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %current.035, ptr noundef nonnull %add.ptr)
   %call2.i = call noundef ptr @_ZN10ODDLParser13OpenDDLParser14parseStructureEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %call.i, ptr noundef nonnull %add.ptr)
-  %cmp33.not = icmp ne ptr %call2.i, null
-  br i1 %cmp33.not, label %if.end35, label %return
+  %cmp33.not.not = icmp ne ptr %call2.i, null
+  br i1 %cmp33.not.not, label %if.end35, label %return
 
 lpad:                                             ; preds = %if.end5
   %21 = landingpad { ptr, i32 }
@@ -1060,7 +1060,7 @@ if.end35:                                         ; preds = %while.body
   br i1 %cmp, label %while.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end35, %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit, %_ZN10ODDLParser9isNumericIcEEbT_.exit.i, %land.lhs.true.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %_ZN10ODDLParser9isNumericIcEEbT_.exit.i ], [ true, %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit ], [ %cmp33.not, %if.end35 ], [ %cmp33.not, %while.body ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %_ZN10ODDLParser9isNumericIcEEbT_.exit.i ], [ true, %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit ], [ %cmp33.not.not, %if.end35 ], [ %cmp33.not.not, %while.body ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup19, %lpad
@@ -2142,8 +2142,8 @@ do.body:                                          ; preds = %if.then4, %land.rhs
   br i1 %cmp9, label %return, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %cmp12.not.not.not = icmp ne ptr %call8, %end
-  br i1 %cmp12.not.not.not, label %land.rhs, label %do.end
+  %cmp12.not.not.not.not.not.not.not.not.not = icmp ne ptr %call8, %end
+  br i1 %cmp12.not.not.not.not.not.not.not.not.not, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.cond
   %3 = load i8, ptr %call8, align 1
@@ -2151,7 +2151,7 @@ land.rhs:                                         ; preds = %do.cond
   br i1 %cmp15.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond, %land.rhs
-  %spec.select.idx = zext i1 %cmp12.not.not.not to i64
+  %spec.select.idx = zext i1 %cmp12.not.not.not.not.not.not.not.not.not to i64
   %spec.select = getelementptr inbounds i8, ptr %call8, i64 %spec.select.idx
   br label %if.end27
 

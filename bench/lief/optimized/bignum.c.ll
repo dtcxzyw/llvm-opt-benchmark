@@ -3739,15 +3739,15 @@ mbedtls_mpi_cmp_int.exit:                         ; preds = %15
   br i1 %.not32.i, label %._crit_edge43.i, label %36, !llvm.loop !38
 
 ._crit_edge43.i:                                  ; preds = %38, %36
-  %.0.lcssa.i.ph = phi i64 [ 0, %38 ], [ %.040.i, %36 ]
-  %40 = or i64 %.0.lcssa.i.ph, %.027.lcssa.i
+  %.0.lcssa.i = phi i64 [ %.040.i, %36 ], [ 0, %38 ]
+  %40 = or i64 %.0.lcssa.i, %.027.lcssa.i
   %or.cond.i = icmp eq i64 %40, 0
-  %41 = icmp ugt i64 %.027.lcssa.i, %.0.lcssa.i.ph
+  %41 = icmp ugt i64 %.027.lcssa.i, %.0.lcssa.i
   %or.cond = or i1 %41, %or.cond.i
   br i1 %or.cond, label %.loopexit, label %42
 
 42:                                               ; preds = %._crit_edge43.i
-  %43 = icmp ugt i64 %.0.lcssa.i.ph, %.027.lcssa.i
+  %43 = icmp ugt i64 %.0.lcssa.i, %.027.lcssa.i
   br i1 %43, label %mbedtls_mpi_cmp_abs.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %42
@@ -4646,7 +4646,7 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %.lr.ph.i.i202, %45
   %53 = icmp ult i64 %52, -8193
   br i1 %53, label %mbedtls_mpi_cmp_int.exit.thread, label %.preheader.i205.preheader
 
-.preheader.i205.preheader:                        ; preds = %mbedtls_mpi_bitlen.exit, %29
+.preheader.i205.preheader:                        ; preds = %29, %mbedtls_mpi_bitlen.exit
   br label %.preheader.i205
 
 .preheader.i205:                                  ; preds = %.preheader.i205.preheader, %54
@@ -8676,8 +8676,8 @@ define hidden i32 @mbedtls_mpi_self_test(i32 noundef %0) local_unnamed_addr #1 {
 
 .loopexit:                                        ; preds = %81, %76, %.critedge, %62, %60, %51, %49, %36, %34, %32, %23, %21, %19, %17, %1
   %.027 = phi i32 [ %16, %1 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %50, %49 ], [ %52, %51 ], [ %61, %60 ], [ %63, %62 ], [ %82, %81 ], [ %80, %76 ], [ %75, %.critedge ]
-  %.not109 = icmp eq i32 %0, 0
-  br i1 %.not109, label %.loopexit.thread114, label %.loopexit.thread
+  %.not101 = icmp eq i32 %0, 0
+  br i1 %.not101, label %.loopexit.thread114, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %30, %46, %58, %69, %89, %.loopexit
   %.027112 = phi i32 [ %.027, %.loopexit ], [ 1, %89 ], [ 1, %69 ], [ 1, %58 ], [ 1, %46 ], [ 1, %30 ]

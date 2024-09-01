@@ -3140,8 +3140,8 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %23 = getelementptr inbounds i64, ptr %15, i64 %11
   %24 = load i64, ptr %23, align 8
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #18
-  %.not45 = icmp eq i64 %24, -1
-  br i1 %.not45, label %76, label %26
+  %.not = icmp eq i64 %24, -1
+  br i1 %.not, label %76, label %26
 
 26:                                               ; preds = %_ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit
   %27 = load ptr, ptr %3, align 8
@@ -3163,8 +3163,8 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %42 = getelementptr inbounds i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(156) %29, i64 noundef %24)
-  %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not42 = icmp eq i64 %36, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.02935 = phi i32 [ %48, %.lr.ph ], [ 0, %26 ]
@@ -3182,8 +3182,8 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %50 = getelementptr inbounds i8, ptr %29, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = mul i64 %51, %36
-  %.not42 = icmp ult i64 %52, 8
-  br i1 %.not42, label %._crit_edge40, label %.lr.ph39.preheader
+  %.not43 = icmp ult i64 %52, 8
+  br i1 %.not43, label %._crit_edge40, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %._crit_edge
   %53 = lshr i64 %52, 3
@@ -3197,8 +3197,8 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %56 = trunc i64 %55 to i32
   %57 = add i32 %.136, %56
   %58 = add nuw nsw i64 %.037, 1
-  %exitcond44.not = icmp eq i64 %58, %53
-  br i1 %exitcond44.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !14
+  %exitcond45.not = icmp eq i64 %58, %53
+  br i1 %exitcond45.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !14
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   %.1.lcssa = phi i32 [ %.029.lcssa, %._crit_edge ], [ %57, %.lr.ph39 ]

@@ -784,8 +784,8 @@ for.body.preheader.i:                             ; preds = %if.end11
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %incdec.ptr.i.i3.i3 = phi ptr [ %incdec.ptr.i.i1.i, %for.inc.i ], [ %.pre.ptr.i, %for.body.preheader.i ]
-  %7 = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i ], [ %retval.sroa.0.0.copyload.i.i.i4.i, %for.body.preheader.i ]
+  %incdec.ptr.i.i3.i3 = phi ptr [ %.pre.ptr.i, %for.body.preheader.i ], [ %incdec.ptr.i.i1.i, %for.inc.i ]
+  %7 = phi ptr [ %retval.sroa.0.0.copyload.i.i.i4.i, %for.body.preheader.i ], [ %incdec.ptr.i.i.i, %for.inc.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -1
   %8 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i3.i3, i64 -1

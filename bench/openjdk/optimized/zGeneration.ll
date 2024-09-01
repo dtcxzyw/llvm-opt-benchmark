@@ -896,8 +896,8 @@ define hidden void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr
 28:                                               ; preds = %35, %.backedge
   %.lcssa22 = phi ptr [ %33, %35 ], [ %.promoted21, %.backedge ]
   %29 = phi i64 [ %31, %35 ], [ %.promoted, %.backedge ]
-  %.not14.i.i.not = icmp eq i64 %29, %25
-  br i1 %.not14.i.i.not, label %.loopexit, label %.lr.ph.i.i
+  %.not10.i.not.i = icmp eq i64 %29, %25
+  br i1 %.not10.i.not.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %34
   %30 = phi i64 [ %31, %34 ], [ %29, %28 ]
@@ -911,8 +911,8 @@ define hidden void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr
   br i1 %or.cond.i.i, label %34, label %35
 
 34:                                               ; preds = %.lr.ph.i.i
-  %.not15.i.i = icmp eq i64 %31, %25
-  br i1 %.not15.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !7
+  %.not11.i.i = icmp eq i64 %31, %25
+  br i1 %.not11.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !7
 
 35:                                               ; preds = %.lr.ph.i.i
   store ptr %33, ptr %19, align 8
@@ -5811,9 +5811,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -5821,20 +5820,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !21
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !21
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !22
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -6088,16 +6087,16 @@ tailrecurse.i.i.i:                                ; preds = %10, %tailrecurse.i.
   %14 = add nsw i32 %.tr6.i.i.i, -1
   %15 = add nsw i32 %13, %accumulator.tr5.i.i.i
   %16 = icmp eq i32 %14, 0
-  br i1 %16, label %tailrecurse.preheader.i.i.i, label %tailrecurse.i.i.i
+  br i1 %16, label %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i, label %tailrecurse.i.i.i
 
-tailrecurse.preheader.i.i.i:                      ; preds = %tailrecurse.i.i.i
+_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i: ; preds = %tailrecurse.i.i.i
   %17 = sext i32 %11 to i64
   br label %tailrecurse.i.i5.i
 
-tailrecurse.i.i5.i:                               ; preds = %tailrecurse.i.i5.i, %tailrecurse.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %17, %tailrecurse.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %tailrecurse.i.i5.i ]
-  %.tr1316.i.i.i = phi i32 [ 1, %tailrecurse.preheader.i.i.i ], [ %21, %tailrecurse.i.i5.i ]
-  %accumulator.tr14.i.i.i = phi i32 [ 0, %tailrecurse.preheader.i.i.i ], [ %22, %tailrecurse.i.i5.i ]
+tailrecurse.i.i5.i:                               ; preds = %tailrecurse.i.i5.i, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i
+  %indvars.iv.i.i.i = phi i64 [ %17, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %indvars.iv.next.i.i.i, %tailrecurse.i.i5.i ]
+  %.tr1316.i.i.i = phi i32 [ 1, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %21, %tailrecurse.i.i5.i ]
+  %accumulator.tr14.i.i.i = phi i32 [ 0, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %22, %tailrecurse.i.i5.i ]
   %18 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4
   %20 = mul nsw i32 %19, %.tr1316.i.i.i

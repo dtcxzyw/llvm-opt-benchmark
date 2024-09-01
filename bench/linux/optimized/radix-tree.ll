@@ -619,15 +619,15 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 
   %4 = load volatile ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 3
-  %.not = icmp eq i64 %6, 2
-  br i1 %.not, label %.lr.ph, label %.loopexit, !prof !44
+  %.not12 = icmp eq i64 %6, 2
+  br i1 %.not12, label %.lr.ph, label %.loopexit, !prof !44
 
 7:                                                ; preds = %.preheader
   %8 = load volatile ptr, ptr %3, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 3
-  %.not15 = icmp eq i64 %10, 2
-  br i1 %.not15, label %.lr.ph, label %.loopexit, !prof !45, !llvm.loop !46
+  %.not = icmp eq i64 %10, 2
+  br i1 %.not, label %.lr.ph, label %.loopexit, !prof !45, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %2, %7
   %11 = phi i64 [ %9, %7 ], [ %5, %2 ]
@@ -672,9 +672,9 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 
 
 .loopexit:                                        ; preds = %7, %2
   %.lcssa = phi ptr [ %4, %2 ], [ %8, %7 ]
-  %.not47 = icmp eq i64 %1, 0
-  %spec.select = select i1 %.not47, ptr %3, ptr null
-  %spec.select46 = select i1 %.not47, ptr %.lcssa, ptr null
+  %.not40 = icmp eq i64 %1, 0
+  %spec.select = select i1 %.not40, ptr %3, ptr null
+  %spec.select39 = select i1 %.not40, ptr %.lcssa, ptr null
   br label %.loopexit.thread
 
 .loopexit.thread.loopexit:                        ; preds = %.preheader, %19
@@ -683,7 +683,7 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit, %.loopexit.thread.loopexit
   %39 = phi ptr [ %38, %.loopexit.thread.loopexit ], [ %spec.select, %.loopexit ], [ null, %.lr.ph ]
-  %40 = phi ptr [ %32, %.loopexit.thread.loopexit ], [ %spec.select46, %.loopexit ], [ null, %.lr.ph ]
+  %40 = phi ptr [ %32, %.loopexit.thread.loopexit ], [ %spec.select39, %.loopexit ], [ null, %.lr.ph ]
   %41 = icmp eq ptr %40, null
   %42 = select i1 %41, ptr null, ptr %39
   ret ptr %42
@@ -695,20 +695,20 @@ define dso_local ptr @radix_tree_lookup(ptr noundef %0, i64 noundef %1) #4 align
   %4 = load volatile ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 3
-  %.not = icmp eq i64 %6, 2
-  br i1 %.not, label %.lr.ph, label %.thread, !prof !44
+  %.not8 = icmp eq i64 %6, 2
+  br i1 %.not8, label %.lr.ph, label %.thread, !prof !44
 
 7:                                                ; preds = %.preheader
   %8 = load volatile ptr, ptr %3, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 3
-  %.not10 = icmp eq i64 %10, 2
-  br i1 %.not10, label %.lr.ph, label %.thread, !prof !45, !llvm.loop !46
+  %.not = icmp eq i64 %10, 2
+  br i1 %.not, label %.lr.ph, label %.thread, !prof !45, !llvm.loop !46
 
 .thread:                                          ; preds = %7, %2
   %.lcssa = phi ptr [ %4, %2 ], [ %8, %7 ]
-  %.not23 = icmp eq i64 %1, 0
-  %11 = select i1 %.not23, ptr %.lcssa, ptr null
+  %.not1 = icmp eq i64 %1, 0
+  %11 = select i1 %.not1, ptr %.lcssa, ptr null
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %7
@@ -873,63 +873,63 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.lr.ph24, label %._crit_edge25
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %.thread3
   %9 = getelementptr inbounds i8, ptr %77, i64 2
   %10 = load i8, ptr %9, align 2
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %.lr.ph24, label %._crit_edge25, !llvm.loop !51
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
-._crit_edge25:                                    ; preds = %8, %2
-  %.lcssa21 = phi i8 [ 0, %2 ], [ 1, %8 ]
-  %.lcssa19 = phi ptr [ %1, %2 ], [ %77, %8 ]
-  %12 = ptrtoint ptr %.lcssa19 to i64
+._crit_edge:                                      ; preds = %8, %2
+  %.lcssa7 = phi i8 [ 0, %2 ], [ 1, %8 ]
+  %.lcssa5 = phi ptr [ %1, %2 ], [ %77, %8 ]
+  %12 = ptrtoint ptr %.lcssa5 to i64
   %13 = or i64 %12, 2
   %14 = inttoptr i64 %13 to ptr
   %15 = load volatile ptr, ptr %3, align 8
   %16 = icmp eq ptr %15, %14
-  br i1 %16, label %.preheader, label %.thread4
+  br i1 %16, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %._crit_edge25
+.preheader:                                       ; preds = %._crit_edge
   %17 = load volatile ptr, ptr %3, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 3
   %20 = icmp eq i64 %19, 2
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %20, label %.lr.ph10.preheader, label %._crit_edge11
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph10.preheader:                               ; preds = %.preheader
   %21 = and i64 %18, -4
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds i8, ptr %22, i64 2
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
-  br i1 %25, label %.lr.ph27, label %._crit_edge
+  br i1 %25, label %.lr.ph25, label %._crit_edge11
 
-.lr.ph:                                           ; preds = %70
+.lr.ph10:                                         ; preds = %70
   %26 = and i64 %72, -4
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds i8, ptr %27, i64 2
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, 1
-  br i1 %30, label %.lr.ph27, label %._crit_edge
+  br i1 %30, label %.lr.ph25, label %._crit_edge11
 
-.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %31 = phi ptr [ %28, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %32 = phi ptr [ %27, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %33 = phi i8 [ 1, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph25:                                         ; preds = %.lr.ph10.preheader, %.lr.ph10
+  %31 = phi ptr [ %28, %.lr.ph10 ], [ %23, %.lr.ph10.preheader ]
+  %32 = phi ptr [ %27, %.lr.ph10 ], [ %22, %.lr.ph10.preheader ]
+  %33 = phi i8 [ 1, %.lr.ph10 ], [ 0, %.lr.ph10.preheader ]
   %34 = getelementptr inbounds i8, ptr %32, i64 40
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge, label %37
+  br i1 %36, label %._crit_edge11, label %37
 
-37:                                               ; preds = %.lr.ph27
+37:                                               ; preds = %.lr.ph25
   %38 = load i8, ptr %32, align 8
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %44
@@ -938,7 +938,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) u
   %41 = load i32, ptr %4, align 4
   %42 = and i32 %41, 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %._crit_edge
+  br i1 %43, label %44, label %._crit_edge11
 
 44:                                               ; preds = %40, %37
   %45 = ptrtoint ptr %35 to i64
@@ -998,16 +998,16 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) u
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 3
   %74 = icmp eq i64 %73, 2
-  br i1 %74, label %.lr.ph, label %._crit_edge
+  br i1 %74, label %.lr.ph10, label %._crit_edge11
 
-.lr.ph24:                                         ; preds = %2, %8
+.lr.ph:                                           ; preds = %2, %8
   %75 = phi ptr [ %77, %8 ], [ %1, %2 ]
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %88, label %79
 
-79:                                               ; preds = %.lr.ph24
+79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds i8, ptr %77, i64 40
   %81 = getelementptr inbounds i8, ptr %75, i64 1
   %82 = load i8, ptr %81, align 1
@@ -1020,7 +1020,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) u
   store i8 %87, ptr %85, align 2
   br label %95
 
-88:                                               ; preds = %.lr.ph24
+88:                                               ; preds = %.lr.ph
   %89 = load i32, ptr %4, align 4
   %90 = and i32 %89, 4
   %91 = icmp eq i32 %90, 0
@@ -1049,18 +1049,17 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) u
 
 .thread3:                                         ; preds = %95, %99
   tail call void @call_rcu(ptr noundef %96, ptr noundef nonnull @radix_tree_node_rcu_free) #13
-  br i1 %78, label %.thread4, label %8, !llvm.loop !51
+  br i1 %78, label %.loopexit, label %8, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %40, %.lr.ph27, %.lr.ph, %70, %.lr.ph.preheader, %.preheader
-  %.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph.preheader ], [ 1, %70 ], [ 1, %.lr.ph ], [ %33, %.lr.ph27 ], [ %33, %40 ]
-  %100 = or i8 %.lcssa, %.lcssa21
-  br label %.thread4
+._crit_edge11:                                    ; preds = %40, %.lr.ph25, %.lr.ph10, %70, %.lr.ph10.preheader, %.preheader
+  %.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph10.preheader ], [ 1, %70 ], [ 1, %.lr.ph10 ], [ %33, %.lr.ph25 ], [ %33, %40 ]
+  %100 = or i8 %.lcssa, %.lcssa7
+  %101 = icmp ne i8 %100, 0
+  br label %.loopexit
 
-.thread4:                                         ; preds = %.thread3, %._crit_edge, %._crit_edge25
-  %.in.in = phi i8 [ %100, %._crit_edge ], [ %.lcssa21, %._crit_edge25 ], [ 1, %.thread3 ]
-  %.in = and i8 %.in.in, 1
-  %101 = icmp ne i8 %.in, 0
-  ret i1 %101
+.loopexit:                                        ; preds = %.thread3, %._crit_edge, %._crit_edge11
+  %102 = phi i1 [ %101, %._crit_edge11 ], [ %7, %._crit_edge ], [ true, %.thread3 ]
+  ret i1 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2253,7 +2252,7 @@ define dso_local void @radix_tree_iter_delete(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = load volatile ptr, ptr %2, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = icmp eq ptr %1, null
@@ -2418,20 +2417,20 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
   %5 = load volatile ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 3
-  %.not22 = icmp eq i64 %7, 2
-  br i1 %.not22, label %.lr.ph, label %.thread, !prof !44
+  %.not20 = icmp eq i64 %7, 2
+  br i1 %.not20, label %.lr.ph, label %.thread, !prof !44
 
 8:                                                ; preds = %.preheader
   %9 = load volatile ptr, ptr %4, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 3
-  %.not23 = icmp eq i64 %11, 2
-  br i1 %.not23, label %.lr.ph, label %.thread, !prof !45, !llvm.loop !46
+  %.not = icmp eq i64 %11, 2
+  br i1 %.not, label %.lr.ph, label %.thread, !prof !45, !llvm.loop !46
 
 .thread:                                          ; preds = %8, %3
   %.lcssa = phi ptr [ %5, %3 ], [ %9, %8 ]
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %40, label %.thread2
+  %.not3 = icmp eq i64 %1, 0
+  br i1 %.not3, label %40, label %.thread2
 
 .lr.ph:                                           ; preds = %3, %8
   %12 = phi i64 [ %10, %8 ], [ %6, %3 ]
@@ -2502,8 +2501,8 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
 
 54:                                               ; preds = %52
   %55 = and i32 %49, 67108864
-  %.not4 = icmp eq i32 %55, 0
-  br i1 %.not4, label %66, label %.thread2
+  %.not5 = icmp eq i32 %55, 0
+  br i1 %.not5, label %66, label %.thread2
 
 56:                                               ; preds = %52
   %57 = ptrtoint ptr %42 to i64
@@ -2516,8 +2515,8 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
   %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, i64 %62) #13, !srcloc !35
   %65 = icmp ult i8 %64, 2
   tail call void @llvm.assume(i1 %65)
-  %.not3 = icmp eq i8 %64, 0
-  br i1 %.not3, label %66, label %.thread2
+  %.not4 = icmp eq i8 %64, 0
+  br i1 %.not4, label %66, label %.thread2
 
 66:                                               ; preds = %54, %56, %45
   %67 = icmp eq ptr %2, null

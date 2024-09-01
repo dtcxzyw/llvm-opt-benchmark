@@ -4788,7 +4788,7 @@ define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %
   br label %16
 
 16:                                               ; preds = %8, %proto_item_set_hidden.exit26
-  %.not32 = phi i1 [ false, %8 ], [ true, %proto_item_set_hidden.exit26 ]
+  %.not31 = phi i1 [ false, %8 ], [ true, %proto_item_set_hidden.exit26 ]
   %17 = phi i1 [ true, %8 ], [ false, %proto_item_set_hidden.exit26 ]
   %indvars.iv.sroa.phi = phi ptr [ %6, %8 ], [ %indvars.iv.sroa.gep34, %proto_item_set_hidden.exit26 ]
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 8
@@ -4810,7 +4810,7 @@ define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %20, %23
-  br i1 %.not32, label %27, label %proto_item_set_hidden.exit
+  br i1 %.not31, label %27, label %proto_item_set_hidden.exit
 
 27:                                               ; preds = %proto_item_set_generated.exit
   %28 = load ptr, ptr %21, align 8
@@ -4825,12 +4825,12 @@ proto_item_set_generated.exit:                    ; preds = %20, %23
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %16, %proto_item_set_generated.exit, %29, %27
-  %33 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %27 ], [ true, %29 ], [ %.not32, %16 ]
+  %33 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %27 ], [ true, %29 ], [ %.not31, %16 ]
   %34 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0) #13
-  %.not.i21.not = icmp eq ptr %36, null
-  br i1 %.not.i21.not, label %proto_item_set_hidden.exit26, label %37
+  %.not.i21 = icmp eq ptr %36, null
+  br i1 %.not.i21, label %proto_item_set_hidden.exit26, label %37
 
 37:                                               ; preds = %proto_item_set_hidden.exit
   %38 = getelementptr inbounds i8, ptr %36, i64 32
@@ -4901,7 +4901,7 @@ define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %9, %proto_item_set_hidden.exit46
-  %.not53 = phi i1 [ false, %9 ], [ true, %proto_item_set_hidden.exit46 ]
+  %.not52 = phi i1 [ false, %9 ], [ true, %proto_item_set_hidden.exit46 ]
   %27 = phi i1 [ true, %9 ], [ false, %proto_item_set_hidden.exit46 ]
   %indvars.iv.sroa.phi = phi ptr [ %7, %9 ], [ %indvars.iv.sroa.gep55, %proto_item_set_hidden.exit46 ]
   %28 = load i32, ptr %indvars.iv.sroa.phi, align 4
@@ -4923,7 +4923,7 @@ define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %30, %33
-  br i1 %.not53, label %37, label %proto_item_set_hidden.exit
+  br i1 %.not52, label %37, label %proto_item_set_hidden.exit
 
 37:                                               ; preds = %proto_item_set_generated.exit
   %38 = load ptr, ptr %31, align 8
@@ -4938,7 +4938,7 @@ proto_item_set_generated.exit:                    ; preds = %30, %33
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %26, %proto_item_set_generated.exit, %39, %37
-  %43 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %37 ], [ true, %39 ], [ %.not53, %26 ]
+  %43 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %37 ], [ true, %39 ], [ %.not52, %26 ]
   %44 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %10, i32 noundef 2, i32 noundef %25) #13

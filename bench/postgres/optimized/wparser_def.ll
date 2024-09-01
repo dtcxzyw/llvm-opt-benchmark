@@ -2412,8 +2412,8 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %wide.trip.count.i = zext nneg i32 %.1268.lcssa.i to i64
   br i1 %319, label %.preheader381.i.us, label %.preheader.i93
 
-.preheader381.i.us:                               ; preds = %.preheader381.lr.ph.i, %._crit_edge451.i.loopexit.us
-  %.0276453.i.us = phi i32 [ %443, %._crit_edge451.i.loopexit.us ], [ 0, %.preheader381.lr.ph.i ]
+.preheader381.i.us:                               ; preds = %.preheader381.lr.ph.i, %._crit_edge451.i.us
+  %.0276453.i.us = phi i32 [ %443, %._crit_edge451.i.us ], [ 0, %.preheader381.lr.ph.i ]
   br label %.lr.ph401.i.us
 
 .lr.ph401.i.us:                                   ; preds = %.preheader381.i.us, %342
@@ -2787,9 +2787,9 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 442:                                              ; preds = %440, %437, %.lr.ph450.i.us
   %indvars.iv.next472.i.us = add nuw nsw i64 %indvars.iv471.i.us, 1
   %exitcond475.not.i.us = icmp eq i64 %indvars.iv.next472.i.us, %wide.trip.count.i
-  br i1 %exitcond475.not.i.us, label %._crit_edge451.i.loopexit.us, label %.lr.ph450.i.us, !llvm.loop !23
+  br i1 %exitcond475.not.i.us, label %._crit_edge451.i.us, label %.lr.ph450.i.us, !llvm.loop !23
 
-._crit_edge451.i.loopexit.us:                     ; preds = %442
+._crit_edge451.i.us:                              ; preds = %442
   %443 = add nuw nsw i32 %.0276453.i.us, 1
   %exitcond476.not.i.us = icmp eq i32 %443, %.082.lcssa195
   br i1 %exitcond476.not.i.us, label %._crit_edge454.i, label %.preheader381.i.us, !llvm.loop !24
@@ -2965,8 +2965,8 @@ get_next_fragment.exit.i:                         ; preds = %480, %.lr.ph88.i.i,
   %.not305.i = icmp sgt i32 %496, %storemerge.i
   br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !28
 
-._crit_edge454.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge451.i.loopexit.us
-  %.us-phi.ph = phi i32 [ %.0276453.i.us, %._crit_edge.i97.us ], [ %.082.lcssa195, %._crit_edge451.i.loopexit.us ]
+._crit_edge454.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge451.i.us
+  %.us-phi.ph = phi i32 [ %.0276453.i.us, %._crit_edge.i97.us ], [ %.082.lcssa195, %._crit_edge451.i.us ]
   %497 = icmp slt i32 %.us-phi.ph, 1
   br i1 %497, label %.preheader.i93, label %mark_hl_fragments.exit
 
@@ -3883,7 +3883,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
   %13 = load i32, ptr %3, align 4
   br label %.lr.ph122
 
-.lr.ph122:                                        ; preds = %.lr.ph122.lr.ph, %._crit_edge152.thread
+.lr.ph122:                                        ; preds = %._crit_edge152.thread, %.lr.ph122.lr.ph
   %.081195 = phi i32 [ %13, %.lr.ph122.lr.ph ], [ %82, %._crit_edge152.thread ]
   %14 = load i32, ptr %8, align 4
   %15 = icmp sgt i32 %14, 0
@@ -3926,12 +3926,9 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
   %spec.select = call i32 @llvm.smax.i32(i32 %.084121130, i32 %29)
   %31 = add nuw nsw i32 %.sroa.442.0120131, 1
   %exitcond163.not = icmp eq i32 %31, %14
-  br i1 %exitcond163.not, label %.preheader113, label %17
+  br i1 %exitcond163.not, label %.lr.ph137, label %17
 
-.preheader113:                                    ; preds = %30
-  br i1 %.not, label %._crit_edge138, label %.lr.ph137
-
-.lr.ph137:                                        ; preds = %.preheader113
+.lr.ph137:                                        ; preds = %30
   %32 = load i32, ptr %8, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph146, label %._crit_edge138
@@ -3977,8 +3974,8 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
   %exitcond172.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count171
   br i1 %exitcond172.not, label %._crit_edge138, label %35
 
-._crit_edge138:                                   ; preds = %53, %.lr.ph137, %.preheader113
-  %.082.lcssa = phi i32 [ 2147483646, %.preheader113 ], [ 2147483646, %.lr.ph137 ], [ %spec.select103, %53 ]
+._crit_edge138:                                   ; preds = %53, %.lr.ph137
+  %.082.lcssa = phi i32 [ 2147483646, %.lr.ph137 ], [ %spec.select103, %53 ]
   %54 = call i32 @llvm.smax.i32(i32 %.082.lcssa, i32 %.081195)
   %.not97 = icmp sgt i32 %54, %spec.select
   br i1 %.not97, label %._crit_edge152.thread, label %.preheader
@@ -4065,10 +4062,10 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
 
 ._crit_edge152.thread:                            ; preds = %.preheader, %._crit_edge152, %73, %._crit_edge138
   %82 = add i32 %54, 1
-  br i1 %.not, label %.thread107, label %.lr.ph122
+  br label %.lr.ph122
 
-.thread107:                                       ; preds = %._crit_edge152.thread, %.lr.ph122, %17, %25, %6, %80
-  %.078 = phi i1 [ true, %80 ], [ false, %6 ], [ false, %25 ], [ false, %17 ], [ false, %.lr.ph122 ], [ false, %._crit_edge152.thread ]
+.thread107:                                       ; preds = %.lr.ph122, %17, %25, %6, %80
+  %.078 = phi i1 [ true, %80 ], [ false, %6 ], [ false, %25 ], [ false, %17 ], [ false, %.lr.ph122 ]
   ret i1 %.078
 }
 

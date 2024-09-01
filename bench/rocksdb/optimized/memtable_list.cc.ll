@@ -529,7 +529,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   store i32 %inc.i, ptr %refs_.i, align 16
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.056, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %this
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %if.then.i16, label %for.body
 
 lpad:                                             ; preds = %if.else.i.i25, %if.else.i.i
   %5 = landingpad { ptr, i32 }
@@ -560,10 +560,7 @@ while.body.i.i.i11:                               ; preds = %_ZNSt7__cxx114listI
 _ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EED2Ev.exit14: ; preds = %while.body.i.i.i11, %_ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EED2Ev.exit
   resume { ptr, i32 } %5
 
-for.end:                                          ; preds = %for.body
-  br i1 %cmp.not.i, label %invoke.cont16, label %if.then.i16
-
-if.then.i16:                                      ; preds = %invoke.cont, %for.end.i.i, %for.end
+if.then.i16:                                      ; preds = %for.body, %invoke.cont, %for.end.i.i
   %memlist_history_1464 = getelementptr inbounds i8, ptr %old, i64 24
   %10 = load ptr, ptr %memlist_history_1464, align 8
   %__first1.sroa.0.013.i.i17 = load ptr, ptr %memlist_history_, align 8
@@ -611,7 +608,7 @@ if.else.i.i25:                                    ; preds = %for.end.i.i21
   %call24.i.i44 = invoke ptr @_ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %memlist_history_, ptr nonnull %memlist_history_, ptr %__first2.sroa.0.0.lcssa.i.i22, ptr nonnull %memlist_history_1464)
           to label %invoke.cont16 unwind label %lpad
 
-invoke.cont16:                                    ; preds = %while.body.i.i.i30, %entry, %if.then.i.i26, %for.end, %if.else.i.i25
+invoke.cont16:                                    ; preds = %while.body.i.i.i30, %entry, %if.then.i.i26, %if.else.i.i25
   %__begin120.sroa.0.057 = load ptr, ptr %memlist_history_, align 8
   %cmp.i46.not58 = icmp eq ptr %__begin120.sroa.0.057, %memlist_history_
   br i1 %cmp.i46.not58, label %for.end34, label %for.body28
@@ -960,8 +957,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %__begin1.sroa.0.0.in = phi ptr [ %this, %entry ], [ %__begin1.sroa.0.0, %for.body ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
-  %cmp.i.not = icmp ne ptr %__begin1.sroa.0.0, %this
-  br i1 %cmp.i.not, label %for.body, label %return
+  %cmp.i.not.not.not.not.not = icmp ne ptr %__begin1.sroa.0.0, %this
+  br i1 %cmp.i.not.not.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 16
@@ -972,7 +969,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %call.i, label %return, label %for.cond
 
 return:                                           ; preds = %for.cond, %for.body
-  ret i1 %cmp.i.not
+  ret i1 %cmp.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -5992,8 +5992,8 @@ for.body.i.i.i.i.i:                               ; preds = %land.rhs.i, %for.in
   %4 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8, !tbaa !103
   %_M_node_count.i16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.010.i.i.i.i.i, i64 40
   %5 = load i64, ptr %_M_node_count.i16.i.i.i.i.i.i.i, align 8, !tbaa !103
-  %cmp.i.i.i.i.i.i.i.not = icmp ne i64 %4, %5
-  br i1 %cmp.i.i.i.i.i.i.i.not, label %_ZSteqISt3setImSt4lessImESaImEESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit, label %land.rhs.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.not.not.not = icmp ne i64 %4, %5
+  br i1 %cmp.i.i.i.i.i.i.i.not.not.not, label %_ZSteqISt3setImSt4lessImESaImEESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit, label %land.rhs.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.09.i.i.i.i.i, i64 24
@@ -6030,7 +6030,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZSteqISt3setImSt4lessImESaImEESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit, label %for.body.i.i.i.i.i, !llvm.loop !175
 
 _ZSteqISt3setImSt4lessImESaImEESaIS4_EEbRKSt6vectorIT_T0_ESB_.exit: ; preds = %for.inc.i.i.i.i.i, %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i, %entry
-  %lnot = phi i1 [ true, %entry ], [ false, %land.rhs.i ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.not, %for.inc.i.i.i.i.i ], [ true, %for.body.i.i.i.i.i ]
+  %lnot = phi i1 [ true, %entry ], [ false, %land.rhs.i ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.not.not.not, %for.body.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.not.not.not, %for.inc.i.i.i.i.i ]
   ret i1 %lnot
 }
 

@@ -192,12 +192,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN3net1
   store i64 0, ptr %call5.i.i.i.i2.i.i18, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %symbol_count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont10.thread244, label %for.body.i.i.i.i.i.i.i.i.i
-
-invoke.cont10.thread244:                          ; preds = %if.then.i.i.i.i.i
-  %_M_finish.i.i7.i246 = getelementptr inbounds i8, ptr %symbols, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i246, align 8
-  br label %for.body.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
@@ -205,16 +200,12 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, 
   store i64 %3, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
-invoke.cont10:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i
+for.body.lr.ph:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %add.ptr.i.i.i.sink = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %symbols, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %invoke.cont10.thread244, %invoke.cont10
-  %_M_finish.i.i7.i248 = phi ptr [ %_M_finish.i.i7.i246, %invoke.cont10.thread244 ], [ %_M_finish.i.i7.i, %invoke.cont10 ]
-  %__first.addr.0.i.i.i.i.i247 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont10.thread244 ], [ %add.ptr.i.i.i, %invoke.cont10 ]
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -235,21 +226,19 @@ if.end:                                           ; preds = %for.body
   %cmp = icmp ugt i64 %symbol_count, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %if.end, %invoke.cont10
-  %_M_finish.i.i7.i243 = phi ptr [ %_M_finish.i.i7.i, %invoke.cont10 ], [ %_M_finish.i.i7.i248, %if.end ]
-  %__first.addr.0.i.i.i.i.i242 = phi ptr [ %add.ptr.i.i.i, %invoke.cont10 ], [ %__first.addr.0.i.i.i.i.i247, %if.end ]
-  %cmp.i.not.i.i = icmp eq ptr %call5.i.i.i.i2.i.i18, %__first.addr.0.i.i.i.i.i242
+for.end:                                          ; preds = %if.end
+  %cmp.i.not.i.i = icmp eq ptr %call5.i.i.i.i2.i.i18, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i.i, label %invoke.cont25, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %for.end
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i242 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.sink to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i2.i.i18 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %6, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %call5.i.i.i.i2.i.i18, ptr %__first.addr.0.i.i.i.i.i242, i64 noundef %mul.i.i, ptr nonnull @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %call5.i.i.i.i2.i.i18, ptr %add.ptr.i.i.i.sink, i64 noundef %mul.i.i, ptr nonnull @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_)
           to label %.noexc20 unwind label %lpad24
 
 .noexc20:                                         ; preds = %if.then.i.i19
@@ -323,7 +312,7 @@ for.inc.i.i:                                      ; preds = %while.body.i.i.i, %
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i: ; preds = %for.inc.i.i
   %add.ptr.i.i47 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i18, i64 128
-  %cmp.i.not2.i.i = icmp eq ptr %add.ptr.i.i47, %__first.addr.0.i.i.i.i.i242
+  %cmp.i.not2.i.i = icmp eq ptr %add.ptr.i.i47, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not2.i.i, label %invoke.cont25, label %for.body.i3.i
 
 for.body.i3.i:                                    ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i
@@ -362,11 +351,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuff
   %__last.sroa.0.0.lcssa.i.i6.i = phi ptr [ %__i.sroa.0.03.i.i, %for.body.i3.i ], [ %__next.sroa.0.09.i.i8.i, %while.body.i.i7.i ]
   store i64 %17, ptr %__last.sroa.0.0.lcssa.i.i6.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i, i64 8
-  %cmp.i.not.i.i48 = icmp eq ptr %incdec.ptr.i.i.i, %__first.addr.0.i.i.i.i.i242
+  %cmp.i.not.i.i48 = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i.i48, label %invoke.cont25, label %for.body.i3.i, !llvm.loop !10
 
 if.else.i:                                        ; preds = %.noexc20
-  %cmp.i1.not10.i16.i = icmp eq ptr %scevgep.i, %__first.addr.0.i.i.i.i.i242
+  %cmp.i1.not10.i16.i = icmp eq ptr %scevgep.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i1.not10.i16.i, label %invoke.cont25, label %for.body.i19.i.preheader
 
 for.body.i19.i.preheader:                         ; preds = %if.else.i
@@ -435,11 +424,11 @@ for.inc.i27.i:                                    ; preds = %while.body.i.i30.i,
   %__last.sroa.0.0.lcssa.i.i26.i.sink = phi ptr [ %call5.i.i.i.i2.i.i18, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i ], [ %__i.sroa.0.012.i20.i, %if.else.i23.i ], [ %__next.sroa.0.09.i.i31.i, %while.body.i.i30.i ]
   store i64 %27, ptr %__last.sroa.0.0.lcssa.i.i26.i.sink, align 4
   %__i.sroa.0.0.i28.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20.i, i64 8
-  %cmp.i1.not.i29.i = icmp eq ptr %__i.sroa.0.0.i28.i, %__first.addr.0.i.i.i.i.i242
+  %cmp.i1.not.i29.i = icmp eq ptr %__i.sroa.0.0.i28.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i1.not.i29.i, label %invoke.cont25, label %for.body.i19.i, !llvm.loop !9
 
 invoke.cont25:                                    ; preds = %for.inc.i27.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i, %for.end.thread, %for.end, %if.else.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i
-  %_M_finish.i.i7.i243252 = phi ptr [ %_M_finish.i.i7.i241, %for.end.thread ], [ %_M_finish.i.i7.i243, %for.end ], [ %_M_finish.i.i7.i243, %if.else.i ], [ %_M_finish.i.i7.i243, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ], [ %_M_finish.i.i7.i243, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i ], [ %_M_finish.i.i7.i243, %for.inc.i27.i ]
+  %_M_finish.i.i7.i243252 = phi ptr [ %_M_finish.i.i7.i241, %for.end.thread ], [ %_M_finish.i.i7.i, %for.end ], [ %_M_finish.i.i7.i, %if.else.i ], [ %_M_finish.i.i7.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ], [ %_M_finish.i.i7.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i5.i ], [ %_M_finish.i.i7.i, %for.inc.i27.i ]
   %33 = load ptr, ptr %symbols, align 8
   %34 = load i32, ptr %33, align 4
   %cmp27.not = icmp eq i32 %34, 0

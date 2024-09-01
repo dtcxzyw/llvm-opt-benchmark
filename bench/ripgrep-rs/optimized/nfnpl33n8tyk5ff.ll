@@ -272,11 +272,11 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq13cross_forward17h6ed1810ce
   br label %95
 
 .lr.ph:                                           ; preds = %67, %140
-  %.sroa.048.066 = phi ptr [ %89, %140 ], [ %68, %67 ]
-  %89 = getelementptr inbounds i8, ptr %.sroa.048.066, i64 32
+  %.sroa.048.062 = phi ptr [ %89, %140 ], [ %68, %67 ]
+  %89 = getelementptr inbounds i8, ptr %.sroa.048.062, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %90 = load i64, ptr %30, align 8, !noundef !8
-  %91 = getelementptr inbounds i8, ptr %.sroa.048.066, i64 16
+  %91 = getelementptr inbounds i8, ptr %.sroa.048.062, i64 16
   %92 = load i64, ptr %91, align 8, !noundef !8
   %93 = add i64 %92, %90
   %94 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbdbbba2d07c806cdE"(i64 noundef %93, i1 noundef zeroext false)
@@ -321,7 +321,7 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq13cross_forward17h6ed1810ce
   %108 = load i64, ptr %.sroa.38.0..sroa_idx, align 8, !alias.scope !37, !noalias !44, !noundef !8
   %109 = add i64 %108, %.val27
   store i64 %109, ptr %.sroa.38.0..sroa_idx, align 8, !alias.scope !37, !noalias !44
-  %110 = getelementptr i8, ptr %.sroa.048.066, i64 8
+  %110 = getelementptr i8, ptr %.sroa.048.062, i64 8
   %.val28 = load ptr, ptr %110, align 8
   %.val29 = load i64, ptr %91, align 8
   %111 = load i8, ptr %31, align 8, !range !4, !alias.scope !46, !noundef !8
@@ -361,7 +361,7 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq13cross_forward17h6ed1810ce
   br label %_ZN12regex_syntax3hir7literal7Literal6extend17h362f3fabe4aac8ceE.exit36
 
 _ZN12regex_syntax3hir7literal7Literal6extend17h362f3fabe4aac8ceE.exit36: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17heef94b749dba1c83E.exit.i32", %104
-  %127 = getelementptr inbounds i8, ptr %.sroa.048.066, i64 24
+  %127 = getelementptr inbounds i8, ptr %.sroa.048.062, i64 24
   %128 = load i8, ptr %127, align 8, !range !4, !noundef !8
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %131, label %130
@@ -4276,20 +4276,17 @@ _ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.169799788501305706
   br i1 %.not12.i.i, label %.thread4, label %.lr.ph.i.i
 
 .thread4:                                         ; preds = %_ZN4core3ops8function5FnMut8call_mut17h3a4ecc868dc5d38eE.llvm.16979978850130570624.exit.backedge.i.i
-  br i1 %.not.i.i, label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit, label %20
-
-20:                                               ; preds = %.thread4
-  %21 = getelementptr inbounds i8, ptr %8, i64 32
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !888, !noalias !893, !noundef !8
-  %24 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h992e3fde2601ad0bE.llvm.12899952936866483202"(ptr noundef nonnull %21, ptr noundef nonnull %9, i64 noundef %23), !noalias !900
-  %25 = icmp ugt i64 %24, 2
-  %26 = icmp ult i64 %6, 9
-  %spec.select = and i1 %25, %26
+  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = load i64, ptr %21, align 8, !alias.scope !888, !noalias !893, !noundef !8
+  %23 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h992e3fde2601ad0bE.llvm.12899952936866483202"(ptr noundef nonnull %20, ptr noundef nonnull %9, i64 noundef %22), !noalias !900
+  %24 = icmp ugt i64 %23, 2
+  %25 = icmp ult i64 %6, 9
+  %spec.select = and i1 %24, %25
   br label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit
 
-_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit: ; preds = %14, %.lr.ph.i.i, %4, %1, %20, %.thread4
-  %.0 = phi i1 [ false, %.thread4 ], [ %spec.select, %20 ], [ false, %1 ], [ false, %4 ], [ false, %.lr.ph.i.i ], [ false, %14 ]
+_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit: ; preds = %14, %.lr.ph.i.i, %4, %1, %.thread4
+  %.0 = phi i1 [ %spec.select, %.thread4 ], [ false, %1 ], [ false, %4 ], [ false, %.lr.ph.i.i ], [ false, %14 ]
   ret i1 %.0
 }
 

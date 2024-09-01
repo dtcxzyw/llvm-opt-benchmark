@@ -6973,8 +6973,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN16LatchDetectGraph18latchCh
 11:                                               ; preds = %12, %9
   %.sroa.0.0.in = phi ptr [ %10, %9 ], [ %13, %12 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
-  %.not.not = icmp ne ptr %.sroa.0.0, null
-  br i1 %.not.not, label %12, label %.loopexit
+  %.not.not.not = icmp ne ptr %.sroa.0.0, null
+  br i1 %.not.not.not, label %12, label %.loopexit
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
@@ -7004,7 +7004,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN16LatchDetectGraph18latchCh
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %11, %19, %29, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ %8, %5 ], [ false, %19 ], [ %30, %29 ], [ %.not.not, %11 ], [ %.not.not, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ %8, %5 ], [ false, %19 ], [ %30, %29 ], [ %.not.not.not, %11 ], [ %.not.not.not, %12 ]
   %31 = zext i1 %.0 to i32
   %32 = getelementptr inbounds i8, ptr %1, i64 72
   store i32 %31, ptr %32, align 8

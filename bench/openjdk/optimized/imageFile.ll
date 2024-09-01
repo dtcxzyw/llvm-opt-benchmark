@@ -700,29 +700,21 @@ define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFil
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = zext i32 %3 to i64
-  %7 = load ptr, ptr %5, align 8
-  %8 = icmp eq ptr %7, %1
-  br i1 %8, label %._crit_edge, label %.lr.ph10
+  %wide.trip.count = zext i32 %3 to i64
+  br label %6
 
-.lr.ph10:                                         ; preds = %.lr.ph, %9
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !13
+6:                                                ; preds = %6, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, %1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !13
 
-9:                                                ; preds = %.lr.ph10
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
-  br i1 %12, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !13
-
-._crit_edge.loopexit:                             ; preds = %9, %.lr.ph10
-  %13 = icmp ult i64 %indvars.iv.next, %6
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %13, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %6, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %9, %6 ]
   ret i1 %.lcssa
 }
 
@@ -1322,37 +1314,29 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader8id_checkEy(i64 noundef %0
 
 .lr.ph.i:                                         ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
-  %5 = zext i32 %3 to i64
-  %6 = load ptr, ptr %4, align 8
-  %7 = icmp eq ptr %6, %2
-  br i1 %7, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit, label %.lr.ph
+  %wide.trip.count.i = zext i32 %3 to i64
+  br label %5
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %8
-  %indvars.iv.i1 = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i1, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %5
-  br i1 %exitcond.not.i, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit.loopexit, label %8, !llvm.loop !13
+5:                                                ; preds = %5, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, %2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %or.cond = select i1 %8, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit, label %5, !llvm.loop !13
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next.i
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %2
-  br i1 %11, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit.loopexit, label %.lr.ph, !llvm.loop !13
-
-_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit.loopexit: ; preds = %.lr.ph, %8
-  %12 = icmp ult i64 %indvars.iv.next.i, %5
-  br label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit
-
-_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit: ; preds = %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit.loopexit, %.lr.ph.i, %1
-  %.lcssa.i = phi i1 [ false, %1 ], [ true, %.lr.ph.i ], [ %12, %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit.loopexit ]
+_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit: ; preds = %5, %1
+  %.lcssa.i = phi i1 [ false, %1 ], [ %8, %5 ]
   invoke void @_ZN21SimpleCriticalSection4exitEv(ptr noundef nonnull align 8 dereferenceable(40) @_reader_table_lock)
-          to label %_ZN25SimpleCriticalSectionLockD2Ev.exit unwind label %13
+          to label %_ZN25SimpleCriticalSectionLockD2Ev.exit unwind label %9
 
-13:                                               ; preds = %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit
-  %14 = landingpad { ptr, i32 }
+9:                                                ; preds = %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #28
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #28
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit

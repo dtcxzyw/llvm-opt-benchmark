@@ -2814,12 +2814,9 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
   store ptr %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !18
+  br i1 %exitcond.not, label %.lr.ph72.preheader, label %28, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %57
-  br i1 %.not74, label %._crit_edge73, label %.lr.ph72.preheader
-
-.lr.ph72.preheader:                               ; preds = %._crit_edge
+.lr.ph72.preheader:                               ; preds = %57
   %68 = zext i32 %.064 to i64
   %69 = shl nuw nsw i64 %68, 3
   %70 = call ptr @calloc_arena(i64 noundef %69) #6
@@ -2838,8 +2835,8 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !19
 
-._crit_edge73:                                    ; preds = %.lr.ph72, %._crit_edge, %11
-  %.pre-phi = phi i64 [ 0, %11 ], [ 0, %._crit_edge ], [ %wide.trip.count80, %.lr.ph72 ]
+._crit_edge73:                                    ; preds = %.lr.ph72, %11
+  %.pre-phi = phi i64 [ 0, %11 ], [ %wide.trip.count80, %.lr.ph72 ]
   %76 = call fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef 9, ptr noundef null, i64 noundef %.pre-phi, ptr noundef null, i1 noundef zeroext false)
   ret ptr %76
 }

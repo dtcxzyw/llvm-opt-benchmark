@@ -1554,8 +1554,8 @@ if.then78:                                        ; preds = %for.body.i58
 if.end80:                                         ; preds = %for.cond.i62, %if.then78
   %.pr208.pr = phi i32 [ %.pr208.pr.pre, %if.then78 ], [ %.pr203, %for.cond.i62 ]
   %had_error.7.ph.ph = phi i32 [ 1, %if.then78 ], [ %had_error.6.ph, %for.cond.i62 ]
-  %cmp6.not.i68.not = icmp eq i32 %.pr208.pr, 0
-  br i1 %cmp6.not.i68.not, label %if.end92, label %for.body.lr.ph.i69
+  %cmp6.not.i68 = icmp eq i32 %.pr208.pr, 0
+  br i1 %cmp6.not.i68, label %if.end92, label %for.body.lr.ph.i69
 
 for.body.lr.ph.i69:                               ; preds = %if.end80
   %118 = load ptr, ptr %ops.i328.i, align 8

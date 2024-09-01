@@ -18884,7 +18884,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i15 = getelementptr inbounds i8, ptr %compression_sw, i64 33
   %25 = load i8, ptr %stats_enabled_.i15, align 1
   %tobool21.i = trunc i8 %25 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %return
+  br i1 %tobool21.i, label %cond.true.i, label %return
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb18CompressionContextD2Ev.exit
   %stats_enabled_.i1522 = getelementptr inbounds i8, ptr %compression_sw, i64 33
@@ -18892,14 +18892,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb18Compre
   %tobool21.i23 = trunc i8 %26 to i1
   br i1 %tobool21.i23, label %cond.false.i, label %return
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i9, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.then22.i
+cond.true.i:                                      ; preds = %if.end20.i
   %27 = load i64, ptr %15, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %28 = load ptr, ptr %compression_sw, align 8
   %vtable26.i = load ptr, ptr %28, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -20829,7 +20826,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i27 = getelementptr inbounds i8, ptr %decompression_sw, i64 33
   %38 = load i8, ptr %stats_enabled_.i27, align 1
   %tobool21.i = trunc i8 %38 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %cleanup32
+  br i1 %tobool21.i, label %cond.true.i, label %cleanup32
 
 if.end20.i.thread:                                ; preds = %_ZN7rocksdb20UncompressionContextD2Ev.exit
   %stats_enabled_.i27119 = getelementptr inbounds i8, ptr %decompression_sw, i64 33
@@ -20837,14 +20834,11 @@ if.end20.i.thread:                                ; preds = %_ZN7rocksdb20Uncomp
   %tobool21.i120 = trunc i8 %39 to i1
   br i1 %tobool21.i120, label %cond.false.i, label %cleanup32
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i20, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.then22.i
+cond.true.i:                                      ; preds = %if.end20.i
   %40 = load i64, ptr %28, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %41 = load ptr, ptr %decompression_sw, align 8
   %vtable26.i = load ptr, ptr %41, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152
@@ -21000,7 +20994,7 @@ if.end20.i75:                                     ; preds = %if.then17.i103, %la
   %stats_enabled_.i76 = getelementptr inbounds i8, ptr %decompression_sw, i64 33
   %71 = load i8, ptr %stats_enabled_.i76, align 1
   %tobool21.i77 = trunc i8 %71 to i1
-  br i1 %tobool21.i77, label %if.then22.i78, label %cleanup.cont
+  br i1 %tobool21.i77, label %cond.true.i80, label %cleanup.cont
 
 if.end20.i75.thread:                              ; preds = %_ZN7rocksdb20UncompressionContextD2Ev.exit54
   %stats_enabled_.i76121 = getelementptr inbounds i8, ptr %decompression_sw, i64 33
@@ -21008,14 +21002,11 @@ if.end20.i75.thread:                              ; preds = %_ZN7rocksdb20Uncomp
   %tobool21.i77122 = trunc i8 %72 to i1
   br i1 %tobool21.i77122, label %cond.false.i96, label %cleanup.cont
 
-if.then22.i78:                                    ; preds = %if.end20.i75
-  br i1 %tobool.not.i56, label %cond.false.i96, label %cond.true.i80
-
-cond.true.i80:                                    ; preds = %if.then22.i78
+cond.true.i80:                                    ; preds = %if.end20.i75
   %73 = load i64, ptr %61, align 8
   br label %cond.end.i81
 
-cond.false.i96:                                   ; preds = %if.end20.i75.thread, %if.then22.i78
+cond.false.i96:                                   ; preds = %if.end20.i75.thread
   %74 = load ptr, ptr %decompression_sw, align 8
   %vtable26.i97 = load ptr, ptr %74, align 8
   %vfn27.i98 = getelementptr inbounds i8, ptr %vtable26.i97, i64 152
@@ -25433,7 +25424,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %land.
   %stats_enabled_.i134 = getelementptr inbounds i8, ptr %read_sw, i64 33
   %101 = load i8, ptr %stats_enabled_.i134, align 1
   %tobool21.i = trunc i8 %101 to i1
-  br i1 %tobool21.i, label %if.then22.i, label %invoke.cont78
+  br i1 %tobool21.i, label %cond.true.i, label %invoke.cont78
 
 if.end20.i.thread:                                ; preds = %invoke.cont77
   %stats_enabled_.i134297 = getelementptr inbounds i8, ptr %read_sw, i64 33
@@ -25441,14 +25432,11 @@ if.end20.i.thread:                                ; preds = %invoke.cont77
   %tobool21.i298 = trunc i8 %102 to i1
   br i1 %tobool21.i298, label %cond.false.i, label %invoke.cont78
 
-if.then22.i:                                      ; preds = %if.end20.i
-  br i1 %tobool.not.i126, label %cond.false.i, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.then22.i
+cond.true.i:                                      ; preds = %if.end20.i
   %103 = load i64, ptr %91, align 8
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end20.i.thread, %if.then22.i
+cond.false.i:                                     ; preds = %if.end20.i.thread
   %104 = load ptr, ptr %read_sw, align 8
   %vtable26.i = load ptr, ptr %104, align 8
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 152

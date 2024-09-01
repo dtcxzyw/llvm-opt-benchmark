@@ -6591,16 +6591,13 @@ _ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE2atEm.exit1
 
 ._crit_edge2706:                                  ; preds = %198
   %206 = icmp sgt i32 %.1105, %169
-  br i1 %206, label %.loopexit1196, label %.preheader1194
+  br i1 %206, label %.loopexit1196, label %.lr.ph2720.preheader
 
 ._crit_edge2706.thread:                           ; preds = %.preheader1195
   %207 = icmp slt i32 %169, 0
   br i1 %207, label %.loopexit1196, label %._crit_edge2721
 
-.preheader1194:                                   ; preds = %._crit_edge2706
-  br i1 %.not2702, label %._crit_edge2721, label %.lr.ph2720.preheader
-
-.lr.ph2720.preheader:                             ; preds = %.preheader1194
+.lr.ph2720.preheader:                             ; preds = %._crit_edge2706
   %208 = add nuw i32 %.0107.lcssa.fr, 1
   %wide.trip.count3281 = zext i32 %208 to i64
   br label %.lr.ph2720
@@ -6761,11 +6758,11 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNS
   %exitcond3282.not = icmp eq i64 %indvars.iv.next3279, %wide.trip.count3281
   br i1 %exitcond3282.not, label %._crit_edge2721, label %.lr.ph2720, !llvm.loop !29
 
-._crit_edge2721:                                  ; preds = %266, %._crit_edge2706.thread, %.preheader1194
-  %.sroa.25.3.lcssa = phi ptr [ %.sroa.25.24320, %.preheader1194 ], [ %.sroa.25.24320, %._crit_edge2706.thread ], [ %.sroa.25.5, %266 ]
-  %.sroa.10.3.lcssa = phi ptr [ %.sroa.10.24321, %.preheader1194 ], [ %.sroa.10.24321, %._crit_edge2706.thread ], [ %.sroa.10.5, %266 ]
-  %.sroa.01054.6.lcssa = phi ptr [ %.sroa.01054.54322, %.preheader1194 ], [ %.sroa.01054.54322, %._crit_edge2706.thread ], [ %.sroa.01054.8, %266 ]
-  %.3.lcssa = phi i32 [ %.24324, %.preheader1194 ], [ %.24324, %._crit_edge2706.thread ], [ %.4, %266 ]
+._crit_edge2721:                                  ; preds = %266, %._crit_edge2706.thread
+  %.sroa.25.3.lcssa = phi ptr [ %.sroa.25.24320, %._crit_edge2706.thread ], [ %.sroa.25.5, %266 ]
+  %.sroa.10.3.lcssa = phi ptr [ %.sroa.10.24321, %._crit_edge2706.thread ], [ %.sroa.10.5, %266 ]
+  %.sroa.01054.6.lcssa = phi ptr [ %.sroa.01054.54322, %._crit_edge2706.thread ], [ %.sroa.01054.8, %266 ]
+  %.3.lcssa = phi i32 [ %.24324, %._crit_edge2706.thread ], [ %.4, %266 ]
   %267 = add nsw i32 %.2694323, 1
   %268 = load ptr, ptr %83, align 8
   %269 = load ptr, ptr %36, align 8
@@ -6787,7 +6784,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNS
   br i1 %284, label %.lr.ph2698, label %.loopexit1196, !llvm.loop !30
 
 .loopexit1196:                                    ; preds = %._crit_edge2706.thread, %._crit_edge2706, %._crit_edge2699, %._crit_edge2721, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit, %.preheader1197, %._crit_edge
-  %.099.lcssa3290 = phi i1 [ false, %._crit_edge ], [ false, %.preheader1197 ], [ %.1100, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit ], [ %.1100, %._crit_edge2721 ], [ %.1100, %._crit_edge2699 ], [ %.1100, %._crit_edge2706 ], [ %.1100, %._crit_edge2706.thread ]
+  %.099.lcssa3290 = phi i1 [ false, %._crit_edge ], [ false, %.preheader1197 ], [ true, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit ], [ true, %._crit_edge2721 ], [ true, %._crit_edge2699 ], [ true, %._crit_edge2706 ], [ true, %._crit_edge2706.thread ]
   %.sroa.25.1 = phi ptr [ %.sroa.25.0, %._crit_edge ], [ %.sroa.25.0, %.preheader1197 ], [ %.sroa.25.0, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.25.24320, %._crit_edge2706.thread ], [ %.sroa.25.24320, %._crit_edge2706 ], [ %.sroa.25.24320, %._crit_edge2699 ], [ %.sroa.25.3.lcssa, %._crit_edge2721 ]
   %.sroa.10.1 = phi ptr [ %.sroa.10.0, %._crit_edge ], [ %.sroa.10.0, %.preheader1197 ], [ %.sroa.10.0, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.10.24321, %._crit_edge2706.thread ], [ %.sroa.10.24321, %._crit_edge2706 ], [ %.sroa.10.24321, %._crit_edge2699 ], [ %.sroa.10.3.lcssa, %._crit_edge2721 ]
   %.sroa.01054.4 = phi ptr [ %.sroa.01054.0, %._crit_edge ], [ %.sroa.01054.0, %.preheader1197 ], [ %.sroa.01054.0, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.01054.54322, %._crit_edge2706.thread ], [ %.sroa.01054.54322, %._crit_edge2706 ], [ %.sroa.01054.54322, %._crit_edge2699 ], [ %.sroa.01054.6.lcssa, %._crit_edge2721 ]
@@ -18196,7 +18193,7 @@ define internal void @_ZN12_GLOBAL__N_111MaccmapPass7executeESt6vectorINSt7__cxx
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph64, %.lr.ph.preheader, %3
   %.023.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %20, %.lr.ph64 ], [ %20, %.lr.ph ]
-  %.0.lcssa = phi i1 [ false, %3 ], [ %16, %.lr.ph.preheader ], [ %16, %.lr.ph64 ], [ %16, %.lr.ph ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph64 ], [ true, %.lr.ph ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %4, i64 noundef %.023.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %28 unwind label %41

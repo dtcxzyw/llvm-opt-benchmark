@@ -2499,7 +2499,7 @@ for.cond136.preheader.i:                          ; preds = %for.inc170.i, %for.
   %cond149.i = select i1 %cmp144.i, i64 0, i64 %add37.i
   br label %for.cond140.preheader.i
 
-for.cond179.preheader.lr.ph.i:                    ; preds = %for.inc170.i
+for.cond175.preheader.i:                          ; preds = %for.inc170.i
   %arrayidx2.i146.i = getelementptr inbounds i8, ptr %RGB186.i, i64 4
   %arrayidx5.i148.i = getelementptr inbounds i8, ptr %RGB186.i, i64 8
   br label %for.cond179.preheader.i
@@ -2544,10 +2544,10 @@ for.inc166.i:                                     ; preds = %for.cond140.i
 for.inc170.i:                                     ; preds = %for.inc166.i
   %add172.i = add i64 %idx131.0199.i, %sub.i
   %cmp133.i = icmp ult i64 %add172.i, %call3.i
-  br i1 %cmp133.i, label %for.cond136.preheader.i, label %for.cond179.preheader.lr.ph.i, !llvm.loop !61
+  br i1 %cmp133.i, label %for.cond136.preheader.i, label %for.cond175.preheader.i, !llvm.loop !61
 
-for.cond179.preheader.i:                          ; preds = %for.inc215.i, %for.cond179.preheader.lr.ph.i
-  %idx174.0203.i = phi i64 [ 0, %for.cond179.preheader.lr.ph.i ], [ %add202.i, %for.inc215.i ]
+for.cond179.preheader.i:                          ; preds = %for.inc215.i, %for.cond175.preheader.i
+  %idx174.0203.i = phi i64 [ 0, %for.cond175.preheader.i ], [ %add202.i, %for.inc215.i ]
   %add202.i = add nuw i64 %idx174.0203.i, 1
   br label %for.cond183.preheader.i
 

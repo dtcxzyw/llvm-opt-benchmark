@@ -29830,7 +29830,7 @@ for.body.i5043:                                   ; preds = %for.body.i5043, %fo
   %.sroa.speculated.i5046 = call i32 @llvm.smax.i32(i32 %max_end.1228.i, i32 %add.i5045)
   %indvars.iv.next.i5047 = add nuw nsw i64 %indvars.iv.i5044, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i5047, %2138
-  br i1 %exitcond.not.i, label %for.body48.lr.ph.i, label %for.body.i5043, !llvm.loop !914
+  br i1 %exitcond.not.i, label %if.end39.i, label %for.body.i5043, !llvm.loop !914
 
 lpad25.i5004:                                     ; preds = %for.end54.i
   %2145 = landingpad { ptr, i32 }
@@ -29850,7 +29850,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit.i5009: ; pred
   store ptr null, ptr %shifted_offsets.i4959, align 8, !noalias !903
   br label %ehcleanup.i4982
 
-for.body48.lr.ph.i:                               ; preds = %for.body.i5043
+if.end39.i:                                       ; preds = %for.body.i5043
   %is_cpu_.i.i.i5048 = getelementptr inbounds i8, ptr %2139, i64 9
   %2148 = load i8, ptr %is_cpu_.i.i.i5048, align 1, !noalias !903
   %tobool.i.i.i5049 = trunc i8 %2148 to i1
@@ -29863,9 +29863,9 @@ for.body48.lr.ph.i:                               ; preds = %for.body.i5043
   %cond.i.i.i = select i1 %2150, ptr %2151, ptr null
   br label %for.body48.i
 
-for.body48.i:                                     ; preds = %for.body48.i, %for.body48.lr.ph.i
-  %indvars.iv239.i = phi i64 [ 0, %for.body48.lr.ph.i ], [ %indvars.iv.next240.i, %for.body48.i ]
-  %2152 = phi ptr [ %2137, %for.body48.lr.ph.i ], [ %2157, %for.body48.i ]
+for.body48.i:                                     ; preds = %for.body48.i, %if.end39.i
+  %indvars.iv239.i = phi i64 [ 0, %if.end39.i ], [ %indvars.iv.next240.i, %for.body48.i ]
+  %2152 = phi ptr [ %2137, %if.end39.i ], [ %2157, %for.body48.i ]
   %2153 = load ptr, ptr %raw_value_offsets_.i.i5042, align 8, !noalias !903
   %offset.i64.i = getelementptr inbounds i8, ptr %2152, i64 32
   %2154 = load i64, ptr %offset.i64.i, align 8, !noalias !903
@@ -30774,7 +30774,7 @@ for.body.i5359:                                   ; preds = %for.body.i5359, %fo
   %.sroa.speculated.i5367 = call i64 @llvm.smax.i64(i64 %max_end.1228.i5362, i64 %add.i5366)
   %indvars.iv.next.i5368 = add nuw nsw i64 %indvars.iv.i5360, 1
   %exitcond.not.i5369 = icmp eq i64 %indvars.iv.next.i5368, %2287
-  br i1 %exitcond.not.i5369, label %for.body47.lr.ph.i, label %for.body.i5359, !llvm.loop !947
+  br i1 %exitcond.not.i5369, label %if.end38.i, label %for.body.i5359, !llvm.loop !947
 
 lpad25.i5277:                                     ; preds = %for.end53.i
   %2294 = landingpad { ptr, i32 }
@@ -30794,7 +30794,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit.i5282: ; pred
   store ptr null, ptr %shifted_offsets.i5153, align 8, !noalias !936
   br label %ehcleanup.i5191
 
-for.body47.lr.ph.i:                               ; preds = %for.body.i5359
+if.end38.i:                                       ; preds = %for.body.i5359
   %is_cpu_.i.i.i5370 = getelementptr inbounds i8, ptr %2288, i64 9
   %2297 = load i8, ptr %is_cpu_.i.i.i5370, align 1, !noalias !936
   %tobool.i.i.i5371 = trunc i8 %2297 to i1
@@ -30807,9 +30807,9 @@ for.body47.lr.ph.i:                               ; preds = %for.body.i5359
   %cond.i.i.i5375 = select i1 %2299, ptr %2300, ptr null
   br label %for.body47.i
 
-for.body47.i:                                     ; preds = %for.body47.i, %for.body47.lr.ph.i
-  %indvars.iv239.i5377 = phi i64 [ 0, %for.body47.lr.ph.i ], [ %indvars.iv.next240.i5382, %for.body47.i ]
-  %2301 = phi ptr [ %2286, %for.body47.lr.ph.i ], [ %2306, %for.body47.i ]
+for.body47.i:                                     ; preds = %for.body47.i, %if.end38.i
+  %indvars.iv239.i5377 = phi i64 [ 0, %if.end38.i ], [ %indvars.iv.next240.i5382, %for.body47.i ]
+  %2301 = phi ptr [ %2286, %if.end38.i ], [ %2306, %for.body47.i ]
   %2302 = load ptr, ptr %raw_value_offsets_.i.i5354, align 8, !noalias !936
   %offset.i64.i5378 = getelementptr inbounds i8, ptr %2301, i64 32
   %2303 = load i64, ptr %offset.i64.i5378, align 8, !noalias !936
@@ -39484,8 +39484,8 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %entry
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1

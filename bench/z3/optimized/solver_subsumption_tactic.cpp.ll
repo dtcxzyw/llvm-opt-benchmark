@@ -4217,11 +4217,11 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i77:        ; preds = %invoke.cont66
   %59 = load i32, ptr %m_ref_count.i.i.i.i78, align 4
   %inc.i.i.i.i79 = add i32 %59, 1
   store i32 %inc.i.i.i.i79, ptr %m_ref_count.i.i.i.i78, align 4
-  %.pre379 = load ptr, ptr %m_nodes.i.i23, align 8
+  %.pre377 = load ptr, ptr %m_nodes.i.i23, align 8
   br label %invoke.cont71
 
 invoke.cont71:                                    ; preds = %invoke.cont66, %_ZN11ast_manager7inc_refEP3ast.exit.i.i77
-  %60 = phi ptr [ %56, %invoke.cont66 ], [ %.pre379, %_ZN11ast_manager7inc_refEP3ast.exit.i.i77 ]
+  %60 = phi ptr [ %56, %invoke.cont66 ], [ %.pre377, %_ZN11ast_manager7inc_refEP3ast.exit.i.i77 ]
   %arrayidx.i.i83 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv
   %61 = load ptr, ptr %nors, align 8
   %tobool.not.i.i85 = icmp eq ptr %55, null

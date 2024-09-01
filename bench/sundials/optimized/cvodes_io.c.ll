@@ -2892,21 +2892,16 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNonlinSolvStats(ptr noundef %0, pt
   %14 = getelementptr inbounds i8, ptr %0, i64 148
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
-  br i1 %16, label %.preheader23, label %.loopexit
-
-.preheader23:                                     ; preds = %13
   %17 = icmp sgt i32 %8, 0
-  br i1 %17, label %.lr.ph, label %.loopexit
+  %or.cond = select i1 %16, i1 %17, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader23
+.lr.ph:                                           ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 1672
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %20
 
-.preheader:                                       ; preds = %20
-  br i1 %17, label %.lr.ph26, label %.loopexit
-
-.lr.ph26:                                         ; preds = %.preheader
+.lr.ph26:                                         ; preds = %20
   %19 = getelementptr inbounds i8, ptr %0, i64 1696
   %wide.trip.count31 = zext nneg i32 %8 to i64
   br label %25
@@ -2920,7 +2915,7 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNonlinSolvStats(ptr noundef %0, pt
   store i64 %23, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %20
+  br i1 %exitcond.not, label %.lr.ph26, label %20
 
 25:                                               ; preds = %.lr.ph26, %25
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %25 ]
@@ -2933,8 +2928,8 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNonlinSolvStats(ptr noundef %0, pt
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %.loopexit, label %25
 
-.loopexit:                                        ; preds = %25, %.preheader23, %.preheader, %13, %12, %5
-  %.0 = phi i32 [ -21, %5 ], [ -40, %12 ], [ 0, %13 ], [ 0, %.preheader ], [ 0, %.preheader23 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %25, %13, %12, %5
+  %.0 = phi i32 [ -21, %5 ], [ -40, %12 ], [ 0, %13 ], [ 0, %25 ]
   ret i32 %.0
 }
 

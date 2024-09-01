@@ -2283,15 +2283,15 @@ define noundef zeroext i1 @"_ZN75_$LT$pyo3_build_config..impl_..BuildFlags$u20$a
 17:                                               ; preds = %23, %2
   %.sroa.01.0 = phi i1 [ true, %2 ], [ false, %23 ]
   %18 = call align 8 ptr @"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16b5fb0684dfa924E"(ptr nonnull align 8 %8)
-  %.not = icmp ne ptr %18, null
-  br i1 %.not, label %19, label %20
+  %.not.not.not.not.not = icmp ne ptr %18, null
+  br i1 %.not.not.not.not.not, label %19, label %20
 
 19:                                               ; preds = %17
   store ptr %18, ptr %7, align 8
   br i1 %.sroa.01.0, label %23, label %21
 
 20:                                               ; preds = %23, %21, %17
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 
 21:                                               ; preds = %19
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.100, ptr %6, align 8

@@ -36050,8 +36050,8 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_19WindowExecutorStateESt14default_deleteIS2
 
 while.cond:                                       ; preds = %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit, %_ZN6duckdb6vectorINS_10unique_ptrINS_19WindowExecutorStateESt14default_deleteIS2_ELb1EEELb1EE5clearEv.exit
   %5 = load ptr, ptr %scanner, align 8, !tbaa !14
-  %cmp.i.not.not = icmp ne ptr %5, null
-  br i1 %cmp.i.not.not, label %while.end, label %while.body
+  %cmp.i.not.not.not.not.not.not = icmp ne ptr %5, null
+  br i1 %cmp.i.not.not.not.not.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %task) #26
@@ -36352,7 +36352,7 @@ _ZNSt10unique_ptrIN6duckdb19WindowExecutorStateESt14default_deleteIS1_EED2Ev.exi
   br label %eh.resume
 
 return:                                           ; preds = %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit, %_ZNSt10unique_ptrIN6duckdb19WindowExecutorStateESt14default_deleteIS1_EED2Ev.exit, %while.end
-  ret i1 %cmp.i.not.not
+  ret i1 %cmp.i.not.not.not.not.not.not
 
 eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN6duckdb19WindowExecutorStateESt14default_deleteIS1_EED2Ev.exit53, %lpad7
   %.pn = phi { ptr, i32 } [ %21, %lpad7 ], [ %lpad.phi, %_ZNSt10unique_ptrIN6duckdb19WindowExecutorStateESt14default_deleteIS1_EED2Ev.exit53 ]

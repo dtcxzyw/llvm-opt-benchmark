@@ -7770,12 +7770,9 @@ Vec_IntAlloc.exit.i:                              ; preds = %5, %1
   store i32 %13, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %11, !llvm.loop !66
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %11, !llvm.loop !66
 
-Vec_IntStartNatural.exit:                         ; preds = %11
-  br i1 %10, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %Vec_IntStartNatural.exit
+.lr.ph.preheader:                                 ; preds = %11
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
@@ -7794,7 +7791,7 @@ Vec_IntStartNatural.exit:                         ; preds = %11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntAlloc.exit.i, %Vec_IntStartNatural.exit
+._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntAlloc.exit.i
   ret ptr %2
 }
 
@@ -7866,14 +7863,11 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %13, %3
 Gia_IsoTestGenPerm.exit:                          ; preds = %.lr.ph.i
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %9)
-  br i1 %18, label %.lr.ph.i27.preheader, label %Vec_IntPrint.exit
-
-.lr.ph.i27.preheader:                             ; preds = %Gia_IsoTestGenPerm.exit
   %30 = zext nneg i32 %9 to i64
   br label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %.lr.ph.i27.preheader, %.lr.ph.i27
-  %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %.lr.ph.i27 ], [ 0, %.lr.ph.i27.preheader ]
+.lr.ph.i27:                                       ; preds = %Gia_IsoTestGenPerm.exit, %.lr.ph.i27
+  %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %.lr.ph.i27 ], [ 0, %Gia_IsoTestGenPerm.exit ]
   %31 = getelementptr inbounds i32, ptr %.val7.i, i64 %indvars.iv.i28
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %32)
@@ -7886,7 +7880,7 @@ Vec_IntPrint.exit.critedge:                       ; preds = %Vec_IntAlloc.exit.i
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %9)
   br label %Vec_IntPrint.exit
 
-Vec_IntPrint.exit:                                ; preds = %.lr.ph.i27, %Vec_IntPrint.exit.critedge, %Gia_IsoTestGenPerm.exit
+Vec_IntPrint.exit:                                ; preds = %.lr.ph.i27, %Vec_IntPrint.exit.critedge
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   %36 = tail call ptr @Gia_ManDupPerm(ptr noundef %0, ptr noundef nonnull %10) #25
   %37 = tail call ptr @Gia_ManDupAppendNew(ptr noundef %0, ptr noundef %36) #25

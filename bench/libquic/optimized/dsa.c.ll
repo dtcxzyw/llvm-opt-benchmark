@@ -114,7 +114,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DSA_generate_parameters_ex(ptr nocapture noundef %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden i32 @DSA_generate_parameters_ex(ptr nocapture noundef %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %seed = alloca [32 x i8], align 16
   %md = alloca [32 x i8], align 16
@@ -198,7 +198,7 @@ for.cond44:                                       ; preds = %for.cond44.backedge
   %inc = add nuw nsw i32 %m.1, 1
   %call45 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.1) #8
   %tobool46.not = icmp eq i32 %call45, 0
-  br i1 %tobool46.not, label %if.end309, label %if.end48
+  br i1 %tobool46.not, label %if.then311, label %if.end48
 
 if.end48:                                         ; preds = %for.cond44
   %conv50 = zext i1 %seed_in.addr.1 to i32
@@ -207,7 +207,7 @@ if.end48:                                         ; preds = %for.cond44
 if.then52:                                        ; preds = %if.end48
   %call55 = call i32 @RAND_bytes(ptr noundef nonnull %seed, i64 noundef %conv54) #8
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %if.end309, label %if.end59
+  br i1 %tobool56.not, label %if.then311, label %if.end59
 
 if.end59:                                         ; preds = %if.end48, %if.then52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %seed, i64 %conv54, i1 false)
@@ -230,12 +230,12 @@ for.body:                                         ; preds = %if.end59, %for.body
 for.end:                                          ; preds = %for.body, %if.end59
   %call81 = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %conv54, ptr noundef nonnull %md, ptr noundef null, ptr noundef %cond, ptr noundef null) #8
   %tobool82.not = icmp eq i32 %call81, 0
-  br i1 %tobool82.not, label %if.end309, label %lor.lhs.false83
+  br i1 %tobool82.not, label %if.then311, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %for.end
   %call87 = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %conv54, ptr noundef nonnull %buf2, ptr noundef null, ptr noundef %cond, ptr noundef null) #8
   %tobool88.not = icmp eq i32 %call87, 0
-  br i1 %tobool88.not, label %if.end309, label %for.cond91.preheader
+  br i1 %tobool88.not, label %if.then311, label %for.cond91.preheader
 
 for.cond91.preheader:                             ; preds = %lor.lhs.false83
   br i1 %cmp68159.not, label %for.end104, label %for.body94
@@ -261,7 +261,7 @@ for.end104:                                       ; preds = %for.body94, %for.co
   store i8 %7, ptr %arrayidx110, align 1
   %call116 = call ptr @BN_bin2bn(ptr noundef nonnull %md, i64 noundef %conv54, ptr noundef %call33) #8
   %tobool117.not = icmp eq ptr %call116, null
-  br i1 %tobool117.not, label %if.end309, label %if.end119
+  br i1 %tobool117.not, label %if.then311, label %if.end119
 
 if.end119:                                        ; preds = %for.end104
   %call120 = call i32 @BN_is_prime_fasttest_ex(ptr noundef %call33, i32 noundef 50, ptr noundef nonnull %call20, i32 noundef %conv50, ptr noundef %cb) #8
@@ -270,7 +270,7 @@ if.end119:                                        ; preds = %for.end104
 
 if.end124:                                        ; preds = %if.end119
   %cmp125.not = icmp eq i32 %call120, 0
-  br i1 %cmp125.not, label %for.cond44.backedge, label %if.end309
+  br i1 %cmp125.not, label %for.cond44.backedge, label %if.then311
 
 for.cond44.backedge:                              ; preds = %if.end229, %if.end124
   br label %for.cond44
@@ -278,12 +278,12 @@ for.cond44.backedge:                              ; preds = %if.end229, %if.end1
 for.end129:                                       ; preds = %if.end119
   %call130 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 2, i32 noundef 0) #8
   %tobool131.not = icmp eq i32 %call130, 0
-  br i1 %tobool131.not, label %if.end309, label %lor.lhs.false132
+  br i1 %tobool131.not, label %if.then311, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %for.end129
   %call133 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 3, i32 noundef 0) #8
   %tobool134.not = icmp eq i32 %call133, 0
-  br i1 %tobool134.not, label %if.end309, label %for.cond139
+  br i1 %tobool134.not, label %if.then311, label %for.cond139
 
 for.cond139:                                      ; preds = %lor.lhs.false132, %if.end229
   %counter.2 = phi i32 [ %inc230, %if.end229 ], [ 0, %lor.lhs.false132 ]
@@ -293,7 +293,7 @@ for.cond139:                                      ; preds = %lor.lhs.false132, %
 land.lhs.true:                                    ; preds = %for.cond139
   %call142 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %counter.2) #8
   %tobool143.not = icmp eq i32 %call142, 0
-  br i1 %tobool143.not, label %if.end309, label %if.end145
+  br i1 %tobool143.not, label %if.then311, label %if.end145
 
 if.end145:                                        ; preds = %land.lhs.true, %for.cond139
   call void @BN_zero(ptr noundef %call32) #8
@@ -319,23 +319,23 @@ for.body154.us:                                   ; preds = %for.body154.us, %fo
 for.end167.us:                                    ; preds = %for.body154.us
   %call171.us = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %conv54, ptr noundef nonnull %md, ptr noundef null, ptr noundef %cond, ptr noundef null) #8
   %tobool172.not.us = icmp eq i32 %call171.us, 0
-  br i1 %tobool172.not.us, label %if.end309, label %if.end174.us
+  br i1 %tobool172.not.us, label %if.then311, label %if.end174.us
 
 if.end174.us:                                     ; preds = %for.end167.us
   %call177.us = call ptr @BN_bin2bn(ptr noundef nonnull %md, i64 noundef %conv54, ptr noundef %call30) #8
   %tobool178.not.us = icmp eq ptr %call177.us, null
-  br i1 %tobool178.not.us, label %if.end309, label %lor.lhs.false179.us
+  br i1 %tobool178.not.us, label %if.then311, label %lor.lhs.false179.us
 
 lor.lhs.false179.us:                              ; preds = %if.end174.us
   %mul180.us = mul i32 %shl, %k.0165.us
   %call181.us = call i32 @BN_lshift(ptr noundef %call30, ptr noundef %call30, i32 noundef %mul180.us) #8
   %tobool182.not.us = icmp eq i32 %call181.us, 0
-  br i1 %tobool182.not.us, label %if.end309, label %lor.lhs.false183.us
+  br i1 %tobool182.not.us, label %if.then311, label %lor.lhs.false183.us
 
 lor.lhs.false183.us:                              ; preds = %lor.lhs.false179.us
   %call184.us = call i32 @BN_add(ptr noundef %call32, ptr noundef %call32, ptr noundef %call30) #8
   %tobool185.not.us = icmp eq i32 %call184.us, 0
-  br i1 %tobool185.not.us, label %if.end309, label %for.cond146.us
+  br i1 %tobool185.not.us, label %if.then311, label %for.cond146.us
 
 for.cond146.us:                                   ; preds = %lor.lhs.false183.us
   %inc189.us = add nuw nsw i32 %k.0165.us, 1
@@ -351,59 +351,59 @@ for.cond151.preheader:                            ; preds = %if.end145, %for.con
   %k.0165 = phi i32 [ %inc189, %for.cond146 ], [ 0, %if.end145 ]
   %call171 = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %conv54, ptr noundef nonnull %md, ptr noundef null, ptr noundef %cond, ptr noundef null) #8
   %tobool172.not = icmp eq i32 %call171, 0
-  br i1 %tobool172.not, label %if.end309, label %if.end174
+  br i1 %tobool172.not, label %if.then311, label %if.end174
 
 if.end174:                                        ; preds = %for.cond151.preheader
   %call177 = call ptr @BN_bin2bn(ptr noundef nonnull %md, i64 noundef %conv54, ptr noundef %call30) #8
   %tobool178.not = icmp eq ptr %call177, null
-  br i1 %tobool178.not, label %if.end309, label %lor.lhs.false179
+  br i1 %tobool178.not, label %if.then311, label %lor.lhs.false179
 
 lor.lhs.false179:                                 ; preds = %if.end174
   %mul180 = mul nuw nsw i32 %shl, %k.0165
   %call181 = call i32 @BN_lshift(ptr noundef %call30, ptr noundef %call30, i32 noundef %mul180) #8
   %tobool182.not = icmp eq i32 %call181, 0
-  br i1 %tobool182.not, label %if.end309, label %lor.lhs.false183
+  br i1 %tobool182.not, label %if.then311, label %lor.lhs.false183
 
 lor.lhs.false183:                                 ; preds = %lor.lhs.false179
   %call184 = call i32 @BN_add(ptr noundef %call32, ptr noundef %call32, ptr noundef %call30) #8
   %tobool185.not = icmp eq i32 %call184, 0
-  br i1 %tobool185.not, label %if.end309, label %for.cond146
+  br i1 %tobool185.not, label %if.then311, label %for.cond146
 
 for.end190:                                       ; preds = %for.cond146.us, %for.cond146
   %call192 = call i32 @BN_mask_bits(ptr noundef %call32, i32 noundef %sub) #8
   %tobool193.not = icmp eq i32 %call192, 0
-  br i1 %tobool193.not, label %if.end309, label %lor.lhs.false194
+  br i1 %tobool193.not, label %if.then311, label %lor.lhs.false194
 
 lor.lhs.false194:                                 ; preds = %for.end190
   %call195 = call ptr @BN_copy(ptr noundef %call34, ptr noundef %call32) #8
   %tobool196.not = icmp eq ptr %call195, null
-  br i1 %tobool196.not, label %if.end309, label %lor.lhs.false197
+  br i1 %tobool196.not, label %if.then311, label %lor.lhs.false197
 
 lor.lhs.false197:                                 ; preds = %lor.lhs.false194
   %call198 = call i32 @BN_add(ptr noundef %call34, ptr noundef %call34, ptr noundef nonnull %call37) #8
   %tobool199.not = icmp eq i32 %call198, 0
-  br i1 %tobool199.not, label %if.end309, label %if.end201
+  br i1 %tobool199.not, label %if.then311, label %if.end201
 
 if.end201:                                        ; preds = %lor.lhs.false197
   %call202 = call i32 @BN_lshift1(ptr noundef %call30, ptr noundef %call33) #8
   %tobool203.not = icmp eq i32 %call202, 0
-  br i1 %tobool203.not, label %if.end309, label %lor.lhs.false204
+  br i1 %tobool203.not, label %if.then311, label %lor.lhs.false204
 
 lor.lhs.false204:                                 ; preds = %if.end201
   %call205 = call i32 @BN_div(ptr noundef null, ptr noundef %call35, ptr noundef %call34, ptr noundef %call30, ptr noundef nonnull %call20) #8
   %tobool206.not = icmp eq i32 %call205, 0
-  br i1 %tobool206.not, label %if.end309, label %lor.lhs.false207
+  br i1 %tobool206.not, label %if.then311, label %lor.lhs.false207
 
 lor.lhs.false207:                                 ; preds = %lor.lhs.false204
   %call208 = call ptr @BN_value_one() #8
   %call209 = call i32 @BN_sub(ptr noundef %call30, ptr noundef %call35, ptr noundef %call208) #8
   %tobool210.not = icmp eq i32 %call209, 0
-  br i1 %tobool210.not, label %if.end309, label %lor.lhs.false211
+  br i1 %tobool210.not, label %if.then311, label %lor.lhs.false211
 
 lor.lhs.false211:                                 ; preds = %lor.lhs.false207
   %call212 = call i32 @BN_sub(ptr noundef %call36, ptr noundef %call34, ptr noundef %call30) #8
   %tobool213.not = icmp eq i32 %call212, 0
-  br i1 %tobool213.not, label %if.end309, label %if.end215
+  br i1 %tobool213.not, label %if.then311, label %if.end215
 
 if.end215:                                        ; preds = %lor.lhs.false211
   %call216 = call i32 @BN_cmp(ptr noundef %call36, ptr noundef nonnull %call37) #8
@@ -417,7 +417,7 @@ if.then219:                                       ; preds = %if.end215
 
 if.end224:                                        ; preds = %if.then219
   %cmp225.not = icmp eq i32 %call220, 0
-  br i1 %cmp225.not, label %if.end229, label %if.end309
+  br i1 %cmp225.not, label %if.end229, label %if.then311
 
 if.end229:                                        ; preds = %if.end224, %if.end215
   %inc230 = add nuw nsw i32 %counter.2, 1
@@ -427,33 +427,33 @@ if.end229:                                        ; preds = %if.end224, %if.end2
 end:                                              ; preds = %if.then219
   %call236 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 2, i32 noundef 1) #8
   %tobool237.not = icmp eq i32 %call236, 0
-  br i1 %tobool237.not, label %if.end309, label %if.end239
+  br i1 %tobool237.not, label %if.then311, label %if.end239
 
 if.end239:                                        ; preds = %end
   %call240 = call ptr @BN_value_one() #8
   %call241 = call i32 @BN_sub(ptr noundef nonnull %call37, ptr noundef %call36, ptr noundef %call240) #8
   %tobool242.not = icmp eq i32 %call241, 0
-  br i1 %tobool242.not, label %if.end309, label %lor.lhs.false243
+  br i1 %tobool242.not, label %if.then311, label %lor.lhs.false243
 
 lor.lhs.false243:                                 ; preds = %if.end239
   %call244 = call i32 @BN_div(ptr noundef %call30, ptr noundef null, ptr noundef nonnull %call37, ptr noundef %call33, ptr noundef nonnull %call20) #8
   %tobool245.not = icmp eq i32 %call244, 0
-  br i1 %tobool245.not, label %if.end309, label %if.end247
+  br i1 %tobool245.not, label %if.then311, label %if.end247
 
 if.end247:                                        ; preds = %lor.lhs.false243
   %call249 = call i32 @BN_set_word(ptr noundef nonnull %call37, i64 noundef 2) #8
   %tobool250.not = icmp eq i32 %call249, 0
-  br i1 %tobool250.not, label %if.end309, label %lor.lhs.false251
+  br i1 %tobool250.not, label %if.then311, label %lor.lhs.false251
 
 lor.lhs.false251:                                 ; preds = %if.end247
   %call252 = call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call25, ptr noundef %call36, ptr noundef nonnull %call20) #8
   %tobool253.not = icmp eq i32 %call252, 0
-  br i1 %tobool253.not, label %if.end309, label %for.cond256.preheader
+  br i1 %tobool253.not, label %if.then311, label %for.cond256.preheader
 
 for.cond256.preheader:                            ; preds = %lor.lhs.false251
   %call257167 = call i32 @BN_mod_exp_mont(ptr noundef %call31, ptr noundef nonnull %call37, ptr noundef %call30, ptr noundef %call36, ptr noundef nonnull %call20, ptr noundef nonnull %call25) #8
   %tobool258.not168 = icmp eq i32 %call257167, 0
-  br i1 %tobool258.not168, label %if.end309, label %if.end260
+  br i1 %tobool258.not168, label %if.then311, label %if.end260
 
 if.end260:                                        ; preds = %for.cond256.preheader, %if.end269
   %h.1169 = phi i32 [ %inc270, %if.end269 ], [ 2, %for.cond256.preheader ]
@@ -465,18 +465,18 @@ if.end264:                                        ; preds = %if.end260
   %call265 = call ptr @BN_value_one() #8
   %call266 = call i32 @BN_add(ptr noundef nonnull %call37, ptr noundef nonnull %call37, ptr noundef %call265) #8
   %tobool267.not = icmp eq i32 %call266, 0
-  br i1 %tobool267.not, label %if.end309, label %if.end269
+  br i1 %tobool267.not, label %if.then311, label %if.end269
 
 if.end269:                                        ; preds = %if.end264
   %inc270 = add i32 %h.1169, 1
   %call257 = call i32 @BN_mod_exp_mont(ptr noundef %call31, ptr noundef nonnull %call37, ptr noundef %call30, ptr noundef %call36, ptr noundef nonnull %call20, ptr noundef nonnull %call25) #8
   %tobool258.not = icmp eq i32 %call257, 0
-  br i1 %tobool258.not, label %if.end309, label %if.end260
+  br i1 %tobool258.not, label %if.then311, label %if.end260
 
 err.preheader:                                    ; preds = %if.end260
   %call272 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 3, i32 noundef 1) #8
-  %tobool273.not = icmp ne i32 %call272, 0
-  br i1 %tobool273.not, label %if.then277.lr.ph, label %if.end309
+  %tobool273.not.not = icmp eq i32 %call272, 0
+  br i1 %tobool273.not.not, label %if.then311, label %if.then277.lr.ph
 
 if.then277.lr.ph:                                 ; preds = %err.preheader
   %p278 = getelementptr inbounds i8, ptr %dsa, i64 8
@@ -496,14 +496,14 @@ if.then277.lr.ph:                                 ; preds = %err.preheader
   store ptr %call285, ptr %g280, align 8
   %12 = load ptr, ptr %p278, align 8
   %cmp288 = icmp eq ptr %12, null
-  br i1 %cmp288, label %if.end309, label %lor.lhs.false290
+  br i1 %cmp288, label %if.then311, label %lor.lhs.false290
 
 lor.lhs.false290:                                 ; preds = %if.then277.lr.ph
   %13 = load ptr, ptr %q279, align 8
   %cmp292 = icmp eq ptr %13, null
   %cmp296 = icmp eq ptr %call285, null
   %or.cond = select i1 %cmp292, i1 true, i1 %cmp296
-  br i1 %or.cond, label %if.end309, label %if.end299
+  br i1 %or.cond, label %if.then311, label %if.end299
 
 if.end299:                                        ; preds = %lor.lhs.false290
   %cmp300.not = icmp eq ptr %out_counter, null
@@ -515,28 +515,23 @@ if.then302:                                       ; preds = %if.end299
 
 if.end303:                                        ; preds = %if.then302, %if.end299
   %cmp304.not = icmp eq ptr %out_h, null
-  br i1 %cmp304.not, label %if.end309, label %if.then306
+  br i1 %cmp304.not, label %if.then311, label %if.then306
 
 if.then306:                                       ; preds = %if.end303
   %conv307 = zext i32 %h.1169 to i64
   store i64 %conv307, ptr %out_h, align 8
-  br label %if.end309
+  br label %if.then311
 
-if.end309:                                        ; preds = %for.end129, %lor.lhs.false132, %for.cond44, %if.then52, %for.end104, %if.end124, %for.end, %lor.lhs.false83, %land.lhs.true, %if.end224, %if.end201, %lor.lhs.false204, %lor.lhs.false207, %lor.lhs.false211, %for.end190, %lor.lhs.false194, %lor.lhs.false197, %for.end167.us, %lor.lhs.false183.us, %lor.lhs.false179.us, %if.end174.us, %for.cond151.preheader, %lor.lhs.false183, %lor.lhs.false179, %if.end174, %if.end264, %if.end269, %for.cond256.preheader, %if.end247, %lor.lhs.false251, %if.end239, %lor.lhs.false243, %end, %err.preheader, %if.then277.lr.ph, %lor.lhs.false290, %if.end303, %if.then306
-  %ok.0139.shrunk = phi i1 [ %tobool273.not, %if.end303 ], [ %tobool273.not, %if.then306 ], [ %tobool273.not, %err.preheader ], [ false, %lor.lhs.false290 ], [ false, %if.then277.lr.ph ], [ false, %end ], [ false, %lor.lhs.false243 ], [ false, %if.end239 ], [ false, %lor.lhs.false251 ], [ false, %if.end247 ], [ false, %for.cond256.preheader ], [ false, %if.end269 ], [ false, %if.end264 ], [ false, %if.end174 ], [ false, %lor.lhs.false179 ], [ false, %lor.lhs.false183 ], [ false, %for.cond151.preheader ], [ false, %if.end174.us ], [ false, %lor.lhs.false179.us ], [ false, %lor.lhs.false183.us ], [ false, %for.end167.us ], [ false, %lor.lhs.false197 ], [ false, %lor.lhs.false194 ], [ false, %for.end190 ], [ false, %lor.lhs.false211 ], [ false, %lor.lhs.false207 ], [ false, %lor.lhs.false204 ], [ false, %if.end201 ], [ false, %if.end224 ], [ false, %land.lhs.true ], [ false, %lor.lhs.false83 ], [ false, %for.end ], [ false, %if.end124 ], [ false, %for.end104 ], [ false, %if.then52 ], [ false, %for.cond44 ], [ false, %lor.lhs.false132 ], [ false, %for.end129 ]
-  %ok.0139 = zext i1 %ok.0139.shrunk to i32
-  br i1 %cmp21, label %if.end312, label %if.then311
-
-if.then311:                                       ; preds = %if.end24, %lor.lhs.false, %if.end29, %if.end309
-  %ok.0139209 = phi i32 [ %ok.0139, %if.end309 ], [ 0, %if.end29 ], [ 0, %lor.lhs.false ], [ 0, %if.end24 ]
-  %mont.0.ph204207 = phi ptr [ %call25, %if.end309 ], [ %call25, %if.end29 ], [ %call25, %lor.lhs.false ], [ null, %if.end24 ]
+if.then311:                                       ; preds = %lor.lhs.false83, %for.end, %if.end124, %for.end104, %if.then52, %for.cond44, %lor.lhs.false132, %for.end129, %lor.lhs.false197, %lor.lhs.false194, %for.end190, %lor.lhs.false211, %lor.lhs.false207, %lor.lhs.false204, %if.end201, %if.end224, %land.lhs.true, %if.end174.us, %lor.lhs.false179.us, %lor.lhs.false183.us, %for.end167.us, %if.end174, %lor.lhs.false179, %lor.lhs.false183, %for.cond151.preheader, %if.end269, %if.end264, %if.then306, %if.end303, %lor.lhs.false290, %if.then277.lr.ph, %err.preheader, %end, %lor.lhs.false243, %if.end239, %lor.lhs.false251, %if.end247, %for.cond256.preheader, %if.end24, %lor.lhs.false, %if.end29
+  %ok.0139209 = phi i32 [ 0, %if.end29 ], [ 0, %lor.lhs.false ], [ 0, %if.end24 ], [ 1, %if.end303 ], [ 1, %if.then306 ], [ 0, %err.preheader ], [ 0, %lor.lhs.false290 ], [ 0, %if.then277.lr.ph ], [ 0, %end ], [ 0, %lor.lhs.false243 ], [ 0, %if.end239 ], [ 0, %lor.lhs.false251 ], [ 0, %if.end247 ], [ 0, %for.cond256.preheader ], [ 0, %if.end264 ], [ 0, %if.end269 ], [ 0, %for.cond151.preheader ], [ 0, %lor.lhs.false183 ], [ 0, %lor.lhs.false179 ], [ 0, %if.end174 ], [ 0, %for.end167.us ], [ 0, %lor.lhs.false183.us ], [ 0, %lor.lhs.false179.us ], [ 0, %if.end174.us ], [ 0, %land.lhs.true ], [ 0, %if.end224 ], [ 0, %if.end201 ], [ 0, %lor.lhs.false204 ], [ 0, %lor.lhs.false207 ], [ 0, %lor.lhs.false211 ], [ 0, %for.end190 ], [ 0, %lor.lhs.false194 ], [ 0, %lor.lhs.false197 ], [ 0, %for.end129 ], [ 0, %lor.lhs.false132 ], [ 0, %for.cond44 ], [ 0, %if.then52 ], [ 0, %for.end104 ], [ 0, %if.end124 ], [ 0, %for.end ], [ 0, %lor.lhs.false83 ]
+  %mont.0.ph204207 = phi ptr [ %call25, %if.end29 ], [ %call25, %lor.lhs.false ], [ null, %if.end24 ], [ %call25, %if.end303 ], [ %call25, %if.then306 ], [ %call25, %err.preheader ], [ %call25, %lor.lhs.false290 ], [ %call25, %if.then277.lr.ph ], [ %call25, %end ], [ %call25, %lor.lhs.false243 ], [ %call25, %if.end239 ], [ %call25, %lor.lhs.false251 ], [ %call25, %if.end247 ], [ %call25, %for.cond256.preheader ], [ %call25, %if.end264 ], [ %call25, %if.end269 ], [ %call25, %for.cond151.preheader ], [ %call25, %lor.lhs.false183 ], [ %call25, %lor.lhs.false179 ], [ %call25, %if.end174 ], [ %call25, %for.end167.us ], [ %call25, %lor.lhs.false183.us ], [ %call25, %lor.lhs.false179.us ], [ %call25, %if.end174.us ], [ %call25, %land.lhs.true ], [ %call25, %if.end224 ], [ %call25, %if.end201 ], [ %call25, %lor.lhs.false204 ], [ %call25, %lor.lhs.false207 ], [ %call25, %lor.lhs.false211 ], [ %call25, %for.end190 ], [ %call25, %lor.lhs.false194 ], [ %call25, %lor.lhs.false197 ], [ %call25, %for.end129 ], [ %call25, %lor.lhs.false132 ], [ %call25, %for.cond44 ], [ %call25, %if.then52 ], [ %call25, %for.end104 ], [ %call25, %if.end124 ], [ %call25, %for.end ], [ %call25, %lor.lhs.false83 ]
   call void @BN_CTX_end(ptr noundef nonnull %call20) #8
   call void @BN_CTX_free(ptr noundef nonnull %call20) #8
   br label %if.end312
 
-if.end312:                                        ; preds = %if.end19, %if.then311, %if.end309
-  %ok.0139210 = phi i32 [ %ok.0139209, %if.then311 ], [ %ok.0139, %if.end309 ], [ 0, %if.end19 ]
-  %mont.0.ph204208 = phi ptr [ %mont.0.ph204207, %if.then311 ], [ %call25, %if.end309 ], [ null, %if.end19 ]
+if.end312:                                        ; preds = %if.end19, %if.then311
+  %ok.0139210 = phi i32 [ %ok.0139209, %if.then311 ], [ 0, %if.end19 ]
+  %mont.0.ph204208 = phi ptr [ %mont.0.ph204207, %if.then311 ], [ null, %if.end19 ]
   call void @BN_MONT_CTX_free(ptr noundef %mont.0.ph204208) #8
   br label %return
 

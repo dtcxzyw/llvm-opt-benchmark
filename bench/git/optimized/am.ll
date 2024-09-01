@@ -5715,8 +5715,8 @@ if.then8:                                         ; preds = %copy_array.exit
   unreachable
 
 if.end9:                                          ; preds = %copy_array.exit
-  %tobool10 = icmp ne ptr %index_file, null
-  br i1 %tobool10, label %if.end13.thread, label %if.end13
+  %tobool10.not14 = icmp eq ptr %index_file, null
+  br i1 %tobool10.not14, label %if.end13, label %if.end13.thread
 
 if.end13.thread:                                  ; preds = %if.end9
   %index_file12 = getelementptr inbounds i8, ptr %apply_state, i64 96
@@ -5762,9 +5762,9 @@ if.end21:                                         ; preds = %if.end17
   call void @strvec_clear(ptr noundef nonnull %apply_opts) #21
   call void @clear_apply_state(ptr noundef nonnull %apply_state) #21
   call void @free(ptr noundef %call3) #21
-  %tobool28.not = icmp eq i32 %call27, 0
-  %brmerge.not = and i1 %tobool10, %tobool28.not
-  br i1 %brmerge.not, label %if.then32, label %return
+  %tobool28.not = icmp ne i32 %call27, 0
+  %brmerge = or i1 %tobool10.not14, %tobool28.not
+  br i1 %brmerge, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.end21
   call void @discard_index(ptr noundef nonnull @the_index) #21

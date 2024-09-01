@@ -1444,14 +1444,14 @@ list_length.exit169.i:                            ; preds = %503, %502
   %530 = icmp slt i64 %indvars.iv.next235.i, %529
   br i1 %530, label %.lr.ph137, label %._crit_edge197.i
 
-.lr.ph225.i:                                      ; preds = %._crit_edge207.i
+.preheader.i:                                     ; preds = %._crit_edge207.i
   %531 = getelementptr inbounds i8, ptr %527, i64 4
   %.not162.i = icmp eq ptr %527, null
   %532 = getelementptr inbounds i8, ptr %527, i64 16
   br i1 %.not162.i, label %.split.us.us.i, label %.split.i
 
-.split.us.us.i:                                   ; preds = %.lr.ph225.i, %.split.us.us.i
-  %indvars.iv251.i = phi i64 [ %indvars.iv.next252.i, %.split.us.us.i ], [ 0, %.lr.ph225.i ]
+.split.us.us.i:                                   ; preds = %.preheader.i, %.split.us.us.i
+  %indvars.iv251.i = phi i64 [ %indvars.iv.next252.i, %.split.us.us.i ], [ 0, %.preheader.i ]
   %533 = getelementptr ptr, ptr %.1.i40, i64 %indvars.iv251.i
   %534 = load ptr, ptr %533, align 8
   tail call void @list_free(ptr noundef %534) #10
@@ -1505,10 +1505,10 @@ list_length.exit169.i:                            ; preds = %503, %502
   %556 = tail call ptr @lappend_oid(ptr noundef %.0140212.i, i32 noundef %553) #10
   %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next241.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph225.i, label %.lr.ph216.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph216.i, !llvm.loop !10
 
-.split.i:                                         ; preds = %.lr.ph225.i, %.thread181.split.i
-  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %.thread181.split.i ], [ 0, %.lr.ph225.i ]
+.split.i:                                         ; preds = %.preheader.i, %.thread181.split.i
+  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %.thread181.split.i ], [ 0, %.preheader.i ]
   %557 = getelementptr ptr, ptr %.1.i40, i64 %indvars.iv246.i
   %558 = load ptr, ptr %557, align 8
   %.not161.i = icmp eq ptr %558, null

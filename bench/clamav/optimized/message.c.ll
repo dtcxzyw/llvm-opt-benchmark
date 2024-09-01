@@ -2035,8 +2035,8 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 19:                                               ; preds = %18, %15
   %.1 = phi ptr [ @.str.41, %18 ], [ %.0, %15 ]
   %20 = tail call ptr @cli_strtok(ptr noundef nonnull %.1, i32 noundef 0, ptr noundef nonnull @.str.42) #21
-  %.not6886 = icmp eq ptr %20, null
-  br i1 %.not6886, label %.loopexit, label %.preheader72.lr.ph
+  %.not6884 = icmp eq ptr %20, null
+  br i1 %.not6884, label %.loopexit, label %.preheader72.lr.ph
 
 .preheader72.lr.ph:                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2049,9 +2049,9 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 24:                                               ; preds = %.preheader72, %66
   %25 = phi ptr [ @.str.83, %.preheader72 ], [ %68, %66 ]
-  %.05684 = phi ptr [ @encoding_map, %.preheader72 ], [ %67, %66 ]
-  %.05883 = phi ptr [ null, %.preheader72 ], [ %.159, %66 ]
-  %.06082 = phi i32 [ 0, %.preheader72 ], [ %.161, %66 ]
+  %.05682 = phi ptr [ @encoding_map, %.preheader72 ], [ %67, %66 ]
+  %.05881 = phi ptr [ null, %.preheader72 ], [ %.159, %66 ]
+  %.06080 = phi i32 [ 0, %.preheader72 ], [ %.161, %66 ]
   %26 = load i8, ptr %22, align 1
   %27 = sext i8 %26 to i32
   %28 = tail call i32 @tolower(i32 noundef %27) #23
@@ -2082,7 +2082,7 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %.05684, i64 8
+  %43 = getelementptr inbounds i8, ptr %.05682, i64 8
   %44 = load i32, ptr %43, align 8
   %wide.trip.count = zext nneg i32 %41 to i64
   br label %46
@@ -2113,7 +2113,7 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 56:                                               ; preds = %._crit_edge
   store ptr %54, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %.05684, i64 8
+  %57 = getelementptr inbounds i8, ptr %.05682, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = load i32, ptr %21, align 4
   %60 = add nsw i32 %59, 1
@@ -2126,29 +2126,29 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %72
 
 64:                                               ; preds = %38
-  %65 = icmp sgt i32 %39, %.06082
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %39, i32 %.06082)
-  %spec.select71 = select i1 %65, ptr %25, ptr %.05883
+  %65 = icmp sgt i32 %39, %.06080
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %39, i32 %.06080)
+  %spec.select71 = select i1 %65, ptr %25, ptr %.05881
   br label %66
 
 66:                                               ; preds = %64, %35, %24
-  %.161 = phi i32 [ %.06082, %24 ], [ %.06082, %35 ], [ %spec.select, %64 ]
-  %.159 = phi ptr [ %.05883, %24 ], [ %.05883, %35 ], [ %spec.select71, %64 ]
-  %67 = getelementptr inbounds i8, ptr %.05684, i64 16
+  %.161 = phi i32 [ %.06080, %24 ], [ %.06080, %35 ], [ %spec.select, %64 ]
+  %.159 = phi ptr [ %.05881, %24 ], [ %.05881, %35 ], [ %spec.select71, %64 ]
+  %67 = getelementptr inbounds i8, ptr %.05682, i64 16
   %68 = load ptr, ptr %67, align 8
   %.not69 = icmp eq ptr %68, null
-  br i1 %.not69, label %.thread70.loopexit, label %24
+  br i1 %.not69, label %.thread70, label %24
 
-.thread70.loopexit:                               ; preds = %66
+.thread70:                                        ; preds = %66
   %69 = icmp sgt i32 %.161, 49
   br i1 %69, label %70, label %71
 
-70:                                               ; preds = %.thread70.loopexit
+70:                                               ; preds = %.thread70
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %22, ptr noundef %.159, i32 noundef %.161) #21
   tail call void @messageSetEncoding(ptr noundef %0, ptr noundef %.159)
   br label %72
 
-71:                                               ; preds = %.thread70.loopexit
+71:                                               ; preds = %.thread70
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %22) #21
   tail call void @messageSetEncoding(ptr noundef %0, ptr noundef nonnull @.str.48)
   tail call void @messageSetEncoding(ptr noundef %0, ptr noundef nonnull @.str.49)

@@ -54546,8 +54546,8 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %11, %13
   %.044 = phi ptr [ %.145, %59 ], [ %7, %.preheader.preheader ]
   %.043 = phi ptr [ %.1, %59 ], [ %18, %.preheader.preheader ]
   %19 = load ptr, ptr %4, align 8
-  %.not = icmp ule ptr %19, %.044
-  br i1 %.not, label %.loopexit, label %20
+  %.not.not = icmp ule ptr %19, %.044
+  br i1 %.not.not, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
@@ -54630,7 +54630,7 @@ _ZZN7AstNode13predicateImplI12AstNodeCCallLb1EZN9EmitCFunc5visitEP8AstCFuncEUlPK
   br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !405
 
 .loopexit:                                        ; preds = %.preheader, %59, %17
-  %.0 = phi i1 [ false, %17 ], [ %.not, %59 ], [ %.not, %.preheader ]
+  %.0 = phi i1 [ false, %17 ], [ %.not.not, %59 ], [ %.not.not, %.preheader ]
   %60 = load ptr, ptr %3, align 8
   %.not.i.i.i19 = icmp eq ptr %60, null
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit20, label %61

@@ -438,7 +438,7 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
   %cmp.not = phi i1 [ true, %entry ], [ false, %for.inc13 ]
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ 1, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ 1, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -447,9 +447,9 @@ for.cond2:                                        ; preds = %for.body4
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %cmp3 = phi i1 [ true, %for.cond2.preheader ], [ false, %for.cond2 ]
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [2 x [2 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [2 x [2 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %cmp12 = fcmp oeq float %0, %1
   br i1 %cmp12, label %for.cond2, label %return
@@ -468,7 +468,7 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc13 ]
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ 1, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ 1, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -477,9 +477,9 @@ for.cond2:                                        ; preds = %for.body4
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %cmp3 = phi i1 [ true, %for.cond2.preheader ], [ false, %for.cond2 ]
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [2 x [2 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [2 x [2 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %cmp12 = fcmp une float %0, %1
   br i1 %cmp12, label %return, label %for.cond2
@@ -512,14 +512,18 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %arrayidx11 = getelementptr inbounds [2 x [2 x float]], ptr %m2, i64 0, i64 %indvars.iv20, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %or.cond = fcmp ueq float %0, %1
-  br i1 %or.cond, label %for.cond2, label %return
+  br i1 %or.cond, label %for.cond2, label %return.loopexit
 
 for.inc26:                                        ; preds = %for.cond2
   br i1 %cmp, label %for.cond2.preheader, label %return, !llvm.loop !12
 
-return:                                           ; preds = %for.inc26, %for.body4
+return.loopexit:                                  ; preds = %for.body4
   %cmp12 = fcmp olt float %0, %1
-  ret i1 %cmp12
+  br label %return
+
+return:                                           ; preds = %for.inc26, %return.loopexit
+  %cmp1226 = phi i1 [ %cmp12, %return.loopexit ], [ false, %for.inc26 ]
+  ret i1 %cmp1226
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -529,14 +533,14 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc19
   %cmp.not = phi i1 [ true, %entry ], [ false, %for.inc19 ]
-  %indvars.iv18 = phi i64 [ 0, %entry ], [ 1, %for.inc19 ]
-  %arrayidx7 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv18
+  %indvars.iv17 = phi i64 [ 0, %entry ], [ 1, %for.inc19 ]
+  %arrayidx7 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv17
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
   %cmp3 = phi i1 [ true, %for.cond2.preheader ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.inc ]
-  %cmp5 = icmp eq i64 %indvars.iv18, %indvars.iv
+  %cmp5 = icmp eq i64 %indvars.iv17, %indvars.iv
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body4
@@ -545,7 +549,7 @@ if.then:                                          ; preds = %for.body4
   br i1 %cmp8, label %return, label %for.inc
 
 if.else:                                          ; preds = %for.body4
-  %arrayidx14 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds [2 x [2 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
   %1 = load float, ptr %arrayidx14, align 4
   %cmp15 = fcmp une float %1, 0.000000e+00
   br i1 %cmp15, label %return, label %for.inc
@@ -1170,8 +1174,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc13 ]
-  %cmp13 = phi i1 [ false, %entry ], [ %cmp, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -1181,22 +1184,20 @@ for.cond2:                                        ; preds = %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [3 x [3 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [3 x [3 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
-  %cmp12 = fcmp une float %0, %1
-  br i1 %cmp12, label %return, label %for.cond2
+  %cmp12 = fcmp oeq float %0, %1
+  br i1 %cmp12, label %for.cond2, label %return
 
 for.inc13:                                        ; preds = %for.cond2
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %cmp = icmp ugt i64 %indvars.iv17, 1
-  %exitcond19 = icmp eq i64 %indvars.iv.next18, 3
-  br i1 %exitcond19, label %return, label %for.cond2.preheader, !llvm.loop !37
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21 = icmp eq i64 %indvars.iv.next19, 3
+  br i1 %exitcond21, label %return, label %for.cond2.preheader, !llvm.loop !37
 
 return:                                           ; preds = %for.inc13, %for.body4
-  %cmp9 = phi i1 [ %cmp13, %for.body4 ], [ %cmp, %for.inc13 ]
-  ret i1 %cmp9
+  ret i1 %cmp12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1205,8 +1206,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc13 ]
-  %cmp13 = phi i1 [ true, %entry ], [ %cmp, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -1216,22 +1216,20 @@ for.cond2:                                        ; preds = %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [3 x [3 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [3 x [3 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %cmp12 = fcmp une float %0, %1
   br i1 %cmp12, label %return, label %for.cond2
 
 for.inc13:                                        ; preds = %for.cond2
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %cmp = icmp ult i64 %indvars.iv17, 2
-  %exitcond19.not = icmp eq i64 %indvars.iv.next18, 3
-  br i1 %exitcond19.not, label %return, label %for.cond2.preheader, !llvm.loop !39
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next19, 3
+  br i1 %exitcond21.not, label %return, label %for.cond2.preheader, !llvm.loop !39
 
 return:                                           ; preds = %for.inc13, %for.body4
-  %cmp9 = phi i1 [ %cmp13, %for.body4 ], [ %cmp, %for.inc13 ]
-  ret i1 %cmp9
+  ret i1 %cmp12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1255,16 +1253,20 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %arrayidx11 = getelementptr inbounds [3 x [3 x float]], ptr %m2, i64 0, i64 %indvars.iv20, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %or.cond = fcmp ueq float %0, %1
-  br i1 %or.cond, label %for.cond2, label %return
+  br i1 %or.cond, label %for.cond2, label %return.loopexit
 
 for.inc26:                                        ; preds = %for.cond2
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 3
   br i1 %exitcond23.not, label %return, label %for.cond2.preheader, !llvm.loop !41
 
-return:                                           ; preds = %for.inc26, %for.body4
+return.loopexit:                                  ; preds = %for.body4
   %cmp12 = fcmp olt float %0, %1
-  ret i1 %cmp12
+  br label %return
+
+return:                                           ; preds = %for.inc26, %return.loopexit
+  %cmp1227 = phi i1 [ %cmp12, %return.loopexit ], [ false, %for.inc26 ]
+  ret i1 %cmp1227
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1273,14 +1275,13 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc19
-  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc19 ]
-  %cmp14 = phi i1 [ false, %entry ], [ %cmp, %for.inc19 ]
-  %arrayidx7 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv18
+  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc19 ]
+  %arrayidx7 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv17
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp5 = icmp eq i64 %indvars.iv18, %indvars.iv
+  %cmp5 = icmp eq i64 %indvars.iv17, %indvars.iv
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body4
@@ -1289,7 +1290,7 @@ if.then:                                          ; preds = %for.body4
   br i1 %cmp8, label %return, label %for.inc
 
 if.else:                                          ; preds = %for.body4
-  %arrayidx14 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds [3 x [3 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
   %1 = load float, ptr %arrayidx14, align 4
   %cmp15 = fcmp une float %1, 0.000000e+00
   br i1 %cmp15, label %return, label %for.inc
@@ -1300,13 +1301,12 @@ for.inc:                                          ; preds = %if.then, %if.else
   br i1 %exitcond.not, label %for.inc19, label %for.body4, !llvm.loop !42
 
 for.inc19:                                        ; preds = %for.inc
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %cmp = icmp ugt i64 %indvars.iv18, 1
-  %exitcond20 = icmp eq i64 %indvars.iv.next19, 3
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond20 = icmp eq i64 %indvars.iv.next18, 3
   br i1 %exitcond20, label %return, label %for.cond2.preheader, !llvm.loop !43
 
 return:                                           ; preds = %for.inc19, %if.else, %if.then
-  %cmp11 = phi i1 [ %cmp14, %if.then ], [ %cmp14, %if.else ], [ %cmp, %for.inc19 ]
+  %cmp11 = phi i1 [ false, %if.then ], [ false, %if.else ], [ true, %for.inc19 ]
   ret i1 %cmp11
 }
 
@@ -1650,8 +1650,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc13 ]
-  %cmp13 = phi i1 [ false, %entry ], [ %cmp, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -1661,22 +1660,20 @@ for.cond2:                                        ; preds = %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [4 x [4 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [4 x [4 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
-  %cmp12 = fcmp une float %0, %1
-  br i1 %cmp12, label %return, label %for.cond2
+  %cmp12 = fcmp oeq float %0, %1
+  br i1 %cmp12, label %for.cond2, label %return
 
 for.inc13:                                        ; preds = %for.cond2
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %cmp = icmp ugt i64 %indvars.iv17, 2
-  %exitcond19 = icmp eq i64 %indvars.iv.next18, 4
-  br i1 %exitcond19, label %return, label %for.cond2.preheader, !llvm.loop !56
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21 = icmp eq i64 %indvars.iv.next19, 4
+  br i1 %exitcond21, label %return, label %for.cond2.preheader, !llvm.loop !56
 
 return:                                           ; preds = %for.inc13, %for.body4
-  %cmp9 = phi i1 [ %cmp13, %for.body4 ], [ %cmp, %for.inc13 ]
-  ret i1 %cmp9
+  ret i1 %cmp12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1685,8 +1682,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc13
-  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc13 ]
-  %cmp13 = phi i1 [ true, %entry ], [ %cmp, %for.inc13 ]
+  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc13 ]
   br label %for.body4
 
 for.cond2:                                        ; preds = %for.body4
@@ -1696,22 +1692,20 @@ for.cond2:                                        ; preds = %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.cond2
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.cond2 ]
-  %arrayidx6 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %0 = load float, ptr %arrayidx6, align 4
-  %arrayidx11 = getelementptr inbounds [4 x [4 x float]], ptr %m2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds [4 x [4 x float]], ptr %m2, i64 0, i64 %indvars.iv18, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %cmp12 = fcmp une float %0, %1
   br i1 %cmp12, label %return, label %for.cond2
 
 for.inc13:                                        ; preds = %for.cond2
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %cmp = icmp ult i64 %indvars.iv17, 3
-  %exitcond19.not = icmp eq i64 %indvars.iv.next18, 4
-  br i1 %exitcond19.not, label %return, label %for.cond2.preheader, !llvm.loop !58
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next19, 4
+  br i1 %exitcond21.not, label %return, label %for.cond2.preheader, !llvm.loop !58
 
 return:                                           ; preds = %for.inc13, %for.body4
-  %cmp9 = phi i1 [ %cmp13, %for.body4 ], [ %cmp, %for.inc13 ]
-  ret i1 %cmp9
+  ret i1 %cmp12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1735,16 +1729,20 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %arrayidx11 = getelementptr inbounds [4 x [4 x float]], ptr %m2, i64 0, i64 %indvars.iv20, i64 %indvars.iv
   %1 = load float, ptr %arrayidx11, align 4
   %or.cond = fcmp ueq float %0, %1
-  br i1 %or.cond, label %for.cond2, label %return
+  br i1 %or.cond, label %for.cond2, label %return.loopexit
 
 for.inc26:                                        ; preds = %for.cond2
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 4
   br i1 %exitcond23.not, label %return, label %for.cond2.preheader, !llvm.loop !60
 
-return:                                           ; preds = %for.inc26, %for.body4
+return.loopexit:                                  ; preds = %for.body4
   %cmp12 = fcmp olt float %0, %1
-  ret i1 %cmp12
+  br label %return
+
+return:                                           ; preds = %for.inc26, %return.loopexit
+  %cmp1227 = phi i1 [ %cmp12, %return.loopexit ], [ false, %for.inc26 ]
+  ret i1 %cmp1227
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1753,14 +1751,13 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc19
-  %indvars.iv18 = phi i64 [ 0, %entry ], [ %indvars.iv.next19, %for.inc19 ]
-  %cmp14 = phi i1 [ false, %entry ], [ %cmp, %for.inc19 ]
-  %arrayidx7 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv18
+  %indvars.iv17 = phi i64 [ 0, %entry ], [ %indvars.iv.next18, %for.inc19 ]
+  %arrayidx7 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv17
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp5 = icmp eq i64 %indvars.iv18, %indvars.iv
+  %cmp5 = icmp eq i64 %indvars.iv17, %indvars.iv
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body4
@@ -1769,7 +1766,7 @@ if.then:                                          ; preds = %for.body4
   br i1 %cmp8, label %return, label %for.inc
 
 if.else:                                          ; preds = %for.body4
-  %arrayidx14 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv18, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds [4 x [4 x float]], ptr %this, i64 0, i64 %indvars.iv17, i64 %indvars.iv
   %1 = load float, ptr %arrayidx14, align 4
   %cmp15 = fcmp une float %1, 0.000000e+00
   br i1 %cmp15, label %return, label %for.inc
@@ -1780,13 +1777,12 @@ for.inc:                                          ; preds = %if.then, %if.else
   br i1 %exitcond.not, label %for.inc19, label %for.body4, !llvm.loop !61
 
 for.inc19:                                        ; preds = %for.inc
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %cmp = icmp ugt i64 %indvars.iv18, 2
-  %exitcond20 = icmp eq i64 %indvars.iv.next19, 4
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond20 = icmp eq i64 %indvars.iv.next18, 4
   br i1 %exitcond20, label %return, label %for.cond2.preheader, !llvm.loop !62
 
 return:                                           ; preds = %for.inc19, %if.else, %if.then
-  %cmp11 = phi i1 [ %cmp14, %if.then ], [ %cmp14, %if.else ], [ %cmp, %for.inc19 ]
+  %cmp11 = phi i1 [ false, %if.then ], [ false, %if.else ], [ true, %for.inc19 ]
   ret i1 %cmp11
 }
 

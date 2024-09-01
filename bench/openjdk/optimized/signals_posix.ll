@@ -562,8 +562,7 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %4, %17
 
 42:                                               ; preds = %40
   %43 = icmp eq ptr %.068, null
-  %or.cond7.not = or i1 %43, %39
-  br i1 %or.cond7.not, label %62, label %44
+  br i1 %43, label %62, label %44
 
 44:                                               ; preds = %42
   %45 = call noundef zeroext i1 @_ZN2os19is_readable_pointerEPKv(ptr noundef nonnull %.068) #20

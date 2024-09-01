@@ -483,14 +483,11 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 
 ._crit_edge:                                      ; preds = %23
   tail call void @pg_qsort(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 8, ptr noundef nonnull @rankCompare) #10
-  br i1 %6, label %.lr.ph37.preheader, label %._crit_edge38
-
-.lr.ph37.preheader:                               ; preds = %._crit_edge
   %wide.trip.count43 = zext nneg i32 %0 to i64
   br label %.lr.ph37
 
-.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next41, %.lr.ph37 ]
+.lr.ph37:                                         ; preds = %._crit_edge, %.lr.ph37
+  %indvars.iv40 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next41, %.lr.ph37 ]
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
   %31 = shl i32 %indvars.iv40.tr, 1
   %32 = or disjoint i32 %31, 1
@@ -505,7 +502,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !10
 
-._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge.thread, %._crit_edge
+._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge.thread
   tail call void @pg_free(ptr noundef %5) #10
   ret void
 }
@@ -553,12 +550,12 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 .lr.ph114:                                        ; preds = %._crit_edge
   %29 = getelementptr inbounds i8, ptr %9, i64 120
-  %wide.trip.count139 = zext nneg i32 %1 to i64
+  %wide.trip.count136 = zext nneg i32 %1 to i64
   br label %30
 
 30:                                               ; preds = %.lr.ph114, %30
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next137, %30 ]
-  %31 = getelementptr i32, ptr %20, i64 %indvars.iv136
+  %indvars.iv133 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next134, %30 ]
+  %31 = getelementptr i32, ptr %20, i64 %indvars.iv133
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr %struct._pivot_field, ptr %2, i64 %33
@@ -569,9 +566,9 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %37 = select i1 %.not107, ptr @.str.5, ptr %36
   %38 = select i1 %.not106, ptr %37, ptr %35
   call void @printTableAddHeader(ptr noundef nonnull %10, ptr noundef nonnull %38, i1 noundef zeroext false, i8 noundef signext %28) #10
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge115, label %30, !llvm.loop !12
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
+  br i1 %exitcond137.not, label %._crit_edge115, label %30, !llvm.loop !12
 
 ._crit_edge115:                                   ; preds = %30, %._crit_edge
   call void @pg_free(ptr noundef %20) #10
@@ -581,12 +578,12 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 .lr.ph118:                                        ; preds = %._crit_edge115
   %40 = getelementptr inbounds i8, ptr %9, i64 120
   %41 = getelementptr inbounds i8, ptr %10, i64 40
-  %wide.trip.count144 = zext nneg i32 %4 to i64
+  %wide.trip.count141 = zext nneg i32 %4 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph118, %42
-  %indvars.iv141 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next142, %42 ]
-  %43 = getelementptr %struct._pivot_field, ptr %5, i64 %indvars.iv141
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next139, %42 ]
+  %43 = getelementptr %struct._pivot_field, ptr %5, i64 %indvars.iv138
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
@@ -600,9 +597,9 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %52 = sext i32 %51 to i64
   %53 = getelementptr ptr, ptr %50, i64 %52
   store ptr %49, ptr %53, align 8
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge119, label %42, !llvm.loop !13
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
+  br i1 %exitcond142.not, label %._crit_edge119, label %42, !llvm.loop !13
 
 ._crit_edge119:                                   ; preds = %42, %._crit_edge115
   %54 = mul i32 %4, %14
@@ -621,8 +618,8 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 .preheader:                                       ; preds = %107, %._crit_edge119
   %62 = load i64, ptr %56, align 8
-  %.not127 = icmp eq i64 %62, 0
-  br i1 %.not127, label %._crit_edge126, label %.lr.ph125
+  %.not128 = icmp eq i64 %62, 0
+  br i1 %.not128, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.preheader
   %63 = getelementptr inbounds i8, ptr %10, i64 40
@@ -712,8 +709,8 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 107:                                              ; preds = %75, %103
   %108 = add nuw nsw i32 %.084120, 1
   %109 = call i32 @PQntuples(ptr noundef %0) #10
-  %.not146 = icmp slt i32 %108, %109
-  br i1 %.not146, label %64, label %.preheader, !llvm.loop !14
+  %.not127 = icmp slt i32 %108, %109
+  br i1 %.not127, label %64, label %.preheader, !llvm.loop !14
 
 110:                                              ; preds = %.lr.ph125, %118
   %111 = phi i64 [ %62, %.lr.ph125 ], [ %119, %118 ]

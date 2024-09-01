@@ -1570,7 +1570,7 @@ opv_to_opt.exit:                                  ; preds = %38, %47
   %51 = load i32, ptr @global_saphdb_highlight_items, align 4
   %52 = icmp ne i32 %51, 0
   %or.cond = select i1 %50, i1 %52, i1 false
-  br i1 %or.cond, label %.preheader.i119, label %73
+  br i1 %or.cond, label %.lr.ph.i121, label %73
 
 opv_to_opt.exit.thread128:                        ; preds = %opv_to_opi.exit
   %53 = icmp ne i8 %32, 0
@@ -1586,9 +1586,6 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
   %or.cond127 = select i1 %56, i1 %58, i1 false
   br i1 %or.cond127, label %opv_to_opt.exit125, label %73
 
-.preheader.i119:                                  ; preds = %opv_to_opt.exit
-  br i1 %.not1012.i, label %opv_to_opt.exit125, label %.lr.ph.i121
-
 59:                                               ; preds = %.lr.ph.i121
   %60 = add i32 %.013.i122, 1
   %61 = sext i32 %60 to i64
@@ -1598,9 +1595,9 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
   %.not10.i123 = icmp eq ptr %64, null
   br i1 %.not10.i123, label %opv_to_opt.exit125, label %.lr.ph.i121, !llvm.loop !11
 
-.lr.ph.i121:                                      ; preds = %.preheader.i119, %59
-  %65 = phi ptr [ %62, %59 ], [ %6, %.preheader.i119 ]
-  %.013.i122 = phi i32 [ %60, %59 ], [ 0, %.preheader.i119 ]
+.lr.ph.i121:                                      ; preds = %opv_to_opt.exit, %59
+  %65 = phi ptr [ %62, %59 ], [ %6, %opv_to_opt.exit ]
+  %.013.i122 = phi i32 [ %60, %59 ], [ 0, %opv_to_opt.exit ]
   %66 = load i8, ptr %65, align 8
   %67 = icmp eq i8 %66, %17
   br i1 %67, label %68, label %59
@@ -1610,8 +1607,8 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
   %70 = load i8, ptr %69, align 8
   br label %opv_to_opt.exit125
 
-opv_to_opt.exit125:                               ; preds = %59, %opv_to_opt.exit.thread, %opv_to_opt.exit.thread128, %.preheader.i119, %68
-  %.09.i124 = phi i8 [ %70, %68 ], [ 0, %.preheader.i119 ], [ 0, %opv_to_opt.exit.thread128 ], [ 0, %opv_to_opt.exit.thread ], [ 0, %59 ]
+opv_to_opt.exit125:                               ; preds = %59, %opv_to_opt.exit.thread, %opv_to_opt.exit.thread128, %68
+  %.09.i124 = phi i8 [ %70, %68 ], [ 0, %opv_to_opt.exit.thread128 ], [ 0, %opv_to_opt.exit.thread ], [ 0, %59 ]
   %71 = sext i8 %.09.i124 to i32
   %72 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_saphdb_option_part_unknown, ptr noundef nonnull @.str.356, i32 noundef %19, i32 noundef %11, i32 noundef %71, i32 noundef %36) #3
   br label %73

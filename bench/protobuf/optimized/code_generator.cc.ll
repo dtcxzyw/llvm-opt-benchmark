@@ -178,7 +178,7 @@ for.cond.us:                                      ; preds = %for.body.us
   %cmp.us = icmp ugt i64 %sub.ptr.div.i.us, %indvars.iv.next32
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !4
 
-for.cond:                                         ; preds = %land.lhs.true10.thread, %if.end18
+for.cond:                                         ; preds = %land.lhs.true10.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %files, align 8
@@ -210,7 +210,7 @@ if.then:                                          ; preds = %land.lhs.true6
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6, %if.then
   %call11 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %error) #26
-  br i1 %call11, label %if.end18, label %if.then12
+  br i1 %call11, label %for.end, label %if.then12
 
 land.lhs.true10.thread:                           ; preds = %for.body
   br i1 %call1134, label %for.cond, label %if.then12
@@ -238,11 +238,8 @@ if.then12:                                        ; preds = %land.lhs.true10.thr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %for.end
 
-if.end18:                                         ; preds = %land.lhs.true10
-  br i1 %call4, label %for.cond, label %for.end
-
-for.end:                                          ; preds = %for.cond, %if.end18, %for.cond.us, %for.body.us, %entry, %if.then12
-  %succeeded.1 = phi i1 [ %call4, %if.then12 ], [ true, %entry ], [ %call4.us, %for.body.us ], [ %call4.us, %for.cond.us ], [ true, %for.cond ], [ false, %if.end18 ]
+for.end:                                          ; preds = %for.cond, %for.cond.us, %for.body.us, %land.lhs.true10, %entry, %if.then12
+  %succeeded.1 = phi i1 [ %call4, %if.then12 ], [ true, %entry ], [ false, %land.lhs.true10 ], [ %call4.us, %for.body.us ], [ %call4.us, %for.cond.us ], [ true, %for.cond ]
   ret i1 %succeeded.1
 }
 

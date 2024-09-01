@@ -46,8 +46,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %sub = fadd double %add.i, -1.000000e+00
   %3 = tail call double @llvm.fabs.f64(double %sub)
   %cmp = fcmp ule double %3, 0x3EB0C6F7A0B5ED8D
-  %or.cond295 = or i1 %cmp, %cmp.i.not4.i
-  br i1 %or.cond295, label %if.end, label %for.body
+  br i1 %cmp, label %if.end, label %for.body
 
 for.body:                                         ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit, %for.body
   %__begin3.sroa.0.0263 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]

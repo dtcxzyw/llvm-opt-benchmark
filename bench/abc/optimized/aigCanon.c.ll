@@ -1415,7 +1415,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
   %106 = getelementptr inbounds i8, ptr %.pre, i64 568
   %107 = getelementptr inbounds i8, ptr %.pre, i64 3364
   tail call void @Kit_TruthPermute(ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef %20, ptr noundef nonnull %107, i32 noundef 1) #16
-  br i1 %.not66, label %._crit_edge65, label %.lr.ph64
+  br label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %._crit_edge61, %113
   %.262 = phi i32 [ %114, %113 ], [ 0, %._crit_edge61 ]
@@ -1435,7 +1435,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
   %exitcond75.not = icmp eq i32 %114, %20
   br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !32
 
-._crit_edge65:                                    ; preds = %113, %._crit_edge61.thread, %._crit_edge61
+._crit_edge65:                                    ; preds = %113, %._crit_edge61.thread
   br i1 %exitcond.not.i.not, label %115, label %Kit_TruthIsEqual.exit
 
 115:                                              ; preds = %._crit_edge65

@@ -34484,7 +34484,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %entry, %while.body.
 
 _ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.05.i.i.i.i.i.i.i, 576460752303423486
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.i.i.i.i.preheader.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #30
@@ -34493,12 +34493,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8distanceISt24_
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
-for.body.i.i.i.i.preheader.i.i.i.i.i:             ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i
+_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZSt8distanceISt24_Fwd_list_const_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %inc.i.i.i.i.i.i.i, 4
   %call5.i.i.i.i1.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #27
           to label %call5.i.i.i.i.noexc.i.i.i.i unwind label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaISE_EEZNSE_6createISG_JSt24_Fwd_list_const_iteratorIlESJ_EEEPT_DpOT0_EUlPSG_E_ED2Ev.exit7.i
 
-call5.i.i.i.i.noexc.i.i.i.i:                      ; preds = %for.body.i.i.i.i.preheader.i.i.i.i.i
+call5.i.i.i.i.noexc.i.i.i.i:                      ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i.i.i, ptr %call5.i.i2.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %call5.i.i.i.i1.i.i.i.i, i64 %inc.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i, i64 16
@@ -34519,7 +34519,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE6createIS3_ISD_SaISD_EEJSt24_Fwd_list_const_iteratorIlESI_EEEPT_DpOT0_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !339
 
-_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaISE_EEZNSE_6createISG_JSt24_Fwd_list_const_iteratorIlESJ_EEEPT_DpOT0_EUlPSG_E_ED2Ev.exit7.i: ; preds = %for.body.i.i.i.i.preheader.i.i.i.i.i, %if.then.i.i.i.i.i.i
+_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaISE_EEZNSE_6createISG_JSt24_Fwd_list_const_iteratorIlESJ_EEEPT_DpOT0_EUlPSG_E_ED2Ev.exit7.i: ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESaISE_EE11_M_allocateEm.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i) #28

@@ -615,8 +615,8 @@ hash.exit:                                        ; preds = %22, %._crit_edge.lo
   %.04859 = and i64 %.08.lcssa.i, %17
   %.04660 = getelementptr inbounds %struct.cli_element, ptr %14, i64 %.04859
   %42 = load ptr, ptr %.04660, align 8
-  %.not75 = icmp eq ptr %42, null
-  br i1 %.not75, label %._crit_edge.thread, label %.lr.ph
+  %.not71 = icmp eq ptr %42, null
+  br i1 %.not71, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hash.exit, %.lr.ph
   %.04862 = phi i64 [ %.048, %.lr.ph ], [ %.04859, %hash.exit ]
@@ -855,8 +855,8 @@ nearest_power.exit:                               ; preds = %6, %8
   %34 = and i64 %15, %33
   %.04555 = getelementptr inbounds %struct.cli_htu32_element, ptr %11, i64 %34
   %35 = load i32, ptr %.04555, align 8
-  %.not68 = icmp eq i32 %35, 0
-  br i1 %.not68, label %._crit_edge.thread, label %.lr.ph
+  %.not64 = icmp eq i32 %35, 0
+  br i1 %.not64, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.057 = phi i64 [ %36, %.lr.ph ], [ 1, %21 ]

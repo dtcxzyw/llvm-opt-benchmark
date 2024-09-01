@@ -3792,10 +3792,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIN3smt8q
   %wide.trip.count = zext i32 %3 to i64
   br label %for.body
 
-for.cond14.preheader:                             ; preds = %for.inc
-  br i1 %cmp46.not, label %return, label %for.body16.lr.ph
-
-for.body16.lr.ph:                                 ; preds = %for.cond14.preheader
+for.body16.lr.ph:                                 ; preds = %for.inc
   %m_instantiated_trail = getelementptr inbounds i8, ptr %this, i64 1032
   %m_num_lazy_instances = getelementptr inbounds i8, ptr %this, i64 36
   %wide.trip.count59 = zext i32 %3 to i64
@@ -3830,7 +3827,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %init.1 = phi i1 [ %init.049, %for.body ], [ true, %if.then11 ], [ %init.049, %land.lhs.true ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond14.preheader, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.body16.lr.ph, label %for.body, !llvm.loop !13
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc31
   %indvars.iv57 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next58, %for.inc31 ]
@@ -3968,8 +3965,8 @@ for.inc63:                                        ; preds = %for.body42, %land.l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond38, !llvm.loop !15
 
-return:                                           ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit24, %for.inc31, %if.then, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit, %for.cond14.preheader
-  %retval.0.in = phi i1 [ true, %for.cond14.preheader ], [ true, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ true, %if.then ], [ %result.1, %for.inc31 ], [ %result36.0, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit24 ]
+return:                                           ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit24, %for.inc31, %if.then, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit
+  %retval.0.in = phi i1 [ true, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ true, %if.then ], [ %result.1, %for.inc31 ], [ %result36.0, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit24 ]
   ret i1 %retval.0.in
 }
 

@@ -1161,8 +1161,8 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 for.cond.i.i.us.i:                                ; preds = %for.body.i.i.us.i, %for.body.us.i
   %retval.sroa.0.0.in.i.i.us.i = phi ptr [ %_M_before_begin.i.i.i.i.i, %for.body.us.i ], [ %retval.sroa.0.0.i.i.us.i, %for.body.i.i.us.i ]
   %retval.sroa.0.0.i.i.us.i = load ptr, ptr %retval.sroa.0.0.in.i.i.us.i, align 8
-  %cmp.i.not.i.i.us.not.i.not = icmp eq ptr %retval.sroa.0.0.i.i.us.i, null
-  br i1 %cmp.i.not.i.i.us.not.i.not, label %cond.end.us.thread.i, label %for.body.i.i.us.i
+  %cmp.i.not.i.i.us.not.not.i = icmp eq ptr %retval.sroa.0.0.i.i.us.i, null
+  br i1 %cmp.i.not.i.i.us.not.not.i, label %cond.end.us.thread.i, label %for.body.i.i.us.i
 
 for.body.i.i.us.i:                                ; preds = %for.cond.i.i.us.i
   %add.ptr.i.i.us.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.us.i, i64 8

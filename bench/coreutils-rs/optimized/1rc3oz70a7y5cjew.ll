@@ -3663,8 +3663,8 @@ thread-pre-split.i.i:                             ; preds = %.noexc210
   store i64 %149, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !559, !noalias !558
   %150 = icmp ne ptr %147, null
   %151 = getelementptr i8, ptr %147, i64 -240
-  %.not16.i.i = icmp ne ptr %151, null
-  %.not.not.i.i = and i1 %150, %.not16.i.i
+  %.not15.i.i = icmp ne ptr %151, null
+  %.not.not.i.i = and i1 %150, %.not15.i.i
   br i1 %.not.not.i.i, label %152, label %_ZN7uu_tail6follow5files12FileHandling18no_files_remaining17ha97b7665f36e14b9E.exit
 
 152:                                              ; preds = %.noexc
@@ -5598,8 +5598,8 @@ thread-pre-split.i.i240:                          ; preds = %.noexc423.i
   store i64 %869, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i236, align 8, !alias.scope !855, !noalias !854
   %870 = icmp ne ptr %867, null
   %871 = getelementptr i8, ptr %867, i64 -240
-  %.not16.i.i238 = icmp ne ptr %871, null
-  %.not.not.i.i239 = and i1 %870, %.not16.i.i238
+  %.not15.i.i238 = icmp ne ptr %871, null
+  %.not.not.i.i239 = and i1 %870, %.not15.i.i238
   br i1 %.not.not.i.i239, label %872, label %._crit_edge.i
 
 872:                                              ; preds = %.noexc421.i

@@ -278,11 +278,11 @@ define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly %0, ptr nounde
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %.018, align 8
   %26 = tail call i32 %24(ptr noundef %1, ptr noundef %25) #7
-  %.not15.not = icmp ne i32 %26, 0
-  br i1 %.not15.not, label %.loopexit, label %22
+  %.not15.not.not = icmp ne i32 %26, 0
+  br i1 %.not15.not.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %8, %2, %4
-  %.012 = phi i1 [ false, %4 ], [ false, %2 ], [ false, %8 ], [ %.not15.not, %22 ], [ %.not15.not, %.lr.ph ]
+  %.012 = phi i1 [ false, %4 ], [ false, %2 ], [ false, %8 ], [ %.not15.not.not, %22 ], [ %.not15.not.not, %.lr.ph ]
   ret i1 %.012
 }
 

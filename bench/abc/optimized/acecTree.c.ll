@@ -479,10 +479,7 @@ Vec_BitStart.exit133:                             ; preds = %3, %10
   %.val112.pre = load ptr, ptr %21, align 8
   br label %24
 
-.critedge.preheader:                              ; preds = %24
-  br i1 %19, label %.lr.ph142, label %.critedge2.preheader
-
-.lr.ph142:                                        ; preds = %.critedge.preheader
+.lr.ph142:                                        ; preds = %24
   %22 = getelementptr i8, ptr %2, i64 8
   %23 = getelementptr i8, ptr %1, i64 8
   %.val110.pre = load ptr, ptr %22, align 8
@@ -520,9 +517,9 @@ Vec_BitStart.exit133:                             ; preds = %3, %10
   %48 = trunc i64 %indvars.iv.next to i32
   %49 = or disjoint i32 %48, 1
   %50 = icmp slt i32 %49, %.val99138
-  br i1 %50, label %24, label %.critedge.preheader, !llvm.loop !8
+  br i1 %50, label %24, label %.lr.ph142, !llvm.loop !8
 
-.critedge2.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit133, %.critedge.preheader
+.critedge2.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit133
   %51 = icmp sgt i32 %.val123, 0
   br i1 %51, label %.lr.ph144.preheader, label %.critedge4
 
@@ -890,10 +887,7 @@ Vec_BitStart.exit114:                             ; preds = %Vec_BitStart.exit, 
   %.val100.pre = load ptr, ptr %27, align 8
   br label %30
 
-.critedge.preheader:                              ; preds = %30
-  br i1 %25, label %.lr.ph123, label %.critedge2.preheader
-
-.lr.ph123:                                        ; preds = %.critedge.preheader
+.lr.ph123:                                        ; preds = %30
   %28 = getelementptr i8, ptr %2, i64 8
   %29 = getelementptr i8, ptr %1, i64 8
   %.val97.pre = load ptr, ptr %28, align 8
@@ -942,9 +936,9 @@ Vec_BitStart.exit114:                             ; preds = %Vec_BitStart.exit, 
   %64 = trunc i64 %indvars.iv.next to i32
   %65 = or disjoint i32 %64, 1
   %66 = icmp slt i32 %65, %.val87119
-  br i1 %66, label %30, label %.critedge.preheader, !llvm.loop !13
+  br i1 %66, label %30, label %.lr.ph123, !llvm.loop !13
 
-.critedge2.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit114, %.critedge.preheader
+.critedge2.preheader:                             ; preds = %.critedge, %Vec_BitStart.exit114
   %67 = getelementptr i8, ptr %0, i64 32
   %68 = icmp sgt i32 %.val109, 0
   br i1 %68, label %.lr.ph125, label %.critedge4
@@ -1760,10 +1754,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %17 = zext nneg i32 %.val62106 to i64
   br label %21
 
-.critedge.preheader:                              ; preds = %.critedge2
-  br i1 %14, label %.lr.ph115, label %.critedge4
-
-.lr.ph115:                                        ; preds = %.critedge.preheader
+.lr.ph115:                                        ; preds = %.critedge2
   %18 = getelementptr i8, ptr %2, i64 8
   %19 = getelementptr i8, ptr %1, i64 8
   %.val63 = load ptr, ptr %18, align 8
@@ -1810,7 +1801,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
 .critedge2:                                       ; preds = %26, %21
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %42 = icmp ult i64 %indvars.iv.next122, %17
-  br i1 %42, label %21, label %.critedge.preheader, !llvm.loop !27
+  br i1 %42, label %21, label %.lr.ph115, !llvm.loop !27
 
 43:                                               ; preds = %.lr.ph115, %.critedge6
   %indvars.iv130 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next131, %.critedge6 ]
@@ -1867,7 +1858,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %64 = icmp ult i64 %indvars.iv.next131, %20
   br i1 %64, label %43, label %.critedge4, !llvm.loop !30
 
-.critedge4:                                       ; preds = %.critedge6, %Vec_IntStartFull.exit, %.critedge.preheader
+.critedge4:                                       ; preds = %.critedge6, %Vec_IntStartFull.exit
   %65 = icmp sgt i32 %.val76, 0
   br i1 %65, label %.lr.ph.i, label %Vec_IntCountLarger.exit.thread
 
@@ -2952,10 +2943,7 @@ Acec_TreeFindTrees_rec.exit:                      ; preds = %Vec_WecPushLevel.ex
   %102 = zext nneg i32 %.val65 to i64
   br label %104
 
-.critedge3.preheader:                             ; preds = %104
-  br i1 %100, label %.lr.ph92, label %.critedge5
-
-.lr.ph92:                                         ; preds = %.critedge3.preheader
+.lr.ph92:                                         ; preds = %104
   %103 = getelementptr i8, ptr %82, i64 -8
   br label %.critedge3
 
@@ -2969,7 +2957,7 @@ Acec_TreeFindTrees_rec.exit:                      ; preds = %Vec_WecPushLevel.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %109 = or disjoint i64 %indvars.iv.next, 1
   %110 = icmp ult i64 %109, %102
-  br i1 %110, label %104, label %.critedge3.preheader, !llvm.loop !40
+  br i1 %110, label %104, label %.lr.ph92, !llvm.loop !40
 
 .critedge3:                                       ; preds = %.lr.ph92, %.critedge3
   %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %.critedge3 ]
@@ -2986,7 +2974,7 @@ Acec_TreeFindTrees_rec.exit:                      ; preds = %Vec_WecPushLevel.ex
   %117 = icmp slt i64 %115, %116
   br i1 %117, label %.critedge3, label %.critedge5, !llvm.loop !41
 
-.critedge5:                                       ; preds = %.critedge3, %Acec_TreeFindTrees_rec.exit, %.critedge3.preheader, %39, %31
+.critedge5:                                       ; preds = %.critedge3, %Acec_TreeFindTrees_rec.exit, %39, %31
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 2
   %.val66 = load i32, ptr %27, align 4
   %118 = trunc i64 %indvars.iv.next103 to i32
@@ -3879,12 +3867,9 @@ Vec_IntStartFull.exit.i:                          ; preds = %151, %Vec_IntAlloc.
 .critedge2.i:                                     ; preds = %163, %158
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next31.i, %157
-  br i1 %exitcond.not, label %Acec_TreeCarryMap.exit, label %158, !llvm.loop !35
+  br i1 %exitcond.not, label %.lr.ph268, label %158, !llvm.loop !35
 
-Acec_TreeCarryMap.exit:                           ; preds = %.critedge2.i
-  br i1 %155, label %.lr.ph268, label %Acec_TreeVerifyPhases.exit
-
-.lr.ph268:                                        ; preds = %Acec_TreeCarryMap.exit
+.lr.ph268:                                        ; preds = %.critedge2.i
   %173 = getelementptr i8, ptr %1, i64 8
   %174 = zext nneg i32 %.val160 to i64
   br label %176
@@ -3987,7 +3972,7 @@ Acec_TreeCarryMap.exit:                           ; preds = %.critedge2.i
   %215 = icmp slt i64 %indvars.iv.next25.i, %214
   br i1 %215, label %.lr.ph22.i, label %Acec_TreeVerifyPhases.exit, !llvm.loop !20
 
-Acec_TreeVerifyPhases.exit:                       ; preds = %.critedge2.i215, %Vec_IntStartFull.exit.i, %Acec_TreeCarryMap.exit, %.critedge4
+Acec_TreeVerifyPhases.exit:                       ; preds = %.critedge2.i215, %Vec_IntStartFull.exit.i, %.critedge4
   tail call void @Acec_TreeVerifyPhases2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %55)
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %216
@@ -5014,8 +4999,8 @@ define noalias noundef ptr @Acec_DeriveBox(ptr noundef %0, ptr noundef %1, i32 n
   %.val24 = load ptr, ptr %12, align 8
   %13 = tail call ptr @Acec_CreateBox(ptr noundef %0, ptr noundef %6, ptr noundef %.val24)
   tail call void @Acec_VerifyBoxLeaves(ptr noundef %13, ptr noundef %1)
-  %.not62 = icmp eq ptr %13, null
-  br i1 %.not62, label %.thread51.thread, label %14
+  %.not60 = icmp eq ptr %13, null
+  br i1 %.not60, label %.thread51.thread, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -5094,8 +5079,8 @@ Vec_WecSizeSize.exit35:                           ; preds = %28, %Vec_WecSizeSiz
 .loopexit:                                        ; preds = %36, %Vec_WecSizeSize.exit35
   %.0.lcssa.i37 = phi i32 [ 0, %Vec_WecSizeSize.exit35 ], [ %38, %36 ]
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef 0, i32 noundef %.val, i32 noundef %.0.lcssa.i, i32 noundef %.0.lcssa.i26, i32 noundef %.0.lcssa.i37)
-  %.not63 = icmp eq i32 %4, 0
-  br i1 %.not63, label %.thread51.thread, label %40
+  %.not61 = icmp eq i32 %4, 0
+  br i1 %.not61, label %.thread51.thread, label %40
 
 40:                                               ; preds = %.loopexit
   tail call void @Acec_TreePrintBox(ptr noundef nonnull %13, ptr noundef %6)

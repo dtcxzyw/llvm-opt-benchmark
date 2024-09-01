@@ -1501,9 +1501,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv63.i, ptr noundef nonnull align 1 dereferenceable(16) %IVs.0.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body75.lr.ph.i, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
 
-for.body75.lr.ph.i:                               ; preds = %for.body.i
+for.end.i:                                        ; preds = %for.body.i
   %data.i = getelementptr inbounds i8, ptr %call, i64 508
   %49 = load i64, ptr %data.i, align 4
   store i64 %49, ptr %blocks.i, align 16
@@ -1540,8 +1540,8 @@ for.body75.lr.ph.i:                               ; preds = %for.body.i
   %wide.trip.count314.i = zext i32 %umax313.i to i64
   br label %for.body75.i
 
-for.body75.i:                                     ; preds = %for.body75.i, %for.body75.lr.ph.i
-  %indvars.iv310.i = phi i64 [ 0, %for.body75.lr.ph.i ], [ %indvars.iv.next311.i, %for.body75.i ]
+for.body75.i:                                     ; preds = %for.body75.i, %for.end.i
+  %indvars.iv310.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next311.i, %for.body75.i ]
   %cmp77.i = icmp eq i64 %indvars.iv310.i, %59
   %cond.i = select i1 %cmp77.i, i32 %last.0.i, i32 %frag.0.i
   %arrayidx82.i = getelementptr inbounds [8 x i32], ptr %add.ptr4.i, i64 0, i64 %indvars.iv310.i
@@ -1686,7 +1686,13 @@ if.end259.i:                                      ; preds = %for.cond215.for.end
   %processed.0.i = phi i32 [ 0, %for.end181.i ], [ %add255.i, %do.body.i ], [ %add255.us.i, %for.cond215.for.end254_crit_edge.us.i ]
   call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %hash_d.i, i32 noundef %div19289) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  br i1 %cmp36287.not.i, label %for.end462.thread.i, label %for.body265.lr.ph.i
+  br i1 %cmp36287.not.i, label %for.end325.thread.i, label %for.body265.lr.ph.i
+
+for.end325.thread.i:                              ; preds = %if.end259.i
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
+  br label %for.end588.i
 
 for.body265.lr.ph.i:                              ; preds = %if.end259.i
   %sub267.i = add nsw i32 %mul.i, -1
@@ -1728,9 +1734,9 @@ for.body265.i:                                    ; preds = %for.body265.i, %for
   store ptr %arrayidx288.i, ptr %arrayidx321.i, align 16
   %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i, 1
   %exitcond333.not.i = icmp eq i64 %indvars.iv.next329.i, %wide.trip.count332.i
-  br i1 %exitcond333.not.i, label %for.body331.lr.ph.i, label %for.body265.i, !llvm.loop !26
+  br i1 %exitcond333.not.i, label %for.end325.i, label %for.body265.i, !llvm.loop !26
 
-for.body331.lr.ph.i:                              ; preds = %for.body265.i
+for.end325.i:                                     ; preds = %for.body265.i
   call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   %tail.i = getelementptr inbounds i8, ptr %call, i64 356
@@ -1750,8 +1756,8 @@ for.body331.lr.ph.i:                              ; preds = %for.body265.i
   %arrayidx439.i = getelementptr inbounds i8, ptr %call, i64 384
   br label %for.body331.i
 
-for.body331.i:                                    ; preds = %for.body331.i, %for.body331.lr.ph.i
-  %indvars.iv334.i = phi i64 [ 0, %for.body331.lr.ph.i ], [ %indvars.iv.next335.i, %for.body331.i ]
+for.body331.i:                                    ; preds = %for.body331.i, %for.end325.i
+  %indvars.iv334.i = phi i64 [ 0, %for.end325.i ], [ %indvars.iv.next335.i, %for.body331.i ]
   %arrayidx335.i = getelementptr inbounds [8 x i32], ptr %add.ptr4.i, i64 0, i64 %indvars.iv334.i
   %77 = load i32, ptr %arrayidx335.i, align 4
   %78 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %77) #7, !srcloc !27
@@ -1819,25 +1825,19 @@ for.body331.i:                                    ; preds = %for.body331.i, %for
   store i32 1, ptr %blocks459.i, align 8
   %indvars.iv.next335.i = add nuw nsw i64 %indvars.iv334.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next335.i, %wide.trip.count332.i
-  br i1 %exitcond339.not.i, label %for.body467.lr.ph.i, label %for.body331.i, !llvm.loop !36
+  br i1 %exitcond339.not.i, label %for.end462.i, label %for.body331.i, !llvm.loop !36
 
-for.end462.thread.i:                              ; preds = %if.end259.i
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
-  br label %for.end588.i
-
-for.body467.lr.ph.i:                              ; preds = %for.body331.i
+for.end462.i:                                     ; preds = %for.body331.i
   call void @sha256_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div19289) #6
   %arrayidx564.i = getelementptr inbounds i8, ptr %call, i64 516
   %arrayidx569.i = getelementptr inbounds i8, ptr %call, i64 517
   %arrayidx574.i = getelementptr inbounds i8, ptr %call, i64 518
   br label %for.body467.i
 
-for.body467.i:                                    ; preds = %for.body467.i, %for.body467.lr.ph.i
-  %indvars.iv341.i = phi i64 [ 0, %for.body467.lr.ph.i ], [ %indvars.iv.next342.i, %for.body467.i ]
-  %out.addr.0305.i = phi ptr [ %38, %for.body467.lr.ph.i ], [ %scevgep340.i, %for.body467.i ]
-  %ret.0303.i = phi i32 [ 0, %for.body467.lr.ph.i ], [ %add583.i, %for.body467.i ]
+for.body467.i:                                    ; preds = %for.body467.i, %for.end462.i
+  %indvars.iv341.i = phi i64 [ 0, %for.end462.i ], [ %indvars.iv.next342.i, %for.body467.i ]
+  %out.addr.0305.i = phi ptr [ %38, %for.end462.i ], [ %scevgep340.i, %for.body467.i ]
+  %ret.0303.i = phi i32 [ 0, %for.end462.i ], [ %add583.i, %for.body467.i ]
   %cmp470.i = icmp eq i64 %indvars.iv341.i, %70
   %cond475.i = select i1 %cmp470.i, i32 %last.0.i, i32 %frag.0.i
   %arrayidx477.i = getelementptr inbounds [8 x %struct.CIPH_DESC], ptr %ciph_d.i, i64 0, i64 %indvars.iv341.i
@@ -1931,8 +1931,8 @@ for.body467.i:                                    ; preds = %for.body467.i, %for
   %exitcond346.not.i = icmp eq i64 %indvars.iv.next342.i, %wide.trip.count332.i
   br i1 %exitcond346.not.i, label %for.end588.i, label %for.body467.i, !llvm.loop !45
 
-for.end588.i:                                     ; preds = %for.body467.i, %for.end462.thread.i
-  %ret.0.lcssa.i = phi i32 [ 0, %for.end462.thread.i ], [ %add583.i, %for.body467.i ]
+for.end588.i:                                     ; preds = %for.body467.i, %for.end325.thread.i
+  %ret.0.lcssa.i = phi i32 [ 0, %for.end325.thread.i ], [ %add583.i, %for.body467.i ]
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef %div19289) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %blocks.i, i64 noundef 1024) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr4.i, i64 noundef 256) #6

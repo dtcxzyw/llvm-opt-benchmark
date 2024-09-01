@@ -187,8 +187,8 @@ freePointerList.exit.i135:                        ; preds = %51, %50
   %57 = getelementptr inbounds i8, ptr %56, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef %56, i64 noundef %.1385, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i = icmp eq ptr %59, null
-  br i1 %.not30.i.i, label %.loopexit546, label %.preheader.i.i
+  %.not25.i.i = icmp eq ptr %59, null
+  br i1 %.not25.i.i, label %.loopexit546, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %55, %.critedge.i.i
   %60 = phi ptr [ %70, %.critedge.i.i ], [ %59, %55 ]
@@ -213,8 +213,8 @@ freePointerList.exit.i135:                        ; preds = %51, %50
   %68 = getelementptr inbounds i8, ptr %67, i64 104
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr %69(ptr noundef %67, i64 noundef %66, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i = icmp eq ptr %70, null
-  br i1 %.not31.i.i, label %.loopexit546, label %.preheader.i.i
+  %.not26.i.i = icmp eq ptr %70, null
+  br i1 %.not26.i.i, label %.loopexit546, label %.preheader.i.i
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %7, align 8
@@ -251,8 +251,8 @@ getPrimaryVolumeDescriptor.exit:                  ; preds = %77
   %89 = getelementptr inbounds i8, ptr %88, i64 104
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr %90(ptr noundef %88, i64 noundef %78, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i143 = icmp eq ptr %91, null
-  br i1 %.not30.i.i143, label %.loopexit545, label %.preheader.i.i144
+  %.not25.i.i143 = icmp eq ptr %91, null
+  br i1 %.not25.i.i143, label %.loopexit545, label %.preheader.i.i144
 
 .preheader.i.i144:                                ; preds = %getPrimaryVolumeDescriptor.exit, %.critedge.i.i156
   %92 = phi ptr [ %102, %.critedge.i.i156 ], [ %91, %getPrimaryVolumeDescriptor.exit ]
@@ -277,8 +277,8 @@ getPrimaryVolumeDescriptor.exit:                  ; preds = %77
   %100 = getelementptr inbounds i8, ptr %99, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr %101(ptr noundef %99, i64 noundef %98, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i157 = icmp eq ptr %102, null
-  br i1 %.not31.i.i157, label %.loopexit545, label %.preheader.i.i144
+  %.not26.i.i157 = icmp eq ptr %102, null
+  br i1 %.not26.i.i157, label %.loopexit545, label %.preheader.i.i144
 
 103:                                              ; preds = %95
   %104 = load ptr, ptr %7, align 8
@@ -303,8 +303,8 @@ getImplementationUseVolumeDescriptor.exit:        ; preds = %109
   %112 = getelementptr inbounds i8, ptr %111, i64 104
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr %113(ptr noundef %111, i64 noundef %110, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i158 = icmp eq ptr %114, null
-  br i1 %.not30.i.i158, label %.loopexit544, label %.preheader.i.i159
+  %.not25.i.i158 = icmp eq ptr %114, null
+  br i1 %.not25.i.i158, label %.loopexit544, label %.preheader.i.i159
 
 .preheader.i.i159:                                ; preds = %getImplementationUseVolumeDescriptor.exit, %.critedge.i.i171
   %115 = phi ptr [ %125, %.critedge.i.i171 ], [ %114, %getImplementationUseVolumeDescriptor.exit ]
@@ -329,8 +329,8 @@ getImplementationUseVolumeDescriptor.exit:        ; preds = %109
   %123 = getelementptr inbounds i8, ptr %122, i64 104
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr %124(ptr noundef %122, i64 noundef %121, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i172 = icmp eq ptr %125, null
-  br i1 %.not31.i.i172, label %.loopexit544, label %.preheader.i.i159
+  %.not26.i.i172 = icmp eq ptr %125, null
+  br i1 %.not26.i.i172, label %.loopexit544, label %.preheader.i.i159
 
 126:                                              ; preds = %118
   %127 = load ptr, ptr %7, align 8
@@ -355,8 +355,8 @@ getLogicalVolumeDescriptor.exit:                  ; preds = %132
   %135 = getelementptr inbounds i8, ptr %134, i64 104
   %136 = load ptr, ptr %135, align 8
   %137 = call ptr %136(ptr noundef %134, i64 noundef %133, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i173 = icmp eq ptr %137, null
-  br i1 %.not30.i.i173, label %.loopexit543, label %.preheader.i.i174
+  %.not25.i.i173 = icmp eq ptr %137, null
+  br i1 %.not25.i.i173, label %.loopexit543, label %.preheader.i.i174
 
 .preheader.i.i174:                                ; preds = %getLogicalVolumeDescriptor.exit, %.critedge.i.i186
   %138 = phi ptr [ %148, %.critedge.i.i186 ], [ %137, %getLogicalVolumeDescriptor.exit ]
@@ -381,8 +381,8 @@ getLogicalVolumeDescriptor.exit:                  ; preds = %132
   %146 = getelementptr inbounds i8, ptr %145, i64 104
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr %147(ptr noundef %145, i64 noundef %144, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i187 = icmp eq ptr %148, null
-  br i1 %.not31.i.i187, label %.loopexit543, label %.preheader.i.i174
+  %.not26.i.i187 = icmp eq ptr %148, null
+  br i1 %.not26.i.i187, label %.loopexit543, label %.preheader.i.i174
 
 149:                                              ; preds = %141
   %150 = load ptr, ptr %7, align 8
@@ -419,8 +419,8 @@ getPartitionDescriptor.exit:                      ; preds = %155
   %167 = getelementptr inbounds i8, ptr %166, i64 104
   %168 = load ptr, ptr %167, align 8
   %169 = call ptr %168(ptr noundef %166, i64 noundef %156, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i190 = icmp eq ptr %169, null
-  br i1 %.not30.i.i190, label %.loopexit542, label %.preheader.i.i191
+  %.not25.i.i190 = icmp eq ptr %169, null
+  br i1 %.not25.i.i190, label %.loopexit542, label %.preheader.i.i191
 
 .preheader.i.i191:                                ; preds = %getPartitionDescriptor.exit, %.critedge.i.i203
   %170 = phi ptr [ %180, %.critedge.i.i203 ], [ %169, %getPartitionDescriptor.exit ]
@@ -445,8 +445,8 @@ getPartitionDescriptor.exit:                      ; preds = %155
   %178 = getelementptr inbounds i8, ptr %177, i64 104
   %179 = load ptr, ptr %178, align 8
   %180 = call ptr %179(ptr noundef %177, i64 noundef %176, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i204 = icmp eq ptr %180, null
-  br i1 %.not31.i.i204, label %.loopexit542, label %.preheader.i.i191
+  %.not26.i.i204 = icmp eq ptr %180, null
+  br i1 %.not26.i.i204, label %.loopexit542, label %.preheader.i.i191
 
 181:                                              ; preds = %173
   %182 = load ptr, ptr %7, align 8
@@ -483,8 +483,8 @@ getUnallocatedSpaceDescriptor.exit:               ; preds = %187
   %199 = getelementptr inbounds i8, ptr %198, i64 104
   %200 = load ptr, ptr %199, align 8
   %201 = call ptr %200(ptr noundef %198, i64 noundef %188, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i207 = icmp eq ptr %201, null
-  br i1 %.not30.i.i207, label %.loopexit541, label %.preheader.i.i208
+  %.not25.i.i207 = icmp eq ptr %201, null
+  br i1 %.not25.i.i207, label %.loopexit541, label %.preheader.i.i208
 
 .preheader.i.i208:                                ; preds = %getUnallocatedSpaceDescriptor.exit, %.critedge.i.i220
   %202 = phi ptr [ %212, %.critedge.i.i220 ], [ %201, %getUnallocatedSpaceDescriptor.exit ]
@@ -509,8 +509,8 @@ getUnallocatedSpaceDescriptor.exit:               ; preds = %187
   %210 = getelementptr inbounds i8, ptr %209, i64 104
   %211 = load ptr, ptr %210, align 8
   %212 = call ptr %211(ptr noundef %209, i64 noundef %208, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i221 = icmp eq ptr %212, null
-  br i1 %.not31.i.i221, label %.loopexit541, label %.preheader.i.i208
+  %.not26.i.i221 = icmp eq ptr %212, null
+  br i1 %.not26.i.i221, label %.loopexit541, label %.preheader.i.i208
 
 213:                                              ; preds = %205
   %214 = load ptr, ptr %7, align 8
@@ -547,8 +547,8 @@ getTerminatingDescriptor.exit:                    ; preds = %219
   %231 = getelementptr inbounds i8, ptr %230, i64 104
   %232 = load ptr, ptr %231, align 8
   %233 = call ptr %232(ptr noundef %230, i64 noundef %220, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i224 = icmp eq ptr %233, null
-  br i1 %.not30.i.i224, label %.loopexit540, label %.preheader.i.i225
+  %.not25.i.i224 = icmp eq ptr %233, null
+  br i1 %.not25.i.i224, label %.loopexit540, label %.preheader.i.i225
 
 .preheader.i.i225:                                ; preds = %getTerminatingDescriptor.exit, %.critedge.i.i237
   %234 = phi ptr [ %244, %.critedge.i.i237 ], [ %233, %getTerminatingDescriptor.exit ]
@@ -573,8 +573,8 @@ getTerminatingDescriptor.exit:                    ; preds = %219
   %242 = getelementptr inbounds i8, ptr %241, i64 104
   %243 = load ptr, ptr %242, align 8
   %244 = call ptr %243(ptr noundef %241, i64 noundef %240, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i238 = icmp eq ptr %244, null
-  br i1 %.not31.i.i238, label %.loopexit540, label %.preheader.i.i225
+  %.not26.i.i238 = icmp eq ptr %244, null
+  br i1 %.not26.i.i238, label %.loopexit540, label %.preheader.i.i225
 
 245:                                              ; preds = %237
   %246 = load ptr, ptr %7, align 8
@@ -611,8 +611,8 @@ getLogicalVolumeIntegrityDescriptor.exit:         ; preds = %251
   %263 = getelementptr inbounds i8, ptr %262, i64 104
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr %264(ptr noundef %262, i64 noundef %252, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i241 = icmp eq ptr %265, null
-  br i1 %.not30.i.i241, label %.loopexit539, label %.preheader.i.i242
+  %.not25.i.i241 = icmp eq ptr %265, null
+  br i1 %.not25.i.i241, label %.loopexit539, label %.preheader.i.i242
 
 .preheader.i.i242:                                ; preds = %getLogicalVolumeIntegrityDescriptor.exit, %.critedge.i.i254
   %266 = phi ptr [ %276, %.critedge.i.i254 ], [ %265, %getLogicalVolumeIntegrityDescriptor.exit ]
@@ -637,8 +637,8 @@ getLogicalVolumeIntegrityDescriptor.exit:         ; preds = %251
   %274 = getelementptr inbounds i8, ptr %273, i64 104
   %275 = load ptr, ptr %274, align 8
   %276 = call ptr %275(ptr noundef %273, i64 noundef %272, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i255 = icmp eq ptr %276, null
-  br i1 %.not31.i.i255, label %.loopexit539, label %.preheader.i.i242
+  %.not26.i.i255 = icmp eq ptr %276, null
+  br i1 %.not26.i.i255, label %.loopexit539, label %.preheader.i.i242
 
 277:                                              ; preds = %269
   %278 = load ptr, ptr %7, align 8
@@ -675,8 +675,8 @@ getTerminatingDescriptor.exit256:                 ; preds = %283
   %295 = getelementptr inbounds i8, ptr %294, i64 104
   %296 = load ptr, ptr %295, align 8
   %297 = call ptr %296(ptr noundef %294, i64 noundef %284, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i259 = icmp eq ptr %297, null
-  br i1 %.not30.i.i259, label %.loopexit538, label %.preheader.i.i260
+  %.not25.i.i259 = icmp eq ptr %297, null
+  br i1 %.not25.i.i259, label %.loopexit538, label %.preheader.i.i260
 
 .preheader.i.i260:                                ; preds = %getTerminatingDescriptor.exit256, %.critedge.i.i272
   %298 = phi ptr [ %308, %.critedge.i.i272 ], [ %297, %getTerminatingDescriptor.exit256 ]
@@ -701,8 +701,8 @@ getTerminatingDescriptor.exit256:                 ; preds = %283
   %306 = getelementptr inbounds i8, ptr %305, i64 104
   %307 = load ptr, ptr %306, align 8
   %308 = call ptr %307(ptr noundef %305, i64 noundef %304, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i273 = icmp eq ptr %308, null
-  br i1 %.not31.i.i273, label %.loopexit538, label %.preheader.i.i260
+  %.not26.i.i273 = icmp eq ptr %308, null
+  br i1 %.not26.i.i273, label %.loopexit538, label %.preheader.i.i260
 
 309:                                              ; preds = %301
   %310 = load ptr, ptr %7, align 8
@@ -739,8 +739,8 @@ getAnchorVolumeDescriptorPointer.exit:            ; preds = %315
   %327 = getelementptr inbounds i8, ptr %326, i64 104
   %328 = load ptr, ptr %327, align 8
   %329 = call ptr %328(ptr noundef %326, i64 noundef %316, i64 noundef 2048, i32 noundef 1) #7
-  %.not30.i.i276 = icmp eq ptr %329, null
-  br i1 %.not30.i.i276, label %.loopexit, label %.preheader.i.i277
+  %.not25.i.i276 = icmp eq ptr %329, null
+  br i1 %.not25.i.i276, label %.loopexit, label %.preheader.i.i277
 
 .preheader.i.i277:                                ; preds = %getAnchorVolumeDescriptorPointer.exit, %.critedge.i.i289
   %330 = phi ptr [ %340, %.critedge.i.i289 ], [ %329, %getAnchorVolumeDescriptorPointer.exit ]
@@ -765,8 +765,8 @@ getAnchorVolumeDescriptorPointer.exit:            ; preds = %315
   %338 = getelementptr inbounds i8, ptr %337, i64 104
   %339 = load ptr, ptr %338, align 8
   %340 = call ptr %339(ptr noundef %337, i64 noundef %336, i64 noundef 2048, i32 noundef 1) #7
-  %.not31.i.i290 = icmp eq ptr %340, null
-  br i1 %.not31.i.i290, label %.loopexit, label %.preheader.i.i277
+  %.not26.i.i290 = icmp eq ptr %340, null
+  br i1 %.not26.i.i290, label %.loopexit, label %.preheader.i.i277
 
 341:                                              ; preds = %333
   %342 = load ptr, ptr %7, align 8

@@ -682,17 +682,14 @@ for.body8.i284:                                   ; preds = %for.body8.i284, %fo
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317: ; preds = %for.body8.i284
   store i32 %add71, ptr %m_size.i271, align 4
   %tobool73.not = icmp eq ptr %jacOrgA, null
-  br i1 %tobool73.not, label %if.else80, label %for.cond.preheader
+  br i1 %tobool73.not, label %if.else80, label %for.body.lr.ph
 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317.thread: ; preds = %if.end66
   store i32 %add71, ptr %m_size.i271, align 4
   %tobool73.not940 = icmp eq ptr %jacOrgA, null
   br i1 %tobool73.not940, label %if.else80, label %if.end85.thread
 
-for.cond.preheader:                               ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317
-  br i1 %cmp3.i276, label %for.body.lr.ph, label %if.end85.thread
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317
   %m_data.i318 = getelementptr inbounds i8, ptr %data, i64 16
   %smax = tail call i32 @llvm.smax.i32(i32 %add, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -726,7 +723,7 @@ if.else80:                                        ; preds = %_ZN20btAlignedObjec
   tail call void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %61, ptr noundef nonnull align 4 dereferenceable(16) %posAworld, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalLin, ptr noundef nonnull %arrayidx.i323, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m)
   br label %if.end85
 
-if.end85.thread:                                  ; preds = %for.cond.preheader, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317.thread
+if.end85.thread:                                  ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit317.thread
   %m_size.i324941 = getelementptr inbounds i8, ptr %data, i64 36
   %62 = load i32, ptr %m_size.i324941, align 4
   %add88942 = add nsw i32 %62, %add
@@ -1198,17 +1195,14 @@ for.body8.i506:                                   ; preds = %for.body8.i506, %fo
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539: ; preds = %for.body8.i506
   store i32 %add171, ptr %m_size.i493, align 4
   %tobool173.not = icmp eq ptr %jacOrgB, null
-  br i1 %tobool173.not, label %if.else188, label %for.cond176.preheader
+  br i1 %tobool173.not, label %if.else188, label %for.body178.lr.ph
 
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539.thread: ; preds = %if.end165
   store i32 %add171, ptr %m_size.i493, align 4
   %tobool173.not945 = icmp eq ptr %jacOrgB, null
   br i1 %tobool173.not945, label %if.else188, label %if.end202.thread
 
-for.cond176.preheader:                            ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539
-  br i1 %cmp3.i498, label %for.body178.lr.ph, label %if.end202.thread
-
-for.body178.lr.ph:                                ; preds = %for.cond176.preheader
+for.body178.lr.ph:                                ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539
   %m_data.i540 = getelementptr inbounds i8, ptr %data, i64 16
   %smax904 = tail call i32 @llvm.smax.i32(i32 %add151, i32 1)
   %wide.trip.count905 = zext nneg i32 %smax904 to i64
@@ -1270,7 +1264,7 @@ if.else188:                                       ; preds = %_ZN20btAlignedObjec
   call void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640) %1, i32 noundef %147, ptr noundef nonnull align 4 dereferenceable(16) %posBworld, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp190, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp193, ptr noundef nonnull %arrayidx.i562, ptr noundef nonnull align 8 dereferenceable(25) %scratch_r199, ptr noundef nonnull align 8 dereferenceable(25) %scratch_v200, ptr noundef nonnull align 8 dereferenceable(25) %scratch_m201)
   br label %if.end202
 
-if.end202.thread:                                 ; preds = %for.cond176.preheader, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539.thread
+if.end202.thread:                                 ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit539.thread
   %m_size.i563946 = getelementptr inbounds i8, ptr %data, i64 36
   %158 = load i32, ptr %m_size.i563946, align 4
   %add206947 = add nsw i32 %158, %add151

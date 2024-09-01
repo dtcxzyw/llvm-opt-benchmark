@@ -804,7 +804,7 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   %119 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %118) #13
   call void @smgrzeroextend(ptr noundef nonnull %32, i32 noundef %1, i32 noundef %33, i32 noundef %.078, i1 noundef zeroext false) #13
   call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %119, i32 noundef %.078) #13
-  br i1 %.not, label %._crit_edge86, label %.lr.ph85
+  br label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
@@ -829,7 +829,7 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 2, i32 noundef 1, i64 %130, i32 noundef %.078) #13
   br label %._crit_edge86
 
-._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge, %._crit_edge82
+._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge
   store i32 %.078, ptr %6, align 4
   %131 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
   %132 = add i64 %131, %.pre-phi

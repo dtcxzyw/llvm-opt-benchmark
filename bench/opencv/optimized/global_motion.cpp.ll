@@ -7537,13 +7537,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #11
 define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %3
-  %6 = sitofp i32 %1 to float
-  %7 = fdiv float 0.000000e+00, %6
-  %8 = fdiv float 0.000000e+00, %6
-  br label %._crit_edge60.thread
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge60.thread
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -7551,67 +7545,61 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.054 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %.04653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %9 = getelementptr inbounds %"class.cv::Point_", ptr %2, i64 %indvars.iv
+  %.054 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %8, %.lr.ph ]
+  %.04653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %6 = getelementptr inbounds %"class.cv::Point_", ptr %2, i64 %indvars.iv
+  %7 = load float, ptr %6, align 4
+  %8 = fadd float %.054, %7
+  %9 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load float, ptr %9, align 4
-  %11 = fadd float %.054, %10
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
-  %13 = load float, ptr %12, align 4
-  %14 = fadd float %.04653, %13
+  %11 = fadd float %.04653, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = sitofp i32 %1 to float
-  %16 = fdiv float %11, %15
-  %17 = fdiv float %14, %15
-  br i1 %5, label %.lr.ph59.preheader, label %._crit_edge60.thread
-
-.lr.ph59.preheader:                               ; preds = %._crit_edge
+  %12 = sitofp i32 %1 to float
+  %13 = fdiv float %8, %12
+  %14 = fdiv float %11, %12
   %wide.trip.count72 = zext nneg i32 %1 to i64
   br label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next70, %.lr.ph59 ]
-  %.05056 = phi float [ 0.000000e+00, %.lr.ph59.preheader ], [ %27, %.lr.ph59 ]
-  %18 = getelementptr inbounds %"class.cv::Point_", ptr %2, i64 %indvars.iv69
+.lr.ph59:                                         ; preds = %._crit_edge, %.lr.ph59
+  %indvars.iv69 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next70, %.lr.ph59 ]
+  %.05056 = phi float [ 0.000000e+00, %._crit_edge ], [ %24, %.lr.ph59 ]
+  %15 = getelementptr inbounds %"class.cv::Point_", ptr %2, i64 %indvars.iv69
+  %16 = load float, ptr %15, align 4
+  %17 = fsub float %16, %13
+  store float %17, ptr %15, align 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 4
   %19 = load float, ptr %18, align 4
-  %20 = fsub float %19, %16
+  %20 = fsub float %19, %14
   store float %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
-  %22 = load float, ptr %21, align 4
-  %23 = fsub float %22, %17
-  store float %23, ptr %21, align 4
-  %24 = fmul float %20, %20
-  %25 = fmul float %23, %23
-  %26 = fadd float %24, %25
-  %sqrt = tail call float @llvm.sqrt.f32(float %26)
-  %27 = fadd float %.05056, %sqrt
+  %21 = fmul float %17, %17
+  %22 = fmul float %20, %20
+  %23 = fadd float %21, %22
+  %sqrt = tail call float @llvm.sqrt.f32(float %23)
+  %24 = fadd float %.05056, %sqrt
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !148
 
-._crit_edge60.thread:                             ; preds = %._crit_edge.thread, %._crit_edge
-  %.ph = phi float [ %8, %._crit_edge.thread ], [ %17, %._crit_edge ]
-  %.ph81 = phi float [ %7, %._crit_edge.thread ], [ %16, %._crit_edge ]
-  %.ph82 = phi float [ %6, %._crit_edge.thread ], [ %15, %._crit_edge ]
-  %28 = fdiv float 0.000000e+00, %.ph82
+._crit_edge60.thread:                             ; preds = %3
+  %25 = sitofp i32 %1 to float
+  %26 = fdiv float 0.000000e+00, %25
+  %27 = fdiv float 0.000000e+00, %25
+  %28 = fdiv float 0.000000e+00, %25
   %29 = fdiv float 0x3FF6A09E60000000, %28
   br label %._crit_edge65
 
 ._crit_edge60:                                    ; preds = %.lr.ph59
-  %30 = fdiv float %27, %15
+  %30 = fdiv float %24, %12
   %31 = fdiv float 0x3FF6A09E60000000, %30
-  br i1 %5, label %.lr.ph64.preheader, label %._crit_edge65
-
-.lr.ph64.preheader:                               ; preds = %._crit_edge60
   %wide.trip.count77 = zext nneg i32 %1 to i64
   br label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next75, %.lr.ph64 ]
+.lr.ph64:                                         ; preds = %._crit_edge60, %.lr.ph64
+  %indvars.iv74 = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next75, %.lr.ph64 ]
   %32 = getelementptr inbounds %"class.cv::Point_", ptr %2, i64 %indvars.iv74
   %33 = load float, ptr %32, align 4
   %34 = fmul float %31, %33
@@ -7624,10 +7612,10 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !149
 
-._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge60.thread, %._crit_edge60
-  %38 = phi float [ %29, %._crit_edge60.thread ], [ %31, %._crit_edge60 ], [ %31, %.lr.ph64 ]
-  %39 = phi float [ %.ph81, %._crit_edge60.thread ], [ %16, %._crit_edge60 ], [ %16, %.lr.ph64 ]
-  %40 = phi float [ %.ph, %._crit_edge60.thread ], [ %17, %._crit_edge60 ], [ %17, %.lr.ph64 ]
+._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge60.thread
+  %38 = phi float [ %29, %._crit_edge60.thread ], [ %31, %.lr.ph64 ]
+  %39 = phi float [ %27, %._crit_edge60.thread ], [ %13, %.lr.ph64 ]
+  %40 = phi float [ %26, %._crit_edge60.thread ], [ %14, %.lr.ph64 ]
   call void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i32 noundef 3, i32 noundef 3, i32 noundef 5)
   invoke void @_ZN2cv4Mat_IfEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(352) %4)
           to label %41 unwind label %64

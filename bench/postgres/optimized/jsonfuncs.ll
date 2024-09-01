@@ -2150,8 +2150,8 @@ push_null_elements.exit69:                        ; preds = %.lr.ph.i67
 .loopexit:                                        ; preds = %.preheader, %121, %119, %117, %116
   %.2124.i = phi i8 [ 1, %117 ], [ 1, %116 ], [ 1, %119 ], [ %.1123.i91, %121 ], [ %.1123.i91, %.preheader ]
   %132 = add nuw i32 %.0125.i90, 1
-  %exitcond98.not = icmp eq i32 %132, %46
-  br i1 %exitcond98.not, label %._crit_edge94, label %106, !llvm.loop !11
+  %exitcond99.not = icmp eq i32 %132, %46
+  br i1 %exitcond99.not, label %._crit_edge94, label %106, !llvm.loop !11
 
 ._crit_edge94:                                    ; preds = %.loopexit, %101
   %.1123.i.lcssa = phi i8 [ %.0122.i, %101 ], [ %.2124.i, %.loopexit ]
@@ -2315,8 +2315,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
   br label %._crit_edge
 
 205:                                              ; preds = %169
-  %.not96 = icmp eq i32 %160, 0
-  br i1 %.not96, label %._crit_edge, label %.lr.ph
+  br i1 %170, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %205
   %206 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2423,7 +2422,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
 
 267:                                              ; preds = %247, %244
   %268 = icmp eq i32 %.0123.i87, %209
-  %269 = and i1 %268, %.not137.i46
+  %269 = and i1 %.not137.i46, %268
   %or.cond161.i = and i1 %173, %269
   br i1 %or.cond161.i, label %270, label %.thread74
 

@@ -17981,7 +17981,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit: ; preds = %1167
   %1171 = sub i64 %494, %1170
   %1172 = add i64 %1171, %1169
   %1173 = icmp slt i64 %1172, %1165
-  br i1 %1173, label %.critedge, label %1177
+  br i1 %1173, label %.critedge, label %1178
 
 _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread: ; preds = %1167
   %reass.sub1666 = sub i64 %1169, %1170
@@ -17993,24 +17993,24 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread: ; preds = %11
   %1176 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %1164, ptr noundef %.0.i1152)
   br label %1195
 
-1177:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit
-  store i8 %496, ptr %.0.i1152, align 1
-  %1178 = getelementptr inbounds i8, ptr %.0.i1152, i64 1
-  br i1 %489, label %1180, label %.preheader2055
-
 .thread:                                          ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread
   store i8 %499, ptr %.0.i1152, align 1
-  %1179 = getelementptr inbounds i8, ptr %.0.i1152, i64 1
+  %1177 = getelementptr inbounds i8, ptr %.0.i1152, i64 1
   br label %1190
 
-1180:                                             ; preds = %1177
-  store i8 %498, ptr %1178, align 1
+1178:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit
+  store i8 %496, ptr %.0.i1152, align 1
+  %1179 = getelementptr inbounds i8, ptr %.0.i1152, i64 1
+  br i1 %489, label %1180, label %.preheader2055
+
+1180:                                             ; preds = %1178
+  store i8 %498, ptr %1179, align 1
   %1181 = getelementptr inbounds i8, ptr %.0.i1152, i64 2
   br label %1190
 
-.preheader2055:                                   ; preds = %1177, %.preheader2055
-  %.0918 = phi ptr [ %1185, %.preheader2055 ], [ %1178, %1177 ]
-  %.0917 = phi i32 [ %1184, %.preheader2055 ], [ %497, %1177 ]
+.preheader2055:                                   ; preds = %1178, %.preheader2055
+  %.0918 = phi ptr [ %1185, %.preheader2055 ], [ %1179, %1178 ]
+  %.0917 = phi i32 [ %1184, %.preheader2055 ], [ %497, %1178 ]
   %1182 = trunc i32 %.0917 to i8
   %1183 = or i8 %1182, -128
   store i8 %1183, ptr %.0918, align 1
@@ -18026,7 +18026,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread: ; preds = %11
   br label %1190
 
 1190:                                             ; preds = %1187, %1180, %.thread
-  %.0916 = phi ptr [ %1179, %.thread ], [ %1181, %1180 ], [ %1189, %1187 ]
+  %.0916 = phi ptr [ %1177, %.thread ], [ %1181, %1180 ], [ %1189, %1187 ]
   %1191 = trunc i64 %1165 to i8
   %1192 = getelementptr inbounds i8, ptr %.0916, i64 1
   store i8 %1191, ptr %.0916, align 1
@@ -18072,7 +18072,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157: ; preds = %1208
   %1212 = sub i64 %478, %1211
   %1213 = add i64 %1212, %1210
   %1214 = icmp slt i64 %1213, %1206
-  br i1 %1214, label %.critedge2, label %1218
+  br i1 %1214, label %.critedge2, label %1219
 
 _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread: ; preds = %1208
   %reass.sub1665 = sub i64 %1210, %1211
@@ -18084,24 +18084,24 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread: ; preds =
   %1217 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %1205, ptr noundef %.0.i1155)
   br label %1236
 
-1218:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157
-  store i8 %480, ptr %.0.i1155, align 1
-  %1219 = getelementptr inbounds i8, ptr %.0.i1155, i64 1
-  br i1 %473, label %1221, label %.preheader2057
-
 .thread1345:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread
   store i8 %483, ptr %.0.i1155, align 1
-  %1220 = getelementptr inbounds i8, ptr %.0.i1155, i64 1
+  %1218 = getelementptr inbounds i8, ptr %.0.i1155, i64 1
   br label %1231
 
-1221:                                             ; preds = %1218
-  store i8 %482, ptr %1219, align 1
+1219:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157
+  store i8 %480, ptr %.0.i1155, align 1
+  %1220 = getelementptr inbounds i8, ptr %.0.i1155, i64 1
+  br i1 %473, label %1221, label %.preheader2057
+
+1221:                                             ; preds = %1219
+  store i8 %482, ptr %1220, align 1
   %1222 = getelementptr inbounds i8, ptr %.0.i1155, i64 2
   br label %1231
 
-.preheader2057:                                   ; preds = %1218, %.preheader2057
-  %.0915 = phi ptr [ %1226, %.preheader2057 ], [ %1219, %1218 ]
-  %.0914 = phi i32 [ %1225, %.preheader2057 ], [ %481, %1218 ]
+.preheader2057:                                   ; preds = %1219, %.preheader2057
+  %.0915 = phi ptr [ %1226, %.preheader2057 ], [ %1220, %1219 ]
+  %.0914 = phi i32 [ %1225, %.preheader2057 ], [ %481, %1219 ]
   %1223 = trunc i32 %.0914 to i8
   %1224 = or i8 %1223, -128
   store i8 %1224, ptr %.0915, align 1
@@ -18117,7 +18117,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread: ; preds =
   br label %1231
 
 1231:                                             ; preds = %1228, %1221, %.thread1345
-  %.0913 = phi ptr [ %1220, %.thread1345 ], [ %1222, %1221 ], [ %1230, %1228 ]
+  %.0913 = phi ptr [ %1218, %.thread1345 ], [ %1222, %1221 ], [ %1230, %1228 ]
   %1232 = trunc i64 %1206 to i8
   %1233 = getelementptr inbounds i8, ptr %.0913, i64 1
   store i8 %1232, ptr %.0913, align 1

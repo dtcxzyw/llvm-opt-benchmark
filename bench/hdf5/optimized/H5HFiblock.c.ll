@@ -3318,13 +3318,10 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr nocapture noundef readnon
   %124 = add nuw nsw i64 %.04059, 1
   %125 = zext i32 %121 to i64
   %126 = icmp ult i64 %124, %125
-  br i1 %126, label %.preheader53, label %.preheader
+  br i1 %126, label %.preheader53, label %.lr.ph62
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %10, label %H5HF__man_iblock_unprotect.exit.thread, label %.lr.ph62
-
-.lr.ph62:                                         ; preds = %111, %14, %.preheader
-  %.043.ph74 = phi i32 [ 0, %.preheader ], [ 0, %14 ], [ -1, %111 ]
+.lr.ph62:                                         ; preds = %._crit_edge, %111, %14
+  %.043.ph74 = phi i32 [ 0, %14 ], [ -1, %111 ], [ 0, %._crit_edge ]
   %127 = load i8, ptr %8, align 1
   %128 = trunc i8 %127 to i1
   %129 = getelementptr inbounds i8, ptr %9, i64 336
@@ -3379,8 +3376,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr nocapture noundef readnon
   %159 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5HF__man_iblock_size, i32 noundef 1716, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.20) #6
   br label %.lr.ph62.split.us.split
 
-H5HF__man_iblock_unprotect.exit.thread:           ; preds = %146, %.preheader.thread75, %.lr.ph62, %.preheader
-  %.043.lcssa = phi i32 [ 0, %.preheader ], [ %.043.ph74, %.lr.ph62 ], [ -1, %.preheader.thread75 ], [ %.04361.us, %146 ]
+H5HF__man_iblock_unprotect.exit.thread:           ; preds = %146, %.preheader.thread75, %.lr.ph62
+  %.043.lcssa = phi i32 [ %.043.ph74, %.lr.ph62 ], [ -1, %.preheader.thread75 ], [ %.04361.us, %146 ]
   ret i32 %.043.lcssa
 }
 

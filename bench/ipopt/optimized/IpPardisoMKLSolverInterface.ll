@@ -2358,7 +2358,7 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt25PardisoMKLSolverInterface13Factor
   br label %38
 
 38:                                               ; preds = %225, %5
-  %39 = phi i1 [ %37, %5 ], [ false, %225 ]
+  %39 = phi i1 [ false, %225 ], [ %37, %5 ]
   %.pre105 = load ptr, ptr %22, align 8
   br i1 %39, label %124, label %40
 
@@ -2494,7 +2494,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %67, %63, %_ZN5Ipopt
   br label %124
 
 124:                                              ; preds = %102, %38
-  %125 = phi ptr [ %.pre105, %38 ], [ %.pre104, %102 ]
+  %125 = phi ptr [ %.pre104, %102 ], [ %.pre105, %38 ]
   store i32 22, ptr %6, align 4
   %.not54 = icmp eq ptr %125, null
   br i1 %.not54, label %_ZN5Ipopt9TimedTask5StartEv.exit37, label %126

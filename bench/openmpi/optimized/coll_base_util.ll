@@ -216,38 +216,35 @@ define noundef i32 @ompi_coll_base_retain_op(ptr noundef %0, ptr noundef %1, ptr
 opal_thread_add_fetch_32.exit29:                  ; preds = %29, %31
   %35 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %2, ptr %35, align 8
-  br label %37
+  br label %36
 
-36:                                               ; preds = %20
-  br i1 %.not30, label %37, label %.thread33
+36:                                               ; preds = %20, %opal_thread_add_fetch_32.exit29
+  %37 = getelementptr inbounds i8, ptr %0, i64 100
+  %38 = load i8, ptr %37, align 4
+  %39 = trunc i8 %38 to i1
+  %40 = getelementptr inbounds i8, ptr %0, i64 160
+  br i1 %39, label %41, label %44
 
-37:                                               ; preds = %opal_thread_add_fetch_32.exit29, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 100
-  %39 = load i8, ptr %38, align 4
-  %40 = trunc i8 %39 to i1
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
-  br i1 %40, label %42, label %45
-
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %41, align 8
-  store ptr @free_objs_callback, ptr %43, align 8
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %40, align 8
+  store ptr @free_objs_callback, ptr %42, align 8
   br label %.thread33
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %0, i64 136
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %49, ptr %50, align 8
-  store ptr @complete_objs_callback, ptr %46, align 8
-  store ptr %0, ptr %48, align 8
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds i8, ptr %0, i64 136
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %40, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %48, ptr %49, align 8
+  store ptr @complete_objs_callback, ptr %45, align 8
+  store ptr %0, ptr %47, align 8
   br label %.thread33
 
-.thread33:                                        ; preds = %.thread, %36, %45, %42, %3
+.thread33:                                        ; preds = %.thread, %44, %41, %3
   ret i32 0
 }
 

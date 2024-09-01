@@ -1183,10 +1183,7 @@ define hidden void @_ZN14PhaseIdealLoop10DominatorsEv(ptr nocapture noundef nonn
   %51 = zext nneg i32 %42 to i64
   br label %52
 
-.preheader:                                       ; preds = %.loopexit
-  br i1 %46, label %.lr.ph159.preheader, label %._crit_edge160
-
-.lr.ph159.preheader:                              ; preds = %.preheader
+.lr.ph159.preheader:                              ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %42 to i64
   br label %.lr.ph159
 
@@ -1647,7 +1644,7 @@ _ZN12PhaseIterGVN15delete_input_ofEP4Nodej.exit124: ; preds = %_ZN9VectorSet8tes
 
 .loopexit:                                        ; preds = %305, %.preheader134, %._crit_edge148, %200
   %309 = icmp sgt i64 %indvars.iv172, 3
-  br i1 %309, label %52, label %.preheader, !llvm.loop !27
+  br i1 %309, label %52, label %.lr.ph159.preheader, !llvm.loop !27
 
 .lr.ph159:                                        ; preds = %.lr.ph159.preheader, %320
   %indvars.iv175 = phi i64 [ 2, %.lr.ph159.preheader ], [ %indvars.iv.next176, %320 ]
@@ -1674,7 +1671,7 @@ _ZN12PhaseIterGVN15delete_input_ofEP4Nodej.exit124: ; preds = %_ZN9VectorSet8tes
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, i8 0, i64 16, i1 false)
   br i1 %exitcond.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !28
 
-._crit_edge160:                                   ; preds = %320, %._crit_edge, %.preheader
+._crit_edge160:                                   ; preds = %320, %._crit_edge
   %322 = load ptr, ptr %17, align 8
   %323 = getelementptr inbounds i8, ptr %322, i64 736
   %324 = load ptr, ptr %323, align 8

@@ -4225,9 +4225,6 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %20, ptr %53, align 4
   br i1 %10, label %.lr.ph99, label %.loopexit
 
-.preheader:                                       ; preds = %62
-  br i1 %10, label %.lr.ph102, label %.loopexit
-
 .lr.ph99:                                         ; preds = %Vec_IntPush.exit, %62
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %62 ], [ 0, %Vec_IntPush.exit ]
   %55 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv105
@@ -4246,11 +4243,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 62:                                               ; preds = %.lr.ph99, %58
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader, label %.lr.ph99, !llvm.loop !37
+  br i1 %exitcond109.not, label %.lr.ph102, label %.lr.ph99, !llvm.loop !37
 
-.lr.ph102:                                        ; preds = %.preheader, %.thread
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.thread ], [ 0, %.preheader ]
-  %.1101 = phi i32 [ %.2, %.thread ], [ %0, %.preheader ]
+.lr.ph102:                                        ; preds = %62, %.thread
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.thread ], [ 0, %62 ]
+  %.1101 = phi i32 [ %.2, %.thread ], [ %0, %62 ]
   %63 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv110
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 0
@@ -4301,7 +4298,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %88 = icmp slt i32 %.2, %0
   br i1 %88, label %15, label %.loopexit, !llvm.loop !39
 
-.loopexit:                                        ; preds = %Vec_IntPush.exit, %.preheader, %._crit_edge103
+.loopexit:                                        ; preds = %Vec_IntPush.exit, %._crit_edge103
   %.pre = load i32, ptr %3, align 4
   %.pre115 = load i32, ptr %2, align 8
   %89 = icmp eq i32 %.pre, %.pre115

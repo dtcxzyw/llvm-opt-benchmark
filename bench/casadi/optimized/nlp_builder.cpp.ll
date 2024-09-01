@@ -9834,7 +9834,7 @@ _ZSt10_ConstructIN6casadi2MXEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i81: ; preds = %.lr.p
   %70 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i.i75, i64 8
   %71 = getelementptr inbounds i8, ptr %.014.i.i.i.i.i74, i64 8
   %.not.i.i.i.i.i82 = icmp eq ptr %70, %17
-  br i1 %.not.i.i.i.i.i82, label %.lr.ph.i.i.i88.preheader, label %.lr.ph.i.i.i.i.i73, !llvm.loop !169
+  br i1 %.not.i.i.i.i.i82, label %_ZSt22__uninitialized_move_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, label %.lr.ph.i.i.i.i.i73, !llvm.loop !169
 
 72:                                               ; preds = %.lr.ph.i.i.i.i.i73
   %73 = landingpad { ptr, i32 }
@@ -9871,14 +9871,14 @@ _ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i80: ; preds = %.lr.ph.i.i.i.i.i
 82:                                               ; preds = %_ZSt8_DestroyIPN6casadi2MXEEvT_S3_.exit.i.i.i.i.i80
   unreachable
 
-.lr.ph.i.i.i88.preheader:                         ; preds = %_ZSt10_ConstructIN6casadi2MXEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i81
+_ZSt22__uninitialized_move_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit86: ; preds = %_ZSt10_ConstructIN6casadi2MXEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i81
   %83 = load ptr, ptr %9, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 %20
   store ptr %84, ptr %9, align 8
   br label %.lr.ph.i.i.i88
 
-.lr.ph.i.i.i88:                                   ; preds = %.lr.ph.i.i.i88.preheader, %.noexc91
-  %.06.i.i.i89 = phi ptr [ %86, %.noexc91 ], [ %1, %.lr.ph.i.i.i88.preheader ]
+.lr.ph.i.i.i88:                                   ; preds = %_ZSt22__uninitialized_move_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, %.noexc91
+  %.06.i.i.i89 = phi ptr [ %86, %.noexc91 ], [ %1, %_ZSt22__uninitialized_move_aIPN6casadi2MXES2_SaIS1_EET0_T_S5_S4_RT1_.exit86 ]
   %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi12SharedObjectaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.06.i.i.i89, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc91 unwind label %.loopexit.split-lp.loopexit.split-lp
 

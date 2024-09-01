@@ -62,10 +62,7 @@ Abc_UtilStrsav.exit219:                           ; preds = %Abc_UtilStrsav.exit
   %39 = mul nsw i32 %.val185.pre, %1
   br label %43
 
-.preheader238:                                    ; preds = %43
-  br i1 %35, label %.preheader237.lr.ph, label %._crit_edge
-
-.preheader237.lr.ph:                              ; preds = %.preheader238
+.preheader237.lr.ph:                              ; preds = %43
   %40 = getelementptr i8, ptr %0, i64 136
   %41 = getelementptr i8, ptr %0, i64 104
   %42 = getelementptr inbounds i8, ptr %0, i64 16
@@ -81,7 +78,7 @@ Abc_UtilStrsav.exit219:                           ; preds = %Abc_UtilStrsav.exit
   store ptr %.val184.pre, ptr %46, align 8
   %47 = add nuw nsw i32 %.0239, 1
   %exitcond.not = icmp eq i32 %47, %1
-  br i1 %exitcond.not, label %.preheader238, label %43, !llvm.loop !4
+  br i1 %exitcond.not, label %.preheader237.lr.ph, label %43, !llvm.loop !4
 
 .preheader237:                                    ; preds = %.preheader237.lr.ph, %.critedge
   %.val196241 = phi i32 [ %.val196241.pre, %.preheader237.lr.ph ], [ %.val196241295, %.critedge ]
@@ -120,7 +117,7 @@ Abc_UtilStrsav.exit219:                           ; preds = %Abc_UtilStrsav.exit
   %exitcond271.not = icmp eq i32 %62, %1
   br i1 %exitcond271.not, label %._crit_edge, label %.preheader237, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.critedge, %Abc_UtilStrsav.exit219, %.preheader238
+._crit_edge:                                      ; preds = %.critedge, %Abc_UtilStrsav.exit219
   %.not = icmp eq i32 %2, 0
   %63 = getelementptr i8, ptr %0, i64 136
   %.val195 = load i32, ptr %63, align 8

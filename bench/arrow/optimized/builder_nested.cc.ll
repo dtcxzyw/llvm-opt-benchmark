@@ -13235,10 +13235,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %.pre = load i64, ptr %size_.i.i, align 8
   br label %for.body
 
-for.cond3.preheader:                              ; preds = %for.body
-  br i1 %cmp8, label %for.body5.lr.ph, label %for.end8
-
-for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
+for.body5.lr.ph:                                  ; preds = %for.body
   %data_.i.i4 = getelementptr inbounds i8, ptr %this, i64 256
   %size_.i.i5 = getelementptr inbounds i8, ptr %this, i64 272
   %.pre13 = load i64, ptr %size_.i.i5, align 8
@@ -13255,7 +13252,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %add.i.i, ptr %size_.i.i, align 8
   %inc = add nuw nsw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %num_values
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !664
+  br i1 %exitcond.not, label %for.body5.lr.ph, label %for.body, !llvm.loop !664
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.body5
   %3 = phi i64 [ %.pre13, %for.body5.lr.ph ], [ %add.i.i7, %for.body5 ]
@@ -13270,7 +13267,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   %exitcond12.not = icmp eq i64 %inc7, %num_values
   br i1 %exitcond12.not, label %for.end8, label %for.body5, !llvm.loop !665
 
-for.end8:                                         ; preds = %for.body5, %entry, %for.cond3.preheader
+for.end8:                                         ; preds = %for.body5, %entry
   ret void
 }
 
@@ -14882,10 +14879,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %.pre = load i64, ptr %size_.i.i, align 8
   br label %for.body
 
-for.cond3.preheader:                              ; preds = %for.body
-  br i1 %cmp8, label %for.body5.lr.ph, label %for.end8
-
-for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
+for.body5.lr.ph:                                  ; preds = %for.body
   %data_.i.i4 = getelementptr inbounds i8, ptr %this, i64 256
   %size_.i.i5 = getelementptr inbounds i8, ptr %this, i64 272
   %.pre13 = load i64, ptr %size_.i.i5, align 8
@@ -14902,7 +14896,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %add.i.i, ptr %size_.i.i, align 8
   %inc = add nuw nsw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %num_values
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !717
+  br i1 %exitcond.not, label %for.body5.lr.ph, label %for.body, !llvm.loop !717
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.body5
   %3 = phi i64 [ %.pre13, %for.body5.lr.ph ], [ %add.i.i7, %for.body5 ]
@@ -14917,7 +14911,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %f
   %exitcond12.not = icmp eq i64 %inc7, %num_values
   br i1 %exitcond12.not, label %for.end8, label %for.body5, !llvm.loop !718
 
-for.end8:                                         ; preds = %for.body5, %entry, %for.cond3.preheader
+for.end8:                                         ; preds = %for.body5, %entry
   ret void
 }
 

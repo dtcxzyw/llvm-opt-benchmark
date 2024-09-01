@@ -65,30 +65,26 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @uriencode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %srclen, i64 noundef %dstlen) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @uriencode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %srclen, i64 noundef %dstlen) local_unnamed_addr #3 {
 entry:
   %cmp17 = icmp eq i64 %srclen, 0
-  br i1 %cmp17, label %for.end, label %for.body.preheader
+  br i1 %cmp17, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %cmp229 = icmp ult i64 %dstlen, 4
-  br i1 %cmp229, label %return, label %if.end
-
-for.body:                                         ; preds = %for.inc
-  %add = add i64 %add14, 4
+for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
+  %d.019 = phi i64 [ %add14, %for.inc ], [ 0, %entry ]
+  %add = add i64 %d.019, 4
   %cmp2 = icmp ugt i64 %add, %dstlen
-  br i1 %cmp2, label %return.loopexit, label %if.end, !llvm.loop !7
+  br i1 %cmp2, label %return, label %if.end
 
-if.end:                                           ; preds = %for.body.preheader, %for.body
-  %d.01931 = phi i64 [ %add14, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv30 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %src, i64 %indvars.iv30
+if.end:                                           ; preds = %for.body
+  %arrayidx = getelementptr inbounds i8, ptr %src, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom4 = zext i8 %0 to i64
   %arrayidx5 = getelementptr inbounds [256 x ptr], ptr @uriencode_map, i64 0, i64 %idxprom4
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6.not = icmp eq ptr %1, null
-  %arrayidx17 = getelementptr inbounds i8, ptr %dst, i64 %d.01931
+  %arrayidx17 = getelementptr inbounds i8, ptr %dst, i64 %d.019
   br i1 %cmp6.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end
@@ -101,10 +97,10 @@ if.else:                                          ; preds = %if.end
 
 for.inc:                                          ; preds = %if.then8, %if.else
   %.sink = phi i64 [ 3, %if.then8 ], [ 1, %if.else ]
-  %add14 = add i64 %d.01931, %.sink
-  %indvars.iv.next = add nuw i64 %indvars.iv30, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %srclen
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !7
+  %add14 = add i64 %d.019, %.sink
+  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %srclen
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
   %d.0.lcssa = phi i64 [ 0, %entry ], [ %add14, %for.inc ]
@@ -112,12 +108,8 @@ for.end:                                          ; preds = %for.inc, %entry
   store i8 0, ptr %arrayidx20, align 1
   br label %return
 
-return.loopexit:                                  ; preds = %for.body
-  %cmp.le = icmp ule i64 %srclen, %indvars.iv.next
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %for.end
-  %cmp15 = phi i1 [ true, %for.end ], [ false, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %for.end
+  %cmp15 = phi i1 [ true, %for.end ], [ false, %for.body ]
   ret i1 %cmp15
 }
 

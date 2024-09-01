@@ -1058,16 +1058,16 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %.143.i = phi i32 [ %.04250.i, %.lr.ph.i ], [ %44, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph59.preheader.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph59.preheader.i:                             ; preds = %45
+._crit_edge.i:                                    ; preds = %45
   %46 = sext i32 %.143.i to i64
   %47 = tail call fastcc ptr @gv_calloc(i64 noundef %46, i64 noundef 32)
   br label %.lr.ph59.i
 
-.lr.ph59.i:                                       ; preds = %.loopexit.i, %.lr.ph59.preheader.i
-  %indvars.iv69.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next70.i, %.loopexit.i ]
-  %.04056.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.141.i, %.loopexit.i ]
+.lr.ph59.i:                                       ; preds = %.loopexit.i, %._crit_edge.i
+  %indvars.iv69.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next70.i, %.loopexit.i ]
+  %.04056.i = phi i32 [ 0, %._crit_edge.i ], [ %.141.i, %.loopexit.i ]
   %48 = icmp eq i64 %indvars.iv69.i, %.039
   %49 = icmp eq i64 %indvars.iv69.i, %.040
   %or.cond49.i = or i1 %48, %49

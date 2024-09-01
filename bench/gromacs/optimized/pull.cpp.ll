@@ -10250,30 +10250,21 @@ define noundef zeroext i1 @_Z20pull_have_constraintRK13pull_params_t(ptr nocaptu
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %8 = load i32, ptr %6, align 8
-  %9 = icmp eq i32 %8, 1
-  br i1 %9, label %._crit_edge, label %.lr.ph10
+  br label %7
 
-.lr.ph10:                                         ; preds = %.lr.ph, %10
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
+7:                                                ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds %struct.t_pull_coord, ptr %6, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %10, !llvm.loop !101
+  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !101
 
-10:                                               ; preds = %.lr.ph10
-  %11 = getelementptr inbounds %struct.t_pull_coord, ptr %6, i64 %indvars.iv.next
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 1
-  br i1 %13, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !101
-
-._crit_edge.loopexit:                             ; preds = %10, %.lr.ph10
-  %14 = icmp ult i64 %indvars.iv.next, %7
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1
-  %.lcssa = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ %14, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %7, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %10, %7 ]
   ret i1 %.lcssa
 }
 

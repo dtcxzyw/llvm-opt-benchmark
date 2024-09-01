@@ -9058,12 +9058,12 @@ if.end13:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.end13
   %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  %.pre141 = load ptr, ptr %calld_, align 8
+  %.pre140 = load ptr, ptr %calld_, align 8
   br i1 %tobool.i.i.i.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %10 = load ptr, ptr %.pre141, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 719, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef %10, ptr noundef nonnull %.pre141, ptr noundef nonnull %0)
+  %10 = load ptr, ptr %.pre140, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 719, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef %10, ptr noundef nonnull %.pre140, ptr noundef nonnull %0)
           to label %if.then3.i.if.end.i_crit_edge unwind label %lpad
 
 if.then3.i.if.end.i_crit_edge:                    ; preds = %if.then3.i
@@ -9071,7 +9071,7 @@ if.then3.i.if.end.i_crit_edge:                    ; preds = %if.then3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.if.end.i_crit_edge, %if.then.i
-  %11 = phi ptr [ %.pre, %if.then3.i.if.end.i_crit_edge ], [ %.pre141, %if.then.i ]
+  %11 = phi ptr [ %.pre, %if.then3.i.if.end.i_crit_edge ], [ %.pre140, %if.then.i ]
   %12 = load ptr, ptr %11, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %event_engine_.i.i, align 8
@@ -9218,7 +9218,7 @@ terminate.lpad.i16.i:                             ; preds = %if.then.i.i15.i
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit17.i:       ; preds = %if.then.i.i15.i, %invoke.cont5.i
-  %spec.select140 = zext i1 %34 to i8
+  %spec.select139 = zext i1 %34 to i8
   br label %invoke.cont21
 
 lpad.i:                                           ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -9250,7 +9250,7 @@ eh.resume.i:                                      ; preds = %lpad4.i, %lpad.i
   br label %if.then.i103
 
 invoke.cont21:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit17.i, %if.else.i
-  %is_lb_drop.0 = phi i8 [ 0, %if.else.i ], [ %spec.select140, %_ZN4absl12lts_202308026StatusD2Ev.exit17.i ]
+  %is_lb_drop.0 = phi i8 [ 0, %if.else.i ], [ %spec.select139, %_ZN4absl12lts_202308026StatusD2Ev.exit17.i ]
   %42 = load i16, ptr %22, align 2
   %and2.i.i.i.i.i18.i = and i16 %42, 16384
   %cmp.i.i.not.i.i.not.i19.i = icmp eq i16 %and2.i.i.i.i.i18.i, 0
@@ -9583,7 +9583,7 @@ lpad120:                                          ; preds = %cond.end119
   %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp98) #27
-  br i1 %cmp.i58, label %cleanup.action141, label %ehcleanup172.thread137
+  br i1 %cmp.i58, label %cleanup.action141, label %ehcleanup172.thread136
 
 cleanup.action141:                                ; preds = %lpad120, %lpad112
   %.pn26.pn.ph = phi { ptr, i32 } [ %77, %lpad112 ], [ %78, %lpad120 ]
@@ -9593,7 +9593,7 @@ cleanup.action141:                                ; preds = %lpad120, %lpad112
 cleanup.action148:                                ; preds = %cleanup.action141, %lpad109
   %.pn26.pn.pn.ph = phi { ptr, i32 } [ %76, %lpad109 ], [ %.pn26.pn.ph, %cleanup.action141 ]
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp107) #27
-  br label %ehcleanup172.thread137
+  br label %ehcleanup172.thread136
 
 if.else153:                                       ; preds = %cleanup.done145
   %agg.tmp154.sroa.0.0.copyload = load i64, ptr %server_pushback, align 8
@@ -9732,13 +9732,13 @@ lpad169:                                          ; preds = %invoke.cont168
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp167) #27
   br label %if.then.i103
 
-ehcleanup172.thread137:                           ; preds = %lpad120, %cleanup.action148
+ehcleanup172.thread136:                           ; preds = %lpad120, %cleanup.action148
   %.pn30.ph = phi { ptr, i32 } [ %.pn26.pn.pn.ph, %cleanup.action148 ], [ %78, %lpad120 ]
   call void @_ZN9grpc_core23CallCombinerClosureListD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %closures) #27
   br label %if.then.i103
 
-if.then.i103:                                     ; preds = %lpad, %lpad7, %eh.resume.i, %lpad169, %cleanup.action55, %ehcleanup, %ehcleanup172.thread137, %lpad99
-  %.pn32134 = phi { ptr, i32 } [ %75, %lpad99 ], [ %.pn30.ph, %ehcleanup172.thread137 ], [ %5, %lpad7 ], [ %.pn.i, %eh.resume.i ], [ %.pn, %ehcleanup ], [ %.pn, %cleanup.action55 ], [ %93, %lpad169 ], [ %4, %lpad ]
+if.then.i103:                                     ; preds = %lpad, %lpad7, %eh.resume.i, %lpad169, %cleanup.action55, %ehcleanup, %ehcleanup172.thread136, %lpad99
+  %.pn32133 = phi { ptr, i32 } [ %75, %lpad99 ], [ %.pn30.ph, %ehcleanup172.thread136 ], [ %5, %lpad7 ], [ %.pn.i, %eh.resume.i ], [ %.pn, %ehcleanup ], [ %.pn, %cleanup.action55 ], [ %93, %lpad169 ], [ %4, %lpad ]
   %refs_.i.i104 = getelementptr inbounds i8, ptr %arg, i64 8
   %94 = atomicrmw sub ptr %refs_.i.i104, i64 1 acq_rel, align 8
   %cmp.i.i.i105 = icmp eq i64 %94, 1
@@ -9751,8 +9751,8 @@ if.then.i.i107:                                   ; preds = %if.then.i103
   br label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit109
 
 _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit109: ; preds = %lpad99, %if.then.i103, %if.then.i.i107
-  %.pn32135 = phi { ptr, i32 } [ %75, %lpad99 ], [ %.pn32134, %if.then.i103 ], [ %.pn32134, %if.then.i.i107 ]
-  resume { ptr, i32 } %.pn32135
+  %.pn32134 = phi { ptr, i32 } [ %75, %lpad99 ], [ %.pn32133, %if.then.i103 ], [ %.pn32133, %if.then.i.i107 ]
+  resume { ptr, i32 } %.pn32134
 }
 
 declare void @_ZNK9grpc_core8Duration8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

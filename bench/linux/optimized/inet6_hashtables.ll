@@ -929,8 +929,8 @@ define internal fastcc ptr @inet6_lhash2_lookup(ptr noundef readonly %0, ptr nou
 define dso_local ptr @inet6_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8) #0 align 16 {
   %10 = tail call i16 @llvm.bswap.i16(i16 %7)
   %11 = tail call ptr @__inet6_lookup_established(ptr noundef %0, ptr noundef %1, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %10, i32 noundef %8, i32 noundef 0)
-  %.not5 = icmp eq ptr %11, null
-  br i1 %.not5, label %12, label %.thread
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %12, label %.thread
 
 12:                                               ; preds = %9
   %13 = tail call ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %10, i32 noundef %8, i32 noundef 0)
@@ -950,8 +950,8 @@ define dso_local ptr @inet6_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %
   %22 = extractvalue { i8, i32 } %21, 0
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %24, label %.thread4, !prof !7
+  %.not5 = icmp eq i8 %22, 0
+  br i1 %.not5, label %24, label %.thread4, !prof !7
 
 24:                                               ; preds = %.preheader
   %25 = extractvalue { i8, i32 } %21, 1

@@ -5027,9 +5027,9 @@ for.body.i.i57.i.i.i.i.i.i:                       ; preds = %for.body.i.i57.i.i.
   %inc.i.i60.i.i.i.i.i.i = add nsw i32 %__value.addr.06.i.i58.i.i.i.i.i.i, 1
   %incdec.ptr.i.i61.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i59.i.i.i.i.i.i, i64 4
   %cmp.not.i.i62.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i61.i.i.i.i.i.i, %add.ptr7.i52.i.i.i.i.i.i
-  br i1 %cmp.not.i.i62.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %for.body.i.i57.i.i.i.i.i.i, !llvm.loop !50
+  br i1 %cmp.not.i.i62.i.i.i.i.i.i, label %_ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i, label %for.body.i.i57.i.i.i.i.i.i, !llvm.loop !50
 
-if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i57.i.i.i.i.i.i
+_ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i:     ; preds = %for.body.i.i57.i.i.i.i.i.i
   %.pre.i64.i.i.i.i.i.i = load ptr, ptr %agg.tmp41.sroa.3.0.agg.tmp41114.sroa_idx, align 8
   %.pre11.i65.i.i.i.i.i.i = load ptr, ptr %.pre.i64.i.i.i.i.i.i, align 8
   %.pre12.i66.i.i.i.i.i.i = load ptr, ptr %agg.tmp41.sroa.4.0.agg.tmp41114.sroa_idx, align 8
@@ -5047,7 +5047,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i57.i.i.
   %cmp2.not.i.i.i.i.i.i = icmp ult i64 %div.i.i.i.i.i.i, %idx.ext6.i51.i.i.i.i.i.i
   br i1 %cmp2.not.i.i.i.i.i.i, label %if.end20.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i
 
-if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
+if.then3.i.i.i.i.i.i:                             ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr9.i71.i.i.i.i.i.i, i64 4
   %287 = and i64 %idx.ext6.i51.i.i.i.i.i.i, 1
   %cmp4.i.i.i.i.i.i = icmp eq i64 %287, 0
@@ -5107,7 +5107,7 @@ call.i.i.i.noexc.i.i.i.i.i:                       ; preds = %while.body.i38.i.i.
   %cmp9.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr18.i.i.i.i.i.i, %add.ptr13.i72.i.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_120ArrayShuffleFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E0_clIiEEDaSN_.exit.i.i.i.i.i.i, label %while.body.i38.i.i.i.i.i, !llvm.loop !53
 
-if.end20.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
+if.end20.i.i.i.i.i.i:                             ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i
   store i64 0, ptr %__d21.i.i.i.i.i.i, align 8
   store i64 -1, ptr %_M_b.i.i.i25.i.i.i.i.i.i, align 8
   %cmp24.not30.i.i.i.i.i.i = icmp eq i32 %279, 1

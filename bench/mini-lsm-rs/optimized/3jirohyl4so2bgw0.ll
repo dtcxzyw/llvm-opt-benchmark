@@ -5570,8 +5570,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 .noexc16.i:                                       ; preds = %"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17hd33714e19441b5cdE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !660
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !655
-  %.not.not.i.i = icmp eq ptr %77, null
-  br i1 %.not.not.i.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %78
+  %.not.i.i = icmp eq ptr %77, null
+  br i1 %.not.i.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %78
 
 78:                                               ; preds = %.noexc16.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !655
@@ -5709,8 +5709,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 129:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !634
-  %.not.not.i = icmp eq ptr %127, null
-  br i1 %.not.not.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %130
+  %.not.i = icmp eq ptr %127, null
+  br i1 %.not.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %130
 
 130:                                              ; preds = %129
   %.val15.i = load ptr, ptr %.sroa.0.063.i, align 8, !noalias !636, !nonnull !5, !noundef !5

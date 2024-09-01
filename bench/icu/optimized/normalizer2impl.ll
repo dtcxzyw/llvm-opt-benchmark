@@ -7803,7 +7803,7 @@ lor.rhs.i.i87:                                    ; preds = %lor.rhs.i86
 cond.true.i.i:                                    ; preds = %lor.rhs.i.i87
   %44 = and i16 %.fr165, 6
   %cmp.i.i88 = icmp ult i16 %44, 3
-  br i1 %cmp.i.i88, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, label %48
+  br i1 %cmp.i.i88, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, label %if.end118
 
 cond.false.i.i90:                                 ; preds = %lor.rhs.i.i87
   %45 = load ptr, ptr %extraData.i.i.i, align 8
@@ -7813,51 +7813,41 @@ cond.false.i.i90:                                 ; preds = %lor.rhs.i.i87
   %47 = load i16, ptr %add.ptr.i.i.i, align 2
   %.fr = freeze i16 %47
   %cmp6.i.i = icmp ult i16 %.fr, 512
-  br i1 %cmp6.i.i, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, label %48
+  br i1 %cmp6.i.i, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, label %if.end118
 
 _ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %if.end107
-  %not.cmp.not.i = xor i1 %cmp.not.i, true
-  br i1 %cmp.not.i, label %48, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread
+  br i1 %cmp.not.i, label %if.end118, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread
 
-_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread: ; preds = %cond.false.i.i90, %cond.true.i.i, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
-  %conv3.i89.in148 = phi i1 [ %not.cmp.not.i, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %cmp.i.i88, %cond.true.i.i ], [ %cmp6.i.i, %cond.false.i.i90 ]
-  br i1 %conv3.i89.in148, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, label %if.end118
-
-48:                                               ; preds = %cond.false.i.i90, %cond.true.i.i, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
-  %conv3.i89.in147 = phi i1 [ %not.cmp.not.i, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %cmp.i.i88, %cond.true.i.i ], [ %cmp6.i.i, %cond.false.i.i90 ]
-  br i1 %conv3.i89.in147, label %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, label %if.end118
-
-_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread: ; preds = %lor.rhs.i86, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %48
-  %49 = phi i16 [ 1, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ], [ %.fr165, %48 ], [ 1, %lor.rhs.i86 ]
+_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread: ; preds = %cond.true.i.i, %cond.false.i.i90, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %lor.rhs.i86
   br label %if.end118
 
-if.end118:                                        ; preds = %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, %48, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread, %if.then56, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %for.end
-  %prevNorm16.0 = phi i16 [ 1, %for.end ], [ 1, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ 1, %if.then56 ], [ %49, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread ], [ %.fr165, %48 ], [ 1, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ]
-  %prevBoundary.2 = phi ptr [ %prevBoundary.1, %for.end ], [ %src.addr.2127, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ %src.addr.2127, %if.then56 ], [ %src.addr.2127, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread ], [ %p.0, %48 ], [ %p.0, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread ]
-  %50 = load i16, ptr %minMaybeYes.i.i, align 2
-  %cmp.i91.not = icmp ult i16 %norm16.0, %50
+if.end118:                                        ; preds = %cond.true.i.i, %cond.false.i.i90, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread, %if.then56, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %for.end
+  %prevNorm16.0 = phi i16 [ 1, %for.end ], [ 1, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ 1, %if.then56 ], [ 1, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread ], [ %.fr165, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %.fr165, %cond.false.i.i90 ], [ %.fr165, %cond.true.i.i ]
+  %prevBoundary.2 = phi ptr [ %prevBoundary.1, %for.end ], [ %src.addr.2127, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ], [ %src.addr.2127, %if.then56 ], [ %src.addr.2127, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread.thread ], [ %p.0, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit ], [ %p.0, %cond.false.i.i90 ], [ %p.0, %cond.true.i.i ]
+  %48 = load i16, ptr %minMaybeYes.i.i, align 2
+  %cmp.i91.not = icmp ult i16 %norm16.0, %48
   br i1 %cmp.i91.not, label %if.end220, label %if.then121
 
 if.then121:                                       ; preds = %if.end118
   %cmp.i93 = icmp ugt i16 %norm16.0, -1025
-  %51 = lshr i16 %norm16.0, 1
-  %conv1.i.i = trunc i16 %51 to i8
+  %49 = lshr i16 %norm16.0, 1
+  %conv1.i.i = trunc i16 %49 to i8
   %cond.i = select i1 %cmp.i93, i8 %conv1.i.i, i8 0
   %cmp126 = icmp ne i8 %cond.i, 0
   %or.cond = and i1 %tobool123, %cmp126
-  %52 = load i16, ptr %minYesNo.i, align 2
-  %cmp.not.i94 = icmp ugt i16 %prevNorm16.0, %52
+  %50 = load i16, ptr %minYesNo.i, align 2
+  %cmp.not.i94 = icmp ugt i16 %prevNorm16.0, %50
   %or.cond121 = select i1 %or.cond, i1 %cmp.not.i94, i1 false
   br i1 %or.cond121, label %_ZNK6icu_7515Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, label %for.cond134.preheader
 
 _ZNK6icu_7515Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit: ; preds = %if.then121
-  %53 = load ptr, ptr %extraData.i.i.i, align 8
-  %54 = lshr i16 %prevNorm16.0, 1
-  %idx.ext.i.i = zext nneg i16 %54 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %53, i64 %idx.ext.i.i
-  %55 = load i16, ptr %add.ptr.i.i, align 2
-  %56 = lshr i16 %55, 8
-  %conv4.i = trunc nuw i16 %56 to i8
+  %51 = load ptr, ptr %extraData.i.i.i, align 8
+  %52 = lshr i16 %prevNorm16.0, 1
+  %idx.ext.i.i = zext nneg i16 %52 to i64
+  %add.ptr.i.i = getelementptr inbounds i16, ptr %51, i64 %idx.ext.i.i
+  %53 = load i16, ptr %add.ptr.i.i, align 2
+  %54 = lshr i16 %53, 8
+  %conv4.i = trunc nuw i16 %54 to i8
   %cmp131 = icmp ult i8 %cond.i, %conv4.i
   br i1 %cmp131, label %if.end220, label %for.cond134.preheader
 
@@ -7865,7 +7855,7 @@ for.cond134.preheader:                            ; preds = %_ZNK6icu_7515Normal
   br label %for.cond134
 
 for.cond134:                                      ; preds = %for.cond134.preheader, %if.then202
-  %norm16.1 = phi i16 [ %68, %if.then202 ], [ %norm16.0, %for.cond134.preheader ]
+  %norm16.1 = phi i16 [ %66, %if.then202 ], [ %norm16.0, %for.cond134.preheader ]
   %cc.0 = phi i8 [ %cond.i100, %if.then202 ], [ %cond.i, %for.cond134.preheader ]
   %src.addr.5 = phi ptr [ %nextSrc.0, %if.then202 ], [ %src.addr.4, %for.cond134.preheader ]
   %cmp136 = icmp ult i16 %norm16.1, -510
@@ -7884,20 +7874,20 @@ if.end142:                                        ; preds = %if.then139, %for.co
 
 if.end145:                                        ; preds = %if.end142
   %incdec.ptr147 = getelementptr inbounds i8, ptr %src.addr.5, i64 2
-  %57 = load i16, ptr %src.addr.5, align 2
-  %conv148 = zext i16 %57 to i32
+  %55 = load i16, ptr %src.addr.5, align 2
+  %conv148 = zext i16 %55 to i32
   %and150 = and i32 %conv148, 63488
   %cmp151 = icmp eq i32 %and150, 55296
   br i1 %cmp151, label %if.else161, label %if.then152
 
 if.then152:                                       ; preds = %if.end145
-  %58 = load ptr, ptr %normTrie, align 8
-  %59 = load ptr, ptr %58, align 8
+  %56 = load ptr, ptr %normTrie, align 8
+  %57 = load ptr, ptr %56, align 8
   %shr155 = lshr i32 %conv148, 6
   %idxprom156 = zext nneg i32 %shr155 to i64
-  %arrayidx157 = getelementptr inbounds i16, ptr %59, i64 %idxprom156
-  %60 = load i16, ptr %arrayidx157, align 2
-  %conv158 = zext i16 %60 to i32
+  %arrayidx157 = getelementptr inbounds i16, ptr %57, i64 %idxprom156
+  %58 = load i16, ptr %arrayidx157, align 2
+  %conv158 = zext i16 %58 to i32
   %and159 = and i32 %conv148, 63
   %add160 = add nuw nsw i32 %and159, %conv158
   br label %if.end194
@@ -7914,8 +7904,8 @@ if.else161.if.else189_crit_edge:                  ; preds = %if.else161
   br label %if.else189
 
 land.lhs.true167:                                 ; preds = %if.else161
-  %61 = load i16, ptr %incdec.ptr147, align 2
-  %conv168 = zext i16 %61 to i32
+  %59 = load i16, ptr %incdec.ptr147, align 2
+  %conv168 = zext i16 %59 to i32
   %and169 = and i32 %conv168, 64512
   %cmp170 = icmp eq i32 %and169, 56320
   %.pre141 = load ptr, ptr %normTrie, align 8
@@ -7927,14 +7917,14 @@ if.then171:                                       ; preds = %land.lhs.true167
   %add175 = add nsw i32 %shl173, -56613888
   %sub176 = add nuw nsw i32 %add175, %conv168
   %highStart178 = getelementptr inbounds i8, ptr %.pre141, i64 24
-  %62 = load i32, ptr %highStart178, align 8
-  %cmp179.not = icmp slt i32 %sub176, %62
+  %60 = load i32, ptr %highStart178, align 8
+  %cmp179.not = icmp slt i32 %sub176, %60
   br i1 %cmp179.not, label %cond.false184, label %cond.true180
 
 cond.true180:                                     ; preds = %if.then171
   %dataLength182 = getelementptr inbounds i8, ptr %.pre141, i64 20
-  %63 = load i32, ptr %dataLength182, align 4
-  %sub183 = add nsw i32 %63, -2
+  %61 = load i32, ptr %dataLength182, align 4
+  %sub183 = add nsw i32 %61, -2
   br label %if.end194
 
 cond.false184:                                    ; preds = %if.then171
@@ -7943,29 +7933,29 @@ cond.false184:                                    ; preds = %if.then171
   br label %if.end194
 
 if.else189:                                       ; preds = %if.else161.if.else189_crit_edge, %land.lhs.true167
-  %64 = phi ptr [ %.pre140, %if.else161.if.else189_crit_edge ], [ %.pre141, %land.lhs.true167 ]
-  %dataLength191 = getelementptr inbounds i8, ptr %64, i64 20
-  %65 = load i32, ptr %dataLength191, align 4
-  %sub192 = add nsw i32 %65, -1
+  %62 = phi ptr [ %.pre140, %if.else161.if.else189_crit_edge ], [ %.pre141, %land.lhs.true167 ]
+  %dataLength191 = getelementptr inbounds i8, ptr %62, i64 20
+  %63 = load i32, ptr %dataLength191, align 4
+  %sub192 = add nsw i32 %63, -1
   br label %if.end194
 
 if.end194:                                        ; preds = %cond.true180, %cond.false184, %if.else189, %if.then152
-  %66 = phi ptr [ %64, %if.else189 ], [ %58, %if.then152 ], [ %.pre142, %cond.false184 ], [ %.pre141, %cond.true180 ]
+  %64 = phi ptr [ %62, %if.else189 ], [ %56, %if.then152 ], [ %.pre142, %cond.false184 ], [ %.pre141, %cond.true180 ]
   %nextSrc.0 = phi ptr [ %incdec.ptr147, %if.else189 ], [ %incdec.ptr147, %if.then152 ], [ %incdec.ptr172, %cond.false184 ], [ %incdec.ptr172, %cond.true180 ]
   %__index149.0 = phi i32 [ %sub192, %if.else189 ], [ %add160, %if.then152 ], [ %call186, %cond.false184 ], [ %sub183, %cond.true180 ]
-  %data196 = getelementptr inbounds i8, ptr %66, i64 8
-  %67 = load ptr, ptr %data196, align 8
+  %data196 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = load ptr, ptr %data196, align 8
   %idxprom197 = sext i32 %__index149.0 to i64
-  %arrayidx198 = getelementptr inbounds i16, ptr %67, i64 %idxprom197
-  %68 = load i16, ptr %arrayidx198, align 2
-  %69 = load i16, ptr %minMaybeYes.i.i, align 2
-  %cmp.i96.not = icmp ult i16 %68, %69
+  %arrayidx198 = getelementptr inbounds i16, ptr %65, i64 %idxprom197
+  %66 = load i16, ptr %arrayidx198, align 2
+  %67 = load i16, ptr %minMaybeYes.i.i, align 2
+  %cmp.i96.not = icmp ult i16 %66, %67
   br i1 %cmp.i96.not, label %for.end214, label %if.then202
 
 if.then202:                                       ; preds = %if.end194
-  %cmp.i98 = icmp ugt i16 %68, -1025
-  %70 = lshr i16 %68, 1
-  %conv1.i.i99 = trunc i16 %70 to i8
+  %cmp.i98 = icmp ugt i16 %66, -1025
+  %68 = lshr i16 %66, 1
+  %conv1.i.i99 = trunc i16 %68 to i8
   %cond.i100 = select i1 %cmp.i98, i8 %conv1.i.i99, i8 0
   %cmp206 = icmp ule i8 %cc.0, %cond.i100
   %cmp209 = icmp eq i8 %cond.i100, 0
@@ -7973,8 +7963,8 @@ if.then202:                                       ; preds = %if.end194
   br i1 %or.cond1, label %for.cond134, label %for.end214, !llvm.loop !35
 
 for.end214:                                       ; preds = %if.end194, %if.then202
-  %71 = load i16, ptr %minNoNo.i, align 2
-  %cmp.i102.not = icmp ult i16 %68, %71
+  %69 = load i16, ptr %minNoNo.i, align 2
+  %cmp.i102.not = icmp ult i16 %66, %69
   br i1 %cmp.i102.not, label %for.cond, label %if.end220, !llvm.loop !36
 
 if.end220:                                        ; preds = %_ZNK6icu_7515Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit, %for.end214, %if.end118
@@ -10424,18 +10414,18 @@ if.end14:                                         ; preds = %if.end12, %entry
   %remainingCapacity5.i = getelementptr inbounds i8, ptr %buffer, i64 40
   %lastCC.i = getelementptr inbounds i8, ptr %buffer, i64 44
   %reorderStart.i = getelementptr inbounds i8, ptr %buffer, i64 24
-  %cmp16.not144179 = icmp eq ptr %src.addr.0, %limit.addr.0
-  br i1 %cmp16.not144179, label %return, label %for.body.preheader
+  %cmp16.not144177 = icmp eq ptr %src.addr.0, %limit.addr.0
+  br i1 %cmp16.not144177, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end14, %for.cond.backedge
-  %src.addr.1182 = phi ptr [ %src.addr.1.be, %for.cond.backedge ], [ %src.addr.0, %if.end14 ]
-  %prevFCD16.2181 = phi i32 [ %prevFCD16.2.be, %for.cond.backedge ], [ %prevFCD16.0, %if.end14 ]
-  %prevBoundary.2180 = phi ptr [ %prevBoundary.2.be, %for.cond.backedge ], [ %prevBoundary.0, %if.end14 ]
+  %src.addr.1180 = phi ptr [ %src.addr.1.be, %for.cond.backedge ], [ %src.addr.0, %if.end14 ]
+  %prevFCD16.2179 = phi i32 [ %prevFCD16.2.be, %for.cond.backedge ], [ %prevFCD16.0, %if.end14 ]
+  %prevBoundary.2178 = phi ptr [ %prevBoundary.2.be, %for.cond.backedge ], [ %prevBoundary.0, %if.end14 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end49
-  %src.addr.2147 = phi ptr [ %src.addr.3, %if.end49 ], [ %src.addr.1182, %for.body.preheader ]
-  %prevFCD16.3145 = phi i32 [ %prevFCD16.4, %if.end49 ], [ %prevFCD16.2181, %for.body.preheader ]
+  %src.addr.2147 = phi ptr [ %src.addr.3, %if.end49 ], [ %src.addr.1180, %for.body.preheader ]
+  %prevFCD16.3145 = phi i32 [ %prevFCD16.4, %if.end49 ], [ %prevFCD16.2179, %for.body.preheader ]
   %11 = load i16, ptr %src.addr.2147, align 2
   %conv17 = zext i16 %11 to i32
   %12 = load i16, ptr %minLcccCP18, align 4
@@ -10687,23 +10677,23 @@ if.end49:                                         ; preds = %if.then25, %if.then
   br i1 %cmp16.not, label %for.end, label %for.body, !llvm.loop !41
 
 for.end:                                          ; preds = %if.end49
-  %cmp50.not = icmp eq ptr %src.addr.3, %src.addr.1182
+  %cmp50.not = icmp eq ptr %src.addr.3, %src.addr.1180
   %or.cond130 = or i1 %cmp52.not121, %cmp50.not
   br i1 %or.cond130, label %return, label %land.lhs.true53.thread
 
 land.lhs.true53.thread:                           ; preds = %for.end
-  %call54169 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1182, ptr noundef nonnull %src.addr.3, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call54167 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1180, ptr noundef nonnull %src.addr.3, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 for.end.thread:                                   ; preds = %_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi.exit
-  %cmp50.not110 = icmp eq ptr %src.addr.2147, %src.addr.1182
+  %cmp50.not110 = icmp eq ptr %src.addr.2147, %src.addr.1180
   br i1 %cmp50.not110, label %if.end107, label %if.then51.thread
 
 if.then51.thread:                                 ; preds = %for.end.thread
   br i1 %cmp52.not121, label %if.end60, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.then51.thread
-  %call54 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1182, ptr noundef nonnull %src.addr.2147, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call54 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1180, ptr noundef nonnull %src.addr.2147, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool55.not = icmp eq i8 %call54, 0
   br i1 %tobool55.not, label %return, label %if.end60
 
@@ -10731,7 +10721,7 @@ if.else75:                                        ; preds = %if.end60
   %53 = load i16, ptr %add.ptr76, align 2
   %54 = and i16 %53, -1024
   %cmp79 = icmp eq i16 %54, -9216
-  %cmp81 = icmp ult ptr %src.addr.1182, %add.ptr76
+  %cmp81 = icmp ult ptr %src.addr.1180, %add.ptr76
   %or.cond76 = and i1 %cmp79, %cmp81
   br i1 %or.cond76, label %land.lhs.true82, label %if.end98
 
@@ -10760,9 +10750,9 @@ if.end98:                                         ; preds = %if.then87, %land.lh
   br label %if.end107
 
 if.end107:                                        ; preds = %for.end.thread, %if.end98, %if.else67, %if.then62
-  %prevBoundary.4 = phi ptr [ %src.addr.2147, %if.then62 ], [ %spec.select75, %if.else67 ], [ %spec.select77, %if.end98 ], [ %prevBoundary.2180, %for.end.thread ]
+  %prevBoundary.4 = phi ptr [ %src.addr.2147, %if.then62 ], [ %spec.select75, %if.else67 ], [ %spec.select77, %if.end98 ], [ %prevBoundary.2178, %for.end.thread ]
   %prevFCD16.7 = phi i32 [ 0, %if.then62 ], [ %conv69, %if.else67 ], [ %prevFCD16.6, %if.end98 ], [ %prevFCD16.3145, %for.end.thread ]
-  %prevSrc.0 = phi ptr [ %src.addr.2147, %if.then62 ], [ %src.addr.2147, %if.else67 ], [ %src.addr.2147, %if.end98 ], [ %src.addr.1182, %for.end.thread ]
+  %prevSrc.0 = phi ptr [ %src.addr.2147, %if.then62 ], [ %src.addr.2147, %if.else67 ], [ %src.addr.2147, %if.end98 ], [ %src.addr.1180, %for.end.thread ]
   %cmp108 = icmp ult i32 %c.4, 65536
   %cond109 = select i1 %cmp108, i64 1, i64 2
   %add.ptr111 = getelementptr inbounds i16, ptr %src.addr.2147, i64 %cond109

@@ -385,7 +385,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph.preheader.i, label %_ZL14normalizeArrayPfi.exit64
+  br i1 %5, label %.lr.ph.preheader.i, label %_ZL14normalizeArrayPfi.exit60
 
 .lr.ph.preheader.i:                               ; preds = %1
   %wide.trip.count.i = zext nneg i32 %4 to i64
@@ -403,17 +403,17 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture
   %11 = select i1 %10, float %.02226.i, float %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph31.preheader.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph31.preheader.i:                             ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %12 = fsub float %11, %9
   %13 = fcmp ogt float %12, 0x3F50624DE0000000
   %14 = fdiv float 1.000000e+00, %12
   %15 = select i1 %13, float %14, float 1.000000e+00
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
-  %indvars.iv35.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next36.i, %.lr.ph31.i ]
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
+  %indvars.iv35.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next36.i, %.lr.ph31.i ]
   %16 = getelementptr inbounds float, ptr %3, i64 %indvars.iv35.i
   %17 = load float, ptr %16, align 4
   %18 = fsub float %17, %9
@@ -432,7 +432,7 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp sgt i32 %.pr, 0
-  br i1 %26, label %.lr.ph.preheader.i1, label %_ZL14normalizeArrayPfi.exit64
+  br i1 %26, label %.lr.ph.preheader.i1, label %_ZL14normalizeArrayPfi.exit60
 
 .lr.ph.preheader.i1:                              ; preds = %_ZL14normalizeArrayPfi.exit
   %wide.trip.count.i2 = zext nneg i32 %.pr to i64
@@ -450,18 +450,18 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %32 = select i1 %31, float %.02226.i6, float %28
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i2
-  br i1 %exitcond.not.i8, label %.lr.ph31.preheader.i10, label %.lr.ph.i3, !llvm.loop !4
+  br i1 %exitcond.not.i8, label %._crit_edge.i9, label %.lr.ph.i3, !llvm.loop !4
 
-.lr.ph31.preheader.i10:                           ; preds = %.lr.ph.i3
+._crit_edge.i9:                                   ; preds = %.lr.ph.i3
   %33 = fsub float %32, %30
   %34 = fcmp ogt float %33, 0x3F50624DE0000000
   %35 = fdiv float 1.000000e+00, %33
   %36 = select i1 %34, float %35, float 1.000000e+00
-  br label %.lr.ph31.i12
+  br label %.lr.ph31.i11
 
-.lr.ph31.i12:                                     ; preds = %.lr.ph31.i12, %.lr.ph31.preheader.i10
-  %indvars.iv35.i13 = phi i64 [ 0, %.lr.ph31.preheader.i10 ], [ %indvars.iv.next36.i14, %.lr.ph31.i12 ]
-  %37 = getelementptr inbounds float, ptr %25, i64 %indvars.iv35.i13
+.lr.ph31.i11:                                     ; preds = %.lr.ph31.i11, %._crit_edge.i9
+  %indvars.iv35.i12 = phi i64 [ 0, %._crit_edge.i9 ], [ %indvars.iv.next36.i13, %.lr.ph31.i11 ]
+  %37 = getelementptr inbounds float, ptr %25, i64 %indvars.iv35.i12
   %38 = load float, ptr %37, align 4
   %39 = fsub float %38, %30
   %40 = fmul float %36, %39
@@ -470,45 +470,45 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %43 = select i1 %42, float 1.000000e+00, float %40
   %44 = select i1 %41, float 0.000000e+00, float %43
   store float %44, ptr %37, align 4
-  %indvars.iv.next36.i14 = add nuw nsw i64 %indvars.iv35.i13, 1
-  %exitcond39.not.i15 = icmp eq i64 %indvars.iv.next36.i14, %wide.trip.count.i2
-  br i1 %exitcond39.not.i15, label %_ZL14normalizeArrayPfi.exit16, label %.lr.ph31.i12, !llvm.loop !6
+  %indvars.iv.next36.i13 = add nuw nsw i64 %indvars.iv35.i12, 1
+  %exitcond39.not.i14 = icmp eq i64 %indvars.iv.next36.i13, %wide.trip.count.i2
+  br i1 %exitcond39.not.i14, label %_ZL14normalizeArrayPfi.exit15, label %.lr.ph31.i11, !llvm.loop !6
 
-_ZL14normalizeArrayPfi.exit16:                    ; preds = %.lr.ph31.i12
-  %.pr65 = load i32, ptr %0, align 8
+_ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
+  %.pr61 = load i32, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp sgt i32 %.pr65, 0
-  br i1 %47, label %.lr.ph.preheader.i17, label %_ZL14normalizeArrayPfi.exit64
+  %47 = icmp sgt i32 %.pr61, 0
+  br i1 %47, label %.lr.ph.preheader.i16, label %_ZL14normalizeArrayPfi.exit60
 
-.lr.ph.preheader.i17:                             ; preds = %_ZL14normalizeArrayPfi.exit16
-  %wide.trip.count.i18 = zext nneg i32 %.pr65 to i64
-  br label %.lr.ph.i19
+.lr.ph.preheader.i16:                             ; preds = %_ZL14normalizeArrayPfi.exit15
+  %wide.trip.count.i17 = zext nneg i32 %.pr61 to i64
+  br label %.lr.ph.i18
 
-.lr.ph.i19:                                       ; preds = %.lr.ph.i19, %.lr.ph.preheader.i17
-  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i17 ], [ %indvars.iv.next.i23, %.lr.ph.i19 ]
-  %.02127.i21 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i17 ], [ %51, %.lr.ph.i19 ]
-  %.02226.i22 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i17 ], [ %53, %.lr.ph.i19 ]
-  %48 = getelementptr inbounds float, ptr %46, i64 %indvars.iv.i20
+.lr.ph.i18:                                       ; preds = %.lr.ph.i18, %.lr.ph.preheader.i16
+  %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i22, %.lr.ph.i18 ]
+  %.02127.i20 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i16 ], [ %51, %.lr.ph.i18 ]
+  %.02226.i21 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i16 ], [ %53, %.lr.ph.i18 ]
+  %48 = getelementptr inbounds float, ptr %46, i64 %indvars.iv.i19
   %49 = load float, ptr %48, align 4
-  %50 = fcmp olt float %.02127.i21, %49
-  %51 = select i1 %50, float %.02127.i21, float %49
-  %52 = fcmp ogt float %.02226.i22, %49
-  %53 = select i1 %52, float %.02226.i22, float %49
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i18
-  br i1 %exitcond.not.i24, label %.lr.ph31.preheader.i26, label %.lr.ph.i19, !llvm.loop !4
+  %50 = fcmp olt float %.02127.i20, %49
+  %51 = select i1 %50, float %.02127.i20, float %49
+  %52 = fcmp ogt float %.02226.i21, %49
+  %53 = select i1 %52, float %.02226.i21, float %49
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i19, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i17
+  br i1 %exitcond.not.i23, label %._crit_edge.i24, label %.lr.ph.i18, !llvm.loop !4
 
-.lr.ph31.preheader.i26:                           ; preds = %.lr.ph.i19
+._crit_edge.i24:                                  ; preds = %.lr.ph.i18
   %54 = fsub float %53, %51
   %55 = fcmp ogt float %54, 0x3F50624DE0000000
   %56 = fdiv float 1.000000e+00, %54
   %57 = select i1 %55, float %56, float 1.000000e+00
-  br label %.lr.ph31.i28
+  br label %.lr.ph31.i26
 
-.lr.ph31.i28:                                     ; preds = %.lr.ph31.i28, %.lr.ph31.preheader.i26
-  %indvars.iv35.i29 = phi i64 [ 0, %.lr.ph31.preheader.i26 ], [ %indvars.iv.next36.i30, %.lr.ph31.i28 ]
-  %58 = getelementptr inbounds float, ptr %46, i64 %indvars.iv35.i29
+.lr.ph31.i26:                                     ; preds = %.lr.ph31.i26, %._crit_edge.i24
+  %indvars.iv35.i27 = phi i64 [ 0, %._crit_edge.i24 ], [ %indvars.iv.next36.i28, %.lr.ph31.i26 ]
+  %58 = getelementptr inbounds float, ptr %46, i64 %indvars.iv35.i27
   %59 = load float, ptr %58, align 4
   %60 = fsub float %59, %51
   %61 = fmul float %57, %60
@@ -517,45 +517,45 @@ _ZL14normalizeArrayPfi.exit16:                    ; preds = %.lr.ph31.i12
   %64 = select i1 %63, float 1.000000e+00, float %61
   %65 = select i1 %62, float 0.000000e+00, float %64
   store float %65, ptr %58, align 4
-  %indvars.iv.next36.i30 = add nuw nsw i64 %indvars.iv35.i29, 1
-  %exitcond39.not.i31 = icmp eq i64 %indvars.iv.next36.i30, %wide.trip.count.i18
-  br i1 %exitcond39.not.i31, label %_ZL14normalizeArrayPfi.exit32, label %.lr.ph31.i28, !llvm.loop !6
+  %indvars.iv.next36.i28 = add nuw nsw i64 %indvars.iv35.i27, 1
+  %exitcond39.not.i29 = icmp eq i64 %indvars.iv.next36.i28, %wide.trip.count.i17
+  br i1 %exitcond39.not.i29, label %_ZL14normalizeArrayPfi.exit30, label %.lr.ph31.i26, !llvm.loop !6
 
-_ZL14normalizeArrayPfi.exit32:                    ; preds = %.lr.ph31.i28
-  %.pr66.pr = load i32, ptr %0, align 8
+_ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
+  %.pr62.pr = load i32, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 48
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp sgt i32 %.pr66.pr, 0
-  br i1 %68, label %.lr.ph.preheader.i33, label %_ZL14normalizeArrayPfi.exit64
+  %68 = icmp sgt i32 %.pr62.pr, 0
+  br i1 %68, label %.lr.ph.preheader.i31, label %_ZL14normalizeArrayPfi.exit60
 
-.lr.ph.preheader.i33:                             ; preds = %_ZL14normalizeArrayPfi.exit32
-  %wide.trip.count.i34 = zext nneg i32 %.pr66.pr to i64
-  br label %.lr.ph.i35
+.lr.ph.preheader.i31:                             ; preds = %_ZL14normalizeArrayPfi.exit30
+  %wide.trip.count.i32 = zext nneg i32 %.pr62.pr to i64
+  br label %.lr.ph.i33
 
-.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i33
-  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i39, %.lr.ph.i35 ]
-  %.02127.i37 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i33 ], [ %72, %.lr.ph.i35 ]
-  %.02226.i38 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i33 ], [ %74, %.lr.ph.i35 ]
-  %69 = getelementptr inbounds float, ptr %67, i64 %indvars.iv.i36
+.lr.ph.i33:                                       ; preds = %.lr.ph.i33, %.lr.ph.preheader.i31
+  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i37, %.lr.ph.i33 ]
+  %.02127.i35 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i31 ], [ %72, %.lr.ph.i33 ]
+  %.02226.i36 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i31 ], [ %74, %.lr.ph.i33 ]
+  %69 = getelementptr inbounds float, ptr %67, i64 %indvars.iv.i34
   %70 = load float, ptr %69, align 4
-  %71 = fcmp olt float %.02127.i37, %70
-  %72 = select i1 %71, float %.02127.i37, float %70
-  %73 = fcmp ogt float %.02226.i38, %70
-  %74 = select i1 %73, float %.02226.i38, float %70
-  %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i36, 1
-  %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i34
-  br i1 %exitcond.not.i40, label %.lr.ph31.preheader.i42, label %.lr.ph.i35, !llvm.loop !4
+  %71 = fcmp olt float %.02127.i35, %70
+  %72 = select i1 %71, float %.02127.i35, float %70
+  %73 = fcmp ogt float %.02226.i36, %70
+  %74 = select i1 %73, float %.02226.i36, float %70
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i34, 1
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i32
+  br i1 %exitcond.not.i38, label %._crit_edge.i39, label %.lr.ph.i33, !llvm.loop !4
 
-.lr.ph31.preheader.i42:                           ; preds = %.lr.ph.i35
+._crit_edge.i39:                                  ; preds = %.lr.ph.i33
   %75 = fsub float %74, %72
   %76 = fcmp ogt float %75, 0x3F50624DE0000000
   %77 = fdiv float 1.000000e+00, %75
   %78 = select i1 %76, float %77, float 1.000000e+00
-  br label %.lr.ph31.i44
+  br label %.lr.ph31.i41
 
-.lr.ph31.i44:                                     ; preds = %.lr.ph31.i44, %.lr.ph31.preheader.i42
-  %indvars.iv35.i45 = phi i64 [ 0, %.lr.ph31.preheader.i42 ], [ %indvars.iv.next36.i46, %.lr.ph31.i44 ]
-  %79 = getelementptr inbounds float, ptr %67, i64 %indvars.iv35.i45
+.lr.ph31.i41:                                     ; preds = %.lr.ph31.i41, %._crit_edge.i39
+  %indvars.iv35.i42 = phi i64 [ 0, %._crit_edge.i39 ], [ %indvars.iv.next36.i43, %.lr.ph31.i41 ]
+  %79 = getelementptr inbounds float, ptr %67, i64 %indvars.iv35.i42
   %80 = load float, ptr %79, align 4
   %81 = fsub float %80, %72
   %82 = fmul float %78, %81
@@ -564,45 +564,45 @@ _ZL14normalizeArrayPfi.exit32:                    ; preds = %.lr.ph31.i28
   %85 = select i1 %84, float 1.000000e+00, float %82
   %86 = select i1 %83, float 0.000000e+00, float %85
   store float %86, ptr %79, align 4
-  %indvars.iv.next36.i46 = add nuw nsw i64 %indvars.iv35.i45, 1
-  %exitcond39.not.i47 = icmp eq i64 %indvars.iv.next36.i46, %wide.trip.count.i34
-  br i1 %exitcond39.not.i47, label %_ZL14normalizeArrayPfi.exit48, label %.lr.ph31.i44, !llvm.loop !6
+  %indvars.iv.next36.i43 = add nuw nsw i64 %indvars.iv35.i42, 1
+  %exitcond39.not.i44 = icmp eq i64 %indvars.iv.next36.i43, %wide.trip.count.i32
+  br i1 %exitcond39.not.i44, label %_ZL14normalizeArrayPfi.exit45, label %.lr.ph31.i41, !llvm.loop !6
 
-_ZL14normalizeArrayPfi.exit48:                    ; preds = %.lr.ph31.i44
-  %.pr67 = load i32, ptr %0, align 8
+_ZL14normalizeArrayPfi.exit45:                    ; preds = %.lr.ph31.i41
+  %.pr63 = load i32, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp sgt i32 %.pr67, 0
-  br i1 %89, label %.lr.ph.preheader.i49, label %_ZL14normalizeArrayPfi.exit64
+  %89 = icmp sgt i32 %.pr63, 0
+  br i1 %89, label %.lr.ph.preheader.i46, label %_ZL14normalizeArrayPfi.exit60
 
-.lr.ph.preheader.i49:                             ; preds = %_ZL14normalizeArrayPfi.exit48
-  %wide.trip.count.i50 = zext nneg i32 %.pr67 to i64
-  br label %.lr.ph.i51
+.lr.ph.preheader.i46:                             ; preds = %_ZL14normalizeArrayPfi.exit45
+  %wide.trip.count.i47 = zext nneg i32 %.pr63 to i64
+  br label %.lr.ph.i48
 
-.lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i49
-  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i55, %.lr.ph.i51 ]
-  %.02127.i53 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i49 ], [ %93, %.lr.ph.i51 ]
-  %.02226.i54 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i49 ], [ %95, %.lr.ph.i51 ]
-  %90 = getelementptr inbounds float, ptr %88, i64 %indvars.iv.i52
+.lr.ph.i48:                                       ; preds = %.lr.ph.i48, %.lr.ph.preheader.i46
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i52, %.lr.ph.i48 ]
+  %.02127.i50 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i46 ], [ %93, %.lr.ph.i48 ]
+  %.02226.i51 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i46 ], [ %95, %.lr.ph.i48 ]
+  %90 = getelementptr inbounds float, ptr %88, i64 %indvars.iv.i49
   %91 = load float, ptr %90, align 4
-  %92 = fcmp olt float %.02127.i53, %91
-  %93 = select i1 %92, float %.02127.i53, float %91
-  %94 = fcmp ogt float %.02226.i54, %91
-  %95 = select i1 %94, float %.02226.i54, float %91
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i52, 1
-  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i50
-  br i1 %exitcond.not.i56, label %.lr.ph31.preheader.i58, label %.lr.ph.i51, !llvm.loop !4
+  %92 = fcmp olt float %.02127.i50, %91
+  %93 = select i1 %92, float %.02127.i50, float %91
+  %94 = fcmp ogt float %.02226.i51, %91
+  %95 = select i1 %94, float %.02226.i51, float %91
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
+  %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i47
+  br i1 %exitcond.not.i53, label %._crit_edge.i54, label %.lr.ph.i48, !llvm.loop !4
 
-.lr.ph31.preheader.i58:                           ; preds = %.lr.ph.i51
+._crit_edge.i54:                                  ; preds = %.lr.ph.i48
   %96 = fsub float %95, %93
   %97 = fcmp ogt float %96, 0x3F50624DE0000000
   %98 = fdiv float 1.000000e+00, %96
   %99 = select i1 %97, float %98, float 1.000000e+00
-  br label %.lr.ph31.i60
+  br label %.lr.ph31.i56
 
-.lr.ph31.i60:                                     ; preds = %.lr.ph31.i60, %.lr.ph31.preheader.i58
-  %indvars.iv35.i61 = phi i64 [ 0, %.lr.ph31.preheader.i58 ], [ %indvars.iv.next36.i62, %.lr.ph31.i60 ]
-  %100 = getelementptr inbounds float, ptr %88, i64 %indvars.iv35.i61
+.lr.ph31.i56:                                     ; preds = %.lr.ph31.i56, %._crit_edge.i54
+  %indvars.iv35.i57 = phi i64 [ 0, %._crit_edge.i54 ], [ %indvars.iv.next36.i58, %.lr.ph31.i56 ]
+  %100 = getelementptr inbounds float, ptr %88, i64 %indvars.iv35.i57
   %101 = load float, ptr %100, align 4
   %102 = fsub float %101, %93
   %103 = fmul float %99, %102
@@ -611,11 +611,11 @@ _ZL14normalizeArrayPfi.exit48:                    ; preds = %.lr.ph31.i44
   %106 = select i1 %105, float 1.000000e+00, float %103
   %107 = select i1 %104, float 0.000000e+00, float %106
   store float %107, ptr %100, align 4
-  %indvars.iv.next36.i62 = add nuw nsw i64 %indvars.iv35.i61, 1
-  %exitcond39.not.i63 = icmp eq i64 %indvars.iv.next36.i62, %wide.trip.count.i50
-  br i1 %exitcond39.not.i63, label %_ZL14normalizeArrayPfi.exit64, label %.lr.ph31.i60, !llvm.loop !6
+  %indvars.iv.next36.i58 = add nuw nsw i64 %indvars.iv35.i57, 1
+  %exitcond39.not.i59 = icmp eq i64 %indvars.iv.next36.i58, %wide.trip.count.i47
+  br i1 %exitcond39.not.i59, label %_ZL14normalizeArrayPfi.exit60, label %.lr.ph31.i56, !llvm.loop !6
 
-_ZL14normalizeArrayPfi.exit64:                    ; preds = %.lr.ph31.i60, %_ZL14normalizeArrayPfi.exit, %1, %_ZL14normalizeArrayPfi.exit16, %_ZL14normalizeArrayPfi.exit32, %_ZL14normalizeArrayPfi.exit48
+_ZL14normalizeArrayPfi.exit60:                    ; preds = %.lr.ph31.i56, %_ZL14normalizeArrayPfi.exit, %1, %_ZL14normalizeArrayPfi.exit15, %_ZL14normalizeArrayPfi.exit30, %_ZL14normalizeArrayPfi.exit45
   ret void
 }
 

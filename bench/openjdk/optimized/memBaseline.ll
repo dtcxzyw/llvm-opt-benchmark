@@ -709,14 +709,14 @@ define hidden noundef zeroext i1 @_ZN11MemBaseline41aggregate_virtual_memory_all
   %45 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %46 = load ptr, ptr %45, align 8
   %.not9.i = icmp eq ptr %46, null
-  br i1 %.not9.i, label %.thread.split.loop.exit25, label %43, !llvm.loop !13
+  br i1 %.not9.i, label %.thread.split.loop.exit22, label %43, !llvm.loop !13
 
-.thread.split.loop.exit25:                        ; preds = %44
+.thread.split.loop.exit22:                        ; preds = %44
   %47 = getelementptr inbounds i8, ptr %.0.i, i64 64
   br label %.thread
 
-.thread:                                          ; preds = %43, %.thread.split.loop.exit25
-  %.sink11.i = phi ptr [ %47, %.thread.split.loop.exit25 ], [ %41, %43 ]
+.thread:                                          ; preds = %43, %.thread.split.loop.exit22
+  %.sink11.i = phi ptr [ %47, %.thread.split.loop.exit22 ], [ %41, %43 ]
   %48 = load ptr, ptr %4, align 8
   store ptr %48, ptr %.sink11.i, align 8
   br label %_ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z23compare_allocation_siteRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit
@@ -2071,11 +2071,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %.09) #14
-  %.not13 = icmp ne ptr %9, null
-  br i1 %.not13, label %4, label %._crit_edge
+  %.not13.not = icmp ne ptr %9, null
+  br i1 %.not13.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13, %4 ], [ %.not13, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13.not, %4 ], [ %.not13.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -2711,11 +2711,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI21Committed
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -3125,11 +3125,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %.09) #14
-  %.not13 = icmp ne ptr %9, null
-  br i1 %.not13, label %4, label %._crit_edge
+  %.not13.not = icmp ne ptr %9, null
+  br i1 %.not13.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13, %4 ], [ %.not13, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13.not, %4 ], [ %.not13.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -3308,11 +3308,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09) #14
-  %.not13 = icmp ne ptr %9, null
-  br i1 %.not13, label %4, label %._crit_edge
+  %.not13.not = icmp ne ptr %9, null
+  br i1 %.not13.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13, %4 ], [ %.not13, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13.not, %4 ], [ %.not13.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -3620,11 +3620,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(72) %.09) #14
-  %.not13 = icmp ne ptr %9, null
-  br i1 %.not13, label %4, label %._crit_edge
+  %.not13.not = icmp ne ptr %9, null
+  br i1 %.not13.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13, %4 ], [ %.not13, %.lr.ph ]
+  %.not.lcssa = phi i1 [ true, %2 ], [ %.not13.not, %4 ], [ %.not13.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -3969,11 +3969,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI10MallocSit
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(72) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -4122,11 +4122,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI27VirtualMe
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -4263,11 +4263,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI10MallocSit
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(72) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -4419,11 +4419,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI10MallocSit
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(72) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -4576,11 +4576,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI27VirtualMe
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 
@@ -4723,11 +4723,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI27VirtualMe
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09.i) #14
-  %.not13.i.not = icmp ne ptr %9, null
-  br i1 %.not13.i.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
+  %.not13.i.not.not = icmp ne ptr %9, null
+  br i1 %.not13.i.not.not, label %4, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit
 
 _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit: ; preds = %4, %.lr.ph.i, %2
-  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not, %.lr.ph.i ], [ %.not13.i.not, %4 ]
+  %.not.lcssa.i = phi i1 [ true, %2 ], [ %.not13.i.not.not, %.lr.ph.i ], [ %.not13.i.not.not, %4 ]
   ret i1 %.not.lcssa.i
 }
 

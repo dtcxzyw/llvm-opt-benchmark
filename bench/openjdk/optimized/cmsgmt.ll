@@ -553,7 +553,7 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone 
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load float, ptr %11, align 8
   %13 = fcmp ogt float %10, %12
-  br i1 %13, label %17, label %.loopexit
+  br i1 %13, label %.lr.ph24, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 16
@@ -565,27 +565,24 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone 
   store float 0.000000e+00, ptr %14, align 8
   br label %.loopexit
 
-17:                                               ; preds = %._crit_edge
+.lr.ph24:                                         ; preds = %._crit_edge
   store float %10, ptr %11, align 8
-  br i1 %.not, label %.loopexit, label %.lr.ph24
-
-.lr.ph24:                                         ; preds = %17
-  %18 = getelementptr inbounds i8, ptr %2, i64 20
+  %17 = getelementptr inbounds i8, ptr %2, i64 20
   %wide.trip.count30 = zext i32 %7 to i64
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.lr.ph24, %19
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %19 ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv27
-  %21 = load i16, ptr %20, align 2
-  %22 = uitofp i16 %21 to float
-  %23 = getelementptr inbounds [16 x float], ptr %18, i64 0, i64 %indvars.iv27
-  store float %22, ptr %23, align 4
+18:                                               ; preds = %.lr.ph24, %18
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %18 ]
+  %19 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv27
+  %20 = load i16, ptr %19, align 2
+  %21 = uitofp i16 %20 to float
+  %22 = getelementptr inbounds [16 x float], ptr %17, i64 0, i64 %indvars.iv27
+  store float %21, ptr %22, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !9
+  br i1 %exitcond31.not, label %.loopexit, label %18, !llvm.loop !9
 
-.loopexit:                                        ; preds = %19, %.thread, %._crit_edge.thread, %17, %._crit_edge
+.loopexit:                                        ; preds = %18, %.thread, %._crit_edge.thread, %._crit_edge
   ret i32 1
 }
 

@@ -2569,32 +2569,26 @@ if.end29.i:                                       ; preds = %if.end24.i
 for.body.lr.ph.i.i:                               ; preds = %if.end29.i
   %mcast_list.i.i = getelementptr inbounds i8, ptr %call, i64 14848
   %28 = load ptr, ptr %mcast_list.i.i, align 16
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %28, i64 6)
-  %tobool.not.i16.i = icmp eq i32 %bcmp.i15.i, 0
-  br i1 %tobool.not.i16.i, label %if.then8, label %for.cond.i.i
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %for.body.lr.ph.i.i, %for.body.i.i
-  %i.05.i17.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.lr.ph.i.i ]
-  %inc.i.i = add nuw i32 %i.05.i17.i, 1
+for.cond.i.i:                                     ; preds = %for.body.i.i
+  %inc.i.i = add nuw i32 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %27
   br i1 %exitcond.not.i.i, label %if.end20, label %for.body.i.i, !llvm.loop !21
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %idxprom.i11.i = sext i32 %inc.i.i to i64
+for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
+  %i.05.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
+  %idxprom.i11.i = sext i32 %i.05.i.i to i64
   %arrayidx.i12.i = getelementptr %struct.MACAddr, ptr %28, i64 %idxprom.i11.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %arrayidx.i12.i, i64 6)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool.not.i.i, label %vmxnet3_is_allowed_mcast_group.exit.i, label %for.cond.i.i, !llvm.loop !21
-
-vmxnet3_is_allowed_mcast_group.exit.i:            ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ult i32 %inc.i.i, %27
-  br i1 %cmp.i.le.i, label %if.then8, label %if.end20
+  br i1 %tobool.not.i.i, label %if.then8, label %for.cond.i.i
 
 do.body.i:                                        ; preds = %if.end2.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 1973, ptr noundef nonnull @__func__.vmxnet3_rx_filter_may_indicate, ptr noundef null) #16
   unreachable
 
-if.then8:                                         ; preds = %if.end8.i, %sw.bb13.i, %for.body.lr.ph.i.i, %vmxnet3_is_allowed_mcast_group.exit.i, %sw.bb19.i, %if.end4
+if.then8:                                         ; preds = %for.body.i.i, %if.end8.i, %sw.bb13.i, %sw.bb19.i, %if.end4
   store ptr %buf.addr.0, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %size.addr.0, ptr %iov_len, align 8
@@ -2927,14 +2921,14 @@ if.end21.i.i.i:                                   ; preds = %if.then14.i.i.i
 
 if.end14.sink.split.i:                            ; preds = %if.end21.i.i.i, %if.then6.i21.i.i
   %.sink.i = phi ptr [ %50, %if.then6.i21.i.i ], [ %52, %if.end21.i.i.i ]
-  %gen.i42.i.i.sink157.i = phi ptr [ %gen.i.i18.i.i, %if.then6.i21.i.i ], [ %gen.i42.i.i.i, %if.end21.i.i.i ]
+  %gen.i42.i.i.sink154.i = phi ptr [ %gen.i.i18.i.i, %if.then6.i21.i.i ], [ %gen.i42.i.i.i, %if.end21.i.i.i ]
   %bf.load.ph.i = phi i32 [ %bf.load2.i20.i.i, %if.then6.i21.i.i ], [ %bf.load15.i.i.i, %if.end21.i.i.i ]
   %rxd_idx.0.ph.ph.i = phi i32 [ %arrayidx2.val.i22.i.i.i, %if.then6.i21.i.i ], [ %arrayidx2.val.i46.i.i.i, %if.end21.i.i.i ]
   %rx_ridx.1.ph.ph.i = phi i32 [ 0, %if.then6.i21.i.i ], [ 65536, %if.end21.i.i.i ]
   store i32 0, ptr %.sink.i, align 8
-  %91 = load i8, ptr %gen.i42.i.i.sink157.i, align 4
+  %91 = load i8, ptr %gen.i42.i.i.sink154.i, align 4
   %92 = xor i8 %91, 1
-  store i8 %92, ptr %gen.i42.i.i.sink157.i, align 4
+  store i8 %92, ptr %gen.i42.i.i.sink154.i, align 4
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %vmxnet3_inc_rx_consumption_counter.exit.i.i.i, %if.end14.sink.split.i, %if.end21.i.i.i, %if.then6.i21.i.i
@@ -3097,7 +3091,7 @@ do.end.thread.i:                                  ; preds = %nocsum.i.i, %if.end
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i.i)
-  %inc128.i = add i16 %num_frags.098.i64, 1
+  %inc125.i = add i16 %num_frags.098.i64, 1
   br label %while.end.i
 
 do.end.i:                                         ; preds = %if.end21.i
@@ -3107,7 +3101,7 @@ do.end.i:                                         ; preds = %if.end21.i
   br i1 %cmp6.i, label %while.end.i, label %if.end.i36, !llvm.loop !26
 
 while.end.i:                                      ; preds = %do.end.i, %vmxnet3_pop_rxc_descr.exit.i, %if.end7.i.i.i, %for.cond.i.i.i, %do.end.thread.i, %vmxnet3_pop_rxc_descr.exit.thread.i
-  %num_frags.094.i = phi i16 [ %num_frags.098.i64, %vmxnet3_pop_rxc_descr.exit.thread.i ], [ %inc128.i, %do.end.thread.i ], [ %num_frags.098.i64, %for.cond.i.i.i ], [ %inc.i, %do.end.i ], [ %num_frags.098.i64, %vmxnet3_pop_rxc_descr.exit.i ], [ %num_frags.098.i64, %if.end7.i.i.i ]
+  %num_frags.094.i = phi i16 [ %num_frags.098.i64, %vmxnet3_pop_rxc_descr.exit.thread.i ], [ %inc125.i, %do.end.thread.i ], [ %num_frags.098.i64, %for.cond.i.i.i ], [ %inc.i, %do.end.i ], [ %num_frags.098.i64, %vmxnet3_pop_rxc_descr.exit.i ], [ %num_frags.098.i64, %if.end7.i.i.i ]
   %ready_rxcd_pa.090.i = phi i64 [ %ready_rxcd_pa.099.i62, %vmxnet3_pop_rxc_descr.exit.thread.i ], [ %add.i.i.i, %do.end.thread.i ], [ %ready_rxcd_pa.099.i62, %for.cond.i.i.i ], [ %add.i.i.i, %do.end.i ], [ %ready_rxcd_pa.099.i62, %vmxnet3_pop_rxc_descr.exit.i ], [ %ready_rxcd_pa.099.i62, %if.end7.i.i.i ]
   %cmp.not86.i = phi i1 [ false, %vmxnet3_pop_rxc_descr.exit.thread.i ], [ true, %do.end.thread.i ], [ false, %for.cond.i.i.i ], [ false, %if.end7.i.i.i ], [ false, %vmxnet3_pop_rxc_descr.exit.i ], [ false, %do.end.i ]
   %cmp66.not.i = phi i1 [ true, %vmxnet3_pop_rxc_descr.exit.thread.i ], [ true, %do.end.thread.i ], [ false, %for.cond.i.i.i ], [ true, %do.end.i ], [ true, %vmxnet3_pop_rxc_descr.exit.i ], [ false, %if.end7.i.i.i ]
@@ -3150,8 +3144,8 @@ if.then.i.i.i52.i:                                ; preds = %if.then68.i
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %while.body.lr.ph.i, %if.then.i.i.i52.i, %if.then68.i, %if.end65.i, %if.then54.i, %vmxnet3_rx_need_csum_calculate.exit
-  %num_frags.094134141.i = phi i16 [ %num_frags.094.i, %if.then.i.i.i52.i ], [ %num_frags.094.i, %if.then68.i ], [ %num_frags.094.i, %if.end65.i ], [ %num_frags.094.i, %if.then54.i ], [ 0, %vmxnet3_rx_need_csum_calculate.exit ], [ 0, %while.body.lr.ph.i ]
-  %cmp.not86135140.i = phi i1 [ %cmp.not86.i, %if.then.i.i.i52.i ], [ %cmp.not86.i, %if.then68.i ], [ %cmp.not86.i, %if.end65.i ], [ %cmp.not86.i, %if.then54.i ], [ true, %vmxnet3_rx_need_csum_calculate.exit ], [ false, %while.body.lr.ph.i ]
+  %num_frags.094131138.i = phi i16 [ %num_frags.094.i, %if.then.i.i.i52.i ], [ %num_frags.094.i, %if.then68.i ], [ %num_frags.094.i, %if.end65.i ], [ %num_frags.094.i, %if.then54.i ], [ 0, %vmxnet3_rx_need_csum_calculate.exit ], [ 0, %while.body.lr.ph.i ]
+  %cmp.not86132137.i = phi i1 [ %cmp.not86.i, %if.then.i.i.i52.i ], [ %cmp.not86.i, %if.then68.i ], [ %cmp.not86.i, %if.end65.i ], [ %cmp.not86.i, %if.then54.i ], [ true, %vmxnet3_rx_need_csum_calculate.exit ], [ false, %while.body.lr.ph.i ]
   %intr_idx.i = getelementptr inbounds i8, ptr %call, i64 11720
   %113 = load i8, ptr %intr_idx.i, align 8
   %conv70.i = zext i8 %113 to i32
@@ -3194,7 +3188,7 @@ do_automask.i.i:                                  ; preds = %land.lhs.true6.i.i,
   br label %vmxnet3_trigger_interrupt.exit.i
 
 vmxnet3_trigger_interrupt.exit.i:                 ; preds = %do_automask.i.i, %land.lhs.true6.i.i, %if.end.i56.i
-  br i1 %cmp.not86135140.i, label %if.then73.i, label %if.else.i
+  br i1 %cmp.not86132137.i, label %if.then73.i, label %if.else.i
 
 if.then73.i:                                      ; preds = %vmxnet3_trigger_interrupt.exit.i
   %rxq_stats.i.i = getelementptr inbounds i8, ptr %call, i64 11736
@@ -3215,13 +3209,13 @@ switch.lookup:                                    ; preds = %if.then73.i
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive, i64 0, i64 %120
   %switch.load = load i64, ptr %switch.gep, align 8
   %121 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep132 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive.16, i64 0, i64 %121
-  %switch.load133 = load i64, ptr %switch.gep132, align 8
+  %switch.gep128 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_receive.16, i64 0, i64 %121
+  %switch.load129 = load i64, ptr %switch.gep128, align 8
   %ucastPktsRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %switch.load
   %122 = load i64, ptr %ucastPktsRxOK.i.i, align 8
   %inc12.i.i = add i64 %122, 1
   store i64 %inc12.i.i, ptr %ucastPktsRxOK.i.i, align 8
-  %ucastBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %switch.load133
+  %ucastBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %switch.load129
   %123 = load i64, ptr %ucastBytesRxOK.i.i, align 8
   %add13.i.i = add i64 %123, %call.i59.i
   store i64 %add13.i.i, ptr %ucastBytesRxOK.i.i, align 8
@@ -3240,16 +3234,16 @@ if.then.i63.i:                                    ; preds = %switch.lookup
 if.else.i:                                        ; preds = %vmxnet3_trigger_interrupt.exit.i
   %max_rx_frags75.i = getelementptr inbounds i8, ptr %call, i64 14184
   %126 = load i16, ptr %max_rx_frags75.i, align 8
-  %cmp77.i = icmp eq i16 %num_frags.094134141.i, %126
+  %cmp77.i = icmp eq i16 %num_frags.094131138.i, %126
   %127 = load ptr, ptr %rx_pkt5, align 8
   %call.i66.i = call i64 @net_rx_pkt_get_total_len(ptr noundef %127) #15
   %..i40 = select i1 %cmp77.i, i64 11808, i64 11800
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.else.i, %if.then.i63.i
-  %.sink160.i = phi i64 [ 11744, %if.then.i63.i ], [ %..i40, %if.else.i ]
+  %.sink157.i = phi i64 [ 11744, %if.then.i63.i ], [ %..i40, %if.else.i ]
   %call.i59.sink.i = phi i64 [ %call.i59.i, %if.then.i63.i ], [ 1, %if.else.i ]
-  %LROBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink160.i
+  %LROBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink157.i
   %128 = load i64, ptr %LROBytesRxOK.i.i, align 8
   %add16.i.i = add i64 %128, %call.i59.sink.i
   store i64 %add16.i.i, ptr %LROBytesRxOK.i.i, align 8
@@ -3258,11 +3252,11 @@ return.sink.split.i:                              ; preds = %if.else.i, %if.then
 vmxnet3_indicate_packet.exit:                     ; preds = %switch.lookup, %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rxd.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rxcd.i)
-  %cond = select i1 %cmp.not86135140.i, i64 %size.addr.0, i64 -1
+  %cond = select i1 %cmp.not86132137.i, i64 %size.addr.0, i64 -1
   br label %if.end20
 
-if.end20:                                         ; preds = %for.cond.i.i, %if.end29.i, %vmxnet3_is_allowed_mcast_group.exit.i, %if.end24.i, %sw.bb13.i, %if.end8.i, %sw.bb.i, %vmxnet3_is_registered_vlan.exit.i, %vmxnet3_indicate_packet.exit
-  %bytes_indicated.0 = phi i64 [ %cond, %vmxnet3_indicate_packet.exit ], [ %size.addr.0, %vmxnet3_is_registered_vlan.exit.i ], [ %size.addr.0, %sw.bb.i ], [ %size.addr.0, %if.end8.i ], [ %size.addr.0, %sw.bb13.i ], [ %size.addr.0, %if.end24.i ], [ %size.addr.0, %vmxnet3_is_allowed_mcast_group.exit.i ], [ %size.addr.0, %if.end29.i ], [ %size.addr.0, %for.cond.i.i ]
+if.end20:                                         ; preds = %for.cond.i.i, %if.end29.i, %if.end24.i, %sw.bb13.i, %if.end8.i, %sw.bb.i, %vmxnet3_is_registered_vlan.exit.i, %vmxnet3_indicate_packet.exit
+  %bytes_indicated.0 = phi i64 [ %cond, %vmxnet3_indicate_packet.exit ], [ %size.addr.0, %vmxnet3_is_registered_vlan.exit.i ], [ %size.addr.0, %sw.bb.i ], [ %size.addr.0, %if.end8.i ], [ %size.addr.0, %sw.bb13.i ], [ %size.addr.0, %if.end24.i ], [ %size.addr.0, %if.end29.i ], [ %size.addr.0, %for.cond.i.i ]
   %cmp21.not = icmp eq i64 %size.addr.0, 0
   br i1 %cmp21.not, label %if.else23, label %if.end24
 

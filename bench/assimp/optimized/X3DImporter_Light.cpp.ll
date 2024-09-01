@@ -359,7 +359,7 @@ lor.rhs.i.i.i:                                    ; preds = %cond.true.i.i76
 
 if.end.i.i79:                                     ; preds = %for.inc.i.i70, %if.end.i3.i75, %cond.true.i.i76, %cond.true.i.i76, %cond.true.i.i76, %cond.true.i.i76, %cond.true.i.i76, %lor.rhs.i.i.i
   %global.0161 = phi i8 [ 0, %if.end.i3.i75 ], [ 1, %cond.true.i.i76 ], [ 0, %lor.rhs.i.i.i ], [ 1, %cond.true.i.i76 ], [ 1, %cond.true.i.i76 ], [ 1, %cond.true.i.i76 ], [ 1, %cond.true.i.i76 ], [ 0, %for.inc.i.i70 ]
-  br i1 %tobool3.not7.i.i62, label %invoke.cont14, label %for.body.i.i83
+  br label %for.body.i.i83
 
 for.body.i.i83:                                   ; preds = %if.end.i.i79, %for.inc.i.i90
   %i.08.i.i84 = phi ptr [ %i.0.i.i92, %for.inc.i.i90 ], [ %i.06.i.i61, %if.end.i.i79 ]
@@ -391,9 +391,9 @@ cond.true.i.i98:                                  ; preds = %if.end.i3.i95
   %.pr162.pre = load ptr, ptr %node, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %for.inc.i.i90, %if.end.i.i79, %cond.true.i.i98, %if.end.i3.i95
-  %.pr162 = phi ptr [ %7, %if.end.i3.i95 ], [ %.pr162.pre, %cond.true.i.i98 ], [ %7, %if.end.i.i79 ], [ %7, %for.inc.i.i90 ]
-  %intensity.0.ph = phi float [ 0.000000e+00, %if.end.i3.i95 ], [ %conv.i.i.i100, %cond.true.i.i98 ], [ 1.000000e+00, %if.end.i.i79 ], [ 1.000000e+00, %for.inc.i.i90 ]
+invoke.cont14:                                    ; preds = %for.inc.i.i90, %cond.true.i.i98, %if.end.i3.i95
+  %.pr162 = phi ptr [ %7, %if.end.i3.i95 ], [ %.pr162.pre, %cond.true.i.i98 ], [ %7, %for.inc.i.i90 ]
+  %intensity.0.ph = phi float [ 0.000000e+00, %if.end.i3.i95 ], [ %conv.i.i.i100, %cond.true.i.i98 ], [ 1.000000e+00, %for.inc.i.i90 ]
   %tobool.not.i.i104 = icmp eq ptr %.pr162, null
   br i1 %tobool.not.i.i104, label %invoke.cont16, label %if.end.i.i105
 
@@ -1078,7 +1078,7 @@ lor.rhs.i.i.i:                                    ; preds = %cond.true.i.i80
 
 if.end.i.i83:                                     ; preds = %for.inc.i.i74, %if.end.i3.i79, %cond.true.i.i80, %cond.true.i.i80, %cond.true.i.i80, %cond.true.i.i80, %cond.true.i.i80, %lor.rhs.i.i.i
   %global.0192 = phi i8 [ 0, %if.end.i3.i79 ], [ 1, %cond.true.i.i80 ], [ 0, %lor.rhs.i.i.i ], [ 1, %cond.true.i.i80 ], [ 1, %cond.true.i.i80 ], [ 1, %cond.true.i.i80 ], [ 1, %cond.true.i.i80 ], [ 1, %for.inc.i.i74 ]
-  br i1 %tobool3.not7.i.i66, label %invoke.cont15, label %for.body.i.i87
+  br label %for.body.i.i87
 
 for.body.i.i87:                                   ; preds = %if.end.i.i83, %for.inc.i.i94
   %i.08.i.i88 = phi ptr [ %i.0.i.i96, %for.inc.i.i94 ], [ %i.06.i.i65, %if.end.i.i83 ]
@@ -1109,9 +1109,9 @@ cond.true.i.i102:                                 ; preds = %if.end.i3.i99
   %conv.i.i.i104 = fptrunc double %call.i.i5.i103 to float
   br label %invoke.cont15
 
-invoke.cont15:                                    ; preds = %for.inc.i.i94, %if.end.i.i63, %invoke.cont11, %if.end.i.i83, %cond.true.i.i102, %if.end.i3.i99
-  %global.0189 = phi i8 [ %global.0192, %if.end.i.i83 ], [ %global.0192, %cond.true.i.i102 ], [ %global.0192, %if.end.i3.i99 ], [ 1, %invoke.cont11 ], [ 1, %if.end.i.i63 ], [ %global.0192, %for.inc.i.i94 ]
-  %intensity.0 = phi float [ 1.000000e+00, %if.end.i.i83 ], [ %conv.i.i.i104, %cond.true.i.i102 ], [ 0.000000e+00, %if.end.i3.i99 ], [ 1.000000e+00, %invoke.cont11 ], [ 1.000000e+00, %if.end.i.i63 ], [ 1.000000e+00, %for.inc.i.i94 ]
+invoke.cont15:                                    ; preds = %for.inc.i.i94, %if.end.i.i63, %invoke.cont11, %cond.true.i.i102, %if.end.i3.i99
+  %global.0189 = phi i8 [ %global.0192, %cond.true.i.i102 ], [ %global.0192, %if.end.i3.i99 ], [ 1, %invoke.cont11 ], [ 1, %if.end.i.i63 ], [ %global.0192, %for.inc.i.i94 ]
+  %intensity.0 = phi float [ %conv.i.i.i104, %cond.true.i.i102 ], [ 0.000000e+00, %if.end.i3.i99 ], [ 1.000000e+00, %invoke.cont11 ], [ 1.000000e+00, %if.end.i.i63 ], [ 1.000000e+00, %for.inc.i.i94 ]
   %call18 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector3DAttributeERN4pugi8xml_nodeEPKcR10aiVector3tIfE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(12) %location)
           to label %invoke.cont17 unwind label %lpad
 
@@ -1187,7 +1187,7 @@ lor.rhs.i.i.i131:                                 ; preds = %cond.true.i.i128
 
 if.end.i.i134:                                    ; preds = %for.inc.i.i120, %if.end.i3.i125, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %lor.rhs.i.i.i131
   %on.0197 = phi i1 [ false, %if.end.i3.i125 ], [ true, %cond.true.i.i128 ], [ false, %lor.rhs.i.i.i131 ], [ true, %cond.true.i.i128 ], [ true, %cond.true.i.i128 ], [ true, %cond.true.i.i128 ], [ true, %cond.true.i.i128 ], [ true, %for.inc.i.i120 ]
-  br i1 %tobool3.not7.i.i112, label %invoke.cont21, label %for.body.i.i138
+  br label %for.body.i.i138
 
 for.body.i.i138:                                  ; preds = %if.end.i.i134, %for.inc.i.i145
   %i.08.i.i139 = phi ptr [ %i.0.i.i147, %for.inc.i.i145 ], [ %i.06.i.i111, %if.end.i.i134 ]
@@ -1218,9 +1218,9 @@ cond.true.i.i153:                                 ; preds = %if.end.i3.i150
   %conv.i.i.i155 = fptrunc double %call.i.i5.i154 to float
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %for.inc.i.i145, %if.end.i.i109, %invoke.cont17, %if.end.i.i134, %cond.true.i.i153, %if.end.i3.i150
-  %on.0194 = phi i1 [ %on.0197, %if.end.i.i134 ], [ %on.0197, %cond.true.i.i153 ], [ %on.0197, %if.end.i3.i150 ], [ true, %invoke.cont17 ], [ true, %if.end.i.i109 ], [ %on.0197, %for.inc.i.i145 ]
-  %radius.0 = phi float [ 1.000000e+02, %if.end.i.i134 ], [ %conv.i.i.i155, %cond.true.i.i153 ], [ 0.000000e+00, %if.end.i3.i150 ], [ 1.000000e+02, %invoke.cont17 ], [ 1.000000e+02, %if.end.i.i109 ], [ 1.000000e+02, %for.inc.i.i145 ]
+invoke.cont21:                                    ; preds = %for.inc.i.i145, %if.end.i.i109, %invoke.cont17, %cond.true.i.i153, %if.end.i3.i150
+  %on.0194 = phi i1 [ %on.0197, %cond.true.i.i153 ], [ %on.0197, %if.end.i3.i150 ], [ true, %invoke.cont17 ], [ true, %if.end.i.i109 ], [ %on.0197, %for.inc.i.i145 ]
+  %radius.0 = phi float [ %conv.i.i.i155, %cond.true.i.i153 ], [ 0.000000e+00, %if.end.i3.i150 ], [ 1.000000e+02, %invoke.cont17 ], [ 1.000000e+02, %if.end.i.i109 ], [ 1.000000e+02, %for.inc.i.i145 ]
   %call23 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call23, label %if.else, label %if.then
 
@@ -1743,7 +1743,7 @@ lor.rhs.i.i.i:                                    ; preds = %cond.true.i.i137
 
 if.end.i.i140:                                    ; preds = %for.inc.i.i131, %if.end.i3.i136, %cond.true.i.i137, %cond.true.i.i137, %cond.true.i.i137, %cond.true.i.i137, %cond.true.i.i137, %lor.rhs.i.i.i
   %global.0252 = phi i8 [ 0, %if.end.i3.i136 ], [ 1, %cond.true.i.i137 ], [ 0, %lor.rhs.i.i.i ], [ 1, %cond.true.i.i137 ], [ 1, %cond.true.i.i137 ], [ 1, %cond.true.i.i137 ], [ 1, %cond.true.i.i137 ], [ 1, %for.inc.i.i131 ]
-  br i1 %tobool3.not7.i.i123, label %invoke.cont22, label %for.body.i.i144
+  br label %for.body.i.i144
 
 for.body.i.i144:                                  ; preds = %if.end.i.i140, %for.inc.i.i151
   %i.08.i.i145 = phi ptr [ %i.0.i.i153, %for.inc.i.i151 ], [ %i.06.i.i122, %if.end.i.i140 ]
@@ -1774,9 +1774,9 @@ cond.true.i.i159:                                 ; preds = %if.end.i3.i156
   %conv.i.i.i161 = fptrunc double %call.i.i5.i160 to float
   br label %invoke.cont22
 
-invoke.cont22:                                    ; preds = %for.inc.i.i151, %if.end.i.i120, %invoke.cont18, %if.end.i.i140, %cond.true.i.i159, %if.end.i3.i156
-  %global.0249 = phi i8 [ %global.0252, %if.end.i.i140 ], [ %global.0252, %cond.true.i.i159 ], [ %global.0252, %if.end.i3.i156 ], [ 1, %invoke.cont18 ], [ 1, %if.end.i.i120 ], [ %global.0252, %for.inc.i.i151 ]
-  %intensity.0 = phi float [ 1.000000e+00, %if.end.i.i140 ], [ %conv.i.i.i161, %cond.true.i.i159 ], [ 0.000000e+00, %if.end.i3.i156 ], [ 1.000000e+00, %invoke.cont18 ], [ 1.000000e+00, %if.end.i.i120 ], [ 1.000000e+00, %for.inc.i.i151 ]
+invoke.cont22:                                    ; preds = %for.inc.i.i151, %if.end.i.i120, %invoke.cont18, %cond.true.i.i159, %if.end.i3.i156
+  %global.0249 = phi i8 [ %global.0252, %cond.true.i.i159 ], [ %global.0252, %if.end.i3.i156 ], [ 1, %invoke.cont18 ], [ 1, %if.end.i.i120 ], [ %global.0252, %for.inc.i.i151 ]
+  %intensity.0 = phi float [ %conv.i.i.i161, %cond.true.i.i159 ], [ 0.000000e+00, %if.end.i3.i156 ], [ 1.000000e+00, %invoke.cont18 ], [ 1.000000e+00, %if.end.i.i120 ], [ 1.000000e+00, %for.inc.i.i151 ]
   %call25 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector3DAttributeERN4pugi8xml_nodeEPKcR10aiVector3tIfE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(12) %location)
           to label %invoke.cont24 unwind label %lpad
 
@@ -1852,7 +1852,7 @@ lor.rhs.i.i.i188:                                 ; preds = %cond.true.i.i185
 
 if.end.i.i191:                                    ; preds = %for.inc.i.i177, %if.end.i3.i182, %cond.true.i.i185, %cond.true.i.i185, %cond.true.i.i185, %cond.true.i.i185, %cond.true.i.i185, %lor.rhs.i.i.i188
   %on.0257 = phi i1 [ false, %if.end.i3.i182 ], [ true, %cond.true.i.i185 ], [ false, %lor.rhs.i.i.i188 ], [ true, %cond.true.i.i185 ], [ true, %cond.true.i.i185 ], [ true, %cond.true.i.i185 ], [ true, %cond.true.i.i185 ], [ true, %for.inc.i.i177 ]
-  br i1 %tobool3.not7.i.i169, label %invoke.cont28, label %for.body.i.i195
+  br label %for.body.i.i195
 
 for.body.i.i195:                                  ; preds = %if.end.i.i191, %for.inc.i.i202
   %i.08.i.i196 = phi ptr [ %i.0.i.i204, %for.inc.i.i202 ], [ %i.06.i.i168, %if.end.i.i191 ]
@@ -1883,9 +1883,9 @@ cond.true.i.i210:                                 ; preds = %if.end.i3.i207
   %conv.i.i.i212 = fptrunc double %call.i.i5.i211 to float
   br label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %for.inc.i.i202, %if.end.i.i166, %invoke.cont24, %if.end.i.i191, %cond.true.i.i210, %if.end.i3.i207
-  %on.0254 = phi i1 [ %on.0257, %if.end.i.i191 ], [ %on.0257, %cond.true.i.i210 ], [ %on.0257, %if.end.i3.i207 ], [ true, %invoke.cont24 ], [ true, %if.end.i.i166 ], [ %on.0257, %for.inc.i.i202 ]
-  %radius.0 = phi float [ 1.000000e+02, %if.end.i.i191 ], [ %conv.i.i.i212, %cond.true.i.i210 ], [ 0.000000e+00, %if.end.i3.i207 ], [ 1.000000e+02, %invoke.cont24 ], [ 1.000000e+02, %if.end.i.i166 ], [ 1.000000e+02, %for.inc.i.i202 ]
+invoke.cont28:                                    ; preds = %for.inc.i.i202, %if.end.i.i166, %invoke.cont24, %cond.true.i.i210, %if.end.i3.i207
+  %on.0254 = phi i1 [ %on.0257, %cond.true.i.i210 ], [ %on.0257, %if.end.i3.i207 ], [ true, %invoke.cont24 ], [ true, %if.end.i.i166 ], [ %on.0257, %for.inc.i.i202 ]
+  %radius.0 = phi float [ %conv.i.i.i212, %cond.true.i.i210 ], [ 0.000000e+00, %if.end.i3.i207 ], [ 1.000000e+02, %invoke.cont24 ], [ 1.000000e+02, %if.end.i.i166 ], [ 1.000000e+02, %for.inc.i.i202 ]
   %call30 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call30, label %if.else, label %if.then
 

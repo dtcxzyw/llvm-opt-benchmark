@@ -834,8 +834,8 @@ plugrack_read_dir.exit:                           ; preds = %29
 76:                                               ; preds = %._crit_edge, %66, %63, %54
   %77 = getelementptr inbounds i8, ptr %.172, i64 32
   %78 = load i64, ptr %77, align 8
-  %.not124 = icmp eq i64 %78, 0
-  br i1 %.not124, label %.loopexit, label %.lr.ph111
+  %.not114 = icmp eq i64 %78, 0
+  br i1 %.not114, label %.loopexit, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %76
   %79 = getelementptr inbounds i8, ptr %.172, i64 16
@@ -866,10 +866,10 @@ plugrack_read_dir.exit:                           ; preds = %29
   %97 = getelementptr inbounds ptr, ptr %96, i64 %.067109
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %._crit_edge119
+  br i1 %99, label %100, label %._crit_edge117
 
-._crit_edge119:                                   ; preds = %88
-  %.pre120 = load i64, ptr %77, align 8
+._crit_edge117:                                   ; preds = %88
+  %.pre118 = load i64, ptr %77, align 8
   br label %105
 
 100:                                              ; preds = %88
@@ -877,18 +877,18 @@ plugrack_read_dir.exit:                           ; preds = %29
   %102 = getelementptr inbounds ptr, ptr %101, i64 %.067109
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.load_plugins, ptr noundef %103) #10
-  %.pre121 = load i64, ptr %77, align 8
+  %.pre119 = load i64, ptr %77, align 8
   br label %.loopexit
 
-105:                                              ; preds = %._crit_edge119, %82
-  %106 = phi i64 [ %83, %82 ], [ %.pre120, %._crit_edge119 ]
-  %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge119 ]
+105:                                              ; preds = %._crit_edge117, %82
+  %106 = phi i64 [ %83, %82 ], [ %.pre118, %._crit_edge117 ]
+  %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge117 ]
   %108 = add nuw i64 %.067109, 1
   %109 = icmp ult i64 %108, %106
   br i1 %109, label %82, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %105, %76, %100
-  %110 = phi i64 [ %.pre121, %100 ], [ 0, %76 ], [ %106, %105 ]
+  %110 = phi i64 [ %.pre119, %100 ], [ 0, %76 ], [ %106, %105 ]
   %111 = phi i1 [ true, %100 ], [ false, %76 ], [ false, %105 ]
   %.2 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
   %112 = getelementptr inbounds i8, ptr %.172, i64 8
@@ -935,14 +935,14 @@ plugrack_read_dir.exit:                           ; preds = %29
   %138 = call i32 @plugin_get_syms(ptr noundef %134, i32 noundef %118, ptr noundef %4, ptr noundef %137) #10
   %139 = sext i32 %138 to i64
   %140 = icmp ugt i64 %5, %139
-  br i1 %140, label %.thread95, label %._crit_edge122
+  br i1 %140, label %.thread95, label %._crit_edge120
 
-._crit_edge122:                                   ; preds = %130
-  %.pre123 = load i64, ptr %77, align 8
+._crit_edge120:                                   ; preds = %130
+  %.pre121 = load i64, ptr %77, align 8
   br label %141
 
-141:                                              ; preds = %._crit_edge122, %119
-  %142 = phi i64 [ %.pre123, %._crit_edge122 ], [ %120, %119 ]
+141:                                              ; preds = %._crit_edge120, %119
+  %142 = phi i64 [ %.pre121, %._crit_edge120 ], [ %120, %119 ]
   %143 = add nuw i64 %.0112, 1
   %144 = icmp ult i64 %143, %142
   br i1 %144, label %119, label %.thread, !llvm.loop !13

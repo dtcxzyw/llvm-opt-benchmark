@@ -388,8 +388,8 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
 
 ._crit_edge.i:                                    ; preds = %141
   %143 = tail call i32 @NBC_Sched_barrier(ptr noundef %75) #9
-  %.not193.i.not = icmp eq i32 %143, 0
-  br i1 %.not193.i.not, label %.lr.ph229.split.i, label %allred_sched_diss.exit.thread
+  %.not193.not.i = icmp eq i32 %143, 0
+  br i1 %.not193.not.i, label %.lr.ph229.split.i, label %allred_sched_diss.exit.thread
 
 ._crit_edge.thread.i:                             ; preds = %.loopexit207.i.thread
   %144 = tail call i32 @NBC_Sched_barrier(ptr noundef %75) #9
@@ -1083,8 +1083,8 @@ allred_sched_diss.exit:                           ; preds = %.loopexit.i189, %30
   %.not158 = icmp eq i32 %.0142, 0
   br i1 %.not158, label %allred_sched_diss.exit.thread248, label %allred_sched_diss.exit.thread
 
-allred_sched_diss.exit.thread:                    ; preds = %.lr.ph.i206, %475, %479, %481, %111, %120, %138, %153, %.lr.ph229.split.us.i, %._crit_edge.i, %492, %488, %.thread163.thread.i, %460, %457, %454, %443, %311, %182, %185, %190, %193, %195, %201, %203, %205, %166, %132, %99, %allred_sched_diss.exit
-  %.0142246 = phi i32 [ %.0142, %allred_sched_diss.exit ], [ %493, %492 ], [ %490, %488 ], [ %487, %.thread163.thread.i ], [ %461, %460 ], [ %459, %457 ], [ %456, %454 ], [ %446, %443 ], [ -2, %311 ], [ %184, %182 ], [ %189, %185 ], [ %192, %190 ], [ %194, %193 ], [ %200, %195 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %167, %166 ], [ %.1169.i, %132 ], [ %101, %99 ], [ %143, %._crit_edge.i ], [ %146, %.lr.ph229.split.us.i ], [ %154, %153 ], [ %140, %138 ], [ %.0168.i, %120 ], [ %112, %111 ], [ %482, %481 ], [ %480, %479 ], [ %476, %475 ], [ %474, %.lr.ph.i206 ]
+allred_sched_diss.exit.thread:                    ; preds = %.lr.ph.i206, %475, %479, %481, %111, %120, %138, %153, %.lr.ph229.split.us.i, %492, %488, %.thread163.thread.i, %460, %457, %454, %443, %311, %182, %185, %190, %193, %195, %201, %203, %205, %166, %._crit_edge.i, %132, %99, %allred_sched_diss.exit
+  %.0142246 = phi i32 [ %.0142, %allred_sched_diss.exit ], [ %493, %492 ], [ %490, %488 ], [ %487, %.thread163.thread.i ], [ %461, %460 ], [ %459, %457 ], [ %456, %454 ], [ %446, %443 ], [ -2, %311 ], [ %184, %182 ], [ %189, %185 ], [ %192, %190 ], [ %194, %193 ], [ %200, %195 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %167, %166 ], [ %143, %._crit_edge.i ], [ %.1169.i, %132 ], [ %101, %99 ], [ %146, %.lr.ph229.split.us.i ], [ %154, %153 ], [ %140, %138 ], [ %.0168.i, %120 ], [ %112, %111 ], [ %482, %481 ], [ %480, %479 ], [ %476, %475 ], [ %474, %.lr.ph.i206 ]
   %494 = load i8, ptr @opal_uses_threads, align 1
   %495 = trunc i8 %494 to i1
   br i1 %495, label %496, label %499

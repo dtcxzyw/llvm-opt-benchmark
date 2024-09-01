@@ -389,7 +389,7 @@ if.then92:                                        ; preds = %if.end89
   %add.ptr101 = getelementptr inbounds i8, ptr %add.ptr99, i64 %idx.ext
   %add.ptr103 = getelementptr inbounds i8, ptr %add.ptr101, i64 %idx.ext
   store ptr %add.ptr103, ptr %utf8, align 8
-  br label %if.end122
+  br label %for.body125.lr.ph
 
 if.else105:                                       ; preds = %if.end89
   %and106 = and i32 %which, 4
@@ -406,15 +406,12 @@ if.then108:                                       ; preds = %if.else105
 if.end120:                                        ; preds = %if.else105, %if.then108
   %add.ptr111.sink = phi ptr [ %add.ptr111, %if.then108 ], [ %27, %if.else105 ]
   store ptr %add.ptr111.sink, ptr %spanLengths, align 8
-  br label %if.end122
+  br label %for.body125.lr.ph
 
-if.end122:                                        ; preds = %if.end120, %if.then92
+for.body125.lr.ph:                                ; preds = %if.then92, %if.end120
   %spanBackUTF8Lengths.0 = phi ptr [ %add.ptr101, %if.then92 ], [ %add.ptr111.sink, %if.end120 ]
   %spanUTF8Lengths.0 = phi ptr [ %add.ptr99, %if.then92 ], [ %add.ptr111.sink, %if.end120 ]
   %spanBackLengths.0 = phi ptr [ %add.ptr97, %if.then92 ], [ %add.ptr111.sink, %if.end120 ]
-  br i1 %cmp8195, label %for.body125.lr.ph, label %for.end339
-
-for.body125.lr.ph:                                ; preds = %if.end122
   %and294 = and i32 %which, 4
   %tobool295.not = icmp eq i32 %and294, 0
   %and297 = and i32 %which, 2
@@ -785,16 +782,12 @@ for.inc337:                                       ; preds = %for.inc337.sink.spl
   %utf8Count.3 = phi i32 [ %utf8Count.1, %if.end259 ], [ %utf8Count.1, %if.end230 ], [ %utf8Count.1, %if.end12.i168 ], [ %utf8Count.1, %call.i.noexc174 ], [ %utf8Count.1, %call7.i.noexc176 ], [ %utf8Count.2, %for.inc337.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond210.not, label %for.end339.loopexit, label %for.body125, !llvm.loop !6
+  br i1 %exitcond210.not, label %for.end339, label %for.body125, !llvm.loop !6
 
-for.end339.loopexit:                              ; preds = %for.inc337
+for.end339:                                       ; preds = %for.inc337
   %.pre211 = load i8, ptr %all, align 4
-  br label %for.end339
-
-for.end339:                                       ; preds = %for.end339.loopexit, %if.end122
-  %60 = phi i8 [ %.pre211, %for.end339.loopexit ], [ %28, %if.end122 ]
-  %tobool341.not = icmp eq i8 %60, 0
-  br i1 %tobool341.not, label %if.end346, label %if.then342
+  %60 = icmp eq i8 %.pre211, 0
+  br i1 %60, label %if.end346, label %if.then342
 
 if.then342:                                       ; preds = %for.end339
   %61 = load ptr, ptr %pSpanNotSet, align 8

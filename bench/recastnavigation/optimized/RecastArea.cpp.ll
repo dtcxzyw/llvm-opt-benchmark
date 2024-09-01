@@ -204,12 +204,9 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 ._crit_edge288.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond335.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count334
-  br i1 %exitcond335.not, label %.preheader281, label %.preheader282.us, !llvm.loop !8
+  br i1 %exitcond335.not, label %.preheader280.lr.ph, label %.preheader282.us, !llvm.loop !8
 
-.preheader281:                                    ; preds = %._crit_edge288.us
-  br i1 %39, label %.preheader280.lr.ph, label %._crit_edge
-
-.preheader280.lr.ph:                              ; preds = %.preheader281
+.preheader280.lr.ph:                              ; preds = %._crit_edge288.us
   %98 = getelementptr inbounds i8, ptr %2, i64 64
   %99 = getelementptr inbounds i8, ptr %2, i64 72
   %100 = zext nneg i32 %9 to i64
@@ -379,12 +376,9 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 ._crit_edge293.us:                                ; preds = %._crit_edge.us300
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count349
-  br i1 %exitcond350.not, label %.preheader279, label %.preheader280.us, !llvm.loop !11
+  br i1 %exitcond350.not, label %.preheader.lr.ph, label %.preheader280.us, !llvm.loop !11
 
-.preheader279:                                    ; preds = %._crit_edge293.us
-  br i1 %39, label %.preheader.lr.ph, label %._crit_edge
-
-.preheader.lr.ph:                                 ; preds = %.preheader279
+.preheader.lr.ph:                                 ; preds = %._crit_edge293.us
   %193 = getelementptr inbounds i8, ptr %2, i64 64
   %194 = getelementptr inbounds i8, ptr %2, i64 72
   %195 = zext nneg i32 %9 to i64
@@ -546,7 +540,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %indvars.iv.next361 = add nsw i64 %indvars.iv360, -1
   br i1 %287, label %.preheader.us, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %..loopexit278_crit_edge.us, %37, %.preheader281, %.preheader282.lr.ph, %.preheader279
+._crit_edge:                                      ; preds = %..loopexit278_crit_edge.us, %37, %.preheader282.lr.ph
   %288 = load i32, ptr %19, align 8
   %289 = icmp sgt i32 %288, 0
   br i1 %289, label %.lr.ph, label %._crit_edge314

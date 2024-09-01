@@ -944,30 +944,33 @@ Au_ManMemUsage.exit:                              ; preds = %Au_ManMemUsage.exit
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i21
   br i1 %exitcond.not.i35, label %Au_ManMemUsageUseful.exit, label %.lr.ph.i29, !llvm.loop !11
 
-Au_ManMemUsageUseful.exit:                        ; preds = %.lr.ph.i29, %Au_ManMemUsageUseful.exit
-  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i43, %Au_ManMemUsageUseful.exit ], [ 1, %.lr.ph.i29 ]
-  %.010.i42 = phi i32 [ %53, %Au_ManMemUsageUseful.exit ], [ 0, %.lr.ph.i29 ]
-  %48 = getelementptr inbounds ptr, ptr %.val8.i20, i64 %indvars.iv.i41
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 132
-  %51 = load i32, ptr %50, align 4
-  %52 = shl nsw i32 %51, 4
-  %53 = add nsw i32 %52, %.010.i42
+Au_ManMemUsageUseful.exit:                        ; preds = %.lr.ph.i29
+  %48 = sub nsw i32 %41, %47
+  %49 = sitofp i32 %48 to double
+  br label %50
+
+50:                                               ; preds = %50, %Au_ManMemUsageUseful.exit
+  %indvars.iv.i41 = phi i64 [ 1, %Au_ManMemUsageUseful.exit ], [ %indvars.iv.next.i43, %50 ]
+  %.010.i42 = phi i32 [ 0, %Au_ManMemUsageUseful.exit ], [ %56, %50 ]
+  %51 = getelementptr inbounds ptr, ptr %.val8.i20, i64 %indvars.iv.i41
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 132
+  %54 = load i32, ptr %53, align 4
+  %55 = shl nsw i32 %54, 4
+  %56 = add nsw i32 %55, %.010.i42
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i21
-  br i1 %exitcond.not.i44, label %Au_ManMemUsage.exit45.loopexit, label %Au_ManMemUsageUseful.exit, !llvm.loop !10
+  br i1 %exitcond.not.i44, label %Au_ManMemUsage.exit45.loopexit, label %50, !llvm.loop !10
 
-Au_ManMemUsage.exit45.loopexit:                   ; preds = %Au_ManMemUsageUseful.exit
-  %54 = sub nsw i32 %41, %47
-  %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 1.000000e+02
-  %57 = sitofp i32 %53 to double
-  %58 = fdiv double %56, %57
+Au_ManMemUsage.exit45.loopexit:                   ; preds = %50
+  %57 = fmul double %49, 1.000000e+02
+  %58 = sitofp i32 %56 to double
+  %59 = fdiv double %57, %58
   br label %Au_ManMemUsage.exit45
 
 Au_ManMemUsage.exit45:                            ; preds = %Au_ManMemUsage.exit45.loopexit, %Au_ManMemUsage.exit
-  %59 = phi double [ 0x7FF8000000000000, %Au_ManMemUsage.exit ], [ %58, %Au_ManMemUsage.exit45.loopexit ]
-  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %59)
+  %60 = phi double [ 0x7FF8000000000000, %Au_ManMemUsage.exit ], [ %59, %Au_ManMemUsage.exit45.loopexit ]
+  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %60)
   %putchar = tail call i32 @putchar(i32 10)
   ret void
 }

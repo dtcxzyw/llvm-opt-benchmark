@@ -15417,6 +15417,9 @@ _ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i117.preheader, label %invoke.cont3
 
+while.body.i.i.i117.preheader:                    ; preds = %invoke.cont3, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
+  br label %while.body.i.i.i117
+
 invoke.cont3:                                     ; preds = %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i16, ptr %_M_storage.i.i.i14.i.i, align 2, !tbaa !46
@@ -15425,9 +15428,6 @@ invoke.cont3:                                     ; preds = %_ZNSt8_Rb_treeItSt4
   %exitcond.not = icmp eq i32 %inc, 100
   %or.cond = select i1 %cmp.i15.i.i, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %while.body.i.i.i117.preheader, label %for.body, !llvm.loop !453
-
-while.body.i.i.i117.preheader:                    ; preds = %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont3
-  br label %while.body.i.i.i117
 
 lpad:                                             ; preds = %for.body
   %3 = landingpad { ptr, i32 }

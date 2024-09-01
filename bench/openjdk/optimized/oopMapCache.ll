@@ -740,12 +740,9 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %55) #17
   %56 = add nuw nsw i32 %.02427, 1
   %exitcond.not = icmp eq i32 %56, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph.split, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph.split
-  br i1 %.not, label %.critedge, label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %._crit_edge, %.thread
+.critedge.thread:                                 ; preds = %.lr.ph.split, %.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.12, i32 noundef %4) #17
   %57 = icmp sgt i32 %4, 0
@@ -776,16 +773,13 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %74) #17
   %75 = add nuw nsw i32 %.02528, 1
   %exitcond33.not = icmp eq i32 %75, %4
-  br i1 %exitcond33.not, label %._crit_edge30, label %.lr.ph29.split, !llvm.loop !11
+  br i1 %exitcond33.not, label %._crit_edge30.thread, label %.lr.ph29.split, !llvm.loop !11
 
-._crit_edge30:                                    ; preds = %.lr.ph29.split
-  br i1 %.not, label %.critedge, label %._crit_edge30.thread
-
-._crit_edge30.thread:                             ; preds = %.critedge.thread, %._crit_edge30
+._crit_edge30.thread:                             ; preds = %.lr.ph29.split, %.critedge.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread, %._crit_edge, %._crit_edge30.thread, %._crit_edge30
+.critedge:                                        ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread, %._crit_edge30.thread
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #17
   br label %76
 

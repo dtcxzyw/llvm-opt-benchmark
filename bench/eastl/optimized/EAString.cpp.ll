@@ -6378,12 +6378,12 @@ if.end8.us:                                       ; preds = %if.end8.us.preheade
   %and11.us = zext nneg i8 %5 to i32
   %shl.us = shl i32 %or, %and11.us
   %cmp.us = icmp sgt i32 %shl.us, -1
-  br i1 %cmp.us, label %while.body28.lr.ph, label %for.body.us
+  br i1 %cmp.us, label %while.body28.us.preheader, label %for.body.us
 
 for.cond15.us:                                    ; preds = %for.body.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.body28.lr.ph, label %for.body.us, !llvm.loop !135
+  br i1 %exitcond.not, label %while.body28.us.preheader, label %for.body.us, !llvm.loop !135
 
 for.body.us:                                      ; preds = %if.end8.us, %for.cond15.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond15.us ], [ 0, %if.end8.us ]
@@ -6413,10 +6413,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %tobool4.not = icmp eq i8 %10, 0
   br i1 %tobool4.not, label %for.cond.preheader, label %while.body, !llvm.loop !137
 
-while.body28.lr.ph:                               ; preds = %if.end8.us, %for.cond15.us
-  br i1 %cmp1641.not, label %return.sink.split, label %while.body28.us.preheader
-
-while.body28.us.preheader:                        ; preds = %while.body28.lr.ph
+while.body28.us.preheader:                        ; preds = %if.end8.us, %for.cond15.us
   %wide.trip.count63 = zext i32 %inc to i64
   br label %while.body28.us
 
@@ -6452,9 +6449,9 @@ if.then46:                                        ; preds = %for.body40.us
   %add.ptr = getelementptr inbounds i8, ptr %s.251.us, i64 1
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %while.body28.lr.ph, %if.end8.lr.ph, %for.cond.preheader, %if.then46
-  %.sink = phi ptr [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %while.body28.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ %s.146.us, %if.then46 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %while.body28.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
+return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then46
+  %.sink = phi ptr [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ %s.146.us, %if.then46 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -6506,12 +6503,12 @@ if.end8.us:                                       ; preds = %if.end8.us.preheade
   %and11.us = zext nneg i16 %5 to i32
   %shl.us = shl i32 %or, %and11.us
   %cmp.us = icmp sgt i32 %shl.us, -1
-  br i1 %cmp.us, label %while.body28.lr.ph, label %for.body.us
+  br i1 %cmp.us, label %while.body28.us.preheader, label %for.body.us
 
 for.cond15.us:                                    ; preds = %for.body.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.body28.lr.ph, label %for.body.us, !llvm.loop !140
+  br i1 %exitcond.not, label %while.body28.us.preheader, label %for.body.us, !llvm.loop !140
 
 for.body.us:                                      ; preds = %if.end8.us, %for.cond15.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond15.us ], [ 0, %if.end8.us ]
@@ -6541,10 +6538,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %tobool4.not = icmp eq i16 %10, 0
   br i1 %tobool4.not, label %for.cond.preheader, label %while.body, !llvm.loop !142
 
-while.body28.lr.ph:                               ; preds = %if.end8.us, %for.cond15.us
-  br i1 %cmp1641.not, label %return.sink.split, label %while.body28.us.preheader
-
-while.body28.us.preheader:                        ; preds = %while.body28.lr.ph
+while.body28.us.preheader:                        ; preds = %if.end8.us, %for.cond15.us
   %wide.trip.count63 = zext i32 %inc to i64
   br label %while.body28.us
 
@@ -6580,9 +6574,9 @@ if.then46:                                        ; preds = %for.body40.us
   %add.ptr = getelementptr inbounds i8, ptr %s.251.us, i64 2
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %while.body28.lr.ph, %if.end8.lr.ph, %for.cond.preheader, %if.then46
-  %.sink = phi ptr [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %while.body28.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ %s.146.us, %if.then46 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %while.body28.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
+return.sink.split:                                ; preds = %still_delimiters.us, %if.end51.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then46
+  %.sink = phi ptr [ %add.ptr, %if.then46 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end51.us ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ %s.146.us, %if.then46 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end51.us ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -6633,12 +6627,12 @@ if.end8.us:                                       ; preds = %if.end8.us.preheade
   %and9.us = and i32 %4, 31
   %shl.us = shl i32 %or, %and9.us
   %cmp.us = icmp sgt i32 %shl.us, -1
-  br i1 %cmp.us, label %while.body24.lr.ph, label %for.body.us
+  br i1 %cmp.us, label %while.body24.us.preheader, label %for.body.us
 
 for.cond13.us:                                    ; preds = %for.body.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.body24.lr.ph, label %for.body.us, !llvm.loop !145
+  br i1 %exitcond.not, label %while.body24.us.preheader, label %for.body.us, !llvm.loop !145
 
 for.body.us:                                      ; preds = %if.end8.us, %for.cond13.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond13.us ], [ 0, %if.end8.us ]
@@ -6667,10 +6661,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %tobool4.not = icmp eq i32 %8, 0
   br i1 %tobool4.not, label %for.cond.preheader, label %while.body, !llvm.loop !147
 
-while.body24.lr.ph:                               ; preds = %if.end8.us, %for.cond13.us
-  br i1 %cmp1441.not, label %return.sink.split, label %while.body24.us.preheader
-
-while.body24.us.preheader:                        ; preds = %while.body24.lr.ph
+while.body24.us.preheader:                        ; preds = %if.end8.us, %for.cond13.us
   %wide.trip.count63 = zext i32 %inc to i64
   br label %while.body24.us
 
@@ -6705,9 +6696,9 @@ if.then39:                                        ; preds = %for.body35.us
   %add.ptr = getelementptr inbounds i8, ptr %s.251.us, i64 4
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %still_delimiters.us, %if.end44.us, %for.cond.preheader.thread, %while.body24.lr.ph, %if.end8.lr.ph, %for.cond.preheader, %if.then39
-  %.sink = phi ptr [ %add.ptr, %if.then39 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %while.body24.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end44.us ], [ null, %still_delimiters.us ]
-  %retval.0.ph = phi ptr [ %s.146.us, %if.then39 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %s.146.us, %while.body24.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end44.us ], [ null, %still_delimiters.us ]
+return.sink.split:                                ; preds = %still_delimiters.us, %if.end44.us, %for.cond.preheader.thread, %if.end8.lr.ph, %for.cond.preheader, %if.then39
+  %.sink = phi ptr [ %add.ptr, %if.then39 ], [ null, %for.cond.preheader ], [ null, %if.end8.lr.ph ], [ null, %for.cond.preheader.thread ], [ null, %if.end44.us ], [ null, %still_delimiters.us ]
+  %retval.0.ph = phi ptr [ %s.146.us, %if.then39 ], [ null, %for.cond.preheader ], [ %s.0, %if.end8.lr.ph ], [ %spec.select, %for.cond.preheader.thread ], [ %s.146.us, %if.end44.us ], [ null, %still_delimiters.us ]
   store ptr %.sink, ptr %pContext, align 8
   br label %return
 
@@ -13461,7 +13452,7 @@ if.else61.loopexit:                               ; preds = %for.end, %while.bod
   br label %if.else61
 
 if.else61:                                        ; preds = %if.else61.loopexit, %if.then19, %if.end56
-  %cmp1897 = phi i1 [ %cmp18, %if.else61.loopexit ], [ true, %if.then19 ], [ false, %if.end56 ]
+  %cmp1897 = phi i1 [ true, %if.else61.loopexit ], [ true, %if.then19 ], [ false, %if.end56 ]
   %nDecimalIndex.0.lcssa95 = phi i32 [ %spec.select, %if.else61.loopexit ], [ %spec.select, %if.then19 ], [ %nDecimalIndex.0.lcssa96, %if.end56 ]
   %conv63.pre-phi = phi i32 [ %.pre, %if.else61.loopexit ], [ %conv, %if.then19 ], [ %conv, %if.end56 ]
   %nNewLength.263 = phi i64 [ %nNewLength.263.ph, %if.else61.loopexit ], [ %nLength.addr.0, %if.then19 ], [ %nLength.addr.0, %if.end56 ]

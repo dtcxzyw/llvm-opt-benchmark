@@ -3192,19 +3192,19 @@ while.body18.lr.ph.lr.ph:                         ; preds = %while.end
   br label %while.body18.lr.ph.split
 
 while.body18.lr.ph.split:                         ; preds = %if.end64, %while.body18.lr.ph.lr.ph
-  %.pre.i88 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %.pre.i89, %if.end64 ]
-  %curr_iov_remaining_.promoted65 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %curr_iov_remaining_.promoted6582, %if.end64 ]
+  %.pre.i83 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %.pre.i84, %if.end64 ]
+  %curr_iov_remaining_.promoted65 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %curr_iov_remaining_.promoted6577, %if.end64 ]
   %from_iov_offset.2.ph62 = phi i64 [ %from_iov_offset.1, %while.body18.lr.ph.lr.ph ], [ %from_iov_offset.3, %if.end64 ]
   %from_iov.1.ph60 = phi ptr [ %from_iov.039, %while.body18.lr.ph.lr.ph ], [ %from_iov.2, %if.end64 ]
   %len.addr.0.ph59 = phi i64 [ %len, %while.body18.lr.ph.lr.ph ], [ %len.addr.1, %if.end64 ]
-  %curr_iov_.promoted64 = load ptr, ptr %curr_iov_, align 8
   %7 = load ptr, ptr %this, align 8
+  %curr_iov_.promoted64 = load ptr, ptr %curr_iov_, align 8
   %cmp20.not55 = icmp eq ptr %from_iov.1.ph60, %curr_iov_.promoted64
   br i1 %cmp20.not55, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end38, %while.body18.lr.ph.split
-  %.pre.i = phi i64 [ %.pre.i88, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
-  %curr_iov_remaining_.promoted6580 = phi i64 [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
+  %.pre.i = phi i64 [ %.pre.i83, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
+  %curr_iov_remaining_.promoted6575 = phi i64 [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
   %iov_len22 = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 8
   %8 = load i64, ptr %iov_len22, align 8
   %sub23 = sub i64 %8, %from_iov_offset.2.ph62
@@ -3218,10 +3218,10 @@ while.body.lr.ph.i:                               ; preds = %if.then21
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
-  %.pre.i85 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub.i, %if.end9.i ]
+  %.pre.i80 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub.i, %if.end9.i ]
   %ip.addr.012.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %add.ptr15.i, %if.end9.i ]
   %storemerge11.i = phi i64 [ %.sroa.speculated, %while.body.lr.ph.i ], [ %sub16.i, %if.end9.i ]
-  %cmp2.i = icmp eq i64 %.pre.i85, 0
+  %cmp2.i = icmp eq i64 %.pre.i80, 0
   br i1 %cmp2.i, label %if.then.i, label %while.body.if.end9_crit_edge.i
 
 while.body.if.end9_crit_edge.i:                   ; preds = %while.body.i
@@ -3246,7 +3246,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end9.i:                                        ; preds = %if.end.i, %while.body.if.end9_crit_edge.i
   %14 = phi ptr [ %12, %if.end.i ], [ %.pre15.i, %while.body.if.end9_crit_edge.i ]
-  %15 = phi i64 [ %13, %if.end.i ], [ %.pre.i85, %while.body.if.end9_crit_edge.i ]
+  %15 = phi i64 [ %13, %if.end.i ], [ %.pre.i80, %while.body.if.end9_crit_edge.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %storemerge11.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %ip.addr.012.i, i64 %.sroa.speculated.i, i1 false)
   %16 = load ptr, ptr %curr_iov_output_, align 8
@@ -3264,8 +3264,8 @@ if.end9.i:                                        ; preds = %if.end.i, %while.bo
   br i1 %cmp.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %while.body.i, !llvm.loop !24
 
 _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %if.then.i, %if.end9.i, %if.then21
-  %.pre.i86 = phi i64 [ %.pre.i, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
-  %curr_iov_remaining_.promoted6579 = phi i64 [ %curr_iov_remaining_.promoted6580, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
+  %.pre.i81 = phi i64 [ %.pre.i, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
+  %curr_iov_remaining_.promoted6574 = phi i64 [ %curr_iov_remaining_.promoted6575, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
   %cmp27.not.not = icmp ugt i64 %len.addr.0.ph59, %sub23
   %spec.select.idx = select i1 %cmp27.not.not, i64 16, i64 0
   %spec.select = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 %spec.select.idx
@@ -3314,8 +3314,8 @@ if.end45:                                         ; preds = %if.else
   br label %if.end64
 
 if.end64:                                         ; preds = %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, %if.end45
-  %.pre.i89 = phi i64 [ %sub60, %if.end45 ], [ %.pre.i86, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
-  %curr_iov_remaining_.promoted6582 = phi i64 [ %sub60, %if.end45 ], [ %curr_iov_remaining_.promoted6579, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.pre.i84 = phi i64 [ %sub60, %if.end45 ], [ %.pre.i81, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %curr_iov_remaining_.promoted6577 = phi i64 [ %sub60, %if.end45 ], [ %curr_iov_remaining_.promoted6574, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
   %spec.select29.pn = phi i64 [ %spec.select29, %if.end45 ], [ %.sroa.speculated, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
   %from_iov.2 = phi ptr [ %from_iov.1.ph60, %if.end45 ], [ %spec.select, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
   %from_iov_offset.3 = phi i64 [ %add, %if.end45 ], [ %spec.select28, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]

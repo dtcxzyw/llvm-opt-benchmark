@@ -104,8 +104,8 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
   store i64 %59, ptr %40, align 1
   tail call void @msleep(i32 noundef 50) #4
   %60 = add nsw i32 %42, -1
-  %.not11 = icmp eq i32 %60, 0
-  br i1 %.not11, label %.thread8, label %41, !llvm.loop !5
+  %.not9 = icmp eq i32 %60, 0
+  br i1 %.not9, label %.thread8, label %41, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = getelementptr i8, ptr %17, i64 4120

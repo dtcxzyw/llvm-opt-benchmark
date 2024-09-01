@@ -232,30 +232,21 @@ define hidden noundef zeroext i1 @_ZN11FpuStackSim8containsEi(ptr nocapture noun
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %7 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %8 = load i32, ptr %3, align 4
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %7 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %1
-  br i1 %9, label %._crit_edge, label %.lr.ph10
-
-.lr.ph10:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %.lr.ph10
-  %10 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, %1
-  br i1 %12, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !9
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph10
-  %13 = icmp ult i64 %indvars.iv.next, %7
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.preheader ], [ %13, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %9, %.lr.ph ]
   ret i1 %.lcssa
 }
 

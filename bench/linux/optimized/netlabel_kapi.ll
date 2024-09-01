@@ -744,12 +744,12 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   %34 = phi i64 [ 1, %.split42.us ], [ %28, %.loopexit8 ]
   %.fr43 = freeze ptr %31
   %35 = getelementptr inbounds i8, ptr %30, i64 8
-  %.not44.not = icmp ne ptr %.fr43, null
+  %.not44.not.not.not.not = icmp ne ptr %.fr43, null
   %36 = zext nneg i32 %32 to i64
   %umax93 = tail call i32 @llvm.umax.i32(i32 %32, i32 3)
   %37 = add nuw nsw i32 %umax93, 1
   %wide.trip.count94 = zext nneg i32 %37 to i64
-  br i1 %.not44.not, label %.split, label %.split.us
+  br i1 %.not44.not.not.not.not, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %29, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ %36, %29 ]
@@ -810,7 +810,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   %.us-phi37 = phi i32 [ %52, %.split ], [ %38, %.split.us ]
   %.us-phi36 = trunc i64 %.us-phi36.in to i32
   %68 = icmp eq i32 %.us-phi36, 0
-  %69 = and i1 %.not44.not, %68
+  %69 = and i1 %.not44.not.not.not.not, %68
   %70 = icmp eq i32 %.us-phi37, 0
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %.loopexit, label %.thread7

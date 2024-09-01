@@ -14339,8 +14339,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26Flat
 
 14:                                               ; preds = %16, %11
   %15 = phi ptr [ %17, %16 ], [ %10, %11 ]
-  %.not.i.not.i.not = icmp eq ptr %15, %13
-  br i1 %.not.i.not.i.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit.thread", label %16
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %15, %13
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit.thread", label %16
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit.thread": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4084
@@ -14393,8 +14393,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26Flat
 
 31:                                               ; preds = %33, %28
   %32 = phi ptr [ %34, %33 ], [ %27, %28 ]
-  %.not.i.not.i18.not = icmp eq ptr %32, %30
-  br i1 %.not.i.not.i18.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit19.thread", label %33
+  %.not.not.not.i.not.not.not.i18.not = icmp eq ptr %32, %30
+  br i1 %.not.not.not.i.not.not.not.i18.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit19.thread", label %33
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h458b87a1247c597dE.exit19.thread": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !4110
@@ -14444,8 +14444,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26Flat
 
 14:                                               ; preds = %16, %11
   %15 = phi ptr [ %17, %16 ], [ %10, %11 ]
-  %.not.i.not.i.not = icmp eq ptr %15, %13
-  br i1 %.not.i.not.i.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit.thread", label %16
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %15, %13
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit.thread", label %16
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit.thread": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4125
@@ -14498,8 +14498,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters7flatten26Flat
 
 31:                                               ; preds = %33, %28
   %32 = phi ptr [ %34, %33 ], [ %27, %28 ]
-  %.not.i.not.i18.not = icmp eq ptr %32, %30
-  br i1 %.not.i.not.i18.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit19.thread", label %33
+  %.not.not.not.i.not.not.not.i18.not = icmp eq ptr %32, %30
+  br i1 %.not.not.not.i.not.not.not.i18.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit19.thread", label %33
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd5b0c6b77f780964E.exit19.thread": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !4151
@@ -20333,8 +20333,8 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 .backedge:                                        ; preds = %9, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %.not12 = icmp eq ptr %11, %7
-  br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
+  %.not10 = icmp eq ptr %11, %7
+  br i1 %.not10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit": ; preds = %.backedge, %2, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread"
   %17 = phi i1 [ true, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread" ], [ false, %2 ], [ false, %.backedge ]
@@ -20390,8 +20390,8 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 .backedge:                                        ; preds = %9, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %.not12 = icmp eq ptr %11, %7
-  br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
+  %.not10 = icmp eq ptr %11, %7
+  br i1 %.not10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit": ; preds = %.backedge, %2, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread"
   %17 = phi i1 [ true, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread" ], [ false, %2 ], [ false, %.backedge ]
@@ -20447,8 +20447,8 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 .backedge:                                        ; preds = %9, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %.not12 = icmp eq ptr %11, %7
-  br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
+  %.not10 = icmp eq ptr %11, %7
+  br i1 %.not10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit": ; preds = %.backedge, %2, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread"
   %17 = phi i1 [ true, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread" ], [ false, %2 ], [ false, %.backedge ]
@@ -20504,8 +20504,8 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 .backedge:                                        ; preds = %9, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %.not12 = icmp eq ptr %11, %7
-  br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
+  %.not10 = icmp eq ptr %11, %7
+  br i1 %.not10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85d241f2a3ad0541E.exit": ; preds = %.backedge, %2, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread"
   %17 = phi i1 [ true, %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit.i.thread" ], [ false, %2 ], [ false, %.backedge ]

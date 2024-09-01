@@ -7234,8 +7234,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond18 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -7251,8 +7251,8 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1024, align 8
-  %call15 = call i32 @PyLong_AsInt(ptr noundef %3) #15
+  %2 = load ptr, ptr %cond1024, align 8
+  %call15 = call i32 @PyLong_AsInt(ptr noundef %2) #15
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %land.lhs.true17, label %skip_optional_pos
 
@@ -7268,9 +7268,9 @@ skip_optional_pos:                                ; preds = %if.end14, %land.lhs
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_pos
-  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %5 = load ptr, ptr %4, align 8
-  %current_frame.i = getelementptr inbounds i8, ptr %5, i64 64
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %4 = load ptr, ptr %3, align 8
+  %current_frame.i = getelementptr inbounds i8, ptr %4, i64 64
   %f.05.i = load ptr, ptr %current_frame.i, align 8
   %cond6.i = icmp eq ptr %f.05.i, null
   br i1 %cond6.i, label %exit, label %land.rhs.i
@@ -7279,22 +7279,22 @@ land.rhs.i:                                       ; preds = %if.end.i, %while.bo
   %f.08.i = phi ptr [ %f.0.i, %while.body.i ], [ %f.05.i, %if.end.i ]
   %depth.addr.07.i = phi i32 [ %depth.addr.1.i, %while.body.i ], [ %depth.0, %if.end.i ]
   %owner.i.i = getelementptr inbounds i8, ptr %f.08.i, i64 70
-  %6 = load i8, ptr %owner.i.i, align 2
-  switch i8 %6, label %_PyFrame_IsIncomplete.exit.i [
+  %5 = load i8, ptr %owner.i.i, align 2
+  switch i8 %5, label %_PyFrame_IsIncomplete.exit.i [
     i8 3, label %while.body.i
     i8 1, label %lor.rhs.i
   ]
 
 _PyFrame_IsIncomplete.exit.i:                     ; preds = %land.rhs.i
   %instr_ptr.i.i = getelementptr inbounds i8, ptr %f.08.i, i64 56
-  %7 = load ptr, ptr %instr_ptr.i.i, align 8
+  %6 = load ptr, ptr %instr_ptr.i.i, align 8
   %frame.val.i.i = load ptr, ptr %f.08.i, align 8
   %co_code_adaptive.i.i = getelementptr inbounds i8, ptr %frame.val.i.i, i64 200
   %_co_firsttraceable.i.i = getelementptr inbounds i8, ptr %frame.val.i.i, i64 184
-  %8 = load i32, ptr %_co_firsttraceable.i.i, align 8
-  %idx.ext.i.i = sext i32 %8 to i64
+  %7 = load i32, ptr %_co_firsttraceable.i.i, align 8
+  %idx.ext.i.i = sext i32 %7 to i64
   %add.ptr.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i, i64 %idx.ext.i.i
-  %cmp7.i.i = icmp ult ptr %7, %add.ptr.i.i
+  %cmp7.i.i = icmp ult ptr %6, %add.ptr.i.i
   br i1 %cmp7.i.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_PyFrame_IsIncomplete.exit.i, %land.rhs.i
@@ -7311,12 +7311,12 @@ while.body.i:                                     ; preds = %lor.rhs.i, %_PyFram
 
 lor.lhs.false.i:                                  ; preds = %lor.rhs.i
   %f_funcobj.i = getelementptr inbounds i8, ptr %f.08.i, i64 16
-  %9 = load ptr, ptr %f_funcobj.i, align 8
-  %cmp5.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %f_funcobj.i, align 8
+  %cmp5.i = icmp eq ptr %8, null
   br i1 %cmp5.i, label %exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %call9.i = call ptr @PyFunction_GetModule(ptr noundef nonnull %9) #15
+  %call9.i = call ptr @PyFunction_GetModule(ptr noundef nonnull %8) #15
   %tobool10.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool10.not.i, label %if.then11.i, label %if.end12.i
 
@@ -7326,8 +7326,8 @@ if.then11.i:                                      ; preds = %if.end7.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %if.end7.i
   %r.0.i = phi ptr [ %call9.i, %if.end7.i ], [ @_Py_NoneStruct, %if.then11.i ]
-  %10 = load i32, ptr %r.0.i, align 8
-  %add.i.i.i = add i32 %10, 1
+  %9 = load i32, ptr %r.0.i, align 8
+  %add.i.i.i = add i32 %9, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %exit, label %if.end.i.i.i
 

@@ -916,8 +916,8 @@ if.then:                                          ; preds = %land.lhs.true
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %cmp.not34.not = icmp eq ptr %1, %2
-  br i1 %cmp.not34.not, label %return.sink.split, label %for.body
+  %cmp34.not = icmp eq ptr %1, %2
+  br i1 %cmp34.not, label %return.sink.split, label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc35
   %3 = phi ptr [ %14, %for.inc35 ], [ %2, %if.then ]
@@ -1004,8 +1004,8 @@ for.inc35:                                        ; preds = %for.cond16, %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not = icmp ult i64 %inc36, %sub.ptr.div.i
-  br i1 %cmp.not, label %for.body, label %return.sink.split, !llvm.loop !17
+  %cmp = icmp ult i64 %inc36, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %return.sink.split, !llvm.loop !17
 
 cleanup:                                          ; preds = %invoke.cont28
   %conv33 = trunc i64 %idx.035 to i32

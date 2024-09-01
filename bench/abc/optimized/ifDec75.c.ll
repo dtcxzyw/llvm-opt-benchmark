@@ -846,8 +846,8 @@ define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr nocapture n
   br i1 %.not, label %24, label %Abc_TtMinimumBase.exit
 
 24:                                               ; preds = %5
-  %25 = icmp slt i32 %3, 1
-  br i1 %25, label %Abc_TtMinimumBase.exit.thread, label %.lr.ph.i
+  %25 = icmp sgt i32 %3, 0
+  br i1 %25, label %.lr.ph.i, label %Abc_TtMinimumBase.exit.thread
 
 .lr.ph.i:                                         ; preds = %24
   %26 = icmp ult i32 %3, 7
@@ -989,8 +989,8 @@ Abc_TtHasVar.exit.i:                              ; preds = %49, %Abc_TtHasVar.e
 73:                                               ; preds = %._crit_edge.i
   %74 = add nsw i32 %.0.lcssa.i, 1
   %75 = and i32 %74, %.0.lcssa.i
-  %.not.i = icmp eq i32 %75, 0
-  br i1 %.not.i, label %Abc_TtMinimumBase.exit, label %.lr.ph53.i.i
+  %.not.i.not = icmp eq i32 %75, 0
+  br i1 %.not.i.not, label %Abc_TtMinimumBase.exit, label %.lr.ph53.i.i
 
 .lr.ph53.i.i:                                     ; preds = %73
   %76 = select i1 %26, i32 1, i32 %.fr.i.i
@@ -1126,7 +1126,7 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.i.i:          ; preds = %._crit_edge.us.i.us
   br i1 %.not15.not.us.us.us.us.i.i, label %.lr.ph.us.us.i.i, label %._crit_edge.split.us.us.split.us.us.i.i, !llvm.loop !28
 
 Abc_TtMinimumBase.exit:                           ; preds = %83, %.lr.ph53.i.i, %73, %._crit_edge.i, %5
-  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %73 ], [ %.023.lcssa.i, %.lr.ph53.i.i ], [ %.023.lcssa.i, %83 ]
+  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %.lr.ph53.i.i ], [ %.023.lcssa.i, %73 ], [ %.023.lcssa.i, %83 ]
   %133 = icmp slt i32 %.030, 6
   br i1 %133, label %Abc_TtMinimumBase.exit.thread, label %134
 

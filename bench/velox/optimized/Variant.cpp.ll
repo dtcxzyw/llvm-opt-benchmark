@@ -7112,26 +7112,23 @@ for.inc26.i:                                      ; preds = %if.then17.i, %for.b
 _ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit: ; preds = %for.inc26.i, %for.end.i
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  br i1 %cmp.i.i.i, label %invoke.cont.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %.pre14, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i
 
-if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
+if.then3.i.i.i.i.i.i:                             ; preds = %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
+_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit
   %call5.i.i.i.i2.i6.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre13) #33
           to label %invoke.cont.i unwind label %lpad
 
-invoke.cont.i:                                    ; preds = %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit
-  %call20 = phi ptr [ %call, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit ], [ %call, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i ], [ %call17, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread ]
-  %cond.i.i.i.i = phi ptr [ null, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit ], [ %call5.i.i.i.i2.i6.i7, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread ]
+invoke.cont.i:                                    ; preds = %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i
+  %call20 = phi ptr [ %call, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i ], [ %call17, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread ]
+  %cond.i.i.i.i = phi ptr [ %call5.i.i.i.i2.i6.i7, %_ZNSt16allocator_traitsISaIN8facebook5velox7variantEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZN8facebook5velox7variant19verifyArrayElementsERKSt6vectorIS1_SaIS1_EE.exit.thread ]
   store ptr %cond.i.i.i.i, ptr %call20, align 8
   %_M_finish.i.i.i6 = getelementptr inbounds i8, ptr %call20, i64 8
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i6, align 8

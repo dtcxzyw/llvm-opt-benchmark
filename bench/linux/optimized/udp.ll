@@ -1964,8 +1964,8 @@ sock_put.exit:                                    ; preds = %176
   %207 = getelementptr inbounds i8, ptr %0, i64 127
   %208 = load i8, ptr %207, align 1
   %209 = and i8 %208, 1
-  %.not33 = icmp eq i8 %209, 0
-  br i1 %.not33, label %249, label %210
+  %.not32 = icmp eq i8 %209, 0
+  br i1 %.not32, label %249, label %210
 
 210:                                              ; preds = %203
   %211 = getelementptr inbounds i8, ptr %0, i64 216
@@ -2023,8 +2023,8 @@ sock_put.exit:                                    ; preds = %176
 249:                                              ; preds = %203
   %250 = getelementptr inbounds i8, ptr %206, i64 2816
   %251 = load i32, ptr %250, align 4
-  %.not34 = icmp eq i32 %251, 0
-  br i1 %.not34, label %252, label %.thread23
+  %.not33 = icmp eq i32 %251, 0
+  br i1 %.not33, label %252, label %.thread23
 
 252:                                              ; preds = %249
   %253 = getelementptr inbounds i8, ptr %206, i64 2968
@@ -2137,8 +2137,8 @@ nf_reset_ct.exit:                                 ; preds = %.thread27, %281, %2
 
 udp_lib_checksum_complete.exit:                   ; preds = %316, %318
   %320 = phi i16 [ %317, %316 ], [ %319, %318 ]
-  %.not32 = icmp eq i16 %320, 0
-  br i1 %.not32, label %udp_lib_checksum_complete.exit.thread, label %sock_put.exit.thread
+  %.not34 = icmp eq i16 %320, 0
+  br i1 %.not34, label %udp_lib_checksum_complete.exit.thread, label %sock_put.exit.thread
 
 udp_lib_checksum_complete.exit.thread:            ; preds = %290, %nf_reset_ct.exit, %297, %udp_lib_checksum_complete.exit
   %321 = icmp eq i32 %2, 136

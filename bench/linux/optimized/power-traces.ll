@@ -2043,9 +2043,8 @@ define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef
 
 39:                                               ; preds = %22
   %40 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %40
-  %41 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %41, ptr @.str.8, ptr %.fr
+  %41 = icmp eq ptr %40, null
+  %spec.select = select i1 %41, ptr @.str.8, ptr %40
   br label %.thread4
 
 .thread4:                                         ; preds = %39, %22
@@ -2181,9 +2180,8 @@ define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr no
 
 51:                                               ; preds = %25
   %52 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %52
-  %53 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %53, ptr @.str.8, ptr %.fr
+  %53 = icmp eq ptr %52, null
+  %spec.select = select i1 %53, ptr @.str.8, ptr %52
   br label %.thread4
 
 .thread4:                                         ; preds = %51, %25
@@ -2276,9 +2274,8 @@ define internal void @trace_event_raw_event_device_pm_callback_end(ptr noundef %
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %18
-  %19 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %19, ptr @.str.8, ptr %.fr
+  %19 = icmp eq ptr %18, null
+  %spec.select = select i1 %19, ptr @.str.8, ptr %18
   br label %.thread2
 
 .thread2:                                         ; preds = %17, %14
@@ -2319,18 +2316,17 @@ define internal void @trace_event_raw_event_device_pm_callback_end(ptr noundef %
   store i32 %43, ptr %45, align 4
   %46 = getelementptr i8, ptr %38, i64 20
   %47 = load ptr, ptr %15, align 8
-  %.not9 = icmp eq ptr %47, null
-  br i1 %.not9, label %48, label %.thread6
+  %.not8 = icmp eq ptr %47, null
+  br i1 %.not8, label %48, label %.thread6
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %49
-  %50 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %50, ptr @.str.8, ptr %.fr8
+  %50 = icmp eq ptr %49, null
+  %spec.select9 = select i1 %50, ptr @.str.8, ptr %49
   br label %.thread6
 
 .thread6:                                         ; preds = %48, %40
-  %51 = phi ptr [ %47, %40 ], [ %spec.select10, %48 ]
+  %51 = phi ptr [ %47, %40 ], [ %spec.select9, %48 ]
   %52 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %51) #9
   %53 = and i32 %42, 65535
   %54 = zext nneg i32 %53 to i64
@@ -2369,9 +2365,8 @@ define internal void @perf_trace_device_pm_callback_end(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %9
-  %10 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %10, ptr @.str.8, ptr %.fr
+  %10 = icmp eq ptr %9, null
+  %spec.select = select i1 %10, ptr @.str.8, ptr %9
   br label %.thread2
 
 .thread2:                                         ; preds = %8, %3
@@ -2441,18 +2436,17 @@ define internal void @perf_trace_device_pm_callback_end(ptr noundef %0, ptr noun
   store i32 %27, ptr %56, align 4
   %57 = getelementptr i8, ptr %43, i64 20
   %58 = load ptr, ptr %6, align 8
-  %.not9 = icmp eq ptr %58, null
-  br i1 %.not9, label %59, label %.thread6
+  %.not8 = icmp eq ptr %58, null
+  br i1 %.not8, label %59, label %.thread6
 
 59:                                               ; preds = %45
   %60 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %60
-  %61 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %61, ptr @.str.8, ptr %.fr8
+  %61 = icmp eq ptr %60, null
+  %spec.select9 = select i1 %61, ptr @.str.8, ptr %60
   br label %.thread6
 
 .thread6:                                         ; preds = %59, %45
-  %62 = phi ptr [ %58, %45 ], [ %spec.select10, %59 ]
+  %62 = phi ptr [ %58, %45 ], [ %spec.select9, %59 ]
   %63 = call ptr @strcpy(ptr noundef %57, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = and i32 %25, 65535
   %65 = zext nneg i32 %64 to i64
@@ -3539,9 +3533,8 @@ define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %7
-  %8 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %8, ptr @.str.8, ptr %.fr
+  %8 = icmp eq ptr %7, null
+  %spec.select = select i1 %8, ptr @.str.8, ptr %7
   br label %.thread3
 
 .thread3:                                         ; preds = %6, %3

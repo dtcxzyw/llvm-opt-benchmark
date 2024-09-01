@@ -11352,7 +11352,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i287.i
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i
   %cmp50.i.i.i = icmp eq i64 %118, %wide.trip.count.i.i.i
-  br i1 %cmp50.i.i.i, label %if.then52.i.i.i, label %for.body75.lr.ph.i.i.i
+  br i1 %cmp50.i.i.i, label %if.then52.i.i.i, label %if.else70.i.i.i
 
 for.end.thread.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %conv48164.i.i.i = sext i32 %preimage_limit.0.i.i.i to i64
@@ -11381,7 +11381,7 @@ land.lhs.true63.i.i.i:                            ; preds = %cond.false.i.i.i, %
   %tobool67.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool67.not.i.i.i, label %find_pos.exit.i, label %if.end102.i.i.i
 
-for.body75.lr.ph.i.i.i:                           ; preds = %for.end.i.i.i
+if.else70.i.i.i:                                  ; preds = %for.end.i.i.i
   %131 = load ptr, ptr %preimage.i, align 8
   br label %for.body75.i.i.i
 
@@ -11396,9 +11396,9 @@ for.body87.preheader.i.i.i:                       ; preds = %for.cond84.preheade
   %scevgep.i.i.i = getelementptr i8, ptr %131, i64 %133
   br label %for.body87.i.i.i
 
-for.body75.i.i.i:                                 ; preds = %for.body75.i.i.i, %for.body75.lr.ph.i.i.i
-  %indvars.iv140.i.i.i = phi i64 [ 0, %for.body75.lr.ph.i.i.i ], [ %indvars.iv.next141.i.i.i, %for.body75.i.i.i ]
-  %buf_end.0107.i.i.i = phi ptr [ %131, %for.body75.lr.ph.i.i.i ], [ %add.ptr80.i.i.i, %for.body75.i.i.i ]
+for.body75.i.i.i:                                 ; preds = %for.body75.i.i.i, %if.else70.i.i.i
+  %indvars.iv140.i.i.i = phi i64 [ 0, %if.else70.i.i.i ], [ %indvars.iv.next141.i.i.i, %for.body75.i.i.i ]
+  %buf_end.0107.i.i.i = phi ptr [ %131, %if.else70.i.i.i ], [ %add.ptr80.i.i.i, %for.body75.i.i.i ]
   %arrayidx78.i.i.i = getelementptr inbounds %struct.line, ptr %122, i64 %indvars.iv140.i.i.i
   %134 = load i64, ptr %arrayidx78.i.i.i, align 8
   %add.ptr80.i.i.i = getelementptr inbounds i8, ptr %buf_end.0107.i.i.i, i64 %134
@@ -12313,8 +12313,8 @@ copy_array.exit.i.i:                              ; preds = %if.then.i85.i.i
   %mul.i.i88.i.i = shl nuw i64 %265, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr87.i.i, ptr readonly align 1 %269, i64 %mul.i.i88.i.i, i1 false)
   %270 = load i32, ptr %allow_overlap.i.i, align 4
-  %tobool.not.i345.i.not = icmp eq i32 %270, 0
-  br i1 %tobool.not.i345.i.not, label %for.body96.i.i, label %update_image.exit.i
+  %tobool.not.i345.not.i = icmp eq i32 %270, 0
+  br i1 %tobool.not.i345.not.i, label %for.body96.i.i, label %update_image.exit.i
 
 for.body96.i.i:                                   ; preds = %copy_array.exit.i.i, %for.body96.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %for.body96.i.i ], [ 0, %copy_array.exit.i.i ]

@@ -5882,12 +5882,12 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   %11 = getelementptr inbounds i8, ptr %0, i64 63
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = getelementptr inbounds i8, ptr %0, i64 60
-  br label %.loopexit9
+  br label %.thread7
 
-.loopexit9.backedge:                              ; preds = %.preheader10, %.preheader8, %.loopexit, %246, %.preheader11
-  br label %.loopexit9
+.thread7.backedge:                                ; preds = %.preheader12, %.preheader10, %246, %.loopexit, %.preheader
+  br label %.thread7
 
-.loopexit9:                                       ; preds = %.loopexit9.backedge, %3
+.thread7:                                         ; preds = %.thread7.backedge, %3
   %14 = load ptr, ptr %6, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -256
@@ -5901,25 +5901,25 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
     i32 1, label %23
   ]
 
-21:                                               ; preds = %.loopexit9
+21:                                               ; preds = %.thread7
   %22 = getelementptr inbounds i8, ptr %17, i64 8
   br label %25
 
-23:                                               ; preds = %.loopexit9, %.loopexit9
+23:                                               ; preds = %.thread7, %.thread7
   %24 = getelementptr inbounds i8, ptr %17, i64 8
   br label %25
 
-25:                                               ; preds = %23, %21, %.loopexit9
-  %26 = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %.loopexit9 ]
+25:                                               ; preds = %23, %21, %.thread7
+  %26 = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %.thread7 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !19
   %27 = load ptr, ptr %17, align 256
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -256
   %30 = inttoptr i64 %29 to ptr
   %31 = icmp eq ptr %30, %17
-  br i1 %31, label %.preheader11, label %34, !prof !12
+  br i1 %31, label %.preheader, label %34, !prof !12
 
-.preheader11:                                     ; preds = %25, %.preheader11
+.preheader:                                       ; preds = %25, %.preheader
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %8, align 8
@@ -5927,7 +5927,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %32 = load i32, ptr %7, align 8
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %.preheader11, label %.loopexit9.backedge
+  br i1 %33, label %.preheader, label %.thread7.backedge
 
 34:                                               ; preds = %25
   %35 = load i64, ptr %9, align 8
@@ -5954,9 +5954,9 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   %49 = and i64 %48, -256
   %50 = inttoptr i64 %49 to ptr
   %51 = icmp eq ptr %50, %17
-  br i1 %51, label %.preheader10, label %54, !prof !12
+  br i1 %51, label %.preheader12, label %54, !prof !12
 
-.preheader10:                                     ; preds = %45, %.preheader10
+.preheader12:                                     ; preds = %45, %.preheader12
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %8, align 8
@@ -5964,7 +5964,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %52 = load i32, ptr %7, align 8
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %.preheader10, label %.loopexit9.backedge
+  br i1 %53, label %.preheader12, label %.thread7.backedge
 
 54:                                               ; preds = %45
   %55 = icmp ult i64 %46, %1
@@ -5972,7 +5972,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
 
 56:                                               ; preds = %54
   store i32 5, ptr %7, align 8
-  br label %.loopexit12
+  br label %.loopexit14
 
 57:                                               ; preds = %54, %34
   %58 = load i8, ptr %10, align 1
@@ -5987,7 +5987,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   br label %65
 
 65:                                               ; preds = %._crit_edge, %61
-  %66 = phi i8 [ %59, %61 ], [ %.pre56, %._crit_edge ]
+  %66 = phi i8 [ %59, %61 ], [ %.pre58, %._crit_edge ]
   %67 = phi i8 [ %58, %61 ], [ %.pre, %._crit_edge ]
   %68 = phi i64 [ %64, %61 ], [ %253, %._crit_edge ]
   %69 = phi ptr [ %26, %61 ], [ %124, %._crit_edge ]
@@ -6012,14 +6012,14 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
 
 81:                                               ; preds = %78
   store i32 5, ptr %7, align 8
-  br label %.loopexit12
+  br label %.loopexit14
 
 82:                                               ; preds = %78
   %83 = tail call fastcc i32 @mas_next_node(ptr noundef %0, ptr noundef %17, i64 noundef %1), !range !25
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %87, label %.preheader8
+  br i1 %84, label %87, label %.preheader10
 
-.preheader8:                                      ; preds = %82, %.preheader8
+.preheader10:                                     ; preds = %82, %.preheader10
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %8, align 8
@@ -6027,7 +6027,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %85 = load i32, ptr %7, align 8
   %86 = icmp eq i32 %85, 1
-  br i1 %86, label %.preheader8, label %.loopexit9.backedge
+  br i1 %86, label %.preheader10, label %.thread7.backedge
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %7, align 8
@@ -6038,7 +6038,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   tail call void asm sideeffect "531: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 531b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 531) #19, !srcloc !79
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4629, i32 2307, i64 12) #19, !srcloc !80
   tail call void asm sideeffect "532: nop\0A\09.pushsection .discard.instr_end\0A\09.long 532b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 532) #19, !srcloc !81
-  br label %.loopexit12
+  br label %.loopexit14
 
 91:                                               ; preds = %87
   store i8 0, ptr %10, align 1
@@ -6112,9 +6112,9 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   %131 = and i64 %130, -256
   %132 = inttoptr i64 %131 to ptr
   %133 = icmp eq ptr %122, %132
-  br i1 %133, label %.preheader, label %249, !prof !12
+  br i1 %133, label %.preheader8, label %249, !prof !12
 
-.preheader:                                       ; preds = %120, %246
+.preheader8:                                      ; preds = %120, %246
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %8, align 8
@@ -6123,7 +6123,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   store i64 -1, ptr %9, align 8
   br label %134
 
-134:                                              ; preds = %143, %.preheader
+134:                                              ; preds = %143, %.preheader8
   store i8 0, ptr %13, align 4
   %135 = load ptr, ptr %0, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 8
@@ -6167,14 +6167,14 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %143
-  %.pre57 = load i32, ptr %7, align 8
+  %.pre59 = load i32, ptr %7, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %156
-  %158 = phi i32 [ %.pre57, %.loopexit.loopexit ], [ %157, %156 ]
+  %158 = phi i32 [ %.pre59, %.loopexit.loopexit ], [ %157, %156 ]
   %159 = and i32 %158, -2
   %160 = icmp eq i32 %159, 2
-  br i1 %160, label %.loopexit9.backedge, label %161
+  br i1 %160, label %.thread7.backedge, label %161
 
 161:                                              ; preds = %.loopexit
   %162 = load ptr, ptr %6, align 8
@@ -6337,12 +6337,12 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
   %247 = phi ptr [ null, %245 ], [ %166, %244 ]
   store ptr %247, ptr %6, align 8
   %248 = icmp eq i32 %.pr, 1
-  br i1 %248, label %.preheader, label %.loopexit9.backedge
+  br i1 %248, label %.preheader8, label %.thread7.backedge
 
 249:                                              ; preds = %120
   %250 = icmp ne ptr %128, null
   %251 = or i1 %2, %250
-  br i1 %251, label %.loopexit12, label %252
+  br i1 %251, label %.loopexit14, label %252
 
 252:                                              ; preds = %249
   %253 = load i64, ptr %4, align 8
@@ -6351,14 +6351,14 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
 
 ._crit_edge:                                      ; preds = %252
   %.pre = load i8, ptr %10, align 1
-  %.pre56 = load i8, ptr %11, align 1
+  %.pre58 = load i8, ptr %11, align 1
   br label %65
 
 255:                                              ; preds = %252
   store i32 5, ptr %7, align 8
-  br label %.loopexit12
+  br label %.loopexit14
 
-.loopexit12:                                      ; preds = %249, %255, %90, %81, %56
+.loopexit14:                                      ; preds = %249, %255, %90, %81, %56
   %256 = phi ptr [ null, %56 ], [ null, %255 ], [ null, %81 ], [ null, %90 ], [ %128, %249 ]
   ret ptr %256
 }
@@ -6615,7 +6615,7 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   br label %.loopexit
 
-.loopexit.backedge:                               ; preds = %.preheader10, %.preheader6, %.preheader, %.preheader11
+.loopexit.backedge:                               ; preds = %.preheader12, %.preheader8, %.preheader6, %.preheader
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %3
@@ -6648,9 +6648,9 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   %27 = and i64 %26, -256
   %28 = inttoptr i64 %27 to ptr
   %29 = icmp eq ptr %28, %15
-  br i1 %29, label %.preheader11, label %32, !prof !12
+  br i1 %29, label %.preheader, label %32, !prof !12
 
-.preheader11:                                     ; preds = %23, %.preheader11
+.preheader:                                       ; preds = %23, %.preheader
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %4, align 8
@@ -6658,12 +6658,12 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %30 = load i32, ptr %7, align 8
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %.preheader11, label %.loopexit.backedge
+  br i1 %31, label %.preheader, label %.loopexit.backedge
 
 32:                                               ; preds = %23
   %33 = load i64, ptr %9, align 8
   %34 = icmp ugt i64 %33, %1
-  br i1 %34, label %.preheader27, label %35
+  br i1 %34, label %.preheader29, label %35
 
 35:                                               ; preds = %32
   %36 = load i8, ptr %10, align 1
@@ -6687,9 +6687,9 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   %49 = and i64 %48, -256
   %50 = inttoptr i64 %49 to ptr
   %51 = icmp eq ptr %50, %15
-  br i1 %51, label %.preheader10, label %54, !prof !12
+  br i1 %51, label %.preheader12, label %54, !prof !12
 
-.preheader10:                                     ; preds = %45, %.preheader10
+.preheader12:                                     ; preds = %45, %.preheader12
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %4, align 8
@@ -6697,19 +6697,19 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %52 = load i32, ptr %7, align 8
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %.preheader10, label %.loopexit.backedge
+  br i1 %53, label %.preheader12, label %.loopexit.backedge
 
 54:                                               ; preds = %45
   %55 = icmp ugt i64 %46, %1
-  br i1 %55, label %.preheader27, label %.loopexit7
+  br i1 %55, label %.preheader29, label %.loopexit10
 
-.preheader27:                                     ; preds = %54, %32
+.preheader29:                                     ; preds = %54, %32
   br label %56
 
-56:                                               ; preds = %.preheader27, %136
-  %57 = phi i32 [ %112, %136 ], [ %18, %.preheader27 ]
-  %58 = phi ptr [ %113, %136 ], [ %24, %.preheader27 ]
-  %59 = phi ptr [ %114, %136 ], [ %15, %.preheader27 ]
+56:                                               ; preds = %.preheader29, %136
+  %57 = phi i32 [ %112, %136 ], [ %18, %.preheader29 ]
+  %58 = phi ptr [ %113, %136 ], [ %24, %.preheader29 ]
+  %59 = phi ptr [ %114, %136 ], [ %15, %.preheader29 ]
   %60 = load i8, ptr %10, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %76, label %62, !prof !12
@@ -6739,14 +6739,14 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
 76:                                               ; preds = %56
   %77 = load i64, ptr %4, align 8
   %78 = icmp ugt i64 %77, %1
-  br i1 %78, label %79, label %.loopexit7
+  br i1 %78, label %79, label %.loopexit10
 
 79:                                               ; preds = %76
   %80 = tail call fastcc i32 @mas_prev_node(ptr noundef %0, i64 noundef %1), !range !25
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %84, label %.preheader6
+  br i1 %81, label %84, label %.preheader8
 
-.preheader6:                                      ; preds = %79, %.preheader6
+.preheader8:                                      ; preds = %79, %.preheader8
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %4, align 8
@@ -6754,7 +6754,7 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %82 = load i32, ptr %7, align 8
   %83 = icmp eq i32 %82, 1
-  br i1 %83, label %.preheader6, label %.loopexit.backedge
+  br i1 %83, label %.preheader8, label %.loopexit.backedge
 
 84:                                               ; preds = %79
   %85 = load i32, ptr %7, align 8
@@ -6765,7 +6765,7 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   tail call void asm sideeffect "529: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 529) #19, !srcloc !84
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4445, i32 2307, i64 12) #19, !srcloc !85
   tail call void asm sideeffect "530: nop\0A\09.pushsection .discard.instr_end\0A\09.long 530b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 530) #19, !srcloc !86
-  br label %.loopexit9
+  br label %.loopexit11
 
 88:                                               ; preds = %84
   %89 = load i64, ptr %11, align 8
@@ -6838,9 +6838,9 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   %128 = and i64 %127, -256
   %129 = inttoptr i64 %128 to ptr
   %130 = icmp eq ptr %114, %129
-  br i1 %130, label %.preheader, label %133, !prof !12
+  br i1 %130, label %.preheader6, label %133, !prof !12
 
-.preheader:                                       ; preds = %121, %.preheader
+.preheader6:                                      ; preds = %121, %.preheader6
   store i32 1, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store i64 %5, ptr %4, align 8
@@ -6848,14 +6848,14 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
   tail call fastcc void @mas_state_walk(ptr noundef %0)
   %131 = load i32, ptr %7, align 8
   %132 = icmp eq i32 %131, 1
-  br i1 %132, label %.preheader, label %.loopexit.backedge
+  br i1 %132, label %.preheader6, label %.loopexit.backedge
 
 133:                                              ; preds = %121
   %134 = icmp eq ptr %125, null
-  br i1 %134, label %135, label %.loopexit9, !prof !12
+  br i1 %134, label %135, label %.loopexit11, !prof !12
 
 135:                                              ; preds = %133
-  br i1 %2, label %.loopexit9, label %136
+  br i1 %2, label %.loopexit11, label %136
 
 136:                                              ; preds = %135
   %137 = load i64, ptr %4, align 8
@@ -6864,14 +6864,14 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
 
 139:                                              ; preds = %136
   store i32 6, ptr %7, align 8
-  br label %.loopexit9
+  br label %.loopexit11
 
-.loopexit7:                                       ; preds = %54, %76
+.loopexit10:                                      ; preds = %54, %76
   store i32 6, ptr %7, align 8
-  br label %.loopexit9
+  br label %.loopexit11
 
-.loopexit9:                                       ; preds = %135, %133, %.loopexit7, %139, %87
-  %140 = phi ptr [ null, %.loopexit7 ], [ null, %139 ], [ null, %87 ], [ null, %135 ], [ %125, %133 ]
+.loopexit11:                                      ; preds = %135, %133, %.loopexit10, %139, %87
+  %140 = phi ptr [ null, %.loopexit10 ], [ null, %139 ], [ null, %87 ], [ null, %135 ], [ %125, %133 ]
   ret ptr %140
 }
 
@@ -20950,9 +20950,9 @@ define internal fastcc void @mt_destroy_walk(ptr noundef %0, i1 noundef zeroext 
   br i1 %48, label %.preheader16, label %.preheader17, !llvm.loop !180
 
 .preheader16:                                     ; preds = %41, %.thread12
-  %49 = phi ptr [ %159, %.thread12 ], [ %14, %41 ]
-  %50 = phi ptr [ %158, %.thread12 ], [ %28, %41 ]
-  %51 = phi ptr [ %157, %.thread12 ], [ %17, %41 ]
+  %49 = phi ptr [ %158, %.thread12 ], [ %14, %41 ]
+  %50 = phi ptr [ %157, %.thread12 ], [ %28, %41 ]
+  %51 = phi ptr [ %.pre-phi42, %.thread12 ], [ %17, %41 ]
   %52 = ptrtoint ptr %49 to i64
   %53 = lshr i64 %52, 3
   %54 = and i64 %53, 15
@@ -21106,11 +21106,11 @@ define internal fastcc void @mt_destroy_walk(ptr noundef %0, i1 noundef zeroext 
 146:                                              ; preds = %135
   %147 = getelementptr i8, ptr %136, i64 8
   %148 = load ptr, ptr %147, align 8
-  %.pre38 = ptrtoint ptr %148 to i64
+  %.pre43 = ptrtoint ptr %148 to i64
   br label %149
 
 149:                                              ; preds = %146, %135
-  %.pre-phi39 = phi i64 [ %.pre38, %146 ], [ %138, %135 ]
+  %.pre-phi44 = phi i64 [ %.pre43, %146 ], [ %138, %135 ]
   %150 = phi ptr [ %148, %146 ], [ %137, %135 ]
   %151 = phi i8 [ 1, %146 ], [ 0, %135 ]
   store ptr %125, ptr %125, align 256
@@ -21121,117 +21121,117 @@ define internal fastcc void @mt_destroy_walk(ptr noundef %0, i1 noundef zeroext 
   store ptr %120, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %125, i64 32
   store i8 %121, ptr %154, align 32
-  %155 = and i64 %.pre-phi39, 112
+  %155 = and i64 %.pre-phi44, 112
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %.thread12, label %.preheader, !llvm.loop !180
 
 .thread12:                                        ; preds = %149, %111, %105
-  %157 = phi ptr [ %93, %105 ], [ %93, %111 ], [ %125, %149 ]
-  %158 = phi ptr [ %106, %105 ], [ %106, %111 ], [ %136, %149 ]
-  %159 = phi ptr [ %90, %105 ], [ %90, %111 ], [ %122, %149 ]
-  %160 = icmp eq ptr %159, %0
-  br i1 %160, label %161, label %.preheader16, !llvm.loop !183
+  %.pre-phi42 = phi ptr [ %93, %111 ], [ %93, %105 ], [ %125, %149 ]
+  %157 = phi ptr [ %106, %111 ], [ %106, %105 ], [ %136, %149 ]
+  %158 = phi ptr [ %90, %111 ], [ %90, %105 ], [ %122, %149 ]
+  %159 = icmp eq ptr %158, %0
+  br i1 %159, label %160, label %.preheader16, !llvm.loop !183
 
-161:                                              ; preds = %.thread12
-  %162 = and i64 %3, -256
-  %163 = inttoptr i64 %162 to ptr
-  %164 = lshr i64 %3, 3
-  %165 = and i64 %164, 15
-  %166 = getelementptr [4 x i8], ptr @mt_slots, i64 0, i64 %165
-  %167 = load i8, ptr %166, align 1
-  %168 = tail call i8 @llvm.umax.i8(i8 %167, i8 1)
-  %169 = zext i8 %168 to i64
-  br label %170
+160:                                              ; preds = %.thread12
+  %161 = and i64 %3, -256
+  %162 = inttoptr i64 %161 to ptr
+  %163 = lshr i64 %3, 3
+  %164 = and i64 %163, 15
+  %165 = getelementptr [4 x i8], ptr @mt_slots, i64 0, i64 %164
+  %166 = load i8, ptr %165, align 1
+  %167 = tail call i8 @llvm.umax.i8(i8 %166, i8 1)
+  %168 = zext i8 %167 to i64
+  br label %169
 
-170:                                              ; preds = %183, %161
-  %171 = phi i64 [ 0, %161 ], [ %187, %183 ]
-  %172 = and i64 %171, 255
-  %173 = getelementptr ptr, ptr %158, i64 %172
-  %174 = load volatile ptr, ptr %173, align 8
-  %175 = ptrtoint ptr %174 to i64
-  %176 = trunc i64 %175 to i32
-  %177 = lshr i32 %176, 3
-  %178 = and i32 %177, 15
-  %179 = and i64 %175, -256
-  %180 = icmp ne i64 %179, 0
-  %181 = icmp ne i32 %178, 0
-  %182 = and i1 %180, %181
-  br i1 %182, label %183, label %189
+169:                                              ; preds = %182, %160
+  %170 = phi i64 [ 0, %160 ], [ %186, %182 ]
+  %171 = and i64 %170, 255
+  %172 = getelementptr ptr, ptr %157, i64 %171
+  %173 = load volatile ptr, ptr %172, align 8
+  %174 = ptrtoint ptr %173 to i64
+  %175 = trunc i64 %174 to i32
+  %176 = lshr i32 %175, 3
+  %177 = and i32 %176, 15
+  %178 = and i64 %174, -256
+  %179 = icmp ne i64 %178, 0
+  %180 = icmp ne i32 %177, 0
+  %181 = and i1 %179, %180
+  br i1 %181, label %182, label %188
 
-183:                                              ; preds = %170
-  %184 = inttoptr i64 %179 to ptr
-  store ptr %184, ptr %184, align 256
+182:                                              ; preds = %169
+  %183 = inttoptr i64 %178 to ptr
+  store ptr %183, ptr %183, align 256
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
-  %185 = getelementptr inbounds i8, ptr %184, i64 36
-  store i32 %178, ptr %185, align 4
+  %184 = getelementptr inbounds i8, ptr %183, i64 36
+  store i32 %177, ptr %184, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !181
-  %186 = getelementptr ptr, ptr %158, i64 %171
-  store volatile ptr %184, ptr %186, align 8
-  %187 = add nuw nsw i64 %171, 1
-  %188 = icmp eq i64 %187, %169
-  br i1 %188, label %.loopexit, label %170, !llvm.loop !182
+  %185 = getelementptr ptr, ptr %157, i64 %170
+  store volatile ptr %183, ptr %185, align 8
+  %186 = add nuw nsw i64 %170, 1
+  %187 = icmp eq i64 %186, %168
+  br i1 %187, label %.loopexit, label %169, !llvm.loop !182
 
-189:                                              ; preds = %170
-  %190 = trunc i64 %171 to i8
+188:                                              ; preds = %169
+  %189 = trunc i64 %170 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %183, %189
-  %191 = phi i8 [ %190, %189 ], [ %168, %183 ]
-  %192 = getelementptr inbounds i8, ptr %163, i64 40
-  store i8 %191, ptr %192, align 8
+.loopexit:                                        ; preds = %182, %188
+  %190 = phi i8 [ %189, %188 ], [ %167, %182 ]
+  %191 = getelementptr inbounds i8, ptr %162, i64 40
+  store i8 %190, ptr %191, align 8
   br i1 %1, label %.thread13, label %.thread14
 
 .thread13:                                        ; preds = %.loopexit
-  %193 = zext i8 %191 to i64
-  %194 = load ptr, ptr @maple_node_cache, align 8
-  tail call void @kmem_cache_free_bulk(ptr noundef %194, i64 noundef %193, ptr noundef %158) #19
-  br label %196
+  %192 = zext i8 %190 to i64
+  %193 = load ptr, ptr @maple_node_cache, align 8
+  tail call void @kmem_cache_free_bulk(ptr noundef %193, i64 noundef %192, ptr noundef %157) #19
+  br label %195
 
 .thread:                                          ; preds = %85, %8
-  %195 = phi ptr [ %10, %8 ], [ %51, %85 ]
-  br i1 %1, label %196, label %.thread14
+  %194 = phi ptr [ %10, %8 ], [ %51, %85 ]
+  br i1 %1, label %195, label %.thread14
 
-196:                                              ; preds = %.thread13, %.thread
-  %197 = phi ptr [ %163, %.thread13 ], [ %195, %.thread ]
-  %198 = load ptr, ptr @maple_node_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %198, ptr noundef %197) #19
-  br label %219
+195:                                              ; preds = %.thread13, %.thread
+  %196 = phi ptr [ %162, %.thread13 ], [ %194, %.thread ]
+  %197 = load ptr, ptr @maple_node_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %197, ptr noundef %196) #19
+  br label %218
 
 .thread14:                                        ; preds = %.loopexit, %.thread
-  %199 = phi ptr [ %195, %.thread ], [ %163, %.loopexit ]
-  %200 = getelementptr inbounds i8, ptr %199, i64 36
-  %201 = load i32, ptr %200, align 4
-  switch i32 %201, label %219 [
-    i32 2, label %202
-    i32 3, label %214
+  %198 = phi ptr [ %194, %.thread ], [ %162, %.loopexit ]
+  %199 = getelementptr inbounds i8, ptr %198, i64 36
+  %200 = load i32, ptr %199, align 4
+  switch i32 %200, label %218 [
+    i32 2, label %201
+    i32 3, label %213
   ]
 
-202:                                              ; preds = %.thread14
-  %203 = getelementptr i8, ptr %199, i64 120
-  %204 = load i64, ptr %203, align 8
-  %205 = icmp eq i64 %204, 0
-  br i1 %205, label %214, label %206, !prof !11
+201:                                              ; preds = %.thread14
+  %202 = getelementptr i8, ptr %198, i64 120
+  %203 = load i64, ptr %202, align 8
+  %204 = icmp eq i64 %203, 0
+  br i1 %204, label %213, label %205, !prof !11
 
-206:                                              ; preds = %202
-  %207 = getelementptr i8, ptr %199, i64 248
-  %208 = load ptr, ptr %207, align 8
-  %209 = icmp ult ptr %208, inttoptr (i64 256 to ptr)
-  %210 = ptrtoint ptr %208 to i64
-  %211 = and i64 %210, 120
-  %212 = icmp eq i64 %211, 0
-  %213 = or i1 %209, %212
-  br i1 %213, label %214, label %219, !prof !184
+205:                                              ; preds = %201
+  %206 = getelementptr i8, ptr %198, i64 248
+  %207 = load ptr, ptr %206, align 8
+  %208 = icmp ult ptr %207, inttoptr (i64 256 to ptr)
+  %209 = ptrtoint ptr %207 to i64
+  %210 = and i64 %209, 120
+  %211 = icmp eq i64 %210, 0
+  %212 = or i1 %208, %211
+  br i1 %212, label %213, label %218, !prof !184
 
-214:                                              ; preds = %206, %202, %.thread14
-  %215 = icmp eq i32 %201, 3
-  %216 = select i1 %215, i64 240, i64 248
-  %217 = getelementptr inbounds i8, ptr %199, i64 %216
-  %218 = getelementptr inbounds i8, ptr %217, i64 1
-  store i8 0, ptr %218, align 1
+213:                                              ; preds = %205, %201, %.thread14
+  %214 = icmp eq i32 %200, 3
+  %215 = select i1 %214, i64 240, i64 248
+  %216 = getelementptr inbounds i8, ptr %198, i64 %215
+  %217 = getelementptr inbounds i8, ptr %216, i64 1
   store i8 0, ptr %217, align 1
-  br label %219
+  store i8 0, ptr %216, align 1
+  br label %218
 
-219:                                              ; preds = %214, %206, %.thread14, %196
+218:                                              ; preds = %213, %205, %.thread14, %195
   ret void
 }
 

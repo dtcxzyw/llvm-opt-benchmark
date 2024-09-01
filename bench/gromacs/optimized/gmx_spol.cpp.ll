@@ -866,11 +866,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   store float 0.000000e+00, ptr %187, align 4
   store float 0.000000e+00, ptr %188, align 4
   %332 = icmp slt i32 %275, %277
-  br i1 %332, label %.lr.ph260.preheader, label %._crit_edge261.thread
-
-._crit_edge261.thread:                            ; preds = %324
-  %.pre375 = load ptr, ptr %11, align 8
-  br label %._crit_edge261..preheader222_crit_edge
+  br i1 %332, label %.lr.ph260.preheader, label %._crit_edge261..preheader222_crit_edge
 
 .lr.ph260.preheader:                              ; preds = %324
   %333 = sext i32 %275 to i64
@@ -892,25 +888,22 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   %338 = sitofp i32 %337 to float
   %339 = fdiv float %336, %338
   %.pre = load ptr, ptr %11, align 8
-  br i1 %332, label %.lr.ph266, label %._crit_edge261..preheader222_crit_edge
-
-._crit_edge261..preheader222_crit_edge:           ; preds = %._crit_edge261.thread, %._crit_edge261
-  %.pre377 = phi ptr [ %.pre375, %._crit_edge261.thread ], [ %.pre, %._crit_edge261 ]
-  %.pre373 = sext i32 %275 to i64
-  br label %.preheader222
-
-.lr.ph266:                                        ; preds = %._crit_edge261
   %340 = sext i32 %275 to i64
   %wide.trip.count348 = sext i32 %277 to i64
   br label %341
 
+._crit_edge261..preheader222_crit_edge:           ; preds = %324
+  %.pre375 = load ptr, ptr %11, align 8
+  %.pre373 = sext i32 %275 to i64
+  br label %.preheader222
+
 .preheader222:                                    ; preds = %351, %._crit_edge261..preheader222_crit_edge
-  %.pre376 = phi ptr [ %.pre377, %._crit_edge261..preheader222_crit_edge ], [ %.pre, %351 ]
+  %.pre376 = phi ptr [ %.pre375, %._crit_edge261..preheader222_crit_edge ], [ %.pre, %351 ]
   %.pre-phi = phi i64 [ %.pre373, %._crit_edge261..preheader222_crit_edge ], [ %340, %351 ]
   br label %352
 
-341:                                              ; preds = %.lr.ph266, %351
-  %indvars.iv345 = phi i64 [ %340, %.lr.ph266 ], [ %indvars.iv.next346, %351 ]
+341:                                              ; preds = %._crit_edge261, %351
+  %indvars.iv345 = phi i64 [ %340, %._crit_edge261 ], [ %indvars.iv.next346, %351 ]
   %342 = getelementptr inbounds %struct.t_atom, ptr %170, i64 %indvars.iv345, i32 1
   %343 = load float, ptr %342, align 4
   %344 = fsub float %343, %339

@@ -1063,27 +1063,21 @@ split_constraints.exit.thread:                    ; preds = %split_vertices.exit
 split_constraints.exit:                           ; preds = %219, %204, %218
   %.0.i = phi ptr [ null, %218 ], [ %187, %204 ], [ %187, %219 ]
   %221 = tail call noalias ptr @calloc(i64 noundef %71, i64 noundef 8) #15
-  br i1 %86, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %split_constraints.exit
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %86, label %.lr.ph16.preheader, label %._crit_edge
-
-.lr.ph16.preheader:                               ; preds = %.preheader
+.lr.ph16.preheader:                               ; preds = %.lr.ph
   %wide.trip.count34 = zext nneg i32 %12 to i64
   br label %.lr.ph16
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %split_constraints.exit, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %split_constraints.exit ], [ %indvars.iv.next, %.lr.ph ]
   %222 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #14
   %223 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv
   store ptr %222, ptr %223, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph16.preheader, label %.lr.ph, !llvm.loop !30
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
   %indvars.iv31 = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next32, %.lr.ph16 ]
@@ -1107,9 +1101,9 @@ split_constraints.exit:                           ; preds = %219, %204, %218
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph16, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph16, %split_constraints.exit, %split_constraints.exit.thread, %.preheader
-  %.0.i3739 = phi ptr [ %.0.i, %.preheader ], [ %.0.i, %split_constraints.exit ], [ %187, %split_constraints.exit.thread ], [ %.0.i, %.lr.ph16 ]
-  %237 = phi ptr [ %221, %.preheader ], [ %221, %split_constraints.exit ], [ %190, %split_constraints.exit.thread ], [ %221, %.lr.ph16 ]
+._crit_edge:                                      ; preds = %.lr.ph16, %split_constraints.exit.thread
+  %.0.i3739 = phi ptr [ %187, %split_constraints.exit.thread ], [ %.0.i, %.lr.ph16 ]
+  %237 = phi ptr [ %190, %split_constraints.exit.thread ], [ %221, %.lr.ph16 ]
   %238 = getelementptr inbounds i8, ptr %0, i64 48
   %239 = load i32, ptr %238, align 8
   tail call void @tm_set_node(ptr noundef %0, ptr noundef %237, i32 noundef %12, ptr noundef null, i32 noundef %239, double noundef 0.000000e+00, ptr noundef null, i32 noundef %3) #13

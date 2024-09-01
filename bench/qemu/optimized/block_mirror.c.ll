@@ -593,8 +593,7 @@ if.then3:                                         ; preds = %do.end
 if.end7:                                          ; preds = %if.then3
   %call9 = tail call fastcc ptr @mirror_start_job(ptr noundef %job_id, ptr noundef %bs, i32 noundef %creation_flags, ptr noundef %base, ptr noundef null, i64 noundef %speed, i32 noundef 0, i64 noundef 0, i32 noundef 2, i1 noundef zeroext false, i32 noundef %on_error, i32 noundef %on_error, i1 noundef zeroext true, ptr noundef %cb, ptr noundef %opaque, ptr noundef nonnull @commit_active_job_driver, i1 noundef zeroext false, ptr noundef %base, i1 noundef zeroext %auto_complete, ptr noundef %filter_node_name, i1 noundef zeroext false, i32 noundef 0, ptr noundef %errp)
   %tobool10.not = icmp eq ptr %call9, null
-  %brmerge.not = and i1 %call1, %tobool10.not
-  br i1 %brmerge.not, label %if.then14, label %return
+  br i1 %tobool10.not, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end7
   %call15 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext true, ptr noundef null) #12
@@ -1049,8 +1048,8 @@ while.end:                                        ; preds = %land.lhs.true11
   br label %if.end29
 
 if.end20:                                         ; preds = %sw.epilog
-  %cmp = icmp sgt i32 %ret.0, -1
-  br i1 %cmp, label %if.then24, label %if.then28
+  %cmp = icmp slt i32 %ret.0, 0
+  br i1 %cmp, label %if.then28, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
   %13 = load ptr, ptr %0, align 8

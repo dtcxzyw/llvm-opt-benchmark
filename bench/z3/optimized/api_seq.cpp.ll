@@ -570,15 +570,12 @@ for.end:                                          ; preds = %for.inc
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds i8, ptr %s, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  br i1 %cmp32.not, label %invoke.cont13, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %for.end
   %wide.trip.count.i.i = zext i32 %sz to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, %for.body.lr.ph.i.i
-  %11 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
+for.body.i.i:                                     ; preds = %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, %for.end
+  %11 = phi i32 [ 0, %for.end ], [ %inc.i.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv.i.i
   %12 = load i32, ptr %m_capacity.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %11, %12
@@ -656,8 +653,8 @@ lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i,
   call void @_ZN6bufferIjLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %s) #14
   br label %ehcleanup34
 
-invoke.cont13:                                    ; preds = %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, %for.end.thread, %for.end
-  %m_initial_buffer.i.i38 = phi ptr [ %m_initial_buffer.i.i35, %for.end.thread ], [ %m_initial_buffer.i.i, %for.end ], [ %m_initial_buffer.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
+invoke.cont13:                                    ; preds = %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, %for.end.thread
+  %m_initial_buffer.i.i38 = phi ptr [ %m_initial_buffer.i.i35, %for.end.thread ], [ %m_initial_buffer.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %str19 = getelementptr inbounds i8, ptr %c, i64 464
   %call21 = invoke noundef ptr @_ZNK8seq_util3str9mk_stringERK7zstring(ptr noundef nonnull align 8 dereferenceable(20) %str19, ptr noundef nonnull align 8 dereferenceable(80) %s)
           to label %invoke.cont20 unwind label %lpad14

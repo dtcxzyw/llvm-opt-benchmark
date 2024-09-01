@@ -37007,8 +37007,8 @@ cond.false.i.i:                                   ; preds = %while.cond
 _ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit: ; preds = %while.cond
   %6 = load ptr, ptr %current_.i.i, align 8
   %7 = load ptr, ptr %current_6.i.i, align 8
-  %cmp7.i.i.not.not = icmp ne ptr %6, %7
-  br i1 %cmp7.i.i.not.not, label %while.body, label %return
+  %cmp7.i.i.not.not.not = icmp ne ptr %6, %7
+  br i1 %cmp7.i.i.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit
   %tobool.not.i = icmp ne ptr %1, null
@@ -37038,7 +37038,7 @@ _ZN3gsl7details13span_iteratorIcEppEv.exit:       ; preds = %cond.end.i
   br i1 %call.i.i3, label %return, label %while.cond, !llvm.loop !211
 
 return:                                           ; preds = %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit, %_ZN3gsl7details13span_iteratorIcEppEv.exit, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp7.i.i.not.not, %_ZN3gsl7details13span_iteratorIcEppEv.exit ], [ %cmp7.i.i.not.not, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp7.i.i.not.not.not, %_ZN3gsl7details13span_iteratorIcEppEv.exit ], [ %cmp7.i.i.not.not.not, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
   ret i1 %retval.0
 }
 
@@ -37168,8 +37168,8 @@ cond.false.i.i:                                   ; preds = %while.cond
 _ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit: ; preds = %while.cond
   %9 = load ptr, ptr %current_.i.i, align 8
   %10 = load ptr, ptr %current_6.i.i, align 8
-  %cmp7.i.i.not.not = icmp ne ptr %9, %10
-  br i1 %cmp7.i.i.not.not, label %while.body, label %return
+  %cmp7.i.i.not.not.not = icmp ne ptr %9, %10
+  br i1 %cmp7.i.i.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit
   %tobool.not.i = icmp ne ptr %4, null
@@ -37206,7 +37206,7 @@ _ZN3gsl7details13span_iteratorIcEppEv.exit:       ; preds = %cond.end.i
   br i1 %tobool.i.i.i8, label %return, label %while.cond, !llvm.loop !212
 
 return:                                           ; preds = %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit, %_ZN3gsl7details13span_iteratorIcEppEv.exit, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp7.i.i.not.not, %_ZN3gsl7details13span_iteratorIcEppEv.exit ], [ %cmp7.i.i.not.not, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ %cmp7.i.i.not.not.not, %_ZN3gsl7details13span_iteratorIcEppEv.exit ], [ %cmp7.i.i.not.not.not, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit ]
   ret i1 %retval.0
 }
 

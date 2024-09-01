@@ -392,9 +392,9 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   call void @down_write(ptr noundef nonnull @crypto_alg_sem) #16
   %5 = load ptr, ptr @crypto_alg_list, align 8
   %6 = icmp eq ptr %5, @crypto_alg_list
-  br i1 %6, label %.loopexit13, label %.preheader12
+  br i1 %6, label %.loopexit12, label %.preheader11
 
-.preheader12:                                     ; preds = %2, %16
+.preheader11:                                     ; preds = %2, %16
   %7 = phi ptr [ %17, %16 ], [ %5, %2 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8
@@ -402,20 +402,20 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   %11 = icmp eq i32 %10, 16
   br i1 %11, label %12, label %16
 
-12:                                               ; preds = %.preheader12
+12:                                               ; preds = %.preheader11
   %13 = getelementptr inbounds i8, ptr %7, i64 184
   %14 = call i32 @strcmp(ptr noundef %13, ptr noundef %0) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %16
 
-16:                                               ; preds = %12, %.preheader12
+16:                                               ; preds = %12, %.preheader11
   %17 = load ptr, ptr %7, align 8
   %18 = icmp eq ptr %17, @crypto_alg_list
-  br i1 %18, label %.loopexit13, label %.preheader12, !llvm.loop !18
+  br i1 %18, label %.loopexit12, label %.preheader11, !llvm.loop !18
 
-.loopexit13:                                      ; preds = %16, %2
+.loopexit12:                                      ; preds = %16, %2
   %19 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %1) #17
-  br label %62
+  br label %64
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %7, i64 32
@@ -425,10 +425,10 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   %24 = load ptr, ptr %23, align 8
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
-  br i1 %26, label %60, label %27
+  br i1 %26, label %62, label %27
 
 27:                                               ; preds = %20
-  switch i32 %1, label %60 [
+  switch i32 %1, label %62 [
     i32 -125, label %28
     i32 0, label %32
   ]
@@ -445,7 +445,7 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   %35 = and i32 %34, -131073
   br label %36
 
-36:                                               ; preds = %28, %32
+36:                                               ; preds = %32, %28
   %37 = phi i32 [ %35, %32 ], [ %31, %28 ]
   %38 = getelementptr inbounds i8, ptr %24, i64 32
   %39 = or i32 %37, 1024
@@ -473,68 +473,68 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   %54 = load i32, ptr %53, align 8
   %55 = load i32, ptr %41, align 8
   %56 = icmp sgt i32 %54, %55
-  br i1 %56, label %.loopexit11, label %57
+  br i1 %56, label %60, label %57
 
 57:                                               ; preds = %52, %48, %42
   %58 = load ptr, ptr %43, align 8
   %59 = icmp eq ptr %58, @crypto_alg_list
-  br i1 %59, label %.loopexit11, label %42, !llvm.loop !19
+  br i1 %59, label %60, label %42, !llvm.loop !19
 
-.loopexit11:                                      ; preds = %57, %52
-  %.ph = phi i1 [ true, %57 ], [ false, %52 ]
-  call fastcc void @crypto_alg_finish_registration(ptr noundef %24, i1 noundef zeroext %.ph, ptr noundef nonnull %3)
-  br label %60
-
-60:                                               ; preds = %.loopexit11, %27, %20
-  %61 = getelementptr inbounds i8, ptr %7, i64 392
-  call void @complete_all(ptr noundef %61) #16
+60:                                               ; preds = %57, %52
+  %61 = phi i1 [ true, %57 ], [ false, %52 ]
+  call fastcc void @crypto_alg_finish_registration(ptr noundef %24, i1 noundef zeroext %61, ptr noundef nonnull %3)
   br label %62
 
-62:                                               ; preds = %60, %.loopexit13
+62:                                               ; preds = %60, %27, %20
+  %63 = getelementptr inbounds i8, ptr %7, i64 392
+  call void @complete_all(ptr noundef %63) #16
+  br label %64
+
+64:                                               ; preds = %62, %.loopexit12
   call void @up_write(ptr noundef nonnull @crypto_alg_sem) #16
-  %63 = load ptr, ptr %3, align 8
-  %64 = icmp eq ptr %63, %3
-  br i1 %64, label %.loopexit, label %.preheader
+  %65 = load ptr, ptr %3, align 8
+  %66 = icmp eq ptr %65, %3
+  br i1 %66, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %62, %.thread
-  %65 = phi ptr [ %66, %.thread ], [ %63, %62 ]
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+.preheader:                                       ; preds = %64, %.thread
+  %67 = phi ptr [ %68, %.thread ], [ %65, %64 ]
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
-  store ptr %68, ptr %69, align 8
-  store volatile ptr %66, ptr %68, align 8
-  store volatile ptr %65, ptr %65, align 8
-  store volatile ptr %65, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 52
-  %71 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, i32 -1, ptr elementtype(i32) %70) #16, !srcloc !20
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %76, label %73
+  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  store ptr %70, ptr %71, align 8
+  store volatile ptr %68, ptr %70, align 8
+  store volatile ptr %67, ptr %67, align 8
+  store volatile ptr %67, ptr %69, align 8
+  %72 = getelementptr inbounds i8, ptr %67, i64 52
+  %73 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72, i32 -1, ptr elementtype(i32) %72) #16, !srcloc !20
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %78, label %75
 
-73:                                               ; preds = %.preheader
-  %74 = icmp sgt i32 %71, 0
-  br i1 %74, label %.thread, label %75, !prof !14
+75:                                               ; preds = %.preheader
+  %76 = icmp sgt i32 %73, 0
+  br i1 %76, label %.thread, label %77, !prof !14
 
-75:                                               ; preds = %73
-  call void @refcount_warn_saturate(ptr noundef %70, i32 noundef 3) #16
+77:                                               ; preds = %75
+  call void @refcount_warn_saturate(ptr noundef %72, i32 noundef 3) #16
   br label %.thread
 
-76:                                               ; preds = %.preheader
+78:                                               ; preds = %.preheader
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
-  %77 = getelementptr inbounds i8, ptr %65, i64 368
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread, label %80
+  %79 = getelementptr inbounds i8, ptr %67, i64 368
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %.thread, label %82
 
-80:                                               ; preds = %76
-  call void %78(ptr noundef %65) #16
+82:                                               ; preds = %78
+  call void %80(ptr noundef %67) #16
   br label %.thread
 
-.thread:                                          ; preds = %73, %75, %80, %76
-  %81 = icmp eq ptr %66, %3
-  br i1 %81, label %.loopexit, label %.preheader, !llvm.loop !22
+.thread:                                          ; preds = %75, %77, %82, %78
+  %83 = icmp eq ptr %68, %3
+  br i1 %83, label %.loopexit, label %.preheader, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.thread, %62
+.loopexit:                                        ; preds = %.thread, %64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   ret void
 }

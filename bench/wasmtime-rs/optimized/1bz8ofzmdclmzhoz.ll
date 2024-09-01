@@ -20894,8 +20894,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h05
 
 .split.us.i:                                      ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8ca820ba4f7999a1E.exit.us.i"
   %77 = phi ptr [ %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8ca820ba4f7999a1E.exit.us.i" ], [ %3, %71 ]
-  %.not26.not.i = icmp eq ptr %77, %72
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h84b931f0e6d62113E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %77, %72
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h84b931f0e6d62113E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %77, align 4, !alias.scope !2833, !noalias !2836, !noundef !11
@@ -20913,8 +20913,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h05
 
 .split.i:                                         ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8ca820ba4f7999a1E.exit.i"
   %85 = phi ptr [ %113, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8ca820ba4f7999a1E.exit.i" ], [ %3, %71 ]
-  %.not.i.not = icmp eq ptr %85, %72
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h84b931f0e6d62113E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %85, %72
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h84b931f0e6d62113E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %109
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %109 ], [ %85, %.split.i ]
@@ -21270,8 +21270,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h19
 
 .split.us.i:                                      ; preds = %72, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8e014d300d4cd587E.exit.us.i"
   %78 = phi ptr [ %82, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8e014d300d4cd587E.exit.us.i" ], [ %3, %72 ]
-  %.not26.not.i = icmp eq ptr %78, %73
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2f7048847452500E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %78, %73
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2f7048847452500E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %78, align 4, !alias.scope !2939, !noalias !2942, !noundef !11
@@ -21289,8 +21289,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h19
 
 .split.i:                                         ; preds = %72, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8e014d300d4cd587E.exit.i"
   %86 = phi ptr [ %114, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h8e014d300d4cd587E.exit.i" ], [ %3, %72 ]
-  %.not.i.not = icmp eq ptr %86, %73
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2f7048847452500E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %86, %73
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2f7048847452500E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %110
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %110 ], [ %86, %.split.i ]
@@ -21630,8 +21630,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h1a
 
 .split.us.i:                                      ; preds = %60, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4174ecff1af6e18bE.exit.us.i"
   %66 = phi ptr [ %70, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4174ecff1af6e18bE.exit.us.i" ], [ %3, %60 ]
-  %.not26.not.i = icmp eq ptr %66, %61
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcac3a028282b4966E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %66, %61
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcac3a028282b4966E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %66, align 4, !alias.scope !3041, !noalias !3044, !noundef !11
@@ -21649,8 +21649,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h1a
 
 .split.i:                                         ; preds = %60, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4174ecff1af6e18bE.exit.i"
   %74 = phi ptr [ %102, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4174ecff1af6e18bE.exit.i" ], [ %3, %60 ]
-  %.not.i.not = icmp eq ptr %74, %61
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcac3a028282b4966E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %74, %61
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcac3a028282b4966E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %98
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %98 ], [ %74, %.split.i ]
@@ -21980,8 +21980,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h23
 
 .split.us.i:                                      ; preds = %68, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h9b7faa251055f046E.exit.us.i"
   %74 = phi ptr [ %78, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h9b7faa251055f046E.exit.us.i" ], [ %3, %68 ]
-  %.not26.not.i = icmp eq ptr %74, %69
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0d9934ff14866bd7E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %74, %69
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0d9934ff14866bd7E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %74, align 4, !alias.scope !3144, !noalias !3147, !noundef !11
@@ -21999,8 +21999,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h23
 
 .split.i:                                         ; preds = %68, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h9b7faa251055f046E.exit.i"
   %82 = phi ptr [ %110, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h9b7faa251055f046E.exit.i" ], [ %3, %68 ]
-  %.not.i.not = icmp eq ptr %82, %69
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0d9934ff14866bd7E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %82, %69
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0d9934ff14866bd7E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %106
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %106 ], [ %82, %.split.i ]
@@ -22386,8 +22386,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h24
 
 .split.us.i:                                      ; preds = %83, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hd5173b63c3aa5425E.exit.us.i"
   %89 = phi ptr [ %93, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hd5173b63c3aa5425E.exit.us.i" ], [ %3, %83 ]
-  %.not26.not.i = icmp eq ptr %89, %84
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda92e3a79d90a4ddE.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %89, %84
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda92e3a79d90a4ddE.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %89, align 4, !alias.scope !3254, !noalias !3257, !noundef !11
@@ -22405,8 +22405,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h24
 
 .split.i:                                         ; preds = %83, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hd5173b63c3aa5425E.exit.i"
   %97 = phi ptr [ %125, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hd5173b63c3aa5425E.exit.i" ], [ %3, %83 ]
-  %.not.i.not = icmp eq ptr %97, %84
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda92e3a79d90a4ddE.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %97, %84
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda92e3a79d90a4ddE.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %121
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %121 ], [ %97, %.split.i ]
@@ -22832,8 +22832,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.us.i:                                      ; preds = %84, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hf53d6bceef565d01E.exit.us.i"
   %90 = phi ptr [ %94, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hf53d6bceef565d01E.exit.us.i" ], [ %3, %84 ]
-  %.not26.not.i = icmp eq ptr %90, %85
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1bf18a210b9d11b0E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %90, %85
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1bf18a210b9d11b0E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %90, align 4, !alias.scope !3383, !noalias !3386, !noundef !11
@@ -22851,8 +22851,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.i:                                         ; preds = %84, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hf53d6bceef565d01E.exit.i"
   %98 = phi ptr [ %126, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hf53d6bceef565d01E.exit.i" ], [ %3, %84 ]
-  %.not.i.not = icmp eq ptr %98, %85
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1bf18a210b9d11b0E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %98, %85
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1bf18a210b9d11b0E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %122
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %122 ], [ %98, %.split.i ]
@@ -23248,8 +23248,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.us.i:                                      ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h60e6c29662b2e50dE.exit.us.i"
   %77 = phi ptr [ %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h60e6c29662b2e50dE.exit.us.i" ], [ %3, %71 ]
-  %.not26.not.i = icmp eq ptr %77, %72
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h596f17b261187db5E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %77, %72
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h596f17b261187db5E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %77, align 4, !alias.scope !3510, !noalias !3513, !noundef !11
@@ -23267,8 +23267,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.i:                                         ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h60e6c29662b2e50dE.exit.i"
   %85 = phi ptr [ %113, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h60e6c29662b2e50dE.exit.i" ], [ %3, %71 ]
-  %.not.i.not = icmp eq ptr %85, %72
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h596f17b261187db5E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %85, %72
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h596f17b261187db5E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %109
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %109 ], [ %85, %.split.i ]
@@ -23648,8 +23648,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h41
 
 .split.us.i:                                      ; preds = %78, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h0cd16e654b05dff9E.exit.us.i"
   %84 = phi ptr [ %88, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h0cd16e654b05dff9E.exit.us.i" ], [ %3, %78 ]
-  %.not26.not.i = icmp eq ptr %84, %79
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hca3a6e9807c5a835E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %84, %79
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hca3a6e9807c5a835E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %84, align 4, !alias.scope !3626, !noalias !3629, !noundef !11
@@ -23667,8 +23667,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h41
 
 .split.i:                                         ; preds = %78, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h0cd16e654b05dff9E.exit.i"
   %92 = phi ptr [ %120, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h0cd16e654b05dff9E.exit.i" ], [ %3, %78 ]
-  %.not.i.not = icmp eq ptr %92, %79
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hca3a6e9807c5a835E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %92, %79
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hca3a6e9807c5a835E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %116
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %116 ], [ %92, %.split.i ]
@@ -24048,8 +24048,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.us.i:                                      ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h92c9670b5588dea4E.exit.us.i"
   %77 = phi ptr [ %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h92c9670b5588dea4E.exit.us.i" ], [ %3, %71 ]
-  %.not26.not.i = icmp eq ptr %77, %72
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hed7abbe151f7d010E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %77, %72
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hed7abbe151f7d010E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %77, align 4, !alias.scope !3741, !noalias !3744, !noundef !11
@@ -24067,8 +24067,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.i:                                         ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h92c9670b5588dea4E.exit.i"
   %85 = phi ptr [ %113, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h92c9670b5588dea4E.exit.i" ], [ %3, %71 ]
-  %.not.i.not = icmp eq ptr %85, %72
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hed7abbe151f7d010E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %85, %72
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hed7abbe151f7d010E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %109
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %109 ], [ %85, %.split.i ]
@@ -24459,8 +24459,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h96
 
 .split.us.i:                                      ; preds = %82, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h6c448c049ffa875cE.exit.us.i"
   %88 = phi ptr [ %92, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h6c448c049ffa875cE.exit.us.i" ], [ %3, %82 ]
-  %.not26.not.i = icmp eq ptr %88, %83
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2a44cee356d8193E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %88, %83
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2a44cee356d8193E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %88, align 4, !alias.scope !3854, !noalias !3857, !noundef !11
@@ -24478,8 +24478,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h96
 
 .split.i:                                         ; preds = %82, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h6c448c049ffa875cE.exit.i"
   %96 = phi ptr [ %124, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h6c448c049ffa875cE.exit.i" ], [ %3, %82 ]
-  %.not.i.not = icmp eq ptr %96, %83
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2a44cee356d8193E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %96, %83
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd2a44cee356d8193E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %120
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %120 ], [ %96, %.split.i ]
@@ -24868,8 +24868,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.us.i:                                      ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h2b27b0f337cc90cfE.exit.us.i"
   %77 = phi ptr [ %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h2b27b0f337cc90cfE.exit.us.i" ], [ %3, %71 ]
-  %.not26.not.i = icmp eq ptr %77, %72
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc7d102ed737b2cd8E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %77, %72
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc7d102ed737b2cd8E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %77, align 4, !alias.scope !3967, !noalias !3970, !noundef !11
@@ -24887,8 +24887,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.i:                                         ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h2b27b0f337cc90cfE.exit.i"
   %85 = phi ptr [ %113, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h2b27b0f337cc90cfE.exit.i" ], [ %3, %71 ]
-  %.not.i.not = icmp eq ptr %85, %72
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc7d102ed737b2cd8E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %85, %72
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc7d102ed737b2cd8E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %109
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %109 ], [ %85, %.split.i ]
@@ -25250,8 +25250,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.us.i:                                      ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hac277723004dc90cE.exit.us.i"
   %77 = phi ptr [ %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hac277723004dc90cE.exit.us.i" ], [ %3, %71 ]
-  %.not26.not.i = icmp eq ptr %77, %72
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he80536a00fc3c8a6E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %77, %72
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he80536a00fc3c8a6E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %77, align 4, !alias.scope !4084, !noalias !4087, !noundef !11
@@ -25269,8 +25269,8 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 .split.i:                                         ; preds = %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hac277723004dc90cE.exit.i"
   %85 = phi ptr [ %113, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hac277723004dc90cE.exit.i" ], [ %3, %71 ]
-  %.not.i.not = icmp eq ptr %85, %72
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he80536a00fc3c8a6E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %85, %72
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he80536a00fc3c8a6E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %109
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %109 ], [ %85, %.split.i ]
@@ -25606,8 +25606,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hb7
 
 .split.us.i:                                      ; preds = %61, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h048b3b0cd44bb7c6E.exit.us.i"
   %67 = phi ptr [ %71, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h048b3b0cd44bb7c6E.exit.us.i" ], [ %3, %61 ]
-  %.not26.not.i = icmp eq ptr %67, %62
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3bdf4b06446f11b4E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %67, %62
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3bdf4b06446f11b4E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %67, align 4, !alias.scope !4185, !noalias !4188, !noundef !11
@@ -25625,8 +25625,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hb7
 
 .split.i:                                         ; preds = %61, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h048b3b0cd44bb7c6E.exit.i"
   %75 = phi ptr [ %103, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h048b3b0cd44bb7c6E.exit.i" ], [ %3, %61 ]
-  %.not.i.not = icmp eq ptr %75, %62
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3bdf4b06446f11b4E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %75, %62
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3bdf4b06446f11b4E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %99
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %99 ], [ %75, %.split.i ]
@@ -25987,8 +25987,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hcf
 
 .split.us.i:                                      ; preds = %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4e8dfd07f078566bE.exit.us.i"
   %87 = phi ptr [ %91, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4e8dfd07f078566bE.exit.us.i" ], [ %3, %81 ]
-  %.not26.not.i = icmp eq ptr %87, %82
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hae4e9ce868dd6cb8E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %87, %82
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hae4e9ce868dd6cb8E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %87, align 4, !alias.scope !4295, !noalias !4298, !noundef !11
@@ -26006,8 +26006,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hcf
 
 .split.i:                                         ; preds = %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4e8dfd07f078566bE.exit.i"
   %95 = phi ptr [ %123, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h4e8dfd07f078566bE.exit.i" ], [ %3, %81 ]
-  %.not.i.not = icmp eq ptr %95, %82
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hae4e9ce868dd6cb8E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %95, %82
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hae4e9ce868dd6cb8E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %119
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %119 ], [ %95, %.split.i ]
@@ -26404,8 +26404,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hd8
 
 .split.us.i:                                      ; preds = %80, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h951d6a2b0b5d74d7E.exit.us.i"
   %86 = phi ptr [ %90, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h951d6a2b0b5d74d7E.exit.us.i" ], [ %3, %80 ]
-  %.not26.not.i = icmp eq ptr %86, %81
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hee49d6024745fbd2E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %86, %81
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hee49d6024745fbd2E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %86, align 4, !alias.scope !4418, !noalias !4421, !noundef !11
@@ -26423,8 +26423,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hd8
 
 .split.i:                                         ; preds = %80, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h951d6a2b0b5d74d7E.exit.i"
   %94 = phi ptr [ %122, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h951d6a2b0b5d74d7E.exit.i" ], [ %3, %80 ]
-  %.not.i.not = icmp eq ptr %94, %81
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hee49d6024745fbd2E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %94, %81
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hee49d6024745fbd2E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %118
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %118 ], [ %94, %.split.i ]
@@ -26825,8 +26825,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf0
 
 .split.us.i:                                      ; preds = %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hbaaa28aa59af76e8E.exit.us.i"
   %87 = phi ptr [ %91, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hbaaa28aa59af76e8E.exit.us.i" ], [ %3, %81 ]
-  %.not26.not.i = icmp eq ptr %87, %82
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a9eb79e48a0f97fE.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %87, %82
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a9eb79e48a0f97fE.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %87, align 4, !alias.scope !4542, !noalias !4545, !noundef !11
@@ -26844,8 +26844,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf0
 
 .split.i:                                         ; preds = %81, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hbaaa28aa59af76e8E.exit.i"
   %95 = phi ptr [ %123, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17hbaaa28aa59af76e8E.exit.i" ], [ %3, %81 ]
-  %.not.i.not = icmp eq ptr %95, %82
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a9eb79e48a0f97fE.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %95, %82
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a9eb79e48a0f97fE.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %119
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %119 ], [ %95, %.split.i ]
@@ -27214,8 +27214,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf2
 
 .split.us.i:                                      ; preds = %68, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h39faa62273589a81E.exit.us.i"
   %74 = phi ptr [ %78, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h39faa62273589a81E.exit.us.i" ], [ %3, %68 ]
-  %.not26.not.i = icmp eq ptr %74, %69
-  br i1 %.not26.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf9fb0f2870c8c409E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
+  %.not18.not.i = icmp eq ptr %74, %69
+  br i1 %.not18.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf9fb0f2870c8c409E.exit", label %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i"
 
 "_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23resolve_vreg_alias_impl17h9a47a282285495fdE.exit.i.i.us.i": ; preds = %.split.us.i
   %.val3.us.i = load i32, ptr %74, align 4, !alias.scope !4653, !noalias !4656, !noundef !11
@@ -27233,8 +27233,8 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf2
 
 .split.i:                                         ; preds = %68, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h39faa62273589a81E.exit.i"
   %82 = phi ptr [ %110, %"_ZN17cranelift_codegen8machinst3pcc12check_output28_$u7b$$u7b$closure$u7d$$u7d$17h39faa62273589a81E.exit.i" ], [ %3, %68 ]
-  %.not.i.not = icmp eq ptr %82, %69
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf9fb0f2870c8c409E.exit", label %.lr.ph.i.i.i.i
+  %.not.not.i = icmp eq ptr %82, %69
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf9fb0f2870c8c409E.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i, %106
   %storemerge9.i.i.i.in.i = phi ptr [ %gep.i.i.i.i, %106 ], [ %82, %.split.i ]
@@ -28330,8 +28330,8 @@ define hidden noundef i32 @_ZN17cranelift_codegen8machinst3reg18AllocationConsum
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !4798, !nonnull !11, !noundef !11
   %5 = load ptr, ptr %0, align 8, !alias.scope !4798, !nonnull !11, !noundef !11
-  %.not = icmp ne ptr %5, %4
-  br i1 %.not, label %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit"
+  %.not.not = icmp eq ptr %5, %4
+  br i1 %.not.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 4
@@ -28372,8 +28372,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen8machinst3reg18AllocationConsum
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit": ; preds = %2
   %20 = icmp ugt i32 %1, 767
-  %brmerge = or i1 %20, %.not
-  br i1 %brmerge, label %21, label %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit"
+  br i1 %20, label %21, label %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit"
 
 21:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit", %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit"
   %.0 = phi i32 [ %23, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit" ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread" ]
@@ -28428,8 +28427,8 @@ define hidden noundef i32 @_ZN17cranelift_codegen8machinst3reg18AllocationConsum
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !4807, !nonnull !11, !noundef !11
   %5 = load ptr, ptr %0, align 8, !alias.scope !4807, !nonnull !11, !noundef !11
-  %.not.i.not = icmp eq ptr %5, %4
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i", label %6
+  %.not.not.i = icmp eq ptr %5, %4
+  br i1 %.not.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 4
@@ -28867,7 +28866,7 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter6header17h09a9e8032eb1a921E.exit.
   %.0.i.i.i.i = select i1 %.not.i.i.i, ptr %83, ptr %64
   %84 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4
   %85 = load i32, ptr %84, align 4, !noalias !4869, !noundef !11
-  %.not33.i = icmp eq i32 %85, -1
+  %.not21.i = icmp eq i32 %85, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17), !noalias !4842
   store i32 %.sroa.63.020.i, ptr %17, align 4, !noalias !4842
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !4842
@@ -28960,7 +28959,7 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter6header17h09a9e8032eb1a921E.exit.
 
 110:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17), !noalias !4842
-  br i1 %.not33.i, label %.loopexit38, label %79
+  br i1 %.not21.i, label %.loopexit38, label %79
 
 111:                                              ; preds = %54
   %112 = invoke { i32, i32 } @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph34value_alias_dest_for_serialization17h6a40b01a2e1ffbb4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %.val, i32 noundef %56)
@@ -29090,7 +29089,7 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter11block_nodes17h70b2e0cff29f91a0E
   br label %171
 
 171:                                              ; preds = %183, %162
-  %172 = phi ptr [ %.pre36.i, %183 ], [ %150, %162 ]
+  %172 = phi ptr [ %.pre34.i, %183 ], [ %150, %162 ]
   %173 = phi i32 [ %.pre.i, %183 ], [ %170, %162 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4923)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !4926
@@ -29111,8 +29110,8 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter11block_nodes17h70b2e0cff29f91a0E
   br i1 %177, label %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i", label %178
 
 "_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i": ; preds = %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i.i"
-  %.pre37.i = load i32, ptr %151, align 4, !noalias !4926
-  %.pre38.i = load i32, ptr %152, align 4, !noalias !4926
+  %.pre35.i = load i32, ptr %151, align 4, !noalias !4926
+  %.pre36.i = load i32, ptr %152, align 4, !noalias !4926
   br label %179
 
 178:                                              ; preds = %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i.i"
@@ -29122,8 +29121,8 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter11block_nodes17h70b2e0cff29f91a0E
   br i1 %.not.i25, label %.loopexit, label %162
 
 179:                                              ; preds = %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i", %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i.i"
-  %180 = phi i32 [ %.pre38.i, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i" ], [ %176, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i.i" ]
-  %181 = phi i32 [ %.pre37.i, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i" ], [ %175, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i.i" ]
+  %180 = phi i32 [ %.pre36.i, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i" ], [ %176, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i.i" ]
+  %181 = phi i32 [ %.pre35.i, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.i._crit_edge.i" ], [ %175, %"_ZN103_$LT$cranelift_bforest..map..MapIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he63b1280a28d1587E.exit.thread.i.i" ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !4926
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !4922
   store i32 %180, ptr %8, align 4, !noalias !4922
@@ -29151,7 +29150,7 @@ _ZN17cranelift_codegen11cfg_printer10CFGPrinter11block_nodes17h70b2e0cff29f91a0E
 
 183:                                              ; preds = %179
   %.pre.i = load i32, ptr %.sroa.3.0..sroa_idx.i22, align 8, !alias.scope !4928, !noalias !4933
-  %.pre36.i = load ptr, ptr %9, align 8, !alias.scope !4944, !noalias !4933
+  %.pre34.i = load ptr, ptr %9, align 8, !alias.scope !4944, !noalias !4933
   br label %171
 
 _ZN17cranelift_codegen11cfg_printer10CFGPrinter15cfg_connections17h889bd12de3b7f90fE.exit: ; preds = %179
@@ -36737,8 +36736,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %5
 ._crit_edge:                                      ; preds = %88, %52
   %.pr = phi i64 [ %54, %52 ], [ %93, %88 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %.not54 = icmp eq i64 %.pr, 0
-  br i1 %.not54, label %43, label %52
+  %.not50 = icmp eq i64 %.pr, 0
+  br i1 %.not50, label %43, label %52
 
 67:                                               ; preds = %.lr.ph, %88
   %.sroa.0.049 = phi ptr [ %.0.i.val, %.lr.ph ], [ %68, %88 ]
@@ -39791,8 +39790,8 @@ define noundef zeroext i1 @"_ZN78_$LT$cranelift_codegen..write..DisplayValues$u2
 
 31:                                               ; preds = %29, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %.not27 = icmp eq ptr %23, %11
-  br i1 %.not27, label %.loopexit, label %22
+  %.not24 = icmp eq ptr %23, %11
+  br i1 %.not24, label %.loopexit, label %22
 
 32:                                               ; preds = %29, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

@@ -1269,14 +1269,14 @@ _ZL11outputfieldPKcPPPPfiiii.exit:                ; preds = %._crit_edge60.i
   %wide.trip.count345.i = zext nneg i32 %174 to i64
   br label %.lr.ph280.i
 
-.preheader258.lr.ph.i:                            ; preds = %.lr.ph280.i
+.preheader259.i:                                  ; preds = %.lr.ph280.i
   %477 = mul nsw i32 %spec.select, %206
   %478 = sitofp i32 %477 to float
   %479 = and i1 %201, %203
   %brmerge.not.i = and i1 %479, %384
   br i1 %brmerge.not.i, label %.preheader258.us.us.us.preheader.i, label %._crit_edge293.i
 
-.preheader258.us.us.us.preheader.i:               ; preds = %.preheader258.lr.ph.i
+.preheader258.us.us.us.preheader.i:               ; preds = %.preheader259.i
   %wide.trip.count355.i = zext nneg i32 %.0 to i64
   br label %.preheader258.us.us.us.i
 
@@ -1337,9 +1337,9 @@ _ZL11outputfieldPKcPPPPfiiii.exit:                ; preds = %._crit_edge60.i
   store float 1.000000e+00, ptr %496, align 4
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv342.i, 1
   %exitcond346.not.i = icmp eq i64 %indvars.iv.next343.i, %wide.trip.count345.i
-  br i1 %exitcond346.not.i, label %.preheader258.lr.ph.i, label %.lr.ph280.i, !llvm.loop !32
+  br i1 %exitcond346.not.i, label %.preheader259.i, label %.lr.ph280.i, !llvm.loop !32
 
-._crit_edge293.i:                                 ; preds = %._crit_edge287.split.us.split.us.us.us.us.i, %.preheader258.lr.ph.i, %.noexc63
+._crit_edge293.i:                                 ; preds = %._crit_edge287.split.us.split.us.us.us.us.i, %.preheader259.i, %.noexc63
   %497 = load ptr, ptr @debug, align 8
   %.not.i = icmp eq ptr %497, null
   br i1 %.not.i, label %.noexc67, label %498

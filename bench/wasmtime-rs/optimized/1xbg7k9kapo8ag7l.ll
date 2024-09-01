@@ -1308,8 +1308,8 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
           to label %.noexc114.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !6
 
 .noexc114.i:                                      ; preds = %.loopexit137.i
-  %.not493.i.i = icmp eq ptr %375, null
-  br i1 %.not493.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %.lr.ph.i106.i
+  %.not342.i.i = icmp eq ptr %375, null
+  br i1 %.not342.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %.lr.ph.i106.i
 
 .lr.ph.i106.i:                                    ; preds = %.noexc114.i
   %376 = getelementptr inbounds i8, ptr %55, i64 24
@@ -1518,7 +1518,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
           cleanup
   br label %.loopexit.split-lp.i107.i
 
-.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %626, %.loopexit200.i.i, %.invoke621.i.i
+.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %626, %.loopexit200.i.i, %.invoke596.i.i
   %lpad.loopexit.split-lp195.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i107.i
@@ -1566,7 +1566,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
 489:                                              ; preds = %486
   %490 = load i64, ptr %404, align 8, !noalias !6, !noundef !9
   %.not.i112.i = icmp eq i64 %490, 0
-  br i1 %.not.i112.i, label %.invoke621.i.i, label %499, !prof !14
+  br i1 %.not.i112.i, label %.invoke596.i.i, label %499, !prof !14
 
 491:                                              ; preds = %486
   %492 = extractvalue { i64, ptr } %485, 0
@@ -1580,7 +1580,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
   %496 = getelementptr inbounds i8, ptr %494, i64 88
   %497 = load i64, ptr %496, align 8, !noalias !6, !noundef !9
   %498 = icmp ult i64 %495, %497
-  br i1 %498, label %601, label %.invoke621.i.i, !prof !13
+  br i1 %498, label %601, label %.invoke596.i.i, !prof !13
 
 499:                                              ; preds = %489
   %500 = load ptr, ptr %405, align 8, !noalias !6, !nonnull !9, !noundef !9
@@ -1593,16 +1593,16 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
   %504 = getelementptr inbounds i8, ptr %502, i64 88
   %505 = load i64, ptr %504, align 8, !noalias !6, !noundef !9
   %506 = icmp ult i64 %503, %505
-  br i1 %506, label %510, label %.invoke621.i.i, !prof !13
+  br i1 %506, label %510, label %.invoke596.i.i, !prof !13
 
-.invoke621.i.i:                                   ; preds = %516, %.noexc171.i.i, %489, %613, %.noexc166.i.i
+.invoke596.i.i:                                   ; preds = %516, %.noexc171.i.i, %489, %613, %.noexc166.i.i
   %507 = phi i64 [ %495, %.noexc166.i.i ], [ %612, %613 ], [ %503, %.noexc171.i.i ], [ 0, %489 ], [ %515, %516 ]
   %508 = phi i64 [ %497, %.noexc166.i.i ], [ %453, %613 ], [ %505, %.noexc171.i.i ], [ 0, %489 ], [ %453, %516 ]
   %509 = phi ptr [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc166.i.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.147, %613 ], [ @anon.792701b81ad76444630bbc03b8bdde37.150, %.noexc171.i.i ], [ @anon.792701b81ad76444630bbc03b8bdde37.131, %489 ], [ @anon.792701b81ad76444630bbc03b8bdde37.132, %516 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %507, i64 %508, ptr nonnull align 8 %509) #7
-          to label %.cont622.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !6
+          to label %.cont597.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !6
 
-.cont622.i.i:                                     ; preds = %.invoke621.i.i
+.cont597.i.i:                                     ; preds = %.invoke596.i.i
   unreachable
 
 510:                                              ; preds = %.noexc171.i.i
@@ -1619,7 +1619,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr nocaptu
 
 516:                                              ; preds = %510
   %517 = icmp ult i64 %515, %453
-  br i1 %517, label %518, label %.invoke621.i.i, !prof !13
+  br i1 %517, label %518, label %.invoke596.i.i, !prof !13
 
 518:                                              ; preds = %516
   %519 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %451, i64 0, i64 %515
@@ -1869,8 +1869,8 @@ default.unreachable:                              ; preds = %532
           to label %.noexc117.i unwind label %.loopexit.i, !noalias !6
 
 .noexc117.i:                                      ; preds = %.noexc116.i
-  %.not495.i.i = icmp eq ptr %600, null
-  br i1 %.not495.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %424
+  %.not343.i.i = icmp eq ptr %600, null
+  br i1 %.not343.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %424
 
 .loopexit200.i.i:                                 ; preds = %595, %566, %554, %550, %590
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %18)
@@ -1910,15 +1910,15 @@ default.unreachable:                              ; preds = %532
   %611 = load ptr, ptr %376, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   %spec.select.i110.i = select i1 %.not180.i.i, ptr @anon.792701b81ad76444630bbc03b8bdde37.7, ptr @anon.792701b81ad76444630bbc03b8bdde37.118
   %not..not180.i.i = xor i1 %.not180.i.i, true
-  %spec.select623.i.i = zext i1 %not..not180.i.i to i64
+  %spec.select598.i.i = zext i1 %not..not180.i.i to i64
   store ptr %spec.select.i110.i, ptr %34, align 8, !noalias !6
-  store i64 %spec.select623.i.i, ptr %393, align 8, !noalias !6
+  store i64 %spec.select598.i.i, ptr %393, align 8, !noalias !6
   %612 = invoke i64 @_ZN14cranelift_isle4sema3Sym5index17h8bddbd8f0125423aE(i64 %.sroa.3.0.i.i.i)
           to label %613 unwind label %.loopexit.i108.i, !noalias !6
 
 613:                                              ; preds = %610
   %614 = icmp ult i64 %612, %453
-  br i1 %614, label %615, label %.invoke621.i.i, !prof !13
+  br i1 %614, label %615, label %.invoke596.i.i, !prof !13
 
 615:                                              ; preds = %613
   %616 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %451, i64 0, i64 %612

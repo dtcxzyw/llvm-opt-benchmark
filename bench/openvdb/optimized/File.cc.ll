@@ -11506,7 +11506,7 @@ _ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit: ; preds = %_ZNSt15__n
   store i64 %buffer_size, ptr %size_.i, align 8
   br label %while.body
 
-while.body:                                       ; preds = %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit, %if.end
+while.body:                                       ; preds = %if.end, %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit
   %total.014 = phi i64 [ 0, %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit ], [ %add, %if.end ]
   %1 = load ptr, ptr %src, align 8
   %call.i.i5 = invoke noundef ptr @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(256) %1)
@@ -11565,16 +11565,15 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.end:                                           ; preds = %call1.i.i.i.i.i.noexc, %if.then
   %add = add nsw i64 %call1.i.i6, %total.014
-  br i1 %cmp, label %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit, label %while.body, !llvm.loop !42
+  br label %while.body, !llvm.loop !42
 
-_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit: ; preds = %invoke.cont3, %if.end
-  %total.116 = phi i64 [ %add, %if.end ], [ %total.014, %invoke.cont3 ]
+_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit: ; preds = %invoke.cont3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #30
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i1.i.i) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i)
-  ret i64 %total.116
+  ret i64 %total.014
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

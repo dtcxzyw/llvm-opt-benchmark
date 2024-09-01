@@ -5266,26 +5266,26 @@ define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayR
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us52thread-pre-split ], [ 0, %.lr.ph46.split.us ]
   %13 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %.not33.i.us = icmp eq i8 %12, 0
-  br i1 %.not33.i.us, label %.thread.i.us48, label %.lr.ph.i.us
+  %.not32.i.us = icmp eq i8 %12, 0
+  br i1 %.not32.i.us, label %.thread.i.us48, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us52
   %15 = load i8, ptr @_ZL5bCase, align 1
-  %.fr42.i.us = freeze i8 %15
-  %16 = trunc i8 %.fr42.i.us to i1
+  %.fr39.i.us = freeze i8 %15
+  %16 = trunc i8 %.fr39.i.us to i1
   br i1 %16, label %.lr.ph.split.us.i.us, label %.lr.ph.split.i.us
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.i.us, %29
   %17 = phi i8 [ %32, %29 ], [ %12, %.lr.ph.i.us ]
-  %.036.i.us = phi i8 [ %.1.i.us, %29 ], [ 1, %.lr.ph.i.us ]
-  %.01835.i.us = phi ptr [ %31, %29 ], [ %14, %.lr.ph.i.us ]
-  %.01934.i.us = phi ptr [ %30, %29 ], [ %.028.us, %.lr.ph.i.us ]
-  %18 = load i8, ptr %.01835.i.us, align 1
+  %.035.i.us = phi i8 [ %.1.i.us, %29 ], [ 1, %.lr.ph.i.us ]
+  %.01834.i.us = phi ptr [ %31, %29 ], [ %14, %.lr.ph.i.us ]
+  %.01933.i.us = phi ptr [ %30, %29 ], [ %.028.us, %.lr.ph.i.us ]
+  %18 = load i8, ptr %.01834.i.us, align 1
   %.not25.i.us = icmp eq i8 %18, 0
   br i1 %.not25.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us50, label %19
 
 19:                                               ; preds = %.lr.ph.split.i.us
-  %20 = trunc nuw i8 %.036.i.us to i1
+  %20 = trunc nuw i8 %.035.i.us to i1
   br i1 %20, label %21, label %_ZL9comp_namePKcS0_.exit.thread.us50
 
 21:                                               ; preds = %19
@@ -5304,24 +5304,24 @@ define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayR
   br label %29
 
 29:                                               ; preds = %22, %21
-  %.1.i.us = phi i8 [ %.036.i.us, %21 ], [ %28, %22 ]
-  %30 = getelementptr inbounds i8, ptr %.01934.i.us, i64 1
-  %31 = getelementptr inbounds i8, ptr %.01835.i.us, i64 1
+  %.1.i.us = phi i8 [ %.035.i.us, %21 ], [ %28, %22 ]
+  %30 = getelementptr inbounds i8, ptr %.01933.i.us, i64 1
+  %31 = getelementptr inbounds i8, ptr %.01834.i.us, i64 1
   %32 = load i8, ptr %30, align 1
   %.not.i.us = icmp eq i8 %32, 0
   br i1 %.not.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.i.us, !llvm.loop !54
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %44
   %33 = phi i8 [ %47, %44 ], [ %12, %.lr.ph.i.us ]
-  %.036.us.i.us = phi i8 [ %.1.us.i.us, %44 ], [ 1, %.lr.ph.i.us ]
-  %.01835.us.i.us = phi ptr [ %46, %44 ], [ %14, %.lr.ph.i.us ]
-  %.01934.us.i.us = phi ptr [ %45, %44 ], [ %.028.us, %.lr.ph.i.us ]
-  %34 = load i8, ptr %.01835.us.i.us, align 1
+  %.035.us.i.us = phi i8 [ %.1.us.i.us, %44 ], [ 1, %.lr.ph.i.us ]
+  %.01834.us.i.us = phi ptr [ %46, %44 ], [ %14, %.lr.ph.i.us ]
+  %.01933.us.i.us = phi ptr [ %45, %44 ], [ %.028.us, %.lr.ph.i.us ]
+  %34 = load i8, ptr %.01834.us.i.us, align 1
   %.not25.us.i.us = icmp eq i8 %34, 0
   br i1 %.not25.us.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us50, label %35
 
 35:                                               ; preds = %.lr.ph.split.us.i.us
-  %36 = trunc nuw i8 %.036.us.i.us to i1
+  %36 = trunc nuw i8 %.035.us.i.us to i1
   br i1 %36, label %37, label %_ZL9comp_namePKcS0_.exit.thread.us50
 
 37:                                               ; preds = %35
@@ -5331,8 +5331,8 @@ define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayR
   ]
 
 .split.us.i.us:                                   ; preds = %21, %37
-  %.us-phi39.i.us = phi ptr [ %.01835.us.i.us, %37 ], [ %.01835.i.us, %21 ]
-  %38 = getelementptr inbounds i8, ptr %.us-phi39.i.us, i64 1
+  %.us-phi.i.us = phi ptr [ %.01834.us.i.us, %37 ], [ %.01834.i.us, %21 ]
+  %38 = getelementptr inbounds i8, ptr %.us-phi.i.us, i64 1
   %39 = load i8, ptr %38, align 1
   %.not26.i.us = icmp eq i8 %39, 0
   br i1 %.not26.i.us, label %.critedge.us, label %_ZL9comp_namePKcS0_.exit.us
@@ -5349,9 +5349,9 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br label %44
 
 44:                                               ; preds = %41, %37
-  %.1.us.i.us = phi i8 [ %.036.us.i.us, %37 ], [ %43, %41 ]
-  %45 = getelementptr inbounds i8, ptr %.01934.us.i.us, i64 1
-  %46 = getelementptr inbounds i8, ptr %.01835.us.i.us, i64 1
+  %.1.us.i.us = phi i8 [ %.035.us.i.us, %37 ], [ %43, %41 ]
+  %45 = getelementptr inbounds i8, ptr %.01933.us.i.us, i64 1
+  %46 = getelementptr inbounds i8, ptr %.01834.us.i.us, i64 1
   %47 = load i8, ptr %45, align 1
   %.not.us.i.us = icmp eq i8 %47, 0
   br i1 %.not.us.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.us.i.us, !llvm.loop !54
@@ -5363,8 +5363,8 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br i1 %48, label %.thread.i.us48, label %_ZL9comp_namePKcS0_.exit.thread.us50
 
 .thread.i.us48:                                   ; preds = %.critedge.thread.i.us, %.lr.ph.split.us52
-  %.018.lcssa53.i.us = phi ptr [ %.018.lcssa.i.us, %.critedge.thread.i.us ], [ %14, %.lr.ph.split.us52 ]
-  %49 = load i8, ptr %.018.lcssa53.i.us, align 1
+  %.018.lcssa50.i.us = phi ptr [ %.018.lcssa.i.us, %.critedge.thread.i.us ], [ %14, %.lr.ph.split.us52 ]
+  %49 = load i8, ptr %.018.lcssa50.i.us, align 1
   switch i8 %49, label %_ZL9comp_namePKcS0_.exit.thread.us50 [
     i8 42, label %.critedge.us
     i8 0, label %.critedge.us
@@ -5497,7 +5497,7 @@ define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_at
 .lr.ph48:                                         ; preds = %.preheader
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not3941, label %._crit_edge, label %.lr.ph48.split
+  br label %.lr.ph48.split
 
 .lr.ph:                                           ; preds = %4, %11
   %.sroa.036.042 = phi ptr [ %12, %11 ], [ %8, %4 ]
@@ -5562,9 +5562,9 @@ define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_at
   %.pre53 = load ptr, ptr %7, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.preheader.thread, %.lr.ph48, %._crit_edge.loopexit49, %.preheader
-  %49 = phi ptr [ %.pre53, %._crit_edge.loopexit49 ], [ %8, %.preheader ], [ %8, %.lr.ph48 ], [ %8, %.preheader.thread ]
-  %50 = phi ptr [ %.pre52, %._crit_edge.loopexit49 ], [ %10, %.preheader ], [ %8, %.lr.ph48 ], [ %spec.select, %.preheader.thread ]
+._crit_edge:                                      ; preds = %.preheader.thread, %._crit_edge.loopexit49, %.preheader
+  %49 = phi ptr [ %.pre53, %._crit_edge.loopexit49 ], [ %8, %.preheader ], [ %8, %.preheader.thread ]
+  %50 = phi ptr [ %.pre52, %._crit_edge.loopexit49 ], [ %10, %.preheader ], [ %spec.select, %.preheader.thread ]
   %51 = load i32, ptr %2, align 4
   %52 = icmp eq i32 %51, 1
   %53 = select i1 %52, ptr @.str.6, ptr @.str.140
@@ -6096,26 +6096,26 @@ define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8Arr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us48thread-pre-split ], [ 0, %.lr.ph.us ]
   %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %.not33.i.us = icmp eq i8 %21, 0
-  br i1 %.not33.i.us, label %.thread.i.us44, label %.lr.ph.i.us
+  %.not32.i.us = icmp eq i8 %21, 0
+  br i1 %.not32.i.us, label %.thread.i.us44, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us48
   %24 = load i8, ptr @_ZL5bCase, align 1
-  %.fr42.i.us = freeze i8 %24
-  %25 = trunc i8 %.fr42.i.us to i1
+  %.fr39.i.us = freeze i8 %24
+  %25 = trunc i8 %.fr39.i.us to i1
   br i1 %25, label %.lr.ph.split.us.i.us, label %.lr.ph.split.i.us
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.i.us, %38
   %26 = phi i8 [ %41, %38 ], [ %21, %.lr.ph.i.us ]
-  %.036.i.us = phi i8 [ %.1.i.us, %38 ], [ 1, %.lr.ph.i.us ]
-  %.01835.i.us = phi ptr [ %40, %38 ], [ %23, %.lr.ph.i.us ]
-  %.01934.i.us = phi ptr [ %39, %38 ], [ %18, %.lr.ph.i.us ]
-  %27 = load i8, ptr %.01835.i.us, align 1
+  %.035.i.us = phi i8 [ %.1.i.us, %38 ], [ 1, %.lr.ph.i.us ]
+  %.01834.i.us = phi ptr [ %40, %38 ], [ %23, %.lr.ph.i.us ]
+  %.01933.i.us = phi ptr [ %39, %38 ], [ %18, %.lr.ph.i.us ]
+  %27 = load i8, ptr %.01834.i.us, align 1
   %.not25.i.us = icmp eq i8 %27, 0
   br i1 %.not25.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us46, label %28
 
 28:                                               ; preds = %.lr.ph.split.i.us
-  %29 = trunc nuw i8 %.036.i.us to i1
+  %29 = trunc nuw i8 %.035.i.us to i1
   br i1 %29, label %30, label %_ZL9comp_namePKcS0_.exit.thread.us46
 
 30:                                               ; preds = %28
@@ -6134,24 +6134,24 @@ define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8Arr
   br label %38
 
 38:                                               ; preds = %31, %30
-  %.1.i.us = phi i8 [ %.036.i.us, %30 ], [ %37, %31 ]
-  %39 = getelementptr inbounds i8, ptr %.01934.i.us, i64 1
-  %40 = getelementptr inbounds i8, ptr %.01835.i.us, i64 1
+  %.1.i.us = phi i8 [ %.035.i.us, %30 ], [ %37, %31 ]
+  %39 = getelementptr inbounds i8, ptr %.01933.i.us, i64 1
+  %40 = getelementptr inbounds i8, ptr %.01834.i.us, i64 1
   %41 = load i8, ptr %39, align 1
   %.not.i.us = icmp eq i8 %41, 0
   br i1 %.not.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.i.us, !llvm.loop !54
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %53
   %42 = phi i8 [ %56, %53 ], [ %21, %.lr.ph.i.us ]
-  %.036.us.i.us = phi i8 [ %.1.us.i.us, %53 ], [ 1, %.lr.ph.i.us ]
-  %.01835.us.i.us = phi ptr [ %55, %53 ], [ %23, %.lr.ph.i.us ]
-  %.01934.us.i.us = phi ptr [ %54, %53 ], [ %18, %.lr.ph.i.us ]
-  %43 = load i8, ptr %.01835.us.i.us, align 1
+  %.035.us.i.us = phi i8 [ %.1.us.i.us, %53 ], [ 1, %.lr.ph.i.us ]
+  %.01834.us.i.us = phi ptr [ %55, %53 ], [ %23, %.lr.ph.i.us ]
+  %.01933.us.i.us = phi ptr [ %54, %53 ], [ %18, %.lr.ph.i.us ]
+  %43 = load i8, ptr %.01834.us.i.us, align 1
   %.not25.us.i.us = icmp eq i8 %43, 0
   br i1 %.not25.us.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us46, label %44
 
 44:                                               ; preds = %.lr.ph.split.us.i.us
-  %45 = trunc nuw i8 %.036.us.i.us to i1
+  %45 = trunc nuw i8 %.035.us.i.us to i1
   br i1 %45, label %46, label %_ZL9comp_namePKcS0_.exit.thread.us46
 
 46:                                               ; preds = %44
@@ -6161,8 +6161,8 @@ define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8Arr
   ]
 
 .split.us.i.us:                                   ; preds = %30, %46
-  %.us-phi39.i.us = phi ptr [ %.01835.us.i.us, %46 ], [ %.01835.i.us, %30 ]
-  %47 = getelementptr inbounds i8, ptr %.us-phi39.i.us, i64 1
+  %.us-phi.i.us = phi ptr [ %.01834.us.i.us, %46 ], [ %.01834.i.us, %30 ]
+  %47 = getelementptr inbounds i8, ptr %.us-phi.i.us, i64 1
   %48 = load i8, ptr %47, align 1
   %.not26.i.us = icmp eq i8 %48, 0
   br i1 %.not26.i.us, label %.critedge.us, label %_ZL9comp_namePKcS0_.exit.us
@@ -6179,9 +6179,9 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br label %53
 
 53:                                               ; preds = %50, %46
-  %.1.us.i.us = phi i8 [ %.036.us.i.us, %46 ], [ %52, %50 ]
-  %54 = getelementptr inbounds i8, ptr %.01934.us.i.us, i64 1
-  %55 = getelementptr inbounds i8, ptr %.01835.us.i.us, i64 1
+  %.1.us.i.us = phi i8 [ %.035.us.i.us, %46 ], [ %52, %50 ]
+  %54 = getelementptr inbounds i8, ptr %.01933.us.i.us, i64 1
+  %55 = getelementptr inbounds i8, ptr %.01834.us.i.us, i64 1
   %56 = load i8, ptr %54, align 1
   %.not.us.i.us = icmp eq i8 %56, 0
   br i1 %.not.us.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.us.i.us, !llvm.loop !54
@@ -6193,8 +6193,8 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br i1 %57, label %.thread.i.us44, label %_ZL9comp_namePKcS0_.exit.thread.us46
 
 .thread.i.us44:                                   ; preds = %.critedge.thread.i.us, %.lr.ph.split.us48
-  %.018.lcssa53.i.us = phi ptr [ %.018.lcssa.i.us, %.critedge.thread.i.us ], [ %23, %.lr.ph.split.us48 ]
-  %58 = load i8, ptr %.018.lcssa53.i.us, align 1
+  %.018.lcssa50.i.us = phi ptr [ %.018.lcssa.i.us, %.critedge.thread.i.us ], [ %23, %.lr.ph.split.us48 ]
+  %58 = load i8, ptr %.018.lcssa50.i.us, align 1
   switch i8 %58, label %_ZL9comp_namePKcS0_.exit.thread.us46 [
     i8 42, label %.critedge.us
     i8 0, label %.critedge.us
@@ -6299,8 +6299,8 @@ define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8Array
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct.t_resinfo, ptr %13, i64 %17, i32 4
   %19 = load i8, ptr %18, align 4
-  %.not33.i.us = icmp eq i8 %19, 0
-  br i1 %.not33.i.us, label %.thread.i.us.us, label %.lr.ph.i.us.preheader
+  %.not32.i.us = icmp eq i8 %19, 0
+  br i1 %.not32.i.us, label %.thread.i.us.us, label %.lr.ph.i.us.preheader
 
 .lr.ph.i.us.preheader:                            ; preds = %.lr.ph.us
   %.pre82 = load i8, ptr @_ZL5bCase, align 1
@@ -6309,23 +6309,23 @@ define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8Array
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %_ZL9comp_namePKcS0_.exit.thread.us46
   %20 = phi i8 [ %.pre82, %.lr.ph.i.us.preheader ], [ %60, %_ZL9comp_namePKcS0_.exit.thread.us46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.us.preheader ], [ %indvars.iv.next, %_ZL9comp_namePKcS0_.exit.thread.us46 ]
-  %.fr42.i.us = freeze i8 %20
+  %.fr39.i.us = freeze i8 %20
   %21 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i8 %.fr42.i.us to i1
+  %23 = trunc i8 %.fr39.i.us to i1
   br i1 %23, label %.lr.ph.split.us.i.us, label %.lr.ph.split.i.us
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.i.us, %36
   %24 = phi i8 [ %39, %36 ], [ %19, %.lr.ph.i.us ]
-  %.036.i.us = phi i8 [ %.1.i.us, %36 ], [ 1, %.lr.ph.i.us ]
-  %.01835.i.us = phi ptr [ %38, %36 ], [ %22, %.lr.ph.i.us ]
-  %.01934.i.us = phi ptr [ %37, %36 ], [ %6, %.lr.ph.i.us ]
-  %25 = load i8, ptr %.01835.i.us, align 1
+  %.035.i.us = phi i8 [ %.1.i.us, %36 ], [ 1, %.lr.ph.i.us ]
+  %.01834.i.us = phi ptr [ %38, %36 ], [ %22, %.lr.ph.i.us ]
+  %.01933.i.us = phi ptr [ %37, %36 ], [ %6, %.lr.ph.i.us ]
+  %25 = load i8, ptr %.01834.i.us, align 1
   %.not25.i.us = icmp eq i8 %25, 0
   br i1 %.not25.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us46, label %26
 
 26:                                               ; preds = %.lr.ph.split.i.us
-  %27 = trunc nuw i8 %.036.i.us to i1
+  %27 = trunc nuw i8 %.035.i.us to i1
   br i1 %27, label %28, label %_ZL9comp_namePKcS0_.exit.thread.us46
 
 28:                                               ; preds = %26
@@ -6344,24 +6344,24 @@ define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8Array
   br label %36
 
 36:                                               ; preds = %29, %28
-  %.1.i.us = phi i8 [ %.036.i.us, %28 ], [ %35, %29 ]
-  %37 = getelementptr inbounds i8, ptr %.01934.i.us, i64 1
-  %38 = getelementptr inbounds i8, ptr %.01835.i.us, i64 1
+  %.1.i.us = phi i8 [ %.035.i.us, %28 ], [ %35, %29 ]
+  %37 = getelementptr inbounds i8, ptr %.01933.i.us, i64 1
+  %38 = getelementptr inbounds i8, ptr %.01834.i.us, i64 1
   %39 = load i8, ptr %37, align 1
   %.not.i.us = icmp eq i8 %39, 0
   br i1 %.not.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.i.us, !llvm.loop !54
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %51
   %40 = phi i8 [ %54, %51 ], [ %19, %.lr.ph.i.us ]
-  %.036.us.i.us = phi i8 [ %.1.us.i.us, %51 ], [ 1, %.lr.ph.i.us ]
-  %.01835.us.i.us = phi ptr [ %53, %51 ], [ %22, %.lr.ph.i.us ]
-  %.01934.us.i.us = phi ptr [ %52, %51 ], [ %6, %.lr.ph.i.us ]
-  %41 = load i8, ptr %.01835.us.i.us, align 1
+  %.035.us.i.us = phi i8 [ %.1.us.i.us, %51 ], [ 1, %.lr.ph.i.us ]
+  %.01834.us.i.us = phi ptr [ %53, %51 ], [ %22, %.lr.ph.i.us ]
+  %.01933.us.i.us = phi ptr [ %52, %51 ], [ %6, %.lr.ph.i.us ]
+  %41 = load i8, ptr %.01834.us.i.us, align 1
   %.not25.us.i.us = icmp eq i8 %41, 0
   br i1 %.not25.us.i.us, label %_ZL9comp_namePKcS0_.exit.thread.us46, label %42
 
 42:                                               ; preds = %.lr.ph.split.us.i.us
-  %43 = trunc nuw i8 %.036.us.i.us to i1
+  %43 = trunc nuw i8 %.035.us.i.us to i1
   br i1 %43, label %44, label %_ZL9comp_namePKcS0_.exit.thread.us46
 
 44:                                               ; preds = %42
@@ -6371,8 +6371,8 @@ define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8Array
   ]
 
 .split.us.i.us:                                   ; preds = %28, %44
-  %.us-phi39.i.us = phi ptr [ %.01835.us.i.us, %44 ], [ %.01835.i.us, %28 ]
-  %45 = getelementptr inbounds i8, ptr %.us-phi39.i.us, i64 1
+  %.us-phi.i.us = phi ptr [ %.01834.us.i.us, %44 ], [ %.01834.i.us, %28 ]
+  %45 = getelementptr inbounds i8, ptr %.us-phi.i.us, i64 1
   %46 = load i8, ptr %45, align 1
   %.not26.i.us = icmp eq i8 %46, 0
   br i1 %.not26.i.us, label %.critedge.us, label %_ZL9comp_namePKcS0_.exit.us
@@ -6390,9 +6390,9 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br label %51
 
 51:                                               ; preds = %48, %44
-  %.1.us.i.us = phi i8 [ %.036.us.i.us, %44 ], [ %50, %48 ]
-  %52 = getelementptr inbounds i8, ptr %.01934.us.i.us, i64 1
-  %53 = getelementptr inbounds i8, ptr %.01835.us.i.us, i64 1
+  %.1.us.i.us = phi i8 [ %.035.us.i.us, %44 ], [ %50, %48 ]
+  %52 = getelementptr inbounds i8, ptr %.01933.us.i.us, i64 1
+  %53 = getelementptr inbounds i8, ptr %.01834.us.i.us, i64 1
   %54 = load i8, ptr %52, align 1
   %.not.us.i.us = icmp eq i8 %54, 0
   br i1 %.not.us.i.us, label %.critedge.thread.i.us, label %.lr.ph.split.us.i.us, !llvm.loop !54
@@ -6418,7 +6418,7 @@ _ZL9comp_namePKcS0_.exit.us:                      ; preds = %.split.us.i.us
   br i1 %59, label %.lr.ph.us, label %._crit_edge, !llvm.loop !75
 
 _ZL9comp_namePKcS0_.exit.thread.us46:             ; preds = %.lr.ph.split.i.us, %26, %.lr.ph.split.us.i.us, %42, %.thread.i.us44, %.critedge.thread.i.us, %_ZL9comp_namePKcS0_.exit.us
-  %60 = phi i8 [ %.fr42.i.us, %.thread.i.us44 ], [ %.fr42.i.us, %.critedge.thread.i.us ], [ %.pre, %_ZL9comp_namePKcS0_.exit.us ], [ %.fr42.i.us, %42 ], [ %.fr42.i.us, %.lr.ph.split.us.i.us ], [ %.fr42.i.us, %26 ], [ %.fr42.i.us, %.lr.ph.split.i.us ]
+  %60 = phi i8 [ %.fr39.i.us, %.thread.i.us44 ], [ %.fr39.i.us, %.critedge.thread.i.us ], [ %.pre, %_ZL9comp_namePKcS0_.exit.us ], [ %.fr39.i.us, %42 ], [ %.fr39.i.us, %.lr.ph.split.us.i.us ], [ %.fr39.i.us, %26 ], [ %.fr39.i.us, %.lr.ph.split.i.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge25.us, label %.lr.ph.i.us, !llvm.loop !76

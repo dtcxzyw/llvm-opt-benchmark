@@ -20732,16 +20732,16 @@ _ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S
   %116 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 40
   %117 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i72, i64 40
   %.not.i.i.i.i.i74 = icmp eq ptr %116, %10
-  br i1 %.not.i.i.i.i.i74, label %.lr.ph.i.i.i78, label %.lr.ph.i.i.i.i.i71, !llvm.loop !211
+  br i1 %.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76, label %.lr.ph.i.i.i.i.i71, !llvm.loop !211
 
-.lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i.i.i71
+_ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76: ; preds = %.lr.ph.i.i.i.i.i71
   %118 = load ptr, ptr %9, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 %43
   store ptr %119, ptr %9, align 8
   br label %120
 
-120:                                              ; preds = %.noexc81, %.lr.ph.i.i.i78
-  %.06.i.i.i79 = phi ptr [ %1, %.lr.ph.i.i.i78 ], [ %126, %.noexc81 ]
+120:                                              ; preds = %.noexc81, %_ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76
+  %.06.i.i.i79 = phi ptr [ %1, %_ZSt22__uninitialized_move_aIPN5ceres8internal14CompressedListES3_SaIS2_EET0_T_S6_S5_RT1_.exit76 ], [ %126, %.noexc81 ]
   %121 = load i64, ptr %16, align 8
   store i64 %121, ptr %.06.i.i.i79, align 8
   %122 = getelementptr inbounds i8, ptr %.06.i.i.i79, i64 8

@@ -2084,108 +2084,95 @@ declare i64 @toast_flatten_tuple_to_datum(ptr noundef, i32 noundef, ptr noundef)
 define dso_local noundef ptr @heap_form_tuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
-  br i1 %5, label %10, label %.preheader
+  br i1 %5, label %7, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %7 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %8 = load i8, ptr %2, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph57
+  br label %.lr.ph
 
-10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 17039621) #11
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
+7:                                                ; preds = %3
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %8)
+  %9 = tail call i32 @errcode(i32 noundef 17039621) #11
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.heap_form_tuple) #11
   unreachable
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv56 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv56, 1
+11:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph57
-  %14 = getelementptr i8, ptr %2, i64 %indvars.iv.next
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %.lr.ph._crit_edge.loopexit, label %.lr.ph57, !llvm.loop !15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr i8, ptr %2, i64 %indvars.iv
+  %13 = load i8, ptr %12, align 1
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %11
 
-.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %17 = icmp ult i64 %indvars.iv.next, %7
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %17, %.lr.ph._crit_edge.loopexit ]
-  %18 = add nuw nsw i32 %4, 7
-  %19 = lshr i32 %18, 3
-  %narrow = add nuw nsw i32 %19, 30
-  %20 = and i32 %narrow, 536870904
-  %21 = zext nneg i32 %20 to i64
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw nsw i32 %4, 7
+  %17 = lshr i32 %16, 3
+  %narrow = add nuw nsw i32 %17, 30
+  %18 = and i32 %narrow, 536870904
+  %19 = zext nneg i32 %18 to i64
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph57
-  %22 = icmp ult i64 %indvars.iv.next, %7
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %.lr.ph._crit_edge
-  %23 = phi i1 [ %.lcssa, %.lr.ph._crit_edge ], [ false, %.preheader ], [ %22, %.critedge.loopexit ]
-  %.045 = phi i64 [ %21, %.lr.ph._crit_edge ], [ 24, %.preheader ], [ 24, %.critedge.loopexit ]
-  %24 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
-  %25 = add i64 %24, %.045
-  %26 = add i64 %25, 24
-  %27 = tail call ptr @palloc0(i64 noundef %26) #11
-  %28 = getelementptr i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %28, ptr %29, align 8
-  %30 = trunc i64 %25 to i32
-  store i32 %30, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 4
-  store i16 -1, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %27, i64 6
-  store i16 -1, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
-  store i16 0, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %27, i64 12
-  store i32 0, ptr %34, align 4
-  %35 = shl i32 %30, 2
-  store i32 %35, ptr %28, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr i8, ptr %27, i64 32
+.critedge:                                        ; preds = %11, %.preheader, %15
+  %20 = phi i1 [ true, %15 ], [ false, %.preheader ], [ false, %11 ]
+  %.045 = phi i64 [ %19, %15 ], [ 24, %.preheader ], [ 24, %11 ]
+  %21 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %22 = add i64 %21, %.045
+  %23 = add i64 %22, 24
+  %24 = tail call ptr @palloc0(i64 noundef %23) #11
+  %25 = getelementptr i8, ptr %24, i64 24
+  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %25, ptr %26, align 8
+  %27 = trunc i64 %22 to i32
+  store i32 %27, ptr %24, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 4
+  store i16 -1, ptr %28, align 2
+  %29 = getelementptr inbounds i8, ptr %24, i64 6
+  store i16 -1, ptr %29, align 2
+  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  store i16 0, ptr %30, align 2
+  %31 = getelementptr inbounds i8, ptr %24, i64 12
+  store i32 0, ptr %31, align 4
+  %32 = shl i32 %27, 2
+  store i32 %32, ptr %25, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr i8, ptr %24, i64 32
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = getelementptr i8, ptr %24, i64 28
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = getelementptr i8, ptr %27, i64 28
-  store i32 %40, ptr %41, align 4
-  %42 = getelementptr i8, ptr %27, i64 36
-  store i16 -1, ptr %42, align 2
-  %43 = getelementptr i8, ptr %27, i64 38
-  store i16 -1, ptr %43, align 2
-  %44 = getelementptr i8, ptr %27, i64 40
-  store i16 0, ptr %44, align 2
-  %45 = getelementptr i8, ptr %27, i64 42
-  %46 = load i16, ptr %45, align 2
-  %47 = and i16 %46, -2048
-  %48 = trunc i32 %4 to i16
-  %49 = or i16 %47, %48
-  store i16 %49, ptr %45, align 2
-  %50 = trunc i64 %.045 to i8
-  %51 = getelementptr i8, ptr %27, i64 46
-  store i8 %50, ptr %51, align 2
-  %52 = getelementptr i8, ptr %28, i64 %.045
-  %53 = getelementptr i8, ptr %27, i64 44
-  %54 = getelementptr i8, ptr %27, i64 47
-  %cond.fr = freeze i1 %23
-  %spec.select = select i1 %cond.fr, ptr %54, ptr null
-  tail call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %52, i64 poison, ptr noundef %53, ptr noundef %spec.select)
-  ret ptr %27
+  %39 = getelementptr i8, ptr %24, i64 36
+  store i16 -1, ptr %39, align 2
+  %40 = getelementptr i8, ptr %24, i64 38
+  store i16 -1, ptr %40, align 2
+  %41 = getelementptr i8, ptr %24, i64 40
+  store i16 0, ptr %41, align 2
+  %42 = getelementptr i8, ptr %24, i64 42
+  %43 = load i16, ptr %42, align 2
+  %44 = and i16 %43, -2048
+  %45 = trunc i32 %4 to i16
+  %46 = or i16 %44, %45
+  store i16 %46, ptr %42, align 2
+  %47 = trunc i64 %.045 to i8
+  %48 = getelementptr i8, ptr %24, i64 46
+  store i8 %47, ptr %48, align 2
+  %49 = getelementptr i8, ptr %25, i64 %.045
+  %50 = getelementptr i8, ptr %24, i64 44
+  %51 = getelementptr i8, ptr %24, i64 47
+  %spec.select = select i1 %20, ptr %51, ptr null
+  tail call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %49, i64 poison, ptr noundef %50, ptr noundef %spec.select)
+  ret ptr %24
 }
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
@@ -2663,81 +2650,68 @@ define dso_local void @heap_freetuple(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local noundef ptr @heap_form_minimal_tuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
-  br i1 %5, label %10, label %.preheader
+  br i1 %5, label %7, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %7 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %8 = load i8, ptr %2, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph46
+  br label %.lr.ph
 
-10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 17039621) #11
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
+7:                                                ; preds = %3
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %8)
+  %9 = tail call i32 @errcode(i32 noundef 17039621) #11
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1469, ptr noundef nonnull @__func__.heap_form_minimal_tuple) #11
   unreachable
 
-.lr.ph46:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv45 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv45, 1
+11:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
-.lr.ph:                                           ; preds = %.lr.ph46
-  %14 = getelementptr i8, ptr %2, i64 %indvars.iv.next
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %.lr.ph._crit_edge.loopexit, label %.lr.ph46, !llvm.loop !20
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr i8, ptr %2, i64 %indvars.iv
+  %13 = load i8, ptr %12, align 1
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %11
 
-.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %17 = icmp ult i64 %indvars.iv.next, %7
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %17, %.lr.ph._crit_edge.loopexit ]
-  %18 = add nuw nsw i32 %4, 7
-  %19 = lshr i32 %18, 3
-  %narrow = add nuw nsw i32 %19, 22
-  %20 = and i32 %narrow, 536870904
-  %21 = zext nneg i32 %20 to i64
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw nsw i32 %4, 7
+  %17 = lshr i32 %16, 3
+  %narrow = add nuw nsw i32 %17, 22
+  %18 = and i32 %narrow, 536870904
+  %19 = zext nneg i32 %18 to i64
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph46
-  %22 = icmp ult i64 %indvars.iv.next, %7
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %.lr.ph._crit_edge
-  %23 = phi i1 [ %.lcssa, %.lr.ph._crit_edge ], [ false, %.preheader ], [ %22, %.critedge.loopexit ]
-  %.034 = phi i64 [ %21, %.lr.ph._crit_edge ], [ 16, %.preheader ], [ 16, %.critedge.loopexit ]
-  %24 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
-  %25 = add i64 %24, %.034
-  %26 = tail call ptr @palloc0(i64 noundef %25) #11
-  %27 = trunc i64 %25 to i32
-  store i32 %27, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 10
-  %29 = load i16, ptr %28, align 2
-  %30 = and i16 %29, -2048
-  %31 = trunc i32 %4 to i16
-  %32 = or i16 %30, %31
-  store i16 %32, ptr %28, align 2
-  %33 = trunc i64 %.034 to i8
-  %34 = add i8 %33, 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 14
-  store i8 %34, ptr %35, align 2
-  %36 = getelementptr i8, ptr %26, i64 %.034
-  %37 = getelementptr inbounds i8, ptr %26, i64 12
-  %38 = getelementptr inbounds i8, ptr %26, i64 15
-  %cond.fr = freeze i1 %23
-  %spec.select = select i1 %cond.fr, ptr %38, ptr null
-  tail call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %36, i64 poison, ptr noundef nonnull %37, ptr noundef %spec.select)
-  ret ptr %26
+.critedge:                                        ; preds = %11, %.preheader, %15
+  %20 = phi i1 [ true, %15 ], [ false, %.preheader ], [ false, %11 ]
+  %.034 = phi i64 [ %19, %15 ], [ 16, %.preheader ], [ 16, %11 ]
+  %21 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %22 = add i64 %21, %.034
+  %23 = tail call ptr @palloc0(i64 noundef %22) #11
+  %24 = trunc i64 %22 to i32
+  store i32 %24, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 10
+  %26 = load i16, ptr %25, align 2
+  %27 = and i16 %26, -2048
+  %28 = trunc i32 %4 to i16
+  %29 = or i16 %27, %28
+  store i16 %29, ptr %25, align 2
+  %30 = trunc i64 %.034 to i8
+  %31 = add i8 %30, 8
+  %32 = getelementptr inbounds i8, ptr %23, i64 14
+  store i8 %31, ptr %32, align 2
+  %33 = getelementptr i8, ptr %23, i64 %.034
+  %34 = getelementptr inbounds i8, ptr %23, i64 12
+  %35 = getelementptr inbounds i8, ptr %23, i64 15
+  %spec.select = select i1 %20, ptr %35, ptr null
+  tail call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %33, i64 poison, ptr noundef nonnull %34, ptr noundef %spec.select)
+  ret ptr %23
 }
 
 ; Function Attrs: nounwind uwtable

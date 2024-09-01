@@ -1117,7 +1117,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %label9 = getelementptr inbounds i8, ptr %a.addr.013, i64 24
   %3 = load i8, ptr %label9, align 8
   %cmp.not = icmp eq i8 %2, %3
-  br i1 %cmp.not, label %while.end.loopexit, label %while.body
+  br i1 %cmp.not, label %return, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %cmp16 = icmp ult i8 %2, %3
@@ -1125,14 +1125,10 @@ while.body:                                       ; preds = %land.rhs
   %a.addr.1.in = getelementptr inbounds i8, ptr %a.addr.013, i64 %a.addr.1.in.idx
   %a.addr.1 = load ptr, ptr %a.addr.1.in, align 8
   %tobool8.not = icmp eq ptr %a.addr.1, null
-  br i1 %tobool8.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !20
+  br i1 %tobool8.not, label %return, label %land.rhs, !llvm.loop !20
 
-while.end.loopexit:                               ; preds = %while.body, %land.rhs
-  %4 = zext i1 %cmp.not to i32
-  br label %return
-
-return:                                           ; preds = %while.end.loopexit, %if.end3, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.end3 ], [ %4, %while.end.loopexit ]
+return:                                           ; preds = %while.body, %land.rhs, %if.end3, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %while.body ], [ 1, %land.rhs ]
   ret i32 %retval.0
 }
 

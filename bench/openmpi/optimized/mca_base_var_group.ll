@@ -1401,8 +1401,8 @@ opal_pointer_array_get_item.exit.i.i:             ; preds = %41, %35
 
 sub_0.i.i:                                        ; preds = %49
   %52 = load i8, ptr %0, align 1
-  %.not17.i.i = icmp eq i8 %52, 42
-  br i1 %.not17.i.i, label %.tail.i.i, label %.tail.thread.i.i
+  %.not18.i.i = icmp eq i8 %52, 42
+  br i1 %.not18.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
 .tail.i.i:                                        ; preds = %sub_0.i.i
   %53 = load i8, ptr %25, align 1
@@ -1410,8 +1410,8 @@ sub_0.i.i:                                        ; preds = %49
   br i1 %54, label %compare_strings.exit.thread.i, label %.tail.thread.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_0.i.i
-  %.not18.i.i = icmp eq ptr %51, null
-  br i1 %.not18.i.i, label %mca_base_var_group_get_internal.exit.i, label %55
+  %.not17.i.i = icmp eq ptr %51, null
+  br i1 %.not17.i.i, label %mca_base_var_group_get_internal.exit.i, label %55
 
 55:                                               ; preds = %.tail.thread.i.i
   %56 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %51) #15
@@ -1429,8 +1429,8 @@ compare_strings.exit.thread.i:                    ; preds = %compare_strings.exi
 
 sub_0.i13.i:                                      ; preds = %compare_strings.exit.thread.i
   %61 = load i8, ptr %1, align 1
-  %.not17.i14.i = icmp eq i8 %61, 42
-  br i1 %.not17.i14.i, label %.tail.i18.i, label %.tail.thread.i15.i
+  %.not18.i14.i = icmp eq i8 %61, 42
+  br i1 %.not18.i14.i, label %.tail.i18.i, label %.tail.thread.i15.i
 
 .tail.i18.i:                                      ; preds = %sub_0.i13.i
   %62 = load i8, ptr %26, align 1
@@ -1438,8 +1438,8 @@ sub_0.i13.i:                                      ; preds = %compare_strings.exi
   br i1 %63, label %compare_strings.exit19.thread.i, label %.tail.thread.i15.i
 
 .tail.thread.i15.i:                               ; preds = %.tail.i18.i, %sub_0.i13.i
-  %.not18.i16.i = icmp eq ptr %60, null
-  br i1 %.not18.i16.i, label %mca_base_var_group_get_internal.exit.i, label %64
+  %.not17.i16.i = icmp eq ptr %60, null
+  br i1 %.not17.i16.i, label %mca_base_var_group_get_internal.exit.i, label %64
 
 64:                                               ; preds = %.tail.thread.i15.i
   %65 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %60) #15
@@ -1457,8 +1457,8 @@ compare_strings.exit19.thread.i:                  ; preds = %compare_strings.exi
 
 sub_0.i21.i:                                      ; preds = %compare_strings.exit19.thread.i
   %70 = load i8, ptr %2, align 1
-  %.not17.i22.i = icmp eq i8 %70, 42
-  br i1 %.not17.i22.i, label %.tail.i26.i, label %.tail.thread.i23.i
+  %.not18.i22.i = icmp eq i8 %70, 42
+  br i1 %.not18.i22.i, label %.tail.i26.i, label %.tail.thread.i23.i
 
 .tail.i26.i:                                      ; preds = %sub_0.i21.i
   %71 = load i8, ptr %22, align 1
@@ -1466,8 +1466,8 @@ sub_0.i21.i:                                      ; preds = %compare_strings.exi
   br i1 %72, label %compare_strings.exit27.thread.loopexit.split.loop.exit.i, label %.tail.thread.i23.i
 
 .tail.thread.i23.i:                               ; preds = %.tail.i26.i, %sub_0.i21.i
-  %.not18.i24.i = icmp eq ptr %69, null
-  br i1 %.not18.i24.i, label %mca_base_var_group_get_internal.exit.i, label %73
+  %.not17.i24.i = icmp eq ptr %69, null
+  br i1 %.not17.i24.i, label %mca_base_var_group_get_internal.exit.i, label %73
 
 73:                                               ; preds = %.tail.thread.i23.i
   %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %69) #15

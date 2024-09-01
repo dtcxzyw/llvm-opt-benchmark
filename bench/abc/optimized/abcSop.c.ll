@@ -435,8 +435,8 @@ define ptr @Abc_SopCreateFromTruth(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 7:                                                ; preds = %3
   %8 = shl nuw i32 1, %1
-  %.not51 = icmp ne i32 %1, 31
-  br i1 %.not51, label %.lr.ph.preheader, label %.loopexit
+  %.not51 = icmp eq i32 %1, 31
+  br i1 %.not51, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -491,8 +491,7 @@ define ptr @Abc_SopCreateFromTruth(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 Abc_SopStart.exit.preheader:                      ; preds = %27
   %31 = icmp sgt i32 %1, 0
-  %or.cond = and i1 %.not51, %31
-  br i1 %or.cond, label %.lr.ph50.split.us.preheader, label %.loopexit
+  br i1 %31, label %.lr.ph50.split.us.preheader, label %.loopexit
 
 .lr.ph50.split.us.preheader:                      ; preds = %Abc_SopStart.exit.preheader
   %smax56 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -674,12 +673,9 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = icmp eq i32 %8, %13
-  br i1 %14, label %Abc_SopComplement.exit.sink.split, label %.preheader33
+  br i1 %14, label %Abc_SopComplement.exit.sink.split, label %.lr.ph38.preheader
 
-.preheader33:                                     ; preds = %._crit_edge
-  br i1 %9, label %.lr.ph38.preheader, label %._crit_edge39.thread
-
-.lr.ph38.preheader:                               ; preds = %.preheader33
+.lr.ph38.preheader:                               ; preds = %._crit_edge
   %wide.trip.count47 = zext nneg i32 %8 to i64
   br label %.lr.ph38
 
@@ -700,7 +696,7 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
   %19 = icmp eq i32 %8, %18
   br i1 %19, label %Abc_SopComplement.exit.sink.split, label %._crit_edge39.thread
 
-._crit_edge39.thread:                             ; preds = %4, %.preheader33, %._crit_edge39
+._crit_edge39.thread:                             ; preds = %4, %._crit_edge39
   %20 = tail call i32 @Kit_TruthIsop(ptr noundef %2, i32 noundef %1, ptr noundef %3, i32 noundef 1) #19
   %21 = getelementptr i8, ptr %3, i64 4
   %.val.i = load i32, ptr %21, align 4

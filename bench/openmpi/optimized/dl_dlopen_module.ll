@@ -28,7 +28,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   %. = select i1 %2, i32 1, i32 257
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %1, %8
-  br i1 %or.cond, label %9, label %39
+  br i1 %or.cond, label %9, label %37
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_dl_dlopen_component, i64 272), align 8
@@ -79,7 +79,8 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 
 .split.us.thread:                                 ; preds = %24
   %28 = call ptr @dlopen(ptr noundef %27, i32 noundef %.) #7
-  br label %33
+  %.not6.i = icmp eq ptr %28, null
+  br i1 %.not6.i, label %33, label %.sink.split.i
 
 29:                                               ; preds = %24
   call void @free(ptr noundef %27) #7
@@ -93,59 +94,54 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 
 .split.us:                                        ; preds = %14
   %32 = call ptr @dlopen(ptr noundef %17, i32 noundef %.) #7
-  br i1 %.not29, label %do_dlopen.exit, label %33
+  br label %do_dlopen.exit
 
-33:                                               ; preds = %.split.us.thread, %.split.us
-  %34 = phi ptr [ %28, %.split.us.thread ], [ %32, %.split.us ]
-  %.not6.i = icmp eq ptr %34, null
-  br i1 %.not6.i, label %35, label %.sink.split.i
-
-35:                                               ; preds = %33
-  %36 = call ptr @dlerror() #7
+33:                                               ; preds = %.split.us.thread
+  %34 = call ptr @dlerror() #7
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %35, %33
-  %.sink.i = phi ptr [ %36, %35 ], [ null, %33 ]
+.sink.split.i:                                    ; preds = %33, %.split.us.thread
+  %.sink.i = phi ptr [ %34, %33 ], [ null, %.split.us.thread ]
   store ptr %.sink.i, ptr %4, align 8
   br label %do_dlopen.exit
 
 do_dlopen.exit:                                   ; preds = %.split.us, %.sink.split.i
-  %37 = phi ptr [ %32, %.split.us ], [ %34, %.sink.split.i ]
-  %38 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %38) #7
+  %35 = phi ptr [ %32, %.split.us ], [ %28, %.sink.split.i ]
+  %36 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %36) #7
   br label %do_dlopen.exit34
 
-39:                                               ; preds = %5
-  %40 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %.) #7
+37:                                               ; preds = %5
+  %38 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %.) #7
   %.not.i30 = icmp eq ptr %4, null
-  br i1 %.not.i30, label %do_dlopen.exit34, label %41
+  br i1 %.not.i30, label %do_dlopen.exit34, label %39
 
-41:                                               ; preds = %39
-  %.not6.i31 = icmp eq ptr %40, null
-  br i1 %.not6.i31, label %42, label %.sink.split.i32
+39:                                               ; preds = %37
+  %.not6.i31 = icmp eq ptr %38, null
+  br i1 %.not6.i31, label %40, label %.sink.split.i32
 
-42:                                               ; preds = %41
-  %43 = tail call ptr @dlerror() #7
+40:                                               ; preds = %39
+  %41 = tail call ptr @dlerror() #7
   br label %.sink.split.i32
 
-.sink.split.i32:                                  ; preds = %42, %41
-  %.sink.i33 = phi ptr [ %43, %42 ], [ null, %41 ]
+.sink.split.i32:                                  ; preds = %40, %39
+  %.sink.i33 = phi ptr [ %41, %40 ], [ null, %39 ]
   store ptr %.sink.i33, ptr %4, align 8
   br label %do_dlopen.exit34
 
-do_dlopen.exit34:                                 ; preds = %.sink.split.i32, %39, %do_dlopen.exit
-  %.037 = phi ptr [ %37, %do_dlopen.exit ], [ %40, %39 ], [ %40, %.sink.split.i32 ]
+do_dlopen.exit34:                                 ; preds = %.sink.split.i32, %37, %do_dlopen.exit
+  %.037 = phi ptr [ %35, %do_dlopen.exit ], [ %38, %37 ], [ %38, %.sink.split.i32 ]
   %.not27 = icmp eq ptr %.037, null
-  br i1 %.not27, label %do_dlopen.exit34.thread, label %44
+  br i1 %.not27, label %do_dlopen.exit34.thread, label %42
 
-44:                                               ; preds = %do_dlopen.exit34
-  %45 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #8
-  store ptr %45, ptr %3, align 8
-  store ptr %.037, ptr %45, align 8
+42:                                               ; preds = %do_dlopen.exit34
+  %43 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #8
+  store ptr %43, ptr %3, align 8
+  store ptr %.037, ptr %43, align 8
   br label %do_dlopen.exit34.thread
 
-do_dlopen.exit34.thread:                          ; preds = %.lr.ph.split, %29, %.lr.ph.split.us, %18, %9, %do_dlopen.exit34, %44
-  %.023 = phi i32 [ 0, %44 ], [ -1, %do_dlopen.exit34 ], [ -1, %9 ], [ -11, %.lr.ph.split.us ], [ -1, %18 ], [ -11, %.lr.ph.split ], [ -1, %29 ]
+do_dlopen.exit34.thread:                          ; preds = %.lr.ph.split, %29, %.lr.ph.split.us, %18, %9, %do_dlopen.exit34, %42
+  %.023 = phi i32 [ 0, %42 ], [ -1, %do_dlopen.exit34 ], [ -1, %9 ], [ -11, %.lr.ph.split.us ], [ -1, %18 ], [ -11, %.lr.ph.split ], [ -1, %29 ]
   ret i32 %.023
 }
 
@@ -316,39 +312,32 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr nocapture noundef re
   %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.next103
   %58 = load ptr, ptr %57, align 8
   %.not51 = icmp eq ptr %58, null
-  br i1 %.not51, label %.loopexit, label %.lr.ph92, !llvm.loop !7
+  br i1 %.not51, label %.thread69, label %.lr.ph92, !llvm.loop !7
 
 .lr.ph92:                                         ; preds = %.preheader, %55
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %55 ], [ 0, %.preheader ]
   %59 = phi ptr [ %58, %55 ], [ %54, %.preheader ]
   %60 = call i32 %1(ptr noundef nonnull %59, ptr noundef %2) #7
   %.not52 = icmp eq i32 %60, 0
-  br i1 %.not52, label %55, label %.loopexit
+  br i1 %.not52, label %55, label %.thread69
 
 .loopexit72:                                      ; preds = %.lr.ph84, %24
   %61 = call i32 @closedir(ptr noundef nonnull %12)
   br label %.thread69
 
-.loopexit:                                        ; preds = %55, %.lr.ph92
-  br i1 %.not, label %62, label %.thread69
-
-.thread69:                                        ; preds = %.lr.ph123, %.critedge, %.preheader, %.loopexit72, %.loopexit
-  %.0356367 = phi i32 [ %60, %.loopexit ], [ -11, %.loopexit72 ], [ 0, %.preheader ], [ 0, %.critedge ], [ -11, %.lr.ph123 ]
+.thread69:                                        ; preds = %.lr.ph123, %.lr.ph92, %55, %.critedge, %.preheader, %.loopexit72
+  %.0356367 = phi i32 [ -11, %.loopexit72 ], [ 0, %.preheader ], [ 0, %.critedge ], [ %60, %55 ], [ %60, %.lr.ph92 ], [ -11, %.lr.ph123 ]
   call void @opal_argv_free(ptr noundef nonnull %7) #7
-  br label %62
-
-62:                                               ; preds = %.thread69, %.loopexit
-  %.0356368.ph = phi i32 [ %60, %.loopexit ], [ %.0356367, %.thread69 ]
   %.pr = load ptr, ptr %4, align 8
   %.not58 = icmp eq ptr %.pr, null
-  br i1 %.not58, label %.thread, label %63
+  br i1 %.not58, label %.thread, label %62
 
-63:                                               ; preds = %62
+62:                                               ; preds = %.thread69
   call void @opal_argv_free(ptr noundef nonnull %.pr) #7
   br label %.thread
 
-.thread:                                          ; preds = %3, %63, %62
-  %.0356368114 = phi i32 [ %.0356368.ph, %63 ], [ %.0356368.ph, %62 ], [ 0, %3 ]
+.thread:                                          ; preds = %3, %62, %.thread69
+  %.0356368114 = phi i32 [ %.0356367, %62 ], [ %.0356367, %.thread69 ], [ 0, %3 ]
   ret i32 %.0356368114
 }
 

@@ -4251,14 +4251,14 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiN5Yosys5RTLIL8IdStringEES5_Sa
   %1647 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i.i, i64 8
   %1648 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i425.i = icmp eq ptr %1647, %1596
-  br i1 %.not.i.i.i.i.i.i425.i, label %.lr.ph.i.i.i.i428.preheader.i, label %.lr.ph.i.i.i.i.i.i423.i, !llvm.loop !34
+  br i1 %.not.i.i.i.i.i.i425.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiN5Yosys5RTLIL8IdStringEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35.i.i, label %.lr.ph.i.i.i.i.i.i423.i, !llvm.loop !34
 
-.lr.ph.i.i.i.i428.preheader.i:                    ; preds = %1645
+_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiN5Yosys5RTLIL8IdStringEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35.i.i: ; preds = %1645
   %1649 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i.i, i64 16
   br label %.lr.ph.i.i.i.i428.i
 
-.lr.ph.i.i.i.i428.i:                              ; preds = %_ZSt8_DestroyISt4pairIiN5Yosys5RTLIL8IdStringEEEvPT_.exit.i.i.i.i431.i, %.lr.ph.i.i.i.i428.preheader.i
-  %.05.i.i.i.i429.i = phi ptr [ %1666, %_ZSt8_DestroyISt4pairIiN5Yosys5RTLIL8IdStringEEEvPT_.exit.i.i.i.i431.i ], [ %1618, %.lr.ph.i.i.i.i428.preheader.i ]
+.lr.ph.i.i.i.i428.i:                              ; preds = %_ZSt8_DestroyISt4pairIiN5Yosys5RTLIL8IdStringEEEvPT_.exit.i.i.i.i431.i, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiN5Yosys5RTLIL8IdStringEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35.i.i
+  %.05.i.i.i.i429.i = phi ptr [ %1666, %_ZSt8_DestroyISt4pairIiN5Yosys5RTLIL8IdStringEEEvPT_.exit.i.i.i.i431.i ], [ %1618, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIiN5Yosys5RTLIL8IdStringEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35.i.i ]
   %1650 = getelementptr inbounds i8, ptr %.05.i.i.i.i429.i, i64 4
   %1651 = load i32, ptr %1650, align 4
   %1652 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1

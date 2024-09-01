@@ -1011,10 +1011,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
   %43 = zext nneg i32 %.val119179 to i64
   br label %48
 
-.critedge.preheader:                              ; preds = %.critedge2
-  br i1 %40, label %.lr.ph187, label %.critedge4.preheader
-
-.lr.ph187:                                        ; preds = %.critedge.preheader
+.lr.ph187:                                        ; preds = %.critedge2
   %44 = getelementptr i8, ptr %1, i64 8
   %45 = getelementptr i8, ptr %0, i64 32
   %46 = getelementptr i8, ptr %9, i64 8
@@ -1070,14 +1067,14 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
 .critedge2:                                       ; preds = %53, %48
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %76 = icmp ult i64 %indvars.iv.next193, %43
-  br i1 %76, label %48, label %.critedge.preheader, !llvm.loop !20
+  br i1 %76, label %48, label %.lr.ph187, !llvm.loop !20
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge6
   %.val106188.pre = load i32, ptr %11, align 4
   br label %.critedge4.preheader
 
-.critedge4.preheader:                             ; preds = %Vec_IntStart.exit153, %.critedge4.preheader.loopexit, %.critedge.preheader
-  %.val106212 = phi i32 [ %.val106188.pre, %.critedge4.preheader.loopexit ], [ %.val117, %.critedge.preheader ], [ %.val117, %Vec_IntStart.exit153 ]
+.critedge4.preheader:                             ; preds = %Vec_IntStart.exit153, %.critedge4.preheader.loopexit
+  %.val106212 = phi i32 [ %.val106188.pre, %.critedge4.preheader.loopexit ], [ %.val117, %Vec_IntStart.exit153 ]
   %77 = icmp sgt i32 %.val106212, 0
   br i1 %77, label %.lr.ph190, label %.critedge8
 

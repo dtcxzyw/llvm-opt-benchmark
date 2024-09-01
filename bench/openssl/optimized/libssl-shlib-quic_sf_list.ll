@@ -256,7 +256,7 @@ land.rhs56.us:                                    ; preds = %stream_frame_new.ex
   %13 = load i64, ptr %end58.us, align 8
   %14 = load i64, ptr %end, align 8
   %cmp60.not.us = icmp ugt i64 %13, %14
-  br i1 %cmp60.not.us, label %if.then92, label %for.body63.us
+  br i1 %cmp60.not.us, label %if.end106, label %for.body63.us
 
 for.body63.us:                                    ; preds = %land.rhs56.us
   %next64.us = getelementptr inbounds i8, ptr %next_frame.094.us, i64 8
@@ -385,12 +385,8 @@ stream_frame_free.exit:                           ; preds = %if.end87, %land.lhs
   tail call void @CRYPTO_free(ptr noundef nonnull %next_frame.094, ptr noundef nonnull @.str, i32 noundef 27) #8
   br i1 %cmp65.not, label %if.end106, label %land.rhs56, !llvm.loop !7
 
-if.then92:                                        ; preds = %land.rhs56.us
-  br i1 %cmp39.not, label %if.end106, label %land.lhs.true95
-
-land.lhs.true95:                                  ; preds = %land.rhs56, %if.then92
-  %.us-phi104 = phi ptr [ %next_frame.094.us, %if.then92 ], [ %next_frame.094, %land.rhs56 ]
-  %range96 = getelementptr inbounds i8, ptr %.us-phi104, i64 16
+land.lhs.true95:                                  ; preds = %land.rhs56
+  %range96 = getelementptr inbounds i8, ptr %next_frame.094, i64 16
   %36 = load i64, ptr %range96, align 8
   %end99 = getelementptr inbounds i8, ptr %prev_frame.092.lcssa, i64 24
   %37 = load i64, ptr %end99, align 8
@@ -402,14 +398,14 @@ if.then102:                                       ; preds = %land.lhs.true95
   tail call fastcc void @stream_frame_free(i32 %fl.val, ptr noundef nonnull %call.i73)
   br label %end118
 
-if.end106:                                        ; preds = %stream_frame_free.exit, %stream_frame_free.exit.us, %if.then92, %land.lhs.true95
-  %tail.sink = phi ptr [ %.us-phi104, %land.lhs.true95 ], [ %next_frame.094.us, %if.then92 ], [ %tail, %stream_frame_free.exit.us ], [ %tail, %stream_frame_free.exit ]
-  %next_frame.087 = phi ptr [ %.us-phi104, %land.lhs.true95 ], [ %next_frame.094.us, %if.then92 ], [ null, %stream_frame_free.exit.us ], [ null, %stream_frame_free.exit ]
+if.end106:                                        ; preds = %stream_frame_free.exit, %stream_frame_free.exit.us, %land.rhs56.us, %land.lhs.true95
+  %fl.next74 = phi ptr [ %next74, %land.lhs.true95 ], [ %fl, %land.rhs56.us ], [ %fl, %stream_frame_free.exit.us ], [ %next74, %stream_frame_free.exit ]
+  %tail.sink = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ %tail, %stream_frame_free.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ %tail, %stream_frame_free.exit ]
+  %next_frame.087 = phi ptr [ %next_frame.094, %land.lhs.true95 ], [ null, %stream_frame_free.exit.us ], [ %next_frame.094.us, %land.rhs56.us ], [ null, %stream_frame_free.exit ]
   store ptr %call.i73, ptr %tail.sink, align 8
   %next107 = getelementptr inbounds i8, ptr %call.i73, i64 8
   store ptr %next_frame.087, ptr %next107, align 8
   store ptr %prev_frame.092.lcssa, ptr %call.i73, align 8
-  %fl.next74 = select i1 %cmp39.not, ptr %fl, ptr %next74
   store ptr %call.i73, ptr %fl.next74, align 8
   %38 = load i64, ptr %num_frames88, align 8
   %inc117 = add i64 %38, 1

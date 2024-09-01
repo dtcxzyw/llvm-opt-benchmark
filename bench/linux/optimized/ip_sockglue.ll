@@ -669,8 +669,8 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_ra_control(ptr noundef %0, i
   br i1 %12, label %54, label %13
 
 13:                                               ; preds = %9
-  %.not12 = icmp eq i8 %1, 0
-  br i1 %.not12, label %.thread, label %14
+  %.not5 = icmp eq i8 %1, 0
+  br i1 %.not5, label %.thread, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -698,7 +698,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_ra_control(ptr noundef %0, i
   br i1 %27, label %28, label %20, !llvm.loop !13
 
 28:                                               ; preds = %24
-  br i1 %.not12, label %30, label %29
+  br i1 %.not5, label %30, label %29
 
 29:                                               ; preds = %28
   tail call void @mutex_unlock(ptr noundef %18) #14
@@ -727,7 +727,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_ra_control(ptr noundef %0, i
   br label %54
 
 39:                                               ; preds = %20
-  br i1 %.not12, label %40, label %41
+  br i1 %.not5, label %40, label %41
 
 40:                                               ; preds = %39
   tail call void @mutex_unlock(ptr noundef %18) #14

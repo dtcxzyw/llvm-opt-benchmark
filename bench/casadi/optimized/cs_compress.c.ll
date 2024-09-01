@@ -71,16 +71,13 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %39 = tail call double @cs_cumsum(ptr noundef %27, ptr noundef nonnull %20, i32 noundef %10) #3
-  br i1 %.not58, label %._crit_edge57, label %.lr.ph56
-
-.lr.ph56:                                         ; preds = %._crit_edge
   %.not52 = icmp eq ptr %31, null
   %smax70 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count71 = zext nneg i32 %smax70 to i64
   br i1 %.not52, label %.lr.ph56.split.us, label %.lr.ph56.split
 
-.lr.ph56.split.us:                                ; preds = %.lr.ph56, %.lr.ph56.split.us
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph56.split.us ], [ 0, %.lr.ph56 ]
+.lr.ph56.split.us:                                ; preds = %._crit_edge, %.lr.ph56.split.us
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph56.split.us ], [ 0, %._crit_edge ]
   %40 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv67
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv67
@@ -97,8 +94,8 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge57, label %.lr.ph56.split.us, !llvm.loop !6
 
-.lr.ph56.split:                                   ; preds = %.lr.ph56, %.lr.ph56.split
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph56.split ], [ 0, %.lr.ph56 ]
+.lr.ph56.split:                                   ; preds = %._crit_edge, %.lr.ph56.split
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph56.split ], [ 0, %._crit_edge ]
   %50 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv62
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv62
@@ -119,7 +116,7 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count71
   br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph56.split, !llvm.loop !6
 
-._crit_edge57:                                    ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread, %._crit_edge
+._crit_edge57:                                    ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread
   %63 = tail call ptr @cs_done(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef null, i32 noundef 1) #3
   br label %64
 

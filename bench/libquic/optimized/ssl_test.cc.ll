@@ -1294,7 +1294,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 cleanup12:                                        ; preds = %if.then.i, %if.end10, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ %cmp.i.not, %if.end10 ], [ %cmp.i.not, %if.then.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %if.end10 ], [ false, %if.then.i ]
   %8 = load ptr, ptr %input, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -1343,7 +1343,6 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %cmp18 = phi i1 [ false, %entry ], [ %cmp, %for.inc ]
   %i.017 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds [15 x %struct.CIPHER_RFC_NAME_TEST], ptr @_ZL19kCipherRFCNameTests, i64 0, i64 %i.017
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rfc_name) #27
@@ -1410,12 +1409,11 @@ cleanup.thread:                                   ; preds = %if.then6, %if.then
 for.inc:                                          ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rfc_name) #27
   %inc = add nuw nsw i64 %i.017, 1
-  %cmp = icmp ugt i64 %i.017, 13
   %exitcond = icmp eq i64 %inc, 15
   br i1 %exitcond, label %return, label %for.body, !llvm.loop !11
 
 return:                                           ; preds = %for.inc, %cleanup.thread
-  %cmp14 = phi i1 [ %cmp18, %cleanup.thread ], [ %cmp, %for.inc ]
+  %cmp14 = phi i1 [ false, %cleanup.thread ], [ true, %for.inc ]
   ret i1 %cmp14
 }
 

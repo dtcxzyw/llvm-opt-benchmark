@@ -11109,48 +11109,31 @@ entry:
   %notmask.i2 = shl nsw i32 -1, %add.i
   %sub.i3 = xor i32 %notmask.i2, -1
   %cmp7.i = icmp slt i32 %5, 1
-  br i1 %cmp7.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i.preheader
+  br i1 %cmp7.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i
 
-for.body.i.preheader:                             ; preds = %entry
-  %and.i4 = and i32 %call2.i, %sub.i3
-  %div6.i5 = lshr i32 %and.i4, 3
-  %idxprom.i6 = zext nneg i32 %div6.i5 to i64
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i6
-  %6 = load i8, ptr %arrayidx.i7, align 1
-  %conv12.i8 = zext i8 %6 to i32
-  %rem.i9 = and i32 %and.i4, 7
-  %shl2.i10 = shl nuw nsw i32 1, %rem.i9
-  %and3.i11 = and i32 %shl2.i10, %conv12.i8
-  %cmp4.i12 = icmp eq i32 %and3.i11, 0
-  br i1 %cmp4.i12, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %if.end.i
-
-for.body.i:                                       ; preds = %if.end.i
-  %add5.i = add i32 %h.addr.08.i14, %or.i
-  %and.i = and i32 %add5.i, %sub.i3
+for.body.i:                                       ; preds = %entry, %if.end.i
+  %i.09.i = phi i32 [ %inc.i, %if.end.i ], [ 0, %entry ]
+  %h.addr.08.i = phi i32 [ %add5.i, %if.end.i ], [ %call2.i, %entry ]
+  %and.i = and i32 %h.addr.08.i, %sub.i3
   %div6.i = lshr i32 %and.i, 3
   %idxprom.i = zext nneg i32 %div6.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx.i, align 1
-  %conv12.i = zext i8 %7 to i32
+  %6 = load i8, ptr %arrayidx.i, align 1
+  %conv12.i = zext i8 %6 to i32
   %rem.i = and i32 %and.i, 7
   %shl2.i = shl nuw nsw i32 1, %rem.i
   %and3.i = and i32 %shl2.i, %conv12.i
-  %cmp4.i = icmp eq i32 %and3.i, 0
-  br i1 %cmp4.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %if.end.i, !llvm.loop !146
+  %cmp4.not.i.not.not = icmp ne i32 %and3.i, 0
+  br i1 %cmp4.not.i.not.not, label %if.end.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
 
-if.end.i:                                         ; preds = %for.body.i.preheader, %for.body.i
-  %h.addr.08.i14 = phi i32 [ %add5.i, %for.body.i ], [ %call2.i, %for.body.i.preheader ]
-  %i.09.i13 = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %inc.i = add nuw nsw i32 %i.09.i13, 1
-  %exitcond.i = icmp eq i32 %inc.i, %5
-  br i1 %exitcond.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %for.body.i, !llvm.loop !146
+if.end.i:                                         ; preds = %for.body.i
+  %add5.i = add i32 %h.addr.08.i, %or.i
+  %inc.i = add nuw nsw i32 %i.09.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, %5
+  br i1 %exitcond.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i, !llvm.loop !146
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit: ; preds = %for.body.i, %if.end.i
-  %cmp.i.le = icmp sge i32 %inc.i, %5
-  br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
-
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, %for.body.i.preheader, %entry
-  %cmp.lcssa.i = phi i1 [ true, %entry ], [ false, %for.body.i.preheader ], [ %cmp.i.le, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit ]
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %for.body.i, %if.end.i, %entry
+  %cmp.lcssa.i = phi i1 [ true, %entry ], [ %cmp4.not.i.not.not, %if.end.i ], [ %cmp4.not.i.not.not, %for.body.i ]
   ret i1 %cmp.lcssa.i
 }
 
@@ -11169,14 +11152,11 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_keys to i64
   br label %for.body
 
-for.cond8.preheader:                              ; preds = %for.body
-  br i1 %cmp17, label %for.body10.lr.ph, label %for.end22
-
-for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
+for.body10.lr.ph:                                 ; preds = %for.body
   %num_probes_ = getelementptr inbounds i8, ptr %this, i64 16
   %data_13 = getelementptr inbounds i8, ptr %this, i64 8
   %log2_cache_line_size_16 = getelementptr inbounds i8, ptr %this, i64 24
-  %wide.trip.count37 = zext nneg i32 %num_keys to i64
+  %wide.trip.count25 = zext nneg i32 %num_keys to i64
   br label %for.body10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -11206,15 +11186,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %shl.i, ptr %arrayidx.i.i12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !147
+  br i1 %exitcond.not, label %for.body10.lr.ph, label %for.body, !llvm.loop !147
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
-  %indvars.iv34 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next35, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit ]
-  %arrayidx.i.i13 = getelementptr inbounds [32 x i32], ptr %hashes, i64 0, i64 %indvars.iv34
+  %indvars.iv22 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next23, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit ]
+  %arrayidx.i.i13 = getelementptr inbounds [32 x i32], ptr %hashes, i64 0, i64 %indvars.iv22
   %6 = load i32, ptr %arrayidx.i.i13, align 4
   %7 = load i32, ptr %num_probes_, align 8
   %8 = load ptr, ptr %data_13, align 8
-  %arrayidx.i.i14 = getelementptr inbounds [32 x i32], ptr %byte_offsets, i64 0, i64 %indvars.iv34
+  %arrayidx.i.i14 = getelementptr inbounds [32 x i32], ptr %byte_offsets, i64 0, i64 %indvars.iv22
   %9 = load i32, ptr %arrayidx.i.i14, align 4
   %idx.ext = zext i32 %9 to i64
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %idx.ext
@@ -11224,56 +11204,38 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %notmask.i15 = shl nsw i32 -1, %add.i
   %sub.i16 = xor i32 %notmask.i15, -1
   %cmp7.i = icmp slt i32 %7, 1
-  br i1 %cmp7.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i.preheader
+  br i1 %cmp7.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i
 
-for.body.i.preheader:                             ; preds = %for.body10
-  %and.i19 = and i32 %6, %sub.i16
-  %div6.i20 = lshr i32 %and.i19, 3
-  %idxprom.i21 = zext nneg i32 %div6.i20 to i64
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom.i21
-  %11 = load i8, ptr %arrayidx.i22, align 1
-  %conv12.i23 = zext i8 %11 to i32
-  %rem.i24 = and i32 %and.i19, 7
-  %shl2.i25 = shl nuw nsw i32 1, %rem.i24
-  %and3.i26 = and i32 %shl2.i25, %conv12.i23
-  %cmp4.i27 = icmp eq i32 %and3.i26, 0
-  br i1 %cmp4.i27, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %if.end.i
-
-for.body.i:                                       ; preds = %if.end.i
-  %add5.i = add i32 %h.addr.08.i29, %or.i
-  %and.i = and i32 %add5.i, %sub.i16
+for.body.i:                                       ; preds = %for.body10, %if.end.i
+  %i.09.i = phi i32 [ %inc.i, %if.end.i ], [ 0, %for.body10 ]
+  %h.addr.08.i = phi i32 [ %add5.i, %if.end.i ], [ %6, %for.body10 ]
+  %and.i = and i32 %h.addr.08.i, %sub.i16
   %div6.i = lshr i32 %and.i, 3
   %idxprom.i = zext nneg i32 %div6.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom.i
-  %12 = load i8, ptr %arrayidx.i, align 1
-  %conv12.i = zext i8 %12 to i32
+  %11 = load i8, ptr %arrayidx.i, align 1
+  %conv12.i = zext i8 %11 to i32
   %rem.i = and i32 %and.i, 7
   %shl2.i = shl nuw nsw i32 1, %rem.i
   %and3.i = and i32 %shl2.i, %conv12.i
-  %cmp4.i = icmp eq i32 %and3.i, 0
-  br i1 %cmp4.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %if.end.i, !llvm.loop !146
+  %cmp4.not.i = icmp eq i32 %and3.i, 0
+  br i1 %cmp4.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %for.body.i.preheader, %for.body.i
-  %h.addr.08.i29 = phi i32 [ %add5.i, %for.body.i ], [ %6, %for.body.i.preheader ]
-  %i.09.i28 = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %inc.i = add nuw nsw i32 %i.09.i28, 1
-  %exitcond.i = icmp eq i32 %inc.i, %7
-  br i1 %exitcond.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %for.body.i, !llvm.loop !146
+if.end.i:                                         ; preds = %for.body.i
+  %add5.i = add i32 %h.addr.08.i, %or.i
+  %inc.i = add nuw nsw i32 %i.09.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, %7
+  br i1 %exitcond.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %for.body.i, !llvm.loop !146
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit: ; preds = %for.body.i, %if.end.i
-  %cmp.i.le = icmp sge i32 %inc.i, %7
-  br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %for.body.i, %if.end.i, %for.body10
+  %cmp.lcssa.i = phi i8 [ 1, %for.body10 ], [ 1, %if.end.i ], [ 0, %for.body.i ]
+  %arrayidx19 = getelementptr inbounds i8, ptr %may_match, i64 %indvars.iv22
+  store i8 %cmp.lcssa.i, ptr %arrayidx19, align 1
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
+  br i1 %exitcond26.not, label %for.end22, label %for.body10, !llvm.loop !148
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, %for.body.i.preheader, %for.body10
-  %cmp.lcssa.i = phi i1 [ true, %for.body10 ], [ false, %for.body.i.preheader ], [ %cmp.i.le, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit ]
-  %arrayidx19 = getelementptr inbounds i8, ptr %may_match, i64 %indvars.iv34
-  %frombool = zext i1 %cmp.lcssa.i to i8
-  store i8 %frombool, ptr %arrayidx19, align 1
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %for.end22, label %for.body10, !llvm.loop !148
-
-for.end22:                                        ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, %entry, %for.cond8.preheader
+for.end22:                                        ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, %entry
   ret void
 }
 
@@ -11386,10 +11348,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_keys to i64
   br label %for.body
 
-for.cond10.preheader:                             ; preds = %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
-  br i1 %cmp21, label %for.body12.lr.ph, label %for.end32
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
   %soln_26 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count29 = zext nneg i32 %num_keys to i64
   br label %for.body12
@@ -11470,7 +11429,7 @@ _ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutio
   store i32 %rem.i, ptr %start_bits, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !150
+  br i1 %exitcond.not, label %for.body12.lr.ph, label %for.body, !llvm.loop !150
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.body12
   %indvars.iv26 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next27, %for.body12 ]
@@ -11491,7 +11450,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
   br i1 %exitcond30.not, label %for.end32, label %for.body12, !llvm.loop !151
 
-for.end32:                                        ; preds = %for.body12, %entry, %for.cond10.preheader
+for.end32:                                        ; preds = %for.body12, %entry
   ret void
 }
 
@@ -11803,10 +11762,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_keys to i64
   br label %for.body
 
-for.cond8.preheader:                              ; preds = %for.body
-  br i1 %cmp17, label %for.body10.lr.ph, label %for.end21
-
-for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
+for.body10.lr.ph:                                 ; preds = %for.body
   %num_probes_ = getelementptr inbounds i8, ptr %this, i64 16
   %data_13 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count25 = zext nneg i32 %num_keys to i64
@@ -11842,7 +11798,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %conv.i12, ptr %arrayidx.i.i13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !155
+  br i1 %exitcond.not, label %for.body10.lr.ph, label %for.body, !llvm.loop !155
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %_ZN7rocksdb18FastLocalBloomImpl20HashMayMatchPreparedEjiPKc.exit
   %indvars.iv22 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next23, %_ZN7rocksdb18FastLocalBloomImpl20HashMayMatchPreparedEjiPKc.exit ]
@@ -11903,7 +11859,7 @@ _ZN7rocksdb18FastLocalBloomImpl20HashMayMatchPreparedEjiPKc.exit: ; preds = %for
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
   br i1 %exitcond26.not, label %for.end21, label %for.body10, !llvm.loop !156
 
-for.end21:                                        ; preds = %_ZN7rocksdb18FastLocalBloomImpl20HashMayMatchPreparedEjiPKc.exit, %entry, %for.cond8.preheader
+for.end21:                                        ; preds = %_ZN7rocksdb18FastLocalBloomImpl20HashMayMatchPreparedEjiPKc.exit, %entry
   ret void
 }
 

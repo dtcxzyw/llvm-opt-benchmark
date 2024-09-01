@@ -2907,10 +2907,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.thread95:           ; preds = %17
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
-.preheader98:                                     ; preds = %.lr.ph
-  br i1 %.not.i.i.i.i49, label %._crit_edge, label %.lr.ph102.preheader
-
-.lr.ph102.preheader:                              ; preds = %.preheader98
+.lr.ph102.preheader:                              ; preds = %.lr.ph
   %umax115 = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph102
 
@@ -2928,7 +2925,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.thread95:           ; preds = %17
   store i64 %27, ptr %28, align 8
   %29 = add nuw nsw i64 %.04299, 1
   %exitcond.not = icmp eq i64 %29, %umax
-  br i1 %exitcond.not, label %.preheader98, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.lr.ph102.preheader, label %.lr.ph, !llvm.loop !32
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %.040101 = phi i64 [ %33, %.lr.ph102 ], [ 0, %.lr.ph102.preheader ]
@@ -2940,9 +2937,9 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.thread95:           ; preds = %17
   %exitcond116.not = icmp eq i64 %33, %umax115
   br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph102, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48, %.preheader98
-  %.sroa.0.0120122 = phi ptr [ %18, %.preheader98 ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %18, %.lr.ph102 ]
-  %.041.lcssa = phi i64 [ 1, %.preheader98 ], [ 1, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %32, %.lr.ph102 ]
+._crit_edge:                                      ; preds = %.lr.ph102, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48
+  %.sroa.0.0120122 = phi ptr [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %18, %.lr.ph102 ]
+  %.041.lcssa = phi i64 [ 1, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %32, %.lr.ph102 ]
   %34 = mul nsw i64 %.041.lcssa, %9
   %35 = icmp ugt i64 %34, 1152921504606846975
   br i1 %35, label %36, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i

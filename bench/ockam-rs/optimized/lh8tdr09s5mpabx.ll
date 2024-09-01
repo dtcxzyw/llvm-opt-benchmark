@@ -3651,8 +3651,8 @@ default.unreachable35:                            ; preds = %1
   %18 = getelementptr inbounds i8, ptr %14, i64 64
   %19 = load ptr, ptr %18, align 8, !alias.scope !367, !noundef !5
   store ptr null, ptr %18, align 8, !alias.scope !367
-  %.not.not.i = icmp eq ptr %19, null
-  br i1 %.not.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17h9f68d5a7b3739f30E.exit", label %20
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17h9f68d5a7b3739f30E.exit", label %20
 
 20:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !367

@@ -456,11 +456,8 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %16
+.lr.ph26.preheader:                               ; preds = %16
   %5 = add nsw i32 %.024.sink, 1
-  br i1 %4, label %.lr.ph26.preheader, label %._crit_edge
-
-.lr.ph26.preheader:                               ; preds = %.preheader
   %6 = zext nneg i32 %0 to i64
   %7 = shl nuw nsw i64 %6, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr nonnull align 16 %3, i64 %7, i1 false)
@@ -488,10 +485,10 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
   store i32 %.024.sink, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph26.preheader, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %2, %.lr.ph26.preheader, %.preheader
-  %.0.lcssa32 = phi i32 [ %5, %.lr.ph26.preheader ], [ %5, %.preheader ], [ 1, %2 ]
+._crit_edge:                                      ; preds = %2, %.lr.ph26.preheader
+  %.0.lcssa32 = phi i32 [ %5, %.lr.ph26.preheader ], [ 1, %2 ]
   ret i32 %.0.lcssa32
 }
 
@@ -500,8 +497,8 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %5, align 4
-  %.not153 = icmp slt i32 %1, 1
-  br i1 %.not153, label %.thread, label %.lr.ph
+  %.not130 = icmp slt i32 %1, 1
+  br i1 %.not130, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 4
@@ -513,29 +510,29 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   br label %.split.us.us.us.us
 
-.split.us.us.us.us:                               ; preds = %.split.us.us.us.us.preheader, %.split125.us.split.us.split.us.us.us.us
-  %storemerge154.us.us.us = phi i32 [ %39, %.split125.us.split.us.split.us.us.us.us ], [ 1, %.split.us.us.us.us.preheader ]
-  store i32 %storemerge154.us.us.us, ptr %6, align 4
+.split.us.us.us.us:                               ; preds = %.split.us.us.us.us.preheader, %.split114.us.split.us.split.us.us.us.us
+  %storemerge131.us.us.us = phi i32 [ %39, %.split114.us.split.us.split.us.us.us.us ], [ 1, %.split.us.us.us.us.preheader ]
+  store i32 %storemerge131.us.us.us, ptr %6, align 4
   br label %.preheader58.us.us.us.us.us.us
 
-.preheader58.us.us.us.us.us.us:                   ; preds = %.split94.us.split.us.us.us.us.us.us.us, %.split.us.us.us.us
-  %storemerge40107.us.us.us.us.us.us = phi i32 [ %storemerge154.us.us.us, %.split.us.us.us.us ], [ %38, %.split94.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge40107.us.us.us.us.us.us, ptr %2, align 4
+.preheader58.us.us.us.us.us.us:                   ; preds = %.split90.us.split.us.us.us.us.us.us.us, %.split.us.us.us.us
+  %storemerge4098.us.us.us.us.us.us = phi i32 [ %storemerge131.us.us.us, %.split.us.us.us.us ], [ %38, %.split90.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge4098.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us, %.preheader58.us.us.us.us.us.us
-  %storemerge4292.us.us.us.us.us.us.us.us = phi i32 [ %storemerge40107.us.us.us.us.us.us, %.preheader58.us.us.us.us.us.us ], [ %37, %.split.us.us.split.us.us.us.us.us.us.us.us ]
+  %storemerge4288.us.us.us.us.us.us.us.us = phi i32 [ %storemerge4098.us.us.us.us.us.us, %.preheader58.us.us.us.us.us.us ], [ %37, %.split.us.us.split.us.us.us.us.us.us.us.us ]
   br label %7
 
 7:                                                ; preds = %16, %.preheader.us.us.us.us.us.us.us.us
-  %.03365.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us, %16 ]
-  %.03464.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ]
-  %.03662.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %17, %16 ]
-  %8 = lshr i32 %.03662.us.us.us.us.us.us.us.us.us.us, 6
+  %.03364.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us, %16 ]
+  %.03463.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ]
+  %.03661.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %17, %16 ]
+  %8 = lshr i32 %.03661.us.us.us.us.us.us.us.us.us.us, 6
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds i64, ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = and i32 %.03662.us.us.us.us.us.us.us.us.us.us, 63
+  %12 = and i32 %.03661.us.us.us.us.us.us.us.us.us.us, 63
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
   %15 = and i64 %11, %14
@@ -543,7 +540,7 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not44.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i49.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us
 
 16:                                               ; preds = %34
-  %17 = add nuw nsw i32 %.03662.us.us.us.us.us.us.us.us.us.us, 1
+  %17 = add nuw nsw i32 %.03661.us.us.us.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %17, %smax
   br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !16
 
@@ -552,7 +549,7 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   %.010.i.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us, %25 ], [ 0, %7 ]
   %18 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us to i32
   %19 = shl nuw i32 1, %18
-  %20 = and i32 %19, %.03662.us.us.us.us.us.us.us.us.us.us
+  %20 = and i32 %19, %.03661.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %20, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us, label %25, label %21
 
@@ -573,7 +570,7 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   %.010.i51.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i53.us.us.us.us.us.us.us.us.us.us, %33 ], [ 0, %7 ]
   %26 = trunc nuw nsw i64 %indvars.iv.i50.us.us.us.us.us.us.us.us.us.us to i32
   %27 = shl nuw i32 1, %26
-  %28 = and i32 %27, %.03662.us.us.us.us.us.us.us.us.us.us
+  %28 = and i32 %27, %.03661.us.us.us.us.us.us.us.us.us.us
   %.not.i52.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %28, 0
   br i1 %.not.i52.us.us.us.us.us.us.us.us.us.us, label %33, label %29
 
@@ -590,44 +587,44 @@ define i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i55.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i49.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 34:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us = phi i32 [ %36, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us ], [ %.03464.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.03365.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us ], [ %35, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us = phi i32 [ %36, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us ], [ %.03463.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.03364.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us ], [ %35, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us ]
   %.not45.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us
   br i1 %.not45.us.us.us.us.us.us.us.us.us.us, label %16, label %.split.us.us.split.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us: ; preds = %33
-  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.03365.us.us.us.us.us.us.us.us.us.us, i32 %.1.i53.us.us.us.us.us.us.us.us.us.us)
+  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.03364.us.us.us.us.us.us.us.us.us.us, i32 %.1.i53.us.us.us.us.us.us.us.us.us.us)
   br label %34
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us: ; preds = %25
-  %36 = tail call noundef i32 @llvm.smin.i32(i32 %.03464.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us)
+  %36 = tail call noundef i32 @llvm.smin.i32(i32 %.03463.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us)
   br label %34
 
 .split.us.us.split.us.us.us.us.us.us.us.us:       ; preds = %34
-  %37 = add nuw nsw i32 %storemerge4292.us.us.us.us.us.us.us.us, 1
+  %37 = add nuw nsw i32 %storemerge4288.us.us.us.us.us.us.us.us, 1
   store i32 %37, ptr %2, align 4
-  %.not43.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge4292.us.us.us.us.us.us.us.us, %1
-  br i1 %.not43.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us, label %.split94.us.split.us.us.us.us.us.us.us, !llvm.loop !18
+  %.not43.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge4288.us.us.us.us.us.us.us.us, %1
+  br i1 %.not43.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us, label %.split90.us.split.us.us.us.us.us.us.us, !llvm.loop !18
 
-.split94.us.split.us.us.us.us.us.us.us:           ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us
-  %38 = add nuw i32 %storemerge40107.us.us.us.us.us.us, 1
+.split90.us.split.us.us.us.us.us.us.us:           ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us
+  %38 = add nuw i32 %storemerge4098.us.us.us.us.us.us, 1
   store i32 %38, ptr %6, align 4
-  %exitcond191.not = icmp eq i32 %storemerge40107.us.us.us.us.us.us, %1
-  br i1 %exitcond191.not, label %.split125.us.split.us.split.us.us.us.us, label %.preheader58.us.us.us.us.us.us, !llvm.loop !19
+  %exitcond160.not = icmp eq i32 %storemerge4098.us.us.us.us.us.us, %1
+  br i1 %exitcond160.not, label %.split114.us.split.us.split.us.us.us.us, label %.preheader58.us.us.us.us.us.us, !llvm.loop !19
 
-.split125.us.split.us.split.us.us.us.us:          ; preds = %.split94.us.split.us.us.us.us.us.us.us
-  %39 = add nuw i32 %storemerge154.us.us.us, 1
+.split114.us.split.us.split.us.us.us.us:          ; preds = %.split90.us.split.us.us.us.us.us.us.us
+  %39 = add nuw i32 %storemerge131.us.us.us, 1
   store i32 %39, ptr %5, align 4
-  %exitcond192.not = icmp eq i32 %storemerge154.us.us.us, %1
-  br i1 %exitcond192.not, label %.thread, label %.split.us.us.us.us, !llvm.loop !20
+  %exitcond161.not = icmp eq i32 %storemerge131.us.us.us, %1
+  br i1 %exitcond161.not, label %.thread, label %.split.us.us.us.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %6, align 4
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split125.us.split.us.split.us.us.us.us, %16, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ], [ 0, %.split125.us.split.us.split.us.us.us.us ]
+.thread:                                          ; preds = %.split114.us.split.us.split.us.us.us.us, %16, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us, %16 ], [ 0, %.split114.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -636,48 +633,48 @@ define i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 no
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4
-  %.not214 = icmp slt i32 %1, 1
-  br i1 %.not214, label %.thread, label %.lr.ph
+  %.not175 = icmp slt i32 %1, 1
+  br i1 %.not175, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4
   %.not = icmp eq i32 %1, 31
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  br i1 %.not, label %.lr.ph.split, label %.split163.us.us.us.us.preheader
+  br i1 %.not, label %.lr.ph.split, label %.split140.us.us.us.us.preheader
 
-.split163.us.us.us.us.preheader:                  ; preds = %.lr.ph
+.split140.us.us.us.us.preheader:                  ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  br label %.split163.us.us.us.us
+  br label %.split140.us.us.us.us
 
-.split163.us.us.us.us:                            ; preds = %.split163.us.us.us.us.preheader, %.split179.us.split.us.split.us.us.us.us
-  %storemerge215.us.us.us = phi i32 [ %41, %.split179.us.split.us.split.us.us.us.us ], [ 1, %.split163.us.us.us.us.preheader ]
-  store i32 %storemerge215.us.us.us, ptr %6, align 4
+.split140.us.us.us.us:                            ; preds = %.split140.us.us.us.us.preheader, %.split155.us.split.us.split.us.us.us.us
+  %storemerge176.us.us.us = phi i32 [ %41, %.split155.us.split.us.split.us.us.us.us ], [ 1, %.split140.us.us.us.us.preheader ]
+  store i32 %storemerge176.us.us.us, ptr %6, align 4
   br label %.split.us.us.us.us.us.us.us
 
-.split.us.us.us.us.us.us.us:                      ; preds = %.split133.us.split.us.split.us.us.us.us.us.us.us, %.split163.us.us.us.us
-  %storemerge46161.us.us.us.us.us.us = phi i32 [ %storemerge215.us.us.us, %.split163.us.us.us.us ], [ %40, %.split133.us.split.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge46161.us.us.us.us.us.us, ptr %7, align 4
+.split.us.us.us.us.us.us.us:                      ; preds = %.split122.us.split.us.split.us.us.us.us.us.us.us, %.split140.us.us.us.us
+  %storemerge46138.us.us.us.us.us.us = phi i32 [ %storemerge176.us.us.us, %.split140.us.us.us.us ], [ %40, %.split122.us.split.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge46138.us.us.us.us.us.us, ptr %7, align 4
   br label %.preheader66.us.us.us.us.us.us.us.us.us
 
-.preheader66.us.us.us.us.us.us.us.us.us:          ; preds = %.split102.us.split.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us
-  %storemerge48115.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge46161.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us ], [ %39, %.split102.us.split.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge48115.us.us.us.us.us.us.us.us.us, ptr %2, align 4
+.preheader66.us.us.us.us.us.us.us.us.us:          ; preds = %.split98.us.split.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us
+  %storemerge48106.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge46138.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us ], [ %39, %.split98.us.split.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge48106.us.us.us.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us:      ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us, %.preheader66.us.us.us.us.us.us.us.us.us
-  %storemerge50100.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge48115.us.us.us.us.us.us.us.us.us, %.preheader66.us.us.us.us.us.us.us.us.us ], [ %38, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us ]
+  %storemerge5096.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge48106.us.us.us.us.us.us.us.us.us, %.preheader66.us.us.us.us.us.us.us.us.us ], [ %38, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us ]
   br label %8
 
 8:                                                ; preds = %17, %.preheader.us.us.us.us.us.us.us.us.us.us.us
-  %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ]
-  %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ]
-  %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %18, %17 ]
-  %9 = lshr i32 %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
+  %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ]
+  %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ]
+  %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %18, %17 ]
+  %9 = lshr i32 %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = and i32 %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
+  %13 = and i32 %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = and i64 %12, %15
@@ -685,7 +682,7 @@ define i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not52.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i57.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 17:                                               ; preds = %35
-  %18 = add nuw nsw i32 %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %18 = add nuw nsw i32 %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %18, %smax
   br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !21
 
@@ -694,7 +691,7 @@ define i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 no
   %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us, %26 ], [ 0, %8 ]
   %19 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %20 = shl nuw i32 1, %19
-  %21 = and i32 %20, %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %21 = and i32 %20, %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %21, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us, label %26, label %22
 
@@ -715,7 +712,7 @@ define i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 no
   %.010.i59.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i61.us.us.us.us.us.us.us.us.us.us.us.us.us, %34 ], [ 0, %8 ]
   %27 = trunc nuw nsw i64 %indvars.iv.i58.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %28 = shl nuw i32 1, %27
-  %29 = and i32 %28, %.04170.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %29 = and i32 %28, %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i60.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %29, 0
   br i1 %.not.i60.us.us.us.us.us.us.us.us.us.us.us.us.us, label %34, label %30
 
@@ -732,42 +729,42 @@ define i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i63.us.us.us.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i57.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 35:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %37, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %36, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %37, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %36, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   %.not53.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us
   br i1 %.not53.us.us.us.us.us.us.us.us.us.us.us.us.us, label %17, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %34
-  %36 = tail call noundef i32 @llvm.smax.i32(i32 %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i61.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %36 = tail call noundef i32 @llvm.smax.i32(i32 %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i61.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %35
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %26
-  %37 = tail call noundef i32 @llvm.smin.i32(i32 %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %37 = tail call noundef i32 @llvm.smin.i32(i32 %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %35
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us: ; preds = %35
-  %38 = add nuw nsw i32 %storemerge50100.us.us.us.us.us.us.us.us.us.us.us, 1
+  %38 = add nuw nsw i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %38, ptr %2, align 4
-  %.not51.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge50100.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not51.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us, label %.split102.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !22
+  %.not51.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not51.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us, label %.split98.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !22
 
-.split102.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us
-  %39 = add nuw nsw i32 %storemerge48115.us.us.us.us.us.us.us.us.us, 1
+.split98.us.split.us.us.us.us.us.us.us.us.us.us:  ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us
+  %39 = add nuw nsw i32 %storemerge48106.us.us.us.us.us.us.us.us.us, 1
   store i32 %39, ptr %7, align 4
-  %.not49.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge48115.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not49.us.us.us.us.us.us.us.us.us.not, label %.preheader66.us.us.us.us.us.us.us.us.us, label %.split133.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !23
+  %.not49.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge48106.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not49.us.us.us.us.us.us.us.us.us.not, label %.preheader66.us.us.us.us.us.us.us.us.us, label %.split122.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !23
 
-.split133.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split102.us.split.us.us.us.us.us.us.us.us.us.us
-  %40 = add nuw i32 %storemerge46161.us.us.us.us.us.us, 1
+.split122.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split98.us.split.us.us.us.us.us.us.us.us.us.us
+  %40 = add nuw i32 %storemerge46138.us.us.us.us.us.us, 1
   store i32 %40, ptr %6, align 4
-  %exitcond252.not = icmp eq i32 %storemerge46161.us.us.us.us.us.us, %1
-  br i1 %exitcond252.not, label %.split179.us.split.us.split.us.us.us.us, label %.split.us.us.us.us.us.us.us, !llvm.loop !24
+  %exitcond205.not = icmp eq i32 %storemerge46138.us.us.us.us.us.us, %1
+  br i1 %exitcond205.not, label %.split155.us.split.us.split.us.us.us.us, label %.split.us.us.us.us.us.us.us, !llvm.loop !24
 
-.split179.us.split.us.split.us.us.us.us:          ; preds = %.split133.us.split.us.split.us.us.us.us.us.us.us
-  %41 = add nuw i32 %storemerge215.us.us.us, 1
+.split155.us.split.us.split.us.us.us.us:          ; preds = %.split122.us.split.us.split.us.us.us.us.us.us.us
+  %41 = add nuw i32 %storemerge176.us.us.us, 1
   store i32 %41, ptr %5, align 4
-  %exitcond253.not = icmp eq i32 %storemerge215.us.us.us, %1
-  br i1 %exitcond253.not, label %.thread, label %.split163.us.us.us.us, !llvm.loop !25
+  %exitcond206.not = icmp eq i32 %storemerge176.us.us.us, %1
+  br i1 %exitcond206.not, label %.thread, label %.split140.us.us.us.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %6, align 4
@@ -775,8 +772,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us: ; 
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split179.us.split.us.split.us.us.us.us, %17, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ], [ 0, %.split179.us.split.us.split.us.us.us.us ]
+.thread:                                          ; preds = %.split155.us.split.us.split.us.us.us.us, %17, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us, %17 ], [ 0, %.split155.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -785,8 +782,8 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 1, ptr %5, align 4
-  %.not286 = icmp slt i32 %1, 1
-  br i1 %.not286, label %.thread, label %.lr.ph
+  %.not227 = icmp slt i32 %1, 1
+  br i1 %.not227, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 12
@@ -794,45 +791,45 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   %8 = getelementptr inbounds i8, ptr %2, i64 4
   %.not = icmp eq i32 %1, 31
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  br i1 %.not, label %.lr.ph.split, label %.split225.us.us.us.us.preheader
+  br i1 %.not, label %.lr.ph.split, label %.split186.us.us.us.us.preheader
 
-.split225.us.us.us.us.preheader:                  ; preds = %.lr.ph
+.split186.us.us.us.us.preheader:                  ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  br label %.split225.us.us.us.us
+  br label %.split186.us.us.us.us
 
-.split225.us.us.us.us:                            ; preds = %.split225.us.us.us.us.preheader, %.split241.us.split.us.split.us.us.us.us
-  %storemerge287.us.us.us = phi i32 [ %43, %.split241.us.split.us.split.us.us.us.us ], [ 1, %.split225.us.us.us.us.preheader ]
-  store i32 %storemerge287.us.us.us, ptr %6, align 4
-  br label %.split172.us.us.us.us.us.us.us
+.split186.us.us.us.us:                            ; preds = %.split186.us.us.us.us.preheader, %.split201.us.split.us.split.us.us.us.us
+  %storemerge228.us.us.us = phi i32 [ %43, %.split201.us.split.us.split.us.us.us.us ], [ 1, %.split186.us.us.us.us.preheader ]
+  store i32 %storemerge228.us.us.us, ptr %6, align 4
+  br label %.split149.us.us.us.us.us.us.us
 
-.split172.us.us.us.us.us.us.us:                   ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us, %.split225.us.us.us.us
-  %storemerge53223.us.us.us.us.us.us = phi i32 [ %storemerge287.us.us.us, %.split225.us.us.us.us ], [ %42, %.split188.us.split.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge53223.us.us.us.us.us.us, ptr %7, align 4
+.split149.us.us.us.us.us.us.us:                   ; preds = %.split164.us.split.us.split.us.us.us.us.us.us.us, %.split186.us.us.us.us
+  %storemerge53184.us.us.us.us.us.us = phi i32 [ %storemerge228.us.us.us, %.split186.us.us.us.us ], [ %42, %.split164.us.split.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge53184.us.us.us.us.us.us, ptr %7, align 4
   br label %.split.us.us.us.us.us.us.us.us.us.us
 
-.split.us.us.us.us.us.us.us.us.us.us:             ; preds = %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split172.us.us.us.us.us.us.us
-  %storemerge55170.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge53223.us.us.us.us.us.us, %.split172.us.us.us.us.us.us.us ], [ %41, %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge55170.us.us.us.us.us.us.us.us.us, ptr %8, align 4
+.split.us.us.us.us.us.us.us.us.us.us:             ; preds = %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split149.us.us.us.us.us.us.us
+  %storemerge55147.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge53184.us.us.us.us.us.us, %.split149.us.us.us.us.us.us.us ], [ %41, %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge55147.us.us.us.us.us.us.us.us.us, ptr %8, align 4
   br label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us
 
-.preheader75.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us
-  %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge55170.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us ], [ %40, %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
+.preheader75.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us
+  %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge55147.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us ], [ %40, %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us ], [ %39, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us ], [ %39, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   br label %9
 
 9:                                                ; preds = %18, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %19, %18 ]
-  %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ]
-  %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ]
-  %10 = lshr i32 %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
+  %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %19, %18 ]
+  %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ]
+  %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ]
+  %10 = lshr i32 %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds i64, ptr %0, i64 %11
   %13 = load i64, ptr %12, align 8
-  %14 = and i32 %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
+  %14 = and i32 %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw i64 1, %15
   %17 = and i64 %13, %16
@@ -840,7 +837,7 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not61.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 18:                                               ; preds = %36
-  %19 = add nuw nsw i32 %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %19 = add nuw nsw i32 %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %19, %smax
   br i1 %exitcond.not, label %.thread, label %9, !llvm.loop !26
 
@@ -849,7 +846,7 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %27 ], [ 0, %9 ]
   %20 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %21 = shl nuw i32 1, %20
-  %22 = and i32 %21, %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %22 = and i32 %21, %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %22, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %27, label %23
 
@@ -870,7 +867,7 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   %.010.i68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %35 ], [ 0, %9 ]
   %28 = trunc nuw nsw i64 %indvars.iv.i67.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %29 = shl nuw i32 1, %28
-  %30 = and i32 %29, %.04481.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %30 = and i32 %29, %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i69.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %30, 0
   br i1 %.not.i69.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %35, label %31
 
@@ -887,48 +884,48 @@ define i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 36:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %38, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %37, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %38, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %37, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   %.not62.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br i1 %.not62.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %18, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %35
-  %37 = tail call noundef i32 @llvm.smax.i32(i32 %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %37 = tail call noundef i32 @llvm.smax.i32(i32 %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %36
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %27
-  %38 = tail call noundef i32 @llvm.smin.i32(i32 %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %38 = tail call noundef i32 @llvm.smin.i32(i32 %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %36
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %36
-  %39 = add nuw nsw i32 %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %39 = add nuw nsw i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %39, ptr %2, align 4
-  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !27
+  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !27
 
-.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %40 = add nuw nsw i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %40 = add nuw nsw i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %40, ptr %8, align 4
-  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us, label %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !28
+  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us, label %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !28
 
-.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %41 = add nuw nsw i32 %storemerge55170.us.us.us.us.us.us.us.us.us, 1
+.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %41 = add nuw nsw i32 %storemerge55147.us.us.us.us.us.us.us.us.us, 1
   store i32 %41, ptr %7, align 4
-  %.not56.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge55170.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not56.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us, label %.split188.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !29
+  %.not56.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge55147.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not56.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us, label %.split164.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !29
 
-.split188.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us
-  %42 = add nuw i32 %storemerge53223.us.us.us.us.us.us, 1
+.split164.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us
+  %42 = add nuw i32 %storemerge53184.us.us.us.us.us.us, 1
   store i32 %42, ptr %6, align 4
-  %exitcond324.not = icmp eq i32 %storemerge53223.us.us.us.us.us.us, %1
-  br i1 %exitcond324.not, label %.split241.us.split.us.split.us.us.us.us, label %.split172.us.us.us.us.us.us.us, !llvm.loop !30
+  %exitcond257.not = icmp eq i32 %storemerge53184.us.us.us.us.us.us, %1
+  br i1 %exitcond257.not, label %.split201.us.split.us.split.us.us.us.us, label %.split149.us.us.us.us.us.us.us, !llvm.loop !30
 
-.split241.us.split.us.split.us.us.us.us:          ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us
-  %43 = add nuw i32 %storemerge287.us.us.us, 1
+.split201.us.split.us.split.us.us.us.us:          ; preds = %.split164.us.split.us.split.us.us.us.us.us.us.us
+  %43 = add nuw i32 %storemerge228.us.us.us, 1
   store i32 %43, ptr %5, align 4
-  %exitcond325.not = icmp eq i32 %storemerge287.us.us.us, %1
-  br i1 %exitcond325.not, label %.thread, label %.split225.us.us.us.us, !llvm.loop !31
+  %exitcond258.not = icmp eq i32 %storemerge228.us.us.us, %1
+  br i1 %exitcond258.not, label %.thread, label %.split186.us.us.us.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %6, align 4
@@ -937,8 +934,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split241.us.split.us.split.us.us.us.us, %18, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ], [ 0, %.split241.us.split.us.split.us.us.us.us ]
+.thread:                                          ; preds = %.split201.us.split.us.split.us.us.us.us, %18, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ], [ 0, %.split201.us.split.us.split.us.us.us.us ]
   ret i32 %.0
 }
 
@@ -948,8 +945,8 @@ define i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 no
   %5 = add i32 %1, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 1, ptr %6, align 4
-  %.not366 = icmp slt i32 %1, -2
-  br i1 %.not366, label %.thread, label %.lr.ph
+  %.not283 = icmp slt i32 %1, -2
+  br i1 %.not283, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -962,55 +959,55 @@ define i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %11 = icmp sgt i32 %1, 0
-  %smax406 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  br i1 %11, label %.split296.us.us.us.us.preheader, label %.split296.us.us.preheader
+  %smax315 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  br i1 %11, label %.split237.us.us.us.us.preheader, label %.split237.us.us.preheader
 
-.split296.us.us.preheader:                        ; preds = %.lr.ph.split.us
+.split237.us.us.preheader:                        ; preds = %.lr.ph.split.us
   %12 = add i32 %1, 3
-  br label %.split296.us.us
+  br label %.split237.us.us
 
-.split296.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
-  %smax408 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  br label %.split296.us.us.us.us
+.split237.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
+  %smax317 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  br label %.split237.us.us.us.us
 
-.split296.us.us.us.us:                            ; preds = %.split296.us.us.us.us.preheader, %.split312.us.split.us.split.us.us.us.us
-  %storemerge367.us.us.us = phi i32 [ %48, %.split312.us.split.us.split.us.us.us.us ], [ 1, %.split296.us.us.us.us.preheader ]
-  store i32 %storemerge367.us.us.us, ptr %7, align 4
-  br label %.split233.us.us.us.us.us.us.us
+.split237.us.us.us.us:                            ; preds = %.split237.us.us.us.us.preheader, %.split252.us.split.us.split.us.us.us.us
+  %storemerge284.us.us.us = phi i32 [ %48, %.split252.us.split.us.split.us.us.us.us ], [ 1, %.split237.us.us.us.us.preheader ]
+  store i32 %storemerge284.us.us.us, ptr %7, align 4
+  br label %.split194.us.us.us.us.us.us.us
 
-.split233.us.us.us.us.us.us.us:                   ; preds = %.split249.us.split.us.split.us.us.us.us.us.us.us, %.split296.us.us.us.us
-  %storemerge59294.us.us.us.us.us.us = phi i32 [ %storemerge367.us.us.us, %.split296.us.us.us.us ], [ %47, %.split249.us.split.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge59294.us.us.us.us.us.us, ptr %8, align 4
-  br label %.split180.us.us.us.us.us.us.us.us.us.us
+.split194.us.us.us.us.us.us.us:                   ; preds = %.split209.us.split.us.split.us.us.us.us.us.us.us, %.split237.us.us.us.us
+  %storemerge59235.us.us.us.us.us.us = phi i32 [ %storemerge284.us.us.us, %.split237.us.us.us.us ], [ %47, %.split209.us.split.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge59235.us.us.us.us.us.us, ptr %8, align 4
+  br label %.split157.us.us.us.us.us.us.us.us.us.us
 
-.split180.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split196.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split233.us.us.us.us.us.us.us
-  %storemerge61231.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge59294.us.us.us.us.us.us, %.split233.us.us.us.us.us.us.us ], [ %46, %.split196.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge61231.us.us.us.us.us.us.us.us.us, ptr %9, align 4
+.split157.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split172.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split194.us.us.us.us.us.us.us
+  %storemerge61192.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge59235.us.us.us.us.us.us, %.split194.us.us.us.us.us.us.us ], [ %46, %.split172.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge61192.us.us.us.us.us.us.us.us.us, ptr %9, align 4
   br label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split.us.us.us.us.us.us.us.us.us.us.us.us.us:    ; preds = %.split150.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split180.us.us.us.us.us.us.us.us.us.us
-  %storemerge63178.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge61231.us.us.us.us.us.us.us.us.us, %.split180.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split150.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge63178.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
+.split.us.us.us.us.us.us.us.us.us.us.us.us.us:    ; preds = %.split139.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split157.us.us.us.us.us.us.us.us.us.us
+  %storemerge63155.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge61192.us.us.us.us.us.us.us.us.us, %.split157.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split139.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge63155.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
   br label %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split119.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge65132.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge63178.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split119.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge65132.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
+.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split115.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge65123.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge63155.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split115.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge65123.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge67117.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge65132.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %43, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %storemerge67113.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge65123.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %43, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   br label %13
 
 13:                                               ; preds = %22, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %23, %22 ]
-  %.05088.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
-  %.05187.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
-  %14 = lshr i32 %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
+  %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %23, %22 ]
+  %.05087.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
+  %.05186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
+  %14 = lshr i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds i64, ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = and i32 %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
+  %18 = and i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw i64 1, %19
   %21 = and i64 %17, %20
@@ -1018,16 +1015,16 @@ define i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not69.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 22:                                               ; preds = %40
-  %23 = add nuw nsw i32 %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
-  %exitcond407.not = icmp eq i32 %23, %smax406
-  br i1 %exitcond407.not, label %.thread, label %13, !llvm.loop !32
+  %23 = add nuw nsw i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %exitcond316.not = icmp eq i32 %23, %smax315
+  br i1 %exitcond316.not, label %.thread, label %13, !llvm.loop !32
 
 .lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %13, %31
   %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %31 ], [ 0, %13 ]
   %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %31 ], [ 0, %13 ]
   %24 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %25 = shl nuw i32 1, %24
-  %26 = and i32 %25, %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %26 = and i32 %25, %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %26, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %31, label %27
 
@@ -1048,7 +1045,7 @@ define i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 no
   %.010.i76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %39 ], [ 0, %13 ]
   %32 = trunc nuw nsw i64 %indvars.iv.i75.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %33 = shl nuw i32 1, %32
-  %34 = and i32 %33, %.04989.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %34 = and i32 %33, %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i77.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %34, 0
   br i1 %.not.i77.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %39, label %35
 
@@ -1065,92 +1062,92 @@ define i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i80.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 40:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %42, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.05187.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.05088.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %41, %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %42, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.05186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.05087.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %41, %Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   %.not70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br i1 %.not70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %22, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit81.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %39
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %.05088.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %41 = tail call noundef i32 @llvm.smax.i32(i32 %.05087.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %40
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %31
-  %42 = tail call noundef i32 @llvm.smin.i32(i32 %.05187.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %42 = tail call noundef i32 @llvm.smin.i32(i32 %.05186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %40
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %40
-  %43 = add nuw nsw i32 %storemerge67117.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %43 = add nuw nsw i32 %storemerge67113.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %43, ptr %2, align 4
-  %.not68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge67117.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split119.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !33
+  %.not68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge67113.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split115.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !33
 
-.split119.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %44 = add nuw nsw i32 %storemerge65132.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split115.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %44 = add nuw nsw i32 %storemerge65123.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %44, ptr %10, align 4
-  %.not66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge65132.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split150.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !34
+  %.not66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge65123.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split139.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !34
 
-.split150.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split119.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %45 = add nuw nsw i32 %storemerge63178.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split139.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split115.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %45 = add nuw nsw i32 %storemerge63155.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %45, ptr %9, align 4
-  %.not64.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge63178.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not64.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split196.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !35
+  %.not64.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge63155.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not64.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split172.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !35
 
-.split196.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split150.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %46 = add nuw nsw i32 %storemerge61231.us.us.us.us.us.us.us.us.us, 1
+.split172.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split139.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %46 = add nuw nsw i32 %storemerge61192.us.us.us.us.us.us.us.us.us, 1
   store i32 %46, ptr %8, align 4
-  %.not62.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge61231.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not62.us.us.us.us.us.us.us.us.us.not, label %.split180.us.us.us.us.us.us.us.us.us.us, label %.split249.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !36
+  %.not62.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge61192.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not62.us.us.us.us.us.us.us.us.us.not, label %.split157.us.us.us.us.us.us.us.us.us.us, label %.split209.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !36
 
-.split249.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split196.us.split.us.split.us.us.us.us.us.us.us.us.us.us
-  %47 = add nuw nsw i32 %storemerge59294.us.us.us.us.us.us, 1
+.split209.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split172.us.split.us.split.us.us.us.us.us.us.us.us.us.us
+  %47 = add nuw nsw i32 %storemerge59235.us.us.us.us.us.us, 1
   store i32 %47, ptr %7, align 4
-  %.not60.us.us.us.us.us.us.not = icmp slt i32 %storemerge59294.us.us.us.us.us.us, %5
-  br i1 %.not60.us.us.us.us.us.us.not, label %.split233.us.us.us.us.us.us.us, label %.split312.us.split.us.split.us.us.us.us, !llvm.loop !37
+  %.not60.us.us.us.us.us.us.not = icmp slt i32 %storemerge59235.us.us.us.us.us.us, %5
+  br i1 %.not60.us.us.us.us.us.us.not, label %.split194.us.us.us.us.us.us.us, label %.split252.us.split.us.split.us.us.us.us, !llvm.loop !37
 
-.split312.us.split.us.split.us.us.us.us:          ; preds = %.split249.us.split.us.split.us.us.us.us.us.us.us
-  %48 = add nuw i32 %storemerge367.us.us.us, 1
+.split252.us.split.us.split.us.us.us.us:          ; preds = %.split209.us.split.us.split.us.us.us.us.us.us.us
+  %48 = add nuw i32 %storemerge284.us.us.us, 1
   store i32 %48, ptr %6, align 4
-  %exitcond409.not = icmp eq i32 %storemerge367.us.us.us, %smax408
-  br i1 %exitcond409.not, label %.thread, label %.split296.us.us.us.us, !llvm.loop !38
+  %exitcond318.not = icmp eq i32 %storemerge284.us.us.us, %smax317
+  br i1 %exitcond318.not, label %.thread, label %.split237.us.us.us.us, !llvm.loop !38
 
-.split296.us.us:                                  ; preds = %.split296.us.us.preheader, %.split312.us.split.split.us372
-  %storemerge367.us = phi i32 [ %65, %.split312.us.split.split.us372 ], [ 1, %.split296.us.us.preheader ]
-  store i32 %storemerge367.us, ptr %7, align 4
-  br label %.split233.us.us.us369
+.split237.us.us:                                  ; preds = %.split237.us.us.preheader, %.split252.us.split.split.us289
+  %storemerge284.us = phi i32 [ %65, %.split252.us.split.split.us289 ], [ 1, %.split237.us.us.preheader ]
+  store i32 %storemerge284.us, ptr %7, align 4
+  br label %.split194.us.us.us286
 
-.split233.us.us.us369:                            ; preds = %.split296.us.us, %.split249.us.split.split.us300.us
-  %storemerge59294.us.us370 = phi i32 [ %storemerge367.us, %.split296.us.us ], [ %64, %.split249.us.split.split.us300.us ]
-  store i32 %storemerge59294.us.us370, ptr %8, align 4
-  br label %.split180.us.us.us297.us
+.split194.us.us.us286:                            ; preds = %.split237.us.us, %.split209.us.split.split.us241.us
+  %storemerge59235.us.us287 = phi i32 [ %storemerge284.us, %.split237.us.us ], [ %64, %.split209.us.split.split.us241.us ]
+  store i32 %storemerge59235.us.us287, ptr %8, align 4
+  br label %.split157.us.us.us238.us
 
-.split180.us.us.us297.us:                         ; preds = %.split196.us.split.split.us237.us.us, %.split233.us.us.us369
-  %storemerge61231.us.us298.us = phi i32 [ %storemerge59294.us.us370, %.split233.us.us.us369 ], [ %63, %.split196.us.split.split.us237.us.us ]
-  store i32 %storemerge61231.us.us298.us, ptr %9, align 4
-  br label %.split.us.us.us234.us.us
+.split157.us.us.us238.us:                         ; preds = %.split172.us.split.split.us198.us.us, %.split194.us.us.us286
+  %storemerge61192.us.us239.us = phi i32 [ %storemerge59235.us.us287, %.split194.us.us.us286 ], [ %63, %.split172.us.split.split.us198.us.us ]
+  store i32 %storemerge61192.us.us239.us, ptr %9, align 4
+  br label %.split.us.us.us195.us.us
 
-.split.us.us.us234.us.us:                         ; preds = %.split150.us.split.split.us184.us.us.us, %.split180.us.us.us297.us
-  %storemerge63178.us.us235.us.us = phi i32 [ %storemerge61231.us.us298.us, %.split180.us.us.us297.us ], [ %62, %.split150.us.split.split.us184.us.us.us ]
-  store i32 %storemerge63178.us.us235.us.us, ptr %10, align 4
-  br label %.preheader83.us.us181.us.us.us
+.split.us.us.us195.us.us:                         ; preds = %.split139.us.split.split.us161.us.us.us, %.split157.us.us.us238.us
+  %storemerge63155.us.us196.us.us = phi i32 [ %storemerge61192.us.us239.us, %.split157.us.us.us238.us ], [ %62, %.split139.us.split.split.us161.us.us.us ]
+  store i32 %storemerge63155.us.us196.us.us, ptr %10, align 4
+  br label %.preheader83.us.us158.us.us.us
 
-.preheader83.us.us181.us.us.us:                   ; preds = %.split119.split.us135.us.us.us.us, %.split.us.us.us234.us.us
-  %storemerge65132.us.us182.us.us.us = phi i32 [ %storemerge63178.us.us235.us.us, %.split.us.us.us234.us.us ], [ %61, %.split119.split.us135.us.us.us.us ]
-  store i32 %storemerge65132.us.us182.us.us.us, ptr %2, align 4
-  br label %.preheader.us136.us.us.us.us
+.preheader83.us.us158.us.us.us:                   ; preds = %.split115.split.us126.us.us.us.us, %.split.us.us.us195.us.us
+  %storemerge65123.us.us159.us.us.us = phi i32 [ %storemerge63155.us.us196.us.us, %.split.us.us.us195.us.us ], [ %61, %.split115.split.us126.us.us.us.us ]
+  store i32 %storemerge65123.us.us159.us.us.us, ptr %2, align 4
+  br label %.preheader.us127.us.us.us.us
 
 49:                                               ; preds = %51
-  %50 = add nuw nsw i32 %.04989.us.us.us.us.us, 1
-  %exitcond.not = icmp eq i32 %50, %smax406
+  %50 = add nuw nsw i32 %.04988.us.us.us.us.us, 1
+  %exitcond.not = icmp eq i32 %50, %smax315
   br i1 %exitcond.not, label %.thread, label %51, !llvm.loop !32
 
-51:                                               ; preds = %.preheader.us136.us.us.us.us, %49
-  %.04989.us.us.us.us.us = phi i32 [ 0, %.preheader.us136.us.us.us.us ], [ %50, %49 ]
-  %52 = lshr i32 %.04989.us.us.us.us.us, 6
+51:                                               ; preds = %.preheader.us127.us.us.us.us, %49
+  %.04988.us.us.us.us.us = phi i32 [ 0, %.preheader.us127.us.us.us.us ], [ %50, %49 ]
+  %52 = lshr i32 %.04988.us.us.us.us.us, 6
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds i64, ptr %0, i64 %53
   %55 = load i64, ptr %54, align 8
-  %56 = and i32 %.04989.us.us.us.us.us, 63
+  %56 = and i32 %.04988.us.us.us.us.us, 63
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw i64 1, %57
   %59 = and i64 %55, %58
@@ -1158,44 +1155,44 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br i1 %.not69.us.us.us.us.us, label %49, label %.split.split.us.us.us.us.us
 
 .split.split.us.us.us.us.us:                      ; preds = %51
-  %60 = add nuw nsw i32 %storemerge67117.us137.us.us.us.us, 1
+  %60 = add nuw nsw i32 %storemerge67113.us128.us.us.us.us, 1
   store i32 %60, ptr %2, align 4
-  %.not68.us134.us.us.us.us.not = icmp slt i32 %storemerge67117.us137.us.us.us.us, %5
-  br i1 %.not68.us134.us.us.us.us.not, label %.preheader.us136.us.us.us.us, label %.split119.split.us135.us.us.us.us, !llvm.loop !33
+  %.not68.us125.us.us.us.us.not = icmp slt i32 %storemerge67113.us128.us.us.us.us, %5
+  br i1 %.not68.us125.us.us.us.us.not, label %.preheader.us127.us.us.us.us, label %.split115.split.us126.us.us.us.us, !llvm.loop !33
 
-.split119.split.us135.us.us.us.us:                ; preds = %.split.split.us.us.us.us.us
-  %61 = add nuw nsw i32 %storemerge65132.us.us182.us.us.us, 1
+.split115.split.us126.us.us.us.us:                ; preds = %.split.split.us.us.us.us.us
+  %61 = add nuw nsw i32 %storemerge65123.us.us159.us.us.us, 1
   store i32 %61, ptr %10, align 4
-  %.not66.us.us183.us.us.us.not = icmp slt i32 %storemerge65132.us.us182.us.us.us, %5
-  br i1 %.not66.us.us183.us.us.us.not, label %.preheader83.us.us181.us.us.us, label %.split150.us.split.split.us184.us.us.us, !llvm.loop !34
+  %.not66.us.us160.us.us.us.not = icmp slt i32 %storemerge65123.us.us159.us.us.us, %5
+  br i1 %.not66.us.us160.us.us.us.not, label %.preheader83.us.us158.us.us.us, label %.split139.us.split.split.us161.us.us.us, !llvm.loop !34
 
-.preheader.us136.us.us.us.us:                     ; preds = %.split.split.us.us.us.us.us, %.preheader83.us.us181.us.us.us
-  %storemerge67117.us137.us.us.us.us = phi i32 [ %storemerge65132.us.us182.us.us.us, %.preheader83.us.us181.us.us.us ], [ %60, %.split.split.us.us.us.us.us ]
+.preheader.us127.us.us.us.us:                     ; preds = %.split.split.us.us.us.us.us, %.preheader83.us.us158.us.us.us
+  %storemerge67113.us128.us.us.us.us = phi i32 [ %storemerge65123.us.us159.us.us.us, %.preheader83.us.us158.us.us.us ], [ %60, %.split.split.us.us.us.us.us ]
   br label %51
 
-.split150.us.split.split.us184.us.us.us:          ; preds = %.split119.split.us135.us.us.us.us
-  %62 = add nuw nsw i32 %storemerge63178.us.us235.us.us, 1
+.split139.us.split.split.us161.us.us.us:          ; preds = %.split115.split.us126.us.us.us.us
+  %62 = add nuw nsw i32 %storemerge63155.us.us196.us.us, 1
   store i32 %62, ptr %9, align 4
-  %.not64.us.us236.us.us.not = icmp slt i32 %storemerge63178.us.us235.us.us, %5
-  br i1 %.not64.us.us236.us.us.not, label %.split.us.us.us234.us.us, label %.split196.us.split.split.us237.us.us, !llvm.loop !35
+  %.not64.us.us197.us.us.not = icmp slt i32 %storemerge63155.us.us196.us.us, %5
+  br i1 %.not64.us.us197.us.us.not, label %.split.us.us.us195.us.us, label %.split172.us.split.split.us198.us.us, !llvm.loop !35
 
-.split196.us.split.split.us237.us.us:             ; preds = %.split150.us.split.split.us184.us.us.us
-  %63 = add nuw nsw i32 %storemerge61231.us.us298.us, 1
+.split172.us.split.split.us198.us.us:             ; preds = %.split139.us.split.split.us161.us.us.us
+  %63 = add nuw nsw i32 %storemerge61192.us.us239.us, 1
   store i32 %63, ptr %8, align 4
-  %.not62.us.us299.us.not = icmp slt i32 %storemerge61231.us.us298.us, %5
-  br i1 %.not62.us.us299.us.not, label %.split180.us.us.us297.us, label %.split249.us.split.split.us300.us, !llvm.loop !36
+  %.not62.us.us240.us.not = icmp slt i32 %storemerge61192.us.us239.us, %5
+  br i1 %.not62.us.us240.us.not, label %.split157.us.us.us238.us, label %.split209.us.split.split.us241.us, !llvm.loop !36
 
-.split249.us.split.split.us300.us:                ; preds = %.split196.us.split.split.us237.us.us
-  %64 = add nuw nsw i32 %storemerge59294.us.us370, 1
+.split209.us.split.split.us241.us:                ; preds = %.split172.us.split.split.us198.us.us
+  %64 = add nuw nsw i32 %storemerge59235.us.us287, 1
   store i32 %64, ptr %7, align 4
-  %.not60.us.us371.not = icmp slt i32 %storemerge59294.us.us370, %5
-  br i1 %.not60.us.us371.not, label %.split233.us.us.us369, label %.split312.us.split.split.us372, !llvm.loop !37
+  %.not60.us.us288.not = icmp slt i32 %storemerge59235.us.us287, %5
+  br i1 %.not60.us.us288.not, label %.split194.us.us.us286, label %.split252.us.split.split.us289, !llvm.loop !37
 
-.split312.us.split.split.us372:                   ; preds = %.split249.us.split.split.us300.us
-  %65 = add nuw i32 %storemerge367.us, 1
+.split252.us.split.split.us289:                   ; preds = %.split209.us.split.split.us241.us
+  %65 = add nuw i32 %storemerge284.us, 1
   store i32 %65, ptr %6, align 4
-  %exitcond405.not = icmp eq i32 %storemerge367.us, %12
-  br i1 %exitcond405.not, label %.thread, label %.split296.us.us, !llvm.loop !38
+  %exitcond314.not = icmp eq i32 %storemerge284.us, %12
+  br i1 %exitcond314.not, label %.thread, label %.split237.us.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %7, align 4
@@ -1205,8 +1202,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split312.us.split.split.us372, %49, %.split312.us.split.us.split.us.us.us.us, %22, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split312.us.split.us.split.us.us.us.us ], [ 10000, %49 ], [ 0, %.split312.us.split.split.us372 ]
+.thread:                                          ; preds = %.split252.us.split.split.us289, %49, %.split252.us.split.us.split.us.us.us.us, %22, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split252.us.split.us.split.us.us.us.us ], [ 10000, %49 ], [ 0, %.split252.us.split.split.us289 ]
   ret i32 %.0
 }
 
@@ -1216,8 +1213,8 @@ define i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 no
   %5 = add i32 %1, 6
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 1, ptr %6, align 4
-  %.not455 = icmp slt i32 %1, -5
-  br i1 %.not455, label %.thread, label %.lr.ph
+  %.not344 = icmp slt i32 %1, -5
+  br i1 %.not344, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 20
@@ -1231,60 +1228,60 @@ define i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %12 = icmp sgt i32 %1, 0
-  %smax495 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  br i1 %12, label %.split376.us.us.us.us.preheader, label %.split376.us.us.preheader
+  %smax376 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  br i1 %12, label %.split293.us.us.us.us.preheader, label %.split293.us.us.preheader
 
-.split376.us.us.preheader:                        ; preds = %.lr.ph.split.us
+.split293.us.us.preheader:                        ; preds = %.lr.ph.split.us
   %13 = add i32 %1, 6
-  br label %.split376.us.us
+  br label %.split293.us.us
 
-.split376.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
-  %smax497 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  br label %.split376.us.us.us.us
+.split293.us.us.us.us.preheader:                  ; preds = %.lr.ph.split.us
+  %smax378 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  br label %.split293.us.us.us.us
 
-.split376.us.us.us.us:                            ; preds = %.split376.us.us.us.us.preheader, %.split392.us.split.us.split.us.us.us.us
-  %storemerge456.us.us.us = phi i32 [ %50, %.split392.us.split.us.split.us.us.us.us ], [ 1, %.split376.us.us.us.us.preheader ]
-  store i32 %storemerge456.us.us.us, ptr %7, align 4
-  br label %.split304.us.us.us.us.us.us.us
+.split293.us.us.us.us:                            ; preds = %.split293.us.us.us.us.preheader, %.split308.us.split.us.split.us.us.us.us
+  %storemerge345.us.us.us = phi i32 [ %50, %.split308.us.split.us.split.us.us.us.us ], [ 1, %.split293.us.us.us.us.preheader ]
+  store i32 %storemerge345.us.us.us, ptr %7, align 4
+  br label %.split245.us.us.us.us.us.us.us
 
-.split304.us.us.us.us.us.us.us:                   ; preds = %.split320.us.split.us.split.us.us.us.us.us.us.us, %.split376.us.us.us.us
-  %storemerge65374.us.us.us.us.us.us = phi i32 [ %storemerge456.us.us.us, %.split376.us.us.us.us ], [ %49, %.split320.us.split.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge65374.us.us.us.us.us.us, ptr %8, align 4
-  br label %.split241.us.us.us.us.us.us.us.us.us.us
+.split245.us.us.us.us.us.us.us:                   ; preds = %.split260.us.split.us.split.us.us.us.us.us.us.us, %.split293.us.us.us.us
+  %storemerge65291.us.us.us.us.us.us = phi i32 [ %storemerge345.us.us.us, %.split293.us.us.us.us ], [ %49, %.split260.us.split.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge65291.us.us.us.us.us.us, ptr %8, align 4
+  br label %.split202.us.us.us.us.us.us.us.us.us.us
 
-.split241.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split257.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split304.us.us.us.us.us.us.us
-  %storemerge67302.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge65374.us.us.us.us.us.us, %.split304.us.us.us.us.us.us.us ], [ %48, %.split257.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge67302.us.us.us.us.us.us.us.us.us, ptr %9, align 4
-  br label %.split188.us.us.us.us.us.us.us.us.us.us.us.us.us
+.split202.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split217.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split245.us.us.us.us.us.us.us
+  %storemerge67243.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge65291.us.us.us.us.us.us, %.split245.us.us.us.us.us.us.us ], [ %48, %.split217.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge67243.us.us.us.us.us.us.us.us.us, ptr %9, align 4
+  br label %.split165.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split188.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split204.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split241.us.us.us.us.us.us.us.us.us.us
-  %storemerge69239.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge67302.us.us.us.us.us.us.us.us.us, %.split241.us.us.us.us.us.us.us.us.us.us ], [ %47, %.split204.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge69239.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
+.split165.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split180.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split202.us.us.us.us.us.us.us.us.us.us
+  %storemerge69200.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge67243.us.us.us.us.us.us.us.us.us, %.split202.us.us.us.us.us.us.us.us.us.us ], [ %47, %.split180.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge69200.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
   br label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split158.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split188.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge71186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge69239.us.us.us.us.us.us.us.us.us.us.us.us, %.split188.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %46, %.split158.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge71186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %11, align 4
+.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split147.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split165.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge71163.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge69200.us.us.us.us.us.us.us.us.us.us.us.us, %.split165.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %46, %.split147.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge71163.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %11, align 4
   br label %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split127.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge73140.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge71186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split127.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge73140.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
+.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split123.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge73131.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge71163.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split123.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge73131.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge75125.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge73140.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %storemerge75121.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge73131.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   br label %14
 
 14:                                               ; preds = %23, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %24, %23 ]
-  %.05596.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ]
-  %.05695.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ]
-  %15 = lshr i32 %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
+  %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %24, %23 ]
+  %.05595.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ]
+  %.05694.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ]
+  %15 = lshr i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds i64, ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
-  %19 = and i32 %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
+  %19 = and i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw i64 1, %20
   %22 = and i64 %18, %21
@@ -1292,16 +1289,16 @@ define i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not77.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 23:                                               ; preds = %41
-  %24 = add nuw nsw i32 %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
-  %exitcond496.not = icmp eq i32 %24, %smax495
-  br i1 %exitcond496.not, label %.thread, label %14, !llvm.loop !39
+  %24 = add nuw nsw i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %exitcond377.not = icmp eq i32 %24, %smax376
+  br i1 %exitcond377.not, label %.thread, label %14, !llvm.loop !39
 
 .lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %14, %32
   %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %32 ], [ 0, %14 ]
   %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %32 ], [ 0, %14 ]
   %25 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %26 = shl nuw i32 1, %25
-  %27 = and i32 %26, %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %27 = and i32 %26, %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %27, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %32, label %28
 
@@ -1322,7 +1319,7 @@ define i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 no
   %.010.i84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i86.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %40 ], [ 0, %14 ]
   %33 = trunc nuw nsw i64 %indvars.iv.i83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %34 = shl nuw i32 1, %33
-  %35 = and i32 %34, %.05497.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %35 = and i32 %34, %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i85.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %35, 0
   br i1 %.not.i85.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %40, label %36
 
@@ -1339,103 +1336,103 @@ define i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i88.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 41:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %43, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.05695.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.05596.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %42, %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %43, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.05694.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.05595.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %42, %Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br i1 %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %23, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit89.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %40
-  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.05596.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i86.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.05595.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i86.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %41
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %32
-  %43 = tail call noundef i32 @llvm.smin.i32(i32 %.05695.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %43 = tail call noundef i32 @llvm.smin.i32(i32 %.05694.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %41
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %41
-  %44 = add nuw nsw i32 %storemerge75125.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %44 = add nuw nsw i32 %storemerge75121.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %44, ptr %2, align 4
-  %.not76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge75125.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split127.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !40
+  %.not76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge75121.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split123.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !40
 
-.split127.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %45 = add nuw nsw i32 %storemerge73140.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split123.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %45 = add nuw nsw i32 %storemerge73131.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %45, ptr %11, align 4
-  %.not74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge73140.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split158.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !41
+  %.not74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge73131.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.preheader91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split147.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !41
 
-.split158.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split127.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %46 = add nuw nsw i32 %storemerge71186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split147.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split123.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %46 = add nuw nsw i32 %storemerge71163.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %46, ptr %10, align 4
-  %.not72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge71186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split204.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !42
+  %.not72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge71163.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split180.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !42
 
-.split204.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split158.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %47 = add nuw nsw i32 %storemerge69239.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split180.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split147.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %47 = add nuw nsw i32 %storemerge69200.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %47, ptr %9, align 4
-  %.not70.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge69239.us.us.us.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not70.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split188.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split257.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !43
+  %.not70.us.us.us.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge69200.us.us.us.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not70.us.us.us.us.us.us.us.us.us.us.us.us.not, label %.split165.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split217.us.split.us.split.us.us.us.us.us.us.us.us.us.us, !llvm.loop !43
 
-.split257.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split204.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %48 = add nuw nsw i32 %storemerge67302.us.us.us.us.us.us.us.us.us, 1
+.split217.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split180.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %48 = add nuw nsw i32 %storemerge67243.us.us.us.us.us.us.us.us.us, 1
   store i32 %48, ptr %8, align 4
-  %.not68.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge67302.us.us.us.us.us.us.us.us.us, %5
-  br i1 %.not68.us.us.us.us.us.us.us.us.us.not, label %.split241.us.us.us.us.us.us.us.us.us.us, label %.split320.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !44
+  %.not68.us.us.us.us.us.us.us.us.us.not = icmp slt i32 %storemerge67243.us.us.us.us.us.us.us.us.us, %5
+  br i1 %.not68.us.us.us.us.us.us.us.us.us.not, label %.split202.us.us.us.us.us.us.us.us.us.us, label %.split260.us.split.us.split.us.us.us.us.us.us.us, !llvm.loop !44
 
-.split320.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split257.us.split.us.split.us.us.us.us.us.us.us.us.us.us
-  %49 = add nuw nsw i32 %storemerge65374.us.us.us.us.us.us, 1
+.split260.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split217.us.split.us.split.us.us.us.us.us.us.us.us.us.us
+  %49 = add nuw nsw i32 %storemerge65291.us.us.us.us.us.us, 1
   store i32 %49, ptr %7, align 4
-  %.not66.us.us.us.us.us.us.not = icmp slt i32 %storemerge65374.us.us.us.us.us.us, %5
-  br i1 %.not66.us.us.us.us.us.us.not, label %.split304.us.us.us.us.us.us.us, label %.split392.us.split.us.split.us.us.us.us, !llvm.loop !45
+  %.not66.us.us.us.us.us.us.not = icmp slt i32 %storemerge65291.us.us.us.us.us.us, %5
+  br i1 %.not66.us.us.us.us.us.us.not, label %.split245.us.us.us.us.us.us.us, label %.split308.us.split.us.split.us.us.us.us, !llvm.loop !45
 
-.split392.us.split.us.split.us.us.us.us:          ; preds = %.split320.us.split.us.split.us.us.us.us.us.us.us
-  %50 = add nuw i32 %storemerge456.us.us.us, 1
+.split308.us.split.us.split.us.us.us.us:          ; preds = %.split260.us.split.us.split.us.us.us.us.us.us.us
+  %50 = add nuw i32 %storemerge345.us.us.us, 1
   store i32 %50, ptr %6, align 4
-  %exitcond498.not = icmp eq i32 %storemerge456.us.us.us, %smax497
-  br i1 %exitcond498.not, label %.thread, label %.split376.us.us.us.us, !llvm.loop !46
+  %exitcond379.not = icmp eq i32 %storemerge345.us.us.us, %smax378
+  br i1 %exitcond379.not, label %.thread, label %.split293.us.us.us.us, !llvm.loop !46
 
-.split376.us.us:                                  ; preds = %.split376.us.us.preheader, %.split392.us.split.split.us461
-  %storemerge456.us = phi i32 [ %68, %.split392.us.split.split.us461 ], [ 1, %.split376.us.us.preheader ]
-  store i32 %storemerge456.us, ptr %7, align 4
-  br label %.split304.us.us.us458
+.split293.us.us:                                  ; preds = %.split293.us.us.preheader, %.split308.us.split.split.us350
+  %storemerge345.us = phi i32 [ %68, %.split308.us.split.split.us350 ], [ 1, %.split293.us.us.preheader ]
+  store i32 %storemerge345.us, ptr %7, align 4
+  br label %.split245.us.us.us347
 
-.split304.us.us.us458:                            ; preds = %.split376.us.us, %.split320.us.split.split.us380.us
-  %storemerge65374.us.us459 = phi i32 [ %storemerge456.us, %.split376.us.us ], [ %67, %.split320.us.split.split.us380.us ]
-  store i32 %storemerge65374.us.us459, ptr %8, align 4
-  br label %.split241.us.us.us377.us
+.split245.us.us.us347:                            ; preds = %.split293.us.us, %.split260.us.split.split.us297.us
+  %storemerge65291.us.us348 = phi i32 [ %storemerge345.us, %.split293.us.us ], [ %67, %.split260.us.split.split.us297.us ]
+  store i32 %storemerge65291.us.us348, ptr %8, align 4
+  br label %.split202.us.us.us294.us
 
-.split241.us.us.us377.us:                         ; preds = %.split257.us.split.split.us308.us.us, %.split304.us.us.us458
-  %storemerge67302.us.us378.us = phi i32 [ %storemerge65374.us.us459, %.split304.us.us.us458 ], [ %66, %.split257.us.split.split.us308.us.us ]
-  store i32 %storemerge67302.us.us378.us, ptr %9, align 4
-  br label %.split188.us.us.us305.us.us
+.split202.us.us.us294.us:                         ; preds = %.split217.us.split.split.us249.us.us, %.split245.us.us.us347
+  %storemerge67243.us.us295.us = phi i32 [ %storemerge65291.us.us348, %.split245.us.us.us347 ], [ %66, %.split217.us.split.split.us249.us.us ]
+  store i32 %storemerge67243.us.us295.us, ptr %9, align 4
+  br label %.split165.us.us.us246.us.us
 
-.split188.us.us.us305.us.us:                      ; preds = %.split204.us.split.split.us245.us.us.us, %.split241.us.us.us377.us
-  %storemerge69239.us.us306.us.us = phi i32 [ %storemerge67302.us.us378.us, %.split241.us.us.us377.us ], [ %65, %.split204.us.split.split.us245.us.us.us ]
-  store i32 %storemerge69239.us.us306.us.us, ptr %10, align 4
-  br label %.split.us.us.us242.us.us.us
+.split165.us.us.us246.us.us:                      ; preds = %.split180.us.split.split.us206.us.us.us, %.split202.us.us.us294.us
+  %storemerge69200.us.us247.us.us = phi i32 [ %storemerge67243.us.us295.us, %.split202.us.us.us294.us ], [ %65, %.split180.us.split.split.us206.us.us.us ]
+  store i32 %storemerge69200.us.us247.us.us, ptr %10, align 4
+  br label %.split.us.us.us203.us.us.us
 
-.split.us.us.us242.us.us.us:                      ; preds = %.split158.us.split.split.us192.us.us.us.us, %.split188.us.us.us305.us.us
-  %storemerge71186.us.us243.us.us.us = phi i32 [ %storemerge69239.us.us306.us.us, %.split188.us.us.us305.us.us ], [ %64, %.split158.us.split.split.us192.us.us.us.us ]
-  store i32 %storemerge71186.us.us243.us.us.us, ptr %11, align 4
-  br label %.preheader91.us.us189.us.us.us.us
+.split.us.us.us203.us.us.us:                      ; preds = %.split147.us.split.split.us169.us.us.us.us, %.split165.us.us.us246.us.us
+  %storemerge71163.us.us204.us.us.us = phi i32 [ %storemerge69200.us.us247.us.us, %.split165.us.us.us246.us.us ], [ %64, %.split147.us.split.split.us169.us.us.us.us ]
+  store i32 %storemerge71163.us.us204.us.us.us, ptr %11, align 4
+  br label %.preheader91.us.us166.us.us.us.us
 
-.preheader91.us.us189.us.us.us.us:                ; preds = %.split127.split.us143.us.us.us.us.us, %.split.us.us.us242.us.us.us
-  %storemerge73140.us.us190.us.us.us.us = phi i32 [ %storemerge71186.us.us243.us.us.us, %.split.us.us.us242.us.us.us ], [ %63, %.split127.split.us143.us.us.us.us.us ]
-  store i32 %storemerge73140.us.us190.us.us.us.us, ptr %2, align 4
-  br label %.preheader.us144.us.us.us.us.us
+.preheader91.us.us166.us.us.us.us:                ; preds = %.split123.split.us134.us.us.us.us.us, %.split.us.us.us203.us.us.us
+  %storemerge73131.us.us167.us.us.us.us = phi i32 [ %storemerge71163.us.us204.us.us.us, %.split.us.us.us203.us.us.us ], [ %63, %.split123.split.us134.us.us.us.us.us ]
+  store i32 %storemerge73131.us.us167.us.us.us.us, ptr %2, align 4
+  br label %.preheader.us135.us.us.us.us.us
 
 51:                                               ; preds = %53
-  %52 = add nuw nsw i32 %.05497.us.us.us.us.us.us, 1
-  %exitcond.not = icmp eq i32 %52, %smax495
+  %52 = add nuw nsw i32 %.05496.us.us.us.us.us.us, 1
+  %exitcond.not = icmp eq i32 %52, %smax376
   br i1 %exitcond.not, label %.thread, label %53, !llvm.loop !39
 
-53:                                               ; preds = %.preheader.us144.us.us.us.us.us, %51
-  %.05497.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us144.us.us.us.us.us ], [ %52, %51 ]
-  %54 = lshr i32 %.05497.us.us.us.us.us.us, 6
+53:                                               ; preds = %.preheader.us135.us.us.us.us.us, %51
+  %.05496.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us135.us.us.us.us.us ], [ %52, %51 ]
+  %54 = lshr i32 %.05496.us.us.us.us.us.us, 6
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds i64, ptr %0, i64 %55
   %57 = load i64, ptr %56, align 8
-  %58 = and i32 %.05497.us.us.us.us.us.us, 63
+  %58 = and i32 %.05496.us.us.us.us.us.us, 63
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw i64 1, %59
   %61 = and i64 %57, %60
@@ -1443,50 +1440,50 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   br i1 %.not77.us.us.us.us.us.us, label %51, label %.split.split.us.us.us.us.us.us
 
 .split.split.us.us.us.us.us.us:                   ; preds = %53
-  %62 = add nuw nsw i32 %storemerge75125.us145.us.us.us.us.us, 1
+  %62 = add nuw nsw i32 %storemerge75121.us136.us.us.us.us.us, 1
   store i32 %62, ptr %2, align 4
-  %.not76.us142.us.us.us.us.us.not = icmp slt i32 %storemerge75125.us145.us.us.us.us.us, %5
-  br i1 %.not76.us142.us.us.us.us.us.not, label %.preheader.us144.us.us.us.us.us, label %.split127.split.us143.us.us.us.us.us, !llvm.loop !40
+  %.not76.us133.us.us.us.us.us.not = icmp slt i32 %storemerge75121.us136.us.us.us.us.us, %5
+  br i1 %.not76.us133.us.us.us.us.us.not, label %.preheader.us135.us.us.us.us.us, label %.split123.split.us134.us.us.us.us.us, !llvm.loop !40
 
-.split127.split.us143.us.us.us.us.us:             ; preds = %.split.split.us.us.us.us.us.us
-  %63 = add nuw nsw i32 %storemerge73140.us.us190.us.us.us.us, 1
+.split123.split.us134.us.us.us.us.us:             ; preds = %.split.split.us.us.us.us.us.us
+  %63 = add nuw nsw i32 %storemerge73131.us.us167.us.us.us.us, 1
   store i32 %63, ptr %11, align 4
-  %.not74.us.us191.us.us.us.us.not = icmp slt i32 %storemerge73140.us.us190.us.us.us.us, %5
-  br i1 %.not74.us.us191.us.us.us.us.not, label %.preheader91.us.us189.us.us.us.us, label %.split158.us.split.split.us192.us.us.us.us, !llvm.loop !41
+  %.not74.us.us168.us.us.us.us.not = icmp slt i32 %storemerge73131.us.us167.us.us.us.us, %5
+  br i1 %.not74.us.us168.us.us.us.us.not, label %.preheader91.us.us166.us.us.us.us, label %.split147.us.split.split.us169.us.us.us.us, !llvm.loop !41
 
-.preheader.us144.us.us.us.us.us:                  ; preds = %.split.split.us.us.us.us.us.us, %.preheader91.us.us189.us.us.us.us
-  %storemerge75125.us145.us.us.us.us.us = phi i32 [ %storemerge73140.us.us190.us.us.us.us, %.preheader91.us.us189.us.us.us.us ], [ %62, %.split.split.us.us.us.us.us.us ]
+.preheader.us135.us.us.us.us.us:                  ; preds = %.split.split.us.us.us.us.us.us, %.preheader91.us.us166.us.us.us.us
+  %storemerge75121.us136.us.us.us.us.us = phi i32 [ %storemerge73131.us.us167.us.us.us.us, %.preheader91.us.us166.us.us.us.us ], [ %62, %.split.split.us.us.us.us.us.us ]
   br label %53
 
-.split158.us.split.split.us192.us.us.us.us:       ; preds = %.split127.split.us143.us.us.us.us.us
-  %64 = add nuw nsw i32 %storemerge71186.us.us243.us.us.us, 1
+.split147.us.split.split.us169.us.us.us.us:       ; preds = %.split123.split.us134.us.us.us.us.us
+  %64 = add nuw nsw i32 %storemerge71163.us.us204.us.us.us, 1
   store i32 %64, ptr %10, align 4
-  %.not72.us.us244.us.us.us.not = icmp slt i32 %storemerge71186.us.us243.us.us.us, %5
-  br i1 %.not72.us.us244.us.us.us.not, label %.split.us.us.us242.us.us.us, label %.split204.us.split.split.us245.us.us.us, !llvm.loop !42
+  %.not72.us.us205.us.us.us.not = icmp slt i32 %storemerge71163.us.us204.us.us.us, %5
+  br i1 %.not72.us.us205.us.us.us.not, label %.split.us.us.us203.us.us.us, label %.split180.us.split.split.us206.us.us.us, !llvm.loop !42
 
-.split204.us.split.split.us245.us.us.us:          ; preds = %.split158.us.split.split.us192.us.us.us.us
-  %65 = add nuw nsw i32 %storemerge69239.us.us306.us.us, 1
+.split180.us.split.split.us206.us.us.us:          ; preds = %.split147.us.split.split.us169.us.us.us.us
+  %65 = add nuw nsw i32 %storemerge69200.us.us247.us.us, 1
   store i32 %65, ptr %9, align 4
-  %.not70.us.us307.us.us.not = icmp slt i32 %storemerge69239.us.us306.us.us, %5
-  br i1 %.not70.us.us307.us.us.not, label %.split188.us.us.us305.us.us, label %.split257.us.split.split.us308.us.us, !llvm.loop !43
+  %.not70.us.us248.us.us.not = icmp slt i32 %storemerge69200.us.us247.us.us, %5
+  br i1 %.not70.us.us248.us.us.not, label %.split165.us.us.us246.us.us, label %.split217.us.split.split.us249.us.us, !llvm.loop !43
 
-.split257.us.split.split.us308.us.us:             ; preds = %.split204.us.split.split.us245.us.us.us
-  %66 = add nuw nsw i32 %storemerge67302.us.us378.us, 1
+.split217.us.split.split.us249.us.us:             ; preds = %.split180.us.split.split.us206.us.us.us
+  %66 = add nuw nsw i32 %storemerge67243.us.us295.us, 1
   store i32 %66, ptr %8, align 4
-  %.not68.us.us379.us.not = icmp slt i32 %storemerge67302.us.us378.us, %5
-  br i1 %.not68.us.us379.us.not, label %.split241.us.us.us377.us, label %.split320.us.split.split.us380.us, !llvm.loop !44
+  %.not68.us.us296.us.not = icmp slt i32 %storemerge67243.us.us295.us, %5
+  br i1 %.not68.us.us296.us.not, label %.split202.us.us.us294.us, label %.split260.us.split.split.us297.us, !llvm.loop !44
 
-.split320.us.split.split.us380.us:                ; preds = %.split257.us.split.split.us308.us.us
-  %67 = add nuw nsw i32 %storemerge65374.us.us459, 1
+.split260.us.split.split.us297.us:                ; preds = %.split217.us.split.split.us249.us.us
+  %67 = add nuw nsw i32 %storemerge65291.us.us348, 1
   store i32 %67, ptr %7, align 4
-  %.not66.us.us460.not = icmp slt i32 %storemerge65374.us.us459, %5
-  br i1 %.not66.us.us460.not, label %.split304.us.us.us458, label %.split392.us.split.split.us461, !llvm.loop !45
+  %.not66.us.us349.not = icmp slt i32 %storemerge65291.us.us348, %5
+  br i1 %.not66.us.us349.not, label %.split245.us.us.us347, label %.split308.us.split.split.us350, !llvm.loop !45
 
-.split392.us.split.split.us461:                   ; preds = %.split320.us.split.split.us380.us
-  %68 = add nuw i32 %storemerge456.us, 1
+.split308.us.split.split.us350:                   ; preds = %.split260.us.split.split.us297.us
+  %68 = add nuw i32 %storemerge345.us, 1
   store i32 %68, ptr %6, align 4
-  %exitcond494.not = icmp eq i32 %storemerge456.us, %13
-  br i1 %exitcond494.not, label %.thread, label %.split376.us.us, !llvm.loop !46
+  %exitcond375.not = icmp eq i32 %storemerge345.us, %13
+  br i1 %exitcond375.not, label %.thread, label %.split293.us.us, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   store i32 1, ptr %7, align 4
@@ -1497,8 +1494,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split392.us.split.split.us461, %51, %.split392.us.split.us.split.us.us.us.us, %23, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ], [ 0, %.split392.us.split.us.split.us.us.us.us ], [ 10000, %51 ], [ 0, %.split392.us.split.split.us461 ]
+.thread:                                          ; preds = %.split308.us.split.split.us350, %51, %.split308.us.split.us.split.us.us.us.us, %23, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ], [ 0, %.split308.us.split.us.split.us.us.us.us ], [ 10000, %51 ], [ 0, %.split308.us.split.split.us350 ]
   ret i32 %.0
 }
 
@@ -1507,8 +1504,8 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 1, ptr %5, align 4
-  %.not553 = icmp slt i32 %1, 0
-  br i1 %.not553, label %.thread, label %.lr.ph
+  %.not410 = icmp slt i32 %1, 0
+  br i1 %.not410, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1518,66 +1515,66 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = getelementptr inbounds i8, ptr %2, i64 4
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  switch i32 %1, label %.split465.us.us.us.us.preheader [
+  switch i32 %1, label %.split354.us.us.us.us.preheader [
     i32 31, label %.lr.ph.split
-    i32 0, label %.preheader.us152.us.us.us.us.us.us
+    i32 0, label %.preheader.us143.us.us.us.us.us.us
   ]
 
-.split465.us.us.us.us.preheader:                  ; preds = %.lr.ph
+.split354.us.us.us.us.preheader:                  ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  br label %.split465.us.us.us.us
+  br label %.split354.us.us.us.us
 
-.split465.us.us.us.us:                            ; preds = %.split465.us.us.us.us.preheader, %.split481.us.split.us.split.us.us.us.us
-  %indvars.iv = phi i32 [ 0, %.split465.us.us.us.us.preheader ], [ %indvars.iv.next, %.split481.us.split.us.split.us.us.us.us ]
-  %storemerge554.us.us.us = phi i32 [ 1, %.split465.us.us.us.us.preheader ], [ %50, %.split481.us.split.us.split.us.us.us.us ]
-  %smax593 = tail call i32 @llvm.smax.i32(i32 %1, i32 %indvars.iv)
-  store i32 %storemerge554.us.us.us, ptr %6, align 4
-  %12 = add nuw i32 %smax593, 1
-  br label %.split384.us.us.us.us.us.us.us
+.split354.us.us.us.us:                            ; preds = %.split354.us.us.us.us.preheader, %.split369.us.split.us.split.us.us.us.us
+  %indvars.iv = phi i32 [ 0, %.split354.us.us.us.us.preheader ], [ %indvars.iv.next, %.split369.us.split.us.split.us.us.us.us ]
+  %storemerge411.us.us.us = phi i32 [ 1, %.split354.us.us.us.us.preheader ], [ %50, %.split369.us.split.us.split.us.us.us.us ]
+  %smax442 = tail call i32 @llvm.smax.i32(i32 %1, i32 %indvars.iv)
+  store i32 %storemerge411.us.us.us, ptr %6, align 4
+  %12 = add nuw i32 %smax442, 1
+  br label %.split301.us.us.us.us.us.us.us
 
-.split384.us.us.us.us.us.us.us:                   ; preds = %.split400.us.split.us.split.us.us.us.us.us.us.us, %.split465.us.us.us.us
-  %storemerge71463.us.us.us.us.us.us = phi i32 [ %storemerge554.us.us.us, %.split465.us.us.us.us ], [ %49, %.split400.us.split.us.split.us.us.us.us.us.us.us ]
-  store i32 %storemerge71463.us.us.us.us.us.us, ptr %7, align 4
-  br label %.split312.us.us.us.us.us.us.us.us.us.us
+.split301.us.us.us.us.us.us.us:                   ; preds = %.split316.us.split.us.split.us.us.us.us.us.us.us, %.split354.us.us.us.us
+  %storemerge71352.us.us.us.us.us.us = phi i32 [ %storemerge411.us.us.us, %.split354.us.us.us.us ], [ %49, %.split316.us.split.us.split.us.us.us.us.us.us.us ]
+  store i32 %storemerge71352.us.us.us.us.us.us, ptr %7, align 4
+  br label %.split253.us.us.us.us.us.us.us.us.us.us
 
-.split312.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split328.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split384.us.us.us.us.us.us.us
-  %storemerge73382.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge71463.us.us.us.us.us.us, %.split384.us.us.us.us.us.us.us ], [ %48, %.split328.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge73382.us.us.us.us.us.us.us.us.us, ptr %8, align 4
-  br label %.split249.us.us.us.us.us.us.us.us.us.us.us.us.us
+.split253.us.us.us.us.us.us.us.us.us.us:          ; preds = %.split268.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %.split301.us.us.us.us.us.us.us
+  %storemerge73299.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge71352.us.us.us.us.us.us, %.split301.us.us.us.us.us.us.us ], [ %48, %.split268.us.split.us.split.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge73299.us.us.us.us.us.us.us.us.us, ptr %8, align 4
+  br label %.split210.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split249.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split265.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split312.us.us.us.us.us.us.us.us.us.us
-  %storemerge75310.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge73382.us.us.us.us.us.us.us.us.us, %.split312.us.us.us.us.us.us.us.us.us.us ], [ %47, %.split265.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge75310.us.us.us.us.us.us.us.us.us.us.us.us, ptr %9, align 4
-  br label %.split196.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+.split210.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split225.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split253.us.us.us.us.us.us.us.us.us.us
+  %storemerge75251.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge73299.us.us.us.us.us.us.us.us.us, %.split253.us.us.us.us.us.us.us.us.us.us ], [ %47, %.split225.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge75251.us.us.us.us.us.us.us.us.us.us.us.us, ptr %9, align 4
+  br label %.split173.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split196.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split212.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split249.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge77247.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge75310.us.us.us.us.us.us.us.us.us.us.us.us, %.split249.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %46, %.split212.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge77247.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
+.split173.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split210.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge77208.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge75251.us.us.us.us.us.us.us.us.us.us.us.us, %.split210.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %46, %.split188.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge77208.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %10, align 4
   br label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split166.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split196.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge79194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge77247.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split196.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split166.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge79194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %11, align 4
+.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split155.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split173.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge79171.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge77208.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split173.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %45, %.split155.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge79171.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %11, align 4
   br label %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
-.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split135.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge81148.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge79194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split135.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  store i32 %storemerge81148.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
+.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split131.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %storemerge81139.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge79171.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %44, %.split131.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  store i32 %storemerge81139.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %storemerge83133.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge81148.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %43, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %storemerge83129.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %storemerge81139.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %43, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   br label %13
 
 13:                                               ; preds = %22, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %23, %22 ]
-  %.060104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
-  %.061103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
-  %14 = lshr i32 %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
+  %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %23, %22 ]
+  %.060103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
+  %.061102.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
+  %14 = lshr i32 %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds i64, ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = and i32 %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
+  %18 = and i32 %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw i64 1, %19
   %21 = and i64 %17, %20
@@ -1585,7 +1582,7 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not85.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i90.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 22:                                               ; preds = %40
-  %23 = add nuw nsw i32 %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %23 = add nuw nsw i32 %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %23, %smax
   br i1 %exitcond.not, label %.thread, label %13, !llvm.loop !47
 
@@ -1594,7 +1591,7 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %31 ], [ 0, %13 ]
   %24 = trunc nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %25 = shl nuw i32 1, %24
-  %26 = and i32 %25, %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %26 = and i32 %25, %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %26, 0
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %31, label %27
 
@@ -1615,7 +1612,7 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   %.010.i92.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.1.i94.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %39 ], [ 0, %13 ]
   %32 = trunc nuw nsw i64 %indvars.iv.i91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to i32
   %33 = shl nuw i32 1, %32
-  %34 = and i32 %33, %.059105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %34 = and i32 %33, %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %.not.i93.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp eq i32 %34, 0
   br i1 %.not.i93.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %39, label %35
 
@@ -1632,87 +1629,87 @@ define i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not.i96.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.lr.ph.i90.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !17
 
 40:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %42, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.061103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.060104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %41, %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %42, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.061102.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ %.060103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %41, %Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ]
   %.not86.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br i1 %.not86.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %22, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 Extra_ThreshWeightedSum.exit97.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %39
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %.060104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i94.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %41 = tail call noundef i32 @llvm.smax.i32(i32 %.060103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i94.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %40
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %31
-  %42 = tail call noundef i32 @llvm.smin.i32(i32 %.061103.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
+  %42 = tail call noundef i32 @llvm.smin.i32(i32 %.061102.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   br label %40
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %40
-  %43 = add nuw nsw i32 %storemerge83133.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+  %43 = add nuw nsw i32 %storemerge83129.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %43, ptr %2, align 4
-  %.not84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge83133.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split135.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !48
+  %.not84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge83129.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split131.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !48
 
-.split135.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %44 = add nuw nsw i32 %storemerge81148.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split131.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %44 = add nuw nsw i32 %storemerge81139.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %44, ptr %11, align 4
-  %.not82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge81148.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split166.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !49
+  %.not82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge81139.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split155.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.preheader99.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !49
 
-.split166.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split135.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %45 = add nuw nsw i32 %storemerge79194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split155.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split131.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %45 = add nuw nsw i32 %storemerge79171.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %45, ptr %10, align 4
-  %.not80.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge79194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not80.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split212.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !50
+  %.not80.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge79171.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not80.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split188.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !50
 
-.split212.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split166.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %46 = add nuw nsw i32 %storemerge77247.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split188.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split155.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %46 = add nuw nsw i32 %storemerge77208.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %46, ptr %9, align 4
-  %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge77247.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split265.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split196.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !51
+  %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge77208.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not78.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split225.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us, label %.split173.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !51
 
-.split265.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split212.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %47 = add nuw nsw i32 %storemerge75310.us.us.us.us.us.us.us.us.us.us.us.us, 1
+.split225.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %47 = add nuw nsw i32 %storemerge75251.us.us.us.us.us.us.us.us.us.us.us.us, 1
   store i32 %47, ptr %8, align 4
-  %.not76.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge75310.us.us.us.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not76.us.us.us.us.us.us.us.us.us.us.us.us, label %.split328.us.split.us.split.us.us.us.us.us.us.us.us.us.us, label %.split249.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !52
+  %.not76.us.us.us.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge75251.us.us.us.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not76.us.us.us.us.us.us.us.us.us.us.us.us, label %.split268.us.split.us.split.us.us.us.us.us.us.us.us.us.us, label %.split210.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !52
 
-.split328.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split265.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %48 = add nuw nsw i32 %storemerge73382.us.us.us.us.us.us.us.us.us, 1
+.split268.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %.split225.us.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %48 = add nuw nsw i32 %storemerge73299.us.us.us.us.us.us.us.us.us, 1
   store i32 %48, ptr %7, align 4
-  %.not74.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge73382.us.us.us.us.us.us.us.us.us, %1
-  br i1 %.not74.us.us.us.us.us.us.us.us.us, label %.split400.us.split.us.split.us.us.us.us.us.us.us, label %.split312.us.us.us.us.us.us.us.us.us.us, !llvm.loop !53
+  %.not74.us.us.us.us.us.us.us.us.us = icmp sgt i32 %storemerge73299.us.us.us.us.us.us.us.us.us, %1
+  br i1 %.not74.us.us.us.us.us.us.us.us.us, label %.split316.us.split.us.split.us.us.us.us.us.us.us, label %.split253.us.us.us.us.us.us.us.us.us.us, !llvm.loop !53
 
-.split400.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split328.us.split.us.split.us.us.us.us.us.us.us.us.us.us
-  %49 = add nuw i32 %storemerge71463.us.us.us.us.us.us, 1
+.split316.us.split.us.split.us.us.us.us.us.us.us: ; preds = %.split268.us.split.us.split.us.us.us.us.us.us.us.us.us.us
+  %49 = add nuw i32 %storemerge71352.us.us.us.us.us.us, 1
   store i32 %49, ptr %6, align 4
-  %exitcond594 = icmp eq i32 %storemerge71463.us.us.us.us.us.us, %12
-  br i1 %exitcond594, label %.split481.us.split.us.split.us.us.us.us, label %.split384.us.us.us.us.us.us.us, !llvm.loop !54
+  %exitcond443 = icmp eq i32 %storemerge71352.us.us.us.us.us.us, %12
+  br i1 %exitcond443, label %.split369.us.split.us.split.us.us.us.us, label %.split301.us.us.us.us.us.us.us, !llvm.loop !54
 
-.split481.us.split.us.split.us.us.us.us:          ; preds = %.split400.us.split.us.split.us.us.us.us.us.us.us
-  %50 = add nuw nsw i32 %storemerge554.us.us.us, 1
+.split369.us.split.us.split.us.us.us.us:          ; preds = %.split316.us.split.us.split.us.us.us.us.us.us.us
+  %50 = add nuw nsw i32 %storemerge411.us.us.us, 1
   store i32 %50, ptr %5, align 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond595 = icmp eq i32 %indvars.iv, %1
-  br i1 %exitcond595, label %.thread, label %.split465.us.us.us.us, !llvm.loop !55
+  %exitcond444 = icmp eq i32 %indvars.iv, %1
+  br i1 %exitcond444, label %.thread, label %.split354.us.us.us.us, !llvm.loop !55
 
 51:                                               ; preds = %53
-  %52 = add nuw nsw i32 %.059105.us.us.us.us.us.us.us, 1
-  %exitcond597.not = icmp eq i32 %52, %4
-  br i1 %exitcond597.not, label %.thread, label %53, !llvm.loop !47
+  %52 = add nuw nsw i32 %.059104.us.us.us.us.us.us.us, 1
+  %exitcond446.not = icmp eq i32 %52, %4
+  br i1 %exitcond446.not, label %.thread, label %53, !llvm.loop !47
 
-53:                                               ; preds = %.preheader.us152.us.us.us.us.us.us, %51
-  %.059105.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us152.us.us.us.us.us.us ], [ %52, %51 ]
-  %54 = lshr i32 %.059105.us.us.us.us.us.us.us, 6
+53:                                               ; preds = %.preheader.us143.us.us.us.us.us.us, %51
+  %.059104.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us143.us.us.us.us.us.us ], [ %52, %51 ]
+  %54 = lshr i32 %.059104.us.us.us.us.us.us.us, 6
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds i64, ptr %0, i64 %55
   %57 = load i64, ptr %56, align 8
-  %58 = and i32 %.059105.us.us.us.us.us.us.us, 63
+  %58 = and i32 %.059104.us.us.us.us.us.us.us, 63
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw i64 1, %59
   %61 = and i64 %57, %60
   %.not85.us.us.us.us.us.us.us = icmp eq i64 %61, 0
-  br i1 %.not85.us.us.us.us.us.us.us, label %51, label %.thread.loopexit588
+  br i1 %.not85.us.us.us.us.us.us.us, label %51, label %.thread.loopexit437
 
-.preheader.us152.us.us.us.us.us.us:               ; preds = %.lr.ph
+.preheader.us143.us.us.us.us.us.us:               ; preds = %.lr.ph
   store i32 1, ptr %6, align 4
   store i32 1, ptr %7, align 4
   store i32 1, ptr %8, align 4
@@ -1732,7 +1729,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   store i32 1, ptr %2, align 4
   br label %.thread
 
-.thread.loopexit588:                              ; preds = %53
+.thread.loopexit437:                              ; preds = %53
   store i32 2, ptr %2, align 4
   store i32 2, ptr %11, align 4
   store i32 2, ptr %10, align 4
@@ -1743,8 +1740,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   store i32 2, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %51, %.split481.us.split.us.split.us.us.us.us, %22, %.thread.loopexit588, %3, %.lr.ph.split
-  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %.thread.loopexit588 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split481.us.split.us.split.us.us.us.us ], [ 10000, %51 ]
+.thread:                                          ; preds = %51, %.split369.us.split.us.split.us.us.us.us, %22, %.thread.loopexit437, %3, %.lr.ph.split
+  %.0 = phi i32 [ 10000, %.lr.ph.split ], [ 0, %3 ], [ 0, %.thread.loopexit437 ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ], [ 0, %.split369.us.split.us.split.us.us.us.us ], [ 10000, %51 ]
   ret i32 %.0
 }
 
@@ -1778,24 +1775,24 @@ define i32 @Extra_ThreshSelectWeights(ptr nocapture noundef readonly %0, i32 nou
   %13 = getelementptr inbounds i8, ptr %2, i64 4
   br label %.split.us.us.us.us.i
 
-.split.us.us.us.us.i:                             ; preds = %.split125.us.split.us.split.us.us.us.us.i, %11
-  %storemerge154.us.us.us.i = phi i32 [ %44, %.split125.us.split.us.split.us.us.us.us.i ], [ 1, %11 ]
-  store i32 %storemerge154.us.us.us.i, ptr %13, align 4
+.split.us.us.us.us.i:                             ; preds = %.split114.us.split.us.split.us.us.us.us.i, %11
+  %storemerge131.us.us.us.i = phi i32 [ %44, %.split114.us.split.us.split.us.us.us.us.i ], [ 1, %11 ]
+  store i32 %storemerge131.us.us.us.i, ptr %13, align 4
   br label %.preheader58.us.us.us.us.us.us.i
 
-.preheader58.us.us.us.us.us.us.i:                 ; preds = %.split94.us.split.us.us.us.us.us.us.us.i, %.split.us.us.us.us.i
-  %storemerge40107.us.us.us.us.us.us.i = phi i32 [ %storemerge154.us.us.us.i, %.split.us.us.us.us.i ], [ %43, %.split94.us.split.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge40107.us.us.us.us.us.us.i, ptr %2, align 4
+.preheader58.us.us.us.us.us.us.i:                 ; preds = %.split90.us.split.us.us.us.us.us.us.us.i, %.split.us.us.us.us.i
+  %storemerge4098.us.us.us.us.us.us.i = phi i32 [ %storemerge131.us.us.us.i, %.split.us.us.us.us.i ], [ %43, %.split90.us.split.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge4098.us.us.us.us.us.us.i, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.i
 
 .preheader.us.us.us.us.us.us.us.us.i:             ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.i, %.preheader58.us.us.us.us.us.us.i
-  %storemerge4292.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge40107.us.us.us.us.us.us.i, %.preheader58.us.us.us.us.us.us.i ], [ %42, %.split.us.us.split.us.us.us.us.us.us.us.us.i ]
+  %storemerge4288.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge4098.us.us.us.us.us.us.i, %.preheader58.us.us.us.us.us.us.i ], [ %42, %.split.us.us.split.us.us.us.us.us.us.us.us.i ]
   br label %14
 
 14:                                               ; preds = %22, %.preheader.us.us.us.us.us.us.us.us.i
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %22 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.i ]
-  %.03365.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.i ]
-  %.03464.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.i ]
+  %.03364.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.i ]
+  %.03463.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.i ]
   %15 = trunc nuw nsw i64 %indvars.iv53 to i32
   %16 = lshr i64 %indvars.iv53, 6
   %17 = and i64 %16, 67108863
@@ -1854,67 +1851,67 @@ define i32 @Extra_ThreshSelectWeights(ptr nocapture noundef readonly %0, i32 nou
   br i1 %exitcond.not.i55.us.us.us.us.us.us.us.us.us.us.i, label %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i, label %.lr.ph.i49.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !17
 
 39:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i
-  %.2.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %41, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i ], [ %.03464.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i ]
-  %.1.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.03365.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i ], [ %40, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i ]
+  %.2.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %41, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i ], [ %.03463.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i ]
+  %.1.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.03364.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i ], [ %40, %Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i ]
   %.not45.us.us.us.us.us.us.us.us.us.us.i = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.i, %.2.us.us.us.us.us.us.us.us.us.us.i
   br i1 %.not45.us.us.us.us.us.us.us.us.us.us.i, label %22, label %.split.us.us.split.us.us.us.us.us.us.us.us.i
 
 Extra_ThreshWeightedSum.exit56.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds = %38
-  %40 = tail call noundef i32 @llvm.smax.i32(i32 %.03365.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i53.us.us.us.us.us.us.us.us.us.us.i)
+  %40 = tail call noundef i32 @llvm.smax.i32(i32 %.03364.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i53.us.us.us.us.us.us.us.us.us.us.i)
   br label %39
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds = %30
-  %41 = tail call noundef i32 @llvm.smin.i32(i32 %.03464.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.i)
+  %41 = tail call noundef i32 @llvm.smin.i32(i32 %.03463.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.i)
   br label %39
 
 .split.us.us.split.us.us.us.us.us.us.us.us.i:     ; preds = %39
-  %42 = add nuw nsw i32 %storemerge4292.us.us.us.us.us.us.us.us.i, 1
+  %42 = add nuw nsw i32 %storemerge4288.us.us.us.us.us.us.us.us.i, 1
   store i32 %42, ptr %2, align 4
-  %.not43.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge4292.us.us.us.us.us.us.us.us.i, 3
-  br i1 %.not43.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.i, label %.split94.us.split.us.us.us.us.us.us.us.i, !llvm.loop !18
+  %.not43.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge4288.us.us.us.us.us.us.us.us.i, 3
+  br i1 %.not43.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.i, label %.split90.us.split.us.us.us.us.us.us.us.i, !llvm.loop !18
 
-.split94.us.split.us.us.us.us.us.us.us.i:         ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.i
-  %43 = add nuw nsw i32 %storemerge40107.us.us.us.us.us.us.i, 1
+.split90.us.split.us.us.us.us.us.us.us.i:         ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.i
+  %43 = add nuw nsw i32 %storemerge4098.us.us.us.us.us.us.i, 1
   store i32 %43, ptr %13, align 4
-  %exitcond191.not.i = icmp eq i32 %storemerge40107.us.us.us.us.us.us.i, 3
-  br i1 %exitcond191.not.i, label %.split125.us.split.us.split.us.us.us.us.i, label %.preheader58.us.us.us.us.us.us.i, !llvm.loop !19
+  %exitcond160.not.i = icmp eq i32 %storemerge4098.us.us.us.us.us.us.i, 3
+  br i1 %exitcond160.not.i, label %.split114.us.split.us.split.us.us.us.us.i, label %.preheader58.us.us.us.us.us.us.i, !llvm.loop !19
 
-.split125.us.split.us.split.us.us.us.us.i:        ; preds = %.split94.us.split.us.us.us.us.us.us.us.i
-  %44 = add nuw nsw i32 %storemerge154.us.us.us.i, 1
+.split114.us.split.us.split.us.us.us.us.i:        ; preds = %.split90.us.split.us.us.us.us.us.us.us.i
+  %44 = add nuw nsw i32 %storemerge131.us.us.us.i, 1
   store i32 %44, ptr %12, align 4
-  %exitcond192.not.i = icmp eq i32 %storemerge154.us.us.us.i, 3
-  br i1 %exitcond192.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split.us.us.us.us.i, !llvm.loop !20
+  %exitcond161.not.i = icmp eq i32 %storemerge131.us.us.us.i, 3
+  br i1 %exitcond161.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split.us.us.us.us.i, !llvm.loop !20
 
 45:                                               ; preds = %10
   %46 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %.split163.us.us.us.us.i
+  br label %.split140.us.us.us.us.i
 
-.split163.us.us.us.us.i:                          ; preds = %.split179.us.split.us.split.us.us.us.us.i, %45
-  %storemerge215.us.us.us.i = phi i32 [ %80, %.split179.us.split.us.split.us.us.us.us.i ], [ 1, %45 ]
-  store i32 %storemerge215.us.us.us.i, ptr %47, align 4
+.split140.us.us.us.us.i:                          ; preds = %.split155.us.split.us.split.us.us.us.us.i, %45
+  %storemerge176.us.us.us.i = phi i32 [ %80, %.split155.us.split.us.split.us.us.us.us.i ], [ 1, %45 ]
+  store i32 %storemerge176.us.us.us.i, ptr %47, align 4
   br label %.split.us.us.us.us.us.us.us.i
 
-.split.us.us.us.us.us.us.us.i:                    ; preds = %.split133.us.split.us.split.us.us.us.us.us.us.us.i, %.split163.us.us.us.us.i
-  %storemerge46161.us.us.us.us.us.us.i = phi i32 [ %storemerge215.us.us.us.i, %.split163.us.us.us.us.i ], [ %79, %.split133.us.split.us.split.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge46161.us.us.us.us.us.us.i, ptr %48, align 4
+.split.us.us.us.us.us.us.us.i:                    ; preds = %.split122.us.split.us.split.us.us.us.us.us.us.us.i, %.split140.us.us.us.us.i
+  %storemerge46138.us.us.us.us.us.us.i = phi i32 [ %storemerge176.us.us.us.i, %.split140.us.us.us.us.i ], [ %79, %.split122.us.split.us.split.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge46138.us.us.us.us.us.us.i, ptr %48, align 4
   br label %.preheader66.us.us.us.us.us.us.us.us.us.i
 
-.preheader66.us.us.us.us.us.us.us.us.us.i:        ; preds = %.split102.us.split.us.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.i
-  %storemerge48115.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge46161.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.i ], [ %78, %.split102.us.split.us.us.us.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge48115.us.us.us.us.us.us.us.us.us.i, ptr %2, align 4
+.preheader66.us.us.us.us.us.us.us.us.us.i:        ; preds = %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.i
+  %storemerge48106.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge46138.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.i ], [ %78, %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.i
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.i:    ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i, %.preheader66.us.us.us.us.us.us.us.us.us.i
-  %storemerge50100.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge48115.us.us.us.us.us.us.us.us.us.i, %.preheader66.us.us.us.us.us.us.us.us.us.i ], [ %77, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge48106.us.us.us.us.us.us.us.us.us.i, %.preheader66.us.us.us.us.us.us.us.us.us.i ], [ %77, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i ]
   br label %49
 
 49:                                               ; preds = %57, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %57 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.i ]
   %50 = trunc nuw nsw i64 %indvars.iv50 to i32
   %51 = lshr i64 %indvars.iv50, 6
   %52 = and i64 %51, 67108863
@@ -1973,42 +1970,42 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds =
   br i1 %exitcond.not.i63.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.lr.ph.i57.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !17
 
 74:                                               ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %76, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %75, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %76, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %75, %Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
   %.not53.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br i1 %.not53.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %57, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i
 
 Extra_ThreshWeightedSum.exit64.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %73
-  %75 = tail call noundef i32 @llvm.smax.i32(i32 %.03873.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i61.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
+  %75 = tail call noundef i32 @llvm.smax.i32(i32 %.03872.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i61.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
   br label %74
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %65
-  %76 = tail call noundef i32 @llvm.smin.i32(i32 %.03972.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
+  %76 = tail call noundef i32 @llvm.smin.i32(i32 %.03971.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
   br label %74
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %74
-  %77 = add nuw nsw i32 %storemerge50100.us.us.us.us.us.us.us.us.us.us.us.i, 1
+  %77 = add nuw nsw i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %77, ptr %2, align 4
-  %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge50100.us.us.us.us.us.us.us.us.us.us.us.i, 4
-  br i1 %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.i, label %.split102.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !22
+  %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge5096.us.us.us.us.us.us.us.us.us.us.us.i, 4
+  br i1 %.not51.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.i, label %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !22
 
-.split102.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i
-  %78 = add nuw nsw i32 %storemerge48115.us.us.us.us.us.us.us.us.us.i, 1
+.split98.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.i
+  %78 = add nuw nsw i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %78, ptr %48, align 4
-  %.not49.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge48115.us.us.us.us.us.us.us.us.us.i, 4
-  br i1 %.not49.us.us.us.us.us.us.us.us.us.not.i, label %.preheader66.us.us.us.us.us.us.us.us.us.i, label %.split133.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !23
+  %.not49.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge48106.us.us.us.us.us.us.us.us.us.i, 4
+  br i1 %.not49.us.us.us.us.us.us.us.us.us.not.i, label %.preheader66.us.us.us.us.us.us.us.us.us.i, label %.split122.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !23
 
-.split133.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split102.us.split.us.us.us.us.us.us.us.us.us.us.i
-  %79 = add nuw nsw i32 %storemerge46161.us.us.us.us.us.us.i, 1
+.split122.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split98.us.split.us.us.us.us.us.us.us.us.us.us.i
+  %79 = add nuw nsw i32 %storemerge46138.us.us.us.us.us.us.i, 1
   store i32 %79, ptr %47, align 4
-  %exitcond252.not.i = icmp eq i32 %storemerge46161.us.us.us.us.us.us.i, 4
-  br i1 %exitcond252.not.i, label %.split179.us.split.us.split.us.us.us.us.i, label %.split.us.us.us.us.us.us.us.i, !llvm.loop !24
+  %exitcond205.not.i = icmp eq i32 %storemerge46138.us.us.us.us.us.us.i, 4
+  br i1 %exitcond205.not.i, label %.split155.us.split.us.split.us.us.us.us.i, label %.split.us.us.us.us.us.us.us.i, !llvm.loop !24
 
-.split179.us.split.us.split.us.us.us.us.i:        ; preds = %.split133.us.split.us.split.us.us.us.us.us.us.us.i
-  %80 = add nuw nsw i32 %storemerge215.us.us.us.i, 1
+.split155.us.split.us.split.us.us.us.us.i:        ; preds = %.split122.us.split.us.split.us.us.us.us.us.us.us.i
+  %80 = add nuw nsw i32 %storemerge176.us.us.us.i, 1
   store i32 %80, ptr %46, align 4
-  %exitcond253.not.i = icmp eq i32 %storemerge215.us.us.us.i, 4
-  br i1 %exitcond253.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split163.us.us.us.us.i, !llvm.loop !25
+  %exitcond206.not.i = icmp eq i32 %storemerge176.us.us.us.i, 4
+  br i1 %exitcond206.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split140.us.us.us.us.i, !llvm.loop !25
 
 81:                                               ; preds = %10
   %82 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2016,36 +2013,36 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
   %83 = getelementptr inbounds i8, ptr %2, i64 12
   %84 = getelementptr inbounds i8, ptr %2, i64 8
   %85 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %.split225.us.us.us.us.i
+  br label %.split186.us.us.us.us.i
 
-.split225.us.us.us.us.i:                          ; preds = %.split241.us.split.us.split.us.us.us.us.i, %81
-  %storemerge287.us.us.us.i = phi i32 [ %118, %.split241.us.split.us.split.us.us.us.us.i ], [ 1, %81 ]
-  store i32 %storemerge287.us.us.us.i, ptr %83, align 4
-  br label %.split172.us.us.us.us.us.us.us.i
+.split186.us.us.us.us.i:                          ; preds = %.split201.us.split.us.split.us.us.us.us.i, %81
+  %storemerge228.us.us.us.i = phi i32 [ %118, %.split201.us.split.us.split.us.us.us.us.i ], [ 1, %81 ]
+  store i32 %storemerge228.us.us.us.i, ptr %83, align 4
+  br label %.split149.us.us.us.us.us.us.us.i
 
-.split172.us.us.us.us.us.us.us.i:                 ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us.i, %.split225.us.us.us.us.i
-  %storemerge53223.us.us.us.us.us.us.i = phi i32 [ %storemerge287.us.us.us.i, %.split225.us.us.us.us.i ], [ %117, %.split188.us.split.us.split.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge53223.us.us.us.us.us.us.i, ptr %84, align 4
+.split149.us.us.us.us.us.us.us.i:                 ; preds = %.split164.us.split.us.split.us.us.us.us.us.us.us.i, %.split186.us.us.us.us.i
+  %storemerge53184.us.us.us.us.us.us.i = phi i32 [ %storemerge228.us.us.us.i, %.split186.us.us.us.us.i ], [ %117, %.split164.us.split.us.split.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge53184.us.us.us.us.us.us.i, ptr %84, align 4
   br label %.split.us.us.us.us.us.us.us.us.us.us.i
 
-.split.us.us.us.us.us.us.us.us.us.us.i:           ; preds = %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, %.split172.us.us.us.us.us.us.us.i
-  %storemerge55170.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge53223.us.us.us.us.us.us.i, %.split172.us.us.us.us.us.us.us.i ], [ %116, %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge55170.us.us.us.us.us.us.us.us.us.i, ptr %85, align 4
+.split.us.us.us.us.us.us.us.us.us.us.i:           ; preds = %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, %.split149.us.us.us.us.us.us.us.i
+  %storemerge55147.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge53184.us.us.us.us.us.us.i, %.split149.us.us.us.us.us.us.us.i ], [ %116, %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, ptr %85, align 4
   br label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i
 
-.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.us.us.us.i
-  %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge55170.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.us.us.us.i ], [ %115, %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  store i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us.i, ptr %2, align 4
+.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.us.us.us.i
+  %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge55147.us.us.us.us.us.us.us.us.us.i, %.split.us.us.us.us.us.us.us.us.us.us.i ], [ %115, %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  store i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, ptr %2, align 4
   br label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 .preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us.i, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %114, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %114, %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
   br label %86
 
 86:                                               ; preds = %94, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %88 = lshr i64 %indvars.iv, 6
   %89 = and i64 %88, 67108863
@@ -2104,48 +2101,48 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
   br i1 %exitcond.not.i72.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.lr.ph.i66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !17
 
 111:                                              ; preds = %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %113, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %112, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %113, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i32 [ %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %112, %Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
   %.not62.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i32 %.1.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br i1 %.not62.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %94, label %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 Extra_ThreshWeightedSum.exit73.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %110
-  %112 = tail call noundef i32 @llvm.smax.i32(i32 %.04580.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
+  %112 = tail call noundef i32 @llvm.smax.i32(i32 %.04579.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i70.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
   br label %111
 
 Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %102
-  %113 = tail call noundef i32 @llvm.smin.i32(i32 %.04679.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
+  %113 = tail call noundef i32 @llvm.smin.i32(i32 %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i32 %.1.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i)
   br label %111
 
 .split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %111
-  %114 = add nuw nsw i32 %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
+  %114 = add nuw nsw i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %114, ptr %2, align 4
-  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge59109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
-  br i1 %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !27
+  %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge59105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
+  br i1 %.not60.us.us.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !27
 
-.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %115 = add nuw nsw i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
+.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split.us.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %115 = add nuw nsw i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %115, ptr %85, align 4
-  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge57124.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
-  br i1 %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !28
+  %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge57115.us.us.us.us.us.us.us.us.us.us.us.us.i, 5
+  br i1 %.not58.us.us.us.us.us.us.us.us.us.us.us.us.not.i, label %.preheader75.us.us.us.us.us.us.us.us.us.us.us.us.i, label %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !28
 
-.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split111.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %116 = add nuw nsw i32 %storemerge55170.us.us.us.us.us.us.us.us.us.i, 1
+.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %.split107.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %116 = add nuw nsw i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, 1
   store i32 %116, ptr %84, align 4
-  %.not56.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge55170.us.us.us.us.us.us.us.us.us.i, 5
-  br i1 %.not56.us.us.us.us.us.us.us.us.us.not.i, label %.split.us.us.us.us.us.us.us.us.us.us.i, label %.split188.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !29
+  %.not56.us.us.us.us.us.us.us.us.us.not.i = icmp ult i32 %storemerge55147.us.us.us.us.us.us.us.us.us.i, 5
+  br i1 %.not56.us.us.us.us.us.us.us.us.us.not.i, label %.split.us.us.us.us.us.us.us.us.us.us.i, label %.split164.us.split.us.split.us.us.us.us.us.us.us.i, !llvm.loop !29
 
-.split188.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split142.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i
-  %117 = add nuw nsw i32 %storemerge53223.us.us.us.us.us.us.i, 1
+.split164.us.split.us.split.us.us.us.us.us.us.us.i: ; preds = %.split131.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i
+  %117 = add nuw nsw i32 %storemerge53184.us.us.us.us.us.us.i, 1
   store i32 %117, ptr %83, align 4
-  %exitcond324.not.i = icmp eq i32 %storemerge53223.us.us.us.us.us.us.i, 5
-  br i1 %exitcond324.not.i, label %.split241.us.split.us.split.us.us.us.us.i, label %.split172.us.us.us.us.us.us.us.i, !llvm.loop !30
+  %exitcond257.not.i = icmp eq i32 %storemerge53184.us.us.us.us.us.us.i, 5
+  br i1 %exitcond257.not.i, label %.split201.us.split.us.split.us.us.us.us.i, label %.split149.us.us.us.us.us.us.us.i, !llvm.loop !30
 
-.split241.us.split.us.split.us.us.us.us.i:        ; preds = %.split188.us.split.us.split.us.us.us.us.us.us.us.i
-  %118 = add nuw nsw i32 %storemerge287.us.us.us.i, 1
+.split201.us.split.us.split.us.us.us.us.i:        ; preds = %.split164.us.split.us.split.us.us.us.us.us.us.us.i
+  %118 = add nuw nsw i32 %storemerge228.us.us.us.i, 1
   store i32 %118, ptr %82, align 4
-  %exitcond325.not.i = icmp eq i32 %storemerge287.us.us.us.i, 5
-  br i1 %exitcond325.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split225.us.us.us.us.i, !llvm.loop !31
+  %exitcond258.not.i = icmp eq i32 %storemerge228.us.us.us.i, 5
+  br i1 %exitcond258.not.i, label %Extra_ThreshSelectWeights3.exit, label %.split186.us.us.us.us.i, !llvm.loop !31
 
 119:                                              ; preds = %10
   %120 = tail call i32 @Extra_ThreshSelectWeights6(ptr noundef %0, i32 noundef 6, ptr noundef %2)
@@ -2159,8 +2156,8 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   %124 = tail call i32 @Extra_ThreshSelectWeights8(ptr noundef %0, i32 noundef 8, ptr noundef %2)
   br label %Extra_ThreshSelectWeights3.exit
 
-Extra_ThreshSelectWeights3.exit:                  ; preds = %.split241.us.split.us.split.us.us.us.us.i, %94, %.split179.us.split.us.split.us.us.us.us.i, %57, %.split125.us.split.us.split.us.us.us.us.i, %22, %10, %123, %121, %119, %5
-  %.0 = phi i32 [ %9, %5 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ 0, %10 ], [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 0, %.split125.us.split.us.split.us.us.us.us.i ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 0, %.split179.us.split.us.split.us.us.us.us.i ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 0, %.split241.us.split.us.split.us.us.us.us.i ]
+Extra_ThreshSelectWeights3.exit:                  ; preds = %.split201.us.split.us.split.us.us.us.us.i, %94, %.split155.us.split.us.split.us.us.us.us.i, %57, %.split114.us.split.us.split.us.us.us.us.i, %22, %10, %123, %121, %119, %5
+  %.0 = phi i32 [ %9, %5 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ 0, %10 ], [ %.2.us.us.us.us.us.us.us.us.us.us.i, %22 ], [ 0, %.split114.us.split.us.split.us.us.us.us.i ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %57 ], [ 0, %.split155.us.split.us.split.us.us.us.us.i ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %94 ], [ 0, %.split201.us.split.us.split.us.us.us.us.i ]
   ret i32 %.0
 }
 
@@ -2553,51 +2550,43 @@ define noundef i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr noc
 
 ._crit_edge.thread:                               ; preds = %8
   %26 = tail call noalias ptr @malloc(i64 noundef %23) #17
-  br label %._crit_edge197.thread
-
-.lr.ph:                                           ; preds = %8
-  %27 = shl nsw i64 %10, 3
-  %wide.trip.count = zext nneg i32 %.fr259 to i64
-  br label %28
-
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = tail call noalias ptr @malloc(i64 noundef %27) #17
-  %30 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
-  store ptr %29, ptr %30, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !71
-
-._crit_edge:                                      ; preds = %28
-  %31 = tail call noalias ptr @malloc(i64 noundef %23) #17
-  br i1 %25, label %.lr.ph196, label %._crit_edge197.thread
-
-.lr.ph196:                                        ; preds = %._crit_edge
-  %32 = shl nsw i64 %10, 3
-  %wide.trip.count272 = zext nneg i32 %.fr259 to i64
-  br label %33
-
-33:                                               ; preds = %.lr.ph196, %33
-  %indvars.iv269 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next270, %33 ]
-  %34 = tail call noalias ptr @malloc(i64 noundef %32) #17
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv269
-  store ptr %34, ptr %35, align 8
-  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %._crit_edge197, label %33, !llvm.loop !72
-
-._crit_edge197.thread:                            ; preds = %._crit_edge.thread, %._crit_edge
-  %.ph = phi ptr [ %31, %._crit_edge ], [ %26, %._crit_edge.thread ]
-  tail call void @Extra_ThreshCreateInequalities(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr poison, ptr noundef %5, i32 noundef %6, i32 poison, ptr noundef %24, ptr noundef %.ph)
-  %36 = icmp sgt i32 %6, 0
+  tail call void @Extra_ThreshCreateInequalities(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr poison, ptr noundef %5, i32 noundef %6, i32 poison, ptr noundef %24, ptr noundef %26)
+  %27 = icmp sgt i32 %6, 0
   br label %Extra_ThreshSimplifyInequalities.exit
 
-._crit_edge197:                                   ; preds = %33
-  tail call void @Extra_ThreshCreateInequalities(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr poison, ptr noundef %5, i32 noundef %6, i32 poison, ptr noundef %24, ptr noundef nonnull %31)
+.lr.ph:                                           ; preds = %8
+  %28 = shl nsw i64 %10, 3
+  %wide.trip.count = zext nneg i32 %.fr259 to i64
+  br label %29
+
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = tail call noalias ptr @malloc(i64 noundef %28) #17
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  store ptr %30, ptr %31, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !71
+
+._crit_edge:                                      ; preds = %29
+  %32 = tail call noalias ptr @malloc(i64 noundef %23) #17
+  %33 = shl nsw i64 %10, 3
+  %wide.trip.count272 = zext nneg i32 %.fr259 to i64
+  br label %34
+
+34:                                               ; preds = %._crit_edge, %34
+  %indvars.iv269 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next270, %34 ]
+  %35 = tail call noalias ptr @malloc(i64 noundef %33) #17
+  %36 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv269
+  store ptr %35, ptr %36, align 8
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
+  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
+  br i1 %exitcond273.not, label %._crit_edge197, label %34, !llvm.loop !72
+
+._crit_edge197:                                   ; preds = %34
+  tail call void @Extra_ThreshCreateInequalities(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr poison, ptr noundef %5, i32 noundef %6, i32 poison, ptr noundef %24, ptr noundef nonnull %32)
   %37 = icmp sgt i32 %6, 0
-  %or.cond.i = and i1 %37, %25
-  br i1 %or.cond.i, label %.preheader.us.preheader.i, label %Extra_ThreshSimplifyInequalities.exit
+  br i1 %37, label %.preheader.us.preheader.i, label %Extra_ThreshSimplifyInequalities.exit
 
 .preheader.us.preheader.i:                        ; preds = %._crit_edge197
   %wide.trip.count58.i = zext nneg i32 %.fr259 to i64
@@ -2607,7 +2596,7 @@ define noundef i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr noc
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv55.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next56.i, %._crit_edge.us.i ]
   %38 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55.i
-  %39 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv55.i
+  %39 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv55.i
   %40 = load ptr, ptr %38, align 8
   %41 = load ptr, ptr %39, align 8
   br label %42
@@ -2653,9 +2642,9 @@ define noundef i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr noc
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
   br i1 %exitcond59.not.i, label %Extra_ThreshSimplifyInequalities.exit, label %.preheader.us.i, !llvm.loop !70
 
-Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %._crit_edge197.thread, %._crit_edge197
-  %58 = phi i1 [ %36, %._crit_edge197.thread ], [ %37, %._crit_edge197 ], [ %37, %._crit_edge.us.i ]
-  %59 = phi ptr [ %.ph, %._crit_edge197.thread ], [ %31, %._crit_edge197 ], [ %31, %._crit_edge.us.i ]
+Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %._crit_edge.thread, %._crit_edge197
+  %58 = phi i1 [ %27, %._crit_edge.thread ], [ false, %._crit_edge197 ], [ true, %._crit_edge.us.i ]
+  %59 = phi ptr [ %26, %._crit_edge.thread ], [ %32, %._crit_edge197 ], [ %32, %._crit_edge.us.i ]
   store i32 %7, ptr %12, align 4
   %60 = icmp sgt i32 %6, 1
   br i1 %60, label %.lr.ph199.preheader, label %.preheader191
@@ -2706,16 +2695,16 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
   %75 = add i32 %74, %.011.i.us.us.us
   %indvars.iv.next.i155.us.us.us = add nuw nsw i64 %indvars.iv.i154.us.us.us, 1
   %exitcond.not.i156.us.us.us = icmp eq i64 %indvars.iv.next.i155.us.us.us, %wide.trip.count.i153
-  br i1 %exitcond.not.i156.us.us.us, label %Extra_ThreshCubeWeightedSum3.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !73
+  br i1 %exitcond.not.i156.us.us.us, label %.lr.ph.i158.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !73
 
-Extra_ThreshCubeWeightedSum3.exit.us.us.us:       ; preds = %.lr.ph.i.us.us.us
+.lr.ph.i158.us.us.us:                             ; preds = %.lr.ph.i.us.us.us
   %76 = getelementptr inbounds ptr, ptr %59, i64 %64
   %77 = load ptr, ptr %76, align 8
   br label %78
 
-78:                                               ; preds = %78, %Extra_ThreshCubeWeightedSum3.exit.us.us.us
-  %indvars.iv.i160.us.us.us = phi i64 [ 0, %Extra_ThreshCubeWeightedSum3.exit.us.us.us ], [ %indvars.iv.next.i162.us.us.us, %78 ]
-  %.011.i161.us.us.us = phi i32 [ 0, %Extra_ThreshCubeWeightedSum3.exit.us.us.us ], [ %85, %78 ]
+78:                                               ; preds = %78, %.lr.ph.i158.us.us.us
+  %indvars.iv.i160.us.us.us = phi i64 [ 0, %.lr.ph.i158.us.us.us ], [ %indvars.iv.next.i162.us.us.us, %78 ]
+  %.011.i161.us.us.us = phi i32 [ 0, %.lr.ph.i158.us.us.us ], [ %85, %78 ]
   %79 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.i160.us.us.us
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv.i160.us.us.us
@@ -2823,14 +2812,11 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %78
 
 ._crit_edge242:                                   ; preds = %.lr.ph241
   tail call void @free(ptr noundef nonnull %24) #18
-  br i1 %25, label %.lr.ph245.preheader, label %._crit_edge246
-
-.lr.ph245.preheader:                              ; preds = %._crit_edge242
   %wide.trip.count297 = zext nneg i32 %.fr259 to i64
   br label %.lr.ph245
 
-.lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
-  %indvars.iv294 = phi i64 [ 0, %.lr.ph245.preheader ], [ %indvars.iv.next295, %.lr.ph245 ]
+.lr.ph245:                                        ; preds = %._crit_edge242, %.lr.ph245
+  %indvars.iv294 = phi i64 [ 0, %._crit_edge242 ], [ %indvars.iv.next295, %.lr.ph245 ]
   %111 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv294
   %112 = load ptr, ptr %111, align 8
   tail call void @free(ptr noundef %112) #18
@@ -2838,7 +2824,7 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %78
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
   br i1 %exitcond298.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !79
 
-._crit_edge246:                                   ; preds = %.lr.ph245, %._crit_edge242.thread, %._crit_edge242
+._crit_edge246:                                   ; preds = %.lr.ph245, %._crit_edge242.thread
   tail call void @free(ptr noundef %59) #18
   %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %114 = trunc i64 %113 to i32

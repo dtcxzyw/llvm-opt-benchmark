@@ -564,8 +564,8 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
 
 28:                                               ; preds = %26
   %29 = load i64, ptr %13, align 8, !range !68, !alias.scope !111, !noalias !116, !noundef !25
-  %.not.not.i = icmp eq i64 %29, -9223372036854775808
-  br i1 %.not.not.i, label %75, label %.thread12.i
+  %.not.i = icmp eq i64 %29, -9223372036854775808
+  br i1 %.not.i, label %75, label %.thread12.i
 
 .thread12.i:                                      ; preds = %28
   %30 = getelementptr inbounds i8, ptr %11, i64 8

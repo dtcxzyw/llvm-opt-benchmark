@@ -1184,8 +1184,8 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFile8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit: ; preds = %16
-  %22 = icmp sgt i32 %18, -1
-  br i1 %22, label %23, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFile8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread
+  %22 = icmp slt i32 %18, 0
+  br i1 %22, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFile8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread, label %23
 
 23:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFile8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
   %24 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
@@ -1194,16 +1194,16 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFil
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 72
   %27 = load ptr, ptr %26, align 8
-  %.not19 = icmp eq ptr %25, %27
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq ptr %25, %27
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %35
-  %.sroa.09.020 = phi ptr [ %36, %35 ], [ %25, %23 ]
+  %.sroa.09.017 = phi ptr [ %36, %35 ], [ %25, %23 ]
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %29 unwind label %.loopexit
 
 29:                                               ; preds = %.lr.ph
-  %30 = load ptr, ptr %.sroa.09.020, align 8
+  %30 = load ptr, ptr %.sroa.09.017, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %.loopexit
@@ -1213,7 +1213,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmInstalledFil
           to label %35 unwind label %.loopexit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.sroa.09.020, i64 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.09.017, i64 8
   %.not = icmp eq ptr %36, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

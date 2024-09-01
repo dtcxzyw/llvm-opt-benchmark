@@ -18686,10 +18686,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12010, %.noexc268, 
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0279.1) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.preheader:                                       ; preds = %12117
-  br i1 %.not411, label %._crit_edge410, label %.lr.ph409
-
-.lr.ph409:                                        ; preds = %.preheader
+.lr.ph409:                                        ; preds = %12117
   %12026 = getelementptr inbounds i8, ptr %1, i64 8
   %12027 = getelementptr inbounds i8, ptr %1, i64 16
   %umax465 = call i64 @llvm.umax.i64(i64 %12015, i64 1)
@@ -18872,7 +18869,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12010, %.noexc268, 
   %12118 = getelementptr inbounds i8, ptr %.sroa.0270.0401, i64 28
   %12119 = add nuw i64 %.095402, 1
   %exitcond.not = icmp eq i64 %12119, %umax464
-  br i1 %exitcond.not, label %.preheader, label %12028, !llvm.loop !138
+  br i1 %exitcond.not, label %.lr.ph409, label %12028, !llvm.loop !138
 
 12120:                                            ; preds = %.lr.ph409, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
   %.196408 = phi i64 [ 0, %.lr.ph409 ], [ %12154, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
@@ -18964,7 +18961,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vecto
   %exitcond466.not = icmp eq i64 %12154, %umax465
   br i1 %exitcond466.not, label %._crit_edge410, label %12120, !llvm.loop !143
 
-._crit_edge410:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %.preheader
+._crit_edge410:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %.not.i.i.i260 = icmp eq ptr %.sroa.0279.1, null
   br i1 %.not.i.i.i260, label %_ZNSt6vectorIiSaIiEED2Ev.exit261, label %12155
 

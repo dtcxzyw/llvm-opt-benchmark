@@ -2226,15 +2226,12 @@ define hidden void @_ZN2cv12cpu_baseline18calcSIFTDescriptorERKNS_3MatENS_6Point
 ._crit_edge350:                                   ; preds = %331
   %335 = call noundef float @sqrtf(float noundef %334) #26
   %336 = fmul float %335, 0x3FC99999A0000000
-  br i1 %329, label %.lr.ph355.preheader, label %._crit_edge356
-
-.lr.ph355.preheader:                              ; preds = %._crit_edge350
   %wide.trip.count422 = zext nneg i32 %328 to i64
   br label %.lr.ph355
 
-.lr.ph355:                                        ; preds = %.lr.ph355.preheader, %.lr.ph355
-  %indvars.iv419 = phi i64 [ 0, %.lr.ph355.preheader ], [ %indvars.iv.next420, %.lr.ph355 ]
-  %.1353 = phi float [ 0.000000e+00, %.lr.ph355.preheader ], [ %341, %.lr.ph355 ]
+.lr.ph355:                                        ; preds = %._crit_edge350, %.lr.ph355
+  %indvars.iv419 = phi i64 [ 0, %._crit_edge350 ], [ %indvars.iv.next420, %.lr.ph355 ]
+  %.1353 = phi float [ 0.000000e+00, %._crit_edge350 ], [ %341, %.lr.ph355 ]
   %337 = load ptr, ptr %18, align 8
   %338 = getelementptr inbounds float, ptr %337, i64 %indvars.iv419
   %339 = load float, ptr %338, align 4
@@ -2246,8 +2243,8 @@ define hidden void @_ZN2cv12cpu_baseline18calcSIFTDescriptorERKNS_3MatENS_6Point
   %exitcond423.not = icmp eq i64 %indvars.iv.next420, %wide.trip.count422
   br i1 %exitcond423.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !32
 
-._crit_edge356:                                   ; preds = %.lr.ph355, %._crit_edge342, %._crit_edge350
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge350 ], [ 0.000000e+00, %._crit_edge342 ], [ %341, %.lr.ph355 ]
+._crit_edge356:                                   ; preds = %.lr.ph355, %._crit_edge342
+  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge342 ], [ %341, %.lr.ph355 ]
   %342 = call noundef float @sqrtf(float noundef %.1.lcssa) #26
   %343 = fcmp olt float %342, 0x3E80000000000000
   %.sroa.speculated = select i1 %343, float 0x3E80000000000000, float %342

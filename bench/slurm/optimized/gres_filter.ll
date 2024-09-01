@@ -343,9 +343,6 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
 
 ._crit_edge740:                                   ; preds = %.lr.ph739
   tail call void @qsort(ptr noundef nonnull %.pre887, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
-  br i1 %.not813, label %._crit_edge757, label %.lr.ph756
-
-.lr.ph756:                                        ; preds = %._crit_edge740
   %166 = getelementptr inbounds i8, ptr %57, i64 24
   %167 = icmp ne i16 %.0673, 0
   %or.cond = select i1 %12, i1 %167, i1 false
@@ -355,13 +352,13 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   %170 = getelementptr inbounds i8, ptr %57, i64 64
   br label %171
 
-171:                                              ; preds = %.lr.ph756, %248
-  %indvars.iv860 = phi i64 [ 0, %.lr.ph756 ], [ %indvars.iv.next861, %248 ]
-  %.2754 = phi i32 [ %.1.ph, %.lr.ph756 ], [ %.3, %248 ]
-  %.0483753 = phi i1 [ false, %.lr.ph756 ], [ %.1484, %248 ]
-  %.0485752 = phi i64 [ %163, %.lr.ph756 ], [ %.1486, %248 ]
-  %.0494751 = phi i16 [ 0, %.lr.ph756 ], [ %231, %248 ]
-  %.0505750 = phi i32 [ 0, %.lr.ph756 ], [ %.1506, %248 ]
+171:                                              ; preds = %._crit_edge740, %248
+  %indvars.iv860 = phi i64 [ 0, %._crit_edge740 ], [ %indvars.iv.next861, %248 ]
+  %.2754 = phi i32 [ %.1.ph, %._crit_edge740 ], [ %.3, %248 ]
+  %.0483753 = phi i1 [ false, %._crit_edge740 ], [ %.1484, %248 ]
+  %.0485752 = phi i64 [ %163, %._crit_edge740 ], [ %.1486, %248 ]
+  %.0494751 = phi i16 [ 0, %._crit_edge740 ], [ %231, %248 ]
+  %.0505750 = phi i32 [ 0, %._crit_edge740 ], [ %.1506, %248 ]
   %172 = getelementptr inbounds i32, ptr %.pre887, i64 %indvars.iv860
   %173 = load i32, ptr %172, align 4
   %174 = load ptr, ptr %166, align 8
@@ -524,11 +521,11 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   %exitcond863.not = icmp eq i64 %indvars.iv.next861, %.pre-phi896
   br i1 %exitcond863.not, label %._crit_edge757, label %171, !llvm.loop !11
 
-._crit_edge757:                                   ; preds = %248, %._crit_edge740.thread, %._crit_edge740
-  %.0505.lcssa = phi i32 [ 0, %._crit_edge740 ], [ 0, %._crit_edge740.thread ], [ %.1506, %248 ]
-  %.0494.lcssa = phi i16 [ 0, %._crit_edge740 ], [ 0, %._crit_edge740.thread ], [ %231, %248 ]
-  %.0485.lcssa = phi i64 [ %163, %._crit_edge740 ], [ %163, %._crit_edge740.thread ], [ %.1486, %248 ]
-  %.2.lcssa = phi i32 [ %.1.ph, %._crit_edge740 ], [ %.1.ph, %._crit_edge740.thread ], [ %.3, %248 ]
+._crit_edge757:                                   ; preds = %248, %._crit_edge740.thread
+  %.0505.lcssa = phi i32 [ 0, %._crit_edge740.thread ], [ %.1506, %248 ]
+  %.0494.lcssa = phi i16 [ 0, %._crit_edge740.thread ], [ %231, %248 ]
+  %.0485.lcssa = phi i64 [ %163, %._crit_edge740.thread ], [ %.1486, %248 ]
+  %.2.lcssa = phi i32 [ %.1.ph, %._crit_edge740.thread ], [ %.3, %248 ]
   %.0505.lcssa.fr = freeze i32 %.0505.lcssa
   %.not591 = icmp eq i16 %.0673, 0
   br i1 %.not591, label %254, label %249
@@ -1264,8 +1261,7 @@ _shared_gres_task_limit.exit:                     ; preds = %370, %354, %332, %.
 589:                                              ; preds = %574
   %590 = icmp sge i32 %.2503, %565
   %or.cond649.not690 = or i1 %.not611, %590
-  %brmerge650 = or i1 %11, %or.cond649.not690
-  %brmerge651 = or i1 %12, %brmerge650
+  %brmerge651 = or i1 %12, %or.cond649.not690
   %brmerge652 = or i1 %.not595, %brmerge651
   br i1 %brmerge652, label %.loopexit695, label %.preheader694
 

@@ -5485,8 +5485,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   store i64 2, ptr %17, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, 2
-  br i1 %.not.not, label %35, label %18
+  %.not = icmp eq i64 %.sroa.0.0.copyload, 2
+  br i1 %.not, label %35, label %18
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
@@ -5989,8 +5989,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx, i64 72, i1 false)
   store i64 -9223372036854775807, ptr %18, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit48", label %19
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit48", label %19
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
@@ -6602,8 +6602,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %17, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %34, label %18
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -7081,8 +7081,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   store i64 2, ptr %17, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, 2
-  br i1 %.not.not, label %35, label %18
+  %.not = icmp eq i64 %.sroa.0.0.copyload, 2
+  br i1 %.not, label %35, label %18
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
@@ -7585,8 +7585,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx, i64 72, i1 false)
   store i64 -9223372036854775807, ptr %18, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit48", label %19
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit48", label %19
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
@@ -8206,8 +8206,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %17, align 8
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %34, label %18
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)

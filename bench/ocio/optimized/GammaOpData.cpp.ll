@@ -2423,7 +2423,7 @@ land.lhs.true:                                    ; preds = %for.inc.i.i.i.i.i
   %sub.ptr.rhs.cast.i6.i7 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i7.i8 = sub i64 %sub.ptr.lhs.cast.i5.i6, %sub.ptr.rhs.cast.i6.i7
   %cmp.i9 = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i7.i8
-  br i1 %cmp.i9, label %land.rhs.i10, label %land.end
+  br i1 %cmp.i9, label %for.body.i.i.i.i.i12, label %land.end
 
 land.lhs.true.thread:                             ; preds = %land.rhs.i
   %m_blueParams45 = getelementptr inbounds i8, ptr %this, i64 224
@@ -2436,12 +2436,9 @@ land.lhs.true.thread:                             ; preds = %land.rhs.i
   %cmp.i950 = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i7.i849
   br i1 %cmp.i950, label %land.rhs, label %land.end
 
-land.rhs.i10:                                     ; preds = %land.lhs.true
-  br i1 %cmp.not4.i.i.i.i.i, label %land.rhs, label %for.body.i.i.i.i.i12
-
-for.body.i.i.i.i.i12:                             ; preds = %land.rhs.i10, %for.inc.i.i.i.i.i16
-  %__first2.addr.06.i.i.i.i.i13 = phi ptr [ %incdec.ptr2.i.i.i.i.i18, %for.inc.i.i.i.i.i16 ], [ %7, %land.rhs.i10 ]
-  %__first1.addr.05.i.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i.i17, %for.inc.i.i.i.i.i16 ], [ %1, %land.rhs.i10 ]
+for.body.i.i.i.i.i12:                             ; preds = %land.lhs.true, %for.inc.i.i.i.i.i16
+  %__first2.addr.06.i.i.i.i.i13 = phi ptr [ %incdec.ptr2.i.i.i.i.i18, %for.inc.i.i.i.i.i16 ], [ %7, %land.lhs.true ]
+  %__first1.addr.05.i.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i.i17, %for.inc.i.i.i.i.i16 ], [ %1, %land.lhs.true ]
   %10 = load double, ptr %__first1.addr.05.i.i.i.i.i14, align 8
   %11 = load double, ptr %__first2.addr.06.i.i.i.i.i13, align 8
   %cmp1.i.i.i.i.i15 = fcmp oeq double %10, %11
@@ -2453,7 +2450,7 @@ for.inc.i.i.i.i.i16:                              ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i.i.i17, %0
   br i1 %cmp.not.i.i.i.i.i19, label %land.rhs, label %for.body.i.i.i.i.i12, !llvm.loop !26
 
-land.rhs:                                         ; preds = %for.inc.i.i.i.i.i16, %land.lhs.true.thread, %land.rhs.i10
+land.rhs:                                         ; preds = %for.inc.i.i.i.i.i16, %land.lhs.true.thread
   %m_alphaParams = getelementptr inbounds i8, ptr %this, i64 248
   %_M_finish.i4.i25 = getelementptr inbounds i8, ptr %this, i64 256
   %12 = load ptr, ptr %_M_finish.i4.i25, align 8
@@ -2530,7 +2527,7 @@ land.lhs.true:                                    ; preds = %for.inc.i.i.i.i.i
   %sub.ptr.rhs.cast.i6.i7 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i7.i8 = sub i64 %sub.ptr.lhs.cast.i5.i6, %sub.ptr.rhs.cast.i6.i7
   %cmp.i9 = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i7.i8
-  br i1 %cmp.i9, label %land.rhs.i10, label %land.end
+  br i1 %cmp.i9, label %for.body.i.i.i.i.i12, label %land.end
 
 land.lhs.true.thread:                             ; preds = %land.rhs.i
   %m_blueParams23 = getelementptr inbounds i8, ptr %this, i64 224
@@ -2543,12 +2540,9 @@ land.lhs.true.thread:                             ; preds = %land.rhs.i
   %cmp.i928 = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i7.i827
   br i1 %cmp.i928, label %land.rhs, label %land.end
 
-land.rhs.i10:                                     ; preds = %land.lhs.true
-  br i1 %cmp.not4.i.i.i.i.i, label %land.rhs, label %for.body.i.i.i.i.i12
-
-for.body.i.i.i.i.i12:                             ; preds = %land.rhs.i10, %for.inc.i.i.i.i.i16
-  %__first2.addr.06.i.i.i.i.i13 = phi ptr [ %incdec.ptr2.i.i.i.i.i18, %for.inc.i.i.i.i.i16 ], [ %7, %land.rhs.i10 ]
-  %__first1.addr.05.i.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i.i17, %for.inc.i.i.i.i.i16 ], [ %1, %land.rhs.i10 ]
+for.body.i.i.i.i.i12:                             ; preds = %land.lhs.true, %for.inc.i.i.i.i.i16
+  %__first2.addr.06.i.i.i.i.i13 = phi ptr [ %incdec.ptr2.i.i.i.i.i18, %for.inc.i.i.i.i.i16 ], [ %7, %land.lhs.true ]
+  %__first1.addr.05.i.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i.i17, %for.inc.i.i.i.i.i16 ], [ %1, %land.lhs.true ]
   %10 = load double, ptr %__first1.addr.05.i.i.i.i.i14, align 8
   %11 = load double, ptr %__first2.addr.06.i.i.i.i.i13, align 8
   %cmp1.i.i.i.i.i15 = fcmp oeq double %10, %11
@@ -2560,7 +2554,7 @@ for.inc.i.i.i.i.i16:                              ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i.i.i17, %0
   br i1 %cmp.not.i.i.i.i.i19, label %land.rhs, label %for.body.i.i.i.i.i12, !llvm.loop !26
 
-land.rhs:                                         ; preds = %for.inc.i.i.i.i.i16, %land.lhs.true.thread, %land.rhs.i10
+land.rhs:                                         ; preds = %for.inc.i.i.i.i.i16, %land.lhs.true.thread
   %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 248
   %m_style.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %12 = load i32, ptr %m_style.i.i, align 8
@@ -2717,12 +2711,23 @@ land.lhs.true.thread.i:                           ; preds = %land.rhs.i.i
   %cmp.i950.i = icmp eq i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i7.i849.i
   br i1 %cmp.i950.i, label %land.rhs.i.thread, label %sw.epilog
 
+land.rhs.i.thread:                                ; preds = %land.lhs.true.thread.i
+  %m_alphaParams.i65 = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_finish.i4.i25.i66 = getelementptr inbounds i8, ptr %this, i64 256
+  %11 = load ptr, ptr %_M_finish.i4.i25.i66, align 8
+  %12 = load ptr, ptr %m_alphaParams.i65, align 8
+  %sub.ptr.lhs.cast.i5.i26.i67 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i6.i27.i68 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i7.i28.i69 = sub i64 %sub.ptr.lhs.cast.i5.i26.i67, %sub.ptr.rhs.cast.i6.i27.i68
+  %cmp.i29.i70.not = icmp eq i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i7.i28.i69
+  br i1 %cmp.i29.i70.not, label %land.lhs.true, label %sw.epilog
+
 for.body.i.i.i.i.i12.i:                           ; preds = %land.lhs.true.i, %for.inc.i.i.i.i.i16.i
   %__first2.addr.06.i.i.i.i.i13.i = phi ptr [ %incdec.ptr2.i.i.i.i.i18.i, %for.inc.i.i.i.i.i16.i ], [ %8, %land.lhs.true.i ]
   %__first1.addr.05.i.i.i.i.i14.i = phi ptr [ %incdec.ptr.i.i.i.i.i17.i, %for.inc.i.i.i.i.i16.i ], [ %2, %land.lhs.true.i ]
-  %11 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i, align 8
-  %12 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i, align 8
-  %cmp1.i.i.i.i.i15.i = fcmp oeq double %11, %12
+  %13 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i, align 8
+  %14 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i, align 8
+  %cmp1.i.i.i.i.i15.i = fcmp oeq double %13, %14
   br i1 %cmp1.i.i.i.i.i15.i, label %for.inc.i.i.i.i.i16.i, label %sw.epilog
 
 for.inc.i.i.i.i.i16.i:                            ; preds = %for.body.i.i.i.i.i12.i
@@ -2730,17 +2735,6 @@ for.inc.i.i.i.i.i16.i:                            ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr2.i.i.i.i.i18.i = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i13.i, i64 8
   %cmp.not.i.i.i.i.i19.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i, %1
   br i1 %cmp.not.i.i.i.i.i19.i, label %land.rhs.i, label %for.body.i.i.i.i.i12.i, !llvm.loop !26
-
-land.rhs.i.thread:                                ; preds = %land.lhs.true.thread.i
-  %m_alphaParams.i65 = getelementptr inbounds i8, ptr %this, i64 248
-  %_M_finish.i4.i25.i66 = getelementptr inbounds i8, ptr %this, i64 256
-  %13 = load ptr, ptr %_M_finish.i4.i25.i66, align 8
-  %14 = load ptr, ptr %m_alphaParams.i65, align 8
-  %sub.ptr.lhs.cast.i5.i26.i67 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i6.i27.i68 = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i7.i28.i69 = sub i64 %sub.ptr.lhs.cast.i5.i26.i67, %sub.ptr.rhs.cast.i6.i27.i68
-  %cmp.i29.i70.not = icmp eq i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i7.i28.i69
-  br i1 %cmp.i29.i70.not, label %land.lhs.true, label %sw.epilog
 
 land.rhs.i:                                       ; preds = %for.inc.i.i.i.i.i16.i
   %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -2830,12 +2824,23 @@ land.lhs.true.thread.i55:                         ; preds = %land.rhs.i.i12
   %cmp.i950.i61 = icmp eq i64 %sub.ptr.sub.i.i.i6, %sub.ptr.sub.i7.i849.i60
   br i1 %cmp.i950.i61, label %land.rhs.i38.thread, label %sw.epilog
 
+land.rhs.i38.thread:                              ; preds = %land.lhs.true.thread.i55
+  %m_alphaParams.i3974 = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_finish.i4.i25.i4075 = getelementptr inbounds i8, ptr %this, i64 256
+  %29 = load ptr, ptr %_M_finish.i4.i25.i4075, align 8
+  %30 = load ptr, ptr %m_alphaParams.i3974, align 8
+  %sub.ptr.lhs.cast.i5.i26.i4176 = ptrtoint ptr %29 to i64
+  %sub.ptr.rhs.cast.i6.i27.i4277 = ptrtoint ptr %30 to i64
+  %sub.ptr.sub.i7.i28.i4378 = sub i64 %sub.ptr.lhs.cast.i5.i26.i4176, %sub.ptr.rhs.cast.i6.i27.i4277
+  %cmp.i29.i4479.not = icmp eq i64 %sub.ptr.sub.i.i.i6, %sub.ptr.sub.i7.i28.i4378
+  br i1 %cmp.i29.i4479.not, label %land.lhs.true6, label %sw.epilog
+
 for.body.i.i.i.i.i12.i30:                         ; preds = %land.lhs.true.i22, %for.inc.i.i.i.i.i16.i34
   %__first2.addr.06.i.i.i.i.i13.i31 = phi ptr [ %incdec.ptr2.i.i.i.i.i18.i36, %for.inc.i.i.i.i.i16.i34 ], [ %26, %land.lhs.true.i22 ]
   %__first1.addr.05.i.i.i.i.i14.i32 = phi ptr [ %incdec.ptr.i.i.i.i.i17.i35, %for.inc.i.i.i.i.i16.i34 ], [ %20, %land.lhs.true.i22 ]
-  %29 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i32, align 8
-  %30 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i31, align 8
-  %cmp1.i.i.i.i.i15.i33 = fcmp oeq double %29, %30
+  %31 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i32, align 8
+  %32 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i31, align 8
+  %cmp1.i.i.i.i.i15.i33 = fcmp oeq double %31, %32
   br i1 %cmp1.i.i.i.i.i15.i33, label %for.inc.i.i.i.i.i16.i34, label %sw.epilog
 
 for.inc.i.i.i.i.i16.i34:                          ; preds = %for.body.i.i.i.i.i12.i30
@@ -2843,17 +2848,6 @@ for.inc.i.i.i.i.i16.i34:                          ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr2.i.i.i.i.i18.i36 = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i13.i31, i64 8
   %cmp.not.i.i.i.i.i19.i37 = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i35, %19
   br i1 %cmp.not.i.i.i.i.i19.i37, label %land.rhs.i38, label %for.body.i.i.i.i.i12.i30, !llvm.loop !26
-
-land.rhs.i38.thread:                              ; preds = %land.lhs.true.thread.i55
-  %m_alphaParams.i3974 = getelementptr inbounds i8, ptr %this, i64 248
-  %_M_finish.i4.i25.i4075 = getelementptr inbounds i8, ptr %this, i64 256
-  %31 = load ptr, ptr %_M_finish.i4.i25.i4075, align 8
-  %32 = load ptr, ptr %m_alphaParams.i3974, align 8
-  %sub.ptr.lhs.cast.i5.i26.i4176 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i6.i27.i4277 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i7.i28.i4378 = sub i64 %sub.ptr.lhs.cast.i5.i26.i4176, %sub.ptr.rhs.cast.i6.i27.i4277
-  %cmp.i29.i4479.not = icmp eq i64 %sub.ptr.sub.i.i.i6, %sub.ptr.sub.i7.i28.i4378
-  br i1 %cmp.i29.i4479.not, label %land.lhs.true6, label %sw.epilog
 
 land.rhs.i38:                                     ; preds = %for.inc.i.i.i.i.i16.i34
   %m_alphaParams.i39 = getelementptr inbounds i8, ptr %this, i64 248

@@ -295,8 +295,8 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 
 8:                                                ; preds = %10, %2
   %9 = phi ptr [ %11, %10 ], [ %.promoted.i, %2 ]
-  %.not9.i.not = icmp eq ptr %9, %6
-  br i1 %.not9.i.not, label %19, label %10
+  %.not9.not.not.i.not = icmp eq ptr %9, %6
+  br i1 %.not9.not.not.i.not, label %19, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %9, i64 32
@@ -333,8 +333,8 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 
 23:                                               ; preds = %25, %19
   %24 = phi ptr [ %26, %25 ], [ %.promoted.i2, %19 ]
-  %.not9.i4.not.not = icmp ne ptr %24, %22
-  br i1 %.not9.i4.not.not, label %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0933128f8f79d50E.llvm.16141255976661166362.exit6
+  %.not9.not.not.i4.not.not.not = icmp ne ptr %24, %22
+  br i1 %.not9.not.not.i4.not.not.not, label %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0933128f8f79d50E.llvm.16141255976661166362.exit6
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %24, i64 32
@@ -360,7 +360,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
   br i1 %.not.i5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0933128f8f79d50E.llvm.16141255976661166362.exit6, label %23
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc0933128f8f79d50E.llvm.16141255976661166362.exit6: ; preds = %10, %25, %23
-  %.0 = phi i1 [ %.not9.i4.not.not, %23 ], [ %.not9.i4.not.not, %25 ], [ true, %10 ]
+  %.0 = phi i1 [ %.not9.not.not.i4.not.not.not, %23 ], [ %.not9.not.not.i4.not.not.not, %25 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -3328,8 +3328,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 7:                                                ; preds = %9, %2
   %8 = phi ptr [ %10, %9 ], [ %.promoted, %2 ]
-  %.not9 = icmp ne ptr %8, %5
-  br i1 %.not9, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h007863f5f266eccfE.exit"
+  %.not9.not.not.not.not = icmp ne ptr %8, %5
+  br i1 %.not9.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h007863f5f266eccfE.exit"
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 32
@@ -3355,7 +3355,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h007863f5f266eccfE.exit", label %7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h007863f5f266eccfE.exit": ; preds = %7, %9
-  ret i1 %.not9
+  ret i1 %.not9.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

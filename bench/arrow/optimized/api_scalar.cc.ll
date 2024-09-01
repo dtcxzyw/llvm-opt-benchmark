@@ -54227,7 +54227,7 @@ if.else:                                          ; preds = %do.end35
   %22 = load ptr, ptr %values, align 8
   %23 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i141.not180 = icmp eq ptr %22, %23
-  br i1 %cmp.i141.not180, label %if.end59, label %for.body51.lr.ph
+  br i1 %cmp.i141.not180, label %if.then.i161, label %for.body51.lr.ph
 
 for.body51.lr.ph:                                 ; preds = %if.else
   %size_.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 240
@@ -54259,16 +54259,16 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   store i64 %add.i.i151, ptr %size_.i.i.i142, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0181, i64 32
   %cmp.i141.not = icmp eq ptr %incdec.ptr.i, %23
-  br i1 %cmp.i141.not, label %if.end59.loopexit, label %for.body51
+  br i1 %cmp.i141.not, label %if.then.i161.loopexit, label %for.body51
 
-if.end59.loopexit:                                ; preds = %for.body51
+if.then.i161.loopexit:                            ; preds = %for.body51
   %.pre184 = load ptr, ptr %_M_finish.i, align 8
   %.pre185 = load ptr, ptr %values, align 8
-  br label %if.end59
+  br label %if.then.i161
 
-if.end59:                                         ; preds = %if.end59.loopexit, %if.else
-  %31 = phi ptr [ %.pre185, %if.end59.loopexit ], [ %22, %if.else ]
-  %32 = phi ptr [ %.pre184, %if.end59.loopexit ], [ %22, %if.else ]
+if.then.i161:                                     ; preds = %if.then.i161.loopexit, %if.else
+  %31 = phi ptr [ %.pre185, %if.then.i161.loopexit ], [ %22, %if.else ]
+  %32 = phi ptr [ %.pre184, %if.then.i161.loopexit ], [ %22, %if.else ]
   %sub.ptr.lhs.cast.i153 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i154 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i155 = sub i64 %sub.ptr.lhs.cast.i153, %sub.ptr.rhs.cast.i154
@@ -54309,7 +54309,7 @@ _ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i: ; preds = %if.end59
   store i64 %39, ptr %null_count_.i, align 8
   br label %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit
 
-_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit: ; preds = %if.end59, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i
+_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit: ; preds = %if.then.i161, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !500
   br label %return
 

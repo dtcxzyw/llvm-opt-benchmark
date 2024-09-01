@@ -32098,12 +32098,12 @@ call.i.noexc:                                     ; preds = %if.end34
   %aggregate.i.i17 = getelementptr inbounds i8, ptr %call.i22, i64 65
   %13 = load i8, ptr %aggregate.i.i17, align 1
   %cmp2.not.i.i = icmp eq i8 %13, 1
-  %or.cond.i.not31.not32.i = select i1 %cmp.not.i.i, i1 %cmp2.not.i.i, i1 false
+  %or.cond.i.i = select i1 %cmp.not.i.i, i1 %cmp2.not.i.i, i1 false
   %arraylen.i.i.i = getelementptr inbounds i8, ptr %call.i22, i64 68
   %14 = load i32, ptr %arraylen.i.i.i, align 4
-  %cmp.i.i.i = icmp eq i32 %14, 0
-  %or.cond30.not.i = select i1 %or.cond.i.not31.not32.i, i1 %cmp.i.i.i, i1 false
-  br i1 %or.cond30.not.i, label %if.end.i, label %if.then.i18
+  %cmp.i.i.not.i = icmp eq i32 %14, 0
+  %or.cond28.i = select i1 %or.cond.i.i, i1 %cmp.i.i.not.i, i1 false
+  br i1 %or.cond28.i, label %if.end.i, label %if.then.i18
 
 if.then.i18:                                      ; preds = %call.i.noexc
   %call2.i23 = invoke noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %A)
@@ -32201,17 +32201,17 @@ if.then18.i:                                      ; preds = %invoke.cont14.i
   br label %for.inc.sink.split.i
 
 lpad.loopexit.i:                                  ; preds = %if.end13.i.i.i, %if.then2.i.i.i
-  %lpad.loopexit28.i = landingpad { ptr, i32 }
+  %lpad.loopexit29.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i19
 
 lpad.loopexit.split-lp.i:                         ; preds = %if.end11.i
-  %lpad.loopexit.split-lp29.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp30.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i19
 
 lpad.i19:                                         ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit28.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp29.i, %lpad.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit29.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp30.i, %lpad.loopexit.split-lp.i ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %a.i) #24
   br label %lpad.body
 
@@ -32233,10 +32233,10 @@ if.else28.i:                                      ; preds = %if.else.i
   br i1 %brmerge.i, label %for.inc.sink.split.i, label %for.inc.i
 
 for.inc.sink.split.i:                             ; preds = %if.else28.i, %if.then24.i, %if.then18.i
-  %add.ptr.i.sink34.i = phi ptr [ %add.ptr.i.i, %if.then18.i ], [ %add.ptr.i24.i, %if.then24.i ], [ %submin.mux.i, %if.else28.i ]
-  %28 = load i64, ptr %add.ptr.i.sink34.i, align 8
+  %add.ptr.i.sink32.i = phi ptr [ %add.ptr.i.i, %if.then18.i ], [ %add.ptr.i24.i, %if.then24.i ], [ %submin.mux.i, %if.else28.i ]
+  %28 = load i64, ptr %add.ptr.i.sink32.i, align 8
   %inc.i = add i64 %28, 1
-  store i64 %inc.i, ptr %add.ptr.i.sink34.i, align 8
+  store i64 %inc.i, ptr %add.ptr.i.sink32.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.else28.i
@@ -32269,13 +32269,13 @@ if.else.i.i.i:                                    ; preds = %for.inc.i
   store i32 %inc4.i.i.i, ptr %m_y.i.i, align 8
   %34 = load i32, ptr %m_rng_yend.i.i.i, align 8
   %cmp5.not.i.i.i = icmp slt i32 %inc4.i.i.i, %34
-  %.pre33.i = load i32, ptr %m_z.i.i, align 4
+  %.pre31.i = load i32, ptr %m_z.i.i, align 4
   br i1 %cmp5.not.i.i.i, label %if.end13.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %35 = load i32, ptr %m_rng_ybegin.i.i, align 4
   store i32 %35, ptr %m_y.i.i, align 8
-  %inc8.i.i.i = add nsw i32 %.pre33.i, 1
+  %inc8.i.i.i = add nsw i32 %.pre31.i, 1
   store i32 %inc8.i.i.i, ptr %m_z.i.i, align 4
   %36 = load i32, ptr %m_rng_zend.i.i, align 8
   %cmp9.not.i.i.i = icmp slt i32 %inc8.i.i.i, %36
@@ -32286,7 +32286,7 @@ if.then10.i.i.i:                                  ; preds = %if.then6.i.i.i
   br label %for.cond.i.backedge
 
 if.end13.i.i.i:                                   ; preds = %if.then6.i.i.i, %if.else.i.i.i, %if.then.if.end13_crit_edge.i.i.i
-  %37 = phi i32 [ %.pre33.i, %if.else.i.i.i ], [ %inc8.i.i.i, %if.then6.i.i.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i.i.i ]
+  %37 = phi i32 [ %.pre31.i, %if.else.i.i.i ], [ %inc8.i.i.i, %if.then6.i.i.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i.i.i ]
   %38 = phi i32 [ %inc4.i.i.i, %if.else.i.i.i ], [ %35, %if.then6.i.i.i ], [ %.pre.i.i.i, %if.then.if.end13_crit_edge.i.i.i ]
   %39 = phi i32 [ %32, %if.else.i.i.i ], [ %32, %if.then6.i.i.i ], [ %inc.i.i.i, %if.then.if.end13_crit_edge.i.i.i ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a.i, i32 noundef %39, i32 noundef %38, i32 noundef %37)

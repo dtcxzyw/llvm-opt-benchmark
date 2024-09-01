@@ -5265,7 +5265,6 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit559:                 ; preds = %.noexc558, %._crit_
   %1596 = fcmp olt double %1592, %1595
   %.sroa.speculated.i566 = select i1 %1596, double %1595, double %1592
   %1597 = fcmp ule double %sqrt932, %.sroa.speculated.i566
-  %narrow = and i1 %1597, %1289
   %1598 = getelementptr inbounds i8, ptr %storemerge.i.i502, i64 8
   %1599 = load i32, ptr %1598, align 8
   %1600 = add nsw i32 %1599, -1
@@ -5475,7 +5474,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit600:     ; preds = %1687, %1682, %_ZN5I
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit602.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578:     ; preds = %1642, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit576
-  br i1 %narrow, label %1700, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578.thread
+  br i1 %1597, label %1700, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578.thread
 
 1700:                                             ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578
   %1701 = load ptr, ptr %41, align 8
@@ -5553,7 +5552,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit602.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578.thread: ; preds = %1281, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %1715
-  %.591.shrunk = phi i1 [ false, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %narrow, %1715 ], [ %narrow, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578 ], [ false, %1281 ]
+  %.591.shrunk = phi i1 [ false, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %1715 ], [ false, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit578 ], [ false, %1281 ]
   %1731 = getelementptr inbounds i8, ptr %storemerge.i.i376, i64 8
   %1732 = load i32, ptr %1731, align 8
   %1733 = add nsw i32 %1732, -1

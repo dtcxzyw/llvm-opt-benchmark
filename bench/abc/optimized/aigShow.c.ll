@@ -183,7 +183,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph328
   %69 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr %13)
-  br i1 %62, label %.lr.ph331, label %._crit_edge332
+  br label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %._crit_edge, %71
   %.1235329 = phi i32 [ %73, %71 ], [ %31, %._crit_edge ]
@@ -201,7 +201,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %74 = icmp sgt i32 %.1235329, 0
   br i1 %74, label %.lr.ph331, label %._crit_edge332, !llvm.loop !8
 
-._crit_edge332:                                   ; preds = %71, %.thread, %._crit_edge.thread, %._crit_edge
+._crit_edge332:                                   ; preds = %71, %.thread, %._crit_edge.thread
   %fputc244 = tail call i32 @fputc(i32 10, ptr %13)
   %fputc245 = tail call i32 @fputc(i32 125, ptr %13)
   %fputc246 = tail call i32 @fputc(i32 10, ptr %13)

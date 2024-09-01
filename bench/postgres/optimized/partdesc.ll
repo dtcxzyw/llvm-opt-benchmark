@@ -314,21 +314,18 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   %150 = load i32, ptr %34, align 4
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next.i, %151
-  br i1 %152, label %.lr.ph, label %._crit_edge.i
+  br i1 %152, label %.lr.ph, label %._crit_edge.i.thread
 
-._crit_edge.i:                                    ; preds = %143
-  br i1 %36, label %._crit_edge.i.thread, label %._crit_edge.thread.i
-
-._crit_edge.i.thread:                             ; preds = %.lr.ph.i, %._crit_edge.i
+._crit_edge.i.thread:                             ; preds = %143, %.lr.ph.i
   %153 = call ptr @partition_bounds_create(ptr noundef %42, i32 noundef %35, ptr noundef %30, ptr noundef nonnull %5) #6
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %list_length.exit.i, %._crit_edge.i.thread, %._crit_edge.i, %29
-  %154 = phi i1 [ true, %._crit_edge.i.thread ], [ false, %._crit_edge.i ], [ false, %29 ], [ false, %list_length.exit.i ]
-  %155 = phi i32 [ %35, %._crit_edge.i.thread ], [ %35, %._crit_edge.i ], [ 0, %29 ], [ %35, %list_length.exit.i ]
-  %.0104161170.i = phi ptr [ %40, %._crit_edge.i.thread ], [ %40, %._crit_edge.i ], [ null, %29 ], [ null, %list_length.exit.i ]
-  %.0103163169.i = phi ptr [ %39, %._crit_edge.i.thread ], [ %39, %._crit_edge.i ], [ null, %29 ], [ null, %list_length.exit.i ]
-  %.0.i = phi ptr [ %153, %._crit_edge.i.thread ], [ null, %._crit_edge.i ], [ null, %29 ], [ null, %list_length.exit.i ]
+._crit_edge.thread.i:                             ; preds = %list_length.exit.i, %._crit_edge.i.thread, %29
+  %154 = phi i1 [ true, %._crit_edge.i.thread ], [ false, %29 ], [ false, %list_length.exit.i ]
+  %155 = phi i32 [ %35, %._crit_edge.i.thread ], [ 0, %29 ], [ %35, %list_length.exit.i ]
+  %.0104161170.i = phi ptr [ %40, %._crit_edge.i.thread ], [ null, %29 ], [ null, %list_length.exit.i ]
+  %.0103163169.i = phi ptr [ %39, %._crit_edge.i.thread ], [ null, %29 ], [ null, %list_length.exit.i ]
+  %.0.i = phi ptr [ %153, %._crit_edge.i.thread ], [ null, %29 ], [ null, %list_length.exit.i ]
   %156 = load ptr, ptr @CurTransactionContext, align 8
   %157 = call ptr @AllocSetContextCreateInternal(ptr noundef %156, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
   %158 = getelementptr inbounds i8, ptr %0, i64 56

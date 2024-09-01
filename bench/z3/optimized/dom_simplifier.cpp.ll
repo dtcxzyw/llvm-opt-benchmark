@@ -1905,8 +1905,8 @@ if.end33:                                         ; preds = %_ZNK6vectorIP4exprL
   br i1 %.pre344, label %for.cond.preheader, label %return, !llvm.loop !17
 
 return:                                           ; preds = %for.cond.preheader, %for.end27, %for.end27.thread, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit61, %if.end33, %entry
-  %.us-phi = phi i1 [ true, %entry ], [ true, %for.cond.preheader ], [ true, %for.end27 ], [ true, %for.end27.thread ], [ true, %if.end33 ], [ false, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit61 ]
-  ret i1 %.us-phi
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.cond.preheader ], [ true, %for.end27 ], [ true, %for.end27.thread ], [ true, %if.end33 ], [ false, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit61 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

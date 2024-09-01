@@ -156,8 +156,8 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %74 = tail call i64 @amd_l_aat(i64 noundef %0, ptr noundef nonnull %.0146, ptr noundef nonnull %.0145, ptr noundef nonnull %43, ptr noundef nonnull %3, ptr noundef %5) #3
   %75 = udiv i64 %74, 5
   %76 = add i64 %75, %74
-  %.not178 = icmp ult i64 %76, %74
-  br i1 %.not178, label %.thread170, label %.lr.ph
+  %.not177 = icmp ult i64 %76, %74
+  br i1 %.not177, label %.thread170, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73, %.lr.ph
   %.0142175 = phi i64 [ %77, %.lr.ph ], [ %76, %73 ]

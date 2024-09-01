@@ -1478,7 +1478,7 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver10MultiSolveERKNS_9SymMatrixERSt6
   %41 = getelementptr inbounds i8, ptr %0, i64 96
   %42 = getelementptr inbounds i8, ptr %0, i64 32
   %43 = getelementptr inbounds i8, ptr %0, i64 88
-  %wide.trip.count115 = and i64 %29, 2147483647
+  %wide.trip.count116 = and i64 %29, 2147483647
   br label %50
 
 .preheader92:                                     ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %22
@@ -1491,12 +1491,12 @@ define noundef i32 @_ZN5Ipopt16TSymLinearSolver10MultiSolveERKNS_9SymMatrixERSt6
   br label %140
 
 50:                                               ; preds = %.lr.ph101, %_ZN5Ipopt9TimedTask3EndEv.exit
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next113, %_ZN5Ipopt9TimedTask3EndEv.exit ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next114, %_ZN5Ipopt9TimedTask3EndEv.exit ]
   %51 = load i32, ptr %31, align 8
   %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %52, i64 %indvars.iv112
+  %53 = getelementptr inbounds %"class.Ipopt::SmartPtr.48", ptr %52, i64 %indvars.iv113
   %54 = load ptr, ptr %53, align 8
-  %55 = trunc nuw nsw i64 %indvars.iv112 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv113 to i32
   %56 = mul nsw i32 %51, %55
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds double, ptr %38, i64 %57
@@ -1636,9 +1636,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %92, %88, %86
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
 _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %116, %112, %.loopexit93, %._crit_edge
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %.preheader92, label %50, !llvm.loop !7
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %.preheader92, label %50, !llvm.loop !7
 
 140:                                              ; preds = %210, %.preheader92
   %141 = load i32, ptr %44, align 8
@@ -1748,8 +1748,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit81:                 ; preds = %181, %175, %_ZN5Ipo
   %207 = getelementptr inbounds i8, ptr %206, i64 40
   %208 = load ptr, ptr %207, align 8
   %209 = tail call noundef i32 %208(ptr noundef nonnull align 8 dereferenceable(49) %205, i1 noundef zeroext %.075, ptr noundef %.068, ptr noundef %.067, i32 noundef %30, ptr noundef nonnull %38, i1 noundef zeroext %4, i32 noundef %5)
-  %.not129 = icmp eq i32 %209, 3
-  br i1 %.not129, label %210, label %211
+  %.not111 = icmp eq i32 %209, 3
+  br i1 %.not111, label %210, label %211
 
 210:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit81
   tail call void @_ZN5Ipopt16TSymLinearSolver18GiveMatrixToSolverEbRKNS_9SymMatrixE(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(80) %1)
@@ -1764,11 +1764,11 @@ _ZN5Ipopt9TimedTask3EndEv.exit81:                 ; preds = %181, %175, %_ZN5Ipo
   %213 = getelementptr inbounds i8, ptr %0, i64 96
   %214 = getelementptr inbounds i8, ptr %0, i64 88
   %215 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count125 = and i64 %29, 2147483647
+  %wide.trip.count126 = and i64 %29, 2147483647
   br label %216
 
 216:                                              ; preds = %.lr.ph110, %.loopexit
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next123, %.loopexit ]
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next124, %.loopexit ]
   %217 = load i8, ptr %213, align 8
   %218 = trunc i8 %217 to i1
   br i1 %218, label %219, label %_ZN5Ipopt9TimedTask3EndEv.exit83
@@ -1808,21 +1808,21 @@ _ZN5Ipopt9TimedTask5StartEv.exit82:               ; preds = %225, %221, %219
 .lr.ph104:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit82
   %236 = load ptr, ptr %214, align 8
   %237 = zext nneg i32 %234 to i64
-  %238 = mul nuw nsw i64 %indvars.iv122, %237
+  %238 = mul nuw nsw i64 %indvars.iv123, %237
   %239 = getelementptr inbounds double, ptr %38, i64 %238
   br label %240
 
 240:                                              ; preds = %.lr.ph104, %240
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next118, %240 ]
-  %241 = getelementptr inbounds double, ptr %236, i64 %indvars.iv117
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next119, %240 ]
+  %241 = getelementptr inbounds double, ptr %236, i64 %indvars.iv118
   %242 = load double, ptr %241, align 8
-  %243 = getelementptr inbounds double, ptr %239, i64 %indvars.iv117
+  %243 = getelementptr inbounds double, ptr %239, i64 %indvars.iv118
   %244 = load double, ptr %243, align 8
   %245 = fmul double %242, %244
   store double %245, ptr %243, align 8
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next118, %237
-  br i1 %exitcond121.not, label %._crit_edge105, label %240, !llvm.loop !9
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %237
+  br i1 %exitcond122.not, label %._crit_edge105, label %240, !llvm.loop !9
 
 ._crit_edge105:                                   ; preds = %240, %_ZN5Ipopt9TimedTask5StartEv.exit82
   %246 = load ptr, ptr %45, align 8
@@ -1876,7 +1876,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit83:                 ; preds = %251, %247, %._crit_
 
 _ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge: ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit83
   %.pre = load i32, ptr %31, align 8
-  %.pre128 = trunc nuw nsw i64 %indvars.iv122 to i32
+  %.pre129 = trunc nuw nsw i64 %indvars.iv123 to i32
   br label %.loopexit
 
 280:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit83
@@ -1884,7 +1884,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge: ; preds = %_ZN5Ipopt9Timed
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 16
   %284 = load ptr, ptr %283, align 8
-  %285 = trunc nuw nsw i64 %indvars.iv122 to i32
+  %285 = trunc nuw nsw i64 %indvars.iv123 to i32
   tail call void (ptr, i32, i32, ptr, ...) %284(ptr noundef nonnull align 8 dereferenceable(40) %281, i32 noundef 11, i32 noundef 7, ptr noundef nonnull @.str.10, i32 noundef %285)
   %286 = load i32, ptr %31, align 8
   %287 = icmp sgt i32 %286, 0
@@ -1909,18 +1909,18 @@ _ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge: ; preds = %_ZN5Ipopt9Timed
   br i1 %300, label %.lr.ph108, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph108, %_ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge, %280
-  %.pre-phi = phi i32 [ %.pre128, %_ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge ], [ %285, %280 ], [ %285, %.lr.ph108 ]
+  %.pre-phi = phi i32 [ %.pre129, %_ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge ], [ %285, %280 ], [ %285, %.lr.ph108 ]
   %301 = phi i32 [ %.pre, %_ZN5Ipopt9TimedTask3EndEv.exit83..loopexit_crit_edge ], [ %286, %280 ], [ %299, %.lr.ph108 ]
   %302 = mul nsw i32 %301, %.pre-phi
   %303 = sext i32 %302 to i64
   %304 = getelementptr inbounds double, ptr %38, i64 %303
   %305 = load ptr, ptr %3, align 8
-  %306 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %305, i64 %indvars.iv122
+  %306 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %305, i64 %indvars.iv123
   %307 = load ptr, ptr %306, align 8
   tail call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %301, ptr noundef nonnull %304, ptr noundef nonnull align 8 dereferenceable(205) %307)
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %.loopexit91, label %216, !llvm.loop !11
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
+  br i1 %exitcond127.not, label %.loopexit91, label %216, !llvm.loop !11
 
 .loopexit91:                                      ; preds = %.loopexit, %211
   tail call void @_ZdaPv(ptr noundef nonnull %38) #16

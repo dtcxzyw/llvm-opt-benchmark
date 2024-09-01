@@ -11154,8 +11154,8 @@ thread-pre-split.i:                               ; preds = %160, %160
   br label %182
 
 182:                                              ; preds = %176, %172
-  %.not.i.not = icmp ne ptr %60, %3
-  br i1 %.not.i.not, label %183, label %.loopexit.i
+  %.not.i.not.not = icmp ne ptr %60, %3
+  br i1 %.not.i.not.not, label %183, label %.loopexit.i
 
 183:                                              ; preds = %182
   %184 = ptrtoint ptr %60 to i64
@@ -11172,7 +11172,7 @@ thread-pre-split.i:                               ; preds = %160, %160
 .loopexit.i:                                      ; preds = %183, %182, %45
   %193 = phi ptr [ %2, %45 ], [ %190, %183 ], [ %60, %182 ]
   %194 = phi i32 [ 1, %45 ], [ %191, %183 ], [ %59, %182 ]
-  %195 = phi i1 [ true, %45 ], [ %.not.i.not, %182 ], [ %.not.i.not, %183 ]
+  %195 = phi i1 [ true, %45 ], [ %.not.i.not.not, %182 ], [ %.not.i.not.not, %183 ]
   %196 = icmp eq i32 %194, %4
   br i1 %196, label %198, label %197
 

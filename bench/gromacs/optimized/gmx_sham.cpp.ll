@@ -1803,15 +1803,12 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br i1 %exitcond1104.not1187, label %._crit_edge969.thread, label %.outer, !llvm.loop !20
 
 ._crit_edge969:                                   ; preds = %250
-  br i1 %.0450967.ph, label %._crit_edge969.thread, label %.critedge
+  br i1 %.0450967.ph, label %._crit_edge969.thread, label %.lr.ph23.i
 
-.critedge:                                        ; preds = %._crit_edge969
-  br i1 %122, label %.lr.ph23.i, label %_ZL6indexniPKiS0_.exit
-
-.lr.ph23.i:                                       ; preds = %.critedge, %._crit_edge.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge.i ], [ 0, %.critedge ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 1, %.critedge ]
-  %.01620.i = phi i64 [ %259, %._crit_edge.i ], [ 0, %.critedge ]
+.lr.ph23.i:                                       ; preds = %._crit_edge969, %._crit_edge.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge.i ], [ 0, %._crit_edge969 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 1, %._crit_edge969 ]
+  %.01620.i = phi i64 [ %259, %._crit_edge.i ], [ 0, %._crit_edge969 ]
   %251 = getelementptr inbounds i32, ptr %119, i64 %indvars.iv30.i
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
@@ -1837,8 +1834,8 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next31.i, %230
   br i1 %exitcond34.not.i, label %_ZL6indexniPKiS0_.exit, label %.lr.ph23.i, !llvm.loop !22
 
-_ZL6indexniPKiS0_.exit:                           ; preds = %._crit_edge.i, %.preheader923, %.critedge
-  %.016.lcssa.i = phi i64 [ 0, %.critedge ], [ 0, %.preheader923 ], [ %259, %._crit_edge.i ]
+_ZL6indexniPKiS0_.exit:                           ; preds = %._crit_edge.i, %.preheader923
+  %.016.lcssa.i = phi i64 [ 0, %.preheader923 ], [ %259, %._crit_edge.i ]
   %260 = trunc i64 %.016.lcssa.i to i32
   call void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 1 dereferenceable(125) @.str.97, i8 noundef zeroext 2)
   invoke void @_Z20range_check_functioniiiPKcS0_RKNSt10filesystem7__cxx114pathEi(i32 noundef %260, i32 noundef 0, i32 noundef %.0470.lcssa, ptr noundef null, ptr noundef nonnull @.str.132, ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 582)
@@ -1992,15 +1989,15 @@ _ZL13normalize_p_eiPdPKiPff.exit.thread:          ; preds = %._crit_edge978
 330:                                              ; preds = %325, %.lr.ph.i556
   %indvars.iv.next.i558 = add nuw nsw i64 %indvars.iv.i557, 1
   %exitcond.not.i559 = icmp eq i64 %indvars.iv.next.i558, %wide.trip.count.i
-  br i1 %exitcond.not.i559, label %.lr.ph34.i, label %.lr.ph.i556, !llvm.loop !25
+  br i1 %exitcond.not.i559, label %._crit_edge.i560, label %.lr.ph.i556, !llvm.loop !25
 
-.lr.ph34.i:                                       ; preds = %330
+._crit_edge.i560:                                 ; preds = %330
   %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.171, double noundef %321)
   %332 = fpext float %20 to double
   br label %333
 
-333:                                              ; preds = %333, %.lr.ph34.i
-  %indvars.iv37.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next38.i, %333 ]
+333:                                              ; preds = %333, %._crit_edge.i560
+  %indvars.iv37.i = phi i64 [ 0, %._crit_edge.i560 ], [ %indvars.iv.next38.i, %333 ]
   %334 = getelementptr inbounds double, ptr %222, i64 %indvars.iv37.i
   %335 = load double, ptr %334, align 8
   %336 = fdiv double %335, %321
@@ -2009,12 +2006,9 @@ _ZL13normalize_p_eiPdPKiPff.exit.thread:          ; preds = %._crit_edge978
   store double %storemerge.i, ptr %334, align 8
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count.i
-  br i1 %exitcond41.not.i, label %_ZL13normalize_p_eiPdPKiPff.exit, label %333, !llvm.loop !26
+  br i1 %exitcond41.not.i, label %.lr.ph986, label %333, !llvm.loop !26
 
-_ZL13normalize_p_eiPdPKiPff.exit:                 ; preds = %333
-  br i1 %317, label %.lr.ph986, label %._crit_edge987
-
-.lr.ph986:                                        ; preds = %_ZL13normalize_p_eiPdPKiPff.exit
+.lr.ph986:                                        ; preds = %333
   %338 = fmul double %191, 0xBF81072C483AF26D
   %wide.trip.count1118 = zext nneg i32 %.0470.lcssa to i64
   br label %339
@@ -2067,13 +2061,13 @@ _ZL13normalize_p_eiPdPKiPff.exit:                 ; preds = %333
   %exitcond1119.not = icmp eq i64 %indvars.iv.next1116, %wide.trip.count1118
   br i1 %exitcond1119.not, label %._crit_edge987, label %339, !llvm.loop !27
 
-._crit_edge987:                                   ; preds = %358, %_ZL13normalize_p_eiPdPKiPff.exit.thread, %_ZL13normalize_p_eiPdPKiPff.exit
-  %.0908.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit ], [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1909, %358 ]
-  %.2907.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit ], [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.3, %358 ]
-  %.0903.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit ], [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1904, %358 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %_ZL13normalize_p_eiPdPKiPff.exit ], [ 0.000000e+00, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1, %358 ]
-  %.0471.lcssa = phi i32 [ -1, %_ZL13normalize_p_eiPdPKiPff.exit ], [ -1, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2473, %358 ]
-  %.0452.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit ], [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2454, %358 ]
+._crit_edge987:                                   ; preds = %358, %_ZL13normalize_p_eiPdPKiPff.exit.thread
+  %.0908.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1909, %358 ]
+  %.2907.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.3, %358 ]
+  %.0903.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1904, %358 ]
+  %.0.lcssa = phi double [ 0.000000e+00, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.1, %358 ]
+  %.0471.lcssa = phi i32 [ -1, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2473, %358 ]
+  %.0452.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2454, %358 ]
   %359 = fcmp ogt float %15, 0.000000e+00
   %360 = fcmp ogt float %16, 0.000000e+00
   %361 = fsub double %.0903.lcssa, %.0452.lcssa

@@ -5326,16 +5326,13 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %11, %_ZN7glslang7TV
 ._crit_edge771:                                   ; preds = %44
   %48 = tail call double @sqrt(double noundef %47) #9
   %49 = icmp eq i32 %1, 273
-  br i1 %49, label %53, label %.preheader
+  br i1 %49, label %53, label %.lr.ph774
 
 ._crit_edge771.thread:                            ; preds = %38
   %50 = icmp eq i32 %1, 273
   br i1 %50, label %53, label %._crit_edge778
 
-.preheader:                                       ; preds = %._crit_edge771
-  br i1 %39, label %.lr.ph774, label %._crit_edge778
-
-.lr.ph774:                                        ; preds = %.preheader
+.lr.ph774:                                        ; preds = %._crit_edge771
   %51 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   %52 = getelementptr inbounds i8, ptr %0, i64 192
   %wide.trip.count792 = zext nneg i32 %8 to i64
@@ -8248,7 +8245,7 @@ _ZNK7glslang11TConstUnioncoEv.exit:               ; preds = %207, %214, %217, %2
   %1793 = icmp ult i64 %indvars.iv.next795, %86
   br i1 %1793, label %87, label %._crit_edge778, !llvm.loop !34
 
-._crit_edge778:                                   ; preds = %1792, %._crit_edge771.thread, %.preheader, %.loopexit757
+._crit_edge778:                                   ; preds = %1792, %._crit_edge771.thread, %.loopexit757
   %1794 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
   %1795 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1794, i64 noundef 208) #9
   tail call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %1795, ptr noundef nonnull align 8 dereferenceable(152) %2)
@@ -11505,17 +11502,14 @@ _ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit:  ; preds = %.lr.ph.i.i.i.i
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %21, align 8
-  br i1 %.not.i.i.i.i.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = sext i32 %2 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+24:                                               ; preds = %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit, %24
+  %indvars.iv = phi i64 [ 0, %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -11530,7 +11524,7 @@ _ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit:  ; preds = %.lr.ph.i.i.i.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %24, %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit.thread, %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit
+._crit_edge:                                      ; preds = %24, %_ZN7glslang7TVectorINS_11TConstUnionEEC2Em.exit.thread
   ret void
 }
 

@@ -17,8 +17,8 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr @size, align 4
   %8 = tail call fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
-  %.not62 = icmp eq ptr %8, null
-  br i1 %.not62, label %.thread, label %9
+  %.not61 = icmp eq ptr %8, null
+  br i1 %.not61, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = load i32, ptr @size, align 4

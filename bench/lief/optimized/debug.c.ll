@@ -221,12 +221,9 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   store i8 %55, ptr %56, align 1
   %57 = add nuw nsw i64 %.05268, 1
   %exitcond = icmp eq i64 %.05268, %umin
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond, label %.preheader, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %44
-  br i1 %25, label %._crit_edge.thread, label %.preheader
-
-.preheader:                                       ; preds = %._crit_edge
+.preheader:                                       ; preds = %44
   %58 = and i64 %27, 15
   %.not5971 = icmp eq i64 %58, 0
   br i1 %.not5971, label %._crit_edge75, label %.lr.ph74
@@ -257,7 +254,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   call void %.val.val(ptr noundef %.val.val67, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8) #9
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %20, %7, %11, %14, %._crit_edge75, %._crit_edge
+._crit_edge.thread:                               ; preds = %20, %7, %11, %14, %._crit_edge75
   ret void
 }
 

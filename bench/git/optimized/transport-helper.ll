@@ -774,14 +774,11 @@ if.then75:                                        ; preds = %if.end70
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %19 = load ptr, ptr %data1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.push_refs_with_export.buf, i64 24, i1 false)
-  br i1 %cmp74, label %for.body.preheader.i, label %if.then.i.i
-
-for.body.preheader.i:                             ; preds = %if.then75
   %wide.trip.count.i = zext nneg i32 %nr_heads to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+for.body.i:                                       ; preds = %for.inc.i, %if.then75
+  %indvars.iv.i = phi i64 [ 0, %if.then75 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %to_fetch, i64 %indvars.iv.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %status.i = getelementptr inbounds i8, ptr %20, i64 148
@@ -818,7 +815,7 @@ strbuf_avail.exit.i.i:                            ; preds = %for.end.i
   %tobool.not.i.i = icmp eq i64 %.pre.i, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
-if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %for.end.i, %if.then75
+if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %for.end.i
   call void @strbuf_grow(ptr noundef nonnull %buf.i, i64 noundef 1) #18
   %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
@@ -1059,12 +1056,9 @@ get_importer.exit.i:                              ; preds = %if.then.i.i47, %if.
   store i16 %bf.set.i.i, ptr %git_cmd.i.i, align 8
   %call15.i.i = call i32 @start_command(ptr noundef nonnull %fastimport.i) #18
   %tobool.not.i48 = icmp eq i32 %call15.i.i, 0
-  br i1 %tobool.not.i48, label %for.cond.preheader.i, label %if.then.i
+  br i1 %tobool.not.i48, label %for.body.lr.ph.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %get_importer.exit.i
-  br i1 %cmp74, label %for.body.lr.ph.i, label %for.end.i49
-
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %get_importer.exit.i
   %buf.i.i55 = getelementptr inbounds i8, ptr %buf.i39, i64 16
   %helper1.i.i56 = getelementptr inbounds i8, ptr %55, i64 8
   %len.i.i57 = getelementptr inbounds i8, ptr %buf.i39, i64 8
@@ -1132,7 +1126,7 @@ for.inc.i64:                                      ; preds = %if.then4.i33.i, %se
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i58
   br i1 %exitcond.not.i66, label %for.end.i49, label %for.body.i59, !llvm.loop !13
 
-for.end.i49:                                      ; preds = %for.inc.i64, %for.cond.preheader.i
+for.end.i49:                                      ; preds = %for.inc.i64
   %helper.i50 = getelementptr inbounds i8, ptr %55, i64 8
   %70 = load ptr, ptr %helper.i50, align 8
   %in.i = getelementptr inbounds i8, ptr %70, i64 80
@@ -1158,12 +1152,9 @@ if.then3.i.i:                                     ; preds = %if.end.i35.i
 write_constant.exit.i:                            ; preds = %if.end.i35.i
   %call9.i = call i32 @finish_command(ptr noundef nonnull %fastimport.i) #18
   %tobool10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %tobool10.not.i, label %for.cond14.preheader.i, label %if.then11.i
+  br i1 %tobool10.not.i, label %for.body16.lr.ph.i, label %if.then11.i
 
-for.cond14.preheader.i:                           ; preds = %write_constant.exit.i
-  br i1 %cmp74, label %for.body16.lr.ph.i, label %fetch_with_import.exit
-
-for.body16.lr.ph.i:                               ; preds = %for.cond14.preheader.i
+for.body16.lr.ph.i:                               ; preds = %write_constant.exit.i
   %nr.i51 = getelementptr inbounds i8, ptr %55, i64 60
   %rs.i = getelementptr inbounds i8, ptr %55, i64 48
   %wide.trip.count48.i = zext nneg i32 %nr_heads to i64
@@ -1227,7 +1218,7 @@ for.inc48.i:                                      ; preds = %if.end46.i, %if.end
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count48.i
   br i1 %exitcond49.not.i, label %fetch_with_import.exit, label %for.body16.i, !llvm.loop !14
 
-fetch_with_import.exit:                           ; preds = %for.inc48.i, %for.cond14.preheader.i
+fetch_with_import.exit:                           ; preds = %for.inc48.i
   call void @strbuf_release(ptr noundef nonnull %buf.i39) #18
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %fastimport.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i39)

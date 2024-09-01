@@ -14066,8 +14066,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12clap_builder4util11str_to_bool11st
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %11
-  %.not.not.i.not.i.not = icmp eq ptr %12, null
-  br i1 %.not.not.i.not.i.not, label %22, label %13
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %12, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %22, label %13
 
 13:                                               ; preds = %.noexc
   %14 = load ptr, ptr %12, align 8, !alias.scope !6896, !noalias !6901, !nonnull !4, !align !5868, !noundef !4
@@ -14123,8 +14123,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12clap_builder4util11str_to_bool11st
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %24
-  %.not.not.i.not.i6.not = icmp eq ptr %25, null
-  br i1 %.not.not.i.not.i6.not, label %31, label %26
+  %.not.not.not.not.i.not.not.not.i6.not = icmp eq ptr %25, null
+  br i1 %.not.not.not.not.i.not.not.not.i6.not, label %31, label %26
 
 26:                                               ; preds = %.noexc7
   %27 = load ptr, ptr %25, align 8, !alias.scope !6928, !noalias !6933, !nonnull !4, !align !5868, !noundef !4

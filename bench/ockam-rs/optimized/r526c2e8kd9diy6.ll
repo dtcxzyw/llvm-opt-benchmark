@@ -773,8 +773,8 @@ define hidden void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1d
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !noundef !5
   store ptr null, ptr %3, align 8
-  %.not.not = icmp eq ptr %4, null
-  br i1 %.not.not, label %"_ZN4core3ptr57drop_in_place$LT$futures_util..abortable..AbortHandle$GT$17hf4ead853eff50419E.exit2", label %5
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %"_ZN4core3ptr57drop_in_place$LT$futures_util..abortable..AbortHandle$GT$17hf4ead853eff50419E.exit2", label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -1202,8 +1202,8 @@ default.unreachable:                              ; preds = %256, %210
 
 90:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %28), !noalias !197
-  %.not.not.i = icmp eq i8 %.sroa.7.i.sroa.8.0.copyload164, 2
-  br i1 %.not.not.i, label %95, label %92
+  %.not.i = icmp eq i8 %.sroa.7.i.sroa.8.0.copyload164, 2
+  br i1 %.not.i, label %95, label %92
 
 91:                                               ; preds = %84
   %.sroa.5159.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 48
@@ -2269,8 +2269,8 @@ default.unreachable:                              ; preds = %256, %210
 
 90:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %28), !noalias !273
-  %.not.not.i = icmp eq i8 %.sroa.7.i.sroa.8.0.copyload164, 2
-  br i1 %.not.not.i, label %95, label %92
+  %.not.i = icmp eq i8 %.sroa.7.i.sroa.8.0.copyload164, 2
+  br i1 %.not.i, label %95, label %92
 
 91:                                               ; preds = %84
   %.sroa.5159.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 48
@@ -4914,8 +4914,8 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, i64 15, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 200
   store i8 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.not53.not = icmp eq i8 %.sroa.5.0.copyload, 2
-  br i1 %.not53.not, label %60, label %31
+  %.not53 = icmp eq i8 %.sroa.5.0.copyload, 2
+  br i1 %.not53, label %60, label %31
 
 .thread76:                                        ; preds = %52, %66, %67, %63, %.thread80, %70, %21
   %.2 = phi i8 [ %.149, %21 ], [ %.048, %70 ], [ %.048, %.thread80 ], [ %.048, %63 ], [ %.048, %67 ], [ %.048, %66 ], [ %.048, %52 ]
@@ -5253,8 +5253,8 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, i64 15, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 200
   store i8 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.not53.not = icmp eq i8 %.sroa.5.0.copyload, 2
-  br i1 %.not53.not, label %60, label %31
+  %.not53 = icmp eq i8 %.sroa.5.0.copyload, 2
+  br i1 %.not53, label %60, label %31
 
 .thread76:                                        ; preds = %52, %66, %67, %63, %.thread80, %70, %21
   %.2 = phi i8 [ %.149, %21 ], [ %.048, %70 ], [ %.048, %.thread80 ], [ %.048, %63 ], [ %.048, %67 ], [ %.048, %66 ], [ %.048, %52 ]

@@ -1981,7 +1981,7 @@ arrayctor.cont387:                                ; preds = %arrayctor.loop383
   %mFaces = getelementptr inbounds i8, ptr %call329, i64 208
   store ptr %.ptr, ptr %mFaces, align 8
   %add.ptr.ptr = getelementptr inbounds i8, ptr %call379, i64 %178
-  br i1 %isempty380, label %while.end405, label %while.body391
+  br label %while.body391
 
 while.cond389.loopexit:                           ; preds = %for.body397
   %cmp390.not = icmp eq ptr %incdec.ptr392, %add.ptr.ptr
@@ -2011,7 +2011,7 @@ for.body397:                                      ; preds = %invoke.cont393, %fo
   %exitcond745.not = icmp eq i64 %indvars.iv.next743, 3
   br i1 %exitcond745.not, label %while.cond389.loopexit, label %for.body397, !llvm.loop !52
 
-while.end405:                                     ; preds = %while.cond389.loopexit, %arrayctor.cont387.thread, %arrayctor.cont387
+while.end405:                                     ; preds = %while.cond389.loopexit, %arrayctor.cont387.thread
   %call407 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %invoke.cont406 unwind label %lpad29.loopexit.split-lp.loopexit
 

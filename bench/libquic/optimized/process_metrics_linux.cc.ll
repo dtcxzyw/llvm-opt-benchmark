@@ -2659,8 +2659,8 @@ for.body:                                         ; preds = %if.then13, %for.con
   %4 = load i8, ptr %call16, align 1
   %conv17 = sext i8 %4 to i32
   %call18 = tail call i32 @islower(i32 noundef %conv17) #25
-  %tobool.not.not = icmp ne i32 %call18, 0
-  br i1 %tobool.not.not, label %for.cond, label %return
+  %tobool.not.not.not = icmp ne i32 %call18, 0
+  br i1 %tobool.not.not.not, label %for.cond, label %return
 
 if.end21:                                         ; preds = %lor.lhs.false9, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %kMMCName, ptr noundef nonnull align 1 dereferenceable(7) @__const._ZN4base15IsValidDiskNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.kMMCName, i64 7, i1 false)
@@ -2694,7 +2694,7 @@ for.body34:                                       ; preds = %for.cond31.preheade
   br i1 %isdigit, label %for.cond31, label %return
 
 return:                                           ; preds = %for.body34, %for.cond31, %for.body, %for.cond, %for.cond31.preheader, %if.then13, %if.end25, %if.end21, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end21 ], [ false, %if.end25 ], [ true, %if.then13 ], [ true, %for.cond31.preheader ], [ %tobool.not.not, %for.cond ], [ %tobool.not.not, %for.body ], [ %isdigit, %for.cond31 ], [ %isdigit, %for.body34 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end21 ], [ false, %if.end25 ], [ true, %if.then13 ], [ true, %for.cond31.preheader ], [ %tobool.not.not.not, %for.cond ], [ %tobool.not.not.not, %for.body ], [ %isdigit, %for.cond31 ], [ %isdigit, %for.body34 ]
   ret i1 %retval.0
 }
 

@@ -25614,17 +25614,17 @@ for.body.i.i.i.i.i67:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i69, i64 16
   %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i68, i64 16
   %cmp.i.i.not.i.i.i.i.i74 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i72, %7
-  br i1 %cmp.i.i.not.i.i.i.i.i74, label %for.body.lr.ph.i.i.i78, label %for.body.i.i.i.i.i67, !llvm.loop !1530
+  br i1 %cmp.i.i.not.i.i.i.i.i74, label %invoke.cont35, label %for.body.i.i.i.i.i67, !llvm.loop !1530
 
-for.body.lr.ph.i.i.i78:                           ; preds = %for.body.i.i.i.i.i67
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i67
   %45 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %45, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   %_M_use_count.i.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %3, i64 8
   br label %for.body.i.i.i80
 
-for.body.i.i.i80:                                 ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit.i.i.i106, %for.body.lr.ph.i.i.i78
-  %__first.addr.04.i.i.i81 = phi ptr [ %__position.coerce, %for.body.lr.ph.i.i.i78 ], [ %incdec.ptr.i.i.i107, %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit.i.i.i106 ]
+for.body.i.i.i80:                                 ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit.i.i.i106, %invoke.cont35
+  %__first.addr.04.i.i.i81 = phi ptr [ %__position.coerce, %invoke.cont35 ], [ %incdec.ptr.i.i.i107, %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit.i.i.i106 ]
   store ptr %2, ptr %__first.addr.04.i.i.i81, align 8
   %_M_refcount.i.i.i.i.i82 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i81, i64 8
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i82, align 8

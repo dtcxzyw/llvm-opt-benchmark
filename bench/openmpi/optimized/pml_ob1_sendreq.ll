@@ -4406,31 +4406,31 @@ define i32 @mca_pml_ob1_send_request_put_frag(ptr noundef %0) local_unnamed_addr
   %11 = getelementptr inbounds i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.preheader, label %22
+  br i1 %13, label %._crit_edge, label %22
 
-.preheader:                                       ; preds = %10
+._crit_edge:                                      ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 200
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 152
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %5, i64 16
   %.val47 = load ptr, ptr %18, align 8
-  %19 = tail call ptr %9(ptr noundef %7, ptr noundef %.val47, ptr noundef %15, i64 noundef %17, i32 noundef 0) #9
+  %19 = tail call ptr %9(ptr noundef nonnull %7, ptr noundef %.val47, ptr noundef %15, i64 noundef %17, i32 noundef 0) #9
   store ptr %19, ptr %11, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %.loopexit._crit_edge
+  br i1 %20, label %21, label %._crit_edge._crit_edge
 
-.loopexit._crit_edge:                             ; preds = %.preheader
+._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %6, align 8
   br label %22
 
-21:                                               ; preds = %.preheader
+21:                                               ; preds = %._crit_edge
   tail call fastcc void @mca_pml_ob1_send_request_put_frag_failed(ptr noundef nonnull %0, i32 noundef -2)
   br label %opal_free_list_return.exit
 
-22:                                               ; preds = %.loopexit._crit_edge, %10, %1
-  %23 = phi ptr [ %7, %10 ], [ %7, %1 ], [ %.pre, %.loopexit._crit_edge ]
-  %.040 = phi ptr [ null, %10 ], [ null, %1 ], [ %19, %.loopexit._crit_edge ]
+22:                                               ; preds = %._crit_edge._crit_edge, %10, %1
+  %23 = phi ptr [ %7, %10 ], [ %7, %1 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.040 = phi ptr [ null, %10 ], [ null, %1 ], [ %19, %._crit_edge._crit_edge ]
   %24 = getelementptr inbounds i8, ptr %0, i64 200
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 216

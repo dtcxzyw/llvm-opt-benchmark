@@ -203,8 +203,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.02.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
-  %.not7 = icmp uge i64 %.sroa.02.0, %1
-  br i1 %.not7, label %.loopexit, label %5
+  %.not7.not = icmp uge i64 %.sroa.02.0, %1
+  br i1 %.not7.not, label %.loopexit, label %5
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h86b5c9f0d48ea3b8E"(i64 %.sroa.02.0, i64 1)
@@ -214,7 +214,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
   br i1 %9, label %.preheader.split, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ %.not7, %.preheader.split ], [ %.not7, %5 ]
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ %.not7.not, %.preheader.split ], [ %.not7.not, %5 ]
   ret i1 %.sroa.0.0
 }
 

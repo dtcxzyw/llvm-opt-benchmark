@@ -1003,11 +1003,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %16 = getelementptr i8, ptr %15, i64 4
   %.val59 = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val59, 0
+  %18 = getelementptr i8, ptr %15, i64 8
+  %.val56 = load ptr, ptr %18, align 8
   br i1 %17, label %.lr.ph90, label %.critedge.i
 
 .lr.ph90:                                         ; preds = %Vec_IntStart.exit
-  %18 = getelementptr i8, ptr %15, i64 8
-  %.val56 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %5, i64 8
   %20 = zext nneg i32 %.val59 to i64
   br label %22
@@ -1015,7 +1015,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 .critedge.loopexit:                               ; preds = %69, %22
   %.val55102 = phi ptr [ %.val55101, %22 ], [ %.val55104, %69 ]
   %21 = icmp sgt i64 %indvars.iv95, 1
-  br i1 %21, label %22, label %.critedge._crit_edge, !llvm.loop !16
+  br i1 %21, label %22, label %.lr.ph.i, !llvm.loop !16
 
 22:                                               ; preds = %.lr.ph90, %.critedge.loopexit
   %.val55101 = phi ptr [ %.val55105, %.lr.ph90 ], [ %.val55102, %.critedge.loopexit ]
@@ -1117,10 +1117,7 @@ Ivy_ObjFaninId1.exit76:                           ; preds = %Ivy_ObjFaninId1.exi
   %70 = icmp ugt i64 %indvars.iv, 1
   br i1 %70, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !17
 
-.critedge._crit_edge:                             ; preds = %.critedge.loopexit
-  br i1 %17, label %.lr.ph.i, label %.critedge.i
-
-.lr.ph.i:                                         ; preds = %.critedge._crit_edge
+.lr.ph.i:                                         ; preds = %.critedge.loopexit
   %71 = getelementptr i8, ptr %15, i64 8
   %.val.i77 = load ptr, ptr %71, align 8
   %72 = zext nneg i32 %.val59 to i64
@@ -1152,21 +1149,18 @@ Vec_PtrFree.exit.i:                               ; preds = %79, %76
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %72
   br i1 %exitcond.not, label %.critedge.i.thread, label %73, !llvm.loop !18
 
-.critedge.i:                                      ; preds = %Vec_IntStart.exit, %.critedge._crit_edge
-  %.val52110 = phi ptr [ %.val55102, %.critedge._crit_edge ], [ %.val55105, %Vec_IntStart.exit ]
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i9.i = icmp eq ptr %.pre, null
+.critedge.i:                                      ; preds = %Vec_IntStart.exit
+  %.not.i9.i = icmp eq ptr %.val56, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %80, %.critedge.i
-  %81 = phi ptr [ %.pre, %.critedge.i ], [ %.val.i77, %80 ]
-  %.val52109113 = phi ptr [ %.val52110, %.critedge.i ], [ %.val55102, %80 ]
+  %81 = phi ptr [ %.val56, %.critedge.i ], [ %.val.i77, %80 ]
+  %.val52109113 = phi ptr [ %.val55105, %.critedge.i ], [ %.val55102, %80 ]
   tail call void @free(ptr noundef nonnull %81) #15
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.critedge.i.thread
-  %.val52109114 = phi ptr [ %.val52110, %.critedge.i ], [ %.val52109113, %.critedge.i.thread ]
+  %.val52109114 = phi ptr [ %.val55105, %.critedge.i ], [ %.val52109113, %.critedge.i.thread ]
   tail call void @free(ptr noundef nonnull %15) #15
   %82 = tail call i32 @Ivy_ManLevels(ptr noundef %0) #15
   %83 = load ptr, ptr %2, align 8

@@ -1952,12 +1952,12 @@ if.end32:                                         ; preds = %if.end24
   br i1 %tobool34.not, label %if.then68.thread, label %if.end36
 
 if.end36:                                         ; preds = %if.end32
-  %cmp37 = icmp ne i32 %socktype, 2
-  %spec.select = select i1 %cmp37, i32 %call1, i32 -1
-  br i1 %cmp37, label %while.body, label %while.end
+  %cmp37.not = icmp eq i32 %socktype, 2
+  %spec.select = select i1 %cmp37.not, i32 -1, i32 %call1
+  br i1 %cmp37.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end36, %if.else
-  %cfd_connected.151 = phi i1 [ false, %if.else ], [ %cmp37, %if.end36 ]
+  %cfd_connected.151 = phi i1 [ false, %if.else ], [ true, %if.end36 ]
   %call44 = call i32 @accept(i32 noundef %spec.select, ptr noundef null, ptr noundef null) #13
   %cmp45 = icmp eq i32 %call44, -1
   br i1 %cmp45, label %land.lhs.true47, label %if.end52

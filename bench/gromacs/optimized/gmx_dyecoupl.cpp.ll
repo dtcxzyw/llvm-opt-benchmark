@@ -1421,14 +1421,11 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit352:     ; preds = %529, %524, %_ZL15gm
   %565 = load i32, ptr %5, align 4
   %566 = sitofp i32 %565 to float
   %567 = fdiv float %564, %566
-  br i1 %.not267515, label %._crit_edge528, label %.lr.ph527.preheader
-
-.lr.ph527.preheader:                              ; preds = %._crit_edge521
   %wide.trip.count590 = zext i32 %indvars.iv581 to i64
   br label %.lr.ph527
 
-.lr.ph527:                                        ; preds = %.lr.ph527.preheader, %.lr.ph527
-  %indvars.iv586 = phi i64 [ 1, %.lr.ph527.preheader ], [ %indvars.iv.next587, %.lr.ph527 ]
+.lr.ph527:                                        ; preds = %._crit_edge521, %.lr.ph527
+  %indvars.iv586 = phi i64 [ 1, %._crit_edge521 ], [ %indvars.iv.next587, %.lr.ph527 ]
   %568 = getelementptr inbounds float, ptr %.2459, i64 %indvars.iv586
   %569 = load float, ptr %568, align 4
   %570 = fsub float %569, %562
@@ -1443,10 +1440,10 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit352:     ; preds = %529, %524, %_ZL15gm
   %exitcond591.not = icmp eq i64 %indvars.iv.next587, %wide.trip.count590
   br i1 %exitcond591.not, label %._crit_edge528, label %.lr.ph527, !llvm.loop !13
 
-._crit_edge528:                                   ; preds = %.lr.ph527, %._crit_edge521.thread, %._crit_edge521
-  %577 = phi float [ %554, %._crit_edge521.thread ], [ %567, %._crit_edge521 ], [ %567, %.lr.ph527 ]
-  %578 = phi float [ %551, %._crit_edge521.thread ], [ %564, %._crit_edge521 ], [ %564, %.lr.ph527 ]
-  %579 = phi float [ %549, %._crit_edge521.thread ], [ %562, %._crit_edge521 ], [ %562, %.lr.ph527 ]
+._crit_edge528:                                   ; preds = %.lr.ph527, %._crit_edge521.thread
+  %577 = phi float [ %554, %._crit_edge521.thread ], [ %567, %.lr.ph527 ]
+  %578 = phi float [ %551, %._crit_edge521.thread ], [ %564, %.lr.ph527 ]
+  %579 = phi float [ %549, %._crit_edge521.thread ], [ %562, %.lr.ph527 ]
   %580 = load i8, ptr @_ZZ12gmx_dyecoupliPPcE9bNormHist, align 1
   %581 = trunc i8 %580 to i1
   br i1 %581, label %.preheader471, label %615

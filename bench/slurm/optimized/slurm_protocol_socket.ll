@@ -112,8 +112,8 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
   %12 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3) #10
   tail call void @fd_set_nonblocking(i32 noundef %0) #10
   %13 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #10
-  %.not79 = icmp eq i64 %2, 0
-  br i1 %.not79, label %.loopexit, label %.lr.ph.lr.ph
+  %.not69 = icmp eq i64 %2, 0
+  br i1 %.not69, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %14 = load i64, ptr %8, align 8
@@ -421,8 +421,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
   %14 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3) #10
   tail call void @fd_set_nonblocking(i32 noundef %0) #10
   %15 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #10
-  %.not78 = icmp eq i64 %2, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph.lr.ph
+  %.not68 = icmp eq i64 %2, 0
+  br i1 %.not68, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %16 = load i64, ptr %9, align 8

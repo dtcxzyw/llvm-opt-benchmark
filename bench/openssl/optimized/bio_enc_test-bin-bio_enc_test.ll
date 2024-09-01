@@ -364,7 +364,7 @@ for.inc112:                                       ; preds = %for.end103
   br i1 %exitcond92.not, label %for.end114, label %for.body74, !llvm.loop !8
 
 for.end114:                                       ; preds = %for.inc112, %for.cond71.preheader.thread, %for.cond71.preheader
-  %cmp7243103 = phi i1 [ false, %for.cond71.preheader.thread ], [ false, %for.cond71.preheader ], [ %cmp7243, %for.inc112 ]
+  %cmp7243103 = phi i1 [ false, %for.cond71.preheader.thread ], [ false, %for.cond71.preheader ], [ true, %for.inc112 ]
   %div102 = phi i32 [ %div100, %for.cond71.preheader.thread ], [ %div149, %for.cond71.preheader ], [ %div149, %for.inc112 ]
   %call115 = call ptr @BIO_f_cipher() #4
   %call116 = call ptr @BIO_new(ptr noundef %call115) #4

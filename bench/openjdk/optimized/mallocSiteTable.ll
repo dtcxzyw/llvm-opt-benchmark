@@ -384,35 +384,33 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
 
 2:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %3 = phi i1 [ false, %1 ], [ %13, %._crit_edge ]
-  %4 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8
-  %.not11 = icmp eq ptr %6, null
+  %3 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
+  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8
+  %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %10
-  %.0712 = phi ptr [ %12, %10 ], [ %6, %2 ]
-  %7 = load ptr, ptr %0, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0712) #14
-  br i1 %9, label %10, label %.loopexit
+.lr.ph:                                           ; preds = %2, %9
+  %.0712 = phi ptr [ %11, %9 ], [ %5, %2 ]
+  %6 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0712) #14
+  br i1 %8, label %9, label %.loopexit
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.0712, i64 80
-  %12 = load volatile ptr, ptr %11, align 8
-  %.not = icmp eq ptr %12, null
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %.0712, i64 80
+  %11 = load volatile ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %10, %2
+._crit_edge:                                      ; preds = %9, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp ugt i64 %indvars.iv, 4097
   %exitcond = icmp eq i64 %indvars.iv.next, 4099
   br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph
-  %14 = phi i1 [ %3, %.lr.ph ], [ %13, %._crit_edge ]
-  ret i1 %14
+  %12 = phi i1 [ false, %.lr.ph ], [ true, %._crit_edge ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -461,35 +459,33 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable16walk_malloc_siteEP16Mall
 
 2:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %3 = phi i1 [ false, %1 ], [ %13, %._crit_edge.i ]
-  %4 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
-  %6 = load ptr, ptr %5, align 8
-  %.not11.i = icmp eq ptr %6, null
+  %3 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
+  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8
+  %.not11.i = icmp eq ptr %5, null
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %10
-  %.0712.i = phi ptr [ %12, %10 ], [ %6, %2 ]
-  %7 = load ptr, ptr %0, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0712.i) #14
-  br i1 %9, label %10, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit
+.lr.ph.i:                                         ; preds = %2, %9
+  %.0712.i = phi ptr [ %11, %9 ], [ %5, %2 ]
+  %6 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0712.i) #14
+  br i1 %8, label %9, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.0712.i, i64 80
-  %12 = load volatile ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
+9:                                                ; preds = %.lr.ph.i
+  %10 = getelementptr inbounds i8, ptr %.0712.i, i64 80
+  %11 = load volatile ptr, ptr %10, align 8
+  %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %10, %2
+._crit_edge.i:                                    ; preds = %9, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = icmp ugt i64 %indvars.iv.i, 4097
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4099
   br i1 %exitcond.i, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit, label %2, !llvm.loop !13
 
 _ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit: ; preds = %._crit_edge.i, %.lr.ph.i
-  %14 = phi i1 [ %3, %.lr.ph.i ], [ %13, %._crit_edge.i ]
-  ret i1 %14
+  %12 = phi i1 [ false, %.lr.ph.i ], [ true, %._crit_edge.i ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2654,8 +2654,8 @@ if.else:                                          ; preds = %_ZNK11ast_manager6i
   %m_kind.i.i.i.i26 = getelementptr inbounds i8, ptr %f.tr, i64 4
   %bf.load.i.i.i.i27 = load i32, ptr %m_kind.i.i.i.i26, align 4
   %bf.clear.i.i.i.i28 = and i32 %bf.load.i.i.i.i27, 65535
-  %cmp.i.i.i29.not = icmp ne i32 %bf.clear.i.i.i.i28, 0
-  br i1 %cmp.i.i.i29.not, label %if.else7, label %land.rhs.i.i.i30
+  %cmp.i.i.i29.not.not.not.not.not = icmp ne i32 %bf.clear.i.i.i.i28, 0
+  br i1 %cmp.i.i.i29.not.not.not.not.not, label %if.else7, label %land.rhs.i.i.i30
 
 land.rhs.i.i.i30:                                 ; preds = %if.else
   %m_decl.i.i.i.i31 = getelementptr inbounds i8, ptr %f.tr, i64 16
@@ -2706,7 +2706,7 @@ _ZNK8fpa_util5is_fpEPK4expr.exit:                 ; preds = %land.rhs.i.i
   %22 = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i = icmp ne i32 %22, 37
   %.not251 = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  %brmerge = or i1 %cmp.i.i.i29.not, %.not251
+  %brmerge = or i1 %cmp.i.i.i29.not.not.not.not.not, %.not251
   br i1 %brmerge, label %if.else73, label %land.rhs.i.i48
 
 land.rhs.i.i48:                                   ; preds = %_ZNK8fpa_util5is_fpEPK4expr.exit

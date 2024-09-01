@@ -1676,20 +1676,16 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %79
 92:                                               ; preds = %.lr.ph.i77.i
   %93 = getelementptr inbounds i8, ptr %.pn28.i.i, i64 304
   %94 = load i32, ptr %93, align 8
-  br label %get_capacity.exit.thread.thread.i.thread
+  br label %pmix_pointer_array_get_item.exit.i84.i
 
 95:                                               ; preds = %.lr.ph.i77.i
   %96 = getelementptr inbounds i8, ptr %.pn28.i.i, i64 120
   %.pn.i78.i = load ptr, ptr %96, align 8
   %.not23.i.i = icmp eq ptr %.pn.i78.i, %87
-  br i1 %.not23.i.i, label %get_capacity.exit.thread.thread.i.thread, label %.lr.ph.i77.i, !llvm.loop !26
+  br i1 %.not23.i.i, label %pmix_pointer_array_get_item.exit.i84.i, label %.lr.ph.i77.i, !llvm.loop !26
 
-get_capacity.exit.thread.thread.i.thread:         ; preds = %95, %92
-  %.pn = phi i32 [ %94, %92 ], [ 0, %95 ]
-  br i1 %.not.i.i76.i, label %pmix_pointer_array_get_item.exit.i84.i, label %get_capacity.exit.thread114.i
-
-pmix_pointer_array_get_item.exit.i84.i:           ; preds = %pmix_pointer_array_get_item.exit.i.i, %86, %get_capacity.exit.thread.thread.i.thread
-  %.pn.pn = phi i32 [ %.pn, %get_capacity.exit.thread.thread.i.thread ], [ 0, %86 ], [ 0, %pmix_pointer_array_get_item.exit.i.i ]
+pmix_pointer_array_get_item.exit.i84.i:           ; preds = %95, %92, %pmix_pointer_array_get_item.exit.i.i, %86
+  %.pn.pn = phi i32 [ 0, %86 ], [ 0, %pmix_pointer_array_get_item.exit.i.i ], [ %94, %92 ], [ 0, %95 ]
   %97 = sub nsw i32 %.pn.pn, %61
   %98 = load ptr, ptr %32, align 8
   %99 = zext nneg i32 %.064137.i to i64
@@ -1718,7 +1714,7 @@ pmix_pointer_array_get_item.exit.i84.i:           ; preds = %pmix_pointer_array_
   %.not24.i.i = icmp eq ptr %.pn.i86.i, %104
   br i1 %.not24.i.i, label %get_capacity.exit.thread114.i, label %.lr.ph.i85.i, !llvm.loop !28
 
-get_capacity.exit.thread114.i:                    ; preds = %79, %77, %103, %pmix_pointer_array_get_item.exit.i84.i, %get_capacity.exit.thread.thread.i.thread, %75, %.lr.ph.i, %109
+get_capacity.exit.thread114.i:                    ; preds = %79, %77, %103, %pmix_pointer_array_get_item.exit.i84.i, %75, %.lr.ph.i, %109
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 810, ptr noundef nonnull @__func__.min_cost_flow_ssp) #13
   call void @abort() #17
   unreachable
@@ -1773,9 +1769,9 @@ pmix_pointer_array_get_item.exit.i92.i:           ; preds = %114
 pmix_pointer_array_get_item.exit.i105.i:          ; preds = %130, %127
   %.0.i88.ph.pn.i = phi i32 [ %129, %127 ], [ 0, %130 ]
   %132 = add nsw i32 %.0.i88.ph.pn.i, %61
-  br i1 %120, label %get_capacity.exit99.thread119.i, label %pmix_pointer_array_get_item.exit.i105.i.thread122
+  br label %pmix_pointer_array_get_item.exit.i105.i.thread122
 
-pmix_pointer_array_get_item.exit.i105.i.thread122: ; preds = %121, %pmix_pointer_array_get_item.exit.i105.i
+pmix_pointer_array_get_item.exit.i105.i.thread122: ; preds = %pmix_pointer_array_get_item.exit.i105.i, %121
   %133 = phi i32 [ %132, %pmix_pointer_array_get_item.exit.i105.i ], [ %61, %121 ]
   %134 = getelementptr inbounds i8, ptr %119, i64 136
   %135 = getelementptr inbounds i8, ptr %119, i64 256
@@ -1804,7 +1800,7 @@ set_capacity.exit112.i:                           ; preds = %.lr.ph.i108.i
   %.not.i = icmp eq i32 %.064.i, -1
   br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
-get_capacity.exit99.thread119.i:                  ; preds = %pmix_pointer_array_get_item.exit.i92.i, %114, %pmix_pointer_array_get_item.exit.i105.i.thread122, %pmix_pointer_array_get_item.exit.i105.i, %111, %139
+get_capacity.exit99.thread119.i:                  ; preds = %pmix_pointer_array_get_item.exit.i92.i, %114, %pmix_pointer_array_get_item.exit.i105.i.thread122, %111, %139
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 819, ptr noundef nonnull @__func__.min_cost_flow_ssp) #13
   call void @abort() #17
   unreachable
@@ -1850,12 +1846,9 @@ min_cost_flow_ssp.exit:                           ; preds = %14, %21
 ._crit_edge.us.i:                                 ; preds = %151
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %148
-  br i1 %exitcond24.not.i, label %shrink_flow_matrix.exit, label %.preheader.us.i, !llvm.loop !31
+  br i1 %exitcond24.not.i, label %.preheader78.us.preheader, label %.preheader.us.i, !llvm.loop !31
 
-shrink_flow_matrix.exit:                          ; preds = %._crit_edge.us.i
-  br i1 %144, label %.preheader78.us.preheader, label %._crit_edge89
-
-.preheader78.us.preheader:                        ; preds = %shrink_flow_matrix.exit
+.preheader78.us.preheader:                        ; preds = %._crit_edge.us.i
   %153 = zext nneg i32 %143 to i64
   br label %.preheader78.us
 
@@ -1888,7 +1881,7 @@ shrink_flow_matrix.exit:                          ; preds = %._crit_edge.us.i
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %153
   br i1 %exitcond108.not, label %._crit_edge89, label %.preheader78.us, !llvm.loop !33
 
-._crit_edge89:                                    ; preds = %._crit_edge.us, %.loopexit81, %shrink_flow_matrix.exit
+._crit_edge89:                                    ; preds = %._crit_edge.us, %.loopexit81
   %162 = load i32, ptr %1, align 4
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %.loopexit, label %164

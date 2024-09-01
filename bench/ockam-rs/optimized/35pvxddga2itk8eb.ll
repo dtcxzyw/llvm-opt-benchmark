@@ -1294,8 +1294,8 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 7:                                                ; preds = %10, %2
   %8 = load ptr, ptr %5, align 8, !alias.scope !263, !noalias !261, !nonnull !4, !noundef !4
   %9 = load ptr, ptr %0, align 8, !alias.scope !263, !noalias !261, !nonnull !4, !noundef !4
-  %.not9.i.not = icmp eq ptr %9, %8
-  br i1 %.not9.i.not, label %26, label %10
+  %.not9.not.not.i.not = icmp eq ptr %9, %8
+  br i1 %.not9.not.not.i.not, label %26, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 32
@@ -1346,8 +1346,8 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
 29:                                               ; preds = %32, %26
   %30 = load ptr, ptr %28, align 8, !alias.scope !309, !noalias !307, !nonnull !4, !noundef !4
   %31 = load ptr, ptr %27, align 8, !alias.scope !309, !noalias !307, !nonnull !4, !noundef !4
-  %.not9.i5.not.not = icmp ne ptr %31, %30
-  br i1 %.not9.i5.not.not, label %32, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h19689f300eeff8faE.llvm.13709060677010895390.exit7
+  %.not9.not.not.i5.not.not.not = icmp ne ptr %31, %30
+  br i1 %.not9.not.not.i5.not.not.not, label %32, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h19689f300eeff8faE.llvm.13709060677010895390.exit7
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %31, i64 32
@@ -1386,7 +1386,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
   br i1 %.not.i6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h19689f300eeff8faE.llvm.13709060677010895390.exit7, label %29
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h19689f300eeff8faE.llvm.13709060677010895390.exit7: ; preds = %10, %32, %29
-  %.0 = phi i1 [ %.not9.i5.not.not, %29 ], [ %.not9.i5.not.not, %32 ], [ true, %10 ]
+  %.0 = phi i1 [ %.not9.not.not.i5.not.not.not, %29 ], [ %.not9.not.not.i5.not.not.not, %32 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -18540,8 +18540,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 6:                                                ; preds = %9, %2
   %7 = load ptr, ptr %4, align 8, !alias.scope !3378, !nonnull !4, !noundef !4
   %8 = load ptr, ptr %0, align 8, !alias.scope !3378, !nonnull !4, !noundef !4
-  %.not9 = icmp ne ptr %8, %7
-  br i1 %.not9, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit"
+  %.not9.not.not.not.not = icmp ne ptr %8, %7
+  br i1 %.not9.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit"
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %8, i64 32
@@ -18580,7 +18580,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit": ; preds = %6, %9
-  ret i1 %.not9
+  ret i1 %.not9.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -18895,8 +18895,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h09ac85044b9d94d8E.llvm.13709060677010895390.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %19, %16, %10
-  %.not17.i = icmp eq ptr %12, %4
-  br i1 %.not17.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h09ac85044b9d94d8E.llvm.13709060677010895390.exit", label %10
+  %.not12.i = icmp eq ptr %12, %4
+  br i1 %.not12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h09ac85044b9d94d8E.llvm.13709060677010895390.exit", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h09ac85044b9d94d8E.llvm.13709060677010895390.exit": ; preds = %19, %.backedge.i, %3
   %.lcssa.i = phi i1 [ false, %3 ], [ false, %.backedge.i ], [ true, %19 ]
@@ -19357,8 +19357,8 @@ define hidden void @"_ZN5flume5async16RecvFut$LT$T$GT$10reset_hook17ha7ca9352ecd
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !4
   store ptr null, ptr %6, align 8
-  %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17h7db133add6cfd208E.exit", label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %"_ZN4core3ptr242drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$flume..async..AsyncSignal$GT$$GT$$GT$17h7db133add6cfd208E.exit", label %8
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -23772,8 +23772,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split", label %.backedge
 
 .backedge:                                        ; preds = %16, %10, %19
-  %.not17 = icmp eq ptr %12, %4
-  br i1 %.not17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split", label %10
+  %.not12 = icmp eq ptr %12, %4
+  br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split": ; preds = %.backedge, %19
   %.lcssa.ph = phi i1 [ true, %19 ], [ false, %.backedge ]
@@ -36690,8 +36690,8 @@ common.ret:                                       ; preds = %165, %35
   br i1 %129, label %130, label %161
 
 130:                                              ; preds = %"_ZN4core3ptr262drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha9f20c6db8b95f63E.exit.i"
-  %.not.not.i = icmp eq ptr %.sroa.3.sroa.0.0.copyload.i, null
-  br i1 %.not.not.i, label %164, label %131
+  %.not.i = icmp eq ptr %.sroa.3.sroa.0.0.copyload.i, null
+  br i1 %.not.i, label %164, label %131
 
 131:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !5687
@@ -39563,8 +39563,8 @@ default.unreachable18:                            ; preds = %3
 
 38:                                               ; preds = %40, %34
   %39 = phi ptr [ %41, %40 ], [ %.val, %34 ]
-  %.not.i.not.i.not.i.not = icmp ne ptr %39, %37
-  br i1 %.not.i.not.i.not.i.not, label %40, label %43
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %39, %37
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %40, label %43
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %39, i64 32
@@ -39574,7 +39574,7 @@ default.unreachable18:                            ; preds = %3
 
 43:                                               ; preds = %38, %40
   %44 = getelementptr inbounds i8, ptr %9, i64 1
-  %45 = zext i1 %.not.i.not.i.not.i.not to i8
+  %45 = zext i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not to i8
   store i8 %45, ptr %44, align 1
   store i8 0, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -40141,8 +40141,8 @@ default.unreachable132:                           ; preds = %3
 
 36:                                               ; preds = %38, %30
   %37 = phi ptr [ %39, %38 ], [ %.val65, %30 ]
-  %.not.i.not.i.not.i.not = icmp eq ptr %37, %35
-  br i1 %.not.i.not.i.not.i.not, label %41, label %38
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %37, %35
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %37, i64 32

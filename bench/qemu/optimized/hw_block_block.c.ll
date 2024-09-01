@@ -482,9 +482,8 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false
   br i1 %tobool20.not, label %return, label %if.then27
 
 if.then21:                                        ; preds = %if.end13
-  %10 = add i32 %7, -1
-  %or.cond.not = icmp ult i32 %10, %cyls_max
-  br i1 %or.cond.not, label %if.end28, label %if.then27
+  %cmp26 = icmp ugt i32 %7, %cyls_max
+  br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %lor.lhs.false, %lor.lhs.false18, %if.then21
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.10, i32 noundef %cyls_max) #6
@@ -492,9 +491,9 @@ if.then27:                                        ; preds = %lor.lhs.false, %lor
 
 if.end28:                                         ; preds = %if.then21
   %heads29 = getelementptr inbounds i8, ptr %conf, i64 40
-  %11 = load i32, ptr %heads29, align 8
-  %12 = add i32 %11, -1
-  %or.cond29.not = icmp ult i32 %12, %heads_max
+  %10 = load i32, ptr %heads29, align 8
+  %11 = add i32 %10, -1
+  %or.cond29.not = icmp ult i32 %11, %heads_max
   br i1 %or.cond29.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end28
@@ -503,9 +502,9 @@ if.then34:                                        ; preds = %if.end28
 
 if.end35:                                         ; preds = %if.end28
   %secs36 = getelementptr inbounds i8, ptr %conf, i64 44
-  %13 = load i32, ptr %secs36, align 4
-  %14 = add i32 %13, -1
-  %or.cond30.not = icmp ult i32 %14, %secs_max
+  %12 = load i32, ptr %secs36, align 4
+  %13 = add i32 %12, -1
+  %or.cond30.not = icmp ult i32 %13, %secs_max
   br i1 %or.cond30.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.end35

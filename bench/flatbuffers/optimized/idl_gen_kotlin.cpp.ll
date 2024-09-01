@@ -11300,8 +11300,8 @@ for.body.lr.ph:                                   ; preds = %cond.true.i.i.i.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc580
-  %it.sroa.0.0995 = phi ptr [ %call5.i.i.i.i2.i6.i, %for.body.lr.ph ], [ %incdec.ptr.i813, %for.inc580 ]
-  %8 = load ptr, ptr %it.sroa.0.0995, align 8
+  %it.sroa.0.0997 = phi ptr [ %call5.i.i.i.i2.i6.i, %for.body.lr.ph ], [ %incdec.ptr.i813, %for.inc580 ]
+  %8 = load ptr, ptr %it.sroa.0.0997, align 8
   %deprecated = getelementptr inbounds i8, ptr %8, i64 272
   %9 = load i8, ptr %deprecated, align 8
   %tobool = trunc i8 %9 to i1
@@ -12500,17 +12500,17 @@ if.then237:                                       ; preds = %land.lhs.true231
   %144 = load ptr, ptr %vec243, align 8
   %_M_finish.i454 = getelementptr inbounds i8, ptr %142, i64 256
   %145 = load ptr, ptr %_M_finish.i454, align 8
-  %cmp.i455.not992 = icmp eq ptr %144, %145
-  br i1 %cmp.i455.not992, label %if.end377, label %for.body251
+  %cmp.i455.not994 = icmp eq ptr %144, %145
+  br i1 %cmp.i455.not994, label %if.end377, label %for.body251
 
 for.cond246:                                      ; preds = %for.body251
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %kit.sroa.0.0993, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %kit.sroa.0.0995, i64 8
   %cmp.i455.not = icmp eq ptr %incdec.ptr.i, %145
   br i1 %cmp.i455.not, label %if.end377, label %for.body251, !llvm.loop !67
 
 for.body251:                                      ; preds = %if.then237, %for.cond246
-  %kit.sroa.0.0993 = phi ptr [ %incdec.ptr.i, %for.cond246 ], [ %144, %if.then237 ]
-  %146 = load ptr, ptr %kit.sroa.0.0993, align 8
+  %kit.sroa.0.0995 = phi ptr [ %incdec.ptr.i, %for.cond246 ], [ %144, %if.then237 ]
+  %146 = load ptr, ptr %kit.sroa.0.0995, align 8
   %key253 = getelementptr inbounds i8, ptr %146, i64 273
   %147 = load i8, ptr %key253, align 1
   %tobool254 = trunc i8 %147 to i1
@@ -13749,8 +13749,8 @@ cleanup.done519:                                  ; preds = %cond.true508, %clea
 cleanup.done519.thread:                           ; preds = %cond.true502
   %269 = add i32 %value_type.sroa.2.0.copyload, -1
   %270 = icmp ult i32 %269, 12
-  %or.cond1062 = select i1 %219, i1 true, i1 %270
-  br i1 %or.cond1062, label %if.then535, label %if.end565
+  %or.cond908 = select i1 %219, i1 true, i1 %270
+  br i1 %or.cond908, label %if.then535, label %if.end565
 
 if.then535:                                       ; preds = %cleanup.done519.thread, %cleanup.done519
   %271 = load i8, ptr %fixed141, align 8
@@ -14037,7 +14037,7 @@ if.end571:                                        ; preds = %if.end565, %if.end4
   br label %for.inc580
 
 for.inc580:                                       ; preds = %for.body, %if.end571
-  %incdec.ptr.i813 = getelementptr inbounds i8, ptr %it.sroa.0.0995, i64 8
+  %incdec.ptr.i813 = getelementptr inbounds i8, ptr %it.sroa.0.0997, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i813, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.not, label %for.end582, label %for.body, !llvm.loop !102
 
@@ -14082,7 +14082,7 @@ ehcleanup579:                                     ; preds = %ehcleanup578, %lpad
   br label %ehcleanup614
 
 for.end582:                                       ; preds = %for.inc580, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EEC2ERKS4_.exit.thread
-  %cond.i.i.i.i882999 = phi ptr [ null, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i, %for.inc580 ]
+  %cond.i.i.i.i8821001 = phi ptr [ null, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i, %for.inc580 ]
   %has_key = getelementptr inbounds i8, ptr %struct_def, i64 275
   %297 = load i8, ptr %has_key, align 1
   %tobool583 = trunc i8 %297 to i1
@@ -14256,31 +14256,31 @@ ehcleanup612:                                     ; preds = %lpad590, %lpad.i817
   br label %ehcleanup614
 
 if.end613:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit846, %land.lhs.true584, %for.end582
-  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i882999, null
+  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i8821001, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end613
-  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i882999) #21
+  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i8821001) #21
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit: ; preds = %if.end613, %if.then.i.i.i
   ret void
 
 ehcleanup614:                                     ; preds = %ehcleanup612, %ehcleanup579
-  %cond.i.i.i.i8821000 = phi ptr [ %call5.i.i.i.i2.i6.i, %ehcleanup579 ], [ %cond.i.i.i.i882999, %ehcleanup612 ]
+  %cond.i.i.i.i8821002 = phi ptr [ %call5.i.i.i.i2.i6.i, %ehcleanup579 ], [ %cond.i.i.i.i8821001, %ehcleanup612 ]
   %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup579 ], [ %.pn.pn.pn.pn, %ehcleanup612 ]
-  %tobool.not.i.i.i855 = icmp eq ptr %cond.i.i.i.i8821000, null
+  %tobool.not.i.i.i855 = icmp eq ptr %cond.i.i.i.i8821002, null
   br i1 %tobool.not.i.i.i855, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit857, label %if.then.i.i.i856
 
 if.then.i.i.i856:                                 ; preds = %ehcleanup614.thread, %ehcleanup614
-  %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1058 = phi { ptr, i32 } [ %31, %ehcleanup614.thread ], [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup614 ]
-  %cond.i.i.i.i88210001057 = phi ptr [ %call5.i.i.i.i2.i6.i, %ehcleanup614.thread ], [ %cond.i.i.i.i8821000, %ehcleanup614 ]
-  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i88210001057) #21
+  %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1060 = phi { ptr, i32 } [ %31, %ehcleanup614.thread ], [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup614 ]
+  %cond.i.i.i.i88210021059 = phi ptr [ %call5.i.i.i.i2.i6.i, %ehcleanup614.thread ], [ %cond.i.i.i.i8821002, %ehcleanup614 ]
+  call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i88210021059) #21
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit857
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit857: ; preds = %ehcleanup614, %if.then.i.i.i856
-  %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1059 = phi { ptr, i32 } [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup614 ], [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1058, %if.then.i.i.i856 ]
-  resume { ptr, i32 } %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1059
+  %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1061 = phi { ptr, i32 } [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup614 ], [ %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1060, %if.then.i.i.i856 ]
+  resume { ptr, i32 } %.pn172.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1061
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -29613,8 +29613,8 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i3.i.i.i.i, %if.then.i.i.i.i.i.i
-  %result.sroa.9.0.ph.i.i.i = phi i8 [ undef, %if.then.i.i.i.i.i.i ], [ %30, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i3.i.i.i.i ]
   %result.sroa.12.0.ph.i.i.i = phi i64 [ undef, %if.then.i.i.i.i.i.i ], [ %31, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i3.i.i.i.i ]
+  %result.sroa.9.0.ph.i.i.i = phi i8 [ undef, %if.then.i.i.i.i.i.i ], [ %30, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i3.i.i.i.i ]
   %32 = load ptr, ptr %22, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeIZNS_12BatchBuilder5Batch8RefUntilINS1_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS3_23ReceiveTrailingMetadataENS3_6TargetEEUlSA_E_EEEEDaT_EUlvE_vEEEEvPSG_.exit.cont.i.i.i, label %if.then.i.i.i.i.i.i.i

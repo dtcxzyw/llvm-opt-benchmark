@@ -3173,9 +3173,9 @@ for.cond:                                         ; preds = %for.cond.preheader,
   br i1 %cmp14, label %for.cond, label %for.cond16.preheader, !llvm.loop !22
 
 for.cond16.preheader:                             ; preds = %for.cond
-  %3 = add i32 %maxW.0, 1
-  %cmp1744 = icmp ult i32 %3, 2
-  br i1 %cmp1744, label %for.end26, label %for.body19.preheader
+  %3 = add i32 %maxW.0, -1
+  %cmp1744 = icmp ult i32 %3, -2
+  br i1 %cmp1744, label %for.body19.preheader, label %for.end26
 
 for.body19.preheader:                             ; preds = %for.cond16.preheader
   %wide.trip.count = zext i32 %indvars.iv59 to i64
@@ -3227,7 +3227,7 @@ for.end47:                                        ; preds = %for.body31, %for.en
   store i32 0, ptr %add.ptr, align 4
   %8 = xor i32 %0, -1
   %sub51 = add i32 %conv, %8
-  br i1 %cmp1744, label %for.end67.thread, label %for.body57.preheader
+  br i1 %cmp1744, label %for.body57.preheader, label %for.end67.thread
 
 for.body57.preheader:                             ; preds = %for.end47
   %wide.trip.count70 = zext i32 %indvars.iv59 to i64
@@ -3252,9 +3252,8 @@ for.end67:                                        ; preds = %for.body57
   %sub69 = sub i32 %1, %maxW.0
   %sub71 = add nuw nsw i32 %conv, 1
   %add72 = sub i32 %sub71, %sub69
-  %cmp7355 = icmp uge i32 %sub69, %add72
-  %brmerge = or i1 %cmp7355, %cmp1744
-  br i1 %brmerge, label %for.end94, label %for.body75.us.preheader
+  %cmp7355.not = icmp ult i32 %sub69, %add72
+  br i1 %cmp7355.not, label %for.body75.us.preheader, label %for.end94
 
 for.end67.thread:                                 ; preds = %for.end47
   %sub6986 = sub i32 %1, %maxW.0

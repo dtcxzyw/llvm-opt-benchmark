@@ -1094,8 +1094,8 @@ if.end66:                                         ; preds = %if.then58
 if.end66.thread:                                  ; preds = %if.then58
   %call61 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %ctx, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
   %7 = and i64 %call61, 4294967295
-  %cmp6773 = icmp eq i64 %7, 0
-  br i1 %cmp6773, label %end, label %while.body
+  %cmp6772 = icmp eq i64 %7, 0
+  br i1 %cmp6772, label %end, label %while.body
 
 while.body.us:                                    ; preds = %if.end66, %if.then81.us
   %8 = load ptr, ptr %cond4146, align 8
@@ -1153,8 +1153,8 @@ if.else93:                                        ; preds = %if.end77, %if.end77
   call void @X509_free(ptr noundef %17) #6
   %call95 = call i64 @ERR_peek_last_error() #6
   %18 = and i64 %call95, 4294967295
-  %or.cond67 = icmp eq i64 %18, 75497580
-  br i1 %or.cond67, label %if.then103, label %end
+  %or.cond = icmp eq i64 %18, 75497580
+  br i1 %or.cond, label %if.then103, label %end
 
 if.then103:                                       ; preds = %if.else93
   call void @ERR_clear_error() #6
@@ -1279,9 +1279,9 @@ if.end17:                                         ; preds = %if.end14
   %4 = load ptr, ptr %serverinfo20, align 8
   %call21 = tail call ptr @CRYPTO_realloc(ptr noundef %4, i64 noundef %serverinfo_length, ptr noundef nonnull @.str, i32 noundef 806) #6
   %cmp22 = icmp eq ptr %call21, null
-  br i1 %cmp22, label %common.ret57, label %while.body.i.preheader
+  br i1 %cmp22, label %common.ret57, label %if.end24
 
-while.body.i.preheader:                           ; preds = %if.end17
+if.end24:                                         ; preds = %if.end17
   %5 = load ptr, ptr %cert, align 8
   %6 = load ptr, ptr %5, align 8
   %serverinfo27 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1297,9 +1297,9 @@ while.body.i.preheader:                           ; preds = %if.end17
   store i64 %serverinfo_length, ptr %serverinfo_length33, align 8
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %if.end37.i
-  %pkt.sroa.13.057.i = phi i64 [ %sub.i.i7.i.i, %if.end37.i ], [ %serverinfo_length, %while.body.i.preheader ]
-  %pkt.sroa.0.056.i = phi ptr [ %add.ptr.i.i6.i.i, %if.end37.i ], [ %serverinfo, %while.body.i.preheader ]
+while.body.i:                                     ; preds = %if.end24, %if.end37.i
+  %pkt.sroa.13.057.i = phi i64 [ %sub.i.i7.i.i, %if.end37.i ], [ %serverinfo_length, %if.end24 ]
+  %pkt.sroa.0.056.i = phi ptr [ %add.ptr.i.i6.i.i, %if.end37.i ], [ %serverinfo, %if.end24 ]
   %cmp.i.i.i = icmp ult i64 %pkt.sroa.13.057.i, 4
   br i1 %cmp.i.i.i, label %if.then36, label %lor.lhs.false14.i
 

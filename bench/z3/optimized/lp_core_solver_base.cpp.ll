@@ -271,64 +271,60 @@ if.end7:                                          ; preds = %if.end4
 entry.split.i:                                    ; preds = %if.end7
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %8 = zext i32 %7 to i64
+  %wide.trip.count.i = zext i32 %7 to i64
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %entry.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry.split.i ]
-  %exitcond.i = icmp eq i64 %indvars.iv.i, %8
-  br i1 %exitcond.i, label %if.end10, label %for.body.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %if.end10, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %9 = load ptr, ptr %6, align 8
-  %arrayidx.i.i1 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
-  %10 = load i32, ptr %arrayidx.i.i1, align 4
-  %11 = load ptr, ptr %5, align 8
-  %idxprom.i4.i = zext i32 %10 to i64
-  %arrayidx.i5.i = getelementptr inbounds i32, ptr %11, i64 %idxprom.i4.i
-  %12 = load i32, ptr %arrayidx.i5.i, align 4
-  %13 = zext i32 %12 to i64
-  %cmp4.not.i = icmp eq i64 %indvars.iv.i, %13
+  %8 = load ptr, ptr %6, align 8
+  %arrayidx.i.i1 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i
+  %9 = load i32, ptr %arrayidx.i.i1, align 4
+  %10 = load ptr, ptr %5, align 8
+  %idxprom.i4.i = zext i32 %9 to i64
+  %arrayidx.i5.i = getelementptr inbounds i32, ptr %10, i64 %idxprom.i4.i
+  %11 = load i32, ptr %arrayidx.i5.i, align 4
+  %12 = zext i32 %11 to i64
+  %cmp4.not.i = icmp eq i64 %indvars.iv.i, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %cmp4.not.i, label %for.cond.i, label %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit, !llvm.loop !4
+  br i1 %cmp4.not.i, label %for.cond.i, label %return, !llvm.loop !4
 
-_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit: ; preds = %for.body.i
-  %cmp.le.i.not = icmp ult i64 %indvars.iv.i, %8
-  br i1 %cmp.le.i.not, label %return, label %if.end10
-
-if.end10:                                         ; preds = %for.cond.i, %if.end7, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit
+if.end10:                                         ; preds = %for.cond.i, %if.end7
   %m_nbasis.i = getelementptr inbounds i8, ptr %this, i64 72
-  %14 = load ptr, ptr %m_nbasis.i, align 8
-  %15 = load ptr, ptr %14, align 8
-  %cmp.i.i2 = icmp eq ptr %15, null
+  %13 = load ptr, ptr %m_nbasis.i, align 8
+  %14 = load ptr, ptr %13, align 8
+  %cmp.i.i2 = icmp eq ptr %14, null
   br i1 %cmp.i.i2, label %return, label %entry.split.i4
 
 entry.split.i4:                                   ; preds = %if.end10
-  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %15, i64 -4
-  %16 = load i32, ptr %arrayidx.i.i5, align 4
-  %wide.trip.count.i = zext i32 %16 to i64
-  br label %for.cond.i6
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %14, i64 -4
+  %15 = load i32, ptr %arrayidx.i.i5, align 4
+  %wide.trip.count.i6 = zext i32 %15 to i64
+  br label %for.cond.i7
 
-for.cond.i6:                                      ; preds = %for.body.i8, %entry.split.i4
-  %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i9, %for.body.i8 ], [ 0, %entry.split.i4 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i7, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i8
+for.cond.i7:                                      ; preds = %for.body.i10, %entry.split.i4
+  %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i11, %for.body.i10 ], [ 0, %entry.split.i4 ]
+  %exitcond.not.i9 = icmp eq i64 %indvars.iv.i8, %wide.trip.count.i6
+  br i1 %exitcond.not.i9, label %return, label %for.body.i10
 
-for.body.i8:                                      ; preds = %for.cond.i6
-  %arrayidx.i15.i = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i7
-  %17 = load i32, ptr %arrayidx.i15.i, align 4
-  %18 = load ptr, ptr %5, align 8
-  %idxprom.i16.i = zext i32 %17 to i64
-  %arrayidx.i17.i = getelementptr inbounds i32, ptr %18, i64 %idxprom.i16.i
-  %19 = load i32, ptr %arrayidx.i17.i, align 4
-  %20 = trunc nuw i64 %indvars.iv.i7 to i32
-  %21 = xor i32 %19, %20
-  %cmp6.not.i = icmp eq i32 %21, -1
-  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i7, 1
-  br i1 %cmp6.not.i, label %for.cond.i6, label %return, !llvm.loop !6
+for.body.i10:                                     ; preds = %for.cond.i7
+  %arrayidx.i15.i = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i8
+  %16 = load i32, ptr %arrayidx.i15.i, align 4
+  %17 = load ptr, ptr %5, align 8
+  %idxprom.i16.i = zext i32 %16 to i64
+  %arrayidx.i17.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i16.i
+  %18 = load i32, ptr %arrayidx.i17.i, align 4
+  %19 = trunc nuw i64 %indvars.iv.i8 to i32
+  %20 = xor i32 %18, %19
+  %cmp6.not.i = icmp eq i32 %20, -1
+  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i8, 1
+  br i1 %cmp6.not.i, label %for.cond.i7, label %return, !llvm.loop !6
 
-return:                                           ; preds = %for.body.i8, %for.cond.i6, %if.end10, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit, %if.end4, %if.end, %_ZNK2lp13static_matrixI8rationalS1_E12column_countEv.exit
-  %retval.0 = phi i1 [ true, %_ZNK2lp13static_matrixI8rationalS1_E12column_countEv.exit ], [ false, %if.end ], [ false, %if.end4 ], [ false, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit ], [ true, %if.end10 ], [ %exitcond.not.i, %for.cond.i6 ], [ %exitcond.not.i, %for.body.i8 ]
+return:                                           ; preds = %for.body.i, %for.body.i10, %for.cond.i7, %if.end10, %if.end4, %if.end, %_ZNK2lp13static_matrixI8rationalS1_E12column_countEv.exit
+  %retval.0 = phi i1 [ true, %_ZNK2lp13static_matrixI8rationalS1_E12column_countEv.exit ], [ false, %if.end ], [ false, %if.end4 ], [ true, %if.end10 ], [ %exitcond.not.i9, %for.cond.i7 ], [ %exitcond.not.i9, %for.body.i10 ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -4550,8 +4546,8 @@ if.end.i.i.i:                                     ; preds = %for.cond
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i32 [ %2, %if.end.i.i.i ], [ 0, %for.cond ]
   %3 = zext i32 %retval.0.i.i.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %3
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %3
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit
   %4 = load ptr, ptr %m_value2indices.i, align 8
@@ -4586,7 +4582,7 @@ for.inc:                                          ; preds = %_ZNK6vectorIiLb0EjE
   br label %for.cond, !llvm.loop !41
 
 return:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i._ZNK4heapIN2lp8lpvar_ltEE8containsEi.exit_crit_edge, %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit, %_ZNK4heapIN2lp8lpvar_ltEE8containsEi.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4612,8 +4608,8 @@ if.end.i.i.i:                                     ; preds = %for.cond
 _ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
   %retval.0.i.i.i = phi i32 [ %2, %if.end.i.i.i ], [ 0, %for.cond ]
   %3 = zext i32 %retval.0.i.i.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %3
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %3
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit
   %4 = load ptr, ptr %m_value2indices.i, align 8
@@ -4648,7 +4644,7 @@ for.inc:                                          ; preds = %_ZNK6vectorIiLb0EjE
   br label %for.cond, !llvm.loop !42
 
 return:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i._ZNK4heapIN2lp8lpvar_ltEE8containsEi.exit_crit_edge, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit, %_ZNK4heapIN2lp8lpvar_ltEE8containsEi.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

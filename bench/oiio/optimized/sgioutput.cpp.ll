@@ -1120,10 +1120,7 @@ for.cond.us:                                      ; preds = %invoke.cont57.us
   %cmp.us.not = icmp slt i64 %inc62.us, %conv9.us
   br i1 %cmp.us.not, label %for.body.us, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit27, !llvm.loop !4
 
-for.end.us:                                       ; preds = %for.body16.us.us
-  br i1 %cmp1534.us, label %for.body.preheader.i.us, label %if.end36.us
-
-for.body.preheader.i.us:                          ; preds = %for.end.us
+for.body.preheader.i.us:                          ; preds = %for.body16.us.us
   %wide.trip.count.i.us = zext nneg i32 %11 to i64
   br label %for.body.i.us
 
@@ -1137,7 +1134,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %for
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %if.end36.us, label %for.body.i.us, !llvm.loop !6
 
-if.end36.us:                                      ; preds = %for.body.i.us, %for.body.us, %for.end.us
+if.end36.us:                                      ; preds = %for.body.i.us, %for.body.us
   %15 = load i32, ptr %height, align 8
   %conv39.us = sext i32 %15 to i64
   %mul40.us = mul nsw i64 %c.041.us, %conv39.us
@@ -1179,7 +1176,7 @@ for.body16.us.us:                                 ; preds = %for.body16.us.us, %
   %add.ptr28.us.us = getelementptr inbounds i8, ptr %cdata.035.us.us, i64 %mul27.us
   %inc.us.us = add nuw nsw i64 %x.036.us.us, 1
   %exitcond87.not = icmp eq i64 %inc.us.us, %conv14.us
-  br i1 %exitcond87.not, label %for.end.us, label %for.body16.us.us, !llvm.loop !7
+  br i1 %exitcond87.not, label %for.body.preheader.i.us, label %for.body16.us.us, !llvm.loop !7
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %invoke.cont49.us, %if.end36.us
   %19 = landingpad { ptr, i32 }

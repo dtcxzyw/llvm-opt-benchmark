@@ -3072,13 +3072,12 @@ lpad61:                                           ; preds = %if.end.i98, %if.the
 cleanup66.sink.split.sink.split:                  ; preds = %invoke.cont37, %if.end.i
   %agg.tmp.sink = phi ptr [ %agg.tmp, %if.end.i ], [ %ref.tmp35, %invoke.cont37 ]
   %ref.tmp33.sink.ph = phi ptr [ %value, %if.end.i ], [ %ref.tmp33, %invoke.cont37 ]
-  %retval.1.ph.ph = phi i1 [ %call24, %if.end.i ], [ false, %invoke.cont37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sink) #30
   br label %cleanup66.sink.split
 
 cleanup66.sink.split:                             ; preds = %cleanup66.sink.split.sink.split, %if.end.i98, %if.end.i86, %invoke.cont23
   %ref.tmp33.sink = phi ptr [ %value, %invoke.cont23 ], [ %agg.tmp48, %if.end.i86 ], [ %agg.tmp58, %if.end.i98 ], [ %ref.tmp33.sink.ph, %cleanup66.sink.split.sink.split ]
-  %retval.1.ph = phi i1 [ %call24, %invoke.cont23 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ %retval.1.ph.ph, %cleanup66.sink.split.sink.split ]
+  %retval.1.ph = phi i1 [ true, %invoke.cont23 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ false, %cleanup66.sink.split.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33.sink) #30
   br label %cleanup66
 
@@ -5320,13 +5319,12 @@ lpad58:                                           ; preds = %if.end.i98, %if.the
 cleanup63.sink.split.sink.split:                  ; preds = %invoke.cont34, %if.end.i
   %agg.tmp.sink = phi ptr [ %agg.tmp, %if.end.i ], [ %ref.tmp32, %invoke.cont34 ]
   %ref.tmp30.sink.ph = phi ptr [ %value, %if.end.i ], [ %ref.tmp30, %invoke.cont34 ]
-  %retval.1.ph.ph = phi i1 [ %call21, %if.end.i ], [ false, %invoke.cont34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sink) #30
   br label %cleanup63.sink.split
 
 cleanup63.sink.split:                             ; preds = %cleanup63.sink.split.sink.split, %if.end.i98, %if.end.i86, %invoke.cont20
   %ref.tmp30.sink = phi ptr [ %value, %invoke.cont20 ], [ %agg.tmp45, %if.end.i86 ], [ %agg.tmp55, %if.end.i98 ], [ %ref.tmp30.sink.ph, %cleanup63.sink.split.sink.split ]
-  %retval.1.ph = phi i1 [ %call21, %invoke.cont20 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ %retval.1.ph.ph, %cleanup63.sink.split.sink.split ]
+  %retval.1.ph = phi i1 [ true, %invoke.cont20 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ false, %cleanup63.sink.split.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.sink) #30
   br label %cleanup63
 
@@ -10907,13 +10905,10 @@ _ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i: ; preds = %for.cond.i.i
   %33 = load i32, ptr %second2.i.i.i, align 4
   %cmp3.i.i.i = icmp eq i32 %33, %27
   %34 = select i1 %cmp.i.i.i122, i1 %cmp3.i.i.i, i1 false
-  br i1 %34, label %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145, label %for.cond.i.i, !llvm.loop !67
+  br i1 %34, label %for.cond.i.i146, label %for.cond.i.i, !llvm.loop !67
 
-_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145: ; preds = %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i
-  br i1 %30, label %_ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit.i, label %for.cond.i.i146
-
-for.cond.i.i146:                                  ; preds = %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159
-  %nProbes.015.i9.i = phi i32 [ %inc.i.i147, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ], [ 0, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145 ]
+for.cond.i.i146:                                  ; preds = %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159
+  %nProbes.015.i9.i = phi i32 [ %inc.i.i147, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ], [ 0, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i ]
   %inc.i.i147 = add nuw nsw i32 %nProbes.015.i9.i, 1
   %div7.i.i148 = lshr i32 %inc.i.i147, 1
   %conv.i.i149 = zext nneg i32 %div7.i.i148 to i64
@@ -10938,9 +10933,9 @@ _ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159: ; preds = %for.cond.i.i14
   %38 = select i1 %cmp.i.i.i160, i1 %cmp3.i.i.i162, i1 false
   br i1 %38, label %_ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit.i, label %for.cond.i.i146, !llvm.loop !67
 
-_ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit.i: ; preds = %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159, %for.cond.i.i146, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145
-  %39 = phi i8 [ %24, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145 ], [ %24, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i ], [ %35, %for.cond.i.i146 ], [ %35, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ]
-  %and8.lcssa.i.i142 = phi i64 [ %and.i.i, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i145 ], [ %and.i.i, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i ], [ %and8.i.i155, %for.cond.i.i146 ], [ %and8.i.i155, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ]
+_ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEE10FindOffsetERKS2_.exit.i: ; preds = %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159, %for.cond.i.i146, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i
+  %39 = phi i8 [ %24, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i ], [ %35, %for.cond.i.i146 ], [ %35, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ]
+  %and8.lcssa.i.i142 = phi i64 [ %and.i.i, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.preheader.i ], [ %and8.i.i155, %for.cond.i.i146 ], [ %and8.i.i155, %_ZNK4pstd8optionalISt4pairIS1_IiiEiEEptEv.exit.i.i159 ]
   %tobool.i.i143 = trunc i8 %39 to i1
   br i1 %tobool.i.i143, label %_ZNK4pbrt7HashMapISt4pairIiiEiNS_11HashIntPairEN4pstd3pmr21polymorphic_allocatorINS4_8optionalIS1_IS2_iEEEEEEixERKS2_.exit, label %land.rhs.i
 
@@ -11723,23 +11718,23 @@ if.end.i.i:
   %nStored.i34 = getelementptr inbounds i8, ptr %newTable, i64 24
   %mul.i.i.i = shl i64 %.sroa.speculated, 4
   %cmp.i.i.i.i.i = icmp eq i64 %mul.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.i, label %for.end.i.ithread-pre-split
+  br i1 %cmp.i.i.i.i.i, label %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i, label %for.end.i.ithread-pre-split
 
 for.end.i.ithread-pre-split:                      ; preds = %if.end.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i42 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.0.0.copyload.i, i64 noundef %mul.i.i.i, i64 noundef 4)
-  br label %for.body.lr.ph.i
+  br label %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end.i.i, %for.end.i.ithread-pre-split
+_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i: ; preds = %if.end.i.i, %for.end.i.ithread-pre-split
   %3 = phi ptr [ %call.i.i.i.i.i42, %for.end.i.ithread-pre-split ], [ null, %if.end.i.i ]
   store i64 %.sroa.speculated, ptr %nAlloc.i33, align 8
   store ptr %3, ptr %ptr.i32, align 8
   br label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i
 
-_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i: ; preds = %for.body.lr.ph.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i
-  %i.010.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i ]
+_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i: ; preds = %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i
+  %i.010.i = phi i64 [ 0, %_ZN4pstd6vectorINS_8optionalISt4pairIS2_IiiEiEEENS_3pmr21polymorphic_allocatorIS5_EEE7reserveEm.exit.i ], [ %inc.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIS3_IiiEiEEEE9constructIS6_JRKS6_EEEvPT_DpOT0_.exit.i ]
   %set.i.i.i = getelementptr inbounds %"class.pstd::optional.102", ptr %3, i64 %i.010.i, i32 1
   store i8 0, ptr %set.i.i.i, align 4
   %inc.i = add nuw i64 %i.010.i, 1

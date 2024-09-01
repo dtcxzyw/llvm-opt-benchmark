@@ -4335,9 +4335,6 @@ invoke.cont180:                                   ; preds = %if.end175
   %cmp.i132.not257 = icmp eq ptr %69, %70
   br i1 %cmp.i132.not257, label %for.inc224, label %for.body191
 
-for.cond205.preheader:                            ; preds = %for.body191
-  br i1 %cmp.i132.not257, label %for.inc224, label %invoke.cont218
-
 for.body191:                                      ; preds = %invoke.cont180, %for.body191
   %a182.sroa.0.0261 = phi ptr [ %incdec.ptr.i141, %for.body191 ], [ %69, %invoke.cont180 ]
   %vNormals181.sroa.0.0260 = phi float [ %add.i134, %for.body191 ], [ 0.000000e+00, %invoke.cont180 ]
@@ -4356,10 +4353,10 @@ for.body191:                                      ; preds = %invoke.cont180, %fo
   %add6.i140 = fadd float %vNormals181.sroa.7.0258, %74
   %incdec.ptr.i141 = getelementptr inbounds i8, ptr %a182.sroa.0.0261, i64 4
   %cmp.i132.not = icmp eq ptr %incdec.ptr.i141, %70
-  br i1 %cmp.i132.not, label %for.cond205.preheader, label %for.body191, !llvm.loop !40
+  br i1 %cmp.i132.not, label %invoke.cont218, label %for.body191, !llvm.loop !40
 
-invoke.cont218:                                   ; preds = %for.cond205.preheader, %invoke.cont218
-  %a201.sroa.0.0265 = phi ptr [ %incdec.ptr.i155, %invoke.cont218 ], [ %69, %for.cond205.preheader ]
+invoke.cont218:                                   ; preds = %for.body191, %invoke.cont218
+  %a201.sroa.0.0265 = phi ptr [ %incdec.ptr.i155, %invoke.cont218 ], [ %69, %for.body191 ]
   %75 = load ptr, ptr %mNormals216, align 8
   %76 = load i32, ptr %a201.sroa.0.0265, align 4
   %idxprom213 = zext i32 %76 to i64
@@ -4384,7 +4381,7 @@ invoke.cont218:                                   ; preds = %for.cond205.prehead
   %cmp.i143.not = icmp eq ptr %incdec.ptr.i155, %80
   br i1 %cmp.i143.not, label %for.inc224, label %invoke.cont218, !llvm.loop !41
 
-for.inc224:                                       ; preds = %invoke.cont218, %invoke.cont180, %for.cond205.preheader, %invoke.cont171
+for.inc224:                                       ; preds = %invoke.cont218, %invoke.cont180, %invoke.cont171
   %incdec.ptr225 = getelementptr inbounds i8, ptr %beginIdx157.0267, i64 4
   %cmp165.not = icmp eq ptr %incdec.ptr225, %add.ptr163
   br i1 %cmp165.not, label %for.inc227, label %invoke.cont171, !llvm.loop !42

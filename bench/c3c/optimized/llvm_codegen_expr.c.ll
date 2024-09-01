@@ -8301,8 +8301,8 @@ define dso_local void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef %1, pt
 28:                                               ; preds = %14
   %29 = getelementptr inbounds i8, ptr %16, i64 56
   %30 = load ptr, ptr %29, align 8
-  %.not269 = icmp eq ptr %30, null
-  br i1 %.not269, label %.thread, label %31
+  %.not265 = icmp eq ptr %30, null
+  br i1 %.not265, label %.thread, label %31
 
 31:                                               ; preds = %28
   %32 = load i32, ptr %30, align 8
@@ -16834,7 +16834,7 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocaptur
 llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %148
   %186 = load i8, ptr %18, align 4
   %187 = and i8 %186, 4
-  %.not146.not = icmp eq i8 %187, 0
+  %.not146 = icmp eq i8 %187, 0
   %.lobit = lshr exact i8 %187, 2
   store i8 %.lobit, ptr %5, align 1
   br i1 %.not142, label %230, label %188
@@ -16860,7 +16860,7 @@ llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %1
   br label %200
 
 200:                                              ; preds = %192, %188
-  br i1 %.not146.not, label %208, label %.thread
+  br i1 %.not146, label %208, label %.thread
 
 .thread:                                          ; preds = %200
   %201 = getelementptr inbounds i8, ptr %8, i64 16

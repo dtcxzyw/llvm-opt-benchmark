@@ -131,8 +131,8 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %9, align 8
-  %.not.not = icmp eq i64 %21, -9223372036854775807
-  br i1 %.not.not, label %.thread16, label %22
+  %.not = icmp eq i64 %21, -9223372036854775807
+  br i1 %.not, label %.thread16, label %22
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
@@ -262,8 +262,8 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %9, align 8
-  %.not.not = icmp eq i64 %21, -9223372036854775807
-  br i1 %.not.not, label %.thread16, label %22
+  %.not = icmp eq i64 %21, -9223372036854775807
+  br i1 %.not, label %.thread16, label %22
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
@@ -474,8 +474,8 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %.not.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
-  br i1 %.not.not, label %.thread17, label %19
+  %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
+  br i1 %.not, label %.thread17, label %19
 
 19:                                               ; preds = %17
   store i64 %.sroa.0.0.copyload, ptr %7, align 8

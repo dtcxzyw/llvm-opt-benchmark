@@ -8331,13 +8331,13 @@ dissect_dcm_tag_open.exit:                        ; preds = %62, %27, %30
   %177 = getelementptr inbounds i8, ptr %176, i64 84
   %178 = load i32, ptr %177, align 4
   %.not104.i118 = icmp eq i32 %178, 0
-  br i1 %.not104.i118, label %.lr.ph120, label %.lr.ph137.preheader.i
+  br i1 %.not104.i118, label %.lr.ph120, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph120
   %179 = getelementptr inbounds i8, ptr %186, i64 84
   %180 = load i32, ptr %179, align 4
   %.not104.i = icmp eq i32 %180, 0
-  br i1 %.not104.i, label %.lr.ph120, label %.lr.ph137.preheader.i, !llvm.loop !15
+  br i1 %.not104.i, label %.lr.ph120, label %.critedge.i, !llvm.loop !15
 
 .lr.ph120:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.088129.i119 = phi i32 [ %184, %.lr.ph.i ], [ %174, %.lr.ph.i.preheader ]
@@ -8348,18 +8348,18 @@ dissect_dcm_tag_open.exit:                        ; preds = %62, %27, %30
   %185 = getelementptr inbounds i8, ptr %181, i64 8
   %186 = load ptr, ptr %185, align 8
   %.not.i114 = icmp eq ptr %186, null
-  br i1 %.not.i114, label %.lr.ph137.preheader.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i114, label %.critedge.i, label %.lr.ph.i, !llvm.loop !15
 
-.lr.ph137.preheader.i:                            ; preds = %.lr.ph120, %.lr.ph.i, %.lr.ph.i.preheader
-  %.092.lcssa.i = phi ptr [ %4, %.lr.ph.i.preheader ], [ %181, %.lr.ph.i ], [ %181, %.lr.ph120 ]
-  %.088.lcssa.i = phi i32 [ %174, %.lr.ph.i.preheader ], [ %184, %.lr.ph.i ], [ %184, %.lr.ph120 ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph120, %.lr.ph.i.preheader
+  %.092.lcssa.i = phi ptr [ %4, %.lr.ph.i.preheader ], [ %181, %.lr.ph120 ], [ %181, %.lr.ph.i ]
+  %.088.lcssa.i = phi i32 [ %174, %.lr.ph.i.preheader ], [ %184, %.lr.ph120 ], [ %184, %.lr.ph.i ]
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %.lr.ph137.i
 
-.lr.ph137.i:                                      ; preds = %191, %.lr.ph137.preheader.i
-  %187 = phi ptr [ %194, %191 ], [ %176, %.lr.ph137.preheader.i ]
-  %.087136.i = phi i16 [ %192, %191 ], [ 1, %.lr.ph137.preheader.i ]
+.lr.ph137.i:                                      ; preds = %191, %.critedge.i
+  %187 = phi ptr [ %194, %191 ], [ %176, %.critedge.i ]
+  %.087136.i = phi i16 [ %192, %191 ], [ 1, %.critedge.i ]
   %188 = getelementptr inbounds i8, ptr %187, i64 16
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, %.pre.i
@@ -8901,12 +8901,9 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %161 = phi i32 [ %157, %sub_1 ], [ %160, %sub_2 ]
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %246, label %sub_0448
+  br i1 %162, label %246, label %sub_1449
 
-sub_0448:                                         ; preds = %.tail
-  br i1 %.not501, label %sub_1449, label %.tail447
-
-sub_1449:                                         ; preds = %sub_0448
+sub_1449:                                         ; preds = %.tail
   %163 = getelementptr inbounds i8, ptr %.1323, i64 1
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
@@ -8920,8 +8917,8 @@ sub_2450:                                         ; preds = %sub_1449
   %169 = zext i8 %168 to i32
   br label %.tail447
 
-.tail447:                                         ; preds = %sub_0, %sub_0448, %sub_1449, %sub_2450
-  %170 = phi i32 [ %153, %sub_0448 ], [ %166, %sub_1449 ], [ %169, %sub_2450 ], [ %153, %sub_0 ]
+.tail447:                                         ; preds = %sub_0, %sub_1449, %sub_2450
+  %170 = phi i32 [ %166, %sub_1449 ], [ %169, %sub_2450 ], [ %153, %sub_0 ]
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %246, label %sub_0453
 
@@ -8945,12 +8942,9 @@ sub_2455:                                         ; preds = %sub_1454
 .tail452:                                         ; preds = %sub_1454, %sub_2455
   %179 = phi i32 [ %175, %sub_1454 ], [ %178, %sub_2455 ]
   %180 = icmp eq i32 %179, 0
-  br i1 %180, label %246, label %sub_0458
+  br i1 %180, label %246, label %sub_1459
 
-sub_0458:                                         ; preds = %.tail452
-  br i1 %.not501, label %sub_1459, label %.tail457
-
-sub_1459:                                         ; preds = %sub_0458
+sub_1459:                                         ; preds = %.tail452
   %181 = getelementptr inbounds i8, ptr %.1323, i64 1
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
@@ -8964,8 +8958,8 @@ sub_2460:                                         ; preds = %sub_1459
   %187 = zext i8 %186 to i32
   br label %.tail457
 
-.tail457:                                         ; preds = %sub_0453, %sub_0458, %sub_1459, %sub_2460
-  %188 = phi i32 [ %153, %sub_0458 ], [ %184, %sub_1459 ], [ %187, %sub_2460 ], [ %153, %sub_0453 ]
+.tail457:                                         ; preds = %sub_0453, %sub_1459, %sub_2460
+  %188 = phi i32 [ %184, %sub_1459 ], [ %187, %sub_2460 ], [ %153, %sub_0453 ]
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %246, label %sub_0463
 
@@ -9037,12 +9031,9 @@ sub_2475:                                         ; preds = %sub_1474
 .tail472:                                         ; preds = %sub_1474, %sub_2475
   %217 = phi i32 [ %213, %sub_1474 ], [ %216, %sub_2475 ]
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %246, label %sub_0478
+  br i1 %218, label %246, label %sub_1479
 
-sub_0478:                                         ; preds = %.tail472
-  br i1 %.not513, label %sub_1479, label %.tail477
-
-sub_1479:                                         ; preds = %sub_0478
+sub_1479:                                         ; preds = %.tail472
   %219 = getelementptr inbounds i8, ptr %.1323, i64 1
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
@@ -9056,8 +9047,8 @@ sub_2480:                                         ; preds = %sub_1479
   %225 = zext i8 %224 to i32
   br label %.tail477
 
-.tail477:                                         ; preds = %sub_0473, %sub_0478, %sub_1479, %sub_2480
-  %226 = phi i32 [ %209, %sub_0478 ], [ %222, %sub_1479 ], [ %225, %sub_2480 ], [ %209, %sub_0473 ]
+.tail477:                                         ; preds = %sub_0473, %sub_1479, %sub_2480
+  %226 = phi i32 [ %222, %sub_1479 ], [ %225, %sub_2480 ], [ %209, %sub_0473 ]
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %246, label %sub_0483
 
@@ -9081,12 +9072,9 @@ sub_2485:                                         ; preds = %sub_1484
 .tail482:                                         ; preds = %sub_1484, %sub_2485
   %235 = phi i32 [ %231, %sub_1484 ], [ %234, %sub_2485 ]
   %236 = icmp eq i32 %235, 0
-  br i1 %236, label %246, label %sub_0488
+  br i1 %236, label %246, label %sub_1489
 
-sub_0488:                                         ; preds = %.tail482
-  br i1 %.not513, label %sub_1489, label %.tail487
-
-sub_1489:                                         ; preds = %sub_0488
+sub_1489:                                         ; preds = %.tail482
   %237 = getelementptr inbounds i8, ptr %.1323, i64 1
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
@@ -9100,8 +9088,8 @@ sub_2490:                                         ; preds = %sub_1489
   %243 = zext i8 %242 to i32
   br label %.tail487
 
-.tail487:                                         ; preds = %sub_0483, %sub_0488, %sub_1489, %sub_2490
-  %244 = phi i32 [ %209, %sub_0488 ], [ %240, %sub_1489 ], [ %243, %sub_2490 ], [ %209, %sub_0483 ]
+.tail487:                                         ; preds = %sub_0483, %sub_1489, %sub_2490
+  %244 = phi i32 [ %240, %sub_1489 ], [ %243, %sub_2490 ], [ %209, %sub_0483 ]
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %.thread433
 
@@ -11327,11 +11315,10 @@ switch.lookup:                                    ; preds = %50
 
 .lr.ph:                                           ; preds = %54
   %61 = icmp eq i8 %.fr7, 0
-  %or.cond = and i1 %.not, %61
   %62 = getelementptr inbounds i8, ptr %.1.i, i64 40
   %63 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %64 = getelementptr inbounds i8, ptr %.1.i, i64 56
-  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+  br i1 %61, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread19, %.lr.ph
   %.01002328 = phi ptr [ %.1101, %.lr.ph ], [ @.str.257, %.thread19 ]

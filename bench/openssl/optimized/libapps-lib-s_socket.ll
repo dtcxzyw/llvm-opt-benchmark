@@ -440,7 +440,7 @@ if.then5:                                         ; preds = %get_sock_info_addre
   %cond = select i1 %cmp7, ptr @.str.10, ptr @.str.11
   %call8 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull %cond, ptr noundef nonnull %hostname.0, ptr noundef nonnull %service.0) #9
   %cmp9 = icmp sgt i32 %call8, 0
-  %3 = zext i1 %cmp9 to i32
+  %conv = zext i1 %cmp9 to i32
   br label %if.end11
 
 if.else:                                          ; preds = %get_sock_info_address.exit
@@ -448,13 +448,13 @@ if.else:                                          ; preds = %get_sock_info_addre
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then5
-  %success.1.in = phi i32 [ %3, %if.then5 ], [ 0, %if.else ]
+  %success.1 = phi i32 [ %conv, %if.then5 ], [ 0, %if.else ]
   call void @CRYPTO_free(ptr noundef %hostname.0, ptr noundef nonnull @.str.1, i32 noundef 264) #9
   call void @CRYPTO_free(ptr noundef %service.0, ptr noundef nonnull @.str.1, i32 noundef 265) #9
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.end
-  %success.0 = phi i32 [ %success.1.in, %if.end11 ], [ 1, %if.end ]
+  %success.0 = phi i32 [ %success.1, %if.end11 ], [ 1, %if.end ]
   %tobool13.not = icmp eq i32 %with_pid, 0
   br i1 %tobool13.not, label %if.end19, label %if.then14
 
@@ -610,9 +610,9 @@ lor.lhs.false60:                                  ; preds = %if.end51, %if.end58
   %sock_options.27888 = phi i32 [ %sock_options.278, %if.end58 ], [ %sock_options.1, %if.end51 ]
   %call61 = call i32 @BIO_listen(i32 noundef %asock.089, ptr noundef %sock_address.190, i32 noundef %sock_options.27888) #9
   %tobool62.not = icmp eq i32 %call61, 0
-  br i1 %tobool62.not, label %if.then65, label %if.end68
+  br i1 %tobool62.not, label %if.then63, label %if.end68
 
-if.then65:                                        ; preds = %lor.lhs.false60
+if.then63:                                        ; preds = %lor.lhs.false60
   %9 = load ptr, ptr %res, align 8
   call void @BIO_ADDRINFO_free(ptr noundef %9) #9
   %10 = load ptr, ptr @bio_err, align 8
@@ -744,8 +744,8 @@ end.critedge:                                     ; preds = %if.end58
   call void @ERR_print_errors(ptr noundef %19) #9
   br label %end
 
-end:                                              ; preds = %end.critedge, %if.then97, %if.then138, %if.then65, %if.then87, %if.then74
-  %ret.0 = phi i32 [ 0, %if.then65 ], [ 0, %if.then87 ], [ 0, %if.then97 ], [ %.us-phi, %if.then138 ], [ 0, %if.then74 ], [ 0, %end.critedge ]
+end:                                              ; preds = %end.critedge, %if.then97, %if.then138, %if.then63, %if.then87, %if.then74
+  %ret.0 = phi i32 [ 0, %if.then63 ], [ 0, %if.then87 ], [ 0, %if.then97 ], [ %.us-phi, %if.then138 ], [ 0, %if.then74 ], [ 0, %end.critedge ]
   %cmp142 = icmp eq i32 %family, 1
   br i1 %cmp142, label %if.then144, label %if.end146
 

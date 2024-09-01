@@ -1137,8 +1137,8 @@ if.end530:                                        ; preds = %if.end526
   %conv532 = trunc i64 %call531 to i32
   %call533 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %83, i32 noundef %conv532) #11
   %and534 = and i32 %85, 8
-  %tobool535.not.not = icmp eq i32 %and534, 0
-  br i1 %tobool535.not.not, label %land.lhs.true536, label %if.end543
+  %tobool535.not = icmp eq i32 %and534, 0
+  br i1 %tobool535.not, label %land.lhs.true536, label %if.end543
 
 land.lhs.true536:                                 ; preds = %if.end530
   %call537 = call i32 @lstat64(ptr noundef %83, ptr noundef nonnull %st) #11
@@ -1167,7 +1167,7 @@ if.end543:                                        ; preds = %if.then539, %land.l
   br i1 %or.cond2, label %if.then549, label %for.inc603
 
 if.then549:                                       ; preds = %if.end543
-  br i1 %tobool535.not.not, label %if.else570, label %land.lhs.true552
+  br i1 %tobool535.not, label %if.else570, label %land.lhs.true552
 
 land.lhs.true552:                                 ; preds = %if.then549
   %call553 = call i32 @path_in_sparse_checkout(ptr noundef %84, ptr noundef nonnull @the_index) #11
@@ -1496,7 +1496,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 for.end:                                          ; preds = %for.body.us, %for.body.us.us, %while.end, %while.end.us46
   %arrayidx30 = getelementptr inbounds ptr, ptr %call3, i64 %wide.trip.count75
   store ptr null, ptr %arrayidx30, align 8
-  br i1 %cmp37, label %for.body34, label %for.end44
+  br label %for.body34
 
 for.body34:                                       ; preds = %for.end, %for.body34
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %for.body34 ], [ 0, %for.end ]
@@ -1510,7 +1510,7 @@ for.body34:                                       ; preds = %for.end, %for.body3
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count75
   br i1 %exitcond81.not, label %for.end44, label %for.body34, !llvm.loop !12
 
-for.end44:                                        ; preds = %for.body34, %for.end.thread, %for.end
+for.end44:                                        ; preds = %for.body34, %for.end.thread
   ret ptr %call3
 }
 

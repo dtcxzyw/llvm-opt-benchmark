@@ -1369,7 +1369,7 @@ if.then14:                                        ; preds = %if.then9
   %7 = load ptr, ptr @PyExc_ArgError, align 8
   %add = add nuw nsw i64 %i.091, 1
   tail call void (ptr, ptr, ...) @_ctypes_extend_error(ptr noundef %7, ptr noundef nonnull @.str.8, i64 noundef %add)
-  br i1 %cmp589106, label %for.body79.preheader, label %return
+  br label %for.body79.preheader
 
 if.end15:                                         ; preds = %if.then9
   %add16 = add nuw nsw i64 %i.091, 1
@@ -1396,7 +1396,7 @@ Py_DECREF.exit:                                   ; preds = %if.end15, %if.then1
 if.then19:                                        ; preds = %Py_DECREF.exit
   %10 = load ptr, ptr @PyExc_ArgError, align 8
   tail call void (ptr, ptr, ...) @_ctypes_extend_error(ptr noundef %10, ptr noundef nonnull @.str.8, i64 noundef %add16)
-  br i1 %cmp589106, label %for.body79.preheader, label %return
+  br label %for.body79.preheader
 
 if.else:                                          ; preds = %for.body
   %add22 = add nuw nsw i64 %i.091, 1
@@ -1407,7 +1407,7 @@ if.else:                                          ; preds = %for.body
 if.then25:                                        ; preds = %if.else
   %11 = load ptr, ptr @PyExc_ArgError, align 8
   tail call void (ptr, ptr, ...) @_ctypes_extend_error(ptr noundef %11, ptr noundef nonnull @.str.8, i64 noundef %add22)
-  br i1 %cmp589106, label %for.body79.preheader, label %return
+  br label %for.body79.preheader
 
 for.inc:                                          ; preds = %Py_DECREF.exit, %if.else
   %inc.pre-phi = phi i64 [ %add16, %Py_DECREF.exit ], [ %add22, %if.else ]
@@ -1416,7 +1416,7 @@ for.inc:                                          ; preds = %Py_DECREF.exit, %if
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %cond.end.thread, %cond.end
-  %cmp589109 = phi i1 [ false, %cond.end.thread ], [ false, %cond.end ], [ true, %for.inc.us ], [ %cmp589106, %for.inc ]
+  %cmp589109 = phi i1 [ false, %cond.end.thread ], [ false, %cond.end ], [ true, %for.inc.us ], [ true, %for.inc ]
   %cond107 = phi i64 [ %argtypes.val, %cond.end.thread ], [ 0, %cond.end ], [ 0, %for.inc.us ], [ %argtypes.val, %for.inc ]
   %cmp29 = icmp eq ptr %restype, @_Py_NoneStruct
   br i1 %cmp29, label %if.end33, label %if.else31
@@ -1685,7 +1685,7 @@ for.body79.preheader.critedge:                    ; preds = %for.body.us
   tail call void (ptr, ptr, ...) @_ctypes_extend_error(ptr noundef %40, ptr noundef nonnull @.str.8, i64 noundef %add22.us)
   br label %for.body79.preheader
 
-for.body79.preheader:                             ; preds = %for.body79.preheader.critedge, %if.then1.i.i, %if.then9.i, %if.then.i, %_call_function_pointer.exit.thread, %if.then25, %if.then19, %if.then14, %cleanup
+for.body79.preheader:                             ; preds = %if.then14, %if.then19, %if.then25, %for.body79.preheader.critedge, %if.then1.i.i, %if.then9.i, %if.then.i, %_call_function_pointer.exit.thread, %cleanup
   %retval1.0121 = phi ptr [ null, %if.then14 ], [ %retval1.0, %cleanup ], [ null, %if.then19 ], [ null, %if.then25 ], [ null, %_call_function_pointer.exit.thread ], [ %call.i77, %if.then.i ], [ %call10.i, %if.then9.i ], [ %call30.i, %if.then1.i.i ], [ null, %for.body79.preheader.critedge ]
   br label %for.body79
 
@@ -1717,8 +1717,8 @@ Py_XDECREF.exit:                                  ; preds = %for.body79, %if.the
   %exitcond104.not = icmp eq i64 %inc82, %argtuple.val
   br i1 %exitcond104.not, label %return, label %for.body79, !llvm.loop !7
 
-return:                                           ; preds = %Py_XDECREF.exit, %if.then1.i.i, %if.then9.i, %if.then.i, %_call_function_pointer.exit.thread, %if.then25, %if.then19, %if.then14, %cleanup, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %retval1.0, %cleanup ], [ null, %if.then14 ], [ null, %if.then19 ], [ null, %if.then25 ], [ null, %_call_function_pointer.exit.thread ], [ %call.i77, %if.then.i ], [ %call10.i, %if.then9.i ], [ %call30.i, %if.then1.i.i ], [ %retval1.0121, %Py_XDECREF.exit ]
+return:                                           ; preds = %Py_XDECREF.exit, %if.then1.i.i, %if.then9.i, %if.then.i, %_call_function_pointer.exit.thread, %cleanup, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval1.0, %cleanup ], [ null, %_call_function_pointer.exit.thread ], [ %call.i77, %if.then.i ], [ %call10.i, %if.then9.i ], [ %call30.i, %if.then1.i.i ], [ %retval1.0121, %Py_XDECREF.exit ]
   ret ptr %retval.0
 }
 

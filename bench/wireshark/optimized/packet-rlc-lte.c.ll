@@ -2395,7 +2395,6 @@ thread-pre-split.i.i:                             ; preds = %588
   br i1 %687, label %681, label %._crit_edge.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %681, %._crit_edge88.i.i.i
-  %.not99.i.i.i218 = phi i1 [ true, %._crit_edge88.i.i.i ], [ %.not99.i.i.i, %681 ]
   %688 = phi i16 [ 0, %._crit_edge88.i.i.i ], [ %.pre, %681 ]
   %.not77.i.i.i = icmp eq i16 %.067.lcssa.i.i.i, 0
   br i1 %.not77.i.i.i, label %722, label %689
@@ -2403,7 +2402,7 @@ thread-pre-split.i.i:                             ; preds = %588
 689:                                              ; preds = %._crit_edge.i.i.i
   %690 = call ptr @wmem_file_scope() #13
   %691 = call noalias ptr @wmem_alloc(ptr noundef %690, i64 noundef 1032) #13
-  br i1 %.not99.i.i.i218, label %._crit_edge96.i.i.i, label %.lr.ph95.i.i.i
+  br i1 %.not99.i.i.i, label %._crit_edge96.i.i.i, label %.lr.ph95.i.i.i
 
 .lr.ph95.i.i.i:                                   ; preds = %689
   %narrow82.i.i.i = call i16 @llvm.umin.i16(i16 %688, i16 512)

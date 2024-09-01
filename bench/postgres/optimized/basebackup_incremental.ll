@@ -666,9 +666,6 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   store i64 %.0177.lcssa, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 1080
   store i32 %.0175.lcssa, ptr %84, align 8
-  br i1 %27, label %.lr.ph296, label %._crit_edge297
-
-.lr.ph296:                                        ; preds = %._crit_edge
   %85 = load ptr, ptr %12, align 8
   %86 = getelementptr i8, ptr %85, i64 16
   %.val209 = load ptr, ptr %86, align 8
@@ -676,8 +673,8 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %wide.trip.count370 = zext nneg i32 %15 to i64
   br label %88
 
-88:                                               ; preds = %.lr.ph296, %177
-  %indvars.iv367 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next368, %177 ]
+88:                                               ; preds = %._crit_edge, %177
+  %indvars.iv367 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next368, %177 ]
   %89 = getelementptr %union.ListCell, ptr %.val209, i64 %indvars.iv367
   %90 = load ptr, ptr %89, align 8
   %91 = load i32, ptr %90, align 8
@@ -801,9 +798,9 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
   br i1 %exitcond371.not, label %._crit_edge297, label %88, !llvm.loop !10
 
-._crit_edge297:                                   ; preds = %177, %._crit_edge.thread, %._crit_edge
-  %.0175.lcssa396 = phi i32 [ 0, %._crit_edge.thread ], [ %.0175.lcssa, %._crit_edge ], [ %.0175.lcssa, %177 ]
-  %.0177.lcssa395 = phi i64 [ 0, %._crit_edge.thread ], [ %.0177.lcssa, %._crit_edge ], [ %.0177.lcssa, %177 ]
+._crit_edge297:                                   ; preds = %177, %._crit_edge.thread
+  %.0175.lcssa396 = phi i32 [ 0, %._crit_edge.thread ], [ %.0175.lcssa, %177 ]
+  %.0177.lcssa395 = phi i64 [ 0, %._crit_edge.thread ], [ %.0177.lcssa, %177 ]
   %178 = tail call i64 @GetCurrentTimestamp() #12
   %179 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %178, i64 noundef %178) #12
   %180 = srem i64 %179, 10000

@@ -1126,8 +1126,8 @@ _ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit: ; preds = %.
           to label %.noexc52 unwind label %.loopexit
 
 .noexc52:                                         ; preds = %105
-  %.not.not.i.not.i.not = icmp eq ptr %106, null
-  br i1 %.not.not.i.not.i.not, label %110, label %107
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %106, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %110, label %107
 
 107:                                              ; preds = %.noexc52
   %108 = load i8, ptr %106, align 1, !range !87, !alias.scope !128, !noalias !133, !noundef !5

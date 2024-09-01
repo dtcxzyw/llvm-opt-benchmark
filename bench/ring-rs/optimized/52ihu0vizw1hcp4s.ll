@@ -921,8 +921,8 @@ define noundef zeroext i1 @"_ZN56_$LT$ring..debug..HexStr$u20$as$u20$core..fmt..
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !324
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !324
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !324
-  %.not20.i = icmp eq ptr %22, %12
-  br i1 %.not20.i, label %.loopexit, label %19
+  %.not18.i = icmp eq ptr %22, %12
+  br i1 %.not18.i, label %.loopexit, label %19
 
 _ZN4ring5debug15write_hex_bytes17h78da22ec055b5923E.exit: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !324
@@ -999,8 +999,8 @@ define hidden noundef zeroext i1 @_ZN4ring5debug15write_hex_bytes17h78da22ec055b
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %.not20 = icmp eq ptr %19, %8
-  br i1 %.not20, label %.loopexit, label %15
+  %.not18 = icmp eq ptr %19, %8
+  br i1 %.not18, label %.loopexit, label %15
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)

@@ -6316,7 +6316,7 @@ define noalias noundef ptr @PQescapeIdentifier(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @PQescapeByteaConn(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define noalias ptr @PQescapeByteaConn(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %5
 
@@ -6349,7 +6349,7 @@ define noalias noundef ptr @PQescapeByteaConn(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @PQescapeByteaInternal(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = select i1 %4, i64 1, i64 2
   br i1 %5, label %.thread, label %.preheader
 
@@ -6409,11 +6409,11 @@ define internal fastcc noalias noundef ptr @PQescapeByteaInternal(ptr noundef %0
 
 26:                                               ; preds = %.thread, %._crit_edge
   %.not82 = icmp eq ptr %0, null
-  br i1 %.not82, label %98, label %27
+  br i1 %.not82, label %97, label %27
 
 27:                                               ; preds = %26
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #26
-  br label %98
+  br label %97
 
 .thread85:                                        ; preds = %.thread
   br i1 %4, label %.thread107, label %28
@@ -6425,7 +6425,7 @@ define internal fastcc noalias noundef ptr @PQescapeByteaInternal(ptr noundef %0
 
 30:                                               ; preds = %._crit_edge
   %.not8190 = icmp eq i64 %2, 0
-  br i1 %.not8190, label %._crit_edge96, label %.lr.ph95
+  br i1 %.not8190, label %._crit_edge96, label %.lr.ph95.split
 
 .thread107:                                       ; preds = %.thread85, %28
   %.175 = phi ptr [ %24, %.thread85 ], [ %29, %28 ]
@@ -6434,170 +6434,162 @@ define internal fastcc noalias noundef ptr @PQescapeByteaInternal(ptr noundef %0
   %32 = getelementptr i8, ptr %.175, i64 2
   store i8 120, ptr %31, align 1
   %.not8190109 = icmp eq i64 %2, 0
-  br i1 %.not8190109, label %._crit_edge96, label %.lr.ph95.split.us.preheader
+  br i1 %.not8190109, label %._crit_edge96, label %.lr.ph95.split.us
 
-.lr.ph95:                                         ; preds = %30
-  br i1 %5, label %.lr.ph95.split.us.preheader, label %.lr.ph95.split
-
-.lr.ph95.split.us.preheader:                      ; preds = %.thread107, %.lr.ph95
-  %33 = phi ptr [ %19, %.lr.ph95 ], [ %24, %.thread107 ]
-  %.074110112 = phi ptr [ %19, %.lr.ph95 ], [ %32, %.thread107 ]
-  br label %.lr.ph95.split.us
-
-.lr.ph95.split.us:                                ; preds = %.lr.ph95.split.us.preheader, %.lr.ph95.split.us
-  %.193.us = phi ptr [ %47, %.lr.ph95.split.us ], [ %1, %.lr.ph95.split.us.preheader ]
-  %.17392.us = phi i64 [ %46, %.lr.ph95.split.us ], [ %2, %.lr.ph95.split.us.preheader ]
-  %.27691.us = phi ptr [ %45, %.lr.ph95.split.us ], [ %.074110112, %.lr.ph95.split.us.preheader ]
-  %34 = load i8, ptr %.193.us, align 1
-  %35 = zext i8 %34 to i32
-  %36 = lshr i32 %35, 4
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1
-  %40 = getelementptr i8, ptr %.27691.us, i64 1
-  store i8 %39, ptr %.27691.us, align 1
-  %41 = and i32 %35, 15
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = getelementptr i8, ptr %.27691.us, i64 2
-  store i8 %44, ptr %40, align 1
-  %46 = add i64 %.17392.us, -1
-  %47 = getelementptr i8, ptr %.193.us, i64 1
-  %.not81.us = icmp eq i64 %46, 0
+.lr.ph95.split.us:                                ; preds = %.thread107, %.lr.ph95.split.us
+  %.193.us = phi ptr [ %46, %.lr.ph95.split.us ], [ %1, %.thread107 ]
+  %.17392.us = phi i64 [ %45, %.lr.ph95.split.us ], [ %2, %.thread107 ]
+  %.27691.us = phi ptr [ %44, %.lr.ph95.split.us ], [ %32, %.thread107 ]
+  %33 = load i8, ptr %.193.us, align 1
+  %34 = zext i8 %33 to i32
+  %35 = lshr i32 %34, 4
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %39 = getelementptr i8, ptr %.27691.us, i64 1
+  store i8 %38, ptr %.27691.us, align 1
+  %40 = and i32 %34, 15
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %41
+  %43 = load i8, ptr %42, align 1
+  %44 = getelementptr i8, ptr %.27691.us, i64 2
+  store i8 %43, ptr %39, align 1
+  %45 = add i64 %.17392.us, -1
+  %46 = getelementptr i8, ptr %.193.us, i64 1
+  %.not81.us = icmp eq i64 %45, 0
   br i1 %.not81.us, label %._crit_edge96, label %.lr.ph95.split.us, !llvm.loop !38
 
-.lr.ph95.split:                                   ; preds = %.lr.ph95
+.lr.ph95.split:                                   ; preds = %30
   br i1 %4, label %.lr.ph95.split.split.us, label %.lr.ph95.split.split
 
-.lr.ph95.split.split.us:                          ; preds = %.lr.ph95.split, %68
-  %.193.us98 = phi ptr [ %70, %68 ], [ %1, %.lr.ph95.split ]
-  %.17392.us99 = phi i64 [ %69, %68 ], [ %2, %.lr.ph95.split ]
-  %.27691.us100 = phi ptr [ %.5.us101, %68 ], [ %19, %.lr.ph95.split ]
-  %48 = load i8, ptr %.193.us98, align 1
-  %49 = add i8 %48, -127
-  %or.cond.us = icmp ult i8 %49, -95
-  %50 = getelementptr i8, ptr %.27691.us100, i64 1
-  br i1 %or.cond.us, label %57, label %51
+.lr.ph95.split.split.us:                          ; preds = %.lr.ph95.split, %67
+  %.193.us98 = phi ptr [ %69, %67 ], [ %1, %.lr.ph95.split ]
+  %.17392.us99 = phi i64 [ %68, %67 ], [ %2, %.lr.ph95.split ]
+  %.27691.us100 = phi ptr [ %.5.us101, %67 ], [ %19, %.lr.ph95.split ]
+  %47 = load i8, ptr %.193.us98, align 1
+  %48 = add i8 %47, -127
+  %or.cond.us = icmp ult i8 %48, -95
+  %49 = getelementptr i8, ptr %.27691.us100, i64 1
+  br i1 %or.cond.us, label %56, label %50
 
-51:                                               ; preds = %.lr.ph95.split.split.us
-  switch i8 %48, label %56 [
-    i8 39, label %54
-    i8 92, label %52
+50:                                               ; preds = %.lr.ph95.split.split.us
+  switch i8 %47, label %55 [
+    i8 39, label %53
+    i8 92, label %51
   ]
 
-52:                                               ; preds = %51
+51:                                               ; preds = %50
   store i8 92, ptr %.27691.us100, align 1
-  %53 = getelementptr i8, ptr %.27691.us100, i64 2
-  store i8 92, ptr %50, align 1
-  br label %68
+  %52 = getelementptr i8, ptr %.27691.us100, i64 2
+  store i8 92, ptr %49, align 1
+  br label %67
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   store i8 39, ptr %.27691.us100, align 1
-  %55 = getelementptr i8, ptr %.27691.us100, i64 2
-  store i8 39, ptr %50, align 1
-  br label %68
+  %54 = getelementptr i8, ptr %.27691.us100, i64 2
+  store i8 39, ptr %49, align 1
+  br label %67
 
-56:                                               ; preds = %51
-  store i8 %48, ptr %.27691.us100, align 1
-  br label %68
+55:                                               ; preds = %50
+  store i8 %47, ptr %.27691.us100, align 1
+  br label %67
 
-57:                                               ; preds = %.lr.ph95.split.split.us
+56:                                               ; preds = %.lr.ph95.split.split.us
   store i8 92, ptr %.27691.us100, align 1
-  %58 = lshr i8 %48, 6
-  %59 = or disjoint i8 %58, 48
-  %60 = getelementptr i8, ptr %.27691.us100, i64 2
-  store i8 %59, ptr %50, align 1
-  %61 = lshr i8 %48, 3
-  %62 = and i8 %61, 7
-  %63 = or disjoint i8 %62, 48
-  %64 = getelementptr i8, ptr %.27691.us100, i64 3
-  store i8 %63, ptr %60, align 1
-  %65 = and i8 %48, 7
-  %66 = or disjoint i8 %65, 48
-  %67 = getelementptr i8, ptr %.27691.us100, i64 4
-  store i8 %66, ptr %64, align 1
-  br label %68
+  %57 = lshr i8 %47, 6
+  %58 = or disjoint i8 %57, 48
+  %59 = getelementptr i8, ptr %.27691.us100, i64 2
+  store i8 %58, ptr %49, align 1
+  %60 = lshr i8 %47, 3
+  %61 = and i8 %60, 7
+  %62 = or disjoint i8 %61, 48
+  %63 = getelementptr i8, ptr %.27691.us100, i64 3
+  store i8 %62, ptr %59, align 1
+  %64 = and i8 %47, 7
+  %65 = or disjoint i8 %64, 48
+  %66 = getelementptr i8, ptr %.27691.us100, i64 4
+  store i8 %65, ptr %63, align 1
+  br label %67
 
-68:                                               ; preds = %57, %56, %54, %52
-  %.5.us101 = phi ptr [ %67, %57 ], [ %55, %54 ], [ %53, %52 ], [ %50, %56 ]
-  %69 = add i64 %.17392.us99, -1
-  %70 = getelementptr i8, ptr %.193.us98, i64 1
-  %.not81.us102 = icmp eq i64 %69, 0
+67:                                               ; preds = %56, %55, %53, %51
+  %.5.us101 = phi ptr [ %66, %56 ], [ %54, %53 ], [ %52, %51 ], [ %49, %55 ]
+  %68 = add i64 %.17392.us99, -1
+  %69 = getelementptr i8, ptr %.193.us98, i64 1
+  %.not81.us102 = icmp eq i64 %68, 0
   br i1 %.not81.us102, label %._crit_edge96, label %.lr.ph95.split.split.us, !llvm.loop !38
 
-.lr.ph95.split.split:                             ; preds = %.lr.ph95.split, %94
-  %.193 = phi ptr [ %96, %94 ], [ %1, %.lr.ph95.split ]
-  %.17392 = phi i64 [ %95, %94 ], [ %2, %.lr.ph95.split ]
-  %.27691 = phi ptr [ %.5, %94 ], [ %19, %.lr.ph95.split ]
-  %71 = load i8, ptr %.193, align 1
-  %72 = add i8 %71, -127
-  %or.cond = icmp ult i8 %72, -95
-  br i1 %or.cond, label %73, label %86
+.lr.ph95.split.split:                             ; preds = %.lr.ph95.split, %93
+  %.193 = phi ptr [ %95, %93 ], [ %1, %.lr.ph95.split ]
+  %.17392 = phi i64 [ %94, %93 ], [ %2, %.lr.ph95.split ]
+  %.27691 = phi ptr [ %.5, %93 ], [ %19, %.lr.ph95.split ]
+  %70 = load i8, ptr %.193, align 1
+  %71 = add i8 %70, -127
+  %or.cond = icmp ult i8 %71, -95
+  br i1 %or.cond, label %72, label %85
 
-73:                                               ; preds = %.lr.ph95.split.split
-  %74 = getelementptr i8, ptr %.27691, i64 1
+72:                                               ; preds = %.lr.ph95.split.split
+  %73 = getelementptr i8, ptr %.27691, i64 1
   store i8 92, ptr %.27691, align 1
-  %75 = getelementptr i8, ptr %.27691, i64 2
-  store i8 92, ptr %74, align 1
-  %76 = lshr i8 %71, 6
-  %77 = or disjoint i8 %76, 48
-  %78 = getelementptr i8, ptr %.27691, i64 3
-  store i8 %77, ptr %75, align 1
-  %79 = lshr i8 %71, 3
-  %80 = and i8 %79, 7
-  %81 = or disjoint i8 %80, 48
-  %82 = getelementptr i8, ptr %.27691, i64 4
-  store i8 %81, ptr %78, align 1
-  %83 = and i8 %71, 7
-  %84 = or disjoint i8 %83, 48
-  %85 = getelementptr i8, ptr %.27691, i64 5
-  store i8 %84, ptr %82, align 1
-  br label %94
+  %74 = getelementptr i8, ptr %.27691, i64 2
+  store i8 92, ptr %73, align 1
+  %75 = lshr i8 %70, 6
+  %76 = or disjoint i8 %75, 48
+  %77 = getelementptr i8, ptr %.27691, i64 3
+  store i8 %76, ptr %74, align 1
+  %78 = lshr i8 %70, 3
+  %79 = and i8 %78, 7
+  %80 = or disjoint i8 %79, 48
+  %81 = getelementptr i8, ptr %.27691, i64 4
+  store i8 %80, ptr %77, align 1
+  %82 = and i8 %70, 7
+  %83 = or disjoint i8 %82, 48
+  %84 = getelementptr i8, ptr %.27691, i64 5
+  store i8 %83, ptr %81, align 1
+  br label %93
 
-86:                                               ; preds = %.lr.ph95.split.split
-  switch i8 %71, label %92 [
-    i8 39, label %87
-    i8 92, label %90
+85:                                               ; preds = %.lr.ph95.split.split
+  switch i8 %70, label %91 [
+    i8 39, label %86
+    i8 92, label %89
   ]
 
-87:                                               ; preds = %86
-  %88 = getelementptr i8, ptr %.27691, i64 1
+86:                                               ; preds = %85
+  %87 = getelementptr i8, ptr %.27691, i64 1
   store i8 39, ptr %.27691, align 1
-  %89 = getelementptr i8, ptr %.27691, i64 2
-  store i8 39, ptr %88, align 1
-  br label %94
+  %88 = getelementptr i8, ptr %.27691, i64 2
+  store i8 39, ptr %87, align 1
+  br label %93
 
-90:                                               ; preds = %86
-  %91 = getelementptr i8, ptr %.27691, i64 4
+89:                                               ; preds = %85
+  %90 = getelementptr i8, ptr %.27691, i64 4
   store i32 1549556828, ptr %.27691, align 1
-  br label %94
+  br label %93
 
-92:                                               ; preds = %86
-  %93 = getelementptr i8, ptr %.27691, i64 1
-  store i8 %71, ptr %.27691, align 1
-  br label %94
+91:                                               ; preds = %85
+  %92 = getelementptr i8, ptr %.27691, i64 1
+  store i8 %70, ptr %.27691, align 1
+  br label %93
 
-94:                                               ; preds = %87, %92, %90, %73
-  %.5 = phi ptr [ %85, %73 ], [ %89, %87 ], [ %91, %90 ], [ %93, %92 ]
-  %95 = add i64 %.17392, -1
-  %96 = getelementptr i8, ptr %.193, i64 1
-  %.not81 = icmp eq i64 %95, 0
+93:                                               ; preds = %86, %91, %89, %72
+  %.5 = phi ptr [ %84, %72 ], [ %88, %86 ], [ %90, %89 ], [ %92, %91 ]
+  %94 = add i64 %.17392, -1
+  %95 = getelementptr i8, ptr %.193, i64 1
+  %.not81 = icmp eq i64 %94, 0
   br i1 %.not81, label %._crit_edge96, label %.lr.ph95.split.split, !llvm.loop !38
 
-._crit_edge96:                                    ; preds = %94, %68, %.lr.ph95.split.us, %.thread107, %30
-  %97 = phi ptr [ %19, %30 ], [ %24, %.thread107 ], [ %33, %.lr.ph95.split.us ], [ %19, %68 ], [ %19, %94 ]
-  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread107 ], [ %45, %.lr.ph95.split.us ], [ %.5.us101, %68 ], [ %.5, %94 ]
+._crit_edge96:                                    ; preds = %93, %67, %.lr.ph95.split.us, %.thread107, %30
+  %96 = phi ptr [ %19, %30 ], [ %24, %.thread107 ], [ %24, %.lr.ph95.split.us ], [ %19, %67 ], [ %19, %93 ]
+  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread107 ], [ %44, %.lr.ph95.split.us ], [ %.5.us101, %67 ], [ %.5, %93 ]
   store i8 0, ptr %.276.lcssa, align 1
-  br label %98
+  br label %97
 
-98:                                               ; preds = %26, %27, %._crit_edge96
-  %.0 = phi ptr [ %97, %._crit_edge96 ], [ null, %27 ], [ null, %26 ]
+97:                                               ; preds = %26, %27, %._crit_edge96
+  %.0 = phi ptr [ %96, %._crit_edge96 ], [ null, %27 ], [ null, %26 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @PQescapeBytea(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noalias ptr @PQescapeBytea(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @static_std_strings, align 1
   %5 = trunc nuw i8 %4 to i1
   %6 = tail call fastcc ptr @PQescapeByteaInternal(ptr noundef null, ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %5, i1 noundef zeroext false)

@@ -4397,8 +4397,8 @@ PyUnicode_READ.exit.us:                           ; preds = %if.end6.i.us, %if.t
 while.cond14.outer.while.cond.loopexit_crit_edge.us: ; preds = %while.cond14.outer.outer.backedge.us.us, %while.cond14.loopexit.us.us.us
   %split.us = phi i64 [ %o.1.ph.ph462.us.us, %while.cond14.loopexit.us.us.us ], [ %o.1.ph.ph.be.us.us, %while.cond14.outer.outer.backedge.us.us ]
   %split328.us = phi i64 [ %space.3.us.us.us.us, %while.cond14.loopexit.us.us.us ], [ %space.2.ph.ph.be.us.us, %while.cond14.outer.outer.backedge.us.us ]
-  %exitcond580.not = icmp eq i64 %inc.us, %input.val
-  br i1 %exitcond580.not, label %while.end83, label %while.body.us, !llvm.loop !17
+  %exitcond563.not = icmp eq i64 %inc.us, %input.val
+  br i1 %exitcond563.not, label %while.end83, label %while.body.us, !llvm.loop !17
 
 while.body16.lr.ph.lr.ph.us.us:                   ; preds = %while.cond14.outer.outer.backedge.us.us, %PyUnicode_READ.exit.us
   %output.1.ph.ph465.us.us = phi ptr [ %output.0483.us, %PyUnicode_READ.exit.us ], [ %output.2.us.us.us.us, %while.cond14.outer.outer.backedge.us.us ]
@@ -4414,11 +4414,11 @@ if.then44.us.us:                                  ; preds = %if.then32.split.us.
   br label %while.cond14.outer.outer.backedge.us.us.sink.split
 
 while.cond14.outer.outer.backedge.us.us.sink.split: ; preds = %get_decomp_record.exit.us.us.us, %lor.lhs.false.us.us.us, %if.then44.us.us
-  %.sink697 = phi i64 [ 3, %if.then44.us.us ], [ 1, %lor.lhs.false.us.us.us ], [ 1, %get_decomp_record.exit.us.us.us ]
+  %.sink680 = phi i64 [ 3, %if.then44.us.us ], [ 1, %lor.lhs.false.us.us.us ], [ 1, %get_decomp_record.exit.us.us.us ]
   %inc40.us.us.sink = phi i64 [ %inc40.us.us, %if.then44.us.us ], [ %o.1.ph.ph462.us.us, %lor.lhs.false.us.us.us ], [ %o.1.ph.ph462.us.us, %get_decomp_record.exit.us.us.us ]
   %add37.us.us.sink = phi i32 [ %add37.us.us, %if.then44.us.us ], [ %arrayidx18.promoted.us.us.us, %lor.lhs.false.us.us.us ], [ %arrayidx18.promoted.us.us.us, %get_decomp_record.exit.us.us.us ]
   %.sink = phi i64 [ -3, %if.then44.us.us ], [ -1, %lor.lhs.false.us.us.us ], [ -1, %get_decomp_record.exit.us.us.us ]
-  %inc45.us.us = add i64 %o.1.ph.ph462.us.us, %.sink697
+  %inc45.us.us = add i64 %o.1.ph.ph462.us.us, %.sink680
   %arrayidx46.us.us = getelementptr i32, ptr %output.2.us.us.us.us, i64 %inc40.us.us.sink
   store i32 %add37.us.us.sink, ptr %arrayidx46.us.us, align 4
   %dec47.us.us = add nsw i64 %space.3.us.us.us.us, %.sink
@@ -4476,10 +4476,10 @@ lor.lhs.false.us.us.us:                           ; preds = %get_decomp_record.e
   br i1 %or.cond1.us.us.us, label %while.body74.us.us.us.preheader, label %while.cond14.outer.outer.backedge.us.us.sink.split
 
 while.body74.us.us.us:                            ; preds = %while.body74.us.us.us.preheader, %while.body74.us.us.us
-  %indvars.iv578 = phi i64 [ %17, %while.body74.us.us.us.preheader ], [ %indvars.iv.next579, %while.body74.us.us.us ]
+  %indvars.iv561 = phi i64 [ %17, %while.body74.us.us.us.preheader ], [ %indvars.iv.next562, %while.body74.us.us.us ]
   %stackptr.2424.us.us.us = phi i32 [ %dec.us.us.us, %while.body74.us.us.us.preheader ], [ %inc79.us.us.us, %while.body74.us.us.us ]
-  %indvars.iv.next579 = add nsw i64 %indvars.iv578, -1
-  %13 = trunc nsw i64 %indvars.iv578 to i32
+  %indvars.iv.next562 = add nsw i64 %indvars.iv561, -1
+  %13 = trunc nsw i64 %indvars.iv561 to i32
   %add76.us.us.us = add i32 %index.0.us.us.us, %13
   %idxprom77.us.us.us = sext i32 %add76.us.us.us to i64
   %arrayidx78.us.us.us = getelementptr [12210 x i32], ptr @decomp_data, i64 0, i64 %idxprom77.us.us.us
@@ -4488,7 +4488,7 @@ while.body74.us.us.us:                            ; preds = %while.body74.us.us.
   %idxprom80.us.us.us = sext i32 %stackptr.2424.us.us.us to i64
   %arrayidx81.us.us.us = getelementptr [20 x i32], ptr %stack, i64 0, i64 %idxprom80.us.us.us
   store i32 %14, ptr %arrayidx81.us.us.us, align 4
-  %15 = icmp eq i64 %indvars.iv.next579, 0
+  %15 = icmp eq i64 %indvars.iv.next562, 0
   br i1 %15, label %while.cond14.loopexit.us.us.us, label %while.body74.us.us.us, !llvm.loop !19
 
 while.body74.us.us.us.preheader:                  ; preds = %lor.lhs.false.us.us.us
@@ -4679,14 +4679,14 @@ if.then54:                                        ; preds = %PyObject_TypeCheck.
 if.end62:                                         ; preds = %PyObject_TypeCheck.exit, %if.then54, %if.end49
   store i32 %call55335, ptr %arrayidx18, align 4
   %cmp.i = icmp ugt i32 %call55335, 1114111
-  br i1 %cmp.i, label %get_decomp_record.exit, label %if.else.i
+  br i1 %cmp.i, label %get_decomp_record.exit, label %land.lhs.true.i
 
-if.else.i:                                        ; preds = %if.end62
+land.lhs.true.i:                                  ; preds = %if.end62
   %self.val.i = load ptr, ptr %4, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, @PyModule_Type
   br i1 %cmp.i.not.i.i, label %if.else7.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %if.else.i
+PyObject_TypeCheck.exit.i:                        ; preds = %land.lhs.true.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %self.val.i, ptr noundef nonnull @PyModule_Type) #9
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %land.lhs.true2.i, label %if.else7.i
@@ -4699,7 +4699,7 @@ land.lhs.true2.i:                                 ; preds = %PyObject_TypeCheck.
   %cmp4.i = icmp eq i8 %27, 0
   br i1 %cmp4.i, label %get_decomp_record.exit, label %if.else7.i
 
-if.else7.i:                                       ; preds = %land.lhs.true2.i, %PyObject_TypeCheck.exit.i, %if.else.i
+if.else7.i:                                       ; preds = %land.lhs.true2.i, %PyObject_TypeCheck.exit.i, %land.lhs.true.i
   %shr.i = lshr i32 %call55335, 7
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i94 = getelementptr [8704 x i8], ptr @decomp_index1, i64 0, i64 %idxprom.i
@@ -4738,14 +4738,14 @@ while.body74.preheader:                           ; preds = %lor.lhs.false
   br label %while.body74
 
 while.cond14.outer.outer.backedge.sink.split:     ; preds = %get_decomp_record.exit, %lor.lhs.false, %if.then44
-  %.sink699 = phi i64 [ 3, %if.then44 ], [ 1, %lor.lhs.false ], [ 1, %get_decomp_record.exit ]
+  %.sink682 = phi i64 [ 3, %if.then44 ], [ 1, %lor.lhs.false ], [ 1, %get_decomp_record.exit ]
   %inc40.sink = phi i64 [ %inc40, %if.then44 ], [ %o.1.ph.ph462, %lor.lhs.false ], [ %o.1.ph.ph462, %get_decomp_record.exit ]
   %add37.sink = phi i32 [ %add37, %if.then44 ], [ %call55335, %lor.lhs.false ], [ %call55335, %get_decomp_record.exit ]
-  %.sink698 = phi i64 [ -3, %if.then44 ], [ -1, %lor.lhs.false ], [ -1, %get_decomp_record.exit ]
-  %inc45 = add i64 %o.1.ph.ph462, %.sink699
+  %.sink681 = phi i64 [ -3, %if.then44 ], [ -1, %lor.lhs.false ], [ -1, %get_decomp_record.exit ]
+  %inc45 = add i64 %o.1.ph.ph462, %.sink682
   %arrayidx46 = getelementptr i32, ptr %output.2, i64 %inc40.sink
   store i32 %add37.sink, ptr %arrayidx46, align 4
-  %dec47 = add nsw i64 %space.3, %.sink698
+  %dec47 = add nsw i64 %space.3, %.sink681
   br label %while.cond14.outer.outer.backedge
 
 while.cond14.outer.outer.backedge:                ; preds = %while.cond14.outer.outer.backedge.sink.split, %if.then32.split
@@ -4858,7 +4858,7 @@ for.body.preheader:                               ; preds = %_getrecord_ex.exit
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %call84.val581 = phi i64 [ %call84.val, %for.inc ], [ %call84.val491, %for.body.preheader ]
+  %call84.val564 = phi i64 [ %call84.val, %for.inc ], [ %call84.val491, %for.body.preheader ]
   %i.1494 = phi i64 [ %inc143, %for.inc ], [ 1, %for.body.preheader ]
   %prev.0493 = phi i8 [ %prev.1, %for.inc ], [ %48, %for.body.preheader ]
   switch i32 %bf.clear91, label %PyUnicode_READ.exit135 [
@@ -5052,7 +5052,7 @@ _getrecord_ex.exit235:                            ; preds = %PyUnicode_READ.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %_getrecord_ex.exit150, %_getrecord_ex.exit235
-  %call84.val = phi i64 [ %call84.val.pre, %_getrecord_ex.exit235 ], [ %call84.val581, %_getrecord_ex.exit150 ]
+  %call84.val = phi i64 [ %call84.val.pre, %_getrecord_ex.exit235 ], [ %call84.val564, %_getrecord_ex.exit150 ]
   %prev.1 = phi i8 [ %75, %_getrecord_ex.exit235 ], [ %55, %_getrecord_ex.exit150 ]
   %inc143 = add nuw nsw i64 %i.1494, 1
   %cmp97 = icmp slt i64 %inc143, %call84.val

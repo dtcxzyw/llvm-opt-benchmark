@@ -396,7 +396,7 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
   %27 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq ptr %2, %3
-  br i1 %28, label %switch.early.test, label %.lr.ph
+  br i1 %28, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit
   %29 = getelementptr inbounds i8, ptr %18, i64 16
@@ -424,7 +424,7 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
 ._crit_edge:                                      ; preds = %81
   %.pre = load i64, ptr %17, align 8, !range !54
   %33 = icmp eq i64 %.pre, -9223372036854775807
-  br i1 %33, label %switch.early.test, label %.thread
+  br i1 %33, label %._crit_edge.thread, label %.thread
 
 34:                                               ; preds = %.lr.ph, %81
   %.sroa.0.077 = phi ptr [ %2, %.lr.ph ], [ %35, %81 ]
@@ -461,14 +461,14 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
   %brmerge27 = or i1 %.218, %.not22
   br i1 %brmerge27, label %44, label %94
 
-switch.early.test:                                ; preds = %_ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit, %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit, %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$grep_regex..literal..TSeq$GT$$GT$17hf5c1065dbe97c0baE.exit"
 
 44:                                               ; preds = %.body38, %94
   br i1 %.2, label %95, label %common.resume
 
-"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$grep_regex..literal..TSeq$GT$$GT$17hf5c1065dbe97c0baE.exit": ; preds = %.thread, %switch.early.test, %87, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..literal..Literal$GT$$GT$17h70e56acc68a6c55aE.exit.i.i.i.i"
+"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$grep_regex..literal..TSeq$GT$$GT$17hf5c1065dbe97c0baE.exit": ; preds = %.thread, %._crit_edge.thread, %87, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..literal..Literal$GT$$GT$17h70e56acc68a6c55aE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   ret void
@@ -512,8 +512,8 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit.thread: ; pred
           to label %.noexc30 unwind label %.loopexit
 
 .noexc30:                                         ; preds = %53
-  %.not.not.i.not.i.not.i = icmp eq ptr %54, null
-  br i1 %.not.not.i.not.i.not.i, label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i, label %55
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %54, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i, label %55
 
 55:                                               ; preds = %.noexc30
   %56 = invoke noundef zeroext i1 @_ZN10grep_regex7literal12is_poisonous17h799ac282ec500677E.llvm.16979978850130570624(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %54)

@@ -3592,7 +3592,7 @@ for.cond:                                         ; preds = %for.condthread-pre-
   %0 = phi i8 [ %.pr, %for.condthread-pre-split ], [ %30, %if.end395 ]
   %l.0 = phi ptr [ %l.0.ph, %for.condthread-pre-split ], [ %l.7, %if.end395 ]
   %retval1.0 = phi i32 [ %retval1.0.ph, %for.condthread-pre-split ], [ %retval1.3, %if.end395 ]
-  switch i8 %0, label %for.cond46.preheader264 [
+  switch i8 %0, label %for.cond46.preheader256 [
     i8 0, label %return
     i8 45, label %if.then6
     i8 43, label %if.then10
@@ -3606,19 +3606,19 @@ for.cond:                                         ; preds = %for.condthread-pre-
 
 if.then6:                                         ; preds = %for.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader256
 
 if.then10:                                        ; preds = %for.cond
   %incdec.ptr11 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader256
 
 if.then16:                                        ; preds = %for.cond
   %incdec.ptr17 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader264
+  br label %for.cond46.preheader256
 
-for.cond46.preheader264:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
-  %l.1291298 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
-  %rule.0293297 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
+for.cond46.preheader256:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
+  %l.1283290 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
+  %rule.0285289 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
   br label %for.cond46
 
 while.cond.us.preheader:                          ; preds = %for.cond
@@ -3662,14 +3662,14 @@ if.then43:                                        ; preds = %for.cond, %for.cond
   %incdec.ptr44 = getelementptr inbounds i8, ptr %l.0, i64 1
   br label %for.condthread-pre-split
 
-for.cond46:                                       ; preds = %for.cond46.preheader264, %if.end302
-  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader264 ]
-  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1291298, %for.cond46.preheader264 ]
+for.cond46:                                       ; preds = %for.cond46.preheader256, %if.end302
+  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
+  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1283290, %for.cond46.preheader256 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond46
@@ -3712,8 +3712,8 @@ if.end88:                                         ; preds = %while.end
   %cmp94.not = icmp eq i8 %ch.0.fr, 43
   %incdec.ptr97 = getelementptr inbounds i8, ptr %l.3, i64 1
   %9 = load ptr, ptr %ca_list, align 8
-  %tobool.not245 = icmp eq ptr %9, null
-  br i1 %tobool.not245, label %while.cond368.preheader, label %while.body101.lr.ph
+  %tobool.not241 = icmp eq ptr %9, null
+  br i1 %tobool.not241, label %for.end, label %while.body101.lr.ph
 
 while.body101.lr.ph:                              ; preds = %if.end88
   %conv104 = zext nneg i32 %buflen.0 to i64
@@ -3756,7 +3756,7 @@ if.else140:                                       ; preds = %land.lhs.true130, %
   %arrayidx = getelementptr inbounds ptr, ptr %ca_list, i64 %indvars.iv.next
   %15 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %15, null
-  br i1 %tobool.not, label %while.cond368.preheader, label %while.body101, !llvm.loop !20
+  br i1 %tobool.not, label %for.end, label %while.body101, !llvm.loop !20
 
 if.end147:                                        ; preds = %land.lhs.true107, %land.lhs.true130
   %algorithm_mkey = getelementptr inbounds i8, ptr %10, i64 28
@@ -3771,7 +3771,7 @@ if.then151:                                       ; preds = %if.end147
 if.then153:                                       ; preds = %if.then151
   %and = and i32 %16, %alg_mkey.0
   %tobool157.not = icmp eq i32 %and, 0
-  br i1 %tobool157.not, label %while.cond368.preheader, label %if.end165
+  br i1 %tobool157.not, label %for.end, label %if.end165
 
 if.end165:                                        ; preds = %if.then151, %if.then153, %if.end147
   %alg_mkey.2 = phi i32 [ %and, %if.then153 ], [ %alg_mkey.0, %if.end147 ], [ %16, %if.then151 ]
@@ -3787,7 +3787,7 @@ if.then169:                                       ; preds = %if.end165
 if.then171:                                       ; preds = %if.then169
   %and175 = and i32 %17, %alg_auth.0
   %tobool176.not = icmp eq i32 %and175, 0
-  br i1 %tobool176.not, label %while.cond368.preheader, label %if.end184
+  br i1 %tobool176.not, label %for.end, label %if.end184
 
 if.end184:                                        ; preds = %if.then169, %if.then171, %if.end165
   %alg_auth.2 = phi i32 [ %and175, %if.then171 ], [ %alg_auth.0, %if.end165 ], [ %17, %if.then169 ]
@@ -3803,7 +3803,7 @@ if.then188:                                       ; preds = %if.end184
 if.then190:                                       ; preds = %if.then188
   %and194 = and i32 %18, %alg_enc.0
   %tobool195.not = icmp eq i32 %and194, 0
-  br i1 %tobool195.not, label %while.cond368.preheader, label %if.end203
+  br i1 %tobool195.not, label %for.end, label %if.end203
 
 if.end203:                                        ; preds = %if.then188, %if.then190, %if.end184
   %alg_enc.2 = phi i32 [ %and194, %if.then190 ], [ %alg_enc.0, %if.end184 ], [ %18, %if.then188 ]
@@ -3819,7 +3819,7 @@ if.then207:                                       ; preds = %if.end203
 if.then209:                                       ; preds = %if.then207
   %and213 = and i32 %19, %alg_mac.0
   %tobool214.not = icmp eq i32 %and213, 0
-  br i1 %tobool214.not, label %while.cond368.preheader, label %if.end222
+  br i1 %tobool214.not, label %for.end, label %if.end222
 
 if.end222:                                        ; preds = %if.then207, %if.then209, %if.end203
   %alg_mac.2 = phi i32 [ %and213, %if.then209 ], [ %alg_mac.0, %if.end203 ], [ %19, %if.then207 ]
@@ -3839,7 +3839,7 @@ if.then231:                                       ; preds = %if.then228
   %and236 = and i32 %or, %algo_strength.0
   %and237 = and i32 %and236, 31
   %tobool238.not = icmp eq i32 %and237, 0
-  br i1 %tobool238.not, label %while.cond368.preheader, label %if.end247
+  br i1 %tobool238.not, label %for.end, label %if.end247
 
 if.end247:                                        ; preds = %if.then228, %if.then231, %if.end222
   %algo_strength.2 = phi i32 [ %and236, %if.then231 ], [ %algo_strength.0, %if.end222 ], [ %and226, %if.then228 ]
@@ -3869,15 +3869,15 @@ if.then286:                                       ; preds = %if.else281
   %cmp287.not = icmp eq i32 %min_tls.0, 0
   %cmp293.not = icmp eq i32 %min_tls.0, %23
   %or.cond155 = or i1 %cmp287.not, %cmp293.not
-  br i1 %or.cond155, label %if.end302, label %while.cond368.preheader
+  br i1 %or.cond155, label %if.end302, label %for.end
 
 if.end302:                                        ; preds = %if.then286, %if.else281, %if.then278
   %min_tls.2 = phi i32 [ %min_tls.0, %if.then278 ], [ %min_tls.0, %if.else281 ], [ %23, %if.then286 ]
   %cipher_id.3 = phi i32 [ %22, %if.then278 ], [ 0, %if.else281 ], [ 0, %if.then286 ]
   br i1 %cmp94.not, label %for.cond46, label %if.then366
 
-while.cond368.preheader:                          ; preds = %if.then286, %if.then231, %if.then209, %if.then190, %if.then171, %if.then153, %if.end88, %if.else140
-  %l.5.le256 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
+for.end:                                          ; preds = %if.then286, %if.then231, %if.then209, %if.then190, %if.then171, %if.then153, %if.end88, %if.else140
+  %l.5.le244 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
   br label %while.cond368
 
 land.lhs.true311:                                 ; preds = %while.end.us
@@ -3939,12 +3939,12 @@ lor.rhs356:                                       ; preds = %while.cond341
   br label %while.cond341, !llvm.loop !21
 
 if.then366:                                       ; preds = %if.end302
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0293297, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0285289, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
   %.pr211 = load i8, ptr %l.3, align 1
   br label %if.end395
 
-while.cond368:                                    ; preds = %while.cond368.preheader, %lor.rhs384
-  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le256, %while.cond368.preheader ]
+while.cond368:                                    ; preds = %for.end, %lor.rhs384
+  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le244, %for.end ]
   %29 = load i8, ptr %l.8, align 1
   switch i8 %29, label %lor.rhs384 [
     i8 0, label %if.end395

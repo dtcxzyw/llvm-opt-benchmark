@@ -3199,98 +3199,83 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
 
 .lr.ph.preheader:                                 ; preds = %RARRAY_PTR.exit
   %wide.trip.count = zext nneg i32 %0 to i64
-  %15 = load i64, ptr %.0.i.i, align 8
-  %16 = tail call i64 @rb_check_array_type(i64 noundef %15) #13
-  %17 = icmp eq i64 %16, 4
-  br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph64
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph64
-  %18 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv.next
-  %19 = load i64, ptr %18, align 8
-  %20 = tail call i64 @rb_check_array_type(i64 noundef %19) #13
-  %21 = icmp eq i64 %20, 4
-  br i1 %21, label %.lr.ph._crit_edge.loopexit, label %.lr.ph64, !llvm.loop !17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+  %15 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv
+  %16 = load i64, ptr %15, align 8
+  %17 = tail call i64 @rb_check_array_type(i64 noundef %16) #13
+  %18 = icmp eq i64 %17, 4
+  br i1 %18, label %20, label %19
 
-.lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %22 = phi i64 [ %20, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %indvars.iv63 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %23 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv63
-  store i64 %22, ptr %23, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
+19:                                               ; preds = %.lr.ph
+  store i64 %17, ptr %15, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit67, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %24 = icmp slt i64 %indvars.iv.next, %4
-  br label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
-  %.lcssa60 = phi i1 [ true, %.lr.ph.preheader ], [ %24, %.lr.ph._crit_edge.loopexit ]
+20:                                               ; preds = %.lr.ph
   %.pr.i = load i64, ptr @enum_zip.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %.lr.ph39.preheader
 
-.lr.ph.i:                                         ; preds = %.lr.ph._crit_edge, %.lr.ph.i
-  %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 7) #13
-  store i64 %25, ptr @enum_zip.rbimpl_id, align 8
-  %.not.i = icmp eq i64 %25, 0
+.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
+  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 7) #13
+  store i64 %21, ptr @enum_zip.rbimpl_id, align 8
+  %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %.lr.ph.i, label %.lr.ph39.preheader, !llvm.loop !18
 
-.lr.ph39.preheader:                               ; preds = %.lr.ph.i, %.lr.ph._crit_edge
-  %.lcssa.i = phi i64 [ %.pr.i, %.lr.ph._crit_edge ], [ %25, %.lr.ph.i ]
+.lr.ph39.preheader:                               ; preds = %.lr.ph.i, %20
+  %.lcssa.i = phi i64 [ %.pr.i, %20 ], [ %21, %.lr.ph.i ]
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count49 = zext nneg i32 %smax to i64
+  %wide.trip.count47 = zext nneg i32 %smax to i64
   br label %.lr.ph39
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %33
-  %indvars.iv46 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next47, %33 ]
-  %26 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv46
-  %27 = load i64, ptr %26, align 8
-  %28 = tail call i32 @rb_respond_to(i64 noundef %27, i64 noundef 3041) #13
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %29, label %33
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %29
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next45, %29 ]
+  %22 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv44
+  %23 = load i64, ptr %22, align 8
+  %24 = tail call i32 @rb_respond_to(i64 noundef %23, i64 noundef 3041) #13
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %25, label %29
 
-29:                                               ; preds = %.lr.ph39
-  %30 = load i64, ptr @rb_eTypeError, align 8
-  %31 = load i64, ptr %26, align 8
-  %32 = tail call i64 @rb_obj_class(i64 noundef %31) #13
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.91, i64 noundef %32) #14
+25:                                               ; preds = %.lr.ph39
+  %26 = load i64, ptr @rb_eTypeError, align 8
+  %27 = load i64, ptr %22, align 8
+  %28 = tail call i64 @rb_obj_class(i64 noundef %27) #13
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.91, i64 noundef %28) #14
   unreachable
 
-33:                                               ; preds = %.lr.ph39
-  %34 = load i64, ptr %26, align 8
-  %35 = tail call i64 @rb_funcallv(i64 noundef %34, i64 noundef %.lcssa.i, i32 noundef 1, ptr noundef nonnull @enum_zip.sym_each) #13
-  store i64 %35, ptr %26, align 8
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %.critedge, label %.lr.ph39, !llvm.loop !19
+29:                                               ; preds = %.lr.ph39
+  %30 = load i64, ptr %22, align 8
+  %31 = tail call i64 @rb_funcallv(i64 noundef %30, i64 noundef %.lcssa.i, i32 noundef 1, ptr noundef nonnull @enum_zip.sym_each) #13
+  store i64 %31, ptr %22, align 8
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.critedge, label %.lr.ph39, !llvm.loop !19
 
-.critedge.loopexit67:                             ; preds = %.lr.ph64
-  %36 = icmp slt i64 %indvars.iv.next, %4
-  br label %.critedge
+.critedge:                                        ; preds = %19, %29, %RARRAY_PTR.exit
+  %32 = phi ptr [ @zip_ary, %RARRAY_PTR.exit ], [ @zip_i, %29 ], [ @zip_ary, %19 ]
+  %33 = tail call i32 @rb_block_given_p() #13
+  %.not32 = icmp eq i32 %33, 0
+  br i1 %.not32, label %34, label %36
 
-.critedge:                                        ; preds = %33, %.critedge.loopexit67, %RARRAY_PTR.exit
-  %37 = phi i1 [ false, %RARRAY_PTR.exit ], [ %36, %.critedge.loopexit67 ], [ %.lcssa60, %33 ]
-  %38 = tail call i32 @rb_block_given_p() #13
-  %.not32 = icmp eq i32 %38, 0
-  br i1 %.not32, label %39, label %41
+34:                                               ; preds = %.critedge
+  %35 = tail call i64 @rb_ary_new() #13
+  br label %36
 
-39:                                               ; preds = %.critedge
-  %40 = tail call i64 @rb_ary_new() #13
-  br label %41
-
-41:                                               ; preds = %39, %.critedge
-  %.031 = phi i64 [ 4, %.critedge ], [ %40, %39 ]
-  %42 = tail call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0) #13
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  store i64 %.031, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
-  store i64 %5, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 32
-  store i64 0, ptr %46, align 8
-  %47 = select i1 %37, ptr @zip_i, ptr @zip_ary
-  %48 = tail call i64 @rb_block_call(i64 noundef %2, i64 noundef 3041, i32 noundef 0, ptr noundef null, ptr noundef nonnull %47, i64 noundef %42) #13
+36:                                               ; preds = %34, %.critedge
+  %.031 = phi i64 [ 4, %.critedge ], [ %35, %34 ]
+  %37 = tail call i64 @rb_imemo_new(i32 noundef 5, i64 noundef 0) #13
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  store i64 %.031, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  store i64 %5, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 32
+  store i64 0, ptr %41, align 8
+  %42 = tail call i64 @rb_block_call(i64 noundef %2, i64 noundef 3041, i32 noundef 0, ptr noundef null, ptr noundef nonnull %32, i64 noundef %37) #13
   ret i64 %.031
 }
 

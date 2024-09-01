@@ -4776,7 +4776,7 @@ if.end71:                                         ; preds = %if.then52, %cond.en
   store i16 %36, ptr %InstanceInteracted, align 2
   %37 = load i8, ptr %hovered, align 1
   %tobool72 = trunc i8 %37 to i1
-  br i1 %tobool72, label %land.lhs.true73, label %lor.lhs.false
+  br i1 %tobool72, label %land.lhs.true73, label %if.then76
 
 if.end71.thread:                                  ; preds = %if.end50
   %38 = load i8, ptr %hovered, align 1
@@ -4789,15 +4789,12 @@ land.lhs.true73:                                  ; preds = %if.end71.thread, %i
   %brmerge = or i1 %cmp74, %tobool51
   br i1 %brmerge, label %if.then76, label %for.inc
 
-lor.lhs.false:                                    ; preds = %if.end71
-  br i1 %tobool51, label %if.then76, label %for.inc
-
-if.then76:                                        ; preds = %land.lhs.true73, %lor.lhs.false
+if.then76:                                        ; preds = %if.end71, %land.lhs.true73
   store i16 %15, ptr %HoveredColumnBorder, align 4
   call void @_ZN5ImGui14SetMouseCursorEi(i32 noundef 4)
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end71.thread, %land.lhs.true73, %lor.lhs.false, %if.then76, %land.lhs.true34, %land.lhs.true, %if.end, %for.body
+for.inc:                                          ; preds = %if.end71.thread, %land.lhs.true73, %if.then76, %land.lhs.true34, %land.lhs.true, %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %ColumnsCount, align 4
   %41 = sext i32 %40 to i64
@@ -9545,10 +9542,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
-for.cond4.preheader:                              ; preds = %for.inc
-  br i1 %cmp18, label %for.body7.lr.ph, label %for.end23
-
-for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
+for.body7.lr.ph:                                  ; preds = %for.inc
   %Columns9 = getelementptr inbounds i8, ptr %table, i64 24
   br label %for.body7
 
@@ -9582,7 +9576,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %visible_weight.1 = phi float [ %add, %if.end ], [ %visible_weight.021, %lor.lhs.false ], [ %visible_weight.021, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.body7.lr.ph, label %for.body, !llvm.loop !16
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc21
   %6 = phi i32 [ %0, %for.body7.lr.ph ], [ %11, %for.inc21 ]
@@ -9617,7 +9611,7 @@ for.inc21:                                        ; preds = %for.body7, %lor.lhs
   %cmp6 = icmp slt i64 %indvars.iv.next27, %12
   br i1 %cmp6, label %for.body7, label %for.end23, !llvm.loop !17
 
-for.end23:                                        ; preds = %for.inc21, %entry, %for.cond4.preheader
+for.end23:                                        ; preds = %for.inc21, %entry
   ret void
 }
 
@@ -13679,10 +13673,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %for.body, %if.en
   %cmp64.not.not = icmp slt i64 %indvars.iv, %37
   br i1 %cmp64.not.not, label %for.body, label %for.cond68.preheader, !llvm.loop !62
 
-for.cond84.preheader:                             ; preds = %for.inc80
-  br i1 %cmp70124, label %for.body87.lr.ph, label %for.end206
-
-for.body87.lr.ph:                                 ; preds = %for.cond84.preheader
+for.body87.lr.ph:                                 ; preds = %for.inc80
   %Columns88 = getelementptr inbounds i8, ptr %table, i64 24
   %IsLayoutLocked.i = getelementptr inbounds i8, ptr %table, i64 566
   %DeclColumnsCount.i = getelementptr inbounds i8, ptr %table, i64 518
@@ -13714,7 +13705,7 @@ for.inc80:                                        ; preds = %for.body71, %if.the
   %sum_weights.1 = phi float [ %add78, %if.then75 ], [ %sum_weights.0126, %for.body71 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond84.preheader, label %for.body71, !llvm.loop !63
+  br i1 %exitcond.not, label %for.body87.lr.ph, label %for.body71, !llvm.loop !63
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.inc204
   %indvars.iv136 = phi i64 [ 0, %for.body87.lr.ph ], [ %indvars.iv.next137, %for.inc204 ]
@@ -13885,8 +13876,8 @@ for.inc204:                                       ; preds = %_ZN5ImGui18TableGet
   %cmp86 = icmp slt i64 %indvars.iv.next137, %85
   br i1 %cmp86, label %for.body87, label %for.end206, !llvm.loop !64
 
-for.end206:                                       ; preds = %for.inc204, %for.cond68.preheader, %for.cond84.preheader
-  %.lcssa = phi i32 [ %29, %for.cond84.preheader ], [ %29, %for.cond68.preheader ], [ %84, %for.inc204 ]
+for.end206:                                       ; preds = %for.inc204, %for.cond68.preheader
+  %.lcssa = phi i32 [ %29, %for.cond68.preheader ], [ %84, %for.inc204 ]
   %SettingsOffset.i = getelementptr inbounds i8, ptr %table, i64 100
   %86 = load i32, ptr %SettingsOffset.i, align 4
   %cmp.not.i = icmp eq i32 %86, -1

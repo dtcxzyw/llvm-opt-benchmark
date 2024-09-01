@@ -943,7 +943,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
 
 .critedge2._crit_edge:                            ; preds = %.critedge4
   tail call void @Fra_SmlSimulateOne(ptr noundef %67) #6
-  br i1 %77, label %.lr.ph123, label %._crit_edge124
+  br label %.lr.ph123
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph.split.us, %.lr.ph123
   %.1.lcssa = phi i32 [ %.0121, %.lr.ph123 ], [ %107, %.preheader.lr.ph.split.us ], [ %spec.select, %._crit_edge ]
@@ -1009,8 +1009,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
   %exitcond145.not = icmp eq i32 %122, %3
   br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
-._crit_edge124:                                   ; preds = %.loopexit, %.critedge2._crit_edge.thread, %.critedge2._crit_edge
-  %.0.lcssa = phi i32 [ 0, %.critedge2._crit_edge ], [ 0, %.critedge2._crit_edge.thread ], [ %.1.lcssa, %.loopexit ]
+._crit_edge124:                                   ; preds = %.loopexit, %.critedge2._crit_edge.thread
+  %.0.lcssa = phi i32 [ 0, %.critedge2._crit_edge.thread ], [ %.1.lcssa, %.loopexit ]
   %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.lcssa)
   tail call void @Fra_SmlStop(ptr noundef %67) #6
   %.not = icmp eq ptr %65, null

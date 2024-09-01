@@ -198,8 +198,8 @@ while.body.lr.ph.split.i.i:                       ; preds = %if.then17.i.i, %whi
   %sit.sroa.0.0.ph62.i.i = phi ptr [ %call.i.i.i, %if.then17.i.i ], [ %8, %while.body.lr.ph.preheader.i.i ]
   %bit.sroa.0.0.ph61.i.i = phi ptr [ %call.i11.i.i, %if.then17.i.i ], [ %9, %while.body.lr.ph.preheader.i.i ]
   %agg.tmp22.sroa.2.0.call23.sroa_idx.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i.i, i64 40
-  %cmp.i838.i.not.i = icmp eq ptr %bit.sroa.0.0.ph61.i.i, %4
-  br i1 %cmp.i838.i.not.i, label %invoke.cont7.i, label %if.end13.lr.ph.i.i
+  %cmp.i838.not.i.i = icmp eq ptr %bit.sroa.0.0.ph61.i.i, %4
+  br i1 %cmp.i838.not.i.i, label %invoke.cont7.i, label %if.end13.lr.ph.i.i
 
 if.end13.lr.ph.i.i:                               ; preds = %while.body.lr.ph.split.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %sit.sroa.0.0.ph62.i.i, i64 32

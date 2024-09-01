@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body
   %mean3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %div = fdiv double %add, %conv
   store double %div, ptr %mean3, align 8
-  br i1 %cmp.not21, label %for.end20, label %for.body11
+  br label %for.body11
 
 for.body11:                                       ; preds = %for.end, %for.body11
   %3 = phi double [ %9, %for.body11 ], [ 0.000000e+00, %for.end ]
@@ -77,25 +77,27 @@ for.body11:                                       ; preds = %for.end, %for.body1
   %9 = tail call double @llvm.fmuladd.f64(double %mul16, double %sub, double %3)
   %incdec.ptr19 = getelementptr inbounds i8, ptr %__begin25.024, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr19, %add.ptr.i
-  br i1 %cmp10.not, label %for.end20, label %for.body11
+  br i1 %cmp10.not, label %for.end20.loopexit, label %for.body11
 
-for.end20:                                        ; preds = %for.body11, %for.end.thread, %for.end
-  %conv32 = phi double [ %conv, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %conv, %for.body11 ]
-  %sub22 = phi i64 [ %1, %for.end ], [ -1, %for.end.thread ], [ %1, %for.body11 ]
-  %10 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %9, %for.body11 ]
-  %11 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %8, %for.body11 ]
-  %12 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %7, %for.body11 ]
-  %conv23 = uitofp i64 %sub22 to double
+for.end20.loopexit:                               ; preds = %for.body11
+  %10 = uitofp i64 %1 to double
+  %11 = fdiv double %7, %10
+  br label %for.end20
+
+for.end20:                                        ; preds = %for.end20.loopexit, %for.end.thread
+  %conv32 = phi double [ 0.000000e+00, %for.end.thread ], [ %conv, %for.end20.loopexit ]
+  %12 = phi double [ 0.000000e+00, %for.end.thread ], [ %9, %for.end20.loopexit ]
+  %13 = phi double [ 0.000000e+00, %for.end.thread ], [ %8, %for.end20.loopexit ]
+  %div25 = phi double [ 0.000000e+00, %for.end.thread ], [ %11, %for.end20.loopexit ]
   %variance24 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %div25 = fdiv double %12, %conv23
   store double %div25, ptr %variance24, align 8
   %skewness28 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %div29 = fdiv double %11, %conv32
+  %div29 = fdiv double %13, %conv32
   %call31 = tail call double @pow(double noundef %div25, double noundef 1.500000e+00) #15
   %div33 = fdiv double %div29, %call31
   store double %div33, ptr %skewness28, align 8
   %kurtosis36 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %div37 = fdiv double %10, %conv32
+  %div37 = fdiv double %12, %conv32
   %square = fmul double %div25, %div25
   %div41 = fdiv double %div37, %square
   store double %div41, ptr %kurtosis36, align 8

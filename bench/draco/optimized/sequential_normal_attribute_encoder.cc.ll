@@ -3503,7 +3503,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
 
 ._crit_edge518:                                   ; preds = %.lr.ph517
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  br i1 %.not.i.i.i.i, label %._crit_edge.i205, label %.lr.ph.i209
+  br label %.lr.ph.i209
 
 .lr.ph.i209:                                      ; preds = %._crit_edge518, %.lr.ph.i209
   %indvars.iv.i211 = phi i64 [ %indvars.iv.next.i214, %.lr.ph.i209 ], [ 0, %._crit_edge518 ]
@@ -3530,8 +3530,8 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond.not.i215 = icmp eq i64 %indvars.iv.next.i214, %wide.trip.count.i
   br i1 %exitcond.not.i215, label %._crit_edge.i205, label %.lr.ph.i209, !llvm.loop !33
 
-._crit_edge.i205:                                 ; preds = %.lr.ph.i209, %._crit_edge518.thread, %._crit_edge518
-  %.sroa.3.0.lcssa.i206 = phi i32 [ 0, %._crit_edge518 ], [ 0, %._crit_edge518.thread ], [ %349, %.lr.ph.i209 ]
+._crit_edge.i205:                                 ; preds = %.lr.ph.i209, %._crit_edge518.thread
+  %.sroa.3.0.lcssa.i206 = phi i32 [ 0, %._crit_edge518.thread ], [ %349, %.lr.ph.i209 ]
   %358 = load ptr, ptr %54, align 8
   invoke void @_ZN5draco21ShannonEntropyTracker4PeekEPKji(ptr dead_on_unwind nonnull writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef %358, i32 noundef %4)
           to label %.noexc217 unwind label %.loopexit414
@@ -8906,7 +8906,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
 
 ._crit_edge512:                                   ; preds = %.lr.ph511
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  br i1 %.not.i.i.i.i, label %._crit_edge.i198, label %.lr.ph.i202
+  br label %.lr.ph.i202
 
 .lr.ph.i202:                                      ; preds = %._crit_edge512, %.lr.ph.i202
   %indvars.iv.i204 = phi i64 [ %indvars.iv.next.i207, %.lr.ph.i202 ], [ 0, %._crit_edge512 ]
@@ -8933,8 +8933,8 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond.not.i208 = icmp eq i64 %indvars.iv.next.i207, %wide.trip.count.i
   br i1 %exitcond.not.i208, label %._crit_edge.i198, label %.lr.ph.i202, !llvm.loop !162
 
-._crit_edge.i198:                                 ; preds = %.lr.ph.i202, %._crit_edge512.thread, %._crit_edge512
-  %.sroa.3.0.lcssa.i199 = phi i32 [ 0, %._crit_edge512 ], [ 0, %._crit_edge512.thread ], [ %312, %.lr.ph.i202 ]
+._crit_edge.i198:                                 ; preds = %.lr.ph.i202, %._crit_edge512.thread
+  %.sroa.3.0.lcssa.i199 = phi i32 [ 0, %._crit_edge512.thread ], [ %312, %.lr.ph.i202 ]
   %321 = load ptr, ptr %54, align 8
   invoke void @_ZN5draco21ShannonEntropyTracker4PeekEPKji(ptr dead_on_unwind nonnull writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef %321, i32 noundef %4)
           to label %.noexc210 unwind label %.loopexit407

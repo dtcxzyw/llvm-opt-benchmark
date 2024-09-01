@@ -23562,7 +23562,7 @@ land.rhs1086:                                     ; preds = %while.body1093
   %arrayidx.i.i2379 = getelementptr inbounds [256 x i8], ptr %m_char_map.i.i1826, i64 0, i64 %idxprom.i.i2378
   %351 = load i8, ptr %arrayidx.i.i2379, align 1, !tbaa !15
   %cmp1091.not = icmp eq i8 %351, 2
-  br i1 %cmp1091.not, label %while.body.i2384.preheader, label %while.body1093, !llvm.loop !525
+  br i1 %cmp1091.not, label %if.end1118, label %while.body1093, !llvm.loop !525
 
 while.body1093:                                   ; preds = %land.rhs1086.preheader, %land.rhs1086
   %storemerge1777.idx27502876 = phi i64 [ %storemerge1777.add, %land.rhs1086 ], [ 1, %land.rhs1086.preheader ]
@@ -23592,7 +23592,7 @@ while.end1112:                                    ; preds = %while.cond1103
   tail call void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub1117)
   br i1 %cmp1085.not.lcssa, label %return, label %insert_recursion
 
-while.body.i2384.preheader:                       ; preds = %land.rhs1086
+if.end1118:                                       ; preds = %land.rhs1086
   %cmp1085.not.le = icmp eq ptr %storemerge1777.ptr, %345
   %storemerge1777.ptr2751.lcssa2912 = ptrtoint ptr %storemerge1777.ptr to i64
   %355 = xor i64 %45, -1
@@ -23602,7 +23602,7 @@ while.body.i2384.preheader:                       ; preds = %land.rhs1086
   %358 = icmp eq i64 %357, %45
   br i1 %358, label %while.end.loopexit.i2396.unr-lcssa, label %while.body.i2384.preheader.new
 
-while.body.i2384.preheader.new:                   ; preds = %while.body.i2384.preheader
+while.body.i2384.preheader.new:                   ; preds = %if.end1118
   %unroll_iter2916 = and i64 %356, -2
   br label %while.body.i2384
 
@@ -23632,10 +23632,10 @@ while.body.i2384:                                 ; preds = %while.body.i2384, %
   %niter2917.ncmp.1 = icmp eq i64 %niter2917.next.1, %unroll_iter2916
   br i1 %niter2917.ncmp.1, label %while.end.loopexit.i2396.unr-lcssa, label %while.body.i2384, !llvm.loop !527
 
-while.end.loopexit.i2396.unr-lcssa:               ; preds = %while.body.i2384, %while.body.i2384.preheader
-  %xor.i2393.lcssa.ph = phi i64 [ undef, %while.body.i2384.preheader ], [ %xor.i2393.1, %while.body.i2384 ]
-  %r.014.i2385.unr = phi i64 [ 0, %while.body.i2384.preheader ], [ %xor.i2393.1, %while.body.i2384 ]
-  %i.addr.013.i2386.unr = phi ptr [ %incdec.ptr1079.ptr, %while.body.i2384.preheader ], [ %incdec.ptr.i2394.1, %while.body.i2384 ]
+while.end.loopexit.i2396.unr-lcssa:               ; preds = %while.body.i2384, %if.end1118
+  %xor.i2393.lcssa.ph = phi i64 [ undef, %if.end1118 ], [ %xor.i2393.1, %while.body.i2384 ]
+  %r.014.i2385.unr = phi i64 [ 0, %if.end1118 ], [ %xor.i2393.1, %while.body.i2384 ]
+  %i.addr.013.i2386.unr = phi ptr [ %incdec.ptr1079.ptr, %if.end1118 ], [ %incdec.ptr.i2394.1, %while.body.i2384 ]
   %lcmp.mod2914.not = icmp eq i64 %xtraiter2913, 0
   br i1 %lcmp.mod2914.not, label %while.end.loopexit.i2396, label %while.body.i2384.epil
 

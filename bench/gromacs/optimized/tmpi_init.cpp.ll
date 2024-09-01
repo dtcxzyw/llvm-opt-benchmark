@@ -159,7 +159,7 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, p
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %34
+  br i1 %6, label %7, label %32
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -226,12 +226,14 @@ _Z10tMPI_Get_NPiPPPcPKcS_.exit:                   ; preds = %26, %.thread32.i
   %.07 = phi i32 [ %spec.store.select.i, %.thread32.i ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %31 = tail call fastcc noundef i32 @_ZL18tMPI_Start_threadsii22tMPI_Affinity_strategyPiPPPcPFvPKvES5_PFiiS2_E(i32 noundef 1, i32 noundef %.07, i32 noundef 1, ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef %2)
-  %32 = icmp ne i32 %31, 0
-  %33 = zext i1 %32 to i32
-  br label %34
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %32, label %33
 
-34:                                               ; preds = %_Z10tMPI_Get_NPiPPPcPKcS_.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ %33, %_Z10tMPI_Get_NPiPPPcPKcS_.exit ]
+32:                                               ; preds = %3, %_Z10tMPI_Get_NPiPPPcPKcS_.exit
+  br label %33
+
+33:                                               ; preds = %_Z10tMPI_Get_NPiPPPcPKcS_.exit, %32
+  %.0 = phi i32 [ 0, %32 ], [ 1, %_Z10tMPI_Get_NPiPPPcPKcS_.exit ]
   ret i32 %.0
 }
 

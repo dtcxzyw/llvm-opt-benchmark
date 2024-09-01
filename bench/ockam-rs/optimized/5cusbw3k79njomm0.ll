@@ -5566,8 +5566,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit443
 
 268:                                              ; preds = %155
   %269 = load ptr, ptr %63, align 8, !noundef !4
-  %.not.not = icmp eq ptr %269, null
-  br i1 %.not.not, label %371, label %272
+  %.not = icmp eq ptr %269, null
+  br i1 %.not, label %371, label %272
 
 270:                                              ; preds = %.invoke766, %362, %.noexc484, %.noexc483, %.critedge9.i481, %337, %277, %326, %308, %301, %298, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit466.thread
   %271 = landingpad { ptr, i32 }

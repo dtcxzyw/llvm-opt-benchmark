@@ -1736,8 +1736,60 @@ define hidden noundef i32 @zm_startup_spl_fixedarray(i32 noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
-  %2 = tail call fastcc ptr @spl_fixedarray_object_new_ex(ptr noundef %0, ptr noundef null, i1 noundef zeroext false)
-  ret ptr %2
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i32, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = load i32, ptr %4, align 4
+  %6 = lshr i32 %5, 11
+  %.lobit.i = and i32 %6, 1
+  %7 = xor i32 %.lobit.i, 1
+  %8 = sub nsw i32 %3, %7
+  %9 = sext i32 %8 to i64
+  %10 = shl nsw i64 %9, 4
+  %11 = add nsw i64 %10, 88
+  %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #12
+  tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef %0) #12
+  %14 = load ptr, ptr @spl_ce_SplFixedArray, align 8
+  %15 = icmp ne ptr %0, null
+  %.not = icmp eq ptr %0, %14
+  br i1 %.not, label %._crit_edge.thread.i, label %.lr.ph.i
+
+._crit_edge.thread.i:                             ; preds = %1
+  tail call void @llvm.assume(i1 %15)
+  br label %spl_fixedarray_object_new_ex.exit
+
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.03444.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %1 ]
+  %16 = getelementptr inbounds i8, ptr %.03444.i, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  %19 = icmp ne ptr %17, %14
+  %or.cond.not.i = and i1 %18, %19
+  br i1 %or.cond.not.i, label %.lr.ph.i, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  tail call void @llvm.assume(i1 %18)
+  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = load ptr, ptr @zend_known_strings, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 552
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr @zend_hash_find(ptr noundef nonnull %20, ptr noundef %23) #12
+  %.not38.i = icmp ne ptr %24, null
+  tail call void @llvm.assume(i1 %.not38.i)
+  %25 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %17
+  %spec.store.select.i = select i1 %28, ptr null, ptr %25
+  %29 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr %spec.store.select.i, ptr %29, align 8
+  br label %spl_fixedarray_object_new_ex.exit
+
+spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2566,7 +2618,7 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray
 
 ._crit_edge.thread:                               ; preds = %spl_fixedarray_copy_ctor.exit
   tail call void @llvm.assume(i1 %44)
-  br label %61
+  br label %60
 
 .lr.ph:                                           ; preds = %spl_fixedarray_copy_ctor.exit, %.lr.ph
   %.03444 = phi ptr [ %47, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
@@ -2579,26 +2631,23 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.assume(i1 %48)
-  br i1 %or.cond.not43, label %50, label %61
-
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  %52 = load ptr, ptr @zend_known_strings, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 552
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %54) #12
-  %.not38 = icmp ne ptr %55, null
+  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = load ptr, ptr @zend_known_strings, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 552
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call ptr @zend_hash_find(ptr noundef nonnull %50, ptr noundef %53) #12
+  %.not38 = icmp ne ptr %54, null
   tail call void @llvm.assume(i1 %.not38)
-  %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, %47
-  %spec.store.select = select i1 %59, ptr null, ptr %56
-  %60 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr %spec.store.select, ptr %60, align 8
-  br label %61
+  %55 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, %47
+  %spec.store.select = select i1 %58, ptr null, ptr %55
+  %59 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr %spec.store.select, ptr %59, align 8
+  br label %60
 
-61:                                               ; preds = %._crit_edge.thread, %50, %._crit_edge
+60:                                               ; preds = %._crit_edge.thread, %._crit_edge
   ret ptr %15
 }
 

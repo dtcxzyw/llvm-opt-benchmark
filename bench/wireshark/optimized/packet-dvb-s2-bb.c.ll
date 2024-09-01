@@ -1766,10 +1766,10 @@ get_gse_subpacket_data.exit233.i.i:               ; preds = %406, %399
   br label %.thread252.i.i
 
 .thread252.i.i:                                   ; preds = %441, %438, %433, %425
-  %.0196262.i.i = phi i8 [ %298, %438 ], [ %298, %441 ], [ %426, %433 ], [ %426, %425 ]
-  %.0202261.i.i = phi i32 [ 0, %438 ], [ 0, %441 ], [ %428, %433 ], [ %428, %425 ]
-  %444 = phi i1 [ false, %438 ], [ true, %441 ], [ true, %433 ], [ true, %425 ]
-  %.0205258.i.i = phi ptr [ %437, %438 ], [ %443, %441 ], [ %424, %433 ], [ %424, %425 ]
+  %.0196262.i.i = phi i8 [ %298, %438 ], [ %426, %425 ], [ %426, %433 ], [ %298, %441 ]
+  %.0202261.i.i = phi i32 [ 0, %438 ], [ %428, %425 ], [ %428, %433 ], [ 0, %441 ]
+  %444 = phi i1 [ false, %438 ], [ true, %425 ], [ true, %433 ], [ true, %441 ]
+  %.0205258.i.i = phi ptr [ %437, %438 ], [ %424, %425 ], [ %424, %433 ], [ %443, %441 ]
   %445 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.0205258.i.i, i32 noundef 2) #9
   %446 = icmp ult i16 %445, 1536
   %hf_dvb_s2_gse_proto_next_header.val.i.i = load i32, ptr @hf_dvb_s2_gse_proto_next_header, align 4

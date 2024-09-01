@@ -4440,8 +4440,8 @@ define linkonce_odr dso_local void @_ZN18BrokenCheckVisitor5visitEP13AstNodeVarR
 
 .loopexit.i:                                      ; preds = %60, %.lr.ph.i.i.i.i.i.i, %40, %45
   %65 = getelementptr inbounds i8, ptr %.sroa.05.018.i, i64 56
-  %.not26.i = icmp eq ptr %65, %33
-  br i1 %.not26.i, label %_ZNK18BrokenCheckVisitor14isInScopeLocalEPK6AstVar.exit, label %35
+  %.not21.i = icmp eq ptr %65, %33
+  br i1 %.not21.i, label %_ZNK18BrokenCheckVisitor14isInScopeLocalEPK6AstVar.exit, label %35
 
 _ZNK18BrokenCheckVisitor14isInScopeLocalEPK6AstVar.exit: ; preds = %.loopexit.i, %29
   %66 = getelementptr inbounds i8, ptr %0, i64 64

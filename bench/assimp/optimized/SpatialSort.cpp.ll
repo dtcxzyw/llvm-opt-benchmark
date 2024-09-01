@@ -343,10 +343,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %z5.i.promoted = load float, ptr %z5.i, align 4
   br label %for.body
 
-for.cond11.preheader:                             ; preds = %for.body
-  br i1 %cmp22.not, label %for.end27, label %for.body16.lr.ph
-
-for.body16.lr.ph:                                 ; preds = %for.cond11.preheader
+for.body16.lr.ph:                                 ; preds = %for.body
   %mCentroid.i = getelementptr inbounds i8, ptr %this, i64 12
   %y2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %z4.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -378,7 +375,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add i32 %i.023, 1
   %conv2 = zext i32 %inc to i64
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv2
-  br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.body16.lr.ph, !llvm.loop !15
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
   %7 = phi ptr [ %1, %for.body16.lr.ph ], [ %20, %for.body16 ]
@@ -416,10 +413,10 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %cmp15 = icmp ugt i64 %sub.ptr.div.i17, %conv12
   br i1 %cmp15, label %for.body16, label %for.end27, !llvm.loop !16
 
-for.end27:                                        ; preds = %for.body16, %entry, %for.cond11.preheader
-  %.lcssa21 = phi ptr [ %0, %for.cond11.preheader ], [ %0, %entry ], [ %19, %for.body16 ]
-  %.lcssa = phi ptr [ %1, %for.cond11.preheader ], [ %1, %entry ], [ %20, %for.body16 ]
-  %sub.ptr.div.i17.lcssa = phi i64 [ %sub.ptr.div.i, %for.cond11.preheader ], [ %sub.ptr.div.i, %entry ], [ %sub.ptr.div.i17, %for.body16 ]
+for.end27:                                        ; preds = %for.body16, %entry
+  %.lcssa21 = phi ptr [ %0, %entry ], [ %19, %for.body16 ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %20, %for.body16 ]
+  %sub.ptr.div.i17.lcssa = phi i64 [ %sub.ptr.div.i, %entry ], [ %sub.ptr.div.i17, %for.body16 ]
   %cmp.i.not.i.i = icmp eq ptr %.lcssa, %.lcssa21
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %if.then.i.i
 

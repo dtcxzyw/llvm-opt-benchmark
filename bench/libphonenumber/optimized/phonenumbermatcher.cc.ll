@@ -2374,8 +2374,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit.thread: ; pre
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %.not61 = icmp eq ptr %16, %21
-  br i1 %.not61, label %._crit_edge, label %22, !llvm.loop !19
+  %.not55 = icmp eq ptr %16, %21
+  br i1 %.not55, label %._crit_edge, label %22, !llvm.loop !19
 
 22:                                               ; preds = %.lr.ph, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit.thread
   %23 = phi ptr [ %8, %.lr.ph ], [ %17, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit.thread ]

@@ -13084,8 +13084,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 3
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add28 = phi i64 [ %add24, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -13100,41 +13100,41 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %if.then.i, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1034, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1034, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end41, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %cmp18 = icmp eq ptr %3, @_Py_NoneStruct
+  %cmp18 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp18, label %if.end37, label %if.else
 
 if.else:                                          ; preds = %if.then16
-  %4 = getelementptr i8, ptr %3, i64 8
-  %.val = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %.val, i64 168
-  %call21.val = load i64, ptr %5, align 8
-  %6 = and i64 %call21.val, 268435456
-  %tobool23.not = icmp eq i64 %6, 0
+  %3 = getelementptr i8, ptr %2, i64 8
+  %.val = load ptr, ptr %3, align 8
+  %4 = getelementptr i8, ptr %.val, i64 168
+  %call21.val = load i64, ptr %4, align 8
+  %5 = and i64 %call21.val, 268435456
+  %tobool23.not = icmp eq i64 %5, 0
   br i1 %tobool23.not, label %if.else34, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %call26 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %3, ptr noundef nonnull %term_length) #9
+  %call26 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %2, ptr noundef nonnull %term_length) #9
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %exit, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #10
-  %7 = load i64, ptr %term_length, align 8
-  %cmp31.not = icmp eq i64 %call30, %7
+  %6 = load i64, ptr %term_length, align 8
+  %cmp31.not = icmp eq i64 %call30, %6
   br i1 %cmp31.not, label %if.end37, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.435) #9
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.435) #9
   br label %exit
 
 if.else34:                                        ; preds = %if.else
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.338, ptr noundef nonnull @.str.436, ptr noundef nonnull @.str.437, ptr noundef nonnull %3) #9
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.338, ptr noundef nonnull @.str.436, ptr noundef nonnull @.str.437, ptr noundef nonnull %2) #9
   br label %exit
 
 if.end37:                                         ; preds = %if.then16, %if.end29
@@ -13145,8 +13145,8 @@ if.end37:                                         ; preds = %if.then16, %if.end2
 if.end41:                                         ; preds = %if.end37, %if.end14
   %term.1 = phi ptr [ %term.2, %if.end37 ], [ null, %if.end14 ]
   %arrayidx42 = getelementptr i8, ptr %cond1034, i64 8
-  %9 = load ptr, ptr %arrayidx42, align 8
-  %call43 = call i32 @PyLong_AsInt(ptr noundef %9) #9
+  %8 = load ptr, ptr %arrayidx42, align 8
+  %call43 = call i32 @PyLong_AsInt(ptr noundef %8) #9
   %cmp44 = icmp eq i32 %call43, -1
   br i1 %cmp44, label %land.lhs.true45, label %skip_optional_pos
 
@@ -13169,8 +13169,8 @@ if.then.i:                                        ; preds = %land.lhs.true45, %i
   br i1 %or.cond.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %10 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.439) #9
+  %9 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.439) #9
   br label %_curses_setupterm_impl.exit
 
 if.end.i:                                         ; preds = %if.then.i
@@ -13190,13 +13190,13 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
   br i1 %cmp10.i, label %if.then11.i, label %if.end18.i
 
 if.then11.i:                                      ; preds = %land.lhs.true.i
-  %11 = load i32, ptr %err.i, align 4
-  %switch.selectcmp.i = icmp eq i32 %11, -1
+  %10 = load i32, ptr %err.i, align 4
+  %switch.selectcmp.i = icmp eq i32 %10, -1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.442, ptr @.str.440
-  %switch.selectcmp5.i = icmp eq i32 %11, 0
+  %switch.selectcmp5.i = icmp eq i32 %10, 0
   %switch.select6.i = select i1 %switch.selectcmp5.i, ptr @.str.441, ptr %switch.select.i
-  %12 = load ptr, ptr @PyCursesError, align 8
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull %switch.select6.i) #9
+  %11 = load ptr, ptr @PyCursesError, align 8
+  call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull %switch.select6.i) #9
   br label %_curses_setupterm_impl.exit
 
 if.end18.i:                                       ; preds = %land.lhs.true.i, %if.end8.i

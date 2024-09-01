@@ -59,7 +59,7 @@ define hidden void @zend_cfg_remark_reachable_blocks(ptr noundef %0, ptr nocaptu
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.split.loop.exit29
   %.0 = phi i32 [ %10, %._crit_edge.split.loop.exit29 ], [ 0, %9 ]
-  br i1 %6, label %.lr.ph21, label %._crit_edge22
+  br label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %._crit_edge, %.lr.ph21
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.lr.ph21 ], [ 0, %._crit_edge ]
@@ -71,8 +71,8 @@ define hidden void @zend_cfg_remark_reachable_blocks(ptr noundef %0, ptr nocaptu
   %14 = icmp slt i64 %indvars.iv.next25, %13
   br i1 %14, label %.lr.ph21, label %._crit_edge22
 
-._crit_edge22:                                    ; preds = %.lr.ph21, %2, %._crit_edge
-  %.028 = phi i32 [ %.0, %._crit_edge ], [ 0, %2 ], [ %.0, %.lr.ph21 ]
+._crit_edge22:                                    ; preds = %.lr.ph21, %2
+  %.028 = phi i32 [ 0, %2 ], [ %.0, %.lr.ph21 ]
   tail call fastcc void @zend_mark_reachable_blocks(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.028)
   ret void
 }
@@ -1813,20 +1813,17 @@ define void @zend_cfg_build_predecessors(ptr nocapture noundef %0, ptr nocapture
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.preheader178:                                    ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph185, label %._crit_edge
-
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.0153179 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %9 = getelementptr inbounds i8, ptr %.0153179, i64 24
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.0153179, i64 64
   %11 = icmp ult ptr %10, %7
-  br i1 %11, label %.lr.ph, label %.preheader178
+  br i1 %11, label %.lr.ph, label %.lr.ph185
 
-.lr.ph185:                                        ; preds = %.preheader178, %.loopexit177
-  %.1184 = phi ptr [ %30, %.loopexit177 ], [ %4, %.preheader178 ]
-  %.0154183 = phi i32 [ %.2156, %.loopexit177 ], [ 0, %.preheader178 ]
+.lr.ph185:                                        ; preds = %.lr.ph, %.loopexit177
+  %.1184 = phi ptr [ %30, %.loopexit177 ], [ %4, %.lr.ph ]
+  %.0154183 = phi i32 [ %.2156, %.loopexit177 ], [ 0, %.lr.ph ]
   %12 = getelementptr inbounds i8, ptr %.1184, i64 8
   %13 = load i32, ptr %12, align 8
   %.not172 = icmp sgt i32 %13, -1
@@ -1868,8 +1865,8 @@ define void @zend_cfg_build_predecessors(ptr nocapture noundef %0, ptr nocapture
   %31 = icmp ult ptr %30, %7
   br i1 %31, label %.lr.ph185, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.loopexit177, %2, %.preheader178
-  %.0154.lcssa = phi i32 [ 0, %.preheader178 ], [ 0, %2 ], [ %.2156, %.loopexit177 ]
+._crit_edge:                                      ; preds = %.loopexit177, %2
+  %.0154.lcssa = phi i32 [ 0, %2 ], [ %.2156, %.loopexit177 ]
   %32 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %.0154.lcssa, ptr %32, align 4
   %33 = sext i32 %.0154.lcssa to i64
@@ -2213,18 +2210,15 @@ define void @zend_cfg_compute_dominators_tree(ptr nocapture noundef readnone %0,
 
 .split177.us:                                     ; preds = %._crit_edge173.us
   store i32 -1, ptr %23, align 8
-  br i1 %24, label %.lr.ph.preheader, label %.lr.ph180.preheader
-
-.lr.ph.preheader:                                 ; preds = %.split177.us
   %wide.trip.count201 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
-.lr.ph180.preheader:                              ; preds = %96, %.split177.us
+.lr.ph180.preheader:                              ; preds = %96
   %wide.trip.count206 = zext nneg i32 %6 to i64
   br label %.lr.ph180
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %96
-  %indvars.iv198 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next199, %96 ]
+.lr.ph:                                           ; preds = %.split177.us, %96
+  %indvars.iv198 = phi i64 [ 1, %.split177.us ], [ %indvars.iv.next199, %96 ]
   %72 = getelementptr inbounds %struct._zend_basic_block, ptr %5, i64 %indvars.iv198
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8

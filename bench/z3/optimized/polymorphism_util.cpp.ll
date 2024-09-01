@@ -3782,14 +3782,14 @@ land.lhs.true:                                    ; preds = %_ZNK4sort11is_type_
 
 for.cond18.preheader.i.i.i:                       ; preds = %for.inc.i.i.i, %land.lhs.true
   %cmp19.not32.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp19.not32.i.i.i, label %if.end5, label %for.body20.i.i.i
+  br i1 %cmp19.not32.i.i.i, label %_ZNK4sort11is_type_varEv.exit9, label %for.body20.i.i.i
 
 for.body.i.i.i:                                   ; preds = %land.lhs.true, %for.inc.i.i.i
   %curr.031.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true ]
   %6 = load ptr, ptr %curr.031.i.i.i, align 8
   %magicptr25.i.i.i = ptrtoint ptr %6 to i64
   switch i64 %magicptr25.i.i.i, label %if.then.i.i.i [
-    i64 0, label %if.end5
+    i64 0, label %_ZNK4sort11is_type_varEv.exit9
     i64 1, label %for.inc.i.i.i
   ]
 
@@ -3811,7 +3811,7 @@ for.body20.i.i.i:                                 ; preds = %for.cond18.preheade
   %8 = load ptr, ptr %curr.133.i.i.i, align 8
   %magicptr27.i.i.i = ptrtoint ptr %8 to i64
   switch i64 %magicptr27.i.i.i, label %if.then22.i.i.i [
-    i64 0, label %if.end5
+    i64 0, label %_ZNK4sort11is_type_varEv.exit9
     i64 1, label %for.inc36.i.i.i
   ]
 
@@ -3826,7 +3826,7 @@ if.then22.i.i.i:                                  ; preds = %for.body20.i.i.i
 for.inc36.i.i.i:                                  ; preds = %if.then22.i.i.i, %for.body20.i.i.i
   %incdec.ptr37.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i, i64 16
   %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp19.not.i.i.i, label %if.end5, label %for.body20.i.i.i, !llvm.loop !6
+  br i1 %cmp19.not.i.i.i, label %_ZNK4sort11is_type_varEv.exit9, label %for.body20.i.i.i, !llvm.loop !6
 
 if.then3:                                         ; preds = %if.then.i.i.i, %if.then22.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i ]
@@ -3835,10 +3835,7 @@ if.then3:                                         ; preds = %if.then.i.i.i, %if.
   %cmp = icmp eq ptr %10, %s2
   br i1 %cmp, label %return, label %if.end
 
-if.end5:                                          ; preds = %for.cond18.preheader.i.i.i, %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i
-  br i1 %cmp.i.i, label %_ZNK4decl13get_family_idEv.exit, label %_ZNK4sort11is_type_varEv.exit9
-
-_ZNK4sort11is_type_varEv.exit9:                   ; preds = %if.end5
+_ZNK4sort11is_type_varEv.exit9:                   ; preds = %for.cond18.preheader.i.i.i, %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i
   %.pr = load i32, ptr %2, align 8
   %11 = icmp eq i32 %.pr, 6
   br i1 %11, label %if.then7, label %_ZNK4decl13get_family_idEv.exit
@@ -3928,8 +3925,9 @@ _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %return
 
-_ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZNK4sort11is_type_varEv.exit, %if.end, %_ZNK4sort11is_type_varEv.exit9, %if.end5
-  %cond.i = phi i32 [ -1, %if.end5 ], [ %.pr, %_ZNK4sort11is_type_varEv.exit9 ], [ -1, %if.end ], [ %3, %_ZNK4sort11is_type_varEv.exit ]
+_ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZNK4sort11is_type_varEv.exit, %if.end, %_ZNK4sort11is_type_varEv.exit9
+  %cmp.i.i216 = phi i1 [ false, %_ZNK4sort11is_type_varEv.exit9 ], [ %cmp.i.i, %if.end ], [ %cmp.i.i, %_ZNK4sort11is_type_varEv.exit ]
+  %cond.i = phi i32 [ %.pr, %_ZNK4sort11is_type_varEv.exit9 ], [ -1, %if.end ], [ %3, %_ZNK4sort11is_type_varEv.exit ]
   %m_info.i.i169 = getelementptr inbounds i8, ptr %s1.tr133, i64 24
   %m_info.i31 = getelementptr inbounds i8, ptr %s2, i64 24
   %28 = load ptr, ptr %m_info.i31, align 8
@@ -3946,7 +3944,7 @@ _ZNK4decl13get_family_idEv.exit35:                ; preds = %_ZNK4decl13get_fami
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %_ZNK4decl13get_family_idEv.exit35
-  br i1 %cmp.i.i, label %_ZNK4decl13get_decl_kindEv.exit, label %cond.false.i38
+  br i1 %cmp.i.i216, label %_ZNK4decl13get_decl_kindEv.exit, label %cond.false.i38
 
 cond.false.i38:                                   ; preds = %if.end17
   %m_kind.i.i = getelementptr inbounds i8, ptr %2, i64 4
@@ -3976,7 +3974,7 @@ if.end22:                                         ; preds = %_ZNK4decl13get_decl
   br i1 %cmp.i47.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.end22
-  br i1 %cmp.i.i, label %_ZNK4decl18get_num_parametersEv.exit, label %cond.false.i50
+  br i1 %cmp.i.i216, label %_ZNK4decl18get_num_parametersEv.exit, label %cond.false.i50
 
 cond.false.i50:                                   ; preds = %if.end27
   %m_parameters.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -4010,7 +4008,7 @@ _ZNK4decl18get_num_parametersEv.exit60:           ; preds = %_ZNK4decl18get_num_
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %_ZNK4decl18get_num_parametersEv.exit60
-  br i1 %cmp.i.i, label %_ZNK4decl18get_num_parametersEv.exit69, label %cond.false.i63
+  br i1 %cmp.i.i216, label %_ZNK4decl18get_num_parametersEv.exit69, label %cond.false.i63
 
 cond.false.i63:                                   ; preds = %if.end32
   %m_parameters.i.i64 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4656,7 +4654,7 @@ invoke.cont19:                                    ; preds = %if.end.i.i.i, %cond
   %cond.i = phi i32 [ %35, %if.end.i.i.i ], [ 0, %cond.false.i ]
   %36 = zext i32 %cond.i to i64
   %cmp = icmp ult i64 %indvars.iv, %36
-  br i1 %cmp, label %invoke.cont21, label %invoke.cont53.thread230
+  br i1 %cmp, label %invoke.cont21, label %invoke.cont53.thread226
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %arrayidx.i.i.i49 = getelementptr inbounds %class.parameter, ptr %34, i64 %indvars.iv
@@ -4833,17 +4831,17 @@ invoke.cont53:                                    ; preds = %if.end49
   %cmp.i98 = icmp eq ptr %.pr, null
   br i1 %cmp.i98, label %invoke.cont59, label %if.end.i99
 
-invoke.cont53.thread230:                          ; preds = %invoke.cont19
+invoke.cont53.thread226:                          ; preds = %invoke.cont19
   %61 = load i32, ptr %33, align 8
   %m_kind.i.i96 = getelementptr inbounds i8, ptr %33, i64 4
   %62 = load i32, ptr %m_kind.i.i96, align 4
-  %.pr235 = load ptr, ptr %params, align 8
-  %cmp.i98236 = icmp eq ptr %.pr235, null
-  br i1 %cmp.i98236, label %land.rhs.i, label %if.end.i99.thread
+  %.pr231 = load ptr, ptr %params, align 8
+  %cmp.i98232 = icmp eq ptr %.pr231, null
+  br i1 %cmp.i98232, label %land.rhs.i, label %if.end.i99.thread
 
-if.end.i99.thread:                                ; preds = %invoke.cont53.thread230
-  %arrayidx.i100247 = getelementptr inbounds i8, ptr %.pr235, i64 -4
-  %63 = load i32, ptr %arrayidx.i100247, align 4
+if.end.i99.thread:                                ; preds = %invoke.cont53.thread226
+  %arrayidx.i100243 = getelementptr inbounds i8, ptr %.pr231, i64 -4
+  %63 = load i32, ptr %arrayidx.i100243, align 4
   br label %land.rhs.i
 
 if.end.i99:                                       ; preds = %invoke.cont53
@@ -4851,21 +4849,21 @@ if.end.i99:                                       ; preds = %invoke.cont53
   %64 = load i32, ptr %arrayidx.i100, align 4
   br label %invoke.cont59
 
-land.rhs.i:                                       ; preds = %invoke.cont53.thread230, %if.end.i99.thread
-  %retval.0.i229 = phi i32 [ %63, %if.end.i99.thread ], [ 0, %invoke.cont53.thread230 ]
-  %65 = phi ptr [ %.pr235, %if.end.i99.thread ], [ null, %invoke.cont53.thread230 ]
+land.rhs.i:                                       ; preds = %invoke.cont53.thread226, %if.end.i99.thread
+  %retval.0.i225 = phi i32 [ %63, %if.end.i99.thread ], [ 0, %invoke.cont53.thread226 ]
+  %65 = phi ptr [ %.pr231, %if.end.i99.thread ], [ null, %invoke.cont53.thread226 ]
   %m_private_parameters.i.i = getelementptr inbounds i8, ptr %33, i64 16
   %66 = load i8, ptr %m_private_parameters.i.i, align 8
   %tobool.i.i = trunc i8 %66 to i1
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %invoke.cont53, %if.end.i99, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread, %land.rhs.i
-  %retval.0.i226 = phi i32 [ %retval.0.i229, %land.rhs.i ], [ 0, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ %64, %if.end.i99 ], [ 0, %invoke.cont53 ]
+  %retval.0.i222 = phi i32 [ %retval.0.i225, %land.rhs.i ], [ 0, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ %64, %if.end.i99 ], [ 0, %invoke.cont53 ]
   %67 = phi ptr [ %65, %land.rhs.i ], [ null, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ %.pr, %if.end.i99 ], [ null, %invoke.cont53 ]
-  %cond.i92176218225 = phi i32 [ %61, %land.rhs.i ], [ -1, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ -1, %if.end.i99 ], [ -1, %invoke.cont53 ]
-  %cond.i97219224 = phi i32 [ %62, %land.rhs.i ], [ -1, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ -1, %if.end.i99 ], [ -1, %invoke.cont53 ]
+  %cond.i92176214221 = phi i32 [ %61, %land.rhs.i ], [ -1, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ -1, %if.end.i99 ], [ -1, %invoke.cont53 ]
+  %cond.i97215220 = phi i32 [ %62, %land.rhs.i ], [ -1, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ -1, %if.end.i99 ], [ -1, %invoke.cont53 ]
   %68 = phi i1 [ %tobool.i.i, %land.rhs.i ], [ false, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.thread ], [ false, %if.end.i99 ], [ false, %invoke.cont53 ]
-  invoke void @_ZN9decl_infoC2EiijPK9parameterb(ptr noundef nonnull align 8 dereferenceable(17) %info, i32 noundef %cond.i92176218225, i32 noundef %cond.i97219224, i32 noundef %retval.0.i226, ptr noundef %67, i1 noundef zeroext %68)
+  invoke void @_ZN9decl_infoC2EiijPK9parameterb(ptr noundef nonnull align 8 dereferenceable(17) %info, i32 noundef %cond.i92176214221, i32 noundef %cond.i97215220, i32 noundef %retval.0.i222, ptr noundef %67, i1 noundef zeroext %68)
           to label %invoke.cont61 unwind label %lpad18.loopexit.split-lp
 
 invoke.cont61:                                    ; preds = %invoke.cont59

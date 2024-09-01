@@ -781,8 +781,8 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
   %165 = load i32, ptr %9, align 8
   switch i32 %165, label %.thread221 [
     i32 1, label %166
-    i32 2, label %226
-    i32 4, label %226
+    i32 2, label %224
+    i32 4, label %224
   ]
 
 166:                                              ; preds = %_ZL9ell_int_5d.exit201
@@ -836,78 +836,75 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
   %193 = fmul double %192, 0x3FE6A09E667F3BCD
   %.sroa.0.4 = select i1 %169, double %191, double %.sroa.0.1
   %.sroa.26.4 = select i1 %169, double %193, double %.sroa.26.1
-  %.not = icmp eq i32 %168, 4
-  br i1 %.not, label %.thread210, label %194
-
-194:                                              ; preds = %189
-  %195 = icmp eq i32 %168, 5
-  br i1 %195, label %210, label %.thread221
+  switch i32 %168, label %.thread221 [
+    i32 4, label %.thread210
+    i32 5, label %208
+  ]
 
 .thread210:                                       ; preds = %189
-  %196 = fcmp olt double %1, 0.000000e+00
-  %197 = fsub double 0x400DAA4A35759E4B, %.sroa.0.1
-  %.sroa.0.6 = select i1 %196, double %197, double %.sroa.0.1
-  %198 = fadd double %.sroa.0.6, 0xBFFDAA4A35759E4B
-  %199 = getelementptr inbounds i8, ptr %9, i64 8
-  %200 = load double, ptr %199, align 8
-  %201 = fcmp oeq double %200, 0.000000e+00
-  br i1 %201, label %.thread221, label %.thread216
+  %194 = fcmp olt double %1, 0.000000e+00
+  %195 = fsub double 0x400DAA4A35759E4B, %.sroa.0.1
+  %.sroa.0.6 = select i1 %194, double %195, double %.sroa.0.1
+  %196 = fadd double %.sroa.0.6, 0xBFFDAA4A35759E4B
+  %197 = getelementptr inbounds i8, ptr %9, i64 8
+  %198 = load double, ptr %197, align 8
+  %199 = fcmp oeq double %198, 0.000000e+00
+  br i1 %199, label %.thread221, label %.thread216
 
 .thread216:                                       ; preds = %.thread210
-  %202 = tail call double @llvm.fmuladd.f64(double %200, double 0x401DAA4A35759E4B, double %198)
-  %203 = fcmp ult double %202, 0x400DAA4A35759E4B
-  br i1 %203, label %206, label %204
+  %200 = tail call double @llvm.fmuladd.f64(double %198, double 0x401DAA4A35759E4B, double %196)
+  %201 = fcmp ult double %200, 0x400DAA4A35759E4B
+  br i1 %201, label %204, label %202
+
+202:                                              ; preds = %.thread216
+  %203 = fadd double %200, 0xC01DAA4A35759E4B
+  br label %.thread221
 
 204:                                              ; preds = %.thread216
-  %205 = fadd double %202, 0xC01DAA4A35759E4B
+  %205 = fcmp olt double %200, 0xC00DAA4A35759E4B
+  br i1 %205, label %206, label %.thread221
+
+206:                                              ; preds = %204
+  %207 = fadd double %200, 0x401DAA4A35759E4B
   br label %.thread221
 
-206:                                              ; preds = %.thread216
-  %207 = fcmp olt double %202, 0xC00DAA4A35759E4B
-  br i1 %207, label %208, label %.thread221
+208:                                              ; preds = %189
+  %209 = fcmp olt double %1, 0.000000e+00
+  %210 = fsub double 0x400DAA4A35759E4B, %.sroa.26.1
+  %.sroa.26.6 = select i1 %209, double %210, double %.sroa.26.1
+  %211 = fadd double %.sroa.26.6, 0xBFFDAA4A35759E4B
+  %212 = getelementptr inbounds i8, ptr %9, i64 16
+  %213 = load double, ptr %212, align 8
+  %214 = fcmp une double %213, 0.000000e+00
+  br i1 %214, label %215, label %.thread221
 
-208:                                              ; preds = %206
-  %209 = fadd double %202, 0x401DAA4A35759E4B
+215:                                              ; preds = %208
+  %216 = tail call double @llvm.fmuladd.f64(double %213, double 0x401DAA4A35759E4B, double %211)
+  %217 = fcmp ult double %216, 0x400DAA4A35759E4B
+  br i1 %217, label %220, label %218
+
+218:                                              ; preds = %215
+  %219 = fadd double %216, 0xC01DAA4A35759E4B
   br label %.thread221
 
-210:                                              ; preds = %194
-  %211 = fcmp olt double %1, 0.000000e+00
-  %212 = fsub double 0x400DAA4A35759E4B, %.sroa.26.1
-  %.sroa.26.6 = select i1 %211, double %212, double %.sroa.26.1
-  %213 = fadd double %.sroa.26.6, 0xBFFDAA4A35759E4B
-  %214 = getelementptr inbounds i8, ptr %9, i64 16
-  %215 = load double, ptr %214, align 8
-  %216 = fcmp une double %215, 0.000000e+00
-  %brmerge225.not = and i1 %195, %216
-  br i1 %brmerge225.not, label %217, label %.thread221
+220:                                              ; preds = %215
+  %221 = fcmp olt double %216, 0xC00DAA4A35759E4B
+  br i1 %221, label %222, label %.thread221
 
-217:                                              ; preds = %210
-  %218 = tail call double @llvm.fmuladd.f64(double %215, double 0x401DAA4A35759E4B, double %213)
-  %219 = fcmp ult double %218, 0x400DAA4A35759E4B
-  br i1 %219, label %222, label %220
-
-220:                                              ; preds = %217
-  %221 = fadd double %218, 0xC01DAA4A35759E4B
+222:                                              ; preds = %220
+  %223 = fadd double %216, 0x401DAA4A35759E4B
   br label %.thread221
 
-222:                                              ; preds = %217
-  %223 = fcmp olt double %218, 0xC00DAA4A35759E4B
-  br i1 %223, label %224, label %.thread221
-
-224:                                              ; preds = %222
-  %225 = fadd double %218, 0x401DAA4A35759E4B
-  br label %.thread221
-
-226:                                              ; preds = %_ZL9ell_int_5d.exit201, %_ZL9ell_int_5d.exit201
-  %227 = fsub double %160, %164
+224:                                              ; preds = %_ZL9ell_int_5d.exit201, %_ZL9ell_int_5d.exit201
+  %225 = fsub double %160, %164
+  %226 = fmul double %225, 0x3FE6A09E667F3BCD
+  %227 = fadd double %160, %164
   %228 = fmul double %227, 0x3FE6A09E667F3BCD
-  %229 = fadd double %160, %164
-  %230 = fmul double %229, 0x3FE6A09E667F3BCD
   br label %.thread221
 
-.thread221:                                       ; preds = %194, %.thread210, %206, %208, %204, %_ZL9ell_int_5d.exit201, %210, %220, %224, %222, %226, %73, %50, %45, %22, %15
-  %.sroa.0172.0 = phi double [ %.sroa.0172.0.copyload175, %73 ], [ %.sroa.0172.0.copyload173, %45 ], [ %.sroa.0172.0.copyload174, %50 ], [ %.sroa.0172.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %228, %226 ], [ %.sroa.0.4, %210 ], [ %.sroa.0.4, %222 ], [ %.sroa.0.4, %224 ], [ %.sroa.0.4, %220 ], [ %160, %_ZL9ell_int_5d.exit201 ], [ %.sroa.0.4, %194 ], [ %198, %.thread210 ], [ %202, %206 ], [ %209, %208 ], [ %205, %204 ]
-  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload181, %73 ], [ %.sroa.7.0.copyload177, %45 ], [ %.sroa.7.0.copyload179, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %230, %226 ], [ %213, %210 ], [ %218, %222 ], [ %225, %224 ], [ %221, %220 ], [ %164, %_ZL9ell_int_5d.exit201 ], [ %.sroa.26.4, %194 ], [ %.sroa.26.4, %.thread210 ], [ %.sroa.26.4, %206 ], [ %.sroa.26.4, %208 ], [ %.sroa.26.4, %204 ]
+.thread221:                                       ; preds = %189, %.thread210, %204, %206, %202, %_ZL9ell_int_5d.exit201, %208, %218, %222, %220, %224, %73, %50, %45, %22, %15
+  %.sroa.0172.0 = phi double [ %.sroa.0172.0.copyload175, %73 ], [ %.sroa.0172.0.copyload173, %45 ], [ %.sroa.0172.0.copyload174, %50 ], [ %.sroa.0172.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %226, %224 ], [ %.sroa.0.4, %208 ], [ %.sroa.0.4, %220 ], [ %.sroa.0.4, %222 ], [ %.sroa.0.4, %218 ], [ %160, %_ZL9ell_int_5d.exit201 ], [ %196, %.thread210 ], [ %200, %204 ], [ %207, %206 ], [ %203, %202 ], [ %.sroa.0.4, %189 ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload181, %73 ], [ %.sroa.7.0.copyload177, %45 ], [ %.sroa.7.0.copyload179, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %228, %224 ], [ %211, %208 ], [ %216, %220 ], [ %223, %222 ], [ %219, %218 ], [ %164, %_ZL9ell_int_5d.exit201 ], [ %.sroa.26.4, %.thread210 ], [ %.sroa.26.4, %204 ], [ %.sroa.26.4, %206 ], [ %.sroa.26.4, %202 ], [ %.sroa.26.4, %189 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0172.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert

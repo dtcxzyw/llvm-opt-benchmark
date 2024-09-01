@@ -1477,8 +1477,8 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
           to label %.noexc.i unwind label %18, !noalias !547
 
 .noexc.i:                                         ; preds = %13
-  %.not.not.i.not.i.not.i = icmp eq ptr %14, null
-  br i1 %.not.not.i.not.i.not.i, label %20, label %15
+  %.not.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %14, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i, label %20, label %15
 
 15:                                               ; preds = %.noexc.i
   %16 = load i32, ptr %14, align 4, !alias.scope !554, !noalias !559, !noundef !4
@@ -4461,8 +4461,8 @@ define hidden void @"_ZN7base_db5input10CrateGraph20remove_crates_except28_$u7b$
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %13
-  %.not.not.i.not.i.not = icmp eq ptr %14, null
-  br i1 %.not.not.i.not.i.not, label %21, label %15
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %14, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %21, label %15
 
 15:                                               ; preds = %.noexc
   %16 = load i32, ptr %14, align 4, !alias.scope !1306, !noalias !1311, !noundef !4

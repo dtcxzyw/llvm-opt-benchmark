@@ -593,8 +593,8 @@ define hidden void @"_ZN19pyo3_macros_backend12frompyobject9Container3new28_$u7b
   %32 = getelementptr inbounds i8, ptr %10, i64 112
   %.sroa.0.0.copyload = load i64, ptr %32, align 8
   store i64 -9223372036854775799, ptr %31, align 8
-  %.not20.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775797
-  br i1 %.not20.not, label %.thread, label %34
+  %.not20 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775797
+  br i1 %.not20, label %.thread, label %34
 
 .thread:                                          ; preds = %30, %53, %55, %24
   %33 = getelementptr inbounds i8, ptr %11, i64 112

@@ -203,10 +203,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   %wide.trip.count179 = zext nneg i32 %16 to i64
   br label %.lr.ph158
 
-.preheader148:                                    ; preds = %.lr.ph158
-  br i1 %42, label %.lr.ph169.preheader, label %._crit_edge172
-
-.lr.ph169.preheader:                              ; preds = %.preheader148
+.lr.ph169.preheader:                              ; preds = %.lr.ph158
   %wide.trip.count190 = zext nneg i32 %16 to i64
   br label %.lr.ph169
 
@@ -217,12 +214,9 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   store i32 %99, ptr %98, align 4
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %.preheader148, label %.lr.ph158, !llvm.loop !10
+  br i1 %exitcond180.not, label %.lr.ph169.preheader, label %.lr.ph158, !llvm.loop !10
 
-.preheader:                                       ; preds = %169
-  br i1 %42, label %.lr.ph171.preheader, label %._crit_edge172
-
-.lr.ph171.preheader:                              ; preds = %.preheader
+.lr.ph171.preheader:                              ; preds = %169
   %wide.trip.count195 = zext nneg i32 %16 to i64
   br label %.lr.ph171
 
@@ -372,7 +366,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
 169:                                              ; preds = %._crit_edge167, %167
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %.preheader, label %.lr.ph169, !llvm.loop !13
+  br i1 %exitcond191.not, label %.lr.ph171.preheader, label %.lr.ph169, !llvm.loop !13
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %179
   %indvars.iv192 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next193, %179 ]
@@ -396,7 +390,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
   br i1 %exitcond196.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !14
 
-._crit_edge172:                                   ; preds = %179, %init_ata.exit, %.preheader148, %.preheader
+._crit_edge172:                                   ; preds = %179, %init_ata.exit
   %180 = call ptr @cs_idone(ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %23, i32 noundef 1) #4
   br label %181
 

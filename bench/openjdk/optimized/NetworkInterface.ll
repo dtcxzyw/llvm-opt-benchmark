@@ -293,8 +293,8 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
 
 25:                                               ; preds = %18
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #15
-  %.not67 = icmp eq ptr %26, null
-  br i1 %.not67, label %31, label %27
+  %.not60 = icmp eq ptr %26, null
+  br i1 %.not60, label %31, label %27
 
 27:                                               ; preds = %25
   %28 = ptrtoint ptr %26 to i64
@@ -311,8 +311,8 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
   br label %35
 
 35:                                               ; preds = %33, %41
-  %.04662 = phi ptr [ %19, %33 ], [ %43, %41 ]
-  %36 = load ptr, ptr %.04662, align 8
+  %.04664 = phi ptr [ %19, %33 ], [ %43, %41 ]
+  %36 = load ptr, ptr %.04664, align 8
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #15
   %38 = icmp eq i64 %37, %34
   br i1 %38, label %39, label %41
@@ -323,35 +323,35 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39, %35
-  %42 = getelementptr inbounds i8, ptr %.04662, i64 32
+  %42 = getelementptr inbounds i8, ptr %.04664, i64 32
   %43 = load ptr, ptr %42, align 8
-  %.not66 = icmp eq ptr %43, null
-  br i1 %.not66, label %.thread56, label %35, !llvm.loop !6
+  %.not59 = icmp eq ptr %43, null
+  br i1 %.not59, label %.thread56, label %35, !llvm.loop !6
 
 44:                                               ; preds = %39
-  br i1 %.not67, label %.loopexit, label %45
+  br i1 %.not60, label %.loopexit, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.04662, i64 24
-  %.263 = load ptr, ptr %46, align 8
-  %.not5264 = icmp eq ptr %.263, null
-  br i1 %.not5264, label %.thread56, label %.lr.ph
+  %46 = getelementptr inbounds i8, ptr %.04664, i64 24
+  %.265 = load ptr, ptr %46, align 8
+  %.not5266 = icmp eq ptr %.265, null
+  br i1 %.not5266, label %.thread56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %50
-  %.265 = phi ptr [ %.2, %50 ], [ %.263, %45 ]
-  %47 = load ptr, ptr %.265, align 8
+  %.267 = phi ptr [ %.2, %50 ], [ %.265, %45 ]
+  %47 = load ptr, ptr %.267, align 8
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %47) #15
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %.265, i64 32
+  %51 = getelementptr inbounds i8, ptr %.267, i64 32
   %.2 = load ptr, ptr %51, align 8
   %.not52 = icmp eq ptr %.2, null
   br i1 %.not52, label %.thread56, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %44
-  %.1 = phi ptr [ %.04662, %44 ], [ %.265, %.lr.ph ]
+  %.1 = phi ptr [ %.04664, %44 ], [ %.267, %.lr.ph ]
   %52 = call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.1)
   br label %.thread56
 

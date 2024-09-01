@@ -537,7 +537,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
   %35 = load ptr, ptr %34, align 8
   %.not6.i.i = icmp eq ptr %35, null
-  br i1 %.not6.i.i, label %.preheader, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32, %.lr.ph.i.i
   %36 = phi ptr [ %38, %.lr.ph.i.i ], [ %35, %32 ]
@@ -546,13 +546,13 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i, label %.preheader, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-.preheader:                                       ; preds = %.lr.ph.i.i, %32
+opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %32
   %39 = icmp sgt i32 %19, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %opal_obj_new.exit
   %40 = sext i32 %1 to i64
   %41 = mul i64 %22, %40
   %42 = sext i32 %4 to i64
@@ -621,7 +621,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %57, %60
   %.not.i78 = icmp eq ptr %72, null
   br i1 %.not.i78, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %44, %.preheader
+._crit_edge:                                      ; preds = %44, %opal_obj_new.exit
   %73 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %27) #4
   %.not72 = icmp eq i32 %73, 0
   br i1 %.not72, label %93, label %74

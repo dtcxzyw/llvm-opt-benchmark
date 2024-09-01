@@ -3354,72 +3354,69 @@ define hidden noundef zeroext i1 @_ZN11klassVtable32check_no_old_or_obsolete_ent
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = zext nneg i32 %15 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %24 = phi i1 [ false, %.lr.ph ], [ %41, %40 ]
-  %25 = getelementptr inbounds %class.vtableEntry, ptr %21, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %40, label %27
+22:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %23 = getelementptr inbounds %class.vtableEntry, ptr %21, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %38, label %25
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %26, i64 48
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 12
-  %or.cond.not = icmp eq i32 %30, 0
-  br i1 %or.cond.not, label %40, label %31
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %24, i64 48
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 12
+  %or.cond.not = icmp eq i32 %28, 0
+  br i1 %or.cond.not, label %38, label %29
 
-31:                                               ; preds = %27
-  %32 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_175ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not16 = icmp eq ptr %32, null
-  br i1 %.not16, label %.loopexit, label %33
+29:                                               ; preds = %25
+  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_175ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not16 = icmp eq ptr %30, null
+  br i1 %.not16, label %.loopexit, label %31
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %26, i64 48
-  %35 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %17) #15
-  %36 = load i32, ptr %34, align 4
-  %37 = lshr i32 %36, 2
-  %.lobit = and i32 %37, 1
-  %38 = lshr i32 %36, 3
-  %.lobit17 = and i32 %38, 1
-  %39 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %26) #15
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168ELS1_175ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %35, i32 noundef %.lobit, i32 noundef %.lobit17, ptr noundef %39)
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %24, i64 48
+  %33 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %17) #15
+  %34 = load i32, ptr %32, align 4
+  %35 = lshr i32 %34, 2
+  %.lobit = and i32 %35, 1
+  %36 = lshr i32 %34, 3
+  %.lobit17 = and i32 %36, 1
+  %37 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %24) #15
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168ELS1_175ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %33, i32 noundef %.lobit, i32 noundef %.lobit17, ptr noundef %37)
   br label %.loopexit
 
-40:                                               ; preds = %27, %23
+38:                                               ; preds = %25, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = icmp uge i64 %indvars.iv.next, %22
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %23, !llvm.loop !27
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !27
 
-.loopexit:                                        ; preds = %40, %1, %33, %31
-  %42 = phi i1 [ %24, %33 ], [ %24, %31 ], [ true, %1 ], [ %41, %40 ]
-  %43 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %45, label %44
+.loopexit:                                        ; preds = %38, %1, %31, %29
+  %39 = phi i1 [ false, %31 ], [ false, %29 ], [ true, %1 ], [ true, %38 ]
+  %40 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %42, label %41
 
-44:                                               ; preds = %.loopexit
+41:                                               ; preds = %.loopexit
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #15
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #15
-  br label %45
+  br label %42
 
-45:                                               ; preds = %44, %.loopexit
-  %46 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %46, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %47
+42:                                               ; preds = %41, %.loopexit
+  %43 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %43, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
 
-47:                                               ; preds = %45
+44:                                               ; preds = %42
   store ptr %7, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %45, %47
-  ret i1 %42
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %44
+  ret i1 %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4444,69 +4441,67 @@ define hidden noundef zeroext i1 @_ZN11klassItable32check_no_old_or_obsolete_ent
   %26 = getelementptr inbounds i64, ptr %21, i64 %25
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %27 = phi i1 [ %45, %42 ], [ false, %.lr.ph.preheader ]
-  %.01125 = phi i32 [ %44, %42 ], [ 0, %.lr.ph.preheader ]
-  %.01224 = phi ptr [ %43, %42 ], [ %26, %.lr.ph.preheader ]
-  %28 = load ptr, ptr %.01224, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %42, label %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %.01125 = phi i32 [ %43, %41 ], [ 0, %.lr.ph.preheader ]
+  %.01224 = phi ptr [ %42, %41 ], [ %26, %.lr.ph.preheader ]
+  %27 = load ptr, ptr %.01224, align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %41, label %28
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %28, i64 48
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 12
-  %or.cond.not = icmp eq i32 %32, 0
-  br i1 %or.cond.not, label %42, label %33
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 12
+  %or.cond.not = icmp eq i32 %31, 0
+  br i1 %or.cond.not, label %41, label %32
 
-33:                                               ; preds = %29
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_63ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not18 = icmp eq ptr %34, null
-  br i1 %.not18, label %.loopexit, label %35
+32:                                               ; preds = %28
+  %33 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_63ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not18 = icmp eq ptr %33, null
+  br i1 %.not18, label %.loopexit, label %34
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %28, i64 48
-  %37 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %14) #15
-  %38 = load i32, ptr %36, align 4
-  %39 = lshr i32 %38, 2
-  %.lobit = and i32 %39, 1
-  %40 = lshr i32 %38, 3
-  %.lobit19 = and i32 %40, 1
-  %41 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %28) #15
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168ELS1_63ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, ptr noundef %37, i32 noundef %.lobit, i32 noundef %.lobit19, ptr noundef %41)
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %27, i64 48
+  %36 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %14) #15
+  %37 = load i32, ptr %35, align 4
+  %38 = lshr i32 %37, 2
+  %.lobit = and i32 %38, 1
+  %39 = lshr i32 %37, 3
+  %.lobit19 = and i32 %39, 1
+  %40 = tail call noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %27) #15
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168ELS1_63ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, ptr noundef %36, i32 noundef %.lobit, i32 noundef %.lobit19, ptr noundef %40)
   br label %.loopexit
 
-42:                                               ; preds = %29, %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %.01224, i64 8
-  %44 = add nuw nsw i32 %.01125, 1
-  %45 = icmp sge i32 %44, %16
-  %exitcond = icmp eq i32 %44, %16
-  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !35
+41:                                               ; preds = %28, %.lr.ph
+  %42 = getelementptr inbounds i8, ptr %.01224, i64 8
+  %43 = add nuw nsw i32 %.01125, 1
+  %exitcond.not = icmp eq i32 %43, %16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
-.loopexit:                                        ; preds = %42, %1, %35, %33
-  %46 = phi i1 [ %27, %35 ], [ %27, %33 ], [ true, %1 ], [ %45, %42 ]
-  %47 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %49, label %48
+.loopexit:                                        ; preds = %41, %1, %34, %32
+  %44 = phi i1 [ false, %34 ], [ false, %32 ], [ true, %1 ], [ true, %41 ]
+  %45 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %47, label %46
 
-48:                                               ; preds = %.loopexit
+46:                                               ; preds = %.loopexit
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #15
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #15
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %.loopexit
-  %50 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %50, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
+47:                                               ; preds = %46, %.loopexit
+  %48 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %48, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %49
 
-51:                                               ; preds = %49
+49:                                               ; preds = %47
   store ptr %7, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
-  ret i1 %46
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5826,9 +5821,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -5836,20 +5830,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !43
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !43
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !46
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

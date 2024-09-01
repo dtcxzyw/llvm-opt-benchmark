@@ -1395,34 +1395,29 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %purge_mask = getelementptr inbounds i8, ptr %segment, i64 48
-  %1 = load i64, ptr %purge_mask, align 8
-  %cmp1.not.i22 = icmp eq i64 %1, 0
-  br i1 %cmp1.not.i22, label %for.cond.i, label %if.end
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %lor.lhs.false, %for.body.i
-  %i.03.i23 = phi i64 [ %inc.i, %for.body.i ], [ 0, %lor.lhs.false ]
-  %inc.i = add nuw nsw i64 %i.03.i23, 1
-  %exitcond.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.i, label %while.end, label %for.body.i, !llvm.loop !23
-
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %purge_mask, i64 0, i64 %inc.i
-  %2 = load i64, ptr %arrayidx.i, align 8
-  %cmp1.not.i = icmp eq i64 %2, 0
-  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit, !llvm.loop !23
+for.body.i:                                       ; preds = %for.body.i, %lor.lhs.false
+  %i.03.i = phi i64 [ 0, %lor.lhs.false ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %purge_mask, i64 0, i64 %i.03.i
+  %1 = load i64, ptr %arrayidx.i, align 8
+  %cmp1.not.i = icmp eq i64 %1, 0
+  %inc.i = add nuw nsw i64 %i.03.i, 1
+  %exitcond.i = icmp ne i64 %inc.i, 8
+  %or.cond.not.i = select i1 %cmp1.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i, label %mi_commit_mask_is_empty.exit, !llvm.loop !23
 
 mi_commit_mask_is_empty.exit:                     ; preds = %for.body.i
-  %cmp.i.le = icmp ugt i64 %i.03.i23, 6
-  br i1 %cmp.i.le, label %while.end, label %if.end
+  br i1 %cmp1.not.i, label %while.end, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false, %mi_commit_mask_is_empty.exit
+if.end:                                           ; preds = %mi_commit_mask_is_empty.exit
   %call1 = tail call i64 @_mi_clock_now() #13
   br i1 %force, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %purge_expire = getelementptr inbounds i8, ptr %segment, i64 40
-  %3 = load i64, ptr %purge_expire, align 8
-  %cmp = icmp slt i64 %call1, %3
+  %2 = load i64, ptr %purge_expire, align 8
+  %cmp = icmp slt i64 %call1, %2
   br i1 %cmp, label %while.end, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
@@ -1432,17 +1427,17 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.end4, %if.then11
-  %storemerge25 = phi i64 [ 0, %if.end4 ], [ %add, %if.then11 ]
-  %rem.i = and i64 %storemerge25, 63
-  %div23.i = lshr i64 %storemerge25, 6
+  %storemerge21 = phi i64 [ 0, %if.end4 ], [ %add, %if.then11 ]
+  %rem.i = and i64 %storemerge21, 63
+  %div23.i = lshr i64 %storemerge21, 6
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.preheader.i
   %ofs.031.i = phi i64 [ 0, %if.end.i ], [ %rem.i, %while.body.preheader.i ]
   %i.030.i = phi i64 [ %inc7.i, %if.end.i ], [ %div23.i, %while.body.preheader.i ]
   %arrayidx.i10 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.030.i
-  %4 = load i64, ptr %arrayidx.i10, align 8
-  %shr.i = lshr i64 %4, %ofs.031.i
+  %3 = load i64, ptr %arrayidx.i10, align 8
+  %shr.i = lshr i64 %3, %ofs.031.i
   %cmp2.not.i = icmp eq i64 %shr.i, 0
   br i1 %cmp2.not.i, label %if.end.i, label %while.cond3.preheader.i
 
@@ -1456,9 +1451,9 @@ while.body5.i:                                    ; preds = %while.cond3.prehead
   %ofs.234.i = phi i64 [ %inc.i11, %while.body5.i ], [ %ofs.031.i, %while.cond3.preheader.i ]
   %shr6.i = lshr exact i64 %mask.235.i, 1
   %inc.i11 = add i64 %ofs.234.i, 1
-  %5 = and i64 %mask.235.i, 2
-  %cmp4.i12 = icmp eq i64 %5, 0
-  br i1 %cmp4.i12, label %while.body5.i, label %if.else.i, !llvm.loop !7
+  %4 = and i64 %mask.235.i, 2
+  %cmp4.i = icmp eq i64 %4, 0
+  br i1 %cmp4.i, label %while.body5.i, label %if.else.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %while.body.i
   %inc7.i = add nuw nsw i64 %i.030.i, 1
@@ -1483,8 +1478,8 @@ do.body11.i:                                      ; preds = %do.body11.i, %do.bo
   %count.1.i = phi i64 [ %count.0.i, %do.body.i ], [ %inc12.i, %do.body11.i ]
   %inc12.i = add i64 %count.1.i, 1
   %shr13.i = lshr i64 %mask.4.i, 1
-  %6 = and i64 %mask.4.i, 2
-  %cmp15.not.i = icmp eq i64 %6, 0
+  %5 = and i64 %mask.4.i, 2
+  %cmp15.not.i = icmp eq i64 %5, 0
   br i1 %cmp15.not.i, label %do.end.i, label %do.body11.i, !llvm.loop !9
 
 do.end.i:                                         ; preds = %do.body11.i
@@ -1500,12 +1495,12 @@ if.then19.i:                                      ; preds = %do.end.i
 if.end23.i:                                       ; preds = %if.then19.i
   %inc20.i = add nuw nsw i64 %i.1.i, 1
   %arrayidx25.i = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %inc20.i
-  %7 = load i64, ptr %arrayidx25.i, align 8
+  %6 = load i64, ptr %arrayidx25.i, align 8
   br label %do.cond27.i
 
 do.cond27.i:                                      ; preds = %if.end23.i, %do.end.i
   %i.2.i = phi i64 [ %inc20.i, %if.end23.i ], [ %i.1.i, %do.end.i ]
-  %mask.5.i = phi i64 [ %7, %if.end23.i ], [ %shr13.i, %do.end.i ]
+  %mask.5.i = phi i64 [ %6, %if.end23.i ], [ %shr13.i, %do.end.i ]
   %and28.i = and i64 %mask.5.i, 1
   %cmp29.not.i = icmp eq i64 %and28.i, 0
   br i1 %cmp29.not.i, label %_mi_commit_mask_next_run.exit, label %do.body.i, !llvm.loop !10
@@ -1523,7 +1518,7 @@ if.then11:                                        ; preds = %_mi_commit_mask_nex
   %cmp29.i = icmp ult i64 %add, 512
   br i1 %cmp29.i, label %while.body.preheader.i, label %while.end, !llvm.loop !24
 
-while.end:                                        ; preds = %for.cond.i, %if.then11, %_mi_commit_mask_next_run.exit, %if.end.i, %land.lhs.true, %entry, %mi_commit_mask_is_empty.exit
+while.end:                                        ; preds = %if.then11, %_mi_commit_mask_next_run.exit, %if.end.i, %land.lhs.true, %entry, %mi_commit_mask_is_empty.exit
   ret void
 }
 
@@ -2626,31 +2621,22 @@ if.then1.i:                                       ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   store i64 0, ptr %full_size.i, align 8
   call fastcc void @mi_segment_commit_mask(ptr noundef nonnull %segment, i1 noundef zeroext true, ptr noundef %add.ptr.i, i64 noundef %mul16, ptr noundef nonnull %start.i, ptr noundef nonnull %full_size.i, ptr noundef nonnull %mask.i) #12
-  %7 = load i64, ptr %mask.i, align 8
-  %cmp1.not.i26.i = icmp eq i64 %7, 0
-  br i1 %cmp1.not.i26.i, label %for.cond.i.i, label %mi_commit_mask_is_empty.exit.i
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %if.else.i, %for.body.i.i
-  %i.03.i27.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.else.i ]
-  %inc.i.i = add nuw nsw i64 %i.03.i27.i, 1
-  %exitcond.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, label %for.body.i.i, !llvm.loop !23
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.else.i
+  %i.03.i.i = phi i64 [ 0, %if.else.i ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %mask.i, i64 0, i64 %i.03.i.i
+  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp1.not.i.i = icmp eq i64 %7, 0
+  %inc.i.i = add nuw nsw i64 %i.03.i.i, 1
+  %exitcond.i.i = icmp ne i64 %inc.i.i, 8
+  %or.cond.not.i.i = select i1 %cmp1.not.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !23
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %mask.i, i64 0, i64 %inc.i.i
-  %8 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp1.not.i.i = icmp eq i64 %8, 0
-  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i, !llvm.loop !23
-
-mi_commit_mask_is_empty.exit.loopexit.i:          ; preds = %for.body.i.i, %for.cond.i.i
-  %cmp.i.le.i = icmp ugt i64 %i.03.i27.i, 6
-  br label %mi_commit_mask_is_empty.exit.i
-
-mi_commit_mask_is_empty.exit.i:                   ; preds = %mi_commit_mask_is_empty.exit.loopexit.i, %if.else.i
-  %cmp.lcssa.i.i = phi i1 [ false, %if.else.i ], [ %cmp.i.le.i, %mi_commit_mask_is_empty.exit.loopexit.i ]
-  %9 = load i64, ptr %full_size.i, align 8
-  %cmp4.i = icmp eq i64 %9, 0
-  %or.cond.i = select i1 %cmp.lcssa.i.i, i1 true, i1 %cmp4.i
+mi_commit_mask_is_empty.exit.i:                   ; preds = %for.body.i.i
+  %8 = load i64, ptr %full_size.i, align 8
+  %cmp4.i = icmp eq i64 %8, 0
+  %or.cond.i = select i1 %cmp1.not.i.i, i1 true, i1 %cmp4.i
   br i1 %or.cond.i, label %mi_segment_schedule_purge.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %mi_commit_mask_is_empty.exit.i
@@ -2660,10 +2646,10 @@ if.end6.i:                                        ; preds = %mi_commit_mask_is_e
 for.body.i18.i:                                   ; preds = %for.body.i18.i, %if.end6.i
   %i.05.i.i = phi i64 [ 0, %if.end6.i ], [ %inc.i20.i, %for.body.i18.i ]
   %arrayidx.i19.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.05.i.i
-  %10 = load i64, ptr %arrayidx.i19.i, align 8
+  %9 = load i64, ptr %arrayidx.i19.i, align 8
   %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %mask.i, i64 0, i64 %i.05.i.i
-  %11 = load i64, ptr %arrayidx2.i.i, align 8
-  %and.i.i21 = and i64 %11, %10
+  %10 = load i64, ptr %arrayidx2.i.i, align 8
+  %and.i.i21 = and i64 %10, %9
   %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %cmask.i, i64 0, i64 %i.05.i.i
   store i64 %and.i.i21, ptr %arrayidx4.i.i, align 8
   %inc.i20.i = add nuw nsw i64 %i.05.i.i, 1
@@ -2677,10 +2663,10 @@ mi_commit_mask_create_intersect.exit.i:           ; preds = %for.body.i18.i
 for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi_commit_mask_create_intersect.exit.i
   %i.04.i.i = phi i64 [ 0, %mi_commit_mask_create_intersect.exit.i ], [ %inc.i24.i, %for.body.i21.i ]
   %arrayidx.i22.i = getelementptr inbounds [8 x i64], ptr %cmask.i, i64 0, i64 %i.04.i.i
-  %12 = load i64, ptr %arrayidx.i22.i, align 8
+  %11 = load i64, ptr %arrayidx.i22.i, align 8
   %arrayidx2.i23.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i, i64 0, i64 %i.04.i.i
-  %13 = load i64, ptr %arrayidx2.i23.i, align 8
-  %or.i.i = or i64 %13, %12
+  %12 = load i64, ptr %arrayidx2.i23.i, align 8
+  %or.i.i = or i64 %12, %11
   store i64 %or.i.i, ptr %arrayidx2.i23.i, align 8
   %inc.i24.i = add nuw nsw i64 %i.04.i.i, 1
   %exitcond.not.i25.i = icmp eq i64 %inc.i24.i, 8
@@ -2689,8 +2675,8 @@ for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi
 mi_commit_mask_set.exit.i:                        ; preds = %for.body.i21.i
   %call7.i = tail call i64 @_mi_clock_now() #13
   %purge_expire.i = getelementptr inbounds i8, ptr %segment, i64 40
-  %14 = load i64, ptr %purge_expire.i, align 8
-  %cmp8.i = icmp eq i64 %14, 0
+  %13 = load i64, ptr %purge_expire.i, align 8
+  %cmp8.i = icmp eq i64 %13, 0
   br i1 %cmp8.i, label %if.then9.i, label %if.else12.i
 
 if.then9.i:                                       ; preds = %mi_commit_mask_set.exit.i
@@ -2700,12 +2686,12 @@ if.then9.i:                                       ; preds = %mi_commit_mask_set.
   br label %mi_segment_schedule_purge.exit
 
 if.else12.i:                                      ; preds = %mi_commit_mask_set.exit.i
-  %cmp14.not.i = icmp sgt i64 %14, %call7.i
+  %cmp14.not.i = icmp sgt i64 %13, %call7.i
   %call27.i = tail call i64 @mi_option_get(i32 noundef 25) #13
   br i1 %cmp14.not.i, label %if.else26.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.else12.i
-  %add18.i = add nsw i64 %call27.i, %14
+  %add18.i = add nsw i64 %call27.i, %13
   %cmp19.not.i = icmp sgt i64 %add18.i, %call7.i
   br i1 %cmp19.not.i, label %if.else21.i, label %if.then20.i
 
@@ -2720,8 +2706,8 @@ if.else21.i:                                      ; preds = %if.then15.i
   br label %mi_segment_schedule_purge.exit
 
 if.else26.i:                                      ; preds = %if.else12.i
-  %15 = load i64, ptr %purge_expire.i, align 8
-  %add29.i = add nsw i64 %15, %call27.i
+  %14 = load i64, ptr %purge_expire.i, align 8
+  %add29.i = add nsw i64 %14, %call27.i
   store i64 %add29.i, ptr %purge_expire.i, align 8
   br label %mi_segment_schedule_purge.exit
 
@@ -2739,21 +2725,21 @@ if.end17:                                         ; preds = %mi_segment_schedule
 if.then20:                                        ; preds = %if.end17
   %prev.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store ptr null, ptr %prev.i, align 8
-  %16 = load ptr, ptr %cond, align 8
+  %15 = load ptr, ptr %cond, align 8
   %next.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  store ptr %16, ptr %next.i, align 8
+  store ptr %15, ptr %next.i, align 8
   store ptr %arrayidx, ptr %cond, align 8
-  %17 = load ptr, ptr %next.i, align 8
-  %cmp.not.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %next.i, align 8
+  %cmp.not.i = icmp eq ptr %16, null
   %last.i = getelementptr inbounds i8, ptr %cond, i64 8
-  %prev4.i = getelementptr inbounds i8, ptr %17, i64 64
+  %prev4.i = getelementptr inbounds i8, ptr %16, i64 64
   %last.sink.i = select i1 %cmp.not.i, ptr %last.i, ptr %prev4.i
   store ptr %arrayidx, ptr %last.sink.i, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end17, %if.then20
-  %18 = getelementptr inbounds i8, ptr %arrayidx, i64 28
-  store i32 0, ptr %18, align 4
+  %17 = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  store i32 0, ptr %17, align 4
   ret void
 }
 
@@ -2778,143 +2764,128 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %start, align 8
   store i64 0, ptr %full_size, align 8
   call fastcc void @mi_segment_commit_mask(ptr noundef nonnull %segment, i1 noundef zeroext true, ptr noundef %p, i64 noundef %size, ptr noundef nonnull %start, ptr noundef nonnull %full_size, ptr noundef nonnull %mask) #12
-  %1 = load i64, ptr %mask, align 8
-  %cmp1.not.i38 = icmp eq i64 %1, 0
-  br i1 %cmp1.not.i38, label %for.cond.i, label %mi_commit_mask_is_empty.exit
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %if.end, %for.body.i
-  %i.03.i39 = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %inc.i = add nuw nsw i64 %i.03.i39, 1
-  %exitcond.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.i, label %mi_commit_mask_is_empty.exit.loopexit, label %for.body.i, !llvm.loop !23
+for.body.i:                                       ; preds = %for.body.i, %if.end
+  %i.03.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.03.i
+  %1 = load i64, ptr %arrayidx.i, align 8
+  %cmp1.not.i = icmp eq i64 %1, 0
+  %inc.i = add nuw nsw i64 %i.03.i, 1
+  %exitcond.i = icmp ne i64 %inc.i, 8
+  %or.cond.not.i = select i1 %cmp1.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i, label %mi_commit_mask_is_empty.exit, !llvm.loop !23
 
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %inc.i
-  %2 = load i64, ptr %arrayidx.i, align 8
-  %cmp1.not.i = icmp eq i64 %2, 0
-  br i1 %cmp1.not.i, label %for.cond.i, label %mi_commit_mask_is_empty.exit.loopexit, !llvm.loop !23
-
-mi_commit_mask_is_empty.exit.loopexit:            ; preds = %for.cond.i, %for.body.i
-  %cmp.i.le = icmp ugt i64 %i.03.i39, 6
-  br label %mi_commit_mask_is_empty.exit
-
-mi_commit_mask_is_empty.exit:                     ; preds = %mi_commit_mask_is_empty.exit.loopexit, %if.end
-  %cmp.lcssa.i = phi i1 [ false, %if.end ], [ %cmp.i.le, %mi_commit_mask_is_empty.exit.loopexit ]
-  %3 = load i64, ptr %full_size, align 8
-  %cmp = icmp eq i64 %3, 0
-  %or.cond = select i1 %cmp.lcssa.i, i1 true, i1 %cmp
+mi_commit_mask_is_empty.exit:                     ; preds = %for.body.i
+  %2 = load i64, ptr %full_size, align 8
+  %cmp = icmp eq i64 %2, 0
+  %or.cond = select i1 %cmp1.not.i, i1 true, i1 %cmp
   br i1 %or.cond, label %return, label %if.end2
 
 if.end2:                                          ; preds = %mi_commit_mask_is_empty.exit
   %commit_mask = getelementptr inbounds i8, ptr %segment, i64 112
-  %4 = load i64, ptr %commit_mask, align 8
-  %and.i41 = and i64 %1, %4
-  %cmp3.not.i42 = icmp eq i64 %and.i41, 0
-  br i1 %cmp3.not.i42, label %for.cond.i9, label %if.then4
+  br label %for.body.i6
 
-for.cond.i9:                                      ; preds = %if.end2, %for.body.i6
-  %i.04.i43 = phi i64 [ %inc.i10, %for.body.i6 ], [ 0, %if.end2 ]
-  %inc.i10 = add nuw nsw i64 %i.04.i43, 1
-  %exitcond.not.i = icmp eq i64 %inc.i10, 8
-  br i1 %exitcond.not.i, label %if.end12, label %for.body.i6, !llvm.loop !30
-
-for.body.i6:                                      ; preds = %for.cond.i9
-  %arrayidx.i7 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %inc.i10
-  %5 = load i64, ptr %arrayidx.i7, align 8
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %inc.i10
-  %6 = load i64, ptr %arrayidx2.i, align 8
-  %and.i = and i64 %6, %5
-  %cmp3.not.i = icmp eq i64 %and.i, 0
-  br i1 %cmp3.not.i, label %for.cond.i9, label %mi_commit_mask_any_set.exit, !llvm.loop !30
+for.body.i6:                                      ; preds = %for.body.i6, %if.end2
+  %i.04.i = phi i64 [ 0, %if.end2 ], [ %inc.i8, %for.body.i6 ]
+  %arrayidx.i7 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %i.04.i
+  %3 = load i64, ptr %arrayidx.i7, align 8
+  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.04.i
+  %4 = load i64, ptr %arrayidx2.i, align 8
+  %and.i = and i64 %4, %3
+  %cmp3.not.not.i = icmp ne i64 %and.i, 0
+  %inc.i8 = add nuw nsw i64 %i.04.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i8, 8
+  %or.cond.i = select i1 %cmp3.not.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %for.body.i6, !llvm.loop !30
 
 mi_commit_mask_any_set.exit:                      ; preds = %for.body.i6
-  %cmp.i11.le = icmp ult i64 %i.04.i43, 7
-  br i1 %cmp.i11.le, label %if.then4, label %if.end12
+  br i1 %cmp3.not.not.i, label %if.then4, label %if.end12
 
-if.then4:                                         ; preds = %if.end2, %mi_commit_mask_any_set.exit
-  %7 = load ptr, ptr %start, align 8
-  %call5 = tail call zeroext i1 @_mi_os_purge(ptr noundef %7, i64 noundef %3, ptr noundef %stats) #13
-  br i1 %call5, label %for.body.i12, label %if.end12
+if.then4:                                         ; preds = %mi_commit_mask_any_set.exit
+  %5 = load ptr, ptr %start, align 8
+  %call5 = tail call zeroext i1 @_mi_os_purge(ptr noundef %5, i64 noundef %2, ptr noundef %stats) #13
+  br i1 %call5, label %for.body.i9, label %if.end12
 
-for.body.i12:                                     ; preds = %if.then4, %for.body.i12
-  %i.05.i = phi i64 [ %inc.i16, %for.body.i12 ], [ 0, %if.then4 ]
-  %arrayidx.i13 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %i.05.i
-  %8 = load i64, ptr %arrayidx.i13, align 8
-  %arrayidx2.i14 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.05.i
-  %9 = load i64, ptr %arrayidx2.i14, align 8
-  %and.i15 = and i64 %9, %8
+for.body.i9:                                      ; preds = %if.then4, %for.body.i9
+  %i.05.i = phi i64 [ %inc.i13, %for.body.i9 ], [ 0, %if.then4 ]
+  %arrayidx.i10 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %i.05.i
+  %6 = load i64, ptr %arrayidx.i10, align 8
+  %arrayidx2.i11 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.05.i
+  %7 = load i64, ptr %arrayidx2.i11, align 8
+  %and.i12 = and i64 %7, %6
   %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %cmask, i64 0, i64 %i.05.i
-  store i64 %and.i15, ptr %arrayidx4.i, align 8
-  %inc.i16 = add nuw nsw i64 %i.05.i, 1
-  %exitcond.not.i17 = icmp eq i64 %inc.i16, 8
-  br i1 %exitcond.not.i17, label %for.body.i18, label %for.body.i12, !llvm.loop !28
+  store i64 %and.i12, ptr %arrayidx4.i, align 8
+  %inc.i13 = add nuw nsw i64 %i.05.i, 1
+  %exitcond.not.i14 = icmp eq i64 %inc.i13, 8
+  br i1 %exitcond.not.i14, label %for.body.i15, label %for.body.i9, !llvm.loop !28
 
-for.body.i18:                                     ; preds = %for.body.i12, %for.inc9.i
-  %i.013.i = phi i64 [ %inc10.i, %for.inc9.i ], [ 0, %for.body.i12 ]
-  %count.012.i = phi i64 [ %count.3.i, %for.inc9.i ], [ 0, %for.body.i12 ]
-  %arrayidx.i19 = getelementptr inbounds [8 x i64], ptr %cmask, i64 0, i64 %i.013.i
-  %10 = load i64, ptr %arrayidx.i19, align 8
-  switch i64 %10, label %for.body5.i [
+for.body.i15:                                     ; preds = %for.body.i9, %for.inc9.i
+  %i.013.i = phi i64 [ %inc10.i, %for.inc9.i ], [ 0, %for.body.i9 ]
+  %count.012.i = phi i64 [ %count.3.i, %for.inc9.i ], [ 0, %for.body.i9 ]
+  %arrayidx.i16 = getelementptr inbounds [8 x i64], ptr %cmask, i64 0, i64 %i.013.i
+  %8 = load i64, ptr %arrayidx.i16, align 8
+  switch i64 %8, label %for.body5.i [
     i64 -1, label %if.then.i
     i64 0, label %for.inc9.i
   ]
 
-if.then.i:                                        ; preds = %for.body.i18
+if.then.i:                                        ; preds = %for.body.i15
   %add.i = add i64 %count.012.i, 64
   br label %for.inc9.i
 
-for.body5.i:                                      ; preds = %for.body.i18, %for.body5.i
-  %mask.011.i = phi i64 [ %shr.i, %for.body5.i ], [ %10, %for.body.i18 ]
-  %count.110.i = phi i64 [ %spec.select.i, %for.body5.i ], [ %count.012.i, %for.body.i18 ]
-  %and.i21 = and i64 %mask.011.i, 1
-  %spec.select.i = add i64 %and.i21, %count.110.i
+for.body5.i:                                      ; preds = %for.body.i15, %for.body5.i
+  %mask.011.i = phi i64 [ %shr.i, %for.body5.i ], [ %8, %for.body.i15 ]
+  %count.110.i = phi i64 [ %spec.select.i, %for.body5.i ], [ %count.012.i, %for.body.i15 ]
+  %and.i18 = and i64 %mask.011.i, 1
+  %spec.select.i = add i64 %and.i18, %count.110.i
   %shr.i = lshr i64 %mask.011.i, 1
   %cmp4.not.i = icmp ult i64 %mask.011.i, 2
   br i1 %cmp4.not.i, label %for.inc9.i, label %for.body5.i, !llvm.loop !4
 
-for.inc9.i:                                       ; preds = %for.body5.i, %if.then.i, %for.body.i18
-  %count.3.i = phi i64 [ %add.i, %if.then.i ], [ %count.012.i, %for.body.i18 ], [ %spec.select.i, %for.body5.i ]
+for.inc9.i:                                       ; preds = %for.body5.i, %if.then.i, %for.body.i15
+  %count.3.i = phi i64 [ %add.i, %if.then.i ], [ %count.012.i, %for.body.i15 ], [ %spec.select.i, %for.body5.i ]
   %inc10.i = add nuw nsw i64 %i.013.i, 1
-  %exitcond.not.i20 = icmp eq i64 %inc10.i, 8
-  br i1 %exitcond.not.i20, label %_mi_commit_mask_committed_size.exit, label %for.body.i18, !llvm.loop !6
+  %exitcond.not.i17 = icmp eq i64 %inc10.i, 8
+  br i1 %exitcond.not.i17, label %_mi_commit_mask_committed_size.exit, label %for.body.i15, !llvm.loop !6
 
 _mi_commit_mask_committed_size.exit:              ; preds = %for.inc9.i
   %mul.i = shl i64 %count.3.i, 16
-  %sub = sub i64 %3, %mul.i
+  %sub = sub i64 %2, %mul.i
   tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %sub) #13
-  br label %for.body.i22
+  br label %for.body.i19
 
-for.body.i22:                                     ; preds = %for.body.i22, %_mi_commit_mask_committed_size.exit
-  %i.04.i23 = phi i64 [ 0, %_mi_commit_mask_committed_size.exit ], [ %inc.i27, %for.body.i22 ]
-  %arrayidx.i24 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.04.i23
-  %11 = load i64, ptr %arrayidx.i24, align 8
-  %not.i = xor i64 %11, -1
-  %arrayidx2.i25 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %i.04.i23
-  %12 = load i64, ptr %arrayidx2.i25, align 8
-  %and.i26 = and i64 %12, %not.i
-  store i64 %and.i26, ptr %arrayidx2.i25, align 8
-  %inc.i27 = add nuw nsw i64 %i.04.i23, 1
-  %exitcond.not.i28 = icmp eq i64 %inc.i27, 8
-  br i1 %exitcond.not.i28, label %if.end12, label %for.body.i22, !llvm.loop !31
+for.body.i19:                                     ; preds = %for.body.i19, %_mi_commit_mask_committed_size.exit
+  %i.04.i20 = phi i64 [ 0, %_mi_commit_mask_committed_size.exit ], [ %inc.i24, %for.body.i19 ]
+  %arrayidx.i21 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.04.i20
+  %9 = load i64, ptr %arrayidx.i21, align 8
+  %not.i = xor i64 %9, -1
+  %arrayidx2.i22 = getelementptr inbounds [8 x i64], ptr %commit_mask, i64 0, i64 %i.04.i20
+  %10 = load i64, ptr %arrayidx2.i22, align 8
+  %and.i23 = and i64 %10, %not.i
+  store i64 %and.i23, ptr %arrayidx2.i22, align 8
+  %inc.i24 = add nuw nsw i64 %i.04.i20, 1
+  %exitcond.not.i25 = icmp eq i64 %inc.i24, 8
+  br i1 %exitcond.not.i25, label %if.end12, label %for.body.i19, !llvm.loop !31
 
-if.end12:                                         ; preds = %for.cond.i9, %for.body.i22, %if.then4, %mi_commit_mask_any_set.exit
+if.end12:                                         ; preds = %for.body.i19, %if.then4, %mi_commit_mask_any_set.exit
   %purge_mask = getelementptr inbounds i8, ptr %segment, i64 48
-  br label %for.body.i29
+  br label %for.body.i26
 
-for.body.i29:                                     ; preds = %for.body.i29, %if.end12
-  %i.04.i30 = phi i64 [ 0, %if.end12 ], [ %inc.i35, %for.body.i29 ]
-  %arrayidx.i31 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.04.i30
-  %13 = load i64, ptr %arrayidx.i31, align 8
-  %not.i32 = xor i64 %13, -1
-  %arrayidx2.i33 = getelementptr inbounds [8 x i64], ptr %purge_mask, i64 0, i64 %i.04.i30
-  %14 = load i64, ptr %arrayidx2.i33, align 8
-  %and.i34 = and i64 %14, %not.i32
-  store i64 %and.i34, ptr %arrayidx2.i33, align 8
-  %inc.i35 = add nuw nsw i64 %i.04.i30, 1
-  %exitcond.not.i36 = icmp eq i64 %inc.i35, 8
-  br i1 %exitcond.not.i36, label %return, label %for.body.i29, !llvm.loop !31
+for.body.i26:                                     ; preds = %for.body.i26, %if.end12
+  %i.04.i27 = phi i64 [ 0, %if.end12 ], [ %inc.i32, %for.body.i26 ]
+  %arrayidx.i28 = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %i.04.i27
+  %11 = load i64, ptr %arrayidx.i28, align 8
+  %not.i29 = xor i64 %11, -1
+  %arrayidx2.i30 = getelementptr inbounds [8 x i64], ptr %purge_mask, i64 0, i64 %i.04.i27
+  %12 = load i64, ptr %arrayidx2.i30, align 8
+  %and.i31 = and i64 %12, %not.i29
+  store i64 %and.i31, ptr %arrayidx2.i30, align 8
+  %inc.i32 = add nuw nsw i64 %i.04.i27, 1
+  %exitcond.not.i33 = icmp eq i64 %inc.i32, 8
+  br i1 %exitcond.not.i33, label %return, label %for.body.i26, !llvm.loop !31
 
-return:                                           ; preds = %for.body.i29, %mi_commit_mask_is_empty.exit, %entry
+return:                                           ; preds = %for.body.i26, %mi_commit_mask_is_empty.exit, %entry
   ret void
 }
 
@@ -3428,54 +3399,44 @@ entry:
   %cmask.i.i = alloca %struct.mi_commit_mask_s, align 8
   %slices = getelementptr inbounds i8, ptr %segment, i64 264
   %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %slice_index
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %arrayidx to i64
   %mul15.i = shl i64 %slice_index, 16
   %0 = getelementptr i8, ptr %segment, i64 %mul15.i
-  %mul = shl i64 %slice_count, 16
   %commit_mask.i = getelementptr inbounds i8, ptr %segment, i64 112
-  %1 = load i64, ptr %commit_mask.i, align 8
-  %cmp1.not.i17.i = icmp eq i64 %1, -1
-  br i1 %cmp1.not.i17.i, label %for.cond.i.i, label %if.end.i
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %i.03.i18.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %entry ]
-  %inc.i.i = add nuw nsw i64 %i.03.i18.i, 1
-  %exitcond.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !33
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %inc.i.i
-  %2 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp1.not.i.i = icmp eq i64 %2, -1
-  br i1 %cmp1.not.i.i, label %for.cond.i.i, label %mi_commit_mask_is_full.exit.i, !llvm.loop !33
+for.body.i.i:                                     ; preds = %for.body.i.i, %entry
+  %i.03.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.03.i.i
+  %1 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp1.not.i.i = icmp eq i64 %1, -1
+  %inc.i.i = add nuw nsw i64 %i.03.i.i, 1
+  %exitcond.i.i = icmp ne i64 %inc.i.i, 8
+  %or.cond.not.i.i = select i1 %cmp1.not.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %mi_commit_mask_is_full.exit.i, !llvm.loop !33
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %i.03.i18.i, 6
-  br i1 %cmp.i.le.i, label %land.lhs.true.i, label %if.end.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %arrayidx to i64
+  %mul = shl i64 %slice_count, 16
+  br i1 %cmp1.not.i.i, label %land.lhs.true.i, label %if.end.i
 
-land.lhs.true.i:                                  ; preds = %for.cond.i.i, %mi_commit_mask_is_full.exit.i
+land.lhs.true.i:                                  ; preds = %mi_commit_mask_is_full.exit.i
   %purge_mask.i = getelementptr inbounds i8, ptr %segment, i64 48
-  %3 = load i64, ptr %purge_mask.i, align 8
-  %cmp1.not.i720.i = icmp eq i64 %3, 0
-  br i1 %cmp1.not.i720.i, label %for.cond.i9.i, label %if.end.i
+  br label %for.body.i3.i
 
-for.cond.i9.i:                                    ; preds = %land.lhs.true.i, %for.body.i3.i
-  %i.03.i521.i = phi i64 [ %inc.i10.i, %for.body.i3.i ], [ 0, %land.lhs.true.i ]
-  %inc.i10.i = add nuw nsw i64 %i.03.i521.i, 1
-  %exitcond.i12.i = icmp eq i64 %inc.i10.i, 8
-  br i1 %exitcond.i12.i, label %if.end, label %for.body.i3.i, !llvm.loop !23
-
-for.body.i3.i:                                    ; preds = %for.cond.i9.i
-  %arrayidx.i6.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i, i64 0, i64 %inc.i10.i
-  %4 = load i64, ptr %arrayidx.i6.i, align 8
-  %cmp1.not.i7.i = icmp eq i64 %4, 0
-  br i1 %cmp1.not.i7.i, label %for.cond.i9.i, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !23
+for.body.i3.i:                                    ; preds = %for.body.i3.i, %land.lhs.true.i
+  %i.03.i4.i = phi i64 [ 0, %land.lhs.true.i ], [ %inc.i7.i, %for.body.i3.i ]
+  %arrayidx.i5.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i, i64 0, i64 %i.03.i4.i
+  %2 = load i64, ptr %arrayidx.i5.i, align 8
+  %cmp1.not.i6.i = icmp eq i64 %2, 0
+  %inc.i7.i = add nuw nsw i64 %i.03.i4.i, 1
+  %exitcond.i8.i = icmp ne i64 %inc.i7.i, 8
+  %or.cond.not.i9.i = select i1 %cmp1.not.i6.i, i1 %exitcond.i8.i, i1 false
+  br i1 %or.cond.not.i9.i, label %for.body.i3.i, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !23
 
 mi_commit_mask_is_empty.exit.i:                   ; preds = %for.body.i3.i
-  %cmp.i11.le.i = icmp ugt i64 %i.03.i521.i, 6
-  br i1 %cmp.i11.le.i, label %if.end, label %if.end.i
+  br i1 %cmp1.not.i6.i, label %if.end, label %if.end.i
 
-if.end.i:                                         ; preds = %mi_commit_mask_is_empty.exit.i, %land.lhs.true.i, %mi_commit_mask_is_full.exit.i, %entry
+if.end.i:                                         ; preds = %mi_commit_mask_is_empty.exit.i, %mi_commit_mask_is_full.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %full_size.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %mask.i.i)
@@ -3484,174 +3445,150 @@ if.end.i:                                         ; preds = %mi_commit_mask_is_e
   store ptr null, ptr %start.i.i, align 8
   store i64 0, ptr %full_size.i.i, align 8
   call fastcc void @mi_segment_commit_mask(ptr noundef nonnull %segment, i1 noundef zeroext false, ptr noundef %0, i64 noundef %mul, ptr noundef nonnull %start.i.i, ptr noundef nonnull %full_size.i.i, ptr noundef nonnull %mask.i.i) #12
-  %5 = load i64, ptr %mask.i.i, align 8
-  %cmp1.not.i45.i.i = icmp eq i64 %5, 0
-  br i1 %cmp1.not.i45.i.i, label %for.cond.i.i.i, label %mi_commit_mask_is_empty.exit.i.i
+  br label %for.body.i.i.i
 
-for.cond.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
-  %i.03.i46.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end.i ]
-  %inc.i.i.i = add nuw nsw i64 %i.03.i46.i.i, 1
-  %exitcond.i.i.i = icmp eq i64 %inc.i.i.i, 8
-  br i1 %exitcond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !23
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i
+  %i.03.i.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i.i, %for.body.i.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.03.i.i.i
+  %3 = load i64, ptr %arrayidx.i.i.i, align 8
+  %cmp1.not.i.i.i = icmp eq i64 %3, 0
+  %inc.i.i.i = add nuw nsw i64 %i.03.i.i.i, 1
+  %exitcond.i.i.i = icmp ne i64 %inc.i.i.i, 8
+  %or.cond.not.i.i.i = select i1 %cmp1.not.i.i.i, i1 %exitcond.i.i.i, i1 false
+  br i1 %or.cond.not.i.i.i, label %for.body.i.i.i, label %mi_commit_mask_is_empty.exit.i.i, !llvm.loop !23
 
-for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %inc.i.i.i
-  %6 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp1.not.i.i.i = icmp eq i64 %6, 0
-  br i1 %cmp1.not.i.i.i, label %for.cond.i.i.i, label %mi_commit_mask_is_empty.exit.loopexit.i.i, !llvm.loop !23
+mi_commit_mask_is_empty.exit.i.i:                 ; preds = %for.body.i.i.i
+  %4 = load i64, ptr %full_size.i.i, align 8
+  %cmp.i.i = icmp eq i64 %4, 0
+  %or.cond.i.i = select i1 %cmp1.not.i.i.i, i1 true, i1 %cmp.i.i
+  br i1 %or.cond.i.i, label %mi_segment_ensure_committed.exit.thread2, label %for.body.i7.i.i
 
-mi_commit_mask_is_empty.exit.loopexit.i.i:        ; preds = %for.body.i.i.i, %for.cond.i.i.i
-  %cmp.i.le.i.i = icmp ugt i64 %i.03.i46.i.i, 6
-  br label %mi_commit_mask_is_empty.exit.i.i
-
-mi_commit_mask_is_empty.exit.i.i:                 ; preds = %mi_commit_mask_is_empty.exit.loopexit.i.i, %if.end.i
-  %cmp.lcssa.i.i.i = phi i1 [ false, %if.end.i ], [ %cmp.i.le.i.i, %mi_commit_mask_is_empty.exit.loopexit.i.i ]
-  %7 = load i64, ptr %full_size.i.i, align 8
-  %cmp.i13.i = icmp eq i64 %7, 0
-  %or.cond.i.i = select i1 %cmp.lcssa.i.i.i, i1 true, i1 %cmp.i13.i
-  br i1 %or.cond.i.i, label %mi_segment_ensure_committed.exit.thread3, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %mi_commit_mask_is_empty.exit.i.i
-  %8 = load i64, ptr %commit_mask.i, align 8
-  %and.i48.i.i = and i64 %8, %5
-  %cmp5.not.i49.i.i = icmp eq i64 %and.i48.i.i, %5
-  br i1 %cmp5.not.i49.i.i, label %for.cond.i10.i.i, label %if.then2.i.i
-
-for.cond.i10.i.i:                                 ; preds = %if.end.i.i, %for.body.i7.i.i
-  %i.06.i50.i.i = phi i64 [ %inc.i11.i.i, %for.body.i7.i.i ], [ 0, %if.end.i.i ]
-  %inc.i11.i.i = add nuw nsw i64 %i.06.i50.i.i, 1
-  %exitcond.i13.i.i = icmp eq i64 %inc.i11.i.i, 8
-  br i1 %exitcond.i13.i.i, label %if.end9.i.i, label %for.body.i7.i.i, !llvm.loop !34
-
-for.body.i7.i.i:                                  ; preds = %for.cond.i10.i.i
-  %arrayidx.i8.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %inc.i11.i.i
-  %9 = load i64, ptr %arrayidx.i8.i.i, align 8
-  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %inc.i11.i.i
-  %10 = load i64, ptr %arrayidx2.i.i.i, align 8
-  %and.i.i.i = and i64 %10, %9
-  %cmp5.not.i.i.i = icmp eq i64 %and.i.i.i, %10
-  br i1 %cmp5.not.i.i.i, label %for.cond.i10.i.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !34
+for.body.i7.i.i:                                  ; preds = %mi_commit_mask_is_empty.exit.i.i, %for.body.i7.i.i
+  %i.06.i.i.i = phi i64 [ %inc.i9.i.i, %for.body.i7.i.i ], [ 0, %mi_commit_mask_is_empty.exit.i.i ]
+  %arrayidx.i8.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.06.i.i.i
+  %5 = load i64, ptr %arrayidx.i8.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.06.i.i.i
+  %6 = load i64, ptr %arrayidx2.i.i.i, align 8
+  %and.i.i.i = and i64 %6, %5
+  %cmp5.not.i.i.i = icmp eq i64 %and.i.i.i, %6
+  %inc.i9.i.i = add nuw nsw i64 %i.06.i.i.i, 1
+  %exitcond.i10.i.i = icmp ne i64 %inc.i9.i.i, 8
+  %or.cond.not.i11.i.i = select i1 %cmp5.not.i.i.i, i1 %exitcond.i10.i.i, i1 false
+  br i1 %or.cond.not.i11.i.i, label %for.body.i7.i.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !34
 
 mi_commit_mask_all_set.exit.i.i:                  ; preds = %for.body.i7.i.i
-  %cmp.i12.le.i.i = icmp ugt i64 %i.06.i50.i.i, 6
-  br i1 %cmp.i12.le.i.i, label %if.end9.i.i, label %if.then2.i.i
+  br i1 %cmp5.not.i.i.i, label %if.end9.i.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %mi_commit_mask_all_set.exit.i.i, %if.end.i.i
+if.then2.i.i:                                     ; preds = %mi_commit_mask_all_set.exit.i.i
   store i8 0, ptr %is_zero.i.i, align 1
-  br label %for.body.i14.i.i
+  br label %for.body.i12.i.i
 
-for.body.i14.i.i:                                 ; preds = %for.body.i14.i.i, %if.then2.i.i
-  %i.05.i.i.i = phi i64 [ 0, %if.then2.i.i ], [ %inc.i18.i.i, %for.body.i14.i.i ]
-  %arrayidx.i15.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.05.i.i.i
-  %11 = load i64, ptr %arrayidx.i15.i.i, align 8
-  %arrayidx2.i16.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.05.i.i.i
-  %12 = load i64, ptr %arrayidx2.i16.i.i, align 8
-  %and.i17.i.i = and i64 %12, %11
+for.body.i12.i.i:                                 ; preds = %for.body.i12.i.i, %if.then2.i.i
+  %i.05.i.i.i = phi i64 [ 0, %if.then2.i.i ], [ %inc.i16.i.i, %for.body.i12.i.i ]
+  %arrayidx.i13.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.05.i.i.i
+  %7 = load i64, ptr %arrayidx.i13.i.i, align 8
+  %arrayidx2.i14.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.05.i.i.i
+  %8 = load i64, ptr %arrayidx2.i14.i.i, align 8
+  %and.i15.i.i = and i64 %8, %7
   %arrayidx4.i.i.i = getelementptr inbounds [8 x i64], ptr %cmask.i.i, i64 0, i64 %i.05.i.i.i
-  store i64 %and.i17.i.i, ptr %arrayidx4.i.i.i, align 8
-  %inc.i18.i.i = add nuw nsw i64 %i.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i18.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %for.body.i19.i.i, label %for.body.i14.i.i, !llvm.loop !28
+  store i64 %and.i15.i.i, ptr %arrayidx4.i.i.i, align 8
+  %inc.i16.i.i = add nuw nsw i64 %i.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i16.i.i, 8
+  br i1 %exitcond.not.i.i.i, label %for.body.i17.i.i, label %for.body.i12.i.i, !llvm.loop !28
 
-for.body.i19.i.i:                                 ; preds = %for.body.i14.i.i, %for.inc9.i.i.i
-  %i.013.i.i.i = phi i64 [ %inc10.i.i.i, %for.inc9.i.i.i ], [ 0, %for.body.i14.i.i ]
-  %count.012.i.i.i = phi i64 [ %count.3.i.i.i, %for.inc9.i.i.i ], [ 0, %for.body.i14.i.i ]
-  %arrayidx.i20.i.i = getelementptr inbounds [8 x i64], ptr %cmask.i.i, i64 0, i64 %i.013.i.i.i
-  %13 = load i64, ptr %arrayidx.i20.i.i, align 8
-  switch i64 %13, label %for.body5.i.i.i [
+for.body.i17.i.i:                                 ; preds = %for.body.i12.i.i, %for.inc9.i.i.i
+  %i.013.i.i.i = phi i64 [ %inc10.i.i.i, %for.inc9.i.i.i ], [ 0, %for.body.i12.i.i ]
+  %count.012.i.i.i = phi i64 [ %count.3.i.i.i, %for.inc9.i.i.i ], [ 0, %for.body.i12.i.i ]
+  %arrayidx.i18.i.i = getelementptr inbounds [8 x i64], ptr %cmask.i.i, i64 0, i64 %i.013.i.i.i
+  %9 = load i64, ptr %arrayidx.i18.i.i, align 8
+  switch i64 %9, label %for.body5.i.i.i [
     i64 -1, label %if.then.i.i.i
     i64 0, label %for.inc9.i.i.i
   ]
 
-if.then.i.i.i:                                    ; preds = %for.body.i19.i.i
+if.then.i.i.i:                                    ; preds = %for.body.i17.i.i
   %add.i.i.i = add i64 %count.012.i.i.i, 64
   br label %for.inc9.i.i.i
 
-for.body5.i.i.i:                                  ; preds = %for.body.i19.i.i, %for.body5.i.i.i
-  %mask.011.i.i.i = phi i64 [ %shr.i.i.i, %for.body5.i.i.i ], [ %13, %for.body.i19.i.i ]
-  %count.110.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body5.i.i.i ], [ %count.012.i.i.i, %for.body.i19.i.i ]
-  %and.i22.i.i = and i64 %mask.011.i.i.i, 1
-  %spec.select.i.i.i = add i64 %and.i22.i.i, %count.110.i.i.i
+for.body5.i.i.i:                                  ; preds = %for.body.i17.i.i, %for.body5.i.i.i
+  %mask.011.i.i.i = phi i64 [ %shr.i.i.i, %for.body5.i.i.i ], [ %9, %for.body.i17.i.i ]
+  %count.110.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body5.i.i.i ], [ %count.012.i.i.i, %for.body.i17.i.i ]
+  %and.i20.i.i = and i64 %mask.011.i.i.i, 1
+  %spec.select.i.i.i = add i64 %and.i20.i.i, %count.110.i.i.i
   %shr.i.i.i = lshr i64 %mask.011.i.i.i, 1
   %cmp4.not.i.i.i = icmp ult i64 %mask.011.i.i.i, 2
   br i1 %cmp4.not.i.i.i, label %for.inc9.i.i.i, label %for.body5.i.i.i, !llvm.loop !4
 
-for.inc9.i.i.i:                                   ; preds = %for.body5.i.i.i, %if.then.i.i.i, %for.body.i19.i.i
-  %count.3.i.i.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %count.012.i.i.i, %for.body.i19.i.i ], [ %spec.select.i.i.i, %for.body5.i.i.i ]
+for.inc9.i.i.i:                                   ; preds = %for.body5.i.i.i, %if.then.i.i.i, %for.body.i17.i.i
+  %count.3.i.i.i = phi i64 [ %add.i.i.i, %if.then.i.i.i ], [ %count.012.i.i.i, %for.body.i17.i.i ], [ %spec.select.i.i.i, %for.body5.i.i.i ]
   %inc10.i.i.i = add nuw nsw i64 %i.013.i.i.i, 1
-  %exitcond.not.i21.i.i = icmp eq i64 %inc10.i.i.i, 8
-  br i1 %exitcond.not.i21.i.i, label %_mi_commit_mask_committed_size.exit.i.i, label %for.body.i19.i.i, !llvm.loop !6
+  %exitcond.not.i19.i.i = icmp eq i64 %inc10.i.i.i, 8
+  br i1 %exitcond.not.i19.i.i, label %_mi_commit_mask_committed_size.exit.i.i, label %for.body.i17.i.i, !llvm.loop !6
 
 _mi_commit_mask_committed_size.exit.i.i:          ; preds = %for.inc9.i.i.i
   %mul.i.i.i = shl i64 %count.3.i.i.i, 16
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef %mul.i.i.i) #13
-  %14 = load ptr, ptr %start.i.i, align 8
-  %call5.i.i = call zeroext i1 @_mi_os_commit(ptr noundef %14, i64 noundef %7, ptr noundef nonnull %is_zero.i.i, ptr noundef %tld.896.val) #13
-  br i1 %call5.i.i, label %for.body.i23.i.i, label %mi_segment_ensure_committed.exit
+  %10 = load ptr, ptr %start.i.i, align 8
+  %call5.i.i = call zeroext i1 @_mi_os_commit(ptr noundef %10, i64 noundef %4, ptr noundef nonnull %is_zero.i.i, ptr noundef %tld.896.val) #13
+  br i1 %call5.i.i, label %for.body.i21.i.i, label %mi_segment_ensure_committed.exit
 
-for.body.i23.i.i:                                 ; preds = %_mi_commit_mask_committed_size.exit.i.i, %for.body.i23.i.i
-  %i.04.i.i.i = phi i64 [ %inc.i26.i.i, %for.body.i23.i.i ], [ 0, %_mi_commit_mask_committed_size.exit.i.i ]
-  %arrayidx.i24.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.04.i.i.i
-  %15 = load i64, ptr %arrayidx.i24.i.i, align 8
-  %arrayidx2.i25.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.04.i.i.i
-  %16 = load i64, ptr %arrayidx2.i25.i.i, align 8
-  %or.i.i.i = or i64 %16, %15
-  store i64 %or.i.i.i, ptr %arrayidx2.i25.i.i, align 8
-  %inc.i26.i.i = add nuw nsw i64 %i.04.i.i.i, 1
-  %exitcond.not.i27.i.i = icmp eq i64 %inc.i26.i.i, 8
-  br i1 %exitcond.not.i27.i.i, label %if.end9.i.i, label %for.body.i23.i.i, !llvm.loop !29
+for.body.i21.i.i:                                 ; preds = %_mi_commit_mask_committed_size.exit.i.i, %for.body.i21.i.i
+  %i.04.i.i.i = phi i64 [ %inc.i24.i.i, %for.body.i21.i.i ], [ 0, %_mi_commit_mask_committed_size.exit.i.i ]
+  %arrayidx.i22.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.04.i.i.i
+  %11 = load i64, ptr %arrayidx.i22.i.i, align 8
+  %arrayidx2.i23.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.04.i.i.i
+  %12 = load i64, ptr %arrayidx2.i23.i.i, align 8
+  %or.i.i.i = or i64 %12, %11
+  store i64 %or.i.i.i, ptr %arrayidx2.i23.i.i, align 8
+  %inc.i24.i.i = add nuw nsw i64 %i.04.i.i.i, 1
+  %exitcond.not.i25.i.i = icmp eq i64 %inc.i24.i.i, 8
+  br i1 %exitcond.not.i25.i.i, label %if.end9.i.i, label %for.body.i21.i.i, !llvm.loop !29
 
-if.end9.i.i:                                      ; preds = %for.cond.i10.i.i, %for.body.i23.i.i, %mi_commit_mask_all_set.exit.i.i
+if.end9.i.i:                                      ; preds = %for.body.i21.i.i, %mi_commit_mask_all_set.exit.i.i
   %purge_mask.i.i = getelementptr inbounds i8, ptr %segment, i64 48
-  %17 = load i64, ptr %purge_mask.i.i, align 8
-  %and.i3253.i.i = and i64 %17, %5
-  %cmp3.not.i54.i.i = icmp eq i64 %and.i3253.i.i, 0
-  br i1 %cmp3.not.i54.i.i, label %for.cond.i34.i.i, label %if.then11.i.i
+  br label %for.body.i26.i.i
 
-for.cond.i34.i.i:                                 ; preds = %if.end9.i.i, %for.body.i28.i.i
-  %i.04.i2955.i.i = phi i64 [ %inc.i35.i.i, %for.body.i28.i.i ], [ 0, %if.end9.i.i ]
-  %inc.i35.i.i = add nuw nsw i64 %i.04.i2955.i.i, 1
-  %exitcond.not.i37.i.i = icmp eq i64 %inc.i35.i.i, 8
-  br i1 %exitcond.not.i37.i.i, label %for.body.i38.i.i.preheader, label %for.body.i28.i.i, !llvm.loop !30
+for.body.i26.i.i:                                 ; preds = %for.body.i26.i.i, %if.end9.i.i
+  %i.04.i27.i.i = phi i64 [ 0, %if.end9.i.i ], [ %inc.i31.i.i, %for.body.i26.i.i ]
+  %arrayidx.i28.i.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i.i, i64 0, i64 %i.04.i27.i.i
+  %13 = load i64, ptr %arrayidx.i28.i.i, align 8
+  %arrayidx2.i29.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.04.i27.i.i
+  %14 = load i64, ptr %arrayidx2.i29.i.i, align 8
+  %and.i30.i.i = and i64 %14, %13
+  %cmp3.not.not.i.i.i = icmp ne i64 %and.i30.i.i, 0
+  %inc.i31.i.i = add nuw nsw i64 %i.04.i27.i.i, 1
+  %exitcond.not.i32.i.i = icmp eq i64 %inc.i31.i.i, 8
+  %or.cond.i.i.i = select i1 %cmp3.not.not.i.i.i, i1 true, i1 %exitcond.not.i32.i.i
+  br i1 %or.cond.i.i.i, label %mi_commit_mask_any_set.exit.i.i, label %for.body.i26.i.i, !llvm.loop !30
 
-for.body.i28.i.i:                                 ; preds = %for.cond.i34.i.i
-  %arrayidx.i30.i.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i.i, i64 0, i64 %inc.i35.i.i
-  %18 = load i64, ptr %arrayidx.i30.i.i, align 8
-  %arrayidx2.i31.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %inc.i35.i.i
-  %19 = load i64, ptr %arrayidx2.i31.i.i, align 8
-  %and.i32.i.i = and i64 %19, %18
-  %cmp3.not.i.i.i = icmp eq i64 %and.i32.i.i, 0
-  br i1 %cmp3.not.i.i.i, label %for.cond.i34.i.i, label %mi_commit_mask_any_set.exit.i.i, !llvm.loop !30
+mi_commit_mask_any_set.exit.i.i:                  ; preds = %for.body.i26.i.i
+  br i1 %cmp3.not.not.i.i.i, label %if.then11.i.i, label %for.body.i33.i.i.preheader
 
-mi_commit_mask_any_set.exit.i.i:                  ; preds = %for.body.i28.i.i
-  %cmp.i36.le.i.i = icmp ult i64 %i.04.i2955.i.i, 7
-  br i1 %cmp.i36.le.i.i, label %if.then11.i.i, label %for.body.i38.i.i.preheader
-
-if.then11.i.i:                                    ; preds = %mi_commit_mask_any_set.exit.i.i, %if.end9.i.i
+if.then11.i.i:                                    ; preds = %mi_commit_mask_any_set.exit.i.i
   %call12.i.i = call i64 @_mi_clock_now() #13
   %call13.i.i = call i64 @mi_option_get(i32 noundef 15) #13
   %add.i.i = add nsw i64 %call13.i.i, %call12.i.i
   %purge_expire.i.i = getelementptr inbounds i8, ptr %segment, i64 40
   store i64 %add.i.i, ptr %purge_expire.i.i, align 8
-  br label %for.body.i38.i.i.preheader
+  br label %for.body.i33.i.i.preheader
 
-for.body.i38.i.i.preheader:                       ; preds = %for.cond.i34.i.i, %if.then11.i.i, %mi_commit_mask_any_set.exit.i.i
-  br label %for.body.i38.i.i
+for.body.i33.i.i.preheader:                       ; preds = %if.then11.i.i, %mi_commit_mask_any_set.exit.i.i
+  br label %for.body.i33.i.i
 
-for.body.i38.i.i:                                 ; preds = %for.body.i38.i.i.preheader, %for.body.i38.i.i
-  %i.04.i39.i.i = phi i64 [ %inc.i43.i.i, %for.body.i38.i.i ], [ 0, %for.body.i38.i.i.preheader ]
-  %arrayidx.i40.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.04.i39.i.i
-  %20 = load i64, ptr %arrayidx.i40.i.i, align 8
-  %not.i.i.i = xor i64 %20, -1
-  %arrayidx2.i41.i.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i.i, i64 0, i64 %i.04.i39.i.i
-  %21 = load i64, ptr %arrayidx2.i41.i.i, align 8
-  %and.i42.i.i = and i64 %21, %not.i.i.i
-  store i64 %and.i42.i.i, ptr %arrayidx2.i41.i.i, align 8
-  %inc.i43.i.i = add nuw nsw i64 %i.04.i39.i.i, 1
-  %exitcond.not.i44.i.i = icmp eq i64 %inc.i43.i.i, 8
-  br i1 %exitcond.not.i44.i.i, label %mi_segment_ensure_committed.exit.thread3, label %for.body.i38.i.i, !llvm.loop !31
+for.body.i33.i.i:                                 ; preds = %for.body.i33.i.i.preheader, %for.body.i33.i.i
+  %i.04.i34.i.i = phi i64 [ %inc.i38.i.i, %for.body.i33.i.i ], [ 0, %for.body.i33.i.i.preheader ]
+  %arrayidx.i35.i.i = getelementptr inbounds [8 x i64], ptr %mask.i.i, i64 0, i64 %i.04.i34.i.i
+  %15 = load i64, ptr %arrayidx.i35.i.i, align 8
+  %not.i.i.i = xor i64 %15, -1
+  %arrayidx2.i36.i.i = getelementptr inbounds [8 x i64], ptr %purge_mask.i.i, i64 0, i64 %i.04.i34.i.i
+  %16 = load i64, ptr %arrayidx2.i36.i.i, align 8
+  %and.i37.i.i = and i64 %16, %not.i.i.i
+  store i64 %and.i37.i.i, ptr %arrayidx2.i36.i.i, align 8
+  %inc.i38.i.i = add nuw nsw i64 %i.04.i34.i.i, 1
+  %exitcond.not.i39.i.i = icmp eq i64 %inc.i38.i.i, 8
+  br i1 %exitcond.not.i39.i.i, label %mi_segment_ensure_committed.exit.thread2, label %for.body.i33.i.i, !llvm.loop !31
 
-mi_segment_ensure_committed.exit.thread3:         ; preds = %for.body.i38.i.i, %mi_commit_mask_is_empty.exit.i.i
+mi_segment_ensure_committed.exit.thread2:         ; preds = %for.body.i33.i.i, %mi_commit_mask_is_empty.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %full_size.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mask.i.i)
@@ -3667,7 +3604,7 @@ mi_segment_ensure_committed.exit:                 ; preds = %_mi_commit_mask_com
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cmask.i.i)
   br label %return
 
-if.end:                                           ; preds = %for.cond.i9.i, %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit.thread3
+if.end:                                           ; preds = %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit.thread2
   %slice_offset = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %slice_offset, align 4
   %conv = trunc i64 %slice_count to i32
@@ -3680,31 +3617,31 @@ if.end:                                           ; preds = %for.cond.i9.i, %mi_
   %spec.store.select = call i64 @llvm.umin.i64(i64 %sub, i64 255)
   %add = add i64 %spec.store.select, %slice_index
   %slice_entries = getelementptr inbounds i8, ptr %segment, i64 248
-  %22 = load i64, ptr %slice_entries, align 8
-  %cmp11.not = icmp ult i64 %add, %22
-  %23 = xor i64 %slice_index, -1
-  %sub16 = add i64 %22, %23
+  %17 = load i64, ptr %slice_entries, align 8
+  %cmp11.not = icmp ult i64 %add, %17
+  %18 = xor i64 %slice_index, -1
+  %sub16 = add i64 %17, %18
   %extra.0 = select i1 %cmp11.not, i64 %spec.store.select, i64 %sub16
-  %cmp18.not10 = icmp eq i64 %extra.0, 0
-  br i1 %cmp18.not10, label %for.end, label %for.body.preheader
+  %cmp18.not4 = icmp eq i64 %extra.0, 0
+  br i1 %cmp18.not4, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %24 = add i64 %extra.0, 1
-  %umax = call i64 @llvm.umax.i64(i64 %24, i64 2)
+  %19 = add i64 %extra.0, 1
+  %umax = call i64 @llvm.umax.i64(i64 %19, i64 2)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.012 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
-  %arrayidx.pn11 = phi ptr [ %slice_next.0, %for.body ], [ %arrayidx, %for.body.preheader ]
-  %slice_next.0 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 80
-  %25 = trunc i64 %i.012 to i32
-  %conv21 = mul i32 %25, 80
-  %slice_offset22 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 84
+  %i.06 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
+  %arrayidx.pn5 = phi ptr [ %slice_next.0, %for.body ], [ %arrayidx, %for.body.preheader ]
+  %slice_next.0 = getelementptr inbounds i8, ptr %arrayidx.pn5, i64 80
+  %20 = trunc i64 %i.06 to i32
+  %conv21 = mul i32 %20, 80
+  %slice_offset22 = getelementptr inbounds i8, ptr %arrayidx.pn5, i64 84
   store i32 %conv21, ptr %slice_offset22, align 4
   store i32 0, ptr %slice_next.0, align 8
-  %xblock_size24 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 108
+  %xblock_size24 = getelementptr inbounds i8, ptr %arrayidx.pn5, i64 108
   store i32 1, ptr %xblock_size24, align 4
-  %inc = add nuw i64 %i.012, 1
+  %inc = add nuw i64 %i.06, 1
   %exitcond = icmp eq i64 %inc, %umax
   br i1 %exitcond, label %for.end.loopexit, label %for.body, !llvm.loop !35
 
@@ -3713,10 +3650,10 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %26 = phi i64 [ %.pre, %for.end.loopexit ], [ %22, %if.end ]
+  %21 = phi i64 [ %.pre, %for.end.loopexit ], [ %17, %if.end ]
   %add.ptr25 = getelementptr inbounds %struct.mi_page_s, ptr %arrayidx, i64 %slice_count
   %add.ptr26 = getelementptr inbounds i8, ptr %add.ptr25, i64 -80
-  %arrayidx.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %26
+  %arrayidx.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %21
   %cmp28 = icmp ugt ptr %add.ptr26, %arrayidx.i
   %spec.select = select i1 %cmp28, ptr %arrayidx.i, ptr %add.ptr26
   %cmp32 = icmp ugt ptr %spec.select, %arrayidx
@@ -3739,8 +3676,8 @@ if.end40:                                         ; preds = %if.then34, %for.end
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %is_committed, align 8
   %used = getelementptr inbounds i8, ptr %segment, i64 208
-  %27 = load i64, ptr %used, align 8
-  %inc41 = add i64 %27, 1
+  %22 = load i64, ptr %used, align 8
+  %inc41 = add i64 %22, 1
   store i64 %inc41, ptr %used, align 8
   br label %return
 

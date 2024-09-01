@@ -20494,10 +20494,10 @@ if.then9:                                         ; preds = %for.body
 
 for.end:                                          ; preds = %for.cond
   %cmp12 = icmp eq i64 %call4.val, 1
-  br i1 %cmp12, label %if.then13, label %if.end35
+  %ob_item15 = getelementptr inbounds i8, ptr %type.val, i64 24
+  br i1 %cmp12, label %if.then13, label %for.body.i
 
 if.then13:                                        ; preds = %for.end
-  %ob_item15 = getelementptr inbounds i8, ptr %type.val, i64 24
   %12 = load ptr, ptr %ob_item15, align 8
   %13 = getelementptr i8, ptr %12, i64 344
   %.val43 = load ptr, ptr %13, align 8
@@ -20548,20 +20548,13 @@ _Py_NewRef.exit50:                                ; preds = %for.body27, %if.end
   %exitcond102.not = icmp eq i64 %add30, %call17.val
   br i1 %exitcond102.not, label %return, label %for.body27, !llvm.loop !63
 
-if.end35:                                         ; preds = %for.end
-  br i1 %cmp689, label %for.body.lr.ph.i, label %if.end39
-
-for.body.lr.ph.i:                                 ; preds = %if.end35
-  %ob_item.i53 = getelementptr inbounds i8, ptr %type.val, i64 24
-  br label %for.body.i
-
 for.cond.loopexit.i:                              ; preds = %for.cond1.i, %for.body.i
   %exitcond.not.i = icmp eq i64 %add.i, %call4.val
   br i1 %exitcond.not.i, label %if.end39, label %for.body.i, !llvm.loop !64
 
-for.body.i:                                       ; preds = %for.cond.loopexit.i, %for.body.lr.ph.i
-  %i.022.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.cond.loopexit.i ]
-  %arrayidx.i54 = getelementptr [1 x ptr], ptr %ob_item.i53, i64 0, i64 %i.022.i
+for.body.i:                                       ; preds = %for.end, %for.cond.loopexit.i
+  %i.022.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.end ]
+  %arrayidx.i54 = getelementptr [1 x ptr], ptr %ob_item15, i64 0, i64 %i.022.i
   %18 = load ptr, ptr %arrayidx.i54, align 8
   %add.i = add nuw nsw i64 %i.022.i, 1
   %cmp219.i = icmp slt i64 %add.i, %call4.val
@@ -20574,7 +20567,7 @@ for.cond1.i:                                      ; preds = %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body.i, %for.cond1.i
   %j.020.i = phi i64 [ %inc.i, %for.cond1.i ], [ %add.i, %for.body.i ]
-  %arrayidx5.i = getelementptr [1 x ptr], ptr %ob_item.i53, i64 0, i64 %j.020.i
+  %arrayidx5.i = getelementptr [1 x ptr], ptr %ob_item15, i64 0, i64 %j.020.i
   %19 = load ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %19, %18
   br i1 %cmp6.i, label %if.then.i, label %for.cond1.i
@@ -20633,7 +20626,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i57
   call void @_Py_Dealloc(ptr noundef nonnull %20) #20
   br label %return
 
-if.end39:                                         ; preds = %for.cond.loopexit.i, %if.end3, %if.end35
+if.end39:                                         ; preds = %for.cond.loopexit.i, %if.end3
   %add40 = add i64 %call4.val, 1
   %cmp41 = icmp ugt i64 %add40, 1152921504606846975
   br i1 %cmp41, label %if.then45, label %cond.end
@@ -21732,19 +21725,19 @@ if.then1.i130:                                    ; preds = %if.end.i127
 undo:                                             ; preds = %if.end48
   %42 = getelementptr i8, ptr %call45, i64 16
   %call45.val = load i64, ptr %42, align 8
-  %i59.0143 = add i64 %call45.val, -1
-  %cmp61144 = icmp sgt i64 %i59.0143, -1
-  br i1 %cmp61144, label %for.body62.lr.ph, label %for.end72
+  %i59.0146 = add i64 %call45.val, -1
+  %cmp61147 = icmp sgt i64 %i59.0146, -1
+  br i1 %cmp61147, label %for.body62.lr.ph, label %for.end72
 
 for.body62.lr.ph:                                 ; preds = %undo
   %ob_item63 = getelementptr inbounds i8, ptr %call45, i64 24
   br label %for.body62
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.inc71
-  %i59.0145 = phi i64 [ %i59.0143, %for.body62.lr.ph ], [ %i59.0, %for.inc71 ]
+  %i59.0148 = phi i64 [ %i59.0146, %for.body62.lr.ph ], [ %i59.0, %for.inc71 ]
   store ptr null, ptr %old_mro, align 8
   %43 = load ptr, ptr %ob_item63, align 8
-  %arrayidx64 = getelementptr ptr, ptr %43, i64 %i59.0145
+  %arrayidx64 = getelementptr ptr, ptr %43, i64 %i59.0148
   %44 = load ptr, ptr %arrayidx64, align 8
   %call65 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %44, ptr noundef nonnull @.str.64, i64 noundef 2, i64 noundef 3, ptr noundef nonnull %cls, ptr noundef nonnull %new_mro, ptr noundef nonnull %old_mro) #20
   %45 = load ptr, ptr %cls, align 8
@@ -21799,8 +21792,8 @@ if.then1.i121:                                    ; preds = %if.end.i118
   br label %for.inc71
 
 for.inc71:                                        ; preds = %for.body62, %set_tp_mro.exit, %if.then1.i121, %if.end.i118
-  %i59.0 = add nsw i64 %i59.0145, -1
-  %cmp61 = icmp sgt i64 %i59.0145, 0
+  %i59.0 = add nsw i64 %i59.0148, -1
+  %cmp61 = icmp sgt i64 %i59.0148, 0
   br i1 %cmp61, label %for.body62, label %for.end72, !llvm.loop !74
 
 for.end72:                                        ; preds = %for.inc71, %undo
@@ -27404,7 +27397,7 @@ if.end.i.i84.i:                                   ; preds = %do.body.i.i81.i
 for.cond.i100.i:                                  ; preds = %for.body.i96.i
   %inc.i101.i = add nuw nsw i64 %i.09.i97.i, 1
   %exitcond.not.i102.i = icmp eq i64 %inc.i101.i, %call.val.i.i
-  br i1 %exitcond.not.i102.i, label %if.then.i76, label %for.body.i96.i, !llvm.loop !14
+  br i1 %exitcond.not.i102.i, label %for.body.i81, label %for.body.i96.i, !llvm.loop !14
 
 for.body.i96.i:                                   ; preds = %for.cond.i78.i, %for.cond.i100.i
   %i.09.i97.i = phi i64 [ %inc.i101.i, %for.cond.i100.i ], [ 0, %for.cond.i78.i ]
@@ -27424,16 +27417,13 @@ if.end.i.i106.i:                                  ; preds = %do.body.i.i103.i
   %cmp1.not.i.i108.i = icmp eq ptr %27, null
   br i1 %cmp1.not.i.i108.i, label %do.body.i.i88, label %do.body.i.i103.i, !llvm.loop !15
 
-if.then.i76:                                      ; preds = %for.cond.i100.i
-  br i1 %cmp28.i.i, label %for.body.i81, label %if.else83.i
-
 for.cond.i85:                                     ; preds = %for.body.i81
   %inc.i86 = add nuw nsw i64 %i.09.i82, 1
   %exitcond.not.i87 = icmp eq i64 %inc.i86, %call.val.i.i
-  br i1 %exitcond.not.i87, label %if.then.i54, label %for.body.i81, !llvm.loop !14
+  br i1 %exitcond.not.i87, label %for.body.i59, label %for.body.i81, !llvm.loop !14
 
-for.body.i81:                                     ; preds = %if.then.i76, %for.cond.i85
-  %i.09.i82 = phi i64 [ %inc.i86, %for.cond.i85 ], [ 0, %if.then.i76 ]
+for.body.i81:                                     ; preds = %for.cond.i100.i, %for.cond.i85
+  %i.09.i82 = phi i64 [ %inc.i86, %for.cond.i85 ], [ 0, %for.cond.i100.i ]
   %arrayidx.i83 = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %i.09.i82
   %28 = load ptr, ptr %arrayidx.i83, align 8
   %cmp3.i84 = icmp eq ptr %28, @PyUnicode_Type
@@ -27450,16 +27440,13 @@ if.end.i.i91:                                     ; preds = %do.body.i.i88
   %cmp1.not.i.i93 = icmp eq ptr %29, null
   br i1 %cmp1.not.i.i93, label %do.body.i.i66, label %do.body.i.i88, !llvm.loop !15
 
-if.then.i54:                                      ; preds = %for.cond.i85
-  br i1 %cmp28.i.i, label %for.body.i59, label %if.else83.i
-
 for.cond.i63:                                     ; preds = %for.body.i59
   %inc.i64 = add nuw nsw i64 %i.09.i60, 1
   %exitcond.not.i65 = icmp eq i64 %inc.i64, %call.val.i.i
-  br i1 %exitcond.not.i65, label %if.then.i48, label %for.body.i59, !llvm.loop !14
+  br i1 %exitcond.not.i65, label %for.body.i, label %for.body.i59, !llvm.loop !14
 
-for.body.i59:                                     ; preds = %if.then.i54, %for.cond.i63
-  %i.09.i60 = phi i64 [ %inc.i64, %for.cond.i63 ], [ 0, %if.then.i54 ]
+for.body.i59:                                     ; preds = %for.cond.i85, %for.cond.i63
+  %i.09.i60 = phi i64 [ %inc.i64, %for.cond.i63 ], [ 0, %for.cond.i85 ]
   %arrayidx.i61 = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %i.09.i60
   %30 = load ptr, ptr %arrayidx.i61, align 8
   %cmp3.i62 = icmp eq ptr %30, @PyTuple_Type
@@ -27476,16 +27463,13 @@ if.end.i.i69:                                     ; preds = %do.body.i.i66
   %cmp1.not.i.i71 = icmp eq ptr %31, null
   br i1 %cmp1.not.i.i71, label %do.body.i.i, label %do.body.i.i66, !llvm.loop !15
 
-if.then.i48:                                      ; preds = %for.cond.i63
-  br i1 %cmp28.i.i, label %for.body.i, label %if.else83.i
-
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call.val.i.i
   br i1 %exitcond.not.i, label %if.else83.i, label %for.body.i, !llvm.loop !14
 
-for.body.i:                                       ; preds = %if.then.i48, %for.cond.i
-  %i.09.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.then.i48 ]
+for.body.i:                                       ; preds = %for.cond.i63, %for.cond.i
+  %i.09.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.i63 ]
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %i.09.i
   %32 = load ptr, ptr %arrayidx.i, align 8
   %cmp3.i50 = icmp eq ptr %32, @PyList_Type
@@ -27502,7 +27486,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
   %cmp1.not.i.i = icmp eq ptr %33, null
   br i1 %cmp1.not.i.i, label %if.else83.i, label %do.body.i.i, !llvm.loop !15
 
-if.else83.i:                                      ; preds = %for.cond.i, %if.end.i.i, %if.then.i.i, %if.then.i76, %if.then.i54, %if.then.i48
+if.else83.i:                                      ; preds = %for.cond.i, %if.end.i.i, %if.then.i.i
   %call84.i = tail call i32 @PyType_IsSubtype(ptr noundef readonly %0, ptr noundef nonnull @PyDict_Type)
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.end96.i, label %if.end96.sink.split.i

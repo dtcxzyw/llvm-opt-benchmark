@@ -15931,7 +15931,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit397:         ; preds = %279, %_ZNSt12_Vecto
 
 ..loopexit_crit_edge.us:                          ; preds = %377
   %exitcond612.not = icmp eq i64 %indvars.iv.next609, %.sroa.2.0.insert.ext.i
-  br i1 %exitcond612.not, label %.preheader, label %.lr.ph550.us, !llvm.loop !99
+  br i1 %exitcond612.not, label %.lr.ph558, label %.lr.ph550.us, !llvm.loop !99
 
 383:                                              ; preds = %.lr.ph546, %481
   %.3337545 = phi i32 [ %.1335, %.lr.ph546 ], [ %.4338, %481 ]
@@ -16174,10 +16174,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit400:         ; preds = %432, %_ZNSt12_Vecto
   %482 = icmp ugt ptr %.14, %.4350
   br i1 %482, label %383, label %.preheader474, !llvm.loop !100
 
-.preheader:                                       ; preds = %..loopexit_crit_edge.us
-  br i1 %54, label %.lr.ph558, label %._crit_edge559
-
-.lr.ph558:                                        ; preds = %.lr.ph552, %.preheader
+.lr.ph558:                                        ; preds = %..loopexit_crit_edge.us, %.lr.ph552
   %483 = getelementptr inbounds i8, ptr %9, i64 16
   %484 = getelementptr inbounds i8, ptr %9, i64 72
   %485 = getelementptr inbounds i8, ptr %10, i64 16
@@ -16267,8 +16264,8 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit400:         ; preds = %432, %_ZNSt12_Vecto
   %exitcond622.not = icmp eq i64 %indvars.iv.next619, %.sroa.2.0.insert.ext.i
   br i1 %exitcond622.not, label %._crit_edge559, label %494, !llvm.loop !102
 
-._crit_edge559:                                   ; preds = %._crit_edge556, %.preheader479, %.preheader474, %.preheader
-  %.sroa.0.5.lcssa631633 = phi ptr [ %.sroa.0.5.lcssa, %.preheader ], [ %.sroa.0.5.lcssa, %.preheader474 ], [ %.sroa.0.7, %.preheader479 ], [ %.sroa.0.5.lcssa, %._crit_edge556 ]
+._crit_edge559:                                   ; preds = %._crit_edge556, %.preheader479, %.preheader474
+  %.sroa.0.5.lcssa631633 = phi ptr [ %.sroa.0.5.lcssa, %.preheader474 ], [ %.sroa.0.7, %.preheader479 ], [ %.sroa.0.5.lcssa, %._crit_edge556 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #27
   %.not.i.i.i = icmp eq ptr %.sroa.0.5.lcssa631633, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %541

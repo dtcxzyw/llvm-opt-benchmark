@@ -3727,8 +3727,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 129:                                              ; preds = %121
   %130 = call ptr @Gia_ObjComputeTruthTableCut(ptr noundef nonnull %0, ptr noundef nonnull %113, ptr noundef nonnull %12)
   %.val100 = load i32, ptr %13, align 4
-  %131 = icmp slt i32 %.val100, 1
-  br i1 %131, label %Abc_TtMinimumBase.exit.thread, label %.lr.ph.i
+  %131 = icmp sgt i32 %.val100, 0
+  br i1 %131, label %.lr.ph.i, label %Abc_TtMinimumBase.exit.thread
 
 .lr.ph.i:                                         ; preds = %129
   %132 = icmp ult i32 %.val100, 7
@@ -3871,8 +3871,8 @@ Abc_TtHasVar.exit.i:                              ; preds = %156, %Abc_TtHasVar.
 180:                                              ; preds = %._crit_edge.i
   %181 = add nsw i32 %.0.lcssa.i, 1
   %182 = and i32 %181, %.0.lcssa.i
-  %.not.i116 = icmp eq i32 %182, 0
-  br i1 %.not.i116, label %Abc_TtMinimumBase.exit, label %.lr.ph53.i.i
+  %.not.i116.not = icmp eq i32 %182, 0
+  br i1 %.not.i116.not, label %Abc_TtMinimumBase.exit, label %.lr.ph53.i.i
 
 .lr.ph53.i.i:                                     ; preds = %180
   %183 = select i1 %132, i32 1, i32 %.fr.i.i

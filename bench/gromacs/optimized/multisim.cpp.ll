@@ -1396,30 +1396,21 @@ define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gm
   br i1 %18, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %19 = zext nneg i32 %17 to i64
   %wide.trip.count = zext nneg i32 %17 to i64
-  %20 = load i64, ptr %7, align 8
-  %.not1219 = icmp eq i64 %20, %1
-  br i1 %.not1219, label %.lr.ph21, label %._crit_edge
+  br label %.lr.ph
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv20 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv20, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %19 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv
+  %20 = load i64, ptr %19, align 8
+  %.not12 = icmp eq i64 %20, %1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %.not12, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph21
-  %21 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.next
-  %22 = load i64, ptr %21, align 8
-  %.not12 = icmp eq i64 %22, %1
-  br i1 %.not12, label %.lr.ph21, label %._crit_edge.loopexit, !llvm.loop !11
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph21, %.lr.ph
-  %23 = icmp uge i64 %indvars.iv.next, %19
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %4
-  %.lcssa = phi i1 [ true, %4 ], [ false, %.lr.ph.preheader ], [ %23, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  %.lcssa = phi i1 [ true, %4 ], [ %.not12, %.lr.ph ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull %7)
   ret i1 %.lcssa
 }

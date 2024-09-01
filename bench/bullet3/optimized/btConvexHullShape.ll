@@ -116,16 +116,13 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then3.i.
   store ptr %call.i.i.i.i10, ptr %m_data.i.i, align 8
   store i32 %numPoints, ptr %m_capacity.i.i, align 8
   store i32 %numPoints, ptr %m_size.i.i, align 4
-  br i1 %or.cond, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   %idx.ext = sext i32 %stride to i64
   %wide.trip.count = zext nneg i32 %numPoints to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %pointsAddress.012 = phi ptr [ %points, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+for.body:                                         ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %for.body
+  %indvars.iv = phi i64 [ 0, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %indvars.iv.next, %for.body ]
+  %pointsAddress.012 = phi ptr [ %points, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %add.ptr, %for.body ]
   %arrayidx7 = getelementptr inbounds i8, ptr %pointsAddress.012, i64 4
   %arrayidx8 = getelementptr inbounds i8, ptr %pointsAddress.012, i64 8
   %3 = load float, ptr %pointsAddress.012, align 4
@@ -153,7 +150,7 @@ lpad3:                                            ; preds = %if.then3.i.i.i, %if
   tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
   resume { ptr, i32 } %7
 
-for.end:                                          ; preds = %for.body, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
+for.end:                                          ; preds = %for.body, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.thread
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
           to label %invoke.cont12 unwind label %lpad3
 
@@ -391,10 +388,7 @@ for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %numVectors to i64
   br label %for.body
 
-for.cond3.preheader:                              ; preds = %for.body
-  br i1 %cmp16, label %for.body5.lr.ph, label %for.end32
-
-for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
+for.body5.lr.ph:                                  ; preds = %for.body
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 36
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -409,7 +403,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store float 0xC3ABC16D60000000, ptr %arrayidx2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond3.preheader, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.body5.lr.ph, label %for.body, !llvm.loop !9
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.inc30
   %indvars.iv21 = phi i64 [ 0, %for.body5.lr.ph ], [ %indvars.iv.next22, %for.inc30 ]
@@ -487,7 +481,7 @@ for.inc30:                                        ; preds = %_ZNK9btVector36maxD
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end32, label %for.body5, !llvm.loop !10
 
-for.end32:                                        ; preds = %for.inc30, %entry, %for.cond3.preheader
+for.end32:                                        ; preds = %for.inc30, %entry
   ret void
 }
 

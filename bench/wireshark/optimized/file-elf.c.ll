@@ -1406,9 +1406,6 @@ value_guard.exit1044:                             ; preds = %value_guard.exit104
 
 value_guard.exit1051.preheader:                   ; preds = %value_guard.exit1045
   %invariant.op1262 = add nuw nsw i32 %34, 8
-  br i1 %.not10241237, label %value_guard.exit1051._crit_edge, label %.lr.ph1268
-
-.lr.ph1268:                                       ; preds = %value_guard.exit1051.preheader
   %invariant.op1260 = add nuw nsw i64 %.0997, 8
   %320 = zext i16 %.in1020 to i32
   %321 = mul nuw i32 %320, %152
@@ -1559,11 +1556,11 @@ value_guard.exit1045:                             ; preds = %375, %372
   %.not1024 = icmp eq i16 %331, 0
   br i1 %.not1024, label %value_guard.exit1051.preheader, label %330, !llvm.loop !6
 
-379:                                              ; preds = %.lr.ph1268, %value_guard.exit1051
-  %indvars.iv1317 = phi i32 [ %151, %.lr.ph1268 ], [ %380, %value_guard.exit1051 ]
-  %.61267 = phi i32 [ %150, %.lr.ph1268 ], [ %538, %value_guard.exit1051 ]
-  %.49771266 = phi i32 [ %.2975.lcssa, %.lr.ph1268 ], [ %.5978, %value_guard.exit1051 ]
-  %.29831265 = phi i64 [ %.0981.lcssa, %.lr.ph1268 ], [ %.3984, %value_guard.exit1051 ]
+379:                                              ; preds = %value_guard.exit1051.preheader, %value_guard.exit1051
+  %indvars.iv1317 = phi i32 [ %151, %value_guard.exit1051.preheader ], [ %380, %value_guard.exit1051 ]
+  %.61267 = phi i32 [ %150, %value_guard.exit1051.preheader ], [ %538, %value_guard.exit1051 ]
+  %.49771266 = phi i32 [ %.2975.lcssa, %value_guard.exit1051.preheader ], [ %.5978, %value_guard.exit1051 ]
+  %.29831265 = phi i64 [ %.0981.lcssa, %value_guard.exit1051.preheader ], [ %.3984, %value_guard.exit1051 ]
   %380 = add nsw i32 %indvars.iv1317, -1
   %381 = load i32, ptr @ett_elf_section_header_entry, align 4
   %382 = sub i32 %151, %indvars.iv1317
@@ -3104,9 +3101,9 @@ value_guard.exit1051:                             ; preds = %value_guard.exit108
   %.not1025.wide = icmp eq i32 %380, 0
   br i1 %.not1025.wide, label %value_guard.exit1051._crit_edge, label %379, !llvm.loop !14
 
-value_guard.exit1051._crit_edge:                  ; preds = %value_guard.exit1051, %value_guard.exit1045.preheader, %value_guard.exit1051.preheader
-  %.2983.lcssa = phi i64 [ %.0981.lcssa, %value_guard.exit1051.preheader ], [ %.0981.lcssa, %value_guard.exit1045.preheader ], [ %.3984, %value_guard.exit1051 ]
-  %.4977.lcssa = phi i32 [ %.2975.lcssa, %value_guard.exit1051.preheader ], [ %.2975.lcssa, %value_guard.exit1045.preheader ], [ %.5978, %value_guard.exit1051 ]
+value_guard.exit1051._crit_edge:                  ; preds = %value_guard.exit1051, %value_guard.exit1045.preheader
+  %.2983.lcssa = phi i64 [ %.0981.lcssa, %value_guard.exit1045.preheader ], [ %.3984, %value_guard.exit1051 ]
+  %.4977.lcssa = phi i32 [ %.2975.lcssa, %value_guard.exit1045.preheader ], [ %.5978, %value_guard.exit1051 ]
   %1126 = load i32, ptr @ett_elf_info, align 4
   %1127 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1126, ptr noundef nonnull %14, ptr noundef nonnull @.str.642) #5
   %1128 = load ptr, ptr %14, align 8

@@ -1990,7 +1990,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %14 = load i32, ptr @hf_gsm_a_bssmap_be_cell_id_disc, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
   %16 = icmp ult i32 %4, 2
-  br i1 %16, label %68, label %17
+  br i1 %16, label %63, label %17
 
 17:                                               ; preds = %7
   %18 = add i32 %3, 1
@@ -2050,45 +2050,32 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %50, label %.split, label %.split81.us.thread, !llvm.loop !6
 
 .split81.us.thread:                               ; preds = %42
-  %51 = sub i32 %4, %47
-  br label %53
+  %51 = icmp eq i8 %.064, 0
+  %52 = select i1 %51, ptr @.str.137, ptr @.str.138
+  %53 = zext i8 %46 to i32
+  %54 = sext i32 %6 to i64
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %54, ptr noundef nonnull @.str.136, i32 noundef %53, ptr noundef nonnull %52) #3
+  br label %.split81.us
 
-.split81.us:                                      ; preds = %.thread.us
-  %52 = sub i32 %4, %29
-  br i1 %.not, label %60, label %53
+.split81.us:                                      ; preds = %.thread.us, %.split81.us.thread
+  %.us-phi82100 = phi i32 [ %45, %.split81.us.thread ], [ %27, %.thread.us ]
+  %.us-phi98 = phi i32 [ %47, %.split81.us.thread ], [ %29, %.thread.us ]
+  %56 = icmp ugt i32 %4, %.us-phi98
+  br i1 %56, label %57, label %61
 
-53:                                               ; preds = %.split81.us.thread, %.split81.us
-  %54 = phi i32 [ %51, %.split81.us.thread ], [ %52, %.split81.us ]
-  %.us-phi85102 = phi i8 [ %.064, %.split81.us.thread ], [ %.064.us, %.split81.us ]
-  %.us-phi83101 = phi i8 [ %46, %.split81.us.thread ], [ %28, %.split81.us ]
-  %.us-phi8299 = phi i32 [ %45, %.split81.us.thread ], [ %27, %.split81.us ]
-  %.us-phi97 = phi i32 [ %47, %.split81.us.thread ], [ %29, %.split81.us ]
-  %55 = sext i32 %6 to i64
-  %56 = zext i8 %.us-phi83101 to i32
-  %57 = icmp eq i8 %.us-phi85102, 0
-  %58 = select i1 %57, ptr @.str.137, ptr @.str.138
-  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %55, ptr noundef nonnull @.str.136, i32 noundef %56, ptr noundef nonnull %58) #3
-  br label %60
+57:                                               ; preds = %.split81.us
+  %58 = sub nuw i32 %4, %.us-phi98
+  %59 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi82100, i32 noundef %58) #3
+  %60 = add i32 %58, %.us-phi82100
+  br label %61
 
-60:                                               ; preds = %53, %.split81.us
-  %61 = phi i32 [ %54, %53 ], [ %52, %.split81.us ]
-  %.us-phi82100 = phi i32 [ %.us-phi8299, %53 ], [ %27, %.split81.us ]
-  %.us-phi98 = phi i32 [ %.us-phi97, %53 ], [ %29, %.split81.us ]
-  %62 = icmp ugt i32 %4, %.us-phi98
-  br i1 %62, label %63, label %66
+61:                                               ; preds = %57, %.split81.us
+  %.1 = phi i32 [ %60, %57 ], [ %.us-phi82100, %.split81.us ]
+  %62 = sub i32 %.1, %3
+  br label %63
 
-63:                                               ; preds = %60
-  %64 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi82100, i32 noundef %61) #3
-  %65 = add i32 %61, %.us-phi82100
-  br label %66
-
-66:                                               ; preds = %63, %60
-  %.1 = phi i32 [ %65, %63 ], [ %.us-phi82100, %60 ]
-  %67 = sub i32 %.1, %3
-  br label %68
-
-68:                                               ; preds = %7, %66
-  %.065.in = phi i32 [ %67, %66 ], [ %4, %7 ]
+63:                                               ; preds = %7, %61
+  %.065.in = phi i32 [ %62, %61 ], [ %4, %7 ]
   %.065 = trunc i32 %.065.in to i16
   ret i16 %.065
 }

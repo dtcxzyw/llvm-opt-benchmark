@@ -436,8 +436,8 @@ if.then.i.i.i19:                                  ; preds = %cleanup39
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %entry, %cleanup39, %if.then.i.i.i19
-  %cmp.i.i3250 = phi i1 [ %cmp.i.i32, %cleanup39 ], [ %cmp.i.i32, %if.then.i.i.i19 ], [ true, %entry ]
-  ret i1 %cmp.i.i3250
+  %cmp.i.i3246 = phi i1 [ %cmp.i.i32, %cleanup39 ], [ %cmp.i.i32, %if.then.i.i.i19 ], [ true, %entry ]
+  ret i1 %cmp.i.i3246
 
 ehcleanup40:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad10, %lpad33
   %.pn3 = phi { ptr, i32 } [ %21, %lpad33 ], [ %12, %lpad10 ], [ %lpad.loopexit26, %lpad.loopexit ], [ %lpad.loopexit.split-lp27, %lpad.loopexit.split-lp ]

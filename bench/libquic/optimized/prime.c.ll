@@ -507,11 +507,11 @@ for.inc:                                          ; preds = %if.end114, %BN_GENC
   %exitcond.not = icmp eq i32 %inc119, %cond479398
   br i1 %exitcond.not, label %if.then122, label %for.body, !llvm.loop !13
 
-if.then122.loopexit153:                           ; preds = %BN_GENCB_call.exit, %if.else93, %if.then84
+if.then122.loopexit153:                           ; preds = %if.then84, %if.else93, %BN_GENCB_call.exit
   br label %if.then122
 
-if.then122:                                       ; preds = %for.inc, %BN_GENCB_call.exit90, %for.body, %if.end106, %if.then84, %if.then122.loopexit153, %probable_prime.exit.thread, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread, %if.end54
-  %found.0113 = phi i32 [ 0, %if.end54 ], [ 0, %probable_prime.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %if.then122.loopexit153 ], [ 1, %if.then84 ], [ 1, %for.inc ], [ 0, %BN_GENCB_call.exit90 ], [ 0, %for.body ], [ 0, %if.end106 ]
+if.then122:                                       ; preds = %BN_GENCB_call.exit90, %for.body, %if.end106, %for.inc, %if.then84, %if.then122.loopexit153, %probable_prime.exit.thread, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread, %if.end54
+  %found.0113 = phi i32 [ 0, %if.end54 ], [ 0, %probable_prime.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %if.then122.loopexit153 ], [ 1, %if.then84 ], [ 1, %for.inc ], [ 0, %if.end106 ], [ 0, %for.body ], [ 0, %BN_GENCB_call.exit90 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %call) #5
   tail call void @BN_CTX_free(ptr noundef nonnull %call) #5
   br label %return

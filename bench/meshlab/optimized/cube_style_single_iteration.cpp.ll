@@ -7781,9 +7781,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 .loopexit416:                                     ; preds = %270
   %indvars.iv.next = sub i64 %indvars.iv, %13
-  br i1 %223, label %76, label %._crit_edge, !llvm.loop !159
+  br label %76, !llvm.loop !159
 
-76:                                               ; preds = %.lr.ph455, %.loopexit416
+76:                                               ; preds = %.loopexit416, %.lr.ph455
   %indvars.iv = phi i64 [ %0, %.lr.ph455 ], [ %indvars.iv.next, %.loopexit416 ]
   %.0238453 = phi i64 [ 0, %.lr.ph455 ], [ %222, %.loopexit416 ]
   %smin = call i64 @llvm.smin.i64(i64 %13, i64 %indvars.iv)
@@ -8262,7 +8262,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %272 = icmp slt i64 %271, %0
   br i1 %272, label %226, label %.loopexit416, !llvm.loop !177
 
-._crit_edge:                                      ; preds = %.loopexit416, %._crit_edge448, %71
+._crit_edge:                                      ; preds = %._crit_edge448, %71
   br i1 %54, label %273, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit337
 
 273:                                              ; preds = %._crit_edge
@@ -14363,9 +14363,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   br label %77
 
 .loopexit423:                                     ; preds = %278
-  br i1 %232, label %77, label %._crit_edge, !llvm.loop !394
+  br label %77, !llvm.loop !394
 
-77:                                               ; preds = %.lr.ph458, %.loopexit423
+77:                                               ; preds = %.loopexit423, %.lr.ph458
   %.0244456 = phi i64 [ %0, %.lr.ph458 ], [ %231, %.loopexit423 ]
   %smin = call i64 @llvm.smin.i64(i64 %13, i64 %.0244456)
   br i1 %64, label %.lr.ph448, label %._crit_edge449
@@ -14845,7 +14845,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %280 = icmp slt i64 %279, %231
   br i1 %280, label %234, label %.loopexit423, !llvm.loop !400
 
-._crit_edge:                                      ; preds = %.loopexit423, %._crit_edge449, %71
+._crit_edge:                                      ; preds = %._crit_edge449, %71
   br i1 %54, label %281, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit344
 
 281:                                              ; preds = %._crit_edge

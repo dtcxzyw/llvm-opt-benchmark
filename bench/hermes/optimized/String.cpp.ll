@@ -6813,7 +6813,7 @@ _ZNK6hermes2vm10StringView3endEv.exit357:         ; preds = %if.else13.i.i.i348,
   %.sink.i.i = select i1 %tobool.not.i.i358, ptr %61, ptr %60
   %.sroa.speculated = select i1 %tobool.not.i.i358, ptr null, ptr %add.ptr.i345
   %cmp5.i.i.not = icmp eq ptr %.sink.i.i, %.sroa.speculated
-  br i1 %cmp5.i.i.not, label %if.else, label %if.then.i391
+  br i1 %cmp5.i.i.not, label %if.else, label %if.end.i.i393
 
 _ZNK6hermes2vm10StringView3endEv.exit357.thread592: ; preds = %if.then.i323
   %bf.clear8.i.i340594 = and i64 %35, 1073741823
@@ -6838,7 +6838,7 @@ _ZNK6hermes2vm10StringView3endEv.exit357.thread:  ; preds = %if.then.i.i25.i321,
   %.sink.i.i557 = select i1 %tobool.not.i.i358556, ptr %61, ptr %60
   %.sroa.speculated558 = select i1 %tobool.not.i.i358556, ptr %add.ptr6.i309, ptr null
   %cmp5.i.i559.not = icmp eq ptr %.sink.i.i557, %.sroa.speculated558
-  br i1 %cmp5.i.i559.not, label %if.else, label %if.end.i362
+  br i1 %cmp5.i.i559.not, label %if.else, label %if.end.i5.i364
 
 _ZNK6hermes2vm10StringView3endEv.exit357.thread.thread: ; preds = %if.end.i291
   %bf.clear8.i15.i304613 = and i64 %35, 1073741823
@@ -6854,10 +6854,7 @@ if.end.i362.thread:                               ; preds = %_ZNK6hermes2vm10Str
   %add.ptr10.i17.i377630 = getelementptr inbounds i16, ptr %34, i64 %bf.clear8.i15.i304613
   br i1 %tobool.not.i.i358556616, label %if.end.i426, label %if.then.i424
 
-if.then.i391:                                     ; preds = %_ZNK6hermes2vm10StringView3endEv.exit357
-  br i1 %tobool.not.i.i324, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405, label %if.end.i.i393
-
-if.end.i.i393:                                    ; preds = %if.then.i391
+if.end.i.i393:                                    ; preds = %_ZNK6hermes2vm10StringView3endEv.exit357
   %retval.sroa.0.0.copyload.i.i.i.i.i394 = load i64, ptr %34, align 8
   %and.i.i.i.i.i.i.i395 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i394, 281474976710655
   %69 = inttoptr i64 %and.i.i.i.i.i.i.i395 to ptr
@@ -6898,14 +6895,7 @@ if.else13.i.i.i413:                               ; preds = %if.else.i.i.i398
   %add.ptr10.i.i410610 = getelementptr inbounds i8, ptr %call.i.i.i.i.i418, i64 %bf.clear8.i.i340
   br i1 %tobool.not.i.i358, label %if.end.i426, label %if.then.i424
 
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405: ; preds = %if.then.i391
-  %add.ptr10.i.i410 = getelementptr inbounds i8, ptr %34, i64 %bf.clear8.i.i340
-  br i1 %tobool.not.i.i358, label %if.end.i426, label %if.then.i424
-
-if.end.i362:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit357.thread
-  br i1 %tobool.not.i4.i292, label %_ZNK6hermes2vm10StringView5beginEv.exit422, label %if.end.i5.i364
-
-if.end.i5.i364:                                   ; preds = %if.end.i362
+if.end.i5.i364:                                   ; preds = %_ZNK6hermes2vm10StringView3endEv.exit357.thread
   %retval.sroa.0.0.copyload.i.i.i.i6.i365 = load i64, ptr %34, align 8
   %and.i.i.i.i.i.i7.i366 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i365, 281474976710655
   %71 = inttoptr i64 %and.i.i.i.i.i.i7.i366 to ptr
@@ -6946,19 +6936,15 @@ if.else13.i.i20.i384:                             ; preds = %if.else.i.i10.i369
   %add.ptr10.i17.i377629 = getelementptr inbounds i16, ptr %74, i64 %bf.clear8.i15.i304
   br i1 %tobool.not.i.i358556, label %if.end.i426, label %if.then.i424
 
-_ZNK6hermes2vm10StringView5beginEv.exit422:       ; preds = %if.end.i362
-  %add.ptr10.i17.i377 = getelementptr inbounds i16, ptr %34, i64 %bf.clear8.i15.i304
-  br i1 %tobool.not.i.i358556, label %if.end.i426, label %if.then.i424
-
-if.then.i424:                                     ; preds = %if.end.i362.thread, %if.else13.i.i20.i384, %if.then10.i.i12.i371, %if.then5.i.i18.i382, %if.then.i.i25.i389, %if.then.i391.thread, %if.else13.i.i.i413, %if.then10.i.i.i400, %if.then5.i.i.i411, %if.then.i.i.i419, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405, %_ZNK6hermes2vm10StringView5beginEv.exit422
-  %retval.sroa.0.0.i379567 = phi ptr [ %add.ptr10.i.i410, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405 ], [ null, %_ZNK6hermes2vm10StringView5beginEv.exit422 ], [ %add.ptr10.i.i410607, %if.then.i.i.i419 ], [ %add.ptr10.i.i410608, %if.then5.i.i.i411 ], [ %add.ptr10.i.i410609, %if.then10.i.i.i400 ], [ %add.ptr10.i.i410610, %if.else13.i.i.i413 ], [ %add.ptr10.i.i410611, %if.then.i391.thread ], [ null, %if.then.i.i25.i389 ], [ null, %if.then5.i.i18.i382 ], [ null, %if.then10.i.i12.i371 ], [ null, %if.else13.i.i20.i384 ], [ null, %if.end.i362.thread ]
+if.then.i424:                                     ; preds = %if.end.i362.thread, %if.else13.i.i20.i384, %if.then10.i.i12.i371, %if.then5.i.i18.i382, %if.then.i.i25.i389, %if.then.i391.thread, %if.else13.i.i.i413, %if.then10.i.i.i400, %if.then5.i.i.i411, %if.then.i.i.i419
+  %retval.sroa.0.0.i379567 = phi ptr [ %add.ptr10.i.i410607, %if.then.i.i.i419 ], [ %add.ptr10.i.i410608, %if.then5.i.i.i411 ], [ %add.ptr10.i.i410609, %if.then10.i.i.i400 ], [ %add.ptr10.i.i410610, %if.else13.i.i.i413 ], [ %add.ptr10.i.i410611, %if.then.i391.thread ], [ null, %if.then.i.i25.i389 ], [ null, %if.then5.i.i18.i382 ], [ null, %if.then10.i.i12.i371 ], [ null, %if.else13.i.i20.i384 ], [ null, %if.end.i362.thread ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %60 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.sroa.0.0.i379567 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   br label %_ZNK6hermes2vm10StringView14const_iteratormiERKS2_.exit
 
-if.end.i426:                                      ; preds = %if.end.i362.thread, %if.else13.i.i20.i384, %if.then10.i.i12.i371, %if.then5.i.i18.i382, %if.then.i.i25.i389, %if.then.i391.thread, %if.else13.i.i.i413, %if.then10.i.i.i400, %if.then5.i.i.i411, %if.then.i.i.i419, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405, %_ZNK6hermes2vm10StringView5beginEv.exit422
-  %retval.sroa.3.0.i378566 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i405 ], [ %add.ptr10.i17.i377, %_ZNK6hermes2vm10StringView5beginEv.exit422 ], [ null, %if.then.i.i.i419 ], [ null, %if.then5.i.i.i411 ], [ null, %if.then10.i.i.i400 ], [ null, %if.else13.i.i.i413 ], [ null, %if.then.i391.thread ], [ %add.ptr10.i17.i377626, %if.then.i.i25.i389 ], [ %add.ptr10.i17.i377627, %if.then5.i.i18.i382 ], [ %add.ptr10.i17.i377628, %if.then10.i.i12.i371 ], [ %add.ptr10.i17.i377629, %if.else13.i.i20.i384 ], [ %add.ptr10.i17.i377630, %if.end.i362.thread ]
+if.end.i426:                                      ; preds = %if.end.i362.thread, %if.else13.i.i20.i384, %if.then10.i.i12.i371, %if.then5.i.i18.i382, %if.then.i.i25.i389, %if.then.i391.thread, %if.else13.i.i.i413, %if.then10.i.i.i400, %if.then5.i.i.i411, %if.then.i.i.i419
+  %retval.sroa.3.0.i378566 = phi ptr [ null, %if.then.i.i.i419 ], [ null, %if.then5.i.i.i411 ], [ null, %if.then10.i.i.i400 ], [ null, %if.else13.i.i.i413 ], [ null, %if.then.i391.thread ], [ %add.ptr10.i17.i377626, %if.then.i.i25.i389 ], [ %add.ptr10.i17.i377627, %if.then5.i.i18.i382 ], [ %add.ptr10.i17.i377628, %if.then10.i.i12.i371 ], [ %add.ptr10.i17.i377629, %if.else13.i.i20.i384 ], [ %add.ptr10.i17.i377630, %if.end.i362.thread ]
   %sub.ptr.lhs.cast5.i = ptrtoint ptr %61 to i64
   %sub.ptr.rhs.cast6.i = ptrtoint ptr %retval.sroa.3.0.i378566 to i64
   %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast6.i
@@ -10720,7 +10706,7 @@ _ZNK6hermes2vm10StringView3endEv.exit277:         ; preds = %if.else13.i.i.i268,
   %.sink.i.i = select i1 %tobool.not.i.i278, ptr %31, ptr %30
   %.sroa.speculated = select i1 %tobool.not.i.i278, ptr null, ptr %add.ptr.i265
   %cmp5.i.i.not = icmp eq ptr %.sink.i.i, %.sroa.speculated
-  br i1 %cmp5.i.i.not, label %return, label %if.then.i311
+  br i1 %cmp5.i.i.not, label %return, label %if.end.i.i313
 
 _ZNK6hermes2vm10StringView3endEv.exit277.thread441: ; preds = %if.then.i243
   %idx.ext9.i.i261443 = zext nneg i32 %bf.value.i.i to i64
@@ -10745,7 +10731,7 @@ _ZNK6hermes2vm10StringView3endEv.exit277.thread:  ; preds = %if.then.i.i25.i241,
   %.sink.i.i406 = select i1 %tobool.not.i.i278405, ptr %31, ptr %30
   %.sroa.speculated407 = select i1 %tobool.not.i.i278405, ptr %add.ptr6.i229, ptr null
   %cmp5.i.i408.not = icmp eq ptr %.sink.i.i406, %.sroa.speculated407
-  br i1 %cmp5.i.i408.not, label %return, label %if.end.i282
+  br i1 %cmp5.i.i408.not, label %return, label %if.end.i5.i284
 
 _ZNK6hermes2vm10StringView3endEv.exit277.thread.thread: ; preds = %if.end.i211
   %idx.ext9.i16.i225462 = zext nneg i32 %bf.value.i.i to i64
@@ -10761,10 +10747,7 @@ if.end.i282.thread:                               ; preds = %_ZNK6hermes2vm10Str
   %add.ptr10.i17.i297479 = getelementptr inbounds i16, ptr %7, i64 %idx.ext9.i16.i225462
   br i1 %tobool.not.i.i278405465, label %if.end.i344, label %if.then.i343
 
-if.then.i311:                                     ; preds = %_ZNK6hermes2vm10StringView3endEv.exit277
-  br i1 %tobool.not.i.i244, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325, label %if.end.i.i313
-
-if.end.i.i313:                                    ; preds = %if.then.i311
+if.end.i.i313:                                    ; preds = %_ZNK6hermes2vm10StringView3endEv.exit277
   %retval.sroa.0.0.copyload.i.i.i.i.i314 = load i64, ptr %7, align 8
   %and.i.i.i.i.i.i.i315 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i314, 281474976710655
   %39 = inttoptr i64 %and.i.i.i.i.i.i.i315 to ptr
@@ -10805,14 +10788,7 @@ if.else13.i.i.i333:                               ; preds = %if.else.i.i.i318
   %add.ptr10.i.i330459 = getelementptr inbounds i8, ptr %call.i.i.i.i.i338, i64 %idx.ext9.i.i261
   br i1 %tobool.not.i.i278, label %if.end.i344, label %if.then.i343
 
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325: ; preds = %if.then.i311
-  %add.ptr10.i.i330 = getelementptr inbounds i8, ptr %7, i64 %idx.ext9.i.i261
-  br i1 %tobool.not.i.i278, label %if.end.i344, label %if.then.i343
-
-if.end.i282:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit277.thread
-  br i1 %tobool.not.i4.i212, label %_ZNK6hermes2vm10StringView5beginEv.exit342, label %if.end.i5.i284
-
-if.end.i5.i284:                                   ; preds = %if.end.i282
+if.end.i5.i284:                                   ; preds = %_ZNK6hermes2vm10StringView3endEv.exit277.thread
   %retval.sroa.0.0.copyload.i.i.i.i6.i285 = load i64, ptr %7, align 8
   %and.i.i.i.i.i.i7.i286 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i285, 281474976710655
   %41 = inttoptr i64 %and.i.i.i.i.i.i7.i286 to ptr
@@ -10853,19 +10829,15 @@ if.else13.i.i20.i304:                             ; preds = %if.else.i.i10.i289
   %add.ptr10.i17.i297478 = getelementptr inbounds i16, ptr %44, i64 %idx.ext9.i16.i225
   br i1 %tobool.not.i.i278405, label %if.end.i344, label %if.then.i343
 
-_ZNK6hermes2vm10StringView5beginEv.exit342:       ; preds = %if.end.i282
-  %add.ptr10.i17.i297 = getelementptr inbounds i16, ptr %7, i64 %idx.ext9.i16.i225
-  br i1 %tobool.not.i.i278405, label %if.end.i344, label %if.then.i343
-
-if.then.i343:                                     ; preds = %if.end.i282.thread, %if.else13.i.i20.i304, %if.then10.i.i12.i291, %if.then5.i.i18.i302, %if.then.i.i25.i309, %if.then.i311.thread, %if.else13.i.i.i333, %if.then10.i.i.i320, %if.then5.i.i.i331, %if.then.i.i.i339, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325, %_ZNK6hermes2vm10StringView5beginEv.exit342
-  %retval.sroa.0.0.i299416 = phi ptr [ %add.ptr10.i.i330, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325 ], [ null, %_ZNK6hermes2vm10StringView5beginEv.exit342 ], [ %add.ptr10.i.i330456, %if.then.i.i.i339 ], [ %add.ptr10.i.i330457, %if.then5.i.i.i331 ], [ %add.ptr10.i.i330458, %if.then10.i.i.i320 ], [ %add.ptr10.i.i330459, %if.else13.i.i.i333 ], [ %add.ptr10.i.i330460, %if.then.i311.thread ], [ null, %if.then.i.i25.i309 ], [ null, %if.then5.i.i18.i302 ], [ null, %if.then10.i.i12.i291 ], [ null, %if.else13.i.i20.i304 ], [ null, %if.end.i282.thread ]
+if.then.i343:                                     ; preds = %if.end.i282.thread, %if.else13.i.i20.i304, %if.then10.i.i12.i291, %if.then5.i.i18.i302, %if.then.i.i25.i309, %if.then.i311.thread, %if.else13.i.i.i333, %if.then10.i.i.i320, %if.then5.i.i.i331, %if.then.i.i.i339
+  %retval.sroa.0.0.i299416 = phi ptr [ %add.ptr10.i.i330456, %if.then.i.i.i339 ], [ %add.ptr10.i.i330457, %if.then5.i.i.i331 ], [ %add.ptr10.i.i330458, %if.then10.i.i.i320 ], [ %add.ptr10.i.i330459, %if.else13.i.i.i333 ], [ %add.ptr10.i.i330460, %if.then.i311.thread ], [ null, %if.then.i.i25.i309 ], [ null, %if.then5.i.i18.i302 ], [ null, %if.then10.i.i12.i291 ], [ null, %if.else13.i.i20.i304 ], [ null, %if.end.i282.thread ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.sroa.0.0.i299416 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   br label %_ZNK6hermes2vm10StringView14const_iteratormiERKS2_.exit
 
-if.end.i344:                                      ; preds = %if.end.i282.thread, %if.else13.i.i20.i304, %if.then10.i.i12.i291, %if.then5.i.i18.i302, %if.then.i.i25.i309, %if.then.i311.thread, %if.else13.i.i.i333, %if.then10.i.i.i320, %if.then5.i.i.i331, %if.then.i.i.i339, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325, %_ZNK6hermes2vm10StringView5beginEv.exit342
-  %retval.sroa.3.0.i298415 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i325 ], [ %add.ptr10.i17.i297, %_ZNK6hermes2vm10StringView5beginEv.exit342 ], [ null, %if.then.i.i.i339 ], [ null, %if.then5.i.i.i331 ], [ null, %if.then10.i.i.i320 ], [ null, %if.else13.i.i.i333 ], [ null, %if.then.i311.thread ], [ %add.ptr10.i17.i297475, %if.then.i.i25.i309 ], [ %add.ptr10.i17.i297476, %if.then5.i.i18.i302 ], [ %add.ptr10.i17.i297477, %if.then10.i.i12.i291 ], [ %add.ptr10.i17.i297478, %if.else13.i.i20.i304 ], [ %add.ptr10.i17.i297479, %if.end.i282.thread ]
+if.end.i344:                                      ; preds = %if.end.i282.thread, %if.else13.i.i20.i304, %if.then10.i.i12.i291, %if.then5.i.i18.i302, %if.then.i.i25.i309, %if.then.i311.thread, %if.else13.i.i.i333, %if.then10.i.i.i320, %if.then5.i.i.i331, %if.then.i.i.i339
+  %retval.sroa.3.0.i298415 = phi ptr [ null, %if.then.i.i.i339 ], [ null, %if.then5.i.i.i331 ], [ null, %if.then10.i.i.i320 ], [ null, %if.else13.i.i.i333 ], [ null, %if.then.i311.thread ], [ %add.ptr10.i17.i297475, %if.then.i.i25.i309 ], [ %add.ptr10.i17.i297476, %if.then5.i.i18.i302 ], [ %add.ptr10.i17.i297477, %if.then10.i.i12.i291 ], [ %add.ptr10.i17.i297478, %if.else13.i.i20.i304 ], [ %add.ptr10.i17.i297479, %if.end.i282.thread ]
   %sub.ptr.lhs.cast5.i = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast6.i = ptrtoint ptr %retval.sroa.3.0.i298415 to i64
   %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast6.i

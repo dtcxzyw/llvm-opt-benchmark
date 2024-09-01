@@ -4828,7 +4828,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %39 = getelementptr inbounds i8, ptr %23, i64 79
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 99
-  br i1 %41, label %42, label %.thread81
+  br i1 %41, label %42, label %.thread80
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %23, i64 84
@@ -4840,7 +4840,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %48 = select i1 %47, i1 true, i1 %46
   %.not75 = xor i1 %3, true
   %brmerge76 = or i1 %48, %.not75
-  br i1 %brmerge76, label %.thread81, label %49
+  br i1 %brmerge76, label %.thread80, label %49
 
 49:                                               ; preds = %42
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -4852,17 +4852,17 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4045, ptr noundef nonnull @__func__.AlterTypeNamespaceInternal) #8
   unreachable
 
-.thread81:                                        ; preds = %38, %42
+.thread80:                                        ; preds = %38, %42
   %55 = phi i1 [ %46, %42 ], [ false, %38 ]
   br i1 %.not69, label %58, label %56
 
-56:                                               ; preds = %.thread81
+56:                                               ; preds = %.thread80
   store i32 %1, ptr %24, align 4
   %57 = getelementptr inbounds i8, ptr %13, i64 4
   call void @CatalogTupleUpdate(ptr noundef %11, ptr noundef nonnull %57, ptr noundef nonnull %13) #8
   br label %58
 
-58:                                               ; preds = %56, %.thread81
+58:                                               ; preds = %56, %.thread80
   br i1 %55, label %.thread, label %59
 
 59:                                               ; preds = %58
@@ -4986,16 +4986,16 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %32 = getelementptr inbounds i8, ptr %14, i64 76
   %33 = getelementptr inbounds i8, ptr %14, i64 129
   %.promoted = load i8, ptr %28, align 2
-  %.promoted347 = load i32, ptr %29, align 4
-  %.promoted354 = load i8, ptr %30, align 1
-  %.promoted360 = load i8, ptr %31, align 1
+  %.promoted338 = load i32, ptr %29, align 4
+  %.promoted345 = load i8, ptr %30, align 1
+  %.promoted351 = load i8, ptr %31, align 1
   %34 = load i32, ptr %17, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph452, label %._crit_edge
+  br i1 %35, label %.lr.ph443, label %._crit_edge
 
-.lr.ph452:                                        ; preds = %.lr.ph, %190
+.lr.ph443:                                        ; preds = %.lr.ph, %190
   %36 = phi i8 [ %203, %190 ], [ 0, %.lr.ph ]
-  %.0113451 = phi i1 [ %.2, %190 ], [ false, %.lr.ph ]
+  %.0113442 = phi i1 [ %.2, %190 ], [ false, %.lr.ph ]
   %37 = phi i32 [ %202, %190 ], [ 0, %.lr.ph ]
   %38 = phi i8 [ %201, %190 ], [ 0, %.lr.ph ]
   %39 = phi i32 [ %200, %190 ], [ 0, %.lr.ph ]
@@ -5005,13 +5005,13 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %43 = phi i32 [ %196, %190 ], [ 0, %.lr.ph ]
   %44 = phi i8 [ %195, %190 ], [ 0, %.lr.ph ]
   %45 = phi i32 [ %194, %190 ], [ 0, %.lr.ph ]
-  %indvars.iv450 = phi i64 [ %indvars.iv.next, %190 ], [ 0, %.lr.ph ]
+  %indvars.iv441 = phi i64 [ %indvars.iv.next, %190 ], [ 0, %.lr.ph ]
   %46 = phi i8 [ %193, %190 ], [ %.promoted, %.lr.ph ]
-  %storemerge349449 = phi i32 [ %storemerge348, %190 ], [ %.promoted347, %.lr.ph ]
-  %47 = phi i8 [ %192, %190 ], [ %.promoted354, %.lr.ph ]
-  %48 = phi i8 [ %191, %190 ], [ %.promoted360, %.lr.ph ]
+  %storemerge340440 = phi i32 [ %storemerge339, %190 ], [ %.promoted338, %.lr.ph ]
+  %47 = phi i8 [ %192, %190 ], [ %.promoted345, %.lr.ph ]
+  %48 = phi i8 [ %191, %190 ], [ %.promoted351, %.lr.ph ]
   %49 = load ptr, ptr %18, align 8
-  %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv450
+  %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv441
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
@@ -5019,7 +5019,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %89
 
-56:                                               ; preds = %.lr.ph452
+56:                                               ; preds = %.lr.ph443
   %57 = tail call ptr @defGetString(ptr noundef nonnull %51) #8
   %58 = tail call i32 @pg_strcasecmp(ptr noundef %57, ptr noundef nonnull @.str.38) #8
   %59 = icmp eq i32 %58, 0
@@ -5042,7 +5042,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 69:                                               ; preds = %66
   store i8 %46, ptr %28, align 2
-  store i32 %storemerge349449, ptr %29, align 4
+  store i32 %storemerge340440, ptr %29, align 4
   store i8 %47, ptr %30, align 1
   store i8 %48, ptr %31, align 1
   %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -5060,7 +5060,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 76:                                               ; preds = %73
   store i8 %46, ptr %28, align 2
-  store i32 %storemerge349449, ptr %29, align 4
+  store i32 %storemerge340440, ptr %29, align 4
   store i8 %47, ptr %30, align 1
   store i8 %74, ptr %31, align 1
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -5073,7 +5073,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 80:                                               ; preds = %73
   %81 = load i8, ptr %33, align 1
   %82 = icmp eq i8 %81, 112
-  %spec.select = select i1 %82, i1 true, i1 %.0113451
+  %spec.select = select i1 %82, i1 true, i1 %.0113442
   br label %190
 
 83:                                               ; preds = %56
@@ -5083,7 +5083,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 85:                                               ; preds = %83
   store i8 %46, ptr %28, align 2
-  store i32 %storemerge349449, ptr %29, align 4
+  store i32 %storemerge340440, ptr %29, align 4
   store i8 %47, ptr %30, align 1
   store i8 112, ptr %31, align 1
   %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -5093,7 +5093,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4196, ptr noundef nonnull @__func__.AlterType) #8
   unreachable
 
-89:                                               ; preds = %.lr.ph452
+89:                                               ; preds = %.lr.ph443
   %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(8) @.str.9) #10
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %98
@@ -5191,7 +5191,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 143:                                              ; preds = %134
   store i8 %46, ptr %28, align 2
-  store i32 %storemerge349449, ptr %29, align 4
+  store i32 %storemerge340440, ptr %29, align 4
   store i8 %47, ptr %30, align 1
   store i8 %48, ptr %31, align 1
   %144 = getelementptr inbounds i8, ptr %51, i64 16
@@ -5275,7 +5275,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 190:                                              ; preds = %104, %101, %95, %92, %140, %137, %131, %128, %122, %119, %113, %110, %83, %80
   %191 = phi i8 [ %74, %80 ], [ 112, %83 ], [ %48, %110 ], [ %48, %113 ], [ %48, %119 ], [ %48, %122 ], [ %48, %128 ], [ %48, %131 ], [ %48, %137 ], [ %48, %140 ], [ %48, %92 ], [ %48, %95 ], [ %48, %101 ], [ %48, %104 ]
   %192 = phi i8 [ %47, %80 ], [ %47, %83 ], [ %47, %110 ], [ %47, %113 ], [ %47, %119 ], [ %47, %122 ], [ %47, %128 ], [ %47, %131 ], [ %47, %137 ], [ %47, %140 ], [ 1, %92 ], [ 1, %95 ], [ %47, %101 ], [ %47, %104 ]
-  %storemerge348 = phi i32 [ %storemerge349449, %80 ], [ %storemerge349449, %83 ], [ %storemerge349449, %110 ], [ %storemerge349449, %113 ], [ %storemerge349449, %119 ], [ %storemerge349449, %122 ], [ %storemerge349449, %128 ], [ %storemerge349449, %131 ], [ %storemerge349449, %137 ], [ %storemerge349449, %140 ], [ 0, %92 ], [ %97, %95 ], [ %storemerge349449, %101 ], [ %storemerge349449, %104 ]
+  %storemerge339 = phi i32 [ %storemerge340440, %80 ], [ %storemerge340440, %83 ], [ %storemerge340440, %110 ], [ %storemerge340440, %113 ], [ %storemerge340440, %119 ], [ %storemerge340440, %122 ], [ %storemerge340440, %128 ], [ %storemerge340440, %131 ], [ %storemerge340440, %137 ], [ %storemerge340440, %140 ], [ 0, %92 ], [ %97, %95 ], [ %storemerge340440, %101 ], [ %storemerge340440, %104 ]
   %193 = phi i8 [ %46, %80 ], [ %46, %83 ], [ %46, %110 ], [ %46, %113 ], [ %46, %119 ], [ %46, %122 ], [ %46, %128 ], [ %46, %131 ], [ %46, %137 ], [ %46, %140 ], [ %46, %92 ], [ %46, %95 ], [ 1, %101 ], [ 1, %104 ]
   %194 = phi i32 [ %45, %80 ], [ %45, %83 ], [ %45, %110 ], [ %45, %113 ], [ %45, %119 ], [ %45, %122 ], [ %45, %128 ], [ %45, %131 ], [ %45, %137 ], [ %45, %140 ], [ %45, %92 ], [ %45, %95 ], [ 0, %101 ], [ %106, %104 ]
   %195 = phi i8 [ %44, %80 ], [ %44, %83 ], [ 1, %110 ], [ 1, %113 ], [ %44, %119 ], [ %44, %122 ], [ %44, %128 ], [ %44, %131 ], [ %44, %137 ], [ %44, %140 ], [ %44, %92 ], [ %44, %95 ], [ %44, %101 ], [ %44, %104 ]
@@ -5287,43 +5287,43 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %201 = phi i8 [ %38, %80 ], [ %38, %83 ], [ %38, %110 ], [ %38, %113 ], [ %38, %119 ], [ %38, %122 ], [ %38, %128 ], [ %38, %131 ], [ 1, %137 ], [ 1, %140 ], [ %38, %92 ], [ %38, %95 ], [ %38, %101 ], [ %38, %104 ]
   %202 = phi i32 [ %37, %80 ], [ %37, %83 ], [ %37, %110 ], [ %37, %113 ], [ %37, %119 ], [ %37, %122 ], [ %37, %128 ], [ %37, %131 ], [ 0, %137 ], [ %142, %140 ], [ %37, %92 ], [ %37, %95 ], [ %37, %101 ], [ %37, %104 ]
   %203 = phi i8 [ 1, %80 ], [ 1, %83 ], [ %36, %110 ], [ %36, %113 ], [ %36, %119 ], [ %36, %122 ], [ %36, %128 ], [ %36, %131 ], [ %36, %137 ], [ %36, %140 ], [ %36, %92 ], [ %36, %95 ], [ %36, %101 ], [ %36, %104 ]
-  %.2 = phi i1 [ %spec.select, %80 ], [ %.0113451, %83 ], [ true, %110 ], [ true, %113 ], [ true, %119 ], [ true, %122 ], [ true, %128 ], [ true, %131 ], [ true, %137 ], [ true, %140 ], [ true, %92 ], [ true, %95 ], [ true, %101 ], [ true, %104 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv450, 1
+  %.2 = phi i1 [ %spec.select, %80 ], [ %.0113442, %83 ], [ true, %110 ], [ true, %113 ], [ true, %119 ], [ true, %122 ], [ true, %128 ], [ true, %131 ], [ true, %137 ], [ true, %140 ], [ true, %92 ], [ true, %95 ], [ true, %101 ], [ true, %104 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv441, 1
   %204 = load i32, ptr %17, align 4
   %205 = sext i32 %204 to i64
   %206 = icmp slt i64 %indvars.iv.next, %205
-  br i1 %206, label %.lr.ph452, label %._crit_edge
+  br i1 %206, label %.lr.ph443, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %190, %.lr.ph
-  %.lcssa433 = phi i8 [ %.promoted360, %.lr.ph ], [ %191, %190 ]
-  %.lcssa428 = phi i8 [ %.promoted354, %.lr.ph ], [ %192, %190 ]
-  %storemerge349.lcssa = phi i32 [ %.promoted347, %.lr.ph ], [ %storemerge348, %190 ]
-  %.lcssa419 = phi i8 [ %.promoted, %.lr.ph ], [ %193, %190 ]
-  %.lcssa414 = phi i32 [ 0, %.lr.ph ], [ %194, %190 ]
-  %.lcssa409 = phi i8 [ 0, %.lr.ph ], [ %195, %190 ]
-  %.lcssa404 = phi i32 [ 0, %.lr.ph ], [ %196, %190 ]
-  %.lcssa399 = phi i8 [ 0, %.lr.ph ], [ %197, %190 ]
-  %.lcssa394 = phi i32 [ 0, %.lr.ph ], [ %198, %190 ]
-  %.lcssa389 = phi i8 [ 0, %.lr.ph ], [ %199, %190 ]
-  %.lcssa384 = phi i32 [ 0, %.lr.ph ], [ %200, %190 ]
-  %.lcssa379 = phi i8 [ 0, %.lr.ph ], [ %201, %190 ]
-  %.lcssa374 = phi i32 [ 0, %.lr.ph ], [ %202, %190 ]
+  %.lcssa424 = phi i8 [ %.promoted351, %.lr.ph ], [ %191, %190 ]
+  %.lcssa419 = phi i8 [ %.promoted345, %.lr.ph ], [ %192, %190 ]
+  %storemerge340.lcssa = phi i32 [ %.promoted338, %.lr.ph ], [ %storemerge339, %190 ]
+  %.lcssa410 = phi i8 [ %.promoted, %.lr.ph ], [ %193, %190 ]
+  %.lcssa405 = phi i32 [ 0, %.lr.ph ], [ %194, %190 ]
+  %.lcssa400 = phi i8 [ 0, %.lr.ph ], [ %195, %190 ]
+  %.lcssa395 = phi i32 [ 0, %.lr.ph ], [ %196, %190 ]
+  %.lcssa390 = phi i8 [ 0, %.lr.ph ], [ %197, %190 ]
+  %.lcssa385 = phi i32 [ 0, %.lr.ph ], [ %198, %190 ]
+  %.lcssa380 = phi i8 [ 0, %.lr.ph ], [ %199, %190 ]
+  %.lcssa375 = phi i32 [ 0, %.lr.ph ], [ %200, %190 ]
+  %.lcssa370 = phi i8 [ 0, %.lr.ph ], [ %201, %190 ]
+  %.lcssa365 = phi i32 [ 0, %.lr.ph ], [ %202, %190 ]
   %.0113.lcssa = phi i1 [ false, %.lr.ph ], [ %.2, %190 ]
-  %.lcssa365 = phi i8 [ 0, %.lr.ph ], [ %203, %190 ]
-  store i8 %.lcssa419, ptr %28, align 2
-  store i32 %storemerge349.lcssa, ptr %29, align 4
-  store i8 %.lcssa428, ptr %30, align 1
-  store i8 %.lcssa433, ptr %31, align 1
-  store i32 %.lcssa374, ptr %19, align 4
-  store i8 %.lcssa379, ptr %20, align 2
-  store i32 %.lcssa384, ptr %21, align 4
-  store i8 %.lcssa389, ptr %22, align 1
-  store i32 %.lcssa394, ptr %23, align 4
-  store i8 %.lcssa399, ptr %24, align 4
-  store i32 %.lcssa404, ptr %25, align 4
-  store i8 %.lcssa409, ptr %26, align 1
-  store i32 %.lcssa414, ptr %27, align 4
-  store i8 %.lcssa365, ptr %2, align 4
+  %.lcssa356 = phi i8 [ 0, %.lr.ph ], [ %203, %190 ]
+  store i8 %.lcssa410, ptr %28, align 2
+  store i32 %storemerge340.lcssa, ptr %29, align 4
+  store i8 %.lcssa419, ptr %30, align 1
+  store i8 %.lcssa424, ptr %31, align 1
+  store i32 %.lcssa365, ptr %19, align 4
+  store i8 %.lcssa370, ptr %20, align 2
+  store i32 %.lcssa375, ptr %21, align 4
+  store i8 %.lcssa380, ptr %22, align 1
+  store i32 %.lcssa385, ptr %23, align 4
+  store i8 %.lcssa390, ptr %24, align 4
+  store i32 %.lcssa395, ptr %25, align 4
+  store i8 %.lcssa400, ptr %26, align 1
+  store i32 %.lcssa405, ptr %27, align 4
+  store i8 %.lcssa356, ptr %2, align 4
   br i1 %.0113.lcssa, label %207, label %.critedge
 
 207:                                              ; preds = %._crit_edge

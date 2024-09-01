@@ -406,7 +406,7 @@ Vec_IntFreeP.exit:                                ; preds = %118, %125, %.thread
 
 ._crit_edge500:                                   ; preds = %.lr.ph499
   %168 = call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr %109)
-  br i1 %161, label %.lr.ph503, label %._crit_edge504
+  br label %.lr.ph503
 
 .lr.ph503:                                        ; preds = %._crit_edge500, %170
   %.1311501 = phi i32 [ %172, %170 ], [ %133, %._crit_edge500 ]
@@ -424,7 +424,7 @@ Vec_IntFreeP.exit:                                ; preds = %118, %125, %.thread
   %173 = icmp sgt i32 %.1311501, 0
   br i1 %173, label %.lr.ph503, label %._crit_edge504, !llvm.loop !10
 
-._crit_edge504:                                   ; preds = %170, %.thread, %._crit_edge500.thread, %._crit_edge500
+._crit_edge504:                                   ; preds = %170, %.thread, %._crit_edge500.thread
   %fputc331 = call i32 @fputc(i32 10, ptr %109)
   %fputc332 = call i32 @fputc(i32 125, ptr %109)
   %fputc333 = call i32 @fputc(i32 10, ptr %109)
@@ -1430,7 +1430,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
 
 ._crit_edge:                                      ; preds = %.lr.ph482
   %107 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr %19)
-  br i1 %100, label %.lr.ph485, label %._crit_edge486
+  br label %.lr.ph485
 
 .lr.ph485:                                        ; preds = %._crit_edge, %109
   %.1289483 = phi i32 [ %111, %109 ], [ %70, %._crit_edge ]
@@ -1448,7 +1448,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   %112 = icmp sgt i32 %.1289483, 0
   br i1 %112, label %.lr.ph485, label %._crit_edge486, !llvm.loop !25
 
-._crit_edge486:                                   ; preds = %109, %.thread, %._crit_edge.thread, %._crit_edge
+._crit_edge486:                                   ; preds = %109, %.thread, %._crit_edge.thread
   %fputc315 = tail call i32 @fputc(i32 10, ptr %19)
   %fputc316 = tail call i32 @fputc(i32 125, ptr %19)
   %fputc317 = tail call i32 @fputc(i32 10, ptr %19)
@@ -2320,7 +2320,7 @@ define void @Gia_WriteDotAig(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 ._crit_edge:                                      ; preds = %.lr.ph636
   %84 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr %25)
-  br i1 %77, label %.lr.ph639, label %._crit_edge640
+  br label %.lr.ph639
 
 .lr.ph639:                                        ; preds = %._crit_edge, %86
   %.1400637 = phi i32 [ %88, %86 ], [ %47, %._crit_edge ]
@@ -2338,7 +2338,7 @@ define void @Gia_WriteDotAig(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %89 = icmp sgt i32 %.1400637, 0
   br i1 %89, label %.lr.ph639, label %._crit_edge640, !llvm.loop !38
 
-._crit_edge640:                                   ; preds = %86, %.thread, %._crit_edge.thread, %._crit_edge
+._crit_edge640:                                   ; preds = %86, %.thread, %._crit_edge.thread
   %fputc425 = tail call i32 @fputc(i32 10, ptr %25)
   %fputc426 = tail call i32 @fputc(i32 125, ptr %25)
   %fputc427 = tail call i32 @fputc(i32 10, ptr %25)

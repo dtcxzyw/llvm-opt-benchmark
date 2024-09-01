@@ -129,14 +129,11 @@ define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 
 
 53:                                               ; preds = %._crit_edge
   %54 = icmp eq i32 %.141, 1
-  br i1 %54, label %.preheader, label %61
+  br i1 %54, label %.lr.ph99, label %61
 
-.preheader:                                       ; preds = %53
-  br i1 %31, label %.lr.ph99, label %.loopexit
-
-.lr.ph99:                                         ; preds = %.preheader, %58
-  %.14398 = phi i32 [ %59, %58 ], [ 0, %.preheader ]
-  %.04597 = phi ptr [ %60, %58 ], [ %2, %.preheader ]
+.lr.ph99:                                         ; preds = %53, %58
+  %.14398 = phi i32 [ %59, %58 ], [ 0, %53 ]
+  %.04597 = phi ptr [ %60, %58 ], [ %2, %53 ]
   %55 = load i32, ptr %.04597, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %58
@@ -318,7 +315,10 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
 
 .preheader.i55:                                   ; preds = %._crit_edge.us.i, %..preheader_crit_edge.split.i, %.preheader59.i
   %.not75.i = icmp eq i32 %.139, 1
-  br i1 %.not75.i, label %.loopexit81, label %.lr.ph74.preheader.i
+  br i1 %.not75.i, label %.lr.ph95.preheader, label %.lr.ph74.preheader.i
+
+.lr.ph95.preheader:                               ; preds = %.loopexit.i, %.preheader.i55
+  br label %.lr.ph95
 
 .lr.ph74.preheader.i:                             ; preds = %.preheader.i55
   %121 = tail call i32 @llvm.smax.i32(i32 %.139, i32 2)
@@ -337,7 +337,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
 
 .loopexit.i:                                      ; preds = %135, %.lr.ph74.i
   %exitcond83.not.i = icmp eq i32 %.25172.i, %122
-  br i1 %exitcond83.not.i, label %.loopexit81, label %.lr.ph74.i, !llvm.loop !13
+  br i1 %exitcond83.not.i, label %.lr.ph95.preheader, label %.lr.ph74.i, !llvm.loop !13
 
 .lr.ph74.i:                                       ; preds = %.loopexit.i, %.lr.ph74.preheader.i
   %.273.i = phi ptr [ %129, %.loopexit.i ], [ %104, %.lr.ph74.preheader.i ]
@@ -377,13 +377,10 @@ assignnodes.exit:                                 ; preds = %101, %getfactors.ex
   %139 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.048.i, ptr noundef nonnull @FUNC_NAME) #7
   br label %.loopexit
 
-.loopexit81:                                      ; preds = %.loopexit.i, %.preheader.i55
-  br i1 %31, label %.lr.ph95, label %._crit_edge96
-
-.lr.ph95:                                         ; preds = %.loopexit81, %145
-  %.193 = phi ptr [ %.2, %145 ], [ %104, %.loopexit81 ]
-  %.24492 = phi i32 [ %146, %145 ], [ 0, %.loopexit81 ]
-  %.14691 = phi ptr [ %147, %145 ], [ %2, %.loopexit81 ]
+.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %145
+  %.193 = phi ptr [ %.2, %145 ], [ %104, %.lr.ph95.preheader ]
+  %.24492 = phi i32 [ %146, %145 ], [ 0, %.lr.ph95.preheader ]
+  %.14691 = phi ptr [ %147, %145 ], [ %2, %.lr.ph95.preheader ]
   %140 = load i32, ptr %.14691, align 4
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %145
@@ -401,13 +398,13 @@ assignnodes.exit:                                 ; preds = %101, %getfactors.ex
   %exitcond102.not = icmp eq i32 %146, %1
   br i1 %exitcond102.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !15
 
-._crit_edge96:                                    ; preds = %145, %.loopexit81
+._crit_edge96:                                    ; preds = %145
   tail call void @free(ptr noundef %.075) #7
   tail call void @free(ptr noundef %104) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %58, %.preheader, %._crit_edge.thread, %._crit_edge96, %assignnodes.exit, %51, %40, %26, %20, %13
-  %.047 = phi i32 [ %16, %13 ], [ %23, %20 ], [ %29, %26 ], [ %43, %40 ], [ %52, %51 ], [ %139, %assignnodes.exit ], [ 0, %._crit_edge96 ], [ 0, %._crit_edge.thread ], [ 0, %.preheader ], [ 0, %58 ]
+.loopexit:                                        ; preds = %58, %._crit_edge.thread, %._crit_edge96, %assignnodes.exit, %51, %40, %26, %20, %13
+  %.047 = phi i32 [ %16, %13 ], [ %23, %20 ], [ %29, %26 ], [ %43, %40 ], [ %52, %51 ], [ %139, %assignnodes.exit ], [ 0, %._crit_edge96 ], [ 0, %._crit_edge.thread ], [ 0, %58 ]
   ret i32 %.047
 }
 

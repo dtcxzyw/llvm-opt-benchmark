@@ -6461,8 +6461,8 @@ define hidden void @_ZN25InterpreterMacroAssembler17profile_null_seenE8Register(
 23:                                               ; preds = %26, %10
   %24 = load i8, ptr %22, align 1
   %25 = and i8 %24, 1
-  %.not10.i.not.i.i.not.i = icmp eq i8 %25, 0
-  br i1 %.not10.i.not.i.i.not.i, label %26, label %_ZN7BitData23null_seen_byte_constantEv.exit
+  %.not10.not.not.i.not.i.i.not.i = icmp eq i8 %25, 0
+  br i1 %.not10.not.not.i.not.i.i.not.i, label %26, label %_ZN7BitData23null_seen_byte_constantEv.exit
 
 26:                                               ; preds = %23
   %27 = or disjoint i8 %24, 1

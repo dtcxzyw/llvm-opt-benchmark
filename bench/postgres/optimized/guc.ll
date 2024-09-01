@@ -7622,8 +7622,8 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
 31:                                               ; preds = %36, %29
   %.0.in = phi ptr [ %30, %29 ], [ %.0, %36 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %32, label %.loopexit
+  %.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not, label %32, label %.loopexit
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.0, i64 48
@@ -7638,7 +7638,7 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
   br i1 %39, label %.loopexit, label %31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %31, %32, %36, %25, %21, %17, %13, %9, %2
-  %.021 = phi i1 [ true, %2 ], [ true, %9 ], [ true, %13 ], [ true, %17 ], [ true, %21 ], [ true, %25 ], [ %.not.not, %36 ], [ %.not.not, %32 ], [ %.not.not, %31 ]
+  %.021 = phi i1 [ true, %2 ], [ true, %9 ], [ true, %13 ], [ true, %17 ], [ true, %21 ], [ true, %25 ], [ %.not.not.not, %36 ], [ %.not.not.not, %32 ], [ %.not.not.not, %31 ]
   ret i1 %.021
 }
 
@@ -7900,8 +7900,8 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
 17:                                               ; preds = %22, %15
   %.0.in = phi ptr [ %16, %15 ], [ %.0, %22 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %18, label %.loopexit
+  %.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not, label %18, label %.loopexit
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.0, i64 40
@@ -7916,7 +7916,7 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
   br i1 %25, label %.loopexit, label %17, !llvm.loop !33
 
 .loopexit:                                        ; preds = %17, %18, %22, %2, %7, %11
-  %.014 = phi i1 [ true, %11 ], [ true, %7 ], [ true, %2 ], [ %.not.not, %22 ], [ %.not.not, %18 ], [ %.not.not, %17 ]
+  %.014 = phi i1 [ true, %11 ], [ true, %7 ], [ true, %2 ], [ %.not.not.not, %22 ], [ %.not.not.not, %18 ], [ %.not.not.not, %17 ]
   ret i1 %.014
 }
 

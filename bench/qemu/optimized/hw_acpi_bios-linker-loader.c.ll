@@ -303,8 +303,8 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %for.body.lr.ph.i24, label %for.cond.i
 
-for.body.lr.ph.i24:                               ; preds = %for.cond.i, %for.body.i
-  %retval.0.i40 = phi ptr [ %arrayidx.i, %for.body.i ], [ null, %for.cond.i ]
+for.body.lr.ph.i24:                               ; preds = %for.body.i, %for.cond.i
+  %retval.0.i40 = phi ptr [ null, %for.cond.i ], [ %arrayidx.i, %for.body.i ]
   br label %for.body.i25
 
 for.cond.i31:                                     ; preds = %for.body.i25
@@ -326,8 +326,8 @@ bios_linker_find_file.exit35:                     ; preds = %for.body.i25
   br i1 %tobool.not, label %if.else, label %if.end6
 
 bios_linker_find_file.exit35.thread:              ; preds = %for.cond.i31
-  %tobool.not46 = icmp eq ptr %retval.0.i40, null
-  br i1 %tobool.not46, label %if.else, label %if.else5
+  %tobool.not45 = icmp eq ptr %retval.0.i40, null
+  br i1 %tobool.not45, label %if.else, label %if.else5
 
 if.else:                                          ; preds = %bios_linker_find_file.exit35.thread, %entry, %bios_linker_find_file.exit35
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.bios_linker_loader_add_pointer) #11

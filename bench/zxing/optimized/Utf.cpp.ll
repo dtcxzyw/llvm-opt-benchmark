@@ -260,17 +260,17 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i: ; 
   %16 = zext nneg i32 %13 to i64
   %17 = add i64 %5, %16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %17)
-          to label %.lr.ph.i unwind label %.loopexit.split-lp
+          to label %.noexc4 unwind label %.loopexit.split-lp
 
-.lr.ph.i:                                         ; preds = %_ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i
+.noexc4:                                          ; preds = %_ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i
   %18 = getelementptr inbounds i8, ptr %4, i64 1
   %19 = getelementptr inbounds i8, ptr %4, i64 2
   %20 = getelementptr inbounds i8, ptr %4, i64 3
   br label %21
 
-21:                                               ; preds = %.noexc5, %.lr.ph.i
-  %.sroa.0.017.i = phi i64 [ %1, %.lr.ph.i ], [ %65, %.noexc5 ]
-  %.sroa.9.016.i = phi ptr [ %2, %.lr.ph.i ], [ %64, %.noexc5 ]
+21:                                               ; preds = %.noexc5, %.noexc4
+  %.sroa.0.017.i = phi i64 [ %1, %.noexc4 ], [ %65, %.noexc5 ]
+  %.sroa.9.016.i = phi ptr [ %2, %.noexc4 ], [ %64, %.noexc5 ]
   %22 = load i32, ptr %.sroa.9.016.i, align 4
   %23 = icmp ult i32 %22, 128
   br i1 %23, label %24, label %26

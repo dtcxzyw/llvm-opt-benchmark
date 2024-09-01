@@ -9224,7 +9224,7 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr nocapture 
   br label %.thread
 
 35:                                               ; preds = %26
-  br i1 %32, label %.loopexit6, label %36
+  br i1 %32, label %.loopexit, label %36
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9240,15 +9240,15 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr nocapture 
   %43 = getelementptr i8, ptr %40, i64 144
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %3
-  br i1 %45, label %.loopexit6, label %38, !llvm.loop !86
+  br i1 %45, label %.loopexit, label %38, !llvm.loop !86
 
-.loopexit6:                                       ; preds = %42, %35
+.loopexit:                                        ; preds = %42, %35
   %46 = tail call fastcc i32 @rt6_multipath_dead_count(ptr noundef %0, ptr noundef %3)
   %47 = add i32 %28, 1
   %48 = icmp eq i32 %47, %46
   br i1 %48, label %49, label %.thread5
 
-49:                                               ; preds = %.loopexit6
+49:                                               ; preds = %.loopexit
   %50 = or disjoint i8 %23, 1
   store i8 %50, ptr %22, align 1
   %51 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9266,7 +9266,7 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr nocapture 
   %59 = icmp eq ptr %58, %51
   br i1 %59, label %.thread, label %.preheader, !llvm.loop !87
 
-.thread5:                                         ; preds = %.loopexit6
+.thread5:                                         ; preds = %.loopexit
   tail call fastcc void @rt6_multipath_nh_flags_set(ptr noundef %0, ptr noundef %3)
   tail call void @fib6_update_sernum(ptr noundef %5, ptr noundef %0) #22
   tail call void @rt6_multipath_rebalance(ptr noundef %0)

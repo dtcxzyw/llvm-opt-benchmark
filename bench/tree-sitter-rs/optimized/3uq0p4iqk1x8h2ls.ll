@@ -1905,8 +1905,8 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.7540957221847921196.exit
   br i1 %210, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h794d9f849a3332ceE.exit.i", label %"_ZN18tree_sitter_loader21LanguageConfiguration16highlight_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h15785312606fd193E.exit.backedge.i.i"
 
 "_ZN18tree_sitter_loader21LanguageConfiguration16highlight_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h15785312606fd193E.exit.backedge.i.i": ; preds = %208, %.lr.ph.i.i
-  %.not18.i.i = icmp eq ptr %206, %204
-  br i1 %.not18.i.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not13.i.i = icmp eq ptr %206, %204
+  br i1 %.not13.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 211:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd4455e9b676d04e1E.exit.thread.i"
   %212 = trunc nuw i8 %.0.i.i.i.i to i1

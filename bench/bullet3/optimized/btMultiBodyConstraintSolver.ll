@@ -3218,15 +3218,12 @@ invoke.cont132:                                   ; preds = %for.body8.i324
   %m_size.i360 = getelementptr inbounds i8, ptr %this, i64 604
   %70 = load i32, ptr %m_size.i360, align 4
   %add138 = add nsw i32 %70, %add
-  br i1 %cmp3.i316, label %if.then4.i365, label %invoke.cont140
-
-if.then4.i365:                                    ; preds = %invoke.cont132
   %m_capacity.i.i.i366 = getelementptr inbounds i8, ptr %this, i64 608
   %71 = load i32, ptr %m_capacity.i.i.i366, align 8
   %cmp.i.i367 = icmp slt i32 %71, %add138
   br i1 %cmp.i.i367, label %if.then.i.i377, label %for.body8.lr.ph.i368
 
-if.then.i.i377:                                   ; preds = %if.then4.i365
+if.then.i.i377:                                   ; preds = %invoke.cont132
   %tobool.not.i.i.i378 = icmp eq i32 %add138, 0
   br i1 %tobool.not.i.i.i378, label %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i383, label %if.then.i.i.i379
 
@@ -3285,7 +3282,7 @@ if.end.i392:                                      ; preds = %if.then3.i.i.i394, 
   store i32 %add138, ptr %m_capacity.i.i.i366, align 8
   br label %for.body8.lr.ph.i368
 
-for.body8.lr.ph.i368:                             ; preds = %if.end.i392, %if.then4.i365
+for.body8.lr.ph.i368:                             ; preds = %if.end.i392, %invoke.cont132
   %m_data9.i369 = getelementptr inbounds i8, ptr %this, i64 616
   %77 = sext i32 %70 to i64
   %wide.trip.count.i370 = sext i32 %add138 to i64
@@ -3300,9 +3297,9 @@ for.body8.i372:                                   ; preds = %for.body8.i372, %fo
   %exitcond.not.i376 = icmp eq i64 %indvars.iv.next.i375, %wide.trip.count.i370
   br i1 %exitcond.not.i376, label %invoke.cont140, label %for.body8.i372, !llvm.loop !23
 
-invoke.cont140:                                   ; preds = %for.body8.i372, %invoke.cont132.thread, %invoke.cont132
-  %add1381321 = phi i32 [ %add1381319, %invoke.cont132.thread ], [ %add138, %invoke.cont132 ], [ %add138, %for.body8.i372 ]
-  %m_size.i3601320 = phi ptr [ %m_size.i3601318, %invoke.cont132.thread ], [ %m_size.i360, %invoke.cont132 ], [ %m_size.i360, %for.body8.i372 ]
+invoke.cont140:                                   ; preds = %for.body8.i372, %invoke.cont132.thread
+  %add1381321 = phi i32 [ %add1381319, %invoke.cont132.thread ], [ %add138, %for.body8.i372 ]
+  %m_size.i3601320 = phi ptr [ %m_size.i3601318, %invoke.cont132.thread ], [ %m_size.i360, %for.body8.i372 ]
   store i32 %add1381321, ptr %m_size.i3601320, align 4
   %79 = load i32, ptr %m_jacAindex, align 4
   %m_data.i408 = getelementptr inbounds i8, ptr %this, i64 584
@@ -3693,15 +3690,12 @@ invoke.cont258:                                   ; preds = %for.body8.i551
   %m_size.i587 = getelementptr inbounds i8, ptr %this, i64 604
   %154 = load i32, ptr %m_size.i587, align 4
   %add265 = add nsw i32 %154, %add223
-  br i1 %cmp3.i543, label %if.then4.i592, label %invoke.cont272
-
-if.then4.i592:                                    ; preds = %invoke.cont258
   %m_capacity.i.i.i593 = getelementptr inbounds i8, ptr %this, i64 608
   %155 = load i32, ptr %m_capacity.i.i.i593, align 8
   %cmp.i.i594 = icmp slt i32 %155, %add265
   br i1 %cmp.i.i594, label %if.then.i.i604, label %for.body8.lr.ph.i595
 
-if.then.i.i604:                                   ; preds = %if.then4.i592
+if.then.i.i604:                                   ; preds = %invoke.cont258
   %tobool.not.i.i.i605 = icmp eq i32 %add265, 0
   br i1 %tobool.not.i.i.i605, label %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i610, label %if.then.i.i.i606
 
@@ -3760,7 +3754,7 @@ if.end.i619:                                      ; preds = %if.then3.i.i.i621, 
   store i32 %add265, ptr %m_capacity.i.i.i593, align 8
   br label %for.body8.lr.ph.i595
 
-for.body8.lr.ph.i595:                             ; preds = %if.end.i619, %if.then4.i592
+for.body8.lr.ph.i595:                             ; preds = %if.end.i619, %invoke.cont258
   %m_data9.i596 = getelementptr inbounds i8, ptr %this, i64 616
   %161 = sext i32 %154 to i64
   %wide.trip.count.i597 = sext i32 %add265 to i64
@@ -3775,9 +3769,9 @@ for.body8.i599:                                   ; preds = %for.body8.i599, %fo
   %exitcond.not.i603 = icmp eq i64 %indvars.iv.next.i602, %wide.trip.count.i597
   br i1 %exitcond.not.i603, label %invoke.cont272, label %for.body8.i599, !llvm.loop !23
 
-invoke.cont272:                                   ; preds = %for.body8.i599, %invoke.cont258.thread, %invoke.cont258
-  %add2651325 = phi i32 [ %add2651323, %invoke.cont258.thread ], [ %add265, %invoke.cont258 ], [ %add265, %for.body8.i599 ]
-  %m_size.i5871324 = phi ptr [ %m_size.i5871322, %invoke.cont258.thread ], [ %m_size.i587, %invoke.cont258 ], [ %m_size.i587, %for.body8.i599 ]
+invoke.cont272:                                   ; preds = %for.body8.i599, %invoke.cont258.thread
+  %add2651325 = phi i32 [ %add2651323, %invoke.cont258.thread ], [ %add265, %for.body8.i599 ]
+  %m_size.i5871324 = phi ptr [ %m_size.i5871322, %invoke.cont258.thread ], [ %m_size.i587, %for.body8.i599 ]
   store i32 %add2651325, ptr %m_size.i5871324, align 4
   %163 = load i32, ptr %m_linkB, align 8
   %164 = load float, ptr %contactNormal, align 4
@@ -5164,15 +5158,12 @@ invoke.cont98:                                    ; preds = %for.body8.i224
   %m_size.i260 = getelementptr inbounds i8, ptr %this, i64 604
   %31 = load i32, ptr %m_size.i260, align 4
   %add104 = add nsw i32 %31, %add
-  br i1 %cmp3.i216, label %if.then4.i265, label %invoke.cont106
-
-if.then4.i265:                                    ; preds = %invoke.cont98
   %m_capacity.i.i.i266 = getelementptr inbounds i8, ptr %this, i64 608
   %32 = load i32, ptr %m_capacity.i.i.i266, align 8
   %cmp.i.i267 = icmp slt i32 %32, %add104
   br i1 %cmp.i.i267, label %if.then.i.i277, label %for.body8.lr.ph.i268
 
-if.then.i.i277:                                   ; preds = %if.then4.i265
+if.then.i.i277:                                   ; preds = %invoke.cont98
   %tobool.not.i.i.i278 = icmp eq i32 %add104, 0
   br i1 %tobool.not.i.i.i278, label %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i283, label %if.then.i.i.i279
 
@@ -5231,7 +5222,7 @@ if.end.i292:                                      ; preds = %if.then3.i.i.i294, 
   store i32 %add104, ptr %m_capacity.i.i.i266, align 8
   br label %for.body8.lr.ph.i268
 
-for.body8.lr.ph.i268:                             ; preds = %if.end.i292, %if.then4.i265
+for.body8.lr.ph.i268:                             ; preds = %if.end.i292, %invoke.cont98
   %m_data9.i269 = getelementptr inbounds i8, ptr %this, i64 616
   %38 = sext i32 %31 to i64
   %wide.trip.count.i270 = sext i32 %add104 to i64
@@ -5246,9 +5237,9 @@ for.body8.i272:                                   ; preds = %for.body8.i272, %fo
   %exitcond.not.i276 = icmp eq i64 %indvars.iv.next.i275, %wide.trip.count.i270
   br i1 %exitcond.not.i276, label %invoke.cont106, label %for.body8.i272, !llvm.loop !23
 
-invoke.cont106:                                   ; preds = %for.body8.i272, %invoke.cont98.thread, %invoke.cont98
-  %add104792 = phi i32 [ %add104790, %invoke.cont98.thread ], [ %add104, %invoke.cont98 ], [ %add104, %for.body8.i272 ]
-  %m_size.i260791 = phi ptr [ %m_size.i260789, %invoke.cont98.thread ], [ %m_size.i260, %invoke.cont98 ], [ %m_size.i260, %for.body8.i272 ]
+invoke.cont106:                                   ; preds = %for.body8.i272, %invoke.cont98.thread
+  %add104792 = phi i32 [ %add104790, %invoke.cont98.thread ], [ %add104, %for.body8.i272 ]
+  %m_size.i260791 = phi ptr [ %m_size.i260789, %invoke.cont98.thread ], [ %m_size.i260, %for.body8.i272 ]
   store i32 %add104792, ptr %m_size.i260791, align 4
   %40 = load i32, ptr %m_jacAindex, align 4
   %m_data.i308 = getelementptr inbounds i8, ptr %this, i64 584
@@ -5563,15 +5554,12 @@ invoke.cont233:                                   ; preds = %for.body8.i438
   %m_size.i474 = getelementptr inbounds i8, ptr %this, i64 604
   %86 = load i32, ptr %m_size.i474, align 4
   %add240 = add nsw i32 %86, %add198
-  br i1 %cmp3.i430, label %if.then4.i479, label %invoke.cont247
-
-if.then4.i479:                                    ; preds = %invoke.cont233
   %m_capacity.i.i.i480 = getelementptr inbounds i8, ptr %this, i64 608
   %87 = load i32, ptr %m_capacity.i.i.i480, align 8
   %cmp.i.i481 = icmp slt i32 %87, %add240
   br i1 %cmp.i.i481, label %if.then.i.i491, label %for.body8.lr.ph.i482
 
-if.then.i.i491:                                   ; preds = %if.then4.i479
+if.then.i.i491:                                   ; preds = %invoke.cont233
   %tobool.not.i.i.i492 = icmp eq i32 %add240, 0
   br i1 %tobool.not.i.i.i492, label %_ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i497, label %if.then.i.i.i493
 
@@ -5630,7 +5618,7 @@ if.end.i506:                                      ; preds = %if.then3.i.i.i508, 
   store i32 %add240, ptr %m_capacity.i.i.i480, align 8
   br label %for.body8.lr.ph.i482
 
-for.body8.lr.ph.i482:                             ; preds = %if.end.i506, %if.then4.i479
+for.body8.lr.ph.i482:                             ; preds = %if.end.i506, %invoke.cont233
   %m_data9.i483 = getelementptr inbounds i8, ptr %this, i64 616
   %93 = sext i32 %86 to i64
   %wide.trip.count.i484 = sext i32 %add240 to i64
@@ -5645,9 +5633,9 @@ for.body8.i486:                                   ; preds = %for.body8.i486, %fo
   %exitcond.not.i490 = icmp eq i64 %indvars.iv.next.i489, %wide.trip.count.i484
   br i1 %exitcond.not.i490, label %invoke.cont247, label %for.body8.i486, !llvm.loop !23
 
-invoke.cont247:                                   ; preds = %for.body8.i486, %invoke.cont233.thread, %invoke.cont233
-  %add240796 = phi i32 [ %add240794, %invoke.cont233.thread ], [ %add240, %invoke.cont233 ], [ %add240, %for.body8.i486 ]
-  %m_size.i474795 = phi ptr [ %m_size.i474793, %invoke.cont233.thread ], [ %m_size.i474, %invoke.cont233 ], [ %m_size.i474, %for.body8.i486 ]
+invoke.cont247:                                   ; preds = %for.body8.i486, %invoke.cont233.thread
+  %add240796 = phi i32 [ %add240794, %invoke.cont233.thread ], [ %add240, %for.body8.i486 ]
+  %m_size.i474795 = phi ptr [ %m_size.i474793, %invoke.cont233.thread ], [ %m_size.i474, %for.body8.i486 ]
   store i32 %add240796, ptr %m_size.i474795, align 4
   %95 = load i32, ptr %m_linkB, align 8
   %96 = load float, ptr %constraintNormal, align 4

@@ -446,8 +446,8 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %45 = trunc i32 %40 to i16
   %46 = or i16 %44, %45
   %47 = add nuw nsw i32 %.191, 1
-  %exitcond108.not = icmp eq i32 %47, 4
-  br i1 %exitcond108.not, label %48, label %38, !llvm.loop !11
+  %exitcond104.not = icmp eq i32 %47, 4
+  br i1 %exitcond104.not, label %48, label %38, !llvm.loop !11
 
 48:                                               ; preds = %42
   %49 = and i16 %46, -1024

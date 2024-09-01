@@ -1366,8 +1366,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   %56 = add i32 %14, 1
   %57 = add i32 %.08798, 1
   %58 = icmp slt i32 %56, %6
-  %59 = and i1 %58, %11
-  br i1 %59, label %9, label %._crit_edge, !llvm.loop !6
+  br i1 %58, label %9, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.thread, %4
   ret void

@@ -1338,13 +1338,12 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
 
 549:                                              ; preds = %547
   %550 = trunc nuw i8 %.1284.lcssa to i1
-  br i1 %550, label %618, label %551
+  br i1 %550, label %617, label %551
 
 551:                                              ; preds = %549, %547, %544, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %519, %515, %511, %509, %507
   %552 = icmp eq ptr %0, @old_cluster
   %.str.59..str.60 = select i1 %552, ptr @.str.59, ptr @.str.60
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60) #9
-  br i1 %.0320.lcssa, label %555, label %554
+  br label %554
 
 .critedge:                                        ; preds = %506
   %553 = icmp eq ptr %0, @old_cluster
@@ -1352,173 +1351,171 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60.c) #9
   br label %554
 
-554:                                              ; preds = %.critedge, %551
-  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.61) #9
-  br label %555
+554:                                              ; preds = %551, %.critedge
+  %.str.59..str.60.sink = phi ptr [ %.str.59..str.60, %551 ], [ @.str.61, %.critedge ]
+  call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull %.str.59..str.60.sink) #9
+  %555 = trunc nuw i8 %.0318.lcssa to i1
+  br i1 %555, label %557, label %556
 
-555:                                              ; preds = %554, %551
-  %556 = trunc nuw i8 %.0318.lcssa to i1
-  br i1 %556, label %558, label %557
-
-557:                                              ; preds = %555
+556:                                              ; preds = %554
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.62) #9
-  br label %558
+  br label %557
 
-558:                                              ; preds = %557, %555
-  %559 = trunc nuw i8 %.0316.lcssa to i1
-  br i1 %559, label %561, label %560
+557:                                              ; preds = %556, %554
+  %558 = trunc nuw i8 %.0316.lcssa to i1
+  br i1 %558, label %560, label %559
 
-560:                                              ; preds = %558
+559:                                              ; preds = %557
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.63) #9
-  br label %561
+  br label %560
 
-561:                                              ; preds = %560, %558
-  %562 = trunc nuw i8 %.0314.lcssa to i1
-  br i1 %562, label %568, label %563
+560:                                              ; preds = %559, %557
+  %561 = trunc nuw i8 %.0314.lcssa to i1
+  br i1 %561, label %567, label %562
 
-563:                                              ; preds = %561
-  %564 = getelementptr inbounds i8, ptr %0, i64 4
-  %565 = load i32, ptr %564, align 4
-  %566 = icmp ugt i32 %565, 201301230
-  br i1 %566, label %567, label %568
+562:                                              ; preds = %560
+  %563 = getelementptr inbounds i8, ptr %0, i64 4
+  %564 = load i32, ptr %563, align 4
+  %565 = icmp ugt i32 %564, 201301230
+  br i1 %565, label %566, label %567
 
-567:                                              ; preds = %563
+566:                                              ; preds = %562
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.64) #9
-  br label %568
+  br label %567
 
-568:                                              ; preds = %567, %563, %561
-  %569 = trunc nuw i8 %.0312.lcssa to i1
-  br i1 %569, label %571, label %570
+567:                                              ; preds = %566, %562, %560
+  %568 = trunc nuw i8 %.0312.lcssa to i1
+  br i1 %568, label %570, label %569
 
-570:                                              ; preds = %568
+569:                                              ; preds = %567
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.65) #9
-  br label %571
+  br label %570
 
-571:                                              ; preds = %570, %568
-  %572 = trunc nuw i8 %.0310.lcssa to i1
-  br i1 %572, label %574, label %573
+570:                                              ; preds = %569, %567
+  %571 = trunc nuw i8 %.0310.lcssa to i1
+  br i1 %571, label %573, label %572
 
-573:                                              ; preds = %571
+572:                                              ; preds = %570
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.66) #9
-  br label %574
+  br label %573
 
-574:                                              ; preds = %573, %571
-  br i1 %1, label %578, label %575
+573:                                              ; preds = %572, %570
+  br i1 %1, label %577, label %574
 
-575:                                              ; preds = %574
-  %576 = trunc nuw i8 %.2309 to i1
-  br i1 %576, label %578, label %577
+574:                                              ; preds = %573
+  %575 = trunc nuw i8 %.2309 to i1
+  br i1 %575, label %577, label %576
 
-577:                                              ; preds = %575
+576:                                              ; preds = %574
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.67) #9
-  br label %578
+  br label %577
 
-578:                                              ; preds = %577, %575, %574
-  %579 = trunc nuw i8 %.0305.lcssa to i1
-  br i1 %579, label %581, label %580
+577:                                              ; preds = %576, %574, %573
+  %578 = trunc nuw i8 %.0305.lcssa to i1
+  br i1 %578, label %580, label %579
 
-580:                                              ; preds = %578
+579:                                              ; preds = %577
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.68) #9
-  br label %581
+  br label %580
 
-581:                                              ; preds = %580, %578
-  %582 = trunc nuw i8 %.0303.lcssa to i1
-  br i1 %582, label %584, label %583
+580:                                              ; preds = %579, %577
+  %581 = trunc nuw i8 %.0303.lcssa to i1
+  br i1 %581, label %583, label %582
 
-583:                                              ; preds = %581
+582:                                              ; preds = %580
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.69) #9
-  br label %584
+  br label %583
 
-584:                                              ; preds = %583, %581
-  %585 = trunc nuw i8 %.0301.lcssa to i1
-  br i1 %585, label %587, label %586
+583:                                              ; preds = %582, %580
+  %584 = trunc nuw i8 %.0301.lcssa to i1
+  br i1 %584, label %586, label %585
 
-586:                                              ; preds = %584
+585:                                              ; preds = %583
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.70) #9
-  br label %587
+  br label %586
 
-587:                                              ; preds = %586, %584
-  %588 = trunc nuw i8 %.0299.lcssa to i1
-  br i1 %588, label %590, label %589
+586:                                              ; preds = %585, %583
+  %587 = trunc nuw i8 %.0299.lcssa to i1
+  br i1 %587, label %589, label %588
 
-589:                                              ; preds = %587
+588:                                              ; preds = %586
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.71) #9
-  br label %590
+  br label %589
 
-590:                                              ; preds = %589, %587
-  %591 = trunc nuw i8 %.0297.lcssa to i1
-  br i1 %591, label %593, label %592
+589:                                              ; preds = %588, %586
+  %590 = trunc nuw i8 %.0297.lcssa to i1
+  br i1 %590, label %592, label %591
 
-592:                                              ; preds = %590
+591:                                              ; preds = %589
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.72) #9
-  br label %593
+  br label %592
 
-593:                                              ; preds = %592, %590
-  %594 = trunc nuw i8 %.0295.lcssa to i1
-  br i1 %594, label %596, label %595
+592:                                              ; preds = %591, %589
+  %593 = trunc nuw i8 %.0295.lcssa to i1
+  br i1 %593, label %595, label %594
 
-595:                                              ; preds = %593
+594:                                              ; preds = %592
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.73) #9
-  br label %596
+  br label %595
 
-596:                                              ; preds = %595, %593
-  %597 = trunc nuw i8 %.0293.lcssa to i1
-  br i1 %597, label %599, label %598
+595:                                              ; preds = %594, %592
+  %596 = trunc nuw i8 %.0293.lcssa to i1
+  br i1 %596, label %598, label %597
 
-598:                                              ; preds = %596
+597:                                              ; preds = %595
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.74) #9
-  br label %599
+  br label %598
 
-599:                                              ; preds = %598, %596
-  %600 = trunc nuw i8 %.0291.lcssa to i1
-  br i1 %600, label %602, label %601
+598:                                              ; preds = %597, %595
+  %599 = trunc nuw i8 %.0291.lcssa to i1
+  br i1 %599, label %601, label %600
 
-601:                                              ; preds = %599
+600:                                              ; preds = %598
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.75) #9
-  br label %602
+  br label %601
 
-602:                                              ; preds = %601, %599
-  %603 = trunc nuw i8 %.0289.lcssa to i1
-  br i1 %603, label %605, label %604
+601:                                              ; preds = %600, %598
+  %602 = trunc nuw i8 %.0289.lcssa to i1
+  br i1 %602, label %604, label %603
 
-604:                                              ; preds = %602
+603:                                              ; preds = %601
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.76) #9
-  br label %605
+  br label %604
 
-605:                                              ; preds = %604, %602
-  %606 = trunc nuw i8 %.0287.lcssa to i1
-  br i1 %606, label %611, label %607
+604:                                              ; preds = %603, %601
+  %605 = trunc nuw i8 %.0287.lcssa to i1
+  br i1 %605, label %610, label %606
 
-607:                                              ; preds = %605
-  %608 = load i32, ptr %0, align 8
-  %609 = icmp ugt i32 %608, 941
-  br i1 %609, label %610, label %611
+606:                                              ; preds = %604
+  %607 = load i32, ptr %0, align 8
+  %608 = icmp ugt i32 %607, 941
+  br i1 %608, label %609, label %610
 
-610:                                              ; preds = %607
+609:                                              ; preds = %606
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.77) #9
-  br label %611
+  br label %610
 
-611:                                              ; preds = %610, %607, %605
-  %612 = trunc nuw i8 %.0285.lcssa to i1
-  br i1 %612, label %614, label %613
+610:                                              ; preds = %609, %606, %604
+  %611 = trunc nuw i8 %.0285.lcssa to i1
+  br i1 %611, label %613, label %612
 
-613:                                              ; preds = %611
+612:                                              ; preds = %610
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.78) #9
-  br label %614
+  br label %613
 
-614:                                              ; preds = %613, %611
-  %615 = trunc nuw i8 %.1284.lcssa to i1
-  br i1 %615, label %617, label %616
+613:                                              ; preds = %612, %610
+  %614 = trunc nuw i8 %.1284.lcssa to i1
+  br i1 %614, label %616, label %615
 
-616:                                              ; preds = %614
+615:                                              ; preds = %613
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.79) #9
-  br label %617
+  br label %616
 
-617:                                              ; preds = %616, %614
+616:                                              ; preds = %615, %613
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.80) #11
   unreachable
 
-618:                                              ; preds = %549
+617:                                              ; preds = %549
   ret void
 }
 

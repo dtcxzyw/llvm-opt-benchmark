@@ -1261,8 +1261,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 
 .preheader151:                                    ; preds = %.lr.ph160
   %88 = icmp sgt i32 %.recomposed, 0
-  %or.cond161 = and i1 %88, %87
-  br i1 %or.cond161, label %.lr.ph164.preheader, label %.critedge
+  br i1 %88, label %.lr.ph164.preheader, label %.critedge
 
 .lr.ph164.preheader:                              ; preds = %.preheader151
   %89 = zext nneg i32 %84 to i64

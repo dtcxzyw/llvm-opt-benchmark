@@ -3182,7 +3182,7 @@ if.then:                                          ; preds = %if.then.i, %_ZNK4ll
   %sub.ptr.rhs.cast.i32 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i33 = sub i64 %sub.ptr.lhs.cast.i31, %sub.ptr.rhs.cast.i32
   %cmp.i34 = icmp ugt i64 %sub.i, %sub.ptr.sub.i33
-  br i1 %cmp.i34, label %if.then.i36, label %if.end.i
+  br i1 %cmp.i34, label %if.then.i36, label %if.then4.i
 
 if.then.thread:                                   ; preds = %for.body
   %.pre = sub nsw i64 %LineContents.coerce1, %.sroa.speculated86
@@ -3201,10 +3201,7 @@ if.then.i36:                                      ; preds = %if.then.thread, %if
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef %add.ptr.i43125, i64 noundef %sub.i45.pre-phi122) #18
   br label %for.end
 
-if.end.i:                                         ; preds = %if.then
-  br i1 %cmp.i, label %if.then4.i, label %for.end
-
-if.then4.i:                                       ; preds = %if.end.i
+if.then4.i:                                       ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %add.ptr.i43, i64 %sub.i, i1 false)
   %4 = load ptr, ptr %OutBufCur.i44, align 8
   %add.ptr.i35 = getelementptr inbounds i8, ptr %4, i64 %sub.i
@@ -3272,7 +3269,7 @@ for.inc:                                          ; preds = %_ZN4llvh11raw_ostre
   %cmp.not = icmp eq i32 %inc18, %conv
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !61
 
-for.end:                                          ; preds = %for.inc, %if.then.thread, %entry, %if.then4.i, %if.end.i, %if.then.i36
+for.end:                                          ; preds = %for.inc, %if.then.thread, %entry, %if.then4.i, %if.then.i36
   %OutBufCur.i62 = getelementptr inbounds i8, ptr %S, i64 24
   %13 = load ptr, ptr %OutBufCur.i62, align 8
   %OutBufEnd.i63 = getelementptr inbounds i8, ptr %S, i64 16

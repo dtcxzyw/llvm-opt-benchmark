@@ -1096,21 +1096,21 @@ trace_mseccfg_csr_write.exit:                     ; preds = %entry, %land.lhs.tr
 
 for.cond.preheader:                               ; preds = %trace_mseccfg_csr_write.exit
   %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
-  br label %for.body
+  br label %pmp_is_locked.exit
 
-for.cond:                                         ; preds = %for.body
+for.cond:                                         ; preds = %pmp_is_locked.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %if.end4, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.end4, label %pmp_is_locked.exit, !llvm.loop !11
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
+pmp_is_locked.exit:                               ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
   %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i, i64 0, i64 %indvars.iv, i32 1
   %9 = load i8, ptr %cfg_reg.i, align 8
   %tobool1.not = icmp sgt i8 %9, -1
   br i1 %tobool1.not, label %for.cond, label %if.then2
 
-if.then2:                                         ; preds = %for.body
+if.then2:                                         ; preds = %pmp_is_locked.exit
   %and3 = and i64 %val, -5
   br label %if.end4
 

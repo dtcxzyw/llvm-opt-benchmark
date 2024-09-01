@@ -509,8 +509,8 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 nound
   %54 = icmp ult i64 %53, %1
   br i1 %54, label %6, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %51, %47, %.thread, %34, %30, %26, %22
-  %55 = phi ptr [ %14, %26 ], [ null, %30 ], [ null, %34 ], [ null, %22 ], [ null, %.thread ], [ %43, %51 ], [ null, %47 ]
+.loopexit:                                        ; preds = %51, %47, %.thread, %22, %26, %30, %34
+  %55 = phi ptr [ null, %22 ], [ null, %34 ], [ null, %30 ], [ %14, %26 ], [ null, %.thread ], [ %43, %51 ], [ null, %47 ]
   ret ptr %55
 }
 

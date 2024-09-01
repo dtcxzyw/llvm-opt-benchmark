@@ -3080,29 +3080,26 @@ define internal fastcc i32 @pfr_aux_name_load(ptr nocapture noundef readonly %0,
   br i1 %or.cond, label %.thread, label %16
 
 ._crit_edge:                                      ; preds = %16
-  br i1 %.not36, label %.thread, label %19
+  %19 = add nuw nsw i32 %spec.select, 1
+  %20 = zext nneg i32 %19 to i64
+  %21 = call ptr @ft_mem_qalloc(ptr noundef %2, i64 noundef %20, ptr noundef nonnull %5) #12
+  %22 = load i32, ptr %5, align 4
+  %.not33 = icmp eq i32 %22, 0
+  br i1 %.not33, label %23, label %.thread
 
-19:                                               ; preds = %._crit_edge
-  %20 = add nuw nsw i32 %spec.select, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = call ptr @ft_mem_qalloc(ptr noundef %2, i64 noundef %21, ptr noundef nonnull %5) #12
-  %23 = load i32, ptr %5, align 4
-  %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %24, label %.thread
-
-24:                                               ; preds = %19
-  %25 = zext nneg i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %0, i64 %25, i1 false)
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
-  store i8 0, ptr %26, align 1
+23:                                               ; preds = %._crit_edge
+  %24 = zext nneg i32 %spec.select to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %0, i64 %24, i1 false)
+  %25 = getelementptr inbounds i8, ptr %21, i64 %24
+  store i8 0, ptr %25, align 1
   %.pre = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %8, %9, %._crit_edge, %24, %19
-  %27 = phi i32 [ %23, %19 ], [ %.pre, %24 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %8 ], [ 0, %.lr.ph ]
-  %.026 = phi ptr [ %22, %19 ], [ %22, %24 ], [ null, %._crit_edge ], [ null, %9 ], [ null, %8 ], [ null, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %8, %9, %23, %._crit_edge
+  %26 = phi i32 [ %22, %._crit_edge ], [ %.pre, %23 ], [ 0, %9 ], [ 0, %8 ], [ 0, %.lr.ph ]
+  %.026 = phi ptr [ %21, %._crit_edge ], [ %21, %23 ], [ null, %9 ], [ null, %8 ], [ null, %.lr.ph ]
   store ptr %.026, ptr %3, align 8
-  ret i32 %27
+  ret i32 %26
 }
 
 declare hidden i64 @FT_Stream_Pos(ptr noundef) local_unnamed_addr #4

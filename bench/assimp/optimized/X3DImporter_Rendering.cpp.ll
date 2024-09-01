@@ -2190,7 +2190,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i76:                                     ; preds = %for.inc.i.i70, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0406 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i70 ]
-  br i1 %tobool3.not7.i.i62, label %invoke.cont6, label %for.body.i.i80
+  br label %for.body.i.i80
 
 for.body.i.i80:                                   ; preds = %if.end.i.i76, %for.inc.i.i87
   %i.08.i.i81 = phi ptr [ %i.0.i.i89, %for.inc.i.i87 ], [ %i.06.i.i61, %if.end.i.i76 ]
@@ -2229,9 +2229,9 @@ cond.true.i.i95:                                  ; preds = %if.end.i3.i92
 lor.rhs.i.i.i98:                                  ; preds = %cond.true.i.i95
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i87, %if.end.i.i59, %do.end, %entry, %invoke.cont, %if.end.i.i76, %lor.rhs.i.i.i98, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %if.end.i3.i92
-  %ccw.0402 = phi i8 [ %ccw.0406, %if.end.i.i76 ], [ %ccw.0406, %lor.rhs.i.i.i98 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ %ccw.0406, %for.inc.i.i87 ]
-  %colorPerVertex.0 = phi i8 [ 1, %if.end.i.i76 ], [ 0, %lor.rhs.i.i.i98 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 0, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ 1, %for.inc.i.i87 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i87, %if.end.i.i59, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i98, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %if.end.i3.i92
+  %ccw.0402 = phi i8 [ %ccw.0406, %lor.rhs.i.i.i98 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ %ccw.0406, %for.inc.i.i87 ]
+  %colorPerVertex.0 = phi i8 [ 0, %lor.rhs.i.i.i98 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 0, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ 1, %for.inc.i.i87 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %index)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
@@ -2285,7 +2285,7 @@ lor.rhs.i.i.i123:                                 ; preds = %cond.true.i.i120
 
 if.end.i.i126:                                    ; preds = %for.inc.i.i112, %if.end.i3.i117, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %lor.rhs.i.i.i123
   %normalPerVertex.0411 = phi i8 [ 0, %if.end.i3.i117 ], [ 1, %cond.true.i.i120 ], [ 0, %lor.rhs.i.i.i123 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %for.inc.i.i112 ]
-  br i1 %tobool3.not7.i.i104, label %invoke.cont12, label %for.body.i.i130
+  br label %for.body.i.i130
 
 for.body.i.i130:                                  ; preds = %if.end.i.i126, %for.inc.i.i137
   %i.08.i.i131 = phi ptr [ %i.0.i.i139, %for.inc.i.i137 ], [ %i.06.i.i103, %if.end.i.i126 ]
@@ -2324,9 +2324,9 @@ cond.true.i.i145:                                 ; preds = %if.end.i3.i142
 lor.rhs.i.i.i148:                                 ; preds = %cond.true.i.i145
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i137, %if.end.i.i101, %invoke.cont8, %if.end.i.i126, %lor.rhs.i.i.i148, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %if.end.i3.i142
-  %normalPerVertex.0408 = phi i8 [ %normalPerVertex.0411, %if.end.i.i126 ], [ %normalPerVertex.0411, %lor.rhs.i.i.i148 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ %normalPerVertex.0411, %for.inc.i.i137 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i126 ], [ 0, %lor.rhs.i.i.i148 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 0, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ 1, %for.inc.i.i137 ]
+invoke.cont12:                                    ; preds = %for.inc.i.i137, %if.end.i.i101, %invoke.cont8, %lor.rhs.i.i.i148, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %if.end.i3.i142
+  %normalPerVertex.0408 = phi i8 [ %normalPerVertex.0411, %lor.rhs.i.i.i148 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ %normalPerVertex.0411, %for.inc.i.i137 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i148 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 0, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ 1, %for.inc.i.i137 ]
   %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call14, label %if.else, label %if.then
 
@@ -3652,7 +3652,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i75:                                     ; preds = %for.inc.i.i69, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0405 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i69 ]
-  br i1 %tobool3.not7.i.i61, label %invoke.cont6, label %for.body.i.i79
+  br label %for.body.i.i79
 
 for.body.i.i79:                                   ; preds = %if.end.i.i75, %for.inc.i.i86
   %i.08.i.i80 = phi ptr [ %i.0.i.i88, %for.inc.i.i86 ], [ %i.06.i.i60, %if.end.i.i75 ]
@@ -3691,9 +3691,9 @@ cond.true.i.i94:                                  ; preds = %if.end.i3.i91
 lor.rhs.i.i.i97:                                  ; preds = %cond.true.i.i94
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i86, %if.end.i.i58, %do.end, %entry, %invoke.cont, %if.end.i.i75, %lor.rhs.i.i.i97, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %if.end.i3.i91
-  %ccw.0401 = phi i8 [ %ccw.0405, %if.end.i.i75 ], [ %ccw.0405, %lor.rhs.i.i.i97 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %if.end.i3.i91 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i58 ], [ %ccw.0405, %for.inc.i.i86 ]
-  %colorPerVertex.0 = phi i8 [ 1, %if.end.i.i75 ], [ 0, %lor.rhs.i.i.i97 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 0, %if.end.i3.i91 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i58 ], [ 1, %for.inc.i.i86 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i86, %if.end.i.i58, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i97, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %cond.true.i.i94, %if.end.i3.i91
+  %ccw.0401 = phi i8 [ %ccw.0405, %lor.rhs.i.i.i97 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %cond.true.i.i94 ], [ %ccw.0405, %if.end.i3.i91 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i58 ], [ %ccw.0405, %for.inc.i.i86 ]
+  %colorPerVertex.0 = phi i8 [ 0, %lor.rhs.i.i.i97 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 1, %cond.true.i.i94 ], [ 0, %if.end.i3.i91 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i58 ], [ 1, %for.inc.i.i86 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %index)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
@@ -3747,7 +3747,7 @@ lor.rhs.i.i.i122:                                 ; preds = %cond.true.i.i119
 
 if.end.i.i125:                                    ; preds = %for.inc.i.i111, %if.end.i3.i116, %cond.true.i.i119, %cond.true.i.i119, %cond.true.i.i119, %cond.true.i.i119, %cond.true.i.i119, %lor.rhs.i.i.i122
   %normalPerVertex.0410 = phi i8 [ 0, %if.end.i3.i116 ], [ 1, %cond.true.i.i119 ], [ 0, %lor.rhs.i.i.i122 ], [ 1, %cond.true.i.i119 ], [ 1, %cond.true.i.i119 ], [ 1, %cond.true.i.i119 ], [ 1, %cond.true.i.i119 ], [ 1, %for.inc.i.i111 ]
-  br i1 %tobool3.not7.i.i103, label %invoke.cont12, label %for.body.i.i129
+  br label %for.body.i.i129
 
 for.body.i.i129:                                  ; preds = %if.end.i.i125, %for.inc.i.i136
   %i.08.i.i130 = phi ptr [ %i.0.i.i138, %for.inc.i.i136 ], [ %i.06.i.i102, %if.end.i.i125 ]
@@ -3786,9 +3786,9 @@ cond.true.i.i144:                                 ; preds = %if.end.i3.i141
 lor.rhs.i.i.i147:                                 ; preds = %cond.true.i.i144
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i136, %if.end.i.i100, %invoke.cont8, %if.end.i.i125, %lor.rhs.i.i.i147, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %if.end.i3.i141
-  %normalPerVertex.0407 = phi i8 [ %normalPerVertex.0410, %if.end.i.i125 ], [ %normalPerVertex.0410, %lor.rhs.i.i.i147 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %if.end.i3.i141 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i100 ], [ %normalPerVertex.0410, %for.inc.i.i136 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i125 ], [ 0, %lor.rhs.i.i.i147 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 0, %if.end.i3.i141 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i100 ], [ 1, %for.inc.i.i136 ]
+invoke.cont12:                                    ; preds = %for.inc.i.i136, %if.end.i.i100, %invoke.cont8, %lor.rhs.i.i.i147, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %cond.true.i.i144, %if.end.i3.i141
+  %normalPerVertex.0407 = phi i8 [ %normalPerVertex.0410, %lor.rhs.i.i.i147 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %cond.true.i.i144 ], [ %normalPerVertex.0410, %if.end.i3.i141 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i100 ], [ %normalPerVertex.0410, %for.inc.i.i136 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i147 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 1, %cond.true.i.i144 ], [ 0, %if.end.i3.i141 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i100 ], [ 1, %for.inc.i.i136 ]
   %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call14, label %if.else, label %if.then
 
@@ -4786,7 +4786,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i76:                                     ; preds = %for.inc.i.i70, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0406 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i70 ]
-  br i1 %tobool3.not7.i.i62, label %invoke.cont6, label %for.body.i.i80
+  br label %for.body.i.i80
 
 for.body.i.i80:                                   ; preds = %if.end.i.i76, %for.inc.i.i87
   %i.08.i.i81 = phi ptr [ %i.0.i.i89, %for.inc.i.i87 ], [ %i.06.i.i61, %if.end.i.i76 ]
@@ -4825,9 +4825,9 @@ cond.true.i.i95:                                  ; preds = %if.end.i3.i92
 lor.rhs.i.i.i98:                                  ; preds = %cond.true.i.i95
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i87, %if.end.i.i59, %do.end, %entry, %invoke.cont, %if.end.i.i76, %lor.rhs.i.i.i98, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %if.end.i3.i92
-  %ccw.0402 = phi i8 [ %ccw.0406, %if.end.i.i76 ], [ %ccw.0406, %lor.rhs.i.i.i98 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ %ccw.0406, %for.inc.i.i87 ]
-  %colorPerVertex.0 = phi i8 [ 1, %if.end.i.i76 ], [ 0, %lor.rhs.i.i.i98 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 0, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ 1, %for.inc.i.i87 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i87, %if.end.i.i59, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i98, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %cond.true.i.i95, %if.end.i3.i92
+  %ccw.0402 = phi i8 [ %ccw.0406, %lor.rhs.i.i.i98 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %cond.true.i.i95 ], [ %ccw.0406, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ %ccw.0406, %for.inc.i.i87 ]
+  %colorPerVertex.0 = phi i8 [ 0, %lor.rhs.i.i.i98 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 1, %cond.true.i.i95 ], [ 0, %if.end.i3.i92 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i59 ], [ 1, %for.inc.i.i87 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %index)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
@@ -4881,7 +4881,7 @@ lor.rhs.i.i.i123:                                 ; preds = %cond.true.i.i120
 
 if.end.i.i126:                                    ; preds = %for.inc.i.i112, %if.end.i3.i117, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %cond.true.i.i120, %lor.rhs.i.i.i123
   %normalPerVertex.0411 = phi i8 [ 0, %if.end.i3.i117 ], [ 1, %cond.true.i.i120 ], [ 0, %lor.rhs.i.i.i123 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %cond.true.i.i120 ], [ 1, %for.inc.i.i112 ]
-  br i1 %tobool3.not7.i.i104, label %invoke.cont12, label %for.body.i.i130
+  br label %for.body.i.i130
 
 for.body.i.i130:                                  ; preds = %if.end.i.i126, %for.inc.i.i137
   %i.08.i.i131 = phi ptr [ %i.0.i.i139, %for.inc.i.i137 ], [ %i.06.i.i103, %if.end.i.i126 ]
@@ -4920,9 +4920,9 @@ cond.true.i.i145:                                 ; preds = %if.end.i3.i142
 lor.rhs.i.i.i148:                                 ; preds = %cond.true.i.i145
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i137, %if.end.i.i101, %invoke.cont8, %if.end.i.i126, %lor.rhs.i.i.i148, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %if.end.i3.i142
-  %normalPerVertex.0408 = phi i8 [ %normalPerVertex.0411, %if.end.i.i126 ], [ %normalPerVertex.0411, %lor.rhs.i.i.i148 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ %normalPerVertex.0411, %for.inc.i.i137 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i126 ], [ 0, %lor.rhs.i.i.i148 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 0, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ 1, %for.inc.i.i137 ]
+invoke.cont12:                                    ; preds = %for.inc.i.i137, %if.end.i.i101, %invoke.cont8, %lor.rhs.i.i.i148, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %cond.true.i.i145, %if.end.i3.i142
+  %normalPerVertex.0408 = phi i8 [ %normalPerVertex.0411, %lor.rhs.i.i.i148 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %cond.true.i.i145 ], [ %normalPerVertex.0411, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ %normalPerVertex.0411, %for.inc.i.i137 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i148 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 1, %cond.true.i.i145 ], [ 0, %if.end.i3.i142 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i101 ], [ 1, %for.inc.i.i137 ]
   %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call14, label %if.else, label %if.then
 
@@ -6882,7 +6882,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i84:                                     ; preds = %for.inc.i.i78, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0446 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i78 ]
-  br i1 %tobool3.not7.i.i70, label %invoke.cont6, label %for.body.i.i88
+  br label %for.body.i.i88
 
 for.body.i.i88:                                   ; preds = %if.end.i.i84, %for.inc.i.i95
   %i.08.i.i89 = phi ptr [ %i.0.i.i97, %for.inc.i.i95 ], [ %i.06.i.i69, %if.end.i.i84 ]
@@ -6921,9 +6921,9 @@ cond.true.i.i103:                                 ; preds = %if.end.i3.i100
 lor.rhs.i.i.i106:                                 ; preds = %cond.true.i.i103
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i95, %if.end.i.i67, %do.end, %entry, %invoke.cont, %if.end.i.i84, %lor.rhs.i.i.i106, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %if.end.i3.i100
-  %ccw.0442 = phi i8 [ %ccw.0446, %if.end.i.i84 ], [ %ccw.0446, %lor.rhs.i.i.i106 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %if.end.i3.i100 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i67 ], [ %ccw.0446, %for.inc.i.i95 ]
-  %colorPerVertex.0 = phi i8 [ 1, %if.end.i.i84 ], [ 0, %lor.rhs.i.i.i106 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 0, %if.end.i3.i100 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i67 ], [ 1, %for.inc.i.i95 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i95, %if.end.i.i67, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i106, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %cond.true.i.i103, %if.end.i3.i100
+  %ccw.0442 = phi i8 [ %ccw.0446, %lor.rhs.i.i.i106 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %cond.true.i.i103 ], [ %ccw.0446, %if.end.i3.i100 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i67 ], [ %ccw.0446, %for.inc.i.i95 ]
+  %colorPerVertex.0 = phi i8 [ 0, %lor.rhs.i.i.i106 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 1, %cond.true.i.i103 ], [ 0, %if.end.i3.i100 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i67 ], [ 1, %for.inc.i.i95 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(24) %fanCount)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
@@ -6977,7 +6977,7 @@ lor.rhs.i.i.i131:                                 ; preds = %cond.true.i.i128
 
 if.end.i.i134:                                    ; preds = %for.inc.i.i120, %if.end.i3.i125, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %cond.true.i.i128, %lor.rhs.i.i.i131
   %normalPerVertex.0451 = phi i8 [ 0, %if.end.i3.i125 ], [ 1, %cond.true.i.i128 ], [ 0, %lor.rhs.i.i.i131 ], [ 1, %cond.true.i.i128 ], [ 1, %cond.true.i.i128 ], [ 1, %cond.true.i.i128 ], [ 1, %cond.true.i.i128 ], [ 1, %for.inc.i.i120 ]
-  br i1 %tobool3.not7.i.i112, label %invoke.cont12, label %for.body.i.i138
+  br label %for.body.i.i138
 
 for.body.i.i138:                                  ; preds = %if.end.i.i134, %for.inc.i.i145
   %i.08.i.i139 = phi ptr [ %i.0.i.i147, %for.inc.i.i145 ], [ %i.06.i.i111, %if.end.i.i134 ]
@@ -7016,9 +7016,9 @@ cond.true.i.i153:                                 ; preds = %if.end.i3.i150
 lor.rhs.i.i.i156:                                 ; preds = %cond.true.i.i153
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i145, %if.end.i.i109, %invoke.cont8, %if.end.i.i134, %lor.rhs.i.i.i156, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %if.end.i3.i150
-  %normalPerVertex.0448 = phi i8 [ %normalPerVertex.0451, %if.end.i.i134 ], [ %normalPerVertex.0451, %lor.rhs.i.i.i156 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %if.end.i3.i150 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i109 ], [ %normalPerVertex.0451, %for.inc.i.i145 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i134 ], [ 0, %lor.rhs.i.i.i156 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 0, %if.end.i3.i150 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i109 ], [ 1, %for.inc.i.i145 ]
+invoke.cont12:                                    ; preds = %for.inc.i.i145, %if.end.i.i109, %invoke.cont8, %lor.rhs.i.i.i156, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %cond.true.i.i153, %if.end.i3.i150
+  %normalPerVertex.0448 = phi i8 [ %normalPerVertex.0451, %lor.rhs.i.i.i156 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %cond.true.i.i153 ], [ %normalPerVertex.0451, %if.end.i3.i150 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i109 ], [ %normalPerVertex.0451, %for.inc.i.i145 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i156 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 1, %cond.true.i.i153 ], [ 0, %if.end.i3.i150 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i109 ], [ 1, %for.inc.i.i145 ]
   %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call14, label %if.else, label %if.then
 
@@ -8110,7 +8110,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i65:                                     ; preds = %for.inc.i.i59, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0190 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i59 ]
-  br i1 %tobool3.not7.i.i51, label %invoke.cont10, label %for.body.i.i69
+  br label %for.body.i.i69
 
 for.body.i.i69:                                   ; preds = %if.end.i.i65, %for.inc.i.i76
   %i.08.i.i70 = phi ptr [ %i.0.i.i78, %for.inc.i.i76 ], [ %i.06.i.i50, %if.end.i.i65 ]
@@ -8151,7 +8151,7 @@ invoke.cont6:                                     ; preds = %cond.true.i.i84, %c
 
 if.end.i.i90:                                     ; preds = %for.inc.i.i76, %if.end.i3.i81, %cond.true.i.i84, %invoke.cont6
   %colorPerVertex.0204 = phi i8 [ 0, %cond.true.i.i84 ], [ 0, %if.end.i3.i81 ], [ 1, %invoke.cont6 ], [ 1, %for.inc.i.i76 ]
-  br i1 %tobool3.not7.i.i51, label %invoke.cont10, label %for.body.i.i94
+  br label %for.body.i.i94
 
 for.body.i.i94:                                   ; preds = %if.end.i.i90, %for.inc.i.i101
   %i.08.i.i95 = phi ptr [ %i.0.i.i103, %for.inc.i.i101 ], [ %i.06.i.i50, %if.end.i.i90 ]
@@ -8192,7 +8192,7 @@ invoke.cont8:                                     ; preds = %cond.true.i.i109, %
 
 if.end.i.i115:                                    ; preds = %for.inc.i.i101, %if.end.i3.i106, %cond.true.i.i109, %invoke.cont8
   %normalPerVertex.0220 = phi i8 [ 0, %cond.true.i.i109 ], [ 0, %if.end.i3.i106 ], [ 1, %invoke.cont8 ], [ 1, %for.inc.i.i101 ]
-  br i1 %tobool3.not7.i.i51, label %invoke.cont10, label %for.body.i.i119
+  br label %for.body.i.i119
 
 for.body.i.i119:                                  ; preds = %if.end.i.i115, %for.inc.i.i126
   %i.08.i.i120 = phi ptr [ %i.0.i.i128, %for.inc.i.i126 ], [ %i.06.i.i50, %if.end.i.i115 ]
@@ -8231,11 +8231,11 @@ cond.true.i.i134:                                 ; preds = %if.end.i3.i131
 lor.rhs.i.i.i137:                                 ; preds = %cond.true.i.i134
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %for.inc.i.i126, %if.end.i.i48, %if.end.i.i65, %if.end.i.i90, %do.end, %entry, %invoke.cont, %if.end.i.i115, %lor.rhs.i.i.i137, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %if.end.i3.i131
-  %normalPerVertex.0212 = phi i8 [ %normalPerVertex.0220, %if.end.i.i115 ], [ %normalPerVertex.0220, %lor.rhs.i.i.i137 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i90 ], [ 1, %if.end.i.i65 ], [ 1, %if.end.i.i48 ], [ %normalPerVertex.0220, %for.inc.i.i126 ]
-  %ccw.0185195211 = phi i8 [ %ccw.0190, %if.end.i.i115 ], [ %ccw.0190, %lor.rhs.i.i.i137 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ %ccw.0190, %if.end.i.i90 ], [ %ccw.0190, %if.end.i.i65 ], [ 1, %if.end.i.i48 ], [ %ccw.0190, %for.inc.i.i126 ]
-  %colorPerVertex.0197210 = phi i8 [ %colorPerVertex.0204, %if.end.i.i115 ], [ %colorPerVertex.0204, %lor.rhs.i.i.i137 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ %colorPerVertex.0204, %if.end.i.i90 ], [ 1, %if.end.i.i65 ], [ 1, %if.end.i.i48 ], [ %colorPerVertex.0204, %for.inc.i.i126 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i115 ], [ 0, %lor.rhs.i.i.i137 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 0, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i90 ], [ 1, %if.end.i.i65 ], [ 1, %if.end.i.i48 ], [ 1, %for.inc.i.i126 ]
+invoke.cont10:                                    ; preds = %for.inc.i.i126, %if.end.i.i48, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i137, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %cond.true.i.i134, %if.end.i3.i131
+  %normalPerVertex.0212 = phi i8 [ %normalPerVertex.0220, %lor.rhs.i.i.i137 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %cond.true.i.i134 ], [ %normalPerVertex.0220, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i48 ], [ %normalPerVertex.0220, %for.inc.i.i126 ]
+  %ccw.0185195211 = phi i8 [ %ccw.0190, %lor.rhs.i.i.i137 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %cond.true.i.i134 ], [ %ccw.0190, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i48 ], [ %ccw.0190, %for.inc.i.i126 ]
+  %colorPerVertex.0197210 = phi i8 [ %colorPerVertex.0204, %lor.rhs.i.i.i137 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %cond.true.i.i134 ], [ %colorPerVertex.0204, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i48 ], [ %colorPerVertex.0204, %for.inc.i.i126 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i137 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 1, %cond.true.i.i134 ], [ 0, %if.end.i3.i131 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i48 ], [ 1, %for.inc.i.i126 ]
   %call12 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call12, label %if.else, label %if.then
 
@@ -8670,7 +8670,7 @@ invoke.cont4:                                     ; preds = %cond.true.i.i, %con
 
 if.end.i.i89:                                     ; preds = %for.inc.i.i83, %if.end.i3.i, %cond.true.i.i, %invoke.cont4
   %ccw.0451 = phi i8 [ 0, %cond.true.i.i ], [ 0, %if.end.i3.i ], [ 1, %invoke.cont4 ], [ 1, %for.inc.i.i83 ]
-  br i1 %tobool3.not7.i.i75, label %invoke.cont6, label %for.body.i.i93
+  br label %for.body.i.i93
 
 for.body.i.i93:                                   ; preds = %if.end.i.i89, %for.inc.i.i100
   %i.08.i.i94 = phi ptr [ %i.0.i.i102, %for.inc.i.i100 ], [ %i.06.i.i74, %if.end.i.i89 ]
@@ -8709,9 +8709,9 @@ cond.true.i.i108:                                 ; preds = %if.end.i3.i105
 lor.rhs.i.i.i111:                                 ; preds = %cond.true.i.i108
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %for.inc.i.i100, %if.end.i.i72, %do.end, %entry, %invoke.cont, %if.end.i.i89, %lor.rhs.i.i.i111, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %if.end.i3.i105
-  %ccw.0447 = phi i8 [ %ccw.0451, %if.end.i.i89 ], [ %ccw.0451, %lor.rhs.i.i.i111 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %if.end.i3.i105 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i72 ], [ %ccw.0451, %for.inc.i.i100 ]
-  %colorPerVertex.0 = phi i8 [ 1, %if.end.i.i89 ], [ 0, %lor.rhs.i.i.i111 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 0, %if.end.i3.i105 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i72 ], [ 1, %for.inc.i.i100 ]
+invoke.cont6:                                     ; preds = %for.inc.i.i100, %if.end.i.i72, %do.end, %entry, %invoke.cont, %lor.rhs.i.i.i111, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %cond.true.i.i108, %if.end.i3.i105
+  %ccw.0447 = phi i8 [ %ccw.0451, %lor.rhs.i.i.i111 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %cond.true.i.i108 ], [ %ccw.0451, %if.end.i3.i105 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i72 ], [ %ccw.0451, %for.inc.i.i100 ]
+  %colorPerVertex.0 = phi i8 [ 0, %lor.rhs.i.i.i111 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 1, %cond.true.i.i108 ], [ 0, %if.end.i3.i105 ], [ 1, %invoke.cont ], [ 1, %entry ], [ 1, %do.end ], [ 1, %if.end.i.i72 ], [ 1, %for.inc.i.i100 ]
   %call9 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.34, ptr noundef nonnull align 8 dereferenceable(24) %stripCount)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
@@ -8765,7 +8765,7 @@ lor.rhs.i.i.i136:                                 ; preds = %cond.true.i.i133
 
 if.end.i.i139:                                    ; preds = %for.inc.i.i125, %if.end.i3.i130, %cond.true.i.i133, %cond.true.i.i133, %cond.true.i.i133, %cond.true.i.i133, %cond.true.i.i133, %lor.rhs.i.i.i136
   %normalPerVertex.0456 = phi i8 [ 0, %if.end.i3.i130 ], [ 1, %cond.true.i.i133 ], [ 0, %lor.rhs.i.i.i136 ], [ 1, %cond.true.i.i133 ], [ 1, %cond.true.i.i133 ], [ 1, %cond.true.i.i133 ], [ 1, %cond.true.i.i133 ], [ 1, %for.inc.i.i125 ]
-  br i1 %tobool3.not7.i.i117, label %invoke.cont12, label %for.body.i.i143
+  br label %for.body.i.i143
 
 for.body.i.i143:                                  ; preds = %if.end.i.i139, %for.inc.i.i150
   %i.08.i.i144 = phi ptr [ %i.0.i.i152, %for.inc.i.i150 ], [ %i.06.i.i116, %if.end.i.i139 ]
@@ -8804,9 +8804,9 @@ cond.true.i.i158:                                 ; preds = %if.end.i3.i155
 lor.rhs.i.i.i161:                                 ; preds = %cond.true.i.i158
   br label %invoke.cont12
 
-invoke.cont12:                                    ; preds = %for.inc.i.i150, %if.end.i.i114, %invoke.cont8, %if.end.i.i139, %lor.rhs.i.i.i161, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %if.end.i3.i155
-  %normalPerVertex.0453 = phi i8 [ %normalPerVertex.0456, %if.end.i.i139 ], [ %normalPerVertex.0456, %lor.rhs.i.i.i161 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %if.end.i3.i155 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i114 ], [ %normalPerVertex.0456, %for.inc.i.i150 ]
-  %solid.0 = phi i8 [ 1, %if.end.i.i139 ], [ 0, %lor.rhs.i.i.i161 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 0, %if.end.i3.i155 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i114 ], [ 1, %for.inc.i.i150 ]
+invoke.cont12:                                    ; preds = %for.inc.i.i150, %if.end.i.i114, %invoke.cont8, %lor.rhs.i.i.i161, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %cond.true.i.i158, %if.end.i3.i155
+  %normalPerVertex.0453 = phi i8 [ %normalPerVertex.0456, %lor.rhs.i.i.i161 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %cond.true.i.i158 ], [ %normalPerVertex.0456, %if.end.i3.i155 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i114 ], [ %normalPerVertex.0456, %for.inc.i.i150 ]
+  %solid.0 = phi i8 [ 0, %lor.rhs.i.i.i161 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 1, %cond.true.i.i158 ], [ 0, %if.end.i3.i155 ], [ 1, %invoke.cont8 ], [ 1, %if.end.i.i114 ], [ 1, %for.inc.i.i150 ]
   %call14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %use) #20
   br i1 %call14, label %if.else, label %if.then
 

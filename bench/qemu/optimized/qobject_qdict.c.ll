@@ -1718,7 +1718,7 @@ for.body.i3.i:                                    ; preds = %for.cond.i.i, %for.
   br i1 %cmp1.i.i46, label %for.cond.i.i, label %for.body.backedge, !llvm.loop !11
 
 return:                                           ; preds = %tdb_hash.exit.i38, %qdict_get.exit, %for.cond.i.i, %for.cond.preheader, %qobject_check_type.exit16
-  %retval.0 = phi i1 [ false, %qobject_check_type.exit16 ], [ true, %for.cond.preheader ], [ %call8, %for.cond.i.i ], [ %call8, %tdb_hash.exit.i38 ], [ false, %qdict_get.exit ]
+  %retval.0 = phi i1 [ false, %qobject_check_type.exit16 ], [ true, %for.cond.preheader ], [ true, %for.cond.i.i ], [ %call8, %qdict_get.exit ], [ %call8, %tdb_hash.exit.i38 ]
   ret i1 %retval.0
 }
 

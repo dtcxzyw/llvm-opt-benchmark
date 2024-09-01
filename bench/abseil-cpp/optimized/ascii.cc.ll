@@ -87,25 +87,25 @@ if.end:                                           ; preds = %entry
   %3 = extractvalue { i64, ptr } %call1, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %2
   %call5 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef 0)
-  %cmp20 = icmp sgt i64 %2, 0
-  br i1 %cmp20, label %for.body, label %for.end
+  %cmp21 = icmp sgt i64 %2, 0
+  br i1 %cmp21, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end, %for.body
-  %is_ws.023 = phi i1 [ %cmp.i14, %for.body ], [ false, %if.end ]
-  %output_it.022 = phi ptr [ %incdec.ptr14, %for.body ], [ %call5, %if.end ]
-  %input_it.021 = phi ptr [ %incdec.ptr15, %for.body ], [ %3, %if.end ]
-  %4 = load i8, ptr %input_it.021, align 1
+  %is_ws.024 = phi i1 [ %cmp.i15, %for.body ], [ false, %if.end ]
+  %output_it.023 = phi ptr [ %incdec.ptr14, %for.body ], [ %call5, %if.end ]
+  %input_it.022 = phi ptr [ %incdec.ptr15, %for.body ], [ %3, %if.end ]
+  %4 = load i8, ptr %input_it.022, align 1
   %idxprom.i = zext i8 %4 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = and i8 %5, 8
-  %cmp.i14 = icmp ne i8 %6, 0
-  %narrow = select i1 %is_ws.023, i1 %cmp.i14, i1 false
+  %cmp.i15 = icmp ne i8 %6, 0
+  %narrow = select i1 %is_ws.024, i1 %cmp.i15, i1 false
   %output_it.1.idx = sext i1 %narrow to i64
-  %output_it.1 = getelementptr inbounds i8, ptr %output_it.022, i64 %output_it.1.idx
+  %output_it.1 = getelementptr inbounds i8, ptr %output_it.023, i64 %output_it.1.idx
   store i8 %4, ptr %output_it.1, align 1
   %incdec.ptr14 = getelementptr inbounds i8, ptr %output_it.1, i64 1
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %input_it.021, i64 1
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %input_it.022, i64 1
   %cmp = icmp ult ptr %incdec.ptr15, %add.ptr.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 

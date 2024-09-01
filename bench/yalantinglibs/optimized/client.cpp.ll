@@ -23514,10 +23514,10 @@ terminate.lpad.i.i.i106:                          ; preds = %lpad26.body
 sw.default:                                       ; preds = %invoke.cont.sw.default_crit_edge, %if.end
   %126 = phi ptr [ %.pre208, %invoke.cont.sw.default_crit_edge ], [ %60, %if.end ]
   %127 = phi ptr [ %.pre, %invoke.cont.sw.default_crit_edge ], [ %59, %if.end ]
-  %cmp.i.i.i108 = icmp eq ptr %127, null
-  %cmp.i3.i.i109 = icmp eq ptr %126, null
-  %or.cond.i.i110.not218 = select i1 %cmp.i.i.i108, i1 %cmp.i3.i.i109, i1 false
-  br i1 %or.cond.i.i110.not218, label %for.end.thread212, label %if.end.i.i112
+  %cmp.i.i.i108 = icmp ne ptr %127, null
+  %cmp.i3.i.i109 = icmp ne ptr %126, null
+  %or.cond.i.i110 = select i1 %cmp.i.i.i108, i1 true, i1 %cmp.i3.i.i109
+  br i1 %or.cond.i.i110, label %if.end.i.i112, label %for.end.thread212
 
 if.end.i.i112:                                    ; preds = %sw.default
   %cmp.i4.i.i113 = icmp eq ptr %127, %126
@@ -23669,9 +23669,8 @@ invoke.cont48:                                    ; preds = %_ZNSt12__shared_ptr
 for.end:                                          ; preds = %_ZN4asio2ipeqERKNS0_23basic_resolver_iteratorINS0_3tcpEEES5_.exit
   %.pr = load i32, ptr %ec, align 8
   %handler_ = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i145.not = icmp ne i32 %.pr, 0
-  %brmerge = or i1 %cmp.i145.not, %or.cond.i.i110.not218
-  br i1 %brmerge, label %cond.true, label %if.end.i.i150
+  %cmp.i145.not.not = icmp eq i32 %.pr, 0
+  br i1 %cmp.i145.not.not, label %if.end.i.i150, label %cond.true
 
 for.end.thread212:                                ; preds = %sw.default
   %handler_214 = getelementptr inbounds i8, ptr %this, i64 48

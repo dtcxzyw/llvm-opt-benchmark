@@ -1185,7 +1185,7 @@ define void @Res_WinComputeRoots_rec(ptr noundef %0, i32 noundef %1, i32 noundef
 26:                                               ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Res_WinComputeRootsCheck.exit, label %27, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.lr.ph, label %27, !llvm.loop !17
 
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
@@ -1204,10 +1204,7 @@ define void @Res_WinComputeRoots_rec(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond.i = or i1 %37, %narrow.i.i
   br i1 %or.cond.i, label %.loopexit, label %26
 
-Res_WinComputeRootsCheck.exit:                    ; preds = %26
-  br i1 %22, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %Res_WinComputeRootsCheck.exit
+.lr.ph:                                           ; preds = %26
   %38 = getelementptr i8, ptr %0, i64 48
   br label %70
 
@@ -1300,7 +1297,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %79 = icmp slt i64 %indvars.iv.next, %78
   br i1 %79, label %70, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %70, %.preheader.i, %Res_WinComputeRootsCheck.exit, %4, %Vec_PtrPush.exit
+.critedge:                                        ; preds = %70, %.preheader.i, %4, %Vec_PtrPush.exit
   ret void
 }
 

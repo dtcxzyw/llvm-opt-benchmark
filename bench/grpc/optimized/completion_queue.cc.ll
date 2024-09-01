@@ -1910,8 +1910,8 @@ entry:
 
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %count.0.i = phi i64 [ %1, %entry ], [ %4, %do.cond.i ]
-  %cmp.not.i.not = icmp ne i64 %count.0.i, 0
-  br i1 %cmp.not.i.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
+  %cmp.not.not.not.i.not.not.not.not.not = icmp ne i64 %count.0.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.not.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
 
 do.cond.i:                                        ; preds = %do.body.i
   %add.i = add nsw i64 %count.0.i, 1
@@ -1921,7 +1921,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %3, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit, label %do.body.i, !llvm.loop !6
 
 _ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit: ; preds = %do.body.i, %do.cond.i
-  ret i1 %cmp.not.i.not
+  ret i1 %cmp.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2946,8 +2946,8 @@ entry:
 
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %count.0.i = phi i64 [ %1, %entry ], [ %4, %do.cond.i ]
-  %cmp.not.i.not = icmp ne i64 %count.0.i, 0
-  br i1 %cmp.not.i.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
+  %cmp.not.not.not.i.not.not.not.not.not = icmp ne i64 %count.0.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.not.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
 
 do.cond.i:                                        ; preds = %do.body.i
   %add.i = add nsw i64 %count.0.i, 1
@@ -2957,7 +2957,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %3, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit, label %do.body.i, !llvm.loop !6
 
 _ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit: ; preds = %do.body.i, %do.cond.i
-  ret i1 %cmp.not.i.not
+  ret i1 %cmp.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3882,8 +3882,8 @@ entry:
 
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %count.0.i = phi i64 [ %1, %entry ], [ %4, %do.cond.i ]
-  %cmp.not.i.not = icmp ne i64 %count.0.i, 0
-  br i1 %cmp.not.i.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
+  %cmp.not.not.not.i.not.not.not.not.not = icmp ne i64 %count.0.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.not.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit
 
 do.cond.i:                                        ; preds = %do.body.i
   %add.i = add nsw i64 %count.0.i, 1
@@ -3893,7 +3893,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %3, label %_ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit, label %do.body.i, !llvm.loop !6
 
 _ZN9grpc_core18IncrementIfNonzeroIlEEbPSt6atomicIT_E.exit: ; preds = %do.body.i, %do.cond.i
-  ret i1 %cmp.not.i.not
+  ret i1 %cmp.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: uwtable

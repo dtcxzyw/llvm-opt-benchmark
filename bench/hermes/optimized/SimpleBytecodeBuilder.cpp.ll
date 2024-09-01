@@ -130,10 +130,7 @@ for.body25.lr.ph:                                 ; preds = %for.end
   %wide.trip.count89 = and i64 %sub.ptr.div.i, 4294967295
   br label %for.body25
 
-for.cond47.preheader:                             ; preds = %for.body25
-  br i1 %cmp78.not, label %for.end75, label %for.body49.preheader
-
-for.body49.preheader:                             ; preds = %for.cond47.preheader
+for.body49.preheader:                             ; preds = %for.body25
   %wide.trip.count94 = and i64 %sub.ptr.div.i, 4294967295
   br label %for.body49
 
@@ -176,7 +173,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bytecode, ptr %add.ptr.i.i.i38, ptr noundef nonnull %small, ptr noundef nonnull %add.ptr.i34)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %for.cond47.preheader, label %for.body25, !llvm.loop !6
+  br i1 %exitcond90.not, label %for.body49.preheader, label %for.body25, !llvm.loop !6
 
 for.body49:                                       ; preds = %for.body49.preheader, %for.body49
   %indvars.iv91 = phi i64 [ 0, %for.body49.preheader ], [ %indvars.iv.next92, %for.body49 ]
@@ -196,7 +193,7 @@ for.body49:                                       ; preds = %for.body49.preheade
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
   br i1 %exitcond95.not, label %for.end75, label %for.body49, !llvm.loop !7
 
-for.end75:                                        ; preds = %for.body49, %for.end, %for.cond47.preheader
+for.end75:                                        ; preds = %for.body49, %for.end
   %21 = load ptr, ptr %_M_finish.i.i, align 8
   %22 = load ptr, ptr %bytecode, align 8
   %sub.ptr.lhs.cast.i44 = ptrtoint ptr %21 to i64

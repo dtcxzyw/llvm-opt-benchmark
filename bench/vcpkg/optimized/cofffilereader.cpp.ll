@@ -3948,9 +3948,9 @@ _ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i: ; preds =
 442:                                              ; preds = %437
   %443 = load i8, ptr %359, align 8, !noalias !185
   %444 = trunc i8 %443 to i1
-  br i1 %444, label %.critedge74.i, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit92.i
+  br i1 %444, label %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit90.i, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit92.i
 
-.critedge74.i:                                    ; preds = %442
+_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit90.i: ; preds = %442
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   %445 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 1, ptr %445, align 8, !alias.scope !185
@@ -3958,7 +3958,7 @@ _ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i: ; preds =
   %447 = trunc i8 %446 to i1
   br i1 %447, label %448, label %.critedge76.sink.split.i
 
-448:                                              ; preds = %.critedge74.i
+448:                                              ; preds = %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit90.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   br label %.critedge76.sink.split.i
 
@@ -4251,8 +4251,8 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaIS5_EE
   store i8 0, ptr %538, align 8, !alias.scope !185
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i56
 
-.critedge76.sink.split.i:                         ; preds = %448, %.critedge74.i, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i
-  %.sink.i66 = phi ptr [ %12, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i ], [ %13, %.critedge74.i ], [ %13, %448 ]
+.critedge76.sink.split.i:                         ; preds = %448, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit90.i, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i
+  %.sink.i66 = phi ptr [ %12, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit87.i ], [ %13, %_ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit90.i ], [ %13, %448 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i66) #25
   br label %.critedge76.i
 

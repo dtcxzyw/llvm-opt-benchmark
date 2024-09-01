@@ -1522,17 +1522,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %428 = load i32, ptr %427, align 4
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val232, i64 %429
-  br i1 %.not177295, label %.loopexit280, label %.lr.ph301
-
-.lr.ph301:                                        ; preds = %._crit_edge
   %431 = getelementptr inbounds i8, ptr %430, i64 4
   %.phi.trans.insert.i259 = getelementptr inbounds i8, ptr %430, i64 8
   %432 = zext nneg i32 %414 to i64
   %433 = add nsw i64 %432, -1
   br label %434
 
-434:                                              ; preds = %.lr.ph301, %Vec_IntPush.exit264
-  %indvars.iv315 = phi i64 [ %433, %.lr.ph301 ], [ %indvars.iv.next316, %Vec_IntPush.exit264 ]
+434:                                              ; preds = %._crit_edge, %Vec_IntPush.exit264
+  %indvars.iv315 = phi i64 [ %433, %._crit_edge ], [ %indvars.iv.next316, %Vec_IntPush.exit264 ]
   %.val184 = load ptr, ptr %45, align 8
   %435 = getelementptr inbounds i32, ptr %.val184, i64 %indvars.iv315
   %436 = load i32, ptr %435, align 4
@@ -1602,9 +1599,9 @@ Vec_IntPush.exit264:                              ; preds = %.Vec_IntGrow.exit10
   %.not178.not = icmp slt i64 %indvars.iv315, %419
   br i1 %.not178.not, label %434, label %.loopexit280, !llvm.loop !13
 
-.loopexit280:                                     ; preds = %421, %Vec_IntPush.exit264, %413, %._crit_edge, %399, %.critedge4
-  %.0275 = phi ptr [ %401, %399 ], [ null, %.critedge4 ], [ %401, %._crit_edge ], [ %401, %413 ], [ %401, %Vec_IntPush.exit264 ], [ %401, %421 ]
-  %.0 = phi i32 [ %403, %399 ], [ 0, %.critedge4 ], [ %403, %._crit_edge ], [ %403, %413 ], [ %403, %Vec_IntPush.exit264 ], [ %403, %421 ]
+.loopexit280:                                     ; preds = %421, %Vec_IntPush.exit264, %413, %399, %.critedge4
+  %.0275 = phi ptr [ %401, %399 ], [ null, %.critedge4 ], [ %401, %413 ], [ %401, %Vec_IntPush.exit264 ], [ %401, %421 ]
+  %.0 = phi i32 [ %403, %399 ], [ 0, %.critedge4 ], [ %403, %413 ], [ %403, %Vec_IntPush.exit264 ], [ %403, %421 ]
   %.not179 = icmp eq i32 %4, 0
   br i1 %.not179, label %504, label %465
 

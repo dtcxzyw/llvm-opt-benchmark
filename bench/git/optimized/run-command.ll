@@ -2725,7 +2725,7 @@ for.body.i.i.backedge:                            ; preds = %for.inc110.i.i, %fo
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %tobool.not.i.i = icmp eq i32 %pollsize.1.i.i, 0
-  br i1 %tobool.not.i.i, label %for.body6.preheader.i, label %if.end13.i.i
+  br i1 %tobool.not.i.i, label %while.end.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %for.end.i.i
   %conv14.i.i = sext i32 %pollsize.1.i.i to i64
@@ -2828,7 +2828,7 @@ for.inc110.i.i:                                   ; preds = %for.inc110.i.i.sink
   %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count.i
   br i1 %exitcond56.not.i.i, label %for.body.i.i.backedge, label %for.body27.i.i, !llvm.loop !14
 
-for.body6.preheader.i:                            ; preds = %for.end.i.i
+while.end.i:                                      ; preds = %for.end.i.i
   tail call void @free(ptr noundef %call1.i) #21
   %smax.i = tail call i32 @llvm.smax.i32(i32 %nr.242, i32 1)
   %wide.trip.count25.i = zext nneg i32 %smax.i to i64
@@ -2839,8 +2839,8 @@ for.cond3.i:                                      ; preds = %for.body6.i
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
   br i1 %exitcond26.not.i, label %if.end83, label %for.body6.i, !llvm.loop !15
 
-for.body6.i:                                      ; preds = %for.cond3.i, %for.body6.preheader.i
-  %indvars.iv22.i = phi i64 [ 0, %for.body6.preheader.i ], [ %indvars.iv.next23.i, %for.cond3.i ]
+for.body6.i:                                      ; preds = %for.cond3.i, %while.end.i
+  %indvars.iv22.i = phi i64 [ 0, %while.end.i ], [ %indvars.iv.next23.i, %for.cond3.i ]
   %error9.i = getelementptr inbounds %struct.io_pump, ptr %io, i64 %indvars.iv22.i, i32 3
   %21 = load i32, ptr %error9.i, align 8
   %tobool10.not.i = icmp eq i32 %21, 0

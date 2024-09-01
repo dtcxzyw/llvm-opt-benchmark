@@ -154,12 +154,9 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %36 = phi i32 [ %31, %sub_1 ], [ %35, %sub_2 ]
   %.not89 = icmp eq i32 %36, 0
-  br i1 %.not89, label %46, label %sub_0173
+  br i1 %.not89, label %46, label %sub_1174
 
-sub_0173:                                         ; preds = %.tail
-  br i1 %.not188, label %sub_1174, label %.tail172
-
-sub_1174:                                         ; preds = %sub_0173
+sub_1174:                                         ; preds = %.tail
   %37 = getelementptr inbounds i8, ptr %24, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -174,8 +171,8 @@ sub_2175:                                         ; preds = %sub_1174
   %44 = sub nsw i32 0, %43
   br label %.tail172
 
-.tail172:                                         ; preds = %sub_0, %sub_0173, %sub_1174, %sub_2175
-  %45 = phi i32 [ %27, %sub_0173 ], [ %40, %sub_1174 ], [ %44, %sub_2175 ], [ %27, %sub_0 ]
+.tail172:                                         ; preds = %sub_0, %sub_1174, %sub_2175
+  %45 = phi i32 [ %40, %sub_1174 ], [ %44, %sub_2175 ], [ %27, %sub_0 ]
   %.not90 = icmp eq i32 %45, 0
   br i1 %.not90, label %46, label %sub_0178
 
@@ -215,7 +212,7 @@ sub_2180:                                         ; preds = %sub_1179
   %.not91 = icmp eq i32 %57, 0
   %58 = icmp slt i32 %.063187, %20
   %or.cond = select i1 %.not91, i1 %58, i1 false
-  br i1 %or.cond, label %60, label %sub_0183
+  br i1 %or.cond, label %60, label %sub_1184
 
 .tail177.thread:                                  ; preds = %sub_0178
   %59 = icmp slt i32 %.063187, %20
@@ -229,10 +226,7 @@ sub_2180:                                         ; preds = %sub_1179
   %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %64)
           to label %82 unwind label %47
 
-sub_0183:                                         ; preds = %.tail177
-  br i1 %.not188, label %sub_1184, label %.tail182
-
-sub_1184:                                         ; preds = %sub_0183
+sub_1184:                                         ; preds = %.tail177
   %66 = getelementptr inbounds i8, ptr %24, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
@@ -247,9 +241,9 @@ sub_2185:                                         ; preds = %sub_1184
   %73 = sub nsw i32 0, %72
   br label %.tail182
 
-.tail182:                                         ; preds = %.tail177.thread, %sub_0183, %sub_1184, %sub_2185
-  %74 = phi i1 [ %58, %sub_0183 ], [ %58, %sub_1184 ], [ %58, %sub_2185 ], [ %59, %.tail177.thread ]
-  %75 = phi i32 [ %27, %sub_0183 ], [ %69, %sub_1184 ], [ %73, %sub_2185 ], [ %27, %.tail177.thread ]
+.tail182:                                         ; preds = %.tail177.thread, %sub_1184, %sub_2185
+  %74 = phi i1 [ %58, %sub_1184 ], [ %58, %sub_2185 ], [ %59, %.tail177.thread ]
+  %75 = phi i32 [ %69, %sub_1184 ], [ %73, %sub_2185 ], [ %27, %.tail177.thread ]
   %.not92 = icmp eq i32 %75, 0
   %or.cond95 = select i1 %.not92, i1 %74, i1 false
   br i1 %or.cond95, label %76, label %82

@@ -3533,20 +3533,20 @@ while.body.i.i.i.i:                               ; preds = %"_ZN6hermes15Profil
 
 _ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKN6hermes4inst6OpCodeEmELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i5 = icmp ugt i64 %__n.05.i.i.i.i, 576460752303423486
-  br i1 %cmp.i.i.i5, label %if.then.i.i.i, label %for.body.i.i.i.i.preheader.i.i
+  br i1 %cmp.i.i.i5, label %if.then.i.i.i, label %_ZNSt12_Vector_baseISt4pairIN6hermes4inst6OpCodeEmESaIS4_EE11_M_allocateEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKN6hermes4inst6OpCodeEmELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.92) #24
   unreachable
 
-for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKN6hermes4inst6OpCodeEmELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i
+_ZNSt12_Vector_baseISt4pairIN6hermes4inst6OpCodeEmESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceINSt8__detail14_Node_iteratorISt4pairIKN6hermes4inst6OpCodeEmELb0ELb1EEEENSt15iterator_traitsIT_E15difference_typeESA_SA_.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %inc.i.i.i.i, 4
   %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i.i
-  %__cur.07.i.i.i.i.i.i.idx = phi i64 [ %__cur.07.i.i.i.i.i.i.add, %for.body.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.preheader.i.i ]
-  %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %64, %for.body.i.i.i.i.i.i ], [ %60, %for.body.i.i.i.i.preheader.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN6hermes4inst6OpCodeEmESaIS4_EE11_M_allocateEm.exit.i.i
+  %__cur.07.i.i.i.i.i.i.idx = phi i64 [ %__cur.07.i.i.i.i.i.i.add, %for.body.i.i.i.i.i.i ], [ 0, %_ZNSt12_Vector_baseISt4pairIN6hermes4inst6OpCodeEmESaIS4_EE11_M_allocateEm.exit.i.i ]
+  %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %64, %for.body.i.i.i.i.i.i ], [ %60, %_ZNSt12_Vector_baseISt4pairIN6hermes4inst6OpCodeEmESaIS4_EE11_M_allocateEm.exit.i.i ]
   %__cur.07.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %__cur.07.i.i.i.i.i.i.idx
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 8
   %62 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 8

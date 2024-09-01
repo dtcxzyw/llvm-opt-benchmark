@@ -501,7 +501,7 @@ entry:
   %state = getelementptr inbounds i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
   %and = and i32 %0, 3
-  switch i32 %and, label %default.unreachable48 [
+  switch i32 %and, label %default.unreachable47 [
     i32 0, label %sw.bb
     i32 1, label %for.cond.i
     i32 3, label %sw.bb5
@@ -530,7 +530,7 @@ for.inc.i:                                        ; preds = %land.rhs.i
 parser_discard_sp.exit:                           ; preds = %land.rhs.i, %for.inc.i, %sw.bb
   %sfp.val20 = phi ptr [ %sfp.promoted.i, %sw.bb ], [ %sfp.val46.i, %land.rhs.i ], [ %incdec.ptr.i, %for.inc.i ]
   %cmp.i22.not = icmp eq ptr %sfp.val20, %sfp.val3.i
-  br i1 %cmp.i22.not, label %return, label %sw.epilog17
+  br i1 %cmp.i22.not, label %return, label %sw.epilog17thread-pre-split
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
   %call.i = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
@@ -561,35 +561,35 @@ if.end9:                                          ; preds = %sw.bb5
 land.rhs.i28thread-pre-split:                     ; preds = %for.inc.i31
   %.pr = load i8, ptr %incdec.ptr.i32, align 1
   %cmp.i30 = icmp eq i8 %.pr, 32
-  br i1 %cmp.i30, label %for.inc.i31, label %parser_discard_sp.exit34
+  br i1 %cmp.i30, label %for.inc.i31, label %sw.epilog17
 
 for.inc.i31:                                      ; preds = %if.end9, %land.rhs.i28thread-pre-split
   %sfp.val46.i2944 = phi ptr [ %incdec.ptr.i32, %land.rhs.i28thread-pre-split ], [ %sfp.val18, %if.end9 ]
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %sfp.val46.i2944, i64 1
   store ptr %incdec.ptr.i32, ptr %sfp, align 8
   %cmp.i.not.i33 = icmp eq ptr %incdec.ptr.i32, %sfp.val19
-  br i1 %cmp.i.not.i33, label %parser_discard_sp.exit34, label %land.rhs.i28thread-pre-split, !llvm.loop !4
+  br i1 %cmp.i.not.i33, label %return, label %land.rhs.i28thread-pre-split, !llvm.loop !4
 
-parser_discard_sp.exit34:                         ; preds = %land.rhs.i28thread-pre-split, %for.inc.i31
-  %cmp.i35.not = icmp eq ptr %incdec.ptr.i32, %sfp.val19
-  br i1 %cmp.i35.not, label %return, label %sw.epilog17
-
-default.unreachable48:                            ; preds = %entry
+default.unreachable47:                            ; preds = %entry
   unreachable
 
 sw.default16:                                     ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_parser_inner_list) #7
   unreachable
 
-sw.epilog17:                                      ; preds = %parser_discard_sp.exit34, %parser_discard_sp.exit
-  %.ph = phi ptr [ %sfp.val20, %parser_discard_sp.exit ], [ %incdec.ptr.i32, %parser_discard_sp.exit34 ]
-  %.pr49 = load i8, ptr %.ph, align 1
-  %cmp20 = icmp eq i8 %.pr49, 41
+sw.epilog17thread-pre-split:                      ; preds = %parser_discard_sp.exit
+  %.pr48 = load i8, ptr %sfp.val20, align 1
+  br label %sw.epilog17
+
+sw.epilog17:                                      ; preds = %land.rhs.i28thread-pre-split, %sw.epilog17thread-pre-split
+  %5 = phi i8 [ %.pr48, %sw.epilog17thread-pre-split ], [ %.pr, %land.rhs.i28thread-pre-split ]
+  %6 = phi ptr [ %sfp.val20, %sw.epilog17thread-pre-split ], [ %incdec.ptr.i32, %land.rhs.i28thread-pre-split ]
+  %cmp20 = icmp eq i8 %5, 41
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end9, %sw.epilog17
-  %5 = phi ptr [ %.ph, %sw.epilog17 ], [ %sfp.val18, %if.end9 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 1
+  %7 = phi ptr [ %6, %sw.epilog17 ], [ %sfp.val18, %if.end9 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr, ptr %sfp, align 8
   br label %return.sink.split
 
@@ -599,16 +599,16 @@ if.end24:                                         ; preds = %sw.epilog17
   br i1 %cmp26.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end24, %if.then22
-  %.sink51 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
+  %.sink52 = phi i32 [ -8, %if.then22 ], [ -4, %if.end24 ]
   %retval.0.ph = phi i32 [ -2, %if.then22 ], [ 0, %if.end24 ]
-  %6 = load i32, ptr %state, align 8
-  %and.i40 = and i32 %6, %.sink51
+  %8 = load i32, ptr %state, align 8
+  %and.i40 = and i32 %8, %.sink52
   %or.i41 = or disjoint i32 %and.i40, 1
   store i32 %or.i41, ptr %state, align 8
   br label %return
 
-return:                                           ; preds = %for.cond.i, %return.sink.split, %if.end24, %if.end9, %parser_discard_sp.exit34, %sw.bb5, %parser_discard_sp.exit
-  %retval.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %sw.bb5 ], [ -1, %parser_discard_sp.exit34 ], [ -1, %if.end9 ], [ %call25, %if.end24 ], [ %retval.0.ph, %return.sink.split ], [ %call.i, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %for.inc.i31, %return.sink.split, %if.end24, %if.end9, %sw.bb5, %parser_discard_sp.exit
+  %retval.0 = phi i32 [ -1, %parser_discard_sp.exit ], [ -1, %sw.bb5 ], [ -1, %if.end9 ], [ %call25, %if.end24 ], [ %retval.0.ph, %return.sink.split ], [ -1, %for.inc.i31 ], [ %call.i, %for.cond.i ]
   ret i32 %retval.0
 }
 

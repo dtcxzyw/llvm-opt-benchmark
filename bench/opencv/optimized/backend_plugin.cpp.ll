@@ -1832,8 +1832,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicL
 498:                                              ; preds = %448, %445
   %499 = getelementptr inbounds i8, ptr %386, i64 40
   %500 = load ptr, ptr %499, align 8
-  %.not59 = icmp ne ptr %500, null
-  br i1 %.not59, label %501, label %551
+  %.not59.not = icmp eq ptr %500, null
+  br i1 %.not59.not, label %551, label %501
 
 501:                                              ; preds = %498
   %502 = getelementptr inbounds i8, ptr %500, i64 48
@@ -1939,8 +1939,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicL
 
 551:                                              ; preds = %498
   %brmerge = or i1 %.not, %.not57
-  %brmerge106 = or i1 %brmerge, %.not59
-  br i1 %brmerge106, label %.thread, label %552
+  br i1 %brmerge, label %.thread, label %552
 
 552:                                              ; preds = %551
   %553 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()

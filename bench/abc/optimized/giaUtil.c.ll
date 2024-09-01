@@ -5376,13 +5376,10 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %18, %Gia_ObjIsMux.e
   %.1 = add nuw nsw i32 %.060, %69
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph61.split, !llvm.loop !47
+  br i1 %exitcond.not, label %.lr.ph.i.preheader, label %.lr.ph61.split, !llvm.loop !47
 
-.critedge2:                                       ; preds = %.lr.ph61.split
-  br i1 %63, label %.lr.ph.i.preheader, label %Gia_ManCleanMark0.exit
-
-.lr.ph.i.preheader:                               ; preds = %.lr.ph61, %.critedge2
-  %.0.lcssa74 = phi i32 [ %.1, %.critedge2 ], [ 0, %.lr.ph61 ]
+.lr.ph.i.preheader:                               ; preds = %.lr.ph61.split, %.lr.ph61
+  %.0.lcssa74 = phi i32 [ 0, %.lr.ph61 ], [ %.1, %.lr.ph61.split ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %70
@@ -5402,8 +5399,8 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %18, %Gia_ObjIsMux.e
   %76 = icmp slt i64 %indvars.iv.next.i, %75
   br i1 %76, label %.lr.ph.i, label %Gia_ManCleanMark0.exit, !llvm.loop !10
 
-Gia_ManCleanMark0.exit:                           ; preds = %.lr.ph.i, %70, %1, %.critedge, %.critedge2
-  %.0.lcssa71 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ 0, %1 ], [ %.0.lcssa74, %70 ], [ %.0.lcssa74, %.lr.ph.i ]
+Gia_ManCleanMark0.exit:                           ; preds = %.lr.ph.i, %70, %1, %.critedge
+  %.0.lcssa71 = phi i32 [ 0, %.critedge ], [ 0, %1 ], [ %.0.lcssa74, %70 ], [ %.0.lcssa74, %.lr.ph.i ]
   ret i32 %.0.lcssa71
 }
 
@@ -7910,13 +7907,10 @@ Gia_ObjReprObj.exit:                              ; preds = %Gia_ObjReprObj.exit
   %spec.select = add nuw nsw i32 %.070116, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %Gia_ObjReprObj.exit, !llvm.loop !69
+  br i1 %exitcond.not, label %.lr.ph124, label %Gia_ObjReprObj.exit, !llvm.loop !69
 
-.critedge:                                        ; preds = %Gia_ObjReprObj.exit
-  br i1 %11, label %.lr.ph124, label %.critedge2
-
-.lr.ph124:                                        ; preds = %.lr.ph, %.critedge
-  %.070.lcssa156 = phi i32 [ %spec.select, %.critedge ], [ 0, %.lr.ph ]
+.lr.ph124:                                        ; preds = %Gia_ObjReprObj.exit, %.lr.ph
+  %.070.lcssa156 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %Gia_ObjReprObj.exit ]
   %18 = getelementptr i8, ptr %0, i64 32
   %.val93 = load ptr, ptr %18, align 8
   %.not80 = icmp eq ptr %.val93, null
@@ -7938,10 +7932,9 @@ Gia_ObjReprObj.exit:                              ; preds = %Gia_ObjReprObj.exit
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %.critedge2, label %.lr.ph124.split, !llvm.loop !70
 
-.critedge2:                                       ; preds = %.lr.ph124.split, %.lr.ph124, %.critedge
-  %.070.lcssa155 = phi i32 [ %spec.select, %.critedge ], [ %.070.lcssa156, %.lr.ph124 ], [ %.070.lcssa156, %.lr.ph124.split ]
-  %.068.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph124 ], [ %spec.select90, %.lr.ph124.split ]
-  %22 = icmp eq i32 %.070.lcssa155, 0
+.critedge2:                                       ; preds = %.lr.ph124.split, %.lr.ph124
+  %.068.lcssa = phi i32 [ 0, %.lr.ph124 ], [ %spec.select90, %.lr.ph124.split ]
+  %22 = icmp eq i32 %.070.lcssa156, 0
   br i1 %22, label %.critedge2.thread, label %23
 
 .critedge2.thread:                                ; preds = %.preheader, %.critedge2
@@ -7949,7 +7942,7 @@ Gia_ObjReprObj.exit:                              ; preds = %Gia_ObjReprObj.exit
   br label %.critedge4.thread
 
 23:                                               ; preds = %.critedge2
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.070.lcssa155)
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.070.lcssa156)
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %.068.lcssa)
   %26 = getelementptr inbounds i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
@@ -15825,10 +15818,7 @@ Vec_WrdAlloc.exit:                                ; preds = %4, %11
   %22 = mul nuw nsw i64 %indvars.iv46, %21
   br label %24
 
-.preheader:                                       ; preds = %Vec_WrdPush.exit
-  br i1 %18, label %.lr.ph37, label %._crit_edge
-
-.lr.ph37:                                         ; preds = %.preheader
+.lr.ph37:                                         ; preds = %Vec_WrdPush.exit
   %23 = mul nuw nsw i64 %indvars.iv46, %21
   br label %55
 
@@ -15901,7 +15891,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   store i64 %27, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !155
+  br i1 %exitcond.not, label %.lr.ph37, label %24, !llvm.loop !155
 
 55:                                               ; preds = %.lr.ph37, %Vec_WrdPush.exit33
   %indvars.iv41 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next42, %Vec_WrdPush.exit33 ]
@@ -15974,7 +15964,7 @@ Vec_WrdPush.exit33:                               ; preds = %.Vec_WrdGrow.exit10
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %21
   br i1 %exitcond45.not, label %._crit_edge, label %55, !llvm.loop !156
 
-._crit_edge:                                      ; preds = %Vec_WrdPush.exit33, %.preheader34, %.preheader
+._crit_edge:                                      ; preds = %Vec_WrdPush.exit33, %.preheader34
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge39, label %.preheader34, !llvm.loop !157

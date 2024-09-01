@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr nocapture nound
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @pm_constant_id_list_includes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -68,28 +68,20 @@ define hidden zeroext i1 @pm_constant_id_list_includes(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, %1
-  br i1 %7, label %._crit_edge, label %.lr.ph11
+  br label %6
 
-.lr.ph11:                                         ; preds = %.lr.ph, %9
-  %.0710 = phi i64 [ %8, %9 ], [ 0, %.lr.ph ]
-  %8 = add nuw i64 %.0710, 1
-  %exitcond.not = icmp eq i64 %8, %3
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !7
+6:                                                ; preds = %6, %.lr.ph
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
+  %7 = getelementptr i32, ptr %5, i64 %.07
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, %1
+  %10 = add nuw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %10, %3
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !7
 
-9:                                                ; preds = %.lr.ph11
-  %10 = getelementptr i32, ptr %5, i64 %8
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, %1
-  br i1 %12, label %._crit_edge.loopexit, label %.lr.ph11, !llvm.loop !7
-
-._crit_edge.loopexit:                             ; preds = %9, %.lr.ph11
-  %13 = icmp ult i64 %8, %3
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %13, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %6, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %9, %6 ]
   ret i1 %.lcssa
 }
 

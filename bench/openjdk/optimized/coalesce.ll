@@ -4032,7 +4032,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit105:           ; preds = %_ZN12LiveRangeMap4f
   %160 = load ptr, ptr %159, align 8
   %161 = call noundef i32 @_ZN8IndexSet9lrg_unionEjjjPK8PhaseIFGRK7RegMask(ptr noundef nonnull align 8 dereferenceable(160) %158, i32 noundef %.088, i32 noundef %.090, i32 noundef %spec.select, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(96) %6) #9
   %.not104 = icmp ult i32 %161, %spec.select
-  br i1 %.not104, label %184, label %170
+  br i1 %.not104, label %.thread, label %170
 
 .loopexit.thread125:                              ; preds = %126
   %162 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4077,135 +4077,132 @@ _ZN12LiveRangeMap4findEPK4Node.exit105:           ; preds = %_ZN12LiveRangeMap4f
   store i32 %.088, ptr %181, align 4
   br label %_ZL11record_biasPK8PhaseIFGii.exit
 
-184:                                              ; preds = %.loopexit
-  br i1 %.not102, label %.thread127, label %.thread
+.thread:                                          ; preds = %.loopexit, %.loopexit.thread
+  %184 = phi ptr [ %166, %.loopexit.thread ], [ %158, %.loopexit ]
+  %185 = phi i32 [ %169, %.loopexit.thread ], [ %161, %.loopexit ]
+  %186 = call noundef i32 @_ZN25PhaseConservativeCoalesce32compute_separating_interferencesEP4NodeS1_P5BlockjR7RegMaskjjjj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef %spec.select, i32 noundef %185, i32 noundef %.088, i32 noundef %.090)
+  %187 = icmp eq i32 %186, -1
+  br i1 %187, label %188, label %.thread127
 
-.thread:                                          ; preds = %.loopexit.thread, %184
-  %185 = phi ptr [ %158, %184 ], [ %166, %.loopexit.thread ]
-  %186 = phi i32 [ %161, %184 ], [ %169, %.loopexit.thread ]
-  %187 = call noundef i32 @_ZN25PhaseConservativeCoalesce32compute_separating_interferencesEP4NodeS1_P5BlockjR7RegMaskjjjj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef %spec.select, i32 noundef %186, i32 noundef %.088, i32 noundef %.090)
-  %188 = icmp eq i32 %187, -1
-  br i1 %188, label %189, label %.thread127
+188:                                              ; preds = %.thread
+  %189 = load ptr, ptr %25, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 112
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 32
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds %class.LRG, ptr %193, i64 %.pre-phi123, i32 5
+  %195 = load i32, ptr %194, align 4
+  %.not.i107 = icmp eq i32 %195, 0
+  br i1 %.not.i107, label %196, label %197
 
-189:                                              ; preds = %.thread
-  %190 = load ptr, ptr %25, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 112
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 32
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %class.LRG, ptr %194, i64 %.pre-phi123, i32 5
-  %196 = load i32, ptr %195, align 4
-  %.not.i107 = icmp eq i32 %196, 0
-  br i1 %.not.i107, label %197, label %198
+196:                                              ; preds = %188
+  store i32 %.090, ptr %194, align 4
+  %.pre.i109 = load ptr, ptr %192, align 8
+  br label %197
 
-197:                                              ; preds = %189
-  store i32 %.090, ptr %195, align 4
-  %.pre.i109 = load ptr, ptr %193, align 8
-  br label %198
+197:                                              ; preds = %196, %188
+  %198 = phi ptr [ %.pre.i109, %196 ], [ %193, %188 ]
+  %199 = getelementptr inbounds %class.LRG, ptr %198, i64 %.pre-phi, i32 5
+  %200 = load i32, ptr %199, align 4
+  %.not9.i108 = icmp eq i32 %200, 0
+  br i1 %.not9.i108, label %201, label %_ZL11record_biasPK8PhaseIFGii.exit
 
-198:                                              ; preds = %197, %189
-  %199 = phi ptr [ %.pre.i109, %197 ], [ %194, %189 ]
-  %200 = getelementptr inbounds %class.LRG, ptr %199, i64 %.pre-phi, i32 5
-  %201 = load i32, ptr %200, align 4
-  %.not9.i108 = icmp eq i32 %201, 0
-  br i1 %.not9.i108, label %202, label %_ZL11record_biasPK8PhaseIFGii.exit
-
-202:                                              ; preds = %198
-  store i32 %.088, ptr %200, align 4
+201:                                              ; preds = %197
+  store i32 %.088, ptr %199, align 4
   br label %_ZL11record_biasPK8PhaseIFGii.exit
 
-.thread127:                                       ; preds = %.loopexit.thread125, %.thread, %184
-  %203 = phi ptr [ %185, %.thread ], [ %158, %184 ], [ %162, %.loopexit.thread125 ]
-  %204 = load ptr, ptr %25, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 112
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds %class.IndexSet, ptr %208, i64 %.pre-phi123
-  %210 = getelementptr inbounds %class.IndexSet, ptr %208, i64 %.pre-phi
-  call void @_ZN25PhaseConservativeCoalesce10update_ifgEjjP8IndexSetS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.088, i32 noundef %.090, ptr noundef %209, ptr noundef %210)
-  %211 = call noundef zeroext i1 @_ZN8IndexSet6removeEj(ptr noundef nonnull align 8 dereferenceable(160) %203, i32 noundef %.088)
-  call void @_ZN8IndexSet4swapEPS_(ptr noundef nonnull align 8 dereferenceable(160) %203, ptr noundef %209) #9
-  call void @_ZN8IndexSet5clearEv(ptr noundef nonnull align 8 dereferenceable(160) %203)
-  call void @_ZN8IndexSet5clearEv(ptr noundef nonnull align 8 dereferenceable(160) %210)
-  %212 = load ptr, ptr %25, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 112
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 32
-  %216 = load ptr, ptr %215, align 8
-  %217 = call noundef i32 @_ZNK8PhaseIFG16effective_degreeEj(ptr noundef nonnull align 8 dereferenceable(64) %214, i32 noundef %.088) #9
-  %218 = getelementptr inbounds %class.LRG, ptr %216, i64 %.pre-phi123, i32 9
-  store i32 %217, ptr %218, align 4
-  %219 = load ptr, ptr %25, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 112
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 32
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds %class.LRG, ptr %223, i64 %.pre-phi, i32 9
-  store i32 0, ptr %224, align 4
+.thread127:                                       ; preds = %.loopexit.thread125, %.thread
+  %202 = phi ptr [ %184, %.thread ], [ %162, %.loopexit.thread125 ]
+  %203 = load ptr, ptr %25, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 112
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds i8, ptr %205, i64 16
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds %class.IndexSet, ptr %207, i64 %.pre-phi123
+  %209 = getelementptr inbounds %class.IndexSet, ptr %207, i64 %.pre-phi
+  call void @_ZN25PhaseConservativeCoalesce10update_ifgEjjP8IndexSetS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.088, i32 noundef %.090, ptr noundef %208, ptr noundef %209)
+  %210 = call noundef zeroext i1 @_ZN8IndexSet6removeEj(ptr noundef nonnull align 8 dereferenceable(160) %202, i32 noundef %.088)
+  call void @_ZN8IndexSet4swapEPS_(ptr noundef nonnull align 8 dereferenceable(160) %202, ptr noundef %208) #9
+  call void @_ZN8IndexSet5clearEv(ptr noundef nonnull align 8 dereferenceable(160) %202)
+  call void @_ZN8IndexSet5clearEv(ptr noundef nonnull align 8 dereferenceable(160) %209)
+  %211 = load ptr, ptr %25, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 112
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 32
+  %215 = load ptr, ptr %214, align 8
+  %216 = call noundef i32 @_ZNK8PhaseIFG16effective_degreeEj(ptr noundef nonnull align 8 dereferenceable(64) %213, i32 noundef %.088) #9
+  %217 = getelementptr inbounds %class.LRG, ptr %215, i64 %.pre-phi123, i32 9
+  store i32 %216, ptr %217, align 4
+  %218 = load ptr, ptr %25, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 112
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 32
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds %class.LRG, ptr %222, i64 %.pre-phi, i32 9
+  store i32 0, ptr %223, align 4
   call void @_ZN25PhaseConservativeCoalesce12union_helperEP4NodeS1_jjS1_S1_S1_P5Blockj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %.091, ptr noundef %.092, i32 noundef %.088, i32 noundef %.090, ptr noundef %24, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  %225 = load ptr, ptr %25, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 112
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 32
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds %class.LRG, ptr %229, i64 %.pre-phi123, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %230, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
-  %231 = load ptr, ptr %25, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 112
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 32
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds %class.LRG, ptr %235, i64 %.pre-phi123
-  %237 = getelementptr inbounds i8, ptr %236, i64 136
-  %238 = load i64, ptr %237, align 8
-  %239 = icmp slt i64 %238, 0
-  br i1 %239, label %_ZN3LRG21compute_set_mask_sizeEv.exit, label %240
+  %224 = load ptr, ptr %25, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 112
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 32
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds %class.LRG, ptr %228, i64 %.pre-phi123, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %229, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  %230 = load ptr, ptr %25, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 112
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 32
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds %class.LRG, ptr %234, i64 %.pre-phi123
+  %236 = getelementptr inbounds i8, ptr %235, i64 136
+  %237 = load i64, ptr %236, align 8
+  %238 = icmp slt i64 %237, 0
+  br i1 %238, label %_ZN3LRG21compute_set_mask_sizeEv.exit, label %239
 
-240:                                              ; preds = %.thread127
-  %241 = getelementptr inbounds i8, ptr %236, i64 56
-  %242 = call noundef i32 @_ZNK7RegMask4SizeEv(ptr noundef nonnull align 8 dereferenceable(96) %241) #9
+239:                                              ; preds = %.thread127
+  %240 = getelementptr inbounds i8, ptr %235, i64 56
+  %241 = call noundef i32 @_ZNK7RegMask4SizeEv(ptr noundef nonnull align 8 dereferenceable(96) %240) #9
   br label %_ZN3LRG21compute_set_mask_sizeEv.exit
 
-_ZN3LRG21compute_set_mask_sizeEv.exit:            ; preds = %.thread127, %240
-  %243 = phi i32 [ %242, %240 ], [ 1048575, %.thread127 ]
-  %244 = getelementptr inbounds i8, ptr %236, i64 152
-  store i32 %243, ptr %244, align 8
-  %245 = load ptr, ptr %25, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 112
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 32
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds %class.LRG, ptr %249, i64 %.pre-phi
-  %251 = load double, ptr %250, align 8
-  %252 = getelementptr inbounds %class.LRG, ptr %249, i64 %.pre-phi123
-  %253 = load double, ptr %252, align 8
-  %254 = fadd double %251, %253
-  store double %254, ptr %252, align 8
-  %255 = load ptr, ptr %25, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 112
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 32
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds %class.LRG, ptr %259, i64 %.pre-phi, i32 1
-  %261 = load double, ptr %260, align 8
-  %262 = getelementptr inbounds %class.LRG, ptr %259, i64 %.pre-phi123, i32 1
-  %263 = load double, ptr %262, align 8
-  %264 = fadd double %261, %263
-  store double %264, ptr %262, align 8
-  %265 = load ptr, ptr %25, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 112
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 32
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %class.LRG, ptr %269, i64 %.pre-phi123, i32 15
-  %271 = load i16, ptr %270, align 2
-  %272 = or i16 %271, 2048
-  store i16 %272, ptr %270, align 2
+_ZN3LRG21compute_set_mask_sizeEv.exit:            ; preds = %.thread127, %239
+  %242 = phi i32 [ %241, %239 ], [ 1048575, %.thread127 ]
+  %243 = getelementptr inbounds i8, ptr %235, i64 152
+  store i32 %242, ptr %243, align 8
+  %244 = load ptr, ptr %25, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 112
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 32
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds %class.LRG, ptr %248, i64 %.pre-phi
+  %250 = load double, ptr %249, align 8
+  %251 = getelementptr inbounds %class.LRG, ptr %248, i64 %.pre-phi123
+  %252 = load double, ptr %251, align 8
+  %253 = fadd double %250, %252
+  store double %253, ptr %251, align 8
+  %254 = load ptr, ptr %25, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 112
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 32
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds %class.LRG, ptr %258, i64 %.pre-phi, i32 1
+  %260 = load double, ptr %259, align 8
+  %261 = getelementptr inbounds %class.LRG, ptr %258, i64 %.pre-phi123, i32 1
+  %262 = load double, ptr %261, align 8
+  %263 = fadd double %260, %262
+  store double %263, ptr %261, align 8
+  %264 = load ptr, ptr %25, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 112
+  %266 = load ptr, ptr %265, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 32
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds %class.LRG, ptr %268, i64 %.pre-phi123, i32 15
+  %270 = load i16, ptr %269, align 2
+  %271 = or i16 %270, 2048
+  store i16 %271, ptr %269, align 2
   br label %_ZL11record_biasPK8PhaseIFGii.exit
 
-_ZL11record_biasPK8PhaseIFGii.exit:               ; preds = %75, %202, %198, %183, %179, %123, %103, %._crit_edge, %70, %_ZN12LiveRangeMap4findEPK4Node.exit105, %11, %5, %_ZN3LRG21compute_set_mask_sizeEv.exit, %145
-  %.0 = phi i1 [ false, %145 ], [ true, %_ZN3LRG21compute_set_mask_sizeEv.exit ], [ false, %5 ], [ false, %11 ], [ false, %_ZN12LiveRangeMap4findEPK4Node.exit105 ], [ false, %70 ], [ false, %._crit_edge ], [ false, %103 ], [ false, %123 ], [ false, %179 ], [ false, %183 ], [ false, %198 ], [ false, %202 ], [ false, %75 ]
+_ZL11record_biasPK8PhaseIFGii.exit:               ; preds = %75, %201, %197, %183, %179, %123, %103, %._crit_edge, %70, %_ZN12LiveRangeMap4findEPK4Node.exit105, %11, %5, %_ZN3LRG21compute_set_mask_sizeEv.exit, %145
+  %.0 = phi i1 [ false, %145 ], [ true, %_ZN3LRG21compute_set_mask_sizeEv.exit ], [ false, %5 ], [ false, %11 ], [ false, %_ZN12LiveRangeMap4findEPK4Node.exit105 ], [ false, %70 ], [ false, %._crit_edge ], [ false, %103 ], [ false, %123 ], [ false, %179 ], [ false, %183 ], [ false, %197 ], [ false, %201 ], [ false, %75 ]
   ret i1 %.0
 }
 

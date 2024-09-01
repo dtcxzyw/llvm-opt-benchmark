@@ -95,36 +95,34 @@ define noundef zeroext i1 @_ZN12RichMatrix44eqERK13RichParameter(ptr noundef non
   call void %22(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %4, ptr noundef nonnull align 8 dereferenceable(8) %19)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %14, %33
-  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %33 ], [ 0, %14 ]
-  %23 = phi i1 [ %34, %33 ], [ false, %14 ]
-  %24 = shl nuw nsw i64 %indvars.iv20.i, 2
-  br label %26
+.preheader.i:                                     ; preds = %14, %32
+  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %32 ], [ 0, %14 ]
+  %23 = shl nuw nsw i64 %indvars.iv19.i, 2
+  br label %25
 
-25:                                               ; preds = %26
+24:                                               ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %33, label %26, !llvm.loop !5
+  br i1 %exitcond.not.i, label %32, label %25, !llvm.loop !5
 
-26:                                               ; preds = %25, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %27 = add nuw nsw i64 %indvars.iv.i, %24
-  %28 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %27
-  %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %27
-  %31 = load float, ptr %30, align 4
-  %32 = fcmp une float %29, %31
-  br i1 %32, label %.critedge, label %25
+25:                                               ; preds = %24, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
+  %26 = add nuw nsw i64 %indvars.iv.i, %23
+  %27 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %26
+  %28 = load float, ptr %27, align 4
+  %29 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %26
+  %30 = load float, ptr %29, align 4
+  %31 = fcmp oeq float %28, %30
+  br i1 %31, label %24, label %.critedge
 
-33:                                               ; preds = %25
-  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %34 = icmp ugt i64 %indvars.iv20.i, 2
-  %exitcond22.i = icmp eq i64 %indvars.iv.next21.i, 4
+32:                                               ; preds = %24
+  %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
+  %exitcond22.i = icmp eq i64 %indvars.iv.next20.i, 4
   br i1 %exitcond22.i, label %.critedge, label %.preheader.i, !llvm.loop !7
 
-.critedge:                                        ; preds = %33, %26, %2, %10
-  %35 = phi i1 [ false, %10 ], [ false, %2 ], [ %23, %26 ], [ %34, %33 ]
-  ret i1 %35
+.critedge:                                        ; preds = %32, %25, %2, %10
+  %33 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %25 ], [ true, %32 ]
+  ret i1 %33
 }
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1

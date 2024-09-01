@@ -6851,7 +6851,7 @@ for.inc:                                          ; preds = %if.end24, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.end8.thread, %for.cond.preheader
-  %cmp1291.not109 = phi i1 [ true, %for.cond.preheader ], [ true, %if.end8.thread ], [ %cmp1291.not, %for.inc ]
+  %cmp1291.not109 = phi i1 [ true, %for.cond.preheader ], [ true, %if.end8.thread ], [ false, %for.inc ]
   %no_rfc7540_pri.0.lcssa = phi i8 [ %0, %for.cond.preheader ], [ %0, %if.end8.thread ], [ %no_rfc7540_pri.1, %for.inc ]
   %call32 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %mem1, i64 noundef 152) #17
   %cmp33 = icmp eq ptr %call32, null

@@ -23,12 +23,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   %20 = sext i32 %18 to i64
   br label %22
 
-.preheader356.critedge:                           ; preds = %._crit_edge399
-  tail call fastcc void @free_nodes(ptr noundef %23, i32 noundef 1)
-  tail call void @free(ptr noundef %23) #7
-  br label %.preheader356
-
-.preheader356:                                    ; preds = %._crit_edge404, %._crit_edge409, %.preheader356.critedge
+.preheader356:                                    ; preds = %._crit_edge404, %._crit_edge409
   %21 = icmp sgt i32 %1, 0
   br i1 %21, label %.preheader355.lr.ph, label %._crit_edge423.thread
 
@@ -178,13 +173,14 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
 
 .loopexit.thread:                                 ; preds = %.preheader358.thread, %.preheader358
   tail call fastcc void @assign_codes(ptr noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  br label %._crit_edge399.thread
+  tail call void @Ptngc_merge_sort(ptr noundef %24, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #7
+  br label %._crit_edge404
 
 .loopexit:                                        ; preds = %81
   tail call fastcc void @assign_codes(ptr noundef nonnull %23, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  br i1 %15, label %.lr.ph398.preheader, label %._crit_edge399.thread
+  br label %.lr.ph398.preheader
 
-.lr.ph398.preheader:                              ; preds = %.loopexit.thread510, %.loopexit
+.lr.ph398.preheader:                              ; preds = %.loopexit, %.loopexit.thread510
   br label %.lr.ph398
 
 .lr.ph398:                                        ; preds = %.lr.ph398.preheader, %.lr.ph398
@@ -202,13 +198,9 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   %exitcond476.not = icmp eq i64 %indvars.iv.next473, %19
   br i1 %exitcond476.not, label %._crit_edge399, label %.lr.ph398, !llvm.loop !8
 
-._crit_edge399.thread:                            ; preds = %.loopexit.thread, %.loopexit
-  tail call void @Ptngc_merge_sort(ptr noundef %24, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #7
-  br label %._crit_edge404
-
 ._crit_edge399:                                   ; preds = %.lr.ph398
   tail call void @Ptngc_merge_sort(ptr noundef nonnull %24, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #7
-  br i1 %15, label %.lr.ph403, label %.preheader356.critedge
+  br label %.lr.ph403
 
 .lr.ph403:                                        ; preds = %._crit_edge399, %100
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %100 ], [ 0, %._crit_edge399 ]
@@ -234,7 +226,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   %exitcond481.not = icmp eq i64 %indvars.iv.next478, %19
   br i1 %exitcond481.not, label %._crit_edge404, label %.lr.ph403, !llvm.loop !9
 
-._crit_edge404:                                   ; preds = %100, %._crit_edge399.thread
+._crit_edge404:                                   ; preds = %100, %.loopexit.thread
   tail call fastcc void @free_nodes(ptr noundef %23, i32 noundef 1)
   tail call void @free(ptr noundef %23) #7
   br i1 %15, label %.lr.ph408, label %.preheader356
@@ -252,13 +244,10 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
 
 ._crit_edge409:                                   ; preds = %.lr.ph408
   %cond = icmp eq i32 %spec.select, 0
-  br i1 %cond, label %.preheader356, label %.preheader357
+  br i1 %cond, label %.preheader356, label %.lr.ph412
 
-.preheader357:                                    ; preds = %._crit_edge409
-  br i1 %15, label %.lr.ph412, label %._crit_edge413
-
-.lr.ph412:                                        ; preds = %.preheader357, %.lr.ph412
-  %indvars.iv487 = phi i64 [ %indvars.iv.next488, %.lr.ph412 ], [ 0, %.preheader357 ]
+.lr.ph412:                                        ; preds = %._crit_edge409, %.lr.ph412
+  %indvars.iv487 = phi i64 [ %indvars.iv.next488, %.lr.ph412 ], [ 0, %._crit_edge409 ]
   %104 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv487
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %105, 1
@@ -269,7 +258,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %19
   br i1 %exitcond491.not, label %._crit_edge413, label %.lr.ph412, !llvm.loop !11
 
-._crit_edge413:                                   ; preds = %.lr.ph412, %.preheader357
+._crit_edge413:                                   ; preds = %.lr.ph412
   tail call void @free(ptr noundef %24) #7
   br label %22
 

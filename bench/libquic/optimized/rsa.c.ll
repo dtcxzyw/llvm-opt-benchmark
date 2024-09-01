@@ -1145,7 +1145,7 @@ if.then68:                                        ; preds = %lor.lhs.false65, %l
   br label %out
 
 for.end:                                          ; preds = %for.cond, %if.end44, %if.end50
-  %cmp5148.not52 = phi i1 [ true, %if.end50 ], [ true, %if.end44 ], [ %cmp5148.not, %for.cond ]
+  %cmp5148.not52 = phi i1 [ true, %if.end50 ], [ true, %if.end44 ], [ false, %for.cond ]
   %call70 = call i32 @BN_div(ptr noundef nonnull %lcm, ptr noundef null, ptr noundef nonnull %lcm, ptr noundef nonnull %gcd, ptr noundef nonnull %call18) #9
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.then80, label %lor.lhs.false72

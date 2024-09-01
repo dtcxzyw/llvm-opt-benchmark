@@ -34,10 +34,7 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
 
 .loopexit62:                                      ; preds = %._crit_edge, %.lr.ph73
   %exitcond81.not = icmp eq i64 %22, %0
-  br i1 %exitcond81.not, label %.preheader, label %.lr.ph73, !llvm.loop !6
-
-.preheader:                                       ; preds = %.loopexit62
-  br i1 %8, label %.lr.ph76, label %.loopexit
+  br i1 %exitcond81.not, label %.lr.ph76, label %.lr.ph73, !llvm.loop !6
 
 .lr.ph73:                                         ; preds = %.preheader64, %.loopexit62
   %.05472 = phi i64 [ %22, %.loopexit62 ], [ 0, %.preheader64 ]
@@ -99,9 +96,9 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %46 = icmp slt i64 %45, %44
   br i1 %46, label %.lr.ph71, label %.loopexit62, !llvm.loop !8
 
-.lr.ph76:                                         ; preds = %.preheader, %51
-  %.275 = phi i64 [ %53, %51 ], [ 0, %.preheader ]
-  %.05674 = phi i64 [ %52, %51 ], [ 0, %.preheader ]
+.lr.ph76:                                         ; preds = %.loopexit62, %51
+  %.275 = phi i64 [ %53, %51 ], [ 0, %.loopexit62 ]
+  %.05674 = phi i64 [ %52, %51 ], [ 0, %.loopexit62 ]
   %47 = getelementptr inbounds i64, ptr %4, i64 %.275
   %48 = load i64, ptr %47, align 8
   %49 = sub nsw i64 9223372036854775807, %48
@@ -114,8 +111,8 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %exitcond82.not = icmp eq i64 %53, %0
   br i1 %exitcond82.not, label %.loopexit, label %.lr.ph76, !llvm.loop !9
 
-.loopexit:                                        ; preds = %9, %.lr.ph71, %.lr.ph76, %51, %.preheader64, %.preheader
-  %.058 = phi i64 [ 0, %.preheader ], [ 0, %.preheader64 ], [ -2, %.lr.ph76 ], [ %52, %51 ], [ -1, %.lr.ph71 ], [ -1, %9 ]
+.loopexit:                                        ; preds = %9, %.lr.ph71, %.lr.ph76, %51, %.preheader64
+  %.058 = phi i64 [ 0, %.preheader64 ], [ -2, %.lr.ph76 ], [ %52, %51 ], [ -1, %.lr.ph71 ], [ -1, %9 ]
   ret i64 %.058
 }
 
@@ -434,7 +431,7 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph19.i
   %8 = phi i64 [ %14, %.lr.ph19.i ], [ %25, %.lr.ph.i ]
   %exitcond.not.i = icmp eq i64 %12, %0
-  br i1 %exitcond.not.i, label %QDLDL_Lsolve.exit, label %.lr.ph19.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.lr.ph, label %.lr.ph19.i, !llvm.loop !17
 
 .lr.ph19.i:                                       ; preds = %.loopexit.i, %.lr.ph19.preheader.i
   %9 = phi i64 [ %8, %.loopexit.i ], [ %.pre.i, %.lr.ph19.preheader.i ]
@@ -463,11 +460,8 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %26 = icmp slt i64 %24, %25
   br i1 %26, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
-QDLDL_Lsolve.exit:                                ; preds = %.loopexit.i
-  br i1 %7, label %.lr.ph, label %QDLDL_Ltsolve.exit
-
-.lr.ph:                                           ; preds = %QDLDL_Lsolve.exit, %.lr.ph
-  %.020 = phi i64 [ %32, %.lr.ph ], [ 0, %QDLDL_Lsolve.exit ]
+.lr.ph:                                           ; preds = %.loopexit.i, %.lr.ph
+  %.020 = phi i64 [ %32, %.lr.ph ], [ 0, %.loopexit.i ]
   %27 = getelementptr inbounds double, ptr %4, i64 %.020
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds double, ptr %5, i64 %.020
@@ -476,13 +470,10 @@ QDLDL_Lsolve.exit:                                ; preds = %.loopexit.i
   store double %31, ptr %29, align 8
   %32 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %32, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.lr.ph27.i, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph27.i, label %QDLDL_Ltsolve.exit
-
-.lr.ph27.i:                                       ; preds = %._crit_edge, %._crit_edge.i
-  %.020.in24.i = phi i64 [ %.02025.i, %._crit_edge.i ], [ %0, %._crit_edge ]
+.lr.ph27.i:                                       ; preds = %.lr.ph, %._crit_edge.i
+  %.020.in24.i = phi i64 [ %.02025.i, %._crit_edge.i ], [ %0, %.lr.ph ]
   %.02025.i = add nsw i64 %.020.in24.i, -1
   %33 = getelementptr inbounds double, ptr %5, i64 %.02025.i
   %34 = load double, ptr %33, align 8
@@ -514,7 +505,7 @@ QDLDL_Lsolve.exit:                                ; preds = %.loopexit.i
   %49 = icmp sgt i64 %.020.in24.i, 1
   br i1 %49, label %.lr.ph27.i, label %QDLDL_Ltsolve.exit, !llvm.loop !20
 
-QDLDL_Ltsolve.exit:                               ; preds = %._crit_edge.i, %6, %QDLDL_Lsolve.exit, %._crit_edge
+QDLDL_Ltsolve.exit:                               ; preds = %._crit_edge.i, %6
   ret void
 }
 

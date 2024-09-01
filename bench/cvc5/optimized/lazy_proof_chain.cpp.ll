@@ -1806,7 +1806,7 @@ lpad122.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.else, %invoke.co
 for.inc:                                          ; preds = %for.body
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.02697) #23
   %cmp.i551.not = icmp eq ptr %call.i, %12
-  br i1 %cmp.i551.not, label %cond.true269, label %for.body
+  br i1 %cmp.i551.not, label %for.body292, label %for.body
 
 cond.true137:                                     ; preds = %if.end9.i.i.i580, %invoke.cont127
   %call.i705706 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS4_bESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %visited, ptr noundef nonnull align 8 dereferenceable(8) %cur)
@@ -1816,11 +1816,8 @@ invoke.cont151:                                   ; preds = %cond.true137
   store i8 1, ptr %call.i705706, align 1
   br label %cleanup
 
-cond.true269:                                     ; preds = %for.inc
-  br i1 %cmp.i551.not2696, label %if.end365, label %for.body292
-
-for.body292:                                      ; preds = %cond.true269, %for.inc329
-  %__begin5284.sroa.0.02699 = phi ptr [ %call.i1291, %for.inc329 ], [ %83, %cond.true269 ]
+for.body292:                                      ; preds = %for.inc, %for.inc329
+  %__begin5284.sroa.0.02699 = phi ptr [ %call.i1291, %for.inc329 ], [ %83, %for.inc ]
   %_M_storage.i.i1147 = getelementptr inbounds i8, ptr %__begin5284.sroa.0.02699, i64 32
   %105 = load i64, ptr %_M_element_count.i.i.i1148, align 8
   %cmp.not.not.i.i1149 = icmp eq i64 %105, 0
@@ -2061,7 +2058,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_9Pro
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i1148, align 8
   br label %cleanup
 
-if.end365:                                        ; preds = %for.inc329, %if.then115, %cond.true269
+if.end365:                                        ; preds = %for.inc329, %if.then115
   %148 = load ptr, ptr %_M_finish.i.i, align 8
   %149 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i1443 = icmp eq ptr %148, %149

@@ -1463,93 +1463,80 @@ define void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderEv(ptr dead_on_unwind noal
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %.val4 = load ptr, ptr %7, align 8
   %8 = icmp slt i32 %.val, 3
-  br i1 %8, label %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit.thread", label %.lr.ph.preheader.i
-
-"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit.thread": ; preds = %2
-  call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
-  br label %24
+  br i1 %8, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
   %9 = add nsw i32 %.val, -2
-  %10 = zext nneg i32 %9 to i64
-  %11 = load i32, ptr %.val4, align 4
-  %12 = icmp sgt i32 %11, 1
-  br i1 %12, label %.critedge, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %9 to i64
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i6, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %10
-  br i1 %exitcond.i, label %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit", label %.lr.ph.i, !llvm.loop !24
+10:                                               ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %13 = getelementptr inbounds i32, ptr %.val4, i64 %indvars.iv.next.i
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit", label %.lr.ph, !llvm.loop !24
+.lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
+  %11 = getelementptr inbounds i32, ptr %.val4, i64 %indvars.iv.i
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp slt i32 %12, 2
+  br i1 %13, label %10, label %14
 
-"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit": ; preds = %.lr.ph.i, %.lr.ph
-  %.not.le = icmp ult i64 %indvars.iv.next.i, %10
+14:                                               ; preds = %.lr.ph.i
   call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
-  br i1 %.not.le, label %16, label %24
-
-.critedge:                                        ; preds = %.lr.ph.preheader.i
-  call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
-  br label %16
-
-16:                                               ; preds = %.critedge, %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %17 unwind label %19
+          to label %15 unwind label %17
 
-17:                                               ; preds = %16
+15:                                               ; preds = %14
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv4cuda8GpuMatND18createGpuMatHeaderESt6vectorIiSaIiEENS_5RangeES5_, ptr noundef nonnull @.str.1, i32 noundef 70) #18
-          to label %18 unwind label %21
+          to label %16 unwind label %19
 
-18:                                               ; preds = %17
+16:                                               ; preds = %15
   unreachable
 
-19:                                               ; preds = %16
+17:                                               ; preds = %14
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  br label %21
+
+19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %23
-
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  br label %23
+  br label %21
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
+21:                                               ; preds = %19, %17
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   resume { ptr, i32 } %.pn
 
-24:                                               ; preds = %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit.thread", %"_ZZNK2cv4cuda8GpuMatND18createGpuMatHeaderEvENK3$_0clES1_.exit"
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, -2
-  %29 = sext i32 %28 to i64
-  %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %29
-  %32 = load i32, ptr %31, align 4
-  %33 = sext i32 %27 to i64
-  %34 = getelementptr i32, ptr %30, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -4
-  %36 = load i32, ptr %35, align 4
-  %37 = load i32, ptr %1, align 8
-  %38 = and i32 %37, 4095
-  %39 = getelementptr inbounds i8, ptr %1, i64 72
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 80
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %29
-  %47 = load i64, ptr %46, align 8
-  call void @_ZN2cv4cuda6GpuMatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef %43, i64 noundef %47)
+.loopexit:                                        ; preds = %10, %2
+  call void @_ZN2cv4cuda8GpuMatNDD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = add nsw i32 %24, -2
+  %26 = sext i32 %25 to i64
+  %27 = load ptr, ptr %22, align 8
+  %28 = getelementptr inbounds i32, ptr %27, i64 %26
+  %29 = load i32, ptr %28, align 4
+  %30 = sext i32 %24 to i64
+  %31 = getelementptr i32, ptr %27, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -4
+  %33 = load i32, ptr %32, align 4
+  %34 = load i32, ptr %1, align 8
+  %35 = and i32 %34, 4095
+  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i64, ptr %42, i64 %26
+  %44 = load i64, ptr %43, align 8
+  call void @_ZN2cv4cuda6GpuMatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %29, i32 noundef %33, i32 noundef %35, ptr noundef %40, i64 noundef %44)
   ret void
 }
 

@@ -443,8 +443,8 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5d
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %36
-  %.not.not.i.not.i.not.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.not.i.not.i.not.i.i.i, label %_ZN20signal_hook_registry23register_sigaction_impl17h5cc06bb2d8b13725E.exit.i.i, label %38
+  %.not.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.i.i.i, label %_ZN20signal_hook_registry23register_sigaction_impl17h5cc06bb2d8b13725E.exit.i.i, label %38
 
 38:                                               ; preds = %.noexc16
   %39 = load i32, ptr %37, align 4, !alias.scope !43, !noalias !48, !noundef !10
@@ -11949,8 +11949,8 @@ define hidden noundef ptr @_ZN5tokio6signal4unix13signal_enable17h94dc17f6914b19
 
 15:                                               ; preds = %17, %13
   %16 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3667f1abf43bbf61E.llvm.13045902235258919337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !1924
-  %.not.not.i.not.i.not = icmp eq ptr %16, null
-  br i1 %.not.not.i.not.i.not, label %20, label %17
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %16, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = load i32, ptr %16, align 4, !alias.scope !1927, !noalias !1932, !noundef !10

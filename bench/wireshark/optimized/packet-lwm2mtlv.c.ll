@@ -979,15 +979,12 @@ define internal fastcc void @lwm2m_allocate_fields(ptr nocapture noundef %0, ptr
   %51 = getelementptr inbounds i8, ptr %49, i64 8
   %52 = load i32, ptr %51, align 8
   call void @proto_register_subtree_array(ptr noundef %50, i32 noundef %52) #8
-  br i1 %.not, label %._crit_edge63, label %.lr.ph62.preheader
-
-.lr.ph62.preheader:                               ; preds = %._crit_edge58
   %wide.trip.count75 = zext i32 %2 to i64
   br label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %64
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next73, %64 ]
-  %.259 = phi i32 [ 0, %.lr.ph62.preheader ], [ %.3, %64 ]
+.lr.ph62:                                         ; preds = %._crit_edge58, %64
+  %indvars.iv72 = phi i64 [ 0, %._crit_edge58 ], [ %indvars.iv.next73, %64 ]
+  %.259 = phi i32 [ 0, %._crit_edge58 ], [ %.3, %64 ]
   %53 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv72
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i32, ptr %54, align 8
@@ -1022,7 +1019,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr nocapture noundef %0, ptr
   tail call void @proto_register_subtree_array(ptr noundef %69, i32 noundef %71) #8
   br label %._crit_edge63
 
-._crit_edge63:                                    ; preds = %64, %._crit_edge63.critedge, %._crit_edge58
+._crit_edge63:                                    ; preds = %64, %._crit_edge63.critedge
   ret void
 }
 

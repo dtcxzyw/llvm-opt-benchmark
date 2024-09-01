@@ -2093,8 +2093,8 @@ define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 nound
   call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %21) #15
   %23 = call ptr @systable_beginscan(ptr noundef %20, i32 noundef 2671, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %18) #15
   %24 = call ptr @systable_getnext(ptr noundef %23) #15
-  %.not.not = icmp ne ptr %24, null
-  br i1 %.not.not, label %26, label %25
+  %.not.not.not.not.not.not = icmp ne ptr %24, null
+  br i1 %.not.not.not.not.not.not, label %26, label %25
 
 25:                                               ; preds = %22
   call void @systable_endscan(ptr noundef %23) #15
@@ -2317,7 +2317,7 @@ define internal fastcc noundef zeroext i1 @get_db_info(ptr noundef %0, i32 nound
 
 122:                                              ; preds = %119, %25
   call void @table_close(ptr noundef %20, i32 noundef 1) #15
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable

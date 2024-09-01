@@ -3053,10 +3053,7 @@ Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTim
   %wide.trip.count = zext nneg i32 %.val93 to i64
   br label %1059
 
-.critedge.preheader:                              ; preds = %1069
-  br i1 %57, label %.lr.ph1058, label %.critedge2
-
-.lr.ph1058:                                       ; preds = %.critedge.preheader
+.lr.ph1058:                                       ; preds = %1069
   %59 = getelementptr i8, ptr %0, i64 120
   %.not82 = icmp eq i32 %3, 0
   %60 = fpext float %2 to double
@@ -4920,7 +4917,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_C
 1069:                                             ; preds = %1065
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %1059, !llvm.loop !48
+  br i1 %exitcond.not, label %.lr.ph1058, label %1059, !llvm.loop !48
 
 .lr.ph1058.split:                                 ; preds = %.lr.ph1058, %.critedge4
   %.val921105 = phi i32 [ %.val92, %.critedge4 ], [ %.val93, %.lr.ph1058 ]
@@ -5024,7 +5021,7 @@ Abc_SclClassCellNum.exit:                         ; preds = %1089
   %1114 = icmp slt i64 %indvars.iv.next1095, %1113
   br i1 %1114, label %.lr.ph1058.split, label %.critedge2, !llvm.loop !43
 
-.critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %56, %.critedge.preheader
+.critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %56
   ret void
 }
 

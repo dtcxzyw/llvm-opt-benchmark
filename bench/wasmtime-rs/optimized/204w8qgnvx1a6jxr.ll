@@ -937,8 +937,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
 
 39:                                               ; preds = %36
   %40 = load i64, ptr %13, align 8, !range !17, !noundef !3
-  %.not50.not.i = icmp eq i64 %40, -9223372036854775808
-  br i1 %.not50.not.i, label %70, label %45
+  %.not50.i = icmp eq i64 %40, -9223372036854775808
+  br i1 %.not50.i, label %70, label %45
 
 41:                                               ; preds = %36
   %42 = extractvalue { ptr, ptr } %31, 1

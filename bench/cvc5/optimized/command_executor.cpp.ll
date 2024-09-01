@@ -1168,8 +1168,8 @@ entry:
 
 dynamic_cast.end:                                 ; preds = %entry
   %6 = call ptr @__dynamic_cast(ptr nonnull %cmd, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser15CheckSatCommandE, i64 0) #16
-  %cmp.not.not461 = icmp ne ptr %6, null
-  br i1 %cmp.not.not461, label %if.then, label %dynamic_cast.end14
+  %cmp.not.not459 = icmp ne ptr %6, null
+  br i1 %cmp.not.not459, label %if.then, label %dynamic_cast.end14
 
 if.then:                                          ; preds = %dynamic_cast.end
   invoke void @_ZNK4cvc56parser15CheckSatCommand9getResultEv(ptr nonnull sret(%"class.cvc5::Result") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -1540,11 +1540,11 @@ if.end8.sink.split.i.i.i.i.i.i93:                 ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN4cvc56ResultaSEOS0_.exit102thread-pre-split:   ; preds = %if.end8.sink.split.i.i.i.i.i.i93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i90, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i80
   %.pr446 = load ptr, ptr %_M_refcount3.i.i.i.i71, align 8
-  %.pre465 = load ptr, ptr %res, align 8
+  %.pre463 = load ptr, ptr %res, align 8
   br label %_ZN4cvc56ResultaSEOS0_.exit102
 
 _ZN4cvc56ResultaSEOS0_.exit102:                   ; preds = %_ZN4cvc56ResultaSEOS0_.exit102thread-pre-split, %invoke.cont18
-  %63 = phi ptr [ %.pre465, %_ZN4cvc56ResultaSEOS0_.exit102thread-pre-split ], [ %50, %invoke.cont18 ]
+  %63 = phi ptr [ %.pre463, %_ZN4cvc56ResultaSEOS0_.exit102thread-pre-split ], [ %50, %invoke.cont18 ]
   %64 = phi ptr [ %.pr446, %_ZN4cvc56ResultaSEOS0_.exit102thread-pre-split ], [ %51, %invoke.cont18 ]
   %d_result20 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %63, ptr %d_result20, align 8
@@ -1731,7 +1731,7 @@ _ZN4cvc56ResultD2Ev.exit180:                      ; preds = %_ZN4cvc56ResultaSER
   br i1 %call8, label %if.then27, label %cleanup
 
 if.end22:                                         ; preds = %dynamic_cast.end14
-  %brmerge36.not = and i1 %call8, %cmp.not.not461
+  %brmerge36.not = and i1 %call8, %cmp.not.not459
   br i1 %brmerge36.not, label %if.then27, label %cleanup
 
 if.then27:                                        ; preds = %if.end22, %_ZN4cvc56ResultD2Ev.exit180
@@ -2585,11 +2585,11 @@ if.end218.critedge:                               ; preds = %invoke.cont195
 
 if.end218thread-pre-split:                        ; preds = %land.end205, %if.end218.critedge, %if.then.i345
   %.ph = phi ptr [ %149, %land.end205 ], [ %149, %if.end218.critedge ], [ %incdec.ptr.i346, %if.then.i345 ]
-  %.pr468 = load ptr, ptr %getterCommands, align 8
+  %.pr466 = load ptr, ptr %getterCommands, align 8
   br label %if.end218
 
 if.end218:                                        ; preds = %if.end218thread-pre-split, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
-  %162 = phi ptr [ %.pr468, %if.end218thread-pre-split ], [ %cond.i10.i.i362, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
+  %162 = phi ptr [ %.pr466, %if.end218thread-pre-split ], [ %cond.i10.i.i362, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
   %163 = phi ptr [ %.ph, %if.end218thread-pre-split ], [ %incdec.ptr.i.i373, %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
   %cmp.i.i = icmp eq ptr %162, %163
   br i1 %cmp.i.i, label %invoke.cont.i, label %if.then220
@@ -2676,8 +2676,8 @@ ehcleanup235:                                     ; preds = %lpad226, %lpad.i383
   br label %ehcleanup253
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont245
-  %__begin4.sroa.0.0463 = phi ptr [ %incdec.ptr.i392, %invoke.cont245 ], [ %162, %for.body.preheader ]
-  %171 = load ptr, ptr %__begin4.sroa.0.0463, align 8
+  %__begin4.sroa.0.0461 = phi ptr [ %incdec.ptr.i392, %invoke.cont245 ], [ %162, %for.body.preheader ]
+  %171 = load ptr, ptr %__begin4.sroa.0.0461, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %172 = load ptr, ptr %vfn, align 8
@@ -2685,16 +2685,13 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %invoke.cont245 unwind label %lpad57.loopexit
 
 invoke.cont245:                                   ; preds = %for.body
-  %incdec.ptr.i392 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0463, i64 8
+  %incdec.ptr.i392 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0461, i64 8
   %cmp.i391.not = icmp ne ptr %incdec.ptr.i392, %163
   %or.cond.not = select i1 %call246, i1 %cmp.i391.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %if.end252
+  br i1 %or.cond.not, label %for.body, label %for.body.i.i.i.i
 
-if.end252:                                        ; preds = %invoke.cont245
-  br i1 %cmp.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %if.end252, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %162, %if.end252 ]
+for.body.i.i.i.i:                                 ; preds = %invoke.cont245, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %162, %invoke.cont245 ]
   %173 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %173, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i.i.i.i.i.i
@@ -2712,8 +2709,8 @@ _ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exi
   %cmp.not.i.i.i.i396 = icmp eq ptr %incdec.ptr.i.i.i.i, %163
   br i1 %cmp.not.i.i.i.i396, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !28
 
-invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %if.end218, %if.end252
-  %status.1467 = phi i1 [ %call246, %if.end252 ], [ %call8, %if.end218 ], [ %call246, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ]
+invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %if.end218
+  %status.1465 = phi i1 [ %call8, %if.end218 ], [ %call246, %_ZSt8_DestroyISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ]
   %tobool.not.i.i.i397 = icmp eq ptr %162, null
   br i1 %tobool.not.i.i.i397, label %cleanup, label %if.then.i.i.i398
 
@@ -2727,7 +2724,7 @@ ehcleanup253:                                     ; preds = %lpad57.loopexit, %l
   br label %ehcleanup256
 
 cleanup:                                          ; preds = %entry, %if.then.i.i.i398, %invoke.cont.i, %if.end22, %_ZN4cvc56ResultD2Ev.exit180
-  %retval.0 = phi i1 [ %call8, %if.end22 ], [ false, %_ZN4cvc56ResultD2Ev.exit180 ], [ %status.1467, %invoke.cont.i ], [ %status.1467, %if.then.i.i.i398 ], [ %call8, %entry ]
+  %retval.0 = phi i1 [ %call8, %if.end22 ], [ false, %_ZN4cvc56ResultD2Ev.exit180 ], [ %status.1465, %invoke.cont.i ], [ %status.1465, %if.then.i.i.i398 ], [ %call8, %entry ]
   %_M_refcount.i.i.i399 = getelementptr inbounds i8, ptr %res, i64 8
   %175 = load ptr, ptr %_M_refcount.i.i.i399, align 8
   %cmp.not.i.i.i.i400 = icmp eq ptr %175, null

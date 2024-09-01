@@ -4868,8 +4868,8 @@ define internal fastcc noundef zeroext i1 @io_apic_level_ack_pending(ptr noundef
 3:                                                ; preds = %6, %1
   %4 = phi ptr [ %0, %1 ], [ %5, %6 ]
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp ne ptr %5, %0
-  br i1 %.not, label %6, label %17
+  %.not.not.not.not.not = icmp ne ptr %5, %0
+  br i1 %.not.not.not.not.not, label %6, label %17
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 20
@@ -4886,7 +4886,7 @@ define internal fastcc noundef zeroext i1 @io_apic_level_ack_pending(ptr noundef
 
 17:                                               ; preds = %6, %3
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ioapic_lock, i64 noundef %2) #25
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: null_pointer_is_valid

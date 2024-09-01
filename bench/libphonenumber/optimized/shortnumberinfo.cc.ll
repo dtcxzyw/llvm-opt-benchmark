@@ -1343,8 +1343,8 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %53, %_ZSt4findIPKim
 
 _ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc18, %96
   %.sroa.023.0 = load ptr, ptr %.sroa.023.040, align 8
-  %.not47 = icmp eq ptr %.sroa.023.0, %3
-  br i1 %.not47, label %._crit_edge, label %13
+  %.not43 = icmp eq ptr %.sroa.023.0, %3
+  br i1 %.not43, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %96, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %.preheader
   %.lcssa = phi i1 [ false, %.preheader ], [ false, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ true, %96 ]

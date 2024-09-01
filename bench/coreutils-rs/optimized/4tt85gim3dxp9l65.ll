@@ -555,9 +555,9 @@ define hidden void @_ZN7uu_uniq4Uniq11skip_fields17h045fd07c67dab289E(ptr noalia
   br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17haad36e100e0f417eE.exit.thread39", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17haad36e100e0f417eE.exit.thread39": ; preds = %"_ZN7uu_uniq4Uniq11skip_fields28_$u7b$$u7b$closure$u7d$$u7d$17h9aa502c02bcb97abE.exit.i"
-  %.promoted17.i.le = ptrtoint ptr %.promoted.i to i64
+  %.promoted14.i.le = ptrtoint ptr %.promoted.i to i64
   %36 = ptrtoint ptr %30 to i64
-  %37 = sub i64 %36, %.promoted17.i.le
+  %37 = sub i64 %36, %.promoted14.i.le
   %scevgep.i.le = getelementptr i8, ptr %.promoted.i, i64 %37
   store ptr %scevgep.i.le, ptr %10, align 8, !alias.scope !60
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17haad36e100e0f417eE.exit.thread"

@@ -5459,10 +5459,7 @@ define internal fastcc void @Of_ManComputeOutputRequired(ptr nocapture noundef r
   %25 = icmp slt i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph.split, label %.preheader, !llvm.loop !53
 
-.critedge.preheader:                              ; preds = %49
-  br i1 %16, label %.lr.ph63, label %.critedge2
-
-.lr.ph63:                                         ; preds = %.critedge.preheader
+.lr.ph63:                                         ; preds = %49
   %26 = getelementptr i8, ptr %0, i64 112
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %.lr.ph63.split.us, label %.lr.ph63.split
@@ -5523,7 +5520,7 @@ Of_ObjUpdateRequired.exit.us:                     ; preds = %42, %.lr.ph63.split
   %60 = tail call noundef i32 @llvm.smax.i32(i32 %.058, i32 %59)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %49, !llvm.loop !55
+  br i1 %exitcond.not, label %.lr.ph63, label %49, !llvm.loop !55
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63, %Of_ObjUpdateRequired.exit
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %Of_ObjUpdateRequired.exit ], [ 0, %.lr.ph63 ]
@@ -5569,8 +5566,8 @@ Of_ObjUpdateRequired.exit:                        ; preds = %.lr.ph63.split, %76
   %85 = icmp slt i64 %indvars.iv.next77, %84
   br i1 %85, label %.lr.ph63.split, label %.critedge2, !llvm.loop !54
 
-.critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit, %Of_ObjUpdateRequired.exit.us, %.preheader, %.critedge.preheader
-  %.0.lcssa85 = phi i32 [ %60, %.critedge.preheader ], [ 0, %.preheader ], [ %60, %Of_ObjUpdateRequired.exit.us ], [ %60, %Of_ObjUpdateRequired.exit ]
+.critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit, %Of_ObjUpdateRequired.exit.us, %.preheader
+  %.0.lcssa85 = phi i32 [ 0, %.preheader ], [ %60, %Of_ObjUpdateRequired.exit.us ], [ %60, %Of_ObjUpdateRequired.exit ]
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 160
@@ -6208,17 +6205,14 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %62, %84, %Gia_ObjIs
 ._crit_edge102:                                   ; preds = %97
   %.pre135 = load i32, ptr %3, align 4
   %102 = icmp sgt i32 %.pre135, %101
-  br i1 %102, label %.preheader, label %.critedge3
+  br i1 %102, label %.lr.ph104, label %.critedge3
 
 ._crit_edge102.thread:                            ; preds = %59
   %.pre136 = load i32, ptr %4, align 4
   %103 = icmp slt i32 %.pre136, 0
   br i1 %103, label %._crit_edge105, label %.critedge3
 
-.preheader:                                       ; preds = %._crit_edge102
-  br i1 %.not110, label %._crit_edge105, label %.lr.ph104
-
-.lr.ph104:                                        ; preds = %.preheader
+.lr.ph104:                                        ; preds = %._crit_edge102
   %wide.trip.count128 = zext nneg i32 %14 to i64
   br label %104
 
@@ -6236,8 +6230,8 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %62, %84, %Gia_ObjIs
   %.pre137 = load i32, ptr %4, align 4
   br label %._crit_edge105
 
-._crit_edge105:                                   ; preds = %._crit_edge102.thread, %._crit_edge105.loopexit, %.preheader
-  %108 = phi i32 [ %.pre137, %._crit_edge105.loopexit ], [ %101, %.preheader ], [ %.pre136, %._crit_edge102.thread ]
+._crit_edge105:                                   ; preds = %._crit_edge102.thread, %._crit_edge105.loopexit
+  %108 = phi i32 [ %.pre137, %._crit_edge105.loopexit ], [ %.pre136, %._crit_edge102.thread ]
   store i32 %108, ptr %3, align 4
   br label %.critedge3
 

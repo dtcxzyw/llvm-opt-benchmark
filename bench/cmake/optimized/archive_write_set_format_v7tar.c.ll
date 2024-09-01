@@ -587,8 +587,8 @@ format_number.exit115.i:                          ; preds = %166, %._crit_edge.i
   br i1 %189, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %190 = icmp ult i64 %.01621.i.i, 8
-  br i1 %190, label %format_header_v7tar.exit, label %.lr.ph27.preheader.i.i
+  %190 = icmp ugt i64 %.01621.i.i, 7
+  br i1 %190, label %.lr.ph27.preheader.i.i, label %format_header_v7tar.exit
 
 .lr.ph27.preheader.i.i:                           ; preds = %._crit_edge.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %187, i8 55, i64 6, i1 false)

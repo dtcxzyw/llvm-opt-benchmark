@@ -17993,15 +17993,15 @@ define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonn
   %27 = fadd float %.01518.i, %26
   %28 = add nuw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %28, %umax.i
-  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !174
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !174
 
-.lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %29 = fmul float %10, %27
   br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %34, %.lr.ph23.preheader.i
-  %.121.i = phi i64 [ %35, %34 ], [ 0, %.lr.ph23.preheader.i ]
-  %.01420.i = phi float [ %32, %34 ], [ 0.000000e+00, %.lr.ph23.preheader.i ]
+.lr.ph23.i:                                       ; preds = %34, %._crit_edge.i
+  %.121.i = phi i64 [ %35, %34 ], [ 0, %._crit_edge.i ]
+  %.01420.i = phi float [ %32, %34 ], [ 0.000000e+00, %._crit_edge.i ]
   %30 = getelementptr inbounds float, ptr %13, i64 %.121.i
   %31 = load float, ptr %30, align 4
   %32 = fadd float %.01420.i, %31
@@ -18051,7 +18051,7 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %15, %._crit_edge24.
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %54, align 8
   %58 = icmp eq ptr %56, %57
-  br i1 %58, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit17, label %._crit_edge24.i13
+  br i1 %58, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit16, label %._crit_edge24.i12
 
 .lr.ph.preheader.i1:                              ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit
   %59 = ptrtoint ptr %50 to i64
@@ -18069,45 +18069,45 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %15, %._crit_edge24.
   %65 = fadd float %.01518.i5, %64
   %66 = add nuw i64 %.019.i4, 1
   %exitcond.not.i6 = icmp eq i64 %66, %umax.i2
-  br i1 %exitcond.not.i6, label %.lr.ph23.preheader.i8, label %.lr.ph.i3, !llvm.loop !174
+  br i1 %exitcond.not.i6, label %._crit_edge.i7, label %.lr.ph.i3, !llvm.loop !174
 
-.lr.ph23.preheader.i8:                            ; preds = %.lr.ph.i3
+._crit_edge.i7:                                   ; preds = %.lr.ph.i3
   %67 = fmul float %48, %65
-  br label %.lr.ph23.i10
+  br label %.lr.ph23.i9
 
-.lr.ph23.i10:                                     ; preds = %72, %.lr.ph23.preheader.i8
-  %.121.i11 = phi i64 [ %73, %72 ], [ 0, %.lr.ph23.preheader.i8 ]
-  %.01420.i12 = phi float [ %70, %72 ], [ 0.000000e+00, %.lr.ph23.preheader.i8 ]
-  %68 = getelementptr inbounds float, ptr %51, i64 %.121.i11
+.lr.ph23.i9:                                      ; preds = %72, %._crit_edge.i7
+  %.121.i10 = phi i64 [ %73, %72 ], [ 0, %._crit_edge.i7 ]
+  %.01420.i11 = phi float [ %70, %72 ], [ 0.000000e+00, %._crit_edge.i7 ]
+  %68 = getelementptr inbounds float, ptr %51, i64 %.121.i10
   %69 = load float, ptr %68, align 4
-  %70 = fadd float %.01420.i12, %69
+  %70 = fadd float %.01420.i11, %69
   %71 = fcmp ult float %70, %67
-  br i1 %71, label %72, label %._crit_edge24.i13.loopexit
+  br i1 %71, label %72, label %._crit_edge24.i12.loopexit
 
-72:                                               ; preds = %.lr.ph23.i10
-  %73 = add nuw i64 %.121.i11, 1
-  %exitcond30.not.i16 = icmp eq i64 %73, %umax.i2
-  br i1 %exitcond30.not.i16, label %._crit_edge24.i13.loopexit, label %.lr.ph23.i10, !llvm.loop !175
+72:                                               ; preds = %.lr.ph23.i9
+  %73 = add nuw i64 %.121.i10, 1
+  %exitcond30.not.i15 = icmp eq i64 %73, %umax.i2
+  br i1 %exitcond30.not.i15, label %._crit_edge24.i12.loopexit, label %.lr.ph23.i9, !llvm.loop !175
 
-._crit_edge24.i13.loopexit:                       ; preds = %.lr.ph23.i10, %72
-  %.1.lcssa.i14.ph = phi i64 [ %.121.i11, %.lr.ph23.i10 ], [ %umax.i2, %72 ]
-  %.phi.trans.insert20 = getelementptr inbounds i8, ptr %43, i64 24
-  %.pre21 = load ptr, ptr %.phi.trans.insert20, align 8
-  br label %._crit_edge24.i13
+._crit_edge24.i12.loopexit:                       ; preds = %.lr.ph23.i9, %72
+  %.1.lcssa.i13.ph = phi i64 [ %.121.i10, %.lr.ph23.i9 ], [ %umax.i2, %72 ]
+  %.phi.trans.insert19 = getelementptr inbounds i8, ptr %43, i64 24
+  %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8
+  br label %._crit_edge24.i12
 
-._crit_edge24.i13:                                ; preds = %._crit_edge24.i13.loopexit, %53
-  %74 = phi ptr [ %57, %53 ], [ %.pre21, %._crit_edge24.i13.loopexit ]
-  %.1.lcssa.i14 = phi i64 [ 0, %53 ], [ %.1.lcssa.i14.ph, %._crit_edge24.i13.loopexit ]
-  %75 = getelementptr float, ptr %74, i64 %.1.lcssa.i14
+._crit_edge24.i12:                                ; preds = %._crit_edge24.i12.loopexit, %53
+  %74 = phi ptr [ %57, %53 ], [ %.pre20, %._crit_edge24.i12.loopexit ]
+  %.1.lcssa.i13 = phi i64 [ 0, %53 ], [ %.1.lcssa.i13.ph, %._crit_edge24.i12.loopexit ]
+  %75 = getelementptr float, ptr %74, i64 %.1.lcssa.i13
   %76 = getelementptr i8, ptr %75, i64 4
   %77 = load float, ptr %76, align 4
-  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit17
+  br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
 
-_ZNK3vcg9HistogramIfE10PercentileEf.exit17:       ; preds = %53, %._crit_edge24.i13
-  %.016.i15 = phi float [ %77, %._crit_edge24.i13 ], [ 0.000000e+00, %53 ]
+_ZNK3vcg9HistogramIfE10PercentileEf.exit16:       ; preds = %53, %._crit_edge24.i12
+  %.016.i14 = phi float [ %77, %._crit_edge24.i12 ], [ 0.000000e+00, %53 ]
   %78 = load ptr, ptr %40, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 12
-  store float %.016.i15, ptr %79, align 4
+  store float %.016.i14, ptr %79, align 4
   tail call void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr noundef nonnull align 8 dereferenceable(824) %0)
   %80 = tail call noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(ptr noundef nonnull align 8 dereferenceable(824) %0, i1 noundef zeroext true, i1 noundef zeroext true)
   %81 = getelementptr inbounds i8, ptr %0, i64 568
@@ -18115,11 +18115,11 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit17:       ; preds = %53, %._crit_edge24.
   %83 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %82)
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit17
+84:                                               ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
   tail call void @_ZN19QualityMapperDialog22on_applyButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(824) %0)
   br label %85
 
-85:                                               ; preds = %84, %_ZNK3vcg9HistogramIfE10PercentileEf.exit17
+85:                                               ; preds = %84, %_ZNK3vcg9HistogramIfE10PercentileEf.exit16
   ret void
 }
 

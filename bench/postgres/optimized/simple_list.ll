@@ -27,8 +27,8 @@ define dso_local noundef zeroext i1 @simple_oid_list_member(ptr nocapture nounde
 3:                                                ; preds = %4, %2
   %.0.in = phi ptr [ %0, %2 ], [ %.0, %4 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %4, label %8
+  %.not.not.not.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not.not.not.not, label %4, label %8
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.0, i64 8
@@ -37,7 +37,7 @@ define dso_local noundef zeroext i1 @simple_oid_list_member(ptr nocapture nounde
   br i1 %7, label %8, label %3, !llvm.loop !5
 
 8:                                                ; preds = %3, %4
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable
@@ -72,8 +72,8 @@ define dso_local noundef zeroext i1 @simple_string_list_member(ptr nocapture nou
 3:                                                ; preds = %4, %2
   %.0.in = phi ptr [ %0, %2 ], [ %.0, %4 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %4, label %.loopexit
+  %.not.not.not.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not.not.not.not, label %4, label %.loopexit
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.0, i64 9
@@ -87,7 +87,7 @@ define dso_local noundef zeroext i1 @simple_string_list_member(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %8
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

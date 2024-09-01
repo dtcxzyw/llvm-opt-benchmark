@@ -859,9 +859,6 @@ hwloc__osdev_types_sscanf.exit107:                ; preds = %24
   %53 = icmp ult i32 %66, 2
   br i1 %53, label %.lr.ph.i130.preheader, label %hwloc__type_match.exit
 
-.lr.ph.i130.preheader:                            ; preds = %61, %59, %._crit_edge.i124
-  br label %.lr.ph.i130
-
 .lr.ph.i110:                                      ; preds = %._crit_edge.i.thread, %65
   %54 = phi i8 [ %69, %65 ], [ %33, %._crit_edge.i.thread ]
   %.042.i111 = phi i32 [ %66, %65 ], [ 0, %._crit_edge.i.thread ]
@@ -889,6 +886,9 @@ hwloc__osdev_types_sscanf.exit107:                ; preds = %24
   %64 = icmp ult i32 %.042.i111, 2
   %or.cond178 = select i1 %or.cond35.i119, i1 true, i1 %64
   br i1 %or.cond178, label %.lr.ph.i130.preheader, label %hwloc__type_match.exit
+
+.lr.ph.i130.preheader:                            ; preds = %._crit_edge.i124, %59, %61
+  br label %.lr.ph.i130
 
 65:                                               ; preds = %.lr.ph.i110
   %66 = add i32 %.042.i111, 1
@@ -1217,9 +1217,6 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %4 = icmp ult i32 %17, 4
   br i1 %4, label %.lr.ph.i27.preheader, label %.sink.split
 
-.lr.ph.i27.preheader:                             ; preds = %10, %12, %._crit_edge.i
-  br label %.lr.ph.i27
-
 .lr.ph.i:                                         ; preds = %2, %16
   %5 = phi i8 [ %20, %16 ], [ %3, %2 ]
   %.042.i = phi i32 [ %17, %16 ], [ 0, %2 ]
@@ -1238,6 +1235,9 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %11 = add i8 %5, -97
   %or.cond32.i = icmp ult i8 %11, 26
   br i1 %or.cond32.i, label %.lr.ph.i27.preheader, label %12
+
+.lr.ph.i27.preheader:                             ; preds = %._crit_edge.i, %12, %10
+  br label %.lr.ph.i27
 
 12:                                               ; preds = %10
   %13 = add i8 %5, -65
@@ -1259,9 +1259,6 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
 ._crit_edge.i41:                                  ; preds = %33
   %21 = icmp ult i32 %34, 4
   br i1 %21, label %.lr.ph.i47.preheader, label %.sink.split
-
-.lr.ph.i47.preheader:                             ; preds = %29, %27, %._crit_edge.i41
-  br label %.lr.ph.i47
 
 .lr.ph.i27:                                       ; preds = %.lr.ph.i27.preheader, %33
   %22 = phi i8 [ %37, %33 ], [ %3, %.lr.ph.i27.preheader ]
@@ -1291,6 +1288,9 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %or.cond123 = select i1 %or.cond35.i36, i1 true, i1 %32
   br i1 %or.cond123, label %.lr.ph.i47.preheader, label %.sink.split
 
+.lr.ph.i47.preheader:                             ; preds = %._crit_edge.i41, %27, %29
+  br label %.lr.ph.i47
+
 33:                                               ; preds = %.lr.ph.i27
   %34 = add i32 %.042.i28, 1
   %35 = getelementptr inbounds i8, ptr %.02240.i30, i64 1
@@ -1302,9 +1302,6 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
 ._crit_edge.i61:                                  ; preds = %50
   %38 = icmp ult i32 %51, 3
   br i1 %38, label %.lr.ph.i67.preheader, label %.sink.split
-
-.lr.ph.i67.preheader:                             ; preds = %46, %44, %._crit_edge.i61
-  br label %.lr.ph.i67
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47.preheader, %50
   %39 = phi i8 [ %54, %50 ], [ %3, %.lr.ph.i47.preheader ]
@@ -1333,6 +1330,9 @@ define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef
   %49 = icmp ult i32 %.042.i48, 3
   %or.cond126 = select i1 %or.cond35.i56, i1 true, i1 %49
   br i1 %or.cond126, label %.lr.ph.i67.preheader, label %.sink.split
+
+.lr.ph.i67.preheader:                             ; preds = %._crit_edge.i61, %44, %46
+  br label %.lr.ph.i67
 
 50:                                               ; preds = %.lr.ph.i47
   %51 = add i32 %.042.i48, 1

@@ -491,8 +491,8 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %.sroa.53.sroa.8, i8 0, i64 5, i1 false)
   %10 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 6, ptr noundef %4, ptr noundef %5) #7
-  %.not289 = icmp ne i32 %10, 0
-  br i1 %.not289, label %.lr.ph, label %._crit_edge.thread
+  %.not289.not = icmp eq i32 %10, 0
+  br i1 %.not289.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %11 = getelementptr inbounds i8, ptr %7, i64 1
@@ -530,8 +530,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
 ._crit_edge:                                      ; preds = %13
   %15 = load i32, ptr %4, align 4
   %16 = icmp eq i32 %15, 0
-  %or.cond49 = and i1 %.not289, %16
-  br i1 %or.cond49, label %17, label %._crit_edge.thread
+  br i1 %16, label %17, label %._crit_edge.thread
 
 17:                                               ; preds = %._crit_edge
   store i32 -12, ptr %4, align 4

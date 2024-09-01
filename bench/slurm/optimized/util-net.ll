@@ -127,7 +127,7 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %.neg91.i = add nsw i32 %30, -8
   %43 = add i32 %.neg91.i, %42
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %copy_hostent.exit, label %.lr.ph119.preheader.i
+  br i1 %44, label %copy_hostent.exit, label %47
 
 ._crit_edge110.thread.i:                          ; preds = %32
   %45 = icmp ult i32 %30, 8
@@ -138,120 +138,120 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
   br label %._crit_edge120.i
 
-.lr.ph119.preheader.i:                            ; preds = %._crit_edge110.i
-  %47 = getelementptr inbounds i8, ptr %.1107.i, i64 16
+47:                                               ; preds = %._crit_edge110.i
+  %48 = getelementptr inbounds i8, ptr %.1107.i, i64 16
   %.pre.i = load i32, ptr %17, align 4
   br label %.lr.ph119.i
 
-.lr.ph119.i:                                      ; preds = %52, %.lr.ph119.preheader.i
-  %48 = phi i32 [ %54, %52 ], [ %.pre.i, %.lr.ph119.preheader.i ]
-  %49 = phi ptr [ %59, %52 ], [ %37, %.lr.ph119.preheader.i ]
-  %.2117.i = phi ptr [ %58, %52 ], [ %33, %.lr.ph119.preheader.i ]
-  %.270116.i = phi ptr [ %57, %52 ], [ %36, %.lr.ph119.preheader.i ]
-  %.075115.i = phi i32 [ %50, %52 ], [ %43, %.lr.ph119.preheader.i ]
-  %.077114.i = phi ptr [ %56, %52 ], [ %47, %.lr.ph119.preheader.i ]
-  %50 = sub nsw i32 %.075115.i, %48
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %copy_hostent.exit, label %52
+.lr.ph119.i:                                      ; preds = %53, %47
+  %49 = phi i32 [ %55, %53 ], [ %.pre.i, %47 ]
+  %50 = phi ptr [ %60, %53 ], [ %37, %47 ]
+  %.2117.i = phi ptr [ %59, %53 ], [ %33, %47 ]
+  %.270116.i = phi ptr [ %58, %53 ], [ %36, %47 ]
+  %.075115.i = phi i32 [ %51, %53 ], [ %43, %47 ]
+  %.077114.i = phi ptr [ %57, %53 ], [ %48, %47 ]
+  %51 = sub nsw i32 %.075115.i, %49
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %copy_hostent.exit, label %53
 
-52:                                               ; preds = %.lr.ph119.i
-  %53 = sext i32 %48 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077114.i, ptr nonnull align 1 %49, i64 %53, i1 false)
+53:                                               ; preds = %.lr.ph119.i
+  %54 = sext i32 %49 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077114.i, ptr nonnull align 1 %50, i64 %54, i1 false)
   store ptr %.077114.i, ptr %.2117.i, align 8
-  %54 = load i32, ptr %17, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %.077114.i, i64 %55
-  %57 = getelementptr inbounds i8, ptr %.270116.i, i64 8
-  %58 = getelementptr inbounds i8, ptr %.2117.i, i64 8
-  %59 = load ptr, ptr %57, align 8
-  %.not87.i = icmp eq ptr %59, null
+  %55 = load i32, ptr %17, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i8, ptr %.077114.i, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.270116.i, i64 8
+  %59 = getelementptr inbounds i8, ptr %.2117.i, i64 8
+  %60 = load ptr, ptr %58, align 8
+  %.not87.i = icmp eq ptr %60, null
   br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !9
 
-._crit_edge120.i:                                 ; preds = %52, %.thread.i
-  %.077.lcssa.i = phi ptr [ %46, %.thread.i ], [ %56, %52 ]
-  %.075.lcssa.i = phi i32 [ %.neg91145.i, %.thread.i ], [ %50, %52 ]
-  %.2.lcssa.i = phi ptr [ %33, %.thread.i ], [ %58, %52 ]
+._crit_edge120.i:                                 ; preds = %53, %.thread.i
+  %.077.lcssa.i = phi ptr [ %46, %.thread.i ], [ %57, %53 ]
+  %.075.lcssa.i = phi i32 [ %.neg91145.i, %.thread.i ], [ %51, %53 ]
+  %.2.lcssa.i = phi ptr [ %33, %.thread.i ], [ %59, %53 ]
   store ptr null, ptr %.2.lcssa.i, align 8
-  %60 = load ptr, ptr %22, align 8
-  %61 = load ptr, ptr %21, align 8
-  %62 = load ptr, ptr %60, align 8
-  %.not88124.i = icmp eq ptr %62, null
+  %61 = load ptr, ptr %22, align 8
+  %62 = load ptr, ptr %21, align 8
+  %63 = load ptr, ptr %61, align 8
+  %.not88124.i = icmp eq ptr %63, null
   br i1 %.not88124.i, label %._crit_edge131.i, label %.lr.ph130.i
 
-.lr.ph130.i:                                      ; preds = %._crit_edge120.i, %70
-  %63 = phi ptr [ %75, %70 ], [ %62, %._crit_edge120.i ]
-  %.3128.i = phi ptr [ %74, %70 ], [ %61, %._crit_edge120.i ]
-  %.371127.i = phi ptr [ %73, %70 ], [ %60, %._crit_edge120.i ]
-  %.176126.i = phi i32 [ %68, %70 ], [ %.075.lcssa.i, %._crit_edge120.i ]
-  %.178125.i = phi ptr [ %72, %70 ], [ %.077.lcssa.i, %._crit_edge120.i ]
-  %64 = zext nneg i32 %.176126.i to i64
-  %65 = tail call i64 @strlcpy(ptr noundef %.178125.i, ptr noundef nonnull dereferenceable(1) %63, i64 noundef %64) #13
-  %66 = trunc i64 %65 to i32
+.lr.ph130.i:                                      ; preds = %._crit_edge120.i, %71
+  %64 = phi ptr [ %76, %71 ], [ %63, %._crit_edge120.i ]
+  %.3128.i = phi ptr [ %75, %71 ], [ %62, %._crit_edge120.i ]
+  %.371127.i = phi ptr [ %74, %71 ], [ %61, %._crit_edge120.i ]
+  %.176126.i = phi i32 [ %69, %71 ], [ %.075.lcssa.i, %._crit_edge120.i ]
+  %.178125.i = phi ptr [ %73, %71 ], [ %.077.lcssa.i, %._crit_edge120.i ]
+  %65 = zext nneg i32 %.176126.i to i64
+  %66 = tail call i64 @strlcpy(ptr noundef %.178125.i, ptr noundef nonnull dereferenceable(1) %64, i64 noundef %65) #13
+  %67 = trunc i64 %66 to i32
   store ptr %.178125.i, ptr %.3128.i, align 8
-  %67 = add nsw i32 %66, 1
-  %68 = sub nsw i32 %.176126.i, %67
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %copy_hostent.exit, label %70
+  %68 = add nsw i32 %67, 1
+  %69 = sub nsw i32 %.176126.i, %68
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %copy_hostent.exit, label %71
 
-70:                                               ; preds = %.lr.ph130.i
-  %71 = sext i32 %67 to i64
-  %72 = getelementptr inbounds i8, ptr %.178125.i, i64 %71
-  %73 = getelementptr inbounds i8, ptr %.371127.i, i64 8
-  %74 = getelementptr inbounds i8, ptr %.3128.i, i64 8
-  %75 = load ptr, ptr %73, align 8
-  %.not88.i = icmp eq ptr %75, null
+71:                                               ; preds = %.lr.ph130.i
+  %72 = sext i32 %68 to i64
+  %73 = getelementptr inbounds i8, ptr %.178125.i, i64 %72
+  %74 = getelementptr inbounds i8, ptr %.371127.i, i64 8
+  %75 = getelementptr inbounds i8, ptr %.3128.i, i64 8
+  %76 = load ptr, ptr %74, align 8
+  %.not88.i = icmp eq ptr %76, null
   br i1 %.not88.i, label %._crit_edge131.i, label %.lr.ph130.i, !llvm.loop !10
 
-._crit_edge131.i:                                 ; preds = %70, %._crit_edge120.i
-  %.178.lcssa.i = phi ptr [ %.077.lcssa.i, %._crit_edge120.i ], [ %72, %70 ]
-  %.176.lcssa.i = phi i32 [ %.075.lcssa.i, %._crit_edge120.i ], [ %68, %70 ]
-  %.3.lcssa.i = phi ptr [ %61, %._crit_edge120.i ], [ %74, %70 ]
+._crit_edge131.i:                                 ; preds = %71, %._crit_edge120.i
+  %.178.lcssa.i = phi ptr [ %.077.lcssa.i, %._crit_edge120.i ], [ %73, %71 ]
+  %.176.lcssa.i = phi i32 [ %.075.lcssa.i, %._crit_edge120.i ], [ %69, %71 ]
+  %.3.lcssa.i = phi ptr [ %62, %._crit_edge120.i ], [ %75, %71 ]
   store ptr null, ptr %.3.lcssa.i, align 8
   store ptr %.178.lcssa.i, ptr %1, align 8
-  %76 = load ptr, ptr %9, align 8
-  %77 = zext nneg i32 %.176.lcssa.i to i64
-  %78 = tail call i64 @strlcpy(ptr noundef %.178.lcssa.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef %77) #13
-  %79 = trunc i64 %78 to i32
-  %80 = sub i32 %79, %.176.lcssa.i
-  %81 = icmp sgt i32 %80, -1
+  %77 = load ptr, ptr %9, align 8
+  %78 = zext nneg i32 %.176.lcssa.i to i64
+  %79 = tail call i64 @strlcpy(ptr noundef %.178.lcssa.i, ptr noundef nonnull dereferenceable(1) %77, i64 noundef %78) #13
+  %80 = trunc i64 %79 to i32
+  %81 = sub i32 %80, %.176.lcssa.i
+  %82 = icmp sgt i32 %81, -1
   br label %copy_hostent.exit
 
 copy_hostent.exit:                                ; preds = %.lr.ph119.i, %.lr.ph130.i, %._crit_edge131.i, %._crit_edge110.thread.i, %._crit_edge110.i, %._crit_edge.i, %10, %8
-  %.013 = phi i1 [ false, %8 ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ %81, %._crit_edge131.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
+  %.013 = phi i1 [ false, %8 ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ %82, %._crit_edge131.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
   %.not19 = icmp eq ptr %3, null
-  br i1 %.not19, label %85, label %82
+  br i1 %.not19, label %86, label %83
 
-82:                                               ; preds = %copy_hostent.exit
-  %83 = tail call ptr @__h_errno_location() #14
-  %84 = load i32, ptr %83, align 4
-  store i32 %84, ptr %3, align 4
-  br label %85
+83:                                               ; preds = %copy_hostent.exit
+  %84 = tail call ptr @__h_errno_location() #14
+  %85 = load i32, ptr %84, align 4
+  store i32 %85, ptr %3, align 4
+  br label %86
 
-85:                                               ; preds = %copy_hostent.exit, %82
-  %86 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @hostentLock) #13
-  %.not20 = icmp eq i32 %86, 0
-  br i1 %.not20, label %89, label %87
+86:                                               ; preds = %copy_hostent.exit, %83
+  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @hostentLock) #13
+  %.not20 = icmp eq i32 %87, 0
+  br i1 %.not20, label %90, label %88
 
-87:                                               ; preds = %85
-  %88 = tail call ptr @__errno_location() #14
-  store i32 %86, ptr %88, align 4
+88:                                               ; preds = %86
+  %89 = tail call ptr @__errno_location() #14
+  store i32 %87, ptr %89, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.get_host_by_name) #15
   unreachable
 
-89:                                               ; preds = %85
-  br i1 %.013, label %90, label %92
+90:                                               ; preds = %86
+  br i1 %.013, label %91, label %93
 
-90:                                               ; preds = %89
-  %91 = tail call ptr @__errno_location() #14
-  store i32 34, ptr %91, align 4
-  br label %94
+91:                                               ; preds = %90
+  %92 = tail call ptr @__errno_location() #14
+  store i32 34, ptr %92, align 4
+  br label %95
 
-92:                                               ; preds = %89
-  %93 = select i1 %.not18, ptr null, ptr %1
-  br label %94
+93:                                               ; preds = %90
+  %94 = select i1 %.not18, ptr null, ptr %1
+  br label %95
 
-94:                                               ; preds = %92, %90
-  %.0 = phi ptr [ null, %90 ], [ %93, %92 ]
+95:                                               ; preds = %93, %91
+  %.0 = phi ptr [ null, %91 ], [ %94, %93 ]
   ret ptr %.0
 }
 

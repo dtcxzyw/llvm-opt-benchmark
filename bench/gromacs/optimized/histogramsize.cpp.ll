@@ -164,14 +164,14 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %81
+  br i1 %12, label %13, label %82
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   %brmerge.demorgan = and i1 %3, %16
-  br i1 %brmerge.demorgan, label %17, label %72
+  br i1 %brmerge.demorgan, label %17, label %73
 
 17:                                               ; preds = %13
   %.not4446.i = icmp eq ptr %4, %5
@@ -202,117 +202,117 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
 
 ._crit_edge.i:                                    ; preds = %26
   %28 = fcmp ogt double %.1.i, 0.000000e+00
-  br i1 %28, label %.lr.ph56.i.preheader, label %._crit_edge.thread.i
+  br i1 %28, label %29, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %17
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 163) #11
   unreachable
 
-.lr.ph56.i.preheader:                             ; preds = %._crit_edge.i
-  %29 = sitofp i32 %.131.i to double
-  %30 = fdiv double 1.000000e+00, %.1.i
-  %31 = fdiv double 1.000000e+00, %29
-  %32 = fmul double %31, 5.000000e-02
+29:                                               ; preds = %._crit_edge.i
+  %30 = sitofp i32 %.131.i to double
+  %31 = fdiv double 1.000000e+00, %.1.i
+  %32 = fdiv double 1.000000e+00, %30
+  %33 = fmul double %32, 5.000000e-02
   br label %.lr.ph56.i
 
-.lr.ph56.i:                                       ; preds = %.lr.ph56.i.preheader, %49
-  %.03254.i = phi double [ %.133.i, %49 ], [ 0.000000e+00, %.lr.ph56.i.preheader ]
-  %.03453.i = phi double [ %.135.i, %49 ], [ 0.000000e+00, %.lr.ph56.i.preheader ]
-  %.sroa.0.052.i = phi ptr [ %50, %49 ], [ %4, %.lr.ph56.i.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 16
-  %34 = load double, ptr %33, align 8
-  %35 = fcmp ule double %34, 0.000000e+00
-  %36 = fcmp olt double %34, %32
-  %or.cond.i = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond.i, label %49, label %37
+.lr.ph56.i:                                       ; preds = %50, %29
+  %.03254.i = phi double [ %.133.i, %50 ], [ 0.000000e+00, %29 ]
+  %.03453.i = phi double [ %.135.i, %50 ], [ 0.000000e+00, %29 ]
+  %.sroa.0.052.i = phi ptr [ %51, %50 ], [ %4, %29 ]
+  %34 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 16
+  %35 = load double, ptr %34, align 8
+  %36 = fcmp ule double %35, 0.000000e+00
+  %37 = fcmp olt double %35, %33
+  %or.cond.i = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond.i, label %50, label %38
 
-37:                                               ; preds = %.lr.ph56.i
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 40
-  %39 = load double, ptr %38, align 8
-  %40 = fmul double %30, %39
-  %41 = fdiv double %40, %34
-  %42 = fadd double %41, -1.000000e+00
-  %43 = tail call noundef double @llvm.fabs.f64(double %42)
-  %44 = fcmp ogt double %43, 2.000000e-01
-  br i1 %44, label %45, label %47
+38:                                               ; preds = %.lr.ph56.i
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 40
+  %40 = load double, ptr %39, align 8
+  %41 = fmul double %31, %40
+  %42 = fdiv double %41, %35
+  %43 = fadd double %42, -1.000000e+00
+  %44 = tail call noundef double @llvm.fabs.f64(double %43)
+  %45 = fcmp ogt double %44, 2.000000e-01
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %37
-  %46 = fadd double %.03453.i, %34
-  br label %49
+46:                                               ; preds = %38
+  %47 = fadd double %.03453.i, %35
+  br label %50
 
-47:                                               ; preds = %37
-  %48 = fadd double %.03254.i, %34
-  br label %49
+48:                                               ; preds = %38
+  %49 = fadd double %.03254.i, %35
+  br label %50
 
-49:                                               ; preds = %47, %45, %.lr.ph56.i
-  %.135.i = phi double [ %46, %45 ], [ %.03453.i, %47 ], [ %.03453.i, %.lr.ph56.i ]
-  %.133.i = phi double [ %.03254.i, %45 ], [ %48, %47 ], [ %.03254.i, %.lr.ph56.i ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 96
-  %.not45.i = icmp eq ptr %50, %5
+50:                                               ; preds = %48, %46, %.lr.ph56.i
+  %.135.i = phi double [ %47, %46 ], [ %.03453.i, %48 ], [ %.03453.i, %.lr.ph56.i ]
+  %.133.i = phi double [ %.03254.i, %46 ], [ %49, %48 ], [ %.03254.i, %.lr.ph56.i ]
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 96
+  %.not45.i = icmp eq ptr %51, %5
   br i1 %.not45.i, label %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, label %.lr.ph56.i
 
-_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit: ; preds = %49
-  %51 = fadd double %.135.i, %.133.i
-  %52 = fdiv double %.133.i, %51
-  %53 = fcmp ule double %52, 8.000000e-01
-  %54 = zext i1 %53 to i8
-  store i8 %54, ptr %14, align 8
+_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit: ; preds = %50
+  %52 = fadd double %.135.i, %.133.i
+  %53 = fdiv double %.133.i, %52
+  %54 = fcmp ule double %53, 8.000000e-01
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %14, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %72, label %55
+  br i1 %.not, label %73, label %56
 
-55:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 132
-  %57 = load i32, ptr %56, align 4
-  %58 = add nsw i32 %57, 1
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str, i32 noundef %58)
-  %59 = load i8, ptr %14, align 8
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %64, label %61
+56:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit
+  %57 = getelementptr inbounds i8, ptr %1, i64 132
+  %58 = load i32, ptr %57, align 4
+  %59 = add nsw i32 %58, 1
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str, i32 noundef %59)
+  %60 = load i8, ptr %14, align 8
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %65, label %62
 
-61:                                               ; preds = %55
-  %62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %62, double noundef %2) #10
-  br label %71
-
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %71, label %68
-
-68:                                               ; preds = %64
-  %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef %69, double noundef %2) #10
-  store i8 1, ptr %65, align 8
-  br label %71
-
-71:                                               ; preds = %64, %68, %61
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+62:                                               ; preds = %56
+  %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %63, double noundef %2) #10
   br label %72
 
-72:                                               ; preds = %13, %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, %71
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %73 to i64
-  %78 = sub i64 %76, %77
-  %79 = getelementptr inbounds i8, ptr %73, i64 %78
-  %80 = call noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS_10BiasParamsEdbNS_8ArrayRefIdEEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(137) %1, double noundef %2, i1 noundef zeroext %3, ptr %73, ptr %79, ptr noundef %7)
-  br label %89
+65:                                               ; preds = %56
+  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %72, label %69
 
-81:                                               ; preds = %8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 80
-  %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 88
-  %87 = load double, ptr %86, align 8
-  %88 = tail call double @llvm.fmuladd.f64(double %85, double %87, double %83)
-  br label %89
+69:                                               ; preds = %65
+  %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef %70, double noundef %2) #10
+  store i8 1, ptr %66, align 8
+  br label %72
 
-89:                                               ; preds = %81, %72
-  %.0 = phi double [ %80, %72 ], [ %88, %81 ]
+72:                                               ; preds = %65, %69, %62
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
+  br label %73
+
+73:                                               ; preds = %13, %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, %72
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %74 to i64
+  %79 = sub i64 %77, %78
+  %80 = getelementptr inbounds i8, ptr %74, i64 %79
+  %81 = call noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS_10BiasParamsEdbNS_8ArrayRefIdEEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(137) %1, double noundef %2, i1 noundef zeroext %3, ptr %74, ptr %80, ptr noundef %7)
+  br label %90
+
+82:                                               ; preds = %8
+  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %84 = load double, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %1, i64 80
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 88
+  %88 = load double, ptr %87, align 8
+  %89 = tail call double @llvm.fmuladd.f64(double %86, double %88, double %84)
+  br label %90
+
+90:                                               ; preds = %82, %73
+  %.0 = phi double [ %81, %73 ], [ %89, %82 ]
   ret double %.0
 }
 

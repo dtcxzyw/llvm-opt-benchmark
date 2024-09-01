@@ -7491,10 +7491,7 @@ for.body28.lr.ph:                                 ; preds = %for.cond26.preheade
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   br label %for.body28
 
-for.cond102.preheader:                            ; preds = %for.inc92
-  br i1 %cmp.i20.not230, label %for.end135, label %for.body104.lr.ph
-
-for.body104.lr.ph:                                ; preds = %for.cond102.preheader
+for.body104.lr.ph:                                ; preds = %for.inc92
   %_M_bucket_count.i.i.i88 = getelementptr inbounds i8, ptr %this, i64 104
   %_M_node.i.i.i104 = getelementptr inbounds i8, ptr %__node5.i.i86, i64 8
   br label %for.body104
@@ -7911,7 +7908,7 @@ for.inc89:                                        ; preds = %_ZN7rocksdb11KeyLoc
 for.inc92:                                        ; preds = %for.inc89, %invoke.cont31
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0231, i64 4
   %cmp.i20.not = icmp eq ptr %incdec.ptr.i83, %cf_ids.sroa.8.0.lcssa
-  br i1 %cmp.i20.not, label %for.cond102.preheader, label %for.body28
+  br i1 %cmp.i20.not, label %for.body104.lr.ph, label %for.body28
 
 for.body104:                                      ; preds = %for.body104.lr.ph, %for.inc133
   %__begin196.sroa.0.0235 = phi ptr [ %cf_ids.sroa.0.0.lcssa, %for.body104.lr.ph ], [ %incdec.ptr.i121, %for.inc133 ]
@@ -8004,7 +8001,7 @@ for.inc133:                                       ; preds = %for.inc130, %invoke
   %cmp.i85.not = icmp eq ptr %incdec.ptr.i121, %cf_ids.sroa.8.0.lcssa
   br i1 %cmp.i85.not, label %for.end135, label %for.body104
 
-for.end135:                                       ; preds = %for.inc133, %for.cond26.preheader, %for.cond102.preheader
+for.end135:                                       ; preds = %for.inc133, %for.cond26.preheader
   %tobool.not.i.i.i122 = icmp eq ptr %cf_ids.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i122, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i123
 
@@ -14785,7 +14782,7 @@ if.end3.i:                                        ; preds = %if.end.i, %for.cond
   %__p.010.i = phi ptr [ %20, %for.cond.i ], [ %17, %if.end.i ]
   %20 = load ptr, ptr %__p.010.i, align 8
   %tobool5.not.i = icmp eq ptr %20, null
-  br i1 %tobool5.not.i, label %if.else, label %lor.lhs.false.i
+  br i1 %tobool5.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %20, i64 8
@@ -14793,7 +14790,7 @@ lor.lhs.false.i:                                  ; preds = %if.end3.i
   %conv.i.i.i.i.i = zext i32 %21 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %11
   %cmp.not.i = icmp eq i64 %rem.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i, label %for.cond.i, label %if.else, !llvm.loop !169
+  br i1 %cmp.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !169
 
 if.then13:                                        ; preds = %for.cond.i, %if.end.i
   %22 = phi ptr [ %17, %if.end.i ], [ %20, %for.cond.i ]
@@ -14828,10 +14825,7 @@ if.then29:                                        ; preds = %if.then24
   store ptr %__node, ptr %arrayidx, align 8
   br label %if.end33
 
-if.else:                                          ; preds = %if.end3.i, %lor.lhs.false.i
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.else
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end3.i
   %28 = load ptr, ptr %16, align 8
   store ptr %28, ptr %__node, align 8
   %29 = load ptr, ptr %this, align 8
@@ -14840,7 +14834,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %__node, ptr %30, align 8
   br label %if.end33
 
-if.else.i:                                        ; preds = %cond.false, %if.else
+if.else.i:                                        ; preds = %cond.false
   %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %31 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %31, ptr %__node, align 8

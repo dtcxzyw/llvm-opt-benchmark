@@ -898,10 +898,7 @@ mlib_ImageConv1xN_ext.exit:                       ; preds = %54, %._crit_edge.i,
   %wide.trip.count1640 = zext i32 %492 to i64
   br label %.lr.ph1367
 
-.preheader1349:                                   ; preds = %.lr.ph1367
-  br i1 %.not1364, label %._crit_edge1371, label %.lr.ph1370.preheader
-
-.lr.ph1370.preheader:                             ; preds = %.preheader1349
+.lr.ph1370.preheader:                             ; preds = %.lr.ph1367
   %493 = zext i32 %492 to i64
   br label %.lr.ph1370
 
@@ -913,7 +910,7 @@ mlib_ImageConv1xN_ext.exit:                       ; preds = %54, %._crit_edge.i,
   store ptr %495, ptr %496, align 8
   %indvars.iv.next1638 = add nuw nsw i64 %indvars.iv1637, 1
   %exitcond1641.not = icmp eq i64 %indvars.iv.next1638, %wide.trip.count1640
-  br i1 %exitcond1641.not, label %.preheader1349, label %.lr.ph1367, !llvm.loop !21
+  br i1 %exitcond1641.not, label %.lr.ph1370.preheader, label %.lr.ph1367, !llvm.loop !21
 
 .lr.ph1370:                                       ; preds = %.lr.ph1370.preheader, %.lr.ph1370
   %indvars.iv1642 = phi i64 [ 0, %.lr.ph1370.preheader ], [ %indvars.iv.next1643, %.lr.ph1370 ]
@@ -926,7 +923,7 @@ mlib_ImageConv1xN_ext.exit:                       ; preds = %54, %._crit_edge.i,
   %exitcond1646.not = icmp eq i64 %indvars.iv.next1643, %493
   br i1 %exitcond1646.not, label %._crit_edge1371, label %.lr.ph1370, !llvm.loop !22
 
-._crit_edge1371:                                  ; preds = %.lr.ph1370, %490, %.preheader1349
+._crit_edge1371:                                  ; preds = %.lr.ph1370, %490
   %501 = sext i32 %4 to i64
   %502 = getelementptr inbounds ptr, ptr %.01173, i64 %501
   %503 = load ptr, ptr %502, align 8
@@ -2297,10 +2294,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr nocapture noundef re
   %wide.trip.count = zext i32 %44 to i64
   br label %.lr.ph
 
-.preheader1174:                                   ; preds = %.lr.ph
-  br i1 %.not1175, label %._crit_edge, label %.lr.ph1179.preheader
-
-.lr.ph1179.preheader:                             ; preds = %.preheader1174
+.lr.ph1179.preheader:                             ; preds = %.lr.ph
   %45 = zext i32 %44 to i64
   br label %.lr.ph1179
 
@@ -2312,7 +2306,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr nocapture noundef re
   store ptr %47, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1174, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.lr.ph1179.preheader, label %.lr.ph, !llvm.loop !49
 
 .lr.ph1179:                                       ; preds = %.lr.ph1179.preheader, %.lr.ph1179
   %indvars.iv1453 = phi i64 [ 0, %.lr.ph1179.preheader ], [ %indvars.iv.next1454, %.lr.ph1179 ]
@@ -2325,7 +2319,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr nocapture noundef re
   %exitcond1457.not = icmp eq i64 %indvars.iv.next1454, %45
   br i1 %exitcond1457.not, label %._crit_edge, label %.lr.ph1179, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph1179, %42, %.preheader1174
+._crit_edge:                                      ; preds = %.lr.ph1179, %42
   %53 = sext i32 %4 to i64
   %54 = getelementptr inbounds ptr, ptr %.01000, i64 %53
   %55 = load ptr, ptr %54, align 8

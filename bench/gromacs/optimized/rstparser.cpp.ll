@@ -62,8 +62,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %27 = load i64, ptr %3, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #7
-  %.not104 = icmp ne i64 %27, %29
-  br i1 %.not104, label %32, label %30
+  %.not104.not.not.not = icmp ne i64 %27, %29
+  br i1 %.not104.not.not.not, label %32, label %30
 
 30:                                               ; preds = %.critedge
   %31 = load i64, ptr %3, align 8
@@ -466,7 +466,7 @@ tailrecurse.backedge:                             ; preds = %168, %165
   br label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 _ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %214, %194, %203, %.loopexit, %30
-  ret i1 %.not104
+  ret i1 %.not104.not.not.not
 }
 
 ; Function Attrs: nounwind

@@ -24182,12 +24182,12 @@ for.inc:                                          ; preds = %_ZN6vectorIjLb0EjE9
   br label %for.cond16, !llvm.loop !127
 
 lpad7.loopexit.loopexit:                          ; preds = %if.end.i162, %if.then.i165
-  %lpad.loopexit277 = landingpad { ptr, i32 }
+  %lpad.loopexit269 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
 
 lpad7.loopexit.loopexit.split-lp:                 ; preds = %if.end.i138, %if.then.i139
-  %lpad.loopexit.split-lp278 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
 
@@ -24620,7 +24620,7 @@ terminate.lpad.i.i130:                            ; preds = %if.then.i.i.i128
   unreachable
 
 ehcleanup61:                                      ; preds = %lpad7.loopexit.loopexit, %lpad7.loopexit.loopexit.split-lp, %lpad7.loopexit.split-lp, %cleanup.action.i, %ehcleanup.i, %ehcleanup.i160, %cleanup.action.i155, %ehcleanup
-  %.pn11 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %46, %ehcleanup.i ], [ %47, %cleanup.action.i ], [ %37, %ehcleanup.i160 ], [ %38, %cleanup.action.i155 ], [ %lpad.loopexit.split-lp184, %lpad7.loopexit.split-lp ], [ %lpad.loopexit277, %lpad7.loopexit.loopexit ], [ %lpad.loopexit.split-lp278, %lpad7.loopexit.loopexit.split-lp ]
+  %.pn11 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %46, %ehcleanup.i ], [ %47, %cleanup.action.i ], [ %37, %ehcleanup.i160 ], [ %38, %cleanup.action.i155 ], [ %lpad.loopexit.split-lp184, %lpad7.loopexit.split-lp ], [ %lpad.loopexit269, %lpad7.loopexit.loopexit ], [ %lpad.loopexit.split-lp270, %lpad7.loopexit.loopexit.split-lp ]
   call void @_ZN3sat11literal_setD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %premises) #23
   call void @_ZN7svectorIN3sat7literalEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %value) #23
   br label %ehcleanup65
@@ -24842,14 +24842,14 @@ land.lhs.true17:                                  ; preds = %land.rhs.i19, %invo
 
 for.cond18.preheader.i.i.i:                       ; preds = %for.inc.i.i.i, %land.lhs.true17
   %cmp19.not32.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp19.not32.i.i.i, label %land.lhs.true.i48, label %for.body20.i.i.i
+  br i1 %cmp19.not32.i.i.i, label %land.rhs.i51, label %for.body20.i.i.i
 
 for.body.i.i.i:                                   ; preds = %land.lhs.true17, %for.inc.i.i.i
   %curr.031.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true17 ]
   %23 = load ptr, ptr %curr.031.i.i.i, align 8
   %magicptr25.i.i.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr25.i.i.i, label %if.then.i.i.i [
-    i64 0, label %land.lhs.true.i48
+    i64 0, label %land.rhs.i51
     i64 1, label %for.inc.i.i.i
   ]
 
@@ -24871,7 +24871,7 @@ for.body20.i.i.i:                                 ; preds = %for.cond18.preheade
   %25 = load ptr, ptr %curr.133.i.i.i, align 8
   %magicptr27.i.i.i = ptrtoint ptr %25 to i64
   switch i64 %magicptr27.i.i.i, label %if.then22.i.i.i [
-    i64 0, label %land.lhs.true.i48
+    i64 0, label %land.rhs.i51
     i64 1, label %for.inc36.i.i.i
   ]
 
@@ -24886,7 +24886,7 @@ if.then22.i.i.i:                                  ; preds = %for.body20.i.i.i
 for.inc36.i.i.i:                                  ; preds = %if.then22.i.i.i, %for.body20.i.i.i
   %incdec.ptr37.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i, i64 16
   %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp19.not.i.i.i, label %land.lhs.true.i48, label %for.body20.i.i.i, !llvm.loop !132
+  br i1 %cmp19.not.i.i.i, label %land.rhs.i51, label %for.body20.i.i.i, !llvm.loop !132
 
 if.then22:                                        ; preds = %if.then.i.i.i, %if.then22.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i ]
@@ -24959,10 +24959,7 @@ for.inc:                                          ; preds = %_ZN6vectorIjLb0EjE9
   %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr.i28.ptr
   br i1 %cmp26.not, label %if.end46, label %for.body
 
-land.lhs.true.i48:                                ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %for.cond18.preheader.i.i.i
-  br i1 %cmp3.i18, label %land.rhs.i51, label %if.end46
-
-land.rhs.i51:                                     ; preds = %invoke.cont15, %land.lhs.true.i48
+land.rhs.i51:                                     ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %invoke.cont15
   %m_decl.i.i.i52 = getelementptr inbounds i8, ptr %v, i64 16
   %38 = load ptr, ptr %m_decl.i.i.i52, align 8
   %m_info.i.i.i53 = getelementptr inbounds i8, ptr %38, i64 24
@@ -24983,8 +24980,8 @@ call.i.noexc:                                     ; preds = %land.lhs.true40
   %call2.i58 = invoke noundef zeroext i1 @_ZNK14bv_recognizers10is_bv_sortEPK4sort(ptr noundef nonnull align 4 dereferenceable(4) %bvutil, ptr noundef %call.i57)
           to label %if.end46 unwind label %lpad2.loopexit.split-lp
 
-if.end46:                                         ; preds = %for.inc, %land.lhs.true.i16, %if.then22, %if.else, %land.lhs.true.i48, %call.i.noexc, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %invoke.cont38, %invoke.cont10
-  %internalized.0 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont38 ], [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %call.i.noexc ], [ false, %land.lhs.true.i48 ], [ false, %if.else ], [ true, %if.then22 ], [ false, %land.lhs.true.i16 ], [ %internalized.2, %for.inc ]
+if.end46:                                         ; preds = %for.inc, %land.lhs.true.i16, %if.then22, %if.else, %call.i.noexc, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %invoke.cont38, %invoke.cont10
+  %internalized.0 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont38 ], [ true, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ false, %call.i.noexc ], [ false, %if.else ], [ true, %if.then22 ], [ false, %land.lhs.true.i16 ], [ %internalized.2, %for.inc ]
   %42 = load ptr, ptr %newbits, align 8
   %tobool.not.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i, label %_ZN10ptr_vectorI9func_declED2Ev.exit, label %if.then.i.i.i59

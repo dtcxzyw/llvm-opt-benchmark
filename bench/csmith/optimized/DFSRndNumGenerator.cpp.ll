@@ -1129,28 +1129,28 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterP
   store i32 %11, ptr %9, align 4
   store i32 %54, ptr %41, align 8
   %65 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not90161 = icmp eq i32 %65, 0
-  br i1 %.not90161, label %.lr.ph163, label %.loopexit
+  %.not90160 = icmp eq i32 %65, 0
+  br i1 %.not90160, label %.lr.ph162, label %.loopexit
 
-.lr.ph163:                                        ; preds = %61
+.lr.ph162:                                        ; preds = %61
   %.not91 = icmp eq ptr %2, null
   %.not.i = icmp eq ptr %4, null
   %66 = getelementptr inbounds i8, ptr %4, i64 8
-  br i1 %.not.i, label %.lr.ph163.split.us, label %.lr.ph163.split
+  br i1 %.not.i, label %.lr.ph162.split.us, label %.lr.ph162.split
 
-.lr.ph163.split.us:                               ; preds = %.lr.ph163
-  br i1 %.not91, label %.lr.ph163.split.us.split.us, label %.lr.ph163.split.us.split
+.lr.ph162.split.us:                               ; preds = %.lr.ph162
+  br i1 %.not91, label %.lr.ph162.split.us.split.us, label %.lr.ph162.split.us.split
 
-.lr.ph163.split.us.split.us:                      ; preds = %.lr.ph163.split.us
+.lr.ph162.split.us.split.us:                      ; preds = %.lr.ph162.split.us
   %67 = icmp slt i32 %64, %1
   br i1 %67, label %.critedge.thread, label %.critedge.thread122
 
-.lr.ph163.split.us.split:                         ; preds = %.lr.ph163.split.us, %.critedge2.backedge.us
-  %68 = phi i32 [ %75, %.critedge2.backedge.us ], [ %64, %.lr.ph163.split.us ]
+.lr.ph162.split.us.split:                         ; preds = %.lr.ph162.split.us, %.critedge2.backedge.us
+  %68 = phi i32 [ %75, %.critedge2.backedge.us ], [ %64, %.lr.ph162.split.us ]
   %69 = icmp slt i32 %68, %1
   br i1 %69, label %70, label %.critedge.thread122
 
-70:                                               ; preds = %.lr.ph163.split.us.split
+70:                                               ; preds = %.lr.ph162.split.us.split
   %71 = load ptr, ptr %2, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
@@ -1164,26 +1164,26 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterP
   store i32 %54, ptr %41, align 8
   %76 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not90.us = icmp eq i32 %76, 0
-  br i1 %.not90.us, label %.lr.ph163.split.us.split, label %.loopexit, !llvm.loop !12
+  br i1 %.not90.us, label %.lr.ph162.split.us.split, label %.loopexit, !llvm.loop !12
 
-.lr.ph163.split:                                  ; preds = %.lr.ph163, %.critedge2.backedge
-  %77 = phi i32 [ %131, %.critedge2.backedge ], [ %64, %.lr.ph163 ]
+.lr.ph162.split:                                  ; preds = %.lr.ph162, %.critedge2.backedge
+  %77 = phi i32 [ %131, %.critedge2.backedge ], [ %64, %.lr.ph162 ]
   %78 = icmp slt i32 %77, %1
   br i1 %78, label %82, label %.critedge.thread122
 
-.critedge.thread122:                              ; preds = %.lr.ph163.split, %.lr.ph163.split.us.split, %.lr.ph163.split.us.split.us
-  %.us-phi = phi i32 [ %64, %.lr.ph163.split.us.split.us ], [ %68, %.lr.ph163.split.us.split ], [ %77, %.lr.ph163.split ]
+.critedge.thread122:                              ; preds = %.lr.ph162.split, %.lr.ph162.split.us.split, %.lr.ph162.split.us.split.us
+  %.us-phi = phi i32 [ %64, %.lr.ph162.split.us.split.us ], [ %68, %.lr.ph162.split.us.split ], [ %77, %.lr.ph162.split ]
   store i32 %.us-phi, ptr %62, align 4
   store i32 %11, ptr %9, align 4
   %79 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
   %80 = icmp slt i32 %11, %79
-  br i1 %80, label %.lr.ph171.preheader, label %._crit_edge172
+  br i1 %80, label %.lr.ph169.preheader, label %._crit_edge170
 
-.lr.ph171.preheader:                              ; preds = %.critedge.thread122
+.lr.ph169.preheader:                              ; preds = %.critedge.thread122
   %81 = sext i32 %11 to i64
-  br label %.lr.ph171
+  br label %.lr.ph169
 
-82:                                               ; preds = %.lr.ph163.split
+82:                                               ; preds = %.lr.ph162.split
   br i1 %.not91, label %88, label %83
 
 83:                                               ; preds = %82
@@ -1219,13 +1219,13 @@ define dso_local noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterP
   %101 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, %77
-  br i1 %103, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit218, label %104
+  br i1 %103, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, %77
-  br i1 %107, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216, label %108
+  br i1 %107, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit214, label %108
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 12
@@ -1284,16 +1284,16 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.s
   %128 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 12
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216: ; preds = %104
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit214: ; preds = %104
   %129 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit218: ; preds = %100
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216: ; preds = %100
   %130 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit: ; preds = %97, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit218, %117, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %117 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %128, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit ], [ %129, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216 ], [ %130, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit218 ], [ %.sroa.032.051.i.i.i.i, %97 ]
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit: ; preds = %97, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit214, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216, %117, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %117 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %128, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit ], [ %129, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit214 ], [ %130, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit.loopexit.split.loop.exit216 ], [ %.sroa.032.051.i.i.i.i, %97 ]
   %.not128 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %90
   br i1 %.not128, label %.critedge.thread, label %.critedge2.backedge
 
@@ -1304,285 +1304,285 @@ _ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit: ; preds =
   store i32 %54, ptr %41, align 8
   %132 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not90 = icmp eq i32 %132, 0
-  br i1 %.not90, label %.lr.ph163.split, label %.loopexit, !llvm.loop !12
+  br i1 %.not90, label %.lr.ph162.split, label %.loopexit, !llvm.loop !12
 
-.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
-  %indvars.iv198 = phi i64 [ %81, %.lr.ph171.preheader ], [ %indvars.iv.next199, %.lr.ph171 ]
+.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
+  %indvars.iv196 = phi i64 [ %81, %.lr.ph169.preheader ], [ %indvars.iv.next197, %.lr.ph169 ]
   %133 = load ptr, ptr %46, align 8
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv198
+  %134 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv196
   %135 = load ptr, ptr %134, align 8
   store i8 0, ptr %135, align 4
-  %indvars.iv.next199 = add nsw i64 %indvars.iv198, 1
+  %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %136 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
   %137 = sext i32 %136 to i64
-  %138 = icmp slt i64 %indvars.iv.next199, %137
-  br i1 %138, label %.lr.ph171, label %._crit_edge172, !llvm.loop !13
+  %138 = icmp slt i64 %indvars.iv.next197, %137
+  br i1 %138, label %.lr.ph169, label %._crit_edge170, !llvm.loop !13
 
-._crit_edge172:                                   ; preds = %.lr.ph171, %.critedge.thread122
+._crit_edge170:                                   ; preds = %.lr.ph169, %.critedge.thread122
   %139 = load i32, ptr %41, align 8
   %140 = add nsw i32 %139, -1
   store i32 %140, ptr %41, align 8
   %141 = icmp slt i32 %139, 1
   br i1 %141, label %142, label %144
 
-142:                                              ; preds = %._crit_edge172
+142:                                              ; preds = %._crit_edge170
   %143 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 1, ptr %143, align 8
   br label %144
 
-144:                                              ; preds = %142, %._crit_edge172
+144:                                              ; preds = %142, %._crit_edge170
   store i32 -4, ptr @_ZN5Error8r_error_E, align 4
   br label %.loopexit
 
-.critedge.thread:                                 ; preds = %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit, %._crit_edge.i.i.i.i, %70, %.lr.ph163.split.us.split.us
-  %storemerge173 = phi i32 [ %64, %.lr.ph163.split.us.split.us ], [ %68, %70 ], [ %77, %._crit_edge.i.i.i.i ], [ %77, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit ]
-  store i32 %storemerge173, ptr %62, align 4
-  %145 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not93 = icmp eq i32 %145, 0
-  br i1 %.not93, label %146, label %.loopexit
+.critedge.thread:                                 ; preds = %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit, %._crit_edge.i.i.i.i, %70, %.lr.ph162.split.us.split.us
+  %145 = phi i32 [ %64, %.lr.ph162.split.us.split.us ], [ %68, %70 ], [ %77, %._crit_edge.i.i.i.i ], [ %77, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit ]
+  store i32 %145, ptr %62, align 4
+  %146 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not93 = icmp eq i32 %146, 0
+  br i1 %.not93, label %147, label %.loopexit
 
-146:                                              ; preds = %.critedge.thread
-  %147 = getelementptr inbounds i8, ptr %0, i64 56
-  %148 = load ptr, ptr %147, align 8
+147:                                              ; preds = %.critedge.thread
+  %148 = getelementptr inbounds i8, ptr %0, i64 56
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 32
-  %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull align 8 dereferenceable(8) %148, i32 noundef %storemerge173, i32 noundef %1, i32 noundef %11)
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 32
+  %152 = load ptr, ptr %151, align 8
+  tail call void %152(ptr noundef nonnull align 8 dereferenceable(8) %149, i32 noundef %145, i32 noundef %1, i32 noundef %11)
   br label %.loopexit
 
 .thread:                                          ; preds = %57, %60
-  %152 = add nsw i32 %54, 1
-  store i32 %152, ptr %41, align 8
+  %153 = add nsw i32 %54, 1
+  store i32 %153, ptr %41, align 8
   store i8 1, ptr %51, align 4
-  %153 = getelementptr inbounds i8, ptr %51, i64 4
-  store i32 0, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 0, ptr %154, align 4
   store i32 %1, ptr %52, align 4
-  %154 = icmp sgt i32 %1, 0
-  br i1 %154, label %.lr.ph148, label %..critedge4.thread126_crit_edge
+  %155 = icmp sgt i32 %1, 0
+  br i1 %155, label %.lr.ph148, label %..critedge4.thread126_crit_edge
 
 ..critedge4.thread126_crit_edge:                  ; preds = %.thread
-  %.pre201 = load i32, ptr %9, align 4
+  %.pre199 = load i32, ptr %9, align 4
   br label %.critedge4.thread126
 
 .lr.ph148:                                        ; preds = %.thread
   %.not86 = icmp eq ptr %2, null
   %.not.i96 = icmp eq ptr %4, null
-  %155 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %160
+  %156 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %161
 
-.critedge4.thread126:                             ; preds = %222, %..critedge4.thread126_crit_edge
-  %156 = phi i32 [ %.pre201, %..critedge4.thread126_crit_edge ], [ %11, %222 ]
-  store i32 %156, ptr %41, align 8
+.critedge4.thread126:                             ; preds = %223, %..critedge4.thread126_crit_edge
+  %157 = phi i32 [ %.pre199, %..critedge4.thread126_crit_edge ], [ %11, %223 ]
+  store i32 %157, ptr %41, align 8
   store i32 %11, ptr %9, align 4
-  %157 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
-  %158 = icmp slt i32 %11, %157
-  br i1 %158, label %.lr.ph151.preheader, label %._crit_edge152
+  %158 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
+  %159 = icmp slt i32 %11, %158
+  br i1 %159, label %.lr.ph150.preheader, label %._crit_edge151
 
-.lr.ph151.preheader:                              ; preds = %.critedge4.thread126
-  %159 = sext i32 %11 to i64
-  br label %.lr.ph151
+.lr.ph150.preheader:                              ; preds = %.critedge4.thread126
+  %160 = sext i32 %11 to i64
+  br label %.lr.ph150
 
-160:                                              ; preds = %.lr.ph148, %222
-  %.076146 = phi i32 [ 0, %.lr.ph148 ], [ %224, %222 ]
-  br i1 %.not86, label %166, label %161
+161:                                              ; preds = %.lr.ph148, %223
+  %.076146 = phi i32 [ 0, %.lr.ph148 ], [ %225, %223 ]
+  br i1 %.not86, label %167, label %162
 
-161:                                              ; preds = %160
-  %162 = load ptr, ptr %2, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 16
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.076146)
-  br i1 %165, label %.critedge6, label %166
+162:                                              ; preds = %161
+  %163 = load ptr, ptr %2, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %165 = load ptr, ptr %164, align 8
+  %166 = tail call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.076146)
+  br i1 %166, label %.critedge6, label %167
 
-166:                                              ; preds = %161, %160
-  br i1 %.not.i96, label %.critedge4.thread, label %167
+167:                                              ; preds = %162, %161
+  br i1 %.not.i96, label %.critedge4.thread, label %168
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %4, align 8
-  %169 = load ptr, ptr %155, align 8
-  %170 = ptrtoint ptr %169 to i64
-  %171 = ptrtoint ptr %168 to i64
-  %172 = sub i64 %170, %171
-  %173 = ashr i64 %172, 4
-  %174 = icmp sgt i64 %173, 0
-  br i1 %174, label %.lr.ph.i.i.i.i108, label %._crit_edge.i.i.i.i97
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %4, align 8
+  %170 = load ptr, ptr %156, align 8
+  %171 = ptrtoint ptr %170 to i64
+  %172 = ptrtoint ptr %169 to i64
+  %173 = sub i64 %171, %172
+  %174 = ashr i64 %173, 4
+  %175 = icmp sgt i64 %174, 0
+  br i1 %175, label %.lr.ph.i.i.i.i108, label %._crit_edge.i.i.i.i97
 
-.lr.ph.i.i.i.i108:                                ; preds = %167
-  %175 = and i64 %172, -16
-  %scevgep.i.i.i.i109 = getelementptr i8, ptr %168, i64 %175
-  br label %176
+.lr.ph.i.i.i.i108:                                ; preds = %168
+  %176 = and i64 %173, -16
+  %scevgep.i.i.i.i109 = getelementptr i8, ptr %169, i64 %176
+  br label %177
 
-176:                                              ; preds = %191, %.lr.ph.i.i.i.i108
-  %.052.i.i.i.i110 = phi i64 [ %173, %.lr.ph.i.i.i.i108 ], [ %193, %191 ]
-  %.sroa.032.051.i.i.i.i111 = phi ptr [ %168, %.lr.ph.i.i.i.i108 ], [ %192, %191 ]
-  %177 = load i32, ptr %.sroa.032.051.i.i.i.i111, align 4
-  %178 = icmp eq i32 %177, %.076146
-  br i1 %178, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %179
+177:                                              ; preds = %192, %.lr.ph.i.i.i.i108
+  %.052.i.i.i.i110 = phi i64 [ %174, %.lr.ph.i.i.i.i108 ], [ %194, %192 ]
+  %.sroa.032.051.i.i.i.i111 = phi ptr [ %169, %.lr.ph.i.i.i.i108 ], [ %193, %192 ]
+  %178 = load i32, ptr %.sroa.032.051.i.i.i.i111, align 4
+  %179 = icmp eq i32 %178, %.076146
+  br i1 %179, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %180
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 4
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %181, %.076146
-  br i1 %182, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit226, label %183
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 4
+  %182 = load i32, ptr %181, align 4
+  %183 = icmp eq i32 %182, %.076146
+  br i1 %183, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224, label %184
 
-183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 8
-  %185 = load i32, ptr %184, align 4
-  %186 = icmp eq i32 %185, %.076146
-  br i1 %186, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224, label %187
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 8
+  %186 = load i32, ptr %185, align 4
+  %187 = icmp eq i32 %186, %.076146
+  br i1 %187, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit222, label %188
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 12
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp eq i32 %189, %.076146
-  br i1 %190, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit, label %191
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 12
+  %190 = load i32, ptr %189, align 4
+  %191 = icmp eq i32 %190, %.076146
+  br i1 %191, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit, label %192
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 16
-  %193 = add nsw i64 %.052.i.i.i.i110, -1
-  %194 = icmp sgt i64 %.052.i.i.i.i110, 1
-  br i1 %194, label %176, label %._crit_edge.loopexit.i.i.i.i112, !llvm.loop !11
+192:                                              ; preds = %188
+  %193 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 16
+  %194 = add nsw i64 %.052.i.i.i.i110, -1
+  %195 = icmp sgt i64 %.052.i.i.i.i110, 1
+  br i1 %195, label %177, label %._crit_edge.loopexit.i.i.i.i112, !llvm.loop !11
 
-._crit_edge.loopexit.i.i.i.i112:                  ; preds = %191
+._crit_edge.loopexit.i.i.i.i112:                  ; preds = %192
   %.pre59.i.i.i.i113 = ptrtoint ptr %scevgep.i.i.i.i109 to i64
-  %.pre60.i.i.i.i114 = sub i64 %170, %.pre59.i.i.i.i113
+  %.pre60.i.i.i.i114 = sub i64 %171, %.pre59.i.i.i.i113
   br label %._crit_edge.i.i.i.i97
 
-._crit_edge.i.i.i.i97:                            ; preds = %._crit_edge.loopexit.i.i.i.i112, %167
-  %.pre-phi61.i.i.i.i98 = phi i64 [ %.pre60.i.i.i.i114, %._crit_edge.loopexit.i.i.i.i112 ], [ %172, %167 ]
-  %.sroa.032.0.lcssa.i.i.i.i99 = phi ptr [ %scevgep.i.i.i.i109, %._crit_edge.loopexit.i.i.i.i112 ], [ %168, %167 ]
-  %195 = ashr exact i64 %.pre-phi61.i.i.i.i98, 2
-  switch i64 %195, label %.critedge4.thread [
-    i64 3, label %196
+._crit_edge.i.i.i.i97:                            ; preds = %._crit_edge.loopexit.i.i.i.i112, %168
+  %.pre-phi61.i.i.i.i98 = phi i64 [ %.pre60.i.i.i.i114, %._crit_edge.loopexit.i.i.i.i112 ], [ %173, %168 ]
+  %.sroa.032.0.lcssa.i.i.i.i99 = phi ptr [ %scevgep.i.i.i.i109, %._crit_edge.loopexit.i.i.i.i112 ], [ %169, %168 ]
+  %196 = ashr exact i64 %.pre-phi61.i.i.i.i98, 2
+  switch i64 %196, label %.critedge4.thread [
+    i64 3, label %197
     i64 2, label %._crit_edge._crit_edge.i.i.i.i106
     i64 1, label %._crit_edge._crit_edge57.i.i.i.i100
   ]
 
-196:                                              ; preds = %._crit_edge.i.i.i.i97
-  %197 = load i32, ptr %.sroa.032.0.lcssa.i.i.i.i99, align 4
-  %198 = icmp eq i32 %197, %.076146
-  br i1 %198, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %199
+197:                                              ; preds = %._crit_edge.i.i.i.i97
+  %198 = load i32, ptr %.sroa.032.0.lcssa.i.i.i.i99, align 4
+  %199 = icmp eq i32 %198, %.076146
+  br i1 %199, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %200
 
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i99, i64 4
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i99, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i106
 
-._crit_edge._crit_edge.i.i.i.i106:                ; preds = %199, %._crit_edge.i.i.i.i97
-  %.sroa.032.1.i.i.i.i107 = phi ptr [ %200, %199 ], [ %.sroa.032.0.lcssa.i.i.i.i99, %._crit_edge.i.i.i.i97 ]
-  %201 = load i32, ptr %.sroa.032.1.i.i.i.i107, align 4
-  %202 = icmp eq i32 %201, %.076146
-  br i1 %202, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %203
+._crit_edge._crit_edge.i.i.i.i106:                ; preds = %200, %._crit_edge.i.i.i.i97
+  %.sroa.032.1.i.i.i.i107 = phi ptr [ %201, %200 ], [ %.sroa.032.0.lcssa.i.i.i.i99, %._crit_edge.i.i.i.i97 ]
+  %202 = load i32, ptr %.sroa.032.1.i.i.i.i107, align 4
+  %203 = icmp eq i32 %202, %.076146
+  br i1 %203, label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, label %204
 
-203:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i106
-  %204 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i107, i64 4
+204:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i106
+  %205 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i107, i64 4
   br label %._crit_edge._crit_edge57.i.i.i.i100
 
-._crit_edge._crit_edge57.i.i.i.i100:              ; preds = %203, %._crit_edge.i.i.i.i97
-  %.sroa.032.2.i.i.i.i101 = phi ptr [ %204, %203 ], [ %.sroa.032.0.lcssa.i.i.i.i99, %._crit_edge.i.i.i.i97 ]
-  %205 = load i32, ptr %.sroa.032.2.i.i.i.i101, align 4
-  %206 = icmp eq i32 %205, %.076146
-  %spec.select.i.i.i.i102 = select i1 %206, ptr %.sroa.032.2.i.i.i.i101, ptr %169
+._crit_edge._crit_edge57.i.i.i.i100:              ; preds = %204, %._crit_edge.i.i.i.i97
+  %.sroa.032.2.i.i.i.i101 = phi ptr [ %205, %204 ], [ %.sroa.032.0.lcssa.i.i.i.i99, %._crit_edge.i.i.i.i97 ]
+  %206 = load i32, ptr %.sroa.032.2.i.i.i.i101, align 4
+  %207 = icmp eq i32 %206, %.076146
+  %spec.select.i.i.i.i102 = select i1 %207, ptr %.sroa.032.2.i.i.i.i101, ptr %170
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit: ; preds = %187
-  %207 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 12
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit: ; preds = %188
+  %208 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 12
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224: ; preds = %183
-  %208 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 8
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit222: ; preds = %184
+  %209 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 8
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit226: ; preds = %179
-  %209 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 4
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224: ; preds = %180
+  %210 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i111, i64 4
   br label %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
 
-_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118: ; preds = %176, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit226, %196, %._crit_edge._crit_edge.i.i.i.i106, %._crit_edge._crit_edge57.i.i.i.i100
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i104 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i99, %196 ], [ %.sroa.032.1.i.i.i.i107, %._crit_edge._crit_edge.i.i.i.i106 ], [ %spec.select.i.i.i.i102, %._crit_edge._crit_edge57.i.i.i.i100 ], [ %207, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit ], [ %208, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224 ], [ %209, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit226 ], [ %.sroa.032.051.i.i.i.i111, %176 ]
-  %.not127 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i104, %169
+_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118: ; preds = %177, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit222, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224, %197, %._crit_edge._crit_edge.i.i.i.i106, %._crit_edge._crit_edge57.i.i.i.i100
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i104 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i99, %197 ], [ %.sroa.032.1.i.i.i.i107, %._crit_edge._crit_edge.i.i.i.i106 ], [ %spec.select.i.i.i.i102, %._crit_edge._crit_edge57.i.i.i.i100 ], [ %208, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit ], [ %209, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit222 ], [ %210, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118.loopexit.split.loop.exit224 ], [ %.sroa.032.051.i.i.i.i111, %177 ]
+  %.not127 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i104, %170
   br i1 %.not127, label %.critedge4.thread, label %.critedge6
 
-.critedge6:                                       ; preds = %161, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
-  %210 = load i32, ptr %41, align 8
-  %211 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
-  %212 = icmp slt i32 %210, %211
-  br i1 %212, label %.lr.ph.preheader, label %._crit_edge
+.critedge6:                                       ; preds = %162, %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118
+  %211 = load i32, ptr %41, align 8
+  %212 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
+  %213 = icmp slt i32 %211, %212
+  br i1 %213, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.critedge6
-  %213 = sext i32 %210 to i64
+  %214 = sext i32 %211 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %213, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %214 = load ptr, ptr %46, align 8
-  %215 = getelementptr inbounds ptr, ptr %214, i64 %indvars.iv
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 4
-  store i32 0, ptr %217, align 4
+  %indvars.iv = phi i64 [ %214, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %215 = load ptr, ptr %46, align 8
+  %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 4
+  store i32 0, ptr %218, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %218 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
-  %219 = sext i32 %218 to i64
-  %220 = icmp slt i64 %indvars.iv.next, %219
-  br i1 %220, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %219 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
+  %220 = sext i32 %219 to i64
+  %221 = icmp slt i64 %indvars.iv.next, %220
+  br i1 %221, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge6
-  %221 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not89 = icmp eq i32 %221, 0
-  br i1 %.not89, label %222, label %.loopexit
+  %222 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not89 = icmp eq i32 %222, 0
+  br i1 %.not89, label %223, label %.loopexit
 
-222:                                              ; preds = %._crit_edge
-  %223 = load i32, ptr %9, align 4
-  store i32 %223, ptr %41, align 8
+223:                                              ; preds = %._crit_edge
+  %224 = load i32, ptr %9, align 4
+  store i32 %224, ptr %41, align 8
   store i32 %11, ptr %9, align 4
-  %224 = add nuw nsw i32 %.076146, 1
-  %exitcond.not = icmp eq i32 %224, %1
-  br i1 %exitcond.not, label %.critedge4.thread126, label %160, !llvm.loop !15
+  %225 = add nuw nsw i32 %.076146, 1
+  %exitcond.not = icmp eq i32 %225, %1
+  br i1 %exitcond.not, label %.critedge4.thread126, label %161, !llvm.loop !15
 
-.lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151
-  %indvars.iv195 = phi i64 [ %159, %.lr.ph151.preheader ], [ %indvars.iv.next196, %.lr.ph151 ]
-  %225 = load ptr, ptr %46, align 8
-  %226 = getelementptr inbounds ptr, ptr %225, i64 %indvars.iv195
-  %227 = load ptr, ptr %226, align 8
-  store i8 0, ptr %227, align 4
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %228 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
-  %229 = sext i32 %228 to i64
-  %230 = icmp slt i64 %indvars.iv.next196, %229
-  br i1 %230, label %.lr.ph151, label %._crit_edge152, !llvm.loop !16
+.lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.lr.ph150
+  %indvars.iv193 = phi i64 [ %160, %.lr.ph150.preheader ], [ %indvars.iv.next194, %.lr.ph150 ]
+  %226 = load ptr, ptr %46, align 8
+  %227 = getelementptr inbounds ptr, ptr %226, i64 %indvars.iv193
+  %228 = load ptr, ptr %227, align 8
+  store i8 0, ptr %228, align 4
+  %indvars.iv.next194 = add nsw i64 %indvars.iv193, 1
+  %229 = tail call noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
+  %230 = sext i32 %229 to i64
+  %231 = icmp slt i64 %indvars.iv.next194, %230
+  br i1 %231, label %.lr.ph150, label %._crit_edge151, !llvm.loop !16
 
-._crit_edge152:                                   ; preds = %.lr.ph151, %.critedge4.thread126
-  %231 = load i32, ptr %41, align 8
-  %232 = add nsw i32 %231, -1
-  store i32 %232, ptr %41, align 8
-  %233 = icmp slt i32 %231, 1
-  br i1 %233, label %234, label %236
+._crit_edge151:                                   ; preds = %.lr.ph150, %.critedge4.thread126
+  %232 = load i32, ptr %41, align 8
+  %233 = add nsw i32 %232, -1
+  store i32 %233, ptr %41, align 8
+  %234 = icmp slt i32 %232, 1
+  br i1 %234, label %235, label %237
 
-234:                                              ; preds = %._crit_edge152
-  %235 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 1, ptr %235, align 8
-  br label %236
+235:                                              ; preds = %._crit_edge151
+  %236 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 1, ptr %236, align 8
+  br label %237
 
-236:                                              ; preds = %234, %._crit_edge152
+237:                                              ; preds = %235, %._crit_edge151
   store i32 -4, ptr @_ZN5Error8r_error_E, align 4
   br label %.loopexit
 
-.critedge4.thread:                                ; preds = %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, %._crit_edge.i.i.i.i97, %166
+.critedge4.thread:                                ; preds = %_ZN18DFSRndNumGenerator19filter_invalid_numsEPSt6vectorIiSaIiEEi.exit118, %._crit_edge.i.i.i.i97, %167
   %storemerge = load i32, ptr %9, align 4
   store i32 %storemerge, ptr %41, align 8
-  store i32 %.076146, ptr %153, align 4
-  %237 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not88 = icmp eq i32 %237, 0
-  br i1 %.not88, label %238, label %.loopexit
+  store i32 %.076146, ptr %154, align 4
+  %238 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not88 = icmp eq i32 %238, 0
+  br i1 %.not88, label %239, label %.loopexit
 
-238:                                              ; preds = %.critedge4.thread
-  %239 = getelementptr inbounds i8, ptr %0, i64 56
-  %240 = load ptr, ptr %239, align 8
+239:                                              ; preds = %.critedge4.thread
+  %240 = getelementptr inbounds i8, ptr %0, i64 56
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 32
-  %243 = load ptr, ptr %242, align 8
-  tail call void %243(ptr noundef nonnull align 8 dereferenceable(8) %240, i32 noundef %.076146, i32 noundef %1, i32 noundef %11)
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 32
+  %244 = load ptr, ptr %243, align 8
+  tail call void %244(ptr noundef nonnull align 8 dereferenceable(8) %241, i32 noundef %.076146, i32 noundef %1, i32 noundef %11)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge2.backedge, %.critedge2.backedge.us, %._crit_edge, %61, %.critedge4.thread, %.critedge.thread, %27, %36, %5, %238, %236, %146, %144, %58, %44
-  %.077 = phi i32 [ -1, %44 ], [ %59, %58 ], [ -1, %144 ], [ %storemerge173, %146 ], [ -1, %236 ], [ %.076146, %238 ], [ -1, %5 ], [ %21, %36 ], [ %21, %27 ], [ -1, %.critedge.thread ], [ -1, %.critedge4.thread ], [ -1, %61 ], [ -1, %._crit_edge ], [ -1, %.critedge2.backedge.us ], [ -1, %.critedge2.backedge ]
+.loopexit:                                        ; preds = %.critedge2.backedge, %.critedge2.backedge.us, %._crit_edge, %61, %.critedge4.thread, %.critedge.thread, %27, %36, %5, %239, %237, %147, %144, %58, %44
+  %.077 = phi i32 [ -1, %44 ], [ %59, %58 ], [ -1, %144 ], [ %145, %147 ], [ -1, %237 ], [ %.076146, %239 ], [ -1, %5 ], [ %21, %36 ], [ %21, %27 ], [ -1, %.critedge.thread ], [ -1, %.critedge4.thread ], [ -1, %61 ], [ -1, %._crit_edge ], [ -1, %.critedge2.backedge.us ], [ -1, %.critedge2.backedge ]
   ret i32 %.077
 }
 

@@ -285,8 +285,8 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %.not77 = icmp eq i8 %37, 0
   %38 = select i1 %.not77, ptr %16, ptr %15
   %39 = load i8, ptr %38, align 1
-  %.not78.not = icmp ne i8 %35, %39
-  br i1 %.not78.not, label %._crit_edge, label %40
+  %.not78.not.not = icmp ne i8 %35, %39
+  br i1 %.not78.not.not, label %._crit_edge, label %40
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds i8, ptr %34, i64 1
@@ -301,7 +301,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
 
 ._crit_edge:                                      ; preds = %23, %40, %.lr.ph, %1
   %.1 = phi i32 [ %20, %1 ], [ %.06985, %.lr.ph ], [ 0, %40 ], [ %46, %23 ]
-  %.0 = phi i1 [ false, %1 ], [ %.not78.not, %.lr.ph ], [ %.not78.not, %40 ], [ %.not78.not, %23 ]
+  %.0 = phi i1 [ false, %1 ], [ %.not78.not.not, %.lr.ph ], [ %.not78.not.not, %40 ], [ %.not78.not.not, %23 ]
   %48 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr null, ptr %48, align 8
   %49 = load i32, ptr %4, align 8

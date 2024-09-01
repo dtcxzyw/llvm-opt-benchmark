@@ -237,19 +237,16 @@ for.end:                                          ; preds = %if.end12
   %conv20 = zext nneg i32 %5 to i64
   %call21 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv20, ptr noundef nonnull @.str, i32 noundef 120) #5
   %cmp22 = icmp eq ptr %call21, null
-  br i1 %cmp22, label %return, label %for.cond26.preheader
+  br i1 %cmp22, label %return, label %for.body29
 
 for.end.thread:                                   ; preds = %if.end
   %call2149 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 2, ptr noundef nonnull @.str, i32 noundef 120) #5
   %cmp2250 = icmp eq ptr %call2149, null
   br i1 %cmp2250, label %return, label %for.end60
 
-for.cond26.preheader:                             ; preds = %for.end
-  br i1 %cmp140, label %for.body29, label %for.end60
-
-for.body29:                                       ; preds = %for.cond26.preheader, %for.inc58
-  %unitmp.045 = phi ptr [ %unitmp.1, %for.inc58 ], [ %call21, %for.cond26.preheader ]
-  %i.144 = phi i32 [ %add59, %for.inc58 ], [ 0, %for.cond26.preheader ]
+for.body29:                                       ; preds = %for.end, %for.inc58
+  %unitmp.045 = phi ptr [ %unitmp.1, %for.inc58 ], [ %call21, %for.end ]
+  %i.144 = phi i32 [ %add59, %for.inc58 ], [ 0, %for.end ]
   %idx.ext30 = sext i32 %i.144 to i64
   %add.ptr31 = getelementptr inbounds i8, ptr %asc, i64 %idx.ext30
   %sub32 = sub nsw i32 %asclen.addr.0, %i.144
@@ -297,10 +294,10 @@ for.inc58:                                        ; preds = %if.then36, %if.else
   %cmp27 = icmp slt i32 %add59, %asclen.addr.0
   br i1 %cmp27, label %for.body29, label %for.end60, !llvm.loop !8
 
-for.end60:                                        ; preds = %for.inc58, %for.end.thread, %for.cond26.preheader
-  %ulen.0.lcssa5156 = phi i32 [ %5, %for.cond26.preheader ], [ 2, %for.end.thread ], [ %5, %for.inc58 ]
-  %call215255 = phi ptr [ %call21, %for.cond26.preheader ], [ %call2149, %for.end.thread ], [ %call21, %for.inc58 ]
-  %unitmp.0.lcssa = phi ptr [ %call21, %for.cond26.preheader ], [ %call2149, %for.end.thread ], [ %unitmp.1, %for.inc58 ]
+for.end60:                                        ; preds = %for.inc58, %for.end.thread
+  %ulen.0.lcssa5156 = phi i32 [ 2, %for.end.thread ], [ %5, %for.inc58 ]
+  %call215255 = phi ptr [ %call2149, %for.end.thread ], [ %call21, %for.inc58 ]
+  %unitmp.0.lcssa = phi ptr [ %call2149, %for.end.thread ], [ %unitmp.1, %for.inc58 ]
   %incdec.ptr61 = getelementptr inbounds i8, ptr %unitmp.0.lcssa, i64 1
   store i8 0, ptr %unitmp.0.lcssa, align 1
   store i8 0, ptr %incdec.ptr61, align 1

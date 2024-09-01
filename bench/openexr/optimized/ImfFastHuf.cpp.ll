@@ -373,10 +373,7 @@ for.body111.preheader:                            ; preds = %invoke.cont103
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %for.body111
 
-for.cond128.preheader:                            ; preds = %for.body111
-  br i1 %cmp110.not135, label %delete.notnull, label %for.body132.preheader
-
-for.body132.preheader:                            ; preds = %for.cond128.preheader
+for.body132.preheader:                            ; preds = %for.body111
   %21 = zext i8 %17 to i64
   %22 = zext i8 %15 to i64
   %23 = add nuw nsw i32 %conv109, 1
@@ -396,7 +393,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   store double %mul, ptr %arrayidx121, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
-  br i1 %exitcond164.not, label %for.cond128.preheader, label %for.body111, !llvm.loop !8
+  br i1 %exitcond164.not, label %for.body132.preheader, label %for.body111, !llvm.loop !8
 
 for.body132:                                      ; preds = %for.body132.preheader, %for.end144
   %indvars.iv170 = phi i64 [ %21, %for.body132.preheader ], [ %indvars.iv.next171, %for.end144 ]
@@ -429,7 +426,7 @@ for.end144:                                       ; preds = %for.body138, %for.b
   %exitcond175.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count174
   br i1 %exitcond175.not, label %delete.notnull, label %for.body132, !llvm.loop !10
 
-delete.notnull:                                   ; preds = %for.end144, %invoke.cont103, %for.cond128.preheader
+delete.notnull:                                   ; preds = %for.end144, %invoke.cont103
   tail call void @_ZdaPv(ptr noundef nonnull %call104) #19
   %29 = load i8, ptr %_maxCodeLength, align 1
   %idxprom158 = zext i8 %29 to i64

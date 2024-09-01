@@ -168,8 +168,8 @@ entry:
 
 do.body:                                          ; preds = %do.cond, %entry
   %count.0 = phi i64 [ %0, %entry ], [ %3, %do.cond ]
-  %cmp.not = icmp ne i64 %count.0, 0
-  br i1 %cmp.not, label %do.cond, label %return
+  %cmp.not.not.not.not.not = icmp ne i64 %count.0, 0
+  br i1 %cmp.not.not.not.not.not, label %do.cond, label %return
 
 do.cond:                                          ; preds = %do.body
   %add = add i64 %count.0, 1099511627776
@@ -179,7 +179,7 @@ do.cond:                                          ; preds = %do.body
   br i1 %2, label %return, label %do.body, !llvm.loop !4
 
 return:                                           ; preds = %do.cond, %do.body
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
@@ -687,8 +687,8 @@ if.then.i:                                        ; preds = %do.body.i
 
 do.end.i:                                         ; preds = %do.body.i
   %and3.i = and i64 %9, 4294967296
-  %tobool4.not.not.i.not = icmp ne i64 %and3.i, 0
-  br i1 %tobool4.not.not.i.not, label %invoke.cont3, label %if.end6.i
+  %tobool4.not.not.not.not.i.not.not.not.not.not = icmp ne i64 %and3.i, 0
+  br i1 %tobool4.not.not.not.not.i.not.not.not.not.not, label %invoke.cont3, label %if.end6.i
 
 if.end6.i:                                        ; preds = %do.end.i
   %and7.i = and i64 %9, 65535
@@ -760,7 +760,7 @@ invoke.cont3:                                     ; preds = %do.cond.i, %do.end.
 _ZN9grpc_core8Activity14ScopedActivityD2Ev.exit:  ; preds = %invoke.cont3, %15
   %16 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   store ptr %activity.sroa.0.0, ptr %16, align 8
-  ret i1 %tobool4.not.not.i.not
+  ret i1 %tobool4.not.not.not.not.i.not.not.not.not.not
 
 lpad2.loopexit:                                   ; preds = %if.end.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1533,8 +1533,8 @@ land.lhs.true.i:                                  ; preds = %entry
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %land.lhs.true.i
   %count.0.i.i.i = phi i64 [ %1, %land.lhs.true.i ], [ %4, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %if.else.i, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %if.else.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add i64 %count.0.i.i.i, 1099511627776
@@ -1587,8 +1587,8 @@ land.lhs.true.i:                                  ; preds = %entry
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %land.lhs.true.i
   %count.0.i.i.i = phi i64 [ %1, %land.lhs.true.i ], [ %4, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %if.else.i, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %if.else.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add i64 %count.0.i.i.i, 1099511627776

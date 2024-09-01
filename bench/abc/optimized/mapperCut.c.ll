@@ -383,18 +383,18 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
 
 .preheader199.i.i:                                ; preds = %._crit_edge.i.i
   %126 = icmp slt i32 %.0147.i.i, %.0146.i.i
-  br i1 %126, label %.preheader198.us.preheader.i.i, label %.loopexit.i.i34
+  br i1 %126, label %.preheader198.lr.ph.i.i, label %.loopexit.i.i34
 
-.preheader198.us.preheader.i.i:                   ; preds = %.preheader199.i.i
+.preheader198.lr.ph.i.i:                          ; preds = %.preheader199.i.i
   %127 = call i32 @llvm.smin.i32(i32 %.0.lcssa.i193.i.i, i32 %.0.lcssa.i.i.i)
   %smin.i.i = sext i32 %127 to i64
   %128 = sub i32 %127, %.0147.i.i
   %129 = add i32 %128, %.0146.i.i
   br label %.preheader198.us.i.i
 
-.preheader198.us.i.i:                             ; preds = %._crit_edge220.us.i.i, %.preheader198.us.preheader.i.i
-  %indvars.iv256.i.i = phi i64 [ %smin.i.i, %.preheader198.us.preheader.i.i ], [ %indvars.iv.next257.i.i, %._crit_edge220.us.i.i ]
-  %.5222.us.i.i = phi i32 [ %.3.lcssa.i.i, %.preheader198.us.preheader.i.i ], [ %.7.us.i.i, %._crit_edge220.us.i.i ]
+.preheader198.us.i.i:                             ; preds = %._crit_edge220.us.i.i, %.preheader198.lr.ph.i.i
+  %indvars.iv256.i.i = phi i64 [ %smin.i.i, %.preheader198.lr.ph.i.i ], [ %indvars.iv.next257.i.i, %._crit_edge220.us.i.i ]
+  %.5222.us.i.i = phi i32 [ %.3.lcssa.i.i, %.preheader198.lr.ph.i.i ], [ %.7.us.i.i, %._crit_edge220.us.i.i ]
   %130 = getelementptr inbounds ptr, ptr %.0150.i.i, i64 %indvars.iv256.i.i
   br label %131
 
@@ -797,18 +797,18 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
   br i1 %.not.i52.i, label %Map_CutFilter.exit.i, label %.lr.ph.i53.i
 
 .lr.ph.i53.i:                                     ; preds = %.loopexit61.i, %.thread.i.i
-  %.03573.sink.i.i = phi ptr [ %306, %.thread.i.i ], [ %305, %.loopexit61.i ]
-  %.03771.i.i = phi ptr [ %.138.i.i, %.thread.i.i ], [ %301, %.loopexit61.i ]
-  %306 = load ptr, ptr %.03573.sink.i.i, align 8
+  %.03572.sink.i.i = phi ptr [ %306, %.thread.i.i ], [ %305, %.loopexit61.i ]
+  %.03770.i.i = phi ptr [ %.138.i.i, %.thread.i.i ], [ %301, %.loopexit61.i ]
+  %306 = load ptr, ptr %.03572.sink.i.i, align 8
   %307 = load ptr, ptr %81, align 8
-  %308 = getelementptr inbounds i8, ptr %.03573.sink.i.i, i64 76
-  %309 = getelementptr inbounds i8, ptr %.03573.sink.i.i, i64 24
+  %308 = getelementptr inbounds i8, ptr %.03572.sink.i.i, i64 76
+  %309 = getelementptr inbounds i8, ptr %.03572.sink.i.i, i64 24
   br label %310
 
-310:                                              ; preds = %._crit_edge55.i.i, %.lr.ph.i53.i
-  %.039.in.i.i = phi ptr [ %307, %.lr.ph.i53.i ], [ %.039.i.i, %._crit_edge55.i.i ]
+310:                                              ; preds = %._crit_edge54.i.i, %.lr.ph.i53.i
+  %.039.in.i.i = phi ptr [ %307, %.lr.ph.i53.i ], [ %.039.i.i, %._crit_edge54.i.i ]
   %.039.i.i = load ptr, ptr %.039.in.i.i, align 8
-  %.not42.i.i = icmp eq ptr %.039.i.i, %.03573.sink.i.i
+  %.not42.i.i = icmp eq ptr %.039.i.i, %.03572.sink.i.i
   br i1 %.not42.i.i, label %.thread.i.i, label %.preheader46.i.i
 
 .preheader46.i.i:                                 ; preds = %310
@@ -816,7 +816,7 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
   %312 = load i8, ptr %311, align 4
   %313 = sext i8 %312 to i32
   %314 = icmp sgt i8 %312, 0
-  br i1 %314, label %.preheader.lr.ph.i.i, label %._crit_edge55.i.i
+  br i1 %314, label %.preheader.lr.ph.i.i, label %._crit_edge54.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %.preheader46.i.i
   %315 = getelementptr inbounds i8, ptr %.039.i.i, i64 24
@@ -826,12 +826,12 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
 
 .preheader.us.preheader.i.i:                      ; preds = %.preheader.lr.ph.i.i
   %wide.trip.count.i55.i = zext nneg i8 %316 to i64
-  %wide.trip.count81.i.i = zext nneg i32 %313 to i64
+  %wide.trip.count79.i.i = zext nneg i32 %313 to i64
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
-  %indvars.iv78.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next79.i.i, %._crit_edge.us.i.i ]
-  %318 = getelementptr inbounds [6 x ptr], ptr %315, i64 0, i64 %indvars.iv78.i.i
+  %indvars.iv76.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next77.i.i, %._crit_edge.us.i.i ]
+  %318 = getelementptr inbounds [6 x ptr], ptr %315, i64 0, i64 %indvars.iv76.i.i
   %319 = load ptr, ptr %318, align 8
   br label %320
 
@@ -848,30 +848,30 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %297
   br i1 %exitcond.not.i58.i, label %._crit_edge.us.thread.i.i, label %320, !llvm.loop !24
 
 ._crit_edge.us.thread.i.i:                        ; preds = %324
-  %325 = trunc nuw nsw i64 %indvars.iv78.i.i to i32
-  br label %._crit_edge55.i.i
+  %325 = trunc nuw nsw i64 %indvars.iv76.i.i to i32
+  br label %._crit_edge54.i.i
 
 ._crit_edge.us.i.i:                               ; preds = %320
-  %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
-  %exitcond82.not.i.i = icmp eq i64 %indvars.iv.next79.i.i, %wide.trip.count81.i.i
-  br i1 %exitcond82.not.i.i, label %._crit_edge55.thread.i.i, label %.preheader.us.i.i, !llvm.loop !25
+  %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
+  %exitcond80.not.i.i = icmp eq i64 %indvars.iv.next77.i.i, %wide.trip.count79.i.i
+  br i1 %exitcond80.not.i.i, label %._crit_edge54.thread.i.i, label %.preheader.us.i.i, !llvm.loop !25
 
 .preheader.lr.ph.split.i.i:                       ; preds = %.preheader.lr.ph.i.i
   %326 = icmp eq i8 %316, 0
-  br i1 %326, label %._crit_edge55.i.i, label %._crit_edge55.thread.i.i
+  br i1 %326, label %._crit_edge54.i.i, label %._crit_edge54.thread.i.i
 
-._crit_edge55.i.i:                                ; preds = %.preheader.lr.ph.split.i.i, %._crit_edge.us.thread.i.i, %.preheader46.i.i
+._crit_edge54.i.i:                                ; preds = %.preheader.lr.ph.split.i.i, %._crit_edge.us.thread.i.i, %.preheader46.i.i
   %.034.lcssa.i.i = phi i32 [ 0, %.preheader46.i.i ], [ 0, %.preheader.lr.ph.split.i.i ], [ %325, %._crit_edge.us.thread.i.i ]
   %327 = icmp eq i32 %.034.lcssa.i.i, %313
-  br i1 %327, label %._crit_edge55.thread.i.i, label %310, !llvm.loop !26
+  br i1 %327, label %._crit_edge54.thread.i.i, label %310, !llvm.loop !26
 
-._crit_edge55.thread.i.i:                         ; preds = %._crit_edge55.i.i, %.preheader.lr.ph.split.i.i, %._crit_edge.us.i.i
-  store ptr %306, ptr %.03771.i.i, align 8
-  call void @Map_CutFree(ptr noundef %0, ptr noundef nonnull %.03573.sink.i.i) #17
+._crit_edge54.thread.i.i:                         ; preds = %._crit_edge54.i.i, %.preheader.lr.ph.split.i.i, %._crit_edge.us.i.i
+  store ptr %306, ptr %.03770.i.i, align 8
+  call void @Map_CutFree(ptr noundef %0, ptr noundef nonnull %.03572.sink.i.i) #17
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %310, %._crit_edge55.thread.i.i
-  %.138.i.i = phi ptr [ %.03771.i.i, %._crit_edge55.thread.i.i ], [ %.03573.sink.i.i, %310 ]
+.thread.i.i:                                      ; preds = %310, %._crit_edge54.thread.i.i
+  %.138.i.i = phi ptr [ %.03770.i.i, %._crit_edge54.thread.i.i ], [ %.03572.sink.i.i, %310 ]
   %.not43.i.i = icmp eq ptr %306, null
   br i1 %.not43.i.i, label %Map_CutFilter.exit.i, label %.lr.ph.i53.i, !llvm.loop !27
 
@@ -1274,12 +1274,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
 17:                                               ; preds = %19
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %.preheader, label %19, !llvm.loop !34
+  br i1 %exitcond219.not, label %.lr.ph168, label %19, !llvm.loop !34
 
-.preheader:                                       ; preds = %17
-  br i1 %14, label %.lr.ph168, label %.loopexit
-
-.lr.ph168:                                        ; preds = %.preheader
+.lr.ph168:                                        ; preds = %17
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count223 = zext nneg i32 %3 to i64
   br label %24
@@ -1318,10 +1315,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %wide.trip.count208 = zext nneg i32 %3 to i64
   br label %35
 
-.preheader128:                                    ; preds = %45
-  br i1 %31, label %.lr.ph164, label %.loopexit
-
-.lr.ph164:                                        ; preds = %.preheader128
+.lr.ph164:                                        ; preds = %45
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count213 = zext nneg i32 %3 to i64
   br label %46
@@ -1347,7 +1341,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %.1 = phi i32 [ %.0161, %35 ], [ 1, %43 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %.preheader128, label %35, !llvm.loop !36
+  br i1 %exitcond209.not, label %.lr.ph164, label %35, !llvm.loop !36
 
 46:                                               ; preds = %.lr.ph164, %46
   %indvars.iv210 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next211, %46 ]
@@ -1379,10 +1373,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %61
 
-.preheader137:                                    ; preds = %71
-  br i1 %57, label %.lr.ph145, label %.loopexit
-
-.lr.ph145:                                        ; preds = %.preheader137
+.lr.ph145:                                        ; preds = %71
   %60 = getelementptr inbounds i8, ptr %1, i64 24
   %wide.trip.count180 = zext nneg i32 %3 to i64
   br label %72
@@ -1408,7 +1399,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %.3 = phi i32 [ %.2143, %61 ], [ 1, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader137, label %61, !llvm.loop !38
+  br i1 %exitcond.not, label %.lr.ph145, label %61, !llvm.loop !38
 
 72:                                               ; preds = %.lr.ph145, %72
   %indvars.iv177 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next178, %72 ]
@@ -1553,8 +1544,8 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %.loopexit, label %.lr.ph155.preheader, !llvm.loop !44
 
-.loopexit:                                        ; preds = %69, %72, %._crit_edge, %._crit_edge156, %43, %46, %19, %24, %.preheader139, %.preheader130, %.preheader126, %.preheader137, %.preheader132, %.preheader128, %.preheader
-  %.0119 = phi i32 [ %3, %.preheader ], [ %3, %.preheader128 ], [ %.0117.lcssa, %.preheader132 ], [ %3, %.preheader137 ], [ %3, %.preheader126 ], [ %3, %.preheader130 ], [ %3, %.preheader139 ], [ %3, %24 ], [ 0, %19 ], [ %3, %46 ], [ 0, %43 ], [ %.0117.lcssa, %._crit_edge156 ], [ 0, %._crit_edge ], [ %3, %72 ], [ 0, %69 ]
+.loopexit:                                        ; preds = %69, %72, %._crit_edge, %._crit_edge156, %43, %46, %19, %24, %.preheader139, %.preheader130, %.preheader126, %.preheader132
+  %.0119 = phi i32 [ %.0117.lcssa, %.preheader132 ], [ %3, %.preheader126 ], [ %3, %.preheader130 ], [ %3, %.preheader139 ], [ %3, %24 ], [ 0, %19 ], [ %3, %46 ], [ 0, %43 ], [ %.0117.lcssa, %._crit_edge156 ], [ 0, %._crit_edge ], [ %3, %72 ], [ 0, %69 ]
   ret i32 %.0119
 }
 

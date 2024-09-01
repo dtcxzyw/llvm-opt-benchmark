@@ -53,8 +53,8 @@ define noundef ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 nou
   %31 = getelementptr inbounds i8, ptr %6, i64 12
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %12, align 4
-  %33 = icmp slt i32 %1, 1
-  br i1 %33, label %quant_inter_differences.exit, label %.preheader39.preheader.i
+  %33 = icmp sgt i32 %1, 0
+  br i1 %33, label %.preheader39.preheader.i, label %quant_inter_differences.exit
 
 .preheader39.preheader.i:                         ; preds = %8
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -1609,8 +1609,8 @@ define noundef ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 nou
   %30 = getelementptr inbounds i8, ptr %6, i64 12
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %12, align 4
-  %32 = icmp slt i32 %1, 1
-  br i1 %32, label %quant_inter_differences.exit, label %.preheader39.preheader.i
+  %32 = icmp sgt i32 %1, 0
+  br i1 %32, label %.preheader39.preheader.i, label %quant_inter_differences.exit
 
 .preheader39.preheader.i:                         ; preds = %8
   %wide.trip.count.i = zext nneg i32 %1 to i64

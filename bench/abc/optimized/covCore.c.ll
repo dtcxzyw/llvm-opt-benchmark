@@ -2554,7 +2554,7 @@ Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i75
   %.not12.i81 = icmp eq ptr %.015.i80, null
   br i1 %.not12.i81, label %Min_CoverRecycle.exit, label %145, !llvm.loop !15
 
-Min_CoverRecycle.exit:                            ; preds = %57, %145, %Min_CoverCountCubes.exit, %137, %53
+Min_CoverRecycle.exit:                            ; preds = %57, %145, %137, %53, %Min_CoverCountCubes.exit
   %.068 = phi ptr [ %139, %Min_CoverCountCubes.exit ], [ null, %53 ], [ null, %137 ], [ null, %145 ], [ null, %57 ]
   ret ptr %.068
 }

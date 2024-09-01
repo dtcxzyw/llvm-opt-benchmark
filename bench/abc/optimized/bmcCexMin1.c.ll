@@ -377,16 +377,13 @@ Vec_VecStart.exit.thread:                         ; preds = %Vec_VecAlloc.exit.i
 Vec_VecStart.exit:                                ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %9, ptr %19, align 4
-  br i1 %16, label %.lr.ph32, label %._crit_edge
-
-.lr.ph32:                                         ; preds = %Vec_VecStart.exit
   %20 = getelementptr i8, ptr %0, i64 32
   %21 = zext nneg i32 %8 to i64
   %invariant.gep = getelementptr i8, ptr %.val28, i64 8
   br label %22
 
-22:                                               ; preds = %.lr.ph32, %.critedge
-  %indvars.iv34 = phi i64 [ %21, %.lr.ph32 ], [ %indvars.iv.next35, %.critedge ]
+22:                                               ; preds = %Vec_VecStart.exit, %.critedge
+  %indvars.iv34 = phi i64 [ %21, %Vec_VecStart.exit ], [ %indvars.iv.next35, %.critedge ]
   %23 = load i32, ptr %7, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp eq i64 %indvars.iv34, %24
@@ -444,8 +441,8 @@ Aig_ManObj.exit:                                  ; preds = %32, %33
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %Vec_VecStart.exit.thread, %._crit_edge.loopexit, %Vec_VecStart.exit
-  %43 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %Vec_VecStart.exit ], [ %5, %Vec_VecStart.exit.thread ]
+._crit_edge:                                      ; preds = %Vec_VecStart.exit.thread, %._crit_edge.loopexit
+  %43 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %Vec_VecStart.exit.thread ]
   %.not.i29 = icmp eq ptr %43, null
   br i1 %.not.i29, label %Vec_IntFree.exit, label %44
 

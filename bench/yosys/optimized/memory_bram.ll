@@ -3452,7 +3452,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.
   %959 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i.i.i.i, i64 168
   %960 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %959, %936
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !18
 
 961:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %962 = landingpad { ptr, i32 }
@@ -3577,12 +3577,8 @@ _ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tEEvT_S4_.exit.i.i.i.i.i.i.i.i: ; pr
 1004:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tEEvT_S4_.exit.i.i.i.i.i.i.i.i
   unreachable
 
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i.i, i64 336
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i, %.lr.ph.i.i.i.i.preheader.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %1038, %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i ], [ %.val.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i
+  %.05.i.i.i.i.i.i = phi ptr [ %1038, %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i ], [ %.val.i.i.i, %_ZSt10_ConstructIN12_GLOBAL__N_17rules_t6bram_tEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ]
   %1005 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 144
   %1006 = load ptr, ptr %1005, align 8
   %.not.i.i.i.i92.i = icmp eq ptr %1006, null
@@ -3674,10 +3670,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit10.i.i:              ; preds = %1022, %_ZNSt6vector
 _ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i:      ; preds = %1034, %1027, %_ZNSt6vectorIiSaIiEED2Ev.exit10.i.i
   %1038 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i = icmp eq ptr %1038, %936
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
-_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t6bram_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i
-  %.ptr.i5.i.i = phi ptr [ %.ptr.i4.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t6bram_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i ], [ %.ptr.i.i.i, %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i: ; preds = %_ZN12_GLOBAL__N_17rules_t6bram_tD2Ev.exit.i
+  %.ptr.i.i.i = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i.i, i64 336
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.i.i
+
+_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t6bram_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i
+  %.ptr.i5.i.i = phi ptr [ %.ptr.i4.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t6bram_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i ], [ %.ptr.i.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t6bram_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i ]
   %.not.i48.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i48.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %1039
 
@@ -4299,14 +4299,14 @@ _ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tEEvT_S4_.exit.i.i.i.i.i.i.i.i: ; p
   call fastcc void @_ZN12_GLOBAL__N_17rules_t7match_tD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %.05.i.i.i.i.i.i36) #26
   %1233 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i36, i64 152
   %.not.i.i.i.i.i.i37 = icmp eq ptr %1233, %1198
-  br i1 %.not.i.i.i.i.i.i37, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit.i, label %.lr.ph.i.i.i.i.i.i35, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i37, label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i35, !llvm.loop !25
 
-_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i35
+_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i35
   %.ptr.i.i.i38 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i.i.i.i26, i64 304
   br label %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t7match_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i
-  %.ptr.i5.i.i39 = phi ptr [ %.ptr.i4.i.i41, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t7match_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i ], [ %.ptr.i.i.i38, %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t7match_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i
+  %.ptr.i5.i.i39 = phi ptr [ %.ptr.i4.i.i41, %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_17rules_t7match_tES3_SaIS2_EET0_T_S6_S5_RT1_.exit47.i.thread.i.i ], [ %.ptr.i.i.i38, %_ZSt8_DestroyIPN12_GLOBAL__N_17rules_t7match_tES2_EvT_S4_RSaIT0_E.exit.i.loopexit.i.i ]
   %.not.i48.i.i.i40 = icmp eq ptr %.val.i.i.i20, null
   br i1 %.not.i48.i.i.i40, label %_ZNSt6vectorIN12_GLOBAL__N_17rules_t7match_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %1234
 

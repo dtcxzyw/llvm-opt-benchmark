@@ -12194,17 +12194,14 @@ for.end:                                          ; preds = %for.body
   %3 = mul nsw i64 %2, 20
   %call = tail call noalias ptr @malloc(i64 noundef %3) #32
   %cmp2 = icmp eq ptr %call, null
-  br i1 %cmp2, label %return, label %for.cond4.preheader
+  br i1 %cmp2, label %return, label %for.body7.lr.ph
 
 for.end.thread:                                   ; preds = %entry
   %call110 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #32
   %cmp2111 = icmp eq ptr %call110, null
   br i1 %cmp2111, label %return, label %for.end88.thread
 
-for.cond4.preheader:                              ; preds = %for.end
-  br i1 %cmp62, label %for.body7.lr.ph, label %for.end88.thread
-
-for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
+for.body7.lr.ph:                                  ; preds = %for.end
   %wide.trip.count98 = zext nneg i32 %windings to i64
   br i1 %tobool.not, label %for.body7.us, label %for.body7
 
@@ -12358,9 +12355,8 @@ for.inc86:                                        ; preds = %for.inc83, %for.bod
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count98
   br i1 %exitcond89.not, label %for.end88, label %for.body7, !llvm.loop !49
 
-for.end88.thread:                                 ; preds = %for.cond4.preheader, %for.end.thread
-  %call112114.ph = phi ptr [ %call, %for.cond4.preheader ], [ %call110, %for.end.thread ]
-  tail call void @stbtt__sort_edges_quicksort(ptr noundef nonnull %call112114.ph, i32 noundef 0)
+for.end88.thread:                                 ; preds = %for.end.thread
+  tail call void @stbtt__sort_edges_quicksort(ptr noundef nonnull %call110, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %t.sroa.3.i.i)
   br label %stbtt__sort_edges.exit
 
@@ -12427,7 +12423,7 @@ for.inc.i.i:                                      ; preds = %if.then13.i.i, %whi
 
 stbtt__sort_edges.exit:                           ; preds = %for.inc.i.i, %for.end88.thread, %for.end88
   %n.1.lcssa119 = phi i32 [ 0, %for.end88.thread ], [ %n.1.lcssa, %for.end88 ], [ %n.1.lcssa, %for.inc.i.i ]
-  %call112114118 = phi ptr [ %call112114.ph, %for.end88.thread ], [ %call, %for.end88 ], [ %call, %for.inc.i.i ]
+  %call112114118 = phi ptr [ %call110, %for.end88.thread ], [ %call, %for.end88 ], [ %call, %for.inc.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %t.sroa.3.i.i)
   tail call void @stbtt__rasterize_sorted_edges(ptr noundef %result, ptr noundef nonnull %call112114118, i32 noundef %n.1.lcssa119, i32 poison, i32 noundef %off_x, i32 noundef %off_y, ptr poison)
   tail call void @free(ptr noundef %call112114118) #33
@@ -12663,12 +12659,9 @@ if.end7:                                          ; preds = %for.end
   %call = tail call noalias ptr @malloc(i64 noundef %mul9) #32
   store ptr %call, ptr %contour_lengths, align 8
   %cmp10 = icmp eq ptr %call, null
-  br i1 %cmp10, label %return.sink.split, label %for.cond14.preheader
+  br i1 %cmp10, label %return.sink.split, label %for.body17.us.preheader
 
-for.cond14.preheader:                             ; preds = %if.end7
-  br i1 %cmp82, label %for.body17.us.preheader, label %if.end28
-
-for.body17.us.preheader:                          ; preds = %for.cond14.preheader
+for.body17.us.preheader:                          ; preds = %if.end7
   %wide.trip.count101 = zext nneg i32 %num_verts to i64
   br label %for.body17.us
 
@@ -12822,33 +12815,18 @@ for.cond29.for.end120_crit_edge.us:               ; preds = %for.inc118.us
   store i32 %sub121.us, ptr %arrayidx123.us, align 4
   br i1 %cmp15.us, label %for.body17.us, label %return, !llvm.loop !53
 
-if.end28:                                         ; preds = %for.cond14.preheader
+error:                                            ; preds = %if.then20.us
   %25 = load ptr, ptr %contour_lengths, align 8
-  %arrayidx123 = getelementptr inbounds i8, ptr %25, i64 -4
-  store i32 0, ptr %arrayidx123, align 4
-  %call23 = tail call noalias ptr @malloc(i64 noundef 0) #32
-  %cmp24 = icmp eq ptr %call23, null
-  br i1 %cmp24, label %error, label %return.loopexit.split
-
-error:                                            ; preds = %if.then20.us, %if.end28
-  %26 = load ptr, ptr %contour_lengths, align 8
-  tail call void @free(ptr noundef %26) #33
+  tail call void @free(ptr noundef %25) #33
   store ptr null, ptr %contour_lengths, align 8
   br label %return.sink.split
 
-return.loopexit.split:                            ; preds = %if.end28
-  %27 = load ptr, ptr %contour_lengths, align 8
-  %arrayidx123106 = getelementptr inbounds i8, ptr %27, i64 -4
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end7, %entry, %error, %return.loopexit.split
-  %num_contours.sink = phi ptr [ %arrayidx123106, %return.loopexit.split ], [ %num_contours, %error ], [ %num_contours, %entry ], [ %num_contours, %if.end7 ]
-  %retval.0.ph = phi ptr [ %call23, %return.loopexit.split ], [ null, %error ], [ null, %entry ], [ null, %if.end7 ]
-  store i32 0, ptr %num_contours.sink, align 4
+return.sink.split:                                ; preds = %if.end7, %entry, %error
+  store i32 0, ptr %num_contours, align 4
   br label %return
 
 return:                                           ; preds = %for.cond29.for.end120_crit_edge.us, %return.sink.split, %for.end
-  %retval.0 = phi ptr [ null, %for.end ], [ %retval.0.ph, %return.sink.split ], [ %points.1.us, %for.cond29.for.end120_crit_edge.us ]
+  %retval.0 = phi ptr [ null, %for.end ], [ null, %return.sink.split ], [ %points.1.us, %for.cond29.for.end120_crit_edge.us ]
   ret ptr %retval.0
 }
 
@@ -15779,10 +15757,7 @@ for.body3.lr.ph:                                  ; preds = %for.cond1.preheader
   %chardata_for_range = getelementptr inbounds i8, ptr %arrayidx, i64 24
   br label %for.body3
 
-for.cond26.preheader:                             ; preds = %for.inc23
-  br i1 %cmp40, label %for.body28.preheader, label %for.end34
-
-for.body28.preheader:                             ; preds = %for.cond26.preheader
+for.body28.preheader:                             ; preds = %for.inc23
   %wide.trip.count54 = zext nneg i32 %num_ranges to i64
   br label %for.body28
 
@@ -15809,7 +15784,7 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %f
 for.inc23:                                        ; preds = %for.body3, %for.cond1.preheader
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond26.preheader, label %for.cond1.preheader, !llvm.loop !76
+  br i1 %exitcond.not, label %for.body28.preheader, label %for.cond1.preheader, !llvm.loop !76
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
   %indvars.iv51 = phi i64 [ 0, %for.body28.preheader ], [ %indvars.iv.next52, %for.body28 ]
@@ -15826,8 +15801,8 @@ for.end34.loopexit:                               ; preds = %for.body28
   %9 = mul nsw i64 %8, 24
   br label %for.end34
 
-for.end34:                                        ; preds = %entry, %for.end34.loopexit, %for.cond26.preheader
-  %n.0.lcssa = phi i64 [ 0, %for.cond26.preheader ], [ %9, %for.end34.loopexit ], [ 0, %entry ]
+for.end34:                                        ; preds = %entry, %for.end34.loopexit
+  %n.0.lcssa = phi i64 [ %9, %for.end34.loopexit ], [ 0, %entry ]
   %call = tail call noalias ptr @malloc(i64 noundef %n.0.lcssa) #32
   %cmp35 = icmp eq ptr %call, null
   br i1 %cmp35, label %return, label %if.end

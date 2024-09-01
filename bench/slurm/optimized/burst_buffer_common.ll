@@ -3468,21 +3468,21 @@ define noundef zeroext i1 @bb_free_alloc_rec(ptr nocapture noundef %0, ptr nound
 
 .lr.ph.preheader:                                 ; preds = %2
   %11 = icmp eq ptr %.01520, %1
-  br i1 %11, label %bb_free_alloc_buf.exit, label %.lr.ph30
+  br i1 %11, label %bb_free_alloc_buf.exit, label %.lr.ph29
 
-.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0152329 = phi ptr [ %.015, %.lr.ph ], [ %.01520, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.0152329, i64 80
+.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0152328 = phi ptr [ %.015, %.lr.ph ], [ %.01520, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds i8, ptr %.0152328, i64 80
   %.015 = load ptr, ptr %12, align 8
   %.not.not = icmp eq ptr %.015, null
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
-.lr.ph:                                           ; preds = %.lr.ph30
+.lr.ph:                                           ; preds = %.lr.ph29
   %13 = icmp eq ptr %.015, %1
-  br i1 %13, label %bb_free_alloc_buf.exit.loopexit, label %.lr.ph30, !llvm.loop !38
+  br i1 %13, label %bb_free_alloc_buf.exit.loopexit, label %.lr.ph29, !llvm.loop !38
 
 bb_free_alloc_buf.exit.loopexit:                  ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.0152329, i64 80
+  %14 = getelementptr inbounds i8, ptr %.0152328, i64 80
   br label %bb_free_alloc_buf.exit
 
 bb_free_alloc_buf.exit:                           ; preds = %bb_free_alloc_buf.exit.loopexit, %.lr.ph.preheader
@@ -3512,8 +3512,8 @@ bb_free_alloc_buf.exit:                           ; preds = %bb_free_alloc_buf.e
   store i64 %23, ptr %24, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph30, %2, %bb_free_alloc_buf.exit
-  %.not18 = phi i1 [ true, %bb_free_alloc_buf.exit ], [ false, %2 ], [ false, %.lr.ph30 ]
+.loopexit:                                        ; preds = %.lr.ph29, %2, %bb_free_alloc_buf.exit
+  %.not18 = phi i1 [ true, %bb_free_alloc_buf.exit ], [ false, %2 ], [ false, %.lr.ph29 ]
   ret i1 %.not18
 }
 

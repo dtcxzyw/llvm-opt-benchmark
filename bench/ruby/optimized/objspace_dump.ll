@@ -3405,7 +3405,7 @@ rb_enc_asciicompat.exit:                          ; preds = %RB_ENCODING_GET.exi
   %85 = and i32 %84, 3145728
   switch i32 %85, label %rb_enc_asciicompat.exit.thread [
     i32 0, label %86
-    i32 1048576, label %.thread
+    i32 1048576, label %dump_string_ascii_only.exit.thread43
   ]
 
 86:                                               ; preds = %82
@@ -3422,87 +3422,77 @@ RSTRING_PTR.exit:                                 ; preds = %86, %89
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %89 ], [ %88, %86 ]
   %90 = load i64, ptr %33, align 8
   %91 = icmp slt i64 %90, 1
-  br i1 %91, label %.thread, label %.lr.ph.i.preheader
+  br i1 %91, label %dump_string_ascii_only.exit.thread43, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %RSTRING_PTR.exit
-  %92 = load i8, ptr %.sroa.2.0.i, align 1
-  %.not.i3048 = icmp sgt i8 %92, -1
-  br i1 %.not.i3048, label %.lr.ph, label %rb_enc_asciicompat.exit.thread
+92:                                               ; preds = %.lr.ph.i
+  %93 = add nuw nsw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %93, %90
+  br i1 %exitcond.not.i, label %dump_string_ascii_only.exit.thread43, label %.lr.ph.i, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.06.i49 = phi i64 [ %93, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %93 = add nuw nsw i64 %.06.i49, 1
-  %exitcond.i = icmp eq i64 %93, %90
-  br i1 %exitcond.i, label %dump_string_ascii_only.exit, label %.lr.ph.i, !llvm.loop !10
-
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %94 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %93
+.lr.ph.i:                                         ; preds = %RSTRING_PTR.exit, %92
+  %.06.i = phi i64 [ %93, %92 ], [ 0, %RSTRING_PTR.exit ]
+  %94 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %.06.i
   %95 = load i8, ptr %94, align 1
   %.not.i30 = icmp sgt i8 %95, -1
-  br i1 %.not.i30, label %.lr.ph, label %dump_string_ascii_only.exit, !llvm.loop !10
+  br i1 %.not.i30, label %92, label %rb_enc_asciicompat.exit.thread
 
-dump_string_ascii_only.exit:                      ; preds = %.lr.ph.i, %.lr.ph
-  %96 = icmp sge i64 %93, %90
-  %97 = freeze i1 %96
-  br i1 %97, label %.thread, label %rb_enc_asciicompat.exit.thread
+dump_string_ascii_only.exit.thread43:             ; preds = %92, %82, %RSTRING_PTR.exit
+  %96 = load i64, ptr %3, align 8
+  %97 = add i64 %96, -4086
+  %98 = icmp ult i64 %97, -4096
+  br i1 %98, label %99, label %buffer_append.exit37
 
-.thread:                                          ; preds = %82, %RSTRING_PTR.exit, %dump_string_ascii_only.exit
-  %98 = load i64, ptr %3, align 8
-  %99 = add i64 %98, -4086
-  %100 = icmp ult i64 %99, -4096
-  br i1 %100, label %101, label %buffer_append.exit37
+99:                                               ; preds = %dump_string_ascii_only.exit.thread43
+  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = load i64, ptr %100, align 8
+  %.not22.i.i.i32 = icmp eq i64 %101, 0
+  br i1 %.not22.i.i.i32, label %106, label %102
 
-101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
-  %103 = load i64, ptr %102, align 8
-  %.not22.i.i.i32 = icmp eq i64 %103, 0
-  br i1 %.not22.i.i.i32, label %108, label %104
+102:                                              ; preds = %99
+  %103 = tail call i64 @rb_io_bufwrite(i64 noundef %101, ptr noundef nonnull %28, i64 noundef %96) #10
+  %104 = load i64, ptr %3, align 8
+  %105 = icmp ult i64 %103, %104
+  br i1 %105, label %dump_flush.exit.i.i35, label %dump_flush.exit.i.i35.thread
 
-104:                                              ; preds = %101
-  %105 = tail call i64 @rb_io_bufwrite(i64 noundef %103, ptr noundef nonnull %28, i64 noundef %98) #10
-  %106 = load i64, ptr %3, align 8
-  %107 = icmp ult i64 %105, %106
-  br i1 %107, label %dump_flush.exit.i.i35, label %dump_flush.exit.i.i35.thread
+106:                                              ; preds = %99
+  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %108 = load i64, ptr %107, align 8
+  %.not23.i.i.i36 = icmp eq i64 %108, 0
+  br i1 %.not23.i.i.i36, label %dump_flush.exit.i.i35.thread, label %109
 
-108:                                              ; preds = %101
-  %109 = getelementptr inbounds i8, ptr %0, i64 16
-  %110 = load i64, ptr %109, align 8
-  %.not23.i.i.i36 = icmp eq i64 %110, 0
-  br i1 %.not23.i.i.i36, label %dump_flush.exit.i.i35.thread, label %111
-
-111:                                              ; preds = %108
-  %112 = tail call i64 @rb_str_cat(i64 noundef %110, ptr noundef nonnull %28, i64 noundef %98) #10
+109:                                              ; preds = %106
+  %110 = tail call i64 @rb_str_cat(i64 noundef %108, ptr noundef nonnull %28, i64 noundef %96) #10
   br label %dump_flush.exit.i.i35.thread
 
-dump_flush.exit.i.i35.thread:                     ; preds = %108, %111, %104
+dump_flush.exit.i.i35.thread:                     ; preds = %106, %109, %102
   store i64 0, ptr %3, align 8
   br label %buffer_append.exit37
 
-dump_flush.exit.i.i35:                            ; preds = %104
-  %113 = getelementptr inbounds i8, ptr %28, i64 %105
-  %114 = sub nuw i64 %106, %105
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %113, i64 %114, i1 false)
-  store i64 %114, ptr %3, align 8
-  %115 = add i64 %114, -4086
-  %116 = icmp ult i64 %115, -4096
-  br i1 %116, label %117, label %buffer_append.exit37
+dump_flush.exit.i.i35:                            ; preds = %102
+  %111 = getelementptr inbounds i8, ptr %28, i64 %103
+  %112 = sub nuw i64 %104, %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %111, i64 %112, i1 false)
+  store i64 %112, ptr %3, align 8
+  %113 = add i64 %112, -4086
+  %114 = icmp ult i64 %113, -4096
+  br i1 %114, label %115, label %buffer_append.exit37
 
-117:                                              ; preds = %dump_flush.exit.i.i35
-  %118 = load i64, ptr @rb_eIOError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %118, ptr noundef nonnull @.str.53) #11
+115:                                              ; preds = %dump_flush.exit.i.i35
+  %116 = load i64, ptr @rb_eIOError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %116, ptr noundef nonnull @.str.53) #11
   unreachable
 
-buffer_append.exit37:                             ; preds = %dump_flush.exit.i.i35.thread, %.thread, %dump_flush.exit.i.i35
-  %119 = phi i64 [ %98, %.thread ], [ %114, %dump_flush.exit.i.i35 ], [ 0, %dump_flush.exit.i.i35.thread ]
-  %120 = getelementptr inbounds i8, ptr %28, i64 %119
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.86, i64 10, i1 false)
-  %121 = load i64, ptr %3, align 8
-  %122 = add i64 %121, 10
-  store i64 %122, ptr %3, align 8
+buffer_append.exit37:                             ; preds = %dump_flush.exit.i.i35.thread, %dump_string_ascii_only.exit.thread43, %dump_flush.exit.i.i35
+  %117 = phi i64 [ %96, %dump_string_ascii_only.exit.thread43 ], [ %112, %dump_flush.exit.i.i35 ], [ 0, %dump_flush.exit.i.i35.thread ]
+  %118 = getelementptr inbounds i8, ptr %28, i64 %117
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %118, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.86, i64 10, i1 false)
+  %119 = load i64, ptr %3, align 8
+  %120 = add i64 %119, 10
+  store i64 %120, ptr %3, align 8
   tail call fastcc void @dump_append_string_value(ptr noundef nonnull %0, i64 noundef %1)
   br label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit.thread:                   ; preds = %.lr.ph.i.preheader, %82, %dump_string_ascii_only.exit, %RB_ENCODING_GET.exit, %buffer_append.exit37, %rb_enc_asciicompat.exit, %69
+rb_enc_asciicompat.exit.thread:                   ; preds = %.lr.ph.i, %82, %RB_ENCODING_GET.exit, %buffer_append.exit37, %rb_enc_asciicompat.exit, %69
   ret void
 }
 

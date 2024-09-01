@@ -1202,7 +1202,7 @@ _ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit: ; preds = %2
 
 12:                                               ; preds = %_ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit
   tail call void @_ZN10JavaThread25set_is_in_VTMS_transitionEb(ptr noundef nonnull align 8 dereferenceable(1800) %5, i1 noundef zeroext true) #14
-  br label %135
+  br label %122
 
 _ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit.thread: ; preds = %2, %_ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %5) #14
@@ -1242,11 +1242,11 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26
   %33 = load i64, ptr %32, align 8
   %34 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.thread, label %_ZNK6HandleclEv.exit16
+  br i1 %35, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread59, label %_ZNK6HandleclEv.exit16
 
-.thread:                                          ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread59: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store volatile i8 0, ptr %7, align 1
-  br label %79
+  br label %72
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit.thread
   %36 = load i32, ptr @_ZN16java_lang_Thread11_tid_offsetE, align 4
@@ -1255,252 +1255,220 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZN27JvmtiVTMSTrans
   %39 = load i64, ptr %38, align 8
   %40 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.thread49, label %_ZNK6HandleclEv.exit16
+  br i1 %41, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46, label %_ZNK6HandleclEv.exit16
 
-.thread49:                                        ; preds = %_ZNK6HandleclEv.exit.thread
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46: ; preds = %_ZNK6HandleclEv.exit.thread
   store volatile i8 0, ptr %7, align 1
   br label %_ZNK6HandleclEv.exit17
 
 _ZNK6HandleclEv.exit16:                           ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZNK6HandleclEv.exit.thread
-  %storemerge.i414346 = phi ptr [ null, %_ZNK6HandleclEv.exit.thread ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %storemerge.i404245 = phi ptr [ null, %_ZNK6HandleclEv.exit.thread ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %42 = phi i64 [ %39, %_ZNK6HandleclEv.exit.thread ], [ %33, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %43 = call noundef i32 @_ZN16java_lang_Thread29VTMS_transition_disable_countEP7oopDesc(ptr noundef %6) #14
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %78, label %45
+  br i1 %44, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %45
 
 45:                                               ; preds = %_ZNK6HandleclEv.exit16
   %46 = getelementptr inbounds i8, ptr %5, i64 1513
   %47 = load volatile i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %78, label %49
+  br i1 %48, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %49
 
 49:                                               ; preds = %45
   %50 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
   switch i32 %50, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread [
     i32 2, label %51
-    i32 1, label %64
+    i32 1, label %61
   ]
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @_ZN16JvmtiVTSuspender19_not_suspended_listE, align 8
   %53 = load i32, ptr %52, align 8
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph.i.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48
+  br i1 %54, label %.lr.ph.i.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
 
 .lr.ph.i.i:                                       ; preds = %51
   %55 = getelementptr inbounds i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = zext nneg i32 %53 to i64
-  %58 = load i64, ptr %56, align 8
-  %59 = icmp eq i64 %58, %42
-  br i1 %59, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %53 to i64
+  br label %58
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %60
-  %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i.i, %60 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i10.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %57
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread, label %60, !llvm.loop !19
+57:                                               ; preds = %58
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %58, !llvm.loop !19
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread: ; preds = %.lr.ph.i
+58:                                               ; preds = %57, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %57 ]
+  %59 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv.i.i
+  %60 = load i64, ptr %59, align 8
+  %.not.i = icmp eq i64 %60, %42
+  br i1 %.not.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %57
+
+61:                                               ; preds = %49
+  %62 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph.i2.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
+
+.lr.ph.i2.i:                                      ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %wide.trip.count.i3.i = zext nneg i32 %63 to i64
+  br label %68
+
+67:                                               ; preds = %68
+  %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
+  %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %wide.trip.count.i3.i
+  br i1 %exitcond.not.i6.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %68, !llvm.loop !19
+
+68:                                               ; preds = %67, %.lr.ph.i2.i
+  %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i2.i ], [ %indvars.iv.next.i5.i, %67 ]
+  %69 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv.i4.i
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp eq i64 %70, %42
+  br i1 %71, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %67
+
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %68, %57, %51, %45, %_ZNK6HandleclEv.exit16
   store volatile i8 0, ptr %7, align 1
-  br i1 %13, label %_ZNK6HandleclEv.exit17, label %79
+  br i1 %13, label %_ZNK6HandleclEv.exit17, label %72
 
-60:                                               ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv.next.i.i
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %62, %42
-  br i1 %63, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, label %.lr.ph.i, !llvm.loop !19
-
-64:                                               ; preds = %49
-  %65 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph.i2.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
-
-.lr.ph.i2.i:                                      ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = zext nneg i32 %66 to i64
-  %71 = load i64, ptr %69, align 8
-  %72 = icmp eq i64 %71, %42
-  br i1 %72, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48, label %.lr.ph14.i
-
-.lr.ph14.i:                                       ; preds = %.lr.ph.i2.i, %73
-  %indvars.iv.i413.i = phi i64 [ %indvars.iv.next.i5.i, %73 ], [ 0, %.lr.ph.i2.i ]
-  %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i413.i, 1
-  %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %70
-  br i1 %exitcond.not.i6.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %73, !llvm.loop !19
-
-73:                                               ; preds = %.lr.ph14.i
-  %74 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv.next.i5.i
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp eq i64 %75, %42
-  br i1 %76, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %.lr.ph14.i, !llvm.loop !19
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i: ; preds = %60
-  %.not = icmp ult i64 %indvars.iv.next.i.i, %57
-  br i1 %.not, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, label %78
-
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48: ; preds = %51, %.lr.ph.i2.i
-  store volatile i8 0, ptr %7, align 1
-  br i1 %13, label %_ZNK6HandleclEv.exit17, label %79
-
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %73
-  %77 = icmp ult i64 %indvars.iv.next.i5.i, %70
-  br i1 %77, label %78, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
-
-78:                                               ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, %45, %_ZNK6HandleclEv.exit16
-  store volatile i8 0, ptr %7, align 1
-  br i1 %13, label %_ZNK6HandleclEv.exit17, label %79
-
-79:                                               ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread, %.thread, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48, %78
-  %storemerge.i414452 = phi ptr [ %storemerge.i414346, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ %storemerge.i414346, %78 ], [ %.0.i.i.i.i, %.thread ], [ %storemerge.i414346, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  %80 = phi i64 [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ %42, %78 ], [ %33, %.thread ], [ %42, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  %81 = load ptr, ptr %storemerge.i414452, align 8
+72:                                               ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread59, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
+  %storemerge.i404361 = phi ptr [ %.0.i.i.i.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread59 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %73 = phi i64 [ %33, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread59 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %74 = load ptr, ptr %storemerge.i404361, align 8
   br label %_ZNK6HandleclEv.exit17
 
-_ZNK6HandleclEv.exit17:                           ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48, %.thread49, %78, %79
-  %82 = phi i1 [ false, %79 ], [ true, %78 ], [ true, %.thread49 ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ true, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  %storemerge.i414451 = phi ptr [ %storemerge.i414452, %79 ], [ %storemerge.i414346, %78 ], [ null, %.thread49 ], [ %storemerge.i414346, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ %storemerge.i414346, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  %83 = phi i64 [ %80, %79 ], [ %42, %78 ], [ %39, %.thread49 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ %42, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  %84 = phi ptr [ %81, %79 ], [ null, %78 ], [ null, %.thread49 ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread48 ], [ null, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i.thread ]
-  call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %84, i1 noundef zeroext false) #14
-  %85 = getelementptr inbounds i8, ptr %5, i64 1513
-  br label %86
+_ZNK6HandleclEv.exit17:                           ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, %72
+  %75 = phi i1 [ false, %72 ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  %storemerge.i404348 = phi ptr [ %storemerge.i404361, %72 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  %76 = phi i64 [ %73, %72 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ %39, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  %77 = phi ptr [ %74, %72 ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %77, i1 noundef zeroext false) #14
+  %78 = getelementptr inbounds i8, ptr %5, i64 1513
+  br label %79
 
-86:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZNK6HandleclEv.exit17
-  %87 = load ptr, ptr @JvmtiVTMSTransition_lock, align 8
-  %.not.i.i = icmp eq ptr %87, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %88
+79:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZNK6HandleclEv.exit17
+  %80 = load ptr, ptr @JvmtiVTMSTransition_lock, align 8
+  %.not.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %81
 
-88:                                               ; preds = %86
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %87) #14
+81:                                               ; preds = %79
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %80) #14
   br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %86, %88
-  %89 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %_ZN13MonitorLocker4waitEl.exit, label %91
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %79, %81
+  %82 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %_ZN13MonitorLocker4waitEl.exit, label %84
 
-91:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %82, label %_ZNK6HandleclEv.exit18, label %92
+84:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  br i1 %75, label %_ZNK6HandleclEv.exit18, label %85
 
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %storemerge.i414451, align 8
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %storemerge.i404348, align 8
   br label %_ZNK6HandleclEv.exit18
 
-_ZNK6HandleclEv.exit18:                           ; preds = %91, %92
-  %94 = phi ptr [ %93, %92 ], [ null, %91 ]
-  %95 = call noundef i32 @_ZN16java_lang_Thread29VTMS_transition_disable_countEP7oopDesc(ptr noundef %94) #14
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %_ZN13MonitorLocker4waitEl.exit, label %97
+_ZNK6HandleclEv.exit18:                           ; preds = %84, %85
+  %87 = phi ptr [ %86, %85 ], [ null, %84 ]
+  %88 = call noundef i32 @_ZN16java_lang_Thread29VTMS_transition_disable_countEP7oopDesc(ptr noundef %87) #14
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %_ZN13MonitorLocker4waitEl.exit, label %90
 
-97:                                               ; preds = %_ZNK6HandleclEv.exit18
-  %98 = load volatile i8, ptr %85, align 1
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %_ZN13MonitorLocker4waitEl.exit, label %100
+90:                                               ; preds = %_ZNK6HandleclEv.exit18
+  %91 = load volatile i8, ptr %78, align 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %_ZN13MonitorLocker4waitEl.exit, label %93
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
-  switch i32 %101, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread [
-    i32 2, label %102
-    i32 1, label %115
+93:                                               ; preds = %90
+  %94 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
+  switch i32 %94, label %.loopexit [
+    i32 2, label %95
+    i32 1, label %105
   ]
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr @_ZN16JvmtiVTSuspender19_not_suspended_listE, align 8
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %.lr.ph.i.i25, label %_ZN13MonitorLocker4waitEl.exit
+95:                                               ; preds = %93
+  %96 = load ptr, ptr @_ZN16JvmtiVTSuspender19_not_suspended_listE, align 8
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %.lr.ph.i.i24, label %_ZN13MonitorLocker4waitEl.exit
 
-.lr.ph.i.i25:                                     ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = zext nneg i32 %104 to i64
-  %109 = load i64, ptr %107, align 8
-  %110 = icmp eq i64 %109, %83
-  br i1 %110, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread, label %.lr.ph.i26
+.lr.ph.i.i24:                                     ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %wide.trip.count.i.i25 = zext nneg i32 %97 to i64
+  br label %102
 
-.lr.ph.i26:                                       ; preds = %.lr.ph.i.i25, %111
-  %indvars.iv.i10.i27 = phi i64 [ %indvars.iv.next.i.i28, %111 ], [ 0, %.lr.ph.i.i25 ]
-  %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i10.i27, 1
-  %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, %108
-  br i1 %exitcond.not.i.i29, label %_ZN13MonitorLocker4waitEl.exit, label %111, !llvm.loop !19
+101:                                              ; preds = %102
+  %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i26, 1
+  %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, %wide.trip.count.i.i25
+  br i1 %exitcond.not.i.i29, label %_ZN13MonitorLocker4waitEl.exit, label %102, !llvm.loop !19
 
-111:                                              ; preds = %.lr.ph.i26
-  %112 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv.next.i.i28
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp eq i64 %113, %83
-  br i1 %114, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i30, label %.lr.ph.i26, !llvm.loop !19
+102:                                              ; preds = %101, %.lr.ph.i.i24
+  %indvars.iv.i.i26 = phi i64 [ 0, %.lr.ph.i.i24 ], [ %indvars.iv.next.i.i28, %101 ]
+  %103 = getelementptr inbounds i64, ptr %100, i64 %indvars.iv.i.i26
+  %104 = load i64, ptr %103, align 8
+  %.not.i27 = icmp eq i64 %104, %76
+  br i1 %.not.i27, label %.loopexit, label %101
 
-115:                                              ; preds = %100
-  %116 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.i2.i19, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread
+105:                                              ; preds = %93
+  %106 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %.lr.ph.i2.i19, label %.loopexit
 
-.lr.ph.i2.i19:                                    ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %116, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = zext nneg i32 %117 to i64
-  %122 = load i64, ptr %120, align 8
-  %123 = icmp eq i64 %122, %83
-  br i1 %123, label %_ZN13MonitorLocker4waitEl.exit, label %.lr.ph14.i20
+.lr.ph.i2.i19:                                    ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %106, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %wide.trip.count.i3.i20 = zext nneg i32 %107 to i64
+  br label %112
 
-.lr.ph14.i20:                                     ; preds = %.lr.ph.i2.i19, %124
-  %indvars.iv.i413.i21 = phi i64 [ %indvars.iv.next.i5.i22, %124 ], [ 0, %.lr.ph.i2.i19 ]
-  %indvars.iv.next.i5.i22 = add nuw nsw i64 %indvars.iv.i413.i21, 1
-  %exitcond.not.i6.i23 = icmp eq i64 %indvars.iv.next.i5.i22, %121
-  br i1 %exitcond.not.i6.i23, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread, label %124, !llvm.loop !19
+111:                                              ; preds = %112
+  %indvars.iv.next.i5.i22 = add nuw nsw i64 %indvars.iv.i4.i21, 1
+  %exitcond.not.i6.i23 = icmp eq i64 %indvars.iv.next.i5.i22, %wide.trip.count.i3.i20
+  br i1 %exitcond.not.i6.i23, label %.loopexit, label %112, !llvm.loop !19
 
-124:                                              ; preds = %.lr.ph14.i20
-  %125 = getelementptr inbounds i64, ptr %120, i64 %indvars.iv.next.i5.i22
-  %126 = load i64, ptr %125, align 8
-  %127 = icmp eq i64 %126, %83
-  br i1 %127, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31, label %.lr.ph14.i20, !llvm.loop !19
+112:                                              ; preds = %111, %.lr.ph.i2.i19
+  %indvars.iv.i4.i21 = phi i64 [ 0, %.lr.ph.i2.i19 ], [ %indvars.iv.next.i5.i22, %111 ]
+  %113 = getelementptr inbounds i64, ptr %110, i64 %indvars.iv.i4.i21
+  %114 = load i64, ptr %113, align 8
+  %115 = icmp eq i64 %114, %76
+  br i1 %115, label %_ZN13MonitorLocker4waitEl.exit, label %111
 
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i30: ; preds = %111
-  %.not55 = icmp ult i64 %indvars.iv.next.i.i28, %108
-  br i1 %.not55, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread, label %_ZN13MonitorLocker4waitEl.exit
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %112, %101, %95, %90, %_ZNK6HandleclEv.exit18, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %116 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %80, i64 noundef 10) #14
+  br label %120, !llvm.loop !20
 
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31: ; preds = %124
-  %128 = icmp ult i64 %indvars.iv.next.i5.i22, %121
-  br i1 %128, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread
-
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph.i26, %.lr.ph.i2.i19, %102, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i30, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31, %97, %_ZNK6HandleclEv.exit18, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %129 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %87, i64 noundef 10) #14
-  br label %133, !llvm.loop !20
-
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread: ; preds = %.lr.ph14.i20, %.lr.ph.i.i25, %100, %115, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i30, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31
+.loopexit:                                        ; preds = %111, %102, %105, %93
   store volatile i8 1, ptr %7, align 1
-  br i1 %82, label %_ZNK6HandleclEv.exit32, label %130
+  br i1 %75, label %_ZNK6HandleclEv.exit31, label %117
 
-130:                                              ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread
-  %131 = load ptr, ptr %storemerge.i414451, align 8
-  br label %_ZNK6HandleclEv.exit32
+117:                                              ; preds = %.loopexit
+  %118 = load ptr, ptr %storemerge.i404348, align 8
+  br label %_ZNK6HandleclEv.exit31
 
-_ZNK6HandleclEv.exit32:                           ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread, %130
-  %132 = phi ptr [ %131, %130 ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit31.thread ]
-  call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %132, i1 noundef zeroext true) #14
-  br label %133
+_ZNK6HandleclEv.exit31:                           ; preds = %.loopexit, %117
+  %119 = phi ptr [ %118, %117 ], [ null, %.loopexit ]
+  call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %119, i1 noundef zeroext true) #14
+  br label %120
 
-133:                                              ; preds = %_ZNK6HandleclEv.exit32, %_ZN13MonitorLocker4waitEl.exit
-  %switch = phi i1 [ true, %_ZN13MonitorLocker4waitEl.exit ], [ false, %_ZNK6HandleclEv.exit32 ]
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %134
+120:                                              ; preds = %_ZNK6HandleclEv.exit31, %_ZN13MonitorLocker4waitEl.exit
+  %switch = phi i1 [ true, %_ZN13MonitorLocker4waitEl.exit ], [ false, %_ZNK6HandleclEv.exit31 ]
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %121
 
-134:                                              ; preds = %133
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %87) #14
+121:                                              ; preds = %120
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %80) #14
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %133, %134
-  br i1 %switch, label %86, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %120, %121
+  br i1 %switch, label %79, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread
 
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread: ; preds = %.lr.ph14.i, %_ZN13MonitorLockerD2Ev.exit, %.lr.ph.i.i, %49, %64, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread: ; preds = %67, %58, %_ZN13MonitorLockerD2Ev.exit, %49, %61
   call void @_ZN10JavaThread25set_is_in_VTMS_transitionEb(ptr noundef nonnull align 8 dereferenceable(1800) %5, i1 noundef zeroext true) #14
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
-  br label %135
+  br label %122
 
-135:                                              ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, %12
+122:                                              ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread, %12
   ret void
 }
 
@@ -1515,7 +1483,7 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEl(
   %2 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
   switch i32 %2, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7 [
     i32 2, label %3
-    i32 1, label %16
+    i32 1, label %12
   ]
 
 3:                                                ; preds = %1
@@ -1527,60 +1495,44 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEl(
 .lr.ph.i:                                         ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = zext nneg i32 %5 to i64
-  %10 = load i64, ptr %8, align 8
-  %11 = icmp eq i64 %10, %0
-  br i1 %11, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %5 to i64
+  br label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %12
-  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i10, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %9
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit, label %12, !llvm.loop !19
+9:                                                ; preds = %9, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
+  %10 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i
+  %11 = load i64, ptr %10, align 8
+  %.not = icmp ne i64 %11, %0
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
+  %or.cond.not = select i1 %.not, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not, label %9, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, !llvm.loop !19
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.next.i
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, %0
-  br i1 %15, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit, label %.lr.ph, !llvm.loop !19
+12:                                               ; preds = %1
+  %13 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7
 
-16:                                               ; preds = %1
-  %17 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7
+.lr.ph.i2:                                        ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %wide.trip.count.i3 = zext nneg i32 %14 to i64
+  br label %18
 
-.lr.ph.i2:                                        ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = zext nneg i32 %18 to i64
-  %23 = load i64, ptr %21, align 8
-  %24 = icmp eq i64 %23, %0
-  br i1 %24, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %.lr.ph14
+18:                                               ; preds = %18, %.lr.ph.i2
+  %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i5, %18 ]
+  %19 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv.i4
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp eq i64 %20, %0
+  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
+  %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, %wide.trip.count.i3
+  %or.cond17 = select i1 %21, i1 true, i1 %exitcond.not.i6
+  br i1 %or.cond17, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %18, !llvm.loop !19
 
-.lr.ph14:                                         ; preds = %.lr.ph.i2, %25
-  %indvars.iv.i413 = phi i64 [ %indvars.iv.next.i5, %25 ], [ 0, %.lr.ph.i2 ]
-  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i413, 1
-  %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, %22
-  br i1 %exitcond.not.i6, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19, label %25, !llvm.loop !19
-
-25:                                               ; preds = %.lr.ph14
-  %26 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv.next.i5
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, %0
-  br i1 %28, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19, label %.lr.ph14, !llvm.loop !19
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit: ; preds = %12, %.lr.ph
-  %29 = icmp uge i64 %indvars.iv.next.i, %9
-  br label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19: ; preds = %25, %.lr.ph14
-  %30 = icmp ult i64 %indvars.iv.next.i5, %22
-  br label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7:    ; preds = %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit, %.lr.ph.i, %.lr.ph.i2, %1, %3, %16
-  %31 = phi i1 [ false, %16 ], [ true, %3 ], [ false, %1 ], [ true, %.lr.ph.i2 ], [ false, %.lr.ph.i ], [ %29, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit ], [ %30, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19 ]
-  ret i1 %31
+_ZNK17GrowableArrayViewIlE8containsERKl.exit7:    ; preds = %18, %9, %1, %3, %12
+  %22 = phi i1 [ false, %12 ], [ true, %3 ], [ false, %1 ], [ %.not, %9 ], [ %21, %18 ]
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2030,92 +1982,84 @@ define hidden void @_ZN16JvmtiVTSuspender24register_vthread_suspendEP7oopDesc(pt
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %10
   %11 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
   %12 = icmp eq i32 %11, 2
-  br i1 %12, label %13, label %41
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   %14 = load ptr, ptr @_ZN16JvmtiVTSuspender19_not_suspended_listE, align 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.i.i, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i
+  br i1 %16, label %.lr.ph.i.i, label %.loopexit2.i
 
 .lr.ph.i.i:                                       ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = zext nneg i32 %15 to i64
-  %20 = load i64, ptr %18, align 8
-  %21 = icmp eq i64 %20, %8
-  br i1 %21, label %._crit_edge.i, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
+  br label %19
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv.next.i.i
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, %8
-  br i1 %25, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !22
+19:                                               ; preds = %36, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
+  %20 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv.i.i
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp eq i64 %21, %8
+  br i1 %22, label %23, label %36
 
-._crit_edge.loopexit.i:                           ; preds = %22
-  %26 = icmp ult i64 %indvars.iv.next.i.i, %19
-  br label %._crit_edge.i
+23:                                               ; preds = %19
+  %24 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %24, 1
+  %25 = icmp slt i32 %.06.i.i.i, %15
+  br i1 %25, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIlE6removeERKl.exit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
-  %indvars.iv.i.lcssa.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.loopexit.i ]
-  %.lcssa2.i = phi i1 [ true, %.lr.ph.i.i ], [ %26, %._crit_edge.loopexit.i ]
-  %27 = trunc nuw nsw i64 %indvars.iv.i.lcssa.i to i32
-  %.06.i.i.i = add nuw nsw i32 %27, 1
-  %28 = icmp slt i32 %.06.i.i.i, %15
-  br i1 %28, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i
+.lr.ph.i.i.i:                                     ; preds = %23
+  %26 = and i64 %indvars.iv.i.i, 4294967295
+  %27 = add nuw nsw i64 %26, 1
+  br label %28
 
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i
-  %29 = and i64 %indvars.iv.i.lcssa.i, 4294967295
-  %30 = add nuw nsw i64 %29, 1
-  br label %31
-
-31:                                               ; preds = %31, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %31 ]
-  %indvars.iv.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %31 ]
-  %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv.i.i.i
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv10.i.i.i
-  store i64 %34, ptr %35, align 8
+28:                                               ; preds = %28, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %28 ]
+  %indvars.iv.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %28 ]
+  %29 = load ptr, ptr %17, align 8
+  %30 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv.i.i.i
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv10.i.i.i
+  store i64 %31, ptr %32, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %36 = load i32, ptr %14, align 8
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next.i.i.i, %37
+  %33 = load i32, ptr %14, align 8
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next.i.i.i, %34
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %38, label %31, label %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i, !llvm.loop !23
+  br i1 %35, label %28, label %_ZN17GrowableArrayViewIlE6removeERKl.exit, !llvm.loop !22
 
-_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i:   ; preds = %31, %._crit_edge.i
-  %.lcssa.i.i.i = phi i32 [ %15, %._crit_edge.i ], [ %36, %31 ]
-  %39 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %39, ptr %14, align 8
-  br i1 %.lcssa2.i, label %_ZN17GrowableArrayViewIlE6removeERKl.exit, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i
+36:                                               ; preds = %19
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %19, !llvm.loop !23
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %22
-  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i.i, %22 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i5.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %19
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i, label %22, !llvm.loop !22
-
-_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i: ; preds = %.lr.ph.i, %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i, %13
-  %40 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %40, align 1
+.loopexit2.i:                                     ; preds = %36, %13
+  %37 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %37, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.18, i32 noundef 256) #15
   unreachable
 
-41:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+_ZN17GrowableArrayViewIlE6removeERKl.exit:        ; preds = %28, %23
+  %.lcssa.i.i.i = phi i32 [ %15, %23 ], [ %33, %28 ]
+  %38 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %38, ptr %14, align 8
+  br label %42
+
+39:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   store i32 1, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
-  %42 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %43 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIl18GrowableArrayCHeapIlL8MEMFLAGS23EEE6appendERKl(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %_ZN17GrowableArrayViewIlE6removeERKl.exit
+  %40 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %41 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIl18GrowableArrayCHeapIlL8MEMFLAGS23EEE6appendERKl(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %42
 
-_ZN17GrowableArrayViewIlE6removeERKl.exit:        ; preds = %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i, %41
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %44
+42:                                               ; preds = %39, %_ZN17GrowableArrayViewIlE6removeERKl.exit
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %43
 
-44:                                               ; preds = %_ZN17GrowableArrayViewIlE6removeERKl.exit
+43:                                               ; preds = %42
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #14
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN17GrowableArrayViewIlE6removeERKl.exit, %44
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %42, %43
   ret void
 }
 
@@ -2236,7 +2180,7 @@ define hidden void @_ZN16JvmtiVTSuspender23register_vthread_resumeEP7oopDesc(ptr
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %10
   %11 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
-  switch i32 %11, label %47 [
+  switch i32 %11, label %45 [
     i32 2, label %12
     i32 1, label %15
   ]
@@ -2244,96 +2188,85 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %
 12:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   %13 = load ptr, ptr @_ZN16JvmtiVTSuspender19_not_suspended_listE, align 8
   %14 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIl18GrowableArrayCHeapIlL8MEMFLAGS23EEE6appendERKl(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %47
+  br label %45
 
 15:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   %16 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph.i.i, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i
+  br i1 %18, label %.lr.ph.i.i, label %.loopexit2.i
 
 .lr.ph.i.i:                                       ; preds = %15
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = zext nneg i32 %17 to i64
-  %22 = load i64, ptr %20, align 8
-  %23 = icmp eq i64 %22, %8
-  br i1 %23, label %._crit_edge.i, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %17 to i64
+  br label %21
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv.next.i.i
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp eq i64 %26, %8
-  br i1 %27, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !22
+21:                                               ; preds = %38, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
+  %22 = getelementptr inbounds i64, ptr %20, i64 %indvars.iv.i.i
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp eq i64 %23, %8
+  br i1 %24, label %25, label %38
 
-._crit_edge.loopexit.i:                           ; preds = %24
-  %28 = icmp ult i64 %indvars.iv.next.i.i, %21
-  br label %._crit_edge.i
+25:                                               ; preds = %21
+  %26 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i.i.i = add nuw nsw i32 %26, 1
+  %27 = icmp slt i32 %.06.i.i.i, %17
+  br i1 %27, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIlE6removeERKl.exit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
-  %indvars.iv.i.lcssa.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.loopexit.i ]
-  %.lcssa2.i = phi i1 [ true, %.lr.ph.i.i ], [ %28, %._crit_edge.loopexit.i ]
-  %29 = trunc nuw nsw i64 %indvars.iv.i.lcssa.i to i32
-  %.06.i.i.i = add nuw nsw i32 %29, 1
-  %30 = icmp slt i32 %.06.i.i.i, %17
-  br i1 %30, label %.lr.ph.i.i.i, label %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i
+.lr.ph.i.i.i:                                     ; preds = %25
+  %28 = and i64 %indvars.iv.i.i, 4294967295
+  %29 = add nuw nsw i64 %28, 1
+  br label %30
 
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i
-  %31 = and i64 %indvars.iv.i.lcssa.i, 4294967295
-  %32 = add nuw nsw i64 %31, 1
-  br label %33
-
-33:                                               ; preds = %33, %.lr.ph.i.i.i
-  %indvars.iv10.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %33 ]
-  %indvars.iv.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %33 ]
-  %34 = load ptr, ptr %19, align 8
-  %35 = getelementptr inbounds i64, ptr %34, i64 %indvars.iv.i.i.i
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %34, i64 %indvars.iv10.i.i.i
-  store i64 %36, ptr %37, align 8
+30:                                               ; preds = %30, %.lr.ph.i.i.i
+  %indvars.iv10.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %30 ]
+  %indvars.iv.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %30 ]
+  %31 = load ptr, ptr %19, align 8
+  %32 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv.i.i.i
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv10.i.i.i
+  store i64 %33, ptr %34, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %38 = load i32, ptr %16, align 8
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv.next.i.i.i, %39
+  %35 = load i32, ptr %16, align 8
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next.i.i.i, %36
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %40, label %33, label %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i, !llvm.loop !23
+  br i1 %37, label %30, label %_ZN17GrowableArrayViewIlE6removeERKl.exit, !llvm.loop !22
 
-_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i:   ; preds = %33, %._crit_edge.i
-  %.lcssa.i.i.i = phi i32 [ %17, %._crit_edge.i ], [ %38, %33 ]
-  %41 = add nsw i32 %.lcssa.i.i.i, -1
-  store i32 %41, ptr %16, align 8
-  br i1 %.lcssa2.i, label %_ZN17GrowableArrayViewIlE6removeERKl.exit, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i
+38:                                               ; preds = %21
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %21, !llvm.loop !23
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %24
-  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i5.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %21
-  br i1 %exitcond.not.i.i, label %_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i, label %24, !llvm.loop !22
-
-_ZN17GrowableArrayViewIlE18remove_if_existingERKl.exit.thread.i: ; preds = %.lr.ph.i, %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i, %15
-  %42 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %42, align 1
+.loopexit2.i:                                     ; preds = %38, %15
+  %39 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %39, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.18, i32 noundef 256) #15
   unreachable
 
-_ZN17GrowableArrayViewIlE6removeERKl.exit:        ; preds = %_ZN17GrowableArrayViewIlE9remove_atEi.exit.i.i
-  %43 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %47
+_ZN17GrowableArrayViewIlE6removeERKl.exit:        ; preds = %30, %25
+  %.lcssa.i.i.i = phi i32 [ %17, %25 ], [ %35, %30 ]
+  %40 = add nsw i32 %.lcssa.i.i.i, -1
+  store i32 %40, ptr %16, align 8
+  %41 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %45
 
-46:                                               ; preds = %_ZN17GrowableArrayViewIlE6removeERKl.exit
+44:                                               ; preds = %_ZN17GrowableArrayViewIlE6removeERKl.exit
   store i32 0, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
-  br label %47
+  br label %45
 
-47:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %46, %_ZN17GrowableArrayViewIlE6removeERKl.exit, %12
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %48
+45:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %44, %_ZN17GrowableArrayViewIlE6removeERKl.exit, %12
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %46
 
-48:                                               ; preds = %47
+46:                                               ; preds = %45
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #14
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %47, %48
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %45, %46
   ret void
 }
 
@@ -2348,7 +2281,7 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEP7
   %8 = load i32, ptr @_ZN16JvmtiVTSuspender8_SR_modeE, align 4
   switch i32 %8, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit [
     i32 2, label %9
-    i32 1, label %22
+    i32 1, label %18
   ]
 
 9:                                                ; preds = %1
@@ -2360,62 +2293,44 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEP7
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %11 to i64
-  %16 = load i64, ptr %14, align 8
-  %17 = icmp eq i64 %16, %7
-  br i1 %17, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %11 to i64
+  br label %15
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %18
-  %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i.i, %18 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i10.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, label %18, !llvm.loop !19
+15:                                               ; preds = %15, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
+  %16 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i.i
+  %17 = load i64, ptr %16, align 8
+  %.not.i.not = icmp ne i64 %17, %7
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %or.cond.not = select i1 %.not.i.not, i1 %exitcond.not.i.i, i1 false
+  br i1 %or.cond.not, label %15, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, !llvm.loop !19
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.next.i.i
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %20, %7
-  br i1 %21, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, label %.lr.ph.i, !llvm.loop !19
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph.i2.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
 
-22:                                               ; preds = %1
-  %23 = load ptr, ptr @_ZN16JvmtiVTSuspender15_suspended_listE, align 8
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i2.i, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
+.lr.ph.i2.i:                                      ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %wide.trip.count.i3.i = zext nneg i32 %20 to i64
+  br label %24
 
-.lr.ph.i2.i:                                      ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = zext nneg i32 %24 to i64
-  %29 = load i64, ptr %27, align 8
-  %30 = icmp eq i64 %29, %7
-  br i1 %30, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %.lr.ph14.i
+24:                                               ; preds = %24, %.lr.ph.i2.i
+  %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i2.i ], [ %indvars.iv.next.i5.i, %24 ]
+  %25 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv.i4.i
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp eq i64 %26, %7
+  %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
+  %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %wide.trip.count.i3.i
+  %or.cond9 = select i1 %27, i1 true, i1 %exitcond.not.i6.i
+  br i1 %or.cond9, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %24, !llvm.loop !19
 
-.lr.ph14.i:                                       ; preds = %.lr.ph.i2.i, %31
-  %indvars.iv.i413.i = phi i64 [ %indvars.iv.next.i5.i, %31 ], [ 0, %.lr.ph.i2.i ]
-  %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i413.i, 1
-  %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %28
-  br i1 %exitcond.not.i6.i, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19.i, label %31, !llvm.loop !19
-
-31:                                               ; preds = %.lr.ph14.i
-  %32 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv.next.i5.i
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %7
-  br i1 %34, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19.i, label %.lr.ph14.i, !llvm.loop !19
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i: ; preds = %18, %.lr.ph.i
-  %indvars.iv.next.i.i.lcssa = phi i64 [ %indvars.iv.next.i.i, %18 ], [ %15, %.lr.ph.i ]
-  %35 = icmp uge i64 %indvars.iv.next.i.i.lcssa, %15
-  br label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
-
-_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19.i: ; preds = %31, %.lr.ph14.i
-  %indvars.iv.next.i5.i.lcssa = phi i64 [ %indvars.iv.next.i5.i, %31 ], [ %28, %.lr.ph14.i ]
-  %36 = icmp ult i64 %indvars.iv.next.i5.i.lcssa, %28
-  br label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
-
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %1, %9, %.lr.ph.i.i, %22, %.lr.ph.i2.i, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19.i
-  %37 = phi i1 [ false, %22 ], [ true, %9 ], [ false, %1 ], [ true, %.lr.ph.i2.i ], [ false, %.lr.ph.i.i ], [ %35, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit.i ], [ %36, %_ZNK17GrowableArrayViewIlE8containsERKl.exit7.loopexit19.i ]
-  ret i1 %37
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %24, %15, %1, %9, %18
+  %28 = phi i1 [ false, %18 ], [ true, %9 ], [ false, %1 ], [ %.not.i.not, %15 ], [ %27, %24 ]
+  ret i1 %28
 }
 
 declare void @_ZN19JvmtiEnvThreadStateC1EP16JvmtiThreadStateP12JvmtiEnvBase(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #1
@@ -4276,32 +4191,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i310 = or i64 %.0.i.i310.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i16.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !33
-  %72 = icmp eq i64 %71, %.0.i16.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !33
+  %71 = icmp eq i64 %70, %.0.i16.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
 
-_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -4418,32 +4332,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i18 = or i64 %.0.i.i18.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i17.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !33
-  %72 = icmp eq i64 %71, %.0.i17.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !33
+  %71 = icmp eq i64 %70, %.0.i17.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !35
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !35
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -4939,9 +4852,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -4949,20 +4861,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !33
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !33
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

@@ -2357,8 +2357,8 @@ entry:
   %_M_left.i.i20 = getelementptr inbounds i8, ptr %this, i64 1744
   %0 = load ptr, ptr %_M_left.i.i20, align 8
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %this, i64 1728
-  %cmp.i22.not165 = icmp eq ptr %0, %add.ptr.i.i21
-  br i1 %cmp.i22.not165, label %return, label %cond.end32.lr.ph
+  %cmp.i22.not165 = icmp ne ptr %0, %add.ptr.i.i21
+  br i1 %cmp.i22.not165, label %cond.end32.lr.ph, label %return
 
 cond.end32.lr.ph:                                 ; preds = %entry
   %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.tmp49, i64 16
@@ -2515,8 +2515,7 @@ _ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit: ; preds = %invoke.cont
   br i1 %cmp.i22.not, label %for.end81, label %cond.end32
 
 for.end81:                                        ; preds = %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EED2Ev.exit
-  %brmerge = or i1 %cmp.i22.not165, %addedLemma.1.lcssa174
-  br i1 %brmerge, label %return, label %cond.false88
+  br i1 %addedLemma.1.lcssa174, label %return, label %cond.false88
 
 cond.false88:                                     ; preds = %for.end81
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory5arith11TheoryArith23sanityCheckIntegerModelEv, ptr noundef nonnull @.str.17, i32 noundef 546)
@@ -2550,8 +2549,7 @@ lpad91:                                           ; preds = %invoke.cont98, %inv
   unreachable
 
 return:                                           ; preds = %entry, %for.end81
-  %addedLemma.0.lcssa177 = phi i1 [ %addedLemma.1.lcssa174, %for.end81 ], [ false, %entry ]
-  ret i1 %addedLemma.0.lcssa177
+  ret i1 %cmp.i22.not165
 
 eh.resume:                                        ; preds = %lpad.i, %lpad55, %lpad70
   %.pn12 = phi { ptr, i32 } [ %15, %lpad70 ], [ %5, %lpad.i ], [ %12, %lpad55 ]

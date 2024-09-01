@@ -1205,9 +1205,8 @@ define void @Sim_UtilSetConst(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %5 = zext nneg i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %6, i1 false)
-  %.not = icmp ne i32 %2, 0
-  %or.cond = and i1 %4, %.not
-  br i1 %or.cond, label %.lr.ph.preheader.i, label %Sim_UtilSetCompl.exit
+  %.not.not = icmp eq i32 %2, 0
+  br i1 %.not.not, label %Sim_UtilSetCompl.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %wide.trip.count.i = zext nneg i32 %1 to i64

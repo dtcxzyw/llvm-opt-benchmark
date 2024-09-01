@@ -695,10 +695,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %wide.trip.count141 = zext nneg i32 %.us-phi.us to i64
   br label %.critedge
 
-.preheader:                                       ; preds = %.critedge
-  br i1 %102, label %.lr.ph126, label %._crit_edge
-
-.lr.ph126:                                        ; preds = %.preheader
+.lr.ph126:                                        ; preds = %.critedge
   %103 = getelementptr i8, ptr %0, i64 8
   %104 = getelementptr i8, ptr %1, i64 8
   %105 = trunc i32 %3 to i8
@@ -717,7 +714,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %111)
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
-  br i1 %exitcond142.not, label %.preheader, label %.critedge, !llvm.loop !12
+  br i1 %exitcond142.not, label %.lr.ph126, label %.critedge, !llvm.loop !12
 
 112:                                              ; preds = %.lr.ph126, %177
   %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %177 ]
@@ -805,7 +802,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %._crit_edge, label %112, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %177, %120, %.lr.ph117, %11, %.critedge.preheader, %.preheader
+._crit_edge:                                      ; preds = %177, %120, %.lr.ph117, %11, %.critedge.preheader
   ret void
 }
 

@@ -2281,7 +2281,7 @@ define void @_ZN8WasmEdge8Executor8Executor6invokeEPKNS_7Runtime8Instance16Funct
 
 _ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit: ; preds = %49
   %invariant.gep = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %.not16.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph.i, %38
   store i32 1027, ptr %13, align 4
@@ -2469,7 +2469,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %_ZN8WasmEdge7ErrIn
   %133 = icmp ugt i64 %41, %132
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %130, %.preheader.i, %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+._crit_edge:                                      ; preds = %130, %.preheader.i
   %134 = invoke noalias noundef nonnull dereferenceable(32768) ptr @_Znwm(i64 noundef 32768) #23
           to label %_ZNSt12_Vector_baseIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EE11_M_allocateEm.exit.i.i unwind label %139
 
@@ -31511,8 +31511,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
 33:                                               ; preds = %._crit_edge
   %34 = add nuw i32 %.01727, 1
   %35 = load i32, ptr %12, align 4
-  %.not40 = icmp ult i32 %34, %35
-  br i1 %.not40, label %36, label %.loopexit, !llvm.loop !220
+  %.not37 = icmp ult i32 %34, %35
+  br i1 %.not37, label %36, label %.loopexit, !llvm.loop !220
 
 36:                                               ; preds = %.lr.ph29, %33
   %.01727 = phi i32 [ 0, %.lr.ph29 ], [ %34, %33 ]

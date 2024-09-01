@@ -1790,8 +1790,7 @@ _ZN7Archive11IsSignatureEPKhm.exit70:             ; preds = %102
   %130 = icmp ne i64 %indvars.iv, 0
   %131 = and i1 %80, %130
   %132 = and i1 %81, %131
-  %or.cond5 = and i1 %132, %97
-  br i1 %or.cond5, label %133, label %.loopexit136
+  br i1 %132, label %133, label %.loopexit136
 
 133:                                              ; preds = %_ZN7Archive11IsSignatureEPKhm.exit70
   %134 = load i8, ptr %83, align 1

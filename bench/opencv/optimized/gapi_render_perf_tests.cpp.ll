@@ -27299,10 +27299,7 @@ define hidden void @_ZN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerform
   %78 = getelementptr inbounds i8, ptr %17, i64 40
   br label %83
 
-.preheader221:                                    ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit
-  br i1 %69, label %.lr.ph239, label %._crit_edge
-
-.lr.ph239:                                        ; preds = %.preheader221
+.lr.ph239:                                        ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit
   %.sroa.2187.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
   %.sroa.3188.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 12
@@ -27360,7 +27357,7 @@ define hidden void @_ZN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerform
 _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit: ; preds = %87, %101
   %102 = add nuw nsw i32 %.049237, 1
   %exitcond.not = icmp eq i32 %102, %43
-  br i1 %exitcond.not, label %.preheader221, label %83, !llvm.loop !238
+  br i1 %exitcond.not, label %.lr.ph239, label %83, !llvm.loop !238
 
 103:                                              ; preds = %39, %1
   %104 = landingpad { ptr, i32 }
@@ -27419,7 +27416,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   %exitcond247.not = icmp eq i32 %118, %43
   br i1 %exitcond247.not, label %._crit_edge, label %109, !llvm.loop !239
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJSB_EEEvDpOT_.exit, %68, %.preheader221
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJSB_EEEvDpOT_.exit, %68
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %119 unwind label %153
@@ -28941,10 +28938,7 @@ define hidden void @_ZN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerform
   %100 = getelementptr inbounds i8, ptr %25, i64 40
   br label %105
 
-.preheader243:                                    ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit
-  br i1 %91, label %.lr.ph261, label %._crit_edge
-
-.lr.ph261:                                        ; preds = %.preheader243
+.lr.ph261:                                        ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit
   %.sroa.2208.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %.sroa.3209.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 12
@@ -29002,7 +28996,7 @@ define hidden void @_ZN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerform
 _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJS8_EEEvDpOT_.exit: ; preds = %109, %123
   %124 = add nuw nsw i32 %.048259, 1
   %exitcond.not = icmp eq i32 %124, %55
-  br i1 %exitcond.not, label %.preheader243, label %105, !llvm.loop !255
+  br i1 %exitcond.not, label %.lr.ph261, label %105, !llvm.loop !255
 
 125:                                              ; preds = %51, %1
   %126 = landingpad { ptr, i32 }
@@ -29056,7 +29050,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   %exitcond269.not = icmp eq i32 %138, %55
   br i1 %exitcond269.not, label %._crit_edge, label %129, !llvm.loop !256
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJSB_EEEvDpOT_.exit, %90, %.preheader243
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESaISE_EE12emplace_backIJSB_EEEvDpOT_.exit, %90
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %28)
           to label %139 unwind label %173

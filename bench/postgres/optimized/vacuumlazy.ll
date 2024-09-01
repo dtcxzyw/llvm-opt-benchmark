@@ -953,12 +953,12 @@ default.unreachable:                              ; preds = %505
 
 ._crit_edge.i.i:                                  ; preds = %441
   %.pre.i.i = load i32, ptr %17, align 4
-  %.pre124.i.i = load i32, ptr %18, align 4
+  %.pre120.i.i = load i32, ptr %18, align 4
   %443 = sext i32 %.176.i.i to i64
   %444 = sext i32 %.174.i.i to i64
   store i16 0, ptr %252, align 4
   store i32 %.pre.i.i, ptr %141, align 8
-  store i32 %.pre124.i.i, ptr %144, align 4
+  store i32 %.pre120.i.i, ptr %144, align 4
   %445 = load i32, ptr %75, align 8
   %446 = icmp eq i32 %445, 0
   br i1 %446, label %449, label %453
@@ -970,15 +970,15 @@ default.unreachable:                              ; preds = %505
   br i1 %448, label %449, label %.thread.i.i
 
 449:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
-  %.067.lcssa140.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.1.i115.i, %._crit_edge.i.i ]
-  %.068.lcssa139.i.i = phi i1 [ false, %._crit_edge.thread.i.i ], [ %.169.i.i, %._crit_edge.i.i ]
-  %.070.lcssa136.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.171.i.i, %._crit_edge.i.i ]
-  %.073.lcssa135.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %444, %._crit_edge.i.i ]
-  %.075.lcssa132.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %443, %._crit_edge.i.i ]
-  %450 = icmp sgt i32 %.067.lcssa140.i.i, 0
-  %451 = call i32 @llvm.smax.i32(i32 %.067.lcssa140.i.i, i32 0)
-  %spec.select.i.i = add i32 %.070.lcssa136.i.i, %451
-  %spec.select80.i.i = select i1 %450, i1 true, i1 %.068.lcssa139.i.i
+  %.067.lcssa136.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.1.i115.i, %._crit_edge.i.i ]
+  %.068.lcssa135.i.i = phi i1 [ false, %._crit_edge.thread.i.i ], [ %.169.i.i, %._crit_edge.i.i ]
+  %.070.lcssa132.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.171.i.i, %._crit_edge.i.i ]
+  %.073.lcssa131.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %444, %._crit_edge.i.i ]
+  %.075.lcssa128.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %443, %._crit_edge.i.i ]
+  %450 = icmp sgt i32 %.067.lcssa136.i.i, 0
+  %451 = call i32 @llvm.smax.i32(i32 %.067.lcssa136.i.i, i32 0)
+  %spec.select.i.i = add i32 %.070.lcssa132.i.i, %451
+  %spec.select80.i.i = select i1 %450, i1 true, i1 %.068.lcssa135.i.i
   %452 = zext i1 %450 to i8
   br label %.thread.i.i
 
@@ -1024,16 +1024,16 @@ default.unreachable:                              ; preds = %505
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %468, %453, %449, %._crit_edge.thread.i.i
-  %.067.lcssa142.i.i = phi i8 [ 1, %468 ], [ 0, %453 ], [ %452, %449 ], [ 0, %._crit_edge.thread.i.i ]
-  %.073.lcssa133.i.i = phi i64 [ %444, %468 ], [ %444, %453 ], [ %.073.lcssa135.i.i, %449 ], [ 0, %._crit_edge.thread.i.i ]
-  %.075.lcssa130.i.i = phi i64 [ %443, %468 ], [ %443, %453 ], [ %.075.lcssa132.i.i, %449 ], [ 0, %._crit_edge.thread.i.i ]
+  %.067.lcssa138.i.i = phi i8 [ 1, %468 ], [ 0, %453 ], [ %452, %449 ], [ 0, %._crit_edge.thread.i.i ]
+  %.073.lcssa129.i.i = phi i64 [ %444, %468 ], [ %444, %453 ], [ %.073.lcssa131.i.i, %449 ], [ 0, %._crit_edge.thread.i.i ]
+  %.075.lcssa126.i.i = phi i64 [ %443, %468 ], [ %443, %453 ], [ %.075.lcssa128.i.i, %449 ], [ 0, %._crit_edge.thread.i.i ]
   %.272.i.i = phi i32 [ %.171.i.i, %468 ], [ %.171.i.i, %453 ], [ %spec.select.i.i, %449 ], [ 0, %._crit_edge.thread.i.i ]
   %.2.i.i = phi i1 [ %.169.i.i, %468 ], [ %.169.i.i, %453 ], [ %spec.select80.i.i, %449 ], [ false, %._crit_edge.thread.i.i ]
   %473 = load i64, ptr %128, align 8
-  %474 = add i64 %473, %.075.lcssa130.i.i
+  %474 = add i64 %473, %.075.lcssa126.i.i
   store i64 %474, ptr %128, align 8
   %475 = load i64, ptr %129, align 8
-  %476 = add i64 %475, %.073.lcssa133.i.i
+  %476 = add i64 %475, %.073.lcssa129.i.i
   store i64 %476, ptr %129, align 8
   %477 = sext i32 %.272.i.i to i64
   %478 = load i64, ptr %130, align 8
@@ -1532,7 +1532,7 @@ lazy_scan_prune.exit.i:                           ; preds = %684, %675, %673, %6
 
 687:                                              ; preds = %lazy_scan_prune.exit.i, %488
   %.091.shrunk159.i = phi i1 [ true, %lazy_scan_prune.exit.i ], [ false, %488 ]
-  %.3.i = phi i8 [ %631, %lazy_scan_prune.exit.i ], [ %.067.lcssa142.i.i, %488 ]
+  %.3.i = phi i8 [ %631, %lazy_scan_prune.exit.i ], [ %.067.lcssa138.i.i, %488 ]
   %688 = load i32, ptr %75, align 8
   %689 = icmp eq i32 %688, 0
   br i1 %689, label %695, label %690
@@ -2395,27 +2395,20 @@ lazy_truncate_heap.exit:                          ; preds = %950, %816, %819, %u
   call void @pfree(ptr noundef %1132) #9
   %1133 = load i32, ptr %75, align 8
   %1134 = icmp sgt i32 %1133, 0
-  br i1 %1134, label %.lr.ph266, label %._crit_edge267
+  br i1 %1134, label %.lr.ph266.split.us.preheader, label %._crit_edge267
 
 .thread293:                                       ; preds = %988
   %1135 = load i32, ptr %75, align 8
   %1136 = icmp sgt i32 %1135, 0
   br i1 %1136, label %.lr.ph266.split.us.preheader, label %._crit_edge267
 
+.lr.ph266.split.us.preheader:                     ; preds = %1131, %.thread293
+  br label %.lr.ph266.split.us
+
 .thread292:                                       ; preds = %963
   %1137 = load i32, ptr %75, align 8
   %1138 = icmp sgt i32 %1137, 0
-  br i1 %1138, label %.lr.ph266.split.preheader, label %._crit_edge267
-
-.lr.ph266:                                        ; preds = %1131
-  br i1 %52, label %.lr.ph266.split.us.preheader, label %.lr.ph266.split.preheader
-
-.lr.ph266.split.preheader:                        ; preds = %.thread292, %.lr.ph266
-  %.ph = phi i32 [ %1137, %.thread292 ], [ %1133, %.lr.ph266 ]
-  br label %.lr.ph266.split
-
-.lr.ph266.split.us.preheader:                     ; preds = %.thread293, %.lr.ph266
-  br label %.lr.ph266.split.us
+  br i1 %1138, label %.lr.ph266.split, label %._crit_edge267
 
 .lr.ph266.split.us:                               ; preds = %.lr.ph266.split.us.preheader, %1143
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %1143 ], [ 0, %.lr.ph266.split.us.preheader ]
@@ -2439,9 +2432,9 @@ lazy_truncate_heap.exit:                          ; preds = %950, %816, %819, %u
   %1148 = icmp slt i64 %indvars.iv.next284, %1147
   br i1 %1148, label %.lr.ph266.split.us, label %._crit_edge267, !llvm.loop !20
 
-.lr.ph266.split:                                  ; preds = %.lr.ph266.split.preheader, %1154
-  %1149 = phi i32 [ %1155, %1154 ], [ %.ph, %.lr.ph266.split.preheader ]
-  %indvars.iv280 = phi i64 [ %indvars.iv.next281, %1154 ], [ 0, %.lr.ph266.split.preheader ]
+.lr.ph266.split:                                  ; preds = %.thread292, %1154
+  %1149 = phi i32 [ %1155, %1154 ], [ %1137, %.thread292 ]
+  %indvars.iv280 = phi i64 [ %indvars.iv.next281, %1154 ], [ 0, %.thread292 ]
   %1150 = load ptr, ptr %123, align 8
   %1151 = getelementptr ptr, ptr %1150, i64 %indvars.iv280
   %1152 = load ptr, ptr %1151, align 8
@@ -2840,8 +2833,8 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %65 ]
   %63 = load i32, ptr %41, align 8
   %64 = sext i32 %63 to i64
-  %.not30.i.not = icmp sge i64 %indvars.iv.i, %64
-  br i1 %.not30.i.not, label %lazy_vacuum_all_indexes.exit, label %65
+  %.not30.i.not.not = icmp sge i64 %indvars.iv.i, %64
+  br i1 %.not30.i.not.not, label %lazy_vacuum_all_indexes.exit, label %65
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %47, align 8
@@ -2899,7 +2892,7 @@ lazy_vacuum_all_indexes.exit.thread:              ; preds = %.critedge
   br label %lazy_vacuum_all_indexes.exit
 
 lazy_vacuum_all_indexes.exit:                     ; preds = %62, %65, %87
-  %.026.i = phi i1 [ %not..i, %87 ], [ %.not30.i.not, %65 ], [ %.not30.i.not, %62 ]
+  %.026.i = phi i1 [ %not..i, %87 ], [ %.not30.i.not.not, %65 ], [ %.not30.i.not.not, %62 ]
   %92 = getelementptr inbounds i8, ptr %0, i64 208
   %93 = load i32, ptr %92, align 8
   %94 = add i32 %93, 1

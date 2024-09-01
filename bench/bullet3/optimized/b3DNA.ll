@@ -2911,10 +2911,7 @@ for.body.lr.ph:                                   ; preds = %_ZN20b3AlignedObjec
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
-for.cond10.preheader:                             ; preds = %for.body
-  br i1 %cmp745, label %for.body12.lr.ph, label %for.cond18.preheader
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %for.body
   %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count55 = zext nneg i32 %1 to i64
   br label %for.body12
@@ -2926,9 +2923,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 -1, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.body12.lr.ph, label %for.body, !llvm.loop !34
 
-for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28, %for.cond10.preheader
+for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
   %cmp1949 = icmp sgt i32 %2, 0
   br i1 %cmp1949, label %for.body20.lr.ph, label %if.end
 
@@ -3122,10 +3119,7 @@ for.body.lr.ph:                                   ; preds = %_ZN20b3AlignedObjec
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
-for.cond10.preheader:                             ; preds = %for.body
-  br i1 %cmp745, label %for.body12.lr.ph, label %for.cond18.preheader
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %for.body
   %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count55 = zext nneg i32 %1 to i64
   br label %for.body12
@@ -3137,9 +3131,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 -1, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %for.body12.lr.ph, label %for.body, !llvm.loop !38
 
-for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28, %for.cond10.preheader
+for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
   %cmp1949 = icmp sgt i32 %2, 0
   br i1 %cmp1949, label %for.body20.lr.ph, label %if.end
 

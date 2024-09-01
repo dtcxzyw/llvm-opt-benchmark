@@ -7430,7 +7430,7 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then33, %if.end42
-  %cmp44386.not393 = phi i1 [ true, %if.end42 ], [ true, %if.then33 ], [ %cmp44386.not, %for.end.loopexit ]
+  %cmp44386.not393 = phi i1 [ true, %if.end42 ], [ true, %if.then33 ], [ false, %for.end.loopexit ]
   %limit.0392 = phi i64 [ 4294967295, %if.end42 ], [ 4294967295, %if.then33 ], [ %51, %for.end.loopexit ]
   %add.ptr52 = getelementptr i8, ptr %data, i64 4
   %features.i = getelementptr inbounds i8, ptr %vs, i64 49212

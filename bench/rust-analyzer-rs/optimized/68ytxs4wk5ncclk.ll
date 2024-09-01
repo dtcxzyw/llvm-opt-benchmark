@@ -4977,8 +4977,8 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$chalk_solve..rust_ir..AssociatedTy
 
 11:                                               ; preds = %12, %4
   %.sroa.0.0.i.i.i = phi ptr [ %6, %4 ], [ %13, %12 ]
-  %.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %9
-  br i1 %.not.i.not.i.not.i, label %15, label %12
+  %.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not.i, label %15, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 80
@@ -4999,8 +4999,8 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$chalk_solve..rust_ir..AssociatedTy
 
 22:                                               ; preds = %23, %15
   %.sroa.0.0.i.i5.i = phi ptr [ %17, %15 ], [ %24, %23 ]
-  %.not.i.not.i6.not.not.not.i.not = icmp ne ptr %.sroa.0.0.i.i5.i, %20
-  br i1 %.not.i.not.i6.not.not.not.i.not, label %23, label %"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AssociatedTyDatumBound$LT$I$GT$$GT$10visit_with17hf0579011e0355feeE.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i6.not.not.not.i.not.not = icmp ne ptr %.sroa.0.0.i.i5.i, %20
+  br i1 %.not.not.not.i.not.not.not.i6.not.not.not.i.not.not, label %23, label %"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AssociatedTyDatumBound$LT$I$GT$$GT$10visit_with17hf0579011e0355feeE.llvm.6150282900714191917.exit"
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i5.i, i64 40
@@ -5012,7 +5012,7 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$chalk_solve..rust_ir..AssociatedTy
   br i1 %26, label %"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AssociatedTyDatumBound$LT$I$GT$$GT$10visit_with17hf0579011e0355feeE.llvm.6150282900714191917.exit", label %22
 
 "_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AssociatedTyDatumBound$LT$I$GT$$GT$10visit_with17hf0579011e0355feeE.llvm.6150282900714191917.exit": ; preds = %12, %22, %23
-  %.0.i = phi i1 [ %.not.i.not.i6.not.not.not.i.not, %23 ], [ %.not.i.not.i6.not.not.not.i.not, %22 ], [ true, %12 ]
+  %.0.i = phi i1 [ %.not.not.not.i.not.not.not.i6.not.not.not.i.not.not, %23 ], [ %.not.not.not.i.not.not.not.i6.not.not.not.i.not.not, %22 ], [ true, %12 ]
   ret i1 %.0.i
 }
 
@@ -12573,8 +12573,8 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit: ; preds = %.thread, %42
 
 82:                                               ; preds = %.noexc49, %74
   %.sroa.0.0.i.i.i.i = phi ptr [ %78, %74 ], [ %85, %.noexc49 ]
-  %.not.i.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, %81
-  br i1 %.not.i.not.i.not.i.not.i, label %86, label %83
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, %81
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %86, label %83
 
 83:                                               ; preds = %82
   %84 = invoke noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor20visit_program_clause17h8eb890b0bbd39c62E(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %.sroa.0.0.i.i.i.i, i32 noundef 0)
@@ -17849,8 +17849,8 @@ _ZN11chalk_solve7clauses14builtin_traits6unsize12principal_id17hda5a00eb32e384ea
 
 246:                                              ; preds = %248, %242
   %247 = phi ptr [ %249, %248 ], [ %237, %242 ]
-  %.not.i.not.i.not.i.not = icmp eq ptr %247, %240
-  br i1 %.not.i.not.i.not.i.not, label %.critedge, label %248
+  %.not.not.not.i.not.not.not.i.not.i.not = icmp eq ptr %247, %240
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not, label %.critedge, label %248
 
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %247, i64 4
@@ -18584,8 +18584,8 @@ _ZN11chalk_solve7clauses14builtin_traits6unsize12principal_id17hda5a00eb32e384ea
 
 487:                                              ; preds = %.noexc317, %483
   %.sroa.0.0.i.i = phi ptr [ %.val238, %483 ], [ %490, %.noexc317 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %486
-  br i1 %.not.i.not.i.not, label %494, label %488
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %486
+  br i1 %.not.not.not.i.not.not.not.i.not, label %494, label %488
 
 488:                                              ; preds = %487
   %489 = invoke noundef zeroext i1 @"_ZN136_$LT$chalk_solve..clauses..builtin_traits..unsize..ParameterOccurenceCheck$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$8visit_ty17hc2c41cf7e65fb7caE"(ptr noundef nonnull align 1 %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.i.i, i32 noundef 1)
@@ -20271,8 +20271,8 @@ define hidden noundef i32 @"_ZN11chalk_solve7clauses14builtin_traits6unsize26add
 define hidden noundef zeroext i1 @"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !nonnull !14, !align !110, !noundef !14
   %4 = load i64, ptr %3, align 8, !range !3353, !noundef !14
-  %switch21 = icmp eq i64 %4, 2
-  br i1 %switch21, label %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit"
+  %switch20 = icmp eq i64 %4, 2
+  br i1 %switch20, label %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit"
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -20308,17 +20308,17 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7clauses14builtin_traits6unsi
 
 26:                                               ; preds = %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit"
   %27 = phi ptr [ %29, %28 ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit" ]
-  %.not.i16.not.not = icmp ne ptr %27, %25
-  br i1 %.not.i16.not.not, label %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit"
+  %.not.not.not.i.not.not.not = icmp ne ptr %27, %25
+  br i1 %.not.not.not.i.not.not.not, label %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit"
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %27, i64 4
-  %.val3.i17 = load i32, ptr %27, align 4, !range !1813, !noalias !4573, !noundef !14
-  %30 = icmp eq i32 %.val3.i17, %7
+  %.val3.i16 = load i32, ptr %27, align 4, !range !1813, !noalias !4573, !noundef !14
+  %30 = icmp eq i32 %.val3.i16, %7
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit", label %26
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit": ; preds = %14, %28, %26, %2
-  %.1 = phi i1 [ true, %2 ], [ %.not.i16.not.not, %26 ], [ %.not.i16.not.not, %28 ], [ true, %14 ]
+  %.1 = phi i1 [ true, %2 ], [ %.not.not.not.i.not.not.not, %26 ], [ %.not.not.not.i.not.not.not, %28 ], [ true, %14 ]
   ret i1 %.1
 }
 
@@ -21158,8 +21158,8 @@ default.unreachable169:                           ; preds = %53
 
 90:                                               ; preds = %57
   store ptr %63, ptr %19, align 8
-  %.not44.not = icmp eq ptr %63, null
-  br i1 %.not44.not, label %93, label %91
+  %.not44 = icmp eq ptr %63, null
+  br i1 %.not44, label %93, label %91
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %25, align 8, !nonnull !14, !noundef !14
@@ -33143,8 +33143,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_109_$LT$impl$u20$ch
   br label %12
 
 .loopexit.i.i.i:                                  ; preds = %19
-  %.not13.i.i.i = icmp eq ptr %13, %10
-  br i1 %.not13.i.i.i, label %.loopexit.i, label %12
+  %.not10.i.i.i = icmp eq ptr %13, %10
+  br i1 %.not10.i.i.i, label %.loopexit.i, label %12
 
 12:                                               ; preds = %.loopexit.i.i.i, %.lr.ph.i.i.i
   %.sroa.0.09.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %13, %.loopexit.i.i.i ]
@@ -33164,8 +33164,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_109_$LT$impl$u20$ch
 
 19:                                               ; preds = %20, %12
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %15, %12 ], [ %21, %20 ]
-  %.not.i.not.i.not.i.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %18
-  br i1 %.not.i.not.i.not.i.not.i.not.i.i.i, label %.loopexit.i.i.i, label %20
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %18
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i, label %.loopexit.i.i.i, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 8
@@ -33190,8 +33190,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_109_$LT$impl$u20$ch
 
 31:                                               ; preds = %32, %.loopexit.i
   %.sroa.0.0.i.i.i = phi ptr [ %25, %.loopexit.i ], [ %33, %32 ]
-  %.not.i.not.i.not.not.not.i.not = icmp ne ptr %.sroa.0.0.i.i.i, %28
-  br i1 %.not.i.not.i.not.not.not.i.not, label %32, label %"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtDatumBound$LT$I$GT$$GT$10visit_with17h4b07e95b887161d1E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not = icmp ne ptr %.sroa.0.0.i.i.i, %28
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, label %32, label %"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtDatumBound$LT$I$GT$$GT$10visit_with17h4b07e95b887161d1E.llvm.6150282900714191917.exit"
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -33203,7 +33203,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_109_$LT$impl$u20$ch
   br i1 %35, label %"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtDatumBound$LT$I$GT$$GT$10visit_with17h4b07e95b887161d1E.llvm.6150282900714191917.exit", label %31
 
 "_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtDatumBound$LT$I$GT$$GT$10visit_with17h4b07e95b887161d1E.llvm.6150282900714191917.exit": ; preds = %20, %31, %32
-  %.0.i = phi i1 [ %.not.i.not.i.not.not.not.i.not, %32 ], [ %.not.i.not.i.not.not.not.i.not, %31 ], [ true, %20 ]
+  %.0.i = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, %32 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, %31 ], [ true, %20 ]
   ret i1 %.0.i
 }
 
@@ -33362,8 +33362,8 @@ default.unreachable:                              ; preds = %21
 
 41:                                               ; preds = %42, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.i"
   %.sroa.0.0.i.i.i = phi ptr [ %35, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.i" ], [ %43, %42 ]
-  %.not.i.not.i.not.not.not.i.not = icmp ne ptr %.sroa.0.0.i.i.i, %38
-  br i1 %.not.i.not.i.not.not.not.i.not, label %42, label %"_ZN11chalk_solve7rust_ir1_115_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..ImplDatumBound$LT$I$GT$$GT$10visit_with17h831b151bbbe290deE.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not = icmp ne ptr %.sroa.0.0.i.i.i, %38
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, label %42, label %"_ZN11chalk_solve7rust_ir1_115_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..ImplDatumBound$LT$I$GT$$GT$10visit_with17h831b151bbbe290deE.llvm.6150282900714191917.exit"
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -33375,7 +33375,7 @@ default.unreachable:                              ; preds = %21
   br i1 %45, label %"_ZN11chalk_solve7rust_ir1_115_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..ImplDatumBound$LT$I$GT$$GT$10visit_with17h831b151bbbe290deE.llvm.6150282900714191917.exit", label %41
 
 "_ZN11chalk_solve7rust_ir1_115_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..ImplDatumBound$LT$I$GT$$GT$10visit_with17h831b151bbbe290deE.llvm.6150282900714191917.exit": ; preds = %25, %28, %31, %42, %41
-  %.0 = phi i1 [ %.not.i.not.i.not.not.not.i.not, %41 ], [ %.not.i.not.i.not.not.not.i.not, %42 ], [ true, %31 ], [ true, %28 ], [ true, %25 ]
+  %.0 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, %41 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not, %42 ], [ true, %31 ], [ true, %28 ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -33530,8 +33530,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_111_$LT$impl$u20$ch
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i.i = phi ptr [ %6, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not.i.not.not = icmp ne ptr %.sroa.0.0.i.i.i, %9
-  br i1 %.not.i.not.i.not.i.not.not, label %13, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..TraitDatumBound$LT$I$GT$$GT$10visit_with17h4c89ddbd0bc296b6E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not.not, label %13, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..TraitDatumBound$LT$I$GT$$GT$10visit_with17h4c89ddbd0bc296b6E.llvm.6150282900714191917.exit"
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -33543,7 +33543,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_111_$LT$impl$u20$ch
   br i1 %16, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..TraitDatumBound$LT$I$GT$$GT$10visit_with17h4c89ddbd0bc296b6E.llvm.6150282900714191917.exit", label %12
 
 "_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..TraitDatumBound$LT$I$GT$$GT$10visit_with17h4c89ddbd0bc296b6E.llvm.6150282900714191917.exit": ; preds = %12, %13
-  ret i1 %.not.i.not.i.not.i.not.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34164,8 +34164,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
   br label %11
 
 .loopexit.i.i:                                    ; preds = %18
-  %.not13.i.i = icmp eq ptr %12, %9
-  br i1 %.not13.i.i, label %.loopexit, label %11
+  %.not10.i.i = icmp eq ptr %12, %9
+  br i1 %.not10.i.i, label %.loopexit, label %11
 
 11:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %.sroa.0.09.i.i = phi ptr [ %6, %.lr.ph.i.i ], [ %12, %.loopexit.i.i ]
@@ -34185,8 +34185,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
 
 18:                                               ; preds = %19, %11
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %14, %11 ], [ %20, %19 ]
-  %.not.i.not.i.not.i.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %17
-  br i1 %.not.i.not.i.not.i.not.i.not.i.i, label %.loopexit.i.i, label %19
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %17
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i, label %.loopexit.i.i, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
@@ -34211,8 +34211,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
 
 30:                                               ; preds = %31, %.loopexit
   %.sroa.0.0.i.i = phi ptr [ %24, %.loopexit ], [ %32, %31 ]
-  %.not.i.not.i.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %27
-  br i1 %.not.i.not.i.not.not.not, label %31, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hca09fd3ed17758abE.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %27
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not, label %31, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hca09fd3ed17758abE.exit"
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
@@ -34224,7 +34224,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
   br i1 %34, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hca09fd3ed17758abE.exit", label %30
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hca09fd3ed17758abE.exit": ; preds = %19, %31, %30
-  %.0 = phi i1 [ %.not.i.not.i.not.not.not, %30 ], [ %.not.i.not.i.not.not.not, %31 ], [ true, %19 ]
+  %.0 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.not, %30 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %31 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -34246,8 +34246,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i.i = phi ptr [ %6, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %9
-  br i1 %.not.i.not.i.not.i, label %17, label %13
+  %.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not.i, label %17, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -34271,8 +34271,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
 
 23:                                               ; preds = %24, %17
   %.sroa.0.0.i.i7.i = phi ptr [ %19, %17 ], [ %25, %24 ]
-  %.not.i.not.i8.not.not.not.i.not = icmp ne ptr %.sroa.0.0.i.i7.i, %22
-  br i1 %.not.i.not.i8.not.not.not.i.not, label %24, label %"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..OpaqueTyDatumBound$LT$I$GT$$GT$10visit_with17h4fd5606923583c6dE.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i8.not.not.not.i.not.not = icmp ne ptr %.sroa.0.0.i.i7.i, %22
+  br i1 %.not.not.not.i.not.not.not.i8.not.not.not.i.not.not, label %24, label %"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..OpaqueTyDatumBound$LT$I$GT$$GT$10visit_with17h4fd5606923583c6dE.llvm.6150282900714191917.exit"
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i7.i, i64 40
@@ -34284,7 +34284,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_114_$LT$impl$u20$ch
   br i1 %27, label %"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..OpaqueTyDatumBound$LT$I$GT$$GT$10visit_with17h4fd5606923583c6dE.llvm.6150282900714191917.exit", label %23
 
 "_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..OpaqueTyDatumBound$LT$I$GT$$GT$10visit_with17h4fd5606923583c6dE.llvm.6150282900714191917.exit": ; preds = %13, %23, %24
-  %.0.i = phi i1 [ %.not.i.not.i8.not.not.not.i.not, %24 ], [ %.not.i.not.i8.not.not.not.i.not, %23 ], [ true, %13 ]
+  %.0.i = phi i1 [ %.not.not.not.i.not.not.not.i8.not.not.not.i.not.not, %24 ], [ %.not.not.not.i.not.not.not.i8.not.not.not.i.not.not, %23 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -34375,8 +34375,8 @@ default.unreachable:                              ; preds = %20
 
 40:                                               ; preds = %41, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit"
   %.sroa.0.0.i.i = phi ptr [ %34, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit" ], [ %42, %41 ]
-  %.not.i.not.i.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %37
-  br i1 %.not.i.not.i.not.not.not, label %41, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.thread"
+  %.not.not.not.i.not.not.not.i.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %37
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not, label %41, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.thread"
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
@@ -34388,7 +34388,7 @@ default.unreachable:                              ; preds = %20
   br i1 %44, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.thread", label %40
 
 "_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17h952368a82e90d6b2E.llvm.6150282900714191917.exit.thread": ; preds = %24, %27, %30, %41, %40
-  %.0 = phi i1 [ %.not.i.not.i.not.not.not, %40 ], [ %.not.i.not.i.not.not.not, %41 ], [ true, %30 ], [ true, %27 ], [ true, %24 ]
+  %.0 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.not, %40 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %41 ], [ true, %30 ], [ true, %27 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -34407,8 +34407,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
 
 11:                                               ; preds = %12, %4
   %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ %13, %12 ]
-  %.not.i.not.i.not = icmp ne ptr %.sroa.0.0.i.i, %9
-  br i1 %.not.i.not.i.not, label %12, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h3d74401f6ad41a19E.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %12, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h3d74401f6ad41a19E.exit"
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
@@ -34419,7 +34419,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
   br i1 %15, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h3d74401f6ad41a19E.exit", label %11
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h3d74401f6ad41a19E.exit": ; preds = %11, %12
-  ret i1 %.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34440,8 +34440,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i.i = phi ptr [ %7, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %10
-  br i1 %.not.i.not.i.not.i, label %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit", label %13
+  %.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %10
+  br i1 %.not.not.not.i.not.not.not.i.not.i, label %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit", label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
@@ -34471,8 +34471,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
 
 27:                                               ; preds = %28, %20
   %.sroa.0.0.i.i = phi ptr [ %22, %20 ], [ %29, %28 ]
-  %.not.i.not.i.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %25
-  br i1 %.not.i.not.i.not.not.not, label %28, label %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit.thread"
+  %.not.not.not.i.not.not.not.i.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %25
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not, label %28, label %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit.thread"
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
@@ -34484,7 +34484,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
   br i1 %31, label %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit.thread", label %27
 
 "_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit.thread": ; preds = %13, %28, %27, %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit"
-  %.0 = phi i1 [ true, %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit" ], [ %.not.i.not.i.not.not.not, %27 ], [ %.not.i.not.i.not.not.not, %28 ], [ true, %13 ]
+  %.0 = phi i1 [ true, %"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..FnDefInputsAndOutputDatum$LT$I$GT$$GT$10visit_with17hde5b34a8371985acE.llvm.6150282900714191917.exit" ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %27 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not, %28 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -34504,8 +34504,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not = icmp ne ptr %.sroa.0.0.i.i, %9
-  br i1 %.not.i.not.i.not, label %13, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %13, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit"
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
@@ -34517,7 +34517,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$ch
   br i1 %16, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit", label %12
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit": ; preds = %12, %13
-  ret i1 %.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34608,8 +34608,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$ch
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
-  br i1 %.not.i.not.i.not, label %17, label %13
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not, label %17, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
@@ -34633,8 +34633,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$ch
 
 23:                                               ; preds = %24, %17
   %.sroa.0.0.i.i7 = phi ptr [ %19, %17 ], [ %25, %24 ]
-  %.not.i.not.i8.not.not.not = icmp ne ptr %.sroa.0.0.i.i7, %22
-  br i1 %.not.i.not.i8.not.not.not, label %24, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit"
+  %.not.not.not.i.not.not.not.i8.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i7, %22
+  br i1 %.not.not.not.i.not.not.not.i8.not.not.not.not, label %24, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit"
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i7, i64 40
@@ -34646,7 +34646,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_119_$LT$impl$u20$ch
   br i1 %27, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit", label %23
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17h305fe55ddcb2dab8E.exit": ; preds = %13, %24, %23
-  %.0 = phi i1 [ %.not.i.not.i8.not.not.not, %23 ], [ %.not.i.not.i8.not.not.not, %24 ], [ true, %13 ]
+  %.0 = phi i1 [ %.not.not.not.i.not.not.not.i8.not.not.not.not, %23 ], [ %.not.not.not.i.not.not.not.i8.not.not.not.not, %24 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -34754,8 +34754,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$ch
 
 11:                                               ; preds = %12, %4
   %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ %13, %12 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
-  br i1 %.not.i.not.i.not, label %15, label %12
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not, label %15, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 80
@@ -34776,8 +34776,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$ch
 
 22:                                               ; preds = %23, %15
   %.sroa.0.0.i.i5 = phi ptr [ %17, %15 ], [ %24, %23 ]
-  %.not.i.not.i6.not.not.not = icmp ne ptr %.sroa.0.0.i.i5, %20
-  br i1 %.not.i.not.i6.not.not.not, label %23, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hdabe53e1265e1884E.exit"
+  %.not.not.not.i.not.not.not.i6.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i5, %20
+  br i1 %.not.not.not.i.not.not.not.i6.not.not.not.not, label %23, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hdabe53e1265e1884E.exit"
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i5, i64 40
@@ -34789,7 +34789,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_123_$LT$impl$u20$ch
   br i1 %26, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hdabe53e1265e1884E.exit", label %22
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10visit_with17hdabe53e1265e1884E.exit": ; preds = %12, %23, %22
-  %.0 = phi i1 [ %.not.i.not.i6.not.not.not, %22 ], [ %.not.i.not.i6.not.not.not, %23 ], [ true, %12 ]
+  %.0 = phi i1 [ %.not.not.not.i.not.not.not.i6.not.not.not.not, %22 ], [ %.not.not.not.i.not.not.not.i6.not.not.not.not, %23 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -35044,8 +35044,8 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7rust_ir1_126_$LT$impl$u20$ch
 
 11:                                               ; preds = %12, %4
   %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ %13, %12 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
-  br i1 %.not.i.not.i.not, label %16, label %12
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %9
+  br i1 %.not.not.not.i.not.not.not.i.not, label %16, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
@@ -43174,8 +43174,8 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.
 
 .preheader.split.i.i.i:                           ; preds = %2, %11
   %.sroa.01.0.i.i.i = phi i64 [ %12, %11 ], [ 0, %2 ]
-  %exitcond.not.i.i.i.not = icmp ne i64 %.sroa.01.0.i.i.i, %6
-  br i1 %exitcond.not.i.i.i.not, label %11, label %"_ZN87_$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc161735d010e7bcfE.llvm.6150282900714191917.exit"
+  %exitcond.not.i.i.i.not.not = icmp ne i64 %.sroa.01.0.i.i.i, %6
+  br i1 %exitcond.not.i.i.i.not.not, label %11, label %"_ZN87_$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc161735d010e7bcfE.llvm.6150282900714191917.exit"
 
 11:                                               ; preds = %.preheader.split.i.i.i
   %12 = add i64 %.sroa.01.0.i.i.i, 1
@@ -43193,7 +43193,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.
   br i1 %.not9.i.i.i, label %.preheader.split.i.i.i, label %"_ZN87_$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc161735d010e7bcfE.llvm.6150282900714191917.exit"
 
 "_ZN87_$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc161735d010e7bcfE.llvm.6150282900714191917.exit": ; preds = %.preheader.split.i.i.i, %11, %2
-  %17 = phi i1 [ true, %2 ], [ %exitcond.not.i.i.i.not, %11 ], [ %exitcond.not.i.i.i.not, %.preheader.split.i.i.i ]
+  %17 = phi i1 [ true, %2 ], [ %exitcond.not.i.i.i.not.not, %11 ], [ %exitcond.not.i.i.i.not.not, %.preheader.split.i.i.i ]
   ret i1 %17
 }
 
@@ -43770,8 +43770,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11110)
   %4 = load ptr, ptr %1, align 8, !alias.scope !11110, !noalias !11107, !nonnull !14, !align !110, !noundef !14
   %5 = load i64, ptr %4, align 8, !range !3353, !noalias !11112, !noundef !14
-  %switch21.i = icmp eq i64 %5, 2
-  br i1 %switch21.i, label %6, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit"
+  %switch20.i = icmp eq i64 %5, 2
+  br i1 %switch20.i, label %6, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit"
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -43807,17 +43807,17 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 27:                                               ; preds = %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit.i"
   %28 = phi ptr [ %30, %29 ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit.i" ]
-  %.not.i16.not.not.i.not = icmp ne ptr %28, %26
-  br i1 %.not.i16.not.not.i.not, label %29, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.i.not.not = icmp ne ptr %28, %26
+  br i1 %.not.not.not.i.not.not.i.not.not, label %29, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit"
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %28, i64 4
-  %.val3.i17.i = load i32, ptr %28, align 4, !range !1813, !noalias !11117, !noundef !14
-  %31 = icmp eq i32 %.val3.i17.i, %8
+  %.val3.i16.i = load i32, ptr %28, align 4, !range !1813, !noalias !11117, !noundef !14
+  %31 = icmp eq i32 %.val3.i16.i, %8
   br i1 %31, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit", label %27
 
 "_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit": ; preds = %15, %27, %29, %2
-  %.1.i = phi i1 [ true, %2 ], [ %.not.i16.not.not.i.not, %29 ], [ %.not.i16.not.not.i.not, %27 ], [ true, %15 ]
+  %.1.i = phi i1 [ true, %2 ], [ %.not.not.not.i.not.not.i.not.not, %29 ], [ %.not.not.not.i.not.not.i.not.not, %27 ], [ true, %15 ]
   ret i1 %.1.i
 }
 
@@ -51531,8 +51531,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit", %2
   %7 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit" ], [ %.promoted17, %2 ]
   %8 = phi ptr [ %10, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit" ], [ %.promoted, %2 ]
-  %.not19 = icmp ne ptr %8, %4
-  br i1 %.not19, label %9, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread"
+  %.not18.not.not.not.not = icmp ne ptr %8, %4
+  br i1 %.not18.not.not.not.not, label %9, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread"
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %8, i64 16
@@ -51580,7 +51580,7 @@ default.unreachable:                              ; preds = %9
   br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread": ; preds = %6, %23, %20, %17, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit"
-  ret i1 %.not19
+  ret i1 %.not18.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -53917,8 +53917,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 6:                                                ; preds = %8, %3
   %7 = phi ptr [ %9, %8 ], [ %1, %3 ]
-  %.not.i.not = icmp ne ptr %7, %4
-  br i1 %.not.i.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h80233df2897ec1b7E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.i.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h80233df2897ec1b7E.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -53927,7 +53927,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h80233df2897ec1b7E.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h80233df2897ec1b7E.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -53939,8 +53939,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 6:                                                ; preds = %8, %3
   %7 = phi ptr [ %9, %8 ], [ %1, %3 ]
-  %.not.i.not = icmp ne ptr %7, %4
-  br i1 %.not.i.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hafa2b6ba8489ef83E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.i.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hafa2b6ba8489ef83E.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -53949,7 +53949,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hafa2b6ba8489ef83E.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hafa2b6ba8489ef83E.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -53983,8 +53983,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h645631101539fca2E.llvm.6150282900714191917.exit", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge.i": ; preds = %13, %8
-  %.not16.i = icmp eq ptr %10, %4
-  br i1 %.not16.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h645631101539fca2E.llvm.6150282900714191917.exit", label %8
+  %.not11.i = icmp eq ptr %10, %4
+  br i1 %.not11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h645631101539fca2E.llvm.6150282900714191917.exit", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h645631101539fca2E.llvm.6150282900714191917.exit": ; preds = %13, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge.i", %3
   %.lcssa.i = phi i1 [ false, %3 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge.i" ], [ true, %13 ]
@@ -54000,8 +54000,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 6:                                                ; preds = %8, %3
   %7 = phi ptr [ %9, %8 ], [ %1, %3 ]
-  %.not.i.not = icmp ne ptr %7, %4
-  br i1 %.not.i.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a3be0158e7cfbd0E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.i.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a3be0158e7cfbd0E.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -54010,7 +54010,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a3be0158e7cfbd0E.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a3be0158e7cfbd0E.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
@@ -54489,8 +54489,8 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zi
 
 .preheader:                                       ; preds = %6, %7
   %.sroa.9.0 = phi i64 [ %8, %7 ], [ 0, %6 ]
-  %exitcond.not.not = icmp ne i64 %.sroa.9.0, %3
-  br i1 %exitcond.not.not, label %7, label %.loopexit
+  %exitcond.not.not.not = icmp ne i64 %.sroa.9.0, %3
+  br i1 %exitcond.not.not.not, label %7, label %.loopexit
 
 7:                                                ; preds = %.preheader
   %8 = add i64 %.sroa.9.0, 1
@@ -54500,7 +54500,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zi
   br i1 %11, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %7, %.preheader, %6
-  %.0 = phi i1 [ true, %6 ], [ %exitcond.not.not, %.preheader ], [ %exitcond.not.not, %7 ]
+  %.0 = phi i1 [ true, %6 ], [ %exitcond.not.not.not, %.preheader ], [ %exitcond.not.not.not, %7 ]
   ret i1 %.0
 }
 
@@ -60706,7 +60706,7 @@ _ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.loop
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.loopexit, %.lr.ph, %16, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.preheader ], [ false, %16 ], [ %.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.loopexit ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %4 ], [ true, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.preheader ], [ false, %16 ], [ %.not.i.i.i.i, %.lr.ph ], [ %.not.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.loopexit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.preheader, %_ZN4core3cmp9PartialEq2ne17h2f519b91abda4f11E.llvm.6150282900714191917.exit.loopexit
@@ -72145,8 +72145,8 @@ default.unreachable111:                           ; preds = %293, %234, %207, %1
 
 265:                                              ; preds = %266, %255
   %.sroa.0.0.i.i.i = phi ptr [ %259, %255 ], [ %267, %266 ]
-  %.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %262
-  br i1 %.not.i.not.i.not.i, label %270, label %266
+  %.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %262
+  br i1 %.not.not.not.i.not.not.not.i.not.i, label %270, label %266
 
 266:                                              ; preds = %265
   %267 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -72890,8 +72890,8 @@ default.unreachable111:                           ; preds = %292, %234, %207, %1
 
 265:                                              ; preds = %266, %255
   %.sroa.0.0.i.i.i = phi ptr [ %259, %255 ], [ %267, %266 ]
-  %.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %262
-  br i1 %.not.i.not.i.not.i, label %269, label %266
+  %.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %262
+  br i1 %.not.not.not.i.not.not.not.i.not.i, label %269, label %266
 
 266:                                              ; preds = %265
   %267 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
@@ -74562,8 +74562,8 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chalk_ir..QuantifiedWhereClauses$LT
 
 .preheader.i:                                     ; preds = %4, %15
   %.sroa.9.0.i = phi i64 [ %16, %15 ], [ 0, %4 ]
-  %exitcond.not.not.i.not = icmp ne i64 %.sroa.9.0.i, %9
-  br i1 %exitcond.not.not.i.not, label %15, label %"_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17h576dc9a9a5623e90E.llvm.6150282900714191917.exit"
+  %exitcond.not.not.i.not.not = icmp ne i64 %.sroa.9.0.i, %9
+  br i1 %exitcond.not.not.i.not.not, label %15, label %"_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17h576dc9a9a5623e90E.llvm.6150282900714191917.exit"
 
 15:                                               ; preds = %.preheader.i
   %16 = add i64 %.sroa.9.0.i, 1
@@ -74573,7 +74573,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chalk_ir..QuantifiedWhereClauses$LT
   br i1 %19, label %"_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17h576dc9a9a5623e90E.llvm.6150282900714191917.exit", label %.preheader.i
 
 "_ZN59_$LT$$u5b$T$u5d$$u20$as$u20$chalk_ir..zip..Zip$LT$I$GT$$GT$8zip_with17h576dc9a9a5623e90E.llvm.6150282900714191917.exit": ; preds = %.preheader.i, %15, %4
-  %.0.i = phi i1 [ true, %4 ], [ %exitcond.not.not.i.not, %15 ], [ %exitcond.not.not.i.not, %.preheader.i ]
+  %.0.i = phi i1 [ true, %4 ], [ %exitcond.not.not.i.not.not, %15 ], [ %exitcond.not.not.i.not.not, %.preheader.i ]
   ret i1 %.0.i
 }
 
@@ -88566,8 +88566,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visi
 
 14:                                               ; preds = %15, %4
   %.sroa.0.0.i.i = phi ptr [ %9, %4 ], [ %16, %15 ]
-  %.not.i.not.i.not = icmp ne ptr %.sroa.0.0.i.i, %12
-  br i1 %.not.i.not.i.not, label %15, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i, %12
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %15, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit"
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 104
@@ -88576,7 +88576,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visi
   br i1 %17, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit", label %14
 
 "_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit": ; preds = %14, %15
-  ret i1 %.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -90588,8 +90588,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_103_$LT$impl$u20$chalk_ir..visi
 
 14:                                               ; preds = %15, %4
   %.sroa.0.0.i.i.i = phi ptr [ %9, %4 ], [ %16, %15 ]
-  %.not.i.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i.i, %12
-  br i1 %.not.i.not.i.not.i.not, label %18, label %15
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i.i, %12
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %18, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 104
@@ -92018,8 +92018,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
 
 18:                                               ; preds = %19, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %20, %19 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %16
-  br i1 %.not.i.not.i.not, label %22, label %19
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %16
+  br i1 %.not.not.not.i.not.not.not.i.not, label %22, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
@@ -92071,8 +92071,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
 
 40:                                               ; preds = %41, %31
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %36, %31 ], [ %42, %41 ]
-  %.not.i.not.i.not.i.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %39
-  br i1 %.not.i.not.i.not.i.not.i.i.i.i, label %44, label %41
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %39
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i.i, label %44, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 104
@@ -92110,8 +92110,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
   br i1 %59, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17hcc4158467eb7e5a1E.llvm.6150282900714191917.exit", label %60
 
 60:                                               ; preds = %56, %53
-  %.not21.i.i = icmp eq ptr %32, %27
-  br i1 %.not21.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17hcc4158467eb7e5a1E.llvm.6150282900714191917.exit", label %31
+  %.not19.i.i = icmp eq ptr %32, %27
+  br i1 %.not19.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17hcc4158467eb7e5a1E.llvm.6150282900714191917.exit", label %31
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17hcc4158467eb7e5a1E.llvm.6150282900714191917.exit": ; preds = %19, %56, %53, %50, %47, %60, %41, %22, %4
   %.0 = phi i1 [ true, %4 ], [ false, %22 ], [ true, %41 ], [ true, %56 ], [ true, %53 ], [ true, %50 ], [ true, %47 ], [ false, %60 ], [ true, %19 ]
@@ -92143,8 +92143,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
 
 18:                                               ; preds = %19, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %20, %19 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %16
-  br i1 %.not.i.not.i.not, label %22, label %19
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %16
+  br i1 %.not.not.not.i.not.not.not.i.not, label %22, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
@@ -92194,8 +92194,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
 
 40:                                               ; preds = %41, %31
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %36, %31 ], [ %42, %41 ]
-  %.not.i.not.i.not.i.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %39
-  br i1 %.not.i.not.i.not.i.not.i.i.i.i, label %44, label %41
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i, %39
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i.i, label %44, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 104
@@ -92233,8 +92233,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
   br i1 %59, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17h11e7f1c561de6e6fE.llvm.6150282900714191917.exit", label %60
 
 60:                                               ; preds = %56, %53
-  %.not21.i.i = icmp eq ptr %32, %27
-  br i1 %.not21.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17h11e7f1c561de6e6fE.llvm.6150282900714191917.exit", label %31
+  %.not19.i.i = icmp eq ptr %32, %27
+  br i1 %.not19.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17h11e7f1c561de6e6fE.llvm.6150282900714191917.exit", label %31
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17h11e7f1c561de6e6fE.llvm.6150282900714191917.exit": ; preds = %19, %56, %53, %50, %47, %60, %41, %22, %4
   %.0 = phi i1 [ true, %4 ], [ false, %22 ], [ true, %41 ], [ true, %56 ], [ true, %53 ], [ true, %50 ], [ true, %47 ], [ false, %60 ], [ true, %19 ]
@@ -98260,8 +98260,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
 
 26:                                               ; preds = %27, %15
   %.sroa.0.0.i.i = phi ptr [ %21, %15 ], [ %28, %27 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %24
-  br i1 %.not.i.not.i.not, label %91, label %27
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %24
+  br i1 %.not.not.not.i.not.not.not.i.not, label %91, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 104
@@ -98286,8 +98286,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
 
 39:                                               ; preds = %40, %30
   %.sroa.0.0.i.i30 = phi ptr [ %34, %30 ], [ %41, %40 ]
-  %.not.i.not.i31.not.not.not = icmp ne ptr %.sroa.0.0.i.i30, %37
-  br i1 %.not.i.not.i31.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17he52b3523317e7138E.exit"
+  %.not.not.not.i.not.not.not.i31.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i30, %37
+  br i1 %.not.not.not.i.not.not.not.i31.not.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17he52b3523317e7138E.exit"
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i30, i64 8
@@ -98397,7 +98397,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir5visit
   br label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17he52b3523317e7138E.exit"
 
 "_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17he52b3523317e7138E.exit": ; preds = %40, %39, %27, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h7b0436f1da7f68cdE.exit", %81, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h384b0a23480f8d16E.exit.thread", %77, %73, %69, %87, %43, %9, %91, %4
-  %.0 = phi i1 [ false, %4 ], [ %95, %91 ], [ %14, %9 ], [ %47, %43 ], [ %90, %87 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h384b0a23480f8d16E.exit.thread" ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ true, %81 ], [ %86, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h7b0436f1da7f68cdE.exit" ], [ true, %27 ], [ %.not.i.not.i31.not.not.not, %39 ], [ %.not.i.not.i31.not.not.not, %40 ]
+  %.0 = phi i1 [ false, %4 ], [ %95, %91 ], [ %14, %9 ], [ %47, %43 ], [ %90, %87 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h384b0a23480f8d16E.exit.thread" ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ true, %81 ], [ %86, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h7b0436f1da7f68cdE.exit" ], [ true, %27 ], [ %.not.not.not.i.not.not.not.i31.not.not.not.not, %39 ], [ %.not.not.not.i.not.not.not.i31.not.not.not.not, %40 ]
   ret i1 %.0
 
 91:                                               ; preds = %26
@@ -98457,8 +98457,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
 
 26:                                               ; preds = %27, %15
   %.sroa.0.0.i.i = phi ptr [ %21, %15 ], [ %28, %27 ]
-  %.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %24
-  br i1 %.not.i.not.i.not, label %91, label %27
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i, %24
+  br i1 %.not.not.not.i.not.not.not.i.not, label %91, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 104
@@ -98483,8 +98483,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
 
 39:                                               ; preds = %40, %30
   %.sroa.0.0.i.i29 = phi ptr [ %34, %30 ], [ %41, %40 ]
-  %.not.i.not.i30.not.not.not = icmp ne ptr %.sroa.0.0.i.i29, %37
-  br i1 %.not.i.not.i30.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i30.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i29, %37
+  br i1 %.not.not.not.i.not.not.not.i30.not.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit"
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i29, i64 8
@@ -98594,7 +98594,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir5visit
   br label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit"
 
 "_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17hfc0cdfacf6f4a2b6E.llvm.6150282900714191917.exit": ; preds = %40, %39, %27, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h37cb9cb5a7183814E.exit", %81, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17ha0e0593485868790E.exit.thread", %77, %73, %69, %87, %43, %9, %91, %4
-  %.0 = phi i1 [ false, %4 ], [ %95, %91 ], [ %14, %9 ], [ %47, %43 ], [ %90, %87 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17ha0e0593485868790E.exit.thread" ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ true, %81 ], [ %86, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h37cb9cb5a7183814E.exit" ], [ true, %27 ], [ %.not.i.not.i30.not.not.not, %39 ], [ %.not.i.not.i30.not.not.not, %40 ]
+  %.0 = phi i1 [ false, %4 ], [ %95, %91 ], [ %14, %9 ], [ %47, %43 ], [ %90, %87 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17ha0e0593485868790E.exit.thread" ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ true, %81 ], [ %86, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h37cb9cb5a7183814E.exit" ], [ true, %27 ], [ %.not.not.not.i.not.not.not.i30.not.not.not.not, %39 ], [ %.not.not.not.i.not.not.not.i30.not.not.not.not, %40 ]
   ret i1 %.0
 
 91:                                               ; preds = %26
@@ -101244,8 +101244,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir20Environment$LT$I$GT$21has_compa
 
 "_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit.i": ; preds = %9, %1
   %8 = phi ptr [ %10, %9 ], [ %4, %1 ]
-  %.not.i.not = icmp ne ptr %8, %7
-  br i1 %.not.i.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5dfa884d3d1bd145E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %8, %7
+  br i1 %.not.not.not.i.not.not.not.not.not, label %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5dfa884d3d1bd145E.llvm.6150282900714191917.exit"
 
 9:                                                ; preds = %"_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit.i"
   %10 = getelementptr inbounds i8, ptr %8, i64 104
@@ -101276,7 +101276,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir20Environment$LT$I$GT$21has_compa
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5dfa884d3d1bd145E.llvm.6150282900714191917.exit": ; preds = %"_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit.i", %18
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -103060,8 +103060,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir21Substitution$LT$I$GT$17is_ident
 11:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i", %1
   %12 = phi i64 [ %16, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i" ], [ 0, %1 ]
   %13 = phi ptr [ %15, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i" ], [ %.sink5.i.i.i, %1 ]
-  %.not19.i.not = icmp eq ptr %13, %10
-  br i1 %.not19.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit", label %14
+  %.not18.not.not.i.not = icmp eq ptr %13, %10
+  br i1 %.not18.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -103107,7 +103107,7 @@ default.unreachable:                              ; preds = %14
   br i1 %.not.i, label %11, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit": ; preds = %11, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i", %28, %25, %22
-  ret i1 %.not19.i.not
+  ret i1 %.not18.not.not.i.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120547,8 +120547,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
 
 24:                                               ; preds = %25, %15
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %20, %15 ], [ %26, %25 ]
-  %.not.i.not.i.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %23
-  br i1 %.not.i.not.i.not.i.not.i.i.i, label %28, label %25
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %23
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i, label %28, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 104
@@ -120586,8 +120586,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
   br i1 %43, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h02172e5eae644347E.llvm.6150282900714191917.exit, label %44
 
 44:                                               ; preds = %40, %37
-  %.not21.i = icmp eq ptr %16, %11
-  br i1 %.not21.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h02172e5eae644347E.llvm.6150282900714191917.exit, label %15
+  %.not19.i = icmp eq ptr %16, %11
+  br i1 %.not19.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h02172e5eae644347E.llvm.6150282900714191917.exit, label %15
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17h02172e5eae644347E.llvm.6150282900714191917.exit: ; preds = %31, %34, %37, %40, %44, %25, %4
   %45 = phi i1 [ false, %4 ], [ true, %25 ], [ true, %31 ], [ true, %34 ], [ true, %37 ], [ true, %40 ], [ false, %44 ]
@@ -120639,8 +120639,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
 
 24:                                               ; preds = %25, %15
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %20, %15 ], [ %26, %25 ]
-  %.not.i.not.i.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %23
-  br i1 %.not.i.not.i.not.i.not.i.i.i, label %28, label %25
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %23
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i.i, label %28, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 104
@@ -120678,8 +120678,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
   br i1 %43, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917.exit, label %44
 
 44:                                               ; preds = %40, %37
-  %.not21.i = icmp eq ptr %16, %11
-  br i1 %.not21.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917.exit, label %15
+  %.not19.i = icmp eq ptr %16, %11
+  br i1 %.not19.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917.exit, label %15
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917.exit: ; preds = %31, %34, %37, %40, %44, %25, %4
   %45 = phi i1 [ false, %4 ], [ true, %25 ], [ true, %31 ], [ true, %34 ], [ true, %37 ], [ true, %40 ], [ false, %44 ]
@@ -120849,8 +120849,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$
 
 14:                                               ; preds = %15, %4
   %.sroa.0.0.i = phi ptr [ %9, %4 ], [ %16, %15 ]
-  %.not.i.not = icmp ne ptr %.sroa.0.0.i, %12
-  br i1 %.not.i.not, label %15, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i, %12
+  br i1 %.not.not.not.i.not.not.not.not.not, label %15, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 104
@@ -120859,7 +120859,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$
   br i1 %17, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit, label %14
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit: ; preds = %14, %15
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120920,8 +120920,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 21:                                               ; preds = %22, %12
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %17, %12 ], [ %23, %22 ]
-  %.not.i.not.i.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %20
-  br i1 %.not.i.not.i.not.i.not.i.i, label %25, label %22
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %20
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i, label %25, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 104
@@ -120963,8 +120963,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   ret i1 %41
 
 42:                                               ; preds = %37, %34
-  %.not21 = icmp eq ptr %13, %1
-  br i1 %.not21, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h3ddbe5f6aa4928fdE.exit", label %12
+  %.not19 = icmp eq ptr %13, %1
+  br i1 %.not19, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h3ddbe5f6aa4928fdE.exit", label %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120977,8 +120977,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 9:                                                ; preds = %10, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %11, %10 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %10, label %14
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %10, label %14
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 40
@@ -120990,7 +120990,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %10, %9
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121127,8 +121127,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 8:                                                ; preds = %9, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %9, label %12
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
@@ -121137,7 +121137,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121149,8 +121149,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 8:                                                ; preds = %9, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %9, label %12
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 80
@@ -121158,7 +121158,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121170,8 +121170,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 8:                                                ; preds = %9, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %9, label %13
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %9, label %13
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
@@ -121182,7 +121182,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %12, label %13, label %8
 
 13:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121225,8 +121225,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 21:                                               ; preds = %22, %12
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %17, %12 ], [ %23, %22 ]
-  %.not.i.not.i.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %20
-  br i1 %.not.i.not.i.not.i.not.i.i, label %25, label %22
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %20
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i.i, label %25, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 104
@@ -121268,8 +121268,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   ret i1 %41
 
 42:                                               ; preds = %37, %34
-  %.not21 = icmp eq ptr %13, %1
-  br i1 %.not21, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17hd06b465a103b4abfE.exit", label %12
+  %.not19 = icmp eq ptr %13, %1
+  br i1 %.not19, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17hd06b465a103b4abfE.exit", label %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121284,8 +121284,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br label %8
 
 .loopexit:                                        ; preds = %15
-  %.not13 = icmp eq ptr %9, %1
-  br i1 %.not13, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h5c664f547616e072E.llvm.6150282900714191917.exit", label %8
+  %.not10 = icmp eq ptr %9, %1
+  br i1 %.not10, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h5c664f547616e072E.llvm.6150282900714191917.exit", label %8
 
 8:                                                ; preds = %.lr.ph, %.loopexit
   %.sroa.0.09 = phi ptr [ %0, %.lr.ph ], [ %9, %.loopexit ]
@@ -121305,8 +121305,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 15:                                               ; preds = %16, %8
   %.sroa.0.0.i.i.i.i = phi ptr [ %11, %8 ], [ %17, %16 ]
-  %.not.i.not.i.not.i.not.i.not = icmp eq ptr %.sroa.0.0.i.i.i.i, %14
-  br i1 %.not.i.not.i.not.i.not.i.not, label %.loopexit, label %16
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not = icmp eq ptr %.sroa.0.0.i.i.i.i, %14
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %.loopexit, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
@@ -121330,8 +121330,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 8:                                                ; preds = %9, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %9, label %12
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 104
@@ -121340,7 +121340,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
@@ -121359,8 +121359,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 
 8:                                                ; preds = %9, %5
   %.sroa.0.0 = phi ptr [ %0, %5 ], [ %10, %9 ]
-  %.not = icmp ne ptr %.sroa.0.0, %1
-  br i1 %.not, label %9, label %12
+  %.not.not.not.not.not = icmp ne ptr %.sroa.0.0, %1
+  br i1 %.not.not.not.not.not, label %9, label %12
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
@@ -121369,7 +121369,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %9, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121442,8 +121442,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u
 
 12:                                               ; preds = %13, %4
   %.sroa.0.0.i.i.i = phi ptr [ %7, %4 ], [ %14, %13 ]
-  %.not.i.not.i.not.i.not = icmp ne ptr %.sroa.0.0.i.i.i, %10
-  br i1 %.not.i.not.i.not.i.not, label %13, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$GT$10visit_with17h27d73a105bbcef85E.llvm.6150282900714191917.exit"
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i.i, %10
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %13, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$GT$10visit_with17h27d73a105bbcef85E.llvm.6150282900714191917.exit"
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
@@ -121454,7 +121454,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u
   br i1 %16, label %"_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$GT$10visit_with17h27d73a105bbcef85E.llvm.6150282900714191917.exit", label %12
 
 "_ZN11chalk_solve7rust_ir1_116_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_solve..rust_ir..AdtVariantDatum$LT$I$GT$$GT$10visit_with17h27d73a105bbcef85E.llvm.6150282900714191917.exit": ; preds = %12, %13
-  ret i1 %.not.i.not.i.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121493,8 +121493,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u
 
 15:                                               ; preds = %16, %4
   %.sroa.0.0.i.i.i.i = phi ptr [ %10, %4 ], [ %17, %16 ]
-  %.not.i.not.i.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, %13
-  br i1 %.not.i.not.i.not.i.not.i, label %19, label %16
+  %.not.not.not.i.not.not.not.i.not.not.not.i.not.i = icmp eq ptr %.sroa.0.0.i.i.i.i, %13
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %19, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 104
@@ -121552,8 +121552,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls85_$LT$impl$u
 
 10:                                               ; preds = %11, %4
   %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %12, %11 ]
-  %.not.i.not = icmp ne ptr %.sroa.0.0.i, %8
-  br i1 %.not.i.not, label %11, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i, %8
+  br i1 %.not.not.not.i.not.not.not.not.not, label %11, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 104
@@ -121562,7 +121562,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls85_$LT$impl$u
   br i1 %13, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit, label %10
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17hdc8df8811de45ebdE.llvm.6150282900714191917.exit: ; preds = %10, %11
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121581,8 +121581,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u
 
 13:                                               ; preds = %14, %4
   %.sroa.0.0.i = phi ptr [ %8, %4 ], [ %15, %14 ]
-  %.not.i.not = icmp ne ptr %.sroa.0.0.i, %11
-  br i1 %.not.i.not, label %14, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hfaff86631e821b12E.llvm.6150282900714191917.exit
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i, %11
+  br i1 %.not.not.not.i.not.not.not.not.not, label %14, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hfaff86631e821b12E.llvm.6150282900714191917.exit
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
@@ -121591,7 +121591,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u
   br i1 %16, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hfaff86631e821b12E.llvm.6150282900714191917.exit, label %13
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17hfaff86631e821b12E.llvm.6150282900714191917.exit: ; preds = %13, %14
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121610,8 +121610,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u
 
 13:                                               ; preds = %14, %4
   %.sroa.0.0.i = phi ptr [ %8, %4 ], [ %15, %14 ]
-  %.not.i.not = icmp ne ptr %.sroa.0.0.i, %11
-  br i1 %.not.i.not, label %14, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917.exit
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i, %11
+  br i1 %.not.not.not.i.not.not.not.not.not, label %14, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917.exit
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
@@ -121620,7 +121620,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u
   br i1 %16, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917.exit, label %13
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917.exit: ; preds = %13, %14
-  ret i1 %.not.i.not
+  ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -123623,8 +123623,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 "_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit": ; preds = %6, %2
   %5 = phi ptr [ %7, %6 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %5, %4
-  br i1 %.not, label %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc66cb9ffb4e86e81E.llvm.6150282900714191917.exit"
+  %.not.not.not.not.not = icmp ne ptr %5, %4
+  br i1 %.not.not.not.not.not, label %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc66cb9ffb4e86e81E.llvm.6150282900714191917.exit"
 
 6:                                                ; preds = %"_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit"
   %7 = getelementptr inbounds i8, ptr %5, i64 104
@@ -123656,7 +123656,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc66cb9ffb4e86e81E.llvm.6150282900714191917.exit": ; preds = %"_ZN8chalk_ir20Environment$LT$I$GT$21has_compatible_clause28_$u7b$$u7b$closure$u7d$$u7d$17h996d349b6ad18790E.llvm.6150282900714191917.exit", %15
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -123691,8 +123691,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917.exit.sink.split", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge": ; preds = %13, %8
-  %.not16 = icmp eq ptr %10, %4
-  br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917.exit.sink.split", label %8
+  %.not11 = icmp eq ptr %10, %4
+  br i1 %.not11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917.exit.sink.split", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafebae801f77a302E.llvm.6150282900714191917.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge", %13
   %.lcssa.ph = phi i1 [ true, %13 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h745f54cd081af1f2E.llvm.6150282900714191917.exit.backedge" ]
@@ -123714,8 +123714,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %7, %4
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6741784822dd5e0E.llvm.6150282900714191917.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6741784822dd5e0E.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -123725,7 +123725,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6741784822dd5e0E.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6741784822dd5e0E.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -123738,8 +123738,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %7, %4
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b1889bfd50891cE.llvm.6150282900714191917.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b1889bfd50891cE.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -123749,7 +123749,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b1889bfd50891cE.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b1889bfd50891cE.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -123762,8 +123762,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
-  %.not = icmp ne ptr %7, %4
-  br i1 %.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc685efc94ca134d2E.llvm.6150282900714191917.exit"
+  %.not.not.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not.not.not, label %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc685efc94ca134d2E.llvm.6150282900714191917.exit"
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -123773,7 +123773,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc685efc94ca134d2E.llvm.6150282900714191917.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc685efc94ca134d2E.llvm.6150282900714191917.exit": ; preds = %6, %8
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

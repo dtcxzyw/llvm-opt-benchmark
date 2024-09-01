@@ -57,32 +57,22 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_759ScriptSeteqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) local_unnamed_addr #5 align 2 {
 entry:
-  %0 = load i32, ptr %this, align 4
-  %1 = load i32, ptr %other, align 4
-  %cmp5.not6 = icmp eq i32 %0, %1
-  br i1 %cmp5.not6, label %for.cond, label %return
+  br label %for.body
 
-for.cond:                                         ; preds = %entry, %for.body
-  %indvars.iv7 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !4
+for.body:                                         ; preds = %for.body, %entry
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %0 = load i32, ptr %arrayidx, align 4
+  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %1 = load i32, ptr %arrayidx4, align 4
+  %cmp5.not = icmp eq i32 %0, %1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp ne i64 %indvars.iv.next, 7
+  %or.cond.not = select i1 %cmp5.not, i1 %exitcond, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !4
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv.next
-  %2 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv.next
-  %3 = load i32, ptr %arrayidx4, align 4
-  %cmp5.not = icmp eq i32 %2, %3
-  br i1 %cmp5.not, label %for.cond, label %return.loopexit, !llvm.loop !4
-
-return.loopexit:                                  ; preds = %for.cond, %for.body
-  %cmp.le = icmp ugt i64 %indvars.iv7, 5
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.le, %return.loopexit ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %for.body
+  ret i1 %cmp5.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -308,37 +298,24 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i32 %and.i, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %for.body.i2.preheader, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.body.i2, label %for.body.i, !llvm.loop !7
 
-for.body.i2.preheader:                            ; preds = %for.body.i
-  %2 = load i32, ptr %t, align 4
-  %3 = load i32, ptr %other, align 4
-  %cmp5.not.i7 = icmp eq i32 %2, %3
-  br i1 %cmp5.not.i7, label %for.cond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit
+for.body.i2:                                      ; preds = %for.body.i, %for.body.i2
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i6, %for.body.i2 ], [ 0, %for.body.i ]
+  %arrayidx.i4 = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i3
+  %2 = load i32, ptr %arrayidx.i4, align 4
+  %arrayidx4.i5 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv.i3
+  %3 = load i32, ptr %arrayidx4.i5, align 4
+  %cmp5.not.i = icmp eq i32 %2, %3
+  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i3, 1
+  %exitcond.i = icmp ne i64 %indvars.iv.next.i6, 7
+  %or.cond.not.i = select i1 %cmp5.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i2, label %_ZNK6icu_759ScriptSeteqERKS0_.exit, !llvm.loop !4
 
-for.cond.i:                                       ; preds = %for.body.i2.preheader, %for.body.i2
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i6, %for.body.i2 ], [ 0, %for.body.i2.preheader ]
-  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i38, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i6, 7
-  br i1 %exitcond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, label %for.body.i2, !llvm.loop !4
-
-for.body.i2:                                      ; preds = %for.cond.i
-  %arrayidx.i4 = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %indvars.iv.next.i6
-  %4 = load i32, ptr %arrayidx.i4, align 4
-  %arrayidx4.i5 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv.next.i6
-  %5 = load i32, ptr %arrayidx4.i5, align 4
-  %cmp5.not.i = icmp eq i32 %4, %5
-  br i1 %cmp5.not.i, label %for.cond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, !llvm.loop !4
-
-_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit:      ; preds = %for.cond.i, %for.body.i2
-  %cmp.i.le = icmp ugt i64 %indvars.iv.i38, 5
-  %6 = zext i1 %cmp.i.le to i8
-  br label %_ZNK6icu_759ScriptSeteqERKS0_.exit
-
-_ZNK6icu_759ScriptSeteqERKS0_.exit:               ; preds = %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, %for.body.i2.preheader
-  %cmp.lcssa.i = phi i8 [ 0, %for.body.i2.preheader ], [ %6, %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit ]
+_ZNK6icu_759ScriptSeteqERKS0_.exit:               ; preds = %for.body.i2
+  %conv = zext i1 %cmp5.not.i to i8
   call void @_ZN6icu_759ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %t) #15
-  ret i8 %cmp.lcssa.i
+  ret i8 %conv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -889,33 +866,23 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define signext range(i8 0, 2) i8 @uhash_equalsScriptSet_75(ptr nocapture readonly %key1.coerce, ptr nocapture readonly %key2.coerce) local_unnamed_addr #5 {
 entry:
-  %0 = load i32, ptr %key1.coerce, align 4
-  %1 = load i32, ptr %key2.coerce, align 4
-  %cmp5.not.i1 = icmp eq i32 %0, %1
-  br i1 %cmp5.not.i1, label %for.cond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %entry, %for.body.i
-  %indvars.iv.i2 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i2, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, label %for.body.i, !llvm.loop !4
+for.body.i:                                       ; preds = %for.body.i, %entry
+  %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.i
+  %0 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds [7 x i32], ptr %key2.coerce, i64 0, i64 %indvars.iv.i
+  %1 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.not.i = icmp eq i32 %0, %1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp ne i64 %indvars.iv.next.i, 7
+  %or.cond.not.i = select i1 %cmp5.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit, !llvm.loop !4
 
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.next.i
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds [7 x i32], ptr %key2.coerce, i64 0, i64 %indvars.iv.next.i
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.not.i = icmp eq i32 %2, %3
-  br i1 %cmp5.not.i, label %for.cond.i, label %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, !llvm.loop !4
-
-_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit:      ; preds = %for.cond.i, %for.body.i
-  %cmp.i.le = icmp ugt i64 %indvars.iv.i2, 5
-  %4 = zext i1 %cmp.i.le to i8
-  br label %_ZNK6icu_759ScriptSeteqERKS0_.exit
-
-_ZNK6icu_759ScriptSeteqERKS0_.exit:               ; preds = %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit, %entry
-  %cmp.lcssa.i = phi i8 [ 0, %entry ], [ %4, %_ZNK6icu_759ScriptSeteqERKS0_.exit.loopexit ]
-  ret i8 %cmp.lcssa.i
+_ZNK6icu_759ScriptSeteqERKS0_.exit:               ; preds = %for.body.i
+  %conv = zext i1 %cmp5.not.i to i8
+  ret i8 %conv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

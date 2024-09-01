@@ -218,14 +218,14 @@ _ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i3.preheader, label %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit
 
-while.body.i.i.i3.preheader:                      ; preds = %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i
-  br label %while.body.i.i.i3
-
 _ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit:      ; preds = %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
   %cmp.i4.i.i.not = icmp slt i32 %timer_id_, %4
   br i1 %cmp.i4.i.i.not, label %while.body.i.i.i3.preheader, label %if.then19
+
+while.body.i.i.i3.preheader:                      ; preds = %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i, %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit
+  br label %while.body.i.i.i3
 
 if.then19:                                        ; preds = %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit
   %call20 = tail call ptr @__errno_location() #14

@@ -1553,7 +1553,7 @@ lor.rhs:                                          ; preds = %for.cond.i.i.i.i, %
   br i1 %cmp.i.not.i.i8, label %return, label %for.cond
 
 return:                                           ; preds = %if.end15.i.i, %for.cond, %lor.rhs, %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ], [ false, %if.end15.i.i ], [ true, %for.cond ], [ %cmp.i.not, %lor.rhs ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ], [ %cmp.i.not, %lor.rhs ], [ %cmp.i.not, %for.cond ], [ %cmp.i.not, %if.end15.i.i ]
   ret i1 %retval.0
 }
 

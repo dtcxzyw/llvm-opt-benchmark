@@ -773,7 +773,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit169.preheader: ; preds = %_ZL13gmx_snew_i
   call void @llvm.memset.p0.i64(ptr align 4 %237, i8 -1, i64 %239, i1 false)
   %240 = load i32, ptr %11, align 4
   %241 = icmp sgt i32 %240, 0
-  br i1 %241, label %.preheader228.us.preheader, label %.preheader227
+  br i1 %241, label %.preheader228.us.preheader, label %.lr.ph266.preheader
 
 .preheader228.us.preheader:                       ; preds = %.preheader229
   %wide.trip.count = and i64 %88, 2147483647
@@ -809,12 +809,9 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit169.preheader: ; preds = %_ZL13gmx_snew_i
   %253 = load i32, ptr %11, align 4
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next313, %254
-  br i1 %255, label %.preheader228.us, label %.preheader227, !llvm.loop !9
+  br i1 %255, label %.preheader228.us, label %.lr.ph266.preheader, !llvm.loop !9
 
-.preheader227:                                    ; preds = %._crit_edge263.us, %.preheader229
-  br i1 %238, label %.lr.ph266.preheader, label %._crit_edge267
-
-.lr.ph266.preheader:                              ; preds = %.preheader227
+.lr.ph266.preheader:                              ; preds = %._crit_edge263.us, %.preheader229
   %wide.trip.count318 = and i64 %88, 2147483647
   br label %.lr.ph266
 
@@ -849,7 +846,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit169.preheader: ; preds = %_ZL13gmx_snew_i
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %34) #18
   br label %432
 
-._crit_edge267:                                   ; preds = %256, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit169.preheader, %.preheader227
+._crit_edge267:                                   ; preds = %256, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit169.preheader
   %267 = load i32, ptr %15, align 4
   %268 = sext i32 %267 to i64
   %269 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.31, i32 noundef 199, i64 noundef %268, i64 noundef 4)

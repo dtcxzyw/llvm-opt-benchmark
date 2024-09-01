@@ -8219,9 +8219,6 @@ define hidden noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr no
 
 .preheader:                                       ; preds = %54
   %22 = icmp eq ptr %.161, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %.lr.ph82, label %._crit_edge
-
-.lr.ph82:                                         ; preds = %.preheader
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = getelementptr inbounds i8, ptr %2, i64 1904
@@ -8280,10 +8277,10 @@ define hidden noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr no
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %29, !llvm.loop !45
 
-55:                                               ; preds = %.lr.ph82, %170
-  %indvars.iv85 = phi i64 [ 1, %.lr.ph82 ], [ %indvars.iv.next86, %170 ]
-  %.05779 = phi ptr [ %3, %.lr.ph82 ], [ %.1, %170 ]
-  %.05878 = phi i32 [ 0, %.lr.ph82 ], [ %.159, %170 ]
+55:                                               ; preds = %.preheader, %170
+  %indvars.iv85 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next86, %170 ]
+  %.05779 = phi ptr [ %3, %.preheader ], [ %.1, %170 ]
+  %.05878 = phi i32 [ 0, %.preheader ], [ %.159, %170 ]
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
@@ -8475,8 +8472,8 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122,
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge, label %55, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %170, %17, %.preheader
-  %.057.lcssa = phi ptr [ %3, %.preheader ], [ %3, %17 ], [ %.1, %170 ]
+._crit_edge:                                      ; preds = %170, %17
+  %.057.lcssa = phi ptr [ %3, %17 ], [ %.1, %170 ]
   %171 = load ptr, ptr %1, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call noundef i32 %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #15

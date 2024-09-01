@@ -85230,62 +85230,56 @@ if.end:                                           ; preds = %entry
   %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %mFlags.i.i, align 2
   %2 = and i8 %1, 8
-  %tobool.i.not.i7 = icmp eq i8 %2, 0
+  %tobool.i.not.i3 = icmp eq i8 %2, 0
   %3 = load i32, ptr %mSize.i, align 8
   %4 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i8 = select i1 %tobool.i.not.i7, i32 1, i32 %3
-  %cond.i9 = mul i32 %mul.i8, %4
-  %cmp10 = icmp ugt i32 %cond.i9, 1
-  br i1 %cmp10, label %for.body, label %for.end
+  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %3
+  %cond.i5 = mul i32 %mul.i4, %4
+  %cmp6 = icmp ugt i32 %cond.i5, 1
+  br i1 %cmp6, label %for.body, label %for.end
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.011 = phi i32 [ %inc, %for.inc ], [ 1, %if.end ]
-  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3.386") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.011)
-  %5 = load float, ptr %ref.tmp, align 4
-  %6 = load float, ptr %val, align 4
-  %cmp.i.i1.i = fcmp oeq float %5, %6
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.cond:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit
+  %inc = add nuw i32 %i.07, 1
+  %5 = load i8, ptr %mFlags.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i = icmp eq i8 %6, 0
+  %7 = load i32, ptr %mSize.i, align 8
+  %8 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
+  %cond.i = mul i32 %mul.i, %8
+  %cmp = icmp ult i32 %inc, %cond.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !399
 
-for.cond.i.i:                                     ; preds = %for.body, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !399
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.07 = phi i32 [ %inc, %for.cond ], [ 1, %if.end ]
+  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3.386") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.07)
+  br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds float, ptr %val, i64 %indvars.iv.next.i.i
-  %7 = load float, ptr %arrayidx.i.i, align 4
-  %8 = load float, ptr %arrayidx3.i.i, align 4
-  %cmp.i.i.i = fcmp oeq float %7, %8
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !399
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
+  %indvars.iv.i.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds float, ptr %val, i64 %indvars.iv.i.i
+  %9 = load float, ptr %arrayidx.i.i, align 4
+  %10 = load float, ptr %arrayidx3.i.i, align 4
+  %cmp.i.i.i = fcmp oeq float %9, %10
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 9
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !400
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 7
-  br i1 %cmp.i.le.i, label %for.inc, label %return
+  br i1 %cmp.i.i.i, label %for.cond, label %return
 
-for.inc:                                          ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit
-  %inc = add nuw i32 %i.011, 1
-  %9 = load i8, ptr %mFlags.i.i, align 2
-  %10 = and i8 %9, 8
-  %tobool.i.not.i = icmp eq i8 %10, 0
-  %11 = load i32, ptr %mSize.i, align 8
-  %12 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %11
-  %cond.i = mul i32 %mul.i, %12
-  %cmp = icmp ult i32 %inc, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !400
-
-for.end:                                          ; preds = %for.inc, %if.end
+for.end:                                          ; preds = %for.cond, %if.end
   call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3.386") align 4 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %13 = load i8, ptr %mIsUniform, align 8
-  %tobool.i = trunc i8 %13 to i1
+  %11 = load i8, ptr %mIsUniform, align 8
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
-  %14 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %14 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -85314,8 +85308,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %15 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %15 to i1
+  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !19
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
@@ -85329,13 +85323,13 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
   %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %mData.i.i, align 8
+  %14 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %call.i.noexc.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #30
+  call void @_ZdaPv(ptr noundef nonnull %14) #30
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %call.i.noexc.i
@@ -85343,19 +85337,19 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load ptr, ptr %mData.i7.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %18, ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp5, i64 36, i1 false)
+  %16 = load ptr, ptr %mData.i7.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp5, i64 36, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit
-  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ], [ false, %for.body ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit
+  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -87247,45 +87241,37 @@ if.end26:                                         ; preds = %if.end21
   %tobool28 = trunc i8 %27 to i1
   %28 = load i32, ptr %mSize, align 8
   %spec.select = select i1 %tobool28, i32 1, i32 %28
-  %tobool30.not52 = icmp eq i32 %spec.select, 0
-  br i1 %tobool30.not52, label %return, label %land.rhs
+  %tobool30.not48 = icmp eq i32 %spec.select, 0
+  br i1 %tobool30.not48, label %return, label %for.body.i.i.preheader
 
-land.rhs:                                         ; preds = %if.end26, %while.body
-  %n.055 = phi i32 [ %dec, %while.body ], [ %spec.select, %if.end26 ]
-  %source.054 = phi ptr [ %incdec.ptr31, %while.body ], [ %26, %if.end26 ]
-  %target.053 = phi ptr [ %incdec.ptr, %while.body ], [ %25, %if.end26 ]
-  %29 = load float, ptr %target.053, align 4
-  %30 = load float, ptr %source.054, align 4
-  %cmp.i.i1.i = fcmp oeq float %29, %30
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.body.i.i.preheader:                           ; preds = %if.end26, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit
+  %n.051 = phi i32 [ %dec, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ], [ %spec.select, %if.end26 ]
+  %source.050 = phi ptr [ %incdec.ptr31, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ], [ %26, %if.end26 ]
+  %target.049 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ], [ %25, %if.end26 ]
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %land.rhs, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %land.rhs ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i.i, label %while.body, label %for.body.i.i, !llvm.loop !399
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds float, ptr %target.053, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds float, ptr %source.054, i64 %indvars.iv.next.i.i
-  %31 = load float, ptr %arrayidx.i.i, align 4
-  %32 = load float, ptr %arrayidx3.i.i, align 4
-  %cmp.i.i.i = fcmp oeq float %31, %32
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !399
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
+  %arrayidx.i.i = getelementptr inbounds float, ptr %target.049, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds float, ptr %source.050, i64 %indvars.iv.i.i
+  %29 = load float, ptr %arrayidx.i.i, align 4
+  %30 = load float, ptr %arrayidx3.i.i, align 4
+  %cmp.i.i.i = fcmp oeq float %29, %30
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 9
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !400
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 7
-  br i1 %cmp.i.le.i, label %while.body, label %return
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.050, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.049, i64 36
+  %dec = add i32 %n.051, -1
+  %tobool30.not = icmp ne i32 %dec, 0
+  %or.cond53.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  br i1 %or.cond53.not, label %for.body.i.i.preheader, label %return, !llvm.loop !407
 
-while.body:                                       ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.054, i64 36
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.053, i64 36
-  %dec = add i32 %n.055, -1
-  %tobool30.not = icmp eq i32 %dec, 0
-  br i1 %tobool30.not, label %return, label %land.rhs, !llvm.loop !407
-
-return:                                           ; preds = %while.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %while.body ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ], [ false, %land.rhs ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ %cmp.i.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IfEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -89433,62 +89419,56 @@ if.end:                                           ; preds = %entry
   %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %mFlags.i.i, align 2
   %2 = and i8 %1, 8
-  %tobool.i.not.i7 = icmp eq i8 %2, 0
+  %tobool.i.not.i3 = icmp eq i8 %2, 0
   %3 = load i32, ptr %mSize.i, align 8
   %4 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i8 = select i1 %tobool.i.not.i7, i32 1, i32 %3
-  %cond.i9 = mul i32 %mul.i8, %4
-  %cmp10 = icmp ugt i32 %cond.i9, 1
-  br i1 %cmp10, label %for.body, label %for.end
+  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %3
+  %cond.i5 = mul i32 %mul.i4, %4
+  %cmp6 = icmp ugt i32 %cond.i5, 1
+  br i1 %cmp6, label %for.body, label %for.end
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.011 = phi i32 [ %inc, %for.inc ], [ 1, %if.end ]
-  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.011)
-  %5 = load double, ptr %ref.tmp, align 8
-  %6 = load double, ptr %val, align 8
-  %cmp.i.i1.i = fcmp oeq double %5, %6
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.cond:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit
+  %inc = add nuw i32 %i.07, 1
+  %5 = load i8, ptr %mFlags.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i = icmp eq i8 %6, 0
+  %7 = load i32, ptr %mSize.i, align 8
+  %8 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
+  %cond.i = mul i32 %mul.i, %8
+  %cmp = icmp ult i32 %inc, %cond.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !434
 
-for.cond.i.i:                                     ; preds = %for.body, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !434
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.07 = phi i32 [ %inc, %for.cond ], [ 1, %if.end ]
+  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.07)
+  br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds double, ptr %ref.tmp, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds double, ptr %val, i64 %indvars.iv.next.i.i
-  %7 = load double, ptr %arrayidx.i.i, align 8
-  %8 = load double, ptr %arrayidx3.i.i, align 8
-  %cmp.i.i.i = fcmp oeq double %7, %8
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !434
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
+  %indvars.iv.i.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds double, ptr %ref.tmp, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds double, ptr %val, i64 %indvars.iv.i.i
+  %9 = load double, ptr %arrayidx.i.i, align 8
+  %10 = load double, ptr %arrayidx3.i.i, align 8
+  %cmp.i.i.i = fcmp oeq double %9, %10
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 9
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !435
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 7
-  br i1 %cmp.i.le.i, label %for.inc, label %return
+  br i1 %cmp.i.i.i, label %for.cond, label %return
 
-for.inc:                                          ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit
-  %inc = add nuw i32 %i.011, 1
-  %9 = load i8, ptr %mFlags.i.i, align 2
-  %10 = and i8 %9, 8
-  %tobool.i.not.i = icmp eq i8 %10, 0
-  %11 = load i32, ptr %mSize.i, align 8
-  %12 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %11
-  %cond.i = mul i32 %mul.i, %12
-  %cmp = icmp ult i32 %inc, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !435
-
-for.end:                                          ; preds = %for.inc, %if.end
+for.end:                                          ; preds = %for.cond, %if.end
   call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %13 = load i8, ptr %mIsUniform, align 8
-  %tobool.i = trunc i8 %13 to i1
+  %11 = load i8, ptr %mIsUniform, align 8
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
-  %14 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %14 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -89517,8 +89497,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %15 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %15 to i1
+  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !19
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
@@ -89532,13 +89512,13 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
   %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %mData.i.i, align 8
+  %14 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %call.i.noexc.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #30
+  call void @_ZdaPv(ptr noundef nonnull %14) #30
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %call.i.noexc.i
@@ -89546,19 +89526,19 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load ptr, ptr %mData.i7.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp5, i64 72, i1 false)
+  %16 = load ptr, ptr %mData.i7.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp5, i64 72, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit
-  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ], [ false, %for.body ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit
+  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -91450,45 +91430,37 @@ if.end26:                                         ; preds = %if.end21
   %tobool28 = trunc i8 %27 to i1
   %28 = load i32, ptr %mSize, align 8
   %spec.select = select i1 %tobool28, i32 1, i32 %28
-  %tobool30.not52 = icmp eq i32 %spec.select, 0
-  br i1 %tobool30.not52, label %return, label %land.rhs
+  %tobool30.not48 = icmp eq i32 %spec.select, 0
+  br i1 %tobool30.not48, label %return, label %for.body.i.i.preheader
 
-land.rhs:                                         ; preds = %if.end26, %while.body
-  %n.055 = phi i32 [ %dec, %while.body ], [ %spec.select, %if.end26 ]
-  %source.054 = phi ptr [ %incdec.ptr31, %while.body ], [ %26, %if.end26 ]
-  %target.053 = phi ptr [ %incdec.ptr, %while.body ], [ %25, %if.end26 ]
-  %29 = load double, ptr %target.053, align 8
-  %30 = load double, ptr %source.054, align 8
-  %cmp.i.i1.i = fcmp oeq double %29, %30
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.body.i.i.preheader:                           ; preds = %if.end26, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit
+  %n.051 = phi i32 [ %dec, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ], [ %spec.select, %if.end26 ]
+  %source.050 = phi ptr [ %incdec.ptr31, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ], [ %26, %if.end26 ]
+  %target.049 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ], [ %25, %if.end26 ]
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %land.rhs, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %land.rhs ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i.i, label %while.body, label %for.body.i.i, !llvm.loop !434
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds double, ptr %target.053, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds double, ptr %source.054, i64 %indvars.iv.next.i.i
-  %31 = load double, ptr %arrayidx.i.i, align 8
-  %32 = load double, ptr %arrayidx3.i.i, align 8
-  %cmp.i.i.i = fcmp oeq double %31, %32
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !434
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
+  %arrayidx.i.i = getelementptr inbounds double, ptr %target.049, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds double, ptr %source.050, i64 %indvars.iv.i.i
+  %29 = load double, ptr %arrayidx.i.i, align 8
+  %30 = load double, ptr %arrayidx3.i.i, align 8
+  %cmp.i.i.i = fcmp oeq double %29, %30
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 9
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !435
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 7
-  br i1 %cmp.i.le.i, label %while.body, label %return
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.050, i64 72
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.049, i64 72
+  %dec = add i32 %n.051, -1
+  %tobool30.not = icmp ne i32 %dec, 0
+  %or.cond53.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  br i1 %or.cond53.not, label %for.body.i.i.preheader, label %return, !llvm.loop !442
 
-while.body:                                       ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.054, i64 72
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.053, i64 72
-  %dec = add i32 %n.055, -1
-  %tobool30.not = icmp eq i32 %dec, 0
-  br i1 %tobool30.not, label %return, label %land.rhs, !llvm.loop !442
-
-return:                                           ; preds = %while.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %while.body ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ], [ false, %land.rhs ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ %cmp.i.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat3IdEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -93636,62 +93608,56 @@ if.end:                                           ; preds = %entry
   %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %mFlags.i.i, align 2
   %2 = and i8 %1, 8
-  %tobool.i.not.i7 = icmp eq i8 %2, 0
+  %tobool.i.not.i3 = icmp eq i8 %2, 0
   %3 = load i32, ptr %mSize.i, align 8
   %4 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i8 = select i1 %tobool.i.not.i7, i32 1, i32 %3
-  %cond.i9 = mul i32 %mul.i8, %4
-  %cmp10 = icmp ugt i32 %cond.i9, 1
-  br i1 %cmp10, label %for.body, label %for.end
+  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %3
+  %cond.i5 = mul i32 %mul.i4, %4
+  %cmp6 = icmp ugt i32 %cond.i5, 1
+  br i1 %cmp6, label %for.body, label %for.end
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.011 = phi i32 [ %inc, %for.inc ], [ 1, %if.end ]
-  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4.431") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.011)
-  %5 = load float, ptr %ref.tmp, align 4
-  %6 = load float, ptr %val, align 4
-  %cmp.i.i1.i = fcmp oeq float %5, %6
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.cond:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit
+  %inc = add nuw i32 %i.07, 1
+  %5 = load i8, ptr %mFlags.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i = icmp eq i8 %6, 0
+  %7 = load i32, ptr %mSize.i, align 8
+  %8 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
+  %cond.i = mul i32 %mul.i, %8
+  %cmp = icmp ult i32 %inc, %cond.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !469
 
-for.cond.i.i:                                     ; preds = %for.body, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !469
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.07 = phi i32 [ %inc, %for.cond ], [ 1, %if.end ]
+  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4.431") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.07)
+  br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds float, ptr %val, i64 %indvars.iv.next.i.i
-  %7 = load float, ptr %arrayidx.i.i, align 4
-  %8 = load float, ptr %arrayidx3.i.i, align 4
-  %cmp.i.i.i = fcmp oeq float %7, %8
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !469
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
+  %indvars.iv.i.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds float, ptr %ref.tmp, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds float, ptr %val, i64 %indvars.iv.i.i
+  %9 = load float, ptr %arrayidx.i.i, align 4
+  %10 = load float, ptr %arrayidx3.i.i, align 4
+  %cmp.i.i.i = fcmp oeq float %9, %10
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 16
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !470
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 14
-  br i1 %cmp.i.le.i, label %for.inc, label %return
+  br i1 %cmp.i.i.i, label %for.cond, label %return
 
-for.inc:                                          ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit
-  %inc = add nuw i32 %i.011, 1
-  %9 = load i8, ptr %mFlags.i.i, align 2
-  %10 = and i8 %9, 8
-  %tobool.i.not.i = icmp eq i8 %10, 0
-  %11 = load i32, ptr %mSize.i, align 8
-  %12 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %11
-  %cond.i = mul i32 %mul.i, %12
-  %cmp = icmp ult i32 %inc, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !470
-
-for.end:                                          ; preds = %for.inc, %if.end
+for.end:                                          ; preds = %for.cond, %if.end
   call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4.431") align 4 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %13 = load i8, ptr %mIsUniform, align 8
-  %tobool.i = trunc i8 %13 to i1
+  %11 = load i8, ptr %mIsUniform, align 8
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
-  %14 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %14 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -93720,8 +93686,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %15 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %15 to i1
+  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !19
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
@@ -93735,13 +93701,13 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
   %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %mData.i.i, align 8
+  %14 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %call.i.noexc.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #30
+  call void @_ZdaPv(ptr noundef nonnull %14) #30
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %call.i.noexc.i
@@ -93749,19 +93715,19 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load ptr, ptr %mData.i7.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %18, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp5, i64 64, i1 false)
+  %16 = load ptr, ptr %mData.i7.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp5, i64 64, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit
-  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ], [ false, %for.body ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit
+  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -95653,45 +95619,37 @@ if.end26:                                         ; preds = %if.end21
   %tobool28 = trunc i8 %27 to i1
   %28 = load i32, ptr %mSize, align 8
   %spec.select = select i1 %tobool28, i32 1, i32 %28
-  %tobool30.not52 = icmp eq i32 %spec.select, 0
-  br i1 %tobool30.not52, label %return, label %land.rhs
+  %tobool30.not48 = icmp eq i32 %spec.select, 0
+  br i1 %tobool30.not48, label %return, label %for.body.i.i.preheader
 
-land.rhs:                                         ; preds = %if.end26, %while.body
-  %n.055 = phi i32 [ %dec, %while.body ], [ %spec.select, %if.end26 ]
-  %source.054 = phi ptr [ %incdec.ptr31, %while.body ], [ %26, %if.end26 ]
-  %target.053 = phi ptr [ %incdec.ptr, %while.body ], [ %25, %if.end26 ]
-  %29 = load float, ptr %target.053, align 4
-  %30 = load float, ptr %source.054, align 4
-  %cmp.i.i1.i = fcmp oeq float %29, %30
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.body.i.i.preheader:                           ; preds = %if.end26, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit
+  %n.051 = phi i32 [ %dec, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ], [ %spec.select, %if.end26 ]
+  %source.050 = phi ptr [ %incdec.ptr31, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ], [ %26, %if.end26 ]
+  %target.049 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ], [ %25, %if.end26 ]
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %land.rhs, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %land.rhs ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.i.i, label %while.body, label %for.body.i.i, !llvm.loop !469
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds float, ptr %target.053, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds float, ptr %source.054, i64 %indvars.iv.next.i.i
-  %31 = load float, ptr %arrayidx.i.i, align 4
-  %32 = load float, ptr %arrayidx3.i.i, align 4
-  %cmp.i.i.i = fcmp oeq float %31, %32
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !469
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
+  %arrayidx.i.i = getelementptr inbounds float, ptr %target.049, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds float, ptr %source.050, i64 %indvars.iv.i.i
+  %29 = load float, ptr %arrayidx.i.i, align 4
+  %30 = load float, ptr %arrayidx3.i.i, align 4
+  %cmp.i.i.i = fcmp oeq float %29, %30
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 16
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, !llvm.loop !470
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 14
-  br i1 %cmp.i.le.i, label %while.body, label %return
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.050, i64 64
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.049, i64 64
+  %dec = add i32 %n.051, -1
+  %tobool30.not = icmp ne i32 %dec, 0
+  %or.cond53.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  br i1 %or.cond53.not, label %for.body.i.i.preheader, label %return, !llvm.loop !477
 
-while.body:                                       ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.054, i64 64
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.053, i64 64
-  %dec = add i32 %n.055, -1
-  %tobool30.not = icmp eq i32 %dec, 0
-  br i1 %tobool30.not, label %return, label %land.rhs, !llvm.loop !477
-
-return:                                           ; preds = %while.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %while.body ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ], [ false, %land.rhs ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ %cmp.i.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IfEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -97839,62 +97797,56 @@ if.end:                                           ; preds = %entry
   %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i8, ptr %mFlags.i.i, align 2
   %2 = and i8 %1, 8
-  %tobool.i.not.i7 = icmp eq i8 %2, 0
+  %tobool.i.not.i3 = icmp eq i8 %2, 0
   %3 = load i32, ptr %mSize.i, align 8
   %4 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i8 = select i1 %tobool.i.not.i7, i32 1, i32 %3
-  %cond.i9 = mul i32 %mul.i8, %4
-  %cmp10 = icmp ugt i32 %cond.i9, 1
-  br i1 %cmp10, label %for.body, label %for.end
+  %mul.i4 = select i1 %tobool.i.not.i3, i32 1, i32 %3
+  %cond.i5 = mul i32 %mul.i4, %4
+  %cmp6 = icmp ugt i32 %cond.i5, 1
+  br i1 %cmp6, label %for.body, label %for.end
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.011 = phi i32 [ %inc, %for.inc ], [ 1, %if.end ]
-  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.011)
-  %5 = load double, ptr %ref.tmp, align 8
-  %6 = load double, ptr %val, align 8
-  %cmp.i.i1.i = fcmp oeq double %5, %6
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.cond:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit
+  %inc = add nuw i32 %i.07, 1
+  %5 = load i8, ptr %mFlags.i.i, align 2
+  %6 = and i8 %5, 8
+  %tobool.i.not.i = icmp eq i8 %6, 0
+  %7 = load i32, ptr %mSize.i, align 8
+  %8 = load i32, ptr %mStrideOrTotalSize.i, align 4
+  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
+  %cond.i = mul i32 %mul.i, %8
+  %cmp = icmp ult i32 %inc, %cond.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !504
 
-for.cond.i.i:                                     ; preds = %for.body, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !504
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.07 = phi i32 [ %inc, %for.cond ], [ 1, %if.end ]
+  call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.07)
+  br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds double, ptr %ref.tmp, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds double, ptr %val, i64 %indvars.iv.next.i.i
-  %7 = load double, ptr %arrayidx.i.i, align 8
-  %8 = load double, ptr %arrayidx3.i.i, align 8
-  %cmp.i.i.i = fcmp oeq double %7, %8
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !504
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
+  %indvars.iv.i.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds double, ptr %ref.tmp, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds double, ptr %val, i64 %indvars.iv.i.i
+  %9 = load double, ptr %arrayidx.i.i, align 8
+  %10 = load double, ptr %arrayidx3.i.i, align 8
+  %cmp.i.i.i = fcmp oeq double %9, %10
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 16
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !505
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 14
-  br i1 %cmp.i.le.i, label %for.inc, label %return
+  br i1 %cmp.i.i.i, label %for.cond, label %return
 
-for.inc:                                          ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit
-  %inc = add nuw i32 %i.011, 1
-  %9 = load i8, ptr %mFlags.i.i, align 2
-  %10 = and i8 %9, 8
-  %tobool.i.not.i = icmp eq i8 %10, 0
-  %11 = load i32, ptr %mSize.i, align 8
-  %12 = load i32, ptr %mStrideOrTotalSize.i, align 4
-  %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %11
-  %cond.i = mul i32 %mul.i, %12
-  %cmp = icmp ult i32 %inc, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !505
-
-for.end:                                          ; preds = %for.inc, %if.end
+for.end:                                          ; preds = %for.cond, %if.end
   call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE3getEj(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat4") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %13 = load i8, ptr %mIsUniform, align 8
-  %tobool.i = trunc i8 %13 to i1
+  %11 = load i8, ptr %mIsUniform, align 8
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
   %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
-  %14 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %14 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -97923,8 +97875,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %15 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %15 to i1
+  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !19
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.then.i
@@ -97938,13 +97890,13 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
   %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %mData.i.i, align 8
+  %14 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %call.i.noexc.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #30
+  call void @_ZdaPv(ptr noundef nonnull %14) #30
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %call.i.noexc.i
@@ -97952,19 +97904,19 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = %if.then.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %15
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load ptr, ptr %mData.i7.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp5, i64 128, i1 false)
+  %16 = load ptr, ptr %mData.i7.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp5, i64 128, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit
-  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ], [ false, %for.body ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, %entry, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit
+  %retval.0 = phi i1 [ true, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE8collapseERKS5_.exit ], [ true, %entry ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -99856,45 +99808,37 @@ if.end26:                                         ; preds = %if.end21
   %tobool28 = trunc i8 %27 to i1
   %28 = load i32, ptr %mSize, align 8
   %spec.select = select i1 %tobool28, i32 1, i32 %28
-  %tobool30.not52 = icmp eq i32 %spec.select, 0
-  br i1 %tobool30.not52, label %return, label %land.rhs
+  %tobool30.not48 = icmp eq i32 %spec.select, 0
+  br i1 %tobool30.not48, label %return, label %for.body.i.i.preheader
 
-land.rhs:                                         ; preds = %if.end26, %while.body
-  %n.055 = phi i32 [ %dec, %while.body ], [ %spec.select, %if.end26 ]
-  %source.054 = phi ptr [ %incdec.ptr31, %while.body ], [ %26, %if.end26 ]
-  %target.053 = phi ptr [ %incdec.ptr, %while.body ], [ %25, %if.end26 ]
-  %29 = load double, ptr %target.053, align 8
-  %30 = load double, ptr %source.054, align 8
-  %cmp.i.i1.i = fcmp oeq double %29, %30
-  br i1 %cmp.i.i1.i, label %for.cond.i.i, label %return
+for.body.i.i.preheader:                           ; preds = %if.end26, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit
+  %n.051 = phi i32 [ %dec, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ], [ %spec.select, %if.end26 ]
+  %source.050 = phi ptr [ %incdec.ptr31, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ], [ %26, %if.end26 ]
+  %target.049 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ], [ %25, %if.end26 ]
+  br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %land.rhs, %for.body.i.i
-  %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %land.rhs ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.i.i, label %while.body, label %for.body.i.i, !llvm.loop !504
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx.i.i = getelementptr inbounds double, ptr %target.053, i64 %indvars.iv.next.i.i
-  %arrayidx3.i.i = getelementptr inbounds double, ptr %source.054, i64 %indvars.iv.next.i.i
-  %31 = load double, ptr %arrayidx.i.i, align 8
-  %32 = load double, ptr %arrayidx3.i.i, align 8
-  %cmp.i.i.i = fcmp oeq double %31, %32
-  br i1 %cmp.i.i.i, label %for.cond.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !504
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
+  %arrayidx.i.i = getelementptr inbounds double, ptr %target.049, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds double, ptr %source.050, i64 %indvars.iv.i.i
+  %29 = load double, ptr %arrayidx.i.i, align 8
+  %30 = load double, ptr %arrayidx3.i.i, align 8
+  %cmp.i.i.i = fcmp oeq double %29, %30
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.i.i = icmp ne i64 %indvars.iv.next.i.i, 16
+  %or.cond.not.i.i = select i1 %cmp.i.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, !llvm.loop !505
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit: ; preds = %for.body.i.i
-  %cmp.i.le.i = icmp ugt i64 %indvars.iv.i2.i, 14
-  br i1 %cmp.i.le.i, label %while.body, label %return
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.050, i64 128
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.049, i64 128
+  %dec = add i32 %n.051, -1
+  %tobool30.not = icmp ne i32 %dec, 0
+  %or.cond53.not = select i1 %cmp.i.i.i, i1 %tobool30.not, i1 false
+  br i1 %or.cond53.not, label %for.body.i.i.preheader, label %return, !llvm.loop !512
 
-while.body:                                       ; preds = %for.cond.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %source.054, i64 128
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.053, i64 128
-  %dec = add i32 %n.055, -1
-  %tobool30.not = icmp eq i32 %dec, 0
-  br i1 %tobool30.not, label %return, label %land.rhs, !llvm.loop !512
-
-return:                                           ; preds = %while.body, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, %land.rhs, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %while.body ], [ false, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ], [ false, %land.rhs ]
+return:                                           ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit, %if.end26, %if.end21, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit46, %if.end, %lor.lhs.false, %lor.lhs.false5, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13attributeTypeB5cxx11Ev.exit21 ], [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit46 ], [ false, %if.end21 ], [ true, %if.end26 ], [ %cmp.i.i.i, %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Mat4IdEES4_EEbRKT_RKT0_.exit ]
   ret i1 %retval.0
 }
 
@@ -126000,8 +125944,7 @@ _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataL
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i
   %cmp.i.i = icmp eq i64 %0, %6
-  %brmerge = or i1 %cmp.i.i, %cmp.i.not6.i.i.i
-  br i1 %brmerge, label %return, label %for.body.lr.ph.i
+  br i1 %cmp.i.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %bbox, i64 4
@@ -126197,8 +126140,7 @@ _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataL
 
 _ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i
   %cmp.i.i = icmp eq i64 %0, %6
-  %brmerge = or i1 %cmp.i.i, %cmp.i.not6.i.i.i
-  br i1 %brmerge, label %return, label %for.body.lr.ph.i
+  br i1 %cmp.i.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %bbox, i64 4
@@ -176323,15 +176265,15 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %spec.select.i = add i32 %sum.06.i, %inc.i
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.05.i) #31
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.not.i, label %for.body.i14.preheader, label %for.body.i, !llvm.loop !1357
+  br i1 %cmp.i.not.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE12getTileCountEv.exit, label %for.body.i, !llvm.loop !1357
 
-for.body.i14.preheader:                           ; preds = %for.body.i
+_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE12getTileCountEv.exit: ; preds = %for.body.i
   store i32 %spec.select.i, ptr %numTiles, align 4
   br label %for.body.i14
 
-for.body.i14:                                     ; preds = %for.body.i14.preheader, %for.body.i14
-  %sum.06.i15 = phi i32 [ %spec.select.i19, %for.body.i14 ], [ 0, %for.body.i14.preheader ]
-  %i.sroa.0.05.i16 = phi ptr [ %call.i.i20, %for.body.i14 ], [ %0, %for.body.i14.preheader ]
+for.body.i14:                                     ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE12getTileCountEv.exit, %for.body.i14
+  %sum.06.i15 = phi i32 [ %spec.select.i19, %for.body.i14 ], [ 0, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE12getTileCountEv.exit ]
+  %i.sroa.0.05.i16 = phi ptr [ %call.i.i20, %for.body.i14 ], [ %0, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE12getTileCountEv.exit ]
   %second.i.i17 = getelementptr inbounds i8, ptr %i.sroa.0.05.i16, i64 48
   %2 = load ptr, ptr %second.i.i17, align 8
   %cmp.i.i.not.i = icmp ne ptr %2, null

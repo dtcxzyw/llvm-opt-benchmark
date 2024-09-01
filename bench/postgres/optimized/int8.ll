@@ -1942,42 +1942,39 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %brmerge47, label %is_funcclause.exit.thread, label %.thread42
 
 54:                                               ; preds = %53
-  br i1 %.not, label %.thread42, label %55
+  %55 = load i32, ptr %.037, align 4
+  %56 = icmp eq i32 %55, 7
+  br i1 %56, label %57, label %is_funcclause.exit.thread
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %.037, align 4
-  %57 = icmp eq i32 %56, 7
-  br i1 %57, label %58, label %is_funcclause.exit.thread
-
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.037, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = sitofp i64 %60 to double
-  %.not45 = icmp eq i64 %60, 0
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %.037, i64 24
+  %59 = load i64, ptr %58, align 8
+  %60 = sitofp i64 %59 to double
+  %.not45 = icmp eq i64 %59, 0
   br i1 %.not45, label %is_funcclause.exit.thread, label %.thread42
 
-.thread42:                                        ; preds = %.thread, %54, %58
-  %62 = phi double [ %61, %58 ], [ 1.000000e+00, %54 ], [ 1.000000e+00, %.thread ]
+.thread42:                                        ; preds = %.thread, %57
+  %61 = phi double [ %60, %57 ], [ 1.000000e+00, %.thread ]
   %.in46.in = getelementptr inbounds i8, ptr %22, i64 24
   %.in46 = load i64, ptr %.in46.in, align 8
-  %63 = sitofp i64 %.in46 to double
+  %62 = sitofp i64 %.in46 to double
   %.in.in = getelementptr inbounds i8, ptr %18, i64 24
   %.in = load i64, ptr %.in.in, align 8
-  %64 = sitofp i64 %.in to double
-  %65 = fsub double %63, %64
-  %66 = fadd double %62, %65
-  %67 = fdiv double %66, %62
-  %68 = tail call double @llvm.floor.f64(double %67)
+  %63 = sitofp i64 %.in to double
+  %64 = fsub double %62, %63
+  %65 = fadd double %61, %64
+  %66 = fdiv double %65, %61
+  %67 = tail call double @llvm.floor.f64(double %66)
   br label %is_funcclause.exit.thread.sink.split
 
 is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thread42
-  %.sink = phi double [ %68, %.thread42 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %34 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 32
-  store double %.sink, ptr %69, align 8
+  %.sink = phi double [ %67, %.thread42 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %34 ]
+  %68 = getelementptr inbounds i8, ptr %4, i64 32
+  store double %.sink, ptr %68, align 8
   br label %is_funcclause.exit.thread
 
-is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %55, %58, %1
-  %.0 = phi i64 [ 0, %58 ], [ 0, %55 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
+is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %54, %57, %1
+  %.0 = phi i64 [ 0, %57 ], [ 0, %54 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
   ret i64 %.0
 }
 

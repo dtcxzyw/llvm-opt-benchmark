@@ -923,8 +923,8 @@ proto_item_set_hidden.exit383.thread:             ; preds = %288, %334, %330, %3
   %443 = load i32, ptr %83, align 4
   %444 = getelementptr inbounds i8, ptr %429, i64 4
   store i32 %443, ptr %444, align 4
-  %.not79.i = icmp eq ptr %203, null
-  br i1 %.not79.i, label %imap_match_request.exit, label %.thread75.i
+  %.not80.i = icmp eq ptr %203, null
+  br i1 %.not80.i, label %imap_match_request.exit, label %.thread75.i
 
 445:                                              ; preds = %431
   br i1 %.not342.not.not.not.not.not, label %.thread441, label %.thread75.i

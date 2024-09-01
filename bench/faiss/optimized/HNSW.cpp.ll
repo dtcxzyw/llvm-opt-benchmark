@@ -1221,7 +1221,7 @@ define internal void @_ZNK5faiss4HNSW20print_neighbor_statsEi.omp_outlined(ptr n
   %72 = load i32, ptr %71, align 4
   %73 = icmp slt i32 %72, 0
   %.pre.pre143 = load i64, ptr %42, align 8
-  br i1 %73, label %._crit_edge, label %74
+  br i1 %73, label %.lr.ph112.preheader, label %74
 
 74:                                               ; preds = %.lr.ph
   %.not.not.i = icmp eq i64 %.pre.pre143, 0
@@ -1306,13 +1306,10 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 
 .loopexit74.._crit_edge.loopexit_crit_edge:       ; preds = %.loopexit74
   %.pre.pre = load i64, ptr %42, align 8
-  br label %._crit_edge
+  br label %.lr.ph112.preheader
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit74.._crit_edge.loopexit_crit_edge
+.lr.ph112.preheader:                              ; preds = %.lr.ph, %.loopexit74.._crit_edge.loopexit_crit_edge
   %109 = phi i64 [ %.pre.pre, %.loopexit74.._crit_edge.loopexit_crit_edge ], [ %.pre.pre143, %.lr.ph ]
-  br i1 %69, label %.lr.ph112.preheader, label %._crit_edge113
-
-.lr.ph112.preheader:                              ; preds = %._crit_edge
   %110 = trunc nsw i64 %indvars.iv to i32
   br label %.lr.ph112
 
@@ -1622,13 +1619,13 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit: ; preds = %
   %.pre142 = load i64, ptr %15, align 8
   br label %._crit_edge113
 
-._crit_edge113:                                   ; preds = %53, %._crit_edge113.loopexit, %._crit_edge
-  %244 = phi i64 [ %109, %._crit_edge ], [ %109, %._crit_edge113.loopexit ], [ 0, %53 ]
-  %245 = phi i64 [ %45, %._crit_edge ], [ %.pre142, %._crit_edge113.loopexit ], [ %45, %53 ]
-  %246 = phi i64 [ %46, %._crit_edge ], [ %.pre141, %._crit_edge113.loopexit ], [ %46, %53 ]
-  %247 = phi i64 [ %47, %._crit_edge ], [ %.pre140, %._crit_edge113.loopexit ], [ %47, %53 ]
-  %.041.lcssa = phi i32 [ 0, %._crit_edge ], [ %.041.lcssa.ph, %._crit_edge113.loopexit ], [ 0, %53 ]
-  %.040.lcssa = phi i32 [ 0, %._crit_edge ], [ %.040.lcssa.ph, %._crit_edge113.loopexit ], [ 0, %53 ]
+._crit_edge113:                                   ; preds = %53, %._crit_edge113.loopexit
+  %244 = phi i64 [ %109, %._crit_edge113.loopexit ], [ 0, %53 ]
+  %245 = phi i64 [ %.pre142, %._crit_edge113.loopexit ], [ %45, %53 ]
+  %246 = phi i64 [ %.pre141, %._crit_edge113.loopexit ], [ %46, %53 ]
+  %247 = phi i64 [ %.pre140, %._crit_edge113.loopexit ], [ %47, %53 ]
+  %.041.lcssa = phi i32 [ %.041.lcssa.ph, %._crit_edge113.loopexit ], [ 0, %53 ]
+  %.040.lcssa = phi i32 [ %.040.lcssa.ph, %._crit_edge113.loopexit ], [ 0, %53 ]
   %sext = shl i64 %244, 32
   %248 = ashr exact i64 %sext, 32
   %249 = add i64 %247, %248

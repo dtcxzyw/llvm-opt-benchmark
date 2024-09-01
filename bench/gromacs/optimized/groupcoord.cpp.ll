@@ -339,21 +339,15 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
 _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit:  ; preds = %102
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   tail call fastcc void @_ZL21shift_positions_groupPA3_KfPA3_fPA3_ii(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %3, i32 noundef %6)
-  br i1 %14, label %.lr.ph56.preheader, label %.loopexit
-
-.lr.ph56.preheader:                               ; preds = %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit
   %wide.trip.count64 = zext nneg i32 %6 to i64
   br label %.lr.ph56
 
-.preheader:                                       ; preds = %.lr.ph56
-  br i1 %14, label %.lr.ph58.preheader, label %.loopexit
-
-.lr.ph58.preheader:                               ; preds = %.preheader
+.lr.ph58.preheader:                               ; preds = %.lr.ph56
   %wide.trip.count69 = zext nneg i32 %6 to i64
   br label %.lr.ph58
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next62, %.lr.ph56 ]
+.lr.ph56:                                         ; preds = %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit, %.lr.ph56
+  %indvars.iv61 = phi i64 [ 0, %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit ], [ %indvars.iv.next62, %.lr.ph56 ]
   %103 = getelementptr inbounds [3 x i32], ptr %3, i64 %indvars.iv61
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv61
@@ -374,7 +368,7 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit:  ; preds = %102
   store i32 %117, ptr %115, align 4
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.preheader, label %.lr.ph56, !llvm.loop !13
+  br i1 %exitcond65.not, label %.lr.ph58.preheader, label %.lr.ph56, !llvm.loop !13
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %.lr.ph58 ]
@@ -394,7 +388,7 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit:  ; preds = %102
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %.loopexit, label %.lr.ph58, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph58, %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit, %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread, %.preheader, %40, %39
+.loopexit:                                        ; preds = %.lr.ph58, %_ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread, %40, %39
   ret void
 }
 

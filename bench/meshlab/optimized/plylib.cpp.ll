@@ -3467,11 +3467,11 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %63 = getelementptr inbounds i8, ptr %.0, i64 %62
   %64 = load i32, ptr %51, align 8
   %65 = call fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr noundef %63, i32 noundef %64, i32 noundef %57)
-  %.not.not = icmp ne i32 %65, 0
-  br i1 %.not.not, label %52, label %.loopexit
+  %.not.not.not = icmp ne i32 %65, 0
+  br i1 %.not.not.not, label %52, label %.loopexit
 
 .loopexit:                                        ; preds = %56, %52, %48, %3
-  %.020 = phi i1 [ false, %3 ], [ true, %48 ], [ %.not.not, %52 ], [ %.not.not, %56 ]
+  %.020 = phi i1 [ false, %3 ], [ true, %48 ], [ %.not.not.not, %52 ], [ %.not.not.not, %56 ]
   ret i1 %.020
 }
 
@@ -3741,8 +3741,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3755,7 +3755,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -3855,8 +3855,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3869,7 +3869,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -3969,8 +3969,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -3981,7 +3981,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4081,8 +4081,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4095,7 +4095,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4195,8 +4195,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4209,7 +4209,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4309,8 +4309,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4323,7 +4323,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4423,8 +4423,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -4437,7 +4437,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -4550,8 +4550,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4563,7 +4563,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4676,8 +4676,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4689,7 +4689,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !55
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4802,8 +4802,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4816,7 +4816,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -4929,8 +4929,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -4942,7 +4942,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !57
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5055,8 +5055,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5068,7 +5068,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !58
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5181,8 +5181,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5195,7 +5195,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !59
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5308,8 +5308,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5322,7 +5322,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !60
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5435,8 +5435,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit
   %52 = load i16, ptr %5, align 2
@@ -5449,7 +5449,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !61
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ]
   ret i1 %.017
 }
 
@@ -5562,8 +5562,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -5575,7 +5575,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !62
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -5688,8 +5688,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -5702,7 +5702,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6036,8 +6036,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6049,7 +6049,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6162,8 +6162,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6176,7 +6176,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !66
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6289,8 +6289,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6302,7 +6302,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !67
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6415,8 +6415,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6429,7 +6429,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !68
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6542,8 +6542,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit
   %52 = load i32, ptr %5, align 4
@@ -6556,7 +6556,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !69
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ]
   ret i1 %.017
 }
 
@@ -6656,8 +6656,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6668,7 +6668,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6768,8 +6768,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6782,7 +6782,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6882,8 +6882,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -6896,7 +6896,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -6996,8 +6996,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7008,7 +7008,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7108,8 +7108,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7122,7 +7122,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7222,8 +7222,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7236,7 +7236,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7336,8 +7336,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7350,7 +7350,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7450,8 +7450,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %.not21 = icmp ne i64 %42, 0
-  br i1 %.not21, label %43, label %.loopexit
+  %.not21.not = icmp ne i64 %42, 0
+  br i1 %.not21.not, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %5, align 1
@@ -7464,7 +7464,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %41, %3
-  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %43 ], [ %.not21, %.lr.ph ]
+  %.016 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %43 ], [ %.not21.not, %.lr.ph ]
   ret i1 %.016
 }
 
@@ -7577,8 +7577,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7590,7 +7590,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !78
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7703,8 +7703,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7716,7 +7716,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !79
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7829,8 +7829,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7843,7 +7843,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -7956,8 +7956,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -7969,7 +7969,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !81
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8082,8 +8082,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8095,7 +8095,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8208,8 +8208,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8222,7 +8222,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !83
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8335,8 +8335,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8349,7 +8349,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8462,8 +8462,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit
   %52 = load i16, ptr %5, align 2
@@ -8476,7 +8476,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !85
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ]
   ret i1 %.017
 }
 
@@ -8589,8 +8589,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8602,7 +8602,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !86
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8715,8 +8715,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8729,7 +8729,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !87
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8842,8 +8842,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8855,7 +8855,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !88
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -8968,8 +8968,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -8981,7 +8981,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !89
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9094,8 +9094,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9108,7 +9108,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !90
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9221,8 +9221,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9234,7 +9234,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !91
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9347,8 +9347,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9361,7 +9361,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9474,8 +9474,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit
   %52 = load i32, ptr %5, align 4
@@ -9488,7 +9488,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !93
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ]
   ret i1 %.017
 }
 
@@ -9601,8 +9601,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit
   %52 = load float, ptr %5, align 4
@@ -9614,7 +9614,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !94
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
   ret i1 %.017
 }
 
@@ -9727,8 +9727,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   %50 = and i64 %45, 4294967295
-  %.not21 = icmp ne i64 %50, 0
-  br i1 %.not21, label %51, label %.loopexit
+  %.not21.not = icmp ne i64 %50, 0
+  br i1 %.not21.not, label %51, label %.loopexit
 
 51:                                               ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit
   %52 = load float, ptr %5, align 4
@@ -9741,7 +9741,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !95
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %51, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21, %51 ], [ %.not21, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not21.not, %51 ], [ %.not21.not, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ]
   ret i1 %.017
 }
 
@@ -9842,8 +9842,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %43 = and i64 %42, 4294967295
-  %.not22 = icmp ne i64 %43, 0
-  br i1 %.not22, label %44, label %.loopexit
+  %.not22.not = icmp ne i64 %43, 0
+  br i1 %.not22.not, label %44, label %.loopexit
 
 44:                                               ; preds = %.lr.ph
   %45 = load double, ptr %5, align 8
@@ -9856,7 +9856,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22.not, %44 ], [ %.not22.not, %.lr.ph ]
   ret i1 %.017
 }
 
@@ -9957,8 +9957,8 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %42 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %43 = and i64 %42, 4294967295
-  %.not22 = icmp ne i64 %43, 0
-  br i1 %.not22, label %44, label %.loopexit
+  %.not22.not = icmp ne i64 %43, 0
+  br i1 %.not22.not, label %44, label %.loopexit
 
 44:                                               ; preds = %.lr.ph
   %45 = load double, ptr %5, align 8
@@ -9970,7 +9970,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %41, %3
-  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22, %44 ], [ %.not22, %.lr.ph ]
+  %.017 = phi i1 [ false, %3 ], [ true, %41 ], [ %.not22.not, %44 ], [ %.not22.not, %.lr.ph ]
   ret i1 %.017
 }
 

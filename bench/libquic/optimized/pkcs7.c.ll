@@ -34,8 +34,8 @@ if.then4:                                         ; preds = %if.end
 
 while.cond:                                       ; preds = %if.end, %if.end20
   %call6 = call i64 @CBS_len(ptr noundef nonnull %certificates) #3
-  %cmp.not.not = icmp ne i64 %call6, 0
-  br i1 %cmp.not.not, label %while.body, label %err
+  %cmp.not.not.not = icmp ne i64 %call6, 0
+  br i1 %cmp.not.not.not, label %while.body, label %err
 
 while.body:                                       ; preds = %while.cond
   %call7 = call i32 @CBS_get_asn1_element(ptr noundef nonnull %certificates, ptr noundef nonnull %cert, i32 noundef 48) #3
@@ -65,7 +65,7 @@ if.then23:                                        ; preds = %if.end20
   br label %err
 
 err:                                              ; preds = %while.cond, %if.end14, %if.end10, %while.body, %if.then23, %if.then4
-  %tobool28.not = phi i1 [ true, %if.then23 ], [ true, %if.then4 ], [ %cmp.not.not, %while.body ], [ %cmp.not.not, %if.end10 ], [ %cmp.not.not, %if.end14 ], [ %cmp.not.not, %while.cond ]
+  %tobool28.not = phi i1 [ true, %if.then23 ], [ true, %if.then4 ], [ %cmp.not.not.not, %while.body ], [ %cmp.not.not.not, %if.end10 ], [ %cmp.not.not.not, %if.end14 ], [ %cmp.not.not.not, %while.cond ]
   %ret.0 = phi i32 [ 0, %if.then23 ], [ 0, %if.then4 ], [ 1, %while.cond ], [ 0, %if.end14 ], [ 0, %if.end10 ], [ 0, %while.body ]
   %0 = load ptr, ptr %der_bytes, align 8
   %tobool25.not = icmp eq ptr %0, null
@@ -258,8 +258,8 @@ if.then10:                                        ; preds = %if.end7
 
 while.cond:                                       ; preds = %if.end7, %if.end26
   %call12 = call i64 @CBS_len(ptr noundef nonnull %crls) #3
-  %cmp.not.not = icmp ne i64 %call12, 0
-  br i1 %cmp.not.not, label %while.body, label %err
+  %cmp.not.not.not = icmp ne i64 %call12, 0
+  br i1 %cmp.not.not.not, label %while.body, label %err
 
 while.body:                                       ; preds = %while.cond
   %call13 = call i32 @CBS_get_asn1_element(ptr noundef nonnull %crls, ptr noundef nonnull %crl_data, i32 noundef 48) #3
@@ -289,7 +289,7 @@ if.then29:                                        ; preds = %if.end26
   br label %err
 
 err:                                              ; preds = %while.cond, %if.end20, %if.end16, %while.body, %land.lhs.true, %if.then29, %if.then10
-  %tobool34.not = phi i1 [ true, %if.then29 ], [ true, %if.then10 ], [ true, %land.lhs.true ], [ %cmp.not.not, %while.body ], [ %cmp.not.not, %if.end16 ], [ %cmp.not.not, %if.end20 ], [ %cmp.not.not, %while.cond ]
+  %tobool34.not = phi i1 [ true, %if.then29 ], [ true, %if.then10 ], [ true, %land.lhs.true ], [ %cmp.not.not.not, %while.body ], [ %cmp.not.not.not, %if.end16 ], [ %cmp.not.not.not, %if.end20 ], [ %cmp.not.not.not, %while.cond ]
   %ret.0 = phi i32 [ 0, %if.then29 ], [ 0, %if.then10 ], [ 0, %land.lhs.true ], [ 1, %while.cond ], [ 0, %if.end20 ], [ 0, %if.end16 ], [ 0, %while.body ]
   %0 = load ptr, ptr %der_bytes, align 8
   %tobool31.not = icmp eq ptr %0, null

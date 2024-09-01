@@ -2769,18 +2769,18 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %for.end48
   store i8 0, ptr %call5.i.i.i.i.i33, align 1
   %sub.i.i.i23.i.i = add nsw i64 %conv52, -1
   %cmp.i.i.i.i.i24.i.i = icmp eq i64 %sub.i.i.i23.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %if.then.i.i.i.i.i.i.i25.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i, label %for.body57.preheader, label %if.then.i.i.i.i.i.i.i25.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
   %incdec.ptr.i.i.i22.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i33, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %sub.i.i.i23.i.i, i1 false)
-  br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
+  br label %for.body57.preheader
 
-_ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i.i.i.i.i25.i.i
-  br i1 %tobool.not64, label %for.end81, label %for.body57
+for.body57.preheader:                             ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i.i.i.i.i25.i.i
+  br label %for.body57
 
-for.body57:                                       ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit, %for.inc79
-  %m53.073 = phi ptr [ %m53.0, %for.inc79 ], [ %m.063, %_ZNSt6vectorIhSaIhEE6resizeEm.exit ]
+for.body57:                                       ; preds = %for.body57.preheader, %for.inc79
+  %m53.073 = phi ptr [ %m53.0, %for.inc79 ], [ %m.063, %for.body57.preheader ]
   %marker58 = getelementptr inbounds i8, ptr %m53.073, i64 8
   %9 = load i8, ptr %marker58, align 8
   %cmp60 = icmp eq i8 %9, -30
@@ -2813,7 +2813,7 @@ for.inc79:                                        ; preds = %for.body57, %land.l
   %tobool56.not = icmp eq ptr %m53.0, null
   br i1 %tobool56.not, label %for.end81, label %for.body57, !llvm.loop !32
 
-for.end81:                                        ; preds = %for.inc79, %_ZNSt6vectorIhSaIhEE6resizeEm.exit
+for.end81:                                        ; preds = %for.inc79
   store ptr @.str.33, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 10, ptr %m_len.i, align 8

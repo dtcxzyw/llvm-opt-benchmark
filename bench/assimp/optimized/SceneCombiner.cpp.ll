@@ -1113,15 +1113,15 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.end
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i290 = shl nuw nsw i64 %sub.ptr.div.i287, 2
   %call5.i.i.i.i2.i.i298 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i290) #18
-          to label %if.then.i.i.i.i.i unwind label %lpad29
+          to label %call5.i.i.i.i2.i.i.noexc297 unwind label %lpad29
 
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i.i.i
+call5.i.i.i.i2.i.i.noexc297:                      ; preds = %if.end.i.i.i.i.i.i.i
   %26 = add nsw i64 %mul.i.i.i.i.i.i290, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i298, i8 -1, i64 %mul.i.i.i.i.i.i290, i1 false)
   %call5.i.i.i.i2.i.i318 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i290) #18
           to label %call5.i.i.i.i2.i.i.noexc317 unwind label %ehcleanup865.thread
 
-call5.i.i.i.i2.i.i.noexc317:                      ; preds = %if.then.i.i.i.i.i
+call5.i.i.i.i2.i.i.noexc317:                      ; preds = %call5.i.i.i.i2.i.i.noexc297
   store i32 0, ptr %call5.i.i.i.i2.i.i318, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i286, 96
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body40.preheader, label %if.end.i.i.i.i.i.i.i311
@@ -1154,7 +1154,7 @@ lpad29:                                           ; preds = %if.end.i.i.i.i.i.i.
           cleanup
   br label %ehcleanup866
 
-ehcleanup865.thread:                              ; preds = %if.then.i.i.i.i.i
+ehcleanup865.thread:                              ; preds = %call5.i.i.i.i2.i.i.noexc297
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i807
@@ -8094,7 +8094,8 @@ entry:
 
 arrayctor.cont.thread:                            ; preds = %entry
   store ptr %call, ptr %mKeys, align 8
-  br label %for.end.thread
+  %call1396 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef 0) #18
+  br label %arrayctor.cont21.thread
 
 new.ctorloop:                                     ; preds = %entry
   %arrayctor.end = getelementptr inbounds %struct.aiString, ptr %call, i64 %conv
@@ -8111,22 +8112,19 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   store ptr %call, ptr %mKeys, align 8
-  br i1 %isempty, label %for.end.thread, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %arrayctor.cont
   %mKeys7 = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load ptr, ptr %mKeys7, align 8
   %3 = icmp eq ptr %call, %2
   br i1 %3, label %for.end.thread100, label %for.body
 
-for.end.thread100:                                ; preds = %for.body.lr.ph
+for.end.thread100:                                ; preds = %arrayctor.cont
   %4 = shl nuw nsw i64 %conv, 4
   %call13102 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #18
   br label %new.ctorloop15
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN8aiStringaSERKS_.exit
-  %5 = phi i32 [ %9, %_ZN8aiStringaSERKS_.exit ], [ %0, %for.body.lr.ph ]
-  %i.078 = phi i64 [ %inc, %_ZN8aiStringaSERKS_.exit ], [ 0, %for.body.lr.ph ]
+for.body:                                         ; preds = %arrayctor.cont, %_ZN8aiStringaSERKS_.exit
+  %5 = phi i32 [ %9, %_ZN8aiStringaSERKS_.exit ], [ %0, %arrayctor.cont ]
+  %i.078 = phi i64 [ %inc, %_ZN8aiStringaSERKS_.exit ], [ 0, %arrayctor.cont ]
   %6 = load ptr, ptr %mKeys7, align 8
   %7 = load ptr, ptr %mKeys, align 8
   %cmp.i = icmp eq ptr %7, %6
@@ -8154,14 +8152,9 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %for.body, %if.end.i
   %cmp = icmp ult i64 %inc, %conv6
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !109
 
-for.end.thread:                                   ; preds = %arrayctor.cont, %arrayctor.cont.thread
-  %10 = shl nuw nsw i64 %conv, 4
-  %call1396 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #18
-  br label %arrayctor.cont21.thread
-
 for.end:                                          ; preds = %_ZN8aiStringaSERKS_.exit
-  %11 = shl nuw nsw i64 %conv6, 4
-  %call13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #18
+  %10 = shl nuw nsw i64 %conv6, 4
+  %call13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #18
   %isempty14 = icmp eq i32 %9, 0
   br i1 %isempty14, label %arrayctor.cont21.thread, label %new.ctorloop15
 
@@ -8180,8 +8173,8 @@ arrayctor.loop17:                                 ; preds = %arrayctor.loop17, %
   %arrayctor.done20 = icmp eq ptr %arrayctor.next19, %arrayctor.end16
   br i1 %arrayctor.done20, label %arrayctor.cont21, label %arrayctor.loop17
 
-arrayctor.cont21.thread:                          ; preds = %for.end.thread, %for.end
-  %call1398.ph = phi ptr [ %call13, %for.end ], [ %call1396, %for.end.thread ]
+arrayctor.cont21.thread:                          ; preds = %arrayctor.cont.thread, %for.end
+  %call1398.ph = phi ptr [ %call13, %for.end ], [ %call1396, %arrayctor.cont.thread ]
   store ptr %call1398.ph, ptr %mValues, align 8
   br label %for.end133
 
@@ -8197,17 +8190,17 @@ arrayctor.cont21:                                 ; preds = %arrayctor.loop17
 
 for.body28:                                       ; preds = %arrayctor.cont21, %for.inc131
   %i23.086 = phi i64 [ 0, %arrayctor.cont21 ], [ %inc132, %for.inc131 ]
-  %12 = phi i32 [ undef, %arrayctor.cont21 ], [ %56, %for.inc131 ]
-  %13 = load ptr, ptr %mValues29, align 8
-  %arrayidx30 = getelementptr inbounds %struct.aiMetadataEntry, ptr %13, i64 %i23.086
-  %14 = load i32, ptr %arrayidx30, align 8
-  %15 = load ptr, ptr %mValues, align 8
-  %arrayidx32 = getelementptr inbounds %struct.aiMetadataEntry, ptr %15, i64 %i23.086
-  store i32 %14, ptr %arrayidx32, align 8
-  %16 = load ptr, ptr %mValues29, align 8
-  %arrayidx35 = getelementptr inbounds %struct.aiMetadataEntry, ptr %16, i64 %i23.086
-  %17 = load i32, ptr %arrayidx35, align 8
-  switch i32 %17, label %for.inc131 [
+  %11 = phi i32 [ undef, %arrayctor.cont21 ], [ %55, %for.inc131 ]
+  %12 = load ptr, ptr %mValues29, align 8
+  %arrayidx30 = getelementptr inbounds %struct.aiMetadataEntry, ptr %12, i64 %i23.086
+  %13 = load i32, ptr %arrayidx30, align 8
+  %14 = load ptr, ptr %mValues, align 8
+  %arrayidx32 = getelementptr inbounds %struct.aiMetadataEntry, ptr %14, i64 %i23.086
+  store i32 %13, ptr %arrayidx32, align 8
+  %15 = load ptr, ptr %mValues29, align 8
+  %arrayidx35 = getelementptr inbounds %struct.aiMetadataEntry, ptr %15, i64 %i23.086
+  %16 = load i32, ptr %arrayidx35, align 8
+  switch i32 %16, label %for.inc131 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb46
     i32 2, label %sw.bb54
@@ -8222,76 +8215,76 @@ for.body28:                                       ; preds = %arrayctor.cont21, %
 
 sw.bb:                                            ; preds = %for.body28
   %call37 = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #18
-  %18 = load ptr, ptr %mValues, align 8
-  %mData = getelementptr inbounds %struct.aiMetadataEntry, ptr %18, i64 %i23.086, i32 1
+  %17 = load ptr, ptr %mValues, align 8
+  %mData = getelementptr inbounds %struct.aiMetadataEntry, ptr %17, i64 %i23.086, i32 1
   store ptr %call37, ptr %mData, align 8
-  %19 = load ptr, ptr %mValues, align 8
-  %mData42 = getelementptr inbounds %struct.aiMetadataEntry, ptr %19, i64 %i23.086, i32 1
-  %20 = load ptr, ptr %mData42, align 8
-  %21 = load ptr, ptr %mValues29, align 8
-  %mData45 = getelementptr inbounds %struct.aiMetadataEntry, ptr %21, i64 %i23.086, i32 1
-  %22 = load ptr, ptr %mData45, align 8
-  %23 = load i8, ptr %22, align 1
-  store i8 %23, ptr %20, align 1
+  %18 = load ptr, ptr %mValues, align 8
+  %mData42 = getelementptr inbounds %struct.aiMetadataEntry, ptr %18, i64 %i23.086, i32 1
+  %19 = load ptr, ptr %mData42, align 8
+  %20 = load ptr, ptr %mValues29, align 8
+  %mData45 = getelementptr inbounds %struct.aiMetadataEntry, ptr %20, i64 %i23.086, i32 1
+  %21 = load ptr, ptr %mData45, align 8
+  %22 = load i8, ptr %21, align 1
+  store i8 %22, ptr %19, align 1
   br label %for.inc131
 
 sw.bb46:                                          ; preds = %for.body28
   %mData49 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %24 = load ptr, ptr %mData49, align 8
-  %v.0.copyload = load i32, ptr %24, align 1
+  %23 = load ptr, ptr %mData49, align 8
+  %v.0.copyload = load i32, ptr %23, align 1
   %call50 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
   store i32 %v.0.copyload, ptr %call50, align 4
-  %25 = load ptr, ptr %mValues, align 8
-  %mData53 = getelementptr inbounds %struct.aiMetadataEntry, ptr %25, i64 %i23.086, i32 1
+  %24 = load ptr, ptr %mValues, align 8
+  %mData53 = getelementptr inbounds %struct.aiMetadataEntry, ptr %24, i64 %i23.086, i32 1
   store ptr %call50, ptr %mData53, align 8
   br label %for.inc131
 
 sw.bb54:                                          ; preds = %for.body28
   %mData58 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %26 = load ptr, ptr %mData58, align 8
-  %v55.0.copyload = load i64, ptr %26, align 1
+  %25 = load ptr, ptr %mData58, align 8
+  %v55.0.copyload = load i64, ptr %25, align 1
   %call59 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   store i64 %v55.0.copyload, ptr %call59, align 8
-  %27 = load ptr, ptr %mValues, align 8
-  %mData62 = getelementptr inbounds %struct.aiMetadataEntry, ptr %27, i64 %i23.086, i32 1
+  %26 = load ptr, ptr %mValues, align 8
+  %mData62 = getelementptr inbounds %struct.aiMetadataEntry, ptr %26, i64 %i23.086, i32 1
   store ptr %call59, ptr %mData62, align 8
   br label %for.inc131
 
 sw.bb63:                                          ; preds = %for.body28
   %mData67 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %28 = load ptr, ptr %mData67, align 8
-  %v64.0.copyload = load float, ptr %28, align 1
+  %27 = load ptr, ptr %mData67, align 8
+  %v64.0.copyload = load float, ptr %27, align 1
   %call68 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
   store float %v64.0.copyload, ptr %call68, align 4
-  %29 = load ptr, ptr %mValues, align 8
-  %mData71 = getelementptr inbounds %struct.aiMetadataEntry, ptr %29, i64 %i23.086, i32 1
+  %28 = load ptr, ptr %mValues, align 8
+  %mData71 = getelementptr inbounds %struct.aiMetadataEntry, ptr %28, i64 %i23.086, i32 1
   store ptr %call68, ptr %mData71, align 8
   br label %for.inc131
 
 sw.bb72:                                          ; preds = %for.body28
   %mData76 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %30 = load ptr, ptr %mData76, align 8
-  %v73.0.copyload = load double, ptr %30, align 1
+  %29 = load ptr, ptr %mData76, align 8
+  %v73.0.copyload = load double, ptr %29, align 1
   %call77 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   store double %v73.0.copyload, ptr %call77, align 8
-  %31 = load ptr, ptr %mValues, align 8
-  %mData80 = getelementptr inbounds %struct.aiMetadataEntry, ptr %31, i64 %i23.086, i32 1
+  %30 = load ptr, ptr %mValues, align 8
+  %mData80 = getelementptr inbounds %struct.aiMetadataEntry, ptr %30, i64 %i23.086, i32 1
   store ptr %call77, ptr %mData80, align 8
   br label %for.inc131
 
 sw.bb81:                                          ; preds = %for.body28
   store i8 0, ptr %data.i44, align 4
   %conv83 = trunc nuw i64 %i23.086 to i32
-  %32 = load i32, ptr %rhs, align 8
-  %cmp.not.i = icmp ugt i32 %32, %conv83
+  %31 = load i32, ptr %rhs, align 8
+  %cmp.not.i = icmp ugt i32 %31, %conv83
   br i1 %cmp.not.i, label %if.end.i.i, label %_ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit
 
 if.end.i.i:                                       ; preds = %sw.bb81
   %mData.i47 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %33 = load ptr, ptr %mData.i47, align 8
-  %34 = load i32, ptr %33, align 4
-  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %34, i32 1023)
-  %data8.i.i = getelementptr inbounds i8, ptr %33, i64 4
+  %32 = load ptr, ptr %mData.i47, align 8
+  %33 = load i32, ptr %32, align 4
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %33, i32 1023)
+  %data8.i.i = getelementptr inbounds i8, ptr %32, i64 4
   %conv11.i.i = zext nneg i32 %spec.select.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i44, ptr nonnull align 4 %data8.i.i, i64 %conv11.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [1024 x i8], ptr %data.i44, i64 0, i64 %conv11.i.i
@@ -8299,32 +8292,32 @@ if.end.i.i:                                       ; preds = %sw.bb81
   br label %_ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit
 
 _ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit:       ; preds = %sw.bb81, %if.end.i.i
-  %35 = phi i32 [ 0, %sw.bb81 ], [ %spec.select.i.i, %if.end.i.i ]
+  %34 = phi i32 [ 0, %sw.bb81 ], [ %spec.select.i.i, %if.end.i.i ]
   %call85 = call noalias noundef nonnull dereferenceable(1028) ptr @_Znwm(i64 noundef 1028) #18
-  store i32 %35, ptr %call85, align 4
+  store i32 %34, ptr %call85, align 4
   %data.i49 = getelementptr inbounds i8, ptr %call85, i64 4
-  %conv11.i51 = zext nneg i32 %35 to i64
+  %conv11.i51 = zext nneg i32 %34 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i49, ptr nonnull align 4 %data.i44, i64 %conv11.i51, i1 false)
   %arrayidx.i52 = getelementptr inbounds [1024 x i8], ptr %data.i49, i64 0, i64 %conv11.i51
   store i8 0, ptr %arrayidx.i52, align 1
-  %36 = load ptr, ptr %mValues, align 8
-  %mData90 = getelementptr inbounds %struct.aiMetadataEntry, ptr %36, i64 %i23.086, i32 1
+  %35 = load ptr, ptr %mValues, align 8
+  %mData90 = getelementptr inbounds %struct.aiMetadataEntry, ptr %35, i64 %i23.086, i32 1
   store ptr %call85, ptr %mData90, align 8
   br label %for.inc131
 
 sw.bb91:                                          ; preds = %for.body28
   %conv93 = trunc nuw i64 %i23.086 to i32
-  %37 = load i32, ptr %rhs, align 8
-  %cmp.not.i53 = icmp ugt i32 %37, %conv93
+  %36 = load i32, ptr %rhs, align 8
+  %cmp.not.i53 = icmp ugt i32 %36, %conv93
   br i1 %cmp.not.i53, label %if.end4.i60, label %_ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit
 
 if.end4.i60:                                      ; preds = %sw.bb91
   %mData.i61 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %38 = load ptr, ptr %mData.i61, align 8
-  %v92.sroa.0.0.copyload73 = load float, ptr %38, align 4
-  %v92.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 4
+  %37 = load ptr, ptr %mData.i61, align 8
+  %v92.sroa.0.0.copyload73 = load float, ptr %37, align 4
+  %v92.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 4
   %v92.sroa.3.0.copyload74 = load float, ptr %v92.sroa.3.0..sroa_idx, align 4
-  %v92.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  %v92.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   %v92.sroa.4.0.copyload75 = load float, ptr %v92.sroa.4.0..sroa_idx, align 4
   br label %_ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit
 
@@ -8338,8 +8331,8 @@ _ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit: ; preds = %sw.bb91, %if.end4.i
   store float %v92.sroa.3.0, ptr %v92.sroa.3.0.call95.sroa_idx, align 4
   %v92.sroa.4.0.call95.sroa_idx = getelementptr inbounds i8, ptr %call95, i64 8
   store float %v92.sroa.4.0, ptr %v92.sroa.4.0.call95.sroa_idx, align 8
-  %39 = load ptr, ptr %mValues, align 8
-  %mData98 = getelementptr inbounds %struct.aiMetadataEntry, ptr %39, i64 %i23.086, i32 1
+  %38 = load ptr, ptr %mValues, align 8
+  %mData98 = getelementptr inbounds %struct.aiMetadataEntry, ptr %38, i64 %i23.086, i32 1
   store ptr %call95, ptr %mData98, align 8
   br label %for.inc131
 
@@ -8348,34 +8341,34 @@ sw.bb99:                                          ; preds = %for.body28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mKeys.i, i8 0, i64 16, i1 false)
   %conv101 = trunc nuw i64 %i23.086 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
-  %40 = load i32, ptr %rhs, align 8
-  %cmp.not.i62 = icmp ugt i32 %40, %conv101
+  %39 = load i32, ptr %rhs, align 8
+  %cmp.not.i62 = icmp ugt i32 %39, %conv101
   br i1 %cmp.not.i62, label %if.end.i64, label %invoke.cont103
 
 if.end.i64:                                       ; preds = %sw.bb99
-  %41 = load i32, ptr %arrayidx35, align 8
-  %cmp2.not.i68 = icmp eq i32 %41, 7
+  %40 = load i32, ptr %arrayidx35, align 8
+  %cmp2.not.i68 = icmp eq i32 %40, 7
   br i1 %cmp2.not.i68, label %if.end4.i69, label %invoke.cont103
 
 if.end4.i69:                                      ; preds = %if.end.i64
   %mData.i70 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %42 = load ptr, ptr %mData.i70, align 8
-  invoke void @_ZN10aiMetadataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %41 = load ptr, ptr %mData.i70, align 8
+  invoke void @_ZN10aiMetadataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %41)
           to label %.noexc unwind label %lpad102
 
 .noexc:                                           ; preds = %if.end4.i69
-  %43 = load i32, ptr %v100, align 8
-  %44 = load i32, ptr %agg.tmp.i, align 8
-  store i32 %44, ptr %v100, align 8
-  store i32 %43, ptr %agg.tmp.i, align 8
-  %45 = load ptr, ptr %mKeys.i, align 8
-  %46 = load ptr, ptr %mKeys3.i, align 8
-  store ptr %46, ptr %mKeys.i, align 8
-  store ptr %45, ptr %mKeys3.i, align 8
-  %47 = load ptr, ptr %mValues.i72, align 8
-  %48 = load ptr, ptr %mValues4.i, align 8
-  store ptr %48, ptr %mValues.i72, align 8
-  store ptr %47, ptr %mValues4.i, align 8
+  %42 = load i32, ptr %v100, align 8
+  %43 = load i32, ptr %agg.tmp.i, align 8
+  store i32 %43, ptr %v100, align 8
+  store i32 %42, ptr %agg.tmp.i, align 8
+  %44 = load ptr, ptr %mKeys.i, align 8
+  %45 = load ptr, ptr %mKeys3.i, align 8
+  store ptr %45, ptr %mKeys.i, align 8
+  store ptr %44, ptr %mKeys3.i, align 8
+  %46 = load ptr, ptr %mValues.i72, align 8
+  %47 = load ptr, ptr %mValues4.i, align 8
+  store ptr %47, ptr %mValues.i72, align 8
+  store ptr %46, ptr %mValues4.i, align 8
   call void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #19
   br label %invoke.cont103
 
@@ -8389,55 +8382,55 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont105
-  %49 = load ptr, ptr %mValues, align 8
-  %mData111 = getelementptr inbounds %struct.aiMetadataEntry, ptr %49, i64 %i23.086, i32 1
+  %48 = load ptr, ptr %mValues, align 8
+  %mData111 = getelementptr inbounds %struct.aiMetadataEntry, ptr %48, i64 %i23.086, i32 1
   store ptr %call106, ptr %mData111, align 8
   call void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v100) #19
   br label %for.inc131
 
 lpad102:                                          ; preds = %if.end4.i69, %invoke.cont103
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad107:                                          ; preds = %invoke.cont105
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call106) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad107, %lpad102
-  %.pn = phi { ptr, i32 } [ %51, %lpad107 ], [ %50, %lpad102 ]
+  %.pn = phi { ptr, i32 } [ %50, %lpad107 ], [ %49, %lpad102 ]
   call void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v100) #19
   resume { ptr, i32 } %.pn
 
 sw.bb112:                                         ; preds = %for.body28
   %mData116 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %52 = load ptr, ptr %mData116, align 8
-  %v113.0.copyload = load i64, ptr %52, align 1
+  %51 = load ptr, ptr %mData116, align 8
+  %v113.0.copyload = load i64, ptr %51, align 1
   %call117 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   store i64 %v113.0.copyload, ptr %call117, align 8
-  %53 = load ptr, ptr %mValues, align 8
-  %mData120 = getelementptr inbounds %struct.aiMetadataEntry, ptr %53, i64 %i23.086, i32 1
+  %52 = load ptr, ptr %mValues, align 8
+  %mData120 = getelementptr inbounds %struct.aiMetadataEntry, ptr %52, i64 %i23.086, i32 1
   store ptr %call117, ptr %mData120, align 8
   br label %for.inc131
 
 sw.bb121:                                         ; preds = %for.body28
   %mData125 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
-  %54 = load ptr, ptr %mData125, align 8
-  %v122.0.copyload = load i32, ptr %54, align 1
+  %53 = load ptr, ptr %mData125, align 8
+  %v122.0.copyload = load i32, ptr %53, align 1
   %call126 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
   store i32 %v122.0.copyload, ptr %call126, align 4
-  %55 = load ptr, ptr %mValues, align 8
-  %mData129 = getelementptr inbounds %struct.aiMetadataEntry, ptr %55, i64 %i23.086, i32 1
+  %54 = load ptr, ptr %mValues, align 8
+  %mData129 = getelementptr inbounds %struct.aiMetadataEntry, ptr %54, i64 %i23.086, i32 1
   store ptr %call126, ptr %mData129, align 8
   br label %for.inc131
 
 for.inc131:                                       ; preds = %sw.bb, %sw.bb46, %sw.bb54, %sw.bb63, %sw.bb72, %_ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit, %_ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit, %invoke.cont108, %sw.bb112, %sw.bb121, %for.body28
-  %56 = phi i32 [ %12, %sw.bb ], [ %12, %sw.bb46 ], [ %12, %sw.bb54 ], [ %12, %sw.bb63 ], [ %12, %sw.bb72 ], [ %35, %_ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit ], [ %12, %_ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit ], [ %12, %invoke.cont108 ], [ %12, %sw.bb112 ], [ %12, %sw.bb121 ], [ %12, %for.body28 ]
+  %55 = phi i32 [ %11, %sw.bb ], [ %11, %sw.bb46 ], [ %11, %sw.bb54 ], [ %11, %sw.bb63 ], [ %11, %sw.bb72 ], [ %34, %_ZNK10aiMetadata3GetI8aiStringEEbjRT_.exit ], [ %11, %_ZNK10aiMetadata3GetI10aiVector3tIfEEEbjRT_.exit ], [ %11, %invoke.cont108 ], [ %11, %sw.bb112 ], [ %11, %sw.bb121 ], [ %11, %for.body28 ]
   %inc132 = add nuw nsw i64 %i23.086, 1
-  %57 = load i32, ptr %this, align 8
-  %conv26 = zext i32 %57 to i64
+  %56 = load i32, ptr %this, align 8
+  %conv26 = zext i32 %56 to i64
   %cmp27 = icmp ult i64 %inc132, %conv26
   br i1 %cmp27, label %for.body28, label %for.end133, !llvm.loop !110
 
@@ -9203,12 +9196,9 @@ _ZN8aiStringaSERKS_.exit.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i,
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 1028
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.09.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIP8aiStringS1_ET0_T_S3_S2_.exit, !llvm.loop !114
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.body.lr.ph, !llvm.loop !114
 
-_ZSt4copyIP8aiStringS1_ET0_T_S3_S2_.exit:         ; preds = %_ZN8aiStringaSERKS_.exit.i.i.i.i.i
-  br i1 %cmp6.i.i.i.i.i.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZSt4copyIP8aiStringS1_ET0_T_S3_S2_.exit
+for.body.lr.ph:                                   ; preds = %_ZN8aiStringaSERKS_.exit.i.i.i.i.i
   %mValues = getelementptr inbounds i8, ptr %src, i64 16
   br label %for.body
 
@@ -9323,7 +9313,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %cmp11 = icmp ult i64 %indvars.iv.next, %27
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !115
 
-for.end:                                          ; preds = %for.inc, %_ZN10aiMetadata5AllocEj.exit, %_ZSt4copyIP8aiStringS1_ET0_T_S3_S2_.exit, %if.end, %entry
+for.end:                                          ; preds = %for.inc, %_ZN10aiMetadata5AllocEj.exit, %if.end, %entry
   ret void
 }
 

@@ -937,187 +937,123 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr nocapture nou
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 {
   %.not14.not = icmp ugt i64 %3, %1
-  br i1 %.not14.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph17
+  br i1 %.not14.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph
 
-.lr.ph17:                                         ; preds = %4
+.lr.ph:                                           ; preds = %4
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph17.split
+  br i1 %5, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph17.split:                                   ; preds = %.lr.ph17
-  %6 = load i8, ptr %2, align 1
-  %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
-  br label %.lr.ph.i.preheader
+.lr.ph.i.preheader:                               ; preds = %.lr.ph, %lexbor_str_data_ncasecmp.exit
+  %.015 = phi i64 [ %19, %lexbor_str_data_ncasecmp.exit ], [ 0, %.lr.ph ]
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.015
+  br label %.lr.ph.i
 
-lexbor_str_data_ncasecmp.exit.thread22:           ; preds = %.lr.ph.i.preheader, %lexbor_str_data_ncasecmp.exit
-  %10 = add i64 %.015, 1
-  %11 = sub i64 %1, %10
-  %.not.not = icmp ugt i64 %3, %11
-  br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
+7:                                                ; preds = %.lr.ph.i
+  %8 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %8, %3
+  br i1 %exitcond.not.i, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph17.split, %lexbor_str_data_ncasecmp.exit.thread22
-  %.015 = phi i64 [ 0, %.lr.ph17.split ], [ %10, %lexbor_str_data_ncasecmp.exit.thread22 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.015
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %7
+  %.08.i = phi i64 [ %8, %7 ], [ 0, %.lr.ph.i.preheader ]
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.08.i
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i64
+  %12 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %.not.i11 = icmp eq i8 %16, %9
-  br i1 %.not.i11, label %.lr.ph, label %lexbor_str_data_ncasecmp.exit.thread22
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.08.i12 = phi i64 [ %17, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %17 = add nuw i64 %.08.i12, 1
-  %exitcond.i = icmp eq i64 %17, %3
-  br i1 %exitcond.i, label %lexbor_str_data_ncasecmp.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %12, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %2, i64 %17
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %.not.i = icmp eq i8 %22, %27
-  br i1 %.not.i, label %.lr.ph, label %lexbor_str_data_ncasecmp.exit
-
-lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i, %.lr.ph
-  %.not = icmp ult i64 %17, %3
-  br i1 %.not, label %lexbor_str_data_ncasecmp.exit.thread22, label %lexbor_str_data_ncasecmp.exit.thread
-
-lexbor_str_data_ncasecmp.exit.thread:             ; preds = %lexbor_str_data_ncasecmp.exit, %lexbor_str_data_ncasecmp.exit.thread22, %.lr.ph17, %4
-  %.not.lcssa = phi i1 [ false, %4 ], [ true, %.lr.ph17 ], [ true, %lexbor_str_data_ncasecmp.exit ], [ false, %lexbor_str_data_ncasecmp.exit.thread22 ]
-  ret i1 %.not.lcssa
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden zeroext i1 @lexbor_str_data_ncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = icmp eq i64 %2, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
-  %5 = load i8, ptr %0, align 1
-  %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
-  %9 = load i8, ptr %1, align 1
-  %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %.not11 = icmp eq i8 %8, %12
-  br i1 %.not11, label %.lr.ph13, label %._crit_edge
-
-.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0812 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = add nuw i64 %.0812, 1
-  %exitcond = icmp eq i64 %13, %2
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph13
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.08.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 %13
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %.not = icmp eq i8 %18, %23
-  br i1 %.not, label %.lr.ph13, label %._crit_edge.loopexit
+  %.not.i = icmp eq i8 %13, %18
+  br i1 %.not.i, label %7, label %lexbor_str_data_ncasecmp.exit
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph13
-  %24 = icmp uge i64 %13, %2
-  br label %._crit_edge
+lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i
+  %19 = add i64 %.015, 1
+  %20 = sub i64 %1, %19
+  %.not.not = icmp ugt i64 %3, %20
+  br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3
-  %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.preheader ], [ %24, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+lexbor_str_data_ncasecmp.exit.thread:             ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
+  %.not13 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
+  ret i1 %.not13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden zeroext i1 @lexbor_str_data_nlocmp_right(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %5 = load i8, ptr %0, align 1
-  %6 = load i8, ptr %1, align 1
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.08 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.08
+  %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
-  %.not11 = icmp eq i8 %5, %9
-  br i1 %.not11, label %.lr.ph13, label %._crit_edge
-
-.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0812 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %10 = add nuw i64 %.0812, 1
-  %exitcond = icmp eq i64 %10, %2
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph13
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 %10
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.08
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %.not = icmp eq i8 %12, %17
-  br i1 %.not, label %.lr.ph13, label %._crit_edge.loopexit
+  %.not = icmp eq i8 %9, %14
+  %15 = add nuw i64 %.08, 1
+  %exitcond.not = icmp ne i64 %15, %2
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph13
-  %18 = icmp uge i64 %10, %2
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3
-  %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.preheader ], [ %18, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden zeroext i1 @lexbor_str_data_nupcmp_right(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @lexbor_str_data_nlocmp_right(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %5 = load i8, ptr %0, align 1
-  %6 = load i8, ptr %1, align 1
-  %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %.not11 = icmp eq i8 %5, %9
-  br i1 %.not11, label %.lr.ph13, label %._crit_edge
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.08 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.08
+  %6 = load i8, ptr %5, align 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.08
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %.not = icmp eq i8 %6, %11
+  %12 = add nuw i64 %.08, 1
+  %exitcond.not = icmp ne i64 %12, %2
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
-.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0812 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %10 = add nuw i64 %.0812, 1
-  %exitcond = icmp eq i64 %10, %2
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
+  ret i1 %.lcssa
+}
 
-.lr.ph:                                           ; preds = %.lr.ph13
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 %10
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %.not = icmp eq i8 %12, %17
-  br i1 %.not, label %.lr.ph13, label %._crit_edge.loopexit
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+  %4 = icmp eq i64 %2, 0
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph13
-  %18 = icmp uge i64 %10, %2
-  br label %._crit_edge
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.08 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.08
+  %6 = load i8, ptr %5, align 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.08
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %.not = icmp eq i8 %6, %11
+  %12 = add nuw i64 %.08, 1
+  %exitcond.not = icmp ne i64 %12, %2
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3
-  %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.preheader ], [ %18, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

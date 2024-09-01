@@ -2550,14 +2550,11 @@ satoko_assump_push.exit:                          ; preds = %8, %21, %vec_uint_r
 
 ._crit_edge:                                      ; preds = %satoko_assump_push.exit
   %43 = tail call i32 @satoko_solve(ptr noundef nonnull %0)
-  br i1 %4, label %.lr.ph16, label %._crit_edge17
-
-.lr.ph16:                                         ; preds = %._crit_edge
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   br label %45
 
-45:                                               ; preds = %.lr.ph16, %45
-  %.114 = phi i32 [ 0, %.lr.ph16 ], [ %52, %45 ]
+45:                                               ; preds = %._crit_edge, %45
+  %.114 = phi i32 [ 0, %._crit_edge ], [ %52, %45 ]
   %46 = load ptr, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -2571,8 +2568,8 @@ satoko_assump_push.exit:                          ; preds = %8, %21, %vec_uint_r
   %exitcond19.not = icmp eq i32 %52, %2
   br i1 %exitcond19.not, label %._crit_edge17, label %45, !llvm.loop !22
 
-._crit_edge17:                                    ; preds = %45, %._crit_edge.thread, %._crit_edge
-  %53 = phi i32 [ %5, %._crit_edge.thread ], [ %43, %._crit_edge ], [ %43, %45 ]
+._crit_edge17:                                    ; preds = %45, %._crit_edge.thread
+  %53 = phi i32 [ %5, %._crit_edge.thread ], [ %43, %45 ]
   ret i32 %53
 }
 
@@ -2797,14 +2794,11 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   store i32 0, ptr %98, align 4
-  br i1 %27, label %.lr.ph128.preheader, label %.preheader110
-
-.lr.ph128.preheader:                              ; preds = %._crit_edge125
   %wide.trip.count150 = zext nneg i32 %26 to i64
   br label %.lr.ph128
 
-.preheader110:                                    ; preds = %vec_uint_push_back.exit, %._crit_edge125.thread, %._crit_edge125
-  %99 = phi ptr [ %86, %._crit_edge125.thread ], [ %96, %._crit_edge125 ], [ %96, %vec_uint_push_back.exit ]
+.preheader110:                                    ; preds = %vec_uint_push_back.exit, %._crit_edge125.thread
+  %99 = phi ptr [ %86, %._crit_edge125.thread ], [ %96, %vec_uint_push_back.exit ]
   %100 = icmp sgt i32 %85, 0
   br i1 %100, label %.lr.ph130.preheader, label %.preheader109
 
@@ -2814,8 +2808,8 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %invariant.gep = getelementptr i32, ptr %1, i64 %101
   br label %.lr.ph130
 
-.lr.ph128:                                        ; preds = %.lr.ph128.preheader, %vec_uint_push_back.exit
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph128.preheader ], [ %indvars.iv.next148, %vec_uint_push_back.exit ]
+.lr.ph128:                                        ; preds = %._crit_edge125, %vec_uint_push_back.exit
+  %indvars.iv147 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next148, %vec_uint_push_back.exit ]
   %102 = load ptr, ptr %96, align 8
   %103 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv147
   %104 = load i32, ptr %103, align 4

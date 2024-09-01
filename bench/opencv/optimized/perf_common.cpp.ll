@@ -5335,19 +5335,19 @@ _ZN11opencv_testL29getTestInferenceEngineVPUTypeB5cxx11Ev.exit: ; preds = %0, %1
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
-  %.not6467 = icmp eq ptr %33, %35
-  br i1 %.not6467, label %.thread, label %.lr.ph
+  %.not6466 = icmp eq ptr %33, %35
+  br i1 %.not6466, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %37
-  %.sroa.057.068 = phi ptr [ %38, %37 ], [ %33, %32 ]
-  %36 = load i32, ptr %.sroa.057.068, align 4
+  %.sroa.057.067 = phi ptr [ %38, %37 ], [ %33, %32 ]
+  %36 = load i32, ptr %.sroa.057.067, align 4
   switch i32 %36, label %37 [
     i32 3, label %39
     i32 8, label %39
   ]
 
 37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds i8, ptr %.sroa.057.068, i64 4
+  %38 = getelementptr inbounds i8, ptr %.sroa.057.067, i64 4
   %.not64 = icmp eq ptr %38, %35
   br i1 %.not64, label %.thread, label %.lr.ph, !llvm.loop !128
 

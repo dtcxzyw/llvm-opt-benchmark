@@ -2888,8 +2888,8 @@ for.body.i7.i.i:                                  ; preds = %if.end.i14.i.i, %lo
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i11.i.i = call i32 @address_space_rw(ptr noundef %163, i64 noundef %addr.addr.018.i10.i.i, i32 1, ptr noundef %buf.addr.019.i9.i.i, i64 noundef 2, i1 noundef zeroext false) #8
-  %tobool.not.i12.not.i.not.i = icmp eq i32 %call.i.i.i.i11.i.i, 0
-  br i1 %tobool.not.i12.not.i.not.i, label %if.end.i14.i.i, label %if.then1.i
+  %tobool.not.i12.not.not.not.i.not.i = icmp eq i32 %call.i.i.i.i11.i.i, 0
+  br i1 %tobool.not.i12.not.not.not.i.not.i, label %if.end.i14.i.i, label %if.then1.i
 
 if.end.i14.i.i:                                   ; preds = %for.body.i7.i.i
   %inc.i15.i.i = add nuw nsw i32 %i.020.i8.i.i, 1
@@ -3187,8 +3187,8 @@ for.body.i8.i.i:                                  ; preds = %for.inc.i12.i.i, %l
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i9.i.i = call i32 @address_space_rw(ptr noundef %221, i64 noundef %addr.addr.016.i.i.i, i32 1, ptr noundef nonnull %tmp.i4.i.i, i64 noundef 2, i1 noundef zeroext true) #8
-  %tobool.not.i10.not.i.not.i = icmp eq i32 %call.i.i.i.i9.i.i, 0
-  br i1 %tobool.not.i10.not.i.not.i, label %for.inc.i12.i.i, label %ohci_put_iso_td.exit.i
+  %tobool.not.i10.not.not.not.i.not.i = icmp eq i32 %call.i.i.i.i9.i.i, 0
+  br i1 %tobool.not.i10.not.not.not.i.not.i, label %for.inc.i12.i.i, label %ohci_put_iso_td.exit.i
 
 for.inc.i12.i.i:                                  ; preds = %for.body.i8.i.i
   %inc.i13.i.i = add nuw nsw i32 %i.018.i.i.i, 1
@@ -4206,8 +4206,8 @@ for.body.i8:                                      ; preds = %for.inc.i12, %lor.r
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i9 = call i32 @address_space_rw(ptr noundef %5, i64 noundef %addr.addr.016.i, i32 1, ptr noundef nonnull %tmp.i4, i64 noundef 2, i1 noundef zeroext true) #8
-  %tobool.not.i10.not = icmp ne i32 %call.i.i.i.i9, 0
-  br i1 %tobool.not.i10.not, label %put_words.exit, label %for.inc.i12
+  %tobool.not.i10.not.not.not.not.not = icmp ne i32 %call.i.i.i.i9, 0
+  br i1 %tobool.not.i10.not.not.not.not.not, label %put_words.exit, label %for.inc.i12
 
 for.inc.i12:                                      ; preds = %for.body.i8
   %inc.i13 = add nuw nsw i32 %i.018.i, 1
@@ -4218,7 +4218,7 @@ for.inc.i12:                                      ; preds = %for.body.i8
 
 put_words.exit:                                   ; preds = %for.body.i8, %for.inc.i12
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp.i4)
-  %6 = zext i1 %tobool.not.i10.not to i32
+  %6 = zext i1 %tobool.not.i10.not.not.not.not.not to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %put_dwords.exit, %put_words.exit

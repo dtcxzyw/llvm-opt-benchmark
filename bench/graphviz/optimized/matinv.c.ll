@@ -65,15 +65,12 @@ gv_calloc.exit._crit_edge.thread:                 ; preds = %gv_calloc.exit.preh
 
 gv_calloc.exit._crit_edge:                        ; preds = %.preheader41.us
   tail call void @free(ptr noundef nonnull %13) #9
-  br i1 %.not, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %gv_calloc.exit._crit_edge
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %wide.trip.count58 = zext nneg i32 %smax to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv55 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next56, %._crit_edge ]
+.preheader:                                       ; preds = %gv_calloc.exit._crit_edge, %._crit_edge
+  %indvars.iv55 = phi i64 [ 0, %gv_calloc.exit._crit_edge ], [ %indvars.iv.next56, %._crit_edge ]
   %.not47 = icmp eq i64 %indvars.iv55, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
@@ -103,8 +100,8 @@ gv_calloc.exit._crit_edge:                        ; preds = %.preheader41.us
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %._crit_edge, %gv_calloc.exit._crit_edge.thread, %gv_calloc.exit._crit_edge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %gv_calloc.exit._crit_edge ], [ 1, %gv_calloc.exit._crit_edge.thread ], [ 1, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %gv_calloc.exit._crit_edge.thread, %3
+  %.0 = phi i32 [ 0, %3 ], [ 1, %gv_calloc.exit._crit_edge.thread ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

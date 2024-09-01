@@ -15242,7 +15242,6 @@ for.body.preheader:                               ; preds = %_ZSt4sortIN9__gnu_c
 
 for.body:                                         ; preds = %for.body.preheader, %if.end23
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %if.end23 ]
-  %cmp56 = phi i1 [ false, %for.body.preheader ], [ %cmp, %if.end23 ]
   %i.055 = phi i64 [ 0, %for.body.preheader ], [ %inc28, %if.end23 ]
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %indvars.iv)
   %36 = load ptr, ptr %m_IntersectList, align 8
@@ -15308,13 +15307,12 @@ if.end23:                                         ; preds = %for.body, %if.end, 
   %49 = phi ptr [ %38, %for.body ], [ %.pre61, %if.end ], [ %38, %_ZN10ClipperLib13EdgesAdjacentERKNS_13IntersectNodeE.exit ]
   tail call void @_ZN10ClipperLib7Clipper18SwapPositionsInSELEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef %49, ptr noundef %48)
   %inc28 = add nuw i64 %i.055, 1
-  %cmp = icmp uge i64 %inc28, %sub.ptr.div.i
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %inc28, %umax59
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !134
+  %exitcond.not = icmp eq i64 %inc28, %umax59
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !134
 
 return:                                           ; preds = %while.end, %if.end23, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit
-  %cmp.lcssa = phi i1 [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit ], [ %cmp, %if.end23 ], [ %cmp56, %while.end ]
+  %cmp.lcssa = phi i1 [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN10ClipperLib13IntersectNodeESt6vectorIS4_SaIS4_EEEEPFbS4_S4_EEvT_SC_T0_.exit ], [ true, %if.end23 ], [ false, %while.end ]
   ret i1 %cmp.lcssa
 }
 
@@ -16144,8 +16142,8 @@ do.body:                                          ; preds = %arrayctor.loop, %fo
 land.rhs:                                         ; preds = %do.body, %invoke.cont16
   %__counter.050 = phi ptr [ %incdec.ptr, %invoke.cont16 ], [ %__tmp, %do.body ]
   %4 = load ptr, ptr %__counter.050, align 8
-  %cmp.i = icmp ne ptr %4, %__counter.050
-  br i1 %cmp.i, label %for.body, label %for.end
+  %cmp.i = icmp eq ptr %4, %__counter.050
+  br i1 %cmp.i, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %5 = load ptr, ptr %__carry, align 8
@@ -16194,7 +16192,7 @@ invoke.cont16:                                    ; preds = %for.body, %if.then7
 
 for.end:                                          ; preds = %land.rhs, %invoke.cont16, %do.body
   %__counter.0.lcssa = phi ptr [ %__tmp, %do.body ], [ %__fill.0.ptr, %invoke.cont16 ], [ %__counter.050, %land.rhs ]
-  %cmp13.not.lcssa = phi i1 [ true, %do.body ], [ %cmp.i, %invoke.cont16 ], [ false, %land.rhs ]
+  %cmp13.not.lcssa = phi i64 [ 0, %do.body ], [ 0, %invoke.cont16 ], [ -16, %land.rhs ]
   %spec.select.idx = phi i64 [ 16, %do.body ], [ 16, %invoke.cont16 ], [ 0, %land.rhs ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__carry, ptr noundef nonnull align 8 dereferenceable(16) %__counter.0.lcssa) #30
   %__fill.0.add = add nuw nsw i64 %__fill.0.idx, %spec.select.idx
@@ -16263,9 +16261,8 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS
   br i1 %cmp26.not, label %for.end32, label %for.body27
 
 for.end32:                                        ; preds = %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS_15_List_node_baseET_.exit46, %for.cond25.preheader
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %cmp13.not.lcssa, i64 0, i64 -16
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %__fill.0.ptr, i64 %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %this) #30
+  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %__fill.0.ptr, i64 %cmp13.not.lcssa
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %this) #30
   br label %if.end55
 
 if.end55:                                         ; preds = %for.end32, %land.lhs.true, %entry

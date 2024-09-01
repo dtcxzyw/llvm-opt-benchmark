@@ -61,8 +61,8 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   %addr.0.i.i = phi i8 [ 0, %if.end ], [ %call.i.i, %while.body.i.i ]
   %4 = load ptr, ptr %pdev.i, align 8
   %call.i.i = tail call zeroext i8 @qpci_find_capability(ptr noundef %4, i8 noundef zeroext 9, i8 noundef zeroext %addr.0.i.i) #3
-  %cmp.not.not.i.not.i = icmp eq i8 %call.i.i, 0
-  br i1 %cmp.not.not.i.not.i, label %return, label %while.body.i.i
+  %cmp.not.not.not.not.i.not.i = icmp eq i8 %call.i.i, 0
+  br i1 %cmp.not.not.not.not.i.not.i, label %return, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %5 = load ptr, ptr %pdev.i, align 8
@@ -92,8 +92,8 @@ while.cond.i21.i:                                 ; preds = %while.body.i25.i, %
   %addr.0.i22.i = phi i8 [ 0, %if.end.i5 ], [ %call.i23.i, %while.body.i25.i ]
   %9 = load ptr, ptr %pdev.i, align 8
   %call.i23.i = tail call zeroext i8 @qpci_find_capability(ptr noundef %9, i8 noundef zeroext 9, i8 noundef zeroext %addr.0.i22.i) #3
-  %cmp.not.not.i24.not.i = icmp eq i8 %call.i23.i, 0
-  br i1 %cmp.not.not.i24.not.i, label %return, label %while.body.i25.i
+  %cmp.not.not.not.not.i24.not.i = icmp eq i8 %call.i23.i, 0
+  br i1 %cmp.not.not.not.not.i24.not.i, label %return, label %while.body.i25.i
 
 while.body.i25.i:                                 ; preds = %while.cond.i21.i
   %10 = load ptr, ptr %pdev.i, align 8
@@ -138,8 +138,8 @@ while.cond.i38.i:                                 ; preds = %while.body.i42.i, %
   %addr.0.i39.i = phi i8 [ 0, %do.end.i ], [ %call.i40.i, %while.body.i42.i ]
   %16 = load ptr, ptr %pdev.i, align 8
   %call.i40.i = tail call zeroext i8 @qpci_find_capability(ptr noundef %16, i8 noundef zeroext 9, i8 noundef zeroext %addr.0.i39.i) #3
-  %cmp.not.not.i41.not.i = icmp eq i8 %call.i40.i, 0
-  br i1 %cmp.not.not.i41.not.i, label %return, label %while.body.i42.i
+  %cmp.not.not.not.not.i41.not.i = icmp eq i8 %call.i40.i, 0
+  br i1 %cmp.not.not.not.not.i41.not.i, label %return, label %while.body.i42.i
 
 while.body.i42.i:                                 ; preds = %while.cond.i38.i
   %17 = load ptr, ptr %pdev.i, align 8
@@ -179,8 +179,8 @@ while.cond.i55.i:                                 ; preds = %while.body.i59.i, %
   %addr.0.i56.i = phi i8 [ 0, %do.end31.i ], [ %call.i57.i, %while.body.i59.i ]
   %22 = load ptr, ptr %pdev.i, align 8
   %call.i57.i = tail call zeroext i8 @qpci_find_capability(ptr noundef %22, i8 noundef zeroext 9, i8 noundef zeroext %addr.0.i56.i) #3
-  %cmp.not.not.i58.not.i = icmp eq i8 %call.i57.i, 0
-  br i1 %cmp.not.not.i58.not.i, label %return, label %while.body.i59.i
+  %cmp.not.not.not.not.i58.not.i = icmp eq i8 %call.i57.i, 0
+  br i1 %cmp.not.not.not.not.i58.not.i, label %return, label %while.body.i59.i
 
 while.body.i59.i:                                 ; preds = %while.cond.i55.i
   %23 = load ptr, ptr %pdev.i, align 8

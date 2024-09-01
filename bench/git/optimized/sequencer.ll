@@ -13993,7 +13993,7 @@ for.body.i57.i:                                   ; preds = %peek_command.exit.i
   br i1 %cmp.i.i60.i, label %peek_command.exit64.i, label %for.cond.i61.i
 
 peek_command.exit64.i:                            ; preds = %for.body.i57.i, %for.cond.i61.i
-  %retval.0.i54.ph.i = phi i32 [ -1, %for.cond.i61.i ], [ %129, %for.body.i57.i ]
+  %retval.0.i54.i = phi i32 [ %129, %for.body.i57.i ], [ -1, %for.cond.i61.i ]
   %130 = load ptr, ptr @rebase_path_rewritten_pending.ret, align 8
   %tobool.not.i.i.i143 = icmp eq ptr %130, null
   br i1 %tobool.not.i.i.i143, label %if.then.i.i68.i, label %rebase_path_rewritten_pending.exit.i.i
@@ -14013,7 +14013,7 @@ if.end.i66.i:                                     ; preds = %rebase_path_rewritt
   %call2.i67.i = call ptr @oid_to_hex(ptr noundef nonnull %oid) #19
   %call3.i.i145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call1.i.i144, ptr noundef nonnull @.str.54, ptr noundef %call2.i67.i)
   %call4.i.i = call i32 @fclose(ptr noundef nonnull %call1.i.i144)
-  %132 = and i32 %retval.0.i54.ph.i, -2
+  %132 = and i32 %retval.0.i54.i, -2
   %.not.i.i = icmp eq i32 %132, 4
   br i1 %.not.i.i, label %if.end74, label %if.then7.i.i
 
@@ -15957,8 +15957,8 @@ if.then78:                                        ; preds = %if.end75
 
 if.end81:                                         ; preds = %if.then78, %if.end75
   %and82 = and i32 %flags, 2
-  %tobool83.not.not = icmp eq i32 %and82, 0
-  br i1 %tobool83.not.not, label %if.else87, label %if.end100.sink.split
+  %tobool83.not = icmp eq i32 %and82, 0
+  br i1 %tobool83.not, label %if.else87, label %if.end100.sink.split
 
 if.else87:                                        ; preds = %if.end81
   br i1 %tobool.not, label %land.lhs.true90, label %if.end100
@@ -15996,7 +15996,7 @@ if.then103:                                       ; preds = %if.end100
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then103, %if.end100
-  br i1 %tobool83.not.not, label %if.end112, label %if.else120
+  br i1 %tobool83.not, label %if.end112, label %if.else120
 
 if.end112:                                        ; preds = %if.end106
   %call111 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.267) #19

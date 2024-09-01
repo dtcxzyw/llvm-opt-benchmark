@@ -572,7 +572,7 @@ sub_2750:                                         ; preds = %sub_1749
   %143 = add nsw i32 %.04811114, 2
   %144 = icmp slt i32 %143, %0
   %or.cond656 = select i1 %.not567, i1 %144, i1 false
-  br i1 %or.cond656, label %147, label %sub_0753
+  br i1 %or.cond656, label %147, label %sub_1754
 
 sub_0753.thread:                                  ; preds = %sub_0748
   %145 = add nsw i32 %.04811114, 2
@@ -600,10 +600,7 @@ sub_0753.thread:                                  ; preds = %sub_0748
   %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.12, i32 noundef %154, i32 noundef %153) #15
   br label %1246
 
-sub_0753:                                         ; preds = %.tail747
-  br i1 %.not1157, label %sub_1754, label %.tail752
-
-sub_1754:                                         ; preds = %sub_0753
+sub_1754:                                         ; preds = %.tail747
   %159 = getelementptr inbounds i8, ptr %66, i64 1
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
@@ -617,10 +614,10 @@ sub_2755:                                         ; preds = %sub_1754
   %165 = zext i8 %164 to i32
   br label %.tail752
 
-.tail752:                                         ; preds = %sub_0753.thread, %sub_0753, %sub_1754, %sub_2755
-  %166 = phi i32 [ %143, %sub_0753 ], [ %143, %sub_1754 ], [ %143, %sub_2755 ], [ %145, %sub_0753.thread ]
-  %167 = phi i1 [ %144, %sub_0753 ], [ %144, %sub_1754 ], [ %144, %sub_2755 ], [ %146, %sub_0753.thread ]
-  %168 = phi i32 [ %69, %sub_0753 ], [ %162, %sub_1754 ], [ %165, %sub_2755 ], [ 1, %sub_0753.thread ]
+.tail752:                                         ; preds = %sub_0753.thread, %sub_1754, %sub_2755
+  %166 = phi i32 [ %143, %sub_1754 ], [ %143, %sub_2755 ], [ %145, %sub_0753.thread ]
+  %167 = phi i1 [ %144, %sub_1754 ], [ %144, %sub_2755 ], [ %146, %sub_0753.thread ]
+  %168 = phi i32 [ %162, %sub_1754 ], [ %165, %sub_2755 ], [ 1, %sub_0753.thread ]
   %.not568 = icmp eq i32 %168, 0
   br i1 %.not568, label %169, label %sub_0758
 
@@ -1421,16 +1418,13 @@ sub_2775:                                         ; preds = %sub_1774
 .tail772:                                         ; preds = %sub_1774, %sub_2775
   %565 = phi i32 [ %561, %sub_1774 ], [ %564, %sub_2775 ]
   %.not623 = icmp eq i32 %565, 0
-  br i1 %.not623, label %566, label %sub_0778
+  br i1 %.not623, label %566, label %sub_1779
 
 566:                                              ; preds = %.tail772
   store i1 true, ptr @verbose, align 4
   br label %.loopexit788
 
-sub_0778:                                         ; preds = %.tail772
-  br i1 %.not1157, label %sub_1779, label %.tail777
-
-sub_1779:                                         ; preds = %sub_0778
+sub_1779:                                         ; preds = %.tail772
   %567 = getelementptr inbounds i8, ptr %66, i64 1
   %568 = load i8, ptr %567, align 1
   %569 = zext i8 %568 to i32
@@ -1444,8 +1438,8 @@ sub_2780:                                         ; preds = %sub_1779
   %573 = zext i8 %572 to i32
   br label %.tail777
 
-.tail777:                                         ; preds = %sub_0773, %sub_0778, %sub_1779, %sub_2780
-  %574 = phi i32 [ %69, %sub_0778 ], [ %570, %sub_1779 ], [ %573, %sub_2780 ], [ %69, %sub_0773 ]
+.tail777:                                         ; preds = %sub_0773, %sub_1779, %sub_2780
+  %574 = phi i32 [ %570, %sub_1779 ], [ %573, %sub_2780 ], [ %69, %sub_0773 ]
   %.not624 = icmp eq i32 %574, 0
   br i1 %.not624, label %575, label %582
 

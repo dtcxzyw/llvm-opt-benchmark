@@ -2862,12 +2862,12 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   %21 = getelementptr inbounds i8, ptr %6, i64 32
   %.pre = load ptr, ptr %18, align 8
-  %.pre91 = load ptr, ptr %17, align 8
+  %.pre83 = load ptr, ptr %17, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %22 = phi i64 [ %14, %.preheader.lr.ph ], [ %157, %._crit_edge ]
-  %23 = phi ptr [ %.pre91, %.preheader.lr.ph ], [ %158, %._crit_edge ]
+  %23 = phi ptr [ %.pre83, %.preheader.lr.ph ], [ %158, %._crit_edge ]
   %24 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %159, %._crit_edge ]
   %.03079 = phi i32 [ 0, %.preheader.lr.ph ], [ %160, %._crit_edge ]
   %25 = ptrtoint ptr %24 to i64
@@ -2923,7 +2923,7 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke99, %.invoke
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke90, %.invoke
   %lpad.loopexit.split-lp60 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2973,7 +2973,7 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit:         ; preds = %.loopexit.split-lp,
   %72 = load ptr, ptr %67, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %73, ptr %67, align 8
-  %.pre92 = load ptr, ptr %69, align 8
+  %.pre84 = load ptr, ptr %69, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 74:                                               ; preds = %54
@@ -2982,7 +2982,7 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit:         ; preds = %.loopexit.split-lp,
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = icmp eq i64 %78, 9223372036854775800
-  br i1 %79, label %.invoke99, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %79, label %.invoke90, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
 
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %74
   %80 = ashr exact i64 %78, 3
@@ -3028,7 +3028,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %71
-  %96 = phi ptr [ %95, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %.pre92, %71 ]
+  %96 = phi ptr [ %95, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %.pre84, %71 ]
   %97 = phi ptr [ %93, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %73, %71 ]
   %98 = load i32, ptr %7, align 4
   %99 = sext i32 %98 to i64
@@ -3048,13 +3048,13 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = icmp eq i64 %107, 9223372036854775800
-  br i1 %108, label %.invoke99, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34
+  br i1 %108, label %.invoke90, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34
 
-.invoke99:                                        ; preds = %103, %74
+.invoke90:                                        ; preds = %103, %74
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #23
-          to label %.cont100 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont91 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont100:                                         ; preds = %.invoke99
+.cont91:                                          ; preds = %.invoke90
   unreachable
 
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34: ; preds = %103
@@ -3091,11 +3091,11 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38: ; preds = %120, %
 
 123:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38
   call void @_ZdlPv(ptr noundef nonnull %104) #21
-  %.pre93.pre = load i32, ptr %7, align 4
+  %.pre85.pre = load i32, ptr %7, align 4
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40: ; preds = %123, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38
-  %.pre93 = phi i32 [ %.pre93.pre, %123 ], [ %98, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38 ]
+  %.pre85 = phi i32 [ %.pre85.pre, %123 ], [ %98, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38 ]
   store ptr %117, ptr %55, align 8
   store ptr %122, ptr %67, align 8
   %124 = getelementptr inbounds i64, ptr %117, i64 %113
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit43:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40, %100
-  %125 = phi i32 [ %.pre93, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40 ], [ %98, %100 ]
+  %125 = phi i32 [ %.pre85, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40 ], [ %98, %100 ]
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.lr.ph, label %.loopexit
 
@@ -3206,17 +3206,17 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit53:       ; preds = %.loopexit, %152
   br i1 %switch, label %31, label %.loopexit62
 
 ._crit_edge.loopexit:                             ; preds = %31
-  %.pre94 = load i64, ptr %13, align 8
+  %.pre86 = load i64, ptr %13, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %157 = phi i64 [ %.pre94, %._crit_edge.loopexit ], [ %22, %.preheader ]
+  %157 = phi i64 [ %.pre86, %._crit_edge.loopexit ], [ %22, %.preheader ]
   %158 = phi ptr [ %33, %._crit_edge.loopexit ], [ %23, %.preheader ]
   %159 = phi ptr [ %32, %._crit_edge.loopexit ], [ %24, %.preheader ]
   %160 = add nuw nsw i32 %.03079, 1
   %161 = trunc i64 %157 to i32
-  %.not96 = icmp slt i32 %160, %161
-  br i1 %.not96, label %.preheader, label %.loopexit62, !llvm.loop !38
+  %.not80 = icmp slt i32 %160, %161
+  br i1 %.not80, label %.preheader, label %.loopexit62, !llvm.loop !38
 
 .loopexit62:                                      ; preds = %._crit_edge, %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53, %3
   %162 = phi i1 [ true, %3 ], [ false, %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53 ], [ true, %._crit_edge ]

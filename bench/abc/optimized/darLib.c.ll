@@ -1621,16 +1621,13 @@ define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 ._crit_edge:                                      ; preds = %9
   %22 = tail call i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr noundef %1, ptr noundef %3) #20
-  br i1 %5, label %.lr.ph15, label %._crit_edge16
-
-.lr.ph15:                                         ; preds = %._crit_edge
   %23 = load ptr, ptr @s_DarLib, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16096
   %wide.trip.count21 = zext nneg i32 %2 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph15, %25
-  %indvars.iv18 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next19, %25 ]
+25:                                               ; preds = %._crit_edge, %25
+  %indvars.iv18 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next19, %25 ]
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %26, i64 %indvars.iv18
   %28 = load ptr, ptr %27, align 8
@@ -1648,8 +1645,8 @@ define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %._crit_edge16, label %25, !llvm.loop !37
 
-._crit_edge16:                                    ; preds = %25, %._crit_edge.thread, %._crit_edge
-  %38 = phi i32 [ %6, %._crit_edge.thread ], [ %22, %._crit_edge ], [ %22, %25 ]
+._crit_edge16:                                    ; preds = %25, %._crit_edge.thread
+  %38 = phi i32 [ %6, %._crit_edge.thread ], [ %22, %25 ]
   ret i32 %38
 }
 
@@ -2107,16 +2104,16 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   store i64 %43, ptr %38, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph15.i, label %31, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !36
 
-.lr.ph15.i:                                       ; preds = %31
+._crit_edge.i:                                    ; preds = %31
   %44 = call i32 @Aig_NodeMffcLabel(ptr noundef %22, ptr noundef %1, ptr noundef %.) #20
   %45 = load ptr, ptr @s_DarLib, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16096
   br label %47
 
-47:                                               ; preds = %47, %.lr.ph15.i
-  %indvars.iv18.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next19.i, %47 ]
+47:                                               ; preds = %47, %._crit_edge.i
+  %indvars.iv18.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next19.i, %47 ]
   %48 = load ptr, ptr %46, align 8
   %49 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %48, i64 %indvars.iv18.i
   %50 = load ptr, ptr %49, align 8

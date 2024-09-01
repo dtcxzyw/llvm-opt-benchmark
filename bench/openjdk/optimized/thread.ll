@@ -671,8 +671,8 @@ define hidden noundef zeroext i1 @_ZN6Thread23is_JavaThread_protectedEPK10JavaTh
 20:                                               ; preds = %21, %18
   %.0.in.i = phi ptr [ %19, %18 ], [ %.0.i, %21 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %.not.not.i.not.not = icmp ne ptr %.0.i, null
-  br i1 %.not.not.i.not.not, label %21, label %_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit
+  %.not.not.not.not.i.not.not.not = icmp ne ptr %.0.i, null
+  br i1 %.not.not.not.not.i.not.not.not, label %21, label %_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -681,7 +681,7 @@ define hidden noundef zeroext i1 @_ZN6Thread23is_JavaThread_protectedEPK10JavaTh
   br i1 %24, label %_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit, label %20, !llvm.loop !8
 
 _ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit: ; preds = %21, %20, %14, %6, %10, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %10 ], [ true, %6 ], [ true, %14 ], [ %.not.not.i.not.not, %20 ], [ %.not.not.i.not.not, %21 ]
+  %.0 = phi i1 [ true, %1 ], [ true, %10 ], [ true, %6 ], [ true, %14 ], [ %.not.not.not.not.i.not.not.not, %20 ], [ %.not.not.not.not.i.not.not.not, %21 ]
   ret i1 %.0
 }
 
@@ -695,8 +695,8 @@ define hidden noundef zeroext i1 @_ZN6Thread30is_JavaThread_protected_by_TLHEPK1
 5:                                                ; preds = %6, %1
   %.0.in = phi ptr [ %4, %1 ], [ %.0, %6 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %.not.not = icmp ne ptr %.0, null
-  br i1 %.not.not, label %6, label %10
+  %.not.not.not.not.not.not = icmp ne ptr %.0, null
+  br i1 %.not.not.not.not.not.not, label %6, label %10
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %.0, i64 16
@@ -705,7 +705,7 @@ define hidden noundef zeroext i1 @_ZN6Thread30is_JavaThread_protected_by_TLHEPK1
   br i1 %9, label %10, label %5, !llvm.loop !8
 
 10:                                               ; preds = %5, %6
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1

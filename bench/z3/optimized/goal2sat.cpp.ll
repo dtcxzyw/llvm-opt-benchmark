@@ -7381,9 +7381,6 @@ for.body36.lr.ph:                                 ; preds = %_ZN6vectorIN3sat7li
   %m_hint.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i49, i64 8
   br label %for.body36
 
-for.cond60.preheader:                             ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit
-  br i1 %cmp35159.not, label %for.end70, label %for.body62
-
 for.body36:                                       ; preds = %for.body36.lr.ph, %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit
   %indvars.iv = phi i64 [ 0, %for.body36.lr.ph ], [ %indvars.iv.next, %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit ]
   %arrayidx = getelementptr inbounds %"class.sat::literal", ptr %add.ptr, i64 %indvars.iv
@@ -7451,10 +7448,10 @@ _ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lits.i50)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %idx.ext
-  br i1 %exitcond.not, label %for.cond60.preheader, label %for.body36, !llvm.loop !52
+  br i1 %exitcond.not, label %for.body62, label %for.body36, !llvm.loop !52
 
-for.body62:                                       ; preds = %for.cond60.preheader, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68
-  %i59.0162 = phi i32 [ %inc69, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68 ], [ 0, %for.cond60.preheader ]
+for.body62:                                       ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68
+  %i59.0162 = phi i32 [ %inc69, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68 ], [ 0, %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit ]
   %32 = load ptr, ptr %m_result_stack, align 8
   %cmp.i64 = icmp eq ptr %32, null
   br i1 %cmp.i64, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68, label %if.end.i65
@@ -7477,7 +7474,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68:   ; preds = %for.body62, %if.end
   %exitcond168.not = icmp eq i32 %inc69, %0
   br i1 %exitcond168.not, label %for.end70, label %for.body62, !llvm.loop !53
 
-for.end70:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, %for.cond60.preheader
+for.end70:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit68, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
   %35 = load ptr, ptr %m_result_stack, align 8
   %cmp.i72 = icmp eq ptr %35, null
   br i1 %cmp.i72, label %if.then.i76, label %lor.lhs.false.i

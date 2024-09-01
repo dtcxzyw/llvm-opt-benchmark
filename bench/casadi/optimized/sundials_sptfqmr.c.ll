@@ -394,7 +394,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 120:                                              ; preds = %.lr.ph, %346
   %.0338508 = phi i32 [ 0, %.lr.ph ], [ %351, %346 ]
-  %.0339507 = phi i32 [ 0, %.lr.ph ], [ %.4576, %346 ]
+  %.0339507 = phi i32 [ 0, %.lr.ph ], [ %.4563, %346 ]
   %.0344506 = phi double [ %55, %.lr.ph ], [ %217, %346 ]
   %.0347505 = phi double [ 0.000000e+00, %.lr.ph ], [ %219, %346 ]
   %.0350504 = phi double [ -1.000000e+00, %.lr.ph ], [ %.3353, %346 ]
@@ -540,10 +540,10 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %206
 
 206:                                              ; preds = %191, %194
-  %.sink632 = phi ptr [ %108, %194 ], [ %117, %191 ]
+  %.sink619 = phi ptr [ %108, %194 ], [ %117, %191 ]
   %.0362 = phi double [ %205, %194 ], [ %.1351497, %191 ]
   %.3353 = phi double [ %199, %194 ], [ %.1351497, %191 ]
-  %207 = load ptr, ptr %.sink632, align 8
+  %207 = load ptr, ptr %.sink619, align 8
   %208 = fmul double %.1360496, %.1360496
   %209 = fmul double %208, %.1348498
   %210 = fdiv double %209, %126
@@ -577,7 +577,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 228:                                              ; preds = %226
   %229 = load i32, ptr %0, align 8
   %230 = icmp eq i32 %.0338508, %229
-  br i1 %230, label %231, label %.thread572
+  br i1 %230, label %231, label %.thread559
 
 231:                                              ; preds = %228, %224
   %232 = load ptr, ptr %78, align 8
@@ -705,11 +705,11 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 290:                                              ; preds = %226, %282
   %.4358 = phi double [ %288, %282 ], [ %222, %226 ]
   %.4 = phi i32 [ 1, %282 ], [ %.1500, %226 ]
-  br i1 %192, label %191, label %.thread572, !llvm.loop !4
+  br i1 %192, label %191, label %.thread559, !llvm.loop !4
 
-.thread572:                                       ; preds = %228, %290
-  %.4576 = phi i32 [ %.4, %290 ], [ %.1500, %228 ]
-  %.4358575 = phi double [ %.4358, %290 ], [ %222, %228 ]
+.thread559:                                       ; preds = %228, %290
+  %.4563 = phi i32 [ %.4, %290 ], [ %.1500, %228 ]
+  %.4358562 = phi double [ %.4358, %290 ], [ %222, %228 ]
   %291 = load ptr, ptr %52, align 8
   %292 = load ptr, ptr %104, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
@@ -733,11 +733,11 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %308 = load ptr, ptr %78, align 8
   br i1 %.not397, label %310, label %309
 
-309:                                              ; preds = %.thread572
+309:                                              ; preds = %.thread559
   tail call void @N_VDiv(ptr noundef %307, ptr noundef nonnull %7, ptr noundef %308) #5
   br label %311
 
-310:                                              ; preds = %.thread572
+310:                                              ; preds = %.thread559
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %307, ptr noundef %308) #5
   br label %311
 
@@ -821,7 +821,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %353, label %120, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %346, %102
-  %.1355 = phi double [ -1.000000e+00, %102 ], [ %.4358575, %346 ]
+  %.1355 = phi double [ -1.000000e+00, %102 ], [ %.4358562, %346 ]
   %354 = fcmp olt double %.1355, %55
   br i1 %354, label %.thread.thread, label %.loopexit
 

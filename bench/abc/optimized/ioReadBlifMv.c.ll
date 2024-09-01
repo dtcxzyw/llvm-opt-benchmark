@@ -2950,7 +2950,7 @@ Io_MvGetLine.exit.i242.i:                         ; preds = %1229, %.critedge.lo
   br label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %.critedge2.loopexit.i.i, %.critedge.thread142.i.i
-  %.pn.i.i = phi ptr [ %1207, %.critedge2.loopexit.i.i ], [ %1203, %.critedge.thread142.i.i ]
+  %.pn.i = phi ptr [ %1207, %.critedge2.loopexit.i.i ], [ %1203, %.critedge.thread142.i.i ]
   %.1.lcssa.i.i = phi i32 [ %1241, %.critedge2.loopexit.i.i ], [ 0, %.critedge.thread142.i.i ]
   %.3.i.i = phi ptr [ %1233, %.critedge2.loopexit.i.i ], [ %1203, %.critedge.thread142.i.i ]
   %1242 = icmp eq i32 %.1.lcssa.i.i, %.val72.i.i
@@ -2994,7 +2994,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1254, %.critedge.lo
   br label %Io_MvParse.exit
 
 1257:                                             ; preds = %.critedge2.i.i
-  %1258 = getelementptr inbounds i8, ptr %.pn.i.i, i64 2
+  %1258 = getelementptr inbounds i8, ptr %.pn.i, i64 2
   %1259 = getelementptr inbounds i8, ptr %.3.i.i, i64 2
   %1260 = load ptr, ptr %1181, align 8
   %1261 = tail call ptr @Io_ReadCreateLatch(ptr noundef %1260, ptr noundef nonnull %1259, ptr noundef nonnull %1258) #20
@@ -6867,8 +6867,8 @@ define internal fastcc range(i32 0, 2) i32 @Io_MvParseLineNamesMv(ptr nocapture 
   %.0.i = phi ptr [ %1, %3 ], [ %11, %13 ]
   %11 = getelementptr inbounds i8, ptr %.0.i, i64 1
   %12 = load i8, ptr %11, align 1
-  %.not.i.not.not = icmp ne i8 %12, 0
-  br i1 %.not.i.not.not, label %13, label %Io_MvFindArrow.exit.thread
+  %.not.i.not.not.not.not.not = icmp ne i8 %12, 0
+  br i1 %.not.i.not.not.not.not.not, label %13, label %Io_MvFindArrow.exit.thread
 
 13:                                               ; preds = %10
   %14 = load i8, ptr %.0.i, align 1
@@ -6954,7 +6954,7 @@ Io_MvSplitIntoTokens.exit:                        ; preds = %36, %Io_MvFindArrow
   %.val84 = load i32, ptr %39, align 4
   %40 = add i32 %.val84, -2
   %41 = icmp sgt i32 %.val84, 2
-  %or.cond = select i1 %.not.i.not.not, i1 %41, i1 false
+  %or.cond = select i1 %.not.i.not.not.not.not.not, i1 %41, i1 false
   %42 = getelementptr i8, ptr %7, i64 8
   %.val87 = load ptr, ptr %42, align 8
   br i1 %or.cond, label %.lr.ph, label %.loopexit

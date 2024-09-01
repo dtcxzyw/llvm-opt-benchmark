@@ -1403,8 +1403,8 @@ declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_btl_tcp_send_blocking(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split.us
+  %.not28 = icmp eq i64 %2, 0
+  br i1 %.not28, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %3, %.outer
   %.012.ph26 = phi i64 [ %15, %.outer ], [ 0, %3 ]

@@ -1839,19 +1839,16 @@ hemdistcache.exit289:                             ; preds = %.lr.ph.i.i282, %364
 
 ._crit_edge330:                                   ; preds = %hemdistcache.exit289
   tail call void @pg_qsort(ptr noundef nonnull %326, i64 noundef %267, i64 noundef 8, ptr noundef nonnull @comparecost) #13
-  br i1 %.not327, label %._crit_edge342, label %.lr.ph341
-
-.lr.ph341:                                        ; preds = %._crit_edge330
   %390 = icmp sgt i32 %16, 0
   %wide.trip.count.i = zext i32 %16 to i64
   %391 = shl i32 %16, 3
   %392 = sext i32 %16 to i64
   br label %393
 
-393:                                              ; preds = %.lr.ph341, %511
-  %indvars.iv368 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next369, %511 ]
-  %.0200338 = phi ptr [ %226, %.lr.ph341 ], [ %.1201, %511 ]
-  %.0202337 = phi ptr [ %224, %.lr.ph341 ], [ %.1203, %511 ]
+393:                                              ; preds = %._crit_edge330, %511
+  %indvars.iv368 = phi i64 [ 0, %._crit_edge330 ], [ %indvars.iv.next369, %511 ]
+  %.0200338 = phi ptr [ %226, %._crit_edge330 ], [ %.1201, %511 ]
+  %.0202337 = phi ptr [ %224, %._crit_edge330 ], [ %.1203, %511 ]
   %394 = getelementptr %struct.SPLITCOST, ptr %326, i64 %indvars.iv368
   %395 = load i16, ptr %394, align 4
   %396 = icmp eq i16 %395, %spec.select
@@ -2084,9 +2081,9 @@ hemdistsign.exit298:                              ; preds = %.lr.ph.i293, %451, 
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %267
   br i1 %exitcond372.not, label %._crit_edge342, label %393, !llvm.loop !24
 
-._crit_edge342:                                   ; preds = %511, %._crit_edge330.thread, %._crit_edge330
-  %.0202.lcssa = phi ptr [ %224, %._crit_edge330 ], [ %224, %._crit_edge330.thread ], [ %.1203, %511 ]
-  %.0200.lcssa = phi ptr [ %226, %._crit_edge330 ], [ %226, %._crit_edge330.thread ], [ %.1201, %511 ]
+._crit_edge342:                                   ; preds = %511, %._crit_edge330.thread
+  %.0202.lcssa = phi ptr [ %224, %._crit_edge330.thread ], [ %.1203, %511 ]
+  %.0200.lcssa = phi ptr [ %226, %._crit_edge330.thread ], [ %.1201, %511 ]
   store i16 1, ptr %.0202.lcssa, align 2
   store i16 1, ptr %.0200.lcssa, align 2
   %514 = ptrtoint ptr %240 to i64

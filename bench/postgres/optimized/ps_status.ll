@@ -159,12 +159,9 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   %51 = shl nsw i64 %50, 3
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #14
   %.not63 = icmp eq ptr %52, null
-  br i1 %.not63, label %53, label %.preheader
+  br i1 %.not63, label %53, label %.lr.ph86.preheader
 
-.preheader:                                       ; preds = %._crit_edge83
-  br i1 %3, label %.lr.ph86.preheader, label %._crit_edge87
-
-.lr.ph86.preheader:                               ; preds = %.preheader
+.lr.ph86.preheader:                               ; preds = %._crit_edge83
   %wide.trip.count94 = zext nneg i32 %0 to i64
   br label %.lr.ph86
 
@@ -193,7 +190,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   tail call void @exit(i32 noundef 1) #16
   unreachable
 
-._crit_edge87:                                    ; preds = %54, %.preheader
+._crit_edge87:                                    ; preds = %54
   %60 = zext nneg i32 %0 to i64
   %61 = getelementptr ptr, ptr %52, i64 %60
   store ptr null, ptr %61, align 8

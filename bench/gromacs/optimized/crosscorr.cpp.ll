@@ -126,14 +126,11 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 ._crit_edge60:                                    ; preds = %29
   %42 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %8)
-  br i1 %10, label %.lr.ph63.preheader, label %._crit_edge64
-
-.lr.ph63.preheader:                               ; preds = %._crit_edge60
   %wide.trip.count79 = zext nneg i32 %0 to i64
   br label %.lr.ph63
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next77, %.lr.ph63 ]
+.lr.ph63:                                         ; preds = %._crit_edge60, %.lr.ph63
+  %indvars.iv76 = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next77, %.lr.ph63 ]
   %43 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv76
   %44 = load float, ptr %43, align 4
   %45 = getelementptr inbounds float, ptr %3, i64 %indvars.iv76
@@ -142,7 +139,7 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !9
 
-._crit_edge64:                                    ; preds = %.lr.ph63, %._crit_edge60.thread, %._crit_edge60
+._crit_edge64:                                    ; preds = %.lr.ph63, %._crit_edge60.thread
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef %8)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 124, ptr noundef %9)
   ret void

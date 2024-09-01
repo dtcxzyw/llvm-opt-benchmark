@@ -289,8 +289,8 @@ if.end17:                                         ; preds = %sw.bb, %sw.bb15, %s
   %cmp19 = icmp ne i32 %format.addr.0, 0
   %brmerge = or i1 %paging, %has_begin
   %brmerge48 = or i1 %brmerge, %has_length
-  %1 = and i1 %brmerge48, %cmp19
-  br i1 %1, label %if.then26, label %if.end27
+  %or.cond52 = and i1 %brmerge48, %cmp19
+  br i1 %or.cond52, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 2116, ptr noundef nonnull @__func__.qmp_dump_guest_memory, ptr noundef nonnull @.str.3) #18
@@ -342,8 +342,8 @@ if.end54:                                         ; preds = %land.lhs.true51, %i
 
 if.then57:                                        ; preds = %if.end54
   %call58 = call ptr @monitor_cur() #18
-  %2 = load ptr, ptr %p, align 8
-  %call59 = call i32 @monitor_get_fd(ptr noundef %call58, ptr noundef %2, ptr noundef nonnull %spec.select) #18
+  %1 = load ptr, ptr %p, align 8
+  %call59 = call i32 @monitor_get_fd(ptr noundef %call58, ptr noundef %1, ptr noundef nonnull %spec.select) #18
   %cmp60 = icmp eq i32 %call59, -1
   br i1 %cmp60, label %cleanup, label %if.end72
 
@@ -353,8 +353,8 @@ if.else:                                          ; preds = %if.end54
   br i1 %tobool64.not, label %if.else70, label %if.then65
 
 if.then65:                                        ; preds = %if.else
-  %3 = load ptr, ptr %p, align 8
-  %call66 = call i32 @qemu_create(ptr noundef %3, i32 noundef 513, i32 noundef 256, ptr noundef nonnull %spec.select) #18
+  %2 = load ptr, ptr %p, align 8
+  %call66 = call i32 @qemu_create(ptr noundef %2, i32 noundef 513, i32 noundef 256, ptr noundef nonnull %spec.select) #18
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %cleanup, label %if.end72
 
@@ -377,8 +377,8 @@ if.then77:                                        ; preds = %land.lhs.true74
   br label %cleanup
 
 if.end79:                                         ; preds = %land.lhs.true74, %if.end72
-  %4 = load ptr, ptr @dump_migration_blocker, align 8
-  %tobool80.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr @dump_migration_blocker, align 8
+  %tobool80.not = icmp eq ptr %3, null
   br i1 %tobool80.not, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end79
@@ -399,8 +399,8 @@ if.end87:                                         ; preds = %if.end82
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @dump_state_global, i64 304), i8 0, i64 48, i1 false)
   call fastcc void @dump_init(i32 noundef %fd.0, i1 noundef zeroext %has_format, i32 noundef %format.addr.062, i1 noundef zeroext %paging, i1 noundef zeroext %has_begin, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw.061, ptr noundef nonnull %spec.select)
-  %5 = load ptr, ptr %spec.select, align 8
-  %tobool92.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %spec.select, align 8
+  %tobool92.not = icmp eq ptr %4, null
   br i1 %tobool92.not, label %if.end100, label %while.end
 
 while.end:                                        ; preds = %if.end87

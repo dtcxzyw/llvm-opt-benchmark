@@ -196,12 +196,12 @@ select.unfold:                                    ; preds = %272, %89
   %101 = phi i64 [ %250, %.thread21 ], [ %92, %97 ]
   %102 = phi i64 [ %251, %.thread21 ], [ %91, %97 ]
   %103 = icmp ult i64 %102, %2
-  %.pre.pre71 = load ptr, ptr %90, align 8
+  %.pre.pre69 = load ptr, ptr %90, align 8
   br i1 %103, label %.preheader27, label %.loopexit
 
 .preheader27:                                     ; preds = %99
-  %104 = load volatile ptr, ptr %.pre.pre71, align 8
-  %105 = icmp eq ptr %104, %.pre.pre71
+  %104 = load volatile ptr, ptr %.pre.pre69, align 8
+  %105 = icmp eq ptr %104, %.pre.pre69
   %106 = getelementptr i8, ptr %104, i64 -896
   %107 = icmp eq ptr %106, null
   %108 = or i1 %105, %107
@@ -236,7 +236,7 @@ select.unfold:                                    ; preds = %272, %89
   %124 = getelementptr i8, ptr %122, i64 -896
   %125 = icmp eq ptr %124, null
   %126 = or i1 %123, %125
-  br i1 %126, label %.loopexit, label %.lr.ph
+  br i1 %126, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 127:                                              ; preds = %116, %.lr.ph
   br i1 %52, label %128, label %137
@@ -282,17 +282,17 @@ select.unfold:                                    ; preds = %272, %89
 .preheader:                                       ; preds = %151, %159
   %154 = phi i32 [ %160, %159 ], [ %152, %151 ]
   %155 = add i32 %154, 1
-  %156 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 %155, ptr elementtype(i32) %109, i32 %154) #11, !srcloc !20
+  %156 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 %155, ptr elementtype(i32) %109, i32 %154) #11, !srcloc !21
   %157 = extractvalue { i8, i32 } %156, 0
   %158 = icmp ult i8 %157, 2
   call void @llvm.assume(i1 %158)
   %.not = icmp eq i8 %157, 0
-  br i1 %.not, label %159, label %.thread, !prof !21
+  br i1 %.not, label %159, label %.thread, !prof !22
 
 159:                                              ; preds = %.preheader
   %160 = extractvalue { i8, i32 } %156, 1
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.thread, label %.preheader, !llvm.loop !22
+  br i1 %161, label %.thread, label %.preheader, !llvm.loop !23
 
 .thread:                                          ; preds = %.preheader, %159, %151
   %162 = phi i32 [ 0, %151 ], [ %154, %.preheader ], [ 0, %159 ]
@@ -322,7 +322,7 @@ select.unfold:                                    ; preds = %272, %89
   br i1 %175, label %248, label %214
 
 176:                                              ; preds = %169
-  %177 = load i8, ptr %68, align 8, !range !23, !noundef !24
+  %177 = load i8, ptr %68, align 8, !range !24, !noundef !25
   %178 = icmp eq i8 %177, 0
   %179 = getelementptr i8, ptr %110, i64 -648
   %180 = load ptr, ptr %179, align 8
@@ -342,9 +342,9 @@ select.unfold:                                    ; preds = %272, %89
   br i1 %187, label %188, label %201
 
 188:                                              ; preds = %185
-  %189 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 1, ptr elementtype(i32) %109) #11, !srcloc !25
+  %189 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 1, ptr elementtype(i32) %109) #11, !srcloc !26
   %190 = icmp eq i32 %189, 0
-  br i1 %190, label %195, label %191, !prof !21
+  br i1 %190, label %195, label %191, !prof !22
 
 191:                                              ; preds = %188
   %192 = add i32 %189, 1
@@ -376,9 +376,9 @@ select.unfold:                                    ; preds = %272, %89
   ]
 
 204:                                              ; preds = %201
-  %205 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 1, ptr elementtype(i32) %109) #11, !srcloc !25
+  %205 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 1, ptr elementtype(i32) %109) #11, !srcloc !26
   %206 = icmp eq i32 %205, 0
-  br i1 %206, label %211, label %207, !prof !21
+  br i1 %206, label %211, label %207, !prof !22
 
 207:                                              ; preds = %204
   %208 = add i32 %205, 1
@@ -456,7 +456,7 @@ select.unfold:                                    ; preds = %272, %89
   %249 = phi i32 [ -35, %213 ], [ 0, %243 ], [ 0, %171 ], [ %186, %201 ]
   %250 = phi i64 [ %101, %213 ], [ %247, %243 ], [ %101, %171 ], [ %101, %201 ]
   %251 = phi i64 [ %102, %213 ], [ %233, %243 ], [ %102, %171 ], [ %102, %201 ]
-  %252 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 -1, ptr elementtype(i32) %109) #11, !srcloc !26
+  %252 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 -1, ptr elementtype(i32) %109) #11, !srcloc !27
   %253 = icmp eq i32 %252, 1
   br i1 %253, label %257, label %254
 
@@ -469,25 +469,25 @@ select.unfold:                                    ; preds = %272, %89
   br label %.thread21
 
 257:                                              ; preds = %248
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !27
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
   call void @drm_gem_object_free(ptr noundef %109) #11
   br label %.thread21
 
 .thread21:                                        ; preds = %254, %256, %257
   %258 = call i64 @_raw_spin_lock_irqsave(ptr noundef %65) #11
   %259 = icmp eq i32 %249, 0
-  br i1 %259, label %99, label %.thread21..loopexit.loopexit54_crit_edge, !llvm.loop !28
+  br i1 %259, label %99, label %.thread21..loopexit.loopexit52_crit_edge, !llvm.loop !20
 
-.thread21..loopexit.loopexit54_crit_edge:         ; preds = %.thread21
+.thread21..loopexit.loopexit52_crit_edge:         ; preds = %.thread21
   %.pre.pre = load ptr, ptr %90, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %99, %.preheader27, %120, %.thread21..loopexit.loopexit54_crit_edge
-  %260 = phi ptr [ %.pre.pre, %.thread21..loopexit.loopexit54_crit_edge ], [ %121, %120 ], [ %.pre.pre71, %.preheader27 ], [ %.pre.pre71, %99 ]
-  %261 = phi i64 [ %258, %.thread21..loopexit.loopexit54_crit_edge ], [ %100, %120 ], [ %100, %.preheader27 ], [ %100, %99 ]
-  %262 = phi i32 [ %249, %.thread21..loopexit.loopexit54_crit_edge ], [ 0, %120 ], [ 0, %.preheader27 ], [ 0, %99 ]
-  %263 = phi i64 [ %250, %.thread21..loopexit.loopexit54_crit_edge ], [ %101, %120 ], [ %101, %.preheader27 ], [ %101, %99 ]
-  %264 = phi i64 [ %251, %.thread21..loopexit.loopexit54_crit_edge ], [ %102, %120 ], [ %102, %.preheader27 ], [ %102, %99 ]
+.loopexit:                                        ; preds = %99, %.preheader27, %120, %.thread21..loopexit.loopexit52_crit_edge
+  %260 = phi ptr [ %.pre.pre, %.thread21..loopexit.loopexit52_crit_edge ], [ %121, %120 ], [ %.pre.pre69, %.preheader27 ], [ %.pre.pre69, %99 ]
+  %261 = phi i64 [ %258, %.thread21..loopexit.loopexit52_crit_edge ], [ %100, %120 ], [ %100, %.preheader27 ], [ %100, %99 ]
+  %262 = phi i32 [ %249, %.thread21..loopexit.loopexit52_crit_edge ], [ 0, %120 ], [ 0, %.preheader27 ], [ 0, %99 ]
+  %263 = phi i64 [ %250, %.thread21..loopexit.loopexit52_crit_edge ], [ %101, %120 ], [ %101, %.preheader27 ], [ %101, %99 ]
+  %264 = phi i64 [ %251, %.thread21..loopexit.loopexit52_crit_edge ], [ %102, %120 ], [ %102, %.preheader27 ], [ %102, %99 ]
   %265 = load volatile ptr, ptr %7, align 8
   %266 = icmp eq ptr %265, %7
   br i1 %266, label %272, label %267
@@ -1098,12 +1098,12 @@ define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %1, %13
   %7 = phi i32 [ %14, %13 ], [ %5, %1 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #11, !srcloc !20
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #11, !srcloc !21
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
-  br i1 %12, label %13, label %.loopexit, !prof !21
+  br i1 %12, label %13, label %.loopexit, !prof !22
 
 13:                                               ; preds = %.lr.ph
   %14 = extractvalue { i8, i32 } %9, 1
@@ -1113,7 +1113,7 @@ define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_u
 ._crit_edge:                                      ; preds = %13, %1
   %16 = getelementptr inbounds i8, ptr %3, i64 8408
   %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %16) #11
-  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #11, !srcloc !25
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #11, !srcloc !26
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %36
 
@@ -1172,12 +1172,12 @@ define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !20
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %.loopexit, !prof !21
+  br i1 %19, label %20, label %.loopexit, !prof !22
 
 20:                                               ; preds = %.lr.ph
   %21 = extractvalue { i8, i32 } %16, 1
@@ -1243,12 +1243,12 @@ define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_un
 .lr.ph:                                           ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !20
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %.loopexit, !prof !21
+  br i1 %19, label %20, label %.loopexit, !prof !22
 
 20:                                               ; preds = %.lr.ph
   %21 = extractvalue { i8, i32 } %16, 1
@@ -1314,12 +1314,12 @@ define dso_local void @i915_gem_object_make_shrinkable(ptr noundef %0) local_unn
 .lr.ph.i:                                         ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !20
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %__i915_gem_object_make_shrinkable.exit, !prof !21
+  br i1 %19, label %20, label %__i915_gem_object_make_shrinkable.exit, !prof !22
 
 20:                                               ; preds = %.lr.ph.i
   %21 = extractvalue { i8, i32 } %16, 1
@@ -1385,12 +1385,12 @@ define dso_local void @i915_gem_object_make_purgeable(ptr noundef %0) local_unna
 .lr.ph.i:                                         ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !20
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %__i915_gem_object_make_purgeable.exit, !prof !21
+  br i1 %19, label %20, label %__i915_gem_object_make_purgeable.exit, !prof !22
 
 20:                                               ; preds = %.lr.ph.i
   %21 = extractvalue { i8, i32 } %16, 1
@@ -1530,15 +1530,15 @@ attributes #13 = { cold nounwind }
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
 !19 = distinct !{!19, !17, !18}
-!20 = !{i64 2148001236, i64 2148001275, i64 2148001296, i64 2148001333, i64 2148001356, i64 2148001365, i64 2148001663}
-!21 = !{!"branch_weights", i32 1, i32 2000}
-!22 = distinct !{!22, !17, !18}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = !{i64 2147993332, i64 2147993371, i64 2147993392, i64 2147993429, i64 2147993452, i64 2147993461}
-!26 = !{i64 2147995521, i64 2147995560, i64 2147995581, i64 2147995618, i64 2147995641, i64 2147995650}
-!27 = !{i64 2150272670}
-!28 = distinct !{!28, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = !{i64 2148001236, i64 2148001275, i64 2148001296, i64 2148001333, i64 2148001356, i64 2148001365, i64 2148001663}
+!22 = !{!"branch_weights", i32 1, i32 2000}
+!23 = distinct !{!23, !17, !18}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = !{i64 2147993332, i64 2147993371, i64 2147993392, i64 2147993429, i64 2147993452, i64 2147993461}
+!27 = !{i64 2147995521, i64 2147995560, i64 2147995581, i64 2147995618, i64 2147995641, i64 2147995650}
+!28 = !{i64 2150272670}
 !29 = !{i64 2159900886, i64 2159900695, i64 2159900747, i64 2159900793, i64 2159900821}
 !30 = !{i64 2159901444, i64 2159901253, i64 2159901305, i64 2159901351, i64 2159901379}
 !31 = !{i64 2159901518, i64 2159901547, i64 2159901593, i64 2159901651, i64 2159901705, i64 2159901759, i64 2159901814, i64 2159901845, i64 2159902153, i64 2159902159, i64 2159902206, i64 2159902229, i64 2159902255}

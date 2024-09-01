@@ -4874,10 +4874,7 @@ for.body2389.preheader:                           ; preds = %if.then2384
   %wide.trip.count2803 = zext nneg i32 %call2385 to i64
   br label %for.body2389
 
-for.cond2402.preheader:                           ; preds = %for.body2389
-  br i1 %cmp23872407, label %for.body2405.preheader, label %if.end2428
-
-for.body2405.preheader:                           ; preds = %for.cond2402.preheader
+for.body2405.preheader:                           ; preds = %for.body2389
   %336 = zext nneg i32 %call2385 to i64
   br label %for.body2405
 
@@ -4891,7 +4888,7 @@ for.body2389:                                     ; preds = %for.body2389.prehea
   %spec.select705 = add nuw nsw i32 %lf_num.02409, %inc2396
   %indvars.iv.next2801 = add nuw nsw i64 %indvars.iv2800, 1
   %exitcond2804.not = icmp eq i64 %indvars.iv.next2801, %wide.trip.count2803
-  br i1 %exitcond2804.not, label %for.cond2402.preheader, label %for.body2389, !llvm.loop !20
+  br i1 %exitcond2804.not, label %for.body2405.preheader, label %for.body2389, !llvm.loop !20
 
 for.body2405:                                     ; preds = %for.body2405.preheader, %for.inc2423
   %indvars.iv2805 = phi i64 [ %336, %for.body2405.preheader ], [ %indvars.iv.next2806, %for.inc2423 ]
@@ -4926,8 +4923,8 @@ if.else2426:                                      ; preds = %if.then2382
   %call2427 = call i32 @raw_read_stdin(ptr noundef %call29, i32 noundef 8192) #16
   br label %if.end2428
 
-if.end2428:                                       ; preds = %for.inc2423, %if.then2384, %for.cond2402.preheader, %if.else2426
-  %i.4 = phi i32 [ %call2427, %if.else2426 ], [ %call2385, %for.cond2402.preheader ], [ %call2385, %if.then2384 ], [ %i.3, %for.inc2423 ]
+if.end2428:                                       ; preds = %for.inc2423, %if.then2384, %if.else2426
+  %i.4 = phi i32 [ %call2427, %if.else2426 ], [ %call2385, %if.then2384 ], [ %i.3, %for.inc2423 ]
   %cmp2429 = icmp eq i32 %i.4, 0
   %spec.select706 = select i1 %cmp2429, i32 1, i32 %at_eof.1
   %cmp2435 = icmp slt i32 %i.4, 1

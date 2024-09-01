@@ -5401,17 +5401,17 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %243, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %591, %.thread34
-  %.lcssa120 = phi ptr [ %233, %.thread34 ], [ %589, %591 ]
-  %.lcssa76 = phi i8 [ %234, %.thread34 ], [ 0, %591 ]
-  %244 = getelementptr inbounds i8, ptr %.lcssa120, i64 18
+  %.lcssa122 = phi ptr [ %233, %.thread34 ], [ %589, %591 ]
+  %.lcssa78 = phi i8 [ %234, %.thread34 ], [ 0, %591 ]
+  %244 = getelementptr inbounds i8, ptr %.lcssa122, i64 18
   %245 = load volatile i8, ptr %244, align 2
   %246 = icmp eq i8 %245, 12
-  br i1 %246, label %247, label %.loopexit58
+  br i1 %246, label %247, label %.loopexit60
 
 247:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #21
   store i8 0, ptr %4, align 1
-  %248 = getelementptr inbounds i8, ptr %.lcssa120, i64 96
+  %248 = getelementptr inbounds i8, ptr %.lcssa122, i64 96
   %249 = load ptr, ptr %248, align 8
   %250 = call fastcc i32 @xfrm4_policy_check(ptr noundef %249, ptr noundef %0)
   %251 = icmp eq i32 %250, 0
@@ -5422,7 +5422,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   br label %.thread45
 
 252:                                              ; preds = %247
-  %253 = call fastcc i32 @tcp_inbound_hash(ptr noundef %249, ptr noundef nonnull %.lcssa120, ptr noundef %0, ptr noundef %239, ptr noundef %240)
+  %253 = call fastcc i32 @tcp_inbound_hash(ptr noundef %249, ptr noundef nonnull %.lcssa122, ptr noundef %0, ptr noundef %239, ptr noundef %240)
   store i32 %253, ptr %3, align 4
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %264, label %.thread45, !prof !77
@@ -5438,7 +5438,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   %262 = zext i16 %261 to i32
   %263 = getelementptr inbounds i8, ptr %249, i64 184
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %263, i32 %262, ptr elementtype(i32) %263) #21, !srcloc !78
-  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa120)
+  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa122)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
   br label %.loopexit
 
@@ -5478,7 +5478,7 @@ tcp_checksum_complete.exit:                       ; preds = %273, %275
   br i1 %.not57, label %tcp_checksum_complete.exit.thread, label %.thread44
 
 .thread44:                                        ; preds = %tcp_checksum_complete.exit
-  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa120)
+  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa122)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
   br label %395
 
@@ -5489,12 +5489,12 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   br i1 %289, label %294, label %290, !prof !6
 
 290:                                              ; preds = %tcp_checksum_complete.exit.thread
-  %291 = call ptr @reuseport_migrate_sock(ptr noundef %249, ptr noundef nonnull %.lcssa120, ptr noundef %0) #21
+  %291 = call ptr @reuseport_migrate_sock(ptr noundef %249, ptr noundef nonnull %.lcssa122, ptr noundef %0) #21
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %296
 
 293:                                              ; preds = %290
-  call void @inet_csk_reqsk_queue_drop_and_put(ptr noundef %249, ptr noundef nonnull %.lcssa120) #21
+  call void @inet_csk_reqsk_queue_drop_and_put(ptr noundef %249, ptr noundef nonnull %.lcssa122) #21
   br label %326
 
 294:                                              ; preds = %tcp_checksum_complete.exit.thread
@@ -5525,14 +5525,14 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   %310 = zext i16 %309 to i64
   %311 = getelementptr i8, ptr %308, i64 %310
   call fastcc void @tcp_v4_fill_cb(ptr noundef %0, ptr noundef %311, ptr noundef %307)
-  %312 = call ptr @tcp_check_req(ptr noundef %297, ptr noundef %0, ptr noundef nonnull %.lcssa120, i1 noundef zeroext false, ptr noundef nonnull %4) #21
+  %312 = call ptr @tcp_check_req(ptr noundef %297, ptr noundef %0, ptr noundef nonnull %.lcssa122, i1 noundef zeroext false, ptr noundef nonnull %4) #21
   %313 = icmp eq ptr %312, null
   br i1 %313, label %314, label %320
 
 314:                                              ; preds = %.thread37, %306
   %315 = phi ptr [ %151, %.thread37 ], [ %311, %306 ]
   %316 = phi ptr [ %150, %.thread37 ], [ %307, %306 ]
-  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa120)
+  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa122)
   %317 = load i8, ptr %4, align 1, !range !39, !noundef !40
   %318 = icmp eq i8 %317, 0
   br i1 %318, label %.thread41, label %319
@@ -5548,10 +5548,10 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   br i1 %321, label %.thread43, label %322
 
 .thread43:                                        ; preds = %320
-  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa120)
+  call fastcc void @reqsk_put(ptr noundef nonnull %.lcssa122)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %135, ptr noundef align 8 dereferenceable(24) %136, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
-  br label %.loopexit58
+  br label %.loopexit60
 
 322:                                              ; preds = %320
   %323 = call i32 @tcp_child_process(ptr noundef %297, ptr noundef nonnull %312, ptr noundef %0) #21
@@ -5579,14 +5579,14 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   %.pre176 = load i16, ptr %124, align 4
   br label %147
 
-.loopexit58:                                      ; preds = %._crit_edge, %.thread43
-  %329 = phi i8 [ 1, %.thread43 ], [ %.lcssa76, %._crit_edge ]
-  %330 = phi ptr [ %297, %.thread43 ], [ %.lcssa120, %._crit_edge ]
+.loopexit60:                                      ; preds = %._crit_edge, %.thread43
+  %329 = phi i8 [ 1, %.thread43 ], [ %.lcssa78, %._crit_edge ]
+  %330 = phi ptr [ %297, %.thread43 ], [ %.lcssa122, %._crit_edge ]
   %331 = phi ptr [ %311, %.thread43 ], [ %151, %._crit_edge ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @ip4_min_ttl, i32 2) #21
           to label %342 [label %332], !srcloc !23
 
-332:                                              ; preds = %.loopexit58
+332:                                              ; preds = %.loopexit60
   %333 = getelementptr inbounds i8, ptr %331, i64 8
   %334 = load i8, ptr %333, align 4
   %335 = getelementptr inbounds i8, ptr %330, i64 781
@@ -5602,7 +5602,7 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   store i32 75, ptr %3, align 4
   br label %427
 
-342:                                              ; preds = %332, %.loopexit58
+342:                                              ; preds = %332, %.loopexit60
   %343 = call fastcc i32 @xfrm4_policy_check(ptr noundef %330, ptr noundef %0)
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %345, label %346
@@ -5795,8 +5795,8 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
   %444 = load ptr, ptr %443, align 8
   %445 = load i8, ptr %132, align 1
   %446 = and i8 %445, 1
-  %.not123 = icmp eq i8 %446, 0
-  br i1 %.not123, label %485, label %447
+  %.not58 = icmp eq i8 %446, 0
+  br i1 %.not58, label %485, label %447
 
 447:                                              ; preds = %.lr.ph
   %448 = load ptr, ptr %133, align 8
@@ -5853,8 +5853,8 @@ tcp_checksum_complete.exit.thread:                ; preds = %269, %264, %275, %t
 485:                                              ; preds = %.lr.ph
   %486 = getelementptr inbounds i8, ptr %444, i64 2816
   %487 = load i32, ptr %486, align 4
-  %.not124 = icmp eq i32 %487, 0
-  br i1 %.not124, label %488, label %.thread50
+  %.not59 = icmp eq i32 %487, 0
+  br i1 %.not59, label %488, label %.thread50
 
 488:                                              ; preds = %485
   %489 = getelementptr inbounds i8, ptr %444, i64 2968

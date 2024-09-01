@@ -515,13 +515,13 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br label %33
 
 29:                                               ; preds = %33
-  %30 = add nuw nsw i32 %.1463595, 1
+  %30 = add nuw nsw i32 %.1463596, 1
   %31 = load i32, ptr %8, align 4
   %32 = icmp slt i32 %30, %31
   br i1 %32, label %33, label %.loopexit584
 
 33:                                               ; preds = %.lr.ph, %29
-  %.1463595 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
+  %.1463596 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
   store i32 1, ptr %28, align 8
   %34 = load ptr, ptr %5, align 8
   %35 = call ptr @zend_hash_next_index_insert(ptr noundef %34, ptr noundef nonnull %11) #10
@@ -535,10 +535,10 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
 .loopexit584:                                     ; preds = %29, %.preheader585.preheader, %.critedge
   %.0460 = phi i32 [ -1, %.critedge ], [ %23, %.preheader585.preheader ], [ -1, %29 ]
   %37 = load i8, ptr %1, align 1
-  %.not520660 = icmp eq i8 %37, 0
-  br i1 %.not520660, label %.thread575, label %.lr.ph669
+  %.not520661 = icmp eq i8 %37, 0
+  br i1 %.not520661, label %.thread575, label %.lr.ph670
 
-.lr.ph669:                                        ; preds = %.loopexit584
+.lr.ph670:                                        ; preds = %.loopexit584
   %38 = tail call ptr @__ctype_b_loc() #11
   %39 = ptrtoint ptr %0 to i64
   %40 = getelementptr inbounds i8, ptr %12, i64 4
@@ -547,15 +547,15 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   %43 = getelementptr inbounds i8, ptr %12, i64 24
   br label %44
 
-44:                                               ; preds = %.lr.ph669, %.backedge
-  %45 = phi i8 [ %37, %.lr.ph669 ], [ %138, %.backedge ]
-  %46 = phi ptr [ %1, %.lr.ph669 ], [ %137, %.backedge ]
-  %.0459667 = phi ptr [ %0, %.lr.ph669 ], [ %.0459.be, %.backedge ]
-  %.0461665 = phi i32 [ 0, %.lr.ph669 ], [ %.0461.be, %.backedge ]
-  %.0465664 = phi i32 [ %22, %.lr.ph669 ], [ %.0465.be, %.backedge ]
-  %.0471663 = phi i8 [ 0, %.lr.ph669 ], [ %.0471.be, %.backedge ]
-  %.0473662 = phi i32 [ 0, %.lr.ph669 ], [ %.0473.be, %.backedge ]
-  %.0487661 = phi ptr [ null, %.lr.ph669 ], [ %.0487.be, %.backedge ]
+44:                                               ; preds = %.lr.ph670, %.backedge
+  %45 = phi i8 [ %37, %.lr.ph670 ], [ %138, %.backedge ]
+  %46 = phi ptr [ %1, %.lr.ph670 ], [ %137, %.backedge ]
+  %.0459668 = phi ptr [ %0, %.lr.ph670 ], [ %.0459.be, %.backedge ]
+  %.0461666 = phi i32 [ 0, %.lr.ph670 ], [ %.0461.be, %.backedge ]
+  %.0465665 = phi i32 [ %22, %.lr.ph670 ], [ %.0465.be, %.backedge ]
+  %.0471664 = phi i8 [ 0, %.lr.ph670 ], [ %.0471.be, %.backedge ]
+  %.0473663 = phi i32 [ 0, %.lr.ph670 ], [ %.0473.be, %.backedge ]
+  %.0487662 = phi ptr [ null, %.lr.ph670 ], [ %.0487.be, %.backedge ]
   %47 = getelementptr inbounds i8, ptr %46, i64 1
   store ptr %47, ptr %7, align 8
   %48 = load ptr, ptr %38, align 8
@@ -567,41 +567,41 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br i1 %.not521, label %64, label %.preheader580
 
 .preheader580:                                    ; preds = %44
-  %.0493596 = load i8, ptr %.0459667, align 1
-  %53 = sext i8 %.0493596 to i64
+  %.0493597 = load i8, ptr %.0459668, align 1
+  %53 = sext i8 %.0493597 to i64
   %54 = getelementptr inbounds i16, ptr %48, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8192
-  %.not562597 = icmp eq i16 %56, 0
-  br i1 %.not562597, label %.backedge, label %.lr.ph600
+  %.not562598 = icmp eq i16 %56, 0
+  br i1 %.not562598, label %.backedge, label %.lr.ph601
 
-.lr.ph600:                                        ; preds = %.preheader580, %58
-  %.0493599 = phi i8 [ %.0493, %58 ], [ %.0493596, %.preheader580 ]
-  %.1598 = phi ptr [ %59, %58 ], [ %.0459667, %.preheader580 ]
-  %57 = icmp eq i8 %.0493599, 0
+.lr.ph601:                                        ; preds = %.preheader580, %58
+  %.0493600 = phi i8 [ %.0493, %58 ], [ %.0493597, %.preheader580 ]
+  %.1599 = phi ptr [ %59, %58 ], [ %.0459668, %.preheader580 ]
+  %57 = icmp eq i8 %.0493600, 0
   br i1 %57, label %.thread575, label %58
 
-58:                                               ; preds = %.lr.ph600
-  %59 = getelementptr inbounds i8, ptr %.1598, i64 1
+58:                                               ; preds = %.lr.ph601
+  %59 = getelementptr inbounds i8, ptr %.1599, i64 1
   %.0493 = load i8, ptr %59, align 1
   %60 = sext i8 %.0493 to i64
   %61 = getelementptr inbounds i16, ptr %48, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = and i16 %62, 8192
   %.not562 = icmp eq i16 %63, 0
-  br i1 %.not562, label %.backedge, label %.lr.ph600
+  br i1 %.not562, label %.backedge, label %.lr.ph601
 
 64:                                               ; preds = %44
   %.not522 = icmp eq i8 %45, 37
   br i1 %.not522, label %70, label %65
 
 65:                                               ; preds = %70, %64
-  %66 = load i8, ptr %.0459667, align 1
+  %66 = load i8, ptr %.0459668, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.0459667, i64 1
+  %69 = getelementptr inbounds i8, ptr %.0459668, i64 1
   %.not561 = icmp eq i8 %45, %66
   br i1 %.not561, label %.backedge, label %.thread575
 
@@ -648,7 +648,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   %93 = phi ptr [ %76, %75 ], [ %89, %87 ], [ %71, %82 ], [ %71, %77 ]
   %.0494 = phi i32 [ 2, %75 ], [ 0, %87 ], [ 0, %82 ], [ 0, %77 ]
   %.1490 = phi ptr [ %71, %75 ], [ %88, %87 ], [ %47, %82 ], [ %47, %77 ]
-  %.1466 = phi i32 [ %.0465664, %75 ], [ %91, %87 ], [ %.0465664, %82 ], [ %.0465664, %77 ]
+  %.1466 = phi i32 [ %.0465665, %75 ], [ %91, %87 ], [ %.0465665, %82 ], [ %.0465665, %77 ]
   %94 = load ptr, ptr %38, align 8
   %95 = load i8, ptr %.1490, align 1
   %96 = zext i8 %95 to i64
@@ -726,7 +726,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br i1 %.not528, label %127, label %123
 
 123:                                              ; preds = %118
-  %124 = ptrtoint ptr %.0459667 to i64
+  %124 = ptrtoint ptr %.0459668 to i64
   %125 = sub i64 %124, %39
   %126 = call i32 @zend_try_assign_typed_ref_long(ptr noundef nonnull %120, i64 noundef %125) #10
   br label %135
@@ -734,7 +734,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
 127:                                              ; preds = %118
   %128 = getelementptr inbounds i8, ptr %120, i64 8
   call void @zval_ptr_dtor(ptr noundef nonnull %128) #10
-  %129 = ptrtoint ptr %.0459667 to i64
+  %129 = ptrtoint ptr %.0459668 to i64
   %130 = sub i64 %129, %39
   store i64 %130, ptr %128, align 8
   %131 = getelementptr inbounds i8, ptr %120, i64 16
@@ -742,23 +742,23 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br label %135
 
 132:                                              ; preds = %115
-  %133 = ptrtoint ptr %.0459667 to i64
+  %133 = ptrtoint ptr %.0459668 to i64
   %134 = sub i64 %133, %39
   call void @add_index_long(ptr noundef %5, i64 noundef %117, i64 noundef %134) #10
   br label %135
 
 135:                                              ; preds = %127, %123, %132, %113
   %.2467 = phi i32 [ %.1466, %113 ], [ %116, %123 ], [ %116, %127 ], [ %116, %132 ]
-  %136 = add nsw i32 %.0461665, 1
+  %136 = add nsw i32 %.0461666, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %58, %.preheader580, %135, %436, %68
-  %.0487.be = phi ptr [ %.0487661, %68 ], [ %.1488, %436 ], [ %.0487661, %135 ], [ %.0487661, %.preheader580 ], [ %.0487661, %58 ]
-  %.0473.be = phi i32 [ %.0473662, %68 ], [ %.2475, %436 ], [ %.0473662, %135 ], [ %.0473662, %.preheader580 ], [ %.0473662, %58 ]
-  %.0471.be = phi i8 [ %.0471663, %68 ], [ %.1472, %436 ], [ %.0471663, %135 ], [ %.0471663, %.preheader580 ], [ %.0471663, %58 ]
-  %.0465.be = phi i32 [ %.0465664, %68 ], [ %.3468, %436 ], [ %.2467, %135 ], [ %.0465664, %.preheader580 ], [ %.0465664, %58 ]
-  %.0461.be = phi i32 [ %.0461665, %68 ], [ %437, %436 ], [ %136, %135 ], [ %.0461665, %.preheader580 ], [ %.0461665, %58 ]
-  %.0459.be = phi ptr [ %69, %68 ], [ %.4, %436 ], [ %.0459667, %135 ], [ %.0459667, %.preheader580 ], [ %59, %58 ]
+  %.0487.be = phi ptr [ %.0487662, %68 ], [ %.1488, %436 ], [ %.0487662, %135 ], [ %.0487662, %.preheader580 ], [ %.0487662, %58 ]
+  %.0473.be = phi i32 [ %.0473663, %68 ], [ %.2475, %436 ], [ %.0473663, %135 ], [ %.0473663, %.preheader580 ], [ %.0473663, %58 ]
+  %.0471.be = phi i8 [ %.0471664, %68 ], [ %.1472, %436 ], [ %.0471664, %135 ], [ %.0471664, %.preheader580 ], [ %.0471664, %58 ]
+  %.0465.be = phi i32 [ %.0465665, %68 ], [ %.3468, %436 ], [ %.2467, %135 ], [ %.0465665, %.preheader580 ], [ %.0465665, %58 ]
+  %.0461.be = phi i32 [ %.0461666, %68 ], [ %437, %436 ], [ %136, %135 ], [ %.0461666, %.preheader580 ], [ %.0461666, %58 ]
+  %.0459.be = phi ptr [ %69, %68 ], [ %.4, %436 ], [ %.0459668, %135 ], [ %.0459668, %.preheader580 ], [ %59, %58 ]
   %137 = load ptr, ptr %7, align 8
   %138 = load i8, ptr %137, align 1
   %.not520 = icmp eq i8 %138, 0
@@ -797,11 +797,11 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
 
 151:                                              ; preds = %114, %149, %147, %146, %145, %143, %142, %141, %140, %139, %110
   %.1495 = phi i32 [ %.0494, %110 ], [ %150, %149 ], [ %148, %147 ], [ %.0494, %146 ], [ %.0494, %145 ], [ %144, %143 ], [ %.0494, %142 ], [ %.0494, %141 ], [ %.0494, %140 ], [ %.0494, %139 ], [ %.0494, %114 ]
-  %.1488 = phi ptr [ %.0487661, %110 ], [ %.0487661, %149 ], [ %.0487661, %147 ], [ %.0487661, %146 ], [ %.0487661, %145 ], [ @strtoull, %143 ], [ @strtoll, %142 ], [ @strtoll, %141 ], [ @strtoll, %140 ], [ @strtoll, %139 ], [ %.0487661, %114 ]
+  %.1488 = phi ptr [ %.0487662, %110 ], [ %.0487662, %149 ], [ %.0487662, %147 ], [ %.0487662, %146 ], [ %.0487662, %145 ], [ @strtoull, %143 ], [ @strtoll, %142 ], [ @strtoll, %141 ], [ @strtoll, %140 ], [ @strtoll, %139 ], [ %.0487662, %114 ]
   %.1482 = phi i64 [ %.0481, %110 ], [ %.0481, %149 ], [ %spec.store.select2, %147 ], [ %.0481, %146 ], [ %.0481, %145 ], [ %.0481, %143 ], [ %.0481, %142 ], [ %.0481, %141 ], [ %.0481, %140 ], [ %.0481, %139 ], [ %.0481, %114 ]
-  %.1474 = phi i32 [ %.0473662, %110 ], [ %.0473662, %149 ], [ %.0473662, %147 ], [ %.0473662, %146 ], [ %.0473662, %145 ], [ 10, %143 ], [ 16, %142 ], [ 8, %141 ], [ 0, %140 ], [ 10, %139 ], [ %.0473662, %114 ]
-  %.1472 = phi i8 [ %.0471663, %110 ], [ 91, %149 ], [ 115, %147 ], [ %112, %146 ], [ 102, %145 ], [ 105, %143 ], [ 105, %142 ], [ 105, %141 ], [ %112, %140 ], [ 105, %139 ], [ %.0471663, %114 ]
-  %152 = load i8, ptr %.0459667, align 1
+  %.1474 = phi i32 [ %.0473663, %110 ], [ %.0473663, %149 ], [ %.0473663, %147 ], [ %.0473663, %146 ], [ %.0473663, %145 ], [ 10, %143 ], [ 16, %142 ], [ 8, %141 ], [ 0, %140 ], [ 10, %139 ], [ %.0473663, %114 ]
+  %.1472 = phi i8 [ %.0471664, %110 ], [ 91, %149 ], [ 115, %147 ], [ %112, %146 ], [ 102, %145 ], [ 105, %143 ], [ 105, %142 ], [ 105, %141 ], [ %112, %140 ], [ 105, %139 ], [ %.0471664, %114 ]
+  %152 = load i8, ptr %.0459668, align 1
   %153 = icmp eq i8 %152, 0
   br i1 %153, label %.thread, label %154
 
@@ -815,7 +815,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br label %157
 
 157:                                              ; preds = %.preheader, %163
-  %.3601 = phi ptr [ %.0459667, %.preheader ], [ %164, %163 ]
+  %.3602 = phi ptr [ %.0459668, %.preheader ], [ %164, %163 ]
   %158 = phi i8 [ %152, %.preheader ], [ %.pr573, %163 ]
   %159 = sext i8 %158 to i64
   %160 = getelementptr inbounds i16, ptr %156, i64 %159
@@ -825,13 +825,13 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br i1 %.not531, label %.loopexit, label %163
 
 163:                                              ; preds = %157
-  %164 = getelementptr inbounds i8, ptr %.3601, i64 1
+  %164 = getelementptr inbounds i8, ptr %.3602, i64 1
   %.pr573 = load i8, ptr %164, align 1
   %.not530 = icmp eq i8 %.pr573, 0
   br i1 %.not530, label %.thread, label %157
 
 .loopexit:                                        ; preds = %157, %154
-  %.2 = phi ptr [ %.0459667, %154 ], [ %.3601, %157 ]
+  %.2 = phi ptr [ %.0459668, %154 ], [ %.3602, %157 ]
   switch i8 %.1472, label %436 [
     i8 99, label %165
     i8 115, label %165
@@ -844,7 +844,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   %166 = icmp eq i64 %.1482, 0
   %spec.store.select3 = select i1 %166, i64 -1, i64 %.1482
   store ptr %.2, ptr %9, align 8
-  %scevgep689 = getelementptr i8, ptr %.2, i64 %spec.store.select3
+  %scevgep690 = getelementptr i8, ptr %.2, i64 %spec.store.select3
   br label %167
 
 167:                                              ; preds = %176, %165
@@ -870,7 +870,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   br i1 %179, label %180, label %167
 
 180:                                              ; preds = %176, %170, %167
-  %181 = phi ptr [ %scevgep689, %176 ], [ %168, %170 ], [ %168, %167 ]
+  %181 = phi ptr [ %scevgep690, %176 ], [ %168, %170 ], [ %168, %167 ]
   store ptr %181, ptr %9, align 8
   %182 = and i32 %.1495, 2
   %.not558 = icmp eq i32 %182, 0
@@ -1094,22 +1094,22 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
   %284 = or i32 %.1495, 112
   store ptr %10, ptr %9, align 8
   %spec.select577 = select i1 %or.cond6, i64 63, i64 %.1482
-  %.not542624 = icmp eq i64 %spec.select577, 0
-  br i1 %.not542624, label %._crit_edge631, label %.lr.ph630.preheader
+  %.not542625 = icmp eq i64 %spec.select577, 0
+  br i1 %.not542625, label %._crit_edge632, label %.lr.ph631.preheader
 
-.lr.ph630.preheader:                              ; preds = %282
-  %.pre691 = load i8, ptr %.2, align 1
-  br label %.lr.ph630
+.lr.ph631.preheader:                              ; preds = %282
+  %.pre692 = load i8, ptr %.2, align 1
+  br label %.lr.ph631
 
-.lr.ph630:                                        ; preds = %.lr.ph630.preheader, %318
-  %285 = phi i8 [ %320, %318 ], [ %.pre691, %.lr.ph630.preheader ]
-  %.5628 = phi ptr [ %319, %318 ], [ %.2, %.lr.ph630.preheader ]
-  %.3476627 = phi i32 [ %.6479, %318 ], [ %.1474, %.lr.ph630.preheader ]
-  %.4485626 = phi i64 [ %322, %318 ], [ %spec.select577, %.lr.ph630.preheader ]
-  %.2496625 = phi i32 [ %.6500, %318 ], [ %284, %.lr.ph630.preheader ]
-  %.idx = phi i64 [ %.add, %318 ], [ 0, %.lr.ph630.preheader ]
+.lr.ph631:                                        ; preds = %.lr.ph631.preheader, %318
+  %285 = phi i8 [ %320, %318 ], [ %.pre692, %.lr.ph631.preheader ]
+  %.5629 = phi ptr [ %319, %318 ], [ %.2, %.lr.ph631.preheader ]
+  %.3476628 = phi i32 [ %.6479, %318 ], [ %.1474, %.lr.ph631.preheader ]
+  %.4485627 = phi i64 [ %322, %318 ], [ %spec.select577, %.lr.ph631.preheader ]
+  %.2496626 = phi i32 [ %.6500, %318 ], [ %284, %.lr.ph631.preheader ]
+  %.idx = phi i64 [ %.add, %318 ], [ 0, %.lr.ph631.preheader ]
   %.ptr = getelementptr inbounds i8, ptr %10, i64 %.idx
-  switch i8 %285, label %._crit_edge631.loopexit [
+  switch i8 %285, label %._crit_edge632.loopexit [
     i8 48, label %286
     i8 49, label %296
     i8 50, label %296
@@ -1138,13 +1138,13 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
     i8 88, label %312
   ]
 
-286:                                              ; preds = %.lr.ph630
-  %287 = icmp eq i32 %.3476627, 16
-  %288 = or i32 %.2496625, 128
-  %289 = icmp eq i32 %.3476627, 0
+286:                                              ; preds = %.lr.ph631
+  %287 = icmp eq i32 %.3476628, 16
+  %288 = or i32 %.2496626, 128
+  %289 = icmp eq i32 %.3476628, 0
   %290 = or i1 %289, %287
-  %.5499 = select i1 %290, i32 %288, i32 %.2496625
-  %.5478 = select i1 %289, i32 8, i32 %.3476627
+  %.5499 = select i1 %290, i32 %288, i32 %.2496626
+  %.5478 = select i1 %289, i32 8, i32 %.3476628
   %291 = and i32 %.5499, 64
   %.not544 = icmp eq i32 %291, 0
   br i1 %.not544, label %294, label %292
@@ -1157,83 +1157,83 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
   %295 = and i32 %.5499, -241
   br label %318
 
-296:                                              ; preds = %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630
-  %297 = icmp eq i32 %.3476627, 0
-  %spec.store.select7 = select i1 %297, i32 10, i32 %.3476627
-  %298 = and i32 %.2496625, -177
+296:                                              ; preds = %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631
+  %297 = icmp eq i32 %.3476628, 0
+  %spec.store.select7 = select i1 %297, i32 10, i32 %.3476628
+  %298 = and i32 %.2496626, -177
   br label %318
 
-299:                                              ; preds = %.lr.ph630, %.lr.ph630
-  %300 = icmp eq i32 %.3476627, 0
-  %spec.store.select8 = select i1 %300, i32 10, i32 %.3476627
+299:                                              ; preds = %.lr.ph631, %.lr.ph631
+  %300 = icmp eq i32 %.3476628, 0
+  %spec.store.select8 = select i1 %300, i32 10, i32 %.3476628
   %301 = icmp slt i32 %spec.store.select8, 9
-  br i1 %301, label %._crit_edge631.loopexit, label %302
+  br i1 %301, label %._crit_edge632.loopexit, label %302
 
 302:                                              ; preds = %299
-  %303 = and i32 %.2496625, -177
+  %303 = and i32 %.2496626, -177
   br label %318
 
-304:                                              ; preds = %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630, %.lr.ph630
-  %305 = icmp slt i32 %.3476627, 11
-  br i1 %305, label %._crit_edge631.loopexit, label %306
+304:                                              ; preds = %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631, %.lr.ph631
+  %305 = icmp slt i32 %.3476628, 11
+  br i1 %305, label %._crit_edge632.loopexit, label %306
 
 306:                                              ; preds = %304
-  %307 = and i32 %.2496625, -177
+  %307 = and i32 %.2496626, -177
   br label %318
 
-308:                                              ; preds = %.lr.ph630, %.lr.ph630
-  %309 = and i32 %.2496625, 16
+308:                                              ; preds = %.lr.ph631, %.lr.ph631
+  %309 = and i32 %.2496626, 16
   %.not543 = icmp eq i32 %309, 0
-  br i1 %.not543, label %._crit_edge631.loopexit, label %310
+  br i1 %.not543, label %._crit_edge632.loopexit, label %310
 
 310:                                              ; preds = %308
-  %311 = and i32 %.2496625, -17
+  %311 = and i32 %.2496626, -17
   br label %318
 
-312:                                              ; preds = %.lr.ph630, %.lr.ph630
-  %313 = and i32 %.2496625, 128
+312:                                              ; preds = %.lr.ph631, %.lr.ph631
+  %313 = and i32 %.2496626, 128
   %314 = icmp ne i32 %313, 0
   %315 = icmp eq i64 %.idx, 1
   %or.cond12 = select i1 %314, i1 %315, i1 false
-  br i1 %or.cond12, label %316, label %._crit_edge631.loopexit
+  br i1 %or.cond12, label %316, label %._crit_edge632.loopexit
 
 316:                                              ; preds = %312
-  %317 = and i32 %.2496625, -129
+  %317 = and i32 %.2496626, -129
   br label %318
 
 318:                                              ; preds = %292, %294, %316, %310, %306, %302, %296
   %.6500 = phi i32 [ %317, %316 ], [ %311, %310 ], [ %307, %306 ], [ %303, %302 ], [ %298, %296 ], [ %293, %292 ], [ %295, %294 ]
-  %.6479 = phi i32 [ 16, %316 ], [ %.3476627, %310 ], [ %.3476627, %306 ], [ %spec.store.select8, %302 ], [ %spec.store.select7, %296 ], [ %.5478, %292 ], [ %.5478, %294 ]
-  %319 = getelementptr inbounds i8, ptr %.5628, i64 1
+  %.6479 = phi i32 [ 16, %316 ], [ %.3476628, %310 ], [ %.3476628, %306 ], [ %spec.store.select8, %302 ], [ %spec.store.select7, %296 ], [ %.5478, %292 ], [ %.5478, %294 ]
+  %319 = getelementptr inbounds i8, ptr %.5629, i64 1
   %.add = add nuw nsw i64 %.idx, 1
-  %.ptr677 = getelementptr inbounds i8, ptr %10, i64 %.add
-  store ptr %.ptr677, ptr %9, align 8
+  %.ptr678 = getelementptr inbounds i8, ptr %10, i64 %.add
+  store ptr %.ptr678, ptr %9, align 8
   store i8 %285, ptr %.ptr, align 1
   %320 = load i8, ptr %319, align 1
   %321 = icmp eq i8 %320, 0
-  %322 = add i64 %.4485626, -1
+  %322 = add i64 %.4485627, -1
   %.not542 = icmp eq i64 %322, 0
-  %or.cond675 = select i1 %321, i1 true, i1 %.not542
-  br i1 %or.cond675, label %._crit_edge631.loopexit, label %.lr.ph630
+  %or.cond676 = select i1 %321, i1 true, i1 %.not542
+  br i1 %or.cond676, label %._crit_edge632.loopexit, label %.lr.ph631
 
-._crit_edge631.loopexit:                          ; preds = %312, %308, %304, %299, %.lr.ph630, %318
-  %.idx.lcssa.sink = phi i64 [ %.add, %318 ], [ %.idx, %.lr.ph630 ], [ %.idx, %299 ], [ %.idx, %304 ], [ %.idx, %308 ], [ %.idx, %312 ]
-  %.3497.ph = phi i32 [ %.6500, %318 ], [ %.2496625, %.lr.ph630 ], [ %.2496625, %299 ], [ %.2496625, %304 ], [ %.2496625, %308 ], [ %.2496625, %312 ]
-  %.4477.ph = phi i32 [ %.6479, %318 ], [ %.3476627, %.lr.ph630 ], [ %.3476627, %299 ], [ %.3476627, %304 ], [ %.3476627, %308 ], [ %.3476627, %312 ]
-  %.6.ph = phi ptr [ %319, %318 ], [ %.5628, %.lr.ph630 ], [ %.5628, %299 ], [ %.5628, %304 ], [ %.5628, %308 ], [ %.5628, %312 ]
+._crit_edge632.loopexit:                          ; preds = %312, %308, %304, %299, %.lr.ph631, %318
+  %.idx.lcssa.sink = phi i64 [ %.add, %318 ], [ %.idx, %.lr.ph631 ], [ %.idx, %299 ], [ %.idx, %304 ], [ %.idx, %308 ], [ %.idx, %312 ]
+  %.3497.ph = phi i32 [ %.6500, %318 ], [ %.2496626, %.lr.ph631 ], [ %.2496626, %299 ], [ %.2496626, %304 ], [ %.2496626, %308 ], [ %.2496626, %312 ]
+  %.4477.ph = phi i32 [ %.6479, %318 ], [ %.3476628, %.lr.ph631 ], [ %.3476628, %299 ], [ %.3476628, %304 ], [ %.3476628, %308 ], [ %.3476628, %312 ]
+  %.6.ph = phi ptr [ %319, %318 ], [ %.5629, %.lr.ph631 ], [ %.5629, %299 ], [ %.5629, %304 ], [ %.5629, %308 ], [ %.5629, %312 ]
   %323 = getelementptr inbounds i8, ptr %10, i64 %.idx.lcssa.sink
-  br label %._crit_edge631
+  br label %._crit_edge632
 
-._crit_edge631:                                   ; preds = %._crit_edge631.loopexit, %282
-  %324 = phi ptr [ %10, %282 ], [ %323, %._crit_edge631.loopexit ]
-  %.3497 = phi i32 [ %284, %282 ], [ %.3497.ph, %._crit_edge631.loopexit ]
-  %.4477 = phi i32 [ %.1474, %282 ], [ %.4477.ph, %._crit_edge631.loopexit ]
-  %.6 = phi ptr [ %.2, %282 ], [ %.6.ph, %._crit_edge631.loopexit ]
+._crit_edge632:                                   ; preds = %._crit_edge632.loopexit, %282
+  %324 = phi ptr [ %10, %282 ], [ %323, %._crit_edge632.loopexit ]
+  %.3497 = phi i32 [ %284, %282 ], [ %.3497.ph, %._crit_edge632.loopexit ]
+  %.4477 = phi i32 [ %.1474, %282 ], [ %.4477.ph, %._crit_edge632.loopexit ]
+  %.6 = phi ptr [ %.2, %282 ], [ %.6.ph, %._crit_edge632.loopexit ]
   %325 = and i32 %.3497, 32
   %.not545 = icmp eq i32 %325, 0
   br i1 %.not545, label %326, label %.thread.sink.split
 
-326:                                              ; preds = %._crit_edge631
+326:                                              ; preds = %._crit_edge632
   %327 = getelementptr inbounds i8, ptr %324, i64 -1
   %328 = load i8, ptr %327, align 1
   switch i8 %328, label %331 [
@@ -1353,19 +1353,19 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
   %381 = or i32 %.1495, 816
   store ptr %10, ptr %9, align 8
   %spec.select578 = select i1 %or.cond16, i64 63, i64 %.1482
-  %.not532602 = icmp eq i64 %spec.select578, 0
-  br i1 %.not532602, label %._crit_edge, label %.lr.ph606.preheader
+  %.not532603 = icmp eq i64 %spec.select578, 0
+  br i1 %.not532603, label %._crit_edge, label %.lr.ph607.preheader
 
-.lr.ph606.preheader:                              ; preds = %379
-  %.pre690 = load i8, ptr %.2, align 1
-  br label %.lr.ph606
+.lr.ph607.preheader:                              ; preds = %379
+  %.pre691 = load i8, ptr %.2, align 1
+  br label %.lr.ph607
 
-.lr.ph606:                                        ; preds = %.lr.ph606.preheader, %400
-  %382 = phi i8 [ %403, %400 ], [ %.pre690, %.lr.ph606.preheader ]
-  %.8605 = phi ptr [ %401, %400 ], [ %.2, %.lr.ph606.preheader ]
-  %.5486604 = phi i64 [ %405, %400 ], [ %spec.select578, %.lr.ph606.preheader ]
-  %.7501603 = phi i32 [ %.9503, %400 ], [ %381, %.lr.ph606.preheader ]
-  %383 = phi ptr [ %402, %400 ], [ %10, %.lr.ph606.preheader ]
+.lr.ph607:                                        ; preds = %.lr.ph607.preheader, %400
+  %382 = phi i8 [ %403, %400 ], [ %.pre691, %.lr.ph607.preheader ]
+  %.8606 = phi ptr [ %401, %400 ], [ %.2, %.lr.ph607.preheader ]
+  %.5486605 = phi i64 [ %405, %400 ], [ %spec.select578, %.lr.ph607.preheader ]
+  %.7501604 = phi i32 [ %.9503, %400 ], [ %381, %.lr.ph607.preheader ]
+  %383 = phi ptr [ %402, %400 ], [ %10, %.lr.ph607.preheader ]
   switch i8 %382, label %._crit_edge [
     i8 48, label %384
     i8 49, label %384
@@ -1384,55 +1384,55 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
     i8 69, label %394
   ]
 
-384:                                              ; preds = %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606, %.lr.ph606
-  %385 = and i32 %.7501603, -49
+384:                                              ; preds = %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607, %.lr.ph607
+  %385 = and i32 %.7501604, -49
   br label %400
 
-386:                                              ; preds = %.lr.ph606, %.lr.ph606
-  %387 = and i32 %.7501603, 16
+386:                                              ; preds = %.lr.ph607, %.lr.ph607
+  %387 = and i32 %.7501604, 16
   %.not534 = icmp eq i32 %387, 0
   br i1 %.not534, label %._crit_edge, label %388
 
 388:                                              ; preds = %386
-  %389 = and i32 %.7501603, -17
+  %389 = and i32 %.7501604, -17
   br label %400
 
-390:                                              ; preds = %.lr.ph606
-  %391 = and i32 %.7501603, 256
+390:                                              ; preds = %.lr.ph607
+  %391 = and i32 %.7501604, 256
   %.not533 = icmp eq i32 %391, 0
   br i1 %.not533, label %._crit_edge, label %392
 
 392:                                              ; preds = %390
-  %393 = and i32 %.7501603, -273
+  %393 = and i32 %.7501604, -273
   br label %400
 
-394:                                              ; preds = %.lr.ph606, %.lr.ph606
-  %395 = and i32 %.7501603, 544
+394:                                              ; preds = %.lr.ph607, %.lr.ph607
+  %395 = and i32 %.7501604, 544
   %396 = icmp eq i32 %395, 512
   br i1 %396, label %397, label %._crit_edge
 
 397:                                              ; preds = %394
-  %398 = and i32 %.7501603, -817
+  %398 = and i32 %.7501604, -817
   %399 = or disjoint i32 %398, 48
   br label %400
 
 400:                                              ; preds = %397, %392, %388, %384
   %.9503 = phi i32 [ %399, %397 ], [ %393, %392 ], [ %389, %388 ], [ %385, %384 ]
-  %401 = getelementptr inbounds i8, ptr %.8605, i64 1
+  %401 = getelementptr inbounds i8, ptr %.8606, i64 1
   %402 = getelementptr inbounds i8, ptr %383, i64 1
   store ptr %402, ptr %9, align 8
   store i8 %382, ptr %383, align 1
   %403 = load i8, ptr %401, align 1
   %404 = icmp eq i8 %403, 0
-  %405 = add i64 %.5486604, -1
+  %405 = add i64 %.5486605, -1
   %.not532 = icmp eq i64 %405, 0
-  %or.cond676 = select i1 %404, i1 true, i1 %.not532
-  br i1 %or.cond676, label %._crit_edge, label %.lr.ph606
+  %or.cond677 = select i1 %404, i1 true, i1 %.not532
+  br i1 %or.cond677, label %._crit_edge, label %.lr.ph607
 
-._crit_edge:                                      ; preds = %394, %390, %386, %.lr.ph606, %400, %379
-  %406 = phi ptr [ %10, %379 ], [ %402, %400 ], [ %383, %.lr.ph606 ], [ %383, %386 ], [ %383, %390 ], [ %383, %394 ]
-  %.8502 = phi i32 [ %381, %379 ], [ %.9503, %400 ], [ %.7501603, %.lr.ph606 ], [ %.7501603, %386 ], [ %.7501603, %390 ], [ %.7501603, %394 ]
-  %.9 = phi ptr [ %.2, %379 ], [ %401, %400 ], [ %.8605, %.lr.ph606 ], [ %.8605, %386 ], [ %.8605, %390 ], [ %.8605, %394 ]
+._crit_edge:                                      ; preds = %394, %390, %386, %.lr.ph607, %400, %379
+  %406 = phi ptr [ %10, %379 ], [ %402, %400 ], [ %383, %.lr.ph607 ], [ %383, %386 ], [ %383, %390 ], [ %383, %394 ]
+  %.8502 = phi i32 [ %381, %379 ], [ %.9503, %400 ], [ %.7501604, %.lr.ph607 ], [ %.7501604, %386 ], [ %.7501604, %390 ], [ %.7501604, %394 ]
+  %.9 = phi ptr [ %.2, %379 ], [ %401, %400 ], [ %.8606, %.lr.ph607 ], [ %.8606, %386 ], [ %.8606, %390 ], [ %.8606, %394 ]
   %407 = and i32 %.8502, 32
   %.not535 = icmp eq i32 %407, 0
   br i1 %.not535, label %417, label %408
@@ -1505,18 +1505,18 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
   %.2475 = phi i32 [ %.1474, %.loopexit ], [ %.1474, %417 ], [ %.1474, %430 ], [ %.1474, %432 ], [ %.1474, %435 ], [ %.4477, %331 ], [ %.4477, %349 ], [ %.4477, %351 ], [ %.4477, %363 ], [ %.4477, %373 ], [ %.4477, %375 ], [ %.4477, %378 ], [ %.1474, %280 ], [ %.1474, %215 ], [ %.1474, %183 ], [ %.1474, %248 ], [ %.4477, %339 ], [ %.4477, %364 ], [ %.1474, %420 ]
   %.3468 = phi i32 [ %.1466, %.loopexit ], [ %.1466, %417 ], [ %423, %430 ], [ %423, %432 ], [ %423, %435 ], [ %.1466, %331 ], [ %342, %349 ], [ %342, %351 ], [ %342, %363 ], [ %366, %373 ], [ %366, %375 ], [ %366, %378 ], [ %.5470, %280 ], [ %.4469, %215 ], [ %.1466, %183 ], [ %.1466, %248 ], [ %.1466, %339 ], [ %.1466, %364 ], [ %.1466, %420 ]
   %.4 = phi ptr [ %.2, %.loopexit ], [ %.10, %417 ], [ %.10, %430 ], [ %.10, %432 ], [ %.10, %435 ], [ %.7, %331 ], [ %.7, %349 ], [ %.7, %351 ], [ %.7, %363 ], [ %.7, %373 ], [ %.7, %375 ], [ %.7, %378 ], [ %281, %280 ], [ %216, %215 ], [ %.2, %183 ], [ %.2, %248 ], [ %.7, %339 ], [ %.7, %364 ], [ %.10, %420 ]
-  %437 = add nsw i32 %.0461665, 1
+  %437 = add nsw i32 %.0461666, 1
   br label %.backedge
 
-.thread.sink.split:                               ; preds = %408, %._crit_edge631
-  %.9.lcssa.sink = phi ptr [ %.6, %._crit_edge631 ], [ %.9, %408 ]
+.thread.sink.split:                               ; preds = %408, %._crit_edge632
+  %.9.lcssa.sink = phi ptr [ %.6, %._crit_edge632 ], [ %.9, %408 ]
   %438 = load i8, ptr %.9.lcssa.sink, align 1
   %439 = icmp eq i8 %438, 0
   br label %.thread
 
 .thread:                                          ; preds = %151, %65, %163, %.thread.sink.split
   %440 = phi i1 [ %439, %.thread.sink.split ], [ true, %163 ], [ true, %65 ], [ true, %151 ]
-  %441 = icmp eq i32 %.0461665, 0
+  %441 = icmp eq i32 %.0461666, 0
   %or.cond18 = select i1 %440, i1 %441, i1 false
   br i1 %or.cond18, label %442, label %.thread575
 
@@ -1533,13 +1533,13 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
   call void @convert_to_null(ptr noundef %5) #10
   br label %scan_set_error_return.exit
 
-.thread575:                                       ; preds = %68, %243, %.backedge, %.lr.ph600, %.loopexit584, %.thread
-  %.0461593 = phi i32 [ %.0461665, %.thread ], [ 0, %.loopexit584 ], [ %.0461665, %.lr.ph600 ], [ %.0461665, %68 ], [ %.0461665, %243 ], [ %.0461.be, %.backedge ]
+.thread575:                                       ; preds = %68, %243, %.backedge, %.lr.ph601, %.loopexit584, %.thread
+  %.0461594 = phi i32 [ %.0461666, %.thread ], [ 0, %.loopexit584 ], [ %.0461666, %.lr.ph601 ], [ %.0461666, %68 ], [ %.0461666, %243 ], [ %.0461.be, %.backedge ]
   br i1 %.not518, label %scan_set_error_return.exit, label %446
 
 446:                                              ; preds = %.thread575
   call void @zval_ptr_dtor(ptr noundef %5) #10
-  %447 = sext i32 %.0461593 to i64
+  %447 = sext i32 %.0461594 to i64
   store i64 %447, ptr %5, align 8
   %448 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 4, ptr %448, align 8

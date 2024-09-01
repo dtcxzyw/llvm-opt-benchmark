@@ -18064,7 +18064,7 @@ for.inc.i.i483:                                   ; preds = %while.cond.i.i.i
   br i1 %cmp.not.i.i486, label %invoke.cont152, label %for.body.i.i481, !llvm.loop !100
 
 invoke.cont152:                                   ; preds = %for.inc.i.i483, %for.body.i.i481, %land.rhs.i.i.i, %land.rhs.i480, %invoke.cont150
-  %118 = phi i1 [ false, %invoke.cont150 ], [ true, %land.rhs.i480 ], [ false, %land.rhs.i.i.i ], [ %cmp.i.i.i482, %for.inc.i.i483 ], [ false, %for.body.i.i481 ]
+  %118 = phi i1 [ false, %invoke.cont150 ], [ true, %land.rhs.i480 ], [ false, %land.rhs.i.i.i ], [ %cmp.i.i.i482, %for.body.i.i481 ], [ %cmp.i.i.i482, %for.inc.i.i483 ]
   %call155 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %118, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 243, ptr noundef nonnull @.str.27)
           to label %invoke.cont154 unwind label %lpad135
 
@@ -18728,7 +18728,7 @@ for.inc.i.i757:                                   ; preds = %while.cond.i.i.i747
   br i1 %cmp.not.i.i760, label %invoke.cont239, label %for.body.i.i741, !llvm.loop !100
 
 invoke.cont239:                                   ; preds = %for.inc.i.i757, %for.body.i.i741, %land.rhs.i.i.i752, %land.rhs.i739, %invoke.cont237
-  %205 = phi i1 [ false, %invoke.cont237 ], [ true, %land.rhs.i739 ], [ false, %land.rhs.i.i.i752 ], [ %cmp.i.i.i746, %for.inc.i.i757 ], [ false, %for.body.i.i741 ]
+  %205 = phi i1 [ false, %invoke.cont237 ], [ true, %land.rhs.i739 ], [ false, %land.rhs.i.i.i752 ], [ %cmp.i.i.i746, %for.body.i.i741 ], [ %cmp.i.i.i746, %for.inc.i.i757 ]
   %call242 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %205, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.33)
           to label %invoke.cont241 unwind label %lpad199
 

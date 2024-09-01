@@ -7997,8 +7997,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 while.cond:                                       ; preds = %while.body, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i.not = icmp ne ptr %0, %1
-  br i1 %cmp.i.i.i.not, label %if.end, label %land.rhs
+  %cmp.i.i.i.not.not.not.not.not = icmp ne ptr %0, %1
+  br i1 %cmp.i.i.i.not.not.not.not.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
   %2 = load i8, ptr %done_, align 8
@@ -8077,7 +8077,7 @@ if.then3.i.i12:                                   ; preds = %if.else.i.i10
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit14
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %cleanup, %if.else.i.i10, %if.then3.i.i12
-  br i1 %cmp.i.i.i.not, label %cleanup.cont, label %return
+  br i1 %cmp.i.i.i.not.not.not.not.not, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit14
   %writerCv_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -8085,7 +8085,7 @@ cleanup.cont:                                     ; preds = %_ZNSt11unique_lockI
   br label %return
 
 return:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit14, %cleanup.cont
-  ret i1 %cmp.i.i.i.not
+  ret i1 %cmp.i.i.i.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZN7rocksdb24ShouldReportDetailedTimeEPNS_3EnvEPNS_10StatisticsE(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -9083,8 +9083,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 while.cond:                                       ; preds = %while.body, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i.not = icmp ne ptr %0, %1
-  br i1 %cmp.i.i.i.not, label %if.end, label %land.rhs
+  %cmp.i.i.i.not.not.not.not.not = icmp ne ptr %0, %1
+  br i1 %cmp.i.i.i.not.not.not.not.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
   %2 = load i8, ptr %done_, align 8
@@ -9163,7 +9163,7 @@ if.then3.i.i12:                                   ; preds = %if.else.i.i10
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit14
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %cleanup, %if.else.i.i10, %if.then3.i.i12
-  br i1 %cmp.i.i.i.not, label %cleanup.cont, label %return
+  br i1 %cmp.i.i.i.not.not.not.not.not, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit14
   %writerCv_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -9171,7 +9171,7 @@ cleanup.cont:                                     ; preds = %_ZNSt11unique_lockI
   br label %return
 
 return:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit14, %cleanup.cont
-  ret i1 %cmp.i.i.i.not
+  ret i1 %cmp.i.i.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14157,7 +14157,7 @@ if.then38:                                        ; preds = %if.end31
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end31, %if.then38, %if.then22
-  %retval.0.ph = phi i1 [ false, %if.then22 ], [ %cmp37, %if.then38 ], [ %cmp37, %if.end31 ]
+  %retval.0.ph = phi i1 [ false, %if.then22 ], [ true, %if.then38 ], [ false, %if.end31 ]
   %call43 = call i32 @deflateEnd(ptr noundef nonnull %_stream)
   br label %return
 

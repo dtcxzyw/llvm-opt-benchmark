@@ -2673,8 +2673,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge6Loader13SharedLibrary10getVersionE
 
 12:                                               ; preds = %13, %9
   %.06.i.i.i.i.i.i.i = phi i32 [ %11, %9 ], [ %17, %13 ]
-  %.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %13
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
@@ -2890,8 +2890,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge6Loader13SharedLibrary7getWasmEv(pt
 
 14:                                               ; preds = %15, %11
   %.06.i.i.i.i.i.i.i = phi i32 [ %13, %11 ], [ %19, %15 ]
-  %.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %15
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
@@ -2951,8 +2951,8 @@ _ZN8WasmEdge6Loader13SharedLibrary3getIjEENS_6SymbolIT_EEPKc.exit: ; preds = %15
 
 35:                                               ; preds = %36, %32
   %.06.i.i.i.i.i.i.i2 = phi i32 [ %34, %32 ], [ %40, %36 ]
-  %.not.i.not.i.i.i.i.i.i3 = icmp eq i32 %.06.i.i.i.i.i.i.i2, 0
-  br i1 %.not.i.not.i.i.i.i.i.i3, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i4, label %36
+  %.not.not.not.i.not.i.i.i.i.i.i3 = icmp eq i32 %.06.i.i.i.i.i.i.i2, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i3, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i4, label %36
 
 36:                                               ; preds = %35
   %37 = add nsw i32 %.06.i.i.i.i.i.i.i2, 1
@@ -3620,7 +3620,7 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
 
 21:                                               ; preds = %_ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS3_EEJS0_INS2_9Component9ComponentES4_IS8_EES6_EEbRKSt7variantIJDpT0_EE.exit
   %.not.i.i = icmp eq i8 %10, 1
-  br i1 %.not.i.i, label %.thread4, label %22
+  br i1 %.not.i.i, label %.thread8, label %22
 
 22:                                               ; preds = %21
   %23 = tail call ptr @__cxa_allocate_exception(i64 16) #21
@@ -3633,12 +3633,11 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
 .noexc:                                           ; preds = %22
   unreachable
 
-.thread4:                                         ; preds = %21
+.thread8:                                         ; preds = %21
   store i8 1, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i64, ptr %7, align 8
   store i64 %26, ptr %25, align 8
-  store ptr null, ptr %7, align 8
   br label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit
 
 27:                                               ; preds = %22
@@ -3658,31 +3657,31 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
   store i8 0, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 260, ptr %32, align 8
+  %.pre = load ptr, ptr %7, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
-  %33 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %34, label %35
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre, null
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %33, label %34
 
-34:                                               ; preds = %31
+33:                                               ; preds = %31
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit, label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34
-  tail call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #21
+_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %33
+  tail call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.pre) #21
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-35:                                               ; preds = %31
+34:                                               ; preds = %31
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit, label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %35
-  tail call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %33) #21
+_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34
+  tail call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %.pre) #21
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 712, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 96, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #25
   br label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit
 
-_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit: ; preds = %.thread4, %34, %35, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread
+_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit: ; preds = %33, %34, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread8, %.thread
   ret void
 }
 
@@ -3725,7 +3724,7 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
 
 22:                                               ; preds = %_ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS3_EEJS0_INS2_9Component9ComponentES4_IS8_EES6_EEbRKSt7variantIJDpT0_EE.exit
   %.not.i.i = icmp eq i8 %11, 1
-  br i1 %.not.i.i, label %.thread6, label %23
+  br i1 %.not.i.i, label %.thread10, label %23
 
 23:                                               ; preds = %22
   %24 = call ptr @__cxa_allocate_exception(i64 16) #21
@@ -3738,12 +3737,11 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
 .noexc:                                           ; preds = %23
   unreachable
 
-.thread6:                                         ; preds = %22
+.thread10:                                        ; preds = %22
   store i8 1, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i64, ptr %8, align 8
   store i64 %27, ptr %26, align 8
-  store ptr null, ptr %8, align 8
   br label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit
 
 28:                                               ; preds = %23
@@ -3763,31 +3761,31 @@ _ZSt17holds_alternativeISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteI
   store i8 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 260, ptr %33, align 8
+  %.pre = load ptr, ptr %8, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
-  %34 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %35, label %36
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre, null
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %34, label %35
 
-35:                                               ; preds = %32
+34:                                               ; preds = %32
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit, label %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %35
-  call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #21
+_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34
+  call void @_ZN8WasmEdge3AST9Component9ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.pre) #21
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-36:                                               ; preds = %32
+35:                                               ; preds = %32
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit, label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %36
-  call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %34) #21
+_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %35
+  call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %.pre) #21
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 712, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 96, %_ZNKSt14default_deleteIN8WasmEdge3AST9Component9ComponentEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #25
   br label %_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit
 
-_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit: ; preds = %.thread6, %35, %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread
+_ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS6_EES2_INS4_6ModuleES7_ISA_EEEENS3_7ErrCodeEED2Ev.exit: ; preds = %34, %35, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrIN8WasmEdge3AST9Component9ComponentESt14default_deleteIS8_EES4_INS6_6ModuleES9_ISC_EEEE8_M_resetEvEUlOT_E_RSt7variantIJSB_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.thread10, %.thread
   ret void
 }
 
@@ -34687,8 +34685,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge6Loader13SharedLibrary13getIntrinsi
 
 10:                                               ; preds = %11, %7
   %.06.i.i.i.i.i.i.i = phi i32 [ %9, %7 ], [ %15, %11 ]
-  %.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %11
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
@@ -34785,8 +34783,8 @@ _ZNSt12_Vector_baseIN8WasmEdge6SymbolIFvPvS2_PKNS0_7VariantIJjimlfdonDv2_mDv2_lD
 
 29:                                               ; preds = %30, %26
   %.06.i.i.i.i.i.i.i = phi i32 [ %28, %26 ], [ %34, %30 ]
-  %.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %30
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %30
 
 30:                                               ; preds = %29
   %31 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
@@ -35010,8 +35008,8 @@ _ZNSt12_Vector_baseIN8WasmEdge6SymbolIvEESaIS2_EE11_M_allocateEm.exit.i: ; preds
 
 31:                                               ; preds = %32, %28
   %.06.i.i.i.i.i.i.i = phi i32 [ %30, %28 ], [ %36, %32 ]
-  %.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %32
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i, label %32
 
 32:                                               ; preds = %31
   %33 = add nsw i32 %.06.i.i.i.i.i.i.i, 1

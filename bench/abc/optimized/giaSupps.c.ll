@@ -223,15 +223,15 @@ Abc_TtCountOnes2.exit.i.us:                       ; preds = %16, %.lr.ph.i.us
   %36 = add nuw nsw i32 %35, %.08.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Abc_TtCountOnesVec.exit.us, label %.lr.ph.i.us, !llvm.loop !8
+  br i1 %exitcond.not.i.us, label %.lr.ph.preheader.i22.us, label %.lr.ph.i.us, !llvm.loop !8
 
-Abc_TtCountOnesVec.exit.us:                       ; preds = %Abc_TtCountOnes2.exit.i.us
+.lr.ph.preheader.i22.us:                          ; preds = %Abc_TtCountOnes2.exit.i.us
   %37 = getelementptr inbounds i64, ptr %.val20, i64 %13
   br label %.lr.ph.i24.us
 
-.lr.ph.i24.us:                                    ; preds = %Abc_TtCountOnes2.exit.i28.us, %Abc_TtCountOnesVec.exit.us
-  %indvars.iv.i25.us = phi i64 [ 0, %Abc_TtCountOnesVec.exit.us ], [ %indvars.iv.next.i29.us, %Abc_TtCountOnes2.exit.i28.us ]
-  %.08.i26.us = phi i32 [ 0, %Abc_TtCountOnesVec.exit.us ], [ %60, %Abc_TtCountOnes2.exit.i28.us ]
+.lr.ph.i24.us:                                    ; preds = %Abc_TtCountOnes2.exit.i28.us, %.lr.ph.preheader.i22.us
+  %indvars.iv.i25.us = phi i64 [ 0, %.lr.ph.preheader.i22.us ], [ %indvars.iv.next.i29.us, %Abc_TtCountOnes2.exit.i28.us ]
+  %.08.i26.us = phi i32 [ 0, %.lr.ph.preheader.i22.us ], [ %60, %Abc_TtCountOnes2.exit.i28.us ]
   %38 = getelementptr inbounds i64, ptr %37, i64 %indvars.iv.i25.us
   %39 = load i64, ptr %38, align 8
   %.not.i.i27.us = icmp eq i64 %39, 0

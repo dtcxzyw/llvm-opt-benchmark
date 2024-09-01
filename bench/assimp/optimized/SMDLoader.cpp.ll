@@ -1631,19 +1631,16 @@ arrayctor.loop85:                                 ; preds = %arrayctor.loop85, %
   %arrayctor.next87 = getelementptr inbounds i8, ptr %arrayctor.cur86, i64 24
   %arrayctor.done88 = icmp eq ptr %arrayctor.next87, %arrayctor.end84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayctor.cur86, i8 0, i64 24, i1 false)
-  br i1 %arrayctor.done88, label %arrayctor.cont89, label %arrayctor.loop85
+  br i1 %arrayctor.done88, label %for.body95, label %arrayctor.loop85
 
-arrayctor.cont89:                                 ; preds = %arrayctor.loop85
-  br i1 %isempty82, label %for.end108, label %for.body95
-
-for.body95:                                       ; preds = %arrayctor.cont89, %for.inc106
-  %.pre557566 = phi ptr [ %.pre557567, %for.inc106 ], [ %58, %arrayctor.cont89 ]
-  %.pre556563 = phi ptr [ %.pre556564, %for.inc106 ], [ %57, %arrayctor.cont89 ]
-  %67 = phi ptr [ %75, %for.inc106 ], [ %58, %arrayctor.cont89 ]
-  %68 = phi ptr [ %76, %for.inc106 ], [ %57, %arrayctor.cont89 ]
-  %sub.ptr.div.i167481 = phi i64 [ %sub.ptr.div.i167, %for.inc106 ], [ %sub.ptr.div.i162, %arrayctor.cont89 ]
-  %conv91480 = phi i64 [ %conv91, %for.inc106 ], [ 0, %arrayctor.cont89 ]
-  %iBone.0479 = phi i32 [ %inc107, %for.inc106 ], [ 0, %arrayctor.cont89 ]
+for.body95:                                       ; preds = %arrayctor.loop85, %for.inc106
+  %.pre557566 = phi ptr [ %.pre557567, %for.inc106 ], [ %58, %arrayctor.loop85 ]
+  %.pre556563 = phi ptr [ %.pre556564, %for.inc106 ], [ %57, %arrayctor.loop85 ]
+  %67 = phi ptr [ %75, %for.inc106 ], [ %58, %arrayctor.loop85 ]
+  %68 = phi ptr [ %76, %for.inc106 ], [ %57, %arrayctor.loop85 ]
+  %sub.ptr.div.i167481 = phi i64 [ %sub.ptr.div.i167, %for.inc106 ], [ %sub.ptr.div.i162, %arrayctor.loop85 ]
+  %conv91480 = phi i64 [ %conv91, %for.inc106 ], [ 0, %arrayctor.loop85 ]
+  %iBone.0479 = phi i32 [ %inc107, %for.inc106 ], [ 0, %arrayctor.loop85 ]
   %arrayidx.i168 = getelementptr inbounds %"class.std::vector.45", ptr %.ptr411.ptr, i64 %conv91480
   %69 = load ptr, ptr %arrayidx, align 8
   %mNumVertices100 = getelementptr inbounds i8, ptr %69, i64 4
@@ -1785,7 +1782,7 @@ _ZNSt10unique_ptrIA_St6vectorISt4pairIjfESaIS2_EESt14default_deleteIS5_EED2Ev.ex
   tail call void @_ZdaPv(ptr noundef nonnull %call81) #27
   br label %delete.notnull.i.i361
 
-for.end108:                                       ; preds = %for.inc106, %invoke.cont80, %arrayctor.cont89
+for.end108:                                       ; preds = %for.inc106, %invoke.cont80
   %79 = load ptr, ptr %arrayidx, align 8
   %mNumFaces109 = getelementptr inbounds i8, ptr %79, i64 8
   %80 = load i32, ptr %mNumFaces109, align 8
@@ -10972,16 +10969,16 @@ for.body.i.i.i.i.i52:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i54, i64 8
   %incdec.ptr.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i53, i64 8
   %cmp.i.i.not.i.i.i.i.i57 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i55, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i57, label %for.body.i.i.i63.preheader, label %for.body.i.i.i.i.i52, !llvm.loop !99
+  br i1 %cmp.i.i.not.i.i.i.i.i57, label %invoke.cont35, label %for.body.i.i.i.i.i52, !llvm.loop !99
 
-for.body.i.i.i63.preheader:                       ; preds = %for.body.i.i.i.i.i52
+invoke.cont35:                                    ; preds = %for.body.i.i.i.i.i52
   %10 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i63
 
-for.body.i.i.i63:                                 ; preds = %for.body.i.i.i63.preheader, %for.body.i.i.i63
-  %__first.addr.04.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i66, %for.body.i.i.i63 ], [ %__position.coerce, %for.body.i.i.i63.preheader ]
+for.body.i.i.i63:                                 ; preds = %invoke.cont35, %for.body.i.i.i63
+  %__first.addr.04.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i66, %for.body.i.i.i63 ], [ %__position.coerce, %invoke.cont35 ]
   store i32 %2, ptr %__first.addr.04.i.i.i64, align 4
   %second3.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i64, i64 4
   store i32 %3, ptr %second3.i.i.i.i65, align 4

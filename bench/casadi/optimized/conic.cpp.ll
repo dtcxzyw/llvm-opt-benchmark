@@ -20242,12 +20242,9 @@ _ZNSt6vectorIxSaIxEE6resizeEmRKx.exit:            ; preds = %607, %609, %611, %6
 
 .loopexit477:                                     ; preds = %625
   %exitcond532.not = icmp eq i64 %615, %smax531
-  br i1 %exitcond532.not, label %.preheader, label %.lr.ph518, !llvm.loop !154
+  br i1 %exitcond532.not, label %.lr.ph520, label %.lr.ph518, !llvm.loop !154
 
-.preheader:                                       ; preds = %.loopexit477
-  br i1 %.not.i.i.i.i, label %._crit_edge521, label %.lr.ph520
-
-.lr.ph520:                                        ; preds = %.preheader
+.lr.ph520:                                        ; preds = %.loopexit477
   %.promoted = load i64, ptr %594, align 8
   %614 = load ptr, ptr %1, align 8
   %smax533 = call i64 @llvm.smax.i64(i64 %80, i64 1)
@@ -20300,7 +20297,7 @@ _ZNSt6vectorIxSaIxEE6resizeEmRKx.exit:            ; preds = %607, %609, %611, %6
   %exitcond534.not = icmp eq i64 %635, %smax533
   br i1 %exitcond534.not, label %._crit_edge521, label %633, !llvm.loop !156
 
-._crit_edge521:                                   ; preds = %633, %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit, %.preheader
+._crit_edge521:                                   ; preds = %633, %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit
   %641 = getelementptr inbounds i8, ptr %0, i64 1424
   %642 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @_ZNK6casadi8Sparsity9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %74, ptr noundef nonnull align 8 dereferenceable(8) %641, ptr noundef nonnull align 8 dereferenceable(24) %642, i1 noundef zeroext false)

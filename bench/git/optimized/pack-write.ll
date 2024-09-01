@@ -212,8 +212,8 @@ while.cond.preheader:                             ; preds = %if.end27, %while.en
   br i1 %cmp32157, label %while.body, label %while.end
 
 for.cond44.preheader:                             ; preds = %while.end
-  %cmp45163 = icmp slt i32 %nr_objects, 1
-  br i1 %cmp45163, label %if.end122, label %for.body47
+  %cmp45163 = icmp sgt i32 %nr_objects, 0
+  br i1 %cmp45163, label %for.body47, label %if.end122
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end39
   %next.0158 = phi ptr [ %incdec.ptr, %if.end39 ], [ %list.1162, %while.cond.preheader ]
@@ -326,13 +326,9 @@ for.inc73:                                        ; preds = %if.end55, %oideq.ex
   br i1 %exitcond182.not, label %for.end75, label %for.body47, !llvm.loop !10
 
 for.end75:                                        ; preds = %for.inc73
-  %brmerge = or i1 %cond143, %cmp45163
-  br i1 %brmerge, label %if.end122, label %for.body82
+  br i1 %cond143, label %if.end122, label %for.body82
 
-for.cond88.preheader:                             ; preds = %for.body82
-  br i1 %cmp45163, label %if.end122, label %for.body91.lr.ph
-
-for.body91.lr.ph:                                 ; preds = %for.cond88.preheader
+for.body91.lr.ph:                                 ; preds = %for.body82
   %off32_limit.i94 = getelementptr inbounds i8, ptr %opts, i64 8
   %anomaly_nr.i98 = getelementptr inbounds i8, ptr %opts, i64 16
   %anomaly.i102 = getelementptr inbounds i8, ptr %opts, i64 24
@@ -352,7 +348,7 @@ for.body82:                                       ; preds = %for.end75, %for.bod
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i84)
   %inc86 = add nuw nsw i32 %i.3167, 1
   %exitcond183.not = icmp eq i32 %inc86, %nr_objects
-  br i1 %exitcond183.not, label %for.cond88.preheader, label %for.body82, !llvm.loop !11
+  br i1 %exitcond183.not, label %for.body91.lr.ph, label %for.body82, !llvm.loop !11
 
 while.cond109.preheader:                          ; preds = %cond.end103
   %tobool110.not175 = icmp eq i32 %nr_large_offset.1, 0
@@ -482,7 +478,7 @@ while.cond109.backedge:                           ; preds = %need_large_offset.e
   %tobool110.not = icmp eq i32 %nr_large_offset.2.be, 0
   br i1 %tobool110.not, label %if.end122, label %while.body111, !llvm.loop !14
 
-if.end122:                                        ; preds = %while.cond109.backedge, %for.end75, %for.cond44.preheader, %for.cond88.preheader, %while.cond109.preheader
+if.end122:                                        ; preds = %while.cond109.backedge, %for.end75, %for.cond44.preheader, %while.cond109.preheader
   %38 = load ptr, ptr @the_repository, align 8
   %hash_algo123 = getelementptr inbounds i8, ptr %38, i64 256
   %39 = load ptr, ptr %hash_algo123, align 8

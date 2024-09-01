@@ -6397,7 +6397,7 @@ land.rhs.i.i181:                                  ; preds = %_ZNK7rocksdb15Multi
   br i1 %tobool.not.i.i185, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit189, label %while.cond.i.i186
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit189: ; preds = %while.cond.i.i186, %land.rhs.i.i181, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit169.thread
-  %ref.tmp10.sroa.3.1 = phi i64 [ %ref.tmp.sroa.2.1.sink, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit169.thread ], [ %.sink.i, %while.cond.i.i186 ], [ %ref.tmp10.sroa.3.0, %land.rhs.i.i181 ]
+  %ref.tmp10.sroa.3.1 = phi i64 [ %ref.tmp.sroa.2.1.sink, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit169.thread ], [ %ref.tmp10.sroa.3.0, %land.rhs.i.i181 ], [ %.sink.i, %while.cond.i.i186 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 3584
   %arrayidx.i.i.i193 = getelementptr inbounds [32 x ptr], ptr %22, i64 0, i64 %ref.tmp10.sroa.3.1
   %23 = load ptr, ptr %arrayidx.i.i.i193, align 8
@@ -24983,7 +24983,7 @@ land.rhs.i.i23:                                   ; preds = %_ZNK7rocksdb15Multi
   br i1 %tobool.not.i.i27, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit31, label %while.cond.i.i28
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit31: ; preds = %while.cond.i.i28, %land.rhs.i.i23, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit.thread
-  %ref.tmp9.sroa.3.1 = phi i64 [ %1, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit.thread ], [ %0, %while.cond.i.i28 ], [ %ref.tmp9.sroa.3.0, %land.rhs.i.i23 ]
+  %ref.tmp9.sroa.3.1 = phi i64 [ %1, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit.thread ], [ %ref.tmp9.sroa.3.0, %land.rhs.i.i23 ], [ %0, %while.cond.i.i28 ]
   %19 = getelementptr inbounds i8, ptr %2, i64 3584
   %arrayidx.i.i.i35 = getelementptr inbounds [32 x ptr], ptr %19, i64 0, i64 %ref.tmp9.sroa.3.1
   %20 = load ptr, ptr %arrayidx.i.i.i35, align 8

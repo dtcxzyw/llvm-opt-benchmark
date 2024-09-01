@@ -65,39 +65,33 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %1, align 8
   %.not52.not = icmp eq i32 %3, 0
-  br i1 %.not83, label %.lr.ph93.split.us, label %.lr.ph93.split
+  %21 = add nuw nsw i64 %9, 1
+  %22 = add nuw nsw i64 %6, 1
+  %wide.trip.count152 = and i64 %22, 4294967295
+  %wide.trip.count147 = and i64 %21, 4294967295
+  br i1 %2, label %.lr.ph93.split.split.us, label %.lr.ph93.split.split
 
-.lr.ph93.split.us:                                ; preds = %.lr.ph93
-  br i1 %.not52.not, label %._crit_edge94.split.us, label %.lr.ph93.split.us.split.preheader
-
-.lr.ph93.split.us.split.preheader:                ; preds = %.lr.ph93.thread, %.lr.ph93.split.us
+.lr.ph93.split.us.split.preheader:                ; preds = %.lr.ph93.thread
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
-  %21 = add nuw i32 %smax, 1
+  %23 = add nuw i32 %smax, 1
   br label %.lr.ph93.split.us.split
 
-.lr.ph93.split.us.split:                          ; preds = %.lr.ph93.split.us.split.preheader, %22
-  %.04591.us = phi i32 [ %23, %22 ], [ 1, %.lr.ph93.split.us.split.preheader ]
-  %exitcond154 = icmp eq i32 %.04591.us, %21
-  br i1 %exitcond154, label %.split, label %22
+.lr.ph93.split.us.split:                          ; preds = %.lr.ph93.split.us.split.preheader, %24
+  %.04591.us = phi i32 [ %25, %24 ], [ 1, %.lr.ph93.split.us.split.preheader ]
+  %exitcond154 = icmp eq i32 %.04591.us, %23
+  br i1 %exitcond154, label %.split, label %24
 
-22:                                               ; preds = %.lr.ph93.split.us.split
-  %23 = add nuw i32 %.04591.us, 1
+24:                                               ; preds = %.lr.ph93.split.us.split
+  %25 = add nuw i32 %.04591.us, 1
   %exitcond155.not = icmp eq i32 %.04591.us, %7
   br i1 %exitcond155.not, label %._crit_edge94.split.us, label %.lr.ph93.split.us.split, !llvm.loop !5
 
-._crit_edge94.split.us:                           ; preds = %22, %.lr.ph93.split.us, %.lr.ph93.thread
-  %.us-phi = phi i32 [ %7, %.lr.ph93.thread ], [ %7, %.lr.ph93.split.us ], [ %.04591.us, %22 ]
+._crit_edge94.split.us:                           ; preds = %24, %.lr.ph93.thread
+  %.us-phi = phi i32 [ %7, %.lr.ph93.thread ], [ %.04591.us, %24 ]
   store i32 %.us-phi, ptr %.sroa.0.0, align 4
   br label %._crit_edge94
 
-.lr.ph93.split:                                   ; preds = %.lr.ph93
-  %24 = add nuw nsw i64 %9, 1
-  %25 = add nuw nsw i64 %6, 1
-  %wide.trip.count152 = and i64 %25, 4294967295
-  %wide.trip.count147 = and i64 %24, 4294967295
-  br i1 %2, label %.lr.ph93.split.split.us, label %.lr.ph93.split.split
-
-.lr.ph93.split.split.us:                          ; preds = %.lr.ph93.split
+.lr.ph93.split.split.us:                          ; preds = %.lr.ph93
   %invariant.gep167 = getelementptr i8, ptr %20, i64 -1
   br i1 %.not52.not, label %.lr.ph89.us.us, label %.lr.ph89.us
 
@@ -175,7 +169,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = icmp sgt i32 %.sroa.speculated62.us.us, %3
   br i1 %55, label %.split, label %44
 
-.lr.ph93.split.split:                             ; preds = %.lr.ph93.split
+.lr.ph93.split.split:                             ; preds = %.lr.ph93
   br i1 %.not52.not, label %.lr.ph89.us98, label %.lr.ph89
 
 .lr.ph89.us98:                                    ; preds = %.lr.ph93.split.split, %._crit_edge.split.us

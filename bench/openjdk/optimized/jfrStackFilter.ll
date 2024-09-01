@@ -42,32 +42,30 @@ define hidden noundef zeroext i1 @_ZNK14JfrStackFilter5matchEPK6Method(ptr nocap
   %18 = load ptr, ptr %17, align 8
   br label %19
 
-19:                                               ; preds = %.lr.ph, %30
-  %20 = phi i1 [ true, %.lr.ph ], [ %32, %30 ]
-  %.01317 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %21 = getelementptr inbounds ptr, ptr %16, i64 %.01317
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  %24 = icmp eq ptr %22, %12
-  %or.cond = or i1 %23, %24
-  br i1 %or.cond, label %25, label %30
+19:                                               ; preds = %.lr.ph, %29
+  %.01317 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %.01317
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  %23 = icmp eq ptr %21, %12
+  %or.cond = or i1 %22, %23
+  br i1 %or.cond, label %24, label %29
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds ptr, ptr %18, i64 %.01317
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  %29 = icmp eq ptr %27, %13
-  %or.cond16 = or i1 %28, %29
-  br i1 %or.cond16, label %._crit_edge, label %30
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds ptr, ptr %18, i64 %.01317
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  %28 = icmp eq ptr %26, %13
+  %or.cond16 = or i1 %27, %28
+  br i1 %or.cond16, label %._crit_edge, label %29
 
-30:                                               ; preds = %25, %19
-  %31 = add nuw i64 %.01317, 1
-  %32 = icmp ult i64 %31, %14
-  %exitcond.not = icmp eq i64 %31, %14
+29:                                               ; preds = %24, %19
+  %30 = add nuw i64 %.01317, 1
+  %exitcond.not = icmp eq i64 %30, %14
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %25, %30, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %32, %30 ], [ %20, %25 ]
+._crit_edge:                                      ; preds = %24, %29, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %29 ], [ true, %24 ]
   ret i1 %.lcssa
 }
 

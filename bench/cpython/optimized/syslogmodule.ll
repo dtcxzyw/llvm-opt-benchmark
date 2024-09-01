@@ -114,8 +114,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 4
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add29 = phi i64 [ %add25, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -130,21 +130,21 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1035, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1035, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %4 = getelementptr i8, ptr %3, i64 8
-  %.val = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %.val, i64 168
-  %call18.val = load i64, ptr %5, align 8
-  %6 = and i64 %call18.val, 268435456
-  %tobool20.not = icmp eq i64 %6, 0
+  %3 = getelementptr i8, ptr %2, i64 8
+  %.val = load ptr, ptr %3, align 8
+  %4 = getelementptr i8, ptr %.val, i64 168
+  %call18.val = load i64, ptr %4, align 8
+  %5 = and i64 %call18.val, 268435456
+  %tobool20.not = icmp eq i64 %5, 0
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.then16
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #4
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #4
   br label %exit
 
 if.end23:                                         ; preds = %if.then16
@@ -155,12 +155,12 @@ if.end23:                                         ; preds = %if.then16
 if.end28:                                         ; preds = %if.end23, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end23 ], [ %add3034, %if.end14 ]
   %arrayidx29 = getelementptr i8, ptr %cond1035, i64 8
-  %7 = load ptr, ptr %arrayidx29, align 8
-  %tobool30.not = icmp eq ptr %7, null
+  %6 = load ptr, ptr %arrayidx29, align 8
+  %tobool30.not = icmp eq ptr %6, null
   br i1 %tobool30.not, label %if.end44, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %call33 = call i64 @PyLong_AsLong(ptr noundef nonnull %7) #4
+  %call33 = call i64 @PyLong_AsLong(ptr noundef nonnull %6) #4
   %cmp34 = icmp eq i64 %call33, -1
   br i1 %cmp34, label %land.lhs.true35, label %if.end39
 
@@ -176,8 +176,8 @@ if.end39:                                         ; preds = %land.lhs.true35, %i
 if.end44:                                         ; preds = %if.end39, %if.end28
   %logopt.1 = phi i64 [ %call33, %if.end39 ], [ 0, %if.end28 ]
   %arrayidx45 = getelementptr i8, ptr %cond1035, i64 16
-  %8 = load ptr, ptr %arrayidx45, align 8
-  %call46 = call i64 @PyLong_AsLong(ptr noundef %8) #4
+  %7 = load ptr, ptr %arrayidx45, align 8
+  %call46 = call i64 @PyLong_AsLong(ptr noundef %7) #4
   %cmp47 = icmp eq i64 %call46, -1
   br i1 %cmp47, label %land.lhs.true48, label %skip_optional_pos
 
@@ -187,7 +187,7 @@ land.lhs.true48:                                  ; preds = %if.end44
   br i1 %tobool50.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end44, %land.lhs.true48, %if.end39, %if.end23, %if.end
-  %ident.0 = phi ptr [ %3, %land.lhs.true48 ], [ %3, %if.end44 ], [ %3, %if.end39 ], [ %3, %if.end23 ], [ null, %if.end ]
+  %ident.0 = phi ptr [ %2, %land.lhs.true48 ], [ %2, %if.end44 ], [ %2, %if.end39 ], [ %2, %if.end23 ], [ null, %if.end ]
   %logopt.0 = phi i64 [ %logopt.1, %land.lhs.true48 ], [ %logopt.1, %if.end44 ], [ %call33, %if.end39 ], [ 0, %if.end23 ], [ 0, %if.end ]
   %facility.0 = phi i64 [ -1, %land.lhs.true48 ], [ %call46, %if.end44 ], [ 8, %if.end39 ], [ 8, %if.end23 ], [ 8, %if.end ]
   %call53 = call fastcc ptr @syslog_openlog_impl(ptr noundef %ident.0, i64 noundef %logopt.0, i64 noundef %facility.0)

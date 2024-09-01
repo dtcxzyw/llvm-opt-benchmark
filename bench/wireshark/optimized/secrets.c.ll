@@ -503,8 +503,8 @@ declare void @gnutls_pkcs11_set_pin_function(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) #7 {
-  %.not.not = icmp eq ptr %0, null
-  br i1 %.not.not, label %.thread, label %8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %7
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16

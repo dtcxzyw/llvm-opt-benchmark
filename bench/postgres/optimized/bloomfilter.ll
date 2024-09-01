@@ -130,7 +130,7 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = trunc i64 %2 to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -174,9 +174,13 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %k_hashes.exit
-  %27 = zext nneg i32 %15 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  %28 = load i32, ptr %4, align 16
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %27 = getelementptr [10 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 3
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr [0 x i8], ptr %25, i64 0, i64 %30
@@ -185,35 +189,14 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
   %34 = and i32 %28, 7
   %35 = shl nuw nsw i32 1, %34
   %36 = and i32 %35, %33
-  %.not14 = icmp eq i32 %36, 0
-  br i1 %.not14, label %._crit_edge, label %.lr.ph16
+  %.not = icmp eq i32 %36, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond14.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %.not, i1 true, i1 %exitcond14.not
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-.lr.ph16:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
-  %exitcond13.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond13.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
-
-.lr.ph:                                           ; preds = %.lr.ph16
-  %37 = getelementptr [10 x i32], ptr %4, i64 0, i64 %indvars.iv.next
-  %38 = load i32, ptr %37, align 4
-  %39 = lshr i32 %38, 3
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [0 x i8], ptr %25, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = and i32 %38, 7
-  %45 = shl nuw nsw i32 1, %44
-  %46 = and i32 %45, %43
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph16, !llvm.loop !9
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph16
-  %47 = icmp ult i64 %indvars.iv.next, %27
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %k_hashes.exit
-  %.lcssa = phi i1 [ false, %k_hashes.exit ], [ true, %.lr.ph.preheader ], [ %47, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %k_hashes.exit
+  %.lcssa = phi i1 [ false, %k_hashes.exit ], [ %.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

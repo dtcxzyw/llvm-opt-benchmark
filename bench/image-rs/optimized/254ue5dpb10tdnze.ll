@@ -17913,7 +17913,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c564382f77062b0983ee7bf00026c29e.116.llvm.1814251078191383949, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.117.llvm.1814251078191383949) #18, !noalias !1736
   unreachable
 
-.loopexit.split-lp:                               ; preds = %.split.us.invoke, %15, %57, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hda331663880fad07E.llvm.1814251078191383949.exit.i", %123
+.loopexit.split-lp:                               ; preds = %.split.us.invoke, %15, %57, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17hda331663880fad07E.llvm.1814251078191383949.exit.i", %122
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %14
@@ -17921,7 +17921,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 14:                                               ; preds = %.loopexit.split-lp, %.loopexit.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #19
-          to label %128 unwind label %126
+          to label %127 unwind label %125
 
 15:                                               ; preds = %3
   %.fca.1.extract.i59 = extractvalue { i64, i64 } %12, 1
@@ -18016,7 +18016,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   br label %.noexc.us
 
 .noexc.us:                                        ; preds = %.noexc.us.preheader, %114
-  %64 = phi i32 [ %120, %114 ], [ 1, %.noexc.us.preheader ]
+  %64 = phi i32 [ %119, %114 ], [ 1, %.noexc.us.preheader ]
   %spec.select106111.us = phi i32 [ %spec.select106.us, %114 ], [ 0, %.noexc.us.preheader ]
   %spec.select110.us = phi i32 [ %spec.select.us, %114 ], [ %63, %.noexc.us.preheader ]
   %.sroa.3.0109.us = phi ptr [ %65, %114 ], [ %.sroa.4.0.copyload, %.noexc.us.preheader ]
@@ -18103,21 +18103,21 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
 
 114:                                              ; preds = %110
   %115 = fptoui double %.0.in.sroa.speculate.load.3.sroa.speculated.i76.us to i16
-  %116 = zext i16 %115 to i64
-  %.sroa.6.0.insert.shift.i.us = shl nuw i64 %116, 48
-  %117 = shl nuw nsw i64 %109, 32
-  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %117, %.sroa.6.0.insert.shift.i.us
-  %118 = shl nuw nsw i64 %102, 16
-  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %118
+  %.sroa.6.0.insert.ext.i.us = zext i16 %115 to i64
+  %.sroa.6.0.insert.shift.i.us = shl nuw i64 %.sroa.6.0.insert.ext.i.us, 48
+  %116 = shl nuw nsw i64 %109, 32
+  %.sroa.5.0.insert.insert.i.us = or disjoint i64 %116, %.sroa.6.0.insert.shift.i.us
+  %117 = shl nuw nsw i64 %102, 16
+  %.sroa.4.0.insert.insert.i.us = or disjoint i64 %.sroa.5.0.insert.insert.i.us, %117
   %.sroa.0.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.insert.i.us, %90
   store i64 %.sroa.0.0.insert.insert.i.us, ptr %.sroa.3.0109.us, align 2
   %.not.i.us = icmp uge i32 %64, %9
-  %119 = zext i1 %.not.i.us to i32
-  %spec.select.us = add i32 %spec.select110.us, %119
+  %118 = zext i1 %.not.i.us to i32
+  %spec.select.us = add i32 %spec.select110.us, %118
   %spec.select106.us = select i1 %.not.i.us, i32 0, i32 %64
-  %120 = add nuw i32 %spec.select106.us, 1
-  %121 = icmp ult i64 %66, 4
-  br i1 %121, label %.noexc.thread, label %.noexc.us
+  %119 = add nuw i32 %spec.select106.us, 1
+  %120 = icmp ult i64 %66, 4
+  br i1 %120, label %.noexc.thread, label %.noexc.us
 
 .loopexit.split.us:                               ; preds = %68
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -18125,10 +18125,10 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   br label %14
 
 .noexc:                                           ; preds = %.noexc.lr.ph
-  %122 = icmp eq ptr %.sroa.4.0.copyload, null
-  br i1 %122, label %.noexc.thread, label %123
+  %121 = icmp eq ptr %.sroa.4.0.copyload, null
+  br i1 %121, label %.noexc.thread, label %122
 
-123:                                              ; preds = %.noexc
+122:                                              ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1750
   store i64 %.sroa.6.0.copyload.fr, ptr %5, align 8, !noalias !1750
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1750
@@ -18136,7 +18136,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   invoke void @_ZN4core9panicking13assert_failed17h64770f2edd15d02fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.122.llvm.1609853135345852838, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.118.llvm.1609853135345852838) #18
           to label %.noexc64 unwind label %.loopexit.split-lp
 
-.noexc64:                                         ; preds = %123
+.noexc64:                                         ; preds = %122
   unreachable
 
 .noexc.thread:                                    ; preds = %.noexc.us, %114, %.noexc, %60
@@ -18145,21 +18145,21 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   ret void
 
 .split.us.invoke:                                 ; preds = %110, %103, %91, %70, %.noexc60
-  %124 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %110 ]
-  %125 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.38, %110 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %125) #18
+  %123 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.55.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %70 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, %110 ]
+  %124 = phi ptr [ @anon.c564382f77062b0983ee7bf00026c29e.111.llvm.1814251078191383949, %.noexc60 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.38, %110 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.37, %103 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.36, %91 ], [ @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.35, %70 ]
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %123, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #18
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-126:                                              ; preds = %14
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %14
+  %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-128:                                              ; preds = %14
+127:                                              ; preds = %14
   resume { ptr, i32 } %lpad.phi
 }
 

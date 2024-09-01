@@ -954,8 +954,8 @@ if.end:                                           ; preds = %if.then, %entry
   %m_clampWhite = getelementptr inbounds i8, ptr %call2, i64 264
   %3 = load double, ptr %m_clampWhite, align 8
   %call5 = tail call noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampWhiteEv()
-  %cmp6 = fcmp une double %3, %call5
-  br i1 %cmp6, label %if.end12, label %if.end9
+  %cmp6 = fcmp oeq double %3, %call5
+  br i1 %cmp6, label %if.end9, label %if.end12
 
 if.end9:                                          ; preds = %if.end
   %call8 = tail call noundef double @_ZN19OpenColorIO_v2_4dev11RangeOpData10EmptyValueEv()

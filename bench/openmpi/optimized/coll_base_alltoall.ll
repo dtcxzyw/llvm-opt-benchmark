@@ -186,7 +186,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %33, %45, %59, %61
   br i1 %.not90, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %88, %85, %82, %76, %72, %ompi_comm_peer_lookup.exit, %31, %.preheader
-  %.068 = phi i32 [ 0, %.preheader ], [ %94, %92 ], [ %91, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %76 ], [ %74, %72 ], [ %71, %ompi_comm_peer_lookup.exit ], [ 0, %31 ]
+  %.068 = phi i32 [ 0, %.preheader ], [ 0, %31 ], [ %71, %ompi_comm_peer_lookup.exit ], [ %74, %72 ], [ %81, %76 ], [ %84, %82 ], [ %87, %85 ], [ %91, %88 ], [ %94, %92 ]
   call void @free(ptr noundef nonnull %24) #7
   br label %.thread
 

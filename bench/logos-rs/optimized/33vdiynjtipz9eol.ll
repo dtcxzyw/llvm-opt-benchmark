@@ -113,8 +113,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit: ; pr
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit14: ; preds = %27, %22, %17, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit
   %.sroa.3.0.i12.pn = phi i8 [ %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ undef, %17 ], [ %26, %22 ], [ %26, %27 ]
-  %.sroa.0.0.in = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
-  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.in, 0
+  %.sroa.0.0 = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
+  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %16 = insertvalue { i1, i8 } %15, i8 %.sroa.3.0.i12.pn, 1
   ret { i1, i8 } %16
 
@@ -359,8 +359,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit: ; pr
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit14: ; preds = %27, %22, %17, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit
   %.sroa.3.0.i12.pn = phi i8 [ %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ undef, %17 ], [ %26, %22 ], [ %26, %27 ]
-  %.sroa.0.0.in = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
-  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.in, 0
+  %.sroa.0.0 = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
+  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %16 = insertvalue { i1, i8 } %15, i8 %.sroa.3.0.i12.pn, 1
   ret { i1, i8 } %16
 
@@ -427,8 +427,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit: ; pr
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit14: ; preds = %27, %22, %17, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit
   %.sroa.3.0.i12.pn = phi i8 [ %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ undef, %17 ], [ %26, %22 ], [ %26, %27 ]
-  %.sroa.0.0.in = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
-  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.in, 0
+  %.sroa.0.0 = phi i1 [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit ], [ false, %17 ], [ true, %22 ], [ false, %27 ]
+  %15 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %16 = insertvalue { i1, i8 } %15, i8 %.sroa.3.0.i12.pn, 1
   ret { i1, i8 } %16
 

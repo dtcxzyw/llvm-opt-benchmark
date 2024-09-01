@@ -1607,8 +1607,8 @@ lpad96:                                           ; preds = %if.then94
 if.end98:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt6TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit
   %tile99 = getelementptr inbounds i8, ptr %thread_info, i64 80
   %64 = load ptr, ptr %tile99, align 8
-  %cmp.i129.not.not = icmp eq ptr %64, null
-  br i1 %cmp.i129.not.not, label %return, label %if.end103
+  %cmp.i129.not = icmp eq ptr %64, null
+  br i1 %cmp.i129.not, label %return, label %if.end103
 
 if.end103:                                        ; preds = %if.end98
   %65 = load i32, ptr %tile_height, align 4

@@ -299,18 +299,15 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
 38:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph.i, label %33, !llvm.loop !8
 
 ._crit_edge.split.loop.exit129:                   ; preds = %33
   %39 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge
+  br label %.lr.ph.i
 
-._crit_edge:                                      ; preds = %38, %._crit_edge.split.loop.exit129
+.lr.ph.i:                                         ; preds = %38, %._crit_edge.split.loop.exit129
   %.171 = phi ptr [ %34, %._crit_edge.split.loop.exit129 ], [ %.070, %38 ]
   %.169 = phi i32 [ %39, %._crit_edge.split.loop.exit129 ], [ %.068, %38 ]
-  br i1 %30, label %.lr.ph.i, label %logicalrep_sync_worker_count.exit
-
-.lr.ph.i:                                         ; preds = %._crit_edge
   %40 = load ptr, ptr @LogicalRepCtx, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %wide.trip.count.i = zext nneg i32 %29 to i64
@@ -344,10 +341,10 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %logicalrep_sync_worker_count.exit, label %42, !llvm.loop !9
 
-logicalrep_sync_worker_count.exit:                ; preds = %55, %28, %._crit_edge
-  %.169114 = phi i32 [ %.169, %._crit_edge ], [ %.068, %28 ], [ %.169, %55 ]
-  %.171113 = phi ptr [ %.171, %._crit_edge ], [ %.070, %28 ], [ %.171, %55 ]
-  %.08.lcssa.i = phi i32 [ 0, %._crit_edge ], [ 0, %28 ], [ %.1.i, %55 ]
+logicalrep_sync_worker_count.exit:                ; preds = %55, %28
+  %.169114 = phi i32 [ %.068, %28 ], [ %.169, %55 ]
+  %.171113 = phi ptr [ %.070, %28 ], [ %.171, %55 ]
+  %.08.lcssa.i = phi i32 [ 0, %28 ], [ %.1.i, %55 ]
   %56 = tail call i64 @GetCurrentTimestamp() #13
   %57 = icmp eq ptr %.171113, null
   %58 = load i32, ptr @max_sync_workers_per_subscription, align 4

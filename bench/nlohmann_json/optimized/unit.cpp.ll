@@ -13015,7 +13015,7 @@ for.body204:                                      ; preds = %if.then197, %for.bo
   br i1 %cmp203.not, label %if.end226, label %for.body204, !llvm.loop !83
 
 if.end226:                                        ; preds = %for.body204, %if.then149.invoke, %for.end139.thread, %if.then197, %if.else191, %for.end139
-  %cmp.i.i154703 = phi i1 [ true, %for.end139.thread ], [ %cmp.i.i154, %if.then197 ], [ %cmp.i.i154, %if.else191 ], [ true, %for.end139 ], [ %cmp.i.i154, %if.then149.invoke ], [ %cmp.i.i154, %for.body204 ]
+  %cmp.i.i154703 = phi i1 [ true, %for.end139.thread ], [ false, %if.then197 ], [ false, %if.else191 ], [ true, %for.end139 ], [ false, %if.then149.invoke ], [ false, %for.body204 ]
   %testArray.sroa.0.0.lcssa701 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.0.1, %if.then197 ], [ %testArray.sroa.0.1, %if.else191 ], [ %testArray.sroa.0.1, %for.end139 ], [ %testArray.sroa.0.1, %if.then149.invoke ], [ %testArray.sroa.0.1, %for.body204 ]
   %testArray.sroa.13.0.lcssa700 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.13.1, %if.then197 ], [ %testArray.sroa.13.1, %if.else191 ], [ %testArray.sroa.13.1, %for.end139 ], [ %testArray.sroa.13.1, %if.then149.invoke ], [ %testArray.sroa.13.1, %for.body204 ]
   %84 = getelementptr inbounds i8, ptr %testSuitesPassingFilt, i64 8

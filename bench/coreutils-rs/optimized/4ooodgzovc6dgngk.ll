@@ -361,7 +361,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.promoted, i64 32)
   br i1 %11, label %.thread17, label %.lr.ph
 
-.thread17:                                        ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h66a6636e3c9ad650E.exit", %3
+.thread17:                                        ; preds = %3
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !65, !noalias !70, !noundef !4
   br label %49
@@ -497,7 +497,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %26
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h66a6636e3c9ad650E.exit": ; preds = %61, %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !77
-  br i1 %11, label %.thread17, label %.lr.ph
+  br label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -520,7 +520,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.promoted, i64 32)
   br i1 %13, label %.thread17, label %.lr.ph
 
-.thread17:                                        ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h66a6636e3c9ad650E.exit", %3
+.thread17:                                        ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !93, !noalias !98, !noundef !4
   br label %62
@@ -702,7 +702,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %39
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h66a6636e3c9ad650E.exit": ; preds = %74, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !137
-  br i1 %13, label %.thread17, label %.lr.ph
+  br label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -258,7 +258,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %arrayidx23 = getelementptr inbounds [2 x i32], ptr %pipes.0146, i64 %indvars.iv
   %6 = load i32, ptr %add.ptr, align 8
   %and.i = and i32 %6, 7
-  switch i32 %and.i, label %for.cond89.preheader [
+  switch i32 %and.i, label %error [
     i32 0, label %for.inc28
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
@@ -271,7 +271,7 @@ sw.bb1.i:                                         ; preds = %for.body21
   %type.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %8, 7
-  br i1 %cmp.not.i, label %uv__process_init_stdio.exit, label %for.cond89.preheader
+  br i1 %cmp.not.i, label %uv__process_init_stdio.exit, label %error
 
 sw.bb2.i:                                         ; preds = %for.body21, %for.body21
   %and4.i = and i32 %6, 2
@@ -288,7 +288,7 @@ if.end.i:                                         ; preds = %if.else7.i, %sw.bb2
   %fd.0.in.i = phi ptr [ %fd9.i, %if.else7.i ], [ %data8.i, %sw.bb2.i ]
   %fd.0.i = load i32, ptr %fd.0.in.i, align 8
   %cmp10.i = icmp eq i32 %fd.0.i, -1
-  br i1 %cmp10.i, label %for.cond89.preheader, label %if.end12.i
+  br i1 %cmp10.i, label %error, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx23, i64 4
@@ -298,7 +298,7 @@ if.end12.i:                                       ; preds = %if.end.i
 uv__process_init_stdio.exit:                      ; preds = %sw.bb1.i
   %call.i = call i32 @uv_socketpair(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %arrayidx23, i32 noundef 0, i32 noundef 0) #12
   %tobool.not = icmp eq i32 %call.i, 0
-  br i1 %tobool.not, label %for.inc28, label %for.cond89.preheader
+  br i1 %tobool.not, label %for.inc28, label %error
 
 for.inc28:                                        ; preds = %for.body21, %if.end12.i, %uv__process_init_stdio.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -551,7 +551,7 @@ uv__process_open_stream.exit.for.inc78_crit_edge: ; preds = %uv__process_open_st
 
 while.cond.preheader:                             ; preds = %uv__process_open_stream.exit
   %tobool74.not125 = icmp eq i64 %indvars.iv133, 0
-  br i1 %tobool74.not125, label %for.cond89.preheader, label %while.body
+  br i1 %tobool74.not125, label %error, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %uv__process_close_stream.exit
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %uv__process_close_stream.exit ], [ %indvars.iv133, %while.cond.preheader ]
@@ -571,7 +571,7 @@ if.end.i89:                                       ; preds = %while.body
 
 uv__process_close_stream.exit:                    ; preds = %while.body, %if.end.i89
   %42 = icmp eq i64 %indvars.iv.next139, 0
-  br i1 %42, label %for.cond89.preheader, label %while.body
+  br i1 %42, label %error, label %while.body
 
 for.inc78:                                        ; preds = %uv__process_open_stream.exit.for.inc78_crit_edge, %for.body62, %lor.lhs.false.i
   %43 = phi i32 [ %.pre, %uv__process_open_stream.exit.for.inc78_crit_edge ], [ %29, %for.body62 ], [ %29, %lor.lhs.false.i ]
@@ -584,13 +584,13 @@ for.end80:                                        ; preds = %for.inc78, %if.end5
   %cmp82.not = icmp eq ptr %pipes.0146, %pipes_storage
   br i1 %cmp82.not, label %return, label %return.sink.split
 
-for.cond89.preheader:                             ; preds = %uv__process_init_stdio.exit, %sw.bb1.i, %if.end.i, %for.body21, %uv__process_close_stream.exit, %while.cond.preheader
+error:                                            ; preds = %for.body21, %if.end.i, %sw.bb1.i, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %while.cond.preheader
   %err.0 = phi i32 [ %call21.i, %while.cond.preheader ], [ %call21.i, %uv__process_close_stream.exit ], [ -22, %for.body21 ], [ -22, %if.end.i ], [ -22, %sw.bb1.i ], [ %call.i, %uv__process_init_stdio.exit ]
   %stdio97 = getelementptr inbounds i8, ptr %options, i64 48
   br label %for.body92
 
-for.body92:                                       ; preds = %for.cond89.preheader, %for.inc128
-  %indvars.iv141 = phi i64 [ 0, %for.cond89.preheader ], [ %indvars.iv.next142, %for.inc128 ]
+for.body92:                                       ; preds = %error, %for.inc128
+  %indvars.iv141 = phi i64 [ 0, %error ], [ %indvars.iv.next142, %for.inc128 ]
   %45 = load i32, ptr %stdio_count3, align 4
   %46 = sext i32 %45 to i64
   %cmp94 = icmp slt i64 %indvars.iv141, %46
@@ -851,9 +851,6 @@ for.body11.preheader:                             ; preds = %if.end8
   %wide.trip.count = zext nneg i32 %stdio_count to i64
   br label %for.body11
 
-for.cond30.preheader:                             ; preds = %for.inc28
-  br i1 %cmp10171, label %for.body32, label %for.end74
-
 for.body11:                                       ; preds = %for.body11.preheader, %for.inc28
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.inc28 ]
   %arrayidx12 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %indvars.iv, i64 1
@@ -893,10 +890,10 @@ do.end.i.i69:                                     ; preds = %land.rhs.i.i70, %do
 for.inc28:                                        ; preds = %if.end17, %for.body11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond176.not, label %for.cond30.preheader, label %for.body11
+  br i1 %exitcond176.not, label %for.body32, label %for.body11
 
-for.body32:                                       ; preds = %for.cond30.preheader, %for.inc72
-  %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.cond30.preheader ]
+for.body32:                                       ; preds = %for.inc28, %for.inc72
+  %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.inc28 ]
   %idxprom33 = sext i32 %fd.1174 to i64
   %arrayidx35 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %idxprom33, i64 1
   %7 = load i32, ptr %arrayidx35, align 4
@@ -1027,7 +1024,7 @@ for.inc72:                                        ; preds = %if.end67, %if.then6
   %cmp31 = icmp slt i32 %inc73, %stdio_count
   br i1 %cmp31, label %for.body32, label %for.end74
 
-for.end74:                                        ; preds = %for.inc72, %if.end8, %for.cond30.preheader
+for.end74:                                        ; preds = %for.inc72, %if.end8
   %cwd = getelementptr inbounds i8, ptr %options, i64 32
   %13 = load ptr, ptr %cwd, align 8
   %cmp75.not = icmp eq ptr %13, null

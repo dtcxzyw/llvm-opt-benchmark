@@ -310,8 +310,8 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263b
 
 25:                                               ; preds = %21
   %26 = call ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar12free_typevar17h1809ac1e7ad1e737E(ptr nonnull align 8 %18)
-  %.not27.not = icmp eq ptr %26, null
-  br i1 %.not27.not, label %59, label %38
+  %.not27 = icmp eq ptr %26, null
+  br i1 %.not27, label %59, label %38
 
 27:                                               ; preds = %29, %23
   %28 = landingpad { ptr, i32 }

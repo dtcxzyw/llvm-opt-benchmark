@@ -12195,27 +12195,26 @@ if.then2381:                                      ; preds = %invoke.cont2378
           to label %for.cond2396.preheader unwind label %lpad2391
 
 for.cond2396.preheader:                           ; preds = %if.then2381
-  %cmp23981732.not = icmp eq i64 %call2365, 0
-  br i1 %cmp23981732.not, label %cleanup2691, label %for.body2399
+  %switch1777 = icmp ult i64 %call2365, 2
+  br i1 %switch1777, label %cleanup2691, label %for.body2404.lr.ph
 
 for.cond2396.loopexit:                            ; preds = %for.inc2441, %for.body2404.lr.ph
-  br i1 %cmp24031729, label %for.body2399, label %cleanup2691, !llvm.loop !50
-
-for.body2399:                                     ; preds = %for.cond2396.preheader, %for.cond2396.loopexit
-  %conv23971734 = phi i64 [ %conv24021728, %for.cond2396.loopexit ], [ 0, %for.cond2396.preheader ]
-  %i2395.01733 = phi i32 [ %add2400, %for.cond2396.loopexit ], [ 0, %for.cond2396.preheader ]
-  %add2400 = add i32 %i2395.01733, 1
+  %add2400 = add i32 %add24001775, 1
   %conv24021728 = zext i32 %add2400 to i64
   %cmp24031729 = icmp ugt i64 %call2365, %conv24021728
-  br i1 %cmp24031729, label %for.body2404.lr.ph, label %cleanup2691
+  br i1 %cmp24031729, label %for.body2404.lr.ph, label %cleanup2691, !llvm.loop !50
 
-for.body2404.lr.ph:                               ; preds = %for.body2399
-  %cmp2405.not = icmp eq i32 %i2395.01733, 0
+for.body2404.lr.ph:                               ; preds = %for.cond2396.preheader, %for.cond2396.loopexit
+  %conv240217281776 = phi i64 [ %conv24021728, %for.cond2396.loopexit ], [ 1, %for.cond2396.preheader ]
+  %add24001775 = phi i32 [ %add2400, %for.cond2396.loopexit ], [ 1, %for.cond2396.preheader ]
+  %i2395.017331774 = phi i32 [ %add24001775, %for.cond2396.loopexit ], [ 0, %for.cond2396.preheader ]
+  %conv239717341773 = phi i64 [ %conv240217281776, %for.cond2396.loopexit ], [ 0, %for.cond2396.preheader ]
+  %cmp2405.not = icmp eq i32 %i2395.017331774, 0
   br i1 %cmp2405.not, label %for.cond2396.loopexit, label %for.body2404
 
 for.body2404:                                     ; preds = %for.body2404.lr.ph, %for.inc2441
-  %conv24021731 = phi i64 [ %conv2402, %for.inc2441 ], [ %conv24021728, %for.body2404.lr.ph ]
-  %j.01730 = phi i32 [ %inc2442, %for.inc2441 ], [ %add2400, %for.body2404.lr.ph ]
+  %conv24021731 = phi i64 [ %conv2402, %for.inc2441 ], [ %conv240217281776, %for.body2404.lr.ph ]
+  %j.01730 = phi i32 [ %inc2442, %for.inc2441 ], [ %add24001775, %for.body2404.lr.ph ]
   %cmp2407.not = icmp eq i32 %j.01730, 1
   br i1 %cmp2407.not, label %for.inc2441, label %if.then2408
 
@@ -12223,7 +12222,7 @@ if.then2408:                                      ; preds = %for.body2404
   %644 = load ptr, ptr %agg.result, align 8
   store ptr %644, ptr %agg.tmp2410, align 8
   %645 = load ptr, ptr %children, align 8
-  %add.ptr.i1512 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %645, i64 %conv23971734
+  %add.ptr.i1512 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %645, i64 %conv239717341773
   %646 = load ptr, ptr %add.ptr.i1512, align 8
   store ptr %646, ptr %agg.tmp2415, align 8
   %add.ptr.i1513 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %645, i64 %conv24021731
@@ -12739,7 +12738,7 @@ ehcleanup2690:                                    ; preds = %ehcleanup2688, %lpa
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nullTerm) #23
   br label %ehcleanup2692
 
-cleanup2691:                                      ; preds = %for.cond2396.loopexit, %for.body2399, %for.cond2396.preheader, %cond.end2681
+cleanup2691:                                      ; preds = %for.cond2396.loopexit, %for.cond2396.preheader, %cond.end2681
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #23
   br label %cleanup2717
 

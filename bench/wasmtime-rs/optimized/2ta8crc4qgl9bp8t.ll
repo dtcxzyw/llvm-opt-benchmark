@@ -39015,8 +39015,8 @@ define void @_ZN8wasmtime7runtime8instance8Instance8_exports17had2e148982a73060E
 
 34:                                               ; preds = %36, %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hcdbb209e6f8c7472E.llvm.12393783928750787229.exit"
   %35 = phi ptr [ %37, %36 ], [ %30, %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hcdbb209e6f8c7472E.llvm.12393783928750787229.exit" ]
-  %.not.i.not = icmp eq ptr %35, %33
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda4c48586bb438efE.exit.thread", label %36
+  %.not.not.not.i.not = icmp eq ptr %35, %33
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda4c48586bb438efE.exit.thread", label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %35, i64 24

@@ -1568,8 +1568,7 @@ if.else714:                                       ; preds = %if.end706.thread
   %sub716 = fsub double %140, %retval.0.i487
   store double %sub716, ptr %rv, align 8
   %tobool717 = fcmp une double %sub716, 0.000000e+00
-  %or.cond323 = or i1 %tobool717, %cmp5701010
-  br i1 %or.cond323, label %for.end878, label %undfl
+  br i1 %tobool717, label %for.end878, label %undfl
 
 if.end726:                                        ; preds = %if.end599
   %x.i.i = getelementptr inbounds i8, ptr %call561, i64 24

@@ -3696,7 +3696,7 @@ invoke.cont98:                                    ; preds = %if.then.i3.i421, %_
 if.else101:                                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i332, %land.lhs.true.i336
   %167 = load ptr, ptr %m_true.i639, align 8
   %cmp.i428 = icmp eq ptr %4, %167
-  br i1 %cmp.i428, label %if.then109, label %land.rhs.i.i.i434
+  br i1 %cmp.i428, label %if.then109, label %_ZNK11ast_manager6is_notEPK4expr.exit.i438
 
 if.else101.thread667:                             ; preds = %land.rhs.i.i
   %168 = load ptr, ptr %m_true.i639, align 8
@@ -3713,11 +3713,8 @@ if.else101.thread:                                ; preds = %land.rhs.i.i.i347, 
   %cmp.i428615 = icmp eq ptr %4, %170
   br i1 %cmp.i428615, label %if.then109, label %_ZNK11ast_manager6is_notEPK4expr.exit.i438
 
-land.rhs.i.i.i434:                                ; preds = %if.else101
-  br i1 %tobool.not.i.i.i.i104, label %if.else119, label %_ZNK11ast_manager6is_notEPK4expr.exit.i438
-
-_ZNK11ast_manager6is_notEPK4expr.exit.i438:       ; preds = %if.else101.thread, %land.rhs.i.i.i434
-  %171 = phi ptr [ %167, %land.rhs.i.i.i434 ], [ %170, %if.else101.thread ]
+_ZNK11ast_manager6is_notEPK4expr.exit.i438:       ; preds = %if.else101, %if.else101.thread
+  %171 = phi ptr [ %170, %if.else101.thread ], [ %167, %if.else101 ]
   %172 = load i32, ptr %36, align 8
   %cmp.i.i.i.i.i.i439 = icmp eq i32 %172, 0
   %m_kind.i.i.i.i.i.i440 = getelementptr inbounds i8, ptr %36, i64 4
@@ -3829,11 +3826,11 @@ invoke.cont117:                                   ; preds = %if.then.i.i.i.i485,
   %dec118 = add i32 %i.0, -1
   br label %for.inc140
 
-if.else119:                                       ; preds = %if.else101.thread667, %land.rhs.i.i.i434, %_ZNK11ast_manager6is_notEPK4expr.exit.i438, %land.lhs.true.i442
-  %.ph = phi ptr [ %171, %_ZNK11ast_manager6is_notEPK4expr.exit.i438 ], [ %171, %land.lhs.true.i442 ], [ %167, %land.rhs.i.i.i434 ], [ %168, %if.else101.thread667 ]
+if.else119:                                       ; preds = %if.else101.thread667, %_ZNK11ast_manager6is_notEPK4expr.exit.i438, %land.lhs.true.i442
+  %.ph = phi ptr [ %171, %_ZNK11ast_manager6is_notEPK4expr.exit.i438 ], [ %171, %land.lhs.true.i442 ], [ %168, %if.else101.thread667 ]
   %194 = load ptr, ptr %m_false.i.i, align 8
   %cmp.i496 = icmp eq ptr %4, %194
-  br i1 %cmp.i496, label %if.then128, label %lor.lhs.false122
+  br i1 %cmp.i496, label %if.then128, label %land.rhs.i.i.i502
 
 if.else119.thread670:                             ; preds = %if.else101.thread637
   %195 = load ptr, ptr %m_false.i.i, align 8
@@ -3844,10 +3841,7 @@ if.else119.thread:                                ; preds = %land.lhs.true106
   %cmp.i496624 = icmp eq ptr %4, %177
   br i1 %cmp.i496624, label %if.then128, label %_ZNK11ast_manager6is_notEPK4expr.exit.i506
 
-lor.lhs.false122:                                 ; preds = %if.else119
-  br i1 %cmp.i.i103, label %land.rhs.i.i.i502, label %for.inc140
-
-land.rhs.i.i.i502:                                ; preds = %lor.lhs.false122
+land.rhs.i.i.i502:                                ; preds = %if.else119
   %m_decl.i.i.i.i503.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
   %.pre664 = load ptr, ptr %m_decl.i.i.i.i503.phi.trans.insert, align 8
   %m_info.i.i.i.i.i504.phi.trans.insert = getelementptr inbounds i8, ptr %.pre664, i64 24
@@ -3974,8 +3968,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i543, ptr %arrayidx10.i.i542, align 4
   br label %cleanup
 
-for.inc140:                                       ; preds = %if.else119.thread670, %land.rhs.i.i.i502, %lor.lhs.false122, %_ZNK11ast_manager6is_notEPK4expr.exit.i506, %land.lhs.true.i510, %invoke.cont37, %invoke.cont82, %invoke.cont117, %land.lhs.true125, %invoke.cont98, %invoke.cont47, %invoke.cont12
-  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec100, %invoke.cont98 ], [ %dec118, %invoke.cont117 ], [ %i.0, %land.lhs.true125 ], [ %i.0, %land.lhs.true.i510 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i506 ], [ %i.0, %lor.lhs.false122 ], [ %i.0, %land.rhs.i.i.i502 ], [ %i.0, %if.else119.thread670 ]
+for.inc140:                                       ; preds = %if.else119.thread670, %land.rhs.i.i.i502, %_ZNK11ast_manager6is_notEPK4expr.exit.i506, %land.lhs.true.i510, %invoke.cont37, %invoke.cont82, %invoke.cont117, %land.lhs.true125, %invoke.cont98, %invoke.cont47, %invoke.cont12
+  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec100, %invoke.cont98 ], [ %dec118, %invoke.cont117 ], [ %i.0, %land.lhs.true125 ], [ %i.0, %land.lhs.true.i510 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i506 ], [ %i.0, %land.rhs.i.i.i502 ], [ %i.0, %if.else119.thread670 ]
   %inc = add i32 %i.1, 1
   br label %for.cond, !llvm.loop !28
 
@@ -5367,7 +5361,7 @@ invoke.cont95:                                    ; preds = %if.then.i3.i401, %_
 if.else98:                                        ; preds = %land.lhs.true.i334, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i
   %160 = load ptr, ptr %m_false.i595, align 8
   %cmp.i408 = icmp eq ptr %4, %160
-  br i1 %cmp.i408, label %if.then106, label %lor.lhs.false
+  br i1 %cmp.i408, label %if.then106, label %_ZNK11ast_manager6is_notEPK4expr.exit.i418
 
 if.else98.thread641:                              ; preds = %land.rhs.i.i
   %161 = load ptr, ptr %m_false.i595, align 8
@@ -5379,10 +5373,7 @@ if.else98.thread:                                 ; preds = %invoke.cont14
   %cmp.i408596 = icmp eq ptr %4, %162
   br i1 %cmp.i408596, label %if.then106, label %if.else116.thread643
 
-lor.lhs.false:                                    ; preds = %if.else98
-  br i1 %tobool.not.i.i.i.i103, label %if.else116, label %_ZNK11ast_manager6is_notEPK4expr.exit.i418
-
-_ZNK11ast_manager6is_notEPK4expr.exit.i418:       ; preds = %lor.lhs.false
+_ZNK11ast_manager6is_notEPK4expr.exit.i418:       ; preds = %if.else98
   %163 = load i32, ptr %36, align 8
   %cmp.i.i.i.i.i.i419 = icmp eq i32 %163, 0
   %m_kind.i.i.i.i.i.i420 = getelementptr inbounds i8, ptr %36, i64 4
@@ -5494,11 +5485,11 @@ invoke.cont114:                                   ; preds = %if.then.i.i.i.i465,
   %dec115 = add i32 %i.0, -1
   br label %for.inc137
 
-if.else116:                                       ; preds = %if.else98.thread641, %lor.lhs.false, %_ZNK11ast_manager6is_notEPK4expr.exit.i418, %land.lhs.true.i422
-  %.ph = phi ptr [ %160, %_ZNK11ast_manager6is_notEPK4expr.exit.i418 ], [ %160, %land.lhs.true.i422 ], [ %160, %lor.lhs.false ], [ %161, %if.else98.thread641 ]
+if.else116:                                       ; preds = %if.else98.thread641, %_ZNK11ast_manager6is_notEPK4expr.exit.i418, %land.lhs.true.i422
+  %.ph = phi ptr [ %160, %_ZNK11ast_manager6is_notEPK4expr.exit.i418 ], [ %160, %land.lhs.true.i422 ], [ %161, %if.else98.thread641 ]
   %185 = load ptr, ptr %m_true.i.i, align 8
   %cmp.i476 = icmp eq ptr %4, %185
-  br i1 %cmp.i476, label %if.then125, label %lor.lhs.false119
+  br i1 %cmp.i476, label %if.then125, label %land.rhs.i.i.i482
 
 if.else116.thread643:                             ; preds = %if.else98.thread
   %186 = load ptr, ptr %m_true.i.i, align 8
@@ -5509,10 +5500,7 @@ if.else116.thread:                                ; preds = %land.lhs.true103
   %cmp.i476604 = icmp eq ptr %4, %168
   br i1 %cmp.i476604, label %if.then125, label %_ZNK11ast_manager6is_notEPK4expr.exit.i486
 
-lor.lhs.false119:                                 ; preds = %if.else116
-  br i1 %cmp.i.i102, label %land.rhs.i.i.i482, label %for.inc137
-
-land.rhs.i.i.i482:                                ; preds = %lor.lhs.false119
+land.rhs.i.i.i482:                                ; preds = %if.else116
   %m_decl.i.i.i.i483.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
   %.pre638 = load ptr, ptr %m_decl.i.i.i.i483.phi.trans.insert, align 8
   %m_info.i.i.i.i.i484.phi.trans.insert = getelementptr inbounds i8, ptr %.pre638, i64 24
@@ -5639,8 +5627,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i523, ptr %arrayidx10.i.i522, align 4
   br label %cleanup
 
-for.inc137:                                       ; preds = %if.else116.thread643, %land.rhs.i.i.i482, %lor.lhs.false119, %_ZNK11ast_manager6is_notEPK4expr.exit.i486, %land.lhs.true.i490, %invoke.cont37, %invoke.cont82, %invoke.cont114, %land.lhs.true122, %invoke.cont95, %invoke.cont47, %invoke.cont12
-  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec97, %invoke.cont95 ], [ %dec115, %invoke.cont114 ], [ %i.0, %land.lhs.true122 ], [ %i.0, %land.lhs.true.i490 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i486 ], [ %i.0, %lor.lhs.false119 ], [ %i.0, %land.rhs.i.i.i482 ], [ %i.0, %if.else116.thread643 ]
+for.inc137:                                       ; preds = %if.else116.thread643, %land.rhs.i.i.i482, %_ZNK11ast_manager6is_notEPK4expr.exit.i486, %land.lhs.true.i490, %invoke.cont37, %invoke.cont82, %invoke.cont114, %land.lhs.true122, %invoke.cont95, %invoke.cont47, %invoke.cont12
+  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec97, %invoke.cont95 ], [ %dec115, %invoke.cont114 ], [ %i.0, %land.lhs.true122 ], [ %i.0, %land.lhs.true.i490 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i486 ], [ %i.0, %land.rhs.i.i.i482 ], [ %i.0, %if.else116.thread643 ]
   %inc = add i32 %i.1, 1
   br label %for.cond, !llvm.loop !32
 

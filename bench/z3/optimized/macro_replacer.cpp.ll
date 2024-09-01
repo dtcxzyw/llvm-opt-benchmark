@@ -8473,27 +8473,27 @@ for.end:                                          ; preds = %for.body, %land.rhs
 land.rhs7.lr.ph:                                  ; preds = %for.end
   %m_num_no_patterns.i = getelementptr inbounds i8, ptr %old_q, i64 76
   %4 = load i32, ptr %m_num_no_patterns.i, align 4
-  %wide.trip.count49 = zext i32 %4 to i64
+  %wide.trip.count47 = zext i32 %4 to i64
   br label %land.rhs7
 
 land.rhs7:                                        ; preds = %land.rhs7.lr.ph, %for.body11
-  %indvars.iv47 = phi i64 [ 0, %land.rhs7.lr.ph ], [ %indvars.iv.next48, %for.body11 ]
+  %indvars.iv45 = phi i64 [ 0, %land.rhs7.lr.ph ], [ %indvars.iv.next46, %for.body11 ]
   %erase_patterns.242 = phi i8 [ %erase_patterns.0.lcssa, %land.rhs7.lr.ph ], [ %spec.select17, %for.body11 ]
-  %exitcond50.not = icmp eq i64 %indvars.iv47, %wide.trip.count49
-  br i1 %exitcond50.not, label %if.end34, label %for.body11
+  %exitcond48.not = icmp eq i64 %indvars.iv45, %wide.trip.count47
+  br i1 %exitcond48.not, label %if.end34, label %for.body11
 
 for.body11:                                       ; preds = %land.rhs7
   %5 = load i32, ptr %m_num_decls.i.i.i, align 4
   %idx.ext.i.i.i20 = zext i32 %5 to i64
   %add.ptr.i.i.i21 = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i, i64 %idx.ext.i.i.i20
   %add.ptr.i.i22 = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i21, i64 %idx.ext.i.i.i20
-  %arrayidx.i24 = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %indvars.iv47
+  %arrayidx.i24 = getelementptr inbounds ptr, ptr %add.ptr.i.i22, i64 %indvars.iv45
   %6 = load ptr, ptr %arrayidx.i24, align 8
-  %arrayidx14 = getelementptr inbounds ptr, ptr %new_no_patterns, i64 %indvars.iv47
+  %arrayidx14 = getelementptr inbounds ptr, ptr %new_no_patterns, i64 %indvars.iv45
   %7 = load ptr, ptr %arrayidx14, align 8
   %cmp15.not = icmp eq ptr %6, %7
   %spec.select17 = select i1 %cmp15.not, i8 %erase_patterns.242, i8 1
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %tobool6 = trunc nuw i8 %spec.select17 to i1
   br i1 %tobool6, label %land.lhs.true.critedge, label %land.rhs7, !llvm.loop !35
 

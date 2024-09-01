@@ -6292,11 +6292,11 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr nocapture no
   %32 = load i32, ptr %5, align 4
   switch i32 %32, label %planstate_walk_members.exit.thread [
     i32 318, label %33
-    i32 319, label %46
-    i32 321, label %59
-    i32 322, label %72
-    i32 331, label %85
-    i32 339, label %89
+    i32 319, label %43
+    i32 321, label %53
+    i32 322, label %63
+    i32 331, label %73
+    i32 339, label %77
   ]
 
 33:                                               ; preds = %31
@@ -6308,183 +6308,159 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr nocapture no
   br i1 %38, label %.lr.ph.preheader.i, label %planstate_walk_members.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %33
-  %39 = zext nneg i32 %37 to i64
-  %40 = load ptr, ptr %35, align 8
-  %41 = tail call zeroext i1 %1(ptr noundef %40, ptr noundef %2) #12
-  br i1 %41, label %planstate_walk_subplans.exit, label %.lr.ph110
+  %wide.trip.count.i = zext nneg i32 %37 to i64
+  br label %.lr.ph.i51
 
-.lr.ph110:                                        ; preds = %.lr.ph.preheader.i, %.lr.ph.i51
-  %indvars.iv.i52109 = phi i64 [ %indvars.iv.next.i53, %.lr.ph.i51 ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52109, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i53, %39
-  br i1 %exitcond.not.i, label %planstate_walk_members.exit, label %.lr.ph.i51, !llvm.loop !11
+39:                                               ; preds = %.lr.ph.i51
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %planstate_walk_members.exit.thread, label %.lr.ph.i51, !llvm.loop !11
 
-.lr.ph.i51:                                       ; preds = %.lr.ph110
-  %42 = getelementptr ptr, ptr %35, i64 %indvars.iv.next.i53
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call zeroext i1 %1(ptr noundef %43, ptr noundef %2) #12
-  br i1 %44, label %planstate_walk_members.exit, label %.lr.ph110, !llvm.loop !11
+.lr.ph.i51:                                       ; preds = %39, %.lr.ph.preheader.i
+  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i53, %39 ]
+  %40 = getelementptr ptr, ptr %35, i64 %indvars.iv.i52
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call zeroext i1 %1(ptr noundef %41, ptr noundef %2) #12
+  br i1 %42, label %planstate_walk_subplans.exit, label %39
 
-planstate_walk_members.exit:                      ; preds = %.lr.ph.i51, %.lr.ph110
-  %45 = icmp ult i64 %indvars.iv.next.i53, %39
-  br i1 %45, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds i8, ptr %0, i64 200
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 208
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.lr.ph.preheader.i55, label %planstate_walk_members.exit.thread
 
-46:                                               ; preds = %31
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 208
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph.preheader.i55, label %planstate_walk_members.exit.thread
+.lr.ph.preheader.i55:                             ; preds = %43
+  %wide.trip.count.i56 = zext nneg i32 %47 to i64
+  br label %.lr.ph.i57
 
-.lr.ph.preheader.i55:                             ; preds = %46
-  %52 = zext nneg i32 %50 to i64
-  %53 = load ptr, ptr %48, align 8
-  %54 = tail call zeroext i1 %1(ptr noundef %53, ptr noundef %2) #12
-  br i1 %54, label %planstate_walk_subplans.exit, label %.lr.ph106
+49:                                               ; preds = %.lr.ph.i57
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
+  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i56
+  br i1 %exitcond.not.i60, label %planstate_walk_members.exit.thread, label %.lr.ph.i57, !llvm.loop !11
 
-.lr.ph106:                                        ; preds = %.lr.ph.preheader.i55, %.lr.ph.i57
-  %indvars.iv.i58105 = phi i64 [ %indvars.iv.next.i59, %.lr.ph.i57 ], [ 0, %.lr.ph.preheader.i55 ]
-  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58105, 1
-  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %52
-  br i1 %exitcond.not.i60, label %planstate_walk_members.exit61, label %.lr.ph.i57, !llvm.loop !11
+.lr.ph.i57:                                       ; preds = %49, %.lr.ph.preheader.i55
+  %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %49 ]
+  %50 = getelementptr ptr, ptr %45, i64 %indvars.iv.i58
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call zeroext i1 %1(ptr noundef %51, ptr noundef %2) #12
+  br i1 %52, label %planstate_walk_subplans.exit, label %49
 
-.lr.ph.i57:                                       ; preds = %.lr.ph106
-  %55 = getelementptr ptr, ptr %48, i64 %indvars.iv.next.i59
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call zeroext i1 %1(ptr noundef %56, ptr noundef %2) #12
-  br i1 %57, label %planstate_walk_members.exit61, label %.lr.ph106, !llvm.loop !11
+53:                                               ; preds = %31
+  %54 = getelementptr inbounds i8, ptr %0, i64 200
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 208
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.lr.ph.preheader.i63, label %planstate_walk_members.exit.thread
 
-planstate_walk_members.exit61:                    ; preds = %.lr.ph.i57, %.lr.ph106
-  %58 = icmp ult i64 %indvars.iv.next.i59, %52
-  br i1 %58, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
+.lr.ph.preheader.i63:                             ; preds = %53
+  %wide.trip.count.i64 = zext nneg i32 %57 to i64
+  br label %.lr.ph.i65
 
-59:                                               ; preds = %31
-  %60 = getelementptr inbounds i8, ptr %0, i64 200
+59:                                               ; preds = %.lr.ph.i65
+  %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
+  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i64
+  br i1 %exitcond.not.i68, label %planstate_walk_members.exit.thread, label %.lr.ph.i65, !llvm.loop !11
+
+.lr.ph.i65:                                       ; preds = %59, %.lr.ph.preheader.i63
+  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i63 ], [ %indvars.iv.next.i67, %59 ]
+  %60 = getelementptr ptr, ptr %55, i64 %indvars.iv.i66
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 208
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.preheader.i63, label %planstate_walk_members.exit.thread
+  %62 = tail call zeroext i1 %1(ptr noundef %61, ptr noundef %2) #12
+  br i1 %62, label %planstate_walk_subplans.exit, label %59
 
-.lr.ph.preheader.i63:                             ; preds = %59
-  %65 = zext nneg i32 %63 to i64
-  %66 = load ptr, ptr %61, align 8
-  %67 = tail call zeroext i1 %1(ptr noundef %66, ptr noundef %2) #12
-  br i1 %67, label %planstate_walk_subplans.exit, label %.lr.ph102
+63:                                               ; preds = %31
+  %64 = getelementptr inbounds i8, ptr %0, i64 200
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 208
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph.preheader.i71, label %planstate_walk_members.exit.thread
 
-.lr.ph102:                                        ; preds = %.lr.ph.preheader.i63, %.lr.ph.i65
-  %indvars.iv.i66101 = phi i64 [ %indvars.iv.next.i67, %.lr.ph.i65 ], [ 0, %.lr.ph.preheader.i63 ]
-  %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66101, 1
-  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %65
-  br i1 %exitcond.not.i68, label %planstate_walk_members.exit69, label %.lr.ph.i65, !llvm.loop !11
+.lr.ph.preheader.i71:                             ; preds = %63
+  %wide.trip.count.i72 = zext nneg i32 %67 to i64
+  br label %.lr.ph.i73
 
-.lr.ph.i65:                                       ; preds = %.lr.ph102
-  %68 = getelementptr ptr, ptr %61, i64 %indvars.iv.next.i67
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call zeroext i1 %1(ptr noundef %69, ptr noundef %2) #12
-  br i1 %70, label %planstate_walk_members.exit69, label %.lr.ph102, !llvm.loop !11
+69:                                               ; preds = %.lr.ph.i73
+  %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
+  %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %wide.trip.count.i72
+  br i1 %exitcond.not.i76, label %planstate_walk_members.exit.thread, label %.lr.ph.i73, !llvm.loop !11
 
-planstate_walk_members.exit69:                    ; preds = %.lr.ph.i65, %.lr.ph102
-  %71 = icmp ult i64 %indvars.iv.next.i67, %65
-  br i1 %71, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
+.lr.ph.i73:                                       ; preds = %69, %.lr.ph.preheader.i71
+  %indvars.iv.i74 = phi i64 [ 0, %.lr.ph.preheader.i71 ], [ %indvars.iv.next.i75, %69 ]
+  %70 = getelementptr ptr, ptr %65, i64 %indvars.iv.i74
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call zeroext i1 %1(ptr noundef %71, ptr noundef %2) #12
+  br i1 %72, label %planstate_walk_subplans.exit, label %69
 
-72:                                               ; preds = %31
-  %73 = getelementptr inbounds i8, ptr %0, i64 200
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 208
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph.preheader.i71, label %planstate_walk_members.exit.thread
+73:                                               ; preds = %31
+  %74 = getelementptr inbounds i8, ptr %0, i64 224
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call zeroext i1 %1(ptr noundef %75, ptr noundef %2) #12
+  br i1 %76, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
 
-.lr.ph.preheader.i71:                             ; preds = %72
-  %78 = zext nneg i32 %76 to i64
-  %79 = load ptr, ptr %74, align 8
-  %80 = tail call zeroext i1 %1(ptr noundef %79, ptr noundef %2) #12
-  br i1 %80, label %planstate_walk_subplans.exit, label %.lr.ph99
-
-.lr.ph99:                                         ; preds = %.lr.ph.preheader.i71, %.lr.ph.i73
-  %indvars.iv.i7498 = phi i64 [ %indvars.iv.next.i75, %.lr.ph.i73 ], [ 0, %.lr.ph.preheader.i71 ]
-  %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i7498, 1
-  %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %78
-  br i1 %exitcond.not.i76, label %planstate_walk_members.exit77, label %.lr.ph.i73, !llvm.loop !11
-
-.lr.ph.i73:                                       ; preds = %.lr.ph99
-  %81 = getelementptr ptr, ptr %74, i64 %indvars.iv.next.i75
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call zeroext i1 %1(ptr noundef %82, ptr noundef %2) #12
-  br i1 %83, label %planstate_walk_members.exit77, label %.lr.ph99, !llvm.loop !11
-
-planstate_walk_members.exit77:                    ; preds = %.lr.ph.i73, %.lr.ph99
-  %84 = icmp ult i64 %indvars.iv.next.i75, %78
-  br i1 %84, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
-
-85:                                               ; preds = %31
-  %86 = getelementptr inbounds i8, ptr %0, i64 224
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call zeroext i1 %1(ptr noundef %87, ptr noundef %2) #12
-  br i1 %88, label %planstate_walk_subplans.exit, label %planstate_walk_members.exit.thread
-
-89:                                               ; preds = %31
-  %90 = getelementptr inbounds i8, ptr %0, i64 232
-  %91 = load ptr, ptr %90, align 8
-  %.not49 = icmp eq ptr %91, null
+77:                                               ; preds = %31
+  %78 = getelementptr inbounds i8, ptr %0, i64 232
+  %79 = load ptr, ptr %78, align 8
+  %.not49 = icmp eq ptr %79, null
   br i1 %.not49, label %planstate_walk_members.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
-  %93 = getelementptr inbounds i8, ptr %91, i64 16
-  %94 = load i32, ptr %92, align 4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph97, label %planstate_walk_members.exit.thread
+.lr.ph:                                           ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %81 = getelementptr inbounds i8, ptr %79, i64 16
+  %82 = load i32, ptr %80, align 4
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.lr.ph105, label %planstate_walk_members.exit.thread
 
-96:                                               ; preds = %.lr.ph97
+84:                                               ; preds = %.lr.ph105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = load i32, ptr %92, align 4
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph97, label %planstate_walk_members.exit.thread
+  %85 = load i32, ptr %80, align 4
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next, %86
+  br i1 %87, label %.lr.ph105, label %planstate_walk_members.exit.thread
 
-.lr.ph97:                                         ; preds = %.lr.ph, %96
-  %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %.lr.ph ]
-  %100 = load ptr, ptr %93, align 8
-  %101 = getelementptr %union.ListCell, ptr %100, i64 %indvars.iv
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call zeroext i1 %1(ptr noundef %102, ptr noundef %2) #12
-  br i1 %103, label %planstate_walk_subplans.exit, label %96
+.lr.ph105:                                        ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph ]
+  %88 = load ptr, ptr %81, align 8
+  %89 = getelementptr %union.ListCell, ptr %88, i64 %indvars.iv
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call zeroext i1 %1(ptr noundef %90, ptr noundef %2) #12
+  br i1 %91, label %planstate_walk_subplans.exit, label %84
 
-planstate_walk_members.exit.thread:               ; preds = %96, %89, %.lr.ph, %72, %59, %46, %33, %31, %85, %planstate_walk_members.exit77, %planstate_walk_members.exit69, %planstate_walk_members.exit61, %planstate_walk_members.exit
-  %104 = getelementptr inbounds i8, ptr %0, i64 96
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
-  %.not.i78 = icmp eq ptr %105, null
+planstate_walk_members.exit.thread:               ; preds = %84, %69, %59, %49, %39, %77, %.lr.ph, %63, %53, %43, %33, %31, %73
+  %92 = getelementptr inbounds i8, ptr %0, i64 96
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %.not.i78 = icmp eq ptr %93, null
   br i1 %.not.i78, label %planstate_walk_subplans.exit, label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %planstate_walk_members.exit.thread
-  %107 = getelementptr inbounds i8, ptr %105, i64 16
-  %108 = load i32, ptr %106, align 4
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph24.i81, label %planstate_walk_subplans.exit
+  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = load i32, ptr %94, align 4
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.lr.ph24.i81, label %planstate_walk_subplans.exit
 
-110:                                              ; preds = %.lr.ph24.i81
+98:                                               ; preds = %.lr.ph24.i81
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
-  %111 = load i32, ptr %106, align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next.i83, %112
-  br i1 %113, label %.lr.ph24.i81, label %planstate_walk_subplans.exit
+  %99 = load i32, ptr %94, align 4
+  %100 = sext i32 %99 to i64
+  %101 = icmp slt i64 %indvars.iv.next.i83, %100
+  br i1 %101, label %.lr.ph24.i81, label %planstate_walk_subplans.exit
 
-.lr.ph24.i81:                                     ; preds = %.lr.ph.i79, %110
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %110 ], [ 0, %.lr.ph.i79 ]
-  %114 = load ptr, ptr %107, align 8
-  %115 = getelementptr %union.ListCell, ptr %114, i64 %indvars.iv.i82
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call zeroext i1 %1(ptr noundef %118, ptr noundef %2) #12
-  br i1 %119, label %planstate_walk_subplans.exit, label %110
+.lr.ph24.i81:                                     ; preds = %.lr.ph.i79, %98
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %98 ], [ 0, %.lr.ph.i79 ]
+  %102 = load ptr, ptr %95, align 8
+  %103 = getelementptr %union.ListCell, ptr %102, i64 %indvars.iv.i82
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call zeroext i1 %1(ptr noundef %106, ptr noundef %2) #12
+  br i1 %107, label %planstate_walk_subplans.exit, label %98
 
-planstate_walk_subplans.exit:                     ; preds = %.lr.ph24.i, %.lr.ph97, %.lr.ph24.i81, %110, %.lr.ph.preheader.i71, %.lr.ph.preheader.i63, %.lr.ph.preheader.i55, %.lr.ph.preheader.i, %.lr.ph.i79, %planstate_walk_members.exit.thread, %85, %planstate_walk_members.exit77, %planstate_walk_members.exit69, %planstate_walk_members.exit61, %planstate_walk_members.exit, %29, %24
-  %.0 = phi i1 [ true, %24 ], [ true, %29 ], [ true, %planstate_walk_members.exit ], [ true, %planstate_walk_members.exit61 ], [ true, %planstate_walk_members.exit69 ], [ true, %planstate_walk_members.exit77 ], [ true, %85 ], [ false, %planstate_walk_members.exit.thread ], [ false, %.lr.ph.i79 ], [ true, %.lr.ph.preheader.i ], [ true, %.lr.ph.preheader.i55 ], [ true, %.lr.ph.preheader.i63 ], [ true, %.lr.ph.preheader.i71 ], [ %119, %110 ], [ %119, %.lr.ph24.i81 ], [ true, %.lr.ph97 ], [ true, %.lr.ph24.i ]
+planstate_walk_subplans.exit:                     ; preds = %.lr.ph24.i, %.lr.ph105, %.lr.ph.i73, %.lr.ph.i65, %.lr.ph.i57, %.lr.ph.i51, %.lr.ph24.i81, %98, %.lr.ph.i79, %planstate_walk_members.exit.thread, %73, %29, %24
+  %.0 = phi i1 [ true, %24 ], [ true, %29 ], [ true, %73 ], [ false, %planstate_walk_members.exit.thread ], [ false, %.lr.ph.i79 ], [ %107, %98 ], [ %107, %.lr.ph24.i81 ], [ true, %.lr.ph.i51 ], [ true, %.lr.ph.i57 ], [ true, %.lr.ph.i65 ], [ true, %.lr.ph.i73 ], [ true, %.lr.ph105 ], [ true, %.lr.ph24.i ]
   ret i1 %.0
 }
 

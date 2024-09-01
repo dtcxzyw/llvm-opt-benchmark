@@ -1770,22 +1770,22 @@ if.end.i.i:                                       ; preds = %entry
   %m_theories.i = getelementptr inbounds i8, ptr %call, i64 9216
   %0 = load ptr, ptr %m_theories.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i.i, label %if.end.i.i35, label %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
+  br i1 %cmp.i.i.i.i, label %if.then, label %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
 
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i: ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %call.i.i, %1
-  br i1 %cmp.not.i.i.i, label %_ZNK3smt7context10get_theoryEi.exit, label %if.end.i.i35
+  br i1 %cmp.not.i.i.i, label %_ZNK3smt7context10get_theoryEi.exit, label %if.then
 
 _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
   %idxprom.i.i.i = zext i32 %call.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %if.end.i.i35, label %typeid.end
+  br i1 %tobool.not, label %if.then, label %typeid.end
 
-if.end.i.i35:                                     ; preds = %_ZNK3smt7context10get_theoryEi.exit, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i, %if.end.i.i
+if.then:                                          ; preds = %if.end.i.i, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i, %_ZNK3smt7context10get_theoryEi.exit
   %call6 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1640)
   call void @_ZN3smt12theory_arithINS_6mi_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1640) %call6, ptr noundef nonnull align 8 dereferenceable(11616) %call)
   call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %call, ptr noundef nonnull %call6)
@@ -1793,7 +1793,7 @@ if.end.i.i35:                                     ; preds = %_ZNK3smt7context10g
   %cmp.i.i.i.i37 = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.i37, label %typeid.bad_typeid, label %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38
 
-_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38: ; preds = %if.end.i.i35
+_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38: ; preds = %if.then
   %arrayidx.i.i.i.i39 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i.i39, align 4
   %cmp.not.i.i.i40 = icmp ult i32 %call.i.i, %3
@@ -1812,7 +1812,7 @@ typeid.bad_typeid.critedge:                       ; preds = %entry
   call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(11616) %call, ptr noundef nonnull %call6.c)
   br label %typeid.bad_typeid
 
-typeid.bad_typeid:                                ; preds = %typeid.bad_typeid.critedge, %if.end.i.i35, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38, %if.end
+typeid.bad_typeid:                                ; preds = %typeid.bad_typeid.critedge, %if.then, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i38, %if.end
   call void @__cxa_bad_typeid() #24
   unreachable
 
@@ -2764,8 +2764,8 @@ if.end.i:                                         ; preds = %for.cond
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit:                  ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i32 [ %2, %if.end.i ], [ 0, %for.cond ]
-  %cmp.not = icmp uge i32 %i.0, %retval.0.i
-  br i1 %cmp.not, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.cleanup_crit_edge, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i
+  br i1 %cmp.not.not.not.not.not, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.cleanup_crit_edge, label %for.body
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.cleanup_crit_edge: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit
   %.pre = load ptr, ptr %blocker, align 8
@@ -2859,7 +2859,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i.i.i, %if.then2.i.i.i
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

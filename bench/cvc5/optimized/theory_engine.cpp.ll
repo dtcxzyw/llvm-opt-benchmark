@@ -2024,7 +2024,7 @@ lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
-  br label %ehcleanup24.thread231
+  br label %ehcleanup24.thread230
 
 invoke.cont10:                                    ; preds = %.noexc
   invoke void @_ZN4cvc58internal11LazyCDProofC1ERNS0_3EnvEPNS0_14ProofGeneratorEPNS_7context7ContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(408) %call3, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef null, ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext true, i1 noundef zeroext true)
@@ -2611,7 +2611,7 @@ ehcleanup24.thread:                               ; preds = %cond.true
 lpad9:                                            ; preds = %call.i.noexc, %invoke.cont5
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup24.thread231
+  br label %ehcleanup24.thread230
 
 lpad12.body.thread:                               ; preds = %invoke.cont10
   %66 = landingpad { ptr, i32 }
@@ -2621,23 +2621,23 @@ lpad12.body.thread:                               ; preds = %invoke.cont10
 lpad12.body:                                      ; preds = %lpad3.i.i.i.i
   br i1 %call, label %ehcleanup24, label %ehcleanup174
 
-ehcleanup24.thread231:                            ; preds = %lpad9, %lpad.i
+ehcleanup24.thread230:                            ; preds = %lpad9, %lpad.i
   %.pn.ph.ph = phi { ptr, i32 } [ %65, %lpad9 ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #24
   br label %cleanup.action26
 
 ehcleanup24:                                      ; preds = %lpad12.body, %lpad12.body.thread
-  %eh.lpad-body29214 = phi { ptr, i32 } [ %66, %lpad12.body.thread ], [ %5, %lpad12.body ]
+  %eh.lpad-body29213 = phi { ptr, i32 } [ %66, %lpad12.body.thread ], [ %5, %lpad12.body ]
   %cleanup.cond.0.lpad-body212 = phi i1 [ true, %lpad12.body.thread ], [ false, %lpad12.body ]
   %saved-rvalue.0.lpad-body211 = phi ptr [ %call3, %lpad12.body.thread ], [ %saved-rvalue.1, %lpad12.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #24
   br i1 %cleanup.cond.0.lpad-body212, label %cleanup.action26, label %ehcleanup174
 
-cleanup.action26:                                 ; preds = %ehcleanup24.thread231, %ehcleanup24.thread, %ehcleanup24
-  %saved-rvalue.2226 = phi ptr [ %call3, %ehcleanup24.thread ], [ %saved-rvalue.0.lpad-body211, %ehcleanup24 ], [ %call3, %ehcleanup24.thread231 ]
-  %.pn.pn225 = phi { ptr, i32 } [ %64, %ehcleanup24.thread ], [ %eh.lpad-body29214, %ehcleanup24 ], [ %.pn.ph.ph, %ehcleanup24.thread231 ]
-  call void @_ZdlPv(ptr noundef %saved-rvalue.2226) #27
+cleanup.action26:                                 ; preds = %ehcleanup24.thread230, %ehcleanup24.thread, %ehcleanup24
+  %saved-rvalue.2225 = phi ptr [ %call3, %ehcleanup24.thread ], [ %saved-rvalue.0.lpad-body211, %ehcleanup24 ], [ %call3, %ehcleanup24.thread230 ]
+  %.pn.pn224 = phi { ptr, i32 } [ %64, %ehcleanup24.thread ], [ %eh.lpad-body29213, %ehcleanup24 ], [ %.pn.ph.ph, %ehcleanup24.thread230 ]
+  call void @_ZdlPv(ptr noundef %saved-rvalue.2225) #27
   br label %ehcleanup174
 
 lpad28:                                           ; preds = %cleanup.done20
@@ -3261,7 +3261,7 @@ ehcleanup173:                                     ; preds = %lpad28, %lpad3.i.i.
   br label %ehcleanup174
 
 ehcleanup174:                                     ; preds = %lpad12.body, %ehcleanup24, %cleanup.action26, %ehcleanup173
-  %.pn7.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn7.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup173 ], [ %.pn.pn225, %cleanup.action26 ], [ %eh.lpad-body29214, %ehcleanup24 ], [ %5, %lpad12.body ]
+  %.pn7.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn7.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup173 ], [ %.pn.pn224, %cleanup.action26 ], [ %eh.lpad-body29213, %ehcleanup24 ], [ %5, %lpad12.body ]
   resume { ptr, i32 } %.pn7.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

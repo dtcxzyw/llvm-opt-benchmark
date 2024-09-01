@@ -337,7 +337,7 @@ _ZNSt12_Vector_baseISt4pairIidESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %.ptr.le = getelementptr inbounds i8, ptr %13, i64 %.013.i.i.i.i.i.add
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.ptr.le, ptr %18, align 8
-  br i1 %.not.i.i.i.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13PredictResultESt6vectorIS5_SaIS5_EEEENS1_IPSt4pairIidES8_ISD_SaISD_EEEEPFSD_RS6_EET0_T_SM_SL_T1_.exit, label %.lr.ph.i
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.sroa.04.09.i = phi ptr [ %23, %.lr.ph.i ], [ %7, %.loopexit ]
@@ -353,7 +353,7 @@ _ZNSt12_Vector_baseISt4pairIidESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %.not.i = icmp eq ptr %23, %6
   br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13PredictResultESt6vectorIS5_SaIS5_EEEENS1_IPSt4pairIidES8_ISD_SaISD_EEEEPFSD_RS6_EET0_T_SM_SL_T1_.exit, label %.lr.ph.i, !llvm.loop !11
 
-_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13PredictResultESt6vectorIS5_SaIS5_EEEENS1_IPSt4pairIidES8_ISD_SaISD_EEEEPFSD_RS6_EET0_T_SM_SL_T1_.exit: ; preds = %.lr.ph.i, %.loopexit
+_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13PredictResultESt6vectorIS5_SaIS5_EEEENS1_IPSt4pairIidES8_ISD_SaISD_EEEEPFSD_RS6_EET0_T_SM_SL_T1_.exit: ; preds = %.lr.ph.i
   br i1 %2, label %25, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
 
 25:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13PredictResultESt6vectorIS5_SaIS5_EEEENS1_IPSt4pairIidES8_ISD_SaISD_EEEEPFSD_RS6_EET0_T_SM_SL_T1_.exit

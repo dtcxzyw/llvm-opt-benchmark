@@ -571,16 +571,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %invariant.gep.i = getelementptr i8, ptr %.val327, i64 4
-  br i1 %174, label %.preheader1.preheader.i, label %.loopexit461
-
-.preheader1.preheader.i:                          ; preds = %._crit_edge
   %192 = sext i32 %.val to i64
   br label %.preheader1.i
 
-.preheader1.i:                                    ; preds = %._crit_edge.i, %.preheader1.preheader.i
-  %.02819.i = phi i32 [ %225, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
-  %.02918.i = phi i64 [ %indvars.iv.i, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
-  %.03017.i = phi i32 [ %.131.lcssa.i, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
+.preheader1.i:                                    ; preds = %._crit_edge.i, %._crit_edge
+  %.02819.i = phi i32 [ %225, %._crit_edge.i ], [ 0, %._crit_edge ]
+  %.02918.i = phi i64 [ %indvars.iv.i, %._crit_edge.i ], [ 0, %._crit_edge ]
+  %.03017.i = phi i32 [ %.131.lcssa.i, %._crit_edge.i ], [ 0, %._crit_edge ]
   %193 = sext i32 %.03017.i to i64
   %194 = getelementptr inbounds i32, ptr %.pre, i64 %193
   %195 = load i32, ptr %194, align 4
@@ -696,9 +693,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i) #18
   br label %.body345
 
-.loopexit461:                                     ; preds = %._crit_edge.i, %._crit_edge.thread, %._crit_edge
-  %.0301.lcssa609 = phi double [ %184, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %184, %._crit_edge.i ]
-  %.028.lcssa.i = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %225, %._crit_edge.i ]
+.loopexit461:                                     ; preds = %._crit_edge.i, %._crit_edge.thread
+  %.0301.lcssa609 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %184, %._crit_edge.i ]
+  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.thread ], [ %225, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)

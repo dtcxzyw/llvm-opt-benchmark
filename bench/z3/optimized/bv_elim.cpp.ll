@@ -1678,7 +1678,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %if.then2.i.i.i519, 
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end101.cleanup_crit_edge, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
-  %found.0.lcssa775 = phi i1 [ false, %for.end101.cleanup_crit_edge ], [ %found.1, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
+  %found.0.lcssa775 = phi i1 [ false, %for.end101.cleanup_crit_edge ], [ true, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
   %193 = phi ptr [ %.pre773, %for.end101.cleanup_crit_edge ], [ %144, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
   %tobool.not.i.i521 = icmp eq ptr %193, null
   br i1 %tobool.not.i.i521, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit529, label %if.then.i.i.i522

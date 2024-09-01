@@ -82,8 +82,8 @@ _ZL7get_mdoP6MethodP10JavaThread.exit.i:          ; preds = %_ZL9build_mdoP6Meth
 46:                                               ; preds = %49, %_ZL7get_mdoP6MethodP10JavaThread.exit.i
   %47 = load i8, ptr %45, align 1
   %48 = and i8 %47, 4
-  %.not10.i.i.i = icmp eq i8 %48, 0
-  br i1 %.not10.i.i.i, label %49, label %_ZL8mark_mdoP6MethodiP10JavaThread.exit
+  %.not10.not.not.i.i.i = icmp eq i8 %48, 0
+  br i1 %.not10.not.not.i.i.i, label %49, label %_ZL8mark_mdoP6MethodiP10JavaThread.exit
 
 49:                                               ; preds = %46
   %50 = or disjoint i8 %47, 4
@@ -114,7 +114,7 @@ _ZL8mark_mdoP6MethodiP10JavaThread.exit:          ; preds = %46, %49
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %56
-  ret i1 %.not10.i.i.i
+  ret i1 %.not10.not.not.i.i.i
 }
 
 declare void @_ZN6Method27build_profiling_method_dataERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1

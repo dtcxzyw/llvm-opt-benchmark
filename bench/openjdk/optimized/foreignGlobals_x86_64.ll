@@ -200,65 +200,51 @@ define hidden noundef zeroext i1 @_ZN14ForeignGlobals27is_foreign_linker_support
 define hidden noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph.i, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread
+  br i1 %4, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = zext nneg i32 %3 to i64
-  %8 = load i32, ptr %6, align 4
-  %.not.i12 = icmp eq i32 %8, %1
-  br i1 %.not.i12, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %3 to i64
+  br label %8
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %9
-  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %7
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit, label %9, !llvm.loop !6
+7:                                                ; preds = %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %8, !llvm.loop !6
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds %class.Register, ptr %6, i64 %indvars.iv.next.i
-  %11 = load i32, ptr %10, align 4
-  %.not.i = icmp eq i32 %11, %1
-  br i1 %.not.i, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit, label %.lr.ph, !llvm.loop !6
+8:                                                ; preds = %7, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
+  %9 = getelementptr inbounds %class.Register, ptr %6, i64 %indvars.iv.i
+  %10 = load i32, ptr %9, align 4
+  %.not.i = icmp eq i32 %10, %1
+  br i1 %.not.i, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit, label %7
 
-_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit: ; preds = %9, %.lr.ph
-  %12 = icmp ult i64 %indvars.iv.next.i, %7
-  br i1 %12, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread
+.loopexit:                                        ; preds = %7, %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit
 
-_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread: ; preds = %2, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9
+.lr.ph.i2:                                        ; preds = %.loopexit
+  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = load ptr, ptr %14, align 8
+  %wide.trip.count.i4 = zext nneg i32 %12 to i64
+  br label %16
 
-.lr.ph.i2:                                        ; preds = %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
-  %17 = load ptr, ptr %16, align 8
-  %18 = zext nneg i32 %14 to i64
-  %19 = load i32, ptr %17, align 4
-  %.not.i616 = icmp eq i32 %19, %1
-  br i1 %.not.i616, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9, label %.lr.ph18
+16:                                               ; preds = %16, %.lr.ph.i2
+  %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i7, %16 ]
+  %17 = getelementptr inbounds %class.Register, ptr %15, i64 %indvars.iv.i5
+  %18 = load i32, ptr %17, align 4
+  %.not.i6 = icmp eq i32 %18, %1
+  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i5, 1
+  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i4
+  %or.cond = select i1 %.not.i6, i1 true, i1 %exitcond.not.i8
+  br i1 %or.cond, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit, label %16, !llvm.loop !6
 
-.lr.ph18:                                         ; preds = %.lr.ph.i2, %20
-  %indvars.iv.i517 = phi i64 [ %indvars.iv.next.i7, %20 ], [ 0, %.lr.ph.i2 ]
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i517, 1
-  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %18
-  br i1 %exitcond.not.i8, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9.loopexit, label %20, !llvm.loop !6
-
-20:                                               ; preds = %.lr.ph18
-  %21 = getelementptr inbounds %class.Register, ptr %17, i64 %indvars.iv.next.i7
-  %22 = load i32, ptr %21, align 4
-  %.not.i6 = icmp eq i32 %22, %1
-  br i1 %.not.i6, label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9.loopexit, label %.lr.ph18, !llvm.loop !6
-
-_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9.loopexit: ; preds = %20, %.lr.ph18
-  %23 = icmp ult i64 %indvars.iv.next.i7, %18
-  br label %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9
-
-_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9: ; preds = %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9.loopexit, %.lr.ph.i, %.lr.ph.i2, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit
-  %24 = phi i1 [ true, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit ], [ false, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit.thread ], [ true, %.lr.ph.i2 ], [ true, %.lr.ph.i ], [ %23, %_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit9.loopexit ]
-  ret i1 %24
+_ZNK17GrowableArrayViewI8RegisterE8containsERKS0_.exit: ; preds = %8, %16, %.loopexit
+  %19 = phi i1 [ false, %.loopexit ], [ %.not.i6, %16 ], [ true, %8 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -266,65 +252,51 @@ define hidden noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE11XMMRegi
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph.i, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread
+  br i1 %5, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = zext nneg i32 %4 to i64
-  %9 = load i32, ptr %7, align 4
-  %.not.i12 = icmp eq i32 %9, %1
-  br i1 %.not.i12, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %4 to i64
+  br label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %10
-  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit, label %10, !llvm.loop !8
+8:                                                ; preds = %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %9, !llvm.loop !8
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds %class.XMMRegister, ptr %7, i64 %indvars.iv.next.i
-  %12 = load i32, ptr %11, align 4
-  %.not.i = icmp eq i32 %12, %1
-  br i1 %.not.i, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit, label %.lr.ph, !llvm.loop !8
+9:                                                ; preds = %8, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
+  %10 = getelementptr inbounds %class.XMMRegister, ptr %7, i64 %indvars.iv.i
+  %11 = load i32, ptr %10, align 4
+  %.not.i = icmp eq i32 %11, %1
+  br i1 %.not.i, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit, label %8
 
-_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit: ; preds = %10, %.lr.ph
-  %13 = icmp ult i64 %indvars.iv.next.i, %8
-  br i1 %13, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread
+.loopexit:                                        ; preds = %8, %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit
 
-_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread: ; preds = %2, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.i2, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9
+.lr.ph.i2:                                        ; preds = %.loopexit
+  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = load ptr, ptr %15, align 8
+  %wide.trip.count.i4 = zext nneg i32 %13 to i64
+  br label %17
 
-.lr.ph.i2:                                        ; preds = %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
-  %18 = load ptr, ptr %17, align 8
-  %19 = zext nneg i32 %15 to i64
-  %20 = load i32, ptr %18, align 4
-  %.not.i616 = icmp eq i32 %20, %1
-  br i1 %.not.i616, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9, label %.lr.ph18
+17:                                               ; preds = %17, %.lr.ph.i2
+  %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i7, %17 ]
+  %18 = getelementptr inbounds %class.XMMRegister, ptr %16, i64 %indvars.iv.i5
+  %19 = load i32, ptr %18, align 4
+  %.not.i6 = icmp eq i32 %19, %1
+  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i5, 1
+  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i4
+  %or.cond = select i1 %.not.i6, i1 true, i1 %exitcond.not.i8
+  br i1 %or.cond, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit, label %17, !llvm.loop !8
 
-.lr.ph18:                                         ; preds = %.lr.ph.i2, %21
-  %indvars.iv.i517 = phi i64 [ %indvars.iv.next.i7, %21 ], [ 0, %.lr.ph.i2 ]
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i517, 1
-  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %19
-  br i1 %exitcond.not.i8, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9.loopexit, label %21, !llvm.loop !8
-
-21:                                               ; preds = %.lr.ph18
-  %22 = getelementptr inbounds %class.XMMRegister, ptr %18, i64 %indvars.iv.next.i7
-  %23 = load i32, ptr %22, align 4
-  %.not.i6 = icmp eq i32 %23, %1
-  br i1 %.not.i6, label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9.loopexit, label %.lr.ph18, !llvm.loop !8
-
-_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9.loopexit: ; preds = %21, %.lr.ph18
-  %24 = icmp ult i64 %indvars.iv.next.i7, %19
-  br label %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9
-
-_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9: ; preds = %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9.loopexit, %.lr.ph.i, %.lr.ph.i2, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit
-  %25 = phi i1 [ true, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit ], [ false, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit.thread ], [ true, %.lr.ph.i2 ], [ true, %.lr.ph.i ], [ %24, %_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit9.loopexit ]
-  ret i1 %25
+_ZNK17GrowableArrayViewI11XMMRegisterE8containsERKS0_.exit: ; preds = %9, %17, %.loopexit
+  %20 = phi i1 [ false, %.loopexit ], [ %.not.i6, %17 ], [ true, %9 ]
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2001,32 +1973,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i310 = or i64 %.0.i.i310.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i16.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !12
-  %72 = icmp eq i64 %71, %.0.i16.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !12
+  %71 = icmp eq i64 %70, %.0.i16.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
 
-_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -2143,32 +2114,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i18 = or i64 %.0.i.i18.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i17.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #10, !srcloc !12
-  %72 = icmp eq i64 %71, %.0.i17.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #10, !srcloc !12
+  %71 = icmp eq i64 %70, %.0.i17.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !15
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !15
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -2666,9 +2636,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -2676,20 +2645,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !12
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #10, !srcloc !12
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

@@ -1434,10 +1434,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %smax = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %112, label %.lr.ph237.preheader, label %.loopexit
-
-.lr.ph237.preheader:                              ; preds = %.preheader
+.lr.ph237.preheader:                              ; preds = %.lr.ph
   %smax240 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
   br label %.lr.ph237
 
@@ -1449,7 +1446,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %115 = add i32 %.2234, 4
   %116 = add nuw nsw i32 %.0216233, 1
   %exitcond.not = icmp eq i32 %116, %smax
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.lr.ph237.preheader, label %.lr.ph, !llvm.loop !5
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.lr.ph237
   %.3236 = phi i32 [ %119, %.lr.ph237 ], [ %115, %.lr.ph237.preheader ]
@@ -1506,8 +1503,8 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %148, ptr noundef %1, i32 noundef %3, i32 noundef %.0218, i32 noundef 0) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph237, %106, %.preheader, %.thread230, %121, %132, %47, %56, %24, %147, %145, %142, %140, %138, %136, %101, %96, %90, %81, %76, %73, %68, %63, %59, %45, %41, %39, %37, %35, %33, %30
-  %.1 = phi i32 [ %3, %147 ], [ %146, %145 ], [ %144, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %130, %132 ], [ %130, %121 ], [ %105, %101 ], [ %100, %96 ], [ %3, %90 ], [ %89, %81 ], [ %.pre.i226, %76 ], [ %.pre.i, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %54, %56 ], [ %54, %47 ], [ %46, %45 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %24 ], [ %23, %.thread230 ], [ %115, %.preheader ], [ %109, %106 ], [ %119, %.lr.ph237 ]
+.loopexit:                                        ; preds = %.lr.ph237, %106, %.thread230, %121, %132, %47, %56, %24, %147, %145, %142, %140, %138, %136, %101, %96, %90, %81, %76, %73, %68, %63, %59, %45, %41, %39, %37, %35, %33, %30
+  %.1 = phi i32 [ %3, %147 ], [ %146, %145 ], [ %144, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %130, %132 ], [ %130, %121 ], [ %105, %101 ], [ %100, %96 ], [ %3, %90 ], [ %89, %81 ], [ %.pre.i226, %76 ], [ %.pre.i, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %54, %56 ], [ %54, %47 ], [ %46, %45 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %24 ], [ %23, %.thread230 ], [ %109, %106 ], [ %119, %.lr.ph237 ]
   %150 = icmp slt i32 %.1, %12
   br i1 %150, label %151, label %155
 

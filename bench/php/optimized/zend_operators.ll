@@ -9013,8 +9013,8 @@ define noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr noundef r
 
 6:                                                ; preds = %switch.early.test, %1
   %.017 = phi ptr [ %2, %1 ], [ %10, %switch.early.test ]
-  %.not = icmp uge ptr %.017, %5
-  br i1 %.not, label %.critedge, label %7
+  %.not.not.not.not.not = icmp uge ptr %.017, %5
+  br i1 %.not.not.not.not.not, label %.critedge, label %7
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %.017, align 1
@@ -9042,7 +9042,7 @@ switch.early.test:                                ; preds = %7
   ]
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %7, %6
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9208,8 +9208,8 @@ is_numeric_str_function.exit.thread:              ; preds = %is_numeric_str_func
 
 65:                                               ; preds = %switch.early.test.i.i, %62
   %.017.i.i = phi ptr [ %63, %62 ], [ %69, %switch.early.test.i.i ]
-  %.not.i.not.i = icmp ult ptr %.017.i.i, %64
-  br i1 %.not.i.not.i, label %66, label %zend_string_only_has_ascii_alphanumeric.exit.loopexit.i
+  %.not.not.not.i.not.i = icmp ult ptr %.017.i.i, %64
+  br i1 %.not.not.not.i.not.i, label %66, label %zend_string_only_has_ascii_alphanumeric.exit.loopexit.i
 
 66:                                               ; preds = %65
   %67 = load i8, ptr %.017.i.i, align 1

@@ -1742,15 +1742,13 @@ _ZN5faiss12_GLOBAL__N_16MatrixIlEC2Ell.exit:      ; preds = %_ZSt6fill_nIPlmlET_
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
-  %.not.i.i.i.i124 = icmp eq i64 %2, 0
   store i64 1, ptr %8, align 8
-  br i1 %.not.i.i.i.i124, label %_ZNSt6vectorIlSaIlEED2Ev.exit141, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
+  switch i64 %2, label %.lr.ph213 [
+    i64 0, label %_ZNSt6vectorIlSaIlEED2Ev.exit141
+    i64 1, label %.lr.ph219.preheader
+  ]
 
-_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  %.not263 = icmp eq i64 %2, 1
-  br i1 %.not263, label %.lr.ph219.preheader, label %.lr.ph213
-
-.lr.ph213:                                        ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
+.lr.ph213:                                        ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   %168 = icmp ugt i64 %1, 1152921504606846975
   %169 = shl nuw nsw i64 %1, 3
   %170 = icmp eq i64 %1, 1
@@ -1759,10 +1757,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %_ZNSt6vectorIlSaIlE
   %173 = getelementptr inbounds i8, ptr %9, i64 24
   br i1 %168, label %175, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i127
 
-.preheader:                                       ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  br i1 %.not.i.i.i.i124, label %.loopexit253, label %.lr.ph219.preheader
-
-.lr.ph219.preheader:                              ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit, %.preheader
+.lr.ph219.preheader:                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   %.080214 = add nsw i64 %2, -1
   br label %.lr.ph219
 
@@ -1974,7 +1969,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %"_ZZN5faiss8kmeans1
   %262 = add nsw i64 %261, 1
   store i64 %262, ptr %8, align 8
   %263 = icmp ult i64 %262, %2
-  br i1 %263, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i127, label %.preheader, !llvm.loop !18
+  br i1 %263, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i127, label %.lr.ph219.preheader, !llvm.loop !18
 
 _ZNSt8functionIFfllEED2Ev.exit134:                ; preds = %251, %253, %256
   %.pn92 = phi { ptr, i32 } [ %252, %251 ], [ %254, %253 ], [ %254, %256 ]
@@ -2067,12 +2062,10 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i138, %.lr.p
   %301 = icmp sgt i64 %.080, -1
   br i1 %301, label %.lr.ph219, label %.loopexit253, !llvm.loop !20
 
-.loopexit253:                                     ; preds = %294, %.preheader
-  %.083.lcssa.ph = phi double [ 0.000000e+00, %.preheader ], [ %299, %294 ]
-  %.082.lcssa.ph = phi double [ 0.000000e+00, %.preheader ], [ %300, %294 ]
+.loopexit253:                                     ; preds = %294
   %302 = uitofp i64 %2 to double
-  %303 = fmul double %.082.lcssa.ph, %302
-  %304 = fmul double %.083.lcssa.ph, %.083.lcssa.ph
+  %303 = fmul double %300, %302
+  %304 = fmul double %299, %299
   %305 = fdiv double %303, %304
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit141
 

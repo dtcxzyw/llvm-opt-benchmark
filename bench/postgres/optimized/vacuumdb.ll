@@ -580,12 +580,12 @@ escape_quotes.exit:                               ; preds = %94
 152:                                              ; preds = %148
   %153 = load i32, ptr %8, align 8
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %157, label %160
+  br i1 %154, label %157, label %161
 
 .thread:                                          ; preds = %117
   %155 = load i32, ptr %8, align 8
   %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %.thread71, label %160
+  br i1 %156, label %.thread71, label %161
 
 157:                                              ; preds = %152
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.16) #9
@@ -593,132 +593,132 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 .thread71:                                        ; preds = %.thread
-  %.pre = load i8, ptr %26, align 1
-  %158 = trunc i8 %.pre to i1
-  br i1 %158, label %159, label %160
+  %158 = load i8, ptr %26, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %161
 
-159:                                              ; preds = %.thread71
+160:                                              ; preds = %.thread71
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.16) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
-160:                                              ; preds = %.thread, %.thread71, %152
-  %161 = load i8, ptr %10, align 4
-  %162 = trunc i8 %161 to i1
-  br i1 %162, label %163, label %167
+161:                                              ; preds = %.thread, %.thread71, %152
+  %162 = load i8, ptr %10, align 4
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %168
 
-163:                                              ; preds = %160
-  %164 = load i8, ptr %11, align 1
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %166, label %167
+164:                                              ; preds = %161
+  %165 = load i8, ptr %11, align 1
+  %166 = trunc i8 %165 to i1
+  br i1 %166, label %167, label %168
 
-166:                                              ; preds = %163
+167:                                              ; preds = %164
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
-167:                                              ; preds = %163, %160
-  %168 = load ptr, ptr %9, align 8
-  %.not64 = icmp eq ptr %168, null
-  br i1 %.not64, label %176, label %169
+168:                                              ; preds = %164, %161
+  %169 = load ptr, ptr %9, align 8
+  %.not64 = icmp eq ptr %169, null
+  br i1 %.not64, label %177, label %170
 
-169:                                              ; preds = %167
-  %170 = load i8, ptr %26, align 1
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %176
+170:                                              ; preds = %168
+  %171 = load i8, ptr %26, align 1
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %177
 
-172:                                              ; preds = %169
-  %173 = load i8, ptr %23, align 2
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %176, label %175
+173:                                              ; preds = %170
+  %174 = load i8, ptr %23, align 2
+  %175 = trunc i8 %174 to i1
+  br i1 %175, label %177, label %176
 
-175:                                              ; preds = %172
+176:                                              ; preds = %173
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.13) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
-176:                                              ; preds = %172, %169, %167
-  %177 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.054, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.052, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.050, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %.048, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr null, ptr %181, align 8
+177:                                              ; preds = %173, %170, %168
+  %178 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.054, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.052, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.050, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %.048, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr null, ptr %182, align 8
   call void @setup_cancel_handler(ptr noundef null) #9
   %.not65 = icmp ne i32 %.041, 0
-  %182 = load i32, ptr %7, align 4
-  %183 = icmp sgt i32 %182, %.041
-  %or.cond70 = select i1 %.not65, i1 %183, i1 false
-  br i1 %or.cond70, label %184, label %185
+  %183 = load i32, ptr %7, align 4
+  %184 = icmp sgt i32 %183, %.041
+  %or.cond70 = select i1 %.not65, i1 %184, i1 false
+  br i1 %or.cond70, label %185, label %186
 
-184:                                              ; preds = %176
+185:                                              ; preds = %177
   store i32 %.041, ptr %7, align 4
-  br label %185
+  br label %186
 
-185:                                              ; preds = %184, %176
-  %186 = phi i32 [ %.041, %184 ], [ %182, %176 ]
-  %187 = load i32, ptr @objfilter, align 4
-  %188 = and i32 %187, 1
-  %.not66 = icmp eq i32 %188, 0
-  br i1 %.not66, label %193, label %189
+186:                                              ; preds = %185, %177
+  %187 = phi i32 [ %.041, %185 ], [ %183, %177 ]
+  %188 = load i32, ptr @objfilter, align 4
+  %189 = and i32 %188, 1
+  %.not66 = icmp eq i32 %189, 0
+  br i1 %.not66, label %194, label %190
 
-189:                                              ; preds = %185
+190:                                              ; preds = %186
   store ptr %.056, ptr %4, align 8
-  %190 = trunc nuw i8 %.042 to i1
-  %191 = trunc nuw i8 %.046 to i1
-  %192 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_all_databases(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %190, i32 noundef %186, ptr noundef %17, i1 noundef zeroext %191, i1 noundef zeroext %192)
+  %191 = trunc nuw i8 %.042 to i1
+  %192 = trunc nuw i8 %.046 to i1
+  %193 = trunc nuw i8 %.044 to i1
+  call fastcc void @vacuum_all_databases(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %191, i32 noundef %187, ptr noundef %17, i1 noundef zeroext %192, i1 noundef zeroext %193)
   br label %.loopexit
 
-193:                                              ; preds = %185
-  %194 = icmp eq ptr %.2, null
-  br i1 %194, label %195, label %201
+194:                                              ; preds = %186
+  %195 = icmp eq ptr %.2, null
+  br i1 %195, label %196, label %202
 
-195:                                              ; preds = %193
-  %196 = call ptr @getenv(ptr noundef nonnull @.str.43) #9
-  %.not67 = icmp eq ptr %196, null
-  br i1 %.not67, label %197, label %201
+196:                                              ; preds = %194
+  %197 = call ptr @getenv(ptr noundef nonnull @.str.43) #9
+  %.not67 = icmp eq ptr %197, null
+  br i1 %.not67, label %198, label %202
 
-197:                                              ; preds = %195
-  %198 = call ptr @getenv(ptr noundef nonnull @.str.44) #9
-  %.not68 = icmp eq ptr %198, null
-  br i1 %.not68, label %199, label %201
+198:                                              ; preds = %196
+  %199 = call ptr @getenv(ptr noundef nonnull @.str.44) #9
+  %.not68 = icmp eq ptr %199, null
+  br i1 %.not68, label %200, label %202
 
-199:                                              ; preds = %197
-  %200 = call ptr @get_user_name_or_exit(ptr noundef %17) #9
-  br label %201
+200:                                              ; preds = %198
+  %201 = call ptr @get_user_name_or_exit(ptr noundef %17) #9
+  br label %202
 
-201:                                              ; preds = %197, %195, %199, %193
-  %.3 = phi ptr [ %200, %199 ], [ %.2, %193 ], [ %196, %195 ], [ %198, %197 ]
+202:                                              ; preds = %198, %196, %200, %194
+  %.3 = phi ptr [ %201, %200 ], [ %.2, %194 ], [ %197, %196 ], [ %199, %198 ]
   store ptr %.3, ptr %4, align 8
-  %202 = trunc nuw i8 %.042 to i1
-  br i1 %202, label %.preheader, label %208
+  %203 = trunc nuw i8 %.042 to i1
+  br i1 %203, label %.preheader, label %209
 
-.preheader:                                       ; preds = %201
-  %203 = trunc nuw i8 %.046 to i1
-  %204 = trunc nuw i8 %.044 to i1
-  br label %205
+.preheader:                                       ; preds = %202
+  %204 = trunc nuw i8 %.046 to i1
+  %205 = trunc nuw i8 %.044 to i1
+  br label %206
 
-205:                                              ; preds = %.preheader, %205
-  %.0132 = phi i32 [ 0, %.preheader ], [ %207, %205 ]
-  %206 = load i32, ptr %7, align 4
-  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %.0132, ptr noundef nonnull %6, i32 noundef %206, ptr noundef %17, i1 noundef zeroext %203, i1 noundef zeroext %204)
-  %207 = add nuw nsw i32 %.0132, 1
-  %exitcond.not = icmp eq i32 %207, 3
-  br i1 %exitcond.not, label %.loopexit, label %205, !llvm.loop !7
+206:                                              ; preds = %.preheader, %206
+  %.0132 = phi i32 [ 0, %.preheader ], [ %208, %206 ]
+  %207 = load i32, ptr %7, align 4
+  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %.0132, ptr noundef nonnull %6, i32 noundef %207, ptr noundef %17, i1 noundef zeroext %204, i1 noundef zeroext %205)
+  %208 = add nuw nsw i32 %.0132, 1
+  %exitcond.not = icmp eq i32 %208, 3
+  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !7
 
-208:                                              ; preds = %201
-  %209 = load i32, ptr %7, align 4
-  %210 = trunc nuw i8 %.046 to i1
-  %211 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %209, ptr noundef %17, i1 noundef zeroext %210, i1 noundef zeroext %211)
+209:                                              ; preds = %202
+  %210 = load i32, ptr %7, align 4
+  %211 = trunc nuw i8 %.046 to i1
+  %212 = trunc nuw i8 %.044 to i1
+  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %210, ptr noundef %17, i1 noundef zeroext %211, i1 noundef zeroext %212)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %205, %208, %189
+.loopexit:                                        ; preds = %206, %209, %190
   call void @exit(i32 noundef 0) #11
   unreachable
 }

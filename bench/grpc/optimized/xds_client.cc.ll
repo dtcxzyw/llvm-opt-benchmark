@@ -2901,8 +2901,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.05 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 120
   %1 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i.not = icmp ne i64 %1, 0
-  br i1 %cmp.i.i.not, label %return, label %for.inc
+  %cmp.i.i.not.not = icmp ne i64 %1, 0
+  br i1 %cmp.i.i.not.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.05) #30
@@ -2910,7 +2910,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i.not, label %return, label %for.body
 
 return:                                           ; preds = %for.body, %for.inc, %entry
-  %cmp.i.lcssa = phi i1 [ false, %entry ], [ %cmp.i.i.not, %for.inc ], [ %cmp.i.i.not, %for.body ]
+  %cmp.i.lcssa = phi i1 [ false, %entry ], [ %cmp.i.i.not.not, %for.inc ], [ %cmp.i.i.not.not, %for.body ]
   ret i1 %cmp.i.lcssa
 }
 
@@ -8120,7 +8120,7 @@ invoke.cont:                                      ; preds = %lor.rhs.i, %if.then
   %7 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 88
   %cmp.i.not79 = icmp eq ptr %7, %add.ptr.i.i
-  br i1 %cmp.i.not79, label %land.lhs.true, label %for.body.lr.ph
+  br i1 %cmp.i.not79, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8360,9 +8360,9 @@ lpad:                                             ; preds = %if.then.i, %if.then
 for.inc23:                                        ; preds = %_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEED2Ev.exit, %for.body
   %call.i22 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.080) #30
   %cmp.i.not = icmp eq ptr %call.i22, %add.ptr.i.i
-  br i1 %cmp.i.not, label %land.lhs.true, label %for.body
+  br i1 %cmp.i.not, label %if.end, label %for.body
 
-land.lhs.true:                                    ; preds = %for.inc23, %invoke.cont
+if.end:                                           ; preds = %for.inc23, %invoke.cont
   store ptr null, ptr %send_message_pending_, align 8
   %45 = load ptr, ptr %parent_.i.i, align 8
   %chand_.i.i.i24 = getelementptr inbounds i8, ptr %45, i64 24
@@ -8372,7 +8372,7 @@ land.lhs.true:                                    ; preds = %for.inc23, %invoke.
   %cmp.i.not.i.i = icmp eq ptr %47, null
   br i1 %cmp.i.not.i.i, label %if.end48, label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %land.lhs.true
+invoke.cont28:                                    ; preds = %if.end
   %calld_.i.i = getelementptr inbounds i8, ptr %47, i64 16
   %48 = load ptr, ptr %calld_.i.i, align 8
   %cmp.i25 = icmp eq ptr %this, %48
@@ -8405,7 +8405,7 @@ if.end48.critedge:                                ; preds = %entry
   store ptr null, ptr %send_message_pending_26.c, align 8
   br label %if.end48
 
-if.end48:                                         ; preds = %land.lhs.true, %invoke.cont40, %if.end48.critedge, %if.then30, %invoke.cont28
+if.end48:                                         ; preds = %if.end, %invoke.cont40, %if.end48.critedge, %if.then30, %invoke.cont28
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -17105,8 +17105,8 @@ if.then48:                                        ; preds = %_ZN9grpc_core9XdsCl
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %if.then48
   %count.0.i.i.i = phi i64 [ %64, %if.then48 ], [ %67, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %invoke.cont51, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %invoke.cont51, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1
@@ -18332,8 +18332,8 @@ if.then51:                                        ; preds = %invoke.cont47
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %if.then51
   %count.0.i.i.i = phi i64 [ %64, %if.then51 ], [ %67, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %invoke.cont54, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %invoke.cont54, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1

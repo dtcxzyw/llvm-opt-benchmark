@@ -580,15 +580,12 @@ _ZN7RSCoder6gfMultEii.exit.us109:                 ; preds = %27, %.lr.ph.split.u
 
 .lr.ph122:                                        ; preds = %.lr.ph
   %49 = getelementptr inbounds i8, ptr %0, i64 2048
-  br i1 %10, label %.lr.ph118.us.preheader, label %._crit_edge123
-
-.lr.ph118.us.preheader:                           ; preds = %.lr.ph122
   %50 = zext nneg i32 %9 to i64
   %wide.trip.count172 = zext nneg i32 %4 to i64
   br label %.lr.ph118.us
 
-.lr.ph118.us:                                     ; preds = %.lr.ph118.us.preheader, %._crit_edge119.us
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph118.us.preheader ], [ %indvars.iv.next170, %._crit_edge119.us ]
+.lr.ph118.us:                                     ; preds = %.lr.ph122, %._crit_edge119.us
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next170, %._crit_edge119.us ]
   %51 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv169
   %52 = load i32, ptr %51, align 4
   %53 = xor i32 %52, -1
@@ -639,8 +636,8 @@ _ZN7RSCoder6gfMultEii.exit84.us125:               ; preds = %64, %.lr.ph118.spli
   %.pre199.pre = load i32, ptr %8, align 4
   br label %._crit_edge123
 
-._crit_edge123:                                   ; preds = %.lr.ph122, %._crit_edge123.loopexit, %.lr.ph
-  %.pre199 = phi i32 [ %.pre199.pre, %._crit_edge123.loopexit ], [ %9, %.lr.ph ], [ %9, %.lr.ph122 ]
+._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %.lr.ph
+  %.pre199 = phi i32 [ %.pre199.pre, %._crit_edge123.loopexit ], [ %9, %.lr.ph ]
   %78 = getelementptr inbounds i8, ptr %0, i64 8192
   store i32 0, ptr %78, align 4
   %79 = sub nsw i32 255, %2

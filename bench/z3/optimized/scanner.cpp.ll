@@ -1449,17 +1449,17 @@ while.body17.sink.split:                          ; preds = %_ZN6vectorIcLb1EjE5
   br label %while.body17.preheader
 
 while.body17.preheader:                           ; preds = %lor.lhs.false.i37, %while.body17.sink.split
-  %.sink142.ph = phi i32 [ %.pre1.i111, %while.body17.sink.split ], [ %22, %lor.lhs.false.i37 ]
+  %.sink139.ph = phi i32 [ %.pre1.i111, %while.body17.sink.split ], [ %22, %lor.lhs.false.i37 ]
   %.sink.ph = phi ptr [ %.pre.i109, %while.body17.sink.split ], [ %.pr, %lor.lhs.false.i37 ]
-  %conv44.sink.in.ph147 = phi i32 [ %conv44.sink.in.ph, %while.body17.sink.split ], [ %call2, %lor.lhs.false.i37 ]
+  %conv44.sink.in.ph144 = phi i32 [ %conv44.sink.in.ph, %while.body17.sink.split ], [ %call2, %lor.lhs.false.i37 ]
   br label %while.body17
 
 while.body17:                                     ; preds = %while.body17.preheader, %lor.lhs.false.i99
-  %.sink142 = phi i32 [ %68, %lor.lhs.false.i99 ], [ %.sink142.ph, %while.body17.preheader ]
+  %.sink139 = phi i32 [ %68, %lor.lhs.false.i99 ], [ %.sink139.ph, %while.body17.preheader ]
   %.sink = phi ptr [ %67, %lor.lhs.false.i99 ], [ %.sink.ph, %while.body17.preheader ]
-  %conv44.sink.in = phi i32 [ %retval.0.i, %lor.lhs.false.i99 ], [ %conv44.sink.in.ph147, %while.body17.preheader ]
+  %conv44.sink.in = phi i32 [ %retval.0.i, %lor.lhs.false.i99 ], [ %conv44.sink.in.ph144, %while.body17.preheader ]
   %conv44.sink = trunc i32 %conv44.sink.in to i8
-  %idx.ext.i104 = zext i32 %.sink142 to i64
+  %idx.ext.i104 = zext i32 %.sink139 to i64
   %add.ptr.i105 = getelementptr inbounds i8, ptr %.sink, i64 %idx.ext.i104
   store i8 %conv44.sink, ptr %add.ptr.i105, align 1
   %24 = load ptr, ptr %m_string, align 8

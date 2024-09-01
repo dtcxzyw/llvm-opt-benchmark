@@ -663,8 +663,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge: ; pred
 
 .critedge:                                        ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %14, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
   %46 = phi ptr [ %.pre, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit13.critedge..critedge_crit_edge ], [ %15, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %15, %14 ], [ %15, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit ]
-  %.not34 = icmp eq ptr %16, %46
-  br i1 %.not34, label %._crit_edge, label %14, !llvm.loop !26
+  %.not31 = icmp eq ptr %16, %46
+  br i1 %.not31, label %._crit_edge, label %14, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.critedge, %5
   %47 = icmp eq i32 %2, 0

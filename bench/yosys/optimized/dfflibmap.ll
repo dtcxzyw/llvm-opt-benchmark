@@ -8403,10 +8403,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit212:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %.not7891158 = icmp eq ptr %443, %444
   br i1 %.not7891158, label %._crit_edge, label %.lr.ph1162
 
-.preheader:                                       ; preds = %.lr.ph1162
-  br i1 %.not7891158, label %._crit_edge, label %.lr.ph1171
-
-.lr.ph1171:                                       ; preds = %.preheader
+.lr.ph1171:                                       ; preds = %.lr.ph1162
   %445 = select i1 %spec.select, i1 %.1106, i1 false
   br label %459
 
@@ -8422,7 +8419,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit212:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %.1106 = select i1 %449, i1 true, i1 %.01051160
   %450 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0741.01159) #31
   %.not789 = icmp eq ptr %450, %444
-  br i1 %.not789, label %.preheader, label %.lr.ph1162
+  br i1 %.not789, label %.lr.ph1171, label %.lr.ph1162
 
 451:                                              ; preds = %.lr.ph1179
   %452 = landingpad { ptr, i32 }
@@ -11788,8 +11785,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i530: ; preds = 
   %.pre1369 = load i32, ptr %28, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %441, %._crit_edge.loopexit, %.preheader
-  %1613 = phi i32 [ %.pre1369, %._crit_edge.loopexit ], [ %364, %.preheader ], [ %364, %441 ]
+._crit_edge:                                      ; preds = %441, %._crit_edge.loopexit
+  %1613 = phi i32 [ %.pre1369, %._crit_edge.loopexit ], [ %364, %441 ]
   %1614 = sext i32 %1613 to i64
   %1615 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %1616 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8
@@ -12592,9 +12589,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19parse_pinEPN5Yosys1
           to label %39 unwind label %.loopexit.split-lp
 
 .sink.split:                                      ; preds = %33, %25
-  %.sink47 = phi ptr [ %6, %25 ], [ %7, %33 ]
-  %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sink47) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink47) #25
+  %.sink44 = phi ptr [ %6, %25 ], [ %7, %33 ]
+  %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sink44) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink44) #25
   br label %39
 
 39:                                               ; preds = %.sink.split, %36
@@ -12604,8 +12601,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19parse_pinEPN5Yosys1
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 96
   %43 = load ptr, ptr %42, align 8
-  %.not44 = icmp eq ptr %41, %43
-  br i1 %.not44, label %._crit_edge40, label %.lr.ph39
+  %.not41 = icmp eq ptr %41, %43
+  br i1 %.not41, label %._crit_edge40, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %39, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread33
   %.sroa.030.037 = phi ptr [ %66, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread33 ], [ %41, %39 ]
@@ -12645,8 +12642,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread33: ; preds = %56, %.lr.ph39, %47, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %66 = getelementptr inbounds i8, ptr %.sroa.030.037, i64 8
-  %.not45 = icmp eq ptr %66, %43
-  br i1 %.not45, label %._crit_edge40, label %.lr.ph39
+  %.not42 = icmp eq ptr %66, %43
+  br i1 %.not42, label %._crit_edge40, label %.lr.ph39
 
 ._crit_edge40:                                    ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread33, %39
   %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.67, i64 noundef 0) #25

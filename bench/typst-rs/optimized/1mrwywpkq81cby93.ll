@@ -4953,8 +4953,8 @@ _ZN8unscanny7Scanner3get17hc7718190890344aaE.exit.i.i117: ; preds = %"_ZN4core3s
 
 1495:                                             ; preds = %1496, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.exit.i.i.i.i"
   %.idx.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i, %1496 ], [ 0, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.exit.i.i.i.i" ]
-  %.not.i.not.i.not.i.not.not.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 8
-  br i1 %.not.i.not.i.not.i.not.not.i.i.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hc8dc5c898b89cfc5E.exit.thread.i.i, label %1496
+  %.not.not.not.i.not.not.not.i.not.i.not.not.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 8
+  br i1 %.not.not.not.i.not.not.not.i.not.i.not.not.i.i.i, label %_ZN4core3str7pattern7Pattern12is_suffix_of17hc8dc5c898b89cfc5E.exit.thread.i.i, label %1496
 
 1496:                                             ; preds = %1495
   %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i.i.i.i
@@ -6513,7 +6513,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.exit.i.i.
   br i1 %354, label %_ZN4core3ops8function6FnOnce9call_once17h94a993edff0f9f7cE.exit.thread190.i, label %.lr.ph.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h94a993edff0f9f7cE.exit.thread190.i: ; preds = %.backedge.i.i.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.exit.i.i.i.i.i.i.i, %334, %332, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i.i.i.i", %290
-  %.065193.i = phi i1 [ true, %290 ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.exit.i.i.i.i.i.i.i ], [ false, %334 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i.i.i.i" ], [ true, %.backedge.i.i.i.i ], [ false, %332 ]
+  %.065193.i = phi i1 [ true, %290 ], [ false, %332 ], [ true, %.backedge.i.i.i.i ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i.i.i.i" ], [ false, %334 ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.exit.i.i.i.i.i.i.i ]
   %.063.val.i = load ptr, ptr %281, align 8, !nonnull !7, !align !50, !noundef !7
   %355 = getelementptr i8, ptr %281, i64 8
   %.063.val75.i = load i64, ptr %355, align 8, !noundef !7
@@ -8000,8 +8000,8 @@ _ZN8unscanny7Scanner2at17h18bfd706d83aa696E.exit: ; preds = %.thread5.i.i7, %"_Z
 
 245:                                              ; preds = %246, %.thread6.i.i.i
   %.idx.i.i = phi i64 [ %.add.i.i, %246 ], [ 0, %.thread6.i.i.i ]
-  %.not.i.not.i.i.not.i = icmp eq i64 %.idx.i.i, 8
-  br i1 %.not.i.not.i.i.not.i, label %_ZN8unscanny7Scanner2at17h6b7601faf6ae2dd1E.exit.thread, label %246
+  %.not.not.not.i.not.i.i.not.i = icmp eq i64 %.idx.i.i, 8
+  br i1 %.not.not.not.i.not.i.i.not.i, label %_ZN8unscanny7Scanner2at17h6b7601faf6ae2dd1E.exit.thread, label %246
 
 246:                                              ; preds = %245
   %.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
@@ -8087,8 +8087,8 @@ _ZN8unscanny7Scanner2at17h6b7601faf6ae2dd1E.exit: ; preds = %246
 
 289:                                              ; preds = %290, %.thread6.i.i.i14
   %.idx.i.i16 = phi i64 [ %.add.i.i19, %290 ], [ 0, %.thread6.i.i.i14 ]
-  %.not.i.not.i.i.not.i17 = icmp eq i64 %.idx.i.i16, 8
-  br i1 %.not.i.not.i.i.not.i17, label %_ZN8unscanny7Scanner2at17h6b7601faf6ae2dd1E.exit22.thread, label %290
+  %.not.not.not.i.not.i.i.not.i17 = icmp eq i64 %.idx.i.i16, 8
+  br i1 %.not.not.not.i.not.i.i.not.i17, label %_ZN8unscanny7Scanner2at17h6b7601faf6ae2dd1E.exit22.thread, label %290
 
 290:                                              ; preds = %289
   %.ptr.i.i18 = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i16
@@ -9054,8 +9054,8 @@ _ZN8unscanny7Scanner2at17h8c4b541787e3ffc9E.exit.thread: ; preds = %_ZN8unscanny
 
 295:                                              ; preds = %296, %.thread6.i.i.i
   %.idx.i.i = phi i64 [ %.add.i.i, %296 ], [ 0, %.thread6.i.i.i ]
-  %.not.i.not.i.i.i = icmp eq i64 %.idx.i.i, 8
-  br i1 %.not.i.not.i.i.i, label %_ZN8unscanny7Scanner6eat_if17hddf1b4733d5d24b2E.exit.thread, label %296
+  %.not.not.not.i.not.i.i.i = icmp eq i64 %.idx.i.i, 8
+  br i1 %.not.not.not.i.not.i.i.i, label %_ZN8unscanny7Scanner6eat_if17hddf1b4733d5d24b2E.exit.thread, label %296
 
 296:                                              ; preds = %295
   %.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
@@ -9176,8 +9176,8 @@ _ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit187: ; preds = %"_ZN8unscann
 
 351:                                              ; preds = %352, %.thread6.i.i.i189
   %.idx.i.i191 = phi i64 [ %.add.i.i194, %352 ], [ 0, %.thread6.i.i.i189 ]
-  %.not.i.not.i.i.i192 = icmp eq i64 %.idx.i.i191, 8
-  br i1 %.not.i.not.i.i.i192, label %_ZN8unscanny7Scanner6eat_if17hddf1b4733d5d24b2E.exit199, label %352
+  %.not.not.not.i.not.i.i.i192 = icmp eq i64 %.idx.i.i191, 8
+  br i1 %.not.not.not.i.not.i.i.i192, label %_ZN8unscanny7Scanner6eat_if17hddf1b4733d5d24b2E.exit199, label %352
 
 352:                                              ; preds = %351
   %.ptr.i.i193 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i191

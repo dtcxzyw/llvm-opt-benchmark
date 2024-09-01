@@ -1788,7 +1788,7 @@ if.else:                                          ; preds = %for.inc, %for.cond.
   unreachable
 
 for.body11:                                       ; preds = %for.cond8.preheader, %for.inc30
-  %6 = phi i32 [ %24, %for.inc30 ], [ %2, %for.cond8.preheader ]
+  %6 = phi i32 [ %23, %for.inc30 ], [ %2, %for.cond8.preheader ]
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %for.inc30 ], [ %indvars.iv148, %for.cond8.preheader ]
   %7 = load ptr, ptr %qcrs, align 8
   %arrayidx14 = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %indvars.iv151
@@ -1843,7 +1843,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end5.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %17 = load ptr, ptr %qiov, align 8
   %18 = load ptr, ptr %qiov25, align 8
-  %19 = zext nneg i32 %15 to i64
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
   br label %for.body.i.i
 
 if.else.i.i:                                      ; preds = %if.end5.i
@@ -1852,20 +1852,18 @@ if.else.i.i:                                      ; preds = %if.end5.i
 
 for.cond.i.i:                                     ; preds = %if.end11.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %cmp3.i.i = icmp uge i64 %indvars.iv.next.i.i, %19
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, %19
-  br i1 %exitcond.i.i, label %quorum_compare.exit, label %for.body.i.i, !llvm.loop !30
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %for.inc30, label %for.body.i.i, !llvm.loop !30
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %cmp316.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %cmp3.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %17, i64 %indvars.iv.i.i
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %20 = load i64, ptr %iov_len.i.i, align 8
+  %19 = load i64, ptr %iov_len.i.i, align 8
   %arrayidx6.i.i = getelementptr %struct.iovec, ptr %18, i64 %indvars.iv.i.i
   %iov_len7.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 8
-  %21 = load i64, ptr %iov_len7.i.i, align 8
-  %cmp8.i.i = icmp eq i64 %20, %21
+  %20 = load i64, ptr %iov_len7.i.i, align 8
+  %cmp8.i.i = icmp eq i64 %19, %20
   br i1 %cmp8.i.i, label %if.end11.i.i, label %if.else10.i.i
 
 if.else10.i.i:                                    ; preds = %for.body.i.i
@@ -1873,24 +1871,20 @@ if.else10.i.i:                                    ; preds = %for.body.i.i
   unreachable
 
 if.end11.i.i:                                     ; preds = %for.body.i.i
-  %22 = load ptr, ptr %arrayidx.i.i, align 8
-  %23 = load ptr, ptr %arrayidx6.i.i, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr %22, ptr %23, i64 %20)
+  %21 = load ptr, ptr %arrayidx.i.i, align 8
+  %22 = load ptr, ptr %arrayidx6.i.i, align 8
+  %bcmp.i.i = tail call i32 @bcmp(ptr %21, ptr %22, i64 %19)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool.not.i.i, label %for.cond.i.i, label %quorum_compare.exit
+  br i1 %tobool.not.i.i, label %for.cond.i.i, label %for.cond41.preheader
 
-quorum_compare.exit:                              ; preds = %for.cond.i.i, %if.end11.i.i
-  %retval.0.i = phi i1 [ %cmp316.i.i, %if.end11.i.i ], [ %cmp3.i.i, %for.cond.i.i ]
-  br i1 %retval.0.i, label %for.inc30, label %for.cond41.preheader
-
-for.inc30:                                        ; preds = %if.then.i.for.inc30_crit_edge, %for.cond.preheader.i.i, %quorum_compare.exit, %for.body11
-  %24 = phi i32 [ %.pre158, %if.then.i.for.inc30_crit_edge ], [ %6, %for.cond.preheader.i.i ], [ %6, %quorum_compare.exit ], [ %6, %for.body11 ]
+for.inc30:                                        ; preds = %for.cond.i.i, %if.then.i.for.inc30_crit_edge, %for.cond.preheader.i.i, %for.body11
+  %23 = phi i32 [ %.pre158, %if.then.i.for.inc30_crit_edge ], [ %6, %for.cond.preheader.i.i ], [ %6, %for.body11 ], [ %6, %for.cond.i.i ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %25 = sext i32 %24 to i64
-  %cmp10.not = icmp slt i64 %indvars.iv.next152, %25
+  %24 = sext i32 %23 to i64
+  %cmp10.not = icmp slt i64 %indvars.iv.next152, %24
   br i1 %cmp10.not, label %for.body11, label %if.then34.loopexit, !llvm.loop !31
 
-for.cond41.preheader:                             ; preds = %quorum_compare.exit
+for.cond41.preheader:                             ; preds = %if.end11.i.i
   %cmp43131 = icmp sgt i32 %6, 0
   br i1 %cmp43131, label %for.body44.lr.ph, label %for.end58
 
@@ -1904,15 +1898,15 @@ if.then34.loopexit:                               ; preds = %for.inc30
   br label %if.then34
 
 if.then34:                                        ; preds = %for.cond8.preheader, %if.then34.loopexit
-  %26 = phi ptr [ %.pre159, %if.then34.loopexit ], [ %3, %for.cond8.preheader ]
+  %25 = phi ptr [ %.pre159, %if.then34.loopexit ], [ %3, %for.cond8.preheader ]
   %qiov35 = getelementptr inbounds i8, ptr %acb, i64 40
-  %27 = load ptr, ptr %qiov35, align 8
-  %qiov39 = getelementptr %struct.QuorumChildRequest, ptr %26, i64 %idxprom20, i32 1
-  %niov.i = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load i32, ptr %niov.i, align 8
+  %26 = load ptr, ptr %qiov35, align 8
+  %qiov39 = getelementptr %struct.QuorumChildRequest, ptr %25, i64 %idxprom20, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i32, ptr %niov.i, align 8
   %niov1.i = getelementptr inbounds i8, ptr %qiov39, i64 8
-  %29 = load i32, ptr %niov1.i, align 8
-  %cmp.i = icmp eq i32 %28, %29
+  %28 = load i32, ptr %niov1.i, align 8
+  %cmp.i = icmp eq i32 %27, %28
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then34
@@ -1920,15 +1914,15 @@ if.else.i:                                        ; preds = %if.then34
   unreachable
 
 if.end.i:                                         ; preds = %if.then34
-  %size.i = getelementptr inbounds i8, ptr %27, i64 32
-  %30 = load i64, ptr %size.i, align 8
+  %size.i = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = load i64, ptr %size.i, align 8
   %size2.i = getelementptr inbounds i8, ptr %qiov39, i64 32
-  %31 = load i64, ptr %size2.i, align 8
-  %cmp3.i = icmp eq i64 %30, %31
+  %30 = load i64, ptr %size2.i, align 8
+  %cmp3.i = icmp eq i64 %29, %30
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else5.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %cmp815.i = icmp sgt i32 %28, 0
+  %cmp815.i = icmp sgt i32 %27, 0
   br i1 %cmp815.i, label %for.body.i, label %return
 
 if.else5.i:                                       ; preds = %if.end.i
@@ -1937,15 +1931,15 @@ if.else5.i:                                       ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %if.end16.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end16.i ], [ 0, %for.cond.preheader.i ]
-  %32 = load ptr, ptr %27, align 8
-  %arrayidx.i = getelementptr %struct.iovec, ptr %32, i64 %indvars.iv.i
+  %31 = load ptr, ptr %26, align 8
+  %arrayidx.i = getelementptr %struct.iovec, ptr %31, i64 %indvars.iv.i
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %33 = load i64, ptr %iov_len.i, align 8
-  %34 = load ptr, ptr %qiov39, align 8
-  %arrayidx11.i = getelementptr %struct.iovec, ptr %34, i64 %indvars.iv.i
+  %32 = load i64, ptr %iov_len.i, align 8
+  %33 = load ptr, ptr %qiov39, align 8
+  %arrayidx11.i = getelementptr %struct.iovec, ptr %33, i64 %indvars.iv.i
   %iov_len12.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 8
-  %35 = load i64, ptr %iov_len12.i, align 8
-  %cmp13.i = icmp eq i64 %33, %35
+  %34 = load i64, ptr %iov_len12.i, align 8
+  %cmp13.i = icmp eq i64 %32, %34
   br i1 %cmp13.i, label %if.end16.i, label %if.else15.i
 
 if.else15.i:                                      ; preds = %for.body.i
@@ -1953,35 +1947,35 @@ if.else15.i:                                      ; preds = %for.body.i
   unreachable
 
 if.end16.i:                                       ; preds = %for.body.i
-  %36 = load ptr, ptr %arrayidx.i, align 8
-  %37 = load ptr, ptr %arrayidx11.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %37, i64 %33, i1 false)
+  %35 = load ptr, ptr %arrayidx.i, align 8
+  %36 = load ptr, ptr %arrayidx11.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %36, i64 %32, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = load i32, ptr %niov1.i, align 8
-  %39 = sext i32 %38 to i64
-  %cmp8.i = icmp slt i64 %indvars.iv.next.i, %39
+  %37 = load i32, ptr %niov1.i, align 8
+  %38 = sext i32 %37 to i64
+  %cmp8.i = icmp slt i64 %indvars.iv.next.i, %38
   br i1 %cmp8.i, label %for.body.i, label %return, !llvm.loop !32
 
 for.body44:                                       ; preds = %for.body44.lr.ph, %for.inc56
-  %40 = phi i32 [ %6, %for.body44.lr.ph ], [ %50, %for.inc56 ]
+  %39 = phi i32 [ %6, %for.body44.lr.ph ], [ %49, %for.inc56 ]
   %indvars.iv154 = phi i64 [ 0, %for.body44.lr.ph ], [ %indvars.iv.next155, %for.inc56 ]
-  %41 = load ptr, ptr %qcrs, align 8
-  %ret48 = getelementptr %struct.QuorumChildRequest, ptr %41, i64 %indvars.iv154, i32 3
-  %42 = load i32, ptr %ret48, align 8
-  %tobool49.not = icmp eq i32 %42, 0
+  %40 = load ptr, ptr %qcrs, align 8
+  %ret48 = getelementptr %struct.QuorumChildRequest, ptr %40, i64 %indvars.iv154, i32 3
+  %41 = load i32, ptr %ret48, align 8
+  %tobool49.not = icmp eq i32 %41, 0
   br i1 %tobool49.not, label %if.end51, label %for.inc56
 
 if.end51:                                         ; preds = %for.body44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
-  %qiov1.i = getelementptr %struct.QuorumChildRequest, ptr %41, i64 %indvars.iv154, i32 1
+  %qiov1.i = getelementptr %struct.QuorumChildRequest, ptr %40, i64 %indvars.iv154, i32 1
   store i64 32, ptr %len.i, align 8
   store ptr %hash, ptr %data.i, align 8
-  %43 = load ptr, ptr %qiov1.i, align 8
+  %42 = load ptr, ptr %qiov1.i, align 8
   %niov.i46 = getelementptr inbounds i8, ptr %qiov1.i, i64 8
-  %44 = load i32, ptr %niov.i46, align 8
-  %conv.i = sext i32 %44 to i64
-  %call.i47 = call i32 @qcrypto_hash_bytesv(i32 noundef 3, ptr noundef %43, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %len.i, ptr noundef null) #17
+  %43 = load i32, ptr %niov.i46, align 8
+  %conv.i = sext i32 %43 to i64
+  %call.i47 = call i32 @qcrypto_hash_bytesv(i32 noundef 3, ptr noundef %42, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %len.i, ptr noundef null) #17
   %cmp.i48 = icmp slt i32 %call.i47, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
@@ -1999,8 +1993,8 @@ if.end55:                                         ; preds = %if.end51
 
 for.body.i49:                                     ; preds = %if.end55, %for.inc.i
   %v.033.i = phi ptr [ %v.0.i, %for.inc.i ], [ %v.031.i, %if.end55 ]
-  %45 = load ptr, ptr %compare.i, align 8
-  %call.i50 = call zeroext i1 %45(ptr noundef nonnull %v.033.i, ptr noundef nonnull %hash) #17
+  %44 = load ptr, ptr %compare.i, align 8
+  %call.i50 = call zeroext i1 %44(ptr noundef nonnull %v.033.i, ptr noundef nonnull %hash) #17
   br i1 %call.i50, label %if.end27.i.loopexit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i49
@@ -2015,18 +2009,18 @@ if.then3.i:                                       ; preds = %for.inc.i, %if.end5
   store ptr null, ptr %items.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i51, ptr noundef nonnull align 8 dereferenceable(32) %hash, i64 32, i1 false)
   %index7.i = getelementptr inbounds i8, ptr %call4.i51, i64 32
-  %46 = trunc nuw nsw i64 %indvars.iv154 to i32
-  store i32 %46, ptr %index7.i, align 8
+  %45 = trunc nuw nsw i64 %indvars.iv154 to i32
+  store i32 %45, ptr %index7.i, align 8
   %vote_count.i = getelementptr inbounds i8, ptr %call4.i51, i64 36
   store i32 0, ptr %vote_count.i, align 4
-  %47 = load ptr, ptr %votes, align 8
+  %46 = load ptr, ptr %votes, align 8
   %next11.i = getelementptr inbounds i8, ptr %call4.i51, i64 48
-  store ptr %47, ptr %next11.i, align 8
-  %cmp.not.i52 = icmp eq ptr %47, null
+  store ptr %46, ptr %next11.i, align 8
+  %cmp.not.i52 = icmp eq ptr %46, null
   br i1 %cmp.not.i52, label %if.end19.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then3.i
-  %le_prev.i = getelementptr inbounds i8, ptr %47, i64 56
+  %le_prev.i = getelementptr inbounds i8, ptr %46, i64 56
   store ptr %next11.i, ptr %le_prev.i, align 8
   br label %if.end19.i
 
@@ -2041,23 +2035,23 @@ if.end27.i.loopexit:                              ; preds = %for.body.i49
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end27.i.loopexit, %if.end19.i
-  %.pre-phi = phi i32 [ %.pre160, %if.end27.i.loopexit ], [ %46, %if.end19.i ]
+  %.pre-phi = phi i32 [ %.pre160, %if.end27.i.loopexit ], [ %45, %if.end19.i ]
   %version.1.i = phi ptr [ %v.033.i, %if.end27.i.loopexit ], [ %call4.i51, %if.end19.i ]
   %vote_count28.i = getelementptr inbounds i8, ptr %version.1.i, i64 36
-  %48 = load i32, ptr %vote_count28.i, align 4
-  %inc.i = add i32 %48, 1
+  %47 = load i32, ptr %vote_count28.i, align 4
+  %inc.i = add i32 %47, 1
   store i32 %inc.i, ptr %vote_count28.i, align 4
   %call29.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #18
   store i32 %.pre-phi, ptr %call29.i, align 8
   %items32.i = getelementptr inbounds i8, ptr %version.1.i, i64 40
-  %49 = load ptr, ptr %items32.i, align 8
+  %48 = load ptr, ptr %items32.i, align 8
   %next34.i = getelementptr inbounds i8, ptr %call29.i, i64 8
-  store ptr %49, ptr %next34.i, align 8
-  %cmp36.not.i = icmp eq ptr %49, null
+  store ptr %48, ptr %next34.i, align 8
+  %cmp36.not.i = icmp eq ptr %48, null
   br i1 %cmp36.not.i, label %quorum_count_vote.exit, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.end27.i
-  %le_prev43.i = getelementptr inbounds i8, ptr %49, i64 16
+  %le_prev43.i = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %next34.i, ptr %le_prev43.i, align 8
   br label %quorum_count_vote.exit
 
@@ -2069,10 +2063,10 @@ quorum_count_vote.exit:                           ; preds = %if.end27.i, %if.the
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.body44, %quorum_count_vote.exit
-  %50 = phi i32 [ %40, %for.body44 ], [ %.pre, %quorum_count_vote.exit ]
+  %49 = phi i32 [ %39, %for.body44 ], [ %.pre, %quorum_count_vote.exit ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %51 = sext i32 %50 to i64
-  %cmp43 = icmp slt i64 %indvars.iv.next155, %51
+  %50 = sext i32 %49 to i64
+  %cmp43 = icmp slt i64 %indvars.iv.next155, %50
   br i1 %cmp43, label %for.body44, label %for.end58, !llvm.loop !33
 
 for.end58:                                        ; preds = %for.inc56, %for.cond41.preheader
@@ -2086,9 +2080,9 @@ for.body.i53:                                     ; preds = %for.end58, %for.bod
   %winner.09.i = phi ptr [ %spec.select5.i, %for.body.i53 ], [ null, %for.end58 ]
   %max.08.i = phi i32 [ %spec.select.i, %for.body.i53 ], [ 0, %for.end58 ]
   %vote_count.i54 = getelementptr inbounds i8, ptr %candidate.010.i, i64 36
-  %52 = load i32, ptr %vote_count.i54, align 4
-  %cmp.i55 = icmp sgt i32 %52, %max.08.i
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %52, i32 %max.08.i)
+  %51 = load i32, ptr %vote_count.i54, align 4
+  %cmp.i55 = icmp sgt i32 %51, %max.08.i
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %51, i32 %max.08.i)
   %spec.select5.i = select i1 %cmp.i55, ptr %candidate.010.i, ptr %winner.09.i
   %next.i56 = getelementptr inbounds i8, ptr %candidate.010.i, i64 48
   %candidate.0.i = load ptr, ptr %next.i56, align 8
@@ -2098,22 +2092,22 @@ for.body.i53:                                     ; preds = %for.end58, %for.bod
 quorum_get_vote_winner.exit:                      ; preds = %for.body.i53, %for.end58
   %winner.0.lcssa.i = phi ptr [ null, %for.end58 ], [ %spec.select5.i, %for.body.i53 ]
   %vote_count = getelementptr inbounds i8, ptr %winner.0.lcssa.i, i64 36
-  %53 = load i32, ptr %vote_count, align 4
+  %52 = load i32, ptr %vote_count, align 4
   %threshold = getelementptr inbounds i8, ptr %1, i64 16
-  %54 = load i32, ptr %threshold, align 8
-  %cmp61 = icmp slt i32 %53, %54
+  %53 = load i32, ptr %threshold, align 8
+  %cmp61 = icmp slt i32 %52, %53
   br i1 %cmp61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %quorum_get_vote_winner.exit
-  %55 = load ptr, ptr %acb, align 8
-  %call.i58 = call ptr @bdrv_get_device_or_node_name(ptr noundef %55) #17
+  %54 = load ptr, ptr %acb, align 8
+  %call.i58 = call ptr @bdrv_get_device_or_node_name(ptr noundef %54) #17
   %offset.i = getelementptr inbounds i8, ptr %acb, i64 16
-  %56 = load i64, ptr %offset.i, align 8
-  %div5.i = lshr i64 %56, 9
+  %55 = load i64, ptr %offset.i, align 8
+  %div5.i = lshr i64 %55, 9
   %bytes.i59 = getelementptr inbounds i8, ptr %acb, i64 24
-  %57 = load i64, ptr %bytes.i59, align 8
-  %add.i60 = add i64 %56, 511
-  %sub.i = add i64 %add.i60, %57
+  %56 = load i64, ptr %bytes.i59, align 8
+  %add.i60 = add i64 %55, 511
+  %sub.i = add i64 %add.i60, %56
   %div36.i = lshr i64 %sub.i, 9
   %sub4.i = sub nsw i64 %div36.i, %div5.i
   call void @qapi_event_send_quorum_failure(ptr noundef %call.i58, i64 noundef %div5.i, i64 noundef %sub4.i) #17
@@ -2123,17 +2117,17 @@ if.then62:                                        ; preds = %quorum_get_vote_win
 
 if.end64:                                         ; preds = %quorum_get_vote_winner.exit
   %qiov65 = getelementptr inbounds i8, ptr %acb, i64 40
-  %58 = load ptr, ptr %qiov65, align 8
-  %59 = load ptr, ptr %qcrs, align 8
+  %57 = load ptr, ptr %qiov65, align 8
+  %58 = load ptr, ptr %qcrs, align 8
   %index = getelementptr inbounds i8, ptr %winner.0.lcssa.i, i64 32
-  %60 = load i32, ptr %index, align 8
-  %idxprom67 = sext i32 %60 to i64
-  %qiov69 = getelementptr %struct.QuorumChildRequest, ptr %59, i64 %idxprom67, i32 1
-  %niov.i61 = getelementptr inbounds i8, ptr %58, i64 8
-  %61 = load i32, ptr %niov.i61, align 8
+  %59 = load i32, ptr %index, align 8
+  %idxprom67 = sext i32 %59 to i64
+  %qiov69 = getelementptr %struct.QuorumChildRequest, ptr %58, i64 %idxprom67, i32 1
+  %niov.i61 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = load i32, ptr %niov.i61, align 8
   %niov1.i62 = getelementptr inbounds i8, ptr %qiov69, i64 8
-  %62 = load i32, ptr %niov1.i62, align 8
-  %cmp.i63 = icmp eq i32 %61, %62
+  %61 = load i32, ptr %niov1.i62, align 8
+  %cmp.i63 = icmp eq i32 %60, %61
   br i1 %cmp.i63, label %if.end.i65, label %if.else.i64
 
 if.else.i64:                                      ; preds = %if.end64
@@ -2141,15 +2135,15 @@ if.else.i64:                                      ; preds = %if.end64
   unreachable
 
 if.end.i65:                                       ; preds = %if.end64
-  %size.i66 = getelementptr inbounds i8, ptr %58, i64 32
-  %63 = load i64, ptr %size.i66, align 8
+  %size.i66 = getelementptr inbounds i8, ptr %57, i64 32
+  %62 = load i64, ptr %size.i66, align 8
   %size2.i67 = getelementptr inbounds i8, ptr %qiov69, i64 32
-  %64 = load i64, ptr %size2.i67, align 8
-  %cmp3.i68 = icmp eq i64 %63, %64
+  %63 = load i64, ptr %size2.i67, align 8
+  %cmp3.i68 = icmp eq i64 %62, %63
   br i1 %cmp3.i68, label %for.cond.preheader.i70, label %if.else5.i69
 
 for.cond.preheader.i70:                           ; preds = %if.end.i65
-  %cmp815.i71 = icmp sgt i32 %61, 0
+  %cmp815.i71 = icmp sgt i32 %60, 0
   br i1 %cmp815.i71, label %for.body.i72, label %quorum_copy_qiov.exit83
 
 if.else5.i69:                                     ; preds = %if.end.i65
@@ -2158,15 +2152,15 @@ if.else5.i69:                                     ; preds = %if.end.i65
 
 for.body.i72:                                     ; preds = %for.cond.preheader.i70, %if.end16.i80
   %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i81, %if.end16.i80 ], [ 0, %for.cond.preheader.i70 ]
-  %65 = load ptr, ptr %58, align 8
-  %arrayidx.i74 = getelementptr %struct.iovec, ptr %65, i64 %indvars.iv.i73
+  %64 = load ptr, ptr %57, align 8
+  %arrayidx.i74 = getelementptr %struct.iovec, ptr %64, i64 %indvars.iv.i73
   %iov_len.i75 = getelementptr inbounds i8, ptr %arrayidx.i74, i64 8
-  %66 = load i64, ptr %iov_len.i75, align 8
-  %67 = load ptr, ptr %qiov69, align 8
-  %arrayidx11.i76 = getelementptr %struct.iovec, ptr %67, i64 %indvars.iv.i73
+  %65 = load i64, ptr %iov_len.i75, align 8
+  %66 = load ptr, ptr %qiov69, align 8
+  %arrayidx11.i76 = getelementptr %struct.iovec, ptr %66, i64 %indvars.iv.i73
   %iov_len12.i77 = getelementptr inbounds i8, ptr %arrayidx11.i76, i64 8
-  %68 = load i64, ptr %iov_len12.i77, align 8
-  %cmp13.i78 = icmp eq i64 %66, %68
+  %67 = load i64, ptr %iov_len12.i77, align 8
+  %cmp13.i78 = icmp eq i64 %65, %67
   br i1 %cmp13.i78, label %if.end16.i80, label %if.else15.i79
 
 if.else15.i79:                                    ; preds = %for.body.i72
@@ -2174,13 +2168,13 @@ if.else15.i79:                                    ; preds = %for.body.i72
   unreachable
 
 if.end16.i80:                                     ; preds = %for.body.i72
-  %69 = load ptr, ptr %arrayidx.i74, align 8
-  %70 = load ptr, ptr %arrayidx11.i76, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %70, i64 %66, i1 false)
+  %68 = load ptr, ptr %arrayidx.i74, align 8
+  %69 = load ptr, ptr %arrayidx11.i76, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %69, i64 %65, i1 false)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i73, 1
-  %71 = load i32, ptr %niov1.i62, align 8
-  %72 = sext i32 %71 to i64
-  %cmp8.i82 = icmp slt i64 %indvars.iv.next.i81, %72
+  %70 = load i32, ptr %niov1.i62, align 8
+  %71 = sext i32 %70 to i64
+  %cmp8.i82 = icmp slt i64 %indvars.iv.next.i81, %71
   br i1 %cmp8.i82, label %for.body.i72, label %quorum_copy_qiov.exit83.loopexit, !llvm.loop !32
 
 quorum_copy_qiov.exit83.loopexit:                 ; preds = %if.end16.i80
@@ -2200,8 +2194,8 @@ for.body.lr.ph.i84:                               ; preds = %quorum_copy_qiov.ex
 
 for.body.i88:                                     ; preds = %for.inc7.i, %for.body.lr.ph.i84
   %version.014.i = phi ptr [ %version.012.i, %for.body.lr.ph.i84 ], [ %version.0.i, %for.inc7.i ]
-  %73 = load ptr, ptr %compare.i85, align 8
-  %call.i89 = call zeroext i1 %73(ptr noundef nonnull %version.014.i, ptr noundef %winner.0.lcssa.i) #17
+  %72 = load ptr, ptr %compare.i85, align 8
+  %call.i89 = call zeroext i1 %72(ptr noundef nonnull %version.014.i, ptr noundef %winner.0.lcssa.i) #17
   br i1 %call.i89, label %for.inc7.i, label %if.end.i90
 
 if.end.i90:                                       ; preds = %for.body.i88
@@ -2212,19 +2206,19 @@ if.end.i90:                                       ; preds = %for.body.i88
 
 for.body6.i:                                      ; preds = %if.end.i90, %for.body6.i
   %item.011.i = phi ptr [ %item.0.i, %for.body6.i ], [ %item.09.i, %if.end.i90 ]
-  %74 = load i64, ptr %offset.i86, align 8
-  %75 = load i64, ptr %bytes.i87, align 8
-  %76 = load ptr, ptr %1, align 8
-  %77 = load i32, ptr %item.011.i, align 8
-  %idxprom.i92 = sext i32 %77 to i64
-  %arrayidx.i93 = getelementptr ptr, ptr %76, i64 %idxprom.i92
-  %78 = load ptr, ptr %arrayidx.i93, align 8
-  %79 = load ptr, ptr %78, align 8
-  %node_name.i = getelementptr inbounds i8, ptr %79, i64 16600
-  %add.i.i = add i64 %74, 511
-  %sub.i.i = add i64 %add.i.i, %75
+  %73 = load i64, ptr %offset.i86, align 8
+  %74 = load i64, ptr %bytes.i87, align 8
+  %75 = load ptr, ptr %1, align 8
+  %76 = load i32, ptr %item.011.i, align 8
+  %idxprom.i92 = sext i32 %76 to i64
+  %arrayidx.i93 = getelementptr ptr, ptr %75, i64 %idxprom.i92
+  %77 = load ptr, ptr %arrayidx.i93, align 8
+  %78 = load ptr, ptr %77, align 8
+  %node_name.i = getelementptr inbounds i8, ptr %78, i64 16600
+  %add.i.i = add i64 %73, 511
+  %sub.i.i = add i64 %add.i.i, %74
   %div25.i.i = lshr i64 %sub.i.i, 9
-  %div4.i.i = lshr i64 %74, 9
+  %div4.i.i = lshr i64 %73, 9
   %sub4.i.i = sub nsw i64 %div25.i.i, %div4.i.i
   call void @qapi_event_send_quorum_report_bad(i32 noundef 0, ptr noundef null, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   %next.i94 = getelementptr inbounds i8, ptr %item.011.i, i64 8
@@ -2240,8 +2234,8 @@ for.inc7.i:                                       ; preds = %for.body6.i, %if.en
 
 quorum_report_bad_versions.exit:                  ; preds = %for.inc7.i, %quorum_copy_qiov.exit83
   %rewrite_corrupted = getelementptr inbounds i8, ptr %1, i64 21
-  %80 = load i8, ptr %rewrite_corrupted, align 1
-  %tobool70 = trunc i8 %80 to i1
+  %79 = load i8, ptr %rewrite_corrupted, align 1
+  %tobool70 = trunc i8 %79 to i1
   br i1 %tobool70, label %if.then71, label %free_exit
 
 if.then71:                                        ; preds = %quorum_report_bad_versions.exit
@@ -2262,8 +2256,8 @@ for.body.lr.ph.i98:                               ; preds = %if.then71
 for.body.i100:                                    ; preds = %for.inc7.i109, %for.body.lr.ph.i98
   %version.027.i = phi ptr [ %version.024.i, %for.body.lr.ph.i98 ], [ %version.0.i111, %for.inc7.i109 ]
   %count.026.i = phi i32 [ 0, %for.body.lr.ph.i98 ], [ %count.1.i, %for.inc7.i109 ]
-  %81 = load ptr, ptr %compare.i99, align 8
-  %call.i101 = call zeroext i1 %81(ptr noundef nonnull %version.027.i, ptr noundef %winner.0.lcssa.i) #17
+  %80 = load ptr, ptr %compare.i99, align 8
+  %call.i101 = call zeroext i1 %80(ptr noundef nonnull %version.027.i, ptr noundef %winner.0.lcssa.i) #17
   br i1 %call.i101, label %for.inc7.i109, label %if.end.i102
 
 if.end.i102:                                      ; preds = %for.body.i100
@@ -2301,8 +2295,8 @@ for.body16.lr.ph.i:                               ; preds = %for.end10.i
 
 for.body16.i:                                     ; preds = %for.inc34.i, %for.body16.lr.ph.i
   %version.134.i = phi ptr [ %version.132.pre.i, %for.body16.lr.ph.i ], [ %version.1.i114, %for.inc34.i ]
-  %82 = load ptr, ptr %compare.i99, align 8
-  %call20.i = call zeroext i1 %82(ptr noundef nonnull %version.134.i, ptr noundef %winner.0.lcssa.i) #17
+  %81 = load ptr, ptr %compare.i99, align 8
+  %call20.i = call zeroext i1 %81(ptr noundef nonnull %version.134.i, ptr noundef %winner.0.lcssa.i) #17
   br i1 %call20.i, label %for.inc34.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %for.body16.i
@@ -2314,8 +2308,8 @@ if.end22.i:                                       ; preds = %for.body16.i
 for.body27.i:                                     ; preds = %if.end22.i, %for.body27.i
   %item.131.i = phi ptr [ %item.1.i, %for.body27.i ], [ %item.129.i, %if.end22.i ]
   store ptr %acb, ptr %data.i96, align 8
-  %83 = load i32, ptr %item.131.i, align 8
-  store i32 %83, ptr %idx.i, align 8
+  %82 = load i32, ptr %item.131.i, align 8
+  store i32 %82, ptr %idx.i, align 8
   %call29.i113 = call ptr @qemu_coroutine_create(ptr noundef nonnull @quorum_rewrite_entry, ptr noundef nonnull %data.i96) #17
   call void @qemu_coroutine_enter(ptr noundef %call29.i113) #17
   %next31.i = getelementptr inbounds i8, ptr %item.131.i, i64 8
@@ -2340,56 +2334,56 @@ free_exit:                                        ; preds = %quorum_report_bad_v
   br i1 %tobool.not3.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %free_exit, %for.end.i
-  %version.04.i = phi ptr [ %84, %for.end.i ], [ %votes75.val, %free_exit ]
+  %version.04.i = phi ptr [ %83, %for.end.i ], [ %votes75.val, %free_exit ]
   %next.i115 = getelementptr inbounds i8, ptr %version.04.i, i64 48
-  %84 = load ptr, ptr %next.i115, align 8
-  %cmp.not.i116 = icmp eq ptr %84, null
+  %83 = load ptr, ptr %next.i115, align 8
+  %cmp.not.i116 = icmp eq ptr %83, null
   %le_prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %version.04.i, i64 56
   %.pre5.i = load ptr, ptr %le_prev11.phi.trans.insert.i, align 8
   br i1 %cmp.not.i116, label %if.end.i118, label %if.then.i117
 
 if.then.i117:                                     ; preds = %land.rhs.i
-  %le_prev7.i = getelementptr inbounds i8, ptr %84, i64 56
+  %le_prev7.i = getelementptr inbounds i8, ptr %83, i64 56
   store ptr %.pre5.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %next.i115, align 8
   br label %if.end.i118
 
 if.end.i118:                                      ; preds = %if.then.i117, %land.rhs.i
-  %85 = phi ptr [ %.pre.i, %if.then.i117 ], [ null, %land.rhs.i ]
-  store ptr %85, ptr %.pre5.i, align 8
+  %84 = phi ptr [ %.pre.i, %if.then.i117 ], [ null, %land.rhs.i ]
+  store ptr %84, ptr %.pre5.i, align 8
   %items.i119 = getelementptr inbounds i8, ptr %version.04.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i115, i8 0, i64 16, i1 false)
-  %86 = load ptr, ptr %items.i119, align 8
-  %tobool18.not1.i = icmp eq ptr %86, null
+  %85 = load ptr, ptr %items.i119, align 8
+  %tobool18.not1.i = icmp eq ptr %85, null
   br i1 %tobool18.not1.i, label %for.end.i, label %land.rhs19.i.preheader
 
 land.rhs19.i.preheader:                           ; preds = %if.end.i118
-  %next20.i133 = getelementptr inbounds i8, ptr %86, i64 8
-  %87 = load ptr, ptr %next20.i133, align 8
-  %cmp27.not.i134 = icmp eq ptr %87, null
-  %le_prev39.phi.trans.insert.i135 = getelementptr inbounds i8, ptr %86, i64 16
+  %next20.i133 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = load ptr, ptr %next20.i133, align 8
+  %cmp27.not.i134 = icmp eq ptr %86, null
+  %le_prev39.phi.trans.insert.i135 = getelementptr inbounds i8, ptr %85, i64 16
   %.pre7.i136 = load ptr, ptr %le_prev39.phi.trans.insert.i135, align 8
   br i1 %cmp27.not.i134, label %for.end.critedge.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %land.rhs19.i.preheader, %if.then28.i
   %.pre7.i139 = phi ptr [ %.pre7.i, %if.then28.i ], [ %.pre7.i136, %land.rhs19.i.preheader ]
-  %88 = phi ptr [ %89, %if.then28.i ], [ %87, %land.rhs19.i.preheader ]
+  %87 = phi ptr [ %88, %if.then28.i ], [ %86, %land.rhs19.i.preheader ]
   %next20.i138 = phi ptr [ %next20.i, %if.then28.i ], [ %next20.i133, %land.rhs19.i.preheader ]
-  %item.02.i137 = phi ptr [ %88, %if.then28.i ], [ %86, %land.rhs19.i.preheader ]
-  %le_prev34.i = getelementptr inbounds i8, ptr %88, i64 16
+  %item.02.i137 = phi ptr [ %87, %if.then28.i ], [ %85, %land.rhs19.i.preheader ]
+  %le_prev34.i = getelementptr inbounds i8, ptr %87, i64 16
   store ptr %.pre7.i139, ptr %le_prev34.i, align 8
   %.pre6.i = load ptr, ptr %next20.i138, align 8
   store ptr %.pre6.i, ptr %.pre7.i139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next20.i138, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %item.02.i137) #17
-  %next20.i = getelementptr inbounds i8, ptr %88, i64 8
-  %89 = load ptr, ptr %next20.i, align 8
-  %cmp27.not.i = icmp eq ptr %89, null
+  %next20.i = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = load ptr, ptr %next20.i, align 8
+  %cmp27.not.i = icmp eq ptr %88, null
   %.pre7.i = load ptr, ptr %le_prev34.i, align 8
   br i1 %cmp27.not.i, label %for.end.critedge.i, label %if.then28.i, !llvm.loop !20
 
 for.end.critedge.i:                               ; preds = %if.then28.i, %land.rhs19.i.preheader
-  %item.02.i.lcssa = phi ptr [ %86, %land.rhs19.i.preheader ], [ %88, %if.then28.i ]
+  %item.02.i.lcssa = phi ptr [ %85, %land.rhs19.i.preheader ], [ %87, %if.then28.i ]
   %next20.i.lcssa = phi ptr [ %next20.i133, %land.rhs19.i.preheader ], [ %next20.i, %if.then28.i ]
   %.pre7.i.lcssa = phi ptr [ %.pre7.i136, %land.rhs19.i.preheader ], [ %.pre7.i, %if.then28.i ]
   store ptr null, ptr %.pre7.i.lcssa, align 8

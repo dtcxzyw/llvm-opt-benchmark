@@ -1018,8 +1018,8 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i, %entry
   %__begin0.sroa.0.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdbL21value_type_string_mapB5cxx11E, i64 16), %entry ], [ %__begin0.sroa.0.0.i, %for.body.i ]
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0.in.i, align 8
-  %cmp.i.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
-  br i1 %cmp.i.not.i.not, label %if.else, label %for.body.i
+  %cmp.i.not.not.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.not.i.not, label %if.else, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %second.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i, i64 40

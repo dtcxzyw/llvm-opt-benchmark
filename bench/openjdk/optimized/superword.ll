@@ -7253,8 +7253,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit39:         ; preds = %.thread.i, %_ZN9Nod
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %179 = load i32, ptr %59, align 8
   %180 = zext i32 %179 to i64
-  %.not54 = icmp ult i64 %indvars.iv.next, %180
-  br i1 %.not54, label %88, label %.loopexit, !llvm.loop !65
+  %.not49 = icmp ult i64 %indvars.iv.next, %180
+  br i1 %.not49, label %88, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %._crit_edge, %155, %_ZN16Unique_Node_List4pushEP4Node.exit
   %181 = phi i1 [ true, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ false, %155 ], [ true, %._crit_edge ]
@@ -7473,9 +7473,9 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN16Unique_Node_Li
   br i1 %118, label %59, label %.preheader, !llvm.loop !66
 
 119:                                              ; preds = %.lr.ph46, %._crit_edge
-  %indvars.iv56 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next57, %._crit_edge ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next55, %._crit_edge ]
   %120 = load ptr, ptr %26, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv56
+  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv54
   %122 = load ptr, ptr %121, align 8
   call void @_ZN20VLoopDependencyGraph13PredsIteratorC1ERKS_PK4Node(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %122) #12
   %123 = load ptr, ptr %55, align 8
@@ -7639,11 +7639,11 @@ _ZN16Unique_Node_List4pushEP4Node.exit32:         ; preds = %.thread.i, %_ZN9Nod
   br i1 %216, label %._crit_edge, label %.lr.ph44, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit32, %119
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %217 = load i32, ptr %27, align 8
   %218 = zext i32 %217 to i64
-  %.not58 = icmp ult i64 %indvars.iv.next57, %218
-  br i1 %.not58, label %119, label %.loopexit, !llvm.loop !68
+  %.not49 = icmp ult i64 %indvars.iv.next55, %218
+  br i1 %.not49, label %119, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK9VectorSet4testEj.exit, %.preheader
   %219 = phi i1 [ true, %.preheader ], [ false, %_ZNK9VectorSet4testEj.exit ], [ true, %._crit_edge ]
@@ -9039,40 +9039,40 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   %.0.us = phi i32 [ %.1.us.lcssa, %138 ], [ 0, %.preheader ]
   %94 = zext i32 %.059.us to i64
   %95 = add nuw i32 %.059.us, 1
-  %umax122 = tail call i32 @llvm.umax.i32(i32 %86, i32 %95)
-  %96 = add i32 %umax122, -1
+  %umax121 = tail call i32 @llvm.umax.i32(i32 %86, i32 %95)
+  %96 = add i32 %umax121, -1
   br label %97
 
 97:                                               ; preds = %99, %.preheader.split.us
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %99 ], [ %94, %.preheader.split.us ]
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %98 = icmp ult i64 %indvars.iv.next121, %93
-  br i1 %98, label %99, label %.split.loop.exit141
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %99 ], [ %94, %.preheader.split.us ]
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %98 = icmp ult i64 %indvars.iv.next120, %93
+  br i1 %98, label %99, label %.split.loop.exit140
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %89, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv.next121
+  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv.next120
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, %1
-  br i1 %103, label %.split.loop.exit140, label %97, !llvm.loop !76
+  br i1 %103, label %.split.loop.exit139, label %97, !llvm.loop !76
 
-.split.loop.exit140:                              ; preds = %99
-  %104 = trunc nuw i64 %indvars.iv120 to i32
-  %105 = trunc nuw i64 %indvars.iv.next121 to i32
-  br label %.split.loop.exit141
+.split.loop.exit139:                              ; preds = %99
+  %104 = trunc nuw i64 %indvars.iv119 to i32
+  %105 = trunc nuw i64 %indvars.iv.next120 to i32
+  br label %.split.loop.exit140
 
-.split.loop.exit141:                              ; preds = %97, %.split.loop.exit140
-  %.160.in.us.lcssa = phi i32 [ %104, %.split.loop.exit140 ], [ %96, %97 ]
-  %.160.us.lcssa = phi i32 [ %105, %.split.loop.exit140 ], [ %umax122, %97 ]
+.split.loop.exit140:                              ; preds = %97, %.split.loop.exit139
+  %.160.in.us.lcssa = phi i32 [ %104, %.split.loop.exit139 ], [ %96, %97 ]
+  %.160.us.lcssa = phi i32 [ %105, %.split.loop.exit139 ], [ %umax121, %97 ]
   %106 = add i32 %.0.us, 1
-  %umax124 = tail call i32 @llvm.umax.i32(i32 %86, i32 %106)
-  %107 = add i32 %umax124, -1
+  %umax123 = tail call i32 @llvm.umax.i32(i32 %86, i32 %106)
+  %107 = add i32 %umax123, -1
   br label %108
 
-108:                                              ; preds = %109, %.split.loop.exit141
-  %.1.in.us = phi i32 [ %.0.us, %.split.loop.exit141 ], [ %.1.us, %109 ]
-  %exitcond125.not = icmp eq i32 %.1.in.us, %107
-  br i1 %exitcond125.not, label %115, label %109
+108:                                              ; preds = %109, %.split.loop.exit140
+  %.1.in.us = phi i32 [ %.0.us, %.split.loop.exit140 ], [ %.1.us, %109 ]
+  %exitcond124.not = icmp eq i32 %.1.in.us, %107
+  br i1 %exitcond124.not, label %115, label %109
 
 109:                                              ; preds = %108
   %.1.us = add i32 %.1.in.us, 1
@@ -9085,7 +9085,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
 
 115:                                              ; preds = %109, %108
   %.1.in.us.lcssa = phi i32 [ %.1.in.us, %109 ], [ %107, %108 ]
-  %.1.us.lcssa = phi i32 [ %.1.us, %109 ], [ %umax124, %108 ]
+  %.1.us.lcssa = phi i32 [ %.1.us, %109 ], [ %umax123, %108 ]
   %.not65.us = icmp eq i32 %.160.in.us.lcssa, %.1.in.us.lcssa
   br i1 %.not65.us, label %136, label %116
 
@@ -9140,7 +9140,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ %139, %.preheader.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = icmp ult i64 %indvars.iv.next, %93
-  br i1 %143, label %144, label %.split.loop.exit136
+  br i1 %143, label %144, label %.split.loop.exit135
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %89, align 8
@@ -9152,18 +9152,18 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
 .split.loop.exit:                                 ; preds = %144
   %149 = trunc nuw i64 %indvars.iv to i32
   %150 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.split.loop.exit136
+  br label %.split.loop.exit135
 
-.split.loop.exit136:                              ; preds = %142, %.split.loop.exit
+.split.loop.exit135:                              ; preds = %142, %.split.loop.exit
   %.160.in.lcssa = phi i32 [ %149, %.split.loop.exit ], [ %141, %142 ]
   %.160.lcssa = phi i32 [ %150, %.split.loop.exit ], [ %umax, %142 ]
   %151 = add i32 %.0, 1
-  %umax119 = tail call i32 @llvm.umax.i32(i32 %86, i32 %151)
-  %152 = add i32 %umax119, -1
+  %umax118 = tail call i32 @llvm.umax.i32(i32 %86, i32 %151)
+  %152 = add i32 %umax118, -1
   br label %153
 
-153:                                              ; preds = %154, %.split.loop.exit136
-  %.1.in = phi i32 [ %.0, %.split.loop.exit136 ], [ %.1, %154 ]
+153:                                              ; preds = %154, %.split.loop.exit135
+  %.1.in = phi i32 [ %.0, %.split.loop.exit135 ], [ %.1, %154 ]
   %exitcond.not = icmp eq i32 %.1.in, %152
   br i1 %exitcond.not, label %160, label %154
 
@@ -9178,7 +9178,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
 
 160:                                              ; preds = %154, %153
   %.1.in.lcssa = phi i32 [ %.1.in, %154 ], [ %152, %153 ]
-  %.1.lcssa = phi i32 [ %.1, %154 ], [ %umax119, %153 ]
+  %.1.lcssa = phi i32 [ %.1, %154 ], [ %umax118, %153 ]
   %.not65 = icmp eq i32 %.160.in.lcssa, %.1.in.lcssa
   br i1 %.not65, label %221, label %161
 
@@ -9316,11 +9316,11 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   br i1 %143, label %.preheader.split, label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit81.thread, !llvm.loop !78
 
 _ZNK9SuperWord19is_marked_reductionEPK4Node.exit81.thread.sink.split: ; preds = %223, %79, %205
-  %.sink146 = phi ptr [ %92, %205 ], [ %84, %79 ], [ %92, %223 ]
+  %.sink145 = phi ptr [ %92, %205 ], [ %84, %79 ], [ %92, %223 ]
   %.061.ph = phi i32 [ 2, %205 ], [ 0, %79 ], [ 2, %223 ]
-  %240 = load i32, ptr %.sink146, align 8
+  %240 = load i32, ptr %.sink145, align 8
   %storemerge.i87 = xor i32 %240, 2048
-  store i32 %storemerge.i87, ptr %.sink146, align 8
+  store i32 %storemerge.i87, ptr %.sink145, align 8
   br label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit81.thread
 
 _ZNK9SuperWord19is_marked_reductionEPK4Node.exit81.thread: ; preds = %239, %138, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit81.thread.sink.split, %64, %.split.us, %202, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit81
@@ -13614,8 +13614,8 @@ _ZNK9SuperWord8get_packEPK4Node.exit58:           ; preds = %169, %.thread.i.i.i
 
 _ZNK9SuperWord8get_packEPK4Node.exit46.thread:    ; preds = %.loopexit, %120, %92, %.thread.i.i.i35, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i37, %_ZNK9SuperWord8get_packEPK4Node.exit46
   %211 = getelementptr inbounds i8, ptr %.02873, i64 8
-  %.not89 = icmp ult ptr %211, %52
-  br i1 %.not89, label %58, label %.critedge, !llvm.loop !121
+  %.not77 = icmp ult ptr %211, %52
+  br i1 %.not77, label %58, label %.critedge, !llvm.loop !121
 
 .critedge:                                        ; preds = %_ZNK9SuperWord8get_packEPK4Node.exit46.thread, %131, %205, %_ZNK9SuperWord8get_packEPK4Node.exit
   %212 = phi i1 [ true, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ false, %205 ], [ false, %131 ], [ true, %_ZNK9SuperWord8get_packEPK4Node.exit46.thread ]

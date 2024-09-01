@@ -496,7 +496,7 @@ cli_magic_scan_file.exit.thread.thread:           ; preds = %46, %31, %.preheade
   br label %51
 
 49:                                               ; preds = %38, %cli_magic_scan_file.exit, %40
-  %.229 = phi i32 [ 8, %40 ], [ %43, %cli_magic_scan_file.exit ], [ %39, %38 ]
+  %.229 = phi i32 [ %39, %38 ], [ %43, %cli_magic_scan_file.exit ], [ 8, %40 ]
   %50 = tail call i32 @closedir(ptr noundef nonnull %5)
   tail call void @free(ptr noundef nonnull %30) #16
   br label %51

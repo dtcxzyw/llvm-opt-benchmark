@@ -3264,28 +3264,20 @@ get_object_property_data.exit:                    ; preds = %3, %13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define dso_local zeroext i1 @is_objectclass_supported(i32 noundef %0) local_unnamed_addr #5 {
-  %2 = icmp eq i32 %0, 2601
-  br i1 %2, label %._crit_edge, label %.lr.ph
+  br label %2
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv7 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
+2:                                                ; preds = %2, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv, i32 1
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, %0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 37
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %3, !llvm.loop !10
+  %or.cond = select i1 %5, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %6, label %2, !llvm.loop !10
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.next, i32 1
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, %0
-  br i1 %6, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %3
-  %7 = icmp ult i64 %indvars.iv7, 36
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %7, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+6:                                                ; preds = %2
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5215,7 +5207,7 @@ define dso_local i64 @pg_identify_object(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %15, ptr %17, align 4
   %18 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %5) #9
   %.not = icmp eq i32 %18, 1
-  br i1 %.not, label %22, label %19
+  br i1 %.not, label %.preheader, label %19
 
 19:                                               ; preds = %1
   %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -5224,279 +5216,272 @@ define dso_local i64 @pg_identify_object(ptr noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4257, ptr noundef nonnull @__func__.pg_identify_object) #9
   unreachable
 
-22:                                               ; preds = %1
-  %23 = icmp eq i32 %9, 2601
-  br i1 %23, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %22, %24
-  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i, %24 ], [ 0, %22 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i62, 1
+.preheader:                                       ; preds = %1, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %1 ]
+  %22 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 37
-  br i1 %exitcond.not.i, label %is_objectclass_supported.exit.thread, label %24, !llvm.loop !10
+  %or.cond.i = select i1 %24, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %is_objectclass_supported.exit, label %.preheader, !llvm.loop !10
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.next.i, i32 1
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, %9
-  br i1 %27, label %is_objectclass_supported.exit, label %.lr.ph, !llvm.loop !10
+is_objectclass_supported.exit:                    ; preds = %.preheader
+  br i1 %24, label %25, label %110
 
-is_objectclass_supported.exit:                    ; preds = %24
-  %28 = icmp ult i64 %indvars.iv.i62, 36
-  br i1 %28, label %.critedge, label %is_objectclass_supported.exit.thread
+25:                                               ; preds = %is_objectclass_supported.exit
+  %26 = call ptr @table_open(i32 noundef %9, i32 noundef 1) #9
+  %27 = load ptr, ptr @get_object_property_data.prop_last, align 8
+  %.not.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i, label %.preheader96, label %28
 
-.critedge:                                        ; preds = %22, %is_objectclass_supported.exit
-  %29 = call ptr @table_open(i32 noundef %9, i32 noundef 1) #9
-  %30 = load ptr, ptr @get_object_property_data.prop_last, align 8
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %.preheader98, label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, %9
+  br i1 %31, label %get_object_attnum_oid.exit, label %.preheader96
 
-31:                                               ; preds = %.critedge
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, %9
-  br i1 %34, label %get_object_attnum_oid.exit, label %.preheader98
+.preheader96:                                     ; preds = %28, %25
+  br label %33
 
-.preheader98:                                     ; preds = %31, %.critedge
-  br label %36
-
-35:                                               ; preds = %36
+32:                                               ; preds = %33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 37
-  br i1 %exitcond.not.i.i, label %42, label %36, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %39, label %33, !llvm.loop !9
 
-36:                                               ; preds = %.preheader98, %35
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %35 ], [ 0, %.preheader98 ]
-  %37 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %39, %9
-  br i1 %40, label %41, label %35
+33:                                               ; preds = %.preheader96, %32
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %.preheader96 ]
+  %34 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, %9
+  br i1 %37, label %38, label %32
 
-41:                                               ; preds = %36
-  store ptr %37, ptr @get_object_property_data.prop_last, align 8
+38:                                               ; preds = %33
+  store ptr %34, ptr @get_object_property_data.prop_last, align 8
   br label %get_object_attnum_oid.exit
 
-42:                                               ; preds = %35
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %43)
-  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
+39:                                               ; preds = %32
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %40)
+  %41 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2812, ptr noundef nonnull @__func__.get_object_property_data) #9
   unreachable
 
-get_object_attnum_oid.exit:                       ; preds = %31, %41
-  %.08.i.i = phi ptr [ %37, %41 ], [ %30, %31 ]
-  %45 = getelementptr inbounds i8, ptr %.08.i.i, i64 24
-  %46 = load i16, ptr %45, align 8
-  %47 = call ptr @get_catalog_object_by_oid(ptr noundef %29, i16 noundef signext %46, i32 noundef %12)
-  %.not37 = icmp eq ptr %47, null
-  br i1 %.not37, label %112, label %48
+get_object_attnum_oid.exit:                       ; preds = %28, %38
+  %.08.i.i = phi ptr [ %34, %38 ], [ %27, %28 ]
+  %42 = getelementptr inbounds i8, ptr %.08.i.i, i64 24
+  %43 = load i16, ptr %42, align 8
+  %44 = call ptr @get_catalog_object_by_oid(ptr noundef %26, i16 noundef signext %43, i32 noundef %12)
+  %.not37 = icmp eq ptr %44, null
+  br i1 %.not37, label %109, label %45
 
-48:                                               ; preds = %get_object_attnum_oid.exit
-  %49 = load ptr, ptr @get_object_property_data.prop_last, align 8
-  %.not.i.i40 = icmp eq ptr %49, null
-  br i1 %.not.i.i40, label %.preheader, label %50
+45:                                               ; preds = %get_object_attnum_oid.exit
+  %46 = load ptr, ptr @get_object_property_data.prop_last, align 8
+  %.not.i.i40 = icmp eq ptr %46, null
+  br i1 %.not.i.i40, label %.preheader93, label %47
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, %9
-  br i1 %53, label %get_object_attnum_namespace.exit, label %.preheader
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp eq i32 %49, %9
+  br i1 %50, label %get_object_attnum_namespace.exit, label %.preheader93
 
-.preheader:                                       ; preds = %50, %48
-  br label %55
+.preheader93:                                     ; preds = %47, %45
+  br label %52
 
-54:                                               ; preds = %55
+51:                                               ; preds = %52
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, 37
-  br i1 %exitcond.not.i.i43, label %61, label %55, !llvm.loop !9
+  br i1 %exitcond.not.i.i43, label %58, label %52, !llvm.loop !9
 
-55:                                               ; preds = %.preheader, %54
-  %indvars.iv.i.i41 = phi i64 [ %indvars.iv.next.i.i42, %54 ], [ 0, %.preheader ]
-  %56 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i41
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 %58, %9
-  br i1 %59, label %60, label %54
+52:                                               ; preds = %.preheader93, %51
+  %indvars.iv.i.i41 = phi i64 [ %indvars.iv.next.i.i42, %51 ], [ 0, %.preheader93 ]
+  %53 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i41
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, %9
+  br i1 %56, label %57, label %51
 
-60:                                               ; preds = %55
-  store ptr %56, ptr @get_object_property_data.prop_last, align 8
+57:                                               ; preds = %52
+  store ptr %53, ptr @get_object_property_data.prop_last, align 8
   br label %get_object_attnum_namespace.exit
 
-61:                                               ; preds = %54
-  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %62)
-  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
+58:                                               ; preds = %51
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %59)
+  %60 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2812, ptr noundef nonnull @__func__.get_object_property_data) #9
   unreachable
 
-get_object_attnum_namespace.exit:                 ; preds = %50, %60
-  %.08.i.i44 = phi ptr [ %56, %60 ], [ %49, %50 ]
-  %64 = getelementptr inbounds i8, ptr %.08.i.i44, i64 28
-  %65 = load i16, ptr %64, align 4
-  %.not38 = icmp eq i16 %65, 0
-  br i1 %.not38, label %.thread74, label %66
+get_object_attnum_namespace.exit:                 ; preds = %47, %57
+  %.08.i.i44 = phi ptr [ %53, %57 ], [ %46, %47 ]
+  %61 = getelementptr inbounds i8, ptr %.08.i.i44, i64 28
+  %62 = load i16, ptr %61, align 4
+  %.not38 = icmp eq i16 %62, 0
+  br i1 %.not38, label %.thread72, label %63
 
-66:                                               ; preds = %get_object_attnum_namespace.exit
-  %67 = sext i16 %65 to i32
-  %68 = getelementptr inbounds i8, ptr %29, i64 64
-  %69 = load ptr, ptr %68, align 8
-  %70 = call fastcc i64 @heap_getattr(ptr noundef nonnull %47, i32 noundef %67, ptr noundef %69, ptr noundef nonnull %6)
-  %71 = load i8, ptr %6, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %76
+63:                                               ; preds = %get_object_attnum_namespace.exit
+  %64 = sext i16 %62 to i32
+  %65 = getelementptr inbounds i8, ptr %26, i64 64
+  %66 = load ptr, ptr %65, align 8
+  %67 = call fastcc i64 @heap_getattr(ptr noundef nonnull %44, i32 noundef %64, ptr noundef %66, ptr noundef nonnull %6)
+  %68 = load i8, ptr %6, align 1
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %73
 
-73:                                               ; preds = %66
-  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %74)
-  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.103, i32 noundef %9, i32 noundef %12, i32 noundef %15) #9
+70:                                               ; preds = %63
+  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %71)
+  %72 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.103, i32 noundef %9, i32 noundef %12, i32 noundef %15) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4280, ptr noundef nonnull @__func__.pg_identify_object) #9
   unreachable
 
-76:                                               ; preds = %66
-  %77 = trunc i64 %70 to i32
+73:                                               ; preds = %63
+  %74 = trunc i64 %67 to i32
   %.pre = load ptr, ptr @get_object_property_data.prop_last, align 8
   %.not.i.i45 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i45, label %82, label %.thread74
+  br i1 %.not.i.i45, label %79, label %.thread72
 
-.thread74:                                        ; preds = %get_object_attnum_namespace.exit, %76
-  %.279 = phi i32 [ %77, %76 ], [ 0, %get_object_attnum_namespace.exit ]
-  %78 = phi ptr [ %.pre, %76 ], [ %.08.i.i44, %get_object_attnum_namespace.exit ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp eq i32 %80, %9
-  br i1 %81, label %get_object_namensp_unique.exit, label %82
+.thread72:                                        ; preds = %get_object_attnum_namespace.exit, %73
+  %.277 = phi i32 [ %74, %73 ], [ 0, %get_object_attnum_namespace.exit ]
+  %75 = phi ptr [ %.pre, %73 ], [ %.08.i.i44, %get_object_attnum_namespace.exit ]
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %77, %9
+  br i1 %78, label %get_object_namensp_unique.exit, label %79
 
-82:                                               ; preds = %.thread74, %76
-  %.277 = phi i32 [ %.279, %.thread74 ], [ %77, %76 ]
-  br label %84
+79:                                               ; preds = %.thread72, %73
+  %.275 = phi i32 [ %.277, %.thread72 ], [ %74, %73 ]
+  br label %81
 
-83:                                               ; preds = %84
+80:                                               ; preds = %81
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i46, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 37
-  br i1 %exitcond.not.i.i48, label %90, label %84, !llvm.loop !9
+  br i1 %exitcond.not.i.i48, label %87, label %81, !llvm.loop !9
 
-84:                                               ; preds = %83, %82
-  %indvars.iv.i.i46 = phi i64 [ 0, %82 ], [ %indvars.iv.next.i.i47, %83 ]
-  %85 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i46
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp eq i32 %87, %9
-  br i1 %88, label %89, label %83
+81:                                               ; preds = %80, %79
+  %indvars.iv.i.i46 = phi i64 [ 0, %79 ], [ %indvars.iv.next.i.i47, %80 ]
+  %82 = getelementptr [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i46
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp eq i32 %84, %9
+  br i1 %85, label %86, label %80
 
-89:                                               ; preds = %84
-  store ptr %85, ptr @get_object_property_data.prop_last, align 8
+86:                                               ; preds = %81
+  store ptr %82, ptr @get_object_property_data.prop_last, align 8
   br label %get_object_namensp_unique.exit
 
-90:                                               ; preds = %83
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %91)
-  %92 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
+87:                                               ; preds = %80
+  %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %88)
+  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.226, i32 noundef %9) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2812, ptr noundef nonnull @__func__.get_object_property_data) #9
   unreachable
 
-get_object_namensp_unique.exit:                   ; preds = %.thread74, %89
-  %.278 = phi i32 [ %.277, %89 ], [ %.279, %.thread74 ]
-  %93 = phi ptr [ %85, %89 ], [ %78, %.thread74 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 40
-  %95 = load i8, ptr %94, align 8
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %get_object_attnum_name.exit, label %112
+get_object_namensp_unique.exit:                   ; preds = %.thread72, %86
+  %.276 = phi i32 [ %.275, %86 ], [ %.277, %.thread72 ]
+  %90 = phi ptr [ %82, %86 ], [ %75, %.thread72 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %92 = load i8, ptr %91, align 8
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %get_object_attnum_name.exit, label %109
 
 get_object_attnum_name.exit:                      ; preds = %get_object_namensp_unique.exit
-  %97 = getelementptr inbounds i8, ptr %93, i64 26
-  %98 = load i16, ptr %97, align 2
-  %.not39 = icmp eq i16 %98, 0
-  br i1 %.not39, label %112, label %99
+  %94 = getelementptr inbounds i8, ptr %90, i64 26
+  %95 = load i16, ptr %94, align 2
+  %.not39 = icmp eq i16 %95, 0
+  br i1 %.not39, label %109, label %96
 
-99:                                               ; preds = %get_object_attnum_name.exit
-  %100 = sext i16 %98 to i32
-  %101 = getelementptr inbounds i8, ptr %29, i64 64
-  %102 = load ptr, ptr %101, align 8
-  %103 = call fastcc i64 @heap_getattr(ptr noundef nonnull %47, i32 noundef %100, ptr noundef %102, ptr noundef nonnull %6)
-  %104 = load i8, ptr %6, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %109
+96:                                               ; preds = %get_object_attnum_name.exit
+  %97 = sext i16 %95 to i32
+  %98 = getelementptr inbounds i8, ptr %26, i64 64
+  %99 = load ptr, ptr %98, align 8
+  %100 = call fastcc i64 @heap_getattr(ptr noundef nonnull %44, i32 noundef %97, ptr noundef %99, ptr noundef nonnull %6)
+  %101 = load i8, ptr %6, align 1
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %106
 
-106:                                              ; preds = %99
-  %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %107)
-  %108 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.104, i32 noundef %9, i32 noundef %12, i32 noundef %15) #9
+103:                                              ; preds = %96
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %104)
+  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.104, i32 noundef %9, i32 noundef %12, i32 noundef %15) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4298, ptr noundef nonnull @__func__.pg_identify_object) #9
   unreachable
 
-109:                                              ; preds = %99
-  %110 = inttoptr i64 %103 to ptr
-  %111 = call ptr @quote_identifier(ptr noundef %110) #9
-  br label %112
+106:                                              ; preds = %96
+  %107 = inttoptr i64 %100 to ptr
+  %108 = call ptr @quote_identifier(ptr noundef %107) #9
+  br label %109
 
-112:                                              ; preds = %get_object_namensp_unique.exit, %109, %get_object_attnum_name.exit, %get_object_attnum_oid.exit
-  %.132 = phi ptr [ %111, %109 ], [ null, %get_object_attnum_name.exit ], [ null, %get_object_namensp_unique.exit ], [ null, %get_object_attnum_oid.exit ]
-  %.1 = phi i32 [ %.278, %109 ], [ %.278, %get_object_attnum_name.exit ], [ %.278, %get_object_namensp_unique.exit ], [ 0, %get_object_attnum_oid.exit ]
-  call void @table_close(ptr noundef %29, i32 noundef 1) #9
-  br label %is_objectclass_supported.exit.thread
+109:                                              ; preds = %get_object_namensp_unique.exit, %106, %get_object_attnum_name.exit, %get_object_attnum_oid.exit
+  %.132 = phi ptr [ %108, %106 ], [ null, %get_object_attnum_name.exit ], [ null, %get_object_namensp_unique.exit ], [ null, %get_object_attnum_oid.exit ]
+  %.1 = phi i32 [ %.276, %106 ], [ %.276, %get_object_attnum_name.exit ], [ %.276, %get_object_namensp_unique.exit ], [ 0, %get_object_attnum_oid.exit ]
+  call void @table_close(ptr noundef %26, i32 noundef 1) #9
+  br label %110
 
-is_objectclass_supported.exit.thread:             ; preds = %.lr.ph, %112, %is_objectclass_supported.exit
-  %.031 = phi ptr [ %.132, %112 ], [ null, %is_objectclass_supported.exit ], [ null, %.lr.ph ]
-  %.0 = phi i32 [ %.1, %112 ], [ 0, %is_objectclass_supported.exit ], [ 0, %.lr.ph ]
-  %113 = call ptr @getObjectTypeDescription(ptr noundef nonnull %2, i1 noundef zeroext true)
-  %114 = call ptr @cstring_to_text(ptr noundef %113) #9
-  %115 = ptrtoint ptr %114 to i64
-  store i64 %115, ptr %3, align 16
+110:                                              ; preds = %109, %is_objectclass_supported.exit
+  %.031 = phi ptr [ %.132, %109 ], [ null, %is_objectclass_supported.exit ]
+  %.0 = phi i32 [ %.1, %109 ], [ 0, %is_objectclass_supported.exit ]
+  %111 = call ptr @getObjectTypeDescription(ptr noundef nonnull %2, i1 noundef zeroext true)
+  %112 = call ptr @cstring_to_text(ptr noundef %111) #9
+  %113 = ptrtoint ptr %112 to i64
+  store i64 %113, ptr %3, align 16
   store i8 0, ptr %4, align 1
-  %116 = call ptr @getObjectIdentityParts(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-  %117 = icmp ne i32 %.0, 0
-  %118 = icmp ne ptr %116, null
-  %or.cond = select i1 %117, i1 %118, i1 false
-  br i1 %or.cond, label %119, label %125
+  %114 = call ptr @getObjectIdentityParts(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %115 = icmp ne i32 %.0, 0
+  %116 = icmp ne ptr %114, null
+  %or.cond = select i1 %115, i1 %116, i1 false
+  br i1 %or.cond, label %117, label %123
 
-119:                                              ; preds = %is_objectclass_supported.exit.thread
-  %120 = call ptr @get_namespace_name(i32 noundef %.0) #9
-  %121 = call ptr @quote_identifier(ptr noundef %120) #9
-  %122 = call ptr @cstring_to_text(ptr noundef %121) #9
-  %123 = ptrtoint ptr %122 to i64
-  %124 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %123, ptr %124, align 8
-  br label %125
+117:                                              ; preds = %110
+  %118 = call ptr @get_namespace_name(i32 noundef %.0) #9
+  %119 = call ptr @quote_identifier(ptr noundef %118) #9
+  %120 = call ptr @cstring_to_text(ptr noundef %119) #9
+  %121 = ptrtoint ptr %120 to i64
+  %122 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %121, ptr %122, align 8
+  br label %123
 
-125:                                              ; preds = %is_objectclass_supported.exit.thread, %119
-  %.sink = phi i8 [ 0, %119 ], [ 1, %is_objectclass_supported.exit.thread ]
-  %126 = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %.sink, ptr %126, align 1
-  %127 = icmp ne ptr %.031, null
-  %or.cond3 = select i1 %127, i1 %118, i1 false
-  br i1 %or.cond3, label %.thread, label %132
+123:                                              ; preds = %110, %117
+  %.sink = phi i8 [ 0, %117 ], [ 1, %110 ]
+  %124 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 %.sink, ptr %124, align 1
+  %125 = icmp ne ptr %.031, null
+  %or.cond3 = select i1 %125, i1 %116, i1 false
+  br i1 %or.cond3, label %.thread, label %130
 
-.thread:                                          ; preds = %125
-  %128 = call ptr @cstring_to_text(ptr noundef nonnull %.031) #9
-  %129 = ptrtoint ptr %128 to i64
-  %130 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %129, ptr %130, align 16
+.thread:                                          ; preds = %123
+  %126 = call ptr @cstring_to_text(ptr noundef nonnull %.031) #9
+  %127 = ptrtoint ptr %126 to i64
+  %128 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %127, ptr %128, align 16
+  %129 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %129, align 1
+  br label %132
+
+130:                                              ; preds = %123
   %131 = getelementptr inbounds i8, ptr %4, i64 2
-  store i8 0, ptr %131, align 1
-  br label %134
+  store i8 1, ptr %131, align 1
+  br i1 %116, label %132, label %136
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %4, i64 2
-  store i8 1, ptr %133, align 1
-  br i1 %118, label %134, label %138
+132:                                              ; preds = %.thread, %130
+  %133 = call ptr @cstring_to_text(ptr noundef nonnull %114) #9
+  %134 = ptrtoint ptr %133 to i64
+  %135 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %134, ptr %135, align 8
+  br label %136
 
-134:                                              ; preds = %.thread, %132
-  %135 = call ptr @cstring_to_text(ptr noundef nonnull %116) #9
-  %136 = ptrtoint ptr %135 to i64
-  %137 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %136, ptr %137, align 8
-  br label %138
-
-138:                                              ; preds = %132, %134
-  %.sink87 = phi i8 [ 0, %134 ], [ 1, %132 ]
-  %139 = getelementptr inbounds i8, ptr %4, i64 3
-  store i8 %.sink87, ptr %139, align 1
-  %140 = load ptr, ptr %5, align 8
-  %141 = call ptr @heap_form_tuple(ptr noundef %140, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
-  %142 = getelementptr i8, ptr %141, i64 16
-  %.val = load ptr, ptr %142, align 8
-  %143 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  ret i64 %143
+136:                                              ; preds = %130, %132
+  %.sink84 = phi i8 [ 0, %132 ], [ 1, %130 ]
+  %137 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 %.sink84, ptr %137, align 1
+  %138 = load ptr, ptr %5, align 8
+  %139 = call ptr @heap_form_tuple(ptr noundef %138, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %140 = getelementptr i8, ptr %139, i64 16
+  %.val = load ptr, ptr %140, align 8
+  %141 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  ret i64 %141
 }
 
 ; Function Attrs: nounwind uwtable

@@ -189,26 +189,23 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 ._crit_edge551:                                   ; preds = %.lr.ph550
   %57 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
-  br i1 %51, label %.lr.ph554.preheader, label %._crit_edge555
-
-.lr.ph554.preheader:                              ; preds = %._crit_edge551
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %.0355) #7
   %.not410663 = icmp eq i32 %.0355, 0
   br i1 %.not410663, label %._crit_edge555.loopexit, label %.lr.ph554
 
-.lr.ph554:                                        ; preds = %.lr.ph554.preheader, %.lr.ph554
-  %.1349552664 = phi i32 [ %60, %.lr.ph554 ], [ %.0355, %.lr.ph554.preheader ]
+.lr.ph554:                                        ; preds = %._crit_edge551, %.lr.ph554
+  %.1349552664 = phi i32 [ %60, %.lr.ph554 ], [ %.0355, %._crit_edge551 ]
   %59 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr nonnull %40)
   %60 = add nsw i32 %.1349552664, -1
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %60) #7
   %.not410 = icmp eq i32 %60, 0
   br i1 %.not410, label %._crit_edge555.loopexit, label %.lr.ph554, !llvm.loop !7
 
-._crit_edge555.loopexit:                          ; preds = %.lr.ph554, %.lr.ph554.preheader
+._crit_edge555.loopexit:                          ; preds = %.lr.ph554, %._crit_edge551
   %fputc411 = tail call i32 @fputc(i32 59, ptr nonnull %40)
   br label %._crit_edge555
 
-._crit_edge555:                                   ; preds = %._crit_edge551.thread, %._crit_edge555.loopexit, %._crit_edge551
+._crit_edge555:                                   ; preds = %._crit_edge551.thread, %._crit_edge555.loopexit
   %fputc367 = tail call i32 @fputc(i32 10, ptr nonnull %40)
   %fputc368 = tail call i32 @fputc(i32 125, ptr nonnull %40)
   %fputc369 = tail call i32 @fputc(i32 10, ptr nonnull %40)

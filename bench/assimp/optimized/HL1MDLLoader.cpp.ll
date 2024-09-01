@@ -8082,14 +8082,11 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %mPositionKeys = getelementptr inbounds i8, ptr %call89, i64 1032
   store ptr %call101, ptr %mPositionKeys, align 8
   %call104 = call noalias noundef nonnull ptr @_Znam(i64 noundef %52) #24
-  br i1 %isempty, label %arrayctor.cont112, label %new.ctorloop106
-
-new.ctorloop106:                                  ; preds = %arrayctor.cont
   %arrayctor.end107 = getelementptr inbounds %struct.aiQuatKey, ptr %call104, i64 %conv100
   br label %arrayctor.loop108
 
-arrayctor.loop108:                                ; preds = %arrayctor.loop108, %new.ctorloop106
-  %arrayctor.cur109 = phi ptr [ %call104, %new.ctorloop106 ], [ %arrayctor.next110, %arrayctor.loop108 ]
+arrayctor.loop108:                                ; preds = %arrayctor.loop108, %arrayctor.cont
+  %arrayctor.cur109 = phi ptr [ %call104, %arrayctor.cont ], [ %arrayctor.next110, %arrayctor.loop108 ]
   store double 0.000000e+00, ptr %arrayctor.cur109, align 8
   %mValue.i = getelementptr inbounds i8, ptr %arrayctor.cur109, i64 8
   store float 1.000000e+00, ptr %mValue.i, align 4
@@ -8103,9 +8100,9 @@ arrayctor.loop108:                                ; preds = %arrayctor.loop108, 
   %arrayctor.done111 = icmp eq ptr %arrayctor.next110, %arrayctor.end107
   br i1 %arrayctor.done111, label %arrayctor.cont112, label %arrayctor.loop108
 
-arrayctor.cont112:                                ; preds = %arrayctor.loop108, %arrayctor.cont.thread, %arrayctor.cont
-  %call104198 = phi ptr [ %call104196, %arrayctor.cont.thread ], [ %call104, %arrayctor.cont ], [ %call104, %arrayctor.loop108 ]
-  %mPositionKeys197 = phi ptr [ %mPositionKeys195, %arrayctor.cont.thread ], [ %mPositionKeys, %arrayctor.cont ], [ %mPositionKeys, %arrayctor.loop108 ]
+arrayctor.cont112:                                ; preds = %arrayctor.loop108, %arrayctor.cont.thread
+  %call104198 = phi ptr [ %call104196, %arrayctor.cont.thread ], [ %call104, %arrayctor.loop108 ]
+  %mPositionKeys197 = phi ptr [ %mPositionKeys195, %arrayctor.cont.thread ], [ %mPositionKeys, %arrayctor.loop108 ]
   store ptr %call104198, ptr %mRotationKeys.i, align 8
   %53 = load i32, ptr %numframes, align 1
   %cmp115159 = icmp sgt i32 %53, 0

@@ -7096,18 +7096,18 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
 .loopexit:                                        ; preds = %103, %107, %125, %136
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %170
 
-.loopexit.split-lp:                               ; preds = %.invoke83, %.invoke, %31, %42, %52, %55, %68, %74, %85, %99, %111, %144, %156, %164
+.loopexit.split-lp:                               ; preds = %.invoke84, %.invoke83, %.invoke, %31, %42, %52, %55, %68, %85, %99, %111, %144, %156
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %170
 
 40:                                               ; preds = %37, %32
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 42:                                               ; preds = %28
   invoke void @_ZN6google10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull @.str.19, i32 noundef 2369, i32 noundef 2)
@@ -7136,7 +7136,7 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 55:                                               ; preds = %24
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %11, align 8
@@ -7160,7 +7160,7 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 65:                                               ; preds = %3
   %66 = call i32 @fstat(i32 noundef %23, ptr noundef nonnull %4) #42
@@ -7179,17 +7179,18 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 30008
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.37)
-          to label %74 unwind label %75
+          to label %.invoke84 unwind label %75
 
-74:                                               ; preds = %69
-  invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12)
+.invoke84:                                        ; preds = %162, %69
+  %74 = phi ptr [ %12, %69 ], [ %20, %162 ]
+  invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %74)
           to label %.thread70 unwind label %.loopexit.split-lp
 
 75:                                               ; preds = %69
   %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 77:                                               ; preds = %65
   %78 = getelementptr inbounds i8, ptr %4, i64 24
@@ -7287,13 +7288,13 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %121 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 122:                                              ; preds = %117, %112
   %123 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 124:                                              ; preds = %109
   %.not53 = icmp eq i64 %108, %104
@@ -7329,7 +7330,7 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %138 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 139:                                              ; preds = %124, %136
   %140 = add nsw i64 %104, %.0
@@ -7362,12 +7363,12 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %153 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
 .thread:                                          ; preds = %.invoke83, %142
   %154 = call i32 @ftruncate(i32 noundef %23, i64 noundef %.043) #42
   %155 = icmp eq i32 %154, -1
-  br i1 %155, label %156, label %167
+  br i1 %155, label %156, label %.thread70
 
 156:                                              ; preds = %.thread
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %21, align 8
@@ -7381,50 +7382,43 @@ define void @_ZN6google15TruncateLogFileEPKcmm(ptr noundef %0, i64 noundef %1, i
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 30008
   %161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull @.str.33)
-          to label %162 unwind label %165
+          to label %162 unwind label %164
 
 162:                                              ; preds = %157
   %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef %0)
-          to label %164 unwind label %165
+          to label %.invoke84 unwind label %164
 
-164:                                              ; preds = %162
-  invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20)
-          to label %167 unwind label %.loopexit.split-lp
-
-165:                                              ; preds = %162, %157
-  %166 = landingpad { ptr, i32 }
+164:                                              ; preds = %162, %157
+  %165 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20)
-          to label %172 unwind label %173
+          to label %170 unwind label %171
 
-167:                                              ; preds = %.thread, %164
-  br i1 %.not55, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit, label %.thread70
-
-.thread70:                                        ; preds = %74, %77, %82, %167
+.thread70:                                        ; preds = %.invoke84, %.thread, %77, %82
   store i32 -1, ptr %6, align 4
-  %168 = invoke i32 @close(i32 noundef %23)
-          to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %169
+  %166 = invoke i32 @close(i32 noundef %23)
+          to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %167
 
-169:                                              ; preds = %.thread70
-  %170 = landingpad { ptr, i32 }
+167:                                              ; preds = %.thread70
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #43
+  %169 = extractvalue { ptr, i32 } %168, 0
+  call void @__clang_call_terminate(ptr %169) #43
   unreachable
 
-_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %.invoke, %52, %167, %.thread70
+_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %.invoke, %52, %.thread70
   ret void
 
-172:                                              ; preds = %.loopexit, %.loopexit.split-lp, %165, %152, %137, %122, %120, %75, %63, %53, %40
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %166, %165 ], [ %153, %152 ], [ %123, %122 ], [ %138, %137 ], [ %121, %120 ], [ %41, %40 ], [ %54, %53 ], [ %64, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+170:                                              ; preds = %.loopexit, %.loopexit.split-lp, %164, %152, %137, %122, %120, %75, %63, %53, %40
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %165, %164 ], [ %153, %152 ], [ %123, %122 ], [ %138, %137 ], [ %121, %120 ], [ %41, %40 ], [ %54, %53 ], [ %64, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #42
   resume { ptr, i32 } %.pn
 
-173:                                              ; preds = %165, %152, %137, %122, %120, %75, %63, %53, %40
-  %174 = landingpad { ptr, i32 }
+171:                                              ; preds = %164, %152, %137, %122, %120, %75, %63, %53, %40
+  %172 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #43
+  %173 = extractvalue { ptr, i32 } %172, 0
+  call void @__clang_call_terminate(ptr %173) #43
   unreachable
 }
 
@@ -11545,8 +11539,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
 45:                                               ; preds = %.noexc65, %42
   %46 = load ptr, ptr %30, align 8
   %47 = load ptr, ptr %44, align 8
-  %.not2.not.i.not = icmp ne ptr %46, %47
-  br i1 %.not2.not.i.not, label %48, label %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE8_M_matchEv.exit
+  %.not2.not.i.not.not = icmp ne ptr %46, %47
+  br i1 %.not2.not.i.not.not, label %48, label %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE8_M_matchEv.exit
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %46, i64 1
@@ -11560,7 +11554,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   br i1 %50, label %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE8_M_matchEv.exit, label %45, !llvm.loop !93
 
 _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE8_M_matchEv.exit: ; preds = %.noexc65, %45, %38, %.noexc, %33
-  %.060.in = phi i1 [ %34, %33 ], [ true, %.noexc ], [ false, %38 ], [ %.not2.not.i.not, %45 ], [ %.not2.not.i.not, %.noexc65 ]
+  %.060.in = phi i1 [ %34, %33 ], [ true, %.noexc ], [ false, %38 ], [ %.not2.not.i.not.not, %45 ], [ %.not2.not.i.not.not, %.noexc65 ]
   %51 = getelementptr inbounds i8, ptr %10, i64 96
   %52 = getelementptr inbounds i8, ptr %10, i64 120
   %53 = load ptr, ptr %52, align 8
@@ -12084,8 +12078,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__
 21:                                               ; preds = %24, %18
   %22 = load ptr, ptr %2, align 8
   %23 = load ptr, ptr %20, align 8
-  %.not2.not = icmp ne ptr %22, %23
-  br i1 %.not2.not, label %24, label %.loopexit
+  %.not2.not.not = icmp ne ptr %22, %23
+  br i1 %.not2.not.not, label %24, label %.loopexit
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %22, i64 1
@@ -12103,7 +12097,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__
   br i1 %30, label %.loopexit, label %21, !llvm.loop !96
 
 .loopexit:                                        ; preds = %21, %24, %14, %1
-  %.0 = phi i1 [ true, %1 ], [ false, %14 ], [ %.not2.not, %24 ], [ %.not2.not, %21 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %14 ], [ %.not2.not.not, %24 ], [ %.not2.not.not, %21 ]
   ret i1 %.0
 }
 

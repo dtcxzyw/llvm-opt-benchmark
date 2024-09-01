@@ -550,9 +550,6 @@ define noalias noundef ptr @Pla_ManFxMinimize(ptr nocapture noundef readonly %0,
   store i32 %124, ptr %24, align 8
   store i32 %123, ptr %25, align 4
   store i32 %125, ptr %4, align 16
-  br i1 %.not176, label %196, label %.lr.ph159
-
-.lr.ph159:                                        ; preds = %.preheader
   %26 = icmp sgt i32 %1, 0
   %27 = getelementptr inbounds i8, ptr %4, i64 40
   %smax186 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
@@ -712,9 +709,9 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %exitcond.not = icmp eq i32 %126, %smax
   br i1 %exitcond.not, label %.preheader, label %28, !llvm.loop !17
 
-127:                                              ; preds = %.lr.ph159, %193
-  %128 = phi i32 [ 0, %.lr.ph159 ], [ %194, %193 ]
-  %.1158 = phi i32 [ 0, %.lr.ph159 ], [ %195, %193 ]
+127:                                              ; preds = %.preheader, %193
+  %128 = phi i32 [ 0, %.preheader ], [ %194, %193 ]
+  %.1158 = phi i32 [ 0, %.preheader ], [ %195, %193 ]
   %129 = lshr i32 %.1158, 6
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds i64, ptr %0, i64 %130
@@ -841,7 +838,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %156
   store i32 %194, ptr %27, align 8
   br label %196
 
-196:                                              ; preds = %.preheader.thread, %._crit_edge160, %.preheader
+196:                                              ; preds = %.preheader.thread, %._crit_edge160
   %putchar = tail call i32 @putchar(i32 10)
   %197 = icmp sgt i32 %11, 0
   br i1 %197, label %.lr.ph.preheader.i, label %Pla_TtCountOnes.exit.thread

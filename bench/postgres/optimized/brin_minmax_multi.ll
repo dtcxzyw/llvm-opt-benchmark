@@ -972,16 +972,16 @@ build_distances.exit.i.i:                         ; preds = %._crit_edge.i.i.i, 
   %.1.i.i.i = phi i32 [ %.031.i.i.i, %178 ], [ %190, %183 ]
   %indvars.iv.next.i45.i.i = add nuw nsw i64 %indvars.iv.i44.i.i, 1
   %exitcond.not.i46.i.i = icmp eq i64 %indvars.iv.next.i45.i.i, %wide.trip.count.i43.i.i
-  br i1 %exitcond.not.i46.i.i, label %.lr.ph35.i.i.i, label %178, !llvm.loop !10
+  br i1 %exitcond.not.i46.i.i, label %._crit_edge.i47.i.i, label %178, !llvm.loop !10
 
-.lr.ph35.i.i.i:                                   ; preds = %195
+._crit_edge.i47.i.i:                              ; preds = %195
   store i32 0, ptr %109, align 8
   br label %196
 
-196:                                              ; preds = %209, %.lr.ph35.i.i.i
-  %197 = phi i32 [ 0, %.lr.ph35.i.i.i ], [ %210, %209 ]
-  %indvars.iv38.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i ], [ %indvars.iv.next39.i.i.i, %209 ]
-  %.233.i.i.i = phi i32 [ %.1.i.i.i, %.lr.ph35.i.i.i ], [ %.3.i.i.i, %209 ]
+196:                                              ; preds = %209, %._crit_edge.i47.i.i
+  %197 = phi i32 [ 0, %._crit_edge.i47.i.i ], [ %210, %209 ]
+  %indvars.iv38.i.i.i = phi i64 [ 0, %._crit_edge.i47.i.i ], [ %indvars.iv.next39.i.i.i, %209 ]
+  %.233.i.i.i = phi i32 [ %.1.i.i.i, %._crit_edge.i47.i.i ], [ %.3.i.i.i, %209 ]
   %198 = getelementptr %struct.ExpandedRange, ptr %131, i64 %indvars.iv38.i.i.i
   %199 = getelementptr inbounds i8, ptr %198, i64 16
   %200 = load i8, ptr %199, align 8
@@ -1430,16 +1430,16 @@ build_distances.exit.i:                           ; preds = %._crit_edge.i.i, %m
   %.1.i.i = phi i32 [ %.031.i.i, %74 ], [ %86, %79 ]
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i33.i = icmp eq i64 %indvars.iv.next.i32.i, %wide.trip.count.i30.i
-  br i1 %exitcond.not.i33.i, label %.lr.ph35.i.i, label %74, !llvm.loop !10
+  br i1 %exitcond.not.i33.i, label %._crit_edge.i34.i, label %74, !llvm.loop !10
 
-.lr.ph35.i.i:                                     ; preds = %91
+._crit_edge.i34.i:                                ; preds = %91
   store i32 0, ptr %11, align 8
   br label %92
 
-92:                                               ; preds = %105, %.lr.ph35.i.i
-  %93 = phi i32 [ 0, %.lr.ph35.i.i ], [ %106, %105 ]
-  %indvars.iv38.i.i = phi i64 [ 0, %.lr.ph35.i.i ], [ %indvars.iv.next39.i.i, %105 ]
-  %.233.i.i = phi i32 [ %.1.i.i, %.lr.ph35.i.i ], [ %.3.i.i, %105 ]
+92:                                               ; preds = %105, %._crit_edge.i34.i
+  %93 = phi i32 [ 0, %._crit_edge.i34.i ], [ %106, %105 ]
+  %indvars.iv38.i.i = phi i64 [ 0, %._crit_edge.i34.i ], [ %indvars.iv.next39.i.i, %105 ]
+  %.233.i.i = phi i32 [ %.1.i.i, %._crit_edge.i34.i ], [ %.3.i.i, %105 ]
   %94 = getelementptr %struct.ExpandedRange, ptr %52, i64 %indvars.iv38.i.i
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load i8, ptr %95, align 8
@@ -2675,16 +2675,16 @@ build_distances.exit:                             ; preds = %minmax_multi_get_pr
   %.1.i = phi i32 [ %.031.i, %218 ], [ %230, %223 ]
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i92
-  br i1 %exitcond.not.i95, label %.lr.ph35.i97, label %218, !llvm.loop !10
+  br i1 %exitcond.not.i95, label %._crit_edge.i96, label %218, !llvm.loop !10
 
-.lr.ph35.i97:                                     ; preds = %235
+._crit_edge.i96:                                  ; preds = %235
   store i32 0, ptr %37, align 8
   br label %236
 
-236:                                              ; preds = %249, %.lr.ph35.i97
-  %237 = phi i32 [ 0, %.lr.ph35.i97 ], [ %250, %249 ]
-  %indvars.iv38.i = phi i64 [ 0, %.lr.ph35.i97 ], [ %indvars.iv.next39.i, %249 ]
-  %.233.i = phi i32 [ %.1.i, %.lr.ph35.i97 ], [ %.3.i, %249 ]
+236:                                              ; preds = %249, %._crit_edge.i96
+  %237 = phi i32 [ 0, %._crit_edge.i96 ], [ %250, %249 ]
+  %indvars.iv38.i = phi i64 [ 0, %._crit_edge.i96 ], [ %indvars.iv.next39.i, %249 ]
+  %.233.i = phi i32 [ %.1.i, %._crit_edge.i96 ], [ %.3.i, %249 ]
   %238 = getelementptr %struct.ExpandedRange, ptr %51, i64 %indvars.iv38.i
   %239 = getelementptr inbounds i8, ptr %238, i64 16
   %240 = load i8, ptr %239, align 8

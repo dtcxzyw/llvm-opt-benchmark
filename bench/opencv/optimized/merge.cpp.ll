@@ -421,7 +421,7 @@ define linkonce_odr hidden void @_ZN2cv3hfs9RegionSetC2EiSt6vectorIiSaIiEE(ptr n
 
 6:                                                ; preds = %3
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %6
   unreachable
@@ -439,84 +439,72 @@ _ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread: ; preds = %_ZNSt6vectorIN
 8:                                                ; preds = %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %9 = shl nuw nsw i64 %4, 4
   %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
-          to label %.noexc13 unwind label %33
+          to label %.noexc13 unwind label %30
 
 .noexc13:                                         ; preds = %8
   %11 = getelementptr %"struct.cv::hfs::Region", ptr %10, i64 %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = icmp eq i32 %1, 1
-  br i1 %13, label %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread28, label %.lr.ph.i.i.i.i.i.i.i.i.i
-
-_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread28: ; preds = %.noexc13
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8
-  store ptr %12, ptr %14, align 8
-  store ptr %11, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %1, ptr %16, align 8
-  br label %.lr.ph.preheader
+  br i1 %13, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc13, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %.noexc13 ]
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %.noexc13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %11
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !8
+  %14 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, %11
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
-_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc13
+  %.sink32 = phi ptr [ %12, %.noexc13 ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8
-  store ptr %11, ptr %18, align 8
-  store ptr %11, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %1, ptr %20, align 8
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread28, %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit
+  store ptr %.sink32, ptr %15, align 8
+  store ptr %11, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %1, ptr %17, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %21, i64 %indvars.iv
-  store i32 0, ptr %22, align 4
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %23, i64 %indvars.iv, i32 2
-  store i32 1, ptr %24, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %28, i64 %indvars.iv, i32 3
-  store i32 %27, ptr %29, align 4
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %30, i64 %indvars.iv, i32 1
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %32, ptr %31, align 4
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %18, i64 %indvars.iv
+  store i32 0, ptr %19, align 4
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %20, i64 %indvars.iv, i32 2
+  store i32 1, ptr %21, align 4
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %25, i64 %indvars.iv, i32 3
+  store i32 %24, ptr %26, align 4
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds %"struct.cv::hfs::Region", ptr %27, i64 %indvars.iv, i32 1
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %29, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-33:                                               ; preds = %8, %6
-  %34 = landingpad { ptr, i32 }
+30:                                               ; preds = %8, %6
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %0, align 8
-  %.not.i.i.i14 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit15, label %36
+  %32 = load ptr, ptr %0, align 8
+  %.not.i.i.i14 = icmp eq ptr %32, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit15, label %33
 
-36:                                               ; preds = %33
-  tail call void @_ZdlPv(ptr noundef nonnull %35) #14
+33:                                               ; preds = %30
+  tail call void @_ZdlPv(ptr noundef nonnull %32) #14
   br label %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit15
 
-_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit15: ; preds = %33, %36
-  resume { ptr, i32 } %34
+_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit15: ; preds = %30, %33
+  resume { ptr, i32 } %31
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread, %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3hfs6RegionESaIS2_EED2Ev.exit.thread
   ret void
 }
 

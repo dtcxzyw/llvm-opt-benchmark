@@ -799,7 +799,7 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %205, %_ZN9QtPrivate
   br i1 %206, label %_ZN7QStringD2Ev.exit78._crit_edge.loopexit, label %188
 
 _ZN7QStringD2Ev.exit78._crit_edge.loopexit:       ; preds = %_ZN7QStringD2Ev.exit78, %188
-  %.2.ph = phi ptr [ %.0, %188 ], [ %196, %_ZN7QStringD2Ev.exit78 ]
+  %.2.ph = phi ptr [ %196, %_ZN7QStringD2Ev.exit78 ], [ %.0, %188 ]
   %.not104.lcssa.ph = xor i1 %206, true
   %.pre127 = load ptr, ptr %8, align 8
   br label %_ZN7QStringD2Ev.exit78._crit_edge
@@ -1318,7 +1318,7 @@ _ZN7QStringD2Ev.exit68.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not96, label %.critedge3.loopexit, label %.lr.ph114
 
 .critedge3.loopexit:                              ; preds = %_ZN7QStringD2Ev.exit68.us, %128
-  %.2.ph = phi i32 [ %.0, %128 ], [ %117, %_ZN7QStringD2Ev.exit68.us ]
+  %.2.ph = phi i32 [ %117, %_ZN7QStringD2Ev.exit68.us ], [ %.0, %128 ]
   %cond1.ph = xor i1 %122, true
   br label %.critedge3
 
@@ -1845,7 +1845,7 @@ _ZN7QStringD2Ev.exit53.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not75, label %.critedge3.loopexit, label %.lr.ph92
 
 .critedge3.loopexit:                              ; preds = %_ZN7QStringD2Ev.exit53.us, %124
-  %.2.ph = phi i32 [ %.0, %124 ], [ %113, %_ZN7QStringD2Ev.exit53.us ]
+  %.2.ph = phi i32 [ %113, %_ZN7QStringD2Ev.exit53.us ], [ %.0, %124 ]
   %cond1.ph = xor i1 %118, true
   br label %.critedge3
 

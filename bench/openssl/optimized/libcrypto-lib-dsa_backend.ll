@@ -175,12 +175,9 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false
 if.end20:                                         ; preds = %land.lhs.true.i, %lor.lhs.false, %if.end9.thread
   %and21 = and i32 %selection, 1
   %cmp22.not = icmp eq i32 %and21, 0
-  br i1 %cmp22.not, label %if.end31, label %land.lhs.true23
+  br i1 %cmp22.not, label %if.end31, label %lor.lhs.false26
 
-land.lhs.true23:                                  ; preds = %if.end20
-  br i1 %cmp4.not, label %err, label %lor.lhs.false26
-
-lor.lhs.false26:                                  ; preds = %land.lhs.true23
+lor.lhs.false26:                                  ; preds = %if.end20
   %priv_key27 = getelementptr inbounds i8, ptr %dsa, i64 112
   %6 = load ptr, ptr %priv_key27, align 8
   %cmp.not.i20 = icmp eq ptr %6, null
@@ -200,7 +197,7 @@ if.end31:                                         ; preds = %if.end9, %land.lhs.
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %return
 
-err:                                              ; preds = %land.lhs.true.i21, %land.lhs.true.i, %if.end9, %if.end31, %land.lhs.true23, %land.lhs.true
+err:                                              ; preds = %land.lhs.true.i21, %land.lhs.true.i, %if.end9, %if.end31, %land.lhs.true
   tail call void @DSA_free(ptr noundef nonnull %call1) #2
   br label %return
 

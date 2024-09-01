@@ -2636,10 +2636,7 @@ Vec_IntFill.exit53:                               ; preds = %51, %Vec_IntGrow.ex
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader54, label %59, !llvm.loop !24
 
-.preheader:                                       ; preds = %66
-  br i1 %55, label %.lr.ph60, label %._crit_edge
-
-.lr.ph60:                                         ; preds = %.preheader
+.lr.ph60:                                         ; preds = %66
   %62 = getelementptr i8, ptr %6, i64 8
   %63 = getelementptr i8, ptr %2, i64 8
   %64 = sext i32 %10 to i64
@@ -2656,7 +2653,7 @@ Vec_IntFill.exit53:                               ; preds = %51, %Vec_IntGrow.ex
   %70 = tail call i32 @Gia_Rsb2ManInsert_rec(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %69)
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %71 = icmp slt i64 %indvars.iv.next63, %58
-  br i1 %71, label %66, label %.preheader, !llvm.loop !25
+  br i1 %71, label %66, label %.lr.ph60, !llvm.loop !25
 
 72:                                               ; preds = %.lr.ph60, %72
   %indvars.iv65 = phi i64 [ %64, %.lr.ph60 ], [ %indvars.iv.next66, %72 ]
@@ -2676,7 +2673,7 @@ Vec_IntFill.exit53:                               ; preds = %51, %Vec_IntGrow.ex
   %81 = icmp slt i64 %indvars.iv.next66, %65
   br i1 %81, label %72, label %._crit_edge, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %72, %.preheader54, %.preheader
+._crit_edge:                                      ; preds = %72, %.preheader54
   ret ptr %11
 }
 

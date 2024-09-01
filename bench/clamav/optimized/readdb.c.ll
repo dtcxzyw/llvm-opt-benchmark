@@ -1224,35 +1224,35 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   %27 = add i64 %26, %13
   %28 = call noalias ptr @calloc(i64 noundef %27, i64 noundef 1) #23
   %.not284 = icmp eq ptr %28, null
-  br i1 %.not284, label %.loopexit, label %.lr.ph359.preheader
+  br i1 %.not284, label %.loopexit, label %.lr.ph358.preheader
 
-.lr.ph359.preheader:                              ; preds = %25
+.lr.ph358.preheader:                              ; preds = %25
   %29 = ptrtoint ptr %14 to i64
   %30 = ptrtoint ptr %2 to i64
   %31 = sub i64 %29, %30
   %32 = call ptr @strncpy(ptr noundef nonnull %28, ptr noundef %2, i64 noundef %31) #21
-  br label %.lr.ph359
+  br label %.lr.ph358
 
-.lr.ph359:                                        ; preds = %.lr.ph359.preheader, %.lr.ph359
-  %.0223357 = phi i64 [ %33, %.lr.ph359 ], [ 0, %.lr.ph359.preheader ]
+.lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph358
+  %.0223356 = phi i64 [ %33, %.lr.ph358 ], [ 0, %.lr.ph358.preheader ]
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %28)
   %endptr = getelementptr inbounds i8, ptr %28, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.26, i64 3, i1 false)
-  %33 = add nuw i64 %.0223357, 1
-  %exitcond413.not = icmp eq i64 %33, %22
-  br i1 %exitcond413.not, label %._crit_edge360, label %.lr.ph359
+  %33 = add nuw i64 %.0223356, 1
+  %exitcond412.not = icmp eq i64 %33, %22
+  br i1 %exitcond412.not, label %._crit_edge359, label %.lr.ph358
 
-._crit_edge360:                                   ; preds = %.lr.ph359
+._crit_edge359:                                   ; preds = %.lr.ph358
   %34 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 125) #20
   %.not285 = icmp eq ptr %34, null
   br i1 %.not285, label %35, label %36
 
-35:                                               ; preds = %._crit_edge360
+35:                                               ; preds = %._crit_edge359
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.27) #21
   call void @free(ptr noundef nonnull %28) #21
   br label %.loopexit
 
-36:                                               ; preds = %._crit_edge360
+36:                                               ; preds = %._crit_edge359
   %37 = getelementptr inbounds i8, ptr %34, i64 1
   %38 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %37) #21
   %39 = call i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %28, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
@@ -1264,8 +1264,8 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 8
-  %.not370 = icmp eq i64 %13, 0
-  br i1 %.not370, label %._crit_edge, label %.lr.ph
+  %.not369 = icmp eq i64 %13, 0
+  br i1 %.not369, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %58
   %.0208337 = phi i16 [ %.1209, %58 ], [ 1, %40 ]
@@ -1333,19 +1333,19 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 .preheader294:                                    ; preds = %.preheader296, %.lr.ph355
-  %.0230347486 = phi ptr [ %69, %.lr.ph355 ], [ %60, %.preheader296 ]
-  %.0227348485 = phi i1 [ %.2229, %.lr.ph355 ], [ false, %.preheader296 ]
-  %.2225349484 = phi i64 [ %107, %.lr.ph355 ], [ 1, %.preheader296 ]
-  %.0215350483 = phi i32 [ %.1216, %.lr.ph355 ], [ 0, %.preheader296 ]
-  %.0213351482 = phi i32 [ %.1214, %.lr.ph355 ], [ 0, %.preheader296 ]
-  %.0210352481 = phi ptr [ %.1211, %.lr.ph355 ], [ %60, %.preheader296 ]
-  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0210352481) #20
-  %.not371 = icmp eq i64 %62, 0
-  br i1 %.not371, label %.loopexit295, label %.lr.ph343
+  %.0230347485 = phi ptr [ %69, %.lr.ph355 ], [ %60, %.preheader296 ]
+  %.0227348484 = phi i1 [ %.2229, %.lr.ph355 ], [ false, %.preheader296 ]
+  %.2225349483 = phi i64 [ %107, %.lr.ph355 ], [ 1, %.preheader296 ]
+  %.0215350482 = phi i32 [ %.1216, %.lr.ph355 ], [ 0, %.preheader296 ]
+  %.0213351481 = phi i32 [ %.1214, %.lr.ph355 ], [ 0, %.preheader296 ]
+  %.0210352480 = phi ptr [ %.1211, %.lr.ph355 ], [ %60, %.preheader296 ]
+  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0210352480) #20
+  %.not370 = icmp eq i64 %62, 0
+  br i1 %.not370, label %.loopexit295, label %.lr.ph343
 
 .lr.ph343:                                        ; preds = %.preheader294, %65
   %.0222342 = phi i64 [ %66, %65 ], [ 0, %.preheader294 ]
-  %63 = getelementptr inbounds i8, ptr %.0210352481, i64 %.0222342
+  %63 = getelementptr inbounds i8, ptr %.0210352480, i64 %.0222342
   %64 = load i8, ptr %63, align 1
   switch i8 %64, label %65 [
     i8 123, label %.loopexit295.split.loop.exit
@@ -1354,25 +1354,25 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
 
 65:                                               ; preds = %.lr.ph343
   %66 = add nuw i64 %.0222342, 1
-  %exitcond412.not = icmp eq i64 %66, %62
-  br i1 %exitcond412.not, label %.loopexit295, label %.lr.ph343
+  %exitcond411.not = icmp eq i64 %66, %62
+  br i1 %exitcond411.not, label %.loopexit295, label %.lr.ph343
 
 .loopexit295.split.loop.exit:                     ; preds = %.lr.ph343
-  %67 = getelementptr inbounds i8, ptr %.0210352481, i64 %.0222342
+  %67 = getelementptr inbounds i8, ptr %.0210352480, i64 %.0222342
   br label %.loopexit295
 
 .loopexit295.loopexit.split.loop.exit:            ; preds = %.lr.ph343
-  %68 = getelementptr inbounds i8, ptr %.0210352481, i64 %.0222342
+  %68 = getelementptr inbounds i8, ptr %.0210352480, i64 %.0222342
   br label %.loopexit295
 
 .loopexit295:                                     ; preds = %65, %.loopexit295.loopexit.split.loop.exit, %.loopexit295.split.loop.exit, %.preheader294
-  %.2232 = phi ptr [ %67, %.loopexit295.split.loop.exit ], [ %.0230347486, %.preheader294 ], [ %68, %.loopexit295.loopexit.split.loop.exit ], [ %.0230347486, %65 ]
-  %.2229 = phi i1 [ false, %.loopexit295.split.loop.exit ], [ %.0227348485, %.preheader294 ], [ true, %.loopexit295.loopexit.split.loop.exit ], [ %.0227348485, %65 ]
+  %.2232 = phi ptr [ %67, %.loopexit295.split.loop.exit ], [ %.0230347485, %.preheader294 ], [ %68, %.loopexit295.loopexit.split.loop.exit ], [ %.0230347485, %65 ]
+  %.2229 = phi i1 [ false, %.loopexit295.split.loop.exit ], [ %.0227348484, %.preheader294 ], [ true, %.loopexit295.loopexit.split.loop.exit ], [ %.0227348484, %65 ]
   %69 = getelementptr inbounds i8, ptr %.2232, i64 1
   store i8 0, ptr %.2232, align 1
   %70 = load i32, ptr %41, align 8
-  %71 = trunc nuw i64 %.2225349484 to i16
-  %72 = call i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0210352481, i8 noundef zeroext %3, i32 noundef %70, i16 noundef zeroext %.0208.lcssa, i16 noundef zeroext %71, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %.0215350483, i32 noundef %.0213351482, ptr noundef %6, ptr noundef %7, i32 noundef %8) #21
+  %71 = trunc nuw i64 %.2225349483 to i16
+  %72 = call i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0210352480, i8 noundef zeroext %3, i32 noundef %70, i16 noundef zeroext %.0208.lcssa, i16 noundef zeroext %71, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %.0215350482, i32 noundef %.0213351481, ptr noundef %6, ptr noundef %7, i32 noundef %8) #21
   %.not272 = icmp eq i32 %72, 0
   br i1 %.not272, label %75, label %.loopexit297
 
@@ -1475,7 +1475,7 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   %.1216 = phi i32 [ %.2217, %104 ], [ %84, %83 ], [ 0, %75 ]
   %.1214 = phi i32 [ %.2, %104 ], [ %84, %83 ], [ 0, %75 ]
   %.1211 = phi ptr [ %79, %104 ], [ %79, %83 ], [ %69, %75 ]
-  %107 = add nuw nsw i64 %.2225349484, 1
+  %107 = add nuw nsw i64 %.2225349483, 1
   %.not271 = icmp eq i64 %107, %61
   br i1 %.not271, label %.thread, label %.preheader294
 
@@ -1498,23 +1498,23 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 8
-  %.not373 = icmp eq i64 %13, 0
-  br i1 %.not373, label %.lr.ph369.preheader, label %.lr.ph365
+  %.not372 = icmp eq i64 %13, 0
+  br i1 %.not372, label %.lr.ph368.preheader, label %.lr.ph364
 
 .preheader:                                       ; preds = %125
-  %.not266367 = icmp eq i16 %.1, 0
-  br i1 %.not266367, label %.loopexit, label %.lr.ph369.preheader
+  %.not266366 = icmp eq i16 %.1, 0
+  br i1 %.not266366, label %.loopexit, label %.lr.ph368.preheader
 
-.lr.ph369.preheader:                              ; preds = %110, %.preheader
-  %.0.lcssa418 = phi i16 [ %.1, %.preheader ], [ 1, %110 ]
-  %114 = zext i16 %.0.lcssa418 to i64
-  br label %.lr.ph369
+.lr.ph368.preheader:                              ; preds = %110, %.preheader
+  %.0.lcssa417 = phi i16 [ %.1, %.preheader ], [ 1, %110 ]
+  %114 = zext i16 %.0.lcssa417 to i64
+  br label %.lr.ph368
 
-.lr.ph365:                                        ; preds = %110, %125
-  %.0363 = phi i16 [ %.1, %125 ], [ 1, %110 ]
-  %.2220362 = phi i64 [ %.3, %125 ], [ 0, %110 ]
-  %.3226361 = phi i64 [ %126, %125 ], [ 0, %110 ]
-  %115 = getelementptr inbounds i8, ptr %2, i64 %.3226361
+.lr.ph364:                                        ; preds = %110, %125
+  %.0362 = phi i16 [ %.1, %125 ], [ 1, %110 ]
+  %.2220361 = phi i64 [ %.3, %125 ], [ 0, %110 ]
+  %.3226360 = phi i64 [ %126, %125 ], [ 0, %110 ]
+  %115 = getelementptr inbounds i8, ptr %2, i64 %.3226360
   %116 = load i8, ptr %115, align 1
   switch i8 %116, label %125 [
     i8 40, label %117
@@ -1522,16 +1522,16 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
     i8 42, label %121
   ]
 
-117:                                              ; preds = %.lr.ph365
-  %118 = add i64 %.2220362, 1
+117:                                              ; preds = %.lr.ph364
+  %118 = add i64 %.2220361, 1
   br label %125
 
-119:                                              ; preds = %.lr.ph365
-  %120 = add i64 %.2220362, -1
+119:                                              ; preds = %.lr.ph364
+  %120 = add i64 %.2220361, -1
   br label %125
 
-121:                                              ; preds = %.lr.ph365
-  %.not268 = icmp eq i64 %.2220362, 0
+121:                                              ; preds = %.lr.ph364
+  %.not268 = icmp eq i64 %.2220361, 0
   br i1 %.not268, label %123, label %122
 
 122:                                              ; preds = %121
@@ -1539,32 +1539,32 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 123:                                              ; preds = %121
-  %124 = add i16 %.0363, 1
+  %124 = add i16 %.0362, 1
   br label %125
 
-125:                                              ; preds = %.lr.ph365, %117, %123, %119
-  %.3 = phi i64 [ %118, %117 ], [ %120, %119 ], [ 0, %123 ], [ %.2220362, %.lr.ph365 ]
-  %.1 = phi i16 [ %.0363, %117 ], [ %.0363, %119 ], [ %124, %123 ], [ %.0363, %.lr.ph365 ]
-  %126 = add nuw i64 %.3226361, 1
-  %exitcond414.not = icmp eq i64 %126, %13
-  br i1 %exitcond414.not, label %.preheader, label %.lr.ph365
+125:                                              ; preds = %.lr.ph364, %117, %123, %119
+  %.3 = phi i64 [ %118, %117 ], [ %120, %119 ], [ 0, %123 ], [ %.2220361, %.lr.ph364 ]
+  %.1 = phi i16 [ %.0362, %117 ], [ %.0362, %119 ], [ %124, %123 ], [ %.0362, %.lr.ph364 ]
+  %126 = add nuw i64 %.3226360, 1
+  %exitcond413.not = icmp eq i64 %126, %13
+  br i1 %exitcond413.not, label %.preheader, label %.lr.ph364
 
-.lr.ph369:                                        ; preds = %.lr.ph369.preheader, %137
-  %.4368 = phi i64 [ %138, %137 ], [ 1, %.lr.ph369.preheader ]
-  %127 = trunc i64 %.4368 to i32
+.lr.ph368:                                        ; preds = %.lr.ph368.preheader, %137
+  %.4367 = phi i64 [ %138, %137 ], [ 1, %.lr.ph368.preheader ]
+  %127 = trunc i64 %.4367 to i32
   %128 = add nsw i32 %127, -1
   %129 = tail call ptr @cli_strtok(ptr noundef %2, i32 noundef %128, ptr noundef nonnull @.str.33) #21
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %132
 
-131:                                              ; preds = %.lr.ph369
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.34, i64 noundef %.4368) #21
+131:                                              ; preds = %.lr.ph368
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.34, i64 noundef %.4367) #21
   br label %.loopexit
 
-132:                                              ; preds = %.lr.ph369
+132:                                              ; preds = %.lr.ph368
   %133 = load i32, ptr %111, align 8
-  %134 = trunc nuw i64 %.4368 to i16
-  %135 = tail call i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %129, i8 noundef zeroext %3, i32 noundef %133, i16 noundef zeroext %.0.lcssa418, i16 noundef zeroext %134, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef 0, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8) #21
+  %134 = trunc nuw i64 %.4367 to i16
+  %135 = tail call i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %129, i8 noundef zeroext %3, i32 noundef %133, i16 noundef zeroext %.0.lcssa417, i16 noundef zeroext %134, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef 0, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %8) #21
   %.not267 = icmp eq i32 %135, 0
   br i1 %.not267, label %137, label %136
 
@@ -1575,9 +1575,9 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
 
 137:                                              ; preds = %132
   tail call void @free(ptr noundef nonnull %129) #21
-  %138 = add nuw nsw i64 %.4368, 1
-  %exitcond415.not = icmp eq i64 %.4368, %114
-  br i1 %exitcond415.not, label %.loopexit, label %.lr.ph369
+  %138 = add nuw nsw i64 %.4367, 1
+  %exitcond414.not = icmp eq i64 %.4367, %114
+  br i1 %exitcond414.not, label %.loopexit, label %.lr.ph368
 
 139:                                              ; preds = %108
   %140 = getelementptr inbounds i8, ptr %0, i64 330
@@ -1604,8 +1604,8 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
 
 sub_0:                                            ; preds = %148
   %151 = load i8, ptr %6, align 1
-  %.not374 = icmp eq i8 %151, 42
-  br i1 %.not374, label %.tail, label %.tail.thread
+  %.not373 = icmp eq i8 %151, 42
+  br i1 %.not373, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %152 = getelementptr inbounds i8, ptr %6, i64 1
@@ -6515,11 +6515,11 @@ sub_131:                                          ; preds = %sub_030
   br label %sub_034
 
 sub_034:                                          ; preds = %.tail29, %175
-  %.sink182 = phi i64 [ %177, %175 ], [ 4294967295, %.tail29 ]
+  %.sink172 = phi i64 [ %177, %175 ], [ 4294967295, %.tail29 ]
   %178 = getelementptr inbounds i8, ptr %112, i64 88
-  store i64 %.sink182, ptr %178, align 8
+  store i64 %.sink172, ptr %178, align 8
   %179 = getelementptr inbounds i8, ptr %112, i64 80
-  store i64 %.sink182, ptr %179, align 8
+  store i64 %.sink172, ptr %179, align 8
   %180 = load ptr, ptr %18, align 16
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
@@ -6544,11 +6544,11 @@ sub_135:                                          ; preds = %sub_034
   br label %sub_038
 
 sub_038:                                          ; preds = %.tail33, %188
-  %.sink184 = phi i64 [ %190, %188 ], [ 4294967295, %.tail33 ]
+  %.sink174 = phi i64 [ %190, %188 ], [ 4294967295, %.tail33 ]
   %191 = getelementptr inbounds i8, ptr %112, i64 72
-  store i64 %.sink184, ptr %191, align 8
+  store i64 %.sink174, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %112, i64 64
-  store i64 %.sink184, ptr %192, align 8
+  store i64 %.sink174, ptr %192, align 8
   %193 = load ptr, ptr %30, align 8
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
@@ -7707,7 +7707,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %.loopexit
 
 144:                                              ; preds = %.preheader321, %181
-  %indvars.iv563 = phi i64 [ 0, %.preheader321 ], [ %indvars.iv.next564, %181 ]
+  %indvars.iv538 = phi i64 [ 0, %.preheader321 ], [ %indvars.iv.next539, %181 ]
   %.1246438 = phi ptr [ %140, %.preheader321 ], [ %182, %181 ]
   %145 = load i8, ptr %.1246438, align 1
   %146 = zext i8 %145 to i32
@@ -7721,7 +7721,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = or i32 %152, %155
-  %157 = getelementptr inbounds [3 x i32], ptr %141, i64 0, i64 %indvars.iv563
+  %157 = getelementptr inbounds [3 x i32], ptr %141, i64 0, i64 %indvars.iv538
   store i32 %156, ptr %157, align 4
   %158 = icmp ugt i32 %156, 4072
   br i1 %158, label %.thread299, label %159
@@ -7735,7 +7735,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   %167 = or i32 %163, %166
-  %168 = getelementptr inbounds [3 x i32], ptr %142, i64 0, i64 %indvars.iv563
+  %168 = getelementptr inbounds [3 x i32], ptr %142, i64 0, i64 %indvars.iv538
   store i32 %167, ptr %168, align 4
   %169 = icmp ugt i32 %167, %100
   br i1 %169, label %.thread299, label %170
@@ -7749,16 +7749,16 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = or i32 %174, %177
-  %179 = getelementptr inbounds [3 x i32], ptr %143, i64 0, i64 %indvars.iv563
+  %179 = getelementptr inbounds [3 x i32], ptr %143, i64 0, i64 %indvars.iv538
   store i32 %178, ptr %179, align 4
   %180 = icmp ugt i32 %178, %100
   br i1 %180, label %.thread299, label %181
 
 181:                                              ; preds = %170
   %182 = getelementptr inbounds i8, ptr %.1246438, i64 7
-  %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
-  %exitcond566.not = icmp eq i64 %indvars.iv.next564, 3
-  br i1 %exitcond566.not, label %.preheader320, label %144
+  %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
+  %exitcond541.not = icmp eq i64 %indvars.iv.next539, 3
+  br i1 %exitcond541.not, label %.preheader320, label %144
 
 .preheader320:                                    ; preds = %181
   %183 = getelementptr inbounds i8, ptr %96, i64 80
@@ -7771,7 +7771,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %.loopexit
 
 186:                                              ; preds = %.preheader320, %216
-  %indvars.iv567 = phi i64 [ 0, %.preheader320 ], [ %indvars.iv.next568, %216 ]
+  %indvars.iv542 = phi i64 [ 0, %.preheader320 ], [ %indvars.iv.next543, %216 ]
   %.2247440 = phi ptr [ %182, %.preheader320 ], [ %217, %216 ]
   %187 = load i8, ptr %.2247440, align 1
   %188 = zext i8 %187 to i32
@@ -7780,7 +7780,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
   %193 = or i32 %189, %192
-  %194 = getelementptr inbounds [3 x i32], ptr %183, i64 0, i64 %indvars.iv567
+  %194 = getelementptr inbounds [3 x i32], ptr %183, i64 0, i64 %indvars.iv542
   store i32 %193, ptr %194, align 4
   %195 = getelementptr inbounds i8, ptr %.2247440, i64 2
   %196 = load i8, ptr %195, align 1
@@ -7790,7 +7790,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
   %202 = or i32 %198, %201
-  %203 = getelementptr inbounds [3 x i32], ptr %184, i64 0, i64 %indvars.iv567
+  %203 = getelementptr inbounds [3 x i32], ptr %184, i64 0, i64 %indvars.iv542
   store i32 %202, ptr %203, align 4
   %204 = icmp ugt i32 %202, %100
   br i1 %204, label %.thread302, label %205
@@ -7804,16 +7804,16 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   %213 = or i32 %209, %212
-  %214 = getelementptr inbounds [3 x i32], ptr %185, i64 0, i64 %indvars.iv567
+  %214 = getelementptr inbounds [3 x i32], ptr %185, i64 0, i64 %indvars.iv542
   store i32 %213, ptr %214, align 4
   %215 = icmp ugt i32 %213, %100
   br i1 %215, label %.thread302, label %216
 
 216:                                              ; preds = %205
   %217 = getelementptr inbounds i8, ptr %.2247440, i64 6
-  %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
-  %exitcond570.not = icmp eq i64 %indvars.iv.next568, 3
-  br i1 %exitcond570.not, label %.preheader319, label %186
+  %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
+  %exitcond545.not = icmp eq i64 %indvars.iv.next543, 3
+  br i1 %exitcond545.not, label %.preheader319, label %186
 
 .preheader319:                                    ; preds = %216
   %218 = getelementptr inbounds i8, ptr %96, i64 116
@@ -7826,7 +7826,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %.loopexit
 
 221:                                              ; preds = %.preheader319, %251
-  %indvars.iv571 = phi i64 [ 0, %.preheader319 ], [ %indvars.iv.next572, %251 ]
+  %indvars.iv546 = phi i64 [ 0, %.preheader319 ], [ %indvars.iv.next547, %251 ]
   %.3248442 = phi ptr [ %217, %.preheader319 ], [ %252, %251 ]
   %222 = load i8, ptr %.3248442, align 1
   %223 = zext i8 %222 to i32
@@ -7835,7 +7835,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
   %228 = or i32 %224, %227
-  %229 = getelementptr inbounds [3 x i32], ptr %218, i64 0, i64 %indvars.iv571
+  %229 = getelementptr inbounds [3 x i32], ptr %218, i64 0, i64 %indvars.iv546
   store i32 %228, ptr %229, align 4
   %230 = getelementptr inbounds i8, ptr %.3248442, i64 2
   %231 = load i8, ptr %230, align 1
@@ -7845,7 +7845,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = or i32 %233, %236
-  %238 = getelementptr inbounds [3 x i32], ptr %219, i64 0, i64 %indvars.iv571
+  %238 = getelementptr inbounds [3 x i32], ptr %219, i64 0, i64 %indvars.iv546
   store i32 %237, ptr %238, align 4
   %239 = icmp ugt i32 %237, %100
   br i1 %239, label %.thread305, label %240
@@ -7859,16 +7859,16 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %246 = load i8, ptr %245, align 1
   %247 = zext i8 %246 to i32
   %248 = or i32 %244, %247
-  %249 = getelementptr inbounds [3 x i32], ptr %220, i64 0, i64 %indvars.iv571
+  %249 = getelementptr inbounds [3 x i32], ptr %220, i64 0, i64 %indvars.iv546
   store i32 %248, ptr %249, align 4
   %250 = icmp ugt i32 %248, %100
   br i1 %250, label %.thread305, label %251
 
 251:                                              ; preds = %240
   %252 = getelementptr inbounds i8, ptr %.3248442, i64 6
-  %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
-  %exitcond574.not = icmp eq i64 %indvars.iv.next572, 3
-  br i1 %exitcond574.not, label %.preheader318, label %221
+  %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
+  %exitcond549.not = icmp eq i64 %indvars.iv.next547, 3
+  br i1 %exitcond549.not, label %.preheader318, label %221
 
 .preheader318:                                    ; preds = %251
   %253 = getelementptr inbounds i8, ptr %96, i64 152
@@ -7881,7 +7881,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %.loopexit
 
 256:                                              ; preds = %.preheader318, %286
-  %indvars.iv575 = phi i64 [ 0, %.preheader318 ], [ %indvars.iv.next576, %286 ]
+  %indvars.iv550 = phi i64 [ 0, %.preheader318 ], [ %indvars.iv.next551, %286 ]
   %.4249444 = phi ptr [ %252, %.preheader318 ], [ %287, %286 ]
   %257 = load i8, ptr %.4249444, align 1
   %258 = zext i8 %257 to i32
@@ -7890,7 +7890,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i32
   %263 = or i32 %259, %262
-  %264 = getelementptr inbounds [3 x i32], ptr %253, i64 0, i64 %indvars.iv575
+  %264 = getelementptr inbounds [3 x i32], ptr %253, i64 0, i64 %indvars.iv550
   store i32 %263, ptr %264, align 4
   %265 = getelementptr inbounds i8, ptr %.4249444, i64 2
   %266 = load i8, ptr %265, align 1
@@ -7900,7 +7900,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %270 = load i8, ptr %269, align 1
   %271 = zext i8 %270 to i32
   %272 = or i32 %268, %271
-  %273 = getelementptr inbounds [3 x i32], ptr %254, i64 0, i64 %indvars.iv575
+  %273 = getelementptr inbounds [3 x i32], ptr %254, i64 0, i64 %indvars.iv550
   store i32 %272, ptr %273, align 4
   %274 = icmp ugt i32 %272, %100
   br i1 %274, label %.thread308, label %275
@@ -7914,16 +7914,16 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = or i32 %279, %282
-  %284 = getelementptr inbounds [3 x i32], ptr %255, i64 0, i64 %indvars.iv575
+  %284 = getelementptr inbounds [3 x i32], ptr %255, i64 0, i64 %indvars.iv550
   store i32 %283, ptr %284, align 4
   %285 = icmp ugt i32 %283, %100
   br i1 %285, label %.thread308, label %286
 
 286:                                              ; preds = %275
   %287 = getelementptr inbounds i8, ptr %.4249444, i64 6
-  %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %exitcond578.not = icmp eq i64 %indvars.iv.next576, 3
-  br i1 %exitcond578.not, label %.preheader317, label %256
+  %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
+  %exitcond553.not = icmp eq i64 %indvars.iv.next551, 3
+  br i1 %exitcond553.not, label %.preheader317, label %256
 
 .preheader317:                                    ; preds = %286
   %288 = getelementptr inbounds i8, ptr %96, i64 188
@@ -7936,7 +7936,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %.loopexit
 
 291:                                              ; preds = %.preheader317, %321
-  %indvars.iv579 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next580, %321 ]
+  %indvars.iv554 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next555, %321 ]
   %.5250446 = phi ptr [ %287, %.preheader317 ], [ %322, %321 ]
   %292 = load i8, ptr %.5250446, align 1
   %293 = zext i8 %292 to i32
@@ -7945,7 +7945,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
   %298 = or i32 %294, %297
-  %299 = getelementptr inbounds [3 x i32], ptr %288, i64 0, i64 %indvars.iv579
+  %299 = getelementptr inbounds [3 x i32], ptr %288, i64 0, i64 %indvars.iv554
   store i32 %298, ptr %299, align 4
   %300 = getelementptr inbounds i8, ptr %.5250446, i64 2
   %301 = load i8, ptr %300, align 1
@@ -7955,7 +7955,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %305 = load i8, ptr %304, align 1
   %306 = zext i8 %305 to i32
   %307 = or i32 %303, %306
-  %308 = getelementptr inbounds [3 x i32], ptr %289, i64 0, i64 %indvars.iv579
+  %308 = getelementptr inbounds [3 x i32], ptr %289, i64 0, i64 %indvars.iv554
   store i32 %307, ptr %308, align 4
   %309 = icmp ugt i32 %307, %100
   br i1 %309, label %.thread311, label %310
@@ -7969,16 +7969,16 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
   %318 = or i32 %314, %317
-  %319 = getelementptr inbounds [3 x i32], ptr %290, i64 0, i64 %indvars.iv579
+  %319 = getelementptr inbounds [3 x i32], ptr %290, i64 0, i64 %indvars.iv554
   store i32 %318, ptr %319, align 4
   %320 = icmp ugt i32 %318, %100
   br i1 %320, label %.thread311, label %321
 
 321:                                              ; preds = %310
   %322 = getelementptr inbounds i8, ptr %.5250446, i64 6
-  %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
-  %exitcond582.not = icmp eq i64 %indvars.iv.next580, 3
-  br i1 %exitcond582.not, label %323, label %291
+  %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
+  %exitcond557.not = icmp eq i64 %indvars.iv.next555, 3
+  br i1 %exitcond557.not, label %323, label %291
 
 .thread311:                                       ; preds = %291, %310
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.659, i32 noundef %33) #21
@@ -8056,20 +8056,20 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %372
 
 372:                                              ; preds = %.lr.ph449, %376
-  %indvars.iv583 = phi i64 [ 0, %.lr.ph449 ], [ %indvars.iv.next584, %376 ]
-  %373 = getelementptr inbounds ptr, ptr %371, i64 %indvars.iv583
+  %indvars.iv558 = phi i64 [ 0, %.lr.ph449 ], [ %indvars.iv.next559, %376 ]
+  %373 = getelementptr inbounds ptr, ptr %371, i64 %indvars.iv558
   %374 = load ptr, ptr %373, align 8
   %375 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %370, ptr noundef nonnull dereferenceable(1) %374) #20
   %.not287 = icmp eq i32 %375, 0
   br i1 %.not287, label %._crit_edge.loopexit, label %376
 
 376:                                              ; preds = %372
-  %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
-  %exitcond586.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count
-  br i1 %exitcond586.not, label %._crit_edge.thread, label %372
+  %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
+  %exitcond561.not = icmp eq i64 %indvars.iv.next559, %wide.trip.count
+  br i1 %exitcond561.not, label %._crit_edge.thread, label %372
 
 ._crit_edge.loopexit:                             ; preds = %372
-  %377 = trunc nuw i64 %indvars.iv583 to i32
+  %377 = trunc nuw i64 %indvars.iv558 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -8078,7 +8078,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br i1 %378, label %._crit_edge.thread, label %395
 
 ._crit_edge.thread:                               ; preds = %376, %._crit_edge
-  %.6.lcssa594 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %369, %376 ]
+  %.6.lcssa569 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %369, %376 ]
   %379 = load ptr, ptr %8, align 8
   %380 = load ptr, ptr %10, align 8
   %381 = add i32 %369, 1
@@ -8107,8 +8107,8 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %395
 
 395:                                              ; preds = %392, %._crit_edge
-  %.6.lcssa593 = phi i32 [ %.6.lcssa594, %392 ], [ %.6.lcssa, %._crit_edge ]
-  store i32 %.6.lcssa593, ptr %96, align 8
+  %.6.lcssa568 = phi i32 [ %.6.lcssa569, %392 ], [ %.6.lcssa, %._crit_edge ]
+  store i32 %.6.lcssa568, ptr %96, align 8
   %396 = load i32, ptr %30, align 4
   %.not472 = icmp eq i32 %396, 0
   br i1 %.not472, label %._crit_edge458, label %.lr.ph457
@@ -8116,24 +8116,24 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
 .lr.ph457:                                        ; preds = %395
   %397 = load ptr, ptr %29, align 16
   %398 = load ptr, ptr %31, align 8
-  %wide.trip.count590 = zext i32 %396 to i64
+  %wide.trip.count565 = zext i32 %396 to i64
   br label %399
 
 399:                                              ; preds = %.lr.ph457, %403
-  %indvars.iv587 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next588, %403 ]
-  %400 = getelementptr inbounds ptr, ptr %398, i64 %indvars.iv587
+  %indvars.iv562 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next563, %403 ]
+  %400 = getelementptr inbounds ptr, ptr %398, i64 %indvars.iv562
   %401 = load ptr, ptr %400, align 8
   %402 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %397, ptr noundef nonnull dereferenceable(1) %401) #20
   %.not290 = icmp eq i32 %402, 0
   br i1 %.not290, label %._crit_edge458.loopexit, label %403
 
 403:                                              ; preds = %399
-  %indvars.iv.next588 = add nuw nsw i64 %indvars.iv587, 1
-  %exitcond591.not = icmp eq i64 %indvars.iv.next588, %wide.trip.count590
-  br i1 %exitcond591.not, label %._crit_edge458.thread, label %399
+  %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
+  %exitcond566.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count565
+  br i1 %exitcond566.not, label %._crit_edge458.thread, label %399
 
 ._crit_edge458.loopexit:                          ; preds = %399
-  %404 = trunc nuw i64 %indvars.iv587 to i32
+  %404 = trunc nuw i64 %indvars.iv562 to i32
   br label %._crit_edge458
 
 ._crit_edge458:                                   ; preds = %._crit_edge458.loopexit, %395
@@ -8142,7 +8142,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br i1 %405, label %._crit_edge458.thread, label %422
 
 ._crit_edge458.thread:                            ; preds = %403, %._crit_edge458
-  %.7.lcssa597 = phi i32 [ %.7.lcssa, %._crit_edge458 ], [ %396, %403 ]
+  %.7.lcssa572 = phi i32 [ %.7.lcssa, %._crit_edge458 ], [ %396, %403 ]
   %406 = load ptr, ptr %8, align 8
   %407 = load ptr, ptr %31, align 8
   %408 = add i32 %396, 1
@@ -8171,9 +8171,9 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noc
   br label %422
 
 422:                                              ; preds = %419, %._crit_edge458
-  %.7.lcssa596 = phi i32 [ %.7.lcssa597, %419 ], [ %.7.lcssa, %._crit_edge458 ]
+  %.7.lcssa571 = phi i32 [ %.7.lcssa572, %419 ], [ %.7.lcssa, %._crit_edge458 ]
   %423 = getelementptr inbounds i8, ptr %96, i64 4
-  store i32 %.7.lcssa596, ptr %423, align 4
+  store i32 %.7.lcssa571, ptr %423, align 4
   %424 = load i32, ptr %28, align 8
   %425 = icmp ugt i32 %424, 256
   br i1 %425, label %429, label %426
@@ -14841,9 +14841,9 @@ define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef %0, ptr %.256.
 .loopexit.i:                                      ; preds = %147, %227, %200, %171, %115, %96
   %indvars.iv.next487.i = add nuw nsw i64 %indvars.iv486.i, 1
   %exitcond490.not.i = icmp eq i64 %indvars.iv.next487.i, %53
-  br i1 %exitcond490.not.i, label %.preheader.lr.ph.i, label %59
+  br i1 %exitcond490.not.i, label %._crit_edge357.i, label %59
 
-.preheader.lr.ph.i:                               ; preds = %.loopexit.i
+._crit_edge357.i:                                 ; preds = %.loopexit.i
   %237 = load ptr, ptr %4, align 16
   %.not180361.i = icmp eq ptr %237, null
   br label %.preheader.i
@@ -14852,9 +14852,9 @@ define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef %0, ptr %.256.
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.263) #21
   br label %276
 
-.preheader.i:                                     ; preds = %269, %.preheader.lr.ph.i
-  %indvars.iv491.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next492.i, %269 ]
-  %.2368.i = phi ptr [ %.lcssa5, %.preheader.lr.ph.i ], [ %.3209.i, %269 ]
+.preheader.i:                                     ; preds = %269, %._crit_edge357.i
+  %indvars.iv491.i = phi i64 [ 0, %._crit_edge357.i ], [ %indvars.iv.next492.i, %269 ]
+  %.2368.i = phi ptr [ %.lcssa5, %._crit_edge357.i ], [ %.3209.i, %269 ]
   br i1 %.not180361.i, label %.thread206.i, label %.lr.ph363.i
 
 .lr.ph363.i:                                      ; preds = %.preheader.i

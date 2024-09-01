@@ -786,7 +786,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc112
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %132 = icmp eq ptr %123, %.0.i.i.i.i.i.ph
-  br i1 %132, label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKlE3$_0EvT_SE_T0_.exit", label %133
+  br i1 %132, label %.lr.ph187, label %133
 
 133:                                              ; preds = %._crit_edge
   %134 = ptrtoint ptr %.0.i.i.i.i.i.ph to i64
@@ -827,12 +827,9 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
 143:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.017.i.i = phi ptr [ %140, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   call void @_ZdlPv(ptr noundef %.sroa.4.017.i.i) #22
-  br label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKlE3$_0EvT_SE_T0_.exit"
+  br label %.lr.ph187
 
-"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKlE3$_0EvT_SE_T0_.exit": ; preds = %._crit_edge, %143
-  br i1 %.not.i.i.i.i, label %.loopexit215, label %.lr.ph187
-
-.lr.ph187:                                        ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKlE3$_0EvT_SE_T0_.exit"
+.lr.ph187:                                        ; preds = %143, %._crit_edge
   %.not102 = icmp eq ptr %3, null
   %144 = getelementptr inbounds i8, ptr %0, i64 16
   %145 = getelementptr inbounds i8, ptr %103, i64 80
@@ -1026,7 +1023,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i121: ; preds = %168
   %232 = icmp slt i64 %.089.lcssa, %1
   br i1 %232, label %150, label %.loopexit215, !llvm.loop !12
 
-.loopexit215:                                     ; preds = %.backedge, %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKlE3$_0EvT_SE_T0_.exit"
+.loopexit215:                                     ; preds = %.backedge
   %233 = getelementptr inbounds i8, ptr %0, i64 16
   %234 = load i64, ptr %233, align 8
   %235 = add nsw i64 %234, %1

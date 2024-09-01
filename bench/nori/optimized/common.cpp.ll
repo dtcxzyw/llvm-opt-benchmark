@@ -1549,29 +1549,20 @@ define hidden void @_ZNK4nori7Color3f11toLinearRGBEv(ptr dead_on_unwind noalias 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4nori7Color3f7isValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #13 align 2 {
-  %2 = load float, ptr %0, align 4
-  %or.cond10 = tail call i1 @llvm.is.fpclass.f32(float %2, i32 480)
-  br i1 %or.cond10, label %.lr.ph, label %._crit_edge
+  br label %2
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %._crit_edge.loopexit, label %3, !llvm.loop !25
+2:                                                ; preds = %2, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %4 = load float, ptr %3, align 4
+  %or.cond = tail call i1 @llvm.is.fpclass.f32(float %4, i32 480)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp ne i64 %indvars.iv.next, 3
+  %or.cond11.not = select i1 %or.cond, i1 %exitcond, i1 false
+  br i1 %or.cond11.not, label %2, label %5, !llvm.loop !25
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.next
-  %5 = load float, ptr %4, align 4
-  %or.cond = tail call i1 @llvm.is.fpclass.f32(float %5, i32 480)
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %3
-  %6 = icmp ugt i64 %indvars.iv11, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %6, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+5:                                                ; preds = %2
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

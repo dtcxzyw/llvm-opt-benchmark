@@ -5938,10 +5938,10 @@ if.then.i169:                                     ; preds = %for.end139
           to label %cleanup141 unwind label %lpad4.loopexit.split-lp.loopexit
 
 cleanup141.sink.split.sink.split:                 ; preds = %_ZN7testing7MessageD2Ev.exit154, %_ZN7testing7MessageD2Ev.exit82, %_ZN7testing7MessageD2Ev.exit
-  %.sink225 = phi ptr [ %47, %_ZN7testing7MessageD2Ev.exit ], [ %60, %_ZN7testing7MessageD2Ev.exit82 ], [ %91, %_ZN7testing7MessageD2Ev.exit154 ]
+  %.sink214 = phi ptr [ %47, %_ZN7testing7MessageD2Ev.exit ], [ %60, %_ZN7testing7MessageD2Ev.exit82 ], [ %91, %_ZN7testing7MessageD2Ev.exit154 ]
   %message_.i164.sink.ph = phi ptr [ %message_.i67, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i92, %_ZN7testing7MessageD2Ev.exit82 ], [ %message_.i164, %_ZN7testing7MessageD2Ev.exit154 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink225) #21
-  call void @_ZdlPv(ptr noundef nonnull %.sink225) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink214) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sink214) #22
   br label %cleanup141.sink.split
 
 cleanup141.sink.split:                            ; preds = %cleanup141.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit154, %_ZN7testing7MessageD2Ev.exit82, %_ZN7testing7MessageD2Ev.exit
@@ -7108,10 +7108,10 @@ if.then.i:                                        ; preds = %for.end
           to label %cleanup111 unwind label %lpad4.loopexit.split-lp.loopexit
 
 cleanup111.sink.split.sink.split:                 ; preds = %_ZN7testing7MessageD2Ev.exit99, %_ZN7testing7MessageD2Ev.exit74, %_ZN7testing7MessageD2Ev.exit
-  %.sink151 = phi ptr [ %51, %_ZN7testing7MessageD2Ev.exit ], [ %65, %_ZN7testing7MessageD2Ev.exit74 ], [ %77, %_ZN7testing7MessageD2Ev.exit99 ]
+  %.sink143 = phi ptr [ %51, %_ZN7testing7MessageD2Ev.exit ], [ %65, %_ZN7testing7MessageD2Ev.exit74 ], [ %77, %_ZN7testing7MessageD2Ev.exit99 ]
   %message_.i109.sink.ph = phi ptr [ %message_.i58, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i84, %_ZN7testing7MessageD2Ev.exit74 ], [ %message_.i109, %_ZN7testing7MessageD2Ev.exit99 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink151) #21
-  call void @_ZdlPv(ptr noundef nonnull %.sink151) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink143) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sink143) #22
   br label %cleanup111.sink.split
 
 cleanup111.sink.split:                            ; preds = %cleanup111.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit99, %_ZN7testing7MessageD2Ev.exit74, %_ZN7testing7MessageD2Ev.exit
@@ -16580,10 +16580,10 @@ if.then.i173:                                     ; preds = %for.end
           to label %cleanup205 unwind label %lpad4.loopexit.split-lp
 
 cleanup205.sink.split.sink.split:                 ; preds = %_ZN7testing7MessageD2Ev.exit153, %_ZN7testing7MessageD2Ev.exit133, %_ZN7testing7MessageD2Ev.exit105
-  %.sink253 = phi ptr [ %72, %_ZN7testing7MessageD2Ev.exit105 ], [ %85, %_ZN7testing7MessageD2Ev.exit133 ], [ %94, %_ZN7testing7MessageD2Ev.exit153 ]
+  %.sink235 = phi ptr [ %72, %_ZN7testing7MessageD2Ev.exit105 ], [ %85, %_ZN7testing7MessageD2Ev.exit133 ], [ %94, %_ZN7testing7MessageD2Ev.exit153 ]
   %message_.i145.sink.ph = phi ptr [ %message_.i99, %_ZN7testing7MessageD2Ev.exit105 ], [ %message_.i163, %_ZN7testing7MessageD2Ev.exit133 ], [ %message_.i145, %_ZN7testing7MessageD2Ev.exit153 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink253) #21
-  call void @_ZdlPv(ptr noundef nonnull %.sink253) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink235) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sink235) #22
   br label %cleanup205.sink.split
 
 cleanup205.sink.split:                            ; preds = %cleanup205.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit153, %_ZN7testing7MessageD2Ev.exit133, %_ZN7testing7MessageD2Ev.exit105

@@ -710,26 +710,21 @@ do.body.i28.preheader:                            ; preds = %do.cond.i22
 do.body.i28:                                      ; preds = %do.body.i28.preheader, %do.cond.i32
   %str.addr.0.i29 = phi ptr [ %incdec.ptr.i33, %do.cond.i32 ], [ %tgt_value, %do.body.i28.preheader ]
   %prefix.addr.0.i30.idx = phi i64 [ %prefix.addr.0.i30.add, %do.cond.i32 ], [ 0, %do.body.i28.preheader ]
-  %prefix.addr.0.i30.ptr = getelementptr inbounds i8, ptr @.str.5, i64 %prefix.addr.0.i30.idx
-  %4 = load i8, ptr %prefix.addr.0.i30.ptr, align 1
   %exitcond133.not = icmp eq i64 %prefix.addr.0.i30.idx, 8
-  br i1 %exitcond133.not, label %if.end9.loopexit, label %do.cond.i32
+  br i1 %exitcond133.not, label %if.end9, label %do.cond.i32
 
 do.cond.i32:                                      ; preds = %do.body.i28
+  %prefix.addr.0.i30.ptr = getelementptr inbounds i8, ptr @.str.5, i64 %prefix.addr.0.i30.idx
+  %4 = load i8, ptr %prefix.addr.0.i30.ptr, align 1
   %incdec.ptr.i33 = getelementptr inbounds i8, ptr %str.addr.0.i29, i64 1
   %5 = load i8, ptr %str.addr.0.i29, align 1
   %prefix.addr.0.i30.add = add nuw nsw i64 %prefix.addr.0.i30.idx, 1
   %cmp.i35 = icmp eq i8 %5, %4
   br i1 %cmp.i35, label %do.body.i28, label %if.then11, !llvm.loop !8
 
-if.end9.loopexit:                                 ; preds = %do.body.i28
-  %tobool.not.i31.le = icmp ne i8 %4, 0
-  br label %if.end9
-
-if.end9:                                          ; preds = %do.body.i, %do.body.i18, %if.end9.loopexit
-  %path.0 = phi ptr [ %scevgep132, %if.end9.loopexit ], [ %scevgep130, %do.body.i18 ], [ %scevgep, %do.body.i ]
-  %tobool42.not = phi i1 [ %tobool.not.i31.le, %if.end9.loopexit ], [ false, %do.body.i18 ], [ true, %do.body.i ]
-  %tobool30.not = phi i1 [ %tobool.not.i31.le, %if.end9.loopexit ], [ true, %do.body.i18 ], [ false, %do.body.i ]
+if.end9:                                          ; preds = %do.body.i, %do.body.i18, %do.body.i28
+  %path.0 = phi ptr [ %scevgep132, %do.body.i28 ], [ %scevgep130, %do.body.i18 ], [ %scevgep, %do.body.i ]
+  %tobool30.not = phi i1 [ false, %do.body.i28 ], [ true, %do.body.i18 ], [ false, %do.body.i ]
   %tobool.not = icmp eq ptr %path.0, null
   br i1 %tobool.not, label %if.then11, label %lor.lhs.false
 
@@ -902,11 +897,11 @@ if.end35:                                         ; preds = %if.then31.if.end35_
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i)
   %20 = load i32, ptr %call36.pre-phi, align 4
   %cmp37.not = icmp ne i32 %20, 91
-  %brmerge = or i1 %tobool42.not, %cmp37.not
+  %brmerge = or i1 %exitcond, %cmp37.not
   br i1 %brmerge, label %error, label %if.then43
 
 if.end40:                                         ; preds = %if.end29
-  br i1 %tobool42.not, label %error, label %if.then43
+  br i1 %exitcond, label %error, label %if.then43
 
 if.then43:                                        ; preds = %if.end35, %if.end40
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i71)

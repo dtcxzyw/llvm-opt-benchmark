@@ -295,15 +295,12 @@ define dso_local ptr @gistfillitupvec(ptr nocapture noundef readonly %0, i32 nou
 ._crit_edge:                                      ; preds = %6
   %15 = sext i32 %14 to i64
   %16 = tail call ptr @palloc(i64 noundef %15) #10
-  br i1 %4, label %.lr.ph25.preheader, label %._crit_edge26
-
-.lr.ph25.preheader:                               ; preds = %._crit_edge
   %wide.trip.count31 = zext nneg i32 %1 to i64
   br label %.lr.ph25
 
-.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next29, %.lr.ph25 ]
-  %.01922 = phi ptr [ %16, %.lr.ph25.preheader ], [ %28, %.lr.ph25 ]
+.lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
+  %indvars.iv28 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next29, %.lr.ph25 ]
+  %.01922 = phi ptr [ %16, %._crit_edge ], [ %28, %.lr.ph25 ]
   %17 = getelementptr ptr, ptr %0, i64 %indvars.iv28
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 6
@@ -321,8 +318,8 @@ define dso_local ptr @gistfillitupvec(ptr nocapture noundef readonly %0, i32 nou
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
   br i1 %exitcond32.not, label %._crit_edge26, label %.lr.ph25, !llvm.loop !11
 
-._crit_edge26:                                    ; preds = %.lr.ph25, %._crit_edge.thread, %._crit_edge
-  %29 = phi ptr [ %5, %._crit_edge.thread ], [ %16, %._crit_edge ], [ %16, %.lr.ph25 ]
+._crit_edge26:                                    ; preds = %.lr.ph25, %._crit_edge.thread
+  %29 = phi ptr [ %5, %._crit_edge.thread ], [ %16, %.lr.ph25 ]
   ret ptr %29
 }
 

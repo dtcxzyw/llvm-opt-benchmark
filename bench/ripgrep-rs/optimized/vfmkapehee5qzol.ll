@@ -747,7 +747,7 @@ define noundef zeroext i1 @_ZN13grep_searcher8searcher8Searcher23slice_needs_tra
   br i1 %11, label %12, label %_ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit
 
 _ZN13grep_searcher8searcher13slice_has_bom17he7ce3092b2f223fcE.exit: ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i", %14, %8, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %8 ], [ %.not.not.i.not.i.not.i.not, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i" ], [ false, %14 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i" ]
+  %.0 = phi i1 [ true, %3 ], [ false, %8 ], [ %.not.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i" ], [ false, %14 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h4ca6c39addd9684cE.exit16.i.i" ]
   ret i1 %.0
 
 12:                                               ; preds = %8
@@ -795,8 +795,8 @@ select.unfold.i:                                  ; preds = %"_ZN4core5slice29_$
 
 24:                                               ; preds = %26, %select.unfold.i
   %25 = call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77157482c0e5572E.llvm.17343405228183790979"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !104
-  %.not.not.i.not.i.not.i.not = icmp ne ptr %25, null
-  br i1 %.not.not.i.not.i.not.i.not, label %26, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i"
+  %.not.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %25, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %26, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcd9dbc8611cf5773E.exit.i"
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %25, align 8, !alias.scope !107, !noalias !112, !nonnull !5, !align !19, !noundef !5

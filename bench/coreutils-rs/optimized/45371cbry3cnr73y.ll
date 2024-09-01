@@ -11012,8 +11012,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit: ; preds 
 416:                                              ; preds = %.sink.split, %323
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7.i)
   %417 = load i64, ptr %47, align 8, !range !2563, !noundef !4
-  %.not97.not = icmp eq i64 %417, 13
-  br i1 %.not97.not, label %427, label %418
+  %.not97 = icmp eq i64 %417, 13
+  br i1 %.not97, label %427, label %418
 
 418:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %46)

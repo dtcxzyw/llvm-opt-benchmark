@@ -3519,7 +3519,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNSt6vecto
 133:                                              ; preds = %.lr.ph, %212
   %134 = phi ptr [ %116, %.lr.ph ], [ %215, %212 ]
   %.027147 = phi i64 [ 0, %.lr.ph ], [ %213, %212 ]
-  %.037146 = phi i1 [ false, %.lr.ph ], [ true, %212 ]
+  %.039145 = phi i1 [ false, %.lr.ph ], [ true, %212 ]
   %135 = getelementptr inbounds %"class.cv::UMat", ptr %134, i64 %.027147, i32 8
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 4
@@ -3564,7 +3564,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNSt6vecto
   br label %394
 
 153:                                              ; preds = %133
-  br i1 %.037146, label %._crit_edge154, label %154
+  br i1 %.039145, label %._crit_edge154, label %154
 
 ._crit_edge154:                                   ; preds = %153
   %.pre = load double, ptr %29, align 8
@@ -3608,7 +3608,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNSt6vecto
   br label %394
 
 174:                                              ; preds = %166, %150
-  br i1 %.037146, label %190, label %175
+  br i1 %.039145, label %190, label %175
 
 175:                                              ; preds = %174
   %176 = load double, ptr %122, align 8
@@ -5986,9 +5986,9 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit313:  ; preds = %_ZNSt6vectorIN2cv4U
   br label %648
 
 648:                                              ; preds = %.lr.ph467, %946
-  %.0143465 = phi i1 [ false, %.lr.ph467 ], [ true, %946 ]
   %.0146464 = phi double [ 1.000000e+00, %.lr.ph467 ], [ %.1147, %946 ]
   %.0149463 = phi i64 [ 0, %.lr.ph467 ], [ %947, %946 ]
+  %.0150462 = phi i1 [ false, %.lr.ph467 ], [ true, %946 ]
   %649 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv6detail17stitchingLogLevelEv()
           to label %650 unwind label %656
 
@@ -6009,7 +6009,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit313:  ; preds = %_ZNSt6vectorIN2cv4U
   br label %1056
 
 658:                                              ; preds = %650
-  br i1 %.0143465, label %.loopexit, label %659
+  br i1 %.0150462, label %.loopexit, label %659
 
 659:                                              ; preds = %658
   %660 = load double, ptr %559, align 8
@@ -6633,7 +6633,7 @@ _ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6deta
           to label %915 unwind label %862
 
 915:                                              ; preds = %913
-  br i1 %.0143465, label %929, label %924
+  br i1 %.0150462, label %929, label %924
 
 916:                                              ; preds = %898
   %917 = landingpad { ptr, i32 }

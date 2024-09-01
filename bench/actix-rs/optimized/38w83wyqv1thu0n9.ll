@@ -7780,8 +7780,8 @@ define void @_ZN9actix_web4rmap11ResourceMap3add17hdfc1e6e4e6323601E(ptr noalias
   unreachable
 
 30:                                               ; preds = %22
-  %.not.not = icmp eq ptr %2, null
-  br i1 %.not.not, label %45, label %31
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)

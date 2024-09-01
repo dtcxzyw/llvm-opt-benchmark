@@ -2347,7 +2347,7 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
   %22 = fdiv double 1.000000e+00, %21
   %23 = fptrunc double %22 to float
   %24 = icmp sgt i32 %3, 0
-  br i1 %24, label %.lr.ph91.preheader, label %.preheader86.thread
+  br i1 %24, label %.lr.ph91.preheader, label %.lr.ph99.thread
 
 ._crit_edge.thread:                               ; preds = %13
   %25 = icmp sgt i32 %3, 0
@@ -2362,10 +2362,7 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
 .preheader86:                                     ; preds = %.lr.ph91
   br i1 %17, label %.lr.ph99, label %.preheader
 
-.preheader86.thread:                              ; preds = %._crit_edge
-  br i1 %17, label %.lr.ph99.thread, label %._crit_edge105
-
-.lr.ph99.thread:                                  ; preds = %.preheader86.thread
+.lr.ph99.thread:                                  ; preds = %._crit_edge
   %27 = fneg float %2
   %wide.trip.count120 = zext nneg i32 %0 to i64
   br label %.lr.ph99.split
@@ -2496,9 +2493,9 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %._crit_edge105, label %87, !llvm.loop !38
 
-._crit_edge105:                                   ; preds = %87, %._crit_edge.thread, %.preheader86.thread, %.preheader
-  %.0.lcssa140 = phi float [ %.0.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa, %87 ]
-  %.083.lcssa139 = phi float [ %.083.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa, %87 ]
+._crit_edge105:                                   ; preds = %87, %._crit_edge.thread, %.preheader
+  %.0.lcssa140 = phi float [ %.0.lcssa, %.preheader ], [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa, %87 ]
+  %.083.lcssa139 = phi float [ %.083.lcssa, %.preheader ], [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa, %87 ]
   %98 = fmul float %.083.lcssa139, %.083.lcssa139
   %99 = tail call float @llvm.fmuladd.f32(float %.0.lcssa140, float %.0.lcssa140, float %98)
   store float %99, ptr %5, align 4
@@ -2612,7 +2609,7 @@ define void @_Z15normalize_histoN3gmx8ArrayRefIKiEEfNS0_IfEE(ptr readonly %0, pt
 
 15:                                               ; preds = %._crit_edge
   %16 = fdiv double 1.000000e+00, %10
-  br i1 %.not22, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IfEEZ15normalize_histoNS0_8ArrayRefIS2_EEfNS5_IfEEE3$_0ET0_T_SA_S9_T1_.exit", label %.lr.ph.i
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %.sroa.06.010.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %15 ]
@@ -2627,7 +2624,7 @@ define void @_Z15normalize_histoN3gmx8ArrayRefIKiEEfNS0_IfEE(ptr readonly %0, pt
   %.not.i = icmp eq ptr %21, %1
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IfEEZ15normalize_histoNS0_8ArrayRefIS2_EEfNS5_IfEEE3$_0ET0_T_SA_S9_T1_.exit", label %.lr.ph.i, !llvm.loop !39
 
-"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IfEEZ15normalize_histoNS0_8ArrayRefIS2_EEfNS5_IfEEE3$_0ET0_T_SA_S9_T1_.exit": ; preds = %.lr.ph.i, %15, %._crit_edge.thread
+"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IfEEZ15normalize_histoNS0_8ArrayRefIS2_EEfNS5_IfEEE3$_0ET0_T_SA_S9_T1_.exit": ; preds = %.lr.ph.i, %._crit_edge.thread
   ret void
 }
 

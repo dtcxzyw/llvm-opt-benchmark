@@ -7597,7 +7597,7 @@ tt_face_lookup_table.exit:                        ; preds = %28, %36, %47, %44, 
   %72 = phi i1 [ %67, %.thread480 ], [ false, %65 ]
   %not..not364 = xor i1 %.not364, true
   %or.cond5 = select i1 %not..not364, i1 %.not365, i1 false
-  %narrow = and i1 %50, %or.cond5
+  %narrow = and i1 %or.cond5, %50
   %spec.select445 = zext i1 %narrow to i8
   %73 = getelementptr inbounds i8, ptr %1, i64 338
   %74 = load i16, ptr %73, align 2
@@ -16662,7 +16662,7 @@ find_table.exit150:                               ; preds = %.lr.ph.i145
 87:                                               ; preds = %741
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !102
+  br i1 %exitcond.not, label %.lr.ph.i211, label %88, !llvm.loop !102
 
 88:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
@@ -18191,16 +18191,13 @@ pad4.exit.thread:                                 ; preds = %compute_ULong_sum.e
   %743 = icmp ugt i64 %742, %.5257
   br i1 %743, label %thread-pre-split, label %87
 
-._crit_edge:                                      ; preds = %87
-  br i1 %.not.i, label %find_table.exit217.thread, label %.lr.ph.i211
-
 744:                                              ; preds = %.lr.ph.i211
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, %35
   br i1 %exitcond.not.i214, label %find_table.exit217.thread, label %.lr.ph.i211, !llvm.loop !101
 
-.lr.ph.i211:                                      ; preds = %._crit_edge, %744
-  %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i213, %744 ], [ 0, %._crit_edge ]
+.lr.ph.i211:                                      ; preds = %87, %744
+  %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i213, %744 ], [ 0, %87 ]
   %745 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i212
   %746 = load ptr, ptr %745, align 8
   %747 = getelementptr inbounds i8, ptr %746, i64 4
@@ -18208,8 +18205,8 @@ pad4.exit.thread:                                 ; preds = %compute_ULong_sum.e
   %749 = icmp eq i32 %748, 1751474532
   br i1 %749, label %751, label %744
 
-find_table.exit217.thread:                        ; preds = %744, %68, %._crit_edge
-  %.1259.lcssa523 = phi ptr [ %.7265, %._crit_edge ], [ %32, %68 ], [ %.7265, %744 ]
+find_table.exit217.thread:                        ; preds = %744, %68
+  %.1259.lcssa523 = phi ptr [ %32, %68 ], [ %.7265, %744 ]
   %750 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %750, align 8
   br label %thread-pre-split
@@ -18966,7 +18963,7 @@ define internal fastcc range(i32 0, 9) i32 @store_points(i64 noundef %0, ptr noc
 
 88:                                               ; preds = %81
   %89 = add i32 %.3, %.1137
-  br i1 %.not189, label %._crit_edge187, label %.lr.ph186
+  br label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %88, %132
   %90 = phi i64 [ %134, %132 ], [ 0, %88 ]
@@ -19048,8 +19045,8 @@ define internal fastcc range(i32 0, 9) i32 @store_points(i64 noundef %0, ptr noc
   %135 = icmp ugt i64 %0, %134
   br i1 %135, label %.lr.ph186, label %._crit_edge187, !llvm.loop !116
 
-._crit_edge187:                                   ; preds = %132, %.thread205, %88
-  %.0138.lcssa = phi i32 [ %89, %88 ], [ %13, %.thread205 ], [ %.1139, %132 ]
+._crit_edge187:                                   ; preds = %132, %.thread205
+  %.0138.lcssa = phi i32 [ %13, %.thread205 ], [ %.1139, %132 ]
   %136 = zext i32 %.0138.lcssa to i64
   store i64 %136, ptr %7, align 8
   br label %.loopexit

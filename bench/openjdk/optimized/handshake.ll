@@ -1210,114 +1210,108 @@ define linkonce_odr hidden void @_ZN18HandshakeSpinYield7processEv(ptr noundef n
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 44
-  %5 = load i32, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %.not.i14 = icmp eq i32 %5, %6
-  br i1 %.not.i14, label %.lr.ph, label %.critedge
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %7
-  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %1 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i15, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_ZN18HandshakeSpinYield13state_changedEv.exit.thread, label %7, !llvm.loop !15
-
-7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i
+5:                                                ; preds = %5, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i
-  %11 = load i32, ptr %10, align 4
-  %.not.i = icmp eq i32 %9, %11
-  br i1 %.not.i, label %.lr.ph, label %_ZN18HandshakeSpinYield13state_changedEv.exit, !llvm.loop !15
+  %.not.not.i = icmp ne i32 %7, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
+  %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZN18HandshakeSpinYield13state_changedEv.exit, label %5, !llvm.loop !15
 
-_ZN18HandshakeSpinYield13state_changedEv.exit:    ; preds = %7
-  %12 = icmp ult i64 %indvars.iv.i15, 4
-  br i1 %12, label %.critedge, label %_ZN18HandshakeSpinYield13state_changedEv.exit.thread
+_ZN18HandshakeSpinYield13state_changedEv.exit:    ; preds = %5
+  br i1 %.not.not.i, label %10, label %21
 
-.critedge:                                        ; preds = %1, %_ZN18HandshakeSpinYield13state_changedEv.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = load i32, ptr %13, align 8
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 8
-  br label %16
+10:                                               ; preds = %_ZN18HandshakeSpinYield13state_changedEv.exit
+  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = load i32, ptr %11, align 8
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %11, align 8
+  br label %14
 
-16:                                               ; preds = %16, %.critedge
-  %indvars.iv.i7 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i8, %16 ]
-  %17 = load i32, ptr %13, align 8
-  %18 = and i32 %17, 1
-  %19 = xor i32 %18, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %20, i64 %indvars.iv.i7
-  store i32 0, ptr %21, align 4
+14:                                               ; preds = %14, %10
+  %indvars.iv.i7 = phi i64 [ 0, %10 ], [ %indvars.iv.next.i8, %14 ]
+  %15 = load i32, ptr %11, align 8
+  %16 = and i32 %15, 1
+  %17 = xor i32 %16, 1
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %18, i64 %indvars.iv.i7
+  store i32 0, ptr %19, align 4
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 5
-  br i1 %exitcond.not.i9, label %_ZN18HandshakeSpinYield11reset_stateEv.exit, label %16, !llvm.loop !16
+  br i1 %exitcond.not.i9, label %_ZN18HandshakeSpinYield11reset_stateEv.exit, label %14, !llvm.loop !16
 
-_ZN18HandshakeSpinYield11reset_stateEv.exit:      ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %2, ptr %22, align 8
+_ZN18HandshakeSpinYield11reset_stateEv.exit:      ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %2, ptr %20, align 8
   br label %_ZN18HandshakeSpinYield11reset_stateEv.exit13
 
-_ZN18HandshakeSpinYield13state_changedEv.exit.thread: ; preds = %.lr.ph, %_ZN18HandshakeSpinYield13state_changedEv.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = add nsw i64 %26, %24
-  %28 = icmp slt i64 %27, %2
-  br i1 %28, label %29, label %44
+21:                                               ; preds = %_ZN18HandshakeSpinYield13state_changedEv.exit
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = add nsw i64 %25, %23
+  %27 = icmp slt i64 %26, %2
+  br i1 %27, label %28, label %43
 
-29:                                               ; preds = %_ZN18HandshakeSpinYield13state_changedEv.exit.thread
-  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+28:                                               ; preds = %21
+  %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(888) %31) #11
-  br i1 %35, label %36, label %37
+  %32 = getelementptr inbounds i8, ptr %31, i64 56
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(888) %30) #11
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %29
-  tail call void @_ZN18HandshakeSpinYield12wait_blockedEP10JavaThreadl(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %31, i64 noundef %2)
+35:                                               ; preds = %28
+  tail call void @_ZN18HandshakeSpinYield12wait_blockedEP10JavaThreadl(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %30, i64 noundef %2)
   br label %_ZN18HandshakeSpinYield8wait_rawEl.exit
 
-37:                                               ; preds = %29
-  %38 = load i64, ptr %0, align 8
-  %39 = sub nsw i64 %2, %38
-  %40 = icmp slt i64 %39, 1000000
-  br i1 %40, label %41, label %42
+36:                                               ; preds = %28
+  %37 = load i64, ptr %0, align 8
+  %38 = sub nsw i64 %2, %37
+  %39 = icmp slt i64 %38, 1000000
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef 10000) #11
   br label %_ZN18HandshakeSpinYield8wait_rawEl.exit
 
-42:                                               ; preds = %37
+41:                                               ; preds = %36
   tail call void @_ZN2os17naked_short_sleepEl(i64 noundef 1) #11
   br label %_ZN18HandshakeSpinYield8wait_rawEl.exit
 
-_ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %42, %41, %36
-  %43 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  store i64 %43, ptr %23, align 8
-  br label %44
+_ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %41, %40, %35
+  %42 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
+  store i64 %42, ptr %22, align 8
+  br label %43
 
-44:                                               ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit, %_ZN18HandshakeSpinYield13state_changedEv.exit.thread
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
-  %46 = load i32, ptr %45, align 8
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 8
-  br label %48
+43:                                               ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit, %21
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = load i32, ptr %44, align 8
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %44, align 8
+  br label %47
 
-48:                                               ; preds = %48, %44
-  %indvars.iv.i10 = phi i64 [ 0, %44 ], [ %indvars.iv.next.i11, %48 ]
-  %49 = load i32, ptr %45, align 8
-  %50 = and i32 %49, 1
-  %51 = xor i32 %50, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %52, i64 %indvars.iv.i10
-  store i32 0, ptr %53, align 4
+47:                                               ; preds = %47, %43
+  %indvars.iv.i10 = phi i64 [ 0, %43 ], [ %indvars.iv.next.i11, %47 ]
+  %48 = load i32, ptr %44, align 8
+  %49 = and i32 %48, 1
+  %50 = xor i32 %49, 1
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %51, i64 %indvars.iv.i10
+  store i32 0, ptr %52, align 4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 5
-  br i1 %exitcond.not.i12, label %_ZN18HandshakeSpinYield11reset_stateEv.exit13, label %48, !llvm.loop !16
+  br i1 %exitcond.not.i12, label %_ZN18HandshakeSpinYield11reset_stateEv.exit13, label %47, !llvm.loop !16
 
-_ZN18HandshakeSpinYield11reset_stateEv.exit13:    ; preds = %48, %_ZN18HandshakeSpinYield11reset_stateEv.exit
+_ZN18HandshakeSpinYield11reset_stateEv.exit13:    ; preds = %47, %_ZN18HandshakeSpinYield11reset_stateEv.exit
   ret void
 }
 

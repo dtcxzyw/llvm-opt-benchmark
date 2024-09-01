@@ -944,8 +944,8 @@ Vec_IntFill.exit:                                 ; preds = %11, %3
   store i32 %.val24.val, ptr %4, align 4
   %13 = getelementptr i8, ptr %0, i64 104
   %.val3235 = load i32, ptr %13, align 8
-  %14 = icmp slt i32 %.val3235, 1
-  br i1 %14, label %.critedge2, label %.lr.ph
+  %14 = icmp sgt i32 %.val3235, 0
+  br i1 %14, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %Vec_IntFill.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -978,8 +978,7 @@ Vec_IntFill.exit:                                 ; preds = %11, %3
 
 .critedge:                                        ; preds = %19
   %.not = icmp eq i32 %2, 0
-  %brmerge = or i1 %.not, %14
-  br i1 %brmerge, label %.critedge2, label %.lr.ph39
+  br i1 %.not, label %.critedge2, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.critedge
   %32 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1116,8 +1115,8 @@ Vec_IntFill.exit.i:                               ; preds = %11, %3
   store i32 %.val24.val.i, ptr %4, align 4
   %13 = getelementptr i8, ptr %0, i64 104
   %.val3235.i = load i32, ptr %13, align 8
-  %14 = icmp slt i32 %.val3235.i, 1
-  br i1 %14, label %Llb_Nonlin4SweepVars2Q.exit, label %.lr.ph.i
+  %14 = icmp sgt i32 %.val3235.i, 0
+  br i1 %14, label %.lr.ph.i, label %Llb_Nonlin4SweepVars2Q.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFill.exit.i
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1244,8 +1243,8 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   store i32 %.val24.val.i, ptr %7, align 4
   %16 = getelementptr i8, ptr %0, i64 104
   %.val3235.i = load i32, ptr %16, align 8
-  %17 = icmp slt i32 %.val3235.i, 1
-  br i1 %17, label %Llb_Nonlin4SweepVars2Q.exit, label %.lr.ph.i
+  %17 = icmp sgt i32 %.val3235.i, 0
+  br i1 %17, label %.lr.ph.i, label %Llb_Nonlin4SweepVars2Q.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFill.exit.i
   %18 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1275,9 +1274,9 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   store i32 0, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph39.i, label %23, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge.i, label %23, !llvm.loop !15
 
-.lr.ph39.i:                                       ; preds = %23
+.critedge.i:                                      ; preds = %23
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   %34 = getelementptr i8, ptr %0, i64 112
   %.pre41.i = load ptr, ptr %33, align 8
@@ -1286,8 +1285,8 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   %36 = sext i32 %.val33.pre.i to i64
   br label %37
 
-37:                                               ; preds = %37, %.lr.ph39.i
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %37 ], [ 0, %.lr.ph39.i ]
+37:                                               ; preds = %37, %.critedge.i
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %37 ], [ 0, %.critedge.i ]
   %.val25.i = load ptr, ptr %35, align 8
   %38 = getelementptr ptr, ptr %.val25.i, i64 %indvars.iv28
   %39 = getelementptr ptr, ptr %38, i64 %36

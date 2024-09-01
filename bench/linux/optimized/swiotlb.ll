@@ -204,9 +204,8 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %19
-  %20 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %20, ptr @.str.15, ptr %.fr
+  %20 = icmp eq ptr %19, null
+  %spec.select = select i1 %20, ptr @.str.15, ptr %19
   br label %.thread4
 
 .thread4:                                         ; preds = %18, %15
@@ -228,18 +227,17 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
   store i32 %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %27, i64 41
   %34 = load ptr, ptr %16, align 8
-  %.not11 = icmp eq ptr %34, null
-  br i1 %.not11, label %35, label %.thread8
+  %.not10 = icmp eq ptr %34, null
+  br i1 %.not10, label %35, label %.thread8
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %1, align 8
-  %.fr10 = freeze ptr %36
-  %37 = icmp eq ptr %.fr10, null
-  %spec.select12 = select i1 %37, ptr @.str.15, ptr %.fr10
+  %37 = icmp eq ptr %36, null
+  %spec.select11 = select i1 %37, ptr @.str.15, ptr %36
   br label %.thread8
 
 .thread8:                                         ; preds = %35, %29
-  %38 = phi ptr [ %34, %29 ], [ %spec.select12, %35 ]
+  %38 = phi ptr [ %34, %29 ], [ %spec.select11, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #21
   %40 = getelementptr inbounds i8, ptr %1, i64 560
   %41 = load ptr, ptr %40, align 8
@@ -293,9 +291,8 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %10
-  %11 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %11, ptr @.str.15, ptr %.fr
+  %11 = icmp eq ptr %10, null
+  %spec.select = select i1 %11, ptr @.str.15, ptr %10
   br label %.thread4
 
 .thread4:                                         ; preds = %9, %4
@@ -346,18 +343,17 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
   store i32 %16, ptr %43, align 8
   %44 = getelementptr i8, ptr %31, i64 41
   %45 = load ptr, ptr %7, align 8
-  %.not11 = icmp eq ptr %45, null
-  br i1 %.not11, label %46, label %.thread8
+  %.not10 = icmp eq ptr %45, null
+  br i1 %.not10, label %46, label %.thread8
 
 46:                                               ; preds = %33
   %47 = load ptr, ptr %1, align 8
-  %.fr10 = freeze ptr %47
-  %48 = icmp eq ptr %.fr10, null
-  %spec.select12 = select i1 %48, ptr @.str.15, ptr %.fr10
+  %48 = icmp eq ptr %47, null
+  %spec.select11 = select i1 %48, ptr @.str.15, ptr %47
   br label %.thread8
 
 .thread8:                                         ; preds = %46, %33
-  %49 = phi ptr [ %45, %33 ], [ %spec.select12, %46 ]
+  %49 = phi ptr [ %45, %33 ], [ %spec.select11, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #21
   %51 = getelementptr inbounds i8, ptr %1, i64 560
   %52 = load ptr, ptr %51, align 8
@@ -1008,7 +1004,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 .thread.us:                                       ; preds = %75
   %78 = zext nneg i32 %73 to i64
   %79 = inttoptr i64 %76 to ptr
-  br i1 %68, label %123, label %128
+  br label %123
 
 .split:                                           ; preds = %56, %117
   %80 = phi i64 [ %121, %117 ], [ %6, %56 ]
@@ -1087,11 +1083,11 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %126) #23
   br label %128
 
-128:                                              ; preds = %.thread.us.thread, %.thread.us, %123, %.split29.us
-  %.us-phi3456 = phi i32 [ %72, %.thread.us ], [ %.us-phi3455, %123 ], [ %114, %.split29.us ], [ %63, %.thread.us.thread ]
-  %.us-phi3253 = phi i32 [ %73, %.thread.us ], [ %.us-phi3254, %123 ], [ %112, %.split29.us ], [ %64, %.thread.us.thread ]
-  %.us-phi3151 = phi i64 [ %78, %.thread.us ], [ %.us-phi3152, %123 ], [ %111, %.split29.us ], [ %69, %.thread.us.thread ]
-  %.us-phi3049 = phi ptr [ %79, %.thread.us ], [ %.us-phi3050, %123 ], [ %110, %.split29.us ], [ %70, %.thread.us.thread ]
+128:                                              ; preds = %.thread.us.thread, %123, %.split29.us
+  %.us-phi3456 = phi i32 [ %.us-phi3455, %123 ], [ %114, %.split29.us ], [ %63, %.thread.us.thread ]
+  %.us-phi3253 = phi i32 [ %.us-phi3254, %123 ], [ %112, %.split29.us ], [ %64, %.thread.us.thread ]
+  %.us-phi3151 = phi i64 [ %.us-phi3152, %123 ], [ %111, %.split29.us ], [ %69, %.thread.us.thread ]
+  %.us-phi3049 = phi ptr [ %.us-phi3050, %123 ], [ %110, %.split29.us ], [ %70, %.thread.us.thread ]
   %129 = load i64, ptr @default_nareas, align 8
   %130 = trunc nuw i64 %129 to i32
   %131 = shl nuw nsw i64 %129, 7

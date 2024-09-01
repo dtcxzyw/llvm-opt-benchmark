@@ -447,12 +447,9 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
 .critedge.i:                                      ; preds = %146, %._crit_edge.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next67.i, %smax
-  br i1 %exitcond399.not, label %Abc_NtkDelayTraceSortPins.exit, label %.lr.ph57.i, !llvm.loop !7
+  br i1 %exitcond399.not, label %.lr.ph357, label %.lr.ph57.i, !llvm.loop !7
 
-Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
-  br i1 %107, label %.lr.ph357, label %.critedge2
-
-.lr.ph357:                                        ; preds = %.critedge.preheader.i, %Abc_NtkDelayTraceSortPins.exit
+.lr.ph357:                                        ; preds = %.critedge.i, %.critedge.preheader.i
   %152 = getelementptr i8, ptr %79, i64 32
   %.val240 = load ptr, ptr %152, align 8
   %153 = getelementptr i8, ptr %.val269.pre.pre, i64 32
@@ -491,8 +488,8 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %exitcond403.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count
   br i1 %exitcond403.not, label %.critedge2.thread, label %155, !llvm.loop !12
 
-.critedge2:                                       ; preds = %104, %Abc_NtkDelayTraceSortPins.exit, %82
-  %.val269 = phi ptr [ %.val269.pre444, %82 ], [ %.val269.pre.pre, %Abc_NtkDelayTraceSortPins.exit ], [ %.val269.pre.pre, %104 ]
+.critedge2:                                       ; preds = %104, %82
+  %.val269 = phi ptr [ %.val269.pre444, %82 ], [ %.val269.pre.pre, %104 ]
   %174 = icmp eq i32 %.val223.fr, 0
   br i1 %174, label %175, label %.critedge2.thread
 
@@ -541,9 +538,6 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %wide.trip.count423 = zext nneg i32 %.val271.val to i64
   br label %191
 
-.critedge10.preheader:                            ; preds = %191
-  br i1 %189, label %.lr.ph379, label %.critedge12
-
 191:                                              ; preds = %.lr.ph373, %191
   %indvars.iv420 = phi i64 [ 0, %.lr.ph373 ], [ %indvars.iv.next421, %191 ]
   %.10371 = phi float [ -1.000000e+09, %.lr.ph373 ], [ %.11, %191 ]
@@ -573,11 +567,11 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %.11 = select i1 %206, float %205, float %.10371
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %.critedge10.preheader, label %191, !llvm.loop !13
+  br i1 %exitcond424.not, label %.lr.ph379, label %191, !llvm.loop !13
 
-.lr.ph379:                                        ; preds = %.critedge10.preheader, %.critedge10
-  %.val272446 = phi ptr [ %.val272, %.critedge10 ], [ %.val271, %.critedge10.preheader ]
-  %indvars.iv425 = phi i64 [ %indvars.iv.next426, %.critedge10 ], [ 0, %.critedge10.preheader ]
+.lr.ph379:                                        ; preds = %191, %.critedge10
+  %.val272446 = phi ptr [ %.val272, %.critedge10 ], [ %.val271, %191 ]
+  %indvars.iv425 = phi i64 [ %indvars.iv.next426, %.critedge10 ], [ 0, %191 ]
   %207 = getelementptr i8, ptr %.val272446, i64 8
   %.val274.val = load ptr, ptr %207, align 8
   %208 = getelementptr inbounds ptr, ptr %.val274.val, i64 %indvars.iv425
@@ -620,8 +614,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %227 = icmp slt i64 %indvars.iv.next426, %226
   br i1 %227, label %.lr.ph379, label %.critedge12, !llvm.loop !14
 
-.critedge12:                                      ; preds = %.critedge10, %Vec_PtrFree.exit, %.critedge10.preheader
-  %.10.lcssa461 = phi float [ %.11, %.critedge10.preheader ], [ -1.000000e+09, %Vec_PtrFree.exit ], [ %.11, %.critedge10 ]
+.critedge12:                                      ; preds = %.critedge10, %Vec_PtrFree.exit
+  %.10.lcssa461 = phi float [ -1.000000e+09, %Vec_PtrFree.exit ], [ %.11, %.critedge10 ]
   %228 = tail call ptr @Abc_NtkDfsReverse(ptr noundef nonnull %0) #13
   %229 = getelementptr i8, ptr %228, i64 4
   %.val264391 = load i32, ptr %229, align 4
@@ -867,12 +861,9 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
 .critedge.i330:                                   ; preds = %346, %._crit_edge.i327
   %indvars.iv.next62.i332 = add nuw nsw i64 %indvars.iv61.i325, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next67.i326, %smax429
-  br i1 %exitcond430.not, label %Abc_NtkDelayTraceSortPins.exit341, label %.lr.ph57.i322, !llvm.loop !7
+  br i1 %exitcond430.not, label %.lr.ph382, label %.lr.ph57.i322, !llvm.loop !7
 
-Abc_NtkDelayTraceSortPins.exit341:                ; preds = %.critedge.i330
-  br i1 %307, label %.lr.ph382, label %.critedge16
-
-.lr.ph382:                                        ; preds = %.critedge.preheader.i321, %Abc_NtkDelayTraceSortPins.exit341
+.lr.ph382:                                        ; preds = %.critedge.i330, %.critedge.preheader.i321
   %352 = getelementptr i8, ptr %236, i64 32
   %353 = getelementptr i8, ptr %236, i64 16
   br label %354
@@ -930,7 +921,7 @@ Abc_NtkDelayTraceSortPins.exit341:                ; preds = %.critedge.i330
   %385 = icmp slt i64 %indvars.iv.next432, %384
   br i1 %385, label %354, label %.critedge16, !llvm.loop !17
 
-.critedge16:                                      ; preds = %383, %303, %266, %306, %Abc_NtkDelayTraceSortPins.exit341, %274, %237
+.critedge16:                                      ; preds = %383, %303, %266, %306, %274, %237
   %.val297 = load ptr, ptr %236, align 8
   %386 = getelementptr i8, ptr %236, i64 16
   %.val298 = load i32, ptr %386, align 8
@@ -2113,12 +2104,9 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
 .critedge.i:                                      ; preds = %120, %._crit_edge.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next67.i, %smax
-  br i1 %exitcond87.not, label %Abc_NtkDelayTraceSortPins.exit, label %.lr.ph57.i, !llvm.loop !7
+  br i1 %exitcond87.not, label %.lr.ph, label %.lr.ph57.i, !llvm.loop !7
 
-Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
-  br i1 %81, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.preheader.i, %Abc_NtkDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %.critedge.i, %.critedge.preheader.i
   %126 = getelementptr i8, ptr %1, i64 32
   %.val59 = load ptr, ptr %126, align 8
   %127 = getelementptr i8, ptr %.val70, i64 32
@@ -2160,8 +2148,8 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %exitcond89.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond89.not, label %.critedge, label %129, !llvm.loop !33
 
-.critedge:                                        ; preds = %129, %58, %26, %76, %Abc_NtkDelayTraceSortPins.exit, %48, %.preheader
-  %.249 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ 0, %Abc_NtkDelayTraceSortPins.exit ], [ 0, %76 ], [ %.148, %26 ], [ %.4, %58 ], [ %.6, %129 ]
+.critedge:                                        ; preds = %129, %58, %26, %76, %48, %.preheader
+  %.249 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ 0, %76 ], [ %.148, %26 ], [ %.4, %58 ], [ %.6, %129 ]
   ret i32 %.249
 }
 

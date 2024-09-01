@@ -618,10 +618,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$30steal_batch_with_limit_and_pop17h8e5c3c477a67ba44E"(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 %11, i64 noundef 32), !noalias !152
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %5, align 8, !noalias !145
   %14 = add nsw i64 %.sroa.0.0.copyload.i.i.i, -3
-  %15 = icmp ugt i64 %14, 2
-  %16 = icmp eq i64 %14, 1
-  %.not2.not7.i.i.i.i.i.i = or i1 %15, %16
-  br i1 %.not2.not7.i.i.i.i.i.i, label %22, label %17
+  %15 = icmp ult i64 %14, 3
+  %16 = icmp ne i64 %14, 1
+  %.not2.i.i.i.i.i.i = and i1 %15, %16
+  br i1 %.not2.i.i.i.i.i.i, label %17, label %22
 
 17:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5), !noalias !145
@@ -668,10 +668,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$30steal_batch_with_limit_and_pop17h8e5c3c477a67ba44E"(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 %27, i64 noundef 32), !noalias !172
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8, !noalias !171
   %31 = add nsw i64 %.sroa.0.0.copyload.i.i, -3
-  %32 = icmp ugt i64 %31, 2
-  %33 = icmp eq i64 %31, 1
-  %.not2.not7.i.i.i.i.i = or i1 %32, %33
-  br i1 %.not2.not7.i.i.i.i.i, label %36, label %34
+  %32 = icmp ult i64 %31, 3
+  %33 = icmp ne i64 %31, 1
+  %.not2.i.i.i.i.i = and i1 %32, %33
+  br i1 %.not2.i.i.i.i.i, label %34, label %36
 
 34:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !171

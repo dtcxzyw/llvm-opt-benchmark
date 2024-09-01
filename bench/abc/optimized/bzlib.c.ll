@@ -2713,99 +2713,99 @@ define void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %
   store i32 0, ptr %8, align 8
   %9 = icmp eq ptr %2, null
   %10 = icmp slt i32 %3, 0
-  %11 = or i1 %9, %10
-  br i1 %11, label %.thread, label %16
+  %or.cond3 = or i1 %9, %10
+  br i1 %or.cond3, label %.thread, label %15
 
 .thread:                                          ; preds = %6, %7
-  br i1 %.not, label %13, label %12
+  br i1 %.not, label %12, label %11
 
-12:                                               ; preds = %.thread
+11:                                               ; preds = %.thread
   store i32 -2, ptr %0, align 4
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %.thread
-  br i1 %.not68, label %69, label %14
+12:                                               ; preds = %11, %.thread
+  br i1 %.not68, label %68, label %13
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 5096
-  store i32 -2, ptr %15, align 8
-  br label %69
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %1, i64 5096
+  store i32 -2, ptr %14, align 8
+  br label %68
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %1, i64 5012
-  %18 = load i8, ptr %17, align 4
-  %.not69 = icmp eq i8 %18, 0
-  br i1 %.not69, label %19, label %22
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds i8, ptr %1, i64 5012
+  %17 = load i8, ptr %16, align 4
+  %.not69 = icmp eq i8 %17, 0
+  br i1 %.not69, label %18, label %21
 
-19:                                               ; preds = %16
-  br i1 %.not, label %21, label %20
+18:                                               ; preds = %15
+  br i1 %.not, label %20, label %19
 
-20:                                               ; preds = %19
+19:                                               ; preds = %18
   store i32 -1, ptr %0, align 4
-  br label %21
+  br label %20
 
-21:                                               ; preds = %19, %20
+20:                                               ; preds = %18, %19
   store i32 -1, ptr %8, align 8
-  br label %69
+  br label %68
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %1, align 8
-  %24 = tail call i32 @ferror(ptr noundef %23) #22
-  %.not70 = icmp eq i32 %24, 0
-  br i1 %.not70, label %28, label %25
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %1, align 8
+  %23 = tail call i32 @ferror(ptr noundef %22) #22
+  %.not70 = icmp eq i32 %23, 0
+  br i1 %.not70, label %27, label %24
 
-25:                                               ; preds = %22
-  br i1 %.not, label %27, label %26
+24:                                               ; preds = %21
+  br i1 %.not, label %26, label %25
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   store i32 -6, ptr %0, align 4
-  br label %27
+  br label %26
 
-27:                                               ; preds = %25, %26
+26:                                               ; preds = %24, %25
   store i32 -6, ptr %8, align 8
-  br label %69
+  br label %68
 
-28:                                               ; preds = %22
-  %29 = icmp eq i32 %3, 0
-  br i1 %29, label %30, label %33
+27:                                               ; preds = %21
+  %28 = icmp eq i32 %3, 0
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %28
-  br i1 %.not, label %32, label %31
+29:                                               ; preds = %27
+  br i1 %.not, label %31, label %30
 
-31:                                               ; preds = %30
+30:                                               ; preds = %29
   store i32 0, ptr %0, align 4
-  br label %32
+  br label %31
 
-32:                                               ; preds = %30, %31
+31:                                               ; preds = %29, %30
   store i32 0, ptr %8, align 8
-  br label %69
+  br label %68
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 5016
-  %35 = getelementptr inbounds i8, ptr %1, i64 5024
-  store i32 %3, ptr %35, align 8
-  store ptr %2, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 5048
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 5040
-  %39 = getelementptr inbounds i8, ptr %1, i64 5064
-  br label %40
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %1, i64 5016
+  %34 = getelementptr inbounds i8, ptr %1, i64 5024
+  store i32 %3, ptr %34, align 8
+  store ptr %2, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 5048
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 5040
+  %38 = getelementptr inbounds i8, ptr %1, i64 5064
+  br label %39
 
-40:                                               ; preds = %63, %33
-  store i32 5000, ptr %36, align 8
-  store ptr %37, ptr %38, align 8
-  %41 = load ptr, ptr %39, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %select.unfold, label %43
+39:                                               ; preds = %62, %32
+  store i32 5000, ptr %35, align 8
+  store ptr %36, ptr %37, align 8
+  %40 = load ptr, ptr %38, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %select.unfold, label %42
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %41, align 8
-  %.not.i = icmp eq ptr %44, %34
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %40, align 8
+  %.not.i = icmp eq ptr %43, %33
   br i1 %.not.i, label %.preheader.i, label %select.unfold
 
-.preheader.i:                                     ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
-  %.promoted.i = load i32, ptr %45, align 8
+.preheader.i:                                     ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %.promoted.i = load i32, ptr %44, align 8
   switch i32 %.promoted.i, label %select.unfold.loopexit [
     i32 1, label %select.unfold
     i32 2, label %.split68.us.i
@@ -2814,73 +2814,73 @@ define void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %
   ]
 
 .split68.us.i:                                    ; preds = %.preheader.i
-  %46 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %41)
-  %.not48.i = icmp eq i8 %46, 0
+  %45 = tail call fastcc zeroext i8 @handle_compress(ptr nonnull %40)
+  %.not48.i = icmp eq i8 %45, 0
   br i1 %.not48.i, label %select.unfold, label %BZ2_bzCompress.exit
 
 select.unfold.loopexit:                           ; preds = %.preheader.i
   br label %select.unfold
 
-select.unfold:                                    ; preds = %.split68.us.i, %40, %43, %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit
-  %.0.i.ph = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -2, %.split68.us.i ], [ -2, %40 ], [ -2, %43 ], [ 0, %select.unfold.loopexit ]
-  br i1 %.not, label %48, label %47
+select.unfold:                                    ; preds = %.split68.us.i, %39, %42, %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit
+  %.0.i.ph = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -1, %.preheader.i ], [ -2, %.split68.us.i ], [ -2, %39 ], [ -2, %42 ], [ 0, %select.unfold.loopexit ]
+  br i1 %.not, label %47, label %46
 
-47:                                               ; preds = %select.unfold
+46:                                               ; preds = %select.unfold
   store i32 %.0.i.ph, ptr %0, align 4
-  br label %48
+  br label %47
 
-48:                                               ; preds = %select.unfold, %47
+47:                                               ; preds = %select.unfold, %46
   store i32 %.0.i.ph, ptr %8, align 8
-  br label %69
-
-BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
-  %49 = load i32, ptr %36, align 8
-  %50 = icmp ult i32 %49, 5000
-  br i1 %50, label %51, label %63
-
-51:                                               ; preds = %BZ2_bzCompress.exit
-  %52 = sub nuw nsw i32 5000, %49
-  %53 = zext nneg i32 %52 to i64
-  %54 = load ptr, ptr %1, align 8
-  %55 = tail call i64 @fwrite(ptr noundef nonnull %37, i64 noundef 1, i64 noundef %53, ptr noundef %54)
-  %56 = trunc i64 %55 to i32
-  %.not72 = icmp eq i32 %52, %56
-  br i1 %.not72, label %57, label %60
-
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %1, align 8
-  %59 = tail call i32 @ferror(ptr noundef %58) #22
-  %.not73 = icmp eq i32 %59, 0
-  br i1 %.not73, label %63, label %60
-
-60:                                               ; preds = %57, %51
-  br i1 %.not, label %62, label %61
-
-61:                                               ; preds = %60
-  store i32 -6, ptr %0, align 4
-  br label %62
-
-62:                                               ; preds = %60, %61
-  store i32 -6, ptr %8, align 8
-  br label %69
-
-63:                                               ; preds = %57, %BZ2_bzCompress.exit
-  %64 = load i32, ptr %35, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %40
-
-66:                                               ; preds = %63
-  br i1 %.not, label %68, label %67
-
-67:                                               ; preds = %66
-  store i32 0, ptr %0, align 4
   br label %68
 
-68:                                               ; preds = %66, %67
-  store i32 0, ptr %8, align 8
-  br label %69
+BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
+  %48 = load i32, ptr %35, align 8
+  %49 = icmp ult i32 %48, 5000
+  br i1 %49, label %50, label %62
 
-69:                                               ; preds = %68, %62, %48, %32, %27, %21, %13, %14
+50:                                               ; preds = %BZ2_bzCompress.exit
+  %51 = sub nuw nsw i32 5000, %48
+  %52 = zext nneg i32 %51 to i64
+  %53 = load ptr, ptr %1, align 8
+  %54 = tail call i64 @fwrite(ptr noundef nonnull %36, i64 noundef 1, i64 noundef %52, ptr noundef %53)
+  %55 = trunc i64 %54 to i32
+  %.not72 = icmp eq i32 %51, %55
+  br i1 %.not72, label %56, label %59
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %1, align 8
+  %58 = tail call i32 @ferror(ptr noundef %57) #22
+  %.not73 = icmp eq i32 %58, 0
+  br i1 %.not73, label %62, label %59
+
+59:                                               ; preds = %56, %50
+  br i1 %.not, label %61, label %60
+
+60:                                               ; preds = %59
+  store i32 -6, ptr %0, align 4
+  br label %61
+
+61:                                               ; preds = %59, %60
+  store i32 -6, ptr %8, align 8
+  br label %68
+
+62:                                               ; preds = %56, %BZ2_bzCompress.exit
+  %63 = load i32, ptr %34, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %39
+
+65:                                               ; preds = %62
+  br i1 %.not, label %67, label %66
+
+66:                                               ; preds = %65
+  store i32 0, ptr %0, align 4
+  br label %67
+
+67:                                               ; preds = %65, %66
+  store i32 0, ptr %8, align 8
+  br label %68
+
+68:                                               ; preds = %67, %61, %47, %31, %26, %20, %12, %13
   ret void
 }
 
@@ -3536,206 +3536,206 @@ define i32 @BZ2_bzRead(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2,
   store i32 0, ptr %8, align 8
   %9 = icmp eq ptr %2, null
   %10 = icmp slt i32 %3, 0
-  %11 = or i1 %9, %10
-  br i1 %11, label %.thread, label %16
+  %or.cond3 = or i1 %9, %10
+  br i1 %or.cond3, label %.thread, label %15
 
 .thread:                                          ; preds = %6, %7
-  br i1 %.not, label %13, label %12
+  br i1 %.not, label %12, label %11
 
-12:                                               ; preds = %.thread
+11:                                               ; preds = %.thread
   store i32 -2, ptr %0, align 4
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %.thread
-  br i1 %.not88, label %84, label %14
+12:                                               ; preds = %11, %.thread
+  br i1 %.not88, label %83, label %13
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 5096
-  store i32 -2, ptr %15, align 8
-  br label %84
-
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %1, i64 5012
-  %18 = load i8, ptr %17, align 4
-  %.not89 = icmp eq i8 %18, 0
-  br i1 %.not89, label %22, label %19
-
-19:                                               ; preds = %16
-  br i1 %.not, label %21, label %20
-
-20:                                               ; preds = %19
-  store i32 -1, ptr %0, align 4
-  br label %21
-
-21:                                               ; preds = %19, %20
-  store i32 -1, ptr %8, align 8
-  br label %84
-
-22:                                               ; preds = %16
-  %23 = icmp eq i32 %3, 0
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %22
-  br i1 %.not, label %26, label %25
-
-25:                                               ; preds = %24
-  store i32 0, ptr %0, align 4
-  br label %26
-
-26:                                               ; preds = %24, %25
-  store i32 0, ptr %8, align 8
-  br label %84
-
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 5016
-  %29 = getelementptr inbounds i8, ptr %1, i64 5048
-  store i32 %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 5040
-  store ptr %2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 5024
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 5008
-  br label %34
-
-34:                                               ; preds = %80, %27
-  %35 = load ptr, ptr %1, align 8
-  %36 = tail call i32 @ferror(ptr noundef %35) #22
-  %.not90 = icmp eq i32 %36, 0
-  br i1 %.not90, label %40, label %37
-
-37:                                               ; preds = %34
-  br i1 %.not, label %39, label %38
-
-38:                                               ; preds = %37
-  store i32 -6, ptr %0, align 4
-  br label %39
-
-39:                                               ; preds = %37, %38
-  store i32 -6, ptr %8, align 8
-  br label %84
-
-40:                                               ; preds = %34
-  %41 = load i32, ptr %31, align 8
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %myfeof.exit
-
-43:                                               ; preds = %40
-  %44 = tail call i32 @fgetc(ptr noundef %35)
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %myfeof.exit, label %46
-
-46:                                               ; preds = %43
-  %47 = tail call i32 @ungetc(i32 noundef %44, ptr noundef %35)
-  %48 = load ptr, ptr %1, align 8
-  %49 = tail call i64 @fread(ptr noundef nonnull %32, i64 noundef 1, i64 noundef 5000, ptr noundef %48)
-  %50 = load ptr, ptr %1, align 8
-  %51 = tail call i32 @ferror(ptr noundef %50) #22
-  %.not92 = icmp eq i32 %51, 0
-  br i1 %.not92, label %55, label %52
-
-52:                                               ; preds = %46
-  br i1 %.not, label %54, label %53
-
-53:                                               ; preds = %52
-  store i32 -6, ptr %0, align 4
-  br label %54
-
-54:                                               ; preds = %52, %53
-  store i32 -6, ptr %8, align 8
-  br label %84
-
-55:                                               ; preds = %46
-  %56 = trunc i64 %49 to i32
-  store i32 %56, ptr %33, align 8
-  store i32 %56, ptr %31, align 8
-  store ptr %32, ptr %28, align 8
-  br label %myfeof.exit
-
-myfeof.exit:                                      ; preds = %43, %55, %40
-  %57 = tail call i32 @BZ2_bzDecompress(ptr noundef nonnull %28)
-  %58 = and i32 %57, -5
-  %or.cond5.not = icmp eq i32 %58, 0
-  br i1 %or.cond5.not, label %62, label %59
-
-59:                                               ; preds = %myfeof.exit
-  br i1 %.not, label %61, label %60
-
-60:                                               ; preds = %59
-  store i32 %57, ptr %0, align 4
-  br label %61
-
-61:                                               ; preds = %59, %60
-  store i32 %57, ptr %8, align 8
-  br label %84
-
-62:                                               ; preds = %myfeof.exit
-  switch i32 %57, label %80 [
-    i32 0, label %63
-    i32 4, label %75
-  ]
-
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %1, align 8
-  %65 = tail call i32 @fgetc(ptr noundef %64)
-  %66 = icmp eq i32 %65, -1
-  br i1 %66, label %myfeof.exit96, label %myfeof.exit96.thread
-
-myfeof.exit96.thread:                             ; preds = %63
-  %67 = tail call i32 @ungetc(i32 noundef %65, ptr noundef %64)
-  br label %80
-
-myfeof.exit96:                                    ; preds = %63
-  %68 = load i32, ptr %31, align 8
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %80
-
-70:                                               ; preds = %myfeof.exit96
-  %71 = load i32, ptr %29, align 8
-  %.not94 = icmp eq i32 %71, 0
-  br i1 %.not94, label %.thread103, label %72
-
-72:                                               ; preds = %70
-  br i1 %.not, label %74, label %73
-
-73:                                               ; preds = %72
-  store i32 -7, ptr %0, align 4
-  br label %74
-
-74:                                               ; preds = %72, %73
-  store i32 -7, ptr %8, align 8
-  br label %84
-
-75:                                               ; preds = %62
-  br i1 %.not, label %77, label %76
-
-76:                                               ; preds = %75
-  store i32 4, ptr %0, align 4
-  br label %77
-
-77:                                               ; preds = %75, %76
-  store i32 4, ptr %8, align 8
-  %78 = load i32, ptr %29, align 8
-  %79 = sub i32 %3, %78
-  br label %84
-
-80:                                               ; preds = %myfeof.exit96, %myfeof.exit96.thread, %62
-  %.pr = load i32, ptr %29, align 8
-  %81 = icmp eq i32 %.pr, 0
-  br i1 %81, label %.thread103, label %34
-
-.thread103:                                       ; preds = %80, %70
-  br i1 %.not, label %83, label %82
-
-82:                                               ; preds = %.thread103
-  store i32 0, ptr %0, align 4
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %1, i64 5096
+  store i32 -2, ptr %14, align 8
   br label %83
 
-83:                                               ; preds = %.thread103, %82
-  store i32 0, ptr %8, align 8
-  br label %84
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds i8, ptr %1, i64 5012
+  %17 = load i8, ptr %16, align 4
+  %.not89 = icmp eq i8 %17, 0
+  br i1 %.not89, label %21, label %18
 
-84:                                               ; preds = %26, %21, %13, %14, %83, %77, %74, %61, %54, %39
-  %.0 = phi i32 [ 0, %39 ], [ 0, %61 ], [ 0, %74 ], [ %79, %77 ], [ %3, %83 ], [ 0, %54 ], [ 0, %14 ], [ 0, %13 ], [ 0, %21 ], [ 0, %26 ]
+18:                                               ; preds = %15
+  br i1 %.not, label %20, label %19
+
+19:                                               ; preds = %18
+  store i32 -1, ptr %0, align 4
+  br label %20
+
+20:                                               ; preds = %18, %19
+  store i32 -1, ptr %8, align 8
+  br label %83
+
+21:                                               ; preds = %15
+  %22 = icmp eq i32 %3, 0
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %21
+  br i1 %.not, label %25, label %24
+
+24:                                               ; preds = %23
+  store i32 0, ptr %0, align 4
+  br label %25
+
+25:                                               ; preds = %23, %24
+  store i32 0, ptr %8, align 8
+  br label %83
+
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %1, i64 5016
+  %28 = getelementptr inbounds i8, ptr %1, i64 5048
+  store i32 %3, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 5040
+  store ptr %2, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 5024
+  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 5008
+  br label %33
+
+33:                                               ; preds = %79, %26
+  %34 = load ptr, ptr %1, align 8
+  %35 = tail call i32 @ferror(ptr noundef %34) #22
+  %.not90 = icmp eq i32 %35, 0
+  br i1 %.not90, label %39, label %36
+
+36:                                               ; preds = %33
+  br i1 %.not, label %38, label %37
+
+37:                                               ; preds = %36
+  store i32 -6, ptr %0, align 4
+  br label %38
+
+38:                                               ; preds = %36, %37
+  store i32 -6, ptr %8, align 8
+  br label %83
+
+39:                                               ; preds = %33
+  %40 = load i32, ptr %30, align 8
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %myfeof.exit
+
+42:                                               ; preds = %39
+  %43 = tail call i32 @fgetc(ptr noundef %34)
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %myfeof.exit, label %45
+
+45:                                               ; preds = %42
+  %46 = tail call i32 @ungetc(i32 noundef %43, ptr noundef %34)
+  %47 = load ptr, ptr %1, align 8
+  %48 = tail call i64 @fread(ptr noundef nonnull %31, i64 noundef 1, i64 noundef 5000, ptr noundef %47)
+  %49 = load ptr, ptr %1, align 8
+  %50 = tail call i32 @ferror(ptr noundef %49) #22
+  %.not92 = icmp eq i32 %50, 0
+  br i1 %.not92, label %54, label %51
+
+51:                                               ; preds = %45
+  br i1 %.not, label %53, label %52
+
+52:                                               ; preds = %51
+  store i32 -6, ptr %0, align 4
+  br label %53
+
+53:                                               ; preds = %51, %52
+  store i32 -6, ptr %8, align 8
+  br label %83
+
+54:                                               ; preds = %45
+  %55 = trunc i64 %48 to i32
+  store i32 %55, ptr %32, align 8
+  store i32 %55, ptr %30, align 8
+  store ptr %31, ptr %27, align 8
+  br label %myfeof.exit
+
+myfeof.exit:                                      ; preds = %42, %54, %39
+  %56 = tail call i32 @BZ2_bzDecompress(ptr noundef nonnull %27)
+  %57 = and i32 %56, -5
+  %or.cond5.not = icmp eq i32 %57, 0
+  br i1 %or.cond5.not, label %61, label %58
+
+58:                                               ; preds = %myfeof.exit
+  br i1 %.not, label %60, label %59
+
+59:                                               ; preds = %58
+  store i32 %56, ptr %0, align 4
+  br label %60
+
+60:                                               ; preds = %58, %59
+  store i32 %56, ptr %8, align 8
+  br label %83
+
+61:                                               ; preds = %myfeof.exit
+  switch i32 %56, label %79 [
+    i32 0, label %62
+    i32 4, label %74
+  ]
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %1, align 8
+  %64 = tail call i32 @fgetc(ptr noundef %63)
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %myfeof.exit96, label %myfeof.exit96.thread
+
+myfeof.exit96.thread:                             ; preds = %62
+  %66 = tail call i32 @ungetc(i32 noundef %64, ptr noundef %63)
+  br label %79
+
+myfeof.exit96:                                    ; preds = %62
+  %67 = load i32, ptr %30, align 8
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %79
+
+69:                                               ; preds = %myfeof.exit96
+  %70 = load i32, ptr %28, align 8
+  %.not94 = icmp eq i32 %70, 0
+  br i1 %.not94, label %.thread103, label %71
+
+71:                                               ; preds = %69
+  br i1 %.not, label %73, label %72
+
+72:                                               ; preds = %71
+  store i32 -7, ptr %0, align 4
+  br label %73
+
+73:                                               ; preds = %71, %72
+  store i32 -7, ptr %8, align 8
+  br label %83
+
+74:                                               ; preds = %61
+  br i1 %.not, label %76, label %75
+
+75:                                               ; preds = %74
+  store i32 4, ptr %0, align 4
+  br label %76
+
+76:                                               ; preds = %74, %75
+  store i32 4, ptr %8, align 8
+  %77 = load i32, ptr %28, align 8
+  %78 = sub i32 %3, %77
+  br label %83
+
+79:                                               ; preds = %myfeof.exit96, %myfeof.exit96.thread, %61
+  %.pr = load i32, ptr %28, align 8
+  %80 = icmp eq i32 %.pr, 0
+  br i1 %80, label %.thread103, label %33
+
+.thread103:                                       ; preds = %79, %69
+  br i1 %.not, label %82, label %81
+
+81:                                               ; preds = %.thread103
+  store i32 0, ptr %0, align 4
+  br label %82
+
+82:                                               ; preds = %.thread103, %81
+  store i32 0, ptr %8, align 8
+  br label %83
+
+83:                                               ; preds = %25, %20, %12, %13, %82, %76, %73, %60, %53, %38
+  %.0 = phi i32 [ 0, %38 ], [ 0, %60 ], [ 0, %73 ], [ %78, %76 ], [ %3, %82 ], [ 0, %53 ], [ 0, %13 ], [ 0, %12 ], [ 0, %20 ], [ 0, %25 ]
   ret i32 %.0
 }
 

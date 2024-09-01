@@ -5946,20 +5946,20 @@ define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr nou
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef 0) #13
-  %.not55 = icmp eq ptr %5, null
-  br i1 %.not55, label %.thread44, label %6
+  %.not54 = icmp eq ptr %5, null
+  br i1 %.not54, label %.thread44, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %.not56 = icmp eq ptr %8, null
-  br i1 %.not56, label %.thread44, label %9
+  %.not55 = icmp eq ptr %8, null
+  br i1 %.not55, label %.thread44, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
-  %.not54 = icmp eq ptr %11, null
-  br i1 %.not54, label %.thread44, label %12
+  %.not56 = icmp eq ptr %11, null
+  br i1 %.not56, label %.thread44, label %12
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %5) #13

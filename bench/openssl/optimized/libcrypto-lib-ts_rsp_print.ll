@@ -120,16 +120,13 @@ if.end13:                                         ; preds = %if.then11, %for.bod
   %4 = load ptr, ptr %text, align 8
   %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #2
   %cmp9 = icmp slt i32 %inc, %call8
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !4
+  br i1 %cmp9, label %for.body, label %if.end22, !llvm.loop !4
 
-for.end:                                          ; preds = %if.end13
-  br i1 %cmp923, label %if.then20, label %if.end22
-
-if.then20:                                        ; preds = %if.end, %for.end
+if.then20:                                        ; preds = %if.end
   %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.23) #2
   br label %if.end22
 
-if.end22:                                         ; preds = %if.then20, %for.end
+if.end22:                                         ; preds = %if.end13, %if.then20
   %call23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.24) #2
   %failure_info = getelementptr inbounds i8, ptr %a, i64 16
   %5 = load ptr, ptr %failure_info, align 8

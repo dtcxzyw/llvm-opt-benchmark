@@ -608,8 +608,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 39:                                               ; preds = %41, %ensure_valid_bucket_pointers.exit
   %.012.i = phi ptr [ %37, %ensure_valid_bucket_pointers.exit ], [ %43, %41 ]
   %40 = load i64, ptr %.012.i, align 8
-  %.not.not.i.not = icmp ne i64 %40, 0
-  br i1 %.not.not.i.not, label %41, label %delete_key_from_bucket.exit
+  %.not.not.not.not.i.not.not.not.not.not = icmp ne i64 %40, 0
+  br i1 %.not.not.not.not.i.not.not.not.not.not, label %41, label %delete_key_from_bucket.exit
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %0, align 8
@@ -641,7 +641,7 @@ delete_key_from_bucket.exit:                      ; preds = %39, %50
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = getelementptr [128 x %struct.dshash_partition], ptr %60, i64 0, i64 %11
   tail call void @LWLockRelease(ptr noundef %61) #13
-  ret i1 %.not.not.i.not
+  ret i1 %.not.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable
@@ -662,8 +662,8 @@ define dso_local void @dshash_delete_entry(ptr nocapture noundef readonly %0, pt
 14:                                               ; preds = %16, %2
   %.011.i.i = phi ptr [ %13, %2 ], [ %18, %16 ]
   %15 = load i64, ptr %.011.i.i, align 8
-  %.not.not.i.not.i = icmp eq i64 %15, 0
-  br i1 %.not.not.i.not.i, label %delete_item.exit, label %16
+  %.not.not.not.not.i.not.i = icmp eq i64 %15, 0
+  br i1 %.not.not.not.not.i.not.i, label %delete_item.exit, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %0, align 8
@@ -970,8 +970,8 @@ define dso_local void @dshash_delete_current(ptr nocapture noundef readonly %0) 
 15:                                               ; preds = %17, %1
   %.011.i.i = phi ptr [ %14, %1 ], [ %19, %17 ]
   %16 = load i64, ptr %.011.i.i, align 8
-  %.not.not.i.not.i = icmp eq i64 %16, 0
-  br i1 %.not.not.i.not.i, label %delete_item.exit, label %17
+  %.not.not.not.not.i.not.i = icmp eq i64 %16, 0
+  br i1 %.not.not.not.not.i.not.i, label %delete_item.exit, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %2, align 8

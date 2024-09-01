@@ -57379,42 +57379,42 @@ _ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit: ; preds = %.lr.ph.i120
   %148 = extractvalue { ptr, i64 } %145, 0
   %149 = icmp ne ptr %148, null
   %150 = select i1 %147, i1 %149, i1 false
-  br i1 %150, label %._crit_edge149, label %..preheader_crit_edge
+  br i1 %150, label %._crit_edge153, label %..preheader_crit_edge
 
-._crit_edge149:                                   ; preds = %_ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit
+._crit_edge153:                                   ; preds = %_ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit
   %.sroa.07.0.copyload.pre = load ptr, ptr %131, align 8
   %.sroa.28.0.copyload.pre = load i64, ptr %132, align 8
   br label %.loopexit
 
 ..preheader_crit_edge:                            ; preds = %_ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit
-  %.pre148 = load i64, ptr %132, align 8
+  %.pre152 = load i64, ptr %132, align 8
   %.sroa.0.0.copyload.pre.pre = load ptr, ptr %131, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %140, %139, %..preheader_crit_edge
   %151 = phi i1 [ true, %..preheader_crit_edge ], [ false, %139 ], [ false, %140 ]
   %.sroa.0.0.copyload.pre = phi ptr [ %.sroa.0.0.copyload.pre.pre, %..preheader_crit_edge ], [ %.pre, %139 ], [ %.pre, %140 ]
-  %152 = phi i64 [ %.pre148, %..preheader_crit_edge ], [ %133, %139 ], [ %133, %140 ]
-  %.not145 = icmp eq i64 %152, 0
-  br i1 %.not145, label %._crit_edge, label %.lr.ph
+  %152 = phi i64 [ %.pre152, %..preheader_crit_edge ], [ %133, %139 ], [ %133, %140 ]
+  %.not149 = icmp eq i64 %152, 0
+  br i1 %.not149, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %136, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit, %._crit_edge149
-  %153 = phi i1 [ true, %._crit_edge149 ], [ false, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ false, %136 ]
-  %.sroa.28.0.copyload = phi i64 [ %.sroa.28.0.copyload.pre, %._crit_edge149 ], [ %133, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ %133, %136 ]
-  %.sroa.07.0.copyload = phi ptr [ %.sroa.07.0.copyload.pre, %._crit_edge149 ], [ %.pre, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ %.pre, %136 ]
+.loopexit:                                        ; preds = %136, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit, %._crit_edge153
+  %153 = phi i1 [ true, %._crit_edge153 ], [ false, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ false, %136 ]
+  %.sroa.28.0.copyload = phi i64 [ %.sroa.28.0.copyload.pre, %._crit_edge153 ], [ %133, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ %133, %136 ]
+  %.sroa.07.0.copyload = phi ptr [ %.sroa.07.0.copyload.pre, %._crit_edge153 ], [ %.pre, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ %.pre, %136 ]
   %154 = and i64 %2, 2
   %155 = icmp ne i64 %154, 0
   call void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE21_write_scalar_literalENS_15basic_substringIKcEEmbb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i64 noundef %3, i1 noundef zeroext %155, i1 noundef zeroext %153)
   br label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit114
 
 156:                                              ; preds = %.lr.ph
-  %157 = add nuw i64 %.0144, 1
+  %157 = add nuw i64 %.0148, 1
   %exitcond.not = icmp eq i64 %157, %152
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !347
 
 .lr.ph:                                           ; preds = %.preheader, %156
-  %.0144 = phi i64 [ %157, %156 ], [ 0, %.preheader ]
-  %158 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pre, i64 %.0144
+  %.0148 = phi i64 [ %157, %156 ], [ 0, %.preheader ]
+  %158 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pre, i64 %.0148
   %159 = load i8, ptr %158, align 1
   %160 = icmp eq i8 %159, 10
   br i1 %160, label %161, label %156
@@ -57427,13 +57427,13 @@ _ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit: ; preds = %.lr.ph.i120
 
 ._crit_edge:                                      ; preds = %156, %130, %.preheader
   %164 = phi i64 [ 0, %.preheader ], [ 0, %130 ], [ %152, %156 ]
-  %.sroa.0.0.copyload.pre173 = phi ptr [ %.sroa.0.0.copyload.pre, %.preheader ], [ %.pre, %130 ], [ %.sroa.0.0.copyload.pre, %156 ]
+  %.sroa.0.0.copyload.pre172 = phi ptr [ %.sroa.0.0.copyload.pre, %.preheader ], [ %.pre, %130 ], [ %.sroa.0.0.copyload.pre, %156 ]
   %165 = and i64 %2, 8194
   %166 = icmp eq i64 %165, 8194
   %167 = and i64 %2, 4097
   %168 = icmp eq i64 %167, 4097
   %169 = or i1 %166, %168
-  call void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE13_write_scalarENS_15basic_substringIKcEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.0.0.copyload.pre173, i64 %164, i1 noundef zeroext %169)
+  call void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE13_write_scalarENS_15basic_substringIKcEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.0.0.copyload.pre172, i64 %164, i1 noundef zeroext %169)
   br label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit114
 
 170:                                              ; preds = %129
@@ -57815,7 +57815,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   br i1 %exitcond144.not, label %._crit_edge124, label %.preheader, !llvm.loop !355
 
 ._crit_edge124:                                   ; preds = %133, %162, %.preheader.us125, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit91, %125
-  %.not130148 = phi i1 [ true, %125 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit91 ], [ %.not130, %.preheader.us125 ], [ %.not130, %162 ], [ %.not130, %133 ]
+  %.not130148 = phi i1 [ true, %125 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit91 ], [ false, %.preheader.us125 ], [ false, %162 ], [ false, %133 ]
   %or.cond4.not = and i1 %4, %.not130148
   br i1 %or.cond4.not, label %163, label %170
 
@@ -58107,7 +58107,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   br i1 %exitcond110.not, label %._crit_edge95, label %.preheader, !llvm.loop !361
 
 ._crit_edge95:                                    ; preds = %100, %129, %.preheader.us96, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit76, %92
-  %.not101115 = phi i1 [ true, %92 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit76 ], [ %.not101, %.preheader.us96 ], [ %.not101, %129 ], [ %.not101, %100 ]
+  %.not101115 = phi i1 [ true, %92 ], [ true, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit76 ], [ false, %.preheader.us96 ], [ false, %129 ], [ false, %100 ]
   %or.cond.not = and i1 %4, %.not101115
   br i1 %or.cond.not, label %130, label %137
 
@@ -58872,8 +58872,8 @@ _ZNK2c415basic_substringIKcE8first_ofEcm.exit:    ; preds = %65, %69
   br i1 %exitcond.not.i34, label %_ZNK2c415basic_substringIKcE8first_ofEcm.exit35, label %71, !llvm.loop !350
 
 _ZNK2c415basic_substringIKcE8first_ofEcm.exit35:  ; preds = %71, %75
-  %.07.i31.ph = phi i64 [ %.08.i33, %71 ], [ -1, %75 ]
-  %.not15 = icmp eq i64 %.07.i31.ph, -1
+  %.07.i31 = phi i64 [ -1, %75 ], [ %.08.i33, %71 ]
+  %.not15 = icmp eq i64 %.07.i31, -1
   %brmerge.not = and i1 %.not, %.not15
   br i1 %brmerge.not, label %77, label %97
 
@@ -61245,7 +61245,7 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1119ba
 
 .thread:                                          ; preds = %.lr.ph.i, %._crit_edge.i
   %..i156 = tail call i64 @llvm.umin.i64(i64 %2, i64 5)
-  br i1 %.not28.i, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit174.thread, label %.lr.ph.i158
+  br label %.lr.ph.i158
 
 18:                                               ; preds = %.lr.ph.i158
   %19 = add nuw nsw i64 %.027.i159, 1
@@ -61259,22 +61259,22 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1119ba
   %22 = getelementptr inbounds i8, ptr @.str.150, i64 %.027.i159
   %23 = load i8, ptr %22, align 1, !alias.scope !418
   %.not.i160 = icmp eq i8 %21, %23
-  br i1 %.not.i160, label %18, label %.thread213
+  br i1 %.not.i160, label %18, label %.lr.ph.i168.preheader
 
 ._crit_edge.i162:                                 ; preds = %18
   %.not221 = icmp eq i64 %2, 5
-  br i1 %.not221, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread207, label %.thread213
+  br i1 %.not221, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread207, label %.lr.ph.i168.preheader
 
-.thread213:                                       ; preds = %.lr.ph.i158, %._crit_edge.i162
-  br i1 %.not28.i, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit174.thread, label %.lr.ph.i168
+.lr.ph.i168.preheader:                            ; preds = %.lr.ph.i158, %._crit_edge.i162
+  br label %.lr.ph.i168
 
 24:                                               ; preds = %.lr.ph.i168
   %25 = add nuw nsw i64 %.027.i169, 1
   %exitcond.not.i171 = icmp eq i64 %25, %..i
   br i1 %exitcond.not.i171, label %._crit_edge.i172, label %.lr.ph.i168, !llvm.loop !341
 
-.lr.ph.i168:                                      ; preds = %.thread213, %24
-  %.027.i169 = phi i64 [ %25, %24 ], [ 0, %.thread213 ]
+.lr.ph.i168:                                      ; preds = %.lr.ph.i168.preheader, %24
+  %.027.i169 = phi i64 [ %25, %24 ], [ 0, %.lr.ph.i168.preheader ]
   %26 = getelementptr inbounds i8, ptr %1, i64 %.027.i169
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr @.str.86, i64 %.027.i169
@@ -61286,7 +61286,7 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1119ba
   %.not222 = icmp eq i64 %2, 4
   br i1 %.not222, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread207, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit174.thread
 
-_ZNK2c415basic_substringIKcE7compareEPS1_m.exit174.thread: ; preds = %.lr.ph.i168, %.thread, %9, %.thread213, %16, %._crit_edge.i172
+_ZNK2c415basic_substringIKcE7compareEPS1_m.exit174.thread: ; preds = %.lr.ph.i168, %9, %16, %._crit_edge.i172
   %30 = call noundef zeroext i1 @_ZNK2c415basic_substringIKcE9is_numberEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   br i1 %30, label %31, label %_ZNK2c415basic_substringIKcE4findEcm.exit.thread
 

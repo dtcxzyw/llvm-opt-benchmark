@@ -233,14 +233,11 @@ define range(i32 -13, 1) i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef %1, 
   br i1 %.not18, label %._crit_edge30, label %.preheader, !llvm.loop !10
 
 ._crit_edge30:                                    ; preds = %._crit_edge
-  br i1 %.not1828, label %._crit_edge30.thread, label %33
-
-33:                                               ; preds = %._crit_edge30
   call void @freeaddrinfo(ptr noundef nonnull %.01427) #16
   br label %._crit_edge30.thread
 
-._crit_edge30.thread:                             ; preds = %.preheader22, %._crit_edge30, %33, %12, %13, %3, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ -13, %3 ], [ -13, %13 ], [ -13, %12 ], [ -13, %33 ], [ -13, %._crit_edge30 ], [ -13, %.preheader22 ]
+._crit_edge30.thread:                             ; preds = %.preheader22, %._crit_edge30, %12, %13, %3, %.split.us
+  %.0 = phi i32 [ 0, %.split.us ], [ -13, %3 ], [ -13, %13 ], [ -13, %12 ], [ -13, %._crit_edge30 ], [ -13, %.preheader22 ]
   ret i32 %.0
 }
 

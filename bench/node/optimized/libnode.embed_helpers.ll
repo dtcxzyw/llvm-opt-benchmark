@@ -340,9 +340,9 @@ if.end49:                                         ; preds = %if.end44
   %call52 = call ptr @_ZNK4node11Environment28RunSnapshotSerializeCallbackEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #21
   %cmp.i = icmp eq ptr %call52, null
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope50) #21
-  br i1 %cmp.i, label %do.end68, label %do.cond
+  br i1 %cmp.i, label %do.end68, label %cleanup.cont
 
-do.cond:                                          ; preds = %if.end49
+cleanup.cont:                                     ; preds = %if.end49
   %30 = load ptr, ptr %isolate_data_.i.i, align 8
   %event_loop_.i.i40 = getelementptr inbounds i8, ptr %30, i64 4064
   %31 = load ptr, ptr %event_loop_.i.i40, align 8
@@ -350,12 +350,12 @@ do.cond:                                          ; preds = %if.end49
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %do.end68, label %land.rhs
 
-land.rhs:                                         ; preds = %land.lhs.true, %do.cond
+land.rhs:                                         ; preds = %land.lhs.true, %cleanup.cont
   %32 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
   %tobool.i.i.i42 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i42, label %do.end68, label %do.body29, !llvm.loop !8
 
-do.end68:                                         ; preds = %if.end49, %do.cond, %if.end44, %if.end32, %do.body29, %land.rhs
+do.end68:                                         ; preds = %if.end49, %cleanup.cont, %if.end44, %if.end32, %do.body29, %land.rhs
   %33 = load ptr, ptr %performance_state_.i, align 8
   %call70 = call i64 @uv_hrtime() #21
   call void @_ZN4node11performance16PerformanceState4MarkENS0_20PerformanceMilestoneEm(ptr noundef nonnull align 8 dereferenceable(178) %33, i32 noundef 5, i64 noundef %call70) #21

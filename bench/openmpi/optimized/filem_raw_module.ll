@@ -841,7 +841,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %154 = phi i32 [ %149, %sub_1 ], [ %153, %sub_2 ]
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %156, label %sub_0400
+  br i1 %155, label %156, label %sub_1401
 
 156:                                              ; preds = %.tail
   %157 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
@@ -861,10 +861,7 @@ sub_2:                                            ; preds = %sub_1
   call void (i32, ptr, ...) @pmix_output(i32 noundef %157, ptr noundef nonnull @.str.38, ptr noundef %164, ptr noundef %165) #15
   br label %186
 
-sub_0400:                                         ; preds = %.tail
-  br i1 %.not435, label %sub_1401, label %.tail399
-
-sub_1401:                                         ; preds = %sub_0400
+sub_1401:                                         ; preds = %.tail
   %166 = getelementptr inbounds i8, ptr %129, i64 1
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
@@ -879,8 +876,8 @@ sub_2402:                                         ; preds = %sub_1401
   %173 = add nsw i32 %172, -122
   br label %.tail399
 
-.tail399:                                         ; preds = %sub_0, %sub_0400, %sub_1401, %sub_2402
-  %174 = phi i32 [ %145, %sub_0400 ], [ %169, %sub_1401 ], [ %173, %sub_2402 ], [ %145, %sub_0 ]
+.tail399:                                         ; preds = %sub_0, %sub_1401, %sub_2402
+  %174 = phi i32 [ %169, %sub_1401 ], [ %173, %sub_2402 ], [ %145, %sub_0 ]
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %186
 

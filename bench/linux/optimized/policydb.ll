@@ -3529,8 +3529,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @role_allow_write(ptr nound
   %10 = phi i32 [ 0, %2 ], [ %6, %.preheader6 ]
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ult i64 %12, 4
-  br i1 %13, label %.thread, label %14
+  %13 = icmp ugt i64 %12, 3
+  br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %.loopexit
   %15 = load ptr, ptr %1, align 8

@@ -1664,7 +1664,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
 declare void @bitmap_copy_and_clear_atomic(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @cpu_physical_memory_snapshot_get_dirty(ptr nocapture noundef readonly %snap, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @cpu_physical_memory_snapshot_get_dirty(ptr nocapture noundef readonly %snap, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %snap, align 8
   %cmp.not = icmp ult i64 %start, %0
@@ -1693,40 +1693,24 @@ if.end6:                                          ; preds = %if.end
   %shr13 = lshr i64 %sub12, 12
   %dirty = getelementptr inbounds i8, ptr %snap, i64 16
   %cmp1412 = icmp ult i64 %shr13, %shr
-  br i1 %cmp1412, label %while.body.preheader, label %return
+  br i1 %cmp1412, label %while.body, label %return
 
-while.body.preheader:                             ; preds = %if.end6
-  %div2.i16 = lshr i64 %sub12, 18
-  %arrayidx.i17 = getelementptr i64, ptr %dirty, i64 %div2.i16
-  %2 = load i64, ptr %arrayidx.i17, align 8
-  %and.i18 = and i64 %shr13, 63
-  %3 = shl nuw i64 1, %and.i18
-  %4 = and i64 %2, %3
-  %tobool.not19 = icmp eq i64 %4, 0
-  br i1 %tobool.not19, label %while.cond, label %return
-
-while.cond:                                       ; preds = %while.body.preheader, %while.body
-  %page.01320 = phi i64 [ %inc, %while.body ], [ %shr13, %while.body.preheader ]
-  %inc = add nuw nsw i64 %page.01320, 1
-  %exitcond.not = icmp eq i64 %inc, %shr
-  br i1 %exitcond.not, label %return.loopexit, label %while.body, !llvm.loop !28
-
-while.body:                                       ; preds = %while.cond
-  %div2.i = lshr i64 %inc, 6
+while.body:                                       ; preds = %if.end6, %while.body
+  %page.013 = phi i64 [ %inc, %while.body ], [ %shr13, %if.end6 ]
+  %div2.i = lshr i64 %page.013, 6
   %arrayidx.i = getelementptr i64, ptr %dirty, i64 %div2.i
-  %5 = load i64, ptr %arrayidx.i, align 8
-  %and.i = and i64 %inc, 63
-  %6 = shl nuw i64 1, %and.i
-  %7 = and i64 %5, %6
-  %tobool.not = icmp eq i64 %7, 0
-  br i1 %tobool.not, label %while.cond, label %return.loopexit, !llvm.loop !28
+  %2 = load i64, ptr %arrayidx.i, align 8
+  %and.i = and i64 %page.013, 63
+  %3 = shl nuw i64 1, %and.i
+  %4 = and i64 %2, %3
+  %tobool.not.not = icmp ne i64 %4, 0
+  %inc = add nuw nsw i64 %page.013, 1
+  %exitcond.not = icmp eq i64 %inc, %shr
+  %or.cond = select i1 %tobool.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %while.body, !llvm.loop !28
 
-return.loopexit:                                  ; preds = %while.body, %while.cond
-  %cmp14.le = icmp ult i64 %inc, %shr
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %while.body.preheader, %if.end6
-  %cmp14.lcssa = phi i1 [ false, %if.end6 ], [ true, %while.body.preheader ], [ %cmp14.le, %return.loopexit ]
+return:                                           ; preds = %while.body, %if.end6
+  %cmp14.lcssa = phi i1 [ false, %if.end6 ], [ %tobool.not.not, %while.body ]
   ret i1 %cmp14.lcssa
 }
 

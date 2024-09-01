@@ -2199,7 +2199,7 @@ Sbd_CutSetAddCut.exit.us:                         ; preds = %142, %.lr.ph134.i.u
   br i1 %.not63.i, label %._crit_edge52.thread.i, label %1064
 
 ._crit_edge52.thread.i:                           ; preds = %._crit_edge391.thread, %._crit_edge52.i, %._crit_edge391
-  %1059 = phi i1 [ %1023, %._crit_edge52.i ], [ false, %._crit_edge391 ], [ false, %._crit_edge391.thread ]
+  %1059 = phi i1 [ true, %._crit_edge52.i ], [ false, %._crit_edge391 ], [ false, %._crit_edge391.thread ]
   %.0118.lcssa476 = phi i32 [ 1, %._crit_edge52.i ], [ %.2.us, %._crit_edge391 ], [ 0, %._crit_edge391.thread ]
   %.0.lcssa61.i = phi i32 [ %.1.i215, %._crit_edge52.i ], [ 1000000000, %._crit_edge391 ], [ 1000000000, %._crit_edge391.thread ]
   %1060 = load ptr, ptr %66, align 8
@@ -2209,7 +2209,7 @@ Sbd_CutSetAddCut.exit.us:                         ; preds = %142, %.lr.ph134.i.u
   br i1 %1063, label %1064, label %Sbd_StoComputeDelay.exit
 
 1064:                                             ; preds = %._crit_edge52.thread.i, %._crit_edge52.i
-  %1065 = phi i1 [ %1059, %._crit_edge52.thread.i ], [ %1023, %._crit_edge52.i ]
+  %1065 = phi i1 [ %1059, %._crit_edge52.thread.i ], [ true, %._crit_edge52.i ]
   %.0118.lcssa475 = phi i32 [ %.0118.lcssa476, %._crit_edge52.thread.i ], [ %.2.us, %._crit_edge52.i ]
   %.0.lcssa62.i = phi i32 [ %.0.lcssa61.i, %._crit_edge52.thread.i ], [ %.1.i215, %._crit_edge52.i ]
   %1066 = add nuw nsw i32 %.0.lcssa62.i, 1
@@ -2843,17 +2843,14 @@ Sbd_CutTreeLeaves.exit:                           ; preds = %75
   %.val48.val = load ptr, ptr %17, align 8
   %87 = getelementptr inbounds i32, ptr %.val48.val, i64 %7
   %88 = load i32, ptr %87, align 4
-  br i1 %.not.i, label %Sbd_CutSlowLeaves.exit, label %.lr.ph.i75
-
-.lr.ph.i75:                                       ; preds = %Sbd_CutTreeLeaves.exit
   %89 = lshr i32 %35, 28
   %90 = getelementptr inbounds i8, ptr %19, i64 24
   %wide.trip.count.i76 = zext nneg i32 %89 to i64
   br label %91
 
-91:                                               ; preds = %91, %.lr.ph.i75
-  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.i75 ], [ %indvars.iv.next.i78, %91 ]
-  %.0101.i = phi i32 [ 0, %.lr.ph.i75 ], [ %100, %91 ]
+91:                                               ; preds = %91, %Sbd_CutTreeLeaves.exit
+  %indvars.iv.i77 = phi i64 [ 0, %Sbd_CutTreeLeaves.exit ], [ %indvars.iv.next.i78, %91 ]
+  %.0101.i = phi i32 [ 0, %Sbd_CutTreeLeaves.exit ], [ %100, %91 ]
   %92 = getelementptr inbounds [10 x i32], ptr %90, i64 0, i64 %indvars.iv.i77
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
@@ -2867,9 +2864,9 @@ Sbd_CutTreeLeaves.exit:                           ; preds = %75
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i76
   br i1 %exitcond.not.i79, label %Sbd_CutSlowLeaves.exit, label %91, !llvm.loop !43
 
-Sbd_CutSlowLeaves.exit:                           ; preds = %91, %Sbd_CutTreeLeaves.exit.thread, %Sbd_CutTreeLeaves.exit
-  %101 = phi i32 [ %86, %Sbd_CutTreeLeaves.exit ], [ %43, %Sbd_CutTreeLeaves.exit.thread ], [ %86, %91 ]
-  %.010.lcssa.i = phi i32 [ 0, %Sbd_CutTreeLeaves.exit ], [ 0, %Sbd_CutTreeLeaves.exit.thread ], [ %100, %91 ]
+Sbd_CutSlowLeaves.exit:                           ; preds = %91, %Sbd_CutTreeLeaves.exit.thread
+  %101 = phi i32 [ %43, %Sbd_CutTreeLeaves.exit.thread ], [ %86, %91 ]
+  %.010.lcssa.i = phi i32 [ 0, %Sbd_CutTreeLeaves.exit.thread ], [ %100, %91 ]
   %102 = shl i32 %.010.lcssa.i, 9
   %103 = and i32 %102, 261632
   %104 = and i32 %101, -261633

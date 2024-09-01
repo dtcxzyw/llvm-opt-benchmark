@@ -13541,8 +13541,8 @@ _ZL9check_intP8_IO_FILEPKciiPb.exit62.i.i:        ; preds = %223, %_ZNSt10filesy
   %.0.i.i = phi i1 [ %.2.i.mux.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i ], [ true, %223 ]
   %227 = getelementptr inbounds i8, ptr %2, i64 48
   %228 = load i32, ptr %227, align 8
-  %229 = icmp sgt i32 %228, 1
-  br i1 %229, label %230, label %_ZL9check_intP8_IO_FILEPKciiPb.exit78.i.i
+  %229 = icmp slt i32 %228, 2
+  br i1 %229, label %_ZL9check_intP8_IO_FILEPKciiPb.exit78.i.i, label %230
 
 230:                                              ; preds = %_ZL9check_intP8_IO_FILEPKciiPb.exit62.i.i
   %231 = getelementptr inbounds i8, ptr %2, i64 8

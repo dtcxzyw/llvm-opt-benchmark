@@ -1051,7 +1051,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   br i1 %111, label %.lr.ph380, label %.preheader348, !llvm.loop !20
 
 .preheader347:                                    ; preds = %117, %.preheader351, %.preheader354.thread, %.preheader354, %.preheader348
-  %112 = phi i1 [ false, %.preheader348 ], [ false, %.preheader354 ], [ false, %.preheader354.thread ], [ false, %.preheader351 ], [ %82, %117 ]
+  %112 = phi i1 [ false, %.preheader348 ], [ false, %.preheader354 ], [ false, %.preheader354.thread ], [ false, %.preheader351 ], [ true, %117 ]
   %.lcssa365550 = phi i32 [ %108, %.preheader348 ], [ %31, %.preheader354 ], [ %31, %.preheader354.thread ], [ %68, %.preheader351 ], [ %108, %117 ]
   %113 = phi i32 [ %109, %.preheader348 ], [ %18, %.preheader354 ], [ %18, %.preheader354.thread ], [ %67, %.preheader351 ], [ %109, %117 ]
   %114 = icmp sgt i32 %113, 0
@@ -1145,7 +1145,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 
 ._crit_edge398:                                   ; preds = %144
   %146 = icmp eq i32 %.1179, 0
-  br i1 %146, label %.loopexit346, label %.preheader345
+  br i1 %146, label %.lr.ph441, label %.preheader345
 
 .preheader345:                                    ; preds = %._crit_edge398
   %147 = load ptr, ptr %3, align 8
@@ -1156,12 +1156,11 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   %wide.trip.count534 = zext nneg i32 %113 to i64
   br label %152
 
-.loopexit342:                                     ; preds = %258, %.preheader341
-  %.9.lcssa = phi i32 [ 0, %.preheader341 ], [ %.10, %258 ]
+.loopexit342:                                     ; preds = %258
   br label %152, !llvm.loop !25
 
 152:                                              ; preds = %.preheader345, %.loopexit342
-  %.2180 = phi i32 [ %.9.lcssa, %.loopexit342 ], [ %.1179, %.preheader345 ]
+  %.2180 = phi i32 [ %.10, %.loopexit342 ], [ %.1179, %.preheader345 ]
   %.0170 = phi i32 [ %247, %.loopexit342 ], [ %.1179, %.preheader345 ]
   br label %153
 
@@ -1398,17 +1397,14 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
 ._crit_edge432:                                   ; preds = %.lr.ph431, %.loopexit.split.us
   %247 = add nsw i32 %.0170, -1
   %248 = icmp eq i32 %247, 0
-  br i1 %248, label %.loopexit346, label %.preheader343
+  br i1 %248, label %.lr.ph441, label %.preheader343
 
 .preheader343:                                    ; preds = %._crit_edge432
-  br i1 %112, label %.lr.ph434.preheader, label %.preheader341
+  br i1 %112, label %.lr.ph434.preheader, label %.lr.ph437.preheader
 
 .lr.ph434.preheader:                              ; preds = %.preheader343
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %38, i8 -1, i64 %151, i1 false)
   br label %.lr.ph434
-
-.preheader341:                                    ; preds = %.lr.ph434, %.preheader343
-  br i1 %114, label %.lr.ph437, label %.loopexit342
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %.lr.ph434
   %indvars.iv526 = phi i64 [ 0, %.lr.ph434.preheader ], [ %indvars.iv.next527, %.lr.ph434 ]
@@ -1416,11 +1412,14 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   store i32 %149, ptr %249, align 4
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %150
-  br i1 %exitcond530.not, label %.preheader341, label %.lr.ph434, !llvm.loop !34
+  br i1 %exitcond530.not, label %.lr.ph437.preheader, label %.lr.ph434, !llvm.loop !34
 
-.lr.ph437:                                        ; preds = %.preheader341, %258
-  %indvars.iv531 = phi i64 [ %indvars.iv.next532, %258 ], [ 0, %.preheader341 ]
-  %.9435 = phi i32 [ %.10, %258 ], [ 0, %.preheader341 ]
+.lr.ph437.preheader:                              ; preds = %.lr.ph434, %.preheader343
+  br label %.lr.ph437
+
+.lr.ph437:                                        ; preds = %.lr.ph437.preheader, %258
+  %indvars.iv531 = phi i64 [ %indvars.iv.next532, %258 ], [ 0, %.lr.ph437.preheader ]
+  %.9435 = phi i32 [ %.10, %258 ], [ 0, %.lr.ph437.preheader ]
   %250 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv531
   %251 = load i32, ptr %250, align 4
   %252 = icmp slt i32 %251, 0
@@ -1440,10 +1439,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   %exitcond535.not = icmp eq i64 %indvars.iv.next532, %wide.trip.count534
   br i1 %exitcond535.not, label %.loopexit342, label %.lr.ph437, !llvm.loop !35
 
-.loopexit346:                                     ; preds = %._crit_edge432, %._crit_edge398
-  br i1 %114, label %.lr.ph441, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit245
-
-.lr.ph441:                                        ; preds = %.loopexit346
+.lr.ph441:                                        ; preds = %._crit_edge432, %._crit_edge398
   %259 = getelementptr inbounds i8, ptr %0, i64 12
   %.pre547 = load i32, ptr %259, align 4
   br label %263
@@ -1513,7 +1509,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   %295 = icmp slt i64 %indvars.iv.next543, %294
   br i1 %295, label %.preheader, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit245, !llvm.loop !38
 
-_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit245: ; preds = %._crit_edge444, %.preheader347, %.loopexit346, %.preheader336
+_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit245: ; preds = %._crit_edge444, %.preheader347, %.preheader336
   tail call void @_ZdaPv(ptr noundef nonnull %42) #15
   tail call void @_ZdaPv(ptr noundef nonnull %40) #15
   tail call void @_ZdaPv(ptr noundef nonnull %38) #15

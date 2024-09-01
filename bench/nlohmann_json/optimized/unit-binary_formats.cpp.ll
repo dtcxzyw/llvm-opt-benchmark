@@ -28036,8 +28036,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br label %if.end153
 
 if.else88.thread:                                 ; preds = %land.lhs.true73
-  %cmp97.not = icmp ult i64 %n, 4294967296
-  br i1 %cmp97.not, label %if.then98, label %if.then115
+  %cmp97.not = icmp ugt i64 %n, 4294967295
+  br i1 %cmp97.not, label %if.then115, label %if.then98
 
 if.then98:                                        ; preds = %if.else88.thread
   br i1 %add_prefix, label %if.then100, label %if.end106
@@ -28548,8 +28548,8 @@ land.lhs.true58.thread59:                         ; preds = %if.end37.thread
   br i1 %cmp63.not60, label %land.lhs.true85, label %return
 
 if.end65.thread:                                  ; preds = %land.lhs.true58
-  %cmp78.not = icmp ult i64 %2, 4294967296
-  br i1 %cmp78.not, label %return, label %land.lhs.true85
+  %cmp78.not = icmp ugt i64 %2, 4294967295
+  br i1 %cmp78.not, label %land.lhs.true85, label %return
 
 land.lhs.true85:                                  ; preds = %if.end52, %land.lhs.true58.thread59, %if.end65.thread
   br label %return

@@ -2512,54 +2512,43 @@ entry:
   %1 = load i32, ptr %call, align 4
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3136), align 8
   %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %return, label %for.body.preheader
+  br i1 %tobool.not, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %3 = load i32, ptr @faulthandler_handlers, align 16
-  %cmp221 = icmp eq i32 %3, %signum
-  br i1 %cmp221, label %if.end7, label %for.cond
-
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %i.01922 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %inc = add nuw nsw i64 %i.01922, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.019, 1
   %exitcond = icmp eq i64 %inc, 5
-  br i1 %exitcond, label %if.end7.loopexit, label %for.body, !llvm.loop !11
+  br i1 %exitcond, label %if.end7, label %for.body, !llvm.loop !11
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %inc
-  %4 = load i32, ptr %arrayidx, align 16
-  %cmp2 = icmp eq i32 %4, %signum
-  br i1 %cmp2, label %if.end7.loopexit, label %for.cond, !llvm.loop !11
+for.body:                                         ; preds = %entry, %for.cond
+  %i.019 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
+  %arrayidx = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.019
+  %3 = load i32, ptr %arrayidx, align 16
+  %cmp2.not = icmp eq i32 %3, %signum
+  br i1 %cmp2.not, label %if.end7, label %for.cond
 
-if.end7.loopexit:                                 ; preds = %for.cond, %for.body
-  %arrayidx.lcssa.ph = phi ptr [ %arrayidx, %for.body ], [ getelementptr inbounds (i8, ptr @faulthandler_handlers, i64 704), %for.cond ]
-  %cmp.le = icmp ugt i64 %i.01922, 3
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end7.loopexit, %for.body.preheader
-  %arrayidx.lcssa = phi ptr [ @faulthandler_handlers, %for.body.preheader ], [ %arrayidx.lcssa.ph, %if.end7.loopexit ]
-  %cmp.lcssa = phi i1 [ false, %for.body.preheader ], [ %cmp.le, %if.end7.loopexit ]
+if.end7:                                          ; preds = %for.cond, %for.body
+  %arrayidx.lcssa = phi ptr [ getelementptr inbounds (i8, ptr @faulthandler_handlers, i64 704), %for.cond ], [ %arrayidx, %for.body ]
   %enabled.i = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 4
-  %5 = load i32, ptr %enabled.i, align 4
-  %tobool.not.i = icmp eq i32 %5, 0
+  %4 = load i32, ptr %enabled.i, align 4
+  %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %faulthandler_disable_fatal_handler.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end7
   store i32 0, ptr %enabled.i, align 4
-  %6 = load i32, ptr %arrayidx.lcssa, align 8
+  %5 = load i32, ptr %arrayidx.lcssa, align 8
   %previous.i = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 16
-  %call.i = tail call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %previous.i, ptr noundef null) #16
+  %call.i = tail call i32 @sigaction(i32 noundef %5, ptr noundef nonnull %previous.i, ptr noundef null) #16
   br label %faulthandler_disable_fatal_handler.exit
 
 faulthandler_disable_fatal_handler.exit:          ; preds = %if.end7, %if.end.i
-  br i1 %cmp.lcssa, label %if.else, label %if.then9
+  br i1 %cmp2.not, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %faulthandler_disable_fatal_handler.exit
   %call10 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.43, i64 noundef 20) #16
   %name = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 8
-  %7 = load ptr, ptr %name, align 8
-  %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
-  %call13 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %7, i64 noundef %call12) #16
+  %6 = load ptr, ptr %name, align 8
+  %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
+  %call13 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %6, i64 noundef %call12) #16
   %call14 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.44, i64 noundef 2) #16
   br label %if.end22
 
@@ -2573,15 +2562,15 @@ if.else:                                          ; preds = %faulthandler_disabl
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then9
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3156), align 4
-  %9 = load volatile i32, ptr @faulthandler_dump_traceback.reentrant, align 4
-  %tobool.not.i16 = icmp eq i32 %9, 0
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3156), align 4
+  %8 = load volatile i32, ptr @faulthandler_dump_traceback.reentrant, align 4
+  %tobool.not.i16 = icmp eq i32 %8, 0
   br i1 %tobool.not.i16, label %if.end.i17, label %faulthandler_dump_traceback.exit
 
 if.end.i17:                                       ; preds = %if.end22
   store volatile i32 1, ptr @faulthandler_dump_traceback.reentrant, align 4
   %call.i18 = call ptr @PyGILState_GetThisThreadState() #16
-  %tobool1.not.i = icmp eq i32 %8, 0
+  %tobool1.not.i = icmp eq i32 %7, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i17
@@ -2601,8 +2590,8 @@ if.end6.i:                                        ; preds = %if.then4.i, %if.els
   br label %faulthandler_dump_traceback.exit
 
 faulthandler_dump_traceback.exit:                 ; preds = %if.end22, %if.end6.i
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3160), align 8
-  call void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %10) #16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3160), align 8
+  call void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %9) #16
   store i32 %1, ptr %call, align 4
   %call24 = call i32 @raise(i32 noundef %signum) #16
   br label %return

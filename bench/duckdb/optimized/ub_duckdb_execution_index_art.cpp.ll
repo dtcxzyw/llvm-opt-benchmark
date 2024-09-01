@@ -15117,8 +15117,8 @@ entry:
 while.cond:                                       ; preds = %cleanup21, %entry
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !253
   %1 = load ptr, ptr %_M_start.i.i, align 8, !tbaa !253
-  %cmp.i.i.i.not.not = icmp ne ptr %0, %1
-  br i1 %cmp.i.i.i.not.not, label %while.body, label %return
+  %cmp.i.i.i.not.not.not.not.not.not = icmp ne ptr %0, %1
+  br i1 %cmp.i.i.i.not.not.not.not.not.not, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !tbaa !255, !noalias !256
@@ -15259,7 +15259,7 @@ cleanup21:                                        ; preds = %cleanup, %if.then8,
   br i1 %switch, label %while.cond, label %return
 
 return:                                           ; preds = %cleanup21, %while.cond
-  ret i1 %cmp.i.i.i.not.not
+  ret i1 %cmp.i.i.i.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable

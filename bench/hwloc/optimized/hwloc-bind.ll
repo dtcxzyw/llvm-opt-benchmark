@@ -3560,8 +3560,8 @@ hwloc_get_next_obj_by_depth.exit.us.i:            ; preds = %124, %121
 139:                                              ; preds = %.thread.i100, %132
   %140 = phi ptr [ %137, %.thread.i100 ], [ %134, %132 ]
   %141 = call i32 @hwloc_bitmap_intersects(ptr noundef %140, ptr noundef readonly %2) #22
-  %.not29.us.not.i = icmp eq i32 %141, 0
-  br i1 %.not29.us.not.i, label %.outer.us.i.backedge, label %142
+  %.not29.not.us.i = icmp eq i32 %141, 0
+  br i1 %.not29.not.us.i, label %.outer.us.i.backedge, label %142
 
 142:                                              ; preds = %139, %132
   %143 = call fastcc i32 @hwloc_calc_check_object_filtered(ptr noundef nonnull %.0.i.us.i, ptr noundef nonnull readonly %3)

@@ -3046,8 +3046,8 @@ if.then62.i:                                      ; preds = %land.lhs.true60.i
 if.end65.i:                                       ; preds = %if.end57.i
   %switch_branch_doing_nothing_is_ok.i = getelementptr inbounds i8, ptr %opts, i64 68
   %280 = load i32, ptr %switch_branch_doing_nothing_is_ok.i, align 4
-  %tobool66.not.i.not = icmp eq i32 %280, 0
-  br i1 %tobool66.not.i.not, label %land.lhs.true70.i, label %if.end78.i
+  %tobool66.not.not.i = icmp eq i32 %280, 0
+  br i1 %tobool66.not.not.i, label %land.lhs.true70.i, label %if.end78.i
 
 if.end65.thread.i:                                ; preds = %land.lhs.true37.i190
   %switch_branch_doing_nothing_is_ok106.i = getelementptr inbounds i8, ptr %opts, i64 68

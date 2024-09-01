@@ -72,8 +72,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @H5I_term_package() local_unnamed_addr #0 {
   %1 = load i32, ptr @H5I_next_type_g, align 4
-  %2 = icmp slt i32 %1, 1
-  br i1 %2, label %.loopexit, label %.lr.ph.preheader
+  %2 = icmp sgt i32 %1, 0
+  br i1 %2, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %0
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -102,36 +102,35 @@ define i32 @H5I_term_package() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %9
-  %10 = icmp ne i32 %.114, 0
-  %brmerge = or i1 %10, %2
-  br i1 %brmerge, label %.loopexit, label %.lr.ph23
+  %.not32 = icmp eq i32 %.114, 0
+  br i1 %.not32, label %.lr.ph23, label %.loopexit
 
-.lr.ph23:                                         ; preds = %._crit_edge, %17
-  %11 = phi i32 [ %18, %17 ], [ %1, %._crit_edge ]
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %17 ], [ 0, %._crit_edge ]
-  %.321 = phi i32 [ %.4, %17 ], [ 0, %._crit_edge ]
-  %12 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv26
-  %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %17, label %14
+.lr.ph23:                                         ; preds = %._crit_edge, %16
+  %10 = phi i32 [ %17, %16 ], [ %1, %._crit_edge ]
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %16 ], [ 0, %._crit_edge ]
+  %.321 = phi i32 [ %.4, %16 ], [ 0, %._crit_edge ]
+  %11 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv26
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %16, label %13
 
-14:                                               ; preds = %.lr.ph23
-  %15 = tail call ptr @H5MM_xfree(ptr noundef nonnull %13) #7
-  store ptr null, ptr %12, align 8
-  %16 = add nsw i32 %.321, 1
+13:                                               ; preds = %.lr.ph23
+  %14 = tail call ptr @H5MM_xfree(ptr noundef nonnull %12) #7
+  store ptr null, ptr %11, align 8
+  %15 = add nsw i32 %.321, 1
   %.pre = load i32, ptr @H5I_next_type_g, align 4
-  br label %17
+  br label %16
 
-17:                                               ; preds = %.lr.ph23, %14
-  %18 = phi i32 [ %.pre, %14 ], [ %11, %.lr.ph23 ]
-  %.4 = phi i32 [ %16, %14 ], [ %.321, %.lr.ph23 ]
+16:                                               ; preds = %.lr.ph23, %13
+  %17 = phi i32 [ %.pre, %13 ], [ %10, %.lr.ph23 ]
+  %.4 = phi i32 [ %15, %13 ], [ %.321, %.lr.ph23 ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %20, label %.lr.ph23, label %.loopexit
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next27, %18
+  br i1 %19, label %.lr.ph23, label %.loopexit
 
-.loopexit:                                        ; preds = %17, %._crit_edge, %0
-  %.2 = phi i32 [ %.114, %._crit_edge ], [ 0, %0 ], [ %.4, %17 ]
+.loopexit:                                        ; preds = %16, %._crit_edge, %0
+  %.2 = phi i32 [ %.114, %._crit_edge ], [ 0, %0 ], [ %.4, %16 ]
   ret i32 %.2
 }
 

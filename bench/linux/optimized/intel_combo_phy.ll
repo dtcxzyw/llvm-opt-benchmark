@@ -425,11 +425,11 @@ define dso_local void @intel_combo_phy_uninit(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds i8, ptr %0, i64 7544
   br label %8
 
-8:                                                ; preds = %60, %1
-  %9 = phi i64 [ 8, %1 ], [ %61, %60 ]
+8:                                                ; preds = %59, %1
+  %9 = phi i64 [ 8, %1 ], [ %60, %59 ]
   %10 = trunc i64 %9 to i32
   %11 = tail call zeroext i1 @intel_phy_is_combo(ptr noundef %0, i32 noundef %10) #3
-  br i1 %11, label %12, label %60
+  br i1 %11, label %12, label %59
 
 12:                                               ; preds = %8
   %13 = icmp eq i64 %9, 0
@@ -489,38 +489,35 @@ define dso_local void @intel_combo_phy_uninit(ptr noundef %0) local_unnamed_addr
   %42 = icmp eq i64 %41, 0
   %43 = icmp ult i64 %9, 2
   %44 = or i1 %43, %42
-  br i1 %44, label %46, label %.thread1
+  br i1 %44, label %45, label %.thread1
 
-45:                                               ; preds = %30
-  br i1 %13, label %46, label %.thread1
-
-46:                                               ; preds = %39, %45
-  %47 = load ptr, ptr %6, align 8
-  %48 = shl i32 %10, 2
-  %49 = add i32 %48, 412672
-  %50 = tail call i32 %47(ptr noundef %5, i32 %49, i1 noundef zeroext true) #3
-  %51 = or i32 %50, 8388608
-  %52 = load ptr, ptr %7, align 8
-  tail call void %52(ptr noundef %5, i32 %49, i32 noundef %51, i1 noundef zeroext true) #3
+45:                                               ; preds = %30, %39
+  %46 = load ptr, ptr %6, align 8
+  %47 = shl i32 %10, 2
+  %48 = add i32 %47, 412672
+  %49 = tail call i32 %46(ptr noundef %5, i32 %48, i1 noundef zeroext true) #3
+  %50 = or i32 %49, 8388608
+  %51 = load ptr, ptr %7, align 8
+  tail call void %51(ptr noundef %5, i32 %48, i32 noundef %50, i1 noundef zeroext true) #3
   br label %.thread1
 
-.thread1:                                         ; preds = %.thread, %39, %46, %45
-  %53 = getelementptr [5 x i32], ptr @constinit.36, i64 0, i64 %9
-  %54 = load i32, ptr %53, align 4
-  %55 = add i32 %54, 256
-  %56 = load ptr, ptr %6, align 8
-  %57 = tail call i32 %56(ptr noundef %5, i32 %55, i1 noundef zeroext true) #3
-  %58 = and i32 %57, 2147483647
-  %59 = load ptr, ptr %7, align 8
-  tail call void %59(ptr noundef %5, i32 %55, i32 noundef %58, i1 noundef zeroext true) #3
-  br label %60
+.thread1:                                         ; preds = %.thread, %39, %45
+  %52 = getelementptr [5 x i32], ptr @constinit.36, i64 0, i64 %9
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 256
+  %55 = load ptr, ptr %6, align 8
+  %56 = tail call i32 %55(ptr noundef %5, i32 %54, i1 noundef zeroext true) #3
+  %57 = and i32 %56, 2147483647
+  %58 = load ptr, ptr %7, align 8
+  tail call void %58(ptr noundef %5, i32 %54, i32 noundef %57, i1 noundef zeroext true) #3
+  br label %59
 
-60:                                               ; preds = %.thread1, %8
-  %61 = add nsw i64 %9, -1
-  %62 = icmp eq i64 %9, 0
-  br i1 %62, label %63, label %8, !llvm.loop !29
+59:                                               ; preds = %.thread1, %8
+  %60 = add nsw i64 %9, -1
+  %61 = icmp eq i64 %9, 0
+  br i1 %61, label %62, label %8, !llvm.loop !29
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   ret void
 }
 

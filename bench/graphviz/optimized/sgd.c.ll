@@ -948,7 +948,7 @@ fisheryates_shuffle.exit:                         ; preds = %.lr.ph.i167, %406
 
 490:                                              ; preds = %._crit_edge200
   %491 = load ptr, ptr @stderr, align 8
-  br i1 %405, label %.lr.ph.i170, label %calculate_stress.exit
+  br label %.lr.ph.i170
 
 .lr.ph.i170:                                      ; preds = %490, %.lr.ph.i170
   %indvars.iv.i171 = phi i64 [ %indvars.iv.next.i172, %.lr.ph.i170 ], [ 0, %490 ]
@@ -987,9 +987,9 @@ fisheryates_shuffle.exit:                         ; preds = %.lr.ph.i167, %406
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i172, %402
   br i1 %exitcond.not.i, label %calculate_stress.exit, label %.lr.ph.i170
 
-calculate_stress.exit:                            ; preds = %.lr.ph.i170, %.thread243, %490
-  %522 = phi ptr [ %491, %490 ], [ %489, %.thread243 ], [ %491, %.lr.ph.i170 ]
-  %.0.lcssa.i = phi float [ 0.000000e+00, %490 ], [ 0.000000e+00, %.thread243 ], [ %521, %.lr.ph.i170 ]
+calculate_stress.exit:                            ; preds = %.lr.ph.i170, %.thread243
+  %522 = phi ptr [ %489, %.thread243 ], [ %491, %.lr.ph.i170 ]
+  %.0.lcssa.i = phi float [ 0.000000e+00, %.thread243 ], [ %521, %.lr.ph.i170 ]
   %523 = fpext float %.0.lcssa.i to double
   %524 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %522, ptr noundef nonnull @.str.5, double noundef %523) #19
   br label %525

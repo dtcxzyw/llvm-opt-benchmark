@@ -5032,7 +5032,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
 while.cond.i.i:                                   ; preds = %while.cond, %is_dot_or_dotdot.exit.i.i
   %call.i.i41 = call ptr @readdir64(ptr noundef nonnull %38) #26
   %cmp.not.i.i42 = icmp eq ptr %call.i.i41, null
-  br i1 %cmp.not.i.i42, label %if.then3.i, label %while.body.i.i
+  br i1 %cmp.not.i.i42, label %while.end.thread111, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %d_name.i.i = getelementptr inbounds i8, ptr %call.i.i41, i64 19
@@ -5060,10 +5060,10 @@ is_dot_or_dotdot.exit.i.i:                        ; preds = %land.rhs10.i.i.i, %
   %tobool.not.i.i46 = icmp eq i32 %land.ext.i.i.i, 0
   br i1 %tobool.not.i.i46, label %if.end.i44, label %while.cond.i.i, !llvm.loop !5
 
-if.then3.i:                                       ; preds = %while.cond.i.i
+while.end.thread111:                              ; preds = %while.cond.i.i
   store ptr null, ptr %d_name5.i, align 8
   store i32 0, ptr %d_type7.i, align 8
-  br label %while.end
+  br label %if.then.i
 
 if.end.i44:                                       ; preds = %is_dot_or_dotdot.exit.i.i, %land.rhs.i.i.i, %while.body.i.i
   %d_name.i.i.le = getelementptr inbounds i8, ptr %call.i.i41, i64 19
@@ -5107,7 +5107,7 @@ while.end.i:                                      ; preds = %while.end.i.loopexi
   store ptr null, ptr %ucd18.i, align 8
   %52 = load i32, ptr %untracked_nr.i, align 8
   %cmp20.i = icmp ult i32 %inc27.i101, %52
-  br i1 %cmp20.i, label %if.then22.i, label %while.end
+  br i1 %cmp20.i, label %if.then22.i, label %if.then3.i62
 
 if.then22.i:                                      ; preds = %while.end.i
   %53 = load ptr, ptr %untracked25.i, align 8
@@ -5230,20 +5230,20 @@ if.end60:                                         ; preds = %if.end40
 while.cond.backedge:                              ; preds = %if.end60, %if.end49
   br label %while.cond, !llvm.loop !29
 
-while.end:                                        ; preds = %while.end.i, %if.then42, %if.then3.i
-  %dir_state.2 = phi i32 [ %dir_state.1, %if.then3.i ], [ %dir_state.1, %while.end.i ], [ 2, %if.then42 ]
+while.end:                                        ; preds = %if.then42
   br i1 %tobool.not.i40, label %if.end.i59, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then54, %do.end.i, %while.end
-  %dir_state.272 = phi i32 [ %dir_state.2, %while.end ], [ 3, %do.end.i ], [ 3, %if.then54 ]
+if.then.i:                                        ; preds = %while.end.thread111, %if.then54, %do.end.i, %while.end
+  %dir_state.272 = phi i32 [ 2, %while.end ], [ 3, %do.end.i ], [ 3, %if.then54 ], [ %dir_state.1, %while.end.thread111 ]
   %call.i = call i32 @closedir(ptr noundef nonnull %38)
   br label %if.end.i59
 
 if.end.i59:                                       ; preds = %if.then52, %if.then.i, %while.end
-  %dir_state.273 = phi i32 [ %dir_state.272, %if.then.i ], [ %dir_state.2, %while.end ], [ 3, %if.then52 ]
+  %dir_state.273 = phi i32 [ %dir_state.272, %if.then.i ], [ 2, %while.end ], [ 3, %if.then52 ]
   br i1 %tobool.not.i.i, label %out, label %if.then3.i62
 
-if.then3.i62:                                     ; preds = %if.end.i59
+if.then3.i62:                                     ; preds = %while.end.i, %if.end.i59
+  %dir_state.273115 = phi i32 [ %dir_state.273, %if.end.i59 ], [ %dir_state.1, %while.end.i ]
   %valid.i = getelementptr inbounds i8, ptr %untracked, i64 68
   %bf.load.i63 = load i8, ptr %valid.i, align 4
   %bf.set8.i = or i8 %bf.load.i63, 6
@@ -5251,7 +5251,7 @@ if.then3.i62:                                     ; preds = %if.end.i59
   br label %out
 
 out:                                              ; preds = %if.then3.i62, %if.end.i59, %open_cached_dir.exit
-  %dir_state.0 = phi i32 [ 0, %open_cached_dir.exit ], [ %dir_state.273, %if.end.i59 ], [ %dir_state.273, %if.then3.i62 ]
+  %dir_state.0 = phi i32 [ 0, %open_cached_dir.exit ], [ %dir_state.273, %if.end.i59 ], [ %dir_state.273115, %if.then3.i62 ]
   call void @strbuf_release(ptr noundef nonnull %path) #26
   ret i32 %dir_state.0
 }
@@ -5973,8 +5973,8 @@ strbuf_complete.exit:                             ; preds = %if.end27, %land.lhs
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %strbuf_complete.exit
   %call.i = call ptr @readdir64(ptr noundef nonnull %call11) #26
-  %cmp.not.i33.not = icmp ne ptr %call.i, null
-  br i1 %cmp.not.i33.not, label %while.body.i, label %while.end
+  %cmp.not.i33.not.not.not.not.not = icmp ne ptr %call.i, null
+  br i1 %cmp.not.i33.not.not.not.not.not, label %while.body.i, label %while.end
 
 while.body.i:                                     ; preds = %while.cond.i
   %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 19
@@ -6068,7 +6068,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true54
   br i1 %cmp59, label %while.cond.i.backedge, label %while.end
 
 while.end:                                        ; preds = %if.then37, %if.else52, %lor.lhs.false, %if.then47, %while.cond.i
-  %ret.0 = phi i32 [ 0, %while.cond.i ], [ -1, %if.then47 ], [ -1, %lor.lhs.false ], [ -1, %if.else52 ], [ -1, %if.then37 ]
+  %ret.0 = phi i32 [ -1, %if.then37 ], [ -1, %if.else52 ], [ -1, %lor.lhs.false ], [ -1, %if.then47 ], [ 0, %while.cond.i ]
   %call65 = call i32 @closedir(ptr noundef nonnull %call11)
   %sext32 = shl i64 %0, 32
   %conv66 = ashr exact i64 %sext32, 32
@@ -6094,7 +6094,7 @@ if.then4.i45:                                     ; preds = %if.end.i41
 
 strbuf_setlen.exit48:                             ; preds = %if.end.i41, %if.then4.i45
   %tobool69 = icmp ne i32 %and2, 0
-  %or.cond1 = or i1 %tobool69, %cmp.not.i33.not
+  %or.cond1 = or i1 %tobool69, %cmp.not.i33.not.not.not.not.not
   %29 = load i32, ptr %kept_down, align 4
   %tobool71 = icmp ne i32 %29, 0
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %tobool71
@@ -6139,7 +6139,7 @@ if.else91:                                        ; preds = %strbuf_setlen.exit4
   br i1 %tobool92.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %if.else91
-  %lnot = xor i1 %cmp.not.i33.not, true
+  %lnot = xor i1 %cmp.not.i33.not.not.not.not.not, true
   %lnot.ext = zext i1 %lnot to i32
   store i32 %lnot.ext, ptr %kept_up, align 4
   br label %return

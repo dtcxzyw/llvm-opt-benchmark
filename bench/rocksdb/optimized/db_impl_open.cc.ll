@@ -15127,8 +15127,8 @@ cleanup.cont:                                     ; preds = %_ZNSt10unique_ptrIN
   %140 = load i8, ptr %wal_recovery_mode, align 2
   %cmp149 = icmp ne i8 %140, 3
   %or.cond.not = select i1 %tobool146, i1 %cmp149, i1 false
-  %spec.select1389 = select i1 %or.cond.not, ptr %status, ptr null
-  store ptr %spec.select1389, ptr %status151, align 8
+  %spec.select1386 = select i1 %or.cond.not, ptr %status, ptr null
+  store ptr %spec.select1386, ptr %status151, align 8
   %141 = load ptr, ptr %info_log92, align 64
   store ptr %141, ptr %agg.tmp, align 8
   %142 = load ptr, ptr %_M_refcount3.i.i, align 8
@@ -16361,7 +16361,7 @@ for.inc466:                                       ; preds = %for.body437, %invok
   br i1 %cmp.i642.not, label %if.end470, label %for.body437
 
 if.end470:                                        ; preds = %for.inc466, %if.end, %invoke.cont431, %land.lhs.true412, %for.end408
-  %flushed.0.lcssa1341 = phi i8 [ %flushed.1, %invoke.cont431 ], [ %flushed.1, %land.lhs.true412 ], [ %flushed.1, %for.end408 ], [ 0, %if.end ], [ %flushed.1, %for.inc466 ]
+  %flushed.0.lcssa1338 = phi i8 [ %flushed.1, %invoke.cont431 ], [ %flushed.1, %land.lhs.true412 ], [ %flushed.1, %for.end408 ], [ 0, %if.end ], [ %flushed.1, %for.inc466 ]
   br i1 %read_only, label %invoke.cont621, label %invoke.cont484
 
 invoke.cont484:                                   ; preds = %if.end470
@@ -16397,7 +16397,7 @@ for.body490.lr.ph:                                ; preds = %invoke.cont484
 
 for.body490:                                      ; preds = %for.body490.lr.ph, %for.inc549
   %__begin2479.sroa.0.01281 = phi ptr [ %__begin2479.sroa.0.01277, %for.body490.lr.ph ], [ %__begin2479.sroa.0.0, %for.inc549 ]
-  %flushed.111280 = phi i8 [ %flushed.0.lcssa1341, %for.body490.lr.ph ], [ %flushed.12, %for.inc549 ]
+  %flushed.111280 = phi i8 [ %flushed.0.lcssa1338, %for.body490.lr.ph ], [ %flushed.12, %for.inc549 ]
   %data_seen.11279 = phi i8 [ 0, %for.body490.lr.ph ], [ %data_seen.2, %for.inc549 ]
   %320 = load i32, ptr %__begin2479.sroa.0.01281, align 8
   %321 = load i64, ptr %_M_element_count.i.i.i657, align 8
@@ -16465,11 +16465,11 @@ if.end509:                                        ; preds = %invoke.cont498
   %first_seqno_.i = getelementptr inbounds i8, ptr %331, i64 3224
   %332 = load atomic i64, ptr %first_seqno_.i monotonic, align 8
   %cmp514.not = icmp eq i64 %332, 0
-  %.pre1336 = trunc nuw i8 %flushed.111280 to i1
+  %.pre1333 = trunc nuw i8 %flushed.111280 to i1
   br i1 %cmp514.not, label %if.end538, label %if.then515
 
 if.then515:                                       ; preds = %if.end509
-  br i1 %.pre1336, label %if.then520, label %lor.lhs.false517
+  br i1 %.pre1333, label %if.then520, label %lor.lhs.false517
 
 lor.lhs.false517:                                 ; preds = %if.then515
   %333 = load i8, ptr %avoid_flush_during_recovery, align 2
@@ -16533,17 +16533,17 @@ if.end529:                                        ; preds = %invoke.cont526
           to label %if.then546 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end538:                                        ; preds = %if.end509
-  br i1 %.pre1336, label %if.then546, label %lor.lhs.false540
+  br i1 %.pre1333, label %if.then546, label %lor.lhs.false540
 
 lor.lhs.false540:                                 ; preds = %lor.lhs.false517, %if.end538
-  %data_seen.31344 = phi i8 [ %data_seen.11279, %if.end538 ], [ 1, %lor.lhs.false517 ]
+  %data_seen.31341 = phi i8 [ %data_seen.11279, %if.end538 ], [ 1, %lor.lhs.false517 ]
   %345 = load atomic i64, ptr %first_seqno_.i monotonic, align 8
   %cmp545 = icmp eq i64 %345, 0
   br i1 %cmp545, label %if.then546, label %for.inc549
 
 if.then546:                                       ; preds = %if.end529, %lor.lhs.false540, %if.end538
   %flushed.13950 = phi i8 [ %flushed.111280, %lor.lhs.false540 ], [ %flushed.111280, %if.end538 ], [ 1, %if.end529 ]
-  %data_seen.3949 = phi i8 [ %data_seen.31344, %lor.lhs.false540 ], [ %data_seen.11279, %if.end538 ], [ 1, %if.end529 ]
+  %data_seen.3949 = phi i8 [ %data_seen.31341, %lor.lhs.false540 ], [ %data_seen.11279, %if.end538 ], [ 1, %if.end529 ]
   %has_log_number_.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i676, i64 138
   store i8 1, ptr %has_log_number_.i, align 2
   %log_number_.i721 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i676, i64 88
@@ -16551,7 +16551,7 @@ if.then546:                                       ; preds = %if.end529, %lor.lhs
   br label %for.inc549
 
 for.inc549:                                       ; preds = %lor.lhs.false540, %if.then546, %invoke.cont498
-  %data_seen.2 = phi i8 [ %data_seen.11279, %invoke.cont498 ], [ %data_seen.3949, %if.then546 ], [ %data_seen.31344, %lor.lhs.false540 ]
+  %data_seen.2 = phi i8 [ %data_seen.11279, %invoke.cont498 ], [ %data_seen.3949, %if.then546 ], [ %data_seen.31341, %lor.lhs.false540 ]
   %flushed.12 = phi i8 [ %flushed.111280, %invoke.cont498 ], [ %flushed.13950, %if.then546 ], [ %flushed.111280, %lor.lhs.false540 ]
   %__begin2479.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2479.sroa.0.01281, i64 2480
   %__begin2479.sroa.0.0 = load ptr, ptr %__begin2479.sroa.0.0.in, align 8
@@ -16560,7 +16560,7 @@ for.inc549:                                       ; preds = %lor.lhs.false540, %
 
 invoke.cont553:                                   ; preds = %for.inc549, %invoke.cont484
   %data_seen.1.lcssa = phi i8 [ 0, %invoke.cont484 ], [ %data_seen.2, %for.inc549 ]
-  %flushed.11.lcssa = phi i8 [ %flushed.0.lcssa1341, %invoke.cont484 ], [ %flushed.12, %for.inc549 ]
+  %flushed.11.lcssa = phi i8 [ %flushed.0.lcssa1338, %invoke.cont484 ], [ %flushed.12, %for.inc549 ]
   %.pr951 = load i8, ptr %status, align 8
   %cmp.i723 = icmp eq i8 %.pr951, 0
   br i1 %cmp.i723, label %if.then555, label %if.end645
@@ -16723,7 +16723,7 @@ invoke.cont616:                                   ; preds = %invoke.cont614
 
 invoke.cont621:                                   ; preds = %if.end470, %lor.lhs.false593, %invoke.cont616
   %data_seen.0.ph = phi i8 [ %data_seen.1.lcssa, %lor.lhs.false593 ], [ %data_seen.1.lcssa, %invoke.cont616 ], [ 0, %if.end470 ]
-  %flushed.10.ph = phi i8 [ %flushed.11.lcssa, %lor.lhs.false593 ], [ %flushed.11.lcssa, %invoke.cont616 ], [ %flushed.0.lcssa1341, %if.end470 ]
+  %flushed.10.ph = phi i8 [ %flushed.11.lcssa, %lor.lhs.false593 ], [ %flushed.11.lcssa, %invoke.cont616 ], [ %flushed.0.lcssa1338, %if.end470 ]
   %.pr953 = load i8, ptr %status, align 8
   %cmp.i785 = icmp eq i8 %.pr953, 0
   br i1 %cmp.i785, label %if.then623, label %if.end645

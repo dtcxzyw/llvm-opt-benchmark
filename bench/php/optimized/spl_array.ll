@@ -2134,7 +2134,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 ._crit_edge.thread:                               ; preds = %82
   tail call void @llvm.assume(i1 %86)
-  br label %131
+  br label %130
 
 .lr.ph:                                           ; preds = %82, %.lr.ph
   %.0125159 = phi ptr [ %91, %.lr.ph ], [ %0, %82 ]
@@ -2152,73 +2152,70 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.assume(i1 %92)
-  br i1 %or.cond147158, label %131, label %96
-
-96:                                               ; preds = %._crit_edge
-  %97 = getelementptr inbounds i8, ptr %0, i64 64
-  %98 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.31, i64 noundef 9) #11
-  %.not137 = icmp ne ptr %98, null
+  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %97 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.31, i64 noundef 9) #11
+  %.not137 = icmp ne ptr %97, null
   tail call void @llvm.assume(i1 %.not137)
-  %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds i8, ptr %14, i64 40
-  store ptr %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %91
-  %spec.store.select = select i1 %103, ptr null, ptr %99
-  store ptr %spec.store.select, ptr %100, align 8
-  %104 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.32, i64 noundef 9) #11
-  %.not138 = icmp ne ptr %104, null
+  %98 = load ptr, ptr %97, align 8, !nonnull !4, !noundef !4
+  %99 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %98, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, %91
+  %spec.store.select = select i1 %102, ptr null, ptr %98
+  store ptr %spec.store.select, ptr %99, align 8
+  %103 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.32, i64 noundef 9) #11
+  %.not138 = icmp ne ptr %103, null
   tail call void @llvm.assume(i1 %.not138)
-  %105 = load ptr, ptr %104, align 8, !nonnull !4, !noundef !4
-  %106 = getelementptr inbounds i8, ptr %14, i64 48
-  store ptr %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %105, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %91
-  %spec.store.select150 = select i1 %109, ptr null, ptr %105
-  store ptr %spec.store.select150, ptr %106, align 8
-  %110 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.33, i64 noundef 12) #11
-  %.not139 = icmp ne ptr %110, null
+  %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
+  %105 = getelementptr inbounds i8, ptr %14, i64 48
+  store ptr %104, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %104, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, %91
+  %spec.store.select150 = select i1 %108, ptr null, ptr %104
+  store ptr %spec.store.select150, ptr %105, align 8
+  %109 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.33, i64 noundef 12) #11
+  %.not139 = icmp ne ptr %109, null
   tail call void @llvm.assume(i1 %.not139)
-  %111 = load ptr, ptr %110, align 8, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds i8, ptr %14, i64 56
-  store ptr %111, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %111, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, %91
-  %spec.store.select148 = select i1 %115, ptr null, ptr %111
-  store ptr %spec.store.select148, ptr %112, align 8
-  %116 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.34, i64 noundef 11) #11
-  %.not140 = icmp ne ptr %116, null
+  %110 = load ptr, ptr %109, align 8, !nonnull !4, !noundef !4
+  %111 = getelementptr inbounds i8, ptr %14, i64 56
+  store ptr %110, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %110, i64 16
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, %91
+  %spec.store.select148 = select i1 %114, ptr null, ptr %110
+  store ptr %spec.store.select148, ptr %111, align 8
+  %115 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.34, i64 noundef 11) #11
+  %.not140 = icmp ne ptr %115, null
   tail call void @llvm.assume(i1 %.not140)
-  %117 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
-  %118 = getelementptr inbounds i8, ptr %14, i64 64
-  store ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %117, i64 16
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, %91
-  %spec.store.select151 = select i1 %121, ptr null, ptr %117
-  store ptr %spec.store.select151, ptr %118, align 8
-  %122 = load ptr, ptr @zend_known_strings, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 552
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call ptr @zend_hash_find(ptr noundef nonnull %97, ptr noundef %124) #11
-  %.not141 = icmp ne ptr %125, null
+  %116 = load ptr, ptr %115, align 8, !nonnull !4, !noundef !4
+  %117 = getelementptr inbounds i8, ptr %14, i64 64
+  store ptr %116, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %116, i64 16
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, %91
+  %spec.store.select151 = select i1 %120, ptr null, ptr %116
+  store ptr %spec.store.select151, ptr %117, align 8
+  %121 = load ptr, ptr @zend_known_strings, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 552
+  %123 = load ptr, ptr %122, align 8
+  %124 = tail call ptr @zend_hash_find(ptr noundef nonnull %96, ptr noundef %123) #11
+  %.not141 = icmp ne ptr %124, null
   tail call void @llvm.assume(i1 %.not141)
-  %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds i8, ptr %14, i64 72
-  store ptr %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, %91
-  %spec.store.select149 = select i1 %130, ptr null, ptr %126
-  store ptr %spec.store.select149, ptr %127, align 8
-  br label %131
+  %125 = load ptr, ptr %124, align 8, !nonnull !4, !noundef !4
+  %126 = getelementptr inbounds i8, ptr %14, i64 72
+  store ptr %125, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %125, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp eq ptr %128, %91
+  %spec.store.select149 = select i1 %129, ptr null, ptr %125
+  store ptr %spec.store.select149, ptr %126, align 8
+  br label %130
 
-131:                                              ; preds = %._crit_edge.thread, %96, %._crit_edge
-  %132 = getelementptr inbounds i8, ptr %14, i64 16
-  store i32 -1, ptr %132, align 8
+130:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %131 = getelementptr inbounds i8, ptr %14, i64 16
+  store i32 -1, ptr %131, align 8
   ret ptr %15
 }
 

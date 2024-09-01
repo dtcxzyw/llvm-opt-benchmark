@@ -47,17 +47,14 @@ define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readon
 
 .preheader48.i:                                   ; preds = %.lr.ph
   %15 = tail call ptr @QuadTree_new(i32 noundef %1, ptr noundef %4, double noundef %5, i32 noundef %6) #16
-  br i1 %10, label %.lr.ph.i, label %distance_to_group.exit
-
-.lr.ph.i:                                         ; preds = %.preheader48.i
   %16 = icmp sgt i32 %1, 0
   %wide.trip.count.i41.i = zext i32 %1 to i64
   %wide.trip.count66.i = zext nneg i32 %0 to i64
   br i1 %16, label %.lr.ph.preheader.i40.us.i, label %dist.exit47.i
 
-.lr.ph.preheader.i40.us.i:                        ; preds = %.lr.ph.i, %33
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %33 ], [ 0, %.lr.ph.i ]
-  %.352.us.i = phi double [ %.4.us.i, %33 ], [ 0.000000e+00, %.lr.ph.i ]
+.lr.ph.preheader.i40.us.i:                        ; preds = %.preheader48.i, %33
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %33 ], [ 0, %.preheader48.i ]
+  %.352.us.i = phi double [ %.4.us.i, %33 ], [ 0.000000e+00, %.preheader48.i ]
   %17 = mul nuw nsw i64 %indvars.iv63.i, %wide.trip.count.i41.i
   %18 = getelementptr inbounds double, ptr %3, i64 %17
   br label %.lr.ph.i42.us.i
@@ -143,9 +140,9 @@ dist.exit.loopexit.us.i:                          ; preds = %.lr.ph.i.us.i
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
   br i1 %exitcond73.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i
 
-dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %.lr.ph.i ]
-  %.352.i = phi double [ %.4.i, %60 ], [ 0.000000e+00, %.lr.ph.i ]
+dist.exit47.i:                                    ; preds = %.preheader48.i, %60
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %.preheader48.i ]
+  %.352.i = phi double [ %.4.i, %60 ], [ 0.000000e+00, %.preheader48.i ]
   %51 = icmp eq i64 %indvars.iv.i, 0
   br i1 %51, label %52, label %55
 
@@ -168,11 +165,11 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count66.i
   br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i
 
-distance_to_group.exit:                           ; preds = %60, %33, %dist.exit.loopexit.us.i, %.lr.ph55.i, %.preheader48.i.thread, %.preheader48.i, %.preheader.i
-  %61 = phi i1 [ false, %.preheader.i ], [ false, %.preheader48.i ], [ false, %.preheader48.i.thread ], [ true, %.lr.ph55.i ], [ true, %dist.exit.loopexit.us.i ], [ true, %33 ], [ true, %60 ]
-  %62 = phi ptr [ %36, %.preheader.i ], [ %15, %.preheader48.i ], [ %11, %.preheader48.i.thread ], [ %36, %.lr.ph55.i ], [ %36, %dist.exit.loopexit.us.i ], [ %15, %33 ], [ %15, %60 ]
-  %.1192 = phi double [ 1.000000e+00, %.preheader.i ], [ %..095, %.preheader48.i ], [ 0.000000e+00, %.preheader48.i.thread ], [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ %..095, %33 ], [ %..095, %60 ]
-  %.2.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i ], [ 0.000000e+00, %.preheader48.i.thread ], [ 0.000000e+00, %.lr.ph55.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
+distance_to_group.exit:                           ; preds = %60, %33, %dist.exit.loopexit.us.i, %.lr.ph55.i, %.preheader48.i.thread, %.preheader.i
+  %61 = phi i1 [ false, %.preheader.i ], [ false, %.preheader48.i.thread ], [ true, %.lr.ph55.i ], [ true, %dist.exit.loopexit.us.i ], [ true, %33 ], [ true, %60 ]
+  %62 = phi ptr [ %36, %.preheader.i ], [ %11, %.preheader48.i.thread ], [ %36, %.lr.ph55.i ], [ %36, %dist.exit.loopexit.us.i ], [ %15, %33 ], [ %15, %60 ]
+  %.1192 = phi double [ 1.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i.thread ], [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ %..095, %33 ], [ %..095, %60 ]
+  %.2.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i.thread ], [ 0.000000e+00, %.lr.ph55.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
   store double %.2.i, ptr %7, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   store double %.2.i, ptr %63, align 8
@@ -734,17 +731,14 @@ define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr nounde
 .preheader48.i:                                   ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  br i1 %9, label %.lr.ph.i, label %distance_to_group.exit
-
-.lr.ph.i:                                         ; preds = %.preheader48.i
   %14 = icmp sgt i32 %1, 0
   %wide.trip.count.i41.i = zext i32 %1 to i64
   %wide.trip.count66.i = zext nneg i32 %0 to i64
   br i1 %14, label %.lr.ph.preheader.i40.us.i, label %dist.exit47.i
 
-.lr.ph.preheader.i40.us.i:                        ; preds = %.lr.ph.i, %31
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %31 ], [ 0, %.lr.ph.i ]
-  %.352.us.i = phi double [ %.4.us.i, %31 ], [ 0.000000e+00, %.lr.ph.i ]
+.lr.ph.preheader.i40.us.i:                        ; preds = %.preheader48.i, %31
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %31 ], [ 0, %.preheader48.i ]
+  %.352.us.i = phi double [ %.4.us.i, %31 ], [ 0.000000e+00, %.preheader48.i ]
   %15 = mul nuw nsw i64 %indvars.iv63.i, %wide.trip.count.i41.i
   %16 = getelementptr inbounds double, ptr %3, i64 %15
   br label %.lr.ph.i42.us.i
@@ -786,9 +780,9 @@ dist.exit47.loopexit.us.i:                        ; preds = %.lr.ph.i42.us.i
   %33 = icmp eq i64 %indvars.iv63.i, 0
   br i1 %33, label %28, label %23
 
-dist.exit47.i:                                    ; preds = %.lr.ph.i, %43
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.lr.ph.i ]
-  %.352.i = phi double [ %.4.i, %43 ], [ 0.000000e+00, %.lr.ph.i ]
+dist.exit47.i:                                    ; preds = %.preheader48.i, %43
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.preheader48.i ]
+  %.352.i = phi double [ %.4.i, %43 ], [ 0.000000e+00, %.preheader48.i ]
   %34 = icmp eq i64 %indvars.iv.i, 0
   br i1 %34, label %35, label %38
 
@@ -867,10 +861,10 @@ dist.exit.loopexit.us.i117:                       ; preds = %.lr.ph.i.us.i112
   %exitcond73.not.i120 = icmp eq i64 %indvars.iv.next70.i119, %wide.trip.count72.i108
   br i1 %exitcond73.not.i120, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i109
 
-distance_to_group.exit:                           ; preds = %43, %31, %dist.exit.loopexit.us.i117, %.lr.ph55.i102, %.preheader48.i.thread, %.split, %.preheader48.i
-  %63 = phi ptr [ %13, %.preheader48.i ], [ %48, %.split ], [ %11, %.preheader48.i.thread ], [ %48, %.lr.ph55.i102 ], [ %48, %dist.exit.loopexit.us.i117 ], [ %13, %31 ], [ %13, %43 ]
-  %phi.call = phi double [ 0.000000e+00, %.preheader48.i ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %.preheader48.i.thread ], [ 0.000000e+00, %.lr.ph55.i102 ], [ %.1.us.i118, %dist.exit.loopexit.us.i117 ], [ %.4.us.i, %31 ], [ %.4.i, %43 ]
-  %.1 = phi double [ %..084, %.preheader48.i ], [ 1.000000e+00, %.split ], [ 0.000000e+00, %.preheader48.i.thread ], [ 1.000000e+00, %.lr.ph55.i102 ], [ 1.000000e+00, %dist.exit.loopexit.us.i117 ], [ %..084, %31 ], [ %..084, %43 ]
+distance_to_group.exit:                           ; preds = %43, %31, %dist.exit.loopexit.us.i117, %.lr.ph55.i102, %.preheader48.i.thread, %.split
+  %63 = phi ptr [ %48, %.split ], [ %11, %.preheader48.i.thread ], [ %48, %.lr.ph55.i102 ], [ %48, %dist.exit.loopexit.us.i117 ], [ %13, %31 ], [ %13, %43 ]
+  %phi.call = phi double [ 0.000000e+00, %.split ], [ 0.000000e+00, %.preheader48.i.thread ], [ 0.000000e+00, %.lr.ph55.i102 ], [ %.1.us.i118, %dist.exit.loopexit.us.i117 ], [ %.4.us.i, %31 ], [ %.4.i, %43 ]
+  %.1 = phi double [ 1.000000e+00, %.split ], [ 0.000000e+00, %.preheader48.i.thread ], [ 1.000000e+00, %.lr.ph55.i102 ], [ 1.000000e+00, %dist.exit.loopexit.us.i117 ], [ %..084, %31 ], [ %..084, %43 ]
   store double %phi.call, ptr %6, align 8
   %64 = getelementptr inbounds i8, ptr %4, i64 8
   store double %phi.call, ptr %64, align 8

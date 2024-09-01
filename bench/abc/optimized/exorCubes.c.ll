@@ -47,9 +47,6 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 
 .preheader:                                       ; preds = %25
   %.pre60.pre = load ptr, ptr %10, align 8
-  br i1 %22, label %.lr.ph53.preheader, label %._crit_edge
-
-.lr.ph53.preheader:                               ; preds = %.preheader
   %24 = add nsw i32 %0, -1
   %wide.trip.count58 = zext nneg i32 %24 to i64
   br label %.lr.ph53
@@ -71,9 +68,9 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %25, !llvm.loop !4
 
-.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
-  %34 = phi ptr [ %.pre60.pre, %.lr.ph53.preheader ], [ %36, %.lr.ph53 ]
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
+.lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
+  %34 = phi ptr [ %.pre60.pre, %.preheader ], [ %36, %.lr.ph53 ]
+  %indvars.iv55 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %35 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next56
   %36 = load ptr, ptr %35, align 8
@@ -82,8 +79,8 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph53, %16, %.preheader
-  %.pre6063 = phi ptr [ %.pre60.pre, %.preheader ], [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
+._crit_edge:                                      ; preds = %.lr.ph53, %16
+  %.pre6063 = phi ptr [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
   store ptr %.pre6063, ptr @s_CubesFree, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
   store i32 %0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4

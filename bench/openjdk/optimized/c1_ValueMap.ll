@@ -1087,67 +1087,59 @@ define hidden void @_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20Globa
 .lr.ph.i.i:                                       ; preds = %15
   %22 = getelementptr inbounds i8, ptr %3, i64 168
   %23 = load ptr, ptr %22, align 8
-  %24 = zext nneg i32 %20 to i64
-  %25 = load ptr, ptr %23, align 8
-  %26 = icmp eq ptr %25, %11
-  br i1 %26, label %_ZNK10BlockBegin14is_predecessorEPS_.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %20 to i64
+  br label %25
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %27
-  %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i1.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %24
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.loopexit.i, label %27, !llvm.loop !20
+24:                                               ; preds = %25
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZNK10BlockBegin14is_predecessorEPS_.exit, label %25, !llvm.loop !20
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next.i.i
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %11
-  br i1 %30, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !20
+25:                                               ; preds = %24, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %11
+  br i1 %28, label %_ZNK10BlockBegin14is_predecessorEPS_.exit, label %24
 
-_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.loopexit.i: ; preds = %27, %.lr.ph.i
-  %indvars.iv.next.i.i.lcssa = phi i64 [ %indvars.iv.next.i.i, %27 ], [ %24, %.lr.ph.i ]
-  %31 = icmp ult i64 %indvars.iv.next.i.i.lcssa, %24
-  %32 = zext i1 %31 to i8
-  br label %_ZNK10BlockBegin14is_predecessorEPS_.exit
-
-_ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %15, %.lr.ph.i.i, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.loopexit.i
-  %.lcssa.i.i = phi i8 [ 0, %15 ], [ 1, %.lr.ph.i.i ], [ %32, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.loopexit.i ]
+_ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %24, %25, %15
+  %.lcssa.i.i = phi i8 [ 0, %15 ], [ 1, %25 ], [ 0, %24 ]
   store i8 %.lcssa.i.i, ptr %9, align 8
-  %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %8, align 8
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %36, label %39
+  %29 = load ptr, ptr %16, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %8, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %32, label %35
 
-36:                                               ; preds = %_ZNK10BlockBegin14is_predecessorEPS_.exit
-  %37 = getelementptr inbounds i8, ptr %33, i64 96
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %8, align 8
-  br label %39
+32:                                               ; preds = %_ZNK10BlockBegin14is_predecessorEPS_.exit
+  %33 = getelementptr inbounds i8, ptr %29, i64 96
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %8, align 8
+  br label %35
 
-39:                                               ; preds = %36, %_ZNK10BlockBegin14is_predecessorEPS_.exit
+35:                                               ; preds = %32, %_ZNK10BlockBegin14is_predecessorEPS_.exit
   tail call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %3)
-  %40 = load i32, ptr %4, align 4
-  %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %.lr.ph, label %.loopexit
+  %36 = load i32, ptr %4, align 4
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  %43 = zext nneg i32 %40 to i64
-  br label %44
+.lr.ph:                                           ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = zext nneg i32 %36 to i64
+  br label %40
 
-44:                                               ; preds = %.lr.ph, %44
-  %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %44 ]
+40:                                               ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv.next
-  %47 = load ptr, ptr %46, align 8
-  tail call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %47)
-  %48 = icmp ugt i64 %indvars.iv, 2
-  br i1 %48, label %44, label %.loopexit, !llvm.loop !21
+  %41 = load ptr, ptr %38, align 8
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.next
+  %43 = load ptr, ptr %42, align 8
+  tail call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %43)
+  %44 = icmp ugt i64 %indvars.iv, 2
+  br i1 %44, label %40, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %44, %39, %5
+.loopexit:                                        ; preds = %40, %35, %5
   ret void
 }
 
@@ -1751,30 +1743,30 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph52, %89
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next64, %89 ]
+19:                                               ; preds = %.lr.ph52, %86
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %86 ]
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv63
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv58
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 132
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 4
-  %.not37 = icmp eq i32 %25, 0
-  br i1 %.not37, label %26, label %_ZN11Compilation13is_optimisticEv.exit.thread
+  %.not40 = icmp eq i32 %25, 0
+  br i1 %.not40, label %26, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %22, i64 160
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph50, label %.preheader.preheader
+  br i1 %29, label %.lr.ph, label %.preheader.preheader
 
-.lr.ph50:                                         ; preds = %26
+.lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds i8, ptr %22, i64 168
   %31 = zext nneg i32 %28 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph50, %.critedge
-  %indvars.iv = phi i64 [ %31, %.lr.ph50 ], [ %indvars.iv.next, %.critedge ]
+32:                                               ; preds = %.lr.ph, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit
+  %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.next
@@ -1782,8 +1774,8 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %36 = getelementptr inbounds i8, ptr %35, i64 132
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 2
-  %.not38 = icmp eq i32 %38, 0
-  br i1 %.not38, label %39, label %_ZN11Compilation13is_optimisticEv.exit.thread
+  %.not41 = icmp eq i32 %38, 0
+  br i1 %.not41, label %39, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr %18, align 8
@@ -1803,172 +1795,240 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = getelementptr inbounds i8, ptr %47, i64 32
   tail call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52) #7
-  br label %.critedge
+  br label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit
 
 53:                                               ; preds = %39
   %54 = load i32, ptr %5, align 8
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread
+  br i1 %55, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %53
   %56 = load ptr, ptr %12, align 8
-  %57 = zext nneg i32 %54 to i64
-  %58 = load ptr, ptr %56, align 8
-  %59 = icmp eq ptr %58, %35
-  br i1 %59, label %.critedge, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %54 to i64
+  br label %58
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %60
-  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i45, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %57
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit, label %60, !llvm.loop !20
+57:                                               ; preds = %58
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %58, !llvm.loop !20
 
-60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.next.i
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %35
-  br i1 %63, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit, label %.lr.ph, !llvm.loop !20
+58:                                               ; preds = %57, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
+  %59 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.i
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, %35
+  br i1 %61, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit, label %57
 
-_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit: ; preds = %60, %.lr.ph
-  %64 = icmp ult i64 %indvars.iv.next.i, %57
-  br i1 %64, label %.critedge, label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread
+.loopexit:                                        ; preds = %57, %53
+  %62 = sext i32 %54 to i64
+  %63 = load i64, ptr @ValueMapMaxLoopSize, align 8
+  %.not22 = icmp sgt i64 %63, %62
+  br i1 %.not22, label %64, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
 
-_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread: ; preds = %53, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit
-  %65 = sext i32 %54 to i64
-  %66 = load i64, ptr @ValueMapMaxLoopSize, align 8
-  %.not22 = icmp sgt i64 %66, %65
-  br i1 %.not22, label %67, label %_ZN11Compilation13is_optimisticEv.exit.thread
+64:                                               ; preds = %.loopexit
+  %65 = load i32, ptr %6, align 4
+  %66 = icmp eq i32 %54, %65
+  br i1 %66, label %67, label %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28
 
-67:                                               ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp eq i32 %54, %68
-  br i1 %69, label %70, label %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28
-
-70:                                               ; preds = %67
-  %71 = add nsw i32 %54, 1
-  %72 = icmp sgt i32 %54, -1
-  %73 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %71)
-  %74 = icmp ult i32 %73, 2
-  %or.cond.i.i.i.i25 = select i1 %72, i1 %74, i1 false
-  %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
-  %76 = sub nuw nsw i32 32, %75
-  %77 = shl nuw i32 1, %76
-  %.0.i.i.i.i26 = select i1 %or.cond.i.i.i.i25, i32 %71, i32 %77
+67:                                               ; preds = %64
+  %68 = add nsw i32 %54, 1
+  %69 = icmp sgt i32 %54, -1
+  %70 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
+  %71 = icmp ult i32 %70, 2
+  %or.cond.i.i.i.i25 = select i1 %69, i1 %71, i1 false
+  %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
+  %73 = sub nuw nsw i32 32, %72
+  %74 = shl nuw i32 1, %73
+  %.0.i.i.i.i26 = select i1 %or.cond.i.i.i.i25, i32 %68, i32 %74
   tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %.0.i.i.i.i26)
   %.pre.i27 = load i32, ptr %5, align 8
   %.pre = sext i32 %.pre.i27 to i64
   br label %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28
 
-_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28: ; preds = %67, %70
-  %.pre-phi = phi i64 [ %65, %67 ], [ %.pre, %70 ]
-  %78 = phi i32 [ %54, %67 ], [ %.pre.i27, %70 ]
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %5, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %.pre-phi
-  store ptr %35, ptr %81, align 8
-  br label %.critedge
+_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28: ; preds = %64, %67
+  %.pre-phi = phi i64 [ %62, %64 ], [ %.pre, %67 ]
+  %75 = phi i32 [ %54, %64 ], [ %.pre.i27, %67 ]
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %5, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = getelementptr inbounds ptr, ptr %77, i64 %.pre-phi
+  store ptr %35, ptr %78, align 8
+  br label %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit
 
-.critedge:                                        ; preds = %.lr.ph.i, %48, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit
-  %82 = icmp sgt i64 %indvars.iv, 1
-  br i1 %82, label %32, label %.preheader.preheader, !llvm.loop !23
+_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit: ; preds = %58, %48, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit28
+  %79 = icmp sgt i64 %indvars.iv, 1
+  br i1 %79, label %32, label %.preheader.preheader, !llvm.loop !23
 
-.preheader.preheader:                             ; preds = %.critedge, %26
+.preheader.preheader:                             ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit, %26
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %83
-  %.pn = phi ptr [ %.017, %83 ], [ %22, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %80
+  %.pn = phi ptr [ %.017, %80 ], [ %22, %.preheader.preheader ]
   %.017.in = getelementptr inbounds i8, ptr %.pn, i64 32
   %.017 = load ptr, ptr %.017.in, align 8
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %89, label %83
+  br i1 %.not, label %86, label %80
 
-83:                                               ; preds = %.preheader
-  %84 = load ptr, ptr %.017, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 416
-  %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(96) %.017, ptr noundef nonnull %0) #7
-  %87 = load i8, ptr %4, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %.preheader, !llvm.loop !24
+80:                                               ; preds = %.preheader
+  %81 = load ptr, ptr %.017, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 416
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(96) %.017, ptr noundef nonnull %0) #7
+  %84 = load i8, ptr %4, align 8
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %.preheader, !llvm.loop !24
 
-89:                                               ; preds = %.preheader
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %90 = load i32, ptr %5, align 8
-  %91 = sext i32 %90 to i64
-  %.not65 = icmp slt i64 %indvars.iv.next64, %91
-  br i1 %.not65, label %19, label %._crit_edge, !llvm.loop !25
+86:                                               ; preds = %.preheader
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %87 = load i32, ptr %5, align 8
+  %88 = sext i32 %87 to i64
+  %.not53 = icmp slt i64 %indvars.iv.next59, %88
+  br i1 %.not53, label %19, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %89, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %97 = icmp eq i32 %96, 0
-  %98 = load i64, ptr @TieredStopAtLevel, align 8
-  %99 = icmp eq i64 %98, 0
-  %100 = select i1 %97, i1 true, i1 %99
-  br i1 %100, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+._crit_edge:                                      ; preds = %86, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %94 = icmp eq i32 %93, 0
+  %95 = load i64, ptr @TieredStopAtLevel, align 8
+  %96 = icmp eq i64 %95, 0
+  %97 = select i1 %94, i1 true, i1 %96
+  br i1 %97, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %._crit_edge
-  %101 = load i8, ptr @TieredCompilation, align 1
-  %102 = trunc i8 %101 to i1
-  %103 = add i64 %98, -1
-  %104 = icmp ult i64 %103, 3
-  %spec.select.i.i.i = select i1 %102, i1 %104, i1 false
-  %105 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %106 = icmp eq i32 %105, 1
-  %107 = or i1 %spec.select.i.i.i, %106
-  %108 = load i8, ptr @EnableJVMCI, align 1
-  %109 = trunc i8 %108 to i1
-  %not..i = xor i1 %107, true
-  %110 = select i1 %not..i, i1 true, i1 %109
-  br i1 %110, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %111
+  %98 = load i8, ptr @TieredCompilation, align 1
+  %99 = trunc i8 %98 to i1
+  %100 = add i64 %95, -1
+  %101 = icmp ult i64 %100, 3
+  %spec.select.i.i.i = select i1 %99, i1 %101, i1 false
+  %102 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %103 = icmp eq i32 %102, 1
+  %104 = or i1 %spec.select.i.i.i, %103
+  %105 = load i8, ptr @EnableJVMCI, align 1
+  %106 = trunc i8 %105 to i1
+  %not..i = xor i1 %104, true
+  %107 = select i1 %not..i, i1 true, i1 %106
+  br i1 %107, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %108
 
-111:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %112 = getelementptr inbounds i8, ptr %95, i64 32
-  %113 = load ptr, ptr %112, align 8
+108:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %109 = getelementptr inbounds i8, ptr %92, i64 32
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %110) #7
+  %112 = icmp eq i32 %111, 3
+  br i1 %112, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %_ZN11Compilation12is_profilingEv.exit.i
+
+_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %108
+  %113 = load ptr, ptr %109, align 8
   %114 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %113) #7
-  %115 = icmp eq i32 %114, 3
-  br i1 %115, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit.i
+  %115 = icmp eq i32 %114, 2
+  br i1 %115, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %116
 
-_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %111
-  %116 = load ptr, ptr %112, align 8
-  %117 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %116) #7
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %119
+116:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.i
+  %117 = load i8, ptr @RangeCheckElimination, align 1
+  %118 = trunc i8 %117 to i1
+  br i1 %118, label %_ZN11Compilation13is_optimisticEv.exit, label %119
 
-119:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.i
-  %120 = load i8, ptr @RangeCheckElimination, align 1
+119:                                              ; preds = %116
+  %120 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
   %121 = trunc i8 %120 to i1
-  br i1 %121, label %_ZN11Compilation13is_optimisticEv.exit, label %122
+  br i1 %121, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
 
-122:                                              ; preds = %119
-  %123 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN11Compilation13is_optimisticEv.exit.thread
+_ZN11Compilation13is_optimisticEv.exit:           ; preds = %116, %119
+  %122 = getelementptr inbounds i8, ptr %92, i64 48
+  %123 = load ptr, ptr %122, align 8
+  %124 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %123) #7
+  %125 = getelementptr inbounds i8, ptr %124, i64 112
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, 0
+  %128 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
+  %129 = trunc i8 %128 to i1
+  %brmerge.not = and i1 %127, %129
+  br i1 %brmerge.not, label %130, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
 
-_ZN11Compilation13is_optimisticEv.exit:           ; preds = %119, %122
-  %125 = getelementptr inbounds i8, ptr %95, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %126) #7
-  %128 = getelementptr inbounds i8, ptr %127, i64 112
-  %129 = load i8, ptr %128, align 1
-  %130 = icmp eq i8 %129, 0
-  %131 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %132 = trunc i8 %131 to i1
-  %brmerge.not = and i1 %130, %132
-  br i1 %brmerge.not, label %133, label %_ZN11Compilation13is_optimisticEv.exit.thread
+130:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit
+  %131 = load ptr, ptr %89, align 8
+  store ptr %131, ptr %3, align 8
+  %132 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %0, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %3, i64 24
+  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %135 = getelementptr inbounds i8, ptr %1, i64 208
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 160
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, label %140
 
-133:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit
-  %134 = load ptr, ptr %92, align 8
-  call void @_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull %0, ptr noundef %134, ptr noundef %1, ptr noundef nonnull %5)
-  br label %_ZN11Compilation13is_optimisticEv.exit.thread
+140:                                              ; preds = %130
+  %141 = getelementptr inbounds i8, ptr %3, i64 16
+  %142 = getelementptr inbounds i8, ptr %136, i64 216
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call noundef ptr @_ZN11Instruction4prevEv(ptr noundef nonnull align 8 dereferenceable(96) %143) #7
+  store ptr %144, ptr %141, align 8
+  %145 = getelementptr inbounds i8, ptr %1, i64 160
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %.lr.ph.i.i.i, label %_ZNK10BlockBegin14is_predecessorEPS_.exit.i
 
-_ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %19, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread, %32, %83, %111, %._crit_edge, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %_ZN11Compilation12is_profilingEv.exit.i, %122, %133, %_ZN11Compilation13is_optimisticEv.exit
-  %135 = phi i1 [ true, %111 ], [ true, %._crit_edge ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %122 ], [ true, %133 ], [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ false, %83 ], [ false, %32 ], [ false, %_ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit.thread ], [ false, %19 ]
-  ret i1 %135
+.lr.ph.i.i.i:                                     ; preds = %140
+  %148 = getelementptr inbounds i8, ptr %1, i64 168
+  %149 = load ptr, ptr %148, align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %146 to i64
+  br label %151
+
+150:                                              ; preds = %151
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %_ZNK10BlockBegin14is_predecessorEPS_.exit.i, label %151, !llvm.loop !20
+
+151:                                              ; preds = %150, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %150 ]
+  %152 = getelementptr inbounds ptr, ptr %149, i64 %indvars.iv.i.i.i
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, %136
+  br i1 %154, label %_ZNK10BlockBegin14is_predecessorEPS_.exit.i, label %150
+
+_ZNK10BlockBegin14is_predecessorEPS_.exit.i:      ; preds = %151, %150, %140
+  %.lcssa.i.i.i = phi i8 [ 0, %140 ], [ 0, %150 ], [ 1, %151 ]
+  store i8 %.lcssa.i.i.i, ptr %134, align 8
+  %155 = load ptr, ptr %142, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 64
+  %157 = load ptr, ptr %156, align 8
+  store ptr %157, ptr %133, align 8
+  %.not.i = icmp eq ptr %157, null
+  br i1 %.not.i, label %158, label %161
+
+158:                                              ; preds = %_ZNK10BlockBegin14is_predecessorEPS_.exit.i
+  %159 = getelementptr inbounds i8, ptr %155, i64 96
+  %160 = load ptr, ptr %159, align 8
+  store ptr %160, ptr %133, align 8
+  br label %161
+
+161:                                              ; preds = %158, %_ZNK10BlockBegin14is_predecessorEPS_.exit.i
+  call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull %1)
+  %162 = load i32, ptr %5, align 8
+  %163 = icmp sgt i32 %162, 1
+  br i1 %163, label %.lr.ph.i29, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit
+
+.lr.ph.i29:                                       ; preds = %161
+  %164 = zext nneg i32 %162 to i64
+  br label %165
+
+165:                                              ; preds = %165, %.lr.ph.i29
+  %indvars.iv.i30 = phi i64 [ %164, %.lr.ph.i29 ], [ %indvars.iv.next.i31, %165 ]
+  %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i30, -1
+  %166 = load ptr, ptr %12, align 8
+  %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv.next.i31
+  %168 = load ptr, ptr %167, align 8
+  call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %168)
+  %169 = icmp ugt i64 %indvars.iv.i30, 2
+  br i1 %169, label %165, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, !llvm.loop !21
+
+_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit: ; preds = %19, %.loopexit, %32, %80, %165, %108, %._crit_edge, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %_ZN11Compilation12is_profilingEv.exit.i, %119, %161, %130, %_ZN11Compilation13is_optimisticEv.exit
+  %170 = phi i1 [ true, %108 ], [ true, %._crit_edge ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ true, %_ZN11Compilation12is_profilingEv.exit.i ], [ true, %119 ], [ true, %161 ], [ true, %130 ], [ true, %_ZN11Compilation13is_optimisticEv.exit ], [ true, %165 ], [ false, %80 ], [ false, %32 ], [ false, %.loopexit ], [ false, %19 ]
+  ret i1 %170
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

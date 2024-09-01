@@ -435,7 +435,7 @@ for.end:                                          ; preds = %if.then.for.end_cri
   %sh_prom19 = zext nneg i32 %sub18 to i64
   %shl20 = shl nuw i64 1, %sh_prom19
   %cmp21 = icmp eq i64 %inc, %shl20
-  br i1 %cmp21, label %if.then23, label %if.end34
+  br i1 %cmp21, label %if.then23, label %if.then36
 
 if.then23:                                        ; preds = %for.end
   store i1 false, ptr @expanding, align 1
@@ -452,22 +452,22 @@ if.then23:                                        ; preds = %for.end
   tail call void @STATS_UNLOCK() #18
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp28 = icmp sgt i32 %21, 1
-  br i1 %cmp28, label %if.then30, label %if.end34
+  br i1 %cmp28, label %if.then30, label %if.then36
 
 if.then30:                                        ; preds = %if.then23
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %22) #16
-  br label %if.end34
+  br label %if.then36
 
 if.end34.thread:                                  ; preds = %for.body
   %call33 = tail call i32 @usleep(i32 noundef 10000) #18
   br label %for.inc38
 
-if.end34:                                         ; preds = %for.end, %if.then30, %if.then23
+if.then36:                                        ; preds = %if.then23, %if.then30, %for.end
   tail call void @item_trylock_unlock(ptr noundef nonnull %call2) #18
   br label %for.inc38
 
-for.inc38:                                        ; preds = %if.end34.thread, %if.end34
+for.inc38:                                        ; preds = %if.end34.thread, %if.then36
   %inc39 = add nuw nsw i32 %ii.015, 1
   %24 = load i32, ptr @hash_bulk_move, align 4
   %cmp = icmp slt i32 %inc39, %24

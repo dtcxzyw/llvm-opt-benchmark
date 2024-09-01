@@ -142,13 +142,10 @@ define void @_ZNK5ZXing6Pdf41712BarcodeValue5valueEv(ptr dead_on_unwind noalias 
   %spec.select.i.i = select i1 %15, ptr %12, ptr %.sroa.02.110.i.i
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %12) #13
   %.not.i.i = icmp eq ptr %16, %9
-  br i1 %.not.i.i, label %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.lr.ph, label %.lr.ph.i.i, !llvm.loop !6
 
-"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit": ; preds = %.lr.ph.i.i
-  br i1 %10, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader.i.i, %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit"
-  %.pn = phi ptr [ %spec.select.i.i, %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit" ], [ %8, %.preheader.i.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i.i, %.preheader.i.i
+  %.pn = phi ptr [ %8, %.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %.in = getelementptr inbounds i8, ptr %.pn, i64 36
   %17 = load i32, ptr %.in, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -265,8 +262,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.not = icmp eq ptr %56, %9
   br i1 %.not, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %6, %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit"
-  %.lcssa19 = phi ptr [ null, %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit" ], [ null, %6 ], [ %55, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+.loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %6
+  %.lcssa19 = phi ptr [ null, %6 ], [ %55, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   store ptr %.lcssa19, ptr %0, align 8
   br label %57
 

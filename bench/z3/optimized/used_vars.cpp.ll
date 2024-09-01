@@ -626,29 +626,21 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %entry, %if.end.i
   br i1 %cmp8.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %2 = zext i32 %.sroa.speculated to i64
-  %3 = load ptr, ptr %0, align 8
-  %tobool.not12 = icmp eq ptr %3, null
-  br i1 %tobool.not12, label %for.cond, label %return
+  %wide.trip.count = zext i32 %.sroa.speculated to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !12
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx.i4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %2 = load ptr, ptr %arrayidx.i4, align 8
+  %tobool.not.not = icmp ne ptr %2, null
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %tobool.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !12
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx.i4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
-  %4 = load ptr, ptr %arrayidx.i4, align 8
-  %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %for.cond, label %return.loopexit, !llvm.loop !12
-
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %2
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %cmp.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
+  %cmp.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %tobool.not.not, %for.body ]
   ret i1 %cmp.lcssa
 }
 

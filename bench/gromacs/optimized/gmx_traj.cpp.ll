@@ -4625,16 +4625,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %69
 
 ._crit_edge169:                                   ; preds = %.lr.ph168
   call void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %65)
-  br i1 %46, label %.preheader161.preheader, label %._crit_edge175
-
-.preheader161.preheader:                          ; preds = %._crit_edge169
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br label %.preheader161
 
-.preheader161:                                    ; preds = %.preheader161.preheader, %110
-  %indvars.iv197 = phi i64 [ 0, %.preheader161.preheader ], [ %indvars.iv.next198, %110 ]
-  %.0131173 = phi i32 [ 0, %.preheader161.preheader ], [ %.1132, %110 ]
-  %.0138172 = phi float [ 0.000000e+00, %.preheader161.preheader ], [ %.1139, %110 ]
+.preheader161:                                    ; preds = %._crit_edge169, %110
+  %indvars.iv197 = phi i64 [ 0, %._crit_edge169 ], [ %indvars.iv.next198, %110 ]
+  %.0131173 = phi i32 [ 0, %._crit_edge169 ], [ %.1132, %110 ]
+  %.0138172 = phi float [ 0.000000e+00, %._crit_edge169 ], [ %.1139, %110 ]
   %90 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv197
   br label %91
 
@@ -4681,9 +4678,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %69
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
   br i1 %exitcond201.not, label %._crit_edge175, label %.preheader161, !llvm.loop !50
 
-._crit_edge175:                                   ; preds = %110, %._crit_edge169.thread, %._crit_edge169
-  %.0138.lcssa = phi float [ 0.000000e+00, %._crit_edge169 ], [ 0.000000e+00, %._crit_edge169.thread ], [ %.1139, %110 ]
-  %.0131.lcssa = phi i32 [ 0, %._crit_edge169 ], [ 0, %._crit_edge169.thread ], [ %.1132, %110 ]
+._crit_edge175:                                   ; preds = %110, %._crit_edge169.thread
+  %.0138.lcssa = phi float [ 0.000000e+00, %._crit_edge169.thread ], [ %.1139, %110 ]
+  %.0131.lcssa = phi i32 [ 0, %._crit_edge169.thread ], [ %.1132, %110 ]
   %111 = fcmp une float %13, 0.000000e+00
   br i1 %111, label %117, label %112
 

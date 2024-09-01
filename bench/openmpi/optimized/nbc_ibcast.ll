@@ -246,14 +246,14 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   br i1 %.not70.i, label %.lr.ph82.split.i, label %bcast_sched_linear.exit.thread129
 
 .thread.i:                                        ; preds = %ceil_of_log2.exit.i
-  br i1 %.not8796.i, label %bcast_sched_linear.exit.thread, label %.lr.ph82.split.us.preheader.i
+  br i1 %.not8796.i, label %bcast_sched_linear.exit.thread, label %.lr.ph82.thread.i
 
-.lr.ph82.split.us.preheader.i:                    ; preds = %.thread.i
+.lr.ph82.thread.i:                                ; preds = %.thread.i
   %83 = sext i32 %1 to i64
   br label %.lr.ph82.split.us.i
 
-.lr.ph82.split.us.i:                              ; preds = %87, %.lr.ph82.split.us.preheader.i
-  %.080.us.i = phi i32 [ %88, %87 ], [ 0, %.lr.ph82.split.us.preheader.i ]
+.lr.ph82.split.us.i:                              ; preds = %87, %.lr.ph82.thread.i
+  %.080.us.i = phi i32 [ %88, %87 ], [ 0, %.lr.ph82.thread.i ]
   %84 = shl nuw i32 1, %.080.us.i
   %85 = icmp eq i32 %84, %3
   %.3.us.i = select i1 %85, i32 0, i32 %84

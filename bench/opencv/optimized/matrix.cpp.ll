@@ -4684,14 +4684,11 @@ define void @_ZN2cv3MatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 derefere
 
 ._crit_edge:                                      ; preds = %.critedge34
   %45 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br i1 %16, label %.lr.ph63.preheader, label %._crit_edge64
-
-.lr.ph63.preheader:                               ; preds = %._crit_edge
   %wide.trip.count72 = zext nneg i32 %15 to i64
   br label %.lr.ph63
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.critedge
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next70, %.critedge ]
+.lr.ph63:                                         ; preds = %._crit_edge, %.critedge
+  %indvars.iv69 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next70, %.critedge ]
   %46 = getelementptr inbounds %"class.cv::Range", ptr %2, i64 %indvars.iv69
   %47 = load i64, ptr %46, align 4
   %.sroa.051.0.extract.trunc = trunc i64 %47 to i32
@@ -4733,7 +4730,7 @@ define void @_ZN2cv3MatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 derefere
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !24
 
-._crit_edge64:                                    ; preds = %.critedge, %._crit_edge.thread, %._crit_edge
+._crit_edge64:                                    ; preds = %.critedge, %._crit_edge.thread
   %67 = load i32, ptr %0, align 8
   %68 = load i32, ptr %8, align 4
   %69 = load ptr, ptr %11, align 8
@@ -4947,14 +4944,11 @@ define void @_ZN2cv3MatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnul
 
 ._crit_edge:                                      ; preds = %.critedge34
   %54 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br i1 %25, label %.lr.ph62.preheader, label %._crit_edge63
-
-.lr.ph62.preheader:                               ; preds = %._crit_edge
   %wide.trip.count71 = zext nneg i32 %15 to i64
   br label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.critedge
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next69, %.critedge ]
+.lr.ph62:                                         ; preds = %._crit_edge, %.critedge
+  %indvars.iv68 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next69, %.critedge ]
   %55 = load ptr, ptr %2, align 8
   %56 = getelementptr inbounds %"class.cv::Range", ptr %55, i64 %indvars.iv68
   %57 = load i64, ptr %56, align 4
@@ -4997,7 +4991,7 @@ define void @_ZN2cv3MatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnul
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !26
 
-._crit_edge63:                                    ; preds = %.critedge, %._crit_edge.thread, %._crit_edge
+._crit_edge63:                                    ; preds = %.critedge, %._crit_edge.thread
   %77 = load i32, ptr %0, align 8
   %78 = load i32, ptr %8, align 4
   %79 = load ptr, ptr %11, align 8

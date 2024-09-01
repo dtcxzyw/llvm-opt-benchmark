@@ -744,40 +744,31 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
   %82 = load i64, ptr %81, align 8, !alias.scope !91, !noalias !92, !noundef !7
   %83 = add i64 %82, %79
   %exitcond.not.i.i250 = icmp eq i64 %80, %75
-  br i1 %exitcond.not.i.i250, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258, label %.lr.ph.i.i247
+  br i1 %exitcond.not.i.i250, label %.lr.ph.i.i260, label %.lr.ph.i.i247
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258: ; preds = %.lr.ph.i.i247
-  br i1 %.not.i.i246, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, label %.lr.ph.i.i260
-
-.lr.ph.i.i260:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258, %.lr.ph.i.i260
-  %.sroa.01.08.i.i261 = phi i64 [ %85, %.lr.ph.i.i260 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ]
-  %84 = phi i64 [ %88, %.lr.ph.i.i260 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ]
+.lr.ph.i.i260:                                    ; preds = %.lr.ph.i.i247, %.lr.ph.i.i260
+  %.sroa.01.08.i.i261 = phi i64 [ %85, %.lr.ph.i.i260 ], [ 0, %.lr.ph.i.i247 ]
+  %84 = phi i64 [ %88, %.lr.ph.i.i260 ], [ 0, %.lr.ph.i.i247 ]
   %85 = add nuw nsw i64 %.sroa.01.08.i.i261, 1
   %86 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %78, i64 0, i64 %.sroa.01.08.i.i261, i32 1
   %87 = load i64, ptr %86, align 8, !alias.scope !93, !noalias !98, !noundef !7
   %88 = add i64 %87, %84
   %exitcond.not.i.i263 = icmp eq i64 %85, %75
-  br i1 %exitcond.not.i.i263, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271, label %.lr.ph.i.i260
+  br i1 %exitcond.not.i.i263, label %.lr.ph.i.i273, label %.lr.ph.i.i260
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271: ; preds = %.lr.ph.i.i260
-  br i1 %.not.i.i246, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, label %.lr.ph.i.i273
-
-.lr.ph.i.i273:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271, %.lr.ph.i.i273
-  %.sroa.01.08.i.i274 = phi i64 [ %90, %.lr.ph.i.i273 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ]
-  %89 = phi i64 [ %93, %.lr.ph.i.i273 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ]
+.lr.ph.i.i273:                                    ; preds = %.lr.ph.i.i260, %.lr.ph.i.i273
+  %.sroa.01.08.i.i274 = phi i64 [ %90, %.lr.ph.i.i273 ], [ 0, %.lr.ph.i.i260 ]
+  %89 = phi i64 [ %93, %.lr.ph.i.i273 ], [ 0, %.lr.ph.i.i260 ]
   %90 = add nuw nsw i64 %.sroa.01.08.i.i274, 1
   %91 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %78, i64 0, i64 %.sroa.01.08.i.i274, i32 2
   %92 = load i64, ptr %91, align 8, !alias.scope !101, !noalias !106, !noundef !7
   %93 = add i64 %92, %89
   %exitcond.not.i.i276 = icmp eq i64 %90, %75
-  br i1 %exitcond.not.i.i276, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284, label %.lr.ph.i.i273
+  br i1 %exitcond.not.i.i276, label %.lr.ph.i.i286, label %.lr.ph.i.i273
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284: ; preds = %.lr.ph.i.i273
-  br i1 %.not.i.i246, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, label %.lr.ph.i.i286
-
-.lr.ph.i.i286:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284, %.lr.ph.i.i286
-  %.sroa.01.08.i.i287 = phi i64 [ %94, %.lr.ph.i.i286 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ]
-  %storemerge7.i.i288 = phi i64 [ %97, %.lr.ph.i.i286 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ]
+.lr.ph.i.i286:                                    ; preds = %.lr.ph.i.i273, %.lr.ph.i.i286
+  %.sroa.01.08.i.i287 = phi i64 [ %94, %.lr.ph.i.i286 ], [ 0, %.lr.ph.i.i273 ]
+  %storemerge7.i.i288 = phi i64 [ %97, %.lr.ph.i.i286 ], [ 0, %.lr.ph.i.i273 ]
   %94 = add nuw nsw i64 %.sroa.01.08.i.i287, 1
   %95 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %78, i64 0, i64 %.sroa.01.08.i.i287, i32 3
   %96 = load i64, ptr %95, align 8, !alias.scope !109, !noalias !114, !noundef !7
@@ -785,11 +776,11 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284
   %exitcond.not.i.i289 = icmp eq i64 %94, %75
   br i1 %exitcond.not.i.i289, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, label %.lr.ph.i.i286
 
-_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295: ; preds = %.lr.ph.i.i286, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284
-  %.lcssa6.i.i2781977 = phi i64 [ %93, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ], [ %93, %.lr.ph.i.i286 ]
-  %.lcssa.i.i254196719701976 = phi i64 [ %83, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ], [ %83, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %83, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ], [ %83, %.lr.ph.i.i286 ]
-  %.lcssa4.i.i26619711975 = phi i64 [ %88, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %88, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ], [ %88, %.lr.ph.i.i286 ]
-  %storemerge.lcssa.i.i294 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i284 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i258 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i271 ], [ %97, %.lr.ph.i.i286 ]
+_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295: ; preds = %.lr.ph.i.i286, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
+  %.lcssa6.i.i2781977 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %93, %.lr.ph.i.i286 ]
+  %.lcssa.i.i254196719701976 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %83, %.lr.ph.i.i286 ]
+  %.lcssa4.i.i26619711975 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %88, %.lr.ph.i.i286 ]
+  %storemerge.lcssa.i.i294 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %97, %.lr.ph.i.i286 ]
   store ptr %1, ptr %0, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -3045,40 +3036,31 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
   %85 = load i64, ptr %84, align 8, !alias.scope !320, !noalias !321, !noundef !7
   %86 = add i64 %85, %82
   %exitcond.not.i.i251 = icmp eq i64 %83, %78
-  br i1 %exitcond.not.i.i251, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259, label %.lr.ph.i.i248
+  br i1 %exitcond.not.i.i251, label %.lr.ph.i.i261, label %.lr.ph.i.i248
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259: ; preds = %.lr.ph.i.i248
-  br i1 %.not.i.i247, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, label %.lr.ph.i.i261
-
-.lr.ph.i.i261:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259, %.lr.ph.i.i261
-  %.sroa.01.08.i.i262 = phi i64 [ %88, %.lr.ph.i.i261 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ]
-  %87 = phi i64 [ %91, %.lr.ph.i.i261 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ]
+.lr.ph.i.i261:                                    ; preds = %.lr.ph.i.i248, %.lr.ph.i.i261
+  %.sroa.01.08.i.i262 = phi i64 [ %88, %.lr.ph.i.i261 ], [ 0, %.lr.ph.i.i248 ]
+  %87 = phi i64 [ %91, %.lr.ph.i.i261 ], [ 0, %.lr.ph.i.i248 ]
   %88 = add nuw nsw i64 %.sroa.01.08.i.i262, 1
   %89 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %81, i64 0, i64 %.sroa.01.08.i.i262, i32 1
   %90 = load i64, ptr %89, align 8, !alias.scope !322, !noalias !327, !noundef !7
   %91 = add i64 %90, %87
   %exitcond.not.i.i264 = icmp eq i64 %88, %78
-  br i1 %exitcond.not.i.i264, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272, label %.lr.ph.i.i261
+  br i1 %exitcond.not.i.i264, label %.lr.ph.i.i274, label %.lr.ph.i.i261
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272: ; preds = %.lr.ph.i.i261
-  br i1 %.not.i.i247, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, label %.lr.ph.i.i274
-
-.lr.ph.i.i274:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272, %.lr.ph.i.i274
-  %.sroa.01.08.i.i275 = phi i64 [ %93, %.lr.ph.i.i274 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ]
-  %92 = phi i64 [ %96, %.lr.ph.i.i274 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ]
+.lr.ph.i.i274:                                    ; preds = %.lr.ph.i.i261, %.lr.ph.i.i274
+  %.sroa.01.08.i.i275 = phi i64 [ %93, %.lr.ph.i.i274 ], [ 0, %.lr.ph.i.i261 ]
+  %92 = phi i64 [ %96, %.lr.ph.i.i274 ], [ 0, %.lr.ph.i.i261 ]
   %93 = add nuw nsw i64 %.sroa.01.08.i.i275, 1
   %94 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %81, i64 0, i64 %.sroa.01.08.i.i275, i32 2
   %95 = load i64, ptr %94, align 8, !alias.scope !330, !noalias !335, !noundef !7
   %96 = add i64 %95, %92
   %exitcond.not.i.i277 = icmp eq i64 %93, %78
-  br i1 %exitcond.not.i.i277, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285, label %.lr.ph.i.i274
+  br i1 %exitcond.not.i.i277, label %.lr.ph.i.i287, label %.lr.ph.i.i274
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285: ; preds = %.lr.ph.i.i274
-  br i1 %.not.i.i247, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, label %.lr.ph.i.i287
-
-.lr.ph.i.i287:                                    ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285, %.lr.ph.i.i287
-  %.sroa.01.08.i.i288 = phi i64 [ %97, %.lr.ph.i.i287 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ]
-  %storemerge7.i.i289 = phi i64 [ %100, %.lr.ph.i.i287 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ]
+.lr.ph.i.i287:                                    ; preds = %.lr.ph.i.i274, %.lr.ph.i.i287
+  %.sroa.01.08.i.i288 = phi i64 [ %97, %.lr.ph.i.i287 ], [ 0, %.lr.ph.i.i274 ]
+  %storemerge7.i.i289 = phi i64 [ %100, %.lr.ph.i.i287 ], [ 0, %.lr.ph.i.i274 ]
   %97 = add nuw nsw i64 %.sroa.01.08.i.i288, 1
   %98 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %81, i64 0, i64 %.sroa.01.08.i.i288, i32 3
   %99 = load i64, ptr %98, align 8, !alias.scope !338, !noalias !343, !noundef !7
@@ -3086,11 +3068,11 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285
   %exitcond.not.i.i290 = icmp eq i64 %97, %78
   br i1 %exitcond.not.i.i290, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, label %.lr.ph.i.i287
 
-_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296: ; preds = %.lr.ph.i.i287, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285
-  %.lcssa6.i.i2791589 = phi i64 [ %96, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ], [ %96, %.lr.ph.i.i287 ]
-  %.lcssa.i.i255157915821588 = phi i64 [ %86, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ], [ %86, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %86, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ], [ %86, %.lr.ph.i.i287 ]
-  %.lcssa4.i.i26715831587 = phi i64 [ %91, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %91, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ], [ %91, %.lr.ph.i.i287 ]
-  %storemerge.lcssa.i.i295 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i285 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i259 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i272 ], [ %100, %.lr.ph.i.i287 ]
+_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296: ; preds = %.lr.ph.i.i287, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
+  %.lcssa6.i.i2791589 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %96, %.lr.ph.i.i287 ]
+  %.lcssa.i.i255157915821588 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %86, %.lr.ph.i.i287 ]
+  %.lcssa4.i.i26715831587 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %91, %.lr.ph.i.i287 ]
+  %storemerge.lcssa.i.i295 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %100, %.lr.ph.i.i287 ]
   %101 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %101, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

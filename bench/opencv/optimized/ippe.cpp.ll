@@ -1925,16 +1925,13 @@ _ZN2cv3Mat2atINS_3VecIdLi3EEEEERT_i.exit128:      ; preds = %.thread208, %206, %
   %248 = fdiv double %231, %247
   %249 = fdiv double %232, %247
   %250 = fdiv double %233, %247
-  br i1 %44, label %.lr.ph164, label %._crit_edge165
-
-.lr.ph164:                                        ; preds = %._crit_edge
   %251 = getelementptr inbounds i8, ptr %10, i64 16
   %252 = getelementptr inbounds i8, ptr %10, i64 72
   %wide.trip.count182 = zext nneg i32 %31 to i64
   br label %253
 
-253:                                              ; preds = %.lr.ph164, %253
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next180, %253 ]
+253:                                              ; preds = %._crit_edge, %253
+  %indvars.iv179 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next180, %253 ]
   %254 = load ptr, ptr %251, align 8
   %255 = getelementptr inbounds double, ptr %254, i64 %indvars.iv179
   %256 = load double, ptr %255, align 8
@@ -1961,11 +1958,11 @@ _ZN2cv3Mat2atINS_3VecIdLi3EEEEERT_i.exit128:      ; preds = %.thread208, %206, %
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
   br i1 %exitcond183.not, label %._crit_edge165, label %253, !llvm.loop !69
 
-._crit_edge165:                                   ; preds = %253, %._crit_edge.thread, %._crit_edge
-  %273 = phi double [ %48, %._crit_edge.thread ], [ %250, %._crit_edge ], [ %250, %253 ]
-  %274 = phi double [ %47, %._crit_edge.thread ], [ %249, %._crit_edge ], [ %249, %253 ]
-  %275 = phi double [ %46, %._crit_edge.thread ], [ %248, %._crit_edge ], [ %248, %253 ]
-  %.090.lcssa214 = phi i1 [ true, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %.1, %253 ]
+._crit_edge165:                                   ; preds = %253, %._crit_edge.thread
+  %273 = phi double [ %48, %._crit_edge.thread ], [ %250, %253 ]
+  %274 = phi double [ %47, %._crit_edge.thread ], [ %249, %253 ]
+  %275 = phi double [ %46, %._crit_edge.thread ], [ %248, %253 ]
+  %.090.lcssa214 = phi i1 [ true, %._crit_edge.thread ], [ %.1, %253 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 128, i1 false), !alias.scope !70
   br label %276
 

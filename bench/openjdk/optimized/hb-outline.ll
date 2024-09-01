@@ -524,17 +524,14 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr nocapture noundef nonnul
 _ZNK12hb_outline_t12control_areaEv.exit:          ; preds = %._crit_edge.i
   %45 = fmul float %.1.lcssa.i, 5.000000e-01
   %46 = fcmp olt float %45, 0.000000e+00
-  br i1 %.not32.i, label %.loopexit122, label %.lr.ph137
-
-.lr.ph137:                                        ; preds = %_ZNK12hb_outline_t12control_areaEv.exit
   %47 = load i32, ptr @_hb_NullPool, align 16
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   br label %49
 
-49:                                               ; preds = %.lr.ph137, %._crit_edge
-  %50 = phi i32 [ %17, %.lr.ph137 ], [ %164, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next, %._crit_edge ]
-  %.086135 = phi i32 [ 0, %.lr.ph137 ], [ %56, %._crit_edge ]
+49:                                               ; preds = %_ZNK12hb_outline_t12control_areaEv.exit, %._crit_edge
+  %50 = phi i32 [ %17, %_ZNK12hb_outline_t12control_areaEv.exit ], [ %164, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %_ZNK12hb_outline_t12control_areaEv.exit ], [ %indvars.iv.next, %._crit_edge ]
+  %.086135 = phi i32 [ 0, %_ZNK12hb_outline_t12control_areaEv.exit ], [ %56, %._crit_edge ]
   %51 = zext i32 %50 to i64
   %.not.i90 = icmp ult i64 %indvars.iv, %51
   br i1 %.not.i90, label %53, label %52
@@ -803,7 +800,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %147, %148
   %165 = icmp ult i64 %indvars.iv.next, %.pre-phi
   br i1 %165, label %49, label %.loopexit122, !llvm.loop !11
 
-.loopexit122:                                     ; preds = %._crit_edge, %11, %_ZNK12hb_outline_t12control_areaEv.exit, %8, %5
+.loopexit122:                                     ; preds = %._crit_edge, %11, %8, %5
   ret void
 }
 
@@ -896,9 +893,9 @@ define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.142.i.i, 1
-  %15 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.143.i.i, 1
+  %15 = add i32 %.143.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -913,8 +910,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %21 = zext nneg i32 %16 to i64
   %22 = mul nuw nsw i64 %21, 12
   %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
-  %.not43.i.i = icmp eq ptr %23, null
-  br i1 %.not43.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %23, null
+  br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
 24:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %25 = load i32, ptr %1, align 8
@@ -975,9 +972,9 @@ define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.142.i.i, 1
-  %15 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.143.i.i, 1
+  %15 = add i32 %.143.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -992,8 +989,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %21 = zext nneg i32 %16 to i64
   %22 = mul nuw nsw i64 %21, 12
   %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
-  %.not43.i.i = icmp eq ptr %23, null
-  br i1 %.not43.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %23, null
+  br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
 24:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %25 = load i32, ptr %1, align 8
@@ -1054,9 +1051,9 @@ define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %15, %.preheader.i.i
-  %.142.i.i = phi i32 [ %18, %.preheader.i.i ], [ %11, %15 ]
-  %16 = lshr i32 %.142.i.i, 1
-  %17 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %18, %.preheader.i.i ], [ %11, %15 ]
+  %16 = lshr i32 %.143.i.i, 1
+  %17 = add i32 %.143.i.i, 8
   %18 = add i32 %17, %16
   %19 = icmp ugt i32 %13, %18
   br i1 %19, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1071,8 +1068,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %23 = zext nneg i32 %18 to i64
   %24 = mul nuw nsw i64 %23, 12
   %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #11
-  %.not43.i.i = icmp eq ptr %25, null
-  br i1 %.not43.i.i, label %26, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %25, null
+  br i1 %.not42.i.i, label %26, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
 26:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %27 = load i32, ptr %1, align 8
@@ -1125,9 +1122,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %.not.i.i8, label %.preheader.i.i11, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i9
 
 .preheader.i.i11:                                 ; preds = %39, %.preheader.i.i11
-  %.142.i.i12 = phi i32 [ %42, %.preheader.i.i11 ], [ %35, %39 ]
-  %40 = lshr i32 %.142.i.i12, 1
-  %41 = add i32 %.142.i.i12, 8
+  %.143.i.i12 = phi i32 [ %42, %.preheader.i.i11 ], [ %35, %39 ]
+  %40 = lshr i32 %.143.i.i12, 1
+  %41 = add i32 %.143.i.i12, 8
   %42 = add i32 %41, %40
   %43 = icmp ugt i32 %37, %42
   br i1 %43, label %.preheader.i.i11, label %.thread.i.i13, !llvm.loop !12
@@ -1142,8 +1139,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %47 = zext nneg i32 %42 to i64
   %48 = mul nuw nsw i64 %47, 12
   %49 = tail call ptr @realloc(ptr noundef %46, i64 noundef %48) #11
-  %.not43.i.i15 = icmp eq ptr %49, null
-  br i1 %.not43.i.i15, label %50, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i16
+  %.not42.i.i15 = icmp eq ptr %49, null
+  br i1 %.not42.i.i15, label %50, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i16
 
 50:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i14
   %51 = load i32, ptr %1, align 8
@@ -1204,9 +1201,9 @@ define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPv
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
-  %.142.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
-  %18 = lshr i32 %.142.i.i, 1
-  %19 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
+  %18 = lshr i32 %.143.i.i, 1
+  %19 = add i32 %.143.i.i, 8
   %20 = add i32 %19, %18
   %21 = icmp ugt i32 %15, %20
   br i1 %21, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1221,8 +1218,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %25 = zext nneg i32 %20 to i64
   %26 = mul nuw nsw i64 %25, 12
   %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #11
-  %.not43.i.i = icmp eq ptr %27, null
-  br i1 %.not43.i.i, label %28, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %27, null
+  br i1 %.not42.i.i, label %28, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
 28:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %29 = load i32, ptr %1, align 8
@@ -1275,9 +1272,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %.not.i.i11, label %.preheader.i.i14, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i12
 
 .preheader.i.i14:                                 ; preds = %41, %.preheader.i.i14
-  %.142.i.i15 = phi i32 [ %44, %.preheader.i.i14 ], [ %37, %41 ]
-  %42 = lshr i32 %.142.i.i15, 1
-  %43 = add i32 %.142.i.i15, 8
+  %.143.i.i15 = phi i32 [ %44, %.preheader.i.i14 ], [ %37, %41 ]
+  %42 = lshr i32 %.143.i.i15, 1
+  %43 = add i32 %.143.i.i15, 8
   %44 = add i32 %43, %42
   %45 = icmp ugt i32 %39, %44
   br i1 %45, label %.preheader.i.i14, label %.thread.i.i16, !llvm.loop !12
@@ -1292,8 +1289,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %49 = zext nneg i32 %44 to i64
   %50 = mul nuw nsw i64 %49, 12
   %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #11
-  %.not43.i.i18 = icmp eq ptr %51, null
-  br i1 %.not43.i.i18, label %52, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i19
+  %.not42.i.i18 = icmp eq ptr %51, null
+  br i1 %.not42.i.i18, label %52, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i19
 
 52:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i17
   %53 = load i32, ptr %1, align 8
@@ -1346,9 +1343,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit25: ; preds
   br i1 %.not.i.i27, label %.preheader.i.i30, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i28
 
 .preheader.i.i30:                                 ; preds = %65, %.preheader.i.i30
-  %.142.i.i31 = phi i32 [ %68, %.preheader.i.i30 ], [ %61, %65 ]
-  %66 = lshr i32 %.142.i.i31, 1
-  %67 = add i32 %.142.i.i31, 8
+  %.143.i.i31 = phi i32 [ %68, %.preheader.i.i30 ], [ %61, %65 ]
+  %66 = lshr i32 %.143.i.i31, 1
+  %67 = add i32 %.143.i.i31, 8
   %68 = add i32 %67, %66
   %69 = icmp ugt i32 %63, %68
   br i1 %69, label %.preheader.i.i30, label %.thread.i.i32, !llvm.loop !12
@@ -1363,8 +1360,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %73 = zext nneg i32 %68 to i64
   %74 = mul nuw nsw i64 %73, 12
   %75 = tail call ptr @realloc(ptr noundef %72, i64 noundef %74) #11
-  %.not43.i.i34 = icmp eq ptr %75, null
-  br i1 %.not43.i.i34, label %76, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i35
+  %.not42.i.i34 = icmp eq ptr %75, null
+  br i1 %.not42.i.i34, label %76, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i35
 
 76:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i33
   %77 = load i32, ptr %1, align 8
@@ -1427,9 +1424,9 @@ define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_t
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.142.i.i, 1
-  %15 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.143.i.i, 1
+  %15 = add i32 %.143.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ugt i32 %11, %16
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !13
@@ -1444,8 +1441,8 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %21 = shl nuw i32 %16, 2
   %22 = zext i32 %21 to i64
   %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
-  %.not43.i.i = icmp eq ptr %23, null
-  br i1 %.not43.i.i, label %24, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %23, null
+  br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
 24:                                               ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i
   %25 = load i32, ptr %5, align 8

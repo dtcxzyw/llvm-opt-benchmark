@@ -7531,7 +7531,7 @@ for.body:                                         ; preds = %if.then, %for.body
 for.end:                                          ; preds = %for.body
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ctl_mtx, i64 64)) #14
-  br i1 %cmp326.not, label %for.end15, label %for.body6
+  br label %for.body6
 
 for.body6:                                        ; preds = %for.end, %for.inc13
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.inc13 ], [ 0, %for.end ]
@@ -7549,7 +7549,7 @@ for.inc13:                                        ; preds = %for.body6, %if.then
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %5
   br i1 %exitcond35.not, label %for.end15, label %for.body6, !llvm.loop !18
 
-for.end15:                                        ; preds = %for.inc13, %for.end.thread, %for.end
+for.end15:                                        ; preds = %for.inc13, %for.end.thread
   call void @llvm.stackrestore.p0(ptr %6)
   br label %if.end21
 

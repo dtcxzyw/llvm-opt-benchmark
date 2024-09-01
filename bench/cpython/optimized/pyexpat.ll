@@ -456,8 +456,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 4
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add39 = phi i64 [ %add35, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -472,41 +472,41 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %if.then5.i, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1045, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1045, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end41, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %cmp18 = icmp eq ptr %3, @_Py_NoneStruct
+  %cmp18 = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp18, label %if.end37, label %if.else
 
 if.else:                                          ; preds = %if.then16
-  %4 = getelementptr i8, ptr %3, i64 8
-  %.val = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %.val, i64 168
-  %call21.val = load i64, ptr %5, align 8
-  %6 = and i64 %call21.val, 268435456
-  %tobool23.not = icmp eq i64 %6, 0
+  %3 = getelementptr i8, ptr %2, i64 8
+  %.val = load ptr, ptr %3, align 8
+  %4 = getelementptr i8, ptr %.val, i64 168
+  %call21.val = load i64, ptr %4, align 8
+  %5 = and i64 %call21.val, 268435456
+  %tobool23.not = icmp eq i64 %5, 0
   br i1 %tobool23.not, label %if.else34, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %call26 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %3, ptr noundef nonnull %encoding_length) #8
+  %call26 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %2, ptr noundef nonnull %encoding_length) #8
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %exit, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #9
-  %7 = load i64, ptr %encoding_length, align 8
-  %cmp31.not = icmp eq i64 %call30, %7
+  %6 = load i64, ptr %encoding_length, align 8
+  %cmp31.not = icmp eq i64 %call30, %6
   br i1 %cmp31.not, label %if.end37, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.6) #8
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.6) #8
   br label %exit
 
 if.else34:                                        ; preds = %if.else
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #8
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #8
   br label %exit
 
 if.end37:                                         ; preds = %if.then16, %if.end29
@@ -519,41 +519,41 @@ if.end41:                                         ; preds = %if.end37, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end37 ], [ %add4044, %if.end14 ]
   %encoding.1 = phi ptr [ %encoding.2, %if.end37 ], [ null, %if.end14 ]
   %arrayidx42 = getelementptr i8, ptr %cond1045, i64 8
-  %9 = load ptr, ptr %arrayidx42, align 8
-  %tobool43.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %arrayidx42, align 8
+  %tobool43.not = icmp eq ptr %8, null
   br i1 %tobool43.not, label %if.end71, label %if.then44
 
 if.then44:                                        ; preds = %if.end41
-  %cmp46 = icmp eq ptr %9, @_Py_NoneStruct
+  %cmp46 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %cmp46, label %if.end66, label %if.else48
 
 if.else48:                                        ; preds = %if.then44
-  %10 = getelementptr i8, ptr %9, i64 8
-  %.val30 = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %.val30, i64 168
-  %call50.val = load i64, ptr %11, align 8
-  %12 = and i64 %call50.val, 268435456
-  %tobool52.not = icmp eq i64 %12, 0
+  %9 = getelementptr i8, ptr %8, i64 8
+  %.val30 = load ptr, ptr %9, align 8
+  %10 = getelementptr i8, ptr %.val30, i64 168
+  %call50.val = load i64, ptr %10, align 8
+  %11 = and i64 %call50.val, 268435456
+  %tobool52.not = icmp eq i64 %11, 0
   br i1 %tobool52.not, label %if.else63, label %if.then53
 
 if.then53:                                        ; preds = %if.else48
-  %call55 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %9, ptr noundef nonnull %namespace_separator_length) #8
+  %call55 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %8, ptr noundef nonnull %namespace_separator_length) #8
   %cmp56 = icmp eq ptr %call55, null
   br i1 %cmp56, label %exit, label %if.end58
 
 if.end58:                                         ; preds = %if.then53
   %call59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call55) #9
-  %13 = load i64, ptr %namespace_separator_length, align 8
-  %cmp60.not = icmp eq i64 %call59, %13
+  %12 = load i64, ptr %namespace_separator_length, align 8
+  %cmp60.not = icmp eq i64 %call59, %12
   br i1 %cmp60.not, label %if.end66, label %if.then61
 
 if.then61:                                        ; preds = %if.end58
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.6) #8
+  %13 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.6) #8
   br label %exit
 
 if.else63:                                        ; preds = %if.else48
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %9) #8
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #8
   br label %exit
 
 if.end66:                                         ; preds = %if.then44, %if.end58
@@ -564,12 +564,12 @@ if.end66:                                         ; preds = %if.then44, %if.end5
 if.end71:                                         ; preds = %if.end66, %if.end41
   %namespace_separator.1 = phi ptr [ %namespace_separator.2, %if.end66 ], [ null, %if.end41 ]
   %arrayidx72 = getelementptr i8, ptr %cond1045, i64 16
-  %15 = load ptr, ptr %arrayidx72, align 8
+  %14 = load ptr, ptr %arrayidx72, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end66, %if.end71
   %namespace_separator.0 = phi ptr [ %namespace_separator.1, %if.end71 ], [ %namespace_separator.2, %if.end66 ]
-  %intern.0 = phi ptr [ %15, %if.end71 ], [ null, %if.end66 ]
+  %intern.0 = phi ptr [ %14, %if.end71 ], [ null, %if.end66 ]
   %cmp.not.i = icmp eq ptr %namespace_separator.0, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
@@ -579,8 +579,8 @@ land.lhs.true.i:                                  ; preds = %skip_optional_pos
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.10) #8
+  %15 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.10) #8
   br label %exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %skip_optional_pos
@@ -599,17 +599,17 @@ if.then5.i:                                       ; preds = %if.end, %if.end37, 
   br i1 %tobool.not.i, label %exit, label %if.end16.i
 
 if.else9.i:                                       ; preds = %if.else.i
-  %17 = getelementptr i8, ptr %intern.0, i64 8
-  %intern.val.i = load ptr, ptr %17, align 8
-  %18 = getelementptr i8, ptr %intern.val.i, i64 168
-  %call10.val.i = load i64, ptr %18, align 8
-  %19 = and i64 %call10.val.i, 536870912
-  %tobool12.not.i = icmp eq i64 %19, 0
+  %16 = getelementptr i8, ptr %intern.0, i64 8
+  %intern.val.i = load ptr, ptr %16, align 8
+  %17 = getelementptr i8, ptr %intern.val.i, i64 168
+  %call10.val.i = load i64, ptr %17, align 8
+  %18 = and i64 %call10.val.i, 536870912
+  %tobool12.not.i = icmp eq i64 %18, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.else9.i
-  %20 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str.11) #8
+  %19 = load ptr, ptr @PyExc_TypeError, align 8
+  call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.11) #8
   br label %exit
 
 if.end16.i:                                       ; preds = %if.else9.i, %if.then5.i, %if.end.i
@@ -638,8 +638,8 @@ if.end.i13.i:                                     ; preds = %if.end16.i
   br i1 %cmp.not.i.i.i.i, label %_Py_XNewRef.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i13.i
-  %21 = load i32, ptr %intern.addr.0.i, align 8
-  %add.i.i.i.i.i = add i32 %21, 1
+  %20 = load i32, ptr %intern.addr.0.i, align 8
+  %add.i.i.i.i.i = add i32 %20, 1
   %cmp.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_Py_XNewRef.exit.i.i, label %if.end.i.i.i.i.i
 
@@ -657,15 +657,15 @@ _Py_XNewRef.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end7.i.i
 
 if.then6.i.i:                                     ; preds = %_Py_XNewRef.exit.i.i
-  %22 = load ptr, ptr @PyExc_RuntimeError, align 8
-  call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.12) #8
-  %23 = load i64, ptr %call.i11.i, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i32.not.i.i = icmp eq i64 %24, 0
+  %21 = load ptr, ptr @PyExc_RuntimeError, align 8
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.12) #8
+  %22 = load i64, ptr %call.i11.i, align 8
+  %23 = and i64 %22, 2147483648
+  %cmp.i32.not.i.i = icmp eq i64 %23, 0
   br i1 %cmp.i32.not.i.i, label %if.end.i25.i.i, label %newxmlparseobject.exit.i
 
 if.end.i25.i.i:                                   ; preds = %if.then6.i.i
-  %dec.i26.i.i = add i64 %23, -1
+  %dec.i26.i.i = add i64 %22, -1
   store i64 %dec.i26.i.i, ptr %call.i11.i, align 8
   %cmp.i27.i.i = icmp eq i64 %dec.i26.i.i, 0
   br i1 %cmp.i27.i.i, label %if.then1.i28.i.i, label %newxmlparseobject.exit.i
@@ -675,20 +675,20 @@ if.then1.i28.i.i:                                 ; preds = %if.end.i25.i.i
   br label %newxmlparseobject.exit.i
 
 if.end7.i.i:                                      ; preds = %_Py_XNewRef.exit.i.i
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 16), align 8
-  %call9.i.i = call i32 @PyExpat_XML_SetHashSalt(ptr noundef nonnull %call3.i.i, i64 noundef %25) #8
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_Py_HashSecret, i64 16), align 8
+  %call9.i.i = call i32 @PyExpat_XML_SetHashSalt(ptr noundef nonnull %call3.i.i, i64 noundef %24) #8
+  %25 = load ptr, ptr %itself.i.i, align 8
+  call void @PyExpat_XML_SetUserData(ptr noundef %25, ptr noundef nonnull %call.i11.i) #8
   %26 = load ptr, ptr %itself.i.i, align 8
-  call void @PyExpat_XML_SetUserData(ptr noundef %26, ptr noundef nonnull %call.i11.i) #8
-  %27 = load ptr, ptr %itself.i.i, align 8
-  call void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef %27, ptr noundef nonnull @PyUnknownEncodingHandler, ptr noundef null) #8
+  call void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef %26, ptr noundef nonnull @PyUnknownEncodingHandler, ptr noundef null) #8
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.end7.i.i
   %i.0.i.i = phi i32 [ 0, %if.end7.i.i ], [ %inc.i.i, %for.cond.i.i ]
   %idxprom.i.i = sext i32 %i.0.i.i to i64
   %arrayidx.i.i = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom.i.i
-  %28 = load ptr, ptr %arrayidx.i.i, align 16
-  %cmp12.not.i.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %arrayidx.i.i, align 16
+  %cmp12.not.i.i = icmp eq ptr %27, null
   %inc.i.i = add i32 %i.0.i.i, 1
   br i1 %cmp12.not.i.i, label %for.end.i.i, label %for.cond.i.i, !llvm.loop !4
 
@@ -708,13 +708,13 @@ cond.end.i.i:                                     ; preds = %for.end.i.i
   br i1 %tobool.not.i.i, label %if.then19.i.i, label %if.end21.i.i
 
 if.then19.i.i:                                    ; preds = %cond.end.i.i, %cond.end.thread.i.i
-  %29 = load i64, ptr %call.i11.i, align 8
-  %30 = and i64 %29, 2147483648
-  %cmp.i35.not.i.i = icmp eq i64 %30, 0
+  %28 = load i64, ptr %call.i11.i, align 8
+  %29 = and i64 %28, 2147483648
+  %cmp.i35.not.i.i = icmp eq i64 %29, 0
   br i1 %cmp.i35.not.i.i, label %if.end.i.i.i, label %Py_DECREF.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then19.i.i
-  %dec.i.i.i = add i64 %29, -1
+  %dec.i.i.i = add i64 %28, -1
   store i64 %dec.i.i.i, ptr %call.i11.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_DECREF.exit.i.i
@@ -728,21 +728,21 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
   br label %newxmlparseobject.exit.i
 
 if.end21.i.i:                                     ; preds = %cond.end.i.i
-  %31 = load ptr, ptr @handler_info, align 16
-  %cmp.not11.i.i.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr @handler_info, align 16
+  %cmp.not11.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not11.i.i.i, label %clear_handlers.exit.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end21.i.i, %for.body.i.i.i
   %idxprom13.i.i.i = phi i64 [ %idxprom.i.i.i, %for.body.i.i.i ], [ 0, %if.end21.i.i ]
   %i.012.i.i.i = phi i32 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end21.i.i ]
-  %32 = load ptr, ptr %handlers.i.i, align 8
-  %arrayidx2.i.i.i = getelementptr ptr, ptr %32, i64 %idxprom13.i.i.i
+  %31 = load ptr, ptr %handlers.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr ptr, ptr %31, i64 %idxprom13.i.i.i
   store ptr null, ptr %arrayidx2.i.i.i, align 8
   %inc.i.i.i = add i32 %i.012.i.i.i, 1
   %idxprom.i.i.i = sext i32 %inc.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom.i.i.i
-  %33 = load ptr, ptr %arrayidx.i.i.i, align 16
-  %cmp.not.i.i.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %arrayidx.i.i.i, align 16
+  %cmp.not.i.i.i = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i, label %clear_handlers.exit.i.i, label %for.body.i.i.i, !llvm.loop !6
 
 clear_handlers.exit.i.i:                          ; preds = %for.body.i.i.i, %if.end21.i.i
@@ -754,13 +754,13 @@ newxmlparseobject.exit.i:                         ; preds = %clear_handlers.exit
   br i1 %tobool19.not.i, label %exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %newxmlparseobject.exit.i
-  %34 = load i64, ptr %intern.addr.0.i, align 8
-  %35 = and i64 %34, 2147483648
-  %cmp.i23.not.i = icmp eq i64 %35, 0
+  %33 = load i64, ptr %intern.addr.0.i, align 8
+  %34 = and i64 %33, 2147483648
+  %cmp.i23.not.i = icmp eq i64 %34, 0
   br i1 %cmp.i23.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %if.then20.i
-  %dec.i.i = add i64 %34, -1
+  %dec.i.i = add i64 %33, -1
   store i64 %dec.i.i, ptr %intern.addr.0.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit

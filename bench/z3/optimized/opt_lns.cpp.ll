@@ -1726,12 +1726,9 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %invoke.cont17
-  br i1 %or13, label %for.inc42, label %invoke.cont26
+  br i1 %or13, label %for.inc42, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31
 
-invoke.cont26:                                    ; preds = %for.end
-  br i1 %cmp.i.i.i20, label %for.end39, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31
-
-_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %invoke.cont26
+_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31: ; preds = %for.end, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
   %arrayidx.i.i.i28 = getelementptr inbounds i8, ptr %8, i64 -4
   %17 = load i32, ptr %arrayidx.i.i.i28, align 4
   %18 = zext i32 %17 to i64
@@ -1766,7 +1763,7 @@ for.inc37:                                        ; preds = %for.body33, %if.the
   %cmp32.not = icmp eq ptr %incdec.ptr38, %add.ptr.i30
   br i1 %cmp32.not, label %for.end39, label %for.body33
 
-for.end39:                                        ; preds = %for.inc37, %invoke.cont10, %invoke.cont26, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31
+for.end39:                                        ; preds = %for.inc37, %invoke.cont10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit31
   %call41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorI10ref_vectorI4expr11ast_managerELb1EjE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %new_cores, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.076)
           to label %for.inc42 unwind label %lpad.loopexit.split-lp.loopexit
 

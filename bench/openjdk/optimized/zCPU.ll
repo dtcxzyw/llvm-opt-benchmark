@@ -60,7 +60,7 @@ _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
 
 _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit: ; preds = %.lr.ph.i
   store ptr %10, ptr @_ZN4ZCPU9_affinityE, align 8
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit ]
@@ -71,7 +71,7 @@ _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit.thread, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit.thread
   store i32 3, ptr %1, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8

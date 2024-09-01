@@ -1497,8 +1497,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %5, %land.lhs.true.i.i.i.i ], [ %8, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -1795,16 +1795,13 @@ for.body.i.i.i.i40:                               ; preds = %.noexc42, %.noexc43
 .noexc43:                                         ; preds = %for.body.i.i.i.i40
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.02.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %candidates.val.pre
-  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont37, label %for.body.i.i.i.i40, !llvm.loop !44
+  br i1 %cmp.i.not.i.i.i.i, label %for.body44.preheader, label %for.body.i.i.i.i40, !llvm.loop !44
 
 if.else.i.i.i:                                    ; preds = %.noexc41
   invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_T0_"(ptr %candidates.val17.pre, ptr %candidates.val.pre)
           to label %for.body44.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont37:                                    ; preds = %.noexc43
-  br i1 %cmp.i.not.i.i, label %invoke.cont.i, label %for.body44.preheader
-
-for.body44.preheader:                             ; preds = %if.else.i.i.i, %.noexc42, %invoke.cont37
+for.body44.preheader:                             ; preds = %.noexc43, %if.else.i.i.i, %.noexc42
   br label %for.body44
 
 for.body44:                                       ; preds = %for.body44.preheader, %for.inc58
@@ -1929,9 +1926,9 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIZN8fa
   %this.val.pr.i = load ptr, ptr %candidates, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %for.end, %for.end.thread, %invoke.cont37, %invoke.contthread-pre-split.i
-  %reclaimedBytes.1109 = phi i64 [ %add, %invoke.contthread-pre-split.i ], [ 0, %invoke.cont37 ], [ 0, %for.end.thread ], [ 0, %for.end ]
-  %this.val.i49 = phi ptr [ %this.val.pr.i, %invoke.contthread-pre-split.i ], [ %candidates.val17.pre, %invoke.cont37 ], [ %candidates.val1777, %for.end.thread ], [ %candidates.val17.pre, %for.end ]
+invoke.cont.i:                                    ; preds = %for.end, %for.end.thread, %invoke.contthread-pre-split.i
+  %reclaimedBytes.1109 = phi i64 [ %add, %invoke.contthread-pre-split.i ], [ 0, %for.end.thread ], [ 0, %for.end ]
+  %this.val.i49 = phi ptr [ %this.val.pr.i, %invoke.contthread-pre-split.i ], [ %candidates.val1777, %for.end.thread ], [ %candidates.val17.pre, %for.end ]
   %tobool.not.i.i.i50 = icmp eq ptr %this.val.i49, null
   br i1 %tobool.not.i.i.i50, label %return, label %if.then.i.i.i51
 

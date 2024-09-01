@@ -57,8 +57,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -140,8 +140,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_95_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -223,8 +223,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -306,8 +306,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -389,8 +389,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -472,8 +472,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -555,8 +555,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -638,8 +638,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -721,8 +721,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -804,8 +804,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$syn..token..
   %5 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %5, ptr %0, ptr %1)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not.not = icmp eq i64 %6, -9223372036854775807
-  br i1 %.not.not, label %14, label %7
+  %.not = icmp eq i64 %6, -9223372036854775807
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)

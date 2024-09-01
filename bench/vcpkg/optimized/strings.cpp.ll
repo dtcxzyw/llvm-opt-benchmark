@@ -3638,21 +3638,15 @@ define dso_local noundef i64 @_ZN5vcpkg7Strings18byte_edit_distanceENS_10StringV
 
 .preheader:                                       ; preds = %.lr.ph
   %21 = icmp ugt i64 %3, 1
-  br i1 %21, label %.lr.ph92, label %._crit_edge93
+  br i1 %21, label %.lr.ph88.us, label %._crit_edge93
 
 .preheader.thread:                                ; preds = %15
   %22 = icmp ugt i64 %3, 1
-  br i1 %22, label %.lr.ph92.split.preheader, label %._crit_edge93
+  br i1 %22, label %.lr.ph92.split, label %._crit_edge93
 
-.lr.ph92:                                         ; preds = %.preheader
-  br i1 %20, label %.lr.ph88.us, label %.lr.ph92.split.preheader
-
-.lr.ph92.split.preheader:                         ; preds = %.preheader.thread, %.lr.ph92
-  br label %.lr.ph92.split
-
-.lr.ph88.us:                                      ; preds = %.lr.ph92, %._crit_edge.us
-  %.03491.us = phi i64 [ %42, %._crit_edge.us ], [ 1, %.lr.ph92 ]
-  %.sroa.speculated528990.us = phi i8 [ %.sroa.speculated52.us, %._crit_edge.us ], [ %19, %.lr.ph92 ]
+.lr.ph88.us:                                      ; preds = %.preheader, %._crit_edge.us
+  %.03491.us = phi i64 [ %42, %._crit_edge.us ], [ 1, %.preheader ]
+  %.sroa.speculated528990.us = phi i8 [ %.sroa.speculated52.us, %._crit_edge.us ], [ %19, %.preheader ]
   %23 = add i8 %.sroa.speculated528990.us, 1
   %24 = getelementptr inbounds i8, ptr %2, i64 %.03491.us
   %25 = load i8, ptr %24, align 1
@@ -3705,9 +3699,9 @@ define dso_local noundef i64 @_ZN5vcpkg7Strings18byte_edit_distanceENS_10StringV
   %exitcond.not = icmp eq i64 %52, %1
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !85
 
-.lr.ph92.split:                                   ; preds = %.lr.ph92.split.preheader, %.lr.ph92.split
-  %.03491 = phi i64 [ %60, %.lr.ph92.split ], [ 1, %.lr.ph92.split.preheader ]
-  %.sroa.speculated528990 = phi i8 [ %.sroa.speculated52, %.lr.ph92.split ], [ %19, %.lr.ph92.split.preheader ]
+.lr.ph92.split:                                   ; preds = %.preheader.thread, %.lr.ph92.split
+  %.03491 = phi i64 [ %60, %.lr.ph92.split ], [ 1, %.preheader.thread ]
+  %.sroa.speculated528990 = phi i8 [ %.sroa.speculated52, %.lr.ph92.split ], [ %19, %.preheader.thread ]
   %53 = add i8 %.sroa.speculated528990, 1
   %54 = getelementptr inbounds i8, ptr %2, i64 %.03491
   %55 = load i8, ptr %54, align 1

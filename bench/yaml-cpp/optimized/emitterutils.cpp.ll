@@ -998,8 +998,8 @@ entry:
 if.end.i:                                         ; preds = %entry, %if.end9
   %call227 = phi ptr [ %call2, %if.end9 ], [ %call224, %entry ]
   %i.sroa.0.026 = phi ptr [ %i.sroa.0.31117, %if.end9 ], [ %call1, %entry ]
-  %call22733 = ptrtoint ptr %call227 to i64
-  %i.sroa.0.02634 = ptrtoint ptr %i.sroa.0.026 to i64
+  %call22731 = ptrtoint ptr %call227 to i64
+  %i.sroa.0.02632 = ptrtoint ptr %i.sroa.0.026 to i64
   %0 = load i8, ptr %i.sroa.0.026, align 1
   %1 = lshr i8 %0, 4
   switch i8 %1, label %for.body.thread [
@@ -1039,12 +1039,12 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %2 = sub i64 %call22733, %i.sroa.0.02634
+  %2 = sub i64 %call22731, %i.sroa.0.02632
   %scevgep = getelementptr i8, ptr %i.sroa.0.026, i64 %2
-  %scevgep35 = getelementptr i8, ptr %i.sroa.0.026, i64 2
+  %scevgep33 = getelementptr i8, ptr %i.sroa.0.026, i64 2
   %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %4 = getelementptr i8, ptr %scevgep35, i64 %3
-  %scevgep36 = getelementptr i8, ptr %4, i64 -2
+  %4 = getelementptr i8, ptr %scevgep33, i64 %3
+  %scevgep34 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1084,7 +1084,7 @@ for.end.i:                                        ; preds = %if.end20.i
   br i1 %or.cond61.i, label %if.else, label %for.body
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
-  %i.sroa.0.311 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep36, %for.end.i ]
+  %i.sroa.0.311 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep34, %for.end.i ]
   %codePoint.210 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
   switch i32 %codePoint.210, label %if.else [
     i32 10, label %return
@@ -1095,9 +1095,9 @@ if.then7:                                         ; preds = %for.body
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.1, i64 noundef 2)
   br label %if.end9
 
-if.else:                                          ; preds = %for.body.i, %lor.lhs.false.i, %for.end.i, %for.body.thread, %for.body
-  %codePoint.21019 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.210, %for.body ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i ]
-  %i.sroa.0.31118 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.311, %for.body ], [ %scevgep36, %for.end.i ], [ %scevgep, %for.body.i ], [ %i.sroa.0.1, %lor.lhs.false.i ]
+if.else:                                          ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %for.body.thread, %for.body
+  %codePoint.21019 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.210, %for.body ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
+  %i.sroa.0.31118 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.311, %for.body ], [ %scevgep34, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
   tail call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %out, i32 noundef %codePoint.21019)
   br label %if.end9
 
@@ -1253,8 +1253,8 @@ if.end.i.lr.ph:                                   ; preds = %entry
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %sw.epilog
   %call273 = phi ptr [ %call270, %if.end.i.lr.ph ], [ %call2, %sw.epilog ]
   %i.sroa.0.072 = phi ptr [ %call1, %if.end.i.lr.ph ], [ %i.sroa.0.34450, %sw.epilog ]
-  %call27378 = ptrtoint ptr %call273 to i64
-  %i.sroa.0.07279 = ptrtoint ptr %i.sroa.0.072 to i64
+  %call27377 = ptrtoint ptr %call273 to i64
+  %i.sroa.0.07278 = ptrtoint ptr %i.sroa.0.072 to i64
   %0 = load i8, ptr %i.sroa.0.072, align 1
   %1 = lshr i8 %0, 4
   switch i8 %1, label %if.else.thread [
@@ -1290,12 +1290,12 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %2 = sub i64 %call27378, %i.sroa.0.07279
+  %2 = sub i64 %call27377, %i.sroa.0.07278
   %scevgep = getelementptr i8, ptr %i.sroa.0.072, i64 %2
-  %scevgep80 = getelementptr i8, ptr %i.sroa.0.072, i64 2
+  %scevgep79 = getelementptr i8, ptr %i.sroa.0.072, i64 2
   %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %4 = getelementptr i8, ptr %scevgep80, i64 %3
-  %scevgep81 = getelementptr i8, ptr %4, i64 -2
+  %4 = getelementptr i8, ptr %scevgep79, i64 %3
+  %scevgep80 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1335,7 +1335,7 @@ for.end.i:                                        ; preds = %if.end20.i
   br i1 %or.cond61.i, label %if.else23, label %for.body
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
-  %i.sroa.0.344 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep81, %for.end.i ]
+  %i.sroa.0.344 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep80, %for.end.i ]
   %codePoint.243 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
   switch i32 %codePoint.243, label %sw.default [
     i32 34, label %sw.bb
@@ -1416,9 +1416,9 @@ for.body.i19:                                     ; preds = %for.body.i19, %if.t
   %cmp15.i22 = icmp ugt i32 %digits.128.i, 1
   br i1 %cmp15.i22, label %for.body.i19, label %sw.epilog, !llvm.loop !11
 
-if.else23:                                        ; preds = %for.body.i, %lor.lhs.false.i, %for.end.i, %if.else.thread, %if.else
-  %codePoint.243525866 = phi i32 [ 65533, %if.else.thread ], [ %codePoint.243, %if.else ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i ]
-  %i.sroa.0.344516065 = phi ptr [ %incdec.ptr.i.i, %if.else.thread ], [ %i.sroa.0.344, %if.else ], [ %scevgep81, %for.end.i ], [ %scevgep, %for.body.i ], [ %i.sroa.0.1, %lor.lhs.false.i ]
+if.else23:                                        ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %if.else.thread, %if.else
+  %codePoint.243525866 = phi i32 [ 65533, %if.else.thread ], [ %codePoint.243, %if.else ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
+  %i.sroa.0.344516065 = phi ptr [ %incdec.ptr.i.i, %if.else.thread ], [ %i.sroa.0.344, %if.else ], [ %scevgep80, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
   %cmp26 = icmp ugt i32 %codePoint.243525866, 126
   %or.cond1 = and i1 %cmp24, %cmp26
   br i1 %or.cond1, label %if.then27, label %if.else28
@@ -1538,8 +1538,8 @@ if.end.i.lr.ph:                                   ; preds = %entry
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end
   %call228 = phi ptr [ %call225, %if.end.i.lr.ph ], [ %call2, %if.end ]
   %i.sroa.0.027 = phi ptr [ %call1, %if.end.i.lr.ph ], [ %i.sroa.0.31221, %if.end ]
-  %call22832 = ptrtoint ptr %call228 to i64
-  %i.sroa.0.02733 = ptrtoint ptr %i.sroa.0.027 to i64
+  %call22831 = ptrtoint ptr %call228 to i64
+  %i.sroa.0.02732 = ptrtoint ptr %i.sroa.0.027 to i64
   %0 = load i8, ptr %i.sroa.0.027, align 1
   %1 = lshr i8 %0, 4
   switch i8 %1, label %for.body.thread [
@@ -1579,12 +1579,12 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %2 = sub i64 %call22832, %i.sroa.0.02733
+  %2 = sub i64 %call22831, %i.sroa.0.02732
   %scevgep = getelementptr i8, ptr %i.sroa.0.027, i64 %2
-  %scevgep34 = getelementptr i8, ptr %i.sroa.0.027, i64 2
+  %scevgep33 = getelementptr i8, ptr %i.sroa.0.027, i64 2
   %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %4 = getelementptr i8, ptr %scevgep34, i64 %3
-  %scevgep35 = getelementptr i8, ptr %4, i64 -2
+  %4 = getelementptr i8, ptr %scevgep33, i64 %3
+  %scevgep34 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -1625,7 +1625,7 @@ for.end.i:                                        ; preds = %if.end20.i
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
   %codePoint.213 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
-  %i.sroa.0.312 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep35, %for.end.i ]
+  %i.sroa.0.312 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep34, %for.end.i ]
   %cmp = icmp eq i32 %codePoint.213, 10
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1633,9 +1633,9 @@ if.then:                                          ; preds = %for.body
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.11, i64 noundef 1)
   br label %if.end
 
-if.else:                                          ; preds = %for.body.i, %lor.lhs.false.i, %for.end.i, %for.body.thread, %for.body
-  %i.sroa.0.31222 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.312, %for.body ], [ %scevgep35, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
-  %codePoint.21320 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.213, %for.body ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i ]
+if.else:                                          ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %for.body.thread, %for.body
+  %i.sroa.0.31222 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.312, %for.body ], [ %scevgep34, %for.end.i ], [ %scevgep, %for.body.i ], [ %i.sroa.0.1, %lor.lhs.false.i ]
+  %codePoint.21320 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.213, %for.body ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
   %10 = load i64, ptr %m_col.i.i, align 8
   %cmp3.i = icmp ult i64 %10, %indent
   br i1 %cmp3.i, label %while.body.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
@@ -1776,8 +1776,8 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit: ; preds = %for.body.i
 if.end.i:                                         ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit, %if.end
   %call444 = phi ptr [ %call4, %if.end ], [ %call441, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit ]
   %i.sroa.0.043 = phi ptr [ %i.sroa.0.32837, %if.end ], [ %call3, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit ]
-  %call44448 = ptrtoint ptr %call444 to i64
-  %i.sroa.0.04349 = ptrtoint ptr %i.sroa.0.043 to i64
+  %call44447 = ptrtoint ptr %call444 to i64
+  %i.sroa.0.04348 = ptrtoint ptr %i.sroa.0.043 to i64
   %1 = load i8, ptr %i.sroa.0.043, align 1
   %2 = lshr i8 %1, 4
   switch i8 %2, label %for.body.thread [
@@ -1817,12 +1817,12 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %3 = sub i64 %call44448, %i.sroa.0.04349
+  %3 = sub i64 %call44447, %i.sroa.0.04348
   %scevgep = getelementptr i8, ptr %i.sroa.0.043, i64 %3
-  %scevgep50 = getelementptr i8, ptr %i.sroa.0.043, i64 2
+  %scevgep49 = getelementptr i8, ptr %i.sroa.0.043, i64 2
   %4 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %5 = getelementptr i8, ptr %scevgep50, i64 %4
-  %scevgep51 = getelementptr i8, ptr %5, i64 -2
+  %5 = getelementptr i8, ptr %scevgep49, i64 %4
+  %scevgep50 = getelementptr i8, ptr %5, i64 -2
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %if.end20.i, %if.end11.i
@@ -1863,7 +1863,7 @@ for.end.i:                                        ; preds = %if.end20.i
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
   %codePoint.229 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
-  %i.sroa.0.328 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep51, %for.end.i ]
+  %i.sroa.0.328 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep50, %for.end.i ]
   %cmp = icmp eq i32 %codePoint.229, 10
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1893,16 +1893,16 @@ for.body.i13:                                     ; preds = %_ZN4YAMLlsERNS_15os
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i.i11, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i.i11)
   %inc.i15 = add nuw i64 %i.04.i14, 1
-  %exitcond52.not = icmp eq i64 %inc.i15, %postCommentIndent
-  br i1 %exitcond52.not, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit18, label %for.body.i13, !llvm.loop !15
+  %exitcond51.not = icmp eq i64 %inc.i15, %postCommentIndent
+  br i1 %exitcond51.not, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit18, label %for.body.i13, !llvm.loop !15
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit18: ; preds = %for.body.i13, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
   store i8 1, ptr %m_comment.i, align 8
   br label %if.end
 
-if.else:                                          ; preds = %for.body.i8, %lor.lhs.false.i, %for.end.i, %for.body.thread, %for.body
-  %i.sroa.0.32838 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.328, %for.body ], [ %scevgep51, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i8 ]
-  %codePoint.22936 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.229, %for.body ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i8 ]
+if.else:                                          ; preds = %lor.lhs.false.i, %for.body.i8, %for.end.i, %for.body.thread, %for.body
+  %i.sroa.0.32838 = phi ptr [ %incdec.ptr.i.i, %for.body.thread ], [ %i.sroa.0.328, %for.body ], [ %scevgep50, %for.end.i ], [ %scevgep, %for.body.i8 ], [ %i.sroa.0.1, %lor.lhs.false.i ]
+  %codePoint.22936 = phi i32 [ 65533, %for.body.thread ], [ %codePoint.229, %for.body ], [ 65533, %for.end.i ], [ 65533, %for.body.i8 ], [ 65533, %lor.lhs.false.i ]
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %out, i32 noundef %codePoint.22936)
   br label %if.end
 
@@ -1935,8 +1935,8 @@ entry:
 if.end.i:                                         ; preds = %entry, %if.end
   %call143 = phi ptr [ %call1, %if.end ], [ %call140, %entry ]
   %i.sroa.0.042 = phi ptr [ %i.sroa.0.31222, %if.end ], [ %call, %entry ]
-  %call14369 = ptrtoint ptr %call143 to i64
-  %i.sroa.0.04270 = ptrtoint ptr %i.sroa.0.042 to i64
+  %call14368 = ptrtoint ptr %call143 to i64
+  %i.sroa.0.04269 = ptrtoint ptr %i.sroa.0.042 to i64
   %0 = load i8, ptr %i.sroa.0.042, align 1
   %1 = lshr i8 %0, 4
   switch i8 %1, label %if.end.i2.thread [
@@ -1976,12 +1976,12 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %2 = sub i64 %call14369, %i.sroa.0.04270
+  %2 = sub i64 %call14368, %i.sroa.0.04269
   %scevgep = getelementptr i8, ptr %i.sroa.0.042, i64 %2
-  %scevgep71 = getelementptr i8, ptr %i.sroa.0.042, i64 2
+  %scevgep70 = getelementptr i8, ptr %i.sroa.0.042, i64 2
   %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %4 = getelementptr i8, ptr %scevgep71, i64 %3
-  %scevgep72 = getelementptr i8, ptr %4, i64 -2
+  %4 = getelementptr i8, ptr %scevgep70, i64 %3
+  %scevgep71 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
@@ -2021,7 +2021,7 @@ for.end.i:                                        ; preds = %if.end20.i
   br i1 %or.cond61.i, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit, label %for.body
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
-  %i.sroa.0.312 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep72, %for.end.i ]
+  %i.sroa.0.312 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep71, %for.end.i ]
   %codePoint.211 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
   switch i32 %codePoint.211, label %sw.epilog.i [
     i32 44, label %return
@@ -2045,9 +2045,9 @@ if.end.i2:                                        ; preds = %sw.epilog.i
   %cmp2.i = icmp ult i32 %codePoint.211, 126
   br i1 %cmp2.i, label %if.end, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit: ; preds = %for.body.i, %lor.lhs.false.i, %for.end.i, %if.end.i2.thread, %if.end.i2
-  %codePoint.211253137 = phi i32 [ 65533, %if.end.i2.thread ], [ %codePoint.211, %if.end.i2 ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i ]
-  %i.sroa.0.312243236 = phi ptr [ %incdec.ptr.i.i, %if.end.i2.thread ], [ %i.sroa.0.312, %if.end.i2 ], [ %scevgep72, %for.end.i ], [ %scevgep, %for.body.i ], [ %i.sroa.0.1, %lor.lhs.false.i ]
+_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit: ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %if.end.i2.thread, %if.end.i2
+  %codePoint.211253137 = phi i32 [ 65533, %if.end.i2.thread ], [ %codePoint.211, %if.end.i2 ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
+  %i.sroa.0.312243236 = phi ptr [ %incdec.ptr.i.i, %if.end.i2.thread ], [ %i.sroa.0.312, %if.end.i2 ], [ %scevgep71, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
   %cmp5.i = icmp ugt i32 %codePoint.211253137, 159
   %10 = and i32 %codePoint.211253137, 2147481600
   %or.cond.i3 = icmp ne i32 %10, 55296
@@ -2069,7 +2069,7 @@ if.end:                                           ; preds = %for.body, %if.end.i
   br i1 %cmp.i.i.not, label %return, label %if.end.i, !llvm.loop !17
 
 return:                                           ; preds = %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit, %if.end, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %sw.epilog.i, %entry
-  %cmp.i.i.not.lcssa = phi i1 [ true, %entry ], [ false, %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit ], [ true, %if.end ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %sw.epilog.i ]
+  %cmp.i.i.not.lcssa = phi i1 [ true, %entry ], [ false, %sw.epilog.i ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ false, %for.body ], [ true, %if.end ], [ false, %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit ]
   ret i1 %cmp.i.i.not.lcssa
 }
 
@@ -2119,8 +2119,8 @@ cond.false:                                       ; preds = %invoke.cont3
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond-lvalue = phi ptr [ %call7, %cond.true ], [ %call8, %cond.false ]
-  %cmp.i15 = icmp eq i64 %call5, 0
-  br i1 %cmp.i15, label %while.end17, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
+  %cmp.i15.not.not = icmp eq i64 %call5, 0
+  br i1 %cmp.i15.not.not, label %while.end17, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
 
 while.cond.loopexit:                              ; preds = %while.body13
   %0 = load i64, ptr %m_size.i, align 8

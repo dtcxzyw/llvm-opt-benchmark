@@ -591,7 +591,7 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   %181 = add nuw nsw i32 %180, 6
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %181)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %33)
-  br i1 %172, label %.lr.ph145, label %._crit_edge146
+  br label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %._crit_edge, %.lr.ph145
   %.3143 = phi i32 [ %182, %.lr.ph145 ], [ 0, %._crit_edge ]
@@ -613,7 +613,7 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %33)
   br label %._crit_edge146
 
-._crit_edge146:                                   ; preds = %.lr.ph145, %._crit_edge146.critedge, %._crit_edge
+._crit_edge146:                                   ; preds = %.lr.ph145, %._crit_edge146.critedge
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 63)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 0)
   %189 = getelementptr inbounds i8, ptr %0, i64 132

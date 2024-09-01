@@ -707,8 +707,8 @@ if.then.i.i:                                      ; preds = %entry
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
   %__begin0.sroa.0.0.in.i.i = phi ptr [ %m_header.i.i.i.i.i.i.i, %if.then.i.i ], [ %__begin0.sroa.0.0.i.i, %for.body.i.i ]
   %__begin0.sroa.0.0.i.i = load ptr, ptr %__begin0.sroa.0.0.in.i.i, align 8, !noalias !19
-  %cmp.i.i.i.i.not.i.i.not = icmp ne ptr %__begin0.sroa.0.0.i.i, %m_header.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.not.i.i.not, label %for.body.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
+  %cmp.i.i.i.i.not.i.i.not.not = icmp ne ptr %__begin0.sroa.0.0.i.i, %m_header.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.not.i.i.not.not, label %for.body.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %source.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i.i, i64 16
@@ -723,8 +723,8 @@ if.else.i.i:                                      ; preds = %entry
 for.cond19.i.i:                                   ; preds = %for.body21.i.i, %if.else.i.i
   %__begin017.sroa.0.0.in.i.i = phi ptr [ %m_header.i.i.i.i.i6.i.i, %if.else.i.i ], [ %__begin017.sroa.0.0.i.i, %for.body21.i.i ]
   %__begin017.sroa.0.0.i.i = load ptr, ptr %__begin017.sroa.0.0.in.i.i, align 8, !noalias !19
-  %cmp.i.i.i.i9.not.i.i.not = icmp ne ptr %__begin017.sroa.0.0.i.i, %m_header.i.i.i.i.i6.i.i
-  br i1 %cmp.i.i.i.i9.not.i.i.not, label %for.body21.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
+  %cmp.i.i.i.i9.not.i.i.not.not = icmp ne ptr %__begin017.sroa.0.0.i.i, %m_header.i.i.i.i.i6.i.i
+  br i1 %cmp.i.i.i.i9.not.i.i.not.not, label %for.body21.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
 
 for.body21.i.i:                                   ; preds = %for.cond19.i.i
   %target.i.i.i = getelementptr inbounds i8, ptr %__begin017.sroa.0.0.i.i, i64 40
@@ -733,7 +733,7 @@ for.body21.i.i:                                   ; preds = %for.cond19.i.i
   br i1 %cmp.i16.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit, label %for.cond19.i.i
 
 _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit: ; preds = %for.body21.i.i, %for.cond19.i.i, %for.body.i.i, %for.cond.i.i
-  %ref.tmp.sroa.5.0 = phi i1 [ %cmp.i.i.i.i.not.i.i.not, %for.cond.i.i ], [ %cmp.i.i.i.i.not.i.i.not, %for.body.i.i ], [ %cmp.i.i.i.i9.not.i.i.not, %for.cond19.i.i ], [ %cmp.i.i.i.i9.not.i.i.not, %for.body21.i.i ]
+  %ref.tmp.sroa.5.0 = phi i1 [ %cmp.i.i.i.i.not.i.i.not.not, %for.cond.i.i ], [ %cmp.i.i.i.i.not.i.i.not.not, %for.body.i.i ], [ %cmp.i.i.i.i9.not.i.i.not.not, %for.cond19.i.i ], [ %cmp.i.i.i.i9.not.i.i.not.not, %for.body21.i.i ]
   ret i1 %ref.tmp.sroa.5.0
 }
 

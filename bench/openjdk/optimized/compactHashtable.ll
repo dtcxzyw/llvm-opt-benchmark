@@ -250,79 +250,69 @@ define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr nocapture noundef non
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
+  br i1 %13, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %3
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %2
-  %20 = load i32, ptr %15, align 4
-  %21 = icmp eq i32 %20, %1
-  %22 = select i1 %19, i1 %21, i1 false
-  br i1 %22, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %.lr.ph.i
+  %wide.trip.count.i.i = zext nneg i32 %12 to i64
+  br label %17
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %23
-  %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i.i, %23 ], [ 0, %.lr.ph.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i7.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %16
-  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i, label %23, !llvm.loop !9
+16:                                               ; preds = %17
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %17, !llvm.loop !9
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %15, i64 %indvars.iv.next.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+17:                                               ; preds = %16, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
+  %18 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %15, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, %2
+  %22 = load i32, ptr %18, align 4
+  %23 = icmp eq i32 %22, %1
+  %24 = select i1 %21, i1 %23, i1 false
+  br i1 %24, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %16
+
+.loopexit.i:                                      ; preds = %16, %3
+  %25 = getelementptr inbounds i8, ptr %11, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, %2
-  %28 = load i32, ptr %24, align 4
-  %29 = icmp eq i32 %28, %1
-  %30 = select i1 %27, i1 %29, i1 false
-  br i1 %30, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, label %.lr.ph.i, !llvm.loop !9
+  %27 = icmp eq i32 %12, %26
+  br i1 %27, label %28, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
-_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i: ; preds = %23
-  %31 = icmp ult i64 %indvars.iv.next.i.i, %16
-  br i1 %31, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
-
-_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i: ; preds = %.lr.ph.i, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, %3
-  %32 = getelementptr inbounds i8, ptr %11, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %12, %33
-  br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
-
-35:                                               ; preds = %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
-  %36 = add nsw i32 %12, 1
-  %37 = icmp sgt i32 %12, -1
-  %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
-  %39 = icmp ult i32 %38, 2
-  %or.cond.i.i.i.i.i = select i1 %37, i1 %39, i1 false
-  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
-  %41 = sub nuw nsw i32 32, %40
-  %42 = shl nuw i32 1, %41
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %36, i32 %42
+28:                                               ; preds = %.loopexit.i
+  %29 = add nsw i32 %12, 1
+  %30 = icmp sgt i32 %12, -1
+  %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
+  %32 = icmp ult i32 %31, 2
+  %or.cond.i.i.i.i.i = select i1 %30, i1 %32, i1 false
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
+  %34 = sub nuw nsw i32 32, %33
+  %35 = shl nuw i32 1, %34
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %29, i32 %35
   tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %11, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %35, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
-  %43 = phi i32 [ %.pre.i.i, %35 ], [ %12, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i ]
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %11, align 8
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %46, i64 %47
+_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %28, %.loopexit.i
+  %36 = phi i32 [ %.pre.i.i, %28 ], [ %12, %.loopexit.i ]
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %11, align 8
+  %38 = getelementptr inbounds i8, ptr %11, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = sext i32 %36 to i64
+  %41 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %39, i64 %40
   %.sroa.3.0.insert.ext = zext i32 %2 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %48, align 4
+  store i64 %.sroa.0.0.insert.insert, ptr %41, align 4
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %.lr.ph.i.i, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
-  %49 = load i32, ptr %0, align 8
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %0, align 8
+_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %17, %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+  %42 = load i32, ptr %0, align 8
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %0, align 8
   ret void
 }
 

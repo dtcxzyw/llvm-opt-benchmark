@@ -296,9 +296,9 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %115, %141
-  %.sink254 = phi i32 [ 1, %141 ], [ 0, %115 ]
+  %.sink248 = phi i32 [ 1, %141 ], [ 0, %115 ]
   %142 = load ptr, ptr %117, align 8
-  %143 = tail call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %116, ptr noundef %142, i32 noundef %.sink254, i64 noundef %130, i64 noundef %138, i32 noundef 10, ptr noundef nonnull %119) #9
+  %143 = tail call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %116, ptr noundef %142, i32 noundef %.sink248, i64 noundef %130, i64 noundef %138, i32 noundef 10, ptr noundef nonnull %119) #9
   br label %144
 
 144:                                              ; preds = %.sink.split, %115
@@ -323,7 +323,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %168
-  %indvars.iv238 = phi i64 [ %152, %.lr.ph217.preheader ], [ %indvars.iv.next239, %168 ]
+  %indvars.iv232 = phi i64 [ %152, %.lr.ph217.preheader ], [ %indvars.iv.next233, %168 ]
   %153 = load i32, ptr %139, align 8
   switch i32 %153, label %168 [
     i32 1, label %154
@@ -332,7 +332,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
 
 154:                                              ; preds = %.lr.ph217
   %155 = load ptr, ptr %126, align 8
-  %156 = getelementptr inbounds %struct.aiocb, ptr %155, i64 %indvars.iv238
+  %156 = getelementptr inbounds %struct.aiocb, ptr %155, i64 %indvars.iv232
   %157 = tail call i32 @aio_read(ptr noundef %156) #9
   %158 = icmp eq i32 %157, -1
   br i1 %158, label %159, label %168
@@ -345,7 +345,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
 
 161:                                              ; preds = %.lr.ph217
   %162 = load ptr, ptr %126, align 8
-  %163 = getelementptr inbounds %struct.aiocb, ptr %162, i64 %indvars.iv238
+  %163 = getelementptr inbounds %struct.aiocb, ptr %162, i64 %indvars.iv232
   %164 = tail call i32 @aio_write(ptr noundef %163) #9
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %166, label %168
@@ -357,10 +357,10 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %188
 
 168:                                              ; preds = %.lr.ph217, %154, %161
-  %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
+  %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
   %169 = load i32, ptr %6, align 4
   %170 = sext i32 %169 to i64
-  %171 = icmp slt i64 %indvars.iv.next239, %170
+  %171 = icmp slt i64 %indvars.iv.next233, %170
   br i1 %171, label %.lr.ph217, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %168, %148, %112, %.loopexit171

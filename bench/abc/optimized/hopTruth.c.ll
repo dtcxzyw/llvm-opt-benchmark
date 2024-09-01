@@ -500,8 +500,8 @@ select.unfold.preheader.i72:                      ; preds = %79
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph90.split, %.lr.ph90.split.us, %.preheader85, %.preheader
   %109 = tail call ptr @Hop_ManConvertAigToTruth_rec2(ptr noundef %39, ptr noundef nonnull %3, i32 noundef %42)
-  %110 = icmp slt i32 %42, 1
-  br i1 %110, label %Hop_ManTruthNot.exit, label %select.unfold.preheader.i74
+  %110 = icmp sgt i32 %42, 0
+  br i1 %110, label %select.unfold.preheader.i74, label %Hop_ManTruthNot.exit
 
 select.unfold.preheader.i74:                      ; preds = %.loopexit
   %111 = zext nneg i32 %42 to i64

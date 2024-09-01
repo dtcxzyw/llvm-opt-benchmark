@@ -413,14 +413,14 @@ split:                                            ; preds = %73
   %90 = phi i32 [ %86, %85 ], [ %84, %split ], [ %69, %._crit_edge ]
   %91 = phi ptr [ %87, %85 ], [ %83, %split ], [ %68, %._crit_edge ]
   %92 = phi i64 [ %88, %85 ], [ %75, %split ], [ %65, %._crit_edge ]
-  %.lcssa919 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
+  %.lcssa419 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %.lcssa1217 = phi i64 [ %.lcssa1218, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %93 = phi ptr [ @.str.5, %85 ], [ @.str.6, %split ], [ @.str.6, %._crit_edge ]
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #14
   br label %.thread
 
 .thread:                                          ; preds = %22, %78, %32, %89, %.thread3
-  %94 = phi i64 [ %.lcssa919, %89 ], [ %62, %.thread3 ], [ %18, %22 ], [ %18, %32 ], [ %80, %78 ]
+  %94 = phi i64 [ %.lcssa419, %89 ], [ %62, %.thread3 ], [ %18, %22 ], [ %18, %32 ], [ %80, %78 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #12
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %8, align 8

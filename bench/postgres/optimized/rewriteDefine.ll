@@ -206,7 +206,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 ._crit_edge:                                      ; preds = %67
   %71 = icmp eq i32 %3, 1
-  br i1 %71, label %102, label %.preheader119
+  br i1 %71, label %102, label %.lr.ph136
 
 ._crit_edge.thread176:                            ; preds = %44
   %72 = icmp eq i32 %3, 1
@@ -216,10 +216,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %73 = icmp eq i32 %3, 1
   br i1 %73, label %102, label %.lr.ph136
 
-.preheader119:                                    ; preds = %._crit_edge
-  br i1 %.not98, label %._crit_edge137, label %.lr.ph136
-
-.lr.ph136:                                        ; preds = %._crit_edge.thread, %.preheader119
+.lr.ph136:                                        ; preds = %._crit_edge, %._crit_edge.thread
   %74 = getelementptr inbounds i8, ptr %6, i64 4
   %75 = getelementptr inbounds i8, ptr %6, i64 16
   %.not102 = icmp eq ptr %2, null
@@ -438,7 +435,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 .loopexit:                                        ; preds = %165, %.preheader, %158, %152
   %178 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #7
   %.not108 = icmp eq i32 %178, 0
-  br i1 %.not108, label %217, label %179
+  br i1 %.not108, label %.split, label %179
 
 179:                                              ; preds = %.loopexit
   %180 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.16, i64 noundef 4) #7
@@ -465,7 +462,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 192:                                              ; preds = %181
   %193 = tail call ptr @pstrdup(ptr noundef nonnull @.str.15) #5
-  br label %217
+  br label %.split
 
 194:                                              ; preds = %195
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
@@ -505,7 +502,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 451, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
-._crit_edge137:                                   ; preds = %194, %99, %88, %._crit_edge.thread176, %.lr.ph136.split.us.split, %.lr.ph136.split.split, %.preheader119
+._crit_edge137:                                   ; preds = %194, %99, %88, %._crit_edge.thread176, %.lr.ph136.split.us.split, %.lr.ph136.split.split
   %209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #7
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %217
@@ -520,19 +517,19 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 467, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
-217:                                              ; preds = %._crit_edge137, %.loopexit, %192
-  %.0 = phi ptr [ %193, %192 ], [ %0, %.loopexit ], [ %0, %._crit_edge137 ]
+217:                                              ; preds = %._crit_edge137
   br i1 %.not98, label %219, label %.split
 
-.split:                                           ; preds = %217
-  %218 = tail call fastcc i32 @InsertRule(ptr noundef %.0, i32 noundef %3, i32 noundef %1, i1 noundef zeroext %4, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %5)
+.split:                                           ; preds = %.loopexit, %192, %217
+  %.0180 = phi ptr [ %0, %217 ], [ %0, %.loopexit ], [ %193, %192 ]
+  %218 = tail call fastcc i32 @InsertRule(ptr noundef %.0180, i32 noundef %3, i32 noundef %1, i1 noundef zeroext %4, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %5)
   br label %221
 
 219:                                              ; preds = %217
   br i1 %4, label %.split87, label %225
 
 .split87:                                         ; preds = %219
-  %220 = tail call fastcc i32 @InsertRule(ptr noundef %.0, i32 noundef %3, i32 noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef null, i1 noundef zeroext %5)
+  %220 = tail call fastcc i32 @InsertRule(ptr noundef %0, i32 noundef %3, i32 noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef null, i1 noundef zeroext %5)
   br label %221
 
 221:                                              ; preds = %.split87, %.split

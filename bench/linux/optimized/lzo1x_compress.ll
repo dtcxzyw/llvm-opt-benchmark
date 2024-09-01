@@ -46,7 +46,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %18 = phi ptr [ %13, %.lr.ph ], [ %391, %.loopexit12 ]
   %19 = phi i64 [ %1, %.lr.ph ], [ %392, %.loopexit12 ]
   %20 = phi i64 [ 0, %.lr.ph ], [ %390, %.loopexit12 ]
-  %.061 = phi i8 [ -2, %.lr.ph ], [ %.4, %.loopexit12 ]
+  %.064 = phi i8 [ -2, %.lr.ph ], [ %.4, %.loopexit12 ]
   %21 = tail call i64 @llvm.umin.i64(i64 %19, i64 %12)
   %22 = ptrtoint ptr %17 to i64
   %23 = add i64 %21, %22
@@ -64,10 +64,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %32 = getelementptr i8, ptr %17, i64 %31
   %33 = getelementptr i8, ptr %32, i64 1
   %34 = icmp ult ptr %33, %30
-  br i1 %34, label %.preheader71, label %.loopexit12, !prof !5
+  br i1 %34, label %.preheader74, label %.loopexit12, !prof !5
 
-.preheader71:                                     ; preds = %28, %375
-  %.3 = phi i8 [ %376, %375 ], [ %.061, %28 ]
+.preheader74:                                     ; preds = %28, %375
+  %.3 = phi i8 [ %376, %375 ], [ %.064, %28 ]
   %35 = phi i64 [ 0, %375 ], [ %20, %28 ]
   %36 = phi ptr [ %378, %375 ], [ %33, %28 ]
   %37 = phi ptr [ %377, %375 ], [ %18, %28 ]
@@ -79,7 +79,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %43 = and i1 %15, %42
   br i1 %43, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader71
+.lr.ph.i:                                         ; preds = %.preheader74
   br i1 %15, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
@@ -149,9 +149,9 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %87 = getelementptr i8, ptr %17, i64 %140
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader71
-  %.lcssa36.i = phi ptr [ %36, %.preheader71 ], [ %82, %._crit_edge.i.loopexit ]
-  %.lcssa.i = phi ptr [ %39, %.preheader71 ], [ %87, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader74
+  %.lcssa36.i = phi ptr [ %36, %.preheader74 ], [ %82, %._crit_edge.i.loopexit ]
+  %.lcssa.i = phi ptr [ %39, %.preheader74 ], [ %87, %._crit_edge.i.loopexit ]
   %88 = getelementptr i8, ptr %.lcssa36.i, i64 4
   %89 = getelementptr i8, ptr %.lcssa36.i, i64 2052
   %90 = icmp ult ptr %30, %89
@@ -589,10 +589,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %377 = phi ptr [ %238, %230 ], [ %318, %311 ], [ %374, %366 ], [ %280, %269 ]
   %378 = phi ptr [ %232, %230 ], [ %265, %311 ], [ %368, %366 ], [ %265, %269 ]
   %379 = icmp ult ptr %378, %30
-  br i1 %379, label %.preheader71, label %.loopexit12, !prof !14
+  br i1 %379, label %.preheader74, label %.loopexit12, !prof !14
 
 .loopexit12:                                      ; preds = %375, %.lr.ph68.i, %78, %28
-  %.4 = phi i8 [ %.061, %28 ], [ %.3, %78 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
+  %.4 = phi i8 [ %.064, %28 ], [ %.3, %78 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
   %380 = phi ptr [ %17, %28 ], [ %38, %78 ], [ %38, %.lr.ph68.i ], [ %378, %375 ]
   %381 = phi ptr [ %18, %28 ], [ %37, %78 ], [ %37, %.lr.ph68.i ], [ %377, %375 ]
   %382 = phi i64 [ %20, %28 ], [ %35, %78 ], [ %35, %.lr.ph68.i ], [ 0, %375 ]
@@ -611,148 +611,148 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %393, label %16, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %16, %.loopexit12
-  %.2.ph = phi i8 [ %.4, %.loopexit12 ], [ %.061, %16 ]
-  %.ph73 = phi i64 [ %390, %.loopexit12 ], [ %20, %16 ]
-  %.ph74 = phi i64 [ %392, %.loopexit12 ], [ %19, %16 ]
-  %.ph75 = phi ptr [ %391, %.loopexit12 ], [ %18, %16 ]
-  %394 = sext i8 %.2.ph to i64
+  %.0.lcssa.ph = phi i8 [ %.4, %.loopexit12 ], [ %.064, %16 ]
+  %.lcssa61.ph = phi i64 [ %390, %.loopexit12 ], [ %20, %16 ]
+  %.lcssa60.ph = phi i64 [ %392, %.loopexit12 ], [ %19, %16 ]
+  %.lcssa59.ph = phi ptr [ %391, %.loopexit12 ], [ %18, %16 ]
+  %394 = sext i8 %.0.lcssa.ph to i64
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %11
-  %.2 = phi i64 [ -2, %11 ], [ %394, %.thread.loopexit ]
-  %395 = phi i64 [ 0, %11 ], [ %.ph73, %.thread.loopexit ]
-  %396 = phi i64 [ %1, %11 ], [ %.ph74, %.thread.loopexit ]
-  %397 = phi ptr [ %13, %11 ], [ %.ph75, %.thread.loopexit ]
-  %398 = add i64 %396, %395
-  %399 = icmp eq i64 %398, 0
-  br i1 %399, label %.loopexit, label %400
+  %.0.lcssa = phi i64 [ -2, %11 ], [ %394, %.thread.loopexit ]
+  %.lcssa61 = phi i64 [ 0, %11 ], [ %.lcssa61.ph, %.thread.loopexit ]
+  %.lcssa60 = phi i64 [ %1, %11 ], [ %.lcssa60.ph, %.thread.loopexit ]
+  %.lcssa59 = phi ptr [ %13, %11 ], [ %.lcssa59.ph, %.thread.loopexit ]
+  %395 = add i64 %.lcssa60, %.lcssa61
+  %396 = icmp eq i64 %395, 0
+  br i1 %396, label %.loopexit, label %397
 
-400:                                              ; preds = %.thread
-  %401 = getelementptr i8, ptr %0, i64 %1
-  %402 = sub i64 0, %398
-  %403 = getelementptr i8, ptr %401, i64 %402
-  %404 = icmp eq ptr %397, %13
-  %405 = icmp ult i64 %398, 239
-  %406 = and i1 %404, %405
-  br i1 %406, label %407, label %411
+397:                                              ; preds = %.thread
+  %398 = getelementptr i8, ptr %0, i64 %1
+  %399 = sub i64 0, %395
+  %400 = getelementptr i8, ptr %398, i64 %399
+  %401 = icmp eq ptr %.lcssa59, %13
+  %402 = icmp ult i64 %395, 239
+  %403 = and i1 %401, %402
+  br i1 %403, label %404, label %408
 
-407:                                              ; preds = %400
-  %408 = trunc nuw i64 %398 to i8
-  %409 = add nuw i8 %408, 17
-  %410 = getelementptr i8, ptr %13, i64 1
-  store i8 %409, ptr %13, align 1
-  br label %441
+404:                                              ; preds = %397
+  %405 = trunc nuw i64 %395 to i8
+  %406 = add nuw i8 %405, 17
+  %407 = getelementptr i8, ptr %13, i64 1
+  store i8 %406, ptr %13, align 1
+  br label %438
 
-411:                                              ; preds = %400
-  %412 = icmp ult i64 %398, 4
-  br i1 %412, label %.thread9, label %417
+408:                                              ; preds = %397
+  %409 = icmp ult i64 %395, 4
+  br i1 %409, label %.thread9, label %414
 
-.thread9:                                         ; preds = %411
-  %413 = getelementptr i8, ptr %397, i64 %.2
-  %414 = load i8, ptr %413, align 1
-  %415 = trunc nuw nsw i64 %398 to i8
-  %416 = or i8 %414, %415
-  store i8 %416, ptr %413, align 1
+.thread9:                                         ; preds = %408
+  %410 = getelementptr i8, ptr %.lcssa59, i64 %.0.lcssa
+  %411 = load i8, ptr %410, align 1
+  %412 = trunc nuw nsw i64 %395 to i8
+  %413 = or i8 %411, %412
+  store i8 %413, ptr %410, align 1
   br label %.preheader.preheader
 
-417:                                              ; preds = %411
-  %418 = icmp ult i64 %398, 19
-  %419 = getelementptr i8, ptr %397, i64 1
-  br i1 %418, label %420, label %423
+414:                                              ; preds = %408
+  %415 = icmp ult i64 %395, 19
+  %416 = getelementptr i8, ptr %.lcssa59, i64 1
+  br i1 %415, label %417, label %420
 
-420:                                              ; preds = %417
-  %421 = trunc nuw nsw i64 %398 to i8
-  %422 = add nsw i8 %421, -3
-  store i8 %422, ptr %397, align 1
-  br label %441
+417:                                              ; preds = %414
+  %418 = trunc nuw nsw i64 %395 to i8
+  %419 = add nsw i8 %418, -3
+  store i8 %419, ptr %.lcssa59, align 1
+  br label %438
 
-423:                                              ; preds = %417
-  %424 = add i64 %398, -18
-  store i8 0, ptr %397, align 1
-  %425 = icmp ugt i64 %424, 255
-  br i1 %425, label %426, label %.thread120
+420:                                              ; preds = %414
+  %421 = add i64 %395, -18
+  store i8 0, ptr %.lcssa59, align 1
+  %422 = icmp ugt i64 %421, 255
+  br i1 %422, label %423, label %.thread120
 
-426:                                              ; preds = %423
-  %427 = add i64 %398, -274
-  %428 = udiv i64 %427, 255
-  %429 = add nuw nsw i64 %428, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %419, i8 0, i64 %429, i1 false)
-  %430 = add nuw nsw i64 %428, 2
-  %431 = mul i64 %428, -255
-  %432 = getelementptr i8, ptr %397, i64 %429
-  %433 = add i64 %398, -273
-  %434 = add i64 %433, %431
-  %435 = getelementptr i8, ptr %397, i64 %430
+423:                                              ; preds = %420
+  %424 = add i64 %395, -274
+  %425 = udiv i64 %424, 255
+  %426 = add nuw nsw i64 %425, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %416, i8 0, i64 %426, i1 false)
+  %427 = add nuw nsw i64 %425, 2
+  %428 = mul i64 %425, -255
+  %429 = getelementptr i8, ptr %.lcssa59, i64 %426
+  %430 = add i64 %395, -273
+  %431 = add i64 %430, %428
+  %432 = getelementptr i8, ptr %.lcssa59, i64 %427
   br label %.thread120
 
-.thread120:                                       ; preds = %423, %426
-  %436 = phi i64 [ %424, %423 ], [ %434, %426 ]
-  %437 = phi ptr [ %397, %423 ], [ %432, %426 ]
-  %438 = phi ptr [ %419, %423 ], [ %435, %426 ]
-  %439 = trunc i64 %436 to i8
-  %440 = getelementptr i8, ptr %437, i64 2
-  store i8 %439, ptr %438, align 1
+.thread120:                                       ; preds = %420, %423
+  %433 = phi i64 [ %421, %420 ], [ %431, %423 ]
+  %434 = phi ptr [ %.lcssa59, %420 ], [ %429, %423 ]
+  %435 = phi ptr [ %416, %420 ], [ %432, %423 ]
+  %436 = trunc i64 %433 to i8
+  %437 = getelementptr i8, ptr %434, i64 2
+  store i8 %436, ptr %435, align 1
   br label %.preheader10.preheader
 
-441:                                              ; preds = %420, %407
-  %442 = phi ptr [ %410, %407 ], [ %419, %420 ]
-  %443 = icmp ugt i64 %398, 15
-  br i1 %443, label %.preheader10.preheader, label %.preheader.preheader
+438:                                              ; preds = %417, %404
+  %439 = phi ptr [ %407, %404 ], [ %416, %417 ]
+  %440 = icmp ugt i64 %395, 15
+  br i1 %440, label %.preheader10.preheader, label %.preheader.preheader
 
-.preheader10.preheader:                           ; preds = %.thread120, %441
-  %.ph217 = phi ptr [ %442, %441 ], [ %440, %.thread120 ]
+.preheader10.preheader:                           ; preds = %.thread120, %438
+  %.ph217 = phi ptr [ %439, %438 ], [ %437, %.thread120 ]
   br label %.preheader10
 
 .preheader10:                                     ; preds = %.preheader10.preheader, %.preheader10
-  %444 = phi ptr [ %452, %.preheader10 ], [ %403, %.preheader10.preheader ]
-  %445 = phi i64 [ %453, %.preheader10 ], [ %398, %.preheader10.preheader ]
-  %446 = phi ptr [ %451, %.preheader10 ], [ %.ph217, %.preheader10.preheader ]
-  %447 = load i64, ptr %444, align 1
-  store i64 %447, ptr %446, align 1
-  %448 = getelementptr i8, ptr %446, i64 8
-  %449 = getelementptr i8, ptr %444, i64 8
-  %450 = load i64, ptr %449, align 1
-  store i64 %450, ptr %448, align 1
-  %451 = getelementptr i8, ptr %446, i64 16
-  %452 = getelementptr i8, ptr %444, i64 16
-  %453 = add i64 %445, -16
-  %454 = icmp ugt i64 %453, 15
-  br i1 %454, label %.preheader10, label %.loopexit11, !llvm.loop !22
+  %441 = phi ptr [ %449, %.preheader10 ], [ %400, %.preheader10.preheader ]
+  %442 = phi i64 [ %450, %.preheader10 ], [ %395, %.preheader10.preheader ]
+  %443 = phi ptr [ %448, %.preheader10 ], [ %.ph217, %.preheader10.preheader ]
+  %444 = load i64, ptr %441, align 1
+  store i64 %444, ptr %443, align 1
+  %445 = getelementptr i8, ptr %443, i64 8
+  %446 = getelementptr i8, ptr %441, i64 8
+  %447 = load i64, ptr %446, align 1
+  store i64 %447, ptr %445, align 1
+  %448 = getelementptr i8, ptr %443, i64 16
+  %449 = getelementptr i8, ptr %441, i64 16
+  %450 = add i64 %442, -16
+  %451 = icmp ugt i64 %450, 15
+  br i1 %451, label %.preheader10, label %.loopexit11, !llvm.loop !22
 
 .loopexit11:                                      ; preds = %.preheader10
-  %455 = icmp eq i64 %453, 0
-  br i1 %455, label %.loopexit, label %.preheader.preheader
+  %452 = icmp eq i64 %450, 0
+  br i1 %452, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread9, %441, %.loopexit11
-  %.ph = phi ptr [ %403, %441 ], [ %403, %.thread9 ], [ %452, %.loopexit11 ]
-  %.ph215 = phi i64 [ %398, %441 ], [ %398, %.thread9 ], [ %453, %.loopexit11 ]
-  %.ph216 = phi ptr [ %442, %441 ], [ %397, %.thread9 ], [ %451, %.loopexit11 ]
+.preheader.preheader:                             ; preds = %.thread9, %438, %.loopexit11
+  %.ph = phi ptr [ %400, %438 ], [ %400, %.thread9 ], [ %449, %.loopexit11 ]
+  %.ph215 = phi i64 [ %395, %438 ], [ %395, %.thread9 ], [ %450, %.loopexit11 ]
+  %.ph216 = phi ptr [ %439, %438 ], [ %.lcssa59, %.thread9 ], [ %448, %.loopexit11 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %456 = phi ptr [ %459, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %457 = phi i64 [ %462, %.preheader ], [ %.ph215, %.preheader.preheader ]
-  %458 = phi ptr [ %461, %.preheader ], [ %.ph216, %.preheader.preheader ]
-  %459 = getelementptr i8, ptr %456, i64 1
-  %460 = load i8, ptr %456, align 1
-  %461 = getelementptr i8, ptr %458, i64 1
-  store i8 %460, ptr %458, align 1
-  %462 = add i64 %457, -1
-  %463 = icmp eq i64 %462, 0
-  br i1 %463, label %.loopexit, label %.preheader, !llvm.loop !23
+  %453 = phi ptr [ %456, %.preheader ], [ %.ph, %.preheader.preheader ]
+  %454 = phi i64 [ %459, %.preheader ], [ %.ph215, %.preheader.preheader ]
+  %455 = phi ptr [ %458, %.preheader ], [ %.ph216, %.preheader.preheader ]
+  %456 = getelementptr i8, ptr %453, i64 1
+  %457 = load i8, ptr %453, align 1
+  %458 = getelementptr i8, ptr %455, i64 1
+  store i8 %457, ptr %455, align 1
+  %459 = add i64 %454, -1
+  %460 = icmp eq i64 %459, 0
+  br i1 %460, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11, %.thread
-  %464 = phi ptr [ %397, %.thread ], [ %451, %.loopexit11 ], [ %461, %.preheader ]
-  %465 = getelementptr i8, ptr %464, i64 1
-  store i8 17, ptr %464, align 1
-  %466 = getelementptr i8, ptr %464, i64 2
-  store i8 0, ptr %465, align 1
-  %467 = getelementptr i8, ptr %464, i64 3
-  store i8 0, ptr %466, align 1
-  %468 = ptrtoint ptr %467 to i64
-  %469 = ptrtoint ptr %2 to i64
-  %470 = sub i64 %468, %469
-  store i64 %470, ptr %3, align 8
+  %461 = phi ptr [ %.lcssa59, %.thread ], [ %448, %.loopexit11 ], [ %458, %.preheader ]
+  %462 = getelementptr i8, ptr %461, i64 1
+  store i8 17, ptr %461, align 1
+  %463 = getelementptr i8, ptr %461, i64 2
+  store i8 0, ptr %462, align 1
+  %464 = getelementptr i8, ptr %461, i64 3
+  store i8 0, ptr %463, align 1
+  %465 = ptrtoint ptr %464 to i64
+  %466 = ptrtoint ptr %2 to i64
+  %467 = sub i64 %465, %466
+  store i64 %467, ptr %3, align 8
   ret void
 }
 

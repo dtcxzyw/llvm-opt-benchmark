@@ -1459,9 +1459,9 @@ if.end38.thread:                                  ; preds = %if.end16
 
 for.body.lr.ph:                                   ; preds = %if.end38
   %num_ack_ranges56 = getelementptr inbounds i8, ptr %ack, i64 8
-  br i1 %cmp17.not, label %for.body.us.preheader, label %for.body
+  br label %for.body
 
-for.body.us.preheader:                            ; preds = %if.end38.thread, %for.body.lr.ph
+for.body.us.preheader:                            ; preds = %if.end38.thread
   %pkt.val.i84.us.pre = load i64, ptr %0, align 8
   br label %for.body.us
 

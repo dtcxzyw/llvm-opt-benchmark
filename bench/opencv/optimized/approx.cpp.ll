@@ -4346,12 +4346,9 @@ _ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EED2Ev.exit: ; 
 247:                                              ; preds = %245
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count243
-  br i1 %exitcond244.not, label %.loopexit202, label %194, !llvm.loop !41
+  br i1 %exitcond244.not, label %.lr.ph218, label %194, !llvm.loop !41
 
-.loopexit202:                                     ; preds = %247
-  br i1 %190, label %.lr.ph218, label %._crit_edge
-
-.lr.ph218:                                        ; preds = %.loopexit202
+.lr.ph218:                                        ; preds = %247
   %248 = getelementptr inbounds i8, ptr %25, i64 8
   %249 = getelementptr inbounds i8, ptr %27, i64 8
   %250 = getelementptr inbounds i8, ptr %27, i64 12
@@ -4538,8 +4535,8 @@ _ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit: 
   %354 = icmp sgt i32 %.198, %2
   br i1 %354, label %253, label %._crit_edge, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %353, %332, %.loopexit207, %.loopexit202
-  %.097.lcssa = phi i32 [ %146, %.loopexit202 ], [ %146, %.loopexit207 ], [ %.097217, %332 ], [ %.198, %353 ]
+._crit_edge:                                      ; preds = %353, %332, %.loopexit207
+  %.097.lcssa = phi i32 [ %146, %.loopexit207 ], [ %.097217, %332 ], [ %.198, %353 ]
   %355 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray9fixedTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %356 unwind label %.loopexit.split-lp.loopexit.split-lp
 

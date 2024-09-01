@@ -3681,15 +3681,15 @@ if.then.i:                                        ; preds = %entry
   %mul.i.i = mul i64 %mul.i.i.i, %conv.i
   %mul.i = mul i64 %mul.i.i, %call.i.i.i
   %.pre = load i8, ptr %format, align 4
-  %.pre43 = load i8, ptr %aggregate3.i, align 1
-  %.pre44 = load i8, ptr %vecsemantics4.i, align 2
-  %.pre45 = load i32, ptr %arraylen5.i, align 4
+  %.pre44 = load i8, ptr %aggregate3.i, align 1
+  %.pre45 = load i8, ptr %vecsemantics4.i, align 2
+  %.pre46 = load i32, ptr %arraylen5.i, align 4
   br label %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit
 
 _ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit: ; preds = %entry, %if.then.i
-  %5 = phi i32 [ %.pre45, %if.then.i ], [ %3, %entry ]
-  %6 = phi i8 [ %.pre44, %if.then.i ], [ %2, %entry ]
-  %7 = phi i8 [ %.pre43, %if.then.i ], [ %1, %entry ]
+  %5 = phi i32 [ %.pre46, %if.then.i ], [ %3, %entry ]
+  %6 = phi i8 [ %.pre45, %if.then.i ], [ %2, %entry ]
+  %7 = phi i8 [ %.pre44, %if.then.i ], [ %1, %entry ]
   %8 = phi i8 [ %.pre, %if.then.i ], [ %0, %entry ]
   %xstride.addr.0 = phi i64 [ %mul.i, %if.then.i ], [ %xstride, %entry ]
   store i8 %8, ptr %agg.tmp2, align 4

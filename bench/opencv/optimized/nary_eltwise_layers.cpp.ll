@@ -5159,20 +5159,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 .loopexit115:                                     ; preds = %22, %.preheader114
   %17 = phi i32 [ %19, %.preheader114 ], [ %23, %22 ]
-  %indvars.iv.next168 = add nsw i64 %indvars.iv167, -1
-  %18 = icmp slt i64 %indvars.iv167, 1
-  %indvars.iv.next170 = add nsw i64 %indvars.iv169, -1
+  %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
+  %18 = icmp slt i64 %indvars.iv163, 1
+  %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
   br i1 %18, label %._crit_edge.loopexit, label %.preheader114, !llvm.loop !19
 
 .preheader114:                                    ; preds = %.preheader114.preheader, %.loopexit115
   %19 = phi i32 [ %13, %.preheader114.preheader ], [ %17, %.loopexit115 ]
-  %indvars.iv169 = phi i64 [ %16, %.preheader114.preheader ], [ %indvars.iv.next170, %.loopexit115 ]
-  %indvars.iv167 = phi i64 [ %15, %.preheader114.preheader ], [ %indvars.iv.next168, %.loopexit115 ]
+  %indvars.iv165 = phi i64 [ %16, %.preheader114.preheader ], [ %indvars.iv.next166, %.loopexit115 ]
+  %indvars.iv163 = phi i64 [ %15, %.preheader114.preheader ], [ %indvars.iv.next164, %.loopexit115 ]
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.loopexit115
 
 .lr.ph:                                           ; preds = %.preheader114
-  %21 = trunc nuw nsw i64 %indvars.iv167 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv163 to i32
   br label %26
 
 22:                                               ; preds = %66
@@ -5211,7 +5211,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 45:                                               ; preds = %26, %33
   %46 = phi i32 [ %39, %33 ], [ 1, %26 ]
   %47 = zext i32 %30 to i64
-  %48 = icmp eq i64 %indvars.iv169, %47
+  %48 = icmp eq i64 %indvars.iv165, %47
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %45
@@ -5224,12 +5224,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   %54 = load ptr, ptr %10, align 8
   %55 = getelementptr inbounds %"class.std::vector.18", ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv169
+  %57 = getelementptr inbounds i64, ptr %56, i64 %indvars.iv165
   %58 = load i64, ptr %57, align 8
   %59 = load ptr, ptr %11, align 8
   %60 = getelementptr inbounds %"class.std::vector.3", ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv169
+  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv165
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
   %65 = mul i64 %58, %64
@@ -5241,17 +5241,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   %69 = load ptr, ptr %11, align 8
   %70 = getelementptr inbounds %"class.std::vector.3", ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv167
+  %72 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv163
   store i32 %67, ptr %72, align 4
   %73 = load ptr, ptr %10, align 8
   %74 = getelementptr inbounds %"class.std::vector.18", ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv167
+  %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv163
   store i64 %68, ptr %76, align 8
   %77 = load ptr, ptr %11, align 8
   %78 = getelementptr inbounds %"class.std::vector.3", ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv167
+  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv163
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.loopexit, label %22
@@ -5272,13 +5272,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   %88 = getelementptr inbounds i8, ptr %0, i64 88
   %89 = getelementptr inbounds i8, ptr %0, i64 112
   %90 = zext nneg i32 %86 to i64
-  %.pre194 = load i32, ptr %87, align 4
+  %.pre193 = load i32, ptr %87, align 4
   br label %.preheader113
 
 .preheader113:                                    ; preds = %.preheader113.lr.ph, %.loopexit110
-  %91 = phi i32 [ %.pre194, %.preheader113.lr.ph ], [ %158, %.loopexit110 ]
-  %92 = phi i32 [ %.pre194, %.preheader113.lr.ph ], [ %159, %.loopexit110 ]
-  %indvars.iv179 = phi i64 [ %90, %.preheader113.lr.ph ], [ %indvars.iv.next180, %.loopexit110 ]
+  %91 = phi i32 [ %.pre193, %.preheader113.lr.ph ], [ %158, %.loopexit110 ]
+  %92 = phi i32 [ %.pre193, %.preheader113.lr.ph ], [ %159, %.loopexit110 ]
+  %indvars.iv178 = phi i64 [ %90, %.preheader113.lr.ph ], [ %indvars.iv.next179, %.loopexit110 ]
   %.093136 = phi i32 [ %84, %.preheader113.lr.ph ], [ %.194, %.loopexit110 ]
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph127, label %._crit_edge128
@@ -5291,27 +5291,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br label %97
 
 97:                                               ; preds = %.lr.ph127, %121
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next172, %121 ]
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next171, %121 ]
   %.095126 = phi i1 [ true, %.lr.ph127 ], [ %122, %121 ]
   %.096125 = phi i1 [ true, %.lr.ph127 ], [ %117, %121 ]
   %.097124 = phi i1 [ true, %.lr.ph127 ], [ %116, %121 ]
-  %98 = getelementptr inbounds %"class.std::vector.3", ptr %95, i64 %indvars.iv171
+  %98 = getelementptr inbounds %"class.std::vector.3", ptr %95, i64 %indvars.iv170
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i32, ptr %99, i64 %94
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv179
+  %102 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv178
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 1
   br i1 %.097124, label %105, label %115
 
 105:                                              ; preds = %97
-  %106 = getelementptr inbounds %"class.std::vector.18", ptr %96, i64 %indvars.iv171
+  %106 = getelementptr inbounds %"class.std::vector.18", ptr %96, i64 %indvars.iv170
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i64, ptr %107, i64 %94
   %109 = load i64, ptr %108, align 8
   %110 = sext i32 %101 to i64
   %111 = mul i64 %109, %110
-  %112 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv179
+  %112 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv178
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %111, %113
   br label %115
@@ -5328,8 +5328,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
 
 121:                                              ; preds = %118, %115
   %122 = phi i1 [ false, %115 ], [ %120, %118 ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge128, label %97, !llvm.loop !22
 
 ._crit_edge128:                                   ; preds = %121, %.preheader113
@@ -5349,26 +5349,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br label %125
 
 125:                                              ; preds = %.lr.ph135, %125
-  %indvars.iv176 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next177, %125 ]
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next176, %125 ]
   %126 = load ptr, ptr %88, align 8
-  %127 = getelementptr inbounds %"class.std::vector.3", ptr %126, i64 %indvars.iv176
+  %127 = getelementptr inbounds %"class.std::vector.3", ptr %126, i64 %indvars.iv175
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv179
+  %129 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv178
   %130 = load i32, ptr %129, align 4
   %131 = getelementptr inbounds i32, ptr %128, i64 %124
   %132 = load i32, ptr %131, align 4
   %133 = mul nsw i32 %132, %130
   store i32 %133, ptr %131, align 4
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %134 = load i32, ptr %87, align 4
   %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next177, %135
+  %136 = icmp slt i64 %indvars.iv.next176, %135
   br i1 %136, label %125, label %.loopexit110, !llvm.loop !23
 
 137:                                              ; preds = %._crit_edge128
   %138 = add nsw i32 %.093136, -1
   %139 = sext i32 %138 to i64
-  %140 = icmp slt i64 %indvars.iv179, %139
+  %140 = icmp slt i64 %indvars.iv178, %139
   %or.cond153 = and i1 %140, %93
   br i1 %or.cond153, label %.lr.ph133, label %.loopexit110
 
@@ -5377,44 +5377,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br label %142
 
 142:                                              ; preds = %.lr.ph133, %142
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next174, %142 ]
+  %indvars.iv172 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next173, %142 ]
   %143 = load ptr, ptr %88, align 8
-  %144 = getelementptr inbounds %"class.std::vector.3", ptr %143, i64 %indvars.iv173
+  %144 = getelementptr inbounds %"class.std::vector.3", ptr %143, i64 %indvars.iv172
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv179
+  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv178
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds i32, ptr %145, i64 %141
   store i32 %147, ptr %148, align 4
   %149 = load ptr, ptr %89, align 8
-  %150 = getelementptr inbounds %"class.std::vector.18", ptr %149, i64 %indvars.iv173
+  %150 = getelementptr inbounds %"class.std::vector.18", ptr %149, i64 %indvars.iv172
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i64, ptr %151, i64 %indvars.iv179
+  %152 = getelementptr inbounds i64, ptr %151, i64 %indvars.iv178
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds i64, ptr %151, i64 %141
   store i64 %153, ptr %154, align 8
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %155 = load i32, ptr %87, align 4
   %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next174, %156
+  %157 = icmp slt i64 %indvars.iv.next173, %156
   br i1 %157, label %142, label %.loopexit110, !llvm.loop !24
 
 .loopexit110:                                     ; preds = %142, %125, %.preheader109, %137
   %158 = phi i32 [ %91, %137 ], [ %91, %.preheader109 ], [ %134, %125 ], [ %155, %142 ]
   %159 = phi i32 [ %92, %137 ], [ %91, %.preheader109 ], [ %134, %125 ], [ %155, %142 ]
   %.194 = phi i32 [ %138, %137 ], [ %.093136, %.preheader109 ], [ %.093136, %125 ], [ %138, %142 ]
-  %indvars.iv.next180 = add nsw i64 %indvars.iv179, -1
-  %160 = icmp sgt i64 %indvars.iv179, 0
+  %indvars.iv.next179 = add nsw i64 %indvars.iv178, -1
+  %160 = icmp sgt i64 %indvars.iv178, 0
   br i1 %160, label %.preheader113, label %._crit_edge139, !llvm.loop !25
 
 ._crit_edge139:                                   ; preds = %.loopexit110
-  %.pre195 = load i32, ptr %2, align 8
-  %.pre199 = add nsw i32 %.pre195, -1
-  %.not.not144 = icmp sgt i32 %.pre195, %.194
+  %.pre194 = load i32, ptr %2, align 8
+  %.pre198 = add nsw i32 %.pre194, -1
+  %.not.not144 = icmp sgt i32 %.pre194, %.194
   br i1 %.not.not144, label %.preheader107.lr.ph, label %.preheader106
 
 .preheader107.lr.ph:                              ; preds = %._crit_edge.thread, %._crit_edge, %._crit_edge139
-  %.093.lcssa203 = phi i32 [ %.194, %._crit_edge139 ], [ %5, %._crit_edge.thread ], [ %84, %._crit_edge ]
-  %161 = phi i32 [ %.pre195, %._crit_edge139 ], [ %3, %._crit_edge.thread ], [ %83, %._crit_edge ]
+  %.093.lcssa202 = phi i32 [ %.194, %._crit_edge139 ], [ %5, %._crit_edge.thread ], [ %84, %._crit_edge ]
+  %161 = phi i32 [ %.pre194, %._crit_edge139 ], [ %3, %._crit_edge.thread ], [ %83, %._crit_edge ]
   %162 = getelementptr inbounds i8, ptr %0, i64 4
   %163 = getelementptr inbounds i8, ptr %0, i64 88
   %164 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5423,33 +5423,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br i1 %166, label %.preheader107.preheader, label %.preheader107.us.preheader
 
 .preheader107.us.preheader:                       ; preds = %.preheader107.lr.ph
-  %167 = add i32 %.093.lcssa203, -1
+  %167 = add i32 %.093.lcssa202, -1
   br label %.preheader106
 
 .preheader107.preheader:                          ; preds = %.preheader107.lr.ph
   %168 = sext i32 %161 to i64
   %169 = add nsw i64 %168, -1
-  %170 = sext i32 %.093.lcssa203 to i64
+  %170 = sext i32 %.093.lcssa202 to i64
   br label %.preheader107
 
-.loopexit108:                                     ; preds = %._crit_edge197, %.preheader107
-  %171 = phi i32 [ %172, %.preheader107 ], [ %193, %._crit_edge197 ]
-  %indvars.iv.next186 = add nsw i64 %indvars.iv185, -1
-  %.not.not = icmp sgt i64 %indvars.iv185, %170
+.loopexit108:                                     ; preds = %._crit_edge196, %.preheader107
+  %171 = phi i32 [ %172, %.preheader107 ], [ %193, %._crit_edge196 ]
+  %indvars.iv.next185 = add nsw i64 %indvars.iv184, -1
+  %.not.not = icmp sgt i64 %indvars.iv184, %170
   br i1 %.not.not, label %.preheader107, label %.preheader106.loopexit, !llvm.loop !26
 
 .preheader107:                                    ; preds = %.preheader107.preheader, %.loopexit108
   %172 = phi i32 [ %165, %.preheader107.preheader ], [ %171, %.loopexit108 ]
-  %indvars.iv185 = phi i64 [ %169, %.preheader107.preheader ], [ %indvars.iv.next186, %.loopexit108 ]
+  %indvars.iv184 = phi i64 [ %169, %.preheader107.preheader ], [ %indvars.iv.next185, %.loopexit108 ]
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.lr.ph142, label %.loopexit108
 
 .preheader106.loopexit:                           ; preds = %.loopexit108
-  %174 = trunc nsw i64 %indvars.iv.next186 to i32
+  %174 = trunc nsw i64 %indvars.iv.next185 to i32
   br label %.preheader106
 
 .preheader106:                                    ; preds = %.preheader107.us.preheader, %.preheader106.loopexit, %._crit_edge139
-  %.2.lcssa = phi i32 [ %.pre199, %._crit_edge139 ], [ %174, %.preheader106.loopexit ], [ %167, %.preheader107.us.preheader ]
+  %.2.lcssa = phi i32 [ %.pre198, %._crit_edge139 ], [ %174, %.preheader106.loopexit ], [ %167, %.preheader107.us.preheader ]
   %175 = icmp sgt i32 %.2.lcssa, -1
   br i1 %175, label %.preheader.lr.ph, label %.loopexit
 
@@ -5465,62 +5465,62 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   %181 = zext nneg i32 %.2.lcssa to i64
   br label %.preheader
 
-.lr.ph142:                                        ; preds = %.preheader107, %._crit_edge197
-  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge197 ], [ 0, %.preheader107 ]
+.lr.ph142:                                        ; preds = %.preheader107, %._crit_edge196
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %._crit_edge196 ], [ 0, %.preheader107 ]
   %182 = load ptr, ptr %163, align 8
-  %183 = getelementptr inbounds %"class.std::vector.3", ptr %182, i64 %indvars.iv182
+  %183 = getelementptr inbounds %"class.std::vector.3", ptr %182, i64 %indvars.iv181
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i32, ptr %184, i64 %indvars.iv185
+  %185 = getelementptr inbounds i32, ptr %184, i64 %indvars.iv184
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, 1
-  %.pre196 = load ptr, ptr %164, align 8
-  %.phi.trans.insert = getelementptr inbounds %"class.std::vector.18", ptr %.pre196, i64 %indvars.iv182
-  %.pre198 = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %187, label %._crit_edge197, label %188
+  %.pre195 = load ptr, ptr %164, align 8
+  %.phi.trans.insert = getelementptr inbounds %"class.std::vector.18", ptr %.pre195, i64 %indvars.iv181
+  %.pre197 = load ptr, ptr %.phi.trans.insert, align 8
+  br i1 %187, label %._crit_edge196, label %188
 
 188:                                              ; preds = %.lr.ph142
-  %189 = getelementptr inbounds i64, ptr %.pre198, i64 %indvars.iv185
+  %189 = getelementptr inbounds i64, ptr %.pre197, i64 %indvars.iv184
   %190 = load i64, ptr %189, align 8
-  br label %._crit_edge197
+  br label %._crit_edge196
 
-._crit_edge197:                                   ; preds = %.lr.ph142, %188
+._crit_edge196:                                   ; preds = %.lr.ph142, %188
   %191 = phi i64 [ %190, %188 ], [ 0, %.lr.ph142 ]
-  %192 = getelementptr inbounds i64, ptr %.pre198, i64 %indvars.iv185
+  %192 = getelementptr inbounds i64, ptr %.pre197, i64 %indvars.iv184
   store i64 %191, ptr %192, align 8
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %193 = load i32, ptr %162, align 4
   %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next183, %194
+  %195 = icmp slt i64 %indvars.iv.next182, %194
   br i1 %195, label %.lr.ph142, label %.loopexit108, !llvm.loop !27
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge150
   %196 = phi i32 [ %179, %.preheader.preheader ], [ %209, %._crit_edge150 ]
-  %indvars.iv191 = phi i64 [ %181, %.preheader.preheader ], [ %indvars.iv.next192, %._crit_edge150 ]
+  %indvars.iv190 = phi i64 [ %181, %.preheader.preheader ], [ %indvars.iv.next191, %._crit_edge150 ]
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.lr.ph149, label %._crit_edge150
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %.lr.ph149 ], [ 0, %.preheader ]
+  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph149 ], [ 0, %.preheader ]
   %198 = load ptr, ptr %177, align 8
-  %199 = getelementptr inbounds %"class.std::vector.18", ptr %198, i64 %indvars.iv188
+  %199 = getelementptr inbounds %"class.std::vector.18", ptr %198, i64 %indvars.iv187
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i64, ptr %200, i64 %indvars.iv191
+  %201 = getelementptr inbounds i64, ptr %200, i64 %indvars.iv190
   store i64 0, ptr %201, align 8
   %202 = load ptr, ptr %178, align 8
-  %203 = getelementptr inbounds %"class.std::vector.3", ptr %202, i64 %indvars.iv188
+  %203 = getelementptr inbounds %"class.std::vector.3", ptr %202, i64 %indvars.iv187
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv191
+  %205 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv190
   store i32 1, ptr %205, align 4
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %206 = load i32, ptr %176, align 4
   %207 = sext i32 %206 to i64
-  %208 = icmp slt i64 %indvars.iv.next189, %207
+  %208 = icmp slt i64 %indvars.iv.next188, %207
   br i1 %208, label %.lr.ph149, label %._crit_edge150, !llvm.loop !28
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %.preheader
   %209 = phi i32 [ %196, %.preheader ], [ %206, %.lr.ph149 ]
-  %indvars.iv.next192 = add nsw i64 %indvars.iv191, -1
-  %210 = icmp sgt i64 %indvars.iv191, 0
+  %indvars.iv.next191 = add nsw i64 %indvars.iv190, -1
+  %210 = icmp sgt i64 %indvars.iv190, 0
   br i1 %210, label %.preheader, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %66, %._crit_edge150, %.preheader.lr.ph, %.preheader106
@@ -72812,15 +72812,12 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   store ptr %57, ptr %56, align 8
-  br i1 %.not.i.i.i.i, label %._crit_edge57, label %.lr.ph56
-
-.lr.ph56:                                         ; preds = %.loopexit
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %9, align 8
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %._crit_edge57, label %.lr.ph56.split.preheader
 
-.lr.ph56.split.preheader:                         ; preds = %.lr.ph56
+.lr.ph56.split.preheader:                         ; preds = %.loopexit
   %umax = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %.lr.ph52
 
@@ -72892,7 +72889,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %75
   %exitcond.not = icmp eq i64 %85, %umax
   br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph52, !llvm.loop !906
 
-._crit_edge57:                                    ; preds = %._crit_edge53, %.lr.ph56, %.loopexit.thread, %.loopexit
+._crit_edge57:                                    ; preds = %._crit_edge53, %.loopexit, %.loopexit.thread
   ret void
 
 86:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %19

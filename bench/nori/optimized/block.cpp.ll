@@ -789,10 +789,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader66, label %83, !llvm.loop !31
 
-.preheader65:                                     ; preds = %107
-  br i1 %.not3270, label %.loopexit, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %.preheader65
+.preheader.lr.ph:                                 ; preds = %107
   %97 = getelementptr inbounds i8, ptr %2, i64 4
   %98 = getelementptr inbounds i8, ptr %2, i64 8
   %99 = getelementptr inbounds i8, ptr %0, i64 64
@@ -829,7 +826,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   store float %117, ptr %119, align 4
   %120 = add nuw nsw i32 %.02971, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %.preheader65, label %107, !llvm.loop !32
+  br i1 %exitcond89.not, label %.preheader.lr.ph, label %107, !llvm.loop !32
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv101 = phi i64 [ %104, %.preheader.preheader ], [ %indvars.iv.next102, %._crit_edge ]
@@ -878,7 +875,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %exitcond107.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count106
   br i1 %exitcond107.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader66, %.preheader.lr.ph, %.preheader65, %28
+.loopexit:                                        ; preds = %._crit_edge, %.preheader66, %.preheader.lr.ph, %28
   ret void
 }
 

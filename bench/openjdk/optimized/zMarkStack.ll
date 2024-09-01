@@ -138,54 +138,42 @@ define hidden noundef i64 @_ZNK14ZMarkStripeSet8nstripesEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef nonnull align 64 dereferenceable(2112) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = load volatile ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %4 to i64
-  %6 = lshr i64 %5, 32
-  %7 = icmp eq i64 %6, 4294967295
-  %.neg.i.i6 = mul nsw i64 %6, -2048
-  %8 = load i64, ptr %2, align 64
-  %9 = icmp eq i64 %8, %.neg.i.i6
-  %10 = select i1 %7, i1 true, i1 %9
-  br i1 %10, label %_ZNK11ZMarkStripe8is_emptyEv.exit, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread
+  br label %5
 
-11:                                               ; preds = %_ZNK11ZMarkStripe8is_emptyEv.exit
-  %12 = add nuw nsw i64 %.057, 1
-  %13 = icmp ugt i64 %.057, 14
-  %exitcond = icmp eq i64 %12, 16
-  br i1 %exitcond, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread, label %14, !llvm.loop !8
+3:                                                ; preds = %_ZNK11ZMarkStripe8is_emptyEv.exit
+  %4 = add nuw nsw i64 %.05, 1
+  %exitcond = icmp eq i64 %4, 16
+  br i1 %exitcond, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread, label %5, !llvm.loop !8
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %2, i64 0, i64 %12
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+5:                                                ; preds = %1, %3
+  %.05 = phi i64 [ 0, %1 ], [ %4, %3 ]
+  %6 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %2, i64 0, i64 %.05
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load volatile ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %10 = lshr i64 %9, 32
+  %11 = icmp eq i64 %10, 4294967295
+  %.neg.i.i = mul nsw i64 %10, -2048
+  %12 = load i64, ptr %6, align 64
+  %13 = icmp eq i64 %12, %.neg.i.i
+  %14 = select i1 %11, i1 true, i1 %13
+  br i1 %14, label %_ZNK11ZMarkStripe8is_emptyEv.exit, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread
+
+_ZNK11ZMarkStripe8is_emptyEv.exit:                ; preds = %5
+  %15 = getelementptr inbounds i8, ptr %6, i64 64
+  %16 = getelementptr inbounds i8, ptr %6, i64 72
   %17 = load volatile ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = lshr i64 %18, 32
   %20 = icmp eq i64 %19, 4294967295
-  %.neg.i.i = mul nsw i64 %19, -2048
+  %.neg.i1.i = mul nsw i64 %19, -2048
   %21 = load i64, ptr %15, align 64
-  %22 = icmp eq i64 %21, %.neg.i.i
+  %22 = icmp eq i64 %21, %.neg.i1.i
   %23 = select i1 %20, i1 true, i1 %22
-  br i1 %23, label %_ZNK11ZMarkStripe8is_emptyEv.exit, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread, !llvm.loop !8
+  br i1 %23, label %3, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread
 
-_ZNK11ZMarkStripe8is_emptyEv.exit:                ; preds = %1, %14
-  %24 = phi ptr [ %15, %14 ], [ %2, %1 ]
-  %.057 = phi i64 [ %12, %14 ], [ 0, %1 ]
-  %25 = phi i1 [ %13, %14 ], [ false, %1 ]
-  %26 = getelementptr inbounds i8, ptr %24, i64 64
-  %27 = getelementptr inbounds i8, ptr %24, i64 72
-  %28 = load volatile ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = lshr i64 %29, 32
-  %31 = icmp eq i64 %30, 4294967295
-  %.neg.i1.i = mul nsw i64 %30, -2048
-  %32 = load i64, ptr %26, align 64
-  %33 = icmp eq i64 %32, %.neg.i1.i
-  %34 = select i1 %31, i1 true, i1 %33
-  br i1 %34, label %11, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread
-
-_ZNK11ZMarkStripe8is_emptyEv.exit.thread:         ; preds = %_ZNK11ZMarkStripe8is_emptyEv.exit, %11, %14, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %25, %_ZNK11ZMarkStripe8is_emptyEv.exit ], [ %13, %11 ], [ %13, %14 ]
+_ZNK11ZMarkStripe8is_emptyEv.exit.thread:         ; preds = %5, %3, %_ZNK11ZMarkStripe8is_emptyEv.exit
+  %.lcssa = phi i1 [ false, %5 ], [ true, %3 ], [ false, %_ZNK11ZMarkStripe8is_emptyEv.exit ]
   ret i1 %.lcssa
 }
 
@@ -230,29 +218,20 @@ define hidden void @_ZN22ZMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK22ZMarkThreadLocalStacks8is_emptyEPK14ZMarkStripeSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %.not7 = icmp eq ptr %4, null
-  br i1 %.not7, label %.lr.ph, label %._crit_edge
+  br label %4
 
-.lr.ph:                                           ; preds = %2, %6
-  %.0568 = phi i64 [ %5, %6 ], [ 0, %2 ]
-  %5 = add nuw nsw i64 %.0568, 1
-  %exitcond = icmp eq i64 %5, 16
-  br i1 %exitcond, label %._crit_edge.loopexit, label %6, !llvm.loop !9
+4:                                                ; preds = %4, %2
+  %.056 = phi i64 [ 0, %2 ], [ %7, %4 ]
+  %5 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %.056
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  %7 = add nuw nsw i64 %.056, 1
+  %exitcond = icmp ne i64 %7, 16
+  %or.cond.not = select i1 %.not, i1 %exitcond, i1 false
+  br i1 %or.cond.not, label %4, label %8, !llvm.loop !9
 
-6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %5
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %6
-  %9 = icmp ugt i64 %.0568, 14
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %9, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+8:                                                ; preds = %4
+  ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

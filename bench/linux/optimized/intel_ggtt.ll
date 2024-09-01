@@ -3113,7 +3113,7 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr nocapture nou
   br label %.thread46
 
 .thread46:                                        ; preds = %78, %.thread44, %261, %263, %141, %264, %256
-  %265 = phi i1 [ false, %261 ], [ false, %263 ], [ false, %141 ], [ false, %264 ], [ false, %256 ], [ false, %78 ], [ %89, %.thread44 ]
+  %265 = phi i1 [ false, %261 ], [ false, %263 ], [ false, %141 ], [ false, %264 ], [ false, %256 ], [ %89, %.thread44 ], [ %89, %78 ]
   %266 = load ptr, ptr %36, align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 352
   %268 = call i32 @__SCT__might_resched() #10

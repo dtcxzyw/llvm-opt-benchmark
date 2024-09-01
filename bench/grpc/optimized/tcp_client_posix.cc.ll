@@ -406,8 +406,8 @@ if.end15:                                         ; preds = %invoke.cont10, %if.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp66.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp74.i)
   store i64 0, ptr %ref.tmp16, align 8, !alias.scope !6
-  %cmp.i17 = icmp slt i32 %9, 0
-  br i1 %cmp.i17, label %if.then.i18, label %do.end.i
+  %cmp.i17 = icmp sgt i32 %9, -1
+  br i1 %cmp.i17, label %do.end.i, label %if.then.i18
 
 if.then.i18:                                      ; preds = %if.end15
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @.str.7) #25

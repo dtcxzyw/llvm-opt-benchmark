@@ -104,39 +104,35 @@ entry:
   %call2.i = tail call { i64, ptr } @_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %1, ptr %2)
   %3 = extractvalue { i64, ptr } %call2.i, 0
   %4 = extractvalue { i64, ptr } %call2.i, 1
-  %call320 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 1, ptr nonnull @.str) #15
-  br i1 %call320, label %return.sink.split, label %if.else
+  br label %for.body
 
 for.cond:                                         ; preds = %if.else
-  %inc = add nuw nsw i64 %i.01222, 1
-  %cmp = icmp ult i64 %i.01222, 4
+  %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, 5
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 0, i64 %inc
+for.body:                                         ; preds = %entry, %for.cond
+  %i.012 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 0, i64 %i.012
   %5 = load ptr, ptr %arrayidx, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
   %call3 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i, ptr %5) #15
-  br i1 %call3, label %return.sink.split, label %if.else, !llvm.loop !5
+  br i1 %call3, label %return.sink.split, label %if.else
 
-if.else:                                          ; preds = %entry, %for.body
-  %i.01222 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %cmp1321 = phi i1 [ %cmp, %for.body ], [ true, %entry ]
-  %arrayidx6 = getelementptr inbounds [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 0, i64 %i.01222
+if.else:                                          ; preds = %for.body
+  %arrayidx6 = getelementptr inbounds [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 0, i64 %i.012
   %6 = load ptr, ptr %arrayidx6, align 8
   %call.i.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %call7 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i7, ptr %6) #15
   br i1 %call7, label %return.sink.split, label %for.cond
 
-return.sink.split:                                ; preds = %for.body, %if.else, %entry
-  %cmp13.lcssa = phi i1 [ true, %entry ], [ %cmp, %for.body ], [ %cmp1321, %if.else ]
-  %.sink = phi i8 [ 1, %entry ], [ 1, %for.body ], [ 0, %if.else ]
+return.sink.split:                                ; preds = %if.else, %for.body
+  %.sink = phi i8 [ 1, %for.body ], [ 0, %if.else ]
   store i8 %.sink, ptr %dst, align 1
   br label %return
 
 return:                                           ; preds = %for.cond, %return.sink.split
-  %cmp11 = phi i1 [ %cmp13.lcssa, %return.sink.split ], [ %cmp, %for.cond ]
+  %cmp11 = phi i1 [ true, %return.sink.split ], [ false, %for.cond ]
   ret i1 %cmp11
 }
 

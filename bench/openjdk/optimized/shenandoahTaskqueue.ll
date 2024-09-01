@@ -110,50 +110,43 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahObjToScanQueueSet8is_emptyEv(pt
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = zext i32 %3 to i64
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 712
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %.lr.ph14, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
+  %wide.trip.count = zext i32 %3 to i64
+  br label %8
 
-12:                                               ; preds = %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
-  %13 = icmp uge i64 %indvars.iv.next, %7
-  %exitcond = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread, label %14, !llvm.loop !9
+7:                                                ; preds = %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread, label %8, !llvm.loop !9
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 712
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %.lr.ph14, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread, !llvm.loop !9
+8:                                                ; preds = %.lr.ph, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 712
+  %12 = load i8, ptr %11, align 8
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
 
-.lr.ph14:                                         ; preds = %.lr.ph, %14
-  %20 = phi ptr [ %16, %14 ], [ %8, %.lr.ph ]
-  %21 = phi i1 [ %13, %14 ], [ false, %.lr.ph ]
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %20, i64 128
-  %23 = load volatile i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 256
-  %25 = load volatile i32, ptr %24, align 4
-  %26 = sub i32 %23, %25
-  %27 = and i32 %26, 131071
-  switch i32 %27, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread [
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %16 = load volatile i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %10, i64 256
+  %18 = load volatile i32, ptr %17, align 4
+  %19 = sub i32 %16, %18
+  %20 = and i32 %19, 131071
+  switch i32 %20, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread [
     i32 131071, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit
     i32 0, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit
   ]
 
-_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit: ; preds = %.lr.ph14, %.lr.ph14
-  %28 = getelementptr inbounds i8, ptr %20, i64 696
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %12, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
+_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit: ; preds = %14, %14
+  %21 = getelementptr inbounds i8, ptr %10, i64 696
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %7, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
 
-_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread: ; preds = %.lr.ph14, %14, %12, %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %21, %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit ], [ %13, %12 ], [ %13, %14 ], [ %21, %.lr.ph14 ]
+_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread: ; preds = %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit, %7, %8, %14, %1
+  %.lcssa = phi i1 [ true, %1 ], [ false, %14 ], [ false, %8 ], [ true, %7 ], [ false, %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit ]
   ret i1 %.lcssa
 }
 

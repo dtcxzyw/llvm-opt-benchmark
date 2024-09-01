@@ -1946,15 +1946,12 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %mFaces = getelementptr inbounds i8, ptr %call, i64 208
   store ptr %2, ptr %mFaces, align 8
-  br i1 %isempty, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %arrayctor.cont
   %umax = tail call i32 @llvm.umax.i32(i32 %div, i32 1)
   %wide.trip.count = zext i32 %umax to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %arrayctor.cont, %for.body
+  %indvars.iv = phi i64 [ 0, %arrayctor.cont ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds %struct.aiFace, ptr %2, i64 %indvars.iv
   store i32 3, ptr %arrayidx, align 8
   %call6 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #28
@@ -1973,7 +1970,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %for.body, %arrayctor.cont.thread, %arrayctor.cont
+for.end:                                          ; preds = %for.body, %arrayctor.cont.thread
   %conv17 = zext i32 %indexCount to i64
   %4 = mul nuw nsw i64 %conv17, 12
   %call18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #28

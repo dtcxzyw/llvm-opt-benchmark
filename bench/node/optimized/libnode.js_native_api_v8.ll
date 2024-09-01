@@ -3558,16 +3558,16 @@ if.then76:                                        ; preds = %_ZN2v810MaybeLocalI
 
 do.end82:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %cmp83.not = icmp eq ptr %result, null
-  br i1 %cmp83.not, label %if.end87, label %if.then84
+  br i1 %cmp83.not, label %if.end87, label %cond.true.i
 
-if.then84:                                        ; preds = %do.end82
+cond.true.i:                                      ; preds = %do.end82
   %6 = lshr i16 %call73, 8
   %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   br label %if.end87
 
-if.end87:                                         ; preds = %if.then84, %do.end82
+if.end87:                                         ; preds = %cond.true.i, %do.end82
   %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call88, label %cleanup.sink.split, label %cleanup
 
@@ -4759,16 +4759,16 @@ if.then61:                                        ; preds = %_ZN2v810MaybeLocalI
 
 do.end67:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %cmp68.not = icmp eq ptr %result, null
-  br i1 %cmp68.not, label %if.end72, label %if.then69
+  br i1 %cmp68.not, label %if.end72, label %cond.true.i
 
-if.then69:                                        ; preds = %do.end67
+cond.true.i:                                      ; preds = %do.end67
   %6 = lshr i16 %call58, 8
   %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   br label %if.end72
 
-if.end72:                                         ; preds = %if.then69, %do.end67
+if.end72:                                         ; preds = %cond.true.i, %do.end67
   %call73 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call73, label %cleanup.sink.split, label %cleanup
 

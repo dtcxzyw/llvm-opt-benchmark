@@ -20714,7 +20714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #30
   %75 = getelementptr inbounds i8, ptr %.sroa.0103.0107, i64 32
   %.not = icmp eq ptr %75, %62
-  br i1 %.not, label %._crit_edge, label %66
+  br i1 %.not, label %.lr.ph.i.i.i.i, label %66
 
 76:                                               ; preds = %.noexc, %2
   %77 = landingpad { ptr, i32 }
@@ -20787,17 +20787,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #30
   br label %96
 
-._crit_edge:                                      ; preds = %74
-  br i1 %.not106, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %60, %._crit_edge ]
+.lr.ph.i.i.i.i:                                   ; preds = %74, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %60, %74 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #30
   %94 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %94, %62
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %59, %._crit_edge
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %59
   %.not.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %95
 
@@ -33031,7 +33028,7 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
   %8 = getelementptr inbounds i8, ptr %1, i64 768
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %59, label %10
+  br i1 %.not, label %58, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %9, align 8
@@ -33076,143 +33073,143 @@ define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_un
 "_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i": ; preds = %19, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.0.allc.2.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %.0.allc.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %20, %19 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.0.allc.2.i.i.i.i.i.i, %13
-  br i1 %.not.i.i.i.i.i.i, label %22, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !396
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !396
 
 21:                                               ; preds = %.loopexit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   br label %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
 
-22:                                               ; preds = %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i"
+"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i": ; preds = %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !393
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !393
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30, !noalias !397
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !397
-  %23 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i) #30, !noalias !397
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %24, ptr %25) #30
-  %26 = load i64, ptr %3, align 8, !noalias !397
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !397
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %26, ptr %28, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %29 unwind label %44, !noalias !397
+  %22 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i) #30, !noalias !397
+  %23 = extractvalue { i64, ptr } %22, 0
+  %24 = extractvalue { i64, ptr } %22, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %23, ptr %24) #30
+  %25 = load i64, ptr %3, align 8, !noalias !397
+  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = load ptr, ptr %26, align 8, !noalias !397
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %25, ptr %27, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %28 unwind label %43, !noalias !397
 
-29:                                               ; preds = %22
+28:                                               ; preds = %"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !397
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30, !noalias !397
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.1.i)
-          to label %30 unwind label %46
+          to label %29 unwind label %45
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.sroa.07.1.i, i64 80
-  %.not1.i.i.i.i.i.i.i5.i.i = icmp eq ptr %31, %13
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds i8, ptr %.sroa.07.1.i, i64 80
+  %.not1.i.i.i.i.i.i.i5.i.i = icmp eq ptr %30, %13
   br i1 %.not1.i.i.i.i.i.i.i5.i.i, label %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i6.i.i
 
-.lr.ph.i.i.i.i.i.i.i6.i.i:                        ; preds = %30, %34
-  %32 = phi ptr [ %35, %34 ], [ %31, %30 ]
-  %33 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #30, !noalias !400
-  br i1 %33, label %34, label %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i"
+.lr.ph.i.i.i.i.i.i.i6.i.i:                        ; preds = %29, %33
+  %31 = phi ptr [ %34, %33 ], [ %30, %29 ]
+  %32 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #30, !noalias !400
+  br i1 %32, label %33, label %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i"
 
-34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i6.i.i
-  %35 = getelementptr inbounds i8, ptr %32, i64 80
-  %.not.i.i.i.i.i.i.i9.i.i = icmp eq ptr %35, %13
+33:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i6.i.i
+  %34 = getelementptr inbounds i8, ptr %31, i64 80
+  %.not.i.i.i.i.i.i.i9.i.i = icmp eq ptr %34, %13
   br i1 %.not.i.i.i.i.i.i.i9.i.i, label %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i6.i.i, !llvm.loop !389
 
-"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i": ; preds = %34, %.lr.ph.i.i.i.i.i.i.i6.i.i, %30
-  %.sroa.04.0.i.i.i = phi ptr [ %31, %30 ], [ %35, %34 ], [ %32, %.lr.ph.i.i.i.i.i.i.i6.i.i ]
+"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i": ; preds = %33, %.lr.ph.i.i.i.i.i.i.i6.i.i, %29
+  %.sroa.04.0.i.i.i = phi ptr [ %30, %29 ], [ %34, %33 ], [ %31, %.lr.ph.i.i.i.i.i.i.i6.i.i ]
   %.not9.i.i.i = icmp eq ptr %.sroa.04.0.i.i.i, %13
-  br i1 %.not9.i.i.i, label %"_ZN6cmList4JoinIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SO_St17basic_string_viewIcSL_E.exit.i.i", label %.lr.ph.i.i.i3
+  br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i3
 
 .lr.ph.i.i.i3:                                    ; preds = %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i", %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i"
   %.sroa.0.010.i.i.i = phi ptr [ %.sroa.0.2.i.i.i, %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i" ], [ %.sroa.04.0.i.i.i, %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i" ]
-  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %37 unwind label %48
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %36 unwind label %47
 
-37:                                               ; preds = %.lr.ph.i.i.i3
-  %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.010.i.i.i)
-          to label %39 unwind label %48
+36:                                               ; preds = %.lr.ph.i.i.i3
+  %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.010.i.i.i)
+          to label %38 unwind label %47
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i.i, i64 80
-  %.not1.i.i.i.i.i.i = icmp eq ptr %40, %13
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i.i, i64 80
+  %.not1.i.i.i.i.i.i = icmp eq ptr %39, %13
   br i1 %.not1.i.i.i.i.i.i, label %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i", label %.lr.ph.i.i.i.i7.i.i
 
-.lr.ph.i.i.i.i7.i.i:                              ; preds = %39, %42
-  %.sroa.0.1.i.i.i = phi ptr [ %43, %42 ], [ %40, %39 ]
-  %41 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i.i) #30
-  br i1 %41, label %42, label %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i"
+.lr.ph.i.i.i.i7.i.i:                              ; preds = %38, %41
+  %.sroa.0.1.i.i.i = phi ptr [ %42, %41 ], [ %39, %38 ]
+  %40 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i.i) #30
+  br i1 %40, label %41, label %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i"
 
-42:                                               ; preds = %.lr.ph.i.i.i.i7.i.i
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i, i64 80
-  %.not.i.i.i.i8.i.i = icmp eq ptr %43, %13
+41:                                               ; preds = %.lr.ph.i.i.i.i7.i.i
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i, i64 80
+  %.not.i.i.i.i8.i.i = icmp eq ptr %42, %13
   br i1 %.not.i.i.i.i8.i.i, label %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i", label %.lr.ph.i.i.i.i7.i.i, !llvm.loop !389
 
-"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i": ; preds = %42, %.lr.ph.i.i.i.i7.i.i, %39
-  %.sroa.0.2.i.i.i = phi ptr [ %40, %39 ], [ %43, %42 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i.i.i.i7.i.i ]
+"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i": ; preds = %41, %.lr.ph.i.i.i.i7.i.i, %38
+  %.sroa.0.2.i.i.i = phi ptr [ %39, %38 ], [ %42, %41 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i.i.i.i7.i.i ]
   %.not.i.i.i4 = icmp eq ptr %.sroa.0.2.i.i.i, %13
-  br i1 %.not.i.i.i4, label %"_ZN6cmList4JoinIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SO_St17basic_string_viewIcSL_E.exit.i.i", label %.lr.ph.i.i.i3
+  br i1 %.not.i.i.i4, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i3
 
-44:                                               ; preds = %22
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %"_ZSt4sizeI7cmRangeIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEEDTcldtfp_4sizeEERKT_.exit.i.i"
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30, !noalias !397
   br label %.body
 
-46:                                               ; preds = %29
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %28
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %49
 
-48:                                               ; preds = %37, %.lr.ph.i.i.i3
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %36, %.lr.ph.i.i.i3
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
-  br label %50
+  br label %49
 
-50:                                               ; preds = %48, %46
-  %.pn.i.i.i = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
-  br label %.body
-
-"_ZN6cmList4JoinIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SO_St17basic_string_viewIcSL_E.exit.i.i": ; preds = %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i", %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i"
+._crit_edge.i.i.i:                                ; preds = %"_ZN14RangeIterators17TransformIteratorINS_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS5_SaIS5_EEEEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS4_15DeferGetCallIdsB5cxx11EvE3$_1EppEv.exit.i.i.i", %"_ZSt4nextIN14RangeIterators17TransformIteratorINS0_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS6_SaIS6_EEEEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS5_15DeferGetCallIdsB5cxx11EvE3$_1EEET_SH_NSt15iterator_traitsISH_E15difference_typeE.exit.i.i.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !393
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !393
   br label %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
 
-"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit": ; preds = %"_ZN6cmList4JoinIN14RangeIterators17TransformIteratorINS1_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS7_SaIS7_EEEEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS6_15DeferGetCallIdsB5cxx11EvE3$_1EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_SO_St17basic_string_viewIcSL_E.exit.i.i", %21
-  %51 = load i8, ptr %7, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %55
+49:                                               ; preds = %47, %45
+  %.pn.i.i.i = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
+  br label %.body
 
-53:                                               ; preds = %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
-  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #30
+"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit": ; preds = %._crit_edge.i.i.i, %21
+  %50 = load i8, ptr %7, align 8
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %54
+
+52:                                               ; preds = %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
+  %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
 
-55:                                               ; preds = %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
+54:                                               ; preds = %"_ZN6cmList9to_stringI7cmRangeIN14RangeIterators17TransformIteratorINS2_14FilterIteratorIN9__gnu_cxx17__normal_iteratorIPKN10cmMakefile12DeferCommandESt6vectorIS8_SaIS8_EEEEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_0EEZNKS7_15DeferGetCallIdsB5cxx11EvE3$_1EEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSL_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   store i8 1, ptr %7, align 8
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit: ; preds = %53, %55
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit: ; preds = %52, %54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
-  br label %59
+  br label %58
 
-.body:                                            ; preds = %44, %50
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %50 ], [ %45, %44 ]
-  %56 = load i8, ptr %7, align 8
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+.body:                                            ; preds = %43, %49
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %49 ], [ %44, %43 ]
+  %55 = load i8, ptr %7, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-58:                                               ; preds = %.body
+57:                                               ; preds = %.body
   store i8 0, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.body, %58
+_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.body, %57
   resume { ptr, i32 } %eh.lpad-body
 
-59:                                               ; preds = %2, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
+58:                                               ; preds = %2, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
   ret void
 }
 

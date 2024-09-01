@@ -15,9 +15,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 {
   %6 = icmp sgt i32 %3, 0
-  br i1 %6, label %.lr.ph86, label %.loopexit
+  br i1 %6, label %.lr.ph, label %.loopexit
 
-.lr.ph86:                                         ; preds = %5
+.lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 2128
   %9 = getelementptr inbounds i8, ptr %0, i64 24
@@ -34,15 +34,15 @@ define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocaptur
   %20 = getelementptr inbounds i8, ptr %0, i64 1094
   br label %21
 
-21:                                               ; preds = %.lr.ph86, %115
-  %.084 = phi i32 [ %3, %.lr.ph86 ], [ %.1, %115 ]
-  %.06083 = phi ptr [ %2, %.lr.ph86 ], [ %.161, %115 ]
+21:                                               ; preds = %.lr.ph, %116
+  %.080 = phi i32 [ %3, %.lr.ph ], [ %.1, %116 ]
+  %.05979 = phi ptr [ %2, %.lr.ph ], [ %.160, %116 ]
   %22 = load i32, ptr %7, align 8
-  switch i32 %22, label %114 [
+  switch i32 %22, label %115 [
     i32 1, label %23
-    i32 2, label %77
-    i32 3, label %101
-    i32 4, label %113
+    i32 2, label %78
+    i32 3, label %102
+    i32 4, label %114
   ]
 
 23:                                               ; preds = %21
@@ -51,200 +51,198 @@ define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %bbstreamer_buffer_until.exit, label %bbstreamer_buffer_until.exit.thread
 
 bbstreamer_buffer_until.exit:                     ; preds = %23
-  %25 = add i32 %24, %.084
+  %25 = add i32 %24, %.080
   %26 = icmp sgt i32 %25, 511
   %27 = sub i32 512, %24
-  %.sink24.i = select i1 %26, i32 %27, i32 %.084
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.06083, i32 noundef %.sink24.i) #7
-  %28 = sub i32 %.084, %.sink24.i
+  %.sink24.i = select i1 %26, i32 %27, i32 %.080
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.05979, i32 noundef %.sink24.i) #7
+  %28 = sub i32 %.080, %.sink24.i
   %29 = sext i32 %.sink24.i to i64
-  %30 = getelementptr i8, ptr %.06083, i64 %29
+  %30 = getelementptr i8, ptr %.05979, i64 %29
   br i1 %26, label %bbstreamer_buffer_until.exit.thread, label %.loopexit
 
 bbstreamer_buffer_until.exit.thread:              ; preds = %23, %bbstreamer_buffer_until.exit
-  %.268 = phi i32 [ %28, %bbstreamer_buffer_until.exit ], [ %.084, %23 ]
-  %.26267 = phi ptr [ %30, %bbstreamer_buffer_until.exit ], [ %.06083, %23 ]
+  %.267 = phi i32 [ %28, %bbstreamer_buffer_until.exit ], [ %.080, %23 ]
+  %.26166 = phi ptr [ %30, %bbstreamer_buffer_until.exit ], [ %.05979, %23 ]
   %31 = load ptr, ptr %10, align 8
-  %32 = load i8, ptr %31, align 1
-  %.not.i3981 = icmp eq i8 %32, 0
-  br i1 %.not.i3981, label %.lr.ph, label %._crit_edge
+  br label %33
 
-.lr.ph:                                           ; preds = %bbstreamer_buffer_until.exit.thread, %33
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %bbstreamer_buffer_until.exit.thread ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i82, 1
+32:                                               ; preds = %33
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
   br i1 %exitcond.not.i, label %bbstreamer_tar_header.exit, label %33, !llvm.loop !5
 
-33:                                               ; preds = %.lr.ph
-  %34 = getelementptr i8, ptr %31, i64 %indvars.iv.next.i
+33:                                               ; preds = %32, %bbstreamer_buffer_until.exit.thread
+  %indvars.iv.i = phi i64 [ 0, %bbstreamer_buffer_until.exit.thread ], [ %indvars.iv.next.i, %32 ]
+  %34 = getelementptr i8, ptr %31, i64 %indvars.iv.i
   %35 = load i8, ptr %34, align 1
-  %.not.i39 = icmp eq i8 %35, 0
-  br i1 %.not.i39, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %.not.not.not.i.not = icmp eq i8 %35, 0
+  br i1 %.not.not.not.i.not, label %32, label %36
 
-._crit_edge:                                      ; preds = %33, %bbstreamer_buffer_until.exit.thread
-  %36 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 1024) #7
-  %37 = load i8, ptr %12, align 8
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %33
+  %37 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 1024) #7
+  %38 = load i8, ptr %12, align 8
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %._crit_edge
+40:                                               ; preds = %36
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2) #7
   tail call void @exit(i32 noundef 1) #8
   unreachable
 
-40:                                               ; preds = %._crit_edge
-  %41 = getelementptr i8, ptr %31, i64 124
-  %42 = tail call i64 @read_tar_number(ptr noundef %41, i32 noundef 12) #7
-  store i64 %42, ptr %13, align 8
-  %43 = getelementptr i8, ptr %31, i64 100
-  %44 = tail call i64 @read_tar_number(ptr noundef %43, i32 noundef 8) #7
-  %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %15, align 8
-  %46 = getelementptr i8, ptr %31, i64 108
-  %47 = tail call i64 @read_tar_number(ptr noundef %46, i32 noundef 8) #7
-  %48 = trunc i64 %47 to i32
-  store i32 %48, ptr %16, align 4
-  %49 = getelementptr i8, ptr %31, i64 116
-  %50 = tail call i64 @read_tar_number(ptr noundef %49, i32 noundef 8) #7
-  %51 = trunc i64 %50 to i32
-  store i32 %51, ptr %17, align 8
-  %52 = getelementptr i8, ptr %31, i64 156
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 53
-  %55 = zext i1 %54 to i8
-  store i8 %55, ptr %18, align 4
-  %56 = load i8, ptr %52, align 1
-  %57 = icmp eq i8 %56, 50
-  %58 = zext i1 %57 to i8
-  store i8 %58, ptr %19, align 1
-  br i1 %57, label %59, label %62
+41:                                               ; preds = %36
+  %42 = getelementptr i8, ptr %31, i64 124
+  %43 = tail call i64 @read_tar_number(ptr noundef %42, i32 noundef 12) #7
+  store i64 %43, ptr %13, align 8
+  %44 = getelementptr i8, ptr %31, i64 100
+  %45 = tail call i64 @read_tar_number(ptr noundef %44, i32 noundef 8) #7
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %15, align 8
+  %47 = getelementptr i8, ptr %31, i64 108
+  %48 = tail call i64 @read_tar_number(ptr noundef %47, i32 noundef 8) #7
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %16, align 4
+  %50 = getelementptr i8, ptr %31, i64 116
+  %51 = tail call i64 @read_tar_number(ptr noundef %50, i32 noundef 8) #7
+  %52 = trunc i64 %51 to i32
+  store i32 %52, ptr %17, align 8
+  %53 = getelementptr i8, ptr %31, i64 156
+  %54 = load i8, ptr %53, align 1
+  %55 = icmp eq i8 %54, 53
+  %56 = zext i1 %55 to i8
+  store i8 %56, ptr %18, align 4
+  %57 = load i8, ptr %53, align 1
+  %58 = icmp eq i8 %57, 50
+  %59 = zext i1 %58 to i8
+  store i8 %59, ptr %19, align 1
+  br i1 %58, label %60, label %63
 
-59:                                               ; preds = %40
-  %60 = getelementptr i8, ptr %31, i64 157
-  %61 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %60, i64 noundef 100) #7
-  br label %62
+60:                                               ; preds = %41
+  %61 = getelementptr i8, ptr %31, i64 157
+  %62 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %61, i64 noundef 100) #7
+  br label %63
 
-62:                                               ; preds = %40, %59
-  %63 = load i64, ptr %13, align 8
-  %64 = add i64 %63, 511
-  %65 = and i64 %64, -512
-  %66 = sub i64 %65, %63
-  store i64 %66, ptr %8, align 8
-  %67 = load ptr, ptr %11, align 8
-  %68 = load ptr, ptr %67, align 8
+63:                                               ; preds = %41, %60
+  %64 = load i64, ptr %13, align 8
+  %65 = add i64 %64, 511
+  %66 = and i64 %65, -512
+  %67 = sub i64 %66, %64
+  store i64 %67, ptr %8, align 8
+  %68 = load ptr, ptr %11, align 8
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull %67, ptr noundef nonnull %12, ptr noundef nonnull %31, i32 noundef 512, i32 noundef 1) #7
-  %70 = load i64, ptr %13, align 8
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %72, label %76
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull %68, ptr noundef nonnull %12, ptr noundef nonnull %31, i32 noundef 512, i32 noundef 1) #7
+  %71 = load i64, ptr %13, align 8
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %11, align 8
-  %74 = load ptr, ptr %73, align 8
+73:                                               ; preds = %63
+  %74 = load ptr, ptr %11, align 8
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull %73, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef 3) #7
-  br label %76
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull %74, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef 3) #7
+  br label %77
 
-76:                                               ; preds = %62, %72
-  %storemerge38 = phi i32 [ 1, %72 ], [ 2, %62 ]
+77:                                               ; preds = %63, %73
+  %storemerge38 = phi i32 [ 1, %73 ], [ 2, %63 ]
   store i32 %storemerge38, ptr %7, align 8
   store i32 0, ptr %9, align 8
   store i64 0, ptr %14, align 8
-  br label %115
+  br label %116
 
-bbstreamer_tar_header.exit:                       ; preds = %.lr.ph
+bbstreamer_tar_header.exit:                       ; preds = %32
   store i32 4, ptr %7, align 8
-  br label %115
+  br label %116
 
-77:                                               ; preds = %21
-  %78 = load i64, ptr %13, align 8
-  %79 = load i64, ptr %14, align 8
-  %80 = sub i64 %78, %79
-  %81 = zext nneg i32 %.084 to i64
-  %82 = tail call i64 @llvm.umin.i64(i64 %80, i64 %81)
-  %83 = load ptr, ptr %11, align 8
-  %84 = trunc nuw nsw i64 %82 to i32
-  %85 = load ptr, ptr %83, align 8
-  %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %83, ptr noundef nonnull %12, ptr noundef %.06083, i32 noundef %84, i32 noundef 2) #7
-  %87 = load i64, ptr %14, align 8
-  %88 = add i64 %87, %82
-  store i64 %88, ptr %14, align 8
-  %89 = getelementptr i8, ptr %.06083, i64 %82
-  %90 = sub nsw i32 %.084, %84
-  %91 = load i64, ptr %13, align 8
-  %92 = icmp eq i64 %88, %91
-  br i1 %92, label %93, label %115
+78:                                               ; preds = %21
+  %79 = load i64, ptr %13, align 8
+  %80 = load i64, ptr %14, align 8
+  %81 = sub i64 %79, %80
+  %82 = zext nneg i32 %.080 to i64
+  %83 = tail call i64 @llvm.umin.i64(i64 %81, i64 %82)
+  %84 = load ptr, ptr %11, align 8
+  %85 = trunc nuw nsw i64 %83 to i32
+  %86 = load ptr, ptr %84, align 8
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull %84, ptr noundef nonnull %12, ptr noundef %.05979, i32 noundef %85, i32 noundef 2) #7
+  %88 = load i64, ptr %14, align 8
+  %89 = add i64 %88, %83
+  store i64 %89, ptr %14, align 8
+  %90 = getelementptr i8, ptr %.05979, i64 %83
+  %91 = sub nsw i32 %.080, %85
+  %92 = load i64, ptr %13, align 8
+  %93 = icmp eq i64 %89, %92
+  br i1 %93, label %94, label %116
 
-93:                                               ; preds = %77
-  %94 = load i64, ptr %8, align 8
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %100
+94:                                               ; preds = %78
+  %95 = load i64, ptr %8, align 8
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %97, align 8
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %11, align 8
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull %97, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef 3) #7
-  br label %100
+  %100 = load ptr, ptr %99, align 8
+  tail call void %100(ptr noundef nonnull %98, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef 3) #7
+  br label %101
 
-100:                                              ; preds = %93, %96
-  %storemerge = phi i32 [ 1, %96 ], [ 3, %93 ]
+101:                                              ; preds = %94, %97
+  %storemerge = phi i32 [ 1, %97 ], [ 3, %94 ]
   store i32 %storemerge, ptr %7, align 8
   store i32 0, ptr %9, align 8
-  br label %115
+  br label %116
 
-101:                                              ; preds = %21
-  %102 = load i64, ptr %8, align 8
-  %103 = trunc i64 %102 to i32
-  %104 = load i32, ptr %9, align 8
-  %.not.i40 = icmp slt i32 %104, %103
-  br i1 %.not.i40, label %bbstreamer_buffer_until.exit44, label %bbstreamer_buffer_until.exit44.thread
+102:                                              ; preds = %21
+  %103 = load i64, ptr %8, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = load i32, ptr %9, align 8
+  %.not.i39 = icmp slt i32 %105, %104
+  br i1 %.not.i39, label %bbstreamer_buffer_until.exit43, label %bbstreamer_buffer_until.exit43.thread
 
-bbstreamer_buffer_until.exit44:                   ; preds = %101
-  %105 = add i32 %104, %.084
-  %.not = icmp slt i32 %105, %103
-  %106 = sub i32 %103, %104
-  %.sink24.i43 = select i1 %.not, i32 %.084, i32 %106
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.06083, i32 noundef %.sink24.i43) #7
-  br i1 %.not, label %.loopexit, label %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge
+bbstreamer_buffer_until.exit43:                   ; preds = %102
+  %106 = add i32 %105, %.080
+  %.not = icmp slt i32 %106, %104
+  %107 = sub i32 %104, %105
+  %.sink24.i42 = select i1 %.not, i32 %.080, i32 %107
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.05979, i32 noundef %.sink24.i42) #7
+  br i1 %.not, label %.loopexit, label %bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge
 
-bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge: ; preds = %bbstreamer_buffer_until.exit44
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr i8, ptr %.06083, i64 %107
-  %109 = sub i32 %.084, %106
+bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge: ; preds = %bbstreamer_buffer_until.exit43
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr i8, ptr %.05979, i64 %108
+  %110 = sub i32 %.080, %107
   %.pre = load i64, ptr %8, align 8
-  %.pre94 = trunc i64 %.pre to i32
-  br label %bbstreamer_buffer_until.exit44.thread
+  %.pre87 = trunc i64 %.pre to i32
+  br label %bbstreamer_buffer_until.exit43.thread
 
-bbstreamer_buffer_until.exit44.thread:            ; preds = %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge, %101
-  %.pre-phi = phi i32 [ %.pre94, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %103, %101 ]
-  %.373 = phi i32 [ %109, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.084, %101 ]
-  %.36372 = phi ptr [ %108, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.06083, %101 ]
-  %110 = load ptr, ptr %11, align 8
-  %111 = load ptr, ptr %110, align 8
+bbstreamer_buffer_until.exit43.thread:            ; preds = %bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge, %102
+  %.pre-phi = phi i32 [ %.pre87, %bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge ], [ %104, %102 ]
+  %.372 = phi i32 [ %110, %bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge ], [ %.080, %102 ]
+  %.36271 = phi ptr [ %109, %bbstreamer_buffer_until.exit43.bbstreamer_buffer_until.exit43.thread_crit_edge ], [ %.05979, %102 ]
+  %111 = load ptr, ptr %11, align 8
   %112 = load ptr, ptr %111, align 8
-  tail call void %112(ptr noundef nonnull %110, ptr noundef nonnull %12, ptr noundef %.36372, i32 noundef %.pre-phi, i32 noundef 3) #7
+  %113 = load ptr, ptr %112, align 8
+  tail call void %113(ptr noundef nonnull %111, ptr noundef nonnull %12, ptr noundef %.36271, i32 noundef %.pre-phi, i32 noundef 3) #7
   store i32 1, ptr %7, align 8
   store i32 0, ptr %9, align 8
-  br label %115
-
-113:                                              ; preds = %21
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.06083, i32 noundef %.084) #7
-  br label %.loopexit
+  br label %116
 
 114:                                              ; preds = %21
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %10, ptr noundef %.05979, i32 noundef %.080) #7
+  br label %.loopexit
+
+115:                                              ; preds = %21
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1) #7
   tail call void @exit(i32 noundef 1) #8
   unreachable
 
-115:                                              ; preds = %77, %100, %76, %bbstreamer_tar_header.exit, %bbstreamer_buffer_until.exit44.thread
-  %.161 = phi ptr [ %.36372, %bbstreamer_buffer_until.exit44.thread ], [ %89, %100 ], [ %89, %77 ], [ %.26267, %76 ], [ %.26267, %bbstreamer_tar_header.exit ]
-  %.1 = phi i32 [ %.373, %bbstreamer_buffer_until.exit44.thread ], [ %90, %100 ], [ %90, %77 ], [ %.268, %76 ], [ %.268, %bbstreamer_tar_header.exit ]
-  %116 = icmp sgt i32 %.1, 0
-  br i1 %116, label %21, label %.loopexit, !llvm.loop !7
+116:                                              ; preds = %78, %101, %77, %bbstreamer_tar_header.exit, %bbstreamer_buffer_until.exit43.thread
+  %.160 = phi ptr [ %.36271, %bbstreamer_buffer_until.exit43.thread ], [ %90, %101 ], [ %90, %78 ], [ %.26166, %77 ], [ %.26166, %bbstreamer_tar_header.exit ]
+  %.1 = phi i32 [ %.372, %bbstreamer_buffer_until.exit43.thread ], [ %91, %101 ], [ %91, %78 ], [ %.267, %77 ], [ %.267, %bbstreamer_tar_header.exit ]
+  %117 = icmp sgt i32 %.1, 0
+  br i1 %117, label %21, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %115, %bbstreamer_buffer_until.exit, %bbstreamer_buffer_until.exit44, %5, %113
+.loopexit:                                        ; preds = %116, %bbstreamer_buffer_until.exit, %bbstreamer_buffer_until.exit43, %5, %114
   ret void
 }
 

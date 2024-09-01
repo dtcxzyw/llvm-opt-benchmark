@@ -542,7 +542,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %258 = icmp ugt ptr %257, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 1282)
   %.0262 = select i1 %258, ptr getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 1282), ptr %257
   %259 = icmp ult ptr %.0262, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512)
-  br i1 %259, label %.loopexit295, label %266
+  br i1 %259, label %.loopexit295, label %.loopexit297
 
 .thread:                                          ; preds = %248
   %260 = sub nsw i64 1, %.5277
@@ -555,191 +555,185 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %265 = icmp ult ptr %.0262332, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512)
   br i1 %265, label %.loopexit295, label %.thread335
 
-266:                                              ; preds = %250
-  br i1 %.not290, label %.loopexit297, label %.thread335
-
-.thread335:                                       ; preds = %.thread, %266
-  %267 = phi i64 [ %253, %266 ], [ 1, %.thread ]
-  %268 = phi i64 [ %255, %266 ], [ %261, %.thread ]
-  %.0262333337 = phi ptr [ %.0262, %266 ], [ %.0262332, %.thread ]
-  %269 = icmp eq i32 %.promoted, 0
-  %270 = fcmp ogt double %.4, 0.000000e+00
-  %or.cond = and i1 %270, %269
+.thread335:                                       ; preds = %.thread
+  %266 = icmp eq i32 %.promoted, 0
+  %267 = fcmp ogt double %.4, 0.000000e+00
+  %or.cond = and i1 %267, %266
   br i1 %or.cond, label %.preheader296, label %.loopexit297
 
 .preheader296:                                    ; preds = %.thread335
-  %271 = fmul double %.4, 1.000000e+01
-  %272 = fptosi double %271 to i32
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %.lr.ph304, label %.loopexit297
+  %268 = fmul double %.4, 1.000000e+01
+  %269 = fptosi double %268 to i32
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %.lr.ph304, label %.loopexit297
 
 .lr.ph304:                                        ; preds = %.preheader296, %.lr.ph304
-  %274 = phi i32 [ %276, %.lr.ph304 ], [ 0, %.preheader296 ]
-  %275 = phi double [ %277, %.lr.ph304 ], [ %271, %.preheader296 ]
-  %276 = add nsw i32 %274, -1
-  %277 = fmul double %275, 1.000000e+01
-  %278 = fptosi double %277 to i32
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %.lr.ph304, label %..loopexit297_crit_edge
+  %271 = phi i32 [ %273, %.lr.ph304 ], [ 0, %.preheader296 ]
+  %272 = phi double [ %274, %.lr.ph304 ], [ %268, %.preheader296 ]
+  %273 = add nsw i32 %271, -1
+  %274 = fmul double %272, 1.000000e+01
+  %275 = fptosi double %274 to i32
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %.lr.ph304, label %..loopexit297_crit_edge
 
 ..loopexit297_crit_edge:                          ; preds = %.lr.ph304
-  store i32 %276, ptr %2, align 4
+  store i32 %273, ptr %2, align 4
   br label %.loopexit297
 
-.loopexit297:                                     ; preds = %.preheader296, %..loopexit297_crit_edge, %.thread335, %266
-  %280 = phi i64 [ %267, %.thread335 ], [ %253, %266 ], [ %267, %..loopexit297_crit_edge ], [ %267, %.preheader296 ]
-  %281 = phi i64 [ %268, %.thread335 ], [ %255, %266 ], [ %268, %..loopexit297_crit_edge ], [ %268, %.preheader296 ]
-  %.0262333338 = phi ptr [ %.0262333337, %.thread335 ], [ %.0262, %266 ], [ %.0262333337, %..loopexit297_crit_edge ], [ %.0262333337, %.preheader296 ]
-  %.5 = phi double [ %.4, %.thread335 ], [ %.4, %266 ], [ %275, %..loopexit297_crit_edge ], [ %.4, %.preheader296 ]
-  %282 = icmp ugt ptr %.0262333338, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512)
-  br i1 %282, label %.lr.ph310.preheader, label %.loopexit295
+.loopexit297:                                     ; preds = %250, %.preheader296, %..loopexit297_crit_edge, %.thread335
+  %277 = phi i64 [ 1, %.thread335 ], [ 1, %..loopexit297_crit_edge ], [ 1, %.preheader296 ], [ %253, %250 ]
+  %278 = phi i64 [ %261, %.thread335 ], [ %261, %..loopexit297_crit_edge ], [ %261, %.preheader296 ], [ %255, %250 ]
+  %.0262333338 = phi ptr [ %.0262332, %.thread335 ], [ %.0262332, %..loopexit297_crit_edge ], [ %.0262332, %.preheader296 ], [ %.0262, %250 ]
+  %.5 = phi double [ %.4, %.thread335 ], [ %272, %..loopexit297_crit_edge ], [ %.4, %.preheader296 ], [ %.4, %250 ]
+  %279 = icmp ugt ptr %.0262333338, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512)
+  br i1 %279, label %.lr.ph310.preheader, label %.loopexit295
 
 .lr.ph310.preheader:                              ; preds = %.loopexit297
-  %283 = add i64 %280, ptrtoint (ptr @_sfcvt.Buf to i64)
-  %284 = add i64 %283, %281
-  %285 = add i64 %284, 512
-  %286 = sub i64 %285, %.5277
-  %umin = tail call i64 @llvm.umin.i64(i64 %286, i64 add (i64 ptrtoint (ptr @_sfcvt.Buf to i64), i64 1282))
+  %280 = add i64 %277, ptrtoint (ptr @_sfcvt.Buf to i64)
+  %281 = add i64 %280, %278
+  %282 = add i64 %281, 512
+  %283 = sub i64 %282, %.5277
+  %umin = tail call i64 @llvm.umin.i64(i64 %283, i64 add (i64 ptrtoint (ptr @_sfcvt.Buf to i64), i64 1282))
   br label %.lr.ph310
 
 .lr.ph310:                                        ; preds = %.lr.ph310.preheader, %.loopexit294
   %.7308 = phi double [ %.8, %.loopexit294 ], [ %.5, %.lr.ph310.preheader ]
   %.4256307 = phi ptr [ %.7259, %.loopexit294 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.lr.ph310.preheader ]
   %.4256307324 = ptrtoint ptr %.4256307 to i64
-  %287 = fcmp ugt double %.7308, 0.000000e+00
-  br i1 %287, label %290, label %.preheader.preheader
+  %284 = fcmp ugt double %.7308, 0.000000e+00
+  br i1 %284, label %287, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph310
-  %288 = add i64 %.4256307324, 1
-  %umax328 = tail call i64 @llvm.umax.i64(i64 %umin, i64 %288)
-  %289 = sub i64 %umax328, %.4256307324
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 48, i64 %289, i1 false)
+  %285 = add i64 %.4256307324, 1
+  %umax328 = tail call i64 @llvm.umax.i64(i64 %umin, i64 %285)
+  %286 = sub i64 %umax328, %.4256307324
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 48, i64 %286, i1 false)
   br label %.loopexit
 
-290:                                              ; preds = %.lr.ph310
-  %291 = fmul double %.7308, 1.000000e+01
-  %292 = fptosi double %291 to i32
-  %293 = icmp slt i32 %292, 10
-  br i1 %293, label %296, label %.preheader293.preheader
+287:                                              ; preds = %.lr.ph310
+  %288 = fmul double %.7308, 1.000000e+01
+  %289 = fptosi double %288 to i32
+  %290 = icmp slt i32 %289, 10
+  br i1 %290, label %293, label %.preheader293.preheader
 
-.preheader293.preheader:                          ; preds = %290
-  %294 = add i64 %.4256307324, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 %294)
-  %295 = sub i64 %umax, %.4256307324
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 57, i64 %295, i1 false)
-  %scevgep = getelementptr i8, ptr %.4256307, i64 %295
+.preheader293.preheader:                          ; preds = %287
+  %291 = add i64 %.4256307324, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 %291)
+  %292 = sub i64 %umax, %.4256307324
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 57, i64 %292, i1 false)
+  %scevgep = getelementptr i8, ptr %.4256307, i64 %292
   br label %.loopexit294
 
-296:                                              ; preds = %290
-  %297 = trunc i32 %292 to i8
-  %298 = add i8 %297, 48
-  %299 = getelementptr inbounds i8, ptr %.4256307, i64 1
-  store i8 %298, ptr %.4256307, align 1
-  %300 = sitofp i32 %292 to double
-  %301 = fsub double %291, %300
+293:                                              ; preds = %287
+  %294 = trunc i32 %289 to i8
+  %295 = add i8 %294, 48
+  %296 = getelementptr inbounds i8, ptr %.4256307, i64 1
+  store i8 %295, ptr %.4256307, align 1
+  %297 = sitofp i32 %289 to double
+  %298 = fsub double %288, %297
   br label %.loopexit294
 
-.loopexit294:                                     ; preds = %.preheader293.preheader, %296
-  %.7259 = phi ptr [ %299, %296 ], [ %scevgep, %.preheader293.preheader ]
-  %.8 = phi double [ %301, %296 ], [ %291, %.preheader293.preheader ]
-  %302 = icmp ult ptr %.7259, %.0262333338
-  br i1 %302, label %.lr.ph310, label %.loopexit295
+.loopexit294:                                     ; preds = %.preheader293.preheader, %293
+  %.7259 = phi ptr [ %296, %293 ], [ %scevgep, %.preheader293.preheader ]
+  %.8 = phi double [ %298, %293 ], [ %288, %.preheader293.preheader ]
+  %299 = icmp ult ptr %.7259, %.0262333338
+  br i1 %299, label %.lr.ph310, label %.loopexit295
 
 .loopexit295:                                     ; preds = %.loopexit294, %.thread, %.loopexit297, %250
   %.0262334 = phi ptr [ %.0262, %250 ], [ %.0262333338, %.loopexit297 ], [ %.0262332, %.thread ], [ %.0262333338, %.loopexit294 ]
   %.3255 = phi ptr [ %.0262, %250 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit297 ], [ %.0262332, %.thread ], [ %.7259, %.loopexit294 ]
   %.not291 = icmp ugt ptr %.0262334, %.0261
-  br i1 %.not291, label %305, label %303
+  br i1 %.not291, label %302, label %300
 
-303:                                              ; preds = %.loopexit295
-  %304 = getelementptr inbounds i8, ptr %.0261, i64 1
+300:                                              ; preds = %.loopexit295
+  %301 = getelementptr inbounds i8, ptr %.0261, i64 1
   br label %.loopexit
 
-305:                                              ; preds = %.loopexit295
-  %306 = icmp ult ptr %.0262334, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 1282)
-  br i1 %306, label %307, label %.loopexit
+302:                                              ; preds = %.loopexit295
+  %303 = icmp ult ptr %.0262334, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 1282)
+  br i1 %303, label %304, label %.loopexit
 
-307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %.3255, i64 -1
-  %309 = load i8, ptr %308, align 1
-  %310 = add i8 %309, 5
-  store i8 %310, ptr %308, align 1
-  %311 = icmp sgt i8 %310, 57
-  br i1 %311, label %.lr.ph315, label %.loopexit
+304:                                              ; preds = %302
+  %305 = getelementptr inbounds i8, ptr %.3255, i64 -1
+  %306 = load i8, ptr %305, align 1
+  %307 = add i8 %306, 5
+  store i8 %307, ptr %305, align 1
+  %308 = icmp sgt i8 %307, 57
+  br i1 %308, label %.lr.ph315, label %.loopexit
 
-.lr.ph315:                                        ; preds = %307
+.lr.ph315:                                        ; preds = %304
   br i1 %.not290, label %.lr.ph315.split.us, label %.lr.ph315.split
 
-.lr.ph315.split.us:                               ; preds = %.lr.ph315, %322
-  %.8260313.us = phi ptr [ %.9.us, %322 ], [ %308, %.lr.ph315 ]
-  %.2264312.us = phi ptr [ %.3265.us, %322 ], [ %.0262334, %.lr.ph315 ]
+.lr.ph315.split.us:                               ; preds = %.lr.ph315, %319
+  %.8260313.us = phi ptr [ %.9.us, %319 ], [ %305, %.lr.ph315 ]
+  %.2264312.us = phi ptr [ %.3265.us, %319 ], [ %.0262334, %.lr.ph315 ]
   store i8 48, ptr %.8260313.us, align 1
-  %312 = icmp ugt ptr %.8260313.us, %.0261
-  br i1 %312, label %318, label %313
+  %309 = icmp ugt ptr %.8260313.us, %.0261
+  br i1 %309, label %315, label %310
 
-313:                                              ; preds = %.lr.ph315.split.us
+310:                                              ; preds = %.lr.ph315.split.us
   store i8 49, ptr %.8260313.us, align 1
-  %314 = load i32, ptr %2, align 4
-  %315 = add nsw i32 %314, 1
-  store i32 %315, ptr %2, align 4
-  %316 = getelementptr inbounds i8, ptr %.2264312.us, i64 -1
-  store i8 48, ptr %316, align 1
-  %317 = getelementptr inbounds i8, ptr %.2264312.us, i64 1
+  %311 = load i32, ptr %2, align 4
+  %312 = add nsw i32 %311, 1
+  store i32 %312, ptr %2, align 4
+  %313 = getelementptr inbounds i8, ptr %.2264312.us, i64 -1
+  store i8 48, ptr %313, align 1
+  %314 = getelementptr inbounds i8, ptr %.2264312.us, i64 1
   %.pr.us.pre = load i8, ptr %.8260313.us, align 1
-  br label %322
+  br label %319
 
-318:                                              ; preds = %.lr.ph315.split.us
-  %319 = getelementptr inbounds i8, ptr %.8260313.us, i64 -1
-  %320 = load i8, ptr %319, align 1
-  %321 = add i8 %320, 1
-  store i8 %321, ptr %319, align 1
-  br label %322
+315:                                              ; preds = %.lr.ph315.split.us
+  %316 = getelementptr inbounds i8, ptr %.8260313.us, i64 -1
+  %317 = load i8, ptr %316, align 1
+  %318 = add i8 %317, 1
+  store i8 %318, ptr %316, align 1
+  br label %319
 
-322:                                              ; preds = %318, %313
-  %.pr.us = phi i8 [ %321, %318 ], [ %.pr.us.pre, %313 ]
-  %.3265.us = phi ptr [ %.2264312.us, %318 ], [ %317, %313 ]
-  %.9.us = phi ptr [ %319, %318 ], [ %.8260313.us, %313 ]
-  %323 = icmp sgt i8 %.pr.us, 57
-  br i1 %323, label %.lr.ph315.split.us, label %.loopexit
+319:                                              ; preds = %315, %310
+  %.pr.us = phi i8 [ %318, %315 ], [ %.pr.us.pre, %310 ]
+  %.3265.us = phi ptr [ %.2264312.us, %315 ], [ %314, %310 ]
+  %.9.us = phi ptr [ %316, %315 ], [ %.8260313.us, %310 ]
+  %320 = icmp sgt i8 %.pr.us, 57
+  br i1 %320, label %.lr.ph315.split.us, label %.loopexit
 
-.lr.ph315.split:                                  ; preds = %.lr.ph315, %332
-  %.8260313 = phi ptr [ %.9, %332 ], [ %308, %.lr.ph315 ]
+.lr.ph315.split:                                  ; preds = %.lr.ph315, %329
+  %.8260313 = phi ptr [ %.9, %329 ], [ %305, %.lr.ph315 ]
   store i8 48, ptr %.8260313, align 1
-  %324 = icmp ugt ptr %.8260313, %.0261
-  br i1 %324, label %325, label %329
+  %321 = icmp ugt ptr %.8260313, %.0261
+  br i1 %321, label %322, label %326
 
-325:                                              ; preds = %.lr.ph315.split
-  %326 = getelementptr inbounds i8, ptr %.8260313, i64 -1
-  %327 = load i8, ptr %326, align 1
-  %328 = add i8 %327, 1
-  store i8 %328, ptr %326, align 1
-  br label %332
+322:                                              ; preds = %.lr.ph315.split
+  %323 = getelementptr inbounds i8, ptr %.8260313, i64 -1
+  %324 = load i8, ptr %323, align 1
+  %325 = add i8 %324, 1
+  store i8 %325, ptr %323, align 1
+  br label %329
 
-329:                                              ; preds = %.lr.ph315.split
+326:                                              ; preds = %.lr.ph315.split
   store i8 49, ptr %.8260313, align 1
-  %330 = load i32, ptr %2, align 4
-  %331 = add nsw i32 %330, 1
-  store i32 %331, ptr %2, align 4
+  %327 = load i32, ptr %2, align 4
+  %328 = add nsw i32 %327, 1
+  store i32 %328, ptr %2, align 4
   %.pr.pre = load i8, ptr %.8260313, align 1
-  br label %332
+  br label %329
 
-332:                                              ; preds = %329, %325
-  %.pr = phi i8 [ %328, %325 ], [ %.pr.pre, %329 ]
-  %.9 = phi ptr [ %326, %325 ], [ %.8260313, %329 ]
-  %333 = icmp sgt i8 %.pr, 57
-  br i1 %333, label %.lr.ph315.split, label %.loopexit
+329:                                              ; preds = %326, %322
+  %.pr = phi i8 [ %325, %322 ], [ %.pr.pre, %326 ]
+  %.9 = phi ptr [ %323, %322 ], [ %.8260313, %326 ]
+  %330 = icmp sgt i8 %.pr, 57
+  br i1 %330, label %.lr.ph315.split, label %.loopexit
 
-.loopexit:                                        ; preds = %332, %322, %.preheader.preheader, %307, %303, %305
-  %.1263 = phi ptr [ %304, %303 ], [ %.0262334, %305 ], [ %.0262334, %307 ], [ %.0262333338, %.preheader.preheader ], [ %.3265.us, %322 ], [ %.0262334, %332 ]
-  %334 = getelementptr inbounds i8, ptr %.1263, i64 -1
-  store i8 0, ptr %334, align 1
-  %335 = ptrtoint ptr %334 to i64
-  %336 = ptrtoint ptr %.0261 to i64
-  %337 = sub i64 %335, %336
+.loopexit:                                        ; preds = %329, %319, %.preheader.preheader, %304, %300, %302
+  %.1263 = phi ptr [ %301, %300 ], [ %.0262334, %302 ], [ %.0262334, %304 ], [ %.0262333338, %.preheader.preheader ], [ %.3265.us, %319 ], [ %.0262334, %329 ]
+  %331 = getelementptr inbounds i8, ptr %.1263, i64 -1
+  store i8 0, ptr %331, align 1
+  %332 = ptrtoint ptr %331 to i64
+  %333 = ptrtoint ptr %.0261 to i64
+  %334 = sub i64 %332, %333
   br label %.loopexit362
 
 .loopexit362:                                     ; preds = %19, %241, %5, %.loopexit
-  %.sink348 = phi i64 [ %337, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
+  %.sink348 = phi i64 [ %334, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
   %.0 = phi ptr [ %.0261, %.loopexit ], [ @.str, %5 ], [ @.str.1, %241 ], [ @.str.1, %19 ]
   store i64 %.sink348, ptr @_Sfi, align 8
   ret ptr %.0

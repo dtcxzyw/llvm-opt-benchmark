@@ -452,9 +452,8 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %2, align 8
-  %.fr = freeze ptr %18
-  %19 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %19, ptr @.str, ptr %.fr
+  %19 = icmp eq ptr %18, null
+  %spec.select = select i1 %19, ptr @.str, ptr %18
   br label %.thread2
 
 .thread2:                                         ; preds = %17, %14
@@ -478,18 +477,17 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
   store i32 %1, ptr %32, align 4
   %33 = getelementptr i8, ptr %26, i64 16
   %34 = load ptr, ptr %15, align 8
-  %.not9 = icmp eq ptr %34, null
-  br i1 %.not9, label %35, label %.thread6
+  %.not8 = icmp eq ptr %34, null
+  br i1 %.not8, label %35, label %.thread6
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %2, align 8
-  %.fr8 = freeze ptr %36
-  %37 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %37, ptr @.str, ptr %.fr8
+  %37 = icmp eq ptr %36, null
+  %spec.select9 = select i1 %37, ptr @.str, ptr %36
   br label %.thread6
 
 .thread6:                                         ; preds = %35, %28
-  %38 = phi ptr [ %34, %28 ], [ %spec.select10, %35 ]
+  %38 = phi ptr [ %34, %28 ], [ %spec.select9, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #8
   br label %40
@@ -512,9 +510,8 @@ define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %2, align 8
-  %.fr = freeze ptr %9
-  %10 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %10, ptr @.str, ptr %.fr
+  %10 = icmp eq ptr %9, null
+  %spec.select = select i1 %10, ptr @.str, ptr %9
   br label %.thread2
 
 .thread2:                                         ; preds = %8, %3
@@ -567,18 +564,17 @@ define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %
   store i32 %1, ptr %43, align 4
   %44 = getelementptr i8, ptr %30, i64 16
   %45 = load ptr, ptr %6, align 8
-  %.not9 = icmp eq ptr %45, null
-  br i1 %.not9, label %46, label %.thread6
+  %.not8 = icmp eq ptr %45, null
+  br i1 %.not8, label %46, label %.thread6
 
 46:                                               ; preds = %32
   %47 = load ptr, ptr %2, align 8
-  %.fr8 = freeze ptr %47
-  %48 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %48, ptr @.str, ptr %.fr8
+  %48 = icmp eq ptr %47, null
+  %spec.select9 = select i1 %48, ptr @.str, ptr %47
   br label %.thread6
 
 .thread6:                                         ; preds = %46, %32
-  %49 = phi ptr [ %45, %32 ], [ %spec.select10, %46 ]
+  %49 = phi ptr [ %45, %32 ], [ %spec.select9, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #8
   %51 = load i32, ptr %5, align 4
   %52 = load ptr, ptr %4, align 8
@@ -624,9 +620,8 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %17
-  %18 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %18, ptr @.str, ptr %.fr
+  %18 = icmp eq ptr %17, null
+  %spec.select = select i1 %18, ptr @.str, ptr %17
   br label %.thread2
 
 .thread2:                                         ; preds = %16, %13
@@ -648,18 +643,17 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
   store i32 %29, ptr %30, align 4
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load ptr, ptr %14, align 8
-  %.not9 = icmp eq ptr %32, null
-  br i1 %.not9, label %33, label %.thread6
+  %.not8 = icmp eq ptr %32, null
+  br i1 %.not8, label %33, label %.thread6
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %34
-  %35 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %35, ptr @.str, ptr %.fr8
+  %35 = icmp eq ptr %34, null
+  %spec.select9 = select i1 %35, ptr @.str, ptr %34
   br label %.thread6
 
 .thread6:                                         ; preds = %33, %27
-  %36 = phi ptr [ %32, %27 ], [ %spec.select10, %33 ]
+  %36 = phi ptr [ %32, %27 ], [ %spec.select9, %33 ]
   %37 = call ptr @strcpy(ptr noundef %31, ptr noundef nonnull dereferenceable(1) %36) #8
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #8
   br label %38
@@ -682,9 +676,8 @@ define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr nocaptur
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %8
-  %9 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %9, ptr @.str, ptr %.fr
+  %9 = icmp eq ptr %8, null
+  %spec.select = select i1 %9, ptr @.str, ptr %8
   br label %.thread2
 
 .thread2:                                         ; preds = %7, %2
@@ -734,18 +727,17 @@ define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr nocaptur
   store i32 %14, ptr %40, align 4
   %41 = getelementptr i8, ptr %28, i64 12
   %42 = load ptr, ptr %5, align 8
-  %.not9 = icmp eq ptr %42, null
-  br i1 %.not9, label %43, label %.thread6
+  %.not8 = icmp eq ptr %42, null
+  br i1 %.not8, label %43, label %.thread6
 
 43:                                               ; preds = %30
   %44 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %44
-  %45 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %45, ptr @.str, ptr %.fr8
+  %45 = icmp eq ptr %44, null
+  %spec.select9 = select i1 %45, ptr @.str, ptr %44
   br label %.thread6
 
 .thread6:                                         ; preds = %43, %30
-  %46 = phi ptr [ %42, %30 ], [ %spec.select10, %43 ]
+  %46 = phi ptr [ %42, %30 ], [ %spec.select9, %43 ]
   %47 = call ptr @strcpy(ptr noundef %41, ptr noundef nonnull dereferenceable(1) %46) #8
   %48 = load i32, ptr %4, align 4
   %49 = load ptr, ptr %3, align 8
@@ -979,9 +971,8 @@ define internal void @trace_event_raw_event_iommu_error(ptr noundef %0, ptr noun
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %19
-  %20 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %20, ptr @.str, ptr %.fr
+  %20 = icmp eq ptr %19, null
+  %spec.select = select i1 %20, ptr @.str, ptr %19
   br label %.thread2
 
 .thread2:                                         ; preds = %18, %15
@@ -1022,18 +1013,17 @@ define internal void @trace_event_raw_event_iommu_error(ptr noundef %0, ptr noun
   store i32 %44, ptr %46, align 4
   %47 = getelementptr i8, ptr %39, i64 28
   %48 = load ptr, ptr %16, align 8
-  %.not9 = icmp eq ptr %48, null
-  br i1 %.not9, label %49, label %.thread6
+  %.not8 = icmp eq ptr %48, null
+  br i1 %.not8, label %49, label %.thread6
 
 49:                                               ; preds = %41
   %50 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %50
-  %51 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %51, ptr @.str, ptr %.fr8
+  %51 = icmp eq ptr %50, null
+  %spec.select9 = select i1 %51, ptr @.str, ptr %50
   br label %.thread6
 
 .thread6:                                         ; preds = %49, %41
-  %52 = phi ptr [ %48, %41 ], [ %spec.select10, %49 ]
+  %52 = phi ptr [ %48, %41 ], [ %spec.select9, %49 ]
   %53 = call ptr @strcpy(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %52) #8
   %54 = and i32 %43, 65535
   %55 = zext nneg i32 %54 to i64
@@ -1074,9 +1064,8 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8
-  %.fr = freeze ptr %10
-  %11 = icmp eq ptr %.fr, null
-  %spec.select = select i1 %11, ptr @.str, ptr %.fr
+  %11 = icmp eq ptr %10, null
+  %spec.select = select i1 %11, ptr @.str, ptr %10
   br label %.thread2
 
 .thread2:                                         ; preds = %9, %4
@@ -1146,18 +1135,17 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
   store i32 %28, ptr %57, align 4
   %58 = getelementptr i8, ptr %44, i64 28
   %59 = load ptr, ptr %7, align 8
-  %.not9 = icmp eq ptr %59, null
-  br i1 %.not9, label %60, label %.thread6
+  %.not8 = icmp eq ptr %59, null
+  br i1 %.not8, label %60, label %.thread6
 
 60:                                               ; preds = %46
   %61 = load ptr, ptr %1, align 8
-  %.fr8 = freeze ptr %61
-  %62 = icmp eq ptr %.fr8, null
-  %spec.select10 = select i1 %62, ptr @.str, ptr %.fr8
+  %62 = icmp eq ptr %61, null
+  %spec.select9 = select i1 %62, ptr @.str, ptr %61
   br label %.thread6
 
 .thread6:                                         ; preds = %60, %46
-  %63 = phi ptr [ %59, %46 ], [ %spec.select10, %60 ]
+  %63 = phi ptr [ %59, %46 ], [ %spec.select9, %60 ]
   %64 = call ptr @strcpy(ptr noundef %58, ptr noundef nonnull dereferenceable(1) %63) #8
   %65 = and i32 %26, 65535
   %66 = zext nneg i32 %65 to i64

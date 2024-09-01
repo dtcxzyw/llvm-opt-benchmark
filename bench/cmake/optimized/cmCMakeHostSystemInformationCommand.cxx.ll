@@ -1524,8 +1524,8 @@ _ZN12_GLOBAL__N_120QueryWindowsRegistryI7cmRangeIN9__gnu_cxx17__normal_iteratorI
   %509 = ptrtoint ptr %507 to i64
   %510 = sub i64 %508, %509
   %511 = ashr exact i64 %510, 5
-  %.not208 = icmp ult i64 %505, %511
-  br i1 %.not208, label %512, label %._crit_edge, !llvm.loop !24
+  %.not192 = icmp ult i64 %505, %511
+  br i1 %.not192, label %512, label %._crit_edge, !llvm.loop !24
 
 512:                                              ; preds = %.lr.ph, %504
   %.069191 = phi i64 [ 3, %.lr.ph ], [ %505, %504 ]

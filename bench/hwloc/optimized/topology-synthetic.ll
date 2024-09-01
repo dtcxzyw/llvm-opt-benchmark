@@ -600,8 +600,8 @@ thread-pre-split:                                 ; preds = %16, %5
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %.058152, i64 52
   %47 = load i32, ptr %46, align 4
-  %.not75.not = icmp ne i32 %45, %47
-  br i1 %.not75.not, label %.loopexit, label %48
+  %.not75.not.not = icmp ne i32 %45, %47
+  br i1 %.not75.not.not, label %.loopexit, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds i8, ptr %.058152, i64 56
@@ -610,7 +610,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %.not74, label %.loopexit, label %43, !llvm.loop !14
 
 .loopexit:                                        ; preds = %43, %48, %41, %.thread
-  %51 = phi i1 [ false, %.thread ], [ false, %41 ], [ %.not75.not, %48 ], [ %.not75.not, %43 ]
+  %51 = phi i1 [ false, %.thread ], [ false, %41 ], [ %.not75.not.not, %48 ], [ %.not75.not.not, %43 ]
   %52 = load i8, ptr %6, align 16
   %53 = icmp ne i8 %52, 0
   %54 = load i8, ptr %7, align 16

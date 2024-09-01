@@ -8078,8 +8078,8 @@ define hidden { i64, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse21in
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h64cde729fdda2d24E.exit.i", %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h64cde729fdda2d24E.exit.i" ], [ 0, %3 ]
-  %exitcond.not.i.not = icmp ne i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.not, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit
+  %exitcond.not.i.not.not.not.not.not = icmp ne i64 %indvars.iv.i, %wide.trip.count.i
+  br i1 %exitcond.not.i.not.not.not.not.not, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit
 
 11:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8122,8 +8122,8 @@ define hidden { i64, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse21in
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit: ; preds = %10, %.split.loop.exit15.i
   %.lcssa.i = phi i32 [ %26, %.split.loop.exit15.i ], [ %smax.i, %10 ]
   %27 = sext i32 %.lcssa.i to i64
-  %.sroa.3.0 = select i1 %exitcond.not.i.not, i64 %27, i64 undef
-  %.sroa.0.0 = zext i1 %exitcond.not.i.not to i64
+  %.sroa.3.0 = select i1 %exitcond.not.i.not.not.not.not.not, i64 %27, i64 undef
+  %.sroa.0.0 = zext i1 %exitcond.not.i.not.not.not.not.not to i64
   %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %29 = insertvalue { i64, i64 } %28, i64 %.sroa.3.0, 1
   ret { i64, i64 } %29

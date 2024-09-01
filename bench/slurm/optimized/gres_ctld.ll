@@ -4571,22 +4571,22 @@ _init_step_gres_per_bit.exit.i.i:                 ; preds = %211, %207, %167
   %236 = icmp sgt i32 %158, 0
   %237 = icmp ne i64 %.1.i, 0
   %238 = and i1 %237, %236
-  br i1 %238, label %.lr.ph.i.split.preheader.i, label %._crit_edge.i.i
+  br i1 %238, label %.lr.ph.i.thread.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %232
+.lr.ph.i.thread.i:                                ; preds = %.thread.i
   %239 = getelementptr inbounds i8, ptr %152, i64 144
-  %240 = getelementptr inbounds i8, ptr %152, i64 168
-  %241 = getelementptr inbounds i8, ptr %.0.i, i64 120
-  %242 = and i64 %157, 2147483647
-  br label %.lr.ph.i.split.us.i
-
-.lr.ph.i.split.preheader.i:                       ; preds = %.thread.i
-  %243 = getelementptr inbounds i8, ptr %152, i64 144
-  %244 = getelementptr inbounds i8, ptr %.0.i, i64 120
-  %245 = and i64 %157, 2147483647
+  %240 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  %241 = and i64 %157, 2147483647
   br label %.lr.ph.i.split.i
 
-.lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %_shared_step_gres_avail.exit.thread.i.us.i
+.lr.ph.i.i:                                       ; preds = %232
+  %242 = getelementptr inbounds i8, ptr %152, i64 144
+  %243 = getelementptr inbounds i8, ptr %152, i64 168
+  %244 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  %245 = and i64 %157, 2147483647
+  br label %.lr.ph.i.split.us.i
+
+.lr.ph.i.split.us.i:                              ; preds = %_shared_step_gres_avail.exit.thread.i.us.i, %.lr.ph.i.i
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %_shared_step_gres_avail.exit.thread.i.us.i ], [ 0, %.lr.ph.i.i ]
   %.058.i.us.i = phi i64 [ %.2.i.us.i, %_shared_step_gres_avail.exit.thread.i.us.i ], [ %.1.i, %.lr.ph.i.i ]
   %246 = call i32 @bit_test(ptr noundef %164, i64 noundef %indvars.iv.i.us.i) #8
@@ -4614,13 +4614,13 @@ _init_step_gres_per_bit.exit.i.i:                 ; preds = %211, %207, %167
   br label %_shared_step_gres_avail.exit.thread.i.us.i
 
 257:                                              ; preds = %252
-  %258 = load ptr, ptr %239, align 8
+  %258 = load ptr, ptr %242, align 8
   %259 = getelementptr inbounds ptr, ptr %258, i64 %91
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds i64, ptr %260, i64 %indvars.iv.i.us.i
   %262 = load i64, ptr %261, align 8
   %..i.i.us.i = call i64 @llvm.umin.i64(i64 %.058.i.us.i, i64 %262)
-  %263 = load ptr, ptr %240, align 8
+  %263 = load ptr, ptr %243, align 8
   %264 = getelementptr inbounds ptr, ptr %263, i64 %91
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i64, ptr %265, i64 %indvars.iv.i.us.i
@@ -4633,7 +4633,7 @@ _init_step_gres_per_bit.exit.i.i:                 ; preds = %211, %207, %167
 269:                                              ; preds = %257
   %270 = add i64 %...i.i.us.i, %267
   store i64 %270, ptr %266, align 8
-  %271 = load ptr, ptr %241, align 8
+  %271 = load ptr, ptr %244, align 8
   %272 = getelementptr inbounds ptr, ptr %271, i64 %91
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i64, ptr %273, i64 %indvars.iv.i.us.i
@@ -4645,14 +4645,14 @@ _init_step_gres_per_bit.exit.i.i:                 ; preds = %211, %207, %167
 _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %249, %247, %.lr.ph.i.split.us.i
   %.2.i.us.i = phi i64 [ %.058.i.us.i, %.lr.ph.i.split.us.i ], [ %275, %269 ], [ %256, %255 ], [ %.058.i.us.i, %249 ], [ %.058.i.us.i, %247 ], [ %.058.i.us.i, %257 ]
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
-  %276 = icmp ult i64 %indvars.iv.next.i.us.i, %242
+  %276 = icmp ult i64 %indvars.iv.next.i.us.i, %245
   %277 = icmp ne i64 %.2.i.us.i, 0
   %278 = select i1 %276, i1 %277, i1 false
   br i1 %278, label %.lr.ph.i.split.us.i, label %._crit_edge.i.i, !llvm.loop !49
 
-.lr.ph.i.split.i:                                 ; preds = %_shared_step_gres_avail.exit.thread.i.i, %.lr.ph.i.split.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_shared_step_gres_avail.exit.thread.i.i ], [ 0, %.lr.ph.i.split.preheader.i ]
-  %.058.i.i = phi i64 [ %.2.i.i, %_shared_step_gres_avail.exit.thread.i.i ], [ %.1.i, %.lr.ph.i.split.preheader.i ]
+.lr.ph.i.split.i:                                 ; preds = %_shared_step_gres_avail.exit.thread.i.i, %.lr.ph.i.thread.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_shared_step_gres_avail.exit.thread.i.i ], [ 0, %.lr.ph.i.thread.i ]
+  %.058.i.i = phi i64 [ %.2.i.i, %_shared_step_gres_avail.exit.thread.i.i ], [ %.1.i, %.lr.ph.i.thread.i ]
   %279 = call i32 @bit_test(ptr noundef %164, i64 noundef %indvars.iv.i.i) #8
   %.not70.i.i = icmp eq i32 %279, 0
   br i1 %.not70.i.i, label %_shared_step_gres_avail.exit.thread.i.i, label %280
@@ -4673,7 +4673,7 @@ _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %2
   br i1 %287, label %.thread.i.i.i, label %299
 
 .thread.i.i.i:                                    ; preds = %285
-  %288 = load ptr, ptr %243, align 8
+  %288 = load ptr, ptr %239, align 8
   %289 = getelementptr inbounds ptr, ptr %288, i64 %91
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds i64, ptr %290, i64 %indvars.iv.i.i
@@ -4683,7 +4683,7 @@ _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %2
 
 293:                                              ; preds = %.thread.i.i.i
   %..i.i.i = call i64 @llvm.umin.i64(i64 %.058.i.i, i64 %292)
-  %294 = load ptr, ptr %244, align 8
+  %294 = load ptr, ptr %240, align 8
   %295 = getelementptr inbounds ptr, ptr %294, i64 %91
   %296 = load ptr, ptr %295, align 8
   %297 = getelementptr inbounds i64, ptr %296, i64 %indvars.iv.i.i
@@ -4700,7 +4700,7 @@ _shared_step_gres_avail.exit.thread.i.us.i:       ; preds = %269, %257, %255, %2
 _shared_step_gres_avail.exit.thread.i.i:          ; preds = %299, %293, %.thread.i.i.i, %282, %280, %.lr.ph.i.split.i
   %.2.i.i = phi i64 [ %.058.i.i, %.lr.ph.i.split.i ], [ %298, %293 ], [ %300, %299 ], [ %.058.i.i, %282 ], [ %.058.i.i, %280 ], [ %.058.i.i, %.thread.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %301 = icmp ult i64 %indvars.iv.next.i.i, %245
+  %301 = icmp ult i64 %indvars.iv.next.i.i, %241
   %302 = icmp ne i64 %.2.i.i, 0
   %303 = select i1 %301, i1 %302, i1 false
   br i1 %303, label %.lr.ph.i.split.i, label %._crit_edge.i.i, !llvm.loop !49

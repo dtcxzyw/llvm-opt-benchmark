@@ -608,7 +608,7 @@ sub_2:                                            ; preds = %sub_180
 .tail78:                                          ; preds = %sub_180, %sub_2
   %176 = phi i32 [ %172, %sub_180 ], [ %175, %sub_2 ]
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %sub_083
+  br i1 %177, label %178, label %sub_184
 
 178:                                              ; preds = %.tail78
   %179 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %40) #5
@@ -667,10 +667,7 @@ sub_2:                                            ; preds = %sub_180
   %206 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @.str.50)
   br label %241
 
-sub_083:                                          ; preds = %.tail78
-  br i1 %.not131, label %sub_184, label %.tail82
-
-sub_184:                                          ; preds = %sub_083
+sub_184:                                          ; preds = %.tail78
   %207 = getelementptr inbounds i8, ptr %156, i64 1
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
@@ -684,8 +681,8 @@ sub_285:                                          ; preds = %sub_184
   %213 = zext i8 %212 to i32
   br label %.tail82
 
-.tail82:                                          ; preds = %sub_079, %sub_083, %sub_184, %sub_285
-  %214 = phi i32 [ %168, %sub_083 ], [ %210, %sub_184 ], [ %213, %sub_285 ], [ %168, %sub_079 ]
+.tail82:                                          ; preds = %sub_079, %sub_184, %sub_285
+  %214 = phi i32 [ %210, %sub_184 ], [ %213, %sub_285 ], [ %168, %sub_079 ]
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %238, label %216
 

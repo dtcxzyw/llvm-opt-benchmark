@@ -877,15 +877,12 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   store double %div, ptr %m_avg35, align 8
   %9 = load ptr, ptr %times, align 8
   %add.ptr.i38 = getelementptr inbounds double, ptr %9, i64 %last.0
-  br i1 %cmp.i.not4.i, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SC_SB_T1_.exit", label %for.body.i40.preheader
-
-for.body.i40.preheader:                           ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit
   %add.ptr.i37 = getelementptr inbounds double, ptr %9, i64 %sub
   br label %for.body.i40
 
-for.body.i40:                                     ; preds = %for.body.i40.preheader, %for.body.i40
-  %__init.addr.06.i41 = phi double [ %11, %for.body.i40 ], [ 0.000000e+00, %for.body.i40.preheader ]
-  %__first.sroa.0.05.i42 = phi ptr [ %incdec.ptr.i.i43, %for.body.i40 ], [ %add.ptr.i37, %for.body.i40.preheader ]
+for.body.i40:                                     ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit, %for.body.i40
+  %__init.addr.06.i41 = phi double [ %11, %for.body.i40 ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]
+  %__first.sroa.0.05.i42 = phi ptr [ %incdec.ptr.i.i43, %for.body.i40 ], [ %add.ptr.i37, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]
   %10 = load double, ptr %__first.sroa.0.05.i42, align 8
   %sub.i.i = fsub double %10, %div
   %11 = tail call noundef double @llvm.fmuladd.f64(double %sub.i.i, double %sub.i.i, double %__init.addr.06.i41)
@@ -893,9 +890,9 @@ for.body.i40:                                     ; preds = %for.body.i40.prehea
   %cmp.i.not.i44 = icmp eq ptr %incdec.ptr.i.i43, %add.ptr.i38
   br i1 %cmp.i.not.i44, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SC_SB_T1_.exit", label %for.body.i40, !llvm.loop !8
 
-"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SC_SB_T1_.exit": ; preds = %for.body.i40, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit
-  %div57 = phi double [ %div, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ], [ %div54, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %div, %for.body.i40 ]
-  %__init.addr.0.lcssa.i45 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %11, %for.body.i40 ]
+"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SC_SB_T1_.exit": ; preds = %for.body.i40, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread
+  %div57 = phi double [ %div54, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %div, %for.body.i40 ]
+  %__init.addr.0.lcssa.i45 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %11, %for.body.i40 ]
   %sub53 = add nsw i64 %sub16, -1
   %conv54 = uitofp i64 %sub53 to double
   %div55 = fdiv double %__init.addr.0.lcssa.i45, %conv54

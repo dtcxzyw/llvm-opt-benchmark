@@ -5046,8 +5046,8 @@ default.unreachable46:                            ; preds = %2
 34:                                               ; preds = %36, %29
   %35 = call { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd66E.llvm.567936041081457991(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 dereferenceable(1) %.sroa.3.0..sroa_idx.i), !noalias !853
   %.fca.0.extract.i = extractvalue { ptr, i64 } %35, 0
-  %.not.i.not = icmp ne ptr %.fca.0.extract.i, null
-  br i1 %.not.i.not, label %36, label %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit"
+  %.not.not.not.i.not.not.not.not.not = icmp ne ptr %.fca.0.extract.i, null
+  br i1 %.not.not.not.i.not.not.not.not.not, label %36, label %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit"
 
 36:                                               ; preds = %34
   %.fca.1.extract.i = extractvalue { ptr, i64 } %35, 1
@@ -5078,7 +5078,7 @@ default.unreachable46:                            ; preds = %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37", %74, %38, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37.thread", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E.exit", %45, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit", %13, %10, %8
-  %.0.shrunk = phi i1 [ %47, %45 ], [ %.not.i.not, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit" ], [ %28, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E.exit" ], [ %18, %13 ], [ %12, %10 ], [ %9, %8 ], [ true, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37.thread" ], [ false, %38 ], [ false, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ], [ true, %74 ]
+  %.0.shrunk = phi i1 [ %47, %45 ], [ %.not.not.not.i.not.not.not.not.not, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit" ], [ %28, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E.exit" ], [ %18, %13 ], [ %12, %10 ], [ %9, %8 ], [ true, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37.thread" ], [ false, %38 ], [ false, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ], [ true, %74 ]
   ret i1 %.0.shrunk
 
 48:                                               ; preds = %19
@@ -5139,8 +5139,8 @@ default.unreachable46:                            ; preds = %2
 69:                                               ; preds = %71, %64
   %70 = call { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd66E.llvm.567936041081457991(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 dereferenceable(1) %.sroa.3.0..sroa_idx.i33), !noalias !872
   %.fca.0.extract.i34 = extractvalue { ptr, i64 } %70, 0
-  %.not.i35.not = icmp eq ptr %.fca.0.extract.i34, null
-  br i1 %.not.i35.not, label %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37", label %71
+  %.not.not.not.i35.not = icmp eq ptr %.fca.0.extract.i34, null
+  br i1 %.not.not.not.i35.not, label %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37", label %71
 
 71:                                               ; preds = %69
   %.fca.1.extract.i36 = extractvalue { ptr, i64 } %70, 1

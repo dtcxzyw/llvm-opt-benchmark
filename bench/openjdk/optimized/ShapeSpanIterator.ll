@@ -1622,19 +1622,19 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 4
-  br i1 %.not, label %._crit_edge303, label %7
+  br i1 %.not, label %._crit_edge295, label %7
 
-._crit_edge303:                                   ; preds = %2
+._crit_edge295:                                   ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 128
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert304 = getelementptr inbounds i8, ptr %0, i64 132
-  %.pre305 = load i32, ptr %.phi.trans.insert304, align 4
-  %.phi.trans.insert306 = getelementptr inbounds i8, ptr %0, i64 136
-  %.pre307 = load i32, ptr %.phi.trans.insert306, align 8
-  %.phi.trans.insert308 = getelementptr inbounds i8, ptr %0, i64 56
-  %.pre309 = load i32, ptr %.phi.trans.insert308, align 8
-  %.phi.trans.insert310 = getelementptr inbounds i8, ptr %0, i64 144
-  %.pre311 = load ptr, ptr %.phi.trans.insert310, align 8
+  %.phi.trans.insert296 = getelementptr inbounds i8, ptr %0, i64 132
+  %.pre297 = load i32, ptr %.phi.trans.insert296, align 4
+  %.phi.trans.insert298 = getelementptr inbounds i8, ptr %0, i64 136
+  %.pre299 = load i32, ptr %.phi.trans.insert298, align 8
+  %.phi.trans.insert300 = getelementptr inbounds i8, ptr %0, i64 56
+  %.pre301 = load i32, ptr %.phi.trans.insert300, align 8
+  %.phi.trans.insert302 = getelementptr inbounds i8, ptr %0, i64 144
+  %.pre303 = load ptr, ptr %.phi.trans.insert302, align 8
   br label %36
 
 7:                                                ; preds = %2
@@ -1713,13 +1713,13 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   store i32 %4, ptr %35, align 8
   br label %171
 
-36:                                               ; preds = %._crit_edge303, %initSegmentTable.exit
-  %37 = phi ptr [ %.pre311, %._crit_edge303 ], [ %10, %initSegmentTable.exit ]
-  %38 = phi i32 [ %.pre309, %._crit_edge303 ], [ %33, %initSegmentTable.exit ]
-  %39 = phi i32 [ %4, %._crit_edge303 ], [ %20, %initSegmentTable.exit ]
-  %40 = phi i32 [ %.pre307, %._crit_edge303 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
-  %41 = phi i32 [ %.pre305, %._crit_edge303 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
-  %42 = phi i32 [ %.pre, %._crit_edge303 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
+36:                                               ; preds = %._crit_edge295, %initSegmentTable.exit
+  %37 = phi ptr [ %.pre303, %._crit_edge295 ], [ %10, %initSegmentTable.exit ]
+  %38 = phi i32 [ %.pre301, %._crit_edge295 ], [ %33, %initSegmentTable.exit ]
+  %39 = phi i32 [ %4, %._crit_edge295 ], [ %20, %initSegmentTable.exit ]
+  %40 = phi i32 [ %.pre299, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
+  %41 = phi i32 [ %.pre297, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
+  %42 = phi i32 [ %.pre, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   %44 = getelementptr inbounds i8, ptr %0, i64 132
   %45 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1846,10 +1846,10 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %.lr.ph241.preheader, %102
-  %indvars.iv280 = phi i64 [ %91, %.lr.ph241.preheader ], [ %indvars.iv.next281, %102 ]
+  %indvars.iv278 = phi i64 [ %91, %.lr.ph241.preheader ], [ %indvars.iv.next279, %102 ]
   %.0163240 = phi i32 [ %.0160.ph258, %.lr.ph241.preheader ], [ %.1164, %102 ]
-  %indvars.iv.next281 = add nsw i64 %indvars.iv280, -1
-  %93 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.next281
+  %indvars.iv.next279 = add nsw i64 %indvars.iv278, -1
+  %93 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.next279
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4
@@ -1865,7 +1865,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 102:                                              ; preds = %98, %.lr.ph241
   %.1164 = phi i32 [ %99, %98 ], [ %.0163240, %.lr.ph241 ]
-  %.not180.not = icmp sgt i64 %indvars.iv.next281, %92
+  %.not180.not = icmp sgt i64 %indvars.iv.next279, %92
   br i1 %.not180.not, label %.lr.ph241, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %102, %.preheader
@@ -1894,25 +1894,25 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %118
-  %indvars.iv284 = phi i64 [ %113, %.lr.ph245.preheader ], [ %indvars.iv.next285, %118 ]
-  %114 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv284
+  %indvars.iv282 = phi i64 [ %113, %.lr.ph245.preheader ], [ %indvars.iv.next283, %118 ]
+  %114 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv282
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %.not181 = icmp sgt i32 %117, %.2153
-  br i1 %.not181, label %.critedge.loopexit.split.loop.exit320, label %118
+  br i1 %.not181, label %.critedge.loopexit.split.loop.exit312, label %118
 
 118:                                              ; preds = %.lr.ph245
-  %indvars.iv.next285 = add nsw i64 %indvars.iv284, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next285, %52
+  %indvars.iv.next283 = add nsw i64 %indvars.iv282, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next283, %52
   br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !10
 
-.critedge.loopexit.split.loop.exit320:            ; preds = %.lr.ph245
-  %119 = trunc nsw i64 %indvars.iv284 to i32
+.critedge.loopexit.split.loop.exit312:            ; preds = %.lr.ph245
+  %119 = trunc nsw i64 %indvars.iv282 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit320, %111
-  %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit320 ], [ %39, %118 ]
+.critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit312, %111
+  %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit312 ], [ %39, %118 ]
   %120 = icmp slt i32 %.0163.lcssa, %.2162.lcssa
   br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !11
 
@@ -1923,8 +1923,8 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %123
 
 123:                                              ; preds = %.lr.ph257, %._crit_edge252
-  %indvars.iv288 = phi i64 [ %122, %.lr.ph257 ], [ %indvars.iv.next289, %._crit_edge252 ]
-  %124 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv288
+  %indvars.iv286 = phi i64 [ %122, %.lr.ph257 ], [ %indvars.iv.next287, %._crit_edge252 ]
+  %124 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv286
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr inbounds i8, ptr %125, i64 4
@@ -1973,13 +1973,13 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   store i32 %.1159, ptr %125, align 4
   store i32 %.2153, ptr %127, align 4
   store i32 %.0154, ptr %129, align 4
-  %160 = icmp sgt i64 %indvars.iv288, %122
-  %161 = trunc nsw i64 %indvars.iv288 to i32
+  %160 = icmp sgt i64 %indvars.iv286, %122
+  %161 = trunc nsw i64 %indvars.iv286 to i32
   br i1 %160, label %.lr.ph251, label %._crit_edge252
 
 .lr.ph251:                                        ; preds = %159, %166
-  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %166 ], [ %indvars.iv288, %159 ]
-  %162 = getelementptr ptr, ptr %37, i64 %indvars.iv290
+  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %166 ], [ %indvars.iv286, %159 ]
+  %162 = getelementptr ptr, ptr %37, i64 %indvars.iv288
   %163 = getelementptr i8, ptr %162, i64 -8
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %164, align 4
@@ -1988,12 +1988,12 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 166:                                              ; preds = %.lr.ph251
   store ptr %164, ptr %162, align 8
-  %indvars.iv.next291 = add nsw i64 %indvars.iv290, -1
-  %167 = icmp sgt i64 %indvars.iv.next291, %122
+  %indvars.iv.next289 = add nsw i64 %indvars.iv288, -1
+  %167 = icmp sgt i64 %indvars.iv.next289, %122
   br i1 %167, label %.lr.ph251, label %._crit_edge252, !llvm.loop !12
 
 ._crit_edge252.loopexit.split.loop.exit:          ; preds = %.lr.ph251
-  %168 = trunc nsw i64 %indvars.iv290 to i32
+  %168 = trunc nsw i64 %indvars.iv288 to i32
   br label %._crit_edge252
 
 ._crit_edge252:                                   ; preds = %166, %._crit_edge252.loopexit.split.loop.exit, %159
@@ -2001,9 +2001,9 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %169 = sext i32 %.2165.lcssa to i64
   %170 = getelementptr inbounds ptr, ptr %37, i64 %169
   store ptr %125, ptr %170, align 8
-  %indvars.iv.next289 = add nsw i64 %indvars.iv288, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count
-  br i1 %exitcond296.not, label %.loopexit192, label %123, !llvm.loop !13
+  %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
+  %exitcond294.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
+  br i1 %exitcond294.not, label %.loopexit192, label %123, !llvm.loop !13
 
 .loopexit193:                                     ; preds = %.loopexit192, %.split.us, %36, %.split213.us
   %.1161 = phi i32 [ %.0160.ph258, %.split213.us ], [ %40, %36 ], [ %.2162.lcssa, %.loopexit192 ], [ %39, %.split.us ]

@@ -481,13 +481,13 @@ pg_isblank.exit44.i:                              ; preds = %.critedge.i, %.crit
   br i1 %brmerge43.i, label %84, label %.critedge2.i
 
 84:                                               ; preds = %82
-  %.not40.i = icmp eq i8 %.036.in.i, 34
-  %.not40.not.i = xor i1 %.not40.i, true
-  %brmerge61.i = select i1 %.not40.not.i, i1 true, i1 %.032.i
+  %.not40.i = icmp ne i8 %.036.in.i, 34
+  %brmerge61.i = select i1 %.not40.i, i1 true, i1 %.032.i
+  %not..not40.i = xor i1 %.not40.i, true
   br i1 %brmerge61.i, label %.thread51.i, label %.thread55.i
 
 .thread51.i:                                      ; preds = %84, %pg_isblank.exit44.i
-  %.not4054.i = phi i1 [ %.not40.i, %84 ], [ false, %pg_isblank.exit44.i ]
+  %.not4054.i = phi i1 [ %not..not40.i, %84 ], [ false, %pg_isblank.exit44.i ]
   %85 = phi i1 [ %77, %84 ], [ true, %pg_isblank.exit44.i ]
   call void @appendStringInfoChar(ptr noundef nonnull %7, i8 noundef signext %.036.in.i) #13
   %or.cond.i115 = and i1 %.not4054.i, %85
@@ -4530,9 +4530,9 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   %7 = tail call i32 @get_role_oid(ptr noundef %6, i1 noundef zeroext true) #13
   %8 = load ptr, ptr @parsed_hba_lines, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph66.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph63.i
 
-.lr.ph66.i:                                       ; preds = %1
+.lr.ph63.i:                                       ; preds = %1
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 152
@@ -4551,10 +4551,10 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge.i
 
-.lr.ph:                                           ; preds = %.lr.ph66.i, %check_ip.exit.i
-  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %check_ip.exit.i ], [ 0, %.lr.ph66.i ]
+.lr.ph:                                           ; preds = %.lr.ph63.i, %check_ip.exit.i
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %check_ip.exit.i ], [ 0, %.lr.ph63.i ]
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv.i5
+  %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv.i3
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8
@@ -4591,15 +4591,15 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   switch i32 %40, label %check_ip.exit.i [
     i32 0, label %41
     i32 3, label %check_ip.exit.thread.i
-    i32 1, label %107
-    i32 2, label %107
+    i32 1, label %106
+    i32 2, label %106
   ]
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %26, i64 320
   %43 = load ptr, ptr %42, align 8
   %.not37.i = icmp eq ptr %43, null
-  br i1 %.not37.i, label %100, label %44
+  br i1 %.not37.i, label %99, label %44
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -4659,88 +4659,82 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
   br i1 %.not39.i.i, label %.preheader.i.i, label %check_hostname.exit.thread.sink.split.i
 
 .preheader.i.i:                                   ; preds = %70
-  %.03248.i.i = load ptr, ptr %3, align 8
-  %.not4049.not.i.i = icmp eq ptr %.03248.i.i, null
-  br i1 %.not4049.not.i.i, label %.thread.i.i, label %.lr.ph52.i.i
+  %.03244.i.i = load ptr, ptr %3, align 8
+  %.not4045.not.i.i = icmp eq ptr %.03244.i.i, null
+  br i1 %.not4045.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
-.lr.ph52.i.i:                                     ; preds = %.preheader.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %73 = load i16, ptr %11, align 8
   %.fr.i = freeze i16 %73
-  switch i16 %.fr.i, label %ipv6eq.exit._crit_edge.thread63.i.i [
-    i16 2, label %.lr.ph52.i.split.us.i
-    i16 10, label %.lr.ph52.i.split.us59.i
+  switch i16 %.fr.i, label %ipv6eq.exit._crit_edge.thread56.i.i [
+    i16 2, label %.lr.ph.i.split.us.i
+    i16 10, label %.lr.ph.i.split.us57.i
   ]
 
-.lr.ph52.i.split.us.i:                            ; preds = %.lr.ph52.i.i, %.critedge.i.us.i
-  %.03250.i.us.i = phi ptr [ %.032.i.us.i, %.critedge.i.us.i ], [ %.03248.i.i, %.lr.ph52.i.i ]
-  %74 = getelementptr inbounds i8, ptr %.03250.i.us.i, i64 24
+.lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %81
+  %.03246.i.us.i = phi ptr [ %.032.i.us.i, %81 ], [ %.03244.i.i, %.lr.ph.i.i ]
+  %74 = getelementptr inbounds i8, ptr %.03246.i.us.i, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = load i16, ptr %75, align 2
   %77 = icmp eq i16 %76, 2
-  br i1 %77, label %78, label %.critedge.i.us.i
+  br i1 %77, label %78, label %81
 
-78:                                               ; preds = %.lr.ph52.i.split.us.i
+78:                                               ; preds = %.lr.ph.i.split.us.i
   %79 = getelementptr i8, ptr %75, i64 4
   %.val.i.us.i = load i32, ptr %79, align 4
   %.val42.i.us.i = load i32, ptr %20, align 4
   %80 = icmp eq i32 %.val.i.us.i, %.val42.i.us.i
-  br i1 %80, label %check_hostname.exit.i, label %.critedge.i.us.i
+  br i1 %80, label %check_hostname.exit.i, label %81
 
-.critedge.i.us.i:                                 ; preds = %78, %.lr.ph52.i.split.us.i
-  %81 = getelementptr inbounds i8, ptr %.03250.i.us.i, i64 40
-  %.032.i.us.i = load ptr, ptr %81, align 8
+81:                                               ; preds = %78, %.lr.ph.i.split.us.i
+  %82 = getelementptr inbounds i8, ptr %.03246.i.us.i, i64 40
+  %.032.i.us.i = load ptr, ptr %82, align 8
   %.not40.not.i.us.i = icmp eq ptr %.032.i.us.i, null
-  br i1 %.not40.not.i.us.i, label %ipv6eq.exit._crit_edge.thread63.i.i, label %.lr.ph52.i.split.us.i, !llvm.loop !16
+  br i1 %.not40.not.i.us.i, label %ipv6eq.exit._crit_edge.thread56.i.i, label %.lr.ph.i.split.us.i, !llvm.loop !16
 
-.lr.ph52.i.split.us59.i:                          ; preds = %.lr.ph52.i.i, %.critedge.i.us61.i
-  %.03250.i.us60.i = phi ptr [ %.032.i.us62.i, %.critedge.i.us61.i ], [ %.03248.i.i, %.lr.ph52.i.i ]
-  %82 = getelementptr inbounds i8, ptr %.03250.i.us60.i, i64 24
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i16, ptr %83, align 2
-  %85 = icmp eq i16 %84, 10
-  br i1 %85, label %86, label %.critedge.i.us61.i
+.lr.ph.i.split.us57.i:                            ; preds = %.lr.ph.i.i, %94
+  %.03246.i.us58.i = phi ptr [ %.032.i.us59.i, %94 ], [ %.03244.i.i, %.lr.ph.i.i ]
+  %83 = getelementptr inbounds i8, ptr %.03246.i.us58.i, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i16, ptr %84, align 2
+  %86 = icmp eq i16 %85, 10
+  br i1 %86, label %87, label %94
 
-86:                                               ; preds = %.lr.ph52.i.split.us59.i
-  %87 = getelementptr inbounds i8, ptr %83, i64 8
-  %88 = load i8, ptr %87, align 1
-  %89 = load i8, ptr %19, align 1
-  %.not.i44.i.us.i = icmp eq i8 %88, %89
-  br i1 %.not.i44.i.us.i, label %.lr.ph.i.us.i, label %.critedge.i.us61.i
+87:                                               ; preds = %.lr.ph.i.split.us57.i
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  br label %89
 
-.lr.ph.i.us.i:                                    ; preds = %86, %90
-  %indvars.iv.i45.i.us.i = phi i64 [ %indvars.iv.next.i.i.us.i, %90 ], [ 0, %86 ]
-  %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i45.i.us.i, 1
-  %exitcond.i.i.us.i = icmp eq i64 %indvars.iv.next.i.i.us.i, 16
-  br i1 %exitcond.i.i.us.i, label %check_hostname.exit.i, label %90, !llvm.loop !17
+89:                                               ; preds = %89, %87
+  %indvars.iv.i.i.us.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i.i.us.i, %89 ]
+  %90 = getelementptr [16 x i8], ptr %88, i64 0, i64 %indvars.iv.i.i.us.i
+  %91 = load i8, ptr %90, align 1
+  %92 = getelementptr [16 x i8], ptr %19, i64 0, i64 %indvars.iv.i.i.us.i
+  %93 = load i8, ptr %92, align 1
+  %.not.i.i.us.i = icmp eq i8 %91, %93
+  %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
+  %exitcond.i.i.us.i = icmp ne i64 %indvars.iv.next.i.i.us.i, 16
+  %or.cond.not.i.i.us.i = select i1 %.not.i.i.us.i, i1 %exitcond.i.i.us.i, i1 false
+  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !17
 
-90:                                               ; preds = %.lr.ph.i.us.i
-  %91 = getelementptr [16 x i8], ptr %87, i64 0, i64 %indvars.iv.next.i.i.us.i
-  %92 = load i8, ptr %91, align 1
-  %93 = getelementptr [16 x i8], ptr %19, i64 0, i64 %indvars.iv.next.i.i.us.i
-  %94 = load i8, ptr %93, align 1
-  %.not.i.i.us.i = icmp eq i8 %92, %94
-  br i1 %.not.i.i.us.i, label %.lr.ph.i.us.i, label %ipv6eq.exit.i.us.i, !llvm.loop !17
+ipv6eq.exit.i.us.i:                               ; preds = %89
+  br i1 %.not.i.i.us.i, label %check_hostname.exit.i, label %94
 
-ipv6eq.exit.i.us.i:                               ; preds = %90
-  %95 = icmp ugt i64 %indvars.iv.i45.i.us.i, 14
-  br i1 %95, label %check_hostname.exit.i, label %.critedge.i.us61.i
+94:                                               ; preds = %ipv6eq.exit.i.us.i, %.lr.ph.i.split.us57.i
+  %95 = getelementptr inbounds i8, ptr %.03246.i.us58.i, i64 40
+  %.032.i.us59.i = load ptr, ptr %95, align 8
+  %.not40.not.i.us60.i = icmp eq ptr %.032.i.us59.i, null
+  br i1 %.not40.not.i.us60.i, label %ipv6eq.exit._crit_edge.thread56.i.i, label %.lr.ph.i.split.us57.i, !llvm.loop !16
 
-.critedge.i.us61.i:                               ; preds = %ipv6eq.exit.i.us.i, %86, %.lr.ph52.i.split.us59.i
-  %96 = getelementptr inbounds i8, ptr %.03250.i.us60.i, i64 40
-  %.032.i.us62.i = load ptr, ptr %96, align 8
-  %.not40.not.i.us63.i = icmp eq ptr %.032.i.us62.i, null
-  br i1 %.not40.not.i.us63.i, label %ipv6eq.exit._crit_edge.thread63.i.i, label %.lr.ph52.i.split.us59.i, !llvm.loop !16
-
-ipv6eq.exit._crit_edge.thread63.i.i:              ; preds = %.critedge.i.us61.i, %.critedge.i.us.i, %.lr.ph52.i.i
-  call void @freeaddrinfo(ptr noundef nonnull %.03248.i.i) #13
+ipv6eq.exit._crit_edge.thread56.i.i:              ; preds = %94, %81, %.lr.ph.i.i
+  call void @freeaddrinfo(ptr noundef nonnull %.03244.i.i) #13
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %ipv6eq.exit._crit_edge.thread63.i.i, %.preheader.i.i
-  %97 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
-  br i1 %97, label %98, label %check_hostname.exit.thread52.i
+.thread.i.i:                                      ; preds = %ipv6eq.exit._crit_edge.thread56.i.i, %.preheader.i.i
+  %96 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
+  br i1 %96, label %97, label %check_hostname.exit.thread52.i
 
-98:                                               ; preds = %.thread.i.i
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.134, ptr noundef nonnull %43) #13
+97:                                               ; preds = %.thread.i.i
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.134, ptr noundef nonnull %43) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1157, ptr noundef nonnull @__func__.check_hostname) #13
   br label %check_hostname.exit.thread52.i
 
@@ -4755,212 +4749,212 @@ check_hostname.exit.thread.i:                     ; preds = %check_hostname.exit
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
   br label %check_ip.exit.i
 
-check_hostname.exit.thread52.i:                   ; preds = %98, %.thread.i.i
+check_hostname.exit.thread52.i:                   ; preds = %97, %.thread.i.i
   store i32 -1, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
   br label %check_ip.exit.i
 
-check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %78, %.lr.ph.i.us.i
-  call void @freeaddrinfo(ptr noundef nonnull %.03248.i.i) #13
+check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %78
+  call void @freeaddrinfo(ptr noundef nonnull %.03244.i.i) #13
   store i32 1, ptr %15, align 8
   br label %check_ip.exit.thread.sink.split.i
 
-100:                                              ; preds = %41
-  %101 = getelementptr inbounds i8, ptr %26, i64 48
-  %102 = load i16, ptr %101, align 2
-  %103 = icmp eq i16 %30, %102
-  br i1 %103, label %104, label %check_ip.exit.i
+99:                                               ; preds = %41
+  %100 = getelementptr inbounds i8, ptr %26, i64 48
+  %101 = load i16, ptr %100, align 2
+  %102 = icmp eq i16 %30, %101
+  br i1 %102, label %103, label %check_ip.exit.i
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %26, i64 184
-  %106 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %101, ptr noundef nonnull %105) #13
-  %.not.i39.i = icmp eq i32 %106, 0
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds i8, ptr %26, i64 184
+  %105 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %100, ptr noundef nonnull %104) #13
+  %.not.i39.i = icmp eq i32 %105, 0
   br i1 %.not.i39.i, label %check_ip.exit.i, label %check_ip.exit.thread.i
 
-107:                                              ; preds = %38, %38
+106:                                              ; preds = %38, %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i32 %40, ptr %2, align 8
   store ptr %11, ptr %13, align 8
   store i8 0, ptr %14, align 8
-  %108 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %108, align 4
-  %109 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %check_same_host_or_net.exit.i
+  %107 = tail call ptr @__errno_location() #14
+  store i32 0, ptr %107, align 4
+  %108 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %110, label %check_same_host_or_net.exit.i
 
-111:                                              ; preds = %107
-  %112 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %112, label %113, label %check_same_host_or_net.exit.thread.i
+110:                                              ; preds = %106
+  %111 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %111, label %112, label %check_same_host_or_net.exit.thread.i
 
-113:                                              ; preds = %111
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135) #13
+112:                                              ; preds = %110
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.check_same_host_or_net) #13
   br label %check_same_host_or_net.exit.thread.i
 
-check_same_host_or_net.exit.thread.i:             ; preds = %113, %111
+check_same_host_or_net.exit.thread.i:             ; preds = %112, %110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %check_ip.exit.i
 
-check_same_host_or_net.exit.i:                    ; preds = %107
-  %115 = load i8, ptr %14, align 8
-  %116 = trunc i8 %115 to i1
+check_same_host_or_net.exit.i:                    ; preds = %106
+  %114 = load i8, ptr %14, align 8
+  %115 = trunc i8 %114 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br i1 %116, label %check_ip.exit.thread.i, label %check_ip.exit.i
+  br i1 %115, label %check_ip.exit.thread.i, label %check_ip.exit.i
 
 check_ip.exit.thread.sink.split.i:                ; preds = %check_hostname.exit.i, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
   br label %check_ip.exit.thread.i
 
-check_ip.exit.thread.i:                           ; preds = %check_ip.exit.thread.sink.split.i, %check_same_host_or_net.exit.i, %104, %38, %31
-  %117 = load ptr, ptr %21, align 8
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %26, i64 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
-  %.not.i41.i = icmp eq ptr %120, null
+check_ip.exit.thread.i:                           ; preds = %check_ip.exit.thread.sink.split.i, %check_same_host_or_net.exit.i, %103, %38, %31
+  %116 = load ptr, ptr %21, align 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds i8, ptr %26, i64 32
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 4
+  %.not.i41.i = icmp eq ptr %119, null
   br i1 %.not.i41.i, label %check_ip.exit.i, label %.lr.ph.i42.i
 
 .lr.ph.i42.i:                                     ; preds = %check_ip.exit.thread.i
-  %122 = getelementptr inbounds i8, ptr %120, i64 16
-  %123 = load i32, ptr %121, align 4
-  %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph.i, label %check_ip.exit.i
+  %121 = getelementptr inbounds i8, ptr %119, i64 16
+  %122 = load i32, ptr %120, align 4
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph.i, label %check_ip.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i42.i, %is_member.exit.thread.i.i
-  %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i.i, %is_member.exit.thread.i.i ], [ 0, %.lr.ph.i42.i ]
-  %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr %union.ListCell, ptr %125, i64 %indvars.iv.i64.i
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i8, ptr @am_walsender, align 1
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %130, label %141
+  %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i.i, %is_member.exit.thread.i.i ], [ 0, %.lr.ph.i42.i ]
+  %124 = load ptr, ptr %121, align 8
+  %125 = getelementptr %union.ListCell, ptr %124, i64 %indvars.iv.i61.i
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i8, ptr @am_walsender, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %140
 
-130:                                              ; preds = %.lr.ph.i
-  %131 = load i8, ptr @am_db_walsender, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %141, label %133
+129:                                              ; preds = %.lr.ph.i
+  %130 = load i8, ptr @am_db_walsender, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %140, label %132
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %127, i64 8
-  %135 = load i8, ptr %134, align 8
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %is_member.exit.thread.i.i, label %137
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %126, i64 8
+  %134 = load i8, ptr %133, align 8
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %is_member.exit.thread.i.i, label %136
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %127, align 8
-  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(12) @.str.136) #15
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %189, label %is_member.exit.thread.i.i
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %126, align 8
+  %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %137, ptr noundef nonnull dereferenceable(12) @.str.136) #15
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %188, label %is_member.exit.thread.i.i
 
-141:                                              ; preds = %130, %.lr.ph.i
-  %142 = getelementptr inbounds i8, ptr %127, i64 8
-  %143 = load i8, ptr %142, align 8
-  %144 = trunc i8 %143 to i1
-  br i1 %144, label %.thread38.i.i, label %145
+140:                                              ; preds = %129, %.lr.ph.i
+  %141 = getelementptr inbounds i8, ptr %126, i64 8
+  %142 = load i8, ptr %141, align 8
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %.thread38.i.i, label %144
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %127, align 8
-  %147 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(4) @.str.29) #15
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %189, label %149
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %126, align 8
+  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(4) @.str.29) #15
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %188, label %148
 
-149:                                              ; preds = %145
-  %150 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(9) @.str.137) #15
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %155
+148:                                              ; preds = %144
+  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(9) @.str.137) #15
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %154
 
-152:                                              ; preds = %149
-  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull readonly dereferenceable(1) %118) #15
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %189, label %is_member.exit.thread.i.i
+151:                                              ; preds = %148
+  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull readonly dereferenceable(1) %117) #15
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %188, label %is_member.exit.thread.i.i
 
-155:                                              ; preds = %149
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(10) @.str.138) #15
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %161, label %158
+154:                                              ; preds = %148
+  %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(10) @.str.138) #15
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %160, label %157
 
-158:                                              ; preds = %155
-  %159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(9) @.str.139) #15
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %165
+157:                                              ; preds = %154
+  %158 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(9) @.str.139) #15
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %164
 
-161:                                              ; preds = %158, %155
-  br i1 %.not.i.i43.i, label %is_member.exit.thread.i.i, label %162
+160:                                              ; preds = %157, %154
+  br i1 %.not.i.i43.i, label %is_member.exit.thread.i.i, label %161
 
-162:                                              ; preds = %161
-  %163 = call i32 @get_role_oid(ptr noundef %117, i1 noundef zeroext true) #13
-  %.not7.i.i.i = icmp eq i32 %163, 0
+161:                                              ; preds = %160
+  %162 = call i32 @get_role_oid(ptr noundef %116, i1 noundef zeroext true) #13
+  %.not7.i.i.i = icmp eq i32 %162, 0
   br i1 %.not7.i.i.i, label %is_member.exit.thread.i.i, label %is_member.exit.i.i
 
-is_member.exit.i.i:                               ; preds = %162
-  %164 = call zeroext i1 @is_member_of_role_nosuper(i32 noundef %7, i32 noundef %163) #13
-  br i1 %164, label %189, label %is_member.exit.thread.i.i
+is_member.exit.i.i:                               ; preds = %161
+  %163 = call zeroext i1 @is_member_of_role_nosuper(i32 noundef %7, i32 noundef %162) #13
+  br i1 %163, label %188, label %is_member.exit.thread.i.i
 
-165:                                              ; preds = %158
-  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(12) @.str.136) #15
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %is_member.exit.thread.i.i, label %.thread38.i.i
+164:                                              ; preds = %157
+  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(12) @.str.136) #15
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %is_member.exit.thread.i.i, label %.thread38.i.i
 
-.thread38.i.i:                                    ; preds = %165, %141
-  %168 = getelementptr inbounds i8, ptr %127, i64 16
-  %169 = load ptr, ptr %168, align 8
-  %.not30.i.i = icmp eq ptr %169, null
-  br i1 %.not30.i.i, label %182, label %170
+.thread38.i.i:                                    ; preds = %164, %140
+  %167 = getelementptr inbounds i8, ptr %126, i64 16
+  %168 = load ptr, ptr %167, align 8
+  %.not30.i.i = icmp eq ptr %168, null
+  br i1 %.not30.i.i, label %181, label %169
 
-170:                                              ; preds = %.thread38.i.i
-  %171 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #15
-  %172 = shl i64 %171, 2
-  %173 = add i64 %172, 4
-  %174 = call ptr @palloc(i64 noundef %173) #13
-  %175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #15
-  %176 = trunc i64 %175 to i32
-  %177 = call i32 @pg_mb2wchar_with_len(ptr noundef %117, ptr noundef %174, i32 noundef %176) #13
-  %178 = load ptr, ptr %168, align 8
-  %179 = sext i32 %177 to i64
-  %180 = call i32 @pg_regexec(ptr noundef %178, ptr noundef %174, i64 noundef %179, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
-  call void @pfree(ptr noundef %174) #13
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %189, label %is_member.exit.thread.i.i
+169:                                              ; preds = %.thread38.i.i
+  %170 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #15
+  %171 = shl i64 %170, 2
+  %172 = add i64 %171, 4
+  %173 = call ptr @palloc(i64 noundef %172) #13
+  %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %116) #15
+  %175 = trunc i64 %174 to i32
+  %176 = call i32 @pg_mb2wchar_with_len(ptr noundef %116, ptr noundef %173, i32 noundef %175) #13
+  %177 = load ptr, ptr %167, align 8
+  %178 = sext i32 %176 to i64
+  %179 = call i32 @pg_regexec(ptr noundef %177, ptr noundef %173, i64 noundef %178, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
+  call void @pfree(ptr noundef %173) #13
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %188, label %is_member.exit.thread.i.i
 
-182:                                              ; preds = %.thread38.i.i
-  %183 = load ptr, ptr %127, align 8
-  %184 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %183, ptr noundef nonnull dereferenceable(1) %117) #15
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %189, label %is_member.exit.thread.i.i
+181:                                              ; preds = %.thread38.i.i
+  %182 = load ptr, ptr %126, align 8
+  %183 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %182, ptr noundef nonnull dereferenceable(1) %116) #15
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %188, label %is_member.exit.thread.i.i
 
-is_member.exit.thread.i.i:                        ; preds = %182, %170, %165, %is_member.exit.i.i, %162, %161, %152, %137, %133
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i64.i, 1
-  %186 = load i32, ptr %121, align 4
-  %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next.i.i, %187
-  br i1 %188, label %.lr.ph.i, label %check_ip.exit.i
+is_member.exit.thread.i.i:                        ; preds = %181, %169, %164, %is_member.exit.i.i, %161, %160, %151, %136, %132
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i61.i, 1
+  %185 = load i32, ptr %120, align 4
+  %186 = sext i32 %185 to i64
+  %187 = icmp slt i64 %indvars.iv.next.i.i, %186
+  br i1 %187, label %.lr.ph.i, label %check_ip.exit.i
 
-189:                                              ; preds = %182, %170, %is_member.exit.i.i, %152, %145, %137
-  %190 = load ptr, ptr %5, align 8
-  %191 = getelementptr inbounds i8, ptr %26, i64 40
-  %192 = load ptr, ptr %191, align 8
-  %193 = call fastcc zeroext i1 @check_role(ptr noundef %190, i32 noundef %7, ptr noundef %192, i1 noundef zeroext false)
-  br i1 %193, label %check_hba.exit, label %check_ip.exit.i
+188:                                              ; preds = %181, %169, %is_member.exit.i.i, %151, %144, %136
+  %189 = load ptr, ptr %5, align 8
+  %190 = getelementptr inbounds i8, ptr %26, i64 40
+  %191 = load ptr, ptr %190, align 8
+  %192 = call fastcc zeroext i1 @check_role(ptr noundef %189, i32 noundef %7, ptr noundef %191, i1 noundef zeroext false)
+  br i1 %192, label %check_hba.exit, label %check_ip.exit.i
 
-check_ip.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %189, %.lr.ph.i42.i, %check_ip.exit.thread.i, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %104, %100, %check_hostname.exit.thread52.i, %check_hostname.exit.thread.i, %38, %37, %37, %36, %32, %31
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i5, 1
-  %194 = load i32, ptr %9, align 4
-  %195 = sext i32 %194 to i64
-  %196 = icmp slt i64 %indvars.iv.next.i, %195
-  br i1 %196, label %.lr.ph, label %._crit_edge.i
+check_ip.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %188, %.lr.ph.i42.i, %check_ip.exit.thread.i, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %103, %99, %check_hostname.exit.thread52.i, %check_hostname.exit.thread.i, %38, %37, %37, %36, %32, %31
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
+  %193 = load i32, ptr %9, align 4
+  %194 = sext i32 %193 to i64
+  %195 = icmp slt i64 %indvars.iv.next.i, %194
+  br i1 %195, label %.lr.ph, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %check_ip.exit.i, %.lr.ph66.i, %1
-  %197 = call ptr @palloc0(i64 noundef 536) #13
-  %198 = getelementptr inbounds i8, ptr %197, i64 328
-  store i32 1, ptr %198, align 8
+._crit_edge.i:                                    ; preds = %check_ip.exit.i, %.lr.ph63.i, %1
+  %196 = call ptr @palloc0(i64 noundef 536) #13
+  %197 = getelementptr inbounds i8, ptr %196, i64 328
+  store i32 1, ptr %197, align 8
   br label %check_hba.exit
 
-check_hba.exit:                                   ; preds = %189, %._crit_edge.i
-  %.sink78.i = phi ptr [ %197, %._crit_edge.i ], [ %26, %189 ]
-  %199 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr %.sink78.i, ptr %199, align 8
+check_hba.exit:                                   ; preds = %188, %._crit_edge.i
+  %.sink71.i = phi ptr [ %196, %._crit_edge.i ], [ %26, %188 ]
+  %198 = getelementptr inbounds i8, ptr %0, i64 368
+  store ptr %.sink71.i, ptr %198, align 8
   ret void
 }
 

@@ -37,7 +37,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
 
 .loopexit:                                        ; preds = %3, %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #2
-  br label %134
+  br label %135
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i, %.loopexit.i
   %.03046.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
@@ -123,7 +123,7 @@ td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
 
 48:                                               ; preds = %td_isutf8.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #2
-  br label %134
+  br label %135
 
 td_isutf8.exit.thread:                            ; preds = %34, %19, %15, %td_isutf8.exit
   %49 = icmp eq i32 %1, 1
@@ -154,7 +154,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 
 .thread:                                          ; preds = %td_isutf8.exit.thread.thread23, %51, %55
   %61 = icmp ugt i32 %1, 3
-  br i1 %61, label %.lr.ph.split.split.i, label %.thread48
+  br i1 %61, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
 .thread62.i:                                      ; preds = %51
   %62 = icmp ugt i32 %1, 3
@@ -265,32 +265,29 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %128 = add i32 %.03143.i, 2
   %129 = or disjoint i32 %128, 1
   %130 = icmp ult i32 %129, %1
-  br i1 %130, label %.lr.ph.split.split.i, label %.thread48
+  br i1 %130, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
 ._crit_edge.i:                                    ; preds = %105, %82, %.thread62.i, %59
-  %131 = phi i1 [ false, %59 ], [ true, %.thread62.i ], [ true, %82 ], [ false, %105 ]
+  %.03367.i = phi i32 [ 2, %59 ], [ 1, %.thread62.i ], [ 1, %82 ], [ 2, %105 ]
   %.028.lcssa.i = phi i32 [ 0, %59 ], [ 0, %.thread62.i ], [ %.129.us.us.i, %82 ], [ %.129.us51.i, %105 ]
-  %132 = lshr i32 %1, 1
-  %.not37.i.not = icmp ult i32 %.028.lcssa.i, %132
+  %131 = lshr i32 %1, 1
+  %.not37.i.not = icmp ult i32 %.028.lcssa.i, %131
   br i1 %.not37.i.not, label %td_isutf16.exit, label %select.unfold
 
-td_isutf16.exit:                                  ; preds = %._crit_edge.i
-  br i1 %131, label %133, label %.thread48
-
-.thread48:                                        ; preds = %127, %td_isutf16.exit, %.thread
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #2
-  br label %134
-
-133:                                              ; preds = %td_isutf16.exit
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #2
-  br label %134
+td_isutf16.exit:                                  ; preds = %127, %.thread, %._crit_edge.i
+  %.034.i16 = phi i32 [ %.03367.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %127 ]
+  %132 = icmp eq i32 %.034.i16, 1
+  %133 = select i1 %132, ptr @.str.3, ptr @.str.4
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %133) #2
+  %134 = select i1 %132, i32 502, i32 503
+  br label %135
 
 select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.split.i, %123, %._crit_edge.i, %td_isutf8.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #2
-  br label %134
+  br label %135
 
-134:                                              ; preds = %133, %.thread48, %select.unfold, %48, %.loopexit
-  %.0 = phi i32 [ 500, %.loopexit ], [ 501, %48 ], [ 504, %select.unfold ], [ 502, %133 ], [ 503, %.thread48 ]
+135:                                              ; preds = %select.unfold, %td_isutf16.exit, %48, %.loopexit
+  %.0 = phi i32 [ 500, %.loopexit ], [ 501, %48 ], [ %134, %td_isutf16.exit ], [ 504, %select.unfold ]
   ret i32 %.0
 }
 

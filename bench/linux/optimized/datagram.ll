@@ -234,7 +234,7 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr n
   store ptr %15, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %.loopexit, label %.preheader
+  br i1 %17, label %.loopexit, label %.preheader.split
 
 .thread.thread:                                   ; preds = %6
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -244,10 +244,7 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr n
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %.loopexit, label %.preheader.thread
 
-.preheader:                                       ; preds = %.thread
-  br i1 %8, label %.preheader.thread, label %.preheader.split
-
-.preheader.split:                                 ; preds = %.preheader
+.preheader.split:                                 ; preds = %.thread
   br i1 %11, label %.preheader.split.split, label %.preheader.split..split_crit_edge
 
 .preheader.split..split_crit_edge:                ; preds = %.preheader.split
@@ -352,43 +349,41 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr n
 
 75:                                               ; preds = %.split.thread
   tail call void @refcount_warn_saturate(ptr noundef %72, i32 noundef 2) #9
-  br label %90
+  br label %88
 
 76:                                               ; preds = %.split.thread
   %77 = add i32 %73, 1
   %78 = or i32 %77, %73
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %90, label %80, !prof !7
+  br i1 %79, label %88, label %80, !prof !7
 
 80:                                               ; preds = %76
   tail call void @refcount_warn_saturate(ptr noundef %72, i32 noundef 1) #9
-  br label %90
+  br label %88
 
-.preheader.thread:                                ; preds = %.thread.thread, %.preheader
-  %81 = phi i32 [ %13, %.preheader ], [ 0, %.thread.thread ]
-  %82 = phi ptr [ %16, %.preheader ], [ %20, %.thread.thread ]
-  %83 = getelementptr inbounds i8, ptr %1, i64 16
-  %84 = load i32, ptr %83, align 8
-  %85 = add i32 %84, -1
-  store volatile i32 %85, ptr %83, align 8
-  %86 = load ptr, ptr %82, align 8
-  %87 = getelementptr inbounds i8, ptr %82, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  store volatile ptr %88, ptr %89, align 8
-  store volatile ptr %86, ptr %88, align 8
-  br label %90
+.preheader.thread:                                ; preds = %.thread.thread
+  %81 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = load i32, ptr %81, align 8
+  %83 = add i32 %82, -1
+  store volatile i32 %83, ptr %81, align 8
+  %84 = load ptr, ptr %20, align 8
+  %85 = getelementptr inbounds i8, ptr %20, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  store volatile ptr %86, ptr %87, align 8
+  store volatile ptr %84, ptr %86, align 8
+  br label %88
 
-90:                                               ; preds = %.preheader.thread, %80, %76, %75
-  %91 = phi i32 [ %81, %.preheader.thread ], [ %.split1016, %75 ], [ %.split1016, %76 ], [ %.split1016, %80 ]
-  %92 = phi ptr [ %82, %.preheader.thread ], [ %71, %75 ], [ %71, %76 ], [ %71, %80 ]
-  store i32 %91, ptr %3, align 4
+88:                                               ; preds = %.preheader.thread, %80, %76, %75
+  %89 = phi i32 [ 0, %.preheader.thread ], [ %.split1016, %75 ], [ %.split1016, %76 ], [ %.split1016, %80 ]
+  %90 = phi ptr [ %20, %.preheader.thread ], [ %71, %75 ], [ %71, %76 ], [ %71, %80 ]
+  store i32 %89, ptr %3, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.thread.thread, %90, %.thread8, %.thread
-  %93 = phi ptr [ %92, %90 ], [ null, %.thread8 ], [ null, %.thread ], [ null, %.thread.thread ], [ null, %34 ]
-  ret ptr %93
+.loopexit:                                        ; preds = %34, %.thread.thread, %88, %.thread8, %.thread
+  %91 = phi ptr [ %90, %88 ], [ null, %.thread8 ], [ null, %.thread ], [ null, %.thread.thread ], [ null, %34 ]
+  ret ptr %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

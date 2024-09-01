@@ -1841,8 +1841,8 @@ define dso_local noundef zeroext i1 @intel_has_pending_fb_unpin(ptr noundef read
 3:                                                ; preds = %18, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %18 ]
   %5 = load ptr, ptr %4, align 8
-  %.not = icmp ne ptr %5, %2
-  br i1 %.not, label %6, label %.loopexit
+  %.not.not.not.not.not = icmp ne ptr %5, %2
+  br i1 %.not.not.not.not.not, label %6, label %.loopexit
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %5, i64 1488
@@ -1873,7 +1873,7 @@ define dso_local noundef zeroext i1 @intel_has_pending_fb_unpin(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %21
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: null_pointer_is_valid

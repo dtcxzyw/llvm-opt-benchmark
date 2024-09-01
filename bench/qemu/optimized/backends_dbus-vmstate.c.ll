@@ -409,7 +409,7 @@ error:                                            ; preds = %error.loopexit, %if
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %23) #6
   br label %if.then.i.i32
 
-if.then.i.i32:                                    ; preds = %while.cond, %if.then17, %if.then29, %if.then35, %if.then42, %if.then57, %if.then67, %error, %while.cond.preheader
+if.then.i.i32:                                    ; preds = %while.cond, %while.cond.preheader, %if.then17, %if.then29, %if.then35, %if.then42, %if.then57, %if.then67, %error
   %retval.0 = phi i32 [ -1, %error ], [ -1, %if.then17 ], [ -1, %if.then29 ], [ -1, %if.then42 ], [ -1, %if.then57 ], [ -1, %if.then67 ], [ -1, %if.then35 ], [ 0, %while.cond.preheader ], [ 0, %while.cond ]
   call void @g_hash_table_unref(ptr noundef nonnull %call1) #6
   br label %glib_autoptr_cleanup_GHashTable.exit

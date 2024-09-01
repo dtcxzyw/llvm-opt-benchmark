@@ -1165,7 +1165,7 @@ if.end60.i:                                       ; preds = %if.else46.i, %if.el
   %cmp64.i = icmp ugt i32 %lb.0.i, %conv62.i
   %cmp68.i = icmp ult i32 %ub.0.i, %conv62.i
   %or.cond30.i = or i1 %cmp64.i, %cmp68.i
-  br i1 %or.cond30.i, label %_mpd_copy_utf8.exit.thread, label %for.body.preheader.i
+  br i1 %or.cond30.i, label %_mpd_copy_utf8.exit.thread, label %if.end71.i
 
 if.end60.thread.i:                                ; preds = %if.else8.i
   %incdec.ptr40.i = getelementptr i8, ptr %fmt, i64 1
@@ -1179,15 +1179,15 @@ if.end71.thread.i:                                ; preds = %if.end60.thread.i
   store i8 %3, ptr %arrayidx7347.i, align 1
   br label %for.end.i
 
-for.body.preheader.i:                             ; preds = %if.end60.i
+if.end71.i:                                       ; preds = %if.end60.i
   %arrayidx73.i = getelementptr i8, ptr %spec, i64 20
   store i8 %2, ptr %arrayidx73.i, align 1
   %incdec.ptr72.i = getelementptr i8, ptr %fmt, i64 2
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end84.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 2, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.end84.i ]
-  %cp.034.i = phi ptr [ %incdec.ptr72.i, %for.body.preheader.i ], [ %incdec.ptr85.i, %if.end84.i ]
+for.body.i:                                       ; preds = %if.end84.i, %if.end71.i
+  %indvars.iv.i = phi i64 [ 2, %if.end71.i ], [ %indvars.iv.next.i, %if.end84.i ]
+  %cp.034.i = phi ptr [ %incdec.ptr72.i, %if.end71.i ], [ %incdec.ptr85.i, %if.end84.i ]
   %4 = load i8, ptr %cp.034.i, align 1
   %or.cond31.i = icmp sgt i8 %4, -65
   br i1 %or.cond31.i, label %_mpd_copy_utf8.exit.thread, label %if.end84.i

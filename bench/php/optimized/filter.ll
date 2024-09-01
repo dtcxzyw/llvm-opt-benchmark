@@ -1302,7 +1302,7 @@ define range(i32 -1, 1) i32 @_php_stream_filter_flush(ptr noundef %0, i32 nounde
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %.076111, ptr noundef nonnull %.072114, ptr noundef nonnull %.075112, ptr noundef null, i32 noundef %.073113) #14
   switch i32 %13, label %14 [
-    i32 1, label %.loopexit.loopexit142
+    i32 1, label %.loopexit.loopexit143
     i32 0, label %.loopexit
   ]
 
@@ -1498,126 +1498,125 @@ php_stream_bucket_delref.exit:                    ; preds = %php_stream_bucket_u
 
 108:                                              ; preds = %21
   %109 = getelementptr inbounds i8, ptr %9, i64 40
-  %110 = icmp ne ptr %6, %109
-  %brmerge = or i1 %110, %.not88116
-  br i1 %brmerge, label %.loopexit, label %.lr.ph122
+  %.not137 = icmp eq ptr %6, %109
+  br i1 %.not137, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %9, i64 152
-  br label %112
+  %110 = getelementptr inbounds i8, ptr %9, i64 152
+  br label %111
 
-112:                                              ; preds = %.lr.ph122, %php_stream_bucket_delref.exit104
-  %113 = phi ptr [ %.077115.pre, %.lr.ph122 ], [ %159, %php_stream_bucket_delref.exit104 ]
-  %114 = load ptr, ptr %9, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %113, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %113, i64 32
-  %119 = load i64, ptr %118, align 8
-  %120 = call i64 %115(ptr noundef nonnull %9, ptr noundef %117, i64 noundef %119) #14
-  %121 = icmp sgt i64 %120, 0
-  br i1 %121, label %122, label %125
+111:                                              ; preds = %.lr.ph122, %php_stream_bucket_delref.exit104
+  %112 = phi ptr [ %.077115.pre, %.lr.ph122 ], [ %158, %php_stream_bucket_delref.exit104 ]
+  %113 = load ptr, ptr %9, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %112, i64 24
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %112, i64 32
+  %118 = load i64, ptr %117, align 8
+  %119 = call i64 %114(ptr noundef nonnull %9, ptr noundef %116, i64 noundef %118) #14
+  %120 = icmp sgt i64 %119, 0
+  br i1 %120, label %121, label %124
 
-122:                                              ; preds = %112
-  %123 = load i64, ptr %111, align 8
-  %124 = add nsw i64 %123, %120
-  store i64 %124, ptr %111, align 8
-  br label %125
+121:                                              ; preds = %111
+  %122 = load i64, ptr %110, align 8
+  %123 = add nsw i64 %122, %119
+  store i64 %123, ptr %110, align 8
+  br label %124
 
-125:                                              ; preds = %122, %112
-  %126 = getelementptr inbounds i8, ptr %113, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %.not.i93 = icmp eq ptr %127, null
-  br i1 %.not.i93, label %130, label %128
+124:                                              ; preds = %121, %111
+  %125 = getelementptr inbounds i8, ptr %112, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %.not.i93 = icmp eq ptr %126, null
+  br i1 %.not.i93, label %129, label %127
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %113, align 8
-  store ptr %129, ptr %127, align 8
-  br label %134
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %112, align 8
+  store ptr %128, ptr %126, align 8
+  br label %133
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds i8, ptr %113, i64 16
-  %132 = load ptr, ptr %131, align 8
-  %.not18.i98 = icmp eq ptr %132, null
-  %.pre.i99 = load ptr, ptr %113, align 8
-  br i1 %.not18.i98, label %134, label %133
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds i8, ptr %112, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %.not18.i98 = icmp eq ptr %131, null
+  %.pre.i99 = load ptr, ptr %112, align 8
+  br i1 %.not18.i98, label %133, label %132
 
-133:                                              ; preds = %130
-  store ptr %.pre.i99, ptr %132, align 8
-  br label %134
+132:                                              ; preds = %129
+  store ptr %.pre.i99, ptr %131, align 8
+  br label %133
 
-134:                                              ; preds = %133, %130, %128
-  %135 = phi ptr [ %.pre.i99, %130 ], [ %.pre.i99, %133 ], [ %129, %128 ]
-  %.not19.i94 = icmp eq ptr %135, null
-  br i1 %.not19.i94, label %136, label %.sink.split.i95
+133:                                              ; preds = %132, %129, %127
+  %134 = phi ptr [ %.pre.i99, %129 ], [ %.pre.i99, %132 ], [ %128, %127 ]
+  %.not19.i94 = icmp eq ptr %134, null
+  br i1 %.not19.i94, label %135, label %.sink.split.i95
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %113, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %.not20.i97 = icmp eq ptr %138, null
+135:                                              ; preds = %133
+  %136 = getelementptr inbounds i8, ptr %112, i64 16
+  %137 = load ptr, ptr %136, align 8
+  %.not20.i97 = icmp eq ptr %137, null
   br i1 %.not20.i97, label %php_stream_bucket_unlink.exit100, label %.sink.split.i95
 
-.sink.split.i95:                                  ; preds = %136, %134
-  %.sink22.i96 = phi ptr [ %135, %134 ], [ %138, %136 ]
-  %139 = load ptr, ptr %126, align 8
-  %140 = getelementptr inbounds i8, ptr %.sink22.i96, i64 8
-  store ptr %139, ptr %140, align 8
+.sink.split.i95:                                  ; preds = %135, %133
+  %.sink22.i96 = phi ptr [ %134, %133 ], [ %137, %135 ]
+  %138 = load ptr, ptr %125, align 8
+  %139 = getelementptr inbounds i8, ptr %.sink22.i96, i64 8
+  store ptr %138, ptr %139, align 8
   br label %php_stream_bucket_unlink.exit100
 
-php_stream_bucket_unlink.exit100:                 ; preds = %136, %.sink.split.i95
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %141 = getelementptr inbounds i8, ptr %113, i64 44
-  %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %142, -1
-  store i32 %143, ptr %141, align 4
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %php_stream_bucket_delref.exit104
+php_stream_bucket_unlink.exit100:                 ; preds = %135, %.sink.split.i95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
+  %140 = getelementptr inbounds i8, ptr %112, i64 44
+  %141 = load i32, ptr %140, align 4
+  %142 = add nsw i32 %141, -1
+  store i32 %142, ptr %140, align 4
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %php_stream_bucket_delref.exit104
 
-145:                                              ; preds = %php_stream_bucket_unlink.exit100
-  %146 = getelementptr inbounds i8, ptr %113, i64 40
-  %147 = load i8, ptr %146, align 8
-  %.not.i101 = icmp eq i8 %147, 0
-  br i1 %.not.i101, label %154, label %148
+144:                                              ; preds = %php_stream_bucket_unlink.exit100
+  %145 = getelementptr inbounds i8, ptr %112, i64 40
+  %146 = load i8, ptr %145, align 8
+  %.not.i101 = icmp eq i8 %146, 0
+  br i1 %.not.i101, label %153, label %147
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %113, i64 41
-  %150 = load i8, ptr %149, align 1
-  %.not8.i102 = icmp eq i8 %150, 0
-  %151 = load ptr, ptr %116, align 8
-  br i1 %.not8.i102, label %153, label %152
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %112, i64 41
+  %149 = load i8, ptr %148, align 1
+  %.not8.i102 = icmp eq i8 %149, 0
+  %150 = load ptr, ptr %115, align 8
+  br i1 %.not8.i102, label %152, label %151
 
-152:                                              ; preds = %148
-  call void @free(ptr noundef %151) #14
-  br label %154
+151:                                              ; preds = %147
+  call void @free(ptr noundef %150) #14
+  br label %153
 
-153:                                              ; preds = %148
-  call void @_efree(ptr noundef %151) #14
-  br label %154
+152:                                              ; preds = %147
+  call void @_efree(ptr noundef %150) #14
+  br label %153
 
-154:                                              ; preds = %153, %152, %145
-  %155 = getelementptr inbounds i8, ptr %113, i64 41
-  %156 = load i8, ptr %155, align 1
-  %.not9.i103 = icmp eq i8 %156, 0
-  br i1 %.not9.i103, label %158, label %157
+153:                                              ; preds = %152, %151, %144
+  %154 = getelementptr inbounds i8, ptr %112, i64 41
+  %155 = load i8, ptr %154, align 1
+  %.not9.i103 = icmp eq i8 %155, 0
+  br i1 %.not9.i103, label %157, label %156
 
-157:                                              ; preds = %154
-  call void @free(ptr noundef nonnull %113) #14
+156:                                              ; preds = %153
+  call void @free(ptr noundef nonnull %112) #14
   br label %php_stream_bucket_delref.exit104
 
-158:                                              ; preds = %154
-  call void @_efree(ptr noundef nonnull %113) #14
+157:                                              ; preds = %153
+  call void @_efree(ptr noundef nonnull %112) #14
   br label %php_stream_bucket_delref.exit104
 
-php_stream_bucket_delref.exit104:                 ; preds = %php_stream_bucket_unlink.exit100, %157, %158
-  %159 = load ptr, ptr %.075112, align 8
-  %.not89 = icmp eq ptr %159, null
-  br i1 %.not89, label %.loopexit, label %112
+php_stream_bucket_delref.exit104:                 ; preds = %php_stream_bucket_unlink.exit100, %156, %157
+  %158 = load ptr, ptr %.075112, align 8
+  %.not89 = icmp eq ptr %158, null
+  br i1 %.not89, label %.loopexit, label %111
 
-.loopexit.loopexit142:                            ; preds = %.lr.ph
+.loopexit.loopexit143:                            ; preds = %.lr.ph
   br label %.loopexit
 
-.loopexit:                                        ; preds = %php_stream_bucket_delref.exit104, %php_stream_bucket_delref.exit, %.lr.ph, %.loopexit.loopexit142, %108, %.preheader106, %59, %._crit_edge, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %59 ], [ 0, %.preheader106 ], [ 0, %.loopexit.loopexit142 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit104 ]
+.loopexit:                                        ; preds = %php_stream_bucket_delref.exit104, %php_stream_bucket_delref.exit, %.lr.ph, %.loopexit.loopexit143, %108, %.preheader106, %59, %._crit_edge, %2, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %59 ], [ 0, %.preheader106 ], [ 0, %.loopexit.loopexit143 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit104 ]
   ret i32 %.0
 }
 

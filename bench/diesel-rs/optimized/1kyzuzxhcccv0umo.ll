@@ -27,59 +27,59 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN12darling_core5error4kind12did_you_mean17hc619ee2e4049eb36E(ptr noalias nocapture noundef writeonly sret({ [1 x i64], i64, [2 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   br label %7
 
-5:                                                ; preds = %20
-  %6 = icmp eq ptr %22, null
-  br i1 %6, label %18, label %13
+5:                                                ; preds = %18
+  %6 = icmp eq ptr %.sroa.5.1, null
+  br i1 %6, label %16, label %11
 
-7:                                                ; preds = %4, %20
-  %.val1929 = phi i64 [ undef, %4 ], [ %.val1930, %20 ]
-  %.sroa.0.0.idx27 = phi i64 [ 0, %4 ], [ %.sroa.0.0.add, %20 ]
-  %8 = phi ptr [ null, %4 ], [ %22, %20 ]
-  %9 = phi double [ undef, %4 ], [ %21, %20 ]
-  %.sroa.0.0.ptr28 = getelementptr inbounds i8, ptr %3, i64 %.sroa.0.0.idx27
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx27, 16
-  %.val = load ptr, ptr %.sroa.0.0.ptr28, align 8, !nonnull !4, !align !5, !noundef !4
-  %10 = getelementptr i8, ptr %.sroa.0.0.ptr28, i64 8
-  %.val17 = load i64, ptr %10, align 8, !noundef !4
-  %11 = tail call noundef double @_ZN6strsim12jaro_winkler17h44058f6bde7a4103E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val17)
-  %12 = fcmp ogt double %11, 8.000000e-01
-  br i1 %12, label %24, label %20
+7:                                                ; preds = %4, %18
+  %.sroa.0.030 = phi double [ undef, %4 ], [ %.sroa.0.1, %18 ]
+  %.sroa.5.029 = phi ptr [ null, %4 ], [ %.sroa.5.1, %18 ]
+  %.sroa.9.028 = phi i64 [ undef, %4 ], [ %.sroa.9.1, %18 ]
+  %.sroa.021.0.idx27 = phi i64 [ 0, %4 ], [ %.sroa.021.0.add, %18 ]
+  %.sroa.021.0.ptr31 = getelementptr inbounds i8, ptr %3, i64 %.sroa.021.0.idx27
+  %.sroa.021.0.add = add nuw nsw i64 %.sroa.021.0.idx27, 16
+  %.val = load ptr, ptr %.sroa.021.0.ptr31, align 8, !nonnull !4, !align !5, !noundef !4
+  %8 = getelementptr i8, ptr %.sroa.021.0.ptr31, i64 8
+  %.val18 = load i64, ptr %8, align 8, !noundef !4
+  %9 = tail call noundef double @_ZN6strsim12jaro_winkler17h44058f6bde7a4103E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val18)
+  %10 = fcmp ogt double %9, 8.000000e-01
+  br i1 %10, label %20, label %18
 
-13:                                               ; preds = %5
-  %14 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0b013f2ee7467a7eE"(i64 noundef %.val1930, i1 noundef zeroext false), !noalias !6
-  %15 = extractvalue { i64, ptr } %14, 0
-  %16 = extractvalue { i64, ptr } %14, 1
-  %17 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %22, i64 %.val1930, i1 false)
-  store double %21, ptr %0, align 8
+11:                                               ; preds = %5
+  %12 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0b013f2ee7467a7eE"(i64 noundef %.sroa.9.1, i1 noundef zeroext false), !noalias !6
+  %13 = extractvalue { i64, ptr } %12, 0
+  %14 = extractvalue { i64, ptr } %12, 1
+  %15 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %15)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %.sroa.5.1, i64 %.sroa.9.1, i1 false)
+  store double %.sroa.0.1, ptr %0, align 8
   %.sroa.411.sroa.4.0..sroa.411.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %16, ptr %.sroa.411.sroa.4.0..sroa.411.0..sroa_idx.sroa_idx, align 8
+  store ptr %14, ptr %.sroa.411.sroa.4.0..sroa.411.0..sroa_idx.sroa_idx, align 8
   %.sroa.411.sroa.5.0..sroa.411.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val1930, ptr %.sroa.411.sroa.5.0..sroa.411.0..sroa_idx.sroa_idx, align 8
-  br label %18
+  store i64 %.sroa.9.1, ptr %.sroa.411.sroa.5.0..sroa.411.0..sroa_idx.sroa_idx, align 8
+  br label %16
 
-18:                                               ; preds = %5, %13
-  %.sink = phi i64 [ %15, %13 ], [ -9223372036854775808, %5 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink, ptr %19, align 8
+16:                                               ; preds = %5, %11
+  %.sink = phi i64 [ %13, %11 ], [ -9223372036854775808, %5 ]
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %17, align 8
   ret void
 
-20:                                               ; preds = %24, %26, %7
-  %.val1930 = phi i64 [ %.val1929, %24 ], [ %.val17, %26 ], [ %.val1929, %7 ]
-  %21 = phi double [ %9, %24 ], [ %11, %26 ], [ %9, %7 ]
-  %22 = phi ptr [ %8, %24 ], [ %.val, %26 ], [ %8, %7 ]
-  %23 = icmp eq i64 %.sroa.0.0.add, 80
-  br i1 %23, label %5, label %7
+18:                                               ; preds = %20, %22, %7
+  %.sroa.9.1 = phi i64 [ %.val18, %22 ], [ %.sroa.9.028, %20 ], [ %.sroa.9.028, %7 ]
+  %.sroa.5.1 = phi ptr [ %.val, %22 ], [ %.sroa.5.029, %20 ], [ %.sroa.5.029, %7 ]
+  %.sroa.0.1 = phi double [ %9, %22 ], [ %.sroa.0.030, %20 ], [ %.sroa.0.030, %7 ]
+  %19 = icmp eq i64 %.sroa.021.0.add, 80
+  br i1 %19, label %5, label %7
 
-24:                                               ; preds = %7
-  %.not = icmp eq ptr %8, null
-  %25 = fcmp olt double %9, %11
-  %or.cond = select i1 %.not, i1 true, i1 %25
-  br i1 %or.cond, label %26, label %20
+20:                                               ; preds = %7
+  %.not = icmp eq ptr %.sroa.5.029, null
+  %21 = fcmp olt double %.sroa.0.030, %9
+  %or.cond = select i1 %.not, i1 true, i1 %21
+  br i1 %or.cond, label %22, label %18
 
-26:                                               ; preds = %24
-  br label %20
+22:                                               ; preds = %20
+  br label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

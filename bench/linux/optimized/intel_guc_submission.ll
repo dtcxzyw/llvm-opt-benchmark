@@ -6308,8 +6308,8 @@ define dso_local noundef zeroext i1 @intel_guc_virtual_engine_has_heartbeat(ptr 
 
 10:                                               ; preds = %12, %1
   %11 = phi i32 [ %8, %1 ], [ %18, %12 ]
-  %.not = icmp ne i32 %11, 0
-  br i1 %.not, label %12, label %25
+  %.not.not.not.not.not = icmp ne i32 %11, 0
+  br i1 %.not.not.not.not.not, label %12, label %25
 
 12:                                               ; preds = %10
   %13 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #22, !srcloc !31
@@ -6327,7 +6327,7 @@ define dso_local noundef zeroext i1 @intel_guc_virtual_engine_has_heartbeat(ptr 
   br i1 %24, label %10, label %25, !llvm.loop !92
 
 25:                                               ; preds = %10, %12
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: null_pointer_is_valid

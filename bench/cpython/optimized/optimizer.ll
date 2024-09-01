@@ -2029,67 +2029,57 @@ for.body.i:                                       ; preds = %for.body.i.i, %for.
 _Py_BloomFilter_Add.exit:                         ; preds = %for.body.i
   %executor_list_head = getelementptr inbounds i8, ptr %interp, i64 414928
   %2 = load ptr, ptr %executor_list_head, align 8
-  %cmp.not11 = icmp eq ptr %2, null
-  br i1 %cmp.not11, label %for.end, label %for.body.lr.ph
+  %cmp.not7 = icmp eq ptr %2, null
+  br i1 %cmp.not7, label %for.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %_Py_BloomFilter_Add.exit
-  %3 = load i32, ptr %obj_filter, align 4
-  br label %for.body
+for.body:                                         ; preds = %_Py_BloomFilter_Add.exit, %if.end
+  %exec.08 = phi ptr [ %3, %if.end ], [ %2, %_Py_BloomFilter_Add.exit ]
+  %links = getelementptr inbounds i8, ptr %exec.08, i64 72
+  %3 = load ptr, ptr %links, align 8
+  %bloom = getelementptr inbounds i8, ptr %exec.08, i64 36
+  br label %for.body.i5
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %exec.012 = phi ptr [ %2, %for.body.lr.ph ], [ %4, %if.end ]
-  %links = getelementptr inbounds i8, ptr %exec.012, i64 72
-  %4 = load ptr, ptr %links, align 8
-  %bloom = getelementptr inbounds i8, ptr %exec.012, i64 36
-  %5 = load i32, ptr %bloom, align 4
-  %and.i7 = and i32 %3, %5
-  %cmp7.not.i8 = icmp eq i32 %and.i7, %3
-  br i1 %cmp7.not.i8, label %for.cond.i, label %if.end
-
-for.cond.i:                                       ; preds = %for.body, %for.body.i5
-  %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i, %for.body.i5 ], [ 0, %for.body ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %if.then, label %for.body.i5, !llvm.loop !13
-
-for.body.i5:                                      ; preds = %for.cond.i
-  %arrayidx.i6 = getelementptr [8 x i32], ptr %bloom, i64 0, i64 %indvars.iv.next.i
-  %6 = load i32, ptr %arrayidx.i6, align 4
-  %arrayidx3.i = getelementptr [8 x i32], ptr %obj_filter, i64 0, i64 %indvars.iv.next.i
-  %7 = load i32, ptr %arrayidx3.i, align 4
-  %and.i = and i32 %7, %6
-  %cmp7.not.i = icmp eq i32 %and.i, %7
-  br i1 %cmp7.not.i, label %for.cond.i, label %bloom_filter_may_contain.exit, !llvm.loop !13
+for.body.i5:                                      ; preds = %for.body.i5, %for.body
+  %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i5 ]
+  %arrayidx.i6 = getelementptr [8 x i32], ptr %bloom, i64 0, i64 %indvars.iv.i
+  %4 = load i32, ptr %arrayidx.i6, align 4
+  %arrayidx3.i = getelementptr [8 x i32], ptr %obj_filter, i64 0, i64 %indvars.iv.i
+  %5 = load i32, ptr %arrayidx3.i, align 4
+  %and.i = and i32 %5, %4
+  %cmp7.not.i = icmp eq i32 %and.i, %5
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp ne i64 %indvars.iv.next.i, 8
+  %or.cond.not.i = select i1 %cmp7.not.i, i1 %exitcond.i, i1 false
+  br i1 %or.cond.not.i, label %for.body.i5, label %bloom_filter_may_contain.exit, !llvm.loop !13
 
 bloom_filter_may_contain.exit:                    ; preds = %for.body.i5
-  %cmp.i.le = icmp ugt i64 %indvars.iv.i9, 6
-  br i1 %cmp.i.le, label %if.then, label %if.end
+  br i1 %cmp7.not.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %for.cond.i, %bloom_filter_may_contain.exit
-  %valid = getelementptr inbounds i8, ptr %exec.012, i64 34
+if.then:                                          ; preds = %bloom_filter_may_contain.exit
+  %valid = getelementptr inbounds i8, ptr %exec.08, i64 34
   store i8 0, ptr %valid, align 2
-  %linked.i = getelementptr inbounds i8, ptr %exec.012, i64 35
-  %8 = load i8, ptr %linked.i, align 1
-  %tobool.not.i = icmp eq i8 %8, 0
+  %linked.i = getelementptr inbounds i8, ptr %exec.08, i64 35
+  %6 = load i8, ptr %linked.i, align 1
+  %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %previous.i = getelementptr inbounds i8, ptr %exec.012, i64 80
-  %9 = load ptr, ptr %previous.i, align 8
-  %cmp.not.i = icmp eq ptr %4, null
+  %previous.i = getelementptr inbounds i8, ptr %exec.08, i64 80
+  %7 = load ptr, ptr %previous.i, align 8
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.end8.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %previous7.i = getelementptr inbounds i8, ptr %4, i64 80
-  store ptr %9, ptr %previous7.i, align 8
+  %previous7.i = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %7, ptr %previous7.i, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.end.i
-  %cmp9.not.i = icmp eq ptr %9, null
+  %cmp9.not.i = icmp eq ptr %7, null
   br i1 %cmp9.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %links12.i = getelementptr inbounds i8, ptr %9, i64 72
+  %links12.i = getelementptr inbounds i8, ptr %7, i64 72
   br label %if.end14.i
 
 if.else.i:                                        ; preds = %if.end8.i
@@ -2099,12 +2089,12 @@ if.else.i:                                        ; preds = %if.end8.i
 
 if.end14.i:                                       ; preds = %if.else.i, %if.then10.i
   %executor_list_head.sink.i = phi ptr [ %executor_list_head.i, %if.else.i ], [ %links12.i, %if.then10.i ]
-  store ptr %4, ptr %executor_list_head.sink.i, align 8
+  store ptr %3, ptr %executor_list_head.sink.i, align 8
   store i8 0, ptr %linked.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %for.body, %if.end14.i, %if.then, %bloom_filter_may_contain.exit
-  %cmp.not = icmp eq ptr %4, null
+if.end:                                           ; preds = %if.end14.i, %if.then, %bloom_filter_may_contain.exit
+  %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end, %_Py_BloomFilter_Add.exit

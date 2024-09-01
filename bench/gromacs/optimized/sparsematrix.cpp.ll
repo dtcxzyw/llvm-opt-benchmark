@@ -279,81 +279,80 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %15, align 4
   %22 = sext i32 %21 to i64
-  %23 = icmp sge i64 %indvars.iv.next, %22
-  %.not43 = or i1 %23, %19
-  br i1 %.not43, label %.loopexit, label %16, !llvm.loop !13
+  %.not = icmp slt i64 %indvars.iv.next, %22
+  br i1 %.not, label %16, label %.loopexit, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16
-  %24 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
-  %25 = load float, ptr %24, align 4
-  %26 = fadd float %3, %25
-  store float %26, ptr %24, align 4
-  br label %69
+  %23 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
+  %24 = load float, ptr %23, align 4
+  %25 = fadd float %3, %24
+  store float %25, ptr %23, align 4
+  br label %68
 
 .loopexit:                                        ; preds = %20, %4
   %.lcssa.ph = phi i32 [ %9, %4 ], [ %21, %20 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %6
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %.lcssa.ph, %30
-  br i1 %31, label %32, label %47
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i32, ptr %27, i64 %6
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %.lcssa.ph, %29
+  br i1 %30, label %31, label %46
 
-32:                                               ; preds = %.loopexit
-  %33 = add nsw i32 %.lcssa.ph, 100
-  store i32 %33, ptr %29, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %6
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  %39 = load ptr, ptr %27, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %6
-  %41 = load i32, ptr %40, align 4
-  %42 = sext i32 %41 to i64
-  br i1 %38, label %43, label %45
+31:                                               ; preds = %.loopexit
+  %32 = add nsw i32 %.lcssa.ph, 100
+  store i32 %32, ptr %28, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 %6
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  %38 = load ptr, ptr %26, align 8
+  %39 = getelementptr inbounds i32, ptr %38, i64 %6
+  %40 = load i32, ptr %39, align 4
+  %41 = sext i32 %40 to i64
+  br i1 %37, label %42, label %44
 
-43:                                               ; preds = %32
-  %44 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %42, i64 noundef 8)
+42:                                               ; preds = %31
+  %43 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %41, i64 noundef 8)
   br label %.sink.split
 
-45:                                               ; preds = %32
-  %46 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull %37, i64 noundef %42, i64 noundef 8)
+44:                                               ; preds = %31
+  %45 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull %36, i64 noundef %41, i64 noundef 8)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %45, %43
-  %.sink = phi ptr [ %44, %43 ], [ %46, %45 ]
-  store ptr %.sink, ptr %36, align 8
-  br label %47
+.sink.split:                                      ; preds = %44, %42
+  %.sink = phi ptr [ %43, %42 ], [ %45, %44 ]
+  store ptr %.sink, ptr %35, align 8
+  br label %46
 
-47:                                               ; preds = %.sink.split, %.loopexit
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %6
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i32, ptr %52, i64 %6
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %51, i64 %55
-  store i32 %2, ptr %56, align 4
-  %57 = load ptr, ptr %48, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %6
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %6
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %59, i64 %63, i32 1
-  store float %3, ptr %64, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i32, ptr %65, i64 %6
-  %67 = load i32, ptr %66, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %66, align 4
-  br label %69
+46:                                               ; preds = %.sink.split, %.loopexit
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %6
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds i32, ptr %51, i64 %6
+  %53 = load i32, ptr %52, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %50, i64 %54
+  store i32 %2, ptr %55, align 4
+  %56 = load ptr, ptr %47, align 8
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %6
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds i32, ptr %59, i64 %6
+  %61 = load i32, ptr %60, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %58, i64 %62, i32 1
+  store float %3, ptr %63, align 4
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds i32, ptr %64, i64 %6
+  %66 = load i32, ptr %65, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %65, align 4
+  br label %68
 
-69:                                               ; preds = %._crit_edge, %47
+68:                                               ; preds = %._crit_edge, %46
   ret void
 }
 

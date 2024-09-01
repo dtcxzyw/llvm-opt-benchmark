@@ -11049,17 +11049,9 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %if.then.i.i.i, %if.
   %cmp.i.i.i.i.i40 = icmp eq i16 %bf.clear.i.i.i.i38, 1023
   %cond.i.i.i.i.i41 = select i1 %cmp.i.i.i.i.i40, i32 -1, i32 %bf.cast.i.i.i.i39
   %call2.i.i.i4245 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i41)
-          to label %cleanup.action unwind label %lpad
+          to label %cond.end.thread unwind label %lpad
 
-cond.end:                                         ; preds = %if.then.i31, %lor.rhs.i24
-  %__i.sroa.0.0.i29 = phi ptr [ %call12.i33, %if.then.i31 ], [ %__y.addr.1.i.i.i.i18, %lor.rhs.i24 ]
-  %second.i30 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i29, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i4)
-  %18 = load i32, ptr %second.i30, align 4
-  br label %cleanup.done
-
-cleanup.action:                                   ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
+cond.end.thread:                                  ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %cmp.i.i43 = icmp eq i32 %call2.i.i.i4245, 2
   %d_nchildren.i.i = getelementptr inbounds i8, ptr %16, i64 12
   %bf.load.i.i44 = load i32, ptr %d_nchildren.i.i, align 4
@@ -11067,11 +11059,19 @@ cleanup.action:                                   ; preds = %_ZNK4cvc58internal1
   %sub.i.i = sext i1 %cmp.i.i43 to i32
   %cond.i.i = add nsw i32 %bf.clear.i.i, %sub.i.i
   %bf.load.i.i46 = load i64, ptr %16, align 8
-  %19 = and i64 %bf.load.i.i46, 1152920405095219200
-  %cmp.not.i.i47 = icmp eq i64 %19, 1152920405095219200
+  %18 = and i64 %bf.load.i.i46, 1152920405095219200
+  %cmp.not.i.i47 = icmp eq i64 %18, 1152920405095219200
   br i1 %cmp.not.i.i47, label %cleanup.done, label %if.then.i.i48
 
-if.then.i.i48:                                    ; preds = %cleanup.action
+cond.end:                                         ; preds = %if.then.i31, %lor.rhs.i24
+  %__i.sroa.0.0.i29 = phi ptr [ %call12.i33, %if.then.i31 ], [ %__y.addr.1.i.i.i.i18, %lor.rhs.i24 ]
+  %second.i30 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i29, i64 40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i3)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i4)
+  %19 = load i32, ptr %second.i30, align 4
+  br label %cleanup.done
+
+if.then.i.i48:                                    ; preds = %cond.end.thread
   %bf.value.i.i49 = add i64 %bf.load.i.i46, 1152920405095219200
   %bf.shl.i.i50 = and i64 %bf.value.i.i49, 1152920405095219200
   %bf.clear7.i.i51 = and i64 %bf.load.i.i46, -1152920405095219201
@@ -11091,8 +11091,8 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i54
   call void @__clang_call_terminate(ptr %21) #19
   unreachable
 
-cleanup.done:                                     ; preds = %cond.end, %if.then13.i.i54, %if.then.i.i48, %cleanup.action
-  %conv6146 = phi i32 [ %18, %cond.end ], [ %cond.i.i, %cleanup.action ], [ %cond.i.i, %if.then.i.i48 ], [ %cond.i.i, %if.then13.i.i54 ]
+cleanup.done:                                     ; preds = %cond.end, %if.then13.i.i54, %if.then.i.i48, %cond.end.thread
+  %conv6146 = phi i32 [ %19, %cond.end ], [ %cond.i.i, %cond.end.thread ], [ %cond.i.i, %if.then.i.i48 ], [ %cond.i.i, %if.then13.i.i54 ]
   %cmp = icmp eq i32 %num_fv, %conv6146
   br i1 %cmp, label %if.then, label %if.else
 

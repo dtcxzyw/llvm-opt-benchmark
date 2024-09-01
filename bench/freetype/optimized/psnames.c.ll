@@ -39,13 +39,13 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 110
-  br i1 %7, label %8, label %.preheader76
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 105
-  br i1 %11, label %12, label %.preheader76
+  br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 3
@@ -53,10 +53,10 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br label %14
 
 14:                                               ; preds = %12, %23
-  %.05896 = phi i32 [ 4, %12 ], [ %26, %23 ]
-  %.05995 = phi ptr [ %13, %12 ], [ %27, %23 ]
-  %.06094 = phi i32 [ 0, %12 ], [ %25, %23 ]
-  %15 = load i8, ptr %.05995, align 1
+  %.05895 = phi i32 [ 4, %12 ], [ %26, %23 ]
+  %.05994 = phi ptr [ %13, %12 ], [ %27, %23 ]
+  %.06093 = phi i32 [ 0, %12 ], [ %25, %23 ]
+  %15 = load i8, ptr %.05994, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
   %18 = icmp ugt i32 %17, 9
@@ -66,19 +66,19 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %spec.select70 = select i1 %20, i32 16, i32 %21
   %.057 = select i1 %18, i32 %spec.select70, i32 %17
   %22 = icmp ugt i32 %.057, 15
-  br i1 %22, label %.preheader76, label %23
+  br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %14
-  %24 = shl i32 %.06094, 4
+  %24 = shl i32 %.06093, 4
   %25 = or disjoint i32 %.057, %24
-  %26 = add nsw i32 %.05896, -1
-  %27 = getelementptr inbounds i8, ptr %.05995, i64 1
-  %28 = icmp ugt i32 %.05896, 1
+  %26 = add nsw i32 %.05895, -1
+  %27 = getelementptr inbounds i8, ptr %.05994, i64 1
+  %28 = icmp ugt i32 %.05895, 1
   br i1 %28, label %14, label %29, !llvm.loop !4
 
 29:                                               ; preds = %23
   %30 = load i8, ptr %scevgep, align 1
-  switch i8 %30, label %.preheader76 [
+  switch i8 %30, label %.thread [
     i8 0, label %118
     i8 46, label %31
   ]
@@ -87,15 +87,15 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %32 = or i32 %25, -2147483648
   br label %118
 
-.preheader76:                                     ; preds = %14, %4, %8, %29
-  %scevgep122 = getelementptr i8, ptr %0, i64 7
+.thread:                                          ; preds = %14, %29, %8, %4
+  %scevgep121 = getelementptr i8, ptr %0, i64 7
   br label %33
 
-33:                                               ; preds = %.preheader76, %42
-  %.054100 = phi ptr [ %5, %.preheader76 ], [ %.054, %42 ]
-  %.05599 = phi i32 [ 0, %.preheader76 ], [ %44, %42 ]
-  %.05698 = phi i32 [ 6, %.preheader76 ], [ %45, %42 ]
-  %34 = load i8, ptr %.054100, align 1
+33:                                               ; preds = %.thread, %42
+  %.05499 = phi ptr [ %5, %.thread ], [ %.054, %42 ]
+  %.05598 = phi i32 [ 0, %.thread ], [ %44, %42 ]
+  %.05697 = phi i32 [ 6, %.thread ], [ %45, %42 ]
+  %34 = load i8, ptr %.05499, align 1
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
@@ -108,31 +108,31 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %33
-  %43 = shl i32 %.05599, 4
+  %43 = shl i32 %.05598, 4
   %44 = or disjoint i32 %.052, %43
-  %45 = add nsw i32 %.05698, -1
-  %.054 = getelementptr inbounds i8, ptr %.054100, i64 1
-  %46 = icmp ugt i32 %.05698, 1
+  %45 = add nsw i32 %.05697, -1
+  %.054 = getelementptr inbounds i8, ptr %.05499, i64 1
+  %46 = icmp ugt i32 %.05697, 1
   br i1 %46, label %33, label %.thread73, !llvm.loop !6
 
 47:                                               ; preds = %33
-  %48 = icmp ult i32 %.05698, 3
+  %48 = icmp ult i32 %.05697, 3
   br i1 %48, label %.thread73, label %.thread72.preheader
 
 .thread72.preheader:                              ; preds = %1, %.thread73, %47
   br label %.thread72
 
 .thread73:                                        ; preds = %42, %47
-  %.05589 = phi i32 [ %.05599, %47 ], [ %44, %42 ]
-  %.05487 = phi ptr [ %.054100, %47 ], [ %scevgep122, %42 ]
-  %49 = load i8, ptr %.05487, align 1
+  %.05588 = phi i32 [ %.05598, %47 ], [ %44, %42 ]
+  %.05486 = phi ptr [ %.05499, %47 ], [ %scevgep121, %42 ]
+  %49 = load i8, ptr %.05486, align 1
   switch i8 %49, label %.thread72.preheader [
     i8 0, label %118
     i8 46, label %50
   ]
 
 50:                                               ; preds = %.thread73
-  %51 = or i32 %.05589, -2147483648
+  %51 = or i32 %.05588, -2147483648
   br label %118
 
 .thread72:                                        ; preds = %.thread72.preheader, %53
@@ -283,7 +283,7 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %70, %94, %97, %112,
   br label %118
 
 118:                                              ; preds = %ft_get_adobe_glyph_index.exit, %.critedge, %.thread73, %29, %50, %31
-  %.053 = phi i32 [ %32, %31 ], [ %51, %50 ], [ %25, %29 ], [ %.05589, %.thread73 ], [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ]
+  %.053 = phi i32 [ %32, %31 ], [ %51, %50 ], [ %25, %29 ], [ %.05588, %.thread73 ], [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ]
   ret i32 %.053
 }
 

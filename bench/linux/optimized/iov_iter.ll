@@ -5850,7 +5850,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
 .thread:                                          ; preds = %27, %12, %40
   %43 = phi i32 [ %41, %40 ], [ -14, %12 ], [ -14, %27 ]
   %44 = sext i32 %43 to i64
-  br label %169
+  br label %168
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %10, align 8
@@ -5862,7 +5862,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
   %52 = icmp sgt i64 %51, -1
   %53 = icmp uge i64 %51, %50
   %54 = and i1 %52, %53
-  br i1 %54, label %55, label %169, !prof !11
+  br i1 %54, label %55, label %168, !prof !11
 
 55:                                               ; preds = %45
   %56 = icmp ult i32 %0, 2
@@ -5894,7 +5894,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
   store i64 1, ptr %67, align 8
   store ptr null, ptr %4, align 8
   %68 = load i64, ptr %66, align 8
-  br label %169
+  br label %168
 
 69:                                               ; preds = %7
   %70 = zext i32 %2 to i64
@@ -5992,103 +5992,100 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
 iovec_from_user.exit:                             ; preds = %112, %118
   %121 = phi ptr [ %120, %118 ], [ %82, %112 ]
   %122 = icmp ugt ptr %121, inttoptr (i64 -4096 to ptr)
-  br i1 %122, label %iovec_from_user.exit.thread, label %124
+  br i1 %122, label %iovec_from_user.exit.thread, label %.preheader
 
 iovec_from_user.exit.thread12:                    ; preds = %69
   %123 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
   br i1 %123, label %iovec_from_user.exit.thread, label %.loopexit
 
-124:                                              ; preds = %iovec_from_user.exit
-  br i1 %72, label %.loopexit, label %.preheader
-
 iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exit.thread12, %77, %73, %iovec_from_user.exit
-  %125 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread12 ]
+  %124 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread12 ]
   store ptr null, ptr %4, align 8
-  %126 = ptrtoint ptr %125 to i64
-  br label %169
+  %125 = ptrtoint ptr %124 to i64
+  br label %168
 
-127:                                              ; preds = %147, %150
-  %128 = phi i64 [ %148, %150 ], [ %136, %147 ]
-  %129 = add i64 %128, %133
-  %130 = add nuw nsw i64 %132, 1
-  %131 = icmp eq i64 %130, %70
-  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !122
+126:                                              ; preds = %146, %149
+  %127 = phi i64 [ %147, %149 ], [ %135, %146 ]
+  %128 = add i64 %127, %132
+  %129 = add nuw nsw i64 %131, 1
+  %130 = icmp eq i64 %129, %70
+  br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !122
 
-.preheader:                                       ; preds = %124, %127
-  %132 = phi i64 [ %130, %127 ], [ 0, %124 ]
-  %133 = phi i64 [ %129, %127 ], [ 0, %124 ]
-  %134 = getelementptr %struct.iovec, ptr %121, i64 %132
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
-  %136 = load i64, ptr %135, align 8
-  %137 = load ptr, ptr %134, align 8
-  %138 = ptrtoint ptr %137 to i64
-  %139 = add i64 %136, %138
-  %140 = icmp sgt i64 %139, -1
-  %141 = icmp uge i64 %139, %138
-  %142 = and i1 %140, %141
-  br i1 %142, label %147, label %143, !prof !11
+.preheader:                                       ; preds = %iovec_from_user.exit, %126
+  %131 = phi i64 [ %129, %126 ], [ 0, %iovec_from_user.exit ]
+  %132 = phi i64 [ %128, %126 ], [ 0, %iovec_from_user.exit ]
+  %133 = getelementptr %struct.iovec, ptr %121, i64 %131
+  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = load i64, ptr %134, align 8
+  %136 = load ptr, ptr %133, align 8
+  %137 = ptrtoint ptr %136 to i64
+  %138 = add i64 %135, %137
+  %139 = icmp sgt i64 %138, -1
+  %140 = icmp uge i64 %138, %137
+  %141 = and i1 %139, %140
+  br i1 %141, label %146, label %142, !prof !11
 
-143:                                              ; preds = %.preheader
-  %144 = load ptr, ptr %4, align 8
-  %145 = icmp eq ptr %121, %144
-  br i1 %145, label %151, label %146
+142:                                              ; preds = %.preheader
+  %143 = load ptr, ptr %4, align 8
+  %144 = icmp eq ptr %121, %143
+  br i1 %144, label %150, label %145
 
-146:                                              ; preds = %143
+145:                                              ; preds = %142
   tail call void @kfree(ptr noundef %121) #15
-  br label %151
+  br label %150
 
-147:                                              ; preds = %.preheader
-  %148 = sub i64 2147479552, %133
-  %149 = icmp ugt i64 %136, %148
-  br i1 %149, label %150, label %127
+146:                                              ; preds = %.preheader
+  %147 = sub i64 2147479552, %132
+  %148 = icmp ugt i64 %135, %147
+  br i1 %148, label %149, label %126
 
-150:                                              ; preds = %147
-  store i64 %148, ptr %135, align 8
-  br label %127
+149:                                              ; preds = %146
+  store i64 %147, ptr %134, align 8
+  br label %126
 
-151:                                              ; preds = %143, %146
+150:                                              ; preds = %142, %145
   store ptr null, ptr %4, align 8
-  br label %169
+  br label %168
 
-.loopexit:                                        ; preds = %127, %iovec_from_user.exit.thread12, %124
-  %152 = phi ptr [ %121, %124 ], [ %71, %iovec_from_user.exit.thread12 ], [ %121, %127 ]
-  %153 = phi i64 [ 0, %124 ], [ 0, %iovec_from_user.exit.thread12 ], [ %129, %127 ]
-  %154 = icmp ult i32 %0, 2
-  br i1 %154, label %156, label %155, !prof !11
+.loopexit:                                        ; preds = %126, %iovec_from_user.exit.thread12
+  %151 = phi ptr [ %71, %iovec_from_user.exit.thread12 ], [ %121, %126 ]
+  %152 = phi i64 [ 0, %iovec_from_user.exit.thread12 ], [ %128, %126 ]
+  %153 = icmp ult i32 %0, 2
+  br i1 %153, label %155, label %154, !prof !11
 
-155:                                              ; preds = %.loopexit
+154:                                              ; preds = %.loopexit
   tail call void asm sideeffect "409: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 409b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 409) #15, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 166, i32 2305, i64 12) #15, !srcloc !13
   tail call void asm sideeffect "410: nop\0A\09.pushsection .discard.instr_end\0A\09.long 410b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 410) #15, !srcloc !14
-  br label %156
+  br label %155
 
-156:                                              ; preds = %155, %.loopexit
-  %157 = icmp ne i32 %0, 0
-  %158 = zext i1 %157 to i8
+155:                                              ; preds = %154, %.loopexit
+  %156 = icmp ne i32 %0, 0
+  %157 = zext i1 %156 to i8
   store i8 1, ptr %5, align 8
-  %159 = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 0, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %5, i64 2
-  store i8 0, ptr %160, align 2
-  %161 = getelementptr inbounds i8, ptr %5, i64 3
-  store i8 %158, ptr %161, align 1
-  %162 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %152, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %153, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 %70, ptr %165, align 8
-  %166 = load ptr, ptr %4, align 8
-  %167 = icmp eq ptr %152, %166
-  %168 = select i1 %167, ptr null, ptr %152
-  store ptr %168, ptr %4, align 8
-  br label %169
+  %158 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %158, align 1
+  %159 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %159, align 2
+  %160 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 %157, ptr %160, align 1
+  %161 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %151, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %152, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 %70, ptr %164, align 8
+  %165 = load ptr, ptr %4, align 8
+  %166 = icmp eq ptr %151, %165
+  %167 = select i1 %166, ptr null, ptr %151
+  store ptr %167, ptr %4, align 8
+  br label %168
 
-169:                                              ; preds = %151, %45, %156, %iovec_from_user.exit.thread, %58, %.thread
-  %170 = phi i64 [ %126, %iovec_from_user.exit.thread ], [ %153, %156 ], [ %44, %.thread ], [ %68, %58 ], [ -14, %151 ], [ -14, %45 ]
-  ret i64 %170
+168:                                              ; preds = %150, %45, %155, %iovec_from_user.exit.thread, %58, %.thread
+  %169 = phi i64 [ %125, %iovec_from_user.exit.thread ], [ %152, %155 ], [ %44, %.thread ], [ %68, %58 ], [ -14, %150 ], [ -14, %45 ]
+  ret i64 %169
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

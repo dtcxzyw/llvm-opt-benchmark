@@ -1364,25 +1364,25 @@ RSTRING_PTR.exit1258:                             ; preds = %536, %542
   %553 = call i32 @llvm.smax.i32(i32 %550, i32 0)
   %554 = add nuw i32 %512, %553
   %555 = sext i32 %554 to i64
-  br i1 %.not1132, label %.preheader5405, label %.preheader5406
+  br i1 %.not1132, label %.preheader5403, label %.preheader5404
 
-.preheader5406:                                   ; preds = %548, %557
+.preheader5404:                                   ; preds = %548, %557
   %.5893 = phi i64 [ %558, %557 ], [ %.1889, %548 ]
   %556 = sub i64 %.5893, %84
   %.not1134 = icmp sgt i64 %556, %555
   br i1 %.not1134, label %562, label %557
 
-557:                                              ; preds = %.preheader5406
+557:                                              ; preds = %.preheader5404
   %558 = shl i64 %.5893, 1
   %559 = icmp slt i64 %558, 0
-  br i1 %559, label %560, label %.preheader5406, !llvm.loop !20
+  br i1 %559, label %560, label %.preheader5404, !llvm.loop !20
 
 560:                                              ; preds = %557
   %561 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %561, ptr noundef nonnull @.str.2) #17
   unreachable
 
-562:                                              ; preds = %.preheader5406
+562:                                              ; preds = %.preheader5404
   %563 = icmp sgt i32 %550, 0
   %564 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %.5893) #18
   %565 = load i64, ptr %38, align 8
@@ -1414,23 +1414,23 @@ RSTRING_PTR.exit1262:                             ; preds = %562, %569
   %579 = add i64 %575, %578
   br label %rbimpl_rstring_getmem.exit
 
-.preheader5405:                                   ; preds = %548, %581
+.preheader5403:                                   ; preds = %548, %581
   %.6894 = phi i64 [ %582, %581 ], [ %.1889, %548 ]
   %580 = sub i64 %.6894, %84
   %.not1133 = icmp sgt i64 %580, %555
   br i1 %.not1133, label %586, label %581
 
-581:                                              ; preds = %.preheader5405
+581:                                              ; preds = %.preheader5403
   %582 = shl i64 %.6894, 1
   %583 = icmp slt i64 %582, 0
-  br i1 %583, label %584, label %.preheader5405, !llvm.loop !21
+  br i1 %583, label %584, label %.preheader5403, !llvm.loop !21
 
 584:                                              ; preds = %581
   %585 = load i64, ptr @rb_eArgError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %585, ptr noundef nonnull @.str.2) #17
   unreachable
 
-586:                                              ; preds = %.preheader5405
+586:                                              ; preds = %.preheader5403
   %587 = icmp sgt i32 %550, 0
   %588 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %.6894) #18
   %589 = load i64, ptr %38, align 8
@@ -2047,8 +2047,8 @@ rb_float_value_inline.exit1319:                   ; preds = %834, %835, %841
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %rb_type.exit.thread, %864, %rb_float_value_inline.exit1319
-  %.sink5403 = phi i64 [ %847, %rb_float_value_inline.exit1319 ], [ %865, %864 ], [ %867, %rb_type.exit.thread ]
-  store volatile i64 %.sink5403, ptr %12, align 8
+  %.sink5401 = phi i64 [ %847, %rb_float_value_inline.exit1319 ], [ %865, %864 ], [ %867, %rb_type.exit.thread ]
+  store volatile i64 %.sink5401, ptr %12, align 8
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.sink.split, %rb_float_value_inline.exit1323
@@ -3564,7 +3564,7 @@ rb_float_value_inline.exit1431.thread:            ; preds = %1423, %rb_float_val
 
 1491:                                             ; preds = %1485
   %1492 = icmp slt i32 %.0, 0
-  br i1 %1492, label %1493, label %.preheader6581
+  br i1 %1492, label %1493, label %.preheader6579
 
 1493:                                             ; preds = %1491
   %1494 = urem i64 %1486, 10
@@ -3572,16 +3572,16 @@ rb_float_value_inline.exit1431.thread:            ; preds = %1423, %rb_float_val
   %1496 = or disjoint i8 %1495, 48
   store i8 %1496, ptr %49, align 1
   %1497 = udiv i64 %1486, 10
-  br label %.preheader6581
+  br label %.preheader6579
 
-.preheader6581:                                   ; preds = %1493, %1491
+.preheader6579:                                   ; preds = %1493, %1491
   %.129.i.i.i.ph = phi ptr [ %48, %1491 ], [ %49, %1493 ]
   %.1.i.i.i.ph = phi i64 [ %1486, %1491 ], [ %1497, %1493 ]
   br label %1498
 
-1498:                                             ; preds = %.preheader6581, %1498
-  %.129.i.i.i = phi ptr [ %1502, %1498 ], [ %.129.i.i.i.ph, %.preheader6581 ]
-  %.1.i.i.i = phi i64 [ %1503, %1498 ], [ %.1.i.i.i.ph, %.preheader6581 ]
+1498:                                             ; preds = %.preheader6579, %1498
+  %.129.i.i.i = phi ptr [ %1502, %1498 ], [ %.129.i.i.i.ph, %.preheader6579 ]
+  %.1.i.i.i = phi i64 [ %1503, %1498 ], [ %.1.i.i.i.ph, %.preheader6579 ]
   %1499 = urem i64 %.1.i.i.i, 10
   %1500 = trunc nuw nsw i64 %1499 to i8
   %1501 = or disjoint i8 %1500, 48
@@ -3617,7 +3617,7 @@ ruby_ultoa.exit.i:                                ; preds = %1498, %1488
 
 1514:                                             ; preds = %1507
   %1515 = icmp slt i32 %.0918, 0
-  br i1 %1515, label %1516, label %.preheader6580
+  br i1 %1515, label %1516, label %.preheader6578
 
 1516:                                             ; preds = %1514
   %1517 = urem i64 %1508, 10
@@ -3626,16 +3626,16 @@ ruby_ultoa.exit.i:                                ; preds = %1498, %1488
   %1520 = getelementptr i8, ptr %.0.i1437, i64 -1
   store i8 %1519, ptr %1520, align 1
   %1521 = udiv i64 %1508, 10
-  br label %.preheader6580
+  br label %.preheader6578
 
-.preheader6580:                                   ; preds = %1516, %1514
+.preheader6578:                                   ; preds = %1516, %1514
   %.129.i.i31.i.ph = phi ptr [ %.0.i1437, %1514 ], [ %1520, %1516 ]
   %.1.i.i32.i.ph = phi i64 [ %1508, %1514 ], [ %1521, %1516 ]
   br label %1522
 
-1522:                                             ; preds = %.preheader6580, %1522
-  %.129.i.i31.i = phi ptr [ %1526, %1522 ], [ %.129.i.i31.i.ph, %.preheader6580 ]
-  %.1.i.i32.i = phi i64 [ %1527, %1522 ], [ %.1.i.i32.i.ph, %.preheader6580 ]
+1522:                                             ; preds = %.preheader6578, %1522
+  %.129.i.i31.i = phi ptr [ %1526, %1522 ], [ %.129.i.i31.i.ph, %.preheader6578 ]
+  %.1.i.i32.i = phi i64 [ %1527, %1522 ], [ %.1.i.i32.i.ph, %.preheader6578 ]
   %1523 = urem i64 %.1.i.i32.i, 10
   %1524 = trunc nuw nsw i64 %1523 to i8
   %1525 = or disjoint i8 %1524, 48

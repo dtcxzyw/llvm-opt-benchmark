@@ -437,8 +437,8 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %117 = getelementptr inbounds i8, ptr %104, i64 8
   store ptr %116, ptr %117, align 8
   %118 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E"(ptr nonnull align 8 %104)
-  %.not607 = icmp eq ptr %118, null
-  br i1 %.not607, label %.critedge, label %.lr.ph500
+  %.not529 = icmp eq ptr %118, null
+  br i1 %.not529, label %.critedge, label %.lr.ph500
 
 .lr.ph500:                                        ; preds = %111
   %119 = getelementptr inbounds i8, ptr %103, i64 8
@@ -622,7 +622,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
 ._crit_edge:                                      ; preds = %.backedge, %259
   %269 = getelementptr inbounds i8, ptr %260, i64 24
   %270 = load i16, ptr %269, align 8, !range !5, !noundef !3
-  switch i16 %270, label %default.unreachable606 [
+  switch i16 %270, label %default.unreachable575 [
     i16 0, label %279
     i16 1, label %284
     i16 2, label %286
@@ -639,7 +639,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %277 = icmp ult i64 %274, %276
   br i1 %277, label %530, label %535, !prof !6
 
-default.unreachable606:                           ; preds = %._crit_edge
+default.unreachable575:                           ; preds = %._crit_edge
   unreachable
 
 278:                                              ; preds = %514, %499
@@ -844,8 +844,8 @@ default.unreachable606:                           ; preds = %._crit_edge
 
 .backedge424:                                     ; preds = %351, %395, %447, %488, %518, %521, %527
   %353 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E"(ptr nonnull align 8 %104)
-  %.not608 = icmp eq ptr %353, null
-  br i1 %.not608, label %.critedge, label %259
+  %.not530 = icmp eq ptr %353, null
+  br i1 %.not530, label %.critedge, label %259
 
 354:                                              ; preds = %350, %346, %345, %341, %337, %333, %315, %319, %323, %327
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %74)
@@ -1691,8 +1691,8 @@ default.unreachable606:                           ; preds = %._crit_edge
   %622 = trunc nuw i8 %.6254.ph to i1
   %623 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %.not319 = icmp ne i64 %623, -9223372036854775808
-  %brmerge.not658 = select i1 %.not319, i1 %622, i1 false
-  br i1 %brmerge.not658, label %642, label %.critedge
+  %brmerge.not625 = select i1 %.not319, i1 %622, i1 false
+  br i1 %brmerge.not625, label %642, label %.critedge
 
 .loopexit.thread:                                 ; preds = %610, %615
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %87)

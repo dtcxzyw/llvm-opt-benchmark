@@ -18664,8 +18664,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %idxprom = zext nneg i32 %print_xdigits.1149 to i64
   %arrayidx = getelementptr inbounds [32 x i8], ptr %xdigits, i64 0, i64 %idxprom
   %10 = load i8, ptr %arrayidx, align 1
-  %cmp43.not = icmp ne i8 %10, 48
-  br i1 %cmp43.not, label %while.end, label %while.body
+  %cmp43.not.not = icmp ne i8 %10, 48
+  br i1 %cmp43.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %dec44 = add nsw i32 %print_xdigits.1149, -1
@@ -18674,7 +18674,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %print_xdigits.1.lcssa = phi i32 [ %print_xdigits.0, %while.cond.preheader ], [ 0, %while.body ], [ %print_xdigits.1149, %land.rhs ]
-  %cmp41.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp43.not, %while.body ], [ %cmp43.not, %land.rhs ]
+  %cmp41.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp43.not.not, %while.body ], [ %cmp43.not.not, %land.rhs ]
   %size_.i = getelementptr inbounds i8, ptr %buf, i64 16
   %11 = load i64, ptr %size_.i, align 8
   %add.i = add i64 %11, 1
@@ -34569,8 +34569,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %idxprom = zext nneg i32 %print_xdigits.1143 to i64
   %arrayidx = getelementptr inbounds [16 x i8], ptr %xdigits, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
-  %cmp33.not = icmp ne i8 %7, 48
-  br i1 %cmp33.not, label %while.end, label %while.body
+  %cmp33.not.not = icmp ne i8 %7, 48
+  br i1 %cmp33.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %dec = add nsw i32 %print_xdigits.1143, -1
@@ -34579,7 +34579,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %print_xdigits.1.lcssa = phi i32 [ %print_xdigits.0, %while.cond.preheader ], [ 0, %while.body ], [ %print_xdigits.1143, %land.rhs ]
-  %cmp31.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp33.not, %while.body ], [ %cmp33.not, %land.rhs ]
+  %cmp31.lcssa = phi i1 [ false, %while.cond.preheader ], [ %cmp33.not.not, %while.body ], [ %cmp33.not.not, %land.rhs ]
   %size_.i = getelementptr inbounds i8, ptr %buf, i64 16
   %8 = load i64, ptr %size_.i, align 8
   %add.i = add i64 %8, 1

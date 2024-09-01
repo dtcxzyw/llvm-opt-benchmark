@@ -247,29 +247,21 @@ define hidden noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr nocapture nounde
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = zext i32 %2 to i64
-  %7 = load i32, ptr %5, align 4
-  %.not8 = icmp eq i32 %7, 0
-  br i1 %.not8, label %.lr.ph10, label %._crit_edge
+  %wide.trip.count = zext i32 %2 to i64
+  br label %6
 
-.lr.ph10:                                         ; preds = %.lr.ph, %8
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond, label %._crit_edge.loopexit, label %8, !llvm.loop !6
+6:                                                ; preds = %6, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
+  %7 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4
+  %.not = icmp eq i32 %8, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %6, label %._crit_edge, !llvm.loop !6
 
-8:                                                ; preds = %.lr.ph10
-  %9 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
-  %10 = load i32, ptr %9, align 4
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.lr.ph10, label %._crit_edge.loopexit, !llvm.loop !6
-
-._crit_edge.loopexit:                             ; preds = %8, %.lr.ph10
-  %11 = icmp uge i64 %indvars.iv.next, %6
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %11, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %6, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %.not, %6 ]
   ret i1 %.lcssa
 }
 

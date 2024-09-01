@@ -14507,7 +14507,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit, %6
   %59 = phi ptr [ null, %6 ], [ %56, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
   %.079 = phi i64 [ 0, %6 ], [ %57, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
-  %60 = phi i1 [ %7, %6 ], [ %.not, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
+  %60 = phi i1 [ %7, %6 ], [ false, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
   br i1 %60, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit47
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread
@@ -18710,8 +18710,8 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   br label %27
 
 27:                                               ; preds = %.lr.ph123, %._crit_edge120
-  %28 = phi i32 [ %10, %.lr.ph123 ], [ %259, %._crit_edge120 ]
-  %29 = phi i64 [ %6, %.lr.ph123 ], [ %255, %._crit_edge120 ]
+  %28 = phi i32 [ %10, %.lr.ph123 ], [ %258, %._crit_edge120 ]
+  %29 = phi i64 [ %6, %.lr.ph123 ], [ %254, %._crit_edge120 ]
   %30 = add i64 %29, -1
   store i64 %30, ptr %5, align 8
   %31 = load i64, ptr %11, align 8
@@ -18755,7 +18755,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
 
 .preheader89:                                     ; preds = %._crit_edge
   %.not127 = icmp eq i32 %39, 0
-  br i1 %.not127, label %.preheader88, label %.lr.ph106
+  br i1 %.not127, label %.lr.ph113.preheader, label %.lr.ph106
 
 45:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %46 = phi i32 [ %44, %._crit_edge.thread ], [ %43, %._crit_edge ]
@@ -18768,19 +18768,16 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, %48
   store i32 %54, ptr %52, align 4
-  br label %207
+  br label %206
 
 ..preheader88_crit_edge:                          ; preds = %_ZN5Darts7Details11DawgBuilder11append_unitEv.exit
   %55 = load i64, ptr %15, align 8
   %56 = trunc i64 %55 to i32
   %57 = add i32 %56, -1
-  br label %.preheader88
+  br label %.lr.ph113.preheader
 
-.preheader88:                                     ; preds = %..preheader88_crit_edge, %.preheader89
+.lr.ph113.preheader:                              ; preds = %.preheader89, %..preheader88_crit_edge
   %.030.lcssa = phi i32 [ %57, %..preheader88_crit_edge ], [ 0, %.preheader89 ]
-  br i1 %.not35102, label %._crit_edge114, label %.lr.ph113.preheader
-
-.lr.ph113.preheader:                              ; preds = %.preheader88
   %.pre = load ptr, ptr %0, align 8
   br label %.lr.ph113
 
@@ -18871,8 +18868,8 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i59: ; preds = %.loopexit30.i55
   %.pre.i.i.i.pre = load i64, ptr %16, align 8
   br label %_ZN5Darts7Details8AutoPoolIjE6appendERKj.exit.i.i
 
-common.resume:                                    ; preds = %222, %232, %143, %153, %109, %119, %72, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %73, %72 ], [ %120, %119 ], [ %110, %109 ], [ %154, %153 ], [ %144, %143 ], [ %233, %232 ], [ %223, %222 ]
+common.resume:                                    ; preds = %221, %231, %143, %153, %109, %119, %72, %82
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %73, %72 ], [ %120, %119 ], [ %110, %109 ], [ %154, %153 ], [ %144, %143 ], [ %232, %231 ], [ %222, %221 ]
   resume { ptr, i32 } %common.resume.op
 
 89:                                               ; preds = %82
@@ -19140,150 +19137,149 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %174, %176
   %.not37 = icmp eq i32 %199, 0
   br i1 %.not37, label %._crit_edge114, label %.lr.ph113, !llvm.loop !292
 
-._crit_edge114:                                   ; preds = %_ZNK5Darts7Details8DawgNode4unitEv.exit, %._crit_edge.thread, %.preheader88
-  %.1.lcssa = phi i32 [ %.030.lcssa, %.preheader88 ], [ 0, %._crit_edge.thread ], [ %196, %_ZNK5Darts7Details8DawgNode4unitEv.exit ]
-  %200 = add i32 %.1.lcssa, 1
-  %201 = load i32, ptr %3, align 4
-  %202 = zext i32 %201 to i64
-  %203 = load ptr, ptr %12, align 8
-  %204 = getelementptr inbounds i32, ptr %203, i64 %202
-  store i32 %200, ptr %204, align 4
-  %205 = load i64, ptr %11, align 8
-  %206 = add i64 %205, 1
-  store i64 %206, ptr %11, align 8
-  br label %207
+._crit_edge114:                                   ; preds = %_ZNK5Darts7Details8DawgNode4unitEv.exit, %._crit_edge.thread
+  %.1.lcssa = phi i32 [ 1, %._crit_edge.thread ], [ %.1111, %_ZNK5Darts7Details8DawgNode4unitEv.exit ]
+  %200 = load i32, ptr %3, align 4
+  %201 = zext i32 %200 to i64
+  %202 = load ptr, ptr %12, align 8
+  %203 = getelementptr inbounds i32, ptr %202, i64 %201
+  store i32 %.1.lcssa, ptr %203, align 4
+  %204 = load i64, ptr %11, align 8
+  %205 = add i64 %204, 1
+  store i64 %205, ptr %11, align 8
+  br label %206
 
-207:                                              ; preds = %._crit_edge114, %45
-  %.031 = phi i32 [ %46, %45 ], [ %200, %._crit_edge114 ]
+206:                                              ; preds = %._crit_edge114, %45
+  %.031 = phi i32 [ %46, %45 ], [ %.1.lcssa, %._crit_edge114 ]
   br i1 %.not35102, label %._crit_edge120, label %.lr.ph119
 
-.lr.ph119:                                        ; preds = %207, %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit
-  %.027117 = phi i32 [ %211, %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit ], [ %28, %207 ]
-  %208 = zext i32 %.027117 to i64
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %209, i64 %208, i32 1
-  %211 = load i32, ptr %210, align 4
-  %212 = load i64, ptr %25, align 8
-  %213 = load i64, ptr %26, align 8
-  %214 = icmp eq i64 %212, %213
-  br i1 %214, label %215, label %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit
+.lr.ph119:                                        ; preds = %206, %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit
+  %.027117 = phi i32 [ %210, %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit ], [ %28, %206 ]
+  %207 = zext i32 %.027117 to i64
+  %208 = load ptr, ptr %0, align 8
+  %209 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %208, i64 %207, i32 1
+  %210 = load i32, ptr %209, align 4
+  %211 = load i64, ptr %25, align 8
+  %212 = load i64, ptr %26, align 8
+  %213 = icmp eq i64 %211, %212
+  br i1 %213, label %214, label %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit
 
-215:                                              ; preds = %.lr.ph119
-  %216 = add i64 %212, 1
-  %217 = shl i64 %212, 1
-  %.not.i69 = icmp ult i64 %216, %217
+214:                                              ; preds = %.lr.ph119
+  %215 = add i64 %211, 1
+  %216 = shl i64 %211, 1
+  %.not.i69 = icmp ult i64 %215, %216
   br i1 %.not.i69, label %.preheader.i82, label %.loopexit30.i70
 
-.preheader.i82:                                   ; preds = %215, %.preheader.i82
-  %.1.i83 = phi i64 [ %219, %.preheader.i82 ], [ 1, %215 ]
-  %218 = icmp ult i64 %.1.i83, %216
-  %219 = shl i64 %.1.i83, 1
-  br i1 %218, label %.preheader.i82, label %.loopexit30.i70, !llvm.loop !281
+.preheader.i82:                                   ; preds = %214, %.preheader.i82
+  %.1.i83 = phi i64 [ %218, %.preheader.i82 ], [ 1, %214 ]
+  %217 = icmp ult i64 %.1.i83, %215
+  %218 = shl i64 %.1.i83, 1
+  br i1 %217, label %.preheader.i82, label %.loopexit30.i70, !llvm.loop !281
 
-.loopexit30.i70:                                  ; preds = %.preheader.i82, %215
-  %.017.i71 = phi i64 [ %216, %215 ], [ %.1.i83, %.preheader.i82 ]
-  %220 = shl i64 %.017.i71, 2
-  %221 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %220) #26
-          to label %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74 unwind label %222
+.loopexit30.i70:                                  ; preds = %.preheader.i82, %214
+  %.017.i71 = phi i64 [ %215, %214 ], [ %.1.i83, %.preheader.i82 ]
+  %219 = shl i64 %.017.i71, 2
+  %220 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %219) #26
+          to label %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74 unwind label %221
 
-222:                                              ; preds = %.loopexit30.i70
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %.loopexit30.i70
+  %222 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc
-  %224 = extractvalue { ptr, i32 } %223, 1
-  %225 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #22
-  %226 = icmp eq i32 %224, %225
-  br i1 %226, label %227, label %common.resume
+  %223 = extractvalue { ptr, i32 } %222, 1
+  %224 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #22
+  %225 = icmp eq i32 %223, %224
+  br i1 %225, label %226, label %common.resume
 
-227:                                              ; preds = %222
-  %228 = extractvalue { ptr, i32 } %223, 0
-  %229 = call ptr @__cxa_begin_catch(ptr %228) #22
-  %230 = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
-  store ptr @.str.57, ptr %231, align 8
-  invoke void @__cxa_throw(ptr nonnull %230, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #25
-          to label %242 unwind label %232
+226:                                              ; preds = %221
+  %227 = extractvalue { ptr, i32 } %222, 0
+  %228 = call ptr @__cxa_begin_catch(ptr %227) #22
+  %229 = call ptr @__cxa_allocate_exception(i64 16) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Darts7Details9ExceptionE, i64 16), ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  store ptr @.str.57, ptr %230, align 8
+  invoke void @__cxa_throw(ptr nonnull %229, ptr nonnull @_ZTIN5Darts7Details9ExceptionE, ptr nonnull @_ZN5Darts7Details9ExceptionD2Ev) #25
+          to label %241 unwind label %231
 
-232:                                              ; preds = %227
-  %233 = landingpad { ptr, i32 }
+231:                                              ; preds = %226
+  %232 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %239
+          to label %common.resume unwind label %238
 
 _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74: ; preds = %.loopexit30.i70
-  %.not23.i75 = icmp eq i64 %212, 0
+  %.not23.i75 = icmp eq i64 %211, 0
   %.pre.i76 = load ptr, ptr %24, align 8
   br i1 %.not23.i75, label %.loopexit.i80, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74, %.preheader
-  %.031.i77 = phi i64 [ %237, %.preheader ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74 ]
-  %234 = getelementptr inbounds i32, ptr %221, i64 %.031.i77
-  %235 = getelementptr inbounds i32, ptr %.pre.i76, i64 %.031.i77
-  %236 = load i32, ptr %235, align 4
-  store i32 %236, ptr %234, align 4
-  %237 = add nuw i64 %.031.i77, 1
-  %exitcond.not.i78 = icmp eq i64 %237, %212
+  %.031.i77 = phi i64 [ %236, %.preheader ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74 ]
+  %233 = getelementptr inbounds i32, ptr %220, i64 %.031.i77
+  %234 = getelementptr inbounds i32, ptr %.pre.i76, i64 %.031.i77
+  %235 = load i32, ptr %234, align 4
+  store i32 %235, ptr %233, align 4
+  %236 = add nuw i64 %.031.i77, 1
+  %exitcond.not.i78 = icmp eq i64 %236, %211
   br i1 %exitcond.not.i78, label %.loopexit.thread.i79, label %.preheader, !llvm.loop !282
 
 .loopexit.thread.i79:                             ; preds = %.preheader
-  store ptr %221, ptr %24, align 8
+  store ptr %220, ptr %24, align 8
   store i64 %.017.i71, ptr %26, align 8
-  br label %238
+  br label %237
 
 .loopexit.i80:                                    ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i74
-  store ptr %221, ptr %24, align 8
+  store ptr %220, ptr %24, align 8
   store i64 %.017.i71, ptr %26, align 8
   %.not.i.i.i81 = icmp eq ptr %.pre.i76, null
-  br i1 %.not.i.i.i81, label %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit, label %238
+  br i1 %.not.i.i.i81, label %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit, label %237
 
-238:                                              ; preds = %.loopexit.i80, %.loopexit.thread.i79
+237:                                              ; preds = %.loopexit.i80, %.loopexit.thread.i79
   call void @_ZdaPv(ptr noundef nonnull %.pre.i76) #27
   %.pre.i.i.i.i.pre = load i64, ptr %25, align 8
   br label %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit
 
-239:                                              ; preds = %232
-  %240 = landingpad { ptr, i32 }
+238:                                              ; preds = %231
+  %239 = landingpad { ptr, i32 }
           catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #23
+  %240 = extractvalue { ptr, i32 } %239, 0
+  call void @__clang_call_terminate(ptr %240) #23
   unreachable
 
-242:                                              ; preds = %227
+241:                                              ; preds = %226
   unreachable
 
-_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit:  ; preds = %238, %.loopexit.i80, %.lr.ph119
-  %243 = phi i64 [ %212, %.lr.ph119 ], [ 0, %.loopexit.i80 ], [ %.pre.i.i.i.i.pre, %238 ]
-  %244 = add i64 %243, 1
-  store i64 %244, ptr %25, align 8
-  %245 = load ptr, ptr %24, align 8
-  %246 = getelementptr inbounds i32, ptr %245, i64 %243
-  store i32 %.027117, ptr %246, align 4
-  %.not38 = icmp eq i32 %211, 0
+_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit:  ; preds = %237, %.loopexit.i80, %.lr.ph119
+  %242 = phi i64 [ %211, %.lr.ph119 ], [ 0, %.loopexit.i80 ], [ %.pre.i.i.i.i.pre, %237 ]
+  %243 = add i64 %242, 1
+  store i64 %243, ptr %25, align 8
+  %244 = load ptr, ptr %24, align 8
+  %245 = getelementptr inbounds i32, ptr %244, i64 %242
+  store i32 %.027117, ptr %245, align 4
+  %.not38 = icmp eq i32 %210, 0
   br i1 %.not38, label %._crit_edge120, label %.lr.ph119, !llvm.loop !293
 
-._crit_edge120:                                   ; preds = %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit, %207
-  %247 = load i64, ptr %5, align 8
-  %248 = load ptr, ptr %4, align 8
-  %249 = getelementptr i32, ptr %248, i64 %247
-  %250 = getelementptr i8, ptr %249, i64 -4
-  %251 = load i32, ptr %250, align 4
-  %252 = zext i32 %251 to i64
-  %253 = load ptr, ptr %0, align 8
-  %254 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %253, i64 %252
-  store i32 %.031, ptr %254, align 4
-  %255 = load i64, ptr %5, align 8
-  %256 = load ptr, ptr %4, align 8
-  %257 = getelementptr i32, ptr %256, i64 %255
-  %258 = getelementptr i8, ptr %257, i64 -4
-  %259 = load i32, ptr %258, align 4
-  %.not = icmp eq i32 %259, %1
+._crit_edge120:                                   ; preds = %_ZN5Darts7Details11DawgBuilder9free_nodeEj.exit, %206
+  %246 = load i64, ptr %5, align 8
+  %247 = load ptr, ptr %4, align 8
+  %248 = getelementptr i32, ptr %247, i64 %246
+  %249 = getelementptr i8, ptr %248, i64 -4
+  %250 = load i32, ptr %249, align 4
+  %251 = zext i32 %250 to i64
+  %252 = load ptr, ptr %0, align 8
+  %253 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %252, i64 %251
+  store i32 %.031, ptr %253, align 4
+  %254 = load i64, ptr %5, align 8
+  %255 = load ptr, ptr %4, align 8
+  %256 = getelementptr i32, ptr %255, i64 %254
+  %257 = getelementptr i8, ptr %256, i64 -4
+  %258 = load i32, ptr %257, align 4
+  %.not = icmp eq i32 %258, %1
   br i1 %.not, label %._crit_edge124, label %27, !llvm.loop !294
 
 ._crit_edge124:                                   ; preds = %._crit_edge120, %2
-  %.lcssa = phi i64 [ %6, %2 ], [ %255, %._crit_edge120 ]
-  %260 = add i64 %.lcssa, -1
-  store i64 %260, ptr %5, align 8
+  %.lcssa = phi i64 [ %6, %2 ], [ %254, %._crit_edge120 ]
+  %259 = add i64 %.lcssa, -1
+  store i64 %259, ptr %5, align 8
   ret void
 }
 
@@ -19530,179 +19526,171 @@ _ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread: ; preds = %3
 .lr.ph.thread:                                    ; preds = %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread
   %56 = getelementptr inbounds i8, ptr %0, i64 128
   %.phi.trans.insert.i38 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %.lr.ph.split.us.preheader
+  br label %.lr.ph.split.us
 
 .lr.ph:                                           ; preds = %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit
   %.pn25.i = zext i32 %1 to i64
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
   %57 = getelementptr inbounds i8, ptr %0, i64 48
-  br i1 %.not9.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread, %.lr.ph
-  %.phi.trans.insert.i40 = phi ptr [ %.phi.trans.insert.i38, %.lr.ph.thread ], [ %.phi.trans.insert.i, %.lr.ph ]
-  %58 = phi ptr [ %52, %.lr.ph.thread ], [ %44, %.lr.ph ]
-  %59 = phi ptr [ %56, %.lr.ph.thread ], [ %45, %.lr.ph ]
-  %60 = phi i64 [ 0, %.lr.ph.thread ], [ %47, %.lr.ph ]
-  %61 = phi i32 [ %54, %.lr.ph.thread ], [ %50, %.lr.ph ]
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit16.us
-  %62 = phi i32 [ %80, %.loopexit16.us ], [ %61, %.lr.ph.split.us.preheader ]
-  %storemerge.in22.us = phi i64 [ %77, %.loopexit16.us ], [ %60, %.lr.ph.split.us.preheader ]
-  %63 = load ptr, ptr %0, align 8
-  %.015.in26.i.us = getelementptr inbounds i8, ptr %63, i64 4
+.lr.ph.split.us:                                  ; preds = %.lr.ph.thread, %.loopexit16.us
+  %58 = phi i32 [ %76, %.loopexit16.us ], [ %54, %.lr.ph.thread ]
+  %storemerge.in22.us = phi i64 [ %73, %.loopexit16.us ], [ 0, %.lr.ph.thread ]
+  %59 = load ptr, ptr %0, align 8
+  %.015.in26.i.us = getelementptr inbounds i8, ptr %59, i64 4
   %.01527.i.us = load i32, ptr %.015.in26.i.us, align 4
   %.not28.i.us = icmp eq i32 %.01527.i.us, 0
-  %.pre.i.us = load ptr, ptr %.phi.trans.insert.i40, align 8
+  %.pre.i.us = load ptr, ptr %.phi.trans.insert.i38, align 8
   br i1 %.not28.i.us, label %._crit_edge.i.us, label %.lr.ph.i11.us
 
-.lr.ph.i11.us:                                    ; preds = %.lr.ph.split.us, %68
-  %.01530.i.us = phi i32 [ %.015.i.us, %68 ], [ %.01527.i.us, %.lr.ph.split.us ]
-  %.01629.i.us = phi i32 [ %69, %68 ], [ %62, %.lr.ph.split.us ]
-  %64 = zext i32 %.01629.i.us to i64
-  %65 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i.us, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 1
-  %.not21.i.us = icmp eq i32 %67, 0
-  br i1 %.not21.i.us, label %.loopexit16.us, label %68
+.lr.ph.i11.us:                                    ; preds = %.lr.ph.split.us, %64
+  %.01530.i.us = phi i32 [ %.015.i.us, %64 ], [ %.01527.i.us, %.lr.ph.split.us ]
+  %.01629.i.us = phi i32 [ %65, %64 ], [ %58, %.lr.ph.split.us ]
+  %60 = zext i32 %.01629.i.us to i64
+  %61 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i.us, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 1
+  %.not21.i.us = icmp eq i32 %63, 0
+  br i1 %.not21.i.us, label %.loopexit16.us, label %64
 
-68:                                               ; preds = %.lr.ph.i11.us
-  %69 = add i32 %.01629.i.us, 1
+64:                                               ; preds = %.lr.ph.i11.us
+  %65 = add i32 %.01629.i.us, 1
   %.pn.i.us = zext i32 %.01530.i.us to i64
-  %.015.in.i.us = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %63, i64 %.pn.i.us, i32 1
+  %.015.in.i.us = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %59, i64 %.pn.i.us, i32 1
   %.015.i.us = load i32, ptr %.015.in.i.us, align 4
   %.not.i12.us = icmp eq i32 %.015.i.us, 0
   br i1 %.not.i12.us, label %._crit_edge.i.us, label %.lr.ph.i11.us, !llvm.loop !299
 
-._crit_edge.i.us:                                 ; preds = %68, %.lr.ph.split.us
-  %.016.lcssa.i.us = phi i32 [ %62, %.lr.ph.split.us ], [ %69, %68 ]
-  %70 = zext i32 %.016.lcssa.i.us to i64
-  %71 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i.us, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 1
-  %.not22.i.us = icmp eq i32 %73, 0
+._crit_edge.i.us:                                 ; preds = %64, %.lr.ph.split.us
+  %.016.lcssa.i.us = phi i32 [ %58, %.lr.ph.split.us ], [ %65, %64 ]
+  %66 = zext i32 %.016.lcssa.i.us to i64
+  %67 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i.us, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 1
+  %.not22.i.us = icmp eq i32 %69, 0
   br i1 %.not22.i.us, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.loopexit16.us
 
 .loopexit16.us:                                   ; preds = %.lr.ph.i11.us, %._crit_edge.i.us
-  %74 = add nuw nsw i64 %storemerge.in22.us, 1
-  %75 = and i64 %74, 4294967295
-  %76 = load i64, ptr %59, align 8
-  %77 = urem i64 %75, %76
-  %storemerge.us = trunc nuw i64 %77 to i32
+  %70 = add nuw nsw i64 %storemerge.in22.us, 1
+  %71 = and i64 %70, 4294967295
+  %72 = load i64, ptr %56, align 8
+  %73 = urem i64 %71, %72
+  %storemerge.us = trunc nuw i64 %73 to i32
   store i32 %storemerge.us, ptr %2, align 4
-  %78 = load ptr, ptr %58, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %77
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.lr.ph.split.us, !llvm.loop !300
+  %74 = load ptr, ptr %52, align 8
+  %75 = getelementptr inbounds i32, ptr %74, i64 %73
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.lr.ph.split.us, !llvm.loop !300
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
-  %82 = phi i32 [ %132, %.loopexit ], [ %50, %.lr.ph ]
-  %storemerge.in22 = phi i64 [ %129, %.loopexit ], [ %47, %.lr.ph ]
-  %83 = load ptr, ptr %0, align 8
-  %.015.in26.i = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %83, i64 %.pn25.i, i32 1
+  %78 = phi i32 [ %128, %.loopexit ], [ %50, %.lr.ph ]
+  %storemerge.in22 = phi i64 [ %125, %.loopexit ], [ %47, %.lr.ph ]
+  %79 = load ptr, ptr %0, align 8
+  %.015.in26.i = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %79, i64 %.pn25.i, i32 1
   %.01527.i = load i32, ptr %.015.in26.i, align 4
   %.not28.i = icmp eq i32 %.01527.i, 0
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %.lr.ph.split, %88
-  %.01530.i = phi i32 [ %.015.i, %88 ], [ %.01527.i, %.lr.ph.split ]
-  %.01629.i = phi i32 [ %89, %88 ], [ %82, %.lr.ph.split ]
-  %84 = zext i32 %.01629.i to i64
-  %85 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 1
-  %.not21.i = icmp eq i32 %87, 0
-  br i1 %.not21.i, label %.loopexit, label %88
+.lr.ph.i11:                                       ; preds = %.lr.ph.split, %84
+  %.01530.i = phi i32 [ %.015.i, %84 ], [ %.01527.i, %.lr.ph.split ]
+  %.01629.i = phi i32 [ %85, %84 ], [ %78, %.lr.ph.split ]
+  %80 = zext i32 %.01629.i to i64
+  %81 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %80
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, 1
+  %.not21.i = icmp eq i32 %83, 0
+  br i1 %.not21.i, label %.loopexit, label %84
 
-88:                                               ; preds = %.lr.ph.i11
-  %89 = add i32 %.01629.i, 1
+84:                                               ; preds = %.lr.ph.i11
+  %85 = add i32 %.01629.i, 1
   %.pn.i = zext i32 %.01530.i to i64
-  %.015.in.i = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %83, i64 %.pn.i, i32 1
+  %.015.in.i = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %79, i64 %.pn.i, i32 1
   %.015.i = load i32, ptr %.015.in.i, align 4
   %.not.i12 = icmp eq i32 %.015.i, 0
   br i1 %.not.i12, label %._crit_edge.i, label %.lr.ph.i11, !llvm.loop !299
 
-._crit_edge.i:                                    ; preds = %88, %.lr.ph.split
-  %.016.lcssa.i = phi i32 [ %82, %.lr.ph.split ], [ %89, %88 ]
-  %90 = zext i32 %.016.lcssa.i to i64
-  %91 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 1
-  %.not22.i = icmp eq i32 %93, 0
+._crit_edge.i:                                    ; preds = %84, %.lr.ph.split
+  %.016.lcssa.i = phi i32 [ %78, %.lr.ph.split ], [ %85, %84 ]
+  %86 = zext i32 %.016.lcssa.i to i64
+  %87 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, 1
+  %.not22.i = icmp eq i32 %89, 0
   br i1 %.not22.i, label %.preheader.i, label %.loopexit
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  %94 = load ptr, ptr %57, align 8
-  br label %95
+  %90 = load ptr, ptr %57, align 8
+  br label %91
 
-95:                                               ; preds = %122, %.preheader.i
-  %.033.i = phi i32 [ %1, %.preheader.i ], [ %124, %122 ]
-  %.132.i = phi i32 [ %.016.lcssa.i, %.preheader.i ], [ %125, %122 ]
-  %96 = zext i32 %.033.i to i64
-  %97 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %83, i64 %96
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load i8, ptr %98, align 4
-  %100 = icmp eq i8 %99, 0
-  %101 = load i32, ptr %97, align 4
-  br i1 %100, label %102, label %104
+91:                                               ; preds = %118, %.preheader.i
+  %.033.i = phi i32 [ %1, %.preheader.i ], [ %120, %118 ]
+  %.132.i = phi i32 [ %.016.lcssa.i, %.preheader.i ], [ %121, %118 ]
+  %92 = zext i32 %.033.i to i64
+  %93 = getelementptr inbounds %"class.Darts::Details::DawgNode", ptr %79, i64 %92
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = load i8, ptr %94, align 4
+  %96 = icmp eq i8 %95, 0
+  %97 = load i32, ptr %93, align 4
+  br i1 %96, label %98, label %100
 
-102:                                              ; preds = %95
-  %103 = shl i32 %101, 1
+98:                                               ; preds = %91
+  %99 = shl i32 %97, 1
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13
 
-104:                                              ; preds = %95
-  %105 = shl i32 %101, 2
-  %106 = getelementptr inbounds i8, ptr %97, i64 9
-  %107 = load i8, ptr %106, align 1
-  %108 = trunc i8 %107 to i1
-  %109 = select i1 %108, i32 2, i32 0
-  %110 = or disjoint i32 %109, %105
+100:                                              ; preds = %91
+  %101 = shl i32 %97, 2
+  %102 = getelementptr inbounds i8, ptr %93, i64 9
+  %103 = load i8, ptr %102, align 1
+  %104 = trunc i8 %103 to i1
+  %105 = select i1 %104, i32 2, i32 0
+  %106 = or disjoint i32 %105, %101
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13
 
-_ZNK5Darts7Details8DawgNode4unitEv.exit.i13:      ; preds = %104, %102
-  %.sink.i.i14 = phi i32 [ %110, %104 ], [ %103, %102 ]
-  %111 = getelementptr inbounds i8, ptr %97, i64 10
-  %112 = load i8, ptr %111, align 2
-  %113 = and i8 %112, 1
-  %114 = zext nneg i8 %113 to i32
-  %115 = or disjoint i32 %.sink.i.i14, %114
-  %116 = zext i32 %.132.i to i64
-  %117 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %.not19.i = icmp eq i32 %115, %118
-  br i1 %.not19.i, label %119, label %.loopexit
+_ZNK5Darts7Details8DawgNode4unitEv.exit.i13:      ; preds = %100, %98
+  %.sink.i.i14 = phi i32 [ %106, %100 ], [ %99, %98 ]
+  %107 = getelementptr inbounds i8, ptr %93, i64 10
+  %108 = load i8, ptr %107, align 2
+  %109 = and i8 %108, 1
+  %110 = zext nneg i8 %109 to i32
+  %111 = or disjoint i32 %.sink.i.i14, %110
+  %112 = zext i32 %.132.i to i64
+  %113 = getelementptr inbounds %"class.Darts::Details::DawgUnit", ptr %.pre.i, i64 %112
+  %114 = load i32, ptr %113, align 4
+  %.not19.i = icmp eq i32 %111, %114
+  br i1 %.not19.i, label %115, label %.loopexit
 
-119:                                              ; preds = %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13
-  %120 = getelementptr inbounds i8, ptr %94, i64 %116
-  %121 = load i8, ptr %120, align 1
-  %.not20.i = icmp eq i8 %99, %121
-  br i1 %.not20.i, label %122, label %.loopexit
+115:                                              ; preds = %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13
+  %116 = getelementptr inbounds i8, ptr %90, i64 %112
+  %117 = load i8, ptr %116, align 1
+  %.not20.i = icmp eq i8 %95, %117
+  br i1 %.not20.i, label %118, label %.loopexit
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %97, i64 4
-  %124 = load i32, ptr %123, align 4
-  %125 = add i32 %.132.i, -1
-  %.not18.i = icmp eq i32 %124, 0
-  br i1 %.not18.i, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %95, !llvm.loop !301
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds i8, ptr %93, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = add i32 %.132.i, -1
+  %.not18.i = icmp eq i32 %120, 0
+  br i1 %.not18.i, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %91, !llvm.loop !301
 
-.loopexit:                                        ; preds = %.lr.ph.i11, %119, %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13, %._crit_edge.i
-  %126 = add nuw nsw i64 %storemerge.in22, 1
-  %127 = and i64 %126, 4294967295
-  %128 = load i64, ptr %45, align 8
-  %129 = urem i64 %127, %128
-  %storemerge = trunc nuw i64 %129 to i32
+.loopexit:                                        ; preds = %.lr.ph.i11, %115, %_ZNK5Darts7Details8DawgNode4unitEv.exit.i13, %._crit_edge.i
+  %122 = add nuw nsw i64 %storemerge.in22, 1
+  %123 = and i64 %122, 4294967295
+  %124 = load i64, ptr %45, align 8
+  %125 = urem i64 %123, %124
+  %storemerge = trunc nuw i64 %125 to i32
   store i32 %storemerge, ptr %2, align 4
-  %130 = load ptr, ptr %44, align 8
-  %131 = getelementptr inbounds i32, ptr %130, i64 %129
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.lr.ph.split, !llvm.loop !300
+  %126 = load ptr, ptr %44, align 8
+  %127 = getelementptr inbounds i32, ptr %126, i64 %125
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.lr.ph.split, !llvm.loop !300
 
-_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit: ; preds = %.loopexit, %122, %.loopexit16.us, %._crit_edge.i.us, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit
-  %134 = phi i32 [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit ], [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread ], [ 0, %.loopexit16.us ], [ %62, %._crit_edge.i.us ], [ %82, %122 ], [ 0, %.loopexit ]
-  ret i32 %134
+_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit: ; preds = %.loopexit, %118, %.loopexit16.us, %._crit_edge.i.us, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit
+  %130 = phi i32 [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit ], [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit.thread ], [ 0, %.loopexit16.us ], [ %58, %._crit_edge.i.us ], [ %78, %118 ], [ 0, %.loopexit ]
+  ret i32 %130
 }
 
 ; Function Attrs: mustprogress uwtable

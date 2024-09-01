@@ -1807,8 +1807,8 @@ common.resume:                                    ; preds = %91, %479, %488, %17
 402:                                              ; preds = %396
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
   %403 = load i64, ptr %38, align 8, !range !111, !noundef !5
-  %.not.not = icmp eq i64 %403, -9223372036854775805
-  br i1 %.not.not, label %415, label %407
+  %.not = icmp eq i64 %403, -9223372036854775805
+  br i1 %.not, label %415, label %407
 
 404:                                              ; preds = %407, %412
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)

@@ -417,7 +417,7 @@ define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) local_
 8:                                                ; preds = %5
   %9 = load i32, ptr %3, align 4
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %34, label %.preheader
+  br i1 %10, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = icmp sgt i32 %9, 1
@@ -436,10 +436,7 @@ define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) local_
   %15 = icmp sgt i32 %.026, 2
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %13
-  br i1 %11, label %34, label %.thread
-
-.thread:                                          ; preds = %.lr.ph, %.preheader, %._crit_edge, %5
+.thread:                                          ; preds = %.lr.ph, %.preheader, %5
   %16 = load i32, ptr %4, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %.021, i64 %17
@@ -471,7 +468,7 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
   %33 = add i32 %.022, 1
   br label %5
 
-34:                                               ; preds = %._crit_edge, %8
+._crit_edge:                                      ; preds = %8, %13
   ret i32 %.022
 }
 
@@ -490,7 +487,7 @@ define dso_local noundef i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr nound
 8:                                                ; preds = %5
   %9 = load i32, ptr %3, align 4
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %33, label %.preheader
+  br i1 %10, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = icmp sgt i32 %9, 1
@@ -509,10 +506,7 @@ define dso_local noundef i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr nound
   %15 = icmp sgt i32 %.028, 2
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %13
-  br i1 %11, label %33, label %.thread
-
-.thread:                                          ; preds = %.lr.ph, %.preheader, %._crit_edge, %5
+.thread:                                          ; preds = %.lr.ph, %.preheader, %5
   %16 = load i32, ptr %4, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %.023, i64 %17
@@ -543,11 +537,11 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
   %32 = getelementptr i8, ptr %.023, i64 %31
   br label %5
 
-33:                                               ; preds = %._crit_edge, %8
-  %34 = ptrtoint ptr %.023 to i64
-  %35 = ptrtoint ptr %1 to i64
-  %36 = sub i64 %34, %35
-  %.022 = trunc i64 %36 to i32
+._crit_edge:                                      ; preds = %8, %13
+  %33 = ptrtoint ptr %.023 to i64
+  %34 = ptrtoint ptr %1 to i64
+  %35 = sub i64 %33, %34
+  %.022 = trunc i64 %35 to i32
   ret i32 %.022
 }
 

@@ -194,8 +194,8 @@ define hidden noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef no
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
-  %.not23 = icmp eq i64 %6, %7
-  br i1 %.not23, label %.lr.ph, label %.loopexit
+  %.not22 = icmp eq i64 %6, %7
+  br i1 %.not22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -210,8 +210,8 @@ define hidden noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef no
 15:                                               ; preds = %.lr.ph, %79
   call void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %16 = load i32, ptr %8, align 8
-  %.not25 = icmp ne i32 %16, 2
-  br i1 %.not25, label %17, label %.loopexit
+  %.not24.not = icmp ne i32 %16, 2
+  br i1 %.not24.not, label %17, label %.loopexit
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %9, align 8
@@ -339,11 +339,11 @@ _ZN11inputStream18set_buffer_contentEmm.exit:     ; preds = %47, %54, %70
   br label %79
 
 79:                                               ; preds = %76, %_ZN11inputStream18set_buffer_contentEmm.exit
-  %.not24 = icmp eq i64 %75, %74
-  br i1 %.not24, label %15, label %.loopexit, !llvm.loop !6
+  %.not23 = icmp eq i64 %75, %74
+  br i1 %.not23, label %15, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %15, %79, %1, %36
-  %80 = phi i1 [ false, %36 ], [ true, %1 ], [ %.not25, %79 ], [ %.not25, %15 ]
+  %80 = phi i1 [ false, %36 ], [ true, %1 ], [ %.not24.not, %79 ], [ %.not24.not, %15 ]
   ret i1 %80
 }
 

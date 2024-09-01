@@ -1083,18 +1083,15 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
 
 ._crit_edge:                                      ; preds = %.loopexit106, %.loopexit106.us
   %.not105 = icmp eq ptr %39, null
-  br i1 %.not105, label %csc_cumsum.exit, label %.preheader.i
+  br i1 %.not105, label %csc_cumsum.exit, label %.lr.ph.i
 
 ._crit_edge.thread:                               ; preds = %37
   %.not105147 = icmp eq ptr %39, null
   br i1 %.not105147, label %._crit_edge118, label %._crit_edge.i
 
-.preheader.i:                                     ; preds = %._crit_edge
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i
-
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.026.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.02025.i = phi i64 [ %82, %.lr.ph.i ], [ 0, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
+  %.026.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %.02025.i = phi i64 [ %82, %.lr.ph.i ], [ 0, %._crit_edge ]
   %78 = getelementptr inbounds i64, ptr %39, i64 %.02025.i
   store i64 %.026.i, ptr %78, align 8
   %79 = getelementptr inbounds i64, ptr %20, i64 %.02025.i
@@ -1105,8 +1102,8 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   %exitcond.not.i = icmp eq i64 %82, %6
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread, %.preheader.i
-  %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ 0, %._crit_edge.thread ], [ %81, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread
+  %.0.lcssa.i = phi i64 [ 0, %._crit_edge.thread ], [ %81, %.lr.ph.i ]
   %83 = getelementptr inbounds i64, ptr %39, i64 %6
   store i64 %.0.lcssa.i, ptr %83, align 8
   br label %csc_cumsum.exit
@@ -1728,12 +1725,9 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %30 = phi ptr [ %38, %37 ], [ %60, %48 ]
   %.1.lcssa = phi i64 [ %.079, %37 ], [ %58, %48 ]
   %exitcond.not = icmp eq i64 %41, %4
-  br i1 %exitcond.not, label %.preheader, label %37, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph89, label %37, !llvm.loop !29
 
-.preheader:                                       ; preds = %.loopexit72
-  br i1 %20, label %.lr.ph89, label %._crit_edge
-
-.lr.ph89:                                         ; preds = %.preheader
+.lr.ph89:                                         ; preds = %.loopexit72
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = getelementptr inbounds i8, ptr %1, i64 24
   %33 = getelementptr inbounds i8, ptr %19, i64 24
@@ -1832,8 +1826,8 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %92 = icmp slt i64 %88, %91
   br i1 %92, label %76, label %.loopexit, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader73, %.preheader
-  %.2.lcssa = phi i64 [ %.1.lcssa, %.preheader ], [ 0, %.preheader73 ], [ %.3.lcssa, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader73
+  %.2.lcssa = phi i64 [ 0, %.preheader73 ], [ %.3.lcssa, %.loopexit ]
   %93 = getelementptr inbounds i8, ptr %19, i64 48
   store i64 %.2.lcssa, ptr %93, align 8
   %94 = tail call ptr @triplet_to_csc(ptr noundef nonnull %19, ptr noundef null)

@@ -4210,9 +4210,6 @@ amf_get_u29.exit443:                              ; preds = %.thread470, %269, %
   %.not492 = icmp ult i32 %.0.i442, 16
   br i1 %.not492, label %._crit_edge, label %.lr.ph
 
-.preheader473:                                    ; preds = %371
-  br i1 %.not492, label %._crit_edge, label %.lr.ph480
-
 .lr.ph:                                           ; preds = %328, %371
   %.5476 = phi i32 [ %.6, %371 ], [ %.4, %328 ]
   %.1381475 = phi i32 [ %372, %371 ], [ 0, %328 ]
@@ -4283,18 +4280,18 @@ amf_get_u29.exit449:                              ; preds = %.lr.ph, %332, %339,
   %.6 = phi i32 [ %365, %353 ], [ %370, %366 ]
   %372 = add nuw nsw i32 %.1381475, 1
   %exitcond.not = icmp eq i32 %372, %298
-  br i1 %exitcond.not, label %.preheader473, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph480, label %.lr.ph, !llvm.loop !17
 
-.lr.ph480:                                        ; preds = %.preheader473, %.lr.ph480
-  %.7479 = phi i32 [ %373, %.lr.ph480 ], [ %.6, %.preheader473 ]
-  %.2382478 = phi i32 [ %374, %.lr.ph480 ], [ 0, %.preheader473 ]
+.lr.ph480:                                        ; preds = %371, %.lr.ph480
+  %.7479 = phi i32 [ %373, %.lr.ph480 ], [ %.6, %371 ]
+  %.2382478 = phi i32 [ %374, %.lr.ph480 ], [ 0, %371 ]
   %373 = call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.7479, ptr noundef %.0378, ptr noundef null)
   %374 = add nuw nsw i32 %.2382478, 1
   %exitcond496.not = icmp eq i32 %374, %298
   br i1 %exitcond496.not, label %._crit_edge, label %.lr.ph480, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph480, %328, %.preheader473
-  %.7.lcssa = phi i32 [ %.6, %.preheader473 ], [ %.4, %328 ], [ %373, %.lr.ph480 ]
+._crit_edge:                                      ; preds = %.lr.ph480, %328
+  %.7.lcssa = phi i32 [ %.4, %328 ], [ %373, %.lr.ph480 ]
   br i1 %.not405, label %430, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %426

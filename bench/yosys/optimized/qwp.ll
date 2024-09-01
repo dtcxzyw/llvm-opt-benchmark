@@ -14986,10 +14986,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %155 = icmp sgt i32 %22, 0
   br i1 %155, label %.lr.ph321, label %._crit_edge351
 
-.preheader288:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  br i1 %155, label %.lr.ph350, label %._crit_edge351
-
-.lr.ph350:                                        ; preds = %.preheader288
+.lr.ph350:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %156 = icmp ugt i32 %22, 15
   %157 = udiv i32 %22, 15
   %158 = ptrtoint ptr %.sroa.0229.1 to i64
@@ -15069,7 +15066,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.10.2 = getelementptr inbounds i8, ptr %.pn286, i64 4
   %181 = add nuw nsw i32 %storemerge319, 1
   %exitcond374.not = icmp eq i32 %181, %22
-  br i1 %exitcond374.not, label %.preheader288, label %.lr.ph321, !llvm.loop !206
+  br i1 %exitcond374.not, label %.lr.ph350, label %.lr.ph321, !llvm.loop !206
 
 .thread.loopexit:                                 ; preds = %226
   %lpad.loopexit290 = landingpad { ptr, i32 }
@@ -15323,9 +15320,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.not285 = icmp eq ptr %270, %236
   br i1 %.not285, label %.loopexit287, label %.lr.ph339
 
-._crit_edge351:                                   ; preds = %.loopexit287, %154, %.preheader288
-  %.sroa.0229.0.lcssa414 = phi ptr [ %.sroa.0229.1, %.preheader288 ], [ null, %154 ], [ %.sroa.0229.1, %.loopexit287 ]
-  %.sroa.0242.1.lcssa = phi ptr [ null, %.preheader288 ], [ null, %154 ], [ %.sroa.0242.2, %.loopexit287 ]
+._crit_edge351:                                   ; preds = %.loopexit287, %154
+  %.sroa.0229.0.lcssa414 = phi ptr [ null, %154 ], [ %.sroa.0229.1, %.loopexit287 ]
+  %.sroa.0242.1.lcssa = phi ptr [ null, %154 ], [ %.sroa.0242.2, %.loopexit287 ]
   %271 = load ptr, ptr %0, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 2
   %273 = load i8, ptr %272, align 2

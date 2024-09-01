@@ -6128,12 +6128,12 @@ define internal i64 @rb_mod_s_constants(i32 noundef %0, ptr noundef %1, i64 noun
 
 7:                                                ; preds = %3
   %8 = tail call i64 @rb_mod_constants(i32 noundef %0, ptr noundef %1, i64 noundef %2) #9
-  br label %55
+  br label %54
 
-.lr.ph:                                           ; preds = %.preheader, %50
-  %.038 = phi ptr [ %.1, %50 ], [ null, %.preheader ]
-  %.01837 = phi i64 [ %.119, %50 ], [ 0, %.preheader ]
-  %.02136 = phi ptr [ %.021.val, %50 ], [ %4, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %49
+  %.038 = phi ptr [ %.1, %49 ], [ null, %.preheader ]
+  %.01837 = phi i64 [ %.119, %49 ], [ 0, %.preheader ]
+  %.02136 = phi ptr [ %.021.val, %49 ], [ %4, %.preheader ]
   %.val.i = load i64, ptr %.02136, align 8
   %9 = and i64 %.val.i, 524288
   %.not.i = icmp eq i64 %9, 0
@@ -6184,87 +6184,84 @@ CREF_CLASS.exit:                                  ; preds = %16, %19, %20, %21, 
   %.not24 = icmp ne i64 %27, 0
   %28 = icmp eq i64 %.0.i, 4
   %or.cond34 = select i1 %.not24, i1 true, i1 %28
-  br i1 %or.cond34, label %50, label %31
+  br i1 %or.cond34, label %49, label %31
 
 CREF_CLASS.exit.thread:                           ; preds = %.lr.ph
   %29 = and i64 %.val.i, 131072
   %.not2442 = icmp ne i64 %29, 0
   %30 = icmp eq i64 %.0.i41, 4
   %or.cond3443 = select i1 %.not2442, i1 true, i1 %30
-  br i1 %or.cond3443, label %50, label %CREF_CLASS.exit33
+  br i1 %or.cond3443, label %49, label %CREF_CLASS.exit33
 
 31:                                               ; preds = %CREF_CLASS.exit
-  br i1 %.not.i, label %CREF_CLASS.exit33, label %32
+  %32 = load i64, ptr %10, align 8
+  %33 = and i64 %32, 7
+  %34 = icmp ne i64 %33, 0
+  %35 = icmp eq i64 %32, 0
+  %36 = or i1 %35, %34
+  br i1 %36, label %40, label %37
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr %10, align 8
-  %34 = and i64 %33, 7
-  %35 = icmp ne i64 %34, 0
-  %36 = icmp eq i64 %33, 0
-  %37 = or i1 %36, %35
-  br i1 %37, label %41, label %38
-
-38:                                               ; preds = %32
-  %39 = inttoptr i64 %33 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+37:                                               ; preds = %31
+  %38 = inttoptr i64 %32 to ptr
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
   br label %CREF_CLASS.exit33
 
-41:                                               ; preds = %32
-  switch i64 %33, label %44 [
+40:                                               ; preds = %31
+  switch i64 %32, label %43 [
     i64 0, label %CREF_CLASS.exit33
-    i64 4, label %42
-    i64 20, label %43
+    i64 4, label %41
+    i64 20, label %42
   ]
 
-42:                                               ; preds = %41
+41:                                               ; preds = %40
   br label %CREF_CLASS.exit33
 
-43:                                               ; preds = %41
+42:                                               ; preds = %40
   br label %CREF_CLASS.exit33
 
-44:                                               ; preds = %41
-  %45 = and i64 %33, 1
-  %.not.i.i31 = icmp eq i64 %45, 0
-  br i1 %.not.i.i31, label %46, label %CREF_CLASS.exit33
+43:                                               ; preds = %40
+  %44 = and i64 %32, 1
+  %.not.i.i31 = icmp eq i64 %44, 0
+  br i1 %.not.i.i31, label %45, label %CREF_CLASS.exit33
 
-46:                                               ; preds = %44
-  %47 = and i64 %33, 254
-  %48 = icmp eq i64 %47, 12
-  %spec.select.i.i32 = select i1 %48, ptr @rb_cSymbol, ptr @rb_cFloat
+45:                                               ; preds = %43
+  %46 = and i64 %32, 254
+  %47 = icmp eq i64 %46, 12
+  %spec.select.i.i32 = select i1 %47, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %CREF_CLASS.exit33
 
-CREF_CLASS.exit33:                                ; preds = %CREF_CLASS.exit.thread, %31, %38, %41, %42, %43, %44, %46
-  %.0.i4446 = phi i64 [ %.0.i, %42 ], [ %.0.i, %43 ], [ %.0.i, %38 ], [ %.0.i, %41 ], [ %.0.i, %44 ], [ %.0.i, %46 ], [ %.0.i, %31 ], [ %.0.i41, %CREF_CLASS.exit.thread ]
-  %.0.in.i29 = phi ptr [ @rb_cNilClass, %42 ], [ @rb_cTrueClass, %43 ], [ %40, %38 ], [ @rb_cFalseClass, %41 ], [ @rb_cInteger, %44 ], [ %spec.select.i.i32, %46 ], [ %10, %31 ], [ %10, %CREF_CLASS.exit.thread ]
+CREF_CLASS.exit33:                                ; preds = %CREF_CLASS.exit.thread, %37, %40, %41, %42, %43, %45
+  %.0.i4446 = phi i64 [ %.0.i, %41 ], [ %.0.i, %42 ], [ %.0.i, %37 ], [ %.0.i, %40 ], [ %.0.i, %43 ], [ %.0.i, %45 ], [ %.0.i41, %CREF_CLASS.exit.thread ]
+  %.0.in.i29 = phi ptr [ @rb_cNilClass, %41 ], [ @rb_cTrueClass, %42 ], [ %39, %37 ], [ @rb_cFalseClass, %40 ], [ @rb_cInteger, %43 ], [ %spec.select.i.i32, %45 ], [ %10, %CREF_CLASS.exit.thread ]
   %.0.i30 = load i64, ptr %.0.in.i29, align 8
-  %49 = tail call ptr @rb_mod_const_at(i64 noundef %.0.i30, ptr noundef %.038) #9
+  %48 = tail call ptr @rb_mod_const_at(i64 noundef %.0.i30, ptr noundef %.038) #9
   %.not25 = icmp eq i64 %.01837, 0
   %spec.select = select i1 %.not25, i64 %.0.i4446, i64 %.01837
-  br label %50
+  br label %49
 
-50:                                               ; preds = %CREF_CLASS.exit.thread, %CREF_CLASS.exit33, %CREF_CLASS.exit
+49:                                               ; preds = %CREF_CLASS.exit.thread, %CREF_CLASS.exit33, %CREF_CLASS.exit
   %.119 = phi i64 [ %.01837, %CREF_CLASS.exit ], [ %spec.select, %CREF_CLASS.exit33 ], [ %.01837, %CREF_CLASS.exit.thread ]
-  %.1 = phi ptr [ %.038, %CREF_CLASS.exit ], [ %49, %CREF_CLASS.exit33 ], [ %.038, %CREF_CLASS.exit.thread ]
-  %51 = getelementptr i8, ptr %.02136, i64 24
-  %.021.val = load ptr, ptr %51, align 8
+  %.1 = phi ptr [ %.038, %CREF_CLASS.exit ], [ %48, %CREF_CLASS.exit33 ], [ %.038, %CREF_CLASS.exit.thread ]
+  %50 = getelementptr i8, ptr %.02136, i64 24
+  %.021.val = load ptr, ptr %50, align 8
   %.not22 = icmp eq ptr %.021.val, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %50
+._crit_edge:                                      ; preds = %49
   %.not23 = icmp eq i64 %.119, 0
-  br i1 %.not23, label %._crit_edge.thread, label %52
+  br i1 %.not23, label %._crit_edge.thread, label %51
 
-52:                                               ; preds = %._crit_edge
-  %53 = tail call ptr @rb_mod_const_of(i64 noundef %.119, ptr noundef %.1) #9
+51:                                               ; preds = %._crit_edge
+  %52 = tail call ptr @rb_mod_const_of(i64 noundef %.119, ptr noundef %.1) #9
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %52, %._crit_edge
-  %.2 = phi ptr [ %53, %52 ], [ %.1, %._crit_edge ], [ null, %.preheader ]
-  %54 = tail call i64 @rb_const_list(ptr noundef %.2) #9
-  br label %55
+._crit_edge.thread:                               ; preds = %.preheader, %51, %._crit_edge
+  %.2 = phi ptr [ %52, %51 ], [ %.1, %._crit_edge ], [ null, %.preheader ]
+  %53 = tail call i64 @rb_const_list(ptr noundef %.2) #9
+  br label %54
 
-55:                                               ; preds = %._crit_edge.thread, %7
-  %.020 = phi i64 [ %8, %7 ], [ %54, %._crit_edge.thread ]
+54:                                               ; preds = %._crit_edge.thread, %7
+  %.020 = phi i64 [ %8, %7 ], [ %53, %._crit_edge.thread ]
   ret i64 %.020
 }
 

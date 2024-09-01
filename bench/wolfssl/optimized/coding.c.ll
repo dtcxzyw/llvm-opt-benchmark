@@ -1659,14 +1659,14 @@ if.else18.i586:                                   ; preds = %if.then15.i584
   br label %if.end132
 
 if.else23.i552:                                   ; preds = %if.end12.i551
-  br i1 %cmp, label %if.then25.i582, label %if.then41.i567
+  br i1 %cmp, label %if.then25.i582, label %if.else39.i566
 
 if.then25.i582:                                   ; preds = %if.else23.i498, %if.else23.i552
   %i.5.ph721772775779 = phi i32 [ %i.5.ph721, %if.else23.i552 ], [ %add7.i493708, %if.else23.i498 ]
   %add26.i583 = add i32 %i.5.ph721772775779, 3
   br label %if.end132
 
-if.then41.i567:                                   ; preds = %if.else23.i552
+if.else39.i566:                                   ; preds = %if.else23.i552
   %idxprom29.i555 = zext i32 %i.5.ph721 to i64
   %arrayidx30.i556 = getelementptr inbounds i8, ptr %out, i64 %idxprom29.i555
   store i8 37, ptr %arrayidx30.i556, align 1
@@ -1681,8 +1681,8 @@ if.then41.i567:                                   ; preds = %if.else23.i552
   store i8 68, ptr %arrayidx47.i573, align 1
   br label %if.end132
 
-if.end132:                                        ; preds = %if.then15.i584.thread, %if.then41.i567, %if.then25.i582, %if.else18.i586, %if.then15.i584, %while.end
-  %i.3 = phi i32 [ %i.0.lcssa, %while.end ], [ %inc.i585, %if.else18.i586 ], [ %add26.i583, %if.then25.i582 ], [ %inc45.i571, %if.then41.i567 ], [ %inc.i585, %if.then15.i584 ], [ %inc.i585777, %if.then15.i584.thread ]
+if.end132:                                        ; preds = %if.then15.i584.thread, %if.else39.i566, %if.then25.i582, %if.else18.i586, %if.then15.i584, %while.end
+  %i.3 = phi i32 [ %i.0.lcssa, %while.end ], [ %inc.i585, %if.else18.i586 ], [ %add26.i583, %if.then25.i582 ], [ %inc45.i571, %if.else39.i566 ], [ %inc.i585, %if.then15.i584 ], [ %inc.i585777, %if.then15.i584.thread ]
   %cmp136.not = icmp eq i32 %escaped, 2
   br i1 %cmp136.not, label %if.end140, label %if.then138
 

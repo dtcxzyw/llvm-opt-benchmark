@@ -239,12 +239,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store ptr %call.i.i.i.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %1, label %qemu_allocate_irqs.exit, label %for.body.i.i, !llvm.loop !5
+  br i1 %1, label %for.body.preheader, label %for.body.i.i, !llvm.loop !5
 
-qemu_allocate_irqs.exit:                          ; preds = %for.body.i.i
-  br i1 %cmp11.i.i, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %qemu_allocate_irqs.exit
+for.body.preheader:                               ; preds = %for.body.i.i
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -265,7 +262,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %for.body, %entry, %qemu_allocate_irqs.exit
+for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 

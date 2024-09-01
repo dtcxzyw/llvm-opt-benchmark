@@ -689,7 +689,7 @@ cleanup:                                          ; preds = %if.then33, %if.end2
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i476
   br i1 %cmp.i.not, label %for.cond.cleanup8, label %for.body9
 
-for.body107.lr.ph:                                ; preds = %if.end81
+for.cond.cleanup72:                               ; preds = %if.end81
   %m_log_max_size = getelementptr inbounds i8, ptr %this, i64 80
   %52 = load i32, ptr %m_log_max_size, align 8, !tbaa !31
   %add = add i32 %52, %x_left
@@ -742,7 +742,7 @@ if.end81:                                         ; preds = %if.then80, %for.bod
   store i32 %color.sroa.0.0, ptr %color82, align 8, !tbaa !61
   %call.i495 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin164.sroa.0.0709) #24
   %cmp.i491.not = icmp eq ptr %call.i495, %0
-  br i1 %cmp.i491.not, label %for.body107.lr.ph, label %for.body73
+  br i1 %cmp.i491.not, label %for.cond.cleanup72, label %for.body73
 
 for.cond.cleanup106:                              ; preds = %for.cond.cleanup234, %for.cond.cleanup, %entry
   %60 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !16
@@ -760,9 +760,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN13ProfilerGraph4M
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %m_meta) #19
   ret void
 
-for.body107:                                      ; preds = %for.cond.cleanup234, %for.body107.lr.ph
-  %meta_i.0720 = phi i32 [ 0, %for.body107.lr.ph ], [ %inc344, %for.cond.cleanup234 ]
-  %__begin198.sroa.0.0719 = phi ptr [ %.pre725, %for.body107.lr.ph ], [ %call.i560, %for.cond.cleanup234 ]
+for.body107:                                      ; preds = %for.cond.cleanup234, %for.cond.cleanup72
+  %meta_i.0720 = phi i32 [ 0, %for.cond.cleanup72 ], [ %inc344, %for.cond.cleanup234 ]
+  %__begin198.sroa.0.0719 = phi ptr [ %.pre725, %for.cond.cleanup72 ], [ %call.i560, %for.cond.cleanup234 ]
   %_M_storage.i.i498 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0719, i64 32
   %second112 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0719, i64 64
   %mul.neg = mul i32 %meta_i.0720, -50

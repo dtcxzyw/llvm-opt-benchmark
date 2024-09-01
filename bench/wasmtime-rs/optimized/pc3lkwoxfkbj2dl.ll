@@ -5003,7 +5003,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h1afc1aabe1d5884
   br label %29
 
 .thread:                                          ; preds = %._crit_edge, %108, %36, %._crit_edge.us
-  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ true, %._crit_edge ], [ %35, %108 ]
+  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ %35, %108 ], [ %35, %._crit_edge ]
   ret i1 %.us-phi
 
 29:                                               ; preds = %.lr.ph, %36
@@ -5289,7 +5289,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h2167b454218c752
   br label %29
 
 .thread:                                          ; preds = %._crit_edge, %114, %36, %._crit_edge.us
-  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ true, %._crit_edge ], [ %35, %114 ]
+  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ %35, %114 ], [ %35, %._crit_edge ]
   ret i1 %.us-phi
 
 29:                                               ; preds = %.lr.ph, %36
@@ -5581,7 +5581,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb0e1927809514f7
   br label %29
 
 .thread:                                          ; preds = %._crit_edge, %114, %36, %._crit_edge.us
-  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ true, %._crit_edge ], [ %35, %114 ]
+  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ %35, %114 ], [ %35, %._crit_edge ]
   ret i1 %.us-phi
 
 29:                                               ; preds = %.lr.ph, %36
@@ -5873,7 +5873,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb52a11968cf64fc
   br label %29
 
 .thread:                                          ; preds = %._crit_edge, %114, %36, %._crit_edge.us
-  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ true, %._crit_edge ], [ %35, %114 ]
+  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ %35, %114 ], [ %35, %._crit_edge ]
   ret i1 %.us-phi
 
 29:                                               ; preds = %.lr.ph, %36
@@ -6165,7 +6165,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf259ec1d172baf6
   br label %29
 
 .thread:                                          ; preds = %._crit_edge, %108, %36, %._crit_edge.us
-  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ true, %._crit_edge ], [ %35, %108 ]
+  %.us-phi = phi i1 [ %26, %._crit_edge.us ], [ true, %36 ], [ %35, %108 ], [ %35, %._crit_edge ]
   ret i1 %.us-phi
 
 29:                                               ; preds = %.lr.ph, %36

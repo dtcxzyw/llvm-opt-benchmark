@@ -614,7 +614,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
 for.cond6.preheader:                              ; preds = %for.cond
   %2 = load ptr, ptr %header, align 8
   %tobool7.not26 = icmp eq ptr %2, null
-  br i1 %tobool7.not26, label %if.then18.loopexit, label %do.body.i.preheader
+  br i1 %tobool7.not26, label %if.then18, label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %for.cond6.preheader, %for.inc
   %3 = phi ptr [ %18, %for.inc ], [ %2, %for.cond6.preheader ]
@@ -699,7 +699,7 @@ for.inc:                                          ; preds = %do.cond.i
   %arrayidx = getelementptr inbounds ptr, ptr %header, i64 %inc
   %18 = load ptr, ptr %arrayidx, align 8
   %tobool7.not = icmp eq ptr %18, null
-  br i1 %tobool7.not, label %if.then18.loopexit, label %do.body.i.preheader, !llvm.loop !14
+  br i1 %tobool7.not, label %if.then18, label %do.body.i.preheader, !llvm.loop !14
 
 for.end:                                          ; preds = %if.then8.i, %if.end.i, %if.then9
   %retval.0.i = phi i64 [ %sub.i, %if.then8.i ], [ 0, %if.then9 ], [ 0, %if.end.i ]
@@ -714,11 +714,11 @@ for.end:                                          ; preds = %if.then8.i, %if.end
   %add15 = add i64 %add, %retval.0.i
   br label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %for.end, %if.then18.loopexit
-  %buf_offset.0.be = phi i64 [ %add15, %for.end ], [ %spec.select, %if.then18.loopexit ]
+for.cond.backedge:                                ; preds = %for.end, %if.then18
+  %buf_offset.0.be = phi i64 [ %add15, %for.end ], [ %spec.select, %if.then18 ]
   br label %for.cond
 
-if.then18.loopexit:                               ; preds = %for.inc, %for.cond6.preheader
+if.then18:                                        ; preds = %for.inc, %for.cond6.preheader
   %call19 = call ptr @strchrnul(ptr noundef nonnull %add.ptr, i32 noundef 10) #19
   %sub.ptr.lhs.cast21 = ptrtoint ptr %call19 to i64
   %sub.ptr.rhs.cast22 = ptrtoint ptr %0 to i64

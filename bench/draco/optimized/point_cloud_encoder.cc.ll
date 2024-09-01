@@ -831,7 +831,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder27RearrangeAttributesEnco
   %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   %.pre = load ptr, ptr %4, align 8
-  %.pre300 = load ptr, ptr %3, align 8
+  %.pre295 = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 21:                                               ; preds = %1
@@ -848,7 +848,7 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder27RearrangeAttributesEnco
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
-  %26 = phi ptr [ %.pre300, %19 ], [ %6, %21 ], [ %6, %23 ], [ %6, %25 ]
+  %26 = phi ptr [ %.pre295, %19 ], [ %6, %21 ], [ %6, %23 ], [ %6, %25 ]
   %27 = phi ptr [ %.pre, %19 ], [ %5, %21 ], [ %5, %23 ], [ %5, %25 ]
   %.not.i.i94 = icmp eq ptr %27, %26
   br i1 %.not.i.i94, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %28
@@ -888,8 +888,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   br i1 %49, label %.preheader226, label %145
 
 .preheader226:                                    ; preds = %40
-  %.not = icmp eq ptr %43, %42
-  br i1 %.not, label %._crit_edge250, label %.lr.ph249
+  %.not284 = icmp eq ptr %43, %42
+  br i1 %.not284, label %._crit_edge250, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %.preheader226, %131
   %50 = phi ptr [ %132, %131 ], [ %41, %.preheader226 ]
@@ -919,8 +919,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = and i64 %67, 17179869180
-  %.not284 = icmp eq i64 %68, 0
-  br i1 %.not284, label %.critedge283, label %.lr.ph
+  %.not285 = icmp eq i64 %68, 0
+  br i1 %.not285, label %.critedge283, label %.lr.ph
 
 69:                                               ; preds = %86, %76
   %70 = landingpad { ptr, i32 }
@@ -938,7 +938,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   br label %76
 
 76:                                               ; preds = %.critedge, %.lr.ph
-  %77 = phi ptr [ %71, %.lr.ph ], [ %.pre301, %.critedge ]
+  %77 = phi ptr [ %71, %.lr.ph ], [ %.pre296, %.critedge ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %109, %.critedge ]
   %78 = getelementptr inbounds %"class.std::unique_ptr.36", ptr %77, i64 %52
   %79 = load ptr, ptr %78, align 8
@@ -988,7 +988,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
 
 .critedge:                                        ; preds = %95, %94
   %109 = add nuw nsw i32 %.079, 1
-  %.pre301 = load ptr, ptr %3, align 8
+  %.pre296 = load ptr, ptr %3, align 8
   br label %76, !llvm.loop !18
 
 110:                                              ; preds = %95, %84
@@ -1021,11 +1021,11 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   %129 = load i64, ptr %54, align 8
   %130 = or i64 %129, %56
   store i64 %130, ptr %54, align 8
-  %.pre302 = load ptr, ptr %3, align 8
+  %.pre297 = load ptr, ptr %3, align 8
   br label %131
 
 131:                                              ; preds = %._crit_edge, %.lr.ph249, %.critedge283
-  %132 = phi ptr [ %50, %.lr.ph249 ], [ %.pre302, %.critedge283 ], [ %112, %._crit_edge ]
+  %132 = phi ptr [ %50, %.lr.ph249 ], [ %.pre297, %.critedge283 ], [ %112, %._crit_edge ]
   %.177 = phi i1 [ %.076247, %.lr.ph249 ], [ true, %.critedge283 ], [ %.076247, %._crit_edge ]
   %.271 = phi i32 [ %.170248, %.lr.ph249 ], [ %128, %.critedge283 ], [ %.170248, %._crit_edge ]
   %133 = add i32 %.078246, 1
@@ -1039,11 +1039,11 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   br i1 %140, label %.lr.ph249, label %._crit_edge250.loopexit, !llvm.loop !20
 
 ._crit_edge250.loopexit:                          ; preds = %131
-  %.pre303 = zext i32 %.271 to i64
+  %.pre298 = zext i32 %.271 to i64
   br label %._crit_edge250
 
 ._crit_edge250:                                   ; preds = %._crit_edge250.loopexit, %.preheader226
-  %.pre-phi = phi i64 [ %.pre303, %._crit_edge250.loopexit ], [ %44, %.preheader226 ]
+  %.pre-phi = phi i64 [ %.pre298, %._crit_edge250.loopexit ], [ %44, %.preheader226 ]
   %141 = phi ptr [ %132, %._crit_edge250.loopexit ], [ %41, %.preheader226 ]
   %142 = phi ptr [ %132, %._crit_edge250.loopexit ], [ %42, %.preheader226 ]
   %143 = phi ptr [ %135, %._crit_edge250.loopexit ], [ %42, %.preheader226 ]
@@ -1384,8 +1384,8 @@ _ZN5draco17AttributesEncoder15SetAttributeIdsERKSt6vectorIiSaIiEE.exit: ; preds 
   %297 = ptrtoint ptr %295 to i64
   %298 = sub i64 %296, %297
   %299 = ashr exact i64 %298, 3
-  %.not304 = icmp ugt i64 %299, %293
-  br i1 %.not304, label %.lr.ph280, label %.loopexit223, !llvm.loop !25
+  %.not = icmp ugt i64 %299, %293
+  br i1 %.not, label %.lr.ph280, label %.loopexit223, !llvm.loop !25
 
 .loopexit223:                                     ; preds = %_ZN5draco17AttributesEncoder15SetAttributeIdsERKSt6vectorIiSaIiEE.exit, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit111
   %.sroa.0167.4 = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit111 ], [ %.sroa.0167.2, %_ZN5draco17AttributesEncoder15SetAttributeIdsERKSt6vectorIiSaIiEE.exit ]
@@ -1393,7 +1393,7 @@ _ZN5draco17AttributesEncoder15SetAttributeIdsERKSt6vectorIiSaIiEE.exit: ; preds 
   br i1 %.not.i.i.i128, label %_ZNSt6vectorIbSaIbEED2Ev.exit132, label %.loopexit223.thread
 
 .loopexit223.thread:                              ; preds = %._crit_edge258.us, %.loopexit223
-  %.sroa.0167.4307 = phi ptr [ %.sroa.0167.4, %.loopexit223 ], [ %.sroa.0167.5, %._crit_edge258.us ]
+  %.sroa.0167.4301 = phi ptr [ %.sroa.0167.4, %.loopexit223 ], [ %.sroa.0167.5, %._crit_edge258.us ]
   %300 = phi i1 [ true, %.loopexit223 ], [ false, %._crit_edge258.us ]
   %301 = ptrtoint ptr %.sroa.26.0 to i64
   %302 = ptrtoint ptr %.sroa.0159.0 to i64
@@ -1405,13 +1405,13 @@ _ZN5draco17AttributesEncoder15SetAttributeIdsERKSt6vectorIiSaIiEE.exit: ; preds 
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit132
 
 _ZNSt6vectorIbSaIbEED2Ev.exit132:                 ; preds = %.loopexit223, %.loopexit223.thread
-  %.sroa.0167.4308 = phi ptr [ %.sroa.0167.4, %.loopexit223 ], [ %.sroa.0167.4307, %.loopexit223.thread ]
+  %.sroa.0167.4302 = phi ptr [ %.sroa.0167.4, %.loopexit223 ], [ %.sroa.0167.4301, %.loopexit223.thread ]
   %307 = phi i1 [ true, %.loopexit223 ], [ %300, %.loopexit223.thread ]
-  %.not.i.i.i133 = icmp eq ptr %.sroa.0167.4308, null
+  %.not.i.i.i133 = icmp eq ptr %.sroa.0167.4302, null
   br i1 %.not.i.i.i133, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %308
 
 308:                                              ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit132
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0167.4308) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0167.4302) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .body109:                                         ; preds = %185, %184
@@ -1489,8 +1489,8 @@ define noundef zeroext i1 @_ZN5draco17PointCloudEncoder26GenerateAttributesEncod
   %23 = sub i64 %21, %22
   %24 = lshr exact i64 %23, 3
   %25 = trunc i64 %24 to i32
-  %.not32 = icmp slt i32 %15, %25
-  br i1 %.not32, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  %.not = icmp slt i32 %15, %25
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %1, %14
   %.01320 = phi i32 [ %15, %14 ], [ 0, %1 ]
@@ -1538,8 +1538,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %40, %42, %44, %46
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
-  %.not = icmp eq ptr %49, %50
-  br i1 %.not, label %.loopexit, label %.preheader
+  %.not26 = icmp eq ptr %49, %50
+  br i1 %.not26, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %._crit_edge24
   %51 = phi ptr [ %85, %._crit_edge24 ], [ %50, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
@@ -1556,8 +1556,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %40, %42, %44, %46
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = and i64 %62, 17179869180
-  %.not26 = icmp eq i64 %63, 0
-  br i1 %.not26, label %._crit_edge24, label %.lr.ph23
+  %.not27 = icmp eq i64 %63, 0
+  br i1 %.not27, label %._crit_edge24, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %64 = phi ptr [ %78, %.lr.ph23 ], [ %59, %.preheader ]

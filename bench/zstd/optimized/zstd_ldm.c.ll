@@ -613,7 +613,7 @@ for.body.lr.ph.i:                                 ; preds = %while.body.i
   %wide.trip.count.i54 = zext i32 %24 to i64
   br label %for.body.i55
 
-for.body72.lr.ph.i:                               ; preds = %for.body.i55
+for.cond69.preheader.i:                           ; preds = %for.body.i55
   %add.ptr199.i = getelementptr inbounds i8, ptr %ip.0256.i, i64 %call41.i
   br label %for.body72.i
 
@@ -643,11 +643,11 @@ for.body.i55:                                     ; preds = %for.body.i55, %for.
   tail call void @llvm.prefetch.p0(ptr %add.ptr.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
-  br i1 %exitcond.not.i59, label %for.body72.lr.ph.i, label %for.body.i55, !llvm.loop !10
+  br i1 %exitcond.not.i59, label %for.cond69.preheader.i, label %for.body.i55, !llvm.loop !10
 
-for.body72.i:                                     ; preds = %for.inc210.i, %for.body72.lr.ph.i
-  %indvars.iv266.i = phi i64 [ 0, %for.body72.lr.ph.i ], [ %indvars.iv.next267.i, %for.inc210.i ]
-  %anchor.1252.i = phi ptr [ %anchor.0257.i, %for.body72.lr.ph.i ], [ %anchor.3.i, %for.inc210.i ]
+for.body72.i:                                     ; preds = %for.inc210.i, %for.cond69.preheader.i
+  %indvars.iv266.i = phi i64 [ 0, %for.cond69.preheader.i ], [ %indvars.iv.next267.i, %for.inc210.i ]
+  %anchor.1252.i = phi ptr [ %anchor.0257.i, %for.cond69.preheader.i ], [ %anchor.3.i, %for.inc210.i ]
   %arrayidx75.i = getelementptr inbounds %struct.ldmMatchCandidate_t, ptr %matchCandidates.i, i64 %indvars.iv266.i
   %27 = load ptr, ptr %arrayidx75.i, align 8
   %checksum80.i = getelementptr inbounds i8, ptr %arrayidx75.i, i64 12

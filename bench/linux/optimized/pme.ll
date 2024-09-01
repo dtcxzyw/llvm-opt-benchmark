@@ -692,8 +692,8 @@ define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef rea
 5:                                                ; preds = %17, %3
   %6 = phi ptr [ %4, %3 ], [ %7, %17 ]
   %7 = load ptr, ptr %6, align 8
-  %.not.not = icmp ne ptr %7, %4
-  br i1 %.not.not, label %8, label %.loopexit
+  %.not.not.not = icmp ne ptr %7, %4
+  br i1 %.not.not.not, label %8, label %.loopexit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %7, i64 404
@@ -715,7 +715,7 @@ define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef rea
   br i1 %20, label %.loopexit, label %5, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %13, %5, %1
-  %21 = phi i1 [ false, %1 ], [ %.not.not, %5 ], [ %.not.not, %13 ], [ %.not.not, %17 ]
+  %21 = phi i1 [ false, %1 ], [ %.not.not.not, %5 ], [ %.not.not.not, %13 ], [ %.not.not.not, %17 ]
   ret i1 %21
 }
 

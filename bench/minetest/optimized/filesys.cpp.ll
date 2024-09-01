@@ -2111,8 +2111,8 @@ while.cond:                                       ; preds = %if.end120, %if.end8
   %total.0 = phi i64 [ 0, %if.end84 ], [ %add, %if.end120 ]
   %done.0 = phi i8 [ 0, %if.end84 ], [ %done.1, %if.end120 ]
   %74 = and i8 %done.0, 1
-  %tobool.not.not.not = icmp ne i8 %74, 0
-  br i1 %tobool.not.not.not, label %while.end, label %while.body
+  %tobool.not.not.not.not.not.not.not = icmp ne i8 %74, 0
+  br i1 %tobool.not.not.not.not.not.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %call88 = call i64 @fread(ptr noundef nonnull %readbuffer, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %call53)
@@ -2501,7 +2501,7 @@ ehcleanup154:                                     ; preds = %lpad138, %lpad132, 
   br label %ehcleanup160
 
 cleanup159:                                       ; preds = %cleanup153, %call1.i.noexc588, %invoke.cont65, %invoke.cont59
-  %retval.3 = phi i1 [ %tobool.not.not.not, %cleanup153 ], [ false, %invoke.cont65 ], [ false, %call1.i.noexc588 ], [ false, %invoke.cont59 ]
+  %retval.3 = phi i1 [ %tobool.not.not.not.not.not.not.not, %cleanup153 ], [ false, %invoke.cont65 ], [ false, %call1.i.noexc588 ], [ false, %invoke.cont59 ]
   %cmp.not.i = icmp eq ptr %call54, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI8_IO_FILEN2fs12_GLOBAL__N_111FileDeleterEED2Ev.exit, label %if.then.i493
 
@@ -7599,8 +7599,8 @@ for.cond24:                                       ; preds = %for.inc129, %for.co
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %for.cond24
-  %cmp30.not.not.not = icmp uge i32 %i23.0, %call29
-  br i1 %cmp30.not.not.not, label %if.then.i.i237, label %for.body32
+  %cmp30.not.not.not.not.not.not.not = icmp uge i32 %i23.0, %call29
+  br i1 %cmp30.not.not.not.not.not.not.not, label %if.then.i.i237, label %for.body32
 
 lpad:                                             ; preds = %if.end13
   %22 = landingpad { ptr, i32 }
@@ -8195,7 +8195,7 @@ ehcleanup140:                                     ; preds = %delete.notnull.i.i.
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
 cleanup141:                                       ; preds = %delete.notnull.i.i.i245, %if.then.i.i237, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA61_KcEER11StreamProxyOT_.exit, %_ZTW13warningstream.exit
-  %retval.8 = phi i1 [ false, %_ZN9LogStreamlsIRA61_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %cmp30.not.not.not, %if.then.i.i237 ], [ %cmp30.not.not.not, %delete.notnull.i.i.i245 ], [ false, %_ZTW13warningstream.exit ]
+  %retval.8 = phi i1 [ false, %_ZN9LogStreamlsIRA61_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %cmp30.not.not.not.not.not.not.not, %if.then.i.i237 ], [ %cmp30.not.not.not.not.not.not.not, %delete.notnull.i.i.i245 ], [ false, %_ZTW13warningstream.exit ]
   ret i1 %retval.8
 }
 

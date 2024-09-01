@@ -1741,11 +1741,11 @@ cleanup.done122:                                  ; preds = %if.then13.i.i359, %
   br i1 %cmp.i450, label %cleanup.done122.cleanup.action128_crit_edge, label %cleanup.done136
 
 cleanup.done122.cleanup.action128_crit_edge:      ; preds = %cleanup.done122
-  %.pre511 = load ptr, ptr %ref.tmp52, align 8
+  %.pre510 = load ptr, ptr %ref.tmp52, align 8
   br label %cleanup.action128
 
 cleanup.action128:                                ; preds = %cleanup.done122.cleanup.action128_crit_edge, %invoke.cont63
-  %94 = phi ptr [ %.pre511, %cleanup.done122.cleanup.action128_crit_edge ], [ %44, %invoke.cont63 ]
+  %94 = phi ptr [ %.pre510, %cleanup.done122.cleanup.action128_crit_edge ], [ %44, %invoke.cont63 ]
   %95 = phi i1 [ %89, %cleanup.done122.cleanup.action128_crit_edge ], [ true, %invoke.cont63 ]
   %bf.load.i.i362 = load i64, ptr %94, align 8
   %96 = and i64 %bf.load.i.i362, 1152920405095219200
@@ -2980,7 +2980,7 @@ land.end:                                         ; preds = %lor.lhs.false.i.i.i
   %cmp.i176 = icmp ne ptr %storemerge.i156, null
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %land.end, %call2.i.i.i.i.noexc173
+cleanup.action:                                   ; preds = %call2.i.i.i.i.noexc173, %land.end
   %38 = phi ptr [ %37, %land.end ], [ %.pre, %call2.i.i.i.i.noexc173 ]
   %cmp.i1761094 = phi i1 [ %cmp.i176, %land.end ], [ false, %call2.i.i.i.i.noexc173 ]
   %bf.load.i.i177 = load i64, ptr %38, align 8
@@ -4048,7 +4048,7 @@ land.end188:                                      ; preds = %lor.lhs.false.i.i.i
   %cmp.i672 = icmp ne ptr %storemerge.i652, null
   br label %cleanup.action190
 
-cleanup.action190:                                ; preds = %land.end188, %call2.i.i.i.i.noexc669
+cleanup.action190:                                ; preds = %call2.i.i.i.i.noexc669, %land.end188
   %179 = phi ptr [ %178, %land.end188 ], [ %.pre1158, %call2.i.i.i.i.noexc669 ]
   %cmp.i6721105 = phi i1 [ %cmp.i672, %land.end188 ], [ false, %call2.i.i.i.i.noexc669 ]
   %bf.load.i.i673 = load i64, ptr %179, align 8

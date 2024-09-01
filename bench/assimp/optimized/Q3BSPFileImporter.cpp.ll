@@ -1882,9 +1882,9 @@ for.body.i31:                                     ; preds = %_ZNK6Assimp17Q3BSPF
 
 _ZNK6Assimp17Q3BSPFileImporter10countFacesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit: ; preds = %for.body.i31
   %cmp3 = icmp eq i64 %spec.select.i, 0
-  br i1 %cmp3, label %return, label %for.body.i36.preheader
+  br i1 %cmp3, label %return, label %if.end5
 
-for.body.i36.preheader:                           ; preds = %_ZNK6Assimp17Q3BSPFileImporter10countFacesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit
+if.end5:                                          ; preds = %_ZNK6Assimp17Q3BSPFileImporter10countFacesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit
   %call6 = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #26
   store i32 0, ptr %call6, align 8
   %mNumVertices.i = getelementptr inbounds i8, ptr %call6, i64 4
@@ -1903,9 +1903,9 @@ for.body.i36.preheader:                           ; preds = %_ZNK6Assimp17Q3BSPF
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mAnimMeshes.i, i8 0, i64 36, i1 false)
   br label %for.body.i36
 
-for.body.i36:                                     ; preds = %for.body.i36.preheader, %for.inc.i40
-  %numTriangles.08.i = phi i64 [ %numTriangles.1.i.fr, %for.inc.i40 ], [ 0, %for.body.i36.preheader ]
-  %it.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i41, %for.inc.i40 ], [ %0, %for.body.i36.preheader ]
+for.body.i36:                                     ; preds = %if.end5, %for.inc.i40
+  %numTriangles.08.i = phi i64 [ %numTriangles.1.i.fr, %for.inc.i40 ], [ 0, %if.end5 ]
+  %it.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i41, %for.inc.i40 ], [ %0, %if.end5 ]
   %7 = load ptr, ptr %it.sroa.0.07.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %for.inc.i40, label %if.then.i

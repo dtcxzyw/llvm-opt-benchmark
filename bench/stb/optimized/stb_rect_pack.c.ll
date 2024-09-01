@@ -642,7 +642,8 @@ entry:
 for.end.thread:                                   ; preds = %entry
   %conv68 = sext i32 %num_rects to i64
   tail call void @qsort(ptr noundef %rects, i64 noundef %conv68, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
-  br label %for.end42.thread
+  tail call void @qsort(ptr noundef %rects, i64 noundef %conv68, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
+  br label %for.end69
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_rects to i64
@@ -660,16 +661,13 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body
   %conv = zext nneg i32 %num_rects to i64
   tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
-  br i1 %cmp50, label %for.body4.lr.ph, label %for.end42.thread
-
-for.body4.lr.ph:                                  ; preds = %for.end
   %height1.i = getelementptr inbounds i8, ptr %context, i64 4
   %free_head.i = getelementptr inbounds i8, ptr %context, i64 32
   %wide.trip.count61 = zext nneg i32 %num_rects to i64
   br label %for.body4
 
-for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc40
-  %indvars.iv58 = phi i64 [ 0, %for.body4.lr.ph ], [ %indvars.iv.next59, %for.inc40 ]
+for.body4:                                        ; preds = %for.end, %for.inc40
+  %indvars.iv58 = phi i64 [ 0, %for.end ], [ %indvars.iv.next59, %for.inc40 ]
   %arrayidx6 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv58
   %w = getelementptr inbounds i8, ptr %arrayidx6, i64 4
   %1 = load i32, ptr %w, align 4
@@ -771,22 +769,14 @@ for.inc40:                                        ; preds = %lor.lhs.false3.i, %
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %for.end42, label %for.body4, !llvm.loop !13
 
-for.end42.thread:                                 ; preds = %for.end.thread, %for.end
-  %conv69.ph = phi i64 [ %conv, %for.end ], [ %conv68, %for.end.thread ]
-  tail call void @qsort(ptr noundef %rects, i64 noundef %conv69.ph, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
-  br label %for.end69
-
 for.end42:                                        ; preds = %for.inc40
   tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
-  br i1 %cmp50, label %for.body47.preheader, label %for.end69
-
-for.body47.preheader:                             ; preds = %for.end42
   %wide.trip.count66 = zext nneg i32 %num_rects to i64
   br label %for.body47
 
-for.body47:                                       ; preds = %for.body47.preheader, %for.cond44
-  %indvars.iv63 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next64, %for.cond44 ]
-  %all_rects_packed.055 = phi i32 [ 1, %for.body47.preheader ], [ %19, %for.cond44 ]
+for.body47:                                       ; preds = %for.end42, %for.cond44
+  %indvars.iv63 = phi i64 [ 0, %for.end42 ], [ %indvars.iv.next64, %for.cond44 ]
+  %all_rects_packed.055 = phi i32 [ 1, %for.end42 ], [ %19, %for.cond44 ]
   %arrayidx49 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv63
   %x50 = getelementptr inbounds i8, ptr %arrayidx49, i64 12
   %17 = load i32, ptr %x50, align 4
@@ -811,8 +801,8 @@ for.cond44:                                       ; preds = %for.body47, %land.e
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %for.end69, label %for.body47, !llvm.loop !14
 
-for.end69:                                        ; preds = %for.cond44, %for.end42.thread, %for.end42
-  %all_rects_packed.0.lcssa = phi i32 [ 1, %for.end42 ], [ 1, %for.end42.thread ], [ %19, %for.cond44 ]
+for.end69:                                        ; preds = %for.cond44, %for.end.thread
+  %all_rects_packed.0.lcssa = phi i32 [ 1, %for.end.thread ], [ %19, %for.cond44 ]
   ret i32 %all_rects_packed.0.lcssa
 }
 

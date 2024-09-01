@@ -1101,18 +1101,18 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   %21 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %21)
   %22 = invoke zeroext i1 @_ZN13serde_spanned7spanned10is_spanned17he585e2019034a503E(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 8 %4, i64 %5)
-          to label %23 unwind label %.thread57
+          to label %23 unwind label %.thread55
 
 23:                                               ; preds = %6
   br i1 %22, label %26, label %24
 
 24:                                               ; preds = %27, %23
   %25 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 1 @anon.3a0a07a790098cfbdba7987e085c3adc.0, i64 24)
-          to label %38 unwind label %.thread57
+          to label %38 unwind label %.thread55
 
 26:                                               ; preds = %23
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %19, ptr align 8 %1)
-          to label %27 unwind label %.thread57
+          to label %27 unwind label %.thread55
 
 27:                                               ; preds = %26
   %28 = load i64, ptr %19, align 8, !range !5, !noundef !4
@@ -1147,14 +1147,14 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
 
 43:                                               ; preds = %38
   %44 = invoke zeroext i1 @"_ZN4core5array8equality92_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$A$u3b$$u20$N$u5d$$GT$$u20$for$u20$$u5b$B$u5d$$GT$2eq17ha97f94bde24db66cE"(ptr nonnull align 8 %4, i64 %5, ptr nonnull align 8 @anon.3a0a07a790098cfbdba7987e085c3adc.3)
-          to label %45 unwind label %.thread57
+          to label %45 unwind label %.thread55
 
 45:                                               ; preds = %43
   br i1 %44, label %46, label %39
 
 46:                                               ; preds = %45
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %17, ptr align 8 %1)
-          to label %47 unwind label %.thread57
+          to label %47 unwind label %.thread55
 
 47:                                               ; preds = %46
   %48 = load i64, ptr %1, align 8, !range !3, !noundef !4
@@ -1165,9 +1165,9 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %51, i64 96, i1 false)
   invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %13, ptr nonnull align 8 %16)
-          to label %53 unwind label %.thread48
+          to label %53 unwind label %.thread47
 
-.thread48:                                        ; preds = %50, %53
+.thread47:                                        ; preds = %50, %53
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %85
@@ -1175,12 +1175,12 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
 53:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(24) %13, i64 24, i1 false)
   invoke void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17haeee7cdf3a693597E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %15, ptr nonnull align 4 %14)
-          to label %54 unwind label %.thread48
+          to label %54 unwind label %.thread47
 
 54:                                               ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda0aa1203faf5b6cE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %15, ptr nonnull align 8 %12)
-          to label %71 unwind label %.thread57
+          to label %71 unwind label %.thread55
 
 .thread:                                          ; preds = %66, %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
@@ -1189,7 +1189,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
 
 55:                                               ; preds = %39
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %11, ptr nonnull align 8 %1)
-          to label %56 unwind label %.thread57
+          to label %56 unwind label %.thread55
 
 56:                                               ; preds = %55
   %57 = load i64, ptr %1, align 8, !range !3, !noundef !4
@@ -1213,12 +1213,12 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   %.sink = phi i64 [ 24, %62 ], [ 48, %56 ]
   %64 = getelementptr inbounds i8, ptr %1, i64 %.sink
   invoke void @_ZN9toml_edit2de20validate_struct_keys17ha38e2557e33d241aE(ptr nonnull sret({ i64, [11 x i64] }) align 8 %9, ptr nonnull align 8 %64, ptr nonnull align 8 %4, i64 %5)
-          to label %65 unwind label %.thread57
+          to label %65 unwind label %.thread55
 
 65:                                               ; preds = %.invoke, %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3c7229df02c2b14fE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %10, ptr nonnull align 8 %9, ptr nonnull align 8 %8)
-          to label %66 unwind label %.thread57
+          to label %66 unwind label %.thread55
 
 66:                                               ; preds = %65
   %67 = load i64, ptr %10, align 8, !range !7, !noundef !4
@@ -1264,18 +1264,18 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   call void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %83)
   br label %70
 
-.thread57:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
+.thread55:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
   %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ true, %65 ], [ false, %54 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %85
 
 84:                                               ; preds = %96, %95, %94, %91
-  resume { ptr, i32 } %.pn55
+  resume { ptr, i32 } %.pn53
 
-85:                                               ; preds = %.thread57, %.thread48
-  %.pn55 = phi { ptr, i32 } [ %52, %.thread48 ], [ %lpad.thr_comm, %.thread57 ]
-  %.153 = phi i1 [ false, %.thread48 ], [ %.0.ph, %.thread57 ]
+85:                                               ; preds = %.thread55, %.thread47
+  %.pn53 = phi { ptr, i32 } [ %52, %.thread47 ], [ %lpad.thr_comm, %.thread55 ]
+  %.151 = phi i1 [ false, %.thread47 ], [ %.0.ph, %.thread55 ]
   %86 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %87 = add nsw i64 %86, -8
   %88 = icmp ugt i64 %87, 3
@@ -1292,7 +1292,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  br i1 %.153, label %96, label %84
+  br i1 %.151, label %96, label %84
 
 95:                                               ; preds = %92
   invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1) #7

@@ -954,19 +954,16 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit200.preheader: ; preds = %_ZL13gmx_snew_i
 ._crit_edge459:                                   ; preds = %282
   %287 = sitofp i32 %276 to double
   %288 = fdiv double %286, %287
-  br i1 %277, label %.lr.ph466, label %._crit_edge467
-
-.lr.ph466:                                        ; preds = %._crit_edge459
   %289 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv548
   %290 = load ptr, ptr %289, align 8
   %wide.trip.count546 = zext nneg i32 %276 to i64
   br label %291
 
-291:                                              ; preds = %.lr.ph466, %291
-  %indvars.iv543 = phi i64 [ 0, %.lr.ph466 ], [ %indvars.iv.next544, %291 ]
-  %.0159463 = phi double [ 0.000000e+00, %.lr.ph466 ], [ %296, %291 ]
-  %.0160462 = phi double [ 0.000000e+00, %.lr.ph466 ], [ %300, %291 ]
-  %.0161461 = phi double [ 0.000000e+00, %.lr.ph466 ], [ %298, %291 ]
+291:                                              ; preds = %._crit_edge459, %291
+  %indvars.iv543 = phi i64 [ 0, %._crit_edge459 ], [ %indvars.iv.next544, %291 ]
+  %.0159463 = phi double [ 0.000000e+00, %._crit_edge459 ], [ %296, %291 ]
+  %.0160462 = phi double [ 0.000000e+00, %._crit_edge459 ], [ %300, %291 ]
+  %.0161461 = phi double [ 0.000000e+00, %._crit_edge459 ], [ %298, %291 ]
   %292 = getelementptr inbounds float, ptr %290, i64 %indvars.iv543
   %293 = load float, ptr %292, align 4
   %294 = fpext float %293 to double
@@ -980,12 +977,12 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit200.preheader: ; preds = %_ZL13gmx_snew_i
   %exitcond547.not = icmp eq i64 %indvars.iv.next544, %wide.trip.count546
   br i1 %exitcond547.not, label %._crit_edge467, label %291, !llvm.loop !11
 
-._crit_edge467:                                   ; preds = %291, %._crit_edge459.thread, %._crit_edge459
-  %301 = phi double [ %288, %._crit_edge459 ], [ %279, %._crit_edge459.thread ], [ %288, %291 ]
-  %302 = phi double [ %287, %._crit_edge459 ], [ %278, %._crit_edge459.thread ], [ %287, %291 ]
-  %.0161.lcssa = phi double [ 0.000000e+00, %._crit_edge459 ], [ 0.000000e+00, %._crit_edge459.thread ], [ %298, %291 ]
-  %.0160.lcssa = phi double [ 0.000000e+00, %._crit_edge459 ], [ 0.000000e+00, %._crit_edge459.thread ], [ %300, %291 ]
-  %.0159.lcssa = phi double [ 0.000000e+00, %._crit_edge459 ], [ 0.000000e+00, %._crit_edge459.thread ], [ %296, %291 ]
+._crit_edge467:                                   ; preds = %291, %._crit_edge459.thread
+  %301 = phi double [ %279, %._crit_edge459.thread ], [ %288, %291 ]
+  %302 = phi double [ %278, %._crit_edge459.thread ], [ %287, %291 ]
+  %.0161.lcssa = phi double [ 0.000000e+00, %._crit_edge459.thread ], [ %298, %291 ]
+  %.0160.lcssa = phi double [ 0.000000e+00, %._crit_edge459.thread ], [ %300, %291 ]
+  %.0159.lcssa = phi double [ 0.000000e+00, %._crit_edge459.thread ], [ %296, %291 ]
   %303 = fdiv double %.0159.lcssa, %302
   %304 = fdiv double %.0161.lcssa, %302
   %305 = fdiv double %.0160.lcssa, %302
@@ -3868,24 +3865,24 @@ _ZL9power_fitiiPPfS_.exit:                        ; preds = %.noexc313
 
 .preheader.i323:                                  ; preds = %.noexc330
   %1535 = icmp sgt i32 %1486, 0
-  br i1 %1535, label %.lr.ph66.us.preheader.i, label %._crit_edge69.i
+  br i1 %1535, label %.lr.ph68.i, label %._crit_edge69.i
 
 .preheader.thread.i:                              ; preds = %.noexc329
   %1536 = icmp sgt i32 %1486, 0
   br i1 %1536, label %.lr.ph68.split.preheader.i, label %._crit_edge69.i
 
-.lr.ph68.split.preheader.i:                       ; preds = %.preheader.thread.i
-  %wide.trip.count77.i = zext nneg i32 %1486 to i64
-  br label %.lr.ph68.split.i
-
-.lr.ph66.us.preheader.i:                          ; preds = %.preheader.i323
+.lr.ph68.i:                                       ; preds = %.preheader.i323
   %invariant.gep.i324 = getelementptr i8, ptr %1533, i64 -8
   %wide.trip.count87.i = zext nneg i32 %1486 to i64
   %wide.trip.count82.i = zext nneg i32 %1490 to i64
   br label %.lr.ph66.us.i
 
-.lr.ph66.us.i:                                    ; preds = %._crit_edge.us.i325, %.lr.ph66.us.preheader.i
-  %indvars.iv84.i = phi i64 [ 0, %.lr.ph66.us.preheader.i ], [ %indvars.iv.next85.i, %._crit_edge.us.i325 ]
+.lr.ph68.split.preheader.i:                       ; preds = %.preheader.thread.i
+  %wide.trip.count77.i = zext nneg i32 %1486 to i64
+  br label %.lr.ph68.split.i
+
+.lr.ph66.us.i:                                    ; preds = %._crit_edge.us.i325, %.lr.ph68.i
+  %indvars.iv84.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next85.i, %._crit_edge.us.i325 ]
   %1537 = load ptr, ptr %147, align 8
   %1538 = getelementptr inbounds float, ptr %1537, i64 %indvars.iv84.i
   %1539 = load float, ptr %1538, align 4
@@ -4044,21 +4041,21 @@ _ZL19regression_analysisibPfiPS_.exit:            ; preds = %.noexc335, %1514, %
 ._crit_edge.i344:                                 ; preds = %.lr.ph.i340
   %1587 = load ptr, ptr @debug, align 8
   %.not.i345 = icmp eq ptr %1587, null
-  br i1 %.not.i345, label %1605, label %.lr.ph45.i
+  br i1 %.not.i345, label %1605, label %.preheader.i346
 
 ._crit_edge.thread.i337:                          ; preds = %.noexc350
   %1588 = load ptr, ptr @debug, align 8
   %.not53.i = icmp eq ptr %1588, null
   br i1 %.not53.i, label %1605, label %._crit_edge46.i
 
-.lr.ph45.i:                                       ; preds = %._crit_edge.i344
+.preheader.i346:                                  ; preds = %._crit_edge.i344
   %1589 = getelementptr inbounds i8, ptr %147, i64 24
   %1590 = load ptr, ptr %1589, align 8
   br label %1591
 
-1591:                                             ; preds = %1591, %.lr.ph45.i
-  %indvars.iv48.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next49.i, %1591 ]
-  %.03543.i = phi float [ 0.000000e+00, %.lr.ph45.i ], [ %1598, %1591 ]
+1591:                                             ; preds = %1591, %.preheader.i346
+  %indvars.iv48.i = phi i64 [ 0, %.preheader.i346 ], [ %indvars.iv.next49.i, %1591 ]
+  %.03543.i = phi float [ 0.000000e+00, %.preheader.i346 ], [ %1598, %1591 ]
   %1592 = getelementptr inbounds float, ptr %1581, i64 %indvars.iv48.i
   %1593 = load float, ptr %1592, align 4
   %1594 = getelementptr inbounds float, ptr %1590, i64 %indvars.iv48.i
@@ -4573,7 +4570,7 @@ define internal fastcc void @_ZL6do_fitP8_IO_FILEibiPfPS1_iP7t_pargsPK16gmx_outp
   br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph81, %.loopexit78.thread, %.loopexit78
-  %96 = phi i1 [ false, %.loopexit78.thread ], [ false, %.loopexit78 ], [ %91, %.lr.ph81 ]
+  %96 = phi i1 [ false, %.loopexit78.thread ], [ false, %.loopexit78 ], [ true, %.lr.ph81 ]
   %97 = tail call noundef zeroext i1 @_Z10bDebugModev()
   %98 = tail call noundef float @_Z8do_lmfitiPKfPffS0_ffPK16gmx_output_env_tbiPdiPKc(i32 noundef %3, ptr noundef %18, ptr noundef %.0, float noundef 0.000000e+00, ptr noundef %4, float noundef %.059, float noundef %.057, ptr noundef %8, i1 noundef zeroext %97, i32 noundef %11, ptr noundef %43, i32 noundef 0, ptr noundef %9)
   %99 = fcmp ogt float %98, 0.000000e+00

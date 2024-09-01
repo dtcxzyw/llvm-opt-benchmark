@@ -570,9 +570,9 @@ if.end14:                                         ; preds = %if.end7
   br i1 %cmp1643, label %while.end.thread.thread, label %if.end18.us
 
 if.end14.thread:                                  ; preds = %if.then9
-  %call154270 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
-  %cmp164371 = icmp eq ptr %call154270, null
-  br i1 %cmp164371, label %while.end.thread.thread, label %if.end18
+  %call154265 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
+  %cmp164366 = icmp eq ptr %call154265, null
+  br i1 %cmp164366, label %while.end.thread.thread, label %if.end18
 
 if.end18.us:                                      ; preds = %if.end14, %if.end43.us
   %call1545.us = phi ptr [ %call15.us, %if.end43.us ], [ %call1542, %if.end14 ]
@@ -596,7 +596,7 @@ if.end43.us:                                      ; preds = %if.then32.us, %if.e
   br i1 %cmp16.us, label %while.end.thread, label %if.end18.us, !llvm.loop !6
 
 if.end18:                                         ; preds = %if.end14.thread, %if.end43
-  %call1545 = phi ptr [ %call15, %if.end43 ], [ %call154270, %if.end14.thread ]
+  %call1545 = phi ptr [ %call15, %if.end43 ], [ %call154265, %if.end14.thread ]
   %num_roots.044 = phi i64 [ %inc, %if.end43 ], [ 0, %if.end14.thread ]
   %call21 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %call1545)
   %cmp22 = icmp eq ptr %call21, null
@@ -647,15 +647,15 @@ while.end:                                        ; preds = %if.end24, %if.then4
 
 while.end.thread.thread:                          ; preds = %if.end14, %if.end14.thread
   tail call void @ERR_clear_error()
-  br label %if.then48.thread97
+  br label %if.then48.thread92
 
 while.end.thread:                                 ; preds = %if.end43, %if.end43.us
   %num_roots.0.lcssa = phi i64 [ %inc.us, %if.end43.us ], [ %inc, %if.end43 ]
   tail call void @ERR_clear_error()
-  %cmp4479 = icmp eq i64 %num_roots.0.lcssa, 0
-  br i1 %cmp4479, label %if.then48.thread97, label %if.end58
+  %cmp4474 = icmp eq i64 %num_roots.0.lcssa, 0
+  br i1 %cmp4474, label %if.then48.thread92, label %if.end58
 
-if.then48.thread97:                               ; preds = %while.end.thread.thread, %while.end.thread
+if.then48.thread92:                               ; preds = %while.end.thread.thread, %while.end.thread
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 745, i32 noundef 2, ptr noundef nonnull @.str.45)
   br label %if.end51
 
@@ -664,12 +664,12 @@ if.then48:                                        ; preds = %while.end
   br label %if.then50
 
 if.then50:                                        ; preds = %while.end, %if.then48
-  %result.12895 = phi i32 [ 2, %if.then48 ], [ %result.0, %while.end ]
+  %result.12890 = phi i32 [ 2, %if.then48 ], [ %result.0, %while.end ]
   tail call void @X509_free(ptr noundef nonnull %call1537)
   br label %if.end51
 
-if.end51:                                         ; preds = %if.then48.thread97, %if.then50
-  %result.12896 = phi i32 [ %result.12895, %if.then50 ], [ 2, %if.then48.thread97 ]
+if.end51:                                         ; preds = %if.then48.thread92, %if.then50
+  %result.12891 = phi i32 [ %result.12890, %if.then50 ], [ 2, %if.then48.thread92 ]
   br i1 %cmp8.not, label %if.end58, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
@@ -679,7 +679,7 @@ if.then53:                                        ; preds = %if.end51
   br label %if.end58
 
 if.end58:                                         ; preds = %while.end.thread, %if.then53, %if.end51
-  %result.129 = phi i32 [ %result.12896, %if.then53 ], [ %result.12896, %if.end51 ], [ 0, %while.end.thread ]
+  %result.129 = phi i32 [ %result.12891, %if.then53 ], [ %result.12891, %if.end51 ], [ 0, %while.end.thread ]
   %call59 = tail call i32 @BIO_free(ptr noundef nonnull %call)
   br label %return
 

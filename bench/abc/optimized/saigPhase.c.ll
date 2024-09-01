@@ -1888,17 +1888,14 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %invariant.gep = getelementptr ptr, ptr %10, i64 %37
   br label %41
 
-.preheader242:                                    ; preds = %41
-  br i1 %32, label %.preheader241.lr.ph, label %.preheader242.._crit_edge_crit_edge
-
-.preheader242.._crit_edge_crit_edge:              ; preds = %Abc_UtilStrsav.exit223, %.preheader242
+.preheader242.._crit_edge_crit_edge:              ; preds = %Abc_UtilStrsav.exit223
   %.phi.trans.insert = getelementptr i8, ptr %4, i64 136
   %.val197.pre = load i32, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert309 = getelementptr i8, ptr %4, i64 104
   %.val180.pre = load i32, ptr %.phi.trans.insert309, align 8
   br label %._crit_edge
 
-.preheader241.lr.ph:                              ; preds = %.preheader242
+.preheader241.lr.ph:                              ; preds = %41
   %38 = getelementptr i8, ptr %4, i64 136
   %39 = getelementptr i8, ptr %4, i64 104
   %40 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1912,7 +1909,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   store ptr %.val200, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader242, label %41, !llvm.loop !38
+  br i1 %exitcond.not, label %.preheader241.lr.ph, label %41, !llvm.loop !38
 
 .preheader241:                                    ; preds = %.preheader241.lr.ph, %.critedge
   %.val181245 = phi i32 [ %.val181245.pre, %.preheader241.lr.ph ], [ %.val181245306, %.critedge ]
@@ -2037,10 +2034,7 @@ Abc_UtilStrsav.exit223:                           ; preds = %Abc_UtilStrsav.exit
   %98 = inttoptr i64 %97 to ptr
   br label %106
 
-.preheader239:                                    ; preds = %.critedge8
-  br i1 %32, label %.preheader.lr.ph, label %._crit_edge266
-
-.preheader.lr.ph:                                 ; preds = %.preheader239
+.preheader.lr.ph:                                 ; preds = %.critedge8
   %99 = getelementptr i8, ptr %4, i64 140
   %100 = getelementptr inbounds i8, ptr %4, i64 24
   %.val193261.pre = load i32, ptr %99, align 4
@@ -2263,7 +2257,7 @@ Saig_ObjChild0Frames.exit232:                     ; preds = %195, %209
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader..critedge8_crit_edge
   %indvars.iv.next293.pre-phi = phi i64 [ %.pre317, %.critedge6.preheader..critedge8_crit_edge ], [ %139, %.critedge6 ]
   %exitcond296.not = icmp eq i64 %indvars.iv.next293.pre-phi, %wide.trip.count295
-  br i1 %exitcond296.not, label %.preheader239, label %.preheader240, !llvm.loop !45
+  br i1 %exitcond296.not, label %.preheader.lr.ph, label %.preheader240, !llvm.loop !45
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge10
   %.val178262 = phi i32 [ %.val179, %.preheader.lr.ph ], [ %.val178262313, %.critedge10 ]
@@ -2326,8 +2320,8 @@ Saig_ObjChild0Frames.exit235:                     ; preds = %.lr.ph264, %236
   %exitcond300.not = icmp eq i32 %258, %1
   br i1 %exitcond300.not, label %._crit_edge266, label %.preheader, !llvm.loop !47
 
-._crit_edge266:                                   ; preds = %.critedge10, %.preheader239.thread, %.preheader239
-  %259 = phi i32 [ %.val179, %.preheader239 ], [ %.pre315.pre, %.preheader239.thread ], [ %.val178262313, %.critedge10 ]
+._crit_edge266:                                   ; preds = %.critedge10, %.preheader239.thread
+  %259 = phi i32 [ %.pre315.pre, %.preheader239.thread ], [ %.val178262313, %.critedge10 ]
   %260 = getelementptr inbounds i8, ptr %15, i64 104
   store i32 %259, ptr %260, align 8
   %261 = getelementptr i8, ptr %15, i64 136

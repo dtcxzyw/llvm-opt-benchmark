@@ -820,9 +820,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %261, %264
 
 ._crit_edge433:                                   ; preds = %318
   %319 = load ptr, ptr %24, align 8
-  %.not223 = icmp ne ptr %319, null
-  %or.cond = and i1 %.not223, %291
-  br i1 %or.cond, label %.lr.ph436, label %.loopexit411
+  %.not223.not = icmp eq ptr %319, null
+  br i1 %.not223.not, label %.loopexit411, label %.lr.ph436
 
 .lr.ph436:                                        ; preds = %._crit_edge433, %336
   %indvars.iv506 = phi i64 [ %indvars.iv.next507, %336 ], [ 0, %._crit_edge433 ]

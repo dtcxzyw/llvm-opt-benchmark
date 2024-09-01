@@ -1472,9 +1472,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv65.i, ptr noundef nonnull align 1 dereferenceable(16) %IVs.0.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body77.lr.ph.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
 
-for.body77.lr.ph.i:                               ; preds = %for.body.i
+for.end.i:                                        ; preds = %for.body.i
   %data.i = getelementptr inbounds i8, ptr %ctx, i64 724
   %11 = load i64, ptr %data.i, align 4
   store i64 %11, ptr %blocks.i, align 16
@@ -1502,8 +1502,8 @@ for.body77.lr.ph.i:                               ; preds = %for.body.i
   %wide.trip.count275.i = zext i32 %umax274.i to i64
   br label %for.body77.i
 
-for.body77.i:                                     ; preds = %for.body77.i, %for.body77.lr.ph.i
-  %indvars.iv271.i = phi i64 [ 0, %for.body77.lr.ph.i ], [ %indvars.iv.next272.i, %for.body77.i ]
+for.body77.i:                                     ; preds = %for.body77.i, %for.end.i
+  %indvars.iv271.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next272.i, %for.body77.i ]
   %cmp79.i = icmp eq i64 %indvars.iv271.i, %18
   %cond.i = select i1 %cmp79.i, i32 %last.0.i, i32 %frag.0.i
   %arrayidx83.i = getelementptr inbounds [8 x i32], ptr %add.ptr5.i, i64 0, i64 %indvars.iv271.i
@@ -1563,24 +1563,24 @@ for.end159.i:                                     ; preds = %for.body77.i, %for.
   br i1 %cmp169.i, label %for.cond172.preheader.i, label %if.end237.i
 
 for.cond172.preheader.i:                          ; preds = %for.end159.i
-  br i1 %cmp38248.not.i, label %do.body.preheader267.i, label %for.body175.preheader.i
+  br i1 %cmp38248.not.i, label %do.body.preheader.thread.i, label %for.body175.preheader.i
+
+do.body.preheader.thread.i:                       ; preds = %for.cond172.preheader.i
+  %ks309.i = getelementptr inbounds i8, ptr %ctx, i64 192
+  br label %do.body.i
 
 for.body175.preheader.i:                          ; preds = %for.cond172.preheader.i
   %umax280.i = call i32 @llvm.umax.i32(i32 %mul.i, i32 1)
   %wide.trip.count281.i = zext i32 %umax280.i to i64
   br label %for.body175.i
 
-do.body.us.preheader.i:                           ; preds = %for.body175.i
+do.body.preheader.i:                              ; preds = %for.body175.i
   %ks.i = getelementptr inbounds i8, ptr %ctx, i64 192
   br label %do.body.us.i
 
-do.body.preheader267.i:                           ; preds = %for.cond172.preheader.i
-  %ks309.i = getelementptr inbounds i8, ptr %ctx, i64 192
-  br label %do.body.i
-
-do.body.us.i:                                     ; preds = %for.cond193.for.end232_crit_edge.us.i, %do.body.us.preheader.i
-  %processed.1.us.i = phi i32 [ %add233.us.i, %for.cond193.for.end232_crit_edge.us.i ], [ 0, %do.body.us.preheader.i ]
-  %minblocks.0.us.i = phi i32 [ %sub234.us.i, %for.cond193.for.end232_crit_edge.us.i ], [ %div168245.i, %do.body.us.preheader.i ]
+do.body.us.i:                                     ; preds = %for.cond193.for.end232_crit_edge.us.i, %do.body.preheader.i
+  %processed.1.us.i = phi i32 [ %add233.us.i, %for.cond193.for.end232_crit_edge.us.i ], [ 0, %do.body.preheader.i ]
+  %minblocks.0.us.i = phi i32 [ %sub234.us.i, %for.cond193.for.end232_crit_edge.us.i ], [ %div168245.i, %do.body.preheader.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks.i, i32 noundef %div4) #9
   br label %for.body196.us.i
@@ -1634,11 +1634,11 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   store i32 128, ptr %blocks187.i, align 8
   %indvars.iv.next278.i = add nuw nsw i64 %indvars.iv277.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next278.i, %wide.trip.count281.i
-  br i1 %exitcond282.not.i, label %do.body.us.preheader.i, label %for.body175.i, !llvm.loop !22
+  br i1 %exitcond282.not.i, label %do.body.preheader.i, label %for.body175.i, !llvm.loop !22
 
-do.body.i:                                        ; preds = %do.body.i, %do.body.preheader267.i
-  %processed.1.i = phi i32 [ %add233.i, %do.body.i ], [ 0, %do.body.preheader267.i ]
-  %minblocks.0.i = phi i32 [ %sub234.i, %do.body.i ], [ %div168245.i, %do.body.preheader267.i ]
+do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.thread.i
+  %processed.1.i = phi i32 [ %add233.i, %do.body.i ], [ 0, %do.body.preheader.thread.i ]
+  %minblocks.0.i = phi i32 [ %sub234.i, %do.body.i ], [ %div168245.i, %do.body.preheader.thread.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef 0) #9
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks309.i, i32 noundef 0) #9
   %add233.i = add i32 %processed.1.i, 2048
@@ -1650,7 +1650,13 @@ if.end237.i:                                      ; preds = %for.cond193.for.end
   %processed.0.i = phi i32 [ 0, %for.end159.i ], [ %add233.i, %do.body.i ], [ %add233.us.i, %for.cond193.for.end232_crit_edge.us.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %hash_d.i, i32 noundef %div4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  br i1 %cmp38248.not.i, label %for.end393.thread.i, label %for.body243.lr.ph.i
+  br i1 %cmp38248.not.i, label %for.end303.thread.i, label %for.body243.lr.ph.i
+
+for.end303.thread.i:                              ; preds = %if.end237.i
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
+  call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
+  br label %for.end501.i
 
 for.body243.lr.ph.i:                              ; preds = %if.end237.i
   %sub245.i = add nsw i32 %mul.i, -1
@@ -1692,9 +1698,9 @@ for.body243.i:                                    ; preds = %for.body243.i, %for
   store ptr %arrayidx266.i, ptr %arrayidx299.i, align 16
   %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 1
   %exitcond294.not.i = icmp eq i64 %indvars.iv.next290.i, %wide.trip.count293.i
-  br i1 %exitcond294.not.i, label %for.body309.lr.ph.i, label %for.body243.i, !llvm.loop !23
+  br i1 %exitcond294.not.i, label %for.end303.i, label %for.body243.i, !llvm.loop !23
 
-for.body309.lr.ph.i:                              ; preds = %for.body243.i
+for.end303.i:                                     ; preds = %for.body243.i
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   %tail.i = getelementptr inbounds i8, ptr %ctx, i64 600
@@ -1708,8 +1714,8 @@ for.body309.lr.ph.i:                              ; preds = %for.body243.i
   %h4370.i = getelementptr inbounds i8, ptr %ctx, i64 616
   br label %for.body309.i
 
-for.body309.i:                                    ; preds = %for.body309.i, %for.body309.lr.ph.i
-  %indvars.iv295.i = phi i64 [ 0, %for.body309.lr.ph.i ], [ %indvars.iv.next296.i, %for.body309.i ]
+for.body309.i:                                    ; preds = %for.body309.i, %for.end303.i
+  %indvars.iv295.i = phi i64 [ 0, %for.end303.i ], [ %indvars.iv.next296.i, %for.body309.i ]
   %arrayidx313.i = getelementptr inbounds [8 x i32], ptr %add.ptr5.i, i64 0, i64 %indvars.iv295.i
   %36 = load i32, ptr %arrayidx313.i, align 4
   %37 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %36) #10, !srcloc !24
@@ -1756,25 +1762,19 @@ for.body309.i:                                    ; preds = %for.body309.i, %for
   store i32 1, ptr %blocks390.i, align 8
   %indvars.iv.next296.i = add nuw nsw i64 %indvars.iv295.i, 1
   %exitcond300.not.i = icmp eq i64 %indvars.iv.next296.i, %wide.trip.count293.i
-  br i1 %exitcond300.not.i, label %for.body398.lr.ph.i, label %for.body309.i, !llvm.loop !30
+  br i1 %exitcond300.not.i, label %for.end393.i, label %for.body309.i, !llvm.loop !30
 
-for.end393.thread.i:                              ; preds = %if.end237.i
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
-  br label %for.end501.i
-
-for.body398.lr.ph.i:                              ; preds = %for.body309.i
+for.end393.i:                                     ; preds = %for.body309.i
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #9
   %arrayidx477.i = getelementptr inbounds i8, ptr %ctx, i64 732
   %arrayidx482.i = getelementptr inbounds i8, ptr %ctx, i64 733
   %arrayidx487.i = getelementptr inbounds i8, ptr %ctx, i64 734
   br label %for.body398.i
 
-for.body398.i:                                    ; preds = %for.body398.i, %for.body398.lr.ph.i
-  %indvars.iv302.i = phi i64 [ 0, %for.body398.lr.ph.i ], [ %indvars.iv.next303.i, %for.body398.i ]
-  %out.addr.0266.i = phi ptr [ %0, %for.body398.lr.ph.i ], [ %scevgep301.i, %for.body398.i ]
-  %ret.0264.i = phi i64 [ 0, %for.body398.lr.ph.i ], [ %add496.i, %for.body398.i ]
+for.body398.i:                                    ; preds = %for.body398.i, %for.end393.i
+  %indvars.iv302.i = phi i64 [ 0, %for.end393.i ], [ %indvars.iv.next303.i, %for.body398.i ]
+  %out.addr.0266.i = phi ptr [ %0, %for.end393.i ], [ %scevgep301.i, %for.body398.i ]
+  %ret.0264.i = phi i64 [ 0, %for.end393.i ], [ %add496.i, %for.body398.i ]
   %cmp401.i = icmp eq i64 %indvars.iv302.i, %29
   %cond406.i = select i1 %cmp401.i, i32 %last.0.i, i32 %frag.0.i
   %arrayidx408.i = getelementptr inbounds [8 x %struct.CIPH_DESC], ptr %ciph_d.i, i64 0, i64 %indvars.iv302.i
@@ -1855,8 +1855,8 @@ for.body398.i:                                    ; preds = %for.body398.i, %for
   %exitcond307.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count293.i
   br i1 %exitcond307.not.i, label %for.end501.i, label %for.body398.i, !llvm.loop !36
 
-for.end501.i:                                     ; preds = %for.body398.i, %for.end393.thread.i
-  %ret.0.lcssa.i = phi i64 [ 0, %for.end393.thread.i ], [ %add496.i, %for.body398.i ]
+for.end501.i:                                     ; preds = %for.body398.i, %for.end303.thread.i
+  %ret.0.lcssa.i = phi i64 [ 0, %for.end303.thread.i ], [ %add496.i, %for.body398.i ]
   %ks503.i = getelementptr inbounds i8, ptr %ctx, i64 192
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks503.i, i32 noundef %div4) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %blocks.i, i64 noundef 1024) #9

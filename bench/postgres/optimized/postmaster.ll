@@ -4922,8 +4922,8 @@ define dso_local void @BackgroundWorkerUnblockSignals() local_unnamed_addr #1 {
 define dso_local noundef zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %.not = icmp eq ptr %2, null
-  %.not913.not18 = icmp eq ptr %2, @BackendList
-  %.not913.not = or i1 %.not, %.not913.not18
+  %.not913.not17 = icmp eq ptr %2, @BackendList
+  %.not913.not = or i1 %.not, %.not913.not17
   br i1 %.not913.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %select.unfold

@@ -4065,7 +4065,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
 23:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %12
   br label %24
 
-24:                                               ; preds = %1, %_ZN17cranelift_codegen3isa3x645lower16is_int_or_ref_ty17h72a65869bd6862dbE.exit.thread, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %10, %23
+24:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower16is_int_or_ref_ty17h72a65869bd6862dbE.exit.thread, %1, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, %10, %23
   %.0 = phi i8 [ 3, %23 ], [ 2, %10 ], [ 2, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit ], [ %4, %_ZN17cranelift_codegen3isa3x645lower16is_int_or_ref_ty17h72a65869bd6862dbE.exit.thread ], [ 0, %1 ]
   ret i8 %.0
 }
@@ -4199,8 +4199,8 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 
 7:                                                ; preds = %9, %1
   %8 = phi ptr [ %10, %9 ], [ %.8.val, %1 ]
-  %.not.i.not = icmp eq ptr %8, %6
-  br i1 %.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f7b9bc39581ac1dE.exit", label %9
+  %.not.not.not.i.not = icmp eq ptr %8, %6
+  br i1 %.not.not.not.i.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f7b9bc39581ac1dE.exit", label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 1
@@ -75131,8 +75131,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   call fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17symbol_value_data17h3a9a2083acf36810E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr nonnull %.val4276, i32 noundef %.sroa.47.0.copyload)
   %9183 = getelementptr inbounds i8, ptr %7, i64 24
   %9184 = load i8, ptr %9183, align 8, !range !8, !noundef !4
-  %.not.not = icmp eq i8 %9184, 2
-  br i1 %.not.not, label %"_ZN4core3ptr131drop_in_place$LT$$LP$cranelift_codegen..ir..extname..ExternalName$C$cranelift_codegen..machinst..lower..RelocDistance$C$i64$RP$$GT$17h2c2f1d113abfd637E.exit6793", label %9185
+  %.not = icmp eq i8 %9184, 2
+  br i1 %.not, label %"_ZN4core3ptr131drop_in_place$LT$$LP$cranelift_codegen..ir..extname..ExternalName$C$cranelift_codegen..machinst..lower..RelocDistance$C$i64$RP$$GT$17h2c2f1d113abfd637E.exit6793", label %9185
 
 9185:                                             ; preds = %9182
   %.sroa.011026.0.copyload = load i8, ptr %7, align 8

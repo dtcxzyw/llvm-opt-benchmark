@@ -104,21 +104,17 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 land.lhs.true:                                    ; preds = %for.body
   switch i8 %12, label %if.end22 [
-    i8 90, label %if.then19.thread
-    i8 43, label %if.then19.thread
-    i8 45, label %if.then19.thread
+    i8 90, label %if.then20
+    i8 43, label %if.then20
+    i8 45, label %if.then20
   ]
-
-if.then19.thread:                                 ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true
-  %.us-phi157 = trunc i64 %indvars.iv to i32
-  br label %if.then20
 
 if.then19:                                        ; preds = %land.lhs.true.us, %land.lhs.true.us, %land.lhs.true.us
   %.us-phi = trunc i64 %indvars.iv130 to i32
-  br i1 %tobool77.not, label %for.end, label %if.then20
+  br label %for.end
 
-if.then20:                                        ; preds = %if.then19.thread, %if.then19
-  %.us-phi158 = phi i32 [ %.us-phi157, %if.then19.thread ], [ %.us-phi, %if.then19 ]
+if.then20:                                        ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true
+  %.us-phi157 = trunc i64 %indvars.iv to i32
   store i32 0, ptr %tm, align 8
   br label %for.end
 
@@ -208,7 +204,7 @@ for.inc:                                          ; preds = %sw.bb87, %sw.bb86, 
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end76.us, %if.then19, %if.then20
-  %o.0103 = phi i32 [ %.us-phi, %if.then19 ], [ %.us-phi158, %if.then20 ], [ 12, %if.end76.us ], [ 12, %for.inc ]
+  %o.0103 = phi i32 [ %.us-phi, %if.then19 ], [ %.us-phi157, %if.then20 ], [ 12, %if.end76.us ], [ 12, %for.inc ]
   %idxprom91 = zext nneg i32 %o.0103 to i64
   %arrayidx92 = getelementptr inbounds i8, ptr %2, i64 %idxprom91
   %21 = load i8, ptr %arrayidx92, align 1

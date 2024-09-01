@@ -914,7 +914,7 @@ sub_1:                                            ; preds = %sub_0
   %.not122 = icmp eq i16 %1, 0
   %101 = select i1 %.not122, ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 48)
   %102 = tail call ptr @PageOutput(i32 noundef %.1, ptr noundef %101) #9
-  br i1 %.not121147, label %._crit_edge161, label %.lr.ph160
+  br label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %100, %126
   %103 = phi ptr [ %130, %126 ], [ %75, %100 ]
@@ -973,7 +973,7 @@ sub_1134:                                         ; preds = %sub_0133
   %exitcond180.not = icmp eq i32 %131, 4
   br i1 %exitcond180.not, label %.thread, label %60, !llvm.loop !15
 
-._crit_edge161:                                   ; preds = %114, %126, %100
+._crit_edge161:                                   ; preds = %114, %126
   %.not124 = icmp eq ptr %102, null
   br i1 %.not124, label %.thread, label %._crit_edge171
 

@@ -431,18 +431,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   %cmp4.not = icmp eq i32 %add, 0
-  br i1 %cmp4.not, label %for.cond43.preheader, label %invoke.cont
-
-for.cond43.preheader:                             ; preds = %for.end
-  br i1 %cmp55, label %for.body45.preheader, label %if.end52
-
-for.body45.preheader:                             ; preds = %for.cond43.preheader
   %wide.trip.count73 = zext nneg i32 %length to i64
-  br label %for.body45
+  br i1 %cmp4.not, label %for.body45, label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.end
-  %conv5 = zext nneg i32 %length to i64
-  call void @_ZN5arrow14AllocateBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp, i64 noundef %conv5, ptr noundef %pool)
+  call void @_ZN5arrow14AllocateBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp, i64 noundef %wide.trip.count73, ptr noundef %pool)
   %2 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %invoke.cont14, label %cond.false.i
@@ -601,17 +594,14 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.end8.sink.split.
   %data_.i = getelementptr inbounds i8, ptr %24, i64 16
   %28 = load ptr, ptr %data_.i, align 8
   %cond.i28 = select i1 %27, ptr %28, ptr null
-  br i1 %cmp55, label %for.body24.preheader, label %cleanup
-
-for.body24.preheader:                             ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
   %wide.trip.count75 = zext nneg i32 %length to i64
   br label %for.body24
 
-for.body24:                                       ; preds = %for.body24.preheader, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit
-  %writer.sroa.3.064 = phi i64 [ %inc.i, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %for.body24.preheader ]
-  %writer.sroa.9.063 = phi i8 [ %writer.sroa.9.2, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %for.body24.preheader ]
-  %writer.sroa.16.062 = phi i8 [ %writer.sroa.16.1, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 1, %for.body24.preheader ]
-  %writer.sroa.22.061 = phi i64 [ %writer.sroa.22.1, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %for.body24.preheader ]
+for.body24:                                       ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit
+  %writer.sroa.3.064 = phi i64 [ %inc.i, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit ]
+  %writer.sroa.9.063 = phi i8 [ %writer.sroa.9.2, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit ]
+  %writer.sroa.16.062 = phi i8 [ %writer.sroa.16.1, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 1, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit ]
+  %writer.sroa.22.061 = phi i64 [ %writer.sroa.22.1, %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit ], [ 0, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit ]
   %arrayidx26 = getelementptr inbounds ptr, ptr %encoded_bytes, i64 %writer.sroa.3.064
   %29 = load ptr, ptr %arrayidx26, align 8
   %30 = load i8, ptr %29, align 1
@@ -641,30 +631,29 @@ _ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit: ; preds = %for.body24, %i
   br i1 %exitcond76.not, label %for.end39, label %for.body24, !llvm.loop !11
 
 for.end39:                                        ; preds = %_ZN5arrow8internal21FirstTimeBitmapWriter4NextEv.exit
-  %32 = icmp ne i8 %writer.sroa.16.1, 1
-  %or.cond = and i1 %cmp55, %32
-  br i1 %or.cond, label %if.then.i42, label %cleanup
+  %.not = icmp eq i8 %writer.sroa.16.1, 1
+  br i1 %.not, label %cleanup, label %if.then.i42
 
 if.then.i42:                                      ; preds = %for.end39
   %arrayidx.i45 = getelementptr inbounds i8, ptr %cond.i28, i64 %writer.sroa.22.1
   store i8 %writer.sroa.9.2, ptr %arrayidx.i45, align 1
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %if.then.i42, %for.end39
+cleanup:                                          ; preds = %if.then.i42, %for.end39
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #23
   br label %if.end52
 
-for.body45:                                       ; preds = %for.body45.preheader, %for.body45
-  %indvars.iv70 = phi i64 [ 0, %for.body45.preheader ], [ %indvars.iv.next71, %for.body45 ]
+for.body45:                                       ; preds = %for.end, %for.body45
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.body45 ], [ 0, %for.end ]
   %arrayidx47 = getelementptr inbounds ptr, ptr %encoded_bytes, i64 %indvars.iv70
-  %33 = load ptr, ptr %arrayidx47, align 8
-  %add.ptr48 = getelementptr inbounds i8, ptr %33, i64 1
+  %32 = load ptr, ptr %arrayidx47, align 8
+  %add.ptr48 = getelementptr inbounds i8, ptr %32, i64 1
   store ptr %add.ptr48, ptr %arrayidx47, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %if.end52, label %for.body45, !llvm.loop !12
 
-if.end52:                                         ; preds = %for.body45, %entry, %for.cond43.preheader, %cleanup
+if.end52:                                         ; preds = %for.body45, %entry, %cleanup
   store ptr null, ptr %agg.result, align 8, !alias.scope !13
   br label %return
 
@@ -5154,8 +5143,8 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %cond.true.i
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i = phi i32 [ %10, %lor.lhs.false.i.i.i.i.i.i ], [ %13, %do.cond.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %do.cond.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %do.cond.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1
@@ -5395,8 +5384,8 @@ lor.lhs.false.i.i.i.i.i.i132:                     ; preds = %cond.true.i128
 
 do.body.i.i.i.i.i.i.i134:                         ; preds = %do.cond.i.i.i.i.i.i.i137, %lor.lhs.false.i.i.i.i.i.i132
   %__count.0.i.i.i.i.i.i.i135 = phi i32 [ %51, %lor.lhs.false.i.i.i.i.i.i132 ], [ %54, %do.cond.i.i.i.i.i.i.i137 ]
-  %cmp.not.i.not.i.i.i.i.i.i136 = icmp eq i32 %__count.0.i.i.i.i.i.i.i135, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i136, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i137
+  %cmp.not.not.not.i.not.i.i.i.i.i.i136 = icmp eq i32 %__count.0.i.i.i.i.i.i.i135, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i136, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i137
 
 do.cond.i.i.i.i.i.i.i137:                         ; preds = %do.body.i.i.i.i.i.i.i134
   %add.i.i.i.i.i.i.i138 = add nsw i32 %__count.0.i.i.i.i.i.i.i135, 1
@@ -5713,8 +5702,8 @@ lor.lhs.false.i.i.i.i.i.i304:                     ; preds = %cond.true.i300
 
 do.body.i.i.i.i.i.i.i306:                         ; preds = %do.cond.i.i.i.i.i.i.i309, %lor.lhs.false.i.i.i.i.i.i304
   %__count.0.i.i.i.i.i.i.i307 = phi i32 [ %94, %lor.lhs.false.i.i.i.i.i.i304 ], [ %97, %do.cond.i.i.i.i.i.i.i309 ]
-  %cmp.not.i.not.i.i.i.i.i.i308 = icmp eq i32 %__count.0.i.i.i.i.i.i.i307, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i308, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i309
+  %cmp.not.not.not.i.not.i.i.i.i.i.i308 = icmp eq i32 %__count.0.i.i.i.i.i.i.i307, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i308, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i309
 
 do.cond.i.i.i.i.i.i.i309:                         ; preds = %do.body.i.i.i.i.i.i.i306
   %add.i.i.i.i.i.i.i310 = add nsw i32 %__count.0.i.i.i.i.i.i.i307, 1
@@ -5937,8 +5926,8 @@ lor.lhs.false.i.i.i.i.i.i422:                     ; preds = %cond.true.i418
 
 do.body.i.i.i.i.i.i.i424:                         ; preds = %do.cond.i.i.i.i.i.i.i427, %lor.lhs.false.i.i.i.i.i.i422
   %__count.0.i.i.i.i.i.i.i425 = phi i32 [ %126, %lor.lhs.false.i.i.i.i.i.i422 ], [ %129, %do.cond.i.i.i.i.i.i.i427 ]
-  %cmp.not.i.not.i.i.i.i.i.i426 = icmp eq i32 %__count.0.i.i.i.i.i.i.i425, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i426, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i427
+  %cmp.not.not.not.i.not.i.i.i.i.i.i426 = icmp eq i32 %__count.0.i.i.i.i.i.i.i425, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i426, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i427
 
 do.cond.i.i.i.i.i.i.i427:                         ; preds = %do.body.i.i.i.i.i.i.i424
   %add.i.i.i.i.i.i.i428 = add nsw i32 %__count.0.i.i.i.i.i.i.i425, 1
@@ -6156,8 +6145,8 @@ lor.lhs.false.i.i.i.i.i.i543:                     ; preds = %cond.true.i539
 
 do.body.i.i.i.i.i.i.i545:                         ; preds = %do.cond.i.i.i.i.i.i.i548, %lor.lhs.false.i.i.i.i.i.i543
   %__count.0.i.i.i.i.i.i.i546 = phi i32 [ %157, %lor.lhs.false.i.i.i.i.i.i543 ], [ %160, %do.cond.i.i.i.i.i.i.i548 ]
-  %cmp.not.i.not.i.i.i.i.i.i547 = icmp eq i32 %__count.0.i.i.i.i.i.i.i546, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i547, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i548
+  %cmp.not.not.not.i.not.i.i.i.i.i.i547 = icmp eq i32 %__count.0.i.i.i.i.i.i.i546, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i547, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i548
 
 do.cond.i.i.i.i.i.i.i548:                         ; preds = %do.body.i.i.i.i.i.i.i545
   %add.i.i.i.i.i.i.i549 = add nsw i32 %__count.0.i.i.i.i.i.i.i546, 1
@@ -6348,8 +6337,8 @@ lor.lhs.false.i.i.i.i.i.i669:                     ; preds = %cond.true.i665
 
 do.body.i.i.i.i.i.i.i671:                         ; preds = %do.cond.i.i.i.i.i.i.i674, %lor.lhs.false.i.i.i.i.i.i669
   %__count.0.i.i.i.i.i.i.i672 = phi i32 [ %187, %lor.lhs.false.i.i.i.i.i.i669 ], [ %190, %do.cond.i.i.i.i.i.i.i674 ]
-  %cmp.not.i.not.i.i.i.i.i.i673 = icmp eq i32 %__count.0.i.i.i.i.i.i.i672, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i673, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i674
+  %cmp.not.not.not.i.not.i.i.i.i.i.i673 = icmp eq i32 %__count.0.i.i.i.i.i.i.i672, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i673, label %if.then.i.i.i.i.i.i141.invoke, label %do.cond.i.i.i.i.i.i.i674
 
 do.cond.i.i.i.i.i.i.i674:                         ; preds = %do.body.i.i.i.i.i.i.i671
   %add.i.i.i.i.i.i.i675 = add nsw i32 %__count.0.i.i.i.i.i.i.i672, 1

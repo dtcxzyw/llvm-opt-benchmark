@@ -1231,31 +1231,27 @@ list_length.exit:                                 ; preds = %3, %15
 
 36:                                               ; preds = %35
   %.pre = load i8, ptr %.069, align 1
-  br i1 %19, label %sub_0, label %.critedge100
+  %.not95 = icmp eq i8 %.pre, 92
+  %or.cond101 = select i1 %19, i1 %.not95, i1 false
+  br i1 %or.cond101, label %sub_1, label %.tail.thread
 
-sub_0:                                            ; preds = %36
-  switch i8 %.pre, label %.lr.ph [
-    i8 92, label %sub_1
-    i8 0, label %._crit_edge
-  ]
-
-sub_1:                                            ; preds = %sub_0
+sub_1:                                            ; preds = %36
   %37 = getelementptr inbounds i8, ptr %.069, i64 1
   %38 = load i8, ptr %37, align 1
   %.not96 = icmp eq i8 %38, 46
-  br i1 %.not96, label %sub_2, label %.critedge100
+  br i1 %.not96, label %.tail, label %.lr.ph
 
-sub_2:                                            ; preds = %sub_1
+.tail:                                            ; preds = %sub_1
   %39 = getelementptr inbounds i8, ptr %.069, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.critedge, label %.critedge100
+  br i1 %41, label %.critedge, label %.lr.ph
 
-.critedge100:                                     ; preds = %sub_1, %sub_2, %36
+.tail.thread:                                     ; preds = %36
   %.not87 = icmp eq i8 %.pre, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %sub_0, %.critedge100
+.lr.ph:                                           ; preds = %sub_1, %.tail, %.tail.thread
   %42 = getelementptr inbounds i8, ptr %0, i64 29
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   br label %44
@@ -1299,7 +1295,7 @@ switch.early.test:                                ; preds = %47
   %.not = icmp eq i8 %60, 0
   br i1 %.not, label %._crit_edge, label %44, !llvm.loop !18
 
-.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %47, %44, %35, %sub_2
+.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %47, %44, %35, %.tail
   %61 = getelementptr inbounds i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
@@ -1409,8 +1405,8 @@ CopySendChar.exit84:                              ; preds = %102, %101, %83
   br label %120
 
 120:                                              ; preds = %CopySendChar.exit84, %113, %116
-  %.sink99 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit84 ]
-  %121 = getelementptr i8, ptr %.17091, i64 %.sink99
+  %.sink102 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit84 ]
+  %121 = getelementptr i8, ptr %.17091, i64 %.sink102
   %122 = load i8, ptr %121, align 1
   %.not76 = icmp eq i8 %122, 0
   br i1 %.not76, label %._crit_edge93, label %83, !llvm.loop !19
@@ -1458,7 +1454,7 @@ CopySendChar.exit84:                              ; preds = %102, %101, %83
   store i8 0, ptr %146, align 1
   br label %CopySendChar.exit86
 
-._crit_edge:                                      ; preds = %58, %sub_0, %.critedge100
+._crit_edge:                                      ; preds = %58, %.tail.thread
   %147 = getelementptr i8, ptr %0, i64 16
   %.val81 = load ptr, ptr %147, align 8
   %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #22

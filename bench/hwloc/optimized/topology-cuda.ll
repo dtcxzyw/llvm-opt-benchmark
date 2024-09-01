@@ -247,15 +247,12 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, 
   br i1 %95, label %34, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %92
-  br i1 %17, label %._crit_edge.thread, label %96
-
-96:                                               ; preds = %._crit_edge
-  %97 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
-  %98 = call i32 @hwloc_modify_infos(ptr noundef %97, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
+  %96 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
+  %97 = call i32 @hwloc_modify_infos(ptr noundef %96, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %96, %27, %30, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %96 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %27, %30, %14, %2
+  %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   ret i32 %.0
 }
 

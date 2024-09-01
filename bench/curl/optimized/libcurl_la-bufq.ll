@@ -298,8 +298,8 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind uwtable
 define hidden i64 @Curl_bufq_write(ptr nocapture noundef %q, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
 entry:
-  %tobool23.not = icmp eq i64 %len, 0
-  br i1 %tobool23.not, label %return, label %while.body
+  %tobool.not23 = icmp eq i64 %len, 0
+  br i1 %tobool.not23, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %chunk_append.exit
   %nwritten.026 = phi i64 [ %add, %chunk_append.exit ], [ 0, %entry ]
@@ -1031,8 +1031,8 @@ entry:
   %buf.i = alloca ptr, align 8
   %blen.i = alloca i64, align 8
   store i32 0, ptr %err, align 4
-  %tobool73.not = icmp eq i64 %len, 0
-  br i1 %tobool73.not, label %if.end20, label %while.body.lr.ph
+  %tobool.not73 = icmp eq i64 %len, 0
+  br i1 %tobool.not73, label %if.end20, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %tail.i = getelementptr inbounds i8, ptr %q, i64 8

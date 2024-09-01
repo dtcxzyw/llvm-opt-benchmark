@@ -892,8 +892,8 @@ sub_0:                                            ; preds = %25
   call void @dm_consume_args(ptr noundef nonnull %19, i32 noundef 1) #16
   %28 = call ptr @dm_shift_arg(ptr noundef nonnull %19) #16
   %29 = load i8, ptr %28, align 1
-  %.not = icmp eq i8 %29, 45
-  br i1 %.not, label %.tail, label %.tail.thread
+  %.not83 = icmp eq i8 %29, 45
+  br i1 %.not83, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %30 = getelementptr inbounds i8, ptr %28, i64 1
@@ -1221,8 +1221,8 @@ sub_0:                                            ; preds = %25
 206:                                              ; preds = %209, %201
   %207 = phi ptr [ %188, %201 ], [ %208, %209 ]
   %208 = load ptr, ptr %207, align 8
-  %.not100 = icmp ne ptr %208, %188
-  br i1 %.not100, label %209, label %214
+  %.not.not.not.not.not = icmp ne ptr %208, %188
+  br i1 %.not.not.not.not.not, label %209, label %214
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds i8, ptr %208, i64 20
@@ -1233,7 +1233,7 @@ sub_0:                                            ; preds = %25
 
 214:                                              ; preds = %209, %206
   %215 = getelementptr inbounds i8, ptr %0, i64 480
-  %216 = zext i1 %.not100 to i8
+  %216 = zext i1 %.not.not.not.not.not to i8
   store i8 %216, ptr %215, align 8
   call void @mutex_unlock(ptr noundef %187) #16
   %217 = getelementptr inbounds i8, ptr %191, i64 128
@@ -2580,8 +2580,8 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 195:                                              ; preds = %198, %.loopexit
   %196 = phi ptr [ %173, %.loopexit ], [ %197, %198 ]
   %197 = load ptr, ptr %196, align 8
-  %.not = icmp ne ptr %197, %173
-  br i1 %.not, label %198, label %203
+  %.not.not.not.not.not = icmp ne ptr %197, %173
+  br i1 %.not.not.not.not.not, label %198, label %203
 
 198:                                              ; preds = %195
   %199 = getelementptr inbounds i8, ptr %197, i64 20
@@ -2592,7 +2592,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 
 203:                                              ; preds = %198, %195
   %204 = getelementptr inbounds i8, ptr %0, i64 56
-  %205 = zext i1 %.not to i8
+  %205 = zext i1 %.not.not.not.not.not to i8
   store i8 %205, ptr %204, align 8
   %206 = tail call i32 @static_key_count(ptr noundef nonnull @stats_enabled) #16
   %207 = icmp sgt i32 %206, 0

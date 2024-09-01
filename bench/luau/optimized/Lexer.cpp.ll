@@ -4429,31 +4429,22 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4Luau5Lexer10isReservedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
-  %2 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.98) #25
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %._crit_edge, label %.lr.ph
+  br label %2
 
-.lr.ph:                                           ; preds = %1, %4
-  %indvars.iv6 = phi i64 [ %indvars.iv.next, %4 ], [ 290, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv6, 1
+2:                                                ; preds = %2, %1
+  %indvars.iv = phi i64 [ 290, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = add nsw i64 %indvars.iv, -290
+  %4 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %3
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5) #25
+  %7 = icmp eq i32 %6, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 311
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %4, !llvm.loop !20
+  %or.cond = select i1 %7, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %8, label %2, !llvm.loop !20
 
-4:                                                ; preds = %.lr.ph
-  %5 = add nsw i64 %indvars.iv6, -289
-  %6 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7) #25
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %4
-  %10 = icmp ult i64 %indvars.iv6, 310
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %10, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+8:                                                ; preds = %2
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

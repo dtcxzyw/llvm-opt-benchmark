@@ -373,9 +373,6 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   call void @free(ptr noundef nonnull %82) #13
   br label %317
 
-.preheader371:                                    ; preds = %167
-  br i1 %158, label %.preheader370, label %.loopexit
-
 161:                                              ; preds = %.lr.ph404, %167
   %indvars.iv530 = phi i32 [ 0, %.lr.ph404 ], [ %indvars.iv.next531, %167 ]
   %indvars.iv475 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next476, %167 ]
@@ -415,11 +412,11 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %exitcond479.not = icmp eq i64 %indvars.iv.next476, %wide.trip.count478
   %indvars.iv.next531 = add nuw nsw i32 %indvars.iv530, 1
-  br i1 %exitcond479.not, label %.preheader371, label %161, !llvm.loop !10
+  br i1 %exitcond479.not, label %.preheader370, label %161, !llvm.loop !10
 
-.preheader370:                                    ; preds = %.preheader371, %._crit_edge407
-  %168 = phi i32 [ %176, %._crit_edge407 ], [ %134, %.preheader371 ]
-  %indvars.iv483 = phi i64 [ %indvars.iv.next484, %._crit_edge407 ], [ 0, %.preheader371 ]
+.preheader370:                                    ; preds = %167, %._crit_edge407
+  %168 = phi i32 [ %176, %._crit_edge407 ], [ %134, %167 ]
+  %indvars.iv483 = phi i64 [ %indvars.iv.next484, %._crit_edge407 ], [ 0, %167 ]
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %.lr.ph406, label %.preheader370.._crit_edge407_crit_edge
 
@@ -449,11 +446,11 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %177 = icmp slt i64 %indvars.iv.next484, %.pre-phi
   br i1 %177, label %.preheader370, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %._crit_edge407, %.preheader372, %.preheader371, %126
-  %.0326 = phi i32 [ 0, %126 ], [ %.1327.lcssa, %.preheader371 ], [ %.1327.lcssa, %.preheader372 ], [ %.1327.lcssa, %._crit_edge407 ]
-  %.0325 = phi ptr [ null, %126 ], [ %145, %.preheader371 ], [ %145, %.preheader372 ], [ %145, %._crit_edge407 ]
-  %.0324 = phi ptr [ null, %126 ], [ %150, %.preheader371 ], [ %150, %.preheader372 ], [ %150, %._crit_edge407 ]
-  %.0311 = phi ptr [ null, %126 ], [ %156, %.preheader371 ], [ %156, %.preheader372 ], [ %156, %._crit_edge407 ]
+.loopexit:                                        ; preds = %._crit_edge407, %.preheader372, %126
+  %.0326 = phi i32 [ 0, %126 ], [ %.1327.lcssa, %.preheader372 ], [ %.1327.lcssa, %._crit_edge407 ]
+  %.0325 = phi ptr [ null, %126 ], [ %145, %.preheader372 ], [ %145, %._crit_edge407 ]
+  %.0324 = phi ptr [ null, %126 ], [ %150, %.preheader372 ], [ %150, %._crit_edge407 ]
+  %.0311 = phi ptr [ null, %126 ], [ %156, %.preheader372 ], [ %156, %._crit_edge407 ]
   %178 = load ptr, ptr %86, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 328
   %180 = load ptr, ptr %179, align 8
@@ -845,28 +842,22 @@ define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef rea
   store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader130.preheader, label %.lr.ph, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %11, label %.preheader130.preheader, label %._crit_edge139
-
-.preheader130.preheader:                          ; preds = %._crit_edge
+.preheader130.preheader:                          ; preds = %.lr.ph
   %14 = lshr i32 %1, 1
   br label %.preheader130
 
 .loopexit:                                        ; preds = %51
   %15 = icmp sgt i32 %.1113134.in, 1
-  br i1 %15, label %.preheader130, label %.preheader, !llvm.loop !25
+  br i1 %15, label %.preheader130, label %.lr.ph138.preheader, !llvm.loop !25
 
 .preheader130:                                    ; preds = %.preheader130.preheader, %.loopexit
   %.1113134.in = phi i32 [ %.1113134, %.loopexit ], [ %14, %.preheader130.preheader ]
   %.1113134 = add nsw i32 %.1113134.in, -1
   br label %17
 
-.preheader:                                       ; preds = %.loopexit
-  br i1 %11, label %.lr.ph138.preheader, label %._crit_edge139
-
-.lr.ph138.preheader:                              ; preds = %.preheader
+.lr.ph138.preheader:                              ; preds = %.loopexit
   %16 = zext nneg i32 %4 to i64
   br label %.lr.ph138
 
@@ -1019,7 +1010,7 @@ define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef rea
   %107 = icmp sgt i64 %indvars.iv141, 1
   br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !26
 
-._crit_edge139:                                   ; preds = %104, %10, %._crit_edge, %.preheader
+._crit_edge139:                                   ; preds = %104, %10
   %108 = load i32, ptr %7, align 4
   store i32 %108, ptr %2, align 4
   tail call void @free(ptr noundef %7) #13

@@ -2845,8 +2845,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %218
 
 214:                                              ; preds = %204
-  %brmerge519 = or i1 %198, %207
-  br i1 %brmerge519, label %.thread509, label %215
+  br i1 %198, label %.thread509, label %215
 
 215:                                              ; preds = %214
   %216 = fmul float %199, %206
@@ -4252,8 +4251,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %215
 
 212:                                              ; preds = %202
-  %brmerge427 = or i1 %195, %205
-  br i1 %brmerge427, label %.thread417, label %213
+  br i1 %195, label %.thread417, label %213
 
 213:                                              ; preds = %212
   %214 = fmul float %196, %204
@@ -6163,8 +6161,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %233
 
 229:                                              ; preds = %219
-  %brmerge542 = or i1 %208, %222
-  br i1 %brmerge542, label %.thread524, label %230
+  br i1 %208, label %.thread524, label %230
 
 230:                                              ; preds = %229
   %231 = fmul float %211, %221
@@ -7714,8 +7711,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %226
 
 223:                                              ; preds = %213
-  %brmerge457 = or i1 %204, %216
-  br i1 %brmerge457, label %.thread439, label %224
+  br i1 %204, label %.thread439, label %224
 
 224:                                              ; preds = %223
   %225 = fmul float %207, %215
@@ -9488,8 +9484,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %224
 
 220:                                              ; preds = %210
-  %brmerge534 = or i1 %192, %213
-  br i1 %brmerge534, label %.thread524, label %221
+  br i1 %192, label %.thread524, label %221
 
 221:                                              ; preds = %220
   %222 = fmul float %193, %212
@@ -10742,8 +10737,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %215
 
 212:                                              ; preds = %202
-  %brmerge438 = or i1 %187, %205
-  br i1 %brmerge438, label %.thread428, label %213
+  br i1 %187, label %.thread428, label %213
 
 213:                                              ; preds = %212
   %214 = fmul float %188, %204
@@ -12330,8 +12324,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %199
 
 195:                                              ; preds = %185
-  %brmerge475 = or i1 %179, %188
-  br i1 %brmerge475, label %.thread465, label %196
+  br i1 %179, label %.thread465, label %196
 
 196:                                              ; preds = %195
   %197 = fmul float %180, %187
@@ -13532,8 +13525,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %197
 
 194:                                              ; preds = %184
-  %brmerge392 = or i1 %177, %187
-  br i1 %brmerge392, label %.thread382, label %195
+  br i1 %177, label %.thread382, label %195
 
 195:                                              ; preds = %194
   %196 = fmul float %178, %186
@@ -15279,8 +15271,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %239
 
 235:                                              ; preds = %225
-  %brmerge556 = or i1 %202, %228
-  br i1 %brmerge556, label %.thread538, label %236
+  br i1 %202, label %.thread538, label %236
 
 236:                                              ; preds = %235
   %237 = fmul float %205, %227
@@ -16674,8 +16665,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %226
 
 223:                                              ; preds = %213
-  %brmerge467 = or i1 %196, %216
-  br i1 %brmerge467, label %.thread449, label %224
+  br i1 %196, label %.thread449, label %224
 
 224:                                              ; preds = %223
   %225 = fmul float %199, %215
@@ -18413,8 +18403,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %214
 
 210:                                              ; preds = %200
-  %brmerge497 = or i1 %189, %203
-  br i1 %brmerge497, label %.thread479, label %211
+  br i1 %189, label %.thread479, label %211
 
 211:                                              ; preds = %210
   %212 = fmul float %192, %202
@@ -19756,8 +19745,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %208
 
 205:                                              ; preds = %195
-  %brmerge421 = or i1 %186, %198
-  br i1 %brmerge421, label %.thread403, label %206
+  br i1 %186, label %.thread403, label %206
 
 206:                                              ; preds = %205
   %207 = fmul float %189, %197
@@ -21593,8 +21581,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %218
 
 214:                                              ; preds = %204
-  %brmerge519 = or i1 %198, %207
-  br i1 %brmerge519, label %.thread509, label %215
+  br i1 %198, label %.thread509, label %215
 
 215:                                              ; preds = %214
   %216 = fmul float %199, %206
@@ -23000,8 +22987,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %215
 
 212:                                              ; preds = %202
-  %brmerge427 = or i1 %195, %205
-  br i1 %brmerge427, label %.thread417, label %213
+  br i1 %195, label %.thread417, label %213
 
 213:                                              ; preds = %212
   %214 = fmul float %196, %204
@@ -24911,8 +24897,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %233
 
 229:                                              ; preds = %219
-  %brmerge542 = or i1 %208, %222
-  br i1 %brmerge542, label %.thread524, label %230
+  br i1 %208, label %.thread524, label %230
 
 230:                                              ; preds = %229
   %231 = fmul float %211, %221
@@ -26462,8 +26447,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %226
 
 223:                                              ; preds = %213
-  %brmerge457 = or i1 %204, %216
-  br i1 %brmerge457, label %.thread439, label %224
+  br i1 %204, label %.thread439, label %224
 
 224:                                              ; preds = %223
   %225 = fmul float %207, %215
@@ -28236,8 +28220,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %224
 
 220:                                              ; preds = %210
-  %brmerge534 = or i1 %192, %213
-  br i1 %brmerge534, label %.thread524, label %221
+  br i1 %192, label %.thread524, label %221
 
 221:                                              ; preds = %220
   %222 = fmul float %193, %212
@@ -29490,8 +29473,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %215
 
 212:                                              ; preds = %202
-  %brmerge438 = or i1 %187, %205
-  br i1 %brmerge438, label %.thread428, label %213
+  br i1 %187, label %.thread428, label %213
 
 213:                                              ; preds = %212
   %214 = fmul float %188, %204
@@ -31078,8 +31060,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %199
 
 195:                                              ; preds = %185
-  %brmerge475 = or i1 %179, %188
-  br i1 %brmerge475, label %.thread465, label %196
+  br i1 %179, label %.thread465, label %196
 
 196:                                              ; preds = %195
   %197 = fmul float %180, %187
@@ -32280,8 +32261,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %197
 
 194:                                              ; preds = %184
-  %brmerge392 = or i1 %177, %187
-  br i1 %brmerge392, label %.thread382, label %195
+  br i1 %177, label %.thread382, label %195
 
 195:                                              ; preds = %194
   %196 = fmul float %178, %186
@@ -34027,8 +34007,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %239
 
 235:                                              ; preds = %225
-  %brmerge556 = or i1 %202, %228
-  br i1 %brmerge556, label %.thread538, label %236
+  br i1 %202, label %.thread538, label %236
 
 236:                                              ; preds = %235
   %237 = fmul float %205, %227
@@ -35422,8 +35401,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %226
 
 223:                                              ; preds = %213
-  %brmerge467 = or i1 %196, %216
-  br i1 %brmerge467, label %.thread449, label %224
+  br i1 %196, label %.thread449, label %224
 
 224:                                              ; preds = %223
   %225 = fmul float %199, %215
@@ -37161,8 +37139,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %214
 
 210:                                              ; preds = %200
-  %brmerge497 = or i1 %189, %203
-  br i1 %brmerge497, label %.thread479, label %211
+  br i1 %189, label %.thread479, label %211
 
 211:                                              ; preds = %210
   %212 = fmul float %192, %202
@@ -38504,8 +38481,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %brmerge, label %.thread, label %208
 
 205:                                              ; preds = %195
-  %brmerge421 = or i1 %186, %198
-  br i1 %brmerge421, label %.thread403, label %206
+  br i1 %186, label %.thread403, label %206
 
 206:                                              ; preds = %205
   %207 = fmul float %189, %197
@@ -88794,8 +88770,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %247, label %.thread573, label %.thread
 
 248:                                              ; preds = %238
-  %brmerge583 = or i1 %230, %241
-  br i1 %brmerge583, label %.thread573, label %249
+  br i1 %230, label %.thread573, label %249
 
 249:                                              ; preds = %248
   %250 = fmul float %231, %240
@@ -90783,8 +90758,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %245, label %.thread481, label %.thread
 
 246:                                              ; preds = %236
-  %brmerge491 = or i1 %227, %239
-  br i1 %brmerge491, label %.thread481, label %247
+  br i1 %227, label %.thread481, label %247
 
 247:                                              ; preds = %246
   %248 = fmul float %228, %238
@@ -93286,8 +93260,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %263, label %.thread589, label %.thread
 
 264:                                              ; preds = %254
-  %brmerge607 = or i1 %240, %257
-  br i1 %brmerge607, label %.thread589, label %265
+  br i1 %240, label %.thread589, label %265
 
 265:                                              ; preds = %264
   %266 = fmul float %243, %256
@@ -95424,8 +95397,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %257, label %.thread504, label %.thread
 
 258:                                              ; preds = %248
-  %brmerge522 = or i1 %236, %251
-  br i1 %brmerge522, label %.thread504, label %259
+  br i1 %236, label %.thread504, label %259
 
 259:                                              ; preds = %258
   %260 = fmul float %239, %250
@@ -97792,8 +97764,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %259, label %.thread588, label %.thread
 
 260:                                              ; preds = %250
-  %brmerge598 = or i1 %230, %253
-  br i1 %brmerge598, label %.thread588, label %261
+  br i1 %230, label %.thread588, label %261
 
 261:                                              ; preds = %260
   %262 = fmul float %231, %252
@@ -99636,8 +99607,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %250, label %.thread491, label %.thread
 
 251:                                              ; preds = %241
-  %brmerge501 = or i1 %224, %244
-  br i1 %brmerge501, label %.thread491, label %252
+  br i1 %224, label %.thread491, label %252
 
 252:                                              ; preds = %251
   %253 = fmul float %225, %243
@@ -101817,8 +101787,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %234, label %.thread529, label %.thread
 
 235:                                              ; preds = %225
-  %brmerge539 = or i1 %217, %228
-  br i1 %brmerge539, label %.thread529, label %236
+  br i1 %217, label %.thread529, label %236
 
 236:                                              ; preds = %235
   %237 = fmul float %218, %227
@@ -103605,8 +103574,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %232, label %.thread445, label %.thread
 
 233:                                              ; preds = %223
-  %brmerge455 = or i1 %214, %226
-  br i1 %brmerge455, label %.thread445, label %234
+  br i1 %214, label %.thread445, label %234
 
 234:                                              ; preds = %233
   %235 = fmul float %215, %225
@@ -105948,8 +105916,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %275, label %.thread603, label %.thread
 
 276:                                              ; preds = %266
-  %brmerge621 = or i1 %240, %269
-  br i1 %brmerge621, label %.thread603, label %277
+  br i1 %240, label %.thread603, label %277
 
 277:                                              ; preds = %276
   %278 = fmul float %243, %268
@@ -107938,8 +107905,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %262, label %.thread512, label %.thread
 
 263:                                              ; preds = %253
-  %brmerge530 = or i1 %233, %256
-  br i1 %brmerge530, label %.thread512, label %264
+  br i1 %233, label %.thread512, label %264
 
 264:                                              ; preds = %263
   %265 = fmul float %236, %255
@@ -110276,8 +110242,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %250, label %.thread544, label %.thread
 
 251:                                              ; preds = %241
-  %brmerge562 = or i1 %227, %244
-  br i1 %brmerge562, label %.thread544, label %252
+  br i1 %227, label %.thread544, label %252
 
 252:                                              ; preds = %251
   %253 = fmul float %230, %243
@@ -112210,8 +112175,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %244, label %.thread466, label %.thread
 
 245:                                              ; preds = %235
-  %brmerge484 = or i1 %223, %238
-  br i1 %brmerge484, label %.thread466, label %246
+  br i1 %223, label %.thread466, label %246
 
 246:                                              ; preds = %245
   %247 = fmul float %226, %237
@@ -114625,8 +114589,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %247, label %.thread573, label %.thread
 
 248:                                              ; preds = %238
-  %brmerge583 = or i1 %230, %241
-  br i1 %brmerge583, label %.thread573, label %249
+  br i1 %230, label %.thread573, label %249
 
 249:                                              ; preds = %248
   %250 = fmul float %231, %240
@@ -116614,8 +116577,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %245, label %.thread481, label %.thread
 
 246:                                              ; preds = %236
-  %brmerge491 = or i1 %227, %239
-  br i1 %brmerge491, label %.thread481, label %247
+  br i1 %227, label %.thread481, label %247
 
 247:                                              ; preds = %246
   %248 = fmul float %228, %238
@@ -119117,8 +119079,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %263, label %.thread589, label %.thread
 
 264:                                              ; preds = %254
-  %brmerge607 = or i1 %240, %257
-  br i1 %brmerge607, label %.thread589, label %265
+  br i1 %240, label %.thread589, label %265
 
 265:                                              ; preds = %264
   %266 = fmul float %243, %256
@@ -121255,8 +121216,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %257, label %.thread504, label %.thread
 
 258:                                              ; preds = %248
-  %brmerge522 = or i1 %236, %251
-  br i1 %brmerge522, label %.thread504, label %259
+  br i1 %236, label %.thread504, label %259
 
 259:                                              ; preds = %258
   %260 = fmul float %239, %250
@@ -123623,8 +123583,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %259, label %.thread588, label %.thread
 
 260:                                              ; preds = %250
-  %brmerge598 = or i1 %230, %253
-  br i1 %brmerge598, label %.thread588, label %261
+  br i1 %230, label %.thread588, label %261
 
 261:                                              ; preds = %260
   %262 = fmul float %231, %252
@@ -125467,8 +125426,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %250, label %.thread491, label %.thread
 
 251:                                              ; preds = %241
-  %brmerge501 = or i1 %224, %244
-  br i1 %brmerge501, label %.thread491, label %252
+  br i1 %224, label %.thread491, label %252
 
 252:                                              ; preds = %251
   %253 = fmul float %225, %243
@@ -127648,8 +127606,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %234, label %.thread529, label %.thread
 
 235:                                              ; preds = %225
-  %brmerge539 = or i1 %217, %228
-  br i1 %brmerge539, label %.thread529, label %236
+  br i1 %217, label %.thread529, label %236
 
 236:                                              ; preds = %235
   %237 = fmul float %218, %227
@@ -129436,8 +129393,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %232, label %.thread445, label %.thread
 
 233:                                              ; preds = %223
-  %brmerge455 = or i1 %214, %226
-  br i1 %brmerge455, label %.thread445, label %234
+  br i1 %214, label %.thread445, label %234
 
 234:                                              ; preds = %233
   %235 = fmul float %215, %225
@@ -131779,8 +131735,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %275, label %.thread603, label %.thread
 
 276:                                              ; preds = %266
-  %brmerge621 = or i1 %240, %269
-  br i1 %brmerge621, label %.thread603, label %277
+  br i1 %240, label %.thread603, label %277
 
 277:                                              ; preds = %276
   %278 = fmul float %243, %268
@@ -133769,8 +133724,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %262, label %.thread512, label %.thread
 
 263:                                              ; preds = %253
-  %brmerge530 = or i1 %233, %256
-  br i1 %brmerge530, label %.thread512, label %264
+  br i1 %233, label %.thread512, label %264
 
 264:                                              ; preds = %263
   %265 = fmul float %236, %255
@@ -136107,8 +136061,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %250, label %.thread544, label %.thread
 
 251:                                              ; preds = %241
-  %brmerge562 = or i1 %227, %244
-  br i1 %brmerge562, label %.thread544, label %252
+  br i1 %227, label %.thread544, label %252
 
 252:                                              ; preds = %251
   %253 = fmul float %230, %243
@@ -138041,8 +137994,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %244, label %.thread466, label %.thread
 
 245:                                              ; preds = %235
-  %brmerge484 = or i1 %223, %238
-  br i1 %brmerge484, label %.thread466, label %246
+  br i1 %223, label %.thread466, label %246
 
 246:                                              ; preds = %245
   %247 = fmul float %226, %237

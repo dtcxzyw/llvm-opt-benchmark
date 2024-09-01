@@ -12238,7 +12238,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i899: ; preds = 
   br label %.body
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit901:              ; preds = %1959, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i899, %407
-  %or.cond991.not1127 = phi i1 [ %or.cond991.not, %1959 ], [ %or.cond991.not, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i899 ], [ false, %407 ]
+  %or.cond991.not1127 = phi i1 [ true, %1959 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i899 ], [ false, %407 ]
   %1983 = getelementptr inbounds i8, ptr %13, i64 40
   %1984 = load ptr, ptr %1983, align 8
   %.not.i.i.i.i902 = icmp eq ptr %1984, null
@@ -12914,8 +12914,8 @@ _ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %126 = zext nneg i32 %.013.i.i.i to i64
   %127 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Wire *>::entry_t", ptr %124, i64 %126
   %128 = load i32, ptr %127, align 4, !noalias !96
-  %.not.not.i.not = icmp ne i32 %128, %86
-  br i1 %.not.not.i.not, label %129, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
+  %.not.not.i.not.not = icmp ne i32 %128, %86
+  br i1 %.not.not.i.not.not, label %129, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %127, i64 16
@@ -12924,7 +12924,7 @@ _ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br i1 %132, label %125, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, !llvm.loop !94
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5countERKS3_.exit.i: ; preds = %129, %125, %._crit_edge.i.i.i, %87
-  %.011.i.i.i = phi i1 [ true, %._crit_edge.i.i.i ], [ true, %87 ], [ %.not.not.i.not, %125 ], [ %.not.not.i.not, %129 ]
+  %.011.i.i.i = phi i1 [ true, %._crit_edge.i.i.i ], [ true, %87 ], [ %.not.not.i.not.not, %125 ], [ %.not.not.i.not.not, %129 ]
   %133 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !noalias !96
   %134 = trunc i8 %133 to i1
   %135 = icmp ne i32 %86, 0

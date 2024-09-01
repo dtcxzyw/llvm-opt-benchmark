@@ -1925,7 +1925,7 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
 
 .split.us.split.split.preheader:                  ; preds = %.split.us.split
   %25 = load i32, ptr @page_group_by_mobility_disabled, align 4
-  %.not = icmp eq i32 %25, 0
+  %.not.not.not = icmp eq i32 %25, 0
   br label %.split.us.split.split
 
 .split.us.split.split.us:                         ; preds = %.split.us.split, %34
@@ -1954,11 +1954,10 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %.split.us.split.split
-  br i1 %.not, label %44, label %.loopexit.sink.split
+  br i1 %.not.not.not, label %44, label %.loopexit.sink.split
 
 44:                                               ; preds = %43
-  %brmerge.us.not = and i1 %.not, %35
-  br i1 %brmerge.us.not, label %.split.us.split.split.backedge, label %.loopexit
+  br i1 %35, label %.split.us.split.split.backedge, label %.loopexit
 
 45:                                               ; preds = %.split.us.split.split
   br i1 %35, label %.split.us.split.split.backedge, label %.loopexit
@@ -4127,11 +4126,11 @@ define dso_local noundef zeroext i1 @has_managed_dma() local_unnamed_addr #0 ali
 .preheader:                                       ; preds = %2, %6
   %10 = phi ptr [ %11, %6 ], [ %1, %2 ]
   %11 = tail call ptr @next_online_pgdat(ptr noundef nonnull %10) #22
-  %.not4.not = icmp ne ptr %11, null
-  br i1 %.not4.not, label %6, label %.loopexit, !llvm.loop !90
+  %.not4.not.not = icmp ne ptr %11, null
+  br i1 %.not4.not.not, label %6, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.preheader, %6, %2, %0
-  %12 = phi i1 [ false, %0 ], [ true, %2 ], [ %.not4.not, %6 ], [ %.not4.not, %.preheader ]
+  %12 = phi i1 [ false, %0 ], [ true, %2 ], [ %.not4.not.not, %6 ], [ %.not4.not.not, %.preheader ]
   ret i1 %12
 }
 
@@ -5651,7 +5650,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   %8 = getelementptr inbounds i8, ptr %3, i64 28
-  %.not129 = icmp eq i32 %1, 0
+  %.not64 = icmp eq i32 %1, 0
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = and i32 %0, 32768
   %11 = icmp ne i32 %10, 0
@@ -5675,18 +5674,18 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %26 = and i32 %2, -257
   br label %.split
 
-.split:                                           ; preds = %.split.preheader, %.loopexit73
-  %27 = phi ptr [ %.pre188, %.loopexit73 ], [ %24, %.split.preheader ]
-  %28 = phi ptr [ %.pre, %.loopexit73 ], [ %23, %.split.preheader ]
-  %29 = phi i32 [ %26, %.loopexit73 ], [ %2, %.split.preheader ]
-  %30 = phi ptr [ %564, %.loopexit73 ], [ null, %.split.preheader ]
-  %31 = phi i8 [ %565, %.loopexit73 ], [ 0, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %.loopexit74
+  %27 = phi ptr [ %.pre188, %.loopexit74 ], [ %24, %.split.preheader ]
+  %28 = phi ptr [ %.pre, %.loopexit74 ], [ %23, %.split.preheader ]
+  %29 = phi i32 [ %26, %.loopexit74 ], [ %2, %.split.preheader ]
+  %30 = phi ptr [ %564, %.loopexit74 ], [ null, %.split.preheader ]
+  %31 = phi i8 [ %565, %.loopexit74 ], [ 0, %.split.preheader ]
   %32 = and i32 %29, 256
   %33 = icmp ne i32 %32, 0
   %34 = icmp eq ptr %27, null
-  br i1 %34, label %.loopexit74, label %.preheader72.preheader
+  br i1 %34, label %.loopexit75, label %.preheader73.preheader
 
-.preheader72.preheader:                           ; preds = %.split
+.preheader73.preheader:                           ; preds = %.split
   %35 = and i32 %29, 64
   %36 = icmp eq i32 %35, 0
   %37 = and i32 %29, 568
@@ -5726,17 +5725,17 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %71 = icmp eq i32 %70, 0
   %72 = and i32 %29, 2048
   %73 = icmp eq i32 %72, 0
-  br label %.preheader72
+  br label %.preheader73
 
-.preheader72:                                     ; preds = %.preheader72.preheader, %558
-  %74 = phi ptr [ %560, %558 ], [ %27, %.preheader72.preheader ]
-  %75 = phi i8 [ %546, %558 ], [ %31, %.preheader72.preheader ]
-  %76 = phi ptr [ %547, %558 ], [ %30, %.preheader72.preheader ]
-  %77 = phi ptr [ %559, %558 ], [ %28, %.preheader72.preheader ]
+.preheader73:                                     ; preds = %.preheader73.preheader, %558
+  %74 = phi ptr [ %560, %558 ], [ %27, %.preheader73.preheader ]
+  %75 = phi i8 [ %546, %558 ], [ %31, %.preheader73.preheader ]
+  %76 = phi ptr [ %547, %558 ], [ %30, %.preheader73.preheader ]
+  %77 = phi ptr [ %559, %558 ], [ %28, %.preheader73.preheader ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cpusets_enabled_key, i32 2) #22
           to label %.thread [label %78], !srcloc !29
 
-78:                                               ; preds = %.preheader72
+78:                                               ; preds = %.preheader73
   br i1 %36, label %.thread, label %79
 
 79:                                               ; preds = %78
@@ -5745,7 +5744,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %82 = tail call zeroext i1 @cpuset_node_allowed(i32 noundef %81, i32 noundef %0) #22
   br i1 %82, label %.thread, label %.thread61
 
-.thread:                                          ; preds = %.preheader72, %79, %78
+.thread:                                          ; preds = %.preheader73, %79, %78
   %83 = load i8, ptr %7, align 8, !range !131, !noundef !132
   %84 = icmp eq i8 %83, 0
   br i1 %84, label %97, label %85
@@ -5788,7 +5787,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %110 = getelementptr inbounds i8, ptr %74, i64 80
   %111 = load i32, ptr %110, align 16
   %112 = icmp eq i32 %111, %109
-  br i1 %112, label %113, label %.loopexit73
+  br i1 %112, label %113, label %.loopexit74
 
 113:                                              ; preds = %107, %103, %97
   %114 = getelementptr inbounds i8, ptr %74, i64 984
@@ -5807,7 +5806,7 @@ define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef %
   %125 = getelementptr inbounds i8, ptr %74, i64 1088
   %126 = load volatile i64, ptr %125, align 8
   %127 = tail call i64 @llvm.smax.i64(i64 %126, i64 0)
-  br i1 %.not129, label %128, label %__zone_watermark_ok.exit
+  br i1 %.not64, label %128, label %__zone_watermark_ok.exit
 
 128:                                              ; preds = %118
   br i1 %38, label %129, label %.thread35, !prof !7
@@ -5894,7 +5893,7 @@ __zone_watermark_ok.exit:                         ; preds = %118
   %176 = getelementptr inbounds i8, ptr %74, i64 1088
   %177 = load volatile i64, ptr %176, align 8
   %178 = tail call i64 @llvm.smax.i64(i64 %177, i64 0)
-  br i1 %.not129, label %179, label %__zone_watermark_ok.exit33
+  br i1 %.not64, label %179, label %__zone_watermark_ok.exit33
 
 179:                                              ; preds = %169
   br i1 %52, label %180, label %.thread40, !prof !7
@@ -6141,9 +6140,9 @@ zone_statistics.exit.thread:                      ; preds = %256, %260, %280, %2
 
 323:                                              ; preds = %.backedge, %zone_statistics.exit.thread
   %324 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %310) #22
-  br i1 %65, label %.loopexit69.preheader, label %.preheader68
+  br i1 %65, label %.loopexit70.preheader, label %.preheader69
 
-.preheader68:                                     ; preds = %323, %345
+.preheader69:                                     ; preds = %323, %345
   %325 = phi i64 [ %346, %345 ], [ %21, %323 ]
   %326 = getelementptr [11 x %struct.free_area], ptr %311, i64 0, i64 %325, i32 0, i64 3
   %327 = load volatile ptr, ptr %326, align 8
@@ -6153,7 +6152,7 @@ zone_statistics.exit.thread:                      ; preds = %256, %260, %280, %2
   %331 = or i1 %328, %330
   br i1 %331, label %345, label %.thread49
 
-.thread49:                                        ; preds = %.preheader68
+.thread49:                                        ; preds = %.preheader69
   %332 = trunc i64 %325 to i32
   %333 = getelementptr i8, ptr %327, i64 8
   %334 = load ptr, ptr %333, align 8
@@ -6179,17 +6178,17 @@ zone_statistics.exit.thread:                      ; preds = %256, %260, %280, %2
   tail call fastcc void @trace_mm_page_alloc_zone_locked(ptr noundef nonnull %329, i32 noundef %1, i32 noundef 3, i32 noundef 0)
   br label %469
 
-345:                                              ; preds = %.preheader68
+345:                                              ; preds = %.preheader69
   %346 = add nuw nsw i64 %325, 1
   %347 = and i64 %346, 4294967295
   %348 = icmp eq i64 %347, 11
-  br i1 %348, label %.loopexit69.preheader, label %.preheader68, !llvm.loop !112
+  br i1 %348, label %.loopexit70.preheader, label %.preheader69, !llvm.loop !112
 
-.loopexit69.preheader:                            ; preds = %345, %323
-  br label %.loopexit69
+.loopexit70.preheader:                            ; preds = %345, %323
+  br label %.loopexit70
 
-.loopexit69:                                      ; preds = %.loopexit69.backedge, %.loopexit69.preheader
-  %349 = phi i64 [ %21, %.loopexit69.preheader ], [ %.be, %.loopexit69.backedge ]
+.loopexit70:                                      ; preds = %.loopexit70.backedge, %.loopexit70.preheader
+  %349 = phi i64 [ %21, %.loopexit70.preheader ], [ %.be, %.loopexit70.backedge ]
   %350 = getelementptr [11 x %struct.free_area], ptr %313, i64 0, i64 %349
   %351 = load volatile ptr, ptr %350, align 8
   %352 = icmp eq ptr %351, %350
@@ -6198,17 +6197,17 @@ zone_statistics.exit.thread:                      ; preds = %256, %260, %280, %2
   %355 = or i1 %352, %354
   br i1 %355, label %356, label %.thread53
 
-356:                                              ; preds = %.loopexit69
+356:                                              ; preds = %.loopexit70
   %357 = add nuw nsw i64 %349, 1
   %358 = and i64 %357, 4294967295
   %359 = icmp eq i64 %358, 11
-  br i1 %359, label %373, label %.loopexit69.backedge
+  br i1 %359, label %373, label %.loopexit70.backedge
 
-.loopexit69.backedge:                             ; preds = %356, %.loopexit.thread
+.loopexit70.backedge:                             ; preds = %356, %.loopexit.thread
   %.be = phi i64 [ %357, %356 ], [ %21, %.loopexit.thread ]
-  br label %.loopexit69, !llvm.loop !112
+  br label %.loopexit70, !llvm.loop !112
 
-.thread53:                                        ; preds = %.loopexit69
+.thread53:                                        ; preds = %.loopexit70
   %360 = trunc i64 %349 to i32
   %361 = getelementptr i8, ptr %351, i64 8
   %362 = load ptr, ptr %361, align 8
@@ -6353,13 +6352,13 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   tail call fastcc void @steal_suitable_fallback(ptr noundef nonnull %74, ptr noundef %441, i32 noundef %29, i32 noundef %246, i1 noundef zeroext %442)
   tail call fastcc void @trace_mm_page_alloc_extfrag(ptr noundef %441, i32 noundef %1, i32 noundef %434, i32 noundef %246, i32 noundef %435)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #22
-  br label %.loopexit69.backedge
+  br label %.loopexit70.backedge
 
 443:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #22
-  br i1 %71, label %.loopexit67, label %.preheader66
+  br i1 %71, label %.loopexit68, label %.preheader67
 
-.preheader66:                                     ; preds = %443, %465
+.preheader67:                                     ; preds = %443, %465
   %444 = phi i64 [ %466, %465 ], [ %21, %443 ]
   %445 = getelementptr [11 x %struct.free_area], ptr %311, i64 0, i64 %444, i32 0, i64 3
   %446 = load volatile ptr, ptr %445, align 8
@@ -6369,7 +6368,7 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   %450 = or i1 %447, %449
   br i1 %450, label %465, label %451
 
-451:                                              ; preds = %.preheader66
+451:                                              ; preds = %.preheader67
   %452 = trunc i64 %444 to i32
   %453 = getelementptr i8, ptr %446, i64 8
   %454 = load ptr, ptr %453, align 8
@@ -6395,13 +6394,13 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   tail call fastcc void @trace_mm_page_alloc_zone_locked(ptr noundef nonnull %448, i32 noundef %1, i32 noundef 3, i32 noundef 0)
   br label %469
 
-465:                                              ; preds = %.preheader66
+465:                                              ; preds = %.preheader67
   %466 = add nuw nsw i64 %444, 1
   %467 = and i64 %466, 4294967295
   %468 = icmp eq i64 %467, 11
-  br i1 %468, label %.loopexit67, label %.preheader66, !llvm.loop !112
+  br i1 %468, label %.loopexit68, label %.preheader67, !llvm.loop !112
 
-.loopexit67:                                      ; preds = %443, %465
+.loopexit68:                                      ; preds = %443, %465
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %310, i64 noundef %324) #22
   br label %zone_statistics.exit
 
@@ -6410,29 +6409,29 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   tail call void @__mod_zone_page_state(ptr noundef nonnull %74, i32 noundef 0, i64 noundef %20) #22
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %310, i64 noundef %324) #22
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @check_pages_enabled, i32 2) #22
-          to label %.loopexit65 [label %471], !srcloc !29
+          to label %.loopexit66 [label %471], !srcloc !29
 
 471:                                              ; preds = %469
   %472 = getelementptr inbounds i8, ptr %470, i64 48
   %473 = load volatile i32, ptr %472, align 4
   %474 = icmp eq i32 %473, -1
-  br i1 %474, label %.preheader64, label %322, !prof !120
+  br i1 %474, label %.preheader65, label %322, !prof !120
 
-475:                                              ; preds = %.preheader64
+475:                                              ; preds = %.preheader65
   %476 = add nuw nsw i64 %485, 1
   %477 = trunc i64 %476 to i32
   %478 = lshr i32 %477, %1
   %479 = icmp eq i32 %478, 0
-  br i1 %479, label %480, label %.loopexit65, !llvm.loop !121
+  br i1 %479, label %480, label %.loopexit66, !llvm.loop !121
 
 480:                                              ; preds = %475
   %481 = getelementptr %struct.page, ptr %470, i64 %476
   %482 = getelementptr inbounds i8, ptr %481, i64 48
   %483 = load volatile i32, ptr %482, align 4
   %484 = icmp eq i32 %483, -1
-  br i1 %484, label %.preheader64, label %499, !prof !122, !llvm.loop !121
+  br i1 %484, label %.preheader65, label %499, !prof !122, !llvm.loop !121
 
-.preheader64:                                     ; preds = %471, %480
+.preheader65:                                     ; preds = %471, %480
   %485 = phi i64 [ %476, %480 ], [ 0, %471 ]
   %486 = getelementptr %struct.page, ptr %470, i64 %485
   %487 = getelementptr inbounds i8, ptr %486, i64 24
@@ -6448,7 +6447,7 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   %497 = icmp eq i64 %496, 0
   br i1 %497, label %475, label %498, !prof !7
 
-498:                                              ; preds = %.preheader64
+498:                                              ; preds = %.preheader65
   tail call fastcc void @check_new_page_bad(ptr noundef %486)
   br label %.backedge
 
@@ -6459,7 +6458,7 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
 .backedge:                                        ; preds = %499, %498, %322
   br label %323
 
-.loopexit65:                                      ; preds = %469, %475
+.loopexit66:                                      ; preds = %469, %475
   %500 = load i64, ptr %470, align 16
   %501 = lshr i64 %500, 56
   %502 = and i64 %501, 3
@@ -6469,7 +6468,7 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @vm_numa_stat_key, i32 3) #22
           to label %505 [label %zone_statistics.exit], !srcloc !29
 
-505:                                              ; preds = %.loopexit65
+505:                                              ; preds = %.loopexit66
   %506 = getelementptr inbounds i8, ptr %74, i64 80
   %507 = load i32, ptr %506, align 16
   %508 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #23, !srcloc !105
@@ -6503,8 +6502,8 @@ find_suitable_fallback.exit:                      ; preds = %376, %.critedge.pre
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %526, i64 1, ptr elementtype(i64) %526) #22, !srcloc !106
   br label %zone_statistics.exit
 
-zone_statistics.exit:                             ; preds = %523, %.loopexit65, %282, %306, %.loopexit67
-  %527 = phi ptr [ null, %.loopexit67 ], [ %273, %282 ], [ %273, %306 ], [ %470, %.loopexit65 ], [ %470, %523 ]
+zone_statistics.exit:                             ; preds = %523, %.loopexit66, %282, %306, %.loopexit68
+  %527 = phi ptr [ null, %.loopexit68 ], [ %273, %282 ], [ %273, %306 ], [ %470, %.loopexit66 ], [ %470, %523 ]
   br i1 %73, label %540, label %528
 
 528:                                              ; preds = %zone_statistics.exit
@@ -6562,22 +6561,22 @@ zone_statistics.exit:                             ; preds = %523, %.loopexit65, 
   %559 = phi ptr [ %557, %556 ], [ %548, %552 ]
   %560 = load ptr, ptr %559, align 8
   %561 = icmp eq ptr %560, null
-  br i1 %561, label %.loopexit74, label %.preheader72, !llvm.loop !144
+  br i1 %561, label %.loopexit75, label %.preheader73, !llvm.loop !144
 
-.loopexit74:                                      ; preds = %558, %.split
+.loopexit75:                                      ; preds = %558, %.split
   %562 = phi ptr [ %30, %.split ], [ %547, %558 ]
   %563 = phi i8 [ %31, %.split ], [ %546, %558 ]
-  br i1 %33, label %.loopexit73, label %.thread63
+  br i1 %33, label %.loopexit74, label %.thread63
 
-.loopexit73:                                      ; preds = %107, %.loopexit74
-  %564 = phi ptr [ %562, %.loopexit74 ], [ %98, %107 ]
-  %565 = phi i8 [ %563, %.loopexit74 ], [ %99, %107 ]
+.loopexit74:                                      ; preds = %107, %.loopexit75
+  %564 = phi ptr [ %562, %.loopexit75 ], [ %98, %107 ]
+  %565 = phi i8 [ %563, %.loopexit75 ], [ %99, %107 ]
   %.pre = load ptr, ptr %6, align 8
   %.pre188 = load ptr, ptr %.pre, align 8
   br label %.split, !llvm.loop !145
 
-.thread63:                                        ; preds = %.loopexit74, %4, %542, %545
-  %566 = phi ptr [ %527, %545 ], [ %527, %542 ], [ null, %4 ], [ null, %.loopexit74 ]
+.thread63:                                        ; preds = %.loopexit75, %4, %542, %545
+  %566 = phi ptr [ %527, %545 ], [ %527, %542 ], [ null, %4 ], [ null, %.loopexit75 ]
   ret ptr %566
 }
 

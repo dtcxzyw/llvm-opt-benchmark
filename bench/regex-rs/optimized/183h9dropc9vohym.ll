@@ -2982,18 +2982,18 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State18active_chunk_start17hd17bf
   %.0.i44.i = phi i32 [ 0, %672 ], [ %.0.i44.i.be, %.backedge ]
   %679 = load i8, ptr %360, align 8, !range !11, !alias.scope !401, !noalias !406, !noundef !4
   %680 = trunc nuw i8 %679 to i1
-  %.not105.i.i = icmp eq ptr %.sroa.0.0.i43.i, %.sroa.7.035.i.i
+  %.not80.i.i = icmp eq ptr %.sroa.0.0.i43.i, %.sroa.7.035.i.i
   br i1 %680, label %684, label %681
 
 681:                                              ; preds = %678
-  br i1 %.not105.i.i, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3f02c83325cd3c9E.exit.i.i", label %682
+  br i1 %.not80.i.i, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3f02c83325cd3c9E.exit.i.i", label %682
 
 682:                                              ; preds = %681
   %683 = getelementptr inbounds i8, ptr %.sroa.0.0.i43.i, i64 1
   br label %687
 
 684:                                              ; preds = %678
-  br i1 %.not105.i.i, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3f02c83325cd3c9E.exit.i.i", label %685
+  br i1 %.not80.i.i, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3f02c83325cd3c9E.exit.i.i", label %685
 
 685:                                              ; preds = %684
   %686 = getelementptr inbounds i8, ptr %.sroa.7.035.i.i, i64 -1

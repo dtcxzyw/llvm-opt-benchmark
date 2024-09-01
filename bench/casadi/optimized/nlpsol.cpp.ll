@@ -21035,10 +21035,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
   %68 = getelementptr inbounds i8, ptr %0, i64 232
   br label %71
 
-.preheader189:                                    ; preds = %90
-  br i1 %65, label %.lr.ph196, label %.preheader188
-
-.lr.ph196:                                        ; preds = %.preheader189
+.lr.ph196:                                        ; preds = %90
   %69 = getelementptr inbounds i8, ptr %0, i64 208
   %70 = getelementptr inbounds i8, ptr %0, i64 216
   br label %107
@@ -21081,9 +21078,9 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
   store double %91, ptr %93, align 8
   %94 = add nuw nsw i64 %.0163192, 1
   %exitcond207.not = icmp eq i64 %94, %4
-  br i1 %exitcond207.not, label %.preheader189, label %71, !llvm.loop !175
+  br i1 %exitcond207.not, label %.lr.ph196, label %71, !llvm.loop !175
 
-.preheader188:                                    ; preds = %107, %._crit_edge, %.preheader189
+.preheader188:                                    ; preds = %107, %._crit_edge
   %95 = getelementptr inbounds i8, ptr %2, i64 56
   %96 = load i64, ptr %95, align 8
   %97 = icmp sgt i64 %96, 0

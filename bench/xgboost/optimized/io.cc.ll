@@ -8206,8 +8206,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc2io15SingleFileSplit9LoadChunkEv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %26, i64 noundef %27)
   %32 = add i64 %31, %25
-  %.not = icmp ne i64 %32, 0
-  br i1 %.not, label %33, label %.loopexit
+  %.not.not.not.not.not = icmp ne i64 %32, 0
+  br i1 %.not.not.not.not.not, label %33, label %.loopexit
 
 33:                                               ; preds = %24
   %34 = icmp eq i64 %32, %13
@@ -8274,7 +8274,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc2io15SingleFileSplit9LoadChunkEv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %60
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 ; Function Attrs: nofree nounwind

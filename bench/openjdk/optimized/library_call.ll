@@ -23685,7 +23685,7 @@ _ZN8GraphKit11set_controlEP4Node.exit95:          ; preds = %_ZN4Node7del_outEPS
   call void @_ZN8GraphKit14set_all_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %523) #13
   br label %527
 
-527:                                              ; preds = %508, %526, %525, %370
+527:                                              ; preds = %370, %525, %526, %508
   %.060 = phi ptr [ null, %370 ], [ null, %508 ], [ %512, %525 ], [ %512, %526 ]
   call void @_ZN22PreserveReexecuteStateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %528 = load ptr, ptr %11, align 8
@@ -26431,7 +26431,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i233:               ; preds = %1136, %1124, %_ZN8G
   store ptr %1119, ptr %1157, align 8
   br label %1158
 
-1158:                                             ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i233, %1141, %1152
+1158:                                             ; preds = %1152, %1141, %_ZN4Node7del_outEPS_.exit.i.i.i233
   %1159 = load ptr, ptr %28, align 8
   %1160 = load ptr, ptr %1159, align 8
   %1161 = load ptr, ptr %1160, align 8
@@ -54478,7 +54478,7 @@ declare void @_ZN8GraphKit12access_cloneEP4NodeS1_S1_b(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP17AllocateArrayNodeRi(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.loopexit, label %4
+  br i1 %.not, label %.loopexit48, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
@@ -54496,12 +54496,12 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %18, ptr noundef %10, i32 noundef %16, i32 noundef 6) #13
-  br i1 %19, label %.loopexit, label %20
+  br i1 %19, label %.loopexit48, label %20
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %17, align 8
   %22 = tail call noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %21, ptr noundef %10, i32 noundef %16, i32 noundef 1) #13
-  br i1 %22, label %.loopexit, label %23
+  br i1 %22, label %.loopexit48, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %1, i64 8
@@ -54518,7 +54518,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  br i1 %31, label %38, label %85
+  br i1 %31, label %38, label %80
 
 38:                                               ; preds = %23
   tail call void @_ZN12MergeMemNode15iteration_setupEPKS_(ptr noundef nonnull align 8 dereferenceable(52) %27, ptr noundef null) #13
@@ -54535,180 +54535,172 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   %45 = getelementptr inbounds i8, ptr %27, i64 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %82
-  %46 = phi i32 [ 2, %.lr.ph.i.i.lr.ph ], [ %83, %82 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %77
+  %46 = phi i32 [ 2, %.lr.ph.i.i.lr.ph ], [ %78, %77 ]
   %47 = load ptr, ptr %39, align 8
   %48 = load ptr, ptr %45, align 8
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.thread5.us.i.i, %.lr.ph.i.i
-  %.sroa.5.1 = phi i32 [ %46, %.lr.ph.i.i ], [ %64, %.thread5.us.i.i ]
-  %49 = phi i1 [ true, %.lr.ph.i.i ], [ %65, %.thread5.us.i.i ]
-  %50 = zext i32 %.sroa.5.1 to i64
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp slt i32 %.sroa.5.1, %43
-  %spec.select.i.us.i.i = select i1 %53, i32 %.sroa.5.1, i32 1
-  %54 = zext i32 %spec.select.i.us.i.i to i64
-  %55 = getelementptr inbounds ptr, ptr %48, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  %60 = getelementptr inbounds i8, ptr %56, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %59, label %63, label %.split.us.i.i
+  %.sroa.5.1 = phi i32 [ %46, %.lr.ph.i.i ], [ %62, %.thread5.us.i.i ]
+  %49 = zext i32 %.sroa.5.1 to i64
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp slt i32 %.sroa.5.1, %43
+  %spec.select.i.us.i.i = select i1 %52, i32 %.sroa.5.1, i32 1
+  %53 = zext i32 %spec.select.i.us.i.i to i64
+  %54 = getelementptr inbounds ptr, ptr %48, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %51, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  %59 = getelementptr inbounds i8, ptr %55, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %.not.i.not.i = icmp eq ptr %60, null
+  br i1 %58, label %61, label %.split.us.i.i
 
-63:                                               ; preds = %.lr.ph.split.us.i.i
-  br i1 %62, label %.thread5.us.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit
+61:                                               ; preds = %.lr.ph.split.us.i.i
+  br i1 %.not.i.not.i, label %.thread5.us.i.i, label %.loopexit
 
-.thread5.us.i.i:                                  ; preds = %63
-  %64 = add nsw i32 %.sroa.5.1, 1
-  %65 = icmp slt i32 %64, %41
-  %exitcond15.not.i.i = icmp eq i32 %64, %41
-  br i1 %exitcond15.not.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, label %.lr.ph.split.us.i.i, !llvm.loop !18
+.thread5.us.i.i:                                  ; preds = %61
+  %62 = add nsw i32 %.sroa.5.1, 1
+  %exitcond14.not.i.i = icmp eq i32 %62, %41
+  br i1 %exitcond14.not.i.i, label %.critedge, label %.lr.ph.split.us.i.i, !llvm.loop !18
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.us.i.i
-  br i1 %62, label %66, label %_ZN14MergeMemStream15next_non_empty2Ev.exit
+  br i1 %.not.i.not.i, label %63, label %.loopexit
 
-66:                                               ; preds = %.split.us.i.i
-  %67 = getelementptr inbounds i8, ptr %48, i64 16
-  %68 = load ptr, ptr %67, align 8
-  br i1 %49, label %70, label %.critedge
-
-_ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %63, %.thread5.us.i.i, %.split.us.i.i
-  %.sroa.5.2 = phi i32 [ %.sroa.5.1, %.split.us.i.i ], [ %.sroa.5.1, %63 ], [ %41, %.thread5.us.i.i ]
-  %69 = phi i1 [ %49, %.split.us.i.i ], [ %49, %63 ], [ %65, %.thread5.us.i.i ]
-  br i1 %69, label %70, label %.critedge
-
-70:                                               ; preds = %66, %_ZN14MergeMemStream15next_non_empty2Ev.exit
-  %.sroa.1436.141 = phi ptr [ %68, %66 ], [ %56, %_ZN14MergeMemStream15next_non_empty2Ev.exit ]
-  %.sroa.5.240 = phi i32 [ %.sroa.5.1, %66 ], [ %.sroa.5.2, %_ZN14MergeMemStream15next_non_empty2Ev.exit ]
-  %.not30 = icmp eq ptr %52, %.sroa.1436.141
-  br i1 %.not30, label %82, label %71
-
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %52, i64 44
-  %73 = load i32, ptr %72, align 4
-  %74 = and i32 %73, 15
-  %75 = icmp eq i32 %74, 8
-  br i1 %75, label %76, label %.loopexit
-
-76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %52, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %1) #13
-  %81 = icmp eq ptr %79, %80
-  br i1 %81, label %82, label %.loopexit
-
-82:                                               ; preds = %76, %70
-  %83 = add nsw i32 %.sroa.5.240, 1
-  %84 = icmp slt i32 %83, %41
-  br i1 %84, label %.lr.ph.i.i, label %.critedge, !llvm.loop !19
-
-85:                                               ; preds = %23
-  tail call void @_ZN12MergeMemNode15iteration_setupEPKS_(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef null) #13
-  %86 = getelementptr inbounds i8, ptr %37, i64 8
-  %87 = getelementptr inbounds i8, ptr %37, i64 24
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp sgt i32 %88, 2
-  br i1 %89, label %.lr.ph.i.i32.lr.ph, label %.critedge
-
-.lr.ph.i.i32.lr.ph:                               ; preds = %85
-  %90 = add nsw i32 %88, -1
-  br label %.lr.ph.i.i32
-
-.lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32.lr.ph, %118
-  %91 = phi i32 [ 2, %.lr.ph.i.i32.lr.ph ], [ %119, %118 ]
-  %92 = load ptr, ptr %86, align 8
-  %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread5.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
-
-.thread.i.i:                                      ; preds = %.thread5.i.i
-  %99 = add nsw i32 %106, 1
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %92, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread5.i.i, label %_ZN14MergeMemStream14next_non_emptyEv.exit.thread, !llvm.loop !18
-
-.thread5.i.i:                                     ; preds = %.lr.ph.i.i32, %.thread.i.i
-  %106 = phi i32 [ %99, %.thread.i.i ], [ %91, %.lr.ph.i.i32 ]
-  %exitcond.not.i.i = icmp eq i32 %106, %90
-  br i1 %exitcond.not.i.i, label %.critedge, label %.thread.i.i, !llvm.loop !18
-
-_ZN14MergeMemStream14next_non_emptyEv.exit.thread: ; preds = %.thread.i.i, %.lr.ph.i.i32
-  %.sroa.4.146 = phi i32 [ %91, %.lr.ph.i.i32 ], [ %99, %.thread.i.i ]
-  %.sroa.10.345 = phi ptr [ %95, %.lr.ph.i.i32 ], [ %102, %.thread.i.i ]
-  %.not29 = icmp eq ptr %.sroa.10.345, %27
-  br i1 %.not29, label %118, label %107
-
-107:                                              ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
-  %108 = getelementptr inbounds i8, ptr %.sroa.10.345, i64 44
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 15
-  %111 = icmp eq i32 %110, 8
-  br i1 %111, label %112, label %.loopexit
-
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %.sroa.10.345, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %1) #13
-  %117 = icmp eq ptr %115, %116
-  br i1 %117, label %118, label %.loopexit
-
-118:                                              ; preds = %112, %_ZN14MergeMemStream14next_non_emptyEv.exit.thread
-  %119 = add nsw i32 %.sroa.4.146, 1
-  %120 = icmp slt i32 %119, %88
-  br i1 %120, label %.lr.ph.i.i32, label %.critedge, !llvm.loop !20
-
-.critedge:                                        ; preds = %118, %.thread5.i.i, %_ZN14MergeMemStream15next_non_empty2Ev.exit, %66, %82, %85, %38
-  %121 = tail call noundef ptr @_ZNK14LibraryCallKit51create_safepoint_with_state_before_array_allocationEPK17AllocateArrayNode(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %1)
-  %122 = getelementptr inbounds i8, ptr %0, i64 40
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 104
-  %127 = load i32, ptr %126, align 8
-  store i32 %127, ptr %2, align 4
-  %128 = load ptr, ptr %121, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 144
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef ptr %130(ptr noundef nonnull align 8 dereferenceable(81) %121) #13
-  %132 = getelementptr inbounds i8, ptr %131, i64 56
-  %133 = load ptr, ptr %132, align 8
-  store ptr %133, ptr %122, align 8
-  %134 = getelementptr inbounds i8, ptr %131, i64 32
-  %135 = load i32, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %131, i64 36
-  %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %131, i64 48
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %133, i64 56
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 32
-  %146 = load i32, ptr %145, align 8
-  store i32 %146, ptr %126, align 8
+63:                                               ; preds = %.split.us.i.i
+  %64 = getelementptr inbounds i8, ptr %48, i64 16
+  %65 = load ptr, ptr %64, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %107, %112, %71, %76, %3, %20, %4, %.critedge
-  %.0 = phi ptr [ %125, %.critedge ], [ null, %4 ], [ null, %20 ], [ null, %3 ], [ null, %76 ], [ null, %71 ], [ null, %112 ], [ null, %107 ]
+.loopexit:                                        ; preds = %61, %.split.us.i.i, %63
+  %.sroa.1436.1.ph = phi ptr [ %55, %.split.us.i.i ], [ %65, %63 ], [ %55, %61 ]
+  %.not30 = icmp eq ptr %51, %.sroa.1436.1.ph
+  br i1 %.not30, label %77, label %66
+
+66:                                               ; preds = %.loopexit
+  %67 = getelementptr inbounds i8, ptr %51, i64 44
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, 15
+  %70 = icmp eq i32 %69, 8
+  br i1 %70, label %71, label %.loopexit48
+
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds i8, ptr %51, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %1) #13
+  %76 = icmp eq ptr %74, %75
+  br i1 %76, label %77, label %.loopexit48
+
+77:                                               ; preds = %71, %.loopexit
+  %78 = add nsw i32 %.sroa.5.1, 1
+  %79 = icmp slt i32 %78, %41
+  br i1 %79, label %.lr.ph.i.i, label %.critedge, !llvm.loop !19
+
+80:                                               ; preds = %23
+  tail call void @_ZN12MergeMemNode15iteration_setupEPKS_(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef null) #13
+  %81 = getelementptr inbounds i8, ptr %37, i64 8
+  %82 = getelementptr inbounds i8, ptr %37, i64 24
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp sgt i32 %83, 2
+  br i1 %84, label %.lr.ph.i.i32.lr.ph, label %.critedge
+
+.lr.ph.i.i32.lr.ph:                               ; preds = %80
+  %85 = add nsw i32 %83, -1
+  br label %.lr.ph.i.i32
+
+.lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32.lr.ph, %113
+  %86 = phi i32 [ 2, %.lr.ph.i.i32.lr.ph ], [ %114, %113 ]
+  %87 = load ptr, ptr %81, align 8
+  %88 = zext i32 %86 to i64
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %.thread5.i.i, label %.loopexit50
+
+.thread.i.i:                                      ; preds = %.thread5.i.i
+  %94 = add nsw i32 %101, 1
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %87, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %.thread5.i.i, label %.loopexit50, !llvm.loop !18
+
+.thread5.i.i:                                     ; preds = %.lr.ph.i.i32, %.thread.i.i
+  %101 = phi i32 [ %94, %.thread.i.i ], [ %86, %.lr.ph.i.i32 ]
+  %exitcond.not.not.i.not.i = icmp eq i32 %101, %85
+  br i1 %exitcond.not.not.i.not.i, label %.critedge, label %.thread.i.i, !llvm.loop !18
+
+.loopexit50:                                      ; preds = %.thread.i.i, %.lr.ph.i.i32
+  %.sroa.10.2.ph = phi ptr [ %90, %.lr.ph.i.i32 ], [ %97, %.thread.i.i ]
+  %.sroa.4.1.ph = phi i32 [ %86, %.lr.ph.i.i32 ], [ %94, %.thread.i.i ]
+  %.not29 = icmp eq ptr %.sroa.10.2.ph, %27
+  br i1 %.not29, label %113, label %102
+
+102:                                              ; preds = %.loopexit50
+  %103 = getelementptr inbounds i8, ptr %.sroa.10.2.ph, i64 44
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, 15
+  %106 = icmp eq i32 %105, 8
+  br i1 %106, label %107, label %.loopexit48
+
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %.sroa.10.2.ph, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %1) #13
+  %112 = icmp eq ptr %110, %111
+  br i1 %112, label %113, label %.loopexit48
+
+113:                                              ; preds = %107, %.loopexit50
+  %114 = add nsw i32 %.sroa.4.1.ph, 1
+  %115 = icmp slt i32 %114, %83
+  br i1 %115, label %.lr.ph.i.i32, label %.critedge, !llvm.loop !20
+
+.critedge:                                        ; preds = %113, %.thread5.i.i, %77, %.thread5.us.i.i, %80, %38
+  %116 = tail call noundef ptr @_ZNK14LibraryCallKit51create_safepoint_with_state_before_array_allocationEPK17AllocateArrayNode(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %1)
+  %117 = getelementptr inbounds i8, ptr %0, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 56
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 104
+  %122 = load i32, ptr %121, align 8
+  store i32 %122, ptr %2, align 4
+  %123 = load ptr, ptr %116, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 144
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(81) %116) #13
+  %127 = getelementptr inbounds i8, ptr %126, i64 56
+  %128 = load ptr, ptr %127, align 8
+  store ptr %128, ptr %117, align 8
+  %129 = getelementptr inbounds i8, ptr %126, i64 32
+  %130 = load i32, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %130, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %126, i64 36
+  %133 = load i32, ptr %132, align 4
+  %134 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %133, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %126, i64 48
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %136, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %128, i64 56
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 32
+  %141 = load i32, ptr %140, align 8
+  store i32 %141, ptr %121, align 8
+  br label %.loopexit48
+
+.loopexit48:                                      ; preds = %102, %107, %66, %71, %3, %20, %4, %.critedge
+  %.0 = phi ptr [ %120, %.critedge ], [ null, %4 ], [ null, %20 ], [ null, %3 ], [ null, %71 ], [ null, %66 ], [ null, %107 ], [ null, %102 ]
   ret ptr %.0
 }
 

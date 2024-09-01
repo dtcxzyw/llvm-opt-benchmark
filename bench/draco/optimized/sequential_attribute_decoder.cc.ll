@@ -334,45 +334,35 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder12DecodeValuesER
 
 .lr.ph:                                           ; preds = %3
   %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = load i64, ptr %18, align 8
-  %22 = load i64, ptr %20, align 8
-  %23 = add i64 %22, %16
-  %.not27 = icmp slt i64 %21, %23
-  br i1 %.not27, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %.lr.ph30
+  br label %21
 
-24:                                               ; preds = %.lr.ph30
-  %indvars.iv.next = add nsw i64 %indvars.iv28, %16
-  %25 = load i64, ptr %18, align 8
-  %26 = load i64, ptr %20, align 8
-  %27 = add i64 %26, %16
-  %.not = icmp slt i64 %25, %27
-  br i1 %.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20.loopexit, label %.lr.ph30, !llvm.loop !7
+21:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %.01723 = phi i32 [ 0, %.lr.ph ], [ %33, %25 ]
+  %22 = load i64, ptr %18, align 8
+  %23 = load i64, ptr %20, align 8
+  %24 = add i64 %23, %16
+  %.not.not.not = icmp sge i64 %22, %24
+  br i1 %.not.not.not, label %25, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20
 
-.lr.ph30:                                         ; preds = %.lr.ph, %24
-  %28 = phi i64 [ %27, %24 ], [ %23, %.lr.ph ]
-  %29 = phi i64 [ %26, %24 ], [ %22, %.lr.ph ]
-  %.0172329 = phi i32 [ %37, %24 ], [ 0, %.lr.ph ]
-  %indvars.iv28 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph ]
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %31, i64 %16, i1 false)
-  store i64 %28, ptr %20, align 8
-  %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %indvars.iv28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %17, i64 %16, i1 false)
-  %37 = add nuw nsw i32 %.0172329, 1
-  %exitcond = icmp eq i32 %37, %11
-  br i1 %exitcond, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20.loopexit, label %24, !llvm.loop !7
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %27, i64 %16, i1 false)
+  store i64 %24, ptr %20, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %17, i64 %16, i1 false)
+  %indvars.iv.next = add nsw i64 %indvars.iv, %16
+  %33 = add nuw nsw i32 %.01723, 1
+  %exitcond.not = icmp eq i32 %33, %11
+  br i1 %exitcond.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %21, !llvm.loop !7
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20.loopexit: ; preds = %.lr.ph30, %24
-  %38 = icmp sge i32 %37, %11
-  br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20
-
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20.loopexit, %.lr.ph, %3
-  %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph ], [ %38, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20.loopexit ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20: ; preds = %25, %21, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not.not.not, %21 ], [ %.not.not.not, %25 ]
   tail call void @_ZdaPv(ptr noundef nonnull %17) #16
   ret i1 %.lcssa
 }
@@ -525,16 +515,16 @@ _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_t
   %46 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 4
   %47 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i71, i64 4
   %.not.i.i.i.i.i73 = icmp eq ptr %46, %9
-  br i1 %.not.i.i.i.i.i73, label %.lr.ph.i.i.i79.preheader, label %.lr.ph.i.i.i.i.i70, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !8
 
-.lr.ph.i.i.i79.preheader:                         ; preds = %.lr.ph.i.i.i.i.i70
+_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i70
   %48 = load ptr, ptr %8, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 %17
   store ptr %49, ptr %8, align 8
   br label %.lr.ph.i.i.i79
 
-.lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79.preheader, %.lr.ph.i.i.i79
-  %.06.i.i.i80 = phi ptr [ %50, %.lr.ph.i.i.i79 ], [ %1, %.lr.ph.i.i.i79.preheader ]
+.lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75
+  %.06.i.i.i80 = phi ptr [ %50, %.lr.ph.i.i.i79 ], [ %1, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
   store i32 %15, ptr %.06.i.i.i80, align 4
   %50 = getelementptr inbounds i8, ptr %.06.i.i.i80, i64 4
   %.not.i.i.i81 = icmp eq ptr %50, %9

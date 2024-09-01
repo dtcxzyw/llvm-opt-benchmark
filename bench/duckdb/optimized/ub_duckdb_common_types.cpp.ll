@@ -17081,8 +17081,8 @@ for.body.i.i:                                     ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i = urem i64 %8, %6
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !3
-  %tobool.not.i.not.i.not.not = icmp ne ptr %9, null
-  br i1 %tobool.not.i.not.i.not.not, label %if.end11.i.i, label %return
+  %tobool.not.i.not.i.not.not.not.not = icmp ne ptr %9, null
+  br i1 %tobool.not.i.not.i.not.not.not.not, label %if.end11.i.i, label %return
 
 if.end11.i.i:                                     ; preds = %for.body.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !400
@@ -17109,7 +17109,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end18.i.i
   br i1 %cmp24.not.i.i, label %for.cond12.i.i, label %return, !llvm.loop !441
 
 return:                                           ; preds = %for.body.i.i, %for.cond.loopexit.i.i, %lor.lhs.false.i.i, %if.end18.i.i, %if.end.i.i, %if.end4, %if.end, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ true, %if.end ], [ false, %if.end4 ], [ true, %if.end.i.i ], [ false, %if.end18.i.i ], [ false, %lor.lhs.false.i.i ], [ false, %for.body.i.i ], [ %tobool.not.i.not.i.not.not, %for.cond.loopexit.i.i ]
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ true, %if.end ], [ false, %if.end4 ], [ true, %if.end.i.i ], [ false, %if.end18.i.i ], [ false, %lor.lhs.false.i.i ], [ %tobool.not.i.not.i.not.not.not.not, %for.cond.loopexit.i.i ], [ %tobool.not.i.not.i.not.not.not.not, %for.body.i.i ]
   ret i1 %retval.0
 }
 

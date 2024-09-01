@@ -659,8 +659,8 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %25 = getelementptr %struct.PagetableEntry, ptr %23, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 4
-  %.not62.i = icmp eq i8 %27, 0
-  br i1 %.not62.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
+  %.not55.i = icmp eq i8 %27, 0
+  br i1 %.not55.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %64
   %28 = phi i8 [ %69, %64 ], [ %27, %10 ]
@@ -726,8 +726,8 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %67 = getelementptr %struct.PagetableEntry, ptr %23, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 4
-  %.not63.i = icmp eq i8 %69, 0
-  br i1 %.not63.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
+  %.not56.i = icmp eq i8 %69, 0
+  br i1 %.not56.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
 
 .loopexit72:                                      ; preds = %56, %.lr.ph53.i, %34
   %.033.lcssa.sink.i = phi ptr [ %29, %34 ], [ %.03351.i, %.lr.ph53.i ], [ %44, %56 ]
@@ -1432,8 +1432,8 @@ pagetable_iterate.exit:                           ; preds = %41
   %83 = getelementptr %struct.PagetableEntry, ptr %81, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i8, ptr %84, align 4
-  %.not62.i = icmp eq i8 %85, 0
-  br i1 %.not62.i, label %.loopexit, label %.lr.ph.i20
+  %.not55.i = icmp eq i8 %85, 0
+  br i1 %.not55.i, label %.loopexit, label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %66, %122
   %86 = phi i8 [ %127, %122 ], [ %85, %66 ]
@@ -1499,8 +1499,8 @@ pagetable_iterate.exit:                           ; preds = %41
   %125 = getelementptr %struct.PagetableEntry, ptr %81, i64 %124
   %126 = getelementptr inbounds i8, ptr %125, i64 4
   %127 = load i8, ptr %126, align 4
-  %.not63.i = icmp eq i8 %127, 0
-  br i1 %.not63.i, label %.loopexit, label %.lr.ph.i20
+  %.not56.i = icmp eq i8 %127, 0
+  br i1 %.not56.i, label %.loopexit, label %.lr.ph.i20
 
 pagetable_delete.exit:                            ; preds = %.lr.ph53.i, %114, %92
   %.033.lcssa.sink.i = phi ptr [ %87, %92 ], [ %.03351.i, %.lr.ph53.i ], [ %102, %114 ]

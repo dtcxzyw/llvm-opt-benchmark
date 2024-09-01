@@ -756,8 +756,8 @@ define void @_ZN8WasmEdge8Executor8Executor11runIfElseOpERNS_7Runtime12StackMana
 32:                                               ; preds = %36, %21
   %.052.i.i = phi i64 [ %31, %21 ], [ %39, %36 ]
   %33 = add i64 %.052.i.i, %27
-  %.not.i.not.i.not = icmp ugt i64 %33, %29
-  br i1 %.not.i.not.i.not, label %34, label %36
+  %.not.not.not.i.not.not.not.i.not = icmp ugt i64 %33, %29
+  br i1 %.not.not.not.i.not.not.not.i.not, label %34, label %36
 
 34:                                               ; preds = %32
   %35 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
@@ -29759,8 +29759,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher14is
 33:                                               ; preds = %._crit_edge
   %34 = add nuw i32 %.01727, 1
   %35 = load i32, ptr %12, align 4
-  %.not40 = icmp ult i32 %34, %35
-  br i1 %.not40, label %36, label %.loopexit, !llvm.loop !199
+  %.not37 = icmp ult i32 %34, %35
+  br i1 %.not37, label %36, label %.loopexit, !llvm.loop !199
 
 36:                                               ; preds = %.lr.ph29, %33
   %.01727 = phi i32 [ 0, %.lr.ph29 ], [ %34, %33 ]

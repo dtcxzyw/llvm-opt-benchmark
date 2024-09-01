@@ -5361,16 +5361,13 @@ cond.end155:                                      ; preds = %if.end146
   %narrow367 = select i1 %cmp162, i32 16, i32 %14
   %cond183 = zext nneg i32 %narrow367 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla142155164183194, i8 0, i64 %cond183, i1 false)
-  br i1 %cmp137, label %if.then193, label %wc_ecc_del_point_ex.exit122
+  br i1 %cmp137, label %cond.false198, label %wc_ecc_del_point_ex.exit122
 
 cond.end182.thread:                               ; preds = %if.end146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla142155164183194, i8 0, i64 160, i1 false)
   br i1 %cmp137, label %if.end210, label %wc_ecc_del_point_ex.exit122
 
-if.then193:                                       ; preds = %cond.end155
-  br i1 %cmp148, label %if.end210, label %cond.false198
-
-cond.false198:                                    ; preds = %if.then193
+cond.false198:                                    ; preds = %cond.end155
   %15 = load i32, ptr %10, align 8
   %mul201 = shl nsw i32 %15, 3
   %16 = add i32 %mul201, 63
@@ -5378,8 +5375,8 @@ cond.false198:                                    ; preds = %if.then193
   %18 = or i32 %17, 1
   br label %if.end210
 
-if.end210:                                        ; preds = %cond.end182.thread, %cond.false198, %if.then193
-  %cond203 = phi i32 [ %18, %cond.false198 ], [ 19, %if.then193 ], [ 19, %cond.end182.thread ]
+if.end210:                                        ; preds = %cond.end182.thread, %cond.false198
+  %cond203 = phi i32 [ %18, %cond.false198 ], [ 19, %cond.end182.thread ]
   %call209 = call i32 @sp_init_size(ptr noundef nonnull %vla142155164183194, i32 noundef %cond203) #19
   %cmp211 = icmp eq i32 %call209, 0
   br i1 %cmp211, label %if.end3.i, label %wc_ecc_del_point_ex.exit122

@@ -3188,27 +3188,24 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
   %7 = getelementptr inbounds i8, ptr %2, i64 1092
   %8 = getelementptr inbounds i8, ptr %2, i64 1096
   %9 = getelementptr inbounds i8, ptr %2, i64 1384
-  %10 = load i64, ptr @_ZN18ObjectSynchronizer29_last_async_deflation_time_nsE, align 8
-  %11 = icmp sgt i64 %10, %3
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  br label %10
 
-12:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
-  %13 = load i64, ptr @_ZN18ObjectSynchronizer29_last_async_deflation_time_nsE, align 8
-  %14 = icmp sgt i64 %13, %3
-  br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+10:                                               ; preds = %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  %.014 = phi i32 [ 0, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit ], [ %30, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit ]
+  %11 = load i64, ptr @_ZN18ObjectSynchronizer29_last_async_deflation_time_nsE, align 8
+  %12 = icmp sgt i64 %11, %3
+  br i1 %12, label %13, label %16
 
-._crit_edge:                                      ; preds = %12, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit
-  %.014.lcssa = phi i32 [ 0, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit ], [ %30, %12 ]
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not11 = icmp eq ptr %15, null
-  br i1 %.not11, label %33, label %16
+13:                                               ; preds = %10
+  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not11 = icmp eq ptr %14, null
+  br i1 %.not11, label %33, label %15
 
-16:                                               ; preds = %._crit_edge
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %.014.lcssa)
+15:                                               ; preds = %13
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %.014)
   br label %33
 
-.lr.ph:                                           ; preds = %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit, %12
-  %.01423 = phi i32 [ %30, %12 ], [ 0, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit ]
+16:                                               ; preds = %10
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   store volatile i32 10, ptr %7, align 4
@@ -3222,7 +3219,7 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
   %.not.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %19
 
-19:                                               ; preds = %.lr.ph
+19:                                               ; preds = %16
   %20 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %.not5.i.i = icmp eq i32 %20, 0
   br i1 %.not5.i.i, label %21, label %26
@@ -3250,10 +3247,10 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %.lr.ph, %25, %26, %29
-  %30 = add nuw nsw i32 %.01423, 1
+_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %16, %25, %26, %29
+  %30 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %30, 5
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !41
 
 .critedge:                                        ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
   %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -3264,9 +3261,8 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %.lr.ph, %2
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.16, i32 noundef 5)
   br label %33
 
-33:                                               ; preds = %._crit_edge, %16, %32, %.critedge
-  %34 = phi i1 [ true, %._crit_edge ], [ true, %16 ], [ false, %32 ], [ false, %.critedge ]
-  ret i1 %34
+33:                                               ; preds = %13, %15, %32, %.critedge
+  ret i1 %12
 }
 
 declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #3

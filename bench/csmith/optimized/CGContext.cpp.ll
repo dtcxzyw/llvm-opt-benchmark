@@ -1686,7 +1686,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %67, %_ZNSt6vectorIP
 
 ._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge: ; preds = %103
   %.pre = load ptr, ptr %31, align 8
-  %.pre46 = load ptr, ptr %5, align 8
+  %.pre41 = load ptr, ptr %5, align 8
   br label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread
 
 .invoke:                                          ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, %80, %85, %103
@@ -1695,7 +1695,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %67, %_ZNSt6vectorIP
           to label %.loopexit31 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread: ; preds = %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge, %.lr.ph
-  %106 = phi ptr [ %.pre46, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %91, %.lr.ph ]
+  %106 = phi ptr [ %.pre41, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %91, %.lr.ph ]
   %107 = phi ptr [ %.pre, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %92, %.lr.ph ]
   %108 = add nuw i64 %.01839, 1
   %109 = ptrtoint ptr %107 to i64
@@ -1991,13 +1991,13 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %67, %_ZNSt6vectorIP
   br i1 %103, label %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge, label %.split.us.invoke
 
 ._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge: ; preds = %104
-  %.pre58 = load ptr, ptr %25, align 8
-  %.pre59 = load ptr, ptr %5, align 8
+  %.pre51 = load ptr, ptr %25, align 8
+  %.pre52 = load ptr, ptr %5, align 8
   br label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us
 
 _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us: ; preds = %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge, %.lr.ph.split.us
-  %105 = phi ptr [ %.pre59, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge ], [ %92, %.lr.ph.split.us ]
-  %106 = phi ptr [ %.pre58, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge ], [ %93, %.lr.ph.split.us ]
+  %105 = phi ptr [ %.pre52, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge ], [ %92, %.lr.ph.split.us ]
+  %106 = phi ptr [ %.pre51, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us_crit_edge ], [ %93, %.lr.ph.split.us ]
   %107 = add nuw i64 %.02344.us, 1
   %108 = ptrtoint ptr %106 to i64
   %109 = ptrtoint ptr %105 to i64
@@ -2036,7 +2036,7 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us: ; preds = %._ZN11Fa
 
 ._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge: ; preds = %125
   %.pre = load ptr, ptr %25, align 8
-  %.pre57 = load ptr, ptr %5, align 8
+  %.pre50 = load ptr, ptr %5, align 8
   br label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread
 
 .split.us.invoke:                                 ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, %80, %85, %125, %104
@@ -2045,7 +2045,7 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us: ; preds = %._ZN11Fa
           to label %.loopexit36 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread: ; preds = %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge, %.lr.ph.split
-  %128 = phi ptr [ %.pre57, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %113, %.lr.ph.split ]
+  %128 = phi ptr [ %.pre50, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %113, %.lr.ph.split ]
   %129 = phi ptr [ %.pre, %._ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread_crit_edge ], [ %114, %.lr.ph.split ]
   %130 = add nuw i64 %.02344, 1
   %131 = ptrtoint ptr %129 to i64

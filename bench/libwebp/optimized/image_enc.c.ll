@@ -1139,92 +1139,91 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
   br i1 %42, label %.lr.ph.split.us, label %.preheader82, !llvm.loop !12
 
 .preheader82:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.067.lcssa.shrunk = phi i1 [ %36, %.lr.ph.split.us ], [ %48, %.lr.ph.split ]
-  %43 = and i1 %.067.lcssa.shrunk, %31
-  br i1 %43, label %.lr.ph89, label %.preheader
+  %.067.lcssa.shrunk = phi i1 [ %36, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
+  br i1 %.067.lcssa.shrunk, label %.lr.ph89, label %.preheader
 
 .lr.ph89:                                         ; preds = %.preheader82
-  %44 = sext i32 %19 to i64
-  %45 = getelementptr inbounds i8, ptr %1, i64 52
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
-  br label %69
+  %43 = sext i32 %19 to i64
+  %44 = getelementptr inbounds i8, ptr %1, i64 52
+  %45 = getelementptr inbounds i8, ptr %1, i64 56
+  br label %68
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.084 = phi i32 [ %53, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.07183 = phi ptr [ %52, %.lr.ph.split ], [ %11, %.lr.ph ]
-  %47 = tail call i64 @fwrite(ptr noundef %.07183, i64 noundef %32, i64 noundef 1, ptr noundef %0)
-  %48 = icmp eq i64 %47, 1
-  %49 = tail call i32 @fputc(i32 noundef 0, ptr noundef %0)
-  %50 = load i32, ptr %34, align 8
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %.07183, i64 %51
-  %53 = add nuw nsw i32 %.084, 1
-  %54 = icmp slt i32 %53, %9
-  %55 = select i1 %48, i1 %54, i1 false
-  br i1 %55, label %.lr.ph.split, label %.preheader82, !llvm.loop !12
+  %.084 = phi i32 [ %52, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.07183 = phi ptr [ %51, %.lr.ph.split ], [ %11, %.lr.ph ]
+  %46 = tail call i64 @fwrite(ptr noundef %.07183, i64 noundef %32, i64 noundef 1, ptr noundef %0)
+  %47 = icmp eq i64 %46, 1
+  %48 = tail call i32 @fputc(i32 noundef 0, ptr noundef %0)
+  %49 = load i32, ptr %34, align 8
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i8, ptr %.07183, i64 %50
+  %52 = add nuw nsw i32 %.084, 1
+  %53 = icmp slt i32 %52, %9
+  %54 = select i1 %47, i1 %53, i1 false
+  br i1 %54, label %.lr.ph.split, label %.preheader82, !llvm.loop !12
 
-.preheader:                                       ; preds = %69, %26, %.preheader82
-  %.168.lcssa.in = phi i1 [ %.067.lcssa.shrunk, %.preheader82 ], [ true, %26 ], [ %74, %69 ]
-  %56 = icmp sgt i32 %22, 0
-  %57 = select i1 %.168.lcssa.in, i1 %56, i1 false
-  br i1 %57, label %.lr.ph92, label %.loopexit
+.preheader:                                       ; preds = %68, %26, %.preheader82
+  %.168.lcssa.in = phi i1 [ false, %.preheader82 ], [ true, %26 ], [ %73, %68 ]
+  %55 = icmp sgt i32 %22, 0
+  %56 = select i1 %.168.lcssa.in, i1 %55, i1 false
+  br i1 %56, label %.lr.ph92, label %.loopexit
 
 .lr.ph92:                                         ; preds = %.preheader
-  %58 = sext i32 %.fr97 to i64
-  %59 = and i32 %.fr97, 1
-  %.not80 = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %1, i64 60
+  %57 = sext i32 %.fr97 to i64
+  %58 = and i32 %.fr97, 1
+  %.not80 = icmp eq i32 %58, 0
+  %59 = getelementptr inbounds i8, ptr %1, i64 60
   br i1 %.not80, label %.lr.ph92.split.us, label %.lr.ph92.split
 
 .lr.ph92.split.us:                                ; preds = %.lr.ph92, %.lr.ph92.split.us
-  %.291.us = phi i32 [ %66, %.lr.ph92.split.us ], [ 0, %.lr.ph92 ]
-  %.07390.us = phi ptr [ %65, %.lr.ph92.split.us ], [ %17, %.lr.ph92 ]
-  %61 = tail call i64 @fwrite(ptr noundef %.07390.us, i64 noundef %58, i64 noundef 1, ptr noundef %0)
-  %62 = icmp eq i64 %61, 1
-  %63 = load i32, ptr %60, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %.07390.us, i64 %64
-  %66 = add nuw nsw i32 %.291.us, 1
-  %67 = icmp slt i32 %66, %22
-  %68 = select i1 %62, i1 %67, i1 false
-  br i1 %68, label %.lr.ph92.split.us, label %.loopexit, !llvm.loop !13
+  %.291.us = phi i32 [ %65, %.lr.ph92.split.us ], [ 0, %.lr.ph92 ]
+  %.07390.us = phi ptr [ %64, %.lr.ph92.split.us ], [ %17, %.lr.ph92 ]
+  %60 = tail call i64 @fwrite(ptr noundef %.07390.us, i64 noundef %57, i64 noundef 1, ptr noundef %0)
+  %61 = icmp eq i64 %60, 1
+  %62 = load i32, ptr %59, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i8, ptr %.07390.us, i64 %63
+  %65 = add nuw nsw i32 %.291.us, 1
+  %66 = icmp slt i32 %65, %22
+  %67 = select i1 %61, i1 %66, i1 false
+  br i1 %67, label %.lr.ph92.split.us, label %.loopexit, !llvm.loop !13
 
-69:                                               ; preds = %.lr.ph89, %69
-  %.188 = phi i32 [ 0, %.lr.ph89 ], [ %81, %69 ]
-  %.07287 = phi ptr [ %13, %.lr.ph89 ], [ %77, %69 ]
-  %.07486 = phi ptr [ %15, %.lr.ph89 ], [ %80, %69 ]
-  %70 = tail call i64 @fwrite(ptr noundef %.07287, i64 noundef %44, i64 noundef 1, ptr noundef %0)
-  %71 = icmp eq i64 %70, 1
-  %72 = tail call i64 @fwrite(ptr noundef %.07486, i64 noundef %44, i64 noundef 1, ptr noundef %0)
-  %73 = icmp eq i64 %72, 1
-  %74 = and i1 %71, %73
-  %75 = load i32, ptr %45, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %.07287, i64 %76
-  %78 = load i32, ptr %46, align 8
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %.07486, i64 %79
-  %81 = add nuw nsw i32 %.188, 1
-  %82 = icmp slt i32 %81, %21
-  %83 = select i1 %74, i1 %82, i1 false
-  br i1 %83, label %69, label %.preheader, !llvm.loop !14
+68:                                               ; preds = %.lr.ph89, %68
+  %.188 = phi i32 [ 0, %.lr.ph89 ], [ %80, %68 ]
+  %.07287 = phi ptr [ %13, %.lr.ph89 ], [ %76, %68 ]
+  %.07486 = phi ptr [ %15, %.lr.ph89 ], [ %79, %68 ]
+  %69 = tail call i64 @fwrite(ptr noundef %.07287, i64 noundef %43, i64 noundef 1, ptr noundef %0)
+  %70 = icmp eq i64 %69, 1
+  %71 = tail call i64 @fwrite(ptr noundef %.07486, i64 noundef %43, i64 noundef 1, ptr noundef %0)
+  %72 = icmp eq i64 %71, 1
+  %73 = and i1 %70, %72
+  %74 = load i32, ptr %44, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %.07287, i64 %75
+  %77 = load i32, ptr %45, align 8
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %.07486, i64 %78
+  %80 = add nuw nsw i32 %.188, 1
+  %81 = icmp slt i32 %80, %21
+  %82 = select i1 %73, i1 %81, i1 false
+  br i1 %82, label %68, label %.preheader, !llvm.loop !14
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92, %.lr.ph92.split
-  %.291 = phi i32 [ %90, %.lr.ph92.split ], [ 0, %.lr.ph92 ]
-  %.07390 = phi ptr [ %89, %.lr.ph92.split ], [ %17, %.lr.ph92 ]
-  %84 = tail call i64 @fwrite(ptr noundef %.07390, i64 noundef %58, i64 noundef 1, ptr noundef %0)
-  %85 = icmp eq i64 %84, 1
-  %86 = tail call i32 @fputc(i32 noundef 0, ptr noundef %0)
-  %87 = load i32, ptr %60, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %.07390, i64 %88
-  %90 = add nuw nsw i32 %.291, 1
-  %91 = icmp slt i32 %90, %22
-  %92 = select i1 %85, i1 %91, i1 false
-  br i1 %92, label %.lr.ph92.split, label %.loopexit, !llvm.loop !13
+  %.291 = phi i32 [ %89, %.lr.ph92.split ], [ 0, %.lr.ph92 ]
+  %.07390 = phi ptr [ %88, %.lr.ph92.split ], [ %17, %.lr.ph92 ]
+  %83 = tail call i64 @fwrite(ptr noundef %.07390, i64 noundef %57, i64 noundef 1, ptr noundef %0)
+  %84 = icmp eq i64 %83, 1
+  %85 = tail call i32 @fputc(i32 noundef 0, ptr noundef %0)
+  %86 = load i32, ptr %59, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %.07390, i64 %87
+  %89 = add nuw nsw i32 %.291, 1
+  %90 = icmp slt i32 %89, %22
+  %91 = select i1 %84, i1 %90, i1 false
+  br i1 %91, label %.lr.ph92.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph92.split, %.lr.ph92.split.us, %.preheader, %5, %2
-  %.070.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.168.lcssa.in, %.preheader ], [ %62, %.lr.ph92.split.us ], [ %85, %.lr.ph92.split ]
+  %.070.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.168.lcssa.in, %.preheader ], [ %61, %.lr.ph92.split.us ], [ %84, %.lr.ph92.split ]
   %.070 = zext i1 %.070.shrunk to i32
   ret i32 %.070
 }
@@ -1272,92 +1271,88 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 .lr.ph:                                           ; preds = %.preheader78
   %26 = sext i32 %7 to i64
   %27 = getelementptr inbounds i8, ptr %1, i64 48
-  br label %31
+  br label %30
 
-.preheader77:                                     ; preds = %31
-  %28 = and i1 %33, %25
-  br i1 %28, label %.lr.ph83, label %.preheader76
+.preheader77:                                     ; preds = %30
+  br i1 %32, label %.lr.ph83, label %.preheader
 
 .lr.ph83:                                         ; preds = %.preheader77
-  %29 = sext i32 %19 to i64
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
-  br label %43
+  %28 = sext i32 %19 to i64
+  %29 = getelementptr inbounds i8, ptr %1, i64 52
+  br label %41
 
-31:                                               ; preds = %.lr.ph, %31
-  %.080 = phi i32 [ 0, %.lr.ph ], [ %37, %31 ]
-  %.06779 = phi ptr [ %11, %.lr.ph ], [ %36, %31 ]
-  %32 = tail call i64 @fwrite(ptr noundef %.06779, i64 noundef %26, i64 noundef 1, ptr noundef %0)
-  %33 = icmp eq i64 %32, 1
-  %34 = load i32, ptr %27, align 8
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.06779, i64 %35
-  %37 = add nuw nsw i32 %.080, 1
-  %38 = icmp slt i32 %37, %9
-  %39 = select i1 %33, i1 %38, i1 false
-  br i1 %39, label %31, label %.preheader77, !llvm.loop !15
+30:                                               ; preds = %.lr.ph, %30
+  %.080 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
+  %.06779 = phi ptr [ %11, %.lr.ph ], [ %35, %30 ]
+  %31 = tail call i64 @fwrite(ptr noundef %.06779, i64 noundef %26, i64 noundef 1, ptr noundef %0)
+  %32 = icmp eq i64 %31, 1
+  %33 = load i32, ptr %27, align 8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %.06779, i64 %34
+  %36 = add nuw nsw i32 %.080, 1
+  %37 = icmp slt i32 %36, %9
+  %38 = select i1 %32, i1 %37, i1 false
+  br i1 %38, label %30, label %.preheader77, !llvm.loop !15
 
-.preheader76:                                     ; preds = %43, %.preheader77
-  %.163.lcssa.in = phi i1 [ %33, %.preheader77 ], [ %45, %43 ]
-  %40 = and i1 %.163.lcssa.in, %25
-  br i1 %40, label %.lr.ph87, label %.preheader
+.preheader76:                                     ; preds = %41
+  br i1 %43, label %.lr.ph87, label %.preheader
 
 .lr.ph87:                                         ; preds = %.preheader76
-  %41 = sext i32 %19 to i64
-  %42 = getelementptr inbounds i8, ptr %1, i64 56
-  br label %56
+  %39 = sext i32 %19 to i64
+  %40 = getelementptr inbounds i8, ptr %1, i64 56
+  br label %53
 
-43:                                               ; preds = %.lr.ph83, %43
-  %.182 = phi i32 [ 0, %.lr.ph83 ], [ %49, %43 ]
-  %.06881 = phi ptr [ %13, %.lr.ph83 ], [ %48, %43 ]
-  %44 = tail call i64 @fwrite(ptr noundef %.06881, i64 noundef %29, i64 noundef 1, ptr noundef %0)
-  %45 = icmp eq i64 %44, 1
-  %46 = load i32, ptr %30, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %.06881, i64 %47
-  %49 = add nuw nsw i32 %.182, 1
-  %50 = icmp slt i32 %49, %21
-  %51 = select i1 %45, i1 %50, i1 false
-  br i1 %51, label %43, label %.preheader76, !llvm.loop !16
+41:                                               ; preds = %.lr.ph83, %41
+  %.182 = phi i32 [ 0, %.lr.ph83 ], [ %47, %41 ]
+  %.06881 = phi ptr [ %13, %.lr.ph83 ], [ %46, %41 ]
+  %42 = tail call i64 @fwrite(ptr noundef %.06881, i64 noundef %28, i64 noundef 1, ptr noundef %0)
+  %43 = icmp eq i64 %42, 1
+  %44 = load i32, ptr %29, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %.06881, i64 %45
+  %47 = add nuw nsw i32 %.182, 1
+  %48 = icmp slt i32 %47, %21
+  %49 = select i1 %43, i1 %48, i1 false
+  br i1 %49, label %41, label %.preheader76, !llvm.loop !16
 
-.preheader:                                       ; preds = %56, %.preheader76
-  %.264.lcssa.in = phi i1 [ %.163.lcssa.in, %.preheader76 ], [ %58, %56 ]
-  %52 = and i1 %.264.lcssa.in, %.not
-  %53 = and i1 %52, %25
-  br i1 %53, label %.lr.ph91.split.preheader, label %.loopexit
+.preheader:                                       ; preds = %53, %.preheader77, %.preheader76
+  %.264.lcssa.in = phi i1 [ false, %.preheader76 ], [ false, %.preheader77 ], [ %55, %53 ]
+  %50 = and i1 %.264.lcssa.in, %.not
+  br i1 %50, label %.lr.ph91.split.preheader, label %.loopexit
 
 .lr.ph91.split.preheader:                         ; preds = %.preheader
-  %54 = sext i32 %7 to i64
-  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  %51 = sext i32 %7 to i64
+  %52 = getelementptr inbounds i8, ptr %1, i64 60
   br label %.lr.ph91.split
 
-56:                                               ; preds = %.lr.ph87, %56
-  %.286 = phi i32 [ 0, %.lr.ph87 ], [ %62, %56 ]
-  %.07085 = phi ptr [ %15, %.lr.ph87 ], [ %61, %56 ]
-  %57 = tail call i64 @fwrite(ptr noundef %.07085, i64 noundef %41, i64 noundef 1, ptr noundef %0)
-  %58 = icmp eq i64 %57, 1
-  %59 = load i32, ptr %42, align 8
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %.07085, i64 %60
-  %62 = add nuw nsw i32 %.286, 1
-  %63 = icmp slt i32 %62, %21
-  %64 = select i1 %58, i1 %63, i1 false
-  br i1 %64, label %56, label %.preheader, !llvm.loop !17
+53:                                               ; preds = %.lr.ph87, %53
+  %.286 = phi i32 [ 0, %.lr.ph87 ], [ %59, %53 ]
+  %.07085 = phi ptr [ %15, %.lr.ph87 ], [ %58, %53 ]
+  %54 = tail call i64 @fwrite(ptr noundef %.07085, i64 noundef %39, i64 noundef 1, ptr noundef %0)
+  %55 = icmp eq i64 %54, 1
+  %56 = load i32, ptr %40, align 8
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %.07085, i64 %57
+  %59 = add nuw nsw i32 %.286, 1
+  %60 = icmp slt i32 %59, %21
+  %61 = select i1 %55, i1 %60, i1 false
+  br i1 %61, label %53, label %.preheader, !llvm.loop !17
 
 .lr.ph91.split:                                   ; preds = %.lr.ph91.split.preheader, %.lr.ph91.split
-  %.390 = phi i32 [ %70, %.lr.ph91.split ], [ 0, %.lr.ph91.split.preheader ]
-  %.06989 = phi ptr [ %69, %.lr.ph91.split ], [ %.fr, %.lr.ph91.split.preheader ]
-  %65 = tail call i64 @fwrite(ptr noundef %.06989, i64 noundef %54, i64 noundef 1, ptr noundef %0)
-  %66 = icmp eq i64 %65, 1
-  %67 = load i32, ptr %55, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %.06989, i64 %68
-  %70 = add nuw nsw i32 %.390, 1
-  %71 = icmp sgt i32 %9, %70
-  %72 = select i1 %66, i1 %71, i1 false
-  br i1 %72, label %.lr.ph91.split, label %.loopexit, !llvm.loop !18
+  %.390 = phi i32 [ %67, %.lr.ph91.split ], [ 0, %.lr.ph91.split.preheader ]
+  %.06989 = phi ptr [ %66, %.lr.ph91.split ], [ %.fr, %.lr.ph91.split.preheader ]
+  %62 = tail call i64 @fwrite(ptr noundef %.06989, i64 noundef %51, i64 noundef 1, ptr noundef %0)
+  %63 = icmp eq i64 %62, 1
+  %64 = load i32, ptr %52, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %.06989, i64 %65
+  %67 = add nuw nsw i32 %.390, 1
+  %68 = icmp sgt i32 %9, %67
+  %69 = select i1 %63, i1 %68, i1 false
+  br i1 %69, label %.lr.ph91.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph91.split, %.preheader78, %.preheader, %5, %2
-  %.066.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.264.lcssa.in, %.preheader ], [ true, %.preheader78 ], [ %66, %.lr.ph91.split ]
+  %.066.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.264.lcssa.in, %.preheader ], [ true, %.preheader78 ], [ %63, %.lr.ph91.split ]
   %.066 = zext i1 %.066.shrunk to i32
   ret i32 %.066
 }
@@ -1371,8 +1366,8 @@ define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef %0, i32 noundef %1,
 
 sub_0:                                            ; preds = %3
   %5 = load i8, ptr %2, align 1
-  %.not118 = icmp eq i8 %5, 45
-  br i1 %.not118, label %sub_1, label %.critedge
+  %.not117 = icmp eq i8 %5, 45
+  br i1 %.not117, label %sub_1, label %.critedge
 
 sub_1:                                            ; preds = %sub_0
   %6 = getelementptr inbounds i8, ptr %2, i64 1

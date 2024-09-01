@@ -1276,8 +1276,8 @@ sw.bb35:                                          ; preds = %if.else
 
 while.cond.i:                                     ; preds = %land.end.i, %sw.bb35
   %call.i32 = call fastcc i32 @NextFile(ptr noundef nonnull %context)
-  %tobool.not.i33 = icmp ne i32 %call.i32, 0
-  br i1 %tobool.not.i33, label %while.body.i, label %sw.epilog
+  %tobool.not.i33.not.not = icmp ne i32 %call.i32, 0
+  br i1 %tobool.not.i33.not.not, label %while.body.i, label %sw.epilog
 
 while.body.i:                                     ; preds = %while.cond.i
   %call1.i = call ptr @BrotliEncoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #22
@@ -1609,8 +1609,8 @@ sw.bb37:                                          ; preds = %if.else, %if.else
 
 while.cond.i83:                                   ; preds = %land.end.i98, %sw.bb37
   %call.i84 = call fastcc i32 @NextFile(ptr noundef nonnull %context)
-  %tobool.not.i85 = icmp ne i32 %call.i84, 0
-  br i1 %tobool.not.i85, label %while.body.i86, label %sw.epilog
+  %tobool.not.i85.not.not = icmp ne i32 %call.i84, 0
+  br i1 %tobool.not.i85.not.not, label %while.body.i86, label %sw.epilog
 
 while.body.i86:                                   ; preds = %while.cond.i83
   %call1.i87 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #22
@@ -1918,7 +1918,7 @@ sw.default:                                       ; preds = %if.else346.i, %if.e
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.end.i, %while.cond.i, %land.end.i98, %while.cond.i83, %if.then28.i, %if.then52.i, %if.then36.i, %if.then20.i, %if.then13.i, %if.then3.i, %if.then24, %if.then.i133, %if.then.i65, %sw.default, %sw.bb34
-  %is_ok.2 = phi i1 [ %cmp40, %sw.default ], [ false, %sw.bb34 ], [ true, %if.then.i65 ], [ true, %if.then.i133 ], [ true, %if.then24 ], [ true, %if.then3.i ], [ true, %if.then13.i ], [ true, %if.then20.i ], [ true, %if.then36.i ], [ true, %if.then52.i ], [ true, %if.then28.i ], [ %tobool.not.i85, %land.end.i98 ], [ false, %while.cond.i83 ], [ %tobool.not.i33, %land.end.i ], [ false, %while.cond.i ]
+  %is_ok.2 = phi i1 [ %cmp40, %sw.default ], [ false, %sw.bb34 ], [ true, %if.then.i65 ], [ true, %if.then.i133 ], [ true, %if.then24 ], [ true, %if.then3.i ], [ true, %if.then13.i ], [ true, %if.then20.i ], [ true, %if.then36.i ], [ true, %if.then52.i ], [ true, %if.then28.i ], [ %tobool.not.i85.not.not, %while.cond.i83 ], [ %tobool.not.i85.not.not, %land.end.i98 ], [ %tobool.not.i33.not.not, %while.cond.i ], [ %tobool.not.i33.not.not, %land.end.i ]
   %264 = load i32, ptr %iterator_error, align 8
   %tobool44.not = icmp ne i32 %264, 0
   %265 = load ptr, ptr %prepared_dictionary, align 8

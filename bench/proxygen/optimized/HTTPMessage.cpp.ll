@@ -7006,8 +7006,8 @@ while.body.lr.ph.i:                               ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %tokens.i.i, i64 8
   %2 = load i64, ptr %length_.i, align 8
   %call3.i13 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv.i, i64 noundef %2) #32
-  %cmp.i.not14 = icmp eq ptr %call3.i13, null
-  br i1 %cmp.i.not14, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i.lr.ph
+  %cmp.not.i14 = icmp eq ptr %call3.i13, null
+  br i1 %cmp.not.i14, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %while.body.lr.ph.i
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -7040,8 +7040,8 @@ while.body.i.us:                                  ; preds = %"_ZZNK8proxygen11HT
   %sub.ptr.sub.neg.i.us = sub i64 %4, %sub.ptr.lhs.cast.i.us
   %sub.i.us = add i64 %sub.ptr.sub.neg.i.us, %sub.ptr.rhs.cast.i.us
   %call3.i.us = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i.us, i32 noundef %conv.i, i64 noundef %sub.i.us) #32
-  %cmp.i.not.us = icmp eq ptr %call3.i.us, null
-  br i1 %cmp.i.not.us, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i.us
+  %cmp.not.i.us = icmp eq ptr %call3.i.us, null
+  br i1 %cmp.not.i.us, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i.us
 
 invoke.cont.i.i.us:                               ; preds = %if.end.i.us
   %7 = load ptr, ptr %tokens.i.i, align 8
@@ -7208,8 +7208,8 @@ while.body.i:                                     ; preds = %"_ZZNK8proxygen11HT
   %sub.ptr.sub.neg.i = sub i64 %18, %sub.ptr.lhs.cast.i
   %sub.i = add i64 %sub.ptr.sub.neg.i, %sub.ptr.rhs.cast.i
   %call3.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef %conv.i, i64 noundef %sub.i) #32
-  %cmp.i.not = icmp eq ptr %call3.i, null
-  br i1 %cmp.i.not, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i
+  %cmp.not.i = icmp eq ptr %call3.i, null
+  br i1 %cmp.not.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage18doHeaderTokenCheckERKS0_NS_14HTTPHeaderCodeEPKcbE3$_0EEbS5_T_.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %while.body.i
   %call3.i16 = phi ptr [ %call3.i, %while.body.i ], [ %call3.i13, %if.end.i.lr.ph ]
@@ -10010,10 +10010,10 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %sub.ptr.lhs.cast5.i = ptrtoint ptr %call3.i39 to i64
   %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast.i938
   %arrayidx.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %sub.ptr.sub7.i
-  %cmp.not.i.not.i.not = icmp ne ptr %6, null
-  %.value.i.i = select i1 %cmp.not.i.not.i.not, ptr null, ptr %arrayidx.i
+  %cmp.not.i.not.i.not.not = icmp ne ptr %6, null
+  %.value.i.i = select i1 %cmp.not.i.not.i.not.not, ptr null, ptr %arrayidx.i
   store ptr %.value.i.i, ptr %func.coerce, align 8
-  br i1 %cmp.not.i.not.i.not, label %return, label %while.body.i
+  br i1 %cmp.not.i.not.i.not.not, label %return, label %while.body.i
 
 if.else:                                          ; preds = %entry
   %8 = load i64, ptr %capacity_.i, align 8
@@ -10150,7 +10150,7 @@ if.end25:                                         ; preds = %if.end.i.i.i, %_ZNK
   br i1 %cmp9, label %return, label %if.end
 
 return:                                           ; preds = %while.body.i, %if.end.i, %if.then19.loopexit, %if.end25, %if.end.i23.us, %if.end25.us, %while.body.preheader.i, %if.else, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %while.body.preheader.i ], [ true, %if.end.i23.us ], [ false, %if.end25.us ], [ true, %if.then19.loopexit ], [ false, %if.end25 ], [ %cmp.not.i.not.i.not, %if.end.i ], [ %cmp.not.i.not.i.not, %while.body.i ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.else ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %while.body.preheader.i ], [ true, %if.end.i23.us ], [ false, %if.end25.us ], [ true, %if.then19.loopexit ], [ false, %if.end25 ], [ %cmp.not.i.not.i.not.not, %if.end.i ], [ %cmp.not.i.not.i.not.not, %while.body.i ]
   ret i1 %retval.0
 }
 

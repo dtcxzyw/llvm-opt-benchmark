@@ -2841,8 +2841,8 @@ define internal noundef zeroext i1 @uprobe_perf_filter(ptr nocapture noundef rea
 12:                                               ; preds = %15, %10
   %13 = phi ptr [ %11, %10 ], [ %14, %15 ]
   %14 = load ptr, ptr %13, align 8
-  %.not.not = icmp ne ptr %14, %11
-  br i1 %.not.not, label %15, label %.loopexit
+  %.not.not.not = icmp ne ptr %14, %11
+  br i1 %.not.not.not, label %15, label %.loopexit
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %14, i64 96
@@ -2853,7 +2853,7 @@ define internal noundef zeroext i1 @uprobe_perf_filter(ptr nocapture noundef rea
   br i1 %20, label %.loopexit, label %12, !llvm.loop !38
 
 .loopexit:                                        ; preds = %15, %12, %3
-  %21 = phi i1 [ true, %3 ], [ %.not.not, %12 ], [ %.not.not, %15 ]
+  %21 = phi i1 [ true, %3 ], [ %.not.not.not, %12 ], [ %.not.not.not, %15 ]
   tail call void @_raw_read_unlock(ptr noundef %6) #16
   ret i1 %21
 }

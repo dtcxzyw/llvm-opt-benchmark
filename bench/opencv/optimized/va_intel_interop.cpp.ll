@@ -372,7 +372,7 @@ _ZN2va8NodeInfoC2Ei.exit.i:                       ; preds = %84
   br label %_ZNK2va8NodeInfo4pathEi.exit.i
 
 _ZNK2va8NodeInfo4pathEi.exit.i:                   ; preds = %109, %_ZN2va8NodeInfoC2Ei.exit.i
-  %.not31.i = phi i1 [ true, %_ZN2va8NodeInfoC2Ei.exit.i ], [ false, %109 ]
+  %.not26.i = phi i1 [ true, %_ZN2va8NodeInfoC2Ei.exit.i ], [ false, %109 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %5, %_ZN2va8NodeInfoC2Ei.exit.i ], [ %indvars.iv.i.sroa.gep4, %109 ]
   %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.i.sroa.phi) #21
   %93 = invoke i32 (ptr, i32, ...) @open(ptr noundef %92, i32 noundef 2)
@@ -414,7 +414,7 @@ _ZNK2va8NodeInfo4pathEi.exit.i:                   ; preds = %109, %_ZN2va8NodeIn
   br label %109
 
 109:                                              ; preds = %108, %94
-  br i1 %.not31.i, label %_ZNK2va8NodeInfo4pathEi.exit.i, label %110, !llvm.loop !12
+  br i1 %.not26.i, label %_ZNK2va8NodeInfo4pathEi.exit.i, label %110, !llvm.loop !12
 
 110:                                              ; preds = %109, %98
   %.lcssa.i = phi i1 [ true, %109 ], [ false, %98 ]

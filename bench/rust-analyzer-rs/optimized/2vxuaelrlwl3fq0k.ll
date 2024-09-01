@@ -3023,14 +3023,14 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 
 "_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i": ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i.i.i.i.i.i"
   %.pre.i.i.i.i.i = load ptr, ptr %5, align 8, !alias.scope !1325, !noalias !1328
-  %.pre11.i.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !1325, !noalias !1328
+  %.pre12.i.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !1325, !noalias !1328
   br label %.critedge.backedge.i.i.i.i.i
 
 .critedge.backedge.i.i.i.i.i:                     ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %34 = phi ptr [ %.pre11.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i.i ]
+  %34 = phi ptr [ %.pre12.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i.i ]
   %35 = phi ptr [ %.pre.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %15, %.lr.ph.i.i.i.i.i ]
-  %.not12.i.i.i.i.i = icmp eq ptr %34, %35
-  br i1 %.not12.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit.i", label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %34, %35
+  br i1 %.not11.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit.i", label %.lr.ph.i.i.i.i.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit.i": ; preds = %.critedge.backedge.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !1304, !noalias !1307
@@ -3401,14 +3401,14 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 
 "_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i": ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i.i.i.i.i.i"
   %.pre.i.i.i.i.i = load ptr, ptr %5, align 8, !alias.scope !1491, !noalias !1494
-  %.pre11.i.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !1491, !noalias !1494
+  %.pre12.i.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !1491, !noalias !1494
   br label %.critedge.backedge.i.i.i.i.i
 
 .critedge.backedge.i.i.i.i.i:                     ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %34 = phi ptr [ %.pre11.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i.i ]
+  %34 = phi ptr [ %.pre12.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i.i ]
   %35 = phi ptr [ %.pre.i.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i.i" ], [ %15, %.lr.ph.i.i.i.i.i ]
-  %.not12.i.i.i.i.i = icmp eq ptr %34, %35
-  br i1 %.not12.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit.i", label %.lr.ph.i.i.i.i.i
+  %.not11.i.i.i.i.i = icmp eq ptr %34, %35
+  br i1 %.not11.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit.i", label %.lr.ph.i.i.i.i.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit.i": ; preds = %.critedge.backedge.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !1470, !noalias !1473
@@ -6479,8 +6479,8 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics18impl_static_method28_
 41:                                               ; preds = %.noexc, %36
   %42 = phi ptr [ %44, %.noexc ], [ %.sroa.4.0.copyload.i, %36 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2303)
-  %.not.i.not = icmp eq ptr %42, %37
-  br i1 %.not.i.not, label %49, label %43
+  %.not.not.not.i.not = icmp eq ptr %42, %37
+  br i1 %.not.not.not.i.not, label %49, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %42, i64 4
@@ -10736,14 +10736,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 "_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i": ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i.i.i.i.i"
   %.pre.i.i.i.i = load ptr, ptr %5, align 8, !alias.scope !4305, !noalias !4308
-  %.pre11.i.i.i.i = load ptr, ptr %.val3.i, align 8, !alias.scope !4305, !noalias !4308
+  %.pre12.i.i.i.i = load ptr, ptr %.val3.i, align 8, !alias.scope !4305, !noalias !4308
   br label %.critedge.backedge.i.i.i.i
 
 .critedge.backedge.i.i.i.i:                       ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i", %.lr.ph.i.i.i.i
-  %34 = phi ptr [ %.pre11.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i ]
+  %34 = phi ptr [ %.pre12.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i ]
   %35 = phi ptr [ %.pre.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %15, %.lr.ph.i.i.i.i ]
-  %.not12.i.i.i.i = icmp eq ptr %34, %35
-  br i1 %.not12.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit", label %.lr.ph.i.i.i.i
+  %.not11.i.i.i.i = icmp eq ptr %34, %35
+  br i1 %.not11.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit", label %.lr.ph.i.i.i.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he0339ba0f5bedadfE.exit": ; preds = %.critedge.backedge.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !alias.scope !4286
@@ -12427,14 +12427,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 "_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i": ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i.i.i.i.i"
   %.pre.i.i.i.i = load ptr, ptr %5, align 8, !alias.scope !4863, !noalias !4866
-  %.pre11.i.i.i.i = load ptr, ptr %.val3.i, align 8, !alias.scope !4863, !noalias !4866
+  %.pre12.i.i.i.i = load ptr, ptr %.val3.i, align 8, !alias.scope !4863, !noalias !4866
   br label %.critedge.backedge.i.i.i.i
 
 .critedge.backedge.i.i.i.i:                       ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i", %.lr.ph.i.i.i.i
-  %34 = phi ptr [ %.pre11.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i ]
+  %34 = phi ptr [ %.pre12.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i ]
   %35 = phi ptr [ %.pre.i.i.i.i, %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h7aa9f663f7b0057bE.llvm.15519223860240118519.exit.i.i..critedge.backedge_crit_edge.i.i.i.i" ], [ %15, %.lr.ph.i.i.i.i ]
-  %.not12.i.i.i.i = icmp eq ptr %34, %35
-  br i1 %.not12.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit", label %.lr.ph.i.i.i.i
+  %.not11.i.i.i.i = icmp eq ptr %34, %35
+  br i1 %.not11.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit", label %.lr.ph.i.i.i.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb324c8827391bedaE.exit": ; preds = %.critedge.backedge.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !alias.scope !4844

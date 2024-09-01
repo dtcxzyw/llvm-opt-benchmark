@@ -142,7 +142,7 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   br label %26
 
 ._crit_edge:                                      ; preds = %67, %5
-  %.lcssa133 = phi i32 [ %6, %5 ], [ %68, %67 ]
+  %.lcssa131 = phi i32 [ %6, %5 ], [ %68, %67 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 300
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
@@ -214,7 +214,11 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   store i32 %39, ptr %11, align 4
   %40 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef 1229209940) #11
   %.not122126 = icmp eq i32 %40, 0
-  br i1 %.not122126, label %.sink.split, label %.loopexit
+  br i1 %.not122126, label %.sink.split, label %.thread130
+
+.thread130:                                       ; preds = %.thread125
+  tail call void @png_handle_unknown(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.lcssa131, i32 noundef %40) #11
+  br label %.sink.split
 
 41:                                               ; preds = %36
   tail call void @png_handle_unknown(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %28, i32 noundef %37) #11
@@ -226,10 +230,6 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   %45 = or i32 %44, 2
   store i32 %45, ptr %10, align 4
   br label %67
-
-.loopexit:                                        ; preds = %.thread125
-  tail call void @png_handle_unknown(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.lcssa133, i32 noundef %40) #11
-  br label %.sink.split
 
 46:                                               ; preds = %36
   switch i32 %27, label %66 [
@@ -340,10 +340,10 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   %70 = icmp eq i32 %69, 1229209940
   br i1 %70, label %._crit_edge, label %26
 
-.sink.split:                                      ; preds = %.thread125, %.loopexit
-  %.lcssa133.sink = phi i32 [ 0, %.loopexit ], [ %.lcssa133, %.thread125 ]
+.sink.split:                                      ; preds = %.thread125, %.thread130
+  %.lcssa131.sink = phi i32 [ 0, %.thread130 ], [ %.lcssa131, %.thread125 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 584
-  store i32 %.lcssa133.sink, ptr %71, align 8
+  store i32 %.lcssa131.sink, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %.sink.split, %2

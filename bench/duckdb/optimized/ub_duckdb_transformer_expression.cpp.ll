@@ -23227,8 +23227,8 @@ entry:
 if.end:                                           ; preds = %entry, %if.then2
   %this.tr9 = phi ptr [ %2, %if.then2 ], [ %this, %entry ]
   %1 = load ptr, ptr %this.tr9, align 8, !tbaa !206
-  %tobool.i.not.not.not.not = icmp ne ptr %1, null
-  br i1 %tobool.i.not.not.not.not, label %if.then2, label %return
+  %tobool.i.not.not.not.not.not = icmp ne ptr %1, null
+  br i1 %tobool.i.not.not.not.not.not, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   tail call void @_ZNK6duckdb12optional_ptrINS_11TransformerEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %this.tr9)
@@ -23239,7 +23239,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.end, label %return
 
 return:                                           ; preds = %if.then2, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %tobool.i.not.not.not.not, %if.end ], [ %tobool.i.not.not.not.not, %if.then2 ]
+  %retval.0 = phi i1 [ true, %entry ], [ %tobool.i.not.not.not.not.not, %if.end ], [ %tobool.i.not.not.not.not.not, %if.then2 ]
   ret i1 %retval.0
 }
 

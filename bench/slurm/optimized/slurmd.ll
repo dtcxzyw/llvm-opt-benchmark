@@ -3199,11 +3199,11 @@ _wait_on_old_slurmd.exit:                         ; preds = %1302, %1314
 1492:                                             ; preds = %1487
   %1493 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %1494 = call i32 @close(i32 noundef %1493) #20
-  %.pre140.i.i = load i64, ptr %14, align 8
+  %.pre145.i.i = load i64, ptr %14, align 8
   br label %1495
 
 1495:                                             ; preds = %1492, %1487, %.lr.ph106.i.i
-  %1496 = phi i64 [ %1484, %.lr.ph106.i.i ], [ %1484, %1487 ], [ %.pre140.i.i, %1492 ]
+  %1496 = phi i64 [ %1484, %.lr.ph106.i.i ], [ %1484, %1487 ], [ %.pre145.i.i, %1492 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1497 = icmp ugt i64 %1496, %indvars.iv.next.i.i
   br i1 %1497, label %.lr.ph106.i.i, label %._crit_edge107.i.i, !llvm.loop !11

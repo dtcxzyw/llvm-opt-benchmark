@@ -965,14 +965,11 @@ define dso_local i64 @nghttp2_bufs_remove_copy(ptr nocapture noundef readonly %0
   %10 = sub i64 %9, %8
   %.06.i = load ptr, ptr %.0610.i, align 8
   %.not.i = icmp eq ptr %.06.i, null
-  br i1 %.not.i, label %nghttp2_buf_wrap_init.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %.lr.ph, label %.lr.ph.i, !llvm.loop !9
 
-nghttp2_buf_wrap_init.exit:                       ; preds = %.lr.ph.i
-  br i1 %.not8.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %nghttp2_buf_wrap_init.exit, %.lr.ph
-  %.017 = phi ptr [ %.0, %.lr.ph ], [ %.067.i, %nghttp2_buf_wrap_init.exit ]
-  %.sroa.4.016 = phi ptr [ %18, %.lr.ph ], [ %1, %nghttp2_buf_wrap_init.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
+  %.017 = phi ptr [ %.0, %.lr.ph ], [ %.067.i, %.lr.ph.i ]
+  %.sroa.4.016 = phi ptr [ %18, %.lr.ph ], [ %1, %.lr.ph.i ]
   %11 = getelementptr inbounds i8, ptr %.017, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %.017, i64 32
@@ -985,8 +982,8 @@ nghttp2_buf_wrap_init.exit:                       ; preds = %.lr.ph.i
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %2, %nghttp2_buf_wrap_init.exit
-  %.0.lcssa.i1319 = phi i64 [ %10, %nghttp2_buf_wrap_init.exit ], [ 0, %2 ], [ %10, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.0.lcssa.i1319 = phi i64 [ 0, %2 ], [ %10, %.lr.ph ]
   ret i64 %.0.lcssa.i1319
 }
 

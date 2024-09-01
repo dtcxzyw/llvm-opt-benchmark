@@ -4964,19 +4964,19 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   %38 = icmp eq i32 %37, %19
   br i1 %38, label %subxact_info_add.exit, label %34
 
+._crit_edge.i:                                    ; preds = %34
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
+  %40 = icmp eq i32 %32, %39
+  br i1 %40, label %44, label %49
+
 ._crit_edge.thread.i:                             ; preds = %31
   store i32 128, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
-  %39 = load ptr, ptr @LogicalStreamingContext, align 8
-  %40 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %39, ptr @CurrentMemoryContext, align 8
-  %41 = tail call ptr @palloc(i64 noundef 2048) #17
-  store ptr %40, ptr @CurrentMemoryContext, align 8
+  %41 = load ptr, ptr @LogicalStreamingContext, align 8
+  %42 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %41, ptr @CurrentMemoryContext, align 8
+  %43 = tail call ptr @palloc(i64 noundef 2048) #17
+  store ptr %42, ptr @CurrentMemoryContext, align 8
   br label %49
-
-._crit_edge.i:                                    ; preds = %34
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @subxact_data, i64 4), align 4
-  %43 = icmp eq i32 %32, %42
-  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %._crit_edge.i
   %45 = shl i32 %32, 1
@@ -4987,7 +4987,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   br label %49
 
 49:                                               ; preds = %44, %._crit_edge.i, %._crit_edge.thread.i
-  %.0.i20 = phi ptr [ %41, %._crit_edge.thread.i ], [ %48, %44 ], [ %26, %._crit_edge.i ]
+  %.0.i20 = phi ptr [ %43, %._crit_edge.thread.i ], [ %48, %44 ], [ %26, %._crit_edge.i ]
   %50 = load i32, ptr @subxact_data, align 8
   %51 = zext i32 %50 to i64
   %52 = getelementptr %struct.SubXactInfo, ptr %.0.i20, i64 %51

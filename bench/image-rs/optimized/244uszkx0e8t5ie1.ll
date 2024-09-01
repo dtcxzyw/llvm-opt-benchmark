@@ -20591,8 +20591,8 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.thre
           to label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$22read_macroblock_header17h03183e452c44b9e3E.exit" unwind label %1695, !noalias !2252
 
 .critedge.thread190.i:                            ; preds = %1688, %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.i, %.thread204.i
-  %1639 = phi i8 [ 0, %.thread204.i ], [ %1647, %1688 ], [ 0, %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.i ]
-  %1640 = phi i8 [ 0, %.thread204.i ], [ %1662, %1688 ], [ 0, %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.i ]
+  %1639 = phi i8 [ 0, %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.i ], [ 0, %.thread204.i ], [ %1647, %1688 ]
+  %1640 = phi i8 [ 0, %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit154.i ], [ 0, %.thread204.i ], [ %1662, %1688 ]
   %.val145.i = load i64, ptr %736, align 8, !alias.scope !2249, !noalias !2254, !noundef !7
   %1641 = icmp ult i64 %.sroa.015.01169, %.val145.i
   br i1 %1641, label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$22read_macroblock_header17h03183e452c44b9e3E.exit.thread328", label %1642, !prof !844

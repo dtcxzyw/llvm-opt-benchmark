@@ -82,8 +82,8 @@ define hidden noundef zeroext i1 @_ZN11XForwarding11retain_pageEv(ptr noundef no
 3:                                                ; preds = %9, %1
   %4 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %.not = icmp ne i32 %4, 0
-  br i1 %.not, label %5, label %.loopexit
+  %.not.not = icmp ne i32 %4, 0
+  br i1 %.not.not, label %5, label %.loopexit
 
 5:                                                ; preds = %3
   %6 = icmp slt i32 %4, 0
@@ -100,7 +100,7 @@ define hidden noundef zeroext i1 @_ZN11XForwarding11retain_pageEv(ptr noundef no
   br i1 %12, label %.loopexit, label %3, !llvm.loop !8
 
 .loopexit:                                        ; preds = %9, %3, %7
-  %.0 = phi i1 [ false, %7 ], [ %.not, %3 ], [ %.not, %9 ]
+  %.0 = phi i1 [ false, %7 ], [ %.not.not, %3 ], [ %.not.not, %9 ]
   ret i1 %.0
 }
 

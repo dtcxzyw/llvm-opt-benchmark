@@ -386,8 +386,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
 
 10:                                               ; preds = %8
   %11 = load i64, ptr %1, align 8, !range !129, !noundef !14
-  %.not.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not.not, label %19, label %12
+  %.not = icmp eq i64 %11, -9223372036854775808
+  br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %4, i64 8

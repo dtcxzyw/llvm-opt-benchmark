@@ -2745,8 +2745,7 @@ if.end45.thread:                                  ; preds = %if.then39
 if.end45:                                         ; preds = %if.then39
   %call46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(4) @.str.126) #12
   %cmp47 = icmp eq i32 %call46, 0
-  %or.cond = or i1 %cmp41, %cmp47
-  br i1 %or.cond, label %for.cond.preheader, label %if.end63
+  br i1 %cmp47, label %for.cond.preheader, label %if.end63
 
 for.cond.preheader:                               ; preds = %if.end45.thread, %if.end45
   %aad = getelementptr inbounds i8, ptr %0, i64 112

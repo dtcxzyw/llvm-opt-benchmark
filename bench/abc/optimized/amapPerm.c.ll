@@ -1815,12 +1815,9 @@ define range(i32 0, 2) i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr nocapture
 .critedge2.loopexit:                              ; preds = %21, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.critedge.preheader, label %17, !llvm.loop !24
+  br i1 %exitcond67.not, label %.lr.ph59, label %17, !llvm.loop !24
 
-.critedge.preheader:                              ; preds = %.critedge2.loopexit
-  br i1 %13, label %.lr.ph59, label %.critedge4
-
-.lr.ph59:                                         ; preds = %.critedge.preheader
+.lr.ph59:                                         ; preds = %.critedge2.loopexit
   %16 = getelementptr i8, ptr %10, i64 8
   br label %.critedge
 
@@ -1866,7 +1863,7 @@ define range(i32 0, 2) i32 @Amap_LibDeriveGatePerm(ptr noundef %0, ptr nocapture
   %35 = icmp slt i64 %indvars.iv.next69, %34
   br i1 %35, label %.critedge, label %.critedge4, !llvm.loop !26
 
-.critedge4:                                       ; preds = %.critedge, %.critedge2.preheader, %.critedge.preheader
+.critedge4:                                       ; preds = %.critedge, %.critedge2.preheader
   %36 = getelementptr inbounds i8, ptr %10, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i51 = icmp eq ptr %37, null

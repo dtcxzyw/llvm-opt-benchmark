@@ -981,8 +981,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -997,12 +997,12 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1030, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end31, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call18 = call i32 @PyLong_AsInt(ptr noundef nonnull %3) #3
+  %call18 = call i32 @PyLong_AsInt(ptr noundef nonnull %2) #3
   %cmp19 = icmp eq i32 %call18, -1
   br i1 %cmp19, label %land.lhs.true20, label %skip_optional_pos
 
@@ -1012,14 +1012,14 @@ land.lhs.true20:                                  ; preds = %if.then16
   br i1 %tobool22.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.then16, %land.lhs.true20
-  %4 = icmp eq i64 %add2529, 1
-  br i1 %4, label %skip_optional_kwonly, label %if.end31
+  %3 = icmp eq i64 %add2529, 1
+  br i1 %3, label %skip_optional_kwonly, label %if.end31
 
 if.end31:                                         ; preds = %if.end14, %skip_optional_pos
   %n.037 = phi i32 [ %call18, %skip_optional_pos ], [ 1, %if.end14 ]
   %arrayidx32 = getelementptr i8, ptr %cond1030, i64 8
-  %5 = load ptr, ptr %arrayidx32, align 8
-  %call33 = call i32 @PyObject_IsTrue(ptr noundef %5) #3
+  %4 = load ptr, ptr %arrayidx32, align 8
+  %call33 = call i32 @PyObject_IsTrue(ptr noundef %4) #3
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %exit, label %skip_optional_kwonly
 
@@ -1030,8 +1030,8 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end31, 
   %tobool.not.i = icmp ne i32 %twice.0, 0
   %mul.i = zext i1 %tobool.not.i to i32
   %spec.select.i = shl i32 %n.033, %mul.i
-  %6 = load i32, ptr %call.i, align 4
-  %add.i = add i32 %spec.select.i, %6
+  %5 = load i32, ptr %call.i, align 4
+  %add.i = add i32 %spec.select.i, %5
   store i32 %add.i, ptr %call.i, align 4
   br label %exit
 

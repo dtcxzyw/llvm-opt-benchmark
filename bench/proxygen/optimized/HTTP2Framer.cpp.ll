@@ -7499,12 +7499,7 @@ if.end26.lr.ph:                                   ; preds = %_ZN5folly2io6detail
   %absolutePos_.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %if.end26
 
-if.then:                                          ; preds = %if.end55
-  br i1 %cmp.not102.not, label %if.else, label %if.then3
-
-if.then3:                                         ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, %if.then
-  %len.addr.0.lcssa114 = phi i64 [ %sub56, %if.then ], [ %len, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ]
-  %copied.0.lcssa113 = phi i64 [ %add51, %if.then ], [ 0, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ]
+if.then3:                                         ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
   %16 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   invoke void @_ZNK5folly5IOBuf15cloneOneAsValueEv(ptr nonnull sret(%"class.folly::IOBuf") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %16)
@@ -7524,7 +7519,7 @@ invoke.cont5:                                     ; preds = %if.then3
   %19 = load ptr, ptr %data_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %sub.ptr.sub
   store ptr %add.ptr.i, ptr %data_.i, align 8
-  store i64 %len.addr.0.lcssa114, ptr %buf, align 8
+  store i64 %len, ptr %buf, align 8
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %if.else37, %if.then28, %invoke.cont48
@@ -7542,7 +7537,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tmp) #25
   resume { ptr, i32 } %lpad.phi
 
-if.else:                                          ; preds = %if.then
+if.else:                                          ; preds = %if.end55
   %20 = load ptr, ptr %this, align 8
   invoke void @_ZNK5folly5IOBuf8cloneOneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %20)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
@@ -7589,8 +7584,8 @@ invoke.cont22:                                    ; preds = %invoke.cont9, %_ZNS
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 if.end:                                           ; preds = %invoke.cont22, %invoke.cont5
-  %len.addr.0.lcssa115 = phi i64 [ %sub56, %invoke.cont22 ], [ %len.addr.0.lcssa114, %invoke.cont5 ]
-  %copied.0.lcssa112 = phi i64 [ %add51, %invoke.cont22 ], [ %copied.0.lcssa113, %invoke.cont5 ]
+  %len.addr.0.lcssa115 = phi i64 [ %sub56, %invoke.cont22 ], [ %len, %invoke.cont5 ]
+  %copied.0.lcssa112 = phi i64 [ %add51, %invoke.cont22 ], [ 0, %invoke.cont5 ]
   %29 = load ptr, ptr %crtPos_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %29, i64 %len.addr.0.lcssa115
   store ptr %add.ptr, ptr %crtPos_.i, align 8
@@ -7802,7 +7797,7 @@ if.end55:                                         ; preds = %if.end.i, %if.end23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.pre
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub56
-  br i1 %cmp.not, label %if.end26, label %if.then, !llvm.loop !54
+  br i1 %cmp.not, label %if.end26, label %if.else, !llvm.loop !54
 
 cleanup:                                          ; preds = %invoke.cont52, %invoke.cont25
   %retval.0 = phi i64 [ %add, %invoke.cont25 ], [ %add51, %invoke.cont52 ]

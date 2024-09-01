@@ -853,7 +853,11 @@ invoke.cont21:                                    ; preds = %for.cond.i.i.i.i.i.
   %24 = shl nuw i64 1, %9
   %25 = and i64 %23, %24
   %tobool.i.i.i.i.not = icmp eq i64 %25, 0
-  br i1 %tobool.i.i.i.i.not, label %cond.true26, label %if.end.lor.rhs_crit_edge
+  br i1 %tobool.i.i.i.i.not, label %cond.true26, label %invoke.cont21.lor.rhs_crit_edge
+
+invoke.cont21.lor.rhs_crit_edge:                  ; preds = %invoke.cont21
+  %bf.load.i.i172.pre = load i64, ptr %0, align 8
+  br label %lor.rhs
 
 invoke.cont21.thread2044:                         ; preds = %if.end.i.i.i.i.i.i.i.i
   %second.i4.i.i.i2046 = getelementptr inbounds i8, ptr %15, i64 16
@@ -889,12 +893,8 @@ lpad17:                                           ; preds = %invoke.cont16
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #19
   br label %eh.resume
 
-if.end.lor.rhs_crit_edge:                         ; preds = %invoke.cont21
-  %bf.load.i.i172.pre = load i64, ptr %0, align 8
-  br label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.end.lor.rhs_crit_edge, %invoke.cont21.thread2044
-  %bf.load.i.i172 = phi i64 [ %bf.load.i.i172.pre, %if.end.lor.rhs_crit_edge ], [ %bf.load.i.i.i.i.i.i.i.i.i, %invoke.cont21.thread2044 ]
+lor.rhs:                                          ; preds = %invoke.cont21.lor.rhs_crit_edge, %invoke.cont21.thread2044
+  %bf.load.i.i172 = phi i64 [ %bf.load.i.i172.pre, %invoke.cont21.lor.rhs_crit_edge ], [ %bf.load.i.i.i.i.i.i.i.i.i, %invoke.cont21.thread2044 ]
   %33 = load ptr, ptr %d_tds, align 8
   store ptr %0, ptr %agg.tmp41, align 8
   %bf.lshr.i.i173 = lshr i64 %bf.load.i.i172, 40

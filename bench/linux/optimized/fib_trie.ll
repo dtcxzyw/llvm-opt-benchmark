@@ -6285,7 +6285,7 @@ define dso_local i32 @fib_notify(ptr nocapture noundef readonly %0, ptr noundef 
 .thread18:                                        ; preds = %.thread, %15
   %13 = add nuw nsw i64 %16, 1
   %14 = icmp eq i64 %13, 256
-  br i1 %14, label %.loopexit34, label %15, !llvm.loop !80
+  br i1 %14, label %.loopexit22, label %15, !llvm.loop !80
 
 15:                                               ; preds = %.thread18, %3
   %16 = phi i64 [ 0, %3 ], [ %13, %.thread18 ]
@@ -6469,7 +6469,7 @@ define dso_local i32 @fib_notify(ptr nocapture noundef readonly %0, ptr noundef 
   %131 = call i32 @call_fib4_notifier(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
   %.not = icmp eq i32 %131, 0
-  br i1 %.not, label %.thread14, label %.loopexit34
+  br i1 %.not, label %.thread14, label %.loopexit22
 
 .thread14:                                        ; preds = %122, %117, %112, %.preheader
   %132 = phi i32 [ %120, %122 ], [ %108, %.preheader ], [ %108, %112 ], [ %108, %117 ]
@@ -6488,7 +6488,7 @@ define dso_local i32 @fib_notify(ptr nocapture noundef readonly %0, ptr noundef 
   %139 = icmp eq ptr %138, null
   br i1 %139, label %.thread18, label %.lr.ph, !llvm.loop !83
 
-.loopexit34:                                      ; preds = %.thread18, %122
+.loopexit22:                                      ; preds = %.thread18, %122
   %140 = phi i32 [ %131, %122 ], [ 0, %.thread18 ]
   ret i32 %140
 }
@@ -7635,14 +7635,14 @@ define internal ptr @fib_trie_seq_start(ptr nocapture noundef readonly %0, ptr n
   br label %14
 
 .thread17:                                        ; preds = %.thread, %14
-  %.lcssa34 = phi i64 [ %16, %14 ], [ %92, %.thread ]
+  %.lcssa33 = phi i64 [ %16, %14 ], [ %92, %.thread ]
   %12 = add nuw nsw i64 %15, 1
   %13 = icmp eq i64 %12, 256
   br i1 %13, label %.loopexit, label %14, !llvm.loop !94
 
 14:                                               ; preds = %.thread17, %2
   %15 = phi i64 [ 0, %2 ], [ %12, %.thread17 ]
-  %16 = phi i64 [ 0, %2 ], [ %.lcssa34, %.thread17 ]
+  %16 = phi i64 [ 0, %2 ], [ %.lcssa33, %.thread17 ]
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr %struct.hlist_head, ptr %17, i64 %15
   %19 = load volatile ptr, ptr %18, align 8

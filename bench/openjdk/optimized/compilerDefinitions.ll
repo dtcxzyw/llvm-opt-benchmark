@@ -229,7 +229,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig
   br i1 %70, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.thread, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %71 = phi i1 [ %68, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.thread ], [ %70, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i ]
+  %71 = phi i1 [ %68, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.thread ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i ]
   %72 = xor i1 %62, true
   %or.cond12 = and i1 %71, %72
   br i1 %or.cond12, label %73, label %.thread

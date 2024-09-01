@@ -2100,14 +2100,14 @@ define internal fastcc void @_ZL20warnAboutMissingGridP8PJconsts(ptr noundef %0)
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  br label %48
+  br label %49
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %24, %27
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %6, %8, %10, %12, %41, %.sink.split
+.loopexit.split-lp:                               ; preds = %6, %8, %10, %12, %41, %45
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -2115,7 +2115,7 @@ define internal fastcc void @_ZL20warnAboutMissingGridP8PJconsts(ptr noundef %0)
 31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
-  br label %48
+  br label %49
 
 32:                                               ; preds = %18, %27
   %33 = add nuw nsw i32 %.019, 1
@@ -2126,13 +2126,13 @@ define internal fastcc void @_ZL20warnAboutMissingGridP8PJconsts(ptr noundef %0)
   %34 = getelementptr inbounds i8, ptr %0, i64 844
   %35 = load i8, ptr %34, align 4
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %.sink.split, label %37
+  br i1 %36, label %45, label %37
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds i8, ptr %0, i64 845
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %.sink.split
+  br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
   %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.73)
@@ -2141,23 +2141,22 @@ define internal fastcc void @_ZL20warnAboutMissingGridP8PJconsts(ptr noundef %0)
 43:                                               ; preds = %41
   store i8 0, ptr %38, align 1
   %.pre = load i8, ptr %34, align 4
-  %.pre.fr = freeze i8 %.pre
-  %.pre20 = trunc i8 %.pre.fr to i1
-  %spec.select = select i1 %.pre20, i32 1, i32 2
-  br label %.sink.split
+  %.pre20 = trunc i8 %.pre to i1
+  %44 = select i1 %.pre20, i32 1, i32 2
+  br label %45
 
-.sink.split:                                      ; preds = %._crit_edge, %37, %43
-  %44 = phi i32 [ %spec.select, %43 ], [ 1, %._crit_edge ], [ 2, %37 ]
-  %45 = load ptr, ptr %0, align 8
-  %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
-  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %45, i32 noundef %44, ptr noundef %46)
-          to label %47 unwind label %.loopexit.split-lp
+45:                                               ; preds = %43, %37, %._crit_edge
+  %.pre-phi = phi i32 [ %44, %43 ], [ 2, %37 ], [ 1, %._crit_edge ]
+  %46 = load ptr, ptr %0, align 8
+  %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
+  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %46, i32 noundef %.pre-phi, ptr noundef %47)
+          to label %48 unwind label %.loopexit.split-lp
 
-47:                                               ; preds = %.sink.split
+48:                                               ; preds = %45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   ret void
 
-48:                                               ; preds = %31, %29
+49:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %lpad.phi, %31 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn
 }
@@ -7101,7 +7100,7 @@ _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2E
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(96) %.pr.pre) #34
   store ptr null, ptr %3, align 8
-  br i1 %.not78, label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread, label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86
+  br label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86
 
 _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread.critedge: ; preds = %13
   %67 = load ptr, ptr %12, align 8
@@ -7111,7 +7110,7 @@ _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2E
   store ptr null, ptr %3, align 8
   br label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread
 
-_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread.critedge, %11, %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30
+_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread.critedge, %11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %70 unwind label %85
@@ -7226,7 +7225,7 @@ _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(96) %.pr71.pre) #34
-  br i1 %.not80, label %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread, label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86
+  br label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86
 
 _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread.critedge: ; preds = %73
   %127 = load ptr, ptr %72, align 8
@@ -7235,12 +7234,12 @@ _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED
   call void %129(ptr noundef nonnull align 8 dereferenceable(96) %72) #34
   br label %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread
 
-_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread.critedge, %71, %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37
+_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread.critedge, %71
   %130 = getelementptr inbounds i8, ptr %0, i64 292
   store i64 29113321788762477, ptr %130, align 4
   br label %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86
 
-_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86: ; preds = %96, %36, %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37, %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30, %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread
+_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30.thread86: ; preds = %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37, %_ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit30, %96, %36, %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit37.thread
   ret void
 
 _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj22HorizontalShiftGridSetEEclEPS2_.exit.i, %90, %_ZNKSt14default_deleteIN5osgeo4proj20VerticalShiftGridSetEEclEPS2_.exit.i, %30, %89, %29

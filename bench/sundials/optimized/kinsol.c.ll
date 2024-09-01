@@ -4285,7 +4285,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   br i1 %185, label %.preheader336, label %._crit_edge351, !llvm.loop !4
 
 ._crit_edge351:                                   ; preds = %._crit_edge, %.preheader339, %.preheader337
-  %186 = phi i1 [ false, %.preheader337 ], [ false, %.preheader339 ], [ %105, %._crit_edge ]
+  %186 = phi i1 [ false, %.preheader337 ], [ false, %.preheader339 ], [ true, %._crit_edge ]
   %187 = phi i64 [ %164, %.preheader337 ], [ %85, %.preheader339 ], [ %183, %._crit_edge ]
   %188 = getelementptr inbounds i8, ptr %0, i64 464
   %189 = load i32, ptr %188, align 8

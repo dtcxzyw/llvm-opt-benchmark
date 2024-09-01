@@ -4164,16 +4164,16 @@ RARRAY_AREF.exit215.i:                            ; preds = %219, %.thread.i
   store i64 -1, ptr %230, align 8
   %231 = add nuw nsw i64 %.0174251.i, 1
   %exitcond.not.i = icmp eq i64 %231, %.0.i.i
-  br i1 %exitcond.not.i, label %.lr.ph258.i, label %180, !llvm.loop !75
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %180, !llvm.loop !75
 
-.lr.ph258.i:                                      ; preds = %226
+._crit_edge.i:                                    ; preds = %226
   %intcmp.intrcmp.i = select i1 %.not, ptr @intcmp, ptr @intrcmp
   call void @qsort(ptr noundef nonnull %167, i64 noundef %.0.i.i, i64 noundef 32, ptr noundef nonnull %intcmp.intrcmp.i) #26
   %232 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %167, i64 %.0.i.i
   br label %233
 
-233:                                              ; preds = %.critedge2.i, %.lr.ph258.i
-  %.1175255.i = phi i64 [ 0, %.lr.ph258.i ], [ %253, %.critedge2.i ]
+233:                                              ; preds = %.critedge2.i, %._crit_edge.i
+  %.1175255.i = phi i64 [ 0, %._crit_edge.i ], [ %253, %.critedge2.i ]
   %234 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %167, i64 %.1175255.i
   %235 = getelementptr inbounds i8, ptr %234, i64 4
   %236 = load i32, ptr %235, align 4
@@ -4227,7 +4227,7 @@ RARRAY_AREF.exit215.i:                            ; preds = %219, %.thread.i
   %.not199.i135 = icmp eq i32 %255, -1
   br i1 %.not199.i135, label %.critedge4.i, label %.lr.ph
 
-.lr.ph271.i:                                      ; preds = %.critedge4.i
+.preheader.i:                                     ; preds = %.critedge4.i
   %256 = icmp ne ptr %2, null
   %257 = icmp ne i64 %3, 0
   %or.cond.i225.i = and i1 %256, %257
@@ -4317,11 +4317,11 @@ fd_set_cloexec.exit.i:                            ; preds = %287, %285, %275
 .critedge4.i:                                     ; preds = %.lr.ph261.i, %.lr.ph, %fd_set_cloexec.exit.i, %.lr.ph261.preheader.i
   %302 = add nuw nsw i64 %.2264.i, 1
   %exitcond274.not.i = icmp eq i64 %302, %.0.i.i
-  br i1 %exitcond274.not.i, label %.lr.ph271.i, label %.lr.ph261.preheader.i, !llvm.loop !79
+  br i1 %exitcond274.not.i, label %.preheader.i, label %.lr.ph261.preheader.i, !llvm.loop !79
 
-303:                                              ; preds = %.loopexit.i, %.lr.ph271.i
-  %.3270.i = phi i64 [ 0, %.lr.ph271.i ], [ %366, %.loopexit.i ]
-  %.0176269.i = phi i32 [ -1, %.lr.ph271.i ], [ %.1177.i, %.loopexit.i ]
+303:                                              ; preds = %.loopexit.i, %.preheader.i
+  %.3270.i = phi i64 [ 0, %.preheader.i ], [ %366, %.loopexit.i ]
+  %.0176269.i = phi i32 [ -1, %.preheader.i ], [ %.1177.i, %.loopexit.i ]
   %304 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %167, i64 %.3270.i
   %305 = load i32, ptr %304, align 8
   %306 = icmp eq i32 %305, -1
@@ -12971,7 +12971,7 @@ reduce_factors.exit.thread25:                     ; preds = %4
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.preheader
   %14 = load i64, ptr %3, align 8
   %15 = icmp eq i64 %14, 1
-  br i1 %15, label %.lr.ph.thread, label %16
+  br i1 %15, label %.lr.ph.split, label %16
 
 16:                                               ; preds = %.lr.ph.split.i.us
   %spec.select.i.i.i.us = tail call i64 @llvm.smax.i64(i64 %12, i64 %14)
@@ -12987,7 +12987,7 @@ reduce_factors.exit.thread25:                     ; preds = %4
 
 gcd_timetick_int.exit.i.i.us:                     ; preds = %17
   %.not.i.i.us = icmp eq i64 %.1.i.i.i.us, 1
-  br i1 %.not.i.i.us, label %reduce_factors.exit, label %20
+  br i1 %.not.i.i.us, label %.lr.ph.split, label %20, !llvm.loop !162
 
 20:                                               ; preds = %gcd_timetick_int.exit.i.i.us
   %21 = sdiv i64 %12, %.1.i.i.i.us
@@ -12995,10 +12995,10 @@ gcd_timetick_int.exit.i.i.us:                     ; preds = %17
   %22 = load i64, ptr %3, align 8
   %23 = sdiv i64 %22, %.1.i.i.i.us
   store i64 %23, ptr %3, align 8
-  br label %reduce_factors.exit
+  br label %.lr.ph.split, !llvm.loop !162
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %.not.i, label %.lr.ph.thread, label %.critedge.us.i, !llvm.loop !158
+  br i1 %.not.i, label %.lr.ph.split, label %.critedge.us.i, !llvm.loop !158
 
 .critedge.us.i:                                   ; preds = %.lr.ph.split.us.i, %.critedge.us.i
   br label %.critedge.us.i
@@ -13048,64 +13048,51 @@ gcd_timetick_int.exit.i.i:                        ; preds = %29
   %.pr.i23.ph.be = phi i64 [ %.pr.i.pre, %32 ], [ 1, %.lr.ph.split.i ]
   br label %.lr.ph.split.i.outer
 
-.lr.ph.thread:                                    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i.us
-  %36 = load i64, ptr %0, align 8
+.preheader:                                       ; preds = %reduce_factors.exit.thread25, %.lr.ph.split
+  %.018.lcssa = phi double [ %48, %.lr.ph.split ], [ %11, %reduce_factors.exit.thread25 ]
+  %36 = load i64, ptr %3, align 8
   %37 = sitofp i64 %36 to double
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load i32, ptr %38, align 8
-  %40 = sitofp i32 %39 to double
-  %41 = tail call double @llvm.fmuladd.f64(double %37, double 1.000000e+09, double %40)
-  br label %.lr.ph.split
+  %38 = fdiv double %.018.lcssa, %37
+  %39 = bitcast double %38 to i64
+  %cond.i = icmp eq i64 %39, 3458764513820540928
+  br i1 %cond.i, label %60, label %49
 
-reduce_factors.exit:                              ; preds = %gcd_timetick_int.exit.i.i.us, %20
-  %42 = load i64, ptr %0, align 8
-  %43 = sitofp i64 %42 to double
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = sitofp i32 %45 to double
-  %47 = tail call double @llvm.fmuladd.f64(double %43, double 1.000000e+09, double %46)
-  br i1 %5, label %.lr.ph.split, label %.preheader, !llvm.loop !162
-
-.preheader:                                       ; preds = %reduce_factors.exit.thread25, %.lr.ph.split, %reduce_factors.exit
-  %.018.lcssa = phi double [ %55, %.lr.ph.split ], [ %47, %reduce_factors.exit ], [ %11, %reduce_factors.exit.thread25 ]
-  %48 = load i64, ptr %3, align 8
-  %49 = sitofp i64 %48 to double
-  %50 = fdiv double %.018.lcssa, %49
-  %51 = bitcast double %50 to i64
-  %cond.i = icmp eq i64 %51, 3458764513820540928
-  br i1 %cond.i, label %67, label %56
-
-.lr.ph.split:                                     ; preds = %reduce_factors.exit, %.lr.ph.thread
-  %52 = phi double [ %41, %.lr.ph.thread ], [ %47, %reduce_factors.exit ]
-  %53 = load i64, ptr %1, align 8
-  %54 = sitofp i64 %53 to double
-  %55 = fmul double %52, %54
+.lr.ph.split:                                     ; preds = %gcd_timetick_int.exit.i.i.us, %20, %.lr.ph.split.i.us, %.lr.ph.split.us.i
+  %40 = load i64, ptr %0, align 8
+  %41 = sitofp i64 %40 to double
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = sitofp i32 %43 to double
+  %45 = tail call double @llvm.fmuladd.f64(double %41, double 1.000000e+09, double %44)
+  %46 = load i64, ptr %1, align 8
+  %47 = sitofp i64 %46 to double
+  %48 = fmul double %45, %47
   br label %.preheader
 
-56:                                               ; preds = %.preheader
-  %57 = lshr i64 %51, 60
-  %58 = trunc nuw nsw i64 %57 to i32
-  %59 = and i32 %58, 7
-  %60 = add nsw i32 %59, -3
-  %.not7.i = icmp ult i32 %60, 2
-  br i1 %.not7.i, label %61, label %65
+49:                                               ; preds = %.preheader
+  %50 = lshr i64 %39, 60
+  %51 = trunc nuw nsw i64 %50 to i32
+  %52 = and i32 %51, 7
+  %53 = add nsw i32 %52, -3
+  %.not7.i = icmp ult i32 %53, 2
+  br i1 %.not7.i, label %54, label %58
 
-61:                                               ; preds = %56
-  %62 = tail call noundef i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 3)
-  %63 = and i64 %62, -4
-  %64 = or disjoint i64 %63, 2
+54:                                               ; preds = %49
+  %55 = tail call noundef i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 3)
+  %56 = and i64 %55, -4
+  %57 = or disjoint i64 %56, 2
   br label %rb_float_new_inline.exit
 
-65:                                               ; preds = %56
-  %66 = icmp eq i64 %51, 0
-  br i1 %66, label %rb_float_new_inline.exit, label %67
+58:                                               ; preds = %49
+  %59 = icmp eq i64 %39, 0
+  br i1 %59, label %rb_float_new_inline.exit, label %60
 
-67:                                               ; preds = %65, %.preheader
-  %68 = tail call i64 @rb_float_new_in_heap(double noundef %50) #26
+60:                                               ; preds = %58, %.preheader
+  %61 = tail call i64 @rb_float_new_in_heap(double noundef %38) #26
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %61, %65, %67
-  %.0.i = phi i64 [ %68, %67 ], [ %64, %61 ], [ -9223372036854775806, %65 ]
+rb_float_new_inline.exit:                         ; preds = %54, %58, %60
+  %.0.i = phi i64 [ %61, %60 ], [ %57, %54 ], [ -9223372036854775806, %58 ]
   ret i64 %.0.i
 }
 

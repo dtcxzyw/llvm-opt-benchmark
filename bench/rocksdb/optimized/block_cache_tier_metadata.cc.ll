@@ -327,8 +327,8 @@ entry:
 for.cond.i.i:                                     ; preds = %for.body.i.i, %entry
   %retval.sroa.0.0.in.i.i = phi ptr [ %arrayidx.i.i, %entry ], [ %retval.sroa.0.0.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8
-  %cmp.i.not.i.i.not = icmp ne ptr %retval.sroa.0.0.i.i, %arrayidx.i.i
-  br i1 %cmp.i.not.i.i.not, label %for.body.i.i, label %cleanup
+  %cmp.i.not.i.not.i.not.not.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i, %arrayidx.i.i
+  br i1 %cmp.i.not.i.not.i.not.not.not.not.not, label %for.body.i.i, label %cleanup
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
@@ -382,7 +382,7 @@ terminate.lpad.i17:                               ; preds = %cleanup
   unreachable
 
 _ZN7rocksdb8ReadLockD2Ev.exit18:                  ; preds = %cleanup
-  ret i1 %cmp.i.not.i.i.not
+  ret i1 %cmp.i.not.i.not.i.not.not.not.not.not
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -563,8 +563,8 @@ invoke.cont16:                                    ; preds = %invoke.cont11
 for.cond.i.i:                                     ; preds = %for.body.i.i, %invoke.cont16
   %retval.sroa.0.0.in.i.i = phi ptr [ %arrayidx.i.i, %invoke.cont16 ], [ %retval.sroa.0.0.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8
-  %cmp.i.not.i.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %arrayidx.i.i
-  br i1 %cmp.i.not.i.i.not, label %invoke.cont18, label %for.body.i.i
+  %cmp.i.not.i.not.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %arrayidx.i.i
+  br i1 %cmp.i.not.i.not.i.not, label %invoke.cont18, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16

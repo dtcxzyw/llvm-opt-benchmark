@@ -647,103 +647,100 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 .lr.ph:                                           ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   %29 = getelementptr inbounds i8, ptr %6, i64 20
-  %30 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %33
+  br label %31
 
-31:                                               ; preds = %54
+30:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp uge i64 %indvars.iv.next, %30
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %33, !llvm.loop !11
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !11
 
-33:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %34 = phi i1 [ false, %.lr.ph ], [ %32, %31 ]
+31:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.idx = mul i64 %indvars.iv, 12
-  %35 = getelementptr inbounds i8, ptr %3, i64 %.idx
-  %36 = load i32, ptr %35, align 4
-  %37 = mul nsw i32 %36, 3
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %1, i64 %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = mul nsw i32 %41, 3
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds float, ptr %1, i64 %43
-  %45 = getelementptr inbounds i8, ptr %35, i64 8
-  %46 = load i32, ptr %45, align 4
-  %47 = mul nsw i32 %46, 3
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %1, i64 %48
-  %50 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1
-  %52 = load float, ptr %21, align 8
-  %53 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %39, ptr noundef %44, ptr noundef %49, i8 noundef zeroext %51, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %52, float noundef %23, float noundef %26, i32 noundef %7)
-          to label %54 unwind label %.loopexit39
+  %32 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %33 = load i32, ptr %32, align 4
+  %34 = mul nsw i32 %33, 3
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds float, ptr %1, i64 %35
+  %37 = getelementptr inbounds i8, ptr %32, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = mul nsw i32 %38, 3
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds float, ptr %1, i64 %40
+  %42 = getelementptr inbounds i8, ptr %32, i64 8
+  %43 = load i32, ptr %42, align 4
+  %44 = mul nsw i32 %43, 3
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds float, ptr %1, i64 %45
+  %47 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %48 = load i8, ptr %47, align 1
+  %49 = load float, ptr %21, align 8
+  %50 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %36, ptr noundef %41, ptr noundef %46, i8 noundef zeroext %48, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %49, float noundef %23, float noundef %26, i32 noundef %7)
+          to label %51 unwind label %.loopexit39
 
-54:                                               ; preds = %33
-  br i1 %53, label %31, label %55
+51:                                               ; preds = %31
+  br i1 %50, label %30, label %52
 
-55:                                               ; preds = %54
+52:                                               ; preds = %51
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.5)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit39:                                      ; preds = %33
+.loopexit39:                                      ; preds = %31
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %53
 
-.loopexit.split-lp:                               ; preds = %55
+.loopexit.split-lp:                               ; preds = %52
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %53
 
-56:                                               ; preds = %.loopexit.split-lp, %.loopexit39
+53:                                               ; preds = %.loopexit.split-lp, %.loopexit39
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit39 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %57 = load i8, ptr %14, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %_ZN13rcScopedTimerD2Ev.exit
+  %54 = load i8, ptr %14, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN13rcScopedTimerD2Ev.exit
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 48
-  %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %63
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  %59 = load ptr, ptr %58, align 8
+  invoke void %59(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %60
 
-63:                                               ; preds = %59
-  %64 = landingpad { ptr, i32 }
+60:                                               ; preds = %56
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #6
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %56, %59
+_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %53, %56
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %31, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %55
-  %66 = phi i1 [ %34, %55 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %32, %31 ]
-  %67 = load i8, ptr %14, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %_ZN13rcScopedTimerD2Ev.exit36
+.loopexit:                                        ; preds = %30, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %52
+  %63 = phi i1 [ false, %52 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %30 ]
+  %64 = load i8, ptr %14, align 1
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %_ZN13rcScopedTimerD2Ev.exit36
 
-69:                                               ; preds = %.loopexit
-  %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
-  %72 = load ptr, ptr %71, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit36 unwind label %73
+66:                                               ; preds = %.loopexit
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit36 unwind label %70
 
-73:                                               ; preds = %69
-  %74 = landingpad { ptr, i32 }
+70:                                               ; preds = %66
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #6
+  %72 = extractvalue { ptr, i32 } %71, 0
+  tail call void @__clang_call_terminate(ptr %72) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit36:                    ; preds = %.loopexit, %69
-  ret i1 %66
+_ZN13rcScopedTimerD2Ev.exit36:                    ; preds = %.loopexit, %66
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -784,103 +781,100 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
 .lr.ph:                                           ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   %29 = getelementptr inbounds i8, ptr %6, i64 20
-  %30 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %33
+  br label %31
 
-31:                                               ; preds = %51
+30:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp uge i64 %indvars.iv.next, %30
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %33, !llvm.loop !12
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !12
 
-33:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %34 = phi i1 [ false, %.lr.ph ], [ %32, %31 ]
-  %.idx48 = mul i64 %indvars.iv, 6
-  %35 = getelementptr inbounds i8, ptr %3, i64 %.idx48
-  %36 = load i16, ptr %35, align 2
-  %37 = zext i16 %36 to i64
-  %.idx = mul nuw nsw i64 %37, 12
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %39 = getelementptr inbounds i8, ptr %35, i64 2
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i64
-  %.idx36 = mul nuw nsw i64 %41, 12
-  %42 = getelementptr inbounds i8, ptr %1, i64 %.idx36
-  %43 = getelementptr inbounds i8, ptr %35, i64 4
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i64
-  %.idx37 = mul nuw nsw i64 %45, 12
-  %46 = getelementptr inbounds i8, ptr %1, i64 %.idx37
-  %47 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %48 = load i8, ptr %47, align 1
-  %49 = load float, ptr %21, align 8
-  %50 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %38, ptr noundef %42, ptr noundef %46, i8 noundef zeroext %48, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %49, float noundef %23, float noundef %26, i32 noundef %7)
-          to label %51 unwind label %.loopexit41
+31:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %.idx46 = mul i64 %indvars.iv, 6
+  %32 = getelementptr inbounds i8, ptr %3, i64 %.idx46
+  %33 = load i16, ptr %32, align 2
+  %34 = zext i16 %33 to i64
+  %.idx = mul nuw nsw i64 %34, 12
+  %35 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %36 = getelementptr inbounds i8, ptr %32, i64 2
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i64
+  %.idx36 = mul nuw nsw i64 %38, 12
+  %39 = getelementptr inbounds i8, ptr %1, i64 %.idx36
+  %40 = getelementptr inbounds i8, ptr %32, i64 4
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i64
+  %.idx37 = mul nuw nsw i64 %42, 12
+  %43 = getelementptr inbounds i8, ptr %1, i64 %.idx37
+  %44 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %45 = load i8, ptr %44, align 1
+  %46 = load float, ptr %21, align 8
+  %47 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %35, ptr noundef %39, ptr noundef %43, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %28, ptr noundef nonnull %29, float noundef %46, float noundef %23, float noundef %26, i32 noundef %7)
+          to label %48 unwind label %.loopexit41
 
-51:                                               ; preds = %33
-  br i1 %50, label %31, label %52
+48:                                               ; preds = %31
+  br i1 %47, label %30, label %49
 
-52:                                               ; preds = %51
+49:                                               ; preds = %48
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.5)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit41:                                      ; preds = %33
+.loopexit41:                                      ; preds = %31
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %50
 
-.loopexit.split-lp:                               ; preds = %52
+.loopexit.split-lp:                               ; preds = %49
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %50
 
-53:                                               ; preds = %.loopexit.split-lp, %.loopexit41
+50:                                               ; preds = %.loopexit.split-lp, %.loopexit41
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %54 = load i8, ptr %14, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %_ZN13rcScopedTimerD2Ev.exit
+  %51 = load i8, ptr %14, align 1
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %_ZN13rcScopedTimerD2Ev.exit
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
-  %59 = load ptr, ptr %58, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %60
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %56 = load ptr, ptr %55, align 8
+  invoke void %56(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %57
 
-60:                                               ; preds = %56
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %53
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #6
+  %59 = extractvalue { ptr, i32 } %58, 0
+  tail call void @__clang_call_terminate(ptr %59) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %53, %56
+_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %50, %53
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %31, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %52
-  %63 = phi i1 [ %34, %52 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %32, %31 ]
-  %64 = load i8, ptr %14, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %_ZN13rcScopedTimerD2Ev.exit38
+.loopexit:                                        ; preds = %30, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %49
+  %60 = phi i1 [ false, %49 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %30 ]
+  %61 = load i8, ptr %14, align 1
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %_ZN13rcScopedTimerD2Ev.exit38
 
-66:                                               ; preds = %.loopexit
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 48
-  %69 = load ptr, ptr %68, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit38 unwind label %70
+63:                                               ; preds = %.loopexit
+  %64 = load ptr, ptr %0, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %66 = load ptr, ptr %65, align 8
+  invoke void %66(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit38 unwind label %67
 
-70:                                               ; preds = %66
-  %71 = landingpad { ptr, i32 }
+67:                                               ; preds = %63
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #6
+  %69 = extractvalue { ptr, i32 } %68, 0
+  tail call void @__clang_call_terminate(ptr %69) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit38:                    ; preds = %.loopexit, %66
-  ret i1 %63
+_ZN13rcScopedTimerD2Ev.exit38:                    ; preds = %.loopexit, %63
+  ret i1 %60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -921,97 +915,94 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 .lr.ph:                                           ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   %27 = getelementptr inbounds i8, ptr %4, i64 20
-  %28 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %31
+  br label %29
 
-29:                                               ; preds = %47
+28:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = icmp uge i64 %indvars.iv.next, %28
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %31, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !13
 
-31:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %32 = phi i1 [ false, %.lr.ph ], [ %30, %29 ]
-  %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = mul i32 %33, 9
+29:                                               ; preds = %.lr.ph, %28
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = mul i32 %30, 9
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds float, ptr %1, i64 %32
+  %34 = add i32 %31, 3
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds float, ptr %1, i64 %35
-  %37 = add i32 %34, 3
+  %37 = add i32 %31, 6
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds float, ptr %1, i64 %38
-  %40 = add i32 %34, 6
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds float, ptr %1, i64 %41
-  %43 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %44 = load i8, ptr %43, align 1
-  %45 = load float, ptr %19, align 8
-  %46 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %36, ptr noundef %39, ptr noundef %42, i8 noundef zeroext %44, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %26, ptr noundef nonnull %27, float noundef %45, float noundef %21, float noundef %24, i32 noundef %5)
-          to label %47 unwind label %.loopexit36
+  %40 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %41 = load i8, ptr %40, align 1
+  %42 = load float, ptr %19, align 8
+  %43 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %33, ptr noundef %36, ptr noundef %39, i8 noundef zeroext %41, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %26, ptr noundef nonnull %27, float noundef %42, float noundef %21, float noundef %24, i32 noundef %5)
+          to label %44 unwind label %.loopexit36
 
-47:                                               ; preds = %31
-  br i1 %46, label %29, label %48
+44:                                               ; preds = %29
+  br i1 %43, label %28, label %45
 
-48:                                               ; preds = %47
+45:                                               ; preds = %44
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.5)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit36:                                      ; preds = %31
+.loopexit36:                                      ; preds = %29
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %46
 
-.loopexit.split-lp:                               ; preds = %48
+.loopexit.split-lp:                               ; preds = %45
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %46
 
-49:                                               ; preds = %.loopexit.split-lp, %.loopexit36
+46:                                               ; preds = %.loopexit.split-lp, %.loopexit36
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit36 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %50 = load i8, ptr %12, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %_ZN13rcScopedTimerD2Ev.exit
+  %47 = load i8, ptr %12, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %_ZN13rcScopedTimerD2Ev.exit
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %56
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %52 = load ptr, ptr %51, align 8
+  invoke void %52(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit unwind label %53
 
-56:                                               ; preds = %52
-  %57 = landingpad { ptr, i32 }
+53:                                               ; preds = %49
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #6
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %49, %52
+_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %46, %49
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %29, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %48
-  %59 = phi i1 [ %32, %48 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %30, %29 ]
-  %60 = load i8, ptr %12, align 1
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %_ZN13rcScopedTimerD2Ev.exit33
+.loopexit:                                        ; preds = %28, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %45
+  %56 = phi i1 [ false, %45 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %28 ]
+  %57 = load i8, ptr %12, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %_ZN13rcScopedTimerD2Ev.exit33
 
-62:                                               ; preds = %.loopexit
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8
-  invoke void %65(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
-          to label %_ZN13rcScopedTimerD2Ev.exit33 unwind label %66
+59:                                               ; preds = %.loopexit
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %62 = load ptr, ptr %61, align 8
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2)
+          to label %_ZN13rcScopedTimerD2Ev.exit33 unwind label %63
 
-66:                                               ; preds = %62
-  %67 = landingpad { ptr, i32 }
+63:                                               ; preds = %59
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  tail call void @__clang_call_terminate(ptr %68) #6
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #6
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit33:                    ; preds = %.loopexit, %62
-  ret i1 %59
+_ZN13rcScopedTimerD2Ev.exit33:                    ; preds = %.loopexit, %59
+  ret i1 %56
 }
 
 declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #1

@@ -264,8 +264,7 @@ for.body:                                         ; preds = %land.rhs
 if.then9:                                         ; preds = %for.body, %exr_attr_string_vector_init.exit
   %rv.0.lcssa = phi i32 [ %retval.0.i, %exr_attr_string_vector_init.exit ], [ %call7, %for.body ]
   %tobool1.not.i17 = icmp eq ptr %sv, null
-  %or.cond = or i1 %tobool.not.i, %tobool1.not.i17
-  br i1 %or.cond, label %return, label %if.then2.i18
+  br i1 %tobool1.not.i17, label %return, label %if.then2.i18
 
 if.then2.i18:                                     ; preds = %if.then9
   %alloc_size.i19 = getelementptr inbounds i8, ptr %sv, i64 4

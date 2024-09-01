@@ -1311,14 +1311,14 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   %16 = sub i32 %1, %.020.lcssa.i
   %17 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 8
   %18 = load ptr, ptr %17, align 8
-  %.not3069 = icmp eq ptr %18, null
-  br i1 %.not3069, label %.lr.ph, label %._crit_edge
+  %.not3062 = icmp eq ptr %18, null
+  br i1 %.not3062, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %oid_get.exit, %34
-  %.02572 = phi ptr [ %20, %34 ], [ %.021.lcssa.i, %oid_get.exit ]
-  %.05871 = phi i32 [ %35, %34 ], [ %16, %oid_get.exit ]
-  %.05970 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
-  %19 = getelementptr inbounds i8, ptr %.02572, i64 64
+  %.02565 = phi ptr [ %20, %34 ], [ %.021.lcssa.i, %oid_get.exit ]
+  %.05164 = phi i32 [ %35, %34 ], [ %16, %oid_get.exit ]
+  %.05263 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
+  %19 = getelementptr inbounds i8, ptr %.02565, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %21, label %34
@@ -1352,8 +1352,8 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   br label %oid_subid2string.exit
 
 34:                                               ; preds = %.lr.ph
-  %35 = add i32 %.05871, 1
-  %36 = add i32 %.05970, -1
+  %35 = add i32 %.05164, 1
+  %36 = add i32 %.05263, -1
   %37 = getelementptr inbounds i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not30 = icmp eq ptr %38, null
@@ -1361,15 +1361,15 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 
 ._crit_edge:                                      ; preds = %34, %oid_get.exit
   %.025.lcssa = phi ptr [ %.021.lcssa.i, %oid_get.exit ], [ %20, %34 ]
-  %.059.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
-  %.058.lcssa = phi i32 [ %16, %oid_get.exit ], [ %35, %34 ]
+  %.052.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
+  %.051.lcssa = phi i32 [ %16, %oid_get.exit ], [ %35, %34 ]
   %.lcssa = phi ptr [ %18, %oid_get.exit ], [ %38, %34 ]
   %39 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
-  %.not31 = icmp eq i32 %.058.lcssa, 0
+  %.not31 = icmp eq i32 %.051.lcssa, 0
   br i1 %.not31, label %71, label %40
 
 40:                                               ; preds = %._crit_edge
-  %41 = icmp eq i32 %.059.lcssa, 0
+  %41 = icmp eq i32 %.052.lcssa, 0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
@@ -1381,7 +1381,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   br label %46
 
 46:                                               ; preds = %46, %44
-  %.015.i.i35 = phi i32 [ %.059.lcssa, %44 ], [ %49, %46 ]
+  %.015.i.i35 = phi i32 [ %.052.lcssa, %44 ], [ %49, %46 ]
   %.014.i.i36 = phi ptr [ %2, %44 ], [ %47, %46 ]
   %47 = getelementptr i8, ptr %.014.i.i36, i64 4
   %48 = load i32, ptr %.014.i.i36, align 4
@@ -1399,7 +1399,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 
 oid_subid2string.exit39:                          ; preds = %42, %50
   %.0.i.i38 = phi ptr [ %43, %42 ], [ %53, %50 ]
-  %54 = zext i32 %.059.lcssa to i64
+  %54 = zext i32 %.052.lcssa to i64
   %55 = getelementptr i32, ptr %2, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %59
@@ -1413,7 +1413,7 @@ oid_subid2string.exit39:                          ; preds = %42, %50
   br label %61
 
 61:                                               ; preds = %61, %59
-  %.015.i.i41 = phi i32 [ %.058.lcssa, %59 ], [ %64, %61 ]
+  %.015.i.i41 = phi i32 [ %.051.lcssa, %59 ], [ %64, %61 ]
   %.014.i.i42 = phi ptr [ %55, %59 ], [ %62, %61 ]
   %62 = getelementptr i8, ptr %.014.i.i42, i64 4
   %63 = load i32, ptr %.014.i.i42, align 4
@@ -1444,7 +1444,7 @@ oid_subid2string.exit45:                          ; preds = %57, %65
   br label %oid_subid2string.exit
 
 oid_subid2string.exit:                            ; preds = %30, %22, %71, %oid_subid2string.exit45, %7
-  %.0 = phi ptr [ %70, %oid_subid2string.exit45 ], [ %8, %7 ], [ %72, %71 ], [ %23, %22 ], [ %33, %30 ]
+  %.0 = phi ptr [ %70, %oid_subid2string.exit45 ], [ %72, %71 ], [ %8, %7 ], [ %23, %22 ], [ %33, %30 ]
   ret ptr %.0
 }
 

@@ -9546,7 +9546,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %scevgep118 = getelementptr i8, ptr %5, i64 -8
   br label %48
 
-.loopexit88:                                      ; preds = %74, %.lr.ph96.preheader, %.preheader
+.loopexit88:                                      ; preds = %74, %.lr.ph96.preheader
   %indvars.iv.next110 = add nuw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !102
@@ -9606,10 +9606,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %load_initial = load double, ptr %scevgep119, align 8
   br label %78
 
-.preheader:                                       ; preds = %78
-  br i1 %.not8691, label %.loopexit88, label %.lr.ph96.preheader
-
-.lr.ph96.preheader:                               ; preds = %.preheader
+.lr.ph96.preheader:                               ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep108, i64 %59, i1 false)
   br label %.loopexit88
 
@@ -9630,7 +9627,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   store double %87, ptr %88, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not86.not = icmp slt i64 %indvars.iv105, %75
-  br i1 %.not86.not, label %78, label %.preheader, !llvm.loop !103
+  br i1 %.not86.not, label %78, label %.lr.ph96.preheader, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.loopexit88
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %3) #13
@@ -9764,7 +9761,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   %scevgep118 = getelementptr i8, ptr %5, i64 -8
   br label %47
 
-.loopexit88:                                      ; preds = %73, %.lr.ph96.preheader, %.preheader
+.loopexit88:                                      ; preds = %73, %.lr.ph96.preheader
   %indvars.iv.next110 = add nuw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !105
@@ -9824,10 +9821,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   %load_initial = load double, ptr %scevgep119, align 8
   br label %77
 
-.preheader:                                       ; preds = %77
-  br i1 %.not8691, label %.loopexit88, label %.lr.ph96.preheader
-
-.lr.ph96.preheader:                               ; preds = %.preheader
+.lr.ph96.preheader:                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep108, i64 %58, i1 false)
   br label %.loopexit88
 
@@ -9848,7 +9842,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   store double %86, ptr %87, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not86.not = icmp slt i64 %indvars.iv105, %74
-  br i1 %.not86.not, label %77, label %.preheader, !llvm.loop !106
+  br i1 %.not86.not, label %77, label %.lr.ph96.preheader, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.loopexit88
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %3) #13
@@ -10038,7 +10032,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %scevgep127 = getelementptr i8, ptr %6, i64 -8
   br label %60
 
-.loopexit97:                                      ; preds = %86, %.lr.ph105.preheader, %.preheader
+.loopexit97:                                      ; preds = %86, %.lr.ph105.preheader
   %indvars.iv.next119 = add nuw i64 %indvars.iv118, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !109
@@ -10098,10 +10092,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %load_initial = load double, ptr %scevgep128, align 8
   br label %90
 
-.preheader:                                       ; preds = %90
-  br i1 %.not95100, label %.loopexit97, label %.lr.ph105.preheader
-
-.lr.ph105.preheader:                              ; preds = %.preheader
+.lr.ph105.preheader:                              ; preds = %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep117, i64 %71, i1 false)
   br label %.loopexit97
 
@@ -10122,7 +10113,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   store double %99, ptr %100, align 8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.not95.not = icmp slt i64 %indvars.iv114, %87
-  br i1 %.not95.not, label %90, label %.preheader, !llvm.loop !110
+  br i1 %.not95.not, label %90, label %.lr.ph105.preheader, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.loopexit97
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %4) #13
@@ -10413,7 +10404,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %scevgep129 = getelementptr i8, ptr %6, i64 -8
   br label %65
 
-.loopexit99:                                      ; preds = %91, %.lr.ph107.preheader, %.preheader
+.loopexit99:                                      ; preds = %91, %.lr.ph107.preheader
   %indvars.iv.next121 = add nuw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !114
@@ -10473,10 +10464,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %load_initial = load double, ptr %scevgep130, align 8
   br label %95
 
-.preheader:                                       ; preds = %95
-  br i1 %.not97102, label %.loopexit99, label %.lr.ph107.preheader
-
-.lr.ph107.preheader:                              ; preds = %.preheader
+.lr.ph107.preheader:                              ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep119, i64 %76, i1 false)
   br label %.loopexit99
 
@@ -10497,7 +10485,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   store double %104, ptr %105, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %.not97.not = icmp slt i64 %indvars.iv116, %92
-  br i1 %.not97.not, label %95, label %.preheader, !llvm.loop !115
+  br i1 %.not97.not, label %95, label %.lr.ph107.preheader, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.loopexit99
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %4) #13

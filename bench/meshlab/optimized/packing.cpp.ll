@@ -3229,21 +3229,21 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %9, %23
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = sdiv exact i64 %29, 24
-  %.not1184 = icmp eq ptr %25, %26
-  br i1 %.not1184, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %31
+  %.not1185 = icmp eq ptr %25, %26
+  br i1 %.not1185, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %31
 
 31:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %30)
-  %.pre1173 = load ptr, ptr %24, align 8
-  %.pre1174 = load ptr, ptr %0, align 8
-  %.pre1175 = ptrtoint ptr %.pre1173 to i64
+  %.pre1174 = load ptr, ptr %24, align 8
+  %.pre1175 = load ptr, ptr %0, align 8
   %.pre1176 = ptrtoint ptr %.pre1174 to i64
-  %.pre1178 = sub i64 %.pre1175, %.pre1176
-  %.pre1180 = sdiv exact i64 %.pre1178, 24
+  %.pre1177 = ptrtoint ptr %.pre1175 to i64
+  %.pre1179 = sub i64 %.pre1176, %.pre1177
+  %.pre1181 = sdiv exact i64 %.pre1179, 24
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %31
-  %.pre-phi1181 = phi i64 [ %.pre1180, %31 ], [ %30, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
+  %.pre-phi1182 = phi i64 [ %.pre1181, %31 ], [ %30, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
   %32 = getelementptr inbounds i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %2, align 8
@@ -3251,20 +3251,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 4
-  %39 = icmp ugt i64 %.pre-phi1181, %38
+  %39 = icmp ugt i64 %.pre-phi1182, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %41 = sub nuw nsw i64 %.pre-phi1181, %38
+  %41 = sub nuw nsw i64 %.pre-phi1182, %38
   tail call void @_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %41)
   br label %_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE6resizeEm.exit
 
 42:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %43 = icmp ult i64 %.pre-phi1181, %38
+  %43 = icmp ult i64 %.pre-phi1182, %38
   br i1 %43, label %44, label %_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE6resizeEm.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds %"class.vcg::Similarity2", ptr %34, i64 %.pre-phi1181
+  %45 = getelementptr inbounds %"class.vcg::Similarity2", ptr %34, i64 %.pre-phi1182
   %.not.i.i308 = icmp eq ptr %33, %45
   br i1 %.not.i.i308, label %_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE6resizeEm.exit, label %46
 
@@ -3519,7 +3519,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfieldD2Ev.exi
   %112 = getelementptr inbounds i8, ptr %4, i64 4
   %113 = getelementptr inbounds i8, ptr %4, i64 16
   %114 = getelementptr inbounds i8, ptr %4, i64 5
-  %wide.trip.count1165 = and i64 %18, 2147483647
+  %wide.trip.count1166 = and i64 %18, 2147483647
   br label %139
 
 115:                                              ; preds = %.lr.ph992, %._crit_edge
@@ -3577,25 +3577,25 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfieldD2Ev.exi
   br i1 %47, label %.preheader815.us, label %._crit_edge1051.thread
 
 .preheader815.us:                                 ; preds = %.preheader815.lr.ph, %._crit_edge1037.us
-  %indvars.iv1167 = phi i64 [ %indvars.iv.next1168, %._crit_edge1037.us ], [ 0, %.preheader815.lr.ph ]
+  %indvars.iv1168 = phi i64 [ %indvars.iv.next1169, %._crit_edge1037.us ], [ 0, %.preheader815.lr.ph ]
   %.02401050.us = phi i32 [ %.5.us, %._crit_edge1037.us ], [ -1, %.preheader815.lr.ph ]
   %.02411049.us = phi i32 [ %.5246.us, %._crit_edge1037.us ], [ 2147483647, %.preheader815.lr.ph ]
   %.02501048.us = phi i32 [ %.5255.us, %._crit_edge1037.us ], [ -1, %.preheader815.lr.ph ]
   %.02591047.us = phi i32 [ %.5264.us, %._crit_edge1037.us ], [ -1, %.preheader815.lr.ph ]
   %.02681046.us = phi i32 [ %.5273.us, %._crit_edge1037.us ], [ -1, %.preheader815.lr.ph ]
   %.02781045.us = phi i8 [ %.5283.us, %._crit_edge1037.us ], [ 0, %.preheader815.lr.ph ]
-  %146 = trunc nuw nsw i64 %indvars.iv1167 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv1168 to i32
   br label %147
 
 147:                                              ; preds = %.preheader815.us, %.loopexit.us
-  %indvars.iv1163 = phi i64 [ 0, %.preheader815.us ], [ %indvars.iv.next1164, %.loopexit.us ]
+  %indvars.iv1164 = phi i64 [ 0, %.preheader815.us ], [ %indvars.iv.next1165, %.loopexit.us ]
   %.11035.us = phi i32 [ %.02401050.us, %.preheader815.us ], [ %.5.us, %.loopexit.us ]
   %.12421034.us = phi i32 [ %.02411049.us, %.preheader815.us ], [ %.5246.us, %.loopexit.us ]
   %.12511033.us = phi i32 [ %.02501048.us, %.preheader815.us ], [ %.5255.us, %.loopexit.us ]
   %.12601032.us = phi i32 [ %.02591047.us, %.preheader815.us ], [ %.5264.us, %.loopexit.us ]
   %.12691031.us = phi i32 [ %.02681046.us, %.preheader815.us ], [ %.5273.us, %.loopexit.us ]
   %.12791030.us = phi i8 [ %.02781045.us, %.preheader815.us ], [ %.5283.us, %.loopexit.us ]
-  %148 = getelementptr inbounds %"class.vcg::Point2", ptr %.sroa.0761.0.lcssa, i64 %indvars.iv1163
+  %148 = getelementptr inbounds %"class.vcg::Point2", ptr %.sroa.0761.0.lcssa, i64 %indvars.iv1164
   %149 = load i32, ptr %148, align 4
   %150 = load ptr, ptr %6, align 8
   %151 = getelementptr inbounds %"class.vcg::RasterizedOutline2", ptr %150, i64 %145
@@ -3607,11 +3607,11 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfieldD2Ev.exi
   %157 = sub i64 %155, %156
   %.fr24.i.us = freeze i64 %157
   %158 = sdiv i64 %.fr24.i.us, 24
-  %.not.i.i.i.us = icmp ugt i64 %158, %indvars.iv1167
+  %.not.i.i.i.us = icmp ugt i64 %158, %indvars.iv1168
   br i1 %.not.i.i.i.us, label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us, label %.split.us.invoke
 
 _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
-  %159 = getelementptr inbounds %"class.std::vector.115", ptr %154, i64 %indvars.iv1167
+  %159 = getelementptr inbounds %"class.std::vector.115", ptr %154, i64 %indvars.iv1168
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8
@@ -3637,15 +3637,15 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
   %179 = trunc i64 %178 to i32
   %180 = sub i32 %174, %179
   %181 = icmp sgt i32 %172, 0
-  %.pre1170 = load i8, ptr %112, align 4
+  %.pre1171 = load i8, ptr %112, align 4
   br i1 %181, label %.lr.ph1003.us, label %.._crit_edge1004.us_crit_edge
 
 .._crit_edge1004.us_crit_edge:                    ; preds = %163
-  %.pre1182 = trunc i8 %.pre1170 to i1
+  %.pre1183 = trunc i8 %.pre1171 to i1
   br label %._crit_edge1004.us
 
 ._crit_edge1004.us:                               ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us, %.._crit_edge1004.us_crit_edge
-  %.pre-phi1183 = phi i1 [ %.pre1182, %.._crit_edge1004.us_crit_edge ], [ %1093, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
+  %.pre-phi1184 = phi i1 [ %.pre1183, %.._crit_edge1004.us_crit_edge ], [ %1093, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.2280.lcssa.us = phi i8 [ %.12791030.us, %.._crit_edge1004.us_crit_edge ], [ %.4282.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.2270.lcssa.us = phi i32 [ %.12691031.us, %.._crit_edge1004.us_crit_edge ], [ %.4272.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.2261.lcssa.us = phi i32 [ %.12601032.us, %.._crit_edge1004.us_crit_edge ], [ %.4263.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
@@ -3653,12 +3653,12 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
   %.2243.lcssa.us = phi i32 [ %.12421034.us, %.._crit_edge1004.us_crit_edge ], [ %.4245.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.2.lcssa.us = phi i32 [ %.11035.us, %.._crit_edge1004.us_crit_edge ], [ %.4.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %182 = icmp sgt i32 %180, 0
-  %or.cond = select i1 %.pre-phi1183, i1 %182, i1 false
+  %or.cond = select i1 %.pre-phi1184, i1 %182, i1 false
   br i1 %or.cond, label %.lr.ph1021.us.preheader, label %.loopexit.us
 
 .lr.ph1021.us.preheader:                          ; preds = %._crit_edge1004.us
-  %wide.trip.count1161 = zext nneg i32 %180 to i64
-  %183 = trunc nuw nsw i64 %indvars.iv1163 to i32
+  %wide.trip.count1162 = zext nneg i32 %180 to i64
+  %183 = trunc nuw nsw i64 %indvars.iv1164 to i32
   br label %.lr.ph1021.us
 
 .loopexit.us:                                     ; preds = %669, %._crit_edge1004.us
@@ -3668,12 +3668,12 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
   %.5255.us = phi i32 [ %.2252.lcssa.us, %._crit_edge1004.us ], [ %.8258.us, %669 ]
   %.5246.us = phi i32 [ %.2243.lcssa.us, %._crit_edge1004.us ], [ %.8249.us, %669 ]
   %.5.us = phi i32 [ %.2.lcssa.us, %._crit_edge1004.us ], [ %.8.us, %669 ]
-  %indvars.iv.next1164 = add nuw nsw i64 %indvars.iv1163, 1
-  %exitcond1166.not = icmp eq i64 %indvars.iv.next1164, %wide.trip.count1165
-  br i1 %exitcond1166.not, label %._crit_edge1037.us, label %147, !llvm.loop !62
+  %indvars.iv.next1165 = add nuw nsw i64 %indvars.iv1164, 1
+  %exitcond1167.not = icmp eq i64 %indvars.iv.next1165, %wide.trip.count1166
+  br i1 %exitcond1167.not, label %._crit_edge1037.us, label %147, !llvm.loop !62
 
 .lr.ph1021.us:                                    ; preds = %.lr.ph1021.us.preheader, %669
-  %indvars.iv1159 = phi i64 [ 0, %.lr.ph1021.us.preheader ], [ %indvars.iv.next1160, %669 ]
+  %indvars.iv1160 = phi i64 [ 0, %.lr.ph1021.us.preheader ], [ %indvars.iv.next1161, %669 ]
   %.61020.us = phi i32 [ %.2.lcssa.us, %.lr.ph1021.us.preheader ], [ %.8.us, %669 ]
   %.62471019.us = phi i32 [ %.2243.lcssa.us, %.lr.ph1021.us.preheader ], [ %.8249.us, %669 ]
   %.62561018.us = phi i32 [ %.2252.lcssa.us, %.lr.ph1021.us.preheader ], [ %.8258.us, %669 ]
@@ -3685,12 +3685,12 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
 
 185:                                              ; preds = %.lr.ph1021.us
   %186 = load ptr, ptr %10, align 8
-  %187 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %186, i64 %indvars.iv1163
+  %187 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %186, i64 %indvars.iv1164
   %188 = load ptr, ptr %6, align 8
   %189 = getelementptr inbounds %"class.vcg::RasterizedOutline2", ptr %188, i64 %145
   %190 = getelementptr inbounds i8, ptr %189, i64 120
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %"class.std::vector.50", ptr %191, i64 %indvars.iv1167
+  %192 = getelementptr inbounds %"class.std::vector.50", ptr %191, i64 %indvars.iv1168
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr %192, align 8
@@ -3703,7 +3703,7 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
   %198 = sub i64 %196, %197
   %199 = ashr exact i64 %198, 2
   %200 = load ptr, ptr %187, align 8
-  %invariant.gep.i469.us = getelementptr i32, ptr %200, i64 %indvars.iv1159
+  %invariant.gep.i469.us = getelementptr i32, ptr %200, i64 %indvars.iv1160
   %201 = getelementptr inbounds i8, ptr %189, i64 8
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %189, align 8
@@ -3712,8 +3712,8 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %147
   %206 = sub i64 %204, %205
   %.fr25.i.us = freeze i64 %206
   %207 = sdiv i64 %.fr25.i.us, 24
-  %.not.i.i.i.i470.us = icmp ugt i64 %207, %indvars.iv1167
-  %208 = getelementptr inbounds %"class.std::vector.115", ptr %203, i64 %indvars.iv1167
+  %.not.i.i.i.i470.us = icmp ugt i64 %207, %indvars.iv1168
+  %208 = getelementptr inbounds %"class.std::vector.115", ptr %203, i64 %indvars.iv1168
   %209 = getelementptr inbounds i8, ptr %208, i64 8
   %210 = getelementptr inbounds i8, ptr %187, i64 144
   %211 = load i32, ptr %210, align 4
@@ -3789,7 +3789,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
 239:                                              ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread.us
   %240 = getelementptr inbounds i8, ptr %189, i64 72
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %"class.std::vector.50", ptr %241, i64 %indvars.iv1167
+  %242 = getelementptr inbounds %"class.std::vector.50", ptr %241, i64 %indvars.iv1168
   br i1 %.not.i467.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyCellBetweenPolyAndLeftHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i494.us, label %.lr.ph.i.i.i485.us
 
 .lr.ph.i.i.i485.us:                               ; preds = %239
@@ -3798,7 +3798,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
   %245 = sub i64 %243, %244
   %246 = ashr exact i64 %245, 2
   %247 = load ptr, ptr %187, align 8
-  %invariant.gep.i.i.i486.us = getelementptr i32, ptr %247, i64 %indvars.iv1159
+  %invariant.gep.i.i.i486.us = getelementptr i32, ptr %247, i64 %indvars.iv1160
   %umax.i.i.i487.us = call i64 @llvm.umax.i64(i64 %246, i64 1)
   br label %248
 
@@ -3840,7 +3840,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %267 = getelementptr inbounds i8, ptr %187, i64 148
   %268 = load i32, ptr %267, align 4
   %umax.i19.i500.us = call i64 @llvm.umax.i64(i64 %263, i64 1)
-  %269 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %269 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %270
 
 270:                                              ; preds = %282, %.lr.ph.i17.i497.us
@@ -3881,10 +3881,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 .lr.ph.i14.i512.us:                               ; preds = %284
   %289 = getelementptr inbounds i8, ptr %189, i64 96
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds %"class.std::vector.50", ptr %290, i64 %indvars.iv1167
+  %291 = getelementptr inbounds %"class.std::vector.50", ptr %290, i64 %indvars.iv1168
   %292 = load ptr, ptr %291, align 8
   %293 = load ptr, ptr %187, align 8
-  %294 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %294 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %295
 
 295:                                              ; preds = %295, %.lr.ph.i14.i512.us
@@ -3919,7 +3919,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %315 = sub i64 %313, %314
   %316 = ashr exact i64 %315, 2
   %317 = load ptr, ptr %187, align 8
-  %invariant.gep.i.i520.us = getelementptr i32, ptr %317, i64 %indvars.iv1159
+  %invariant.gep.i.i520.us = getelementptr i32, ptr %317, i64 %indvars.iv1160
   %umax.i.i521.us = call i64 @llvm.umax.i64(i64 %316, i64 1)
   br label %318
 
@@ -3961,7 +3961,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
 333:                                              ; preds = %332
   %334 = getelementptr inbounds i8, ptr %189, i64 72
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds %"class.std::vector.50", ptr %335, i64 %indvars.iv1167
+  %336 = getelementptr inbounds %"class.std::vector.50", ptr %335, i64 %indvars.iv1168
   %337 = getelementptr inbounds i8, ptr %336, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = load ptr, ptr %336, align 8
@@ -3979,7 +3979,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %346 = ashr exact i64 %sext.i.i.i534.us, 30
   %invariant.gep.i.i.i535.us = getelementptr i8, ptr %345, i64 %346
   %umax.i.i.i536.us = call i64 @llvm.umax.i64(i64 %343, i64 1)
-  %347 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %347 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %348
 
 348:                                              ; preds = %348, %.lr.ph.i.i.i533.us
@@ -4009,7 +4009,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %359 = sub i64 %357, %358
   %360 = ashr exact i64 %359, 2
   %361 = load ptr, ptr %187, align 8
-  %invariant.gep.i17.i547.us = getelementptr i32, ptr %361, i64 %indvars.iv1159
+  %invariant.gep.i17.i547.us = getelementptr i32, ptr %361, i64 %indvars.iv1160
   %362 = getelementptr inbounds i8, ptr %187, i64 144
   %363 = load i32, ptr %362, align 4
   %umax.i18.i548.us = call i64 @llvm.umax.i64(i64 %360, i64 1)
@@ -4034,7 +4034,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 372:                                              ; preds = %332
   %373 = getelementptr inbounds i8, ptr %189, i64 72
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds %"class.std::vector.50", ptr %374, i64 %indvars.iv1167
+  %375 = getelementptr inbounds %"class.std::vector.50", ptr %374, i64 %indvars.iv1168
   %376 = getelementptr inbounds i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8
   %378 = load ptr, ptr %375, align 8
@@ -4048,11 +4048,11 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 .lr.ph.i13.i560.us:                               ; preds = %372
   %383 = getelementptr inbounds i8, ptr %189, i64 48
   %384 = load ptr, ptr %383, align 8
-  %385 = getelementptr inbounds %"class.std::vector.50", ptr %384, i64 %indvars.iv1167
+  %385 = getelementptr inbounds %"class.std::vector.50", ptr %384, i64 %indvars.iv1168
   %386 = load ptr, ptr %385, align 8
   %387 = getelementptr inbounds i8, ptr %187, i64 24
   %388 = load ptr, ptr %387, align 8
-  %389 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %389 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %390
 
 390:                                              ; preds = %390, %.lr.ph.i13.i560.us
@@ -4081,7 +4081,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 407:                                              ; preds = %332
   %408 = getelementptr inbounds i8, ptr %189, i64 72
   %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds %"class.std::vector.50", ptr %409, i64 %indvars.iv1167
+  %410 = getelementptr inbounds %"class.std::vector.50", ptr %409, i64 %indvars.iv1168
   %411 = getelementptr inbounds i8, ptr %410, i64 8
   %412 = load ptr, ptr %411, align 8
   %413 = load ptr, ptr %410, align 8
@@ -4099,7 +4099,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %420 = ashr exact i64 %sext.i.i569.us, 30
   %invariant.gep.i.i570.us = getelementptr i8, ptr %419, i64 %420
   %umax.i.i571.us = call i64 @llvm.umax.i64(i64 %417, i64 1)
-  %421 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %421 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %422
 
 422:                                              ; preds = %422, %.lr.ph.i.i568.us
@@ -4130,7 +4130,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   br i1 %433, label %434, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us
 
 434:                                              ; preds = %432
-  %435 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %435 = trunc nuw nsw i64 %indvars.iv1160 to i32
   br label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us
 
 _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us: ; preds = %_ZN3vcg18RasterizedOutline29gridWidthEi.exit.us.i.us, %434, %432, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.us, %.lr.ph1021.us
@@ -4146,10 +4146,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
 
 438:                                              ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us
   %439 = load ptr, ptr %10, align 8
-  %440 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %439, i64 %indvars.iv1163
+  %440 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %439, i64 %indvars.iv1164
   %441 = load ptr, ptr %6, align 8
   %442 = getelementptr inbounds %"class.vcg::RasterizedOutline2", ptr %441, i64 %145
-  %443 = trunc nuw nsw i64 %indvars.iv1159 to i32
+  %443 = trunc nuw nsw i64 %indvars.iv1160 to i32
   %444 = invoke noundef i32 @_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropXInnerERNS_18RasterizedOutline2Eii(ptr noundef nonnull align 8 dereferenceable(172) %440, ptr noundef nonnull align 8 dereferenceable(168) %442, i32 noundef %443, i32 noundef %146)
           to label %445 unwind label %.loopexit814.split.us
 
@@ -4159,7 +4159,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
 
 446:                                              ; preds = %445
   %447 = load ptr, ptr %10, align 8
-  %448 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %447, i64 %indvars.iv1163
+  %448 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %447, i64 %indvars.iv1164
   %449 = load ptr, ptr %6, align 8
   %450 = getelementptr inbounds %"class.vcg::RasterizedOutline2", ptr %449, i64 %145
   %.sroa.0736.0.insert.ext.us = zext i32 %444 to i64
@@ -4174,10 +4174,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
 453:                                              ; preds = %446
   %454 = getelementptr inbounds i8, ptr %450, i64 72
   %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds %"class.std::vector.50", ptr %455, i64 %indvars.iv1167
+  %456 = getelementptr inbounds %"class.std::vector.50", ptr %455, i64 %indvars.iv1168
   %457 = getelementptr inbounds i8, ptr %450, i64 120
   %458 = load ptr, ptr %457, align 8
-  %459 = getelementptr inbounds %"class.std::vector.50", ptr %458, i64 %indvars.iv1167
+  %459 = getelementptr inbounds %"class.std::vector.50", ptr %458, i64 %indvars.iv1168
   %460 = getelementptr inbounds i8, ptr %459, i64 8
   %461 = load ptr, ptr %460, align 8
   %462 = load ptr, ptr %459, align 8
@@ -4190,7 +4190,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
   %465 = sub i64 %463, %464
   %466 = ashr exact i64 %465, 2
   %467 = load ptr, ptr %448, align 8
-  %invariant.gep.i.i.i584.us = getelementptr i32, ptr %467, i64 %indvars.iv1159
+  %invariant.gep.i.i.i584.us = getelementptr i32, ptr %467, i64 %indvars.iv1160
   %umax.i.i.i585.us = call i64 @llvm.umax.i64(i64 %466, i64 1)
   br label %468
 
@@ -4265,7 +4265,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 503:                                              ; preds = %446
   %504 = getelementptr inbounds i8, ptr %450, i64 120
   %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds %"class.std::vector.50", ptr %505, i64 %indvars.iv1167
+  %506 = getelementptr inbounds %"class.std::vector.50", ptr %505, i64 %indvars.iv1168
   %507 = getelementptr inbounds i8, ptr %506, i64 8
   %508 = load ptr, ptr %507, align 8
   %509 = load ptr, ptr %506, align 8
@@ -4279,7 +4279,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 .lr.ph.i14.i610.us:                               ; preds = %503
   %514 = getelementptr inbounds i8, ptr %450, i64 96
   %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds %"class.std::vector.50", ptr %515, i64 %indvars.iv1167
+  %516 = getelementptr inbounds %"class.std::vector.50", ptr %515, i64 %indvars.iv1168
   %517 = load ptr, ptr %516, align 8
   %518 = load ptr, ptr %448, align 8
   br label %519
@@ -4310,7 +4310,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 536:                                              ; preds = %446
   %537 = getelementptr inbounds i8, ptr %450, i64 120
   %538 = load ptr, ptr %537, align 8
-  %539 = getelementptr inbounds %"class.std::vector.50", ptr %538, i64 %indvars.iv1167
+  %539 = getelementptr inbounds %"class.std::vector.50", ptr %538, i64 %indvars.iv1168
   %540 = getelementptr inbounds i8, ptr %539, i64 8
   %541 = load ptr, ptr %540, align 8
   %542 = load ptr, ptr %539, align 8
@@ -4323,7 +4323,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %545 = sub i64 %543, %544
   %546 = ashr exact i64 %545, 2
   %547 = load ptr, ptr %448, align 8
-  %invariant.gep.i.i618.us = getelementptr i32, ptr %547, i64 %indvars.iv1159
+  %invariant.gep.i.i618.us = getelementptr i32, ptr %547, i64 %indvars.iv1160
   %umax.i.i619.us = call i64 @llvm.umax.i64(i64 %546, i64 1)
   br label %548
 
@@ -4365,10 +4365,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
 563:                                              ; preds = %562
   %564 = getelementptr inbounds i8, ptr %450, i64 120
   %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds %"class.std::vector.50", ptr %565, i64 %indvars.iv1167
+  %566 = getelementptr inbounds %"class.std::vector.50", ptr %565, i64 %indvars.iv1168
   %567 = getelementptr inbounds i8, ptr %450, i64 72
   %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds %"class.std::vector.50", ptr %568, i64 %indvars.iv1167
+  %569 = getelementptr inbounds %"class.std::vector.50", ptr %568, i64 %indvars.iv1168
   %570 = getelementptr inbounds i8, ptr %569, i64 8
   %571 = load ptr, ptr %570, align 8
   %572 = load ptr, ptr %569, align 8
@@ -4419,7 +4419,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %594 = sub i64 %592, %593
   %595 = ashr exact i64 %594, 2
   %596 = load ptr, ptr %448, align 8
-  %invariant.gep.i17.i645.us = getelementptr i32, ptr %596, i64 %indvars.iv1159
+  %invariant.gep.i17.i645.us = getelementptr i32, ptr %596, i64 %indvars.iv1160
   %597 = getelementptr inbounds i8, ptr %448, i64 144
   %598 = load i32, ptr %597, align 4
   %umax.i18.i646.us = call i64 @llvm.umax.i64(i64 %595, i64 1)
@@ -4444,7 +4444,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 607:                                              ; preds = %562
   %608 = getelementptr inbounds i8, ptr %450, i64 72
   %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds %"class.std::vector.50", ptr %609, i64 %indvars.iv1167
+  %610 = getelementptr inbounds %"class.std::vector.50", ptr %609, i64 %indvars.iv1168
   %611 = getelementptr inbounds i8, ptr %610, i64 8
   %612 = load ptr, ptr %611, align 8
   %613 = load ptr, ptr %610, align 8
@@ -4458,7 +4458,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 .lr.ph.i13.i658.us:                               ; preds = %607
   %618 = getelementptr inbounds i8, ptr %450, i64 48
   %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds %"class.std::vector.50", ptr %619, i64 %indvars.iv1167
+  %620 = getelementptr inbounds %"class.std::vector.50", ptr %619, i64 %indvars.iv1168
   %621 = load ptr, ptr %620, align 8
   %622 = getelementptr inbounds i8, ptr %448, i64 24
   %623 = load ptr, ptr %622, align 8
@@ -4490,7 +4490,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 641:                                              ; preds = %562
   %642 = getelementptr inbounds i8, ptr %450, i64 72
   %643 = load ptr, ptr %642, align 8
-  %644 = getelementptr inbounds %"class.std::vector.50", ptr %643, i64 %indvars.iv1167
+  %644 = getelementptr inbounds %"class.std::vector.50", ptr %643, i64 %indvars.iv1168
   %645 = getelementptr inbounds i8, ptr %644, i64 8
   %646 = load ptr, ptr %645, align 8
   %647 = load ptr, ptr %644, align 8
@@ -4549,12 +4549,12 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %.8258.us = phi i32 [ %444, %668 ], [ %.7257.us, %445 ], [ %.7257.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us ], [ %.7257.us, %665 ]
   %.8249.us = phi i32 [ %.0287.us, %668 ], [ %.7248.us, %445 ], [ %.7248.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us ], [ %.7248.us, %665 ]
   %.8.us = phi i32 [ %146, %668 ], [ %.7.us, %445 ], [ %.7.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread784.us ], [ %.7.us, %665 ]
-  %indvars.iv.next1160 = add nuw nsw i64 %indvars.iv1159, 1
-  %exitcond1162.not = icmp eq i64 %indvars.iv.next1160, %wide.trip.count1161
-  br i1 %exitcond1162.not, label %.loopexit.us, label %.lr.ph1021.us, !llvm.loop !70
+  %indvars.iv.next1161 = add nuw nsw i64 %indvars.iv1160, 1
+  %exitcond1163.not = icmp eq i64 %indvars.iv.next1161, %wide.trip.count1162
+  br i1 %exitcond1163.not, label %.loopexit.us, label %.lr.ph1021.us, !llvm.loop !70
 
 670:                                              ; preds = %.lr.ph1003.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us
-  %indvars.iv1155 = phi i64 [ 0, %.lr.ph1003.us ], [ %indvars.iv.next1156, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
+  %indvars.iv1156 = phi i64 [ 0, %.lr.ph1003.us ], [ %indvars.iv.next1157, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.21001.us = phi i32 [ %.11035.us, %.lr.ph1003.us ], [ %.4.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.22431000.us = phi i32 [ %.12421034.us, %.lr.ph1003.us ], [ %.4245.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
   %.2252999.us = phi i32 [ %.12511033.us, %.lr.ph1003.us ], [ %.4254.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us ]
@@ -4566,7 +4566,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
 
 672:                                              ; preds = %670
   %673 = load ptr, ptr %1086, align 8
-  %674 = getelementptr inbounds %"class.std::vector.50", ptr %673, i64 %indvars.iv1167
+  %674 = getelementptr inbounds %"class.std::vector.50", ptr %673, i64 %indvars.iv1168
   %675 = getelementptr inbounds i8, ptr %674, i64 8
   %676 = load ptr, ptr %675, align 8
   %677 = load ptr, ptr %674, align 8
@@ -4579,7 +4579,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %680 = sub i64 %678, %679
   %681 = ashr exact i64 %680, 2
   %682 = load ptr, ptr %1087, align 8
-  %invariant.gep.i.us = getelementptr i32, ptr %682, i64 %indvars.iv1155
+  %invariant.gep.i.us = getelementptr i32, ptr %682, i64 %indvars.iv1156
   %683 = load i32, ptr %1088, align 4
   %umax26.i.us = call i64 @llvm.umax.i64(i64 %681, i64 1)
   br label %.lr.ph.split.us.i.us
@@ -4621,7 +4621,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYER
 
 693:                                              ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread.us
   %694 = load ptr, ptr %1090, align 8
-  %695 = getelementptr inbounds %"class.std::vector.50", ptr %694, i64 %indvars.iv1167
+  %695 = getelementptr inbounds %"class.std::vector.50", ptr %694, i64 %indvars.iv1168
   br i1 %.not.i319.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyCellBetweenPolyAndBottomHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i.us, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %693
@@ -4629,7 +4629,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYER
   %697 = ptrtoint ptr %677 to i64
   %698 = sub i64 %696, %697
   %699 = ashr exact i64 %698, 2
-  %sext.i.i.i.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i.i.us = shl nuw nsw i64 %indvars.iv1156, 2
   %700 = load ptr, ptr %1087, align 8
   %invariant.gep.i.i.i.us = getelementptr i8, ptr %700, i64 %sext.i.i.i.us
   %umax.i.i.i.us = call i64 @llvm.umax.i64(i64 %699, i64 1)
@@ -4670,7 +4670,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %invariant.gep.i17.i.us = getelementptr i32, ptr %718, i64 %717
   %719 = load i32, ptr %1091, align 4
   %umax.i18.i.us = call i64 @llvm.umax.i64(i64 %716, i64 1)
-  %720 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %720 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %721
 
 721:                                              ; preds = %721, %.lr.ph.i16.i.us
@@ -4698,10 +4698,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 
 .lr.ph.i13.i.us:                                  ; preds = %729
   %734 = load ptr, ptr %1092, align 8
-  %735 = getelementptr inbounds %"class.std::vector.50", ptr %734, i64 %indvars.iv1167
+  %735 = getelementptr inbounds %"class.std::vector.50", ptr %734, i64 %indvars.iv1168
   %736 = load ptr, ptr %735, align 8
   %737 = load ptr, ptr %1087, align 8
-  %738 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %738 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %739
 
 739:                                              ; preds = %739, %.lr.ph.i13.i.us
@@ -4735,7 +4735,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %758 = ptrtoint ptr %677 to i64
   %759 = sub i64 %757, %758
   %760 = ashr exact i64 %759, 2
-  %sext.i.i.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i.us = shl nuw nsw i64 %indvars.iv1156, 2
   %761 = load ptr, ptr %1087, align 8
   %invariant.gep.i.i.us = getelementptr i8, ptr %761, i64 %sext.i.i.us
   %umax.i.i.us = call i64 @llvm.umax.i64(i64 %760, i64 1)
@@ -4771,7 +4771,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
 
 772:                                              ; preds = %771
   %773 = load ptr, ptr %1090, align 8
-  %774 = getelementptr inbounds %"class.std::vector.50", ptr %773, i64 %indvars.iv1167
+  %774 = getelementptr inbounds %"class.std::vector.50", ptr %773, i64 %indvars.iv1168
   %775 = getelementptr inbounds i8, ptr %774, i64 8
   %776 = load ptr, ptr %775, align 8
   %777 = load ptr, ptr %774, align 8
@@ -4787,7 +4787,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %783 = load ptr, ptr %1085, align 8
   %invariant.gep.i.i.i327.us = getelementptr i32, ptr %783, i64 %782
   %umax.i.i.i328.us = call i64 @llvm.umax.i64(i64 %781, i64 1)
-  %784 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %784 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %785
 
 785:                                              ; preds = %785, %.lr.ph.i.i.i326.us
@@ -4816,12 +4816,12 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %795 = ptrtoint ptr %677 to i64
   %796 = sub i64 %794, %795
   %797 = ashr exact i64 %796, 2
-  %sext.i.i336.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i336.us = shl nuw nsw i64 %indvars.iv1156, 2
   %798 = load ptr, ptr %1087, align 8
   %invariant.gep.i18.i.us = getelementptr i8, ptr %798, i64 %sext.i.i336.us
   %799 = load i32, ptr %1088, align 4
   %umax.i19.i.us = call i64 @llvm.umax.i64(i64 %797, i64 1)
-  %800 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %800 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %801
 
 801:                                              ; preds = %813, %.lr.ph.i17.i.us
@@ -4854,7 +4854,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 815:                                              ; preds = %771
   %816 = load ptr, ptr %1090, align 8
-  %817 = getelementptr inbounds %"class.std::vector.50", ptr %816, i64 %indvars.iv1167
+  %817 = getelementptr inbounds %"class.std::vector.50", ptr %816, i64 %indvars.iv1168
   %818 = getelementptr inbounds i8, ptr %817, i64 8
   %819 = load ptr, ptr %818, align 8
   %820 = load ptr, ptr %817, align 8
@@ -4867,10 +4867,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 .lr.ph.i14.i.us:                                  ; preds = %815
   %825 = load ptr, ptr %1096, align 8
-  %826 = getelementptr inbounds %"class.std::vector.50", ptr %825, i64 %indvars.iv1167
+  %826 = getelementptr inbounds %"class.std::vector.50", ptr %825, i64 %indvars.iv1168
   %827 = load ptr, ptr %826, align 8
   %828 = load ptr, ptr %1085, align 8
-  %829 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %829 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %830
 
 830:                                              ; preds = %830, %.lr.ph.i14.i.us
@@ -4898,7 +4898,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 847:                                              ; preds = %771
   %848 = load ptr, ptr %1090, align 8
-  %849 = getelementptr inbounds %"class.std::vector.50", ptr %848, i64 %indvars.iv1167
+  %849 = getelementptr inbounds %"class.std::vector.50", ptr %848, i64 %indvars.iv1168
   %850 = getelementptr inbounds i8, ptr %849, i64 8
   %851 = load ptr, ptr %850, align 8
   %852 = load ptr, ptr %849, align 8
@@ -4914,7 +4914,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %858 = load ptr, ptr %1085, align 8
   %invariant.gep.i.i348.us = getelementptr i32, ptr %858, i64 %857
   %umax.i.i349.us = call i64 @llvm.umax.i64(i64 %856, i64 1)
-  %859 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %859 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %860
 
 860:                                              ; preds = %860, %.lr.ph.i.i347.us
@@ -4945,7 +4945,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   br i1 %871, label %872, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us
 
 872:                                              ; preds = %870
-  %873 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %873 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us
 
 _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us: ; preds = %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i.us, %872, %870, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.us, %670
@@ -4959,9 +4959,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYER
 
 874:                                              ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us
   %875 = load ptr, ptr %1086, align 8
-  %876 = getelementptr inbounds %"class.std::vector.50", ptr %875, i64 %indvars.iv1167
+  %876 = getelementptr inbounds %"class.std::vector.50", ptr %875, i64 %indvars.iv1168
   %877 = load ptr, ptr %1092, align 8
-  %878 = getelementptr inbounds %"class.std::vector.50", ptr %877, i64 %indvars.iv1167
+  %878 = getelementptr inbounds %"class.std::vector.50", ptr %877, i64 %indvars.iv1168
   %879 = getelementptr inbounds i8, ptr %876, i64 8
   %880 = load ptr, ptr %879, align 8
   %881 = load ptr, ptr %876, align 8
@@ -4974,7 +4974,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYER
 
 .lr.ph.split.us.i363.us.preheader:                ; preds = %874
   %886 = load ptr, ptr %1099, align 8
-  %invariant.gep.i358.us = getelementptr i32, ptr %886, i64 %indvars.iv1155
+  %invariant.gep.i358.us = getelementptr i32, ptr %886, i64 %indvars.iv1156
   %887 = load i32, ptr %1088, align 4
   %umax65.i.us = call i64 @llvm.umax.i64(i64 %885, i64 1)
   br label %.lr.ph.split.us.i363.us
@@ -4999,19 +4999,19 @@ _ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us: ; preds = %.lr.ph.spl
   %.1.us.i365.us = phi i32 [ %.03850.us.i.us, %.lr.ph.split.us.i363.us ], [ %891, %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us ]
   %895 = add nuw i64 %.03751.us.i.us, 1
   %exitcond66.not.i.us = icmp eq i64 %895, %umax65.i.us
-  br i1 %exitcond66.not.i.us, label %.lr.ph57.i.us, label %.lr.ph.split.us.i363.us, !llvm.loop !72
+  br i1 %exitcond66.not.i.us, label %.preheader.i.us, label %.lr.ph.split.us.i363.us, !llvm.loop !72
 
-.lr.ph57.i.us:                                    ; preds = %894
+.preheader.i.us:                                  ; preds = %894
   %896 = load ptr, ptr %1087, align 8
   %897 = load ptr, ptr %1100, align 8
   br label %898
 
-898:                                              ; preds = %917, %.lr.ph57.i.us
-  %.056.i.us = phi i64 [ 0, %.lr.ph57.i.us ], [ %918, %917 ]
+898:                                              ; preds = %917, %.preheader.i.us
+  %.056.i.us = phi i64 [ 0, %.preheader.i.us ], [ %918, %917 ]
   %899 = getelementptr inbounds i32, ptr %881, i64 %.056.i.us
   %900 = load i32, ptr %899, align 4
   %901 = add nsw i32 %900, %.1.us.i365.us
-  %902 = add i64 %.056.i.us, %indvars.iv1155
+  %902 = add i64 %.056.i.us, %indvars.iv1156
   %903 = getelementptr inbounds i32, ptr %896, i64 %902
   %904 = load i32, ptr %903, align 4
   %905 = icmp slt i32 %901, %904
@@ -5050,11 +5050,11 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
 
 920:                                              ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread777.us
   %921 = load ptr, ptr %1090, align 8
-  %922 = getelementptr inbounds %"class.std::vector.50", ptr %921, i64 %indvars.iv1167
+  %922 = getelementptr inbounds %"class.std::vector.50", ptr %921, i64 %indvars.iv1168
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyCellBetweenPolyAndBottomHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i383.us, label %.lr.ph.i.i.i373.us
 
 .lr.ph.i.i.i373.us:                               ; preds = %920
-  %sext.i.i.i374.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i.i374.us = shl nuw nsw i64 %indvars.iv1156, 2
   %923 = load ptr, ptr %1087, align 8
   %invariant.gep.i.i.i375.us = getelementptr i8, ptr %923, i64 %sext.i.i.i374.us
   %umax.i.i.i376.us = call i64 @llvm.umax.i64(i64 %885, i64 1)
@@ -5095,7 +5095,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %invariant.gep.i17.i387.us = getelementptr i32, ptr %941, i64 %940
   %942 = load i32, ptr %1091, align 4
   %umax.i18.i388.us = call i64 @llvm.umax.i64(i64 %939, i64 1)
-  %943 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %943 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %944
 
 944:                                              ; preds = %944, %.lr.ph.i16.i386.us
@@ -5120,7 +5120,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
 .lr.ph.i13.i400.us:                               ; preds = %952
   %953 = load ptr, ptr %878, align 8
   %954 = load ptr, ptr %1087, align 8
-  %955 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %955 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %956
 
 956:                                              ; preds = %956, %.lr.ph.i13.i400.us
@@ -5150,7 +5150,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostYERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit418.us, label %.lr.ph.i.i408.us
 
 .lr.ph.i.i408.us:                                 ; preds = %973
-  %sext.i.i409.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i409.us = shl nuw nsw i64 %indvars.iv1156, 2
   %974 = load ptr, ptr %1087, align 8
   %invariant.gep.i.i410.us = getelementptr i8, ptr %974, i64 %sext.i.i409.us
   %umax.i.i411.us = call i64 @llvm.umax.i64(i64 %885, i64 1)
@@ -5186,7 +5186,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
 
 985:                                              ; preds = %984
   %986 = load ptr, ptr %1090, align 8
-  %987 = getelementptr inbounds %"class.std::vector.50", ptr %986, i64 %indvars.iv1167
+  %987 = getelementptr inbounds %"class.std::vector.50", ptr %986, i64 %indvars.iv1168
   %988 = getelementptr inbounds i8, ptr %987, i64 8
   %989 = load ptr, ptr %988, align 8
   %990 = load ptr, ptr %987, align 8
@@ -5202,7 +5202,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %996 = load ptr, ptr %1085, align 8
   %invariant.gep.i.i.i424.us = getelementptr i32, ptr %996, i64 %995
   %umax.i.i.i425.us = call i64 @llvm.umax.i64(i64 %994, i64 1)
-  %997 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %997 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %998
 
 998:                                              ; preds = %998, %.lr.ph.i.i.i423.us
@@ -5227,12 +5227,12 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostXERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit466.us, label %.lr.ph.i17.i435.us
 
 .lr.ph.i17.i435.us:                               ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyCellBetweenPolyAndLeftHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i432.us
-  %sext.i.i436.us = shl nuw nsw i64 %indvars.iv1155, 2
+  %sext.i.i436.us = shl nuw nsw i64 %indvars.iv1156, 2
   %1007 = load ptr, ptr %1087, align 8
   %invariant.gep.i18.i437.us = getelementptr i8, ptr %1007, i64 %sext.i.i436.us
   %1008 = load i32, ptr %1088, align 4
   %umax.i19.i438.us = call i64 @llvm.umax.i64(i64 %885, i64 1)
-  %1009 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %1009 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %1010
 
 1010:                                             ; preds = %1022, %.lr.ph.i17.i435.us
@@ -5265,7 +5265,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 1024:                                             ; preds = %984
   %1025 = load ptr, ptr %1090, align 8
-  %1026 = getelementptr inbounds %"class.std::vector.50", ptr %1025, i64 %indvars.iv1167
+  %1026 = getelementptr inbounds %"class.std::vector.50", ptr %1025, i64 %indvars.iv1168
   %1027 = getelementptr inbounds i8, ptr %1026, i64 8
   %1028 = load ptr, ptr %1027, align 8
   %1029 = load ptr, ptr %1026, align 8
@@ -5278,10 +5278,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 .lr.ph.i14.i450.us:                               ; preds = %1024
   %1034 = load ptr, ptr %1096, align 8
-  %1035 = getelementptr inbounds %"class.std::vector.50", ptr %1034, i64 %indvars.iv1167
+  %1035 = getelementptr inbounds %"class.std::vector.50", ptr %1034, i64 %indvars.iv1168
   %1036 = load ptr, ptr %1035, align 8
   %1037 = load ptr, ptr %1085, align 8
-  %1038 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %1038 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %1039
 
 1039:                                             ; preds = %1039, %.lr.ph.i14.i450.us
@@ -5309,7 +5309,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
 
 1056:                                             ; preds = %984
   %1057 = load ptr, ptr %1090, align 8
-  %1058 = getelementptr inbounds %"class.std::vector.50", ptr %1057, i64 %indvars.iv1167
+  %1058 = getelementptr inbounds %"class.std::vector.50", ptr %1057, i64 %indvars.iv1168
   %1059 = getelementptr inbounds i8, ptr %1058, i64 8
   %1060 = load ptr, ptr %1059, align 8
   %1061 = load ptr, ptr %1058, align 8
@@ -5325,7 +5325,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %1067 = load ptr, ptr %1085, align 8
   %invariant.gep.i.i458.us = getelementptr i32, ptr %1067, i64 %1066
   %umax.i.i459.us = call i64 @llvm.umax.i64(i64 %1065, i64 1)
-  %1068 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %1068 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %1069
 
 1069:                                             ; preds = %1069, %.lr.ph.i.i457.us
@@ -5358,7 +5358,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   br i1 %or.cond.not.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us, label %1082
 
 1082:                                             ; preds = %1079
-  %1083 = trunc nuw nsw i64 %indvars.iv1155 to i32
+  %1083 = trunc nuw nsw i64 %indvars.iv1156 to i32
   br label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us
 
 _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.thread.us: ; preds = %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us, %906, %1082, %1079, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us
@@ -5368,13 +5368,13 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
   %.4254.us = phi i32 [ %1083, %1082 ], [ %.3253.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.us ], [ %.3253.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us ], [ %.3253.us, %1079 ], [ %.3253.us, %906 ], [ %.3253.us, %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us ]
   %.4245.us = phi i32 [ %.0290.us, %1082 ], [ %.3244.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.us ], [ %.3244.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us ], [ %.3244.us, %1079 ], [ %.3244.us, %906 ], [ %.3244.us, %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us ]
   %.4.us = phi i32 [ %146, %1082 ], [ %.3.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYInnerERNS_18RasterizedOutline2Eii.exit.us ], [ %.3.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYERNS_18RasterizedOutline2Eii.exit.thread772.us ], [ %.3.us, %1079 ], [ %.3.us, %906 ], [ %.3.us, %_ZN3vcg18RasterizedOutline210gridHeightEi.exit.us.i366.us ]
-  %indvars.iv.next1156 = add nuw nsw i64 %indvars.iv1155, 1
-  %exitcond1158.not = icmp eq i64 %indvars.iv.next1156, %wide.trip.count1157
-  br i1 %exitcond1158.not, label %._crit_edge1004.us, label %670, !llvm.loop !74
+  %indvars.iv.next1157 = add nuw nsw i64 %indvars.iv1156, 1
+  %exitcond1159.not = icmp eq i64 %indvars.iv.next1157, %wide.trip.count1158
+  br i1 %exitcond1159.not, label %._crit_edge1004.us, label %670, !llvm.loop !74
 
 .lr.ph1003.us:                                    ; preds = %163
   %1084 = load ptr, ptr %10, align 8
-  %1085 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %1084, i64 %indvars.iv1163
+  %1085 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %1084, i64 %indvars.iv1164
   %1086 = getelementptr inbounds i8, ptr %151, i64 72
   %1087 = getelementptr inbounds i8, ptr %1085, i64 24
   %1088 = getelementptr inbounds i8, ptr %1085, i64 148
@@ -5382,7 +5382,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
   %1090 = getelementptr inbounds i8, ptr %151, i64 120
   %1091 = getelementptr inbounds i8, ptr %1085, i64 144
   %1092 = getelementptr inbounds i8, ptr %151, i64 48
-  %1093 = trunc i8 %.pre1170 to i1
+  %1093 = trunc i8 %.pre1171 to i1
   %1094 = load i8, ptr %113, align 4
   %1095 = trunc i8 %1094 to i1
   %1096 = getelementptr inbounds i8, ptr %151, i64 96
@@ -5390,17 +5390,17 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
   %1098 = trunc i8 %1097 to i1
   %1099 = getelementptr inbounds i8, ptr %1085, i64 48
   %1100 = getelementptr inbounds i8, ptr %1085, i64 72
-  %wide.trip.count1157 = zext nneg i32 %172 to i64
-  %1101 = trunc nuw nsw i64 %indvars.iv1163 to i32
+  %wide.trip.count1158 = zext nneg i32 %172 to i64
+  %1101 = trunc nuw nsw i64 %indvars.iv1164 to i32
   %1102 = select i1 %1093, i1 %1095, i1 false
   %1103 = select i1 %1093, i1 %1095, i1 false
   br label %670
 
 ._crit_edge1037.us:                               ; preds = %.loopexit.us
-  %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
+  %indvars.iv.next1169 = add nuw nsw i64 %indvars.iv1168, 1
   %1104 = load i32, ptr %111, align 4
   %1105 = sext i32 %1104 to i64
-  %1106 = icmp slt i64 %indvars.iv.next1168, %1105
+  %1106 = icmp slt i64 %indvars.iv.next1169, %1105
   br i1 %1106, label %.preheader815.us, label %._crit_edge1051, !llvm.loop !75
 
 .loopexit814.split.us:                            ; preds = %438
@@ -5409,7 +5409,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
   br label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit
 
 .split.us.invoke:                                 ; preds = %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us, %147, %.lr.ph.split.i471.us, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us.i.us
-  %1107 = phi i64 [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us.i.us ], [ %indvars.iv1167, %.lr.ph.split.i471.us ], [ %indvars.iv1167, %147 ], [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us ]
+  %1107 = phi i64 [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us.i.us ], [ %indvars.iv1168, %.lr.ph.split.i471.us ], [ %indvars.iv1168, %147 ], [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us ]
   %1108 = phi i64 [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us.i.us ], [ %207, %.lr.ph.split.i471.us ], [ %158, %147 ], [ 0, %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.12, i64 noundef %1107, i64 noundef %1108) #24
           to label %.split.us.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -5490,13 +5490,13 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
           to label %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge: ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i
-  %.pre1171 = load ptr, ptr %1133, align 8
-  %.pre1172 = load ptr, ptr %1134, align 8
+  %.pre1172 = load ptr, ptr %1133, align 8
+  %.pre1173 = load ptr, ptr %1134, align 8
   br label %.noexc679
 
 .noexc679:                                        ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge, %1123
-  %1143 = phi ptr [ %1135, %1123 ], [ %.pre1172, %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge ]
-  %1144 = phi ptr [ %1136, %1123 ], [ %.pre1171, %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge ]
+  %1143 = phi ptr [ %1135, %1123 ], [ %.pre1173, %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge ]
+  %1144 = phi ptr [ %1136, %1123 ], [ %.pre1172, %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge ]
   %1145 = phi ptr [ null, %1123 ], [ %1142, %_ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i..noexc679_crit_edge ]
   %.not7.i.i.i.i.i = icmp eq ptr %1144, %1143
   br i1 %.not7.i.i.i.i.i, label %._crit_edge1082, label %.lr.ph.i.i.i.i.i
@@ -5560,8 +5560,8 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %.lr.ph1081, %1171, 
   %.sroa.6725.2 = phi float [ %.sroa.6725.1, %1171 ], [ %.sroa.6725.1, %1166 ], [ %1162, %.lr.ph1081 ]
   %.sroa.0722.2 = phi float [ %.sroa.0722.1, %1171 ], [ %.sroa.0722.1, %1166 ], [ %1160, %.lr.ph1081 ]
   %1172 = add nuw i64 %.02771080, 1
-  %exitcond1169.not = icmp eq i64 %1172, %umax
-  br i1 %exitcond1169.not, label %._crit_edge1082, label %.lr.ph1081, !llvm.loop !76
+  %exitcond1170.not = icmp eq i64 %1172, %umax
+  br i1 %exitcond1170.not, label %._crit_edge1082, label %.lr.ph1081, !llvm.loop !76
 
 1173:                                             ; preds = %.invoke
   %1174 = landingpad { ptr, i32 }
@@ -5677,8 +5677,8 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit692: ; preds = %1240, %1196, %1110
   %1245 = ptrtoint ptr %1243 to i64
   %1246 = sub i64 %1244, %1245
   %1247 = sdiv exact i64 %1246, 168
-  %.not1185 = icmp ult i64 %1241, %1247
-  br i1 %.not1185, label %139, label %._crit_edge1089, !llvm.loop !77
+  %.not1098 = icmp ult i64 %1241, %1247
+  br i1 %.not1098, label %139, label %._crit_edge1089, !llvm.loop !77
 
 ._crit_edge1089:                                  ; preds = %._crit_edge1051.thread, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit692, %.preheader823, %.preheader816
   %.lcssa965 = phi i1 [ true, %.preheader816 ], [ true, %.preheader823 ], [ true, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit692 ], [ false, %._crit_edge1051.thread ]
@@ -9030,13 +9030,10 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %.lr.ph.spl
   %.1.us = phi i32 [ %.03482.us, %.lr.ph.split.us ], [ %57, %61 ]
   %72 = add nuw i64 %.03383.us, 1
   %exitcond93.not = icmp eq i64 %72, %umax92
-  br i1 %exitcond93.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !105
+  br i1 %exitcond93.not, label %.lr.ph87, label %.lr.ph.split.us, !llvm.loop !105
 
-.preheader:                                       ; preds = %89, %71
+.lr.ph87:                                         ; preds = %89, %71
   %.034.lcssa = phi i32 [ %.1.us, %71 ], [ -2147483647, %89 ]
-  br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph87
-
-.lr.ph87:                                         ; preds = %.preheader
   %73 = sext i32 %2 to i64
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9078,7 +9075,7 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %.lr.ph.spl
 89:                                               ; preds = %.lr.ph.split
   %90 = add nuw i64 %.03383, 1
   %exitcond.not = icmp eq i64 %90, %umax92
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !105
+  br i1 %exitcond.not, label %.lr.ph87, label %.lr.ph.split, !llvm.loop !105
 
 91:                                               ; preds = %.lr.ph87, %109
   %.086 = phi i64 [ 0, %.lr.ph87 ], [ %110, %109 ]
@@ -9108,8 +9105,8 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE2atEm.exit.i.us: ; preds = %.lr.ph.spl
   %exitcond95.not = icmp eq i64 %110, %umax94
   br i1 %exitcond95.not, label %.loopexit, label %91, !llvm.loop !106
 
-.loopexit:                                        ; preds = %61, %109, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit44, %.preheader
-  %.032 = phi i32 [ %.034.lcssa, %.preheader ], [ -2147483647, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit44 ], [ %.034.lcssa, %109 ], [ -1, %61 ]
+.loopexit:                                        ; preds = %61, %109, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit44
+  %.032 = phi i32 [ -2147483647, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit44 ], [ %.034.lcssa, %109 ], [ -1, %61 ]
   %.not.i.i.i48 = icmp eq ptr %34, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIiSaIiEED2Ev.exit49, label %.thread
 

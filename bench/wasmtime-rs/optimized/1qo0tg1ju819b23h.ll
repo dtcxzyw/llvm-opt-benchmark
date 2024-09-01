@@ -19902,8 +19902,8 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
 453:                                              ; preds = %449
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5303.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60)
-  %.not405.not = icmp eq i64 %450, -9223372036854775808
-  br i1 %.not405.not, label %458, label %456
+  %.not405 = icmp eq i64 %450, -9223372036854775808
+  br i1 %.not405, label %458, label %456
 
 454:                                              ; preds = %449
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60)

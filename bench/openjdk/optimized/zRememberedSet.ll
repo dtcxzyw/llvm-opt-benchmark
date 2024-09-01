@@ -744,7 +744,7 @@ define hidden noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4ne
   br i1 %.not, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %9
-  %.pre9 = load i64, ptr %7, align 8
+  %.pre7 = load i64, ptr %7, align 8
   br label %70
 
 12:                                               ; preds = %9
@@ -836,7 +836,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %34, %37, %44, %64
   br label %70
 
 70:                                               ; preds = %._crit_edge, %_ZN6ZUtils11object_sizeE8zaddress.exit
-  %71 = phi i64 [ %69, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %.pre9, %._crit_edge ]
+  %71 = phi i64 [ %69, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %.pre7, %._crit_edge ]
   %72 = phi i64 [ %.pre, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %10, %._crit_edge ]
   %73 = load i64, ptr %3, align 8
   %74 = sub i64 %73, %72

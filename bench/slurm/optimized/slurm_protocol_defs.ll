@@ -1221,28 +1221,20 @@ _job_name_test.exit.thread:                       ; preds = %2, %18, %15, %12, %
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define zeroext i1 @valid_base_state(i32 noundef %0) #2 {
   %2 = and i32 %0, 15
-  %3 = icmp eq i32 %2, 1
-  br i1 %3, label %._crit_edge, label %.lr.ph
+  br label %3
 
-.lr.ph:                                           ; preds = %1, %4
-  %indvars.iv7 = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv7, 1
+3:                                                ; preds = %3, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %4 = getelementptr inbounds [7 x %struct.node_state_flags_t], ptr @node_states, i64 0, i64 %indvars.iv
+  %5 = load i32, ptr %4, align 16
+  %6 = icmp eq i32 %5, %2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %4, !llvm.loop !9
+  %or.cond = select i1 %6, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %7, label %3, !llvm.loop !9
 
-4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds [7 x %struct.node_state_flags_t], ptr @node_states, i64 0, i64 %indvars.iv.next
-  %6 = load i32, ptr %5, align 16
-  %7 = icmp eq i32 %6, %2
-  br i1 %7, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %4
-  %8 = icmp ult i64 %indvars.iv7, 6
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %8, %._crit_edge.loopexit ]
-  ret i1 %.lcssa
+7:                                                ; preds = %3
+  ret i1 %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -8633,90 +8625,87 @@ job_state_string.exit:                            ; preds = %27, %switch.lookup,
   %.0.i = phi ptr [ @.str.69, %7 ], [ @.str.70, %9 ], [ @.str.71, %11 ], [ @.str.72, %13 ], [ @.str.73, %15 ], [ @.str.74, %17 ], [ @.str.26, %19 ], [ @.str.75, %21 ], [ @.str.76, %23 ], [ @.str.77, %25 ], [ %switch.load, %switch.lookup ], [ @.str.89, %27 ]
   %30 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull %.0.i) #22
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %58, label %33
+  br i1 %.not, label %57, label %33
 
 job_state_string.exit.thread21:                   ; preds = %5
   %31 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.68) #22
   %.not23 = icmp eq i32 %31, 0
-  br i1 %.not23, label %58, label %job_state_string_compact.exit
+  br i1 %.not23, label %57, label %job_state_string_compact.exit
 
 job_state_string.exit.thread:                     ; preds = %2
   %32 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.67) #22
   %.not20 = icmp eq i32 %32, 0
-  br i1 %.not20, label %58, label %job_state_string_compact.exit
+  br i1 %.not20, label %57, label %job_state_string_compact.exit
 
 33:                                               ; preds = %job_state_string.exit
-  br i1 %.not13.i, label %34, label %job_state_string_compact.exit
+  %34 = and i64 %3, 16384
+  %.not14.i8 = icmp eq i64 %34, 0
+  br i1 %.not14.i8, label %35, label %job_state_string_compact.exit
 
-34:                                               ; preds = %33
-  %35 = and i64 %3, 16384
-  %.not14.i8 = icmp eq i64 %35, 0
-  br i1 %.not14.i8, label %36, label %job_state_string_compact.exit
+35:                                               ; preds = %33
+  %36 = and i64 %3, 8192
+  %.not15.i9 = icmp eq i64 %36, 0
+  br i1 %.not15.i9, label %37, label %job_state_string_compact.exit
 
-36:                                               ; preds = %34
-  %37 = and i64 %3, 8192
-  %.not15.i9 = icmp eq i64 %37, 0
-  br i1 %.not15.i9, label %38, label %job_state_string_compact.exit
+37:                                               ; preds = %35
+  %38 = and i64 %3, 1024
+  %.not16.i10 = icmp eq i64 %38, 0
+  br i1 %.not16.i10, label %39, label %job_state_string_compact.exit
 
-38:                                               ; preds = %36
-  %39 = and i64 %3, 1024
-  %.not16.i10 = icmp eq i64 %39, 0
-  br i1 %.not16.i10, label %40, label %job_state_string_compact.exit
+39:                                               ; preds = %37
+  %40 = and i64 %3, 1048576
+  %.not17.i11 = icmp eq i64 %40, 0
+  br i1 %.not17.i11, label %41, label %job_state_string_compact.exit
 
-40:                                               ; preds = %38
-  %41 = and i64 %3, 1048576
-  %.not17.i11 = icmp eq i64 %41, 0
-  br i1 %.not17.i11, label %42, label %job_state_string_compact.exit
+41:                                               ; preds = %39
+  %42 = and i64 %3, 2048
+  %.not18.i12 = icmp eq i64 %42, 0
+  br i1 %.not18.i12, label %43, label %job_state_string_compact.exit
 
-42:                                               ; preds = %40
-  %43 = and i64 %3, 2048
-  %.not18.i12 = icmp eq i64 %43, 0
-  br i1 %.not18.i12, label %44, label %job_state_string_compact.exit
+43:                                               ; preds = %41
+  %44 = and i64 %3, 4096
+  %.not19.i13 = icmp eq i64 %44, 0
+  br i1 %.not19.i13, label %45, label %job_state_string_compact.exit
 
-44:                                               ; preds = %42
-  %45 = and i64 %3, 4096
-  %.not19.i13 = icmp eq i64 %45, 0
-  br i1 %.not19.i13, label %46, label %job_state_string_compact.exit
+45:                                               ; preds = %43
+  %46 = and i64 %3, 65536
+  %.not20.i14 = icmp eq i64 %46, 0
+  br i1 %.not20.i14, label %47, label %job_state_string_compact.exit
 
-46:                                               ; preds = %44
-  %47 = and i64 %3, 65536
-  %.not20.i14 = icmp eq i64 %47, 0
-  br i1 %.not20.i14, label %48, label %job_state_string_compact.exit
+47:                                               ; preds = %45
+  %48 = and i64 %3, 524288
+  %.not21.i15 = icmp eq i64 %48, 0
+  br i1 %.not21.i15, label %49, label %job_state_string_compact.exit
 
-48:                                               ; preds = %46
-  %49 = and i64 %3, 524288
-  %.not21.i15 = icmp eq i64 %49, 0
-  br i1 %.not21.i15, label %50, label %job_state_string_compact.exit
+49:                                               ; preds = %47
+  %50 = and i64 %3, 2097152
+  %.not22.i16 = icmp eq i64 %50, 0
+  br i1 %.not22.i16, label %51, label %job_state_string_compact.exit
 
-50:                                               ; preds = %48
-  %51 = and i64 %3, 2097152
-  %.not22.i16 = icmp eq i64 %51, 0
-  br i1 %.not22.i16, label %52, label %job_state_string_compact.exit
+51:                                               ; preds = %49
+  %52 = and i64 %3, 4194304
+  %.not23.i17 = icmp eq i64 %52, 0
+  br i1 %.not23.i17, label %53, label %job_state_string_compact.exit
 
-52:                                               ; preds = %50
-  %53 = and i64 %3, 4194304
-  %.not23.i17 = icmp eq i64 %53, 0
-  br i1 %.not23.i17, label %54, label %job_state_string_compact.exit
-
-54:                                               ; preds = %52
+53:                                               ; preds = %51
   %trunc.i18 = trunc i32 %0 to i8
-  %55 = icmp ult i8 %trunc.i18, 12
-  br i1 %55, label %switch.lookup24, label %job_state_string_compact.exit
+  %54 = icmp ult i8 %trunc.i18, 12
+  br i1 %54, label %switch.lookup24, label %job_state_string_compact.exit
 
-switch.lookup24:                                  ; preds = %54
+switch.lookup24:                                  ; preds = %53
   %trunc.i18.mask = and i32 %0, 15
-  %56 = zext nneg i32 %trunc.i18.mask to i64
-  %switch.gep25 = getelementptr inbounds [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %56
+  %55 = zext nneg i32 %trunc.i18.mask to i64
+  %switch.gep25 = getelementptr inbounds [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %55
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   br label %job_state_string_compact.exit
 
-job_state_string_compact.exit:                    ; preds = %54, %switch.lookup24, %job_state_string.exit.thread21, %job_state_string.exit.thread, %33, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52
-  %.0.i6 = phi ptr [ @.str.91, %33 ], [ @.str.92, %34 ], [ @.str.93, %36 ], [ @.str.94, %38 ], [ @.str.95, %40 ], [ @.str.96, %42 ], [ @.str.97, %44 ], [ @.str.98, %46 ], [ @.str.99, %48 ], [ @.str.100, %50 ], [ @.str.101, %52 ], [ @.str.90, %job_state_string.exit.thread ], [ @.str.91, %job_state_string.exit.thread21 ], [ %switch.load26, %switch.lookup24 ], [ @.str.89, %54 ]
-  %57 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull %.0.i6) #22
-  %.not4 = icmp eq i32 %57, 0
-  br label %58
+job_state_string_compact.exit:                    ; preds = %53, %switch.lookup24, %job_state_string.exit.thread21, %job_state_string.exit.thread, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
+  %.0.i6 = phi ptr [ @.str.92, %33 ], [ @.str.93, %35 ], [ @.str.94, %37 ], [ @.str.95, %39 ], [ @.str.96, %41 ], [ @.str.97, %43 ], [ @.str.98, %45 ], [ @.str.99, %47 ], [ @.str.100, %49 ], [ @.str.101, %51 ], [ @.str.90, %job_state_string.exit.thread ], [ @.str.91, %job_state_string.exit.thread21 ], [ %switch.load26, %switch.lookup24 ], [ @.str.89, %53 ]
+  %56 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull %.0.i6) #22
+  %.not4 = icmp eq i32 %56, 0
+  br label %57
 
-58:                                               ; preds = %job_state_string.exit.thread21, %job_state_string.exit.thread, %job_state_string_compact.exit, %job_state_string.exit
+57:                                               ; preds = %job_state_string.exit.thread21, %job_state_string.exit.thread, %job_state_string_compact.exit, %job_state_string.exit
   %.0 = phi i1 [ true, %job_state_string.exit ], [ %.not4, %job_state_string_compact.exit ], [ true, %job_state_string.exit.thread ], [ true, %job_state_string.exit.thread21 ]
   ret i1 %.0
 }
@@ -12358,8 +12347,8 @@ define noundef zeroext i1 @cluster_in_federation(ptr noundef readonly %0, ptr no
 
 8:                                                ; preds = %10, %6
   %9 = tail call ptr @list_next(ptr noundef %7) #22
-  %.not15.not = icmp ne ptr %9, null
-  br i1 %.not15.not, label %10, label %14
+  %.not15.not.not.not.not.not = icmp ne ptr %9, null
+  br i1 %.not15.not.not.not.not.not, label %10, label %14
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %9, i64 272
@@ -12373,7 +12362,7 @@ define noundef zeroext i1 @cluster_in_federation(ptr noundef readonly %0, ptr no
   br label %15
 
 15:                                               ; preds = %2, %3, %14
-  %.010 = phi i1 [ %.not15.not, %14 ], [ false, %3 ], [ false, %2 ]
+  %.010 = phi i1 [ %.not15.not.not.not.not.not, %14 ], [ false, %3 ], [ false, %2 ]
   ret i1 %.010
 }
 

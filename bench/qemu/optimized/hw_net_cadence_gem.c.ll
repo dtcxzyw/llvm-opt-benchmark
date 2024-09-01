@@ -158,17 +158,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 -1, ptr %arrayidx35.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body44.preheader.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.body44.preheader.i:                           ; preds = %for.body.i
+for.end.i:                                        ; preds = %for.body.i
   %regs_rtc.i = getelementptr inbounds i8, ptr %call.i, i64 15628
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs_rtc.i, i8 0, i64 2048, i1 false)
   %arrayidx38.i = getelementptr i8, ptr %call.i, i64 15664
   store i32 -1, ptr %arrayidx38.i, align 4
   br label %for.body44.i
 
-for.body44.i:                                     ; preds = %for.body44.i, %for.body44.preheader.i
-  %indvars.iv54.i = phi i64 [ 0, %for.body44.preheader.i ], [ %indvars.iv.next55.i, %for.body44.i ]
+for.body44.i:                                     ; preds = %for.body44.i, %for.end.i
+  %indvars.iv54.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next55.i, %for.body44.i ]
   %6 = add nuw nsw i64 %indvars.iv54.i, 256
   %arrayidx48.i = getelementptr [512 x i32], ptr %regs_rtc.i, i64 0, i64 %6
   store i32 3302, ptr %arrayidx48.i, align 4

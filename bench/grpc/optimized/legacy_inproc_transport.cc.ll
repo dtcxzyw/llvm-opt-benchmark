@@ -3936,13 +3936,10 @@ lpad.i:                                           ; preds = %_ZN4absl12lts_20230
 
 invoke.cont8:                                     ; preds = %if.then.i.i6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  br i1 %cmp.i.i.i37146150, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i44
-
-if.then.i.i44:                                    ; preds = %invoke.cont8
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %15)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i.i44
+terminate.lpad.i:                                 ; preds = %invoke.cont8
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
@@ -3954,8 +3951,8 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.sink.split: ; preds = %invoke.cont.i, %lo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
-_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split, %invoke.cont8, %if.then.i.i44
-  %22 = phi ptr [ %16, %invoke.cont8 ], [ %16, %if.then.i.i44 ], [ %.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split ]
+_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split, %invoke.cont8
+  %22 = phi ptr [ %16, %invoke.cont8 ], [ %.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split ]
   %trailing_md_sent = getelementptr inbounds i8, ptr %s, i64 2401
   store i8 1, ptr %trailing_md_sent, align 1
   %arena = getelementptr inbounds i8, ptr %s, i64 16
@@ -4091,13 +4088,10 @@ lpad.i76:                                         ; preds = %_ZN4absl12lts_20230
 
 invoke.cont30:                                    ; preds = %if.then.i.i6.i78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i65)
-  br i1 %cmp.i.i.i60162166, label %if.end39, label %if.then.i.i87
-
-if.then.i.i87:                                    ; preds = %invoke.cont30
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %36)
           to label %if.end39 unwind label %terminate.lpad.i88
 
-terminate.lpad.i88:                               ; preds = %if.then.i.i87
+terminate.lpad.i88:                               ; preds = %invoke.cont30
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
@@ -4136,7 +4130,7 @@ if.end39.critedge:                                ; preds = %invoke.cont.i77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i65)
   br label %if.end39
 
-if.end39:                                         ; preds = %if.end39.critedge, %invoke.cont30.thread, %if.then33, %_ZN4absl12lts_202308026Status3RefEm.exit.i99, %if.then.i.i87, %invoke.cont30, %if.else
+if.end39:                                         ; preds = %if.end39.critedge, %invoke.cont30.thread, %if.then33, %_ZN4absl12lts_202308026Status3RefEm.exit.i99, %invoke.cont30, %if.else
   %47 = load ptr, ptr %s, align 8
   %is_client = getelementptr inbounds i8, ptr %47, i64 32
   %48 = load i8, ptr %is_client, align 8

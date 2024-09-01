@@ -456,8 +456,8 @@ define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi(ptr nocapt
 47:                                               ; preds = %49, %27
   %.017.i.i.i.i.i = phi i64 [ %46, %27 ], [ %50, %49 ]
   %48 = or i64 %.017.i.i.i.i.i, %45
-  %.not.i.not.i.not.i.i.i = icmp eq i64 %48, %.017.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i, label %_ZN16ZGenerationYoung8rememberEPV8zpointer.exit, label %49
+  %.not.not.not.i.not.not.not.i.not.i.i.i = icmp eq i64 %48, %.017.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i, label %_ZN16ZGenerationYoung8rememberEPV8zpointer.exit, label %49
 
 49:                                               ; preds = %47
   %50 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, i64 %.017.i.i.i.i.i, ptr nonnull %43) #13, !srcloc !8
@@ -713,8 +713,8 @@ _ZN19ZStoreBarrierBuffer21install_base_pointersEv.exit: ; preds = %4, %11
 65:                                               ; preds = %67, %45
   %.017.i.i.i.i.i.i = phi i64 [ %64, %45 ], [ %68, %67 ]
   %66 = or i64 %.017.i.i.i.i.i.i, %63
-  %.not.i.not.i.not.i.i.i.i = icmp eq i64 %66, %.017.i.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i.i, label %_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi.exit, label %67
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %66, %.017.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi.exit, label %67
 
 67:                                               ; preds = %65
   %68 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %66, i64 %.017.i.i.i.i.i.i, ptr nonnull %61) #13, !srcloc !8
@@ -983,8 +983,8 @@ _ZN8ZBarrier4markILb0ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %_ZN11ZGeneration
 57:                                               ; preds = %59, %35
   %.017.i.i.i.i.i.i = phi i64 [ %56, %35 ], [ %60, %59 ]
   %58 = or i64 %.017.i.i.i.i.i.i, %55
-  %.not.i.not.i.not.i.i.i.i = icmp eq i64 %58, %.017.i.i.i.i.i.i
-  br i1 %.not.i.not.i.not.i.i.i.i, label %_ZN8ZBarrier8rememberEPV8zpointer.exit, label %59
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %58, %.017.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN8ZBarrier8rememberEPV8zpointer.exit, label %59
 
 59:                                               ; preds = %57
   %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %58, i64 %.017.i.i.i.i.i.i, ptr nonnull %53) #13, !srcloc !8

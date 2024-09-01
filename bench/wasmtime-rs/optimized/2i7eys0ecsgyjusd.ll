@@ -1443,8 +1443,8 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
   br i1 %.not.i.i.not.i, label %65, label %72
 
 72:                                               ; preds = %.noexc45
-  %.not10.i = icmp eq ptr %69, %60
-  br i1 %.not10.i, label %.thread146, label %.lr.ph.i
+  %.not.i47 = icmp eq ptr %69, %60
+  br i1 %.not.i47, label %.thread146, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72, %.critedge.backedge.i
   %73 = phi ptr [ %74, %.critedge.backedge.i ], [ %69, %72 ]
@@ -1459,8 +1459,8 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
 
 .noexc50:                                         ; preds = %.noexc49
   %.not.i.i.i = icmp eq i32 %76, %2
-  %.not.i48 = icmp eq i32 %76, %71
-  %or.cond = or i1 %.not.i.i.i, %.not.i48
+  %.not10.i = icmp eq i32 %76, %71
+  %or.cond = or i1 %.not.i.i.i, %.not10.i
   br i1 %or.cond, label %.critedge.backedge.i, label %212
 
 .critedge.backedge.i:                             ; preds = %.noexc50

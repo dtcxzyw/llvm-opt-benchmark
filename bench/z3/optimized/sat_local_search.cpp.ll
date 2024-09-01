@@ -6012,7 +6012,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit65:                ; preds = %reflip, %if.end.i
 if.then:                                          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit65
   br i1 %cmp.i.i.i, label %reflip.backedge, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
 
-reflip.backedge:                                  ; preds = %if.then, %if.then21, %_ZNK3sat12local_search10constraint3endEv.exit.i, %_ZNK3sat12local_search16constraint_valueERKNS0_10constraintE.exit, %if.end173
+reflip.backedge:                                  ; preds = %if.then, %_ZNK3sat12local_search10constraint3endEv.exit.i, %_ZNK3sat12local_search16constraint_valueERKNS0_10constraintE.exit, %if.end173
   br label %reflip
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %if.then
@@ -6045,12 +6045,9 @@ lor.rhs:                                          ; preds = %land.rhs
 for.inc:                                          ; preds = %land.rhs, %lor.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %cit.0181, i64 4
   %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp15.not, label %if.then21, label %land.rhs, !llvm.loop !33
+  br i1 %cmp15.not, label %_ZNK3sat12local_search10constraint3endEv.exit.i, label %land.rhs, !llvm.loop !33
 
-if.then21:                                        ; preds = %for.inc
-  br i1 %cmp.i.i.i, label %reflip.backedge, label %_ZNK3sat12local_search10constraint3endEv.exit.i
-
-_ZNK3sat12local_search10constraint3endEv.exit.i:  ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %if.then21
+_ZNK3sat12local_search10constraint3endEv.exit.i:  ; preds = %for.inc, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %conv22226.in.in = getelementptr inbounds i8, ptr %arrayidx.i60, i64 4
   %conv22226.in = load i32, ptr %conv22226.in.in, align 4
   %conv22226 = zext i32 %conv22226.in to i64

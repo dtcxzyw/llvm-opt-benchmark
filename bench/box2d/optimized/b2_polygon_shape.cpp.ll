@@ -575,49 +575,31 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = zext nneg i32 %8 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
-  %10 = load float, ptr %m_vertices, align 8
-  %sub.i820 = fsub float %6, %10
-  %y2.i1021 = getelementptr inbounds i8, ptr %this, i64 28
-  %11 = load float, ptr %y2.i1021, align 4
-  %sub3.i1122 = fsub float %7, %11
-  %12 = load float, ptr %m_normals, align 8
-  %y.i1423 = getelementptr inbounds i8, ptr %this, i64 92
-  %13 = load float, ptr %y.i1423, align 4
-  %mul3.i24 = fmul float %sub3.i1122, %13
-  %14 = tail call noundef float @llvm.fmuladd.f32(float %12, float %sub.i820, float %mul3.i24)
-  %cmp925 = fcmp ogt float %14, 0.000000e+00
-  br i1 %cmp925, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv26 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !9
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_normals, i64 0, i64 %indvars.iv.next
-  %arrayidx6 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_vertices, i64 0, i64 %indvars.iv.next
-  %15 = load float, ptr %arrayidx6, align 8
-  %sub.i8 = fsub float %6, %15
+for.body:                                         ; preds = %for.body, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_normals, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_vertices, i64 0, i64 %indvars.iv
+  %9 = load float, ptr %arrayidx6, align 8
+  %sub.i8 = fsub float %6, %9
   %y2.i10 = getelementptr inbounds i8, ptr %arrayidx6, i64 4
-  %16 = load float, ptr %y2.i10, align 4
-  %sub3.i11 = fsub float %7, %16
-  %17 = load float, ptr %arrayidx, align 8
+  %10 = load float, ptr %y2.i10, align 4
+  %sub3.i11 = fsub float %7, %10
+  %11 = load float, ptr %arrayidx, align 8
   %y.i14 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %18 = load float, ptr %y.i14, align 4
-  %mul3.i = fmul float %sub3.i11, %18
-  %19 = tail call noundef float @llvm.fmuladd.f32(float %17, float %sub.i8, float %mul3.i)
-  %cmp9 = fcmp ogt float %19, 0.000000e+00
-  br i1 %cmp9, label %return.loopexit, label %for.cond, !llvm.loop !9
+  %12 = load float, ptr %y.i14, align 4
+  %mul3.i = fmul float %sub3.i11, %12
+  %13 = tail call noundef float @llvm.fmuladd.f32(float %11, float %sub.i8, float %mul3.i)
+  %cmp9 = fcmp ule float %13, 0.000000e+00
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %cmp9, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !9
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp uge i64 %indvars.iv.next, %9
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.lr.ph, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %for.body.lr.ph ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp9, %for.body ]
   ret i1 %cmp.lcssa
 }
 

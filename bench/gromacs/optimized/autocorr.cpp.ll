@@ -345,7 +345,13 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   br i1 %.not, label %148, label %.preheader178.i
 
 .preheader178.i:                                  ; preds = %135
-  br i1 %98, label %.lr.ph.i, label %.loopexit171.thread.i
+  br i1 %98, label %.lr.ph.i, label %._crit_edge.thread.i
+
+._crit_edge.thread.i:                             ; preds = %.preheader178.i
+  call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef %90, ptr noundef %133, i32 noundef 1)
+  call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef %90, ptr noundef %133, i32 noundef 2)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef %133)
+  br label %_ZL12do_four_coremiPfS_S_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader178.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader178.i ]
@@ -355,28 +361,28 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   store float %137, ptr %138, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %108
-  br i1 %exitcond.not.i, label %.lr.ph182.preheader.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
-.lr.ph182.preheader.i:                            ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef nonnull %90, ptr noundef %133, i32 noundef 1)
   br label %.lr.ph182.i
 
-.lr.ph182.i:                                      ; preds = %.lr.ph182.i, %.lr.ph182.preheader.i
-  %indvars.iv222.i = phi i64 [ 0, %.lr.ph182.preheader.i ], [ %indvars.iv.next223.i, %.lr.ph182.i ]
+.lr.ph182.i:                                      ; preds = %.lr.ph182.i, %._crit_edge.i
+  %indvars.iv222.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next223.i, %.lr.ph182.i ]
   %139 = getelementptr inbounds float, ptr %133, i64 %indvars.iv222.i
   %140 = load float, ptr %139, align 4
   %141 = getelementptr inbounds float, ptr %131, i64 %indvars.iv222.i
   store float %140, ptr %141, align 4
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %exitcond226.not.i = icmp eq i64 %indvars.iv.next223.i, %108
-  br i1 %exitcond226.not.i, label %.lr.ph186.preheader.i, label %.lr.ph182.i, !llvm.loop !7
+  br i1 %exitcond226.not.i, label %._crit_edge183.i, label %.lr.ph182.i, !llvm.loop !7
 
-.lr.ph186.preheader.i:                            ; preds = %.lr.ph182.i
+._crit_edge183.i:                                 ; preds = %.lr.ph182.i
   call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef %90, ptr noundef nonnull %133, i32 noundef 2)
   br label %.lr.ph186.i
 
-.lr.ph186.i:                                      ; preds = %.lr.ph186.i, %.lr.ph186.preheader.i
-  %indvars.iv227.i = phi i64 [ 0, %.lr.ph186.preheader.i ], [ %indvars.iv.next228.i, %.lr.ph186.i ]
+.lr.ph186.i:                                      ; preds = %.lr.ph186.i, %._crit_edge183.i
+  %indvars.iv227.i = phi i64 [ 0, %._crit_edge183.i ], [ %indvars.iv.next228.i, %.lr.ph186.i ]
   %142 = getelementptr inbounds float, ptr %133, i64 %indvars.iv227.i
   %143 = load float, ptr %142, align 4
   %144 = getelementptr inbounds float, ptr %131, i64 %indvars.iv227.i
@@ -821,7 +827,7 @@ _ZL22norm_and_scale_vectorsiPff.exit157.i:        ; preds = %.lr.ph.i151.i, %252
   call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef nonnull %90, ptr noundef %133, i32 noundef 0)
   br label %.lr.ph194.i
 
-.lr.ph194.i:                                      ; preds = %._crit_edge191.i, %.lr.ph194.i
+.lr.ph194.i:                                      ; preds = %.lr.ph194.i, %._crit_edge191.i
   %indvars.iv240.i = phi i64 [ %indvars.iv.next241.i, %.lr.ph194.i ], [ 0, %._crit_edge191.i ]
   %268 = getelementptr inbounds float, ptr %133, i64 %indvars.iv240.i
   %269 = load float, ptr %268, align 4
@@ -852,12 +858,6 @@ _ZL22norm_and_scale_vectorsiPff.exit157.i:        ; preds = %.lr.ph.i151.i, %252
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #20
   br label %common.resume
 
-.loopexit171.thread.i:                            ; preds = %.preheader178.i
-  call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef %90, ptr noundef %133, i32 noundef 1)
-  call fastcc void @_ZL16low_do_four_coreiPfS_i(i32 noundef %3, ptr noundef %90, ptr noundef %133, i32 noundef 2)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef %133)
-  br label %_ZL12do_four_coremiPfS_S_.exit
-
 .loopexit171.i:                                   ; preds = %.lr.ph186.i, %._crit_edge195.i, %.loopexit.i, %134
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef %133)
   br i1 %98, label %.lr.ph217.i, label %_ZL12do_four_coremiPfS_S_.exit
@@ -876,7 +876,7 @@ _ZL22norm_and_scale_vectorsiPff.exit157.i:        ; preds = %.lr.ph.i151.i, %252
   %exitcond286.not.i = icmp eq i64 %indvars.iv.next283.i, %108
   br i1 %exitcond286.not.i, label %_ZL12do_four_coremiPfS_S_.exit, label %.lr.ph217.i, !llvm.loop !23
 
-_ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %.loopexit171.thread.i, %.loopexit171.i
+_ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %._crit_edge.thread.i, %.loopexit171.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   br label %464
@@ -906,7 +906,7 @@ _ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %.loop
 
 .preheader135.i:                                  ; preds = %290
   call void @llvm.memset.p0.i64(ptr align 4 %90, i8 0, i64 %97, i1 false)
-  br i1 %98, label %.lr.ph158.split.us.i, label %.preheader.i179
+  br i1 %98, label %.lr.ph158.split.us.i, label %.lr.ph188.i
 
 .lr.ph158.split.us.i:                             ; preds = %.preheader135.i
   br i1 %.not152, label %.lr.ph158.split.us.split.us.i, label %.lr.ph143.us.preheader.i
@@ -952,7 +952,7 @@ _ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %.loop
   %300 = trunc nuw i64 %indvars.iv.next267.i to i32
   %301 = icmp sgt i32 %3, %300
   %indvar.next.i = add i32 %indvar.i, 1
-  br i1 %301, label %.lr.ph143.us.us.us.us.us.i, label %.preheader.i179, !llvm.loop !24
+  br i1 %301, label %.lr.ph143.us.us.us.us.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 302:                                              ; preds = %346, %.lr.ph143.us.us.us.us.us.i
   %indvars.iv261.i = phi i64 [ %indvars.iv.next262.i, %346 ], [ 0, %.lr.ph143.us.us.us.us.us.i ]
@@ -1065,7 +1065,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
   %indvars.iv.next250.i186 = add nuw nsw i64 %indvars.iv249.i185, %352
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %exitcond255.not.i = icmp eq i64 %indvars.iv.next248.i, %wide.trip.count254.i
-  br i1 %exitcond255.not.i, label %.preheader.i179, label %.lr.ph143.us.us.us.us.us181.i, !llvm.loop !24
+  br i1 %exitcond255.not.i, label %.lr.ph188.i, label %.lr.ph143.us.us.us.us.us181.i, !llvm.loop !24
 
 359:                                              ; preds = %.preheader133.us.us.us.us.us.us.us.us.us.i, %.lr.ph143.us.us.us.us.us181.i
   %indvars.iv242.i = phi i64 [ %indvars.iv.next243.i, %.preheader133.us.us.us.us.us.us.us.us.us.i ], [ 0, %.lr.ph143.us.us.us.us.us181.i ]
@@ -1133,7 +1133,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
   %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, %383
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond236.not.i = icmp eq i64 %indvars.iv.next229.i, %wide.trip.count235.i
-  br i1 %exitcond236.not.i, label %.preheader.i179, label %.lr.ph143.us.us.us.us.i, !llvm.loop !24
+  br i1 %exitcond236.not.i, label %.lr.ph188.i, label %.lr.ph143.us.us.us.us.i, !llvm.loop !24
 
 390:                                              ; preds = %.preheader134.us.us.us.us.us.us.us.i, %.lr.ph143.us.us.us.us.i
   %indvars.iv223.i = phi i64 [ 0, %.lr.ph143.us.us.us.us.i ], [ %indvars.iv.next224.i, %.preheader134.us.us.us.us.us.us.us.i ]
@@ -1175,7 +1175,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 .critedge.us.us.us.i:                             ; preds = %415, %412
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, %293
   %411 = icmp ult i64 %indvars.iv.next217.i, %108
-  br i1 %411, label %.lr.ph143.us.us.us.i, label %.preheader.i179, !llvm.loop !24
+  br i1 %411, label %.lr.ph143.us.us.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 412:                                              ; preds = %415, %.lr.ph143.us.us.us.i
   %indvars.iv211.i = phi i64 [ 0, %.lr.ph143.us.us.us.i ], [ %indvars.iv.next212.i, %415 ]
@@ -1205,7 +1205,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 .critedge.us.us.i:                                ; preds = %429, %426
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, %292
   %425 = icmp ult i64 %indvars.iv.next209.i, %108
-  br i1 %425, label %.lr.ph143.us.us.i, label %.preheader.i179, !llvm.loop !24
+  br i1 %425, label %.lr.ph143.us.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 426:                                              ; preds = %429, %.lr.ph143.us.us.i
   %indvars.iv203.i = phi i64 [ 0, %.lr.ph143.us.us.i ], [ %indvars.iv.next204.i, %429 ]
@@ -1241,7 +1241,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
 .critedge.us.i:                                   ; preds = %443, %439
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, %291
   %442 = icmp ult i64 %indvars.iv.next201.i, %108
-  br i1 %442, label %.lr.ph143.us.i, label %.preheader.i179, !llvm.loop !24
+  br i1 %442, label %.lr.ph143.us.i, label %.lr.ph188.i, !llvm.loop !24
 
 443:                                              ; preds = %439
   %444 = load float, ptr %438, align 4
@@ -1255,10 +1255,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
   %exitcond.not.i184 = icmp eq i64 %indvars.iv.next.i183, %96
   br i1 %exitcond.not.i184, label %.critedge.us.i, label %439, !llvm.loop !26
 
-.preheader.i179:                                  ; preds = %.critedge.us.i, %.critedge.us.us.i, %.critedge.us.us.us.i, %.critedge.us.us.us.us.i, %.critedge.us.us.us.us.us183.i, %.critedge.us.us.us.us.us.i, %.preheader135.i
-  br i1 %95, label %.lr.ph188.i, label %_ZL10do_ac_coreiiPfS_im.exit
-
-.lr.ph188.i:                                      ; preds = %.preheader.i179
+.lr.ph188.i:                                      ; preds = %.critedge.us.i, %.critedge.us.us.i, %.critedge.us.us.us.i, %.critedge.us.us.us.us.i, %.critedge.us.us.us.us.us183.i, %.critedge.us.us.us.us.us.i, %.preheader135.i
   %450 = add i32 %.0.i, %3
   br label %454
 
@@ -1292,7 +1289,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %322, %319
   %exitcond273.not.i = icmp eq i64 %indvars.iv.next270.i, %96
   br i1 %exitcond273.not.i, label %_ZL10do_ac_coreiiPfS_im.exit, label %454, !llvm.loop !27
 
-_ZL10do_ac_coreiiPfS_im.exit:                     ; preds = %454, %290, %.preheader.i179
+_ZL10do_ac_coreiiPfS_im.exit:                     ; preds = %454, %290
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
@@ -1980,7 +1977,7 @@ define internal fastcc void @_ZL13normalize_acfiPf(i32 noundef %0, ptr nocapture
 ._crit_edge:                                      ; preds = %.lr.ph27
   %25 = load ptr, ptr @debug, align 8
   %.not23 = icmp eq ptr %25, null
-  br i1 %.not23, label %.loopexit, label %28
+  br i1 %.not23, label %.loopexit, label %.lr.ph30.preheader
 
 ._crit_edge.thread:                               ; preds = %.loopexit24
   %26 = load ptr, ptr @debug, align 8
@@ -1991,27 +1988,24 @@ define internal fastcc void @_ZL13normalize_acfiPf(i32 noundef %0, ptr nocapture
   %27 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 20, i64 1, ptr nonnull %26)
   br label %.loopexit
 
-28:                                               ; preds = %._crit_edge
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 20, i64 1, ptr nonnull %25)
-  br i1 %19, label %.lr.ph30.preheader, label %.loopexit
-
-.lr.ph30.preheader:                               ; preds = %28
+.lr.ph30.preheader:                               ; preds = %._crit_edge
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 20, i64 1, ptr nonnull %25)
   %wide.trip.count40 = zext nneg i32 %0 to i64
   br label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
   %indvars.iv37 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next38, %.lr.ph30 ]
-  %30 = load ptr, ptr @debug, align 8
-  %31 = getelementptr inbounds float, ptr %1, i64 %indvars.iv37
-  %32 = load float, ptr %31, align 4
-  %33 = fpext float %32 to double
-  %34 = trunc nuw nsw i64 %indvars.iv37 to i32
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.43, i32 noundef %34, double noundef %33) #20
+  %29 = load ptr, ptr @debug, align 8
+  %30 = getelementptr inbounds float, ptr %1, i64 %indvars.iv37
+  %31 = load float, ptr %30, align 4
+  %32 = fpext float %31 to double
+  %33 = trunc nuw nsw i64 %indvars.iv37 to i32
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.43, i32 noundef %33, double noundef %32) #20
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph30, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph30, %.thread, %._crit_edge.thread, %28, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph30, %.thread, %._crit_edge.thread, %._crit_edge
   ret void
 }
 

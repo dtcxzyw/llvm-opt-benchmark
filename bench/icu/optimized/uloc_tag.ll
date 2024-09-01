@@ -6190,22 +6190,22 @@ while.body.i.i:                                   ; preds = %for.body.i84, %if.e
 
 if.then.i.i137:                                   ; preds = %while.body.i.i
   %98 = load ptr, ptr %cur.08.i.i, align 8
-  br label %while.body.i58.preheader.i
+  br label %_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i
 
 if.end.i51.i:                                     ; preds = %while.body.i.i
   %next.i52.i = getelementptr inbounds i8, ptr %cur.08.i.i, i64 16
   %inc.i53.i = add nuw nsw i32 %i.07.i.i, 1
   %cur.0.i54.i = load ptr, ptr %next.i52.i, align 8
   %tobool.not.i.i85 = icmp eq ptr %cur.0.i54.i, null
-  br i1 %tobool.not.i.i85, label %while.body.i58.preheader.i, label %while.body.i.i, !llvm.loop !49
+  br i1 %tobool.not.i.i85, label %_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i, label %while.body.i.i, !llvm.loop !49
 
-while.body.i58.preheader.i:                       ; preds = %if.end.i51.i, %if.then.i.i137
+_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i: ; preds = %if.end.i51.i, %if.then.i.i137
   %key.0.i.i = phi ptr [ %98, %if.then.i.i137 ], [ null, %if.end.i51.i ]
   br label %while.body.i58.i
 
-while.body.i58.i:                                 ; preds = %if.end.i62.i, %while.body.i58.preheader.i
-  %cur.08.i59.i = phi ptr [ %cur.0.i65.i, %if.end.i62.i ], [ %cur.05.i.i, %while.body.i58.preheader.i ]
-  %i.07.i60.i = phi i32 [ %inc.i64.i, %if.end.i62.i ], [ 0, %while.body.i58.preheader.i ]
+while.body.i58.i:                                 ; preds = %if.end.i62.i, %_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i
+  %cur.08.i59.i = phi ptr [ %cur.0.i65.i, %if.end.i62.i ], [ %cur.05.i.i, %_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i ]
+  %i.07.i60.i = phi i32 [ %inc.i64.i, %if.end.i62.i ], [ 0, %_ZL21ultag_getExtensionKeyPK12ULanguageTagi.exit.i ]
   %cmp.i61.i = icmp eq i32 %i.07.i60.i, %i.0365.i
   br i1 %cmp.i61.i, label %if.then.i67.i, label %if.end.i62.i
 

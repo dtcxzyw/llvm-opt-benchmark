@@ -3489,7 +3489,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix19HasValidNumbersImplEv(ptr
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %19 = phi ptr [ %54, %._crit_edge ], [ %10, %.preheader.lr.ph ]
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
@@ -3502,7 +3502,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix19HasValidNumbersImplEv(ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 128
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  %28 = icmp eq i64 %indvars.iv28, %indvars.iv
+  %28 = icmp eq i64 %indvars.iv27, %indvars.iv
   %or.cond = and i1 %28, %27
   br i1 %or.cond, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread, label %29
 
@@ -3511,7 +3511,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix19HasValidNumbersImplEv(ptr
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr inbounds %"class.std::vector.25", ptr %31, i64 %indvars.iv28
+  %32 = getelementptr inbounds %"class.std::vector.25", ptr %31, i64 %indvars.iv27
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -3520,7 +3520,7 @@ define noundef zeroext i1 @_ZNK5Ipopt14CompoundMatrix19HasValidNumbersImplEv(ptr
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %30
   %36 = load ptr, ptr %15, align 8
-  %37 = getelementptr inbounds %"class.std::vector.30", ptr %36, i64 %indvars.iv28
+  %37 = getelementptr inbounds %"class.std::vector.30", ptr %36, i64 %indvars.iv27
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
@@ -3529,16 +3529,16 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit:     ; preds = %30
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread: ; preds = %.lr.ph
   %.pre = load ptr, ptr %14, align 8
-  %.phi.trans.insert = getelementptr inbounds %"class.std::vector.25", ptr %.pre, i64 %indvars.iv28
+  %.phi.trans.insert = getelementptr inbounds %"class.std::vector.25", ptr %.pre, i64 %indvars.iv27
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert31 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %.pre30, i64 %indvars.iv28
+  %.phi.trans.insert31 = getelementptr inbounds %"class.Ipopt::SmartPtr.35", ptr %.pre30, i64 %indvars.iv27
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   %.not.i13 = icmp eq ptr %.pre32, null
   br i1 %.not.i13, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread.thread, label %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit15
 
 _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread.thread: ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread
   %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds %"class.std::vector.30", ptr %41, i64 %indvars.iv28
+  %42 = getelementptr inbounds %"class.std::vector.30", ptr %41, i64 %indvars.iv27
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds %"class.Ipopt::SmartPtr.36", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
@@ -3565,12 +3565,12 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit15._crit_edge: ; preds = %_ZNK5Ipopt
 
 ._crit_edge:                                      ; preds = %47, %.preheader
   %54 = phi ptr [ %19, %.preheader ], [ %48, %47 ]
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %55 = getelementptr inbounds i8, ptr %54, i64 20
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
-  %.not34 = icmp slt i64 %indvars.iv.next29, %57
-  br i1 %.not34, label %.preheader, label %.loopexit, !llvm.loop !77
+  %.not23 = icmp slt i64 %indvars.iv.next28, %57
+  br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit15, %.preheader.lr.ph, %8
   %58 = phi i1 [ true, %8 ], [ true, %.preheader.lr.ph ], [ false, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit15 ], [ true, %._crit_edge ]

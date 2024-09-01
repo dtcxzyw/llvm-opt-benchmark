@@ -2476,66 +2476,66 @@ check_chld.exit:                                  ; preds = %11
 16:                                               ; preds = %13, %13
   %17 = icmp eq i16 %5, 61
   %18 = icmp eq i32 %7, 0
-  %19 = and i1 %17, %18
-  br i1 %19, label %20, label %.thread
+  %or.cond4 = and i1 %17, %18
+  br i1 %or.cond4, label %19, label %.thread
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 2) #9
-  %24 = load i8, ptr %6, align 1
-  store i8 %24, ptr %23, align 1
-  %25 = getelementptr i8, ptr %23, i64 1
-  store i8 0, ptr %25, align 1
-  %26 = tail call i64 @g_ascii_strtoull(ptr noundef nonnull %23, ptr noundef null, i32 noundef 10) #9
-  %27 = trunc i64 %26 to i32
-  %28 = icmp sgt i32 %8, 1
-  br i1 %28, label %29, label %43
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noalias ptr @wmem_alloc(ptr noundef %21, i64 noundef 2) #9
+  %23 = load i8, ptr %6, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = getelementptr i8, ptr %22, i64 1
+  store i8 0, ptr %24, align 1
+  %25 = tail call i64 @g_ascii_strtoull(ptr noundef nonnull %22, ptr noundef null, i32 noundef 10) #9
+  %26 = trunc i64 %25 to i32
+  %27 = icmp sgt i32 %8, 1
+  br i1 %27, label %28, label %42
 
-29:                                               ; preds = %20
-  %30 = add i32 %3, 1
-  %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %30) #9
-  %32 = icmp eq i8 %31, 120
-  br i1 %32, label %33, label %37
+28:                                               ; preds = %19
+  %29 = add i32 %3, 1
+  %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #9
+  %31 = icmp eq i8 %30, 120
+  br i1 %31, label %32, label %36
 
-33:                                               ; preds = %29
-  switch i32 %27, label %37 [
+32:                                               ; preds = %28
+  switch i32 %26, label %36 [
     i32 1, label %.sink.split
-    i32 2, label %34
+    i32 2, label %33
   ]
 
-34:                                               ; preds = %33
+33:                                               ; preds = %32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %33, %34
-  %hf_chld_mode_1x.sink = phi ptr [ @hf_chld_mode_2x, %34 ], [ @hf_chld_mode_1x, %33 ]
-  %35 = load i32, ptr %hf_chld_mode_1x.sink, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #9
-  br label %37
+.sink.split:                                      ; preds = %32, %33
+  %hf_chld_mode_1x.sink = phi ptr [ @hf_chld_mode_2x, %33 ], [ @hf_chld_mode_1x, %32 ]
+  %34 = load i32, ptr %hf_chld_mode_1x.sink, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #9
+  br label %36
 
-37:                                               ; preds = %.sink.split, %33, %29
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %30) #9
-  %39 = icmp ne i8 %38, 120
-  %40 = icmp ugt i32 %27, 4
-  %or.cond6 = select i1 %39, i1 true, i1 %40
-  br i1 %or.cond6, label %41, label %43
+36:                                               ; preds = %.sink.split, %32, %28
+  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #9
+  %38 = icmp ne i8 %37, 120
+  %39 = icmp ugt i32 %26, 4
+  %or.cond6 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond6, label %40, label %42
 
-41:                                               ; preds = %37
-  %42 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_chld_mode, ptr noundef %0, i32 noundef %3, i32 noundef %8) #9
-  br label %43
+40:                                               ; preds = %36
+  %41 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_chld_mode, ptr noundef %0, i32 noundef %3, i32 noundef %8) #9
+  br label %42
 
-43:                                               ; preds = %41, %37, %20
-  %44 = load i32, ptr @hf_chld_mode, align 4
-  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %27) #9
+42:                                               ; preds = %40, %36, %19
+  %43 = load i32, ptr @hf_chld_mode, align 4
+  %44 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %26) #9
   br label %check_chld.exit.thread47
 
 .thread:                                          ; preds = %check_chld.exit, %16
-  %46 = load i32, ptr @hf_chld_supported_modes, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #9
+  %45 = load i32, ptr @hf_chld_supported_modes, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #9
   br label %check_chld.exit.thread47
 
-check_chld.exit.thread47:                         ; preds = %13, %check_chld.exit, %.thread, %43
-  %.0 = phi i32 [ 1, %43 ], [ 1, %.thread ], [ 0, %check_chld.exit ], [ 0, %13 ]
+check_chld.exit.thread47:                         ; preds = %13, %check_chld.exit, %.thread, %42
+  %.0 = phi i32 [ 1, %42 ], [ 1, %.thread ], [ 0, %check_chld.exit ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -2982,8 +2982,8 @@ check_clip.exit:                                  ; preds = %11
   %15 = icmp ne i16 %5, 58
   %or.cond8.i.not = or i1 %14, %15
   %16 = icmp ugt i32 %7, 5
-  %or.cond95 = or i1 %or.cond8.i.not, %16
-  br i1 %or.cond95, label %check_clip.exit.thread80, label %.thread91
+  %or.cond = or i1 %or.cond8.i.not, %16
+  br i1 %or.cond, label %check_clip.exit.thread80, label %.thread91
 
 17:                                               ; preds = %13, %13, %13
   %18 = icmp eq i16 %5, 61

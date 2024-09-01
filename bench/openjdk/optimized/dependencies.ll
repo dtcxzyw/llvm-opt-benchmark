@@ -3953,16 +3953,13 @@ _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_Z
 _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %.lr.ph.i.i
   %36 = getelementptr inbounds i8, ptr %27, i64 16
   store i64 0, ptr %36, align 8
-  br i1 %31, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 36
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %.0.i.i to i64
   br label %39
 
-39:                                               ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
+39:                                               ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %40 = load i32, ptr %17, align 8
   %41 = icmp eq i32 %40, 8
   br i1 %41, label %42, label %70
@@ -4060,7 +4057,7 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
+._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
   %87 = load i32, ptr %27, align 4
   %88 = load i32, ptr %17, align 8
   tail call void @_ZN12Dependencies16print_dependencyENS_7DepTypeEP13GrowableArrayINS_11DepArgumentEEP5KlassP12outputStream(i32 noundef %88, ptr noundef nonnull %27, ptr noundef %2, ptr noundef %1)
@@ -5279,15 +5276,12 @@ _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_Z
 _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 0, ptr %40, align 8
-  br i1 %35, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
   %41 = getelementptr inbounds i8, ptr %0, i64 36
   %wide.trip.count = zext nneg i32 %.0.i.i to i64
   br label %42
 
-42:                                               ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
+42:                                               ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %43 = load i32, ptr %21, align 8
   %44 = icmp eq i32 %43, 8
   br i1 %44, label %45, label %73
@@ -5385,7 +5379,7 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
+._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
   %90 = load i32, ptr %31, align 4
   %91 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %91, null
@@ -5970,93 +5964,87 @@ define hidden noundef ptr @_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %.lr.ph11
+  br i1 %8, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %.lr.ph
 
-.lr.ph11:                                         ; preds = %2
+.lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   br label %11
 
-11:                                               ; preds = %.lr.ph11, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
-  %12 = phi ptr [ %1, %.lr.ph11 ], [ %.pr, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread ]
+11:                                               ; preds = %.lr.ph, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
+  %12 = phi ptr [ %1, %.lr.ph ], [ %.pr, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread ]
   %13 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %14 = zext i32 %13 to i64
-  %15 = load ptr, ptr %9, align 8
-  %16 = icmp eq ptr %15, %12
-  br i1 %16, label %.critedge, label %.lr.ph
+  %wide.trip.count.i = zext i32 %13 to i64
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %.lr.ph.i, !llvm.loop !48
+14:                                               ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !48
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %17 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %indvars.iv.next.i
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %12
-  br i1 %19, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %.lr.ph, !llvm.loop !48
+.lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
+  %15 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %indvars.iv.i
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, %12
+  br i1 %17, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %14
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %20 = icmp ult i64 %indvars.iv.next.i, %14
-  br i1 %20, label %.critedge, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
-
-.critedge:                                        ; preds = %.lr.ph.preheader.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
+_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i
   store i8 0, ptr %5, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread: ; preds = %11, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
-  %21 = getelementptr inbounds i8, ptr %12, i64 164
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 1024
-  %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %24, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
+.loopexit:                                        ; preds = %14, %11
+  %18 = getelementptr inbounds i8, ptr %12, i64 164
+  %19 = load i32, ptr %18, align 4
+  %20 = and i32 %19, 1024
+  %.not.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i, label %21, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
 
-24:                                               ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
-  %25 = load i32, ptr %7, align 8
-  %.not.i4.i = icmp eq i32 %25, 0
-  br i1 %.not.i4.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %26
+21:                                               ; preds = %.loopexit
+  %22 = load i32, ptr %7, align 8
+  %.not.i4.i = icmp eq i32 %22, 0
+  br i1 %.not.i4.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %23
 
-26:                                               ; preds = %24
-  %27 = add i32 %25, -1
-  store i32 %27, ptr %7, align 8
-  %28 = add i32 %13, 1
-  store i32 %28, ptr %10, align 8
-  %29 = zext i32 %13 to i64
-  %30 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %29
-  store ptr %12, ptr %30, align 8
+23:                                               ; preds = %21
+  %24 = add i32 %22, -1
+  store i32 %24, ptr %7, align 8
+  %25 = add i32 %13, 1
+  store i32 %25, ptr %10, align 8
+  %26 = zext i32 %13 to i64
+  %27 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %26
+  store ptr %12, ptr %27, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread: ; preds = %26, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, %.critedge
-  %31 = load i64, ptr %6, align 8
-  %32 = add nsw i64 %31, 1
-  store i64 %32, ptr %6, align 8
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread: ; preds = %23, %.loopexit, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
+  %28 = load i64, ptr %6, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr %6, align 8
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   %.pr = load ptr, ptr %4, align 8
-  %33 = icmp eq ptr %.pr, null
-  br i1 %33, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %11, !llvm.loop !49
+  %30 = icmp eq ptr %.pr, null
+  br i1 %30, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, label %11, !llvm.loop !49
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread, %24, %2
-  %.lcssa = phi ptr [ null, %2 ], [ %12, %24 ], [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread ]
-  %34 = load i8, ptr @UsePerfData, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %_ZN28AbstractClassHierarchyWalker30CountingClassHierarchyIteratorD2Ev.exit
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread, %21, %2
+  %.lcssa = phi ptr [ null, %2 ], [ %12, %21 ], [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread ]
+  %31 = load i8, ptr @UsePerfData, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN28AbstractClassHierarchyWalker30CountingClassHierarchyIteratorD2Ev.exit
 
-36:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit
-  %37 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
-  %38 = load i64, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i64, ptr %40, align 8
-  %42 = add nsw i64 %41, %38
-  store i64 %42, ptr %40, align 8
+33:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit
+  %34 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
+  %35 = load i64, ptr %6, align 8
+  %36 = getelementptr inbounds i8, ptr %34, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i64, ptr %37, align 8
+  %39 = add nsw i64 %38, %35
+  store i64 %39, ptr %37, align 8
   br label %_ZN28AbstractClassHierarchyWalker30CountingClassHierarchyIteratorD2Ev.exit
 
-_ZN28AbstractClassHierarchyWalker30CountingClassHierarchyIteratorD2Ev.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, %36
+_ZN28AbstractClassHierarchyWalker30CountingClassHierarchyIteratorD2Ev.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit, %33
   ret ptr %.lcssa
 }
 
@@ -6068,304 +6056,290 @@ define hidden noundef zeroext i1 @_ZN20ConcreteMethodFinder10is_witnessEP5Klass(
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %8 = zext i32 %7 to i64
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, %1
-  br i1 %10, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %.lr.ph
+  %wide.trip.count.i = zext i32 %7 to i64
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i69, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
-  br i1 %exitcond.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, label %.lr.ph.i, !llvm.loop !48
+8:                                                ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !48
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %11 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.next.i
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
-  br i1 %13, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %.lr.ph, !llvm.loop !48
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
+  %9 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, %1
+  br i1 %11, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %8
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i
-  %14 = icmp ult i64 %indvars.iv.next.i, %8
-  br i1 %14, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
+.loopexit:                                        ; preds = %8, %2
+  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp slt i32 %13, 5
+  br i1 %14, label %15, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread: ; preds = %.lr.ph, %2, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, 5
-  br i1 %17, label %18, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+15:                                               ; preds = %.loopexit
+  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %17, ptr noundef %19, i32 noundef 1) #19
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %22
 
-18:                                               ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %20, ptr noundef %22, i32 noundef 1) #19
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %25
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %20, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %23, align 8
+  %24 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
+  %or.cond12.not.i = icmp eq i32 %24, 0
+  br i1 %or.cond12.not.i, label %25, label %._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %23, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %26, align 8
-  %27 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
-  %or.cond12.not.i = icmp eq i32 %27, 0
-  br i1 %or.cond12.not.i, label %28, label %._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge
-
-._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge: ; preds = %25
+._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge: ; preds = %22
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 164
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 64
-  %.not66 = icmp eq i32 %33, 0
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 28
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, 64
+  %.not66 = icmp eq i32 %30, 0
   br i1 %.not66, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 164
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 1024
-  %.not.i36 = icmp eq i32 %36, 0
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %1, i64 164
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 1024
+  %.not.i36 = icmp eq i32 %33, 0
   br i1 %.not.i36, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57: ; preds = %28, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
-  %38 = load i32, ptr %6, align 8
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds [4 x ptr], ptr %37, i64 0, i64 %39
-  store ptr %23, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load i32, ptr %41, align 8
-  %.not.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57: ; preds = %25, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = load i32, ptr %6, align 8
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds [4 x ptr], ptr %34, i64 0, i64 %36
+  store ptr %20, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load i32, ptr %38, align 8
+  %.not.i.i = icmp eq i32 %39, 0
+  br i1 %.not.i.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split
 
 _ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit
-  %43 = phi i32 [ %.pre, %._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge ], [ %35, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ]
-  %44 = and i32 %43, 512
-  %.not72 = icmp ne i32 %44, 0
-  %45 = and i32 %.sroa.0.0.copyload.i.i.i, 1024
-  %.not67 = icmp eq i32 %45, 0
-  %or.cond = or i1 %.not67, %.not72
-  br i1 %or.cond, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %46
+  %40 = phi i32 [ %.pre, %._ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread_crit_edge ], [ %32, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ]
+  %41 = and i32 %40, 512
+  %.not67 = icmp ne i32 %41, 0
+  %42 = and i32 %.sroa.0.0.copyload.i.i.i, 1024
+  %.not68 = icmp eq i32 %42, 0
+  %or.cond = or i1 %.not68, %.not67
+  br i1 %or.cond, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %43
 
-46:                                               ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %48, i8 0, i64 36, i1 false)
+43:                                               ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
+  %44 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 0, i64 36, i1 false)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %4, align 8
-  %49 = load i32, ptr %6, align 8
-  %.not73 = icmp eq i32 %49, 0
-  br i1 %.not73, label %._crit_edge, label %_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph
+  %46 = load i32, ptr %6, align 8
+  %.not71 = icmp eq i32 %46, 0
+  br i1 %.not71, label %._crit_edge, label %_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph
 
-_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph: ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %4, i64 48
-  %wide.trip.count = zext i32 %49 to i64
+_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph: ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %wide.trip.count = zext i32 %46 to i64
   br label %_ZN28AbstractClassHierarchyWalker11participantEj.exit
 
 _ZN28AbstractClassHierarchyWalker11participantEj.exit: ; preds = %_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph, %_ZN28AbstractClassHierarchyWalker11participantEj.exit
   %indvars.iv = phi i64 [ 0, %_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph ], [ %indvars.iv.next, %_ZN28AbstractClassHierarchyWalker11participantEj.exit ]
-  %51 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %50, align 8
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %50, align 8
-  %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %55
-  store ptr %52, ptr %56, align 8
+  %48 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %47, align 8
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %47, align 8
+  %52 = zext i32 %50 to i64
+  %53 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %52
+  store ptr %49, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %_ZN28AbstractClassHierarchyWalker11participantEj.exit, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %_ZN28AbstractClassHierarchyWalker11participantEj.exit, %46
-  %57 = load i8, ptr @UsePerfData, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %.lr.ph11.i
+._crit_edge:                                      ; preds = %_ZN28AbstractClassHierarchyWalker11participantEj.exit, %43
+  %54 = load i8, ptr @UsePerfData, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %.lr.ph.i77
 
-59:                                               ; preds = %._crit_edge
-  %60 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_calls_countE, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i64, ptr %62, align 8
-  %64 = add nsw i64 %63, 1
-  store i64 %64, ptr %62, align 8
-  br label %.lr.ph11.i
+56:                                               ; preds = %._crit_edge
+  %57 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_calls_countE, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i64, ptr %59, align 8
+  %61 = add nsw i64 %60, 1
+  store i64 %61, ptr %59, align 8
+  br label %.lr.ph.i77
 
-.lr.ph11.i:                                       ; preds = %._crit_edge, %59
+.lr.ph.i77:                                       ; preds = %._crit_edge, %56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 48
-  %69 = load i32, ptr %68, align 8
-  %.not.i.i79 = icmp eq i32 %69, 0
-  %70 = zext i32 %69 to i64
-  %71 = load ptr, ptr %48, align 8
-  br label %72
+  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 48
+  %66 = load i32, ptr %65, align 8
+  %.not.i.i78 = icmp eq i32 %66, 0
+  %wide.trip.count.i.i = zext i32 %66 to i64
+  br label %67
 
-72:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph11.i
-  %73 = phi ptr [ %1, %.lr.ph11.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  br i1 %.not.i.i79, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.preheader.i.i
+67:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i77
+  %68 = phi ptr [ %1, %.lr.ph.i77 ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  br i1 %.not.i.i78, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %72
-  %74 = icmp eq ptr %71, %73
-  br i1 %74, label %.critedge.i, label %.lr.ph.i80
+69:                                               ; preds = %.lr.ph.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !48
 
-.lr.ph.i80:                                       ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %70
-  br i1 %exitcond.not.i.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !48
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i80
-  %75 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %indvars.iv.next.i.i
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, %73
-  br i1 %77, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %.lr.ph.i80, !llvm.loop !48
+.lr.ph.i.i:                                       ; preds = %67, %69
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %69 ], [ 0, %67 ]
+  %70 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %indvars.iv.i.i
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, %68
+  br i1 %72, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %69
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i: ; preds = %.lr.ph.i.i
-  %78 = icmp ult i64 %indvars.iv.next.i.i, %70
-  br i1 %78, label %.critedge.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i
-
-.critedge.i:                                      ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %.lr.ph.preheader.i.i
-  store i8 0, ptr %66, align 8
+  store i8 0, ptr %63, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i: ; preds = %.lr.ph.i80, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %72
-  %79 = getelementptr inbounds i8, ptr %73, i64 164
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 1024
-  %.not.i.i.i = icmp eq i32 %81, 0
+.loopexit.i:                                      ; preds = %69, %67
+  %73 = getelementptr inbounds i8, ptr %68, i64 164
+  %74 = load i32, ptr %73, align 4
+  %75 = and i32 %74, 1024
+  %.not.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, %.critedge.i
-  %82 = load i64, ptr %67, align 8
-  %83 = add nsw i64 %82, 1
-  store i64 %83, ptr %67, align 8
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %.loopexit.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i
+  %76 = load i64, ptr %64, align 8
+  %77 = add nsw i64 %76, 1
+  store i64 %77, ptr %64, align 8
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
-  %.pr.i = load ptr, ptr %65, align 8
-  %84 = icmp eq ptr %.pr.i, null
-  br i1 %84, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %72, !llvm.loop !49
+  %.pr.i = load ptr, ptr %62, align 8
+  %78 = icmp eq ptr %.pr.i, null
+  br i1 %78, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %67, !llvm.loop !49
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
-  %.lcssa.i = phi ptr [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ %73, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i ]
-  %85 = load i8, ptr @UsePerfData, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %.loopexit.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
+  %.lcssa.i = phi ptr [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ %68, %.loopexit.i ]
+  store i32 0, ptr %44, align 8
+  %79 = load i8, ptr @UsePerfData, align 1
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-87:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
-  %88 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
-  %89 = load i64, ptr %67, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 40
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i64, ptr %91, align 8
-  %93 = add nsw i64 %92, %89
-  store i64 %93, ptr %91, align 8
+81:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
+  %82 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
+  %83 = load i64, ptr %64, align 8
+  %84 = getelementptr inbounds i8, ptr %82, i64 40
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i64, ptr %85, align 8
+  %87 = add nsw i64 %86, %83
+  store i64 %87, ptr %85, align 8
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %87
+_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %.not = icmp eq ptr %.lcssa.i, null
-  br i1 %.not, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %94
+  br i1 %.not, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %88
 
-94:                                               ; preds = %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
-  %95 = load ptr, ptr %19, align 8
-  %96 = load ptr, ptr %21, align 8
-  %97 = call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %.lcssa.i, ptr noundef %95, ptr noundef %96, i32 noundef 1) #19
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, label %99
+88:                                               ; preds = %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+  %89 = load ptr, ptr %16, align 8
+  %90 = load ptr, ptr %18, align 8
+  %91 = call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %.lcssa.i, ptr noundef %89, ptr noundef %90, i32 noundef 1) #19
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, label %93
 
-99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %97, i64 40
-  %.sroa.0.0.copyload.i.i.i39 = load i32, ptr %100, align 8
-  %101 = and i32 %.sroa.0.0.copyload.i.i.i39, 1032
-  %or.cond12.not.i40 = icmp eq i32 %101, 0
-  br i1 %or.cond12.not.i40, label %102, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds i8, ptr %91, i64 40
+  %.sroa.0.0.copyload.i.i.i39 = load i32, ptr %94, align 8
+  %95 = and i32 %.sroa.0.0.copyload.i.i.i39, 1032
+  %or.cond12.not.i40 = icmp eq i32 %95, 0
+  br i1 %or.cond12.not.i40, label %96, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %97, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 28
-  %106 = load i32, ptr %105, align 4
-  %107 = and i32 %106, 64
-  %.not68 = icmp eq i32 %107, 0
-  br i1 %.not68, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %91, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 28
+  %100 = load i32, ptr %99, align 4
+  %101 = and i32 %100, 64
+  %.not69 = icmp eq i32 %101, 0
+  br i1 %.not69, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44: ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %.lcssa.i, i64 164
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 1024
-  %.not.i43 = icmp eq i32 %110, 0
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44: ; preds = %96
+  %102 = getelementptr inbounds i8, ptr %.lcssa.i, i64 164
+  %103 = load i32, ptr %102, align 4
+  %104 = and i32 %103, 1024
+  %.not.i43 = icmp eq i32 %104, 0
   br i1 %.not.i43, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread: ; preds = %99, %94, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44
-  %111 = getelementptr inbounds i8, ptr %0, i64 72
-  %112 = load i32, ptr %6, align 8
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds [4 x ptr], ptr %111, i64 0, i64 %113
-  store ptr %23, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
-  %116 = load i32, ptr %115, align 8
-  %.not.i.i45 = icmp eq i32 %116, 0
-  br i1 %.not.i.i45, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread: ; preds = %93, %88, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44
+  %105 = getelementptr inbounds i8, ptr %0, i64 72
+  %106 = load i32, ptr %6, align 8
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds [4 x ptr], ptr %105, i64 0, i64 %107
+  store ptr %20, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = load i32, ptr %109, align 8
+  %.not.i.i45 = icmp eq i32 %110, 0
+  br i1 %.not.i.i45, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split
 
-_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %18, %102, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
-  %117 = getelementptr inbounds i8, ptr %1, i64 408
-  %118 = load ptr, ptr %117, align 8
-  %.not35 = icmp eq ptr %118, null
-  br i1 %.not35, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %119
+_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %15, %96, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
+  %111 = getelementptr inbounds i8, ptr %1, i64 408
+  %112 = load ptr, ptr %111, align 8
+  %.not35 = icmp eq ptr %112, null
+  br i1 %.not35, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %113
 
-119:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %120 = load ptr, ptr %19, align 8
-  %121 = load ptr, ptr %21, align 8
-  %122 = call noundef ptr @_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_(ptr noundef nonnull %118, ptr noundef %120, ptr noundef %121) #19
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %124
+113:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
+  %114 = load ptr, ptr %16, align 8
+  %115 = load ptr, ptr %18, align 8
+  %116 = call noundef ptr @_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_(ptr noundef nonnull %112, ptr noundef %114, ptr noundef %115) #19
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %118
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds i8, ptr %122, i64 40
-  %.sroa.0.0.copyload.i.i.i47 = load i32, ptr %125, align 8
-  %126 = and i32 %.sroa.0.0.copyload.i.i.i47, 1032
-  %or.cond12.not.i48 = icmp eq i32 %126, 0
-  br i1 %or.cond12.not.i48, label %127, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds i8, ptr %116, i64 40
+  %.sroa.0.0.copyload.i.i.i47 = load i32, ptr %119, align 8
+  %120 = and i32 %.sroa.0.0.copyload.i.i.i47, 1032
+  %or.cond12.not.i48 = icmp eq i32 %120, 0
+  br i1 %or.cond12.not.i48, label %121, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 72
-  %129 = load i32, ptr %6, align 8
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds [4 x ptr], ptr %128, i64 0, i64 %130
-  store ptr %122, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 8
-  %133 = load i32, ptr %132, align 8
-  %.not.i.i53 = icmp eq i32 %133, 0
-  br i1 %.not.i.i53, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds i8, ptr %0, i64 72
+  %123 = load i32, ptr %6, align 8
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds [4 x ptr], ptr %122, i64 0, i64 %124
+  store ptr %116, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %127 = load i32, ptr %126, align 8
+  %.not.i.i53 = icmp eq i32 %127, 0
+  br i1 %.not.i.i53, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split
 
-_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split: ; preds = %127, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57
-  %.sink78 = phi i32 [ %42, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %116, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %133, %127 ]
-  %.sink77 = phi ptr [ %41, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %115, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %132, %127 ]
-  %.sink76 = phi i32 [ %38, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %112, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %129, %127 ]
-  %.sink75 = phi i64 [ %39, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %113, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %130, %127 ]
-  %134 = add i32 %.sink78, -1
-  store i32 %134, ptr %.sink77, align 8
-  %135 = add i32 %.sink76, 1
-  store i32 %135, ptr %6, align 8
-  %136 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %.sink75
-  store ptr %1, ptr %136, align 8
-  br label %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split: ; preds = %121, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57
+  %.sink76 = phi i32 [ %39, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %110, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %127, %121 ]
+  %.sink75 = phi ptr [ %38, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %109, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %126, %121 ]
+  %.sink74 = phi i32 [ %35, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %106, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %123, %121 ]
+  %.sink73 = phi i64 [ %36, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ %107, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ %124, %121 ]
+  %128 = add i32 %.sink76, -1
+  store i32 %128, ptr %.sink75, align 8
+  %129 = add i32 %.sink74, 1
+  store i32 %129, ptr %6, align 8
+  %130 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %.sink73
+  store ptr %1, ptr %130, align 8
+  br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit: ; preds = %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split, %.lr.ph.preheader.i, %124, %119, %127, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
-  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit ], [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ true, %127 ], [ false, %119 ], [ false, %124 ], [ false, %.lr.ph.preheader.i ], [ false, %_ZN20ConcreteMethodFinder14record_witnessEP5KlassP6Method.exit.sink.split ]
+_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split, %118, %113, %121, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, %.loopexit, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
+  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %.loopexit ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ true, %121 ], [ false, %113 ], [ false, %118 ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -6543,115 +6517,109 @@ define hidden noundef zeroext i1 @_ZN26LinkedConcreteMethodFinder10is_witnessEP5
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %7 = zext i32 %6 to i64
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, %1
-  br i1 %9, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %.lr.ph
+  %wide.trip.count.i = zext i32 %6 to i64
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i17, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %7
-  br i1 %exitcond.not.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %.lr.ph.i, !llvm.loop !48
+7:                                                ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !48
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %10 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.next.i
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
-  br i1 %12, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %.lr.ph, !llvm.loop !48
+.lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
+  %8 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, %1
+  br i1 %10, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %7
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %13 = icmp ult i64 %indvars.iv.next.i, %7
-  br i1 %13, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
+.loopexit:                                        ; preds = %7, %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp slt i32 %12, 5
+  br i1 %13, label %14, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread: ; preds = %2, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp slt i32 %15, 5
-  br i1 %16, label %17, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+14:                                               ; preds = %.loopexit
+  %15 = getelementptr inbounds i8, ptr %1, i64 164
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 1536
+  %or.cond.not.i = icmp eq i32 %17, 0
+  br i1 %or.cond.not.i, label %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-17:                                               ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread
-  %18 = getelementptr inbounds i8, ptr %1, i64 164
-  %19 = load i32, ptr %18, align 4
-  %20 = and i32 %19, 1536
-  %or.cond.not.i = icmp eq i32 %20, 0
-  br i1 %or.cond.not.i, label %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit: ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 305
+  %19 = load volatile i8, ptr %18, align 1
+  %20 = icmp ugt i8 %19, 1
+  br i1 %20, label %21, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit: ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 305
-  %22 = load volatile i8, ptr %21, align 1
-  %23 = icmp ugt i8 %22, 1
-  br i1 %23, label %24, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
-
-24:                                               ; preds = %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit
+21:                                               ; preds = %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %25 = getelementptr inbounds i8, ptr %0, i64 76
-  %26 = load i8, ptr %25, align 4
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %34
+  %22 = getelementptr inbounds i8, ptr %0, i64 76
+  %23 = load i8, ptr %22, align 4
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %31
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
-  %32 = load i32, ptr %31, align 8
-  %33 = call noundef ptr @_ZN13InstanceKlass24method_at_itable_or_nullEPS_iRb(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %30, i32 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = load i32, ptr %28, align 8
+  %30 = call noundef ptr @_ZN13InstanceKlass24method_at_itable_or_nullEPS_iRb(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %27, i32 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   br label %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
-  %36 = load i32, ptr %35, align 8
-  %37 = tail call noundef ptr @_ZN5Klass16method_at_vtableEi(ptr noundef nonnull align 8 dereferenceable(196) %1, i32 noundef %36) #19
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = load i32, ptr %32, align 8
+  %34 = tail call noundef ptr @_ZN5Klass16method_at_vtableEi(ptr noundef nonnull align 8 dereferenceable(196) %1, i32 noundef %33) #19
   br label %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit
 
-_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit: ; preds = %28, %34
-  %.0.i9 = phi ptr [ %33, %28 ], [ %37, %34 ]
+_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit: ; preds = %25, %31
+  %.0.i9 = phi ptr [ %30, %25 ], [ %34, %31 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %38 = load i32, ptr %5, align 8
-  %.not.i10 = icmp eq i32 %38, 0
+  %35 = load i32, ptr %5, align 8
+  %.not.i10 = icmp eq i32 %35, 0
   br i1 %.not.i10, label %._crit_edge.i, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
-  %wide.trip.count.i = zext i32 %38 to i64
-  br label %41
+  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %wide.trip.count.i12 = zext i32 %35 to i64
+  br label %38
 
-40:                                               ; preds = %41
-  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
-  %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i
-  br i1 %exitcond.not.i14, label %._crit_edge.i, label %41, !llvm.loop !53
+37:                                               ; preds = %38
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i12
+  br i1 %exitcond.not.i15, label %._crit_edge.i, label %38, !llvm.loop !53
 
-41:                                               ; preds = %40, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %40 ]
-  %42 = getelementptr inbounds [4 x ptr], ptr %39, i64 0, i64 %indvars.iv.i12
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %.0.i9
-  br i1 %44, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %40
+38:                                               ; preds = %37, %.lr.ph.i11
+  %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i14, %37 ]
+  %39 = getelementptr inbounds [4 x ptr], ptr %36, i64 0, i64 %indvars.iv.i13
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %.0.i9
+  br i1 %41, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %37
 
-._crit_edge.i:                                    ; preds = %40, %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit
-  %.pre-phi.i = phi i64 [ 0, %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit ], [ %wide.trip.count.i, %40 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
-  %46 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %.pre-phi.i
-  store ptr %.0.i9, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load i32, ptr %47, align 8
-  %.not.i.i = icmp eq i32 %48, 0
-  br i1 %.not.i.i, label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit, label %49
+._crit_edge.i:                                    ; preds = %37, %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit
+  %.pre-phi.i = phi i64 [ 0, %_ZN26LinkedConcreteMethodFinder13select_methodEP13InstanceKlass.exit ], [ %wide.trip.count.i12, %37 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds [4 x ptr], ptr %42, i64 0, i64 %.pre-phi.i
+  store ptr %.0.i9, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = load i32, ptr %44, align 8
+  %.not.i.i = icmp eq i32 %45, 0
+  br i1 %.not.i.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit, label %46
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = add i32 %48, -1
-  store i32 %50, ptr %47, align 8
-  %51 = add i32 %38, 1
-  store i32 %51, ptr %5, align 8
-  %52 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %.pre-phi.i
-  store ptr %1, ptr %52, align 8
-  br label %_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit
+46:                                               ; preds = %._crit_edge.i
+  %47 = add i32 %45, -1
+  store i32 %47, ptr %44, align 8
+  %48 = add i32 %35, 1
+  store i32 %48, ptr %5, align 8
+  %49 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %.pre-phi.i
+  store ptr %1, ptr %49, align 8
+  br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
-_ZN26LinkedConcreteMethodFinder14record_witnessEP5KlassP6Method.exit: ; preds = %41, %.lr.ph.preheader.i, %17, %49, %._crit_edge.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
-  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit ], [ false, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread ], [ true, %._crit_edge.i ], [ false, %49 ], [ false, %17 ], [ false, %.lr.ph.preheader.i ], [ false, %41 ]
+_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %38, %14, %46, %._crit_edge.i, %.loopexit, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit
+  %.0 = phi i1 [ false, %_ZN26LinkedConcreteMethodFinder17is_concrete_klassEP13InstanceKlass.exit ], [ false, %.loopexit ], [ true, %._crit_edge.i ], [ false, %46 ], [ false, %14 ], [ false, %38 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -7018,171 +6986,161 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
 define hidden noundef ptr @_ZN12Dependencies28find_unique_concrete_subtypeEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.AbstractClassHierarchyWalker::CountingClassHierarchyIterator", align 8
   %3 = alloca %class.ConcreteSubtypeFinder, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
   %.not.i.i = icmp eq ptr %0, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 0, i64 36, i1 false)
-  br i1 %.not.i.i, label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit, label %6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 36, i1 false)
+  br i1 %.not.i.i, label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit, label %5
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 1, ptr %7, align 8
-  store ptr %0, ptr %5, align 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8
   br label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
 
-_ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %1, %6
-  %8 = phi i32 [ 0, %1 ], [ 1, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %3, align 8
-  store i32 1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 164
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 512
-  %.not13.i = icmp eq i32 %11, 0
-  br i1 %.not13.i, label %16, label %12
+_ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %1, %5
+  %7 = phi i32 [ 0, %1 ], [ 1, %5 ]
+  %8 = getelementptr inbounds i8, ptr %0, i64 164
+  %9 = load i32, ptr %8, align 4
+  %10 = and i32 %9, 512
+  %.not13.i = icmp eq i32 %10, 0
+  br i1 %.not13.i, label %15, label %11
 
-12:                                               ; preds = %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
-  %13 = tail call noundef i32 @_ZNK13InstanceKlass16nof_implementorsEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #19
-  switch i32 %13, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11 [
+11:                                               ; preds = %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
+  %12 = tail call noundef i32 @_ZNK13InstanceKlass16nof_implementorsEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #19
+  switch i32 %12, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11 [
     i32 0, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-    i32 1, label %14
+    i32 1, label %13
   ]
 
-14:                                               ; preds = %12
-  %15 = tail call noundef ptr @_ZNK13InstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #19
-  br label %16
+13:                                               ; preds = %11
+  %14 = tail call noundef ptr @_ZNK13InstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #19
+  br label %15
 
-16:                                               ; preds = %14, %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
-  %.010.i = phi ptr [ %15, %14 ], [ %0, %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit ]
-  %17 = load i8, ptr @UsePerfData, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
+15:                                               ; preds = %13, %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
+  %.010.i = phi ptr [ %14, %13 ], [ %0, %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit ]
+  %16 = load i8, ptr @UsePerfData, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_calls_countE, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr %22, align 8
-  %24 = add nsw i64 %23, 1
-  store i64 %24, ptr %22, align 8
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_calls_countE, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add nsw i64 %22, 1
+  store i64 %23, ptr %21, align 8
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
 
-_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %16, %19
+_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit: ; preds = %15, %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store ptr %.010.i, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.010.i, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 0, ptr %27, align 8
-  %28 = icmp eq ptr %.010.i, null
-  br i1 %28, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %.lr.ph11.i
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.010.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 0, ptr %26, align 8
+  %27 = icmp eq ptr %.010.i, null
+  br i1 %27, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %.lr.ph.i
 
-.lr.ph11.i:                                       ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
-  %29 = getelementptr inbounds i8, ptr %3, i64 48
-  br label %30
+.lr.ph.i:                                         ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
+  %28 = getelementptr inbounds i8, ptr %3, i64 48
+  br label %29
 
-30:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph11.i
-  %31 = phi i32 [ 1, %.lr.ph11.i ], [ %50, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  %32 = phi ptr [ %.010.i, %.lr.ph11.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  %33 = load i32, ptr %29, align 8
-  %.not.i.i16 = icmp eq i32 %33, 0
-  br i1 %.not.i.i16, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.preheader.i.i
+29:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i
+  %30 = phi i32 [ 1, %.lr.ph.i ], [ %46, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  %31 = phi ptr [ %.010.i, %.lr.ph.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  %32 = load i32, ptr %28, align 8
+  %.not.i.i16 = icmp eq i32 %32, 0
+  br i1 %.not.i.i16, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %30
-  %34 = zext i32 %33 to i64
-  %35 = load ptr, ptr %5, align 8
-  %36 = icmp eq ptr %35, %32
-  br i1 %36, label %.critedge.i, label %.lr.ph.i
+.lr.ph.preheader.i.i:                             ; preds = %29
+  %wide.trip.count.i.i = zext i32 %32 to i64
+  br label %.lr.ph.i.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %34
-  br i1 %exitcond.not.i.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !48
+33:                                               ; preds = %.lr.ph.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !48
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.next.i.i
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %32
-  br i1 %39, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %.lr.ph.i, !llvm.loop !48
+.lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
+  %34 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, %31
+  br i1 %36, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %33
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i: ; preds = %.lr.ph.i.i
-  %40 = icmp ult i64 %indvars.iv.next.i.i, %34
-  br i1 %40, label %.critedge.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i
-
-.critedge.i:                                      ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %.lr.ph.preheader.i.i
-  store i8 0, ptr %26, align 8
+  store i8 0, ptr %25, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i: ; preds = %.lr.ph.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %30
-  %41 = getelementptr inbounds i8, ptr %32, i64 164
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, 1024
-  %.not.i.i.i = icmp eq i32 %43, 0
-  br i1 %.not.i.i.i, label %44, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
+.loopexit.i:                                      ; preds = %33, %29
+  %37 = getelementptr inbounds i8, ptr %31, i64 164
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 1024
+  %.not.i.i.i = icmp eq i32 %39, 0
+  br i1 %.not.i.i.i, label %40, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-44:                                               ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i
-  %.not.i4.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i4.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %45
+40:                                               ; preds = %.loopexit.i
+  %.not.i4.i.i = icmp eq i32 %30, 0
+  br i1 %.not.i4.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %41
 
-45:                                               ; preds = %44
-  %46 = add i32 %31, -1
-  store i32 %46, ptr %4, align 8
-  %47 = add i32 %33, 1
-  store i32 %47, ptr %29, align 8
-  %48 = zext i32 %33 to i64
-  %49 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %48
-  store ptr %32, ptr %49, align 8
+41:                                               ; preds = %40
+  %42 = add i32 %30, -1
+  %43 = add i32 %32, 1
+  store i32 %43, ptr %28, align 8
+  %44 = zext i32 %32 to i64
+  %45 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %44
+  store ptr %31, ptr %45, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %45, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, %.critedge.i
-  %50 = phi i32 [ %46, %45 ], [ %31, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i ], [ %31, %.critedge.i ]
-  %51 = load i64, ptr %27, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr %27, align 8
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %41, %.loopexit.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i
+  %46 = phi i32 [ %42, %41 ], [ %30, %.loopexit.i ], [ %30, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i ]
+  %47 = load i64, ptr %26, align 8
+  %48 = add nsw i64 %47, 1
+  store i64 %48, ptr %26, align 8
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %2) #19
-  %.pr.i = load ptr, ptr %25, align 8
-  %53 = icmp eq ptr %.pr.i, null
-  br i1 %53, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %30, !llvm.loop !49
+  %.pr.i = load ptr, ptr %24, align 8
+  %49 = icmp eq ptr %.pr.i, null
+  br i1 %49, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %29, !llvm.loop !49
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %44, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
-  %.lcssa.i = phi i1 [ true, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit ], [ true, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ false, %44 ]
-  %54 = load i8, ptr @UsePerfData, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %40, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
+  %.lcssa.i = phi i1 [ true, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit ], [ true, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ false, %40 ]
+  %50 = load i8, ptr @UsePerfData, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-56:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
-  %57 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
-  %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i64, ptr %60, align 8
-  %62 = add nsw i64 %61, %58
-  store i64 %62, ptr %60, align 8
+52:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
+  %53 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
+  %54 = load i64, ptr %26, align 8
+  %55 = getelementptr inbounds i8, ptr %53, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i64, ptr %56, align 8
+  %58 = add nsw i64 %57, %54
+  store i64 %58, ptr %56, align 8
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %56
+_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   br i1 %.lcssa.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge: ; preds = %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre15 = load ptr, ptr %5, align 8
+  %.pre15 = load ptr, ptr %4, align 8
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
 
-_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, %12
-  %63 = phi ptr [ %.pre15, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %0, %12 ]
-  %64 = phi i32 [ %.pre, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %8, %12 ]
-  %.not14 = icmp eq i32 %64, 0
-  %spec.select = select i1 %.not14, ptr null, ptr %63
-  %65 = icmp eq ptr %spec.select, null
-  %. = select i1 %65, ptr %0, ptr %spec.select
+_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, %11
+  %59 = phi ptr [ %.pre15, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %0, %11 ]
+  %60 = phi i32 [ %.pre, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %7, %11 ]
+  %.not14 = icmp eq i32 %60, 0
+  %spec.select = select i1 %.not14, ptr null, ptr %59
+  %61 = icmp eq ptr %spec.select, null
+  %. = select i1 %61, ptr %0, ptr %spec.select
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11
 
-_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11: ; preds = %12, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
-  %.0 = phi ptr [ null, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit ], [ %., %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ null, %12 ]
+_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11: ; preds = %11, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+  %.0 = phi ptr [ null, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit ], [ %., %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -7472,129 +7430,125 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   %61 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %61, align 8
   %62 = icmp eq ptr %.010.i, null
-  br i1 %62, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %.lr.ph11.i
+  br i1 %62, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %.lr.ph.i
 
-.lr.ph11.i:                                       ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
+.lr.ph.i:                                         ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
   %63 = getelementptr inbounds i8, ptr %6, i64 48
   %64 = load i32, ptr %63, align 8
   %.not.i.i32 = icmp eq i32 %64, 0
-  %65 = zext i32 %64 to i64
-  %66 = load ptr, ptr %40, align 8
-  br label %67
+  %wide.trip.count.i.i = zext i32 %64 to i64
+  br label %65
 
-67:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph11.i
-  %68 = phi ptr [ %.010.i, %.lr.ph11.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  br i1 %.not.i.i32, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.preheader.i.i
+65:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i
+  %66 = phi ptr [ %.010.i, %.lr.ph.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  br i1 %.not.i.i32, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %67
-  %69 = icmp eq ptr %66, %68
-  br i1 %69, label %.critedge.i, label %.lr.ph.i
+67:                                               ; preds = %.lr.ph.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !48
 
-.lr.ph.i:                                         ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %65
-  br i1 %exitcond.not.i.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !48
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds [4 x ptr], ptr %40, i64 0, i64 %indvars.iv.next.i.i
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, %68
-  br i1 %72, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %.lr.ph.i, !llvm.loop !48
+.lr.ph.i.i:                                       ; preds = %65, %67
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %67 ], [ 0, %65 ]
+  %68 = getelementptr inbounds [4 x ptr], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, %66
+  br i1 %70, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, label %67
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i: ; preds = %.lr.ph.i.i
-  %73 = icmp ult i64 %indvars.iv.next.i.i, %65
-  br i1 %73, label %.critedge.i, label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i
-
-.critedge.i:                                      ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %.lr.ph.preheader.i.i
   store i8 0, ptr %60, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i: ; preds = %.lr.ph.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i, %67
-  %74 = getelementptr inbounds i8, ptr %68, i64 164
-  %75 = load i32, ptr %74, align 4
-  %76 = and i32 %75, 1024
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
+.loopexit.i:                                      ; preds = %67, %65
+  %71 = getelementptr inbounds i8, ptr %66, i64 164
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, 1024
+  %.not.i.i.i = icmp eq i32 %73, 0
+  br i1 %.not.i.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i.loopexit, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, %.critedge.i
-  %77 = load i64, ptr %61, align 8
-  %78 = add nsw i64 %77, 1
-  store i64 %78, ptr %61, align 8
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %.loopexit.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i
+  %74 = load i64, ptr %61, align 8
+  %75 = add nsw i64 %74, 1
+  store i64 %75, ptr %61, align 8
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   %.pr.i = load ptr, ptr %59, align 8
-  %79 = icmp eq ptr %.pr.i, null
-  br i1 %79, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %67, !llvm.loop !49
+  %76 = icmp eq ptr %.pr.i, null
+  br i1 %76, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i.loopexit, label %65, !llvm.loop !49
 
-_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
-  %.lcssa.i = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit ], [ %68, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.thread.i ], [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  %80 = load i8, ptr @UsePerfData, align 1
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i.loopexit: ; preds = %.loopexit.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
+  %.lcssa.i.ph = phi ptr [ null, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ %66, %.loopexit.i ]
+  store i32 0, ptr %39, align 8
+  br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
 
-82:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
-  %83 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
-  %84 = load i64, ptr %61, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 40
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i64, ptr %86, align 8
-  %88 = add nsw i64 %87, %84
-  store i64 %88, ptr %86, align 8
+_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i.loopexit, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
+  %.lcssa.i = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit ], [ %.lcssa.i.ph, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i.loopexit ]
+  %77 = load i8, ptr @UsePerfData, align 1
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+
+79:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
+  %80 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
+  %81 = load i64, ptr %61, align 8
+  %82 = getelementptr inbounds i8, ptr %80, i64 40
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i64, ptr %83, align 8
+  %85 = add nsw i64 %84, %81
+  store i64 %85, ptr %83, align 8
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %82
+_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %79
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %.not20 = icmp eq ptr %.lcssa.i, null
   br i1 %.not20, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24: ; preds = %46, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
   %.0.i27 = phi ptr [ %.lcssa.i, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit ], [ %0, %46 ]
-  %89 = load ptr, ptr %33, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 36
-  %93 = load i16, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %91, i64 72
-  %95 = zext i16 %93 to i64
-  %96 = getelementptr inbounds i64, ptr %94, i64 %95
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 38
-  %99 = load i16, ptr %98, align 2
-  %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds i64, ptr %94, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %.0.i27, ptr noundef %97, ptr noundef %102, i32 noundef 1) #19
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %105
+  %86 = load ptr, ptr %33, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %86, i64 36
+  %90 = load i16, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %88, i64 72
+  %92 = zext i16 %90 to i64
+  %93 = getelementptr inbounds i64, ptr %91, i64 %92
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %86, i64 38
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i64
+  %98 = getelementptr inbounds i64, ptr %91, i64 %97
+  %99 = load ptr, ptr %98, align 8
+  %100 = call noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull align 8 dereferenceable(464) %.0.i27, ptr noundef %94, ptr noundef %99, i32 noundef 1) #19
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %102
 
-105:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24
-  %106 = getelementptr inbounds i8, ptr %103, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %106, align 8
-  %107 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
-  %or.cond12.not.i = icmp eq i32 %107, 0
-  br i1 %or.cond12.not.i, label %108, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
+102:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24
+  %103 = getelementptr inbounds i8, ptr %100, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %103, align 8
+  %104 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
+  %or.cond12.not.i = icmp eq i32 %104, 0
+  br i1 %or.cond12.not.i, label %105, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %103, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 28
-  %112 = load i32, ptr %111, align 4
-  %113 = and i32 %112, 64
-  %.not31 = icmp eq i32 %113, 0
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %100, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 28
+  %109 = load i32, ptr %108, align 4
+  %110 = and i32 %109, 64
+  %.not31 = icmp eq i32 %110, 0
   br i1 %.not31, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %.0.i27, i64 164
-  %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, 1024
-  %.not.i = icmp eq i32 %116, 0
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %105
+  %111 = getelementptr inbounds i8, ptr %.0.i27, i64 164
+  %112 = load i32, ptr %111, align 4
+  %113 = and i32 %112, 1024
+  %.not.i = icmp eq i32 %113, 0
   br i1 %.not.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %108, %46, %8, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit, %3
+_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %105, %46, %8, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit, %3
   br label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %105, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %8, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %.0 = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ %30, %8 ], [ %.0.i27, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ], [ %.0.i27, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24 ], [ %.0.i27, %105 ]
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %102, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %8, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
+  %.0 = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ %30, %8 ], [ %.0.i27, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ], [ %.0.i27, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread24 ], [ %.0.i27, %102 ]
   ret ptr %.0
 }
 
@@ -10517,32 +10471,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i310 = or i64 %.0.i.i310.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i16.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
-  %72 = icmp eq i64 %71, %.0.i16.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
+  %71 = icmp eq i64 %70, %.0.i16.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !67
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !67
 
-_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -10659,32 +10612,31 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %66 = shl i64 %53, %65
   %67 = or i64 %66, %60
   %68 = and i64 %67, -65521
-  %69 = icmp ne i64 %68, 0
-  %or.cond18.i.i = or i1 %16, %69
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
+  %.not = icmp eq i64 %68, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %70 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %.0.i.i18 = or i64 %.0.i.i18.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %73
-  %.0.i17.i = phi i64 [ %71, %73 ], [ %1, %.preheader.i.i.preheader ]
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !64
-  %72 = icmp eq i64 %71, %.0.i17.i
-  br i1 %72, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %73
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
+  %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !64
+  %71 = icmp eq i64 %70, %.0.i17.i
+  br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
-73:                                               ; preds = %.preheader.i.i
-  %74 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %75 = and i64 %74, %71
-  %.not.i.i = icmp eq i64 %75, 0
-  %76 = icmp ne i64 %71, 0
-  %77 = and i1 %76, %.not.i.i
-  br i1 %77, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !67
+72:                                               ; preds = %.preheader.i.i
+  %73 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %74 = and i64 %73, %70
+  %.not.i.i = icmp eq i64 %74, 0
+  %75 = icmp ne i64 %70, 0
+  %76 = and i1 %75, %.not.i.i
+  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !67
 
-_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %73, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %70, %73 ], [ %70, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
   ret i64 %.0.i
 }
 
@@ -11182,9 +11134,8 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %57 = or i64 %49, %56
   %58 = or i64 %57, %50
   %59 = and i64 %58, -65521
-  %60 = icmp ne i64 %59, 0
-  %or.cond18.i.i = or i1 %14, %60
-  br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_load_good8zaddress8zpointer.exit.thread, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i.i114.in = phi i64 [ %48, %_Z15color_load_good8zaddress8zpointer.exit.thread ], [ %58, %_Z15color_load_good8zaddress8zpointer.exit ]
@@ -11192,20 +11143,20 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.0.i.i114 = or i64 %.0.i.i114.in, 48
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %63
-  %.0.i16.i = phi i64 [ %61, %63 ], [ %1, %.preheader.i.i.preheader ]
-  %61 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
-  %62 = icmp eq i64 %61, %.0.i16.i
-  br i1 %62, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %63
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
+  %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
+  %61 = icmp eq i64 %60, %.0.i16.i
+  br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
-63:                                               ; preds = %.preheader.i.i
-  %64 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %65 = and i64 %64, %61
-  %.not.i.i = icmp eq i64 %65, 0
+62:                                               ; preds = %.preheader.i.i
+  %63 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %64 = and i64 %63, %60
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !67
 
-_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %63, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
-  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %63 ], [ %.0.i.i5813, %.preheader.i.i ]
+_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
+  %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
   ret i64 %.0.i
 }
 

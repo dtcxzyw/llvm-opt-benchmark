@@ -835,13 +835,10 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
 ._crit_edge.us:                                   ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader49, label %.preheader50.us, !llvm.loop !7
+  br i1 %exitcond66.not, label %.preheader.lr.ph, label %.preheader50.us, !llvm.loop !7
 
-.preheader49:                                     ; preds = %._crit_edge.us
-  br i1 %17, label %.preheader.lr.ph, label %._crit_edge58
-
-.preheader.lr.ph:                                 ; preds = %.preheader50.lr.ph, %.preheader49
-  %.045.lcssa75 = phi float [ %.2.us, %.preheader49 ], [ 1.000000e+00, %.preheader50.lr.ph ]
+.preheader.lr.ph:                                 ; preds = %._crit_edge.us, %.preheader50.lr.ph
+  %.045.lcssa75 = phi float [ 1.000000e+00, %.preheader50.lr.ph ], [ %.2.us, %._crit_edge.us ]
   %41 = getelementptr inbounds i8, ptr %0, i64 12
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1097,7 +1094,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread:   ; preds = %.lr.ph, %60, %_ZL12
   %153 = icmp slt i64 %indvars.iv.next71, %152
   br i1 %153, label %.preheader, label %._crit_edge58, !llvm.loop !20
 
-._crit_edge58:                                    ; preds = %._crit_edge, %2, %.preheader.lr.ph, %.preheader49
+._crit_edge58:                                    ; preds = %._crit_edge, %2, %.preheader.lr.ph
   ret void
 }
 

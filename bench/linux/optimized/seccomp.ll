@@ -132,24 +132,24 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__seccomp_filter_release(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.thread6, label %.preheader7
+  br i1 %2, label %.thread6, label %.preheader
 
-.preheader7:                                      ; preds = %1, %17
+.preheader:                                       ; preds = %1, %17
   %3 = phi ptr [ %19, %17 ], [ %0, %1 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #14, !srcloc !9
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %10, label %7
 
-7:                                                ; preds = %.preheader7
+7:                                                ; preds = %.preheader
   %8 = icmp sgt i32 %5, 0
-  br i1 %8, label %.preheader.preheader, label %9, !prof !5
+  br i1 %8, label %.thread.preheader, label %9, !prof !5
 
 9:                                                ; preds = %7
   tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 3) #14
-  br label %.preheader.preheader
+  br label %.thread.preheader
 
-10:                                               ; preds = %.preheader7
+10:                                               ; preds = %.preheader
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %11 = getelementptr inbounds i8, ptr %3, i64 208
   %12 = load volatile ptr, ptr %11, align 8
@@ -165,18 +165,18 @@ define internal fastcc void @__seccomp_filter_release(ptr noundef %0) unnamed_ad
   %18 = getelementptr inbounds i8, ptr %3, i64 144
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.preheader.preheader, label %.preheader7, !llvm.loop !11
+  br i1 %20, label %.thread.preheader, label %.preheader, !llvm.loop !11
 
-.preheader.preheader:                             ; preds = %17, %9, %7
-  br label %.preheader
+.thread.preheader:                                ; preds = %17, %7, %9
+  br label %.thread
 
-.preheader:                                       ; preds = %.preheader.preheader, %27
-  %21 = phi ptr [ %29, %27 ], [ %0, %.preheader.preheader ]
+.thread:                                          ; preds = %.thread.preheader, %27
+  %21 = phi ptr [ %29, %27 ], [ %0, %.thread.preheader ]
   %22 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, i32 -1, ptr nonnull elementtype(i32) %21) #14, !srcloc !9
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %27, label %24
 
-24:                                               ; preds = %.preheader
+24:                                               ; preds = %.thread
   %25 = icmp sgt i32 %22, 0
   br i1 %25, label %.thread6, label %26, !prof !5
 
@@ -184,7 +184,7 @@ define internal fastcc void @__seccomp_filter_release(ptr noundef %0) unnamed_ad
   tail call void @refcount_warn_saturate(ptr noundef nonnull %21, i32 noundef 3) #14
   br label %.thread6
 
-27:                                               ; preds = %.preheader
+27:                                               ; preds = %.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %28 = getelementptr inbounds i8, ptr %21, i64 144
   %29 = load ptr, ptr %28, align 8
@@ -193,7 +193,7 @@ define internal fastcc void @__seccomp_filter_release(ptr noundef %0) unnamed_ad
   tail call void @bpf_prog_destroy(ptr noundef %31) #14
   tail call void @kfree(ptr noundef nonnull %21) #14
   %32 = icmp eq ptr %29, null
-  br i1 %32, label %.thread6, label %.preheader, !llvm.loop !14
+  br i1 %32, label %.thread6, label %.thread, !llvm.loop !14
 
 .thread6:                                         ; preds = %27, %24, %26, %1
   ret void

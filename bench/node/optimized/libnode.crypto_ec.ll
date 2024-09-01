@@ -2800,7 +2800,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %call3 = tail call i64 @EC_get_builtin_curves(ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef %call1) #21
   %cmp.not = icmp eq i64 %call3, %call1
-  br i1 %cmp.not, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, label %do.body6
+  br i1 %cmp.not, label %for.body.preheader.i.i.i.i.i, label %do.body6
 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38: ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %call341 = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef %call1) #21
@@ -2817,32 +2817,23 @@ do.body6:                                         ; preds = %_ZNSt6vectorI16EC_b
   tail call void @abort() #23
   unreachable
 
-_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit, label %for.body.preheader.i.i.i.i.i
-
-for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %__first.addr.0.i.i.i.i.i3134 = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread ]
+for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread
+  %__first.addr.0.i.i.i.i.i3134 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread ], [ %add.ptr.i.i.i, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit ]
   %mul.i.i.i.i.i.i11 = shl nuw nsw i64 %call1, 3
   %call5.i.i.i.i.i.i12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i11) #24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i12, i8 0, i64 %mul.i.i.i.i.i.i11, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i12, i64 %mul.i.i.i.i.i.i11
   %12 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
-  br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit
-
-_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %for.body.preheader.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i3135 = phi ptr [ %__first.addr.0.i.i.i.i.i3134, %for.body.preheader.i.i.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %arr.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %__cur.0.lcssa.i.i.i.i.i = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %cmp.i.not5.i = icmp eq ptr %call5.i.i.i.i.i.i, %__first.addr.0.i.i.i.i.i3135
+  %cmp.i.not5.i = icmp eq ptr %call5.i.i.i.i.i.i, %__first.addr.0.i.i.i.i.i3134
   br i1 %cmp.i.not5.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit", label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit
+for.body.lr.ph.i:                                 ; preds = %for.body.preheader.i.i.i.i.i
   %13 = getelementptr i8, ptr %retval.0.i.i, i64 88
   br label %for.body.i
 
 for.body.i:                                       ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i", %for.body.lr.ph.i
   %__first.sroa.0.07.i = phi ptr [ %call5.i.i.i.i.i.i, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
-  %__result.sroa.0.06.i = phi ptr [ %arr.sroa.0.0, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %__result.sroa.0.06.i = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
   %call4.val.i = load i32, ptr %__first.sroa.0.07.i, align 8
   %__unary_op.val.val.i = load ptr, ptr %13, align 8
   %call2.i.i = tail call ptr @OBJ_nid2sn(i32 noundef %call4.val.i) #21
@@ -2858,13 +2849,13 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i
   store ptr %call.i.i.i, ptr %__result.sroa.0.06.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i, i64 16
   %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i3135
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i3134
   br i1 %cmp.i.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit", label %for.body.i, !llvm.loop !7
 
-"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit": ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i", %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit
-  %__cur.0.lcssa.i.i.i.i.i53 = phi i64 [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit ], [ 0, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %__cur.0.lcssa.i.i.i.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
-  %arr.sroa.0.052 = phi ptr [ %arr.sroa.0.0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %arr.sroa.0.0, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
-  %curves.sroa.0.0303751 = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIP16EC_builtin_curveSt6vectorIS2_SaIS2_EEEENS1_IPN2v85LocalINS8_5ValueEEES4_ISB_SaISB_EEEEZN4node6crypto4ECDH9GetCurvesERKNS8_20FunctionCallbackInfoISA_EEE3$_0ET0_T_SP_SO_T1_.exit": ; preds = %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i", %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38, %for.body.preheader.i.i.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i53 = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %arr.sroa.0.052 = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i12, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
+  %curves.sroa.0.0303751 = phi ptr [ %call5.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread38 ], [ %call5.i.i.i.i.i.i, %"_ZZN4node6crypto4ECDH9GetCurvesERKN2v820FunctionCallbackInfoINS2_5ValueEEEENK3$_0clI16EC_builtin_curveEEDaRT_.exit.i" ]
   %14 = load ptr, ptr %args, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %15 = load ptr, ptr %isolate_.i, align 8

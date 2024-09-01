@@ -5011,7 +5011,7 @@ define dso_local range(i32 0, 2) i32 @ip_check_mc_rcu(ptr noundef %0, i32 nounde
   %35 = phi ptr [ %27, %.preheader ], [ %15, %.preheader8 ]
   %36 = icmp eq i8 %3, 2
   %37 = icmp eq i32 %2, 0
-  %or.cond = or i1 %36, %37
+  %or.cond = or i1 %37, %36
   br i1 %or.cond, label %.thread, label %38
 
 38:                                               ; preds = %.loopexit

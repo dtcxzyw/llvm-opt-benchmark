@@ -2735,9 +2735,9 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %637, %630, %626, %6
 
 674:                                              ; preds = %665
   %675 = getelementptr inbounds i8, ptr %.tr, i64 32
-  %.not210.i.le = icmp eq i32 %613, 0
+  %.not210.i.le378 = icmp eq i32 %613, 0
   %676 = add nuw nsw i32 %616, 2
-  %spec.select.i.le369 = select i1 %.not210.i.le, i32 %616, i32 %676
+  %spec.select.i.le365 = select i1 %.not210.i.le378, i32 %616, i32 %676
   %677 = icmp eq i32 %667, 1
   %678 = icmp ugt i32 %616, 10
   %or.cond.i = and i1 %678, %677
@@ -2756,9 +2756,9 @@ compile_tree_n_times.exit235.thread.sink.split:   ; preds = %679
 
 .thread267.thread:                                ; preds = %669
   %683 = getelementptr inbounds i8, ptr %.tr, i64 32
-  %.not210.i.le378 = icmp eq i32 %613, 0
+  %.not210.i.le380 = icmp eq i32 %613, 0
   %684 = add nuw nsw i32 %616, 2
-  %spec.select.i.le365 = select i1 %.not210.i.le378, i32 %616, i32 %684
+  %spec.select.i.le361 = select i1 %.not210.i.le380, i32 %616, i32 %684
   br label %.lr.ph398.preheader
 
 .thread267:                                       ; preds = %674
@@ -2766,7 +2766,7 @@ compile_tree_n_times.exit235.thread.sink.split:   ; preds = %679
 
 .lr.ph398.preheader:                              ; preds = %.thread267.thread, %.thread267
   %685 = phi ptr [ %683, %.thread267.thread ], [ %675, %.thread267 ]
-  %spec.select.i338473 = phi i32 [ %spec.select.i.le365, %.thread267.thread ], [ %spec.select.i.le369, %.thread267 ]
+  %spec.select.i338473 = phi i32 [ %spec.select.i.le361, %.thread267.thread ], [ %spec.select.i.le365, %.thread267 ]
   %686 = load ptr, ptr %614, align 8
   br label %.lr.ph398
 
@@ -2783,7 +2783,7 @@ compile_tree_n_times.exit235.thread.sink.split:   ; preds = %679
 
 compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_n_times.exit235.thread.sink.split, %.thread267
   %690 = phi ptr [ %675, %.thread267 ], [ %675, %compile_tree_n_times.exit235.thread.sink.split ], [ %685, %687 ]
-  %spec.select.i337 = phi i32 [ %spec.select.i.le369, %.thread267 ], [ %spec.select.i.le369, %compile_tree_n_times.exit235.thread.sink.split ], [ %spec.select.i338473, %687 ]
+  %spec.select.i337 = phi i32 [ %spec.select.i.le365, %.thread267 ], [ %spec.select.i.le365, %compile_tree_n_times.exit235.thread.sink.split ], [ %spec.select.i338473, %687 ]
   %691 = load i32, ptr %690, align 8
   %.not225.i = icmp eq i32 %691, 0
   br i1 %.not225.i, label %736, label %692
@@ -2897,7 +2897,7 @@ compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_
 len_multiply_cmp.exit238.thread:                  ; preds = %669
   %749 = load i32, ptr %609, align 4
   %750 = icmp eq i32 %749, 0
-  br i1 %750, label %753, label %794
+  br i1 %750, label %753, label %857
 
 .thread271:                                       ; preds = %is_anychar_infinite_greedy.exit.thread
   %751 = load i32, ptr %609, align 4
@@ -2980,135 +2980,135 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.tr.be = phi ptr [ %1382, %1567 ], [ %793, %tailrecurse.backedge.sink.split ]
   br label %tailrecurse
 
-794:                                              ; preds = %len_multiply_cmp.exit238.thread
-  br i1 %.not.i246, label %.thread281, label %.thread280.loopexit
-
 .thread272:                                       ; preds = %.thread271
-  br i1 %.not.i246, label %.thread281, label %795
+  br i1 %.not.i246, label %.thread281, label %794
 
-795:                                              ; preds = %.thread272
-  %796 = icmp eq i32 %751, 1
-  br i1 %796, label %len_multiply_cmp.exit, label %797
+794:                                              ; preds = %.thread272
+  %795 = icmp eq i32 %751, 1
+  br i1 %795, label %len_multiply_cmp.exit, label %796
 
-797:                                              ; preds = %795
-  %.not210.i.le380 = icmp eq i32 %613, 0
-  %798 = add nuw nsw i32 %616, 2
-  %spec.select.i.le361 = select i1 %.not210.i.le380, i32 %616, i32 %798
-  %799 = add nuw i32 %616, 1
-  %800 = udiv i32 -1, %751
-  %801 = icmp uge i32 %799, %800
-  %802 = mul i32 %751, %799
-  %803 = icmp ugt i32 %802, 10
-  %or.cond291 = or i1 %803, %801
+796:                                              ; preds = %794
+  %.not210.i.le = icmp eq i32 %613, 0
+  %797 = add nuw nsw i32 %616, 2
+  %spec.select.i.le369 = select i1 %.not210.i.le, i32 %616, i32 %797
+  %798 = add nuw i32 %616, 1
+  %799 = udiv i32 -1, %751
+  %800 = icmp uge i32 %798, %799
+  %801 = mul i32 %751, %798
+  %802 = icmp ugt i32 %801, 10
+  %or.cond291 = or i1 %802, %800
   br i1 %or.cond291, label %.thread280, label %len_multiply_cmp.exit
 
-len_multiply_cmp.exit:                            ; preds = %797, %795
-  %804 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %805 = load i32, ptr %804, align 8
-  %806 = sub i32 %751, %805
-  %807 = load ptr, ptr %614, align 8
-  %808 = icmp sgt i32 %805, 0
-  br i1 %808, label %.lr.ph390, label %compile_tree_n_times.exit.preheader
+len_multiply_cmp.exit:                            ; preds = %796, %794
+  %803 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %804 = load i32, ptr %803, align 8
+  %805 = sub i32 %751, %804
+  %806 = load ptr, ptr %614, align 8
+  %807 = icmp sgt i32 %804, 0
+  br i1 %807, label %.lr.ph390, label %compile_tree_n_times.exit.preheader
 
-809:                                              ; preds = %.lr.ph390
-  %810 = add nuw nsw i32 %.08.i389, 1
-  %exitcond463.not = icmp eq i32 %810, %805
+808:                                              ; preds = %.lr.ph390
+  %809 = add nuw nsw i32 %.08.i389, 1
+  %exitcond463.not = icmp eq i32 %809, %804
   br i1 %exitcond463.not, label %compile_tree_n_times.exit.preheader, label %.lr.ph390, !llvm.loop !16
 
-compile_tree_n_times.exit.preheader:              ; preds = %809, %len_multiply_cmp.exit
-  %811 = icmp sgt i32 %806, 0
-  br i1 %811, label %.lr.ph392, label %.critedge
+compile_tree_n_times.exit.preheader:              ; preds = %808, %len_multiply_cmp.exit
+  %810 = icmp sgt i32 %805, 0
+  br i1 %810, label %.lr.ph392, label %.critedge
 
 .lr.ph392:                                        ; preds = %compile_tree_n_times.exit.preheader
-  %812 = add nuw nsw i32 %616, 1
-  %813 = udiv i32 2147483647, %812
-  br label %816
+  %811 = add nuw nsw i32 %616, 1
+  %812 = udiv i32 2147483647, %811
+  br label %815
 
-.lr.ph390:                                        ; preds = %len_multiply_cmp.exit, %809
-  %.08.i389 = phi i32 [ %810, %809 ], [ 0, %len_multiply_cmp.exit ]
-  %814 = tail call fastcc i32 @compile_tree(ptr noundef %807, ptr noundef %1, ptr noundef %2)
-  %.not.i230 = icmp eq i32 %814, 0
-  br i1 %.not.i230, label %809, label %.critedge
+.lr.ph390:                                        ; preds = %len_multiply_cmp.exit, %808
+  %.08.i389 = phi i32 [ %809, %808 ], [ 0, %len_multiply_cmp.exit ]
+  %813 = tail call fastcc i32 @compile_tree(ptr noundef %806, ptr noundef %1, ptr noundef %2)
+  %.not.i230 = icmp eq i32 %813, 0
+  br i1 %.not.i230, label %808, label %.critedge
 
-compile_tree_n_times.exit:                        ; preds = %840
-  %815 = add nuw nsw i32 %.0175.i391, 1
-  %exitcond464.not = icmp eq i32 %815, %806
-  br i1 %exitcond464.not, label %.critedge, label %816, !llvm.loop !17
+compile_tree_n_times.exit:                        ; preds = %839
+  %814 = add nuw nsw i32 %.0175.i391, 1
+  %exitcond464.not = icmp eq i32 %814, %805
+  br i1 %exitcond464.not, label %.critedge, label %815, !llvm.loop !17
 
-816:                                              ; preds = %.lr.ph392, %compile_tree_n_times.exit
-  %.0175.i391 = phi i32 [ 0, %.lr.ph392 ], [ %815, %compile_tree_n_times.exit ]
-  %817 = sub nsw i32 %806, %.0175.i391
-  %818 = icmp sge i32 %817, %813
-  %819 = mul nsw i32 %817, %812
-  %820 = icmp slt i32 %819, 0
-  %or.cond = select i1 %818, i1 true, i1 %820
+815:                                              ; preds = %.lr.ph392, %compile_tree_n_times.exit
+  %.0175.i391 = phi i32 [ 0, %.lr.ph392 ], [ %814, %compile_tree_n_times.exit ]
+  %816 = sub nsw i32 %805, %.0175.i391
+  %817 = icmp sge i32 %816, %812
+  %818 = mul nsw i32 %816, %811
+  %819 = icmp slt i32 %818, 0
+  %or.cond = select i1 %817, i1 true, i1 %819
   br i1 %or.cond, label %.critedge, label %onig_positive_int_multiply.exit.thread277
 
-onig_positive_int_multiply.exit.thread277:        ; preds = %816
-  %821 = load i32, ptr %6, align 8
-  %822 = load i32, ptr %7, align 4
-  %.not.i.i554 = icmp ult i32 %821, %822
-  br i1 %.not.i.i554, label %840, label %823
+onig_positive_int_multiply.exit.thread277:        ; preds = %815
+  %820 = load i32, ptr %6, align 8
+  %821 = load i32, ptr %7, align 4
+  %.not.i.i554 = icmp ult i32 %820, %821
+  br i1 %.not.i.i554, label %839, label %822
 
-823:                                              ; preds = %onig_positive_int_multiply.exit.thread277
-  %824 = shl i32 %822, 1
-  %825 = icmp eq i32 %822, 0
-  br i1 %825, label %840, label %826
+822:                                              ; preds = %onig_positive_int_multiply.exit.thread277
+  %823 = shl i32 %821, 1
+  %824 = icmp eq i32 %821, 0
+  br i1 %824, label %839, label %825
 
-826:                                              ; preds = %823
-  %827 = icmp slt i32 %824, 1
-  br i1 %827, label %.critedge, label %828
+825:                                              ; preds = %822
+  %826 = icmp slt i32 %823, 1
+  br i1 %826, label %.critedge, label %827
 
-828:                                              ; preds = %826
-  %829 = zext nneg i32 %824 to i64
-  %830 = mul nuw nsw i64 %829, 24
-  %831 = load ptr, ptr %1, align 8
-  %832 = tail call ptr @realloc(ptr noundef %831, i64 noundef %830) #23
-  %833 = icmp eq ptr %832, null
-  br i1 %833, label %.critedge, label %834
+827:                                              ; preds = %825
+  %828 = zext nneg i32 %823 to i64
+  %829 = mul nuw nsw i64 %828, 24
+  %830 = load ptr, ptr %1, align 8
+  %831 = tail call ptr @realloc(ptr noundef %830, i64 noundef %829) #23
+  %832 = icmp eq ptr %831, null
+  br i1 %832, label %.critedge, label %833
 
-834:                                              ; preds = %828
-  store ptr %832, ptr %1, align 8
-  %835 = shl nuw nsw i64 %829, 2
-  %836 = load ptr, ptr %8, align 8
-  %837 = tail call ptr @realloc(ptr noundef %836, i64 noundef %835) #23
-  %838 = icmp eq ptr %837, null
-  br i1 %838, label %.critedge, label %.sink.split.i.i.i555
+833:                                              ; preds = %827
+  store ptr %831, ptr %1, align 8
+  %834 = shl nuw nsw i64 %828, 2
+  %835 = load ptr, ptr %8, align 8
+  %836 = tail call ptr @realloc(ptr noundef %835, i64 noundef %834) #23
+  %837 = icmp eq ptr %836, null
+  br i1 %837, label %.critedge, label %.sink.split.i.i.i555
 
-.sink.split.i.i.i555:                             ; preds = %834
-  store ptr %837, ptr %8, align 8
-  store i32 %824, ptr %7, align 4
-  %839 = load i32, ptr %6, align 8
-  br label %840
+.sink.split.i.i.i555:                             ; preds = %833
+  store ptr %836, ptr %8, align 8
+  store i32 %823, ptr %7, align 4
+  %838 = load i32, ptr %6, align 8
+  br label %839
 
-840:                                              ; preds = %.sink.split.i.i.i555, %823, %onig_positive_int_multiply.exit.thread277
-  %841 = phi i32 [ %839, %.sink.split.i.i.i555 ], [ %821, %823 ], [ %821, %onig_positive_int_multiply.exit.thread277 ]
-  %842 = load ptr, ptr %1, align 8
-  %843 = zext i32 %841 to i64
-  %844 = getelementptr inbounds %struct.Operation, ptr %842, i64 %843
-  store ptr %844, ptr %5, align 8
-  %845 = add i32 %841, 1
-  store i32 %845, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %844, i8 0, i64 24, i1 false)
-  %846 = load ptr, ptr %8, align 8
-  %847 = load ptr, ptr %5, align 8
-  %848 = load ptr, ptr %1, align 8
+839:                                              ; preds = %.sink.split.i.i.i555, %822, %onig_positive_int_multiply.exit.thread277
+  %840 = phi i32 [ %838, %.sink.split.i.i.i555 ], [ %820, %822 ], [ %820, %onig_positive_int_multiply.exit.thread277 ]
+  %841 = load ptr, ptr %1, align 8
+  %842 = zext i32 %840 to i64
+  %843 = getelementptr inbounds %struct.Operation, ptr %841, i64 %842
+  store ptr %843, ptr %5, align 8
+  %844 = add i32 %840, 1
+  store i32 %844, ptr %6, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %843, i8 0, i64 24, i1 false)
+  %845 = load ptr, ptr %8, align 8
+  %846 = load ptr, ptr %5, align 8
+  %847 = load ptr, ptr %1, align 8
+  %848 = ptrtoint ptr %846 to i64
   %849 = ptrtoint ptr %847 to i64
-  %850 = ptrtoint ptr %848 to i64
-  %851 = sub i64 %849, %850
-  %852 = sdiv exact i64 %851, 6
-  %853 = getelementptr inbounds i8, ptr %846, i64 %852
-  store i32 59, ptr %853, align 4
-  %854 = load ptr, ptr %5, align 8
-  %855 = getelementptr inbounds i8, ptr %854, i64 8
-  store i32 %819, ptr %855, align 8
-  %856 = load ptr, ptr %614, align 8
-  %857 = tail call fastcc i32 @compile_tree(ptr noundef %856, ptr noundef nonnull %1, ptr noundef %2)
-  %.not214.i = icmp eq i32 %857, 0
+  %850 = sub i64 %848, %849
+  %851 = sdiv exact i64 %850, 6
+  %852 = getelementptr inbounds i8, ptr %845, i64 %851
+  store i32 59, ptr %852, align 4
+  %853 = load ptr, ptr %5, align 8
+  %854 = getelementptr inbounds i8, ptr %853, i64 8
+  store i32 %818, ptr %854, align 8
+  %855 = load ptr, ptr %614, align 8
+  %856 = tail call fastcc i32 @compile_tree(ptr noundef %855, ptr noundef nonnull %1, ptr noundef %2)
+  %.not214.i = icmp eq i32 %856, 0
   br i1 %.not214.i, label %compile_tree_n_times.exit, label %.critedge
 
-.thread281:                                       ; preds = %.thread272, %794
-  %858 = phi i32 [ %749, %794 ], [ %751, %.thread272 ]
+857:                                              ; preds = %len_multiply_cmp.exit238.thread
+  br i1 %.not.i246, label %.thread281, label %.thread280.loopexit
+
+.thread281:                                       ; preds = %.thread272, %857
+  %858 = phi i32 [ %749, %857 ], [ %751, %.thread272 ]
   %859 = icmp eq i32 %858, 1
   br i1 %859, label %860, label %.thread280.loopexit
 
@@ -3236,14 +3236,14 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   store i32 %933, ptr %935, align 8
   br label %tailrecurse.backedge.sink.split
 
-.thread280.loopexit:                              ; preds = %794, %.thread281, %860
+.thread280.loopexit:                              ; preds = %857, %.thread281, %860
   %.not210.i.le382 = icmp eq i32 %613, 0
   %936 = add nuw nsw i32 %616, 2
   %spec.select.i.le = select i1 %.not210.i.le382, i32 %616, i32 %936
   br label %.thread280
 
-.thread280:                                       ; preds = %.thread280.loopexit, %797
-  %spec.select.i339 = phi i32 [ %spec.select.i.le, %.thread280.loopexit ], [ %spec.select.i.le361, %797 ]
+.thread280:                                       ; preds = %.thread280.loopexit, %796
+  %spec.select.i339 = phi i32 [ %spec.select.i.le, %.thread280.loopexit ], [ %spec.select.i.le369, %796 ]
   %937 = getelementptr inbounds i8, ptr %.tr, i64 32
   %938 = getelementptr inbounds i8, ptr %1, i64 52
   %939 = load i32, ptr %938, align 4
@@ -4886,8 +4886,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   store i32 %1881, ptr %1883, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %1561, %1555, %1553, %1525, %1519, %1517, %1481, %1475, %1473, %1442, %1436, %1434, %1398, %1392, %1390, %913, %907, %905, %878, %872, %870, %770, %764, %762, %1567, %1508, %1505, %1448, %1425, %1404, %1052, %753, %618, %608, %tailrecurse, %.lr.ph, %.lr.ph387, %.lr.ph390, %834, %828, %826, %compile_tree_n_times.exit, %840, %816, %.lr.ph398, %.lr.ph402, %143, %93, %87, %85, %77, %51, %45, %43, %74, %99, %14, %.preheader, %add_op.exit.thread.sink.split.i, %add_op.exit123.i, %1297, %1291, %1289, %1275, %1269, %1267, %add_op.exit115.i, %1224, %1218, %1216, %1205, %1199, %1197, %1157, %1151, %1149, %1126, %1120, %1114, %1112, %1073, %1067, %1065, %1036, %1030, %1024, %1022, %1006, %994, %988, %956, %950, %948, %compile_tree_n_times.exit.preheader, %525, %454, %448, %446, %418, %412, %410, %1866, %1860, %1854, %1852, %1826, %1820, %1814, %1812, %1801, %1777, %1771, %1765, %1763, %1735, %1729, %1723, %1721, %1701, %1695, %1689, %1687, %1678, %1676, %1674, %1672, %1668, %1666, %1659, %1654, %1650, %1645, %1640, %1638, %1630, %1626, %1615, %1613, %1605, %1603, %1600, %1598, %1596, %1594, %1592, %1590, %1588, %1585, %1371, %1369, %1361, %1357, %1353, %1351, %1349, %1343, %1341, %._crit_edge, %745, %743, %738, %736, %733, %731, %726, %724, %713, %711, %697, %695, %679, %662, %655, %652, %596, %587, %551, %545, %543, %384, %378, %372, %370, %343, %337, %331, %329, %312, %305, %284, %278, %272, %270, %256, %236, %230, %224, %222, %199, %178, %172, %166, %164, %._crit_edge.i, %129, %123, %122, %515, %492, %502, %498, %496, %520, %505, %500, %490, %474, %316
-  %.0 = phi i32 [ -6, %316 ], [ %476, %474 ], [ %491, %490 ], [ %501, %500 ], [ %508, %505 ], [ -5, %520 ], [ 0, %515 ], [ 0, %492 ], [ 0, %502 ], [ %499, %498 ], [ %497, %496 ], [ %128, %123 ], [ 0, %122 ], [ %149, %._crit_edge.i ], [ 0, %129 ], [ -5, %178 ], [ -5, %284 ], [ 0, %256 ], [ 0, %312 ], [ 0, %199 ], [ -5, %172 ], [ -5, %166 ], [ -11, %164 ], [ -5, %230 ], [ -5, %224 ], [ -11, %222 ], [ -5, %236 ], [ -5, %278 ], [ -5, %272 ], [ -11, %270 ], [ -5, %305 ], [ 0, %343 ], [ -11, %329 ], [ -5, %331 ], [ -5, %337 ], [ 0, %384 ], [ -11, %370 ], [ -5, %372 ], [ -5, %378 ], [ 0, %596 ], [ -5, %587 ], [ -5, %551 ], [ -5, %545 ], [ -11, %543 ], [ 0, %655 ], [ %664, %662 ], [ %654, %652 ], [ %680, %679 ], [ %696, %695 ], [ %707, %697 ], [ %712, %711 ], [ %723, %713 ], [ %725, %724 ], [ %730, %726 ], [ %732, %731 ], [ %737, %736 ], [ %742, %738 ], [ %744, %743 ], [ 0, %733 ], [ 0, %745 ], [ %1339, %._crit_edge ], [ %1342, %1341 ], [ %1348, %1343 ], [ %1350, %1349 ], [ %1352, %1351 ], [ %1360, %1357 ], [ %1368, %1361 ], [ %1370, %1369 ], [ 0, %1353 ], [ 0, %1371 ], [ %1599, %1598 ], [ %1604, %1603 ], [ %1614, %1613 ], [ %1629, %1626 ], [ %1637, %1630 ], [ %1639, %1638 ], [ %1648, %1645 ], [ %1653, %1650 ], [ %1658, %1654 ], [ %1665, %1659 ], [ %1667, %1666 ], [ %1671, %1668 ], [ -6, %1585 ], [ %1677, %1676 ], [ %1675, %1674 ], [ %1673, %1672 ], [ 0, %1640 ], [ 0, %1615 ], [ 0, %1605 ], [ 0, %1600 ], [ %1597, %1596 ], [ %1595, %1594 ], [ %1593, %1592 ], [ %1591, %1590 ], [ %1589, %1588 ], [ 0, %1678 ], [ 0, %1826 ], [ 0, %1866 ], [ 0, %1777 ], [ 0, %1735 ], [ -6, %1801 ], [ 0, %1701 ], [ -11, %1687 ], [ -5, %1689 ], [ -5, %1695 ], [ -5, %1729 ], [ -5, %1723 ], [ -11, %1721 ], [ -5, %1771 ], [ -5, %1765 ], [ -11, %1763 ], [ -5, %1820 ], [ -5, %1814 ], [ -11, %1812 ], [ -5, %1860 ], [ -5, %1854 ], [ -11, %1852 ], [ -5, %418 ], [ -5, %412 ], [ -11, %410 ], [ -5, %454 ], [ -5, %448 ], [ -11, %446 ], [ 0, %525 ], [ 0, %compile_tree_n_times.exit.preheader ], [ 0, %1036 ], [ %1013, %1006 ], [ -5, %956 ], [ -5, %950 ], [ -11, %948 ], [ -5, %988 ], [ -5, %994 ], [ -5, %1030 ], [ -5, %1024 ], [ -11, %1022 ], [ %1144, %1126 ], [ %1247, %add_op.exit115.i ], [ 0, %add_op.exit123.i ], [ -5, %1073 ], [ -5, %1067 ], [ -11, %1065 ], [ -5, %1120 ], [ -5, %1114 ], [ -11, %1112 ], [ -5, %1157 ], [ -5, %1151 ], [ -11, %1149 ], [ -5, %1224 ], [ -5, %1218 ], [ -11, %1216 ], [ -5, %1205 ], [ -5, %1199 ], [ -11, %1197 ], [ -5, %1297 ], [ -5, %1291 ], [ -11, %1289 ], [ -5, %1275 ], [ -5, %1269 ], [ -11, %1267 ], [ %1320, %add_op.exit.thread.sink.split.i ], [ 0, %14 ], [ %12, %.preheader ], [ %76, %74 ], [ 0, %99 ], [ -5, %51 ], [ -5, %45 ], [ -11, %43 ], [ 0, %77 ], [ -5, %93 ], [ -5, %87 ], [ -11, %85 ], [ %144, %143 ], [ 0, %.lr.ph402 ], [ %689, %.lr.ph398 ], [ -11, %826 ], [ -5, %828 ], [ -5, %834 ], [ -201, %816 ], [ %857, %840 ], [ 0, %compile_tree_n_times.exit ], [ %814, %.lr.ph390 ], [ %645, %.lr.ph387 ], [ %1337, %.lr.ph ], [ -11, %1553 ], [ -5, %1555 ], [ -5, %1561 ], [ -11, %1517 ], [ -5, %1519 ], [ -5, %1525 ], [ -11, %1473 ], [ -5, %1475 ], [ -5, %1481 ], [ -11, %1434 ], [ -5, %1436 ], [ -5, %1442 ], [ -11, %1390 ], [ -5, %1392 ], [ -5, %1398 ], [ -11, %905 ], [ -5, %907 ], [ -5, %913 ], [ -11, %870 ], [ -5, %872 ], [ -5, %878 ], [ -11, %762 ], [ -5, %764 ], [ -5, %770 ], [ 0, %tailrecurse ], [ %616, %608 ], [ 0, %618 ], [ 0, %753 ], [ %1422, %1404 ], [ %1426, %1425 ], [ %1466, %1448 ], [ %1506, %1505 ], [ %1509, %1508 ], [ -6, %1052 ], [ 0, %1567 ]
+.critedge:                                        ; preds = %1561, %1555, %1553, %1525, %1519, %1517, %1481, %1475, %1473, %1442, %1436, %1434, %1398, %1392, %1390, %913, %907, %905, %878, %872, %870, %770, %764, %762, %1567, %1508, %1505, %1448, %1425, %1404, %1052, %753, %618, %608, %tailrecurse, %.lr.ph, %.lr.ph387, %.lr.ph390, %833, %827, %825, %compile_tree_n_times.exit, %839, %815, %.lr.ph398, %.lr.ph402, %143, %93, %87, %85, %77, %51, %45, %43, %74, %99, %14, %.preheader, %add_op.exit.thread.sink.split.i, %add_op.exit123.i, %1297, %1291, %1289, %1275, %1269, %1267, %add_op.exit115.i, %1224, %1218, %1216, %1205, %1199, %1197, %1157, %1151, %1149, %1126, %1120, %1114, %1112, %1073, %1067, %1065, %1036, %1030, %1024, %1022, %1006, %994, %988, %956, %950, %948, %compile_tree_n_times.exit.preheader, %525, %454, %448, %446, %418, %412, %410, %1866, %1860, %1854, %1852, %1826, %1820, %1814, %1812, %1801, %1777, %1771, %1765, %1763, %1735, %1729, %1723, %1721, %1701, %1695, %1689, %1687, %1678, %1676, %1674, %1672, %1668, %1666, %1659, %1654, %1650, %1645, %1640, %1638, %1630, %1626, %1615, %1613, %1605, %1603, %1600, %1598, %1596, %1594, %1592, %1590, %1588, %1585, %1371, %1369, %1361, %1357, %1353, %1351, %1349, %1343, %1341, %._crit_edge, %745, %743, %738, %736, %733, %731, %726, %724, %713, %711, %697, %695, %679, %662, %655, %652, %596, %587, %551, %545, %543, %384, %378, %372, %370, %343, %337, %331, %329, %312, %305, %284, %278, %272, %270, %256, %236, %230, %224, %222, %199, %178, %172, %166, %164, %._crit_edge.i, %129, %123, %122, %515, %492, %502, %498, %496, %520, %505, %500, %490, %474, %316
+  %.0 = phi i32 [ -6, %316 ], [ %476, %474 ], [ %491, %490 ], [ %501, %500 ], [ %508, %505 ], [ -5, %520 ], [ 0, %515 ], [ 0, %492 ], [ 0, %502 ], [ %499, %498 ], [ %497, %496 ], [ %128, %123 ], [ 0, %122 ], [ %149, %._crit_edge.i ], [ 0, %129 ], [ -5, %178 ], [ -5, %284 ], [ 0, %256 ], [ 0, %312 ], [ 0, %199 ], [ -5, %172 ], [ -5, %166 ], [ -11, %164 ], [ -5, %230 ], [ -5, %224 ], [ -11, %222 ], [ -5, %236 ], [ -5, %278 ], [ -5, %272 ], [ -11, %270 ], [ -5, %305 ], [ 0, %343 ], [ -11, %329 ], [ -5, %331 ], [ -5, %337 ], [ 0, %384 ], [ -11, %370 ], [ -5, %372 ], [ -5, %378 ], [ 0, %596 ], [ -5, %587 ], [ -5, %551 ], [ -5, %545 ], [ -11, %543 ], [ 0, %655 ], [ %664, %662 ], [ %654, %652 ], [ %680, %679 ], [ %696, %695 ], [ %707, %697 ], [ %712, %711 ], [ %723, %713 ], [ %725, %724 ], [ %730, %726 ], [ %732, %731 ], [ %737, %736 ], [ %742, %738 ], [ %744, %743 ], [ 0, %733 ], [ 0, %745 ], [ %1339, %._crit_edge ], [ %1342, %1341 ], [ %1348, %1343 ], [ %1350, %1349 ], [ %1352, %1351 ], [ %1360, %1357 ], [ %1368, %1361 ], [ %1370, %1369 ], [ 0, %1353 ], [ 0, %1371 ], [ %1599, %1598 ], [ %1604, %1603 ], [ %1614, %1613 ], [ %1629, %1626 ], [ %1637, %1630 ], [ %1639, %1638 ], [ %1648, %1645 ], [ %1653, %1650 ], [ %1658, %1654 ], [ %1665, %1659 ], [ %1667, %1666 ], [ %1671, %1668 ], [ -6, %1585 ], [ %1677, %1676 ], [ %1675, %1674 ], [ %1673, %1672 ], [ 0, %1640 ], [ 0, %1615 ], [ 0, %1605 ], [ 0, %1600 ], [ %1597, %1596 ], [ %1595, %1594 ], [ %1593, %1592 ], [ %1591, %1590 ], [ %1589, %1588 ], [ 0, %1678 ], [ 0, %1826 ], [ 0, %1866 ], [ 0, %1777 ], [ 0, %1735 ], [ -6, %1801 ], [ 0, %1701 ], [ -11, %1687 ], [ -5, %1689 ], [ -5, %1695 ], [ -5, %1729 ], [ -5, %1723 ], [ -11, %1721 ], [ -5, %1771 ], [ -5, %1765 ], [ -11, %1763 ], [ -5, %1820 ], [ -5, %1814 ], [ -11, %1812 ], [ -5, %1860 ], [ -5, %1854 ], [ -11, %1852 ], [ -5, %418 ], [ -5, %412 ], [ -11, %410 ], [ -5, %454 ], [ -5, %448 ], [ -11, %446 ], [ 0, %525 ], [ 0, %compile_tree_n_times.exit.preheader ], [ 0, %1036 ], [ %1013, %1006 ], [ -5, %956 ], [ -5, %950 ], [ -11, %948 ], [ -5, %988 ], [ -5, %994 ], [ -5, %1030 ], [ -5, %1024 ], [ -11, %1022 ], [ %1144, %1126 ], [ %1247, %add_op.exit115.i ], [ 0, %add_op.exit123.i ], [ -5, %1073 ], [ -5, %1067 ], [ -11, %1065 ], [ -5, %1120 ], [ -5, %1114 ], [ -11, %1112 ], [ -5, %1157 ], [ -5, %1151 ], [ -11, %1149 ], [ -5, %1224 ], [ -5, %1218 ], [ -11, %1216 ], [ -5, %1205 ], [ -5, %1199 ], [ -11, %1197 ], [ -5, %1297 ], [ -5, %1291 ], [ -11, %1289 ], [ -5, %1275 ], [ -5, %1269 ], [ -11, %1267 ], [ %1320, %add_op.exit.thread.sink.split.i ], [ 0, %14 ], [ %12, %.preheader ], [ %76, %74 ], [ 0, %99 ], [ -5, %51 ], [ -5, %45 ], [ -11, %43 ], [ 0, %77 ], [ -5, %93 ], [ -5, %87 ], [ -11, %85 ], [ %144, %143 ], [ 0, %.lr.ph402 ], [ %689, %.lr.ph398 ], [ -11, %825 ], [ -5, %827 ], [ -5, %833 ], [ -201, %815 ], [ %856, %839 ], [ 0, %compile_tree_n_times.exit ], [ %813, %.lr.ph390 ], [ %645, %.lr.ph387 ], [ %1337, %.lr.ph ], [ -11, %1553 ], [ -5, %1555 ], [ -5, %1561 ], [ -11, %1517 ], [ -5, %1519 ], [ -5, %1525 ], [ -11, %1473 ], [ -5, %1475 ], [ -5, %1481 ], [ -11, %1434 ], [ -5, %1436 ], [ -5, %1442 ], [ -11, %1390 ], [ -5, %1392 ], [ -5, %1398 ], [ -11, %905 ], [ -5, %907 ], [ -5, %913 ], [ -11, %870 ], [ -5, %872 ], [ -5, %878 ], [ -11, %762 ], [ -5, %764 ], [ -5, %770 ], [ 0, %tailrecurse ], [ %616, %608 ], [ 0, %618 ], [ 0, %753 ], [ %1422, %1404 ], [ %1426, %1425 ], [ %1466, %1448 ], [ %1506, %1505 ], [ %1509, %1508 ], [ -6, %1052 ], [ 0, %1567 ]
   ret i32 %.0
 }
 
@@ -8230,7 +8230,7 @@ get_min_max_byte_len_case_fold_items.exit.i:      ; preds = %.lr.ph.i93.i
 262:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i92.i
-  br i1 %exitcond.not.i.i.i, label %.lr.ph76.preheader.i.i, label %.lr.ph.i.i.i, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i.i, !llvm.loop !44
 
 .lr.ph.i.i.i:                                     ; preds = %262, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %262 ]
@@ -8239,14 +8239,14 @@ get_min_max_byte_len_case_fold_items.exit.i:      ; preds = %.lr.ph.i93.i
   %.not.i.i105.i = icmp eq i32 %264, 1
   br i1 %.not.i.i105.i, label %262, label %is_all_code_len_1_items.exit.i.i
 
-.lr.ph76.preheader.i.i:                           ; preds = %262
+.loopexit69.i.i:                                  ; preds = %262
   %265 = load ptr, ptr %157, align 8
   %266 = call i32 %265(ptr noundef %.059189.i, ptr noundef %261) #22
   store i32 %266, ptr %10, align 16
   br label %.lr.ph76.i.i
 
-.lr.ph76.i.i:                                     ; preds = %.lr.ph76.i.i, %.lr.ph76.preheader.i.i
-  %indvars.iv81.i.i = phi i64 [ 0, %.lr.ph76.preheader.i.i ], [ %indvars.iv.next82.i.i, %.lr.ph76.i.i ]
+.lr.ph76.i.i:                                     ; preds = %.lr.ph76.i.i, %.loopexit69.i.i
+  %indvars.iv81.i.i = phi i64 [ 0, %.loopexit69.i.i ], [ %indvars.iv.next82.i.i, %.lr.ph76.i.i ]
   %267 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %16, i64 %indvars.iv81.i.i, i32 2
   %268 = load i32, ptr %267, align 4
   %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
@@ -13621,8 +13621,8 @@ tailrecurse.backedge:                             ; preds = %401, %401, %280
   br i1 %334, label %.lr.ph.i273, label %.loopexit.loopexit.i276, !llvm.loop !93
 
 ._crit_edge.i267.loopexit:                        ; preds = %.loopexit.i270, %.lr.ph39.i
-  %.028.lcssa.i.ph = phi ptr [ %.02837.i, %.lr.ph39.i ], [ %.129.lcssa.i, %.loopexit.i270 ]
-  %.0.lcssa.i.ph = phi i32 [ %.038.i, %.lr.ph39.i ], [ %.1.lcssa.i271, %.loopexit.i270 ]
+  %.028.lcssa.i.ph = phi ptr [ %.129.lcssa.i, %.loopexit.i270 ], [ %.02837.i, %.lr.ph39.i ]
+  %.0.lcssa.i.ph = phi i32 [ %.1.lcssa.i271, %.loopexit.i270 ], [ %.038.i, %.lr.ph39.i ]
   %.pre = load i32, ptr %304, align 4
   br label %._crit_edge.i267
 
@@ -15847,9 +15847,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %53 = add nsw i32 %50, 1
   store i32 %53, ptr %8, align 8
   %54 = tail call fastcc i32 @compile_tree(ptr noundef %5, ptr noundef nonnull %1, ptr noundef %2)
-  %.not48 = icmp ne i32 %54, 0
-  %brmerge = or i1 %.not, %.not48
-  br i1 %brmerge, label %add_op.exit.thread, label %55
+  %.not48.not = icmp eq i32 %54, 0
+  br i1 %.not48.not, label %55, label %add_op.exit.thread
 
 55:                                               ; preds = %34
   switch i32 %7, label %add_op.exit57 [

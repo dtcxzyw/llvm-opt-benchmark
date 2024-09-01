@@ -816,8 +816,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp eq i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add36 = phi i64 [ %add32, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -828,20 +828,20 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1042 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add3741 = phi i64 [ %add36, %cond.end9 ], [ 2, %cond.end ]
-  %3 = load ptr, ptr %cond1042, align 8
-  %call12 = call { double, double } @PyComplex_AsCComplex(ptr noundef %3) #10
-  %4 = extractvalue { double, double } %call12, 0
-  %5 = extractvalue { double, double } %call12, 1
+  %2 = load ptr, ptr %cond1042, align 8
+  %call12 = call { double, double } @PyComplex_AsCComplex(ptr noundef %2) #10
+  %3 = extractvalue { double, double } %call12, 0
+  %4 = extractvalue { double, double } %call12, 1
   %call13 = call ptr @PyErr_Occurred() #10
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.end16, label %exit
 
 if.end16:                                         ; preds = %if.end
   %arrayidx18 = getelementptr i8, ptr %cond1042, i64 8
-  %6 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call { double, double } @PyComplex_AsCComplex(ptr noundef %6) #10
-  %7 = extractvalue { double, double } %call19, 0
-  %8 = extractvalue { double, double } %call19, 1
+  %5 = load ptr, ptr %arrayidx18, align 8
+  %call19 = call { double, double } @PyComplex_AsCComplex(ptr noundef %5) #10
+  %6 = extractvalue { double, double } %call19, 0
+  %7 = extractvalue { double, double } %call19, 1
   %call20 = call ptr @PyErr_Occurred() #10
   %tobool21.not = icmp eq ptr %call20, null
   br i1 %tobool21.not, label %if.end23, label %exit
@@ -852,23 +852,23 @@ if.end23:                                         ; preds = %if.end16
 
 if.end26:                                         ; preds = %if.end23
   %arrayidx27 = getelementptr i8, ptr %cond1042, i64 16
-  %9 = load ptr, ptr %arrayidx27, align 8
-  %tobool28.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %arrayidx27, align 8
+  %tobool28.not = icmp eq ptr %8, null
   br i1 %tobool28.not, label %if.end48, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %10 = getelementptr i8, ptr %9, i64 8
-  %.val = load ptr, ptr %10, align 8
+  %9 = getelementptr i8, ptr %8, i64 8
+  %.val = load ptr, ptr %9, align 8
   %cmp.i.not = icmp eq ptr %.val, @PyFloat_Type
   br i1 %cmp.i.not, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %if.then29
-  %11 = getelementptr i8, ptr %9, i64 16
-  %.val26 = load double, ptr %11, align 8
+  %10 = getelementptr i8, ptr %8, i64 16
+  %.val26 = load double, ptr %10, align 8
   br label %if.end44
 
 if.else:                                          ; preds = %if.then29
-  %call37 = call double @PyFloat_AsDouble(ptr noundef nonnull %9) #10
+  %call37 = call double @PyFloat_AsDouble(ptr noundef nonnull %8) #10
   %cmp38 = fcmp oeq double %call37, -1.000000e+00
   br i1 %cmp38, label %land.lhs.true39, label %if.end44
 
@@ -885,19 +885,19 @@ if.end44:                                         ; preds = %if.else, %land.lhs.
 if.end48:                                         ; preds = %if.end44, %if.end26
   %rel_tol.1 = phi double [ %rel_tol.2, %if.end44 ], [ 1.000000e-09, %if.end26 ]
   %arrayidx49 = getelementptr i8, ptr %cond1042, i64 24
-  %12 = load ptr, ptr %arrayidx49, align 8
-  %13 = getelementptr i8, ptr %12, i64 8
-  %.val25 = load ptr, ptr %13, align 8
+  %11 = load ptr, ptr %arrayidx49, align 8
+  %12 = getelementptr i8, ptr %11, i64 8
+  %.val25 = load ptr, ptr %12, align 8
   %cmp.i28.not = icmp eq ptr %.val25, @PyFloat_Type
   br i1 %cmp.i28.not, label %if.then52, label %if.else55
 
 if.then52:                                        ; preds = %if.end48
-  %14 = getelementptr i8, ptr %12, i64 16
-  %.val27 = load double, ptr %14, align 8
+  %13 = getelementptr i8, ptr %11, i64 16
+  %.val27 = load double, ptr %13, align 8
   br label %skip_optional_kwonly
 
 if.else55:                                        ; preds = %if.end48
-  %call57 = call double @PyFloat_AsDouble(ptr noundef nonnull %12) #10
+  %call57 = call double @PyFloat_AsDouble(ptr noundef nonnull %11) #10
   %cmp58 = fcmp oeq double %call57, -1.000000e+00
   br i1 %cmp58, label %land.lhs.true59, label %skip_optional_kwonly
 
@@ -915,55 +915,55 @@ skip_optional_kwonly:                             ; preds = %if.then52, %if.else
   br i1 %or.cond.i, label %land.lhs.true67, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
-  %cmp3.i = fcmp oeq double %4, %7
-  %cmp5.i = fcmp oeq double %5, %8
+  %cmp3.i = fcmp oeq double %3, %6
+  %cmp5.i = fcmp oeq double %4, %7
   %or.cond18.i = select i1 %cmp3.i, i1 %cmp5.i, i1 false
   br i1 %or.cond18.i, label %if.end71, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
+  %14 = call double @llvm.fabs.f64(double %3) #12
+  %isinf.i = fcmp oeq double %14, 0x7FF0000000000000
   %15 = call double @llvm.fabs.f64(double %4) #12
-  %isinf.i = fcmp oeq double %15, 0x7FF0000000000000
-  %16 = call double @llvm.fabs.f64(double %5) #12
-  %isinf11.i = fcmp oeq double %16, 0x7FF0000000000000
+  %isinf11.i = fcmp oeq double %15, 0x7FF0000000000000
   %or.cond19.i = select i1 %isinf.i, i1 true, i1 %isinf11.i
-  %17 = call double @llvm.fabs.f64(double %7) #12
-  %isinf15.i = fcmp oeq double %17, 0x7FF0000000000000
+  %16 = call double @llvm.fabs.f64(double %6) #12
+  %isinf15.i = fcmp oeq double %16, 0x7FF0000000000000
   %or.cond20.i = select i1 %or.cond19.i, i1 true, i1 %isinf15.i
-  %18 = call double @llvm.fabs.f64(double %8) #12
-  %isinf19.i = fcmp oeq double %18, 0x7FF0000000000000
+  %17 = call double @llvm.fabs.f64(double %7) #12
+  %isinf19.i = fcmp oeq double %17, 0x7FF0000000000000
   %or.cond21.i = select i1 %or.cond20.i, i1 true, i1 %isinf19.i
   br i1 %or.cond21.i, label %if.end71, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end7.i
-  %call.i = call { double, double } @_Py_c_diff(double %4, double %5, double %7, double %8) #10
-  %19 = extractvalue { double, double } %call.i, 0
-  %20 = extractvalue { double, double } %call.i, 1
-  %call23.i = call double @_Py_c_abs(double %19, double %20) #10
-  %call24.i = call double @_Py_c_abs(double %7, double %8) #10
+  %call.i = call { double, double } @_Py_c_diff(double %3, double %4, double %6, double %7) #10
+  %18 = extractvalue { double, double } %call.i, 0
+  %19 = extractvalue { double, double } %call.i, 1
+  %call23.i = call double @_Py_c_abs(double %18, double %19) #10
+  %call24.i = call double @_Py_c_abs(double %6, double %7) #10
   %mul.i = fmul double %rel_tol.0, %call24.i
   %cmp25.i = fcmp ugt double %call23.i, %mul.i
   br i1 %cmp25.i, label %lor.lhs.false26.i, label %if.end71
 
 lor.lhs.false26.i:                                ; preds = %if.end22.i
-  %call27.i = call double @_Py_c_abs(double %4, double %5) #10
+  %call27.i = call double @_Py_c_abs(double %3, double %4) #10
   %mul28.i = fmul double %rel_tol.0, %call27.i
   %cmp29.i = fcmp ugt double %call23.i, %mul28.i
   br i1 %cmp29.i, label %lor.rhs.i, label %if.end71
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false26.i
   %cmp30.i = fcmp ole double %call23.i, %abs_tol.0
-  %21 = zext i1 %cmp30.i to i64
+  %20 = zext i1 %cmp30.i to i64
   br label %if.end71
 
 land.lhs.true67:                                  ; preds = %land.lhs.true59, %skip_optional_kwonly
-  %22 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.30) #10
+  %21 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.30) #10
   %call68 = call ptr @PyErr_Occurred() #10
   %tobool69.not = icmp eq ptr %call68, null
   br i1 %tobool69.not, label %if.end71, label %exit
 
 if.end71:                                         ; preds = %lor.rhs.i, %if.end22.i, %lor.lhs.false26.i, %if.end7.i, %if.end.i, %land.lhs.true67
-  %retval.0.i45 = phi i64 [ -1, %land.lhs.true67 ], [ %21, %lor.rhs.i ], [ 1, %if.end22.i ], [ 1, %lor.lhs.false26.i ], [ 0, %if.end7.i ], [ 1, %if.end.i ]
+  %retval.0.i45 = phi i64 [ -1, %land.lhs.true67 ], [ %20, %lor.rhs.i ], [ 1, %if.end22.i ], [ 1, %lor.lhs.false26.i ], [ 0, %if.end7.i ], [ 1, %if.end.i ]
   %call72 = call ptr @PyBool_FromLong(i64 noundef %retval.0.i45) #10
   br label %exit
 

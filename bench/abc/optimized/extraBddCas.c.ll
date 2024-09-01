@@ -774,10 +774,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %34, label %.lr.ph60.preheader, label %._crit_edge
-
-.lr.ph60.preheader:                               ; preds = %.preheader
+.lr.ph60.preheader:                               ; preds = %.lr.ph
   %wide.trip.count70 = zext nneg i32 %3 to i64
   br label %.lr.ph60
 
@@ -788,7 +785,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   tail call fastcc void @CountNodeVisits_rec(ptr noundef %0, ptr noundef %36, ptr noundef %33)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph60.preheader, label %.lr.ph, !llvm.loop !13
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv67 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next68, %.lr.ph60 ]
@@ -801,7 +798,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph60, %31, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph60, %31
   %41 = tail call ptr @st__init_gen(ptr noundef %33) #11
   %42 = call i32 @st__gen(ptr noundef %41, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %.not61 = icmp eq i32 %42, 0

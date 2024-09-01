@@ -15028,15 +15028,12 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0E
   br i1 %exitcond.not, label %._crit_edge, label %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit, !llvm.loop !432
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit, %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit.loopexit.us
-  br i1 %93, label %173, label %.preheader
+  br i1 %93, label %173, label %.lr.ph211
 
 ._crit_edge.thread:                               ; preds = %_ZN5Eigen9DenseBaseINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEE5blockIllEENS7_13FixedBlockXprIXsr8internal15get_fixed_valueIT_EE5valueEXsr8internal15get_fixed_valueIT0_EE5valueEE4TypeEllSA_SB_.exit
   br i1 %93, label %173, label %._crit_edge212
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %117, label %.lr.ph211, label %._crit_edge212
-
-.lr.ph211:                                        ; preds = %.preheader
+.lr.ph211:                                        ; preds = %._crit_edge
   %.not.i.i.i.i92 = icmp eq ptr %74, null
   %139 = icmp sgt i64 %61, 0
   br i1 %139, label %.lr.ph.i.i.i.i.i.i94.preheader.us, label %._crit_edge212
@@ -15070,7 +15067,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0E
   %exitcond220.not = icmp eq i64 %153, %60
   br i1 %exitcond220.not, label %._crit_edge212, label %.lr.ph.i.i.i.i.i.i94.preheader.us, !llvm.loop !433
 
-._crit_edge212:                                   ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit97.loopexit.us, %._crit_edge.thread, %.lr.ph211, %.preheader
+._crit_edge212:                                   ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit97.loopexit.us, %._crit_edge.thread, %.lr.ph211
   %154 = load i64, ptr %36, align 8
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %_ZNK5Eigen18TriangularViewImplINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELj5ENS_5DenseEE12solveInPlaceIS6_EEvRKNS_10MatrixBaseIT_EE.exit, label %156
@@ -15931,9 +15928,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
   br label %75
 
 .loopexit377:                                     ; preds = %264
-  br i1 %217, label %75, label %._crit_edge, !llvm.loop !463
+  br label %75, !llvm.loop !463
 
-75:                                               ; preds = %.lr.ph401, %.loopexit377
+75:                                               ; preds = %.loopexit377, %.lr.ph401
   %.0199399 = phi i64 [ 0, %.lr.ph401 ], [ %216, %.loopexit377 ]
   %76 = sub nsw i64 %0, %.0199399
   %.sroa.speculated313 = call i64 @llvm.smin.i64(i64 %22, i64 %76)
@@ -16395,7 +16392,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %266 = icmp slt i64 %265, %0
   br i1 %266, label %220, label %.loopexit377, !llvm.loop !473
 
-._crit_edge:                                      ; preds = %.loopexit377, %._crit_edge397, %70
+._crit_edge:                                      ; preds = %._crit_edge397, %70
   br i1 %63, label %267, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit284
 
 267:                                              ; preds = %._crit_edge
@@ -17875,9 +17872,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
   br label %76
 
 .loopexit378:                                     ; preds = %279
-  br i1 %233, label %76, label %._crit_edge, !llvm.loop !525
+  br label %76, !llvm.loop !525
 
-76:                                               ; preds = %.lr.ph401, %.loopexit378
+76:                                               ; preds = %.loopexit378, %.lr.ph401
   %.0199399 = phi i64 [ %0, %.lr.ph401 ], [ %232, %.loopexit378 ]
   %.sroa.speculated312 = call i64 @llvm.smin.i64(i64 %22, i64 %.0199399)
   br i1 %64, label %.lr.ph396, label %._crit_edge397
@@ -18367,7 +18364,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %281 = icmp slt i64 %280, %232
   br i1 %281, label %235, label %.loopexit378, !llvm.loop !531
 
-._crit_edge:                                      ; preds = %.loopexit378, %._crit_edge397, %70
+._crit_edge:                                      ; preds = %._crit_edge397, %70
   br i1 %63, label %282, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit283
 
 282:                                              ; preds = %._crit_edge

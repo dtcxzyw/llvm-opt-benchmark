@@ -1036,8 +1036,8 @@ if.end15.i:                                       ; preds = %if.end10.i
   store i32 9, ptr %36, align 4
   %arrayidx16.i = getelementptr inbounds i8, ptr %sv.i, i64 4
   %call17.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i96, ptr noundef nonnull %arrayidx16.i, i32 noundef 1)
-  %tobool18.not.i.not = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i.not, label %if.then22.i, label %out.i.thread
+  %tobool18.not.not.i = icmp eq i32 %call17.i, 0
+  br i1 %tobool18.not.not.i, label %if.then22.i, label %out.i.thread
 
 out.i.thread:                                     ; preds = %if.end15.i
   %42 = load i32, ptr %arrayidx16.i, align 4
@@ -1052,11 +1052,11 @@ if.then22.i:                                      ; preds = %if.end15.i
   br i1 %cmp.i.i, label %process_message_reply.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then22.i
-  %dev.val.i.i98 = load ptr, ptr %opaque2, align 8
-  %44 = getelementptr i8, ptr %dev.val.i.i98, i64 8
-  %dev.val.val.i.i99 = load ptr, ptr %44, align 8
-  %dev.val.val.val.i.i100 = load ptr, ptr %dev.val.val.i.i99, align 8
-  %call.i16.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i100, ptr noundef nonnull %msg_reply.i.i)
+  %dev.val.i.i99 = load ptr, ptr %opaque2, align 8
+  %44 = getelementptr i8, ptr %dev.val.i.i99, i64 8
+  %dev.val.val.i.i100 = load ptr, ptr %44, align 8
+  %dev.val.val.val.i.i101 = load ptr, ptr %dev.val.val.i.i100, align 8
+  %call.i16.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i101, ptr noundef nonnull %msg_reply.i.i)
   %cmp1.i.i = icmp slt i32 %call.i16.i, 0
   br i1 %cmp1.i.i, label %process_message_reply.exit.i, label %if.end3.i.i
 
@@ -1109,11 +1109,11 @@ vhost_setup_backend_channel.exit.thread:          ; preds = %if.then100, %out.i
   br label %if.end106
 
 vhost_setup_backend_channel.exit:                 ; preds = %if.then4.i, %if.then28.i
-  %retval.0.i101 = phi i32 [ %sub.i, %if.then4.i ], [ %ret.0.i117, %if.then28.i ]
+  %retval.0.i98 = phi i32 [ %sub.i, %if.then4.i ], [ %ret.0.i117, %if.then28.i ]
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i96)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %cmp102 = icmp slt i32 %retval.0.i101, 0
+  %cmp102 = icmp slt i32 %retval.0.i98, 0
   br i1 %cmp102, label %if.then104, label %if.end106
 
 if.then104:                                       ; preds = %vhost_setup_backend_channel.exit.thread120, %vhost_setup_backend_channel.exit

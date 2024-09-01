@@ -8774,8 +8774,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr585dro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0528, ptr noundef nonnull align 8 dereferenceable(64) %187, i64 64, i1 false), !noalias !1292
   %.sroa.7.0..sroa_idx531 = getelementptr inbounds i8, ptr %187, i64 64
   %.sroa.7.0.copyload532 = load i32, ptr %.sroa.7.0..sroa_idx531, align 8, !noalias !1292
-  %.not36.not = icmp eq i32 %.sroa.7.0.copyload532, 1000000000
-  br i1 %.not36.not, label %"_ZN4core3ptr134drop_in_place$LT$awc..client..pool..PooledConnection$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17h44e3e6c614717ea4E.exit", label %188
+  %.not36 = icmp eq i32 %.sroa.7.0.copyload532, 1000000000
+  br i1 %.not36, label %"_ZN4core3ptr134drop_in_place$LT$awc..client..pool..PooledConnection$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17h44e3e6c614717ea4E.exit", label %188
 
 188:                                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h67150a8886eb8c6aE.exit"
   %.sroa.8.0..sroa_idx533 = getelementptr inbounds i8, ptr %187, i64 68
@@ -11763,8 +11763,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr175dro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0519, ptr noundef nonnull align 8 dereferenceable(64) %193, i64 64, i1 false), !noalias !1628
   %.sroa.7.0..sroa_idx520 = getelementptr inbounds i8, ptr %193, i64 64
   %.sroa.7.0.copyload521 = load i32, ptr %.sroa.7.0..sroa_idx520, align 8, !noalias !1628
-  %.not35.not = icmp eq i32 %.sroa.7.0.copyload521, 1000000000
-  br i1 %.not35.not, label %"_ZN4core3ptr98drop_in_place$LT$awc..client..pool..PooledConnection$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h85ae68143637235bE.exit", label %194
+  %.not35 = icmp eq i32 %.sroa.7.0.copyload521, 1000000000
+  br i1 %.not35, label %"_ZN4core3ptr98drop_in_place$LT$awc..client..pool..PooledConnection$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h85ae68143637235bE.exit", label %194
 
 194:                                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hc81b393d6658dad0E.exit"
   %.sroa.8.0..sroa_idx522 = getelementptr inbounds i8, ptr %193, i64 68

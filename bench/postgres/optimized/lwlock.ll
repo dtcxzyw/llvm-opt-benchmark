@@ -1813,9 +1813,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %27 = icmp eq i32 %20, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %. = select i1 %27, i32 16777216, i32 1
-  %.44 = select i1 %27, i32 2130706432, i32 2147483647
+  %.43 = select i1 %27, i32 2130706432, i32 2147483647
   %29 = atomicrmw sub ptr %28, i32 %. seq_cst, align 4
-  %30 = add i32 %29, %.44
+  %30 = add i32 %29, %.43
   %31 = and i32 %30, 1644167167
   %or.cond = icmp eq i32 %31, 1610612736
   br i1 %or.cond, label %32, label %.critedge
@@ -2015,13 +2015,13 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_
   br i1 %.not50.i, label %.split.i, label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %.split.i, %proclist_delete_offset.exit44.i
-  %.sink42 = phi i32 [ %.sroa.19.170.i, %proclist_delete_offset.exit44.i ], [ %103, %.split.i ]
+  %.sroa.19.170.i.sink = phi i32 [ %.sroa.19.170.i, %proclist_delete_offset.exit44.i ], [ %103, %.split.i ]
   %116 = load ptr, ptr @ProcGlobal, align 8
   %117 = load ptr, ptr %116, align 8
-  %118 = sext i32 %.sink42 to i64
+  %118 = sext i32 %.sroa.19.170.i.sink to i64
   %119 = getelementptr %struct.PGPROC, ptr %117, i64 %118, i32 17
   %.sroa.19.170.i = load i32, ptr %119, align 4
-  %120 = sext i32 %.sink42 to i64
+  %120 = sext i32 %.sroa.19.170.i.sink to i64
   %121 = getelementptr %struct.PGPROC, ptr %117, i64 %120
   %122 = getelementptr %struct.PGPROC, ptr %117, i64 %120, i32 17
   %123 = getelementptr inbounds i8, ptr %122, i64 4
@@ -2107,41 +2107,32 @@ define dso_local void @LWLockReleaseAll() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @LWLockHeldByMe(ptr noundef readnone %0) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @LWLockHeldByMe(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @num_held_lwlocks, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %4 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
-  %5 = load ptr, ptr @held_lwlocks, align 16
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %4 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %._crit_edge, label %.lr.ph9
-
-.lr.ph9:                                          ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv8 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv8, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  %or.cond = select i1 %6, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-.lr.ph:                                           ; preds = %.lr.ph9
-  %7 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv.next
-  %8 = load ptr, ptr %7, align 16
-  %9 = icmp eq ptr %8, %0
-  br i1 %9, label %._crit_edge.loopexit, label %.lr.ph9, !llvm.loop !33
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph9
-  %10 = icmp ult i64 %indvars.iv.next, %4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %1
-  %.lcssa = phi i1 [ false, %1 ], [ true, %.lr.ph.preheader ], [ %10, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %6, %.lr.ph ]
   ret i1 %.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %1 to i64
   %5 = mul i64 %2, %4
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -2151,71 +2142,65 @@ define dso_local zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 noundef %1, i
 
 .lr.ph:                                           ; preds = %3
   %9 = ptrtoint ptr %0 to i64
-  %10 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %11
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %12 = phi i1 [ true, %.lr.ph ], [ %22, %21 ]
-  %13 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 16
-  %.not = icmp uge ptr %14, %0
-  %15 = icmp ult ptr %14, %6
-  %or.cond = and i1 %.not, %15
-  br i1 %or.cond, label %16, label %21
+10:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %11 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 16
+  %.not = icmp uge ptr %12, %0
+  %13 = icmp ult ptr %12, %6
+  %or.cond = and i1 %.not, %13
+  br i1 %or.cond, label %14, label %19
 
-16:                                               ; preds = %11
-  %17 = ptrtoint ptr %14 to i64
-  %18 = sub i64 %17, %9
-  %19 = urem i64 %18, %2
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %._crit_edge, label %21
+14:                                               ; preds = %10
+  %15 = ptrtoint ptr %12 to i64
+  %16 = sub i64 %15, %9
+  %17 = urem i64 %16, %2
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %._crit_edge, label %19
 
-21:                                               ; preds = %11, %16
+19:                                               ; preds = %10, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = icmp ult i64 %indvars.iv.next, %10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %16, %21, %3
-  %.lcssa = phi i1 [ false, %3 ], [ %22, %21 ], [ %12, %16 ]
+._crit_edge:                                      ; preds = %14, %19, %3
+  %.lcssa = phi i1 [ false, %3 ], [ false, %19 ], [ true, %14 ]
   ret i1 %.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @num_held_lwlocks, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %6 = phi i1 [ true, %.lr.ph.preheader ], [ %15, %14 ]
-  %7 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 16
-  %9 = icmp eq ptr %8, %0
-  br i1 %9, label %10, label %14
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
+  %5 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %indvars.iv
+  %6 = load ptr, ptr %5, align 16
+  %7 = icmp eq ptr %6, %0
+  br i1 %7, label %8, label %12
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %1
-  br i1 %13, label %._crit_edge, label %14
+8:                                                ; preds = %.lr.ph
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, %1
+  br i1 %11, label %._crit_edge, label %12
 
-14:                                               ; preds = %.lr.ph, %10
+12:                                               ; preds = %.lr.ph, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = icmp ult i64 %indvars.iv.next, %5
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %10, %14, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %15, %14 ], [ %6, %10 ]
+._crit_edge:                                      ; preds = %8, %12, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %12 ], [ true, %8 ]
   ret i1 %.lcssa
 }
 

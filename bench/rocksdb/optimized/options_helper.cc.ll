@@ -8213,13 +8213,13 @@ while.body.i.i.i.i:                               ; preds = %for.end, %while.bod
   %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i) #28
   %inc.i.i.i.i = add nuw nsw i64 %__n.05.i.i.i.i, 1
   %cmp.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %0
-  br i1 %cmp.i.not.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i, label %while.body.i.i.i.i, !llvm.loop !29
+  br i1 %cmp.i.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !29
 
-for.body.i.i.i.i.i.i.i.i.preheader.i.i:           ; preds = %while.body.i.i.i.i
+_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %while.body.i.i.i.i
   %call5.i.i.i.i1.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %inc.i.i.i.i) #27
           to label %call5.i.i.i.i1.i.noexc unwind label %lpad18
 
-call5.i.i.i.i1.i.noexc:                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+call5.i.i.i.i1.i.noexc:                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i1.i5, ptr %agg.result, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5, i64 %inc.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -8255,7 +8255,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont19
 _ZNSt3setIN7rocksdb15CompressionTypeESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %invoke.cont19
   ret void
 
-lpad18:                                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+lpad18:                                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -8445,13 +8445,13 @@ while.body.i.i.i.i:                               ; preds = %for.end, %while.bod
   %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i) #28
   %inc.i.i.i.i = add nuw nsw i64 %__n.05.i.i.i.i, 1
   %cmp.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %0
-  br i1 %cmp.i.not.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i, label %while.body.i.i.i.i, !llvm.loop !29
+  br i1 %cmp.i.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !29
 
-for.body.i.i.i.i.i.i.i.i.preheader.i.i:           ; preds = %while.body.i.i.i.i
+_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %while.body.i.i.i.i
   %call5.i.i.i.i1.i6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %inc.i.i.i.i) #27
           to label %call5.i.i.i.i1.i.noexc unwind label %lpad18
 
-call5.i.i.i.i1.i.noexc:                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+call5.i.i.i.i1.i.noexc:                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i1.i6, ptr %agg.result, align 8
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i6, i64 %inc.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -8487,7 +8487,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont19
 _ZNSt3setIN7rocksdb15CompressionTypeESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %invoke.cont19
   ret void
 
-lpad18:                                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+lpad18:                                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -8607,13 +8607,13 @@ while.body.i.i.i.i:                               ; preds = %for.end, %while.bod
   %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i) #28
   %inc.i.i.i.i = add nuw nsw i64 %__n.05.i.i.i.i, 1
   %cmp.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %0
-  br i1 %cmp.i.not.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i, label %while.body.i.i.i.i, !llvm.loop !32
+  br i1 %cmp.i.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb12ChecksumTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !32
 
-for.body.i.i.i.i.i.i.i.i.preheader.i.i:           ; preds = %while.body.i.i.i.i
+_ZNSt12_Vector_baseIN7rocksdb12ChecksumTypeESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %while.body.i.i.i.i
   %call5.i.i.i.i1.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %inc.i.i.i.i) #27
           to label %call5.i.i.i.i1.i.noexc unwind label %lpad16
 
-call5.i.i.i.i1.i.noexc:                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+call5.i.i.i.i1.i.noexc:                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb12ChecksumTypeESaIS1_EE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i1.i5, ptr %agg.result, align 8
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5, i64 %inc.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -8649,7 +8649,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont17
 _ZNSt3setIN7rocksdb12ChecksumTypeESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %invoke.cont17
   ret void
 
-lpad16:                                           ; preds = %for.body.i.i.i.i.i.i.i.i.preheader.i.i
+lpad16:                                           ; preds = %_ZNSt12_Vector_baseIN7rocksdb12ChecksumTypeESaIS1_EE11_M_allocateEm.exit.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -8809,8 +8809,8 @@ sw.bb36:                                          ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i, %sw.bb36
   %__begin0.sroa.0.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper27compaction_style_string_mapB5cxx11E, i64 16), %sw.bb36 ], [ %__begin0.sroa.0.0.i, %for.body.i ]
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0.in.i, align 8
-  %cmp.i.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
-  br i1 %cmp.i.not.i.not, label %return, label %for.body.i
+  %cmp.i.not.not.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.not.i.not, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %second.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i, i64 40
@@ -8830,8 +8830,8 @@ sw.bb38:                                          ; preds = %entry
 for.cond.i40:                                     ; preds = %for.body.i44, %sw.bb38
   %__begin0.sroa.0.0.in.i41 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper25compaction_pri_string_mapB5cxx11E, i64 16), %sw.bb38 ], [ %__begin0.sroa.0.0.i42, %for.body.i44 ]
   %__begin0.sroa.0.0.i42 = load ptr, ptr %__begin0.sroa.0.0.in.i41, align 8
-  %cmp.i.not.i43.not = icmp eq ptr %__begin0.sroa.0.0.i42, null
-  br i1 %cmp.i.not.i43.not, label %return, label %for.body.i44
+  %cmp.i.not.not.not.i43.not = icmp eq ptr %__begin0.sroa.0.0.i42, null
+  br i1 %cmp.i.not.not.not.i43.not, label %return, label %for.body.i44
 
 for.body.i44:                                     ; preds = %for.cond.i40
   %second.i45 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i42, i64 40
@@ -8851,8 +8851,8 @@ sw.bb40:                                          ; preds = %entry
 for.cond.i50:                                     ; preds = %for.body.i54, %sw.bb40
   %__begin0.sroa.0.0.in.i51 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper27compression_type_string_mapB5cxx11E, i64 16), %sw.bb40 ], [ %__begin0.sroa.0.0.i52, %for.body.i54 ]
   %__begin0.sroa.0.0.i52 = load ptr, ptr %__begin0.sroa.0.0.in.i51, align 8
-  %cmp.i.not.i53.not = icmp eq ptr %__begin0.sroa.0.0.i52, null
-  br i1 %cmp.i.not.i53.not, label %return, label %for.body.i54
+  %cmp.i.not.not.not.i53.not = icmp eq ptr %__begin0.sroa.0.0.i52, null
+  br i1 %cmp.i.not.not.not.i53.not, label %return, label %for.body.i54
 
 for.body.i54:                                     ; preds = %for.cond.i50
   %second.i55 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i52, i64 40
@@ -8872,8 +8872,8 @@ sw.bb42:                                          ; preds = %entry
 for.cond.i60:                                     ; preds = %for.body.i64, %sw.bb42
   %__begin0.sroa.0.0.in.i61 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper24checksum_type_string_mapB5cxx11E, i64 16), %sw.bb42 ], [ %__begin0.sroa.0.0.i62, %for.body.i64 ]
   %__begin0.sroa.0.0.i62 = load ptr, ptr %__begin0.sroa.0.0.in.i61, align 8
-  %cmp.i.not.i63.not = icmp eq ptr %__begin0.sroa.0.0.i62, null
-  br i1 %cmp.i.not.i63.not, label %return, label %for.body.i64
+  %cmp.i.not.not.not.i63.not = icmp eq ptr %__begin0.sroa.0.0.i62, null
+  br i1 %cmp.i.not.not.not.i63.not, label %return, label %for.body.i64
 
 for.body.i64:                                     ; preds = %for.cond.i60
   %second.i65 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i62, i64 40
@@ -8893,8 +8893,8 @@ sw.bb44:                                          ; preds = %entry
 for.cond.i70:                                     ; preds = %for.body.i74, %sw.bb44
   %__begin0.sroa.0.0.in.i71 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper24encoding_type_string_mapB5cxx11E, i64 16), %sw.bb44 ], [ %__begin0.sroa.0.0.i72, %for.body.i74 ]
   %__begin0.sroa.0.0.i72 = load ptr, ptr %__begin0.sroa.0.0.in.i71, align 8
-  %cmp.i.not.i73.not = icmp eq ptr %__begin0.sroa.0.0.i72, null
-  br i1 %cmp.i.not.i73.not, label %return, label %for.body.i74
+  %cmp.i.not.not.not.i73.not = icmp eq ptr %__begin0.sroa.0.0.i72, null
+  br i1 %cmp.i.not.not.not.i73.not, label %return, label %for.body.i74
 
 for.body.i74:                                     ; preds = %for.cond.i70
   %second.i75 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i72, i64 40
@@ -8914,8 +8914,8 @@ sw.bb46:                                          ; preds = %entry
 for.cond.i80:                                     ; preds = %for.body.i84, %sw.bb46
   %__begin0.sroa.0.0.in.i81 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper32compaction_stop_style_string_mapB5cxx11E, i64 16), %sw.bb46 ], [ %__begin0.sroa.0.0.i82, %for.body.i84 ]
   %__begin0.sroa.0.0.i82 = load ptr, ptr %__begin0.sroa.0.0.in.i81, align 8
-  %cmp.i.not.i83.not = icmp eq ptr %__begin0.sroa.0.0.i82, null
-  br i1 %cmp.i.not.i83.not, label %return, label %for.body.i84
+  %cmp.i.not.not.not.i83.not = icmp eq ptr %__begin0.sroa.0.0.i82, null
+  br i1 %cmp.i.not.not.not.i83.not, label %return, label %for.body.i84
 
 for.body.i84:                                     ; preds = %for.cond.i80
   %second.i85 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i82, i64 40
@@ -8946,8 +8946,8 @@ sw.bb52:                                          ; preds = %entry
 for.cond.i89:                                     ; preds = %for.body.i93, %sw.bb52
   %__begin0.sroa.0.0.in.i90 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper22temperature_string_mapB5cxx11E, i64 16), %sw.bb52 ], [ %__begin0.sroa.0.0.i91, %for.body.i93 ]
   %__begin0.sroa.0.0.i91 = load ptr, ptr %__begin0.sroa.0.0.in.i90, align 8
-  %cmp.i.not.i92.not = icmp eq ptr %__begin0.sroa.0.0.i91, null
-  br i1 %cmp.i.not.i92.not, label %return, label %for.body.i93
+  %cmp.i.not.not.not.i92.not = icmp eq ptr %__begin0.sroa.0.0.i91, null
+  br i1 %cmp.i.not.not.not.i92.not, label %return, label %for.body.i93
 
 for.body.i93:                                     ; preds = %for.cond.i89
   %second.i94 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i91, i64 40
@@ -10500,8 +10500,8 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i, %entry
   %__begin0.sroa.0.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN7rocksdb13OptionsHelper27compression_type_string_mapB5cxx11E, i64 16), %entry ], [ %__begin0.sroa.0.0.i, %for.body.i ]
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0.in.i, align 8
-  %cmp.i.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
-  br i1 %cmp.i.not.i.not, label %if.else, label %for.body.i
+  %cmp.i.not.not.not.i.not = icmp eq ptr %__begin0.sroa.0.0.i, null
+  br i1 %cmp.i.not.not.not.i.not, label %if.else, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %second.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i, i64 40

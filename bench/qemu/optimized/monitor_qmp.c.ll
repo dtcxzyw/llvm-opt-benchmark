@@ -809,13 +809,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %.not79 = icmp eq ptr %err, null
+  %.not78 = icmp eq ptr %err, null
   %req. = select i1 %cmp.i, ptr %req, ptr null
-  br i1 %.not79, label %land.lhs.true, label %if.else
+  br i1 %.not78, label %land.lhs.true, label %if.else
 
 qobject_check_type.exit:                          ; preds = %entry
-  %.not80 = icmp eq ptr %err, null
-  br i1 %.not80, label %if.else, label %for.body.us
+  %.not79 = icmp eq ptr %err, null
+  br i1 %.not79, label %if.else, label %for.body.us
 
 if.else:                                          ; preds = %qobject_type.exit.i, %qobject_check_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_qmp_command) #7

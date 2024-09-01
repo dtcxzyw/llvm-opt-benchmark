@@ -5379,16 +5379,16 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
   call void @proto_item_set_len(ptr noundef %122, i32 noundef %spec.select.i) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph211.preheader.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
-.lr.ph211.preheader.i:                            ; preds = %131
+._crit_edge.i:                                    ; preds = %131
   %147 = sdiv i32 %spec.select193.i, 8
   br label %.lr.ph211.i
 
-.lr.ph211.i:                                      ; preds = %._crit_edge204.i, %.lr.ph211.preheader.i
-  %indvars.iv238.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next239.i, %._crit_edge204.i ]
-  %.1209.i = phi i32 [ %147, %.lr.ph211.preheader.i ], [ %.2.lcssa.i, %._crit_edge204.i ]
-  %.0175207.i = phi i16 [ 0, %.lr.ph211.preheader.i ], [ %.1176.lcssa.i, %._crit_edge204.i ]
+.lr.ph211.i:                                      ; preds = %._crit_edge204.i, %._crit_edge.i
+  %indvars.iv238.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next239.i, %._crit_edge204.i ]
+  %.1209.i = phi i32 [ %147, %._crit_edge.i ], [ %.2.lcssa.i, %._crit_edge204.i ]
+  %.0175207.i = phi i16 [ 0, %._crit_edge.i ], [ %.1176.lcssa.i, %._crit_edge204.i ]
   %148 = load i32, ptr @hf_fp_edch_macis_descriptors, align 4
   %149 = getelementptr [16 x %struct.edch_t2_subframe_info], ptr @dissect_e_dch_t2_or_common_channel_info.subframes, i64 0, i64 %indvars.iv238.i
   %150 = load i8, ptr %149, align 2
@@ -5654,10 +5654,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %491
 
-.preheader325:                                    ; preds = %._crit_edge
-  br i1 %.not415, label %._crit_edge410.thread, label %.lr.ph409
-
-.lr.ph409:                                        ; preds = %.preheader325
+.lr.ph409:                                        ; preds = %._crit_edge
   %276 = getelementptr inbounds i8, ptr %3, i64 544
   %277 = getelementptr inbounds i8, ptr %3, i64 548
   %278 = getelementptr inbounds i8, ptr %3, i64 564
@@ -5792,7 +5789,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   call void @proto_item_set_len(ptr noundef %291, i32 noundef %357) #8
   %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
-  br i1 %exitcond456.not, label %.preheader325, label %289, !llvm.loop !37
+  br i1 %exitcond456.not, label %.lr.ph409, label %289, !llvm.loop !37
 
 358:                                              ; preds = %.lr.ph409, %._crit_edge399._crit_edge
   %indvars.iv477 = phi i64 [ 0, %.lr.ph409 ], [ %indvars.iv.next478, %._crit_edge399._crit_edge ]
@@ -5855,7 +5852,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 384:                                              ; preds = %385
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
-  br i1 %exitcond461.not, label %.loopexit324, label %385, !llvm.loop !38
+  br i1 %exitcond461.not, label %.lr.ph383, label %385, !llvm.loop !38
 
 385:                                              ; preds = %.lr.ph379, %384
   %indvars.iv457 = phi i64 [ 0, %.lr.ph379 ], [ %indvars.iv.next458, %384 ]
@@ -5867,13 +5864,10 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 389:                                              ; preds = %385
   %390 = getelementptr [16 x i32], ptr %278, i64 0, i64 %indvars.iv457
   %391 = load i32, ptr %390, align 4
-  br label %.loopexit324
+  br label %.lr.ph383
 
-.loopexit324:                                     ; preds = %384, %389
+.lr.ph383:                                        ; preds = %384, %389
   %.0282 = phi i32 [ %391, %389 ], [ 0, %384 ]
-  br i1 %381, label %.lr.ph383, label %.loopexit
-
-.lr.ph383:                                        ; preds = %.loopexit324
   %392 = getelementptr [64 x i8], ptr %375, i64 0, i64 %indvars.iv472
   %393 = load i8, ptr %392, align 1
   %wide.trip.count465 = zext nneg i32 %380 to i64
@@ -5897,10 +5891,10 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
   br i1 %exitcond466.not, label %.loopexit.thread, label %394, !llvm.loop !39
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit324, %398
-  %.0282485 = phi i32 [ %.0282, %398 ], [ %.0282, %.loopexit324 ], [ 0, %.preheader ]
-  %.1284334 = phi i32 [ %399, %398 ], [ 0, %.loopexit324 ], [ 0, %.preheader ]
-  %.1288 = phi i32 [ %401, %398 ], [ %.0287398, %.loopexit324 ], [ %.0287398, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %398
+  %.0282485 = phi i32 [ %.0282, %398 ], [ 0, %.preheader ]
+  %.1284334 = phi i32 [ %399, %398 ], [ 0, %.preheader ]
+  %.1288 = phi i32 [ %401, %398 ], [ %.0287398, %.preheader ]
   %403 = icmp eq i32 %.1284334, %380
   br i1 %403, label %.loopexit.thread, label %405
 
@@ -6058,11 +6052,11 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   %481 = icmp eq i32 %.1300.lcssa, 0
   br i1 %481, label %._crit_edge410.thread, label %484
 
-._crit_edge410.thread:                            ; preds = %.preheader327, %.preheader325, %._crit_edge410
-  %.1.lcssa499 = phi i32 [ %480, %._crit_edge410 ], [ %356, %.preheader325 ], [ 4, %.preheader327 ]
-  %.0297.lcssa497 = phi i32 [ %478, %._crit_edge410 ], [ 0, %.preheader325 ], [ 0, %.preheader327 ]
-  %.0298.lcssa496 = phi i32 [ %479, %._crit_edge410 ], [ 0, %.preheader325 ], [ 0, %.preheader327 ]
-  %.0.lcssa483495 = phi i32 [ %356, %._crit_edge410 ], [ %356, %.preheader325 ], [ 4, %.preheader327 ]
+._crit_edge410.thread:                            ; preds = %.preheader327, %._crit_edge410
+  %.1.lcssa499 = phi i32 [ %480, %._crit_edge410 ], [ 4, %.preheader327 ]
+  %.0297.lcssa497 = phi i32 [ %478, %._crit_edge410 ], [ 0, %.preheader327 ]
+  %.0298.lcssa496 = phi i32 [ %479, %._crit_edge410 ], [ 0, %.preheader327 ]
+  %.0.lcssa483495 = phi i32 [ %356, %._crit_edge410 ], [ 4, %.preheader327 ]
   %482 = load ptr, ptr %31, align 8
   %483 = load i32, ptr %10, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %482, i32 noundef 25, ptr noundef nonnull @.str.581, i32 noundef %483, i32 noundef %.0298.lcssa496, i32 noundef %.0297.lcssa497, i32 noundef %100) #8

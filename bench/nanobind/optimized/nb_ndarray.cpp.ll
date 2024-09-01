@@ -707,8 +707,8 @@ thread-pre-split.i:                               ; preds = %182, %179
   %.251.i = phi i8 [ %189, %187 ], [ %185, %thread-pre-split.i ]
   %191 = getelementptr inbounds i8, ptr %.153.i, i64 1
   %192 = load i8, ptr %191, align 1
-  %.not114.i = icmp eq i8 %192, 0
-  br i1 %.not114.i, label %193, label %.thread109.i
+  %.not115.i = icmp eq i8 %192, 0
+  br i1 %.not115.i, label %193, label %.thread109.i
 
 193:                                              ; preds = %190
   switch i8 %.251.i, label %.thread109.i [
@@ -812,20 +812,20 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit66.preheader.i: ; preds = %.noex
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit66.i: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit66.i, %.lr.ph.i
-  %.0115.i = phi i64 [ 0, %.lr.ph.i ], [ %231, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit66.i ]
+  %.0116.i = phi i64 [ 0, %.lr.ph.i ], [ %231, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit66.i ]
   %221 = load ptr, ptr %218, align 8
-  %222 = getelementptr inbounds i64, ptr %221, i64 %.0115.i
+  %222 = getelementptr inbounds i64, ptr %221, i64 %.0116.i
   %223 = load i64, ptr %222, align 8
   %224 = load i64, ptr %197, align 8
   %225 = sdiv i64 %223, %224
-  %226 = getelementptr inbounds i64, ptr %211, i64 %.0115.i
+  %226 = getelementptr inbounds i64, ptr %211, i64 %.0116.i
   store i64 %225, ptr %226, align 8
   %227 = load ptr, ptr %219, align 8
-  %228 = getelementptr inbounds i64, ptr %227, i64 %.0115.i
+  %228 = getelementptr inbounds i64, ptr %227, i64 %.0116.i
   %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds i64, ptr %216, i64 %.0115.i
+  %230 = getelementptr inbounds i64, ptr %216, i64 %.0116.i
   store i64 %229, ptr %230, align 8
-  %231 = add nuw i64 %.0115.i, 1
+  %231 = add nuw i64 %.0116.i, 1
   %232 = load i32, ptr %203, align 4
   %233 = sext i32 %232 to i64
   %234 = icmp ult i64 %231, %233
@@ -1077,16 +1077,16 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %298, %292, %287, %2
   %327 = load i64, ptr %326, align 8
   %328 = getelementptr inbounds i64, ptr %324, i64 %indvars.iv
   %329 = load i64, ptr %328, align 8
-  %.not291 = icmp eq i64 %327, %329
-  %.not292 = icmp eq i64 %327, -1
-  %or.cond310 = or i1 %.not292, %.not291
+  %.not291 = icmp ne i64 %327, %329
+  %.not292 = icmp ne i64 %327, -1
+  %or.cond310.not = and i1 %.not292, %.not291
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond506.not = select i1 %or.cond310, i1 %exitcond.not, i1 false
-  br i1 %or.cond506.not, label %325, label %.loopexit466, !llvm.loop !15
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond504 = select i1 %or.cond310.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond504, label %.loopexit466, label %325, !llvm.loop !15
 
 .loopexit466:                                     ; preds = %325, %311, %317
-  %.0247.shrunk = phi i1 [ false, %317 ], [ true, %311 ], [ %or.cond310, %325 ]
+  %.0247.shrunk.not = phi i1 [ true, %317 ], [ false, %311 ], [ %or.cond310.not, %325 ]
   %.not486 = icmp eq i32 %316, 0
   br i1 %.not486, label %._crit_edge, label %.lr.ph472
 
@@ -1107,7 +1107,7 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %298, %292, %287, %2
   br i1 %exitcond495.not, label %._crit_edge, label %332, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %332, %.preheader465, %.loopexit466
-  %.0247.shrunk501 = phi i1 [ %.0247.shrunk, %.loopexit466 ], [ true, %.preheader465 ], [ %.0247.shrunk, %332 ]
+  %.0247.shrunk.not501 = phi i1 [ %.0247.shrunk.not, %.loopexit466 ], [ false, %.preheader465 ], [ %.0247.shrunk.not, %332 ]
   %.0256.lcssa = phi i64 [ 1, %.loopexit466 ], [ 1, %.preheader465 ], [ %335, %332 ]
   %336 = getelementptr inbounds i8, ptr %280, i64 16
   %337 = load i32, ptr %336, align 8
@@ -1269,8 +1269,9 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
 
 410:                                              ; preds = %407, %.loopexit
   %411 = phi i1 [ false, %.loopexit ], [ %409, %407 ]
-  %brmerge.demorgan = and i1 %.0246, %.0247.shrunk501
-  br i1 %brmerge.demorgan, label %412, label %_ZN8nanobind3strD2Ev.exit396
+  %.0246.not = xor i1 %.0246, true
+  %brmerge = or i1 %.0247.shrunk.not501, %.0246.not
+  br i1 %brmerge, label %548, label %412
 
 412:                                              ; preds = %410
   br i1 %.0245, label %413, label %415
@@ -1662,9 +1663,11 @@ _ZN8nanobind6objectD2Ev.exit392:                  ; preds = %514, %537, %534, %5
   call void @__clang_call_terminate(ptr %547) #18
   unreachable
 
-548:                                              ; preds = %416, %413
-  %brmerge317.demorgan = and i1 %.0245, %brmerge.demorgan
-  br i1 %brmerge317.demorgan, label %549, label %_ZN8nanobind3strD2Ev.exit396
+548:                                              ; preds = %416, %413, %410
+  %.0245.not = xor i1 %.0245, true
+  %brmerge315 = or i1 %.0245.not, %.0246.not
+  %brmerge317 = or i1 %brmerge315, %.0247.shrunk.not501
+  br i1 %brmerge317, label %_ZN8nanobind3strD2Ev.exit396, label %549
 
 549:                                              ; preds = %548
   %550 = trunc nuw i8 %.0248 to i1
@@ -1761,9 +1764,9 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = 
   call void @__clang_call_terminate(ptr %585) #18
   unreachable
 
-_ZN8nanobind3strD2Ev.exit396:                     ; preds = %410, %415, %582, %544, %541, %_ZN8nanobind6objectD2Ev.exit392, %549, %548
-  %.sroa.0419.0 = phi ptr [ %340, %548 ], [ %340, %549 ], [ %340, %_ZN8nanobind6objectD2Ev.exit392 ], [ %340, %541 ], [ %340, %544 ], [ %.sroa.0419.1, %582 ], [ %340, %415 ], [ %340, %410 ]
-  %.3 = phi ptr [ null, %548 ], [ null, %549 ], [ %.1, %_ZN8nanobind6objectD2Ev.exit392 ], [ %.1, %541 ], [ %.1, %544 ], [ %552, %582 ], [ null, %415 ], [ null, %410 ]
+_ZN8nanobind3strD2Ev.exit396:                     ; preds = %415, %582, %544, %541, %_ZN8nanobind6objectD2Ev.exit392, %549, %548
+  %.sroa.0419.0 = phi ptr [ %340, %548 ], [ %340, %549 ], [ %340, %_ZN8nanobind6objectD2Ev.exit392 ], [ %340, %541 ], [ %340, %544 ], [ %.sroa.0419.1, %582 ], [ %340, %415 ]
+  %.3 = phi ptr [ null, %548 ], [ null, %549 ], [ %.1, %_ZN8nanobind6objectD2Ev.exit392 ], [ %.1, %541 ], [ %.1, %544 ], [ %552, %582 ], [ null, %415 ]
   invoke void @PyMem_Free(ptr noundef %.sroa.0419.0)
           to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit unwind label %586
 

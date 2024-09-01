@@ -3771,7 +3771,7 @@ declare void @SSL_CTX_set_client_CA_list(ptr noundef, ptr noundef) local_unnamed
 declare ptr @SSL_load_client_CA_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cert_status_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
+define internal i32 @cert_status_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %host.i = alloca ptr, align 8
   %port.i = alloca ptr, align 8
@@ -3987,7 +3987,7 @@ get_ocsp_resp_from_responder.exit:                ; preds = %done.thread.i, %don
 if.end18:                                         ; preds = %get_ocsp_resp_from_responder.exit
   %call19 = call i32 @i2d_OCSP_RESPONSE(ptr noundef %resp.5, ptr noundef nonnull %rspder) #14
   %cmp20 = icmp slt i32 %call19, 1
-  br i1 %cmp20, label %err, label %if.end22
+  br i1 %cmp20, label %if.end33, label %if.end22
 
 if.end18.thread:                                  ; preds = %if.end7
   %call1928 = call i32 @i2d_OCSP_RESPONSE(ptr noundef nonnull %call8, ptr noundef nonnull %rspder) #14
@@ -4011,25 +4011,22 @@ if.then26:                                        ; preds = %if.end22
   %call28 = call i32 @OCSP_RESPONSE_print(ptr noundef %28, ptr noundef %resp.130, i64 noundef 2) #14
   br label %if.end33
 
-err:                                              ; preds = %if.end18
-  br i1 %cmp.not, label %if.end33, label %if.then32
-
 if.then32.sink.split:                             ; preds = %if.end7, %if.then1
   %.str.492.sink = phi ptr [ @.str.491, %if.then1 ], [ @.str.492, %if.end7 ]
   %29 = load ptr, ptr @bio_err, align 8
   %call12 = tail call i32 @BIO_puts(ptr noundef %29, ptr noundef nonnull %.str.492.sink) #14
   br label %if.then32
 
-if.then32:                                        ; preds = %if.then32.sink.split, %if.end18.thread, %get_ocsp_resp_from_responder.exit, %err
-  %ret.019 = phi i32 [ 0, %err ], [ %ret.038.i, %get_ocsp_resp_from_responder.exit ], [ 2, %if.end18.thread ], [ 2, %if.then32.sink.split ]
-  %resp.017 = phi ptr [ %resp.5, %err ], [ %resp.5, %get_ocsp_resp_from_responder.exit ], [ %call8, %if.end18.thread ], [ null, %if.then32.sink.split ]
+if.then32:                                        ; preds = %if.then32.sink.split, %if.end18.thread, %get_ocsp_resp_from_responder.exit
+  %ret.019 = phi i32 [ %ret.038.i, %get_ocsp_resp_from_responder.exit ], [ 2, %if.end18.thread ], [ 2, %if.then32.sink.split ]
+  %resp.017 = phi ptr [ %resp.5, %get_ocsp_resp_from_responder.exit ], [ %call8, %if.end18.thread ], [ null, %if.then32.sink.split ]
   %30 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %30) #14
   br label %if.end33
 
-if.end33:                                         ; preds = %if.end22, %if.then26, %if.then32, %err
-  %ret.020 = phi i32 [ %ret.019, %if.then32 ], [ 0, %err ], [ 0, %if.then26 ], [ 0, %if.end22 ]
-  %resp.018 = phi ptr [ %resp.017, %if.then32 ], [ %resp.5, %err ], [ %resp.130, %if.then26 ], [ %resp.130, %if.end22 ]
+if.end33:                                         ; preds = %if.end18, %if.end22, %if.then26, %if.then32
+  %ret.020 = phi i32 [ %ret.019, %if.then32 ], [ 0, %if.then26 ], [ 0, %if.end22 ], [ 0, %if.end18 ]
+  %resp.018 = phi ptr [ %resp.017, %if.then32 ], [ %resp.130, %if.then26 ], [ %resp.130, %if.end22 ], [ %resp.5, %if.end18 ]
   call void @OCSP_RESPONSE_free(ptr noundef %resp.018) #14
   ret i32 %ret.020
 }
@@ -5421,10 +5418,7 @@ for.body236.preheader:                            ; preds = %if.then231
   %wide.trip.count = zext nneg i32 %call232 to i64
   br label %for.body236
 
-for.cond248.preheader:                            ; preds = %for.body236
-  br i1 %cmp234198, label %for.body251.preheader, label %if.end273
-
-for.body251.preheader:                            ; preds = %for.cond248.preheader
+for.body251.preheader:                            ; preds = %for.body236
   %32 = zext nneg i32 %call232 to i64
   br label %for.body251
 
@@ -5438,7 +5432,7 @@ for.body236:                                      ; preds = %for.body236.prehead
   %spec.select171 = add nuw nsw i32 %lf_num.0200, %inc243
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond248.preheader, label %for.body236, !llvm.loop !21
+  br i1 %exitcond.not, label %for.body251.preheader, label %for.body236, !llvm.loop !21
 
 for.body251:                                      ; preds = %for.body251.preheader, %for.inc268
   %indvars.iv217 = phi i64 [ %32, %for.body251.preheader ], [ %indvars.iv.next218, %for.inc268 ]
@@ -5473,8 +5467,8 @@ if.else271:                                       ; preds = %if.then229
   %call272 = call i32 @raw_read_stdin(ptr noundef %call, i32 noundef 16384) #14
   br label %if.end273
 
-if.end273:                                        ; preds = %for.inc268, %if.then231, %for.cond248.preheader, %if.else271
-  %i.2 = phi i32 [ %call272, %if.else271 ], [ %call232, %for.cond248.preheader ], [ %call232, %if.then231 ], [ %i.1, %for.inc268 ]
+if.end273:                                        ; preds = %for.inc268, %if.then231, %if.else271
+  %i.2 = phi i32 [ %call272, %if.else271 ], [ %call232, %if.then231 ], [ %i.1, %for.inc268 ]
   %.b161 = load i1, ptr @s_quiet, align 4
   %.b163 = load i1, ptr @s_brief, align 4
   %or.cond = select i1 %.b161, i1 true, i1 %.b163
@@ -5718,7 +5712,7 @@ if.then468:                                       ; preds = %land.lhs.true465
   %call471 = call ptr @SSL_get_rbio(ptr noundef %call9) #14
   call void @BIO_set_callback_arg(ptr noundef %call471, ptr noundef null) #14
   %cmp472 = icmp eq i32 %call470, 0
-  br i1 %cmp472, label %err.loopexit, label %for.cond154.backedge
+  br i1 %cmp472, label %if.then528.loopexit, label %for.cond154.backedge
 
 again:                                            ; preds = %again.preheader, %sw.bb499
   %call489 = call i32 @SSL_read(ptr noundef %call9, ptr noundef %call, i32 noundef 16384) #14
@@ -5789,14 +5783,14 @@ sw.bb519:                                         ; preds = %while.end497
   %call521 = call i64 @BIO_ctrl(ptr noundef %72, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   br label %if.then528
 
-err.loopexit:                                     ; preds = %if.then468
+if.then528.loopexit:                              ; preds = %if.then468
   %73 = load i32, ptr %read_counter, align 4
   %cmp475.le = icmp eq i32 %73, 0
   %.mux.le = select i1 %cmp475.le, i32 -1, i32 1
   br label %if.then528
 
-if.then528:                                       ; preds = %sw.default, %if.then284, %sw.bb438, %sw.bb442, %sw.bb515, %sw.bb519, %if.then304, %if.then297, %err.loopexit, %if.then25, %if.then30, %if.then38, %if.then53, %if.then61, %if.then74, %if.then83
-  %ret.0183 = phi i32 [ -1, %if.then25 ], [ -1, %if.then30 ], [ -1, %if.then61 ], [ -1, %if.then83 ], [ 1, %if.then74 ], [ -1, %if.then53 ], [ 1, %if.then38 ], [ 1, %sw.default ], [ 1, %sw.bb519 ], [ 1, %sw.bb515 ], [ 1, %sw.bb438 ], [ 1, %sw.bb442 ], [ -11, %if.then284 ], [ 1, %if.then304 ], [ 1, %if.then297 ], [ %.mux.le, %err.loopexit ]
+if.then528:                                       ; preds = %if.then528.loopexit, %sw.default, %if.then284, %sw.bb438, %sw.bb442, %sw.bb515, %sw.bb519, %if.then304, %if.then297, %if.then25, %if.then30, %if.then38, %if.then53, %if.then61, %if.then74, %if.then83
+  %ret.0183 = phi i32 [ -1, %if.then25 ], [ -1, %if.then30 ], [ -1, %if.then61 ], [ -1, %if.then83 ], [ 1, %if.then74 ], [ -1, %if.then53 ], [ 1, %if.then38 ], [ 1, %sw.default ], [ 1, %sw.bb519 ], [ 1, %sw.bb515 ], [ 1, %sw.bb438 ], [ 1, %sw.bb442 ], [ -11, %if.then284 ], [ 1, %if.then304 ], [ 1, %if.then297 ], [ %.mux.le, %if.then528.loopexit ]
   %74 = load ptr, ptr @bio_s_out, align 8
   %call529 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.534) #14
   call void @do_ssl_shutdown(ptr noundef nonnull %call9) #14

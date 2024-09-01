@@ -1358,7 +1358,7 @@ cond.end:                                         ; preds = %for.end
 
 for.cond36.preheader:                             ; preds = %if.then14, %if.else26, %for.end, %cond.end
   %cchFinal.15482 = phi i64 [ -1, %cond.end ], [ -1, %if.else26 ], [ %add29, %for.end ], [ -1, %if.then14 ]
-  br i1 %cmp860, label %for.body38, label %for.end42
+  br label %for.body38
 
 for.body38:                                       ; preds = %for.cond36.preheader, %for.body38
   %i35.070 = phi i64 [ %inc41, %for.body38 ], [ 0, %for.cond36.preheader ]
@@ -1369,7 +1369,7 @@ for.body38:                                       ; preds = %for.cond36.preheade
   %exitcond74.not = icmp eq i64 %inc41, %args.val48
   br i1 %exitcond74.not, label %for.end42, label %for.body38, !llvm.loop !8
 
-for.end42:                                        ; preds = %for.body38, %for.cond36.preheader
+for.end42:                                        ; preds = %for.body38
   call void @PyMem_Free(ptr noundef %call6) #10
   %tobool43.not = icmp eq i64 %cchFinal.15482, 0
   br i1 %tobool43.not, label %if.end46, label %if.then44
@@ -1384,11 +1384,7 @@ if.end46:                                         ; preds = %for.end42.thread, %
 
 if.end48:                                         ; preds = %cond.end
   store i32 0, ptr %call32, align 4
-  br i1 %cmp860, label %for.body53, label %for.end77.thread
-
-for.end77.thread:                                 ; preds = %if.end48
-  call void @PyMem_Free(ptr noundef %call6) #10
-  br label %if.end80
+  br label %for.body53
 
 for.body53:                                       ; preds = %if.end48, %for.inc75
   %i50.067 = phi i64 [ %inc76, %for.inc75 ], [ 0, %if.end48 ]
@@ -1444,11 +1440,10 @@ if.then79:                                        ; preds = %for.end77
   call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.52) #10
   br label %return
 
-if.end80:                                         ; preds = %for.end77.thread, %for.end77
-  %final.0.lcssa85 = phi ptr [ %call32, %for.end77.thread ], [ %final.1, %for.end77 ]
-  %call81 = call ptr @_Py_normpath(ptr noundef nonnull %final.0.lcssa85, i64 noundef -1) #10
+if.end80:                                         ; preds = %for.end77
+  %call81 = call ptr @_Py_normpath(ptr noundef nonnull %final.1, i64 noundef -1) #10
   %call82 = call ptr @PyUnicode_FromWideChar(ptr noundef %call81, i64 noundef -1) #10
-  call void @PyMem_Free(ptr noundef nonnull %final.0.lcssa85) #10
+  call void @PyMem_Free(ptr noundef nonnull %final.1) #10
   br label %return
 
 return:                                           ; preds = %if.end80, %if.then79, %if.end46, %if.then44, %if.then3, %if.then

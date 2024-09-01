@@ -627,8 +627,8 @@ common.resume:                                    ; preds = %.body, %21
 
 "_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit": ; preds = %41, %43, %45
   %.pr = load ptr, ptr %8, align 8
-  %.not.not = icmp eq ptr %.pr, null
-  br i1 %.not.not, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit.thread", label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h700f8b970b67cae4E.exit.thread"
+  %.not = icmp eq ptr %.pr, null
+  br i1 %.not, label %"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h8261e0053f58d356E.exit.thread", label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h700f8b970b67cae4E.exit.thread"
 
 46:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !81

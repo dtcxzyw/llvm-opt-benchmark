@@ -1618,23 +1618,20 @@ land.rhs:                                         ; preds = %do.body
   %call4 = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %1, 4
-  br i1 %cmp5, label %do.body, label %while.end, !llvm.loop !8
+  br i1 %cmp5, label %do.body, label %land.lhs.true10, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
   %2 = and i64 %call2, 2147483648
   %cmp6.not = icmp eq i64 %2, 0
-  br i1 %cmp6.not, label %if.end, label %while.end
+  br i1 %cmp6.not, label %if.end, label %land.lhs.true10
 
 if.end:                                           ; preds = %do.end
   %conv8 = and i64 %call2, 2147483647
   %add = add i64 %conv8, %bytes_written.027
   %cmp1 = icmp ult i64 %add, %call
-  br i1 %cmp1, label %do.body.preheader, label %while.end, !llvm.loop !10
+  br i1 %cmp1, label %do.body.preheader, label %land.lhs.true10, !llvm.loop !10
 
-while.end:                                        ; preds = %if.end, %do.end, %land.rhs
-  br i1 %cmp126.not, label %if.end35, label %land.lhs.true10
-
-land.lhs.true10:                                  ; preds = %while.end
+land.lhs.true10:                                  ; preds = %do.end, %if.end, %land.rhs
   %3 = getelementptr i8, ptr %message, i64 %call
   %arrayidx = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx, align 1
@@ -1662,7 +1659,7 @@ do.end25:                                         ; preds = %do.body17
   %or.cond1 = and i1 %cmp28, %cmp32
   br i1 %or.cond1, label %do.body17.backedge, label %if.end35
 
-if.end35:                                         ; preds = %do.end25, %land.rhs21, %if.then, %while.end, %land.lhs.true10, %entry
+if.end35:                                         ; preds = %do.end25, %land.rhs21, %if.then, %land.lhs.true10, %entry
   %cmp36 = icmp eq i32 %level, 3
   br i1 %cmp36, label %if.then37, label %if.end38
 
@@ -1800,8 +1797,8 @@ cleanup.action16:                                 ; preds = %cleanup.action9, %l
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action16
-  %.pn.pn11 = phi { ptr, i32 } [ %.pn.pn.ph, %cleanup.action16 ], [ %3, %ehcleanup ]
-  resume { ptr, i32 } %.pn.pn11
+  %.pn.pn10 = phi { ptr, i32 } [ %.pn.pn.ph, %cleanup.action16 ], [ %3, %ehcleanup ]
+  resume { ptr, i32 } %.pn.pn10
 }
 
 declare void @_ZN4base10WideToUTF8ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1

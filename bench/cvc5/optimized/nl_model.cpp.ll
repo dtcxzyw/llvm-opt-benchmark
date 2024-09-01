@@ -5225,7 +5225,6 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4cvc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.end365
-  %cmp.not3.i.i.i.i1131 = phi i1 [ %cmp.not3.i.i.i.i, %invoke.contthread-pre-split.i ], [ true, %for.end365 ]
   %128 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre1127, %for.end365 ]
   %tobool.not.i.i.i = icmp eq ptr %128, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %if.then.i.i.i
@@ -5235,7 +5234,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %cond.true251, %cond.true251.thread, %invoke.cont.i, %if.then.i.i.i
-  %cmp.not3.i.i.i.i11311134 = phi i1 [ %cmp.not3.i.i.i.i1131, %invoke.cont.i ], [ %cmp.not3.i.i.i.i1131, %if.then.i.i.i ], [ true, %cond.true251.thread ], [ true, %cond.true251 ]
+  %cmp.not3.i.i.i.i11311134 = phi i1 [ %cmp.not3.i.i.i.i, %invoke.cont.i ], [ %cmp.not3.i.i.i.i, %if.then.i.i.i ], [ true, %cond.true251.thread ], [ true, %cond.true251 ]
   %129 = load ptr, ptr %visit, align 8
   %tobool.not.i.i.i1040 = icmp eq ptr %129, null
   br i1 %tobool.not.i.i.i1040, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, label %if.then.i.i.i1041

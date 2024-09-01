@@ -11460,8 +11460,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1968, %1965, %1961,
   %2089 = load i8, ptr %2020, align 2
   %2090 = and i8 %2089, 14
   %.not5163 = icmp eq i8 %2090, 0
-  %brmerge5803 = or i1 %.not5160, %.not5163
-  br i1 %brmerge5803, label %.thread5592.thread, label %2091
+  br i1 %.not5163, label %.thread5592.thread, label %2091
 
 2091:                                             ; preds = %.thread5592
   %2092 = getelementptr inbounds i8, ptr %1066, i64 4
@@ -123318,7 +123317,7 @@ jit_CONST_ADDR.exit952:                           ; preds = %551, %559
   store i32 %518, ptr %586, align 4
   br label %639
 
-587:                                              ; preds = %451, %450, %462, %465, %457
+587:                                              ; preds = %457, %465, %462, %450, %451
   %.2816.ph = phi i32 [ %466, %465 ], [ %.0814, %462 ], [ %.0814, %457 ], [ %.0814, %451 ], [ %.0814, %450 ]
   %588 = call i32 @_ir_END(ptr noundef %0) #33
   %589 = load i32, ptr %11, align 4
@@ -146008,7 +146007,7 @@ zend_worklist_push.exit193:                       ; preds = %316, %306, %301
   br i1 %330, label %301, label %.loopexit
 
 ._crit_edge:                                      ; preds = %.loopexit, %286, %.preheader214
-  %.not183.lcssa = phi i1 [ true, %.preheader214 ], [ %.not184, %.loopexit ], [ false, %286 ]
+  %.not183.lcssa = phi i1 [ true, %.preheader214 ], [ %.not184, %286 ], [ %.not184, %.loopexit ]
   br i1 %151, label %331, label %zend_jit_var_supports_reg.exit.thread
 
 331:                                              ; preds = %._crit_edge

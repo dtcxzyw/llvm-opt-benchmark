@@ -254,8 +254,8 @@ if.end.i:                                         ; preds = %entry
 
 for.cond.i:                                       ; preds = %land.rhs.i, %if.end.i
   %tmp.0.i = phi ptr [ %1, %if.end.i ], [ %2, %land.rhs.i ]
-  %tobool1.not.i.not = icmp ne ptr %tmp.0.i, null
-  br i1 %tobool1.not.i.not, label %land.rhs.i, label %search_list_edges.exit
+  %tobool1.not.i.not.not = icmp ne ptr %tmp.0.i, null
+  br i1 %tobool1.not.i.not.not, label %land.rhs.i, label %search_list_edges.exit
 
 land.rhs.i:                                       ; preds = %for.cond.i
   %edge_list.i = getelementptr inbounds i8, ptr %tmp.0.i, i64 56
@@ -267,7 +267,7 @@ land.rhs.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i, label %search_list_edges.exit, label %for.cond.i, !llvm.loop !5
 
 search_list_edges.exit:                           ; preds = %for.cond.i, %land.rhs.i, %entry
-  %retval.0.i = phi i1 [ false, %entry ], [ %tobool1.not.i.not, %land.rhs.i ], [ %tobool1.not.i.not, %for.cond.i ]
+  %retval.0.i = phi i1 [ false, %entry ], [ %tobool1.not.i.not.not, %land.rhs.i ], [ %tobool1.not.i.not.not, %for.cond.i ]
   ret i1 %retval.0.i
 }
 

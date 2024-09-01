@@ -4251,7 +4251,7 @@ for.end:                                          ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @join_tokens(ptr noundef readonly %tok, ptr noundef readnone %end) unnamed_addr #10 {
+define internal fastcc ptr @join_tokens(ptr noundef readonly %tok, ptr noundef readnone %end) unnamed_addr #10 {
 entry:
   %cmp.not25 = icmp eq ptr %tok, %end
   br i1 %cmp.not25, label %for.end.thread, label %land.rhs
@@ -4293,7 +4293,7 @@ for.end:                                          ; preds = %land.rhs, %if.end
   %len.0.lcssa.ph = phi i32 [ %len.027, %land.rhs ], [ %add, %if.end ]
   %5 = sext i32 %len.0.lcssa.ph to i64
   %call = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %5) #15
-  br i1 %cmp.not25, label %for.end30, label %land.rhs8
+  br label %land.rhs8
 
 land.rhs8:                                        ; preds = %for.end, %if.end22
   %t4.031 = phi ptr [ %11, %if.end22 ], [ %tok, %for.end ]
@@ -4341,9 +4341,9 @@ for.end30.loopexit:                               ; preds = %if.end22, %land.rhs
   %12 = sext i32 %pos.0.lcssa.ph to i64
   br label %for.end30
 
-for.end30:                                        ; preds = %for.end.thread, %for.end30.loopexit, %for.end
-  %call36 = phi ptr [ %call, %for.end ], [ %call, %for.end30.loopexit ], [ %call35, %for.end.thread ]
-  %pos.0.lcssa = phi i64 [ 0, %for.end ], [ %12, %for.end30.loopexit ], [ 0, %for.end.thread ]
+for.end30:                                        ; preds = %for.end.thread, %for.end30.loopexit
+  %call36 = phi ptr [ %call, %for.end30.loopexit ], [ %call35, %for.end.thread ]
+  %pos.0.lcssa = phi i64 [ %12, %for.end30.loopexit ], [ 0, %for.end.thread ]
   %arrayidx32 = getelementptr inbounds i8, ptr %call36, i64 %pos.0.lcssa
   store i8 0, ptr %arrayidx32, align 1
   ret ptr %call36

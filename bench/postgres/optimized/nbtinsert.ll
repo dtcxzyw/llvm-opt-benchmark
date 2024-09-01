@@ -2138,8 +2138,8 @@ BufferGetPage.exit160:                            ; preds = %601, %607
   br label %.thread171
 
 624:                                              ; preds = %623
-  %brmerge = xor i1 %46, true
-  %brmerge147 = select i1 %brmerge, i1 true, i1 %43
+  %.not145 = xor i1 %46, true
+  %brmerge147 = select i1 %.not145, i1 true, i1 %43
   br i1 %brmerge147, label %.thread171, label %625
 
 .thread171:                                       ; preds = %624, %.thread165
@@ -3305,14 +3305,11 @@ _bt_deadblocks.exit.i:                            ; preds = %153, %._crit_edge.i
   %163 = tail call ptr @palloc(i64 noundef 8148) #9
   %164 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %163, ptr %164, align 8
-  br i1 %.not54, label %_bt_simpledel_pass.exit, label %.lr.ph73.i
-
-.lr.ph73.i:                                       ; preds = %_bt_deadblocks.exit.i
   %165 = sext i32 %.024.i.i.i to i64
   br label %166
 
-166:                                              ; preds = %.loopexit.i, %.lr.ph73.i
-  %.072.i = phi i16 [ %35, %.lr.ph73.i ], [ %235, %.loopexit.i ]
+166:                                              ; preds = %.loopexit.i, %_bt_deadblocks.exit.i
+  %.072.i = phi i16 [ %35, %_bt_deadblocks.exit.i ], [ %235, %.loopexit.i ]
   %167 = zext i16 %.072.i to i64
   %168 = add nsw i64 %167, -1
   %169 = getelementptr [0 x %struct.ItemIdData], ptr %80, i64 0, i64 %168
@@ -3443,7 +3440,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %.not.i = icmp ugt i16 %235, %.0.i
   br i1 %.not.i, label %_bt_simpledel_pass.exit, label %166, !llvm.loop !15
 
-_bt_simpledel_pass.exit:                          ; preds = %.loopexit.i, %_bt_deadblocks.exit.i
+_bt_simpledel_pass.exit:                          ; preds = %.loopexit.i
   call void @pfree(ptr noundef %.354.i.i) #9
   call void @_bt_delitems_delete_check(ptr noundef %0, i32 noundef %12, ptr noundef %1, ptr noundef nonnull %8) #9
   %236 = load ptr, ptr %162, align 8

@@ -505,8 +505,8 @@ for.body.i.i.i15:                                 ; preds = %if.end.i.i.i, %_ZN5
   %first1.addr.016.i.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i.idx
   %4 = load i32, ptr %first1.addr.016.i.i.i.ptr, align 4
   %5 = load i32, ptr %first2.addr.017.i.i.i.ptr, align 4
-  %cmp2.i.i.not.i.not = icmp sge i32 %4, %5
-  br i1 %cmp2.i.i.not.i.not, label %if.end.i.i.i, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
+  %cmp2.i.i.not.i.not.not.not = icmp sge i32 %4, %5
+  br i1 %cmp2.i.i.not.i.not.not.not, label %if.end.i.i.i, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i15
   %cmp3.i.i.i = icmp slt i32 %5, %4
@@ -516,7 +516,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i15
   br i1 %or.cond, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i15, !llvm.loop !7
 
 _ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i15, %if.end.i.i.i
-  %call14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.66)
+  %call14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.66)
   br label %for.body.i.i.i27
 
 for.body.i.i.i27:                                 ; preds = %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i.i32
@@ -548,8 +548,8 @@ for.body.i.i.i46:                                 ; preds = %if.end.i.i.i50, %_Z
   %first1.addr.016.i.i.i48.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i47.idx
   %8 = load i32, ptr %first1.addr.016.i.i.i48.ptr, align 4
   %9 = load i32, ptr %first2.addr.017.i.i.i47.ptr, align 4
-  %cmp2.i.i.not.i49.not = icmp sge i32 %8, %9
-  br i1 %cmp2.i.i.not.i49.not, label %if.end.i.i.i50, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
+  %cmp2.i.i.not.i49.not.not.not = icmp sge i32 %8, %9
+  br i1 %cmp2.i.i.not.i49.not.not.not, label %if.end.i.i.i50, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
 
 if.end.i.i.i50:                                   ; preds = %for.body.i.i.i46
   %cmp3.i.i.i51 = icmp slt i32 %9, %8
@@ -559,7 +559,7 @@ if.end.i.i.i50:                                   ; preds = %for.body.i.i.i46
   br i1 %or.cond66, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i46, !llvm.loop !7
 
 _ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i46, %if.end.i.i.i50
-  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i49.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)
+  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i49.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)
   ret void
 }
 

@@ -2330,39 +2330,39 @@ ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %6
 795:                                              ; preds = %.thread581.i, %.thread579.i, %.thread589.i
   %796 = call signext i8 @tvb_get_gint8(ptr noundef %615, i32 noundef 10) #5
   %.not562.i = icmp eq i8 %796, 100
-  br i1 %.not562.i, label %.sink.split, label %.thread587.i
+  br i1 %.not562.i, label %.sink.split602.i.sink.split, label %801
 
 .thread597.i:                                     ; preds = %787
   %797 = call signext i8 @tvb_get_gint8(ptr noundef %615, i32 noundef 10) #5
   %.not562598.i = icmp eq i8 %797, 100
-  br i1 %.not562598.i, label %805, label %.sink.split
+  br i1 %.not562598.i, label %.sink.split602.i, label %.sink.split602.i.sink.split
 
 .thread582.i:                                     ; preds = %787
   %798 = load i32, ptr @hf_radiotap_dbm_antc, align 4
   %799 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %798, ptr noundef %615, i32 noundef 9, i32 noundef 1, i32 noundef 0) #5
   %800 = call signext i8 @tvb_get_gint8(ptr noundef %615, i32 noundef 10) #5
   %.not562583.i = icmp eq i8 %800, 100
-  br i1 %.not562583.i, label %805, label %.sink.split
+  br i1 %.not562583.i, label %.sink.split602.i, label %.sink.split602.i.sink.split
 
-.thread587.i:                                     ; preds = %795
-  %801 = load i32, ptr @hf_radiotap_dbm_tx_antd, align 4
-  %802 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %801, ptr noundef %615, i32 noundef 10, i32 noundef 1, i32 noundef 0) #5
-  br label %.sink.split
+801:                                              ; preds = %795
+  %802 = load i32, ptr @hf_radiotap_dbm_tx_antd, align 4
+  %803 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %802, ptr noundef %615, i32 noundef 10, i32 noundef 1, i32 noundef 0) #5
+  br label %.sink.split602.i.sink.split
 
-.sink.split:                                      ; preds = %.thread597.i, %.thread582.i, %.thread587.i, %795
-  %hf_radiotap_sigbandwidthmask.sink605.i.sink = phi ptr [ @hf_radiotap_sigbandwidthmask, %795 ], [ @hf_radiotap_sigbandwidthmask, %.thread587.i ], [ @hf_radiotap_dbm_antd, %.thread597.i ], [ @hf_radiotap_dbm_antd, %.thread582.i ]
-  %.sink604.i.sink = phi i32 [ 11, %795 ], [ 11, %.thread587.i ], [ 10, %.thread597.i ], [ 10, %.thread582.i ]
-  %hf_radiotap_sigbandwidthmask.sink.i.ph = phi ptr [ @hf_radiotap_tx_antennaselect, %795 ], [ @hf_radiotap_tx_antennaselect, %.thread587.i ], [ @hf_radiotap_sigbandwidthmask, %.thread597.i ], [ @hf_radiotap_sigbandwidthmask, %.thread582.i ]
-  %.sink603.i.ph = phi i32 [ 12, %795 ], [ 12, %.thread587.i ], [ 11, %.thread597.i ], [ 11, %.thread582.i ]
-  %hf_radiotap_tx_stbcselect.sink.ph.i.ph = phi ptr [ @hf_radiotap_tx_stbcselect, %795 ], [ @hf_radiotap_tx_stbcselect, %.thread587.i ], [ @hf_radiotap_antennaportenergydetect, %.thread597.i ], [ @hf_radiotap_antennaportenergydetect, %.thread582.i ]
-  %803 = load i32, ptr %hf_radiotap_sigbandwidthmask.sink605.i.sink, align 4
-  %804 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %803, ptr noundef %615, i32 noundef %.sink604.i.sink, i32 noundef 1, i32 noundef 0) #5
-  br label %805
+.sink.split602.i.sink.split:                      ; preds = %.thread597.i, %.thread582.i, %801, %795
+  %hf_radiotap_sigbandwidthmask.sink605.i.sink = phi ptr [ @hf_radiotap_sigbandwidthmask, %795 ], [ @hf_radiotap_sigbandwidthmask, %801 ], [ @hf_radiotap_dbm_antd, %.thread597.i ], [ @hf_radiotap_dbm_antd, %.thread582.i ]
+  %.sink604.i.sink = phi i32 [ 11, %795 ], [ 11, %801 ], [ 10, %.thread597.i ], [ 10, %.thread582.i ]
+  %hf_radiotap_sigbandwidthmask.sink.i.ph = phi ptr [ @hf_radiotap_tx_antennaselect, %795 ], [ @hf_radiotap_tx_antennaselect, %801 ], [ @hf_radiotap_sigbandwidthmask, %.thread597.i ], [ @hf_radiotap_sigbandwidthmask, %.thread582.i ]
+  %.sink603.i.ph = phi i32 [ 12, %795 ], [ 12, %801 ], [ 11, %.thread597.i ], [ 11, %.thread582.i ]
+  %hf_radiotap_tx_stbcselect.sink.ph.i.ph = phi ptr [ @hf_radiotap_tx_stbcselect, %795 ], [ @hf_radiotap_tx_stbcselect, %801 ], [ @hf_radiotap_antennaportenergydetect, %.thread597.i ], [ @hf_radiotap_antennaportenergydetect, %.thread582.i ]
+  %804 = load i32, ptr %hf_radiotap_sigbandwidthmask.sink605.i.sink, align 4
+  %805 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %804, ptr noundef %615, i32 noundef %.sink604.i.sink, i32 noundef 1, i32 noundef 0) #5
+  br label %.sink.split602.i
 
-805:                                              ; preds = %.sink.split, %.thread597.i, %.thread582.i
-  %hf_radiotap_sigbandwidthmask.sink.i = phi ptr [ @hf_radiotap_sigbandwidthmask, %.thread582.i ], [ @hf_radiotap_sigbandwidthmask, %.thread597.i ], [ %hf_radiotap_sigbandwidthmask.sink.i.ph, %.sink.split ]
-  %.sink603.i = phi i32 [ 11, %.thread582.i ], [ 11, %.thread597.i ], [ %.sink603.i.ph, %.sink.split ]
-  %hf_radiotap_tx_stbcselect.sink.ph.i = phi ptr [ @hf_radiotap_antennaportenergydetect, %.thread582.i ], [ @hf_radiotap_antennaportenergydetect, %.thread597.i ], [ %hf_radiotap_tx_stbcselect.sink.ph.i.ph, %.sink.split ]
+.sink.split602.i:                                 ; preds = %.sink.split602.i.sink.split, %.thread582.i, %.thread597.i
+  %hf_radiotap_sigbandwidthmask.sink.i = phi ptr [ @hf_radiotap_sigbandwidthmask, %.thread582.i ], [ @hf_radiotap_sigbandwidthmask, %.thread597.i ], [ %hf_radiotap_sigbandwidthmask.sink.i.ph, %.sink.split602.i.sink.split ]
+  %.sink603.i = phi i32 [ 11, %.thread582.i ], [ 11, %.thread597.i ], [ %.sink603.i.ph, %.sink.split602.i.sink.split ]
+  %hf_radiotap_tx_stbcselect.sink.ph.i = phi ptr [ @hf_radiotap_antennaportenergydetect, %.thread582.i ], [ @hf_radiotap_antennaportenergydetect, %.thread597.i ], [ %hf_radiotap_tx_stbcselect.sink.ph.i.ph, %.sink.split602.i.sink.split ]
   %806 = load i32, ptr %hf_radiotap_sigbandwidthmask.sink.i, align 4
   %807 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %806, ptr noundef %615, i32 noundef %.sink603.i, i32 noundef 1, i32 noundef 0) #5
   %808 = load i32, ptr %hf_radiotap_tx_stbcselect.sink.ph.i, align 4
@@ -2370,7 +2370,7 @@ ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %6
   %810 = icmp eq i8 %757, 3
   br i1 %810, label %811, label %.critedge.i
 
-811:                                              ; preds = %805
+811:                                              ; preds = %.sink.split602.i
   %812 = load i32, ptr @hf_radiotap_mumask, align 4
   %813 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %812, ptr noundef %615, i32 noundef 12, i32 noundef 1, i32 noundef 0) #5
   %814 = call zeroext i8 @tvb_get_guint8(ptr noundef %615, i32 noundef 13) #5
@@ -2399,7 +2399,7 @@ ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %6
   %828 = call ptr @proto_tree_add_item(ptr noundef %818, i32 noundef %827, ptr noundef %615, i32 noundef 13, i32 noundef 1, i32 noundef 0) #5
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.sink.split.i, %811, %805
+.critedge.i:                                      ; preds = %.critedge.sink.split.i, %811, %.sink.split602.i
   %829 = call zeroext i16 @tvb_get_letohs(ptr noundef %615, i32 noundef 14) #5
   br i1 %.not559.i, label %833, label %830
 

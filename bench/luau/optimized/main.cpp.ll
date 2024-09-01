@@ -12061,8 +12061,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.loopexit.us.i.i, %.lr.ph.i.i
-  %indvars.iv48.i.i = phi i64 [ %indvars.iv.next49.i.i, %.loopexit.us.i.i ], [ %5, %.lr.ph.i.i ]
-  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv48.i.i
+  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %.loopexit.us.i.i ], [ %5, %.lr.ph.i.i ]
+  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv46.i.i
   %6 = load ptr, ptr %gep.us.i.i, align 8
   %7 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %2) #51
   %.not.us.i.i = icmp eq ptr %7, null
@@ -12091,13 +12091,13 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %16, label %_ZN7doctest6StringD2Ev.exit, label %.loopexit.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %12, %.critedge.us.i.i, %8, %.lr.ph.split.us.i.i
-  %indvars.iv.next49.i.i = add nsw i64 %indvars.iv48.i.i, -1
-  %17 = icmp sgt i64 %indvars.iv48.i.i, 1
+  %indvars.iv.next47.i.i = add nsw i64 %indvars.iv46.i.i, -1
+  %17 = icmp sgt i64 %indvars.iv46.i.i, 1
   br i1 %17, label %.lr.ph.split.us.i.i, label %.lr.ph.split.us.i, !llvm.loop !79
 
 .lr.ph.split.us.i:                                ; preds = %.loopexit.us.i.i, %.loopexit.us.i
-  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.loopexit.us.i ], [ %5, %.loopexit.us.i.i ]
-  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv48.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %.loopexit.us.i ], [ %5, %.loopexit.us.i.i ]
+  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv46.i
   %18 = load ptr, ptr %gep.us.i, align 8
   %19 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %2) #51
   %.not.us.i = icmp eq ptr %19, null
@@ -12126,8 +12126,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %28, label %_ZN7doctest6StringD2Ev.exit, label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %24, %.critedge.us.i, %20, %.lr.ph.split.us.i
-  %indvars.iv.next49.i = add nsw i64 %indvars.iv48.i, -1
-  %29 = icmp sgt i64 %indvars.iv48.i, 1
+  %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, -1
+  %29 = icmp sgt i64 %indvars.iv46.i, 1
   br i1 %29, label %.lr.ph.split.us.i, label %_ZN7doctest6StringD2Ev.exit, !llvm.loop !79
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %.critedge.us.i.i, %.critedge.us.i, %.loopexit.us.i, %3
@@ -13270,7 +13270,7 @@ _ZNSt6vectorIPKN7doctest6detail8TestCaseESaIS4_EE9push_backEOS4_.exit: ; preds =
   br i1 %.not105, label %.loopexit401, label %.lr.ph508, !llvm.loop !85
 
 .loopexit401:                                     ; preds = %.lr.ph508, %.invoke, %._crit_edge500.thread, %280, %277, %._crit_edge500
-  %291 = phi i1 [ true, %._crit_edge500.thread ], [ %249, %280 ], [ %249, %277 ], [ true, %._crit_edge500 ], [ %249, %.invoke ], [ %249, %.lr.ph508 ]
+  %291 = phi i1 [ true, %._crit_edge500.thread ], [ false, %280 ], [ false, %277 ], [ true, %._crit_edge500 ], [ false, %.invoke ], [ false, %.lr.ph508 ]
   %292 = phi i64 [ 0, %._crit_edge500.thread ], [ %243, %280 ], [ %243, %277 ], [ %243, %._crit_edge500 ], [ %243, %.invoke ], [ %243, %.lr.ph508 ]
   %.sroa.0294.0.lcssa616 = phi ptr [ null, %._crit_edge500.thread ], [ %.sroa.0294.1, %280 ], [ %.sroa.0294.1, %277 ], [ %.sroa.0294.1, %._crit_edge500 ], [ %.sroa.0294.1, %.invoke ], [ %.sroa.0294.1, %.lr.ph508 ]
   %.sroa.13.0.lcssa615 = phi ptr [ null, %._crit_edge500.thread ], [ %.sroa.13.1, %280 ], [ %.sroa.13.1, %277 ], [ %.sroa.13.1, %._crit_edge500 ], [ %.sroa.13.1, %.invoke ], [ %.sroa.13.1, %.lr.ph508 ]
@@ -15509,8 +15509,8 @@ _ZL12skipFastFlagPKc.exit.thread:                 ; preds = %.lr.ph, %_ZL12skipF
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.loopexit.us.i.i, %.lr.ph.i.i
-  %indvars.iv48.i.i = phi i64 [ %indvars.iv.next49.i.i, %.loopexit.us.i.i ], [ %87, %.lr.ph.i.i ]
-  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv48.i.i
+  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %.loopexit.us.i.i ], [ %87, %.lr.ph.i.i ]
+  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv46.i.i
   %88 = load ptr, ptr %gep.us.i.i, align 8
   %89 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull readonly dereferenceable(1) @.str.220) #51
   %.not.us.i.i = icmp eq ptr %89, null
@@ -15538,13 +15538,13 @@ _ZL12skipFastFlagPKc.exit.thread:                 ; preds = %.lr.ph, %_ZL12skipF
   br i1 %97, label %_ZN7doctest6StringD2Ev.exit, label %.loopexit.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %93, %.critedge.us.i.i, %90, %.lr.ph.split.us.i.i
-  %indvars.iv.next49.i.i = add nsw i64 %indvars.iv48.i.i, -1
-  %98 = icmp sgt i64 %indvars.iv48.i.i, 1
+  %indvars.iv.next47.i.i = add nsw i64 %indvars.iv46.i.i, -1
+  %98 = icmp sgt i64 %indvars.iv46.i.i, 1
   br i1 %98, label %.lr.ph.split.us.i.i, label %.lr.ph.split.us.i, !llvm.loop !79
 
 .lr.ph.split.us.i:                                ; preds = %.loopexit.us.i.i, %.loopexit.us.i
-  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.loopexit.us.i ], [ %87, %.loopexit.us.i.i ]
-  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv48.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %.loopexit.us.i ], [ %87, %.loopexit.us.i.i ]
+  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv46.i
   %99 = load ptr, ptr %gep.us.i, align 8
   %100 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(1) @.str.220) #51
   %.not.us.i = icmp eq ptr %100, null
@@ -15572,8 +15572,8 @@ _ZL12skipFastFlagPKc.exit.thread:                 ; preds = %.lr.ph, %_ZL12skipF
   br i1 %108, label %_ZN7doctest6StringD2Ev.exit, label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %104, %.critedge.us.i, %101, %.lr.ph.split.us.i
-  %indvars.iv.next49.i = add nsw i64 %indvars.iv48.i, -1
-  %109 = icmp sgt i64 %indvars.iv48.i, 1
+  %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, -1
+  %109 = icmp sgt i64 %indvars.iv46.i, 1
   br i1 %109, label %.lr.ph.split.us.i, label %_ZN7doctest6StringD2Ev.exit68, !llvm.loop !79
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %.critedge.us.i.i, %.critedge.us.i
@@ -17122,8 +17122,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %.not31, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.loopexit.us ], [ %7, %.lr.ph ]
-  %gep.us = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv48
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.loopexit.us ], [ %7, %.lr.ph ]
+  %gep.us = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv46
   %8 = load ptr, ptr %gep.us, align 8
   %9 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #51
   %.not.us = icmp eq ptr %9, null
@@ -17152,8 +17152,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %18, label %_ZN7doctest6StringD2Ev.exit, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %14, %.critedge.us, %10, %.lr.ph.split.us
-  %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
-  %19 = icmp sgt i64 %indvars.iv48, 1
+  %indvars.iv.next47 = add nsw i64 %indvars.iv46, -1
+  %19 = icmp sgt i64 %indvars.iv46, 1
   br i1 %19, label %.lr.ph.split.us, label %_ZN7doctest6StringD2Ev.exit, !llvm.loop !79
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit

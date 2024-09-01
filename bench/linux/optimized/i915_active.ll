@@ -715,8 +715,8 @@ define dso_local noundef zeroext i1 @i915_active_acquire_if_busy(ptr noundef %0)
   %7 = extractvalue { i8, i32 } %6, 0
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
-  %.not = icmp ne i8 %7, 0
-  br i1 %.not, label %.thread, label %9, !prof !19
+  %.not.not = icmp ne i8 %7, 0
+  br i1 %.not.not, label %.thread, label %9, !prof !19
 
 9:                                                ; preds = %.lr.ph
   %10 = extractvalue { i8, i32 } %6, 1
@@ -724,7 +724,7 @@ define dso_local noundef zeroext i1 @i915_active_acquire_if_busy(ptr noundef %0)
   br i1 %11, label %.thread, label %.lr.ph, !prof !9, !llvm.loop !10
 
 .thread:                                          ; preds = %9, %.lr.ph, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %.not, %.lr.ph ], [ %.not, %9 ]
+  %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %9 ]
   ret i1 %.lcssa
 }
 

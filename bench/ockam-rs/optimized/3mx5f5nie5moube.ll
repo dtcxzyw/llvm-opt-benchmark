@@ -3544,8 +3544,8 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   %8 = phi ptr [ %10, %11 ], [ %.promoted, %1 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 2824
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h2cffda3aaae92b63E.llvm.7762684047755362610(ptr noundef nonnull %9, i8 noundef 2)
-  %.not = icmp ne ptr %10, null
-  br i1 %.not, label %11, label %._crit_edge
+  %.not.not = icmp ne ptr %10, null
+  br i1 %.not.not, label %11, label %._crit_edge
 
 11:                                               ; preds = %.lr.ph
   store ptr %10, ptr %0, align 8
@@ -3556,7 +3556,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ], [ %.not, %11 ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %11 ]
   ret i1 %.lcssa
 }
 
@@ -3575,8 +3575,8 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   %8 = phi ptr [ %10, %11 ], [ %.promoted, %1 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 2056
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hcfb8b331d33d7466E.llvm.7762684047755362610(ptr noundef nonnull %9, i8 noundef 2)
-  %.not = icmp ne ptr %10, null
-  br i1 %.not, label %11, label %._crit_edge
+  %.not.not = icmp ne ptr %10, null
+  br i1 %.not.not, label %11, label %._crit_edge
 
 11:                                               ; preds = %.lr.ph
   store ptr %10, ptr %0, align 8
@@ -3587,7 +3587,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ], [ %.not, %11 ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %11 ]
   ret i1 %.lcssa
 }
 
@@ -3605,8 +3605,8 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   %7 = phi ptr [ %9, %10 ], [ %.promoted, %1 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h2fc5818053b1417cE.llvm.7762684047755362610(ptr noundef nonnull %8, i8 noundef 2)
-  %.not = icmp ne ptr %9, null
-  br i1 %.not, label %10, label %._crit_edge
+  %.not.not = icmp ne ptr %9, null
+  br i1 %.not.not, label %10, label %._crit_edge
 
 10:                                               ; preds = %.lr.ph
   store ptr %9, ptr %0, align 8
@@ -3616,7 +3616,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   br i1 %12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ], [ %.not, %10 ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %10 ]
   ret i1 %.lcssa
 }
 
@@ -3635,8 +3635,8 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   %8 = phi ptr [ %10, %11 ], [ %.promoted, %1 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 7432
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17hc6ebff46040f6d7bE.llvm.7762684047755362610(ptr noundef nonnull %9, i8 noundef 2)
-  %.not = icmp ne ptr %10, null
-  br i1 %.not, label %11, label %._crit_edge
+  %.not.not = icmp ne ptr %10, null
+  br i1 %.not.not, label %11, label %._crit_edge
 
 11:                                               ; preds = %.lr.ph
   store ptr %10, ptr %0, align 8
@@ -3647,7 +3647,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ %.not, %.lr.ph ], [ %.not, %11 ]
+  %.lcssa = phi i1 [ true, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %11 ]
   ret i1 %.lcssa
 }
 

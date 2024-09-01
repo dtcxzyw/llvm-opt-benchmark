@@ -1523,7 +1523,7 @@ if.else:                                          ; preds = %land.rhs.i.i.i135, 
   %m_false.i.i146 = getelementptr inbounds i8, ptr %67, i64 864
   %77 = load ptr, ptr %m_false.i.i146, align 8
   %cmp.i.i147 = icmp eq ptr %66, %77
-  br i1 %cmp.i.i147, label %if.then104.invoke, label %lor.rhs.i148
+  br i1 %cmp.i.i147, label %if.then104.invoke, label %land.rhs.i.i.i153
 
 if.else.thread:                                   ; preds = %lor.rhs.i
   %m_false.i.i146253 = getelementptr inbounds i8, ptr %67, i64 864
@@ -1531,10 +1531,7 @@ if.else.thread:                                   ; preds = %lor.rhs.i
   %cmp.i.i147254 = icmp eq ptr %66, %78
   br i1 %cmp.i.i147254, label %if.then104.invoke, label %if.else108
 
-lor.rhs.i148:                                     ; preds = %if.else
-  br i1 %cmp.i.i.i134, label %land.rhs.i.i.i153, label %if.else108
-
-land.rhs.i.i.i153:                                ; preds = %lor.rhs.i148
+land.rhs.i.i.i153:                                ; preds = %if.else
   %m_decl.i.i.i.i154 = getelementptr inbounds i8, ptr %66, i64 16
   %79 = load ptr, ptr %m_decl.i.i.i.i154, align 8
   %m_info.i.i.i.i.i155 = getelementptr inbounds i8, ptr %79, i64 24
@@ -1564,7 +1561,7 @@ if.then104.invoke:                                ; preds = %invoke.cont102, %if
   invoke void @_ZN23expr_context_simplifier10reduce_recEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %if.end134 unwind label %lpad88
 
-if.else108:                                       ; preds = %if.else.thread, %land.rhs.i.i.i153, %lor.rhs.i148, %_ZNK11ast_manager6is_notEPK4expr.exit.i157, %invoke.cont102
+if.else108:                                       ; preds = %if.else.thread, %land.rhs.i.i.i153, %_ZNK11ast_manager6is_notEPK4expr.exit.i157, %invoke.cont102
   %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 56
   %86 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i167 = icmp eq ptr %86, null

@@ -1902,8 +1902,8 @@ _ZN6casadi19casadi_qrqp_iterateIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; preds = 
 
 ._crit_edge.i192:                                 ; preds = %199, %196
   %.1.i193 = phi i64 [ %.2.i, %199 ], [ %.06677.i, %196 ]
-  %.not.i.i.not = icmp eq ptr %178, null
-  br i1 %.not.i.i.not, label %_ZN6casadi12casadi_clearIdEEvPT_x.exit.i, label %.lr.ph.preheader.i.i
+  %.not.i.not.i = icmp eq ptr %178, null
+  br i1 %.not.i.not.i, label %_ZN6casadi12casadi_clearIdEEvPT_x.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i192
   %200 = shl nuw i64 %185, 3
@@ -13418,12 +13418,9 @@ define linkonce_odr hidden void @_ZN6casadi9casadi_qrIdEEvPKxPKT_PS3_S2_S6_S2_S6
   %65 = tail call double @llvm.fmuladd.f64(double %60, double %64, double %.0103113)
   %66 = add nsw i64 %.0101114, 1
   %exitcond.not = icmp eq i64 %66, %57
-  br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !106
+  br i1 %exitcond.not, label %.lr.ph120, label %.lr.ph116, !llvm.loop !106
 
-._crit_edge117:                                   ; preds = %.lr.ph116
-  br i1 %58, label %.lr.ph120, label %._crit_edge121
-
-.lr.ph120:                                        ; preds = %._crit_edge117
+.lr.ph120:                                        ; preds = %.lr.ph116
   %67 = getelementptr inbounds double, ptr %7, i64 %51
   %68 = load double, ptr %67, align 8
   %69 = fneg double %68
@@ -13445,7 +13442,7 @@ define linkonce_odr hidden void @_ZN6casadi9casadi_qrIdEEvPKxPKT_PS3_S2_S6_S2_S6
   %81 = icmp slt i64 %79, %80
   br i1 %81, label %71, label %._crit_edge121, !llvm.loop !107
 
-._crit_edge121:                                   ; preds = %71, %53, %._crit_edge117
+._crit_edge121:                                   ; preds = %71, %53
   %82 = getelementptr inbounds double, ptr %2, i64 %51
   %83 = load double, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %.1123, i64 8
@@ -13840,11 +13837,11 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi25casadi_qrqp_singular_stepIdE
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %49, align 8
-  %.pre355 = load ptr, ptr %2, align 8
+  %.pre351 = load ptr, ptr %2, align 8
   br label %52
 
 52:                                               ; preds = %.lr.ph310, %47
-  %53 = phi ptr [ %41, %.lr.ph310 ], [ %.pre355, %47 ]
+  %53 = phi ptr [ %41, %.lr.ph310 ], [ %.pre351, %47 ]
   %54 = add nuw nsw i64 %.1194309, 1
   %55 = getelementptr inbounds i8, ptr %53, i64 32
   %56 = load i64, ptr %55, align 8
@@ -13868,7 +13865,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi25casadi_qrqp_singular_stepIdE
 _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread: ; preds = %._crit_edge313
   %65 = getelementptr inbounds i8, ptr %2, i64 64
   %66 = load double, ptr %65, align 8
-  br label %.lr.ph343
+  br label %.lr.ph339
 
 67:                                               ; preds = %._crit_edge313
   %68 = getelementptr inbounds i8, ptr %0, i64 160
@@ -13987,12 +13984,12 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i226, %_ZN6c
   %136 = getelementptr inbounds i8, ptr %133, i64 16
   %invariant.gep.i = getelementptr i8, ptr %132, i64 -8
   %137 = icmp sgt i64 %135, 0
-  br i1 %137, label %.lr.ph.split.us.split.us.i, label %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368
+  br i1 %137, label %.lr.ph.split.us.split.us.i, label %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361
 
-_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368: ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
+_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361: ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
   %138 = getelementptr inbounds i8, ptr %2, i64 64
   %139 = load double, ptr %138, align 8
-  br label %._crit_edge344
+  br label %._crit_edge340
 
 .lr.ph.split.us.split.us.i:                       ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %.lr.ph.split.us.split.us.i
   %.02229.us.us.i = phi i64 [ %.123.us.us.i, %.lr.ph.split.us.split.us.i ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
@@ -14012,12 +14009,12 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368: ; preds =
 _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.split.us.split.us.i
   %147 = getelementptr inbounds i8, ptr %2, i64 64
   %148 = load double, ptr %147, align 8
-  %.not379 = icmp eq i64 %.123.us.us.i, 0
-  br i1 %.not379, label %._crit_edge344, label %.lr.ph343
+  %.not372 = icmp eq i64 %.123.us.us.i, 0
+  br i1 %.not372, label %._crit_edge340, label %.lr.ph339
 
-.lr.ph343:                                        ; preds = %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit
+.lr.ph339:                                        ; preds = %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit
   %149 = phi double [ %66, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread ], [ %148, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ]
-  %.0199367 = phi i64 [ 1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread ], [ %.123.us.us.i, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ]
+  %.0199360 = phi i64 [ 1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread ], [ %.123.us.us.i, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ]
   %150 = getelementptr inbounds i8, ptr %0, i64 96
   %151 = getelementptr inbounds i8, ptr %0, i64 184
   %152 = getelementptr inbounds i8, ptr %2, i64 48
@@ -14042,11 +14039,11 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.s
   %171 = getelementptr inbounds i8, ptr %0, i64 136
   br label %172
 
-172:                                              ; preds = %.lr.ph343, %545
-  %.0186342 = phi i64 [ -1, %.lr.ph343 ], [ %.2, %545 ]
-  %.0188341 = phi i64 [ -1, %.lr.ph343 ], [ %.2190, %545 ]
-  %.1198340 = phi i64 [ 0, %.lr.ph343 ], [ %546, %545 ]
-  %.0200339 = phi double [ %149, %.lr.ph343 ], [ %.2202, %545 ]
+172:                                              ; preds = %.lr.ph339, %548
+  %.0186338 = phi i64 [ -1, %.lr.ph339 ], [ %.2, %548 ]
+  %.0188337 = phi i64 [ -1, %.lr.ph339 ], [ %.2190, %548 ]
+  %.1198336 = phi i64 [ 0, %.lr.ph339 ], [ %549, %548 ]
+  %.0200335 = phi double [ %149, %.lr.ph339 ], [ %.2202, %548 ]
   %173 = load i32, ptr %63, align 8
   %.not214 = icmp eq i32 %173, 0
   br i1 %.not214, label %174, label %179
@@ -14056,7 +14053,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.s
   %176 = load ptr, ptr %151, align 8
   %177 = load ptr, ptr %152, align 8
   %178 = load ptr, ptr %153, align 8
-  tail call void @_ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6_S1_x(ptr noundef %175, ptr noundef %176, ptr noundef %177, ptr noundef %178, double noundef 0x3D719799812DEA11, i64 noundef %.1198340)
+  tail call void @_ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6_S1_x(ptr noundef %175, ptr noundef %176, ptr noundef %177, ptr noundef %178, double noundef 0x3D719799812DEA11, i64 noundef %.1198336)
   br label %179
 
 179:                                              ; preds = %174, %172
@@ -14214,10 +14211,10 @@ _ZN6casadi19casadi_qrqp_kkt_dotIdEET_PNS_16casadi_qrqp_dataIS1_EEPKS1_x.exit: ; 
 
 280:                                              ; preds = %._crit_edge318, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread
   %.not215 = phi i1 [ true, %._crit_edge318 ], [ false, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
-  %.1337 = phi i64 [ 0, %._crit_edge318 ], [ 1, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
-  %.1187336 = phi i64 [ %.0186342, %._crit_edge318 ], [ %.2, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
-  %.1189335 = phi i64 [ %.0188341, %._crit_edge318 ], [ %.2190, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
-  %.1201334 = phi double [ %.0200339, %._crit_edge318 ], [ %.2202, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
+  %.1333 = phi i64 [ 0, %._crit_edge318 ], [ 1, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
+  %.1187332 = phi i64 [ %.0186338, %._crit_edge318 ], [ %.2, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
+  %.1189331 = phi i64 [ %.0188337, %._crit_edge318 ], [ %.2190, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
+  %.1201330 = phi double [ %.0200335, %._crit_edge318 ], [ %.2202, %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread ]
   br i1 %.not215, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit248, label %281
 
 281:                                              ; preds = %280
@@ -14242,14 +14239,14 @@ _ZN6casadi19casadi_qrqp_kkt_dotIdEET_PNS_16casadi_qrqp_dataIS1_EEPKS1_x.exit: ; 
   br i1 %exitcond.not.i234, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit, label %.lr.ph.i233, !llvm.loop !13
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit: ; preds = %.lr.ph.i233
-  %.pre356 = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre356, i64 32
-  %.pre357 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre352 = load ptr, ptr %2, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre352, i64 32
+  %.pre353 = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit, %281
-  %291 = phi i64 [ %.pre357, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit ], [ %284, %281 ]
-  %292 = phi ptr [ %.pre356, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit ], [ %282, %281 ]
+  %291 = phi i64 [ %.pre353, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit ], [ %284, %281 ]
+  %292 = phi ptr [ %.pre352, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit.loopexit ], [ %282, %281 ]
   %293 = load ptr, ptr %158, align 8
   %.not.i235 = icmp ne ptr %293, null
   %294 = icmp sgt i64 %291, 0
@@ -14268,11 +14265,11 @@ _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %_ZN6casadi11casadi_
   br i1 %exitcond.not.i240, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241.loopexit, label %.lr.ph.i237, !llvm.loop !13
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241.loopexit: ; preds = %.lr.ph.i237
-  %.pre358 = load ptr, ptr %2, align 8
+  %.pre354 = load ptr, ptr %2, align 8
   br label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241:      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241.loopexit, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit
-  %299 = phi ptr [ %.pre358, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241.loopexit ], [ %292, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit ]
+  %299 = phi ptr [ %.pre354, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit241.loopexit ], [ %292, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit ]
   %300 = getelementptr inbounds i8, ptr %299, i64 16
   %301 = load i64, ptr %300, align 8
   %302 = load ptr, ptr %159, align 8
@@ -14404,47 +14401,47 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
   %376 = getelementptr inbounds i8, ptr %375, i64 32
   %377 = load i64, ptr %376, align 8
   %378 = icmp sgt i64 %377, 0
-  br i1 %378, label %.lr.ph331, label %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread
+  br i1 %378, label %.lr.ph327, label %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread
 
-.lr.ph331:                                        ; preds = %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit
+.lr.ph327:                                        ; preds = %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit
   %379 = load ptr, ptr %157, align 8
   %380 = getelementptr inbounds i8, ptr %308, i64 8
   br label %381
 
-381:                                              ; preds = %.lr.ph331, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
-  %.3328 = phi i64 [ %.1187336, %.lr.ph331 ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
-  %.3191325 = phi i64 [ %.1189335, %.lr.ph331 ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
-  %.3196322 = phi i64 [ 0, %.lr.ph331 ], [ %540, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
-  %.3203319 = phi double [ %.1201334, %.lr.ph331 ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
-  %382 = getelementptr inbounds i64, ptr %379, i64 %.3196322
+381:                                              ; preds = %.lr.ph327, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+  %.3325 = phi i64 [ %.1187332, %.lr.ph327 ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
+  %.3191323 = phi i64 [ %.1189331, %.lr.ph327 ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
+  %.3196321 = phi i64 [ 0, %.lr.ph327 ], [ %543, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
+  %.3203319 = phi double [ %.1201330, %.lr.ph327 ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ]
+  %382 = getelementptr inbounds i64, ptr %379, i64 %.3196321
   %383 = load i64, ptr %382, align 8
   %.not218 = icmp eq i64 %383, 0
   br i1 %.not218, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %384
 
 384:                                              ; preds = %381
   %385 = load ptr, ptr %166, align 8
-  %386 = getelementptr inbounds double, ptr %385, i64 %.3196322
+  %386 = getelementptr inbounds double, ptr %385, i64 %.3196321
   %387 = load double, ptr %386, align 8
   %388 = fcmp oeq double %387, 0.000000e+00
-  br i1 %388, label %389, label %523
+  br i1 %388, label %389, label %526
 
 389:                                              ; preds = %384
   %390 = load ptr, ptr %161, align 8
-  %391 = getelementptr inbounds double, ptr %390, i64 %.3196322
+  %391 = getelementptr inbounds double, ptr %390, i64 %.3196321
   %392 = load double, ptr %391, align 8
   %393 = load ptr, ptr %163, align 8
-  %394 = getelementptr inbounds double, ptr %393, i64 %.3196322
+  %394 = getelementptr inbounds double, ptr %393, i64 %.3196321
   %395 = load double, ptr %394, align 8
   %396 = fcmp ugt double %392, %395
   %397 = load ptr, ptr %160, align 8
-  %398 = getelementptr inbounds double, ptr %397, i64 %.3196322
+  %398 = getelementptr inbounds double, ptr %397, i64 %.3196321
   %399 = load double, ptr %398, align 8
   %400 = fcmp ult double %392, %399
   br i1 %396, label %.thread, label %401
 
 401:                                              ; preds = %389
   %402 = load ptr, ptr %150, align 8
-  %403 = getelementptr inbounds double, ptr %402, i64 %.3196322
+  %403 = getelementptr inbounds double, ptr %402, i64 %.3196321
   %404 = load double, ptr %403, align 8
   br i1 %400, label %407, label %405
 
@@ -14458,7 +14455,7 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
 
 409:                                              ; preds = %407, %405
   %410 = load ptr, ptr %170, align 8
-  %411 = getelementptr inbounds i64, ptr %410, i64 %.3196322
+  %411 = getelementptr inbounds i64, ptr %410, i64 %.3196321
   %412 = load i64, ptr %411, align 8
   %.not222 = icmp eq i64 %412, 0
   br i1 %.not222, label %413, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
@@ -14471,7 +14468,7 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
 
 417:                                              ; preds = %413
   %418 = load ptr, ptr %164, align 8
-  %419 = getelementptr inbounds double, ptr %418, i64 %.3196322
+  %419 = getelementptr inbounds double, ptr %418, i64 %.3196321
   %420 = load double, ptr %419, align 8
   %421 = tail call double @llvm.fabs.f64(double %420)
   %422 = load double, ptr %165, align 8
@@ -14488,11 +14485,11 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
   %431 = getelementptr inbounds i8, ptr %430, i64 8
   %432 = getelementptr inbounds i8, ptr %427, i64 16
   %433 = load i64, ptr %432, align 8
-  %434 = icmp slt i64 %.3196322, %433
+  %434 = icmp slt i64 %.3196321, %433
   br i1 %434, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, label %435
 
 435:                                              ; preds = %424
-  %436 = sub nsw i64 %.3196322, %433
+  %436 = sub nsw i64 %.3196321, %433
   %437 = getelementptr inbounds i64, ptr %426, i64 %436
   %438 = load i64, ptr %437, align 8
   %439 = getelementptr i8, ptr %437, i64 8
@@ -14545,275 +14542,275 @@ _ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit: ; pr
 
 464:                                              ; preds = %405
   %465 = fcmp ogt double %404, 0x3D719799812DEA11
-  br i1 %465, label %467, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+  br i1 %465, label %470, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
 .thread295:                                       ; preds = %.thread
-  %.pre359 = load ptr, ptr %150, align 8
-  %.phi.trans.insert360 = getelementptr inbounds double, ptr %.pre359, i64 %.3196322
-  %.pre361 = load double, ptr %.phi.trans.insert360, align 8
-  %466 = fcmp olt double %.pre361, 0xBD719799812DEA11
-  br i1 %466, label %467, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+  %466 = load ptr, ptr %150, align 8
+  %467 = getelementptr inbounds double, ptr %466, i64 %.3196321
+  %468 = load double, ptr %467, align 8
+  %469 = fcmp olt double %468, 0xBD719799812DEA11
+  br i1 %469, label %470, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-467:                                              ; preds = %.thread295, %464
-  %468 = phi double [ %.pre361, %.thread295 ], [ %404, %464 ]
-  %469 = load ptr, ptr %171, align 8
-  %470 = getelementptr inbounds i64, ptr %469, i64 %.3196322
-  %471 = load i64, ptr %470, align 8
-  %.not220 = icmp eq i64 %471, 0
-  br i1 %.not220, label %472, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+470:                                              ; preds = %.thread295, %464
+  %471 = phi double [ %468, %.thread295 ], [ %404, %464 ]
+  %472 = load ptr, ptr %171, align 8
+  %473 = getelementptr inbounds i64, ptr %472, i64 %.3196321
+  %474 = load i64, ptr %473, align 8
+  %.not220 = icmp eq i64 %474, 0
+  br i1 %.not220, label %475, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-472:                                              ; preds = %467
-  %473 = fsub double %395, %392
-  %474 = fdiv double %473, %468
-  %475 = fcmp olt double %474, %.3203319
-  br i1 %475, label %476, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+475:                                              ; preds = %470
+  %476 = fsub double %395, %392
+  %477 = fdiv double %476, %471
+  %478 = fcmp olt double %477, %.3203319
+  br i1 %478, label %479, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-476:                                              ; preds = %472
-  %477 = load ptr, ptr %164, align 8
-  %478 = getelementptr inbounds double, ptr %477, i64 %.3196322
-  %479 = load double, ptr %478, align 8
-  %480 = tail call double @llvm.fabs.f64(double %479)
-  %481 = load double, ptr %165, align 8
-  %482 = fcmp olt double %480, %481
-  br i1 %482, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %483
+479:                                              ; preds = %475
+  %480 = load ptr, ptr %164, align 8
+  %481 = getelementptr inbounds double, ptr %480, i64 %.3196321
+  %482 = load double, ptr %481, align 8
+  %483 = tail call double @llvm.fabs.f64(double %482)
+  %484 = load double, ptr %165, align 8
+  %485 = fcmp olt double %483, %484
+  br i1 %485, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %486
 
-483:                                              ; preds = %476
-  %484 = load ptr, ptr %380, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 16
-  %486 = load ptr, ptr %308, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 24
-  %488 = load i64, ptr %487, align 8
-  %489 = getelementptr inbounds i64, ptr %485, i64 %488
-  %490 = getelementptr inbounds i8, ptr %489, i64 8
-  %491 = getelementptr inbounds i8, ptr %486, i64 16
-  %492 = load i64, ptr %491, align 8
-  %493 = icmp slt i64 %.3196322, %492
-  br i1 %493, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, label %494
+486:                                              ; preds = %479
+  %487 = load ptr, ptr %380, align 8
+  %488 = getelementptr inbounds i8, ptr %487, i64 16
+  %489 = load ptr, ptr %308, align 8
+  %490 = getelementptr inbounds i8, ptr %489, i64 24
+  %491 = load i64, ptr %490, align 8
+  %492 = getelementptr inbounds i64, ptr %488, i64 %491
+  %493 = getelementptr inbounds i8, ptr %492, i64 8
+  %494 = getelementptr inbounds i8, ptr %489, i64 16
+  %495 = load i64, ptr %494, align 8
+  %496 = icmp slt i64 %.3196321, %495
+  br i1 %496, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, label %497
 
-494:                                              ; preds = %483
-  %495 = sub nsw i64 %.3196322, %492
-  %496 = getelementptr inbounds i64, ptr %485, i64 %495
-  %497 = load i64, ptr %496, align 8
-  %498 = getelementptr i8, ptr %496, i64 8
-  %499 = load i64, ptr %498, align 8
-  %500 = icmp slt i64 %497, %499
-  br i1 %500, label %.lr.ph.i260, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split
+497:                                              ; preds = %486
+  %498 = sub nsw i64 %.3196321, %495
+  %499 = getelementptr inbounds i64, ptr %488, i64 %498
+  %500 = load i64, ptr %499, align 8
+  %501 = getelementptr i8, ptr %499, i64 8
+  %502 = load i64, ptr %501, align 8
+  %503 = icmp slt i64 %500, %502
+  br i1 %503, label %.lr.ph.i260, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split
 
-.lr.ph.i260:                                      ; preds = %494
-  %501 = load ptr, ptr %155, align 8
-  br label %502
+.lr.ph.i260:                                      ; preds = %497
+  %504 = load ptr, ptr %155, align 8
+  br label %505
 
-502:                                              ; preds = %520, %.lr.ph.i260
-  %.03236.i261 = phi i64 [ %497, %.lr.ph.i260 ], [ %521, %520 ]
-  %503 = getelementptr inbounds double, ptr %501, i64 %.03236.i261
-  %504 = load double, ptr %503, align 8
-  %505 = fcmp ogt double %504, 0.000000e+00
-  br i1 %505, label %506, label %512
+505:                                              ; preds = %523, %.lr.ph.i260
+  %.03236.i261 = phi i64 [ %500, %.lr.ph.i260 ], [ %524, %523 ]
+  %506 = getelementptr inbounds double, ptr %504, i64 %.03236.i261
+  %507 = load double, ptr %506, align 8
+  %508 = fcmp ogt double %507, 0.000000e+00
+  br i1 %508, label %509, label %515
 
-506:                                              ; preds = %502
-  %507 = getelementptr inbounds i64, ptr %490, i64 %.03236.i261
-  %508 = load i64, ptr %507, align 8
-  %509 = getelementptr inbounds double, ptr %477, i64 %508
-  %510 = load double, ptr %509, align 8
-  %511 = fcmp ogt double %510, 0.000000e+00
-  br i1 %511, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %520
+509:                                              ; preds = %505
+  %510 = getelementptr inbounds i64, ptr %493, i64 %.03236.i261
+  %511 = load i64, ptr %510, align 8
+  %512 = getelementptr inbounds double, ptr %480, i64 %511
+  %513 = load double, ptr %512, align 8
+  %514 = fcmp ogt double %513, 0.000000e+00
+  br i1 %514, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %523
 
-512:                                              ; preds = %502
-  %513 = fcmp olt double %504, 0.000000e+00
-  br i1 %513, label %514, label %520
+515:                                              ; preds = %505
+  %516 = fcmp olt double %507, 0.000000e+00
+  br i1 %516, label %517, label %523
 
-514:                                              ; preds = %512
-  %515 = getelementptr inbounds i64, ptr %490, i64 %.03236.i261
-  %516 = load i64, ptr %515, align 8
-  %517 = getelementptr inbounds double, ptr %477, i64 %516
-  %518 = load double, ptr %517, align 8
-  %519 = fcmp ule double %518, 0.000000e+00
-  br i1 %519, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %520
+517:                                              ; preds = %515
+  %518 = getelementptr inbounds i64, ptr %493, i64 %.03236.i261
+  %519 = load i64, ptr %518, align 8
+  %520 = getelementptr inbounds double, ptr %480, i64 %519
+  %521 = load double, ptr %520, align 8
+  %522 = fcmp ule double %521, 0.000000e+00
+  br i1 %522, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %523
 
-520:                                              ; preds = %514, %512, %506
-  %521 = add i64 %.03236.i261, 1
-  %exitcond.not.i262 = icmp eq i64 %521, %499
-  br i1 %exitcond.not.i262, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %502, !llvm.loop !122
+523:                                              ; preds = %517, %515, %509
+  %524 = add i64 %.03236.i261, 1
+  %exitcond.not.i262 = icmp eq i64 %524, %502
+  br i1 %exitcond.not.i262, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %505, !llvm.loop !122
 
-_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263: ; preds = %483
-  %522 = fcmp ogt double %479, 0.000000e+00
-  br i1 %522, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split
+_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263: ; preds = %486
+  %525 = fcmp ogt double %482, 0.000000e+00
+  br i1 %525, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split
 
-523:                                              ; preds = %384
-  %524 = load ptr, ptr %167, align 8
-  %525 = getelementptr inbounds i64, ptr %524, i64 %.3196322
-  %526 = load i64, ptr %525, align 8
-  %.not219 = icmp eq i64 %526, 0
-  br i1 %.not219, label %527, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+526:                                              ; preds = %384
+  %527 = load ptr, ptr %167, align 8
+  %528 = getelementptr inbounds i64, ptr %527, i64 %.3196321
+  %529 = load i64, ptr %528, align 8
+  %.not219 = icmp eq i64 %529, 0
+  br i1 %.not219, label %530, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-527:                                              ; preds = %523
-  %528 = fcmp ogt double %387, 0.000000e+00
-  %529 = load ptr, ptr %158, align 8
-  %530 = getelementptr inbounds double, ptr %529, i64 %.3196322
-  %531 = load double, ptr %530, align 8
-  br i1 %528, label %532, label %534
+530:                                              ; preds = %526
+  %531 = fcmp ogt double %387, 0.000000e+00
+  %532 = load ptr, ptr %158, align 8
+  %533 = getelementptr inbounds double, ptr %532, i64 %.3196321
+  %534 = load double, ptr %533, align 8
+  br i1 %531, label %535, label %537
 
-532:                                              ; preds = %527
-  %533 = fcmp olt double %531, 0xBD719799812DEA11
-  br i1 %533, label %536, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+535:                                              ; preds = %530
+  %536 = fcmp olt double %534, 0xBD719799812DEA11
+  br i1 %536, label %539, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-534:                                              ; preds = %527
-  %535 = fcmp ogt double %531, 0x3D719799812DEA11
-  br i1 %535, label %536, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+537:                                              ; preds = %530
+  %538 = fcmp ogt double %534, 0x3D719799812DEA11
+  br i1 %538, label %539, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-536:                                              ; preds = %534, %532
-  %537 = fneg double %387
-  %538 = fdiv double %537, %531
-  %539 = fcmp olt double %538, %.3203319
-  br i1 %539, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
+539:                                              ; preds = %537, %535
+  %540 = fneg double %387
+  %541 = fdiv double %540, %534
+  %542 = fcmp olt double %541, %.3203319
+  br i1 %542, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split: ; preds = %461, %520, %536, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %476, %494, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %417, %435
-  %.sink = phi i64 [ -1, %435 ], [ -1, %417 ], [ -1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ 1, %494 ], [ 1, %476 ], [ 1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ 0, %536 ], [ 1, %520 ], [ -1, %461 ]
-  %.4204.ph = phi double [ %415, %435 ], [ %415, %417 ], [ %415, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %474, %494 ], [ %474, %476 ], [ %474, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %538, %536 ], [ %474, %520 ], [ %415, %461 ]
-  store i64 %.3196322, ptr %168, align 8
+_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split: ; preds = %461, %523, %539, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %479, %497, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %417, %435
+  %.sink = phi i64 [ -1, %435 ], [ -1, %417 ], [ -1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ 1, %497 ], [ 1, %479 ], [ 1, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ 0, %539 ], [ 1, %523 ], [ -1, %461 ]
+  %.4204.ph = phi double [ %415, %435 ], [ %415, %417 ], [ %415, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %477, %497 ], [ %477, %479 ], [ %477, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %541, %539 ], [ %477, %523 ], [ %415, %461 ]
+  store i64 %.3196321, ptr %168, align 8
   store i64 %.sink, ptr %169, align 8
   br label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292
 
-_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292: ; preds = %455, %447, %514, %506, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, %407, %.thread, %464, %.thread295, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %472, %467, %409, %413, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %532, %534, %536, %523, %381
-  %.4204 = phi double [ %.3203319, %409 ], [ %.3203319, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3203319, %413 ], [ %.3203319, %467 ], [ %.3203319, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3203319, %472 ], [ %.3203319, %464 ], [ %.3203319, %.thread295 ], [ %.3203319, %523 ], [ %.3203319, %536 ], [ %.3203319, %532 ], [ %.3203319, %534 ], [ %.3203319, %381 ], [ %.3203319, %.thread ], [ %.3203319, %407 ], [ %.4204.ph, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3203319, %506 ], [ %.3203319, %514 ], [ %.3203319, %447 ], [ %.3203319, %455 ]
-  %.4192 = phi i64 [ %.3191325, %409 ], [ %.3191325, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3191325, %413 ], [ %.3191325, %467 ], [ %.3191325, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3191325, %472 ], [ %.3191325, %464 ], [ %.3191325, %.thread295 ], [ %.3191325, %523 ], [ %.3191325, %536 ], [ %.3191325, %532 ], [ %.3191325, %534 ], [ %.3191325, %381 ], [ %.3191325, %.thread ], [ %.3191325, %407 ], [ %.1198340, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3191325, %506 ], [ %.3191325, %514 ], [ %.3191325, %447 ], [ %.3191325, %455 ]
-  %.4 = phi i64 [ %.3328, %409 ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3328, %413 ], [ %.3328, %467 ], [ %.3328, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3328, %472 ], [ %.3328, %464 ], [ %.3328, %.thread295 ], [ %.3328, %523 ], [ %.3328, %536 ], [ %.3328, %532 ], [ %.3328, %534 ], [ %.3328, %381 ], [ %.3328, %.thread ], [ %.3328, %407 ], [ %.1337, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3328, %506 ], [ %.3328, %514 ], [ %.3328, %447 ], [ %.3328, %455 ]
-  %540 = add nuw nsw i64 %.3196322, 1
-  %541 = load ptr, ptr %2, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 32
-  %543 = load i64, ptr %542, align 8
-  %544 = icmp slt i64 %540, %543
-  br i1 %544, label %381, label %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread, !llvm.loop !123
+_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292: ; preds = %455, %447, %517, %509, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split, %407, %.thread, %464, %.thread295, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, %475, %470, %409, %413, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, %535, %537, %539, %526, %381
+  %.4204 = phi double [ %.3203319, %409 ], [ %.3203319, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3203319, %413 ], [ %.3203319, %470 ], [ %.3203319, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3203319, %475 ], [ %.3203319, %464 ], [ %.3203319, %.thread295 ], [ %.3203319, %526 ], [ %.3203319, %539 ], [ %.3203319, %535 ], [ %.3203319, %537 ], [ %.3203319, %381 ], [ %.3203319, %.thread ], [ %.3203319, %407 ], [ %.4204.ph, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3203319, %509 ], [ %.3203319, %517 ], [ %.3203319, %447 ], [ %.3203319, %455 ]
+  %.4192 = phi i64 [ %.3191323, %409 ], [ %.3191323, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3191323, %413 ], [ %.3191323, %470 ], [ %.3191323, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3191323, %475 ], [ %.3191323, %464 ], [ %.3191323, %.thread295 ], [ %.3191323, %526 ], [ %.3191323, %539 ], [ %.3191323, %535 ], [ %.3191323, %537 ], [ %.3191323, %381 ], [ %.3191323, %.thread ], [ %.3191323, %407 ], [ %.1198336, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3191323, %509 ], [ %.3191323, %517 ], [ %.3191323, %447 ], [ %.3191323, %455 ]
+  %.4 = phi i64 [ %.3325, %409 ], [ %.3325, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit ], [ %.3325, %413 ], [ %.3325, %470 ], [ %.3325, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263 ], [ %.3325, %475 ], [ %.3325, %464 ], [ %.3325, %.thread295 ], [ %.3325, %526 ], [ %.3325, %539 ], [ %.3325, %535 ], [ %.3325, %537 ], [ %.3325, %381 ], [ %.3325, %.thread ], [ %.3325, %407 ], [ %.1333, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292.sink.split ], [ %.3325, %509 ], [ %.3325, %517 ], [ %.3325, %447 ], [ %.3325, %455 ]
+  %543 = add nuw nsw i64 %.3196321, 1
+  %544 = load ptr, ptr %2, align 8
+  %545 = getelementptr inbounds i8, ptr %544, i64 32
+  %546 = load i64, ptr %545, align 8
+  %547 = icmp slt i64 %543, %546
+  br i1 %547, label %381, label %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread, !llvm.loop !123
 
 _ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread: ; preds = %328, %323, %344, %339, %361, %368, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit
-  %.2202 = phi double [ %.1201334, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1201334, %368 ], [ %.1201334, %361 ], [ %.1201334, %339 ], [ %.1201334, %344 ], [ %.1201334, %323 ], [ %.1201334, %328 ]
-  %.2190 = phi i64 [ %.1189335, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1189335, %368 ], [ %.1189335, %361 ], [ %.1189335, %339 ], [ %.1189335, %344 ], [ %.1189335, %323 ], [ %.1189335, %328 ]
-  %.2 = phi i64 [ %.1187336, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1187336, %368 ], [ %.1187336, %361 ], [ %.1187336, %339 ], [ %.1187336, %344 ], [ %.1187336, %323 ], [ %.1187336, %328 ]
-  br i1 %.not215, label %280, label %545, !llvm.loop !124
+  %.2202 = phi double [ %.1201330, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4204, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1201330, %368 ], [ %.1201330, %361 ], [ %.1201330, %339 ], [ %.1201330, %344 ], [ %.1201330, %323 ], [ %.1201330, %328 ]
+  %.2190 = phi i64 [ %.1189331, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4192, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1189331, %368 ], [ %.1189331, %361 ], [ %.1189331, %339 ], [ %.1189331, %344 ], [ %.1189331, %323 ], [ %.1189331, %328 ]
+  %.2 = phi i64 [ %.1187332, %_ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit ], [ %.4, %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit.thread292 ], [ %.1187332, %368 ], [ %.1187332, %361 ], [ %.1187332, %339 ], [ %.1187332, %344 ], [ %.1187332, %323 ], [ %.1187332, %328 ]
+  br i1 %.not215, label %280, label %548, !llvm.loop !124
 
-545:                                              ; preds = %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread
-  %546 = add nuw nsw i64 %.1198340, 1
-  %exitcond.not = icmp eq i64 %546, %.0199367
-  br i1 %exitcond.not, label %._crit_edge344, label %172, !llvm.loop !125
+548:                                              ; preds = %_ZN6casadi24casadi_qrqp_pr_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit.thread
+  %549 = add nuw nsw i64 %.1198336, 1
+  %exitcond.not = icmp eq i64 %549, %.0199360
+  br i1 %exitcond.not, label %._crit_edge340, label %172, !llvm.loop !125
 
-._crit_edge344:                                   ; preds = %545, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit
-  %.0200.lcssa = phi double [ %148, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ %139, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368 ], [ %.2202, %545 ]
-  %.1198.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368 ], [ %.1198340, %545 ]
-  %.0188.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368 ], [ %.2190, %545 ]
-  %.0186.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread368 ], [ %.2, %545 ]
-  %547 = getelementptr inbounds i8, ptr %0, i64 312
-  %548 = load i64, ptr %547, align 8
-  %549 = icmp slt i64 %548, 0
-  br i1 %549, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284, label %550
+._crit_edge340:                                   ; preds = %548, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit
+  %.0200.lcssa = phi double [ %148, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ %139, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361 ], [ %.2202, %548 ]
+  %.1198.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361 ], [ %.1198336, %548 ]
+  %.0188.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361 ], [ %.2190, %548 ]
+  %.0186.lcssa = phi i64 [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit ], [ -1, %_ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread361 ], [ %.2, %548 ]
+  %550 = getelementptr inbounds i8, ptr %0, i64 312
+  %551 = load i64, ptr %550, align 8
+  %552 = icmp slt i64 %551, 0
+  br i1 %552, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284, label %553
 
-550:                                              ; preds = %._crit_edge344
+553:                                              ; preds = %._crit_edge340
   %.not211 = icmp eq i64 %.1198.lcssa, %.0188.lcssa
-  br i1 %.not211, label %562, label %551
+  br i1 %.not211, label %565, label %554
 
-551:                                              ; preds = %550
-  %552 = getelementptr inbounds i8, ptr %0, i64 96
-  %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds i8, ptr %0, i64 184
-  %555 = load ptr, ptr %554, align 8
-  %556 = getelementptr inbounds i8, ptr %2, i64 48
-  %557 = load ptr, ptr %556, align 8
-  %558 = getelementptr inbounds i8, ptr %2, i64 32
-  %559 = load ptr, ptr %558, align 8
-  tail call void @_ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6_S1_x(ptr noundef %553, ptr noundef %555, ptr noundef %557, ptr noundef %559, double noundef 0x3D719799812DEA11, i64 noundef %.0188.lcssa)
+554:                                              ; preds = %553
+  %555 = getelementptr inbounds i8, ptr %0, i64 96
+  %556 = load ptr, ptr %555, align 8
+  %557 = getelementptr inbounds i8, ptr %0, i64 184
+  %558 = load ptr, ptr %557, align 8
+  %559 = getelementptr inbounds i8, ptr %2, i64 48
+  %560 = load ptr, ptr %559, align 8
+  %561 = getelementptr inbounds i8, ptr %2, i64 32
+  %562 = load ptr, ptr %561, align 8
+  tail call void @_ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6_S1_x(ptr noundef %556, ptr noundef %558, ptr noundef %560, ptr noundef %562, double noundef 0x3D719799812DEA11, i64 noundef %.0188.lcssa)
   tail call void @_ZN6casadi23casadi_qrqp_expand_stepIdEEvPNS_16casadi_qrqp_dataIT_EE(ptr noundef nonnull %0)
   %.not213 = icmp eq i64 %.0186.lcssa, 0
-  br i1 %.not213, label %565, label %560
+  br i1 %.not213, label %568, label %563
 
-560:                                              ; preds = %551
-  %561 = fneg double %.0200.lcssa
-  br label %565
-
-562:                                              ; preds = %550
-  %.not212 = icmp eq i64 %.0186.lcssa, 1
-  br i1 %.not212, label %565, label %563
-
-563:                                              ; preds = %562
+563:                                              ; preds = %554
   %564 = fneg double %.0200.lcssa
-  br label %565
+  br label %568
 
-565:                                              ; preds = %562, %563, %551, %560
-  %.5 = phi double [ %561, %560 ], [ %.0200.lcssa, %551 ], [ %564, %563 ], [ %.0200.lcssa, %562 ]
-  %566 = load ptr, ptr %2, align 8
-  %567 = getelementptr inbounds i8, ptr %566, i64 32
-  %568 = load i64, ptr %567, align 8
-  %569 = getelementptr inbounds i8, ptr %0, i64 96
-  %570 = load ptr, ptr %569, align 8
-  %.not.i264 = icmp ne ptr %570, null
-  %571 = icmp sgt i64 %568, 0
-  %or.cond.i265 = and i1 %571, %.not.i264
+565:                                              ; preds = %553
+  %.not212 = icmp eq i64 %.0186.lcssa, 1
+  br i1 %.not212, label %568, label %566
+
+566:                                              ; preds = %565
+  %567 = fneg double %.0200.lcssa
+  br label %568
+
+568:                                              ; preds = %565, %566, %554, %563
+  %.5 = phi double [ %564, %563 ], [ %.0200.lcssa, %554 ], [ %567, %566 ], [ %.0200.lcssa, %565 ]
+  %569 = load ptr, ptr %2, align 8
+  %570 = getelementptr inbounds i8, ptr %569, i64 32
+  %571 = load i64, ptr %570, align 8
+  %572 = getelementptr inbounds i8, ptr %0, i64 96
+  %573 = load ptr, ptr %572, align 8
+  %.not.i264 = icmp ne ptr %573, null
+  %574 = icmp sgt i64 %571, 0
+  %or.cond.i265 = and i1 %574, %.not.i264
   br i1 %or.cond.i265, label %.lr.ph.i266, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270
 
-.lr.ph.i266:                                      ; preds = %565, %.lr.ph.i266
-  %.08.i267 = phi i64 [ %575, %.lr.ph.i266 ], [ 0, %565 ]
-  %.057.i268 = phi ptr [ %572, %.lr.ph.i266 ], [ %570, %565 ]
-  %572 = getelementptr inbounds i8, ptr %.057.i268, i64 8
-  %573 = load double, ptr %.057.i268, align 8
-  %574 = fmul double %.5, %573
-  store double %574, ptr %.057.i268, align 8
-  %575 = add nuw nsw i64 %.08.i267, 1
-  %exitcond.not.i269 = icmp eq i64 %575, %568
+.lr.ph.i266:                                      ; preds = %568, %.lr.ph.i266
+  %.08.i267 = phi i64 [ %578, %.lr.ph.i266 ], [ 0, %568 ]
+  %.057.i268 = phi ptr [ %575, %.lr.ph.i266 ], [ %573, %568 ]
+  %575 = getelementptr inbounds i8, ptr %.057.i268, i64 8
+  %576 = load double, ptr %.057.i268, align 8
+  %577 = fmul double %.5, %576
+  store double %577, ptr %.057.i268, align 8
+  %578 = add nuw nsw i64 %.08.i267, 1
+  %exitcond.not.i269 = icmp eq i64 %578, %571
   br i1 %exitcond.not.i269, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit, label %.lr.ph.i266, !llvm.loop !13
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit: ; preds = %.lr.ph.i266
-  %.pre362 = load ptr, ptr %2, align 8
-  %.phi.trans.insert363 = getelementptr inbounds i8, ptr %.pre362, i64 32
-  %.pre364 = load i64, ptr %.phi.trans.insert363, align 8
+  %.pre355 = load ptr, ptr %2, align 8
+  %.phi.trans.insert356 = getelementptr inbounds i8, ptr %.pre355, i64 32
+  %.pre357 = load i64, ptr %.phi.trans.insert356, align 8
   br label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270
 
-_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270:      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit, %565
-  %576 = phi i64 [ %.pre364, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit ], [ %568, %565 ]
-  %577 = phi ptr [ %.pre362, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit ], [ %566, %565 ]
-  %578 = getelementptr inbounds i8, ptr %0, i64 104
-  %579 = load ptr, ptr %578, align 8
-  %.not.i271 = icmp ne ptr %579, null
-  %580 = icmp sgt i64 %576, 0
-  %or.cond.i272 = and i1 %580, %.not.i271
+_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270:      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit, %568
+  %579 = phi i64 [ %.pre357, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit ], [ %571, %568 ]
+  %580 = phi ptr [ %.pre355, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270.loopexit ], [ %569, %568 ]
+  %581 = getelementptr inbounds i8, ptr %0, i64 104
+  %582 = load ptr, ptr %581, align 8
+  %.not.i271 = icmp ne ptr %582, null
+  %583 = icmp sgt i64 %579, 0
+  %or.cond.i272 = and i1 %583, %.not.i271
   br i1 %or.cond.i272, label %.lr.ph.i273, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277
 
 .lr.ph.i273:                                      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270, %.lr.ph.i273
-  %.08.i274 = phi i64 [ %584, %.lr.ph.i273 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
-  %.057.i275 = phi ptr [ %581, %.lr.ph.i273 ], [ %579, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
-  %581 = getelementptr inbounds i8, ptr %.057.i275, i64 8
-  %582 = load double, ptr %.057.i275, align 8
-  %583 = fmul double %.5, %582
-  store double %583, ptr %.057.i275, align 8
-  %584 = add nuw nsw i64 %.08.i274, 1
-  %exitcond.not.i276 = icmp eq i64 %584, %576
+  %.08.i274 = phi i64 [ %587, %.lr.ph.i273 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
+  %.057.i275 = phi ptr [ %584, %.lr.ph.i273 ], [ %582, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
+  %584 = getelementptr inbounds i8, ptr %.057.i275, i64 8
+  %585 = load double, ptr %.057.i275, align 8
+  %586 = fmul double %.5, %585
+  store double %586, ptr %.057.i275, align 8
+  %587 = add nuw nsw i64 %.08.i274, 1
+  %exitcond.not.i276 = icmp eq i64 %587, %579
   br i1 %exitcond.not.i276, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277.loopexit, label %.lr.ph.i273, !llvm.loop !13
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277.loopexit: ; preds = %.lr.ph.i273
-  %.pre365 = load ptr, ptr %2, align 8
+  %.pre358 = load ptr, ptr %2, align 8
   br label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277:      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277.loopexit, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270
-  %585 = phi ptr [ %.pre365, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277.loopexit ], [ %577, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
-  %586 = getelementptr inbounds i8, ptr %585, i64 16
-  %587 = load i64, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %0, i64 64
-  %589 = load ptr, ptr %588, align 8
-  %.not.i278 = icmp ne ptr %589, null
-  %590 = icmp sgt i64 %587, 0
-  %or.cond.i279 = and i1 %590, %.not.i278
+  %588 = phi ptr [ %.pre358, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277.loopexit ], [ %580, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit270 ]
+  %589 = getelementptr inbounds i8, ptr %588, i64 16
+  %590 = load i64, ptr %589, align 8
+  %591 = getelementptr inbounds i8, ptr %0, i64 64
+  %592 = load ptr, ptr %591, align 8
+  %.not.i278 = icmp ne ptr %592, null
+  %593 = icmp sgt i64 %590, 0
+  %or.cond.i279 = and i1 %593, %.not.i278
   br i1 %or.cond.i279, label %.lr.ph.i280, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284
 
 .lr.ph.i280:                                      ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277, %.lr.ph.i280
-  %.08.i281 = phi i64 [ %594, %.lr.ph.i280 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ]
-  %.057.i282 = phi ptr [ %591, %.lr.ph.i280 ], [ %589, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ]
-  %591 = getelementptr inbounds i8, ptr %.057.i282, i64 8
-  %592 = load double, ptr %.057.i282, align 8
-  %593 = fmul double %.5, %592
-  store double %593, ptr %.057.i282, align 8
-  %594 = add nuw nsw i64 %.08.i281, 1
-  %exitcond.not.i283 = icmp eq i64 %594, %587
+  %.08.i281 = phi i64 [ %597, %.lr.ph.i280 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ]
+  %.057.i282 = phi ptr [ %594, %.lr.ph.i280 ], [ %592, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ]
+  %594 = getelementptr inbounds i8, ptr %.057.i282, i64 8
+  %595 = load double, ptr %.057.i282, align 8
+  %596 = fmul double %.5, %595
+  store double %596, ptr %.057.i282, align 8
+  %597 = add nuw nsw i64 %.08.i281, 1
+  %exitcond.not.i283 = icmp eq i64 %597, %590
   br i1 %exitcond.not.i283, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284, label %.lr.ph.i280, !llvm.loop !13
 
-_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284:      ; preds = %.lr.ph.i280, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277, %._crit_edge344
-  %.0 = phi i32 [ 1, %._crit_edge344 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ], [ 0, %.lr.ph.i280 ]
+_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit284:      ; preds = %.lr.ph.i280, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277, %._crit_edge340
+  %.0 = phi i32 [ 1, %._crit_edge340 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit277 ], [ 0, %.lr.ph.i280 ]
   ret i32 %.0
 }
 
@@ -15423,9 +15420,8 @@ define linkonce_odr hidden void @_ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6
 
 ._crit_edge:                                      ; preds = %22, %19
   %.1 = phi i64 [ %.2, %22 ], [ %.06677, %19 ]
-  %.not.i = icmp ne ptr %0, null
-  %or.cond.i = and i1 %.not.i, %12
-  br i1 %or.cond.i, label %.lr.ph.preheader.i, label %_ZN6casadi12casadi_clearIdEEvPT_x.exit
+  %.not.i.not = icmp eq ptr %0, null
+  br i1 %.not.i.not, label %_ZN6casadi12casadi_clearIdEEvPT_x.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %23 = shl nuw i64 %8, 3

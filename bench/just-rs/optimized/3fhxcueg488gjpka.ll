@@ -6966,8 +6966,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
 
 26:                                               ; preds = %.lr.ph.split.us.split.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  %.not47.i = icmp eq i64 %21, -9223372036854775808
-  br i1 %.not47.i, label %.thread.i, label %.thread26.us.i
+  %.not46.i = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not46.i, label %.thread.i, label %.thread26.us.i
 
 .thread26.us.i:                                   ; preds = %26, %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.031.us.i, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !alias.scope !994
@@ -7017,8 +7017,8 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
 
 36:                                               ; preds = %.lr.ph.split.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  %.not48.i = icmp eq i64 %29, -9223372036854775808
-  br i1 %.not48.i, label %.thread.i, label %37
+  %.not47.i = icmp eq i64 %29, -9223372036854775808
+  br i1 %.not47.i, label %.thread.i, label %37
 
 37:                                               ; preds = %36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1014)

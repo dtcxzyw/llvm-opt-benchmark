@@ -173,8 +173,8 @@ entry:
 
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %count.0.i = phi i32 [ %0, %entry ], [ %3, %do.cond.i ]
-  %cmp.not.i.not = icmp ne i32 %count.0.i, 0
-  br i1 %cmp.not.i.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIjEEbPSt6atomicIT_E.exit
+  %cmp.not.not.not.i.not.not.not.not.not = icmp ne i32 %count.0.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.not.not, label %do.cond.i, label %_ZN9grpc_core18IncrementIfNonzeroIjEEbPSt6atomicIT_E.exit
 
 do.cond.i:                                        ; preds = %do.body.i
   %add.i = add i32 %count.0.i, 1
@@ -184,7 +184,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %2, label %_ZN9grpc_core18IncrementIfNonzeroIjEEbPSt6atomicIT_E.exit, label %do.body.i, !llvm.loop !4
 
 _ZN9grpc_core18IncrementIfNonzeroIjEEbPSt6atomicIT_E.exit: ; preds = %do.body.i, %do.cond.i
-  ret i1 %cmp.not.i.not
+  ret i1 %cmp.not.not.not.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -719,8 +719,8 @@ land.lhs.true:                                    ; preds = %entry
 
 do.body.i.i:                                      ; preds = %do.cond.i.i, %land.lhs.true
   %count.0.i.i = phi i32 [ %2, %land.lhs.true ], [ %5, %do.cond.i.i ]
-  %cmp.not.i.not.i.not = icmp eq i32 %count.0.i.i, 0
-  br i1 %cmp.not.i.not.i.not, label %if.else, label %do.cond.i.i
+  %cmp.not.not.not.i.not.not.not.i.not = icmp eq i32 %count.0.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not, label %if.else, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %add.i.i = add i32 %count.0.i.i, 1
@@ -774,8 +774,8 @@ land.lhs.true:                                    ; preds = %entry
 
 do.body.i.i:                                      ; preds = %do.cond.i.i, %land.lhs.true
   %count.0.i.i = phi i32 [ %2, %land.lhs.true ], [ %5, %do.cond.i.i ]
-  %cmp.not.i.not.i.not = icmp eq i32 %count.0.i.i, 0
-  br i1 %cmp.not.i.not.i.not, label %if.else, label %do.cond.i.i
+  %cmp.not.not.not.i.not.not.not.i.not = icmp eq i32 %count.0.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not, label %if.else, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %add.i.i = add i32 %count.0.i.i, 1

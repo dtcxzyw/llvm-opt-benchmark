@@ -2072,7 +2072,7 @@ _ZN4pbrt14RadicalInverseEim.exit.i:               ; preds = %while.body.i278.i
   %cmp.i.i281.i = fcmp ogt float %140, 0x3FEFFFFFE0000000
   br label %while.body.i289.i
 
-while.body.i289.i:                                ; preds = %_ZN4pbrt14RadicalInverseEim.exit.i, %while.body.i289.i
+while.body.i289.i:                                ; preds = %while.body.i289.i, %_ZN4pbrt14RadicalInverseEim.exit.i
   %a.addr.016.i290.i = phi i64 [ %div5.i293.i, %while.body.i289.i ], [ %indvars.iv1058.i, %_ZN4pbrt14RadicalInverseEim.exit.i ]
   %invBaseM.015.i291.i = phi float [ %mul10.i297.i, %while.body.i289.i ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ]
   %reversedDigits.014.i292.i = phi i64 [ %add.i296.i, %while.body.i289.i ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit.i ]
@@ -4485,13 +4485,12 @@ lpad61:                                           ; preds = %if.end.i98, %if.the
 cleanup66.sink.split.sink.split:                  ; preds = %invoke.cont37, %if.end.i
   %agg.tmp.sink = phi ptr [ %agg.tmp, %if.end.i ], [ %ref.tmp35, %invoke.cont37 ]
   %ref.tmp33.sink.ph = phi ptr [ %value, %if.end.i ], [ %ref.tmp33, %invoke.cont37 ]
-  %retval.1.ph.ph = phi i1 [ %call24, %if.end.i ], [ false, %invoke.cont37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sink) #31
   br label %cleanup66.sink.split
 
 cleanup66.sink.split:                             ; preds = %cleanup66.sink.split.sink.split, %if.end.i98, %if.end.i86, %invoke.cont23
   %ref.tmp33.sink = phi ptr [ %value, %invoke.cont23 ], [ %agg.tmp48, %if.end.i86 ], [ %agg.tmp58, %if.end.i98 ], [ %ref.tmp33.sink.ph, %cleanup66.sink.split.sink.split ]
-  %retval.1.ph = phi i1 [ %call24, %invoke.cont23 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ %retval.1.ph.ph, %cleanup66.sink.split.sink.split ]
+  %retval.1.ph = phi i1 [ true, %invoke.cont23 ], [ false, %if.end.i86 ], [ false, %if.end.i98 ], [ false, %cleanup66.sink.split.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33.sink) #31
   br label %cleanup66
 

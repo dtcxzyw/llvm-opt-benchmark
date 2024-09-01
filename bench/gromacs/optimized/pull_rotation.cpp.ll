@@ -11282,9 +11282,8 @@ _ZL22allocate_square_matrixi.exit:                ; preds = %_ZL22allocate_squar
   br i1 %exitcond211.not, label %_ZL22allocate_square_matrixi.exit._crit_edge, label %_ZL22allocate_square_matrixi.exit, !llvm.loop !114
 
 _ZL22allocate_square_matrixi.exit._crit_edge:     ; preds = %_ZL22allocate_square_matrixi.exit
-  %.not = icmp ne ptr %2, null
-  %or.cond = and i1 %.not, %17
-  br i1 %or.cond, label %.preheader.preheader.i, label %.preheader27.i.preheader
+  %.not.not = icmp eq ptr %2, null
+  br i1 %.not.not, label %.preheader27.i.preheader, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %_ZL22allocate_square_matrixi.exit._crit_edge
   %wide.trip.count.i = zext nneg i32 %3 to i64
@@ -11910,10 +11909,7 @@ define internal fastcc void @_ZL12align_with_zPA3_fiPf(ptr nocapture noundef %0,
   %indvars.iv60 = phi i64 [ 0, %.preheader49.preheader ], [ %indvars.iv.next61, %80 ]
   br label %.preheader48
 
-.preheader47:                                     ; preds = %80
-  br i1 %70, label %.preheader.preheader, label %._crit_edge
-
-.preheader.preheader:                             ; preds = %.preheader47
+.preheader.preheader:                             ; preds = %80
   %wide.trip.count72 = zext nneg i32 %1 to i64
   br label %.preheader
 
@@ -11944,7 +11940,7 @@ define internal fastcc void @_ZL12align_with_zPA3_fiPf(ptr nocapture noundef %0,
 80:                                               ; preds = %79
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
-  br i1 %exitcond63.not, label %.preheader47, label %.preheader49, !llvm.loop !137
+  br i1 %exitcond63.not, label %.preheader.preheader, label %.preheader49, !llvm.loop !137
 
 .preheader:                                       ; preds = %.preheader.preheader, %85
   %indvars.iv69 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next70, %85 ]
@@ -11965,7 +11961,7 @@ define internal fastcc void @_ZL12align_with_zPA3_fiPf(ptr nocapture noundef %0,
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %._crit_edge, label %.preheader, !llvm.loop !139
 
-._crit_edge:                                      ; preds = %85, %3, %.preheader47
+._crit_edge:                                      ; preds = %85, %3
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.2, i32 noundef 1384, ptr noundef %6)
   ret void
 }

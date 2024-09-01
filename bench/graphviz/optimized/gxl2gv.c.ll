@@ -494,22 +494,22 @@ get_xml_attr.exit185:                             ; preds = %.lr.ph.i180.tail
   %143 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i189
   %144 = load ptr, ptr %143, align 8
   %.not.i190 = icmp eq ptr %144, null
-  br i1 %.not.i190, label %.lr.ph.i194.preheader, label %.lr.ph.i187
+  br i1 %.not.i190, label %get_xml_attr.exit192.thread, label %.lr.ph.i187
 
 get_xml_attr.exit192:                             ; preds = %.lr.ph.i187
   %145 = and i64 %indvars.iv.i188, 4294967294
   %146 = or disjoint i64 %145, 1
   %147 = getelementptr inbounds ptr, ptr %2, i64 %146
   %148 = load ptr, ptr %147, align 8
-  br label %.lr.ph.i194.preheader
+  br label %get_xml_attr.exit192.thread
 
-.lr.ph.i194.preheader:                            ; preds = %142, %get_xml_attr.exit192
+get_xml_attr.exit192.thread:                      ; preds = %142, %get_xml_attr.exit192
   %.0133 = phi ptr [ %148, %get_xml_attr.exit192 ], [ @.str.3, %142 ]
   br label %.lr.ph.i194
 
-.lr.ph.i194:                                      ; preds = %.lr.ph.i194.preheader, %163
-  %indvars.iv.i195 = phi i64 [ %indvars.iv.next.i196, %163 ], [ 0, %.lr.ph.i194.preheader ]
-  %149 = phi ptr [ %165, %163 ], [ %138, %.lr.ph.i194.preheader ]
+.lr.ph.i194:                                      ; preds = %get_xml_attr.exit192.thread, %163
+  %indvars.iv.i195 = phi i64 [ %indvars.iv.next.i196, %163 ], [ 0, %get_xml_attr.exit192.thread ]
+  %149 = phi ptr [ %165, %163 ], [ %138, %get_xml_attr.exit192.thread ]
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = sub nsw i32 116, %151

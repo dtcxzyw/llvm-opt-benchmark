@@ -1837,11 +1837,11 @@ cleanup.done13.if.then_crit_edge:                 ; preds = %cleanup.done13
   %.pre = load ptr, ptr %lit, align 8, !noalias !48
   %d_kind.i.i.i.i33.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %bf.load.i.i.i.i34.pre = load i16, ptr %d_kind.i.i.i.i33.phi.trans.insert, align 8, !noalias !48
-  %.pre418 = and i16 %bf.load.i.i.i.i34.pre, 1023
+  %.pre416 = and i16 %bf.load.i.i.i.i34.pre, 1023
   br label %if.then
 
 if.then:                                          ; preds = %cleanup.done13.if.then_crit_edge, %entry
-  %bf.clear.i.i.i.i35.pre-phi = phi i16 [ %.pre418, %cleanup.done13.if.then_crit_edge ], [ %bf.clear.i, %entry ]
+  %bf.clear.i.i.i.i35.pre-phi = phi i16 [ %.pre416, %cleanup.done13.if.then_crit_edge ], [ %bf.clear.i, %entry ]
   %11 = phi ptr [ %.pre, %cleanup.done13.if.then_crit_edge ], [ %0, %entry ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %bf.cast.i.i.i.i36 = zext nneg i16 %bf.clear.i.i.i.i35.pre-phi to i32

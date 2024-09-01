@@ -5202,16 +5202,16 @@ define linkonce_odr void @_ZN5Annoy7Angular12create_splitIifNS_12Kiss64RandomEEE
 
 _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %77 = fcmp nnan ninf nsz arcp contract afn ogt float %74, 0.000000e+00
-  br i1 %77, label %.lr.ph.i.i, label %.lr.ph.i.i.i72.i.preheader
+  br i1 %77, label %.preheader.i.i, label %.lr.ph.i.i.i72.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i
+.preheader.i.i:                                   ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i
   %78 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %74)
   %79 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %78
   %wide.trip.count.i.i = zext nneg i32 %1 to i64
   br label %80
 
-80:                                               ; preds = %80, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %80 ]
+80:                                               ; preds = %80, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %80 ]
   %81 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i.i
   %82 = load float, ptr %81, align 4
   %83 = fmul nnan ninf nsz arcp contract afn float %79, %82
@@ -5237,23 +5237,23 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i: ; preds = %.lr
 
 _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i77.i: ; preds = %.lr.ph.i.i.i72.i
   %89 = fcmp nnan ninf nsz arcp contract afn ogt float %86, 0.000000e+00
-  br i1 %89, label %.lr.ph.i79.i, label %.lr.ph.i.i.i.preheader
+  br i1 %89, label %.preheader.i78.i, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i79.i:                                     ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i77.i
+.preheader.i78.i:                                 ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i77.i
   %90 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %86)
   %91 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %90
-  %wide.trip.count.i80.i = zext nneg i32 %1 to i64
+  %wide.trip.count.i79.i = zext nneg i32 %1 to i64
   br label %92
 
-92:                                               ; preds = %92, %.lr.ph.i79.i
-  %indvars.iv.i81.i = phi i64 [ 0, %.lr.ph.i79.i ], [ %indvars.iv.next.i82.i, %92 ]
-  %93 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i81.i
+92:                                               ; preds = %92, %.preheader.i78.i
+  %indvars.iv.i80.i = phi i64 [ 0, %.preheader.i78.i ], [ %indvars.iv.next.i81.i, %92 ]
+  %93 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i80.i
   %94 = load float, ptr %93, align 4
   %95 = fmul nnan ninf nsz arcp contract afn float %91, %94
   store float %95, ptr %93, align 4
-  %indvars.iv.next.i82.i = add nuw nsw i64 %indvars.iv.i81.i, 1
-  %exitcond.not.i83.i = icmp eq i64 %indvars.iv.next.i82.i, %wide.trip.count.i80.i
-  br i1 %exitcond.not.i83.i, label %.lr.ph.i.i.i.preheader, label %92, !llvm.loop !23
+  %indvars.iv.next.i81.i = add nuw nsw i64 %indvars.iv.i80.i, 1
+  %exitcond.not.i82.i = icmp eq i64 %indvars.iv.next.i81.i, %wide.trip.count.i79.i
+  br i1 %exitcond.not.i82.i, label %.lr.ph.i.i.i.preheader, label %92, !llvm.loop !23
 
 .lr.ph.i.i.i.preheader:                           ; preds = %92, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i77.i
   br label %.lr.ph.i.i.i
@@ -5273,44 +5273,44 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i77.i: ; preds = %.
 _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i: ; preds = %5
   %101 = getelementptr inbounds i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %101, align 4
-  br label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i
+  br label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i
 
 _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.ph.i.i.i
   %102 = getelementptr inbounds i8, ptr %6, i64 4
   store float %98, ptr %102, align 4
-  br label %.lr.ph.i.i87.i
+  br label %.lr.ph.i.i86.i
 
-.lr.ph.i.i87.i:                                   ; preds = %.lr.ph.i.i87.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i
-  %.014.i.i88.i = phi i32 [ %107, %.lr.ph.i.i87.i ], [ 0, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
-  %.0813.i.i89.i = phi float [ %105, %.lr.ph.i.i87.i ], [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
-  %.0912.i.i90.i = phi ptr [ %106, %.lr.ph.i.i87.i ], [ %69, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
-  %103 = load float, ptr %.0912.i.i90.i, align 4
+.lr.ph.i.i86.i:                                   ; preds = %.lr.ph.i.i86.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i
+  %.014.i.i87.i = phi i32 [ %107, %.lr.ph.i.i86.i ], [ 0, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
+  %.0813.i.i88.i = phi float [ %105, %.lr.ph.i.i86.i ], [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
+  %.0912.i.i89.i = phi ptr [ %106, %.lr.ph.i.i86.i ], [ %69, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i ]
+  %103 = load float, ptr %.0912.i.i89.i, align 4
   %104 = fmul nnan ninf nsz arcp contract afn float %103, %103
-  %105 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i89.i, %104
-  %106 = getelementptr i8, ptr %.0912.i.i90.i, i64 4
-  %107 = add nuw nsw i32 %.014.i.i88.i, 1
-  %exitcond.not.i.i91.i = icmp eq i32 %107, %1
-  br i1 %exitcond.not.i.i91.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i, label %.lr.ph.i.i87.i, !llvm.loop !11
+  %105 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i88.i, %104
+  %106 = getelementptr i8, ptr %.0912.i.i89.i, i64 4
+  %107 = add nuw nsw i32 %.014.i.i87.i, 1
+  %exitcond.not.i.i90.i = icmp eq i32 %107, %1
+  br i1 %exitcond.not.i.i90.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i, label %.lr.ph.i.i86.i, !llvm.loop !11
 
-_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i: ; preds = %.lr.ph.i.i87.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i
-  %108 = phi float [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %98, %.lr.ph.i.i87.i ]
-  %109 = phi ptr [ %101, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %102, %.lr.ph.i.i87.i ]
-  %.08.lcssa.i.i85.i = phi float [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %105, %.lr.ph.i.i87.i ]
+_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i: ; preds = %.lr.ph.i.i86.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i
+  %108 = phi float [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %98, %.lr.ph.i.i86.i ]
+  %109 = phi ptr [ %101, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %102, %.lr.ph.i.i86.i ]
+  %.08.lcssa.i.i84.i = phi float [ 0.000000e+00, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.thread.i ], [ %105, %.lr.ph.i.i86.i ]
   %110 = getelementptr inbounds i8, ptr %7, i64 4
-  store float %.08.lcssa.i.i85.i, ptr %110, align 4
-  %wide.trip.count.i148.i = zext i32 %1 to i64
+  store float %.08.lcssa.i.i84.i, ptr %110, align 4
+  %wide.trip.count.i146.i = zext i32 %1 to i64
   br label %.outer
 
-.outer:                                           ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i
-  %.ph = phi float [ %269, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %.08.lcssa.i.i85.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.ph57 = phi float [ %270, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %108, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.ph58 = phi i64 [ %132, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %53, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.ph59 = phi i64 [ %129, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %50, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.ph60 = phi i64 [ %125, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %46, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.ph61 = phi i64 [ %119, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %40, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.0178.i.ph = phi i32 [ %.1.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 1, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.065177.i.ph = phi i32 [ %.166.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 1, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
-  %.067176.i.ph = phi i32 [ %271, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 0, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i ]
+.outer:                                           ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i
+  %.ph = phi float [ %271, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %.08.lcssa.i.i84.i, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.ph57 = phi float [ %272, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %108, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.ph58 = phi i64 [ %132, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %53, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.ph59 = phi i64 [ %129, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %50, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.ph60 = phi i64 [ %125, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %46, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.ph61 = phi i64 [ %119, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ %40, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.0176.i.ph = phi i32 [ %.1.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 1, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.065175.i.ph = phi i32 [ %.166.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 1, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
+  %.067174.i.ph = phi i32 [ %273, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i ], [ 0, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit91.i ]
   %111 = fcmp nnan ninf nsz arcp contract afn une float %.ph57, 0.000000e+00
   %112 = fcmp nnan ninf nsz arcp contract afn une float %.ph, 0.000000e+00
   br label %113
@@ -5320,7 +5320,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i: ; preds = %.lr.ph
   %115 = phi i64 [ %129, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread ], [ %.ph59, %.outer ]
   %116 = phi i64 [ %125, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread ], [ %.ph60, %.outer ]
   %117 = phi i64 [ %119, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread ], [ %.ph61, %.outer ]
-  %.067176.i = phi i32 [ %272, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread ], [ %.067176.i.ph, %.outer ]
+  %.067174.i = phi i32 [ %274, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread ], [ %.067174.i.ph, %.outer ]
   %118 = mul i64 %117, 6906969069
   %119 = add i64 %118, 1234567
   store i64 %119, ptr %15, align 8
@@ -5349,22 +5349,22 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit92.i: ; preds = %.lr.ph
   br i1 %111, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i, label %139
 
 139:                                              ; preds = %113
-  br i1 %71, label %.lr.ph.i.i94.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.thread.i
+  br i1 %71, label %.lr.ph.i.i93.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.thread.i
 
-.lr.ph.i.i94.i:                                   ; preds = %139, %.lr.ph.i.i94.i
-  %.014.i.i95.i = phi i32 [ %144, %.lr.ph.i.i94.i ], [ 0, %139 ]
-  %.0813.i.i96.i = phi float [ %142, %.lr.ph.i.i94.i ], [ 0.000000e+00, %139 ]
-  %.0912.i.i97.i = phi ptr [ %143, %.lr.ph.i.i94.i ], [ %62, %139 ]
-  %140 = load float, ptr %.0912.i.i97.i, align 4
+.lr.ph.i.i93.i:                                   ; preds = %139, %.lr.ph.i.i93.i
+  %.014.i.i94.i = phi i32 [ %144, %.lr.ph.i.i93.i ], [ 0, %139 ]
+  %.0813.i.i95.i = phi float [ %142, %.lr.ph.i.i93.i ], [ 0.000000e+00, %139 ]
+  %.0912.i.i96.i = phi ptr [ %143, %.lr.ph.i.i93.i ], [ %62, %139 ]
+  %140 = load float, ptr %.0912.i.i96.i, align 4
   %141 = fmul nnan ninf nsz arcp contract afn float %140, %140
-  %142 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i96.i, %141
-  %143 = getelementptr i8, ptr %.0912.i.i97.i, i64 4
-  %144 = add nuw nsw i32 %.014.i.i95.i, 1
-  %exitcond.not.i.i98.i = icmp eq i32 %144, %1
-  br i1 %exitcond.not.i.i98.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i, label %.lr.ph.i.i94.i, !llvm.loop !11
+  %142 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i95.i, %141
+  %143 = getelementptr i8, ptr %.0912.i.i96.i, i64 4
+  %144 = add nuw nsw i32 %.014.i.i94.i, 1
+  %exitcond.not.i.i97.i = icmp eq i32 %144, %1
+  br i1 %exitcond.not.i.i97.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i, label %.lr.ph.i.i93.i, !llvm.loop !11
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i: ; preds = %.lr.ph.i.i94.i, %113
-  %145 = phi nnan ninf nsz arcp contract afn float [ %.ph57, %113 ], [ %142, %.lr.ph.i.i94.i ]
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i: ; preds = %.lr.ph.i.i93.i, %113
+  %145 = phi nnan ninf nsz arcp contract afn float [ %.ph57, %113 ], [ %142, %.lr.ph.i.i93.i ]
   %146 = getelementptr inbounds i8, ptr %138, i64 4
   %147 = load float, ptr %146, align 4
   %148 = fcmp nnan ninf nsz arcp contract afn une float %147, 0.000000e+00
@@ -5446,282 +5446,276 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i: ; preds = %_ZN5Annoy12_GL
 
 _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i: ; preds = %176, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i
   %.0.i.i = phi nsz float [ %181, %176 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i ]
-  br i1 %112, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i, label %182
+  br i1 %112, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i, label %182
 
 182:                                              ; preds = %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i
-  br i1 %71, label %.lr.ph.i.i119.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i
+  br i1 %71, label %.lr.ph.i.i118.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i
 
-.lr.ph.i.i119.i:                                  ; preds = %182, %.lr.ph.i.i119.i
-  %.014.i.i120.i = phi i32 [ %187, %.lr.ph.i.i119.i ], [ 0, %182 ]
-  %.0813.i.i121.i = phi float [ %185, %.lr.ph.i.i119.i ], [ 0.000000e+00, %182 ]
-  %.0912.i.i122.i = phi ptr [ %186, %.lr.ph.i.i119.i ], [ %69, %182 ]
-  %183 = load float, ptr %.0912.i.i122.i, align 4
+.lr.ph.i.i118.i:                                  ; preds = %182, %.lr.ph.i.i118.i
+  %.014.i.i119.i = phi i32 [ %187, %.lr.ph.i.i118.i ], [ 0, %182 ]
+  %.0813.i.i120.i = phi float [ %185, %.lr.ph.i.i118.i ], [ 0.000000e+00, %182 ]
+  %.0912.i.i121.i = phi ptr [ %186, %.lr.ph.i.i118.i ], [ %69, %182 ]
+  %183 = load float, ptr %.0912.i.i121.i, align 4
   %184 = fmul nnan ninf nsz arcp contract afn float %183, %183
-  %185 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i121.i, %184
-  %186 = getelementptr i8, ptr %.0912.i.i122.i, i64 4
-  %187 = add nuw nsw i32 %.014.i.i120.i, 1
-  %exitcond.not.i.i123.i = icmp eq i32 %187, %1
-  br i1 %exitcond.not.i.i123.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i, label %.lr.ph.i.i119.i, !llvm.loop !11
+  %185 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i120.i, %184
+  %186 = getelementptr i8, ptr %.0912.i.i121.i, i64 4
+  %187 = add nuw nsw i32 %.014.i.i119.i, 1
+  %exitcond.not.i.i122.i = icmp eq i32 %187, %1
+  br i1 %exitcond.not.i.i122.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i, label %.lr.ph.i.i118.i, !llvm.loop !11
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i: ; preds = %.lr.ph.i.i119.i, %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i
-  %188 = phi nnan ninf nsz arcp contract afn float [ %.ph, %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i ], [ %185, %.lr.ph.i.i119.i ]
-  br i1 %170, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i, label %189
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i: ; preds = %.lr.ph.i.i118.i, %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i
+  %188 = phi nnan ninf nsz arcp contract afn float [ %.ph, %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i ], [ %185, %.lr.ph.i.i118.i ]
+  br i1 %170, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i, label %189
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i: ; preds = %182
-  br i1 %170, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i, label %.thread163.i
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i: ; preds = %182
+  br i1 %170, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i, label %.thread161.i
 
-.thread163.i:                                     ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i
-  br label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
+.thread161.i:                                     ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i
+  br label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
 
-189:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i
-  br i1 %71, label %.lr.ph.i22.preheader.i103.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
+189:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i
+  br i1 %71, label %.lr.ph.i22.preheader.i102.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
 
-.lr.ph.i22.preheader.i103.i:                      ; preds = %189
+.lr.ph.i22.preheader.i102.i:                      ; preds = %189
   %190 = getelementptr inbounds i8, ptr %138, i64 12
-  br label %.lr.ph.i22.i104.i
+  br label %.lr.ph.i22.i103.i
 
-.lr.ph.i22.i104.i:                                ; preds = %.lr.ph.i22.i104.i, %.lr.ph.i22.preheader.i103.i
-  %.014.i23.i105.i = phi i32 [ %195, %.lr.ph.i22.i104.i ], [ 0, %.lr.ph.i22.preheader.i103.i ]
-  %.0813.i24.i106.i = phi float [ %193, %.lr.ph.i22.i104.i ], [ 0.000000e+00, %.lr.ph.i22.preheader.i103.i ]
-  %.0912.i25.i107.i = phi ptr [ %194, %.lr.ph.i22.i104.i ], [ %190, %.lr.ph.i22.preheader.i103.i ]
-  %191 = load float, ptr %.0912.i25.i107.i, align 4
+.lr.ph.i22.i103.i:                                ; preds = %.lr.ph.i22.i103.i, %.lr.ph.i22.preheader.i102.i
+  %.014.i23.i104.i = phi i32 [ %195, %.lr.ph.i22.i103.i ], [ 0, %.lr.ph.i22.preheader.i102.i ]
+  %.0813.i24.i105.i = phi float [ %193, %.lr.ph.i22.i103.i ], [ 0.000000e+00, %.lr.ph.i22.preheader.i102.i ]
+  %.0912.i25.i106.i = phi ptr [ %194, %.lr.ph.i22.i103.i ], [ %190, %.lr.ph.i22.preheader.i102.i ]
+  %191 = load float, ptr %.0912.i25.i106.i, align 4
   %192 = fmul nnan ninf nsz arcp contract afn float %191, %191
-  %193 = fadd nnan ninf nsz arcp contract afn float %.0813.i24.i106.i, %192
-  %194 = getelementptr i8, ptr %.0912.i25.i107.i, i64 4
-  %195 = add nuw nsw i32 %.014.i23.i105.i, 1
-  %exitcond.not.i27.i108.i = icmp eq i32 %195, %1
-  br i1 %exitcond.not.i27.i108.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i, label %.lr.ph.i22.i104.i, !llvm.loop !11
+  %193 = fadd nnan ninf nsz arcp contract afn float %.0813.i24.i105.i, %192
+  %194 = getelementptr i8, ptr %.0912.i25.i106.i, i64 4
+  %195 = add nuw nsw i32 %.014.i23.i104.i, 1
+  %exitcond.not.i27.i107.i = icmp eq i32 %195, %1
+  br i1 %exitcond.not.i27.i107.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i, label %.lr.ph.i22.i103.i, !llvm.loop !11
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i: ; preds = %.lr.ph.i22.i104.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i
-  %196 = phi nnan ninf nsz arcp contract afn float [ %171, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.i ], [ %193, %.lr.ph.i22.i104.i ]
-  br i1 %71, label %.lr.ph.i30.preheader.i110.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i: ; preds = %.lr.ph.i22.i103.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i
+  %196 = phi nnan ninf nsz arcp contract afn float [ %171, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.i ], [ %193, %.lr.ph.i22.i103.i ]
+  br i1 %71, label %.lr.ph.i30.preheader.i109.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
 
-.lr.ph.i30.preheader.i110.i:                      ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i
+.lr.ph.i30.preheader.i109.i:                      ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i
   %197 = getelementptr inbounds i8, ptr %138, i64 12
-  br label %.lr.ph.i30.i111.i
+  br label %.lr.ph.i30.i110.i
 
-.lr.ph.i30.i111.i:                                ; preds = %.lr.ph.i30.i111.i, %.lr.ph.i30.preheader.i110.i
-  %.014.i31.i112.i = phi i32 [ %204, %.lr.ph.i30.i111.i ], [ 0, %.lr.ph.i30.preheader.i110.i ]
-  %.0813.i32.i113.i = phi float [ %201, %.lr.ph.i30.i111.i ], [ 0.000000e+00, %.lr.ph.i30.preheader.i110.i ]
-  %.0912.i33.i114.i = phi ptr [ %202, %.lr.ph.i30.i111.i ], [ %69, %.lr.ph.i30.preheader.i110.i ]
-  %.01011.i34.i115.i = phi ptr [ %203, %.lr.ph.i30.i111.i ], [ %197, %.lr.ph.i30.preheader.i110.i ]
-  %198 = load float, ptr %.0912.i33.i114.i, align 4
-  %199 = load float, ptr %.01011.i34.i115.i, align 4
+.lr.ph.i30.i110.i:                                ; preds = %.lr.ph.i30.i110.i, %.lr.ph.i30.preheader.i109.i
+  %.014.i31.i111.i = phi i32 [ %204, %.lr.ph.i30.i110.i ], [ 0, %.lr.ph.i30.preheader.i109.i ]
+  %.0813.i32.i112.i = phi float [ %201, %.lr.ph.i30.i110.i ], [ 0.000000e+00, %.lr.ph.i30.preheader.i109.i ]
+  %.0912.i33.i113.i = phi ptr [ %202, %.lr.ph.i30.i110.i ], [ %69, %.lr.ph.i30.preheader.i109.i ]
+  %.01011.i34.i114.i = phi ptr [ %203, %.lr.ph.i30.i110.i ], [ %197, %.lr.ph.i30.preheader.i109.i ]
+  %198 = load float, ptr %.0912.i33.i113.i, align 4
+  %199 = load float, ptr %.01011.i34.i114.i, align 4
   %200 = fmul nnan ninf nsz arcp contract afn float %198, %199
-  %201 = fadd nnan ninf nsz arcp contract afn float %.0813.i32.i113.i, %200
-  %202 = getelementptr i8, ptr %.0912.i33.i114.i, i64 4
-  %203 = getelementptr i8, ptr %.01011.i34.i115.i, i64 4
-  %204 = add nuw nsw i32 %.014.i31.i112.i, 1
-  %exitcond.not.i35.i116.i = icmp eq i32 %204, %1
-  br i1 %exitcond.not.i35.i116.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i, label %.lr.ph.i30.i111.i, !llvm.loop !11
+  %201 = fadd nnan ninf nsz arcp contract afn float %.0813.i32.i112.i, %200
+  %202 = getelementptr i8, ptr %.0912.i33.i113.i, i64 4
+  %203 = getelementptr i8, ptr %.01011.i34.i114.i, i64 4
+  %204 = add nuw nsw i32 %.014.i31.i111.i, 1
+  %exitcond.not.i35.i115.i = icmp eq i32 %204, %1
+  br i1 %exitcond.not.i35.i115.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i, label %.lr.ph.i30.i110.i, !llvm.loop !11
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i: ; preds = %.lr.ph.i30.i111.i
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i: ; preds = %.lr.ph.i30.i110.i
   %205 = fpext float %201 to double
   %206 = fmul nnan ninf nsz arcp contract afn double %205, 2.000000e+00
-  br label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
+  br label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i: ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i, %189, %.thread163.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i
-  %207 = phi float [ %188, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i ], [ %188, %189 ], [ %188, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i ], [ 0.000000e+00, %.thread163.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i ]
-  %208 = phi float [ %196, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i ], [ 0.000000e+00, %189 ], [ %196, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i ], [ 0.000000e+00, %.thread163.i ], [ %171, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i ]
-  %.08.lcssa.i29.i101.i = phi double [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i109.i ], [ 0.000000e+00, %189 ], [ %206, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i117.i ], [ 0.000000e+00, %.thread163.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i99.thread.i ]
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i: ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i, %189, %.thread161.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i
+  %207 = phi float [ %188, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i ], [ %188, %189 ], [ %188, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i ], [ 0.000000e+00, %.thread161.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i ]
+  %208 = phi float [ %196, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i ], [ 0.000000e+00, %189 ], [ %196, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i ], [ 0.000000e+00, %.thread161.i ], [ %171, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i ]
+  %.08.lcssa.i29.i100.i = phi double [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit28.i108.i ], [ 0.000000e+00, %189 ], [ %206, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.loopexit.i116.i ], [ 0.000000e+00, %.thread161.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i98.thread.i ]
   %209 = fmul nnan ninf nsz arcp contract afn float %207, %208
   %210 = fcmp nnan ninf nsz arcp contract afn ogt float %209, 0.000000e+00
-  br i1 %210, label %211, label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i
+  br i1 %210, label %211, label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit123.i
 
-211:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
+211:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
   %212 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %209)
   %213 = fpext float %212 to double
-  %214 = fdiv nnan ninf nsz arcp contract afn double %.08.lcssa.i29.i101.i, %213
+  %214 = fdiv nnan ninf nsz arcp contract afn double %.08.lcssa.i29.i100.i, %213
   %215 = fsub nnan ninf nsz arcp contract afn double 2.000000e+00, %214
   %216 = fptrunc double %215 to float
-  br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i
+  br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit123.i
 
-_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i: ; preds = %211, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
-  %.0.i102.i = phi nsz float [ %216, %211 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i ]
-  br i1 %71, label %.lr.ph.i.preheader.i127.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread
+_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit123.i: ; preds = %211, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i
+  %.0.i101.i = phi nsz float [ %216, %211 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i99.i ]
+  br i1 %71, label %.lr.ph.i.preheader.i126.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread
 
-.lr.ph.i.preheader.i127.i:                        ; preds = %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i
-  %217 = sitofp i32 %.0178.i.ph to float
+.lr.ph.i.preheader.i126.i:                        ; preds = %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit123.i
+  %217 = sitofp i32 %.0176.i.ph to float
   %218 = fmul nnan ninf nsz arcp contract afn float %.0.i.i, %217
-  %219 = sitofp i32 %.065177.i.ph to float
-  %220 = fmul nnan ninf nsz arcp contract afn float %.0.i102.i, %219
+  %219 = sitofp i32 %.065175.i.ph to float
+  %220 = fmul nnan ninf nsz arcp contract afn float %.0.i101.i, %219
   %221 = getelementptr inbounds i8, ptr %138, i64 12
-  br label %.lr.ph.i.i128.i
+  br label %.lr.ph.i.i127.i
 
-.lr.ph.i.i128.i:                                  ; preds = %.lr.ph.i.i128.i, %.lr.ph.i.preheader.i127.i
-  %.014.i.i129.i = phi i32 [ %226, %.lr.ph.i.i128.i ], [ 0, %.lr.ph.i.preheader.i127.i ]
-  %.0813.i.i130.i = phi float [ %224, %.lr.ph.i.i128.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i127.i ]
-  %.0912.i.i131.i = phi ptr [ %225, %.lr.ph.i.i128.i ], [ %221, %.lr.ph.i.preheader.i127.i ]
-  %222 = load float, ptr %.0912.i.i131.i, align 4
+.lr.ph.i.i127.i:                                  ; preds = %.lr.ph.i.i127.i, %.lr.ph.i.preheader.i126.i
+  %.014.i.i128.i = phi i32 [ %226, %.lr.ph.i.i127.i ], [ 0, %.lr.ph.i.preheader.i126.i ]
+  %.0813.i.i129.i = phi float [ %224, %.lr.ph.i.i127.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i126.i ]
+  %.0912.i.i130.i = phi ptr [ %225, %.lr.ph.i.i127.i ], [ %221, %.lr.ph.i.preheader.i126.i ]
+  %222 = load float, ptr %.0912.i.i130.i, align 4
   %223 = fmul nnan ninf nsz arcp contract afn float %222, %222
-  %224 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i130.i, %223
-  %225 = getelementptr i8, ptr %.0912.i.i131.i, i64 4
-  %226 = add nuw nsw i32 %.014.i.i129.i, 1
-  %exitcond.not.i.i132.i = icmp eq i32 %226, %1
-  br i1 %exitcond.not.i.i132.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i128.i, !llvm.loop !11
+  %224 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i129.i, %223
+  %225 = getelementptr i8, ptr %.0912.i.i130.i, i64 4
+  %226 = add nuw nsw i32 %.014.i.i128.i, 1
+  %exitcond.not.i.i131.i = icmp eq i32 %226, %1
+  br i1 %exitcond.not.i.i131.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i127.i, !llvm.loop !11
 
-_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i128.i
+_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i127.i
   %227 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %224)
   %228 = fcmp nnan ninf nsz arcp contract afn ogt float %224, 0.000000e+00
   br i1 %228, label %229, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
 
 229:                                              ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i
   %230 = fcmp nnan ninf nsz arcp contract afn olt float %218, %220
-  br i1 %230, label %.lr.ph.i133.i, label %249
+  br i1 %230, label %231, label %250
 
-.lr.ph.i133.i:                                    ; preds = %229
-  %231 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %227
-  %232 = add i32 %.0178.i.ph, 1
-  %233 = sitofp i32 %232 to float
-  %234 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %233
-  br label %235
+231:                                              ; preds = %229
+  %232 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %227
+  %233 = add i32 %.0176.i.ph, 1
+  %234 = sitofp i32 %233 to float
+  %235 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %234
+  br label %236
 
-235:                                              ; preds = %235, %.lr.ph.i133.i
-  %indvars.iv.i135.i = phi i64 [ 0, %.lr.ph.i133.i ], [ %indvars.iv.next.i136.i, %235 ]
-  %236 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i135.i
-  %237 = load float, ptr %236, align 4
-  %238 = fmul nnan ninf nsz arcp contract afn float %237, %217
-  %239 = getelementptr [65536 x float], ptr %221, i64 0, i64 %indvars.iv.i135.i
-  %240 = load float, ptr %239, align 4
-  %241 = fmul nnan ninf nsz arcp contract afn float %231, %240
-  %242 = fadd nnan ninf nsz arcp contract afn float %238, %241
-  %243 = fmul nnan ninf nsz arcp contract afn float %234, %242
-  store float %243, ptr %236, align 4
-  %indvars.iv.next.i136.i = add nuw nsw i64 %indvars.iv.i135.i, 1
-  %exitcond.not.i137.i = icmp eq i64 %indvars.iv.next.i136.i, %wide.trip.count.i148.i
-  br i1 %exitcond.not.i137.i, label %.lr.ph.i.i141.i, label %235, !llvm.loop !24
+236:                                              ; preds = %236, %231
+  %indvars.iv.i133.i = phi i64 [ 0, %231 ], [ %indvars.iv.next.i134.i, %236 ]
+  %237 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i133.i
+  %238 = load float, ptr %237, align 4
+  %239 = fmul nnan ninf nsz arcp contract afn float %238, %217
+  %240 = getelementptr [65536 x float], ptr %221, i64 0, i64 %indvars.iv.i133.i
+  %241 = load float, ptr %240, align 4
+  %242 = fmul nnan ninf nsz arcp contract afn float %232, %241
+  %243 = fadd nnan ninf nsz arcp contract afn float %239, %242
+  %244 = fmul nnan ninf nsz arcp contract afn float %235, %243
+  store float %244, ptr %237, align 4
+  %indvars.iv.next.i134.i = add nuw nsw i64 %indvars.iv.i133.i, 1
+  %exitcond.not.i135.i = icmp eq i64 %indvars.iv.next.i134.i, %wide.trip.count.i146.i
+  br i1 %exitcond.not.i135.i, label %.lr.ph.i.i139.i, label %236, !llvm.loop !24
 
-.lr.ph.i.i141.i:                                  ; preds = %235, %.lr.ph.i.i141.i
-  %.014.i.i142.i = phi i32 [ %248, %.lr.ph.i.i141.i ], [ 0, %235 ]
-  %.0813.i.i143.i = phi float [ %246, %.lr.ph.i.i141.i ], [ 0.000000e+00, %235 ]
-  %.0912.i.i144.i = phi ptr [ %247, %.lr.ph.i.i141.i ], [ %62, %235 ]
-  %244 = load float, ptr %.0912.i.i144.i, align 4
-  %245 = fmul nnan ninf nsz arcp contract afn float %244, %244
-  %246 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i143.i, %245
-  %247 = getelementptr i8, ptr %.0912.i.i144.i, i64 4
-  %248 = add nuw nsw i32 %.014.i.i142.i, 1
-  %exitcond.not.i.i145.i = icmp eq i32 %248, %1
-  br i1 %exitcond.not.i.i145.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i, label %.lr.ph.i.i141.i, !llvm.loop !11
+.lr.ph.i.i139.i:                                  ; preds = %236, %.lr.ph.i.i139.i
+  %.014.i.i140.i = phi i32 [ %249, %.lr.ph.i.i139.i ], [ 0, %236 ]
+  %.0813.i.i141.i = phi float [ %247, %.lr.ph.i.i139.i ], [ 0.000000e+00, %236 ]
+  %.0912.i.i142.i = phi ptr [ %248, %.lr.ph.i.i139.i ], [ %62, %236 ]
+  %245 = load float, ptr %.0912.i.i142.i, align 4
+  %246 = fmul nnan ninf nsz arcp contract afn float %245, %245
+  %247 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i141.i, %246
+  %248 = getelementptr i8, ptr %.0912.i.i142.i, i64 4
+  %249 = add nuw nsw i32 %.014.i.i140.i, 1
+  %exitcond.not.i.i143.i = icmp eq i32 %249, %1
+  br i1 %exitcond.not.i.i143.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i, label %.lr.ph.i.i139.i, !llvm.loop !11
 
-_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i: ; preds = %.lr.ph.i.i141.i
-  store float %246, ptr %109, align 4
+_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i: ; preds = %.lr.ph.i.i139.i
+  store float %247, ptr %109, align 4
   br label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
 
-249:                                              ; preds = %229
-  %250 = fcmp nnan ninf nsz arcp contract afn olt float %220, %218
-  br i1 %250, label %.lr.ph.i147.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
+250:                                              ; preds = %229
+  %251 = fcmp nnan ninf nsz arcp contract afn olt float %220, %218
+  br i1 %251, label %252, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
 
-.lr.ph.i147.i:                                    ; preds = %249
-  %251 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %227
-  %252 = add i32 %.065177.i.ph, 1
-  %253 = sitofp i32 %252 to float
-  %254 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %253
-  br label %255
+252:                                              ; preds = %250
+  %253 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %227
+  %254 = add i32 %.065175.i.ph, 1
+  %255 = sitofp i32 %254 to float
+  %256 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %255
+  br label %257
 
-255:                                              ; preds = %255, %.lr.ph.i147.i
-  %indvars.iv.i149.i = phi i64 [ 0, %.lr.ph.i147.i ], [ %indvars.iv.next.i150.i, %255 ]
-  %256 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i149.i
-  %257 = load float, ptr %256, align 4
-  %258 = fmul nnan ninf nsz arcp contract afn float %257, %219
-  %259 = getelementptr [65536 x float], ptr %221, i64 0, i64 %indvars.iv.i149.i
-  %260 = load float, ptr %259, align 4
-  %261 = fmul nnan ninf nsz arcp contract afn float %251, %260
-  %262 = fadd nnan ninf nsz arcp contract afn float %258, %261
-  %263 = fmul nnan ninf nsz arcp contract afn float %254, %262
-  store float %263, ptr %256, align 4
-  %indvars.iv.next.i150.i = add nuw nsw i64 %indvars.iv.i149.i, 1
-  %exitcond.not.i151.i = icmp eq i64 %indvars.iv.next.i150.i, %wide.trip.count.i148.i
-  br i1 %exitcond.not.i151.i, label %.lr.ph.i.i156.i, label %255, !llvm.loop !24
+257:                                              ; preds = %257, %252
+  %indvars.iv.i147.i = phi i64 [ 0, %252 ], [ %indvars.iv.next.i148.i, %257 ]
+  %258 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i147.i
+  %259 = load float, ptr %258, align 4
+  %260 = fmul nnan ninf nsz arcp contract afn float %259, %219
+  %261 = getelementptr [65536 x float], ptr %221, i64 0, i64 %indvars.iv.i147.i
+  %262 = load float, ptr %261, align 4
+  %263 = fmul nnan ninf nsz arcp contract afn float %253, %262
+  %264 = fadd nnan ninf nsz arcp contract afn float %260, %263
+  %265 = fmul nnan ninf nsz arcp contract afn float %256, %264
+  store float %265, ptr %258, align 4
+  %indvars.iv.next.i148.i = add nuw nsw i64 %indvars.iv.i147.i, 1
+  %exitcond.not.i149.i = icmp eq i64 %indvars.iv.next.i148.i, %wide.trip.count.i146.i
+  br i1 %exitcond.not.i149.i, label %.lr.ph.i.i154.i, label %257, !llvm.loop !24
 
-.lr.ph.i.i156.i:                                  ; preds = %255, %.lr.ph.i.i156.i
-  %.014.i.i157.i = phi i32 [ %268, %.lr.ph.i.i156.i ], [ 0, %255 ]
-  %.0813.i.i158.i = phi float [ %266, %.lr.ph.i.i156.i ], [ 0.000000e+00, %255 ]
-  %.0912.i.i159.i = phi ptr [ %267, %.lr.ph.i.i156.i ], [ %69, %255 ]
-  %264 = load float, ptr %.0912.i.i159.i, align 4
-  %265 = fmul nnan ninf nsz arcp contract afn float %264, %264
-  %266 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i158.i, %265
-  %267 = getelementptr i8, ptr %.0912.i.i159.i, i64 4
-  %268 = add nuw nsw i32 %.014.i.i157.i, 1
-  %exitcond.not.i.i160.i = icmp eq i32 %268, %1
-  br i1 %exitcond.not.i.i160.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i, label %.lr.ph.i.i156.i, !llvm.loop !11
+.lr.ph.i.i154.i:                                  ; preds = %257, %.lr.ph.i.i154.i
+  %.014.i.i155.i = phi i32 [ %270, %.lr.ph.i.i154.i ], [ 0, %257 ]
+  %.0813.i.i156.i = phi float [ %268, %.lr.ph.i.i154.i ], [ 0.000000e+00, %257 ]
+  %.0912.i.i157.i = phi ptr [ %269, %.lr.ph.i.i154.i ], [ %69, %257 ]
+  %266 = load float, ptr %.0912.i.i157.i, align 4
+  %267 = fmul nnan ninf nsz arcp contract afn float %266, %266
+  %268 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i156.i, %267
+  %269 = getelementptr i8, ptr %.0912.i.i157.i, i64 4
+  %270 = add nuw nsw i32 %.014.i.i155.i, 1
+  %exitcond.not.i.i158.i = icmp eq i32 %270, %1
+  br i1 %exitcond.not.i.i158.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i, label %.lr.ph.i.i154.i, !llvm.loop !11
 
-_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i: ; preds = %.lr.ph.i.i156.i
-  store float %266, ptr %110, align 4
+_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i: ; preds = %.lr.ph.i.i154.i
+  store float %268, ptr %110, align 4
   br label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
 
-_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i: ; preds = %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i, %249, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i
-  %269 = phi float [ %.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i ], [ %266, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i ], [ %.ph, %249 ], [ %.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
-  %270 = phi float [ %246, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i ], [ %.ph57, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i ], [ %.ph57, %249 ], [ %.ph57, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
-  %.166.i = phi i32 [ %.065177.i.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i ], [ %252, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i ], [ %.065177.i.ph, %249 ], [ %.065177.i.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
-  %.1.i = phi i32 [ %232, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit146.i ], [ %.0178.i.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit161.i ], [ %.0178.i.ph, %249 ], [ %.0178.i.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
-  %271 = add nuw nsw i32 %.067176.i, 1
-  %exitcond.not.i = icmp eq i32 %271, 200
-  br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader, label %.outer, !llvm.loop !25
+_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i: ; preds = %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i, %250, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i
+  %271 = phi float [ %.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i ], [ %268, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i ], [ %.ph, %250 ], [ %.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
+  %272 = phi float [ %247, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i ], [ %.ph57, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i ], [ %.ph57, %250 ], [ %.ph57, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
+  %.166.i = phi i32 [ %.065175.i.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i ], [ %254, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i ], [ %.065175.i.ph, %250 ], [ %.065175.i.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
+  %.1.i = phi i32 [ %233, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit144.i ], [ %.0176.i.ph, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit159.i ], [ %.0176.i.ph, %250 ], [ %.0176.i.ph, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i ]
+  %273 = add nuw nsw i32 %.067174.i, 1
+  %exitcond.not.i = icmp eq i32 %273, 200
+  br i1 %exitcond.not.i, label %.lr.ph, label %.outer, !llvm.loop !25
 
-_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread: ; preds = %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i
-  %272 = add nuw nsw i32 %.067176.i, 1
-  %exitcond.not.i55 = icmp eq i32 %272, 200
+_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread: ; preds = %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit123.i
+  %274 = add nuw nsw i32 %.067174.i, 1
+  %exitcond.not.i55 = icmp eq i32 %274, 200
   br i1 %exitcond.not.i55, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit, label %113, !llvm.loop !25
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader: ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
-  br i1 %71, label %.lr.ph, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit
-
-.lr.ph:                                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader
-  %273 = getelementptr inbounds i8, ptr %4, i64 12
+.lr.ph:                                           ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i
+  %275 = getelementptr inbounds i8, ptr %4, i64 12
   br label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit ]
-  %274 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
-  %275 = load float, ptr %274, align 4
-  %276 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %276 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
   %277 = load float, ptr %276, align 4
-  %278 = fsub nnan ninf nsz arcp contract afn float %275, %277
-  %279 = getelementptr [65536 x float], ptr %273, i64 0, i64 %indvars.iv
-  store float %278, ptr %279, align 4
+  %278 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %279 = load float, ptr %278, align 4
+  %280 = fsub nnan ninf nsz arcp contract afn float %277, %279
+  %281 = getelementptr [65536 x float], ptr %275, i64 0, i64 %indvars.iv
+  store float %280, ptr %281, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i148.i
-  br i1 %exitcond.not, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit, !llvm.loop !26
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i146.i
+  br i1 %exitcond.not, label %.lr.ph.i.preheader.i.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit, !llvm.loop !26
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
-  br i1 %71, label %.lr.ph.i.preheader.i.i, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit
-
-.lr.ph.i.preheader.i.i:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge
-  %280 = getelementptr inbounds i8, ptr %4, i64 12
+.lr.ph.i.preheader.i.i:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
+  %282 = getelementptr inbounds i8, ptr %4, i64 12
   br label %.lr.ph.i.i.i18
 
 .lr.ph.i.i.i18:                                   ; preds = %.lr.ph.i.i.i18, %.lr.ph.i.preheader.i.i
-  %.014.i.i.i19 = phi i32 [ %285, %.lr.ph.i.i.i18 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.0813.i.i.i20 = phi float [ %283, %.lr.ph.i.i.i18 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i ]
-  %.0912.i.i.i21 = phi ptr [ %284, %.lr.ph.i.i.i18 ], [ %280, %.lr.ph.i.preheader.i.i ]
-  %281 = load float, ptr %.0912.i.i.i21, align 4
-  %282 = fmul nnan ninf nsz arcp contract afn float %281, %281
-  %283 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i20, %282
-  %284 = getelementptr i8, ptr %.0912.i.i.i21, i64 4
-  %285 = add nuw nsw i32 %.014.i.i.i19, 1
-  %exitcond.not.i.i.i22 = icmp eq i32 %285, %1
+  %.014.i.i.i19 = phi i32 [ %287, %.lr.ph.i.i.i18 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.0813.i.i.i20 = phi float [ %285, %.lr.ph.i.i.i18 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i ]
+  %.0912.i.i.i21 = phi ptr [ %286, %.lr.ph.i.i.i18 ], [ %282, %.lr.ph.i.preheader.i.i ]
+  %283 = load float, ptr %.0912.i.i.i21, align 4
+  %284 = fmul nnan ninf nsz arcp contract afn float %283, %283
+  %285 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i20, %284
+  %286 = getelementptr i8, ptr %.0912.i.i.i21, i64 4
+  %287 = add nuw nsw i32 %.014.i.i.i19, 1
+  %exitcond.not.i.i.i22 = icmp eq i32 %287, %1
   br i1 %exitcond.not.i.i.i22, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23, label %.lr.ph.i.i.i18, !llvm.loop !11
 
 _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23: ; preds = %.lr.ph.i.i.i18
-  %286 = fcmp nnan ninf nsz arcp contract afn ogt float %283, 0.000000e+00
-  br i1 %286, label %.lr.ph.i, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit
+  %288 = fcmp nnan ninf nsz arcp contract afn ogt float %285, 0.000000e+00
+  br i1 %288, label %.preheader.i, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit
 
-.lr.ph.i:                                         ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23
-  %287 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %283)
-  %288 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %287
-  br label %289
+.preheader.i:                                     ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23
+  %289 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %285)
+  %290 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %289
+  br label %291
 
-289:                                              ; preds = %289, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %289 ]
-  %290 = getelementptr [65536 x float], ptr %280, i64 0, i64 %indvars.iv.i
-  %291 = load float, ptr %290, align 4
-  %292 = fmul nnan ninf nsz arcp contract afn float %288, %291
-  store float %292, ptr %290, align 4
+291:                                              ; preds = %291, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %291 ]
+  %292 = getelementptr [65536 x float], ptr %282, i64 0, i64 %indvars.iv.i
+  %293 = load float, ptr %292, align 4
+  %294 = fmul nnan ninf nsz arcp contract afn float %290, %293
+  store float %294, ptr %292, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i148.i
-  br i1 %exitcond.not.i24, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit, label %289, !llvm.loop !23
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i146.i
+  br i1 %exitcond.not.i24, label %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit, label %291, !llvm.loop !23
 
-_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread, %289, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23
+_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.thread.i.thread, %291, %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i23
   ret void
 }
 
@@ -10918,7 +10912,7 @@ define linkonce_odr void @_ZN5Annoy9Euclidean12create_splitIifNS_12Kiss64RandomE
   %.ph57 = phi i64 [ %78, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ %40, %5 ]
   %.090.i.ph = phi i32 [ %.1.i, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 1, %5 ]
   %.06589.i.ph = phi i32 [ %.166.i, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 1, %5 ]
-  %.06788.i.ph = phi i32 [ %144, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 0, %5 ]
+  %.06788.i.ph = phi i32 [ %146, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 0, %5 ]
   br label %72
 
 72:                                               ; preds = %.outer, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread
@@ -10926,7 +10920,7 @@ define linkonce_odr void @_ZN5Annoy9Euclidean12create_splitIifNS_12Kiss64RandomE
   %74 = phi i64 [ %88, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph55, %.outer ]
   %75 = phi i64 [ %84, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph56, %.outer ]
   %76 = phi i64 [ %78, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph57, %.outer ]
-  %.06788.i = phi i32 [ %145, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.06788.i.ph, %.outer ]
+  %.06788.i = phi i32 [ %147, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.06788.i.ph, %.outer ]
   %77 = mul i64 %76, 6906969069
   %78 = add i64 %77, 1234567
   %79 = shl i64 %75, 13
@@ -10996,166 +10990,154 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i: ;
   %117 = sitofp i32 %.06589.i.ph to float
   %118 = fmul nnan ninf nsz arcp contract afn float %112, %117
   %119 = fcmp nnan ninf nsz arcp contract afn olt float %116, %118
-  br i1 %119, label %.lr.ph.i.i, label %131
+  br i1 %119, label %120, label %132
 
-.lr.ph.i.i:                                       ; preds = %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
-  %120 = add i32 %.090.i.ph, 1
-  %121 = sitofp i32 %120 to float
-  %122 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %121
-  br label %123
+120:                                              ; preds = %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
+  %121 = add i32 %.090.i.ph, 1
+  %122 = sitofp i32 %121 to float
+  %123 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %122
+  br label %124
 
-123:                                              ; preds = %123, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %123 ]
-  %124 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i.i
-  %125 = load float, ptr %124, align 4
-  %126 = fmul nnan ninf nsz arcp contract afn float %125, %92
-  %127 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i.i
-  %128 = load float, ptr %127, align 4
-  %129 = fadd nnan ninf nsz arcp contract afn float %126, %128
-  %130 = fmul nnan ninf nsz arcp contract afn float %122, %129
-  store float %130, ptr %124, align 4
+124:                                              ; preds = %124, %120
+  %indvars.iv.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i, %124 ]
+  %125 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i.i
+  %126 = load float, ptr %125, align 4
+  %127 = fmul nnan ninf nsz arcp contract afn float %126, %92
+  %128 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i.i
+  %129 = load float, ptr %128, align 4
+  %130 = fadd nnan ninf nsz arcp contract afn float %127, %129
+  %131 = fmul nnan ninf nsz arcp contract afn float %123, %130
+  store float %131, ptr %125, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i81.i
-  br i1 %exitcond.not.i.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %123, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %124, !llvm.loop !84
 
-131:                                              ; preds = %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
-  %132 = fcmp nnan ninf nsz arcp contract afn olt float %118, %116
-  br i1 %132, label %.lr.ph.i80.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
+132:                                              ; preds = %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
+  %133 = fcmp nnan ninf nsz arcp contract afn olt float %118, %116
+  br i1 %133, label %134, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
 
-.lr.ph.i80.i:                                     ; preds = %131
-  %133 = add i32 %.06589.i.ph, 1
-  %134 = sitofp i32 %133 to float
-  %135 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %134
-  br label %136
+134:                                              ; preds = %132
+  %135 = add i32 %.06589.i.ph, 1
+  %136 = sitofp i32 %135 to float
+  %137 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %136
+  br label %138
 
-136:                                              ; preds = %136, %.lr.ph.i80.i
-  %indvars.iv.i82.i = phi i64 [ 0, %.lr.ph.i80.i ], [ %indvars.iv.next.i83.i, %136 ]
-  %137 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i82.i
-  %138 = load float, ptr %137, align 4
-  %139 = fmul nnan ninf nsz arcp contract afn float %138, %117
-  %140 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i82.i
-  %141 = load float, ptr %140, align 4
-  %142 = fadd nnan ninf nsz arcp contract afn float %139, %141
-  %143 = fmul nnan ninf nsz arcp contract afn float %135, %142
-  store float %143, ptr %137, align 4
+138:                                              ; preds = %138, %134
+  %indvars.iv.i82.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i83.i, %138 ]
+  %139 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i82.i
+  %140 = load float, ptr %139, align 4
+  %141 = fmul nnan ninf nsz arcp contract afn float %140, %117
+  %142 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i82.i
+  %143 = load float, ptr %142, align 4
+  %144 = fadd nnan ninf nsz arcp contract afn float %141, %143
+  %145 = fmul nnan ninf nsz arcp contract afn float %137, %144
+  store float %145, ptr %139, align 4
   %indvars.iv.next.i83.i = add nuw nsw i64 %indvars.iv.i82.i, 1
   %exitcond.not.i84.i = icmp eq i64 %indvars.iv.next.i83.i, %wide.trip.count.i81.i
-  br i1 %exitcond.not.i84.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %136, !llvm.loop !84
+  br i1 %exitcond.not.i84.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %138, !llvm.loop !84
 
-_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %136, %123, %131
-  %.166.i = phi i32 [ %.06589.i.ph, %131 ], [ %.06589.i.ph, %123 ], [ %133, %136 ]
-  %.1.i = phi i32 [ %.090.i.ph, %131 ], [ %120, %123 ], [ %.090.i.ph, %136 ]
-  %144 = add nuw nsw i32 %.06788.i, 1
-  %exitcond.not.i = icmp eq i32 %144, 200
-  br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader, label %.outer, !llvm.loop !85
+_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %138, %124, %132
+  %.166.i = phi i32 [ %.06589.i.ph, %132 ], [ %.06589.i.ph, %124 ], [ %135, %138 ]
+  %.1.i = phi i32 [ %.090.i.ph, %132 ], [ %121, %124 ], [ %.090.i.ph, %138 ]
+  %146 = add nuw nsw i32 %.06788.i, 1
+  %exitcond.not.i = icmp eq i32 %146, 200
+  br i1 %exitcond.not.i, label %.lr.ph, label %.outer, !llvm.loop !85
 
 _ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread: ; preds = %72
-  %145 = add nuw nsw i32 %.06788.i, 1
-  %exitcond.not.i53 = icmp eq i32 %145, 200
+  %147 = add nuw nsw i32 %.06788.i, 1
+  %exitcond.not.i53 = icmp eq i32 %147, 200
   br i1 %exitcond.not.i53, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, label %72, !llvm.loop !85
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader: ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
-  br i1 %71, label %.lr.ph, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
-
-.lr.ph:                                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %146 = getelementptr inbounds i8, ptr %4, i64 16
+.lr.ph:                                           ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
+  %148 = getelementptr inbounds i8, ptr %4, i64 16
   br label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %147 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
-  %148 = load float, ptr %147, align 4
-  %149 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %149 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
   %150 = load float, ptr %149, align 4
-  %151 = fsub nnan ninf nsz arcp contract afn float %148, %150
-  %152 = getelementptr [65536 x float], ptr %146, i64 0, i64 %indvars.iv
-  store float %151, ptr %152, align 4
+  %151 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %152 = load float, ptr %151, align 4
+  %153 = fsub nnan ninf nsz arcp contract afn float %150, %152
+  %154 = getelementptr [65536 x float], ptr %148, i64 0, i64 %indvars.iv
+  store float %153, ptr %154, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i81.i
-  br i1 %exitcond.not, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !86
+  br i1 %exitcond.not, label %.lr.ph.i.preheader.i.i30, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !86
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
-  br i1 %71, label %.lr.ph.i.preheader.i.i30, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
-
-.lr.ph.i.preheader.i.i30:                         ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge
-  %153 = getelementptr inbounds i8, ptr %4, i64 16
+.lr.ph.i.preheader.i.i30:                         ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
+  %155 = getelementptr inbounds i8, ptr %4, i64 16
   br label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %.lr.ph.i.i.i31, %.lr.ph.i.preheader.i.i30
-  %.014.i.i.i = phi i32 [ %158, %.lr.ph.i.i.i31 ], [ 0, %.lr.ph.i.preheader.i.i30 ]
-  %.0813.i.i.i = phi float [ %156, %.lr.ph.i.i.i31 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i30 ]
-  %.0912.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i31 ], [ %153, %.lr.ph.i.preheader.i.i30 ]
-  %154 = load float, ptr %.0912.i.i.i, align 4
-  %155 = fmul nnan ninf nsz arcp contract afn float %154, %154
-  %156 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i, %155
-  %157 = getelementptr i8, ptr %.0912.i.i.i, i64 4
-  %158 = add nuw nsw i32 %.014.i.i.i, 1
-  %exitcond.not.i.i.i32 = icmp eq i32 %158, %1
+  %.014.i.i.i = phi i32 [ %160, %.lr.ph.i.i.i31 ], [ 0, %.lr.ph.i.preheader.i.i30 ]
+  %.0813.i.i.i = phi float [ %158, %.lr.ph.i.i.i31 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i30 ]
+  %.0912.i.i.i = phi ptr [ %159, %.lr.ph.i.i.i31 ], [ %155, %.lr.ph.i.preheader.i.i30 ]
+  %156 = load float, ptr %.0912.i.i.i, align 4
+  %157 = fmul nnan ninf nsz arcp contract afn float %156, %156
+  %158 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i, %157
+  %159 = getelementptr i8, ptr %.0912.i.i.i, i64 4
+  %160 = add nuw nsw i32 %.014.i.i.i, 1
+  %exitcond.not.i.i.i32 = icmp eq i32 %160, %1
   br i1 %exitcond.not.i.i.i32, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i31, !llvm.loop !11
 
 _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i.i31
-  %159 = fcmp nnan ninf nsz arcp contract afn ogt float %156, 0.000000e+00
-  br i1 %159, label %.lr.ph.i, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
+  %161 = fcmp nnan ninf nsz arcp contract afn ogt float %158, 0.000000e+00
+  br i1 %161, label %.preheader.i, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
 
-.lr.ph.i:                                         ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %160 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %156)
-  %161 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %160
-  br label %162
+.preheader.i:                                     ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %162 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %158)
+  %163 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %162
+  br label %164
 
-162:                                              ; preds = %162, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %162 ]
-  %163 = getelementptr [65536 x float], ptr %153, i64 0, i64 %indvars.iv.i
-  %164 = load float, ptr %163, align 4
-  %165 = fmul nnan ninf nsz arcp contract afn float %161, %164
-  store float %165, ptr %163, align 4
+164:                                              ; preds = %164, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %164 ]
+  %165 = getelementptr [65536 x float], ptr %155, i64 0, i64 %indvars.iv.i
+  %166 = load float, ptr %165, align 4
+  %167 = fmul nnan ninf nsz arcp contract afn float %163, %166
+  store float %167, ptr %165, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i81.i
-  br i1 %exitcond.not.i33, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %162, !llvm.loop !87
+  br i1 %exitcond.not.i33, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %164, !llvm.loop !87
 
 _ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit: ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread
   store i64 %78, ptr %15, align 8
   store i64 %84, ptr %19, align 8
   store i64 %88, ptr %3, align 8
   store i64 %91, ptr %29, align 8
-  br label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
+  %168 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %168, align 4
+  br label %184
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread: ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %166 = getelementptr inbounds i8, ptr %4, i64 4
-  store float 0.000000e+00, ptr %166, align 4
-  br label %182
+_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %164, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %169 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %169, align 4
+  %170 = getelementptr inbounds i8, ptr %4, i64 16
+  br label %171
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %162, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %167 = getelementptr inbounds i8, ptr %4, i64 4
-  store float 0.000000e+00, ptr %167, align 4
-  br i1 %71, label %.lr.ph39, label %182
-
-.lr.ph39:                                         ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
-  %168 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %169
-
-169:                                              ; preds = %.lr.ph39, %169
-  %indvars.iv46 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next47, %169 ]
-  %170 = phi float [ 0.000000e+00, %.lr.ph39 ], [ %181, %169 ]
-  %171 = getelementptr [65536 x float], ptr %168, i64 0, i64 %indvars.iv46
-  %172 = load float, ptr %171, align 4
-  %173 = fneg nnan ninf nsz arcp contract afn float %172
-  %174 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv46
-  %175 = load float, ptr %174, align 4
-  %176 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv46
+171:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, %171
+  %indvars.iv46 = phi i64 [ 0, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit ], [ %indvars.iv.next47, %171 ]
+  %172 = phi float [ 0.000000e+00, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit ], [ %183, %171 ]
+  %173 = getelementptr [65536 x float], ptr %170, i64 0, i64 %indvars.iv46
+  %174 = load float, ptr %173, align 4
+  %175 = fneg nnan ninf nsz arcp contract afn float %174
+  %176 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv46
   %177 = load float, ptr %176, align 4
-  %178 = fadd nnan ninf nsz arcp contract afn float %175, %177
-  %179 = fmul nnan ninf nsz arcp contract afn float %178, %173
-  %180 = fmul nnan ninf nsz arcp contract afn float %179, 5.000000e-01
-  %181 = fadd nnan ninf nsz arcp contract afn float %170, %180
+  %178 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv46
+  %179 = load float, ptr %178, align 4
+  %180 = fadd nnan ninf nsz arcp contract afn float %177, %179
+  %181 = fmul nnan ninf nsz arcp contract afn float %180, %175
+  %182 = fmul nnan ninf nsz arcp contract afn float %181, 5.000000e-01
+  %183 = fadd nnan ninf nsz arcp contract afn float %172, %182
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count.i81.i
-  br i1 %exitcond50.not, label %._crit_edge, label %169, !llvm.loop !88
+  br i1 %exitcond50.not, label %._crit_edge, label %171, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %169
-  store float %181, ptr %167, align 4
-  br label %182
+._crit_edge:                                      ; preds = %171
+  store float %183, ptr %169, align 4
+  br label %184
 
-182:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread, %._crit_edge, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
+184:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, %._crit_edge
   ret void
 }
 
@@ -14984,7 +14966,7 @@ define linkonce_odr void @_ZN5Annoy9Manhattan12create_splitIifNS_12Kiss64RandomE
   %.ph56 = phi i64 [ %78, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ %40, %5 ]
   %.090.i.ph = phi i32 [ %.1.i, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 1, %5 ]
   %.06589.i.ph = phi i32 [ %.166.i, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 1, %5 ]
-  %.06788.i.ph = phi i32 [ %142, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 0, %5 ]
+  %.06788.i.ph = phi i32 [ %144, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i ], [ 0, %5 ]
   br label %72
 
 72:                                               ; preds = %.outer, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread
@@ -14992,7 +14974,7 @@ define linkonce_odr void @_ZN5Annoy9Manhattan12create_splitIifNS_12Kiss64RandomE
   %74 = phi i64 [ %88, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph54, %.outer ]
   %75 = phi i64 [ %84, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph55, %.outer ]
   %76 = phi i64 [ %78, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.ph56, %.outer ]
-  %.06788.i = phi i32 [ %143, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.06788.i.ph, %.outer ]
+  %.06788.i = phi i32 [ %145, %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread ], [ %.06788.i.ph, %.outer ]
   %77 = mul i64 %76, 6906969069
   %78 = add i64 %77, 1234567
   %79 = shl i64 %75, 13
@@ -15058,166 +15040,154 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i: ;
   %115 = sitofp i32 %.06589.i.ph to float
   %116 = fmul nnan ninf nsz arcp contract afn float %113, %115
   %117 = fcmp nnan ninf nsz arcp contract afn olt float %114, %116
-  br i1 %117, label %.lr.ph.i.i, label %129
+  br i1 %117, label %118, label %130
 
-.lr.ph.i.i:                                       ; preds = %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
-  %118 = add i32 %.090.i.ph, 1
-  %119 = sitofp i32 %118 to float
-  %120 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %119
-  br label %121
+118:                                              ; preds = %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
+  %119 = add i32 %.090.i.ph, 1
+  %120 = sitofp i32 %119 to float
+  %121 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %120
+  br label %122
 
-121:                                              ; preds = %121, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %121 ]
-  %122 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i.i
-  %123 = load float, ptr %122, align 4
-  %124 = fmul nnan ninf nsz arcp contract afn float %123, %95
-  %125 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i.i
-  %126 = load float, ptr %125, align 4
-  %127 = fadd nnan ninf nsz arcp contract afn float %124, %126
-  %128 = fmul nnan ninf nsz arcp contract afn float %120, %127
-  store float %128, ptr %122, align 4
+122:                                              ; preds = %122, %118
+  %indvars.iv.i.i = phi i64 [ 0, %118 ], [ %indvars.iv.next.i.i, %122 ]
+  %123 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv.i.i
+  %124 = load float, ptr %123, align 4
+  %125 = fmul nnan ninf nsz arcp contract afn float %124, %95
+  %126 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i.i
+  %127 = load float, ptr %126, align 4
+  %128 = fadd nnan ninf nsz arcp contract afn float %125, %127
+  %129 = fmul nnan ninf nsz arcp contract afn float %121, %128
+  store float %129, ptr %123, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %121, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %122, !llvm.loop !84
 
-129:                                              ; preds = %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
-  %130 = fcmp nnan ninf nsz arcp contract afn olt float %116, %114
-  br i1 %130, label %.lr.ph.i80.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
+130:                                              ; preds = %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit79.i
+  %131 = fcmp nnan ninf nsz arcp contract afn olt float %116, %114
+  br i1 %131, label %132, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
 
-.lr.ph.i80.i:                                     ; preds = %129
-  %131 = add i32 %.06589.i.ph, 1
-  %132 = sitofp i32 %131 to float
-  %133 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %132
-  br label %134
+132:                                              ; preds = %130
+  %133 = add i32 %.06589.i.ph, 1
+  %134 = sitofp i32 %133 to float
+  %135 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %134
+  br label %136
 
-134:                                              ; preds = %134, %.lr.ph.i80.i
-  %indvars.iv.i82.i = phi i64 [ 0, %.lr.ph.i80.i ], [ %indvars.iv.next.i83.i, %134 ]
-  %135 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i82.i
-  %136 = load float, ptr %135, align 4
-  %137 = fmul nnan ninf nsz arcp contract afn float %136, %115
-  %138 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i82.i
-  %139 = load float, ptr %138, align 4
-  %140 = fadd nnan ninf nsz arcp contract afn float %137, %139
-  %141 = fmul nnan ninf nsz arcp contract afn float %133, %140
-  store float %141, ptr %135, align 4
+136:                                              ; preds = %136, %132
+  %indvars.iv.i82.i = phi i64 [ 0, %132 ], [ %indvars.iv.next.i83.i, %136 ]
+  %137 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv.i82.i
+  %138 = load float, ptr %137, align 4
+  %139 = fmul nnan ninf nsz arcp contract afn float %138, %115
+  %140 = getelementptr [65536 x float], ptr %99, i64 0, i64 %indvars.iv.i82.i
+  %141 = load float, ptr %140, align 4
+  %142 = fadd nnan ninf nsz arcp contract afn float %139, %141
+  %143 = fmul nnan ninf nsz arcp contract afn float %135, %142
+  store float %143, ptr %137, align 4
   %indvars.iv.next.i83.i = add nuw nsw i64 %indvars.iv.i82.i, 1
   %exitcond.not.i84.i = icmp eq i64 %indvars.iv.next.i83.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i84.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %134, !llvm.loop !84
+  br i1 %exitcond.not.i84.i, label %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i, label %136, !llvm.loop !84
 
-_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %134, %121, %129
-  %.166.i = phi i32 [ %.06589.i.ph, %129 ], [ %.06589.i.ph, %121 ], [ %131, %134 ]
-  %.1.i = phi i32 [ %.090.i.ph, %129 ], [ %118, %121 ], [ %.090.i.ph, %134 ]
-  %142 = add nuw nsw i32 %.06788.i, 1
-  %exitcond.not.i = icmp eq i32 %142, 200
-  br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader, label %.outer, !llvm.loop !126
+_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds = %136, %122, %130
+  %.166.i = phi i32 [ %.06589.i.ph, %130 ], [ %.06589.i.ph, %122 ], [ %133, %136 ]
+  %.1.i = phi i32 [ %.090.i.ph, %130 ], [ %119, %122 ], [ %.090.i.ph, %136 ]
+  %144 = add nuw nsw i32 %.06788.i, 1
+  %exitcond.not.i = icmp eq i32 %144, 200
+  br i1 %exitcond.not.i, label %.lr.ph, label %.outer, !llvm.loop !126
 
 _ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread: ; preds = %72
-  %143 = add nuw nsw i32 %.06788.i, 1
-  %exitcond.not.i52 = icmp eq i32 %143, 200
+  %145 = add nuw nsw i32 %.06788.i, 1
+  %exitcond.not.i52 = icmp eq i32 %145, 200
   br i1 %exitcond.not.i52, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, label %72, !llvm.loop !126
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader: ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
-  br i1 %71, label %.lr.ph, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
-
-.lr.ph:                                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %144 = getelementptr inbounds i8, ptr %4, i64 16
+.lr.ph:                                           ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i
+  %146 = getelementptr inbounds i8, ptr %4, i64 16
   br label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %145 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
-  %146 = load float, ptr %145, align 4
-  %147 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %147 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv
   %148 = load float, ptr %147, align 4
-  %149 = fsub nnan ninf nsz arcp contract afn float %146, %148
-  %150 = getelementptr [65536 x float], ptr %144, i64 0, i64 %indvars.iv
-  store float %149, ptr %150, align 4
+  %149 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv
+  %150 = load float, ptr %149, align 4
+  %151 = fsub nnan ninf nsz arcp contract afn float %148, %150
+  %152 = getelementptr [65536 x float], ptr %146, i64 0, i64 %indvars.iv
+  store float %151, ptr %152, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i.i.i
-  br i1 %exitcond.not, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !127
+  br i1 %exitcond.not, label %.lr.ph.i.preheader.i.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !127
 
-_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
-  br i1 %71, label %.lr.ph.i.preheader.i.i, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
-
-.lr.ph.i.preheader.i.i:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge
-  %151 = getelementptr inbounds i8, ptr %4, i64 16
+.lr.ph.i.preheader.i.i:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
+  %153 = getelementptr inbounds i8, ptr %4, i64 16
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %.lr.ph.i.i.i30, %.lr.ph.i.preheader.i.i
-  %.014.i.i.i = phi i32 [ %156, %.lr.ph.i.i.i30 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.0813.i.i.i = phi float [ %154, %.lr.ph.i.i.i30 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i ]
-  %.0912.i.i.i = phi ptr [ %155, %.lr.ph.i.i.i30 ], [ %151, %.lr.ph.i.preheader.i.i ]
-  %152 = load float, ptr %.0912.i.i.i, align 4
-  %153 = fmul nnan ninf nsz arcp contract afn float %152, %152
-  %154 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i, %153
-  %155 = getelementptr i8, ptr %.0912.i.i.i, i64 4
-  %156 = add nuw nsw i32 %.014.i.i.i, 1
-  %exitcond.not.i.i.i31 = icmp eq i32 %156, %1
+  %.014.i.i.i = phi i32 [ %158, %.lr.ph.i.i.i30 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.0813.i.i.i = phi float [ %156, %.lr.ph.i.i.i30 ], [ 0.000000e+00, %.lr.ph.i.preheader.i.i ]
+  %.0912.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i30 ], [ %153, %.lr.ph.i.preheader.i.i ]
+  %154 = load float, ptr %.0912.i.i.i, align 4
+  %155 = fmul nnan ninf nsz arcp contract afn float %154, %154
+  %156 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i.i, %155
+  %157 = getelementptr i8, ptr %.0912.i.i.i, i64 4
+  %158 = add nuw nsw i32 %.014.i.i.i, 1
+  %exitcond.not.i.i.i31 = icmp eq i32 %158, %1
   br i1 %exitcond.not.i.i.i31, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i30, !llvm.loop !11
 
 _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i.i30
-  %157 = fcmp nnan ninf nsz arcp contract afn ogt float %154, 0.000000e+00
-  br i1 %157, label %.lr.ph.i, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
+  %159 = fcmp nnan ninf nsz arcp contract afn ogt float %156, 0.000000e+00
+  br i1 %159, label %.preheader.i, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
 
-.lr.ph.i:                                         ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %158 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %154)
-  %159 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %158
-  br label %160
+.preheader.i:                                     ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %160 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %156)
+  %161 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %160
+  br label %162
 
-160:                                              ; preds = %160, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %160 ]
-  %161 = getelementptr [65536 x float], ptr %151, i64 0, i64 %indvars.iv.i
-  %162 = load float, ptr %161, align 4
-  %163 = fmul nnan ninf nsz arcp contract afn float %159, %162
-  store float %163, ptr %161, align 4
+162:                                              ; preds = %162, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %162 ]
+  %163 = getelementptr [65536 x float], ptr %153, i64 0, i64 %indvars.iv.i
+  %164 = load float, ptr %163, align 4
+  %165 = fmul nnan ninf nsz arcp contract afn float %161, %164
+  store float %165, ptr %163, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i32, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %160, !llvm.loop !87
+  br i1 %exitcond.not.i32, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %162, !llvm.loop !87
 
 _ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit: ; preds = %_ZN5Annoy4Base11update_meanIfNS_9Minkowski4NodeIifEEEEvPT0_S6_T_ii.exit.i.thread
   store i64 %78, ptr %15, align 8
   store i64 %84, ptr %19, align 8
   store i64 %88, ptr %3, align 8
   store i64 %91, ptr %29, align 8
-  br label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread
+  %166 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %166, align 4
+  br label %182
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread: ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %164 = getelementptr inbounds i8, ptr %4, i64 4
-  store float 0.000000e+00, ptr %164, align 4
-  br label %180
+_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %162, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %167 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %167, align 4
+  %168 = getelementptr inbounds i8, ptr %4, i64 16
+  br label %169
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %160, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  %165 = getelementptr inbounds i8, ptr %4, i64 4
-  store float 0.000000e+00, ptr %165, align 4
-  br i1 %71, label %.lr.ph38, label %180
-
-.lr.ph38:                                         ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
-  %166 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %167
-
-167:                                              ; preds = %.lr.ph38, %167
-  %indvars.iv45 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next46, %167 ]
-  %168 = phi float [ 0.000000e+00, %.lr.ph38 ], [ %179, %167 ]
-  %169 = getelementptr [65536 x float], ptr %166, i64 0, i64 %indvars.iv45
-  %170 = load float, ptr %169, align 4
-  %171 = fneg nnan ninf nsz arcp contract afn float %170
-  %172 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv45
-  %173 = load float, ptr %172, align 4
-  %174 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv45
+169:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, %169
+  %indvars.iv45 = phi i64 [ 0, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit ], [ %indvars.iv.next46, %169 ]
+  %170 = phi float [ 0.000000e+00, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit ], [ %181, %169 ]
+  %171 = getelementptr [65536 x float], ptr %168, i64 0, i64 %indvars.iv45
+  %172 = load float, ptr %171, align 4
+  %173 = fneg nnan ninf nsz arcp contract afn float %172
+  %174 = getelementptr [65536 x float], ptr %62, i64 0, i64 %indvars.iv45
   %175 = load float, ptr %174, align 4
-  %176 = fadd nnan ninf nsz arcp contract afn float %173, %175
-  %177 = fmul nnan ninf nsz arcp contract afn float %176, %171
-  %178 = fmul nnan ninf nsz arcp contract afn float %177, 5.000000e-01
-  %179 = fadd nnan ninf nsz arcp contract afn float %168, %178
+  %176 = getelementptr [65536 x float], ptr %69, i64 0, i64 %indvars.iv45
+  %177 = load float, ptr %176, align 4
+  %178 = fadd nnan ninf nsz arcp contract afn float %175, %177
+  %179 = fmul nnan ninf nsz arcp contract afn float %178, %173
+  %180 = fmul nnan ninf nsz arcp contract afn float %179, 5.000000e-01
+  %181 = fadd nnan ninf nsz arcp contract afn float %170, %180
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count.i.i.i
-  br i1 %exitcond49.not, label %._crit_edge, label %167, !llvm.loop !128
+  br i1 %exitcond49.not, label %._crit_edge, label %169, !llvm.loop !128
 
-._crit_edge:                                      ; preds = %167
-  store float %179, ptr %165, align 4
-  br label %180
+._crit_edge:                                      ; preds = %169
+  store float %181, ptr %167, align 4
+  br label %182
 
-180:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread, %._crit_edge, %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit
+182:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit.thread.loopexit, %._crit_edge
   ret void
 }
 
@@ -21389,9 +21359,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us.i: ; preds = %.lr.ph.i.us.i
   store i8 0, ptr %45, align 4
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %.lr.ph51.preheader.i, label %.lr.ph.i.preheader.us.i, !llvm.loop !194
+  br i1 %exitcond60.not.i, label %.preheader47.i, label %.lr.ph.i.preheader.us.i, !llvm.loop !194
 
-.lr.ph51.preheader.i:                             ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us.i
+.preheader47.i:                                   ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us.i
   %invariant.gep.i = getelementptr i8, ptr %24, i64 12
   br label %.lr.ph51.i
 
@@ -21405,15 +21375,15 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i: ; preds = %.lr.ph.i, %
   store i8 0, ptr %49, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count59.i
-  br i1 %exitcond.not.i, label %.lr.ph51.preheader.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i, !llvm.loop !194
+  br i1 %exitcond.not.i, label %.preheader47.i, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i, !llvm.loop !194
 
-.lr.ph53.i:                                       ; preds = %.lr.ph51.i
+.preheader.i:                                     ; preds = %.lr.ph51.i
   %square.i = fmul nnan ninf nsz arcp contract afn float %.1.i, %.1.i
   br label %53
 
-.lr.ph51.i:                                       ; preds = %.lr.ph51.i, %.lr.ph51.preheader.i
-  %indvars.iv61.i = phi i64 [ 0, %.lr.ph51.preheader.i ], [ %indvars.iv.next62.i, %.lr.ph51.i ]
-  %.03750.i = phi float [ 0.000000e+00, %.lr.ph51.preheader.i ], [ %.1.i, %.lr.ph51.i ]
+.lr.ph51.i:                                       ; preds = %.lr.ph51.i, %.preheader47.i
+  %indvars.iv61.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next62.i, %.lr.ph51.i ]
+  %.03750.i = phi float [ 0.000000e+00, %.preheader47.i ], [ %.1.i, %.lr.ph51.i ]
   %50 = mul i64 %indvars.iv61.i, %26
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %50
   %51 = load float, ptr %gep.i, align 4
@@ -21421,10 +21391,10 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i: ; preds = %.lr.ph.i, %
   %.1.i = select nsz i1 %52, float %51, float %.03750.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count59.i
-  br i1 %exitcond65.not.i, label %.lr.ph53.i, label %.lr.ph51.i, !llvm.loop !195
+  br i1 %exitcond65.not.i, label %.preheader.i, label %.lr.ph51.i, !llvm.loop !195
 
-53:                                               ; preds = %53, %.lr.ph53.i
-  %indvars.iv66.i = phi i64 [ 0, %.lr.ph53.i ], [ %indvars.iv.next67.i, %53 ]
+53:                                               ; preds = %53, %.preheader.i
+  %indvars.iv66.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next67.i, %53 ]
   %54 = mul i64 %indvars.iv66.i, %26
   %55 = getelementptr i8, ptr %24, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 12
@@ -24371,16 +24341,13 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIi
   %266 = fsub nnan ninf nsz arcp contract afn float %264, %265
   %267 = getelementptr inbounds i8, ptr %4, i64 12
   store float %266, ptr %267, align 4
-  br i1 %77, label %.lr.ph.i.i25.preheader, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i
-
-.lr.ph.i.i25.preheader:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge
   %268 = getelementptr inbounds i8, ptr %4, i64 24
   br label %.lr.ph.i.i25
 
-.lr.ph.i.i25:                                     ; preds = %.lr.ph.i.i25.preheader, %.lr.ph.i.i25
-  %.014.i.i = phi i32 [ %273, %.lr.ph.i.i25 ], [ 0, %.lr.ph.i.i25.preheader ]
-  %.0813.i.i = phi float [ %271, %.lr.ph.i.i25 ], [ 0.000000e+00, %.lr.ph.i.i25.preheader ]
-  %.0912.i.i = phi ptr [ %272, %.lr.ph.i.i25 ], [ %268, %.lr.ph.i.i25.preheader ]
+.lr.ph.i.i25:                                     ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge, %.lr.ph.i.i25
+  %.014.i.i = phi i32 [ %273, %.lr.ph.i.i25 ], [ 0, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ]
+  %.0813.i.i = phi float [ %271, %.lr.ph.i.i25 ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ]
+  %.0912.i.i = phi ptr [ %272, %.lr.ph.i.i25 ], [ %268, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ]
   %269 = load float, ptr %.0912.i.i, align 4
   %270 = fmul nnan ninf nsz arcp contract afn float %269, %269
   %271 = fadd nnan ninf nsz arcp contract afn float %.0813.i.i, %270
@@ -24393,10 +24360,10 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i: ; preds = %.lr.ph.i.
   %274 = fpext float %271 to double
   br label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge
-  %275 = phi ptr [ %267, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ], [ %267, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ %256, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
-  %276 = phi float [ %266, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ], [ %266, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ %255, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
-  %.08.lcssa.i.i = phi double [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ], [ %274, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i
+  %275 = phi ptr [ %267, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ %256, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
+  %276 = phi float [ %266, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ %255, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
+  %.08.lcssa.i.i = phi double [ %274, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.i ], [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge.thread ]
   %277 = fpext float %276 to double
   %278 = fmul nnan ninf nsz arcp contract afn double %277, %277
   %279 = fadd nnan ninf nsz arcp contract afn double %278, %.08.lcssa.i.i

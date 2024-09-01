@@ -5168,21 +5168,21 @@ define internal fastcc void @quic_create_initial_decoders(ptr noundef %0, ptr no
   %15 = load i8, ptr %0, align 8
   %16 = zext i8 %15 to i64
   %17 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %14, i64 noundef %16, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_q50, i64 noundef 20) #15
-  br label %68
+  br label %67
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %0, i64 1
   %20 = load i8, ptr %0, align 8
   %21 = zext i8 %20 to i64
   %22 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %19, i64 noundef %21, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t50, i64 noundef 20) #15
-  br label %68
+  br label %67
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %0, i64 1
   %25 = load i8, ptr %0, align 8
   %26 = zext i8 %25 to i64
   %27 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %24, i64 noundef %26, ptr noundef nonnull @quic_derive_initial_secrets.hanshake_salt_draft_t51, i64 noundef 20) #15
-  br label %68
+  br label %67
 
 28:                                               ; preds = %3
   %.mask.i.i.i = and i32 %12, -256
@@ -5190,7 +5190,7 @@ define internal fastcc void @quic_create_initial_decoders(ptr noundef %0, ptr no
   br i1 %29, label %is_quic_draft_max.exit.i, label %30
 
 30:                                               ; preds = %28
-  switch i32 %12, label %50 [
+  switch i32 %12, label %.thread.i [
     i32 -87117823, label %is_quic_draft_max.exit.thread62.i
     i32 -87117810, label %is_quic_draft_max.exit47.thread.i
     i32 -87117822, label %is_quic_draft_max.exit47.thread.i
@@ -5199,167 +5199,167 @@ define internal fastcc void @quic_create_initial_decoders(ptr noundef %0, ptr no
     i32 1362113840, label %is_quic_draft_max.exit47.thread.i
   ]
 
-is_quic_draft_max.exit.i:                         ; preds = %28
-  %31 = trunc i32 %12 to i8
-  %32 = add i8 %31, -23
-  %33 = icmp ult i8 %32, -22
-  br i1 %33, label %is_quic_draft_max.exit47.i, label %is_quic_draft_max.exit.thread62.i
+.thread.i:                                        ; preds = %30
+  %31 = and i32 %12, 252645135
+  %32 = icmp eq i32 %31, 168430090
+  br i1 %32, label %is_quic_draft_max.exit.thread, label %52
 
-is_quic_draft_max.exit.thread62.i:                ; preds = %30, %is_quic_draft_max.exit.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 1
-  %35 = load i8, ptr %0, align 8
-  %36 = zext i8 %35 to i64
-  %37 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_22, i64 noundef 20) #15
-  br label %68
+is_quic_draft_max.exit.i:                         ; preds = %28
+  %33 = trunc i32 %12 to i8
+  %34 = add i8 %33, -23
+  %35 = icmp ult i8 %34, -22
+  br i1 %35, label %is_quic_draft_max.exit47.i, label %is_quic_draft_max.exit.thread62.i
+
+is_quic_draft_max.exit.thread62.i:                ; preds = %is_quic_draft_max.exit.i, %30
+  %36 = getelementptr inbounds i8, ptr %0, i64 1
+  %37 = load i8, ptr %0, align 8
+  %38 = zext i8 %37 to i64
+  %39 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %36, i64 noundef %38, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_22, i64 noundef 20) #15
+  br label %67
 
 is_quic_draft_max.exit47.i:                       ; preds = %is_quic_draft_max.exit.i
-  %38 = add i8 %31, -29
-  %39 = icmp ult i8 %38, -28
-  br i1 %39, label %is_quic_draft_max.exit56.i, label %is_quic_draft_max.exit47.thread.i
+  %40 = add i8 %33, -29
+  %41 = icmp ult i8 %40, -28
+  br i1 %41, label %is_quic_draft_max.exit56.i, label %is_quic_draft_max.exit47.thread.i
 
-is_quic_draft_max.exit47.thread.i:                ; preds = %30, %30, %30, %30, %30, %is_quic_draft_max.exit47.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 1
-  %41 = load i8, ptr %0, align 8
-  %42 = zext i8 %41 to i64
-  %43 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_23, i64 noundef 20) #15
-  br label %68
+is_quic_draft_max.exit47.thread.i:                ; preds = %is_quic_draft_max.exit47.i, %30, %30, %30, %30, %30
+  %42 = getelementptr inbounds i8, ptr %0, i64 1
+  %43 = load i8, ptr %0, align 8
+  %44 = zext i8 %43 to i64
+  %45 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef %44, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_23, i64 noundef 20) #15
+  br label %67
 
 is_quic_draft_max.exit56.i:                       ; preds = %is_quic_draft_max.exit47.i
-  %44 = add i8 %31, -33
-  %45 = icmp ult i8 %44, -32
-  br i1 %45, label %is_quic_draft_max.exit, label %is_quic_draft_max.exit56.thread.i
+  %46 = add i8 %33, -33
+  %47 = icmp ult i8 %46, -32
+  br i1 %47, label %is_quic_draft_max.exit, label %is_quic_draft_max.exit56.thread.i
 
 is_quic_draft_max.exit56.thread.i:                ; preds = %is_quic_draft_max.exit56.i
-  %46 = getelementptr inbounds i8, ptr %0, i64 1
-  %47 = load i8, ptr %0, align 8
-  %48 = zext i8 %47 to i64
-  %49 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %46, i64 noundef %48, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_29, i64 noundef 20) #15
-  br label %68
+  %48 = getelementptr inbounds i8, ptr %0, i64 1
+  %49 = load i8, ptr %0, align 8
+  %50 = zext i8 %49 to i64
+  %51 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %48, i64 noundef %50, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_29, i64 noundef 20) #15
+  br label %67
 
-50:                                               ; preds = %30
-  %51 = and i32 %12, 252645135
-  %52 = icmp eq i32 %51, 168430090
-  br i1 %52, label %is_quic_draft_max.exit.thread, label %53
-
-53:                                               ; preds = %50
+52:                                               ; preds = %.thread.i
   %switch.selectcmp.i.i = icmp eq i32 %12, 1798521807
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i8 100, i8 0
   %switch.selectcmp19.i.i = icmp eq i32 %12, 1
   %switch.select20.i.i = select i1 %switch.selectcmp19.i.i, i8 34, i8 %switch.select.i.i
   br label %is_quic_draft_max.exit
 
-is_quic_draft_max.exit.thread:                    ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 1
-  %55 = load i8, ptr %0, align 8
-  %56 = zext i8 %55 to i64
-  br label %62
+is_quic_draft_max.exit.thread:                    ; preds = %.thread.i
+  %53 = getelementptr inbounds i8, ptr %0, i64 1
+  %54 = load i8, ptr %0, align 8
+  %55 = zext i8 %54 to i64
+  br label %61
 
-is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.exit56.i, %53
-  %.0.i.i = phi i8 [ %switch.select20.i.i, %53 ], [ %31, %is_quic_draft_max.exit56.i ]
-  %57 = add i8 %.0.i.i, -35
-  %58 = icmp ult i8 %57, -34
-  %59 = getelementptr inbounds i8, ptr %0, i64 1
-  %60 = load i8, ptr %0, align 8
-  %61 = zext i8 %60 to i64
-  br i1 %58, label %66, label %62
+is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.exit56.i, %52
+  %.0.i.i = phi i8 [ %switch.select20.i.i, %52 ], [ %33, %is_quic_draft_max.exit56.i ]
+  %56 = add i8 %.0.i.i, -35
+  %57 = icmp ult i8 %56, -34
+  %58 = getelementptr inbounds i8, ptr %0, i64 1
+  %59 = load i8, ptr %0, align 8
+  %60 = zext i8 %59 to i64
+  br i1 %57, label %65, label %61
 
-62:                                               ; preds = %is_quic_draft_max.exit.thread, %is_quic_draft_max.exit
-  %63 = phi i64 [ %56, %is_quic_draft_max.exit.thread ], [ %61, %is_quic_draft_max.exit ]
-  %64 = phi ptr [ %54, %is_quic_draft_max.exit.thread ], [ %59, %is_quic_draft_max.exit ]
-  %65 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %64, i64 noundef %63, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v1, i64 noundef 20) #15
-  br label %68
+61:                                               ; preds = %is_quic_draft_max.exit.thread, %is_quic_draft_max.exit
+  %62 = phi i64 [ %55, %is_quic_draft_max.exit.thread ], [ %60, %is_quic_draft_max.exit ]
+  %63 = phi ptr [ %53, %is_quic_draft_max.exit.thread ], [ %58, %is_quic_draft_max.exit ]
+  %64 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %63, i64 noundef %62, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v1, i64 noundef 20) #15
+  br label %67
 
-66:                                               ; preds = %is_quic_draft_max.exit
-  %67 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %59, i64 noundef %61, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v2, i64 noundef 20) #15
-  br label %68
+65:                                               ; preds = %is_quic_draft_max.exit
+  %66 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %58, i64 noundef %60, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v2, i64 noundef 20) #15
+  br label %67
 
-68:                                               ; preds = %66, %62, %is_quic_draft_max.exit56.thread.i, %is_quic_draft_max.exit47.thread.i, %is_quic_draft_max.exit.thread62.i, %23, %18, %13
-  %.0.i = phi i32 [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %37, %is_quic_draft_max.exit.thread62.i ], [ %43, %is_quic_draft_max.exit47.thread.i ], [ %49, %is_quic_draft_max.exit56.thread.i ], [ %65, %62 ], [ %67, %66 ]
+67:                                               ; preds = %65, %61, %is_quic_draft_max.exit56.thread.i, %is_quic_draft_max.exit47.thread.i, %is_quic_draft_max.exit.thread62.i, %23, %18, %13
+  %.0.i = phi i32 [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %39, %is_quic_draft_max.exit.thread62.i ], [ %45, %is_quic_draft_max.exit47.thread.i ], [ %51, %is_quic_draft_max.exit56.thread.i ], [ %64, %61 ], [ %66, %65 ]
   %.not36.i = icmp eq i32 %.0.i, 0
-  br i1 %.not36.i, label %73, label %69
+  br i1 %.not36.i, label %72, label %68
 
-69:                                               ; preds = %68
-  %70 = call ptr @wmem_packet_scope() #15
-  %71 = call ptr @gcry_strerror(i32 noundef %.0.i) #15
-  %72 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %70, ptr noundef nonnull @.str.504, ptr noundef %71) #15
+68:                                               ; preds = %67
+  %69 = call ptr @wmem_packet_scope() #15
+  %70 = call ptr @gcry_strerror(i32 noundef %.0.i) #15
+  %71 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %69, ptr noundef nonnull @.str.504, ptr noundef %70) #15
   br label %quic_derive_initial_secrets.exit.thread
 
-73:                                               ; preds = %68
+72:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %8, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 32, ptr %74, align 8
+  %73 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 32, ptr %73, align 8
   store ptr null, ptr %7, align 8
-  %75 = call i32 @tls13_hkdf_expand_label(i32 noundef 8, ptr noundef nonnull %6, ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.505, i16 noundef zeroext 32, ptr noundef nonnull %7) #15
-  %.not.i.i = icmp eq i32 %75, 0
-  br i1 %.not.i.i, label %76, label %77
+  %74 = call i32 @tls13_hkdf_expand_label(i32 noundef 8, ptr noundef nonnull %6, ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.505, i16 noundef zeroext 32, ptr noundef nonnull %7) #15
+  %.not.i.i = icmp eq i32 %74, 0
+  br i1 %.not.i.i, label %75, label %76
 
-76:                                               ; preds = %73
+75:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %quic_derive_initial_secrets.exit.thread
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %78, i64 32, i1 false)
-  call void @wmem_free(ptr noundef null, ptr noundef %78) #15
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %77, i64 32, i1 false)
+  call void @wmem_free(ptr noundef null, ptr noundef %77) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %8, ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 32, ptr %79, align 8
+  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 32, ptr %78, align 8
   store ptr null, ptr %5, align 8
-  %80 = call i32 @tls13_hkdf_expand_label(i32 noundef 8, ptr noundef nonnull %4, ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.507, i16 noundef zeroext 32, ptr noundef nonnull %5) #15
-  %.not.i57.i = icmp eq i32 %80, 0
-  br i1 %.not.i57.i, label %81, label %82
+  %79 = call i32 @tls13_hkdf_expand_label(i32 noundef 8, ptr noundef nonnull %4, ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.507, i16 noundef zeroext 32, ptr noundef nonnull %5) #15
+  %.not.i57.i = icmp eq i32 %79, 0
+  br i1 %.not.i57.i, label %80, label %81
 
-81:                                               ; preds = %77
+80:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %quic_derive_initial_secrets.exit.thread
 
-quic_derive_initial_secrets.exit.thread:          ; preds = %81, %76, %69
-  %.sink.i.ph = phi ptr [ %72, %69 ], [ @.str.506, %76 ], [ @.str.508, %81 ]
+quic_derive_initial_secrets.exit.thread:          ; preds = %80, %75, %68
+  %.sink.i.ph = phi ptr [ %71, %68 ], [ @.str.506, %75 ], [ @.str.508, %80 ]
   store ptr %.sink.i.ph, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %quic_ciphers_prepare.exit.thread
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %83, i64 32, i1 false)
-  call void @wmem_free(ptr noundef null, ptr noundef %83) #15
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %82, i64 32, i1 false)
+  call void @wmem_free(ptr noundef null, ptr noundef %82) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %84 = getelementptr inbounds i8, ptr %2, i64 48
-  %85 = load i32, ptr %11, align 4
-  %86 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %84, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %85)
-  %.not.i = icmp eq i32 %86, 0
+  %83 = getelementptr inbounds i8, ptr %2, i64 48
+  %84 = load i32, ptr %11, align 4
+  %85 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %83, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %84)
+  %.not.i = icmp eq i32 %85, 0
   br i1 %.not.i, label %quic_ciphers_prepare.exit.thread, label %quic_ciphers_prepare.exit
 
-quic_ciphers_prepare.exit:                        ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %2, i64 56
-  %88 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef nonnull %87, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %85)
-  %.not9 = icmp eq i32 %88, 0
-  br i1 %.not9, label %quic_ciphers_prepare.exit.thread, label %89
+quic_ciphers_prepare.exit:                        ; preds = %81
+  %86 = getelementptr inbounds i8, ptr %2, i64 56
+  %87 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef nonnull %86, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %84)
+  %.not9 = icmp eq i32 %87, 0
+  br i1 %.not9, label %quic_ciphers_prepare.exit.thread, label %88
 
-89:                                               ; preds = %quic_ciphers_prepare.exit
-  %90 = getelementptr inbounds i8, ptr %2, i64 80
-  %91 = load i32, ptr %11, align 4
-  %92 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %90, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %91)
-  %.not.i11 = icmp eq i32 %92, 0
+88:                                               ; preds = %quic_ciphers_prepare.exit
+  %89 = getelementptr inbounds i8, ptr %2, i64 80
+  %90 = load i32, ptr %11, align 4
+  %91 = call fastcc i32 @quic_hp_cipher_prepare(ptr noundef nonnull %89, i32 noundef 8, i32 noundef 7, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %90)
+  %.not.i11 = icmp eq i32 %91, 0
   br i1 %.not.i11, label %quic_ciphers_prepare.exit.thread, label %quic_ciphers_prepare.exit12
 
-quic_ciphers_prepare.exit12:                      ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %2, i64 88
-  %94 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef nonnull %93, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %91)
+quic_ciphers_prepare.exit12:                      ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %2, i64 88
+  %93 = call fastcc i32 @quic_pp_cipher_prepare(ptr noundef nonnull %92, i32 noundef 8, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %90)
   br label %quic_ciphers_prepare.exit.thread
 
-quic_ciphers_prepare.exit.thread:                 ; preds = %quic_ciphers_prepare.exit12, %89, %82, %quic_derive_initial_secrets.exit.thread, %quic_ciphers_prepare.exit
+quic_ciphers_prepare.exit.thread:                 ; preds = %quic_ciphers_prepare.exit12, %88, %81, %quic_derive_initial_secrets.exit.thread, %quic_ciphers_prepare.exit
   ret void
 }
 
@@ -6775,8 +6775,8 @@ quic_streams_add.exit:                            ; preds = %315, %308, %256
   br i1 %.not227.i.i, label %.thread.i.i, label %desegment_quic_stream.exit.i
 
 403:                                              ; preds = %.backedge.i.i
-  %.not359.i.i = icmp eq i32 %.0205.i.i, 0
-  br i1 %.not359.i.i, label %415, label %404
+  %.not355.i.i = icmp eq i32 %.0205.i.i, 0
+  br i1 %.not355.i.i, label %415, label %404
 
 404:                                              ; preds = %403
   %405 = load ptr, ptr %391, align 8

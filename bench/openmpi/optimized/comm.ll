@@ -1100,12 +1100,9 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %39 = shl nuw nsw i64 %38, 2
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #20
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %.preheader
+  br i1 %41, label %.thread, label %.lr.ph123.preheader
 
-.preheader:                                       ; preds = %37
-  br i1 %28, label %.lr.ph123.preheader, label %.loopexit
-
-.lr.ph123.preheader:                              ; preds = %.preheader
+.lr.ph123.preheader:                              ; preds = %37
   %wide.trip.count128 = zext nneg i32 %15 to i64
   br label %.lr.ph123
 
@@ -1131,12 +1128,12 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %.loopexit, label %.lr.ph123, !llvm.loop !8
 
-.loopexit:                                        ; preds = %49, %.preheader, %8
-  %.2 = phi i32 [ 0, %8 ], [ %spec.select, %.preheader ], [ %spec.select, %49 ]
-  %.061 = phi i32 [ 32, %8 ], [ 64, %.preheader ], [ 64, %49 ]
-  %.156 = phi ptr [ null, %8 ], [ %18, %.preheader ], [ %18, %49 ]
-  %.1 = phi ptr [ null, %8 ], [ %40, %.preheader ], [ %40, %49 ]
-  %.052 = phi ptr [ null, %8 ], [ @ompi_mpi_group_null, %.preheader ], [ @ompi_mpi_group_null, %49 ]
+.loopexit:                                        ; preds = %49, %8
+  %.2 = phi i32 [ 0, %8 ], [ %spec.select, %49 ]
+  %.061 = phi i32 [ 32, %8 ], [ 64, %49 ]
+  %.156 = phi ptr [ null, %8 ], [ %18, %49 ]
+  %.1 = phi ptr [ null, %8 ], [ %40, %49 ]
+  %.052 = phi ptr [ null, %8 ], [ @ompi_mpi_group_null, %49 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 296
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1489,12 +1486,9 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %42 = zext nneg i32 %41 to i64
   %43 = call noalias ptr @calloc(i64 noundef %42, i64 noundef 4) #22
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %._crit_edge.thread, label %.preheader205
+  br i1 %44, label %._crit_edge.thread, label %.lr.ph211.preheader
 
-.preheader205:                                    ; preds = %40
-  br i1 %34, label %.lr.ph211.preheader, label %._crit_edge212
-
-.lr.ph211.preheader:                              ; preds = %.preheader205
+.lr.ph211.preheader:                              ; preds = %40
   %wide.trip.count231 = zext nneg i32 %.val.val to i64
   br label %.lr.ph211
 
@@ -1529,7 +1523,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
   br i1 %exitcond232.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !10
 
-._crit_edge212:                                   ; preds = %61, %.preheader205
+._crit_edge212:                                   ; preds = %61
   %.not263 = icmp eq i32 %spec.select, 1
   br i1 %.not263, label %64, label %62
 
@@ -1614,12 +1608,9 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %95 = zext nneg i32 %94 to i64
   %96 = call noalias ptr @calloc(i64 noundef %95, i64 noundef 4) #22
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %._crit_edge.thread, label %.preheader202
+  br i1 %97, label %._crit_edge.thread, label %.lr.ph223.preheader
 
-.preheader202:                                    ; preds = %93
-  br i1 %88, label %.lr.ph223.preheader, label %._crit_edge224
-
-.lr.ph223.preheader:                              ; preds = %.preheader202
+.lr.ph223.preheader:                              ; preds = %93
   %wide.trip.count246 = zext nneg i32 %76 to i64
   br label %.lr.ph223
 
@@ -1654,7 +1645,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
   br i1 %exitcond247.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !13
 
-._crit_edge224:                                   ; preds = %114, %.preheader202
+._crit_edge224:                                   ; preds = %114
   %.not186 = icmp eq i32 %spec.select193, 1
   br i1 %.not186, label %._crit_edge224._crit_edge, label %115
 

@@ -353,9 +353,9 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
 
 for.inc96:                                        ; preds = %for.cond59.for.inc94_crit_edge.us
   %shl = shl i64 %wstep.0308, 1
-  br i1 %cmp55305, label %for.body30.lr.ph, label %for.end97, !llvm.loop !9
+  br label %for.body30.lr.ph, !llvm.loop !9
 
-for.end97:                                        ; preds = %for.cond54.preheader, %for.inc96, %entry, %for.cond24.preheader
+for.end97:                                        ; preds = %for.cond54.preheader, %entry, %for.cond24.preheader
   %umax.i = tail call i64 @llvm.umax.i64(i64 %n, i64 1)
   br label %do.body.i
 

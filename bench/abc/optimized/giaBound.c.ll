@@ -216,7 +216,7 @@ Vec_PtrFill.exit89.thread:                        ; preds = %Vec_PtrGrow.exit.i8
 
 Vec_PtrFill.exit89:                               ; preds = %52
   store i32 %.pre-phi, ptr %19, align 4
-  br i1 %51, label %.lr.ph, label %._crit_edge
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_PtrFill.exit89, %.lr.ph
   %.0141 = phi i32 [ %63, %.lr.ph ], [ 0, %Vec_PtrFill.exit89 ]
@@ -241,7 +241,7 @@ Vec_PtrFill.exit89:                               ; preds = %52
   %64 = icmp slt i32 %63, %.val75
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %Vec_PtrFill.exit89.thread, %Vec_PtrFill.exit89
+._crit_edge:                                      ; preds = %.lr.ph, %Vec_PtrFill.exit89.thread
   %.val67 = load i32, ptr %5, align 8
   %65 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %66 = add i32 %.val67, -1

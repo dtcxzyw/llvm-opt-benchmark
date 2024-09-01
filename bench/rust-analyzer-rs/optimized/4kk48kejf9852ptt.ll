@@ -1140,8 +1140,8 @@ common.resume:                                    ; preds = %105, %101, %44, %49
   br label %"_ZN4core3ptr137drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hcd0c87a8b2ae151fE.exit6"
 
 119:                                              ; preds = %110
-  %.not.not = icmp eq ptr %116, null
-  br i1 %.not.not, label %"_ZN4core3ptr137drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hcd0c87a8b2ae151fE.exit10", label %120
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %"_ZN4core3ptr137drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hcd0c87a8b2ae151fE.exit10", label %120
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1514,8 +1514,8 @@ common.resume:                                    ; preds = %103, %"_ZN4core3ptr
   br label %"_ZN4core3ptr140drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0b124642d52831f6E.exit7"
 
 127:                                              ; preds = %108
-  %.not.not = icmp eq ptr %118, null
-  br i1 %.not.not, label %"_ZN4core3ptr140drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0b124642d52831f6E.exit11", label %128
+  %.not = icmp eq ptr %118, null
+  br i1 %.not, label %"_ZN4core3ptr140drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17h0b124642d52831f6E.exit11", label %128
 
 128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1892,8 +1892,8 @@ common.resume:                                    ; preds = %103, %"_ZN4core3ptr
   br label %"_ZN4core3ptr148drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hfffaee73f5bb3fbfE.exit7"
 
 127:                                              ; preds = %108
-  %.not.not = icmp eq ptr %118, null
-  br i1 %.not.not, label %"_ZN4core3ptr148drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hfffaee73f5bb3fbfE.exit11", label %128
+  %.not = icmp eq ptr %118, null
+  br i1 %.not, label %"_ZN4core3ptr148drop_in_place$LT$triomphe..arc..Arc$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$17hfffaee73f5bb3fbfE.exit11", label %128
 
 128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -2404,8 +2404,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h209ba9c2f
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %37
   %.sroa.01.0.i.i.i = phi i64 [ %38, %37 ], [ 0, %.preheader.split.preheader ]
-  %exitcond.not.not = icmp ne i64 %.sroa.01.0.i.i.i, %25
-  br i1 %exitcond.not.not, label %37, label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
+  %exitcond.not.not.not = icmp ne i64 %.sroa.01.0.i.i.i, %25
+  br i1 %exitcond.not.not.not, label %37, label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
 
 37:                                               ; preds = %.preheader.split
   %38 = add i64 %.sroa.01.0.i.i.i, 1
@@ -2442,7 +2442,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h209ba9c2f
   br label %"_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit"
 
 "_ZN71_$LT$rowan..green..node..GreenChild$u20$as$u20$core..cmp..PartialEq$GT$2eq17h13ded6c83e5f6b57E.exit": ; preds = %.preheader.split, %37, %53, %42, %19, %2, %9, %14
-  %.0.shrunk.i = phi i1 [ true, %2 ], [ true, %9 ], [ true, %14 ], [ true, %19 ], [ true, %42 ], [ %56, %53 ], [ %exitcond.not.not, %37 ], [ %exitcond.not.not, %.preheader.split ]
+  %.0.shrunk.i = phi i1 [ true, %2 ], [ true, %9 ], [ true, %14 ], [ true, %19 ], [ true, %42 ], [ %56, %53 ], [ %exitcond.not.not.not, %37 ], [ %exitcond.not.not.not, %.preheader.split ]
   ret i1 %.0.shrunk.i
 }
 

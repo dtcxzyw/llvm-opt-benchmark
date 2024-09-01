@@ -1357,7 +1357,7 @@ _ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit: ; preds = %.lr.ph152
   %212 = getelementptr inbounds i8, ptr %211, i64 24
   %213 = load ptr, ptr %212, align 8
   %.not26 = icmp eq ptr %213, null
-  br i1 %.not26, label %.preheader, label %217
+  br i1 %.not26, label %.lr.ph156, label %217
 
 ._crit_edge153.thread:                            ; preds = %207
   %214 = load ptr, ptr @v3Global, align 8
@@ -1365,9 +1365,6 @@ _ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit: ; preds = %.lr.ph152
   %216 = load ptr, ptr %215, align 8
   %.not26168 = icmp eq ptr %216, null
   br i1 %.not26168, label %._crit_edge157, label %217
-
-.preheader:                                       ; preds = %._crit_edge153
-  br i1 %182, label %._crit_edge157, label %.lr.ph156
 
 217:                                              ; preds = %._crit_edge153.thread, %._crit_edge153
   %218 = phi ptr [ %214, %._crit_edge153.thread ], [ %211, %._crit_edge153 ]
@@ -1389,8 +1386,8 @@ _ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit: ; preds = %.lr.ph152
 225:                                              ; preds = %224
   unreachable
 
-.lr.ph156:                                        ; preds = %.preheader, %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit
-  %.sroa.084.0155 = phi ptr [ %229, %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit ], [ %179, %.preheader ]
+.lr.ph156:                                        ; preds = %._crit_edge153, %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit
+  %.sroa.084.0155 = phi ptr [ %229, %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit ], [ %179, %._crit_edge153 ]
   %226 = load ptr, ptr %.sroa.084.0155, align 8
   %.not.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i, label %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit, label %227
@@ -1405,7 +1402,7 @@ _ZN10AstNetlist11addModulespEP13AstNodeModule.exit: ; preds = %.lr.ph156, %227
   %.not117 = icmp eq ptr %229, %181
   br i1 %.not117, label %._crit_edge157, label %.lr.ph156
 
-._crit_edge157:                                   ; preds = %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit, %._crit_edge153.thread, %.preheader
+._crit_edge157:                                   ; preds = %_ZN10AstNetlist11addModulespEP13AstNodeModule.exit, %._crit_edge153.thread
   %230 = invoke noundef i32 @_ZL5debugv()
           to label %231 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3628,8 +3625,8 @@ _ZN6AstVar9cloneTreeEb.exit:                      ; preds = %_ZNSt13unordered_se
 
 356:                                              ; preds = %326, %353
   %357 = phi i8 [ %.pr, %353 ], [ %336, %326 ]
-  %.not598 = icmp ne i8 %357, 0
-  br i1 %.not598, label %358, label %.thread1382
+  %.not598 = icmp eq i8 %357, 0
+  br i1 %.not598, label %.thread1382, label %358
 
 358:                                              ; preds = %356
   %359 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 916), align 4
@@ -3646,8 +3643,7 @@ _ZN6AstVar9cloneTreeEb.exit:                      ; preds = %_ZNSt13unordered_se
 365:                                              ; preds = %361, %358
   %366 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 927), align 1
   %367 = trunc i8 %366 to i1
-  %brmerge.not = and i1 %.not598, %367
-  br i1 %brmerge.not, label %368, label %.thread1382
+  br i1 %367, label %368, label %.thread1382
 
 368:                                              ; preds = %365
   %369 = load i64, ptr %327, align 4

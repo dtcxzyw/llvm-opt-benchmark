@@ -2584,7 +2584,7 @@ _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNode
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge: ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit
   %.pre = load ptr, ptr %next_18, align 8
   %arrayidx51.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %idxprom15
-  %.pre174 = load ptr, ptr %arrayidx51.phi.trans.insert, align 8
+  %.pre173 = load ptr, ptr %arrayidx51.phi.trans.insert, align 8
   br label %if.else48
 
 if.then33:                                        ; preds = %land.lhs.true, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit
@@ -2605,7 +2605,7 @@ while.cond38:                                     ; preds = %while.cond38, %if.t
   br i1 %cmp42, label %while.cond38, label %if.end73.loopexit160, !llvm.loop !22
 
 if.else48:                                        ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge, %if.else23
-  %26 = phi ptr [ %.pre174, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge ], [ %17, %if.else23 ]
+  %26 = phi ptr [ %.pre173, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge ], [ %17, %if.else23 ]
   %cmp.not.i119 = icmp eq ptr %26, null
   br i1 %cmp.not.i119, label %if.end75, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit127
 
@@ -2627,15 +2627,15 @@ if.then55:                                        ; preds = %_ZNK7rocksdb14Inlin
   br label %while.cond60
 
 while.cond60:                                     ; preds = %while.cond60, %if.then55
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %while.cond60 ], [ %idxprom15, %if.then55 ]
-  %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv164
+  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %while.cond60 ], [ %idxprom15, %if.then55 ]
+  %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv162
   %31 = load ptr, ptr %arrayidx63, align 8
   %cmp64 = icmp eq ptr %31, %30
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   br i1 %cmp64, label %while.cond60, label %if.end73.loopexit, !llvm.loop !23
 
 if.end73.loopexit:                                ; preds = %while.cond60
-  %32 = trunc nuw i64 %indvars.iv164 to i32
+  %32 = trunc nuw i64 %indvars.iv162 to i32
   br label %if.end73
 
 if.end73.loopexit160:                             ; preds = %while.cond38
@@ -2683,8 +2683,8 @@ while.body.us.i.i:                                ; preds = %for.body.i, %_ZNK7r
   %add.ptr.i.us.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %before.addr.0.us.i.i, i64 %idx.neg.i.i.i
   %39 = load atomic i64, ptr %add.ptr.i.us.i.i acquire, align 8
   %atomic-temp.i.0.i.i.us.i.i = inttoptr i64 %39 to ptr
-  %cmp.us.not.i.i = icmp eq i64 %39, 0
-  br i1 %cmp.us.not.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, label %if.end.us.i.i
+  %cmp.not.us.i.i = icmp eq i64 %39, 0
+  br i1 %cmp.not.us.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %while.body.us.i.i
   %add.ptr.i14.us.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.us.i.i, i64 %idx.neg.i.i.i
@@ -2743,7 +2743,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLe
   br i1 %cmp.i, label %for.body.i, label %if.end78, !llvm.loop !26
 
 if.end78:                                         ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, %while.cond11.preheader, %if.end75
-  %recompute_height.0179 = phi i32 [ %recompute_height.0, %if.end75 ], [ 0, %while.cond11.preheader ], [ %recompute_height.0, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
+  %recompute_height.0178 = phi i32 [ %recompute_height.0, %if.end75 ], [ 0, %while.cond11.preheader ], [ %recompute_height.0, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
   %cmp79152 = icmp slt i32 %rv.0.copyload.i, 1
   br i1 %cmp79152, label %return, label %for.body.lr.ph
 
@@ -2752,61 +2752,59 @@ for.body.lr.ph:                                   ; preds = %if.end78
   %next_86 = getelementptr inbounds i8, ptr %splice, i64 16
   %head_124 = getelementptr inbounds i8, ptr %this, i64 24
   %48 = ptrtoint ptr %add.ptr to i64
-  %49 = sext i32 %recompute_height.0179 to i64
-  %50 = zext nneg i32 %rv.0.copyload.i to i64
+  %49 = sext i32 %recompute_height.0178 to i64
   %wide.trip.count = zext nneg i32 %rv.0.copyload.i to i64
   br label %for.body
 
 for.body152.lr.ph:                                ; preds = %if.end139
   %prev_153 = getelementptr inbounds i8, ptr %splice, i64 8
-  %wide.trip.count172 = zext nneg i32 %rv.0.copyload.i to i64
+  %wide.trip.count171 = zext nneg i32 %rv.0.copyload.i to i64
   br label %for.body152
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end139
-  %indvars.iv167 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next168, %if.end139 ]
-  %cmp79154 = phi i1 [ false, %for.body.lr.ph ], [ %cmp79, %if.end139 ]
-  %cmp80.not = icmp slt i64 %indvars.iv167, %49
+  %indvars.iv165 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next166, %if.end139 ]
+  %cmp80.not = icmp slt i64 %indvars.iv165, %49
   br i1 %cmp80.not, label %if.end100, label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %for.body
-  %51 = load ptr, ptr %prev_82, align 8
-  %arrayidx84 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv167
-  %52 = load ptr, ptr %arrayidx84, align 8
-  %idx.neg.i129 = sub nsw i64 0, %indvars.iv167
-  %add.ptr.i130 = getelementptr inbounds %"struct.std::atomic.29", ptr %52, i64 %idx.neg.i129
-  %53 = load atomic i64, ptr %add.ptr.i130 acquire, align 8
-  %atomic-temp.i.0.i.i131 = inttoptr i64 %53 to ptr
-  %54 = load ptr, ptr %next_86, align 8
-  %arrayidx88 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv167
-  %55 = load ptr, ptr %arrayidx88, align 8
-  %cmp89.not = icmp eq ptr %55, %atomic-temp.i.0.i.i131
+  %50 = load ptr, ptr %prev_82, align 8
+  %arrayidx84 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv165
+  %51 = load ptr, ptr %arrayidx84, align 8
+  %idx.neg.i129 = sub nsw i64 0, %indvars.iv165
+  %add.ptr.i130 = getelementptr inbounds %"struct.std::atomic.29", ptr %51, i64 %idx.neg.i129
+  %52 = load atomic i64, ptr %add.ptr.i130 acquire, align 8
+  %atomic-temp.i.0.i.i131 = inttoptr i64 %52 to ptr
+  %53 = load ptr, ptr %next_86, align 8
+  %arrayidx88 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv165
+  %54 = load ptr, ptr %arrayidx88, align 8
+  %cmp89.not = icmp eq ptr %54, %atomic-temp.i.0.i.i131
   br i1 %cmp89.not, label %if.end100, label %if.then90
 
 if.then90:                                        ; preds = %land.lhs.true81
-  %56 = load ptr, ptr %prev_82, align 8
-  %arrayidx93 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv167
-  %57 = load ptr, ptr %arrayidx93, align 8
+  %55 = load ptr, ptr %prev_82, align 8
+  %arrayidx93 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv165
+  %56 = load ptr, ptr %arrayidx93, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i, %if.then90
-  %before.addr.0.i = phi ptr [ %57, %if.then90 ], [ %atomic-temp.i.0.i.i.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i ]
+  %before.addr.0.i = phi ptr [ %56, %if.then90 ], [ %atomic-temp.i.0.i.i.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %before.addr.0.i, i64 %idx.neg.i129
-  %58 = load atomic i64, ptr %add.ptr.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %58 to ptr
-  %cmp.not.i132 = icmp eq i64 %58, 0
+  %57 = load atomic i64, ptr %add.ptr.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %57 to ptr
+  %cmp.not.i132 = icmp eq i64 %57, 0
   br i1 %cmp.not.i132, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i
 
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i: ; preds = %while.body.i
   %add.ptr.i10.i = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.i, i64 %idx.neg.i129
-  %59 = load atomic i64, ptr %add.ptr.i10.i acquire, align 8
-  %atomic-temp.i.0.i.i11.i = inttoptr i64 %59 to ptr
+  %58 = load atomic i64, ptr %add.ptr.i10.i acquire, align 8
+  %atomic-temp.i.0.i.i11.i = inttoptr i64 %58 to ptr
   call void @llvm.prefetch.p0(ptr %atomic-temp.i.0.i.i11.i, i32 0, i32 1, i32 1)
-  %60 = load ptr, ptr %compare_, align 8
+  %59 = load ptr, ptr %compare_, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
-  %vtable.i.i = load ptr, ptr %60, align 8
+  %vtable.i.i = load ptr, ptr %59, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %61 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
+  %60 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %while.body.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, !llvm.loop !27
 
@@ -2816,71 +2814,70 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLe
   br label %if.end100
 
 if.end100:                                        ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, %land.lhs.true81, %for.body
-  %cmp101 = icmp eq i64 %indvars.iv167, 0
+  %cmp101 = icmp eq i64 %indvars.iv165, 0
   br i1 %cmp101, label %land.lhs.true102, label %if.end139
 
 land.lhs.true102:                                 ; preds = %if.end100
-  %62 = load ptr, ptr %next_86, align 8
-  %63 = load ptr, ptr %62, align 8
-  %cmp106.not = icmp eq ptr %63, null
+  %61 = load ptr, ptr %next_86, align 8
+  %62 = load ptr, ptr %61, align 8
+  %cmp106.not = icmp eq ptr %62, null
   br i1 %cmp106.not, label %land.lhs.true120, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true102
-  %64 = load ptr, ptr %compare_, align 8
-  %arrayidx.i134 = getelementptr inbounds i8, ptr %63, i64 8
-  %vtable113 = load ptr, ptr %64, align 8
+  %63 = load ptr, ptr %compare_, align 8
+  %arrayidx.i134 = getelementptr inbounds i8, ptr %62, i64 8
+  %vtable113 = load ptr, ptr %63, align 8
   %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 8
-  %65 = load ptr, ptr %vfn114, align 8
-  %call115 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %key, ptr noundef nonnull %arrayidx.i134)
+  %64 = load ptr, ptr %vfn114, align 8
+  %call115 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull %key, ptr noundef nonnull %arrayidx.i134)
   %cmp116 = icmp sgt i32 %call115, -1
   br i1 %cmp116, label %return, label %land.lhs.true120
 
 land.lhs.true120:                                 ; preds = %land.rhs, %land.lhs.true102
-  %66 = load ptr, ptr %prev_82, align 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %head_124, align 8
-  %cmp125.not = icmp eq ptr %67, %68
+  %65 = load ptr, ptr %prev_82, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %head_124, align 8
+  %cmp125.not = icmp eq ptr %66, %67
   br i1 %cmp125.not, label %if.end139, label %land.rhs126
 
 land.rhs126:                                      ; preds = %land.lhs.true120
-  %69 = load ptr, ptr %compare_, align 8
-  %arrayidx.i135 = getelementptr inbounds i8, ptr %67, i64 8
-  %vtable133 = load ptr, ptr %69, align 8
+  %68 = load ptr, ptr %compare_, align 8
+  %arrayidx.i135 = getelementptr inbounds i8, ptr %66, i64 8
+  %vtable133 = load ptr, ptr %68, align 8
   %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 8
-  %70 = load ptr, ptr %vfn134, align 8
-  %call135 = call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %arrayidx.i135, ptr noundef nonnull %key)
+  %69 = load ptr, ptr %vfn134, align 8
+  %call135 = call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %arrayidx.i135, ptr noundef nonnull %key)
   %cmp136 = icmp sgt i32 %call135, -1
   br i1 %cmp136, label %return, label %if.end139
 
 if.end139:                                        ; preds = %if.end100, %land.lhs.true120, %land.rhs126
-  %71 = load ptr, ptr %next_86, align 8
-  %arrayidx142 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv167
-  %72 = load ptr, ptr %arrayidx142, align 8
-  %idx.neg.i138 = sub nsw i64 0, %indvars.iv167
+  %70 = load ptr, ptr %next_86, align 8
+  %arrayidx142 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv165
+  %71 = load ptr, ptr %arrayidx142, align 8
+  %idx.neg.i138 = sub nsw i64 0, %indvars.iv165
   %add.ptr.i139 = getelementptr inbounds %"struct.std::atomic.29", ptr %add.ptr, i64 %idx.neg.i138
-  %73 = ptrtoint ptr %72 to i64
-  store atomic i64 %73, ptr %add.ptr.i139 monotonic, align 8
-  %74 = load ptr, ptr %prev_82, align 8
-  %arrayidx145 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv167
-  %75 = load ptr, ptr %arrayidx145, align 8
-  %add.ptr.i142 = getelementptr inbounds %"struct.std::atomic.29", ptr %75, i64 %idx.neg.i138
+  %72 = ptrtoint ptr %71 to i64
+  store atomic i64 %72, ptr %add.ptr.i139 monotonic, align 8
+  %73 = load ptr, ptr %prev_82, align 8
+  %arrayidx145 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv165
+  %74 = load ptr, ptr %arrayidx145, align 8
+  %add.ptr.i142 = getelementptr inbounds %"struct.std::atomic.29", ptr %74, i64 %idx.neg.i138
   store atomic i64 %48, ptr %add.ptr.i142 release, align 8
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %cmp79 = icmp uge i64 %indvars.iv.next168, %50
-  %exitcond = icmp eq i64 %indvars.iv.next168, %wide.trip.count
-  br i1 %exitcond, label %for.body152.lr.ph, label %for.body, !llvm.loop !28
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
+  br i1 %exitcond.not, label %for.body152.lr.ph, label %for.body, !llvm.loop !28
 
 for.body152:                                      ; preds = %for.body152.lr.ph, %for.body152
-  %indvars.iv169 = phi i64 [ 0, %for.body152.lr.ph ], [ %indvars.iv.next170, %for.body152 ]
-  %76 = load ptr, ptr %prev_153, align 8
-  %arrayidx155 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv169
+  %indvars.iv168 = phi i64 [ 0, %for.body152.lr.ph ], [ %indvars.iv.next169, %for.body152 ]
+  %75 = load ptr, ptr %prev_153, align 8
+  %arrayidx155 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv168
   store ptr %add.ptr, ptr %arrayidx155, align 8
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %return, label %for.body152, !llvm.loop !29
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
+  br i1 %exitcond172.not, label %return, label %for.body152, !llvm.loop !29
 
 return:                                           ; preds = %land.rhs126, %land.rhs, %for.body152, %if.end78
-  %cmp79147 = phi i1 [ true, %if.end78 ], [ %cmp79, %for.body152 ], [ %cmp79154, %land.rhs ], [ %cmp79154, %land.rhs126 ]
+  %cmp79147 = phi i1 [ true, %if.end78 ], [ true, %for.body152 ], [ false, %land.rhs ], [ false, %land.rhs126 ]
   ret i1 %cmp79147
 }
 
@@ -2995,7 +2992,7 @@ _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNode
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge: ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit
   %.pre = load ptr, ptr %next_18, align 8
   %arrayidx51.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %idxprom15
-  %.pre178 = load ptr, ptr %arrayidx51.phi.trans.insert, align 8
+  %.pre176 = load ptr, ptr %arrayidx51.phi.trans.insert, align 8
   br label %if.else48
 
 if.then33:                                        ; preds = %land.lhs.true, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit
@@ -3016,7 +3013,7 @@ while.cond38:                                     ; preds = %while.cond38, %if.t
   br i1 %cmp42, label %while.cond38, label %if.end73.loopexit164, !llvm.loop !31
 
 if.else48:                                        ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge, %if.else23
-  %26 = phi ptr [ %.pre178, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge ], [ %17, %if.else23 ]
+  %26 = phi ptr [ %.pre176, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge ], [ %17, %if.else23 ]
   %cmp.not.i116 = icmp eq ptr %26, null
   br i1 %cmp.not.i116, label %if.end75, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit124
 
@@ -3038,15 +3035,15 @@ if.then55:                                        ; preds = %_ZNK7rocksdb14Inlin
   br label %while.cond60
 
 while.cond60:                                     ; preds = %while.cond60, %if.then55
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %while.cond60 ], [ %idxprom15, %if.then55 ]
-  %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv168
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %while.cond60 ], [ %idxprom15, %if.then55 ]
+  %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv166
   %31 = load ptr, ptr %arrayidx63, align 8
   %cmp64 = icmp eq ptr %31, %30
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   br i1 %cmp64, label %while.cond60, label %if.end73.loopexit, !llvm.loop !32
 
 if.end73.loopexit:                                ; preds = %while.cond60
-  %32 = trunc nuw i64 %indvars.iv168 to i32
+  %32 = trunc nuw i64 %indvars.iv166 to i32
   br label %if.end73
 
 if.end73.loopexit164:                             ; preds = %while.cond38
@@ -3094,8 +3091,8 @@ while.body.us.i.i:                                ; preds = %for.body.i, %_ZNK7r
   %add.ptr.i.us.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %before.addr.0.us.i.i, i64 %idx.neg.i.i.i
   %39 = load atomic i64, ptr %add.ptr.i.us.i.i acquire, align 8
   %atomic-temp.i.0.i.i.us.i.i = inttoptr i64 %39 to ptr
-  %cmp.us.not.i.i = icmp eq i64 %39, 0
-  br i1 %cmp.us.not.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, label %if.end.us.i.i
+  %cmp.not.us.i.i = icmp eq i64 %39, 0
+  br i1 %cmp.not.us.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %while.body.us.i.i
   %add.ptr.i14.us.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.us.i.i, i64 %idx.neg.i.i.i
@@ -3162,198 +3159,195 @@ while.body81.preheader.lr.ph:                     ; preds = %if.end78
   %prev_102 = getelementptr inbounds i8, ptr %splice, i64 8
   %head_105 = getelementptr inbounds i8, ptr %this, i64 24
   %48 = ptrtoint ptr %add.ptr to i64
-  %49 = zext nneg i32 %rv.0.copyload.i to i64
   %wide.trip.count = zext nneg i32 %rv.0.copyload.i to i64
   br label %while.body81.preheader
 
 while.body81.preheader:                           ; preds = %while.body81.preheader.lr.ph, %for.inc
-  %indvars.iv171 = phi i64 [ 0, %while.body81.preheader.lr.ph ], [ %indvars.iv.next172, %for.inc ]
-  %cmp79156 = phi i1 [ false, %while.body81.preheader.lr.ph ], [ %cmp79, %for.inc ]
+  %indvars.iv169 = phi i64 [ 0, %while.body81.preheader.lr.ph ], [ %indvars.iv.next170, %for.inc ]
   %splice_is_valid.0154 = phi i1 [ true, %while.body81.preheader.lr.ph ], [ %.us-phi147, %for.inc ]
-  %cmp82 = icmp eq i64 %indvars.iv171, 0
-  %idx.neg.i130 = sub nsw i64 0, %indvars.iv171
+  %cmp82 = icmp eq i64 %indvars.iv169, 0
+  %idx.neg.i130 = sub nsw i64 0, %indvars.iv169
   %add.ptr.i131 = getelementptr inbounds %"struct.std::atomic.29", ptr %add.ptr, i64 %idx.neg.i130
   br i1 %cmp82, label %while.body81.us, label %while.body81.preheader.split
 
 while.body81.us:                                  ; preds = %while.body81.preheader, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.us
-  %50 = load ptr, ptr %next_84, align 8
-  %51 = load ptr, ptr %50, align 8
-  %cmp87.not.us = icmp eq ptr %51, null
+  %49 = load ptr, ptr %next_84, align 8
+  %50 = load ptr, ptr %49, align 8
+  %cmp87.not.us = icmp eq ptr %50, null
   br i1 %cmp87.not.us, label %land.lhs.true101.us, label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %while.body81.us
-  %52 = load ptr, ptr %compare_, align 8
-  %arrayidx.i126.us = getelementptr inbounds i8, ptr %51, i64 8
-  %vtable94.us = load ptr, ptr %52, align 8
+  %51 = load ptr, ptr %compare_, align 8
+  %arrayidx.i126.us = getelementptr inbounds i8, ptr %50, i64 8
+  %vtable94.us = load ptr, ptr %51, align 8
   %vfn95.us = getelementptr inbounds i8, ptr %vtable94.us, i64 8
-  %53 = load ptr, ptr %vfn95.us, align 8
-  %call96.us = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %key, ptr noundef nonnull %arrayidx.i126.us)
+  %52 = load ptr, ptr %vfn95.us, align 8
+  %call96.us = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %key, ptr noundef nonnull %arrayidx.i126.us)
   %cmp97.us = icmp sgt i32 %call96.us, -1
   br i1 %cmp97.us, label %return, label %land.lhs.true101.us
 
 land.lhs.true101.us:                              ; preds = %land.rhs.us, %while.body81.us
-  %54 = load ptr, ptr %prev_102, align 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %head_105, align 8
-  %cmp106.not.us = icmp eq ptr %55, %56
+  %53 = load ptr, ptr %prev_102, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %head_105, align 8
+  %cmp106.not.us = icmp eq ptr %54, %55
   br i1 %cmp106.not.us, label %if.end120.us, label %land.rhs107.us
 
 land.rhs107.us:                                   ; preds = %land.lhs.true101.us
-  %57 = load ptr, ptr %compare_, align 8
-  %arrayidx.i127.us = getelementptr inbounds i8, ptr %55, i64 8
-  %vtable114.us = load ptr, ptr %57, align 8
+  %56 = load ptr, ptr %compare_, align 8
+  %arrayidx.i127.us = getelementptr inbounds i8, ptr %54, i64 8
+  %vtable114.us = load ptr, ptr %56, align 8
   %vfn115.us = getelementptr inbounds i8, ptr %vtable114.us, i64 8
-  %58 = load ptr, ptr %vfn115.us, align 8
-  %call116.us = call noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %arrayidx.i127.us, ptr noundef nonnull %key)
+  %57 = load ptr, ptr %vfn115.us, align 8
+  %call116.us = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %arrayidx.i127.us, ptr noundef nonnull %key)
   %cmp117.us = icmp sgt i32 %call116.us, -1
   br i1 %cmp117.us, label %return, label %if.end120.us
 
 if.end120.us:                                     ; preds = %land.rhs107.us, %land.lhs.true101.us
-  %59 = load ptr, ptr %next_84, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = ptrtoint ptr %60 to i64
-  store atomic i64 %61, ptr %add.ptr.i131 monotonic, align 8
-  %62 = load ptr, ptr %prev_102, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %next_84, align 8
-  %65 = load ptr, ptr %64, align 8
-  %add.ptr.i134.us = getelementptr inbounds %"struct.std::atomic.29", ptr %63, i64 %idx.neg.i130
-  %66 = ptrtoint ptr %65 to i64
-  %67 = cmpxchg ptr %add.ptr.i134.us, i64 %66, i64 %48 seq_cst seq_cst, align 8
-  %68 = extractvalue { i64, i1 } %67, 1
-  br i1 %68, label %for.inc, label %if.end132.us
+  %58 = load ptr, ptr %next_84, align 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = ptrtoint ptr %59 to i64
+  store atomic i64 %60, ptr %add.ptr.i131 monotonic, align 8
+  %61 = load ptr, ptr %prev_102, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %next_84, align 8
+  %64 = load ptr, ptr %63, align 8
+  %add.ptr.i134.us = getelementptr inbounds %"struct.std::atomic.29", ptr %62, i64 %idx.neg.i130
+  %65 = ptrtoint ptr %64 to i64
+  %66 = cmpxchg ptr %add.ptr.i134.us, i64 %65, i64 %48 seq_cst seq_cst, align 8
+  %67 = extractvalue { i64, i1 } %66, 1
+  br i1 %67, label %for.inc, label %if.end132.us
 
 if.end132.us:                                     ; preds = %if.end120.us
-  %69 = load ptr, ptr %prev_102, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %next_84, align 8
+  %68 = load ptr, ptr %prev_102, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %next_84, align 8
   br label %while.body.i.us
 
 while.body.i.us:                                  ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us, %if.end132.us
-  %before.addr.0.i.us = phi ptr [ %70, %if.end132.us ], [ %atomic-temp.i.0.i.i.i.us, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us ]
+  %before.addr.0.i.us = phi ptr [ %69, %if.end132.us ], [ %atomic-temp.i.0.i.i.i.us, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us ]
   %add.ptr.i.i.us = getelementptr inbounds %"struct.std::atomic.29", ptr %before.addr.0.i.us, i64 %idx.neg.i130
-  %72 = load atomic i64, ptr %add.ptr.i.i.us acquire, align 8
-  %atomic-temp.i.0.i.i.i.us = inttoptr i64 %72 to ptr
-  %cmp.not.i135.us = icmp eq i64 %72, 0
+  %71 = load atomic i64, ptr %add.ptr.i.i.us acquire, align 8
+  %atomic-temp.i.0.i.i.i.us = inttoptr i64 %71 to ptr
+  %cmp.not.i135.us = icmp eq i64 %71, 0
   br i1 %cmp.not.i135.us, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.us, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us
 
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us: ; preds = %while.body.i.us
   %add.ptr.i10.i.us = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.i.us, i64 %idx.neg.i130
-  %73 = load atomic i64, ptr %add.ptr.i10.i.us acquire, align 8
-  %atomic-temp.i.0.i.i11.i.us = inttoptr i64 %73 to ptr
+  %72 = load atomic i64, ptr %add.ptr.i10.i.us acquire, align 8
+  %atomic-temp.i.0.i.i11.i.us = inttoptr i64 %72 to ptr
   call void @llvm.prefetch.p0(ptr %atomic-temp.i.0.i.i11.i.us, i32 0, i32 1, i32 1)
-  %74 = load ptr, ptr %compare_, align 8
+  %73 = load ptr, ptr %compare_, align 8
   %arrayidx.i.i.i.us = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.us, i64 8
-  %vtable.i.i.us = load ptr, ptr %74, align 8
+  %vtable.i.i.us = load ptr, ptr %73, align 8
   %vfn.i.i.us = getelementptr inbounds i8, ptr %vtable.i.i.us, i64 16
-  %75 = load ptr, ptr %vfn.i.i.us, align 8
-  %call2.i.i.us = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull %arrayidx.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
+  %74 = load ptr, ptr %vfn.i.i.us, align 8
+  %call2.i.i.us = call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %arrayidx.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
   %cmp3.i.i.us = icmp slt i32 %call2.i.i.us, 0
   br i1 %cmp3.i.i.us, label %while.body.i.us, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.us, !llvm.loop !27
 
 _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.us: ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i.us, %while.body.i.us
-  store ptr %before.addr.0.i.us, ptr %69, align 8
-  store ptr %atomic-temp.i.0.i.i.i.us, ptr %71, align 8
+  store ptr %before.addr.0.i.us, ptr %68, align 8
+  store ptr %atomic-temp.i.0.i.i.i.us, ptr %70, align 8
   br label %while.body81.us, !llvm.loop !34
 
 while.body81.preheader.split:                     ; preds = %while.body81.preheader
-  %76 = load ptr, ptr %next_84, align 8
-  %arrayidx123148 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv171
-  %77 = load ptr, ptr %arrayidx123148, align 8
-  %78 = ptrtoint ptr %77 to i64
-  store atomic i64 %78, ptr %add.ptr.i131 monotonic, align 8
-  %79 = load ptr, ptr %prev_102, align 8
-  %arrayidx126149 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv171
-  %80 = load ptr, ptr %arrayidx126149, align 8
-  %81 = load ptr, ptr %next_84, align 8
-  %arrayidx129150 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv171
-  %82 = load ptr, ptr %arrayidx129150, align 8
-  %add.ptr.i134151 = getelementptr inbounds %"struct.std::atomic.29", ptr %80, i64 %idx.neg.i130
-  %83 = ptrtoint ptr %82 to i64
-  %84 = cmpxchg ptr %add.ptr.i134151, i64 %83, i64 %48 seq_cst seq_cst, align 8
-  %85 = extractvalue { i64, i1 } %84, 1
-  br i1 %85, label %for.inc, label %if.end132
+  %75 = load ptr, ptr %next_84, align 8
+  %arrayidx123148 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv169
+  %76 = load ptr, ptr %arrayidx123148, align 8
+  %77 = ptrtoint ptr %76 to i64
+  store atomic i64 %77, ptr %add.ptr.i131 monotonic, align 8
+  %78 = load ptr, ptr %prev_102, align 8
+  %arrayidx126149 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv169
+  %79 = load ptr, ptr %arrayidx126149, align 8
+  %80 = load ptr, ptr %next_84, align 8
+  %arrayidx129150 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv169
+  %81 = load ptr, ptr %arrayidx129150, align 8
+  %add.ptr.i134151 = getelementptr inbounds %"struct.std::atomic.29", ptr %79, i64 %idx.neg.i130
+  %82 = ptrtoint ptr %81 to i64
+  %83 = cmpxchg ptr %add.ptr.i134151, i64 %82, i64 %48 seq_cst seq_cst, align 8
+  %84 = extractvalue { i64, i1 } %83, 1
+  br i1 %84, label %for.inc, label %if.end132
 
 if.end132:                                        ; preds = %while.body81.preheader.split, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit
-  %86 = load ptr, ptr %prev_102, align 8
-  %arrayidx135 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv171
-  %87 = load ptr, ptr %arrayidx135, align 8
-  %88 = load ptr, ptr %next_84, align 8
-  %arrayidx141 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv171
+  %85 = load ptr, ptr %prev_102, align 8
+  %arrayidx135 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv169
+  %86 = load ptr, ptr %arrayidx135, align 8
+  %87 = load ptr, ptr %next_84, align 8
+  %arrayidx141 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv169
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i, %if.end132
-  %before.addr.0.i = phi ptr [ %87, %if.end132 ], [ %atomic-temp.i.0.i.i.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i ]
+  %before.addr.0.i = phi ptr [ %86, %if.end132 ], [ %atomic-temp.i.0.i.i.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %before.addr.0.i, i64 %idx.neg.i130
-  %89 = load atomic i64, ptr %add.ptr.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %89 to ptr
-  %cmp.not.i135 = icmp eq i64 %89, 0
+  %88 = load atomic i64, ptr %add.ptr.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %88 to ptr
+  %cmp.not.i135 = icmp eq i64 %88, 0
   br i1 %cmp.not.i135, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i
 
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i: ; preds = %while.body.i
   %add.ptr.i10.i = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.i, i64 %idx.neg.i130
-  %90 = load atomic i64, ptr %add.ptr.i10.i acquire, align 8
-  %atomic-temp.i.0.i.i11.i = inttoptr i64 %90 to ptr
+  %89 = load atomic i64, ptr %add.ptr.i10.i acquire, align 8
+  %atomic-temp.i.0.i.i11.i = inttoptr i64 %89 to ptr
   call void @llvm.prefetch.p0(ptr %atomic-temp.i.0.i.i11.i, i32 0, i32 1, i32 1)
-  %91 = load ptr, ptr %compare_, align 8
+  %90 = load ptr, ptr %compare_, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
-  %vtable.i.i = load ptr, ptr %91, align 8
+  %vtable.i.i = load ptr, ptr %90, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %92 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = call noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
+  %91 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %while.body.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, !llvm.loop !27
 
 _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit: ; preds = %while.body.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.i
   store ptr %before.addr.0.i, ptr %arrayidx135, align 8
   store ptr %atomic-temp.i.0.i.i.i, ptr %arrayidx141, align 8
-  %93 = load ptr, ptr %next_84, align 8
-  %arrayidx123 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv171
-  %94 = load ptr, ptr %arrayidx123, align 8
-  %95 = ptrtoint ptr %94 to i64
-  store atomic i64 %95, ptr %add.ptr.i131 monotonic, align 8
-  %96 = load ptr, ptr %prev_102, align 8
-  %arrayidx126 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv171
-  %97 = load ptr, ptr %arrayidx126, align 8
-  %98 = load ptr, ptr %next_84, align 8
-  %arrayidx129 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv171
-  %99 = load ptr, ptr %arrayidx129, align 8
-  %add.ptr.i134 = getelementptr inbounds %"struct.std::atomic.29", ptr %97, i64 %idx.neg.i130
-  %100 = ptrtoint ptr %99 to i64
-  %101 = cmpxchg ptr %add.ptr.i134, i64 %100, i64 %48 seq_cst seq_cst, align 8
-  %102 = extractvalue { i64, i1 } %101, 1
-  br i1 %102, label %for.inc, label %if.end132, !llvm.loop !34
+  %92 = load ptr, ptr %next_84, align 8
+  %arrayidx123 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv169
+  %93 = load ptr, ptr %arrayidx123, align 8
+  %94 = ptrtoint ptr %93 to i64
+  store atomic i64 %94, ptr %add.ptr.i131 monotonic, align 8
+  %95 = load ptr, ptr %prev_102, align 8
+  %arrayidx126 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv169
+  %96 = load ptr, ptr %arrayidx126, align 8
+  %97 = load ptr, ptr %next_84, align 8
+  %arrayidx129 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv169
+  %98 = load ptr, ptr %arrayidx129, align 8
+  %add.ptr.i134 = getelementptr inbounds %"struct.std::atomic.29", ptr %96, i64 %idx.neg.i130
+  %99 = ptrtoint ptr %98 to i64
+  %100 = cmpxchg ptr %add.ptr.i134, i64 %99, i64 %48 seq_cst seq_cst, align 8
+  %101 = extractvalue { i64, i1 } %100, 1
+  br i1 %101, label %for.inc, label %if.end132, !llvm.loop !34
 
 for.inc:                                          ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit, %if.end120.us, %while.body81.preheader.split
   %.us-phi147 = phi i1 [ %splice_is_valid.0154, %while.body81.preheader.split ], [ %splice_is_valid.0154, %if.end120.us ], [ false, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb0EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %cmp79 = icmp uge i64 %indvars.iv.next172, %49
-  %exitcond = icmp eq i64 %indvars.iv.next172, %wide.trip.count
-  br i1 %exitcond, label %for.end, label %while.body81.preheader, !llvm.loop !35
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count
+  br i1 %exitcond.not, label %for.end, label %while.body81.preheader, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc
   br i1 %.us-phi147, label %for.body152.lr.ph, label %if.else167
 
 for.body152.lr.ph:                                ; preds = %for.end
   %prev_153 = getelementptr inbounds i8, ptr %splice, i64 8
-  %wide.trip.count176 = zext nneg i32 %rv.0.copyload.i to i64
+  %wide.trip.count174 = zext nneg i32 %rv.0.copyload.i to i64
   br label %for.body152
 
 for.body152:                                      ; preds = %for.body152.lr.ph, %for.body152
-  %indvars.iv173 = phi i64 [ 0, %for.body152.lr.ph ], [ %indvars.iv.next174, %for.body152 ]
-  %103 = load ptr, ptr %prev_153, align 8
-  %arrayidx155 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv173
+  %indvars.iv171 = phi i64 [ 0, %for.body152.lr.ph ], [ %indvars.iv.next172, %for.body152 ]
+  %102 = load ptr, ptr %prev_153, align 8
+  %arrayidx155 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv171
   store ptr %add.ptr, ptr %arrayidx155, align 8
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %return, label %for.body152, !llvm.loop !36
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
+  br i1 %exitcond175.not, label %return, label %for.body152, !llvm.loop !36
 
 if.else167:                                       ; preds = %for.end
   store i32 0, ptr %splice, align 8
   br label %return
 
 return:                                           ; preds = %land.rhs107.us, %land.rhs.us, %for.body152, %if.end78, %if.else167
-  %cmp79141 = phi i1 [ %cmp79, %if.else167 ], [ true, %if.end78 ], [ %cmp79, %for.body152 ], [ %cmp79156, %land.rhs.us ], [ %cmp79156, %land.rhs107.us ]
+  %cmp79141 = phi i1 [ true, %if.else167 ], [ true, %if.end78 ], [ true, %for.body152 ], [ false, %land.rhs.us ], [ false, %land.rhs107.us ]
   ret i1 %cmp79141
 }
 
@@ -3796,20 +3790,14 @@ cond.end.i.i:                                     ; preds = %if.then.i.i
   %11 = load ptr, ptr %vfn11.i.i, align 8
   %call12.i.i = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded.i.i)
   %cmp13.i.i = icmp eq i32 %call12.i.i, 0
-  br i1 %cmp13.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread, label %lor.lhs.false14.i.i
-
-_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread: ; preds = %cond.end.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
-  %node_.i31 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %node_.i31, align 8
-  br label %land.rhs.lr.ph
+  br i1 %cmp13.i.i, label %land.rhs.lr.ph.sink.split, label %lor.lhs.false14.i.i
 
 lor.lhs.false14.i.i:                              ; preds = %cond.end.i.i, %if.then.i.i
   %cond21.i.i = phi i32 [ %call12.i.i, %cond.end.i.i ], [ 1, %if.then.i.i ]
   %cmp15.i.i = icmp sgt i32 %cond21.i.i, 0
   %cmp16.i.i = icmp eq i32 %level.0.i.i, 0
   %or.cond.i.i = and i1 %cmp16.i.i, %cmp15.i.i
-  br i1 %or.cond.i.i, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %land.rhs.lr.ph.sink.split, label %if.else.i.i
 
 lor.lhs.false14.i.i.thread:                       ; preds = %while.body.i.i
   %cmp16.i.i42 = icmp eq i32 %level.0.i.i, 0
@@ -3819,7 +3807,20 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPK
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
   %node_.i46 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %atomic-temp.i.0.i.i.i.i, ptr %node_.i46, align 8
-  br label %if.then
+  %12 = load ptr, ptr %this, align 8
+  %head_.i.i3 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %head_.i.i3, align 8
+  %max_height_.i.i.i4 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = load atomic i32, ptr %max_height_.i.i.i4 monotonic, align 4
+  br label %while.body.i.i6.outer
+
+while.body.i.i6.outer:                            ; preds = %if.then.i.i15, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread45
+  %level.0.i.i7.ph.in = phi i32 [ %14, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread45 ], [ %level.0.i.i7.ph, %if.then.i.i15 ]
+  %x.0.i.i8.ph = phi ptr [ %13, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread45 ], [ %x.0.i.i8, %if.then.i.i15 ]
+  %level.0.i.i7.ph = add nsw i32 %level.0.i.i7.ph.in, -1
+  %idx.ext.i.i.i9 = sext i32 %level.0.i.i7.ph to i64
+  %idx.neg.i.i.i10 = sub nsw i64 0, %idx.ext.i.i.i9
+  br label %while.body.i.i6
 
 if.else.i.i:                                      ; preds = %lor.lhs.false14.i.i.thread, %lor.lhs.false14.i.i
   %cond21.i.i44 = phi i32 [ 1, %lor.lhs.false14.i.i.thread ], [ %cond21.i.i, %lor.lhs.false14.i.i ]
@@ -3829,29 +3830,6 @@ if.else.i.i:                                      ; preds = %lor.lhs.false14.i.i
   %level.1.i.i = add nsw i32 %level.0.i.i, %dec.i.i
   %x.1.i.i = select i1 %cmp18.i.i, ptr %x.0.i.i, ptr %atomic-temp.i.0.i.i.i.i
   br label %while.body.i.i, !llvm.loop !11
-
-_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit: ; preds = %lor.lhs.false14.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
-  %node_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %node_.i, align 8
-  br i1 %cond14.i.i, label %if.then, label %land.rhs.lr.ph
-
-if.then:                                          ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread45, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit
-  %node_.i47 = phi ptr [ %node_.i46, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread45 ], [ %node_.i, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit ]
-  %12 = load ptr, ptr %this, align 8
-  %head_.i.i3 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %head_.i.i3, align 8
-  %max_height_.i.i.i4 = getelementptr inbounds i8, ptr %12, i64 32
-  %14 = load atomic i32, ptr %max_height_.i.i.i4 monotonic, align 4
-  br label %while.body.i.i6.outer
-
-while.body.i.i6.outer:                            ; preds = %if.then.i.i15, %if.then
-  %level.0.i.i7.ph.in = phi i32 [ %14, %if.then ], [ %level.0.i.i7.ph, %if.then.i.i15 ]
-  %x.0.i.i8.ph = phi ptr [ %13, %if.then ], [ %x.0.i.i8, %if.then.i.i15 ]
-  %level.0.i.i7.ph = add nsw i32 %level.0.i.i7.ph.in, -1
-  %idx.ext.i.i.i9 = sext i32 %level.0.i.i7.ph to i64
-  %idx.neg.i.i.i10 = sub nsw i64 0, %idx.ext.i.i.i9
-  br label %while.body.i.i6
 
 while.body.i.i6:                                  ; preds = %while.body.i.i6.outer, %while.body.i.i6
   %x.0.i.i8 = phi ptr [ %atomic-temp.i.0.i.i.i.i12, %while.body.i.i6 ], [ %x.0.i.i8.ph, %while.body.i.i6.outer ]
@@ -3866,19 +3844,25 @@ if.then.i.i15:                                    ; preds = %while.body.i.i6
   br i1 %cmp3.i.i, label %if.end, label %while.body.i.i6.outer, !llvm.loop !38
 
 if.end:                                           ; preds = %if.then.i.i15
-  store ptr %x.0.i.i8, ptr %node_.i47, align 8
+  store ptr %x.0.i.i8, ptr %node_.i46, align 8
   %16 = load ptr, ptr %this, align 8
   %head_.i = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %head_.i, align 8
   %cmp.i19 = icmp eq ptr %x.0.i.i8, %17
   %spec.store.select.i = select i1 %cmp.i19, ptr null, ptr %x.0.i.i8
-  store ptr %spec.store.select.i, ptr %node_.i47, align 8
+  store ptr %spec.store.select.i, ptr %node_.i46, align 8
   %cmp.i21.not36 = icmp eq ptr %spec.store.select.i, null
   br i1 %cmp.i21.not36, label %while.end, label %land.rhs.lr.ph
 
-land.rhs.lr.ph:                                   ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread, %if.end
-  %node_.i3352 = phi ptr [ %node_.i47, %if.end ], [ %node_.i, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit ], [ %node_.i31, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread ]
-  %.pr51 = phi ptr [ %x.0.i.i8, %if.end ], [ %atomic-temp.i.0.i.i.i.i, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit ], [ %atomic-temp.i.0.i.i.i.i, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekEPKc.exit.thread ]
+land.rhs.lr.ph.sink.split:                        ; preds = %lor.lhs.false14.i.i, %cond.end.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
+  %node_.i = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr %atomic-temp.i.0.i.i.i.i, ptr %node_.i, align 8
+  br label %land.rhs.lr.ph
+
+land.rhs.lr.ph:                                   ; preds = %land.rhs.lr.ph.sink.split, %if.end
+  %node_.i3352 = phi ptr [ %node_.i46, %if.end ], [ %node_.i, %land.rhs.lr.ph.sink.split ]
+  %.pr51 = phi ptr [ %x.0.i.i8, %if.end ], [ %atomic-temp.i.0.i.i.i.i, %land.rhs.lr.ph.sink.split ]
   %18 = getelementptr inbounds i8, ptr %key_decoded.i.i.i, i64 8
   %.pre = load ptr, ptr %this, align 8
   br label %land.rhs

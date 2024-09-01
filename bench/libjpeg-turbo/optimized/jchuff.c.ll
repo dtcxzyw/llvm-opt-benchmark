@@ -288,9 +288,6 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
   br i1 %exitcond.not, label %.preheader108, label %11, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph127, %._crit_edge124
-  br i1 %10, label %.lr.ph.backedge, label %.preheader106.preheader
-
 .lr.ph:                                           ; preds = %.preheader108, %.lr.ph.backedge
   %indvars.iv148 = phi i64 [ %indvars.iv148.be, %.lr.ph.backedge ], [ 0, %.preheader108 ]
   %.0119 = phi i64 [ %.0119.be, %.lr.ph.backedge ], [ 1000000000, %.preheader108 ]
@@ -320,22 +317,19 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %25, %.loopexit
-  %indvars.iv148.be = phi i64 [ %indvars.iv.next149, %25 ], [ 0, %.loopexit ]
-  %.0119.be = phi i64 [ %.1, %25 ], [ 1000000000, %.loopexit ]
-  %.084118.be = phi i64 [ %.185, %25 ], [ 1000000000, %.loopexit ]
-  %.092116.be = phi i32 [ %.193, %25 ], [ -1, %.loopexit ]
-  %.095115.be = phi i32 [ %.196, %25 ], [ -1, %.loopexit ]
+.lr.ph.backedge:                                  ; preds = %.lr.ph127, %25, %._crit_edge124
+  %indvars.iv148.be = phi i64 [ %indvars.iv.next149, %25 ], [ 0, %._crit_edge124 ], [ 0, %.lr.ph127 ]
+  %.0119.be = phi i64 [ %.1, %25 ], [ 1000000000, %._crit_edge124 ], [ 1000000000, %.lr.ph127 ]
+  %.084118.be = phi i64 [ %.185, %25 ], [ 1000000000, %._crit_edge124 ], [ 1000000000, %.lr.ph127 ]
+  %.092116.be = phi i32 [ %.193, %25 ], [ -1, %._crit_edge124 ], [ -1, %.lr.ph127 ]
+  %.095115.be = phi i32 [ %.196, %25 ], [ -1, %._crit_edge124 ], [ -1, %.lr.ph127 ]
   br label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %25
   %26 = icmp slt i32 %.193, 0
-  br i1 %26, label %.preheader107, label %27
+  br i1 %26, label %.lr.ph129.preheader, label %27
 
-.preheader107:                                    ; preds = %._crit_edge
-  br i1 %10, label %.lr.ph129.preheader, label %.preheader106.preheader
-
-.lr.ph129.preheader:                              ; preds = %.preheader107
+.lr.ph129.preheader:                              ; preds = %._crit_edge
   %wide.trip.count155 = zext nneg i32 %.187 to i64
   br label %.lr.ph129
 
@@ -381,7 +375,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %53 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %28
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph127, label %.loopexit
+  br i1 %55, label %.lr.ph127, label %.lr.ph.backedge
 
 .lr.ph127:                                        ; preds = %._crit_edge124, %.lr.ph127
   %56 = phi i32 [ %62, %.lr.ph127 ], [ %54, %._crit_edge124 ]
@@ -393,7 +387,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %61 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %57
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %.lr.ph127, label %.loopexit, !llvm.loop !12
+  br i1 %63, label %.lr.ph127, label %.lr.ph.backedge, !llvm.loop !12
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %72
   %indvars.iv152 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next153, %72 ]
@@ -421,7 +415,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %.preheader106.preheader, label %.lr.ph129, !llvm.loop !13
 
-.preheader106.preheader:                          ; preds = %.loopexit, %72, %.preheader108, %.preheader107
+.preheader106.preheader:                          ; preds = %72, %.preheader108
   br label %.preheader106
 
 .preheader106:                                    ; preds = %.preheader106.preheader, %.preheader106

@@ -59804,7 +59804,7 @@ _ZNK8facebook5velox10StringViewltERKS1_.exit:     ; preds = %if.then20.i.i, %if.
   %sub29.i.i = sub i32 %3, %2
   %cond.i.i = select i1 %cmp26.not.i.i, i32 %sub29.i.i, i32 %call25.i.i.sink47
   %cmp.i = icmp slt i32 %cond.i.i, 0
-  br i1 %cmp.i, label %lor.end, label %if.end.i.i12
+  br i1 %cmp.i, label %lor.end, label %if.end14.i.i15
 
 _ZNK8facebook5velox10StringViewltERKS1_.exit.thread44: ; preds = %if.end.i.i
   %sub13.i.i = sub i32 %3, %2
@@ -59820,14 +59820,11 @@ if.then.i.i8:                                     ; preds = %_ZNK8facebook5velox
   %call5.i.i9 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i, ptr noundef nonnull dereferenceable(4) %prefix_.i.i.i, i64 noundef 4) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41
 
-if.end.i.i12:                                     ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit
-  br i1 %cmp9.i.i, label %if.then10.i.i39, label %if.end14.i.i15
-
-if.then10.i.i39:                                  ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44, %if.end.i.i12
+if.then10.i.i39:                                  ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44
   %sub13.i.i40 = sub i32 %2, %3
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41
 
-if.end14.i.i15:                                   ; preds = %if.end.i.i12
+if.end14.i.i15:                                   ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit
   %conv15.i.i16 = zext nneg i32 %sub.i.i to i64
   %cmp16.i.i17 = icmp ult i32 %sub.i.i, 13
   %cmp.i.i.i.i18 = icmp ult i32 %2, 13
@@ -60027,7 +60024,7 @@ _ZNK8facebook5velox10StringViewltERKS1_.exit.i:   ; preds = %if.end30.i.i.i, %if
   %sub29.i.i.i = sub i32 %3, %2
   %cond.i.i.i = select i1 %cmp26.not.i.i.i, i32 %sub29.i.i.i, i32 %call25.i.i.sink47.i
   %cmp.i.i = icmp slt i32 %cond.i.i.i, 0
-  br i1 %cmp.i.i, label %while.body7, label %if.end14.i.i15.i
+  br i1 %cmp.i.i, label %while.body7, label %if.end.i.i12.i
 
 _ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i: ; preds = %if.end.i.i.i
   %sub13.i.i.i = sub i32 %3, %2
@@ -60043,23 +60040,23 @@ if.then.i.i8.i:                                   ; preds = %_ZNK8facebook5velox
   %call5.i.i9.i = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i.i, ptr noundef nonnull dereferenceable(4) %prefix_.i.i.i.i, i64 noundef 4) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
-  %sub13.i.i40.i = sub i32 %2, %3
-  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
-
-if.end14.i.i15.i:                                 ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
+if.end.i.i12.i:                                   ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
   %or.cond.i.i19.i = and i1 %cmp.i.i15.i.i.i, %cmp16.i.i.i
   %or.cond21.i.i21.i = and i1 %cmp.i.i.i.i.i, %or.cond.i.i19.i
   br i1 %or.cond21.i.i21.i, label %if.then20.i.i33.i, label %if.end30.i.i23.i
 
-if.then20.i.i33.i:                                ; preds = %if.end14.i.i15.i
+if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
+  %sub13.i.i40.i = sub i32 %2, %3
+  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
+
+if.then20.i.i33.i:                                ; preds = %if.end.i.i12.i
   %call25.i.i35.i = tail call i32 @memcmp(ptr noundef nonnull %value_.i19.i.i.i, ptr noundef nonnull %value_.i.i.i, i64 noundef %conv15.i.i.i) #40
   %cmp26.not.i.i36.i = icmp eq i32 %call25.i.i35.i, 0
   %sub29.i.i37.i = sub nsw i32 %2, %3
   %cond.i.i38.i = select i1 %cmp26.not.i.i36.i, i32 %sub29.i.i37.i, i32 %call25.i.i35.i
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.end30.i.i23.i:                                 ; preds = %if.end14.i.i15.i
+if.end30.i.i23.i:                                 ; preds = %if.end.i.i12.i
   %7 = load ptr, ptr %value_.i19.i.i.i, align 8
   %cond.i.i.i24.i = select i1 %cmp.i.i15.i.i.i, ptr %prefix_.i14.i.i.i, ptr %7
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %cond.i.i.i24.i, i64 4
@@ -60105,7 +60102,7 @@ if.end.i.i.i21:                                   ; preds = %while.cond10
   %14 = tail call i32 @llvm.umin.i32(i32 %12, i32 %13)
   %sub.i.i.i22 = add i32 %14, -4
   %cmp9.i.i.i23 = icmp slt i32 %sub.i.i.i22, 1
-  br i1 %cmp9.i.i.i23, label %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i75, label %if.end14.i.i.i24
+  br i1 %cmp9.i.i.i23, label %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i72, label %if.end14.i.i.i24
 
 if.end14.i.i.i24:                                 ; preds = %if.end.i.i.i21
   %conv15.i.i.i25 = zext nneg i32 %sub.i.i.i22 to i64
@@ -60114,11 +60111,11 @@ if.end14.i.i.i24:                                 ; preds = %if.end.i.i.i21
   %or.cond.i.i.i28 = and i1 %cmp.i.i.i.i.i27, %cmp16.i.i.i26
   %cmp.i.i15.i.i.i29 = icmp ult i32 %12, 13
   %or.cond21.i.i.i30 = and i1 %cmp.i.i15.i.i.i29, %or.cond.i.i.i28
-  br i1 %or.cond21.i.i.i30, label %if.then20.i.i.i72, label %if.end30.i.i.i32
+  br i1 %or.cond21.i.i.i30, label %if.then20.i.i.i69, label %if.end30.i.i.i32
 
-if.then20.i.i.i72:                                ; preds = %if.end14.i.i.i24
-  %value_22.i.i.i73 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -16
-  %call25.i.i.i74 = tail call i32 @memcmp(ptr noundef nonnull %value_.i19.i.i.i, ptr noundef nonnull %value_22.i.i.i73, i64 noundef %conv15.i.i.i25) #40
+if.then20.i.i.i69:                                ; preds = %if.end14.i.i.i24
+  %value_22.i.i.i70 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -16
+  %call25.i.i.i71 = tail call i32 @memcmp(ptr noundef nonnull %value_.i19.i.i.i, ptr noundef nonnull %value_22.i.i.i70, i64 noundef %conv15.i.i.i25) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39
 
 if.end30.i.i.i32:                                 ; preds = %if.end14.i.i.i24
@@ -60132,20 +60129,20 @@ if.end30.i.i.i32:                                 ; preds = %if.end14.i.i.i24
   %call36.i.i.i38 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i.i.i34, ptr noundef nonnull %add.ptr34.i.i.i37, i64 noundef %conv15.i.i.i25) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39
 
-_ZNK8facebook5velox10StringViewltERKS1_.exit.i39: ; preds = %if.end30.i.i.i32, %if.then20.i.i.i72
-  %call25.i.i.sink47.i40 = phi i32 [ %call25.i.i.i74, %if.then20.i.i.i72 ], [ %call36.i.i.i38, %if.end30.i.i.i32 ]
+_ZNK8facebook5velox10StringViewltERKS1_.exit.i39: ; preds = %if.end30.i.i.i32, %if.then20.i.i.i69
+  %call25.i.i.sink47.i40 = phi i32 [ %call25.i.i.i71, %if.then20.i.i.i69 ], [ %call36.i.i.i38, %if.end30.i.i.i32 ]
   %cmp26.not.i.i.i41 = icmp eq i32 %call25.i.i.sink47.i40, 0
   %sub29.i.i.i42 = sub i32 %13, %12
   %cond.i.i.i43 = select i1 %cmp26.not.i.i.i41, i32 %sub29.i.i.i42, i32 %call25.i.i.sink47.i40
   %cmp.i.i44 = icmp slt i32 %cond.i.i.i43, 0
-  br i1 %cmp.i.i44, label %while.cond10.backedge, label %if.end14.i.i15.i46
+  br i1 %cmp.i.i44, label %while.cond10.backedge, label %if.end.i.i12.i45
 
-_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i75: ; preds = %if.end.i.i.i21
-  %sub13.i.i.i76 = sub i32 %13, %12
-  %cmp.i46.i77 = icmp slt i32 %sub13.i.i.i76, 0
-  br i1 %cmp.i46.i77, label %while.cond10.backedge, label %if.then10.i.i39.i70
+_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i72: ; preds = %if.end.i.i.i21
+  %sub13.i.i.i73 = sub i32 %13, %12
+  %cmp.i46.i74 = icmp slt i32 %sub13.i.i.i73, 0
+  br i1 %cmp.i46.i74, label %while.cond10.backedge, label %if.then10.i.i39.i75
 
-while.cond10.backedge:                            ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i75, %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread.i9, %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39, %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit78
+while.cond10.backedge:                            ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i72, %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread.i9, %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39, %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit77
   br label %while.cond10, !llvm.loop !303
 
 _ZNK8facebook5velox10StringViewltERKS1_.exit.thread.i9: ; preds = %while.cond10
@@ -60157,49 +60154,49 @@ if.then.i.i8.i12:                                 ; preds = %_ZNK8facebook5velox
   %call5.i.i9.i13 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i.i7, ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i.i, i64 noundef 4) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
 
-if.then10.i.i39.i70:                              ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i75
-  %sub13.i.i40.i71 = sub i32 %12, %13
+if.end.i.i12.i45:                                 ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39
+  %or.cond.i.i19.i49 = and i1 %cmp.i.i15.i.i.i29, %cmp16.i.i.i26
+  %or.cond21.i.i21.i51 = and i1 %cmp.i.i.i.i.i27, %or.cond.i.i19.i49
+  %value_.i.i22.i52 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -16
+  br i1 %or.cond21.i.i21.i51, label %if.then20.i.i33.i63, label %if.end30.i.i23.i53
+
+if.then10.i.i39.i75:                              ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i72
+  %sub13.i.i40.i76 = sub i32 %12, %13
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
 
-if.end14.i.i15.i46:                               ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i39
-  %or.cond.i.i19.i50 = and i1 %cmp.i.i15.i.i.i29, %cmp16.i.i.i26
-  %or.cond21.i.i21.i52 = and i1 %cmp.i.i.i.i.i27, %or.cond.i.i19.i50
-  %value_.i.i22.i53 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -16
-  br i1 %or.cond21.i.i21.i52, label %if.then20.i.i33.i64, label %if.end30.i.i23.i54
-
-if.then20.i.i33.i64:                              ; preds = %if.end14.i.i15.i46
-  %call25.i.i35.i66 = tail call i32 @memcmp(ptr noundef nonnull %value_.i.i22.i53, ptr noundef nonnull %value_.i19.i.i.i, i64 noundef %conv15.i.i.i25) #40
-  %cmp26.not.i.i36.i67 = icmp eq i32 %call25.i.i35.i66, 0
-  %sub29.i.i37.i68 = sub nsw i32 %12, %13
-  %cond.i.i38.i69 = select i1 %cmp26.not.i.i36.i67, i32 %sub29.i.i37.i68, i32 %call25.i.i35.i66
+if.then20.i.i33.i63:                              ; preds = %if.end.i.i12.i45
+  %call25.i.i35.i65 = tail call i32 @memcmp(ptr noundef nonnull %value_.i.i22.i52, ptr noundef nonnull %value_.i19.i.i.i, i64 noundef %conv15.i.i.i25) #40
+  %cmp26.not.i.i36.i66 = icmp eq i32 %call25.i.i35.i65, 0
+  %sub29.i.i37.i67 = sub nsw i32 %12, %13
+  %cond.i.i38.i68 = select i1 %cmp26.not.i.i36.i66, i32 %sub29.i.i37.i67, i32 %call25.i.i35.i65
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
 
-if.end30.i.i23.i54:                               ; preds = %if.end14.i.i15.i46
-  %17 = load ptr, ptr %value_.i.i22.i53, align 8
-  %cond.i.i.i24.i55 = select i1 %cmp.i.i15.i.i.i29, ptr %prefix_.i14.i.i.i7, ptr %17
-  %add.ptr.i.i25.i56 = getelementptr inbounds i8, ptr %cond.i.i.i24.i55, i64 4
+if.end30.i.i23.i53:                               ; preds = %if.end.i.i12.i45
+  %17 = load ptr, ptr %value_.i.i22.i52, align 8
+  %cond.i.i.i24.i54 = select i1 %cmp.i.i15.i.i.i29, ptr %prefix_.i14.i.i.i7, ptr %17
+  %add.ptr.i.i25.i55 = getelementptr inbounds i8, ptr %cond.i.i.i24.i54, i64 4
   %18 = load ptr, ptr %value_.i19.i.i.i, align 8
-  %cond.i20.i.i27.i58 = select i1 %cmp.i.i.i.i.i27, ptr %prefix_.i14.i.i.i, ptr %18
-  %add.ptr34.i.i28.i59 = getelementptr inbounds i8, ptr %cond.i20.i.i27.i58, i64 4
-  %call36.i.i29.i60 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i.i25.i56, ptr noundef nonnull %add.ptr34.i.i28.i59, i64 noundef %conv15.i.i.i25) #40
-  %cmp37.not.i.i30.i61 = icmp eq i32 %call36.i.i29.i60, 0
-  %sub42.i.i31.i62 = sub i32 %12, %13
-  %cond44.i.i32.i63 = select i1 %cmp37.not.i.i30.i61, i32 %sub42.i.i31.i62, i32 %call36.i.i29.i60
+  %cond.i20.i.i27.i57 = select i1 %cmp.i.i.i.i.i27, ptr %prefix_.i14.i.i.i, ptr %18
+  %add.ptr34.i.i28.i58 = getelementptr inbounds i8, ptr %cond.i20.i.i27.i57, i64 4
+  %call36.i.i29.i59 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i.i25.i55, ptr noundef nonnull %add.ptr34.i.i28.i58, i64 noundef %conv15.i.i.i25) #40
+  %cmp37.not.i.i30.i60 = icmp eq i32 %call36.i.i29.i59, 0
+  %sub42.i.i31.i61 = sub i32 %12, %13
+  %cond44.i.i32.i62 = select i1 %cmp37.not.i.i30.i60, i32 %sub42.i.i31.i61, i32 %call36.i.i29.i59
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
 
-_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14: ; preds = %if.end30.i.i23.i54, %if.then20.i.i33.i64, %if.then10.i.i39.i70, %if.then.i.i8.i12
-  %retval.0.i.i10.i15 = phi i32 [ %call5.i.i9.i13, %if.then.i.i8.i12 ], [ %sub13.i.i40.i71, %if.then10.i.i39.i70 ], [ %cond.i.i38.i69, %if.then20.i.i33.i64 ], [ %cond44.i.i32.i63, %if.end30.i.i23.i54 ]
+_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14: ; preds = %if.end30.i.i23.i53, %if.then20.i.i33.i63, %if.then10.i.i39.i75, %if.then.i.i8.i12
+  %retval.0.i.i10.i15 = phi i32 [ %call5.i.i9.i13, %if.then.i.i8.i12 ], [ %sub13.i.i40.i76, %if.then10.i.i39.i75 ], [ %cond.i.i38.i68, %if.then20.i.i33.i63 ], [ %cond44.i.i32.i62, %if.end30.i.i23.i53 ]
   %cmp.i11.i16 = icmp slt i32 %retval.0.i.i10.i15, 0
-  br i1 %cmp.i11.i16, label %while.end18, label %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit78
+  br i1 %cmp.i11.i16, label %while.end18, label %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit77
 
-_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit78: ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
+_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit77: ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14
   %19 = load i32, ptr %second5.i, align 8
   %second5.i19 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -8
   %20 = load i32, ptr %second5.i19, align 8
   %cmp.i20 = icmp slt i32 %19, %20
   br i1 %cmp.i20, label %while.cond10.backedge, label %while.end18
 
-while.end18:                                      ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14, %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit78
+while.end18:                                      ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i14, %_ZStltIN8facebook5velox10StringViewEiEbRKSt4pairIT_T0_ES8_.exit77
   %cmp.i = icmp ult ptr %__first.sroa.0.1, %__last.sroa.0.1
   br i1 %cmp.i, label %if.end, label %if.then
 
@@ -60343,7 +60340,7 @@ _ZNK8facebook5velox10StringViewltERKS1_.exit.i:   ; preds = %if.end30.i.i.i, %if
   %sub29.i.i.i = sub i32 %5, %4
   %cond.i.i.i = select i1 %cmp26.not.i.i.i, i32 %sub29.i.i.i, i32 %call25.i.i.sink47.i
   %cmp.i.i = icmp slt i32 %cond.i.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.backedge, label %if.end14.i.i15.i
+  br i1 %cmp.i.i, label %while.body.i.backedge, label %if.end.i.i12.i
 
 _ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i: ; preds = %if.end.i.i.i
   %sub13.i.i.i = sub i32 %5, %4
@@ -60362,24 +60359,24 @@ if.then.i.i8.i:                                   ; preds = %_ZNK8facebook5velox
   %call5.i.i9.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i.i, ptr noundef nonnull dereferenceable(4) %prefix_.i.i.i.i, i64 noundef 4) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
-  %sub13.i.i40.i = sub i32 %4, %5
-  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
-
-if.end14.i.i15.i:                                 ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
+if.end.i.i12.i:                                   ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
   %or.cond.i.i19.i = and i1 %cmp.i.i15.i.i.i, %cmp16.i.i.i
   %or.cond21.i.i21.i = and i1 %cmp.i.i.i.i.i5, %or.cond.i.i19.i
   %value_.i.i22.i = getelementptr inbounds i8, ptr %__next.sroa.0.011.i, i64 -16
   br i1 %or.cond21.i.i21.i, label %if.then20.i.i33.i, label %if.end30.i.i23.i
 
-if.then20.i.i33.i:                                ; preds = %if.end14.i.i15.i
+if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
+  %sub13.i.i40.i = sub i32 %4, %5
+  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
+
+if.then20.i.i33.i:                                ; preds = %if.end.i.i12.i
   %call25.i.i35.i = call i32 @memcmp(ptr noundef nonnull %value_.i.i22.i, ptr noundef nonnull %value_.i.i.i, i64 noundef %conv15.i.i.i) #40
   %cmp26.not.i.i36.i = icmp eq i32 %call25.i.i35.i, 0
   %sub29.i.i37.i = sub nsw i32 %4, %5
   %cond.i.i38.i = select i1 %cmp26.not.i.i36.i, i32 %sub29.i.i37.i, i32 %call25.i.i35.i
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.end30.i.i23.i:                                 ; preds = %if.end14.i.i15.i
+if.end30.i.i23.i:                                 ; preds = %if.end.i.i12.i
   %9 = load ptr, ptr %value_.i.i22.i, align 8
   %cond.i.i.i24.i = select i1 %cmp.i.i15.i.i.i, ptr %prefix_.i14.i.i.i, ptr %9
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %cond.i.i.i24.i, i64 4
@@ -60497,7 +60494,7 @@ _ZNK8facebook5velox10StringViewltERKS1_.exit.i:   ; preds = %if.end30.i.i.i, %if
   %sub29.i.i.i = sub i32 %4, %3
   %cond.i.i.i = select i1 %cmp26.not.i.i.i, i32 %sub29.i.i.i, i32 %call25.i.i.sink47.i
   %cmp.i.i = icmp slt i32 %cond.i.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.backedge, label %if.end14.i.i15.i
+  br i1 %cmp.i.i, label %while.body.i.backedge, label %if.end.i.i12.i
 
 _ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i: ; preds = %if.end.i.i.i
   %sub13.i.i.i = sub i32 %4, %3
@@ -60516,24 +60513,24 @@ if.then.i.i8.i:                                   ; preds = %_ZNK8facebook5velox
   %call5.i.i9.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %prefix_.i14.i.i.i, ptr noundef nonnull dereferenceable(4) %prefix_.i.i.i.i, i64 noundef 4) #40
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
-  %sub13.i.i40.i = sub i32 %3, %4
-  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
-
-if.end14.i.i15.i:                                 ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
+if.end.i.i12.i:                                   ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.i
   %or.cond.i.i19.i = and i1 %cmp.i.i15.i.i.i, %cmp16.i.i.i
   %or.cond21.i.i21.i = and i1 %cmp.i.i.i.i.i, %or.cond.i.i19.i
   %value_.i.i22.i = getelementptr inbounds i8, ptr %__next.sroa.0.011.i, i64 -16
   br i1 %or.cond21.i.i21.i, label %if.then20.i.i33.i, label %if.end30.i.i23.i
 
-if.then20.i.i33.i:                                ; preds = %if.end14.i.i15.i
+if.then10.i.i39.i:                                ; preds = %_ZNK8facebook5velox10StringViewltERKS1_.exit.thread44.i
+  %sub13.i.i40.i = sub i32 %3, %4
+  br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
+
+if.then20.i.i33.i:                                ; preds = %if.end.i.i12.i
   %call25.i.i35.i = call i32 @memcmp(ptr noundef nonnull %value_.i.i22.i, ptr noundef nonnull %value_.i.i.i, i64 noundef %conv15.i.i.i) #40
   %cmp26.not.i.i36.i = icmp eq i32 %call25.i.i35.i, 0
   %sub29.i.i37.i = sub nsw i32 %3, %4
   %cond.i.i38.i = select i1 %cmp26.not.i.i36.i, i32 %sub29.i.i37.i, i32 %call25.i.i35.i
   br label %_ZNK8facebook5velox10StringViewltERKS1_.exit41.i
 
-if.end30.i.i23.i:                                 ; preds = %if.end14.i.i15.i
+if.end30.i.i23.i:                                 ; preds = %if.end.i.i12.i
   %8 = load ptr, ptr %value_.i.i22.i, align 8
   %cond.i.i.i24.i = select i1 %cmp.i.i15.i.i.i, ptr %prefix_.i14.i.i.i, ptr %8
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %cond.i.i.i24.i, i64 4
@@ -109146,25 +109143,12 @@ lpad10:                                           ; preds = %if.end
 
 for.end:                                          ; preds = %for.body
   %cmp29 = icmp ult i8 %8, 16
-  br i1 %cmp29, label %while.cond31.preheader, label %while.cond50.preheader
-
-while.cond50.preheader:                           ; preds = %for.end
-  br i1 %cmp.i.not171, label %if.end84, label %while.body52.lr.ph
-
-while.body52.lr.ph:                               ; preds = %while.cond50.preheader
-  %rawItems_.i.i80 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  br label %while.body52
-
-while.cond31.preheader:                           ; preds = %for.end
-  br i1 %cmp.i.not171, label %if.end84, label %while.body33.lr.ph
-
-while.body33.lr.ph:                               ; preds = %while.cond31.preheader
   %rawItems_.i.i48 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  br label %while.body33
+  br i1 %cmp29, label %while.body33, label %while.body52
 
-while.body33:                                     ; preds = %while.body33.lr.ph, %invoke.cont45
-  %iter.sroa.9.0179 = phi i32 [ 0, %while.body33.lr.ph ], [ %add8.i40, %invoke.cont45 ]
-  %iter.sroa.0.0178 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body33.lr.ph ], [ %iter.sroa.0.2, %invoke.cont45 ]
+while.body33:                                     ; preds = %for.end, %invoke.cont45
+  %iter.sroa.9.0179 = phi i32 [ %add8.i40, %invoke.cont45 ], [ 0, %for.end ]
+  %iter.sroa.0.0178 = phi i32 [ %iter.sroa.0.2, %invoke.cont45 ], [ %iter.sroa.0.0.extract.trunc, %for.end ]
   %and.i33 = and i32 %iter.sroa.0.0178, 1
   %cmp.not.i34 = icmp eq i32 %and.i33, 0
   %13 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.0178, i1 true)
@@ -109254,9 +109238,9 @@ invoke.cont45:                                    ; preds = %while.end.i
   %cmp.i32.not = icmp eq i32 %iter.sroa.0.2, 0
   br i1 %cmp.i32.not, label %if.end84, label %while.body33
 
-while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont79
-  %iter.sroa.9.1176 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i72, %invoke.cont79 ]
-  %iter.sroa.0.1175 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.3, %invoke.cont79 ]
+while.body52:                                     ; preds = %for.end, %invoke.cont79
+  %iter.sroa.9.1176 = phi i32 [ %add8.i72, %invoke.cont79 ], [ 0, %for.end ]
+  %iter.sroa.0.1175 = phi i32 [ %iter.sroa.0.3, %invoke.cont79 ], [ %iter.sroa.0.0.extract.trunc, %for.end ]
   %and.i65 = and i32 %iter.sroa.0.1175, 1
   %cmp.not.i66 = icmp eq i32 %and.i65, 0
   %28 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.1175, i1 true)
@@ -109267,7 +109251,7 @@ while.body52:                                     ; preds = %while.body52.lr.ph,
   %iter.sroa.0.3 = lshr i32 %iter.sroa.0.1175, %add5.i77.pn
   %add8.i72 = add i32 %add.sink.i70, 1
   %conv57 = zext i32 %add.sink.i70 to i64
-  %arrayidx.i.i.i.i81 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i80, i64 0, i64 %conv57
+  %arrayidx.i.i.i.i81 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i48, i64 0, i64 %conv57
   %29 = load i32, ptr %arrayidx.i.i.i.i81, align 4
   %30 = load ptr, ptr %src, align 8
   %idxprom.i82 = zext i32 %29 to i64
@@ -109373,7 +109357,7 @@ invoke.cont79:                                    ; preds = %while.end.i112
   %cmp.i64.not = icmp eq i32 %iter.sroa.0.3, 0
   br i1 %cmp.i64.not, label %if.end84, label %while.body52
 
-if.end84:                                         ; preds = %invoke.cont79, %invoke.cont45, %invoke.cont19, %while.cond50.preheader, %while.cond31.preheader
+if.end84:                                         ; preds = %invoke.cont79, %invoke.cont45, %invoke.cont19
   %cmp85 = icmp eq i64 %storemerge, 0
   %dec = add nsw i64 %storemerge, -1
   br i1 %cmp85, label %if.then.i134, label %invoke.cont19, !llvm.loop !775

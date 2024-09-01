@@ -1345,8 +1345,8 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %160, %153
           to label %.noexc159 unwind label %.body121.loopexit
 
 .noexc159:                                        ; preds = %176
-  %.not.not.i.not.i.not = icmp eq ptr %177, null
-  br i1 %.not.not.i.not.i.not, label %181, label %178
+  %.not.not.not.not.i.not.not.not.i.not = icmp eq ptr %177, null
+  br i1 %.not.not.not.not.i.not.not.not.i.not, label %181, label %178
 
 178:                                              ; preds = %.noexc159
   %179 = load i16, ptr %177, align 2, !range !53, !alias.scope !256, !noalias !261, !noundef !4

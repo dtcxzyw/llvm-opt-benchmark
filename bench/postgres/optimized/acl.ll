@@ -2427,7 +2427,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
   %.2.us = phi i64 [ %49, %45 ], [ %.186.us, %.lr.ph.split.us ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond111.not, label %.lr.ph92, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph ]
@@ -2451,13 +2451,10 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
   %.2 = phi i64 [ 0, %56 ], [ %.186, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count110
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph92, label %.lr.ph.split, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %61, %51
+.lr.ph92:                                         ; preds = %61, %51
   %.1.lcssa = phi i64 [ %.2.us, %51 ], [ %.2, %61 ]
-  br i1 %39, label %.lr.ph92, label %.loopexit
-
-.lr.ph92:                                         ; preds = %._crit_edge
   %62 = xor i64 %.1.lcssa, -1
   %63 = and i64 %3, %62
   %64 = icmp eq i32 %4, 0
@@ -2551,8 +2548,8 @@ has_privs_of_role.exit80.thread:                  ; preds = %93, %has_privs_of_r
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count120
   br i1 %exitcond116.not, label %.loopexit, label %.lr.ph92.split, !llvm.loop !20
 
-.loopexit:                                        ; preds = %56, %45, %has_privs_of_role.exit80.thread, %100, %has_privs_of_role.exit80.thread.us, %84, %36, %._crit_edge, %has_privs_of_role.exit.thread, %10
-  %.0 = phi i64 [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %.1.lcssa, %._crit_edge ], [ %.058, %36 ], [ %3, %has_privs_of_role.exit80.thread.us ], [ %.4.us, %84 ], [ %99, %has_privs_of_role.exit80.thread ], [ %.4, %100 ], [ %3, %45 ], [ %60, %56 ]
+.loopexit:                                        ; preds = %56, %45, %has_privs_of_role.exit80.thread, %100, %has_privs_of_role.exit80.thread.us, %84, %36, %has_privs_of_role.exit.thread, %10
+  %.0 = phi i64 [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %.058, %36 ], [ %3, %has_privs_of_role.exit80.thread.us ], [ %.4.us, %84 ], [ %99, %has_privs_of_role.exit80.thread ], [ %.4, %100 ], [ %3, %45 ], [ %60, %56 ]
   ret i64 %.0
 }
 
@@ -7154,13 +7151,13 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
   br i1 %11, label %.lr.ph84.split.us.preheader, label %.lr.ph84.split
 
 .lr.ph84.split.us.preheader:                      ; preds = %.lr.ph84
-  br i1 %42, label %.lr.ph198, label %._crit_edge85
+  br i1 %42, label %.lr.ph195, label %._crit_edge85
 
-.lr.ph198:                                        ; preds = %.lr.ph84.split.us.preheader, %.lr.ph84.split.us
-  %.06282.us197 = phi ptr [ %.3.us, %.lr.ph84.split.us ], [ %37, %.lr.ph84.split.us.preheader ]
-  %indvars.iv174196 = phi i64 [ %indvars.iv.next175, %.lr.ph84.split.us ], [ 0, %.lr.ph84.split.us.preheader ]
+.lr.ph195:                                        ; preds = %.lr.ph84.split.us.preheader, %.lr.ph84.split.us
+  %.06282.us194 = phi ptr [ %.3.us, %.lr.ph84.split.us ], [ %37, %.lr.ph84.split.us.preheader ]
+  %indvars.iv171193 = phi i64 [ %indvars.iv.next172, %.lr.ph84.split.us ], [ 0, %.lr.ph84.split.us.preheader ]
   %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv174196
+  %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv171193
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = tail call ptr @SearchSysCacheList(i32 noundef 8, i32 noundef 1, i64 noundef %46, i64 noundef 0, i64 noundef 0) #15
@@ -7169,8 +7166,8 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph.us, label %._crit_edge.split.us92
 
-._crit_edge.split.us92:                           ; preds = %133, %105, %75, %.lr.ph198
-  %.1.lcssa.us = phi ptr [ %.06282.us197, %.lr.ph198 ], [ %76, %75 ], [ %.2.us91.us, %105 ], [ %.2.us91.us135, %133 ]
+._crit_edge.split.us92:                           ; preds = %133, %105, %75, %.lr.ph195
+  %.1.lcssa.us = phi ptr [ %.06282.us194, %.lr.ph195 ], [ %76, %75 ], [ %.2.us91.us, %105 ], [ %.2.us91.us135, %133 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %47) #15
   %51 = icmp eq i32 %45, %.061
   %or.cond5.us = and i1 %40, %51
@@ -7182,16 +7179,16 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 .lr.ph84.split.us:                                ; preds = %52, %._crit_edge.split.us92
   %.3.us = phi ptr [ %53, %52 ], [ %.1.lcssa.us, %._crit_edge.split.us92 ]
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174196, 1
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171193, 1
   %54 = load i32, ptr %38, align 4
   %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next175, %55
-  br i1 %56, label %.lr.ph198, label %._crit_edge85
+  %56 = icmp slt i64 %indvars.iv.next172, %55
+  br i1 %56, label %.lr.ph195, label %._crit_edge85
 
 .lr.ph.split.us94.split:                          ; preds = %.lr.ph.us, %75
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %75 ], [ 0, %.lr.ph.us ]
-  %.180.us89 = phi ptr [ %76, %75 ], [ %.06282.us197, %.lr.ph.us ]
-  %57 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv171
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %75 ], [ 0, %.lr.ph.us ]
+  %.180.us89 = phi ptr [ %76, %75 ], [ %.06282.us194, %.lr.ph.us ]
+  %57 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv168
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 80
   %60 = load ptr, ptr %59, align 8
@@ -7221,13 +7218,13 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 75:                                               ; preds = %74, %72, %68, %.lr.ph.split.us94.split
   %76 = tail call ptr @list_append_unique_oid(ptr noundef %.180.us89, i32 noundef %66) #15
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %77 = load i32, ptr %48, align 8
   %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next172, %78
+  %79 = icmp slt i64 %indvars.iv.next169, %78
   br i1 %79, label %.lr.ph.split.us94.split, label %._crit_edge.split.us92, !llvm.loop !29
 
-.lr.ph.us:                                        ; preds = %.lr.ph198
+.lr.ph.us:                                        ; preds = %.lr.ph195
   %80 = getelementptr inbounds i8, ptr %47, i64 80
   switch i32 %1, label %.lr.ph.split.us94.split [
     i32 1, label %.lr.ph.split.us94.split.us
@@ -7235,9 +7232,9 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
   ]
 
 .lr.ph.split.us94.split.us:                       ; preds = %.lr.ph.us, %105
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %105 ], [ 0, %.lr.ph.us ]
-  %.180.us89.us = phi ptr [ %.2.us91.us, %105 ], [ %.06282.us197, %.lr.ph.us ]
-  %81 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv168
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %105 ], [ 0, %.lr.ph.us ]
+  %.180.us89.us = phi ptr [ %.2.us91.us, %105 ], [ %.06282.us194, %.lr.ph.us ]
+  %81 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv165
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 80
   %84 = load ptr, ptr %83, align 8
@@ -7277,16 +7274,16 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 105:                                              ; preds = %103, %99
   %.2.us91.us = phi ptr [ %104, %103 ], [ %.180.us89.us, %99 ]
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %106 = load i32, ptr %48, align 8
   %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next169, %107
+  %108 = icmp slt i64 %indvars.iv.next166, %107
   br i1 %108, label %.lr.ph.split.us94.split.us, label %._crit_edge.split.us92, !llvm.loop !29
 
 .lr.ph.split.us94.split.us131:                    ; preds = %.lr.ph.us, %133
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %133 ], [ 0, %.lr.ph.us ]
-  %.180.us89.us132 = phi ptr [ %.2.us91.us135, %133 ], [ %.06282.us197, %.lr.ph.us ]
-  %109 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv165
+  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %133 ], [ 0, %.lr.ph.us ]
+  %.180.us89.us132 = phi ptr [ %.2.us91.us135, %133 ], [ %.06282.us194, %.lr.ph.us ]
+  %109 = getelementptr [0 x ptr], ptr %80, i64 0, i64 %indvars.iv162
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 80
   %112 = load ptr, ptr %111, align 8
@@ -7326,23 +7323,23 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 133:                                              ; preds = %131, %127
   %.2.us91.us135 = phi ptr [ %132, %131 ], [ %.180.us89.us132, %127 ]
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %134 = load i32, ptr %48, align 8
   %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next166, %135
+  %136 = icmp slt i64 %indvars.iv.next163, %135
   br i1 %136, label %.lr.ph.split.us94.split.us131, label %._crit_edge.split.us92, !llvm.loop !29
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84
   br i1 %40, label %.lr.ph84.split.split.split, label %.lr.ph84.split.split.us.preheader
 
 .lr.ph84.split.split.us.preheader:                ; preds = %.lr.ph84.split
-  br i1 %42, label %.lr.ph195, label %._crit_edge85
+  br i1 %42, label %.lr.ph192, label %._crit_edge85
 
-.lr.ph195:                                        ; preds = %.lr.ph84.split.split.us.preheader, %._crit_edge.split.us.us
-  %.06282.us97194 = phi ptr [ %.1.lcssa.us99, %._crit_edge.split.us.us ], [ %37, %.lr.ph84.split.split.us.preheader ]
-  %indvars.iv153193 = phi i64 [ %indvars.iv.next154, %._crit_edge.split.us.us ], [ 0, %.lr.ph84.split.split.us.preheader ]
+.lr.ph192:                                        ; preds = %.lr.ph84.split.split.us.preheader, %._crit_edge.split.us.us
+  %.06282.us97191 = phi ptr [ %.1.lcssa.us99, %._crit_edge.split.us.us ], [ %37, %.lr.ph84.split.split.us.preheader ]
+  %indvars.iv153190 = phi i64 [ %indvars.iv.next154, %._crit_edge.split.us.us ], [ 0, %.lr.ph84.split.split.us.preheader ]
   %137 = load ptr, ptr %39, align 8
-  %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv153193
+  %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv153190
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
   %141 = tail call ptr @SearchSysCacheList(i32 noundef 8, i32 noundef 1, i64 noundef %140, i64 noundef 0, i64 noundef 0) #15
@@ -7351,16 +7348,16 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph.us102, label %._crit_edge.split.us.us
 
-._crit_edge.split.us.us:                          ; preds = %185, %165, %.lr.ph.us102.split, %.lr.ph195
-  %.1.lcssa.us99 = phi ptr [ %.06282.us97194, %.lr.ph195 ], [ %199, %.lr.ph.us102.split ], [ %.2.us.us.us, %165 ], [ %.2.us.us.us127, %185 ]
+._crit_edge.split.us.us:                          ; preds = %185, %165, %.lr.ph.us102.split, %.lr.ph192
+  %.1.lcssa.us99 = phi ptr [ %.06282.us97191, %.lr.ph192 ], [ %199, %.lr.ph.us102.split ], [ %.2.us.us.us, %165 ], [ %.2.us.us.us127, %185 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %141) #15
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153193, 1
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153190, 1
   %145 = load i32, ptr %38, align 4
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next154, %146
-  br i1 %147, label %.lr.ph195, label %._crit_edge85
+  br i1 %147, label %.lr.ph192, label %._crit_edge85
 
-.lr.ph.us102:                                     ; preds = %.lr.ph195
+.lr.ph.us102:                                     ; preds = %.lr.ph192
   %148 = getelementptr inbounds i8, ptr %141, i64 80
   switch i32 %1, label %.lr.ph.us102.split [
     i32 1, label %.lr.ph.us102.split.us
@@ -7370,7 +7367,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 .lr.ph.us102.split.us:                            ; preds = %.lr.ph.us102, %165
   %149 = phi i32 [ %166, %165 ], [ %143, %.lr.ph.us102 ]
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %165 ], [ 0, %.lr.ph.us102 ]
-  %.180.us.us.us = phi ptr [ %.2.us.us.us, %165 ], [ %.06282.us97194, %.lr.ph.us102 ]
+  %.180.us.us.us = phi ptr [ %.2.us.us.us, %165 ], [ %.06282.us97191, %.lr.ph.us102 ]
   %150 = getelementptr [0 x ptr], ptr %148, i64 0, i64 %indvars.iv147
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 80
@@ -7388,11 +7385,11 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
   %162 = getelementptr inbounds i8, ptr %157, i64 4
   %163 = load i32, ptr %162, align 4
   %164 = tail call ptr @list_append_unique_oid(ptr noundef %.180.us.us.us, i32 noundef %163) #15
-  %.pre177 = load i32, ptr %142, align 8
+  %.pre174 = load i32, ptr %142, align 8
   br label %165
 
 165:                                              ; preds = %161, %.lr.ph.us102.split.us
-  %166 = phi i32 [ %.pre177, %161 ], [ %149, %.lr.ph.us102.split.us ]
+  %166 = phi i32 [ %.pre174, %161 ], [ %149, %.lr.ph.us102.split.us ]
   %.2.us.us.us = phi ptr [ %164, %161 ], [ %.180.us.us.us, %.lr.ph.us102.split.us ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %167 = sext i32 %166 to i64
@@ -7402,7 +7399,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 .lr.ph.us102.split.us124:                         ; preds = %.lr.ph.us102, %185
   %169 = phi i32 [ %186, %185 ], [ %143, %.lr.ph.us102 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %185 ], [ 0, %.lr.ph.us102 ]
-  %.180.us.us.us125 = phi ptr [ %.2.us.us.us127, %185 ], [ %.06282.us97194, %.lr.ph.us102 ]
+  %.180.us.us.us125 = phi ptr [ %.2.us.us.us127, %185 ], [ %.06282.us97191, %.lr.ph.us102 ]
   %170 = getelementptr [0 x ptr], ptr %148, i64 0, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 80
@@ -7433,7 +7430,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 .lr.ph.us102.split:                               ; preds = %.lr.ph.us102, %.lr.ph.us102.split
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph.us102.split ], [ 0, %.lr.ph.us102 ]
-  %.180.us.us = phi ptr [ %199, %.lr.ph.us102.split ], [ %.06282.us97194, %.lr.ph.us102 ]
+  %.180.us.us = phi ptr [ %199, %.lr.ph.us102.split ], [ %.06282.us97191, %.lr.ph.us102 ]
   %189 = getelementptr [0 x ptr], ptr %148, i64 0, i64 %indvars.iv150
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 80
@@ -7504,11 +7501,11 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i
 
 232:                                              ; preds = %228, %224, %212
   %233 = tail call ptr @list_append_unique_oid(ptr noundef %.180.us, i32 noundef %223) #15
-  %.pre178 = load i32, ptr %208, align 8
+  %.pre175 = load i32, ptr %208, align 8
   br label %234
 
 234:                                              ; preds = %232, %228, %224
-  %235 = phi i32 [ %.pre178, %232 ], [ %213, %224 ], [ %213, %228 ]
+  %235 = phi i32 [ %.pre175, %232 ], [ %213, %224 ], [ %213, %228 ]
   %.2.us = phi ptr [ %233, %232 ], [ %.180.us, %224 ], [ %.180.us, %228 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %236 = sext i32 %235 to i64

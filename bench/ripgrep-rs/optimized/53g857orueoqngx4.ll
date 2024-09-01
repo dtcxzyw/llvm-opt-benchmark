@@ -112,8 +112,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.backedge.i.us
 
 .backedge.i.us:                                   ; preds = %18, %15, %.lr.ph.i.split.us
-  %.not23.i.us = icmp eq ptr %12, %4
-  br i1 %.not23.i.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split.us
+  %.not16.i.us = icmp eq ptr %12, %4
+  br i1 %.not16.i.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split.us
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %.lr.ph.i.split
   %22 = phi ptr [ %28, %.lr.ph.i.split ], [ %1, %.lr.ph.i ]
@@ -126,8 +126,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   %26 = select i1 %24, i64 %25, i64 0
   %27 = icmp eq i64 %26, %7
   %28 = getelementptr inbounds i8, ptr %22, i64 24
-  %.not23.i = icmp eq ptr %28, %4
-  %or.cond = select i1 %27, i1 true, i1 %.not23.i
+  %.not16.i = icmp eq ptr %28, %4
+  %or.cond = select i1 %27, i1 true, i1 %.not16.i
   br i1 %or.cond, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit": ; preds = %.lr.ph.i.split, %.backedge.i.us, %18, %3
@@ -253,8 +253,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split", label %.backedge
 
 .backedge:                                        ; preds = %22, %13, %25
-  %.not23 = icmp eq ptr %15, %4
-  br i1 %.not23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split", label %13
+  %.not16 = icmp eq ptr %15, %4
+  br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53e62d8adfb352d7E.llvm.2822928188824460994.exit.sink.split": ; preds = %.backedge, %25, %21
   %.lcssa.ph = phi i1 [ true, %21 ], [ true, %25 ], [ false, %.backedge ]

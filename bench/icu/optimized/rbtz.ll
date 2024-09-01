@@ -155,7 +155,7 @@ lpad:                                             ; preds = %new.notnull
 lpad3:                                            ; preds = %invoke.cont9, %for.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i25
 
 for.cond:                                         ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit
   %inc = add nuw nsw i32 %i.042, 1
@@ -192,40 +192,34 @@ _ZN6icu_7512LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; preds =
 _ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit
   %6 = load i32, ptr %ec, align 4
   %cmp.i13 = icmp slt i32 %6, 1
-  br i1 %cmp.i13, label %for.cond, label %cleanup27
+  br i1 %cmp.i13, label %for.cond, label %delete.notnull.i21
 
 _ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit19: ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i25
 
-cleanup27:                                        ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit
-  br i1 %new.isnull, label %return, label %delete.notnull.i21
-
-delete.notnull.i21:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %cleanup27
+delete.notnull.i21:                               ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %vtable.i22 = load ptr, ptr %call2, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 8
   %8 = load ptr, ptr %vfn.i23, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(40) %call2) #13
   br label %return
 
-ehcleanup:                                        ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit19, %lpad3
+delete.notnull.i25:                               ; preds = %lpad3, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit19
   %.pn = phi { ptr, i32 } [ %7, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit19 ], [ %3, %lpad3 ]
-  br i1 %new.isnull, label %eh.resume, label %delete.notnull.i25
-
-delete.notnull.i25:                               ; preds = %ehcleanup
   %vtable.i26 = load ptr, ptr %call2, align 8
   %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 8
   %9 = load ptr, ptr %vfn.i27, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(40) %call2) #13
   br label %eh.resume
 
-return:                                           ; preds = %for.cond, %if.end, %for.cond.preheader, %delete.notnull.i21, %cleanup27, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %cleanup27 ], [ null, %delete.notnull.i21 ], [ %call2, %for.cond.preheader ], [ null, %if.end ], [ %call2, %for.cond ]
+return:                                           ; preds = %for.cond, %if.end, %for.cond.preheader, %delete.notnull.i21, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %delete.notnull.i21 ], [ %call2, %for.cond.preheader ], [ null, %if.end ], [ %call2, %for.cond ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %delete.notnull.i25, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i25 ]
+eh.resume:                                        ; preds = %delete.notnull.i25, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %.pn, %delete.notnull.i25 ]
   resume { ptr, i32 } %.pn.pn
 }
 

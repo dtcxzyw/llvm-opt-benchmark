@@ -3575,8 +3575,8 @@ do_get_value.exit:                                ; preds = %optname.exit.i, %op
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg.i)
   %cmdmode_list = getelementptr inbounds i8, ptr %p, i64 64
   %elem.055 = load ptr, ptr %cmdmode_list, align 8
-  %tobool56.not = icmp eq ptr %elem.055, null
-  br i1 %tobool56.not, label %return, label %for.body.lr.ph
+  %tobool.not56 = icmp eq ptr %elem.055, null
+  br i1 %tobool.not56, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do_get_value.exit
   %flags5 = getelementptr inbounds i8, ptr %opt, i64 40

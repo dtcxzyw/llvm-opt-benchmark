@@ -1392,10 +1392,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
   %wide.trip.count = zext i32 %37 to i64
   br label %39
 
-.preheader155:                                    ; preds = %.critedge
-  br i1 %32, label %.lr.ph176, label %._crit_edge
-
-.lr.ph176:                                        ; preds = %.preheader155
+.lr.ph176:                                        ; preds = %.critedge
   %38 = load ptr, ptr %4, align 8
   %wide.trip.count200 = zext nneg i32 %19 to i64
   br label %166
@@ -1668,7 +1665,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
   store ptr null, ptr %164, align 8
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count194
-  br i1 %exitcond195.not, label %.preheader155, label %39, !llvm.loop !22
+  br i1 %exitcond195.not, label %.lr.ph176, label %39, !llvm.loop !22
 
 165:                                              ; preds = %166
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
@@ -1686,9 +1683,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
   %170 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef nonnull %168) #14
   br label %233
 
-._crit_edge:                                      ; preds = %165, %pmix_obj_run_constructors.exit, %.preheader155
-  %.098.lcssa212 = phi i1 [ %.2, %.preheader155 ], [ false, %pmix_obj_run_constructors.exit ], [ %.2, %165 ]
-  %.0100.lcssa211 = phi i32 [ %.4, %.preheader155 ], [ 0, %pmix_obj_run_constructors.exit ], [ %.4, %165 ]
+._crit_edge:                                      ; preds = %165, %pmix_obj_run_constructors.exit
+  %.098.lcssa212 = phi i1 [ false, %pmix_obj_run_constructors.exit ], [ %.2, %165 ]
+  %.0100.lcssa211 = phi i32 [ 0, %pmix_obj_run_constructors.exit ], [ %.4, %165 ]
   br i1 %2, label %.preheader, label %233
 
 .preheader:                                       ; preds = %._crit_edge

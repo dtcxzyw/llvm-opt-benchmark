@@ -1335,7 +1335,7 @@ _ZNKSt14default_deleteIN5ZXing12BinaryBitmapEEclEPS1_.exit.i95: ; preds = %74
   br i1 %.not156, label %.critedgethread-pre-split, label %99
 
 99:                                               ; preds = %.lr.ph204, %97
-  %.066202 = phi i32 [ %spec.select, %.lr.ph204 ], [ %.369.lcssa222, %97 ]
+  %.066202 = phi i32 [ %spec.select, %.lr.ph204 ], [ %.369.lcssa218, %97 ]
   %.072201 = phi i1 [ false, %.lr.ph204 ], [ %.476, %97 ]
   %.sroa.0147.0200 = phi ptr [ %88, %.lr.ph204 ], [ %98, %97 ]
   %100 = load i32, ptr %2, align 4
@@ -1352,16 +1352,16 @@ _ZNKSt14default_deleteIN5ZXing12BinaryBitmapEEclEPS1_.exit.i95: ; preds = %74
 105:                                              ; preds = %.preheader, %334
   %.not80 = phi i1 [ true, %.preheader ], [ false, %334 ]
   %.061197 = phi i32 [ 0, %.preheader ], [ 1, %334 ]
-  %.167196 = phi i32 [ %.066202, %.preheader ], [ %.369.lcssa222, %334 ]
-  br i1 %.not80, label %.preheader249, label %106
+  %.167196 = phi i32 [ %.066202, %.preheader ], [ %.369.lcssa218, %334 ]
+  br i1 %.not80, label %.preheader245, label %106
 
-.preheader249:                                    ; preds = %106, %105
+.preheader245:                                    ; preds = %106, %105
   br label %119
 
 106:                                              ; preds = %105
   %107 = load ptr, ptr %11, align 8
   invoke void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 dereferenceable(56) %107)
-          to label %.preheader249 unwind label %.loopexit.split-lp164
+          to label %.preheader245 unwind label %.loopexit.split-lp164
 
 108:                                              ; preds = %78
   %109 = landingpad { ptr, i32 }
@@ -1393,9 +1393,9 @@ _ZNKSt14default_deleteIN5ZXing12BinaryBitmapEEclEPS1_.exit.i95: ; preds = %74
   %.not81.not = and i1 %118, %116
   br i1 %.not81.not, label %119, label %334, !llvm.loop !60
 
-119:                                              ; preds = %.preheader249, %112
-  %.060195 = phi i32 [ %113, %112 ], [ 0, %.preheader249 ]
-  %.268194 = phi i32 [ %.369.lcssa222, %112 ], [ %.167196, %.preheader249 ]
+119:                                              ; preds = %.preheader245, %112
+  %.060195 = phi i32 [ %113, %112 ], [ 0, %.preheader245 ]
+  %.268194 = phi i32 [ %.369.lcssa218, %112 ], [ %.167196, %.preheader245 ]
   %.not82 = icmp eq i32 %.060195, 0
   %.pre = load ptr, ptr %11, align 8
   br i1 %.not82, label %121, label %120
@@ -1490,7 +1490,7 @@ _ZNKSt14default_deleteIN5ZXing12BinaryBitmapEEclEPS1_.exit.i95: ; preds = %74
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit160, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #16
-  %.pre216 = load ptr, ptr %11, align 8
+  %.pre212 = load ptr, ptr %11, align 8
   br label %341
 
 154:                                              ; preds = %128, %.lr.ph
@@ -1849,13 +1849,13 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc, %19
   br i1 %.not157, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %321
-  %.pre217 = load ptr, ptr %12, align 8
-  %.pre218 = load ptr, ptr %94, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.pre217, %.pre218
+  %.pre213 = load ptr, ptr %12, align 8
+  %.pre214 = load ptr, ptr %94, align 8
+  %.not4.i.i.i.i = icmp eq ptr %.pre213, %.pre214
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyIN5ZXing6ResultEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %330, %_ZSt8_DestroyIN5ZXing6ResultEEvPT_.exit.i.i.i.i ], [ %.pre217, %._crit_edge ]
+  %.05.i.i.i.i = phi ptr [ %330, %_ZSt8_DestroyIN5ZXing6ResultEEvPT_.exit.i.i.i.i ], [ %.pre213, %._crit_edge ]
   %323 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %323) #16
   %324 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
@@ -1880,7 +1880,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EED2Ev.exit.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN5ZXing6ResultEEvPT_.exit.i.i.i.i:  ; preds = %329, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EED2Ev.exit.i.i.i.i.i.i.i
   %330 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 216
-  %.not.i.i.i.i = icmp eq ptr %330, %.pre218
+  %.not.i.i.i.i = icmp eq ptr %330, %.pre214
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
 _ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5ZXing6ResultEEvPT_.exit.i.i.i.i
@@ -1888,9 +1888,9 @@ _ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds
   br label %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %123, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %.369.lcssa222 = phi i32 [ %.470, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.470, %._crit_edge ], [ %.268194, %123 ]
-  %331 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre217, %._crit_edge ], [ %124, %123 ]
-  %332 = icmp sgt i32 %.369.lcssa222, 0
+  %.369.lcssa218 = phi i32 [ %.470, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.470, %._crit_edge ], [ %.268194, %123 ]
+  %331 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5ZXing6ResultES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre213, %._crit_edge ], [ %124, %123 ]
+  %332 = icmp sgt i32 %.369.lcssa218, 0
   %.not.i.i.i = icmp eq ptr %331, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit, label %333
 
@@ -1925,7 +1925,7 @@ _ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit100: ; 
   br i1 %332, label %97, label %346
 
 341:                                              ; preds = %.loopexit163, %.loopexit.split-lp164, %.loopexit.split-lp
-  %342 = phi ptr [ %.pre216, %.loopexit.split-lp ], [ %.pre, %.loopexit163 ], [ %107, %.loopexit.split-lp164 ]
+  %342 = phi ptr [ %.pre212, %.loopexit.split-lp ], [ %.pre, %.loopexit163 ], [ %107, %.loopexit.split-lp164 ]
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit165, %.loopexit163 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp164 ]
   %.not.i101 = icmp eq ptr %342, null
   br i1 %.not.i101, label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmapESt14default_deleteIS1_EED2Ev.exit103, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmapEEclEPS1_.exit.i102

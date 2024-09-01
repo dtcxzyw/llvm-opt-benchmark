@@ -5942,8 +5942,8 @@ define dso_local noundef zeroext i1 @intel_bios_is_port_present(ptr noundef read
 21:                                               ; preds = %24, %19
   %22 = phi ptr [ %20, %19 ], [ %23, %24 ]
   %23 = load ptr, ptr %22, align 8
-  %.not.not = icmp ne ptr %23, %20
-  br i1 %.not.not, label %24, label %.loopexit
+  %.not.not.not = icmp ne ptr %23, %20
+  br i1 %.not.not.not, label %24, label %.loopexit
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %23, i64 -32
@@ -5953,7 +5953,7 @@ define dso_local noundef zeroext i1 @intel_bios_is_port_present(ptr noundef read
   br i1 %28, label %.loopexit, label %21, !llvm.loop !76
 
 .loopexit:                                        ; preds = %24, %21, %14, %11
-  %29 = phi i1 [ true, %11 ], [ false, %14 ], [ %.not.not, %21 ], [ %.not.not, %24 ]
+  %29 = phi i1 [ true, %11 ], [ false, %14 ], [ %.not.not.not, %21 ], [ %.not.not.not, %24 ]
   ret i1 %29
 }
 

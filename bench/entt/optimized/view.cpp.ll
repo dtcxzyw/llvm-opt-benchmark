@@ -103863,23 +103863,16 @@ while.body.i.i1061:                               ; preds = %_ZNK4entt16basic_sp
 while.body.lr.ph.i.i:                             ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1081, %land.lhs.true.i.i.i.i.i.i1078, %land.rhs1.i.i.i.i1072
   %dec.i8.i.i.i1507 = add nsw i64 %dec.i.i10.i1058, -1
   %cmp.i.i.not9.i.i.i1508 = icmp eq i64 %dec.i8.i.i.i1507, 0
-  br i1 %cmp.i.i.not9.i.i.i1508, label %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread, label %land.rhs.lr.ph.i.i.i1110.preheader
+  br i1 %cmp.i.i.not9.i.i.i1508, label %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread, label %land.rhs.lr.ph.i.i.i1110
 
 while.body.lr.ph.i.i.thread:                      ; preds = %land.rhs.i.i.i1066
   %dec.i8.i.i.i1507141 = add nsw i64 %dec.i.i10.i1058, -1
   %cmp.i.i.not9.i.i.i1508142 = icmp eq i64 %dec.i8.i.i.i1507141, 0
-  br i1 %cmp.i.i.not9.i.i.i1508142, label %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread, label %land.rhs.lr.ph.i.i.i1110.us.preheader
+  br i1 %cmp.i.i.not9.i.i.i1508142, label %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread, label %land.rhs.lr.ph.i.i.i1110.us
 
-land.rhs.lr.ph.i.i.i1110.preheader:               ; preds = %while.body.lr.ph.i.i
-  br i1 %tobool.not.i.i.i.i1056, label %land.rhs.lr.ph.i.i.i1110.us.preheader, label %land.rhs.lr.ph.i.i.i1110
-
-land.rhs.lr.ph.i.i.i1110.us.preheader:            ; preds = %while.body.lr.ph.i.i.thread, %land.rhs.lr.ph.i.i.i1110.preheader
-  %dec.i8.i.i.i1510.us.ph = phi i64 [ %dec.i8.i.i.i1507141, %while.body.lr.ph.i.i.thread ], [ %dec.i8.i.i.i1507, %land.rhs.lr.ph.i.i.i1110.preheader ]
-  br label %land.rhs.lr.ph.i.i.i1110.us
-
-land.rhs.lr.ph.i.i.i1110.us:                      ; preds = %land.rhs.lr.ph.i.i.i1110.us.preheader, %land.rhs.i.i.i.i1117.us.us
-  %dec.i8.i.i.i1510.us = phi i64 [ %dec.i8.i.i.i.us, %land.rhs.i.i.i.i1117.us.us ], [ %dec.i8.i.i.i1510.us.ph, %land.rhs.lr.ph.i.i.i1110.us.preheader ]
-  %__n.07.i.i1509.us = phi i64 [ %inc.i.i.us, %land.rhs.i.i.i.i1117.us.us ], [ 0, %land.rhs.lr.ph.i.i.i1110.us.preheader ]
+land.rhs.lr.ph.i.i.i1110.us:                      ; preds = %while.body.lr.ph.i.i.thread, %land.rhs.i.i.i.i1117.us.us
+  %dec.i8.i.i.i1510.us = phi i64 [ %dec.i8.i.i.i.us, %land.rhs.i.i.i.i1117.us.us ], [ %dec.i8.i.i.i1507141, %while.body.lr.ph.i.i.thread ]
+  %__n.07.i.i1509.us = phi i64 [ %inc.i.i.us, %land.rhs.i.i.i.i1117.us.us ], [ 0, %while.body.lr.ph.i.i.thread ]
   br label %land.rhs.i.i.i1112.us.us
 
 land.rhs.i.i.i1112.us.us:                         ; preds = %_ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EE5validES3_.exit.i.i.i.us.us, %land.rhs.lr.ph.i.i.i1110.us
@@ -103906,9 +103899,9 @@ _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0EL
   store i32 1, ptr %ref.tmp252, align 4, !tbaa !22
   br label %if.then.i.i1139
 
-land.rhs.lr.ph.i.i.i1110:                         ; preds = %land.rhs.lr.ph.i.i.i1110.preheader, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split
-  %dec.i8.i.i.i1510 = phi i64 [ %dec.i8.i.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split ], [ %dec.i8.i.i.i1507, %land.rhs.lr.ph.i.i.i1110.preheader ]
-  %__n.07.i.i1509 = phi i64 [ %inc.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split ], [ 0, %land.rhs.lr.ph.i.i.i1110.preheader ]
+land.rhs.lr.ph.i.i.i1110:                         ; preds = %while.body.lr.ph.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split
+  %dec.i8.i.i.i1510 = phi i64 [ %dec.i8.i.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split ], [ %dec.i8.i.i.i1507, %while.body.lr.ph.i.i ]
+  %__n.07.i.i1509 = phi i64 [ %inc.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.split ], [ 0, %while.body.lr.ph.i.i ]
   br label %land.rhs.i.i.i1112
 
 land.rhs.i.i.i1112:                               ; preds = %_ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EE5validES3_.exit.i.i.i, %land.rhs.lr.ph.i.i.i1110

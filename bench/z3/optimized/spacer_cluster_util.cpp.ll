@@ -9059,7 +9059,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %_Z17is_uninterp_con
   %6 = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i = icmp eq i32 %6, 6
   %7 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %7, label %if.then3, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
+  br i1 %7, label %return, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
 
 _ZNK17arith_recognizers6is_addEPK4expr.exit.thread: ; preds = %land.rhs.i.i
   %8 = load i32, ptr %2, align 8
@@ -9070,11 +9070,8 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit.thread: ; preds = %land.rhs.i.i
   %10 = select i1 %cmp.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i36, i1 false
   br i1 %10, label %tailrecurse.backedge, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
 
-if.then3:                                         ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit
-  br i1 %cmp3.i, label %return, label %tailrecurse.backedge
-
-tailrecurse.backedge:                             ; preds = %if.then3, %_ZNK17arith_recognizers6is_addEPK4expr.exit.thread, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
-  %.sink = phi i64 [ 40, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ 32, %_ZNK17arith_recognizers6is_addEPK4expr.exit.thread ], [ 32, %if.then3 ]
+tailrecurse.backedge:                             ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit.thread, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
+  %.sink = phi i64 [ 40, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ 32, %_ZNK17arith_recognizers6is_addEPK4expr.exit.thread ]
   %m_args.i = getelementptr inbounds i8, ptr %e.tr22, i64 %.sink
   %e.tr.be = load ptr, ptr %m_args.i, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %e.tr.be, i64 4
@@ -9094,8 +9091,8 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit.i:    ; preds = %_ZNK17arith_recogni
   %or.cond = and i1 %13, %cmp.i10
   br i1 %or.cond, label %tailrecurse.backedge, label %return
 
-return:                                           ; preds = %land.rhs.i.i, %_Z17is_uninterp_constPK4expr.exit, %if.then3, %land.rhs.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %tailrecurse.backedge, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %land.rhs.i.i ], [ null, %tailrecurse.backedge ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %e.tr22, %land.rhs.i ], [ null, %if.then3 ], [ %e.tr22, %_Z17is_uninterp_constPK4expr.exit ]
+return:                                           ; preds = %land.rhs.i.i, %_Z17is_uninterp_constPK4expr.exit, %land.rhs.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %tailrecurse.backedge, %_ZNK17arith_recognizers6is_addEPK4expr.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %land.rhs.i.i ], [ null, %tailrecurse.backedge ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ %e.tr22, %land.rhs.i ], [ %e.tr22, %_Z17is_uninterp_constPK4expr.exit ], [ null, %_ZNK17arith_recognizers6is_addEPK4expr.exit ]
   ret ptr %retval.0
 }
 

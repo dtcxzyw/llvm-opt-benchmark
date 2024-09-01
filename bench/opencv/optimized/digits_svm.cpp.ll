@@ -1725,7 +1725,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit123.i.thread:        ; preds = %_ZNSt12_Vector_base
   call void @_ZdlPv(ptr noundef nonnull %565) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit123.i
 
-.lr.ph172.i:                                      ; preds = %.lr.ph170.i
+.preheader157.i:                                  ; preds = %.lr.ph170.i
   %641 = fadd double %644, 0x3E7AD7F29ABCAF48
   br label %646
 
@@ -1737,11 +1737,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit123.i.thread:        ; preds = %_ZNSt12_Vector_base
   %644 = fadd double %.077168.i, %643
   %645 = add nuw i64 %.076169.i, 1
   %exitcond202.not.i = icmp eq i64 %645, %umax.i
-  br i1 %exitcond202.not.i, label %.lr.ph172.i, label %.lr.ph170.i, !llvm.loop !24
+  br i1 %exitcond202.not.i, label %.preheader157.i, label %.lr.ph170.i, !llvm.loop !24
 
-646:                                              ; preds = %646, %.lr.ph172.i
-  %647 = phi ptr [ %552, %.lr.ph172.i ], [ %659, %646 ]
-  %.075171.i = phi i64 [ 0, %.lr.ph172.i ], [ %657, %646 ]
+646:                                              ; preds = %646, %.preheader157.i
+  %647 = phi ptr [ %552, %.preheader157.i ], [ %659, %646 ]
+  %.075171.i = phi i64 [ 0, %.preheader157.i ], [ %657, %646 ]
   %648 = getelementptr inbounds double, ptr %647, i64 %.075171.i
   %649 = load double, ptr %648, align 8
   %650 = fdiv double %649, %641

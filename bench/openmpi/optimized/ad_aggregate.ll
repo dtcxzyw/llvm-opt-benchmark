@@ -454,14 +454,11 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %108 = shl i64 %107, 4
   %109 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %108, i32 noundef 333, ptr noundef nonnull @.str.1) #6
   store ptr %109, ptr %102, align 8
-  br i1 %18, label %.lr.ph223.preheader, label %.preheader
-
-.lr.ph223.preheader:                              ; preds = %._crit_edge218
   %wide.trip.count251 = zext nneg i32 %8 to i64
   br label %.lr.ph223
 
-.preheader:                                       ; preds = %124, %._crit_edge218.thread, %._crit_edge218
-  %.0.lcssa = phi i32 [ 0, %._crit_edge218 ], [ 0, %._crit_edge218.thread ], [ %.1, %124 ]
+.preheader:                                       ; preds = %124, %._crit_edge218.thread
+  %.0.lcssa = phi i32 [ 0, %._crit_edge218.thread ], [ %.1, %124 ]
   br i1 %21, label %.lr.ph235, label %._crit_edge236
 
 .lr.ph235:                                        ; preds = %.preheader
@@ -470,10 +467,10 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %wide.trip.count256 = zext nneg i32 %3 to i64
   br label %126
 
-.lr.ph223:                                        ; preds = %.lr.ph223.preheader, %124
-  %indvars.iv248 = phi i64 [ 0, %.lr.ph223.preheader ], [ %indvars.iv.next249, %124 ]
-  %.0221 = phi i32 [ 0, %.lr.ph223.preheader ], [ %.1, %124 ]
-  %.0136220 = phi ptr [ %109, %.lr.ph223.preheader ], [ %.1137, %124 ]
+.lr.ph223:                                        ; preds = %._crit_edge218, %124
+  %indvars.iv248 = phi i64 [ 0, %._crit_edge218 ], [ %indvars.iv.next249, %124 ]
+  %.0221 = phi i32 [ 0, %._crit_edge218 ], [ %.1, %124 ]
+  %.0136220 = phi ptr [ %109, %._crit_edge218 ], [ %.1137, %124 ]
   %112 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv248
   %113 = load i32, ptr %112, align 4
   %.not152 = icmp eq i32 %113, 0
@@ -796,10 +793,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %wide.trip.count134 = zext nneg i32 %4 to i64
   br label %.lr.ph118
 
-.preheader:                                       ; preds = %64
-  br i1 %17, label %.lr.ph122.preheader, label %._crit_edge123
-
-.lr.ph122.preheader:                              ; preds = %.preheader
+.lr.ph122.preheader:                              ; preds = %64
   %wide.trip.count139 = zext nneg i32 %4 to i64
   br label %.lr.ph122
 
@@ -828,7 +822,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %.195 = phi i32 [ %60, %55 ], [ %.094115, %.lr.ph118 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %.preheader, label %.lr.ph118, !llvm.loop !18
+  br i1 %exitcond135.not, label %.lr.ph122.preheader, label %.lr.ph118, !llvm.loop !18
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %77
   %indvars.iv136 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next137, %77 ]
@@ -857,13 +851,12 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !19
 
-._crit_edge123:                                   ; preds = %77, %.preheader
-  %.296.lcssa = phi i32 [ %.195, %.preheader ], [ %.397, %77 ]
-  %.not = icmp eq i32 %.296.lcssa, 0
+._crit_edge123:                                   ; preds = %77
+  %.not = icmp eq i32 %.397, 0
   br i1 %.not, label %._crit_edge123.thread, label %78
 
 78:                                               ; preds = %._crit_edge123
-  %79 = tail call i32 @PMPI_Waitall(i32 noundef %.296.lcssa, ptr noundef %51, ptr noundef null) #6
+  %79 = tail call i32 @PMPI_Waitall(i32 noundef %.397, ptr noundef %51, ptr noundef null) #6
   br label %._crit_edge123.thread
 
 ._crit_edge123.thread:                            ; preds = %._crit_edge113, %78, %._crit_edge123
@@ -1029,10 +1022,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %wide.trip.count138 = zext nneg i32 %12 to i64
   br label %62
 
-.preheader:                                       ; preds = %76
-  br i1 %22, label %.lr.ph126, label %._crit_edge127
-
-.lr.ph126:                                        ; preds = %.preheader
+.lr.ph126:                                        ; preds = %76
   %61 = getelementptr inbounds i8, ptr %6, i64 64
   %wide.trip.count143 = zext nneg i32 %12 to i64
   br label %77
@@ -1063,7 +1053,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %.198 = phi i32 [ %72, %66 ], [ %.097120, %62 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %.preheader, label %62, !llvm.loop !22
+  br i1 %exitcond139.not, label %.lr.ph126, label %62, !llvm.loop !22
 
 77:                                               ; preds = %.lr.ph126, %91
   %indvars.iv140 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next141, %91 ]
@@ -1093,8 +1083,8 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
   br i1 %exitcond144.not, label %._crit_edge127, label %77, !llvm.loop !23
 
-._crit_edge127:                                   ; preds = %91, %._crit_edge117, %.preheader
-  %.2.lcssa = phi i32 [ %.198, %.preheader ], [ 0, %._crit_edge117 ], [ %.3, %91 ]
+._crit_edge127:                                   ; preds = %91, %._crit_edge117
+  %.2.lcssa = phi i32 [ 0, %._crit_edge117 ], [ %.3, %91 ]
   %92 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %.2.lcssa, ptr %92, align 8
   %93 = load i32, ptr %0, align 8

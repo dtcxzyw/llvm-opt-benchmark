@@ -633,28 +633,28 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %43 = getelementptr inbounds i8, ptr %35, i64 84
   %44 = load i32, ptr %43, align 4
   %45 = call zeroext i1 @SubTransactionIsActive(i32 noundef %44) #10
-  br i1 %45, label %._crit_edge287, label %._crit_edge284
+  br i1 %45, label %._crit_edge285, label %._crit_edge282
 
-._crit_edge287:                                   ; preds = %42
-  %.pre288 = load ptr, ptr @CurrentMemoryContext, align 8
+._crit_edge285:                                   ; preds = %42
+  %.pre286 = load ptr, ptr @CurrentMemoryContext, align 8
   br label %288
 
-._crit_edge284:                                   ; preds = %42
+._crit_edge282:                                   ; preds = %42
   %.pre = load ptr, ptr %0, align 8
   br label %46
 
-46:                                               ; preds = %._crit_edge284, %36
-  %47 = phi ptr [ %.pre, %._crit_edge284 ], [ %11, %36 ]
+46:                                               ; preds = %._crit_edge282, %36
+  %47 = phi ptr [ %.pre, %._crit_edge282 ], [ %11, %36 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %35, i64 72
   %50 = load ptr, ptr %49, align 8
   call void @MemoryContextDelete(ptr noundef %50) #10
-  %.pre285 = load ptr, ptr %0, align 8
+  %.pre283 = load ptr, ptr %0, align 8
   br label %51
 
 51:                                               ; preds = %46, %33
-  %52 = phi ptr [ %.pre285, %46 ], [ %11, %33 ]
+  %52 = phi ptr [ %.pre283, %46 ], [ %11, %33 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load i32, ptr %53, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -841,11 +841,11 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %.sink.i = phi ptr [ %158, %156 ], [ %161, %159 ]
   %162 = getelementptr inbounds i8, ptr %61, i64 56
   store ptr %.sink.i, ptr %162, align 8
-  %.pre286 = load i8, ptr %147, align 8
+  %.pre284 = load i8, ptr %147, align 8
   br label %163
 
 163:                                              ; preds = %.sink.split.i, %.thread.i
-  %164 = phi i8 [ %.pre286, %.sink.split.i ], [ %148, %.thread.i ]
+  %164 = phi i8 [ %.pre284, %.sink.split.i ], [ %148, %.thread.i ]
   %165 = trunc i8 %164 to i1
   br i1 %165, label %166, label %174
 
@@ -1097,9 +1097,9 @@ init_sql_fcache.exit:                             ; preds = %180, %.lr.ph107.i.i
   %287 = load ptr, ptr %286, align 8
   br label %288
 
-288:                                              ; preds = %._crit_edge287, %init_sql_fcache.exit
-  %289 = phi ptr [ %60, %init_sql_fcache.exit ], [ %.pre288, %._crit_edge287 ]
-  %.1 = phi ptr [ %287, %init_sql_fcache.exit ], [ %35, %._crit_edge287 ]
+288:                                              ; preds = %._crit_edge285, %init_sql_fcache.exit
+  %289 = phi ptr [ %60, %init_sql_fcache.exit ], [ %.pre286, %._crit_edge285 ]
+  %.1 = phi ptr [ %287, %init_sql_fcache.exit ], [ %35, %._crit_edge285 ]
   %290 = getelementptr inbounds i8, ptr %.1, i64 72
   %291 = load ptr, ptr %290, align 8
   store ptr %291, ptr @CurrentMemoryContext, align 8
@@ -1376,7 +1376,7 @@ postquel_start.exit:                              ; preds = %400, %404
   %429 = getelementptr inbounds i8, ptr %418, i64 40
   %430 = load ptr, ptr %429, align 8
   call void @ProcessUtility(ptr noundef %423, ptr noundef %424, i1 noundef zeroext true, i32 noundef 1, ptr noundef %426, ptr noundef %428, ptr noundef %430, ptr noundef null) #10
-  %.pre289 = load ptr, ptr %417, align 8
+  %.pre287 = load ptr, ptr %417, align 8
   br label %postquel_getnext.exit.thread
 
 431:                                              ; preds = %416
@@ -1390,11 +1390,11 @@ postquel_start.exit:                              ; preds = %400, %404
   %436 = xor i1 %.demorgan.i, true
   call void @ExecutorRun(ptr noundef nonnull %418, i32 noundef 1, i64 noundef %434, i1 noundef zeroext %436) #10
   %437 = icmp eq i8 %.mask.i, 0
-  %.pre290 = load ptr, ptr %417, align 8
+  %.pre288 = load ptr, ptr %417, align 8
   br i1 %437, label %postquel_getnext.exit.thread, label %postquel_getnext.exit
 
 postquel_getnext.exit:                            ; preds = %431
-  %438 = getelementptr inbounds i8, ptr %.pre290, i64 80
+  %438 = getelementptr inbounds i8, ptr %.pre288, i64 80
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 176
   %441 = load i64, ptr %440, align 8
@@ -1407,7 +1407,7 @@ postquel_getnext.exit:                            ; preds = %431
   br i1 %445, label %456, label %postquel_getnext.exit.thread
 
 postquel_getnext.exit.thread:                     ; preds = %431, %421, %443, %postquel_getnext.exit
-  %446 = phi ptr [ %.pre290, %431 ], [ %.pre289, %421 ], [ %.pre290, %443 ], [ %.pre290, %postquel_getnext.exit ]
+  %446 = phi ptr [ %.pre288, %431 ], [ %.pre287, %421 ], [ %.pre288, %443 ], [ %.pre288, %postquel_getnext.exit ]
   store i32 2, ptr %364, align 8
   %447 = load i32, ptr %446, align 8
   %.not.i179 = icmp eq i32 %447, 6
@@ -1744,9 +1744,9 @@ postquel_get_single_result.exit186:               ; preds = %573, %slot_getattr.
 
 .lr.ph267:                                        ; preds = %.lr.ph264, %._crit_edge261
   %611 = phi i32 [ %615, %._crit_edge261 ], [ %609, %.lr.ph264 ]
-  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %._crit_edge261 ], [ 0, %.lr.ph264 ]
+  %indvars.iv279 = phi i64 [ %indvars.iv.next280, %._crit_edge261 ], [ 0, %.lr.ph264 ]
   %612 = load ptr, ptr %608, align 8
-  %613 = getelementptr %union.ListCell, ptr %612, i64 %indvars.iv281
+  %613 = getelementptr %union.ListCell, ptr %612, i64 %indvars.iv279
   %.5141256 = load ptr, ptr %613, align 8
   %.not168257 = icmp eq ptr %.5141256, null
   br i1 %.not168257, label %._crit_edge261, label %.lr.ph260
@@ -1760,14 +1760,14 @@ postquel_get_single_result.exit186:               ; preds = %573, %slot_getattr.
   br i1 %.not168, label %._crit_edge261.loopexit, label %.lr.ph260, !llvm.loop !12
 
 ._crit_edge261.loopexit:                          ; preds = %.lr.ph260
-  %.pre291 = load i32, ptr %607, align 4
+  %.pre289 = load i32, ptr %607, align 4
   br label %._crit_edge261
 
 ._crit_edge261:                                   ; preds = %._crit_edge261.loopexit, %.lr.ph267
-  %615 = phi i32 [ %.pre291, %._crit_edge261.loopexit ], [ %611, %.lr.ph267 ]
-  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
+  %615 = phi i32 [ %.pre289, %._crit_edge261.loopexit ], [ %611, %.lr.ph267 ]
+  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %616 = sext i32 %615 to i64
-  %617 = icmp slt i64 %indvars.iv.next282, %616
+  %617 = icmp slt i64 %indvars.iv.next280, %616
   br i1 %617, label %.lr.ph267, label %.thread209
 
 .thread209:                                       ; preds = %._crit_edge261, %605, %.lr.ph264, %604

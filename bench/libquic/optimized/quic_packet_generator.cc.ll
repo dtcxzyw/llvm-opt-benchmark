@@ -572,9 +572,9 @@ if.end22.i:                                       ; preds = %_ZNK3net19QuicPacke
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13.i)
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp26.i)
   %call23.i = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %.pre82 = load ptr, ptr %_M_finish.i.i.i.i45, align 8
+  %.pre81 = load ptr, ptr %_M_finish.i.i.i.i45, align 8
   %11 = load ptr, ptr %queued_control_frames_.i.i44, align 8
-  %cmp.i.i.i = icmp eq ptr %11, %.pre82
+  %cmp.i.i.i = icmp eq ptr %11, %.pre81
   %or.cond = select i1 %call23.i, i1 %cmp.i.i.i, i1 false
   br i1 %or.cond, label %cond.false.i, label %cleanup.done.i
 
@@ -589,7 +589,7 @@ invoke.cont28.i:                                  ; preds = %cond.false.i
   br label %cleanup.done.i
 
 cleanup.done.i:                                   ; preds = %invoke.cont28.i, %if.end22.i
-  %12 = phi ptr [ %.pre, %invoke.cont28.i ], [ %.pre82, %if.end22.i ]
+  %12 = phi ptr [ %.pre, %invoke.cont28.i ], [ %.pre81, %if.end22.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 -16
   %call37.i = call noundef zeroext i1 @_ZN3net17QuicPacketCreator13AddSavedFrameERKNS_9QuicFrameE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i)
   br i1 %call37.i, label %if.end39.i, label %_ZN3net19QuicPacketGenerator19AddNextPendingFrameEv.exit

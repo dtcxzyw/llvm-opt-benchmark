@@ -620,8 +620,8 @@ for.cond:                                         ; preds = %is_help_option.exit
   %opt.0.in.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %opt.0.in = load ptr, ptr %opt.0.in.in, align 8
   %opt.0 = load ptr, ptr %opt.0.in, align 8
-  %tobool.not.not = icmp ne ptr %opt.0, null
-  br i1 %tobool.not.not, label %for.body, label %return
+  %tobool.not.not.not.not.not.not = icmp ne ptr %opt.0, null
+  br i1 %tobool.not.not.not.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %0 = load ptr, ptr %opt.0, align 8
@@ -641,7 +641,7 @@ is_help_option.exit:                              ; preds = %for.body, %entry.ta
   br i1 %tobool2.not.i, label %return, label %for.cond, !llvm.loop !11
 
 return:                                           ; preds = %entry.tail.i, %for.cond, %is_help_option.exit
-  ret i1 %tobool.not.not
+  ret i1 %tobool.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1927,8 +1927,8 @@ entry:
 for.cond:                                         ; preds = %for.body, %entry
   %p.0 = phi ptr [ %params, %entry ], [ %call, %for.body ]
   %0 = load i8, ptr %p.0, align 1
-  %tobool.not.not = icmp ne i8 %0, 0
-  br i1 %tobool.not.not, label %for.body, label %return
+  %tobool.not.not.not.not.not.not = icmp ne i8 %0, 0
+  br i1 %tobool.not.not.not.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.0, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %ret, ptr noundef nonnull %name, ptr noundef nonnull %value)
@@ -1941,7 +1941,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool1, label %return, label %for.cond, !llvm.loop !18
 
 return:                                           ; preds = %for.cond, %for.body
-  ret i1 %tobool.not.not
+  ret i1 %tobool.not.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2313,29 +2313,29 @@ opt_validate.exit:                                ; preds = %for.body.i.i, %if.e
   br i1 %call6.i, label %for.cond.backedge, label %if.then10
 
 if.then10:                                        ; preds = %opt_validate.exit, %opt_validate.exit.thread
-  %tql_prev5.i55 = getelementptr inbounds i8, ptr %call.i, i64 48
-  %next.i57 = getelementptr inbounds i8, ptr %call.i, i64 40
-  %str.i61 = getelementptr inbounds i8, ptr %call.i, i64 8
-  %25 = load ptr, ptr %next.i57, align 8
+  %tql_prev5.i51 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %next.i53 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %str.i57 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %25 = load ptr, ptr %next.i53, align 8
   %cmp.not.i = icmp eq ptr %25, null
-  %26 = load ptr, ptr %tql_prev5.i55, align 8
+  %26 = load ptr, ptr %tql_prev5.i51, align 8
   br i1 %cmp.not.i, label %if.else.i, label %qemu_opt_del.exit
 
 if.else.i:                                        ; preds = %if.then10
-  %opts3.i59 = getelementptr inbounds i8, ptr %call.i, i64 32
-  %27 = load ptr, ptr %opts3.i59, align 8
+  %opts3.i55 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %27 = load ptr, ptr %opts3.i55, align 8
   br label %qemu_opt_del.exit
 
 qemu_opt_del.exit:                                ; preds = %if.then10, %if.else.i
   %.sink.i = phi ptr [ %27, %if.else.i ], [ %25, %if.then10 ]
   %tql_prev7.i = getelementptr inbounds i8, ptr %.sink.i, i64 48
   store ptr %26, ptr %tql_prev7.i, align 8
-  %28 = load ptr, ptr %next.i57, align 8
+  %28 = load ptr, ptr %next.i53, align 8
   store ptr %28, ptr %26, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i57, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i53, i8 0, i64 16, i1 false)
   %29 = load ptr, ptr %call.i, align 8
   tail call void @g_free(ptr noundef %29) #20
-  %30 = load ptr, ptr %str.i61, align 8
+  %30 = load ptr, ptr %str.i57, align 8
   tail call void @g_free(ptr noundef %30) #20
   tail call void @g_free(ptr noundef nonnull %call.i) #20
   br label %return
@@ -2916,8 +2916,8 @@ find_desc_by_name.exit:                           ; preds = %for.body.i, %for.bo
   br i1 %call8, label %for.cond, label %return, !llvm.loop !27
 
 return:                                           ; preds = %for.cond, %find_desc_by_name.exit, %find_desc_by_name.exit.thread
-  %tobool.not30 = phi i1 [ false, %find_desc_by_name.exit.thread ], [ true, %for.cond ], [ %tobool.not, %find_desc_by_name.exit ]
-  ret i1 %tobool.not30
+  %tobool.not56 = phi i1 [ false, %find_desc_by_name.exit.thread ], [ %tobool.not, %find_desc_by_name.exit ], [ %tobool.not, %for.cond ]
+  ret i1 %tobool.not56
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

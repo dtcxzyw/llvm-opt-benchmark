@@ -100,9 +100,6 @@ entry:
   %cmp92 = icmp sgt i32 %call, 0
   br i1 %cmp92, label %if.end, label %for.end107
 
-if.then:                                          ; preds = %if.then103
-  br i1 %cmp92, label %err, label %for.end107
-
 if.end:                                           ; preds = %entry, %if.then103
   %slen.096 = phi i32 [ %slen.1, %if.then103 ], [ 0, %entry ]
   %num.095 = phi i32 [ %add, %if.then103 ], [ 0, %entry ]
@@ -270,18 +267,18 @@ for.end100:                                       ; preds = %for.inc97, %if.end6
 if.then103:                                       ; preds = %for.end100
   %call104 = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef %size) #3
   %cmp = icmp slt i32 %call104, 1
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %err, label %if.end
 
-for.end107:                                       ; preds = %for.end100, %entry, %if.then
-  %s.1 = phi ptr [ %s.2, %if.then ], [ null, %entry ], [ %s.2, %for.end100 ]
-  %num.1 = phi i32 [ %add, %if.then ], [ 0, %entry ], [ %add, %for.end100 ]
+for.end107:                                       ; preds = %for.end100, %entry
+  %s.1 = phi ptr [ null, %entry ], [ %s.2, %for.end100 ]
+  %num.1 = phi i32 [ 0, %entry ], [ %add, %for.end100 ]
   store i32 %num.1, ptr %bs, align 8
   %data = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %s.1, ptr %data, align 8
   br label %return
 
-err:                                              ; preds = %for.end, %if.end22, %if.end7, %for.end.thread, %if.then
-  %s.079 = phi ptr [ %s.2, %if.then ], [ %s.094, %for.end.thread ], [ %s.094, %if.end7 ], [ %s.094, %if.end22 ], [ %s.094, %for.end ]
+err:                                              ; preds = %for.end, %if.end22, %if.end7, %if.then103, %for.end.thread
+  %s.079 = phi ptr [ %s.094, %for.end.thread ], [ %s.094, %for.end ], [ %s.094, %if.end22 ], [ %s.094, %if.end7 ], [ %s.2, %if.then103 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 131, ptr noundef nonnull @__func__.a2i_ASN1_STRING) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 150, ptr noundef null) #3

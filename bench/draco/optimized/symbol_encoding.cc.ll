@@ -947,7 +947,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %spec.select.i.i.i = select i1 %124, ptr %110, ptr %.19.i.i.i.i
   br label %.thread86
 
-.thread86:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
+.thread86:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.sroa.0.0.i.i.i = phi ptr [ %110, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
   %.not = icmp eq ptr %.sroa.0.0.i.i.i, %110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
@@ -1489,7 +1489,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %spec.select.i.i.i = select i1 %38, ptr %24, ptr %.19.i.i.i.i
   br label %.thread118
 
-.thread118:                                       ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
+.thread118:                                       ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.sroa.0.0.i.i.i = phi ptr [ %24, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
   %.not = icmp eq ptr %.sroa.0.0.i.i.i, %24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
@@ -2318,12 +2318,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -2352,9 +2349,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !23
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2689,7 +2685,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -2775,15 +2771,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !26
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -7840,12 +7836,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -7874,9 +7867,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !85
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8169,7 +8161,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -8255,15 +8247,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !87
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !87
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !88
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -9801,12 +9793,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -9835,9 +9824,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !107
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10130,7 +10118,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -10216,15 +10204,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !109
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !109
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !110
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -11762,12 +11750,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -11796,9 +11781,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !129
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -12091,7 +12075,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -12177,15 +12161,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !131
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !131
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !132
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -13723,12 +13707,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -13757,9 +13738,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !151
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -14052,7 +14032,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -14138,15 +14118,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !153
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !153
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !154
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -15684,12 +15664,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -15718,9 +15695,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !173
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -16013,7 +15989,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -16099,15 +16075,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !175
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !175
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !176
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -17645,12 +17621,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -17679,9 +17652,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !195
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17974,7 +17946,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -18060,15 +18032,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !197
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !197
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !198
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -19606,12 +19578,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 4096
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -19640,9 +19609,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !217
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -19935,7 +19903,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -20021,15 +19989,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !219
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !219
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !220
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -21567,12 +21535,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 8192
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -21601,9 +21566,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !239
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -21897,7 +21861,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -21983,15 +21947,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !241
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !241
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !242
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -23529,12 +23493,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 32768
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -23563,9 +23524,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !261
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -23859,7 +23819,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -23945,15 +23905,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !263
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !263
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !264
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !264
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -25491,12 +25451,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 65536
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -25525,9 +25482,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !283
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -25821,7 +25777,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -25907,15 +25863,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !285
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !285
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !286
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -27453,12 +27409,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 262144
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -27487,9 +27440,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !305
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -27783,7 +27735,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -27869,15 +27821,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !307
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !307
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !308
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !308
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -29415,12 +29367,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 524288
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -29449,9 +29398,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !327
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -29745,7 +29693,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -29831,15 +29779,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !329
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !329
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !330
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !330
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -31377,12 +31325,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 1048576
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -31411,9 +31356,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !349
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -31707,7 +31651,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -31793,15 +31737,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !351
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !351
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !352
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !352
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -33339,12 +33283,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 1048576
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -33373,9 +33314,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !371
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -33669,7 +33609,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -33755,15 +33695,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !373
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !373
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !374
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !374
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -35301,12 +35241,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 1048576
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -35335,9 +35272,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !393
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -35631,7 +35567,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -35717,15 +35653,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !395
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !395
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !396
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !396
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -37263,12 +37199,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 1048576
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -37297,9 +37230,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !415
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -37593,7 +37525,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -37679,15 +37611,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !417
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !417
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !418
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !418
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]
@@ -39225,12 +39157,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge185:                                   ; preds = %.lr.ph184
   %104 = icmp eq i32 %103, 1048576
-  br i1 %104, label %.preheader, label %._crit_edge185.thread
+  br i1 %104, label %.lr.ph190.preheader, label %._crit_edge185.thread
 
-.preheader:                                       ; preds = %._crit_edge185
-  br i1 %.not157, label %._crit_edge191, label %.lr.ph190.preheader
-
-.lr.ph190.preheader:                              ; preds = %.preheader
+.lr.ph190.preheader:                              ; preds = %._crit_edge185
   %wide.trip.count222 = zext i32 %10 to i64
   br label %.lr.ph190
 
@@ -39259,9 +39188,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit127.thread:          ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !437
 
-._crit_edge191:                                   ; preds = %117, %.preheader
-  %.092.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.193, %117 ]
-  %118 = fneg double %.092.lcssa
+._crit_edge191:                                   ; preds = %117
+  %118 = fneg double %.193
   %119 = tail call double @llvm.ceil.f64(double %118)
   %120 = fptoui double %119 to i64
   %121 = getelementptr inbounds i8, ptr %0, i64 32
@@ -39555,7 +39483,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34:  ; preds = %.thread, %53
   br i1 %61, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax54 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
+  %umax55 = call i32 @llvm.umax.i32(i32 %.03137, i32 1)
   br label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
@@ -39641,15 +39569,15 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond55.not = icmp eq i32 %63, %umax54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !439
+  %exitcond56.not = icmp eq i32 %63, %umax55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !439
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %.1 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit34 ], [ %.03248, %.lr.ph ], [ %.03248, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35 ]
   %94 = add i32 %.1, 1
   %95 = load i32, ptr %5, align 8
-  %.not57 = icmp ult i32 %94, %95
-  br i1 %.not57, label %15, label %._crit_edge, !llvm.loop !440
+  %.not52 = icmp ult i32 %94, %95
+  br i1 %.not52, label %15, label %._crit_edge, !llvm.loop !440
 
 ._crit_edge:                                      ; preds = %23, %.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ true, %.loopexit ], [ false, %23 ]

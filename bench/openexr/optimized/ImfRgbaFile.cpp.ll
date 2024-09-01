@@ -2939,12 +2939,9 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %29 = load ptr, ptr %arrayidx74, align 8
   tail call void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %sub70, ptr noundef %29)
   %cmp68 = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp68, label %for.body69, label %for.end77, !llvm.loop !23
+  br i1 %cmp68, label %for.body69, label %for.body85.lr.ph, !llvm.loop !23
 
-for.end77:                                        ; preds = %for.body69
-  br i1 %cmp6879.not, label %if.end120, label %for.body85.lr.ph
-
-for.body85.lr.ph:                                 ; preds = %for.end77
+for.body85.lr.ph:                                 ; preds = %for.body69
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 3)
   %sub83 = sub nsw i32 2, %.sroa.speculated
   %_yw90 = getelementptr inbounds i8, ptr %this, i64 80
@@ -2987,7 +2984,7 @@ for.inc117:                                       ; preds = %if.then89, %if.else
   %cmp84 = icmp sgt i64 %indvars.iv.next91, %30
   br i1 %cmp84, label %for.body85, label %if.end120, !llvm.loop !24
 
-if.end120:                                        ; preds = %for.inc117, %for.inc57, %if.else59, %for.end77
+if.end120:                                        ; preds = %for.inc117, %for.inc57, %if.else59
   %_yw121 = getelementptr inbounds i8, ptr %this, i64 80
   %_width122 = getelementptr inbounds i8, ptr %this, i64 64
   %40 = load i32, ptr %_width122, align 8

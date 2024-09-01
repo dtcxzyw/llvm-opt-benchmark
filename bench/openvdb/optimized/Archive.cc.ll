@@ -76526,8 +76526,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i24
 lor.lhs.false13:                                  ; preds = %if.end
   %and.i26 = and i32 %which, 8
   %cmp15.not = icmp eq i32 %and.i26, 0
-  %or.cond = or i1 %cmp15.not, %tobool.not.i
-  br i1 %or.cond, label %land.lhs.true53, label %if.then18
+  br i1 %cmp15.not, label %land.lhs.true53, label %if.then18
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.then10, %land.lhs.true.i24, %if.then.i, %lor.lhs.false13
   %call19 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4gptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
@@ -76607,8 +76606,8 @@ land.lhs.true53:                                  ; preds = %entry, %lor.lhs.fal
   %cmp55.not = icmp eq i32 %and.i27, 0
   %17 = load ptr, ptr %obeg_.i2129, align 8
   %cmp57.not = icmp eq ptr %17, null
-  %or.cond49 = select i1 %cmp55.not, i1 true, i1 %cmp57.not
-  br i1 %or.cond49, label %if.end100, label %if.then58
+  %or.cond = select i1 %cmp55.not, i1 true, i1 %cmp57.not
+  br i1 %or.cond, label %if.end100, label %if.then58
 
 if.then58:                                        ; preds = %land.lhs.true53
   %call59 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)

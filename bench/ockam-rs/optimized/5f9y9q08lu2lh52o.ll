@@ -24538,8 +24538,8 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$ockam_node..delayed..Delayed
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !alias.scope !9553, !noundef !4
   store ptr null, ptr %3, align 8, !alias.scope !9553
-  %.not.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.not.i.i, label %"_ZN84_$LT$ockam_node..delayed..DelayedEvent$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h923c88213e9dd6f7E.llvm.12663281897316000666.exit", label %5
+  %.not.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i, label %"_ZN84_$LT$ockam_node..delayed..DelayedEvent$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h923c88213e9dd6f7E.llvm.12663281897316000666.exit", label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !9553
@@ -30271,8 +30271,8 @@ define hidden void @"_ZN84_$LT$ockam_node..delayed..DelayedEvent$LT$M$GT$$u20$as
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !alias.scope !10784, !noundef !4
   store ptr null, ptr %3, align 8, !alias.scope !10784
-  %.not.not.i = icmp eq ptr %4, null
-  br i1 %.not.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit", label %5
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$6cancel17hf1db6b4d04a054b1E.exit", label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !10784

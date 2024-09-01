@@ -5,8 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h38790ad2de5b8fbfE"(ptr align 1 %0, ptr %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.not.not = icmp eq ptr %0, null
-  br i1 %.not.not, label %.thread, label %4
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %3
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h136d81a2d331e9c5E"(ptr nonnull align 1 %0, ptr align 8 %1, ptr align 1 %2)

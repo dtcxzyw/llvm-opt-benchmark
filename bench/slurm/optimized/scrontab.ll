@@ -489,7 +489,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
   %150 = phi ptr [ %149, %.lr.ph.lr.ph.i ], [ %237, %.outer.backedge.i ]
   %.089.ph170.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.089.ph.be.i, %.outer.backedge.i ]
   %.090.ph169.i = phi i32 [ -1, %.lr.ph.lr.ph.i ], [ %.090.ph.be.i, %.outer.backedge.i ]
-  %.092.ph168.i = phi i1 [ true, %.lr.ph.lr.ph.i ], [ %.not109.i.not, %.outer.backedge.i ]
+  %.092.ph168.i = phi i1 [ true, %.lr.ph.lr.ph.i ], [ %.not109.not.not.i.not.not.not.not.not, %.outer.backedge.i ]
   %151 = sext i32 %.089.ph170.i to i64
   br label %152
 
@@ -545,8 +545,8 @@ _reset_options.exit.i:                            ; preds = %154
 
 167:                                              ; preds = %161
   %168 = call i32 @xstrncmp(ptr noundef nonnull %.091.i, ptr noundef nonnull @.str.21, i64 noundef 6) #17
-  %.not109.i.not = icmp ne i32 %168, 0
-  br i1 %.not109.i.not, label %177, label %169
+  %.not109.not.not.i.not.not.not.not.not = icmp ne i32 %168, 0
+  br i1 %.not109.not.not.i.not.not.not.not.not, label %177, label %169
 
 169:                                              ; preds = %167
   %170 = trunc nsw i64 %indvars.iv.i to i32
@@ -696,9 +696,9 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %_entry_to_job.exit.i, %175
-  %.089166180.i = phi i32 [ %170, %175 ], [ %189, %_entry_to_job.exit.i ]
+  %.089166182.i = phi i32 [ %170, %175 ], [ %189, %_entry_to_job.exit.i ]
   %.090.ph.be.i = phi i32 [ %spec.select.i, %175 ], [ -1, %_entry_to_job.exit.i ]
-  %.089.ph.be.i = add nsw i32 %.089166180.i, 1
+  %.089.ph.be.i = add nsw i32 %.089166182.i, 1
   %234 = load ptr, ptr %5, align 8
   %235 = sext i32 %.089.ph.be.i to i64
   %236 = getelementptr inbounds ptr, ptr %234, i64 %235

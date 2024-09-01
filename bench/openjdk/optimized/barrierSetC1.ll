@@ -647,7 +647,7 @@ define hidden void @_ZN12BarrierSetC117store_at_resolvedER9LIRAccess7LIR_Opr(ptr
   %9 = trunc i8 %8 to i1
   %10 = select i1 %7, i1 true, i1 %9
   %11 = and i64 %5, 2147483648
-  %.not = icmp eq i64 %11, 0
+  %.not.not = icmp eq i64 %11, 0
   %12 = and i64 %5, 4294967296
   %.not29 = icmp eq i64 %12, 0
   %13 = load ptr, ptr %1, align 8
@@ -717,14 +717,14 @@ _ZNK13LIRAddressOpr3oprEv.exit:                   ; preds = %18, %28, %33, %44
   br i1 %10, label %50, label %.thread
 
 .thread:                                          ; preds = %48
-  %49 = select i1 %.not, i32 0, i32 3
+  %49 = select i1 %.not.not, i32 0, i32 3
   br label %61
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %13, i64 144
   %52 = load ptr, ptr %51, align 8
   tail call void @_ZN8LIR_List14membar_releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %52)
-  br i1 %.not, label %.thread36, label %61
+  br i1 %.not.not, label %.thread36, label %61
 
 .thread36:                                        ; preds = %50
   %53 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1911,7 +1911,7 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZNK13LIRAddressOpr
   %61 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %62 = sext i32 %61 to i64
   %.not.not = icmp eq i64 %60, %62
-  br i1 %.not.not, label %63, label %.thread114
+  br i1 %.not.not, label %63, label %.thread113
 
 63:                                               ; preds = %59, %_ZNK7LIR_Opr11is_constantEv.exit, %_ZNK13LIRAddressOpr3oprEv.exit
   %.06796 = phi i1 [ false, %59 ], [ true, %_ZNK7LIR_Opr11is_constantEv.exit ], [ true, %_ZNK13LIRAddressOpr3oprEv.exit ]
@@ -1922,9 +1922,9 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZNK13LIRAddressOpr
   %68 = getelementptr inbounds i8, ptr %67, i64 80
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(16) %66) #6
-  %.not102 = icmp eq ptr %70, null
-  %spec.select = zext i1 %.not102 to i8
-  br i1 %.not102, label %71, label %86
+  %.not = icmp eq ptr %70, null
+  %spec.select = zext i1 %.not to i8
+  br i1 %.not, label %71, label %86
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %6, align 8
@@ -1932,8 +1932,8 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZNK13LIRAddressOpr
   %74 = getelementptr inbounds i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(96) %72) #6
-  %.not103 = icmp eq ptr %76, null
-  br i1 %.not103, label %86, label %77
+  %.not102 = icmp eq ptr %76, null
+  br i1 %.not102, label %86, label %77
 
 77:                                               ; preds = %71
   %78 = tail call noundef ptr @_ZNK7LIRItem20get_jobject_constantEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #6
@@ -2004,7 +2004,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %94, %_ZNK10ciMetada
   %.069 = phi i1 [ true, %103 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %88 ], [ true, %86 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ true, %108 ]
   %.3 = phi i8 [ %.2, %103 ], [ %.2, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.2, %88 ], [ %.2, %86 ], [ %.2, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %spec.select77, %108 ]
   %112 = trunc nuw i8 %.3 to i1
-  br i1 %112, label %113, label %.thread114
+  br i1 %112, label %113, label %.thread113
 
 113:                                              ; preds = %111
   %114 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 noundef zeroext 12) #6
@@ -2247,7 +2247,7 @@ _ZN11LIR_OprFact8oopConstEP8_jobject.exit:        ; preds = %_ZN22CompilationRes
 
 239:                                              ; preds = %_ZN11LIR_OprFact8oopConstEP8_jobject.exit, %212
   %240 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 noundef zeroext 17) #6
-  br i1 %.069, label %241, label %.thread114
+  br i1 %.069, label %241, label %.thread113
 
 241:                                              ; preds = %239
   tail call void @_ZN12LIRGenerator10load_klassE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %4, i64 %114, i64 %240, ptr noundef null) #6
@@ -2345,9 +2345,9 @@ _ZN11LIR_OprFact8intConstEi.exit87:               ; preds = %_ZN22CompilationRes
   tail call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %270, i32 noundef 0, i64 %268, i64 %292, ptr noundef null)
   %293 = load ptr, ptr %115, align 8
   tail call void @_ZN8LIR_List6branchE13LIR_ConditionP5Label(ptr noundef nonnull align 8 dereferenceable(32) %293, i32 noundef 0, ptr noundef %2)
-  br label %.thread114
+  br label %.thread113
 
-.thread114:                                       ; preds = %59, %239, %_ZN11LIR_OprFact8intConstEi.exit87, %111
+.thread113:                                       ; preds = %59, %239, %_ZN11LIR_OprFact8intConstEi.exit87, %111
   ret void
 }
 

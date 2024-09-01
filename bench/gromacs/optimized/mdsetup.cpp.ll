@@ -137,8 +137,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit81:                  ; preds = %57, %59
 60:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %61 = getelementptr inbounds i8, ptr %4, i64 224
   %62 = load ptr, ptr %61, align 8
-  %.not108.not = icmp eq ptr %62, null
-  br i1 %.not108.not, label %75, label %63
+  %.not108 = icmp eq ptr %62, null
+  br i1 %.not108, label %75, label %63
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %14, align 8

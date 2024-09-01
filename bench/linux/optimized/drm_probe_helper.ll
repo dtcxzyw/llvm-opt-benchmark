@@ -603,8 +603,8 @@ define dso_local i32 @drm_helper_probe_single_connector_modes(ptr noundef %0, i3
 105:                                              ; preds = %102, %94, %91
   call void @drm_kms_helper_poll_enable(ptr noundef %5)
   %106 = load i32, ptr %16, align 8
-  %.not = icmp ne i32 %106, 2
-  br i1 %.not, label %111, label %107
+  %.not.not.not.not.not = icmp ne i32 %106, 2
+  br i1 %.not.not.not.not.not, label %111, label %107
 
 107:                                              ; preds = %105
   %108 = load i32, ptr %10, align 8
@@ -748,7 +748,7 @@ thread-pre-split:                                 ; preds = %119
 
 .loopexit24:                                      ; preds = %181, %107
   %185 = phi i32 [ %33, %107 ], [ %182, %181 ]
-  call void @drm_mode_prune_invalid(ptr noundef %5, ptr noundef %15, i1 noundef zeroext %.not) #6
+  call void @drm_mode_prune_invalid(ptr noundef %5, ptr noundef %15, i1 noundef zeroext %.not.not.not.not.not) #6
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %178, %175, %.loopexit24

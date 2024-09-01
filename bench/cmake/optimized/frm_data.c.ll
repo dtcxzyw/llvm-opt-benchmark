@@ -133,8 +133,8 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
   br i1 %51, label %45, label %After_Last_Non_Pad_Position.exit, !llvm.loop !5
 
 After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
-  %.not85 = icmp ne ptr %.0.i, %.052
-  br i1 %.not85, label %.loopexit, label %52
+  %.not85.not = icmp ne ptr %.0.i, %.052
+  br i1 %.not85.not, label %.loopexit, label %52
 
 52:                                               ; preds = %After_Last_Non_Pad_Position.exit
   %53 = load i16, ptr %9, align 4
@@ -191,11 +191,11 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
   br i1 %88, label %82, label %After_Last_Non_Pad_Position.exit67, !llvm.loop !5
 
 After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
-  %.not64.not = icmp ne ptr %.0.i66, %.052
-  br i1 %.not64.not, label %.loopexit, label %67, !llvm.loop !8
+  %.not64.not.not = icmp ne ptr %.0.i66, %.052
+  br i1 %.not64.not.not, label %.loopexit, label %67, !llvm.loop !8
 
 .loopexit:                                        ; preds = %67, %After_Last_Non_Pad_Position.exit67, %52, %After_Last_Non_Pad_Position.exit, %58, %23
-  %.156 = phi i1 [ false, %23 ], [ false, %58 ], [ %.not85, %After_Last_Non_Pad_Position.exit ], [ %.not85, %52 ], [ %.not64.not, %After_Last_Non_Pad_Position.exit67 ], [ %.not64.not, %67 ]
+  %.156 = phi i1 [ false, %23 ], [ false, %58 ], [ %.not85.not, %After_Last_Non_Pad_Position.exit ], [ %.not85.not, %52 ], [ %.not64.not.not, %After_Last_Non_Pad_Position.exit67 ], [ %.not64.not.not, %67 ]
   %.154 = phi i1 [ false, %23 ], [ false, %58 ], [ true, %After_Last_Non_Pad_Position.exit ], [ true, %52 ], [ true, %After_Last_Non_Pad_Position.exit67 ], [ true, %67 ]
   br i1 %11, label %89, label %90
 

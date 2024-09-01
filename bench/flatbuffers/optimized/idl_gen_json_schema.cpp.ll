@@ -5851,9 +5851,9 @@ for.body22.lr.ph.i:                               ; preds = %if.end9.i
   %sub17.i = xor i32 %notmask.i, -1
   %and18.i = and i32 %sub17.i, %conv37.i
   %5 = add nsw i32 %len.031.i, -2
-  %scevgep67 = getelementptr i8, ptr %scevgep, i64 %conv55
+  %scevgep60 = getelementptr i8, ptr %scevgep, i64 %conv55
   %6 = zext i32 %indvars.iv to i64
-  %scevgep69 = getelementptr i8, ptr %scevgep67, i64 %6
+  %scevgep62 = getelementptr i8, ptr %scevgep60, i64 %6
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %if.end27.i, %for.body22.lr.ph.i
@@ -5906,7 +5906,7 @@ default.unreachable.i:                            ; preds = %if.end38.i
   unreachable
 
 _ZN11flatbuffers8FromUTF8EPPKc.exit:              ; preds = %sw.bb.i, %sw.bb44.i, %sw.bb50.i, %if.then7.i
-  %utf8.1 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep69, %sw.bb50.i ], [ %scevgep69, %sw.bb44.i ], [ %scevgep69, %sw.bb.i ]
+  %utf8.1 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep62, %sw.bb50.i ], [ %scevgep62, %sw.bb44.i ], [ %scevgep62, %sw.bb.i ]
   %retval.0.i = phi i32 [ %conv8.i, %if.then7.i ], [ %or.i, %sw.bb50.i ], [ %or.i, %sw.bb44.i ], [ %or.i, %sw.bb.i ]
   %cmp22 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp22, label %if.then23, label %if.else29

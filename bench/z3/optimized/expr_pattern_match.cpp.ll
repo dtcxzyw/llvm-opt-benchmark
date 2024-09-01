@@ -3230,8 +3230,8 @@ if.end.i.i.i55:                                   ; preds = %cond.false.i52
 _ZNK4decl18get_num_parametersEv.exit58:           ; preds = %for.cond, %cond.false.i52, %if.end.i.i.i55
   %cond.i57 = phi i32 [ 0, %for.cond ], [ %14, %if.end.i.i.i55 ], [ 0, %cond.false.i52 ]
   %15 = zext i32 %cond.i57 to i64
-  %cmp26.not = icmp uge i64 %indvars.iv, %15
-  br i1 %cmp26.not, label %return, label %for.body
+  %cmp26.not.not = icmp uge i64 %indvars.iv, %15
+  br i1 %cmp26.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK4decl18get_num_parametersEv.exit58
   %m_parameters.i.i60 = getelementptr inbounds i8, ptr %12, i64 8
@@ -3246,7 +3246,7 @@ for.body:                                         ; preds = %_ZNK4decl18get_num_
   br i1 %call29, label %for.cond, label %return, !llvm.loop !10
 
 return:                                           ; preds = %_ZNK4decl18get_num_parametersEv.exit58, %for.body, %if.end9, %if.end5, %_ZNK4decl13get_decl_kindEv.exit36.thread, %_ZNK4decl13get_family_idEv.exit26.thread, %_ZNK4decl18get_num_parametersEv.exit49, %_ZNK4decl13get_family_idEv.exit, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ false, %_ZNK4decl18get_num_parametersEv.exit49 ], [ false, %_ZNK4decl13get_family_idEv.exit26.thread ], [ false, %_ZNK4decl13get_decl_kindEv.exit36.thread ], [ false, %if.end5 ], [ false, %if.end9 ], [ %cmp26.not, %for.body ], [ %cmp26.not, %_ZNK4decl18get_num_parametersEv.exit58 ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ false, %_ZNK4decl18get_num_parametersEv.exit49 ], [ false, %_ZNK4decl13get_family_idEv.exit26.thread ], [ false, %_ZNK4decl13get_decl_kindEv.exit36.thread ], [ false, %if.end5 ], [ false, %if.end9 ], [ %cmp26.not.not, %for.body ], [ %cmp26.not.not, %_ZNK4decl18get_num_parametersEv.exit58 ]
   ret i1 %retval.0
 }
 

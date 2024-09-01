@@ -2219,14 +2219,14 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %datatypes, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %datatypes, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp601 = icmp eq ptr %0, %1
   br i1 %cmp601, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %d_type.i = getelementptr inbounds i8, ptr %t, i64 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %d_type.i161 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
@@ -2268,7 +2268,6 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc201.critedge
-  %cmp603 = phi i1 [ false, %for.body.lr.ph ], [ %cmp, %for.inc201.critedge ]
   %i.0602 = phi i64 [ 0, %for.body.lr.ph ], [ %inc202, %for.inc201.critedge ]
   %2 = load ptr, ptr %datatypes, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::Sort", ptr %2, i64 %i.0602
@@ -2351,11 +2350,11 @@ if.then.i.i.i.i.i.i155:                           ; preds = %if.then.i.i.i.i152
 
 if.else.i.i.i.i.i.i157:                           ; preds = %if.then.i.i.i.i152
   %16 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i153, i32 1 acq_rel, align 4
-  %.pre631 = load ptr, ptr %agg.tmp, align 8
+  %.pre608 = load ptr, ptr %agg.tmp, align 8
   br label %_ZN4cvc54SortC2ERKS0_.exit158
 
 _ZN4cvc54SortC2ERKS0_.exit158:                    ; preds = %if.then.i.i.i.i.i.i155, %if.else.i.i.i.i.i.i157
-  %.ph = phi ptr [ %.pre631, %if.else.i.i.i.i.i.i157 ], [ %9, %if.then.i.i.i.i.i.i155 ]
+  %.ph = phi ptr [ %.pre608, %if.else.i.i.i.i.i.i157 ], [ %9, %if.then.i.i.i.i.i.i155 ]
   %.pr = load ptr, ptr %_M_refcount.i.i.i149, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   %17 = load ptr, ptr %d_implementation.i174, align 8
@@ -2481,19 +2480,19 @@ if.else.i.i.i.i.i.i171:                           ; preds = %if.then.i.i.i.i166
   br label %_ZN4cvc54SortC2ERKS0_.exit172
 
 _ZN4cvc54SortC2ERKS0_.exit172:                    ; preds = %if.then.i.i.i.i.i.i169, %if.else.i.i.i.i.i.i171
-  %.ph636 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i171 ], [ %29, %if.then.i.i.i.i.i.i169 ]
-  %.pr637 = load ptr, ptr %_M_refcount.i.i.i163, align 8
+  %.ph613 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i171 ], [ %29, %if.then.i.i.i.i.i.i169 ]
+  %.pr614 = load ptr, ptr %_M_refcount.i.i.i163, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i173)
   %37 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %.ph636, ptr %agg.tmp.i173, align 8
+  store ptr %.ph613, ptr %agg.tmp.i173, align 8
   %38 = load ptr, ptr %d_type.i161, align 8
   store ptr %38, ptr %d_type.i.i175, align 8
-  store ptr %.pr637, ptr %_M_refcount.i.i.i.i177, align 8
-  %cmp.not.i.i.i.i.i179 = icmp eq ptr %.pr637, null
+  store ptr %.pr614, ptr %_M_refcount.i.i.i.i177, align 8
+  %cmp.not.i.i.i.i.i179 = icmp eq ptr %.pr614, null
   br i1 %cmp.not.i.i.i.i.i179, label %_ZN4cvc54SortC2ERKS0_.exit.i185, label %if.then.i.i.i.i.i180
 
 if.then.i.i.i.i.i180:                             ; preds = %_ZN4cvc54SortC2ERKS0_.exit172
-  %_M_use_count.i.i.i.i.i.i181 = getelementptr inbounds i8, ptr %.pr637, i64 8
+  %_M_use_count.i.i.i.i.i.i181 = getelementptr inbounds i8, ptr %.pr614, i64 8
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i182 = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i.i182, label %if.else.i.i.i.i.i.i.i188, label %if.then.i.i.i.i.i.i.i183
@@ -2834,23 +2833,23 @@ if.then.i.i.i.i.i.i314:                           ; preds = %if.then.i.i.i.i311
 
 if.else.i.i.i.i.i.i316:                           ; preds = %if.then.i.i.i.i311
   %89 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i312, i32 1 acq_rel, align 4
-  %.pre632 = load ptr, ptr %agg.tmp83, align 8
+  %.pre609 = load ptr, ptr %agg.tmp83, align 8
   br label %_ZN4cvc54TermC2ERKS0_.exit317
 
 _ZN4cvc54TermC2ERKS0_.exit317:                    ; preds = %if.then.i.i.i.i.i.i314, %if.else.i.i.i.i.i.i316
-  %.ph639 = phi ptr [ %.pre632, %if.else.i.i.i.i.i.i316 ], [ %82, %if.then.i.i.i.i.i.i314 ]
-  %.pr640 = load ptr, ptr %_M_refcount.i.i.i308, align 8
+  %.ph616 = phi ptr [ %.pre609, %if.else.i.i.i.i.i.i316 ], [ %82, %if.then.i.i.i.i.i.i314 ]
+  %.pr617 = load ptr, ptr %_M_refcount.i.i.i308, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i318)
   %90 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %.ph639, ptr %agg.tmp.i318, align 8
+  store ptr %.ph616, ptr %agg.tmp.i318, align 8
   %91 = load ptr, ptr %d_node.i306, align 8
   store ptr %91, ptr %d_node.i.i, align 8
-  store ptr %.pr640, ptr %_M_refcount.i.i.i.i320, align 8
-  %cmp.not.i.i.i.i.i322 = icmp eq ptr %.pr640, null
+  store ptr %.pr617, ptr %_M_refcount.i.i.i.i320, align 8
+  %cmp.not.i.i.i.i.i322 = icmp eq ptr %.pr617, null
   br i1 %cmp.not.i.i.i.i.i322, label %_ZN4cvc54TermC2ERKS0_.exit.i, label %if.then.i.i.i.i.i323
 
 if.then.i.i.i.i.i323:                             ; preds = %_ZN4cvc54TermC2ERKS0_.exit317
-  %_M_use_count.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %.pr640, i64 8
+  %_M_use_count.i.i.i.i.i.i324 = getelementptr inbounds i8, ptr %.pr617, i64 8
   %92 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i325 = icmp eq i8 %92, 0
   br i1 %tobool.i.not.i.i.i.i.i.i325, label %if.else.i.i.i.i.i.i.i330, label %if.then.i.i.i.i.i.i.i326
@@ -2939,23 +2938,23 @@ if.then.i.i.i.i.i.i421:                           ; preds = %if.then.i.i.i.i418
 
 if.else.i.i.i.i.i.i423:                           ; preds = %if.then.i.i.i.i418
   %104 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i419, i32 1 acq_rel, align 4
-  %.pre633 = load ptr, ptr %agg.tmp125, align 8
+  %.pre610 = load ptr, ptr %agg.tmp125, align 8
   br label %_ZN4cvc54TermC2ERKS0_.exit424
 
 _ZN4cvc54TermC2ERKS0_.exit424:                    ; preds = %if.then.i.i.i.i.i.i421, %if.else.i.i.i.i.i.i423
-  %.ph642 = phi ptr [ %.pre633, %if.else.i.i.i.i.i.i423 ], [ %97, %if.then.i.i.i.i.i.i421 ]
-  %.pr643 = load ptr, ptr %_M_refcount.i.i.i415, align 8
+  %.ph619 = phi ptr [ %.pre610, %if.else.i.i.i.i.i.i423 ], [ %97, %if.then.i.i.i.i.i.i421 ]
+  %.pr620 = load ptr, ptr %_M_refcount.i.i.i415, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i425)
   %105 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %.ph642, ptr %agg.tmp.i425, align 8
+  store ptr %.ph619, ptr %agg.tmp.i425, align 8
   %106 = load ptr, ptr %d_node.i413, align 8
   store ptr %106, ptr %d_node.i.i427, align 8
-  store ptr %.pr643, ptr %_M_refcount.i.i.i.i429, align 8
-  %cmp.not.i.i.i.i.i431 = icmp eq ptr %.pr643, null
+  store ptr %.pr620, ptr %_M_refcount.i.i.i.i429, align 8
+  %cmp.not.i.i.i.i.i431 = icmp eq ptr %.pr620, null
   br i1 %cmp.not.i.i.i.i.i431, label %_ZN4cvc54TermC2ERKS0_.exit.i437, label %if.then.i.i.i.i.i432
 
 if.then.i.i.i.i.i432:                             ; preds = %_ZN4cvc54TermC2ERKS0_.exit424
-  %_M_use_count.i.i.i.i.i.i433 = getelementptr inbounds i8, ptr %.pr643, i64 8
+  %_M_use_count.i.i.i.i.i.i433 = getelementptr inbounds i8, ptr %.pr620, i64 8
   %107 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i434 = icmp eq i8 %107, 0
   br i1 %tobool.i.not.i.i.i.i.i.i434, label %if.else.i.i.i.i.i.i.i441, label %if.then.i.i.i.i.i.i.i435
@@ -3071,23 +3070,23 @@ if.then.i.i.i.i.i.i532:                           ; preds = %if.then.i.i.i.i529
 
 if.else.i.i.i.i.i.i534:                           ; preds = %if.then.i.i.i.i529
   %121 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i530, i32 1 acq_rel, align 4
-  %.pre634 = load ptr, ptr %agg.tmp166, align 8
+  %.pre611 = load ptr, ptr %agg.tmp166, align 8
   br label %_ZN4cvc54TermC2ERKS0_.exit535
 
 _ZN4cvc54TermC2ERKS0_.exit535:                    ; preds = %if.then.i.i.i.i.i.i532, %if.else.i.i.i.i.i.i534
-  %.ph645 = phi ptr [ %.pre634, %if.else.i.i.i.i.i.i534 ], [ %114, %if.then.i.i.i.i.i.i532 ]
-  %.pr646 = load ptr, ptr %_M_refcount.i.i.i526, align 8
+  %.ph622 = phi ptr [ %.pre611, %if.else.i.i.i.i.i.i534 ], [ %114, %if.then.i.i.i.i.i.i532 ]
+  %.pr623 = load ptr, ptr %_M_refcount.i.i.i526, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i536)
   %122 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %.ph645, ptr %agg.tmp.i536, align 8
+  store ptr %.ph622, ptr %agg.tmp.i536, align 8
   %123 = load ptr, ptr %d_node.i524, align 8
   store ptr %123, ptr %d_node.i.i538, align 8
-  store ptr %.pr646, ptr %_M_refcount.i.i.i.i540, align 8
-  %cmp.not.i.i.i.i.i542 = icmp eq ptr %.pr646, null
+  store ptr %.pr623, ptr %_M_refcount.i.i.i.i540, align 8
+  %cmp.not.i.i.i.i.i542 = icmp eq ptr %.pr623, null
   br i1 %cmp.not.i.i.i.i.i542, label %_ZN4cvc54TermC2ERKS0_.exit.i548, label %if.then.i.i.i.i.i543
 
 if.then.i.i.i.i.i543:                             ; preds = %_ZN4cvc54TermC2ERKS0_.exit535
-  %_M_use_count.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %.pr646, i64 8
+  %_M_use_count.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %.pr623, i64 8
   %124 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i545 = icmp eq i8 %124, 0
   br i1 %tobool.i.not.i.i.i.i.i.i545, label %if.else.i.i.i.i.i.i.i552, label %if.then.i.i.i.i.i.i.i546
@@ -3149,8 +3148,8 @@ cleanup182:                                       ; preds = %for.cond140, %for.c
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %constructor) #23
   call void @_ZN4cvc519DatatypeConstructorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp36) #23
   %inc191 = add nuw i64 %j.0600, 1
-  %exitcond629.not = icmp eq i64 %inc191, %call32
-  br i1 %exitcond629.not, label %for.inc201.critedge, label %for.body35, !llvm.loop !32
+  %exitcond606.not = icmp eq i64 %inc191, %call32
+  br i1 %exitcond606.not, label %for.inc201.critedge, label %for.body35, !llvm.loop !32
 
 ehcleanup183:                                     ; preds = %ehcleanup, %lpad59.loopexit, %lpad59.loopexit.split-lp, %ehcleanup181, %ehcleanup136, %lpad.i328
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %ehcleanup181 ], [ %.pn26.pn, %ehcleanup136 ], [ %96, %lpad.i328 ], [ %lpad.loopexit, %lpad59.loopexit ], [ %lpad.loopexit.split-lp, %lpad59.loopexit.split-lp ], [ %.pn, %ehcleanup ]
@@ -3181,9 +3180,8 @@ for.inc201.critedge:                              ; preds = %cleanup182, %for.co
   call void @_ZN4cvc58DatatypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #23
   call void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %t) #23
   %inc202 = add nuw i64 %i.0602, 1
-  %cmp = icmp uge i64 %inc202, %sub.ptr.div.i
-  %exitcond630 = icmp eq i64 %inc202, %umax
-  br i1 %exitcond630, label %return, label %for.body, !llvm.loop !33
+  %exitcond607.not = icmp eq i64 %inc202, %umax
+  br i1 %exitcond607.not, label %return, label %for.body, !llvm.loop !33
 
 ehcleanup194:                                     ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %ehcleanup189, %lpad.i186, %lpad.i
   %.pn29.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn.pn.pn, %ehcleanup189 ], [ %23, %lpad.i ], [ %43, %lpad.i186 ], [ %lpad.loopexit572, %lpad7.loopexit ], [ %lpad.loopexit.split-lp573, %lpad7.loopexit.split-lp ]
@@ -3201,7 +3199,7 @@ ehcleanup200:                                     ; preds = %ehcleanup196, %lpad
   resume { ptr, i32 } %.pn29.pn.pn.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %for.inc201.critedge, %cleanup193.critedge, %entry
-  %cmp.lcssa = phi i1 [ %cmp603, %cleanup193.critedge ], [ true, %entry ], [ %cmp, %for.inc201.critedge ]
+  %cmp.lcssa = phi i1 [ false, %cleanup193.critedge ], [ true, %entry ], [ true, %for.inc201.critedge ]
   ret i1 %cmp.lcssa
 }
 

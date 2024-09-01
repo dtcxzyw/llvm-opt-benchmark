@@ -1752,18 +1752,18 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   %47 = phi ptr [ %138, %156 ], [ null, %24 ]
   %48 = load i32, ptr %25, align 4
   %49 = icmp eq i32 %48, 0
-  br i1 %37, label %.split.us.preheader, label %.split
-
-.split.us.preheader:                              ; preds = %46
   br i1 %49, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.split.us.preheader, %.split.us
+.lr.ph:                                           ; preds = %46
+  br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %73
   %50 = load i16, ptr %26, align 8
   %51 = and i16 %50, 7
   %52 = icmp eq i16 %51, 0
-  br i1 %52, label %53, label %.split55.us
+  br i1 %52, label %53, label %.split.us
 
-53:                                               ; preds = %.lr.ph
+53:                                               ; preds = %.lr.ph.split.us
   store i32 0, ptr %29, align 8
   %54 = and i16 %50, 4096
   %55 = icmp eq i16 %54, 0
@@ -1781,7 +1781,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
 
 61:                                               ; preds = %59, %56, %53
   %62 = load i32, ptr %27, align 4
-  switch i32 %62, label %.split58.us [
+  switch i32 %62, label %.split61.us [
     i32 0, label %.thread
     i32 1, label %63
     i32 3, label %63
@@ -1805,7 +1805,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   call void @_raw_spin_unlock(ptr noundef %41) #8
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
   call void @_raw_spin_lock(ptr noundef %41) #8
-  br label %.split.us
+  br label %73
 
 .preheader.us:                                    ; preds = %63, %71
   call void @prepare_to_wait(ptr noundef %42, ptr noundef nonnull %3, i32 noundef 2) #8
@@ -1823,37 +1823,34 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
 
 72:                                               ; preds = %.preheader.us
   call void @finish_wait(ptr noundef %42, ptr noundef nonnull %3) #8
-  br label %.split.us
+  br label %73
 
-.split.us:                                        ; preds = %72, %69
+73:                                               ; preds = %72, %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  %73 = load i32, ptr %25, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.lr.ph, label %.thread
+  %74 = load i32, ptr %25, align 4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %.lr.ph.split.us, label %.thread
 
-.split:                                           ; preds = %46
-  br i1 %49, label %75, label %.thread
-
-75:                                               ; preds = %.split
+.lr.ph.split:                                     ; preds = %.lr.ph
   %76 = load i16, ptr %26, align 8
   %77 = and i16 %76, 7
   %78 = icmp eq i16 %77, 0
-  br i1 %78, label %85, label %.split55.us
+  br i1 %78, label %85, label %.split.us
 
-.split55.us:                                      ; preds = %75, %.lr.ph
+.split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %79 = load i32, ptr %27, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %84
 
-81:                                               ; preds = %.split55.us
+81:                                               ; preds = %.split.us
   %82 = load i32, ptr %28, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.thread, label %84
 
-84:                                               ; preds = %81, %.split55.us
+84:                                               ; preds = %81, %.split.us
   br label %.thread
 
-85:                                               ; preds = %75
+85:                                               ; preds = %.lr.ph.split
   store i32 0, ptr %29, align 8
   %86 = and i16 %76, 4096
   %87 = icmp eq i16 %86, 0
@@ -1871,7 +1868,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
 
 93:                                               ; preds = %91, %88, %85
   %94 = load i32, ptr %27, align 4
-  switch i32 %94, label %.split58.us [
+  switch i32 %94, label %.split61.us [
     i32 0, label %.thread
     i32 1, label %95
     i32 3, label %95
@@ -1894,7 +1891,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
   br label %.thread
 
-.split58.us:                                      ; preds = %61, %93
+.split61.us:                                      ; preds = %61, %93
   %101 = load i16, ptr %26, align 8
   %102 = and i16 %101, 512
   %103 = icmp eq i16 %102, 0
@@ -1902,7 +1899,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   %105 = or i1 %104, %103
   br i1 %105, label %126, label %106
 
-106:                                              ; preds = %.split58.us
+106:                                              ; preds = %.split61.us
   %107 = load ptr, ptr %43, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %126, label %109
@@ -1929,7 +1926,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   %122 = load ptr, ptr %43, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 228
   call void @_raw_spin_unlock(ptr noundef %123) #8
-  %.pre86 = load i16, ptr %26, align 8
+  %.pre96 = load i16, ptr %26, align 8
   br label %265
 
 124:                                              ; preds = %116
@@ -1937,7 +1934,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   call void @_raw_spin_unlock(ptr noundef %125) #8
   br label %126
 
-126:                                              ; preds = %124, %106, %.split58.us
+126:                                              ; preds = %124, %106, %.split61.us
   br i1 %45, label %136, label %127
 
 127:                                              ; preds = %126
@@ -1965,11 +1962,11 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
 137:                                              ; preds = %136
   %138 = load ptr, ptr %43, align 8
   %139 = icmp eq ptr %138, null
-  %.pre85 = load i16, ptr %26, align 8
+  %.pre95 = load i16, ptr %26, align 8
   br i1 %139, label %split, label %140
 
 140:                                              ; preds = %137
-  %141 = and i16 %.pre85, 1024
+  %141 = and i16 %.pre95, 1024
   %142 = icmp eq i16 %141, 0
   br i1 %142, label %143, label %split
 
@@ -2001,7 +1998,7 @@ define internal fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %157, label %46, label %.thread40
 
 split:                                            ; preds = %140, %137, %._crit_edge
-  %159 = phi i16 [ %.pre, %._crit_edge ], [ %.pre85, %137 ], [ %.pre85, %140 ]
+  %159 = phi i16 [ %.pre, %._crit_edge ], [ %.pre95, %137 ], [ %.pre95, %140 ]
   %160 = phi ptr [ %47, %._crit_edge ], [ %138, %140 ], [ null, %137 ]
   %161 = and i16 %159, 512
   %162 = icmp eq i16 %161, 0
@@ -2131,11 +2128,11 @@ split:                                            ; preds = %140, %137, %._crit_
   %241 = icmp eq i32 %240, -13
   %242 = select i1 %241, i32 -5, i32 %240
   %243 = icmp eq i32 %242, 0
-  %.pre87 = load i16, ptr %26, align 8
+  %.pre97 = load i16, ptr %26, align 8
   br i1 %243, label %265, label %244
 
 244:                                              ; preds = %239
-  %245 = and i16 %.pre87, 7
+  %245 = and i16 %.pre97, 7
   %246 = icmp eq i16 %245, 0
   br i1 %246, label %247, label %260
 
@@ -2170,7 +2167,7 @@ split:                                            ; preds = %140, %137, %._crit_
   br label %291
 
 265:                                              ; preds = %239, %split, %120
-  %266 = phi i16 [ %159, %split ], [ %.pre87, %239 ], [ %.pre86, %120 ]
+  %266 = phi i16 [ %159, %split ], [ %.pre97, %239 ], [ %.pre96, %120 ]
   %267 = phi ptr [ %160, %split ], [ %160, %239 ], [ null, %120 ]
   %268 = phi i32 [ 0, %split ], [ 0, %239 ], [ 1, %120 ]
   %269 = and i16 %266, 7
@@ -2226,9 +2223,9 @@ split:                                            ; preds = %140, %137, %._crit_
   %297 = call fastcc i32 @rpm_idle(ptr noundef %0, i32 noundef 1)
   br label %.thread
 
-.thread:                                          ; preds = %93, %.split, %.split.us.preheader, %.split.us, %61, %81, %84, %.thread29, %294, %291
-  %298 = phi ptr [ %296, %294 ], [ %160, %291 ], [ %47, %.thread29 ], [ %47, %84 ], [ %47, %81 ], [ %47, %61 ], [ %47, %.split.us ], [ %47, %.split.us.preheader ], [ %47, %.split ], [ %47, %93 ]
-  %299 = phi i32 [ %295, %294 ], [ %242, %291 ], [ %.ph28, %.thread29 ], [ -13, %84 ], [ 1, %81 ], [ -22, %.split.us ], [ 1, %61 ], [ 1, %93 ], [ -22, %.split ], [ -22, %.split.us.preheader ]
+.thread:                                          ; preds = %46, %93, %61, %73, %81, %84, %.thread29, %294, %291
+  %298 = phi ptr [ %296, %294 ], [ %160, %291 ], [ %47, %.thread29 ], [ %47, %84 ], [ %47, %81 ], [ %47, %73 ], [ %47, %61 ], [ %47, %93 ], [ %47, %46 ]
+  %299 = phi i32 [ %295, %294 ], [ %242, %291 ], [ %.ph28, %.thread29 ], [ -13, %84 ], [ 1, %81 ], [ 1, %61 ], [ -22, %73 ], [ -22, %46 ], [ 1, %93 ]
   %300 = icmp eq ptr %298, null
   br i1 %300, label %.thread39, label %.thread40
 

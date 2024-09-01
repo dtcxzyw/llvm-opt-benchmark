@@ -4576,11 +4576,11 @@ entry:
   %s2 = alloca [64 x i8], align 16
   %call = tail call i64 @blk_getlength(ptr noundef %blk) #25
   %cmp = icmp slt i64 %call, 0
-  br i1 %cmp, label %if.then, label %while.cond.preheader.split
+  br i1 %cmp, label %if.then, label %while.cond.preheader
 
-while.cond.preheader.split:                       ; preds = %entry
-  %tobool.not23 = icmp eq i64 %call, 0
-  br i1 %tobool.not23, label %return, label %while.body
+while.cond.preheader:                             ; preds = %entry
+  %tobool.not21 = icmp eq i64 %call, 0
+  br i1 %tobool.not21, label %return, label %while.body
 
 if.then:                                          ; preds = %entry
   %0 = trunc i64 %call to i32
@@ -4589,12 +4589,12 @@ if.then:                                          ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.170, ptr noundef %call1) #25
   br label %return
 
-while.body:                                       ; preds = %while.cond.preheader.split, %if.end13
-  %offset.025 = phi i64 [ %add, %if.end13 ], [ 0, %while.cond.preheader.split ]
-  %bytes.024 = phi i64 [ %sub21, %if.end13 ], [ %call, %while.cond.preheader.split ]
+while.body:                                       ; preds = %while.cond.preheader, %if.end13
+  %offset.023 = phi i64 [ %add, %if.end13 ], [ 0, %while.cond.preheader ]
+  %bytes.022 = phi i64 [ %sub21, %if.end13 ], [ %call, %while.cond.preheader ]
   %call3 = call ptr @blk_bs(ptr noundef %blk) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num.i)
-  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.025, i64 noundef %bytes.024, ptr noundef nonnull %num.i) #25
+  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.023, i64 noundef %bytes.022, ptr noundef nonnull %num.i) #25
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %map_is_allocated.exit.thread, label %if.end.i
 
@@ -4607,14 +4607,14 @@ map_is_allocated.exit.thread:                     ; preds = %while.body
 
 if.end.i:                                         ; preds = %while.body
   %1 = load i64, ptr %num.i, align 8
-  %cmp114.i = icmp sgt i64 %bytes.024, 0
+  %cmp114.i = icmp sgt i64 %bytes.022, 0
   br i1 %cmp114.i, label %while.body.i, label %if.else
 
 while.body.i:                                     ; preds = %if.end.i, %if.then5.i
   %num.1 = phi i64 [ %add6.i, %if.then5.i ], [ %1, %if.end.i ]
   %2 = phi i64 [ %3, %if.then5.i ], [ %1, %if.end.i ]
-  %offset.addr.016.i = phi i64 [ %add.i, %if.then5.i ], [ %offset.025, %if.end.i ]
-  %bytes.addr.015.i = phi i64 [ %sub.i, %if.then5.i ], [ %bytes.024, %if.end.i ]
+  %offset.addr.016.i = phi i64 [ %add.i, %if.then5.i ], [ %offset.023, %if.end.i ]
+  %bytes.addr.015.i = phi i64 [ %sub.i, %if.then5.i ], [ %bytes.022, %if.end.i ]
   %add.i = add i64 %offset.addr.016.i, %2
   %sub.i = sub i64 %bytes.addr.015.i, %2
   %call3.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %add.i, i64 noundef %sub.i, ptr noundef nonnull %num.i) #25
@@ -4644,16 +4644,16 @@ if.end13:                                         ; preds = %if.else
   %cond = select i1 %tobool14.not, ptr @.str.174, ptr @.str.173
   %conv15 = sitofp i64 %num.219 to double
   call fastcc void @cvtstr(double noundef %conv15, ptr noundef nonnull %s1)
-  %conv16 = sitofp i64 %offset.025 to double
+  %conv16 = sitofp i64 %offset.023 to double
   call fastcc void @cvtstr(double noundef %conv16, ptr noundef nonnull %s2)
-  %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.025)
-  %add = add i64 %num.219, %offset.025
-  %sub21 = sub i64 %bytes.024, %num.219
+  %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.023)
+  %add = add i64 %num.219, %offset.023
+  %sub21 = sub i64 %bytes.022, %num.219
   %tobool.not = icmp eq i64 %sub21, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !29
 
-return:                                           ; preds = %if.end13, %while.cond.preheader.split, %if.then11, %map_is_allocated.exit.thread, %if.then
-  %retval.0 = phi i32 [ %0, %if.then ], [ %call.i, %map_is_allocated.exit.thread ], [ -5, %if.then11 ], [ 0, %while.cond.preheader.split ], [ 0, %if.end13 ]
+return:                                           ; preds = %if.end13, %while.cond.preheader, %if.then11, %map_is_allocated.exit.thread, %if.then
+  %retval.0 = phi i32 [ %0, %if.then ], [ %call.i, %map_is_allocated.exit.thread ], [ -5, %if.then11 ], [ 0, %while.cond.preheader ], [ 0, %if.end13 ]
   ret i32 %retval.0
 }
 

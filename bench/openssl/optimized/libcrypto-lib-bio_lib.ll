@@ -1438,14 +1438,9 @@ if.then7:                                         ; preds = %if.end6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 120, ptr noundef null) #14
   br label %return
 
-while.cond:                                       ; preds = %while.body
-  %dec31 = add nsw i32 %dec31.in, -1
-  %cmp9 = icmp sgt i32 %dec31.in, 2
-  br i1 %cmp9, label %land.rhs, label %while.end, !llvm.loop !4
-
-land.rhs:                                         ; preds = %while.cond.preheader, %while.cond
-  %dec31.in = phi i32 [ %dec31, %while.cond ], [ %size, %while.cond.preheader ]
-  %ptr.030 = phi ptr [ %incdec.ptr, %while.cond ], [ %buf, %while.cond.preheader ]
+land.rhs:                                         ; preds = %while.cond.preheader, %while.body
+  %dec31.in = phi i32 [ %dec31, %while.body ], [ %size, %while.cond.preheader ]
+  %ptr.030 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %while.cond.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %readbytes.i)
   %call.i = call fastcc i32 @bio_read_intern(ptr noundef nonnull %bio, ptr noundef nonnull %ptr.030, i64 noundef 1, ptr noundef nonnull %readbytes.i)
   %cmp1.i = icmp sgt i32 %call.i, 0
@@ -1463,27 +1458,26 @@ while.end.thread16:                               ; preds = %land.rhs
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %ptr.030, i64 1
   %2 = load i8, ptr %ptr.030, align 1
-  %cmp11 = icmp eq i8 %2, 10
-  br i1 %cmp11, label %while.end.thread, label %while.cond, !llvm.loop !4
+  %cmp11 = icmp ne i8 %2, 10
+  %dec31 = add nsw i32 %dec31.in, -1
+  %cmp9 = icmp sgt i32 %dec31.in, 2
+  %or.cond = select i1 %cmp11, i1 %cmp9, i1 false
+  br i1 %or.cond, label %land.rhs, label %cond.true.sink.split, !llvm.loop !4
 
-while.end.thread:                                 ; preds = %while.body
-  store i8 0, ptr %incdec.ptr, align 1
-  br label %cond.true
-
-while.end:                                        ; preds = %while.cond
-  store i8 0, ptr %incdec.ptr, align 1
-  br i1 %cmp929.not, label %lor.lhs.false, label %cond.true
-
-lor.lhs.false:                                    ; preds = %while.cond.preheader, %while.end.thread16, %while.end
-  %ptr.024 = phi ptr [ %ptr.030, %while.end.thread16 ], [ %incdec.ptr, %while.end ], [ %buf, %while.cond.preheader ]
-  %ret.120 = phi i32 [ %ret.0.i, %while.end.thread16 ], [ 0, %while.end ], [ 0, %while.cond.preheader ]
+lor.lhs.false:                                    ; preds = %while.cond.preheader, %while.end.thread16
+  %ptr.024 = phi ptr [ %ptr.030, %while.end.thread16 ], [ %buf, %while.cond.preheader ]
+  %ret.120 = phi i32 [ %ret.0.i, %while.end.thread16 ], [ 0, %while.cond.preheader ]
   %call17 = call i64 @BIO_ctrl(ptr noundef nonnull %bio, i32 noundef 2, i64 noundef 0, ptr noundef null)
   %3 = and i64 %call17, 4294967295
   %tobool19.not = icmp eq i64 %3, 0
   br i1 %tobool19.not, label %return, label %cond.true
 
-cond.true:                                        ; preds = %while.end.thread, %lor.lhs.false, %while.end
-  %ptr.115 = phi ptr [ %incdec.ptr, %while.end.thread ], [ %ptr.024, %lor.lhs.false ], [ %incdec.ptr, %while.end ]
+cond.true.sink.split:                             ; preds = %while.body
+  store i8 0, ptr %incdec.ptr, align 1
+  br label %cond.true
+
+cond.true:                                        ; preds = %cond.true.sink.split, %lor.lhs.false
+  %ptr.115 = phi ptr [ %ptr.024, %lor.lhs.false ], [ %incdec.ptr, %cond.true.sink.split ]
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr.115 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

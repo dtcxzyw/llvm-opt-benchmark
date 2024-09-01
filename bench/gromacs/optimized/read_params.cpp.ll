@@ -6226,8 +6226,8 @@ define noundef zeroext i1 @_ZN3gmx24awhHasFepLambdaDimensionERKNS_9AwhParamsE(pt
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %.not34 = icmp eq ptr %2, %4
-  br i1 %.not34, label %.loopexit, label %.lr.ph30
+  %.not31 = icmp eq ptr %2, %4
+  br i1 %.not31, label %.loopexit, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %1, %._crit_edge
   %.sroa.020.028 = phi ptr [ %12, %._crit_edge ], [ %2, %1 ]
@@ -6250,8 +6250,8 @@ define noundef zeroext i1 @_ZN3gmx24awhHasFepLambdaDimensionERKNS_9AwhParamsE(pt
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph30
   %12 = getelementptr inbounds i8, ptr %.sroa.020.028, i64 96
-  %.not35 = icmp eq ptr %12, %4
-  br i1 %.not35, label %.loopexit, label %.lr.ph30
+  %.not32 = icmp eq ptr %12, %4
+  br i1 %.not32, label %.loopexit, label %.lr.ph30
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1
   %13 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %._crit_edge ]

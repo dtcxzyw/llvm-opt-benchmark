@@ -1314,9 +1314,9 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
   br i1 %exitcond118.not, label %.loopexit.us, label %92, !llvm.loop !31
 
 .loopexit.us:                                     ; preds = %92
-  br i1 %86, label %.preheader.us, label %._crit_edge.us, !llvm.loop !32
+  br label %.preheader.us, !llvm.loop !32
 
-._crit_edge.us:                                   ; preds = %84, %.loopexit.us
+._crit_edge.us:                                   ; preds = %84
   %96 = add nuw i64 %.059.us, 1
   %97 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.split.us unwind label %.loopexit.split-lp.loopexit.split.us, !llvm.loop !33

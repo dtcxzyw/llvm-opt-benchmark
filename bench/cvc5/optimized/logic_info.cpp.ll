@@ -1070,7 +1070,7 @@ sub_2132:                                         ; preds = %sub_1131
 if.else126.tail:                                  ; preds = %sub_1131, %sub_2132
   %118 = phi i32 [ %113, %sub_1131 ], [ %117, %sub_2132 ]
   %tobool128.not = icmp eq i32 %118, 0
-  br i1 %tobool128.not, label %if.then129, label %sub_0134
+  br i1 %tobool128.not, label %if.then129, label %sub_1135
 
 if.then129:                                       ; preds = %if.else126.tail
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
@@ -1079,10 +1079,7 @@ if.then129:                                       ; preds = %if.else126.tail
   %add.ptr130 = getelementptr inbounds i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
-sub_0134:                                         ; preds = %if.else126.tail
-  br i1 %.not163, label %sub_1135, label %if.else131.tail
-
-sub_1135:                                         ; preds = %sub_0134
+sub_1135:                                         ; preds = %if.else126.tail
   %119 = getelementptr inbounds i8, ptr %p.12, i64 1
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
@@ -1097,8 +1094,8 @@ sub_2136:                                         ; preds = %sub_1135
   %126 = add nsw i32 %125, -65
   br label %if.else131.tail
 
-if.else131.tail:                                  ; preds = %sub_0130, %sub_0134, %sub_1135, %sub_2136
-  %127 = phi i32 [ %109, %sub_0134 ], [ %122, %sub_1135 ], [ %126, %sub_2136 ], [ %109, %sub_0130 ]
+if.else131.tail:                                  ; preds = %sub_0130, %sub_1135, %sub_2136
+  %127 = phi i32 [ %122, %sub_1135 ], [ %126, %sub_2136 ], [ %109, %sub_0130 ]
   %tobool133.not = icmp eq i32 %127, 0
   br i1 %tobool133.not, label %if.then134, label %if.else136
 
@@ -1144,7 +1141,7 @@ sub_2140:                                         ; preds = %sub_1139
 if.else141.tail:                                  ; preds = %sub_1139, %sub_2140
   %137 = phi i32 [ %132, %sub_1139 ], [ %136, %sub_2140 ]
   %tobool143.not = icmp eq i32 %137, 0
-  br i1 %tobool143.not, label %if.then144, label %sub_0142
+  br i1 %tobool143.not, label %if.then144, label %sub_1143
 
 if.then144:                                       ; preds = %if.else141.tail
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
@@ -1153,10 +1150,7 @@ if.then144:                                       ; preds = %if.else141.tail
   %add.ptr145 = getelementptr inbounds i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
-sub_0142:                                         ; preds = %if.else141.tail
-  br i1 %.not167, label %sub_1143, label %if.else146.tail
-
-sub_1143:                                         ; preds = %sub_0142
+sub_1143:                                         ; preds = %if.else141.tail
   %138 = getelementptr inbounds i8, ptr %p.12, i64 1
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
@@ -1171,8 +1165,8 @@ sub_2144:                                         ; preds = %sub_1143
   %145 = add nsw i32 %144, -65
   br label %if.else146.tail
 
-if.else146.tail:                                  ; preds = %sub_0138, %sub_0142, %sub_1143, %sub_2144
-  %146 = phi i32 [ %128, %sub_0142 ], [ %141, %sub_1143 ], [ %145, %sub_2144 ], [ %128, %sub_0138 ]
+if.else146.tail:                                  ; preds = %sub_0138, %sub_1143, %sub_2144
+  %146 = phi i32 [ %141, %sub_1143 ], [ %145, %sub_2144 ], [ %128, %sub_0138 ]
   %tobool148.not = icmp eq i32 %146, 0
   br i1 %tobool148.not, label %if.then149, label %if.else156
 

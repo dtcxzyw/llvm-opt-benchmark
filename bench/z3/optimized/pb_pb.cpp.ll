@@ -443,33 +443,23 @@ entry:
   br i1 %cmp3.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %1 = zext i32 %0 to i64
-  %retval.sroa.0.0.copyload.i7 = load i64, ptr %m_wlits.i, align 4
-  %ref.tmp.sroa.1.0.extract.shift8 = lshr i64 %retval.sroa.0.0.copyload.i7, 32
-  %ref.tmp.sroa.1.0.extract.trunc9 = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift8 to i32
-  %cmp.i10 = icmp eq i32 %l.coerce, %ref.tmp.sroa.1.0.extract.trunc9
-  br i1 %cmp.i10, label %return, label %for.cond
+  %wide.trip.count = zext i32 %0 to i64
+  br label %for.body
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv11 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !9
-
-for.body:                                         ; preds = %for.cond
-  %arrayidx.i = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i, i64 0, i64 %indvars.iv.next
+for.body:                                         ; preds = %for.body, %for.body.preheader
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx.i = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits.i, i64 0, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 4
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
   %cmp.i = icmp eq i32 %l.coerce, %ref.tmp.sroa.1.0.extract.trunc
-  br i1 %cmp.i, label %return.loopexit, label %for.cond, !llvm.loop !9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp.i, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !9
 
-return.loopexit:                                  ; preds = %for.body, %for.cond
-  %cmp.le = icmp ult i64 %indvars.iv.next, %1
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.body.preheader, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %for.body.preheader ], [ %cmp.le, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.i, %for.body ]
   ret i1 %cmp.lcssa
 }
 
@@ -1069,20 +1059,14 @@ for.body.lr.ph.thread:                            ; preds = %if.end49.thread
   %add.ptr.i.idx69 = shl nuw nsw i64 %idx.ext.i68, 3
   %11 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx69
   %add.ptr.i.ptr70 = getelementptr inbounds i8, ptr %11, i64 76
-  %m_wlits.i.ptr74 = getelementptr inbounds i8, ptr %this, i64 76
   %m_num_watch.i5075 = getelementptr inbounds i8, ptr %this, i64 68
-  br label %for.body.preheader
+  %m_wlits.i.ptr74 = getelementptr inbounds i8, ptr %this, i64 76
+  br label %for.body
 
 for.body.lr.ph:                                   ; preds = %if.end49
   %m_wlits.i.ptr = getelementptr inbounds i8, ptr %this, i64 76
   %m_num_watch.i50 = getelementptr inbounds i8, ptr %this, i64 68
-  br i1 %values, label %for.body.us, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.body.lr.ph.thread, %for.body.lr.ph
-  %m_num_watch.i5078 = phi ptr [ %m_num_watch.i5075, %for.body.lr.ph.thread ], [ %m_num_watch.i50, %for.body.lr.ph ]
-  %m_wlits.i.ptr77 = phi ptr [ %m_wlits.i.ptr74, %for.body.lr.ph.thread ], [ %m_wlits.i.ptr, %for.body.lr.ph ]
-  %add.ptr.i.ptr7276 = phi ptr [ %add.ptr.i.ptr70, %for.body.lr.ph.thread ], [ %add.ptr.i.ptr, %for.body.lr.ph ]
-  br label %for.body
+  br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end93.us
   %i.065.us = phi i32 [ %inc.us, %if.end93.us ], [ 0, %for.body.lr.ph ]
@@ -1164,9 +1148,9 @@ if.end93.us:                                      ; preds = %if.then85.us, %_ZN3
   %cmp52.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i.ptr
   br i1 %cmp52.not.us, label %for.end, label %for.body.us
 
-for.body:                                         ; preds = %for.body.preheader, %_ZN3satlsERSoNS_7literalE.exit60
-  %i.065 = phi i32 [ %inc, %_ZN3satlsERSoNS_7literalE.exit60 ], [ 0, %for.body.preheader ]
-  %__begin1.064 = phi ptr [ %incdec.ptr, %_ZN3satlsERSoNS_7literalE.exit60 ], [ %m_wlits.i.ptr77, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.lr.ph.thread, %_ZN3satlsERSoNS_7literalE.exit60
+  %i.065 = phi i32 [ %inc, %_ZN3satlsERSoNS_7literalE.exit60 ], [ 0, %for.body.lr.ph.thread ]
+  %__begin1.064 = phi ptr [ %incdec.ptr, %_ZN3satlsERSoNS_7literalE.exit60 ], [ %m_wlits.i.ptr74, %for.body.lr.ph.thread ]
   %wl.sroa.0.0.copyload = load i32, ptr %__begin1.064, align 4
   %wl.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.064, i64 4
   %wl.sroa.2.0.copyload = load i32, ptr %wl.sroa.2.0..sroa_idx, align 4
@@ -1179,7 +1163,7 @@ if.then54:                                        ; preds = %for.body
 
 if.end56:                                         ; preds = %if.then54, %for.body
   %inc = add nuw i32 %i.065, 1
-  %18 = load i32, ptr %m_num_watch.i5078, align 4
+  %18 = load i32, ptr %m_num_watch.i5075, align 4
   %cmp58 = icmp eq i32 %i.065, %18
   br i1 %cmp58, label %if.then59, label %if.end61
 
@@ -1218,7 +1202,7 @@ if.else.i52:                                      ; preds = %if.end66
 _ZN3satlsERSoNS_7literalE.exit60:                 ; preds = %if.then.i58, %if.else.i52
   %call95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.064, i64 8
-  %cmp52.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr7276
+  %cmp52.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr70
   br i1 %cmp52.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN3satlsERSoNS_7literalE.exit60, %if.end93.us, %if.end49.thread, %if.end49
@@ -1507,17 +1491,14 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.021, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.body14.lr.ph, label %for.body
 
 for.end.split.loop.exit:                          ; preds = %for.body
   %l2.sroa.0.0.copyload.le = load i32, ptr %__begin1.021, align 4
-  br label %for.end
+  br label %for.body14.lr.ph
 
-for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
+for.body14.lr.ph:                                 ; preds = %for.inc, %for.end.split.loop.exit
   %offset.0 = phi i32 [ %l2.sroa.0.0.copyload.le, %for.end.split.loop.exit ], [ 0, %for.inc ]
-  br i1 %cmp.not20, label %for.end30, label %for.body14.lr.ph
-
-for.body14.lr.ph:                                 ; preds = %for.end
   %m_visited.i = getelementptr inbounds i8, ptr %sim, i64 96
   %3 = load ptr, ptr %m_visited.i, align 8
   br label %for.body14
@@ -1540,8 +1521,8 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %cmp13.not = icmp eq ptr %incdec.ptr29, %add.ptr.i.ptr
   br i1 %cmp13.not, label %for.end30, label %for.body14
 
-for.end30:                                        ; preds = %for.body14, %entry, %for.end
-  %weight.0.lcssa = phi i32 [ 0, %for.end ], [ 0, %entry ], [ %weight.1, %for.body14 ]
+for.end30:                                        ; preds = %for.body14, %entry
+  %weight.0.lcssa = phi i32 [ 0, %entry ], [ %weight.1, %for.body14 ]
   %m_k.i = getelementptr inbounds i8, ptr %this, i64 60
   %7 = load i32, ptr %m_k.i, align 4
   %cmp32 = icmp uge i32 %weight.0.lcssa, %7

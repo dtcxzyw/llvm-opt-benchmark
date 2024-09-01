@@ -2086,15 +2086,15 @@ common.resume.i:                                  ; preds = %133, %114, %101, %8
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85fa18036c871aafE.exit.i.i": ; preds = %84
   %.sroa.0.0.copyload.i.i = load i64, ptr %12, align 8, !noalias !400
-  %switch.not.i.i = icmp ne i64 %.sroa.0.0.copyload.i.i, 0
+  %switch.not.not.i.i = icmp ne i64 %.sroa.0.0.copyload.i.i, 0
   %.sroa.6.sroa.0.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !400
   %103 = icmp ne i64 %.sroa.6.sroa.0.0.copyload.i.i, 0
-  %or.cond.not.i.i = select i1 %switch.not.i.i, i1 %103, i1 false
+  %or.cond.not.i.i = select i1 %switch.not.not.i.i, i1 %103, i1 false
   br i1 %or.cond.not.i.i, label %84, label %_ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i
 
 _ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85fa18036c871aafE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12), !noalias !400
-  br i1 %switch.not.i.i, label %_ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread, label %.backedge
+  br i1 %switch.not.not.i.i, label %_ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread, label %.backedge
 
 104:                                              ; preds = %39
   call void @llvm.experimental.noalias.scope.decl(metadata !414)
@@ -2166,15 +2166,15 @@ _ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i: ; preds = %"_ZN
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85fa18036c871aafE.exit.i20.i": ; preds = %116
   %.sroa.0.0.copyload.i21.i = load i64, ptr %8, align 8, !noalias !418
-  %switch.not.i22.i = icmp ne i64 %.sroa.0.0.copyload.i21.i, 0
+  %switch.not.not.i22.i = icmp ne i64 %.sroa.0.0.copyload.i21.i, 0
   %.sroa.6.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !418
   %135 = icmp ne i64 %.sroa.6.sroa.6.0.copyload.i.i, %.sroa.3.0.i.i.i
-  %or.cond.not.i23.i = select i1 %switch.not.i22.i, i1 %135, i1 false
+  %or.cond.not.i23.i = select i1 %switch.not.not.i22.i, i1 %135, i1 false
   br i1 %or.cond.not.i23.i, label %116, label %_ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i
 
 _ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85fa18036c871aafE.exit.i20.i"
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8), !noalias !418
-  br i1 %switch.not.i22.i, label %_ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread, label %.backedge
+  br i1 %switch.not.not.i22.i, label %_ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread, label %.backedge
 
 136:                                              ; preds = %39
   %137 = getelementptr inbounds i8, ptr %.sroa.0.015, i64 8

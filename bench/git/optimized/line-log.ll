@@ -1556,7 +1556,7 @@ for.body.lr.ph.i:                                 ; preds = %st_mult.exit.i
   %wide.trip.count.i = zext nneg i32 %nparents.0111.i to i64
   br label %for.body.i
 
-for.body20.preheader.i:                           ; preds = %for.body.i
+for.cond17.preheader.i:                           ; preds = %for.body.i
   %smax.i = call i32 @llvm.smax.i32(i32 %nparents.0111.i, i32 1)
   %wide.trip.count100.i = zext nneg i32 %smax.i to i64
   br label %for.body20.i
@@ -1573,15 +1573,15 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i42, ptr noundef %arrayidx14.i, ptr noundef %commit, ptr noundef %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body20.preheader.i, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %for.cond17.preheader.i, label %for.body.i, !llvm.loop !23
 
 for.cond17.i:                                     ; preds = %for.body20.i
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count100.i
   br i1 %exitcond101.not.i, label %for.body45.i, label %for.body20.i, !llvm.loop !24
 
-for.body20.i:                                     ; preds = %for.cond17.i, %for.body20.preheader.i
-  %indvars.iv97.i = phi i64 [ 0, %for.body20.preheader.i ], [ %indvars.iv.next98.i, %for.cond17.i ]
+for.body20.i:                                     ; preds = %for.cond17.i, %for.cond17.preheader.i
+  %indvars.iv97.i = phi i64 [ 0, %for.cond17.preheader.i ], [ %indvars.iv.next98.i, %for.cond17.i ]
   %arrayidx22.i = getelementptr inbounds ptr, ptr %call6.i, i64 %indvars.iv97.i
   store ptr null, ptr %arrayidx22.i, align 8
   %arrayidx26.i = getelementptr inbounds %struct.diff_queue_struct, ptr %call3.i41, i64 %indvars.iv97.i

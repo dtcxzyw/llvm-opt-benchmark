@@ -2680,7 +2680,7 @@ fastgetattr.exit.i:                               ; preds = %195
   br label %209
 
 209:                                              ; preds = %204, %147
-  %.1.i = phi i1 [ false, %147 ], [ %208, %204 ]
+  %.1.not.i = phi i1 [ false, %147 ], [ %208, %204 ]
   br i1 %4, label %210, label %219
 
 210:                                              ; preds = %209
@@ -2700,8 +2700,8 @@ fastgetattr.exit.i:                               ; preds = %195
 
 219:                                              ; preds = %214, %210, %209
   %.0.shrunk.i = phi i1 [ %3, %210 ], [ %3, %209 ], [ %spec.select50.i, %214 ]
-  %brmerge.demorgan.i = and i1 %.1.i, %.0.shrunk.i
-  br i1 %brmerge.demorgan.i, label %226, label %220
+  %brmerge.not.i = and i1 %.1.not.i, %.0.shrunk.i
+  br i1 %brmerge.not.i, label %226, label %220
 
 220:                                              ; preds = %219
   %221 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4322,16 +4322,13 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
 ._crit_edge:                                      ; preds = %58
   call void @record_object_address_dependencies(ptr noundef nonnull %10, ptr noundef %45, i32 noundef 110) #11
   call void @free_object_addresses(ptr noundef %45) #11
-  br i1 %49, label %.lr.ph64, label %._crit_edge65
-
-.lr.ph64:                                         ; preds = %._crit_edge
   %59 = getelementptr inbounds i8, ptr %11, i64 4
   %60 = getelementptr inbounds i8, ptr %11, i64 8
   %wide.trip.count70 = zext nneg i32 %12 to i64
   br label %61
 
-61:                                               ; preds = %.lr.ph64, %68
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next68, %68 ]
+61:                                               ; preds = %._crit_edge, %68
+  %indvars.iv67 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next68, %68 ]
   %62 = getelementptr i16, ptr %3, i64 %indvars.iv67
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 0
@@ -4356,7 +4353,7 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
   call void @free_object_addresses(ptr noundef %45) #11
   br label %._crit_edge65
 
-._crit_edge65:                                    ; preds = %68, %._crit_edge65.critedge, %._crit_edge
+._crit_edge65:                                    ; preds = %68, %._crit_edge65.critedge
   br i1 %.not, label %71, label %69
 
 69:                                               ; preds = %._crit_edge65

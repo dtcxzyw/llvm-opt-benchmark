@@ -13953,8 +13953,8 @@ switch.lookup443:                                 ; preds = %984
   %.sroa.6.0..sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %150, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx, i64 40, i1 false)
   store ptr null, ptr %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.not.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.not, label %1314, label %1202
+  %.not = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %.not, label %1314, label %1202
 
 .body111:                                         ; preds = %1302
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }

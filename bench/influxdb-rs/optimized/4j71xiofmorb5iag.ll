@@ -1220,8 +1220,8 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
 
 174:                                              ; preds = %176, %._crit_edge.thread.i.i
   %175 = phi ptr [ %177, %176 ], [ %.sroa.0.0.lcssa43.i.i, %._crit_edge.thread.i.i ]
-  %.not.i.not.not.i.not.i = icmp eq ptr %175, %173
-  br i1 %.not.i.not.not.i.not.i, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64, label %176
+  %.not.not.not.i.not.not.i.not.i = icmp eq ptr %175, %173
+  br i1 %.not.not.not.i.not.not.i.not.i, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64, label %176
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds i8, ptr %175, i64 1

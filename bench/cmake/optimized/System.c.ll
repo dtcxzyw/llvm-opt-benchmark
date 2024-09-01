@@ -99,7 +99,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
 36:                                               ; preds = %34
   %.not54.i = icmp eq i32 %.042107.i.ph, 0
   %spec.select.i = select i1 %.not54.i, i32 1, i32 %.046105.i
-  %spec.select126.i = zext i1 %.not54.i to i32
+  %spec.select124.i = zext i1 %.not54.i to i32
   br label %.loopexit
 
 37:                                               ; preds = %34
@@ -108,9 +108,9 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   br i1 %or.cond4.i, label %40, label %39
 
 39:                                               ; preds = %37
-  %spec.select127.i = select i1 %13, i32 %.046105.i, i32 1
+  %spec.select125.i = select i1 %13, i32 %.046105.i, i32 1
   %not..i = xor i1 %13, true
-  %spec.select128.i = zext i1 %not..i to i32
+  %spec.select126.i = zext i1 %not..i to i32
   br label %.loopexit
 
 40:                                               ; preds = %37
@@ -201,25 +201,25 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
 
 .sink.split.sink.split.i:                         ; preds = %81, %63, %30
   %.sink.i = phi i32 [ %76, %81 ], [ %58, %63 ], [ %25, %30 ]
-  %.sink130.ph.i = phi ptr [ %82, %81 ], [ %64, %63 ], [ %31, %30 ]
+  %.sink128.ph.i = phi ptr [ %82, %81 ], [ %64, %63 ], [ %31, %30 ]
   store i32 %.sink.i, ptr %8, align 4
   br label %.thread
 
 .loopexit:                                        ; preds = %47, %32, %65, %39, %36
-  %.2.i = phi i32 [ 0, %65 ], [ %spec.select.i, %36 ], [ %spec.select127.i, %39 ], [ %.046105.i, %32 ], [ 0, %47 ]
+  %.2.i = phi i32 [ 0, %65 ], [ %spec.select.i, %36 ], [ %spec.select125.i, %39 ], [ %.046105.i, %32 ], [ 0, %47 ]
   %.145.i = phi i32 [ 0, %65 ], [ 0, %36 ], [ 0, %39 ], [ 1, %32 ], [ 0, %47 ]
-  %.143.i = phi i32 [ 0, %65 ], [ %spec.select126.i, %36 ], [ 0, %39 ], [ %.042107.i.ph, %32 ], [ %.042107.i.ph, %47 ]
-  %.141.i = phi i32 [ 0, %65 ], [ 0, %36 ], [ %spec.select128.i, %39 ], [ %.040108.i.ph, %32 ], [ %.040108.i.ph, %47 ]
+  %.143.i = phi i32 [ 0, %65 ], [ %spec.select124.i, %36 ], [ 0, %39 ], [ %.042107.i.ph, %32 ], [ %.042107.i.ph, %47 ]
+  %.141.i = phi i32 [ 0, %65 ], [ 0, %36 ], [ %spec.select126.i, %39 ], [ %.040108.i.ph, %32 ], [ %.040108.i.ph, %47 ]
   %83 = getelementptr inbounds i8, ptr %.038109.i, i64 1
   %84 = load i8, ptr %83, align 1
   %.not.i = icmp eq i8 %84, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !5
 
 .thread:                                          ; preds = %16, %49, %67, %.sink.split.sink.split.i
-  %.sink130.i = phi ptr [ %17, %16 ], [ %50, %49 ], [ %68, %67 ], [ %.sink130.ph.i, %.sink.split.sink.split.i ]
-  %85 = getelementptr inbounds i8, ptr %.sink130.i, i64 1
+  %.sink128.i = phi ptr [ %17, %16 ], [ %50, %49 ], [ %68, %67 ], [ %.sink128.ph.i, %.sink.split.sink.split.i ]
+  %85 = getelementptr inbounds i8, ptr %.sink128.i, i64 1
   store ptr %85, ptr %10, align 8
-  store i8 %15, ptr %.sink130.i, align 1
+  store i8 %15, ptr %.sink128.i, align 1
   %86 = getelementptr inbounds i8, ptr %.038109.i, i64 1
   %87 = load i8, ptr %86, align 1
   %.not.i8 = icmp eq i8 %87, 0
@@ -271,7 +271,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   br i1 %.not69.i, label %.loopexit.i, label %.lr.ph113.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph113.i, %99, %.preheader.i
-  %.0124.i = phi ptr [ %97, %99 ], [ null, %.preheader.i ], [ null, %.lr.ph113.i ]
+  %.0122.i = phi ptr [ %97, %99 ], [ null, %.preheader.i ], [ null, %.lr.ph113.i ]
   %105 = phi ptr [ %92, %99 ], [ %98, %.preheader.i ], [ %98, %.lr.ph113.i ]
   %.not70.i = icmp eq ptr %105, %3
   br i1 %.not70.i, label %107, label %106
@@ -301,7 +301,7 @@ kwsysSystem__ParseUnixCommand.exit:               ; preds = %107, %109
   br label %110
 
 110:                                              ; preds = %2, %kwsysSystem__ParseUnixCommand.exit
-  %.0 = phi ptr [ %.0124.i, %kwsysSystem__ParseUnixCommand.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %.0122.i, %kwsysSystem__ParseUnixCommand.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

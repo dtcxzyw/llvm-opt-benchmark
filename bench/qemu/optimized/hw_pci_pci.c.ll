@@ -2681,7 +2681,7 @@ if.end:                                           ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num) local_unnamed_addr #0 {
+define dso_local noundef ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bus, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2728,35 +2728,34 @@ pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
   br i1 %cmp7.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
-  %child56 = getelementptr inbounds i8, ptr %bus, i64 2256
-  %sec.04257 = load ptr, ptr %child56, align 8
-  %tobool9.not4358 = icmp eq ptr %sec.04257, null
-  br i1 %tobool9.not4358, label %return, label %for.body10
+  %child67 = getelementptr inbounds i8, ptr %bus, i64 2256
+  %sec.04668 = load ptr, ptr %child67, align 8
+  %tobool9.not4769 = icmp eq ptr %sec.04668, null
+  br i1 %tobool9.not4769, label %return, label %for.body10
 
 for.body10:                                       ; preds = %if.end6, %for.body10.backedge
-  %sec.044 = phi ptr [ %sec.044.be, %for.body10.backedge ], [ %sec.04257, %if.end6 ]
-  %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %sec.044) #25
+  %sec.048 = phi ptr [ %sec.048.be, %for.body10.backedge ], [ %sec.04668, %if.end6 ]
+  %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %sec.048) #25
   %call1.i.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i19, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i21 = getelementptr inbounds i8, ptr %call1.i.i20, i64 160
   %7 = load ptr, ptr %bus_num.i21, align 8
-  %call1.i22 = tail call i32 %7(ptr noundef nonnull %sec.044) #25
+  %call1.i22 = tail call i32 %7(ptr noundef nonnull %sec.048) #25
   %cmp12 = icmp eq i32 %call1.i22, %bus_num
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %for.body10
-  %8 = getelementptr i8, ptr %sec.044, i64 120
+  %8 = getelementptr i8, ptr %sec.048, i64 120
   %sec.0.val = load i32, ptr %8, align 8
   %and.i23 = and i32 %sec.0.val, 1
   %tobool.i24.not = icmp eq i32 %and.i23, 0
   br i1 %tobool.i24.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %devices.i = getelementptr inbounds i8, ptr %sec.044, i64 184
+  %devices.i = getelementptr inbounds i8, ptr %sec.048, i64 184
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then16
   %indvars.iv.i = phi i64 [ 0, %if.then16 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %cmp6.i = phi i1 [ true, %if.then16 ], [ %cmp.i, %for.inc.i ]
   %arrayidx.i25 = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %9 = load ptr, ptr %arrayidx.i25, align 8
   %tobool.not.i26 = icmp eq ptr %9, null
@@ -2788,20 +2787,15 @@ pci_secondary_bus_in_range.exit.i:                ; preds = %land.lhs.true.i.i
   %13 = load i8, ptr %arrayidx5.i.i, align 1
   %conv6.i.i = zext i8 %13 to i32
   %cmp7.i.not.i = icmp ugt i32 %bus_num, %conv6.i.i
-  br i1 %cmp7.i.not.i, label %for.inc.i, label %pci_root_bus_in_range.exit
+  br i1 %cmp7.i.not.i, label %for.inc.i, label %for.inc25
 
 for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ult i64 %indvars.iv.i, 255
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %pci_root_bus_in_range.exit, label %for.body.i, !llvm.loop !17
-
-pci_root_bus_in_range.exit:                       ; preds = %pci_secondary_bus_in_range.exit.i, %for.inc.i
-  %cmp.lcssa.i = phi i1 [ %cmp.i, %for.inc.i ], [ %cmp6.i, %pci_secondary_bus_in_range.exit.i ]
-  br i1 %cmp.lcssa.i, label %for.inc25, label %for.inc
+  br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !17
 
 if.else:                                          ; preds = %if.end14
-  %parent_dev20 = getelementptr inbounds i8, ptr %sec.044, i64 2232
+  %parent_dev20 = getelementptr inbounds i8, ptr %sec.048, i64 2232
   %14 = load ptr, ptr %parent_dev20, align 8
   %15 = getelementptr i8, ptr %14, i64 168
   %.val18 = load ptr, ptr %15, align 8
@@ -2825,24 +2819,24 @@ pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
   %cmp7.i38.not = icmp ugt i32 %bus_num, %conv6.i37
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
-for.inc:                                          ; preds = %if.else, %land.lhs.true.i31, %pci_root_bus_in_range.exit, %pci_secondary_bus_in_range.exit39
-  %sibling = getelementptr inbounds i8, ptr %sec.044, i64 2264
+for.inc:                                          ; preds = %for.inc.i, %if.else, %land.lhs.true.i31, %pci_secondary_bus_in_range.exit39
+  %sibling = getelementptr inbounds i8, ptr %sec.048, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool9.not = icmp eq ptr %sec.0, null
   br i1 %tobool9.not, label %return, label %for.body10.backedge
 
 for.body10.backedge:                              ; preds = %for.inc, %for.inc25
-  %sec.044.be = phi ptr [ %sec.0, %for.inc ], [ %sec.042, %for.inc25 ]
+  %sec.048.be = phi ptr [ %sec.0, %for.inc ], [ %sec.046, %for.inc25 ]
   br label %for.body10, !llvm.loop !18
 
-for.inc25:                                        ; preds = %pci_secondary_bus_in_range.exit39, %pci_root_bus_in_range.exit
-  %child = getelementptr inbounds i8, ptr %sec.044, i64 2256
-  %sec.042 = load ptr, ptr %child, align 8
-  %tobool9.not43 = icmp eq ptr %sec.042, null
-  br i1 %tobool9.not43, label %return, label %for.body10.backedge
+for.inc25:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %pci_secondary_bus_in_range.exit39
+  %child = getelementptr inbounds i8, ptr %sec.048, i64 2256
+  %sec.046 = load ptr, ptr %child, align 8
+  %tobool9.not47 = icmp eq ptr %sec.046, null
+  br i1 %tobool9.not47, label %return, label %for.body10.backedge
 
 return:                                           ; preds = %for.inc25, %for.inc, %for.body10, %if.end6, %land.lhs.true, %land.lhs.true.i, %pci_secondary_bus_in_range.exit, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %bus, %if.end ], [ null, %pci_secondary_bus_in_range.exit ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true ], [ null, %if.end6 ], [ null, %for.inc25 ], [ null, %for.inc ], [ %sec.044, %for.body10 ]
+  %retval.0 = phi ptr [ null, %entry ], [ %bus, %if.end ], [ null, %pci_secondary_bus_in_range.exit ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true ], [ null, %if.end6 ], [ null, %for.inc25 ], [ null, %for.inc ], [ %sec.048, %for.body10 ]
   ret ptr %retval.0
 }
 

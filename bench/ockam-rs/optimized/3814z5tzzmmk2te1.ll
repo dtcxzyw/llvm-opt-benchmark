@@ -11748,8 +11748,8 @@ common.ret:                                       ; preds = %.thread457, %473, %
   br label %194
 
 348:                                              ; preds = %343
-  %.not127.not = icmp eq i8 %.sroa.024.0.i465, 15
-  br i1 %.not127.not, label %.thread503, label %349
+  %.not127 = icmp eq i8 %.sroa.024.0.i465, 15
+  br i1 %.not127, label %.thread503, label %349
 
 349:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %32)

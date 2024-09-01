@@ -1443,8 +1443,8 @@ if.else12.i.i:                                    ; preds = %land.lhs.true8.i.i,
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %10, i32 noundef 1) #6
   %open.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load i32, ptr %open.i.i.i, align 8
-  %tobool.not.i.i.not.i = icmp eq i32 %11, 0
-  br i1 %tobool.not.i.i.not.i, label %if.then16.thread.i.i, label %if.end.i25.i.i
+  %tobool.not.i.not.i.i = icmp eq i32 %11, 0
+  br i1 %tobool.not.i.not.i.i, label %if.then16.thread.i.i, label %if.end.i25.i.i
 
 if.then16.thread.i.i:                             ; preds = %if.else12.i.i
   %12 = load ptr, ptr %8, align 8
@@ -2832,7 +2832,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @channel_destroy(i64 noundef %cid) unnamed_addr #0 {
+define internal fastcc i32 @channel_destroy(i64 noundef %cid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #6
@@ -2893,15 +2893,12 @@ _channel_clear_closing.exit.i.i.i:                ; preds = %if.then.i.i.i.i, %i
   tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #6
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %11) #6
-  br i1 %cmp.not.i.i.i, label %return, label %if.then2
+  tail call fastcc void @_channel_free(ptr noundef nonnull %7)
+  br label %return
 
 _channels_remove.exit.thread:                     ; preds = %if.end.i.i, %entry
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %12) #6
-  br label %return
-
-if.then2:                                         ; preds = %_channel_clear_closing.exit.i.i.i
-  tail call fastcc void @_channel_free(ptr noundef nonnull %7)
   br label %return
 
 return.critedge:                                  ; preds = %if.end4.i
@@ -2910,8 +2907,8 @@ return.critedge:                                  ; preds = %if.end4.i
   tail call void @PyThread_release_lock(ptr noundef %13) #6
   br label %return
 
-return:                                           ; preds = %return.critedge, %_channels_remove.exit.thread, %_channel_clear_closing.exit.i.i.i, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %_channel_clear_closing.exit.i.i.i ], [ -2, %_channels_remove.exit.thread ], [ 0, %return.critedge ]
+return:                                           ; preds = %return.critedge, %_channels_remove.exit.thread, %_channel_clear_closing.exit.i.i.i
+  %retval.0 = phi i32 [ 0, %_channel_clear_closing.exit.i.i.i ], [ -2, %_channels_remove.exit.thread ], [ 0, %return.critedge ]
   ret i32 %retval.0
 }
 

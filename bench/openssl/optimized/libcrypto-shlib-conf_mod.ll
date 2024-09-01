@@ -965,8 +965,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 8192
-  %tobool5.not = icmp ne i16 %6, 0
-  br i1 %tobool5.not, label %while.body, label %if.end6.loopexit
+  %tobool5.not.not = icmp ne i16 %6, 0
+  br i1 %tobool5.not.not, label %while.body, label %if.end6.loopexit
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %lstart.222, i64 1
@@ -975,7 +975,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !9
 
 if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
-  %cmp11 = phi i1 [ true, %for.cond ], [ %tobool5.not, %while.body ], [ %tobool5.not, %land.rhs ]
+  %cmp11 = phi i1 [ true, %for.cond ], [ %tobool5.not.not, %while.body ], [ %tobool5.not.not, %land.rhs ]
   %lstart.2.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
   %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa, i32 noundef %sep) #7
   %cmp8 = icmp eq ptr %call7, %lstart.2.lcssa

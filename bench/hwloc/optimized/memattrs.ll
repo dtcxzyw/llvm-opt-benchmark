@@ -2762,47 +2762,44 @@ hwloc__update_best_initiator.exit:                ; preds = %82, %83, %84
   br i1 %exitcond.not, label %._crit_edge, label %75, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %hwloc__update_best_initiator.exit
-  br i1 %.not63, label %._crit_edge.thread, label %85
+  %.not34 = icmp eq ptr %5, null
+  br i1 %.not34, label %86, label %85
 
 85:                                               ; preds = %._crit_edge
-  %.not34 = icmp eq ptr %5, null
-  br i1 %.not34, label %87, label %86
-
-86:                                               ; preds = %85
   store i64 %.143, ptr %5, align 8
-  br label %87
+  br label %86
 
-87:                                               ; preds = %86, %85
+86:                                               ; preds = %85, %._crit_edge
   store i32 %.sroa.0.1, ptr %4, align 8
-  switch i32 %.sroa.0.1, label %92 [
-    i32 1, label %88
-    i32 0, label %90
+  switch i32 %.sroa.0.1, label %91 [
+    i32 1, label %87
+    i32 0, label %89
   ]
 
-88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.sroa.239.1, ptr %89, align 8
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.sroa.239.1, ptr %88, align 8
   br label %from_internal_location.exit
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.sroa.239.1, ptr %91, align 8
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.sroa.239.1, ptr %90, align 8
   %.not.i35 = icmp eq ptr %.sroa.239.1, null
   %..i = sext i1 %.not.i35 to i32
   br label %from_internal_location.exit
 
-92:                                               ; preds = %87
+91:                                               ; preds = %86
+  %92 = tail call ptr @__errno_location() #29
+  store i32 22, ptr %92, align 4
+  br label %from_internal_location.exit
+
+._crit_edge.thread:                               ; preds = %hwloc__memattr_get_target.exit
   %93 = tail call ptr @__errno_location() #29
-  store i32 22, ptr %93, align 4
+  store i32 2, ptr %93, align 4
   br label %from_internal_location.exit
 
-._crit_edge.thread:                               ; preds = %hwloc__memattr_get_target.exit, %._crit_edge
-  %94 = tail call ptr @__errno_location() #29
-  store i32 2, ptr %94, align 4
-  br label %from_internal_location.exit
-
-from_internal_location.exit:                      ; preds = %92, %90, %88, %._crit_edge.thread, %.loopexit, %22, %12, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %12 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %22 ], [ -1, %92 ], [ 0, %88 ], [ %..i, %90 ]
+from_internal_location.exit:                      ; preds = %91, %89, %87, %._crit_edge.thread, %.loopexit, %22, %12, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %12 ], [ -1, %._crit_edge.thread ], [ -1, %.loopexit ], [ -1, %22 ], [ -1, %91 ], [ 0, %87 ], [ %..i, %89 ]
   ret i32 %.0
 }
 

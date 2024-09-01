@@ -19912,7 +19912,7 @@ if.then9:                                         ; preds = %mpd_isinteger.exit
   %12 = load i8, ptr %base, align 8
   %13 = and i8 %12, 1
   %tobool11.not = icmp eq i8 %13, 0
-  br i1 %tobool11.not, label %land.end, label %land.rhs
+  br i1 %tobool11.not, label %land.end, label %if.end.i89
 
 if.then9.thread:                                  ; preds = %if.end.i
   %14 = load i8, ptr %base, align 8
@@ -19920,10 +19920,7 @@ if.then9.thread:                                  ; preds = %if.end.i
   %tobool11.not301 = icmp eq i8 %15, 0
   br i1 %tobool11.not301, label %land.end, label %mpd_isodd.exit
 
-land.rhs:                                         ; preds = %if.then9
-  br i1 %cmp.i.i.i, label %mpd_isodd.exit, label %if.end.i89
-
-if.end.i89:                                       ; preds = %land.rhs
+if.end.i89:                                       ; preds = %if.then9
   %exp.i = getelementptr inbounds i8, ptr %exp, i64 8
   %16 = load i64, ptr %exp.i, align 8
   %cmp.i90 = icmp slt i64 %16, 0
@@ -19953,8 +19950,8 @@ land.rhs.i92:                                     ; preds = %if.end5.i
   %22 = and i32 %21, 1
   br label %mpd_isodd.exit
 
-mpd_isodd.exit:                                   ; preds = %if.then9.thread, %land.rhs, %if.then1.i, %if.end5.i, %land.rhs.i92
-  %retval.0.i91 = phi i32 [ %conv.i15.i, %if.then1.i ], [ 0, %land.rhs ], [ 0, %if.end5.i ], [ %22, %land.rhs.i92 ], [ 0, %if.then9.thread ]
+mpd_isodd.exit:                                   ; preds = %if.then9.thread, %if.then1.i, %if.end5.i, %land.rhs.i92
+  %retval.0.i91 = phi i32 [ %conv.i15.i, %if.then1.i ], [ 0, %if.end5.i ], [ %22, %land.rhs.i92 ], [ 0, %if.then9.thread ]
   %tobool13 = icmp ne i32 %retval.0.i91, 0
   br label %land.end
 

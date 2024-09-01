@@ -3620,48 +3620,48 @@ jvp_object_find_slot.exit.i:                      ; preds = %jvp_string_equal.ex
   %62 = tail call ptr @jv_mem_alloc(i64 noundef %61) #24
   store i32 1, ptr %62, align 8
   %63 = icmp sgt i32 %41, 0
-  br i1 %63, label %.lr.ph.i.i.i, label %jvp_object_new.exit.._crit_edge_crit_edge.i.i
+  br i1 %63, label %.lr.ph.i.i.i, label %jvp_object_new.exit.thread.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %53
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  %wide.trip.count.i.i.i = zext nneg i32 %54 to i64
-  br label %65
-
-65:                                               ; preds = %65, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %65 ]
-  %66 = getelementptr inbounds [0 x %struct.object_slot], ptr %64, i64 0, i64 %indvars.iv.i.i.i
-  %67 = trunc i64 %indvars.iv.i.i.i to i32
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false)
-  %70 = getelementptr inbounds i8, ptr %66, i64 4
-  store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %66, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false)
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.lr.ph.i42.i, label %65, !llvm.loop !27
-
-jvp_object_new.exit.._crit_edge_crit_edge.i.i:    ; preds = %53
-  %72 = getelementptr inbounds i8, ptr %62, i64 4
-  store i32 0, ptr %72, align 4
+jvp_object_new.exit.thread.i.i:                   ; preds = %53
+  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  store i32 0, ptr %64, align 4
   %.pre.i.i = zext i32 %54 to i64
   br label %jvp_object_rehash.exit.i
 
-.lr.ph.i42.i:                                     ; preds = %65
+.lr.ph.i.i.i:                                     ; preds = %53
+  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %wide.trip.count.i.i.i = zext nneg i32 %54 to i64
+  br label %66
+
+66:                                               ; preds = %66, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
+  %67 = getelementptr inbounds [0 x %struct.object_slot], ptr %65, i64 0, i64 %indvars.iv.i.i.i
+  %68 = trunc i64 %indvars.iv.i.i.i to i32
+  %69 = add i32 %68, -1
+  store i32 %69, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false)
+  %71 = getelementptr inbounds i8, ptr %67, i64 4
+  store i32 0, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %67, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) @JV_NULL, i64 16, i1 false)
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %jvp_object_new.exit.i.i, label %66, !llvm.loop !27
+
+jvp_object_new.exit.i.i:                          ; preds = %66
   %73 = getelementptr inbounds i8, ptr %62, i64 4
   store i32 0, ptr %73, align 4
-  %74 = getelementptr [0 x %struct.object_slot], ptr %64, i64 0, i64 %55
+  %74 = getelementptr [0 x %struct.object_slot], ptr %65, i64 0, i64 %55
   %75 = zext nneg i32 %58 to i64
   %76 = shl nuw nsw i64 %75, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %74, i8 -1, i64 %76, i1 false)
-  %77 = getelementptr inbounds [0 x %struct.object_slot], ptr %64, i64 0, i64 %wide.trip.count.i.i.i
+  %77 = getelementptr inbounds [0 x %struct.object_slot], ptr %65, i64 0, i64 %wide.trip.count.i.i.i
   %78 = add nsw i32 %58, -1
   br label %79
 
-79:                                               ; preds = %105, %.lr.ph.i42.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i42.i ], [ %indvars.iv.next.i.i, %105 ]
+79:                                               ; preds = %105, %jvp_object_new.exit.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %jvp_object_new.exit.i.i ], [ %indvars.iv.next.i.i, %105 ]
   %80 = getelementptr inbounds [0 x %struct.object_slot], ptr %10, i64 0, i64 %indvars.iv.i.i
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8
@@ -3683,7 +3683,7 @@ jvp_object_add_slot.exit.i.i:                     ; preds = %79
   tail call void @llvm.assume(i1 %94)
   %95 = icmp eq i32 %93, -1
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds [0 x %struct.object_slot], ptr %64, i64 0, i64 %96
+  %97 = getelementptr inbounds [0 x %struct.object_slot], ptr %65, i64 0, i64 %96
   %.0.i.i.i.i = select i1 %95, ptr null, ptr %97
   %98 = add nsw i32 %93, 1
   store i32 %98, ptr %73, align 4
@@ -3707,8 +3707,8 @@ jvp_object_add_slot.exit.i.i:                     ; preds = %79
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.sroa.1.0.extract.shift.i.i.i
   br i1 %exitcond.not.i.i, label %jvp_object_rehash.exit.i, label %79, !llvm.loop !28
 
-jvp_object_rehash.exit.i:                         ; preds = %105, %jvp_object_new.exit.._crit_edge_crit_edge.i.i
-  %.sroa.4.0.insert.ext.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %jvp_object_new.exit.._crit_edge_crit_edge.i.i ], [ %wide.trip.count.i.i.i, %105 ]
+jvp_object_rehash.exit.i:                         ; preds = %105, %jvp_object_new.exit.thread.i.i
+  %.sroa.4.0.insert.ext.i.pre-phi.i.i = phi i64 [ %.pre.i.i, %jvp_object_new.exit.thread.i.i ], [ %wide.trip.count.i.i.i, %105 ]
   %.sroa.4.0.insert.shift.i.i.i = shl nuw i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.4.0.insert.shift.i.i.i, 135
   tail call void @jv_mem_free(ptr noundef nonnull %9) #24
@@ -5141,15 +5141,12 @@ jvp_object_new.exit:                              ; preds = %18
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %30, ptr %31, align 4
-  br i1 %12, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %jvp_object_new.exit
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = getelementptr inbounds i8, ptr %11, i64 8
   br label %34
 
-34:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
+34:                                               ; preds = %jvp_object_new.exit, %57
+  %indvars.iv = phi i64 [ 0, %jvp_object_new.exit ], [ %indvars.iv.next, %57 ]
   %35 = getelementptr inbounds [0 x %struct.object_slot], ptr %32, i64 0, i64 %indvars.iv
   %36 = getelementptr inbounds [0 x %struct.object_slot], ptr %33, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 40, i1 false)
@@ -5203,7 +5200,7 @@ jv_copy.exit42:                                   ; preds = %jv_copy.exit, %54
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %57, %jvp_object_new.exit.thread, %jvp_object_new.exit
+._crit_edge:                                      ; preds = %57, %jvp_object_new.exit.thread
   %.sroa.0.0.insert.insert.i55.in = and i64 %0, -4294967296
   %.sroa.0.0.insert.insert.i55 = or disjoint i64 %.sroa.0.0.insert.insert.i55.in, 135
   %58 = getelementptr inbounds i8, ptr %1, i64 8

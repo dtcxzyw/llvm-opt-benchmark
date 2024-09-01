@@ -978,12 +978,9 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   store float %.sink.i, ptr %218, align 4
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count.i166
-  br i1 %exitcond67.i, label %calc_hist.exit, label %.preheader.i167, !llvm.loop !18
+  br i1 %exitcond67.i, label %.lr.ph208.preheader, label %.preheader.i167, !llvm.loop !18
 
-calc_hist.exit:                                   ; preds = %217
-  br i1 %.not54.i, label %._crit_edge209, label %.lr.ph208.preheader
-
-.lr.ph208.preheader:                              ; preds = %calc_hist.exit
+.lr.ph208.preheader:                              ; preds = %217
   %smax = tail call i32 @llvm.smax.i32(i32 %108, i32 1)
   %wide.trip.count241 = zext nneg i32 %smax to i64
   br label %.lr.ph208
@@ -1013,8 +1010,8 @@ calc_hist.exit:                                   ; preds = %217
   %exitcond242 = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
   br i1 %exitcond242, label %._crit_edge209, label %.lr.ph208, !llvm.loop !19
 
-._crit_edge209:                                   ; preds = %231, %calc_distr.exit163, %calc_hist.exit
-  %.0126.lcssa = phi float [ 0.000000e+00, %calc_hist.exit ], [ 0.000000e+00, %calc_distr.exit163 ], [ %.1127, %231 ]
+._crit_edge209:                                   ; preds = %231, %calc_distr.exit163
+  %.0126.lcssa = phi float [ 0.000000e+00, %calc_distr.exit163 ], [ %.1127, %231 ]
   tail call void @pfree(ptr noundef %.058.lcssa.i) #10
   tail call void @pfree(ptr noundef %.159.i) #10
   tail call void @pfree(ptr noundef %178) #10

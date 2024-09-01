@@ -443,18 +443,11 @@ define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly
   %52 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 57, i64 1, ptr %51) #9
   br label %742
 
-.preheader355:                                    ; preds = %690, %.thread
-  %.1192596 = phi ptr [ %.0191475, %.thread ], [ %638, %690 ]
-  %.1194595 = phi ptr [ %.0193474, %.thread ], [ %.1194, %690 ]
-  %.1199594 = phi ptr [ %.0198473, %.thread ], [ %.1199, %690 ]
-  %.1201593 = phi ptr [ %.0200472, %.thread ], [ %644, %690 ]
-  br i1 %44, label %.lr.ph482.preheader, label %._crit_edge490
-
-.lr.ph482.preheader:                              ; preds = %.preheader355
+.lr.ph482.preheader:                              ; preds = %.thread
   %wide.trip.count568 = zext nneg i32 %2 to i64
   br label %.lr.ph482
 
-53:                                               ; preds = %.preheader361, %690
+53:                                               ; preds = %690, %.preheader361
   %.0479 = phi i64 [ -1, %.preheader361 ], [ %.1.lcssa, %690 ]
   %switch.i = phi i64 [ 80, %.preheader361 ], [ 48, %690 ]
   %54 = phi i1 [ true, %.preheader361 ], [ false, %690 ]
@@ -1502,7 +1495,7 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
 
 .thread:                                          ; preds = %._crit_edge456
   call void @ADIOI_Heap_free(ptr noundef nonnull %20) #10
-  br label %.preheader355
+  br i1 %44, label %.lr.ph482.preheader, label %._crit_edge490
 
 637:                                              ; preds = %._crit_edge456
   %638 = call ptr @ADIOI_Malloc_fn(i64 noundef %28, i32 noundef 602, ptr noundef nonnull @.str.1) #10
@@ -1602,17 +1595,14 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   %.1199 = phi ptr [ %685, %683 ], [ %.0198473, %._crit_edge471 ]
   %.1194 = phi ptr [ %678, %683 ], [ %.0193474, %._crit_edge471 ]
   call void @ADIOI_Heap_free(ptr noundef nonnull %20) #10
-  br i1 %54, label %53, label %.preheader355, !llvm.loop !14
+  br label %53, !llvm.loop !14
 
 691:                                              ; preds = %699
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
-  br i1 %exitcond569.not, label %.critedge.preheader, label %.lr.ph482, !llvm.loop !15
+  br i1 %exitcond569.not, label %.loopexit.thread597, label %.lr.ph482, !llvm.loop !15
 
-.critedge.preheader:                              ; preds = %691
-  br i1 %44, label %.loopexit.thread597, label %._crit_edge490
-
-.loopexit.thread597:                              ; preds = %.critedge.preheader
+.loopexit.thread597:                              ; preds = %691
   %692 = zext nneg i32 %2 to i64
   %693 = shl nuw nsw i64 %692, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 -1, i64 %693, i1 false)
@@ -1626,25 +1616,19 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   %697 = getelementptr inbounds i8, ptr %694, i64 24
   %698 = load i64, ptr %697, align 8
   %.not = icmp eq i64 %696, %698
-  br i1 %.not, label %699, label %.loopexit
+  br i1 %.not, label %699, label %.lr.ph487.preheader
 
 699:                                              ; preds = %.lr.ph482
   %700 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv565
   %701 = load i64, ptr %700, align 8
   %.not218 = icmp eq i64 %701, 0
-  br i1 %.not218, label %691, label %.loopexit
+  br i1 %.not218, label %691, label %.lr.ph487.preheader
 
-.loopexit:                                        ; preds = %699, %.lr.ph482
-  br i1 %44, label %.lr.ph487.preheader, label %._crit_edge490
-
-.lr.ph487.preheader:                              ; preds = %.loopexit.thread597, %.loopexit
+.lr.ph487.preheader:                              ; preds = %.lr.ph482, %699, %.loopexit.thread597
   %wide.trip.count576 = zext nneg i32 %2 to i64
   br label %.lr.ph487
 
-.preheader:                                       ; preds = %710
-  br i1 %44, label %.lr.ph489.preheader, label %._crit_edge490
-
-.lr.ph489.preheader:                              ; preds = %.preheader
+.lr.ph489.preheader:                              ; preds = %710
   %wide.trip.count581 = zext nneg i32 %2 to i64
   br label %.lr.ph489
 
@@ -1666,7 +1650,7 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
 710:                                              ; preds = %.lr.ph487
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
   %exitcond577.not = icmp eq i64 %indvars.iv.next574, %wide.trip.count576
-  br i1 %exitcond577.not, label %.preheader, label %.lr.ph487, !llvm.loop !16
+  br i1 %exitcond577.not, label %.lr.ph489.preheader, label %.lr.ph487, !llvm.loop !16
 
 .lr.ph489:                                        ; preds = %.lr.ph489.preheader, %726
   %indvars.iv578 = phi i64 [ 0, %.lr.ph489.preheader ], [ %indvars.iv.next579, %726 ]
@@ -1678,9 +1662,9 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
 714:                                              ; preds = %.lr.ph489
   %715 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv578
   %716 = load i32, ptr %715, align 4
-  %717 = getelementptr inbounds ptr, ptr %.1201593, i64 %indvars.iv578
+  %717 = getelementptr inbounds ptr, ptr %.0200472, i64 %indvars.iv578
   %718 = load ptr, ptr %717, align 8
-  %719 = getelementptr inbounds ptr, ptr %.1192596, i64 %indvars.iv578
+  %719 = getelementptr inbounds ptr, ptr %.0191475, i64 %indvars.iv578
   %720 = load ptr, ptr %719, align 8
   %721 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv578
   %722 = call i32 @PMPI_Type_create_hindexed(i32 noundef %716, ptr noundef %718, ptr noundef %720, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %721) #10
@@ -1693,19 +1677,19 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   br label %726
 
 726:                                              ; preds = %724, %714
-  %727 = getelementptr inbounds ptr, ptr %.1201593, i64 %indvars.iv578
+  %727 = getelementptr inbounds ptr, ptr %.0200472, i64 %indvars.iv578
   %728 = load ptr, ptr %727, align 8
   call void @ADIOI_Free_fn(ptr noundef %728, i32 noundef 715, ptr noundef nonnull @.str.1) #10
-  %729 = getelementptr inbounds ptr, ptr %.1192596, i64 %indvars.iv578
+  %729 = getelementptr inbounds ptr, ptr %.0191475, i64 %indvars.iv578
   %730 = load ptr, ptr %729, align 8
   call void @ADIOI_Free_fn(ptr noundef %730, i32 noundef 716, ptr noundef nonnull @.str.1) #10
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
   %exitcond582.not = icmp eq i64 %indvars.iv.next579, %wide.trip.count581
   br i1 %exitcond582.not, label %._crit_edge490, label %.lr.ph489, !llvm.loop !17
 
-._crit_edge490:                                   ; preds = %726, %.preheader355, %.critedge.preheader, %.loopexit, %.preheader
-  call void @ADIOI_Free_fn(ptr noundef %.1201593, i32 noundef 718, ptr noundef nonnull @.str.1) #10
-  call void @ADIOI_Free_fn(ptr noundef %.1192596, i32 noundef 719, ptr noundef nonnull @.str.1) #10
+._crit_edge490:                                   ; preds = %726, %.thread
+  call void @ADIOI_Free_fn(ptr noundef %.0200472, i32 noundef 718, ptr noundef nonnull @.str.1) #10
+  call void @ADIOI_Free_fn(ptr noundef %.0191475, i32 noundef 719, ptr noundef nonnull @.str.1) #10
   %731 = icmp sgt i32 %.1188.lcssa, 0
   br i1 %731, label %732, label %741
 
@@ -1714,18 +1698,18 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   br i1 %733, label %734, label %737
 
 734:                                              ; preds = %732
-  %735 = load i32, ptr %.1199594, align 4
+  %735 = load i32, ptr %.0198473, align 4
   %736 = call i32 @PMPI_Type_contiguous(i32 noundef %735, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %7) #10
   br label %739
 
 737:                                              ; preds = %732
-  %738 = call i32 @PMPI_Type_create_hindexed(i32 noundef %.1188.lcssa, ptr noundef %.1199594, ptr noundef %.1194595, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %7) #10
+  %738 = call i32 @PMPI_Type_create_hindexed(i32 noundef %.1188.lcssa, ptr noundef %.0198473, ptr noundef %.0193474, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %7) #10
   br label %739
 
 739:                                              ; preds = %737, %734
   %740 = call i32 @PMPI_Type_commit(ptr noundef %7) #10
-  call void @ADIOI_Free_fn(ptr noundef %.1194595, i32 noundef 729, ptr noundef nonnull @.str.1) #10
-  call void @ADIOI_Free_fn(ptr noundef %.1199594, i32 noundef 730, ptr noundef nonnull @.str.1) #10
+  call void @ADIOI_Free_fn(ptr noundef %.0193474, i32 noundef 729, ptr noundef nonnull @.str.1) #10
+  call void @ADIOI_Free_fn(ptr noundef %.0198473, i32 noundef 730, ptr noundef nonnull @.str.1) #10
   br label %741
 
 741:                                              ; preds = %739, %._crit_edge490
@@ -1930,17 +1914,17 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef
 
 .preheader296:                                    ; preds = %.lr.ph
   %.not = icmp eq i64 %spec.select, 0
-  br i1 %.not, label %.preheader296.split, label %.preheader293.lr.ph.us.preheader
+  %wide.trip.count455 = zext nneg i32 %1 to i64
+  br i1 %.not, label %.preheader296.split.split.us.preheader, label %.preheader293.lr.ph.us.preheader
 
 .preheader293.lr.ph.us.preheader:                 ; preds = %.preheader296
-  %wide.trip.count460 = zext nneg i32 %1 to i64
   %wide.trip.count465 = zext nneg i32 %1 to i64
   br label %.preheader293.lr.ph.us
 
-.preheader293.lr.ph.us:                           ; preds = %.preheader293.lr.ph.us.preheader, %.loopexit295.us
+.preheader293.lr.ph.us:                           ; preds = %.loopexit295.us, %.preheader293.lr.ph.us.preheader
   %switch.i.us = phi i1 [ false, %.loopexit295.us ], [ true, %.preheader293.lr.ph.us.preheader ]
   %.1149363.us = phi i1 [ true, %.loopexit295.us ], [ false, %.preheader293.lr.ph.us.preheader ]
-  %.0150362.us = phi i32 [ %.2152.lcssa.us, %.loopexit295.us ], [ -1, %.preheader293.lr.ph.us.preheader ]
+  %.0150362.us = phi i32 [ %.3.us, %.loopexit295.us ], [ -1, %.preheader293.lr.ph.us.preheader ]
   %.0154361.us = phi ptr [ %42, %.loopexit295.us ], [ null, %.preheader293.lr.ph.us.preheader ]
   %.0156360.us = phi i64 [ %spec.select185.us, %.loopexit295.us ], [ -1, %.preheader293.lr.ph.us.preheader ]
   %.0167359.us = phi ptr [ %45, %.loopexit295.us ], [ null, %.preheader293.lr.ph.us.preheader ]
@@ -1959,13 +1943,13 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef
 44:                                               ; preds = %41
   %45 = call ptr @ADIOI_Malloc_fn(i64 noundef %16, i32 noundef 945, ptr noundef nonnull @.str.1) #10
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.split365.us, label %.preheader294.us
+  br i1 %46, label %.split365.us, label %.lr.ph358.us
 
-.loopexit295.us:                                  ; preds = %61, %.preheader294.us
-  br i1 %switch.i.us, label %.preheader293.lr.ph.us, label %.preheader, !llvm.loop !18
+.loopexit295.us:                                  ; preds = %61
+  br label %.preheader293.lr.ph.us, !llvm.loop !18
 
-.lr.ph358.us:                                     ; preds = %.preheader294.us, %61
-  %indvars.iv462 = phi i64 [ %indvars.iv.next463, %61 ], [ 0, %.preheader294.us ]
+.lr.ph358.us:                                     ; preds = %44, %61
+  %indvars.iv462 = phi i64 [ %indvars.iv.next463, %61 ], [ 0, %44 ]
   %47 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv462
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
@@ -1991,16 +1975,14 @@ define range(i32 -1, 1) i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef
   %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
   br i1 %exitcond466.not, label %.loopexit295.us, label %.lr.ph358.us, !llvm.loop !19
 
-._crit_edge.us:                                   ; preds = %find_next_off.exit.thread.us, %.preheader293.us
-  %.2158.lcssa.us = phi i64 [ %.1157350.us, %.preheader293.us ], [ %.3159.us, %find_next_off.exit.thread.us ]
-  %.2152.lcssa.us = phi i32 [ %.1151351.us, %.preheader293.us ], [ %.3.us, %find_next_off.exit.thread.us ]
-  %62 = sext i32 %.2152.lcssa.us to i64
+._crit_edge.us:                                   ; preds = %find_next_off.exit.thread.us
+  %62 = sext i32 %.3.us to i64
   %63 = getelementptr inbounds i64, ptr %4, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds i64, ptr %23, i64 %62
   %66 = load i64, ptr %65, align 8
   %67 = sub nsw i64 %64, %66
-  %spec.select185.us = call i64 @llvm.smin.i64(i64 %.2158.lcssa.us, i64 %67)
+  %spec.select185.us = call i64 @llvm.smin.i64(i64 %.3159.us, i64 %67)
   %68 = getelementptr inbounds %struct.view_state, ptr %3, i64 %62
   %.047.i.us = getelementptr inbounds i8, ptr %68, i64 %.047.i.us.v
   %69 = getelementptr inbounds i8, ptr %68, i64 144
@@ -2728,7 +2710,7 @@ find_next_off.exit.thread.us:                     ; preds = %499, %496, %find_ne
   %.3159.us = phi i64 [ %.2158336.us, %.lr.ph339.us ], [ %.2158336.us, %285 ], [ %.2158336.us, %find_next_off.exit.us ], [ %494, %499 ], [ %.2158336.us, %496 ], [ %.2158336.us, %.critedge.i.us ], [ %.2158336.us, %291 ]
   %.3.us = phi i32 [ %.2152337.us, %.lr.ph339.us ], [ %.2152337.us, %285 ], [ %.2152337.us, %find_next_off.exit.us ], [ %282, %499 ], [ %.2152337.us, %496 ], [ %.2152337.us, %.critedge.i.us ], [ %.2152337.us, %291 ]
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
-  %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
+  %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count455
   br i1 %exitcond461.not, label %._crit_edge.us, label %.lr.ph339.us, !llvm.loop !22
 
 .preheader292.us:                                 ; preds = %view_state_add_region.exit201.us, %view_state_add_region.exit.us
@@ -2741,13 +2723,10 @@ find_next_off.exit.thread.us:                     ; preds = %499, %496, %find_ne
   br i1 %500, label %.preheader293.us, label %._crit_edge352.us, !llvm.loop !23
 
 .preheader293.us:                                 ; preds = %.preheader293.lr.ph.us, %.loopexit.us
-  %.1151351.us = phi i32 [ %.0150362.us, %.preheader293.lr.ph.us ], [ %.2152.lcssa.us, %.loopexit.us ]
+  %.1151351.us = phi i32 [ %.0150362.us, %.preheader293.lr.ph.us ], [ %.3.us, %.loopexit.us ]
   %.1157350.us = phi i64 [ %.0156360.us, %.preheader293.lr.ph.us ], [ %spec.select185.us, %.loopexit.us ]
   %.0163349.us = phi i64 [ 0, %.preheader293.lr.ph.us ], [ %.1164.lcssa.us, %.loopexit.us ]
-  br i1 %37, label %.lr.ph339.us, label %._crit_edge.us
-
-.preheader294.us:                                 ; preds = %44
-  br i1 %37, label %.lr.ph358.us, label %.loopexit295.us
+  br label %.lr.ph339.us
 
 .lr.ph343.us:                                     ; preds = %view_state_add_region.exit.us
   %.047.i195.us = getelementptr inbounds i8, ptr %128, i64 %.047.i.us.v
@@ -2782,18 +2761,14 @@ find_next_off.exit.thread.us:                     ; preds = %499, %496, %find_ne
 ._crit_edge352.us:                                ; preds = %.loopexit.us
   br i1 %switch.i.us, label %41, label %.preheader
 
-.preheader296.split:                              ; preds = %.preheader296
-  br i1 %37, label %.preheader296.split.split.us.preheader, label %.preheader296.split.split.preheader
-
-.preheader296.split.split.preheader:              ; preds = %.preheader297, %.preheader296.split
+.preheader296.split.split.preheader:              ; preds = %.preheader297
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 -1, i64 %16, i1 false)
   %519 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %16, i32 noundef 941, ptr noundef nonnull @.str.1) #10
   %520 = icmp eq ptr %519, null
   br i1 %520, label %.split.us, label %546
 
-.preheader296.split.split.us.preheader:           ; preds = %.preheader296.split
-  %wide.trip.count455 = zext nneg i32 %1 to i64
+.preheader296.split.split.us.preheader:           ; preds = %.preheader296
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 -1, i64 %16, i1 false)
   %521 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %16, i32 noundef 941, ptr noundef nonnull @.str.1) #10
@@ -2850,9 +2825,9 @@ find_next_off.exit.thread.us:                     ; preds = %499, %496, %find_ne
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 -1, i64 %16, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %.loopexit295.us, %._crit_edge352.us, %.preheader.sink.split
-  %.us-phi366 = phi ptr [ %.us-phi366.ph, %.preheader.sink.split ], [ %.0167359.us, %._crit_edge352.us ], [ %45, %.loopexit295.us ]
-  %.us-phi367 = phi ptr [ %.us-phi367.ph, %.preheader.sink.split ], [ %.0154361.us, %._crit_edge352.us ], [ %42, %.loopexit295.us ]
+.preheader:                                       ; preds = %._crit_edge352.us, %.preheader.sink.split
+  %.us-phi366 = phi ptr [ %.us-phi366.ph, %.preheader.sink.split ], [ %.0167359.us, %._crit_edge352.us ]
+  %.us-phi367 = phi ptr [ %.us-phi367.ph, %.preheader.sink.split ], [ %.0154361.us, %._crit_edge352.us ]
   br i1 %37, label %.lr.ph401.preheader, label %._crit_edge
 
 .lr.ph401.preheader:                              ; preds = %.preheader

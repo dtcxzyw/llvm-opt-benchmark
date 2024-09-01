@@ -642,7 +642,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   %34 = getelementptr inbounds i8, ptr %1, i64 112
   %35 = getelementptr inbounds i8, ptr %15, i64 84
   %36 = getelementptr inbounds i8, ptr %1, i64 128
-  %.pre33 = load ptr, ptr %31, align 8
+  %.pre38 = load ptr, ptr %31, align 8
   %37 = lshr i32 %19, 2
   %38 = zext nneg i32 %37 to i64
   br label %145
@@ -752,11 +752,11 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   %108 = getelementptr inbounds i8, ptr %26, i64 76
   %109 = load i32, ptr %108, align 4
   store i32 %109, ptr %90, align 4
-  %.pre32 = load i32, ptr %55, align 4
+  %.pre37 = load i32, ptr %55, align 4
   br label %110
 
 110:                                              ; preds = %107, %103
-  %111 = phi i32 [ %.pre32, %107 ], [ %104, %103 ]
+  %111 = phi i32 [ %.pre37, %107 ], [ %104, %103 ]
   %112 = and i32 %111, 262144
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %.thread, label %114
@@ -826,7 +826,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   store i16 0, ptr %5, align 2, !annotation !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   store ptr null, ptr %6, align 8, !annotation !22
-  %147 = getelementptr %struct.eventfs_entry, ptr %.pre33, i64 %146
+  %147 = getelementptr %struct.eventfs_entry, ptr %.pre38, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %148) #7
   %150 = icmp eq i32 %149, 0
@@ -943,11 +943,11 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
 221:                                              ; preds = %217
   %222 = trunc i32 %218 to i16
   store i16 %222, ptr %175, align 8
-  %.pre34 = load i32, ptr %166, align 4
+  %.pre39 = load i32, ptr %166, align 4
   br label %223
 
 223:                                              ; preds = %221, %217
-  %224 = phi i32 [ %.pre34, %221 ], [ %218, %217 ]
+  %224 = phi i32 [ %.pre39, %221 ], [ %218, %217 ]
   %225 = and i32 %224, 131072
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %230, label %227
@@ -956,11 +956,11 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   %228 = getelementptr inbounds i8, ptr %166, i64 4
   %229 = load i32, ptr %228, align 4
   store i32 %229, ptr %210, align 4
-  %.pre35 = load i32, ptr %166, align 4
+  %.pre40 = load i32, ptr %166, align 4
   br label %230
 
 230:                                              ; preds = %227, %223
-  %231 = phi i32 [ %.pre35, %227 ], [ %224, %223 ]
+  %231 = phi i32 [ %.pre40, %227 ], [ %224, %223 ]
   %232 = and i32 %231, 262144
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %.thread10, label %234
@@ -999,8 +999,8 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   call void @refcount_warn_saturate(ptr noundef %35, i32 noundef %251) #7
   br label %252
 
-.thread11:                                        ; preds = %173, %153, %172
-  %.ph = phi ptr [ inttoptr (i64 -5 to ptr), %172 ], [ null, %153 ], [ inttoptr (i64 -12 to ptr), %173 ]
+.thread11:                                        ; preds = %173, %172, %153
+  %.ph = phi ptr [ inttoptr (i64 -12 to ptr), %173 ], [ inttoptr (i64 -5 to ptr), %172 ], [ null, %153 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -1015,7 +1015,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr nocapture noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread12, %252, %28, %.thread11, %143, %49, %44, %17, %13
-  %253 = phi ptr [ null, %17 ], [ null, %44 ], [ null, %13 ], [ null, %143 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %28 ], [ %.ph, %.thread11 ], [ null, %252 ], [ null, %.thread12 ]
+  %253 = phi ptr [ null, %17 ], [ null, %44 ], [ null, %13 ], [ null, %143 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %28 ], [ null, %252 ], [ %.ph, %.thread11 ], [ null, %.thread12 ]
   call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
   br label %254
 

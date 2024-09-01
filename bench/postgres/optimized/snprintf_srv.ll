@@ -1995,16 +1995,16 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   br label %dopr_outch.exit
 
 .thread:                                          ; preds = %.lr.ph45, %flushbuffer.exit.us, %.lr.ph.split.us
-  %46 = phi ptr [ %.pre54, %.lr.ph.split.us ], [ %55, %.lr.ph45 ], [ %78, %flushbuffer.exit.us ]
   %.us-phi = phi i32 [ %.026.ph48, %.lr.ph.split.us ], [ %60, %.lr.ph45 ], [ %.026.ph48, %flushbuffer.exit.us ]
-  %47 = tail call i32 @llvm.umin.i32(i32 %.us-phi, i32 %.026.ph48)
-  %48 = zext nneg i32 %47 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %46, ptr align 1 %.025.ph50, i64 %48, i1 false)
+  %46 = tail call i32 @llvm.umin.i32(i32 %.us-phi, i32 %.026.ph48)
+  %47 = load ptr, ptr %2, align 8
+  %48 = zext nneg i32 %46 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %.025.ph50, i64 %48, i1 false)
   %49 = load ptr, ptr %2, align 8
   %50 = getelementptr i8, ptr %49, i64 %48
   store ptr %50, ptr %2, align 8
   %51 = getelementptr i8, ptr %.025.ph50, i64 %48
-  %52 = sub nsw i32 %.026.ph48, %47
+  %52 = sub nsw i32 %.026.ph48, %46
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.split.us, label %dopr_outch.exit, !llvm.loop !9
 
@@ -2013,12 +2013,15 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   %.026.ph48 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %52, %.thread ]
   %54 = load ptr, ptr %6, align 8
   %.not.us44 = icmp eq ptr %54, null
-  %.pre54 = load ptr, ptr %2, align 8
-  br i1 %.not.us44, label %.thread, label %.lr.ph45
+  br i1 %.not.us44, label %.thread, label %.lr.ph45.preheader
 
-.lr.ph45:                                         ; preds = %.lr.ph.split.us, %flushbuffer.exit.us
-  %55 = phi ptr [ %78, %flushbuffer.exit.us ], [ %.pre54, %.lr.ph.split.us ]
-  %56 = phi ptr [ %79, %flushbuffer.exit.us ], [ %54, %.lr.ph.split.us ]
+.lr.ph45.preheader:                               ; preds = %.lr.ph.split.us
+  %.pre = load ptr, ptr %2, align 8
+  br label %.lr.ph45
+
+.lr.ph45:                                         ; preds = %.lr.ph45.preheader, %flushbuffer.exit.us
+  %55 = phi ptr [ %78, %flushbuffer.exit.us ], [ %.pre, %.lr.ph45.preheader ]
+  %56 = phi ptr [ %79, %flushbuffer.exit.us ], [ %54, %.lr.ph45.preheader ]
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %55 to i64
   %59 = sub i64 %57, %58
@@ -2506,15 +2509,15 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   br label %dopr_outch.exit
 
 .thread:                                          ; preds = %.lr.ph42, %flushbuffer.exit.us, %.lr.ph.split.us
-  %47 = phi ptr [ %.pre50, %.lr.ph.split.us ], [ %55, %.lr.ph42 ], [ %78, %flushbuffer.exit.us ]
   %.us-phi = phi i32 [ %.023.ph45, %.lr.ph.split.us ], [ %60, %.lr.ph42 ], [ %.023.ph45, %flushbuffer.exit.us ]
-  %48 = tail call i32 @llvm.umin.i32(i32 %.us-phi, i32 %.023.ph45)
-  %49 = zext nneg i32 %48 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %47, i8 %11, i64 %49, i1 false)
+  %47 = tail call i32 @llvm.umin.i32(i32 %.us-phi, i32 %.023.ph45)
+  %48 = load ptr, ptr %2, align 8
+  %49 = zext nneg i32 %47 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 %11, i64 %49, i1 false)
   %50 = load ptr, ptr %2, align 8
   %51 = getelementptr i8, ptr %50, i64 %49
   store ptr %51, ptr %2, align 8
-  %52 = sub nsw i32 %.023.ph45, %48
+  %52 = sub nsw i32 %.023.ph45, %47
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.split.us, label %dopr_outch.exit, !llvm.loop !13
 
@@ -2522,12 +2525,15 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   %.023.ph45 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %52, %.thread ]
   %54 = load ptr, ptr %6, align 8
   %.not.us41 = icmp eq ptr %54, null
-  %.pre50 = load ptr, ptr %2, align 8
-  br i1 %.not.us41, label %.thread, label %.lr.ph42
+  br i1 %.not.us41, label %.thread, label %.lr.ph42.preheader
 
-.lr.ph42:                                         ; preds = %.lr.ph.split.us, %flushbuffer.exit.us
-  %55 = phi ptr [ %78, %flushbuffer.exit.us ], [ %.pre50, %.lr.ph.split.us ]
-  %56 = phi ptr [ %79, %flushbuffer.exit.us ], [ %54, %.lr.ph.split.us ]
+.lr.ph42.preheader:                               ; preds = %.lr.ph.split.us
+  %.pre = load ptr, ptr %2, align 8
+  br label %.lr.ph42
+
+.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %flushbuffer.exit.us
+  %55 = phi ptr [ %78, %flushbuffer.exit.us ], [ %.pre, %.lr.ph42.preheader ]
+  %56 = phi ptr [ %79, %flushbuffer.exit.us ], [ %54, %.lr.ph42.preheader ]
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %55 to i64
   %59 = sub i64 %57, %58

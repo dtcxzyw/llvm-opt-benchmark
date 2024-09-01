@@ -1788,8 +1788,7 @@ while.end52:                                      ; preds = %for.body29
 
 for.inc59:                                        ; preds = %for.body29, %while.end52, %for.body
   %cmp.i1428 = icmp eq ptr %10, %__begin3.sroa.0.022
-  %cmp.i14 = select i1 %cmp.not.i.i, i1 %cmp.i1428, i1 false
-  br i1 %cmp.i14, label %if.end63, label %for.body
+  br i1 %cmp.i1428, label %if.end63, label %for.body
 
 if.end63:                                         ; preds = %for.inc59, %if.then19, %if.then, %cond.end
   ret void
@@ -2483,9 +2482,9 @@ if.end25:                                         ; preds = %for.body
   %.pre = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv.i.i19 = and i64 %.pre, 255
   store i64 %conv.i.i19, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
-  br i1 %cmp3, label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %if.end41
+  br label %if.end41
 
-_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %if.then6, %if.end25
+_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %if.then6
   %8 = load ptr, ptr %chunks_, align 8
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_, align 8
   store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
@@ -2493,7 +2492,7 @@ _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cx
   store ptr null, ptr %this, align 8
   br label %if.end41
 
-if.end41:                                         ; preds = %if.end9.thread, %if.end25, %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %entry
+if.end41:                                         ; preds = %if.end25, %if.end9.thread, %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then6, %if.else

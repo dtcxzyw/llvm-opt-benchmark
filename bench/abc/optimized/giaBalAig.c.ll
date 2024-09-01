@@ -975,24 +975,22 @@ define void @Gia_ManPrepareLastTwo(ptr noundef %0, ptr nocapture noundef readonl
   %37 = tail call noundef i32 @llvm.smax.i32(i32 %.057.lcssa, i32 %36)
   %38 = zext nneg i32 %34 to i64
   %39 = sext i32 %37 to i64
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge80
-  %indvars.iv90 = phi i64 [ %38, %.preheader.lr.ph ], [ %indvars.iv.next91, %._crit_edge80 ]
-  %indvars.iv = phi i64 [ %8, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge80 ]
-  %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
-  %40 = icmp sgt i64 %indvars.iv.next91, %39
+  %indvars.iv.next91100 = add nsw i64 %38, -1
+  %40 = icmp sgt i64 %indvars.iv.next91100, %39
   br i1 %40, label %.lr.ph79, label %.loopexit
 
-.lr.ph79:                                         ; preds = %.preheader
-  %41 = icmp eq i64 %indvars.iv90, %38
+.lr.ph79:                                         ; preds = %.preheader.lr.ph, %._crit_edge80
+  %indvars.iv.next91103 = phi i64 [ %indvars.iv.next91, %._crit_edge80 ], [ %indvars.iv.next91100, %.preheader.lr.ph ]
+  %indvars.iv102 = phi i64 [ %indvars.iv.next, %._crit_edge80 ], [ %8, %.preheader.lr.ph ]
+  %indvars.iv90101 = phi i64 [ %indvars.iv.next91103, %._crit_edge80 ], [ %38, %.preheader.lr.ph ]
+  %41 = icmp eq i64 %indvars.iv90101, %38
   %.not64.fr = freeze i1 %41
   br i1 %.not64.fr, label %.lr.ph79.split.us, label %.lr.ph79.split
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79, %55
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %55 ], [ %indvars.iv, %.lr.ph79 ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %55 ], [ %indvars.iv102, %.lr.ph79 ]
   %.val67.us = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i32, ptr %.val67.us, i64 %indvars.iv90
+  %42 = getelementptr inbounds i32, ptr %.val67.us, i64 %indvars.iv90101
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i32, ptr %.val67.us, i64 %indvars.iv86
   %45 = load i32, ptr %44, align 4
@@ -1027,9 +1025,9 @@ define void @Gia_ManPrepareLastTwo(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %56, label %.lr.ph79.split.us, label %._crit_edge80, !llvm.loop !9
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %74
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %74 ], [ %indvars.iv, %.lr.ph79 ]
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %74 ], [ %indvars.iv102, %.lr.ph79 ]
   %.val67 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv90
+  %57 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv90101
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv83
   %60 = load i32, ptr %59, align 4
@@ -1044,14 +1042,14 @@ define void @Gia_ManPrepareLastTwo(ptr noundef %0, ptr nocapture noundef readonl
 
 ._crit_edge94:                                    ; preds = %61
   %.val72.pre = load ptr, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.val72.pre, i64 %indvars.iv90
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.val72.pre, i64 %indvars.iv90101
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %63
 
 63:                                               ; preds = %._crit_edge94, %.lr.ph79.split
   %64 = phi i32 [ %.pre, %._crit_edge94 ], [ %58, %.lr.ph79.split ]
   %.val72 = phi ptr [ %.val72.pre, %._crit_edge94 ], [ %.val67, %.lr.ph79.split ]
-  %65 = getelementptr inbounds i32, ptr %.val72, i64 %indvars.iv90
+  %65 = getelementptr inbounds i32, ptr %.val72, i64 %indvars.iv90101
   %66 = getelementptr inbounds i32, ptr %.val72, i64 %38
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %65, align 4
@@ -1074,10 +1072,12 @@ define void @Gia_ManPrepareLastTwo(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %75, label %.lr.ph79.split, label %._crit_edge80, !llvm.loop !9
 
 ._crit_edge80:                                    ; preds = %74, %55
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !10
+  %indvars.iv.next = add nsw i64 %indvars.iv102, -1
+  %indvars.iv.next91 = add nsw i64 %indvars.iv.next91103, -1
+  %76 = icmp sgt i64 %indvars.iv.next91, %39
+  br i1 %76, label %.lr.ph79, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge80, %5, %33, %._crit_edge, %2
+.loopexit:                                        ; preds = %._crit_edge80, %.preheader.lr.ph, %5, %33, %._crit_edge, %2
   ret void
 }
 

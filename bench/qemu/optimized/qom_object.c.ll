@@ -1993,7 +1993,7 @@ while.end.lr.ph:                                  ; preds = %trace_object_dynami
 for.cond:                                         ; preds = %while.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %while.end, !llvm.loop !18
+  br i1 %exitcond.not, label %land.lhs.true.i, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %while.end.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %while.end.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -2003,10 +2003,7 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
   %cmp3 = icmp eq ptr %typename, %11
   br i1 %cmp3, label %out, label %for.cond
 
-for.end:                                          ; preds = %for.cond
-  br i1 %tobool.not, label %out, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %for.end
+land.lhs.true.i:                                  ; preds = %for.cond
   %12 = load ptr, ptr %obj, align 8
   %call1.i = tail call ptr @object_class_dynamic_cast(ptr noundef %12, ptr noundef %typename)
   %tobool2.not.i = icmp eq ptr %call1.i, null
@@ -2038,7 +2035,7 @@ while.end49:                                      ; preds = %while.end24
   store atomic i64 %18, ptr %arrayidx54 monotonic, align 8
   br label %out
 
-out:                                              ; preds = %while.end, %trace_object_dynamic_cast_assert.exit, %for.end, %while.end49
+out:                                              ; preds = %while.end, %trace_object_dynamic_cast_assert.exit, %while.end49
   ret ptr %obj
 }
 
@@ -2114,8 +2111,8 @@ return:                                           ; preds = %land.lhs.true.i, %t
 define dso_local ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %tobool = icmp ne ptr %class, null
-  br i1 %tobool, label %cond.true, label %cond.end
+  %tobool.not = icmp eq ptr %class, null
+  br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %0 = load ptr, ptr %class, align 8
@@ -2158,7 +2155,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_object_class_dynamic_cast_assert.exit:      ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  br i1 %tobool, label %while.end.lr.ph, label %if.end7.thread
+  br i1 %tobool.not, label %if.end7.thread, label %while.end.lr.ph
 
 if.end7.thread:                                   ; preds = %trace_object_class_dynamic_cast_assert.exit
   %call38 = tail call ptr @object_class_dynamic_cast(ptr noundef %class, ptr noundef %typename)
@@ -2184,8 +2181,7 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
 for.end:                                          ; preds = %for.cond
   %call = tail call ptr @object_class_dynamic_cast(ptr noundef nonnull %class, ptr noundef %typename)
   %tobool3 = icmp eq ptr %call, null
-  %or.cond = and i1 %tobool, %tobool3
-  br i1 %or.cond, label %if.then5, label %if.end7
+  br i1 %tobool3, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %for.end
   %10 = load ptr, ptr @stderr, align 8
@@ -2195,8 +2191,7 @@ if.then5:                                         ; preds = %for.end
 
 if.end7:                                          ; preds = %for.end
   %cmp10 = icmp eq ptr %call, %class
-  %or.cond29 = and i1 %tobool, %cmp10
-  br i1 %or.cond29, label %for.cond12.preheader, label %out
+  br i1 %cmp10, label %for.cond12.preheader, label %out
 
 for.cond12.preheader:                             ; preds = %if.end7
   %class_cast_cache21 = getelementptr inbounds i8, ptr %class, i64 48

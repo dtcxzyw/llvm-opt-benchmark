@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FSE_normalizeCount.rtbTable = internal unnamed_addr constant [8 x i32] [i32 0, i32 473195, i32 504333, i32 520860, i32 550000, i32 700000, i32 750000, i32 830000], align 16
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture noundef writeonly %ct, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr nocapture noundef %workSpace, i64 noundef %wkspSize) local_unnamed_addr #0 {
 entry:
   %shl = shl nuw i32 1, %tableLog
@@ -52,7 +52,6 @@ if.then60.thread:                                 ; preds = %if.end
   %arrayidx56166 = getelementptr inbounds i16, ptr %workSpace, i64 %idxprom55165
   store i16 %conv54164, ptr %arrayidx56166, align 2
   %idx.ext61170 = zext i32 %shl to i64
-  %add.ptr62171 = getelementptr inbounds i8, ptr %add.ptr9, i64 %idx.ext61170
   br label %for.cond89.preheader
 
 for.body.preheader:                               ; preds = %if.end
@@ -100,23 +99,21 @@ for.end:                                          ; preds = %for.inc
   %arrayidx56 = getelementptr inbounds i16, ptr %workSpace, i64 %idxprom55
   store i16 %conv54, ptr %arrayidx56, align 2
   %cmp58 = icmp eq i32 %highThreshold.1, %sub
-  br i1 %cmp58, label %if.then60, label %for.cond119.preheader
-
-for.cond119.preheader:                            ; preds = %for.end
-  br i1 %cmp20.not112, label %if.end145, label %for.body122
+  br i1 %cmp58, label %if.then60, label %for.body122
 
 if.then60:                                        ; preds = %for.end
   %idx.ext61 = zext i32 %shl to i64
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr9, i64 %idx.ext61
-  br i1 %cmp20.not112, label %for.cond89.preheader, label %for.body67
+  br label %for.body67
 
-for.cond89.preheader:                             ; preds = %for.end81, %if.then60.thread, %if.then60
-  %add.ptr62173 = phi ptr [ %add.ptr62171, %if.then60.thread ], [ %add.ptr62, %if.then60 ], [ %add.ptr62, %for.end81 ]
-  %idx.ext61172 = phi i64 [ %idx.ext61170, %if.then60.thread ], [ %idx.ext61, %if.then60 ], [ %idx.ext61, %for.end81 ]
+for.cond89.preheader:                             ; preds = %for.end81, %if.then60.thread
+  %idx.ext61172 = phi i64 [ %idx.ext61170, %if.then60.thread ], [ %idx.ext61, %for.end81 ]
   %conv99 = zext nneg i32 %add5 to i64
   %conv102 = zext nneg i32 %sub to i64
   %6 = shl nuw i32 %add5, 1
   %mul110 = zext i32 %6 to i64
+  %7 = getelementptr inbounds i8, ptr %add.ptr9, i64 %idx.ext61172
+  %8 = getelementptr inbounds i8, ptr %add.ptr9, i64 %idx.ext61172
   br label %for.cond95.preheader
 
 for.body67:                                       ; preds = %if.then60, %for.end81
@@ -124,14 +121,14 @@ for.body67:                                       ; preds = %if.then60, %for.end
   %pos.0127 = phi i64 [ %add83, %for.end81 ], [ 0, %if.then60 ]
   %sv.0126 = phi i64 [ %add86, %for.end81 ], [ 0, %if.then60 ]
   %arrayidx69 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv146
-  %7 = load i16, ptr %arrayidx69, align 2
+  %9 = load i16, ptr %arrayidx69, align 2
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr62, i64 %pos.0127
   store i64 %sv.0126, ptr %add.ptr71, align 1
-  %cmp73122 = icmp sgt i16 %7, 8
+  %cmp73122 = icmp sgt i16 %9, 8
   br i1 %cmp73122, label %for.body75.preheader, label %for.end81
 
 for.body75.preheader:                             ; preds = %for.body67
-  %8 = zext nneg i16 %7 to i64
+  %10 = zext nneg i16 %9 to i64
   br label %for.body75
 
 for.body75:                                       ; preds = %for.body75.preheader, %for.body75
@@ -139,11 +136,11 @@ for.body75:                                       ; preds = %for.body75.preheade
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr71, i64 %indvars.iv143
   store i64 %sv.0126, ptr %add.ptr78, align 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 8
-  %cmp73 = icmp ult i64 %indvars.iv.next144, %8
+  %cmp73 = icmp ult i64 %indvars.iv.next144, %10
   br i1 %cmp73, label %for.body75, label %for.end81, !llvm.loop !6
 
 for.end81:                                        ; preds = %for.body75, %for.body67
-  %conv82 = sext i16 %7 to i64
+  %conv82 = sext i16 %9 to i64
   %add83 = add i64 %pos.0127, %conv82
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %add86 = add i64 %sv.0126, 72340172838076673
@@ -154,30 +151,30 @@ for.cond95.preheader:                             ; preds = %for.cond89.preheade
   %s88.0130 = phi i64 [ 0, %for.cond89.preheader ], [ %add115, %for.cond95.preheader ]
   %position.0129 = phi i64 [ 0, %for.cond89.preheader ], [ %and113, %for.cond95.preheader ]
   %and = and i64 %position.0129, %conv102
-  %arrayidx104 = getelementptr inbounds i8, ptr %add.ptr62173, i64 %s88.0130
-  %9 = load i8, ptr %arrayidx104, align 1
+  %arrayidx104 = getelementptr inbounds i8, ptr %7, i64 %s88.0130
+  %11 = load i8, ptr %arrayidx104, align 1
   %arrayidx105 = getelementptr inbounds i8, ptr %add.ptr9, i64 %and
-  store i8 %9, ptr %arrayidx105, align 1
+  store i8 %11, ptr %arrayidx105, align 1
   %add101.c = add nuw nsw i64 %position.0129, %conv99
   %and.c = and i64 %add101.c, %conv102
   %add103.c = or disjoint i64 %s88.0130, 1
-  %arrayidx104.c = getelementptr inbounds i8, ptr %add.ptr62173, i64 %add103.c
-  %10 = load i8, ptr %arrayidx104.c, align 1
+  %arrayidx104.c = getelementptr inbounds i8, ptr %8, i64 %add103.c
+  %12 = load i8, ptr %arrayidx104.c, align 1
   %arrayidx105.c = getelementptr inbounds i8, ptr %add.ptr9, i64 %and.c
-  store i8 %10, ptr %arrayidx105.c, align 1
+  store i8 %12, ptr %arrayidx105.c, align 1
   %add111 = add nuw nsw i64 %position.0129, %mul110
   %and113 = and i64 %add111, %conv102
   %add115 = add nuw nsw i64 %s88.0130, 2
   %cmp91 = icmp ult i64 %add115, %idx.ext61172
   br i1 %cmp91, label %for.cond95.preheader, label %if.end145, !llvm.loop !8
 
-for.body122:                                      ; preds = %for.cond119.preheader, %for.inc142
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %for.inc142 ], [ 0, %for.cond119.preheader ]
-  %position118.0120 = phi i32 [ %position118.1.lcssa, %for.inc142 ], [ 0, %for.cond119.preheader ]
+for.body122:                                      ; preds = %for.end, %for.inc142
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %for.inc142 ], [ 0, %for.end ]
+  %position118.0120 = phi i32 [ %position118.1.lcssa, %for.inc142 ], [ 0, %for.end ]
   %arrayidx124 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv138
-  %11 = load i16, ptr %arrayidx124, align 2
-  %conv125 = sext i16 %11 to i32
-  %cmp127115 = icmp sgt i16 %11, 0
+  %13 = load i16, ptr %arrayidx124, align 2
+  %conv125 = sext i16 %13 to i32
+  %cmp127115 = icmp sgt i16 %13, 0
   br i1 %cmp127115, label %for.body129.lr.ph, label %for.inc142
 
 for.body129.lr.ph:                                ; preds = %for.body122
@@ -210,7 +207,7 @@ for.inc142:                                       ; preds = %for.inc139, %for.bo
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %idxprom55
   br i1 %exitcond142.not, label %if.end145, label %for.body122, !llvm.loop !11
 
-if.end145:                                        ; preds = %for.inc142, %for.cond95.preheader, %for.cond119.preheader
+if.end145:                                        ; preds = %for.inc142, %for.cond95.preheader
   %wide.trip.count155 = zext i32 %shl to i64
   br label %for.body150
 
@@ -226,16 +223,16 @@ for.cond165.preheader:                            ; preds = %for.body150
 for.body150:                                      ; preds = %if.end145, %for.body150
   %indvars.iv151 = phi i64 [ 0, %if.end145 ], [ %indvars.iv.next152, %for.body150 ]
   %arrayidx153 = getelementptr inbounds i8, ptr %add.ptr9, i64 %indvars.iv151
-  %12 = load i8, ptr %arrayidx153, align 1
-  %13 = trunc nuw i64 %indvars.iv151 to i32
-  %add154 = add i32 %shl, %13
+  %14 = load i8, ptr %arrayidx153, align 1
+  %15 = trunc nuw i64 %indvars.iv151 to i32
+  %add154 = add i32 %shl, %15
   %conv155 = trunc i32 %add154 to i16
-  %idxprom156 = zext i8 %12 to i64
+  %idxprom156 = zext i8 %14 to i64
   %arrayidx157 = getelementptr inbounds i16, ptr %workSpace, i64 %idxprom156
-  %14 = load i16, ptr %arrayidx157, align 2
-  %inc158 = add i16 %14, 1
+  %16 = load i16, ptr %arrayidx157, align 2
+  %inc158 = add i16 %16, 1
   store i16 %inc158, ptr %arrayidx157, align 2
-  %idxprom159 = zext i16 %14 to i64
+  %idxprom159 = zext i16 %16 to i64
   %arrayidx160 = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom159
   store i16 %conv155, ptr %arrayidx160, align 2
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
@@ -246,8 +243,8 @@ for.body168:                                      ; preds = %for.cond165.prehead
   %indvars.iv157 = phi i64 [ 0, %for.cond165.preheader ], [ %indvars.iv.next158, %for.inc214 ]
   %total.0132 = phi i32 [ 0, %for.cond165.preheader ], [ %total.1, %for.inc214 ]
   %arrayidx170 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv157
-  %15 = load i16, ptr %arrayidx170, align 2
-  switch i16 %15, label %sw.default [
+  %17 = load i16, ptr %arrayidx170, align 2
+  switch i16 %17, label %sw.default [
     i16 0, label %sw.bb
     i16 -1, label %sw.bb178
     i16 1, label %sw.bb178
@@ -268,10 +265,10 @@ sw.bb178:                                         ; preds = %for.body168, %for.b
   br label %for.inc214
 
 sw.default:                                       ; preds = %for.body168
-  %conv171 = sext i16 %15 to i32
+  %conv171 = sext i16 %17 to i32
   %sub192 = add nsw i32 %conv171, -1
-  %16 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub192, i1 true)
-  %sub.i = xor i32 %16, 31
+  %18 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub192, i1 true)
+  %sub.i = xor i32 %18, 31
   %sub193 = sub i32 %tableLog, %sub.i
   %shl197 = shl i32 %conv171, %sub193
   %shl198 = shl i32 %sub193, 16
@@ -279,12 +276,12 @@ sw.default:                                       ; preds = %for.body168
   %arrayidx201 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr2, i64 %indvars.iv157
   %deltaNbBits202 = getelementptr inbounds i8, ptr %arrayidx201, i64 4
   store i32 %sub199, ptr %deltaNbBits202, align 4
-  %17 = load i16, ptr %arrayidx170, align 2
-  %conv205 = sext i16 %17 to i32
+  %19 = load i16, ptr %arrayidx170, align 2
+  %conv205 = sext i16 %19 to i32
   %sub206 = sub i32 %total.0132, %conv205
   store i32 %sub206, ptr %arrayidx201, align 4
-  %18 = load i16, ptr %arrayidx170, align 2
-  %conv212 = sext i16 %18 to i32
+  %20 = load i16, ptr %arrayidx170, align 2
+  %conv212 = sext i16 %20 to i32
   %add213 = add i32 %total.0132, %conv212
   br label %for.inc214
 
@@ -649,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %normalizedCounter, i32 noundef %tableLog, ptr nocapture noundef readonly %count, i64 noundef %total, i32 noundef %maxSymbolValue, i32 noundef %useLowProbCount) local_unnamed_addr #0 {
+define range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %normalizedCounter, i32 noundef %tableLog, ptr nocapture noundef readonly %count, i64 noundef %total, i32 noundef %maxSymbolValue, i32 noundef %useLowProbCount) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %tableLog, 0
   %spec.store.select = select i1 %cmp, i32 11, i32 %tableLog
@@ -999,7 +996,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #3 {
+define noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ct, i64 4
   %add.ptr1 = getelementptr inbounds i8, ptr %ct, i64 8
@@ -1453,26 +1450,27 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #5
+declare i16 @llvm.umax.i16(i16, i16) #6
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

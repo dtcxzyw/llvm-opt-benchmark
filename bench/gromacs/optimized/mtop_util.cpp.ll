@@ -722,7 +722,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %.pre.i = load i32, ptr %111, align 8
   br label %134
 
-.lr.ph143.i:                                      ; preds = %134
+.preheader138.i:                                  ; preds = %134
   %124 = getelementptr inbounds i8, ptr %28, i64 8
   %125 = sext i32 %32 to i64
   %126 = mul nsw i64 %125, 36
@@ -750,13 +750,13 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %143 = load i32, ptr %111, align 8
   %144 = add nsw i32 %143, %.0126139.i
   %exitcond.not.i = icmp eq i32 %142, %30
-  br i1 %exitcond.not.i, label %.lr.ph143.i, label %134, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader138.i, label %134, !llvm.loop !10
 
-.preheader136.lr.ph.i:                            ; preds = %186
+.preheader137.i:                                  ; preds = %186
   %145 = icmp sgt i32 %32, 0
   br i1 %145, label %.preheader136.us.preheader.i, label %._crit_edge149.i
 
-.preheader136.us.preheader.i:                     ; preds = %.preheader136.lr.ph.i
+.preheader136.us.preheader.i:                     ; preds = %.preheader137.i
   %wide.trip.count.i = zext nneg i32 %32 to i64
   br label %.preheader136.us.i
 
@@ -791,9 +791,9 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %exitcond165.not.i = icmp eq i32 %159, %30
   br i1 %exitcond165.not.i, label %._crit_edge149.i, label %.preheader136.us.i, !llvm.loop !12
 
-160:                                              ; preds = %186, %.lr.ph143.i
-  %indvars.iv.i = phi i64 [ %133, %.lr.ph143.i ], [ %indvars.iv.next.i, %186 ]
-  %.1142.i = phi i32 [ 0, %.lr.ph143.i ], [ %187, %186 ]
+160:                                              ; preds = %186, %.preheader138.i
+  %indvars.iv.i = phi i64 [ %133, %.preheader138.i ], [ %indvars.iv.next.i, %186 ]
+  %.1142.i = phi i32 [ 0, %.preheader138.i ], [ %187, %186 ]
   %161 = load ptr, ptr %16, align 8
   %162 = getelementptr inbounds %struct.t_atom, ptr %161, i64 %indvars.iv.i
   %163 = load ptr, ptr %124, align 8
@@ -838,17 +838,17 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %187 = add nuw nsw i32 %.1142.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %125
   %exitcond156.not.i = icmp eq i32 %187, %30
-  br i1 %exitcond156.not.i, label %.preheader136.lr.ph.i, label %160, !llvm.loop !13
+  br i1 %exitcond156.not.i, label %.preheader137.i, label %160, !llvm.loop !13
 
 ._crit_edge149.thread.i:                          ; preds = %120
   %188 = load i32, ptr %111, align 8
   br label %_ZL7atomcatP7t_atomsPKS_iiPi.exit
 
-._crit_edge149.i:                                 ; preds = %._crit_edge.us.i, %.preheader136.lr.ph.i
+._crit_edge149.i:                                 ; preds = %._crit_edge.us.i, %.preheader137.i
   %189 = load i32, ptr %111, align 8
-  %.not134.i = icmp sle i32 %189, %31
+  %.not134.not.i = icmp sle i32 %189, %31
   %190 = icmp sgt i32 %189, 0
-  %or.cond = and i1 %.not134.i, %190
+  %or.cond = and i1 %.not134.not.i, %190
   br i1 %or.cond, label %.preheader.i, label %_ZL7atomcatP7t_atomsPKS_iiPi.exit
 
 .preheader.i:                                     ; preds = %._crit_edge149.i, %._crit_edge.i
@@ -5815,8 +5815,8 @@ define noundef zeroext i1 @_Z30haveFepPerturbedNBInteractionsRK10gmx_mtop_t(ptr 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %.not20 = icmp eq ptr %3, %5
-  br i1 %.not20, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
+  %.not16 = icmp eq ptr %3, %5
+  br i1 %.not16, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.sroa.09.015 = phi ptr [ %28, %._crit_edge ], [ %3, %1 ]
@@ -5863,8 +5863,8 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %18
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   %28 = getelementptr inbounds i8, ptr %.sroa.09.015, i64 2384
-  %.not21 = icmp eq ptr %28, %5
-  br i1 %.not21, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
+  %.not17 = icmp eq ptr %28, %5
+  br i1 %.not17, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
 
 _Z9PERTURBEDRK6t_atom.exit.thread:                ; preds = %._crit_edge, %12, %18, %_Z9PERTURBEDRK6t_atom.exit, %1
   %29 = phi i1 [ false, %1 ], [ true, %_Z9PERTURBEDRK6t_atom.exit ], [ true, %18 ], [ true, %12 ], [ false, %._crit_edge ]
@@ -5909,8 +5909,8 @@ define noundef zeroext i1 @_Z22haveFepPerturbedMassesRK10gmx_mtop_t(ptr nocaptur
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   %18 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 2384
-  %.not22 = icmp eq ptr %18, %5
-  br i1 %.not22, label %.loopexit, label %.preheader
+  %.not18 = icmp eq ptr %18, %5
+  br i1 %.not18, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %12, %1
   %19 = phi i1 [ false, %1 ], [ true, %12 ], [ false, %._crit_edge ]
@@ -5963,8 +5963,8 @@ define noundef zeroext i1 @_Z31haveFepPerturbedMassesInSettlesRK10gmx_mtop_t(ptr
 
 .loopexit:                                        ; preds = %16, %.preheader, %.lr.ph20
   %23 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 2384
-  %.not25 = icmp eq ptr %23, %5
-  br i1 %.not25, label %.loopexit15, label %.lr.ph20
+  %.not21 = icmp eq ptr %23, %5
+  br i1 %.not21, label %.loopexit15, label %.lr.ph20
 
 .loopexit15:                                      ; preds = %.loopexit, %17, %1
   %24 = phi i1 [ false, %1 ], [ true, %17 ], [ false, %.loopexit ]
@@ -5989,31 +5989,29 @@ define noundef zeroext i1 @_Z24havePerturbedConstraintsRK10gmx_mtop_t(ptr nocapt
   %12 = load ptr, ptr %11, align 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %24
-  %14 = phi i1 [ true, %.lr.ph ], [ %26, %24 ]
-  %.01213 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
-  %15 = getelementptr inbounds i32, ptr %5, i64 %.01213
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, -2
-  %switch = icmp eq i32 %17, 62
-  br i1 %switch, label %18, label %24
+13:                                               ; preds = %.lr.ph, %23
+  %.01213 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %14 = getelementptr inbounds i32, ptr %5, i64 %.01213
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, -2
+  %switch = icmp eq i32 %16, 62
+  br i1 %switch, label %17, label %23
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds %union.t_iparams, ptr %12, i64 %.01213
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
-  %22 = load float, ptr %21, align 4
-  %23 = fcmp une float %20, %22
-  br i1 %23, label %._crit_edge, label %24
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds %union.t_iparams, ptr %12, i64 %.01213
+  %19 = load float, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = load float, ptr %20, align 4
+  %22 = fcmp une float %19, %21
+  br i1 %22, label %._crit_edge, label %23
 
-24:                                               ; preds = %13, %18
-  %25 = add nuw nsw i64 %.01213, 1
-  %26 = icmp slt i64 %25, %9
-  %exitcond.not = icmp eq i64 %25, %9
+23:                                               ; preds = %13, %17
+  %24 = add nuw nsw i64 %.01213, 1
+  %exitcond.not = icmp eq i64 %24, %9
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %18, %24, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %26, %24 ], [ %14, %18 ]
+._crit_edge:                                      ; preds = %17, %23, %1
+  %.lcssa = phi i1 [ false, %1 ], [ false, %23 ], [ true, %17 ]
   ret i1 %.lcssa
 }
 

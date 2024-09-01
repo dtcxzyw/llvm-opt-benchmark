@@ -6998,29 +6998,29 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   %47 = shl i64 %2, 3
   %48 = tail call noalias ptr @malloc(i64 noundef %47) #23
   %.not50 = icmp eq ptr %48, null
-  br i1 %.not50, label %zfp_field_dimensionality.exit.thread, label %.preheader62
+  br i1 %.not50, label %zfp_field_dimensionality.exit.thread, label %.preheader61
 
-.preheader62:                                     ; preds = %45
+.preheader61:                                     ; preds = %45
   %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %umax71 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
-  br i1 %46, label %.preheader62.split.us, label %.preheader62.split
+  %umax70 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
+  br i1 %46, label %.preheader61.split.us, label %.preheader61.split
 
-.preheader62.split.us:                            ; preds = %.preheader62, %51
-  %.04464.us = phi i64 [ %54, %51 ], [ 0, %.preheader62 ]
+.preheader61.split.us:                            ; preds = %.preheader61, %51
+  %.04463.us = phi i64 [ %54, %51 ], [ 0, %.preheader61 ]
   %50 = tail call noalias ptr @malloc(i64 noundef %31) #23
   %.not51.us = icmp eq ptr %50, null
   br i1 %.not51.us, label %.split.us, label %51
 
-51:                                               ; preds = %.preheader62.split.us
+51:                                               ; preds = %.preheader61.split.us
   %52 = tail call ptr @stream_open(ptr noundef nonnull %50, i64 noundef %31) #19
-  %53 = getelementptr inbounds ptr, ptr %48, i64 %.04464.us
+  %53 = getelementptr inbounds ptr, ptr %48, i64 %.04463.us
   store ptr %52, ptr %53, align 8
-  %54 = add nuw i64 %.04464.us, 1
-  %exitcond72.not = icmp eq i64 %54, %umax71
-  br i1 %exitcond72.not, label %zfp_field_dimensionality.exit.thread, label %.preheader62.split.us
+  %54 = add nuw i64 %.04463.us, 1
+  %exitcond71.not = icmp eq i64 %54, %umax70
+  br i1 %exitcond71.not, label %zfp_field_dimensionality.exit.thread, label %.preheader61.split.us
 
-.preheader62.split:                               ; preds = %.preheader62, %59
-  %.04464 = phi i64 [ %70, %59 ], [ 0, %.preheader62 ]
+.preheader61.split:                               ; preds = %.preheader61, %59
+  %.04463 = phi i64 [ %70, %59 ], [ 0, %.preheader61 ]
   %55 = load ptr, ptr %49, align 8
   %56 = tail call ptr @stream_data(ptr noundef %55) #19
   %57 = load ptr, ptr %49, align 8
@@ -7028,9 +7028,9 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   %.not51 = icmp eq ptr %56, null
   br i1 %.not51, label %.split.us, label %59
 
-59:                                               ; preds = %.preheader62.split
+59:                                               ; preds = %.preheader61.split
   %60 = getelementptr inbounds i8, ptr %56, i64 %58
-  %61 = mul i64 %.04464, %3
+  %61 = mul i64 %.04463, %3
   %62 = udiv i64 %61, %2
   %63 = load i32, ptr %33, align 4
   %64 = lshr i32 %63, 3
@@ -7038,23 +7038,23 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   %66 = mul i64 %62, %65
   %67 = getelementptr inbounds i8, ptr %60, i64 %66
   %68 = tail call ptr @stream_open(ptr noundef nonnull %67, i64 noundef %31) #19
-  %69 = getelementptr inbounds ptr, ptr %48, i64 %.04464
+  %69 = getelementptr inbounds ptr, ptr %48, i64 %.04463
   store ptr %68, ptr %69, align 8
-  %70 = add nuw i64 %.04464, 1
-  %exitcond.not = icmp eq i64 %70, %umax71
-  br i1 %exitcond.not, label %zfp_field_dimensionality.exit.thread, label %.preheader62.split
+  %70 = add nuw i64 %.04463, 1
+  %exitcond.not = icmp eq i64 %70, %umax70
+  br i1 %exitcond.not, label %zfp_field_dimensionality.exit.thread, label %.preheader61.split
 
-.split.us:                                        ; preds = %.preheader62.split, %.preheader62.split.us
-  %.us-phi = phi i64 [ %.04464.us, %.preheader62.split.us ], [ %.04464, %.preheader62.split ]
+.split.us:                                        ; preds = %.preheader61.split, %.preheader61.split.us
+  %.us-phi = phi i64 [ %.04463.us, %.preheader61.split.us ], [ %.04463, %.preheader61.split ]
   br i1 %46, label %.preheader, label %zfp_field_dimensionality.exit.thread
 
 .preheader:                                       ; preds = %.split.us
-  %.not5265 = icmp eq i64 %.us-phi, 0
-  br i1 %.not5265, label %._crit_edge, label %.lr.ph
+  %.not5264 = icmp eq i64 %.us-phi, 0
+  br i1 %.not5264, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.166 = phi i64 [ %71, %.lr.ph ], [ %.us-phi, %.preheader ]
-  %71 = add i64 %.166, -1
+  %.165 = phi i64 [ %71, %.lr.ph ], [ %.us-phi, %.preheader ]
+  %71 = add i64 %.165, -1
   %72 = getelementptr inbounds ptr, ptr %48, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = tail call ptr @stream_data(ptr noundef %73) #19

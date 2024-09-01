@@ -854,10 +854,10 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
   br i1 %193, label %.thread, label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %BeginStrongLockAcquire.exit, %.loopexit.i
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.loopexit.i ], [ 0, %BeginStrongLockAcquire.exit ]
+  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.loopexit.i ], [ 0, %BeginStrongLockAcquire.exit ]
   %194 = phi ptr [ %257, %.loopexit.i ], [ %190, %BeginStrongLockAcquire.exit ]
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr %struct.PGPROC, ptr %195, i64 %indvars.iv63.i
+  %196 = getelementptr %struct.PGPROC, ptr %195, i64 %indvars.iv61.i
   %197 = getelementptr inbounds i8, ptr %196, i64 752
   %198 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %197, i32 noundef 0) #16
   %199 = getelementptr inbounds i8, ptr %196, i64 76
@@ -896,15 +896,15 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
 
 217:                                              ; preds = %253, %213
   %218 = phi i64 [ %.pre.i, %213 ], [ %254, %253 ]
-  %indvars.iv59.i = phi i64 [ 1, %213 ], [ %indvars.iv.next60.i, %253 ]
-  %219 = add nsw i64 %indvars.iv59.i, %216
+  %indvars.iv57.i = phi i64 [ 1, %213 ], [ %indvars.iv.next58.i, %253 ]
+  %219 = add nsw i64 %indvars.iv57.i, %216
   %220 = shl nuw i64 1, %219
   %221 = and i64 %220, %218
   %.not43.i = icmp eq i64 %221, 0
   br i1 %.not43.i, label %253, label %222
 
 222:                                              ; preds = %217
-  %223 = trunc nuw nsw i64 %indvars.iv59.i to i32
+  %223 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %224 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull readonly %19, ptr noundef %196, ptr noundef nonnull %0, i32 noundef %84, i32 noundef %223)
   %.not44.i = icmp eq ptr %224, null
   br i1 %.not44.i, label %261, label %225
@@ -916,7 +916,7 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
   %229 = add i32 %228, 1
   store i32 %229, ptr %227, align 4
   %230 = getelementptr inbounds i8, ptr %226, i64 108
-  %231 = getelementptr [10 x i32], ptr %230, i64 0, i64 %indvars.iv59.i
+  %231 = getelementptr [10 x i32], ptr %230, i64 0, i64 %indvars.iv57.i
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, 1
   store i32 %233, ptr %231, align 4
@@ -926,7 +926,7 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
   %237 = or i32 %236, %234
   store i32 %237, ptr %235, align 8
   %238 = getelementptr inbounds i8, ptr %226, i64 64
-  %239 = getelementptr [10 x i32], ptr %238, i64 0, i64 %indvars.iv59.i
+  %239 = getelementptr [10 x i32], ptr %238, i64 0, i64 %indvars.iv57.i
   %240 = load i32, ptr %239, align 4
   %241 = icmp eq i32 %233, %240
   br i1 %241, label %242, label %GrantLock.exit.i
@@ -952,9 +952,9 @@ GrantLock.exit.i:                                 ; preds = %242, %225
 
 253:                                              ; preds = %GrantLock.exit.i, %217
   %254 = phi i64 [ %218, %217 ], [ %252, %GrantLock.exit.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 4
-  br i1 %exitcond62.not.i, label %255, label %217, !llvm.loop !12
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
+  %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, 4
+  br i1 %exitcond60.not.i, label %255, label %217, !llvm.loop !12
 
 255:                                              ; preds = %253
   call void @LWLockRelease(ptr noundef %187) #16
@@ -967,13 +967,13 @@ GrantLock.exit.i:                                 ; preds = %242, %225
 
 .loopexit.i:                                      ; preds = %256, %255, %.lr.ph.i191
   call void @LWLockRelease(ptr noundef nonnull %197) #16
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %257 = load ptr, ptr @ProcGlobal, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 32
   %259 = load i32, ptr %258, align 8
   %260 = zext i32 %259 to i64
-  %.not65.i = icmp ult i64 %indvars.iv.next64.i, %260
-  br i1 %.not65.i, label %.lr.ph.i191, label %.thread, !llvm.loop !14
+  %.not53.i = icmp ult i64 %indvars.iv.next62.i, %260
+  br i1 %.not53.i, label %.lr.ph.i191, label %.thread, !llvm.loop !14
 
 261:                                              ; preds = %222
   call void @LWLockRelease(ptr noundef %187) #16
@@ -1807,8 +1807,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr nocapture noundef re
   %.not56 = icmp eq ptr %50, null
   %.not577382 = icmp eq ptr %50, %48
   %.not5773 = select i1 %.not56, i1 true, i1 %.not577382
-  %brmerge = or i1 %.not5773, %.not5564
-  br i1 %brmerge, label %.loopexit, label %.lr.ph77.split
+  br i1 %.not5773, label %.loopexit, label %.lr.ph77.split
 
 .lr.ph77.split:                                   ; preds = %47, %76
   %.275 = phi i32 [ %.5, %76 ], [ %.1, %47 ]

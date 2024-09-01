@@ -194,24 +194,20 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
 
 .loopexit:                                        ; preds = %.preheader112
   %144 = icmp ugt ptr %.1, %2
-  br i1 %144, label %.lr.ph, label %._crit_edge.thread
+  br i1 %144, label %.preheader, label %._crit_edge.thread
 
 .loopexit.thread:                                 ; preds = %138
   %145 = icmp ugt ptr %139, %2
   br i1 %145, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.loopexit
-  br i1 %.not, label %.preheader, label %.lr.ph.split.us.preheader
-
-.lr.ph.split.us.preheader:                        ; preds = %.loopexit.thread, %.lr.ph
-  %.0135140 = phi ptr [ %.1, %.lr.ph ], [ %139, %.loopexit.thread ]
-  %.0132136139 = ptrtoint ptr %.0135140 to i64
-  %146 = trunc i64 %.0132136139 to i32
+.lr.ph.split.us.preheader:                        ; preds = %.loopexit.thread
+  %.0132134 = ptrtoint ptr %139 to i64
+  %146 = trunc i64 %.0132134 to i32
   %147 = sub i32 %146, %24
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %165
-  %.2115.us = phi ptr [ %148, %165 ], [ %.0135140, %.lr.ph.split.us.preheader ]
+  %.2115.us = phi ptr [ %148, %165 ], [ %139, %.lr.ph.split.us.preheader ]
   %.097114.us = phi i32 [ %166, %165 ], [ 0, %.lr.ph.split.us.preheader ]
   %148 = getelementptr inbounds i8, ptr %.2115.us, i64 -1
   %149 = load i8, ptr %148, align 1
@@ -238,9 +234,9 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   %167 = icmp ugt ptr %148, %2
   br i1 %167, label %.lr.ph.split.us, label %._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph, %273
-  %.2115 = phi ptr [ %.3, %273 ], [ %.1, %.lr.ph ]
-  %.097114 = phi i32 [ %274, %273 ], [ 0, %.lr.ph ]
+.preheader:                                       ; preds = %.loopexit, %273
+  %.2115 = phi ptr [ %.3, %273 ], [ %.1, %.loopexit ]
+  %.097114 = phi i32 [ %274, %273 ], [ 0, %.loopexit ]
   br label %168
 
 168:                                              ; preds = %168, %.preheader

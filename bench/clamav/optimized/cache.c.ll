@@ -105,10 +105,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef %0) local_unnamed_addr 
   %wide.trip.count92 = zext i32 %indvars.iv88 to i64
   br label %.lr.ph70
 
-.preheader64:                                     ; preds = %.lr.ph70
-  br i1 %.not78, label %._crit_edge73, label %.lr.ph72.preheader
-
-.lr.ph72.preheader:                               ; preds = %.preheader64
+.lr.ph72.preheader:                               ; preds = %.lr.ph70
   %wide.trip.count100 = zext i32 %indvars.iv88 to i64
   br label %.lr.ph72
 
@@ -121,7 +118,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef %0) local_unnamed_addr 
   store ptr null, ptr %28, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count92
-  br i1 %exitcond93.not, label %.preheader64, label %.lr.ph70
+  br i1 %exitcond93.not, label %.lr.ph72.preheader, label %.lr.ph70
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv94 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next95, %.lr.ph72 ]
@@ -131,7 +128,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef %0) local_unnamed_addr 
   %exitcond101.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge73, label %.lr.ph72
 
-._crit_edge73:                                    ; preds = %.lr.ph72, %27, %.preheader64
+._crit_edge73:                                    ; preds = %.lr.ph72, %27
   %33 = load ptr, ptr %15, align 8
   tail call void @mpool_free(ptr noundef %33, ptr noundef nonnull %19) #9
   br label %64

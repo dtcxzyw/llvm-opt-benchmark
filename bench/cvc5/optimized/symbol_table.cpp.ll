@@ -378,8 +378,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.sroa.0.0.in.i.i.i.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %retval.sroa.0.0.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i, align 8, !noalias !4
-  %cmp.i.not.i.i.i.i.i.not = icmp ne ptr %retval.sroa.0.0.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.not, label %for.body.i.i.i.i.i, label %_ZNK4cvc57context9CDHashSetINS_4TermESt4hashIS2_EE4findERKS2_.exit
+  %cmp.i.not.i.i.i.i.i.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i.i.i, null
+  br i1 %cmp.i.not.i.i.i.i.i.not.not, label %for.body.i.i.i.i.i, label %_ZNK4cvc57context9CDHashSetINS_4TermESt4hashIS2_EE4findERKS2_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i, i64 8
@@ -435,7 +435,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt8__detail15_H
   br label %_ZNK4cvc57context9CDHashSetINS_4TermESt4hashIS2_EE4findERKS2_.exit
 
 _ZNK4cvc57context9CDHashSetINS_4TermESt4hashIS2_EE4findERKS2_.exit: ; preds = %if.end3.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end15.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i.i = phi i1 [ %12, %if.then.i.i.i.i.i.i ], [ false, %if.end15.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not, %for.body.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not, %for.cond.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i.i = phi i1 [ %12, %if.then.i.i.i.i.i.i ], [ false, %if.end15.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not.not, %for.body.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not.not, %for.cond.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i ]
   ret i1 %retval.sroa.0.1.i.i.i.i.i
 }
 
@@ -3183,8 +3183,8 @@ if.then.i.i.i.i.i.i1:                             ; preds = %_ZN4cvc54TermC2ERKS
 for.cond.i.i.i.i.i.i:                             ; preds = %call.i.i.i.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i1
   %retval.sroa.0.0.in.i.i.i.i.i.i = phi ptr [ %_M_before_begin.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i1 ], [ %retval.sroa.0.0.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.noexc ]
   %retval.sroa.0.0.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i.i.i.i.i, align 8, !noalias !39
-  %cmp.i.not.i.i.i.i.i.not.i.not = icmp ne ptr %retval.sroa.0.0.i.i.i.i.i.i, null
-  br i1 %cmp.i.not.i.i.i.i.i.not.i.not, label %for.body.i.i.i.i.i.i, label %invoke.cont
+  %cmp.i.not.i.i.i.i.i.not.i.not.not = icmp ne ptr %retval.sroa.0.0.i.i.i.i.i.i, null
+  br i1 %cmp.i.not.i.i.i.i.i.not.i.not.not, label %for.body.i.i.i.i.i.i, label %invoke.cont
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i, i64 8
@@ -3249,7 +3249,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %call.i.i.i.i.i.i.i.
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.noexc, %for.cond.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call2.i.i.i.i.i.i.i.noexc
-  %retval.sroa.0.1.i.i.i.i.i.i = phi i1 [ %18, %if.then.i.i.i.i.i.i.i ], [ false, %call2.i.i.i.i.i.i.i.noexc ], [ %cmp.i.not.i.i.i.i.i.not.i.not, %for.cond.i.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not.i.not, %call.i.i.i.i.i.i.i.i.noexc ], [ false, %if.end3.i.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i.i.i = phi i1 [ %18, %if.then.i.i.i.i.i.i.i ], [ false, %call2.i.i.i.i.i.i.i.noexc ], [ %cmp.i.not.i.i.i.i.i.not.i.not.not, %for.cond.i.i.i.i.i.i ], [ %cmp.i.not.i.i.i.i.i.not.i.not.not, %call.i.i.i.i.i.i.i.i.noexc ], [ false, %if.end3.i.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ]
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #21
   ret i1 %retval.sroa.0.1.i.i.i.i.i.i
 

@@ -4249,7 +4249,7 @@ for.body.i.i.i:                                   ; preds = %if.end11.i.i.i, %fo
   %__first.addr.049.i.i.i = phi ptr [ %9, %for.body.lr.ph.i.i.i ], [ %incdec.ptr12.i.i.i, %if.end11.i.i.i ]
   %13 = load ptr, ptr %__first.addr.049.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %13, %call.i37
-  br i1 %cmp.i.i.i.i, label %invoke.cont20, label %if.end.i.i.i40
+  br i1 %cmp.i.i.i.i, label %if.end.i.i.i44, label %if.end.i.i.i40
 
 if.end.i.i.i40:                                   ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
@@ -4283,7 +4283,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %gepdiff, %for.end.loopexit.i.i.i ], [ %add.ptr.i.idx231, %invoke.cont16 ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %9, %invoke.cont16 ]
   %sub.ptr.div16.i.i.i = lshr exact i64 %sub.ptr.sub15.pre-phi.i.i.i, 3
-  switch i64 %sub.ptr.div16.i.i.i, label %invoke.cont20 [
+  switch i64 %sub.ptr.div16.i.i.i, label %if.end.i.i.i44 [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb21.i.i.i
     i64 1, label %sw.bb26.i.i.i
@@ -4292,7 +4292,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   %17 = load ptr, ptr %__first.addr.0.lcssa.i.i.i, align 8
   %cmp.i29.i.i.i = icmp eq ptr %17, %call.i37
-  br i1 %cmp.i29.i.i.i, label %invoke.cont20, label %if.end19.i.i.i
+  br i1 %cmp.i29.i.i.i, label %if.end.i.i.i44, label %if.end19.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   %incdec.ptr20.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 8
@@ -4302,7 +4302,7 @@ sw.bb21.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %18 = load ptr, ptr %__first.addr.1.i.i.i, align 8
   %cmp.i30.i.i.i = icmp eq ptr %18, %call.i37
-  br i1 %cmp.i30.i.i.i, label %invoke.cont20, label %if.end24.i.i.i
+  br i1 %cmp.i30.i.i.i, label %if.end.i.i.i44, label %if.end24.i.i.i
 
 if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   %incdec.ptr25.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 8
@@ -4313,33 +4313,30 @@ sw.bb26.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %19 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i31.i.i.i = icmp eq ptr %19, %call.i37
   %spec.select = select i1 %cmp.i31.i.i.i, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i
-  br label %invoke.cont20
+  br label %if.end.i.i.i44
 
 invoke.cont20.loopexit.split.loop.exit:           ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 24
-  br label %invoke.cont20
+  br label %if.end.i.i.i44
 
 invoke.cont20.loopexit.split.loop.exit261:        ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 16
-  br label %invoke.cont20
+  br label %if.end.i.i.i44
 
 invoke.cont20.loopexit.split.loop.exit263:        ; preds = %if.end.i.i.i40
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
-  br label %invoke.cont20
+  br label %if.end.i.i.i44
 
-invoke.cont20:                                    ; preds = %for.body.i.i.i, %sw.bb26.i.i.i, %invoke.cont20.loopexit.split.loop.exit, %invoke.cont20.loopexit.split.loop.exit261, %invoke.cont20.loopexit.split.loop.exit263, %for.end.i.i.i, %sw.bb21.i.i.i, %sw.bb.i.i.i
+if.end.i.i.i44:                                   ; preds = %for.body.i.i.i, %sw.bb.i.i.i, %sw.bb21.i.i.i, %for.end.i.i.i, %invoke.cont20.loopexit.split.loop.exit263, %invoke.cont20.loopexit.split.loop.exit261, %invoke.cont20.loopexit.split.loop.exit, %sw.bb26.i.i.i
   %retval.0.i.i.i39 = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %add.ptr.i, %for.end.i.i.i ], [ %spec.select, %sw.bb26.i.i.i ], [ %incdec.ptr8.i.i.i.le, %invoke.cont20.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont20.loopexit.split.loop.exit261 ], [ %incdec.ptr.i.i.i.le, %invoke.cont20.loopexit.split.loop.exit263 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
-  br i1 %cmp.i.i.i, label %invoke.cont22, label %if.end.i.i.i44
-
-if.end.i.i.i44:                                   ; preds = %invoke.cont20
   %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %9, i64 -4
   %20 = load i32, ptr %arrayidx.i.i.i45, align 4
   %21 = zext i32 %20 to i64
   br label %invoke.cont22
 
-invoke.cont22:                                    ; preds = %invoke.cont14, %if.end.i.i.i44, %invoke.cont20
-  %retval.0.i.i.i39260 = phi ptr [ %retval.0.i.i.i39, %if.end.i.i.i44 ], [ %retval.0.i.i.i39, %invoke.cont20 ], [ null, %invoke.cont14 ]
-  %retval.0.i.i.i46 = phi i64 [ %21, %if.end.i.i.i44 ], [ 0, %invoke.cont20 ], [ 0, %invoke.cont14 ]
+invoke.cont22:                                    ; preds = %invoke.cont14, %if.end.i.i.i44
+  %retval.0.i.i.i39260 = phi ptr [ %retval.0.i.i.i39, %if.end.i.i.i44 ], [ null, %invoke.cont14 ]
+  %retval.0.i.i.i46 = phi i64 [ %21, %if.end.i.i.i44 ], [ 0, %invoke.cont14 ]
   %add.ptr.i47 = getelementptr inbounds ptr, ptr %9, i64 %retval.0.i.i.i46
   %cmp24 = icmp eq ptr %retval.0.i.i.i39260, %add.ptr.i47
   br i1 %cmp24, label %if.then25, label %if.end
@@ -5897,18 +5894,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !29
 
-_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit: ; preds = %for.body.i.i.i.i.i.i
-  br i1 %cmp.i, label %_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit
+if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit ], [ %add.ptr28, %if.then.i ]
+_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, %if.then.i
+  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %if.then.i ]
   store ptr %add.ptr282832, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32

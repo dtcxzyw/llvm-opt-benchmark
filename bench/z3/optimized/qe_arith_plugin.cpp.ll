@@ -32209,29 +32209,23 @@ call.i.noexc:                                     ; preds = %if.end
 
 for.cond.i:                                       ; preds = %call2.i.noexc
   %inc.i = add nuw i32 %i.04.i, 1
-  %cmp.i = icmp ult i32 %inc.i, %call.i5
   %exitcond.not.i = icmp eq i32 %inc.i, %call.i5
-  br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !147
+  br i1 %exitcond.not.i, label %lor.rhs, label %for.body.i, !llvm.loop !147
 
 for.body.i:                                       ; preds = %call.i.noexc, %for.cond.i
-  %cmp5.i = phi i1 [ %cmp.i, %for.cond.i ], [ true, %call.i.noexc ]
   %i.04.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %call.i.noexc ]
   %call2.i6 = invoke noundef zeroext i1 @_ZN2qe13arith_qe_util14solve_singularEjP4exprS2_(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %i.04.i, ptr noundef %p, ptr noundef %fml)
           to label %call2.i.noexc unwind label %lpad.loopexit
 
 call2.i.noexc:                                    ; preds = %for.body.i
-  br i1 %call2.i6, label %invoke.cont4, label %for.cond.i
+  br i1 %call2.i6, label %cleanup, label %for.cond.i
 
-invoke.cont4:                                     ; preds = %call2.i.noexc, %for.cond.i
-  %cmp.lcssa.i = phi i1 [ %cmp.i, %for.cond.i ], [ %cmp5.i, %call2.i.noexc ]
-  br i1 %cmp.lcssa.i, label %cleanup, label %lor.rhs
-
-lor.rhs:                                          ; preds = %call.i.noexc, %invoke.cont4
+lor.rhs:                                          ; preds = %for.cond.i, %call.i.noexc
   %call7 = invoke noundef zeroext i1 @_ZN2qe13arith_qe_util12solve_linearEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %p, ptr noundef %fml)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
-cleanup:                                          ; preds = %invoke.cont, %invoke.cont4, %lor.rhs
-  %retval.0 = phi i1 [ true, %invoke.cont4 ], [ %call7, %lor.rhs ], [ false, %invoke.cont ]
+cleanup:                                          ; preds = %call2.i.noexc, %invoke.cont, %lor.rhs
+  %retval.0 = phi i1 [ %call7, %lor.rhs ], [ false, %invoke.cont ], [ true, %call2.i.noexc ]
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %k)
           to label %.noexc.i unwind label %terminate.lpad.i

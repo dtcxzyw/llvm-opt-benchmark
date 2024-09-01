@@ -102,8 +102,8 @@ while.body:                                       ; preds = %while.body.backedge
 
 while.cond2:                                      ; preds = %while.body3, %while.body
   %x.0 = phi i32 [ %0, %while.body ], [ %3, %while.body3 ]
-  %cmp.not.not = icmp ne i32 %x.0, 0
-  br i1 %cmp.not.not, label %while.body3, label %while.end
+  %cmp.not.not.not.not.not.not = icmp ne i32 %x.0, 0
+  br i1 %cmp.not.not.not.not.not.not, label %while.body3, label %while.end
 
 while.body3:                                      ; preds = %while.cond2
   %sub = add nsw i32 %x.0, -1
@@ -136,7 +136,7 @@ do.body:                                          ; preds = %if.end7
   unreachable
 
 return:                                           ; preds = %if.end7, %while.body3
-  ret i1 %cmp.not.not
+  ret i1 %cmp.not.not.not.not.not.not
 }
 
 declare void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv() local_unnamed_addr #1

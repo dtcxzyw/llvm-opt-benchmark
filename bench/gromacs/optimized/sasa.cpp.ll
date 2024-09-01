@@ -6820,10 +6820,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_19do_conectEPK
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph55.preheader, label %._crit_edge
-
-.lr.ph55.preheader:                               ; preds = %.preheader
+.lr.ph55.preheader:                               ; preds = %.lr.ph
   %wide.trip.count70 = zext nneg i32 %1 to i64
   br label %.lr.ph55
 
@@ -6835,7 +6832,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_19do_conectEPK
   store i32 -1, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph55.preheader, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_17add_recEPNS1_8t_conectEiif.exit41, %.lr.ph55
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -7004,7 +7001,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_17add_recEPNS1_8t_conectEiif.exit41: ; pred
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count70
   br i1 %exitcond66.not, label %.loopexit, label %22, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.loopexit, %3, %.preheader
+._crit_edge:                                      ; preds = %.loopexit, %3
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef zeroext 2)
   %92 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.98)
           to label %93 unwind label %109

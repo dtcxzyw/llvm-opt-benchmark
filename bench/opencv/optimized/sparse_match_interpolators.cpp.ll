@@ -5213,16 +5213,13 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl27RansacInterpola
   %114 = sitofp i32 %98 to float
   %115 = fdiv float %112, %114
   %116 = fdiv float %113, %114
-  br i1 %99, label %.lr.ph175, label %._crit_edge176
-
-.lr.ph175:                                        ; preds = %._crit_edge
   %117 = load ptr, ptr %52, align 8
   %wide.trip.count208 = zext nneg i32 %98 to i64
   br label %118
 
-118:                                              ; preds = %.lr.ph175, %118
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next206, %118 ]
-  %.0101172 = phi float [ 0.000000e+00, %.lr.ph175 ], [ %133, %118 ]
+118:                                              ; preds = %._crit_edge, %118
+  %indvars.iv205 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next206, %118 ]
+  %.0101172 = phi float [ 0.000000e+00, %._crit_edge ], [ %133, %118 ]
   %119 = getelementptr inbounds i32, ptr %84, i64 %indvars.iv205
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
@@ -5246,9 +5243,9 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl27RansacInterpola
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge176, label %118, !llvm.loop !115
 
-._crit_edge176:                                   ; preds = %118, %._crit_edge.thread, %._crit_edge
-  %134 = phi float [ %114, %._crit_edge ], [ %100, %._crit_edge.thread ], [ %114, %118 ]
-  %.0101.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %133, %118 ]
+._crit_edge176:                                   ; preds = %118, %._crit_edge.thread
+  %134 = phi float [ %100, %._crit_edge.thread ], [ %114, %118 ]
+  %.0101.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %133, %118 ]
   %135 = fdiv float %.0101.lcssa, %134
   %136 = fmul float %135, 5.000000e-01
   %137 = fcmp ogt float %136, 2.000000e+00

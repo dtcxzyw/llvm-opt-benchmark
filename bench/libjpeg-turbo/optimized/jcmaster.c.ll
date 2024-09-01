@@ -507,11 +507,11 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not224.not.i, label %62, label %._crit_edge278.i.loopexit, !llvm.loop !9
 
 ._crit_edge278.i.loopexit:                        ; preds = %.loopexit245.i
-  %.pre91 = load i32, ptr %59, align 4
+  %.pre92 = load i32, ptr %59, align 4
   br label %._crit_edge278.i
 
 ._crit_edge278.i:                                 ; preds = %._crit_edge278.i.loopexit, %.loopexit247.i
-  %235 = phi i32 [ %.pre91, %._crit_edge278.i.loopexit ], [ %57, %.loopexit247.i ]
+  %235 = phi i32 [ %.pre92, %._crit_edge278.i.loopexit ], [ %57, %.loopexit247.i ]
   %236 = getelementptr inbounds i8, ptr %0, i64 308
   %237 = load i32, ptr %236, align 4
   %.not225.i = icmp eq i32 %237, 0
@@ -936,173 +936,169 @@ initial_setup.exit:                               ; preds = %._crit_edge.._crit_
 471:                                              ; preds = %469, %466
   %472 = getelementptr inbounds i8, ptr %0, i64 128
   %473 = getelementptr inbounds i8, ptr %0, i64 160
-  %474 = load ptr, ptr %472, align 8
-  %.not57104 = icmp eq ptr %474, null
-  br i1 %.not57104, label %.lr.ph106, label %._crit_edge
+  br label %475
 
-475:                                              ; preds = %.lr.ph106
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv105, 1
-  %476 = icmp ult i64 %indvars.iv105, 3
+474:                                              ; preds = %478
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %._crit_edge, label %477, !llvm.loop !15
+  br i1 %exitcond.not, label %481, label %475, !llvm.loop !15
 
-477:                                              ; preds = %475
-  %478 = getelementptr inbounds [4 x ptr], ptr %472, i64 0, i64 %indvars.iv.next
-  %479 = load ptr, ptr %478, align 8
-  %.not57 = icmp eq ptr %479, null
-  br i1 %.not57, label %.lr.ph106, label %._crit_edge, !llvm.loop !15
+475:                                              ; preds = %471, %474
+  %indvars.iv = phi i64 [ 0, %471 ], [ %indvars.iv.next, %474 ]
+  %476 = getelementptr inbounds [4 x ptr], ptr %472, i64 0, i64 %indvars.iv
+  %477 = load ptr, ptr %476, align 8
+  %.not57 = icmp eq ptr %477, null
+  br i1 %.not57, label %478, label %481
 
-.lr.ph106:                                        ; preds = %471, %477
-  %480 = phi i1 [ %476, %477 ], [ true, %471 ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next, %477 ], [ 0, %471 ]
-  %481 = getelementptr inbounds [4 x ptr], ptr %473, i64 0, i64 %indvars.iv105
-  %482 = load ptr, ptr %481, align 8
-  %.not58 = icmp eq ptr %482, null
-  br i1 %.not58, label %475, label %._crit_edge
+478:                                              ; preds = %475
+  %479 = getelementptr inbounds [4 x ptr], ptr %473, i64 0, i64 %indvars.iv
+  %480 = load ptr, ptr %479, align 8
+  %.not58 = icmp eq ptr %480, null
+  br i1 %.not58, label %474, label %481
 
-._crit_edge:                                      ; preds = %475, %.lr.ph106, %477, %471
-  %.lcssa = phi i1 [ true, %471 ], [ %476, %475 ], [ %480, %.lr.ph106 ], [ %476, %477 ]
-  %483 = load i32, ptr %337, align 8
-  %484 = icmp eq i32 %483, 12
-  br i1 %484, label %485, label %using_std_huff_tables.exit.thread
+481:                                              ; preds = %475, %478, %474
+  %.lcssa = phi i1 [ true, %475 ], [ true, %478 ], [ false, %474 ]
+  %482 = load i32, ptr %337, align 8
+  %483 = icmp eq i32 %482, 12
+  br i1 %483, label %484, label %using_std_huff_tables.exit.thread
 
-485:                                              ; preds = %._crit_edge
-  %486 = getelementptr inbounds i8, ptr %0, i64 264
-  %487 = load i32, ptr %486, align 8
-  %.not59 = icmp eq i32 %487, 0
-  br i1 %.not59, label %488, label %using_std_huff_tables.exit.thread
+484:                                              ; preds = %481
+  %485 = getelementptr inbounds i8, ptr %0, i64 264
+  %486 = load i32, ptr %485, align 8
+  %.not59 = icmp eq i32 %486, 0
+  br i1 %.not59, label %487, label %using_std_huff_tables.exit.thread
 
-488:                                              ; preds = %485
-  br i1 %.lcssa, label %489, label %520
+487:                                              ; preds = %484
+  br i1 %.lcssa, label %488, label %519
 
-489:                                              ; preds = %488
-  %490 = load ptr, ptr %472, align 8
-  %491 = icmp eq ptr %490, null
-  br i1 %491, label %using_std_huff_tables.exit.thread, label %492
+488:                                              ; preds = %487
+  %489 = load ptr, ptr %472, align 8
+  %490 = icmp eq ptr %489, null
+  br i1 %490, label %using_std_huff_tables.exit.thread, label %491
 
-492:                                              ; preds = %489
-  %493 = load ptr, ptr %473, align 8
-  %494 = icmp eq ptr %493, null
-  br i1 %494, label %using_std_huff_tables.exit.thread, label %495
+491:                                              ; preds = %488
+  %492 = load ptr, ptr %473, align 8
+  %493 = icmp eq ptr %492, null
+  br i1 %493, label %using_std_huff_tables.exit.thread, label %494
 
-495:                                              ; preds = %492
-  %496 = getelementptr inbounds i8, ptr %0, i64 136
-  %497 = load ptr, ptr %496, align 8
-  %498 = icmp eq ptr %497, null
-  br i1 %498, label %using_std_huff_tables.exit.thread, label %499
+494:                                              ; preds = %491
+  %495 = getelementptr inbounds i8, ptr %0, i64 136
+  %496 = load ptr, ptr %495, align 8
+  %497 = icmp eq ptr %496, null
+  br i1 %497, label %using_std_huff_tables.exit.thread, label %498
 
-499:                                              ; preds = %495
-  %500 = getelementptr inbounds i8, ptr %0, i64 168
-  %501 = load ptr, ptr %500, align 8
-  %502 = icmp eq ptr %501, null
-  br i1 %502, label %using_std_huff_tables.exit.thread, label %.preheader.i69
+498:                                              ; preds = %494
+  %499 = getelementptr inbounds i8, ptr %0, i64 168
+  %500 = load ptr, ptr %499, align 8
+  %501 = icmp eq ptr %500, null
+  br i1 %501, label %using_std_huff_tables.exit.thread, label %.preheader.i69
 
-503:                                              ; preds = %506
+502:                                              ; preds = %505
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 4
-  br i1 %exitcond.not.i72, label %509, label %.preheader.i69, !llvm.loop !16
+  br i1 %exitcond.not.i72, label %508, label %.preheader.i69, !llvm.loop !16
 
-.preheader.i69:                                   ; preds = %499, %503
-  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %503 ], [ 2, %499 ]
-  %504 = getelementptr inbounds [4 x ptr], ptr %472, i64 0, i64 %indvars.iv.i70
-  %505 = load ptr, ptr %504, align 8
-  %.not33.i = icmp eq ptr %505, null
-  br i1 %.not33.i, label %506, label %using_std_huff_tables.exit.thread
+.preheader.i69:                                   ; preds = %498, %502
+  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %502 ], [ 2, %498 ]
+  %503 = getelementptr inbounds [4 x ptr], ptr %472, i64 0, i64 %indvars.iv.i70
+  %504 = load ptr, ptr %503, align 8
+  %.not33.i = icmp eq ptr %504, null
+  br i1 %.not33.i, label %505, label %using_std_huff_tables.exit.thread
 
-506:                                              ; preds = %.preheader.i69
-  %507 = getelementptr inbounds [4 x ptr], ptr %473, i64 0, i64 %indvars.iv.i70
-  %508 = load ptr, ptr %507, align 8
-  %.not34.i = icmp eq ptr %508, null
-  br i1 %.not34.i, label %503, label %using_std_huff_tables.exit.thread
+505:                                              ; preds = %.preheader.i69
+  %506 = getelementptr inbounds [4 x ptr], ptr %473, i64 0, i64 %indvars.iv.i70
+  %507 = load ptr, ptr %506, align 8
+  %.not34.i = icmp eq ptr %507, null
+  br i1 %.not34.i, label %502, label %using_std_huff_tables.exit.thread
 
-509:                                              ; preds = %503
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %490, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_dc_luminance, i64 17)
+508:                                              ; preds = %502
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %489, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_dc_luminance, i64 17)
   %.not.i73 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i73, label %510, label %using_std_huff_tables.exit.thread
+  br i1 %.not.i73, label %509, label %using_std_huff_tables.exit.thread
 
-510:                                              ; preds = %509
-  %511 = getelementptr inbounds i8, ptr %490, i64 17
-  %bcmp19.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %511, ptr noundef nonnull dereferenceable(12) @using_std_huff_tables.val_dc_luminance, i64 12)
+509:                                              ; preds = %508
+  %510 = getelementptr inbounds i8, ptr %489, i64 17
+  %bcmp19.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %510, ptr noundef nonnull dereferenceable(12) @using_std_huff_tables.val_dc_luminance, i64 12)
   %.not20.i = icmp eq i32 %bcmp19.i, 0
-  br i1 %.not20.i, label %512, label %using_std_huff_tables.exit.thread
+  br i1 %.not20.i, label %511, label %using_std_huff_tables.exit.thread
 
-512:                                              ; preds = %510
-  %bcmp21.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %493, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_ac_luminance, i64 17)
+511:                                              ; preds = %509
+  %bcmp21.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %492, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_ac_luminance, i64 17)
   %.not22.i = icmp eq i32 %bcmp21.i, 0
-  br i1 %.not22.i, label %513, label %using_std_huff_tables.exit.thread
+  br i1 %.not22.i, label %512, label %using_std_huff_tables.exit.thread
 
-513:                                              ; preds = %512
-  %514 = getelementptr inbounds i8, ptr %493, i64 17
-  %bcmp23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(162) %514, ptr noundef nonnull dereferenceable(162) @using_std_huff_tables.val_ac_luminance, i64 162)
+512:                                              ; preds = %511
+  %513 = getelementptr inbounds i8, ptr %492, i64 17
+  %bcmp23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(162) %513, ptr noundef nonnull dereferenceable(162) @using_std_huff_tables.val_ac_luminance, i64 162)
   %.not24.i = icmp eq i32 %bcmp23.i, 0
-  br i1 %.not24.i, label %515, label %using_std_huff_tables.exit.thread
+  br i1 %.not24.i, label %514, label %using_std_huff_tables.exit.thread
 
-515:                                              ; preds = %513
-  %bcmp25.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %497, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_dc_chrominance, i64 17)
+514:                                              ; preds = %512
+  %bcmp25.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %496, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_dc_chrominance, i64 17)
   %.not26.i = icmp eq i32 %bcmp25.i, 0
-  br i1 %.not26.i, label %516, label %using_std_huff_tables.exit.thread
+  br i1 %.not26.i, label %515, label %using_std_huff_tables.exit.thread
 
-516:                                              ; preds = %515
-  %517 = getelementptr inbounds i8, ptr %497, i64 17
-  %bcmp27.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %517, ptr noundef nonnull dereferenceable(12) @using_std_huff_tables.val_dc_chrominance, i64 12)
+515:                                              ; preds = %514
+  %516 = getelementptr inbounds i8, ptr %496, i64 17
+  %bcmp27.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %516, ptr noundef nonnull dereferenceable(12) @using_std_huff_tables.val_dc_chrominance, i64 12)
   %.not28.i = icmp eq i32 %bcmp27.i, 0
-  br i1 %.not28.i, label %518, label %using_std_huff_tables.exit.thread
+  br i1 %.not28.i, label %517, label %using_std_huff_tables.exit.thread
 
-518:                                              ; preds = %516
-  %bcmp29.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %501, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_ac_chrominance, i64 17)
+517:                                              ; preds = %515
+  %bcmp29.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %500, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_ac_chrominance, i64 17)
   %.not30.i = icmp eq i32 %bcmp29.i, 0
   br i1 %.not30.i, label %using_std_huff_tables.exit, label %using_std_huff_tables.exit.thread
 
-using_std_huff_tables.exit:                       ; preds = %518
-  %519 = getelementptr inbounds i8, ptr %501, i64 17
-  %bcmp31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(162) %519, ptr noundef nonnull dereferenceable(162) @using_std_huff_tables.val_ac_chrominance, i64 162)
+using_std_huff_tables.exit:                       ; preds = %517
+  %518 = getelementptr inbounds i8, ptr %500, i64 17
+  %bcmp31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(162) %518, ptr noundef nonnull dereferenceable(162) @using_std_huff_tables.val_ac_chrominance, i64 162)
   %.not32.i.not = icmp eq i32 %bcmp31.i, 0
-  br i1 %.not32.i.not, label %520, label %using_std_huff_tables.exit.thread
+  br i1 %.not32.i.not, label %519, label %using_std_huff_tables.exit.thread
 
-520:                                              ; preds = %using_std_huff_tables.exit, %488
-  store i32 1, ptr %486, align 8
+519:                                              ; preds = %using_std_huff_tables.exit, %487
+  store i32 1, ptr %485, align 8
   br label %using_std_huff_tables.exit.thread
 
-using_std_huff_tables.exit.thread:                ; preds = %.preheader.i69, %506, %509, %510, %512, %513, %515, %516, %518, %489, %492, %495, %499, %._crit_edge, %485, %using_std_huff_tables.exit, %520, %460
+using_std_huff_tables.exit.thread:                ; preds = %.preheader.i69, %505, %508, %509, %511, %512, %514, %515, %517, %488, %491, %494, %498, %481, %484, %using_std_huff_tables.exit, %519, %460
   %.not62 = icmp eq i32 %1, 0
-  br i1 %.not62, label %527, label %521
+  br i1 %.not62, label %526, label %520
 
-521:                                              ; preds = %using_std_huff_tables.exit.thread
-  %522 = getelementptr inbounds i8, ptr %0, i64 264
-  %523 = load i32, ptr %522, align 8
-  %.not63 = icmp eq i32 %523, 0
-  %524 = getelementptr inbounds i8, ptr %6, i64 40
-  br i1 %.not63, label %526, label %525
+520:                                              ; preds = %using_std_huff_tables.exit.thread
+  %521 = getelementptr inbounds i8, ptr %0, i64 264
+  %522 = load i32, ptr %521, align 8
+  %.not63 = icmp eq i32 %522, 0
+  %523 = getelementptr inbounds i8, ptr %6, i64 40
+  br i1 %.not63, label %525, label %524
 
-525:                                              ; preds = %521
-  store i32 1, ptr %524, align 8
-  br label %529
+524:                                              ; preds = %520
+  store i32 1, ptr %523, align 8
+  br label %528
 
-526:                                              ; preds = %521
-  store i32 2, ptr %524, align 8
-  br label %529
+525:                                              ; preds = %520
+  store i32 2, ptr %523, align 8
+  br label %528
 
-527:                                              ; preds = %using_std_huff_tables.exit.thread
-  %528 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 0, ptr %528, align 8
-  br label %529
+526:                                              ; preds = %using_std_huff_tables.exit.thread
+  %527 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 0, ptr %527, align 8
+  br label %528
 
-529:                                              ; preds = %525, %526, %527
-  %530 = getelementptr inbounds i8, ptr %6, i64 52
+528:                                              ; preds = %524, %525, %526
+  %529 = getelementptr inbounds i8, ptr %6, i64 52
+  store i32 0, ptr %529, align 4
+  %530 = getelementptr inbounds i8, ptr %6, i64 44
   store i32 0, ptr %530, align 4
-  %531 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %531, align 4
-  %532 = getelementptr inbounds i8, ptr %0, i64 264
-  %533 = load i32, ptr %532, align 8
-  %.not64 = icmp ne i32 %533, 0
-  %534 = getelementptr inbounds i8, ptr %0, i64 240
-  %535 = load i32, ptr %534, align 8
-  %536 = zext i1 %.not64 to i32
-  %.sink = shl nsw i32 %535, %536
-  %537 = getelementptr inbounds i8, ptr %6, i64 48
-  store i32 %.sink, ptr %537, align 8
-  %538 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr @.str, ptr %538, align 8
+  %531 = getelementptr inbounds i8, ptr %0, i64 264
+  %532 = load i32, ptr %531, align 8
+  %.not64 = icmp ne i32 %532, 0
+  %533 = getelementptr inbounds i8, ptr %0, i64 240
+  %534 = load i32, ptr %533, align 8
+  %535 = zext i1 %.not64 to i32
+  %.sink = shl nsw i32 %534, %535
+  %536 = getelementptr inbounds i8, ptr %6, i64 48
+  store i32 %.sink, ptr %536, align 8
+  %537 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr @.str, ptr %537, align 8
   ret void
 }
 

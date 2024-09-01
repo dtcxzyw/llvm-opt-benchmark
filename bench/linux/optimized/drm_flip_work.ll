@@ -186,7 +186,7 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
   call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %10) #6
   %18 = load volatile ptr, ptr %2, align 8
   %19 = icmp eq ptr %18, %2
-  br i1 %19, label %split, label %.preheader
+  br i1 %19, label %26, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
   %20 = phi ptr [ %21, %.preheader ], [ %18, %17 ]
@@ -199,7 +199,7 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
   %25 = icmp eq ptr %21, %2
   br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !8
 
-split:                                            ; preds = %17
+26:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
   ret void
 }

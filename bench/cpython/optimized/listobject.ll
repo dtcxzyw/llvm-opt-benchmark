@@ -3053,7 +3053,7 @@ if.end144:                                        ; preds = %if.then138, %if.the
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else128, %if.then126.thread, %if.then122.thread, %if.then118.thread, %if.then113.thread, %if.end14, %for.end107.thread, %for.end107.thread.thread, %if.end144, %if.end34
-  %cmp35332 = phi i1 [ %cmp35, %for.end107.thread ], [ %cmp35, %for.end107.thread.thread ], [ %cmp35, %if.else128 ], [ %cmp35, %if.end144 ], [ false, %if.end34 ], [ false, %if.end14 ], [ %cmp35, %if.then113.thread ], [ %cmp35, %if.then118.thread ], [ %cmp35, %if.then122.thread ], [ %cmp35, %if.then126.thread ]
+  %cmp35332 = phi i1 [ true, %for.end107.thread ], [ true, %for.end107.thread.thread ], [ true, %if.else128 ], [ true, %if.end144 ], [ false, %if.end34 ], [ false, %if.end14 ], [ true, %if.then113.thread ], [ true, %if.then118.thread ], [ true, %if.then122.thread ], [ true, %if.then126.thread ]
   %keys.0331 = phi ptr [ %keys.0, %for.end107.thread ], [ %keys.0, %for.end107.thread.thread ], [ %keys.0, %if.else128 ], [ %keys.0, %if.end144 ], [ %keys.0, %if.end34 ], [ %arrayidx, %if.end14 ], [ %keys.0, %if.then113.thread ], [ %keys.0, %if.then118.thread ], [ %keys.0, %if.then122.thread ], [ %keys.0, %if.then126.thread ]
   %lo.sroa.0.0330 = phi ptr [ %lo.sroa.0.0, %for.end107.thread ], [ %lo.sroa.0.0, %for.end107.thread.thread ], [ %lo.sroa.0.0, %if.else128 ], [ %lo.sroa.0.0, %if.end144 ], [ %lo.sroa.0.0, %if.end34 ], [ %arrayidx, %if.end14 ], [ %lo.sroa.0.0, %if.then113.thread ], [ %lo.sroa.0.0, %if.then118.thread ], [ %lo.sroa.0.0, %if.then122.thread ], [ %lo.sroa.0.0, %if.then126.thread ]
   %lo.sroa.18.0329 = phi ptr [ %lo.sroa.18.0, %for.end107.thread ], [ %lo.sroa.18.0, %for.end107.thread.thread ], [ %lo.sroa.18.0, %if.else128 ], [ %lo.sroa.18.0, %if.end144 ], [ %lo.sroa.18.0, %if.end34 ], [ %1, %if.end14 ], [ %lo.sroa.18.0, %if.then113.thread ], [ %lo.sroa.18.0, %if.then118.thread ], [ %lo.sroa.18.0, %if.then122.thread ], [ %lo.sroa.18.0, %if.then126.thread ]
@@ -7922,9 +7922,6 @@ for.body147.preheader:                            ; preds = %cond.end143
   %52 = load i64, ptr %start, align 8
   br label %for.body147
 
-for.cond157.preheader:                            ; preds = %_Py_NewRef.exit
-  br i1 %cmp146128, label %for.body159, label %for.end163
-
 for.body147:                                      ; preds = %for.body147.preheader, %_Py_NewRef.exit
   %cur97.0130 = phi i64 [ %add154, %_Py_NewRef.exit ], [ %52, %for.body147.preheader ]
   %i96.0129 = phi i64 [ %inc155, %_Py_NewRef.exit ], [ 0, %for.body147.preheader ]
@@ -7949,10 +7946,10 @@ _Py_NewRef.exit:                                  ; preds = %for.body147, %if.en
   %add154 = add i64 %56, %cur97.0130
   %inc155 = add nuw nsw i64 %i96.0129, 1
   %exitcond.not = icmp eq i64 %inc155, %call18
-  br i1 %exitcond.not, label %for.cond157.preheader, label %for.body147, !llvm.loop !53
+  br i1 %exitcond.not, label %for.body159, label %for.body147, !llvm.loop !53
 
-for.body159:                                      ; preds = %for.cond157.preheader, %for.inc161
-  %i96.1132 = phi i64 [ %inc162, %for.inc161 ], [ 0, %for.cond157.preheader ]
+for.body159:                                      ; preds = %_Py_NewRef.exit, %for.inc161
+  %i96.1132 = phi i64 [ %inc162, %for.inc161 ], [ 0, %_Py_NewRef.exit ]
   %arrayidx160 = getelementptr ptr, ptr %call130, i64 %i96.1132
   %57 = load ptr, ptr %arrayidx160, align 8
   %58 = load i64, ptr %57, align 8
@@ -7975,7 +7972,7 @@ for.inc161:                                       ; preds = %if.end.i170, %if.th
   %exitcond138.not = icmp eq i64 %inc162, %call18
   br i1 %exitcond138.not, label %for.end163, label %for.body159, !llvm.loop !54
 
-for.end163:                                       ; preds = %for.inc161, %cond.end143, %for.cond157.preheader
+for.end163:                                       ; preds = %for.inc161, %cond.end143
   call void @PyMem_Free(ptr noundef nonnull %call130) #10
   %60 = load i64, ptr %seq.0, align 8
   %61 = and i64 %60, 2147483648
@@ -8777,8 +8774,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp eq i64 %nargs, 0
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %skip_optional_kwonly, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %skip_optional_kwonly, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add22 = phi i64 [ %add18, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -8791,8 +8788,8 @@ if.end:                                           ; preds = %cond.end9
   br i1 %tobool12.not, label %skip_optional_kwonly, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %call8, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %call8, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -8800,15 +8797,15 @@ if.then16:                                        ; preds = %if.end14
   br i1 %tobool18.not, label %skip_optional_kwonly, label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %if.end14
-  %keyfunc.1 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
+  %keyfunc.1 = phi ptr [ %2, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx22 = getelementptr i8, ptr %call8, i64 8
-  %4 = load ptr, ptr %arrayidx22, align 8
-  %call23 = call i32 @PyObject_IsTrue(ptr noundef %4) #10
+  %3 = load ptr, ptr %arrayidx22, align 8
+  %call23 = call i32 @PyObject_IsTrue(ptr noundef %3) #10
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %cond.end, %if.end21, %if.then16, %if.end
-  %keyfunc.0 = phi ptr [ %keyfunc.1, %if.end21 ], [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %cond.end ]
+  %keyfunc.0 = phi ptr [ %keyfunc.1, %if.end21 ], [ %2, %if.then16 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %cond.end ]
   %reverse.0 = phi i32 [ %call23, %if.end21 ], [ 0, %if.then16 ], [ 0, %if.end ], [ 0, %cond.end ]
   %call27 = call fastcc ptr @list_sort_impl(ptr noundef %self, ptr noundef %keyfunc.0, i32 noundef %reverse.0)
   br label %exit

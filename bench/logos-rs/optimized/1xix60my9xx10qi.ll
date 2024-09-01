@@ -397,8 +397,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6adcc592b393a52aE.exit: ; preds = 
 define void @"_ZN4core6option15Option$LT$T$GT$6filter17h979d8cf7fcbc8146E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr align 4 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = load i32, ptr %1, align 8
-  %.not.not = icmp eq i32 %5, 4
-  br i1 %.not.not, label %13, label %6
+  %.not = icmp eq i32 %5, 4
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)

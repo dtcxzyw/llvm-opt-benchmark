@@ -1735,14 +1735,14 @@ if.else17.i.i:                                    ; preds = %if.else.i.i
 
 if.else23.i.i:                                    ; preds = %if.else17.i.i
   %cmp24.i.i = icmp slt i32 %conv30.i, 38
-  br i1 %cmp24.i.i, label %if.then25.i.i, label %if.end64.i
+  br i1 %cmp24.i.i, label %if.then25.then.i.i, label %if.end64.i
 
-if.then25.i.i:                                    ; preds = %if.else23.i.i
+if.then25.then.i.i:                               ; preds = %if.else23.i.i
   %add.i.i = add nsw i32 %conv30.i, 100
   br label %return.sink.split.i.i
 
-return.sink.split.i.i:                            ; preds = %if.then25.i.i, %if.else17.i.i, %if.then14.then.i.i
-  %sub15.sink.i.i = phi i32 [ %sub15.i.i, %if.then14.then.i.i ], [ %add.i.i, %if.then25.i.i ], [ %conv30.i, %if.else17.i.i ]
+return.sink.split.i.i:                            ; preds = %if.then25.then.i.i, %if.else17.i.i, %if.then14.then.i.i
+  %sub15.sink.i.i = phi i32 [ %sub15.i.i, %if.then14.then.i.i ], [ %add.i.i, %if.then25.then.i.i ], [ %conv30.i, %if.else17.i.i ]
   store i32 %sub15.sink.i.i, ptr %tm_year, align 4
   br label %if.end64.i
 
@@ -3981,14 +3981,14 @@ if.else17.i:                                      ; preds = %if.else.i
 
 if.else23.i:                                      ; preds = %if.else17.i
   %cmp24.i = icmp slt i32 %conv48, 38
-  br i1 %cmp24.i, label %if.then25.i, label %if.end55
+  br i1 %cmp24.i, label %if.then25.then.i, label %if.end55
 
-if.then25.i:                                      ; preds = %if.else23.i
+if.then25.then.i:                                 ; preds = %if.else23.i
   %add.i = add nsw i32 %conv48, 100
   br label %set_date.exit
 
-set_date.exit:                                    ; preds = %if.then14.then.i, %if.else17.i, %if.then25.i
-  %sub15.sink.i = phi i32 [ %sub15.i, %if.then14.then.i ], [ %add.i, %if.then25.i ], [ %conv48, %if.else17.i ]
+set_date.exit:                                    ; preds = %if.then14.then.i, %if.else17.i, %if.then25.then.i
+  %sub15.sink.i = phi i32 [ %sub15.i, %if.then14.then.i ], [ %add.i, %if.then25.then.i ], [ %conv48, %if.else17.i ]
   store i32 %sub15.sink.i, ptr %check.sroa.8.0.tm.sroa_idx.i, align 4
   br label %sw.epilog
 
@@ -4032,14 +4032,14 @@ if.else17.i49:                                    ; preds = %if.else.i47
 
 if.else23.i51:                                    ; preds = %if.else17.i49
   %cmp24.i52 = icmp slt i32 %conv48, 38
-  br i1 %cmp24.i52, label %if.then25.i53, label %if.end64
+  br i1 %cmp24.i52, label %if.then25.then.i53, label %if.end64
 
-if.then25.i53:                                    ; preds = %if.else23.i51
+if.then25.then.i53:                               ; preds = %if.else23.i51
   %add.i54 = add nsw i32 %conv48, 100
   br label %set_date.exit59
 
-set_date.exit59:                                  ; preds = %if.then14.then.i57, %if.else17.i49, %if.then25.i53
-  %sub15.sink.i56 = phi i32 [ %sub15.i58, %if.then14.then.i57 ], [ %add.i54, %if.then25.i53 ], [ %conv48, %if.else17.i49 ]
+set_date.exit59:                                  ; preds = %if.then14.then.i57, %if.else17.i49, %if.then25.then.i53
+  %sub15.sink.i56 = phi i32 [ %sub15.i58, %if.then14.then.i57 ], [ %add.i54, %if.then25.then.i53 ], [ %conv48, %if.else17.i49 ]
   store i32 %sub15.sink.i56, ptr %check.sroa.8.0.tm.sroa_idx.i45, align 4
   br label %sw.epilog
 
@@ -4153,7 +4153,7 @@ if.else17.thread:                                 ; preds = %if.else.thread
 
 if.else23:                                        ; preds = %if.else17
   %cmp24 = icmp slt i32 %year, 38
-  br i1 %cmp24, label %if.then25, label %return
+  br i1 %cmp24, label %if.then25.then, label %return
 
 if.else23.thread:                                 ; preds = %if.else17.thread
   %cmp24152 = icmp slt i32 %year, 38
@@ -4163,7 +4163,7 @@ if.then25.thread:                                 ; preds = %if.else23.thread
   %add159 = add nsw i32 %year, 100
   br label %if.end34.cont.cont
 
-if.then25:                                        ; preds = %if.else23
+if.then25.then:                                   ; preds = %if.else23
   %add = add nsw i32 %year, 100
   br label %return.sink.split
 
@@ -4219,8 +4219,8 @@ if.end40.cont.cont:                               ; preds = %if.end6.i.cont.cont
   store i32 %day, ptr %check.sroa.4.0.tm.sroa_idx, align 4
   br i1 %cmp693, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end40.cont.cont, %if.else17, %if.then25, %if.then14.then
-  %sub15.sink = phi i32 [ %sub15, %if.then14.then ], [ %add, %if.then25 ], [ %year, %if.else17 ], [ %check.sroa.8.0.ph, %if.end40.cont.cont ]
+return.sink.split:                                ; preds = %if.end40.cont.cont, %if.else17, %if.then25.then, %if.then14.then
+  %sub15.sink = phi i32 [ %sub15, %if.then14.then ], [ %add, %if.then25.then ], [ %year, %if.else17 ], [ %check.sroa.8.0.ph, %if.end40.cont.cont ]
   store i32 %sub15.sink, ptr %check.sroa.8.0.tm.sroa_idx, align 4
   br label %return
 

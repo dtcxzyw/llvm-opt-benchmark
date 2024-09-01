@@ -5121,13 +5121,11 @@ mmbit_iterate_bounded.exit212:                    ; preds = %if.then39.i359, %if
   br i1 %cmp50.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %if.else.i550, %for.end.i346, %get_flat_masks.exit1299, %mmbit_get_flat_block.exit935, %if.end102, %mmbit_iterate_bounded.exit212, %if.else.i601, %for.end.i, %get_flat_masks.exit1392, %get_flat_masks.exit1330, %do.end29, %mmbit_iterate_bounded.exit231
-  br i1 %cmp39.not, label %return, label %if.then109
-
-if.then109:                                       ; preds = %for.end
   %cmp.i184 = icmp eq i16 %9, 0
-  br i1 %cmp.i184, label %return, label %if.end.i185
+  %or.cond = or i1 %cmp39.not, %cmp.i184
+  br i1 %or.cond, label %return, label %if.end.i185
 
-if.end.i185:                                      ; preds = %if.then109
+if.end.i185:                                      ; preds = %for.end
   %cmp.i296 = icmp ult i32 %5, 257
   br i1 %cmp.i296, label %if.then2.i191, label %if.else.i188
 
@@ -5619,8 +5617,7 @@ mmbit_get_flat_block.exit:                        ; preds = %sw.default.i, %sw.b
   %notmask602 = shl nsw i64 -1, %sh_prom.i1511
   %cond10.i = select i1 %cmp5.i1048, i64 %notmask602, i64 0
   %and.i1049 = and i64 %cond10.i, %cond.i1046
-  %retval.i1038.0 = select i1 %cmp.i184, i64 0, i64 %and.i1049
-  %and.i521 = and i64 %retval.i1038.0, %retval.i784.0
+  %and.i521 = and i64 %and.i1049, %retval.i784.0
   %tobool.i522.not = icmp eq i64 %and.i521, 0
   br i1 %tobool.i522.not, label %return, label %if.then3.i524
 
@@ -5826,8 +5823,8 @@ mmbit_iterate_bounded.exit:                       ; preds = %if.then39.i499, %if
   %cmp115.not = icmp eq i32 %retval.i.0, -1
   br i1 %cmp115.not, label %return, label %for.body117, !llvm.loop !25
 
-return:                                           ; preds = %if.else.i676, %for.end.i486, %get_flat_masks.exit1113, %mmbit_get_flat_block.exit, %for.inc166, %mmbit_iterate_bounded.exit, %if.else.i751, %for.end.i416, %get_flat_masks.exit1206, %if.end.i1123, %if.then109, %mmbit_iterate_bounded.exit193, %for.end, %do.end23, %if.else, %if.then133, %if.then83
-  %retval.0 = phi i64 [ %add.add88, %if.then83 ], [ %add.add145, %if.then133 ], [ 0, %if.else ], [ 0, %do.end23 ], [ 0, %for.end ], [ 0, %mmbit_iterate_bounded.exit193 ], [ 0, %if.then109 ], [ 0, %if.end.i1123 ], [ 0, %get_flat_masks.exit1206 ], [ 0, %for.end.i416 ], [ 0, %if.else.i751 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %for.inc166 ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %get_flat_masks.exit1113 ], [ 0, %for.end.i486 ], [ 0, %if.else.i676 ]
+return:                                           ; preds = %if.else.i676, %for.end.i486, %get_flat_masks.exit1113, %mmbit_get_flat_block.exit, %for.inc166, %mmbit_iterate_bounded.exit, %if.else.i751, %for.end.i416, %get_flat_masks.exit1206, %if.end.i1123, %mmbit_iterate_bounded.exit193, %for.end, %do.end23, %if.else, %if.then133, %if.then83
+  %retval.0 = phi i64 [ %add.add88, %if.then83 ], [ %add.add145, %if.then133 ], [ 0, %if.else ], [ 0, %do.end23 ], [ 0, %for.end ], [ 0, %mmbit_iterate_bounded.exit193 ], [ 0, %if.end.i1123 ], [ 0, %get_flat_masks.exit1206 ], [ 0, %for.end.i416 ], [ 0, %if.else.i751 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %for.inc166 ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %get_flat_masks.exit1113 ], [ 0, %for.end.i486 ], [ 0, %if.else.i676 ]
   ret i64 %retval.0
 }
 

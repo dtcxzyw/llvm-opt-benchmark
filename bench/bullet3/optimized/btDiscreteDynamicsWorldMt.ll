@@ -251,12 +251,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %8, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %if.then, label %for.body, !llvm.loop !9
 
-for.end:                                          ; preds = %for.body
-  br i1 %cmp7, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.end
+if.then:                                          ; preds = %for.body
   %10 = load ptr, ptr %solvers, align 8
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
@@ -265,7 +262,7 @@ if.then:                                          ; preds = %for.end
   store i32 %call5, ptr %m_solverType, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit, %if.then, %for.end
+if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit, %if.then
   ret void
 }
 

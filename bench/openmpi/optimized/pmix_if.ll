@@ -335,17 +335,14 @@ pmix_strncpy.exit47:                              ; preds = %.lr.ph.i41, %75, %6
   %83 = getelementptr inbounds i8, ptr %.03254, i64 40
   %.032 = load ptr, ptr %83, align 8
   %.not35 = icmp eq ptr %.032, null
-  br i1 %.not35, label %._crit_edge57, label %.lr.ph, !llvm.loop !10
+  br i1 %.not35, label %._crit_edge57.thread62, label %.lr.ph, !llvm.loop !10
 
-._crit_edge57:                                    ; preds = %._crit_edge
-  br i1 %.not3553, label %._crit_edge57.thread, label %._crit_edge57.thread62
-
-._crit_edge57.thread62:                           ; preds = %.lr.ph56, %._crit_edge57
+._crit_edge57.thread62:                           ; preds = %._crit_edge, %.lr.ph56
   call void @freeaddrinfo(ptr noundef nonnull %.03252) #19
   br label %._crit_edge57.thread
 
-._crit_edge57.thread:                             ; preds = %15, %._crit_edge57, %._crit_edge57.thread62, %12, %14, %3, %pmix_strncpy.exit47, %pmix_strncpy.exit
-  %.0 = phi i32 [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit47 ], [ -46, %3 ], [ -46, %14 ], [ -46, %12 ], [ -46, %._crit_edge57.thread62 ], [ -46, %._crit_edge57 ], [ -46, %15 ]
+._crit_edge57.thread:                             ; preds = %15, %._crit_edge57.thread62, %12, %14, %3, %pmix_strncpy.exit47, %pmix_strncpy.exit
+  %.0 = phi i32 [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit47 ], [ -46, %3 ], [ -46, %14 ], [ -46, %12 ], [ -46, %._crit_edge57.thread62 ], [ -46, %15 ]
   ret i32 %.0
 }
 

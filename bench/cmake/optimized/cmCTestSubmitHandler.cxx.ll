@@ -2735,8 +2735,8 @@ _ZlsRSoRK15cmCTestLogWrite.exit310:               ; preds = %801, %.noexc308
   br label %.sink.split
 
 .sink.split:                                      ; preds = %574, %.critedge351
-  %.lcssa562.sink = phi ptr [ %681, %.critedge351 ], [ %449, %574 ]
-  %836 = call i32 @fclose(ptr noundef %.lcssa562.sink)
+  %.lcssa485.sink = phi ptr [ %681, %.critedge351 ], [ %449, %574 ]
+  %836 = call i32 @fclose(ptr noundef %.lcssa485.sink)
   br label %837
 
 837:                                              ; preds = %.sink.split, %._crit_edge470

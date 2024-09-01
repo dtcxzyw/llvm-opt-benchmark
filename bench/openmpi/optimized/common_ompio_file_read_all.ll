@@ -919,12 +919,9 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %417 = shl nuw nsw i64 %411, 2
   %418 = call noalias ptr @malloc(i64 noundef %417) #11
   %419 = icmp eq ptr %418, null
-  br i1 %419, label %420, label %.preheader1034
+  br i1 %419, label %420, label %.preheader1029.preheader
 
-.preheader1034:                                   ; preds = %416
-  br i1 %398, label %.preheader1029.preheader, label %._crit_edge1209
-
-.preheader1029.preheader:                         ; preds = %.preheader1034
+.preheader1029.preheader:                         ; preds = %416
   %wide.trip.count1457 = zext nneg i32 %397 to i64
   br label %.preheader1029
 
@@ -983,7 +980,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %exitcond1458.not = icmp eq i64 %indvars.iv.next1455, %wide.trip.count1457
   br i1 %exitcond1458.not, label %._crit_edge1209, label %.preheader1029, !llvm.loop !15
 
-._crit_edge1209:                                  ; preds = %._crit_edge1205, %.preheader1034
+._crit_edge1209:                                  ; preds = %._crit_edge1205
   call fastcc void @read_heap_sort(ptr noundef nonnull %413, i32 noundef %.1671.lcssa, ptr noundef nonnull %418)
   %443 = shl nuw nsw i64 %411, 3
   %444 = call noalias ptr @malloc(i64 noundef %443) #11

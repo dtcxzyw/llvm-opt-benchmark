@@ -1088,7 +1088,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   %.074.lcssa.ph = phi i64 [ %.07492, %.lr.ph ], [ %.07492, %15 ], [ %.07492, %18 ], [ %.175, %37 ]
   %40 = add i64 %.074.lcssa.ph, 1
   %41 = tail call noalias ptr @g_malloc(i64 noundef %40) #15
-  br i1 %3, label %.lr.ph102, label %.critedge10
+  br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.critedge, %74
   %.0101 = phi ptr [ %.1, %74 ], [ %41, %.critedge ]
@@ -1160,9 +1160,9 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   %76 = icmp ult i32 %.reass111, %1
   br i1 %76, label %.lr.ph102, label %.critedge10, !llvm.loop !8
 
-.critedge10:                                      ; preds = %.lr.ph102, %52, %55, %74, %.critedge.thread, %.critedge
-  %77 = phi ptr [ %41, %.critedge ], [ %4, %.critedge.thread ], [ %41, %74 ], [ %41, %55 ], [ %41, %52 ], [ %41, %.lr.ph102 ]
-  %.0.lcssa = phi ptr [ %41, %.critedge ], [ %4, %.critedge.thread ], [ %.0101, %.lr.ph102 ], [ %.0101, %52 ], [ %.0101, %55 ], [ %.1, %74 ]
+.critedge10:                                      ; preds = %.lr.ph102, %52, %55, %74, %.critedge.thread
+  %77 = phi ptr [ %4, %.critedge.thread ], [ %41, %74 ], [ %41, %55 ], [ %41, %52 ], [ %41, %.lr.ph102 ]
+  %.0.lcssa = phi ptr [ %4, %.critedge.thread ], [ %.0101, %.lr.ph102 ], [ %.0101, %52 ], [ %.0101, %55 ], [ %.1, %74 ]
   store i8 0, ptr %.0.lcssa, align 1
   ret ptr %77
 }

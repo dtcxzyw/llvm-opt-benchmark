@@ -555,7 +555,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %lor.lhs.false23, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %for.cond.preheader.i69, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -572,10 +572,7 @@ if.end19:                                         ; preds = %if.end11
   %spec.select = zext i1 %tobool20.not to i32
   br label %return
 
-lor.lhs.false23:                                  ; preds = %for.cond.i
-  br i1 %cmp.i64, label %return, label %for.cond.preheader.i69
-
-for.cond.preheader.i69:                           ; preds = %lor.lhs.false23
+for.cond.preheader.i69:                           ; preds = %for.cond.i
   %.pr = load i32, ptr @island_bitmap_size, align 4
   %bits.i70 = getelementptr inbounds i8, ptr %b_bitmap.0, i64 4
   %cmp18.not.i71 = icmp eq i32 %.pr, 0
@@ -601,8 +598,8 @@ for.body.i75:                                     ; preds = %for.cond.i82, %for.
   %cmp8.not.i80 = icmp eq i32 %and.i79, %27
   br i1 %cmp8.not.i80, label %for.cond.i82, label %return
 
-return:                                           ; preds = %for.body.i, %for.cond.i82, %for.body.i75, %for.cond.preheader.i, %lor.lhs.false, %if.end19, %for.cond.preheader.i69, %lor.lhs.false23, %if.then13, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ 0, %lor.lhs.false23 ], [ 0, %for.cond.preheader.i69 ], [ %spec.select, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i82 ], [ 1, %for.body.i75 ], [ -1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.cond.i82, %for.body.i75, %for.cond.preheader.i, %lor.lhs.false, %if.end19, %for.cond.preheader.i69, %if.then13, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ 0, %for.cond.preheader.i69 ], [ %spec.select, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i82 ], [ 1, %for.body.i75 ], [ -1, %for.body.i ]
   ret i32 %retval.0
 }
 

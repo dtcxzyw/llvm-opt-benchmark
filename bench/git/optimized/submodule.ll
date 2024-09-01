@@ -3896,12 +3896,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and = and i32 %flags, 2
-  %tobool1.not = icmp eq i32 %and, 0
-  %tobool4.not = icmp ne ptr %old_head, null
-  br i1 %tobool4.not, label %land.lhs.true, label %if.end8
+  %tobool1.not = icmp ne i32 %and, 0
+  %tobool4.not = icmp eq ptr %old_head, null
+  br i1 %tobool4.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %.error_code = select i1 %tobool1.not, ptr null, ptr %error_code
+  %.error_code = select i1 %tobool1.not, ptr %error_code, ptr null
   %call.i40 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %path) #14
   %call1.i41 = call ptr @resolve_gitdir_gently(ptr noundef %call.i40, ptr noundef %.error_code) #14
   %tobool.not.i.not = icmp eq ptr %call1.i41, null
@@ -3920,8 +3920,8 @@ if.then12:                                        ; preds = %if.end8
   unreachable
 
 if.end13:                                         ; preds = %if.end8
-  %brmerge.not = and i1 %tobool4.not, %tobool1.not
-  br i1 %brmerge.not, label %if.then18, label %if.end26
+  %brmerge = or i1 %tobool4.not, %tobool1.not
+  br i1 %brmerge, label %if.end26, label %if.then18
 
 if.then18:                                        ; preds = %if.end13
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i)
@@ -3975,7 +3975,7 @@ if.end26:                                         ; preds = %if.end13, %submodul
   br i1 %tobool28.not, label %if.then29, label %if.end47
 
 if.then29:                                        ; preds = %if.end26
-  br i1 %tobool4.not, label %if.then31, label %if.else36
+  br i1 %tobool4.not, label %if.else36, label %if.then31
 
 if.then31:                                        ; preds = %if.then29
   %call32 = call i32 @submodule_uses_gitfile(ptr noundef %path)
@@ -4028,7 +4028,7 @@ if.end37.thread:                                  ; preds = %if.else36
   br label %if.end47
 
 if.end37:                                         ; preds = %if.then31, %if.then34
-  br i1 %tobool1.not, label %if.end47, label %if.then42
+  br i1 %tobool1.not, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.end37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gitdir43, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
@@ -4059,7 +4059,7 @@ if.end47:                                         ; preds = %if.end37.thread, %i
   %cond = select i1 %tobool52.not, ptr @.str.85, ptr %super_prefix
   %call53 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp, ptr noundef nonnull @.str.84, ptr noundef nonnull %cond, ptr noundef %path) #14
   %call61 = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef nonnull %.str.87..str.86) #14
-  br i1 %tobool1.not, label %if.then74, label %if.end71
+  br i1 %tobool1.not, label %if.end71, label %if.then74
 
 if.end71:                                         ; preds = %if.end47
   %call67 = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef nonnull @.str.88) #14
@@ -4067,7 +4067,7 @@ if.end71:                                         ; preds = %if.end47
 
 if.then74:                                        ; preds = %if.end47
   %call70 = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef nonnull @.str.89) #14
-  br i1 %tobool4.not, label %cond.end80, label %cond.false78
+  br i1 %tobool4.not, label %cond.false78, label %cond.end80
 
 cond.false78:                                     ; preds = %if.then74
   %call79 = call ptr @empty_tree_oid_hex() #14

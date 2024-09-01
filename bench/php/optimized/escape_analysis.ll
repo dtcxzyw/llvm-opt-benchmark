@@ -771,16 +771,13 @@ is_escape_use.exit:                               ; preds = %377, %381, %381, %3
 .preheader:                                       ; preds = %._crit_edge299
   %392 = getelementptr inbounds i8, ptr %2, i64 56
   %393 = getelementptr inbounds i8, ptr %1, i64 88
-  br i1 %141, label %.lr.ph311.us.preheader, label %._crit_edge317
-
-.lr.ph311.us.preheader:                           ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph311.us
 
-.lr.ph311.us:                                     ; preds = %.loopexit.us, %.lr.ph311.us.preheader
-  %indvars.iv324 = phi i64 [ %indvars.iv.next325.mux, %.loopexit.us ], [ 0, %.lr.ph311.us.preheader ]
-  %.0225309.us = phi i1 [ %.3.us.mux, %.loopexit.us ], [ false, %.lr.ph311.us.preheader ]
-  %.8306.us = phi i32 [ %.9.us, %.loopexit.us ], [ %.6, %.lr.ph311.us.preheader ]
+.lr.ph311.us:                                     ; preds = %.loopexit.us, %.preheader
+  %indvars.iv324 = phi i64 [ %indvars.iv.next325.mux, %.loopexit.us ], [ 0, %.preheader ]
+  %.0225309.us = phi i1 [ %.3.us.mux, %.loopexit.us ], [ false, %.preheader ]
+  %.8306.us = phi i32 [ %.9.us, %.loopexit.us ], [ %.6, %.preheader ]
   %394 = getelementptr inbounds %struct._zend_ssa_var, ptr %5, i64 %indvars.iv324
   %395 = getelementptr inbounds i8, ptr %394, i64 12
   %396 = load i32, ptr %395, align 4
@@ -959,7 +956,7 @@ is_escape_use.exit:                               ; preds = %377, %381, %381, %3
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count330
   br i1 %exitcond331.not, label %._crit_edge317, label %.lr.ph316
 
-._crit_edge317:                                   ; preds = %484, %.preheader286, %.preheader, %.thread277
+._crit_edge317:                                   ; preds = %484, %.preheader286, %.thread277
   br i1 %30, label %485, label %.critedge
 
 485:                                              ; preds = %._crit_edge317
@@ -1329,10 +1326,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_build_equi_escape_sets(ptr nou
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph
 
-.preheader704:                                    ; preds = %.lr.ph
-  br i1 %15, label %.lr.ph884, label %._crit_edge895
-
-.lr.ph884:                                        ; preds = %.preheader704
+.lr.ph884:                                        ; preds = %.lr.ph
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = getelementptr inbounds i8, ptr %2, i64 56
   %18 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1348,12 +1342,9 @@ define internal fastcc range(i32 -1, 1) i32 @zend_build_equi_escape_sets(ptr nou
   store i32 1, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader704, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph884, label %.lr.ph
 
-.preheader:                                       ; preds = %.thread.thread
-  br i1 %15, label %.lr.ph894.preheader, label %._crit_edge895
-
-.lr.ph894.preheader:                              ; preds = %.preheader
+.lr.ph894.preheader:                              ; preds = %.thread.thread
   %wide.trip.count938 = zext nneg i32 %7 to i64
   br label %.lr.ph894
 
@@ -2159,7 +2150,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 .thread.thread:                                   ; preds = %91, %.preheader703, %244, %._crit_edge740, %64, %61, %205, %._crit_edge880, %325, %323, %301, %.thread, %99
   %indvars.iv.next931 = add nuw nsw i64 %indvars.iv930, 1
   %exitcond934.not = icmp eq i64 %indvars.iv.next931, %wide.trip.count933
-  br i1 %exitcond934.not, label %.preheader, label %22
+  br i1 %exitcond934.not, label %.lr.ph894.preheader, label %22
 
 .lr.ph894:                                        ; preds = %.lr.ph894.preheader, %._crit_edge891
   %indvars.iv935 = phi i64 [ 0, %.lr.ph894.preheader ], [ %indvars.iv.next936, %._crit_edge891 ]
@@ -2192,7 +2183,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %exitcond939.not = icmp eq i64 %indvars.iv.next936, %wide.trip.count938
   br i1 %exitcond939.not, label %._crit_edge895, label %.lr.ph894
 
-._crit_edge895:                                   ; preds = %._crit_edge891, %.preheader705, %.preheader704, %.preheader
+._crit_edge895:                                   ; preds = %._crit_edge891, %.preheader705
   br i1 %10, label %338, label %339
 
 338:                                              ; preds = %._crit_edge895

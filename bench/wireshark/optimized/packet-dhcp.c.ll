@@ -3772,8 +3772,8 @@ proto_item_set_hidden.exit:                       ; preds = %171, %168, %165, %1
   store i32 0, ptr %5, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
-  %.not243 = icmp slt i32 %.1, %57
-  br i1 %.not243, label %.lr.ph233, label %._crit_edge234
+  %.not237 = icmp slt i32 %.1, %57
+  br i1 %.not237, label %.lr.ph233, label %._crit_edge234
 
 187:                                              ; preds = %.lr.ph233
   %188 = add i32 %192, %.2231
@@ -3794,11 +3794,11 @@ proto_item_set_hidden.exit:                       ; preds = %171, %168, %165, %1
   br label %207
 
 ._crit_edge234.loopexit:                          ; preds = %187
-  %.pre242 = load ptr, ptr %6, align 8
+  %.pre243 = load ptr, ptr %6, align 8
   br label %._crit_edge234
 
 ._crit_edge234:                                   ; preds = %._crit_edge234.loopexit, %186
-  %196 = phi ptr [ %77, %186 ], [ %.pre242, %._crit_edge234.loopexit ]
+  %196 = phi ptr [ %77, %186 ], [ %.pre243, %._crit_edge234.loopexit ]
   %.2.lcssa = phi i32 [ %.1, %186 ], [ %188, %._crit_edge234.loopexit ]
   %.lcssa224 = phi i1 [ true, %186 ], [ %189, %._crit_edge234.loopexit ]
   %.lcssa = phi i1 [ false, %186 ], [ %191, %._crit_edge234.loopexit ]

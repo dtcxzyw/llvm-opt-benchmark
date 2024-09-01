@@ -10307,19 +10307,16 @@ if.then72:                                        ; preds = %while.end
   %19 = load ptr, ptr %nodes74, align 8
   %call75 = tail call ptr @dictGetSafeIterator(ptr noundef %19) #33
   %cmp81107 = icmp sgt i32 %conv18, 0
-  br i1 %cmp81107, label %while.cond76.outer.split.preheader, label %while.cond76.us
-
-while.cond76.outer.split.preheader:               ; preds = %if.then72
-  %20 = add i32 %gossipcount.0.ph.ph.lcssa, %conv18
-  br label %while.cond76.outer.split
+  br i1 %cmp81107, label %while.cond76.outer.split, label %while.cond76.us
 
 while.cond76.us:                                  ; preds = %if.end101, %if.then72
-  %gossipcount.2.ph.lcssa105 = phi i32 [ %gossipcount.0.ph.ph.lcssa, %if.then72 ], [ %20, %if.end101 ]
+  %gossipcount.2.ph.lcssa105 = phi i32 [ %gossipcount.0.ph.ph.lcssa, %if.then72 ], [ %inc102, %if.end101 ]
   %call77.us = tail call ptr @dictNext(ptr noundef %call75) #33
   br label %while.end104
 
-while.cond76.outer.split:                         ; preds = %while.cond76.outer.split.preheader, %if.end101
-  %gossipcount.2.ph110 = phi i32 [ %inc102, %if.end101 ], [ %gossipcount.0.ph.ph.lcssa, %while.cond76.outer.split.preheader ]
+while.cond76.outer.split:                         ; preds = %if.then72, %if.end101
+  %gossipcount.2.ph110 = phi i32 [ %inc102, %if.end101 ], [ %gossipcount.0.ph.ph.lcssa, %if.then72 ]
+  %pfail_wanted.0.ph109 = phi i32 [ %dec103, %if.end101 ], [ %conv18, %if.then72 ]
   br label %while.cond76
 
 while.cond76:                                     ; preds = %while.cond76.outer.split, %while.body84
@@ -10330,16 +10327,17 @@ while.cond76:                                     ; preds = %while.cond76.outer.
 while.body84:                                     ; preds = %while.cond76
   %call86 = tail call ptr @dictGetVal(ptr noundef nonnull %call77) #33
   %flags87 = getelementptr inbounds i8, ptr %call86, i64 88
-  %21 = load i32, ptr %flags87, align 8
-  %22 = and i32 %21, 100
-  %or.cond49.not = icmp eq i32 %22, 4
+  %20 = load i32, ptr %flags87, align 8
+  %21 = and i32 %20, 100
+  %or.cond49.not = icmp eq i32 %21, 4
   br i1 %or.cond49.not, label %if.end101, label %while.cond76, !llvm.loop !45
 
 if.end101:                                        ; preds = %while.body84
   tail call void @clusterSetGossipEntry(ptr noundef nonnull %msg, i32 noundef %gossipcount.2.ph110, ptr noundef nonnull %call86)
-  %inc102 = add nuw i32 %gossipcount.2.ph110, 1
-  %exitcond.not = icmp eq i32 %inc102, %20
-  br i1 %exitcond.not, label %while.cond76.us, label %while.cond76.outer.split, !llvm.loop !45
+  %inc102 = add nsw i32 %gossipcount.2.ph110, 1
+  %dec103 = add nsw i32 %pfail_wanted.0.ph109, -1
+  %cmp81 = icmp sgt i32 %pfail_wanted.0.ph109, 1
+  br i1 %cmp81, label %while.cond76.outer.split, label %while.cond76.us, !llvm.loop !45
 
 while.end104:                                     ; preds = %while.cond76, %while.cond76.us
   %.us-phi104 = phi i32 [ %gossipcount.2.ph.lcssa105, %while.cond76.us ], [ %gossipcount.2.ph110, %while.cond76 ]
@@ -10373,62 +10371,62 @@ cond.end:                                         ; preds = %if.end105
 
 if.end.i:                                         ; preds = %cond.end
   %send_msg_queue.i = getelementptr inbounds i8, ptr %link, i64 16
-  %23 = load ptr, ptr %send_msg_queue.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %23, i64 40
-  %24 = load i64, ptr %len.i, align 8
-  %cmp.i = icmp ne i64 %24, 0
+  %22 = load ptr, ptr %send_msg_queue.i, align 8
+  %len.i = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = load i64, ptr %len.i, align 8
+  %cmp.i = icmp ne i64 %23, 0
   %cmp1.not.i = icmp eq i32 %call123, 0
   %or.cond53 = select i1 %cmp.i, i1 true, i1 %cmp1.not.i
   br i1 %or.cond53, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %conn.i = getelementptr inbounds i8, ptr %link, i64 8
-  %25 = load ptr, ptr %conn.i, align 8
-  %26 = load ptr, ptr %25, align 8
-  %set_write_handler.i.i = getelementptr inbounds i8, ptr %26, i64 152
-  %27 = load ptr, ptr %set_write_handler.i.i, align 8
-  %call.i.i = tail call i32 %27(ptr noundef nonnull %25, ptr noundef nonnull @clusterWriteHandler, i32 noundef 1) #33
+  %24 = load ptr, ptr %conn.i, align 8
+  %25 = load ptr, ptr %24, align 8
+  %set_write_handler.i.i = getelementptr inbounds i8, ptr %25, i64 152
+  %26 = load ptr, ptr %set_write_handler.i.i, align 8
+  %call.i.i = tail call i32 %26(ptr noundef nonnull %24, ptr noundef nonnull @clusterWriteHandler, i32 noundef 1) #33
   %.pre.i = load ptr, ptr %send_msg_queue.i, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
-  %28 = phi ptr [ %.pre.i, %if.then2.i ], [ %23, %if.end.i ]
-  %call5.i = tail call ptr @listAddNodeTail(ptr noundef %28, ptr noundef nonnull %call29) #33
+  %27 = phi ptr [ %.pre.i, %if.then2.i ], [ %22, %if.end.i ]
+  %call5.i = tail call ptr @listAddNodeTail(ptr noundef %27, ptr noundef nonnull %call29) #33
   %refcount.i = getelementptr inbounds i8, ptr %call29, i64 8
-  %29 = load i32, ptr %refcount.i, align 8
-  %inc.i = add nsw i32 %29, 1
+  %28 = load i32, ptr %refcount.i, align 8
+  %inc.i = add nsw i32 %28, 1
   store i32 %inc.i, ptr %refcount.i, align 8
-  %30 = load i64, ptr %call29, align 8
-  %add.i = add i64 %30, 24
+  %29 = load i64, ptr %call29, align 8
+  %add.i = add i64 %29, 24
   %send_msg_queue_mem.i = getelementptr inbounds i8, ptr %link, i64 32
-  %31 = load i64, ptr %send_msg_queue_mem.i, align 8
-  %add7.i = add i64 %add.i, %31
+  %30 = load i64, ptr %send_msg_queue_mem.i, align 8
+  %add7.i = add i64 %add.i, %30
   store i64 %add7.i, ptr %send_msg_queue_mem.i, align 8
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
-  %add8.i = add i64 %32, 24
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
+  %add8.i = add i64 %31, 24
   store i64 %add8.i, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
   %type10.i = getelementptr inbounds i8, ptr %call29, i64 28
-  %33 = load i16, ptr %type10.i, align 4
-  %call11.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %33) #36
+  %32 = load i16, ptr %type10.i, align 4
+  %call11.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %32) #36
   %cmp12.i = icmp ult i16 %call11.i, 11
   br i1 %cmp12.i, label %if.then14.i, label %clusterSendMessage.exit
 
 if.then14.i:                                      ; preds = %if.end3.i
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %stats_bus_messages_sent.i = getelementptr inbounds i8, ptr %34, i64 393360
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %stats_bus_messages_sent.i = getelementptr inbounds i8, ptr %33, i64 393360
   %idxprom.i = zext nneg i16 %call11.i to i64
   %arrayidx.i = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_sent.i, i64 0, i64 %idxprom.i
-  %35 = load i64, ptr %arrayidx.i, align 8
-  %inc15.i = add nsw i64 %35, 1
+  %34 = load i64, ptr %arrayidx.i, align 8
+  %inc15.i = add nsw i64 %34, 1
   store i64 %inc15.i, ptr %arrayidx.i, align 8
   br label %clusterSendMessage.exit
 
 clusterSendMessage.exit:                          ; preds = %cond.end, %if.end3.i, %if.then14.i
   %refcount.i50 = getelementptr inbounds i8, ptr %call29, i64 8
-  %36 = load i32, ptr %refcount.i50, align 8
-  %dec.i = add nsw i32 %36, -1
+  %35 = load i32, ptr %refcount.i50, align 8
+  %dec.i = add nsw i32 %35, -1
   store i32 %dec.i, ptr %refcount.i50, align 8
-  %cmp.i51 = icmp sgt i32 %36, 0
+  %cmp.i51 = icmp sgt i32 %35, 0
   br i1 %cmp.i51, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %clusterSendMessage.exit
@@ -10441,9 +10439,9 @@ cond.end.i:                                       ; preds = %clusterSendMessage.
   br i1 %cmp4.i, label %if.then.i, label %clusterMsgSendBlockDecrRefCount.exit
 
 if.then.i:                                        ; preds = %cond.end.i
-  %37 = load i64, ptr %call29, align 8
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
-  %sub.i = sub i64 %38, %37
+  %36 = load i64, ptr %call29, align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
+  %sub.i = sub i64 %37, %36
   store i64 %sub.i, ptr getelementptr inbounds (i8, ptr @server, i64 2408), align 8
   tail call void @zfree(ptr noundef nonnull %call29) #33
   br label %clusterMsgSendBlockDecrRefCount.exit

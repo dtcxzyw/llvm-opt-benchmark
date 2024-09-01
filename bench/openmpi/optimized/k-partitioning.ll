@@ -371,7 +371,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 ._crit_edge.us.i:                                 ; preds = %131
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count89.i
-  br i1 %exitcond100.not.i, label %.preheader65.lr.ph.i, label %.preheader67.us.i, !llvm.loop !18
+  br i1 %exitcond100.not.i, label %.preheader66.i, label %.preheader67.us.i, !llvm.loop !18
 
 .lr.ph72.i:                                       ; preds = %.lr.ph72.i, %.lr.ph72.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph72.preheader.i ], [ %indvars.iv.next87.i, %.lr.ph72.i ]
@@ -381,13 +381,13 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count89.i
   br i1 %exitcond90.not.i, label %.preheader67.us.i, label %.lr.ph72.i, !llvm.loop !19
 
-.preheader65.lr.ph.i:                             ; preds = %._crit_edge.us.i
+.preheader66.i:                                   ; preds = %._crit_edge.us.i
   br i1 %125, label %.preheader65.us.preheader.i, label %.lr.ph81.i.preheader
 
-.lr.ph81.i.preheader:                             ; preds = %._crit_edge.us79.i, %.preheader65.lr.ph.i
+.lr.ph81.i.preheader:                             ; preds = %._crit_edge.us79.i, %.preheader66.i
   br label %.lr.ph81.i
 
-.preheader65.us.preheader.i:                      ; preds = %.preheader65.lr.ph.i
+.preheader65.us.preheader.i:                      ; preds = %.preheader66.i
   %wide.trip.count104.i = zext nneg i32 %2 to i64
   br label %.preheader65.us.i
 
@@ -682,14 +682,14 @@ balancing.exit:                                   ; preds = %._crit_edge.thread,
   call void @PQ_exit(ptr noundef %276) #11
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %.lr.ph26.preheader.i, label %.lr.ph22.i, !llvm.loop !28
+  br i1 %exitcond33.not.i, label %._crit_edge23.i, label %.lr.ph22.i, !llvm.loop !28
 
-.lr.ph26.preheader.i:                             ; preds = %.lr.ph22.i
+._crit_edge23.i:                                  ; preds = %.lr.ph22.i
   call void @free(ptr noundef %118) #11
   br label %.lr.ph26.i
 
-.lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
-  %indvars.iv34.i = phi i64 [ 0, %.lr.ph26.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph26.i ]
+.lr.ph26.i:                                       ; preds = %.lr.ph26.i, %._crit_edge23.i
+  %indvars.iv34.i = phi i64 [ 0, %._crit_edge23.i ], [ %indvars.iv.next35.i, %.lr.ph26.i ]
   %277 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv34.i
   %278 = load ptr, ptr %277, align 8
   call void @free(ptr noundef %278) #11

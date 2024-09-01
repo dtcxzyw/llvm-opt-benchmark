@@ -6056,8 +6056,8 @@ entry:
   %fLength.i = getelementptr inbounds i8, ptr %intervalPattern, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
-  %cmp61 = icmp slt i32 %cond.i, 1
-  br i1 %cmp61, label %if.end62, label %for.body.lr.ph
+  %cmp.not61 = icmp sgt i32 %cond.i, 0
+  br i1 %cmp.not61, label %for.body.lr.ph, label %if.end62
 
 for.body.lr.ph:                                   ; preds = %entry
   %3 = and i16 %0, 2

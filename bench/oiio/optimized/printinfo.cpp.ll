@@ -2551,7 +2551,7 @@ for.body116.preheader.i:                          ; preds = %invoke.cont112.i
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i132.i69, i64 1)
   br label %for.body116.i
 
-for.body127.lr.ph.i:                              ; preds = %for.body116.i
+for.cond125.preheader.i:                          ; preds = %for.body116.i
   %133 = uitofp i64 %add118.i to double
   %sub131.i = add nsw i64 %sub.ptr.div.i132.i69, -1
   %ref.tmp.i.sroa.2.0.ref.tmp.sroa_idx.i147.i = getelementptr inbounds i8, ptr %ref.tmp.i146.i57, i64 8
@@ -2570,12 +2570,12 @@ for.body116.i:                                    ; preds = %for.body116.i, %for
   %add118.i = add i64 %134, %grandtotal.0705.i
   %inc120.i = add nuw i64 %i.0706.i, 1
   %exitcond740.not.i = icmp eq i64 %inc120.i, %umax.i
-  br i1 %exitcond740.not.i, label %for.body127.lr.ph.i, label %for.body116.i, !llvm.loop !24
+  br i1 %exitcond740.not.i, label %for.cond125.preheader.i, label %for.body116.i, !llvm.loop !24
 
-for.body127.i:                                    ; preds = %for.inc149.i, %for.body127.lr.ph.i
-  %i122.0711.i = phi i64 [ 0, %for.body127.lr.ph.i ], [ %inc150.pre-phi.i, %for.inc149.i ]
-  %bintotal.0710.i = phi i64 [ 0, %for.body127.lr.ph.i ], [ %bintotal.1.i, %for.inc149.i ]
-  %binstart.0709.i = phi i64 [ 0, %for.body127.lr.ph.i ], [ %binstart.1.i, %for.inc149.i ]
+for.body127.i:                                    ; preds = %for.inc149.i, %for.cond125.preheader.i
+  %i122.0711.i = phi i64 [ 0, %for.cond125.preheader.i ], [ %inc150.pre-phi.i, %for.inc149.i ]
+  %bintotal.0710.i = phi i64 [ 0, %for.cond125.preheader.i ], [ %bintotal.1.i, %for.inc149.i ]
+  %binstart.0709.i = phi i64 [ 0, %for.cond125.preheader.i ], [ %binstart.1.i, %for.inc149.i ]
   %add.ptr.i139.i = getelementptr inbounds i64, ptr %nsamples_histogram.sroa.0.0.lcssa.i, i64 %i122.0711.i
   %135 = load i64, ptr %add.ptr.i139.i, align 8
   %add129.i = add i64 %135, %bintotal.0710.i

@@ -2498,8 +2498,8 @@ cond.end:                                         ; preds = %entry
   %4 = add i64 %nargs, -3
   %5 = icmp ult i64 %4, 2
   %cmp5 = icmp ne ptr %args, null
-  %6 = and i1 %cmp5, %5
-  br i1 %6, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %5
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add23 = phi i64 [ %add19, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -2510,12 +2510,12 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1029 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2428 = phi i64 [ %add23, %cond.end9 ], [ %nargs, %cond.end ]
-  %7 = load ptr, ptr %cond1029, align 8
+  %6 = load ptr, ptr %cond1029, align 8
   %arrayidx12 = getelementptr i8, ptr %cond1029, i64 8
-  %8 = load ptr, ptr %arrayidx12, align 8
+  %7 = load ptr, ptr %arrayidx12, align 8
   %arrayidx13 = getelementptr i8, ptr %cond1029, i64 16
-  %9 = load ptr, ptr %arrayidx13, align 8
-  %call14 = call i32 @PyLong_AsInt(ptr noundef %9) #9
+  %8 = load ptr, ptr %arrayidx13, align 8
+  %call14 = call i32 @PyLong_AsInt(ptr noundef %8) #9
   %cmp15 = icmp eq i32 %call14, -1
   br i1 %cmp15, label %land.lhs.true16, label %if.end20
 
@@ -2530,8 +2530,8 @@ if.end20:                                         ; preds = %land.lhs.true16, %i
 
 if.end23:                                         ; preds = %if.end20
   %arrayidx24 = getelementptr i8, ptr %cond1029, i64 24
-  %10 = load ptr, ptr %arrayidx24, align 8
-  %call25 = call i32 @PyLong_AsInt(ptr noundef %10) #9
+  %9 = load ptr, ptr %arrayidx24, align 8
+  %call25 = call i32 @PyLong_AsInt(ptr noundef %9) #9
   %cmp26 = icmp eq i32 %call25, -1
   br i1 %cmp26, label %land.lhs.true27, label %skip_optional_pos
 
@@ -2542,7 +2542,7 @@ land.lhs.true27:                                  ; preds = %if.end23
 
 skip_optional_pos:                                ; preds = %if.end23, %land.lhs.true27, %if.end20
   %compile_mode.0 = phi i32 [ -1, %land.lhs.true27 ], [ %call25, %if.end23 ], [ 0, %if.end20 ]
-  %call.i = call ptr @_PyCompile_CodeGen(ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef %call14, i32 noundef %compile_mode.0) #9
+  %call.i = call ptr @_PyCompile_CodeGen(ptr noundef %6, ptr noundef %7, ptr noundef null, i32 noundef %call14, i32 noundef %compile_mode.0) #9
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true27, %land.lhs.true16, %cond.end9, %skip_optional_pos

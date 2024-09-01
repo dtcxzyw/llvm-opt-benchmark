@@ -1587,33 +1587,26 @@ _ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, ptr } @_ZNK5boost6system6detail21system_error_category23default_error_conditionEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = icmp eq i32 %1, 0
-  br i1 %3, label %_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit, label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %2, %4
-  %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i.i, %4 ], [ 0, %2 ]
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i4.i, 1
+3:                                                ; preds = %3, %2
+  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %3 ]
+  %4 = getelementptr inbounds [79 x i32], ptr @_ZZN5boost6system6detail16is_generic_valueEiE3gen, i64 0, i64 %indvars.iv.i.i
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp eq i32 %1, %5
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 79
-  br i1 %exitcond.not.i.i, label %_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit, label %4, !llvm.loop !8
+  %or.cond.i.i = select i1 %6, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond.i.i, label %_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit, label %3, !llvm.loop !8
 
-4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds [79 x i32], ptr @_ZZN5boost6system6detail16is_generic_valueEiE3gen, i64 0, i64 %indvars.iv.next.i.i
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %1, %6
-  br i1 %7, label %_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
-
-_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i: ; preds = %4
-  %8 = icmp ult i64 %indvars.iv.i4.i, 78
-  %spec.select = select i1 %8, ptr @_ZN5boost6system6detail10cat_holderIvE25generic_category_instanceE, ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE
-  br label %_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit
-
-_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit: ; preds = %.lr.ph.i, %_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i, %2
-  %.sroa.3.0.insert.shift.i = phi i64 [ 0, %2 ], [ 4294967296, %_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i ], [ 4294967296, %.lr.ph.i ]
-  %.lcssa.i.i = phi ptr [ @_ZN5boost6system6detail10cat_holderIvE25generic_category_instanceE, %2 ], [ %spec.select, %_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %.lr.ph.i ]
+_ZN5boost6system6detail45system_category_default_error_condition_posixEi.exit: ; preds = %3
+  %.sroa.53.0.i = select i1 %6, ptr @_ZN5boost6system6detail10cat_holderIvE25generic_category_instanceE, ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE
+  %.sroa.3.0.v.not.i = icmp eq i32 %1, 0
+  %.sroa.3.0.insert.shift.i = select i1 %.sroa.3.0.v.not.i, i64 0, i64 4294967296
   %.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.insert.i, 0
-  %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.lcssa.i.i, 1
+  %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.53.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
 }
 

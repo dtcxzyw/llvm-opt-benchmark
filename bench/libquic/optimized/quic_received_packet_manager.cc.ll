@@ -536,15 +536,12 @@ _ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit: ; preds = %for.body, %if.
   %it.sroa.8.1 = phi ptr [ %add.ptr.i.i22, %if.then.i18 ], [ %it.sroa.8.034, %for.body ]
   %it.sroa.11.1 = phi ptr [ %add.ptr.i20, %if.then.i18 ], [ %it.sroa.11.035, %for.body ]
   %cmp.i.i15.not = icmp eq ptr %it.sroa.0.1, %15
-  br i1 %cmp.i.i15.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %cmp.i.i15.not, label %land.rhs.i, label %for.body, !llvm.loop !21
 
-for.end:                                          ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
-  br i1 %cmp.i.i15.not31, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %for.end, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
-  %19 = phi ptr [ %27, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %14, %for.end ]
-  %20 = phi ptr [ %28, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %15, %for.end ]
-  %21 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %13, %for.end ]
+land.rhs.i:                                       ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
+  %19 = phi ptr [ %27, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %14, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ]
+  %20 = phi ptr [ %28, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %15, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ]
+  %21 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %13, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ]
   %second.i = getelementptr inbounds i8, ptr %21, i64 1
   %22 = load i8, ptr %second.i, align 1
   %tobool.i = trunc i8 %22 to i1
@@ -583,7 +580,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %if.else.i.i, %if.
   %cmp.i.i.i = icmp eq ptr %28, %storemerge.i.i
   br i1 %cmp.i.i.i, label %return, label %land.rhs.i, !llvm.loop !15
 
-return:                                           ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %land.rhs.i, %while.end, %for.end, %if.end
+return:                                           ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %land.rhs.i, %while.end, %if.end
   ret void
 }
 

@@ -7856,53 +7856,54 @@ iocg_unlock.exit:                                 ; preds = %.thread14, %.split.
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %283, %270, %294, %289
+  %296 = phi i1 [ true, %294 ], [ true, %289 ], [ %257, %270 ], [ %257, %283 ]
   store i32 0, ptr %4, align 8
-  %296 = getelementptr inbounds i8, ptr %4, i64 8
-  %297 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr @iocg_wake_fn, ptr %297, align 8
-  %298 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !135
-  %299 = inttoptr i64 %298 to ptr
-  store ptr %299, ptr %296, align 8
-  %300 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %1, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %4, i64 48
-  store i64 %66, ptr %301, align 8
-  %302 = getelementptr inbounds i8, ptr %4, i64 56
-  store i8 0, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %4, i64 24
-  %304 = getelementptr inbounds i8, ptr %15, i64 224
-  %305 = load ptr, ptr %304, align 8
-  store ptr %303, ptr %304, align 8
-  store ptr %218, ptr %303, align 8
-  %306 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %305, ptr %306, align 8
-  store volatile ptr %303, ptr %305, align 8
-  call fastcc void @iocg_kick_waitq(ptr noundef %15, i1 noundef zeroext %257, ptr noundef nonnull %3)
-  br i1 %257, label %307, label %310
+  %297 = getelementptr inbounds i8, ptr %4, i64 8
+  %298 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @iocg_wake_fn, ptr %298, align 8
+  %299 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !135
+  %300 = inttoptr i64 %299 to ptr
+  store ptr %300, ptr %297, align 8
+  %301 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %1, ptr %301, align 8
+  %302 = getelementptr inbounds i8, ptr %4, i64 48
+  store i64 %66, ptr %302, align 8
+  %303 = getelementptr inbounds i8, ptr %4, i64 56
+  store i8 0, ptr %303, align 8
+  %304 = getelementptr inbounds i8, ptr %4, i64 24
+  %305 = getelementptr inbounds i8, ptr %15, i64 224
+  %306 = load ptr, ptr %305, align 8
+  store ptr %304, ptr %305, align 8
+  store ptr %218, ptr %304, align 8
+  %307 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %306, ptr %307, align 8
+  store volatile ptr %304, ptr %306, align 8
+  call fastcc void @iocg_kick_waitq(ptr noundef %15, i1 noundef zeroext %296, ptr noundef nonnull %3)
+  br i1 %296, label %308, label %311
 
-307:                                              ; preds = %.loopexit23
+308:                                              ; preds = %.loopexit23
   call void @_raw_spin_unlock(ptr noundef %217) #21
-  %308 = load ptr, ptr %26, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 224
-  br label %310
+  %309 = load ptr, ptr %26, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 224
+  br label %311
 
-310:                                              ; preds = %.loopexit23, %307
-  %.sink = phi ptr [ %309, %307 ], [ %217, %.loopexit23 ]
+311:                                              ; preds = %.loopexit23, %308
+  %.sink = phi ptr [ %310, %308 ], [ %217, %.loopexit23 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %.sink, i64 noundef %.017) #21
-  %311 = getelementptr inbounds i8, ptr %299, i64 24
-  %312 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %311, i32 2, ptr elementtype(i32) %311) #21, !srcloc !136
-  %313 = load i8, ptr %302, align 8, !range !29, !noundef !30
-  %314 = icmp eq i8 %313, 0
-  br i1 %314, label %.preheader, label %.loopexit
+  %312 = getelementptr inbounds i8, ptr %300, i64 24
+  %313 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %312, i32 2, ptr elementtype(i32) %312) #21, !srcloc !136
+  %314 = load i8, ptr %303, align 8, !range !29, !noundef !30
+  %315 = icmp eq i8 %314, 0
+  br i1 %315, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %310, %.preheader
+.preheader:                                       ; preds = %311, %.preheader
   call void @io_schedule() #21
-  %315 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %311, i32 2, ptr elementtype(i32) %311) #21, !srcloc !136
-  %316 = load i8, ptr %302, align 8, !range !29, !noundef !30
-  %317 = icmp eq i8 %316, 0
-  br i1 %317, label %.preheader, label %.loopexit, !llvm.loop !137
+  %316 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %312, i32 2, ptr elementtype(i32) %312) #21, !srcloc !136
+  %317 = load i8, ptr %303, align 8, !range !29, !noundef !30
+  %318 = icmp eq i8 %317, 0
+  br i1 %318, label %.preheader, label %.loopexit, !llvm.loop !137
 
-.loopexit:                                        ; preds = %.preheader, %310
+.loopexit:                                        ; preds = %.preheader, %311
   call void @finish_wait(ptr noundef %217, ptr noundef nonnull %4) #21
   br label %.thread
 

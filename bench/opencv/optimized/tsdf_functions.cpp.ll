@@ -211,10 +211,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit48:             ; preds = %_ZSt6fill_nIPfmfET_
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.059.0) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.preheader71:                                     ; preds = %.lr.ph75
-  br i1 %.not.i.i.i.i42, label %._crit_edge79.thread, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %.preheader71
+.preheader.lr.ph:                                 ; preds = %.lr.ph75
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = getelementptr inbounds i8, ptr %0, i64 72
   br i1 %.not.i.i.i.i, label %._crit_edge79.thread, label %.preheader.us.preheader
@@ -266,13 +263,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit48:             ; preds = %_ZSt6fill_nIPfmfET_
   store float %61, ptr %62, align 4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count89
-  br i1 %exitcond90.not, label %.preheader71, label %.lr.ph75, !llvm.loop !8
+  br i1 %exitcond90.not, label %.preheader.lr.ph, label %.lr.ph75, !llvm.loop !8
 
 ._crit_edge79:                                    ; preds = %._crit_edge.us, %.preheader72
   %.not.i.i.i49 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorIfSaIfEED2Ev.exit50, label %._crit_edge79.thread
 
-._crit_edge79.thread:                             ; preds = %.preheader71, %.preheader.lr.ph, %._crit_edge79
+._crit_edge79.thread:                             ; preds = %.preheader.lr.ph, %._crit_edge79
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit50
 

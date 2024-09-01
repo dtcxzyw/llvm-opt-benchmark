@@ -71375,7 +71375,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !468
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond180 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -72486,7 +72486,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !483
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -73157,7 +73157,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !487
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -73828,7 +73828,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !491
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13135, %for.body ]
+  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond179 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -74525,7 +74525,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !495
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -75196,7 +75196,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !499
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -75867,7 +75867,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !503
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13133178 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13133, %for.body ]
+  %cmp13133178 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond177 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -76539,7 +76539,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !507
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13133178 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13133, %for.body ]
+  %cmp13133178 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond177 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -77211,7 +77211,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !511
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond180 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -77903,7 +77903,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !515
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond180 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -78594,7 +78594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !519
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond180 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -79286,7 +79286,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !523
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131181 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond180 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -79977,7 +79977,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !527
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond175 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -80646,7 +80646,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !531
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond175 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -81318,7 +81318,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !535
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -81989,7 +81989,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !539
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13135, %for.body ]
+  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond179 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -82683,7 +82683,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !543
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13135, %for.body ]
+  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond179 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -83379,7 +83379,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !547
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13135, %for.body ]
+  %cmp13135180 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond179 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -84075,7 +84075,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !551
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond175 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -84744,7 +84744,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !555
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13132, %for.body ]
+  %cmp13132177 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond176 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -85415,7 +85415,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !559
 
 for.end:                                          ; preds = %for.body, %if.end4, %for.body.us.preheader, %cond.end
-  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ %cmp13131, %for.body ]
+  %cmp13131176 = phi i1 [ true, %for.body.us.preheader ], [ false, %cond.end ], [ false, %if.end4 ], [ true, %for.body ]
   %cond175 = phi ptr [ %11, %for.body.us.preheader ], [ %11, %cond.end ], [ null, %if.end4 ], [ %11, %for.body ]
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -86297,7 +86297,12 @@ for.inc55:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc55.if.else.i_crit_edge
+
+for.inc55.if.else.i_crit_edge:                    ; preds = %for.inc55
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc55.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -86305,12 +86310,9 @@ for.inc55.thread:                                 ; preds = %for.body35
   store i32 %inc.i220, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62222 = icmp slt i32 %inc.i220, %52
-  br i1 %cmp.i62222, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc55.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62222, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc55
   %53 = load i8, ptr %m_localpixels.i168, align 1
@@ -86365,21 +86367,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc55.thread, %for.inc55
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc55.if.else.i_crit_edge, %for.inc55.thread
+  %.pre284 = phi i32 [ %.pre284.pre, %for.inc55.if.else.i_crit_edge ], [ %.pre284.pre290, %for.inc55.thread ]
+  %67 = phi i32 [ %.pre281, %for.inc55.if.else.i_crit_edge ], [ %.pre282, %for.inc55.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre280, 1
+  %inc8.i = add nsw i32 %.pre284, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -86389,10 +86391,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre280, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre279, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i220, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc55.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre284, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284.pre290, %for.inc55.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre282, %for.inc55.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i220, %for.inc55.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -86465,7 +86467,12 @@ for.inc93:                                        ; preds = %invoke.cont83, %for
   store i32 %inc.i95, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97 = icmp slt i32 %inc.i95, %88
-  br i1 %cmp.i97, label %if.then2.i120, label %if.else.i98
+  br i1 %cmp.i97, label %if.then2.i120, label %for.inc93.if.else.i98_crit_edge
+
+for.inc93.if.else.i98_crit_edge:                  ; preds = %for.inc93
+  %.pre277 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i98
 
 for.inc93.thread:                                 ; preds = %for.body73
   %89 = load i32, ptr %m_x.i75, align 4
@@ -86473,12 +86480,9 @@ for.inc93.thread:                                 ; preds = %for.body73
   store i32 %inc.i95228, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97230 = icmp slt i32 %inc.i95228, %90
-  br i1 %cmp.i97230, label %if.then.if.end13_crit_edge.i117, label %if.else.i98
-
-if.then.if.end13_crit_edge.i117:                  ; preds = %for.inc93.thread
-  %.pre.i119 = load i32, ptr %m_y.i79, align 8
-  %.pre277 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i112
+  %.pre278 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre288 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i97230, label %if.end13.i112, label %if.else.i98
 
 if.then2.i120:                                    ; preds = %for.inc93
   %91 = load i8, ptr %m_localpixels.i168, align 1
@@ -86533,21 +86537,21 @@ call.i.noexc206:                                  ; preds = %if.then15.i187
   store i8 %frombool.i188, ptr %m_exists.i87, align 1
   br label %for.cond70.backedge
 
-if.else.i98:                                      ; preds = %for.inc93.thread, %for.inc93
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i101 = add nsw i32 %106, 1
+if.else.i98:                                      ; preds = %for.inc93.if.else.i98_crit_edge, %for.inc93.thread
+  %.pre280 = phi i32 [ %.pre280.pre, %for.inc93.if.else.i98_crit_edge ], [ %.pre280.pre288, %for.inc93.thread ]
+  %105 = phi i32 [ %.pre277, %for.inc93.if.else.i98_crit_edge ], [ %.pre278, %for.inc93.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i101 = add nsw i32 %105, 1
   store i32 %inc4.i101, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i103 = icmp slt i32 %inc4.i101, %107
-  %.pre278 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i103, label %if.end13.i112, label %if.then6.i104
 
 if.then6.i104:                                    ; preds = %if.else.i98
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i107 = add nsw i32 %.pre278, 1
+  %inc8.i107 = add nsw i32 %.pre280, 1
   store i32 %inc8.i107, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i109 = icmp slt i32 %inc8.i107, %109
@@ -86557,10 +86561,10 @@ if.then10.i110:                                   ; preds = %if.then6.i104
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond70.backedge
 
-if.end13.i112:                                    ; preds = %if.then6.i104, %if.else.i98, %if.then.if.end13_crit_edge.i117
-  %110 = phi i32 [ %.pre278, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre277, %if.then.if.end13_crit_edge.i117 ]
-  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre.i119, %if.then.if.end13_crit_edge.i117 ]
-  %112 = phi i32 [ %105, %if.else.i98 ], [ %105, %if.then6.i104 ], [ %inc.i95228, %if.then.if.end13_crit_edge.i117 ]
+if.end13.i112:                                    ; preds = %for.inc93.thread, %if.then6.i104, %if.else.i98
+  %110 = phi i32 [ %.pre280, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre280.pre288, %for.inc93.thread ]
+  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre278, %for.inc93.thread ]
+  %112 = phi i32 [ %106, %if.else.i98 ], [ %106, %if.then6.i104 ], [ %inc.i95228, %for.inc93.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond70.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -86601,7 +86605,7 @@ if.then.i147:                                     ; preds = %for.inc114
 
 if.then.if.end13_crit_edge.i150:                  ; preds = %if.then.i147
   %.pre.i152 = load i32, ptr %m_y.i, align 8
-  %.pre281 = load i32, ptr %m_z.i, align 4
+  %.pre285 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i145
 
 if.then2.i153:                                    ; preds = %if.then.i147
@@ -86616,13 +86620,13 @@ if.else.i131:                                     ; preds = %for.inc114
   store i32 %inc4.i134, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i135, align 8
   %cmp5.not.i136 = icmp slt i32 %inc4.i134, %121
-  %.pre282 = load i32, ptr %m_z.i, align 4
+  %.pre286 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i136, label %if.end13.i145, label %if.then6.i137
 
 if.then6.i137:                                    ; preds = %if.else.i131
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i140 = add nsw i32 %.pre282, 1
+  %inc8.i140 = add nsw i32 %.pre286, 1
   store i32 %inc8.i140, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i142 = icmp slt i32 %inc8.i140, %123
@@ -86633,7 +86637,7 @@ if.then10.i143:                                   ; preds = %if.then6.i137
   br label %for.cond.backedge
 
 if.end13.i145:                                    ; preds = %if.then6.i137, %if.else.i131, %if.then.if.end13_crit_edge.i150
-  %124 = phi i32 [ %.pre282, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre281, %if.then.if.end13_crit_edge.i150 ]
+  %124 = phi i32 [ %.pre286, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre285, %if.then.if.end13_crit_edge.i150 ]
   %125 = phi i32 [ %inc4.i134, %if.else.i131 ], [ %122, %if.then6.i137 ], [ %.pre.i152, %if.then.if.end13_crit_edge.i150 ]
   %126 = phi i32 [ %119, %if.else.i131 ], [ %119, %if.then6.i137 ], [ %inc.i128, %if.then.if.end13_crit_edge.i150 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -86986,7 +86990,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -86994,12 +87003,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -87054,21 +87060,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -87078,10 +87084,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -87156,7 +87162,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -87164,12 +87175,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -87224,21 +87232,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -87248,10 +87256,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -87301,7 +87309,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -87316,13 +87324,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -87333,7 +87341,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -87686,7 +87694,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -87694,12 +87707,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -87754,21 +87764,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -87778,10 +87788,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -87856,7 +87866,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -87864,12 +87879,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -87924,21 +87936,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -87948,10 +87960,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -88001,7 +88013,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -88016,13 +88028,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -88033,7 +88045,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -88392,7 +88404,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %51 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %51
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre286 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %52 = load i32, ptr %m_x.i75, align 4
@@ -88400,12 +88417,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %53 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %53
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre284 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre287 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre295 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %54 = load i8, ptr %m_localpixels.i171, align 1
@@ -88460,21 +88474,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %68, ptr %m_x.i75, align 4
-  %69 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %69, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre289 = phi i32 [ %.pre289.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre289.pre295, %for.inc54.thread ]
+  %68 = phi i32 [ %.pre286, %for.inc54.if.else.i_crit_edge ], [ %.pre287, %for.inc54.thread ]
+  %69 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %69, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %68, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %70 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %70
-  %.pre285 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %71 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %71, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre285, 1
+  %inc8.i = add nsw i32 %.pre289, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %72 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %72
@@ -88484,10 +88498,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %73 = phi i32 [ %.pre285, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %75 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %73 = phi i32 [ %.pre289, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre289.pre295, %for.inc54.thread ]
+  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre287, %for.inc54.thread ]
+  %75 = phi i32 [ %69, %if.else.i ], [ %69, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %75, i32 noundef %74, i32 noundef %73)
           to label %for.cond32.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -88563,7 +88577,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %90
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %91 = load i32, ptr %m_x.i75, align 4
@@ -88571,12 +88590,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %92 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %92
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %93 = load i8, ptr %m_localpixels.i171, align 1
@@ -88631,21 +88647,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %107 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %107, ptr %m_x.i75, align 4
-  %108 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %108, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre285 = phi i32 [ %.pre285.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre285.pre293, %for.inc91.thread ]
+  %107 = phi i32 [ %.pre282, %for.inc91.if.else.i100_crit_edge ], [ %.pre283, %for.inc91.thread ]
+  %108 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %108, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %107, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %109 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %109
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %110 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %110, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre283, 1
+  %inc8.i109 = add nsw i32 %.pre285, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %111 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %111
@@ -88655,10 +88671,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %112 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282, %if.then.if.end13_crit_edge.i119 ]
-  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %114 = phi i32 [ %107, %if.else.i100 ], [ %107, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %112 = phi i32 [ %.pre285, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre285.pre293, %for.inc91.thread ]
+  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre283, %for.inc91.thread ]
+  %114 = phi i32 [ %108, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %114, i32 noundef %113, i32 noundef %112)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -88733,7 +88749,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre286 = load i32, ptr %m_z.i, align 4
+  %.pre290 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -88748,13 +88764,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %126 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %126
-  %.pre287 = load i32, ptr %m_z.i, align 4
+  %.pre291 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %127 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %127, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre287, 1
+  %inc8.i143 = add nsw i32 %.pre291, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %128 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %128
@@ -88765,7 +88781,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %129 = phi i32 [ %.pre287, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre286, %if.then.if.end13_crit_edge.i153 ]
+  %129 = phi i32 [ %.pre291, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre290, %if.then.if.end13_crit_edge.i153 ]
   %130 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %127, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %131 = phi i32 [ %124, %if.else.i134 ], [ %124, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %131, i32 noundef %130, i32 noundef %129)
@@ -89118,7 +89134,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -89126,12 +89147,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -89186,21 +89204,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -89210,10 +89228,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -89288,7 +89306,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -89296,12 +89319,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -89356,21 +89376,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -89380,10 +89400,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -89433,7 +89453,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -89448,13 +89468,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -89465,7 +89485,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -89818,7 +89838,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -89826,12 +89851,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -89886,21 +89908,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -89910,10 +89932,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -89988,7 +90010,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -89996,12 +90023,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -90056,21 +90080,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -90080,10 +90104,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -90133,7 +90157,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -90148,13 +90172,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -90165,7 +90189,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -90518,7 +90542,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre288.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -90526,12 +90555,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i224, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i62226 = icmp slt i32 %inc.i224, %52
-  br i1 %cmp.i62226, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre283 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre286 = load i32, ptr %m_y.i79, align 8
+  %.pre288.pre294 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62226, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i172, align 1
@@ -90586,21 +90612,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre288 = phi i32 [ %.pre288.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre288.pre294, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre285, %for.inc54.if.else.i_crit_edge ], [ %.pre286, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre284 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre284, 1
+  %inc8.i = add nsw i32 %.pre288, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -90610,10 +90636,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre284, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre283, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i224, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre288, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre288.pre294, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre286, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i224, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -90688,7 +90714,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -90696,12 +90727,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97232, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i99234 = icmp slt i32 %inc.i97232, %90
-  br i1 %cmp.i99234, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99234, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i172, align 1
@@ -90756,21 +90784,21 @@ call.i.noexc210:                                  ; preds = %if.then15.i191
   store i8 %frombool.i192, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre284 = phi i32 [ %.pre284.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre284.pre292, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre281, %for.inc91.if.else.i100_crit_edge ], [ %.pre282, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre282, 1
+  %inc8.i109 = add nsw i32 %.pre284, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -90780,10 +90808,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre281, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97232, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre284, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre284.pre292, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre282, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97232, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -90834,7 +90862,7 @@ if.then.i151:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i154:                  ; preds = %if.then.i151
   %.pre.i156 = load i32, ptr %m_y.i, align 8
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i149
 
 if.then2.i157:                                    ; preds = %if.then.i151
@@ -90849,13 +90877,13 @@ if.else.i135:                                     ; preds = %for.inc113
   store i32 %inc4.i138, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i139, align 8
   %cmp5.not.i140 = icmp slt i32 %inc4.i138, %121
-  %.pre286 = load i32, ptr %m_z.i, align 4
+  %.pre290 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i140, label %if.end13.i149, label %if.then6.i141
 
 if.then6.i141:                                    ; preds = %if.else.i135
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i144 = add nsw i32 %.pre286, 1
+  %inc8.i144 = add nsw i32 %.pre290, 1
   store i32 %inc8.i144, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i146 = icmp slt i32 %inc8.i144, %123
@@ -90866,7 +90894,7 @@ if.then10.i147:                                   ; preds = %if.then6.i141
   br label %for.cond.backedge
 
 if.end13.i149:                                    ; preds = %if.then6.i141, %if.else.i135, %if.then.if.end13_crit_edge.i154
-  %124 = phi i32 [ %.pre286, %if.else.i135 ], [ %inc8.i144, %if.then6.i141 ], [ %.pre285, %if.then.if.end13_crit_edge.i154 ]
+  %124 = phi i32 [ %.pre290, %if.else.i135 ], [ %inc8.i144, %if.then6.i141 ], [ %.pre289, %if.then.if.end13_crit_edge.i154 ]
   %125 = phi i32 [ %inc4.i138, %if.else.i135 ], [ %122, %if.then6.i141 ], [ %.pre.i156, %if.then.if.end13_crit_edge.i154 ]
   %126 = phi i32 [ %119, %if.else.i135 ], [ %119, %if.then6.i141 ], [ %inc.i132, %if.then.if.end13_crit_edge.i154 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -91219,7 +91247,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre288.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -91227,12 +91260,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i224, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i62226 = icmp slt i32 %inc.i224, %52
-  br i1 %cmp.i62226, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre283 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre286 = load i32, ptr %m_y.i79, align 8
+  %.pre288.pre294 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62226, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i172, align 1
@@ -91287,21 +91317,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre288 = phi i32 [ %.pre288.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre288.pre294, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre285, %for.inc54.if.else.i_crit_edge ], [ %.pre286, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre284 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre284, 1
+  %inc8.i = add nsw i32 %.pre288, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -91311,10 +91341,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre284, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre283, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i224, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre288, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre288.pre294, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre286, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i224, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -91389,7 +91419,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -91397,12 +91432,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97232, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98233, align 8
   %cmp.i99234 = icmp slt i32 %inc.i97232, %90
-  br i1 %cmp.i99234, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99234, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i172, align 1
@@ -91457,21 +91489,21 @@ call.i.noexc210:                                  ; preds = %if.then15.i191
   store i8 %frombool.i192, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre284 = phi i32 [ %.pre284.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre284.pre292, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre281, %for.inc91.if.else.i100_crit_edge ], [ %.pre282, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre282, 1
+  %inc8.i109 = add nsw i32 %.pre284, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -91481,10 +91513,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre281, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97232, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre284, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre284.pre292, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre282, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97232, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -91535,7 +91567,7 @@ if.then.i151:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i154:                  ; preds = %if.then.i151
   %.pre.i156 = load i32, ptr %m_y.i, align 8
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i149
 
 if.then2.i157:                                    ; preds = %if.then.i151
@@ -91550,13 +91582,13 @@ if.else.i135:                                     ; preds = %for.inc113
   store i32 %inc4.i138, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i139, align 8
   %cmp5.not.i140 = icmp slt i32 %inc4.i138, %121
-  %.pre286 = load i32, ptr %m_z.i, align 4
+  %.pre290 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i140, label %if.end13.i149, label %if.then6.i141
 
 if.then6.i141:                                    ; preds = %if.else.i135
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i144 = add nsw i32 %.pre286, 1
+  %inc8.i144 = add nsw i32 %.pre290, 1
   store i32 %inc8.i144, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i146 = icmp slt i32 %inc8.i144, %123
@@ -91567,7 +91599,7 @@ if.then10.i147:                                   ; preds = %if.then6.i141
   br label %for.cond.backedge
 
 if.end13.i149:                                    ; preds = %if.then6.i141, %if.else.i135, %if.then.if.end13_crit_edge.i154
-  %124 = phi i32 [ %.pre286, %if.else.i135 ], [ %inc8.i144, %if.then6.i141 ], [ %.pre285, %if.then.if.end13_crit_edge.i154 ]
+  %124 = phi i32 [ %.pre290, %if.else.i135 ], [ %inc8.i144, %if.then6.i141 ], [ %.pre289, %if.then.if.end13_crit_edge.i154 ]
   %125 = phi i32 [ %inc4.i138, %if.else.i135 ], [ %122, %if.then6.i141 ], [ %.pre.i156, %if.then.if.end13_crit_edge.i154 ]
   %126 = phi i32 [ %119, %if.else.i135 ], [ %119, %if.then6.i141 ], [ %inc.i132, %if.then.if.end13_crit_edge.i154 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -91919,7 +91951,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i97230, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -91927,12 +91964,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i221, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i97230, align 8
   %cmp.i62223 = icmp slt i32 %inc.i221, %52
-  br i1 %cmp.i62223, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62223, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i169, align 1
@@ -91987,21 +92021,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre285 = phi i32 [ %.pre285.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre285.pre291, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre282, %for.inc54.if.else.i_crit_edge ], [ %.pre283, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i103, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre281, 1
+  %inc8.i = add nsw i32 %.pre285, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -92011,10 +92045,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre281, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre280, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i221, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre285, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre285.pre291, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre283, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i221, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -92088,7 +92122,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i96, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i97230, align 8
   %cmp.i98 = icmp slt i32 %inc.i96, %88
-  br i1 %cmp.i98, label %if.then2.i121, label %if.else.i99
+  br i1 %cmp.i98, label %if.then2.i121, label %for.inc91.if.else.i99_crit_edge
+
+for.inc91.if.else.i99_crit_edge:                  ; preds = %for.inc91
+  %.pre278 = load i32, ptr %m_y.i79, align 8
+  %.pre281.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i99
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -92096,12 +92135,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i96229, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i97230, align 8
   %cmp.i98231 = icmp slt i32 %inc.i96229, %90
-  br i1 %cmp.i98231, label %if.then.if.end13_crit_edge.i118, label %if.else.i99
-
-if.then.if.end13_crit_edge.i118:                  ; preds = %for.inc91.thread
-  %.pre.i120 = load i32, ptr %m_y.i79, align 8
-  %.pre278 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i113
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre281.pre289 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i98231, label %if.end13.i113, label %if.else.i99
 
 if.then2.i121:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i169, align 1
@@ -92156,21 +92192,21 @@ call.i.noexc207:                                  ; preds = %if.then15.i188
   store i8 %frombool.i189, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i99:                                      ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i102 = add nsw i32 %106, 1
+if.else.i99:                                      ; preds = %for.inc91.if.else.i99_crit_edge, %for.inc91.thread
+  %.pre281 = phi i32 [ %.pre281.pre, %for.inc91.if.else.i99_crit_edge ], [ %.pre281.pre289, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre278, %for.inc91.if.else.i99_crit_edge ], [ %.pre279, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i102 = add nsw i32 %105, 1
   store i32 %inc4.i102, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i103, align 8
   %cmp5.not.i104 = icmp slt i32 %inc4.i102, %107
-  %.pre279 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i104, label %if.end13.i113, label %if.then6.i105
 
 if.then6.i105:                                    ; preds = %if.else.i99
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i108 = add nsw i32 %.pre279, 1
+  %inc8.i108 = add nsw i32 %.pre281, 1
   store i32 %inc8.i108, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i110 = icmp slt i32 %inc8.i108, %109
@@ -92180,10 +92216,10 @@ if.then10.i111:                                   ; preds = %if.then6.i105
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i113:                                    ; preds = %if.then6.i105, %if.else.i99, %if.then.if.end13_crit_edge.i118
-  %110 = phi i32 [ %.pre279, %if.else.i99 ], [ %inc8.i108, %if.then6.i105 ], [ %.pre278, %if.then.if.end13_crit_edge.i118 ]
-  %111 = phi i32 [ %inc4.i102, %if.else.i99 ], [ %108, %if.then6.i105 ], [ %.pre.i120, %if.then.if.end13_crit_edge.i118 ]
-  %112 = phi i32 [ %105, %if.else.i99 ], [ %105, %if.then6.i105 ], [ %inc.i96229, %if.then.if.end13_crit_edge.i118 ]
+if.end13.i113:                                    ; preds = %for.inc91.thread, %if.then6.i105, %if.else.i99
+  %110 = phi i32 [ %.pre281, %if.else.i99 ], [ %inc8.i108, %if.then6.i105 ], [ %.pre281.pre289, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i102, %if.else.i99 ], [ %108, %if.then6.i105 ], [ %.pre279, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i99 ], [ %106, %if.then6.i105 ], [ %inc.i96229, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -92225,7 +92261,7 @@ if.then.i148:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i151:                  ; preds = %if.then.i148
   %.pre.i153 = load i32, ptr %m_y.i, align 8
-  %.pre282 = load i32, ptr %m_z.i, align 4
+  %.pre286 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i146
 
 if.then2.i154:                                    ; preds = %if.then.i148
@@ -92240,13 +92276,13 @@ if.else.i132:                                     ; preds = %for.inc113
   store i32 %inc4.i135, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i136, align 8
   %cmp5.not.i137 = icmp slt i32 %inc4.i135, %121
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i137, label %if.end13.i146, label %if.then6.i138
 
 if.then6.i138:                                    ; preds = %if.else.i132
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i141 = add nsw i32 %.pre283, 1
+  %inc8.i141 = add nsw i32 %.pre287, 1
   store i32 %inc8.i141, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i143 = icmp slt i32 %inc8.i141, %123
@@ -92257,7 +92293,7 @@ if.then10.i144:                                   ; preds = %if.then6.i138
   br label %for.cond.backedge
 
 if.end13.i146:                                    ; preds = %if.then6.i138, %if.else.i132, %if.then.if.end13_crit_edge.i151
-  %124 = phi i32 [ %.pre283, %if.else.i132 ], [ %inc8.i141, %if.then6.i138 ], [ %.pre282, %if.then.if.end13_crit_edge.i151 ]
+  %124 = phi i32 [ %.pre287, %if.else.i132 ], [ %inc8.i141, %if.then6.i138 ], [ %.pre286, %if.then.if.end13_crit_edge.i151 ]
   %125 = phi i32 [ %inc4.i135, %if.else.i132 ], [ %122, %if.then6.i138 ], [ %.pre.i153, %if.then.if.end13_crit_edge.i151 ]
   %126 = phi i32 [ %119, %if.else.i132 ], [ %119, %if.then6.i138 ], [ %inc.i129, %if.then.if.end13_crit_edge.i151 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -92610,7 +92646,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -92618,12 +92659,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i222, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62224 = icmp slt i32 %inc.i222, %52
-  br i1 %cmp.i62224, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62224, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i170, align 1
@@ -92678,21 +92716,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre286 = phi i32 [ %.pre286.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre286.pre292, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre283, %for.inc54.if.else.i_crit_edge ], [ %.pre284, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre282, 1
+  %inc8.i = add nsw i32 %.pre286, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -92702,10 +92740,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre282, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre281, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i222, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre286, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre286.pre292, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre284, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i222, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -92780,7 +92818,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -92788,12 +92831,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97230, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99232 = icmp slt i32 %inc.i97230, %90
-  br i1 %cmp.i99232, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99232, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i170, align 1
@@ -92848,21 +92888,21 @@ call.i.noexc208:                                  ; preds = %if.then15.i189
   store i8 %frombool.i190, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre282 = phi i32 [ %.pre282.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre282.pre290, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre279, %for.inc91.if.else.i100_crit_edge ], [ %.pre280, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre280, 1
+  %inc8.i109 = add nsw i32 %.pre282, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -92872,10 +92912,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre280, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre279, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97230, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282.pre290, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre280, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97230, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -92916,7 +92956,7 @@ if.then.i149:                                     ; preds = %for.inc112
 
 if.then.if.end13_crit_edge.i152:                  ; preds = %if.then.i149
   %.pre.i154 = load i32, ptr %m_y.i, align 8
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i147
 
 if.then2.i155:                                    ; preds = %if.then.i149
@@ -92931,13 +92971,13 @@ if.else.i133:                                     ; preds = %for.inc112
   store i32 %inc4.i136, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i137, align 8
   %cmp5.not.i138 = icmp slt i32 %inc4.i136, %121
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i138, label %if.end13.i147, label %if.then6.i139
 
 if.then6.i139:                                    ; preds = %if.else.i133
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i142 = add nsw i32 %.pre284, 1
+  %inc8.i142 = add nsw i32 %.pre288, 1
   store i32 %inc8.i142, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i144 = icmp slt i32 %inc8.i142, %123
@@ -92948,7 +92988,7 @@ if.then10.i145:                                   ; preds = %if.then6.i139
   br label %for.cond.backedge
 
 if.end13.i147:                                    ; preds = %if.then6.i139, %if.else.i133, %if.then.if.end13_crit_edge.i152
-  %124 = phi i32 [ %.pre284, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre283, %if.then.if.end13_crit_edge.i152 ]
+  %124 = phi i32 [ %.pre288, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre287, %if.then.if.end13_crit_edge.i152 ]
   %125 = phi i32 [ %inc4.i136, %if.else.i133 ], [ %122, %if.then6.i139 ], [ %.pre.i154, %if.then.if.end13_crit_edge.i152 ]
   %126 = phi i32 [ %119, %if.else.i133 ], [ %119, %if.then6.i139 ], [ %inc.i130, %if.then.if.end13_crit_edge.i152 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -93302,7 +93342,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %51 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %51
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %52 = load i32, ptr %m_x.i75, align 4
@@ -93310,12 +93355,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i222, ptr %m_x.i75, align 4
   %53 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62224 = icmp slt i32 %inc.i222, %53
-  br i1 %cmp.i62224, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62224, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %54 = load i8, ptr %m_localpixels.i170, align 1
@@ -93370,21 +93412,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %68, ptr %m_x.i75, align 4
-  %69 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %69, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre286 = phi i32 [ %.pre286.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre286.pre292, %for.inc54.thread ]
+  %68 = phi i32 [ %.pre283, %for.inc54.if.else.i_crit_edge ], [ %.pre284, %for.inc54.thread ]
+  %69 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %69, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %68, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %70 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %70
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %71 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %71, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre282, 1
+  %inc8.i = add nsw i32 %.pre286, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %72 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %72
@@ -93394,10 +93436,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %73 = phi i32 [ %.pre282, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre281, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %75 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i222, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %73 = phi i32 [ %.pre286, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre286.pre292, %for.inc54.thread ]
+  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre284, %for.inc54.thread ]
+  %75 = phi i32 [ %69, %if.else.i ], [ %69, %if.then6.i ], [ %inc.i222, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %75, i32 noundef %74, i32 noundef %73)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -93473,7 +93515,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %90
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %91 = load i32, ptr %m_x.i75, align 4
@@ -93481,12 +93528,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97230, ptr %m_x.i75, align 4
   %92 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99232 = icmp slt i32 %inc.i97230, %92
-  br i1 %cmp.i99232, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99232, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %93 = load i8, ptr %m_localpixels.i170, align 1
@@ -93541,21 +93585,21 @@ call.i.noexc208:                                  ; preds = %if.then15.i189
   store i8 %frombool.i190, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %107 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %107, ptr %m_x.i75, align 4
-  %108 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %108, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre282 = phi i32 [ %.pre282.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre282.pre290, %for.inc91.thread ]
+  %107 = phi i32 [ %.pre279, %for.inc91.if.else.i100_crit_edge ], [ %.pre280, %for.inc91.thread ]
+  %108 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %108, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %107, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %109 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %109
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %110 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %110, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre280, 1
+  %inc8.i109 = add nsw i32 %.pre282, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %111 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %111
@@ -93565,10 +93609,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %112 = phi i32 [ %.pre280, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre279, %if.then.if.end13_crit_edge.i119 ]
-  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %114 = phi i32 [ %107, %if.else.i100 ], [ %107, %if.then6.i106 ], [ %inc.i97230, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %112 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282.pre290, %for.inc91.thread ]
+  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre280, %for.inc91.thread ]
+  %114 = phi i32 [ %108, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %inc.i97230, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %114, i32 noundef %113, i32 noundef %112)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -93609,7 +93653,7 @@ if.then.i149:                                     ; preds = %for.inc112
 
 if.then.if.end13_crit_edge.i152:                  ; preds = %if.then.i149
   %.pre.i154 = load i32, ptr %m_y.i, align 8
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i147
 
 if.then2.i155:                                    ; preds = %if.then.i149
@@ -93624,13 +93668,13 @@ if.else.i133:                                     ; preds = %for.inc112
   store i32 %inc4.i136, ptr %m_y.i, align 8
   %123 = load i32, ptr %m_rng_yend.i137, align 8
   %cmp5.not.i138 = icmp slt i32 %inc4.i136, %123
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i138, label %if.end13.i147, label %if.then6.i139
 
 if.then6.i139:                                    ; preds = %if.else.i133
   %124 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %124, ptr %m_y.i, align 8
-  %inc8.i142 = add nsw i32 %.pre284, 1
+  %inc8.i142 = add nsw i32 %.pre288, 1
   store i32 %inc8.i142, ptr %m_z.i, align 4
   %125 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i144 = icmp slt i32 %inc8.i142, %125
@@ -93641,7 +93685,7 @@ if.then10.i145:                                   ; preds = %if.then6.i139
   br label %for.cond.backedge
 
 if.end13.i147:                                    ; preds = %if.then6.i139, %if.else.i133, %if.then.if.end13_crit_edge.i152
-  %126 = phi i32 [ %.pre284, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre283, %if.then.if.end13_crit_edge.i152 ]
+  %126 = phi i32 [ %.pre288, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre287, %if.then.if.end13_crit_edge.i152 ]
   %127 = phi i32 [ %inc4.i136, %if.else.i133 ], [ %124, %if.then6.i139 ], [ %.pre.i154, %if.then.if.end13_crit_edge.i152 ]
   %128 = phi i32 [ %121, %if.else.i133 ], [ %121, %if.then6.i139 ], [ %inc.i130, %if.then.if.end13_crit_edge.i152 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %128, i32 noundef %127, i32 noundef %126)
@@ -93994,7 +94038,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -94002,12 +94051,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i222, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62224 = icmp slt i32 %inc.i222, %52
-  br i1 %cmp.i62224, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62224, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i170, align 1
@@ -94062,21 +94108,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre286 = phi i32 [ %.pre286.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre286.pre292, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre283, %for.inc54.if.else.i_crit_edge ], [ %.pre284, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre282, 1
+  %inc8.i = add nsw i32 %.pre286, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -94086,10 +94132,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre282, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre281, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i222, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre286, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre286.pre292, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre284, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i222, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -94164,7 +94210,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -94172,12 +94223,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97230, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99232 = icmp slt i32 %inc.i97230, %90
-  br i1 %cmp.i99232, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99232, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i170, align 1
@@ -94232,21 +94280,21 @@ call.i.noexc208:                                  ; preds = %if.then15.i189
   store i8 %frombool.i190, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre282 = phi i32 [ %.pre282.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre282.pre290, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre279, %for.inc91.if.else.i100_crit_edge ], [ %.pre280, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre280, 1
+  %inc8.i109 = add nsw i32 %.pre282, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -94256,10 +94304,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre280, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre279, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97230, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282.pre290, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre280, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97230, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -94300,7 +94348,7 @@ if.then.i149:                                     ; preds = %for.inc112
 
 if.then.if.end13_crit_edge.i152:                  ; preds = %if.then.i149
   %.pre.i154 = load i32, ptr %m_y.i, align 8
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i147
 
 if.then2.i155:                                    ; preds = %if.then.i149
@@ -94315,13 +94363,13 @@ if.else.i133:                                     ; preds = %for.inc112
   store i32 %inc4.i136, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i137, align 8
   %cmp5.not.i138 = icmp slt i32 %inc4.i136, %121
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i138, label %if.end13.i147, label %if.then6.i139
 
 if.then6.i139:                                    ; preds = %if.else.i133
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i142 = add nsw i32 %.pre284, 1
+  %inc8.i142 = add nsw i32 %.pre288, 1
   store i32 %inc8.i142, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i144 = icmp slt i32 %inc8.i142, %123
@@ -94332,7 +94380,7 @@ if.then10.i145:                                   ; preds = %if.then6.i139
   br label %for.cond.backedge
 
 if.end13.i147:                                    ; preds = %if.then6.i139, %if.else.i133, %if.then.if.end13_crit_edge.i152
-  %124 = phi i32 [ %.pre284, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre283, %if.then.if.end13_crit_edge.i152 ]
+  %124 = phi i32 [ %.pre288, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre287, %if.then.if.end13_crit_edge.i152 ]
   %125 = phi i32 [ %inc4.i136, %if.else.i133 ], [ %122, %if.then6.i139 ], [ %.pre.i154, %if.then.if.end13_crit_edge.i152 ]
   %126 = phi i32 [ %119, %if.else.i133 ], [ %119, %if.then6.i139 ], [ %inc.i130, %if.then.if.end13_crit_edge.i152 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -94683,7 +94731,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -94691,12 +94744,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i220, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62222 = icmp slt i32 %inc.i220, %52
-  br i1 %cmp.i62222, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62222, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i168, align 1
@@ -94751,21 +94801,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre284 = phi i32 [ %.pre284.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre284.pre290, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre281, %for.inc54.if.else.i_crit_edge ], [ %.pre282, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre280, 1
+  %inc8.i = add nsw i32 %.pre284, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -94775,10 +94825,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre280, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre279, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i220, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre284, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284.pre290, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre282, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i220, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -94851,7 +94901,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i95, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97 = icmp slt i32 %inc.i95, %88
-  br i1 %cmp.i97, label %if.then2.i120, label %if.else.i98
+  br i1 %cmp.i97, label %if.then2.i120, label %for.inc91.if.else.i98_crit_edge
+
+for.inc91.if.else.i98_crit_edge:                  ; preds = %for.inc91
+  %.pre277 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i98
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -94859,12 +94914,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i95228, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97230 = icmp slt i32 %inc.i95228, %90
-  br i1 %cmp.i97230, label %if.then.if.end13_crit_edge.i117, label %if.else.i98
-
-if.then.if.end13_crit_edge.i117:                  ; preds = %for.inc91.thread
-  %.pre.i119 = load i32, ptr %m_y.i79, align 8
-  %.pre277 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i112
+  %.pre278 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre288 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i97230, label %if.end13.i112, label %if.else.i98
 
 if.then2.i120:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i168, align 1
@@ -94919,21 +94971,21 @@ call.i.noexc206:                                  ; preds = %if.then15.i187
   store i8 %frombool.i188, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i98:                                      ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i101 = add nsw i32 %106, 1
+if.else.i98:                                      ; preds = %for.inc91.if.else.i98_crit_edge, %for.inc91.thread
+  %.pre280 = phi i32 [ %.pre280.pre, %for.inc91.if.else.i98_crit_edge ], [ %.pre280.pre288, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre277, %for.inc91.if.else.i98_crit_edge ], [ %.pre278, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i101 = add nsw i32 %105, 1
   store i32 %inc4.i101, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i103 = icmp slt i32 %inc4.i101, %107
-  %.pre278 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i103, label %if.end13.i112, label %if.then6.i104
 
 if.then6.i104:                                    ; preds = %if.else.i98
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i107 = add nsw i32 %.pre278, 1
+  %inc8.i107 = add nsw i32 %.pre280, 1
   store i32 %inc8.i107, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i109 = icmp slt i32 %inc8.i107, %109
@@ -94943,10 +94995,10 @@ if.then10.i110:                                   ; preds = %if.then6.i104
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i112:                                    ; preds = %if.then6.i104, %if.else.i98, %if.then.if.end13_crit_edge.i117
-  %110 = phi i32 [ %.pre278, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre277, %if.then.if.end13_crit_edge.i117 ]
-  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre.i119, %if.then.if.end13_crit_edge.i117 ]
-  %112 = phi i32 [ %105, %if.else.i98 ], [ %105, %if.then6.i104 ], [ %inc.i95228, %if.then.if.end13_crit_edge.i117 ]
+if.end13.i112:                                    ; preds = %for.inc91.thread, %if.then6.i104, %if.else.i98
+  %110 = phi i32 [ %.pre280, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre280.pre288, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre278, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i98 ], [ %106, %if.then6.i104 ], [ %inc.i95228, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -94996,7 +95048,7 @@ if.then.i147:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i150:                  ; preds = %if.then.i147
   %.pre.i152 = load i32, ptr %m_y.i, align 8
-  %.pre281 = load i32, ptr %m_z.i, align 4
+  %.pre285 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i145
 
 if.then2.i153:                                    ; preds = %if.then.i147
@@ -95011,13 +95063,13 @@ if.else.i131:                                     ; preds = %for.inc113
   store i32 %inc4.i134, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i135, align 8
   %cmp5.not.i136 = icmp slt i32 %inc4.i134, %121
-  %.pre282 = load i32, ptr %m_z.i, align 4
+  %.pre286 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i136, label %if.end13.i145, label %if.then6.i137
 
 if.then6.i137:                                    ; preds = %if.else.i131
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i140 = add nsw i32 %.pre282, 1
+  %inc8.i140 = add nsw i32 %.pre286, 1
   store i32 %inc8.i140, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i142 = icmp slt i32 %inc8.i140, %123
@@ -95028,7 +95080,7 @@ if.then10.i143:                                   ; preds = %if.then6.i137
   br label %for.cond.backedge
 
 if.end13.i145:                                    ; preds = %if.then6.i137, %if.else.i131, %if.then.if.end13_crit_edge.i150
-  %124 = phi i32 [ %.pre282, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre281, %if.then.if.end13_crit_edge.i150 ]
+  %124 = phi i32 [ %.pre286, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre285, %if.then.if.end13_crit_edge.i150 ]
   %125 = phi i32 [ %inc4.i134, %if.else.i131 ], [ %122, %if.then6.i137 ], [ %.pre.i152, %if.then.if.end13_crit_edge.i150 ]
   %126 = phi i32 [ %119, %if.else.i131 ], [ %119, %if.then6.i137 ], [ %inc.i128, %if.then.if.end13_crit_edge.i150 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -95382,7 +95434,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %51 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %51
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %52 = load i32, ptr %m_x.i75, align 4
@@ -95390,12 +95447,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i222, ptr %m_x.i75, align 4
   %53 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62224 = icmp slt i32 %inc.i222, %53
-  br i1 %cmp.i62224, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62224, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %54 = load i8, ptr %m_localpixels.i170, align 1
@@ -95450,21 +95504,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %68, ptr %m_x.i75, align 4
-  %69 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %69, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre286 = phi i32 [ %.pre286.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre286.pre292, %for.inc54.thread ]
+  %68 = phi i32 [ %.pre283, %for.inc54.if.else.i_crit_edge ], [ %.pre284, %for.inc54.thread ]
+  %69 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %69, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %68, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %70 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %70
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %71 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %71, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre282, 1
+  %inc8.i = add nsw i32 %.pre286, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %72 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %72
@@ -95474,10 +95528,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %73 = phi i32 [ %.pre282, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre281, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %75 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i222, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %73 = phi i32 [ %.pre286, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre286.pre292, %for.inc54.thread ]
+  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre284, %for.inc54.thread ]
+  %75 = phi i32 [ %69, %if.else.i ], [ %69, %if.then6.i ], [ %inc.i222, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %75, i32 noundef %74, i32 noundef %73)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -95553,7 +95607,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %90
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %91 = load i32, ptr %m_x.i75, align 4
@@ -95561,12 +95620,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97230, ptr %m_x.i75, align 4
   %92 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99232 = icmp slt i32 %inc.i97230, %92
-  br i1 %cmp.i99232, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99232, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %93 = load i8, ptr %m_localpixels.i170, align 1
@@ -95621,21 +95677,21 @@ call.i.noexc208:                                  ; preds = %if.then15.i189
   store i8 %frombool.i190, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %107 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %107, ptr %m_x.i75, align 4
-  %108 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %108, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre282 = phi i32 [ %.pre282.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre282.pre290, %for.inc91.thread ]
+  %107 = phi i32 [ %.pre279, %for.inc91.if.else.i100_crit_edge ], [ %.pre280, %for.inc91.thread ]
+  %108 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %108, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %107, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %109 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %109
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %110 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %110, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre280, 1
+  %inc8.i109 = add nsw i32 %.pre282, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %111 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %111
@@ -95645,10 +95701,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %112 = phi i32 [ %.pre280, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre279, %if.then.if.end13_crit_edge.i119 ]
-  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %114 = phi i32 [ %107, %if.else.i100 ], [ %107, %if.then6.i106 ], [ %inc.i97230, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %112 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282.pre290, %for.inc91.thread ]
+  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre280, %for.inc91.thread ]
+  %114 = phi i32 [ %108, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %inc.i97230, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %114, i32 noundef %113, i32 noundef %112)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -95698,7 +95754,7 @@ if.then.i149:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i152:                  ; preds = %if.then.i149
   %.pre.i154 = load i32, ptr %m_y.i, align 8
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i147
 
 if.then2.i155:                                    ; preds = %if.then.i149
@@ -95713,13 +95769,13 @@ if.else.i133:                                     ; preds = %for.inc113
   store i32 %inc4.i136, ptr %m_y.i, align 8
   %123 = load i32, ptr %m_rng_yend.i137, align 8
   %cmp5.not.i138 = icmp slt i32 %inc4.i136, %123
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i138, label %if.end13.i147, label %if.then6.i139
 
 if.then6.i139:                                    ; preds = %if.else.i133
   %124 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %124, ptr %m_y.i, align 8
-  %inc8.i142 = add nsw i32 %.pre284, 1
+  %inc8.i142 = add nsw i32 %.pre288, 1
   store i32 %inc8.i142, ptr %m_z.i, align 4
   %125 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i144 = icmp slt i32 %inc8.i142, %125
@@ -95730,7 +95786,7 @@ if.then10.i145:                                   ; preds = %if.then6.i139
   br label %for.cond.backedge
 
 if.end13.i147:                                    ; preds = %if.then6.i139, %if.else.i133, %if.then.if.end13_crit_edge.i152
-  %126 = phi i32 [ %.pre284, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre283, %if.then.if.end13_crit_edge.i152 ]
+  %126 = phi i32 [ %.pre288, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre287, %if.then.if.end13_crit_edge.i152 ]
   %127 = phi i32 [ %inc4.i136, %if.else.i133 ], [ %124, %if.then6.i139 ], [ %.pre.i154, %if.then.if.end13_crit_edge.i152 ]
   %128 = phi i32 [ %121, %if.else.i133 ], [ %121, %if.then6.i139 ], [ %inc.i130, %if.then.if.end13_crit_edge.i152 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %128, i32 noundef %127, i32 noundef %126)
@@ -96083,7 +96139,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -96091,12 +96152,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -96151,21 +96209,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -96175,10 +96233,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -96253,7 +96311,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -96261,12 +96324,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -96321,21 +96381,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -96345,10 +96405,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -96398,7 +96458,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -96413,13 +96473,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -96430,7 +96490,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -96786,7 +96846,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i96230, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -96794,12 +96859,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i221, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i96230, align 8
   %cmp.i62223 = icmp slt i32 %inc.i221, %52
-  br i1 %cmp.i62223, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62223, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i169, align 1
@@ -96854,21 +96916,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -96878,10 +96940,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i221, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i221, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -96954,7 +97016,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i95, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i96230, align 8
   %cmp.i97 = icmp slt i32 %inc.i95, %88
-  br i1 %cmp.i97, label %if.then2.i120, label %if.else.i98
+  br i1 %cmp.i97, label %if.then2.i120, label %for.inc91.if.else.i98_crit_edge
+
+for.inc91.if.else.i98_crit_edge:                  ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i98
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -96962,12 +97029,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i95229, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i96230, align 8
   %cmp.i97231 = icmp slt i32 %inc.i95229, %90
-  br i1 %cmp.i97231, label %if.then.if.end13_crit_edge.i117, label %if.else.i98
-
-if.then.if.end13_crit_edge.i117:                  ; preds = %for.inc91.thread
-  %.pre.i119 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i112
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i97231, label %if.end13.i112, label %if.else.i98
 
 if.then2.i120:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i169, align 1
@@ -97022,21 +97086,21 @@ call.i.noexc207:                                  ; preds = %if.then15.i188
   store i8 %frombool.i189, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i98:                                      ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i101 = add nsw i32 %106, 1
+if.else.i98:                                      ; preds = %for.inc91.if.else.i98_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i98_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i98_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i101 = add nsw i32 %105, 1
   store i32 %inc4.i101, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i103 = icmp slt i32 %inc4.i101, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i103, label %if.end13.i112, label %if.then6.i104
 
 if.then6.i104:                                    ; preds = %if.else.i98
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i107 = add nsw i32 %.pre281, 1
+  %inc8.i107 = add nsw i32 %.pre283, 1
   store i32 %inc8.i107, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i109 = icmp slt i32 %inc8.i107, %109
@@ -97046,10 +97110,10 @@ if.then10.i110:                                   ; preds = %if.then6.i104
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i112:                                    ; preds = %if.then6.i104, %if.else.i98, %if.then.if.end13_crit_edge.i117
-  %110 = phi i32 [ %.pre281, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre280, %if.then.if.end13_crit_edge.i117 ]
-  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre.i119, %if.then.if.end13_crit_edge.i117 ]
-  %112 = phi i32 [ %105, %if.else.i98 ], [ %105, %if.then6.i104 ], [ %inc.i95229, %if.then.if.end13_crit_edge.i117 ]
+if.end13.i112:                                    ; preds = %for.inc91.thread, %if.then6.i104, %if.else.i98
+  %110 = phi i32 [ %.pre283, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i98 ], [ %106, %if.then6.i104 ], [ %inc.i95229, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -97124,7 +97188,7 @@ if.then.i148:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i151:                  ; preds = %if.then.i148
   %.pre.i153 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i146
 
 if.then2.i154:                                    ; preds = %if.then.i148
@@ -97139,13 +97203,13 @@ if.else.i132:                                     ; preds = %for.inc113
   store i32 %inc4.i135, ptr %m_y.i, align 8
   %124 = load i32, ptr %m_rng_yend.i136, align 8
   %cmp5.not.i137 = icmp slt i32 %inc4.i135, %124
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i137, label %if.end13.i146, label %if.then6.i138
 
 if.then6.i138:                                    ; preds = %if.else.i132
   %125 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %125, ptr %m_y.i, align 8
-  %inc8.i141 = add nsw i32 %.pre285, 1
+  %inc8.i141 = add nsw i32 %.pre289, 1
   store i32 %inc8.i141, ptr %m_z.i, align 4
   %126 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i143 = icmp slt i32 %inc8.i141, %126
@@ -97156,7 +97220,7 @@ if.then10.i144:                                   ; preds = %if.then6.i138
   br label %for.cond.backedge
 
 if.end13.i146:                                    ; preds = %if.then6.i138, %if.else.i132, %if.then.if.end13_crit_edge.i151
-  %127 = phi i32 [ %.pre285, %if.else.i132 ], [ %inc8.i141, %if.then6.i138 ], [ %.pre284, %if.then.if.end13_crit_edge.i151 ]
+  %127 = phi i32 [ %.pre289, %if.else.i132 ], [ %inc8.i141, %if.then6.i138 ], [ %.pre288, %if.then.if.end13_crit_edge.i151 ]
   %128 = phi i32 [ %inc4.i135, %if.else.i132 ], [ %125, %if.then6.i138 ], [ %.pre.i153, %if.then.if.end13_crit_edge.i151 ]
   %129 = phi i32 [ %122, %if.else.i132 ], [ %122, %if.then6.i138 ], [ %inc.i129, %if.then.if.end13_crit_edge.i151 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %129, i32 noundef %128, i32 noundef %127)
@@ -97514,7 +97578,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre286 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -97522,12 +97591,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre284 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre287 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre295 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -97582,21 +97648,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre289 = phi i32 [ %.pre289.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre289.pre295, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre286, %for.inc54.if.else.i_crit_edge ], [ %.pre287, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre285 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre285, 1
+  %inc8.i = add nsw i32 %.pre289, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -97606,10 +97672,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre285, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre289, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre289.pre295, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre287, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -97684,7 +97750,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -97692,12 +97763,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -97752,21 +97820,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre285 = phi i32 [ %.pre285.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre285.pre293, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre282, %for.inc91.if.else.i100_crit_edge ], [ %.pre283, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre283, 1
+  %inc8.i109 = add nsw i32 %.pre285, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -97776,10 +97844,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre285, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre285.pre293, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre283, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -97854,7 +97922,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre286 = load i32, ptr %m_z.i, align 4
+  %.pre290 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -97869,13 +97937,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %124 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %124
-  %.pre287 = load i32, ptr %m_z.i, align 4
+  %.pre291 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %125 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %125, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre287, 1
+  %inc8.i143 = add nsw i32 %.pre291, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %126 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %126
@@ -97886,7 +97954,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %127 = phi i32 [ %.pre287, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre286, %if.then.if.end13_crit_edge.i153 ]
+  %127 = phi i32 [ %.pre291, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre290, %if.then.if.end13_crit_edge.i153 ]
   %128 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %125, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %129 = phi i32 [ %122, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %129, i32 noundef %128, i32 noundef %127)
@@ -98244,7 +98312,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre286 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -98252,12 +98325,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre284 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre287 = load i32, ptr %m_y.i79, align 8
+  %.pre289.pre295 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -98312,21 +98382,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre289 = phi i32 [ %.pre289.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre289.pre295, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre286, %for.inc54.if.else.i_crit_edge ], [ %.pre287, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre285 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre285, 1
+  %inc8.i = add nsw i32 %.pre289, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -98336,10 +98406,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre285, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre289, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre289.pre295, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre287, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -98414,7 +98484,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -98422,12 +98497,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre285.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -98482,21 +98554,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre285 = phi i32 [ %.pre285.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre285.pre293, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre282, %for.inc91.if.else.i100_crit_edge ], [ %.pre283, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre283, 1
+  %inc8.i109 = add nsw i32 %.pre285, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -98506,10 +98578,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre285, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre285.pre293, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre283, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -98584,7 +98656,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre286 = load i32, ptr %m_z.i, align 4
+  %.pre290 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -98599,13 +98671,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %124 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %124
-  %.pre287 = load i32, ptr %m_z.i, align 4
+  %.pre291 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %125 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %125, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre287, 1
+  %inc8.i143 = add nsw i32 %.pre291, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %126 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %126
@@ -98616,7 +98688,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %127 = phi i32 [ %.pre287, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre286, %if.then.if.end13_crit_edge.i153 ]
+  %127 = phi i32 [ %.pre291, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre290, %if.then.if.end13_crit_edge.i153 ]
   %128 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %125, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %129 = phi i32 [ %122, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %129, i32 noundef %128, i32 noundef %127)
@@ -98967,7 +99039,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -98975,12 +99052,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i220, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i62222 = icmp slt i32 %inc.i220, %52
-  br i1 %cmp.i62222, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre282 = load i32, ptr %m_y.i79, align 8
+  %.pre284.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62222, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i168, align 1
@@ -99035,21 +99109,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre284 = phi i32 [ %.pre284.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre284.pre290, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre281, %for.inc54.if.else.i_crit_edge ], [ %.pre282, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre280, 1
+  %inc8.i = add nsw i32 %.pre284, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -99059,10 +99133,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre280, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre279, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i220, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre284, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre284.pre290, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre282, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i220, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -99135,7 +99209,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i95, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97 = icmp slt i32 %inc.i95, %88
-  br i1 %cmp.i97, label %if.then2.i120, label %if.else.i98
+  br i1 %cmp.i97, label %if.then2.i120, label %for.inc91.if.else.i98_crit_edge
+
+for.inc91.if.else.i98_crit_edge:                  ; preds = %for.inc91
+  %.pre277 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i98
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -99143,12 +99222,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i95228, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i96229, align 8
   %cmp.i97230 = icmp slt i32 %inc.i95228, %90
-  br i1 %cmp.i97230, label %if.then.if.end13_crit_edge.i117, label %if.else.i98
-
-if.then.if.end13_crit_edge.i117:                  ; preds = %for.inc91.thread
-  %.pre.i119 = load i32, ptr %m_y.i79, align 8
-  %.pre277 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i112
+  %.pre278 = load i32, ptr %m_y.i79, align 8
+  %.pre280.pre288 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i97230, label %if.end13.i112, label %if.else.i98
 
 if.then2.i120:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i168, align 1
@@ -99203,21 +99279,21 @@ call.i.noexc206:                                  ; preds = %if.then15.i187
   store i8 %frombool.i188, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i98:                                      ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i101 = add nsw i32 %106, 1
+if.else.i98:                                      ; preds = %for.inc91.if.else.i98_crit_edge, %for.inc91.thread
+  %.pre280 = phi i32 [ %.pre280.pre, %for.inc91.if.else.i98_crit_edge ], [ %.pre280.pre288, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre277, %for.inc91.if.else.i98_crit_edge ], [ %.pre278, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i101 = add nsw i32 %105, 1
   store i32 %inc4.i101, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i102, align 8
   %cmp5.not.i103 = icmp slt i32 %inc4.i101, %107
-  %.pre278 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i103, label %if.end13.i112, label %if.then6.i104
 
 if.then6.i104:                                    ; preds = %if.else.i98
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i107 = add nsw i32 %.pre278, 1
+  %inc8.i107 = add nsw i32 %.pre280, 1
   store i32 %inc8.i107, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i109 = icmp slt i32 %inc8.i107, %109
@@ -99227,10 +99303,10 @@ if.then10.i110:                                   ; preds = %if.then6.i104
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i112:                                    ; preds = %if.then6.i104, %if.else.i98, %if.then.if.end13_crit_edge.i117
-  %110 = phi i32 [ %.pre278, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre277, %if.then.if.end13_crit_edge.i117 ]
-  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre.i119, %if.then.if.end13_crit_edge.i117 ]
-  %112 = phi i32 [ %105, %if.else.i98 ], [ %105, %if.then6.i104 ], [ %inc.i95228, %if.then.if.end13_crit_edge.i117 ]
+if.end13.i112:                                    ; preds = %for.inc91.thread, %if.then6.i104, %if.else.i98
+  %110 = phi i32 [ %.pre280, %if.else.i98 ], [ %inc8.i107, %if.then6.i104 ], [ %.pre280.pre288, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i101, %if.else.i98 ], [ %108, %if.then6.i104 ], [ %.pre278, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i98 ], [ %106, %if.then6.i104 ], [ %inc.i95228, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -99280,7 +99356,7 @@ if.then.i147:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i150:                  ; preds = %if.then.i147
   %.pre.i152 = load i32, ptr %m_y.i, align 8
-  %.pre281 = load i32, ptr %m_z.i, align 4
+  %.pre285 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i145
 
 if.then2.i153:                                    ; preds = %if.then.i147
@@ -99295,13 +99371,13 @@ if.else.i131:                                     ; preds = %for.inc113
   store i32 %inc4.i134, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i135, align 8
   %cmp5.not.i136 = icmp slt i32 %inc4.i134, %121
-  %.pre282 = load i32, ptr %m_z.i, align 4
+  %.pre286 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i136, label %if.end13.i145, label %if.then6.i137
 
 if.then6.i137:                                    ; preds = %if.else.i131
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i140 = add nsw i32 %.pre282, 1
+  %inc8.i140 = add nsw i32 %.pre286, 1
   store i32 %inc8.i140, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i142 = icmp slt i32 %inc8.i140, %123
@@ -99312,7 +99388,7 @@ if.then10.i143:                                   ; preds = %if.then6.i137
   br label %for.cond.backedge
 
 if.end13.i145:                                    ; preds = %if.then6.i137, %if.else.i131, %if.then.if.end13_crit_edge.i150
-  %124 = phi i32 [ %.pre282, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre281, %if.then.if.end13_crit_edge.i150 ]
+  %124 = phi i32 [ %.pre286, %if.else.i131 ], [ %inc8.i140, %if.then6.i137 ], [ %.pre285, %if.then.if.end13_crit_edge.i150 ]
   %125 = phi i32 [ %inc4.i134, %if.else.i131 ], [ %122, %if.then6.i137 ], [ %.pre.i152, %if.then.if.end13_crit_edge.i150 ]
   %126 = phi i32 [ %119, %if.else.i131 ], [ %119, %if.then6.i137 ], [ %inc.i128, %if.then.if.end13_crit_edge.i150 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -99665,7 +99741,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %50 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %50
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %51 = load i32, ptr %m_x.i75, align 4
@@ -99673,12 +99754,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i223, ptr %m_x.i75, align 4
   %52 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i62225 = icmp slt i32 %inc.i223, %52
-  br i1 %cmp.i62225, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre282 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre285 = load i32, ptr %m_y.i79, align 8
+  %.pre287.pre293 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62225, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %53 = load i8, ptr %m_localpixels.i171, align 1
@@ -99733,21 +99811,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %67 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %67, ptr %m_x.i75, align 4
-  %68 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %68, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre287 = phi i32 [ %.pre287.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre287.pre293, %for.inc54.thread ]
+  %67 = phi i32 [ %.pre284, %for.inc54.if.else.i_crit_edge ], [ %.pre285, %for.inc54.thread ]
+  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %68, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %67, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %69 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %69
-  %.pre283 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %70 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %70, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre283, 1
+  %inc8.i = add nsw i32 %.pre287, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %71 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %71
@@ -99757,10 +99835,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %72 = phi i32 [ %.pre283, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre282, %if.then.if.end13_crit_edge.i ]
-  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %67, %if.else.i ], [ %67, %if.then6.i ], [ %inc.i223, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %72 = phi i32 [ %.pre287, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre287.pre293, %for.inc54.thread ]
+  %73 = phi i32 [ %inc4.i, %if.else.i ], [ %70, %if.then6.i ], [ %.pre285, %for.inc54.thread ]
+  %74 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i223, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %74, i32 noundef %73, i32 noundef %72)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -99835,7 +99913,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %88 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %88
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %89 = load i32, ptr %m_x.i75, align 4
@@ -99843,12 +99926,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97231, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98232, align 8
   %cmp.i99233 = icmp slt i32 %inc.i97231, %90
-  br i1 %cmp.i99233, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre280 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre281 = load i32, ptr %m_y.i79, align 8
+  %.pre283.pre291 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99233, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %91 = load i8, ptr %m_localpixels.i171, align 1
@@ -99903,21 +99983,21 @@ call.i.noexc209:                                  ; preds = %if.then15.i190
   store i8 %frombool.i191, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %105 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %105, ptr %m_x.i75, align 4
-  %106 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %106, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre283 = phi i32 [ %.pre283.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre283.pre291, %for.inc91.thread ]
+  %105 = phi i32 [ %.pre280, %for.inc91.if.else.i100_crit_edge ], [ %.pre281, %for.inc91.thread ]
+  %106 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %106, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %105, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %107 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %107
-  %.pre281 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %108 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %108, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre281, 1
+  %inc8.i109 = add nsw i32 %.pre283, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %109 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %109
@@ -99927,10 +100007,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %110 = phi i32 [ %.pre281, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre280, %if.then.if.end13_crit_edge.i119 ]
-  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %112 = phi i32 [ %105, %if.else.i100 ], [ %105, %if.then6.i106 ], [ %inc.i97231, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %110 = phi i32 [ %.pre283, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre283.pre291, %for.inc91.thread ]
+  %111 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %.pre281, %for.inc91.thread ]
+  %112 = phi i32 [ %106, %if.else.i100 ], [ %106, %if.then6.i106 ], [ %inc.i97231, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %112, i32 noundef %111, i32 noundef %110)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -99980,7 +100060,7 @@ if.then.i150:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i153:                  ; preds = %if.then.i150
   %.pre.i155 = load i32, ptr %m_y.i, align 8
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i148
 
 if.then2.i156:                                    ; preds = %if.then.i150
@@ -99995,13 +100075,13 @@ if.else.i134:                                     ; preds = %for.inc113
   store i32 %inc4.i137, ptr %m_y.i, align 8
   %121 = load i32, ptr %m_rng_yend.i138, align 8
   %cmp5.not.i139 = icmp slt i32 %inc4.i137, %121
-  %.pre285 = load i32, ptr %m_z.i, align 4
+  %.pre289 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i139, label %if.end13.i148, label %if.then6.i140
 
 if.then6.i140:                                    ; preds = %if.else.i134
   %122 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %122, ptr %m_y.i, align 8
-  %inc8.i143 = add nsw i32 %.pre285, 1
+  %inc8.i143 = add nsw i32 %.pre289, 1
   store i32 %inc8.i143, ptr %m_z.i, align 4
   %123 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i145 = icmp slt i32 %inc8.i143, %123
@@ -100012,7 +100092,7 @@ if.then10.i146:                                   ; preds = %if.then6.i140
   br label %for.cond.backedge
 
 if.end13.i148:                                    ; preds = %if.then6.i140, %if.else.i134, %if.then.if.end13_crit_edge.i153
-  %124 = phi i32 [ %.pre285, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre284, %if.then.if.end13_crit_edge.i153 ]
+  %124 = phi i32 [ %.pre289, %if.else.i134 ], [ %inc8.i143, %if.then6.i140 ], [ %.pre288, %if.then.if.end13_crit_edge.i153 ]
   %125 = phi i32 [ %inc4.i137, %if.else.i134 ], [ %122, %if.then6.i140 ], [ %.pre.i155, %if.then.if.end13_crit_edge.i153 ]
   %126 = phi i32 [ %119, %if.else.i134 ], [ %119, %if.then6.i140 ], [ %inc.i131, %if.then.if.end13_crit_edge.i153 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %126, i32 noundef %125, i32 noundef %124)
@@ -100366,7 +100446,12 @@ for.inc54:                                        ; preds = %invoke.cont45, %for
   store i32 %inc.i, ptr %m_x.i75, align 4
   %51 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62 = icmp slt i32 %inc.i, %51
-  br i1 %cmp.i62, label %if.then2.i, label %if.else.i
+  br i1 %cmp.i62, label %if.then2.i, label %for.inc54.if.else.i_crit_edge
+
+for.inc54.if.else.i_crit_edge:                    ; preds = %for.inc54
+  %.pre283 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i
 
 for.inc54.thread:                                 ; preds = %for.body35
   %52 = load i32, ptr %m_x.i75, align 4
@@ -100374,12 +100459,9 @@ for.inc54.thread:                                 ; preds = %for.body35
   store i32 %inc.i222, ptr %m_x.i75, align 4
   %53 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i62224 = icmp slt i32 %inc.i222, %53
-  br i1 %cmp.i62224, label %if.then.if.end13_crit_edge.i, label %if.else.i
-
-if.then.if.end13_crit_edge.i:                     ; preds = %for.inc54.thread
-  %.pre.i = load i32, ptr %m_y.i79, align 8
-  %.pre281 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i
+  %.pre284 = load i32, ptr %m_y.i79, align 8
+  %.pre286.pre292 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i62224, label %if.end13.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %for.inc54
   %54 = load i8, ptr %m_localpixels.i170, align 1
@@ -100434,21 +100516,21 @@ call.i.noexc:                                     ; preds = %if.then15.i
   store i8 %frombool.i, ptr %m_exists.i87, align 1
   br label %for.cond32.backedge
 
-if.else.i:                                        ; preds = %for.inc54.thread, %for.inc54
-  %68 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %68, ptr %m_x.i75, align 4
-  %69 = load i32, ptr %m_y.i79, align 8
-  %inc4.i = add nsw i32 %69, 1
+if.else.i:                                        ; preds = %for.inc54.if.else.i_crit_edge, %for.inc54.thread
+  %.pre286 = phi i32 [ %.pre286.pre, %for.inc54.if.else.i_crit_edge ], [ %.pre286.pre292, %for.inc54.thread ]
+  %68 = phi i32 [ %.pre283, %for.inc54.if.else.i_crit_edge ], [ %.pre284, %for.inc54.thread ]
+  %69 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %69, ptr %m_x.i75, align 4
+  %inc4.i = add nsw i32 %68, 1
   store i32 %inc4.i, ptr %m_y.i79, align 8
   %70 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %70
-  %.pre282 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %71 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %71, ptr %m_y.i79, align 8
-  %inc8.i = add nsw i32 %.pre282, 1
+  %inc8.i = add nsw i32 %.pre286, 1
   store i32 %inc8.i, ptr %m_z.i83, align 4
   %72 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %72
@@ -100458,10 +100540,10 @@ if.then10.i:                                      ; preds = %if.then6.i
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond32.backedge
 
-if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %73 = phi i32 [ %.pre282, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre281, %if.then.if.end13_crit_edge.i ]
-  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
-  %75 = phi i32 [ %68, %if.else.i ], [ %68, %if.then6.i ], [ %inc.i222, %if.then.if.end13_crit_edge.i ]
+if.end13.i:                                       ; preds = %for.inc54.thread, %if.then6.i, %if.else.i
+  %73 = phi i32 [ %.pre286, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre286.pre292, %for.inc54.thread ]
+  %74 = phi i32 [ %inc4.i, %if.else.i ], [ %71, %if.then6.i ], [ %.pre284, %for.inc54.thread ]
+  %75 = phi i32 [ %69, %if.else.i ], [ %69, %if.then6.i ], [ %inc.i222, %for.inc54.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %75, i32 noundef %74, i32 noundef %73)
           to label %for.cond32.backedge unwind label %lpad24.loopexit
 
@@ -100537,7 +100619,12 @@ for.inc91:                                        ; preds = %invoke.cont82, %for
   store i32 %inc.i97, ptr %m_x.i75, align 4
   %90 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99 = icmp slt i32 %inc.i97, %90
-  br i1 %cmp.i99, label %if.then2.i122, label %if.else.i100
+  br i1 %cmp.i99, label %if.then2.i122, label %for.inc91.if.else.i100_crit_edge
+
+for.inc91.if.else.i100_crit_edge:                 ; preds = %for.inc91
+  %.pre279 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre = load i32, ptr %m_z.i83, align 4
+  br label %if.else.i100
 
 for.inc91.thread:                                 ; preds = %for.body72
   %91 = load i32, ptr %m_x.i75, align 4
@@ -100545,12 +100632,9 @@ for.inc91.thread:                                 ; preds = %for.body72
   store i32 %inc.i97230, ptr %m_x.i75, align 4
   %92 = load i32, ptr %m_rng_xend.i98231, align 8
   %cmp.i99232 = icmp slt i32 %inc.i97230, %92
-  br i1 %cmp.i99232, label %if.then.if.end13_crit_edge.i119, label %if.else.i100
-
-if.then.if.end13_crit_edge.i119:                  ; preds = %for.inc91.thread
-  %.pre.i121 = load i32, ptr %m_y.i79, align 8
-  %.pre279 = load i32, ptr %m_z.i83, align 4
-  br label %if.end13.i114
+  %.pre280 = load i32, ptr %m_y.i79, align 8
+  %.pre282.pre290 = load i32, ptr %m_z.i83, align 4
+  br i1 %cmp.i99232, label %if.end13.i114, label %if.else.i100
 
 if.then2.i122:                                    ; preds = %for.inc91
   %93 = load i8, ptr %m_localpixels.i170, align 1
@@ -100605,21 +100689,21 @@ call.i.noexc208:                                  ; preds = %if.then15.i189
   store i8 %frombool.i190, ptr %m_exists.i87, align 1
   br label %for.cond69.backedge
 
-if.else.i100:                                     ; preds = %for.inc91.thread, %for.inc91
-  %107 = load i32, ptr %m_rng_xbegin.i76, align 4
-  store i32 %107, ptr %m_x.i75, align 4
-  %108 = load i32, ptr %m_y.i79, align 8
-  %inc4.i103 = add nsw i32 %108, 1
+if.else.i100:                                     ; preds = %for.inc91.if.else.i100_crit_edge, %for.inc91.thread
+  %.pre282 = phi i32 [ %.pre282.pre, %for.inc91.if.else.i100_crit_edge ], [ %.pre282.pre290, %for.inc91.thread ]
+  %107 = phi i32 [ %.pre279, %for.inc91.if.else.i100_crit_edge ], [ %.pre280, %for.inc91.thread ]
+  %108 = load i32, ptr %m_rng_xbegin.i76, align 4
+  store i32 %108, ptr %m_x.i75, align 4
+  %inc4.i103 = add nsw i32 %107, 1
   store i32 %inc4.i103, ptr %m_y.i79, align 8
   %109 = load i32, ptr %m_rng_yend.i104, align 8
   %cmp5.not.i105 = icmp slt i32 %inc4.i103, %109
-  %.pre280 = load i32, ptr %m_z.i83, align 4
   br i1 %cmp5.not.i105, label %if.end13.i114, label %if.then6.i106
 
 if.then6.i106:                                    ; preds = %if.else.i100
   %110 = load i32, ptr %m_rng_ybegin.i80, align 4
   store i32 %110, ptr %m_y.i79, align 8
-  %inc8.i109 = add nsw i32 %.pre280, 1
+  %inc8.i109 = add nsw i32 %.pre282, 1
   store i32 %inc8.i109, ptr %m_z.i83, align 4
   %111 = load i32, ptr %m_rng_zend.i84, align 8
   %cmp9.not.i111 = icmp slt i32 %inc8.i109, %111
@@ -100629,10 +100713,10 @@ if.then10.i112:                                   ; preds = %if.then6.i106
   store i8 0, ptr %m_valid.i72, align 8
   br label %for.cond69.backedge
 
-if.end13.i114:                                    ; preds = %if.then6.i106, %if.else.i100, %if.then.if.end13_crit_edge.i119
-  %112 = phi i32 [ %.pre280, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre279, %if.then.if.end13_crit_edge.i119 ]
-  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre.i121, %if.then.if.end13_crit_edge.i119 ]
-  %114 = phi i32 [ %107, %if.else.i100 ], [ %107, %if.then6.i106 ], [ %inc.i97230, %if.then.if.end13_crit_edge.i119 ]
+if.end13.i114:                                    ; preds = %for.inc91.thread, %if.then6.i106, %if.else.i100
+  %112 = phi i32 [ %.pre282, %if.else.i100 ], [ %inc8.i109, %if.then6.i106 ], [ %.pre282.pre290, %for.inc91.thread ]
+  %113 = phi i32 [ %inc4.i103, %if.else.i100 ], [ %110, %if.then6.i106 ], [ %.pre280, %for.inc91.thread ]
+  %114 = phi i32 [ %108, %if.else.i100 ], [ %108, %if.then6.i106 ], [ %inc.i97230, %for.inc91.thread ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %114, i32 noundef %113, i32 noundef %112)
           to label %for.cond69.backedge unwind label %lpad24.loopexit.split-lp.loopexit
 
@@ -100682,7 +100766,7 @@ if.then.i149:                                     ; preds = %for.inc113
 
 if.then.if.end13_crit_edge.i152:                  ; preds = %if.then.i149
   %.pre.i154 = load i32, ptr %m_y.i, align 8
-  %.pre283 = load i32, ptr %m_z.i, align 4
+  %.pre287 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i147
 
 if.then2.i155:                                    ; preds = %if.then.i149
@@ -100697,13 +100781,13 @@ if.else.i133:                                     ; preds = %for.inc113
   store i32 %inc4.i136, ptr %m_y.i, align 8
   %123 = load i32, ptr %m_rng_yend.i137, align 8
   %cmp5.not.i138 = icmp slt i32 %inc4.i136, %123
-  %.pre284 = load i32, ptr %m_z.i, align 4
+  %.pre288 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i138, label %if.end13.i147, label %if.then6.i139
 
 if.then6.i139:                                    ; preds = %if.else.i133
   %124 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %124, ptr %m_y.i, align 8
-  %inc8.i142 = add nsw i32 %.pre284, 1
+  %inc8.i142 = add nsw i32 %.pre288, 1
   store i32 %inc8.i142, ptr %m_z.i, align 4
   %125 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i144 = icmp slt i32 %inc8.i142, %125
@@ -100714,7 +100798,7 @@ if.then10.i145:                                   ; preds = %if.then6.i139
   br label %for.cond.backedge
 
 if.end13.i147:                                    ; preds = %if.then6.i139, %if.else.i133, %if.then.if.end13_crit_edge.i152
-  %126 = phi i32 [ %.pre284, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre283, %if.then.if.end13_crit_edge.i152 ]
+  %126 = phi i32 [ %.pre288, %if.else.i133 ], [ %inc8.i142, %if.then6.i139 ], [ %.pre287, %if.then.if.end13_crit_edge.i152 ]
   %127 = phi i32 [ %inc4.i136, %if.else.i133 ], [ %124, %if.then6.i139 ], [ %.pre.i154, %if.then.if.end13_crit_edge.i152 ]
   %128 = phi i32 [ %121, %if.else.i133 ], [ %121, %if.then6.i139 ], [ %inc.i130, %if.then.if.end13_crit_edge.i152 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %128, i32 noundef %127, i32 noundef %126)

@@ -311,8 +311,8 @@ fmap_readn.exit96.i:                              ; preds = %45
   store i64 %123, ptr %9, align 8
   %124 = zext i16 %121 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, i32 noundef %124) #12
-  %.not = icmp ne i16 %121, 0
-  br i1 %.not, label %125, label %.loopexit.i
+  %.not.not = icmp ne i16 %121, 0
+  br i1 %.not.not, label %125, label %.loopexit.i
 
 125:                                              ; preds = %.lr.ph.i
   %126 = add nuw nsw i32 %124, 4
@@ -337,7 +337,7 @@ fmap_readn.exit96.i:                              ; preds = %45
 .loopexit.i:                                      ; preds = %125, %.lr.ph.i, %.loopexit.sink.split.i, %106
   %.071.i = phi ptr [ %.172.i, %106 ], [ %.071.ph.i, %.loopexit.sink.split.i ], [ %.172.i, %.lr.ph.i ], [ %.172.i, %125 ]
   %.070.i = phi ptr [ %.1.i, %106 ], [ %.070.ph.i, %.loopexit.sink.split.i ], [ %.1.i, %.lr.ph.i ], [ %.1.i, %125 ]
-  %.not5 = phi i1 [ true, %106 ], [ true, %.loopexit.sink.split.i ], [ %.not, %.lr.ph.i ], [ %.not, %125 ]
+  %.not5 = phi i1 [ true, %106 ], [ true, %.loopexit.sink.split.i ], [ %.not.not, %.lr.ph.i ], [ %.not.not, %125 ]
   %.not90.i = icmp eq ptr %.071.i, null
   br i1 %.not90.i, label %135, label %134
 

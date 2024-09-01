@@ -42,8 +42,8 @@ land.rhs.i:                                       ; preds = %if.then, %if.end.i
   %second.addr.013.i = phi ptr [ %incdec.ptr7.i, %if.end.i ], [ %second, %if.then ]
   %first.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %first, %if.then ]
   %2 = load i8, ptr %second.addr.013.i, align 1
-  %tobool2.not.not.i.not = icmp ne i8 %2, 0
-  br i1 %tobool2.not.not.i.not, label %while.body.i, label %while.end.i
+  %tobool2.not.not.i.not.not = icmp ne i8 %2, 0
+  br i1 %tobool2.not.not.i.not.not, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %idxprom.i.i = zext i8 %1 to i64
@@ -64,7 +64,7 @@ if.end.i:                                         ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %if.end.i, %land.rhs.i, %if.then
   %second.addr.0.lcssa.i = phi ptr [ %second, %if.then ], [ %second.addr.013.i, %land.rhs.i ], [ %incdec.ptr7.i, %if.end.i ]
-  %tobool.not.lcssa.i = phi i1 [ true, %if.then ], [ %tobool2.not.not.i.not, %land.rhs.i ], [ %tobool2.not.not.i.not, %if.end.i ]
+  %tobool.not.lcssa.i = phi i1 [ true, %if.then ], [ %tobool2.not.not.i.not.not, %land.rhs.i ], [ %tobool2.not.not.i.not.not, %if.end.i ]
   %6 = load i8, ptr %second.addr.0.lcssa.i, align 1
   %7 = icmp ne i8 %6, 0
   %cmp12.i = xor i1 %tobool.not.lcssa.i, %7

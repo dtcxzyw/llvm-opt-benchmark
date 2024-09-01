@@ -11726,14 +11726,14 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys5RTLIL8IdStringES3_SaIS2_EET0_T
   %3645 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i.i, i64 4
   %3646 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i1596 = icmp eq ptr %3645, %3599
-  br i1 %.not.i.i.i.i.i.i1596, label %.lr.ph.i.i.i.i1598.preheader, label %.lr.ph.i.i.i.i.i.i1595, !llvm.loop !117
+  br i1 %.not.i.i.i.i.i.i1596, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys5RTLIL8IdStringES3_SaIS2_EET0_T_S6_S5_RT1_.exit35.i, label %.lr.ph.i.i.i.i.i.i1595, !llvm.loop !117
 
-.lr.ph.i.i.i.i1598.preheader:                     ; preds = %3644
+_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys5RTLIL8IdStringES3_SaIS2_EET0_T_S6_S5_RT1_.exit35.i: ; preds = %3644
   %3647 = getelementptr i8, ptr %.015.i.i.i.i.i.i, i64 8
   br label %.lr.ph.i.i.i.i1598
 
-.lr.ph.i.i.i.i1598:                               ; preds = %.lr.ph.i.i.i.i1598.preheader, %_ZSt8_DestroyIN5Yosys5RTLIL8IdStringEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %3663, %_ZSt8_DestroyIN5Yosys5RTLIL8IdStringEEvPT_.exit.i.i.i.i ], [ %3613, %.lr.ph.i.i.i.i1598.preheader ]
+.lr.ph.i.i.i.i1598:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys5RTLIL8IdStringES3_SaIS2_EET0_T_S6_S5_RT1_.exit35.i, %_ZSt8_DestroyIN5Yosys5RTLIL8IdStringEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %3663, %_ZSt8_DestroyIN5Yosys5RTLIL8IdStringEEvPT_.exit.i.i.i.i ], [ %3613, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys5RTLIL8IdStringES3_SaIS2_EET0_T_S6_S5_RT1_.exit35.i ]
   %3648 = load i32, ptr %.05.i.i.i.i, align 4
   %3649 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %3650 = trunc i8 %3649 to i1

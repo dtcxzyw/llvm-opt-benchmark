@@ -706,28 +706,31 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %spec.select.i.i = select i1 %77, ptr %75, ptr %.sroa.02.110.i.i
   %79 = getelementptr inbounds i8, ptr %75, i64 4
   %.not.i.i = icmp eq ptr %75, %.pn59
-  br i1 %.not.i.i, label %.lr.ph.preheader.i.i34, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit, label %.lr.ph.i.i, !llvm.loop !10
 
-.lr.ph.preheader.i.i34:                           ; preds = %.lr.ph.i.i
+_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i
   %80 = load i32, ptr %spec.select.i.i, align 4
   br label %.lr.ph.i.i36
 
-.lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %.lr.ph.preheader.i.i34
-  %81 = phi i32 [ %85, %.lr.ph.i.i36 ], [ %73, %.lr.ph.preheader.i.i34 ]
-  %82 = phi ptr [ %86, %.lr.ph.i.i36 ], [ %72, %.lr.ph.preheader.i.i34 ]
-  %.sroa.02.110.i.i37 = phi ptr [ %spec.select.i.i38, %.lr.ph.i.i36 ], [ %.sroa.046.1, %.lr.ph.preheader.i.i34 ]
+.lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit
+  %81 = phi i32 [ %85, %.lr.ph.i.i36 ], [ %73, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit ]
+  %82 = phi ptr [ %86, %.lr.ph.i.i36 ], [ %72, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit ]
+  %.sroa.02.110.i.i37 = phi ptr [ %spec.select.i.i38, %.lr.ph.i.i36 ], [ %.sroa.046.1, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit ]
   %83 = load i32, ptr %82, align 4
   %84 = icmp slt i32 %81, %83
   %85 = call i32 @llvm.smax.i32(i32 %81, i32 %83)
   %spec.select.i.i38 = select i1 %84, ptr %82, ptr %.sroa.02.110.i.i37
   %86 = getelementptr inbounds i8, ptr %82, i64 4
   %.not.i.i39 = icmp eq ptr %82, %.pn59
-  br i1 %.not.i.i39, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit, label %.lr.ph.i.i36, !llvm.loop !11
+  br i1 %.not.i.i39, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.loopexit, label %.lr.ph.i.i36, !llvm.loop !11
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i36, %70
-  %87 = phi i32 [ %73, %70 ], [ %80, %.lr.ph.i.i36 ]
-  %.sroa.02.0.i.i40 = phi ptr [ %.sroa.046.1, %70 ], [ %spec.select.i.i38, %.lr.ph.i.i36 ]
-  %88 = load i32, ptr %.sroa.02.0.i.i40, align 4
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.loopexit: ; preds = %.lr.ph.i.i36
+  %.pre = load i32, ptr %spec.select.i.i38, align 4
+  br label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit
+
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit: ; preds = %70, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.loopexit
+  %87 = phi i32 [ %.pre, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.loopexit ], [ %73, %70 ]
+  %88 = phi i32 [ %80, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.loopexit ], [ %73, %70 ]
   br i1 %71, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEfET0_T_S8_S7_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit, %.lr.ph.i
@@ -749,7 +752,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEfET0_T_S8_S
   %97 = uitofp i64 %96 to float
   %98 = fdiv float %.0.lcssa.i, %97
   %99 = fpext float %98 to double
-  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %87, i32 noundef %88, double noundef %99)
+  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %88, i32 noundef %87, double noundef %99)
   call void @_ZdlPv(ptr noundef nonnull %.sroa.046.1) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit43
 

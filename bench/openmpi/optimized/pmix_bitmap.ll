@@ -733,7 +733,7 @@ define i32 @pmix_bitmap_num_set_bits(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @pmix_bitmap_is_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define noundef zeroext i1 @pmix_bitmap_is_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
@@ -742,30 +742,21 @@ define zeroext i1 @pmix_bitmap_is_clear(ptr nocapture noundef readonly %0) local
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
-  %7 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %8 = load i64, ptr %6, align 8
-  %.not9 = icmp eq i64 %8, 0
-  br i1 %.not9, label %.lr.ph11, label %._crit_edge
+  br label %7
 
-.lr.ph11:                                         ; preds = %.lr.ph, %9
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %9, !llvm.loop !13
+7:                                                ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %9 = load i64, ptr %8, align 8
+  %.not = icmp eq i64 %9, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %7, label %._crit_edge, !llvm.loop !13
 
-9:                                                ; preds = %.lr.ph11
-  %10 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next
-  %11 = load i64, ptr %10, align 8
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.lr.ph11, label %._crit_edge.loopexit, !llvm.loop !13
-
-._crit_edge.loopexit:                             ; preds = %9, %.lr.ph11
-  %12 = icmp uge i64 %indvars.iv.next, %7
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %12, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %7, %1
+  %.lcssa = phi i1 [ true, %1 ], [ %.not, %7 ]
   ret i1 %.lcssa
 }
 

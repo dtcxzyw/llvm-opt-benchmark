@@ -7819,8 +7819,7 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
 .preheader:                                       ; preds = %56
   %31 = load ptr, ptr %6, align 8
   %.not5567 = icmp eq ptr %31, null
-  %brmerge = or i1 %.not5567, %.not
-  br i1 %brmerge, label %._crit_edge70, label %.lr.ph66.us
+  br i1 %.not5567, label %._crit_edge70, label %.lr.ph66.us
 
 .lr.ph66.us:                                      ; preds = %.preheader, %._crit_edge.us
   %32 = phi ptr [ %45, %._crit_edge.us ], [ %31, %.preheader ]

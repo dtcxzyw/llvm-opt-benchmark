@@ -2394,7 +2394,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %73 = load ptr, ptr %9, align 8
   %74 = load i32, ptr %73, align 1
   %.not281.us = icmp eq i32 %74, 0
-  br i1 %.not281.us, label %.split400.us.loopexit, label %.outer.us
+  br i1 %.not281.us, label %.loopexit.loopexit, label %.outer.us
 
 75:                                               ; preds = %.outer.us
   %76 = ptrtoint ptr %.0235.ph.us to i64
@@ -2650,26 +2650,26 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 %3, ptr %176, align 4
   %177 = getelementptr inbounds i8, ptr %173, i64 12
   store i32 %3, ptr %177, align 4
-  br label %.split400.us
+  br label %.loopexit
 
-.split400.us.loopexit:                            ; preds = %72
+.loopexit.loopexit:                               ; preds = %72
   %178 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.split400.us
+  br label %.loopexit
 
-.split400.us:                                     ; preds = %.split400.us.loopexit, %175
-  %.1233 = phi i32 [ 1, %175 ], [ %178, %.split400.us.loopexit ]
-  %.2 = phi ptr [ %173, %175 ], [ %54, %.split400.us.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %175
+  %.1233 = phi i32 [ 1, %175 ], [ %178, %.loopexit.loopexit ]
+  %.2 = phi ptr [ %173, %175 ], [ %54, %.loopexit.loopexit ]
   %179 = sub i32 %40, %4
   %180 = call i32 @cli_rebuildpe_align(ptr noundef %0, ptr noundef nonnull %.2, i32 noundef %.1233, i32 noundef %4, i32 noundef %179, i32 noundef 0, i32 noundef 0, i32 noundef %7, i32 noundef 4096) #8
   %.not288 = icmp eq i32 %180, 0
   br i1 %.not288, label %181, label %182
 
-181:                                              ; preds = %.split400.us
+181:                                              ; preds = %.loopexit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #8
   call void @free(ptr noundef nonnull %.2) #8
   br label %183
 
-182:                                              ; preds = %.split400.us
+182:                                              ; preds = %.loopexit
   call void @free(ptr noundef nonnull %.2) #8
   br label %183
 

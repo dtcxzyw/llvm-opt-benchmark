@@ -932,8 +932,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 300:                                              ; preds = %300, %297
   %.06.i.i.i.i.i.i.i = phi i32 [ %299, %297 ], [ %304, %300 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %301 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %302 = cmpxchg weak ptr %298, i32 %.06.i.i.i.i.i.i.i, i32 %301 acq_rel monotonic, align 8, !noalias !28
   %303 = extractvalue { i32, i1 } %302, 1
@@ -1442,8 +1442,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 521:                                              ; preds = %521, %.critedge.i
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %520, %.critedge.i ], [ %525, %521 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i)
   %522 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
   %523 = cmpxchg weak ptr %519, i32 %.06.i.i.i.i.i.i.i.i, i32 %522 acq_rel monotonic, align 8, !noalias !51
   %524 = extractvalue { i32, i1 } %523, 1
@@ -1542,8 +1542,8 @@ _ZNK3ade6HandleINS_4NodeEEptEv.exit.i:            ; preds = %_ZNSt16_Sp_counted_
 
 568:                                              ; preds = %568, %564
   %.06.i.i.i.i.i.i.i46.i = phi i32 [ %567, %564 ], [ %572, %568 ]
-  %.not.i.not.i.i.i.i.i.i47.i = icmp ne i32 %.06.i.i.i.i.i.i.i46.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i47.i)
+  %.not.not.not.i.not.i.i.i.i.i.i47.i = icmp ne i32 %.06.i.i.i.i.i.i.i46.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i47.i)
   %569 = add nsw i32 %.06.i.i.i.i.i.i.i46.i, 1
   %570 = cmpxchg weak ptr %566, i32 %.06.i.i.i.i.i.i.i46.i, i32 %569 acq_rel monotonic, align 8, !noalias !54
   %571 = extractvalue { i32, i1 } %570, 1
@@ -1673,8 +1673,8 @@ _ZNK3ade6HandleINS_4NodeEEptEv.exit57.i:          ; preds = %_ZNSt16_Sp_counted_
 
 626:                                              ; preds = %626, %622
   %.06.i.i.i.i.i.i.i59.i = phi i32 [ %625, %622 ], [ %630, %626 ]
-  %.not.i.not.i.i.i.i.i.i60.i = icmp ne i32 %.06.i.i.i.i.i.i.i59.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i60.i)
+  %.not.not.not.i.not.i.i.i.i.i.i60.i = icmp ne i32 %.06.i.i.i.i.i.i.i59.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i60.i)
   %627 = add nsw i32 %.06.i.i.i.i.i.i.i59.i, 1
   %628 = cmpxchg weak ptr %624, i32 %.06.i.i.i.i.i.i.i59.i, i32 %627 acq_rel monotonic, align 8, !noalias !57
   %629 = extractvalue { i32, i1 } %628, 1
@@ -2397,8 +2397,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 932:                                              ; preds = %932, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
   %.06.i.i.i.i.i.i.i150.i = phi i32 [ %931, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ %936, %932 ]
-  %.not.i.not.i.i.i.i.i.i151.i = icmp ne i32 %.06.i.i.i.i.i.i.i150.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i151.i)
+  %.not.not.not.i.not.i.i.i.i.i.i151.i = icmp ne i32 %.06.i.i.i.i.i.i.i150.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i151.i)
   %933 = add nsw i32 %.06.i.i.i.i.i.i.i150.i, 1
   %934 = cmpxchg weak ptr %930, i32 %.06.i.i.i.i.i.i.i150.i, i32 %933 acq_rel monotonic, align 8, !noalias !75
   %935 = extractvalue { i32, i1 } %934, 1
@@ -2493,8 +2493,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 974:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121is_within_same_islandERKN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS6_5InputENS6_6OutputENS6_2OpENS6_4DataENS6_10ConstValueENS6_6IslandENS6_8ProtocolENS6_17OriginalInputMetaENS6_10OutputMetaENS6_7JournalENS3_6passes19TopologicalSortDataENS6_17DataObjectCounterENS6_11IslandModelENS6_14ActiveBackendsENS6_18CustomMetaFunctionENS6_9StreamingENS6_12DeserializedENS6_13HasIntrinsicsENS6_10DesyncPathENS6_10DesyncEdgeENS6_14DesynchronizedENS6_11CompileArgsEEEERKNS3_6HandleINS3_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS3_4util5Range13IterableRangeINS1F_8MapRangeINS1H_INS1F_9IterRangeINS_17__normal_iteratorIPPNS3_4EdgeESt6vectorIS1L_SaIS1L_EEEES1Q_EENSZ_12HandleMapperEEENSZ_13OutEdgeMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i", %973
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %.sroa.01.sroa.0.0.copyload.i.i, %973 ], [ %1166, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121is_within_same_islandERKN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS6_5InputENS6_6OutputENS6_2OpENS6_4DataENS6_10ConstValueENS6_6IslandENS6_8ProtocolENS6_17OriginalInputMetaENS6_10OutputMetaENS6_7JournalENS3_6passes19TopologicalSortDataENS6_17DataObjectCounterENS6_11IslandModelENS6_14ActiveBackendsENS6_18CustomMetaFunctionENS6_9StreamingENS6_12DeserializedENS6_13HasIntrinsicsENS6_10DesyncPathENS6_10DesyncEdgeENS6_14DesynchronizedENS6_11CompileArgsEEEERKNS3_6HandleINS3_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS3_4util5Range13IterableRangeINS1F_8MapRangeINS1H_INS1F_9IterRangeINS_17__normal_iteratorIPPNS3_4EdgeESt6vectorIS1L_SaIS1L_EEEES1Q_EENSZ_12HandleMapperEEENSZ_13OutEdgeMapperEEEE8iteratorEEEbT_.exit.i.i.i.i.i.i.i" ]
-  %.not.i.not.i.not = icmp ne ptr %.sroa.0.0.i.i.i.i.i.i, %.sroa.01.sroa.2.0.copyload.i.i
-  br i1 %.not.i.not.i.not, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i, label %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS3_INS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEZN12_GLOBAL__N_121is_within_same_islandERKNS_10TypedGraphIJN2cv5gimpl8NodeTypeENSN_5InputENSN_6OutputENSN_2OpENSN_4DataENSN_10ConstValueENSN_6IslandENSN_8ProtocolENSN_17OriginalInputMetaENSN_10OutputMetaENSN_7JournalENS_6passes19TopologicalSortDataENSN_17DataObjectCounterENSN_11IslandModelENSN_14ActiveBackendsENSN_18CustomMetaFunctionENSN_9StreamingENSN_12DeserializedENSN_13HasIntrinsicsENSN_10DesyncPathENSN_10DesyncEdgeENSN_14DesynchronizedENSN_11CompileArgsEEEERKNS_6HandleISF_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEbOT_OT0_.exit.i"
+  %.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i.i.i.i.i, %.sroa.01.sroa.2.0.copyload.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.not.not, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i, label %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS3_INS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEZN12_GLOBAL__N_121is_within_same_islandERKNS_10TypedGraphIJN2cv5gimpl8NodeTypeENSN_5InputENSN_6OutputENSN_2OpENSN_4DataENSN_10ConstValueENSN_6IslandENSN_8ProtocolENSN_17OriginalInputMetaENSN_10OutputMetaENSN_7JournalENS_6passes19TopologicalSortDataENSN_17DataObjectCounterENSN_11IslandModelENSN_14ActiveBackendsENSN_18CustomMetaFunctionENSN_9StreamingENSN_12DeserializedENSN_13HasIntrinsicsENSN_10DesyncPathENSN_10DesyncEdgeENSN_14DesynchronizedENSN_11CompileArgsEEEERKNS_6HandleISF_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEbOT_OT0_.exit.i"
 
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratorneERKSL_.exit.i.i.i.i.i.i.i: ; preds = %974
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !78
@@ -2975,7 +2975,7 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread181.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread181.i: ; preds = %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS3_INS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEZN12_GLOBAL__N_121is_within_same_islandERKNS_10TypedGraphIJN2cv5gimpl8NodeTypeENSN_5InputENSN_6OutputENSN_2OpENSN_4DataENSN_10ConstValueENSN_6IslandENSN_8ProtocolENSN_17OriginalInputMetaENSN_10OutputMetaENSN_7JournalENS_6passes19TopologicalSortDataENSN_17DataObjectCounterENSN_11IslandModelENSN_14ActiveBackendsENSN_18CustomMetaFunctionENSN_9StreamingENSN_12DeserializedENSN_13HasIntrinsicsENSN_10DesyncPathENSN_10DesyncEdgeENSN_14DesynchronizedENSN_11CompileArgsEEEERKNS_6HandleISF_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEbOT_OT0_.exit.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.loopexit185.i, %839
-  %1167 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ false, %839 ], [ %.not.i.not.i.not, %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS3_INS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEZN12_GLOBAL__N_121is_within_same_islandERKNS_10TypedGraphIJN2cv5gimpl8NodeTypeENSN_5InputENSN_6OutputENSN_2OpENSN_4DataENSN_10ConstValueENSN_6IslandENSN_8ProtocolENSN_17OriginalInputMetaENSN_10OutputMetaENSN_7JournalENS_6passes19TopologicalSortDataENSN_17DataObjectCounterENSN_11IslandModelENSN_14ActiveBackendsENSN_18CustomMetaFunctionENSN_9StreamingENSN_12DeserializedENSN_13HasIntrinsicsENSN_10DesyncPathENSN_10DesyncEdgeENSN_14DesynchronizedENSN_11CompileArgsEEEERKNS_6HandleISF_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEbOT_OT0_.exit.i" ], [ false, %.loopexit185.i ]
+  %1167 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ false, %839 ], [ %.not.not.not.i.not.not.not.i.not.not.not.not.not, %"_ZN3ade4util6any_ofINS0_5Range8MapRangeINS3_INS2_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEZN12_GLOBAL__N_121is_within_same_islandERKNS_10TypedGraphIJN2cv5gimpl8NodeTypeENSN_5InputENSN_6OutputENSN_2OpENSN_4DataENSN_10ConstValueENSN_6IslandENSN_8ProtocolENSN_17OriginalInputMetaENSN_10OutputMetaENSN_7JournalENS_6passes19TopologicalSortDataENSN_17DataObjectCounterENSN_11IslandModelENSN_14ActiveBackendsENSN_18CustomMetaFunctionENSN_9StreamingENSN_12DeserializedENSN_13HasIntrinsicsENSN_10DesyncPathENSN_10DesyncEdgeENSN_14DesynchronizedENSN_11CompileArgsEEEERKNS_6HandleISF_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEbOT_OT0_.exit.i" ], [ false, %.loopexit185.i ]
   %1168 = load ptr, ptr %71, align 8
   %.not.i.i.i.i.i84 = icmp eq ptr %1168, null
   br i1 %.not.i.i.i.i.i84, label %1198, label %1169
@@ -4256,8 +4256,8 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
 
 274:                                              ; preds = %275, %271
   %.06.i.i.i.i.i.i.i284 = phi i32 [ %273, %271 ], [ %279, %275 ]
-  %.not.i.not.i.i.i.i.i.i285 = icmp eq i32 %.06.i.i.i.i.i.i.i284, 0
-  br i1 %.not.i.not.i.i.i.i.i.i285, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i, label %275
+  %.not.not.not.i.not.i.i.i.i.i.i285 = icmp eq i32 %.06.i.i.i.i.i.i.i284, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i285, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i, label %275
 
 275:                                              ; preds = %274
   %276 = add nsw i32 %.06.i.i.i.i.i.i.i284, 1
@@ -4351,8 +4351,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit.i:          ; preds = %274, %_ZNSt16_Sp_co
 
 319:                                              ; preds = %320, %316
   %.06.i.i.i.i.i.i3.i = phi i32 [ %318, %316 ], [ %324, %320 ]
-  %.not.i.not.i.i.i.i.i4.i = icmp eq i32 %.06.i.i.i.i.i.i3.i, 0
-  br i1 %.not.i.not.i.i.i.i.i4.i, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit, label %320
+  %.not.not.not.i.not.i.i.i.i.i4.i = icmp eq i32 %.06.i.i.i.i.i.i3.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i4.i, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit, label %320
 
 320:                                              ; preds = %319
   %321 = add nsw i32 %.06.i.i.i.i.i.i3.i, 1
@@ -4814,8 +4814,8 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 526:                                              ; preds = %526, %.loopexit440
   %.06.i.i.i.i.i.i.i = phi i32 [ %525, %.loopexit440 ], [ %530, %526 ]
-  %.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i)
   %527 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
   %528 = cmpxchg weak ptr %524, i32 %.06.i.i.i.i.i.i.i, i32 %527 acq_rel monotonic, align 8, !noalias !141
   %529 = extractvalue { i32, i1 } %528, 1
@@ -4909,8 +4909,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 572:                                              ; preds = %572, %568
   %.06.i.i.i.i.i.i.i119 = phi i32 [ %571, %568 ], [ %576, %572 ]
-  %.not.i.not.i.i.i.i.i.i120 = icmp ne i32 %.06.i.i.i.i.i.i.i119, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i120)
+  %.not.not.not.i.not.i.i.i.i.i.i120 = icmp ne i32 %.06.i.i.i.i.i.i.i119, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i120)
   %573 = add nsw i32 %.06.i.i.i.i.i.i.i119, 1
   %574 = cmpxchg weak ptr %570, i32 %.06.i.i.i.i.i.i.i119, i32 %573 acq_rel monotonic, align 8, !noalias !144
   %575 = extractvalue { i32, i1 } %574, 1
@@ -5522,8 +5522,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 836:                                              ; preds = %837, %833
   %.06.i.i.i.i.i.i.i339 = phi i32 [ %835, %833 ], [ %841, %837 ]
-  %.not.i.not.i.i.i.i.i.i340 = icmp eq i32 %.06.i.i.i.i.i.i.i339, 0
-  br i1 %.not.i.not.i.i.i.i.i.i340, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i347, label %837
+  %.not.not.not.i.not.i.i.i.i.i.i340 = icmp eq i32 %.06.i.i.i.i.i.i.i339, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i340, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i347, label %837
 
 837:                                              ; preds = %836
   %838 = add nsw i32 %.06.i.i.i.i.i.i.i339, 1
@@ -5618,8 +5618,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit.i347:       ; preds = %836, %_ZNSt16_Sp_co
 
 882:                                              ; preds = %883, %879
   %.06.i.i.i.i.i.i3.i349 = phi i32 [ %881, %879 ], [ %887, %883 ]
-  %.not.i.not.i.i.i.i.i4.i350 = icmp eq i32 %.06.i.i.i.i.i.i3.i349, 0
-  br i1 %.not.i.not.i.i.i.i.i4.i350, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit363, label %883
+  %.not.not.not.i.not.i.i.i.i.i4.i350 = icmp eq i32 %.06.i.i.i.i.i.i3.i349, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i4.i350, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit363, label %883
 
 883:                                              ; preds = %882
   %884 = add nsw i32 %.06.i.i.i.i.i.i3.i349, 1
@@ -5717,8 +5717,8 @@ _ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit363:       ; preds = %882, %_ZNK3ade6Hand
 
 929:                                              ; preds = %930, %926
   %.06.i.i.i.i.i.i.i.i.i = phi i32 [ %928, %926 ], [ %934, %930 ]
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit.i, label %930
+  %.not.not.not.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit.i, label %930
 
 930:                                              ; preds = %929
   %931 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
@@ -5836,8 +5836,8 @@ _ZNKSt8__detail15_Hashtable_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityESt8eq
 
 986:                                              ; preds = %987, %983
   %.06.i.i.i.i.i.i.i313 = phi i32 [ %985, %983 ], [ %991, %987 ]
-  %.not.i.not.i.i.i.i.i.i314 = icmp eq i32 %.06.i.i.i.i.i.i.i313, 0
-  br i1 %.not.i.not.i.i.i.i.i.i314, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i321, label %987
+  %.not.not.not.i.not.i.i.i.i.i.i314 = icmp eq i32 %.06.i.i.i.i.i.i.i313, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i314, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i321, label %987
 
 987:                                              ; preds = %986
   %988 = add nsw i32 %.06.i.i.i.i.i.i.i313, 1
@@ -5932,8 +5932,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit.i321:       ; preds = %986, %_ZNSt16_Sp_co
 
 1032:                                             ; preds = %1033, %1029
   %.06.i.i.i.i.i.i3.i323 = phi i32 [ %1031, %1029 ], [ %1037, %1033 ]
-  %.not.i.not.i.i.i.i.i4.i324 = icmp eq i32 %.06.i.i.i.i.i.i3.i323, 0
-  br i1 %.not.i.not.i.i.i.i.i4.i324, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit337, label %1033
+  %.not.not.not.i.not.i.i.i.i.i4.i324 = icmp eq i32 %.06.i.i.i.i.i.i3.i323, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i4.i324, label %_ZNK3ade6HandleINS_4NodeEEeqERKS2_.exit337, label %1033
 
 1033:                                             ; preds = %1032
   %1034 = add nsw i32 %.06.i.i.i.i.i.i3.i323, 1
@@ -11594,8 +11594,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ade6HandleINS0_4Node
 
 19:                                               ; preds = %20, %16
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %18, %16 ], [ %24, %20 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit, label %20
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit, label %20
 
 20:                                               ; preds = %19
   %21 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
@@ -11946,8 +11946,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ade6HandleINS_4NodeEEeqERKS2
 
 8:                                                ; preds = %9, %5
   %.06.i.i.i.i.i.i = phi i32 [ %7, %5 ], [ %13, %9 ]
-  %.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
+  %.not.not.not.i.not.i.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %9
 
 9:                                                ; preds = %8
   %10 = add nsw i32 %.06.i.i.i.i.i.i, 1
@@ -12042,8 +12042,8 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %8, %2, %30, %43, %_
 
 54:                                               ; preds = %55, %51
   %.06.i.i.i.i.i.i3 = phi i32 [ %53, %51 ], [ %59, %55 ]
-  %.not.i.not.i.i.i.i.i4 = icmp eq i32 %.06.i.i.i.i.i.i3, 0
-  br i1 %.not.i.not.i.i.i.i.i4, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit14, label %55
+  %.not.not.not.i.not.i.i.i.i.i4 = icmp eq i32 %.06.i.i.i.i.i.i3, 0
+  br i1 %.not.not.not.i.not.i.i.i.i.i4, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit14, label %55
 
 55:                                               ; preds = %54
   %56 = add nsw i32 %.06.i.i.i.i.i.i3, 1

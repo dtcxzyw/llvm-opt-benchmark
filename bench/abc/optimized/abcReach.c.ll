@@ -456,7 +456,6 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   br label %57
 
 57:                                               ; preds = %.lr.ph169, %.critedge142
-  %.not135168 = phi i1 [ false, %.lr.ph169 ], [ %.not135, %.critedge142 ]
   %.0124167 = phi i32 [ 1, %.lr.ph169 ], [ %82, %.critedge142 ]
   %.0129166 = phi ptr [ %3, %.lr.ph169 ], [ %76, %.critedge142 ]
   %.0130165 = phi ptr [ %3, %.lr.ph169 ], [ %77, %.critedge142 ]
@@ -517,13 +516,12 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
 
 .critedge142:                                     ; preds = %72, %78
   %82 = add nuw i32 %.0124167, 1
-  %.not135 = icmp sge i32 %.0124167, %6
-  %exitcond = icmp eq i32 %.0124167, %6
-  br i1 %exitcond, label %.loopexit, label %57, !llvm.loop !8
+  %exitcond.not = icmp eq i32 %.0124167, %6
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge142, %62, %65, %52, %70
   %.0124158 = phi i32 [ %.0124167, %70 ], [ 1, %52 ], [ %56, %.critedge142 ], [ %.0124167, %62 ], [ %.0124167, %65 ]
-  %.not135156 = phi i1 [ %.not135168, %70 ], [ true, %52 ], [ %.not135, %.critedge142 ], [ %.not135168, %62 ], [ %.not135168, %65 ]
+  %.not135156 = phi i1 [ false, %70 ], [ true, %52 ], [ true, %.critedge142 ], [ false, %62 ], [ false, %65 ]
   %.1131 = phi ptr [ null, %70 ], [ %3, %52 ], [ %77, %.critedge142 ], [ %.0130165, %62 ], [ %.0130165, %65 ]
   %.1128 = phi ptr [ %63, %70 ], [ null, %52 ], [ %63, %65 ], [ %63, %62 ], [ %63, %.critedge142 ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1128) #14

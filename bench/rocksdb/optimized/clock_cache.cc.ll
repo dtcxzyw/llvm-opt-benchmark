@@ -2508,8 +2508,8 @@ entry:
 
 while.cond.i:                                     ; preds = %while.body.i, %entry
   %2 = load atomic i64, ptr %occupancy_limit_.i monotonic, align 8
-  %cmp.not.i.not = icmp ugt i64 %add, %2
-  br i1 %cmp.not.i.not, label %while.body.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE.exit
+  %cmp.not.not.not.i.not = icmp ugt i64 %add, %2
+  br i1 %cmp.not.not.not.i.not, label %while.body.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE.exit
 
 while.body.i:                                     ; preds = %while.cond.i
   %call2.i = call noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %state)
@@ -2522,7 +2522,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE
   br i1 %tobool.not, label %if.else, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE.exit
-  call void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageMaybeEvictStrictINS0_19AutoHyperClockTableEEENS_6StatusEmmbjRNT_11InsertStateE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(160) %this, i64 noundef %3, i64 noundef %capacity, i1 noundef zeroext %cmp.not.i.not, i32 noundef %eec_and_scl, ptr noundef nonnull align 8 dereferenceable(16) %state)
+  call void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageMaybeEvictStrictINS0_19AutoHyperClockTableEEENS_6StatusEmmbjRNT_11InsertStateE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(160) %this, i64 noundef %3, i64 noundef %capacity, i1 noundef zeroext %cmp.not.not.not.i.not, i32 noundef %eec_and_scl, ptr noundef nonnull align 8 dereferenceable(16) %state)
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i = icmp eq i8 %4, 0
   br i1 %cmp.i, label %nrvo.unused, label %nrvo.skipdtor
@@ -2550,9 +2550,9 @@ if.else:                                          ; preds = %_ZN7rocksdb11clock_
   %usage_.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load atomic i64, ptr %usage_.i monotonic, align 8
   %add.i = add i64 %7, %3
-  %cmp.not.i24 = icmp ule i64 %add.i, %capacity
+  %cmp.not.i = icmp ule i64 %add.i, %capacity
   %cmp2.i = icmp ugt i64 %3, %7
-  %or.cond11.i = or i1 %cmp2.i, %cmp.not.i24
+  %or.cond11.i = or i1 %cmp2.i, %cmp.not.i
   br i1 %or.cond11.i, label %if.end8.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else
@@ -2569,7 +2569,7 @@ if.then4.i:                                       ; preds = %if.else.i
 if.end8.i:                                        ; preds = %if.then4.i, %if.else.i, %if.else
   %need_evict_charge.0.i = phi i64 [ %add7.i, %if.then4.i ], [ %3, %if.else.i ], [ 0, %if.else ]
   %cmp9.i = icmp eq i64 %need_evict_charge.0.i, 0
-  %or.cond.i = and i1 %cmp.not.i.not, %cmp9.i
+  %or.cond.i = and i1 %cmp.not.not.not.i.not, %cmp9.i
   %spec.store.select.i = select i1 %or.cond.i, i64 1, i64 %need_evict_charge.0.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %cmp12.not.i = icmp eq i64 %spec.store.select.i, 0
@@ -2580,7 +2580,7 @@ if.then13.i:                                      ; preds = %if.end8.i
   %freed_count.i = getelementptr inbounds i8, ptr %data.i, i64 8
   %8 = load i64, ptr %freed_count.i, align 8
   %cmp16.i = icmp eq i64 %8, 0
-  %or.cond1.i = select i1 %cmp.not.i.not, i1 %cmp16.i, i1 false
+  %or.cond1.i = select i1 %cmp.not.not.not.i.not, i1 %cmp16.i, i1 false
   br i1 %or.cond1.i, label %if.then13, label %if.else18.i
 
 if.else18.i:                                      ; preds = %if.then13.i
@@ -2629,9 +2629,9 @@ if.then23.critedge:                               ; preds = %_ZN7rocksdb11clock_
   %18 = icmp ult i32 %priority, 3
   %switch.idx.cast = zext i32 %priority to i64
   %switch.offset = sub nsw i64 3, %switch.idx.cast
-  %retval.0.i25 = select i1 %18, i64 %switch.offset, i64 2
+  %retval.0.i24 = select i1 %18, i64 %switch.offset, i64 2
   %cmp25 = icmp ne ptr %handle, null
-  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %retval.0.i25, i1 noundef zeroext %cmp25, ptr noundef nonnull align 8 dereferenceable(16) %state)
+  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %retval.0.i24, i1 noundef zeroext %cmp25, ptr noundef nonnull align 8 dereferenceable(16) %state)
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %if.end32, label %if.then28
 
@@ -2643,8 +2643,8 @@ if.then30:                                        ; preds = %if.then28
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.then28
-  %state_.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i26, align 8, !alias.scope !29
+  %state_.i.i25 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i25, align 8, !alias.scope !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
   br label %return
 
@@ -2656,22 +2656,22 @@ if.end32:                                         ; preds = %if.then23.critedge
 if.then36:                                        ; preds = %if.end32
   %usage_37 = getelementptr inbounds i8, ptr %this, i64 72
   %20 = atomicrmw sub ptr %usage_37, i64 %3 monotonic, align 8
-  %helper.i27 = getelementptr inbounds i8, ptr %proto, i64 8
-  %21 = load ptr, ptr %helper.i27, align 8
+  %helper.i26 = getelementptr inbounds i8, ptr %proto, i64 8
+  %21 = load ptr, ptr %helper.i26, align 8
   %22 = load ptr, ptr %21, align 8
-  %tobool.not.i28 = icmp eq ptr %22, null
-  br i1 %tobool.not.i28, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30, label %if.then.i29
+  %tobool.not.i27 = icmp eq ptr %22, null
+  br i1 %tobool.not.i27, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, label %if.then.i28
 
-if.then.i29:                                      ; preds = %if.then36
+if.then.i28:                                      ; preds = %if.then36
   %allocator_39 = getelementptr inbounds i8, ptr %this, i64 136
   %23 = load ptr, ptr %allocator_39, align 8
   %24 = load ptr, ptr %proto, align 8
   call void %22(ptr noundef %24, ptr noundef %23)
-  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30
+  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29
 
-_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30: ; preds = %if.then36, %if.then.i29
-  %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i31, align 8, !alias.scope !32
+_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29: ; preds = %if.then36, %if.then.i28
+  %state_.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i30, align 8, !alias.scope !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !32
   br label %return
 
@@ -2691,12 +2691,12 @@ if.end41:                                         ; preds = %if.end32, %if.else1
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 12, ptr %subcode_.i.i, align 1, !alias.scope !35
   %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %state_.i.i32 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i32, align 8, !alias.scope !35
+  %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i31, align 8, !alias.scope !35
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !35
   br label %return
 
-return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
+return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
   ret void
 }
 
@@ -4494,7 +4494,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %conv = uitofp i32 %call to double
   %div = fdiv double %add.i, %conv
   %cmp = fcmp ogt double %div, 0x3FE6666666666666
-  br i1 %cmp, label %for.cond.preheader, label %if.else60
+  br i1 %cmp, label %for.body, label %if.else60
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread: ; preds = %invoke.cont11
   %conv52 = uitofp i32 %call to double
@@ -4502,13 +4502,10 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %cmp54 = fcmp ogt double %div53, 0x3FE6666666666666
   br i1 %cmp54, label %cleanupthread-pre-split, label %if.else60
 
-for.cond.preheader:                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit
-  br i1 %cmp.i.not4.i, label %cleanupthread-pre-split, label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %over_count.049 = phi i32 [ %over_count.1, %for.inc ], [ 0, %for.cond.preheader ]
-  %lost_portion.048 = phi double [ %lost_portion.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
-  %__begin3.sroa.0.047 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %11, %for.cond.preheader ]
+for.body:                                         ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit, %for.inc
+  %over_count.049 = phi i32 [ %over_count.1, %for.inc ], [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]
+  %lost_portion.048 = phi double [ %lost_portion.1, %for.inc ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]
+  %__begin3.sroa.0.047 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %11, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit ]
   %14 = load double, ptr %__begin3.sroa.0.047, align 8
   %cmp29 = fcmp ogt double %14, 8.400000e-01
   br i1 %cmp29, label %if.then30, label %for.inc
@@ -4596,7 +4593,7 @@ if.then66:                                        ; preds = %if.then62
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext %level67.0, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 93), ptr noundef nonnull %this, double noundef %div73, i64 noundef %19)
           to label %cleanupthread-pre-split unwind label %lpad10
 
-cleanupthread-pre-split:                          ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread, %for.cond.preheader, %if.else60, %if.then66, %if.then62, %if.then54, %if.else40
+cleanupthread-pre-split:                          ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread, %if.else60, %if.then66, %if.then62, %if.then54, %if.else40
   %.pr = load ptr, ptr %predicted_load_factors, align 8
   br label %cleanup
 
@@ -5025,15 +5022,15 @@ entry:
 
 while.cond:                                       ; preds = %while.body, %entry
   %0 = load atomic i64, ptr %occupancy_limit_ monotonic, align 8
-  %cmp.not = icmp ule i64 %new_occupancy, %0
-  br i1 %cmp.not, label %return, label %while.body
+  %cmp.not.not.not.not.not = icmp ule i64 %new_occupancy, %0
+  br i1 %cmp.not.not.not.not.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %call2 = tail call noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %state)
   br i1 %call2, label %while.cond, label %return, !llvm.loop !25
 
 return:                                           ; preds = %while.cond, %while.body
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5217,7 +5214,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleI
   %head_next_with_shift = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %grow_home, i32 1
   %shl.i.i78 = shl i64 %old_home, 8
   %or.i.i80 = or i64 %shl.i.i78, %conv.i
-  %or.i81 = or i64 %or.i.i80, 64
+  %or.i81 = or i64 %or.i.i80, 192
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit, %if.end58
@@ -5568,8 +5565,8 @@ for.inc161:                                       ; preds = %invoke.cont158, %in
   %zero_chain_frontier.6 = phi i64 [ %zero_chain_frontier.11, %invoke.cont158 ], [ %zero_chain_frontier.5289, %invoke.cont145 ]
   %chain_frontier_first.4 = phi i32 [ %sub, %invoke.cont158 ], [ %chain_frontier_first.3291, %invoke.cont145 ]
   %inc162 = add nuw nsw i32 %i96.0290, 1
-  %exitcond332 = icmp eq i32 %inc162, 4096
-  br i1 %exitcond332, label %if.then99, label %if.end100, !llvm.loop !59
+  %exitcond333 = icmp eq i32 %inc162, 4096
+  br i1 %exitcond333, label %if.then99, label %if.end100, !llvm.loop !59
 
 if.end164:                                        ; preds = %if.end5.i124, %if.end5.i124.us, %if.then2.i123, %if.then2.i, %invoke.cont136, %if.end92
   %and.i.i.i148 = and i64 %cond, 64

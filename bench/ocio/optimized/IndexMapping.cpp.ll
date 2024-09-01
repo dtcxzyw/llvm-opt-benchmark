@@ -547,7 +547,7 @@ for.inc:                                          ; preds = %for.inc.i.i.i.i.i.i
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.body, %for.inc, %for.body.i.i.i.i.i.i, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %for.body.i.i.i.i.i.i ], [ false, %for.body ], [ %cmp.i.i, %for.inc ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %for.body.i.i.i.i.i.i ], [ %cmp.i.i, %for.inc ], [ %cmp.i.i, %for.body ]
   ret i1 %retval.0
 }
 

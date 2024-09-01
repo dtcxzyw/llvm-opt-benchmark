@@ -7466,8 +7466,8 @@ _ZN20AstUserAllocatorBaseI7AstNodeN15SimulateVisitor11AuxVariableELi1EEclIJEEERS
 360:                                              ; preds = %_ZN20AstUserAllocatorBaseI7AstNodeN15SimulateVisitor11AuxVariableELi1EEclIJEEERS2_PS0_DpOT_.exit131, %357
   %361 = getelementptr inbounds i8, ptr %353, i64 40
   %362 = load ptr, ptr %361, align 8
-  %.not161 = icmp eq ptr %362, null
-  br i1 %.not161, label %.thread149, label %363
+  %.not159 = icmp eq ptr %362, null
+  br i1 %.not159, label %.thread149, label %363
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %362, i64 112
@@ -7530,8 +7530,8 @@ _ZNSt5dequeIN15SimulateVisitor11AuxVariableESaIS1_EE4backEv.exit.i.i: ; preds = 
   %.0.i.i = phi ptr [ %370, %363 ], [ %392, %_ZNSt5dequeIN15SimulateVisitor11AuxVariableESaIS1_EE4backEv.exit.i.i ]
   %396 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %397 = load ptr, ptr %396, align 8
-  %.not162 = icmp eq ptr %397, null
-  br i1 %.not162, label %.thread149, label %398
+  %.not160 = icmp eq ptr %397, null
+  br i1 %.not160, label %.thread149, label %398
 
 398:                                              ; preds = %395
   %399 = getelementptr inbounds i8, ptr %0, i64 96
@@ -13641,13 +13641,13 @@ _ZNK7AstNode8isStringEv.exit54:                   ; preds = %69
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc56
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %82, i16 95, ptr noundef %83)
-          to label %.noexc57 unwind label %.body59.thread82
+          to label %.noexc57 unwind label %.body59.thread81
 
 .noexc57:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %82, align 8
   %87 = getelementptr inbounds i8, ptr %82, i64 152
   invoke void @_ZN8V3NumberC2ENS_6StringEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %87, ptr noundef nonnull %82, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %.noexc58 unwind label %.body59.thread82
+          to label %.noexc58 unwind label %.body59.thread81
 
 .noexc58:                                         ; preds = %.noexc57
   %88 = invoke noundef ptr @_ZNK7AstNode14findBasicDTypeE14VBasicDTypeKwd(ptr noundef nonnull align 8 dereferenceable(152) %82, i8 12)
@@ -13692,7 +13692,7 @@ _ZNK7AstNode8isStringEv.exit54.thread:            ; preds = %53, %69, %_ZNK7AstN
   %99 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8V3NumberD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %97) #21
-  br label %.body59.thread78
+  br label %.body59.thread77
 
 100:                                              ; preds = %.noexc.i, %91
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -13769,20 +13769,20 @@ _ZN12AstInitArrayC2EP8FileLineP12AstNodeDTypeP11AstNodeExpr.exit: ; preds = %_ZN
 124:                                              ; preds = %.noexc61, %_ZNK7AstNode8isStringEv.exit54.thread
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %.body59.thread78
+  br label %.body59.thread77
 
-.body59.thread78:                                 ; preds = %124, %98
+.body59.thread77:                                 ; preds = %124, %98
   %eh.lpad-body64 = phi { ptr, i32 } [ %125, %124 ], [ %99, %98 ]
   tail call void @_ZdlPv(ptr noundef nonnull %95) #24
   br label %.critedge48
 
-.body59.thread82:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc57
+.body59.thread81:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %.noexc57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
 
-126:                                              ; preds = %.body59.thread82, %.body59.thread
-  %.pn4275 = phi { ptr, i32 } [ %94, %.body59.thread ], [ %lpad.thr_comm, %.body59.thread82 ]
+126:                                              ; preds = %.body59.thread81, %.body59.thread
+  %.pn4275 = phi { ptr, i32 } [ %94, %.body59.thread ], [ %lpad.thr_comm, %.body59.thread81 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   br label %127
 
@@ -13802,8 +13802,8 @@ _ZN12AstInitArrayC2EP8FileLineP12AstNodeDTypeP11AstNodeExpr.exit: ; preds = %_ZN
   call void @_ZdlPv(ptr noundef nonnull %102) #24
   br label %.critedge48
 
-.critedge48:                                      ; preds = %.body59.thread78, %127, %.body68, %121
-  %.pn45 = phi { ptr, i32 } [ %eh.lpad-body69, %.body68 ], [ %.pn42.pn.ph, %127 ], [ %.pn, %121 ], [ %eh.lpad-body64, %.body59.thread78 ]
+.critedge48:                                      ; preds = %.body59.thread77, %127, %.body68, %121
+  %.pn45 = phi { ptr, i32 } [ %eh.lpad-body69, %.body68 ], [ %.pn42.pn.ph, %127 ], [ %.pn, %121 ], [ %eh.lpad-body64, %.body59.thread77 ]
   resume { ptr, i32 } %.pn45
 }
 

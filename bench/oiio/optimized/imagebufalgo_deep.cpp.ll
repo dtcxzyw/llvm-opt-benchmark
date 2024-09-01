@@ -2474,12 +2474,9 @@ land.lhs.true59:                                  ; preds = %for.body55
 for.inc63:                                        ; preds = %for.body55, %land.lhs.true59
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %for.end65, label %for.body55, !llvm.loop !22
+  br i1 %exitcond186.not, label %for.body73.lr.ph, label %for.body55, !llvm.loop !22
 
-for.end65:                                        ; preds = %for.inc63
-  br i1 %cmp129, label %for.body73.lr.ph, label %for.inc96
-
-for.body73.lr.ph:                                 ; preds = %for.end65
+for.body73.lr.ph:                                 ; preds = %for.inc63
   %49 = load i32, ptr %z_channel21, align 4
   %50 = zext i32 %49 to i64
   br label %for.body73
@@ -2509,7 +2506,7 @@ if.then93:                                        ; preds = %land.lhs.true59, %l
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf16set_deep_samplesEiiii(ptr noundef nonnull align 8 dereferenceable(16) %dst, i32 noundef %x.0137, i32 noundef %y.0141, i32 noundef %z.0145, i32 noundef 1)
           to label %for.inc96 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
-for.inc96:                                        ; preds = %for.inc88, %for.cond53.preheader, %for.end65, %if.then93
+for.inc96:                                        ; preds = %for.inc88, %for.cond53.preheader, %if.then93
   %inc97 = add nsw i32 %x.0137, 1
   %52 = load i32, ptr %xend, align 4
   %cmp49 = icmp slt i32 %inc97, %52

@@ -900,9 +900,9 @@ arraydestroy.body116:                             ; preds = %arraydestroy.body11
   %arraydestroy.element118 = getelementptr inbounds i8, ptr %arraydestroy.elementPast117, i64 -64
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element118) #19
   %arraydestroy.done119 = icmp eq ptr %arraydestroy.element118, %ref.tmp88
-  br i1 %arraydestroy.done119, label %ehcleanup122.thread196, label %arraydestroy.body116
+  br i1 %arraydestroy.done119, label %ehcleanup122.thread193, label %arraydestroy.body116
 
-ehcleanup122.thread196:                           ; preds = %arraydestroy.body116
+ehcleanup122.thread193:                           ; preds = %arraydestroy.body116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #19
   br label %ehcleanup134
 
@@ -914,7 +914,7 @@ ehcleanup122:                                     ; preds = %invoke.cont94
   br label %arraydestroy.body124.preheader
 
 arraydestroy.body124.preheader:                   ; preds = %ehcleanup122, %ehcleanup122.thread
-  %.pn15.pn.pn195 = phi { ptr, i32 } [ %100, %ehcleanup122.thread ], [ %102, %ehcleanup122 ]
+  %.pn15.pn.pn192 = phi { ptr, i32 } [ %100, %ehcleanup122.thread ], [ %102, %ehcleanup122 ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp88) #19
   br label %ehcleanup134
 
@@ -924,8 +924,8 @@ lpad131:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN9struct_pb8compiler9FormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %format) #19
   br label %ehcleanup134
 
-ehcleanup134:                                     ; preds = %ehcleanup122.thread196, %arraydestroy.body124.preheader, %lpad.i71, %lpad2.i76, %lpad131
-  %.pn19 = phi { ptr, i32 } [ %103, %lpad131 ], [ %61, %lpad.i71 ], [ %62, %lpad2.i76 ], [ %.pn15.pn.pn195, %arraydestroy.body124.preheader ], [ %.pn15, %ehcleanup122.thread196 ]
+ehcleanup134:                                     ; preds = %ehcleanup122.thread193, %arraydestroy.body124.preheader, %lpad.i71, %lpad2.i76, %lpad131
+  %.pn19 = phi { ptr, i32 } [ %103, %lpad131 ], [ %61, %lpad.i71 ], [ %62, %lpad2.i76 ], [ %.pn15.pn.pn192, %arraydestroy.body124.preheader ], [ %.pn15, %ehcleanup122.thread193 ]
   call void @_ZN6google8protobuf2io7PrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %p82) #19
   br label %ehcleanup135
 

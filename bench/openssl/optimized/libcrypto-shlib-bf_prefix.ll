@@ -76,7 +76,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %outl.addr.045 = phi i64 [ %outl, %while.body.lr.ph ], [ %outl.addr.1.lcssa, %if.end67 ]
   %5 = load i32, ptr %linestart20, align 4
   %tobool.not = icmp eq i32 %5, 0
-  br i1 %tobool.not, label %if.end38, label %if.then21
+  br i1 %tobool.not, label %land.rhs.preheader, label %if.then21
 
 if.then21:                                        ; preds = %while.body
   %6 = load ptr, ptr %call, align 8
@@ -96,34 +96,26 @@ if.end33:                                         ; preds = %land.lhs.true25, %i
   %8 = load i32, ptr %indent35, align 8
   %call36 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call34, ptr noundef nonnull @.str.1, i32 noundef %8, ptr noundef nonnull @.str.2) #4
   store i32 0, ptr %linestart20, align 4
-  br label %if.end38
+  br label %land.rhs.preheader
 
-if.end38:                                         ; preds = %if.end33, %while.body
-  %9 = load i8, ptr %out.addr.046, align 1
-  %cmp43.not52 = icmp eq i8 %9, 10
-  br i1 %cmp43.not52, label %for.end, label %for.inc
+land.rhs.preheader:                               ; preds = %if.end33, %while.body
+  br label %land.rhs
 
-land.rhs:                                         ; preds = %for.inc
-  %arrayidx41 = getelementptr inbounds i8, ptr %out.addr.046, i64 %inc
-  %10 = load i8, ptr %arrayidx41, align 1
-  %cmp43.not = icmp eq i8 %10, 10
-  br i1 %cmp43.not, label %for.end.loopexit, label %for.inc, !llvm.loop !4
+land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
+  %i.037 = phi i64 [ %inc, %for.inc ], [ 0, %land.rhs.preheader ]
+  %arrayidx41 = getelementptr inbounds i8, ptr %out.addr.046, i64 %i.037
+  %9 = load i8, ptr %arrayidx41, align 1
+  %cmp43.not = icmp eq i8 %9, 10
+  br i1 %cmp43.not, label %for.end, label %for.inc
 
-for.inc:                                          ; preds = %if.end38, %land.rhs
-  %i.03753 = phi i64 [ %inc, %land.rhs ], [ 0, %if.end38 ]
-  %inc = add nuw i64 %i.03753, 1
+for.inc:                                          ; preds = %land.rhs
+  %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %outl.addr.045
-  br i1 %exitcond.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !4
+  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !4
 
-for.end.loopexit:                                 ; preds = %for.inc, %land.rhs
-  %i.0.lcssa.ph = phi i64 [ %inc, %land.rhs ], [ %outl.addr.045, %for.inc ]
-  %cmp39.le = icmp ult i64 %inc, %outl.addr.045
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %if.end38
-  %i.0.lcssa = phi i64 [ 0, %if.end38 ], [ %i.0.lcssa.ph, %for.end.loopexit ]
-  %cmp39.lcssa = phi i1 [ true, %if.end38 ], [ %cmp39.le, %for.end.loopexit ]
-  %inc49 = zext i1 %cmp39.lcssa to i64
+for.end:                                          ; preds = %for.inc, %land.rhs
+  %i.0.lcssa = phi i64 [ %outl.addr.045, %for.inc ], [ %i.037, %land.rhs ]
+  %inc49 = zext i1 %cmp43.not to i64
   %spec.select = add nuw i64 %i.0.lcssa, %inc49
   %cmp52.not39 = icmp eq i64 %spec.select, 0
   br i1 %cmp52.not39, label %while.end, label %while.body54
@@ -139,20 +131,20 @@ while.body54:                                     ; preds = %for.end, %if.end59
   br i1 %tobool57.not, label %return, label %if.end59
 
 if.end59:                                         ; preds = %while.body54
-  %11 = load i64, ptr %num, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.141, i64 %11
-  %sub60 = sub i64 %outl.addr.140, %11
-  %12 = load i64, ptr %numwritten, align 8
-  %add = add i64 %12, %11
+  %10 = load i64, ptr %num, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.141, i64 %10
+  %sub60 = sub i64 %outl.addr.140, %10
+  %11 = load i64, ptr %numwritten, align 8
+  %add = add i64 %11, %10
   store i64 %add, ptr %numwritten, align 8
-  %sub61 = sub i64 %i.242, %11
+  %sub61 = sub i64 %i.242, %10
   %cmp52.not = icmp eq i64 %sub61, 0
   br i1 %cmp52.not, label %while.end, label %while.body54, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end59, %for.end
   %outl.addr.1.lcssa = phi i64 [ %outl.addr.045, %for.end ], [ %sub60, %if.end59 ]
   %out.addr.1.lcssa = phi ptr [ %out.addr.046, %for.end ], [ %add.ptr, %if.end59 ]
-  br i1 %cmp39.lcssa, label %if.then65, label %if.end67
+  br i1 %cmp43.not, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %while.end
   store i32 1, ptr %linestart20, align 4

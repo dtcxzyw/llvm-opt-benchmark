@@ -5504,276 +5504,275 @@ define internal fastcc noundef zeroext i1 @_ZL19intersectSegContourPKiS0_iiS0_(p
 
 11:                                               ; preds = %.lr.ph, %_ZL9intersectPKiS0_S0_S0_.exit.thread38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ]
-  %12 = phi i1 [ true, %.lr.ph ], [ %13, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp ult i64 %indvars.iv.next, %9
-  %14 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %15 = select i1 %13, i32 %14, i32 0
-  %16 = icmp eq i64 %indvars.iv, %10
-  %17 = icmp eq i32 %2, %15
-  %or.cond = or i1 %16, %17
-  br i1 %or.cond, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %18
+  %12 = icmp ult i64 %indvars.iv.next, %9
+  %13 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %14 = select i1 %12, i32 %13, i32 0
+  %15 = icmp eq i64 %indvars.iv, %10
+  %16 = icmp eq i32 %2, %14
+  %or.cond = or i1 %15, %16
+  br i1 %or.cond, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %17
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   %.idx = shl nsw i64 %indvars.iv, 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 %.idx
-  %20 = shl nsw i32 %15, 2
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %4, i64 %21
-  %23 = load i32, ptr %0, align 4
-  %24 = load i32, ptr %19, align 4
-  %25 = icmp eq i32 %23, %24
-  br i1 %25, label %_ZL6vequalPKiS0_.exit, label %_ZL6vequalPKiS0_.exit.thread
+  %18 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %19 = shl nsw i32 %14, 2
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds i32, ptr %4, i64 %20
+  %22 = load i32, ptr %0, align 4
+  %23 = load i32, ptr %18, align 4
+  %24 = icmp eq i32 %22, %23
+  br i1 %24, label %_ZL6vequalPKiS0_.exit, label %_ZL6vequalPKiS0_.exit.thread
 
-_ZL6vequalPKiS0_.exit:                            ; preds = %18
-  %26 = load i32, ptr %7, align 4
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit.thread
+_ZL6vequalPKiS0_.exit:                            ; preds = %17
+  %25 = load i32, ptr %7, align 4
+  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %25, %27
+  br i1 %28, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit.thread
 
-_ZL6vequalPKiS0_.exit.thread:                     ; preds = %18, %_ZL6vequalPKiS0_.exit
-  %30 = load i32, ptr %1, align 4
-  %31 = icmp eq i32 %30, %24
-  br i1 %31, label %_ZL6vequalPKiS0_.exit34, label %_ZL6vequalPKiS0_.exit34.thread
+_ZL6vequalPKiS0_.exit.thread:                     ; preds = %17, %_ZL6vequalPKiS0_.exit
+  %29 = load i32, ptr %1, align 4
+  %30 = icmp eq i32 %29, %23
+  br i1 %30, label %_ZL6vequalPKiS0_.exit34, label %_ZL6vequalPKiS0_.exit34.thread
 
 _ZL6vequalPKiS0_.exit34:                          ; preds = %_ZL6vequalPKiS0_.exit.thread
-  %32 = load i32, ptr %8, align 4
-  %33 = getelementptr inbounds i8, ptr %19, i64 8
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit34.thread
+  %31 = load i32, ptr %8, align 4
+  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %31, %33
+  br i1 %34, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit34.thread
 
 _ZL6vequalPKiS0_.exit34.thread:                   ; preds = %_ZL6vequalPKiS0_.exit.thread, %_ZL6vequalPKiS0_.exit34
-  %36 = load i32, ptr %22, align 4
-  %37 = icmp eq i32 %23, %36
-  br i1 %37, label %_ZL6vequalPKiS0_.exit35, label %_ZL6vequalPKiS0_.exit35.thread
+  %35 = load i32, ptr %21, align 4
+  %36 = icmp eq i32 %22, %35
+  br i1 %36, label %_ZL6vequalPKiS0_.exit35, label %_ZL6vequalPKiS0_.exit35.thread
 
 _ZL6vequalPKiS0_.exit35:                          ; preds = %_ZL6vequalPKiS0_.exit34.thread
-  %38 = load i32, ptr %7, align 4
-  %39 = getelementptr inbounds i8, ptr %22, i64 8
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %38, %40
-  br i1 %41, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit35.thread
+  %37 = load i32, ptr %7, align 4
+  %38 = getelementptr inbounds i8, ptr %21, i64 8
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %37, %39
+  br i1 %40, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit35.thread
 
 _ZL6vequalPKiS0_.exit35.thread:                   ; preds = %_ZL6vequalPKiS0_.exit34.thread, %_ZL6vequalPKiS0_.exit35
-  %42 = icmp eq i32 %30, %36
+  %41 = icmp eq i32 %29, %35
   %.val31.pre = load i32, ptr %8, align 4
-  br i1 %42, label %_ZL6vequalPKiS0_.exit36, label %_ZL6vequalPKiS0_.exit36.thread
+  br i1 %41, label %_ZL6vequalPKiS0_.exit36, label %_ZL6vequalPKiS0_.exit36.thread
 
 _ZL6vequalPKiS0_.exit36:                          ; preds = %_ZL6vequalPKiS0_.exit35.thread
-  %43 = getelementptr inbounds i8, ptr %22, i64 8
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %.val31.pre, %44
-  br i1 %45, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit36.thread
+  %42 = getelementptr inbounds i8, ptr %21, i64 8
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %.val31.pre, %43
+  br i1 %44, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38, label %_ZL6vequalPKiS0_.exit36.thread
 
 _ZL6vequalPKiS0_.exit36.thread:                   ; preds = %_ZL6vequalPKiS0_.exit35.thread, %_ZL6vequalPKiS0_.exit36
   %.val29 = load i32, ptr %7, align 4
-  %46 = getelementptr i8, ptr %19, i64 8
-  %.val33 = load i32, ptr %46, align 4
-  %.neg.i.i.i = sub i32 %23, %30
-  %47 = sub nsw i32 %.val33, %.val29
-  %.neg3.i.i.i = mul i32 %47, %.neg.i.i.i
-  %48 = sub nsw i32 %24, %23
+  %45 = getelementptr i8, ptr %18, i64 8
+  %.val33 = load i32, ptr %45, align 4
+  %.neg.i.i.i = sub i32 %22, %29
+  %46 = sub nsw i32 %.val33, %.val29
+  %.neg3.i.i.i = mul i32 %46, %.neg.i.i.i
+  %47 = sub nsw i32 %23, %22
   %.neg.i.i.i.i = sub i32 %.val29, %.val31.pre
-  %.neg8.i.i.i.i = mul i32 %.neg.i.i.i.i, %48
-  %49 = icmp eq i32 %.neg8.i.i.i.i, %.neg3.i.i.i
-  br i1 %49, label %79, label %50
+  %.neg8.i.i.i.i = mul i32 %.neg.i.i.i.i, %47
+  %48 = icmp eq i32 %.neg8.i.i.i.i, %.neg3.i.i.i
+  br i1 %48, label %78, label %49
 
-50:                                               ; preds = %_ZL6vequalPKiS0_.exit36.thread
-  %51 = getelementptr inbounds i8, ptr %22, i64 8
-  %52 = load i32, ptr %51, align 4
-  %53 = sub nsw i32 %52, %.val29
-  %.neg3.i26.i.i = mul i32 %53, %.neg.i.i.i
-  %54 = sub nsw i32 %36, %23
-  %.neg8.i.i28.i.i = mul i32 %.neg.i.i.i.i, %54
-  %55 = icmp eq i32 %.neg8.i.i28.i.i, %.neg3.i26.i.i
-  br i1 %55, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %56
+49:                                               ; preds = %_ZL6vequalPKiS0_.exit36.thread
+  %50 = getelementptr inbounds i8, ptr %21, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = sub nsw i32 %51, %.val29
+  %.neg3.i26.i.i = mul i32 %52, %.neg.i.i.i
+  %53 = sub nsw i32 %35, %22
+  %.neg8.i.i28.i.i = mul i32 %.neg.i.i.i.i, %53
+  %54 = icmp eq i32 %.neg8.i.i28.i.i, %.neg3.i26.i.i
+  br i1 %54, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %55
 
-56:                                               ; preds = %50
-  %.neg.i29.i.i = sub i32 %24, %36
-  %57 = sub nsw i32 %.val29, %.val33
-  %.neg3.i30.i.i = mul i32 %57, %.neg.i29.i.i
-  %58 = sub nsw i32 %23, %24
-  %.neg.i.i31.i.i = sub i32 %.val33, %52
-  %.neg8.i.i32.i.i = mul i32 %.neg.i.i31.i.i, %58
-  %59 = icmp eq i32 %.neg8.i.i32.i.i, %.neg3.i30.i.i
-  br i1 %59, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %60
+55:                                               ; preds = %49
+  %.neg.i29.i.i = sub i32 %23, %35
+  %56 = sub nsw i32 %.val29, %.val33
+  %.neg3.i30.i.i = mul i32 %56, %.neg.i29.i.i
+  %57 = sub nsw i32 %22, %23
+  %.neg.i.i31.i.i = sub i32 %.val33, %51
+  %.neg8.i.i32.i.i = mul i32 %.neg.i.i31.i.i, %57
+  %58 = icmp eq i32 %.neg8.i.i32.i.i, %.neg3.i30.i.i
+  br i1 %58, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %59
 
-60:                                               ; preds = %56
-  %61 = sub nsw i32 %.val31.pre, %.val33
-  %.neg3.i34.i.i = mul i32 %61, %.neg.i29.i.i
-  %62 = sub nsw i32 %30, %24
-  %.neg8.i.i36.i.i = mul i32 %.neg.i.i31.i.i, %62
-  %63 = icmp eq i32 %.neg8.i.i36.i.i, %.neg3.i34.i.i
-  br i1 %63, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %64
+59:                                               ; preds = %55
+  %60 = sub nsw i32 %.val31.pre, %.val33
+  %.neg3.i34.i.i = mul i32 %60, %.neg.i29.i.i
+  %61 = sub nsw i32 %29, %23
+  %.neg8.i.i36.i.i = mul i32 %.neg.i.i31.i.i, %61
+  %62 = icmp eq i32 %.neg8.i.i36.i.i, %.neg3.i34.i.i
+  br i1 %62, label %_ZL7betweenPKiS0_S0_.exit.thread13.i, label %63
 
-64:                                               ; preds = %60
-  %65 = sub nsw i32 %30, %23
-  %66 = mul nsw i32 %47, %65
-  %67 = add i32 %66, %.neg8.i.i.i.i
-  %68 = mul nsw i32 %53, %65
-  %69 = add i32 %68, %.neg8.i.i28.i.i
-  %70 = xor i32 %69, %67
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %_ZL13intersectPropPKiS0_S0_S0_.exit.i, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
+63:                                               ; preds = %59
+  %64 = sub nsw i32 %29, %22
+  %65 = mul nsw i32 %46, %64
+  %66 = add i32 %65, %.neg8.i.i.i.i
+  %67 = mul nsw i32 %52, %64
+  %68 = add i32 %67, %.neg8.i.i28.i.i
+  %69 = xor i32 %68, %66
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %_ZL13intersectPropPKiS0_S0_S0_.exit.i, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
 
-_ZL13intersectPropPKiS0_S0_S0_.exit.i:            ; preds = %64
-  %72 = sub nsw i32 %36, %24
-  %73 = mul nsw i32 %57, %72
-  %74 = add i32 %.neg8.i.i32.i.i, %73
-  %75 = mul nsw i32 %61, %72
-  %76 = add i32 %.neg8.i.i36.i.i, %75
-  %77 = xor i32 %74, %76
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
+_ZL13intersectPropPKiS0_S0_S0_.exit.i:            ; preds = %63
+  %71 = sub nsw i32 %35, %23
+  %72 = mul nsw i32 %56, %71
+  %73 = add i32 %.neg8.i.i32.i.i, %72
+  %74 = mul nsw i32 %60, %71
+  %75 = add i32 %.neg8.i.i36.i.i, %74
+  %76 = xor i32 %73, %75
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
 
-79:                                               ; preds = %_ZL6vequalPKiS0_.exit36.thread
-  %.not.i.i = icmp eq i32 %23, %30
-  br i1 %.not.i.i, label %83, label %80
+78:                                               ; preds = %_ZL6vequalPKiS0_.exit36.thread
+  %.not.i.i = icmp eq i32 %22, %29
+  br i1 %.not.i.i, label %82, label %79
+
+79:                                               ; preds = %78
+  %.not31.i.i = icmp sgt i32 %22, %23
+  %.not32.i.i = icmp sgt i32 %23, %29
+  %or.cond.i.i = or i1 %.not31.i.i, %.not32.i.i
+  br i1 %or.cond.i.i, label %80, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
 80:                                               ; preds = %79
-  %.not31.i.i = icmp sgt i32 %23, %24
-  %.not32.i.i = icmp sgt i32 %24, %30
-  %or.cond.i.i = or i1 %.not31.i.i, %.not32.i.i
-  br i1 %or.cond.i.i, label %81, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
-
-81:                                               ; preds = %80
-  %.not33.i.i = icmp sge i32 %23, %24
-  %82 = icmp sge i32 %24, %30
-  %spec.select.i.i = and i1 %.not33.i.i, %82
+  %.not33.i.i = icmp sge i32 %22, %23
+  %81 = icmp sge i32 %23, %29
+  %spec.select.i.i = and i1 %.not33.i.i, %81
   br i1 %spec.select.i.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
 
-83:                                               ; preds = %79
+82:                                               ; preds = %78
   %.not28.i.i = icmp sgt i32 %.val29, %.val33
   %.not29.i.i = icmp sgt i32 %.val33, %.val31.pre
   %or.cond9.i.i = or i1 %.not28.i.i, %.not29.i.i
   br i1 %or.cond9.i.i, label %_ZL7betweenPKiS0_S0_.exit.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
-_ZL7betweenPKiS0_S0_.exit.i:                      ; preds = %83
+_ZL7betweenPKiS0_S0_.exit.i:                      ; preds = %82
   %.not30.i.i = icmp sge i32 %.val29, %.val33
-  %84 = icmp sge i32 %.val33, %.val31.pre
-  %spec.select10.i.i = and i1 %.not30.i.i, %84
+  %83 = icmp sge i32 %.val33, %.val31.pre
+  %spec.select10.i.i = and i1 %.not30.i.i, %83
   br i1 %spec.select10.i.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit.thread13.i
 
-_ZL7betweenPKiS0_S0_.exit.thread13.i:             ; preds = %_ZL7betweenPKiS0_S0_.exit.i, %81, %_ZL13intersectPropPKiS0_S0_S0_.exit.i, %64, %60, %56, %50
-  %85 = getelementptr i8, ptr %22, i64 8
-  %.val33.i = load i32, ptr %85, align 4
-  %86 = sub nsw i32 %.val33.i, %.val29
-  %.neg3.i.i52.i = mul i32 %86, %.neg.i.i.i
-  %87 = sub nsw i32 %36, %23
-  %.neg8.i.i.i54.i = mul i32 %.neg.i.i.i.i, %87
-  %88 = icmp eq i32 %.neg8.i.i.i54.i, %.neg3.i.i52.i
-  br i1 %88, label %89, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i
+_ZL7betweenPKiS0_S0_.exit.thread13.i:             ; preds = %_ZL7betweenPKiS0_S0_.exit.i, %80, %_ZL13intersectPropPKiS0_S0_S0_.exit.i, %63, %59, %55, %49
+  %84 = getelementptr i8, ptr %21, i64 8
+  %.val33.i = load i32, ptr %84, align 4
+  %85 = sub nsw i32 %.val33.i, %.val29
+  %.neg3.i.i52.i = mul i32 %85, %.neg.i.i.i
+  %86 = sub nsw i32 %35, %22
+  %.neg8.i.i.i54.i = mul i32 %.neg.i.i.i.i, %86
+  %87 = icmp eq i32 %.neg8.i.i.i54.i, %.neg3.i.i52.i
+  br i1 %87, label %88, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i
 
-89:                                               ; preds = %_ZL7betweenPKiS0_S0_.exit.thread13.i
-  %.not.i56.i = icmp eq i32 %23, %30
-  br i1 %.not.i56.i, label %93, label %90
+88:                                               ; preds = %_ZL7betweenPKiS0_S0_.exit.thread13.i
+  %.not.i56.i = icmp eq i32 %22, %29
+  br i1 %.not.i56.i, label %92, label %89
+
+89:                                               ; preds = %88
+  %.not31.i57.i = icmp sgt i32 %22, %35
+  %.not32.i58.i = icmp sgt i32 %35, %29
+  %or.cond.i59.i = or i1 %.not31.i57.i, %.not32.i58.i
+  br i1 %or.cond.i59.i, label %90, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
 90:                                               ; preds = %89
-  %.not31.i57.i = icmp sgt i32 %23, %36
-  %.not32.i58.i = icmp sgt i32 %36, %30
-  %or.cond.i59.i = or i1 %.not31.i57.i, %.not32.i58.i
-  br i1 %or.cond.i59.i, label %91, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
-
-91:                                               ; preds = %90
-  %.not33.i60.i = icmp sge i32 %23, %36
-  %92 = icmp sge i32 %36, %30
-  %spec.select.i61.i = and i1 %.not33.i60.i, %92
+  %.not33.i60.i = icmp sge i32 %22, %35
+  %91 = icmp sge i32 %35, %29
+  %spec.select.i61.i = and i1 %.not33.i60.i, %91
   br i1 %spec.select.i61.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i
 
-93:                                               ; preds = %89
+92:                                               ; preds = %88
   %.not28.i62.i = icmp sgt i32 %.val29, %.val33.i
   %.not29.i63.i = icmp sgt i32 %.val33.i, %.val31.pre
   %or.cond9.i64.i = or i1 %.not28.i62.i, %.not29.i63.i
   br i1 %or.cond9.i64.i, label %_ZL7betweenPKiS0_S0_.exit67.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
-_ZL7betweenPKiS0_S0_.exit67.i:                    ; preds = %93
+_ZL7betweenPKiS0_S0_.exit67.i:                    ; preds = %92
   %.not30.i65.i = icmp sge i32 %.val29, %.val33.i
-  %94 = icmp sge i32 %.val33.i, %.val31.pre
-  %spec.select10.i66.i = and i1 %.not30.i65.i, %94
+  %93 = icmp sge i32 %.val33.i, %.val31.pre
+  %spec.select10.i66.i = and i1 %.not30.i65.i, %93
   br i1 %spec.select10.i66.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i
 
-_ZL7betweenPKiS0_S0_.exit67.thread16.i:           ; preds = %_ZL7betweenPKiS0_S0_.exit67.i, %91, %_ZL7betweenPKiS0_S0_.exit.thread13.i
-  %.neg.i.i68.i = sub i32 %24, %36
-  %95 = sub nsw i32 %.val29, %.val33
-  %.neg3.i.i69.i = mul i32 %95, %.neg.i.i68.i
-  %96 = sub nsw i32 %23, %24
+_ZL7betweenPKiS0_S0_.exit67.thread16.i:           ; preds = %_ZL7betweenPKiS0_S0_.exit67.i, %90, %_ZL7betweenPKiS0_S0_.exit.thread13.i
+  %.neg.i.i68.i = sub i32 %23, %35
+  %94 = sub nsw i32 %.val29, %.val33
+  %.neg3.i.i69.i = mul i32 %94, %.neg.i.i68.i
+  %95 = sub nsw i32 %22, %23
   %.neg.i.i.i70.i = sub i32 %.val33, %.val33.i
-  %.neg8.i.i.i71.i = mul i32 %.neg.i.i.i70.i, %96
-  %97 = icmp eq i32 %.neg8.i.i.i71.i, %.neg3.i.i69.i
-  br i1 %97, label %98, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i
+  %.neg8.i.i.i71.i = mul i32 %.neg.i.i.i70.i, %95
+  %96 = icmp eq i32 %.neg8.i.i.i71.i, %.neg3.i.i69.i
+  br i1 %96, label %97, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i
 
-98:                                               ; preds = %_ZL7betweenPKiS0_S0_.exit67.thread16.i
-  %.not.i73.i = icmp eq i32 %24, %36
-  br i1 %.not.i73.i, label %102, label %99
+97:                                               ; preds = %_ZL7betweenPKiS0_S0_.exit67.thread16.i
+  %.not.i73.i = icmp eq i32 %23, %35
+  br i1 %.not.i73.i, label %101, label %98
+
+98:                                               ; preds = %97
+  %.not31.i74.i = icmp sgt i32 %23, %22
+  %.not32.i75.i = icmp sgt i32 %22, %35
+  %or.cond.i76.i = or i1 %.not31.i74.i, %.not32.i75.i
+  br i1 %or.cond.i76.i, label %99, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
 99:                                               ; preds = %98
-  %.not31.i74.i = icmp sgt i32 %24, %23
-  %.not32.i75.i = icmp sgt i32 %23, %36
-  %or.cond.i76.i = or i1 %.not31.i74.i, %.not32.i75.i
-  br i1 %or.cond.i76.i, label %100, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
-
-100:                                              ; preds = %99
-  %.not33.i77.i = icmp sge i32 %24, %23
-  %101 = icmp sge i32 %23, %36
-  %spec.select.i78.i = and i1 %.not33.i77.i, %101
+  %.not33.i77.i = icmp sge i32 %23, %22
+  %100 = icmp sge i32 %22, %35
+  %spec.select.i78.i = and i1 %.not33.i77.i, %100
   br i1 %spec.select.i78.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i
 
-102:                                              ; preds = %98
+101:                                              ; preds = %97
   %.not28.i79.i = icmp sgt i32 %.val33, %.val29
   %.not29.i80.i = icmp sgt i32 %.val29, %.val33.i
   %or.cond9.i81.i = or i1 %.not28.i79.i, %.not29.i80.i
   br i1 %or.cond9.i81.i, label %_ZL7betweenPKiS0_S0_.exit84.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
-_ZL7betweenPKiS0_S0_.exit84.i:                    ; preds = %102
+_ZL7betweenPKiS0_S0_.exit84.i:                    ; preds = %101
   %.not30.i82.i = icmp sge i32 %.val33, %.val29
-  %103 = icmp sge i32 %.val29, %.val33.i
-  %spec.select10.i83.i = and i1 %.not30.i82.i, %103
+  %102 = icmp sge i32 %.val29, %.val33.i
+  %spec.select10.i83.i = and i1 %.not30.i82.i, %102
   br i1 %spec.select10.i83.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i
 
-_ZL7betweenPKiS0_S0_.exit84.thread19.i:           ; preds = %_ZL7betweenPKiS0_S0_.exit84.i, %100, %_ZL7betweenPKiS0_S0_.exit67.thread16.i
-  %104 = sub nsw i32 %.val31.pre, %.val33
-  %.neg3.i.i86.i = mul i32 %104, %.neg.i.i68.i
-  %105 = sub nsw i32 %30, %24
-  %.neg8.i.i.i88.i = mul i32 %.neg.i.i.i70.i, %105
-  %106 = icmp eq i32 %.neg8.i.i.i88.i, %.neg3.i.i86.i
-  br i1 %106, label %107, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38
+_ZL7betweenPKiS0_S0_.exit84.thread19.i:           ; preds = %_ZL7betweenPKiS0_S0_.exit84.i, %99, %_ZL7betweenPKiS0_S0_.exit67.thread16.i
+  %103 = sub nsw i32 %.val31.pre, %.val33
+  %.neg3.i.i86.i = mul i32 %103, %.neg.i.i68.i
+  %104 = sub nsw i32 %29, %23
+  %.neg8.i.i.i88.i = mul i32 %.neg.i.i.i70.i, %104
+  %105 = icmp eq i32 %.neg8.i.i.i88.i, %.neg3.i.i86.i
+  br i1 %105, label %106, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38
 
-107:                                              ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i
-  %.not.i90.i = icmp eq i32 %24, %36
-  br i1 %.not.i90.i, label %111, label %108
+106:                                              ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i
+  %.not.i90.i = icmp eq i32 %23, %35
+  br i1 %.not.i90.i, label %110, label %107
+
+107:                                              ; preds = %106
+  %.not31.i91.i = icmp sgt i32 %23, %29
+  %.not32.i92.i = icmp sgt i32 %29, %35
+  %or.cond.i93.i = or i1 %.not31.i91.i, %.not32.i92.i
+  br i1 %or.cond.i93.i, label %108, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
 108:                                              ; preds = %107
-  %.not31.i91.i = icmp sgt i32 %24, %30
-  %.not32.i92.i = icmp sgt i32 %30, %36
-  %or.cond.i93.i = or i1 %.not31.i91.i, %.not32.i92.i
-  br i1 %or.cond.i93.i, label %109, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
-
-109:                                              ; preds = %108
-  %.not33.i94.i = icmp sge i32 %24, %30
-  %110 = icmp sge i32 %30, %36
-  %spec.select.i95.i = and i1 %.not33.i94.i, %110
+  %.not33.i94.i = icmp sge i32 %23, %29
+  %109 = icmp sge i32 %29, %35
+  %spec.select.i95.i = and i1 %.not33.i94.i, %109
   br i1 %spec.select.i95.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38
 
-111:                                              ; preds = %107
+110:                                              ; preds = %106
   %.not28.i96.i = icmp sgt i32 %.val33, %.val31.pre
   %.not29.i97.i = icmp sgt i32 %.val31.pre, %.val33.i
   %or.cond9.i98.i = or i1 %.not28.i96.i, %.not29.i97.i
   br i1 %or.cond9.i98.i, label %_ZL9intersectPKiS0_S0_S0_.exit, label %_ZL9intersectPKiS0_S0_S0_.exit.thread
 
-_ZL9intersectPKiS0_S0_S0_.exit:                   ; preds = %111
+_ZL9intersectPKiS0_S0_S0_.exit:                   ; preds = %110
   %.not30.i99.i = icmp sge i32 %.val33, %.val31.pre
-  %112 = icmp sge i32 %.val31.pre, %.val33.i
-  %spec.select10.i100.i = and i1 %.not30.i99.i, %112
+  %111 = icmp sge i32 %.val31.pre, %.val33.i
+  %spec.select10.i100.i = and i1 %.not30.i99.i, %111
   br i1 %spec.select10.i100.i, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %_ZL9intersectPKiS0_S0_S0_.exit.thread38
 
-_ZL9intersectPKiS0_S0_S0_.exit.thread38:          ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i, %109, %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL6vequalPKiS0_.exit, %_ZL6vequalPKiS0_.exit34, %_ZL6vequalPKiS0_.exit35, %_ZL6vequalPKiS0_.exit36, %11
+_ZL9intersectPKiS0_S0_S0_.exit.thread38:          ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i, %108, %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL6vequalPKiS0_.exit, %_ZL6vequalPKiS0_.exit34, %_ZL6vequalPKiS0_.exit35, %_ZL6vequalPKiS0_.exit36, %11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %11, !llvm.loop !47
 
-_ZL9intersectPKiS0_S0_S0_.exit.thread:            ; preds = %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL9intersectPKiS0_S0_S0_.exit.thread38, %109, %_ZL13intersectPropPKiS0_S0_S0_.exit.i, %_ZL7betweenPKiS0_S0_.exit84.i, %_ZL7betweenPKiS0_S0_.exit67.i, %_ZL7betweenPKiS0_S0_.exit.i, %81, %91, %100, %108, %111, %80, %83, %90, %93, %99, %102, %5
-  %.lcssa = phi i1 [ false, %5 ], [ %12, %102 ], [ %12, %99 ], [ %12, %93 ], [ %12, %90 ], [ %12, %83 ], [ %12, %80 ], [ %12, %111 ], [ %12, %108 ], [ %12, %100 ], [ %12, %91 ], [ %12, %81 ], [ %12, %_ZL7betweenPKiS0_S0_.exit.i ], [ %12, %_ZL7betweenPKiS0_S0_.exit67.i ], [ %12, %_ZL7betweenPKiS0_S0_.exit84.i ], [ %12, %_ZL13intersectPropPKiS0_S0_S0_.exit.i ], [ %12, %109 ], [ %13, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ], [ %12, %_ZL9intersectPKiS0_S0_S0_.exit ]
+_ZL9intersectPKiS0_S0_S0_.exit.thread:            ; preds = %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL9intersectPKiS0_S0_S0_.exit.thread38, %108, %_ZL13intersectPropPKiS0_S0_S0_.exit.i, %_ZL7betweenPKiS0_S0_.exit84.i, %_ZL7betweenPKiS0_S0_.exit67.i, %_ZL7betweenPKiS0_S0_.exit.i, %80, %90, %99, %107, %110, %79, %82, %89, %92, %98, %101, %5
+  %.lcssa = phi i1 [ false, %5 ], [ true, %101 ], [ true, %98 ], [ true, %92 ], [ true, %89 ], [ true, %82 ], [ true, %79 ], [ true, %110 ], [ true, %107 ], [ true, %99 ], [ true, %90 ], [ true, %80 ], [ true, %_ZL7betweenPKiS0_S0_.exit.i ], [ true, %_ZL7betweenPKiS0_S0_.exit67.i ], [ true, %_ZL7betweenPKiS0_S0_.exit84.i ], [ true, %_ZL13intersectPropPKiS0_S0_S0_.exit.i ], [ true, %108 ], [ false, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ], [ true, %_ZL9intersectPKiS0_S0_S0_.exit ]
   ret i1 %.lcssa
 }
 

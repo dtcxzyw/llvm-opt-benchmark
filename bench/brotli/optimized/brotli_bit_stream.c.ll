@@ -2821,7 +2821,7 @@ for.body:                                         ; preds = %RunLengthCodeZeros.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
 for.end:                                          ; preds = %for.body, %RunLengthCodeZeros.exit.thread, %RunLengthCodeZeros.exit
-  %cmp796.not115 = phi i1 [ true, %RunLengthCodeZeros.exit.thread ], [ true, %RunLengthCodeZeros.exit ], [ %cmp796.not, %for.body ]
+  %cmp796.not115 = phi i1 [ true, %RunLengthCodeZeros.exit.thread ], [ true, %RunLengthCodeZeros.exit ], [ false, %for.body ]
   %num_rle_symbols.2114 = phi i64 [ 0, %RunLengthCodeZeros.exit.thread ], [ 0, %RunLengthCodeZeros.exit ], [ %num_rle_symbols.1, %for.body ]
   %cmp10.not = icmp ne i32 %.fr, 0
   %conv = zext i1 %cmp10.not to i64

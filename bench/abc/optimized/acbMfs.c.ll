@@ -8051,10 +8051,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
   %wide.trip.count184 = zext nneg i32 %16 to i64
   br label %46
 
-.preheader125:                                    ; preds = %._crit_edge135
-  br i1 %17, label %.preheader124.us.preheader, label %._crit_edge150
-
-.preheader124.us.preheader:                       ; preds = %.preheader125
+.preheader124.us.preheader:                       ; preds = %._crit_edge135
   %wide.trip.count204 = zext nneg i32 %12 to i64
   br label %.preheader124.us
 
@@ -8152,14 +8149,11 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
 ._crit_edge:                                      ; preds = %.lr.ph
   %putchar111 = tail call i32 @putchar(i32 10)
   %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %57)
-  br i1 %18, label %.lr.ph130, label %._crit_edge131.thread
+  br label %.lr.ph130
 
 ._crit_edge131.thread.critedge:                   ; preds = %46
   %putchar111.c = tail call i32 @putchar(i32 10)
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %57)
-  br label %._crit_edge131.thread
-
-._crit_edge131.thread:                            ; preds = %._crit_edge131.thread.critedge, %._crit_edge
   %putchar112217 = tail call i32 @putchar(i32 10)
   br label %._crit_edge135
 
@@ -8174,15 +8168,12 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
 
 ._crit_edge131:                                   ; preds = %.lr.ph130
   %putchar112 = tail call i32 @putchar(i32 10)
-  br i1 %18, label %.lr.ph134, label %._crit_edge135
-
-.lr.ph134:                                        ; preds = %._crit_edge131
   %67 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %indvars.iv186
   %68 = getelementptr inbounds [64 x i64], ptr %8, i64 0, i64 %indvars.iv186
   br label %69
 
-69:                                               ; preds = %.lr.ph134, %85
-  %indvars.iv181 = phi i64 [ %20, %.lr.ph134 ], [ %indvars.iv.next182, %85 ]
+69:                                               ; preds = %._crit_edge131, %85
+  %indvars.iv181 = phi i64 [ %20, %._crit_edge131 ], [ %indvars.iv.next182, %85 ]
   %70 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv181
   %71 = load i32, ptr %70, align 4
   %.not113 = icmp eq i32 %71, 0
@@ -8215,13 +8206,13 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge135, label %69, !llvm.loop !86
 
-._crit_edge135:                                   ; preds = %85, %._crit_edge131.thread, %._crit_edge131
+._crit_edge135:                                   ; preds = %85, %._crit_edge131.thread.critedge
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.preheader125, label %46, !llvm.loop !87
+  br i1 %exitcond190.not, label %.preheader124.us.preheader, label %46, !llvm.loop !87
 
-._crit_edge150:                                   ; preds = %._crit_edge146.us, %6, %.preheader125
-  %.095.lcssa = phi i32 [ 0, %.preheader125 ], [ 0, %6 ], [ %.297.us, %._crit_edge146.us ]
+._crit_edge150:                                   ; preds = %._crit_edge146.us, %6
+  %.095.lcssa = phi i32 [ 0, %6 ], [ %.297.us, %._crit_edge146.us ]
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %2, i32 noundef %12, i32 noundef %.095.lcssa)
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
   %88 = icmp slt i32 %15, %16
@@ -8238,7 +8229,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
 ._crit_edge155:                                   ; preds = %.lr.ph154
   %putchar = tail call i32 @putchar(i32 10)
   %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  br i1 %88, label %.lr.ph158, label %._crit_edge164.critedge
+  br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %._crit_edge155, %.lr.ph158
   %.5156 = phi i32 [ %94, %.lr.ph158 ], [ %15, %._crit_edge155 ]
@@ -8279,26 +8270,26 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
   %105 = getelementptr inbounds i32, ptr %103, i64 %indvars.iv.i
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, %.6160
-  br i1 %107, label %Vec_IntFind.exit, label %108
+  br i1 %107, label %.lr.ph.i116, label %108
 
 108:                                              ; preds = %104
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %104, !llvm.loop !13
 
-Vec_IntFind.exit:                                 ; preds = %104, %112
+.lr.ph.i116:                                      ; preds = %104, %112
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i119, %112 ], [ 0, %104 ]
   %109 = getelementptr inbounds i32, ptr %103, i64 %indvars.iv.i118
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, %.6160
   br i1 %111, label %._crit_edge.loopexit.split.loop.exit12.i121, label %112
 
-112:                                              ; preds = %Vec_IntFind.exit
+112:                                              ; preds = %.lr.ph.i116
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i
-  br i1 %exitcond.not.i120, label %Vec_IntFind.exit122, label %Vec_IntFind.exit, !llvm.loop !13
+  br i1 %exitcond.not.i120, label %Vec_IntFind.exit122, label %.lr.ph.i116, !llvm.loop !13
 
-._crit_edge.loopexit.split.loop.exit12.i121:      ; preds = %Vec_IntFind.exit
+._crit_edge.loopexit.split.loop.exit12.i121:      ; preds = %.lr.ph.i116
   %113 = trunc nuw nsw i64 %indvars.iv.i118 to i32
   br label %Vec_IntFind.exit122
 
@@ -8314,19 +8305,14 @@ Vec_IntFind.exit.thread:                          ; preds = %108, %100, %Vec_Int
   %117 = icmp slt i32 %116, %16
   br i1 %117, label %100, label %._crit_edge164, !llvm.loop !90
 
-._crit_edge164.critedge:                          ; preds = %._crit_edge155
-  %putchar105.c = tail call i32 @putchar(i32 10)
-  %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  br label %._crit_edge164
-
-._crit_edge164:                                   ; preds = %Vec_IntFind.exit.thread, %._crit_edge164.critedge, %._crit_edge159
+._crit_edge164:                                   ; preds = %Vec_IntFind.exit.thread, %._crit_edge159
   %putchar106 = tail call i32 @putchar(i32 10)
-  %119 = icmp sgt i32 %.095.lcssa, 0
-  br i1 %119, label %.lr.ph171, label %._crit_edge172
+  %118 = icmp sgt i32 %.095.lcssa, 0
+  br i1 %118, label %.lr.ph171, label %._crit_edge172
 
 .lr.ph171:                                        ; preds = %._crit_edge164
-  %120 = icmp sgt i32 %2, 0
-  br i1 %120, label %.lr.ph167.us.preheader, label %.lr.ph171.split
+  %119 = icmp sgt i32 %2, 0
+  br i1 %119, label %.lr.ph167.us.preheader, label %.lr.ph171.split
 
 .lr.ph167.us.preheader:                           ; preds = %.lr.ph171
   %wide.trip.count215 = zext nneg i32 %.095.lcssa to i64
@@ -8335,35 +8321,35 @@ Vec_IntFind.exit.thread:                          ; preds = %108, %100, %Vec_Int
 
 .lr.ph167.us:                                     ; preds = %.lr.ph167.us.preheader, %._crit_edge168.us
   %indvars.iv212 = phi i64 [ 0, %.lr.ph167.us.preheader ], [ %indvars.iv.next213, %._crit_edge168.us ]
-  %121 = trunc nuw nsw i64 %indvars.iv212 to i32
-  %122 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %121)
-  %123 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %indvars.iv212
-  %124 = load i64, ptr %123, align 8
-  br label %125
+  %120 = trunc nuw nsw i64 %indvars.iv212 to i32
+  %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %120)
+  %122 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %indvars.iv212
+  %123 = load i64, ptr %122, align 8
+  br label %124
 
-125:                                              ; preds = %.lr.ph167.us, %125
-  %indvars.iv207 = phi i64 [ 0, %.lr.ph167.us ], [ %indvars.iv.next208, %125 ]
-  %126 = shl nuw i64 1, %indvars.iv207
-  %127 = and i64 %124, %126
-  %.not.us = icmp eq i64 %127, 0
-  %128 = select i1 %.not.us, i32 32, i32 42
-  %putchar108.us = tail call i32 @putchar(i32 %128)
+124:                                              ; preds = %.lr.ph167.us, %124
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph167.us ], [ %indvars.iv.next208, %124 ]
+  %125 = shl nuw i64 1, %indvars.iv207
+  %126 = and i64 %123, %125
+  %.not.us = icmp eq i64 %126, 0
+  %127 = select i1 %.not.us, i32 32, i32 42
+  %putchar108.us = tail call i32 @putchar(i32 %127)
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge168.us, label %125, !llvm.loop !91
+  br i1 %exitcond211.not, label %._crit_edge168.us, label %124, !llvm.loop !91
 
-._crit_edge168.us:                                ; preds = %125
+._crit_edge168.us:                                ; preds = %124
   %putchar107.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
   br i1 %exitcond216.not, label %._crit_edge172, label %.lr.ph167.us, !llvm.loop !92
 
 .lr.ph171.split:                                  ; preds = %.lr.ph171, %.lr.ph171.split
-  %.7169 = phi i32 [ %130, %.lr.ph171.split ], [ 0, %.lr.ph171 ]
-  %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.7169)
+  %.7169 = phi i32 [ %129, %.lr.ph171.split ], [ 0, %.lr.ph171 ]
+  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.7169)
   %putchar107 = tail call i32 @putchar(i32 10)
-  %130 = add nuw nsw i32 %.7169, 1
-  %exitcond206.not = icmp eq i32 %130, %.095.lcssa
+  %129 = add nuw nsw i32 %.7169, 1
+  %exitcond206.not = icmp eq i32 %129, %.095.lcssa
   br i1 %exitcond206.not, label %._crit_edge172, label %.lr.ph171.split, !llvm.loop !92
 
 ._crit_edge172:                                   ; preds = %.lr.ph171.split, %._crit_edge168.us, %._crit_edge164

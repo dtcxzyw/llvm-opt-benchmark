@@ -2174,8 +2174,8 @@ while.cond.preheader:                             ; preds = %for.inc, %entry
   %hash_table_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %identity_as_first_hash_ = getelementptr inbounds i8, ptr %this, i64 897
   %cuckoo_block_size_ = getelementptr inbounds i8, ptr %this, i64 40
-  %cmp9283.not = icmp eq ptr %tree.sroa.13.0.lcssa, %tree.sroa.0.0.lcssa
-  br i1 %cmp9283.not, label %if.end79, label %while.body
+  %cmp9278.not = icmp eq ptr %tree.sroa.13.0.lcssa, %tree.sroa.0.0.lcssa
+  br i1 %cmp9278.not, label %if.end79, label %while.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
@@ -2309,13 +2309,13 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
   resume { ptr, i32 } %lpad.phi
 
 while.body:                                       ; preds = %while.cond.preheader, %for.end55
-  %conv7288 = phi i64 [ %conv7, %for.end55 ], [ 0, %while.cond.preheader ]
-  %tree.sroa.23.1197287 = phi ptr [ %tree.sroa.23.2.lcssa, %for.end55 ], [ %tree.sroa.23.0.lcssa, %while.cond.preheader ]
-  %tree.sroa.13.1198286 = phi ptr [ %tree.sroa.13.2.lcssa, %for.end55 ], [ %tree.sroa.13.0.lcssa, %while.cond.preheader ]
-  %tree.sroa.0.2199285 = phi ptr [ %tree.sroa.0.3.lcssa, %for.end55 ], [ %tree.sroa.0.0.lcssa, %while.cond.preheader ]
-  %storemerge200284 = phi i32 [ %inc56, %for.end55 ], [ 0, %while.cond.preheader ]
+  %conv7283 = phi i64 [ %conv7, %for.end55 ], [ 0, %while.cond.preheader ]
+  %tree.sroa.23.1197282 = phi ptr [ %tree.sroa.23.2.lcssa, %for.end55 ], [ %tree.sroa.23.0.lcssa, %while.cond.preheader ]
+  %tree.sroa.13.1198281 = phi ptr [ %tree.sroa.13.2.lcssa, %for.end55 ], [ %tree.sroa.13.0.lcssa, %while.cond.preheader ]
+  %tree.sroa.0.2199280 = phi ptr [ %tree.sroa.0.3.lcssa, %for.end55 ], [ %tree.sroa.0.0.lcssa, %while.cond.preheader ]
+  %storemerge200279 = phi i32 [ %inc56, %for.end55 ], [ 0, %while.cond.preheader ]
   %10 = phi i32 [ %38, %for.end55 ], [ %1, %while.cond.preheader ]
-  %add.ptr.i40 = getelementptr inbounds %struct.CuckooNode, ptr %tree.sroa.0.2199285, i64 %conv7288
+  %add.ptr.i40 = getelementptr inbounds %struct.CuckooNode, ptr %tree.sroa.0.2199280, i64 %conv7283
   %depth = getelementptr inbounds i8, ptr %add.ptr.i40, i64 8
   %11 = load i32, ptr %depth, align 8
   %12 = load i32, ptr %max_search_depth_, align 4
@@ -2335,9 +2335,9 @@ for.body22.lr.ph:                                 ; preds = %if.end
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc53
   %hash_cnt15.0192 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc54, %for.inc53 ]
-  %tree.sroa.0.3190 = phi ptr [ %tree.sroa.0.2199285, %for.body22.lr.ph ], [ %tree.sroa.0.6, %for.inc53 ]
-  %tree.sroa.13.2189 = phi ptr [ %tree.sroa.13.1198286, %for.body22.lr.ph ], [ %tree.sroa.13.5, %for.inc53 ]
-  %tree.sroa.23.2188 = phi ptr [ %tree.sroa.23.1197287, %for.body22.lr.ph ], [ %tree.sroa.23.5, %for.inc53 ]
+  %tree.sroa.0.3190 = phi ptr [ %tree.sroa.0.2199280, %for.body22.lr.ph ], [ %tree.sroa.0.6, %for.inc53 ]
+  %tree.sroa.13.2189 = phi ptr [ %tree.sroa.13.1198281, %for.body22.lr.ph ], [ %tree.sroa.13.5, %for.inc53 ]
+  %tree.sroa.23.2188 = phi ptr [ %tree.sroa.23.1197282, %for.body22.lr.ph ], [ %tree.sroa.23.5, %for.inc53 ]
   %15 = load i32, ptr %add.ptr.i41, align 4
   %conv24 = zext i32 %15 to i64
   %16 = load i8, ptr %is_last_level_file_.i, align 8
@@ -2461,7 +2461,7 @@ if.then.i52:                                      ; preds = %if.end38
   %depth.i.i.i.i53 = getelementptr inbounds i8, ptr %tree.sroa.13.3173, i64 8
   store i32 %add, ptr %depth.i.i.i.i53, align 8
   %parent_pos.i.i.i.i54 = getelementptr inbounds i8, ptr %tree.sroa.13.3173, i64 12
-  store i32 %storemerge200284, ptr %parent_pos.i.i.i.i54, align 4
+  store i32 %storemerge200279, ptr %parent_pos.i.i.i.i54, align 4
   br label %invoke.cont42
 
 if.else.i57:                                      ; preds = %if.end38
@@ -2498,7 +2498,7 @@ call5.i.i.i.i.i.noexc89:                          ; preds = %_ZNKSt6vectorIZN7ro
   %depth.i.i.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i72, i64 8
   store i32 %add, ptr %depth.i.i.i.i.i73, align 8
   %parent_pos.i.i.i.i.i74 = getelementptr inbounds i8, ptr %add.ptr.i.i72, i64 12
-  store i32 %storemerge200284, ptr %parent_pos.i.i.i.i.i74, align 4
+  store i32 %storemerge200279, ptr %parent_pos.i.i.i.i.i74, align 4
   br i1 %cmp.i.i.i.i65, label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit28.i.i81, label %for.body.i.i.i.i.i75
 
 for.body.i.i.i.i.i75:                             ; preds = %call5.i.i.i.i.i.noexc89, %for.body.i.i.i.i.i75
@@ -2535,11 +2535,11 @@ invoke.cont42:                                    ; preds = %_ZNSt6vectorIZN7roc
   br i1 %cmp46, label %if.then58, label %invoke.cont42.for.inc49_crit_edge
 
 invoke.cont42.for.inc49_crit_edge:                ; preds = %invoke.cont42
-  %.pre224 = load i32, ptr %cuckoo_block_size_, align 8
+  %.pre219 = load i32, ptr %cuckoo_block_size_, align 8
   br label %for.inc49
 
 for.inc49:                                        ; preds = %invoke.cont42.for.inc49_crit_edge, %for.body33
-  %35 = phi i32 [ %29, %for.body33 ], [ %.pre224, %invoke.cont42.for.inc49_crit_edge ]
+  %35 = phi i32 [ %29, %for.body33 ], [ %.pre219, %invoke.cont42.for.inc49_crit_edge ]
   %36 = phi ptr [ %30, %for.body33 ], [ %33, %invoke.cont42.for.inc49_crit_edge ]
   %tree.sroa.23.4 = phi ptr [ %tree.sroa.23.3172, %for.body33 ], [ %tree.sroa.23.7, %invoke.cont42.for.inc49_crit_edge ]
   %tree.sroa.13.4 = phi ptr [ %tree.sroa.13.3173, %for.body33 ], [ %tree.sroa.13.7, %invoke.cont42.for.inc49_crit_edge ]
@@ -2560,10 +2560,10 @@ for.inc53:                                        ; preds = %for.inc49, %_ZN7roc
 
 for.end55:                                        ; preds = %for.inc53, %if.end
   %38 = phi i32 [ %10, %if.end ], [ %37, %for.inc53 ]
-  %tree.sroa.23.2.lcssa = phi ptr [ %tree.sroa.23.1197287, %if.end ], [ %tree.sroa.23.5, %for.inc53 ]
-  %tree.sroa.13.2.lcssa = phi ptr [ %tree.sroa.13.1198286, %if.end ], [ %tree.sroa.13.5, %for.inc53 ]
-  %tree.sroa.0.3.lcssa = phi ptr [ %tree.sroa.0.2199285, %if.end ], [ %tree.sroa.0.6, %for.inc53 ]
-  %inc56 = add i32 %storemerge200284, 1
+  %tree.sroa.23.2.lcssa = phi ptr [ %tree.sroa.23.1197282, %if.end ], [ %tree.sroa.23.5, %for.inc53 ]
+  %tree.sroa.13.2.lcssa = phi ptr [ %tree.sroa.13.1198281, %if.end ], [ %tree.sroa.13.5, %for.inc53 ]
+  %tree.sroa.0.3.lcssa = phi ptr [ %tree.sroa.0.2199280, %if.end ], [ %tree.sroa.0.6, %for.inc53 ]
+  %inc56 = add i32 %storemerge200279, 1
   %conv7 = zext i32 %inc56 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %tree.sroa.13.2.lcssa to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %tree.sroa.0.3.lcssa to i64
@@ -2617,7 +2617,7 @@ if.end79:                                         ; preds = %for.end55, %while.c
   br i1 %tobool.not.i.i.i101, label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EED2Ev.exit103, label %if.then.i.i.i102
 
 if.then.i.i.i102:                                 ; preds = %while.body, %while.end75, %if.end79
-  %tree.sroa.0.2150 = phi ptr [ %tree.sroa.0.8, %while.end75 ], [ %tree.sroa.0.2199.lcssa, %if.end79 ], [ %tree.sroa.0.2199285, %while.body ]
+  %tree.sroa.0.2150 = phi ptr [ %tree.sroa.0.8, %while.end75 ], [ %tree.sroa.0.2199.lcssa, %if.end79 ], [ %tree.sroa.0.2199280, %while.body ]
   %tobool143 = phi i1 [ true, %while.end75 ], [ false, %if.end79 ], [ false, %while.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %tree.sroa.0.2150) #22
   br label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EED2Ev.exit103

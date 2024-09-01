@@ -4873,9 +4873,8 @@ define range(i32 0, 2) i32 @cuddInsertSubtables(ptr noundef %0, i32 noundef %1, 
 ._crit_edge637:                                   ; preds = %._crit_edge
   %119 = getelementptr inbounds i8, ptr %0, i64 352
   %120 = load ptr, ptr %119, align 8
-  %.not614 = icmp ne ptr %120, null
-  %or.cond = and i1 %.not614, %17
-  br i1 %or.cond, label %.lr.ph639.preheader, label %.loopexit
+  %.not614.not = icmp eq ptr %120, null
+  br i1 %.not614.not, label %.loopexit, label %.lr.ph639.preheader
 
 .lr.ph639.preheader:                              ; preds = %._crit_edge637
   %121 = sext i32 %7 to i64
@@ -5840,9 +5839,6 @@ define range(i32 0, 2) i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1)
 
 ._crit_edge:                                      ; preds = %73
   %76 = tail call i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef 1)
-  br i1 %12, label %.lr.ph162, label %.preheader
-
-.lr.ph162:                                        ; preds = %._crit_edge
   %77 = getelementptr inbounds i8, ptr %0, i64 312
   %78 = getelementptr inbounds i8, ptr %0, i64 632
   %79 = getelementptr inbounds i8, ptr %0, i64 224
@@ -5851,8 +5847,8 @@ define range(i32 0, 2) i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1)
   %82 = zext nneg i32 %6 to i64
   br label %88
 
-.preheader:                                       ; preds = %96, %._crit_edge.thread, %._crit_edge
-  %.0131.lcssa183 = phi i32 [ %6, %._crit_edge.thread ], [ %spec.select150, %._crit_edge ], [ %spec.select150, %96 ]
+.preheader:                                       ; preds = %96, %._crit_edge.thread
+  %.0131.lcssa183 = phi i32 [ %6, %._crit_edge.thread ], [ %spec.select150, %96 ]
   %.0134163 = add nsw i32 %.0131.lcssa183, 1
   %83 = load i32, ptr %5, align 8
   %84 = icmp slt i32 %.0134163, %83
@@ -5864,8 +5860,8 @@ define range(i32 0, 2) i32 @cuddDestroySubtables(ptr noundef %0, i32 noundef %1)
   %87 = sext i32 %.0134163 to i64
   br label %111
 
-88:                                               ; preds = %.lr.ph162, %96
-  %indvars.iv174 = phi i64 [ %81, %.lr.ph162 ], [ %indvars.iv.next175, %96 ]
+88:                                               ; preds = %._crit_edge, %96
+  %indvars.iv174 = phi i64 [ %81, %._crit_edge ], [ %indvars.iv.next175, %96 ]
   %89 = load ptr, ptr %77, align 8
   %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv174
   %91 = load i32, ptr %90, align 4

@@ -189,10 +189,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   %.val31.pre = load ptr, ptr %24, align 8
   br label %26
 
-.preheader:                                       ; preds = %26
-  br i1 %23, label %.lr.ph37, label %._crit_edge.thread
-
-.lr.ph37:                                         ; preds = %.preheader
+.lr.ph37:                                         ; preds = %26
   %25 = getelementptr i8, ptr %1, i64 8
   br label %61
 
@@ -236,7 +233,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   %58 = trunc i64 %indvars.iv.next to i32
   %59 = mul i32 %58, 6
   %60 = icmp slt i32 %59, %.val2633
-  br i1 %60, label %26, label %.preheader, !llvm.loop !6
+  br i1 %60, label %26, label %.lr.ph37, !llvm.loop !6
 
 61:                                               ; preds = %.lr.ph37, %102
   %.val2543 = phi i32 [ %.val2633, %.lr.ph37 ], [ %.val25, %102 ]
@@ -340,9 +337,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.not.i = icmp eq ptr %106, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %107 = phi ptr [ %106, %._crit_edge ], [ %19, %.preheader ]
-  tail call void @free(ptr noundef nonnull %107) #21
+._crit_edge.thread:                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %106) #21
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
@@ -397,10 +393,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   %25 = zext nneg i32 %.val2633 to i64
   br label %27
 
-.preheader:                                       ; preds = %27
-  br i1 %23, label %.lr.ph37, label %._crit_edge.thread
-
-.lr.ph37:                                         ; preds = %.preheader
+.lr.ph37:                                         ; preds = %27
   %26 = getelementptr i8, ptr %1, i64 8
   br label %65
 
@@ -447,7 +440,7 @@ Vec_BitStart.exit:                                ; preds = %2, %15
   %62 = shl nsw i64 %indvars.iv.next, 2
   %63 = icmp ult i64 %62, %25
   %64 = trunc nsw i64 %62 to i32
-  br i1 %63, label %27, label %.preheader, !llvm.loop !8
+  br i1 %63, label %27, label %.lr.ph37, !llvm.loop !8
 
 65:                                               ; preds = %.lr.ph37, %105
   %.val2543 = phi i32 [ %.val2633, %.lr.ph37 ], [ %.val25, %105 ]
@@ -550,9 +543,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.not.i = icmp eq ptr %109, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %110 = phi ptr [ %109, %._crit_edge ], [ %19, %.preheader ]
-  tail call void @free(ptr noundef nonnull %110) #21
+._crit_edge.thread:                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %109) #21
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
@@ -2948,12 +2940,9 @@ Vec_BitStart.exit.i:                              ; preds = %15, %2
   %37 = mul nuw nsw i64 %indvars.iv.next19.i, 6
   %38 = trunc nuw i64 %37 to i32
   %39 = icmp sgt i32 %.val1215.i, %38
-  br i1 %39, label %.preheader.i, label %Acec_ManPoolGetPointed.exit, !llvm.loop !35
+  br i1 %39, label %.preheader.i, label %.lr.ph, !llvm.loop !35
 
-Acec_ManPoolGetPointed.exit:                      ; preds = %36
-  br i1 %23, label %.lr.ph, label %.critedge.thread
-
-.lr.ph:                                           ; preds = %Acec_ManPoolGetPointed.exit
+.lr.ph:                                           ; preds = %36
   %40 = getelementptr i8, ptr %1, i64 8
   br label %41
 
@@ -3073,9 +3062,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %Acec_ManPoolGetPointed.exit, %.critedge
-  %98 = phi ptr [ %97, %.critedge ], [ %19, %Acec_ManPoolGetPointed.exit ]
-  tail call void @free(ptr noundef nonnull %98) #21
+.critedge.thread:                                 ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %97) #21
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %.critedge, %.critedge.thread

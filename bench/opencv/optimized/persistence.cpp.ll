@@ -4066,7 +4066,7 @@ _ZN2cv2fs10strcasecmpEPKcS2_.exit251:             ; preds = %352
 
 _ZN2cv2fs10strcasecmpEPKcS2_.exit251.thread:      ; preds = %.lr.ph.i245, %_ZN2cv2fs10strcasecmpEPKcS2_.exit251
   %.sroa.speculated.i254 = call i64 @llvm.umin.i64(i64 %351, i64 7)
-  br i1 %cond, label %_ZN2cv2fs10strcasecmpEPKcS2_.exit273.thread, label %.lr.ph.i256
+  br label %.lr.ph.i256
 
 363:                                              ; preds = %.lr.ph.i256
   %364 = add nuw nsw i64 %.01629.i257, 1
@@ -4092,7 +4092,7 @@ _ZN2cv2fs10strcasecmpEPKcS2_.exit262:             ; preds = %363
 
 _ZN2cv2fs10strcasecmpEPKcS2_.exit262.thread:      ; preds = %.lr.ph.i256, %_ZN2cv2fs10strcasecmpEPKcS2_.exit262
   %.sroa.speculated.i265 = call i64 @llvm.umin.i64(i64 %351, i64 5)
-  br i1 %cond, label %_ZN2cv2fs10strcasecmpEPKcS2_.exit273.thread, label %.lr.ph.i267
+  br label %.lr.ph.i267
 
 374:                                              ; preds = %.lr.ph.i267
   %375 = add nuw nsw i64 %.01629.i268, 1
@@ -4116,7 +4116,7 @@ _ZN2cv2fs10strcasecmpEPKcS2_.exit273:             ; preds = %374
   %384 = icmp eq i64 %351, 5
   br i1 %384, label %.thread462, label %_ZN2cv2fs10strcasecmpEPKcS2_.exit273.thread
 
-_ZN2cv2fs10strcasecmpEPKcS2_.exit273.thread:      ; preds = %.lr.ph.i267, %_ZN2cv2fs10strcasecmpEPKcS2_.exit, %_ZN2cv2fs10strcasecmpEPKcS2_.exit251.thread, %_ZN2cv2fs10strcasecmpEPKcS2_.exit262.thread, %_ZN2cv2fs10strcasecmpEPKcS2_.exit273
+_ZN2cv2fs10strcasecmpEPKcS2_.exit273.thread:      ; preds = %.lr.ph.i267, %_ZN2cv2fs10strcasecmpEPKcS2_.exit, %_ZN2cv2fs10strcasecmpEPKcS2_.exit273
   %385 = call noundef i32 @_ZN2cv2fs10strcasecmpEPKcS2_(ptr noundef %spec.select, ptr noundef nonnull @.str.37)
   %386 = icmp eq i32 %385, 0
   br i1 %386, label %.thread462, label %387

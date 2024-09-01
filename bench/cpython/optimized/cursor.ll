@@ -3515,11 +3515,11 @@ cond.end:                                         ; preds = %entry
   %2 = load i32, ptr %arraysize, align 8
   %3 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %4 = and i1 %cmp5, %3
-  br i1 %4, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %3
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
-  %5 = phi i32 [ %1, %cond.end.thread ], [ %2, %cond.end ]
+  %4 = phi i32 [ %1, %cond.end.thread ], [ %2, %cond.end ]
   %cond20 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
   %call8 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @pysqlite_cursor_fetchmany._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #7
   %tobool11.not = icmp eq ptr %call8, null
@@ -3528,14 +3528,14 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1026 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2125 = phi i64 [ %cond20, %cond.end9 ], [ 0, %cond.end ]
-  %6 = phi i32 [ %5, %cond.end9 ], [ %2, %cond.end ]
+  %5 = phi i32 [ %4, %cond.end9 ], [ %2, %cond.end ]
   %add = sub i64 0, %cond2125
   %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %7 = load ptr, ptr %cond1026, align 8
-  %call15 = call i32 @PyLong_AsInt(ptr noundef %7) #7
+  %6 = load ptr, ptr %cond1026, align 8
+  %call15 = call i32 @PyLong_AsInt(ptr noundef %6) #7
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %land.lhs.true17, label %skip_optional_pos
 
@@ -3545,7 +3545,7 @@ land.lhs.true17:                                  ; preds = %if.end14
   br i1 %tobool19.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end14, %land.lhs.true17, %if.end
-  %maxrows.0 = phi i32 [ -1, %land.lhs.true17 ], [ %call15, %if.end14 ], [ %6, %if.end ]
+  %maxrows.0 = phi i32 [ -1, %land.lhs.true17 ], [ %call15, %if.end14 ], [ %5, %if.end ]
   %call.i = call ptr @PyList_New(i64 noundef 0) #7
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %exit, label %while.cond.i
@@ -3559,16 +3559,16 @@ while.cond.i:                                     ; preds = %skip_optional_pos, 
 while.body.i:                                     ; preds = %while.cond.i
   %call3.i = call i32 @PyList_Append(ptr noundef nonnull %call.i, ptr noundef nonnull %call1.i) #7
   %cmp.i = icmp slt i32 %call3.i, 0
-  %8 = load i64, ptr %call1.i, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i31.not.i = icmp eq i64 %9, 0
+  %7 = load i64, ptr %call1.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i31.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %while.body.i
   br i1 %cmp.i31.not.i, label %if.end.i24.i, label %while.end.i
 
 if.end.i24.i:                                     ; preds = %if.then4.i
-  %dec.i25.i = add i64 %8, -1
+  %dec.i25.i = add i64 %7, -1
   store i64 %dec.i25.i, ptr %call1.i, align 8
   %cmp.i26.i = icmp eq i64 %dec.i25.i, 0
   br i1 %cmp.i26.i, label %if.then1.i27.i, label %while.end.i
@@ -3581,7 +3581,7 @@ if.end5.i:                                        ; preds = %while.body.i
   br i1 %cmp.i31.not.i, label %if.end.i15.i, label %Py_DECREF.exit20.i
 
 if.end.i15.i:                                     ; preds = %if.end5.i
-  %dec.i16.i = add i64 %8, -1
+  %dec.i16.i = add i64 %7, -1
   store i64 %dec.i16.i, ptr %call1.i, align 8
   %cmp.i17.i = icmp eq i64 %dec.i16.i, 0
   br i1 %cmp.i17.i, label %if.then1.i18.i, label %Py_DECREF.exit20.i
@@ -3601,13 +3601,13 @@ while.end.i:                                      ; preds = %Py_DECREF.exit20.i,
   br i1 %tobool10.not.i, label %exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %while.end.i
-  %10 = load i64, ptr %call.i, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i38.not.i = icmp eq i64 %11, 0
+  %9 = load i64, ptr %call.i, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i38.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i38.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %if.then11.i
-  %dec.i.i = add i64 %10, -1
+  %dec.i.i = add i64 %9, -1
   store i64 %dec.i.i, ptr %call.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit

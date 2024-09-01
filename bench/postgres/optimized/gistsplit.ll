@@ -233,7 +233,7 @@ index_getattr.exit.thread:                        ; preds = %57, %54, %51, %48, 
   store ptr %125, ptr %5, align 8
   %126 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %126, align 8
-  br i1 %.not155, label %._crit_edge182, label %.lr.ph181
+  br label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %119, %144
   %.1144178 = phi i32 [ %145, %144 ], [ 1, %119 ]
@@ -271,7 +271,7 @@ index_getattr.exit.thread:                        ; preds = %57, %54, %51, %48, 
   %exitcond192 = icmp eq i32 %.1144178, %3
   br i1 %exitcond192, label %._crit_edge182, label %.lr.ph181, !llvm.loop !8
 
-._crit_edge182:                                   ; preds = %144, %119
+._crit_edge182:                                   ; preds = %144
   %cond = icmp eq i32 %6, 0
   br i1 %cond, label %146, label %222
 

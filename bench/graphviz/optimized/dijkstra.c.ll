@@ -33,10 +33,10 @@ define void @dijkstra(i32 noundef %0, ptr nocapture noundef readonly %1, i32 nou
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit.preheader
 
 gv_calloc.exit.preheader:                         ; preds = %9
-  %.not101 = icmp eq i32 %2, 0
-  br i1 %.not101, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader103
+  %.not100 = icmp eq i32 %2, 0
+  br i1 %.not100, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader102
 
-gv_calloc.exit.preheader103:                      ; preds = %gv_calloc.exit.preheader
+gv_calloc.exit.preheader102:                      ; preds = %gv_calloc.exit.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %gv_calloc.exit
 
@@ -47,8 +47,8 @@ gv_calloc.exit.preheader103:                      ; preds = %gv_calloc.exit.preh
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
-gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader103, %gv_calloc.exit
-  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader103 ], [ %indvars.iv.next, %gv_calloc.exit ]
+gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader102, %gv_calloc.exit
+  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader102 ], [ %indvars.iv.next, %gv_calloc.exit ]
   %17 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   store i32 2147483647, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -93,7 +93,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 39:                                               ; preds = %._crit_edge
   %40 = add nsw i32 %2, -1
   %41 = sext i32 %40 to i64
-  br i1 %.not101, label %42, label %45
+  br i1 %.not100, label %42, label %45
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr @stderr, align 8
@@ -238,20 +238,20 @@ initHeap.exit.preheader:                          ; preds = %heapify.exit.i
   br label %.lr.ph95
 
 initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %.preheader
-  %.not = icmp eq i64 %indvars.iv.next106, 0
+  %.not = icmp eq i64 %indvars.iv.next105, 0
   br i1 %.not, label %extractMax.exit.thread.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %initHeap.exit.loopexit
-  %indvars.iv105 = phi i64 [ %113, %.lr.ph95.preheader ], [ %indvars.iv.next106, %initHeap.exit.loopexit ]
+  %indvars.iv104 = phi i64 [ %113, %.lr.ph95.preheader ], [ %indvars.iv.next105, %initHeap.exit.loopexit ]
   %.05094 = phi i32 [ 2147483647, %.lr.ph95.preheader ], [ %166, %initHeap.exit.loopexit ]
   %114 = load i32, ptr %storemerge.i, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv105
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv104
   %115 = load i32, ptr %gep, align 4
   store i32 %115, ptr %storemerge.i, align 4
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i32, ptr %11, i64 %116
   store i32 0, ptr %117, align 4
-  %indvars.iv.next106 = add nsw i64 %indvars.iv105, -1
+  %indvars.iv.next105 = add nsw i64 %indvars.iv104, -1
   br label %118
 
 118:                                              ; preds = %153, %.lr.ph95
@@ -260,7 +260,7 @@ initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %
   %120 = shl nsw i32 %.0.i.i54, 1
   %121 = or disjoint i32 %120, 1
   %122 = sext i32 %120 to i64
-  %123 = icmp sgt i64 %indvars.iv.next106, %122
+  %123 = icmp sgt i64 %indvars.iv.next105, %122
   br i1 %123, label %124, label %134
 
 124:                                              ; preds = %118
@@ -281,7 +281,7 @@ initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %
 135:                                              ; preds = %134, %124
   %.040.i.i55 = phi i32 [ %.0.i.i54, %134 ], [ %120, %124 ]
   %136 = sext i32 %121 to i64
-  %137 = icmp sgt i64 %indvars.iv.next106, %136
+  %137 = icmp sgt i64 %indvars.iv.next105, %136
   br i1 %137, label %138, label %151
 
 138:                                              ; preds = %135
@@ -407,16 +407,16 @@ extractMax.exit.thread.loopexit:                  ; preds = %initHeap.exit.loope
 
 extractMax.exit.thread:                           ; preds = %extractMax.exit.thread.loopexit, %initHeap.exit.preheader
   %.050.lcssa = phi i32 [ -2147483639, %initHeap.exit.preheader ], [ %207, %extractMax.exit.thread.loopexit ]
-  br i1 %.not101, label %._crit_edge100, label %.lr.ph99
+  br i1 %.not100, label %._crit_edge99, label %.lr.ph98
 
-.lr.ph99:                                         ; preds = %extractMax.exit.thread
+.lr.ph98:                                         ; preds = %extractMax.exit.thread
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count111 = zext nneg i32 %smax to i64
+  %wide.trip.count110 = zext nneg i32 %smax to i64
   br label %208
 
-208:                                              ; preds = %.lr.ph99, %213
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next109, %213 ]
-  %209 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv108
+208:                                              ; preds = %.lr.ph98, %213
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next108, %213 ]
+  %209 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv107
   %210 = load i32, ptr %209, align 4
   %211 = icmp eq i32 %210, 2147483647
   br i1 %211, label %212, label %213
@@ -426,11 +426,11 @@ extractMax.exit.thread:                           ; preds = %extractMax.exit.thr
   br label %213
 
 213:                                              ; preds = %208, %212
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge100, label %208
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
+  br i1 %exitcond111.not, label %._crit_edge99, label %208
 
-._crit_edge100:                                   ; preds = %213, %extractMax.exit.thread
+._crit_edge99:                                    ; preds = %213, %extractMax.exit.thread
   tail call void @free(ptr noundef %storemerge.i) #12
   tail call void @free(ptr noundef %11) #12
   ret void
@@ -460,10 +460,10 @@ define void @dijkstra_f(i32 noundef %0, ptr nocapture noundef readonly %1, i32 n
   br i1 %or.cond3.i, label %14, label %gv_calloc.exit.preheader
 
 gv_calloc.exit.preheader:                         ; preds = %10
-  %.not56 = icmp eq i32 %2, 0
-  br i1 %.not56, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader57
+  %.not54 = icmp eq i32 %2, 0
+  br i1 %.not54, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit.preheader55
 
-gv_calloc.exit.preheader57:                       ; preds = %gv_calloc.exit.preheader
+gv_calloc.exit.preheader55:                       ; preds = %gv_calloc.exit.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %gv_calloc.exit
 
@@ -474,8 +474,8 @@ gv_calloc.exit.preheader57:                       ; preds = %gv_calloc.exit.preh
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
-gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader57, %gv_calloc.exit
-  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader57 ], [ %indvars.iv.next, %gv_calloc.exit ]
+gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader55, %gv_calloc.exit
+  %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader55 ], [ %indvars.iv.next, %gv_calloc.exit ]
   %18 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -526,19 +526,19 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   br label %40
 
 .loopexit:                                        ; preds = %increaseKey_f.exit, %.preheader
-  %.not = icmp eq i64 %indvars.iv.next60, 0
+  %.not = icmp eq i64 %indvars.iv.next58, 0
   br i1 %.not, label %extractMax_f.exit.thread, label %40
 
 40:                                               ; preds = %.lr.ph52, %.loopexit
-  %indvars.iv59 = phi i64 [ %39, %.lr.ph52 ], [ %indvars.iv.next60, %.loopexit ]
+  %indvars.iv57 = phi i64 [ %39, %.lr.ph52 ], [ %indvars.iv.next58, %.loopexit ]
   %41 = load i32, ptr %.val.pre, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv59
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv57
   %42 = load i32, ptr %gep, align 4
   store i32 %42, ptr %.val.pre, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %12, i64 %43
   store i32 0, ptr %44, align 4
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
+  %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
   br label %45
 
 45:                                               ; preds = %81, %40
@@ -547,7 +547,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   %47 = shl nsw i32 %.0.i.i, 1
   %48 = or disjoint i32 %47, 1
   %49 = sext i32 %47 to i64
-  %50 = icmp sgt i64 %indvars.iv.next60, %49
+  %50 = icmp sgt i64 %indvars.iv.next58, %49
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %45
@@ -568,7 +568,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 62:                                               ; preds = %61, %51
   %.040.i.i = phi i32 [ %.0.i.i, %61 ], [ %47, %51 ]
   %63 = sext i32 %48 to i64
-  %64 = icmp sgt i64 %indvars.iv.next60, %63
+  %64 = icmp sgt i64 %indvars.iv.next58, %63
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %62
@@ -888,8 +888,8 @@ gv_calloc.exit:                                   ; preds = %10
   br i1 %or.cond3.i65, label %20, label %gv_calloc.exit66.preheader
 
 gv_calloc.exit66.preheader:                       ; preds = %gv_calloc.exit
-  %.not90 = icmp eq i64 %6, 0
-  br i1 %.not90, label %gv_calloc.exit66._crit_edge, label %gv_calloc.exit66
+  %.not87 = icmp eq i64 %6, 0
+  br i1 %.not87, label %gv_calloc.exit66._crit_edge, label %gv_calloc.exit66
 
 20:                                               ; preds = %gv_calloc.exit
   %21 = load ptr, ptr @stderr, align 8
@@ -935,8 +935,8 @@ gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %
   %44 = getelementptr inbounds float, ptr %18, i64 %41
   store float %43, ptr %44, align 4
   %45 = add nuw i64 %.05975, 1
-  %exitcond92.not = icmp eq i64 %45, %33
-  br i1 %exitcond92.not, label %._crit_edge, label %39
+  %exitcond89.not = icmp eq i64 %45, %33
+  br i1 %exitcond89.not, label %._crit_edge, label %39
 
 ._crit_edge:                                      ; preds = %39, %gv_calloc.exit66._crit_edge
   %46 = trunc i64 %6 to i32

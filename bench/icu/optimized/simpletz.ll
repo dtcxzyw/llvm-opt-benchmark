@@ -377,7 +377,7 @@ if.end59.i.thread:                                ; preds = %if.else.i
   %cmp62.i46 = icmp ugt i8 %8, 7
   %10 = add i8 %1, -6
   %or.cond9.i = icmp ult i8 %10, -11
-  %or.cond = or i1 %cmp62.i46, %or.cond9.i
+  %or.cond = or i1 %or.cond9.i, %cmp62.i46
   br i1 %or.cond, label %_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %_ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
 
 if.else78.i:                                      ; preds = %if.end59.i, %if.end65.thread.i

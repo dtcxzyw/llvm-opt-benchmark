@@ -859,8 +859,8 @@ _ZN11parking_lot7condvar7Condvar10notify_one17h8fc86de93def754cE.llvm.1809027223
 
 241:                                              ; preds = %230, %"_ZN4core3ptr108drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..blocking..pool..Shared$GT$$GT$17he6e9b2e8eebdfe70E.exit91.i.i"
   %242 = load ptr, ptr %15, align 8, !noalias !4, !noundef !16
-  %.not31.not.i.i = icmp eq ptr %242, null
-  br i1 %.not31.not.i.i, label %269, label %243
+  %.not31.i.i = icmp eq ptr %242, null
+  br i1 %.not31.i.i, label %269, label %243
 
 243:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !4

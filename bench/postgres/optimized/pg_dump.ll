@@ -12343,24 +12343,21 @@ getRoleName.exit:                                 ; preds = %55
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %76
-  br i1 %14, label %77, label %._crit_edge.thread
-
-77:                                               ; preds = %._crit_edge
-  %78 = tail call ptr @pg_malloc(i64 noundef 64) #14
-  store i32 36, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
-  store i64 0, ptr %79, align 4
-  tail call void @AssignDumpId(ptr noundef nonnull %78) #14
-  %80 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.735) #14
-  %81 = getelementptr inbounds i8, ptr %78, i64 16
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 40
-  %83 = load i32, ptr %82, align 8
-  %84 = or i32 %83, 2
-  store i32 %84, ptr %82, align 8
+  %77 = tail call ptr @pg_malloc(i64 noundef 64) #14
+  store i32 36, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  store i64 0, ptr %78, align 4
+  tail call void @AssignDumpId(ptr noundef nonnull %77) #14
+  %79 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.735) #14
+  %80 = getelementptr inbounds i8, ptr %77, i64 16
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %77, i64 40
+  %82 = load i32, ptr %81, align 8
+  %83 = or i32 %82, 2
+  store i32 %83, ptr %81, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %77, %._crit_edge
+._crit_edge.thread:                               ; preds = %1, %._crit_edge
   tail call void @PQclear(ptr noundef %5) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %3) #14
   ret void
@@ -29194,67 +29191,70 @@ define internal noundef i32 @dumpLOs(ptr noundef %0, ptr nocapture readnone %1) 
   %4 = tail call ptr @GetConnection(ptr noundef %0) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1525) #14
   tail call void @ExecuteSqlStatement(ptr noundef %0, ptr noundef nonnull @.str.1526) #14
-  br label %5
+  %5 = tail call ptr @ExecuteSqlQuery(ptr noundef %0, ptr noundef nonnull @.str.1527, i32 noundef 2) #14
+  %6 = tail call i32 @PQntuples(ptr noundef %5) #14
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
 
-5:                                                ; preds = %._crit_edge, %2
-  %6 = call ptr @ExecuteSqlQuery(ptr noundef %0, ptr noundef nonnull @.str.1527, i32 noundef 2) #14
-  %7 = call i32 @PQntuples(ptr noundef %6) #14
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge.thread
+.lr.ph.preheader:                                 ; preds = %2, %._crit_edge
+  %8 = phi i32 [ %31, %._crit_edge ], [ %6, %2 ]
+  %9 = phi ptr [ %30, %._crit_edge ], [ %5, %2 ]
+  br label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %5
-  call void @PQclear(ptr noundef %6) #14
-  br label %.loopexit
+._crit_edge.thread:                               ; preds = %._crit_edge, %2
+  %.lcssa46 = phi ptr [ %5, %2 ], [ %30, %._crit_edge ]
+  call void @PQclear(ptr noundef %.lcssa46) #14
+  ret i32 1
 
-.lr.ph:                                           ; preds = %5, %25
-  %.035 = phi i32 [ %28, %25 ], [ 0, %5 ]
-  %9 = call ptr @PQgetvalue(ptr noundef %6, i32 noundef %.035, i32 noundef 0) #14
-  %10 = call i64 @strtoul(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #14
-  %11 = trunc i64 %10 to i32
-  %12 = call i32 @lo_open(ptr noundef %4, i32 noundef %11, i32 noundef 262144) #14
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %16
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %.035 = phi i32 [ %29, %26 ], [ 0, %.lr.ph.preheader ]
+  %10 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %.035, i32 noundef 0) #14
+  %11 = call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #14
+  %12 = trunc i64 %11 to i32
+  %13 = call i32 @lo_open(ptr noundef %4, i32 noundef %12, i32 noundef 262144) #14
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %.lr.ph
-  %15 = call ptr @PQerrorMessage(ptr noundef %4) #14
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1528, i32 noundef %11, ptr noundef %15) #14
+15:                                               ; preds = %.lr.ph
+  %16 = call ptr @PQerrorMessage(ptr noundef %4) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1528, i32 noundef %12, ptr noundef %16) #14
   call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-16:                                               ; preds = %.lr.ph
-  %17 = call i32 @StartLO(ptr noundef %0, i32 noundef %11) #14
-  br label %18
+17:                                               ; preds = %.lr.ph
+  %18 = call i32 @StartLO(ptr noundef %0, i32 noundef %12) #14
+  br label %19
 
-18:                                               ; preds = %23, %16
-  %19 = call i32 @lo_read(ptr noundef %4, i32 noundef %12, ptr noundef nonnull %3, i64 noundef 16384) #14
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %23
+19:                                               ; preds = %24, %17
+  %20 = call i32 @lo_read(ptr noundef %4, i32 noundef %13, ptr noundef nonnull %3, i64 noundef 16384) #14
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %18
-  %22 = call ptr @PQerrorMessage(ptr noundef %4) #14
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1529, i32 noundef %11, ptr noundef %22) #14
+22:                                               ; preds = %19
+  %23 = call ptr @PQerrorMessage(ptr noundef %4) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1529, i32 noundef %12, ptr noundef %23) #14
   call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-23:                                               ; preds = %18
-  %24 = zext nneg i32 %19 to i64
-  call void @WriteData(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %24) #14
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %25, label %18, !llvm.loop !146
+24:                                               ; preds = %19
+  %25 = zext nneg i32 %20 to i64
+  call void @WriteData(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %25) #14
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %26, label %19, !llvm.loop !146
 
-25:                                               ; preds = %23
-  %26 = call i32 @lo_close(ptr noundef %4, i32 noundef %12) #14
-  %27 = call i32 @EndLO(ptr noundef %0, i32 noundef %11) #14
-  %28 = add nuw nsw i32 %.035, 1
-  %exitcond.not = icmp eq i32 %28, %7
+26:                                               ; preds = %24
+  %27 = call i32 @lo_close(ptr noundef %4, i32 noundef %13) #14
+  %28 = call i32 @EndLO(ptr noundef %0, i32 noundef %12) #14
+  %29 = add nuw nsw i32 %.035, 1
+  %exitcond.not = icmp eq i32 %29, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
 
-._crit_edge:                                      ; preds = %25
-  call void @PQclear(ptr noundef %6) #14
-  br i1 %8, label %5, label %.loopexit, !llvm.loop !148
-
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge.thread
-  ret i32 1
+._crit_edge:                                      ; preds = %26
+  call void @PQclear(ptr noundef %9) #14
+  %30 = call ptr @ExecuteSqlQuery(ptr noundef %0, ptr noundef nonnull @.str.1527, i32 noundef 2) #14
+  %31 = call i32 @PQntuples(ptr noundef %30) #14
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph.preheader, label %._crit_edge.thread, !llvm.loop !148
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1386,8 +1386,8 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit14:    ; preds = %for.end
   br i1 %cmp16.not29, label %cleanup, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit14
-  %cond = icmp eq ptr %18, null
-  br i1 %cond, label %_ZN8uint_setD2Ev.exit, label %for.body17.lr.ph.split
+  %cmp.i.i16 = icmp eq ptr %18, null
+  br i1 %cmp.i.i16, label %_ZN8uint_setD2Ev.exit, label %for.body17.lr.ph.split
 
 for.body17.lr.ph.split:                           ; preds = %for.body17.lr.ph
   %arrayidx.i.i18 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -1422,7 +1422,7 @@ cleanup:                                          ; preds = %for.inc23, %for.end
   br i1 %tobool.not.i.i.i.i, label %_ZN8uint_setD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont21, %cleanup
-  %cmp16.not.lcssa43 = phi i1 [ true, %cleanup ], [ false, %invoke.cont21 ]
+  %cmp16.not.lcssa47 = phi i1 [ true, %cleanup ], [ false, %invoke.cont21 ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN8uint_setD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1435,8 +1435,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN8uint_setD2Ev.exit:                            ; preds = %for.body17.lr.ph, %cleanup, %if.then.i.i.i.i
-  %cmp16.not.lcssa44 = phi i1 [ true, %cleanup ], [ %cmp16.not.lcssa43, %if.then.i.i.i.i ], [ true, %for.body17.lr.ph ]
-  ret i1 %cmp16.not.lcssa44
+  %cmp16.not.lcssa43 = phi i1 [ true, %cleanup ], [ %cmp16.not.lcssa47, %if.then.i.i.i.i ], [ true, %for.body17.lr.ph ]
+  ret i1 %cmp16.not.lcssa43
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -2417,13 +2417,13 @@ _ZN6icu_7513UnicodeString8truncateEi.exit55:      ; preds = %if.then.i54, %if.el
 
 if.end:                                           ; preds = %_ZN6icu_7513UnicodeString8truncateEi.exit55, %if.then
   %cmp6 = icmp eq i32 %dir, 0
-  br i1 %cmp6, label %if.end9.thread, label %if.end9.thread71
+  br i1 %cmp6, label %if.end9.thread, label %if.end9.thread70
 
 if.end9.thread:                                   ; preds = %if.end
   store ptr %call2, ptr %globalFilter, align 8
   br label %for.cond.us.preheader
 
-if.end9.thread71:                                 ; preds = %if.end
+if.end9.thread70:                                 ; preds = %if.end
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call2) #10
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #10
   br label %for.cond.preheader
@@ -2432,7 +2432,7 @@ if.end9:                                          ; preds = %_ZN6icu_7513Unicode
   %cmp14 = icmp eq i32 %dir, 0
   br i1 %cmp14, label %for.cond.us.preheader, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %if.end9.thread71, %if.end9
+for.cond.preheader:                               ; preds = %if.end9.thread70, %if.end9
   br label %for.cond
 
 for.cond.us.preheader:                            ; preds = %if.end9.thread, %if.end9

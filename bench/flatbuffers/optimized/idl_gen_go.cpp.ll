@@ -5853,11 +5853,11 @@ invoke.cont:                                      ; preds = %if.end
   %is_union = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load i8, ptr %is_union, align 8
   %tobool10 = trunc i8 %9 to i1
-  %.pre22 = load ptr, ptr %parser_, align 8
+  %.pre19 = load ptr, ptr %parser_, align 8
   br i1 %tobool10, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %generate_object_based_api = getelementptr inbounds i8, ptr %.pre22, i64 1022
+  %generate_object_based_api = getelementptr inbounds i8, ptr %.pre19, i64 1022
   %10 = load i8, ptr %generate_object_based_api, align 2
   %tobool13 = trunc i8 %10 to i1
   br i1 %tobool13, label %if.then14, label %if.end16
@@ -5891,7 +5891,7 @@ lpad:                                             ; preds = %.noexc4, %.noexc, %
   resume { ptr, i32 } %12
 
 if.end16:                                         ; preds = %.noexc4.if.end16_crit_edge, %if.then14, %land.lhs.true, %invoke.cont
-  %13 = phi ptr [ %.pre22, %land.lhs.true ], [ %.pre22, %invoke.cont ], [ %.pre, %.noexc4.if.end16_crit_edge ], [ %.pre22, %if.then14 ]
+  %13 = phi ptr [ %.pre19, %land.lhs.true ], [ %.pre19, %invoke.cont ], [ %.pre, %.noexc4.if.end16_crit_edge ], [ %.pre19, %if.then14 ]
   %needs_imports.2 = phi i1 [ %needs_imports.1, %land.lhs.true ], [ %needs_imports.1, %invoke.cont ], [ true, %.noexc4.if.end16_crit_edge ], [ true, %if.then14 ]
   %one_file19 = getelementptr inbounds i8, ptr %13, i64 1016
   %14 = load i8, ptr %one_file19, align 8

@@ -260,8 +260,8 @@ _ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %41, %43
 46:                                               ; preds = %.preheader, %48
   %.2 = phi ptr [ %49, %48 ], [ %.2.ph, %.preheader ]
   %47 = load i32, ptr %.2, align 4
-  %.not46.not = icmp ne i32 %47, 0
-  br i1 %.not46.not, label %48, label %.loopexit
+  %.not46.not.not = icmp ne i32 %47, 0
+  br i1 %.not46.not.not, label %48, label %.loopexit
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %.2, i64 4
@@ -291,7 +291,7 @@ tailrecurse.backedge:                             ; preds = %54, %54, %54
   br label %tailrecurse.outer, !llvm.loop !6
 
 .loopexit:                                        ; preds = %52, %54, %9, %46, %48, %25, %27, %17, %11, %_ZL10mwcsicompcPKwS0_b.exit, %7
-  %.0 = phi i1 [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ %8, %7 ], [ true, %11 ], [ true, %17 ], [ true, %25 ], [ %30, %27 ], [ %.not46.not, %48 ], [ %.not46.not, %46 ], [ false, %9 ], [ false, %54 ], [ false, %52 ]
+  %.0 = phi i1 [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ %8, %7 ], [ true, %11 ], [ true, %17 ], [ true, %25 ], [ %30, %27 ], [ %.not46.not.not, %48 ], [ %.not46.not.not, %46 ], [ false, %9 ], [ false, %54 ], [ false, %52 ]
   ret i1 %.0
 }
 

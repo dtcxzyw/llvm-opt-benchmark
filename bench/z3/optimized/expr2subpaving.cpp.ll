@@ -2035,7 +2035,7 @@ invoke.cont97:                                    ; preds = %for.body91
 for.inc106:                                       ; preds = %invoke.cont97
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
-  br i1 %exitcond324.not, label %for.end108, label %for.body91, !llvm.loop !14
+  br i1 %exitcond324.not, label %if.else115, label %for.body91, !llvm.loop !14
 
 lpad79.loopexit:                                  ; preds = %for.body91, %invoke.cont97
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2052,10 +2052,7 @@ lpad79:                                           ; preds = %lpad79.loopexit.spl
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sum_c) #17
   br label %ehcleanup
 
-for.end108:                                       ; preds = %for.inc106
-  br i1 %cmp60309.not, label %if.then110, label %if.else115
-
-if.then110:                                       ; preds = %for.cond89.preheader, %for.end108
+if.then110:                                       ; preds = %for.cond89.preheader
   %bf.load.i.i.i147 = load i8, ptr %m_kind.i.i121, align 4
   %bf.clear.i.i.i148 = and i8 %bf.load.i.i.i147, 1
   %cmp.i.i.i149 = icmp eq i8 %bf.clear.i.i.i148, 0
@@ -2070,7 +2067,7 @@ if.else.i.i150:                                   ; preds = %if.then110
   invoke void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %59, ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i120)
           to label %if.end127 unwind label %lpad79.loopexit.split-lp
 
-if.else115:                                       ; preds = %for.end108
+if.else115:                                       ; preds = %for.inc106
   %m_subpaving.i = getelementptr inbounds i8, ptr %this, i64 8
   %60 = load ptr, ptr %m_subpaving.i, align 8
   %61 = load ptr, ptr %ns, align 8

@@ -12170,8 +12170,8 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 
 217:                                              ; preds = %217, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getIS6_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit.i
   %.06.i.i.i.i.i.i.i.i = phi i32 [ %216, %_ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE3getIS6_EENSt11conditionalILb1ERKT_RSU_E4typeEv.exit.i ], [ %221, %217 ]
-  %.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i.i)
+  %.not.not.not.i.not.i.i.i.i.i.i.i = icmp ne i32 %.06.i.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i.i)
   %218 = add nsw i32 %.06.i.i.i.i.i.i.i.i, 1
   %219 = cmpxchg weak ptr %215, i32 %.06.i.i.i.i.i.i.i.i, i32 %218 acq_rel monotonic, align 8, !noalias !53
   %220 = extractvalue { i32, i1 } %219, 1
@@ -12431,8 +12431,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit.i:             ; preds = %308, %306, %296
 
 332:                                              ; preds = %332, %._crit_edge.i
   %.06.i.i.i.i.i.i.i31.i = phi i32 [ %331, %._crit_edge.i ], [ %336, %332 ]
-  %.not.i.not.i.i.i.i.i.i32.i = icmp ne i32 %.06.i.i.i.i.i.i.i31.i, 0
-  call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i.i32.i)
+  %.not.not.not.i.not.i.i.i.i.i.i32.i = icmp ne i32 %.06.i.i.i.i.i.i.i31.i, 0
+  call void @llvm.assume(i1 %.not.not.not.i.not.i.i.i.i.i.i32.i)
   %333 = add nsw i32 %.06.i.i.i.i.i.i.i31.i, 1
   %334 = cmpxchg weak ptr %330, i32 %.06.i.i.i.i.i.i.i31.i, i32 %333 acq_rel monotonic, align 8, !noalias !69
   %335 = extractvalue { i32, i1 } %334, 1

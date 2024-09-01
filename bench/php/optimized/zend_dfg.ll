@@ -755,13 +755,13 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %18 = getelementptr inbounds i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp sgt i32 %7, 0
-  br i1 %20, label %.lr.ph336, label %.._crit_edge_crit_edge
+  br i1 %20, label %.lr.ph337, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %4
-  %.pre366 = zext i32 %7 to i64
+  %.pre362 = zext i32 %7 to i64
   br label %._crit_edge
 
-.lr.ph336:                                        ; preds = %4
+.lr.ph337:                                        ; preds = %4
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   %22 = and i32 %3, 4194304
   %.not280 = icmp eq i32 %22, 0
@@ -772,13 +772,13 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %26
 
-26:                                               ; preds = %.lr.ph336, %.loopexit331
-  %indvars.iv = phi i64 [ 0, %.lr.ph336 ], [ %indvars.iv.next, %.loopexit331 ]
+26:                                               ; preds = %.lr.ph337, %.loopexit332
+  %indvars.iv = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next, %.loopexit332 ]
   %27 = getelementptr inbounds %struct._zend_basic_block, ptr %6, i64 %indvars.iv
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %.loopexit331, label %31
+  br i1 %30, label %.loopexit332, label %31
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %21, align 8
@@ -793,25 +793,25 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %41 = mul nsw i64 %indvars.iv, %25
   %42 = getelementptr inbounds i64, ptr %15, i64 %41
   %43 = getelementptr inbounds i64, ptr %13, i64 %41
-  %.not350 = icmp eq i32 %38, 0
-  br i1 %.not350, label %.loopexit331, label %.lr.ph
+  %.not347 = icmp eq i32 %38, 0
+  br i1 %.not347, label %.loopexit332, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %504
-  %.0271334 = phi ptr [ %505, %504 ], [ %36, %31 ]
-  %44 = getelementptr inbounds i8, ptr %.0271334, i64 28
+  %.0271335 = phi ptr [ %505, %504 ], [ %36, %31 ]
+  %44 = getelementptr inbounds i8, ptr %.0271335, i64 28
   %45 = load i8, ptr %44, align 4
   %.not275 = icmp eq i8 %45, -119
   br i1 %.not275, label %504, label %46
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %.0271334, i64 29
+  %47 = getelementptr inbounds i8, ptr %.0271335, i64 29
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 14
   %.not276 = icmp eq i8 %49, 0
   br i1 %.not276, label %71, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.0271334, i64 8
+  %51 = getelementptr inbounds i8, ptr %.0271335, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = lshr i32 %52, 4
   %54 = add nsw i32 %53, -5
@@ -822,8 +822,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %59 = and i64 %55, 63
   %60 = shl nuw i64 1, %59
   %61 = and i64 %60, %58
-  %.not317 = icmp eq i64 %61, 0
-  br i1 %.not317, label %62, label %71
+  %.not319 = icmp eq i64 %61, 0
+  br i1 %.not319, label %62, label %71
 
 62:                                               ; preds = %50
   %63 = and i32 %54, 63
@@ -838,7 +838,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %71
 
 71:                                               ; preds = %50, %62, %46
-  %72 = getelementptr inbounds i8, ptr %.0271334, i64 30
+  %72 = getelementptr inbounds i8, ptr %.0271335, i64 30
   %73 = load i8, ptr %72, align 2
   %74 = and i8 %73, 6
   %.not277 = icmp eq i8 %74, 0
@@ -856,7 +856,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %78, label %79, label %100
 
 79:                                               ; preds = %75, %77
-  %80 = getelementptr inbounds i8, ptr %.0271334, i64 12
+  %80 = getelementptr inbounds i8, ptr %.0271335, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = lshr i32 %81, 4
   %83 = add nsw i32 %82, -5
@@ -867,8 +867,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %88 = and i64 %84, 63
   %89 = shl nuw i64 1, %88
   %90 = and i64 %89, %87
-  %.not318 = icmp eq i64 %90, 0
-  br i1 %.not318, label %91, label %100
+  %.not320 = icmp eq i64 %90, 0
+  br i1 %.not320, label %91, label %100
 
 91:                                               ; preds = %79
   %92 = and i32 %83, 63
@@ -886,7 +886,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not280, label %128, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %.0271334, i64 31
+  %102 = getelementptr inbounds i8, ptr %.0271335, i64 31
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 8
   br i1 %104, label %105, label %128
@@ -897,7 +897,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not281, label %.thread, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %.0271334, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0271335, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = lshr i32 %109, 4
   %111 = add nsw i32 %110, -5
@@ -908,8 +908,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %116 = and i64 %112, 63
   %117 = shl nuw i64 1, %116
   %118 = and i64 %117, %115
-  %.not319 = icmp eq i64 %118, 0
-  br i1 %.not319, label %119, label %128
+  %.not321 = icmp eq i64 %118, 0
+  br i1 %.not321, label %119, label %128
 
 119:                                              ; preds = %107
   %120 = and i32 %111, 63
@@ -990,7 +990,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %132, label %133, label %146
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %.0271334, i64 12
+  %134 = getelementptr inbounds i8, ptr %.0271335, i64 12
   %135 = load i32, ptr %134, align 4
   %136 = lshr i32 %135, 4
   %137 = add nsw i32 %136, -5
@@ -1011,7 +1011,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %148, label %149, label %.thread
 
 149:                                              ; preds = %454, %128, %450, %444, %394, %390, %387, %259, %219, %178, %146
-  %150 = getelementptr inbounds i8, ptr %.0271334, i64 8
+  %150 = getelementptr inbounds i8, ptr %.0271335, i64 8
   %151 = load i32, ptr %150, align 8
   %152 = lshr i32 %151, 4
   %153 = add nsw i32 %152, -5
@@ -1032,7 +1032,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %164, label %165, label %178
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.0271334, i64 12
+  %166 = getelementptr inbounds i8, ptr %.0271335, i64 12
   %167 = load i32, ptr %166, align 4
   %168 = lshr i32 %167, 4
   %169 = add nsw i32 %168, -5
@@ -1053,14 +1053,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %180, label %149, label %.thread
 
 181:                                              ; preds = %128, %128
-  %182 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %182 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %183 = load i8, ptr %182, align 1
   %184 = and i8 %183, 14
   %.not296 = icmp eq i8 %184, 0
   br i1 %.not296, label %219, label %185
 
 185:                                              ; preds = %181
-  %186 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %186 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %187 = load i32, ptr %186, align 8
   %188 = lshr i32 %187, 4
   %189 = add nsw i32 %188, -5
@@ -1071,8 +1071,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %194 = and i64 %190, 63
   %195 = shl nuw i64 1, %194
   %196 = and i64 %195, %193
-  %.not327 = icmp eq i64 %196, 0
-  br i1 %.not327, label %197, label %206
+  %.not329 = icmp eq i64 %196, 0
+  br i1 %.not329, label %197, label %206
 
 197:                                              ; preds = %185
   %198 = and i32 %189, 63
@@ -1112,14 +1112,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %221, label %149, label %.thread
 
 222:                                              ; preds = %128
-  %223 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %223 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %224 = load i8, ptr %223, align 1
   %225 = and i8 %224, 14
   %.not295 = icmp eq i8 %225, 0
   br i1 %.not295, label %259, label %226
 
 226:                                              ; preds = %222
-  %227 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %227 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %228 = load i32, ptr %227, align 8
   %229 = lshr i32 %228, 4
   %230 = add nsw i32 %229, -5
@@ -1130,8 +1130,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %235 = and i64 %231, 63
   %236 = shl nuw i64 1, %235
   %237 = and i64 %236, %234
-  %.not326 = icmp eq i64 %237, 0
-  br i1 %.not326, label %238, label %247
+  %.not328 = icmp eq i64 %237, 0
+  br i1 %.not328, label %238, label %247
 
 238:                                              ; preds = %226
   %239 = and i32 %230, 63
@@ -1143,11 +1143,11 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %245 = load i64, ptr %244, align 8
   %246 = or i64 %245, %241
   store i64 %246, ptr %244, align 8
-  %.pre363 = load i8, ptr %223, align 1
+  %.pre359 = load i8, ptr %223, align 1
   br label %247
 
 247:                                              ; preds = %238, %226
-  %248 = phi i8 [ %.pre363, %238 ], [ %224, %226 ]
+  %248 = phi i8 [ %.pre359, %238 ], [ %224, %226 ]
   %249 = icmp eq i8 %248, 8
   br i1 %249, label %250, label %259
 
@@ -1169,14 +1169,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %261, label %149, label %.thread
 
 262:                                              ; preds = %128
-  %263 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %263 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %264 = load i8, ptr %263, align 1
   %265 = and i8 %264, 14
   %.not293 = icmp eq i8 %265, 0
   br i1 %.not293, label %.thread, label %266
 
 266:                                              ; preds = %262
-  %267 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %267 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %268 = load i32, ptr %267, align 8
   %269 = lshr i32 %268, 4
   %270 = add nsw i32 %269, -5
@@ -1187,8 +1187,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %275 = and i64 %271, 63
   %276 = shl nuw i64 1, %275
   %277 = and i64 %276, %274
-  %.not325 = icmp eq i64 %277, 0
-  br i1 %.not325, label %278, label %287
+  %.not327 = icmp eq i64 %277, 0
+  br i1 %.not327, label %278, label %287
 
 278:                                              ; preds = %266
   %279 = and i32 %270, 63
@@ -1223,14 +1223,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 300:                                              ; preds = %128
-  %301 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %301 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %302 = load i8, ptr %301, align 1
   %303 = and i8 %302, 14
   %.not292 = icmp eq i8 %303, 0
   br i1 %.not292, label %.thread, label %304
 
 304:                                              ; preds = %300
-  %305 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %305 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %306 = load i32, ptr %305, align 8
   %307 = lshr i32 %306, 4
   %308 = add nsw i32 %307, -5
@@ -1241,8 +1241,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %313 = and i64 %309, 63
   %314 = shl nuw i64 1, %313
   %315 = and i64 %314, %312
-  %.not324 = icmp eq i64 %315, 0
-  br i1 %.not324, label %316, label %325
+  %.not326 = icmp eq i64 %315, 0
+  br i1 %.not326, label %316, label %325
 
 316:                                              ; preds = %304
   %317 = and i32 %308, 63
@@ -1275,14 +1275,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 337:                                              ; preds = %128, %128
-  %338 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %338 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %339 = load i8, ptr %338, align 1
   %340 = and i8 %339, 14
   %.not291 = icmp eq i8 %340, 0
   br i1 %.not291, label %.thread, label %341
 
 341:                                              ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %342 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %343 = load i32, ptr %342, align 8
   %344 = lshr i32 %343, 4
   %345 = add nsw i32 %344, -5
@@ -1293,8 +1293,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %350 = and i64 %346, 63
   %351 = shl nuw i64 1, %350
   %352 = and i64 %351, %349
-  %.not323 = icmp eq i64 %352, 0
-  br i1 %.not323, label %353, label %.thread
+  %.not325 = icmp eq i64 %352, 0
+  br i1 %.not325, label %353, label %.thread
 
 353:                                              ; preds = %341
   %354 = and i32 %345, 63
@@ -1309,14 +1309,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 362:                                              ; preds = %128, %128
-  %363 = getelementptr inbounds i8, ptr %.0271334, i64 61
+  %363 = getelementptr inbounds i8, ptr %.0271335, i64 61
   %364 = load i8, ptr %363, align 1
   %365 = and i8 %364, 14
   %.not290 = icmp eq i8 %365, 0
   br i1 %.not290, label %387, label %366
 
 366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %.0271334, i64 40
+  %367 = getelementptr inbounds i8, ptr %.0271335, i64 40
   %368 = load i32, ptr %367, align 8
   %369 = lshr i32 %368, 4
   %370 = add nsw i32 %369, -5
@@ -1327,8 +1327,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %375 = and i64 %371, 63
   %376 = shl nuw i64 1, %375
   %377 = and i64 %376, %374
-  %.not322 = icmp eq i64 %377, 0
-  br i1 %.not322, label %378, label %387
+  %.not324 = icmp eq i64 %377, 0
+  br i1 %.not324, label %378, label %387
 
 378:                                              ; preds = %366
   %379 = and i32 %370, 63
@@ -1361,7 +1361,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %396, label %149, label %.thread
 
 397:                                              ; preds = %128
-  %398 = getelementptr inbounds i8, ptr %.0271334, i64 16
+  %398 = getelementptr inbounds i8, ptr %.0271335, i64 16
   %399 = load i32, ptr %398, align 8
   %400 = lshr i32 %399, 4
   %401 = add nsw i32 %400, -5
@@ -1372,8 +1372,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %406 = and i64 %402, 63
   %407 = shl nuw i64 1, %406
   %408 = and i64 %407, %405
-  %.not321 = icmp eq i64 %408, 0
-  br i1 %.not321, label %409, label %.thread
+  %.not323 = icmp eq i64 %408, 0
+  br i1 %.not323, label %409, label %.thread
 
 409:                                              ; preds = %397
   %410 = and i32 %401, 63
@@ -1388,7 +1388,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 418:                                              ; preds = %128
-  %419 = getelementptr inbounds i8, ptr %.0271334, i64 16
+  %419 = getelementptr inbounds i8, ptr %.0271335, i64 16
   %420 = load i32, ptr %419, align 8
   %421 = lshr i32 %420, 4
   %422 = add nsw i32 %421, -5
@@ -1399,8 +1399,8 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   %427 = and i64 %423, 63
   %428 = shl nuw i64 1, %427
   %429 = and i64 %428, %426
-  %.not320 = icmp eq i64 %429, 0
-  br i1 %.not320, label %430, label %439
+  %.not322 = icmp eq i64 %429, 0
+  br i1 %.not322, label %430, label %439
 
 430:                                              ; preds = %418
   %431 = and i32 %422, 63
@@ -1418,7 +1418,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not287, label %440, label %444
 
 440:                                              ; preds = %439
-  %441 = getelementptr inbounds i8, ptr %.0271334, i64 20
+  %441 = getelementptr inbounds i8, ptr %.0271335, i64 20
   %442 = load i32, ptr %441, align 4
   %443 = and i32 %442, 1
   %.not288 = icmp eq i32 %443, 0
@@ -1448,7 +1448,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not284, label %.thread, label %149
 
 457:                                              ; preds = %128, %128
-  %458 = getelementptr inbounds i8, ptr %.0271334, i64 12
+  %458 = getelementptr inbounds i8, ptr %.0271335, i64 12
   %459 = load i32, ptr %458, align 4
   %460 = lshr i32 %459, 4
   %461 = add nsw i32 %460, -5
@@ -1464,7 +1464,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 470:                                              ; preds = %128
-  %471 = getelementptr inbounds i8, ptr %.0271334, i64 20
+  %471 = getelementptr inbounds i8, ptr %.0271335, i64 20
   %472 = load i32, ptr %471, align 4
   %473 = and i32 %472, 1
   %474 = or disjoint i32 %473, %23
@@ -1472,7 +1472,7 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %or.cond300, label %.thread, label %475
 
 475:                                              ; preds = %470
-  %476 = getelementptr inbounds i8, ptr %.0271334, i64 12
+  %476 = getelementptr inbounds i8, ptr %.0271335, i64 12
   %477 = load i32, ptr %476, align 4
   %478 = lshr i32 %477, 4
   %479 = add nsw i32 %478, -5
@@ -1488,14 +1488,14 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.thread
 
 .thread:                                          ; preds = %105, %470, %450, %128, %475, %454, %447, %440, %444, %397, %409, %393, %394, %390, %387, %337, %353, %341, %300, %328, %325, %262, %291, %288, %287, %259, %219, %178, %146, %149, %457
-  %488 = getelementptr inbounds i8, ptr %.0271334, i64 31
+  %488 = getelementptr inbounds i8, ptr %.0271335, i64 31
   %489 = load i8, ptr %488, align 1
   %490 = and i8 %489, 14
   %.not299 = icmp eq i8 %490, 0
   br i1 %.not299, label %504, label %491
 
 491:                                              ; preds = %.thread
-  %492 = getelementptr inbounds i8, ptr %.0271334, i64 16
+  %492 = getelementptr inbounds i8, ptr %.0271335, i64 16
   %493 = load i32, ptr %492, align 8
   %494 = lshr i32 %493, 4
   %495 = add nsw i32 %494, -5
@@ -1511,18 +1511,18 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
   br label %504
 
 504:                                              ; preds = %.lr.ph, %491, %.thread
-  %505 = getelementptr inbounds i8, ptr %.0271334, i64 32
+  %505 = getelementptr inbounds i8, ptr %.0271335, i64 32
   %506 = icmp ult ptr %505, %40
-  br i1 %506, label %.lr.ph, label %.loopexit331
+  br i1 %506, label %.lr.ph, label %.loopexit332
 
-.loopexit331:                                     ; preds = %504, %31, %26
+.loopexit332:                                     ; preds = %504, %31, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26
 
-._crit_edge:                                      ; preds = %.loopexit331, %.._crit_edge_crit_edge
-  %.pre-phi367 = phi i64 [ %.pre366, %.._crit_edge_crit_edge ], [ %wide.trip.count, %.loopexit331 ]
-  %507 = add nuw nsw i64 %.pre-phi367, 63
+._crit_edge:                                      ; preds = %.loopexit332, %.._crit_edge_crit_edge
+  %.pre-phi363 = phi i64 [ %.pre362, %.._crit_edge_crit_edge ], [ %wide.trip.count, %.loopexit332 ]
+  %507 = add nuw nsw i64 %.pre-phi363, 63
   %508 = lshr i64 %507, 6
   %509 = shl nuw nsw i64 %508, 3
   %510 = icmp ugt i32 %7, 262144
@@ -1539,69 +1539,61 @@ define hidden void @zend_build_dfg(ptr nocapture noundef readonly %0, ptr nocapt
 515:                                              ; preds = %511, %513
   %516 = phi ptr [ %514, %513 ], [ %512, %511 ]
   call void @llvm.memset.p0.i64(ptr align 8 %516, i8 0, i64 %509, i1 false)
-  br i1 %20, label %.lr.ph339, label %.preheader330
+  br i1 %20, label %.lr.ph340, label %.preheader
 
-.preheader330:                                    ; preds = %515
+.preheader:                                       ; preds = %515
   %517 = icmp eq i32 %7, 0
-  br i1 %517, label %.thread316, label %.lr.ph.i.preheader.lr.ph
+  br i1 %517, label %.thread318, label %.lr.ph.i.preheader.lr.ph
 
-.lr.ph.i.preheader.lr.ph:                         ; preds = %.lr.ph339, %.preheader330
+.lr.ph.i.preheader.lr.ph:                         ; preds = %.lr.ph340, %.preheader
   %518 = zext i32 %9 to i64
   %519 = shl nuw nsw i64 %518, 3
   %.not.i303 = icmp eq i32 %9, 0
   %520 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %.lr.ph.i.preheader
+  br label %.lr.ph.i
 
-.lr.ph339:                                        ; preds = %515, %.lr.ph339
-  %.1270337 = phi i32 [ %529, %.lr.ph339 ], [ 0, %515 ]
-  %521 = and i32 %.1270337, 63
+.lr.ph340:                                        ; preds = %515, %.lr.ph340
+  %.1270338 = phi i32 [ %529, %.lr.ph340 ], [ 0, %515 ]
+  %521 = and i32 %.1270338, 63
   %522 = zext nneg i32 %521 to i64
   %523 = shl nuw i64 1, %522
-  %524 = lshr i32 %.1270337, 6
+  %524 = lshr i32 %.1270338, 6
   %525 = zext nneg i32 %524 to i64
   %526 = getelementptr inbounds i64, ptr %516, i64 %525
   %527 = load i64, ptr %526, align 8
   %528 = or i64 %527, %523
   store i64 %528, ptr %526, align 8
-  %529 = add nuw nsw i32 %.1270337, 1
-  %exitcond356.not = icmp eq i32 %529, %7
-  br i1 %exitcond356.not, label %.lr.ph.i.preheader.lr.ph, label %.lr.ph339
+  %529 = add nuw nsw i32 %.1270338, 1
+  %exitcond352.not = icmp eq i32 %529, %7
+  br i1 %exitcond352.not, label %.lr.ph.i.preheader.lr.ph, label %.lr.ph340
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.backedge, %.lr.ph.i.preheader.lr.ph
-  %530 = load i64, ptr %516, align 8
-  %.not.i340 = icmp eq i64 %530, 0
-  br i1 %.not.i340, label %.lr.ph342, label %.preheader.preheader
+530:                                              ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %508
+  br i1 %exitcond.not.i, label %624, label %.lr.ph.i.backedge
 
-.lr.ph342:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i341 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i341, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %508
-  br i1 %exitcond.i, label %zend_bitset_empty.exit, label %.lr.ph.i
+.lr.ph.i.backedge:                                ; preds = %.lr.ph346, %530, %zend_bitset_union_with_difference.exit, %603, %zend_bitset_last.exit
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %530 ], [ 0, %zend_bitset_union_with_difference.exit ], [ 0, %603 ], [ 0, %zend_bitset_last.exit ], [ 0, %.lr.ph346 ]
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph342
-  %531 = getelementptr inbounds i64, ptr %516, i64 %indvars.iv.next.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader.lr.ph
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %indvars.iv.i.be, %.lr.ph.i.backedge ]
+  %531 = getelementptr inbounds i64, ptr %516, i64 %indvars.iv.i
   %532 = load i64, ptr %531, align 8
   %.not.i = icmp eq i64 %532, 0
-  br i1 %.not.i, label %.lr.ph342, label %zend_bitset_empty.exit
+  br i1 %.not.i, label %530, label %zend_bitset_empty.exit
 
-zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %.lr.ph342
-  %.not351.le = icmp ult i64 %indvars.iv.next.i, %508
-  br i1 %.not351.le, label %.preheader.preheader, label %624
-
-.preheader.preheader:                             ; preds = %.lr.ph.i.preheader, %zend_bitset_empty.exit
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %533
-  %indvars.iv.i301 = phi i64 [ %534, %533 ], [ %508, %.preheader.preheader ]
+zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %533
+  %indvars.iv.i301 = phi i64 [ %534, %533 ], [ %508, %.lr.ph.i ]
   %.not.i302 = icmp eq i64 %indvars.iv.i301, 0
   br i1 %.not.i302, label %zend_bitset_last.exit, label %533
 
-533:                                              ; preds = %.preheader
+533:                                              ; preds = %zend_bitset_empty.exit
   %534 = add nsw i64 %indvars.iv.i301, -1
   %535 = getelementptr inbounds i64, ptr %516, i64 %534
   %536 = load i64, ptr %535, align 8
   %.not16.i = icmp eq i64 %536, 0
-  br i1 %.not16.i, label %.preheader, label %537
+  br i1 %.not16.i, label %zend_bitset_empty.exit, label %537
 
 537:                                              ; preds = %533
   %538 = trunc i64 %534 to i32
@@ -1617,8 +1609,8 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %.lr.ph34
   %.not17.i = icmp ult i64 %.021.i, 2
   br i1 %.not17.i, label %zend_bitset_last.exit, label %541
 
-zend_bitset_last.exit:                            ; preds = %.preheader, %541
-  %.014.i = phi i32 [ %543, %541 ], [ -1, %.preheader ]
+zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.exit, %541
+  %.014.i = phi i32 [ %543, %541 ], [ -1, %zend_bitset_empty.exit ]
   %544 = and i32 %.014.i, 63
   %545 = zext nneg i32 %544 to i64
   %546 = shl nuw i64 1, %545
@@ -1634,7 +1626,7 @@ zend_bitset_last.exit:                            ; preds = %.preheader, %541
   %555 = getelementptr inbounds i8, ptr %554, i64 8
   %556 = load i32, ptr %555, align 8
   %557 = icmp sgt i32 %556, -1
-  br i1 %557, label %.lr.ph.i.preheader.backedge, label %558
+  br i1 %557, label %.lr.ph.i.backedge, label %558
 
 558:                                              ; preds = %zend_bitset_last.exit
   %559 = getelementptr inbounds i8, ptr %554, i64 20
@@ -1654,77 +1646,74 @@ zend_bitset_last.exit:                            ; preds = %.preheader, %541
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %563, ptr readonly align 8 %569, i64 %519, i1 false)
   %570 = load i32, ptr %559, align 4
   %571 = icmp sgt i32 %570, 1
-  br i1 %571, label %.lr.ph346, label %.loopexit328
+  br i1 %571, label %.lr.ph343, label %.loopexit330
 
-.lr.ph346:                                        ; preds = %564, %zend_bitset_union.exit
+.lr.ph343:                                        ; preds = %564, %zend_bitset_union.exit
   %572 = phi i32 [ %584, %zend_bitset_union.exit ], [ %570, %564 ]
-  %indvars.iv357 = phi i64 [ %indvars.iv.next358, %zend_bitset_union.exit ], [ 1, %564 ]
+  %indvars.iv353 = phi i64 [ %indvars.iv.next354, %zend_bitset_union.exit ], [ 1, %564 ]
   %573 = load ptr, ptr %554, align 8
-  %574 = getelementptr inbounds i32, ptr %573, i64 %indvars.iv357
+  %574 = getelementptr inbounds i32, ptr %573, i64 %indvars.iv353
   %575 = load i32, ptr %574, align 4
   %576 = mul nsw i32 %575, %9
   %577 = sext i32 %576 to i64
   %578 = getelementptr inbounds i64, ptr %17, i64 %577
-  br i1 %.not.i303, label %zend_bitset_union.exit, label %.lr.ph.i305
+  br i1 %.not.i303, label %zend_bitset_union.exit, label %.lr.ph.i306
 
-.lr.ph.i305:                                      ; preds = %.lr.ph346, %.lr.ph.i305
-  %indvars.iv.i306 = phi i64 [ %indvars.iv.next.i307, %.lr.ph.i305 ], [ 0, %.lr.ph346 ]
-  %579 = getelementptr inbounds i64, ptr %578, i64 %indvars.iv.i306
+.lr.ph.i306:                                      ; preds = %.lr.ph343, %.lr.ph.i306
+  %indvars.iv.i307 = phi i64 [ %indvars.iv.next.i308, %.lr.ph.i306 ], [ 0, %.lr.ph343 ]
+  %579 = getelementptr inbounds i64, ptr %578, i64 %indvars.iv.i307
   %580 = load i64, ptr %579, align 8
-  %581 = getelementptr inbounds i64, ptr %563, i64 %indvars.iv.i306
+  %581 = getelementptr inbounds i64, ptr %563, i64 %indvars.iv.i307
   %582 = load i64, ptr %581, align 8
   %583 = or i64 %582, %580
   store i64 %583, ptr %581, align 8
-  %indvars.iv.next.i307 = add nuw nsw i64 %indvars.iv.i306, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i307, %518
-  br i1 %exitcond.not.i, label %zend_bitset_union.exit.loopexit, label %.lr.ph.i305
+  %indvars.iv.next.i308 = add nuw nsw i64 %indvars.iv.i307, 1
+  %exitcond.not.i309 = icmp eq i64 %indvars.iv.next.i308, %518
+  br i1 %exitcond.not.i309, label %zend_bitset_union.exit.loopexit, label %.lr.ph.i306
 
-zend_bitset_union.exit.loopexit:                  ; preds = %.lr.ph.i305
-  %.pre364 = load i32, ptr %559, align 4
+zend_bitset_union.exit.loopexit:                  ; preds = %.lr.ph.i306
+  %.pre360 = load i32, ptr %559, align 4
   br label %zend_bitset_union.exit
 
-zend_bitset_union.exit:                           ; preds = %zend_bitset_union.exit.loopexit, %.lr.ph346
-  %584 = phi i32 [ %.pre364, %zend_bitset_union.exit.loopexit ], [ %572, %.lr.ph346 ]
-  %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
+zend_bitset_union.exit:                           ; preds = %zend_bitset_union.exit.loopexit, %.lr.ph343
+  %584 = phi i32 [ %.pre360, %zend_bitset_union.exit.loopexit ], [ %572, %.lr.ph343 ]
+  %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %585 = sext i32 %584 to i64
-  %586 = icmp slt i64 %indvars.iv.next358, %585
-  br i1 %586, label %.lr.ph346, label %.loopexit328
+  %586 = icmp slt i64 %indvars.iv.next354, %585
+  br i1 %586, label %.lr.ph343, label %.loopexit330
 
 587:                                              ; preds = %558
   tail call void @llvm.memset.p0.i64(ptr align 8 %563, i8 0, i64 %519, i1 false)
-  br label %.loopexit328
+  br label %.loopexit330
 
-.loopexit328:                                     ; preds = %zend_bitset_union.exit, %564, %587
+.loopexit330:                                     ; preds = %zend_bitset_union.exit, %564, %587
   %588 = getelementptr inbounds i64, ptr %15, i64 %562
   %589 = getelementptr inbounds i64, ptr %19, i64 %562
   %590 = getelementptr inbounds i64, ptr %13, i64 %562
-  br i1 %.not.i303, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i311
+  br i1 %.not.i303, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i313
 
-.lr.ph.i311:                                      ; preds = %.loopexit328, %.lr.ph.i311
-  %indvars.iv.i312 = phi i64 [ %indvars.iv.next.i313, %.lr.ph.i311 ], [ 0, %.loopexit328 ]
-  %591 = getelementptr inbounds i64, ptr %588, i64 %indvars.iv.i312
+.lr.ph.i313:                                      ; preds = %.loopexit330, %.lr.ph.i313
+  %indvars.iv.i314 = phi i64 [ %indvars.iv.next.i315, %.lr.ph.i313 ], [ 0, %.loopexit330 ]
+  %591 = getelementptr inbounds i64, ptr %588, i64 %indvars.iv.i314
   %592 = load i64, ptr %591, align 8
-  %593 = getelementptr inbounds i64, ptr %589, i64 %indvars.iv.i312
+  %593 = getelementptr inbounds i64, ptr %589, i64 %indvars.iv.i314
   %594 = load i64, ptr %593, align 8
-  %595 = getelementptr inbounds i64, ptr %590, i64 %indvars.iv.i312
+  %595 = getelementptr inbounds i64, ptr %590, i64 %indvars.iv.i314
   %596 = load i64, ptr %595, align 8
   %597 = xor i64 %596, -1
   %598 = and i64 %594, %597
   %599 = or i64 %598, %592
-  %600 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i312
+  %600 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i314
   store i64 %599, ptr %600, align 8
-  %indvars.iv.next.i313 = add nuw nsw i64 %indvars.iv.i312, 1
-  %exitcond.not.i314 = icmp eq i64 %indvars.iv.next.i313, %518
-  br i1 %exitcond.not.i314, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i311
+  %indvars.iv.next.i315 = add nuw nsw i64 %indvars.iv.i314, 1
+  %exitcond.not.i316 = icmp eq i64 %indvars.iv.next.i315, %518
+  br i1 %exitcond.not.i316, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i313
 
-zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loopexit328
+zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i313, %.loopexit330
   %601 = getelementptr inbounds i64, ptr %17, i64 %562
   %bcmp.i = tail call i32 @bcmp(ptr readonly %601, ptr readonly %11, i64 %519)
   %602 = icmp eq i32 %bcmp.i, 0
-  br i1 %602, label %.lr.ph.i.preheader.backedge, label %603
-
-.lr.ph.i.preheader.backedge:                      ; preds = %.lr.ph349, %zend_bitset_union_with_difference.exit, %603, %zend_bitset_last.exit
-  br label %.lr.ph.i.preheader
+  br i1 %602, label %.lr.ph.i.backedge, label %603
 
 603:                                              ; preds = %zend_bitset_union_with_difference.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %601, ptr readonly align 8 %11, i64 %519, i1 false)
@@ -1736,15 +1725,15 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loop
   %609 = getelementptr inbounds i8, ptr %554, i64 24
   %610 = load i32, ptr %609, align 8
   %611 = icmp sgt i32 %610, 0
-  br i1 %611, label %.lr.ph349.preheader, label %.lr.ph.i.preheader.backedge
+  br i1 %611, label %.lr.ph346.preheader, label %.lr.ph.i.backedge
 
-.lr.ph349.preheader:                              ; preds = %603
+.lr.ph346.preheader:                              ; preds = %603
   %612 = zext nneg i32 %610 to i64
-  br label %.lr.ph349
+  br label %.lr.ph346
 
-.lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
-  %indvars.iv360 = phi i64 [ 0, %.lr.ph349.preheader ], [ %indvars.iv.next361, %.lr.ph349 ]
-  %613 = getelementptr inbounds i32, ptr %608, i64 %indvars.iv360
+.lr.ph346:                                        ; preds = %.lr.ph346.preheader, %.lr.ph346
+  %indvars.iv356 = phi i64 [ 0, %.lr.ph346.preheader ], [ %indvars.iv.next357, %.lr.ph346 ]
+  %613 = getelementptr inbounds i32, ptr %608, i64 %indvars.iv356
   %614 = load i32, ptr %613, align 4
   %615 = and i32 %614, 63
   %616 = zext nneg i32 %615 to i64
@@ -1755,18 +1744,18 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i311, %.loop
   %621 = load i64, ptr %620, align 8
   %622 = or i64 %617, %621
   store i64 %622, ptr %620, align 8
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %623 = icmp ult i64 %indvars.iv.next361, %612
-  br i1 %623, label %.lr.ph349, label %.lr.ph.i.preheader.backedge
+  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %623 = icmp ult i64 %indvars.iv.next357, %612
+  br i1 %623, label %.lr.ph346, label %.lr.ph.i.backedge
 
-624:                                              ; preds = %zend_bitset_empty.exit
-  br i1 %510, label %625, label %.thread316
+624:                                              ; preds = %530
+  br i1 %510, label %625, label %.thread318
 
 625:                                              ; preds = %624
   call void @_efree(ptr noundef nonnull %516) #8
-  br label %.thread316
+  br label %.thread318
 
-.thread316:                                       ; preds = %.preheader330, %624, %625
+.thread318:                                       ; preds = %.preheader, %624, %625
   ret void
 }
 

@@ -182,16 +182,13 @@ for.end:                                          ; preds = %for.body
   store i32 %mul, ptr %top7, align 8
   %n011 = getelementptr inbounds i8, ptr %mont, i64 80
   %8 = load i64, ptr %n011, align 8
-  br i1 %cmp863, label %for.body16.lr.ph, label %for.end41
-
-for.body16.lr.ph:                                 ; preds = %for.end
   %idxprom21 = zext nneg i32 %0 to i64
   br label %for.body16
 
-for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %i.168 = phi i32 [ 0, %for.body16.lr.ph ], [ %inc40, %for.body16 ]
-  %rp.067 = phi ptr [ %4, %for.body16.lr.ph ], [ %incdec.ptr, %for.body16 ]
-  %carry.066 = phi i64 [ 0, %for.body16.lr.ph ], [ %and36, %for.body16 ]
+for.body16:                                       ; preds = %for.end, %for.body16
+  %i.168 = phi i32 [ 0, %for.end ], [ %inc40, %for.body16 ]
+  %rp.067 = phi ptr [ %4, %for.end ], [ %incdec.ptr, %for.body16 ]
+  %carry.066 = phi i64 [ 0, %for.end ], [ %and36, %for.body16 ]
   %9 = load i64, ptr %rp.067, align 8
   %mul18 = mul i64 %9, %8
   %call20 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %rp.067, ptr noundef %3, i32 noundef %0, i64 noundef %mul18) #4
@@ -211,8 +208,8 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %exitcond72.not = icmp eq i32 %inc40, %0
   br i1 %exitcond72.not, label %for.end41, label %for.body16, !llvm.loop !6
 
-for.end41:                                        ; preds = %for.body16, %for.end.thread, %for.end
-  %carry.0.lcssa = phi i64 [ 0, %for.end ], [ 0, %for.end.thread ], [ %and36, %for.body16 ]
+for.end41:                                        ; preds = %for.body16, %for.end.thread
+  %carry.0.lcssa = phi i64 [ 0, %for.end.thread ], [ %and36, %for.body16 ]
   %call42 = tail call ptr @bn_wexpand(ptr noundef %ret, i32 noundef %0) #4
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %return, label %if.end46

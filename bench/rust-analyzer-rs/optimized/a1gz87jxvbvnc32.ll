@@ -6269,8 +6269,8 @@ _ZN14ide_completion7context17CompletionContext15check_stability17hf1e99e45ad3eda
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7), !noalias !1623
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6), !noalias !1623
   %116 = load i64, ptr %8, align 8, !range !1662, !alias.scope !1663, !noalias !1666, !noundef !7
-  %.not.not.i.i.i.i = icmp eq i64 %116, -9223372036854775808
-  br i1 %.not.not.i.i.i.i, label %_ZN14ide_completion11completions11Completions7add_opt17hbef48ceb6a0ab195E.llvm.6578722319504587490.exit.i.i.i, label %.thread.i.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %116, -9223372036854775808
+  br i1 %.not.i.i.i.i, label %_ZN14ide_completion11completions11Completions7add_opt17hbef48ceb6a0ab195E.llvm.6578722319504587490.exit.i.i.i, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %.noexc8.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !1666
@@ -6677,8 +6677,8 @@ _ZN14ide_completion7context17CompletionContext15check_stability17hf1e99e45ad3eda
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7), !noalias !1726
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6), !noalias !1726
   %116 = load i64, ptr %8, align 8, !range !1662, !alias.scope !1765, !noalias !1768, !noundef !7
-  %.not.not.i.i.i.i = icmp eq i64 %116, -9223372036854775808
-  br i1 %.not.not.i.i.i.i, label %_ZN14ide_completion11completions11Completions7add_opt17hbef48ceb6a0ab195E.llvm.6578722319504587490.exit.i.i.i, label %.thread.i.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %116, -9223372036854775808
+  br i1 %.not.i.i.i.i, label %_ZN14ide_completion11completions11Completions7add_opt17hbef48ceb6a0ab195E.llvm.6578722319504587490.exit.i.i.i, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %.noexc8.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false), !noalias !1768

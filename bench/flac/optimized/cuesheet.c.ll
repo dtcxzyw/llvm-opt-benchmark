@@ -789,7 +789,7 @@ local__parse_msf_.exit.i:                         ; preds = %if.end128.i.i
   br i1 %cmp129.i, label %if.then131.i, label %if.else145.i
 
 if.then131.i:                                     ; preds = %while.body.i346.i, %local__parse_msf_.exit.i, %if.end128.i.i, %if.then111.i.i, %if.end92.i.i, %if.end85.i.i, %if.then67.i.i, %if.then59.i.i, %if.end37.i.i, %while.end.i.i
-  br i1 %tobool.i, label %if.then2, label %if.then6.i351.i
+  br i1 %tobool.i, label %if.then2, label %if.end.i348.i
 
 if.then131.thread653.i:                           ; preds = %if.end127.i
   br i1 %tobool.i, label %if.then2, label %local__parse_ms_.exit.thread.sink.split.i
@@ -797,14 +797,14 @@ if.then131.thread653.i:                           ; preds = %if.end127.i
 if.then131.thread.i:                              ; preds = %if.end.i.i
   br i1 %tobool.i, label %if.then2, label %local__parse_ms_.exit.thread.sink.split.i
 
-if.then6.i351.i:                                  ; preds = %if.then131.i
+if.end.i348.i:                                    ; preds = %if.then131.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   br i1 %cmp12.not66.i.i, label %while.end.i363.i, label %while.body.i354.i
 
-while.body.i354.i:                                ; preds = %if.then6.i351.i, %if.else25.i357.i
-  %99 = phi i8 [ %101, %if.else25.i357.i ], [ %82, %if.then6.i351.i ]
-  %incdec.ptr1029.i.i = phi ptr [ %incdec.ptr10.i361.i, %if.else25.i357.i ], [ %incdec.ptr1065.i.i, %if.then6.i351.i ]
-  %field.028.i.i = phi i64 [ %add.i360.i, %if.else25.i357.i ], [ %conv8.i.i, %if.then6.i351.i ]
+while.body.i354.i:                                ; preds = %if.end.i348.i, %if.else25.i357.i
+  %99 = phi i8 [ %101, %if.else25.i357.i ], [ %82, %if.end.i348.i ]
+  %incdec.ptr1029.i.i = phi ptr [ %incdec.ptr10.i361.i, %if.else25.i357.i ], [ %incdec.ptr1065.i.i, %if.end.i348.i ]
+  %field.028.i.i = phi i64 [ %add.i360.i, %if.else25.i357.i ], [ %conv8.i.i, %if.end.i348.i ]
   %100 = add i8 %99, -48
   %or.cond1.i355.i = icmp ugt i8 %100, 9
   %cmp22.i356.i = icmp sgt i64 %field.028.i.i, 922337203685477579
@@ -820,9 +820,9 @@ if.else25.i357.i:                                 ; preds = %while.body.i354.i
   %cmp12.not.i362.i = icmp eq i8 %101, 58
   br i1 %cmp12.not.i362.i, label %while.end.i363.i, label %while.body.i354.i, !llvm.loop !11
 
-while.end.i363.i:                                 ; preds = %if.else25.i357.i, %if.then6.i351.i
-  %field.0.lcssa.i364.i = phi i64 [ %conv8.i.i, %if.then6.i351.i ], [ %add.i360.i, %if.else25.i357.i ]
-  %incdec.ptr10.lcssa.i365.i = phi ptr [ %incdec.ptr1065.i.i, %if.then6.i351.i ], [ %incdec.ptr10.i361.i, %if.else25.i357.i ]
+while.end.i363.i:                                 ; preds = %if.else25.i357.i, %if.end.i348.i
+  %field.0.lcssa.i364.i = phi i64 [ %conv8.i.i, %if.end.i348.i ], [ %add.i360.i, %if.else25.i357.i ]
+  %incdec.ptr10.lcssa.i365.i = phi ptr [ %incdec.ptr1065.i.i, %if.end.i348.i ], [ %incdec.ptr10.i361.i, %if.else25.i357.i ]
   %div.i368.i = udiv i64 9223372036854775807, %conv33.i.i
   %cmp34.not.i369.i = icmp slt i64 %field.0.lcssa.i364.i, %div.i368.i
   br i1 %cmp34.not.i369.i, label %if.end37.i370.i, label %local__parse_ms_.exit.thread.i

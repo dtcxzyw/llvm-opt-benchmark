@@ -4809,9 +4809,6 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %63 = icmp slt i64 %indvars.iv.next85, %62
   br i1 %63, label %.lr.ph62, label %.preheader48, !llvm.loop !123
 
-.preheader:                                       ; preds = %.lr.ph66
-  br i1 %54, label %.lr.ph69, label %._crit_edge70
-
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv87 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next88, %.lr.ph66 ]
   %.04164 = phi double [ 0.000000e+00, %.lr.ph66.preheader ], [ %66, %.lr.ph66 ]
@@ -4820,10 +4817,10 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %66 = fadd double %.04164, %65
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.preheader, label %.lr.ph66, !llvm.loop !124
+  br i1 %exitcond91.not, label %.lr.ph69, label %.lr.ph66, !llvm.loop !124
 
-.lr.ph69:                                         ; preds = %.preheader, %.lr.ph69
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph69 ], [ 0, %.preheader ]
+.lr.ph69:                                         ; preds = %.lr.ph66, %.lr.ph69
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph69 ], [ 0, %.lr.ph66 ]
   %67 = getelementptr inbounds double, ptr %2, i64 %indvars.iv92
   %68 = load double, ptr %67, align 8
   %69 = fdiv double %68, %66
@@ -4834,8 +4831,8 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %72 = icmp slt i64 %indvars.iv.next93, %71
   br i1 %72, label %.lr.ph69, label %._crit_edge70, !llvm.loop !125
 
-._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader48, %.preheader51.lr.ph, %.preheader49, %.preheader
-  %.044.lcssa9698101 = phi double [ %.044.lcssa, %.preheader ], [ %.044.lcssa, %.preheader49 ], [ 0.000000e+00, %.preheader51.lr.ph ], [ %.044.lcssa, %.preheader48 ], [ %.044.lcssa, %.lr.ph69 ]
+._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader48, %.preheader51.lr.ph, %.preheader49
+  %.044.lcssa9698101 = phi double [ %.044.lcssa, %.preheader49 ], [ 0.000000e+00, %.preheader51.lr.ph ], [ %.044.lcssa, %.preheader48 ], [ %.044.lcssa, %.lr.ph69 ]
   ret double %.044.lcssa9698101
 }
 

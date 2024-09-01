@@ -40,7 +40,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 .preheader:                                       ; preds = %.loopexit122
   %17 = sitofp i64 %.1102128 to double
   %18 = fmul double %17, 2.000000e+00
-  br i1 %11, label %.lr.ph154, label %._crit_edge155
+  br label %.lr.ph154
 
 19:                                               ; preds = %.lr.ph146, %.loopexit122
   %.0101144 = phi i64 [ 0, %.lr.ph146 ], [ %.1102128, %.loopexit122 ]
@@ -169,10 +169,10 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %80 = icmp slt i64 %78, %79
   br i1 %80, label %70, label %.loopexit, !llvm.loop !10
 
-._crit_edge155:                                   ; preds = %.loopexit, %.preheader.thread, %.preheader
-  %.0101.lcssa179 = phi double [ 0.000000e+00, %.preheader.thread ], [ %18, %.preheader ], [ %18, %.loopexit ]
-  %.0103.lcssa178 = phi i64 [ 0, %.preheader.thread ], [ %.1104, %.preheader ], [ %.1104, %.loopexit ]
-  %81 = phi i64 [ %13, %.preheader.thread ], [ %16, %.preheader ], [ %16, %.loopexit ]
+._crit_edge155:                                   ; preds = %.loopexit, %.preheader.thread
+  %.0101.lcssa179 = phi double [ 0.000000e+00, %.preheader.thread ], [ %18, %.loopexit ]
+  %.0103.lcssa178 = phi i64 [ 0, %.preheader.thread ], [ %.1104, %.loopexit ]
+  %81 = phi i64 [ %13, %.preheader.thread ], [ %16, %.loopexit ]
   %82 = icmp eq i64 %81, %.0103.lcssa178
   %83 = sub nsw i64 %81, %.0103.lcssa178
   %84 = sitofp i64 %83 to double

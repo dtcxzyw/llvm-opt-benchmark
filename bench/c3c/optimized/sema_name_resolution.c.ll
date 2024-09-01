@@ -1500,7 +1500,7 @@ define internal fastcc ptr @sema_find_decl_in_global(ptr nocapture noundef reado
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @decltable_get(ptr noundef %1, ptr noundef %7) #10
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %55
+  br i1 %.not, label %11, label %51
 
 11:                                               ; preds = %5
   %.not74 = icmp eq ptr %9, null
@@ -1525,330 +1525,323 @@ define internal fastcc ptr @sema_find_decl_in_global(ptr nocapture noundef reado
 .lr.ph.i:                                         ; preds = %17
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   %21 = getelementptr inbounds i8, ptr %9, i64 16
-  %22 = zext i32 %19 to i64
-  br label %23
+  %wide.trip.count.i = zext i32 %19 to i64
+  br label %22
 
-23:                                               ; preds = %matches_subpath.exit.thread.i, %.lr.ph.i
+22:                                               ; preds = %matches_subpath.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %matches_subpath.exit.thread.i ]
-  %24 = phi i1 [ true, %.lr.ph.i ], [ %53, %matches_subpath.exit.thread.i ]
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load i16, ptr %27, align 8
-  %29 = and i16 %28, 8
-  %30 = icmp eq i16 %29, 0
-  %.not17.i = xor i1 %4, %30
-  br i1 %.not17.i, label %31, label %matches_subpath.exit.thread.i
+  %23 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load i16, ptr %25, align 8
+  %27 = and i16 %26, 8
+  %28 = icmp eq i16 %27, 0
+  %.not17.i = xor i1 %4, %28
+  br i1 %.not17.i, label %29, label %matches_subpath.exit.thread.i
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %26, align 8
-  %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %sema_is_path_found.exit.loopexit, label %37
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %24, align 8
+  %31 = load ptr, ptr %20, align 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %31, %33
+  br i1 %34, label %sema_is_path_found.exit, label %35
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
-  %39 = load i32, ptr %38, align 8
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = load i32, ptr %36, align 8
+  %38 = zext i32 %37 to i64
+  %39 = load i32, ptr %21, align 8
   %40 = zext i32 %39 to i64
-  %41 = load i32, ptr %21, align 8
-  %42 = zext i32 %41 to i64
-  %43 = sub nsw i64 %40, %42
-  %44 = icmp slt i64 %43, 3
-  br i1 %44, label %matches_subpath.exit.thread.i, label %45
+  %41 = sub nsw i64 %38, %40
+  %42 = icmp slt i64 %41, 3
+  br i1 %42, label %matches_subpath.exit.thread.i, label %43
 
-45:                                               ; preds = %37
-  %46 = getelementptr i8, ptr %35, i64 %43
-  %47 = getelementptr i8, ptr %46, i64 -1
-  %48 = load i8, ptr %47, align 1
-  %.not.i.i = icmp eq i8 %48, 58
-  br i1 %.not.i.i, label %49, label %matches_subpath.exit.thread.i
+43:                                               ; preds = %35
+  %44 = getelementptr i8, ptr %33, i64 %41
+  %45 = getelementptr i8, ptr %44, i64 -1
+  %46 = load i8, ptr %45, align 1
+  %.not.i.i = icmp eq i8 %46, 58
+  br i1 %.not.i.i, label %47, label %matches_subpath.exit.thread.i
 
-49:                                               ; preds = %45
-  %50 = getelementptr i8, ptr %46, i64 -2
-  %51 = load i8, ptr %50, align 1
-  %.not16.i.i = icmp eq i8 %51, 58
+47:                                               ; preds = %43
+  %48 = getelementptr i8, ptr %44, i64 -2
+  %49 = load i8, ptr %48, align 1
+  %.not16.i.i = icmp eq i8 %49, 58
   br i1 %.not16.i.i, label %matches_subpath.exit.i, label %matches_subpath.exit.thread.i
 
-matches_subpath.exit.i:                           ; preds = %49
-  %bcmp.i.i = tail call i32 @bcmp(ptr %46, ptr %33, i64 %42)
-  %52 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %52, label %sema_is_path_found.exit.loopexit, label %matches_subpath.exit.thread.i
+matches_subpath.exit.i:                           ; preds = %47
+  %bcmp.i.i = tail call i32 @bcmp(ptr %44, ptr %31, i64 %40)
+  %50 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %50, label %sema_is_path_found.exit, label %matches_subpath.exit.thread.i
 
-matches_subpath.exit.thread.i:                    ; preds = %matches_subpath.exit.i, %49, %45, %37, %23
+matches_subpath.exit.thread.i:                    ; preds = %matches_subpath.exit.i, %47, %43, %35, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = icmp ult i64 %indvars.iv.next.i, %22
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %exitcond.not.i, label %sema_is_path_found.exit.loopexit, label %23, !llvm.loop !23
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %sema_is_path_found.exit, label %22, !llvm.loop !23
 
-sema_is_path_found.exit.loopexit:                 ; preds = %matches_subpath.exit.thread.i, %matches_subpath.exit.i, %31
-  %.lcssa.i.ph = phi i1 [ %24, %31 ], [ %53, %matches_subpath.exit.thread.i ], [ %24, %matches_subpath.exit.i ]
-  %54 = zext i1 %.lcssa.i.ph to i8
-  br label %sema_is_path_found.exit
-
-sema_is_path_found.exit:                          ; preds = %sema_is_path_found.exit.loopexit, %16, %17
-  %.lcssa.i = phi i8 [ 0, %17 ], [ 0, %16 ], [ %54, %sema_is_path_found.exit.loopexit ]
+sema_is_path_found.exit:                          ; preds = %29, %matches_subpath.exit.i, %matches_subpath.exit.thread.i, %16, %17
+  %.lcssa.i = phi i8 [ 0, %17 ], [ 0, %16 ], [ 1, %matches_subpath.exit.i ], [ 0, %matches_subpath.exit.thread.i ], [ 1, %29 ]
   store i8 %.lcssa.i, ptr %13, align 8
   br label %matches_subpath.exit.thread
 
-55:                                               ; preds = %5
-  %56 = load ptr, ptr @decl_arena, align 8
-  %57 = zext i32 %10 to i64
-  %58 = getelementptr inbounds %struct.Decl_, ptr %56, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = and i64 %60, 127
-  %.not75 = icmp eq i64 %61, 8
-  br i1 %.not75, label %93, label %62
+51:                                               ; preds = %5
+  %52 = load ptr, ptr @decl_arena, align 8
+  %53 = zext i32 %10 to i64
+  %54 = getelementptr inbounds %struct.Decl_, ptr %52, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, 127
+  %.not75 = icmp eq i64 %57, 8
+  br i1 %.not75, label %89, label %58
 
-62:                                               ; preds = %55
+58:                                               ; preds = %51
   %.not81 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr i8, ptr %58, i64 56
+  %.phi.trans.insert = getelementptr i8, ptr %54, i64 56
   %.val.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not81, label %matches_subpath.exit.thread107, label %63
+  br i1 %.not81, label %matches_subpath.exit.thread107, label %59
 
-63:                                               ; preds = %62
+59:                                               ; preds = %58
   %.not82 = icmp eq ptr %.val.pre, null
   %. = select i1 %.not82, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %.val.pre
-  %64 = load ptr, ptr %., align 8
+  %60 = load ptr, ptr %., align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %9, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %61, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %9, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %67, %69
-  br i1 %70, label %matches_subpath.exit.thread107, label %71
+  %66 = icmp eq ptr %63, %65
+  br i1 %66, label %matches_subpath.exit.thread107, label %67
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %65, i64 16
-  %73 = load i32, ptr %72, align 8
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
-  %76 = load i32, ptr %75, align 8
-  %77 = zext i32 %76 to i64
-  %78 = sub nsw i64 %74, %77
-  %79 = icmp slt i64 %78, 3
-  br i1 %79, label %matches_subpath.exit.thread, label %80
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds i8, ptr %61, i64 16
+  %69 = load i32, ptr %68, align 8
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %9, i64 16
+  %72 = load i32, ptr %71, align 8
+  %73 = zext i32 %72 to i64
+  %74 = sub nsw i64 %70, %73
+  %75 = icmp slt i64 %74, 3
+  br i1 %75, label %matches_subpath.exit.thread, label %76
 
-80:                                               ; preds = %71
-  %81 = getelementptr i8, ptr %69, i64 %78
-  %82 = getelementptr i8, ptr %81, i64 -1
-  %83 = load i8, ptr %82, align 1
-  %.not.i89 = icmp eq i8 %83, 58
-  br i1 %.not.i89, label %84, label %matches_subpath.exit.thread
+76:                                               ; preds = %67
+  %77 = getelementptr i8, ptr %65, i64 %74
+  %78 = getelementptr i8, ptr %77, i64 -1
+  %79 = load i8, ptr %78, align 1
+  %.not.i89 = icmp eq i8 %79, 58
+  br i1 %.not.i89, label %80, label %matches_subpath.exit.thread
 
-84:                                               ; preds = %80
-  %85 = getelementptr i8, ptr %81, i64 -2
-  %86 = load i8, ptr %85, align 1
-  %.not16.i = icmp eq i8 %86, 58
+80:                                               ; preds = %76
+  %81 = getelementptr i8, ptr %77, i64 -2
+  %82 = load i8, ptr %81, align 1
+  %.not16.i = icmp eq i8 %82, 58
   br i1 %.not16.i, label %matches_subpath.exit, label %matches_subpath.exit.thread
 
-matches_subpath.exit:                             ; preds = %84
-  %bcmp.i = tail call i32 @bcmp(ptr %81, ptr %67, i64 %77)
-  %87 = icmp eq i32 %bcmp.i, 0
-  br i1 %87, label %matches_subpath.exit.thread107, label %matches_subpath.exit.thread
+matches_subpath.exit:                             ; preds = %80
+  %bcmp.i = tail call i32 @bcmp(ptr %77, ptr %63, i64 %73)
+  %83 = icmp eq i32 %bcmp.i, 0
+  br i1 %83, label %matches_subpath.exit.thread107, label %matches_subpath.exit.thread
 
-matches_subpath.exit.thread107:                   ; preds = %62, %63, %matches_subpath.exit
+matches_subpath.exit.thread107:                   ; preds = %58, %59, %matches_subpath.exit
   %.val.val = load ptr, ptr %.val.pre, align 8
-  %88 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val.val)
-  br i1 %88, label %91, label %89
+  %84 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val.val)
+  br i1 %84, label %87, label %85
 
-89:                                               ; preds = %matches_subpath.exit.thread107
-  %90 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %58, ptr %90, align 8
+85:                                               ; preds = %matches_subpath.exit.thread107
+  %86 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %54, ptr %86, align 8
   br label %matches_subpath.exit.thread
 
-91:                                               ; preds = %matches_subpath.exit.thread107
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %92, align 8
+87:                                               ; preds = %matches_subpath.exit.thread107
+  %88 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %88, align 8
   br label %matches_subpath.exit.thread
 
-93:                                               ; preds = %55
-  %94 = getelementptr inbounds i8, ptr %58, i64 80
-  %95 = load ptr, ptr %94, align 8
-  %.not76 = icmp eq ptr %95, null
-  br i1 %.not76, label %._crit_edge, label %96
+89:                                               ; preds = %51
+  %90 = getelementptr inbounds i8, ptr %54, i64 80
+  %91 = load ptr, ptr %90, align 8
+  %.not76 = icmp eq ptr %91, null
+  br i1 %.not76, label %._crit_edge, label %92
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 -8
-  %98 = load i32, ptr %97, align 4
-  %.not142 = icmp eq i32 %98, 0
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %91, i64 -8
+  %94 = load i32, ptr %93, align 4
+  %.not142 = icmp eq i32 %94, 0
   br i1 %.not142, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %96
+.lr.ph:                                           ; preds = %92
   %.not77 = icmp eq ptr %9, null
-  %99 = getelementptr inbounds i8, ptr %9, i64 8
-  %100 = getelementptr inbounds i8, ptr %9, i64 16
-  %wide.trip.count = zext i32 %98 to i64
-  br label %101
+  %95 = getelementptr inbounds i8, ptr %9, i64 8
+  %96 = getelementptr inbounds i8, ptr %9, i64 16
+  %wide.trip.count = zext i32 %94 to i64
+  br label %97
 
-101:                                              ; preds = %.lr.ph, %matches_subpath.exit94.thread
+97:                                               ; preds = %.lr.ph, %matches_subpath.exit94.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %matches_subpath.exit94.thread ]
   %.063138 = phi ptr [ null, %.lr.ph ], [ %.1, %matches_subpath.exit94.thread ]
   %.064137 = phi ptr [ null, %.lr.ph ], [ %.165, %matches_subpath.exit94.thread ]
   %.066136 = phi ptr [ null, %.lr.ph ], [ %.167, %matches_subpath.exit94.thread ]
-  %102 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8
-  %.phi.trans.insert145 = getelementptr i8, ptr %103, i64 56
+  %98 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv
+  %99 = load ptr, ptr %98, align 8
+  %.phi.trans.insert145 = getelementptr i8, ptr %99, i64 56
   %.val88.pre = load ptr, ptr %.phi.trans.insert145, align 8
-  br i1 %.not77, label %matches_subpath.exit94.thread110, label %104
+  br i1 %.not77, label %matches_subpath.exit94.thread110, label %100
 
-104:                                              ; preds = %101
+100:                                              ; preds = %97
   %.not78 = icmp eq ptr %.val88.pre, null
   %.84 = select i1 %.not78, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %.val88.pre
-  %105 = load ptr, ptr %.84, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %99, align 8
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %107, %109
-  br i1 %110, label %matches_subpath.exit94.thread110, label %111
+  %101 = load ptr, ptr %.84, align 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %95, align 8
+  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %103, %105
+  br i1 %106, label %matches_subpath.exit94.thread110, label %107
 
-111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %106, i64 16
-  %113 = load i32, ptr %112, align 8
-  %114 = zext i32 %113 to i64
-  %115 = load i32, ptr %100, align 8
-  %116 = zext i32 %115 to i64
-  %117 = sub nsw i64 %114, %116
-  %118 = icmp slt i64 %117, 3
-  br i1 %118, label %matches_subpath.exit94.thread, label %119
+107:                                              ; preds = %100
+  %108 = getelementptr inbounds i8, ptr %102, i64 16
+  %109 = load i32, ptr %108, align 8
+  %110 = zext i32 %109 to i64
+  %111 = load i32, ptr %96, align 8
+  %112 = zext i32 %111 to i64
+  %113 = sub nsw i64 %110, %112
+  %114 = icmp slt i64 %113, 3
+  br i1 %114, label %matches_subpath.exit94.thread, label %115
 
-119:                                              ; preds = %111
-  %120 = getelementptr i8, ptr %109, i64 %117
-  %121 = getelementptr i8, ptr %120, i64 -1
-  %122 = load i8, ptr %121, align 1
-  %.not.i90 = icmp eq i8 %122, 58
-  br i1 %.not.i90, label %123, label %matches_subpath.exit94.thread
+115:                                              ; preds = %107
+  %116 = getelementptr i8, ptr %105, i64 %113
+  %117 = getelementptr i8, ptr %116, i64 -1
+  %118 = load i8, ptr %117, align 1
+  %.not.i90 = icmp eq i8 %118, 58
+  br i1 %.not.i90, label %119, label %matches_subpath.exit94.thread
 
-123:                                              ; preds = %119
-  %124 = getelementptr i8, ptr %120, i64 -2
-  %125 = load i8, ptr %124, align 1
-  %.not16.i92 = icmp eq i8 %125, 58
+119:                                              ; preds = %115
+  %120 = getelementptr i8, ptr %116, i64 -2
+  %121 = load i8, ptr %120, align 1
+  %.not16.i92 = icmp eq i8 %121, 58
   br i1 %.not16.i92, label %matches_subpath.exit94, label %matches_subpath.exit94.thread
 
-matches_subpath.exit94:                           ; preds = %123
-  %bcmp.i93 = tail call i32 @bcmp(ptr %120, ptr %107, i64 %116)
-  %126 = icmp eq i32 %bcmp.i93, 0
-  br i1 %126, label %matches_subpath.exit94.thread110, label %matches_subpath.exit94.thread
+matches_subpath.exit94:                           ; preds = %119
+  %bcmp.i93 = tail call i32 @bcmp(ptr %116, ptr %103, i64 %112)
+  %122 = icmp eq i32 %bcmp.i93, 0
+  br i1 %122, label %matches_subpath.exit94.thread110, label %matches_subpath.exit94.thread
 
-matches_subpath.exit94.thread110:                 ; preds = %101, %104, %matches_subpath.exit94
+matches_subpath.exit94.thread110:                 ; preds = %97, %100, %matches_subpath.exit94
   %.val88.val = load ptr, ptr %.val88.pre, align 8
-  %127 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val88.val)
-  br i1 %127, label %128, label %matches_subpath.exit94.thread
+  %123 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val88.val)
+  br i1 %123, label %124, label %matches_subpath.exit94.thread
 
-128:                                              ; preds = %matches_subpath.exit94.thread110
+124:                                              ; preds = %matches_subpath.exit94.thread110
   %.not79 = icmp eq ptr %.064137, null
-  br i1 %.not79, label %145, label %129
+  br i1 %.not79, label %141, label %125
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %103, i64 24
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds i8, ptr %99, i64 24
+  %127 = load i64, ptr %126, align 8
+  %128 = and i64 %127, 262144
+  %.not.i95 = icmp eq i64 %128, 0
+  br i1 %.not.i95, label %133, label %129
+
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds i8, ptr %.063138, i64 24
   %131 = load i64, ptr %130, align 8
   %132 = and i64 %131, 262144
-  %.not.i95 = icmp eq i64 %132, 0
-  br i1 %.not.i95, label %137, label %133
+  %.not4.i = icmp eq i64 %132, 0
+  br i1 %.not4.i, label %matches_subpath.exit94.thread, label %133
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %.063138, i64 24
-  %135 = load i64, ptr %134, align 8
-  %136 = and i64 %135, 262144
-  %.not4.i = icmp eq i64 %136, 0
-  br i1 %.not4.i, label %matches_subpath.exit94.thread, label %137
-
-137:                                              ; preds = %133, %129
-  %138 = getelementptr inbounds i8, ptr %.063138, i64 56
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 64
-  %142 = load ptr, ptr %141, align 8
-  %.not5.i = icmp eq ptr %142, null
+133:                                              ; preds = %129, %125
+  %134 = getelementptr inbounds i8, ptr %.063138, i64 56
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 64
+  %138 = load ptr, ptr %137, align 8
+  %.not5.i = icmp eq ptr %138, null
   br i1 %.not5.i, label %matches_subpath.exit94.thread, label %sema_first_is_preferred.exit
 
-sema_first_is_preferred.exit:                     ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %.val88.val, i64 64
-  %144 = load ptr, ptr %143, align 8
-  %.fr = freeze ptr %144
+sema_first_is_preferred.exit:                     ; preds = %133
+  %139 = getelementptr inbounds i8, ptr %.val88.val, i64 64
+  %140 = load ptr, ptr %139, align 8
+  %.fr = freeze ptr %140
   %.not6.i = icmp eq ptr %.fr, null
   %spec.select = select i1 %.not6.i, ptr null, ptr %.064137
-  %spec.select133 = select i1 %.not6.i, ptr %103, ptr %.063138
+  %spec.select133 = select i1 %.not6.i, ptr %99, ptr %.063138
   br label %matches_subpath.exit94.thread
 
-145:                                              ; preds = %128
+141:                                              ; preds = %124
   %.not80 = icmp eq ptr %.063138, null
-  br i1 %.not80, label %matches_subpath.exit94.thread, label %146
+  br i1 %.not80, label %matches_subpath.exit94.thread, label %142
 
-146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %103, i64 24
+142:                                              ; preds = %141
+  %143 = getelementptr inbounds i8, ptr %99, i64 24
+  %144 = load i64, ptr %143, align 8
+  %145 = and i64 %144, 262144
+  %.not.i96 = icmp ne i64 %145, 0
+  br i1 %.not.i96, label %146, label %150
+
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds i8, ptr %.063138, i64 24
   %148 = load i64, ptr %147, align 8
   %149 = and i64 %148, 262144
-  %.not.i96 = icmp ne i64 %149, 0
-  br i1 %.not.i96, label %150, label %154
+  %.not4.i97 = icmp eq i64 %149, 0
+  br i1 %.not4.i97, label %matches_subpath.exit94.thread, label %150
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %.063138, i64 24
-  %152 = load i64, ptr %151, align 8
-  %153 = and i64 %152, 262144
-  %.not4.i97 = icmp eq i64 %153, 0
-  br i1 %.not4.i97, label %matches_subpath.exit94.thread, label %154
-
-154:                                              ; preds = %150, %146
-  %155 = getelementptr inbounds i8, ptr %.063138, i64 56
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 64
-  %159 = load ptr, ptr %158, align 8
-  %.fr132 = freeze ptr %159
+150:                                              ; preds = %146, %142
+  %151 = getelementptr inbounds i8, ptr %.063138, i64 56
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 64
+  %155 = load ptr, ptr %154, align 8
+  %.fr132 = freeze ptr %155
   %.not5.i98 = icmp eq ptr %.fr132, null
   br i1 %.not5.i98, label %sema_first_is_preferred.exit100.thread120, label %sema_first_is_preferred.exit100
 
-sema_first_is_preferred.exit100:                  ; preds = %154
-  %160 = getelementptr inbounds i8, ptr %.val88.val, i64 64
-  %161 = load ptr, ptr %160, align 8
-  %.not6.i99 = icmp eq ptr %161, null
+sema_first_is_preferred.exit100:                  ; preds = %150
+  %156 = getelementptr inbounds i8, ptr %.val88.val, i64 64
+  %157 = load ptr, ptr %156, align 8
+  %.not6.i99 = icmp eq ptr %157, null
   br i1 %.not6.i99, label %matches_subpath.exit94.thread, label %sema_first_is_preferred.exit100.thread120
 
-sema_first_is_preferred.exit100.thread120:        ; preds = %154, %sema_first_is_preferred.exit100
-  %162 = getelementptr inbounds i8, ptr %.063138, i64 24
-  %163 = load i64, ptr %162, align 8
-  %164 = and i64 %163, 262144
-  %.not.i101 = icmp eq i64 %164, 0
+sema_first_is_preferred.exit100.thread120:        ; preds = %150, %sema_first_is_preferred.exit100
+  %158 = getelementptr inbounds i8, ptr %.063138, i64 24
+  %159 = load i64, ptr %158, align 8
+  %160 = and i64 %159, 262144
+  %.not.i101 = icmp eq i64 %160, 0
   %brmerge = or i1 %.not.i96, %.not.i101
-  br i1 %brmerge, label %165, label %matches_subpath.exit94.thread
+  br i1 %brmerge, label %161, label %matches_subpath.exit94.thread
 
-165:                                              ; preds = %sema_first_is_preferred.exit100.thread120
-  %166 = getelementptr inbounds i8, ptr %.val88.val, i64 64
-  %167 = load ptr, ptr %166, align 8
-  %.not5.i103 = icmp eq ptr %167, null
+161:                                              ; preds = %sema_first_is_preferred.exit100.thread120
+  %162 = getelementptr inbounds i8, ptr %.val88.val, i64 64
+  %163 = load ptr, ptr %162, align 8
+  %.not5.i103 = icmp eq ptr %163, null
   br i1 %.not5.i103, label %matches_subpath.exit94.thread, label %sema_first_is_preferred.exit105
 
-sema_first_is_preferred.exit105:                  ; preds = %165
+sema_first_is_preferred.exit105:                  ; preds = %161
   %.not6.i104 = icmp eq ptr %.fr132, null
   %spec.select134 = select i1 %.not6.i104, ptr null, ptr %.063138
-  %spec.select135 = select i1 %.not6.i104, ptr %.063138, ptr %103
+  %spec.select135 = select i1 %.not6.i104, ptr %.063138, ptr %99
   br label %matches_subpath.exit94.thread
 
-matches_subpath.exit94.thread:                    ; preds = %sema_first_is_preferred.exit105, %sema_first_is_preferred.exit, %sema_first_is_preferred.exit100.thread120, %165, %150, %133, %137, %119, %123, %111, %sema_first_is_preferred.exit100, %matches_subpath.exit94.thread110, %145, %matches_subpath.exit94
-  %.167 = phi ptr [ %.066136, %145 ], [ %.066136, %matches_subpath.exit94 ], [ %103, %matches_subpath.exit94.thread110 ], [ %.066136, %sema_first_is_preferred.exit100 ], [ %.066136, %111 ], [ %.066136, %123 ], [ %.066136, %119 ], [ %.066136, %137 ], [ %.066136, %133 ], [ %.066136, %150 ], [ %.066136, %165 ], [ %.066136, %sema_first_is_preferred.exit100.thread120 ], [ %.066136, %sema_first_is_preferred.exit ], [ %.066136, %sema_first_is_preferred.exit105 ]
-  %.165 = phi ptr [ null, %145 ], [ %.064137, %matches_subpath.exit94 ], [ %.064137, %matches_subpath.exit94.thread110 ], [ null, %sema_first_is_preferred.exit100 ], [ %.064137, %111 ], [ %.064137, %123 ], [ %.064137, %119 ], [ %.064137, %137 ], [ null, %133 ], [ null, %150 ], [ %.063138, %165 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %spec.select134, %sema_first_is_preferred.exit105 ]
-  %.1 = phi ptr [ %103, %145 ], [ %.063138, %matches_subpath.exit94 ], [ %.063138, %matches_subpath.exit94.thread110 ], [ %103, %sema_first_is_preferred.exit100 ], [ %.063138, %111 ], [ %.063138, %123 ], [ %.063138, %119 ], [ %.063138, %137 ], [ %103, %133 ], [ %103, %150 ], [ %103, %165 ], [ %.063138, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %spec.select135, %sema_first_is_preferred.exit105 ]
+matches_subpath.exit94.thread:                    ; preds = %sema_first_is_preferred.exit105, %sema_first_is_preferred.exit, %sema_first_is_preferred.exit100.thread120, %161, %146, %129, %133, %115, %119, %107, %sema_first_is_preferred.exit100, %matches_subpath.exit94.thread110, %141, %matches_subpath.exit94
+  %.167 = phi ptr [ %.066136, %141 ], [ %.066136, %matches_subpath.exit94 ], [ %99, %matches_subpath.exit94.thread110 ], [ %.066136, %sema_first_is_preferred.exit100 ], [ %.066136, %107 ], [ %.066136, %119 ], [ %.066136, %115 ], [ %.066136, %133 ], [ %.066136, %129 ], [ %.066136, %146 ], [ %.066136, %161 ], [ %.066136, %sema_first_is_preferred.exit100.thread120 ], [ %.066136, %sema_first_is_preferred.exit ], [ %.066136, %sema_first_is_preferred.exit105 ]
+  %.165 = phi ptr [ null, %141 ], [ %.064137, %matches_subpath.exit94 ], [ %.064137, %matches_subpath.exit94.thread110 ], [ null, %sema_first_is_preferred.exit100 ], [ %.064137, %107 ], [ %.064137, %119 ], [ %.064137, %115 ], [ %.064137, %133 ], [ null, %129 ], [ null, %146 ], [ %.063138, %161 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %spec.select134, %sema_first_is_preferred.exit105 ]
+  %.1 = phi ptr [ %99, %141 ], [ %.063138, %matches_subpath.exit94 ], [ %.063138, %matches_subpath.exit94.thread110 ], [ %99, %sema_first_is_preferred.exit100 ], [ %.063138, %107 ], [ %.063138, %119 ], [ %.063138, %115 ], [ %.063138, %133 ], [ %99, %129 ], [ %99, %146 ], [ %99, %161 ], [ %.063138, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %spec.select135, %sema_first_is_preferred.exit105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %97, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %matches_subpath.exit94.thread, %93, %96
-  %.066.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.167, %matches_subpath.exit94.thread ]
-  %.064.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.165, %matches_subpath.exit94.thread ]
-  %.063.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.1, %matches_subpath.exit94.thread ]
+._crit_edge:                                      ; preds = %matches_subpath.exit94.thread, %89, %92
+  %.066.lcssa = phi ptr [ null, %92 ], [ null, %89 ], [ %.167, %matches_subpath.exit94.thread ]
+  %.064.lcssa = phi ptr [ null, %92 ], [ null, %89 ], [ %.165, %matches_subpath.exit94.thread ]
+  %.063.lcssa = phi ptr [ null, %92 ], [ null, %89 ], [ %.1, %matches_subpath.exit94.thread ]
   store ptr %.064.lcssa, ptr %3, align 8
-  %168 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %.066.lcssa, ptr %169, align 8
+  %164 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %.066.lcssa, ptr %165, align 8
   br label %matches_subpath.exit.thread
 
-matches_subpath.exit.thread:                      ; preds = %80, %84, %71, %matches_subpath.exit, %11, %12, %sema_is_path_found.exit, %._crit_edge, %91, %89
-  %.061 = phi ptr [ %58, %91 ], [ null, %89 ], [ %.063.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %11 ], [ null, %matches_subpath.exit ], [ null, %71 ], [ null, %84 ], [ null, %80 ]
+matches_subpath.exit.thread:                      ; preds = %76, %80, %67, %matches_subpath.exit, %11, %12, %sema_is_path_found.exit, %._crit_edge, %87, %85
+  %.061 = phi ptr [ %54, %87 ], [ null, %85 ], [ %.063.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %11 ], [ null, %matches_subpath.exit ], [ null, %67 ], [ null, %80 ], [ null, %76 ]
   ret ptr %.061
 }
 

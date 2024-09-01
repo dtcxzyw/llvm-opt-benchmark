@@ -454,17 +454,14 @@ for.end:                                          ; preds = %for.body
   %idxprom.i17 = sext i32 %sub to i64
   %arrayidx.i18 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17
   store i8 %add9, ptr %arrayidx.i18, align 1
-  br i1 %cmp34, label %for.body17.preheader, label %for.end28
-
-for.body17.preheader:                             ; preds = %for.end
   %idxprom.i19.phi.trans.insert = zext nneg i32 %sub to i64
   %arrayidx.i20.phi.trans.insert = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i19.phi.trans.insert
   %.pre = load i8, ptr %arrayidx.i20.phi.trans.insert, align 1
   br label %for.body17
 
-for.body17:                                       ; preds = %for.body17.preheader, %if.end22
-  %0 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.body17.preheader ]
-  %i13.037 = phi i32 [ %sub24, %if.end22 ], [ %sub, %for.body17.preheader ]
+for.body17:                                       ; preds = %for.end, %if.end22
+  %0 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.end ]
+  %i13.037 = phi i32 [ %sub24, %if.end22 ], [ %sub, %for.end ]
   %cmp20.not = icmp eq i8 %0, 58
   br i1 %cmp20.not, label %if.end22, label %for.end28
 
@@ -494,7 +491,7 @@ for.end28.critedge:                               ; preds = %entry
   store i8 %add9.c, ptr %arrayidx.i18.c, align 1
   br label %for.end28
 
-for.end28:                                        ; preds = %if.end22, %for.body17, %for.end28.critedge, %for.end
+for.end28:                                        ; preds = %if.end22, %for.body17, %for.end28.critedge
   %2 = load i8, ptr %buffer.coerce0, align 1
   %cmp31 = icmp eq i8 %2, 58
   br i1 %cmp31, label %if.then32, label %if.end35

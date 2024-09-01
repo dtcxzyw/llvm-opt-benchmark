@@ -7912,7 +7912,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   br i1 %122, label %..split299.us_crit_edge.i, label %.split294.us.i
 
 ..split299.us_crit_edge.i:                        ; preds = %121
-  %.pre368.i = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422
+  %.pre357.i = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422
   br label %.split299.us.i
 
 .split.us.i:                                      ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i
@@ -7929,7 +7929,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   br i1 %.not.i88, label %172, label %166
 
 .split299.us.i:                                   ; preds = %98, %..split299.us_crit_edge.i
-  %124 = phi i64 [ %.pre368.i, %..split299.us_crit_edge.i ], [ %99, %98 ]
+  %124 = phi i64 [ %.pre357.i, %..split299.us_crit_edge.i ], [ %99, %98 ]
   %125 = load ptr, ptr %69, align 8, !alias.scope !1420, !noalias !1422, !nonnull !7, !noundef !7
   %126 = getelementptr i8, ptr %125, i64 %124
   %127 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memrchr_raw2FN17h059c242405a91429E monotonic, align 8, !noalias !1436
@@ -7965,8 +7965,8 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
           cleanup
   br label %.body168.i
 
-.loopexit.split-lp.i:                             ; preds = %256, %253, %.invoke436.i, %157, %.split304.us.invoke.i
-  %trunc223.i = phi i1 [ false, %157 ], [ true, %253 ], [ true, %256 ], [ false, %.split304.us.invoke.i ], [ false, %.invoke436.i ]
+.loopexit.split-lp.i:                             ; preds = %256, %253, %.invoke425.i, %157, %.split304.us.invoke.i
+  %trunc223.i = phi i1 [ false, %157 ], [ true, %253 ], [ true, %256 ], [ false, %.split304.us.invoke.i ], [ false, %.invoke425.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body168.i
@@ -8021,7 +8021,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166_crit_edge.i" unwind label %.loopexit.loopexit.split-lp.i, !noalias !1422
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166_crit_edge.i": ; preds = %156
-  %.pre369.i = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422
+  %.pre358.i = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166.i"
 
 157:                                              ; preds = %146
@@ -8034,7 +8034,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   br label %262
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166.i": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166_crit_edge.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i164.i"
-  %160 = phi i64 [ %.pre369.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166_crit_edge.i" ], [ %155, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i164.i" ]
+  %160 = phi i64 [ %.pre358.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hedd887895c160084E.exit166_crit_edge.i" ], [ %155, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i164.i" ]
   %161 = icmp ugt i64 %153, %160
   br i1 %161, label %.split304.us.invoke.i, label %162
 
@@ -8050,7 +8050,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   %169 = add i64 %168, -1
   %170 = load ptr, ptr %69, align 8, !alias.scope !1420, !noalias !1422, !nonnull !7, !noundef !7
   %171 = icmp ult i64 %169, %167
-  br i1 %171, label %178, label %.invoke436.i, !prof !810
+  br i1 %171, label %178, label %.invoke425.i, !prof !810
 
 172:                                              ; preds = %190, %.split294.us.i
   %.sroa.028.2.i = phi ptr [ %192, %190 ], [ %.us-phi295.i, %.split294.us.i ]
@@ -8074,21 +8074,21 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   %.not131.i = icmp eq i8 %180, %77
   br i1 %.not131.i, label %184, label %183
 
-.invoke436.i:                                     ; preds = %183, %166
+.invoke425.i:                                     ; preds = %183, %166
   %181 = phi i64 [ %169, %166 ], [ %168, %183 ]
   %182 = phi ptr [ @anon.17ce21dc3f22f48f414cfec1f64daaee.73, %166 ], [ @anon.17ce21dc3f22f48f414cfec1f64daaee.74, %183 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %181, i64 noundef %167, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %182) #24
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !1422
 
-.cont.i:                                          ; preds = %.invoke436.i
+.cont.i:                                          ; preds = %.invoke425.i
   unreachable
 
 183:                                              ; preds = %178
   %.not132.i = icmp ugt i64 %.us-phi296.i, %167
-  br i1 %.not132.i, label %.invoke436.i, label %187, !prof !811
+  br i1 %.not132.i, label %.invoke425.i, label %187, !prof !811
 
 184:                                              ; preds = %187, %178
-  %.pre-phi.i = phi i64 [ %168, %178 ], [ %.pre370.i, %187 ]
+  %.pre-phi.i = phi i64 [ %168, %178 ], [ %.pre359.i, %187 ]
   %185 = phi i64 [ %167, %178 ], [ %.pre.i, %187 ]
   %.1106.i = phi i64 [ %.us-phi296.i, %178 ], [ %189, %187 ]
   %186 = icmp ugt i64 %.1106.i, %185
@@ -8099,7 +8099,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   store i8 %77, ptr %188, align 1, !noalias !1422
   %189 = add i64 %.us-phi296.i, -1
   %.pre.i = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422
-  %.pre370.i = sub i64 %.pre.i, %189
+  %.pre359.i = sub i64 %.pre.i, %189
   br label %184
 
 190:                                              ; preds = %184

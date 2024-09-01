@@ -1200,12 +1200,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   store i32 1, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
   %57 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, %56
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.sroa.speculated96 = select i1 %47, ptr %42, ptr %.sroa.13.0
   %.sroa.speculated111 = select i1 %47, ptr %43, ptr %.sroa.083.0
   %58 = ptrtoint ptr %.sroa.speculated96 to i64
@@ -1241,9 +1238,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %73, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-  %.sroa.12.0142 = phi ptr [ %56, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %56, %73 ]
-  %.sroa.0.0141 = phi ptr [ %55, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %55, %73 ]
+._crit_edge:                                      ; preds = %73, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %.sroa.12.0142 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %56, %73 ]
+  %.sroa.0.0141 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %55, %73 ]
   %.not.i.i = icmp eq ptr %42, %43
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %75
 
@@ -1836,12 +1833,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   store ptr %72, ptr %71, align 8
   %75 = lshr exact i64 %66, 2
-  br i1 %.not.i.i.i.i39, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.loopexit
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us:                                  ; preds = %.loopexit
   %76 = ashr exact i64 %59, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
   %.sroa.speculate.load.false81.us.pre = load ptr, ptr %23, align 8
@@ -1893,7 +1887,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %exitcond.not = icmp eq i64 %indvars.iv.next136, %umax
   br i1 %exitcond.not, label %._crit_edge, label %77, !llvm.loop !19
 
-.lr.ph.split:                                     ; preds = %.lr.ph
+.lr.ph.split:                                     ; preds = %.loopexit
   %96 = lshr exact i64 %59, 2
   %.sroa.speculate.load.false81.pre = load ptr, ptr %23, align 8
   %.sroa.speculate.load.false110.pre = load ptr, ptr %21, align 8
@@ -1968,7 +1962,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %121 = icmp ugt i64 %120, %indvars.iv.next
   br i1 %121, label %97, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %115, %94, %.loopexit.thread, %.loopexit
+._crit_edge:                                      ; preds = %115, %94, %.loopexit.thread
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %125
 

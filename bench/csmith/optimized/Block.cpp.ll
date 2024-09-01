@@ -3661,8 +3661,8 @@ define dso_local noundef zeroext i1 @_ZNK5Block15is_var_on_stackEPK8Variable(ptr
   %.014 = phi ptr [ %29, %27 ], [ %0, %.preheader.preheader ]
   %25 = getelementptr inbounds i8, ptr %.014, i64 80
   %26 = tail call noundef i32 @_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef %1)
-  %.not11.not = icmp ne i32 %26, -1
-  br i1 %.not11.not, label %.loopexit, label %27
+  %.not11.not.not = icmp ne i32 %26, -1
+  br i1 %.not11.not.not, label %.loopexit, label %27
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds i8, ptr %.014, i64 24
@@ -3671,7 +3671,7 @@ define dso_local noundef zeroext i1 @_ZNK5Block15is_var_on_stackEPK8Variable(ptr
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %.preheader
-  %.010 = phi i1 [ %.not11.not, %.preheader ], [ %.not11.not, %27 ], [ true, %.lr.ph ]
+  %.010 = phi i1 [ %.not11.not.not, %.preheader ], [ %.not11.not.not, %27 ], [ true, %.lr.ph ]
   ret i1 %.010
 }
 

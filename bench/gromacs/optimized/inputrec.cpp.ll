@@ -2088,32 +2088,29 @@ define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr nocapture
   %2 = getelementptr inbounds i8, ptr %0, i64 652
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %9
-  %indvars.iv17 = phi i64 [ 0, %1 ], [ %indvars.iv.next18, %9 ]
-  %3 = phi i1 [ true, %1 ], [ %10, %9 ]
-  br label %5
+.preheader:                                       ; preds = %1, %8
+  %indvars.iv16 = phi i64 [ 0, %1 ], [ %indvars.iv.next17, %8 ]
+  br label %4
 
-4:                                                ; preds = %5
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !25
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !25
 
-5:                                                ; preds = %.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv17, i64 %indvars.iv
-  %7 = load float, ptr %6, align 4
-  %8 = fcmp une float %7, 0.000000e+00
-  br i1 %8, label %.loopexit, label %4
+4:                                                ; preds = %.preheader, %3
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
+  %5 = getelementptr inbounds [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv16, i64 %indvars.iv
+  %6 = load float, ptr %5, align 4
+  %7 = fcmp une float %6, 0.000000e+00
+  br i1 %7, label %.loopexit, label %3
 
-9:                                                ; preds = %4
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %10 = icmp ult i64 %indvars.iv17, 2
-  %exitcond19.not = icmp eq i64 %indvars.iv.next18, 3
+8:                                                ; preds = %3
+  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
+  %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
   br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
-.loopexit:                                        ; preds = %9, %5
-  %11 = phi i1 [ %3, %5 ], [ %10, %9 ]
-  ret i1 %11
+.loopexit:                                        ; preds = %8, %4
+  ret i1 %7
 }
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
@@ -6931,30 +6928,21 @@ define noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr nocapture 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 760
   %6 = load ptr, ptr %5, align 8
-  %7 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %8 = load i32, ptr %6, align 4
-  %.not9 = icmp eq i32 %8, 0
-  br i1 %.not9, label %.lr.ph11, label %._crit_edge
+  br label %7
 
-.lr.ph11:                                         ; preds = %.lr.ph, %9
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+7:                                                ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 4
+  %.not.not = icmp ne i32 %9, 0
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !66
+  %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !66
 
-9:                                                ; preds = %.lr.ph11
-  %10 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 4
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.lr.ph11, label %._crit_edge.loopexit, !llvm.loop !66
-
-._crit_edge.loopexit:                             ; preds = %9, %.lr.ph11
-  %12 = icmp ult i64 %indvars.iv.next, %7
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1
-  %.lcssa = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ %12, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %7, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %7 ]
   ret i1 %.lcssa
 }
 
@@ -7158,30 +7146,21 @@ define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr nocapture n
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [7 x %"class.std::vector.54"], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %6 to i64
-  %13 = load double, ptr %11, align 8
-  %14 = fcmp ogt double %13, 0.000000e+00
-  br i1 %14, label %._crit_edge, label %.lr.ph11
+  br label %12
 
-.lr.ph11:                                         ; preds = %.lr.ph, %15
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+12:                                               ; preds = %12, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %14 = load double, ptr %13, align 8
+  %15 = fcmp ogt double %14, 0.000000e+00
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %15, !llvm.loop !68
+  %or.cond = select i1 %15, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %12, !llvm.loop !68
 
-15:                                               ; preds = %.lr.ph11
-  %16 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next
-  %17 = load double, ptr %16, align 8
-  %18 = fcmp ogt double %17, 0.000000e+00
-  br i1 %18, label %._crit_edge.loopexit, label %.lr.ph11, !llvm.loop !68
-
-._crit_edge.loopexit:                             ; preds = %15, %.lr.ph11
-  %19 = icmp ult i64 %indvars.iv.next, %12
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %19, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %12, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %15, %12 ]
   ret i1 %.lcssa
 }
 
@@ -7199,55 +7178,52 @@ define noundef zeroext i1 @_Z26fepLambdasChangeAtSameRateRKN3gmx16EnumerationArr
   br i1 %10, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
-  %11 = add nsw i32 %9, -1
-  %12 = zext nneg i32 %11 to i64
-  %wide.trip.count = zext nneg i32 %11 to i64
+  %11 = add nuw nsw i64 %8, 4294967295
+  %wide.trip.count = and i64 %11, 4294967295
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %30 ]
-  %13 = phi i1 [ false, %.preheader.preheader ], [ %31, %30 ]
-  br label %14
+.preheader:                                       ; preds = %.preheader.preheader, %28
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %28 ]
+  br label %12
 
-14:                                               ; preds = %.preheader, %29
-  %.02127 = phi double [ 0.000000e+00, %.preheader ], [ %.1, %29 ]
-  %.022.idx26 = phi i64 [ 0, %.preheader ], [ %.022.add, %29 ]
+12:                                               ; preds = %.preheader, %27
+  %.02127 = phi double [ 0.000000e+00, %.preheader ], [ %.1, %27 ]
+  %.022.idx26 = phi i64 [ 0, %.preheader ], [ %.022.add, %27 ]
   %.022.ptr = getelementptr inbounds i8, ptr %0, i64 %.022.idx26
-  %15 = load ptr, ptr %.022.ptr, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load double, ptr %17, align 8
-  %19 = load double, ptr %16, align 8
-  %20 = fsub double %18, %19
-  %21 = tail call noundef double @llvm.fabs.f64(double %20)
-  %22 = fcmp ogt double %21, 0x3E80000000000000
-  br i1 %22, label %23, label %29
+  %13 = load ptr, ptr %.022.ptr, align 8
+  %14 = getelementptr inbounds double, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = load double, ptr %14, align 8
+  %18 = fsub double %16, %17
+  %19 = tail call noundef double @llvm.fabs.f64(double %18)
+  %20 = fcmp ogt double %19, 0x3E80000000000000
+  br i1 %20, label %21, label %27
 
-23:                                               ; preds = %14
-  %24 = fcmp ogt double %.02127, 0x3E80000000000000
-  br i1 %24, label %25, label %29
+21:                                               ; preds = %12
+  %22 = fcmp ogt double %.02127, 0x3E80000000000000
+  br i1 %22, label %23, label %27
 
-25:                                               ; preds = %23
-  %26 = fsub double %21, %.02127
-  %27 = tail call noundef double @llvm.fabs.f64(double %26)
-  %28 = fcmp ogt double %27, 0x3E80000000000000
-  br i1 %28, label %.loopexit, label %29
+23:                                               ; preds = %21
+  %24 = fsub double %19, %.02127
+  %25 = tail call noundef double @llvm.fabs.f64(double %24)
+  %26 = fcmp ogt double %25, 0x3E80000000000000
+  br i1 %26, label %.loopexit, label %27
 
-29:                                               ; preds = %23, %25, %14
-  %.1 = phi double [ %.02127, %14 ], [ %21, %25 ], [ %21, %23 ]
+27:                                               ; preds = %21, %23, %12
+  %.1 = phi double [ %.02127, %12 ], [ %19, %23 ], [ %19, %21 ]
   %.022.add = add nuw nsw i64 %.022.idx26, 24
   %.not = icmp eq i64 %.022.add, 168
-  br i1 %.not, label %30, label %14
+  br i1 %.not, label %28, label %12
 
-30:                                               ; preds = %29
+28:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = icmp uge i64 %indvars.iv.next, %12
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !69
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !69
 
-.loopexit:                                        ; preds = %30, %25, %1
-  %32 = phi i1 [ true, %1 ], [ %13, %25 ], [ %31, %30 ]
-  ret i1 %32
+.loopexit:                                        ; preds = %28, %23, %1
+  %29 = phi i1 [ true, %1 ], [ false, %23 ], [ true, %28 ]
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

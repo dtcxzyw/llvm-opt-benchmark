@@ -768,10 +768,10 @@ if.end40:                                         ; preds = %if.then22, %if.else
   %7 = load ptr, ptr %fld.addr.0, align 8
   %call.i36 = tail call i32 @OPENSSL_sk_num(ptr noundef %7) #4
   %cmp4237 = icmp slt i32 %call.i36, 1
+  %add61 = add nsw i32 %indent, 2
   br i1 %cmp4237, label %land.lhs.true60, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end40
-  %add = add nsw i32 %indent, 2
   %item52 = getelementptr inbounds i8, ptr %tt, i64 32
   br label %for.body
 
@@ -790,7 +790,7 @@ if.end50:                                         ; preds = %land.lhs.true, %for
   store ptr %call.i34, ptr %skitem, align 8
   %8 = load ptr, ptr %item52, align 8
   %call53 = call ptr %8() #4
-  %call54 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add, ptr noundef %call53, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx)
+  %call54 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef nonnull %skitem, i32 noundef %add61, ptr noundef %call53, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pctx)
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %return, label %for.inc
 
@@ -798,20 +798,16 @@ for.inc:                                          ; preds = %if.end50
   %inc = add nuw nsw i32 %i.038, 1
   %call.i = call i32 @OPENSSL_sk_num(ptr noundef %7) #4
   %cmp42 = icmp slt i32 %inc, %call.i
-  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp42, label %for.body, label %if.end68, !llvm.loop !7
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp4237, label %land.lhs.true60, label %if.end68
-
-land.lhs.true60:                                  ; preds = %if.end40, %for.end
-  %add61 = add nsw i32 %indent, 2
+land.lhs.true60:                                  ; preds = %if.end40
   %cmp62 = icmp eq ptr %7, null
   %cond = select i1 %cmp62, ptr @.str.16, ptr @.str.17
-  %call64 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.15, i32 noundef %add61, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond) #4
+  %call64 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.15, i32 noundef %add61, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond) #4
   %cmp65 = icmp slt i32 %call64, 1
   br i1 %cmp65, label %return, label %if.end68
 
-if.end68:                                         ; preds = %land.lhs.true60, %for.end
+if.end68:                                         ; preds = %for.inc, %land.lhs.true60
   %9 = load i64, ptr %pctx, align 8
   %and70 = and i64 %9, 2
   %tobool71.not = icmp eq i64 %and70, 0

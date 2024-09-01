@@ -23541,9 +23541,9 @@ _ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_
 land.lhs.true302:                                 ; preds = %_ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit
   %215 = load ptr, ptr %Next2.i.i.i.i.i.i, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %215, %_params.i
-  br i1 %cmp.i.not3.i.i.i, label %if.end339, label %while.body.i.i.i500.preheader
+  br i1 %cmp.i.not3.i.i.i, label %if.end339, label %while.body.i.i.i.preheader
 
-while.body.i.i.i500.preheader:                    ; preds = %land.lhs.true302
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true302
   %LHSKind.i494 = getelementptr inbounds i8, ptr %ref.tmp314, i64 16
   %RHSKind.i495 = getelementptr inbounds i8, ptr %ref.tmp314, i64 17
   store i8 1, ptr %RHSKind.i495, align 1
@@ -23551,9 +23551,9 @@ while.body.i.i.i500.preheader:                    ; preds = %land.lhs.true302
   store i8 3, ptr %LHSKind.i494, align 8
   br label %while.body.i.i.i500
 
-while.body.i.i.i500:                              ; preds = %while.body.i.i.i500.preheader, %while.body.i.i.i500
-  %__n.05.i.i.i501 = phi i64 [ %inc.i.i.i504, %while.body.i.i.i500 ], [ 0, %while.body.i.i.i500.preheader ]
-  %__first.sroa.0.04.i.i.i502 = phi ptr [ %216, %while.body.i.i.i500 ], [ %215, %while.body.i.i.i500.preheader ]
+while.body.i.i.i500:                              ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i500
+  %__n.05.i.i.i501 = phi i64 [ %inc.i.i.i504, %while.body.i.i.i500 ], [ 0, %while.body.i.i.i.preheader ]
+  %__first.sroa.0.04.i.i.i502 = phi ptr [ %216, %while.body.i.i.i500 ], [ %215, %while.body.i.i.i.preheader ]
   %Next.i.i.i.i.i.i503 = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i502, i64 8
   %216 = load ptr, ptr %Next.i.i.i.i.i.i503, align 8
   %inc.i.i.i504 = add nuw nsw i64 %__n.05.i.i.i501, 1
@@ -23601,9 +23601,9 @@ while.body.i.i.i513:                              ; preds = %land.lhs.true321, %
 
 _ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit520: ; preds = %while.body.i.i.i513
   %cmp324.not = icmp eq i64 %__n.05.i.i.i514, 0
-  br i1 %cmp324.not, label %if.end339, label %while.body.i.i.i530.preheader
+  br i1 %cmp324.not, label %if.end339, label %if.then325
 
-while.body.i.i.i530.preheader:                    ; preds = %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit520
+if.then325:                                       ; preds = %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit520
   %retval.sroa.0.0.copyload.i522 = load ptr, ptr %End.i.i490, align 8
   %LHSKind.i524 = getelementptr inbounds i8, ptr %ref.tmp334, i64 16
   %RHSKind.i525 = getelementptr inbounds i8, ptr %ref.tmp334, i64 17
@@ -23612,9 +23612,9 @@ while.body.i.i.i530.preheader:                    ; preds = %_ZNK4llvh12simple_i
   store i8 3, ptr %LHSKind.i524, align 8
   br label %while.body.i.i.i530
 
-while.body.i.i.i530:                              ; preds = %while.body.i.i.i530.preheader, %while.body.i.i.i530
-  %__n.05.i.i.i531 = phi i64 [ %inc.i.i.i534, %while.body.i.i.i530 ], [ 0, %while.body.i.i.i530.preheader ]
-  %__first.sroa.0.04.i.i.i532 = phi ptr [ %220, %while.body.i.i.i530 ], [ %218, %while.body.i.i.i530.preheader ]
+while.body.i.i.i530:                              ; preds = %if.then325, %while.body.i.i.i530
+  %__n.05.i.i.i531 = phi i64 [ %inc.i.i.i534, %while.body.i.i.i530 ], [ 0, %if.then325 ]
+  %__first.sroa.0.04.i.i.i532 = phi ptr [ %220, %while.body.i.i.i530 ], [ %218, %if.then325 ]
   %Next.i.i.i.i.i.i533 = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i532, i64 8
   %220 = load ptr, ptr %Next.i.i.i.i.i.i533, align 8
   %inc.i.i.i534 = add nuw nsw i64 %__n.05.i.i.i531, 1
@@ -24260,11 +24260,9 @@ if.then94:                                        ; preds = %if.end91
 
 if.then97:                                        ; preds = %if.then94
   %it.sroa.0.0183.sroa.gep191 = getelementptr inbounds i8, ptr %it.sroa.0.0183, i64 56
-  %spec.select.i100.sroa.sel192 = select i1 %cmp.i.i.i.i.i.i.i99.not, ptr %it.sroa.0.0183.sroa.gep191, ptr inttoptr (i64 56 to ptr)
-  %48 = load ptr, ptr %spec.select.i100.sroa.sel192, align 8
+  %48 = load ptr, ptr %it.sroa.0.0183.sroa.gep191, align 8
   %it.sroa.0.0183.sroa.gep = getelementptr inbounds i8, ptr %it.sroa.0.0183, i64 64
-  %spec.select.i100.sroa.sel = select i1 %cmp.i.i.i.i.i.i.i99.not, ptr %it.sroa.0.0183.sroa.gep, ptr inttoptr (i64 64 to ptr)
-  %49 = load ptr, ptr %spec.select.i100.sroa.sel, align 8
+  %49 = load ptr, ptr %it.sroa.0.0183.sroa.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i101)
   %parens_.i.i102 = getelementptr inbounds i8, ptr %48, i64 20
   %50 = load i32, ptr %parens_.i.i102, align 4

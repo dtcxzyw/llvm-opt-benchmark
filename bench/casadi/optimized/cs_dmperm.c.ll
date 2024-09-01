@@ -591,10 +591,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   %wide.trip.count359 = zext nneg i32 %226 to i64
   br label %.lr.ph337
 
-.preheader321:                                    ; preds = %.lr.ph337
-  br i1 %268, label %.lr.ph339.preheader, label %._crit_edge344
-
-.lr.ph339.preheader:                              ; preds = %.preheader321
+.lr.ph339.preheader:                              ; preds = %.lr.ph337
   %wide.trip.count364 = zext nneg i32 %226 to i64
   br label %.lr.ph339
 
@@ -611,12 +608,9 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   store i32 %275, ptr %276, align 4
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
-  br i1 %exitcond360.not, label %.preheader321, label %.lr.ph337, !llvm.loop !12
+  br i1 %exitcond360.not, label %.lr.ph339.preheader, label %.lr.ph337, !llvm.loop !12
 
-.preheader320:                                    ; preds = %.lr.ph339
-  br i1 %268, label %.lr.ph341.preheader, label %._crit_edge344
-
-.lr.ph341.preheader:                              ; preds = %.preheader320
+.lr.ph341.preheader:                              ; preds = %.lr.ph339
   %wide.trip.count369 = zext nneg i32 %226 to i64
   br label %.lr.ph341
 
@@ -632,12 +626,9 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   store i32 %278, ptr %283, align 4
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count364
-  br i1 %exitcond365.not, label %.preheader320, label %.lr.ph339, !llvm.loop !13
+  br i1 %exitcond365.not, label %.lr.ph341.preheader, label %.lr.ph339, !llvm.loop !13
 
-.preheader:                                       ; preds = %.lr.ph341
-  br i1 %268, label %.lr.ph343.preheader, label %._crit_edge344
-
-.lr.ph343.preheader:                              ; preds = %.preheader
+.lr.ph343.preheader:                              ; preds = %.lr.ph341
   %wide.trip.count374 = zext nneg i32 %226 to i64
   br label %.lr.ph343
 
@@ -654,7 +645,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   store i32 %290, ptr %291, align 4
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
-  br i1 %exitcond370.not, label %.preheader, label %.lr.ph341, !llvm.loop !14
+  br i1 %exitcond370.not, label %.lr.ph343.preheader, label %.lr.ph341, !llvm.loop !14
 
 .lr.ph343:                                        ; preds = %.lr.ph343.preheader, %.lr.ph343
   %indvars.iv371 = phi i64 [ 0, %.lr.ph343.preheader ], [ %indvars.iv.next372, %.lr.ph343 ]
@@ -670,7 +661,7 @@ cs_unmatched.exit309:                             ; preds = %208, %cs_matched.ex
   %exitcond375.not = icmp eq i64 %indvars.iv.next372, %wide.trip.count374
   br i1 %exitcond375.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !15
 
-._crit_edge344:                                   ; preds = %.lr.ph343, %262, %.preheader321, %.preheader320, %.preheader
+._crit_edge344:                                   ; preds = %.lr.ph343, %262
   store i32 0, ptr %20, align 4
   store i32 0, ptr %18, align 4
   %299 = load i32, ptr %224, align 4

@@ -6914,39 +6914,32 @@ _ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit: ; preds = %_ZN4pbrt27Sampl
   %21 = getelementptr inbounds i8, ptr %Wi, i64 8
   %22 = extractvalue { <2 x float>, <2 x float> } %call48, 1
   store <2 x float> %22, ptr %21, align 8
-  %23 = extractelement <2 x float> %20, i64 0
-  %cmp2.i69 = fcmp une float %23, 0.000000e+00
-  br i1 %cmp2.i69, label %if.end, label %for.cond.i
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit, %for.body.i
-  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i70, 1
+for.body.i:                                       ; preds = %for.body.i, %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit
+  %indvars.iv.i = phi i64 [ 0, %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %Wi, i64 0, i64 %indvars.iv.i
+  %23 = load float, ptr %arrayidx.i.i, align 4
+  %cmp2.i = fcmp une float %23, 0.000000e+00
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !129
-
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %Wi, i64 0, i64 %indvars.iv.next.i
-  %24 = load float, ptr %arrayidx.i.i, align 4
-  %cmp2.i = fcmp une float %24, 0.000000e+00
-  br i1 %cmp2.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %for.cond.i, !llvm.loop !129
+  %or.cond.i55 = select i1 %cmp2.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i55, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %for.body.i, !llvm.loop !129
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %for.body.i
-  %cmp.i55.le = icmp ult i64 %indvars.iv.i70, 3
-  br i1 %cmp.i55.le, label %if.end, label %if.then
+  br i1 %cmp2.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %for.cond.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
+if.then:                                          ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %agg.result, i8 0, i64 208, i1 false)
   br label %return
 
-if.end:                                           ; preds = %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
+if.end:                                           ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
   %mul42 = fmul float %cond, %14
   %div = fdiv float %mul.i43, %mul42
   %agg.tmp53.sroa.0.0.copyload = load <2 x float>, ptr %pRaster, align 8
   %medium3.i.i = getelementptr inbounds i8, ptr %ref, i64 72
-  %25 = load i64, ptr %medium3.i.i, align 8
-  %26 = load i64, ptr %medium5.i, align 8
-  %set.i57 = getelementptr inbounds i8, ptr %agg.result, i64 200
-  store i8 1, ptr %set.i57, align 8
+  %24 = load i64, ptr %medium3.i.i, align 8
+  %25 = load i64, ptr %medium5.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %Wi, i64 16, i1 false)
   %ref.tmp52.sroa.0.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store <2 x float> %wi.sroa.0.4.vec.insert, ptr %ref.tmp52.sroa.0.sroa.2.0.agg.result.sroa_idx, align 8
@@ -6959,14 +6952,17 @@ if.end:                                           ; preds = %_ZNK4pbrt11Interact
   %pRef.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %pRef.i.i, ptr noundef nonnull align 8 dereferenceable(72) %ref, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 112
-  store i64 %25, ptr %medium.i.i.i, align 8
+  store i64 %24, ptr %medium.i.i.i, align 8
   %pLens.i.i = getelementptr inbounds i8, ptr %agg.result, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %pLens.i.i, ptr noundef nonnull align 8 dereferenceable(72) %lensIntr, i64 72, i1 false)
   %medium.i3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 192
-  store i64 %26, ptr %medium.i3.i.i, align 8
+  store i64 %25, ptr %medium.i3.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
+  %.sink = phi i8 [ 1, %if.end ], [ 0, %if.then ]
+  %26 = getelementptr inbounds i8, ptr %agg.result, i64 200
+  store i8 %.sink, ptr %26, align 8
   ret void
 }
 
@@ -9110,7 +9106,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %while.body.i
   %11 = fmul float %mul10.i, %10
   %cmp.i.i = fcmp ogt float %11, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %cmp.i.i, float 0x3FEFFFFFE0000000, float %11
-  br i1 %tobool12.not.i, label %_ZN4pbrt14RadicalInverseEim.exit34, label %while.body.i19
+  br label %while.body.i19
 
 while.body.i19:                                   ; preds = %_ZN4pbrt14RadicalInverseEim.exit, %while.body.i19
   %a.addr.016.i20 = phi i64 [ %div5.i23, %while.body.i19 ], [ %indvars.iv, %_ZN4pbrt14RadicalInverseEim.exit ]
@@ -9131,9 +9127,9 @@ while.end.loopexit.i30:                           ; preds = %while.body.i19
   %14 = fmul float %mul10.i27, %13
   br label %_ZN4pbrt14RadicalInverseEim.exit34
 
-_ZN4pbrt14RadicalInverseEim.exit34:               ; preds = %for.body, %_ZN4pbrt14RadicalInverseEim.exit, %while.end.loopexit.i30
-  %.sroa.speculated.i136 = phi float [ %.sroa.speculated.i, %_ZN4pbrt14RadicalInverseEim.exit ], [ %.sroa.speculated.i, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
-  %mul12.i31 = phi float [ 0.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit ], [ %14, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
+_ZN4pbrt14RadicalInverseEim.exit34:               ; preds = %for.body, %while.end.loopexit.i30
+  %.sroa.speculated.i136 = phi float [ %.sroa.speculated.i, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
+  %mul12.i31 = phi float [ %14, %while.end.loopexit.i30 ], [ 0.000000e+00, %for.body ]
   %cmp.i.i32 = fcmp ogt float %mul12.i31, 0x3FEFFFFFE0000000
   %.sroa.speculated.i33 = select i1 %cmp.i.i32, float 0x3FEFFFFFE0000000, float %mul12.i31
   %sub.i35 = fsub float 1.000000e+00, %.sroa.speculated.i136
@@ -9630,12 +9626,9 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.i = fadd float %zSum.08.i, %2
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.07.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit, label %for.body.i
+  br i1 %cmp.not.i, label %for.body.lr.ph, label %for.body.i
 
-_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %for.body.i
-  br i1 %cmp.not6.i, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
+for.body.lr.ph:                                   ; preds = %for.body.i
   %fneg = fneg float %add.i
   br label %for.body
 
@@ -9781,14 +9774,17 @@ if.end144:                                        ; preds = %if.else, %if.else12
   %inc = add nuw i64 %i.099, 1
   %23 = load i64, ptr %nStored.i.i, align 8
   %cmp = icmp ult i64 %inc, %23
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !145
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !145
 
-for.end:                                          ; preds = %if.end144, %entry, %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
-  %zSum.0.lcssa.i103 = phi float [ %add.i, %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit ], [ 0.000000e+00, %entry ], [ %add.i, %if.end144 ]
+for.end.loopexit:                                 ; preds = %if.end144
+  %24 = fmul float %add.i, 0xBFF3333340000000
+  %25 = fpext float %24 to double
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %zSum.0.lcssa.i103 = phi double [ -0.000000e+00, %entry ], [ %25, %for.end.loopexit ]
   %call147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53)
-  %mul148 = fmul float %zSum.0.lcssa.i103, 0xBFF3333340000000
-  %conv149 = fpext float %mul148 to double
-  %call150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %conv149)
+  %call150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %zSum.0.lcssa.i103)
   ret void
 }
 

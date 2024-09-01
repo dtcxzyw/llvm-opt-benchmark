@@ -2157,7 +2157,7 @@ terminate.lpad.i128:                              ; preds = %if.then13.i.i127
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129: ; preds = %if.then13.i.i127._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129_crit_edge, %invoke.cont16, %if.then.i.i121
   %bf.load.i.i130 = phi i64 [ %bf.load.i.i130.pre, %if.then13.i.i127._ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129_crit_edge ], [ %bf.load.i.i119.pre, %invoke.cont16 ], [ %bf.set.i.i125, %if.then.i.i121 ]
-  %cmp.not.not = icmp ule i32 %19, %cond.i
+  %cmp.not.not.not = icmp ule i32 %19, %cond.i
   %28 = and i64 %bf.load.i.i130, 1152920405095219200
   %cmp.not.i.i131 = icmp eq i64 %28, 1152920405095219200
   br i1 %cmp.not.i.i131, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit140, label %if.then.i.i132
@@ -2183,7 +2183,7 @@ terminate.lpad.i139:                              ; preds = %if.then13.i.i138
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit140: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129, %if.then.i.i132, %if.then13.i.i138
-  br i1 %cmp.not.not, label %for.inc, label %return
+  br i1 %cmp.not.not.not, label %for.inc, label %return
 
 lpad13:                                           ; preds = %if.then13.i.i87
   %31 = landingpad { ptr, i32 }
@@ -2197,7 +2197,7 @@ for.inc:                                          ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit140, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65
-  %cmp.i.not.lcssa = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65 ], [ %cmp.not.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit140 ], [ %cmp.not.not, %for.inc ]
+  %cmp.i.not.lcssa = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65 ], [ %cmp.not.not.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit140 ], [ %cmp.not.not.not, %for.inc ]
   ret i1 %cmp.i.not.lcssa
 }
 

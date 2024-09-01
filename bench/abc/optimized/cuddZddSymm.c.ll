@@ -1983,8 +1983,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr nound
 
 .preheader:                                       ; preds = %.lr.ph
   %4 = icmp eq i32 %spec.select44, 0
-  %or.cond59 = select i1 %.not52, i1 true, i1 %4
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph62
+  br i1 %4, label %._crit_edge, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.preheader
   %5 = getelementptr inbounds i8, ptr %0, i64 160

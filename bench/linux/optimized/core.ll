@@ -3397,11 +3397,11 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdpmc, i64 8), i32 2) #22
-          to label %._crit_edge25 [label %8], !srcloc !7
+          to label %._crit_edge24 [label %8], !srcloc !7
 
-._crit_edge25:                                    ; preds = %1
+._crit_edge24:                                    ; preds = %1
   %.pre = shl i64 %7, 32
-  %.pre26 = or i64 %.pre, %6
+  %.pre25 = or i64 %.pre, %6
   br label %11
 
 8:                                                ; preds = %1
@@ -3410,9 +3410,9 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   tail call void @do_trace_rdpmc(i32 noundef 1073741827, i64 noundef %10, i32 noundef 0) #22
   br label %11
 
-11:                                               ; preds = %._crit_edge25, %8
-  %.pre-phi27 = phi i64 [ %.pre26, %._crit_edge25 ], [ %10, %8 ]
-  %12 = icmp eq i64 %.pre-phi27, 0
+11:                                               ; preds = %._crit_edge24, %8
+  %.pre-phi26 = phi i64 [ %.pre25, %._crit_edge24 ], [ %10, %8 ]
+  %12 = icmp eq i64 %.pre-phi26, 0
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
@@ -3420,11 +3420,11 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdpmc, i64 8), i32 2) #22
-          to label %._crit_edge24 [label %17], !srcloc !7
+          to label %._crit_edge23 [label %17], !srcloc !7
 
-._crit_edge24:                                    ; preds = %13
-  %.pre28 = shl i64 %16, 32
-  %.pre30 = or i64 %.pre28, %15
+._crit_edge23:                                    ; preds = %13
+  %.pre27 = shl i64 %16, 32
+  %.pre29 = or i64 %.pre27, %15
   br label %20
 
 17:                                               ; preds = %13
@@ -3433,8 +3433,8 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   tail call void @do_trace_rdpmc(i32 noundef 536870912, i64 noundef %19, i32 noundef 0) #22
   br label %20
 
-20:                                               ; preds = %._crit_edge24, %17
-  %.pre-phi31 = phi i64 [ %.pre30, %._crit_edge24 ], [ %19, %17 ]
+20:                                               ; preds = %._crit_edge23, %17
+  %.pre-phi30 = phi i64 [ %.pre29, %._crit_edge23 ], [ %19, %17 ]
   %21 = getelementptr inbounds i8, ptr %4, i64 512
   %22 = add i32 %2, 48
   %23 = sext i32 %22 to i64
@@ -3466,20 +3466,20 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %40 = getelementptr inbounds i8, ptr %39, i64 396
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, -8
-  %.not19 = icmp eq i32 %42, 48
-  br i1 %.not19, label %43, label %.thread12.us
+  %.not14.us = icmp eq i32 %42, 48
+  br i1 %.not14.us, label %43, label %.thread12.us
 
 43:                                               ; preds = %.thread.us
   %44 = shl nuw nsw i32 %41, 3
   %45 = add nsw i32 %44, -384
   %46 = zext nneg i32 %45 to i64
-  %47 = lshr i64 %.pre-phi31, %46
+  %47 = lshr i64 %.pre-phi30, %46
   %48 = and i64 %47, 255
-  %49 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi27, i64 %48, i64 255) #24, !srcloc !40
+  %49 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi26, i64 %48, i64 255) #24, !srcloc !40
   br label %.thread12.us
 
 .thread12.us:                                     ; preds = %43, %.thread.us
-  %50 = phi i64 [ %49, %43 ], [ %.pre-phi27, %.thread.us ]
+  %50 = phi i64 [ %49, %43 ], [ %.pre-phi26, %.thread.us ]
   %.not20 = icmp eq i64 %50, 0
   br i1 %.not20, label %.lr.ph.split.us._crit_edge, label %51
 
@@ -3515,16 +3515,16 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %70 = getelementptr inbounds i8, ptr %67, i64 396
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, -8
-  %.not = icmp eq i32 %72, 48
-  br i1 %.not, label %73, label %.thread12
+  %.not14 = icmp eq i32 %72, 48
+  br i1 %.not14, label %73, label %.thread12
 
 73:                                               ; preds = %.thread
   %74 = shl nuw nsw i32 %71, 3
   %75 = add nsw i32 %74, -384
   %76 = zext nneg i32 %75 to i64
-  %77 = lshr i64 %.pre-phi31, %76
+  %77 = lshr i64 %.pre-phi30, %76
   %78 = and i64 %77, 255
-  %79 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi27, i64 %78, i64 255) #24, !srcloc !40
+  %79 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi26, i64 %78, i64 255) #24, !srcloc !40
   %80 = icmp eq i64 %68, 0
   br i1 %80, label %.thread12, label %81
 
@@ -3535,7 +3535,7 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   br label %.thread12
 
 .thread12:                                        ; preds = %.thread, %81, %73
-  %85 = phi i64 [ %79, %73 ], [ %79, %81 ], [ %.pre-phi27, %.thread ]
+  %85 = phi i64 [ %79, %73 ], [ %79, %81 ], [ %.pre-phi26, %.thread ]
   %86 = phi i64 [ 0, %73 ], [ %84, %81 ], [ %68, %.thread ]
   %87 = icmp ugt i64 %85, %86
   br i1 %87, label %88, label %.lr.ph.split._crit_edge
@@ -3572,16 +3572,16 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %105 = load i64, ptr %26, align 8
   %106 = load i32, ptr %97, align 4
   %107 = and i32 %106, -8
-  %.not21 = icmp eq i32 %107, 48
-  br i1 %.not21, label %108, label %.thread13
+  %.not = icmp eq i32 %107, 48
+  br i1 %.not, label %108, label %.thread13
 
 108:                                              ; preds = %103
   %109 = shl nuw nsw i32 %106, 3
   %110 = add nsw i32 %109, -384
   %111 = zext nneg i32 %110 to i64
-  %112 = lshr i64 %.pre-phi31, %111
+  %112 = lshr i64 %.pre-phi30, %111
   %113 = and i64 %112, 255
-  %114 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi27, i64 %113, i64 255) #24, !srcloc !40
+  %114 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %.pre-phi26, i64 %113, i64 255) #24, !srcloc !40
   %115 = icmp eq i64 %104, 0
   br i1 %115, label %.thread13, label %116
 
@@ -3592,7 +3592,7 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   br label %.thread13
 
 .thread13:                                        ; preds = %103, %116, %108
-  %120 = phi i64 [ %114, %108 ], [ %114, %116 ], [ %.pre-phi27, %103 ]
+  %120 = phi i64 [ %114, %108 ], [ %114, %116 ], [ %.pre-phi26, %103 ]
   %121 = phi i64 [ 0, %108 ], [ %119, %116 ], [ %104, %103 ]
   %122 = icmp ugt i64 %120, %121
   br i1 %122, label %123, label %126
@@ -3606,41 +3606,41 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
 126:                                              ; preds = %123, %.thread13
   %127 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #24, !srcloc !44
   %128 = inttoptr i64 %127 to ptr
-  store i64 %.pre-phi27, ptr %25, align 8
-  store i64 %.pre-phi31, ptr %26, align 8
+  store i64 %.pre-phi26, ptr %25, align 8
+  store i64 %.pre-phi30, ptr %26, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 512
   %130 = tail call i64 @_find_next_bit(ptr noundef %129, i64 noundef %23, i64 noundef 0) #22
   %131 = trunc i64 %130 to i32
   %132 = icmp sgt i32 %22, %131
-  br i1 %132, label %.lr.ph18, label %.loopexit
+  br i1 %132, label %.lr.ph19, label %.loopexit
 
-.lr.ph18:                                         ; preds = %126, %.lr.ph18._crit_edge
-  %133 = phi i32 [ %149, %.lr.ph18._crit_edge ], [ %131, %126 ]
-  %134 = phi i64 [ %148, %.lr.ph18._crit_edge ], [ %130, %126 ]
+.lr.ph19:                                         ; preds = %126, %.lr.ph19._crit_edge
+  %133 = phi i32 [ %149, %.lr.ph19._crit_edge ], [ %131, %126 ]
+  %134 = phi i64 [ %148, %.lr.ph19._crit_edge ], [ %130, %126 ]
   %135 = and i32 %133, -8
   %136 = icmp eq i32 %135, 48
   %137 = icmp eq i32 %133, 35
   %138 = or i1 %137, %136
   %139 = shl i64 %134, 32
-  br i1 %138, label %140, label %.lr.ph18._crit_edge
+  br i1 %138, label %140, label %.lr.ph19._crit_edge
 
-140:                                              ; preds = %.lr.ph18
+140:                                              ; preds = %.lr.ph19
   %141 = ashr exact i64 %139, 32
   %142 = getelementptr [64 x ptr], ptr %128, i64 0, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 504
   %145 = getelementptr inbounds i8, ptr %143, i64 512
-  store i64 %.pre-phi27, ptr %145, align 8
-  store i64 %.pre-phi31, ptr %144, align 8
-  br label %.lr.ph18._crit_edge
+  store i64 %.pre-phi26, ptr %145, align 8
+  store i64 %.pre-phi30, ptr %144, align 8
+  br label %.lr.ph19._crit_edge
 
-.lr.ph18._crit_edge:                              ; preds = %.lr.ph18, %140
+.lr.ph19._crit_edge:                              ; preds = %.lr.ph19, %140
   %146 = add i64 %139, 4294967296
   %147 = ashr exact i64 %146, 32
   %148 = tail call i64 @_find_next_bit(ptr noundef %129, i64 noundef %23, i64 noundef %147) #22
   %149 = trunc i64 %148 to i32
   %150 = icmp sgt i32 %22, %149
-  br i1 %150, label %.lr.ph18, label %.loopexit, !llvm.loop !45
+  br i1 %150, label %.lr.ph19, label %.loopexit, !llvm.loop !45
 
 151:                                              ; preds = %96
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 780, i32 0, i32 0) #22, !srcloc !6
@@ -3668,33 +3668,33 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   %159 = tail call i64 @_find_next_bit(ptr noundef %158, i64 noundef %23, i64 noundef 0) #22
   %160 = trunc i64 %159 to i32
   %161 = icmp sgt i32 %22, %160
-  br i1 %161, label %.lr.ph16, label %.loopexit
+  br i1 %161, label %.lr.ph17, label %.loopexit
 
-.lr.ph16:                                         ; preds = %155, %.lr.ph16._crit_edge
-  %162 = phi i32 [ %177, %.lr.ph16._crit_edge ], [ %160, %155 ]
-  %163 = phi i64 [ %176, %.lr.ph16._crit_edge ], [ %159, %155 ]
+.lr.ph17:                                         ; preds = %155, %.lr.ph17._crit_edge
+  %162 = phi i32 [ %177, %.lr.ph17._crit_edge ], [ %160, %155 ]
+  %163 = phi i64 [ %176, %.lr.ph17._crit_edge ], [ %159, %155 ]
   %164 = and i32 %162, -8
   %165 = icmp eq i32 %164, 48
   %166 = icmp eq i32 %162, 35
   %167 = or i1 %166, %165
   %168 = shl i64 %163, 32
-  br i1 %167, label %169, label %.lr.ph16._crit_edge
+  br i1 %167, label %169, label %.lr.ph17._crit_edge
 
-169:                                              ; preds = %.lr.ph16
+169:                                              ; preds = %.lr.ph17
   %170 = ashr exact i64 %168, 32
   %171 = getelementptr [64 x ptr], ptr %157, i64 0, i64 %170
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 504
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
-  br label %.lr.ph16._crit_edge
+  br label %.lr.ph17._crit_edge
 
-.lr.ph16._crit_edge:                              ; preds = %.lr.ph16, %169
+.lr.ph17._crit_edge:                              ; preds = %.lr.ph17, %169
   %174 = add i64 %168, 4294967296
   %175 = ashr exact i64 %174, 32
   %176 = tail call i64 @_find_next_bit(ptr noundef %158, i64 noundef %23, i64 noundef %175) #22
   %177 = trunc i64 %176 to i32
   %178 = icmp sgt i32 %22, %177
-  br i1 %178, label %.lr.ph16, label %.loopexit, !llvm.loop !45
+  br i1 %178, label %.lr.ph17, label %.loopexit, !llvm.loop !45
 
 179:                                              ; preds = %._crit_edge
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 780, i32 0, i32 0) #22, !srcloc !6
@@ -3714,8 +3714,8 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   tail call void @do_trace_write_msr(i32 noundef 809, i64 noundef 0, i32 noundef 0) #22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph16._crit_edge, %.lr.ph18._crit_edge, %155, %126, %182, %181, %11
-  ret i64 %.pre-phi27
+.loopexit:                                        ; preds = %.lr.ph17._crit_edge, %.lr.ph19._crit_edge, %155, %126, %182, %181, %11
+  ret i64 %.pre-phi26
 }
 
 ; Function Attrs: null_pointer_is_valid

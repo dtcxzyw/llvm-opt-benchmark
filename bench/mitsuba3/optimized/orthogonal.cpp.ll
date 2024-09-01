@@ -252,115 +252,109 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
   br label %6
 
 6:                                                ; preds = %.critedge, %2
-  %storemerge = phi i32 [ 2, %2 ], [ %16, %.critedge ]
+  %storemerge = phi i32 [ 2, %2 ], [ %14, %.critedge ]
   %7 = mul i32 %storemerge, %storemerge
   %8 = icmp ult i32 %7, %1
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %6
-  %10 = lshr i32 %storemerge, 1
   %.not6.i = icmp ult i32 %storemerge, 4
-  br i1 %.not6.i, label %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not6.i, label %.loopexit, label %.lr.ph.preheader.i
 
-.lr.ph.i.preheader:                               ; preds = %9
-  %11 = and i32 %storemerge, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.critedge, label %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %9
+  %10 = lshr i32 %storemerge, 1
+  br label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.07.i27 = phi i32 [ %13, %.lr.ph.i ], [ 2, %.lr.ph.i.preheader ]
-  %exitcond.i = icmp eq i32 %.07.i27, %10
-  br i1 %exitcond.i, label %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit, label %.lr.ph.i, !llvm.loop !4
+11:                                               ; preds = %.lr.ph.i
+  %12 = add nuw i32 %.07.i, 1
+  %exitcond.not.i = icmp eq i32 %.07.i, %10
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %13 = add nuw i32 %.07.i27, 1
-  %14 = urem i32 %storemerge, %13
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit, label %.lr.ph, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
+  %.07.i = phi i32 [ %12, %11 ], [ 2, %.lr.ph.preheader.i ]
+  %13 = urem i32 %storemerge, %.07.i
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %.critedge, label %11
 
-_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %.not.i.not.le = icmp ult i32 %.07.i27, %10
-  br i1 %.not.i.not.le, label %.critedge, label %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread
-
-.critedge:                                        ; preds = %.lr.ph.i.preheader, %6, %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit
-  %16 = add i32 %storemerge, 1
+.critedge:                                        ; preds = %.lr.ph.i, %6
+  %14 = add i32 %storemerge, 1
   br label %6, !llvm.loop !6
 
-_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread: ; preds = %9, %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit
+.loopexit:                                        ; preds = %9, %11
   store i32 %storemerge, ptr %5, align 8
   %.not = icmp eq i32 %1, %7
-  br i1 %.not, label %29, label %17
+  br i1 %.not, label %27, label %15
 
-17:                                               ; preds = %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread
-  %18 = load ptr, ptr @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+15:                                               ; preds = %.loopexit
+  %16 = load ptr, ptr @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   store i32 %7, ptr %4, align 4
-  %19 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %20 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
-  %.not24 = icmp eq ptr %20, null
-  br i1 %.not24, label %29, label %21
+  %17 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %18 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %.not24 = icmp eq ptr %18, null
+  br i1 %.not24, label %27, label %19
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp slt i32 %23, 301
-  br i1 %24, label %25, label %29
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 301
+  br i1 %22, label %23, label %27
 
-25:                                               ; preds = %21
+23:                                               ; preds = %19
   call void @_ZN10tinyformat6formatIJjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 300, ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 108, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %26 unwind label %27
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 300, ptr noundef %16, ptr noundef nonnull @.str.2, i32 noundef 108, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %24 unwind label %25
 
-26:                                               ; preds = %25
+24:                                               ; preds = %23
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  br label %29
+  br label %27
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %26
 
-29:                                               ; preds = %26, %21, %17, %_ZZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16set_sample_countEjENKUljE_clEj.exit.thread
-  %30 = load i32, ptr %5, align 8
-  %31 = mul i32 %30, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %31, ptr %32, align 8
-  %33 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 false)
-  %34 = trunc nuw nsw i32 %33 to i8
-  %35 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %30)
-  %36 = icmp ult i32 %35, 2
-  br i1 %36, label %37, label %39
+27:                                               ; preds = %24, %19, %15, %.loopexit
+  %28 = load i32, ptr %5, align 8
+  %29 = mul i32 %28, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %29, ptr %30, align 8
+  %31 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 false)
+  %32 = trunc nuw nsw i32 %31 to i8
+  %33 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
+  %34 = icmp ult i32 %33, 2
+  br i1 %34, label %35, label %37
 
-37:                                               ; preds = %29
-  %38 = sub nsw i8 30, %34
+35:                                               ; preds = %27
+  %36 = sub nsw i8 30, %32
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-39:                                               ; preds = %29
-  %40 = sub nsw i8 31, %34
-  %41 = zext nneg i8 %40 to i32
-  %42 = shl nuw i32 1, %41
-  %43 = zext i32 %42 to i64
-  %44 = shl nuw i64 %43, 32
-  %45 = zext i32 %30 to i64
-  %46 = udiv i64 %44, %45
-  %47 = urem i64 %44, %45
-  %.sroa.0.0.extract.trunc.i = trunc i64 %46 to i32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %47 to i32
-  %48 = shl i32 %.sroa.0.0.extract.trunc.i, 1
-  %49 = or disjoint i32 %48, 1
-  %50 = shl i32 %.sroa.2.0.extract.trunc.i, 1
-  %.not.i25 = icmp uge i32 %50, %30
-  %51 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
-  %or.cond.i = or i1 %51, %.not.i25
-  %52 = add i32 %48, 2
-  %spec.select = select i1 %or.cond.i, i32 %52, i32 %49
+37:                                               ; preds = %27
+  %38 = sub nsw i8 31, %32
+  %39 = zext nneg i8 %38 to i32
+  %40 = shl nuw i32 1, %39
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw i64 %41, 32
+  %43 = zext i32 %28 to i64
+  %44 = udiv i64 %42, %43
+  %45 = urem i64 %42, %43
+  %.sroa.0.0.extract.trunc.i = trunc i64 %44 to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %45 to i32
+  %46 = shl i32 %.sroa.0.0.extract.trunc.i, 1
+  %47 = or disjoint i32 %46, 1
+  %48 = shl i32 %.sroa.2.0.extract.trunc.i, 1
+  %.not.i25 = icmp uge i32 %48, %28
+  %49 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
+  %or.cond.i = or i1 %49, %.not.i25
+  %50 = add i32 %46, 2
+  %spec.select = select i1 %or.cond.i, i32 %50, i32 %47
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %39, %37
-  %.sroa.2.0 = phi i32 [ 0, %37 ], [ %spec.select, %39 ]
-  %.sroa.5.0 = phi i8 [ %38, %37 ], [ %40, %39 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %30, ptr %53, align 4
+_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %37, %35
+  %.sroa.2.0 = phi i32 [ 0, %35 ], [ %spec.select, %37 ]
+  %.sroa.5.0 = phi i8 [ %36, %35 ], [ %38, %37 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %28, ptr %51, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 76
@@ -1075,108 +1069,108 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   %.not.i106 = icmp uge i32 %spec.select.i105, %83
   %149 = icmp ne i8 %.017.i104, 0
   %150 = and i1 %149, %.not.i106
-  br i1 %150, label %.critedge.i102, label %151
+  br i1 %150, label %.critedge.i102, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit108
 
-151:                                              ; preds = %.critedge.i102
-  %152 = add i32 %spec.select.i105, %96
-  %153 = urem i32 %152, %83
-  %154 = mul i32 %95, 1757159915
-  %155 = lshr i32 %154, 16
-  %156 = lshr i32 %154, 8
-  %157 = lshr i32 %154, 23
-  %158 = lshr i32 %154, 27
-  %159 = or i32 %158, 1
-  %160 = mul i32 %159, 1765145193
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit108: ; preds = %.critedge.i102
+  %151 = add i32 %spec.select.i105, %96
+  %152 = mul i32 %95, 1757159915
+  %153 = lshr i32 %152, 16
+  %154 = lshr i32 %152, 8
+  %155 = lshr i32 %152, 23
+  %156 = lshr i32 %152, 27
+  %157 = or i32 %156, 1
+  %158 = mul i32 %157, 1765145193
   br label %.critedge.i109
 
-.critedge.i109:                                   ; preds = %.critedge.i109, %151
-  %.023.i110 = phi i32 [ %.1136, %151 ], [ %spec.select.i112, %.critedge.i109 ]
-  %.017.i111 = phi i8 [ %6, %151 ], [ 1, %.critedge.i109 ]
-  %161 = xor i32 %.023.i110, %154
-  %162 = mul i32 %161, -512718531
-  %163 = xor i32 %162, %155
-  %164 = and i32 %163, %113
-  %165 = lshr i32 %164, 4
-  %166 = xor i32 %156, %165
-  %167 = xor i32 %166, %163
-  %168 = mul i32 %167, 153742143
-  %169 = xor i32 %168, %157
-  %170 = and i32 %169, %113
-  %171 = lshr i32 %170, 1
-  %172 = xor i32 %171, %169
-  %173 = mul i32 %160, %172
-  %174 = and i32 %173, %113
-  %175 = lshr i32 %174, 11
-  %176 = xor i32 %175, %173
-  %177 = mul i32 %176, 1960620803
-  %178 = and i32 %177, %113
-  %179 = lshr i32 %178, 2
-  %180 = xor i32 %179, %177
-  %181 = mul i32 %180, -1638916925
-  %182 = and i32 %181, %113
-  %183 = lshr i32 %182, 2
-  %184 = xor i32 %183, %181
-  %185 = mul i32 %184, -933190689
-  %186 = and i32 %185, %113
-  %187 = lshr i32 %186, 5
-  %188 = xor i32 %187, %186
-  %189 = trunc nuw i8 %.017.i111 to i1
-  %spec.select.i112 = select i1 %189, i32 %188, i32 %.023.i110
+.critedge.i109:                                   ; preds = %.critedge.i109, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit108
+  %.023.i110 = phi i32 [ %.1136, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit108 ], [ %spec.select.i112, %.critedge.i109 ]
+  %.017.i111 = phi i8 [ %6, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit108 ], [ 1, %.critedge.i109 ]
+  %159 = xor i32 %.023.i110, %152
+  %160 = mul i32 %159, -512718531
+  %161 = xor i32 %160, %153
+  %162 = and i32 %161, %113
+  %163 = lshr i32 %162, 4
+  %164 = xor i32 %154, %163
+  %165 = xor i32 %164, %161
+  %166 = mul i32 %165, 153742143
+  %167 = xor i32 %166, %155
+  %168 = and i32 %167, %113
+  %169 = lshr i32 %168, 1
+  %170 = xor i32 %169, %167
+  %171 = mul i32 %158, %170
+  %172 = and i32 %171, %113
+  %173 = lshr i32 %172, 11
+  %174 = xor i32 %173, %171
+  %175 = mul i32 %174, 1960620803
+  %176 = and i32 %175, %113
+  %177 = lshr i32 %176, 2
+  %178 = xor i32 %177, %175
+  %179 = mul i32 %178, -1638916925
+  %180 = and i32 %179, %113
+  %181 = lshr i32 %180, 2
+  %182 = xor i32 %181, %179
+  %183 = mul i32 %182, -933190689
+  %184 = and i32 %183, %113
+  %185 = lshr i32 %184, 5
+  %186 = xor i32 %185, %184
+  %187 = trunc nuw i8 %.017.i111 to i1
+  %spec.select.i112 = select i1 %187, i32 %186, i32 %.023.i110
   %.not.i113 = icmp uge i32 %spec.select.i112, %83
-  %190 = icmp ne i8 %.017.i111, 0
-  %191 = and i1 %190, %.not.i113
-  br i1 %191, label %.critedge.i109, label %192
+  %188 = icmp ne i8 %.017.i111, 0
+  %189 = and i1 %188, %.not.i113
+  br i1 %189, label %.critedge.i109, label %190
 
-192:                                              ; preds = %.critedge.i109
-  %193 = add i32 %spec.select.i112, %154
-  %194 = urem i32 %193, %83
-  %195 = uitofp i32 %153 to float
-  %196 = uitofp i32 %194 to float
+190:                                              ; preds = %.critedge.i109
+  %191 = urem i32 %151, %83
+  %192 = add i32 %spec.select.i112, %152
+  %193 = urem i32 %192, %83
+  %194 = uitofp i32 %191 to float
+  %195 = uitofp i32 %193 to float
   br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115: ; preds = %81, %192
-  %.0.i107145 = phi float [ %195, %192 ], [ 0.000000e+00, %81 ]
-  %.0.i114 = phi float [ %196, %192 ], [ 0.000000e+00, %81 ]
-  %197 = getelementptr inbounds i8, ptr %0, i64 56
-  %198 = load i8, ptr %197, align 8
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %220
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115: ; preds = %81, %190
+  %.0.i107145 = phi float [ %194, %190 ], [ 0.000000e+00, %81 ]
+  %.0.i114 = phi float [ %195, %190 ], [ 0.000000e+00, %81 ]
+  %196 = getelementptr inbounds i8, ptr %0, i64 56
+  %197 = load i8, ptr %196, align 8
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %199, label %219
 
-200:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115
-  %201 = getelementptr inbounds i8, ptr %0, i64 40
-  %202 = load i64, ptr %201, align 8
-  br i1 %4, label %203, label %208
+199:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115
+  %200 = getelementptr inbounds i8, ptr %0, i64 40
+  %201 = load i64, ptr %200, align 8
+  br i1 %4, label %202, label %207
 
-203:                                              ; preds = %200
-  %204 = mul i64 %202, 6364136223846793005
-  %205 = getelementptr inbounds i8, ptr %0, i64 48
-  %206 = load i64, ptr %205, align 8
-  %207 = add i64 %206, %204
-  store i64 %207, ptr %201, align 8
-  br label %208
+202:                                              ; preds = %199
+  %203 = mul i64 %201, 6364136223846793005
+  %204 = getelementptr inbounds i8, ptr %0, i64 48
+  %205 = load i64, ptr %204, align 8
+  %206 = add i64 %205, %203
+  store i64 %206, ptr %200, align 8
+  br label %207
 
-208:                                              ; preds = %203, %200
-  %209 = lshr i64 %202, 45
-  %210 = lshr i64 %202, 27
-  %211 = xor i64 %209, %210
-  %212 = trunc i64 %211 to i32
-  %213 = lshr i64 %202, 59
-  %214 = trunc nuw nsw i64 %213 to i32
-  %215 = tail call i32 @llvm.fshr.i32(i32 %212, i32 %212, i32 %214)
-  %216 = lshr i32 %215, 9
-  %217 = or disjoint i32 %216, 1065353216
-  %218 = bitcast i32 %217 to float
-  %219 = fadd contract float %218, -1.000000e+00
-  br label %220
+207:                                              ; preds = %202, %199
+  %208 = lshr i64 %201, 45
+  %209 = lshr i64 %201, 27
+  %210 = xor i64 %208, %209
+  %211 = trunc i64 %210 to i32
+  %212 = lshr i64 %201, 59
+  %213 = trunc nuw nsw i64 %212 to i32
+  %214 = tail call i32 @llvm.fshr.i32(i32 %211, i32 %211, i32 %213)
+  %215 = lshr i32 %214, 9
+  %216 = or disjoint i32 %215, 1065353216
+  %217 = bitcast i32 %216 to float
+  %218 = fadd contract float %217, -1.000000e+00
+  br label %219
 
-220:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115, %208
-  %221 = phi contract float [ %219, %208 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115 ]
-  %222 = fadd contract float %.0.i114, %221
-  %223 = uitofp i32 %83 to float
-  %224 = fdiv contract float %222, %223
-  %225 = fadd contract float %.0.i107145, %224
-  %226 = fdiv contract float %225, %223
-  ret float %226
+219:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115, %207
+  %220 = phi contract float [ %218, %207 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit115 ]
+  %221 = fadd contract float %.0.i114, %220
+  %222 = uitofp i32 %83 to float
+  %223 = fdiv contract float %221, %222
+  %224 = fadd contract float %.0.i107145, %223
+  %225 = fdiv contract float %224, %222
+  ret float %225
 }
 
 ; Function Attrs: mustprogress uwtable

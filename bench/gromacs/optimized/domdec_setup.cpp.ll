@@ -2436,7 +2436,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.preheader88, label %.preheader89
 
-.preheader89:                                     ; preds = %.preheader, %._crit_edge102, %._crit_edge
+.preheader89:                                     ; preds = %.preheader, %._crit_edge
   br i1 %.not, label %.loopexit, label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %.preheader89
@@ -2527,7 +2527,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %72 = add nsw i32 %.082103, -1
-  br i1 %.not114, label %.preheader89, label %.preheader88, !llvm.loop !23
+  br label %.preheader88, !llvm.loop !23
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
   %73 = phi i32 [ %75, %.lr.ph105 ], [ %.pre113, %.lr.ph105.preheader ]
@@ -3067,79 +3067,79 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
   %293 = fmul float %291, %292
   %294 = fadd float %279, %293
   %295 = load i32, ptr %8, align 4
-  %.not307 = icmp eq i32 %295, 1
-  br i1 %.not307, label %.thread207, label %296
+  %296 = icmp eq i32 %295, 1
+  br i1 %296, label %.thread207, label %297
 
-296:                                              ; preds = %261
-  %297 = load i32, ptr %151, align 4
-  %298 = icmp eq i32 %297, 1
-  br i1 %298, label %306, label %299
+297:                                              ; preds = %261
+  %298 = load i32, ptr %151, align 4
+  %299 = icmp eq i32 %298, 1
+  br i1 %299, label %307, label %300
 
-299:                                              ; preds = %296
-  %300 = load i32, ptr %40, align 4
-  %301 = icmp ne i32 %300, 1
-  %302 = load i32, ptr %11, align 8
-  %.not = icmp eq i32 %302, 2
-  %or.cond199 = select i1 %301, i1 true, i1 %.not
-  br i1 %or.cond199, label %312, label %.thread311
+300:                                              ; preds = %297
+  %301 = load i32, ptr %40, align 4
+  %302 = icmp ne i32 %301, 1
+  %303 = load i32, ptr %11, align 8
+  %.not = icmp eq i32 %303, 2
+  %or.cond199 = select i1 %302, i1 true, i1 %.not
+  br i1 %or.cond199, label %313, label %.thread310
 
 .thread207:                                       ; preds = %261
-  %303 = getelementptr inbounds i8, ptr %3, i64 32
-  %304 = load i32, ptr %303, align 4
-  %.not189208 = icmp eq i32 %304, 0
+  %304 = getelementptr inbounds i8, ptr %3, i64 32
+  %305 = load i32, ptr %304, align 4
+  %.not189208 = icmp eq i32 %305, 0
   br i1 %.not189208, label %.thread207._crit_edge, label %.thread209
 
 .thread207._crit_edge:                            ; preds = %.thread207
   %.pre304 = load i32, ptr %151, align 4
-  %305 = icmp eq i32 %.pre304, 1
-  br label %306
+  %306 = icmp eq i32 %.pre304, 1
+  br label %307
 
-306:                                              ; preds = %296, %.thread207._crit_edge
-  %307 = phi i1 [ %305, %.thread207._crit_edge ], [ true, %296 ]
-  %308 = getelementptr inbounds i8, ptr %3, i64 36
-  %309 = load i32, ptr %308, align 4
-  %.not190 = icmp ne i32 %309, 0
-  %or.cond230 = select i1 %.not190, i1 %307, i1 false
-  br i1 %or.cond230, label %.thread209, label %.thread311
+307:                                              ; preds = %.thread207._crit_edge, %297
+  %308 = phi i1 [ %306, %.thread207._crit_edge ], [ true, %297 ]
+  %309 = getelementptr inbounds i8, ptr %3, i64 36
+  %310 = load i32, ptr %309, align 4
+  %.not190 = icmp ne i32 %310, 0
+  %or.cond230 = select i1 %.not190, i1 %308, i1 false
+  br i1 %or.cond230, label %.thread209, label %.thread310
 
-.thread209:                                       ; preds = %306, %.thread207
-  %310 = fmul float %6, 0x3FC99999A0000000
-  br label %312
+.thread209:                                       ; preds = %307, %.thread207
+  %311 = fmul float %6, 0x3FC99999A0000000
+  br label %313
 
-.thread311:                                       ; preds = %299, %306
-  %311 = fmul float %6, 0x3FB99999A0000000
-  br label %312
+.thread310:                                       ; preds = %300, %307
+  %312 = fmul float %6, 0x3FB99999A0000000
+  br label %313
 
-312:                                              ; preds = %.thread209, %.thread311, %299
-  %.0 = phi float [ %310, %.thread209 ], [ %311, %.thread311 ], [ 0.000000e+00, %299 ]
-  %313 = load ptr, ptr @debug, align 8
-  %.not191 = icmp eq ptr %313, null
-  br i1 %.not191, label %._crit_edge, label %314
+313:                                              ; preds = %.thread209, %.thread310, %300
+  %.0 = phi float [ %311, %.thread209 ], [ %312, %.thread310 ], [ 0.000000e+00, %300 ]
+  %314 = load ptr, ptr @debug, align 8
+  %.not191 = icmp eq ptr %314, null
+  br i1 %.not191, label %._crit_edge, label %315
 
-._crit_edge:                                      ; preds = %312
+._crit_edge:                                      ; preds = %313
   %.pre305 = fadd float %208, %.0
-  br label %325
+  br label %326
 
-314:                                              ; preds = %312
-  %315 = load i32, ptr %151, align 4
-  %316 = load i32, ptr %40, align 4
-  %317 = fpext float %208 to double
-  %318 = fpext float %.0 to double
-  %319 = fdiv float %294, %210
-  %320 = fpext float %319 to double
-  %321 = fadd float %208, %.0
-  %322 = fadd float %319, %321
-  %323 = fpext float %322 to double
-  %324 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %313, ptr noundef nonnull @.str.30, i32 noundef %295, i32 noundef %315, i32 noundef %316, i32 noundef %.sroa.0.0, i32 noundef %.sroa.5.0, double noundef %317, double noundef %318, double noundef %320, double noundef %323) #20
-  br label %325
+315:                                              ; preds = %313
+  %316 = load i32, ptr %151, align 4
+  %317 = load i32, ptr %40, align 4
+  %318 = fpext float %208 to double
+  %319 = fpext float %.0 to double
+  %320 = fdiv float %294, %210
+  %321 = fpext float %320 to double
+  %322 = fadd float %208, %.0
+  %323 = fadd float %320, %322
+  %324 = fpext float %323 to double
+  %325 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %314, ptr noundef nonnull @.str.30, i32 noundef %295, i32 noundef %316, i32 noundef %317, i32 noundef %.sroa.0.0, i32 noundef %.sroa.5.0, double noundef %318, double noundef %319, double noundef %321, double noundef %324) #20
+  br label %326
 
-325:                                              ; preds = %._crit_edge, %314
-  %.pre-phi306 = phi float [ %.pre305, %._crit_edge ], [ %321, %314 ]
-  %326 = tail call float @llvm.fmuladd.f32(float %210, float %.pre-phi306, float %294)
+326:                                              ; preds = %._crit_edge, %315
+  %.pre-phi306 = phi float [ %.pre305, %._crit_edge ], [ %322, %315 ]
+  %327 = tail call float @llvm.fmuladd.f32(float %210, float %.pre-phi306, float %294)
   br label %.thread205
 
-.thread205:                                       ; preds = %87, %63, %.thread202, %111, %102, %189, %205, %204, %166, %.thread, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %17, %23, %325
-  %.0177 = phi float [ %326, %325 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %17 ], [ -1.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ -1.000000e+00, %.thread ], [ -1.000000e+00, %166 ], [ -1.000000e+00, %204 ], [ -1.000000e+00, %205 ], [ -1.000000e+00, %189 ], [ -1.000000e+00, %102 ], [ -1.000000e+00, %111 ], [ -1.000000e+00, %.thread202 ], [ -1.000000e+00, %63 ], [ -1.000000e+00, %87 ]
+.thread205:                                       ; preds = %87, %63, %.thread202, %111, %102, %189, %205, %204, %166, %.thread, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %17, %23, %326
+  %.0177 = phi float [ %327, %326 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %17 ], [ -1.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ -1.000000e+00, %.thread ], [ -1.000000e+00, %166 ], [ -1.000000e+00, %204 ], [ -1.000000e+00, %205 ], [ -1.000000e+00, %189 ], [ -1.000000e+00, %102 ], [ -1.000000e+00, %111 ], [ -1.000000e+00, %.thread202 ], [ -1.000000e+00, %63 ], [ -1.000000e+00, %87 ]
   ret float %.0177
 }
 

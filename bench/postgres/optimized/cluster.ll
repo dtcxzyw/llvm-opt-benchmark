@@ -756,17 +756,17 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   %155 = getelementptr inbounds i8, ptr %154, i64 84
   %156 = load i32, ptr %155, align 4
   %157 = icmp eq i32 %156, 403
-  br i1 %157, label %158, label %.thread129.i.i
+  br i1 %157, label %158, label %.critedge.i.i
 
 158:                                              ; preds = %152
   %159 = call zeroext i1 @plan_cluster_use_sort(i32 noundef %92, i32 noundef %1) #8
-  br i1 %159, label %167, label %.thread129.i.i
+  br i1 %159, label %167, label %.critedge.i.i
 
-.thread129.i.i:                                   ; preds = %158, %152
+.critedge.i.i:                                    ; preds = %158, %152
   %160 = call zeroext i1 @errstart(i32 noundef %105, ptr noundef null) #8
   br i1 %160, label %161, label %178
 
-161:                                              ; preds = %.thread129.i.i
+161:                                              ; preds = %.critedge.i.i
   %162 = load ptr, ptr %111, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 4
   %164 = load ptr, ptr %153, align 8
@@ -800,8 +800,8 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.copy_table_data) #8
   br label %178
 
-178:                                              ; preds = %.sink.split.i.i, %.thread123.i.i, %167, %.thread129.i.i
-  %.0105122.i.i = phi i1 [ false, %.thread123.i.i ], [ true, %167 ], [ false, %.thread129.i.i ], [ %.0105122.ph.i.i, %.sink.split.i.i ]
+178:                                              ; preds = %.sink.split.i.i, %.thread123.i.i, %167, %.critedge.i.i
+  %.0105122.i.i = phi i1 [ false, %.thread123.i.i ], [ true, %167 ], [ false, %.critedge.i.i ], [ %.0105122.ph.i.i, %.sink.split.i.i ]
   %179 = getelementptr inbounds i8, ptr %5, i64 8
   %180 = load i32, ptr %179, align 4
   %181 = getelementptr inbounds i8, ptr %5, i64 16

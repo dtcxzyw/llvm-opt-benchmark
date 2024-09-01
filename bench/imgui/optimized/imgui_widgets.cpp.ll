@@ -1796,21 +1796,18 @@ if.end23:                                         ; preds = %if.end11
   %tobool25 = trunc i8 %16 to i1
   %.pre34 = load i8, ptr %hovered, align 1
   %tobool27 = trunc i8 %.pre34 to i1
-  %tobool25.not = xor i1 %tobool25, true
-  %17 = select i1 %tobool25, i1 %tobool27, i1 false
-  %tobool27.mux = select i1 %tobool25.not, i1 %tobool27, i1 false
-  %cond = select i1 %tobool27.mux, i32 22, i32 21
-  %cond29 = select i1 %17, i32 23, i32 %cond
-  %call30 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond29, float noundef 1.000000e+00)
+  %. = select i1 %tobool25, i32 23, i32 22
+  %spec.select = select i1 %tobool27, i32 %., i32 21
+  %call30 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %call1, i32 noundef 1)
   %agg.tmp31.sroa.0.0.copyload = load <2 x float>, ptr %bb, align 8
   %agg.tmp32.sroa.0.0.copyload = load <2 x float>, ptr %Max.i, align 8
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %18 = load float, ptr %FrameRounding, align 4
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp31.sroa.0.0.copyload, <2 x float> %agg.tmp32.sroa.0.0.copyload, i32 noundef %call30, i1 noundef zeroext true, float noundef %18)
+  %17 = load float, ptr %FrameRounding, align 4
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp31.sroa.0.0.copyload, <2 x float> %agg.tmp32.sroa.0.0.copyload, i32 noundef %call30, i1 noundef zeroext true, float noundef %17)
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %19 = load i8, ptr %LogEnabled, align 8
-  %tobool33 = trunc i8 %19 to i1
+  %18 = load i8, ptr %LogEnabled, align 8
+  %tobool33 = trunc i8 %18 to i1
   br i1 %tobool33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end23
@@ -1828,8 +1825,8 @@ if.end35:                                         ; preds = %if.then34, %if.end2
   %retval.sroa.0.4.vec.insert.i30 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i29, float %add3.i28, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i30, ptr %ref.tmp36, align 8
   %Max.val = load float, ptr %Max.i, align 8
-  %20 = getelementptr inbounds i8, ptr %bb, i64 12
-  %Max.val24 = load float, ptr %20, align 4
+  %19 = getelementptr inbounds i8, ptr %bb, i64 12
+  %Max.val24 = load float, ptr %19, align 4
   %sub.i = fsub float %Max.val, %FramePadding12.val
   %sub3.i = fsub float %Max.val24, %FramePadding12.val21
   %retval.sroa.0.0.vec.insert.i31 = insertelement <2 x float> poison, float %sub.i, i64 0
@@ -1984,41 +1981,38 @@ if.end9:                                          ; preds = %cond.end
   %tobool11 = trunc i8 %10 to i1
   %.pre = load i8, ptr %hovered, align 1
   %tobool12 = trunc i8 %.pre to i1
-  %tobool11.not = xor i1 %tobool11, true
-  %11 = select i1 %tobool11, i1 %tobool12, i1 false
-  %tobool12.mux = select i1 %tobool11.not, i1 %tobool12, i1 false
-  %cond16 = select i1 %tobool12.mux, i32 22, i32 21
-  %cond18 = select i1 %11, i32 23, i32 %cond16
-  %call19 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond18, float noundef 1.000000e+00)
+  %. = select i1 %tobool11, i32 23, i32 22
+  %spec.select = select i1 %tobool12, i32 %., i32 21
+  %call19 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   %call20 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %call1, i32 noundef 1)
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %bb, align 8
   %agg.tmp21.sroa.0.0.copyload = load <2 x float>, ptr %Max.i, align 8
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %12 = load float, ptr %FrameRounding, align 4
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp21.sroa.0.0.copyload, i32 noundef %call19, i1 noundef zeroext true, float noundef %12)
+  %11 = load float, ptr %FrameRounding, align 4
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp21.sroa.0.0.copyload, i32 noundef %call19, i1 noundef zeroext true, float noundef %11)
   %DrawList = getelementptr inbounds i8, ptr %2, i64 680
-  %13 = load ptr, ptr %DrawList, align 8
-  %14 = load float, ptr %size, align 8
+  %12 = load ptr, ptr %DrawList, align 8
+  %13 = load float, ptr %size, align 8
   %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
-  %15 = load float, ptr %FontSize, align 8
-  %sub = fsub float %14, %15
+  %14 = load float, ptr %FontSize, align 8
+  %sub = fsub float %13, %14
   %mul = fmul float %sub, 5.000000e-01
   %cmp.i = fcmp ole float %mul, 0.000000e+00
   %cond.i = select i1 %cmp.i, float 0.000000e+00, float %mul
-  %16 = load float, ptr %7, align 4
-  %sub29 = fsub float %16, %15
+  %15 = load float, ptr %7, align 4
+  %sub29 = fsub float %15, %14
   %mul30 = fmul float %sub29, 5.000000e-01
   %cmp.i14 = fcmp ole float %mul30, 0.000000e+00
   %cond.i15 = select i1 %cmp.i14, float 0.000000e+00, float %mul30
   %bb.val = load float, ptr %bb, align 8
-  %17 = getelementptr inbounds i8, ptr %bb, i64 4
-  %bb.val10 = load float, ptr %17, align 4
+  %16 = getelementptr inbounds i8, ptr %bb, i64 4
+  %bb.val10 = load float, ptr %16, align 4
   %add.i16 = fadd float %bb.val, %cond.i
   %add3.i17 = fadd float %bb.val10, %cond.i15
   %retval.sroa.0.0.vec.insert.i18 = insertelement <2 x float> poison, float %add.i16, i64 0
   %retval.sroa.0.4.vec.insert.i19 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i18, float %add3.i17, i64 1
-  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %13, <2 x float> %retval.sroa.0.4.vec.insert.i19, i32 noundef %call20, i32 noundef %dir, float noundef 1.000000e+00)
+  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %12, <2 x float> %retval.sroa.0.4.vec.insert.i19, i32 noundef %call20, i32 noundef %dir, float noundef 1.000000e+00)
   br label %return
 
 return:                                           ; preds = %cond.end, %entry, %if.end9
@@ -2215,54 +2209,51 @@ if.end:                                           ; preds = %entry
   %tobool7 = trunc i8 %5 to i1
   %.pre = load i8, ptr %hovered, align 1
   %tobool8 = trunc i8 %.pre to i1
-  %tobool7.not = xor i1 %tobool7, true
-  %6 = select i1 %tobool7, i1 %tobool8, i1 false
-  %tobool8.mux = select i1 %tobool7.not, i1 %tobool8, i1 false
-  %cond = select i1 %tobool8.mux, i32 22, i32 21
-  %cond10 = select i1 %6, i32 23, i32 %cond
-  %call11 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond10, float noundef 1.000000e+00)
+  %. = select i1 %tobool7, i32 23, i32 22
+  %spec.select = select i1 %tobool8, i32 %., i32 21
+  %call11 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   %call12 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 0, float noundef 1.000000e+00)
-  %7 = load i8, ptr %hovered, align 1
-  %tobool13 = trunc i8 %7 to i1
+  %6 = load i8, ptr %hovered, align 1
+  %tobool13 = trunc i8 %6 to i1
   br i1 %tobool13, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %8 = load i8, ptr %held, align 1
-  %tobool14 = trunc i8 %8 to i1
+  %7 = load i8, ptr %held, align 1
+  %tobool14 = trunc i8 %7 to i1
   br i1 %tobool14, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end
   %DrawList = getelementptr inbounds i8, ptr %1, i64 680
-  %9 = load ptr, ptr %DrawList, align 8
-  %10 = load float, ptr %bb, align 8
-  %11 = load float, ptr %Max.i, align 8
-  %add.i15 = fadd float %10, %11
+  %8 = load ptr, ptr %DrawList, align 8
+  %9 = load float, ptr %bb, align 8
+  %10 = load float, ptr %Max.i, align 8
+  %add.i15 = fadd float %9, %10
   %mul.i = fmul float %add.i15, 5.000000e-01
   %y.i16 = getelementptr inbounds i8, ptr %bb, i64 4
-  %12 = load float, ptr %y.i16, align 4
+  %11 = load float, ptr %y.i16, align 4
   %y5.i = getelementptr inbounds i8, ptr %bb, i64 12
-  %13 = load float, ptr %y5.i, align 4
-  %add6.i = fadd float %12, %13
+  %12 = load float, ptr %y5.i, align 4
+  %add6.i = fadd float %11, %12
   %mul7.i = fmul float %add6.i, 5.000000e-01
   %add.i20 = fadd float %mul.i, 0.000000e+00
   %add3.i21 = fadd float %mul7.i, -5.000000e-01
   %retval.sroa.0.0.vec.insert.i22 = insertelement <2 x float> poison, float %add.i20, i64 0
   %retval.sroa.0.4.vec.insert.i23 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i22, float %add3.i21, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i23, ptr %ref.tmp16, align 8
-  %14 = load float, ptr %FontSize, align 8
-  %15 = call float @llvm.fmuladd.f32(float %14, float 5.000000e-01, float 1.000000e+00)
-  call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %9, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp16, float noundef %15, i32 noundef %call11, i32 noundef 0)
+  %13 = load float, ptr %FontSize, align 8
+  %14 = call float @llvm.fmuladd.f32(float %13, float 5.000000e-01, float 1.000000e+00)
+  call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %8, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp16, float noundef %14, i32 noundef %call11, i32 noundef 0)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then15, %lor.lhs.false
   %DrawList23 = getelementptr inbounds i8, ptr %1, i64 680
-  %16 = load ptr, ptr %DrawList23, align 8
+  %15 = load ptr, ptr %DrawList23, align 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %bb, align 8
   %Collapsed = getelementptr inbounds i8, ptr %1, i64 193
-  %17 = load i8, ptr %Collapsed, align 1
-  %tobool24 = trunc i8 %17 to i1
+  %16 = load i8, ptr %Collapsed, align 1
+  %tobool24 = trunc i8 %16 to i1
   %cond25 = select i1 %tobool24, i32 1, i32 3
-  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %16, <2 x float> %agg.tmp.sroa.0.0.copyload, i32 noundef %call12, i32 noundef %cond25, float noundef 1.000000e+00)
+  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %15, <2 x float> %agg.tmp.sroa.0.0.copyload, i32 noundef %call12, i32 noundef %cond25, float noundef 1.000000e+00)
   %call26 = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
   br i1 %call26, label %land.lhs.true27, label %return
 
@@ -2907,32 +2898,29 @@ if.end10:                                         ; preds = %if.end
   %tobool12 = trunc i8 %14 to i1
   %.pre = load i8, ptr %hovered, align 1
   %tobool13 = trunc i8 %.pre to i1
-  %tobool12.not = xor i1 %tobool12, true
-  %15 = select i1 %tobool12, i1 %tobool13, i1 false
-  %tobool13.mux = select i1 %tobool12.not, i1 %tobool13, i1 false
-  %cond = select i1 %tobool13.mux, i32 22, i32 21
-  %cond15 = select i1 %15, i32 23, i32 %cond
-  %call16 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond15, float noundef 1.000000e+00)
+  %. = select i1 %tobool12, i32 23, i32 22
+  %spec.select = select i1 %tobool13, i32 %., i32 21
+  %call16 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %bb, i32 noundef %id, i32 noundef 1)
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %bb, align 8
   %agg.tmp17.sroa.0.0.copyload = load <2 x float>, ptr %Max.i, align 8
   %cmp.i = fcmp olt float %4, %5
   %cond.i = select i1 %cmp.i, float %4, float %5
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %16 = load float, ptr %FrameRounding, align 4
+  %15 = load float, ptr %FrameRounding, align 4
   %cmp.i34 = fcmp olt float %cond.i, 0.000000e+00
-  %cmp1.i = fcmp ogt float %cond.i, %16
-  %cond.i35 = select i1 %cmp1.i, float %16, float %cond.i
+  %cmp1.i = fcmp ogt float %cond.i, %15
+  %cond.i35 = select i1 %cmp1.i, float %15, float %cond.i
   %cond5.i = select i1 %cmp.i34, float 0.000000e+00, float %cond.i35
   call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp17.sroa.0.0.copyload, i32 noundef %call16, i1 noundef zeroext true, float noundef %cond5.i)
   %w = getelementptr inbounds i8, ptr %bg_col, i64 12
-  %17 = load float, ptr %w, align 4
-  %cmp = fcmp ogt float %17, 0.000000e+00
+  %16 = load float, ptr %w, align 4
+  %cmp = fcmp ogt float %16, 0.000000e+00
   br i1 %cmp, label %if.then21, label %if.end29
 
 if.then21:                                        ; preds = %if.end10
   %DrawList = getelementptr inbounds i8, ptr %2, i64 680
-  %18 = load ptr, ptr %DrawList, align 8
+  %17 = load ptr, ptr %DrawList, align 8
   %bb.val11 = load float, ptr %bb, align 8
   %bb.val12 = load float, ptr %y5.i.i, align 4
   %add.i36 = fadd float %4, %bb.val11
@@ -2948,12 +2936,12 @@ if.then21:                                        ; preds = %if.end10
   %retval.sroa.0.4.vec.insert.i41 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i40, float %sub3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i41, ptr %ref.tmp25, align 8
   %call28 = call noundef i32 @_ZN5ImGui11GetColorU32ERK6ImVec4(ptr noundef nonnull align 4 dereferenceable(16) %bg_col)
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %18, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, i32 noundef %call28, float noundef 0.000000e+00, i32 noundef 0)
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %17, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, i32 noundef %call28, float noundef 0.000000e+00, i32 noundef 0)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then21, %if.end10
   %DrawList30 = getelementptr inbounds i8, ptr %2, i64 680
-  %19 = load ptr, ptr %DrawList30, align 8
+  %18 = load ptr, ptr %DrawList30, align 8
   %bb.val = load float, ptr %bb, align 8
   %bb.val9 = load float, ptr %y5.i.i, align 4
   %add.i42 = fadd float %4, %bb.val
@@ -2969,7 +2957,7 @@ if.end29:                                         ; preds = %if.then21, %if.end1
   %retval.sroa.0.4.vec.insert.i49 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i48, float %sub3.i47, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i49, ptr %ref.tmp34, align 8
   %call37 = call noundef i32 @_ZN5ImGui11GetColorU32ERK6ImVec4(ptr noundef nonnull align 4 dereferenceable(16) %tint_col)
-  call void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr noundef nonnull align 8 dereferenceable(196) %19, ptr noundef %texture_id, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(8) %uv0, ptr noundef nonnull align 4 dereferenceable(8) %uv1, i32 noundef %call37)
+  call void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr noundef nonnull align 8 dereferenceable(196) %18, ptr noundef %texture_id, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(8) %uv0, ptr noundef nonnull align 4 dereferenceable(8) %uv1, i32 noundef %call37)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end29
@@ -3139,19 +3127,16 @@ if.end20:                                         ; preds = %if.then17, %if.end1
   %tobool25 = trunc i8 %13 to i1
   %.pre = load i8, ptr %hovered, align 1
   %tobool26 = trunc i8 %.pre to i1
-  %tobool25.not = xor i1 %tobool25, true
-  %14 = select i1 %tobool25, i1 %tobool26, i1 false
-  %tobool26.mux = select i1 %tobool25.not, i1 %tobool26, i1 false
-  %cond30 = select i1 %tobool26.mux, i32 8, i32 7
-  %cond32 = select i1 %14, i32 9, i32 %cond30
-  %call33 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond32, float noundef 1.000000e+00)
+  %. = select i1 %tobool25, i32 9, i32 8
+  %spec.select = select i1 %tobool26, i32 %., i32 7
+  %call33 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %15 = load float, ptr %FrameRounding, align 4
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %12, <2 x float> %retval.sroa.0.4.vec.insert.i53, i32 noundef %call33, i1 noundef zeroext true, float noundef %15)
+  %14 = load float, ptr %FrameRounding, align 4
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %12, <2 x float> %retval.sroa.0.4.vec.insert.i53, i32 noundef %call33, i1 noundef zeroext true, float noundef %14)
   %call34 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 18, float noundef 1.000000e+00)
   %InFlags = getelementptr inbounds i8, ptr %0, i64 18812
-  %16 = load i32, ptr %InFlags, align 4
-  %and = and i32 %16, 64
+  %15 = load i32, ptr %InFlags, align 4
+  %and = and i32 %15, 64
   %cmp35.not = icmp eq i32 %and, 0
   br i1 %cmp35.not, label %if.else, label %if.then38
 
@@ -3162,7 +3147,7 @@ if.then38:                                        ; preds = %if.end20
   %cmp.i = fcmp ole float %conv39, 1.000000e+00
   %cond.i = select i1 %cmp.i, float 1.000000e+00, float %conv39
   %DrawList = getelementptr inbounds i8, ptr %2, i64 680
-  %17 = load ptr, ptr %DrawList, align 8
+  %16 = load ptr, ptr %DrawList, align 8
   %check_bb.sroa.0.4.vec.extract79 = extractelement <2 x float> %12, i64 1
   %add.i58 = fadd float %cond.i, %6
   %add3.i59 = fadd float %cond.i, %check_bb.sroa.0.4.vec.extract79
@@ -3174,13 +3159,13 @@ if.then38:                                        ; preds = %if.end20
   %retval.sroa.0.0.vec.insert.i62 = insertelement <2 x float> poison, float %sub.i, i64 0
   %retval.sroa.0.4.vec.insert.i63 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i62, float %sub3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i63, ptr %ref.tmp48, align 8
-  %18 = load float, ptr %FrameRounding, align 4
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %17, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp48, i32 noundef %call34, float noundef %18, i32 noundef 0)
+  %17 = load float, ptr %FrameRounding, align 4
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %16, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp48, i32 noundef %call34, float noundef %17, i32 noundef 0)
   br label %if.end65
 
 if.else:                                          ; preds = %if.end20
-  %19 = load i8, ptr %v, align 1
-  %tobool52 = trunc i8 %19 to i1
+  %18 = load i8, ptr %v, align 1
+  %tobool52 = trunc i8 %18 to i1
   br i1 %tobool52, label %if.then53, label %if.else.if.end65_crit_edge
 
 if.else.if.end65_crit_edge:                       ; preds = %if.else
@@ -3194,38 +3179,38 @@ if.then53:                                        ; preds = %if.else
   %cmp.i64 = fcmp ole float %conv57, 1.000000e+00
   %cond.i65 = select i1 %cmp.i64, float 1.000000e+00, float %conv57
   %DrawList59 = getelementptr inbounds i8, ptr %2, i64 680
-  %20 = load ptr, ptr %DrawList59, align 8
+  %19 = load ptr, ptr %DrawList59, align 8
   %check_bb.sroa.0.4.vec.extract77 = extractelement <2 x float> %12, i64 1
   %add.i67 = fadd float %cond.i65, %6
   %add3.i68 = fadd float %cond.i65, %check_bb.sroa.0.4.vec.extract77
   %retval.sroa.0.0.vec.insert.i69 = insertelement <2 x float> poison, float %add.i67, i64 0
   %retval.sroa.0.4.vec.insert.i70 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i69, float %add3.i68, i64 1
   %neg = fneg float %cond.i65
-  %21 = call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %call3)
-  call void @_ZN5ImGui15RenderCheckMarkEP10ImDrawList6ImVec2jf(ptr noundef %20, <2 x float> %retval.sroa.0.4.vec.insert.i70, i32 noundef %call34, float noundef %21)
+  %20 = call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %call3)
+  call void @_ZN5ImGui15RenderCheckMarkEP10ImDrawList6ImVec2jf(ptr noundef %19, <2 x float> %retval.sroa.0.4.vec.insert.i70, i32 noundef %call34, float noundef %20)
   br label %if.end65
 
 if.end65:                                         ; preds = %if.else.if.end65_crit_edge, %if.then53, %if.then38
   %check_bb.sroa.0.4.vec.extract.pre-phi = phi float [ %.pre86, %if.else.if.end65_crit_edge ], [ %check_bb.sroa.0.4.vec.extract77, %if.then53 ], [ %check_bb.sroa.0.4.vec.extract79, %if.then38 ]
   %ItemInnerSpacing68 = getelementptr inbounds i8, ptr %0, i64 14660
-  %22 = load float, ptr %ItemInnerSpacing68, align 4
-  %add70 = fadd float %add.i50, %22
-  %23 = load float, ptr %y8, align 4
-  %add75 = fadd float %check_bb.sroa.0.4.vec.extract.pre-phi, %23
+  %21 = load float, ptr %ItemInnerSpacing68, align 4
+  %add70 = fadd float %add.i50, %21
+  %22 = load float, ptr %y8, align 4
+  %add75 = fadd float %check_bb.sroa.0.4.vec.extract.pre-phi, %22
   store float %add70, ptr %label_pos, align 8
   %y.i71 = getelementptr inbounds i8, ptr %label_pos, i64 4
   store float %add75, ptr %y.i71, align 4
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %24 = load i8, ptr %LogEnabled, align 8
-  %tobool76 = trunc i8 %24 to i1
+  %23 = load i8, ptr %LogEnabled, align 8
+  %tobool76 = trunc i8 %23 to i1
   br i1 %tobool76, label %if.then77, label %if.end87
 
 if.then77:                                        ; preds = %if.end65
   br i1 %cmp35.not, label %cond.false80, label %cond.end85
 
 cond.false80:                                     ; preds = %if.then77
-  %25 = load i8, ptr %v, align 1
-  %tobool81 = trunc i8 %25 to i1
+  %24 = load i8, ptr %v, align 1
+  %tobool81 = trunc i8 %24 to i1
   %.str.7..str.8 = select i1 %tobool81, ptr @.str.7, ptr @.str.8
   br label %cond.end85
 
@@ -3572,12 +3557,9 @@ if.end32:                                         ; preds = %if.then31, %if.end1
   %tobool35 = trunc i8 %13 to i1
   %.pre = load i8, ptr %hovered, align 1
   %tobool36 = trunc i8 %.pre to i1
-  %tobool35.not = xor i1 %tobool35, true
-  %14 = select i1 %tobool35, i1 %tobool36, i1 false
-  %tobool36.mux = select i1 %tobool35.not, i1 %tobool36, i1 false
-  %cond40 = select i1 %tobool36.mux, i32 8, i32 7
-  %cond42 = select i1 %14, i32 9, i32 %cond40
-  %call43 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond42, float noundef 1.000000e+00)
+  %. = select i1 %tobool35, i32 9, i32 8
+  %spec.select = select i1 %tobool36, i32 %., i32 7
+  %call43 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %12, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %mul, i32 noundef %call43, i32 noundef %call33)
   br i1 %active, label %if.then45, label %if.end52
 
@@ -3587,20 +3569,20 @@ if.then45:                                        ; preds = %if.end32
   %conv47 = sitofp i32 %conv46 to float
   %cmp.i = fcmp ole float %conv47, 1.000000e+00
   %cond.i = select i1 %cmp.i, float 1.000000e+00, float %conv47
-  %15 = load ptr, ptr %DrawList, align 8
+  %14 = load ptr, ptr %DrawList, align 8
   %sub50 = fsub float %mul, %cond.i
   %call51 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 18, float noundef 1.000000e+00)
-  call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %15, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %sub50, i32 noundef %call51, i32 noundef 0)
+  call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %14, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %sub50, i32 noundef %call51, i32 noundef 0)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then45, %if.end32
   %FrameBorderSize = getelementptr inbounds i8, ptr %0, i64 14648
-  %16 = load float, ptr %FrameBorderSize, align 4
-  %cmp53 = fcmp ogt float %16, 0.000000e+00
+  %15 = load float, ptr %FrameBorderSize, align 4
+  %cmp53 = fcmp ogt float %15, 0.000000e+00
   br i1 %cmp53, label %if.then54, label %if.end64
 
 if.then54:                                        ; preds = %if.end52
-  %17 = load ptr, ptr %DrawList, align 8
+  %16 = load ptr, ptr %DrawList, align 8
   %center.val = load float, ptr %center, align 4
   %center.val37 = load float, ptr %y23, align 4
   %add.i56 = fadd float %center.val, 1.000000e+00
@@ -3609,26 +3591,26 @@ if.then54:                                        ; preds = %if.end52
   %retval.sroa.0.4.vec.insert.i59 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i58, float %add3.i57, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i59, ptr %ref.tmp56, align 8
   %call59 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 6, float noundef 1.000000e+00)
-  %18 = load float, ptr %FrameBorderSize, align 4
-  call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %17, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp56, float noundef %mul, i32 noundef %call59, i32 noundef %call33, float noundef %18)
-  %19 = load ptr, ptr %DrawList, align 8
+  %17 = load float, ptr %FrameBorderSize, align 4
+  call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %16, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp56, float noundef %mul, i32 noundef %call59, i32 noundef %call33, float noundef %17)
+  %18 = load ptr, ptr %DrawList, align 8
   %call62 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 5, float noundef 1.000000e+00)
-  %20 = load float, ptr %FrameBorderSize, align 4
-  call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %19, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %mul, i32 noundef %call62, i32 noundef %call33, float noundef %20)
+  %19 = load float, ptr %FrameBorderSize, align 4
+  call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %18, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %mul, i32 noundef %call62, i32 noundef %call33, float noundef %19)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then54, %if.end52
   %ItemInnerSpacing66 = getelementptr inbounds i8, ptr %0, i64 14660
-  %21 = load float, ptr %ItemInnerSpacing66, align 4
-  %add68 = fadd float %add.i, %21
-  %22 = load float, ptr %y11, align 4
-  %add72 = fadd float %22, %7
+  %20 = load float, ptr %ItemInnerSpacing66, align 4
+  %add68 = fadd float %add.i, %20
+  %21 = load float, ptr %y11, align 4
+  %add72 = fadd float %21, %7
   store float %add68, ptr %label_pos, align 8
   %y.i60 = getelementptr inbounds i8, ptr %label_pos, i64 4
   store float %add72, ptr %y.i60, align 4
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %23 = load i8, ptr %LogEnabled, align 8
-  %tobool73 = trunc i8 %23 to i1
+  %22 = load i8, ptr %LogEnabled, align 8
+  %tobool73 = trunc i8 %22 to i1
   br i1 %tobool73, label %if.then74, label %if.end79
 
 if.then74:                                        ; preds = %if.end64
@@ -4745,7 +4727,6 @@ while.cond64.preheader:                           ; preds = %for.body49
   br i1 %cmp6578, label %for.cond68.preheader.lr.ph, label %while.end89
 
 for.cond68.preheader.lr.ph:                       ; preds = %while.cond64.preheader
-  tail call void @llvm.assume(i1 %cmp4870)
   %11 = zext nneg i32 %count to i64
   br label %for.cond68.preheader
 
@@ -19715,7 +19696,7 @@ invoke.cont1083:                                  ; preds = %if.end1073
   br label %if.then1088
 
 if.end1086:                                       ; preds = %land.lhs.true596, %land.lhs.true598, %if.then1040, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit
-  %brmerge8331485 = phi i1 [ %brmerge833, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ true, %if.then1040 ], [ true, %land.lhs.true598 ], [ true, %land.lhs.true596 ]
+  %value_changed.1 = phi i1 [ true, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ false, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
   %revert_edit.014481484 = phi i1 [ %revert_edit.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %revert_edit.0, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
   %validated.014491481 = phi i8 [ %validated.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %validated.0, %if.then1040 ], [ 0, %land.lhs.true598 ], [ 0, %land.lhs.true596 ]
   %render_selection.114521478 = phi i8 [ %render_selection.1, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %render_selection.1, %if.then1040 ], [ %render_selection.0, %land.lhs.true598 ], [ %render_selection.0, %land.lhs.true596 ]
@@ -19723,7 +19704,6 @@ if.end1086:                                       ; preds = %land.lhs.true596, %
   %scroll_y.014561472 = phi float [ %scroll_y.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %scroll_y.0, %if.then1040 ], [ %cond151, %land.lhs.true598 ], [ %cond151, %land.lhs.true596 ]
   %clear_active_id.114581469 = phi i8 [ %clear_active_id.1, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %clear_active_id.1, %if.then1040 ], [ %clear_active_id.01323, %land.lhs.true598 ], [ %clear_active_id.01323, %land.lhs.true596 ]
   %apply_new_text.1 = phi ptr [ @.str, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ null, %if.then1040 ], [ null, %land.lhs.true598 ], [ null, %land.lhs.true596 ]
-  %value_changed.1 = xor i1 %brmerge8331485, true
   br i1 %cmp95, label %if.end1102, label %if.then1088
 
 if.then1088:                                      ; preds = %if.else1049, %invoke.cont1083, %if.end1086
@@ -20926,7 +20906,7 @@ if.end1788:                                       ; preds = %while.cond.i1275
   br label %if.then1795
 
 lor.lhs.false1790:                                ; preds = %if.then1783, %if.then1777, %if.else1772
-  %buf_display_end.31354 = phi ptr [ %buf_display_end.0, %if.else1772 ], [ %add.ptr1780, %if.then1777 ], [ %add.ptr1785, %if.then1783 ]
+  %buf_display_end.31354 = phi ptr [ %add.ptr1785, %if.then1783 ], [ %add.ptr1780, %if.then1777 ], [ %buf_display_end.0, %if.else1772 ]
   %sub.ptr.lhs.cast1791 = ptrtoint ptr %buf_display_end.31354 to i64
   %sub.ptr.rhs.cast1792 = ptrtoint ptr %buf_display.0 to i64
   %sub.ptr.sub1793 = sub i64 %sub.ptr.lhs.cast1791, %sub.ptr.rhs.cast1792
@@ -29000,17 +28980,14 @@ if.then356:                                       ; preds = %if.end353
   %tobool357 = trunc i8 %72 to i1
   %.pre244 = load i8, ptr %hovered, align 1
   %tobool359 = trunc i8 %.pre244 to i1
-  %tobool357.not = xor i1 %tobool357, true
-  %73 = select i1 %tobool357, i1 %tobool359, i1 false
-  %tobool359.mux = select i1 %tobool357.not, i1 %tobool359, i1 false
-  %cond363 = select i1 %tobool359.mux, i32 25, i32 24
-  %cond365 = select i1 %73, i32 26, i32 %cond363
-  %call366 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond365, float noundef 1.000000e+00)
+  %. = select i1 %tobool357, i32 26, i32 25
+  %spec.select258 = select i1 %tobool359, i32 %., i32 24
+  %call366 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %spec.select258, float noundef 1.000000e+00)
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %frame_bb, align 8
   %agg.tmp368.sroa.0.0.copyload = load <2 x float>, ptr %Max56, align 8
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %74 = load float, ptr %FrameRounding, align 4
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp368.sroa.0.0.copyload, i32 noundef %call366, i1 noundef zeroext true, float noundef %74)
+  %73 = load float, ptr %FrameRounding, align 4
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp368.sroa.0.0.copyload, i32 noundef %call366, i1 noundef zeroext true, float noundef %73)
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %frame_bb, i32 noundef %id, i32 noundef 2)
   %and370 = and i32 %flags, 512
   %tobool371.not = icmp eq i32 %and370, 0
@@ -29018,14 +28995,14 @@ if.then356:                                       ; preds = %if.end353
 
 if.then372:                                       ; preds = %if.then356
   %DrawList = getelementptr inbounds i8, ptr %2, i64 680
-  %75 = load ptr, ptr %DrawList, align 8
+  %74 = load ptr, ptr %DrawList, align 8
   %neg = fneg float %add87
-  %76 = call float @llvm.fmuladd.f32(float %neg, float 0x3FE3333340000000, float %add106)
-  %77 = load float, ptr %FontSize, align 8
-  %78 = call float @llvm.fmuladd.f32(float %77, float 5.000000e-01, float %add110)
-  %agg.tmp373.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %76, i64 0
-  %agg.tmp373.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp373.sroa.0.0.vec.insert, float %78, i64 1
-  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %75, <2 x float> %agg.tmp373.sroa.0.4.vec.insert, i32 noundef %call354)
+  %75 = call float @llvm.fmuladd.f32(float %neg, float 0x3FE3333340000000, float %add106)
+  %76 = load float, ptr %FontSize, align 8
+  %77 = call float @llvm.fmuladd.f32(float %76, float 5.000000e-01, float %add110)
+  %agg.tmp373.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %75, i64 0
+  %agg.tmp373.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp373.sroa.0.0.vec.insert, float %77, i64 1
+  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %74, <2 x float> %agg.tmp373.sroa.0.4.vec.insert, i32 noundef %call354)
   br label %if.end403
 
 if.else379:                                       ; preds = %if.then356
@@ -29033,7 +29010,7 @@ if.else379:                                       ; preds = %if.then356
 
 if.then381:                                       ; preds = %if.else379
   %DrawList382 = getelementptr inbounds i8, ptr %2, i64 680
-  %79 = load ptr, ptr %DrawList382, align 8
+  %78 = load ptr, ptr %DrawList382, align 8
   %add387 = fadd float %padding.sroa.0.0, %sub224
   %agg.tmp383.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add387, i64 0
   %agg.tmp383.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp383.sroa.0.0.vec.insert, float %add110, i64 1
@@ -29041,7 +29018,7 @@ if.then381:                                       ; preds = %if.else379
   %tobool392.not = icmp eq i32 %and391, 0
   %cond393 = select i1 %tobool392.not, i32 3, i32 2
   %cond396 = select i1 %is_open.0.in, i32 %cond393, i32 1
-  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %79, <2 x float> %agg.tmp383.sroa.0.4.vec.insert, i32 noundef %call354, i32 noundef %cond396, float noundef 1.000000e+00)
+  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %78, <2 x float> %agg.tmp383.sroa.0.4.vec.insert, i32 noundef %call354, i32 noundef %cond396, float noundef 1.000000e+00)
   br label %if.end403
 
 if.else397:                                       ; preds = %if.else379
@@ -29056,18 +29033,18 @@ if.end403:                                        ; preds = %if.then381, %if.els
   br i1 %tobool405.not, label %if.end414, label %if.then406
 
 if.then406:                                       ; preds = %if.end403
-  %80 = load float, ptr %FontSize, align 8
-  %81 = load float, ptr %padding.sroa.0.0.in, align 4
-  %add410 = fadd float %80, %81
-  %82 = load float, ptr %Max56, align 8
-  %sub413 = fsub float %82, %add410
+  %79 = load float, ptr %FontSize, align 8
+  %80 = load float, ptr %padding.sroa.0.0.in, align 4
+  %add410 = fadd float %79, %80
+  %81 = load float, ptr %Max56, align 8
+  %sub413 = fsub float %81, %add410
   store float %sub413, ptr %Max56, align 8
   br label %if.end414
 
 if.end414:                                        ; preds = %if.then406, %if.end403
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %83 = load i8, ptr %LogEnabled, align 8
-  %tobool415 = trunc i8 %83 to i1
+  %82 = load i8, ptr %LogEnabled, align 8
+  %tobool415 = trunc i8 %82 to i1
   br i1 %tobool415, label %if.then416, label %if.end476
 
 if.then416:                                       ; preds = %if.end414
@@ -29075,14 +29052,14 @@ if.then416:                                       ; preds = %if.end414
   br label %if.end476
 
 if.else418:                                       ; preds = %if.end353
-  %84 = load i8, ptr %hovered, align 1
-  %tobool419 = trunc i8 %84 to i1
+  %83 = load i8, ptr %hovered, align 1
+  %tobool419 = trunc i8 %83 to i1
   %brmerge178 = or i1 %cmp263.not, %tobool419
   br i1 %brmerge178, label %if.then422, label %if.end438
 
 if.then422:                                       ; preds = %if.else418
-  %85 = load i8, ptr %held, align 1
-  %brmerge242.demorgan243 = and i8 %85, %84
+  %84 = load i8, ptr %held, align 1
+  %brmerge242.demorgan243 = and i8 %84, %83
   %brmerge242.demorgan = trunc i8 %brmerge242.demorgan243 to i1
   %cond430 = select i1 %tobool419, i32 25, i32 24
   %cond432 = select i1 %brmerge242.demorgan, i32 26, i32 %cond430
@@ -29100,14 +29077,14 @@ if.end438:                                        ; preds = %if.else418, %if.the
 
 if.then441:                                       ; preds = %if.end438
   %DrawList442 = getelementptr inbounds i8, ptr %2, i64 680
-  %86 = load ptr, ptr %DrawList442, align 8
+  %85 = load ptr, ptr %DrawList442, align 8
   %neg446 = fneg float %add87
-  %87 = call float @llvm.fmuladd.f32(float %neg446, float 5.000000e-01, float %add106)
-  %88 = load float, ptr %FontSize, align 8
-  %89 = call float @llvm.fmuladd.f32(float %88, float 5.000000e-01, float %add110)
-  %agg.tmp443.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %87, i64 0
-  %agg.tmp443.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp443.sroa.0.0.vec.insert, float %89, i64 1
-  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %86, <2 x float> %agg.tmp443.sroa.0.4.vec.insert, i32 noundef %call354)
+  %86 = call float @llvm.fmuladd.f32(float %neg446, float 5.000000e-01, float %add106)
+  %87 = load float, ptr %FontSize, align 8
+  %88 = call float @llvm.fmuladd.f32(float %87, float 5.000000e-01, float %add110)
+  %agg.tmp443.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %86, i64 0
+  %agg.tmp443.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp443.sroa.0.0.vec.insert, float %88, i64 1
+  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %85, <2 x float> %agg.tmp443.sroa.0.4.vec.insert, i32 noundef %call354)
   br label %if.end471
 
 if.else450:                                       ; preds = %if.end438
@@ -29115,23 +29092,23 @@ if.else450:                                       ; preds = %if.end438
 
 if.then452:                                       ; preds = %if.else450
   %DrawList453 = getelementptr inbounds i8, ptr %2, i64 680
-  %90 = load ptr, ptr %DrawList453, align 8
+  %89 = load ptr, ptr %DrawList453, align 8
   %add458 = fadd float %padding.sroa.0.0, %sub224
-  %91 = load float, ptr %FontSize, align 8
-  %92 = call float @llvm.fmuladd.f32(float %91, float 0x3FC3333340000000, float %add110)
+  %90 = load float, ptr %FontSize, align 8
+  %91 = call float @llvm.fmuladd.f32(float %90, float 0x3FC3333340000000, float %add110)
   %agg.tmp454.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add458, i64 0
-  %agg.tmp454.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp454.sroa.0.0.vec.insert, float %92, i64 1
+  %agg.tmp454.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp454.sroa.0.0.vec.insert, float %91, i64 1
   %and464 = and i32 %flags, 2097152
   %tobool465.not = icmp eq i32 %and464, 0
   %cond466 = select i1 %tobool465.not, i32 3, i32 2
   %cond469 = select i1 %is_open.0.in, i32 %cond466, i32 1
-  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %90, <2 x float> %agg.tmp454.sroa.0.4.vec.insert, i32 noundef %call354, i32 noundef %cond469, float noundef 0x3FE6666660000000)
+  call void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef %89, <2 x float> %agg.tmp454.sroa.0.4.vec.insert, i32 noundef %call354, i32 noundef %cond469, float noundef 0x3FE6666660000000)
   br label %if.end471
 
 if.end471:                                        ; preds = %if.else450, %if.then452, %if.then441
   %LogEnabled472 = getelementptr inbounds i8, ptr %0, i64 24488
-  %93 = load i8, ptr %LogEnabled472, align 8
-  %tobool473 = trunc i8 %93 to i1
+  %92 = load i8, ptr %LogEnabled472, align 8
+  %tobool473 = trunc i8 %92 to i1
   br i1 %tobool473, label %if.then474, label %if.end476
 
 if.then474:                                       ; preds = %if.end471
@@ -29167,13 +29144,13 @@ if.end486:                                        ; preds = %if.else484, %if.the
   br i1 %or.cond179, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end486, %if.then191
-  %94 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i196 = getelementptr inbounds i8, ptr %94, i64 16392
-  %95 = load ptr, ptr %CurrentWindow.i196, align 8
+  %93 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i196 = getelementptr inbounds i8, ptr %93, i64 16392
+  %94 = load ptr, ptr %CurrentWindow.i196, align 8
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
-  %TreeDepth.i197 = getelementptr inbounds i8, ptr %95, i64 408
-  %96 = load i32, ptr %TreeDepth.i197, align 8
-  %inc.i198 = add nsw i32 %96, 1
+  %TreeDepth.i197 = getelementptr inbounds i8, ptr %94, i64 408
+  %95 = load i32, ptr %TreeDepth.i197, align 8
+  %inc.i198 = add nsw i32 %95, 1
   store i32 %inc.i198, ptr %TreeDepth.i197, align 8
   call void @_ZN5ImGui14PushOverrideIDEj(i32 noundef %id)
   br label %return
@@ -32454,8 +32431,8 @@ if.end138.thread:                                 ; preds = %if.end135
 if.end138:                                        ; preds = %if.end135
   %HoveredId = getelementptr inbounds i8, ptr %0, i64 16472
   %66 = load i32, ptr %HoveredId, align 8
-  %cmp139 = icmp eq i32 %66, %call1
-  br i1 %cmp139, label %land.rhs, label %land.end
+  %cmp139.not = icmp eq i32 %66, %call1
+  br i1 %cmp139.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end138
   %NavDisableMouseHover = getelementptr inbounds i8, ptr %0, i64 19251
@@ -33189,8 +33166,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef %label, ptr noundef %shortcut, ptr noundef %p_selected, i1 noundef zeroext %enabled) local_unnamed_addr #5 {
 entry:
-  %tobool.not.not = icmp eq ptr %p_selected, null
-  br i1 %tobool.not.not, label %cond.end.thread, label %cond.end
+  %tobool.not = icmp eq ptr %p_selected, null
+  br i1 %tobool.not, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
   %call6 = tail call noundef zeroext i1 @_ZN5ImGui10MenuItemExEPKcS1_S1_bb(ptr noundef %label, ptr noundef null, ptr noundef %shortcut, i1 noundef zeroext false, i1 noundef zeroext %enabled)
@@ -38405,18 +38382,18 @@ if.end:                                           ; preds = %_ZN5ImStbL22STB_TEX
 if.end7:                                          ; preds = %if.end
   %add9 = fadd float %base_y.050, %size.sroa.0.4.vec.extract.i
   %cmp10 = fcmp olt float %y, %add9
-  br i1 %cmp10, label %while.end, label %if.end12
+  br i1 %cmp10, label %if.end18, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
   %add14 = add nuw nsw i32 %i.051, %conv.i
   %cmp = icmp slt i32 %add14, %str.val
   br i1 %cmp, label %while.body, label %return, !llvm.loop !91
 
-while.end:                                        ; preds = %if.end7
+if.end18:                                         ; preds = %if.end7
   %cmp20 = fcmp olt float %x, 0.000000e+00
   br i1 %cmp20, label %return, label %if.end22
 
-if.end22:                                         ; preds = %while.end
+if.end22:                                         ; preds = %if.end18
   %size.sroa.0.0.vec.extract.i.le = extractelement <2 x float> %retval.sroa.0.3.i.i, i64 0
   %cmp24 = fcmp olt float %x, %size.sroa.0.0.vec.extract.i.le
   br i1 %cmp24, label %for.body.lr.ph, label %if.end41
@@ -38479,8 +38456,8 @@ if.end41:                                         ; preds = %for.cond, %if.end22
   %spec.select = select i1 %cmp46, i32 %sub, i32 %add43
   br label %return
 
-return:                                           ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %if.end12, %if.end, %entry, %if.end41, %if.then32, %while.end, %if.else
-  %retval.0 = phi i32 [ %add38, %if.else ], [ %i.051, %while.end ], [ %14, %if.then32 ], [ %spec.select, %if.end41 ], [ %str.val, %entry ], [ %str.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %str.val, %if.end12 ], [ 0, %if.end ]
+return:                                           ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %if.end12, %if.end, %entry, %if.end41, %if.then32, %if.end18, %if.else
+  %retval.0 = phi i32 [ %add38, %if.else ], [ %i.051, %if.end18 ], [ %14, %if.then32 ], [ %spec.select, %if.end41 ], [ %str.val, %entry ], [ %str.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %str.val, %if.end12 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

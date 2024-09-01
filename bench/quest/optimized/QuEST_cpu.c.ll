@@ -5247,7 +5247,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   store double %70, ptr %71, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %50
-  br i1 %exitcond115.not, label %.preheader81, label %.preheader.us
+  br i1 %exitcond115.not, label %.lr.ph97.preheader, label %.preheader.us
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %72 = getelementptr inbounds double, ptr %53, i64 %.0.lcssa
@@ -5255,9 +5255,6 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %74 = getelementptr inbounds double, ptr %54, i64 %.0.lcssa
   %75 = load double, ptr %74, align 8
   br label %.preheader
-
-.preheader81:                                     ; preds = %.preheader, %._crit_edge89.us
-  br i1 %51, label %.lr.ph97, label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %indvars.iv103 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next104, %.preheader ]
@@ -5269,10 +5266,13 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   store double %75, ptr %78, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, %50
-  br i1 %exitcond106.not, label %.preheader81, label %.preheader
+  br i1 %exitcond106.not, label %.lr.ph97.preheader, label %.preheader
 
-.lr.ph97:                                         ; preds = %.preheader81, %._crit_edge95
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge95 ], [ 0, %.preheader81 ]
+.lr.ph97.preheader:                               ; preds = %.preheader, %._crit_edge89.us
+  br label %.lr.ph97
+
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %._crit_edge95
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge95 ], [ 0, %.lr.ph97.preheader ]
   %79 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv119
   %80 = load i64, ptr %79, align 8
   %81 = load ptr, ptr %12, align 8
@@ -5331,8 +5331,8 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %.pre = load i64, ptr %18, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %49, %.loopexit.loopexit, %.preheader81, %45
-  %118 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %.preheader81 ], [ %33, %45 ], [ %33, %49 ]
+.loopexit:                                        ; preds = %49, %.loopexit.loopexit, %45
+  %118 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %45 ], [ %33, %49 ]
   %119 = add nsw i64 %.07199, 1
   %.not.not = icmp slt i64 %.07199, %118
   br i1 %.not.not, label %.preheader82, label %._crit_edge100
@@ -11201,7 +11201,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader106:                                    ; preds = %89, %.loopexit.us
   %93 = load i32, ptr %8, align 4
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.preheader102.lr.ph, label %.critedge100.preheader.loopexit
+  br i1 %94, label %.preheader102.us.preheader, label %.preheader.preheader
 
 .preheader106.thread202:                          ; preds = %.lr.ph122
   %95 = shl nuw nsw i64 %40, 3
@@ -11215,11 +11215,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.critedge, label %.loopexit105
 
-.preheader102.lr.ph:                              ; preds = %.preheader106
-  br i1 %36, label %.preheader102.us.preheader, label %.critedge
-
-.preheader102.us.preheader:                       ; preds = %.preheader106.thread202, %.preheader102.lr.ph
-  %100 = phi i32 [ %93, %.preheader102.lr.ph ], [ %96, %.preheader106.thread202 ]
+.preheader102.us.preheader:                       ; preds = %.preheader106, %.preheader106.thread202
+  %100 = phi i32 [ %96, %.preheader106.thread202 ], [ %93, %.preheader106 ]
   %101 = load ptr, ptr %9, align 8
   %102 = zext nneg i32 %35 to i64
   %wide.trip.count192 = zext nneg i32 %100 to i64
@@ -11248,17 +11245,14 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 109:                                              ; preds = %105
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %.critedge100.preheader.loopexit, label %.preheader102.us
+  br i1 %exitcond193.not, label %.preheader.preheader, label %.preheader102.us
 
-.critedge100.preheader.loopexit:                  ; preds = %109, %.preheader106
-  br i1 %36, label %.preheader.preheader, label %.loopexit105
-
-.preheader.preheader:                             ; preds = %.preheader106.thread202, %.critedge100.preheader.loopexit
+.preheader.preheader:                             ; preds = %109, %.preheader106, %.preheader106.thread202
   %.pre = load ptr, ptr %11, align 8
   br label %.preheader
 
-.critedge:                                        ; preds = %104, %.preheader106.thread, %.preheader102.lr.ph
-  %.084.lcssa108 = phi i64 [ 0, %.preheader102.lr.ph ], [ 0, %.preheader106.thread ], [ %indvars.iv189, %104 ]
+.critedge:                                        ; preds = %104, %.preheader106.thread
+  %.084.lcssa108 = phi i64 [ 0, %.preheader106.thread ], [ %indvars.iv189, %104 ]
   %110 = load ptr, ptr %10, align 8
   %111 = and i64 %.084.lcssa108, 4294967295
   %112 = getelementptr inbounds double, ptr %110, i64 %111
@@ -11318,8 +11312,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %141 = icmp slt i64 %indvars.iv.next198, %140
   br i1 %141, label %.preheader, label %.loopexit105
 
-.loopexit105:                                     ; preds = %.critedge100, %.preheader106.thread, %.critedge100.preheader.loopexit, %.critedge
-  %.091 = phi double [ %113, %.critedge ], [ 0.000000e+00, %.critedge100.preheader.loopexit ], [ 0.000000e+00, %.preheader106.thread ], [ %.293.lcssa, %.critedge100 ]
+.loopexit105:                                     ; preds = %.critedge100, %.preheader106.thread, %.critedge
+  %.091 = phi double [ %113, %.critedge ], [ 0.000000e+00, %.preheader106.thread ], [ %.293.lcssa, %.critedge100 ]
   %142 = load i32, ptr %14, align 4
   %.not99 = icmp eq i32 %142, 0
   %143 = fneg double %.091
@@ -11444,24 +11438,21 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .preheader183:                                    ; preds = %.loopexit
   %39 = load i32, ptr %8, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.preheader.lr.ph, label %.critedge.thread.loopexit
+  br i1 %40, label %.preheader.lr.ph, label %.critedge.thread
 
 .preheader183.thread:                             ; preds = %.lr.ph239
   %41 = load i32, ptr %8, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.critedge, label %.critedge.thread.loopexit
+  br i1 %42, label %.critedge, label %.critedge.thread
 
 .preheader.lr.ph:                                 ; preds = %.preheader183
   %43 = load ptr, ptr %9, align 8
-  br i1 %35, label %.preheader.us.preheader, label %.critedge
-
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %44 = zext nneg i32 %34 to i64
   %wide.trip.count281 = zext nneg i32 %39 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %51
-  %indvars.iv278 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next279, %51 ]
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %51
+  %indvars.iv278 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next279, %51 ]
   %45 = mul nuw nsw i64 %indvars.iv278, %44
   %invariant.gep325 = getelementptr inbounds i64, ptr %43, i64 %45
   br label %47
@@ -11483,7 +11474,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 51:                                               ; preds = %47
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %.critedge.thread.loopexit, label %.preheader.us
+  br i1 %exitcond282.not, label %.critedge.thread, label %.preheader.us
 
 52:                                               ; preds = %.lr.ph199, %.loopexit
   %indvars.iv268 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next269, %.loopexit ]
@@ -11599,15 +11590,15 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %.preheader183, label %52
 
-.critedge:                                        ; preds = %46, %.preheader183.thread, %.preheader.lr.ph
-  %.0136.lcssa185 = phi i64 [ 0, %.preheader.lr.ph ], [ 0, %.preheader183.thread ], [ %indvars.iv278, %46 ]
+.critedge:                                        ; preds = %46, %.preheader183.thread
+  %.0136.lcssa185 = phi i64 [ 0, %.preheader183.thread ], [ %indvars.iv278, %46 ]
   %103 = load ptr, ptr %10, align 8
   %104 = and i64 %.0136.lcssa185, 4294967295
   %105 = getelementptr inbounds double, ptr %103, i64 %104
   %106 = load double, ptr %105, align 8
   br label %232
 
-.critedge.thread.loopexit:                        ; preds = %51, %.preheader183.thread, %.preheader183
+.critedge.thread:                                 ; preds = %51, %.preheader183.thread, %.preheader183
   %107 = load i32, ptr %11, align 4
   switch i32 %107, label %232 [
     i32 3, label %.preheader173
@@ -11627,14 +11618,14 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
     i32 12, label %.preheader181
   ]
 
-.preheader181:                                    ; preds = %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit
+.preheader181:                                    ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
   br i1 %35, label %.lr.ph208.preheader, label %.loopexit178
 
 .lr.ph208.preheader:                              ; preds = %.preheader181
   %108 = zext nneg i32 %34 to i64
   br label %.lr.ph208
 
-.preheader179:                                    ; preds = %.critedge.thread.loopexit
+.preheader179:                                    ; preds = %.critedge.thread
   br i1 %35, label %.lr.ph212, label %.thread
 
 .lr.ph212:                                        ; preds = %.preheader179
@@ -11643,7 +11634,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %110 = zext nneg i32 %34 to i64
   br label %186
 
-.preheader177:                                    ; preds = %.critedge.thread.loopexit
+.preheader177:                                    ; preds = %.critedge.thread
   br i1 %35, label %.lr.ph216, label %.thread
 
 .lr.ph216:                                        ; preds = %.preheader177
@@ -11652,7 +11643,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %112 = zext nneg i32 %34 to i64
   br label %173
 
-.preheader175:                                    ; preds = %.critedge.thread.loopexit
+.preheader175:                                    ; preds = %.critedge.thread
   br i1 %35, label %.lr.ph228, label %.loopexit174
 
 .lr.ph228:                                        ; preds = %.preheader175
@@ -11661,7 +11652,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %wide.trip.count300 = zext nneg i32 %34 to i64
   br label %114
 
-.preheader173:                                    ; preds = %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit
+.preheader173:                                    ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
   br i1 %35, label %.lr.ph234.preheader, label %.loopexit174
 
 .lr.ph234.preheader:                              ; preds = %.preheader173
@@ -11740,7 +11731,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %147 = fdiv double %146, %126
   br label %232
 
-148:                                              ; preds = %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit, %.critedge.thread.loopexit
+148:                                              ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
   br i1 %35, label %.lr.ph223.preheader, label %._crit_edge224
 
 .lr.ph223.preheader:                              ; preds = %148
@@ -11915,8 +11906,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .fold.split169:                                   ; preds = %.loopexit178
   br label %232
 
-232:                                              ; preds = %.critedge.thread.loopexit, %.thread, %228, %.loopexit178, %.fold.split169, %214, %217, %167, %170, %._crit_edge224, %.fold.split168, %155, %158, %142, %145, %.loopexit174, %.fold.split, %130, %133, %135, %219, %160, %.critedge
-  %.0143 = phi double [ %106, %.critedge ], [ %138, %135 ], [ %163, %160 ], [ %222, %219 ], [ %126, %.loopexit174 ], [ %132, %130 ], [ %134, %133 ], [ 0.000000e+00, %.fold.split ], [ %144, %142 ], [ %147, %145 ], [ %.0148.lcssa, %._crit_edge224 ], [ %157, %155 ], [ %159, %158 ], [ 0.000000e+00, %.fold.split168 ], [ %169, %167 ], [ %172, %170 ], [ 0.000000e+00, %.critedge.thread.loopexit ], [ %sqrt, %.loopexit178 ], [ %216, %214 ], [ %218, %217 ], [ 0.000000e+00, %.fold.split169 ], [ %227, %.thread ], [ %231, %228 ]
+232:                                              ; preds = %.critedge.thread, %.thread, %228, %.loopexit178, %.fold.split169, %214, %217, %167, %170, %._crit_edge224, %.fold.split168, %155, %158, %142, %145, %.loopexit174, %.fold.split, %130, %133, %135, %219, %160, %.critedge
+  %.0143 = phi double [ %106, %.critedge ], [ %138, %135 ], [ %163, %160 ], [ %222, %219 ], [ %126, %.loopexit174 ], [ %132, %130 ], [ %134, %133 ], [ 0.000000e+00, %.fold.split ], [ %144, %142 ], [ %147, %145 ], [ %.0148.lcssa, %._crit_edge224 ], [ %157, %155 ], [ %159, %158 ], [ 0.000000e+00, %.fold.split168 ], [ %169, %167 ], [ %172, %170 ], [ 0.000000e+00, %.critedge.thread ], [ %sqrt, %.loopexit178 ], [ %216, %214 ], [ %218, %217 ], [ 0.000000e+00, %.fold.split169 ], [ %227, %.thread ], [ %231, %228 ]
   %233 = load i32, ptr %13, align 4
   %.not167 = icmp eq i32 %233, 0
   %234 = fneg double %.0143

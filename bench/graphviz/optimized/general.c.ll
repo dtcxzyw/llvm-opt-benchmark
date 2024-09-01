@@ -296,14 +296,11 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = zext nneg i32 %0 to i64
   tail call void @qsort(ptr noundef nonnull %11, i64 noundef %22, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
-  br i1 %12, label %.lr.ph27.preheader, label %._crit_edge28
-
-.lr.ph27.preheader:                               ; preds = %._crit_edge
   %wide.trip.count33 = zext nneg i32 %0 to i64
   br label %.lr.ph27
 
-.lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next31, %.lr.ph27 ]
+.lr.ph27:                                         ; preds = %._crit_edge, %.lr.ph27
+  %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %.lr.ph27 ]
   %23 = shl nuw nsw i64 %indvars.iv30, 1
   %24 = or disjoint i64 %23, 1
   %25 = getelementptr inbounds double, ptr %11, i64 %24
@@ -316,7 +313,7 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
   br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph27
 
-._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge.thread, %._crit_edge
+._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge.thread
   tail call void @free(ptr noundef %11) #18
   ret void
 }

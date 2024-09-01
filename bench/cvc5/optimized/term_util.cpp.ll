@@ -6499,12 +6499,12 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %bf.load.i9.pre = load i16, ptr %d_kind.i8.phi.trans.insert, align 8
   %bf.clear.i10 = and i16 %bf.load.i9.pre, 1023
   %cmp10.not = icmp eq i16 %bf.clear.i10, 23
-  br i1 %cmp10.not, label %lor.rhs, label %land.end.thread
+  br i1 %cmp10.not, label %lor.rhs, label %cleanup.action21
 
 invoke.cont8.thread:                              ; preds = %land.lhs.true
-  %bf.clear.i1051 = and i16 %bf.load.i, 1023
-  %cmp10.not52 = icmp eq i16 %bf.clear.i1051, 23
-  br i1 %cmp10.not52, label %lor.rhs, label %cleanup.done28
+  %bf.clear.i1050 = and i16 %bf.load.i, 1023
+  %cmp10.not51 = icmp eq i16 %bf.clear.i1050, 23
+  br i1 %cmp10.not51, label %lor.rhs, label %cleanup.done28
 
 lor.rhs:                                          ; preds = %invoke.cont8.thread, %invoke.cont8
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %n, i1 noundef zeroext false)
@@ -6525,14 +6525,11 @@ land.rhs.i16:                                     ; preds = %invoke.cont12
 call.i.i.noexc18:                                 ; preds = %land.rhs.i16
   %6 = load i32, ptr %call.i.i19, align 4
   %cmp3.i17 = icmp eq i32 %6, 2
-  %.pre49 = load ptr, ptr %ref.tmp11, align 8
+  %.pre48 = load ptr, ptr %ref.tmp11, align 8
   br label %cleanup.action
 
-land.end.thread:                                  ; preds = %invoke.cont8
-  br i1 %cmp.not, label %cleanup.action21, label %cleanup.done28
-
 cleanup.action:                                   ; preds = %invoke.cont12, %call.i.i.noexc18
-  %7 = phi ptr [ %5, %invoke.cont12 ], [ %.pre49, %call.i.i.noexc18 ]
+  %7 = phi ptr [ %5, %invoke.cont12 ], [ %.pre48, %call.i.i.noexc18 ]
   %8 = phi i1 [ false, %invoke.cont12 ], [ %cmp3.i17, %call.i.i.noexc18 ]
   %bf.load.i.i21 = load i64, ptr %7, align 8
   %9 = and i64 %bf.load.i.i21, 1152920405095219200
@@ -6562,8 +6559,8 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 cleanup.done:                                     ; preds = %if.then13.i.i, %if.then.i.i, %cleanup.action
   br i1 %cmp.not, label %cleanup.action21, label %cleanup.done28
 
-cleanup.action21:                                 ; preds = %lor.lhs.false, %invoke.cont6, %land.end.thread, %cleanup.done
-  %12 = phi i1 [ true, %land.end.thread ], [ %8, %cleanup.done ], [ false, %invoke.cont6 ], [ false, %lor.lhs.false ]
+cleanup.action21:                                 ; preds = %invoke.cont8, %lor.lhs.false, %invoke.cont6, %cleanup.done
+  %12 = phi i1 [ %8, %cleanup.done ], [ false, %invoke.cont6 ], [ false, %lor.lhs.false ], [ true, %invoke.cont8 ]
   %13 = load ptr, ptr %ref.tmp, align 8
   %bf.load.i.i22 = load i64, ptr %13, align 8
   %14 = and i64 %bf.load.i.i22, 1152920405095219200
@@ -6590,8 +6587,8 @@ terminate.lpad.i31:                               ; preds = %if.then13.i.i30
   call void @__clang_call_terminate(ptr %16) #21
   unreachable
 
-cleanup.done28:                                   ; preds = %invoke.cont8.thread, %entry, %if.then13.i.i30, %if.then.i.i24, %cleanup.action21, %land.end.thread, %cleanup.done
-  %17 = phi i1 [ true, %land.end.thread ], [ %8, %cleanup.done ], [ %12, %cleanup.action21 ], [ %12, %if.then.i.i24 ], [ %12, %if.then13.i.i30 ], [ false, %entry ], [ true, %invoke.cont8.thread ]
+cleanup.done28:                                   ; preds = %invoke.cont8.thread, %entry, %if.then13.i.i30, %if.then.i.i24, %cleanup.action21, %cleanup.done
+  %17 = phi i1 [ %8, %cleanup.done ], [ %12, %cleanup.action21 ], [ %12, %if.then.i.i24 ], [ %12, %if.then13.i.i30 ], [ false, %entry ], [ true, %invoke.cont8.thread ]
   ret i1 %17
 
 lpad14:                                           ; preds = %land.rhs.i16
@@ -6611,8 +6608,8 @@ cleanup.action24:                                 ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 eh.resume:                                        ; preds = %cleanup.action24, %ehcleanup, %lpad14
-  %.pn.pn41 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %18, %lpad14 ], [ %.pn36, %cleanup.action24 ]
-  resume { ptr, i32 } %.pn.pn41
+  %.pn.pn40 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %18, %lpad14 ], [ %.pn36, %cleanup.action24 ]
+  resume { ptr, i32 } %.pn.pn40
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -968,12 +968,9 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
 
 .loopexit105:                                     ; preds = %.lr.ph119, %._crit_edge116
   %exitcond.not = icmp eq i64 %35, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph121, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph136.preheader, label %.lr.ph121, !llvm.loop !4
 
-.preheader:                                       ; preds = %.loopexit105
-  br i1 %16, label %.lr.ph136.preheader, label %._crit_edge137
-
-.lr.ph136.preheader:                              ; preds = %.preheader
+.lr.ph136.preheader:                              ; preds = %.loopexit105
   %.pre = load i64, ptr %10, align 8
   br label %.lr.ph136
 
@@ -1137,7 +1134,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   %113 = icmp slt i64 %111, %112
   br i1 %113, label %.lr.ph134, label %.loopexit, !llvm.loop !12
 
-._crit_edge137:                                   ; preds = %.loopexit, %7, %.preheader
+._crit_edge137:                                   ; preds = %.loopexit, %7
   ret void
 }
 

@@ -2992,17 +2992,17 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
   store ptr %36, ptr %6, align 8
   %42 = load i32, ptr %36, align 4
   %43 = icmp slt i32 %42, %.0
-  br i1 %43, label %44, label %.preheader232
+  br i1 %43, label %44, label %.preheader
 
 44:                                               ; preds = %41
   store i32 %.0, ptr %36, align 4
-  br label %.preheader232
+  br label %.preheader
 
-.preheader232:                                    ; preds = %44, %41
+.preheader:                                       ; preds = %44, %41
   br label %45
 
-45:                                               ; preds = %.preheader232, %45
-  %46 = phi ptr [ %49, %45 ], [ %3, %.preheader232 ]
+45:                                               ; preds = %.preheader, %45
+  %46 = phi ptr [ %49, %45 ], [ %3, %.preheader ]
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, %.096
   %49 = getelementptr inbounds i8, ptr %46, i64 -16
@@ -3081,17 +3081,14 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i
   %85 = load i8, ptr @UseSwitchProfiling, align 1
   %86 = trunc i8 %85 to i1
-  br i1 %86, label %.preheader, label %97
+  br i1 %86, label %.lr.ph, label %97
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %80
   %87 = load i8, ptr @UseSwitchProfiling, align 1
   %88 = trunc i8 %87 to i1
   br i1 %88, label %.loopexit176, label %97
 
-.preheader:                                       ; preds = %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
-  br i1 %.not8.i, label %.loopexit176, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
   %89 = fmul float %83, 5.000000e-01
   br label %90
 
@@ -3139,9 +3136,9 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %80
   %spec.select = select i1 %118, ptr %114, ptr %106
   br label %.loopexit176
 
-.loopexit176:                                     ; preds = %95, %90, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread, %.preheader, %113, %97, %108
-  %.07.lcssa.i207 = phi float [ %.07.lcssa.i208, %108 ], [ %.07.lcssa.i208, %97 ], [ %.07.lcssa.i208, %113 ], [ %83, %.preheader ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ], [ %83, %90 ], [ %83, %95 ]
-  %.097 = phi ptr [ %106, %108 ], [ %106, %97 ], [ %spec.select, %113 ], [ null, %.preheader ], [ null, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ], [ null, %95 ], [ %.099189, %90 ]
+.loopexit176:                                     ; preds = %95, %90, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread, %113, %97, %108
+  %.07.lcssa.i207 = phi float [ %.07.lcssa.i208, %108 ], [ %.07.lcssa.i208, %97 ], [ %.07.lcssa.i208, %113 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ], [ %83, %90 ], [ %83, %95 ]
+  %.097 = phi ptr [ %106, %108 ], [ %106, %97 ], [ %spec.select, %113 ], [ null, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ], [ null, %95 ], [ %.099189, %90 ]
   %119 = getelementptr inbounds i8, ptr %0, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %.097, %58

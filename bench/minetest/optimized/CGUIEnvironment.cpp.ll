@@ -5704,8 +5704,8 @@ land.rhs.i:                                       ; preds = %entry, %while.body.
   %ret.06.i = phi ptr [ %2, %while.body.i ], [ %0, %entry ]
   %IsTabGroup.i.i = getelementptr inbounds i8, ptr %ret.06.i, i64 276
   %1 = load i8, ptr %IsTabGroup.i.i, align 4, !tbaa !50, !range !146, !noundef !147
-  %tobool.i.not.i.not.not = icmp ne i8 %1, 0
-  br i1 %tobool.i.not.i.not.not, label %cond.end, label %while.body.i
+  %tobool.i.not.i.not.not.not.not.not.not = icmp ne i8 %1, 0
+  br i1 %tobool.i.not.i.not.not.not.not.not.not, label %cond.end, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %Parent.i.i = getelementptr inbounds i8, ptr %ret.06.i, i64 32
@@ -5755,7 +5755,7 @@ while.body:                                       ; preds = %land.lhs.true20.pre
   br i1 %or.cond50, label %while.body, label %if.end27, !llvm.loop !155
 
 if.end27:                                         ; preds = %while.body, %land.lhs.true20.preheader, %if.then14, %land.lhs.true11, %if.else, %if.then, %entry
-  %tobool575 = phi i1 [ true, %if.then ], [ false, %if.else ], [ %tobool.i.not.i.not.not, %land.lhs.true11 ], [ %tobool.i.not.i.not.not, %if.then14 ], [ false, %entry ], [ %tobool.i.not.i.not.not, %land.lhs.true20.preheader ], [ %tobool.i.not.i.not.not, %while.body ]
+  %tobool575 = phi i1 [ true, %if.then ], [ false, %if.else ], [ %tobool.i.not.i.not.not.not.not.not.not, %land.lhs.true11 ], [ %tobool.i.not.i.not.not.not.not.not.not, %if.then14 ], [ false, %entry ], [ %tobool.i.not.i.not.not.not.not.not.not, %land.lhs.true20.preheader ], [ %tobool.i.not.i.not.not.not.not.not.not, %while.body ]
   %cond73 = phi ptr [ %ret.06.i, %if.then ], [ null, %if.else ], [ %cond7493, %land.lhs.true11 ], [ %cond7493, %if.then14 ], [ null, %entry ], [ %cond7493, %land.lhs.true20.preheader ], [ %cond7493, %while.body ]
   %startOrder.1 = phi i32 [ %3, %if.then ], [ -1, %if.else ], [ -1, %land.lhs.true11 ], [ %5, %if.then14 ], [ -1, %entry ], [ -1, %land.lhs.true20.preheader ], [ %8, %while.body ]
   %tobool28.not = xor i1 %group, true

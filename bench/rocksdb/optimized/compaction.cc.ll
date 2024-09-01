@@ -4649,11 +4649,11 @@ invoke.cont76:                                    ; preds = %if.end66
           to label %invoke.cont78 unwind label %lpad
 
 invoke.cont78:                                    ; preds = %invoke.cont76
-  %.pre43 = load ptr, ptr %file_grand_parents, align 8
+  %.pre41 = load ptr, ptr %file_grand_parents, align 8
   br i1 %call79, label %if.end82, label %cleanup
 
 if.end82:                                         ; preds = %invoke.cont78, %if.end66
-  %46 = phi ptr [ %35, %if.end66 ], [ %.pre43, %invoke.cont78 ]
+  %46 = phi ptr [ %35, %if.end66 ], [ %.pre41, %invoke.cont78 ]
   %tobool.not.i.i.i20 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i20, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit22, label %if.then.i.i.i21
 
@@ -4667,7 +4667,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit22: ; preds = %if.end82, 
   br i1 %cmp.i9.not, label %cleanup84, label %for.body
 
 cleanup:                                          ; preds = %invoke.cont78, %invoke.cont61
-  %47 = phi ptr [ %.pre43, %invoke.cont78 ], [ %35, %invoke.cont61 ]
+  %47 = phi ptr [ %.pre41, %invoke.cont78 ], [ %35, %invoke.cont61 ]
   %tobool.not.i.i.i23 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i23, label %cleanup84, label %if.then.i.i.i24
 

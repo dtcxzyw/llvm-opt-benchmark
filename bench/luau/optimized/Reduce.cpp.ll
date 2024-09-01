@@ -4055,13 +4055,13 @@ _ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57: ; preds = %
   br i1 %.not.i.i.i.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %.loopexit43.i, %.body
-  %.sroa.19.5.lcssa294.sink = phi ptr [ %.sroa.19.5, %.body ], [ %.sroa.19.3, %.loopexit43.i ]
-  %.sroa.0.5.lcssa301.sink326 = phi ptr [ %.sroa.0.5, %.body ], [ %.sroa.0.3, %.loopexit43.i ]
+  %.sroa.19.5.lcssa287.sink = phi ptr [ %.sroa.19.5, %.body ], [ %.sroa.19.3, %.loopexit43.i ]
+  %.sroa.0.5.lcssa294.sink319 = phi ptr [ %.sroa.0.5, %.body ], [ %.sroa.0.3, %.loopexit43.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.phi.i, %.loopexit43.i ]
-  %43 = ptrtoint ptr %.sroa.19.5.lcssa294.sink to i64
-  %44 = ptrtoint ptr %.sroa.0.5.lcssa301.sink326 to i64
+  %43 = ptrtoint ptr %.sroa.19.5.lcssa287.sink to i64
+  %44 = ptrtoint ptr %.sroa.0.5.lcssa294.sink319 to i64
   %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5.lcssa301.sink326, i64 noundef %45) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5.lcssa294.sink319, i64 noundef %45) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body, %.loopexit43.i
@@ -4448,26 +4448,26 @@ _ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28: ; preds = %161, %162
   br i1 %.not, label %.loopexit, label %72
 
 ._crit_edge:                                      ; preds = %72, %.preheader, %_ZN7Reducer13generateSpansEmm.exit
-  %.sroa.19.4278 = phi ptr [ %.sroa.19.5, %_ZN7Reducer13generateSpansEmm.exit ], [ null, %.preheader ], [ %.sroa.19.5, %72 ]
-  %.sroa.0.4274 = phi ptr [ %.sroa.0.5, %_ZN7Reducer13generateSpansEmm.exit ], [ null, %.preheader ], [ %.sroa.0.5, %72 ]
+  %.sroa.19.4271 = phi ptr [ %.sroa.19.5, %_ZN7Reducer13generateSpansEmm.exit ], [ null, %.preheader ], [ %.sroa.19.5, %72 ]
+  %.sroa.0.4267 = phi ptr [ %.sroa.0.5, %_ZN7Reducer13generateSpansEmm.exit ], [ null, %.preheader ], [ %.sroa.0.5, %72 ]
   %.sroa.4.2.lcssa = phi i64 [ %.sroa.4.1, %_ZN7Reducer13generateSpansEmm.exit ], [ %.sroa.4.1, %.preheader ], [ %.sroa.4.3, %72 ]
   %165 = shl i64 %.0, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28, %._crit_edge
-  %.sroa.19.4277 = phi ptr [ %.sroa.19.4278, %._crit_edge ], [ %.sroa.19.5, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
-  %.sroa.0.4273 = phi ptr [ %.sroa.0.4274, %._crit_edge ], [ %.sroa.0.5, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
+  %.sroa.19.4270 = phi ptr [ %.sroa.19.4271, %._crit_edge ], [ %.sroa.19.5, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
+  %.sroa.0.4266 = phi ptr [ %.sroa.0.4267, %._crit_edge ], [ %.sroa.0.5, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.not124166 = phi i1 [ true, %._crit_edge ], [ false, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.1 = phi i64 [ %165, %._crit_edge ], [ %.0, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.sroa.4.4 = phi i64 [ %.sroa.4.2.lcssa, %._crit_edge ], [ %.sroa.4.3, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
-  %.not.i.i.i29 = icmp eq ptr %.sroa.0.4273, null
+  %.not.i.i.i29 = icmp eq ptr %.sroa.0.4266, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit, label %166
 
 166:                                              ; preds = %.loopexit
-  %167 = ptrtoint ptr %.sroa.19.4277 to i64
-  %168 = ptrtoint ptr %.sroa.0.4273 to i64
+  %167 = ptrtoint ptr %.sroa.19.4270 to i64
+  %168 = ptrtoint ptr %.sroa.0.4266 to i64
   %169 = sub i64 %167, %168
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4273, i64 noundef %169) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4266, i64 noundef %169) #24
   br label %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit: ; preds = %.loopexit, %166

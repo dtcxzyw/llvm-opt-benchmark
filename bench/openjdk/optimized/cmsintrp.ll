@@ -2278,9 +2278,6 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us.split, %159
   %284 = sext i32 %54 to i64
   %285 = getelementptr inbounds i16, ptr %73, i64 %284
-  br i1 %.not489, label %._crit_edge488, label %.lr.ph485
-
-.lr.ph485:                                        ; preds = %._crit_edge
   %286 = add nsw i32 %63, %57
   %287 = add nsw i32 %68, %286
   %.not = icmp ult i32 %46, %47
@@ -2312,11 +2309,8 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %wide.trip.count514 = zext i32 %77 to i64
   br label %302
 
-.preheader:                                       ; preds = %428
-  br i1 %.not489, label %._crit_edge488, label %.lr.ph487
-
-302:                                              ; preds = %.lr.ph485, %428
-  %indvars.iv511 = phi i64 [ 0, %.lr.ph485 ], [ %indvars.iv.next512, %428 ]
+302:                                              ; preds = %._crit_edge, %428
+  %indvars.iv511 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next512, %428 ]
   %303 = trunc nuw i64 %indvars.iv511 to i32
   %304 = add i32 %287, %303
   %305 = zext i32 %304 to i64
@@ -2486,10 +2480,10 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   store i16 %440, ptr %441, align 2
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %exitcond515.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count514
-  br i1 %exitcond515.not, label %.preheader, label %302, !llvm.loop !27
+  br i1 %exitcond515.not, label %.lr.ph487, label %302, !llvm.loop !27
 
-.lr.ph487:                                        ; preds = %.preheader, %.lr.ph487
-  %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph487 ], [ 0, %.preheader ]
+.lr.ph487:                                        ; preds = %428, %.lr.ph487
+  %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph487 ], [ 0, %428 ]
   %442 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv516
   %443 = load i16, ptr %442, align 2
   %444 = zext i16 %443 to i32
@@ -2510,7 +2504,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %457 = icmp ult i64 %indvars.iv.next517, %456
   br i1 %457, label %.lr.ph487, label %._crit_edge488, !llvm.loop !28
 
-._crit_edge488:                                   ; preds = %.lr.ph487, %3, %._crit_edge, %.preheader
+._crit_edge488:                                   ; preds = %.lr.ph487, %3
   ret void
 }
 
@@ -2692,7 +2686,7 @@ Eval4InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval4InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval4InputsFloat.exit37 ]
@@ -2710,7 +2704,7 @@ Eval4InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval4InputsFloat.exit37.thread, %Eval4InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval4InputsFloat.exit37.thread
   ret void
 }
 
@@ -3032,7 +3026,7 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval5Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval5Inputs.exit32 ]
@@ -3056,7 +3050,7 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
   %97 = icmp ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval5Inputs.exit32.thread, %Eval5Inputs.exit32
+._crit_edge:                                      ; preds = %.lr.ph, %Eval5Inputs.exit32.thread
   ret void
 }
 
@@ -3238,7 +3232,7 @@ Eval6InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval6InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval6InputsFloat.exit37 ]
@@ -3256,7 +3250,7 @@ Eval6InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval6InputsFloat.exit37.thread, %Eval6InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval6InputsFloat.exit37.thread
   ret void
 }
 
@@ -3578,7 +3572,7 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval7Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval7Inputs.exit32 ]
@@ -3602,7 +3596,7 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
   %97 = icmp ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval7Inputs.exit32.thread, %Eval7Inputs.exit32
+._crit_edge:                                      ; preds = %.lr.ph, %Eval7Inputs.exit32.thread
   ret void
 }
 
@@ -3784,7 +3778,7 @@ Eval8InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval8InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval8InputsFloat.exit37 ]
@@ -3802,7 +3796,7 @@ Eval8InputsFloat.exit37:                          ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval8InputsFloat.exit37.thread, %Eval8InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval8InputsFloat.exit37.thread
   ret void
 }
 
@@ -4124,7 +4118,7 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval9Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval9Inputs.exit32 ]
@@ -4148,7 +4142,7 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
   %97 = icmp ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval9Inputs.exit32.thread, %Eval9Inputs.exit32
+._crit_edge:                                      ; preds = %.lr.ph, %Eval9Inputs.exit32.thread
   ret void
 }
 
@@ -4330,7 +4324,7 @@ Eval10InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval10InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval10InputsFloat.exit37 ]
@@ -4348,7 +4342,7 @@ Eval10InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval10InputsFloat.exit37.thread, %Eval10InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval10InputsFloat.exit37.thread
   ret void
 }
 
@@ -4670,7 +4664,7 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval11Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval11Inputs.exit32 ]
@@ -4694,7 +4688,7 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
   %97 = icmp ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval11Inputs.exit32.thread, %Eval11Inputs.exit32
+._crit_edge:                                      ; preds = %.lr.ph, %Eval11Inputs.exit32.thread
   ret void
 }
 
@@ -4876,7 +4870,7 @@ Eval12InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval12InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval12InputsFloat.exit37 ]
@@ -4894,7 +4888,7 @@ Eval12InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval12InputsFloat.exit37.thread, %Eval12InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval12InputsFloat.exit37.thread
   ret void
 }
 
@@ -5217,7 +5211,7 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval13Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval13Inputs.exit32 ]
@@ -5241,7 +5235,7 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
   %97 = icmp ult i64 %indvars.iv.next, %96
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval13Inputs.exit32.thread, %Eval13Inputs.exit32
+._crit_edge:                                      ; preds = %.lr.ph, %Eval13Inputs.exit32.thread
   ret void
 }
 
@@ -5423,7 +5417,7 @@ Eval14InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %6)
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %Eval14InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval14InputsFloat.exit37 ]
@@ -5441,7 +5435,7 @@ Eval14InputsFloat.exit37:                         ; preds = %.lr.ph.i34
   %87 = icmp ult i64 %indvars.iv.next, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %.lr.ph, %Eval14InputsFloat.exit37.thread, %Eval14InputsFloat.exit37
+._crit_edge:                                      ; preds = %.lr.ph, %Eval14InputsFloat.exit37.thread
   ret void
 }
 

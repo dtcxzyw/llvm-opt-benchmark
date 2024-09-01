@@ -3142,147 +3142,135 @@ define internal fastcc void @_setdebugflags(i32 noundef %0, ptr nocapture nounde
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp slt i32 %0, 2
-  br i1 %5, label %7, label %.preheader.preheader
+  br i1 %5, label %6, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
-  %6 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.preheader
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   store i32 1, ptr @exit_code, align 4
-  %8 = load i32, ptr @quiet_flag, align 4
-  %.not47 = icmp eq i32 %8, 1
-  br i1 %.not47, label %.thread65, label %9
+  %7 = load i32, ptr @quiet_flag, align 4
+  %.not47 = icmp eq i32 %7, 1
+  br i1 %.not47, label %.thread69, label %8
 
-9:                                                ; preds = %7
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.89, ptr noundef %4) #21
-  br label %.thread65
+8:                                                ; preds = %6
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.89, ptr noundef %4) #21
+  br label %.thread69
 
-.preheader:                                       ; preds = %.preheader.preheader, %19
-  %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %19 ]
-  %12 = phi i1 [ true, %.preheader.preheader ], [ %23, %19 ]
-  %.03349 = phi i64 [ 0, %.preheader.preheader ], [ %.1, %19 ]
-  %.03448 = phi i64 [ 0, %.preheader.preheader ], [ %.135, %19 ]
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i8, ptr %14, align 1
-  %.not84 = icmp eq i8 %15, 43
-  switch i8 %15, label %24 [
-    i8 45, label %16
-    i8 43, label %16
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
+  %.03349 = phi i64 [ 0, %.preheader.preheader ], [ %.1, %17 ]
+  %.03448 = phi i64 [ 0, %.preheader.preheader ], [ %.135, %17 ]
+  %11 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i8, ptr %12, align 1
+  %.not81 = icmp eq i8 %13, 43
+  switch i8 %13, label %21 [
+    i8 45, label %14
+    i8 43, label %14
   ]
 
-16:                                               ; preds = %.preheader, %.preheader
-  %17 = getelementptr inbounds i8, ptr %14, i64 1
-  %18 = call i32 @debug_str2flags(ptr noundef nonnull %17, ptr noundef nonnull %3) #17
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %24
+14:                                               ; preds = %.preheader, %.preheader
+  %15 = getelementptr inbounds i8, ptr %12, i64 1
+  %16 = call i32 @debug_str2flags(ptr noundef nonnull %15, ptr noundef nonnull %3) #17
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %17, label %21
 
-19:                                               ; preds = %16
-  %20 = load i64, ptr %3, align 8
-  %21 = select i1 %.not84, i64 %20, i64 0
-  %.135 = or i64 %21, %.03448
-  %22 = select i1 %.not84, i64 0, i64 %20
-  %.1 = or i64 %22, %.03349
+17:                                               ; preds = %14
+  %18 = load i64, ptr %3, align 8
+  %19 = select i1 %.not81, i64 %18, i64 0
+  %.135 = or i64 %19, %.03448
+  %20 = select i1 %.not81, i64 0, i64 %18
+  %.1 = or i64 %20, %.03349
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp ult i64 %indvars.iv.next, %6
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %54, label %.preheader, !llvm.loop !23
 
-.thread:                                          ; preds = %19
-  br i1 %23, label %47, label %58
+21:                                               ; preds = %.preheader, %14
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %23 = add nsw i32 %0, -1
+  %24 = icmp eq i32 %23, %22
+  br i1 %24, label %25, label %43
 
-24:                                               ; preds = %.preheader, %16
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = add nsw i32 %0, -1
-  %27 = icmp eq i32 %26, %25
-  br i1 %27, label %28, label %46
+25:                                               ; preds = %21
+  %26 = and i64 %indvars.iv, 4294967295
+  %27 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 @xstrncasecmp(ptr noundef %28, ptr noundef nonnull @.str.154, i64 noundef 5) #17
+  %.not40 = icmp eq i32 %29, 0
+  br i1 %.not40, label %33, label %30
 
-28:                                               ; preds = %24
-  %29 = and i64 %indvars.iv, 4294967295
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @xstrncasecmp(ptr noundef %31, ptr noundef nonnull @.str.154, i64 noundef 5) #17
-  %.not40 = icmp eq i32 %32, 0
-  br i1 %.not40, label %36, label %33
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %27, align 8
+  %32 = call i32 @xstrncasecmp(ptr noundef %31, ptr noundef nonnull @.str.155, i64 noundef 6) #17
+  %.not41 = icmp eq i32 %32, 0
+  br i1 %.not41, label %33, label %43
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %30, align 8
-  %35 = call i32 @xstrncasecmp(ptr noundef %34, ptr noundef nonnull @.str.155, i64 noundef 6) #17
-  %.not41 = icmp eq i32 %35, 0
-  br i1 %.not41, label %36, label %46
+33:                                               ; preds = %30, %25
+  %34 = load ptr, ptr %27, align 8
+  %35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 61) #22
+  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %37 = call i32 @slurm_set_slurmd_debug_flags(ptr noundef nonnull %36, i64 noundef %.03448, i64 noundef %.03349) #17
+  %.not42 = icmp eq i32 %37, 0
+  br i1 %.not42, label %.thread69, label %38
 
-36:                                               ; preds = %33, %28
-  %37 = load ptr, ptr %30, align 8
-  %38 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 61) #22
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  %40 = call i32 @slurm_set_slurmd_debug_flags(ptr noundef nonnull %39, i64 noundef %.03448, i64 noundef %.03349) #17
-  %.not42 = icmp eq i32 %40, 0
-  br i1 %.not42, label %.thread65, label %41
-
-41:                                               ; preds = %36
+38:                                               ; preds = %33
   store i32 1, ptr @exit_code, align 4
-  %42 = load i32, ptr @quiet_flag, align 4
-  %.not43 = icmp eq i32 %42, 1
-  br i1 %.not43, label %.thread65, label %43
+  %39 = load i32, ptr @quiet_flag, align 4
+  %.not43 = icmp eq i32 %39, 1
+  br i1 %.not43, label %.thread69, label %40
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call i64 @fwrite(ptr nonnull @.str.156, i64 47, i64 1, ptr %44) #18
-  br label %.thread65
+40:                                               ; preds = %38
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = call i64 @fwrite(ptr nonnull @.str.156, i64 47, i64 1, ptr %41) #18
+  br label %.thread69
 
-46:                                               ; preds = %33, %24
-  br i1 %12, label %47, label %58
-
-47:                                               ; preds = %.thread, %46
-  %.0.lcssa6062 = phi i32 [ %0, %.thread ], [ %25, %46 ]
+43:                                               ; preds = %30, %21
   store i32 1, ptr @exit_code, align 4
-  %48 = load i32, ptr @quiet_flag, align 4
-  %.not46 = icmp eq i32 %48, 1
-  br i1 %.not46, label %.thread65, label %49
+  %44 = load i32, ptr @quiet_flag, align 4
+  %.not46 = icmp eq i32 %44, 1
+  br i1 %.not46, label %.thread69, label %45
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr @stderr, align 8
-  %51 = zext nneg i32 %.0.lcssa6062 to i64
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.157, ptr noundef %53) #21
+45:                                               ; preds = %43
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = and i64 %indvars.iv, 4294967295
+  %48 = getelementptr inbounds ptr, ptr %1, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.157, ptr noundef %49) #21
   %.pre = load i32, ptr @quiet_flag, align 4
   %.pre.fr = freeze i32 %.pre
-  %.not85 = icmp eq i32 %.pre.fr, 1
-  br i1 %.not85, label %.thread65, label %switch.early.test
+  %.not82 = icmp eq i32 %.pre.fr, 1
+  br i1 %.not82, label %.thread69, label %switch.early.test
 
-switch.early.test:                                ; preds = %49
-  switch i8 %15, label %55 [
-    i8 45, label %.thread65
-    i8 43, label %.thread65
+switch.early.test:                                ; preds = %45
+  switch i8 %13, label %51 [
+    i8 45, label %.thread69
+    i8 43, label %.thread69
   ]
 
-55:                                               ; preds = %switch.early.test
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = call i64 @fwrite(ptr nonnull @.str.158, i64 59, i64 1, ptr %56) #18
-  br label %.thread65
+51:                                               ; preds = %switch.early.test
+  %52 = load ptr, ptr @stderr, align 8
+  %53 = call i64 @fwrite(ptr nonnull @.str.158, i64 59, i64 1, ptr %52) #18
+  br label %.thread69
 
-58:                                               ; preds = %.thread, %46
-  %.034.lcssa5864 = phi i64 [ %.135, %.thread ], [ %.03448, %46 ]
-  %.033.lcssa5963 = phi i64 [ %.1, %.thread ], [ %.03349, %46 ]
-  %59 = call i32 @slurm_set_debugflags(i64 noundef %.034.lcssa5864, i64 noundef %.033.lcssa5963) #17
-  %.not44 = icmp eq i32 %59, 0
-  br i1 %.not44, label %.thread65, label %60
+54:                                               ; preds = %17
+  %55 = call i32 @slurm_set_debugflags(i64 noundef %.135, i64 noundef %.1) #17
+  %.not44 = icmp eq i32 %55, 0
+  br i1 %.not44, label %.thread69, label %56
 
-60:                                               ; preds = %58
+56:                                               ; preds = %54
   store i32 1, ptr @exit_code, align 4
-  %61 = load i32, ptr @quiet_flag, align 4
-  %.not45 = icmp eq i32 %61, 1
-  br i1 %.not45, label %.thread65, label %62
+  %57 = load i32, ptr @quiet_flag, align 4
+  %.not45 = icmp eq i32 %57, 1
+  br i1 %.not45, label %.thread69, label %58
 
-62:                                               ; preds = %60
+58:                                               ; preds = %56
   call void @slurm_perror(ptr noundef nonnull @.str.159) #17
-  br label %.thread65
+  br label %.thread69
 
-.thread65:                                        ; preds = %switch.early.test, %switch.early.test, %49, %47, %55, %60, %62, %58, %36, %43, %41, %7, %9
+.thread69:                                        ; preds = %switch.early.test, %switch.early.test, %45, %43, %51, %56, %58, %54, %33, %40, %38, %6, %8
   ret void
 }
 
@@ -4484,8 +4472,8 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   %12 = getelementptr inbounds i8, ptr %7, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %.not43 = icmp ne ptr %14, null
-  br i1 %.not43, label %.lr.ph45, label %.loopexit
+  %.not43.not = icmp eq ptr %14, null
+  br i1 %.not43.not, label %.loopexit, label %.lr.ph45
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %12, align 8
@@ -4537,7 +4525,7 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   br i1 %32, label %15, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %15, %._crit_edge, %.lr.ph38, %0, %29
-  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ %.not43, %.lr.ph38 ], [ %.not43, %._crit_edge ], [ %.not43, %15 ]
+  %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ true, %._crit_edge ], [ true, %15 ]
   %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ false, %._crit_edge ], [ false, %15 ]
   call void @slurm_conf_unlock() #17
   %34 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull %1) #17

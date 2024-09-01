@@ -1067,19 +1067,19 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %props.i = getelementptr [0 x %struct.CPUArchId], ptr %cpus.i, i64 0, i64 %indvars.iv.i, i32 2
   %18 = load i8, ptr %props.i, align 8
   %tobool3.i = trunc i8 %18 to i1
-  br i1 %tobool3.i, label %for.body11.lr.ph.i, label %for.inc.i
+  br i1 %tobool3.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body11.lr.ph.i.thread, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.end.i.thread, label %for.body.i, !llvm.loop !9
 
-for.body11.lr.ph.i.thread:                        ; preds = %for.inc.i
+for.end.i.thread:                                 ; preds = %for.inc.i
   %get_default_cpu_node_id.i84 = getelementptr inbounds i8, ptr %call1.i.i59, i64 344
   %node_id.i85 = getelementptr inbounds i8, ptr %props19.i, i64 8
   br label %for.body11.lr.ph.split.us.i
 
-for.body11.lr.ph.i:                               ; preds = %for.body.i
+for.end.i:                                        ; preds = %for.body.i
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp7.i = icmp eq i32 %17, %19
   %get_default_cpu_node_id.i = getelementptr inbounds i8, ptr %call1.i.i59, i64 344
@@ -1088,9 +1088,9 @@ for.body11.lr.ph.i:                               ; preds = %for.body.i
   %cmp7.fr.i = freeze i1 %cmp7.i
   br i1 %cmp7.fr.i, label %for.body11.lr.ph.split.us.i, label %for.body11.i
 
-for.body11.lr.ph.split.us.i:                      ; preds = %for.body11.lr.ph.i.thread, %for.body11.lr.ph.i
-  %node_id.i89 = phi ptr [ %node_id.i85, %for.body11.lr.ph.i.thread ], [ %node_id.i, %for.body11.lr.ph.i ]
-  %get_default_cpu_node_id.i88 = phi ptr [ %get_default_cpu_node_id.i84, %for.body11.lr.ph.i.thread ], [ %get_default_cpu_node_id.i, %for.body11.lr.ph.i ]
+for.body11.lr.ph.split.us.i:                      ; preds = %for.end.i.thread, %for.end.i
+  %node_id.i89 = phi ptr [ %node_id.i85, %for.end.i.thread ], [ %node_id.i, %for.end.i ]
+  %get_default_cpu_node_id.i88 = phi ptr [ %get_default_cpu_node_id.i84, %for.end.i.thread ], [ %get_default_cpu_node_id.i, %for.end.i ]
   %invariant.gep.i = getelementptr i8, ptr %call2.i, i64 24
   br label %for.body11.us.i
 
@@ -1120,9 +1120,9 @@ for.inc31.us.i:                                   ; preds = %if.then18.us.i, %fo
   %cmp10.us.i = icmp slt i64 %indvars.iv.next53.i, %25
   br i1 %cmp10.us.i, label %for.body11.us.i, label %for.end33.i, !llvm.loop !10
 
-for.body11.i:                                     ; preds = %for.body11.lr.ph.i, %for.inc31.i
-  %26 = phi i32 [ %45, %for.inc31.i ], [ %17, %for.body11.lr.ph.i ]
-  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %for.inc31.i ], [ 0, %for.body11.lr.ph.i ]
+for.body11.i:                                     ; preds = %for.end.i, %for.inc31.i
+  %26 = phi i32 [ %45, %for.inc31.i ], [ %17, %for.end.i ]
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %for.inc31.i ], [ 0, %for.end.i ]
   %arrayidx14.i = getelementptr [0 x %struct.CPUArchId], ptr %cpus.i, i64 0, i64 %indvars.iv49.i
   %props15.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 16
   %27 = load i8, ptr %props15.i, align 8

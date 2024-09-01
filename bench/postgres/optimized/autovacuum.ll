@@ -1221,61 +1221,48 @@ define dso_local zeroext i1 @AutoVacuumingActive() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr i8, ptr %4, i64 2816
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #18
   %7 = load ptr, ptr @AutoVacuumShmem, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
-  %9 = getelementptr inbounds i8, ptr %7, i64 60
-  %10 = load i8, ptr %9, align 4
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  br label %10
 
-.lr.ph:                                           ; preds = %3, %12
-  %indvars.iv34 = phi i64 [ %indvars.iv.next, %12 ], [ 0, %3 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv34, 1
+9:                                                ; preds = %10
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %12, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !9
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr [256 x %struct.AutoVacuumWorkItem], ptr %8, i64 0, i64 %indvars.iv.next
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i8, ptr %14, align 4
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+10:                                               ; preds = %3, %9
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
+  %11 = getelementptr [256 x %struct.AutoVacuumWorkItem], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = load i8, ptr %12, align 4
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %9, label %15
 
-._crit_edge.loopexit:                             ; preds = %12
-  %17 = icmp ult i64 %indvars.iv34, 255
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.lcssa31 = phi i1 [ true, %3 ], [ %17, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ %8, %3 ], [ %13, %._crit_edge.loopexit ]
-  %18 = getelementptr inbounds i8, ptr %.lcssa, i64 4
-  store i8 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %.lcssa, i64 5
-  store i8 0, ptr %19, align 1
-  store i32 %0, ptr %.lcssa, align 4
-  %20 = load i32, ptr @MyDatabaseId, align 4
-  %21 = getelementptr inbounds i8, ptr %.lcssa, i64 8
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %.lcssa, i64 12
-  store i32 %1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.lcssa, i64 16
-  store i32 %2, ptr %23, align 4
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %11, i64 4
+  store i8 1, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %11, i64 5
+  store i8 0, ptr %17, align 1
+  store i32 %0, ptr %11, align 4
+  %18 = load i32, ptr @MyDatabaseId, align 4
+  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 %1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  store i32 %2, ptr %21, align 4
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %.lr.ph
-  %24 = icmp ult i64 %indvars.iv34, 255
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %25 = phi i1 [ %.lcssa31, %._crit_edge ], [ %24, %.loopexit.loopexit ]
-  %26 = load ptr, ptr @MainLWLockArray, align 8
-  %27 = getelementptr i8, ptr %26, i64 2816
-  tail call void @LWLockRelease(ptr noundef %27) #18
-  ret i1 %25
+.loopexit:                                        ; preds = %9, %15
+  %22 = xor i1 %14, true
+  %23 = load ptr, ptr @MainLWLockArray, align 8
+  %24 = getelementptr i8, ptr %23, i64 2816
+  tail call void @LWLockRelease(ptr noundef %24) #18
+  ret i1 %22
 }
 
 ; Function Attrs: nounwind uwtable

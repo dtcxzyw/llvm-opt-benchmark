@@ -626,8 +626,8 @@ if.end34:                                         ; preds = %_ZNK3net14StrikeReg
   %arrayidx.i.i.i89 = getelementptr inbounds i8, ptr %37, i64 %conv.i.i88
   %42 = load i32, ptr %arrayidx.i.i.i89, align 4
   store i32 %42, ptr %external_node_free_head_, align 4
-  %cmp37.not = icmp eq i32 %.lcssa162, %and10.i
-  br i1 %cmp37.not, label %while.cond.preheader.i92, label %if.end42
+  %cmp37 = icmp eq i32 %.lcssa162, %and10.i
+  br i1 %cmp37, label %while.cond.preheader.i92, label %if.end42
 
 while.cond.preheader.i92:                         ; preds = %if.end34
   br i1 %cmp39.i, label %while.body.i101, label %while.end.i95
@@ -661,8 +661,8 @@ while.end.i95:                                    ; preds = %while.body.i101, %w
   %49 = zext nneg i32 %48 to i64
   br label %if.end42
 
-if.end42:                                         ; preds = %if.end34, %while.end.i95
-  %50 = phi i64 [ %conv.i80, %if.end34 ], [ %49, %while.end.i95 ]
+if.end42:                                         ; preds = %while.end.i95, %if.end34
+  %50 = phi i64 [ %49, %while.end.i95 ], [ %conv.i80, %if.end34 ]
   %51 = getelementptr inbounds i8, ptr %37, i64 %50
   br label %for.body
 

@@ -14975,7 +14975,7 @@ define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 declare i32 @toupper(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #13 {
+define noalias ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -15023,10 +15023,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %23, label %.lr.ph67.preheader, label %.loopexit
-
-.lr.ph67.preheader:                               ; preds = %.preheader
+.lr.ph67.preheader:                               ; preds = %.lr.ph
   %wide.trip.count72 = zext nneg i32 %5 to i64
   br label %.lr.ph67
 
@@ -15050,7 +15047,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   store i8 0, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !117
+  br i1 %exitcond.not, label %.lr.ph67.preheader, label %.lr.ph, !llvm.loop !117
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %41
   %indvars.iv69 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next70, %41 ]
@@ -15081,8 +15078,8 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.loopexit, label %.lr.ph67, !llvm.loop !118
 
-.loopexit:                                        ; preds = %41, %13, %.preheader, %10, %1
-  %.052 = phi ptr [ null, %10 ], [ null, %1 ], [ %14, %.preheader ], [ %14, %13 ], [ %14, %41 ]
+.loopexit:                                        ; preds = %41, %13, %10, %1
+  %.052 = phi ptr [ null, %10 ], [ null, %1 ], [ %14, %13 ], [ %14, %41 ]
   ret ptr %.052
 }
 

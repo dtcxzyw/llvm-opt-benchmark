@@ -3149,9 +3149,6 @@ for.end:                                          ; preds = %for.body19
   %completed = getelementptr inbounds i8, ptr %25, i64 104
   store i8 1, ptr %completed, align 8
   %.pre49 = load ptr, ptr %parts, align 8
-  br i1 %cmp1829, label %for.body31.lr.ph, label %for.inc46
-
-for.body31.lr.ph:                                 ; preds = %for.end
   %add.ptr.i26 = getelementptr inbounds ptr, ptr %.pre49, i64 %i.039
   %26 = load ptr, ptr %add.ptr.i26, align 8
   %chunkOffsets34 = getelementptr inbounds i8, ptr %26, i64 80
@@ -3164,8 +3161,8 @@ for.cond29:                                       ; preds = %for.body31
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
   br i1 %exitcond48.not, label %for.inc46, label %for.body31, !llvm.loop !18
 
-for.body31:                                       ; preds = %for.body31.lr.ph, %for.cond29
-  %indvars.iv44 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next45, %for.cond29 ]
+for.body31:                                       ; preds = %for.end, %for.cond29
+  %indvars.iv44 = phi i64 [ 0, %for.end ], [ %indvars.iv.next45, %for.cond29 ]
   %add.ptr.i27 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv44
   %28 = load i64, ptr %add.ptr.i27, align 8
   %cmp37 = icmp eq i64 %28, 0
@@ -3180,9 +3177,9 @@ for.inc46.sink.split:                             ; preds = %for.body31, %for.en
   %.pre4952 = load ptr, ptr %parts, align 8
   br label %for.inc46
 
-for.inc46:                                        ; preds = %for.cond29, %for.inc46.sink.split, %for.end
-  %29 = phi ptr [ %.pre49, %for.end ], [ %.pre4952, %for.inc46.sink.split ], [ %.pre49, %for.cond29 ]
-  %brokenPartsExist.1 = phi i1 [ %brokenPartsExist.041, %for.end ], [ %brokenPartsExist.1.ph, %for.inc46.sink.split ], [ %brokenPartsExist.041, %for.cond29 ]
+for.inc46:                                        ; preds = %for.cond29, %for.inc46.sink.split
+  %29 = phi ptr [ %.pre4952, %for.inc46.sink.split ], [ %.pre49, %for.cond29 ]
+  %brokenPartsExist.1 = phi i1 [ %brokenPartsExist.1.ph, %for.inc46.sink.split ], [ %brokenPartsExist.041, %for.cond29 ]
   %inc47 = add nuw i64 %i.039, 1
   %30 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64

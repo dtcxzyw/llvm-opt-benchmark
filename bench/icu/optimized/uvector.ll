@@ -704,11 +704,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx11 = getelementptr inbounds %union.UElement, ptr %7, i64 %indvars.iv
   %agg.tmp8.sroa.0.0.copyload = load ptr, ptr %arrayidx11, align 8
   %call = tail call noundef signext i8 %5(ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp8.sroa.0.0.copyload)
-  %tobool.not.not = icmp ne i8 %call, 0
-  br i1 %tobool.not.not, label %for.cond, label %return
+  %tobool.not.not.not = icmp ne i8 %call, 0
+  br i1 %tobool.not.not.not, label %for.cond, label %return
 
 return:                                           ; preds = %for.body, %for.cond, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %tobool.not.not, %for.cond ], [ %tobool.not.not, %for.body ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %tobool.not.not.not, %for.cond ], [ %tobool.not.not.not, %for.body ]
   ret i1 %retval.0
 }
 

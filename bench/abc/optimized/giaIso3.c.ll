@@ -146,9 +146,8 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
   %42 = add i32 %41, %39
   store i32 %42, ptr %38, align 4
   %43 = and i64 %.val21, 2147483648
-  %.not.i28 = icmp ne i64 %43, 0
-  %narrow.i29.not = or i1 %.not.i28, %.not39
-  br i1 %narrow.i29.not, label %.thread, label %44
+  %.not.i28.not = icmp eq i64 %43, 0
+  br i1 %.not.i28.not, label %44, label %.thread
 
 44:                                               ; preds = %12
   %45 = lshr i64 %.val21, 32

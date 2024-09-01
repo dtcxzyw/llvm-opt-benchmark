@@ -69,16 +69,13 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 
 .preheader:                                       ; preds = %57
   %33 = icmp sgt i32 %2, 1
-  br i1 %33, label %.lr.ph110, label %._crit_edge111
+  br i1 %33, label %.lr.ph110.split.us, label %._crit_edge111
 
 .preheader.thread:                                ; preds = %27
   %34 = icmp sgt i32 %2, 1
   br i1 %34, label %.lr.ph110.split, label %._crit_edge111
 
-.lr.ph110:                                        ; preds = %.preheader
-  br i1 %29, label %.lr.ph110.split.us, label %.lr.ph110.split
-
-.lr.ph110.split.us:                               ; preds = %.lr.ph110
+.lr.ph110.split.us:                               ; preds = %.preheader
   %wide.trip.count150 = zext nneg i32 %2 to i64
   %wide.trip.count145 = zext nneg i32 %1 to i64
   br i1 %.not, label %.lr.ph105.us.us, label %.lr.ph105.us
@@ -147,8 +144,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count150
   br i1 %exitcond141.not, label %._crit_edge111, label %.lr.ph105.us
 
-.lr.ph110.split:                                  ; preds = %.preheader.thread, %.lr.ph110
-  %.084.lcssa153155 = phi i32 [ %spec.select, %.lr.ph110 ], [ %28, %.preheader.thread ]
+.lr.ph110.split:                                  ; preds = %.preheader.thread
   %wide.trip.count130 = zext nneg i32 %2 to i64
   br i1 %.not, label %.lr.ph110.split.split.us, label %.lr.ph110.split.split
 
@@ -156,7 +152,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph110.split.split.us ], [ 1, %.lr.ph110.split ]
   %55 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv127
   %56 = load ptr, ptr %55, align 8
-  tail call void @bfs(i32 noundef %.084.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %56) #12
+  tail call void @bfs(i32 noundef %28, ptr noundef %0, i32 noundef %1, ptr noundef %56) #12
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge111, label %.lr.ph110.split.split.us
@@ -179,7 +175,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph110.split.split ], [ 1, %.lr.ph110.split ]
   %62 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv122
   %63 = load ptr, ptr %62, align 8
-  tail call void @dijkstra(i32 noundef %.084.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %63) #12
+  tail call void @dijkstra(i32 noundef %28, ptr noundef %0, i32 noundef %1, ptr noundef %63) #12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count130
   br i1 %exitcond126.not, label %._crit_edge111, label %.lr.ph110.split.split

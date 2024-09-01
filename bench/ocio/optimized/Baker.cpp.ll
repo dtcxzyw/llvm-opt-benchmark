@@ -1064,7 +1064,7 @@ if.then12:                                        ; preds = %for.body
 
 if.then12.cleanup_crit_edge:                      ; preds = %if.then12
   %.pre = load ptr, ptr %formatInfoVec, align 8
-  %.pre28 = load ptr, ptr %_M_finish.i, align 8
+  %.pre26 = load ptr, ptr %_M_finish.i, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %entry
@@ -1090,7 +1090,7 @@ lpad6:                                            ; preds = %if.then12, %if.then
   br label %eh.resume
 
 cleanup:                                          ; preds = %for.cond, %for.cond.preheader, %if.then12.cleanup_crit_edge
-  %8 = phi ptr [ %.pre28, %if.then12.cleanup_crit_edge ], [ %1, %for.cond.preheader ], [ %1, %for.cond ]
+  %8 = phi ptr [ %.pre26, %if.then12.cleanup_crit_edge ], [ %1, %for.cond.preheader ], [ %1, %for.cond ]
   %9 = phi ptr [ %.pre, %if.then12.cleanup_crit_edge ], [ %2, %for.cond.preheader ], [ %2, %for.cond ]
   %cmp.not18 = phi i1 [ true, %if.then12.cleanup_crit_edge ], [ false, %for.cond.preheader ], [ false, %for.cond ]
   %cmp.not3.i.i.i.i = icmp eq ptr %9, %8

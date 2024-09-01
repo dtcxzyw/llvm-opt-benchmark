@@ -2470,8 +2470,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %5 = load i32, ptr %headerbytecount, align 8
   %conv = zext i32 %5 to i64
   %add = sub nsw i64 0, %conv
-  %cmp.not = icmp eq i64 %4, %add
-  br i1 %cmp.not, label %land.lhs.true5, label %return
+  %cmp = icmp eq i64 %4, %add
+  br i1 %cmp, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %if.end
   %bits = getelementptr inbounds i8, ptr %0, i64 704

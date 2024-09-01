@@ -3754,8 +3754,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 _ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit: ; preds = %for.body.i.i.i
   %cmp.i.i = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i10
-  %or.cond = or i1 %cmp.i.i.i.i, %cmp.i.i
-  br i1 %or.cond, label %for.inc, label %if.end.i.i.i
+  br i1 %cmp.i.i, label %for.inc, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit
   %cmp16.i.i.i.i.i = icmp sgt i64 %13, 0

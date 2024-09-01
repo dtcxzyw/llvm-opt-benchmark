@@ -2420,14 +2420,14 @@ define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef %1) unnam
   %28 = getelementptr inbounds i8, ptr %27, i64 236
   %29 = load i32, ptr %28, align 4
   %.not3741 = icmp slt i32 %29, 1
-  br i1 %.not3741, label %._crit_edge, label %.lr.ph43
+  br i1 %.not3741, label %._crit_edge, label %.lr.ph43.split.preheader
 
 .loopexit.thread50:                               ; preds = %2
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 236
   %32 = load i32, ptr %31, align 4
   %.not374151 = icmp slt i32 %32, 1
-  br i1 %.not374151, label %._crit_edge, label %.lr.ph43.split.us.preheader
+  br i1 %.not374151, label %._crit_edge, label %.lr.ph43.split.us
 
 .loopexit.thread:                                 ; preds = %8
   %33 = load ptr, ptr %3, align 8
@@ -2436,20 +2436,13 @@ define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef %1) unnam
   %.not374149 = icmp slt i32 %35, 1
   br i1 %.not374149, label %._crit_edge, label %.lr.ph43.split.preheader
 
-.lr.ph43:                                         ; preds = %.loopexit
-  br i1 %.not, label %.lr.ph43.split.us.preheader, label %.lr.ph43.split.preheader
-
-.lr.ph43.split.preheader:                         ; preds = %.loopexit.thread, %.lr.ph43
-  %.ph55 = phi ptr [ %27, %.lr.ph43 ], [ %33, %.loopexit.thread ]
+.lr.ph43.split.preheader:                         ; preds = %.loopexit, %.loopexit.thread
+  %.ph = phi ptr [ %33, %.loopexit.thread ], [ %27, %.loopexit ]
   br label %.lr.ph43.split
 
-.lr.ph43.split.us.preheader:                      ; preds = %.loopexit.thread50, %.lr.ph43
-  %.ph = phi ptr [ %27, %.lr.ph43 ], [ %30, %.loopexit.thread50 ]
-  br label %.lr.ph43.split.us
-
-.lr.ph43.split.us:                                ; preds = %.lr.ph43.split.us.preheader, %.lr.ph43.split.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph43.split.us ], [ 1, %.lr.ph43.split.us.preheader ]
-  %36 = phi ptr [ %41, %.lr.ph43.split.us ], [ %.ph, %.lr.ph43.split.us.preheader ]
+.lr.ph43.split.us:                                ; preds = %.loopexit.thread50, %.lr.ph43.split.us
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph43.split.us ], [ 1, %.loopexit.thread50 ]
+  %36 = phi ptr [ %41, %.lr.ph43.split.us ], [ %30, %.loopexit.thread50 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 240
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv46
@@ -2465,7 +2458,7 @@ define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef %1) unnam
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %.lr.ph43.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph43.split ], [ 1, %.lr.ph43.split.preheader ]
-  %45 = phi ptr [ %59, %.lr.ph43.split ], [ %.ph55, %.lr.ph43.split.preheader ]
+  %45 = phi ptr [ %59, %.lr.ph43.split ], [ %.ph, %.lr.ph43.split.preheader ]
   %46 = getelementptr inbounds i8, ptr %45, i64 240
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv

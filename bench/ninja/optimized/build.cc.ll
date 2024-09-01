@@ -4337,8 +4337,8 @@ define dso_local noundef zeroext i1 @_ZN17RealCommandRunner14WaitForCommandEPN13
 
 4:                                                ; preds = %6, %2
   %5 = tail call noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr noundef nonnull align 8 dereferenceable(688) %3)
-  %.not = icmp ne ptr %5, null
-  br i1 %.not, label %8, label %6
+  %.not.not.not.not.not = icmp ne ptr %5, null
+  br i1 %.not.not.not.not.not, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = tail call noundef zeroext i1 @_ZN13SubprocessSet6DoWorkEv(ptr noundef nonnull align 8 dereferenceable(688) %3)
@@ -4397,7 +4397,7 @@ _ZNSt8_Rb_treeIPK10SubprocessSt4pairIKS2_P4EdgeESt10_Select1stIS7_ESt4lessIS2_ES
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %25
-  ret i1 %.not
+  ret i1 %.not.not.not.not.not
 }
 
 declare noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr noundef nonnull align 8 dereferenceable(688)) local_unnamed_addr #4
@@ -6556,8 +6556,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
           to label %268 unwind label %.loopexit155
 
 268:                                              ; preds = %261
-  %.not190 = icmp ne i64 %267, -1
-  br i1 %.not190, label %269, label %.loopexit
+  %.not190.not = icmp ne i64 %267, -1
+  br i1 %.not190.not, label %269, label %.loopexit
 
 269:                                              ; preds = %268
   %270 = load ptr, ptr %257, align 8
@@ -6611,7 +6611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115: ;
   br label %.loopexit
 
 .loopexit:                                        ; preds = %268, %258, %.loopexit.sink.split, %251, %244, %246
-  %.1 = phi i1 [ true, %246 ], [ true, %244 ], [ true, %251 ], [ false, %.loopexit.sink.split ], [ %.not190, %258 ], [ %.not190, %268 ]
+  %.1 = phi i1 [ true, %246 ], [ true, %244 ], [ true, %251 ], [ false, %.loopexit.sink.split ], [ %.not190.not, %258 ], [ %.not190.not, %268 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #26
   br label %_ZN4Plan12EdgeFinishedEP4EdgeNS_10EdgeResultEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 

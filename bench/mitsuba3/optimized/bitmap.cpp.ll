@@ -19564,9 +19564,6 @@ _ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i: ; preds = 
   %183 = select i1 %182, i64 3, i64 4
   br label %184
 
-.preheader:                                       ; preds = %209
-  br i1 %.not163, label %.split.us, label %.preheader.split
-
 184:                                              ; preds = %.lr.ph149, %209
   %.086148 = phi i64 [ 0, %.lr.ph149 ], [ %212, %209 ]
   %.292147 = phi ptr [ %.191155, %.lr.ph149 ], [ %211, %209 ]
@@ -19618,7 +19615,7 @@ _ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i: ; preds = 
   %211 = getelementptr inbounds float, ptr %.292147, i64 %183
   %212 = add nuw nsw i64 %.086148, 1
   %exitcond.not = icmp eq i64 %212, %176
-  br i1 %exitcond.not, label %.preheader, label %184, !llvm.loop !239
+  br i1 %exitcond.not, label %.preheader.split, label %184, !llvm.loop !239
 
 _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit.loopexit: ; preds = %.lr.ph62.i, %.noexc113
   %lpad.loopexit132 = landingpad { ptr, i32 }
@@ -19640,8 +19637,8 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   call void @_ZdaPv(ptr noundef nonnull %161) #36
   br label %.loopexit.split-lp
 
-.preheader.split:                                 ; preds = %.preheader, %.loopexit138
-  %.0154 = phi i64 [ %272, %.loopexit138 ], [ 0, %.preheader ]
+.preheader.split:                                 ; preds = %209, %.loopexit138
+  %.0154 = phi i64 [ %272, %.loopexit138 ], [ 0, %209 ]
   %213 = load i32, ptr %102, align 8
   %214 = zext i32 %213 to i64
   %215 = mul nuw nsw i64 %.0154, %214
@@ -19772,8 +19769,8 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %exitcond168.not = icmp eq i64 %272, 4
   br i1 %exitcond168.not, label %.split.us, label %.preheader.split, !llvm.loop !244
 
-.split.us:                                        ; preds = %.loopexit138, %.preheader139, %.preheader
-  %.292.lcssa173 = phi ptr [ %211, %.preheader ], [ %.191155, %.preheader139 ], [ %211, %.loopexit138 ]
+.split.us:                                        ; preds = %.loopexit138, %.preheader139
+  %.292.lcssa173 = phi ptr [ %.191155, %.preheader139 ], [ %211, %.loopexit138 ]
   %273 = add nuw nsw i64 %.087156, 1
   %274 = load i32, ptr %103, align 4
   %275 = zext i32 %274 to i64

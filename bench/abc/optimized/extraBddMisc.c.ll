@@ -1036,10 +1036,7 @@ define noundef ptr @Extra_VectorSupportArray(ptr nocapture noundef readonly %0, 
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph26
 
-.preheader:                                       ; preds = %.lr.ph26
-  br i1 %12, label %.lr.ph28.preheader, label %._crit_edge
-
-.lr.ph28.preheader:                               ; preds = %.preheader
+.lr.ph28.preheader:                               ; preds = %.lr.ph26
   %wide.trip.count34 = zext nneg i32 %2 to i64
   br label %.lr.ph28
 
@@ -1053,7 +1050,7 @@ define noundef ptr @Extra_VectorSupportArray(ptr nocapture noundef readonly %0, 
   tail call void @ddSupportStep2(ptr noundef %17, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph26, !llvm.loop !18
+  br i1 %exitcond.not, label %.lr.ph28.preheader, label %.lr.ph26, !llvm.loop !18
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %.lr.ph28
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28.preheader ], [ %indvars.iv.next32, %.lr.ph28 ]
@@ -1067,7 +1064,7 @@ define noundef ptr @Extra_VectorSupportArray(ptr nocapture noundef readonly %0, 
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph28, %.preheader23, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph28, %.preheader23
   ret ptr %3
 }
 

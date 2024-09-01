@@ -20542,9 +20542,9 @@ land.rhs:                                         ; preds = %invoke.cont11
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = sdiv exact i64 %sub.ptr.sub.i.i27, 24
-  %cmp.not.not = icmp ne i64 %storemerge, %sub.ptr.div.i.i28
+  %cmp.not.not.not = icmp ne i64 %storemerge, %sub.ptr.div.i.i28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delimiter_.i) #24
-  br i1 %cmp.not.not, label %for.body, label %for.end
+  br i1 %cmp.not.not.not, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
   br i1 %cmp.i, label %if.then, label %if.else
@@ -20752,7 +20752,7 @@ for.end.critedge:                                 ; preds = %invoke.cont11
   br label %for.end
 
 for.end:                                          ; preds = %invoke.cont23, %if.end, %land.rhs, %for.end.critedge
-  %mismatch_found.0 = phi i1 [ false, %for.end.critedge ], [ %cmp.not.not, %land.rhs ], [ %cmp.not.not, %if.end ], [ %cmp.not.not, %invoke.cont23 ]
+  %mismatch_found.0 = phi i1 [ false, %for.end.critedge ], [ %cmp.not.not.not, %land.rhs ], [ %cmp.not.not.not, %if.end ], [ %cmp.not.not.not, %invoke.cont23 ]
   %state_1.i.i60 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %delimiter_.i64 = getelementptr inbounds i8, ptr %ref.tmp39, i64 40
   br label %for.cond38

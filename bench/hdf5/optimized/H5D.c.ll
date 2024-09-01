@@ -3270,8 +3270,8 @@ define range(i32 -1, 1) i32 @H5Dscatter(ptr noundef readonly %0, ptr noundef %1,
   br i1 %77, label %.thread.thread78, label %.preheader
 
 .preheader:                                       ; preds = %75
-  %.not123 = icmp eq i64 %62, 0
-  br i1 %.not123, label %.loopexit, label %.lr.ph
+  %.not116 = icmp eq i64 %62, 0
+  br i1 %.not116, label %.loopexit, label %.lr.ph
 
 .thread.thread78:                                 ; preds = %75
   %78 = load i64, ptr @H5E_DATASET_g, align 8
@@ -3281,8 +3281,8 @@ define range(i32 -1, 1) i32 @H5Dscatter(ptr noundef readonly %0, ptr noundef %1,
 
 81:                                               ; preds = %115
   %82 = sub nuw nsw i64 %.047115, %91
-  %.not124 = icmp eq i64 %82, 0
-  br i1 %.not124, label %.loopexit, label %.lr.ph
+  %.not117 = icmp eq i64 %82, 0
+  br i1 %.not117, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %81
   %.047115 = phi i64 [ %82, %81 ], [ %62, %.preheader ]

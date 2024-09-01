@@ -1413,33 +1413,33 @@ unsetenvp.exit504:                                ; preds = %202, %196, %unseten
 
 233:                                              ; preds = %229
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef %.0242) #18
-  br i1 %230, label %.thread.thread, label %.thread.thread980
+  br i1 %230, label %.thread.thread, label %.critedge
 
 .thread.thread:                                   ; preds = %233
   call void @_xstrcatchar(ptr noundef nonnull %5, i8 noundef signext 44) #18
   br label %234
 
 .thread:                                          ; preds = %229
-  br i1 %230, label %234, label %.thread.thread980
+  br i1 %230, label %234, label %.critedge
 
 234:                                              ; preds = %.thread.thread, %.thread
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef %.0241) #18
-  br label %.thread.thread980
+  br label %.critedge
 
-.thread.thread980:                                ; preds = %233, %234, %.thread
+.critedge:                                        ; preds = %233, %234, %.thread
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %.str.35..str.34) #18
   %235 = load ptr, ptr %5, align 8
   %.not326 = icmp eq ptr %235, null
   br i1 %.not326, label %238, label %236
 
-236:                                              ; preds = %.thread.thread980
+236:                                              ; preds = %.critedge
   call void @_xstrcatchar(ptr noundef nonnull %6, i8 noundef signext 44) #18
   %237 = load ptr, ptr %5, align 8
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %237) #18
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %.str.47.) #18
   br label %240
 
-238:                                              ; preds = %.thread.thread980
+238:                                              ; preds = %.critedge
   %239 = call ptr @xstrdup(ptr noundef nonnull @.str.47) #18
   store ptr %239, ptr %5, align 8
   br label %240

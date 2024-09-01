@@ -108,45 +108,45 @@ define hidden noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr nocaptu
   br i1 %.not.i, label %_ZNK7RegMask4SizeEv.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
-  %.not = icmp eq i32 %11, 2
-  br i1 %.not, label %.lr.ph25.i, label %_ZNK7RegMask4SizeEv.exit.thread
+  %13 = icmp eq i32 %11, 2
+  br i1 %13, label %.lr.ph25.i, label %_ZNK7RegMask4SizeEv.exit.thread
 
 .lr.ph25.i:                                       ; preds = %_ZNK7RegMask4SizeEv.exit, %._crit_edge.i
-  %.01422.i = phi i32 [ %27, %._crit_edge.i ], [ %3, %_ZNK7RegMask4SizeEv.exit ]
-  %13 = zext i32 %.01422.i to i64
-  %14 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %13
-  %15 = load i64, ptr %14, align 8
-  %.not1519.i = icmp eq i64 %15, 0
+  %.01422.i = phi i32 [ %28, %._crit_edge.i ], [ %3, %_ZNK7RegMask4SizeEv.exit ]
+  %14 = zext i32 %.01422.i to i64
+  %15 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %14
+  %16 = load i64, ptr %15, align 8
+  %.not1519.i = icmp eq i64 %16, 0
   br i1 %.not1519.i, label %._crit_edge.i, label %.lr.ph.i1
 
-16:                                               ; preds = %22
-  %17 = sub i64 %23, %24
-  %.not15.i = icmp eq i64 %17, 0
+17:                                               ; preds = %23
+  %18 = sub i64 %24, %25
+  %.not15.i = icmp eq i64 %18, 0
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i1, !llvm.loop !9
 
-.lr.ph.i1:                                        ; preds = %.lr.ph25.i, %16
-  %.01320.i = phi i64 [ %17, %16 ], [ %15, %.lr.ph25.i ]
-  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01320.i, i1 true)
-  %19 = shl nuw i64 1, %18
-  %20 = and i64 %19, 6148914691236517205
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZNK7RegMask4SizeEv.exit.thread, label %22
+.lr.ph.i1:                                        ; preds = %.lr.ph25.i, %17
+  %.01320.i = phi i64 [ %18, %17 ], [ %16, %.lr.ph25.i ]
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.01320.i, i1 true)
+  %20 = shl nuw i64 1, %19
+  %21 = and i64 %20, 6148914691236517205
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %_ZNK7RegMask4SizeEv.exit.thread, label %23
 
-22:                                               ; preds = %.lr.ph.i1
-  %23 = sub i64 %.01320.i, %19
-  %24 = shl i64 2, %18
-  %25 = and i64 %23, %24
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %_ZNK7RegMask4SizeEv.exit.thread, label %16
+23:                                               ; preds = %.lr.ph.i1
+  %24 = sub i64 %.01320.i, %20
+  %25 = shl i64 2, %19
+  %26 = and i64 %24, %25
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %_ZNK7RegMask4SizeEv.exit.thread, label %17
 
-._crit_edge.i:                                    ; preds = %16, %.lr.ph25.i
-  %27 = add i32 %.01422.i, 1
-  %.not.i2 = icmp ugt i32 %27, %5
+._crit_edge.i:                                    ; preds = %17, %.lr.ph25.i
+  %28 = add i32 %.01422.i, 1
+  %.not.i2 = icmp ugt i32 %28, %5
   br i1 %.not.i2, label %_ZNK7RegMask4SizeEv.exit.thread, label %.lr.ph25.i, !llvm.loop !10
 
-_ZNK7RegMask4SizeEv.exit.thread:                  ; preds = %._crit_edge.i, %22, %.lr.ph.i1, %_ZNK7RegMask4SizeEv.exit, %1
-  %28 = phi i1 [ false, %_ZNK7RegMask4SizeEv.exit ], [ false, %1 ], [ true, %.lr.ph.i1 ], [ true, %22 ], [ false, %._crit_edge.i ]
-  ret i1 %28
+_ZNK7RegMask4SizeEv.exit.thread:                  ; preds = %._crit_edge.i, %23, %.lr.ph.i1, %1, %_ZNK7RegMask4SizeEv.exit
+  %29 = phi i1 [ false, %_ZNK7RegMask4SizeEv.exit ], [ false, %1 ], [ true, %.lr.ph.i1 ], [ true, %23 ], [ false, %._crit_edge.i ]
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -473,7 +473,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i: ; preds = %.lr.ph.i4
   %63 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
   %64 = icmp ult i64 %63, 2
-  br i1 %64, label %.preheader.i, label %.thread17
+  br i1 %64, label %.preheader.i, label %.lr.ph.i9.preheader
 
 .preheader.i:                                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i, %65
   %.1.in.i = phi i32 [ %.1.i6, %65 ], [ %.01020.i, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i ]
@@ -486,18 +486,18 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %67 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %66
   %68 = load i64, ptr %67, align 8
   %.not14.i = icmp eq i64 %68, 0
-  br i1 %.not14.i, label %.preheader.i, label %.thread17, !llvm.loop !11
+  br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i9.preheader, !llvm.loop !11
 
 69:                                               ; preds = %.lr.ph.i4
   %70 = add i32 %.01020.i, 1
   %.not.i7 = icmp ugt i32 %70, %59
-  br i1 %.not.i7, label %.thread17, label %.lr.ph.i4, !llvm.loop !12
+  br i1 %.not.i7, label %.lr.ph.i9.preheader, label %.lr.ph.i4, !llvm.loop !12
 
-.thread17:                                        ; preds = %69, %65, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
-  br i1 %.not19.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9
+.lr.ph.i9.preheader:                              ; preds = %69, %65, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
+  br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %.thread17, %90
-  %.01732.i = phi i32 [ %91, %90 ], [ %57, %.thread17 ]
+.lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %90
+  %.01732.i = phi i32 [ %91, %90 ], [ %57, %.lr.ph.i9.preheader ]
   %71 = zext i32 %.01732.i to i64
   %72 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
@@ -548,8 +548,8 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %.not.i14 = icmp ugt i32 %91, %59
   br i1 %.not.i14, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9, !llvm.loop !14
 
-_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %90, %86, %85, %49, %45, %44, %55, %51, %78, %81, %76, %33, %36, %31, %23, %_ZN7RegMask13num_registersEj.exit, %.thread17, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %.thread17 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %23 ], [ false, %31 ], [ false, %36 ], [ false, %33 ], [ false, %76 ], [ false, %81 ], [ false, %78 ], [ false, %51 ], [ true, %55 ], [ %.not34.i, %44 ], [ %.not34.i, %45 ], [ true, %49 ], [ %.not25.i, %85 ], [ %.not25.i, %86 ], [ true, %90 ], [ true, %.preheader.i ]
+_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %90, %86, %85, %49, %45, %44, %55, %51, %78, %81, %76, %33, %36, %31, %23, %_ZN7RegMask13num_registersEj.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %23 ], [ false, %31 ], [ false, %36 ], [ false, %33 ], [ false, %76 ], [ false, %81 ], [ false, %78 ], [ false, %51 ], [ true, %55 ], [ %.not34.i, %44 ], [ %.not34.i, %45 ], [ true, %49 ], [ %.not25.i, %85 ], [ %.not25.i, %86 ], [ true, %90 ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 
@@ -646,45 +646,27 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr nocapture nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %2, 1
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %5 = lshr i32 %1, 6
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %6
-  %8 = load i64, ptr %7, align 8
-  %9 = and i32 %1, 63
-  %10 = zext nneg i32 %9 to i64
-  %11 = shl nuw i64 1, %10
-  %12 = and i64 %8, %11
-  %.not10 = icmp eq i64 %12, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph12
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.07 = phi i32 [ %14, %.lr.ph ], [ 0, %3 ]
+  %5 = sub nsw i32 %1, %.07
+  %6 = lshr i32 %5, 6
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %7
+  %9 = load i64, ptr %8, align 8
+  %10 = and i32 %5, 63
+  %11 = zext nneg i32 %10 to i64
+  %12 = shl nuw i64 1, %11
+  %13 = and i64 %9, %12
+  %.not.not = icmp ne i64 %13, 0
+  %14 = add nuw nsw i32 %.07, 1
+  %exitcond.not = icmp ne i32 %14, %2
+  %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-.lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0711 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = add nuw nsw i32 %.0711, 1
-  %exitcond = icmp eq i32 %13, %2
-  br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
-
-.lr.ph:                                           ; preds = %.lr.ph12
-  %14 = sub nsw i32 %1, %13
-  %15 = lshr i32 %14, 6
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [11 x i64], ptr %0, i64 0, i64 %16
-  %18 = load i64, ptr %17, align 8
-  %19 = and i32 %14, 63
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw i64 1, %20
-  %22 = and i64 %18, %21
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph12, !llvm.loop !17
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph12
-  %23 = icmp sge i32 %13, %2
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.preheader, %3
-  %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.preheader ], [ %23, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not.not, %.lr.ph ]
   ret i1 %.lcssa
 }
 

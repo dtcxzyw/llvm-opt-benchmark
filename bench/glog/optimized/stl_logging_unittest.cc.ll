@@ -842,8 +842,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit55.i:       ; preds = %78, %75
 79:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit55.i
   %80 = load ptr, ptr %17, align 8
   %81 = load ptr, ptr %67, align 8
-  %.not13.i.i.i = icmp eq ptr %80, %81
-  br i1 %.not13.i.i.i, label %_ZlsIiSaIiEERSoS1_RKSt6vectorIT_T0_E.exit.i, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq ptr %80, %81
+  br i1 %.not12.i.i.i, label %_ZlsIiSaIiEERSoS1_RKSt6vectorIT_T0_E.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %79, %.noexc58.i
   %.011.i.i.i = phi i32 [ %86, %.noexc58.i ], [ 0, %79 ]
@@ -1685,8 +1685,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit139.i:      ; preds = %327, %324
 330:                                              ; preds = %329
   %331 = load ptr, ptr %43, align 8
   %332 = load ptr, ptr %285, align 8
-  %.not13.i.i140.i = icmp eq ptr %331, %332
-  br i1 %.not13.i.i140.i, label %_ZlsIiSaIiEERSoS1_RKSt6vectorIT_T0_E.exit149.i, label %.lr.ph.i.i141.i
+  %.not12.i.i140.i = icmp eq ptr %331, %332
+  br i1 %.not12.i.i140.i, label %_ZlsIiSaIiEERSoS1_RKSt6vectorIT_T0_E.exit149.i, label %.lr.ph.i.i141.i
 
 .lr.ph.i.i141.i:                                  ; preds = %330, %.noexc147.i
   %.011.i.i142.i = phi i32 [ %337, %.noexc147.i ], [ 0, %330 ]
@@ -3038,8 +3038,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not13.i.i.i = icmp eq ptr %7, %9
-  br i1 %.not13.i.i.i, label %_ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.exit, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq ptr %7, %9
+  br i1 %.not12.i.i.i, label %_ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4, %.noexc4
   %.011.i.i.i = phi i32 [ %14, %.noexc4 ], [ 0, %4 ]
@@ -3079,8 +3079,8 @@ _ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
-  %.not13.i.i.i6 = icmp eq ptr %23, %25
-  br i1 %.not13.i.i.i6, label %_ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.exit15, label %.lr.ph.i.i.i7
+  %.not12.i.i.i6 = icmp eq ptr %23, %25
+  br i1 %.not12.i.i.i6, label %_ZN6google7logging8internal22MakeCheckOpValueStringISt6vectorIiSaIiEEEEvPSoRKT_.exit15, label %.lr.ph.i.i.i7
 
 .lr.ph.i.i.i7:                                    ; preds = %22, %.noexc13
   %.011.i.i.i8 = phi i32 [ %30, %.noexc13 ], [ 0, %22 ]
@@ -3485,8 +3485,8 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google13PrintSequenceISt23_Rb_tree_const_iteratorISt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRSoT_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
-  %.not13 = icmp eq ptr %1, %2
-  br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
+  %.not12 = icmp eq ptr %1, %2
+  br i1 %.not12, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %6
   %.011 = phi i32 [ %15, %6 ], [ 0, %3 ]

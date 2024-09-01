@@ -911,8 +911,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
 
 _ZNSt6vectorIiSaIiEED2Ev.exit36.thread:           ; preds = %142, %.loopexit
   tail call void @_ZdlPv(ptr noundef nonnull %118) #18
-  %.pre71 = load ptr, ptr %10, align 8
-  %.pre72 = load ptr, ptr %0, align 8
+  %.pre68 = load ptr, ptr %10, align 8
+  %.pre69 = load ptr, ptr %0, align 8
   br label %154
 
 _ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %142
@@ -920,8 +920,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %142
   br label %.loopexit57
 
 154:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread, %._crit_edge
-  %155 = phi ptr [ %.pre72, %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread ], [ %100, %._crit_edge ]
-  %156 = phi ptr [ %.pre71, %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread ], [ %101, %._crit_edge ]
+  %155 = phi ptr [ %.pre69, %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread ], [ %100, %._crit_edge ]
+  %156 = phi ptr [ %.pre68, %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread ], [ %101, %._crit_edge ]
   %157 = ptrtoint ptr %156 to i64
   %158 = ptrtoint ptr %155 to i64
   %159 = sub i64 %157, %158

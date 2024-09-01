@@ -1129,9 +1129,9 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i86:          ; preds = %296, %288, %280, %.
   %.1.i.i80 = phi i32 [ %304, %._crit_edge.i.i78 ], [ %.023.i.i, %.preheader.i74 ]
   %306 = add nuw nsw i32 %.01321.i.i, 1
   %exitcond.not.i.i81 = icmp eq i32 %306, 4
-  br i1 %exitcond.not.i.i81, label %.lr.ph49.i, label %.preheader.i74, !llvm.loop !21
+  br i1 %exitcond.not.i.i81, label %Dar_CutTruthShrink.exit.i, label %.preheader.i74, !llvm.loop !21
 
-.lr.ph49.i:                                       ; preds = %305
+Dar_CutTruthShrink.exit.i:                        ; preds = %305
   %307 = and i32 %.2.i.i79, 65535
   %308 = or disjoint i32 %307, %261
   store i32 %308, ptr %146, align 4
@@ -1139,10 +1139,10 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i86:          ; preds = %296, %288, %280, %.
   %309 = getelementptr inbounds i8, ptr %.041.i, i64 8
   br label %310
 
-310:                                              ; preds = %325, %.lr.ph49.i
-  %311 = phi i32 [ %308, %.lr.ph49.i ], [ %326, %325 ]
-  %indvars.iv56.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next57.i, %325 ]
-  %.03548.i = phi i32 [ 0, %.lr.ph49.i ], [ %.136.i83, %325 ]
+310:                                              ; preds = %325, %Dar_CutTruthShrink.exit.i
+  %311 = phi i32 [ %308, %Dar_CutTruthShrink.exit.i ], [ %326, %325 ]
+  %indvars.iv56.i = phi i64 [ 0, %Dar_CutTruthShrink.exit.i ], [ %indvars.iv.next57.i, %325 ]
+  %.03548.i = phi i32 [ 0, %Dar_CutTruthShrink.exit.i ], [ %.136.i83, %325 ]
   %312 = trunc nuw nsw i64 %indvars.iv56.i to i32
   %313 = shl nuw nsw i32 1, %312
   %314 = and i32 %313, %.140.i

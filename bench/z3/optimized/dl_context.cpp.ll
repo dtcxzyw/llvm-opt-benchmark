@@ -8414,12 +8414,9 @@ for.end:                                          ; preds = %for.inc, %for.cond7
   store i32 %29, ptr %m_engine_type, align 8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %cmp66 = icmp eq i32 %29, 0
-  br i1 %cmp66, label %land.rhs, label %for.end89, !llvm.loop !34
+  br i1 %cmp66, label %land.rhs, label %for.end118, !llvm.loop !34
 
-for.end89:                                        ; preds = %for.end
-  br i1 %cmp69.not, label %for.end118, label %land.rhs94.lr.ph
-
-land.rhs94.lr.ph:                                 ; preds = %invoke.cont67, %for.end89
+land.rhs94.lr.ph:                                 ; preds = %invoke.cont67
   %m_rule_fmls_head = getelementptr inbounds i8, ptr %this, i64 3424
   %30 = load i32, ptr %m_rule_fmls_head, align 8
   %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 3440
@@ -8468,7 +8465,7 @@ invoke.cont112:                                   ; preds = %while.end
   %cmp93 = icmp eq i32 %35, 0
   br i1 %cmp93, label %land.rhs94, label %for.end118, !llvm.loop !36
 
-for.end118:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %invoke.cont112, %if.end64, %for.end89
+for.end118:                                       ; preds = %for.end, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %invoke.cont112, %if.end64
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %dt.i) #27
   %36 = load ptr, ptr %mark, align 8
   %37 = load i32, ptr %m_pos.i.i.i, align 8

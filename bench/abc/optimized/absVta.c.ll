@@ -1920,7 +1920,7 @@ Vec_PtrPush.exit471:                              ; preds = %.Vec_PtrGrow.exit11
   br label %219
 
 .critedge6.preheader:                             ; preds = %219, %.critedge2, %.critedge4
-  %217 = phi i1 [ false, %.critedge4 ], [ false, %.critedge2 ], [ %216, %219 ]
+  %217 = phi i1 [ false, %.critedge4 ], [ false, %.critedge2 ], [ true, %219 ]
   %.val429744 = phi i32 [ %.val429.pre, %.critedge4 ], [ 0, %.critedge2 ], [ %.val429.pre, %219 ]
   %.val430 = load i32, ptr %89, align 4
   %218 = icmp sgt i32 %.val430, 0
@@ -3931,8 +3931,8 @@ declare ptr @Sat_ProofCore(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %.not123 = icmp eq ptr %1, null
-  br i1 %.not123, label %.critedge.thread, label %8
+  %.not118 = icmp eq ptr %1, null
+  br i1 %.not118, label %.critedge.thread, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %2, 1
@@ -3941,9 +3941,9 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #26
   %13 = getelementptr i8, ptr %1, i64 4
   %invariant.gep = getelementptr i8, ptr %12, i64 4
-  %invariant.gep118 = getelementptr i8, ptr %11, i64 4
-  %.val80120 = load i32, ptr %13, align 4
-  %14 = icmp sgt i32 %.val80120, 0
+  %invariant.gep119 = getelementptr i8, ptr %11, i64 4
+  %.val80121 = load i32, ptr %13, align 4
+  %14 = icmp sgt i32 %.val80121, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %8
@@ -3959,7 +3959,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
 
 23:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.1122 = phi i32 [ 0, %.lr.ph ], [ %.2, %70 ]
+  %.1123 = phi i32 [ 0, %.lr.ph ], [ %.2, %70 ]
   %.val = load ptr, ptr %15, align 8
   %24 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
@@ -4006,10 +4006,10 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
 
 52:                                               ; preds = %._crit_edge, %43
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %45, %43 ]
-  %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %.pre-phi
-  %53 = load i32, ptr %gep119, align 4
+  %gep120 = getelementptr i32, ptr %invariant.gep119, i64 %.pre-phi
+  %53 = load i32, ptr %gep120, align 4
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %gep119, align 4
+  store i32 %54, ptr %gep120, align 4
   %55 = load i32, ptr %11, align 4
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %11, align 4
@@ -4035,7 +4035,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   br label %70
 
 70:                                               ; preds = %52, %66
-  %.2 = phi i32 [ %.1122, %52 ], [ 1, %66 ]
+  %.2 = phi i32 [ %.1123, %52 ], [ 1, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val80 = load i32, ptr %13, align 4
   %71 = sext i32 %.val80 to i64
@@ -4141,7 +4141,7 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr nocapture noundef %0, ptr n
   %120 = getelementptr i8, ptr %119, i64 528
   %.val85 = load i32, ptr %120, align 8
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val85)
-  br i1 %.not123, label %121, label %132
+  br i1 %.not118, label %121, label %132
 
 121:                                              ; preds = %114
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10)

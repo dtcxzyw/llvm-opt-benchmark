@@ -2682,7 +2682,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %.not = icmp ugt i64 %8, %11
-  br i1 %.not, label %.thread33, label %12
+  br i1 %.not, label %.thread32, label %12
 
 12:                                               ; preds = %2
   %13 = load i8, ptr %0, align 1
@@ -2698,7 +2698,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
   %23 = sub i64 %22, %7
   %.not.i = icmp ule i64 %23, %11
   %or.cond = select i1 %20, i1 %.not.i, i1 false
-  br i1 %or.cond, label %24, label %.thread33
+  br i1 %or.cond, label %24, label %.thread32
 
 24:                                               ; preds = %12
   %25 = load i8, ptr %3, align 1
@@ -2722,137 +2722,133 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %35, i64 8
-  %41 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %40, ptr noundef nonnull %1, ptr noundef nonnull %35)
-  br i1 %41, label %.lr.ph.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+  br label %41
 
-.lr.ph.i.i.i:                                     ; preds = %39, %42
-  %indvars.iv.i11.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %42 ], [ 0, %39 ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i11.i.i.i, 1
-  %exitcond.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 51
-  br i1 %exitcond.i.i.i.i, label %.thread, label %42, !llvm.loop !16
+41:                                               ; preds = %41, %39
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i.i, %41 ]
+  %42 = getelementptr inbounds [51 x %"struct.OT::MathValueRecord"], ptr %40, i64 0, i64 %indvars.iv.i.i.i.i
+  %43 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %42, ptr noundef nonnull %1, ptr noundef nonnull %35)
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, 51
+  %or.cond.not.i.i.i.i = select i1 %43, i1 %exitcond.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i.i.i, label %41, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !16
 
-42:                                               ; preds = %.lr.ph.i.i.i
-  %43 = getelementptr inbounds [51 x %"struct.OT::MathValueRecord"], ptr %40, i64 0, i64 %indvars.iv.next.i.i.i.i
-  %44 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %43, ptr noundef nonnull %1, ptr noundef nonnull %35)
-  br i1 %44, label %.lr.ph.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !16
+_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %41
+  br i1 %43, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %42
-  %45 = icmp ugt i64 %indvars.iv.i11.i.i.i, 49
-  br i1 %45, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-
-_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %39, %33, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %46 = getelementptr inbounds i8, ptr %1, i64 44
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ugt i32 %47, 31
-  br i1 %48, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %33, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+  %44 = getelementptr inbounds i8, ptr %1, i64 44
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ugt i32 %45, 31
+  br i1 %46, label %.thread32, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-  %49 = add nuw nsw i32 %47, 1
-  store i32 %49, ptr %46, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 40
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %.thread33
+  %47 = add nuw nsw i32 %45, 1
+  store i32 %47, ptr %44, align 4
+  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %.thread32
 
-53:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+51:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i16 0, ptr %3, align 1
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.i.i.i, %24, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %53
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = ptrtoint ptr %54 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = load i32, ptr %9, align 8
-  %60 = zext i32 %59 to i64
-  %.not.i23.not = icmp ugt i64 %58, %60
-  br i1 %.not.i23.not, label %.thread33, label %61
+.thread:                                          ; preds = %24, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %51
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = load ptr, ptr %4, align 8
+  %54 = ptrtoint ptr %52 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = load i32, ptr %9, align 8
+  %58 = zext i32 %57 to i64
+  %.not.i23.not = icmp ugt i64 %56, %58
+  br i1 %.not.i23.not, label %.thread32, label %59
 
-61:                                               ; preds = %.thread
-  %62 = load i8, ptr %21, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 7
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = or disjoint i32 %64, %67
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.thread38, label %70
+59:                                               ; preds = %.thread
+  %60 = load i8, ptr %21, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 7
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = or disjoint i32 %62, %65
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.thread37, label %68
 
-70:                                               ; preds = %61
-  %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 %71
-  %73 = tail call noundef zeroext i1 @_ZNK2OT13MathGlyphInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %72, ptr noundef nonnull %1)
-  br i1 %73, label %.thread38, label %74
+68:                                               ; preds = %59
+  %69 = zext nneg i32 %66 to i64
+  %70 = getelementptr inbounds i8, ptr %0, i64 %69
+  %71 = tail call noundef zeroext i1 @_ZNK2OT13MathGlyphInfo8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %70, ptr noundef nonnull %1)
+  br i1 %71, label %.thread37, label %72
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %1, i64 44
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp ugt i32 %76, 31
-  br i1 %77, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %1, i64 44
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp ugt i32 %74, 31
+  br i1 %75, label %.thread32, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24: ; preds = %74
-  %78 = add nuw nsw i32 %76, 1
-  store i32 %78, ptr %75, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 40
-  %80 = load i8, ptr %79, align 8
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %.thread33
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24: ; preds = %72
+  %76 = add nuw nsw i32 %74, 1
+  store i32 %76, ptr %73, align 4
+  %77 = getelementptr inbounds i8, ptr %1, i64 40
+  %78 = load i8, ptr %77, align 8
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %.thread32
 
-82:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24
+80:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24
   store i16 0, ptr %21, align 1
-  br label %.thread38
+  br label %.thread37
 
-.thread38:                                        ; preds = %61, %70, %82
-  %83 = getelementptr inbounds i8, ptr %0, i64 10
-  %84 = load ptr, ptr %4, align 8
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = load i32, ptr %9, align 8
-  %89 = zext i32 %88 to i64
-  %.not.i26.not = icmp ugt i64 %87, %89
-  br i1 %.not.i26.not, label %.thread33, label %90
+.thread37:                                        ; preds = %59, %68, %80
+  %81 = getelementptr inbounds i8, ptr %0, i64 10
+  %82 = load ptr, ptr %4, align 8
+  %83 = ptrtoint ptr %81 to i64
+  %84 = ptrtoint ptr %82 to i64
+  %85 = sub i64 %83, %84
+  %86 = load i32, ptr %9, align 8
+  %87 = zext i32 %86 to i64
+  %.not.i26.not = icmp ugt i64 %85, %87
+  br i1 %.not.i26.not, label %.thread32, label %88
 
-90:                                               ; preds = %.thread38
-  %91 = load i8, ptr %54, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 9
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = or disjoint i32 %93, %96
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.thread33, label %99
+88:                                               ; preds = %.thread37
+  %89 = load i8, ptr %52, align 1
+  %90 = zext i8 %89 to i32
+  %91 = shl nuw nsw i32 %90, 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 9
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = or disjoint i32 %91, %94
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %.thread32, label %97
 
-99:                                               ; preds = %90
-  %100 = zext nneg i32 %97 to i64
-  %101 = getelementptr inbounds i8, ptr %0, i64 %100
-  %102 = tail call noundef zeroext i1 @_ZNK2OT12MathVariants8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %101, ptr noundef nonnull %1)
-  br i1 %102, label %.thread33, label %103
+97:                                               ; preds = %88
+  %98 = zext nneg i32 %95 to i64
+  %99 = getelementptr inbounds i8, ptr %0, i64 %98
+  %100 = tail call noundef zeroext i1 @_ZNK2OT12MathVariants8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %99, ptr noundef nonnull %1)
+  br i1 %100, label %.thread32, label %101
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %1, i64 44
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp ugt i32 %105, 31
-  br i1 %106, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds i8, ptr %1, i64 44
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp ugt i32 %103, 31
+  br i1 %104, label %.thread32, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27: ; preds = %103
-  %107 = add nuw nsw i32 %105, 1
-  store i32 %107, ptr %104, align 4
-  %108 = getelementptr inbounds i8, ptr %1, i64 40
-  %109 = load i8, ptr %108, align 8
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %.thread33
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27: ; preds = %101
+  %105 = add nuw nsw i32 %103, 1
+  store i32 %105, ptr %102, align 4
+  %106 = getelementptr inbounds i8, ptr %1, i64 40
+  %107 = load i8, ptr %106, align 8
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %109, label %.thread32
 
-111:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27
-  store i16 0, ptr %54, align 1
-  br label %.thread33
+109:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27
+  store i16 0, ptr %52, align 1
+  br label %.thread32
 
-.thread33:                                        ; preds = %.thread38, %99, %90, %103, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27, %111, %74, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
-  %112 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24 ], [ false, %74 ], [ false, %.thread38 ], [ true, %99 ], [ true, %90 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27 ], [ true, %111 ], [ false, %103 ]
-  ret i1 %112
+.thread32:                                        ; preds = %.thread37, %97, %88, %101, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27, %109, %72, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
+  %110 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13MathConstantsEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i24 ], [ false, %72 ], [ false, %.thread37 ], [ true, %97 ], [ true, %88 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27 ], [ true, %109 ], [ false, %101 ]
+  ret i1 %110
 }
 
 declare ptr @hb_blob_get_data_writable(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3843,131 +3839,111 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanit
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = getelementptr inbounds i8, ptr %1, i64 44
   %9 = getelementptr inbounds i8, ptr %1, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = ptrtoint ptr %10 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = load i32, ptr %5, align 8
-  %16 = zext i32 %15 to i64
-  %.not.i.not17 = icmp ugt i64 %14, %16
-  br i1 %.not.i.not17, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge, label %.lr.ph
+  br label %10
 
-17:                                               ; preds = %81
-  %18 = getelementptr inbounds [4 x %"struct.OT::OffsetTo.185"], ptr %0, i64 0, i64 %indvars.iv.next
-  %19 = getelementptr inbounds i8, ptr %18, i64 2
-  %20 = load ptr, ptr %4, align 8
-  %21 = ptrtoint ptr %19 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = load i32, ptr %5, align 8
-  %25 = zext i32 %24 to i64
-  %.not.i.not = icmp ugt i64 %23, %25
-  br i1 %.not.i.not, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge, label %.lr.ph, !llvm.loop !20
+10:                                               ; preds = %3, %68
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %68 ]
+  %11 = getelementptr inbounds [4 x %"struct.OT::OffsetTo.185"], ptr %0, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = load i32, ptr %5, align 8
+  %18 = zext i32 %17 to i64
+  %.not.i.not = icmp ugt i64 %16, %18
+  br i1 %.not.i.not, label %69, label %19
 
-.lr.ph:                                           ; preds = %3, %17
-  %26 = phi i64 [ %25, %17 ], [ %16, %3 ]
-  %27 = phi i64 [ %22, %17 ], [ %13, %3 ]
-  %28 = phi ptr [ %18, %17 ], [ %0, %3 ]
-  %29 = phi i1 [ %82, %17 ], [ false, %3 ]
-  %indvars.iv18 = phi i64 [ %indvars.iv.next, %17 ], [ 0, %3 ]
-  %30 = load i8, ptr %28, align 1
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 1
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = or disjoint i32 %32, %35
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %81, label %38
+19:                                               ; preds = %10
+  %20 = load i8, ptr %11, align 1
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 8
+  %23 = getelementptr inbounds i8, ptr %11, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = or disjoint i32 %22, %25
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %68, label %28
 
-38:                                               ; preds = %.lr.ph
-  %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds i8, ptr %2, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %27
-  %.not.i.i.i = icmp ugt i64 %43, %26
-  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %44
+28:                                               ; preds = %19
+  %29 = zext nneg i32 %26 to i64
+  %30 = getelementptr inbounds i8, ptr %2, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %15
+  %.not.i.i.i = icmp ugt i64 %33, %18
+  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %34
 
-44:                                               ; preds = %38
-  %45 = load i8, ptr %40, align 1
-  %46 = zext i8 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %40, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %46, 11
-  %51 = shl nuw nsw i32 %49, 3
-  %52 = or disjoint i32 %50, %51
-  %53 = or disjoint i32 %52, 4
-  %54 = load ptr, ptr %6, align 8
-  %55 = ptrtoint ptr %54 to i64
-  %56 = sub i64 %55, %42
-  %57 = trunc i64 %56 to i32
-  %.not16.i.i.i.i.i = icmp ugt i32 %53, %57
+34:                                               ; preds = %28
+  %35 = load i8, ptr %30, align 1
+  %36 = zext i8 %35 to i32
+  %37 = getelementptr inbounds i8, ptr %30, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw nsw i32 %36, 11
+  %41 = shl nuw nsw i32 %39, 3
+  %42 = or disjoint i32 %40, %41
+  %43 = or disjoint i32 %42, 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %45, %32
+  %47 = trunc i64 %46 to i32
+  %.not16.i.i.i.i.i = icmp ugt i32 %43, %47
   br i1 %.not16.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i
 
-_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i: ; preds = %44
-  %58 = load i32, ptr %7, align 4
-  %59 = sub i32 %58, %53
-  store i32 %59, ptr %7, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i: ; preds = %34
+  %48 = load i32, ptr %7, align 4
+  %49 = sub i32 %48, %43
+  store i32 %49, ptr %7, align 4
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-61:                                               ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i
-  %62 = load i8, ptr %40, align 1
-  %63 = zext i8 %62 to i32
-  %64 = load i8, ptr %47, align 1
-  %65 = zext i8 %64 to i32
-  %66 = shl nuw nsw i32 %63, 9
-  %67 = shl nuw nsw i32 %65, 1
-  %68 = or disjoint i32 %67, %66
-  %69 = zext nneg i32 %68 to i64
-  %70 = or disjoint i32 %68, 1
-  %wide.trip.count.i.i.i.i = zext nneg i32 %70 to i64
-  %71 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %41, ptr noundef nonnull %1, ptr noundef nonnull %40)
-  br i1 %71, label %.lr.ph.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+51:                                               ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i
+  %52 = load i8, ptr %30, align 1
+  %53 = zext i8 %52 to i64
+  %54 = load i8, ptr %37, align 1
+  %55 = zext i8 %54 to i64
+  %56 = shl nuw nsw i64 %53, 9
+  %57 = shl nuw nsw i64 %55, 1
+  %58 = or disjoint i64 %57, %56
+  br label %59
 
-.lr.ph.i.i.i:                                     ; preds = %61, %72
-  %indvars.iv.i12.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %72 ], [ 0, %61 ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i12.i.i.i, 1
-  %exitcond.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, label %72, !llvm.loop !21
+59:                                               ; preds = %59, %51
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i.i.i, %59 ]
+  %60 = getelementptr inbounds [1 x %"struct.OT::MathValueRecord"], ptr %31, i64 0, i64 %indvars.iv.i.i.i.i
+  %61 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %60, ptr noundef nonnull %1, ptr noundef nonnull %30)
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.i.i.i.i, %58
+  %or.cond.not.i.i.i.i = select i1 %61, i1 %exitcond.i.i.i.i, i1 false
+  br i1 %or.cond.not.i.i.i.i, label %59, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !20
 
-72:                                               ; preds = %.lr.ph.i.i.i
-  %73 = getelementptr inbounds [1 x %"struct.OT::MathValueRecord"], ptr %41, i64 0, i64 %indvars.iv.next.i.i.i.i
-  %74 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %73, ptr noundef nonnull %1, ptr noundef nonnull %40)
-  br i1 %74, label %.lr.ph.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !21
+_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %59
+  br i1 %61, label %68, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %.lr.ph.i.i.i, %72
-  %.not.i.le.i.i.i.not = icmp ult i64 %indvars.iv.i12.i.i.i, %69
-  br i1 %.not.i.le.i.i.i.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %81
-
-_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %61, %44, %38, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %75 = load i32, ptr %8, align 4
-  %76 = icmp ugt i32 %75, 31
-  br i1 %76, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %34, %28, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+  %62 = load i32, ptr %8, align 4
+  %63 = icmp ugt i32 %62, 31
+  br i1 %63, label %69, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-  %77 = add nuw nsw i32 %75, 1
-  store i32 %77, ptr %8, align 4
-  %78 = load i8, ptr %9, align 8
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge
+  %64 = add nuw nsw i32 %62, 1
+  store i32 %64, ptr %8, align 4
+  %65 = load i8, ptr %9, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %69
 
-80:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
-  store i16 0, ptr %28, align 1
-  br label %81
+67:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+  store i16 0, ptr %11, align 1
+  br label %68
 
-81:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %.lr.ph, %80
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
-  %82 = icmp ugt i64 %indvars.iv18, 2
+68:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %19, %67
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge, label %17, !llvm.loop !20
+  br i1 %exitcond, label %69, label %10, !llvm.loop !21
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i._crit_edge: ; preds = %81, %17, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %3
-  %.lcssa = phi i1 [ false, %3 ], [ %82, %81 ], [ %82, %17 ], [ %29, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ %29, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ]
-  ret i1 %.lcssa
+69:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %10, %68
+  %.lcssa16 = phi i1 [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %10 ], [ true, %68 ]
+  ret i1 %.lcssa16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4098,18 +4074,18 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 85:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i16 0, ptr %14, align 1
   %.pre = load ptr, ptr %4, align 8
-  %.pre66 = load i32, ptr %9, align 8
-  %.pre69 = ptrtoint ptr %.pre to i64
-  %.pre70 = zext i32 %.pre66 to i64
+  %.pre59 = load i32, ptr %9, align 8
+  %.pre62 = ptrtoint ptr %.pre to i64
+  %.pre63 = zext i32 %.pre59 to i64
   br label %.thread
 
 .thread:                                          ; preds = %33, %18, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit, %85
-  %.pre-phi71 = phi i64 [ %11, %33 ], [ %11, %18 ], [ %11, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %.pre70, %85 ]
-  %.pre-phi = phi i64 [ %7, %33 ], [ %7, %18 ], [ %7, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %.pre69, %85 ]
+  %.pre-phi64 = phi i64 [ %11, %33 ], [ %11, %18 ], [ %11, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %.pre63, %85 ]
+  %.pre-phi = phi i64 [ %7, %33 ], [ %7, %18 ], [ %7, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit ], [ %.pre62, %85 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 6
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %87, %.pre-phi
-  %.not.i26.not = icmp ugt i64 %88, %.pre-phi71
+  %.not.i26.not = icmp ugt i64 %88, %.pre-phi64
   br i1 %.not.i26.not, label %.thread46, label %89
 
 89:                                               ; preds = %.thread
@@ -4129,7 +4105,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   %101 = getelementptr inbounds i8, ptr %100, i64 2
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %.pre-phi
-  %.not.i.i27 = icmp ugt i64 %103, %.pre-phi71
+  %.not.i.i27 = icmp ugt i64 %103, %.pre-phi64
   br i1 %.not.i.i27, label %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, label %104
 
 104:                                              ; preds = %98
@@ -4149,7 +4125,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   %112 = getelementptr inbounds i8, ptr %100, i64 4
   %113 = ptrtoint ptr %112 to i64
   %114 = sub i64 %113, %.pre-phi
-  %.not.i.i.i.i34 = icmp ugt i64 %114, %.pre-phi71
+  %.not.i.i.i.i34 = icmp ugt i64 %114, %.pre-phi64
   br i1 %.not.i.i.i.i34, label %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, label %115
 
 115:                                              ; preds = %111
@@ -4172,7 +4148,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   %129 = getelementptr inbounds i8, ptr %100, i64 4
   %130 = ptrtoint ptr %129 to i64
   %131 = sub i64 %130, %.pre-phi
-  %.not.i.i7.i.i29 = icmp ugt i64 %131, %.pre-phi71
+  %.not.i.i7.i.i29 = icmp ugt i64 %131, %.pre-phi64
   br i1 %.not.i.i7.i.i29, label %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, label %132
 
 132:                                              ; preds = %128
@@ -4216,15 +4192,15 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37: ; preds = %_ZN21hb_sanitize
 
 156:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37
   store i16 0, ptr %15, align 1
-  %.pre67 = load ptr, ptr %4, align 8
-  %.pre68 = load i32, ptr %9, align 8
-  %.pre72 = ptrtoint ptr %.pre67 to i64
-  %.pre74 = zext i32 %.pre68 to i64
+  %.pre60 = load ptr, ptr %4, align 8
+  %.pre61 = load i32, ptr %9, align 8
+  %.pre65 = ptrtoint ptr %.pre60 to i64
+  %.pre67 = zext i32 %.pre61 to i64
   br label %.thread54
 
 .thread54:                                        ; preds = %104, %89, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36, %156
-  %.pre-phi75 = phi i64 [ %.pre-phi71, %104 ], [ %.pre-phi71, %89 ], [ %.pre-phi71, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36 ], [ %.pre74, %156 ]
-  %.pre-phi73 = phi i64 [ %.pre-phi, %104 ], [ %.pre-phi, %89 ], [ %.pre-phi, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36 ], [ %.pre72, %156 ]
+  %.pre-phi68 = phi i64 [ %.pre-phi64, %104 ], [ %.pre-phi64, %89 ], [ %.pre-phi64, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36 ], [ %.pre67, %156 ]
+  %.pre-phi66 = phi i64 [ %.pre-phi, %104 ], [ %.pre-phi, %89 ], [ %.pre-phi, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36 ], [ %.pre65, %156 ]
   %157 = load i8, ptr %86, align 1
   %158 = zext i8 %157 to i32
   %159 = shl nuw nsw i32 %158, 8
@@ -4242,8 +4218,8 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37: ; preds = %_ZN21hb_sanitize
   %171 = or disjoint i32 %167, %170
   %172 = add nuw nsw i32 %171, %163
   %173 = shl nuw nsw i32 %172, 1
-  %174 = sub i64 %6, %.pre-phi73
-  %.not.i.i40 = icmp ugt i64 %174, %.pre-phi75
+  %174 = sub i64 %6, %.pre-phi66
+  %.not.i.i40 = icmp ugt i64 %174, %.pre-phi68
   br i1 %.not.i.i40, label %.thread46, label %175
 
 175:                                              ; preds = %.thread54
@@ -4282,70 +4258,63 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructi
 
 .lr.ph.i:                                         ; preds = %184
   %200 = getelementptr inbounds i8, ptr %1, i64 40
-  %201 = zext nneg i32 %197 to i64
-  %202 = getelementptr inbounds i8, ptr %0, i64 12
-  %203 = ptrtoint ptr %202 to i64
-  %204 = sub i64 %203, %.pre-phi73
-  %.not.i.not.i59 = icmp ugt i64 %204, %.pre-phi75
-  br i1 %.not.i.not.i59, label %.thread46, label %.lr.ph
+  %wide.trip.count.i = zext nneg i32 %197 to i64
+  br label %201
 
-205:                                              ; preds = %235
-  %206 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.154"], ptr %3, i64 0, i64 %indvars.iv.next.i
-  %207 = getelementptr inbounds i8, ptr %206, i64 2
-  %208 = load ptr, ptr %4, align 8
-  %209 = ptrtoint ptr %207 to i64
-  %210 = ptrtoint ptr %208 to i64
-  %211 = sub i64 %209, %210
-  %212 = load i32, ptr %9, align 8
-  %213 = zext i32 %212 to i64
-  %.not.i.not.i = icmp ugt i64 %211, %213
-  br i1 %.not.i.not.i, label %.thread46, label %.lr.ph, !llvm.loop !22
+201:                                              ; preds = %230, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %230 ]
+  %202 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.154"], ptr %3, i64 0, i64 %indvars.iv.i
+  %203 = getelementptr inbounds i8, ptr %202, i64 2
+  %204 = load ptr, ptr %4, align 8
+  %205 = ptrtoint ptr %203 to i64
+  %206 = ptrtoint ptr %204 to i64
+  %207 = sub i64 %205, %206
+  %208 = load i32, ptr %9, align 8
+  %209 = zext i32 %208 to i64
+  %.not.i.not.i = icmp ugt i64 %207, %209
+  br i1 %.not.i.not.i, label %.thread46, label %210
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %205
-  %214 = phi ptr [ %206, %205 ], [ %3, %.lr.ph.i ]
-  %215 = phi i1 [ %236, %205 ], [ false, %.lr.ph.i ]
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i, %205 ], [ 0, %.lr.ph.i ]
-  %216 = load i8, ptr %214, align 1
-  %217 = zext i8 %216 to i32
-  %218 = shl nuw nsw i32 %217, 8
-  %219 = getelementptr inbounds i8, ptr %214, i64 1
-  %220 = load i8, ptr %219, align 1
-  %221 = zext i8 %220 to i32
-  %222 = or disjoint i32 %218, %221
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %235, label %224
+210:                                              ; preds = %201
+  %211 = load i8, ptr %202, align 1
+  %212 = zext i8 %211 to i32
+  %213 = shl nuw nsw i32 %212, 8
+  %214 = getelementptr inbounds i8, ptr %202, i64 1
+  %215 = load i8, ptr %214, align 1
+  %216 = zext i8 %215 to i32
+  %217 = or disjoint i32 %213, %216
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %230, label %219
 
-224:                                              ; preds = %.lr.ph
-  %225 = zext nneg i32 %222 to i64
-  %226 = getelementptr inbounds i8, ptr %0, i64 %225
-  %227 = tail call noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %226, ptr noundef nonnull %1)
-  br i1 %227, label %235, label %228
+219:                                              ; preds = %210
+  %220 = zext nneg i32 %217 to i64
+  %221 = getelementptr inbounds i8, ptr %0, i64 %220
+  %222 = tail call noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %221, ptr noundef nonnull %1)
+  br i1 %222, label %230, label %223
 
-228:                                              ; preds = %224
-  %229 = load i32, ptr %198, align 4
-  %230 = icmp ugt i32 %229, 31
-  br i1 %230, label %.thread46, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+223:                                              ; preds = %219
+  %224 = load i32, ptr %198, align 4
+  %225 = icmp ugt i32 %224, 31
+  br i1 %225, label %.thread46, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %228
-  %231 = add nuw nsw i32 %229, 1
-  store i32 %231, ptr %198, align 4
-  %232 = load i8, ptr %200, align 8
-  %233 = trunc i8 %232 to i1
-  br i1 %233, label %234, label %.thread46
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %223
+  %226 = add nuw nsw i32 %224, 1
+  store i32 %226, ptr %198, align 4
+  %227 = load i8, ptr %200, align 8
+  %228 = trunc i8 %227 to i1
+  br i1 %228, label %229, label %.thread46
 
-234:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
-  store i16 0, ptr %214, align 1
-  br label %235
+229:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+  store i16 0, ptr %202, align 1
+  br label %230
 
-235:                                              ; preds = %234, %224, %.lr.ph
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i60, 1
-  %236 = icmp uge i64 %indvars.iv.next.i, %201
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %201
-  br i1 %exitcond.i, label %.thread46, label %205, !llvm.loop !22
+230:                                              ; preds = %229, %219, %210
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.thread46, label %201, !llvm.loop !22
 
-.thread46:                                        ; preds = %205, %228, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %235, %.lr.ph.i, %184, %.thread54, %175, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit, %2
-  %237 = phi i1 [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit ], [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread ], [ false, %175 ], [ false, %.thread54 ], [ true, %184 ], [ false, %.lr.ph.i ], [ %236, %205 ], [ %215, %228 ], [ %215, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ %236, %235 ]
-  ret i1 %237
+.thread46:                                        ; preds = %230, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %223, %201, %184, %.thread54, %175, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit, %2
+  %231 = phi i1 [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit ], [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread ], [ false, %175 ], [ false, %.thread54 ], [ true, %184 ], [ true, %230 ], [ false, %201 ], [ false, %223 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
+  ret i1 %231
 }
 
 ; Function Attrs: mustprogress uwtable

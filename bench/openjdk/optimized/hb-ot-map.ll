@@ -348,9 +348,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.142.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
-  %9 = lshr i32 %.142.i.i, 1
-  %10 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
+  %9 = lshr i32 %.143.i.i, 1
+  %10 = add i32 %.143.i.i, 8
   %11 = add i32 %10, %9
   %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
@@ -373,8 +373,8 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE14realloc_vectorIS1
   %17 = zext nneg i32 %11 to i64
   %18 = mul nuw nsw i64 %17, 28
   %19 = tail call ptr @realloc(ptr noundef %16, i64 noundef %18) #16
-  %.not43.i.i = icmp eq ptr %19, null
-  br i1 %.not43.i.i, label %20, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %19, null
+  br i1 %.not42.i.i, label %20, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.i
 
 20:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %21 = load i32, ptr %0, align 8
@@ -438,7 +438,7 @@ define hidden noundef zeroext i1 @_ZN19hb_ot_map_builder_t11has_featureEj(ptr no
   br label %5
 
 5:                                                ; preds = %5, %2
-  %.not9 = phi i1 [ false, %2 ], [ true, %5 ]
+  %.not = phi i1 [ false, %2 ], [ true, %5 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %5 ]
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds [2 x i32], ptr @_ZL10table_tags, i64 0, i64 %indvars.iv
@@ -448,12 +448,12 @@ define hidden noundef zeroext i1 @_ZN19hb_ot_map_builder_t11has_featureEj(ptr no
   %11 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @hb_ot_layout_language_find_feature(ptr noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %1, ptr noundef null)
-  %.not = icmp ne i32 %13, 0
-  %or.cond.not = or i1 %.not9, %.not
+  %.not.not = icmp ne i32 %13, 0
+  %or.cond.not = or i1 %.not, %.not.not
   br i1 %or.cond.not, label %14, label %5, !llvm.loop !11
 
 14:                                               ; preds = %5
-  ret i1 %.not
+  ret i1 %.not.not
 }
 
 declare i32 @hb_ot_layout_language_find_feature(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -510,9 +510,9 @@ define hidden void @_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbb
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %43, %.preheader.i.i.i
-  %.142.i.i.i = phi i32 [ %46, %.preheader.i.i.i ], [ %41, %43 ]
-  %44 = lshr i32 %.142.i.i.i, 1
-  %45 = add i32 %.142.i.i.i, 8
+  %.143.i.i.i = phi i32 [ %46, %.preheader.i.i.i ], [ %41, %43 ]
+  %44 = lshr i32 %.143.i.i.i, 1
+  %45 = add i32 %.143.i.i.i, 8
   %46 = add i32 %45, %44
   %47 = icmp ugt i32 %40, %46
   br i1 %47, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
@@ -534,8 +534,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_
   %51 = zext nneg i32 %46 to i64
   %52 = mul nuw nsw i64 %51, 12
   %53 = call ptr @realloc(ptr noundef %50, i64 noundef %52) #16
-  %.not43.i.i.i = icmp eq ptr %53, null
-  br i1 %.not43.i.i.i, label %54, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i
+  %.not42.i.i.i = icmp eq ptr %53, null
+  br i1 %.not42.i.i.i, label %54, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i
 
 54:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i
   %55 = load i32, ptr %20, align 8
@@ -655,9 +655,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.142.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
-  %9 = lshr i32 %.142.i.i, 1
-  %10 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
+  %9 = lshr i32 %.143.i.i, 1
+  %10 = add i32 %.143.i.i, 8
   %11 = add i32 %10, %9
   %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !15
@@ -680,8 +680,8 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE14realloc_vectorIS1_T
   %17 = shl nuw i32 %11, 4
   %18 = zext i32 %17 to i64
   %19 = tail call ptr @realloc(ptr noundef %16, i64 noundef %18) #16
-  %.not43.i.i = icmp eq ptr %19, null
-  br i1 %.not43.i.i, label %20, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %19, null
+  br i1 %.not42.i.i, label %20, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.i
 
 20:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %21 = load i32, ptr %0, align 8
@@ -958,8 +958,8 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE14realloc_vectorIS1
   %113 = zext nneg i32 %103 to i64
   %114 = mul nuw nsw i64 %113, 28
   %115 = call ptr @realloc(ptr noundef %112, i64 noundef %114) #16
-  %.not43.i.i = icmp eq ptr %115, null
-  br i1 %.not43.i.i, label %116, label %120
+  %.not42.i.i = icmp eq ptr %115, null
+  br i1 %.not42.i.i, label %116, label %120
 
 116:                                              ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %117 = load i32, ptr %36, align 8
@@ -1490,9 +1490,9 @@ _ZN19hb_ot_map_builder_t14add_gpos_pauseEPFbPK18hb_ot_shape_plan_tP9hb_font_tP11
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %360, %.preheader.i.i.i.i
-  %.142.i.i.i.i = phi i32 [ %363, %.preheader.i.i.i.i ], [ %358, %360 ]
-  %361 = lshr i32 %.142.i.i.i.i, 1
-  %362 = add i32 %.142.i.i.i.i, 8
+  %.143.i.i.i.i = phi i32 [ %363, %.preheader.i.i.i.i ], [ %358, %360 ]
+  %361 = lshr i32 %.143.i.i.i.i, 1
+  %362 = add i32 %.143.i.i.i.i, 8
   %363 = add i32 %362, %361
   %364 = icmp ugt i32 %357, %363
   br i1 %364, label %.preheader.i.i.i.i, label %.thread.i.i.i.i, !llvm.loop !12
@@ -1514,8 +1514,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_
   %368 = zext nneg i32 %363 to i64
   %369 = mul nuw nsw i64 %368, 12
   %370 = call ptr @realloc(ptr noundef %367, i64 noundef %369) #16
-  %.not43.i.i.i.i = icmp eq ptr %370, null
-  br i1 %.not43.i.i.i.i, label %371, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i.i
+  %.not42.i.i.i.i = icmp eq ptr %370, null
+  br i1 %.not42.i.i.i.i, label %371, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i.i
 
 371:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i
   %372 = load i32, ptr %325, align 8
@@ -1670,9 +1670,9 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   br i1 %.not.i.i.i.i309, label %.preheader.i.i.i.i315, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i310
 
 .preheader.i.i.i.i315:                            ; preds = %440, %.preheader.i.i.i.i315
-  %.142.i.i.i.i316 = phi i32 [ %443, %.preheader.i.i.i.i315 ], [ %438, %440 ]
-  %441 = lshr i32 %.142.i.i.i.i316, 1
-  %442 = add i32 %.142.i.i.i.i316, 8
+  %.143.i.i.i.i316 = phi i32 [ %443, %.preheader.i.i.i.i315 ], [ %438, %440 ]
+  %441 = lshr i32 %.143.i.i.i.i316, 1
+  %442 = add i32 %.143.i.i.i.i316, 8
   %443 = add i32 %442, %441
   %444 = icmp ugt i32 %437, %443
   br i1 %444, label %.preheader.i.i.i.i315, label %.thread.i.i.i.i317, !llvm.loop !12
@@ -1694,8 +1694,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_
   %448 = zext nneg i32 %443 to i64
   %449 = mul nuw nsw i64 %448, 12
   %450 = call ptr @realloc(ptr noundef %447, i64 noundef %449) #16
-  %.not43.i.i.i.i320 = icmp eq ptr %450, null
-  br i1 %.not43.i.i.i.i320, label %451, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i.i321
+  %.not42.i.i.i.i320 = icmp eq ptr %450, null
+  br i1 %.not42.i.i.i.i320, label %451, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.i.i.i321
 
 451:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i319
   %452 = load i32, ptr %325, align 8
@@ -1914,8 +1914,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_
   %540 = zext nneg i32 %530 to i64
   %541 = mul nuw nsw i64 %540, 12
   %542 = call ptr @realloc(ptr noundef %539, i64 noundef %541) #16
-  %.not43.i.i341 = icmp eq ptr %542, null
-  br i1 %.not43.i.i341, label %543, label %547
+  %.not42.i.i341 = icmp eq ptr %542, null
+  br i1 %.not42.i.i341, label %543, label %547
 
 543:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %544 = load i32, ptr %325, align 8
@@ -1963,9 +1963,9 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit: ; preds = %.
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %563, %.preheader.i.i.i
-  %.142.i.i.i = phi i32 [ %566, %.preheader.i.i.i ], [ %561, %563 ]
-  %564 = lshr i32 %.142.i.i.i, 1
-  %565 = add i32 %.142.i.i.i, 8
+  %.143.i.i.i = phi i32 [ %566, %.preheader.i.i.i ], [ %561, %563 ]
+  %564 = lshr i32 %.143.i.i.i, 1
+  %565 = add i32 %.143.i.i.i, 8
   %566 = add i32 %565, %564
   %567 = icmp ugt i32 %560, %566
   br i1 %567, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !24
@@ -1987,8 +1987,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE14realloc_vectorIS1_TnPN12hb_e
   %571 = shl nuw i32 %566, 4
   %572 = zext i32 %571 to i64
   %573 = call ptr @realloc(ptr noundef %570, i64 noundef %572) #16
-  %.not43.i.i.i = icmp eq ptr %573, null
-  br i1 %.not43.i.i.i, label %574, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.i.i
+  %.not42.i.i.i = icmp eq ptr %573, null
+  br i1 %.not42.i.i.i, label %574, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.i.i
 
 574:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i
   %575 = load i32, ptr %335, align 8
@@ -2232,9 +2232,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN11hb_ot_map_t13feature
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.142.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
-  %9 = lshr i32 %.142.i.i, 1
-  %10 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
+  %9 = lshr i32 %.143.i.i, 1
+  %10 = add i32 %.143.i.i, 8
   %11 = add i32 %10, %9
   %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !27
@@ -2257,8 +2257,8 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE14realloc_vectorIS1_TnPN12hb
   %17 = zext nneg i32 %11 to i64
   %18 = mul nuw nsw i64 %17, 36
   %19 = tail call ptr @realloc(ptr noundef %16, i64 noundef %18) #16
-  %.not43.i.i = icmp eq ptr %19, null
-  br i1 %.not43.i.i, label %20, label %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %19, null
+  br i1 %.not42.i.i, label %20, label %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.i
 
 20:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %21 = load i32, ptr %0, align 8
@@ -2662,9 +2662,9 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %58, %.preheader.i.i
-  %.142.i.i = phi i32 [ %61, %.preheader.i.i ], [ %52, %58 ]
-  %59 = lshr i32 %.142.i.i, 1
-  %60 = add i32 %.142.i.i, 8
+  %.143.i.i = phi i32 [ %61, %.preheader.i.i ], [ %52, %58 ]
+  %59 = lshr i32 %.143.i.i, 1
+  %60 = add i32 %.143.i.i, 8
   %61 = add i32 %60, %59
   %62 = icmp ugt i32 %51, %61
   br i1 %62, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !33
@@ -2687,8 +2687,8 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   %66 = shl nuw i32 %.01538.i.i, 3
   %67 = zext i32 %66 to i64
   %68 = tail call ptr @realloc(ptr noundef %65, i64 noundef %67) #16
-  %.not43.i.i = icmp eq ptr %68, null
-  br i1 %.not43.i.i, label %69, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
+  %.not42.i.i = icmp eq ptr %68, null
+  br i1 %.not42.i.i, label %69, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
 69:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %70 = load i32, ptr %7, align 8
@@ -2806,9 +2806,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   br i1 %.not.i, label %.preheader.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
-  %.142.i = phi i32 [ %16, %.preheader.i ], [ %6, %13 ]
-  %14 = lshr i32 %.142.i, 1
-  %15 = add i32 %.142.i, 8
+  %.143.i = phi i32 [ %16, %.preheader.i ], [ %6, %13 ]
+  %14 = lshr i32 %.143.i, 1
+  %15 = add i32 %.143.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ugt i32 %5, %16
   br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !34
@@ -2832,8 +2832,8 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3
   %22 = zext nneg i32 %.01538.i to i64
   %23 = mul nuw nsw i64 %22, 72
   %24 = tail call ptr @realloc(ptr noundef %21, i64 noundef %23) #16
-  %.not43.i = icmp eq ptr %24, null
-  br i1 %.not43.i, label %25, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
+  %.not42.i = icmp eq ptr %24, null
+  br i1 %.not42.i, label %25, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
 25:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
   %26 = load i32, ptr %0, align 8

@@ -1327,15 +1327,12 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
 ._crit_edge:                                      ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %0, i64 256
   %35 = load ptr, ptr %34, align 8
-  br i1 %26, label %.lr.ph.i.preheader, label %._crit_edge.i
-
-.lr.ph.i.preheader:                               ; preds = %._crit_edge
   %.pre26 = load ptr, ptr %9, align 8
   %36 = zext nneg i32 %25 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %._crit_edge ]
   %37 = getelementptr inbounds ptr, ptr %.pre26, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1351,8 +1348,8 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %45 = icmp ult i64 %indvars.iv.next.i, %36
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread, %._crit_edge
-  %46 = phi ptr [ %28, %._crit_edge.thread ], [ %35, %._crit_edge ], [ %35, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.thread
+  %46 = phi ptr [ %28, %._crit_edge.thread ], [ %35, %.lr.ph.i ]
   %47 = tail call fastcc ptr @Abc_NtkMultiDeriveBdd_rec(ptr noundef %46, ptr noundef nonnull %1, ptr noundef nonnull %6)
   tail call void @Cudd_Ref(ptr noundef %47) #6
   %48 = load i32, ptr %7, align 4

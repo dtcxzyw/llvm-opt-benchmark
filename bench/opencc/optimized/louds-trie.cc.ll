@@ -1347,65 +1347,60 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie4swapERS2_(ptr noundef nonnull al
 define void @_ZN6marisa8grimoire4trie9LoudsTrie3mapERNS0_2io6MapperE(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::trie::LoudsTrie", align 8
   %4 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef 16)
-  %5 = load i8, ptr %4, align 1
-  %.not.i1.i = icmp eq i8 %5, 87
-  br i1 %.not.i1.i, label %.lr.ph.i, label %.critedge.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %2, %7
-  %.06.i2.i = phi i64 [ %6, %7 ], [ 0, %2 ]
-  %6 = add nuw nsw i64 %.06.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %6, 16
-  br i1 %exitcond.i.i, label %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit, label %7, !llvm.loop !14
-
-7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %4, i64 %6
+5:                                                ; preds = %5, %2
+  %.06.i.i = phi i64 [ 0, %2 ], [ %10, %5 ]
+  %6 = getelementptr inbounds i8, ptr %4, i64 %.06.i.i
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds i8, ptr @_ZZN6marisa8grimoire4trie6Header10get_headerEvE3buf, i64 %.06.i.i
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr @_ZZN6marisa8grimoire4trie6Header10get_headerEvE3buf, i64 %6
-  %11 = load i8, ptr %10, align 1
-  %.not.i.i = icmp eq i8 %9, %11
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, !llvm.loop !14
+  %.not.i.i = icmp eq i8 %7, %9
+  %10 = add nuw nsw i64 %.06.i.i, 1
+  %exitcond.i.i = icmp ne i64 %10, 16
+  %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %5, label %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, !llvm.loop !14
 
-_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
-  %12 = icmp ugt i64 %.06.i2.i, 14
-  br i1 %12, label %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit, label %.critedge.i
+_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %5
+  br i1 %.not.i.i, label %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit, label %11
 
-.critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr @.str.11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 21, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
-  store i32 10, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr @.str.12, ptr %17, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+11:                                               ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
+  %12 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.11, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 21, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  store i32 10, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr @.str.12, ptr %16, align 8
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
-_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit: ; preds = %.lr.ph.i, %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
+_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit: ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
   call void @_ZN6marisa8grimoire4trie9LoudsTrieC1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3)
   invoke void @_ZN6marisa8grimoire4trie9LoudsTrie4map_ERNS0_2io6MapperE(ptr noundef nonnull align 8 dereferenceable(1136) %3, ptr noundef nonnull align 8 dereferenceable(36) %1)
-          to label %18 unwind label %22
+          to label %17 unwind label %21
 
-18:                                               ; preds = %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit
-  %19 = getelementptr inbounds i8, ptr %3, i64 1096
-  invoke void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(36) %1)
-          to label %20 unwind label %22
+17:                                               ; preds = %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit
+  %18 = getelementptr inbounds i8, ptr %3, i64 1096
+  invoke void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull align 8 dereferenceable(36) %1)
+          to label %19 unwind label %21
 
-20:                                               ; preds = %18
+19:                                               ; preds = %17
   invoke void @_ZN6marisa8grimoire4trie9LoudsTrie4swapERS2_(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(1136) %3)
-          to label %21 unwind label %22
+          to label %20 unwind label %21
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #22
   ret void
 
-22:                                               ; preds = %20, %18, %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19, %17, %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #22
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1642,61 +1637,56 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie4readERNS0_2io6ReaderE(ptr nounde
   %4 = alloca %"class.marisa::grimoire::trie::LoudsTrie", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 16)
-  %5 = load i8, ptr %3, align 16
-  %.not.i1.i = icmp eq i8 %5, 87
-  br i1 %.not.i1.i, label %.lr.ph.i, label %.critedge.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %2, %7
-  %.06.i2.i = phi i64 [ %6, %7 ], [ 0, %2 ]
-  %6 = add nuw nsw i64 %.06.i2.i, 1
-  %exitcond.i.i = icmp eq i64 %6, 16
-  br i1 %exitcond.i.i, label %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit, label %7, !llvm.loop !14
-
-7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %3, i64 %6
+5:                                                ; preds = %5, %2
+  %.06.i.i = phi i64 [ 0, %2 ], [ %10, %5 ]
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.06.i.i
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds i8, ptr @_ZZN6marisa8grimoire4trie6Header10get_headerEvE3buf, i64 %.06.i.i
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr @_ZZN6marisa8grimoire4trie6Header10get_headerEvE3buf, i64 %6
-  %11 = load i8, ptr %10, align 1
-  %.not.i.i = icmp eq i8 %9, %11
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, !llvm.loop !14
+  %.not.i.i = icmp eq i8 %7, %9
+  %10 = add nuw nsw i64 %.06.i.i, 1
+  %exitcond.i.i = icmp ne i64 %10, 16
+  %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %5, label %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, !llvm.loop !14
 
-_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
-  %12 = icmp ugt i64 %.06.i2.i, 14
-  br i1 %12, label %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit, label %.critedge.i
+_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %5
+  br i1 %.not.i.i, label %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit, label %11
 
-.critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr @.str.11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 26, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
-  store i32 10, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr @.str.16, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+11:                                               ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
+  %12 = call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.11, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 26, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  store i32 10, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr @.str.16, ptr %16, align 8
+  call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
-_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit: ; preds = %.lr.ph.i, %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
+_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit: ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @_ZN6marisa8grimoire4trie9LoudsTrieC1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4)
   invoke void @_ZN6marisa8grimoire4trie9LoudsTrie5read_ERNS0_2io6ReaderE(ptr noundef nonnull align 8 dereferenceable(1136) %4, ptr noundef nonnull align 8 dereferenceable(25) %1)
-          to label %18 unwind label %20
+          to label %17 unwind label %19
 
-18:                                               ; preds = %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit
+17:                                               ; preds = %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit
   invoke void @_ZN6marisa8grimoire4trie9LoudsTrie4swapERS2_(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(1136) %4)
-          to label %19 unwind label %20
+          to label %18 unwind label %19
 
-19:                                               ; preds = %18
+18:                                               ; preds = %17
   call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #22
   ret void
 
-20:                                               ; preds = %18, %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %17, %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #22
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable

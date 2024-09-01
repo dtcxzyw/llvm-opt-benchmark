@@ -797,13 +797,13 @@ cleanup.done163:                                  ; preds = %for.inc141, %entry
 
 for.body265.lr.ph:                                ; preds = %cleanup.done163
   %cmp256 = icmp eq i32 %42, 1
+  %cond262 = select i1 %cmp256, i32 2, i32 1
   %d_incompleteQuants = getelementptr inbounds i8, ptr %this, i64 72
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_element_count.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %_M_node.i.i = getelementptr inbounds i8, ptr %__node26.i, i64 8
   %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
-  %umax = select i1 %cmp256, i32 2, i32 1
   br label %for.body265
 
 for.body265:                                      ; preds = %for.end362, %for.body265.lr.ph
@@ -1158,7 +1158,7 @@ for.end362:                                       ; preds = %for.cond267, %_ZN4c
   %90 = load i32, ptr %d_addedLemmas, align 4
   %cmp364 = icmp sgt i32 %90, 0
   %inc368 = add nuw nsw i32 %storemerge1509, 1
-  %exitcond.not = icmp eq i32 %inc368, %umax
+  %exitcond.not = icmp eq i32 %inc368, %cond262
   %or.cond = select i1 %cmp364, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end369, label %for.body265, !llvm.loop !15
 

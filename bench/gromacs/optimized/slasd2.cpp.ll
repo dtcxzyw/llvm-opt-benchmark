@@ -154,12 +154,9 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %indvars.iv.next544 = add nsw i64 %indvars.iv543, 1
   %lftr.wideiv546 = trunc i64 %indvars.iv.next544 to i32
   %exitcond547.not = icmp eq i32 %98, %lftr.wideiv546
-  br i1 %exitcond547.not, label %._crit_edge458, label %.lr.ph457, !llvm.loop !8
+  br i1 %exitcond547.not, label %.lr.ph462.preheader, label %.lr.ph457, !llvm.loop !8
 
-._crit_edge458:                                   ; preds = %.lr.ph457
-  br i1 %.not423454, label %._crit_edge463, label %.lr.ph462.preheader
-
-.lr.ph462.preheader:                              ; preds = %._crit_edge458
+.lr.ph462.preheader:                              ; preds = %.lr.ph457
   %100 = sext i32 %60 to i64
   %101 = add i32 %55, %54
   %102 = add i32 %101, 2
@@ -176,7 +173,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %exitcond552.not = icmp eq i32 %102, %lftr.wideiv551
   br i1 %exitcond552.not, label %._crit_edge463, label %.lr.ph462, !llvm.loop !9
 
-._crit_edge463:                                   ; preds = %.lr.ph462, %._crit_edge453, %._crit_edge458
+._crit_edge463:                                   ; preds = %.lr.ph462, %._crit_edge453
   %.not425464 = icmp slt i32 %57, 2
   br i1 %.not425464, label %._crit_edge468, label %.lr.ph467.preheader
 
@@ -510,29 +507,23 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %276 = add nsw i32 %.pre605, %274
   %277 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 %276, ptr %277, align 4
-  br i1 %.not432500, label %._crit_edge509.thread, label %.lr.ph508.preheader
+  %278 = add nuw i32 %263, 1
+  %wide.trip.count584 = zext i32 %278 to i64
+  br label %.lr.ph508
 
 ._crit_edge509.thread.critedge:                   ; preds = %.loopexit441
   store i32 2, ptr %30, align 16
-  %278 = getelementptr inbounds i8, ptr %30, i64 4
-  store i32 2, ptr %278, align 4
-  %279 = getelementptr inbounds i8, ptr %30, i64 8
-  store i32 2, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %30, i64 12
-  store i32 2, ptr %280, align 4
-  br label %._crit_edge509.thread
-
-._crit_edge509.thread:                            ; preds = %._crit_edge509.thread.critedge, %._crit_edge504.loopexit
+  %279 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 2, ptr %279, align 4
+  %280 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 2, ptr %280, align 8
+  %281 = getelementptr inbounds i8, ptr %30, i64 12
+  store i32 2, ptr %281, align 4
   store i32 %263, ptr %24, align 4
   br label %._crit_edge520
 
-.lr.ph508.preheader:                              ; preds = %._crit_edge504.loopexit
-  %281 = add nuw i32 %263, 1
-  %wide.trip.count584 = zext i32 %281 to i64
-  br label %.lr.ph508
-
-.lr.ph508:                                        ; preds = %.lr.ph508.preheader, %.lr.ph508
-  %indvars.iv581 = phi i64 [ 2, %.lr.ph508.preheader ], [ %indvars.iv.next582, %.lr.ph508 ]
+.lr.ph508:                                        ; preds = %._crit_edge504.loopexit, %.lr.ph508
+  %indvars.iv581 = phi i64 [ 2, %._crit_edge504.loopexit ], [ %indvars.iv.next582, %.lr.ph508 ]
   %282 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv581
   %283 = load i32, ptr %282, align 4
   %284 = sext i32 %283 to i64
@@ -556,17 +547,14 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %263, ptr %24, align 4
   %invariant.gep512 = getelementptr i8, ptr %38, i64 4
   %invariant.gep514 = getelementptr i8, ptr %45, i64 4
-  br i1 %.not432500, label %._crit_edge520, label %.lr.ph519.preheader
-
-.lr.ph519.preheader:                              ; preds = %._crit_edge509
   %295 = sext i32 %43 to i64
   %296 = sext i32 %46 to i64
   %invariant.gep622 = getelementptr float, ptr %48, i64 %296
   %297 = zext nneg i32 %263 to i64
   br label %.lr.ph519
 
-.lr.ph519:                                        ; preds = %.lr.ph519.preheader, %.lr.ph519
-  %indvars.iv586 = phi i64 [ 2, %.lr.ph519.preheader ], [ %indvars.iv.next587, %.lr.ph519 ]
+.lr.ph519:                                        ; preds = %._crit_edge509, %.lr.ph519
+  %indvars.iv586 = phi i64 [ 2, %._crit_edge509 ], [ %indvars.iv.next587, %.lr.ph519 ]
   %298 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv586
   %299 = load i32, ptr %298, align 4
   %300 = sext i32 %299 to i64
@@ -603,7 +591,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %.not434.not = icmp ult i64 %indvars.iv586, %297
   br i1 %.not434.not, label %.lr.ph519, label %._crit_edge520, !llvm.loop !14
 
-._crit_edge520:                                   ; preds = %.lr.ph519, %._crit_edge509.thread, %._crit_edge509
+._crit_edge520:                                   ; preds = %.lr.ph519, %._crit_edge509.thread.critedge
   store float 0.000000e+00, ptr %12, align 4
   %321 = fmul float %153, 5.000000e-01
   %322 = load float, ptr %124, align 4

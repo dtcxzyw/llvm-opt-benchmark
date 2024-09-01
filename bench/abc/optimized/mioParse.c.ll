@@ -2871,7 +2871,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %24
 
-.lr.ph195.i:                                      ; preds = %24
+.preheader187.i:                                  ; preds = %24
   %23 = icmp sgt i32 %10, 0
   %wide.trip.count231.i = zext nneg i32 %10 to i64
   br label %27
@@ -2883,10 +2883,10 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
   store ptr %25, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph195.i, label %24, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.preheader187.i, label %24, !llvm.loop !14
 
-27:                                               ; preds = %.loopexit.i, %.lr.ph195.i
-  %indvars.iv238.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next239.i, %.loopexit.i ]
+27:                                               ; preds = %.loopexit.i, %.preheader187.i
+  %indvars.iv238.i = phi i64 [ 0, %.preheader187.i ], [ %indvars.iv.next239.i, %.loopexit.i ]
   %28 = icmp ult i64 %indvars.iv238.i, 6
   br i1 %28, label %.preheader.i, label %.preheader185.i
 

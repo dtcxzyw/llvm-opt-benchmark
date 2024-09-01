@@ -461,10 +461,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.preheader39:                                     ; preds = %21
-  br i1 %9, label %.lr.ph43.preheader, label %._crit_edge
-
-.lr.ph43.preheader:                               ; preds = %.preheader39
+.lr.ph43.preheader:                               ; preds = %21
   %wide.trip.count52 = zext nneg i32 %1 to i64
   br label %.lr.ph43
 
@@ -492,12 +489,9 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
 21:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond48.not, label %.preheader39, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond48.not, label %.lr.ph43.preheader, label %.lr.ph, !llvm.loop !13
 
-.preheader:                                       ; preds = %.lr.ph43
-  br i1 %9, label %.lr.ph46.preheader, label %._crit_edge
-
-.lr.ph46.preheader:                               ; preds = %.preheader
+.lr.ph46.preheader:                               ; preds = %.lr.ph43
   %wide.trip.count58 = zext nneg i32 %1 to i64
   br label %.lr.ph46
 
@@ -510,7 +504,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   tail call void @CacheInvalidateSmgr(i64 %23, i64 %25) #11
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.preheader, label %.lr.ph43, !llvm.loop !14
+  br i1 %exitcond53.not, label %.lr.ph46.preheader, label %.lr.ph43, !llvm.loop !14
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %39
   %indvars.iv55 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next56, %39 ]
@@ -539,7 +533,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %39, %5, %.preheader39, %.preheader
+._crit_edge:                                      ; preds = %39, %5
   tail call void @pfree(ptr noundef %8) #11
   br label %40
 

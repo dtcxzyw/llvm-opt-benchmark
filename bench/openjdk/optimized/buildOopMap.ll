@@ -943,7 +943,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %56, %
   br label %92
 
 .preheader202.i:                                  ; preds = %_ZN10Block_List4pushEP5Block.exit.i, %76
-  %84 = icmp slt i32 %34, 1
+  %84 = icmp sgt i32 %34, 0
   %85 = getelementptr inbounds i8, ptr %38, i64 24
   %86 = sext i32 %34 to i64
   %87 = shl nsw i64 %86, 2
@@ -1018,14 +1018,13 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %105, %92
   %128 = mul nsw i32 %127, %34
   %129 = sext i32 %128 to i64
   %130 = getelementptr i32, ptr %.0.i.i.i, i64 %129
-  br i1 %84, label %._crit_edge211.i, label %.lr.ph206.i
+  br i1 %84, label %.lr.ph206.i, label %._crit_edge211.i
 
 .preheader199.i:                                  ; preds = %.lr.ph206.i
   %131 = getelementptr inbounds i8, ptr %118, i64 72
   %132 = load i32, ptr %131, align 8
   %133 = icmp ult i32 %132, 2
-  %brmerge = select i1 %133, i1 true, i1 %84
-  br i1 %brmerge, label %._crit_edge211.i, label %.lr.ph210.i.us
+  br i1 %133, label %._crit_edge211.i, label %.lr.ph210.i.us
 
 .lr.ph210.i.us:                                   ; preds = %.preheader199.i, %._crit_edge.loopexit.i.us
   %indvars.iv256.i.us = phi i64 [ %indvars.iv.next257.i.us, %._crit_edge.loopexit.i.us ], [ 1, %.preheader199.i ]
@@ -1294,7 +1293,7 @@ _ZNK5Block8get_nodeEj.exit.i:                     ; preds = %162, %158
 
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %290, %288
   %.0.i.i181.i = phi ptr [ %284, %288 ], [ %291, %290 ]
-  br i1 %84, label %._crit_edge217.i, label %.lr.ph216.i
+  br i1 %84, label %.lr.ph216.i, label %._crit_edge217.i
 
 .lr.ph216.i:                                      ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i, %.lr.ph216.i
   %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.lr.ph216.i ], [ 0, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i ]
@@ -1321,7 +1320,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   %300 = mul i32 %299, %34
   %301 = zext i32 %300 to i64
   %302 = getelementptr i32, ptr %.0.i.i.i, i64 %301
-  br i1 %84, label %.critedge.i, label %.lr.ph225.i
+  br i1 %84, label %.lr.ph225.i, label %.critedge.i
 
 303:                                              ; preds = %.lr.ph225.i
   %indvars.iv.next271.i = add nuw nsw i64 %indvars.iv270.i, 1

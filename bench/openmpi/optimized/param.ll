@@ -598,7 +598,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br i1 %45, label %.critedge, label %40
 
 .loopexit:                                        ; preds = %40
-  br i1 %0, label %.critedge, label %226
+  br i1 %0, label %.critedge, label %.preheader
 
 .loopexit.thread61:                               ; preds = %pmix_cmd_line_get_param.exit
   br i1 %0, label %.critedge, label %.thread45
@@ -900,362 +900,359 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %.thread45
 
-226:                                              ; preds = %.loopexit
-  br i1 %.not, label %.thread45, label %.preheader
-
-.preheader:                                       ; preds = %.loopexit.thread, %226
-  %227 = getelementptr inbounds i8, ptr %.03.i, i64 152
+.preheader:                                       ; preds = %.loopexit, %.loopexit.thread
+  %226 = getelementptr inbounds i8, ptr %.03.i, i64 152
+  %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %227, align 8
-  %229 = load ptr, ptr %228, align 8
-  %.not3652 = icmp eq ptr %229, null
+  %.not3652 = icmp eq ptr %228, null
   br i1 %.not3652, label %.thread45, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.preheader, %422
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %422 ], [ 0, %.preheader ]
-  %230 = phi ptr [ %425, %422 ], [ %229, %.preheader ]
-  %231 = load ptr, ptr @prte_info_path_prefix, align 8
-  %232 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %231, ptr noundef nonnull dereferenceable(1) %230) #9
-  %233 = icmp eq i32 %232, 0
-  br i1 %233, label %234, label %244
+.lr.ph54:                                         ; preds = %.preheader, %421
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %421 ], [ 0, %.preheader ]
+  %229 = phi ptr [ %424, %421 ], [ %228, %.preheader ]
+  %230 = load ptr, ptr @prte_info_path_prefix, align 8
+  %231 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(1) %229) #9
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %233, label %243
 
-234:                                              ; preds = %.lr.ph54
-  %235 = load ptr, ptr @prte_install_dirs, align 8
+233:                                              ; preds = %.lr.ph54
+  %234 = load ptr, ptr @prte_install_dirs, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %236 = call noalias ptr @strdup(ptr noundef %231) #8
-  %237 = load i8, ptr %236, align 1
-  %238 = sext i8 %237 to i32
-  %239 = call i32 @toupper(i32 noundef %238) #9
-  %240 = trunc i32 %239 to i8
-  store i8 %240, ptr %236, align 1
-  %241 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, ptr noundef %231) #8
+  %235 = call noalias ptr @strdup(ptr noundef %230) #8
+  %236 = load i8, ptr %235, align 1
+  %237 = sext i8 %236 to i32
+  %238 = call i32 @toupper(i32 noundef %237) #9
+  %239 = trunc i32 %238 to i8
+  store i8 %239, ptr %235, align 1
+  %240 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, ptr noundef %230) #8
+  %241 = load ptr, ptr %12, align 8
+  call void @prte_info_out(ptr noundef nonnull %235, ptr noundef %241, ptr noundef %234) #8
+  call void @free(ptr noundef %235) #8
   %242 = load ptr, ptr %12, align 8
-  call void @prte_info_out(ptr noundef nonnull %236, ptr noundef %242, ptr noundef %235) #8
-  call void @free(ptr noundef %236) #8
-  %243 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %243) #8
+  call void @free(ptr noundef %242) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %422
+  br label %421
 
-244:                                              ; preds = %.lr.ph54
-  %245 = load ptr, ptr @prte_info_path_bindir, align 8
-  %246 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %245, ptr noundef nonnull dereferenceable(1) %230) #9
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %258
+243:                                              ; preds = %.lr.ph54
+  %244 = load ptr, ptr @prte_info_path_bindir, align 8
+  %245 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %244, ptr noundef nonnull dereferenceable(1) %229) #9
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %257
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
+247:                                              ; preds = %243
+  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %250 = call noalias ptr @strdup(ptr noundef %245) #8
-  %251 = load i8, ptr %250, align 1
-  %252 = sext i8 %251 to i32
-  %253 = call i32 @toupper(i32 noundef %252) #9
-  %254 = trunc i32 %253 to i8
-  store i8 %254, ptr %250, align 1
-  %255 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef %245) #8
+  %249 = call noalias ptr @strdup(ptr noundef %244) #8
+  %250 = load i8, ptr %249, align 1
+  %251 = sext i8 %250 to i32
+  %252 = call i32 @toupper(i32 noundef %251) #9
+  %253 = trunc i32 %252 to i8
+  store i8 %253, ptr %249, align 1
+  %254 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef %244) #8
+  %255 = load ptr, ptr %11, align 8
+  call void @prte_info_out(ptr noundef nonnull %249, ptr noundef %255, ptr noundef %248) #8
+  call void @free(ptr noundef %249) #8
   %256 = load ptr, ptr %11, align 8
-  call void @prte_info_out(ptr noundef nonnull %250, ptr noundef %256, ptr noundef %249) #8
-  call void @free(ptr noundef %250) #8
-  %257 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %257) #8
+  call void @free(ptr noundef %256) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %422
+  br label %421
 
-258:                                              ; preds = %244
-  %259 = load ptr, ptr @prte_info_path_libdir, align 8
-  %260 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %259, ptr noundef nonnull dereferenceable(1) %230) #9
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %272
+257:                                              ; preds = %243
+  %258 = load ptr, ptr @prte_info_path_libdir, align 8
+  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %258, ptr noundef nonnull dereferenceable(1) %229) #9
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %261, label %271
 
-262:                                              ; preds = %258
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
+261:                                              ; preds = %257
+  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %264 = call noalias ptr @strdup(ptr noundef %259) #8
-  %265 = load i8, ptr %264, align 1
-  %266 = sext i8 %265 to i32
-  %267 = call i32 @toupper(i32 noundef %266) #9
-  %268 = trunc i32 %267 to i8
-  store i8 %268, ptr %264, align 1
-  %269 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.25, ptr noundef %259) #8
+  %263 = call noalias ptr @strdup(ptr noundef %258) #8
+  %264 = load i8, ptr %263, align 1
+  %265 = sext i8 %264 to i32
+  %266 = call i32 @toupper(i32 noundef %265) #9
+  %267 = trunc i32 %266 to i8
+  store i8 %267, ptr %263, align 1
+  %268 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.25, ptr noundef %258) #8
+  %269 = load ptr, ptr %10, align 8
+  call void @prte_info_out(ptr noundef nonnull %263, ptr noundef %269, ptr noundef %262) #8
+  call void @free(ptr noundef %263) #8
   %270 = load ptr, ptr %10, align 8
-  call void @prte_info_out(ptr noundef nonnull %264, ptr noundef %270, ptr noundef %263) #8
-  call void @free(ptr noundef %264) #8
-  %271 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %271) #8
+  call void @free(ptr noundef %270) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %422
+  br label %421
 
-272:                                              ; preds = %258
-  %273 = load ptr, ptr @prte_info_path_incdir, align 8
-  %274 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) %230) #9
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %286
+271:                                              ; preds = %257
+  %272 = load ptr, ptr @prte_info_path_incdir, align 8
+  %273 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %272, ptr noundef nonnull dereferenceable(1) %229) #9
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %285
 
-276:                                              ; preds = %272
-  %277 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
+275:                                              ; preds = %271
+  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %278 = call noalias ptr @strdup(ptr noundef %273) #8
-  %279 = load i8, ptr %278, align 1
-  %280 = sext i8 %279 to i32
-  %281 = call i32 @toupper(i32 noundef %280) #9
-  %282 = trunc i32 %281 to i8
-  store i8 %282, ptr %278, align 1
-  %283 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.25, ptr noundef %273) #8
+  %277 = call noalias ptr @strdup(ptr noundef %272) #8
+  %278 = load i8, ptr %277, align 1
+  %279 = sext i8 %278 to i32
+  %280 = call i32 @toupper(i32 noundef %279) #9
+  %281 = trunc i32 %280 to i8
+  store i8 %281, ptr %277, align 1
+  %282 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.25, ptr noundef %272) #8
+  %283 = load ptr, ptr %9, align 8
+  call void @prte_info_out(ptr noundef nonnull %277, ptr noundef %283, ptr noundef %276) #8
+  call void @free(ptr noundef %277) #8
   %284 = load ptr, ptr %9, align 8
-  call void @prte_info_out(ptr noundef nonnull %278, ptr noundef %284, ptr noundef %277) #8
-  call void @free(ptr noundef %278) #8
-  %285 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %285) #8
+  call void @free(ptr noundef %284) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %422
+  br label %421
 
-286:                                              ; preds = %272
-  %287 = load ptr, ptr @prte_info_path_mandir, align 8
-  %288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %287, ptr noundef nonnull dereferenceable(1) %230) #9
-  %289 = icmp eq i32 %288, 0
-  br i1 %289, label %290, label %300
+285:                                              ; preds = %271
+  %286 = load ptr, ptr @prte_info_path_mandir, align 8
+  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(1) %229) #9
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %299
 
-290:                                              ; preds = %286
-  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
+289:                                              ; preds = %285
+  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %292 = call noalias ptr @strdup(ptr noundef %287) #8
-  %293 = load i8, ptr %292, align 1
-  %294 = sext i8 %293 to i32
-  %295 = call i32 @toupper(i32 noundef %294) #9
-  %296 = trunc i32 %295 to i8
-  store i8 %296, ptr %292, align 1
-  %297 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.25, ptr noundef %287) #8
+  %291 = call noalias ptr @strdup(ptr noundef %286) #8
+  %292 = load i8, ptr %291, align 1
+  %293 = sext i8 %292 to i32
+  %294 = call i32 @toupper(i32 noundef %293) #9
+  %295 = trunc i32 %294 to i8
+  store i8 %295, ptr %291, align 1
+  %296 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.25, ptr noundef %286) #8
+  %297 = load ptr, ptr %8, align 8
+  call void @prte_info_out(ptr noundef nonnull %291, ptr noundef %297, ptr noundef %290) #8
+  call void @free(ptr noundef %291) #8
   %298 = load ptr, ptr %8, align 8
-  call void @prte_info_out(ptr noundef nonnull %292, ptr noundef %298, ptr noundef %291) #8
-  call void @free(ptr noundef %292) #8
-  %299 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %299) #8
+  call void @free(ptr noundef %298) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %422
+  br label %421
 
-300:                                              ; preds = %286
-  %301 = load ptr, ptr @prte_info_path_pkglibdir, align 8
-  %302 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %301, ptr noundef nonnull dereferenceable(1) %230) #9
-  %303 = icmp eq i32 %302, 0
-  br i1 %303, label %304, label %314
+299:                                              ; preds = %285
+  %300 = load ptr, ptr @prte_info_path_pkglibdir, align 8
+  %301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %300, ptr noundef nonnull dereferenceable(1) %229) #9
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %303, label %313
 
-304:                                              ; preds = %300
-  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
+303:                                              ; preds = %299
+  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %306 = call noalias ptr @strdup(ptr noundef %301) #8
-  %307 = load i8, ptr %306, align 1
-  %308 = sext i8 %307 to i32
-  %309 = call i32 @toupper(i32 noundef %308) #9
-  %310 = trunc i32 %309 to i8
-  store i8 %310, ptr %306, align 1
-  %311 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.25, ptr noundef %301) #8
+  %305 = call noalias ptr @strdup(ptr noundef %300) #8
+  %306 = load i8, ptr %305, align 1
+  %307 = sext i8 %306 to i32
+  %308 = call i32 @toupper(i32 noundef %307) #9
+  %309 = trunc i32 %308 to i8
+  store i8 %309, ptr %305, align 1
+  %310 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.25, ptr noundef %300) #8
+  %311 = load ptr, ptr %7, align 8
+  call void @prte_info_out(ptr noundef nonnull %305, ptr noundef %311, ptr noundef %304) #8
+  call void @free(ptr noundef %305) #8
   %312 = load ptr, ptr %7, align 8
-  call void @prte_info_out(ptr noundef nonnull %306, ptr noundef %312, ptr noundef %305) #8
-  call void @free(ptr noundef %306) #8
-  %313 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %313) #8
+  call void @free(ptr noundef %312) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %422
+  br label %421
 
-314:                                              ; preds = %300
-  %315 = load ptr, ptr @prte_info_path_sysconfdir, align 8
-  %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %315, ptr noundef nonnull dereferenceable(1) %230) #9
-  %317 = icmp eq i32 %316, 0
-  br i1 %317, label %318, label %328
+313:                                              ; preds = %299
+  %314 = load ptr, ptr @prte_info_path_sysconfdir, align 8
+  %315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %314, ptr noundef nonnull dereferenceable(1) %229) #9
+  %316 = icmp eq i32 %315, 0
+  br i1 %316, label %317, label %327
 
-318:                                              ; preds = %314
-  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
+317:                                              ; preds = %313
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %320 = call noalias ptr @strdup(ptr noundef %315) #8
-  %321 = load i8, ptr %320, align 1
-  %322 = sext i8 %321 to i32
-  %323 = call i32 @toupper(i32 noundef %322) #9
-  %324 = trunc i32 %323 to i8
-  store i8 %324, ptr %320, align 1
-  %325 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.25, ptr noundef %315) #8
+  %319 = call noalias ptr @strdup(ptr noundef %314) #8
+  %320 = load i8, ptr %319, align 1
+  %321 = sext i8 %320 to i32
+  %322 = call i32 @toupper(i32 noundef %321) #9
+  %323 = trunc i32 %322 to i8
+  store i8 %323, ptr %319, align 1
+  %324 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.25, ptr noundef %314) #8
+  %325 = load ptr, ptr %6, align 8
+  call void @prte_info_out(ptr noundef nonnull %319, ptr noundef %325, ptr noundef %318) #8
+  call void @free(ptr noundef %319) #8
   %326 = load ptr, ptr %6, align 8
-  call void @prte_info_out(ptr noundef nonnull %320, ptr noundef %326, ptr noundef %319) #8
-  call void @free(ptr noundef %320) #8
-  %327 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %327) #8
+  call void @free(ptr noundef %326) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %422
+  br label %421
 
-328:                                              ; preds = %314
-  %329 = load ptr, ptr @prte_info_path_exec_prefix, align 8
-  %330 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %329, ptr noundef nonnull dereferenceable(1) %230) #9
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %332, label %342
+327:                                              ; preds = %313
+  %328 = load ptr, ptr @prte_info_path_exec_prefix, align 8
+  %329 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %328, ptr noundef nonnull dereferenceable(1) %229) #9
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %341
 
-332:                                              ; preds = %328
-  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
+331:                                              ; preds = %327
+  %332 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %334 = call noalias ptr @strdup(ptr noundef %329) #8
-  %335 = load i8, ptr %334, align 1
-  %336 = sext i8 %335 to i32
-  %337 = call i32 @toupper(i32 noundef %336) #9
-  %338 = trunc i32 %337 to i8
-  store i8 %338, ptr %334, align 1
-  %339 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %329) #8
+  %333 = call noalias ptr @strdup(ptr noundef %328) #8
+  %334 = load i8, ptr %333, align 1
+  %335 = sext i8 %334 to i32
+  %336 = call i32 @toupper(i32 noundef %335) #9
+  %337 = trunc i32 %336 to i8
+  store i8 %337, ptr %333, align 1
+  %338 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %328) #8
+  %339 = load ptr, ptr %5, align 8
+  call void @prte_info_out(ptr noundef nonnull %333, ptr noundef %339, ptr noundef %332) #8
+  call void @free(ptr noundef %333) #8
   %340 = load ptr, ptr %5, align 8
-  call void @prte_info_out(ptr noundef nonnull %334, ptr noundef %340, ptr noundef %333) #8
-  call void @free(ptr noundef %334) #8
-  %341 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %341) #8
+  call void @free(ptr noundef %340) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %422
+  br label %421
 
-342:                                              ; preds = %328
-  %343 = load ptr, ptr @prte_info_path_sbindir, align 8
-  %344 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %343, ptr noundef nonnull dereferenceable(1) %230) #9
-  %345 = icmp eq i32 %344, 0
-  br i1 %345, label %346, label %356
+341:                                              ; preds = %327
+  %342 = load ptr, ptr @prte_info_path_sbindir, align 8
+  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %342, ptr noundef nonnull dereferenceable(1) %229) #9
+  %344 = icmp eq i32 %343, 0
+  br i1 %344, label %345, label %355
 
-346:                                              ; preds = %342
-  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
+345:                                              ; preds = %341
+  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %348 = call noalias ptr @strdup(ptr noundef %343) #8
-  %349 = load i8, ptr %348, align 1
-  %350 = sext i8 %349 to i32
-  %351 = call i32 @toupper(i32 noundef %350) #9
-  %352 = trunc i32 %351 to i8
-  store i8 %352, ptr %348, align 1
-  %353 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, ptr noundef %343) #8
+  %347 = call noalias ptr @strdup(ptr noundef %342) #8
+  %348 = load i8, ptr %347, align 1
+  %349 = sext i8 %348 to i32
+  %350 = call i32 @toupper(i32 noundef %349) #9
+  %351 = trunc i32 %350 to i8
+  store i8 %351, ptr %347, align 1
+  %352 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, ptr noundef %342) #8
+  %353 = load ptr, ptr %4, align 8
+  call void @prte_info_out(ptr noundef nonnull %347, ptr noundef %353, ptr noundef %346) #8
+  call void @free(ptr noundef %347) #8
   %354 = load ptr, ptr %4, align 8
-  call void @prte_info_out(ptr noundef nonnull %348, ptr noundef %354, ptr noundef %347) #8
-  call void @free(ptr noundef %348) #8
-  %355 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %355) #8
+  call void @free(ptr noundef %354) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %422
+  br label %421
 
-356:                                              ; preds = %342
-  %357 = load ptr, ptr @prte_info_path_libexecdir, align 8
-  %358 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %357, ptr noundef nonnull dereferenceable(1) %230) #9
-  %359 = icmp eq i32 %358, 0
-  br i1 %359, label %360, label %370
+355:                                              ; preds = %341
+  %356 = load ptr, ptr @prte_info_path_libexecdir, align 8
+  %357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %356, ptr noundef nonnull dereferenceable(1) %229) #9
+  %358 = icmp eq i32 %357, 0
+  br i1 %358, label %359, label %369
 
-360:                                              ; preds = %356
-  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
+359:                                              ; preds = %355
+  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %362 = call noalias ptr @strdup(ptr noundef %357) #8
-  %363 = load i8, ptr %362, align 1
-  %364 = sext i8 %363 to i32
-  %365 = call i32 @toupper(i32 noundef %364) #9
-  %366 = trunc i32 %365 to i8
-  store i8 %366, ptr %362, align 1
-  %367 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef %357) #8
+  %361 = call noalias ptr @strdup(ptr noundef %356) #8
+  %362 = load i8, ptr %361, align 1
+  %363 = sext i8 %362 to i32
+  %364 = call i32 @toupper(i32 noundef %363) #9
+  %365 = trunc i32 %364 to i8
+  store i8 %365, ptr %361, align 1
+  %366 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef %356) #8
+  %367 = load ptr, ptr %3, align 8
+  call void @prte_info_out(ptr noundef nonnull %361, ptr noundef %367, ptr noundef %360) #8
+  call void @free(ptr noundef %361) #8
   %368 = load ptr, ptr %3, align 8
-  call void @prte_info_out(ptr noundef nonnull %362, ptr noundef %368, ptr noundef %361) #8
-  call void @free(ptr noundef %362) #8
-  %369 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %369) #8
+  call void @free(ptr noundef %368) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %422
+  br label %421
 
-370:                                              ; preds = %356
-  %371 = load ptr, ptr @prte_info_path_datarootdir, align 8
-  %372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %371, ptr noundef nonnull dereferenceable(1) %230) #9
-  %373 = icmp eq i32 %372, 0
-  br i1 %373, label %374, label %384
+369:                                              ; preds = %355
+  %370 = load ptr, ptr @prte_info_path_datarootdir, align 8
+  %371 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %370, ptr noundef nonnull dereferenceable(1) %229) #9
+  %372 = icmp eq i32 %371, 0
+  br i1 %372, label %373, label %383
 
-374:                                              ; preds = %370
-  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
+373:                                              ; preds = %369
+  %374 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %376 = call noalias ptr @strdup(ptr noundef %371) #8
-  %377 = load i8, ptr %376, align 1
-  %378 = sext i8 %377 to i32
-  %379 = call i32 @toupper(i32 noundef %378) #9
-  %380 = trunc i32 %379 to i8
-  store i8 %380, ptr %376, align 1
-  %381 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef %371) #8
+  %375 = call noalias ptr @strdup(ptr noundef %370) #8
+  %376 = load i8, ptr %375, align 1
+  %377 = sext i8 %376 to i32
+  %378 = call i32 @toupper(i32 noundef %377) #9
+  %379 = trunc i32 %378 to i8
+  store i8 %379, ptr %375, align 1
+  %380 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef %370) #8
+  %381 = load ptr, ptr %2, align 8
+  call void @prte_info_out(ptr noundef nonnull %375, ptr noundef %381, ptr noundef %374) #8
+  call void @free(ptr noundef %375) #8
   %382 = load ptr, ptr %2, align 8
-  call void @prte_info_out(ptr noundef nonnull %376, ptr noundef %382, ptr noundef %375) #8
-  call void @free(ptr noundef %376) #8
-  %383 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %383) #8
+  call void @free(ptr noundef %382) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %422
+  br label %421
 
-384:                                              ; preds = %370
-  %385 = load ptr, ptr @prte_info_path_datadir, align 8
-  %386 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %385, ptr noundef nonnull dereferenceable(1) %230) #9
-  %387 = icmp eq i32 %386, 0
-  br i1 %387, label %388, label %390
+383:                                              ; preds = %369
+  %384 = load ptr, ptr @prte_info_path_datadir, align 8
+  %385 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %384, ptr noundef nonnull dereferenceable(1) %229) #9
+  %386 = icmp eq i32 %385, 0
+  br i1 %386, label %387, label %389
 
-388:                                              ; preds = %384
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
-  call void @prte_info_show_path(ptr noundef %385, ptr noundef %389)
-  br label %422
+387:                                              ; preds = %383
+  %388 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 48), align 8
+  call void @prte_info_show_path(ptr noundef %384, ptr noundef %388)
+  br label %421
 
-390:                                              ; preds = %384
-  %391 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
-  %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %391, ptr noundef nonnull dereferenceable(1) %230) #9
-  %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %396
+389:                                              ; preds = %383
+  %390 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
+  %391 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %390, ptr noundef nonnull dereferenceable(1) %229) #9
+  %392 = icmp eq i32 %391, 0
+  br i1 %392, label %393, label %395
 
-394:                                              ; preds = %390
-  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
-  call void @prte_info_show_path(ptr noundef %391, ptr noundef %395)
-  br label %422
+393:                                              ; preds = %389
+  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 64), align 8
+  call void @prte_info_show_path(ptr noundef %390, ptr noundef %394)
+  br label %421
 
-396:                                              ; preds = %390
-  %397 = load ptr, ptr @prte_info_path_localstatedir, align 8
-  %398 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %397, ptr noundef nonnull dereferenceable(1) %230) #9
-  %399 = icmp eq i32 %398, 0
-  br i1 %399, label %400, label %402
+395:                                              ; preds = %389
+  %396 = load ptr, ptr @prte_info_path_localstatedir, align 8
+  %397 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %396, ptr noundef nonnull dereferenceable(1) %229) #9
+  %398 = icmp eq i32 %397, 0
+  br i1 %398, label %399, label %401
 
-400:                                              ; preds = %396
-  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
-  call void @prte_info_show_path(ptr noundef %397, ptr noundef %401)
-  br label %422
+399:                                              ; preds = %395
+  %400 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 72), align 8
+  call void @prte_info_show_path(ptr noundef %396, ptr noundef %400)
+  br label %421
 
-402:                                              ; preds = %396
-  %403 = load ptr, ptr @prte_info_path_infodir, align 8
-  %404 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %403, ptr noundef nonnull dereferenceable(1) %230) #9
-  %405 = icmp eq i32 %404, 0
-  br i1 %405, label %406, label %408
+401:                                              ; preds = %395
+  %402 = load ptr, ptr @prte_info_path_infodir, align 8
+  %403 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %402, ptr noundef nonnull dereferenceable(1) %229) #9
+  %404 = icmp eq i32 %403, 0
+  br i1 %404, label %405, label %407
 
-406:                                              ; preds = %402
-  %407 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
-  call void @prte_info_show_path(ptr noundef %403, ptr noundef %407)
-  br label %422
+405:                                              ; preds = %401
+  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 96), align 8
+  call void @prte_info_show_path(ptr noundef %402, ptr noundef %406)
+  br label %421
 
-408:                                              ; preds = %402
-  %409 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
-  %410 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %409, ptr noundef nonnull dereferenceable(1) %230) #9
-  %411 = icmp eq i32 %410, 0
-  br i1 %411, label %412, label %414
+407:                                              ; preds = %401
+  %408 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
+  %409 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %408, ptr noundef nonnull dereferenceable(1) %229) #9
+  %410 = icmp eq i32 %409, 0
+  br i1 %410, label %411, label %413
 
-412:                                              ; preds = %408
-  %413 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
-  call void @prte_info_show_path(ptr noundef %409, ptr noundef %413)
-  br label %422
+411:                                              ; preds = %407
+  %412 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 112), align 8
+  call void @prte_info_show_path(ptr noundef %408, ptr noundef %412)
+  br label %421
 
-414:                                              ; preds = %408
-  %415 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
-  %416 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %415, ptr noundef nonnull dereferenceable(1) %230) #9
-  %417 = icmp eq i32 %416, 0
-  br i1 %417, label %418, label %420
+413:                                              ; preds = %407
+  %414 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
+  %415 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %414, ptr noundef nonnull dereferenceable(1) %229) #9
+  %416 = icmp eq i32 %415, 0
+  br i1 %416, label %417, label %419
 
-418:                                              ; preds = %414
-  %419 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
-  call void @prte_info_show_path(ptr noundef %415, ptr noundef %419)
-  br label %422
+417:                                              ; preds = %413
+  %418 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_install_dirs, i64 128), align 8
+  call void @prte_info_show_path(ptr noundef %414, ptr noundef %418)
+  br label %421
 
-420:                                              ; preds = %414
-  %421 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef nonnull @.str.24) #8
+419:                                              ; preds = %413
+  %420 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef nonnull @.str.24) #8
   call void @exit(i32 noundef 1) #10
   unreachable
 
-422:                                              ; preds = %234, %262, %290, %318, %346, %374, %394, %406, %418, %412, %400, %388, %360, %332, %304, %276, %248
+421:                                              ; preds = %233, %261, %289, %317, %345, %373, %393, %405, %417, %411, %399, %387, %359, %331, %303, %275, %247
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %423 = load ptr, ptr %227, align 8
-  %424 = getelementptr inbounds ptr, ptr %423, i64 %indvars.iv.next58
-  %425 = load ptr, ptr %424, align 8
-  %.not36 = icmp eq ptr %425, null
+  %422 = load ptr, ptr %226, align 8
+  %423 = getelementptr inbounds ptr, ptr %422, i64 %indvars.iv.next58
+  %424 = load ptr, ptr %423, align 8
+  %.not36 = icmp eq ptr %424, null
   br i1 %.not36, label %.thread45, label %.lr.ph54, !llvm.loop !14
 
-.thread45:                                        ; preds = %422, %.loopexit.thread61, %.preheader, %.thread, %226, %.critedge
+.thread45:                                        ; preds = %421, %.loopexit.thread61, %.preheader, %.thread, %.critedge
   ret void
 }
 

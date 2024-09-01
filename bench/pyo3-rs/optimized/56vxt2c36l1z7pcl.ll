@@ -37,8 +37,8 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
   %.sroa.358.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.358.0..sroa_idx, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
-  %.not80.not = icmp eq i64 %15, -9223372036854775808
-  br i1 %.not80.not, label %21, label %20
+  %.not80 = icmp eq i64 %15, -9223372036854775808
+  br i1 %.not80, label %21, label %20
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 8

@@ -605,7 +605,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %wide.trip.count.i59 = zext i32 %127 to i64
   br label %129
 
-.lr.ph291.i:                                      ; preds = %129
+.preheader264.i:                                  ; preds = %129
   %128 = getelementptr inbounds i8, ptr %.0201293.i, i64 %126
   br label %145
 
@@ -636,11 +636,11 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   tail call void @llvm.prefetch.p0(ptr %143, i32 0, i32 3, i32 1)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i59
-  br i1 %exitcond.not.i62, label %.lr.ph291.i, label %129, !llvm.loop !11
+  br i1 %exitcond.not.i62, label %.preheader264.i, label %129, !llvm.loop !11
 
-145:                                              ; preds = %407, %.lr.ph291.i
-  %indvars.iv307.i = phi i64 [ 0, %.lr.ph291.i ], [ %indvars.iv.next308.i, %407 ]
-  %.1289.i = phi ptr [ %.0200294.i, %.lr.ph291.i ], [ %.3.i, %407 ]
+145:                                              ; preds = %407, %.preheader264.i
+  %indvars.iv307.i = phi i64 [ 0, %.preheader264.i ], [ %indvars.iv.next308.i, %407 ]
+  %.1289.i = phi ptr [ %.0200294.i, %.preheader264.i ], [ %.3.i, %407 ]
   %146 = getelementptr inbounds %struct.ldmMatchCandidate_t, ptr %30, i64 %indvars.iv307.i
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %146, i64 12

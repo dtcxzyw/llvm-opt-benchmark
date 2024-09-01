@@ -1041,7 +1041,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
 58:                                               ; preds = %77, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %78, %77 ]
   invoke void @"_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17ha21453e4a38cc25bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #19
-          to label %.thread20 unwind label %94
+          to label %.thread27 unwind label %94
 
 59:                                               ; preds = %61, %76
   %60 = landingpad { ptr, i32 }
@@ -1137,9 +1137,6 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %114, label %115
 
-.thread20:                                        ; preds = %58
-  br i1 %15, label %115, label %.thread27
-
 "_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17ha21453e4a38cc25bE.exit": ; preds = %.thread, %69
   %101 = load i64, ptr %6, align 8, !range !66, !noundef !13
   %102 = icmp eq i64 %101, 0
@@ -1187,13 +1184,12 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.th
 114:                                              ; preds = %97
   br i1 %15, label %116, label %.thread27
 
-115:                                              ; preds = %.thread20, %97
-  %.pn.pn24 = phi { ptr, i32 } [ %.pn, %.thread20 ], [ %98, %97 ]
+115:                                              ; preds = %97
   invoke void @"_ZN4core3ptr530drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$$GT$$GT$17h68f422c9f6738bb5E.llvm.8928096027746465073"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
           to label %.thread27 unwind label %94
 
-.thread27:                                        ; preds = %.thread20, %116, %115, %114
-  %.pn.pn23 = phi { ptr, i32 } [ %98, %116 ], [ %.pn.pn24, %115 ], [ %98, %114 ], [ %.pn, %.thread20 ]
+.thread27:                                        ; preds = %58, %116, %115, %114
+  %.pn.pn23 = phi { ptr, i32 } [ %98, %116 ], [ %98, %115 ], [ %98, %114 ], [ %.pn, %58 ]
   resume { ptr, i32 } %.pn.pn23
 
 116:                                              ; preds = %114
@@ -1319,7 +1315,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17ha21453e4a38cc25bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #19
-          to label %.thread11 unwind label %79
+          to label %.thread18 unwind label %79
 
 60:                                               ; preds = %40
   %61 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %30, i64 %47
@@ -1344,9 +1340,6 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %69 = load i64, ptr %6, align 8, !range !66, !noundef !13
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %87, label %88
-
-.thread11:                                        ; preds = %58
-  br i1 %15, label %88, label %.thread18
 
 "_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17ha21453e4a38cc25bE.exit": ; preds = %.thread, %66
   %71 = load i64, ptr %6, align 8, !range !66, !noundef !13
@@ -1404,13 +1397,12 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.th
 87:                                               ; preds = %67
   br i1 %15, label %89, label %.thread18
 
-88:                                               ; preds = %.thread11, %67
-  %.pn15 = phi { ptr, i32 } [ %59, %.thread11 ], [ %68, %67 ]
+88:                                               ; preds = %67
   invoke void @"_ZN4core3ptr530drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$$GT$$GT$17h68f422c9f6738bb5E.llvm.8928096027746465073"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
           to label %.thread18 unwind label %79
 
-.thread18:                                        ; preds = %.thread11, %89, %88, %87
-  %.pn14 = phi { ptr, i32 } [ %68, %89 ], [ %.pn15, %88 ], [ %68, %87 ], [ %59, %.thread11 ]
+.thread18:                                        ; preds = %58, %89, %88, %87
+  %.pn14 = phi { ptr, i32 } [ %68, %89 ], [ %68, %88 ], [ %68, %87 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn14
 
 89:                                               ; preds = %87

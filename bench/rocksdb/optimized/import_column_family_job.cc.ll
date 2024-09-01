@@ -1850,7 +1850,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit: ; preds = %_ZN7rocksdb9IOOptionsD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %142 = load i8, ptr %agg.result, align 8
   %cmp.i281 = icmp eq i8 %142, 3
-  br i1 %cmp.i281, label %if.then216, label %if.end227
+  br i1 %cmp.i281, label %if.then216, label %invoke.cont239
 
 if.then216:                                       ; preds = %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit
   %143 = load ptr, ptr %db_options_, align 8
@@ -1892,11 +1892,8 @@ lpad223:                                          ; preds = %invoke.cont221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp220) #20
   br label %ehcleanup249
 
-if.end227:                                        ; preds = %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit
-  br i1 %tobool197, label %invoke.cont239, label %if.then229
-
-if.then229:                                       ; preds = %invoke.cont196, %if.end227.thread, %if.end227
-  %hardlink_files.3470 = phi i8 [ 0, %if.end227.thread ], [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.1679, %invoke.cont196 ]
+if.then229:                                       ; preds = %invoke.cont196, %if.end227.thread
+  %hardlink_files.3470 = phi i8 [ 0, %if.end227.thread ], [ %hardlink_files.1679, %invoke.cont196 ]
   %148 = load ptr, ptr %io_tracer_.i, align 8
   %cmp.i.not.i283 = icmp eq ptr %148, null
   br i1 %cmp.i.not.i283, label %_ZNK7rocksdb13FileSystemPtr3getEv.exit, label %land.lhs.true.i284
@@ -1969,9 +1966,9 @@ _ZN7rocksdb8IOStatusD2Ev.exit309:                 ; preds = %if.then.i288, %_ZN7
   %.pr723 = load i8, ptr %agg.result, align 8
   br label %invoke.cont239
 
-invoke.cont239:                                   ; preds = %if.end227, %_ZN7rocksdb8IOStatusD2Ev.exit309
-  %160 = phi i8 [ %142, %if.end227 ], [ %.pr723, %_ZN7rocksdb8IOStatusD2Ev.exit309 ]
-  %hardlink_files.3471 = phi i8 [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.3470, %_ZN7rocksdb8IOStatusD2Ev.exit309 ]
+invoke.cont239:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit, %_ZN7rocksdb8IOStatusD2Ev.exit309
+  %160 = phi i8 [ %.pr723, %_ZN7rocksdb8IOStatusD2Ev.exit309 ], [ %142, %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit ]
+  %hardlink_files.3471 = phi i8 [ %hardlink_files.3470, %_ZN7rocksdb8IOStatusD2Ev.exit309 ], [ %hardlink_files.1679, %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit ]
   %cmp.i310 = icmp eq i8 %160, 0
   br i1 %cmp.i310, label %if.end242, label %invoke.cont257.critedge
 

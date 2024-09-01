@@ -1171,12 +1171,9 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
 33:                                               ; preds = %.lr.ph45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond59.not, label %.preheader, label %.lr.ph45, !llvm.loop !15
+  br i1 %exitcond59.not, label %.lr.ph51, label %.lr.ph45, !llvm.loop !15
 
-.preheader:                                       ; preds = %33
-  br i1 %.not53, label %._crit_edge52, label %.lr.ph51
-
-.lr.ph51:                                         ; preds = %.preheader
+.lr.ph51:                                         ; preds = %33
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %wide.trip.count64 = zext i8 %11 to i64
@@ -1267,7 +1264,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %78, %76, %74, %72, 
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
   br i1 %exitcond65.not, label %._crit_edge52, label %44, !llvm.loop !17
 
-._crit_edge52:                                    ; preds = %._crit_edge49, %.preheader35, %.preheader
+._crit_edge52:                                    ; preds = %._crit_edge49, %.preheader35
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 56
   %84 = load ptr, ptr %83, align 8

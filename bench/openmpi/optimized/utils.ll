@@ -102,14 +102,11 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
 
 ._crit_edge.thread64:                             ; preds = %.thread, %._crit_edge
   %50 = call i32 @PMPI_Type_create_struct(i32 noundef %0, ptr noundef nonnull %17, ptr noundef %2, ptr noundef %15, ptr noundef %4) #3
-  br i1 %18, label %.lr.ph52.preheader, label %.loopexit
-
-.lr.ph52.preheader:                               ; preds = %._crit_edge.thread64
   %wide.trip.count57 = zext nneg i32 %0 to i64
   br label %.lr.ph52
 
-.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %55
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next55, %55 ]
+.lr.ph52:                                         ; preds = %._crit_edge.thread64, %55
+  %indvars.iv54 = phi i64 [ 0, %._crit_edge.thread64 ], [ %indvars.iv.next55, %55 ]
   %51 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv54
   %52 = load ptr, ptr %51, align 8
   %.not47 = icmp eq ptr %52, %3
@@ -128,8 +125,8 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
   %56 = call i32 @PMPI_Type_create_hindexed(i32 noundef %0, ptr noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %._crit_edge.thread64, %._crit_edge.thread
-  %.044 = phi i32 [ %56, %._crit_edge.thread ], [ %50, %._crit_edge.thread64 ], [ %50, %55 ]
+.loopexit:                                        ; preds = %55, %._crit_edge.thread
+  %.044 = phi i32 [ %56, %._crit_edge.thread ], [ %50, %55 ]
   call void @ADIOI_Free_fn(ptr noundef %15, i32 noundef 101, ptr noundef nonnull @.str) #3
   call void @ADIOI_Free_fn(ptr noundef %17, i32 noundef 102, ptr noundef nonnull @.str) #3
   ret i32 %.044

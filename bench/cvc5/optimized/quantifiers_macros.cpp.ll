@@ -2228,7 +2228,6 @@ _ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit: ; preds = %_ZN4cv
   br i1 %cmp237, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209
-  %cmp239 = phi i1 [ %cmp, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209 ], [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ]
   %i.0238 = phi i64 [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209 ], [ 0, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ]
   %6 = load ptr, ptr %n, align 8, !noalias !28
   %d_kind.i.i.i.i14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2778,9 +2777,8 @@ terminate.lpad.i208:                              ; preds = %if.then13.i.i207
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209: ; preds = %invoke.cont43, %if.then.i.i201, %if.then13.i.i207
   %inc = add nuw nsw i64 %i.0238, 1
-  %cmp = icmp uge i64 %inc, %conv.i
-  %exitcond = icmp eq i64 %inc, %conv.i
-  br i1 %exitcond, label %cleanup, label %for.body, !llvm.loop !47
+  %exitcond.not = icmp eq i64 %inc, %conv.i
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !47
 
 lpad42:                                           ; preds = %if.then.i
   %53 = landingpad { ptr, i32 }
@@ -2789,7 +2787,7 @@ lpad42:                                           ; preds = %if.then.i
   br label %ehcleanup47
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit122, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit165, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit
-  %cmp.lcssa = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ], [ %cmp, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209 ], [ %cmp239, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit165 ], [ %cmp239, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit122 ], [ %cmp239, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ]
+  %cmp.lcssa = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit209 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit165 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit122 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ]
   %54 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %54)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev.exit unwind label %terminate.lpad.i.i

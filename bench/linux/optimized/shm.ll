@@ -354,7 +354,11 @@ define dso_local void @exit_shm(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %2) #12
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %.loopexit, label %.lr.ph
+  br i1 %5, label %.thread6, label %.lr.ph
+
+.thread6:                                         ; preds = %67, %1
+  tail call void @_raw_spin_unlock(ptr noundef %2) #12
+  ret void
 
 .lr.ph:                                           ; preds = %1, %67
   %6 = phi ptr [ %68, %67 ], [ %4, %1 ]
@@ -489,11 +493,7 @@ define dso_local void @exit_shm(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %2) #12
   %68 = load volatile ptr, ptr %3, align 8
   %69 = icmp eq ptr %68, %3
-  br i1 %69, label %.loopexit, label %.lr.ph
-
-.loopexit:                                        ; preds = %67, %1
-  tail call void @_raw_spin_unlock(ptr noundef %2) #12
-  ret void
+  br i1 %69, label %.thread6, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -5758,18 +5758,18 @@ lpad140:                                          ; preds = %if.then.i311
   br label %ehcleanup179
 
 for.end:                                          ; preds = %_ZNSt4pairIP4expr8rationalED2Ev.exit
-  %.pre646 = load ptr, ptr %nums, align 8
-  %cmp.i.i313 = icmp eq ptr %.pre646, null
+  %.pre647 = load ptr, ptr %nums, align 8
+  %cmp.i.i313 = icmp eq ptr %.pre647, null
   br i1 %cmp.i.i313, label %invoke.cont146, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.end
-  %arrayidx.i.i314 = getelementptr inbounds i8, ptr %.pre646, i64 -4
+  %arrayidx.i.i314 = getelementptr inbounds i8, ptr %.pre647, i64 -4
   %103 = load i32, ptr %arrayidx.i.i314, align 4
   %104 = zext i32 %103 to i64
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %invoke.cont119, %if.end.i.i, %for.end
-  %105 = phi ptr [ %.pre646, %if.end.i.i ], [ null, %for.end ], [ null, %invoke.cont119 ]
+  %105 = phi ptr [ %.pre647, %if.end.i.i ], [ null, %for.end ], [ null, %invoke.cont119 ]
   %retval.0.i.i = phi i64 [ %104, %if.end.i.i ], [ 0, %for.end ], [ 0, %invoke.cont119 ]
   %add.ptr.i315 = getelementptr inbounds %"struct.std::pair", ptr %105, i64 %retval.0.i.i
   invoke void @_ZSt4sortIPSt4pairIP4expr8rationalEN3mbp20arith_project_plugin3imp14compare_secondEEvT_SA_T0_(ptr noundef %105, ptr noundef %add.ptr.i315)
@@ -8827,7 +8827,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
   %19 = load ptr, ptr %ref.tmp, align 8
   %m_false.i = getelementptr inbounds i8, ptr %17, i64 864
   %20 = load ptr, ptr %m_false.i, align 8
-  %cmp.i16.not = icmp ne ptr %19, %20
+  %cmp.i16.not.not = icmp ne ptr %19, %20
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
 
@@ -8852,7 +8852,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont26, %if.then.i.i.i, %if.then2.i.i.i
-  br i1 %cmp.i16.not, label %invoke.cont33, label %cleanup
+  br i1 %cmp.i16.not.not, label %invoke.cont33, label %cleanup
 
 invoke.cont33:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %25 = load ptr, ptr %tmp, align 8
@@ -8894,7 +8894,7 @@ for.inc:                                          ; preds = %if.then.i3.i, %_ZN1
   br i1 %cmp21.not, label %cleanup, label %for.body22
 
 cleanup:                                          ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %for.inc, %invoke.cont16, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %cmp21.not.lcssa = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ true, %invoke.cont16 ], [ %cmp.i16.not, %for.inc ], [ %cmp.i16.not, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %cmp21.not.lcssa = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ true, %invoke.cont16 ], [ %cmp.i16.not.not, %for.inc ], [ %cmp.i16.not.not, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %31 = load ptr, ptr %tmp, align 8
   %tobool.not.i.i23 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i23, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i24

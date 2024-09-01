@@ -665,8 +665,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit": ; preds = %2, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
-  %.not44 = icmp eq ptr %11, null
-  br i1 %.not44, label %18, label %12
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %13 = getelementptr inbounds i8, ptr %1, i64 48
@@ -674,7 +674,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %14, %16
-  br i1 %17, label %.thread45, label %26, !prof !66
+  br i1 %17, label %.thread44, label %26, !prof !66
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %19 = getelementptr inbounds i8, ptr %1, i64 152
@@ -682,14 +682,14 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %.not.not = icmp eq i64 %20, 0
   br i1 %.not.not, label %.thread39, label %27
 
-.thread45:                                        ; preds = %12
+.thread44:                                        ; preds = %12
   %21 = load ptr, ptr %10, align 8, !nonnull !4, !align !11, !noundef !4
   %22 = getelementptr inbounds [0 x { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }], ptr %21, i64 0, i64 %14
   %23 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)
   %24 = getelementptr inbounds i8, ptr %1, i64 152
   %25 = load i64, ptr %24, align 8, !noundef !4
-  %.not.not47 = icmp eq i64 %25, 0
-  br i1 %.not.not47, label %.thread41, label %35
+  %.not.not46 = icmp eq i64 %25, 0
+  br i1 %.not.not46, label %.thread41, label %35
 
 26:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %14, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7846843607c3237cb579c64a79ba54af.16) #15
@@ -716,7 +716,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 34:                                               ; preds = %42, %43, %.thread41, %.thread39, %27
   ret void
 
-.thread41:                                        ; preds = %.thread45
+.thread41:                                        ; preds = %.thread44
   store i64 %23, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
@@ -724,7 +724,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %34
 
-35:                                               ; preds = %.thread45
+35:                                               ; preds = %.thread44
   %36 = getelementptr inbounds i8, ptr %1, i64 144
   %37 = load ptr, ptr %36, align 8, !nonnull !4
   %38 = add i64 %25, -1

@@ -10702,7 +10702,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -10874,9 +10874,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !80
+  br label %46, !llvm.loop !80
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -12737,7 +12737,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondType
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -12909,9 +12909,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !102
+  br label %46, !llvm.loop !102
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib11G96BondTypeESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib11G96BondTypeEmEESaIS3_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -14674,7 +14674,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTy
   %44 = ptrtoint ptr %33 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+45:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.049.076 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.050.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
@@ -14855,9 +14855,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %89
   %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %45, !llvm.loop !124
+  br label %45, !llvm.loop !124
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib13CubicBondTypeESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib13CubicBondTypeEmEESaIS3_EED2Ev.exit41 unwind label %.loopexit.split-lp
 
@@ -16877,7 +16877,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTy
   %44 = ptrtoint ptr %33 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+45:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.049.076 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.050.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
@@ -17058,9 +17058,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %89
   %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %45, !llvm.loop !146
+  br label %45, !llvm.loop !146
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib13MorseBondTypeESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib13MorseBondTypeEmEESaIS3_EED2Ev.exit41 unwind label %.loopexit.split-lp
 
@@ -19064,7 +19064,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -19236,9 +19236,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !167
+  br label %46, !llvm.loop !167
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_21FENEBondTypeParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -20985,7 +20985,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -21157,9 +21157,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !188
+  br label %46, !llvm.loop !188
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_38HalfAttractiveQuarticBondTypeParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -22914,7 +22914,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeE
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph78, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph78
   %.sroa.051.077 = phi ptr [ %42, %.lr.ph78 ], [ %.sroa.051.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.052.076 = phi ptr [ %41, %.lr.ph78 ], [ %.sroa.052.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.052.076, i64 8
@@ -23094,9 +23094,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %93
   %.sroa.051.1 = phi ptr [ %.sroa.052.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not72, label %._crit_edge79, label %46, !llvm.loop !220
+  br label %46, !llvm.loop !220
 
-._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib10PairLJTypeESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib10PairLJTypeEmEESaIS3_EED2Ev.exit43 unwind label %.loopexit.split-lp
 
@@ -24846,7 +24846,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleIntera
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -25018,9 +25018,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !242
+  br label %46, !llvm.loop !242
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -26884,7 +26884,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParam
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -27056,9 +27056,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !264
+  br label %46, !llvm.loop !264
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib16CosineParamAngleINS3_17G96AngleParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib16CosineParamAngleINS1_17G96AngleParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -28838,7 +28838,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngl
   %46 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %47
 
-47:                                               ; preds = %.lr.ph78, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+47:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph78
   %.sroa.051.077 = phi ptr [ %43, %.lr.ph78 ], [ %.sroa.051.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.052.076 = phi ptr [ %42, %.lr.ph78 ], [ %.sroa.052.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.052.076, i64 8
@@ -29021,9 +29021,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %110, %90
   %.sroa.051.1 = phi ptr [ %.sroa.052.1.lcssa, %90 ], [ %.sroa.011.1.i.i, %110 ]
-  br i1 %.not72, label %._crit_edge79, label %47, !llvm.loop !295
+  br label %47, !llvm.loop !295
 
-._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib12QuarticAngleESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib12QuarticAngleEmEESaIS3_EED2Ev.exit43 unwind label %.loopexit.split-lp
 
@@ -31022,7 +31022,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParam
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -31194,9 +31194,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !317
+  br label %46, !llvm.loop !317
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib16CosineParamAngleINS1_24RestrictedAngleParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -32969,7 +32969,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBo
   %44 = ptrtoint ptr %33 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+45:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.049.076 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.050.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
@@ -33150,9 +33150,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %89
   %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %45, !llvm.loop !339
+  br label %45, !llvm.loop !339
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib13CrossBondBondESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib13CrossBondBondEmEESaIS3_EED2Ev.exit41 unwind label %.loopexit.split-lp
 
@@ -35178,7 +35178,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAn
   %42 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph76, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+43:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph76
   %.sroa.049.075 = phi ptr [ %39, %.lr.ph76 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.050.074 = phi ptr [ %38, %.lr.ph76 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %44 = getelementptr inbounds i8, ptr %.sroa.050.074, i64 8
@@ -35371,9 +35371,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %87
   %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %87 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not70, label %._crit_edge77, label %43, !llvm.loop !360
+  br label %43, !llvm.loop !360
 
-._crit_edge77:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge77:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib14CrossBondAngleESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib14CrossBondAngleEmEESaIS3_EED2Ev.exit41 unwind label %.loopexit.split-lp
 
@@ -37460,7 +37460,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -37632,9 +37632,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !381
+  br label %46, !llvm.loop !381
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEESaIS6_EEEEC2IRS2_JRS8_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_20LinearAngleParameterEEEmEESaIS5_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -39407,7 +39407,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihed
   %44 = ptrtoint ptr %33 to i64
   br label %45
 
-45:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+45:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.049.076 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.050.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
@@ -39588,9 +39588,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %89
   %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %45, !llvm.loop !403
+  br label %45, !llvm.loop !403
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib14ProperDihedralESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib14ProperDihedralEmEESaIS3_EED2Ev.exit41 unwind label %.loopexit.split-lp
 
@@ -41719,7 +41719,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDih
   %45 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+46:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %47 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -41891,9 +41891,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %93
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %46, !llvm.loop !425
+  br label %46, !llvm.loop !425
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib16ImproperDihedralESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib16ImproperDihedralEmEESaIS3_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -43676,7 +43676,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBel
   %46 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %47
 
-47:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+47:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %43, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -43846,9 +43846,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %91
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %47, !llvm.loop !446
+  br label %47, !llvm.loop !446
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib24RyckaertBellemanDihedralESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESaIS3_EED2Ev.exit42 unwind label %.loopexit.split-lp
 
@@ -45717,7 +45717,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5Cen
   %42 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
+43:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %.lr.ph77
   %.sroa.050.076 = phi ptr [ %39, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %.sroa.051.075 = phi ptr [ %38, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %44 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
@@ -45915,9 +45915,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %86
   %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %86 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  br i1 %.not71, label %._crit_edge78, label %43, !llvm.loop !476
+  br label %43, !llvm.loop !476
 
-._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
+._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorImSaImEES0_IN5nblib14Default5CenterESaIS4_EEEEC2IRS2_JRS6_EvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNSt6vectorISt5tupleIJN5nblib14Default5CenterEmEESaIS3_EED2Ev.exit42 unwind label %.loopexit.split-lp
 

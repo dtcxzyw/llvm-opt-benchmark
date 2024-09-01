@@ -20,41 +20,41 @@ define ptr @Saig_ManRetimeNodeFwd(ptr noundef %0, ptr nocapture noundef readonly
   %12 = getelementptr i8, ptr %7, i64 24
   %.val53 = load i64, ptr %12, align 8
   %13 = and i64 %.val53, 7
-  %.not89 = icmp eq i64 %13, 2
-  br i1 %.not89, label %14, label %Saig_ObjIsLo.exit.thread
+  %.not = icmp eq i64 %13, 2
+  br i1 %.not, label %14, label %Saig_ObjIsLo.exit.thread
 
 14:                                               ; preds = %3
   %15 = getelementptr i8, ptr %11, i64 24
   %.val54 = load i64, ptr %15, align 8
   %16 = and i64 %.val54, 7
-  %.not90 = icmp eq i64 %16, 2
-  br i1 %.not90, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
+  %.not86 = icmp eq i64 %16, 2
+  br i1 %.not86, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
 
 Saig_ObjIsLo.exit:                                ; preds = %14
   %.val3.i = load i32, ptr %7, align 8
   %17 = getelementptr i8, ptr %0, i64 108
   %.val4.i = load i32, ptr %17, align 4
-  %.not = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit80
+  %.not87 = icmp slt i32 %.val3.i, %.val4.i
+  br i1 %.not87, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit80
 
 Saig_ObjIsLo.exit80:                              ; preds = %Saig_ObjIsLo.exit
   %.val3.i78 = load i32, ptr %11, align 8
-  %.not86 = icmp slt i32 %.val3.i78, %.val4.i
-  br i1 %.not86, label %Saig_ObjIsLo.exit.thread, label %18
+  %.not88 = icmp slt i32 %.val3.i78, %.val4.i
+  br i1 %.not88, label %Saig_ObjIsLo.exit.thread, label %18
 
 18:                                               ; preds = %Saig_ObjIsLo.exit80
   %19 = getelementptr i8, ptr %0, i64 312
   %.val59 = load i32, ptr %19, align 8
   %20 = getelementptr i8, ptr %7, i64 32
   %.val60 = load i32, ptr %20, align 8
-  %.not87 = icmp eq i32 %.val60, %.val59
-  br i1 %.not87, label %23, label %21
+  %.not89 = icmp eq i32 %.val60, %.val59
+  br i1 %.not89, label %23, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr i8, ptr %11, i64 32
   %.val62 = load i32, ptr %22, align 8
-  %.not88 = icmp eq i32 %.val62, %.val59
-  br i1 %.not88, label %23, label %Saig_ObjIsLo.exit.thread
+  %.not90 = icmp eq i32 %.val62, %.val59
+  br i1 %.not90, label %23, label %Saig_ObjIsLo.exit.thread
 
 23:                                               ; preds = %21, %18
   %24 = sub i32 %.val3.i, %.val4.i
@@ -321,39 +321,39 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %60 = getelementptr i8, ptr %55, i64 24
   %.val53.i = load i64, ptr %60, align 8
   %61 = and i64 %.val53.i, 7
-  %.not89.i = icmp eq i64 %61, 2
-  br i1 %.not89.i, label %62, label %Saig_ManRetimeNodeFwd.exit.thread
+  %.not.i = icmp eq i64 %61, 2
+  br i1 %.not.i, label %62, label %Saig_ManRetimeNodeFwd.exit.thread
 
 62:                                               ; preds = %51
   %63 = getelementptr i8, ptr %59, i64 24
   %.val54.i = load i64, ptr %63, align 8
   %64 = and i64 %.val54.i, 7
-  %.not90.i = icmp eq i64 %64, 2
-  br i1 %.not90.i, label %Saig_ObjIsLo.exit.i, label %Saig_ManRetimeNodeFwd.exit.thread
+  %.not86.i = icmp eq i64 %64, 2
+  br i1 %.not86.i, label %Saig_ObjIsLo.exit.i, label %Saig_ManRetimeNodeFwd.exit.thread
 
 Saig_ObjIsLo.exit.i:                              ; preds = %62
   %.val3.i.i = load i32, ptr %55, align 8
   %.val4.i.i = load i32, ptr %24, align 4
-  %.not.i = icmp slt i32 %.val3.i.i, %.val4.i.i
-  br i1 %.not.i, label %Saig_ManRetimeNodeFwd.exit.thread, label %Saig_ObjIsLo.exit80.i
+  %.not87.i = icmp slt i32 %.val3.i.i, %.val4.i.i
+  br i1 %.not87.i, label %Saig_ManRetimeNodeFwd.exit.thread, label %Saig_ObjIsLo.exit80.i
 
 Saig_ObjIsLo.exit80.i:                            ; preds = %Saig_ObjIsLo.exit.i
   %.val3.i78.i = load i32, ptr %59, align 8
-  %.not86.i = icmp slt i32 %.val3.i78.i, %.val4.i.i
-  br i1 %.not86.i, label %Saig_ManRetimeNodeFwd.exit.thread, label %65
+  %.not88.i = icmp slt i32 %.val3.i78.i, %.val4.i.i
+  br i1 %.not88.i, label %Saig_ManRetimeNodeFwd.exit.thread, label %65
 
 65:                                               ; preds = %Saig_ObjIsLo.exit80.i
   %.val59.i = load i32, ptr %25, align 8
   %66 = getelementptr i8, ptr %55, i64 32
   %.val60.i = load i32, ptr %66, align 8
-  %.not87.i = icmp eq i32 %.val60.i, %.val59.i
-  br i1 %.not87.i, label %69, label %67
+  %.not89.i = icmp eq i32 %.val60.i, %.val59.i
+  br i1 %.not89.i, label %69, label %67
 
 67:                                               ; preds = %65
   %68 = getelementptr i8, ptr %59, i64 32
   %.val62.i = load i32, ptr %68, align 8
-  %.not88.i = icmp eq i32 %.val62.i, %.val59.i
-  br i1 %.not88.i, label %69, label %Saig_ManRetimeNodeFwd.exit.thread
+  %.not90.i = icmp eq i32 %.val62.i, %.val59.i
+  br i1 %.not90.i, label %69, label %Saig_ManRetimeNodeFwd.exit.thread
 
 69:                                               ; preds = %67, %65
   %70 = sub i32 %.val3.i.i, %.val4.i.i

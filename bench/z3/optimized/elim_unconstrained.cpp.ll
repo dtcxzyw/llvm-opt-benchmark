@@ -2051,8 +2051,8 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
   %7 = phi ptr [ %6, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %105, %while.cond.backedge ]
   %arrayidx.i18 = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i18, align 4
-  %cmp3.i = icmp ne i32 %8, 0
-  br i1 %cmp3.i, label %invoke.cont10, label %while.end
+  %cmp3.i.not.not = icmp ne i32 %8, 0
+  br i1 %cmp3.i.not.not, label %invoke.cont10, label %while.end
 
 invoke.cont10:                                    ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
   %9 = add i32 %8, -1
@@ -2759,7 +2759,7 @@ while.cond.backedge:                              ; preds = %invoke.cont114, %_Z
 
 while.end:                                        ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %while.cond.backedge, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
   %.lcssa = phi ptr [ null, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ null, %while.cond.backedge ], [ %7, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
-  %cmp.i17.lcssa = phi i1 [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %cmp3.i, %while.cond.backedge ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
+  %cmp.i17.lcssa = phi i1 [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ %cmp3.i.not.not, %while.cond.backedge ], [ %cmp3.i.not.not, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
   %106 = load ptr, ptr %m_term, align 8
   %m118 = getelementptr inbounds i8, ptr %this, i64 8
   %107 = load ptr, ptr %m118, align 8

@@ -4526,7 +4526,7 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend17UIBackendRegistryC2Ev(
 66:                                               ; preds = %30
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread36.i
+  br label %.thread35.i
 
 68:                                               ; preds = %34
   %69 = landingpad { ptr, i32 }
@@ -4560,9 +4560,9 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend17UIBackendRegistryC2Ev(
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #26
-  br label %.thread36.i
+  br label %.thread35.i
 
-.thread36.i:                                      ; preds = %80, %66
+.thread35.i:                                      ; preds = %80, %66
   %.pn.pn.pn.pn.ph.i = phi { ptr, i32 } [ %67, %66 ], [ %81, %80 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   br label %.loopexit.i
@@ -4579,8 +4579,8 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend17UIBackendRegistryC2Ev(
   call void @_ZN2cv15highgui_backend11BackendInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.preheader.preheader.i, %82, %.thread36.i
-  %.pn.pn.pn.pn41.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.ph.i, %.thread36.i ], [ %.pn.pn.i, %82 ], [ %.pn.pn.i, %.preheader.preheader.i ]
+.loopexit.i:                                      ; preds = %.preheader.preheader.i, %82, %.thread35.i
+  %.pn.pn.pn.pn40.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.ph.i, %.thread35.i ], [ %.pn.pn.i, %82 ], [ %.pn.pn.i, %.preheader.preheader.i ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cv15highgui_backendL22getBuiltinBackendsInfoEvE10g_backends) #26
   br label %.body
 
@@ -5225,7 +5225,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv15highgui_backend11BackendInfoESt6
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit.i, %325, %266, %231, %203, %194, %162, %130
-  %.pn106.pn = phi { ptr, i32 } [ %.pn106, %231 ], [ %.pn102, %203 ], [ %195, %194 ], [ %.pn99, %325 ], [ %.pn94, %266 ], [ %.pn91, %162 ], [ %.pn, %130 ], [ %.pn.pn.pn.pn41.i, %.loopexit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn106.pn = phi { ptr, i32 } [ %.pn106, %231 ], [ %.pn102, %203 ], [ %195, %194 ], [ %.pn99, %325 ], [ %.pn94, %266 ], [ %.pn91, %162 ], [ %.pn, %130 ], [ %.pn.pn.pn.pn40.i, %.loopexit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   resume { ptr, i32 } %.pn106.pn
 }

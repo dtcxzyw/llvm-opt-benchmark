@@ -1487,10 +1487,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.not.i = icmp eq ptr %85, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %Vec_PtrFree.exit.sink.split
 
-.critedge6.preheader:                             ; preds = %91
-  br i1 %84, label %.lr.ph93, label %Vec_PtrFree.exit.sink.split
-
-.lr.ph93:                                         ; preds = %.critedge6.preheader
+.lr.ph93:                                         ; preds = %91
   %86 = getelementptr inbounds i8, ptr %0, i64 120
   %87 = getelementptr inbounds i8, ptr %0, i64 156
   %88 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1506,7 +1503,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   tail call void @Ivy_ObjDisconnect(ptr noundef nonnull %0, ptr noundef %93) #15
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge6.preheader, label %91, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph93, label %91, !llvm.loop !24
 
 94:                                               ; preds = %.lr.ph93, %.critedge6
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next106, %.critedge6 ]
@@ -1606,9 +1603,9 @@ Vec_PtrRemove.exit:                               ; preds = %127, %124
   %.not.i78 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i78, label %Vec_PtrFree.exit, label %Vec_PtrFree.exit.sink.split
 
-Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.critedge6.preheader, %.critedge4.thread
-  %.pre.pre.sink = phi ptr [ %85, %.critedge4.thread ], [ %.pre.pre, %.critedge6.preheader ], [ %.pre.pre, %.critedge8 ]
-  %.val66112.ph = phi i32 [ 0, %.critedge4.thread ], [ %.val66.pre, %.critedge6.preheader ], [ %.val66.pre, %.critedge8 ]
+Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.critedge4.thread
+  %.pre.pre.sink = phi ptr [ %85, %.critedge4.thread ], [ %.pre.pre, %.critedge8 ]
+  %.val66112.ph = phi i32 [ 0, %.critedge4.thread ], [ %.val66.pre, %.critedge8 ]
   tail call void @free(ptr noundef nonnull %.pre.pre.sink) #15
   br label %Vec_PtrFree.exit
 

@@ -4717,17 +4717,14 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef %1, i32 
 .loopexit30:                                      ; preds = %.loopexit29, %48
   %78 = add nuw nsw i64 %49, 1
   %79 = icmp eq i64 %78, %46
-  br i1 %79, label %.thread21.thread, label %48, !llvm.loop !40
+  br i1 %79, label %.thread21.thread.thread41, label %48, !llvm.loop !40
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds i8, ptr %60, i64 2
   %82 = load i8, ptr %81, align 2
   br label %132
 
-.thread21.thread:                                 ; preds = %.loopexit30
-  br i1 %39, label %.thread21.thread27, label %.thread21.thread.thread41
-
-.thread21.thread.thread41:                        ; preds = %40, %.thread21.thread
+.thread21.thread.thread41:                        ; preds = %.loopexit30, %40
   %83 = xor i32 %28, 128
   %84 = getelementptr inbounds i8, ptr %38, i64 4
   %85 = load i8, ptr %84, align 4
@@ -4871,8 +4868,8 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef %1, i32 
   %173 = tail call fastcc i32 @claimintf(ptr noundef %0, i32 noundef %172)
   br label %.thread21.thread27
 
-.thread21.thread27:                               ; preds = %.loopexit28, %36, %33, %.thread21.thread.thread41, %.thread21.thread, %171, %157, %155, %151, %137, %135, %132, %30, %27, %23, %9, %4
-  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ %173, %171 ], [ -2, %.thread21.thread.thread41 ], [ -3, %.thread21.thread ], [ -22, %33 ], [ -3, %36 ], [ -2, %.loopexit28 ]
+.thread21.thread27:                               ; preds = %.loopexit28, %36, %33, %.thread21.thread.thread41, %171, %157, %155, %151, %137, %135, %132, %30, %27, %23, %9, %4
+  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ %173, %171 ], [ -2, %.thread21.thread.thread41 ], [ -22, %33 ], [ -3, %36 ], [ -2, %.loopexit28 ]
   ret i32 %174
 }
 

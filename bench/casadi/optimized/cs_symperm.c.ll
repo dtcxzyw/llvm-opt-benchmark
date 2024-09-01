@@ -154,15 +154,12 @@ define ptr @cs_symperm(ptr noundef readonly %0, ptr noundef readonly %1, i32 nou
 
 ._crit_edge:                                      ; preds = %.loopexit103, %.loopexit103.us
   %83 = tail call double @cs_cumsum(ptr noundef %32, ptr noundef nonnull %25, i32 noundef %10) #3
-  br i1 %37, label %.lr.ph114, label %._crit_edge115
-
-.lr.ph114:                                        ; preds = %._crit_edge
   %.not100 = icmp eq ptr %1, null
   %.not101 = icmp eq ptr %.fr, null
   %wide.trip.count156 = zext nneg i32 %10 to i64
   br i1 %.not101, label %.lr.ph114.split.us, label %.lr.ph114.split
 
-.lr.ph114.split.us:                               ; preds = %.lr.ph114
+.lr.ph114.split.us:                               ; preds = %._crit_edge
   %.pre164 = load i32, ptr %12, align 4
   br i1 %.not100, label %.lr.ph114.split.us.split.us, label %.lr.ph114.split.us.split
 
@@ -267,8 +264,8 @@ define ptr @cs_symperm(ptr noundef readonly %0, ptr noundef readonly %1, i32 nou
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count156
   br i1 %exitcond141.not, label %._crit_edge115, label %.lr.ph114.split, !llvm.loop !7
 
-.lr.ph114.split:                                  ; preds = %.lr.ph114, %.loopexit
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.loopexit ], [ 0, %.lr.ph114 ]
+.lr.ph114.split:                                  ; preds = %._crit_edge, %.loopexit
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.loopexit ], [ 0, %._crit_edge ]
   %133 = trunc nuw nsw i64 %indvars.iv137 to i32
   br i1 %.not100, label %137, label %134
 
@@ -334,7 +331,7 @@ define ptr @cs_symperm(ptr noundef readonly %0, ptr noundef readonly %1, i32 nou
   %170 = icmp slt i64 %indvars.iv.next135, %169
   br i1 %170, label %.lr.ph110, label %.loopexit, !llvm.loop !8
 
-._crit_edge115:                                   ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us, %._crit_edge.thread, %._crit_edge
+._crit_edge115:                                   ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us, %._crit_edge.thread
   %171 = tail call ptr @cs_done(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null, i32 noundef 1) #3
   br label %172
 

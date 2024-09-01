@@ -137,12 +137,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %incdec.ptr.us = getelementptr inbounds i8, ptr %p.039.us, i64 8
   %inc.us = add nuw nsw i64 %j.038.us, 1
   %exitcond52.not = icmp eq i64 %inc.us, %div23
-  br i1 %exitcond52.not, label %for.cond2.preheader, label %for.body.us, !llvm.loop !8
+  br i1 %exitcond52.not, label %for.body4.lr.ph, label %for.body.us, !llvm.loop !8
 
-for.cond2.preheader:                              ; preds = %for.inc, %for.body.us
-  br i1 %cmp37.not, label %return, label %for.body4.lr.ph
-
-for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
+for.body4.lr.ph:                                  ; preds = %for.inc, %for.body.us
   %tobool15.not = icmp eq i32 %interactive, 0
   %mul17 = shl nuw nsw i64 %div23, 1
   br i1 %tobool15.not, label %for.body4.us, label %for.body4
@@ -197,7 +194,7 @@ memtest_progress_step.exit:                       ; preds = %for.body.i, %if.the
 for.inc:                                          ; preds = %for.body, %memtest_progress_step.exit
   %inc = add nuw nsw i64 %j.038, 1
   %exitcond.not = icmp eq i64 %inc, %div23
-  br i1 %exitcond.not, label %for.cond2.preheader, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.body4.lr.ph, label %for.body, !llvm.loop !8
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc19
   %p.142 = phi ptr [ %incdec.ptr11, %for.inc19 ], [ %l, %for.body4.lr.ph ]
@@ -252,8 +249,8 @@ for.inc19:                                        ; preds = %if.end10, %memtest_
   %exitcond53.not = icmp eq i64 %inc20, %div23
   br i1 %exitcond53.not, label %return, label %for.body4, !llvm.loop !9
 
-return:                                           ; preds = %for.inc19, %if.end10.us, %entry, %for.cond2.preheader, %if.then6
-  %retval.0 = phi i32 [ 1, %if.then6 ], [ 0, %for.cond2.preheader ], [ 0, %entry ], [ 0, %if.end10.us ], [ 0, %for.inc19 ]
+return:                                           ; preds = %for.inc19, %if.end10.us, %entry, %if.then6
+  %retval.0 = phi i32 [ 1, %if.then6 ], [ 0, %entry ], [ 0, %if.end10.us ], [ 0, %for.inc19 ]
   ret i32 %retval.0
 }
 
@@ -798,7 +795,7 @@ if.end.us.i.us.us:                                ; preds = %if.end9.us.i.us.i.u
 
 if.end9.split.us.us:                              ; preds = %if.end.us.i.us.us
   %add11.us.us = add nsw i32 %add.us.i.us.us, %add.us.us
-  br i1 %cmp826.not.i, label %if.end14.split.us.us, label %for.body.us.i60.us.us
+  br i1 %cmp826.not.i, label %for.body.us.i72.us.us.preheader, label %for.body.us.i60.us.us
 
 for.body.us.i60.us.us:                            ; preds = %if.end9.split.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us
   %off.028.us.i.us.us = phi i64 [ %inc27.us.i.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us ], [ 0, %if.end9.split.us.us ]
@@ -829,14 +826,14 @@ for.body15.us.us.i.us.us:                         ; preds = %for.body15.us.us.i.
 for.cond12.for.inc26_crit_edge.split.us.us.i.us.us: ; preds = %for.body15.us.us.i.us.us
   %inc27.us.i.us.us = add nuw nsw i64 %off.028.us.i.us.us, 1
   %exitcond43.not.i.us.us = icmp eq i64 %inc27.us.i.us.us, 512
-  br i1 %exitcond43.not.i.us.us, label %if.end14.split.us.us, label %for.body.us.i60.us.us, !llvm.loop !13
+  br i1 %exitcond43.not.i.us.us, label %for.body.us.i72.us.us.preheader, label %for.body.us.i60.us.us, !llvm.loop !13
 
-if.end14.split.us.us:                             ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us, %if.end9.split.us.us
-  br i1 %cmp321.not.i.i, label %if.end25.us.us, label %for.body.us.i72.us.us
+for.body.us.i72.us.us.preheader:                  ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us, %if.end9.split.us.us
+  br label %for.body.us.i72.us.us
 
-for.body.us.i72.us.us:                            ; preds = %if.end14.split.us.us, %if.end.us.i80.us.us
-  %errors.017.us.i73.us.us = phi i32 [ %add.us.i82.us.us, %if.end.us.i80.us.us ], [ 0, %if.end14.split.us.us ]
-  %j.016.us.i74.us.us = phi i32 [ %inc.us.i83.us.us, %if.end.us.i80.us.us ], [ 0, %if.end14.split.us.us ]
+for.body.us.i72.us.us:                            ; preds = %for.body.us.i72.us.us.preheader, %if.end.us.i80.us.us
+  %errors.017.us.i73.us.us = phi i32 [ %add.us.i82.us.us, %if.end.us.i80.us.us ], [ 0, %for.body.us.i72.us.us.preheader ]
+  %j.016.us.i74.us.us = phi i32 [ %inc.us.i83.us.us, %if.end.us.i80.us.us ], [ 0, %for.body.us.i72.us.us.preheader ]
   br label %for.body.us.i.us.i75.us.us
 
 for.body.us.i.us.i75.us.us:                       ; preds = %if.end9.us.i.us.i86.us.us, %for.body.us.i72.us.us
@@ -864,7 +861,7 @@ if.end.us.i80.us.us:                              ; preds = %if.end9.us.i.us.i86
 
 if.end17.split.us.us:                             ; preds = %if.end.us.i80.us.us
   %add19.us.us = add nsw i32 %add.us.i82.us.us, %add11.us.us
-  br i1 %cmp826.not.i, label %if.end22.split.us.us, label %for.body.us.i101.us.us
+  br i1 %cmp826.not.i, label %for.body.us.i132.us.us.preheader, label %for.body.us.i101.us.us
 
 for.body.us.i101.us.us:                           ; preds = %if.end17.split.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us
   %off.028.us.i102.us.us = phi i64 [ %inc27.us.i121.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us ], [ 0, %if.end17.split.us.us ]
@@ -896,14 +893,14 @@ for.body15.us.us.i112.us.us:                      ; preds = %for.body15.us.us.i1
 for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us: ; preds = %for.body15.us.us.i112.us.us
   %inc27.us.i121.us.us = add nuw nsw i64 %off.028.us.i102.us.us, 1
   %exitcond43.not.i122.us.us = icmp eq i64 %inc27.us.i121.us.us, 512
-  br i1 %exitcond43.not.i122.us.us, label %if.end22.split.us.us, label %for.body.us.i101.us.us, !llvm.loop !13
+  br i1 %exitcond43.not.i122.us.us, label %for.body.us.i132.us.us.preheader, label %for.body.us.i101.us.us, !llvm.loop !13
 
-if.end22.split.us.us:                             ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us, %if.end17.split.us.us
-  br i1 %cmp321.not.i.i, label %if.end25.us.us, label %for.body.us.i132.us.us
+for.body.us.i132.us.us.preheader:                 ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us, %if.end17.split.us.us
+  br label %for.body.us.i132.us.us
 
-for.body.us.i132.us.us:                           ; preds = %if.end22.split.us.us, %if.end.us.i140.us.us
-  %errors.017.us.i133.us.us = phi i32 [ %add.us.i142.us.us, %if.end.us.i140.us.us ], [ 0, %if.end22.split.us.us ]
-  %j.016.us.i134.us.us = phi i32 [ %inc.us.i143.us.us, %if.end.us.i140.us.us ], [ 0, %if.end22.split.us.us ]
+for.body.us.i132.us.us:                           ; preds = %for.body.us.i132.us.us.preheader, %if.end.us.i140.us.us
+  %errors.017.us.i133.us.us = phi i32 [ %add.us.i142.us.us, %if.end.us.i140.us.us ], [ 0, %for.body.us.i132.us.us.preheader ]
+  %j.016.us.i134.us.us = phi i32 [ %inc.us.i143.us.us, %if.end.us.i140.us.us ], [ 0, %for.body.us.i132.us.us.preheader ]
   br label %for.body.us.i.us.i135.us.us
 
 for.body.us.i.us.i135.us.us:                      ; preds = %if.end9.us.i.us.i146.us.us, %for.body.us.i132.us.us
@@ -929,9 +926,9 @@ if.end.us.i140.us.us:                             ; preds = %if.end9.us.i.us.i14
   %exitcond21.not.i144.us.us = icmp eq i32 %inc.us.i143.us.us, 4
   br i1 %exitcond21.not.i144.us.us, label %if.end25.us.us, label %for.body.us.i132.us.us, !llvm.loop !15
 
-if.end25.us.us:                                   ; preds = %if.end.us.i140.us.us, %if.end14.split.us.us, %while.body.us.us, %if.end6.split.us.us, %if.end22.split.us.us
-  %add19187.us.us212214 = phi i32 [ %add19.us.us, %if.end22.split.us.us ], [ %add11.us.us, %if.end14.split.us.us ], [ %add.us.us, %if.end6.split.us.us ], [ %errors.0202.us.us, %while.body.us.us ], [ %add19.us.us, %if.end.us.i140.us.us ]
-  %phi.call49.us.us = phi i32 [ 0, %if.end22.split.us.us ], [ 0, %if.end14.split.us.us ], [ 0, %if.end6.split.us.us ], [ 0, %while.body.us.us ], [ %add.us.i142.us.us, %if.end.us.i140.us.us ]
+if.end25.us.us:                                   ; preds = %if.end.us.i140.us.us, %while.body.us.us, %if.end6.split.us.us
+  %add19187.us.us212214 = phi i32 [ %add.us.us, %if.end6.split.us.us ], [ %errors.0202.us.us, %while.body.us.us ], [ %add19.us.us, %if.end.us.i140.us.us ]
+  %phi.call49.us.us = phi i32 [ 0, %if.end6.split.us.us ], [ 0, %while.body.us.us ], [ %add.us.i142.us.us, %if.end.us.i140.us.us ]
   %add27.us.us = add nsw i32 %phi.call49.us.us, %add19187.us.us212214
   %cmp.not.us.us = icmp eq i32 %inc.us.us, %passes
   br i1 %cmp.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !16
@@ -961,12 +958,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @memtest_fill_random(ptr noundef %m, i64 noundef %bytes, i32 noundef %interactive)
   %call.i54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %call1042 = tail call i32 @memtest_compare_times(ptr noundef %m, i64 noundef %bytes, i32 noundef %inc, i32 noundef 4, i32 noundef %interactive)
-  %add11175 = add nsw i32 %call1042, %add159
+  %add11175 = add nsw i32 %add159, %call1042
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.14, i32 noundef %inc)
   tail call void @memtest_fill_value(ptr noundef %m, i64 noundef %bytes, i64 noundef 0, i64 noundef -1, i8 noundef signext 83, i32 noundef %interactive)
   %call.i92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %call1845 = tail call i32 @memtest_compare_times(ptr noundef %m, i64 noundef %bytes, i32 noundef %inc, i32 noundef 4, i32 noundef %interactive)
-  %add19191 = add nsw i32 %call1845, %add11175
+  %add19191 = add nsw i32 %add11175, %call1845
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.15, i32 noundef %inc)
   tail call void @memtest_fill_value(ptr noundef %m, i64 noundef %bytes, i64 noundef -6148914691236517206, i64 noundef 6148914691236517205, i8 noundef signext 67, i32 noundef %interactive)
   %call.i152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
@@ -1158,7 +1155,7 @@ if.end.us.i91.us:                                 ; preds = %if.end9.us.i.us.i96
 
 for.cond.preheader.i105.us:                       ; preds = %if.end.us.i91.us
   %add23.us = add nsw i32 %add.us.i93.us, %add16.us
-  br i1 %cmp826.not.i, label %memtest_fill_value.exit.us, label %for.body.us.i107.us
+  br i1 %cmp826.not.i, label %for.body.us.i165.us.preheader, label %for.body.us.i107.us
 
 for.body.us.i107.us:                              ; preds = %for.cond.preheader.i105.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us
   %off.028.us.i.us = phi i64 [ %inc27.us.i.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us ], [ 0, %for.cond.preheader.i105.us ]
@@ -1189,14 +1186,14 @@ for.body15.us.us.i.us:                            ; preds = %for.body15.us.us.i.
 for.cond12.for.inc26_crit_edge.split.us.us.i.us:  ; preds = %for.body15.us.us.i.us
   %inc27.us.i.us = add nuw nsw i64 %off.028.us.i.us, 1
   %exitcond43.not.i.us = icmp eq i64 %inc27.us.i.us, 512
-  br i1 %exitcond43.not.i.us, label %memtest_fill_value.exit.us, label %for.body.us.i107.us, !llvm.loop !13
+  br i1 %exitcond43.not.i.us, label %for.body.us.i165.us.preheader, label %for.body.us.i107.us, !llvm.loop !13
 
-memtest_fill_value.exit.us:                       ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i.us, %for.cond.preheader.i105.us
-  br i1 %cmp321.not.i.i, label %memtest_compare_times.exit289.us, label %for.body.us.i165.us
+for.body.us.i165.us.preheader:                    ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i.us, %for.cond.preheader.i105.us
+  br label %for.body.us.i165.us
 
-for.body.us.i165.us:                              ; preds = %memtest_fill_value.exit.us, %if.end.us.i173.us
-  %errors.017.us.i166.us = phi i32 [ %add.us.i175.us, %if.end.us.i173.us ], [ 0, %memtest_fill_value.exit.us ]
-  %j.016.us.i167.us = phi i32 [ %inc.us.i176.us, %if.end.us.i173.us ], [ 0, %memtest_fill_value.exit.us ]
+for.body.us.i165.us:                              ; preds = %for.body.us.i165.us.preheader, %if.end.us.i173.us
+  %errors.017.us.i166.us = phi i32 [ %add.us.i175.us, %if.end.us.i173.us ], [ 0, %for.body.us.i165.us.preheader ]
+  %j.016.us.i167.us = phi i32 [ %inc.us.i176.us, %if.end.us.i173.us ], [ 0, %for.body.us.i165.us.preheader ]
   br label %for.body.us.i.us.i168.us
 
 for.body.us.i.us.i168.us:                         ; preds = %if.end9.us.i.us.i179.us, %for.body.us.i165.us
@@ -1224,7 +1221,7 @@ if.end.us.i173.us:                                ; preds = %if.end9.us.i.us.i17
 
 for.cond.preheader.i190.us:                       ; preds = %if.end.us.i173.us
   %add30.us = add nsw i32 %add.us.i175.us, %add23.us
-  br i1 %cmp826.not.i, label %memtest_fill_value.exit215.us, label %for.body.us.i193.us
+  br i1 %cmp826.not.i, label %for.body.us.i270.us.preheader, label %for.body.us.i193.us
 
 for.body.us.i193.us:                              ; preds = %for.cond.preheader.i190.us, %for.cond12.for.inc26_crit_edge.split.us.us.i212.us
   %off.028.us.i194.us = phi i64 [ %inc27.us.i213.us, %for.cond12.for.inc26_crit_edge.split.us.us.i212.us ], [ 0, %for.cond.preheader.i190.us ]
@@ -1256,14 +1253,14 @@ for.body15.us.us.i204.us:                         ; preds = %for.body15.us.us.i2
 for.cond12.for.inc26_crit_edge.split.us.us.i212.us: ; preds = %for.body15.us.us.i204.us
   %inc27.us.i213.us = add nuw nsw i64 %off.028.us.i194.us, 1
   %exitcond43.not.i214.us = icmp eq i64 %inc27.us.i213.us, 512
-  br i1 %exitcond43.not.i214.us, label %memtest_fill_value.exit215.us, label %for.body.us.i193.us, !llvm.loop !13
+  br i1 %exitcond43.not.i214.us, label %for.body.us.i270.us.preheader, label %for.body.us.i193.us, !llvm.loop !13
 
-memtest_fill_value.exit215.us:                    ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i212.us, %for.cond.preheader.i190.us
-  br i1 %cmp321.not.i.i, label %memtest_compare_times.exit289.us, label %for.body.us.i270.us
+for.body.us.i270.us.preheader:                    ; preds = %for.cond12.for.inc26_crit_edge.split.us.us.i212.us, %for.cond.preheader.i190.us
+  br label %for.body.us.i270.us
 
-for.body.us.i270.us:                              ; preds = %memtest_fill_value.exit215.us, %if.end.us.i278.us
-  %errors.017.us.i271.us = phi i32 [ %add.us.i280.us, %if.end.us.i278.us ], [ 0, %memtest_fill_value.exit215.us ]
-  %j.016.us.i272.us = phi i32 [ %inc.us.i281.us, %if.end.us.i278.us ], [ 0, %memtest_fill_value.exit215.us ]
+for.body.us.i270.us:                              ; preds = %for.body.us.i270.us.preheader, %if.end.us.i278.us
+  %errors.017.us.i271.us = phi i32 [ %add.us.i280.us, %if.end.us.i278.us ], [ 0, %for.body.us.i270.us.preheader ]
+  %j.016.us.i272.us = phi i32 [ %inc.us.i281.us, %if.end.us.i278.us ], [ 0, %for.body.us.i270.us.preheader ]
   br label %for.body.us.i.us.i273.us
 
 for.body.us.i.us.i273.us:                         ; preds = %if.end9.us.i.us.i284.us, %for.body.us.i270.us
@@ -1289,9 +1286,9 @@ if.end.us.i278.us:                                ; preds = %if.end9.us.i.us.i28
   %exitcond21.not.i282.us = icmp eq i32 %inc.us.i281.us, 4
   br i1 %exitcond21.not.i282.us, label %memtest_compare_times.exit289.us, label %for.body.us.i270.us, !llvm.loop !15
 
-memtest_compare_times.exit289.us:                 ; preds = %if.end.us.i278.us, %while.body15.us, %memtest_fill_random.exit.us, %memtest_fill_value.exit.us, %memtest_fill_value.exit215.us
-  %add30295.us318 = phi i32 [ %add30.us, %memtest_fill_value.exit215.us ], [ %add23.us, %memtest_fill_value.exit.us ], [ %add16.us, %memtest_fill_random.exit.us ], [ %errors.1305.us, %while.body15.us ], [ %add30.us, %if.end.us.i278.us ]
-  %errors.0.lcssa.i283.us = phi i32 [ 0, %memtest_fill_value.exit215.us ], [ 0, %memtest_fill_value.exit.us ], [ 0, %memtest_fill_random.exit.us ], [ 0, %while.body15.us ], [ %add.us.i280.us, %if.end.us.i278.us ]
+memtest_compare_times.exit289.us:                 ; preds = %if.end.us.i278.us, %while.body15.us, %memtest_fill_random.exit.us
+  %add30295.us318 = phi i32 [ %add16.us, %memtest_fill_random.exit.us ], [ %errors.1305.us, %while.body15.us ], [ %add30.us, %if.end.us.i278.us ]
+  %errors.0.lcssa.i283.us = phi i32 [ 0, %memtest_fill_random.exit.us ], [ 0, %while.body15.us ], [ %add.us.i280.us, %if.end.us.i278.us ]
   %add37.us = add nsw i32 %errors.0.lcssa.i283.us, %add30295.us318
   %cmp14.not.us = icmp eq i32 %inc.us, %passes
   br i1 %cmp14.not.us, label %while.cond13.while.end_crit_edge.split.us, label %while.body15.us, !llvm.loop !18

@@ -2132,7 +2132,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %210 = fdiv double %206, %191
   %211 = call double @sqrt(double noundef %210) #19
   %212 = fadd double %211, 1.000000e-10
-  br i1 %.not174, label %._crit_edge156, label %.lr.ph155
+  br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %._crit_edge151, %.lr.ph155
   %.072153 = phi i64 [ %218, %.lr.ph155 ], [ 0, %._crit_edge151 ]
@@ -2146,7 +2146,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %exitcond182.not = icmp eq i64 %218, %umax
   br i1 %exitcond182.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !25
 
-._crit_edge156:                                   ; preds = %.lr.ph155, %._crit_edge151.thread, %._crit_edge151
+._crit_edge156:                                   ; preds = %.lr.ph155, %._crit_edge151.thread
   %219 = add nuw i64 %.081157, 1
   %220 = icmp ult i64 %219, %189
   br i1 %220, label %193, label %._crit_edge160.loopexit, !llvm.loop !26

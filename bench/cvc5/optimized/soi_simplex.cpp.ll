@@ -4381,7 +4381,7 @@ for.end77:                                        ; preds = %for.inc75, %if.else
   br label %cond.end94
 
 cond.end94:                                       ; preds = %for.end77, %if.then36
-  %success.0.lcssa501 = phi i1 [ %11, %for.end77 ], [ false, %if.then36 ]
+  %success.0.lcssa501 = phi i1 [ true, %for.end77 ], [ false, %if.then36 ]
   %28 = load i32, ptr %d_soiVar, align 8
   tail call void @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure28tearDownInfeasiblityFunctionERNS0_9TimerStatEj(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(8) %d_soiConflictMinimization, i32 noundef %28)
   %29 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4

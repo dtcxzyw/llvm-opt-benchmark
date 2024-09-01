@@ -4217,8 +4217,8 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noca
   store ptr %52, ptr %58, align 8
   store i64 5, ptr %0, align 8
   %59 = load i64, ptr %6, align 8, !range !103, !noundef !4
-  %.not14.not = icmp eq i64 %59, -9223372036854775808
-  br i1 %.not14.not, label %70, label %60
+  %.not14 = icmp eq i64 %59, -9223372036854775808
+  br i1 %.not14, label %70, label %60
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -4876,8 +4876,8 @@ _ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, 
 define void @_ZN6ignore19PartialErrorBuilder10maybe_push17h3b82c41a3122e2fdE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load i64, ptr %1, align 8, !range !634, !noundef !4
-  %.not.not = icmp eq i64 %4, 9
-  br i1 %.not.not, label %22, label %5
+  %.not = icmp eq i64 %4, 9
+  br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -4929,8 +4929,8 @@ define void @_ZN6ignore19PartialErrorBuilder10maybe_push17h3b82c41a3122e2fdE(ptr
 define void @_ZN6ignore19PartialErrorBuilder20maybe_push_ignore_io17hfda8129acd3d3463E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #1 {
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load i64, ptr %1, align 8, !range !634, !noundef !4
-  %.not.not = icmp eq i64 %4, 9
-  br i1 %.not.not, label %5, label %.thread
+  %.not = icmp eq i64 %4, 9
+  br i1 %.not, label %5, label %.thread
 
 .thread:                                          ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)

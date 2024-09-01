@@ -3330,22 +3330,15 @@ for.body.lr.ph:                                   ; preds = %entry
   %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %1 = zext i32 %0 to i64
+  %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
-for.cond:                                         ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %1
-  %exitcond = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !27
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %cmp12 = phi i1 [ false, %for.body.lr.ph ], [ %cmp, %for.cond ]
+for.body:                                         ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx.i, align 8
+  %1 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
-  store ptr %2, ptr %ref.tmp.i.i.i, align 8
+  store ptr %1, ptr %ref.tmp.i.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx, align 8
   %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
@@ -3354,14 +3347,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread: ; preds = %for.body
   %m_value.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  %3 = load i8, ptr %m_value.i.i, align 8
+  %2 = load i8, ptr %m_value.i.i, align 8
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
 if.end.i:                                         ; preds = %for.body
-  %call3.i = call noundef zeroext i1 @_ZN3smt13quick_checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %2, i1 noundef zeroext %is_true)
+  %call3.i = call noundef zeroext i1 @_ZN3smt13quick_checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %1, i1 noundef zeroext %is_true)
   %frombool4.i = zext i1 %call3.i to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  store ptr %2, ptr %ref.tmp.i.i, align 8
+  store ptr %1, ptr %ref.tmp.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx, align 8
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
@@ -3369,12 +3362,15 @@ if.end.i:                                         ; preds = %for.body
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
 _ZN3smt13quick_checker5checkEP4exprb.exit:        ; preds = %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread, %if.end.i
-  %r.i.2 = phi i8 [ %frombool4.i, %if.end.i ], [ %3, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread ]
+  %r.i.2 = phi i8 [ %frombool4.i, %if.end.i ], [ %2, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread ]
   %retval.0.i = trunc i8 %r.i.2 to i1
-  br i1 %retval.0.i, label %for.cond, label %return
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %retval.0.i, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !27
 
-return:                                           ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %for.cond, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp, %for.cond ], [ %cmp12, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
+return:                                           ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ %retval.0.i, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
   ret i1 %cmp.lcssa
 }
 
@@ -3395,22 +3391,15 @@ for.body.lr.ph:                                   ; preds = %entry
   %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %1 = zext i32 %0 to i64
+  %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
-for.cond:                                         ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp ult i64 %indvars.iv.next, %1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !28
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %cmp12 = phi i1 [ true, %for.body.lr.ph ], [ %cmp, %for.cond ]
+for.body:                                         ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx.i, align 8
+  %1 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
-  store ptr %2, ptr %ref.tmp.i.i.i, align 8
+  store ptr %1, ptr %ref.tmp.i.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx, align 8
   %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
@@ -3419,14 +3408,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread: ; preds = %for.body
   %m_value.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  %3 = load i8, ptr %m_value.i.i, align 8
+  %2 = load i8, ptr %m_value.i.i, align 8
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
 if.end.i:                                         ; preds = %for.body
-  %call3.i = call noundef zeroext i1 @_ZN3smt13quick_checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %2, i1 noundef zeroext %is_true)
+  %call3.i = call noundef zeroext i1 @_ZN3smt13quick_checker10check_coreEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %1, i1 noundef zeroext %is_true)
   %frombool4.i = zext i1 %call3.i to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  store ptr %2, ptr %ref.tmp.i.i, align 8
+  store ptr %1, ptr %ref.tmp.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx, align 8
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
@@ -3434,12 +3423,15 @@ if.end.i:                                         ; preds = %for.body
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
 _ZN3smt13quick_checker5checkEP4exprb.exit:        ; preds = %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread, %if.end.i
-  %r.i.2 = phi i8 [ %frombool4.i, %if.end.i ], [ %3, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread ]
+  %r.i.2 = phi i8 [ %frombool4.i, %if.end.i ], [ %2, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread ]
   %retval.0.i = trunc i8 %r.i.2 to i1
-  br i1 %retval.0.i, label %return, label %for.cond
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %retval.0.i, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !28
 
-return:                                           ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %for.cond, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp, %for.cond ], [ %cmp12, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
+return:                                           ; preds = %_ZN3smt13quick_checker5checkEP4exprb.exit, %entry
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %retval.0.i, %_ZN3smt13quick_checker5checkEP4exprb.exit ]
   ret i1 %cmp.lcssa
 }
 

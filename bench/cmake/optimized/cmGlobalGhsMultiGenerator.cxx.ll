@@ -5425,8 +5425,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 61:                                               ; preds = %55
   %62 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.054.073) #26
-  %.not81 = icmp eq ptr %62, %51
-  br i1 %.not81, label %._crit_edge, label %.lr.ph
+  %.not74 = icmp eq ptr %62, %51
+  br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %61, %48
   %.02022.i.i.i26 = load ptr, ptr %9, align 8

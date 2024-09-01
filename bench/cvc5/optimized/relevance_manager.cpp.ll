@@ -5979,20 +5979,20 @@ invoke.cont50:                                    ; preds = %cond.true.i, %if.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %serr.i)
   %inc = add nuw i64 %index.0, 1
-  br label %cleanup
+  br label %nrvo.unused
 
 invoke.cont53:                                    ; preds = %if.end40
   %22 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb0EE6s_nullE, align 8, !noalias !64
-  br label %cleanup
+  br label %nrvo.unused
 
-cleanup:                                          ; preds = %invoke.cont53, %invoke.cont50
+nrvo.unused:                                      ; preds = %invoke.cont50, %invoke.cont53
   %nextInput.sroa.0.1 = phi ptr [ %18, %invoke.cont50 ], [ %22, %invoke.cont53 ]
   %index.1 = phi i64 [ %inc, %invoke.cont50 ], [ %index.0, %invoke.cont53 ]
   %23 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i180 = icmp eq i8 %23, 0
   br i1 %guard.uninitialized.i.i180, label %init.check.i.i182, label %invoke.cont58, !prof !15
 
-init.check.i.i182:                                ; preds = %cleanup
+init.check.i.i182:                                ; preds = %nrvo.unused
   %24 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20
   %tobool.not.i.i183 = icmp eq i32 %24, 0
   br i1 %tobool.not.i.i183, label %invoke.cont58, label %init.i.i184
@@ -6017,7 +6017,7 @@ lpad.i.i186:                                      ; preds = %init.i.i184
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20
   br label %common.resume
 
-invoke.cont58:                                    ; preds = %invoke.cont.i.i187, %init.check.i.i182, %cleanup
+invoke.cont58:                                    ; preds = %invoke.cont.i.i187, %init.check.i.i182, %nrvo.unused
   %26 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i181 = icmp eq ptr %nextInput.sroa.0.1, %26
   br i1 %cmp.i181, label %do.end, label %do.body, !llvm.loop !67

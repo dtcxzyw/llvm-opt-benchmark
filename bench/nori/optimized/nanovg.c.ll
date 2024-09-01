@@ -3926,7 +3926,7 @@ stbtt__add_point.exit.us.i:                       ; preds = %105, %97, %87, %79,
   tail call void %114(ptr noundef %117, i32 noundef 2, i32 noundef %53) #57
   br label %stbtt_FlattenCurves.exit.thread
 
-stbtt_FlattenCurves.exit.thread:                  ; preds = %fons__tmpalloc.exit89.us.i, %12, %fons__tmpalloc.exit.i, %37, %34, %115, %.split.us.i, %._crit_edge.i
+stbtt_FlattenCurves.exit.thread:                  ; preds = %fons__tmpalloc.exit89.us.i, %._crit_edge.i, %.split.us.i, %115, %34, %37, %fons__tmpalloc.exit.i, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %stbtt__rasterize.exit
 
@@ -3935,24 +3935,24 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
   br i1 %.not.i91.us.i, label %stbtt__rasterize.exit, label %.lr.ph.preheader.i30
 
 .lr.ph.preheader.i30:                             ; preds = %stbtt_FlattenCurves.exit
-  %.not.i = icmp eq i32 %10, 0
   %118 = fneg float %5
-  %119 = select i1 %.not.i, float %5, float %118
   %wide.trip.count.i31 = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i30
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i30 ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
-  %.085103.i = phi i32 [ 0, %.lr.ph.preheader.i30 ], [ %122, %.lr.ph.i32 ]
-  %120 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.i33
-  %121 = load i32, ptr %120, align 4
-  %122 = add nsw i32 %121, %.085103.i
+  %.085103.i = phi i32 [ 0, %.lr.ph.preheader.i30 ], [ %121, %.lr.ph.i32 ]
+  %119 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.i33
+  %120 = load i32, ptr %119, align 4
+  %121 = add nsw i32 %120, %.085103.i
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i31
-  br i1 %exitcond.not.i35, label %._crit_edge.i22, label %.lr.ph.i32, !llvm.loop !20
+  br i1 %exitcond.not.i35, label %._crit_edge.loopexit.i, label %.lr.ph.i32, !llvm.loop !20
 
-._crit_edge.i22:                                  ; preds = %.lr.ph.i32
-  %123 = mul i32 %122, 20
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i32
+  %.not.i = icmp eq i32 %10, 0
+  %122 = select i1 %.not.i, float %5, float %118
+  %123 = mul i32 %121, 20
   %124 = add i32 %123, 35
   %125 = and i32 %124, -16
   %126 = load i32, ptr %28, align 8
@@ -3960,7 +3960,7 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
   %128 = icmp sgt i32 %127, 96000
   br i1 %128, label %129, label %fons__tmpalloc.exit.i23
 
-129:                                              ; preds = %._crit_edge.i22
+129:                                              ; preds = %._crit_edge.loopexit.i
   %130 = getelementptr inbounds i8, ptr %11, i64 21104
   %131 = load ptr, ptr %130, align 8
   %.not.i.i29 = icmp eq ptr %131, null
@@ -3972,7 +3972,7 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
   tail call void %131(ptr noundef %134, i32 noundef 2, i32 noundef %127) #57
   br label %stbtt__rasterize.exit
 
-fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
+fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.loopexit.i
   %135 = load ptr, ptr %40, align 8
   %136 = sext i32 %126 to i64
   %137 = getelementptr inbounds i8, ptr %135, i64 %136
@@ -3981,7 +3981,6 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   br i1 %138, label %stbtt__rasterize.exit, label %.lr.ph114.i
 
 .lr.ph114.i:                                      ; preds = %fons__tmpalloc.exit.i23
-  %wide.trip.count137.i = zext nneg i32 %spec.select.i to i64
   br i1 %.not.i, label %.lr.ph114.split.us.i, label %.lr.ph114.split.i
 
 .lr.ph114.split.us.i:                             ; preds = %.lr.ph114.i, %._crit_edge109.split.us.us.i
@@ -4003,7 +4002,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
 ._crit_edge109.split.us.us.i:                     ; preds = %.lr.ph108.us._crit_edge.i, %.lr.ph114.split.us.i
   %.2.lcssa.us.i = phi i32 [ %.1113.us.i, %.lr.ph114.split.us.i ], [ %.3.us.us.i, %.lr.ph108.us._crit_edge.i ]
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
-  %exitcond138.not.i = icmp eq i64 %indvars.iv.next135.i, %wide.trip.count137.i
+  %exitcond138.not.i = icmp eq i64 %indvars.iv.next135.i, %wide.trip.count.i31
   br i1 %exitcond138.not.i, label %._crit_edge115.i, label %.lr.ph114.split.us.i, !llvm.loop !21
 
 .lr.ph108.us.i:                                   ; preds = %.lr.ph108.us._crit_edge.i, %.lr.ph108.us.preheader.i
@@ -4049,7 +4048,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   store float %164, ptr %155, align 4
   %165 = getelementptr inbounds i8, ptr %162, i64 4
   %166 = load float, ptr %165, align 4
-  %167 = tail call float @llvm.fmuladd.f32(float %166, float %119, float %7)
+  %167 = tail call float @llvm.fmuladd.f32(float %166, float %122, float %7)
   %168 = getelementptr inbounds i8, ptr %155, i64 4
   store float %167, ptr %168, align 4
   %169 = getelementptr inbounds %struct.stbtt__point, ptr %140, i64 %.pre-phi.i
@@ -4059,7 +4058,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   store float %171, ptr %172, align 4
   %173 = getelementptr inbounds i8, ptr %169, i64 4
   %174 = load float, ptr %173, align 4
-  %175 = tail call float @llvm.fmuladd.f32(float %174, float %119, float %7)
+  %175 = tail call float @llvm.fmuladd.f32(float %174, float %122, float %7)
   %176 = getelementptr inbounds i8, ptr %155, i64 12
   store float %175, ptr %176, align 4
   %177 = add nsw i32 %.2106.us.us.i, 1
@@ -4134,7 +4133,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   store float %206, ptr %197, align 4
   %207 = getelementptr inbounds i8, ptr %204, i64 4
   %208 = load float, ptr %207, align 4
-  %209 = tail call float @llvm.fmuladd.f32(float %208, float %119, float %7)
+  %209 = tail call float @llvm.fmuladd.f32(float %208, float %122, float %7)
   %210 = getelementptr inbounds i8, ptr %197, i64 4
   store float %209, ptr %210, align 4
   %211 = getelementptr inbounds %struct.stbtt__point, ptr %182, i64 %.pre-phi142.i
@@ -4144,7 +4143,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   store float %213, ptr %214, align 4
   %215 = getelementptr inbounds i8, ptr %211, i64 4
   %216 = load float, ptr %215, align 4
-  %217 = tail call float @llvm.fmuladd.f32(float %216, float %119, float %7)
+  %217 = tail call float @llvm.fmuladd.f32(float %216, float %122, float %7)
   %218 = getelementptr inbounds i8, ptr %197, i64 12
   store float %217, ptr %218, align 4
   %219 = add nsw i32 %.2106.i, 1
@@ -4163,7 +4162,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
 ._crit_edge109.split.i:                           ; preds = %.lr.ph108._crit_edge.i, %.lr.ph114.split.i
   %.2.lcssa.i = phi i32 [ %.1113.i, %.lr.ph114.split.i ], [ %.3.i, %.lr.ph108._crit_edge.i ]
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
-  %exitcond130.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count137.i
+  %exitcond130.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count.i31
   br i1 %exitcond130.not.i, label %._crit_edge115.i, label %.lr.ph114.split.i, !llvm.loop !21
 
 ._crit_edge115.i:                                 ; preds = %._crit_edge109.split.i, %._crit_edge109.split.us.us.i
@@ -8310,10 +8309,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   br label %13
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %7, label %.lr.ph59.preheader, label %._crit_edge60
-
-.lr.ph59.preheader:                               ; preds = %.preheader
+.lr.ph59.preheader:                               ; preds = %._crit_edge
   %wide.trip.count70 = zext nneg i32 %4 to i64
   br label %.lr.ph59
 
@@ -8340,7 +8336,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
 ._crit_edge:                                      ; preds = %13, %.preheader53
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader53, !llvm.loop !55
+  br i1 %exitcond.not, label %.lr.ph59.preheader, label %.preheader53, !llvm.loop !55
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv67 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next68, %.lr.ph59 ]
@@ -8358,8 +8354,8 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
   %30 = and i32 %29, -16
   br label %._crit_edge60
 
-._crit_edge60:                                    ; preds = %5, %._crit_edge60.loopexit, %.preheader
-  %.046.lcssa = phi i32 [ 0, %.preheader ], [ %30, %._crit_edge60.loopexit ], [ 0, %5 ]
+._crit_edge60:                                    ; preds = %5, %._crit_edge60.loopexit
+  %.046.lcssa = phi i32 [ %30, %._crit_edge60.loopexit ], [ 0, %5 ]
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 20616
   %33 = load i32, ptr %32, align 8
@@ -9173,9 +9169,8 @@ stbtt__find_table.exit.i:                         ; preds = %102, %83
   %.val48.i = load i8, ptr %gep, align 1
   %103 = and i8 %.val48.i, 7
   %104 = zext nneg i8 %103 to i32
-  %.not40.i = icmp ne i32 %8, %104
-  %or.cond = or i1 %.not40.i, %.not.i52.i.old
-  br i1 %or.cond, label %.loopexit, label %.lr.ph.i53.i
+  %.not40.i.not = icmp eq i32 %8, %104
+  br i1 %.not40.i.not, label %.lr.ph.i53.i, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %62
   br i1 %.not.i52.i.old, label %.loopexit, label %.lr.ph.i53.i
@@ -48862,15 +48857,12 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 
 ._crit_edge832:                                   ; preds = %.loopexit729
   %304 = icmp slt i32 %6, 8
-  br i1 %304, label %.preheader707, label %466
+  br i1 %304, label %.lr.ph869, label %466
 
 ._crit_edge832.thread:                            ; preds = %.preheader744
   br i1 %9, label %.thread, label %.loopexit708
 
-.preheader707:                                    ; preds = %._crit_edge832
-  br i1 %20, label %.loopexit708, label %.lr.ph869
-
-.lr.ph869:                                        ; preds = %.preheader707
+.lr.ph869:                                        ; preds = %._crit_edge832
   %305 = zext i32 %11 to i64
   %306 = zext nneg i32 %45 to i64
   %307 = sub nsw i64 0, %306
@@ -49238,8 +49230,8 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   store ptr %.str.71.sink, ptr @stbi__g_failure_reason, align 8
   br label %.loopexit708
 
-.loopexit708:                                     ; preds = %.loopexit, %.lr.ph837, %.loopexit708.sink.split, %._crit_edge832.thread, %.thread, %.preheader707, %466
-  %.0514 = phi i32 [ 1, %466 ], [ 1, %.preheader707 ], [ 1, %.thread ], [ 1, %._crit_edge832.thread ], [ 0, %.loopexit708.sink.split ], [ 1, %.lr.ph837 ], [ 1, %.loopexit ]
+.loopexit708:                                     ; preds = %.loopexit, %.lr.ph837, %.loopexit708.sink.split, %._crit_edge832.thread, %.thread, %466
+  %.0514 = phi i32 [ 1, %466 ], [ 1, %.thread ], [ 1, %._crit_edge832.thread ], [ 0, %.loopexit708.sink.split ], [ 1, %.lr.ph837 ], [ 1, %.loopexit ]
   ret i32 %.0514
 }
 

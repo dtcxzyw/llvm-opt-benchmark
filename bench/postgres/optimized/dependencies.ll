@@ -115,9 +115,9 @@ DependencyGenerator_next.exit:                    ; preds = %25
   store i16 %44, ptr %45, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph65.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !5
 
-.lr.ph65.i:                                       ; preds = %.lr.ph.i, %63
+.preheader.i:                                     ; preds = %.lr.ph.i, %63
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %63 ], [ 0, %.lr.ph.i ]
   %46 = load ptr, ptr %8, align 8
   %47 = getelementptr i16, ptr %34, i64 %indvars.iv77.i
@@ -133,7 +133,7 @@ DependencyGenerator_next.exit:                    ; preds = %25
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %63
 
-58:                                               ; preds = %.lr.ph65.i
+58:                                               ; preds = %.preheader.i
   %59 = getelementptr inbounds i8, ptr %51, i64 4
   %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %60)
@@ -142,14 +142,14 @@ DependencyGenerator_next.exit:                    ; preds = %25
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 274, ptr noundef nonnull @__func__.dependency_degree) #8
   unreachable
 
-63:                                               ; preds = %.lr.ph65.i
+63:                                               ; preds = %.preheader.i
   %64 = getelementptr inbounds i8, ptr %51, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = trunc nuw nsw i64 %indvars.iv77.i to i32
   call void @multi_sort_add_dimension(ptr noundef %37, i32 noundef %66, i32 noundef %56, i32 noundef %65) #8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
-  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph65.i, !llvm.loop !7
+  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %63, %35
   %67 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %37, i32 noundef %.03856, ptr noundef %38) #8
@@ -872,7 +872,7 @@ define dso_local double @dependencies_clauselist_selectivity(ptr noundef %0, ptr
   %30 = getelementptr inbounds i8, ptr %5, i64 184
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @has_stats_of_kind(ptr noundef %31, i8 noundef signext 102) #8
-  br i1 %32, label %33, label %423
+  br i1 %32, label %33, label %422
 
 33:                                               ; preds = %28
   %.not.i = icmp eq ptr %1, null
@@ -1046,12 +1046,12 @@ list_length.exit246:                              ; preds = %94, %95
 114:                                              ; preds = %112
   %115 = getelementptr inbounds i8, ptr %113, i64 4
   %116 = load i32, ptr %115, align 4
+  %117 = sext i32 %116 to i64
+  %118 = shl nsw i64 %117, 3
   br label %list_length.exit248
 
 list_length.exit248:                              ; preds = %112, %114
-  %117 = phi i32 [ %116, %114 ], [ 0, %112 ]
-  %118 = sext i32 %117 to i64
-  %119 = shl nsw i64 %118, 3
+  %119 = phi i64 [ %118, %114 ], [ 0, %112 ]
   %120 = tail call ptr @palloc(i64 noundef %119) #8
   %121 = load ptr, ptr %30, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 4
@@ -1486,7 +1486,7 @@ find_strongest_dependency.exit:                   ; preds = %._crit_edge.i
 
 find_strongest_dependency.exit.thread:            ; preds = %find_strongest_dependency.exit
   %.not231 = icmp eq i32 %.0200337, 0
-  br i1 %.not231, label %420, label %317
+  br i1 %.not231, label %.lr.ph345.preheader, label %317
 
 317:                                              ; preds = %find_strongest_dependency.exit.thread
   %318 = icmp sgt i32 %.0200337, 0
@@ -1702,28 +1702,25 @@ clauselist_apply_dependencies.exit:               ; preds = %.preheader.i250, %.
   %.296.i = phi double [ 1.000000e+00, %419 ], [ %415, %417 ], [ 0.000000e+00, %._crit_edge142.i ], [ 1.000000e+00, %.preheader.i250 ]
   tail call void @pfree(ptr noundef %338) #8
   tail call void @bms_free(ptr noundef %.0.lcssa.i) #8
-  br label %420
+  br label %.lr.ph345.preheader
 
-420:                                              ; preds = %clauselist_apply_dependencies.exit, %find_strongest_dependency.exit.thread
+.lr.ph345.preheader:                              ; preds = %find_strongest_dependency.exit.thread, %clauselist_apply_dependencies.exit
   %.0185 = phi double [ %.296.i, %clauselist_apply_dependencies.exit ], [ 1.000000e+00, %find_strongest_dependency.exit.thread ]
-  br i1 %261, label %.lr.ph345.preheader, label %._crit_edge346
-
-.lr.ph345.preheader:                              ; preds = %420
   %wide.trip.count393 = zext nneg i32 %.0193329.lcssa to i64
   br label %.lr.ph345
 
 .lr.ph345:                                        ; preds = %.lr.ph345.preheader, %.lr.ph345
   %indvars.iv390 = phi i64 [ 0, %.lr.ph345.preheader ], [ %indvars.iv.next391, %.lr.ph345 ]
-  %421 = getelementptr ptr, ptr %120, i64 %indvars.iv390
-  %422 = load ptr, ptr %421, align 8
-  tail call void @pfree(ptr noundef %422) #8
+  %420 = getelementptr ptr, ptr %120, i64 %indvars.iv390
+  %421 = load ptr, ptr %420, align 8
+  tail call void @pfree(ptr noundef %421) #8
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
   br i1 %exitcond394.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !34
 
-._crit_edge346:                                   ; preds = %.lr.ph345, %256, %420
-  %.0185405 = phi double [ %.0185, %420 ], [ 1.000000e+00, %256 ], [ %.0185, %.lr.ph345 ]
-  %.2.lcssa401404 = phi ptr [ %.2338, %420 ], [ %.0189, %256 ], [ %.2338, %.lr.ph345 ]
+._crit_edge346:                                   ; preds = %.lr.ph345, %256
+  %.0185405 = phi double [ 1.000000e+00, %256 ], [ %.0185, %.lr.ph345 ]
+  %.2.lcssa401404 = phi ptr [ %.0189, %256 ], [ %.2338, %.lr.ph345 ]
   tail call void @pfree(ptr noundef %259) #8
   tail call void @pfree(ptr noundef %120) #8
   tail call void @bms_free(ptr noundef %.2.lcssa401404) #8
@@ -1734,9 +1731,9 @@ clauselist_apply_dependencies.exit:               ; preds = %.preheader.i250, %.
   %.sink417 = phi ptr [ %88, %._crit_edge346 ], [ %88, %._crit_edge331.thread ], [ %89, %111 ]
   %.0.ph = phi double [ %.0185405, %._crit_edge346 ], [ 1.000000e+00, %._crit_edge331.thread ], [ 1.000000e+00, %111 ]
   tail call void @pfree(ptr noundef %.sink417) #8
-  br label %423
+  br label %422
 
-423:                                              ; preds = %.sink.split416, %28
+422:                                              ; preds = %.sink.split416, %28
   %.0 = phi double [ 1.000000e+00, %28 ], [ %.0.ph, %.sink.split416 ]
   ret double %.0
 }

@@ -54381,24 +54381,24 @@ _ZSt8distanceIN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel
   %conv.i3 = zext i32 %2 to i64
   %sub = sub nsw i64 %conv.i, %conv.i3
   %cmp.not = icmp ult i64 %__n.05.i.i, %sub
-  br i1 %cmp.not, label %for.body.i.i.i.i.preheader, label %if.then
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZSt8distanceIN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoENS0_12DenseMapInfoIS4_EENS0_6detail12DenseMapPairIS4_S7_EELb0EEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit
   %add = add nuw i64 %inc.i.i, %conv.i3
   tail call void @_ZN4llvh23SmallVectorTemplateBaseINS_6detail12DenseMapPairIPN6hermes13SwitchImmInstENS3_3hbc7HBCISel13SwitchImmInfoEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %add)
   %.pre = load i32, ptr %Size.i, align 8
   %.pre27 = zext i32 %.pre to i64
-  br label %for.body.i.i.i.i.preheader
+  br label %if.end
 
-for.body.i.i.i.i.preheader:                       ; preds = %_ZSt8distanceIN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoENS0_12DenseMapInfoIS4_EENS0_6detail12DenseMapPairIS4_S7_EELb0EEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit, %if.then
+if.end:                                           ; preds = %if.then, %_ZSt8distanceIN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoENS0_12DenseMapInfoIS4_EENS0_6detail12DenseMapPairIS4_S7_EELb0EEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit
   %conv.i7.pre-phi = phi i64 [ %.pre27, %if.then ], [ %conv.i3, %_ZSt8distanceIN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoENS0_12DenseMapInfoIS4_EENS0_6detail12DenseMapPairIS4_S7_EELb0EEEENSt15iterator_traitsIT_E15difference_typeESF_SF_.exit ]
   %3 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %3, i64 %conv.i7.pre-phi
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i
-  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i8, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i ], [ %add.ptr.i, %for.body.i.i.i.i.preheader ]
-  %__first.sroa.0.07.i.i.i.i = phi ptr [ %__first.sroa.0.2.i.i.i.i, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i ], [ %in_start.coerce0, %for.body.i.i.i.i.preheader ]
+for.body.i.i.i.i:                                 ; preds = %if.end, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i
+  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i8, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i ], [ %add.ptr.i, %if.end ]
+  %__first.sroa.0.07.i.i.i.i = phi ptr [ %__first.sroa.0.2.i.i.i.i, %_ZN4llvh16DenseMapIteratorIPN6hermes13SwitchImmInstENS1_3hbc7HBCISel13SwitchImmInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EELb0EEppEv.exit.i.i.i.i ], [ %in_start.coerce0, %if.end ]
   %4 = load ptr, ptr %__first.sroa.0.07.i.i.i.i, align 8
   store ptr %4, ptr %__cur.08.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 8

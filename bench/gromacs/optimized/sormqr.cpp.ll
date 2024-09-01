@@ -30,14 +30,14 @@ define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %29 = load i8, ptr %0, align 1
   %.fr138 = freeze i8 %29
   %30 = and i8 %.fr138, -33
-  %spec.select = icmp ne i8 %30, 76
+  %spec.select.not = icmp eq i8 %30, 76
   %31 = load i8, ptr %1, align 1
   %32 = and i8 %31, -33
   %33 = icmp eq i8 %32, 78
   %34 = load i32, ptr %11, align 4
   %35 = icmp eq i32 %34, -1
-  %.0122.in = select i1 %spec.select, ptr %3, ptr %2
-  %.0121.in = select i1 %spec.select, ptr %2, ptr %3
+  %.0122.in = select i1 %spec.select.not, ptr %2, ptr %3
+  %.0121.in = select i1 %spec.select.not, ptr %3, ptr %2
   %.0121 = load i32, ptr %.0121.in, align 4
   %.0122 = load i32, ptr %.0122.in, align 4
   %36 = shl nsw i32 %.0121, 5
@@ -89,7 +89,7 @@ define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 58:                                               ; preds = %.thread
-  br i1 %spec.select, label %59, label %switch.early.test
+  br i1 %spec.select.not, label %switch.early.test, label %59
 
 switch.early.test:                                ; preds = %58
   switch i8 %31, label %64 [
@@ -98,8 +98,7 @@ switch.early.test:                                ; preds = %58
   ]
 
 59:                                               ; preds = %58
-  %or.cond3 = and i1 %33, %spec.select
-  br i1 %or.cond3, label %64, label %.thread149
+  br i1 %33, label %64, label %.thread149
 
 .thread149:                                       ; preds = %switch.early.test, %switch.early.test, %59
   %60 = add nsw i32 %.fr134, -1

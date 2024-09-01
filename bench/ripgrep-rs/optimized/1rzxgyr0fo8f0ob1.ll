@@ -486,85 +486,85 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   %17 = icmp sgt i64 %16, -1
   tail call void @llvm.assume(i1 %17)
   %18 = icmp ult i64 %16, %1
-  br i1 %18, label %.split90, label %27, !prof !64
+  br i1 %18, label %19, label %28, !prof !64
 
-.split90:                                         ; preds = %12
-  %19 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
-  store i8 %3, ptr %19, align 1
-  %20 = add nuw i64 %16, 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 %20
-  %22 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
-  %23 = inttoptr i64 %22 to ptr
-  %24 = tail call { i64, ptr } %23(i8 noundef %2, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %7), !noalias !65
-  %25 = extractvalue { i64, ptr } %24, 0
-  %switch8.i.not91 = icmp eq i64 %25, 0
-  br i1 %switch8.i.not91, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph94.preheader
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
+  store i8 %3, ptr %20, align 1
+  %21 = add nuw i64 %16, 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %23 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
+  %24 = inttoptr i64 %23 to ptr
+  %25 = tail call { i64, ptr } %24(i8 noundef %2, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %7), !noalias !65
+  %26 = extractvalue { i64, ptr } %25, 0
+  %switch8.i.not86 = icmp eq i64 %26, 0
+  br i1 %switch8.i.not86, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph89.preheader
 
-.lr.ph94.preheader:                               ; preds = %.split90
-  %26 = sub nuw i64 %1, %20
-  br label %.lr.ph94
+.lr.ph89.preheader:                               ; preds = %19
+  %27 = sub nuw i64 %1, %21
+  br label %.lr.ph89
 
-27:                                               ; preds = %12
+28:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %16, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.29) #12
   unreachable
 
-.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.critedge
-  %28 = phi { i64, ptr } [ %45, %.critedge ], [ %24, %.lr.ph94.preheader ]
-  %.sroa.0.093 = phi ptr [ %.sroa.0.1.lcssa, %.critedge ], [ %21, %.lr.ph94.preheader ]
-  %.sroa.13.092 = phi i64 [ %.sroa.13.1.lcssa, %.critedge ], [ %26, %.lr.ph94.preheader ]
-  %29 = extractvalue { i64, ptr } %28, 1
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %.sroa.0.093 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp sgt i64 %32, -1
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp ult i64 %32, %.sroa.13.092
-  br i1 %34, label %.split, label %39, !prof !64
+.lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.critedge
+  %29 = phi { i64, ptr } [ %47, %.critedge ], [ %25, %.lr.ph89.preheader ]
+  %.sroa.0.088 = phi ptr [ %.sroa.0.1.lcssa, %.critedge ], [ %22, %.lr.ph89.preheader ]
+  %.sroa.13.087 = phi i64 [ %.sroa.13.1.lcssa, %.critedge ], [ %27, %.lr.ph89.preheader ]
+  %30 = extractvalue { i64, ptr } %29, 1
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %.sroa.0.088 to i64
+  %33 = sub i64 %31, %32
+  %34 = icmp sgt i64 %33, -1
+  tail call void @llvm.assume(i1 %34)
+  %35 = icmp ult i64 %33, %.sroa.13.087
+  br i1 %35, label %36, label %41, !prof !64
 
-.split:                                           ; preds = %.lr.ph94
-  %35 = getelementptr inbounds [0 x i8], ptr %.sroa.0.093, i64 0, i64 %32
-  store i8 %3, ptr %35, align 1
-  %36 = add nuw i64 %32, 1
-  %37 = sub nuw i64 %.sroa.13.092, %36
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 %36
-  %.not83 = icmp eq i64 %37, 0
-  br i1 %.not83, label %.critedge, label %.lr.ph
+36:                                               ; preds = %.lr.ph89
+  %37 = getelementptr inbounds [0 x i8], ptr %.sroa.0.088, i64 0, i64 %33
+  store i8 %3, ptr %37, align 1
+  %38 = add nuw i64 %33, 1
+  %39 = sub nuw i64 %.sroa.13.087, %38
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 %38
+  %.not79 = icmp eq i64 %39, 0
+  br i1 %.not79, label %.critedge, label %.lr.ph
 
-39:                                               ; preds = %.lr.ph94
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %32, i64 noundef %.sroa.13.092, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.30) #12
+41:                                               ; preds = %.lr.ph89
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %33, i64 noundef %.sroa.13.087, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.063a6eda66e372215699932fa5a1275a.30) #12
   unreachable
 
-.lr.ph:                                           ; preds = %.split, %47
-  %.sroa.0.185 = phi ptr [ %49, %47 ], [ %38, %.split ]
-  %.sroa.13.184 = phi i64 [ %48, %47 ], [ %37, %.split ]
-  %40 = load i8, ptr %.sroa.0.185, align 1, !noundef !18
-  %41 = icmp eq i8 %40, %2
-  br i1 %41, label %47, label %.critedge
+.lr.ph:                                           ; preds = %36, %49
+  %.sroa.0.181 = phi ptr [ %51, %49 ], [ %40, %36 ]
+  %.sroa.13.180 = phi i64 [ %50, %49 ], [ %39, %36 ]
+  %42 = load i8, ptr %.sroa.0.181, align 1, !noundef !18
+  %43 = icmp eq i8 %42, %2
+  br i1 %43, label %49, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %47, %.split
-  %.sroa.13.1.lcssa = phi i64 [ 0, %.split ], [ 0, %47 ], [ %.sroa.13.184, %.lr.ph ]
-  %.sroa.0.1.lcssa = phi ptr [ %38, %.split ], [ %49, %47 ], [ %.sroa.0.185, %.lr.ph ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.13.1.lcssa
-  %43 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
-  %44 = inttoptr i64 %43 to ptr
-  %45 = tail call { i64, ptr } %44(i8 noundef %2, ptr noundef nonnull readonly %.sroa.0.1.lcssa, ptr noundef readonly %42), !noalias !65
-  %46 = extractvalue { i64, ptr } %45, 0
-  %switch8.i.not = icmp eq i64 %46, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph94
+.critedge:                                        ; preds = %.lr.ph, %49, %36
+  %.sroa.13.1.lcssa = phi i64 [ 0, %36 ], [ 0, %49 ], [ %.sroa.13.180, %.lr.ph ]
+  %.sroa.0.1.lcssa = phi ptr [ %40, %36 ], [ %51, %49 ], [ %.sroa.0.181, %.lr.ph ]
+  %44 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.13.1.lcssa
+  %45 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h5611eda7ee397a54E monotonic, align 8, !noalias !65
+  %46 = inttoptr i64 %45 to ptr
+  %47 = tail call { i64, ptr } %46(i8 noundef %2, ptr noundef nonnull readonly %.sroa.0.1.lcssa, ptr noundef readonly %44), !noalias !65
+  %48 = extractvalue { i64, ptr } %47, 0
+  %switch8.i.not = icmp eq i64 %48, 0
+  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread, label %.lr.ph89
 
-47:                                               ; preds = %.lr.ph
-  store i8 %3, ptr %.sroa.0.185, align 1
-  %48 = add i64 %.sroa.13.184, -1
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.185, i64 1
-  %.not = icmp eq i64 %48, 0
+49:                                               ; preds = %.lr.ph
+  store i8 %3, ptr %.sroa.0.181, align 1
+  %50 = add i64 %.sroa.13.180, -1
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.181, i64 1
+  %.not = icmp eq i64 %50, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
-_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread: ; preds = %.critedge, %.split90, %6, %4
-  %.sroa.4.0 = phi i64 [ undef, %4 ], [ undef, %6 ], [ %16, %.split90 ], [ %16, %.critedge ]
-  %.sroa.023.0 = phi i64 [ 0, %4 ], [ 0, %6 ], [ 1, %.split90 ], [ 1, %.critedge ]
-  %50 = insertvalue { i64, i64 } poison, i64 %.sroa.023.0, 0
-  %51 = insertvalue { i64, i64 } %50, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %51
+_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h12de3738f17c84b9E.exit68.thread: ; preds = %.critedge, %19, %6, %4
+  %.sroa.4.0 = phi i64 [ undef, %4 ], [ undef, %6 ], [ %16, %19 ], [ %16, %.critedge ]
+  %.sroa.023.0 = phi i64 [ 0, %4 ], [ 0, %6 ], [ 1, %19 ], [ 1, %.critedge ]
+  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.023.0, 0
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %53
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

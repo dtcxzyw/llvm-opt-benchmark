@@ -3474,19 +3474,19 @@ get_rightop.exit:                                 ; preds = %get_rightop.exit.si
   %36 = getelementptr inbounds i8, ptr %.8.val, i64 144
   %37 = load i32, ptr %34, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph82, label %.thread
+  br i1 %38, label %.lr.ph84, label %.thread
 
-.lr.ph82:                                         ; preds = %.lr.ph42, %.critedge
-  %indvars.iv5581 = phi i64 [ %indvars.iv.next56, %.critedge ], [ 0, %.lr.ph42 ]
+.lr.ph84:                                         ; preds = %.lr.ph42, %.critedge
+  %indvars.iv5783 = phi i64 [ %indvars.iv.next58, %.critedge ], [ 0, %.lr.ph42 ]
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv5581
+  %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv5783
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 56
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %.critedge
 
-45:                                               ; preds = %.lr.ph82
+45:                                               ; preds = %.lr.ph84
   %46 = getelementptr inbounds i8, ptr %41, i64 57
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
@@ -3552,20 +3552,20 @@ get_rightop.exit:                                 ; preds = %get_rightop.exit.si
   %83 = getelementptr i8, ptr %0, i64 168
   %84 = load i32, ptr %78, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph85, label %.thread
+  br i1 %85, label %.lr.ph87, label %.thread
 
-.lr.ph85:                                         ; preds = %.lr.ph46, %select_equality_operator.exit.thread
-  %.1674484 = phi i1 [ %.2, %select_equality_operator.exit.thread ], [ false, %.lr.ph46 ]
-  %indvars.iv5883 = phi i64 [ %indvars.iv.next59, %select_equality_operator.exit.thread ], [ 0, %.lr.ph46 ]
+.lr.ph87:                                         ; preds = %.lr.ph46, %select_equality_operator.exit.thread
+  %.1674486 = phi i1 [ %.2, %select_equality_operator.exit.thread ], [ false, %.lr.ph46 ]
+  %indvars.iv6085 = phi i64 [ %indvars.iv.next61, %select_equality_operator.exit.thread ], [ 0, %.lr.ph46 ]
   %86 = load ptr, ptr %79, align 8
-  %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv5883
+  %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv6085
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 24
   %90 = load i8, ptr %89, align 8
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %select_equality_operator.exit.thread
 
-92:                                               ; preds = %.lr.ph85
+92:                                               ; preds = %.lr.ph87
   %93 = getelementptr inbounds i8, ptr %88, i64 28
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %75, align 8
@@ -3651,26 +3651,26 @@ select_equality_operator.exit:                    ; preds = %107, %104
 
 find_join_domain.exit:                            ; preds = %.lr.ph6.i
   %137 = call zeroext i1 @process_equivalence(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %131)
-  %spec.select = select i1 %137, i1 true, i1 %.1674484
+  %spec.select = select i1 %137, i1 true, i1 %.1674486
   br label %select_equality_operator.exit.thread
 
-select_equality_operator.exit.thread:             ; preds = %110, %.lr.ph.i, %92, %find_join_domain.exit, %.lr.ph85
-  %.2 = phi i1 [ %.1674484, %.lr.ph85 ], [ %spec.select, %find_join_domain.exit ], [ %.1674484, %92 ], [ %.1674484, %.lr.ph.i ], [ %.1674484, %110 ]
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv5883, 1
+select_equality_operator.exit.thread:             ; preds = %110, %.lr.ph.i, %92, %find_join_domain.exit, %.lr.ph87
+  %.2 = phi i1 [ %.1674486, %.lr.ph87 ], [ %spec.select, %find_join_domain.exit ], [ %.1674486, %92 ], [ %.1674486, %.lr.ph.i ], [ %.1674486, %110 ]
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv6085, 1
   %138 = load i32, ptr %78, align 4
   %139 = sext i32 %138 to i64
-  %140 = icmp slt i64 %indvars.iv.next59, %139
-  br i1 %140, label %.lr.ph85, label %._crit_edge
+  %140 = icmp slt i64 %indvars.iv.next61, %139
+  br i1 %140, label %.lr.ph87, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %select_equality_operator.exit.thread
   br i1 %.2, label %144, label %.thread
 
-.critedge:                                        ; preds = %64, %57, %.lr.ph, %52, %49, %45, %.lr.ph82
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv5581, 1
+.critedge:                                        ; preds = %64, %57, %.lr.ph, %52, %49, %45, %.lr.ph84
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv5783, 1
   %141 = load i32, ptr %34, align 4
   %142 = sext i32 %141 to i64
-  %143 = icmp slt i64 %indvars.iv.next56, %142
-  br i1 %143, label %.lr.ph82, label %.thread
+  %143 = icmp slt i64 %indvars.iv.next58, %142
+  br i1 %143, label %.lr.ph84, label %.thread
 
 .thread:                                          ; preds = %.critedge, %.lr.ph46, %.lr.ph42, %.split, %get_rightop.exit, %._crit_edge
   br label %144

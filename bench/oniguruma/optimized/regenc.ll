@@ -477,7 +477,7 @@ define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %
 7:                                                ; preds = %4
   %8 = load i32, ptr %3, align 4
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %20, label %.preheader
+  br i1 %9, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %7
   %10 = icmp sgt i32 %8, 1
@@ -496,10 +496,7 @@ define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %
   %14 = icmp sgt i32 %.023, 2
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %12
-  br i1 %10, label %20, label %.thread
-
-.thread:                                          ; preds = %.lr.ph, %.preheader, %._crit_edge, %4
+.thread:                                          ; preds = %.lr.ph, %.preheader, %4
   %15 = load ptr, ptr %0, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %.017) #16
   %17 = sext i32 %16 to i64
@@ -507,7 +504,7 @@ define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %
   %19 = add nuw nsw i32 %.018, 1
   br label %4
 
-20:                                               ; preds = %._crit_edge, %7
+._crit_edge:                                      ; preds = %7, %12
   ret i32 %.018
 }
 
@@ -525,7 +522,7 @@ define noundef i32 @onigenc_str_bytelen_null(ptr nocapture noundef readonly %0, 
 7:                                                ; preds = %4
   %8 = load i32, ptr %3, align 4
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %19, label %.preheader
+  br i1 %9, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %7
   %10 = icmp sgt i32 %8, 1
@@ -544,21 +541,18 @@ define noundef i32 @onigenc_str_bytelen_null(ptr nocapture noundef readonly %0, 
   %14 = icmp sgt i32 %.025, 2
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %12
-  br i1 %10, label %19, label %.thread
-
-.thread:                                          ; preds = %.lr.ph, %.preheader, %._crit_edge, %4
+.thread:                                          ; preds = %.lr.ph, %.preheader, %4
   %15 = load ptr, ptr %0, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %.019) #16
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %.019, i64 %17
   br label %4
 
-19:                                               ; preds = %._crit_edge, %7
-  %20 = ptrtoint ptr %.019 to i64
-  %21 = ptrtoint ptr %1 to i64
-  %22 = sub i64 %20, %21
-  %.020 = trunc i64 %22 to i32
+._crit_edge:                                      ; preds = %7, %12
+  %19 = ptrtoint ptr %.019 to i64
+  %20 = ptrtoint ptr %1 to i64
+  %21 = sub i64 %19, %20
+  %.020 = trunc i64 %21 to i32
   ret i32 %.020
 }
 

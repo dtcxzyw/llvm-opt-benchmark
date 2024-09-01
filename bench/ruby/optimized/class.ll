@@ -2167,9 +2167,9 @@ rb_singleton_class_attached.exit.thread:          ; preds = %RCLASS_SET_SUPER.ex
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, %0
   store i64 %5, ptr %51, align 8
-  br i1 %53, label %RBASIC_SET_CLASS.exit.thread, label %RBASIC_SET_CLASS.exit53
+  br i1 %53, label %.thread, label %RBASIC_SET_CLASS.exit53
 
-RBASIC_SET_CLASS.exit.thread:                     ; preds = %rb_singleton_class_attached.exit.thread
+.thread:                                          ; preds = %rb_singleton_class_attached.exit.thread
   %54 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %5, ptr %54, align 8
   br label %RBASIC_SET_CLASS.exit52.preheader
@@ -2226,8 +2226,8 @@ RB_FL_TEST.exit.thread:                           ; preds = %66, %RBASIC_SET_CLA
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %77) #18
   br label %RBASIC_SET_CLASS.exit52.preheader
 
-RBASIC_SET_CLASS.exit52.preheader:                ; preds = %83, %76, %55, %RBASIC_SET_CLASS.exit.thread
-  %.pn.ph = phi ptr [ %57, %83 ], [ %57, %76 ], [ %46, %55 ], [ %50, %RBASIC_SET_CLASS.exit.thread ]
+RBASIC_SET_CLASS.exit52.preheader:                ; preds = %83, %76, %55, %.thread
+  %.pn.ph = phi ptr [ %57, %83 ], [ %57, %76 ], [ %46, %55 ], [ %50, %.thread ]
   br label %RBASIC_SET_CLASS.exit52
 
 RBASIC_SET_CLASS.exit52:                          ; preds = %RBASIC_SET_CLASS.exit52.preheader, %88

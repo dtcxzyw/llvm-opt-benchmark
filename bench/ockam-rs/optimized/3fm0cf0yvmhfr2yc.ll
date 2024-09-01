@@ -2245,8 +2245,8 @@ default.unreachable171:                           ; preds = %1119, %1108, %1092,
 
 201:                                              ; preds = %198
   %202 = load ptr, ptr %90, align 8, !noundef !4
-  %.not.not = icmp eq ptr %202, null
-  br i1 %.not.not, label %235, label %203
+  %.not = icmp eq ptr %202, null
+  br i1 %.not, label %235, label %203
 
 203:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %89)
@@ -2370,8 +2370,8 @@ default.unreachable171:                           ; preds = %1119, %1108, %1092,
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %87, align 8, !noundef !4
-  %.not85.not = icmp eq ptr %244, null
-  br i1 %.not85.not, label %277, label %245
+  %.not85 = icmp eq ptr %244, null
+  br i1 %.not85, label %277, label %245
 
 245:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %86)

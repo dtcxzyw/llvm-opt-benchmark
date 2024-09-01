@@ -808,39 +808,39 @@ if.else55.i.i:                                    ; preds = %if.else35.i.i
   br i1 %tobool57.not.i.i, label %if.else74.i.i, label %lor.lhs.false63.i.i
 
 lor.lhs.false63.i.i:                              ; preds = %if.else55.i.i
-  %uid64.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %67, i64 24
-  %.pre.i.i = load ptr, ptr %uid64.phi.trans.insert.i.i, align 8
-  %tobool65.not.i.i = icmp eq ptr %.pre.i.i, null
+  %uid64.i.i = getelementptr inbounds i8, ptr %67, i64 24
+  %96 = load ptr, ptr %uid64.i.i, align 8
+  %tobool65.not.i.i = icmp eq ptr %96, null
   br i1 %tobool65.not.i.i, label %lor.lhs.false66.i.i, label %if.then72.i.i
 
 lor.lhs.false66.i.i:                              ; preds = %lor.lhs.false63.i.i
   %mindex67.i.i = getelementptr inbounds i8, ptr %67, i64 32
-  %96 = load ptr, ptr %mindex67.i.i, align 8
-  %tobool68.not.i.i = icmp eq ptr %96, null
+  %97 = load ptr, ptr %mindex67.i.i, align 8
+  %tobool68.not.i.i = icmp eq ptr %97, null
   br i1 %tobool68.not.i.i, label %lor.lhs.false69.i.i, label %if.then72.i.i
 
 lor.lhs.false69.i.i:                              ; preds = %lor.lhs.false66.i.i
   %query70.i.i = getelementptr inbounds i8, ptr %67, i64 56
-  %97 = load ptr, ptr %query70.i.i, align 8
-  %tobool71.not.i.i = icmp eq ptr %97, null
+  %98 = load ptr, ptr %query70.i.i, align 8
+  %tobool71.not.i.i = icmp eq ptr %98, null
   br i1 %tobool71.not.i.i, label %if.else74.i.i, label %if.then72.i.i
 
 if.then72.i.i:                                    ; preds = %lor.lhs.false69.i.i, %lor.lhs.false66.i.i, %lor.lhs.false63.i.i, %lor.lhs.false30.i.i
-  %98 = load ptr, ptr %conn1.i.i, align 8
-  %99 = load ptr, ptr %p.i, align 8
-  %100 = load ptr, ptr @Curl_cfree, align 8
-  %mailbox2.i.i.i = getelementptr inbounds i8, ptr %98, i64 1056
-  %101 = load ptr, ptr %mailbox2.i.i.i, align 8
-  call void %100(ptr noundef %101) #9
+  %99 = load ptr, ptr %conn1.i.i, align 8
+  %100 = load ptr, ptr %p.i, align 8
+  %101 = load ptr, ptr @Curl_cfree, align 8
+  %mailbox2.i.i.i = getelementptr inbounds i8, ptr %99, i64 1056
+  %102 = load ptr, ptr %mailbox2.i.i.i, align 8
+  call void %101(ptr noundef %102) #9
   store ptr null, ptr %mailbox2.i.i.i, align 8
-  %102 = load ptr, ptr @Curl_cfree, align 8
-  %mailbox_uidvalidity.i.i.i = getelementptr inbounds i8, ptr %98, i64 1064
-  %103 = load ptr, ptr %mailbox_uidvalidity.i.i.i, align 8
-  call void %102(ptr noundef %103) #9
+  %103 = load ptr, ptr @Curl_cfree, align 8
+  %mailbox_uidvalidity.i.i.i = getelementptr inbounds i8, ptr %99, i64 1064
+  %104 = load ptr, ptr %mailbox_uidvalidity.i.i.i, align 8
+  call void %103(ptr noundef %104) #9
   store ptr null, ptr %mailbox_uidvalidity.i.i.i, align 8
-  %mailbox7.i.i.i = getelementptr inbounds i8, ptr %99, i64 8
-  %104 = load ptr, ptr %mailbox7.i.i.i, align 8
-  %tobool.not.i55.i.i = icmp eq ptr %104, null
+  %mailbox7.i.i.i = getelementptr inbounds i8, ptr %100, i64 8
+  %105 = load ptr, ptr %mailbox7.i.i.i, align 8
+  %tobool.not.i55.i.i = icmp eq ptr %105, null
   br i1 %tobool.not.i55.i.i, label %if.then.i62.i.i, label %if.end.i56.i.i
 
 if.then.i62.i.i:                                  ; preds = %if.then72.i.i
@@ -848,45 +848,45 @@ if.then.i62.i.i:                                  ; preds = %if.then72.i.i
   br label %return
 
 if.end.i56.i.i:                                   ; preds = %if.then72.i.i
-  %call.i57.i.i = call fastcc ptr @imap_atom(ptr noundef nonnull %104, i1 noundef zeroext false)
+  %call.i57.i.i = call fastcc ptr @imap_atom(ptr noundef nonnull %105, i1 noundef zeroext false)
   %tobool9.not.i.i.i = icmp eq ptr %call.i57.i.i, null
   br i1 %tobool9.not.i.i.i, label %return, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end.i56.i.i
   %call12.i.i.i = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %data, ptr noundef nonnull @.str.68, ptr noundef nonnull %call.i57.i.i)
-  %105 = load ptr, ptr @Curl_cfree, align 8
-  call void %105(ptr noundef nonnull %call.i57.i.i) #9
+  %106 = load ptr, ptr @Curl_cfree, align 8
+  call void %106(ptr noundef nonnull %call.i57.i.i) #9
   %tobool13.not.i58.i.i = icmp eq i32 %call12.i.i.i, 0
   br i1 %tobool13.not.i58.i.i, label %if.end83.sink.split.i.i, label %return
 
 if.else74.i.i:                                    ; preds = %lor.lhs.false69.i.i, %if.else55.i.i, %land.lhs.true51.i.i
-  %106 = load ptr, ptr %p.i, align 8
-  %custom.i64.i.i = getelementptr inbounds i8, ptr %106, i64 64
-  %107 = load ptr, ptr %custom.i64.i.i, align 8
-  %tobool.not.i65.i.i = icmp eq ptr %107, null
+  %107 = load ptr, ptr %p.i, align 8
+  %custom.i64.i.i = getelementptr inbounds i8, ptr %107, i64 64
+  %108 = load ptr, ptr %custom.i64.i.i, align 8
+  %tobool.not.i65.i.i = icmp eq ptr %108, null
   br i1 %tobool.not.i65.i.i, label %if.else.i78.i.i, label %if.then.i66.i.i
 
 if.then.i66.i.i:                                  ; preds = %if.else74.i.i
-  %custom_params.i67.i.i = getelementptr inbounds i8, ptr %106, i64 72
-  %108 = load ptr, ptr %custom_params.i67.i.i, align 8
-  %tobool2.not.i68.i.i = icmp eq ptr %108, null
-  %spec.select.i69.i.i = select i1 %tobool2.not.i68.i.i, ptr @.str.15, ptr %108
-  %call.i70.i.i = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %data, ptr noundef nonnull @.str.25, ptr noundef nonnull %107, ptr noundef nonnull %spec.select.i69.i.i)
+  %custom_params.i67.i.i = getelementptr inbounds i8, ptr %107, i64 72
+  %109 = load ptr, ptr %custom_params.i67.i.i, align 8
+  %tobool2.not.i68.i.i = icmp eq ptr %109, null
+  %spec.select.i69.i.i = select i1 %tobool2.not.i68.i.i, ptr @.str.15, ptr %109
+  %call.i70.i.i = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %data, ptr noundef nonnull @.str.25, ptr noundef nonnull %108, ptr noundef nonnull %spec.select.i69.i.i)
   br label %if.end16.i71.i.i
 
 if.else.i78.i.i:                                  ; preds = %if.else74.i.i
-  %mailbox4.i79.i.i = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load ptr, ptr %mailbox4.i79.i.i, align 8
-  %tobool5.not.i80.i.i = icmp eq ptr %109, null
+  %mailbox4.i79.i.i = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = load ptr, ptr %mailbox4.i79.i.i, align 8
+  %tobool5.not.i80.i.i = icmp eq ptr %110, null
   br i1 %tobool5.not.i80.i.i, label %cond.false9.i88.i.i, label %cond.true6.i81.i.i
 
 cond.true6.i81.i.i:                               ; preds = %if.else.i78.i.i
-  %call8.i82.i.i = call fastcc ptr @imap_atom(ptr noundef nonnull %109, i1 noundef zeroext true)
+  %call8.i82.i.i = call fastcc ptr @imap_atom(ptr noundef nonnull %110, i1 noundef zeroext true)
   br label %cond.end11.i83.i.i
 
 cond.false9.i88.i.i:                              ; preds = %if.else.i78.i.i
-  %110 = load ptr, ptr @Curl_cstrdup, align 8
-  %call10.i89.i.i = call ptr %110(ptr noundef nonnull @.str.15) #9
+  %111 = load ptr, ptr @Curl_cstrdup, align 8
+  %call10.i89.i.i = call ptr %111(ptr noundef nonnull @.str.15) #9
   br label %cond.end11.i83.i.i
 
 cond.end11.i83.i.i:                               ; preds = %cond.false9.i88.i.i, %cond.true6.i81.i.i
@@ -896,8 +896,8 @@ cond.end11.i83.i.i:                               ; preds = %cond.false9.i88.i.i
 
 if.end.i86.i.i:                                   ; preds = %cond.end11.i83.i.i
   %call15.i87.i.i = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %data, ptr noundef nonnull @.str.26, ptr noundef nonnull %cond12.i84.i.i)
-  %111 = load ptr, ptr @Curl_cfree, align 8
-  call void %111(ptr noundef nonnull %cond12.i84.i.i) #9
+  %112 = load ptr, ptr @Curl_cfree, align 8
+  call void %112(ptr noundef nonnull %cond12.i84.i.i) #9
   br label %if.end16.i71.i.i
 
 if.end16.i71.i.i:                                 ; preds = %if.end.i86.i.i, %if.then.i66.i.i
@@ -919,18 +919,18 @@ if.end83.sink.split.i.i:                          ; preds = %if.end16.i71.i.i, %
 
 if.end83.i.i:                                     ; preds = %if.end83.sink.split.i.i, %if.end80.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i.i.i)
-  %112 = load ptr, ptr %conn1.i.i, align 8
-  %proto.i.i.i = getelementptr inbounds i8, ptr %112, i64 856
-  %handler.i.i.i = getelementptr inbounds i8, ptr %112, i64 712
-  %113 = load ptr, ptr %handler.i.i.i, align 8
-  %flags.i92.i.i = getelementptr inbounds i8, ptr %113, i64 140
-  %114 = load i32, ptr %flags.i92.i.i, align 4
-  %and.i93.i.i = and i32 %114, 1
+  %113 = load ptr, ptr %conn1.i.i, align 8
+  %proto.i.i.i = getelementptr inbounds i8, ptr %113, i64 856
+  %handler.i.i.i = getelementptr inbounds i8, ptr %113, i64 712
+  %114 = load ptr, ptr %handler.i.i.i, align 8
+  %flags.i92.i.i = getelementptr inbounds i8, ptr %114, i64 140
+  %115 = load i32, ptr %flags.i92.i.i, align 4
+  %and.i93.i.i = and i32 %115, 1
   %tobool.not.i94.i.i = icmp eq i32 %and.i93.i.i, 0
   br i1 %tobool.not.i94.i.i, label %imap_perform.exit.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end83.i.i
-  %ssldone.i.i.i = getelementptr inbounds i8, ptr %112, i64 1083
+  %ssldone.i.i.i = getelementptr inbounds i8, ptr %113, i64 1083
   %bf.load.i.i.i = load i8, ptr %ssldone.i.i.i, align 1
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 1
   %tobool2.not.i95.i.i = icmp eq i8 %bf.clear.i.i.i, 0
@@ -939,11 +939,11 @@ land.lhs.true.i.i.i:                              ; preds = %if.end83.i.i
 if.then.i99.i.i:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %ssldone3.i.i.i, align 1
   %call.i100.i.i = call i32 @Curl_conn_connect(ptr noundef nonnull %data, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %ssldone3.i.i.i) #9
-  %115 = load i8, ptr %ssldone3.i.i.i, align 1
-  %116 = and i8 %115, 1
+  %116 = load i8, ptr %ssldone3.i.i.i, align 1
+  %117 = and i8 %116, 1
   %bf.load6.i.i.i = load i8, ptr %ssldone.i.i.i, align 1
   %bf.clear7.i.i.i = and i8 %bf.load6.i.i.i, -2
-  %bf.set.i.i.i = or disjoint i8 %bf.clear7.i.i.i, %116
+  %bf.set.i.i.i = or disjoint i8 %bf.clear7.i.i.i, %117
   store i8 %bf.set.i.i.i, ptr %ssldone.i.i.i, align 1
   %tobool8.not.i.i.i = icmp eq i32 %call.i100.i.i, 0
   br i1 %tobool8.not.i.i.i, label %lor.lhs.false.i.i.i, label %imap_perform.exit.thread21.i
@@ -954,7 +954,7 @@ imap_perform.exit.thread21.i:                     ; preds = %if.then.i99.i.i
   br label %return
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i99.i.i
-  %tobool9.i.i.i = trunc i8 %115 to i1
+  %tobool9.i.i.i = trunc i8 %116 to i1
   br i1 %tobool9.i.i.i, label %imap_perform.exit.i, label %imap_perform.exit.thread16.i
 
 imap_perform.exit.thread16.i:                     ; preds = %lor.lhs.false.i.i.i
@@ -964,9 +964,9 @@ imap_perform.exit.thread16.i:                     ; preds = %lor.lhs.false.i.i.i
 
 imap_perform.exit.i:                              ; preds = %lor.lhs.false.i.i.i, %land.lhs.true.i.i.i, %if.end83.i.i
   %call12.i97.i.i = call i32 @Curl_pp_statemach(ptr noundef nonnull %data, ptr noundef nonnull %proto.i.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %state.i.i.i = getelementptr inbounds i8, ptr %112, i64 1072
-  %117 = load i32, ptr %state.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %117, 0
+  %state.i.i.i = getelementptr inbounds i8, ptr %113, i64 1072
+  %118 = load i32, ptr %state.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %118, 0
   %frombool.i.i.i = zext i1 %cmp.i.i.i to i8
   store i8 %frombool.i.i.i, ptr %done, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ssldone3.i.i.i)
@@ -975,14 +975,14 @@ imap_perform.exit.i:                              ; preds = %lor.lhs.false.i.i.i
   br i1 %tobool.not.i19, label %land.lhs.true.i20, label %return
 
 land.lhs.true.i20:                                ; preds = %imap_perform.exit.i, %imap_perform.exit.thread16.i
-  %118 = load i8, ptr %done, align 1
-  %tobool2.i = trunc i8 %118 to i1
+  %119 = load i8, ptr %done, align 1
+  %tobool2.i = trunc i8 %119 to i1
   br i1 %tobool2.i, label %if.then.i21, label %return
 
 if.then.i21:                                      ; preds = %land.lhs.true.i20
-  %119 = load ptr, ptr %p.i, align 8
-  %120 = load i32, ptr %119, align 8
-  %cmp.not.i10.i = icmp eq i32 %120, 0
+  %120 = load ptr, ptr %p.i, align 8
+  %121 = load i32, ptr %120, align 8
+  %cmp.not.i10.i = icmp eq i32 %121, 0
   br i1 %cmp.not.i10.i, label %return, label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %if.then.i21

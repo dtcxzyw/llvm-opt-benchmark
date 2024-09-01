@@ -1476,20 +1476,20 @@ if.else28:                                        ; preds = %if.else23
 for.inc:                                          ; preds = %if.else28, %if.then18
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.022, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
-  br i1 %cmp.i.not, label %cleanup, label %for.body
+  br i1 %cmp.i.not, label %for.body.i.i.i.i.preheader, label %for.body
 
 cleanup.sink.split:                               ; preds = %if.else23, %lor.lhs.false, %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %vtable26 = load ptr, ptr %this, align 8
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 32
   %24 = load ptr, ptr %vfn27, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(448) %this) #19
-  br label %cleanup
+  br label %for.body.i.i.i.i.preheader
 
-cleanup:                                          ; preds = %for.inc, %cleanup.sink.split
-  br i1 %cmp.i.not21, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i
+for.body.i.i.i.i.preheader:                       ; preds = %for.inc, %cleanup.sink.split
+  br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %cleanup ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %for.body.i.i.i.i.preheader ]
   %host.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i) #19
   %ws_key.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
@@ -1499,7 +1499,7 @@ for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i, !llvm.loop !17
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %for.body.i.i.i.i, %if.end7, %cleanup
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %for.body.i.i.i.i, %if.end7
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit, label %if.then.i.i.i
 

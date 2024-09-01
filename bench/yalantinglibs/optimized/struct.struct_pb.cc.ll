@@ -996,8 +996,8 @@ entry:
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
   %pos.promoted = phi i64 [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %entry ]
-  %cmp = icmp uge i64 %pos.promoted, %size
-  br i1 %cmp, label %return, label %land.lhs.true.i642
+  %cmp.not.not = icmp uge i64 %pos.promoted, %size
+  br i1 %cmp.not.not, label %return, label %land.lhs.true.i642
 
 land.lhs.true.i642:                               ; preds = %while.cond
   %arrayidx.i643 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
@@ -2090,7 +2090,7 @@ sw.default47:                                     ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %while.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651, %while.cond.i.preheader, %while.body.i539, %while.body.i, %sw.default47
-  %retval.1 = phi i1 [ %call48, %sw.default47 ], [ false, %while.body.i ], [ false, %while.body.i539 ], [ false, %while.cond.i.preheader ], [ true, %while.cond ], [ %cmp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %cmp, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651 ]
+  %retval.1 = phi i1 [ %call48, %sw.default47 ], [ false, %while.body.i ], [ false, %while.body.i539 ], [ %cmp.not.not, %while.cond.i.preheader ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651 ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %cmp.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %cmp.not.not, %while.cond ]
   ret i1 %retval.1
 }
 

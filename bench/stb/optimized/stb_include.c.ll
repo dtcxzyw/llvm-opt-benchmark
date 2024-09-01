@@ -672,15 +672,12 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body
   %1 = add i64 %add, 1
   %call2 = tail call noalias ptr @malloc(i64 noundef %1) #14
-  br i1 %cmp15, label %for.body5.preheader, label %for.end15
-
-for.body5.preheader:                              ; preds = %for.end
   %wide.trip.count25 = zext nneg i32 %count to i64
   br label %for.body5
 
-for.body5:                                        ; preds = %for.body5.preheader, %for.body5
-  %indvars.iv22 = phi i64 [ 0, %for.body5.preheader ], [ %indvars.iv.next23, %for.body5 ]
-  %length.120 = phi i64 [ 0, %for.body5.preheader ], [ %add12, %for.body5 ]
+for.body5:                                        ; preds = %for.end, %for.body5
+  %indvars.iv22 = phi i64 [ 0, %for.end ], [ %indvars.iv.next23, %for.body5 ]
+  %length.120 = phi i64 [ 0, %for.end ], [ %add12, %for.body5 ]
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %length.120
   %arrayidx7 = getelementptr inbounds ptr, ptr %strs, i64 %indvars.iv22
   %2 = load ptr, ptr %arrayidx7, align 8
@@ -691,8 +688,8 @@ for.body5:                                        ; preds = %for.body5.preheader
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
   br i1 %exitcond26.not, label %for.end15, label %for.body5, !llvm.loop !17
 
-for.end15:                                        ; preds = %for.body5, %for.end.thread, %for.end
-  %call229 = phi ptr [ %call228, %for.end.thread ], [ %call2, %for.end ], [ %call2, %for.body5 ]
+for.end15:                                        ; preds = %for.body5, %for.end.thread
+  %call229 = phi ptr [ %call228, %for.end.thread ], [ %call2, %for.body5 ]
   %call16 = tail call ptr @stb_include_string(ptr noundef %call229, ptr noundef %inject, ptr noundef %path_to_includes, ptr noundef %filename, ptr noundef %error)
   tail call void @free(ptr noundef %call229) #16
   ret ptr %call16

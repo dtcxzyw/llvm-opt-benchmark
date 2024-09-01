@@ -835,8 +835,8 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
 14:                                               ; preds = %16, %12
   %.011.i.i = phi ptr [ %13, %12 ], [ %18, %16 ]
   %15 = load ptr, ptr %11, align 8
-  %.not.i.not.i.not = icmp eq ptr %.011.i.i, %15
-  br i1 %.not.i.not.i.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit, label %16
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %.011.i.i, %15
+  br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %.011.i.i, i64 8

@@ -47,11 +47,11 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
-  %.not6.not = icmp uge i64 %.sroa.01.0, %1
-  br i1 %.not6.not, label %.loopexit, label %5
+  %.not6.not.not = icmp uge i64 %.sroa.01.0, %1
+  br i1 %.not6.not.not, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %.preheader.split, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not6.not, %5 ], [ %.not6.not, %.preheader.split ]
+  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split
@@ -69,11 +69,11 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
-  %.not6.not = icmp uge i64 %.sroa.01.0, %1
-  br i1 %.not6.not, label %.loopexit, label %5
+  %.not6.not.not = icmp uge i64 %.sroa.01.0, %1
+  br i1 %.not6.not.not, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %.preheader.split, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not6.not, %5 ], [ %.not6.not, %.preheader.split ]
+  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split

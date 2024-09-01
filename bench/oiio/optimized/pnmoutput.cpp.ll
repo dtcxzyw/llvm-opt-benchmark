@@ -734,8 +734,8 @@ entry:
 for.cond:                                         ; preds = %for.end, %entry
   %x.0 = phi i32 [ 0, %entry ], [ %6, %for.end ]
   %0 = load i32, ptr %width, align 4
-  %cmp.not = icmp sge i32 %x.0, %0
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp sge i32 %x.0, %0
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %1 = sext i32 %x.0 to i64
@@ -768,7 +768,7 @@ for.end:                                          ; preds = %for.body7
   br i1 %call, label %for.cond, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.cond, %for.end
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
@@ -1202,10 +1202,10 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput15write_scanline
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09PNMOutput14write_scanlineEiiNS_8TypeDescEPKvl(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %y, i32 noundef %z, ptr nocapture noundef readonly %format, ptr noundef %data, i64 noundef %xstride) unnamed_addr #5 align 2 {
 entry:
-  %byte.i87 = alloca i8, align 1
+  %byte.i79 = alloca i8, align 1
   %byte.i = alloca [2 x i8], align 1
-  %val.i55 = alloca i8, align 1
-  %val.i23 = alloca i32, align 4
+  %val.i49 = alloca i8, align 1
+  %val.i22 = alloca i32, align 4
   %val.i = alloca i32, align 4
   %ref.tmp.i = alloca i8, align 1
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -1247,15 +1247,15 @@ if.then.i:                                        ; preds = %if.end3
   %mul.i.i = mul i64 %mul.i.i.i, %conv.i
   %mul.i = mul i64 %mul.i.i, %call.i.i.i
   %.pre = load i8, ptr %format, align 4
-  %.pre132 = load i8, ptr %aggregate3.i, align 1
-  %.pre133 = load i8, ptr %vecsemantics4.i, align 2
-  %.pre134 = load i32, ptr %arraylen5.i, align 4
+  %.pre115 = load i8, ptr %aggregate3.i, align 1
+  %.pre116 = load i8, ptr %vecsemantics4.i, align 2
+  %.pre117 = load i32, ptr %arraylen5.i, align 4
   br label %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit
 
 _ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit: ; preds = %if.end3, %if.then.i
-  %5 = phi i32 [ %.pre134, %if.then.i ], [ %3, %if.end3 ]
-  %6 = phi i8 [ %.pre133, %if.then.i ], [ %2, %if.end3 ]
-  %7 = phi i8 [ %.pre132, %if.then.i ], [ %1, %if.end3 ]
+  %5 = phi i32 [ %.pre117, %if.then.i ], [ %3, %if.end3 ]
+  %6 = phi i8 [ %.pre116, %if.then.i ], [ %2, %if.end3 ]
+  %7 = phi i8 [ %.pre115, %if.then.i ], [ %1, %if.end3 ]
   %8 = phi i8 [ %.pre, %if.then.i ], [ %0, %if.end3 ]
   %xstride.addr.1 = phi i64 [ %mul.i, %if.then.i ], [ %xstride, %if.end3 ]
   store i8 %8, ptr %agg.tmp5, align 4
@@ -1344,13 +1344,13 @@ for.body.us.i:                                    ; preds = %for.cond4.for.inc11
   br label %for.body6.us.i
 
 for.cond4.us.i:                                   ; preds = %for.body6.us.i
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
-  br i1 %exitcond18.not.i, label %for.cond4.for.inc11_crit_edge.us.i, label %for.body6.us.i, !llvm.loop !24
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %for.cond4.for.inc11_crit_edge.us.i, label %for.body6.us.i, !llvm.loop !24
 
 for.body6.us.i:                                   ; preds = %for.cond4.us.i, %for.body.us.i
-  %indvars.iv.i21 = phi i64 [ 0, %for.body.us.i ], [ %indvars.iv.next.i22, %for.cond4.us.i ]
-  %19 = trunc nuw nsw i64 %indvars.iv.i21 to i32
+  %indvars.iv.i20 = phi i64 [ 0, %for.body.us.i ], [ %indvars.iv.next.i21, %for.cond4.us.i ]
+  %19 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   %add.us.i = add i32 %conv3.us.i, %19
   %idxprom.us.i = zext i32 %add.us.i to i64
   %arrayidx.us.i = getelementptr inbounds i16, ptr %call6, i64 %idxprom.us.i
@@ -1368,221 +1368,221 @@ for.cond4.for.inc11_crit_edge.us.i:               ; preds = %for.cond4.us.i
   %cmp.us.not.i = icmp slt i32 %inc12.us.i, %21
   br i1 %cmp.us.not.i, label %for.body.us.i, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit, !llvm.loop !25
 
-_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit: ; preds = %for.cond4.for.inc11_crit_edge.us.i, %for.body6.us.i, %for.body.lr.ph.i, %if.then16
+_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit: ; preds = %for.cond4.for.inc11_crit_edge.us.i, %for.body6.us.i, %if.then16, %for.body.lr.ph.i
   %cmp7.i = phi i1 [ true, %if.then16 ], [ true, %for.body.lr.ph.i ], [ false, %for.body6.us.i ], [ true, %for.cond4.for.inc11_crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
   br label %return
 
 if.else:                                          ; preds = %sw.bb12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i23)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i22)
   %22 = load i32, ptr %width.i19, align 4
-  %cmp10.i26 = icmp slt i32 %22, 1
-  br i1 %cmp10.i26, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit, label %for.body.lr.ph.i27
+  %cmp10.i25 = icmp slt i32 %22, 1
+  br i1 %cmp10.i25, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit, label %for.body.lr.ph.i26
 
-for.body.lr.ph.i27:                               ; preds = %if.else
+for.body.lr.ph.i26:                               ; preds = %if.else
   %23 = trunc i64 %xstride.addr.0 to i32
-  %cmp58.i28 = icmp sgt i32 %10, 0
-  br i1 %cmp58.i28, label %for.body.us.preheader.i35, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit
+  %cmp58.i27 = icmp sgt i32 %10, 0
+  br i1 %cmp58.i27, label %for.body.us.preheader.i29, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit
 
-for.body.us.preheader.i35:                        ; preds = %for.body.lr.ph.i27
-  %wide.trip.count.i36 = zext nneg i32 %10 to i64
-  br label %for.body.us.i37
+for.body.us.preheader.i29:                        ; preds = %for.body.lr.ph.i26
+  %wide.trip.count.i30 = zext nneg i32 %10 to i64
+  br label %for.body.us.i31
 
-for.body.us.i37:                                  ; preds = %for.cond4.for.inc11_crit_edge.us.i52, %for.body.us.preheader.i35
-  %x.011.us.i38 = phi i32 [ %inc12.us.i53, %for.cond4.for.inc11_crit_edge.us.i52 ], [ 0, %for.body.us.preheader.i35 ]
-  %conv3.us.i39 = mul i32 %x.011.us.i38, %23
-  br label %for.body6.us.i40
+for.body.us.i31:                                  ; preds = %for.cond4.for.inc11_crit_edge.us.i46, %for.body.us.preheader.i29
+  %x.011.us.i32 = phi i32 [ %inc12.us.i47, %for.cond4.for.inc11_crit_edge.us.i46 ], [ 0, %for.body.us.preheader.i29 ]
+  %conv3.us.i33 = mul i32 %x.011.us.i32, %23
+  br label %for.body6.us.i34
 
-for.cond4.us.i49:                                 ; preds = %for.body6.us.i40
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i41, 1
-  %exitcond18.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i36
-  br i1 %exitcond18.not.i51, label %for.cond4.for.inc11_crit_edge.us.i52, label %for.body6.us.i40, !llvm.loop !26
+for.cond4.us.i43:                                 ; preds = %for.body6.us.i34
+  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i35, 1
+  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i30
+  br i1 %exitcond.not.i45, label %for.cond4.for.inc11_crit_edge.us.i46, label %for.body6.us.i34, !llvm.loop !26
 
-for.body6.us.i40:                                 ; preds = %for.cond4.us.i49, %for.body.us.i37
-  %indvars.iv.i41 = phi i64 [ 0, %for.body.us.i37 ], [ %indvars.iv.next.i50, %for.cond4.us.i49 ]
-  %24 = trunc nuw nsw i64 %indvars.iv.i41 to i32
-  %add.us.i42 = add i32 %conv3.us.i39, %24
-  %idxprom.us.i43 = zext i32 %add.us.i42 to i64
-  %arrayidx.us.i44 = getelementptr inbounds i8, ptr %call6, i64 %idxprom.us.i43
-  %25 = load i8, ptr %arrayidx.us.i44, align 1
-  %conv7.us.i45 = zext i8 %25 to i32
-  %mul8.us.i46 = mul nuw nsw i32 %16, %conv7.us.i45
-  %div.us.i47 = udiv i32 %mul8.us.i46, 255
-  store i32 %div.us.i47, ptr %val.i23, align 4
-  %call10.us.i48 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput10iowritefmtIA4_cJRjEEEbRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 1 dereferenceable(4) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %val.i23)
-  br i1 %call10.us.i48, label %for.cond4.us.i49, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit
+for.body6.us.i34:                                 ; preds = %for.cond4.us.i43, %for.body.us.i31
+  %indvars.iv.i35 = phi i64 [ 0, %for.body.us.i31 ], [ %indvars.iv.next.i44, %for.cond4.us.i43 ]
+  %24 = trunc nuw nsw i64 %indvars.iv.i35 to i32
+  %add.us.i36 = add i32 %conv3.us.i33, %24
+  %idxprom.us.i37 = zext i32 %add.us.i36 to i64
+  %arrayidx.us.i38 = getelementptr inbounds i8, ptr %call6, i64 %idxprom.us.i37
+  %25 = load i8, ptr %arrayidx.us.i38, align 1
+  %conv7.us.i39 = zext i8 %25 to i32
+  %mul8.us.i40 = mul nuw nsw i32 %16, %conv7.us.i39
+  %div.us.i41 = udiv i32 %mul8.us.i40, 255
+  store i32 %div.us.i41, ptr %val.i22, align 4
+  %call10.us.i42 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput10iowritefmtIA4_cJRjEEEbRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 1 dereferenceable(4) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %val.i22)
+  br i1 %call10.us.i42, label %for.cond4.us.i43, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit
 
-for.cond4.for.inc11_crit_edge.us.i52:             ; preds = %for.cond4.us.i49
-  %inc12.us.i53 = add nuw nsw i32 %x.011.us.i38, 1
+for.cond4.for.inc11_crit_edge.us.i46:             ; preds = %for.cond4.us.i43
+  %inc12.us.i47 = add nuw nsw i32 %x.011.us.i32, 1
   %26 = load i32, ptr %width.i19, align 4
-  %cmp.us.not.i54 = icmp slt i32 %inc12.us.i53, %26
-  br i1 %cmp.us.not.i54, label %for.body.us.i37, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit, !llvm.loop !27
+  %cmp.us.not.i48 = icmp slt i32 %inc12.us.i47, %26
+  br i1 %cmp.us.not.i48, label %for.body.us.i31, label %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit, !llvm.loop !27
 
-_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit: ; preds = %for.cond4.for.inc11_crit_edge.us.i52, %for.body6.us.i40, %for.body.lr.ph.i27, %if.else
-  %cmp7.i34 = phi i1 [ true, %if.else ], [ true, %for.body.lr.ph.i27 ], [ false, %for.body6.us.i40 ], [ true, %for.cond4.for.inc11_crit_edge.us.i52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i23)
+_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit: ; preds = %for.cond4.for.inc11_crit_edge.us.i46, %for.body6.us.i34, %if.else, %for.body.lr.ph.i26
+  %cmp7.i28 = phi i1 [ true, %if.else ], [ true, %for.body.lr.ph.i26 ], [ false, %for.body6.us.i34 ], [ true, %for.cond4.for.inc11_crit_edge.us.i46 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i22)
   br label %return
 
 sw.bb21:                                          ; preds = %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i55)
-  %width.i56 = getelementptr inbounds i8, ptr %this, i64 20
-  br label %for.cond.i57
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i49)
+  %width.i50 = getelementptr inbounds i8, ptr %this, i64 20
+  br label %for.cond.i51
 
-for.cond.i57:                                     ; preds = %for.end.i, %sw.bb21
+for.cond.i51:                                     ; preds = %for.end.i, %sw.bb21
   %x.0.i = phi i32 [ 0, %sw.bb21 ], [ %33, %for.end.i ]
-  %27 = load i32, ptr %width.i56, align 4
-  %cmp.not.i58.not = icmp sge i32 %x.0.i, %27
-  br i1 %cmp.not.i58.not, label %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit, label %for.body.i59
+  %27 = load i32, ptr %width.i50, align 4
+  %cmp.not.not.not.i.not.not.not.not.not = icmp sge i32 %x.0.i, %27
+  br i1 %cmp.not.not.not.i.not.not.not.not.not, label %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit, label %for.body.i52
 
-for.body.i59:                                     ; preds = %for.cond.i57
+for.body.i52:                                     ; preds = %for.cond.i51
   %28 = sext i32 %x.0.i to i64
   %29 = sext i32 %27 to i64
   br label %for.body7.i
 
-for.body7.i:                                      ; preds = %for.body7.i, %for.body.i59
-  %indvars.iv.i60 = phi i64 [ %28, %for.body.i59 ], [ %indvars.iv.next.i64, %for.body7.i ]
-  %bit.09.i = phi i32 [ 7, %for.body.i59 ], [ %dec.i, %for.body7.i ]
-  %conv967.i = phi i8 [ 0, %for.body.i59 ], [ %conv9.i, %for.body7.i ]
-  %mul.i61 = mul nsw i64 %indvars.iv.i60, %xstride.addr.0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %call6, i64 %mul.i61
-  %30 = load i8, ptr %arrayidx.i62, align 1
-  %tobool.not.i63 = icmp eq i8 %30, 0
+for.body7.i:                                      ; preds = %for.body7.i, %for.body.i52
+  %indvars.iv.i53 = phi i64 [ %28, %for.body.i52 ], [ %indvars.iv.next.i57, %for.body7.i ]
+  %bit.09.i = phi i32 [ 7, %for.body.i52 ], [ %dec.i, %for.body7.i ]
+  %conv967.i = phi i8 [ 0, %for.body.i52 ], [ %conv9.i, %for.body7.i ]
+  %mul.i54 = mul nsw i64 %indvars.iv.i53, %xstride.addr.0
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %call6, i64 %mul.i54
+  %30 = load i8, ptr %arrayidx.i55, align 1
+  %tobool.not.i56 = icmp eq i8 %30, 0
   %shl.i = shl nuw i32 1, %bit.09.i
   %31 = trunc i32 %shl.i to i8
-  %32 = select i1 %tobool.not.i63, i8 %31, i8 0
+  %32 = select i1 %tobool.not.i56, i8 %31, i8 0
   %conv9.i = add i8 %32, %conv967.i
-  %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i60, 1
+  %indvars.iv.next.i57 = add nsw i64 %indvars.iv.i53, 1
   %dec.i = add nsw i32 %bit.09.i, -1
-  %cmp3.i65 = icmp ne i32 %bit.09.i, 0
-  %cmp6.i = icmp slt i64 %indvars.iv.next.i64, %29
-  %or.cond.i = select i1 %cmp3.i65, i1 %cmp6.i, i1 false
+  %cmp3.i58 = icmp ne i32 %bit.09.i, 0
+  %cmp6.i = icmp slt i64 %indvars.iv.next.i57, %29
+  %or.cond.i = select i1 %cmp3.i58, i1 %cmp6.i, i1 false
   br i1 %or.cond.i, label %for.body7.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body7.i
-  %33 = trunc nsw i64 %indvars.iv.next.i64 to i32
-  store i8 %conv9.i, ptr %val.i55, align 1
-  %call.i66 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %val.i55, i64 noundef 1, i64 noundef 1)
-  br i1 %call.i66, label %for.cond.i57, label %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit, !llvm.loop !10
+  %33 = trunc nsw i64 %indvars.iv.next.i57 to i32
+  store i8 %conv9.i, ptr %val.i49, align 1
+  %call.i59 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %val.i49, i64 noundef 1, i64 noundef 1)
+  br i1 %call.i59, label %for.cond.i51, label %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit, !llvm.loop !10
 
-_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit: ; preds = %for.cond.i57, %for.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i55)
+_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit: ; preds = %for.cond.i51, %for.end.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.i49)
   br label %return
 
 sw.bb23:                                          ; preds = %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit, %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit
   %m_max_val24 = getelementptr inbounds i8, ptr %this, i64 216
   %34 = load i32, ptr %m_max_val24, align 8
   %cmp27 = icmp ugt i32 %34, 255
-  %width.i68 = getelementptr inbounds i8, ptr %this, i64 20
+  %width.i61 = getelementptr inbounds i8, ptr %this, i64 20
   br i1 %cmp27, label %if.then28, label %if.else31
 
 if.then28:                                        ; preds = %sw.bb23
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %byte.i)
-  %35 = load i32, ptr %width.i68, align 4
+  %35 = load i32, ptr %width.i61, align 4
   %cmp12.i = icmp slt i32 %35, 1
-  br i1 %cmp12.i, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit, label %for.body.lr.ph.i69
+  br i1 %cmp12.i, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit, label %for.body.lr.ph.i62
 
-for.body.lr.ph.i69:                               ; preds = %if.then28
+for.body.lr.ph.i62:                               ; preds = %if.then28
   %36 = trunc i64 %xstride.addr.0 to i32
   %cmp510.i = icmp sgt i32 %10, 0
   %arrayinit.element.i = getelementptr inbounds i8, ptr %byte.i, i64 1
-  br i1 %cmp510.i, label %for.body.us.preheader.i72, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit
+  br i1 %cmp510.i, label %for.body.us.preheader.i63, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit
 
-for.body.us.preheader.i72:                        ; preds = %for.body.lr.ph.i69
-  %wide.trip.count.i73 = zext nneg i32 %10 to i64
-  br label %for.body.us.i74
+for.body.us.preheader.i63:                        ; preds = %for.body.lr.ph.i62
+  %wide.trip.count.i64 = zext nneg i32 %10 to i64
+  br label %for.body.us.i65
 
-for.body.us.i74:                                  ; preds = %for.cond4.for.inc13_crit_edge.us.i, %for.body.us.preheader.i72
-  %x.013.us.i = phi i32 [ %inc14.us.i, %for.cond4.for.inc13_crit_edge.us.i ], [ 0, %for.body.us.preheader.i72 ]
-  %conv3.us.i75 = mul i32 %x.013.us.i, %36
-  br label %for.body6.us.i76
+for.body.us.i65:                                  ; preds = %for.cond4.for.inc13_crit_edge.us.i, %for.body.us.preheader.i63
+  %x.013.us.i = phi i32 [ %inc14.us.i, %for.cond4.for.inc13_crit_edge.us.i ], [ 0, %for.body.us.preheader.i63 ]
+  %conv3.us.i66 = mul i32 %x.013.us.i, %36
+  br label %for.body6.us.i67
 
-for.cond4.us.i84:                                 ; preds = %for.body6.us.i76
-  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i77, 1
-  %exitcond20.not.i = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i73
-  br i1 %exitcond20.not.i, label %for.cond4.for.inc13_crit_edge.us.i, label %for.body6.us.i76, !llvm.loop !28
+for.cond4.us.i75:                                 ; preds = %for.body6.us.i67
+  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i68, 1
+  %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i64
+  br i1 %exitcond.not.i77, label %for.cond4.for.inc13_crit_edge.us.i, label %for.body6.us.i67, !llvm.loop !28
 
-for.body6.us.i76:                                 ; preds = %for.cond4.us.i84, %for.body.us.i74
-  %indvars.iv.i77 = phi i64 [ 0, %for.body.us.i74 ], [ %indvars.iv.next.i85, %for.cond4.us.i84 ]
-  %37 = trunc nuw nsw i64 %indvars.iv.i77 to i32
-  %add.us.i78 = add i32 %conv3.us.i75, %37
-  %idxprom.us.i79 = zext i32 %add.us.i78 to i64
-  %arrayidx.us.i80 = getelementptr inbounds i16, ptr %call6, i64 %idxprom.us.i79
-  %38 = load i16, ptr %arrayidx.us.i80, align 2
-  %conv7.us.i81 = zext i16 %38 to i32
-  %mul8.us.i82 = mul i32 %34, %conv7.us.i81
-  %div.us.i83 = udiv i32 %mul8.us.i82, 65535
-  %shr.us.i = lshr i32 %div.us.i83, 8
+for.body6.us.i67:                                 ; preds = %for.cond4.us.i75, %for.body.us.i65
+  %indvars.iv.i68 = phi i64 [ 0, %for.body.us.i65 ], [ %indvars.iv.next.i76, %for.cond4.us.i75 ]
+  %37 = trunc nuw nsw i64 %indvars.iv.i68 to i32
+  %add.us.i69 = add i32 %conv3.us.i66, %37
+  %idxprom.us.i70 = zext i32 %add.us.i69 to i64
+  %arrayidx.us.i71 = getelementptr inbounds i16, ptr %call6, i64 %idxprom.us.i70
+  %38 = load i16, ptr %arrayidx.us.i71, align 2
+  %conv7.us.i72 = zext i16 %38 to i32
+  %mul8.us.i73 = mul i32 %34, %conv7.us.i72
+  %div.us.i74 = udiv i32 %mul8.us.i73, 65535
+  %shr.us.i = lshr i32 %div.us.i74, 8
   %conv10.us.i = trunc i32 %shr.us.i to i8
   store i8 %conv10.us.i, ptr %byte.i, align 1
-  %conv11.us.i = trunc i32 %div.us.i83 to i8
+  %conv11.us.i = trunc i32 %div.us.i74 to i8
   store i8 %conv11.us.i, ptr %arrayinit.element.i, align 1
   %call12.us.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %byte.i, i64 noundef 2, i64 noundef 1)
-  br i1 %call12.us.i, label %for.cond4.us.i84, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit
+  br i1 %call12.us.i, label %for.cond4.us.i75, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit
 
-for.cond4.for.inc13_crit_edge.us.i:               ; preds = %for.cond4.us.i84
+for.cond4.for.inc13_crit_edge.us.i:               ; preds = %for.cond4.us.i75
   %inc14.us.i = add nuw nsw i32 %x.013.us.i, 1
-  %39 = load i32, ptr %width.i68, align 4
-  %cmp.us.not.i86 = icmp slt i32 %inc14.us.i, %39
-  br i1 %cmp.us.not.i86, label %for.body.us.i74, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit, !llvm.loop !29
+  %39 = load i32, ptr %width.i61, align 4
+  %cmp.us.not.i78 = icmp slt i32 %inc14.us.i, %39
+  br i1 %cmp.us.not.i78, label %for.body.us.i65, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit, !llvm.loop !29
 
-_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit: ; preds = %for.cond4.for.inc13_crit_edge.us.i, %for.body6.us.i76, %for.body.lr.ph.i69, %if.then28
-  %cmp9.i = phi i1 [ true, %if.then28 ], [ true, %for.body.lr.ph.i69 ], [ false, %for.body6.us.i76 ], [ true, %for.cond4.for.inc13_crit_edge.us.i ]
+_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit: ; preds = %for.cond4.for.inc13_crit_edge.us.i, %for.body6.us.i67, %if.then28, %for.body.lr.ph.i62
+  %cmp9.i = phi i1 [ true, %if.then28 ], [ true, %for.body.lr.ph.i62 ], [ false, %for.body6.us.i67 ], [ true, %for.cond4.for.inc13_crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %byte.i)
   br label %return
 
 if.else31:                                        ; preds = %sw.bb23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i87)
-  %40 = load i32, ptr %width.i68, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i79)
+  %40 = load i32, ptr %width.i61, align 4
   %cmp11.i = icmp slt i32 %40, 1
-  br i1 %cmp11.i, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit, label %for.body.lr.ph.i90
+  br i1 %cmp11.i, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit, label %for.body.lr.ph.i82
 
-for.body.lr.ph.i90:                               ; preds = %if.else31
+for.body.lr.ph.i82:                               ; preds = %if.else31
   %41 = trunc i64 %xstride.addr.0 to i32
   %cmp59.i = icmp sgt i32 %10, 0
-  br i1 %cmp59.i, label %for.body.us.preheader.i93, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit
+  br i1 %cmp59.i, label %for.body.us.preheader.i83, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit
 
-for.body.us.preheader.i93:                        ; preds = %for.body.lr.ph.i90
-  %wide.trip.count.i94 = zext nneg i32 %10 to i64
-  br label %for.body.us.i95
+for.body.us.preheader.i83:                        ; preds = %for.body.lr.ph.i82
+  %wide.trip.count.i84 = zext nneg i32 %10 to i64
+  br label %for.body.us.i85
 
-for.body.us.i95:                                  ; preds = %for.cond4.for.inc12_crit_edge.us.i, %for.body.us.preheader.i93
-  %x.012.us.i = phi i32 [ %inc13.us.i, %for.cond4.for.inc12_crit_edge.us.i ], [ 0, %for.body.us.preheader.i93 ]
-  %conv3.us.i96 = mul i32 %x.012.us.i, %41
-  br label %for.body6.us.i97
+for.body.us.i85:                                  ; preds = %for.cond4.for.inc12_crit_edge.us.i, %for.body.us.preheader.i83
+  %x.012.us.i = phi i32 [ %inc13.us.i, %for.cond4.for.inc12_crit_edge.us.i ], [ 0, %for.body.us.preheader.i83 ]
+  %conv3.us.i86 = mul i32 %x.012.us.i, %41
+  br label %for.body6.us.i87
 
-for.cond4.us.i106:                                ; preds = %for.body6.us.i97
-  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i98, 1
-  %exitcond19.not.i = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i94
-  br i1 %exitcond19.not.i, label %for.cond4.for.inc12_crit_edge.us.i, label %for.body6.us.i97, !llvm.loop !30
+for.cond4.us.i96:                                 ; preds = %for.body6.us.i87
+  %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i88, 1
+  %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i84
+  br i1 %exitcond.not.i98, label %for.cond4.for.inc12_crit_edge.us.i, label %for.body6.us.i87, !llvm.loop !30
 
-for.body6.us.i97:                                 ; preds = %for.cond4.us.i106, %for.body.us.i95
-  %indvars.iv.i98 = phi i64 [ 0, %for.body.us.i95 ], [ %indvars.iv.next.i107, %for.cond4.us.i106 ]
-  %42 = trunc nuw nsw i64 %indvars.iv.i98 to i32
-  %add.us.i99 = add i32 %conv3.us.i96, %42
-  %idxprom.us.i100 = zext i32 %add.us.i99 to i64
-  %arrayidx.us.i101 = getelementptr inbounds i8, ptr %call6, i64 %idxprom.us.i100
-  %43 = load i8, ptr %arrayidx.us.i101, align 1
-  %conv7.us.i102 = zext i8 %43 to i32
-  %mul8.us.i103 = mul nuw nsw i32 %34, %conv7.us.i102
-  %div.us.i104 = udiv i32 %mul8.us.i103, 255
-  %conv10.us.i105 = trunc i32 %div.us.i104 to i8
-  store i8 %conv10.us.i105, ptr %byte.i87, align 1
-  %call11.us.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %byte.i87, i64 noundef 1, i64 noundef 1)
-  br i1 %call11.us.i, label %for.cond4.us.i106, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit
+for.body6.us.i87:                                 ; preds = %for.cond4.us.i96, %for.body.us.i85
+  %indvars.iv.i88 = phi i64 [ 0, %for.body.us.i85 ], [ %indvars.iv.next.i97, %for.cond4.us.i96 ]
+  %42 = trunc nuw nsw i64 %indvars.iv.i88 to i32
+  %add.us.i89 = add i32 %conv3.us.i86, %42
+  %idxprom.us.i90 = zext i32 %add.us.i89 to i64
+  %arrayidx.us.i91 = getelementptr inbounds i8, ptr %call6, i64 %idxprom.us.i90
+  %43 = load i8, ptr %arrayidx.us.i91, align 1
+  %conv7.us.i92 = zext i8 %43 to i32
+  %mul8.us.i93 = mul nuw nsw i32 %34, %conv7.us.i92
+  %div.us.i94 = udiv i32 %mul8.us.i93, 255
+  %conv10.us.i95 = trunc i32 %div.us.i94 to i8
+  store i8 %conv10.us.i95, ptr %byte.i79, align 1
+  %call11.us.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %byte.i79, i64 noundef 1, i64 noundef 1)
+  br i1 %call11.us.i, label %for.cond4.us.i96, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit
 
-for.cond4.for.inc12_crit_edge.us.i:               ; preds = %for.cond4.us.i106
+for.cond4.for.inc12_crit_edge.us.i:               ; preds = %for.cond4.us.i96
   %inc13.us.i = add nuw nsw i32 %x.012.us.i, 1
-  %44 = load i32, ptr %width.i68, align 4
-  %cmp.us.not.i108 = icmp slt i32 %inc13.us.i, %44
-  br i1 %cmp.us.not.i108, label %for.body.us.i95, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit, !llvm.loop !31
+  %44 = load i32, ptr %width.i61, align 4
+  %cmp.us.not.i99 = icmp slt i32 %inc13.us.i, %44
+  br i1 %cmp.us.not.i99, label %for.body.us.i85, label %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit, !llvm.loop !31
 
-_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit: ; preds = %for.cond4.for.inc12_crit_edge.us.i, %for.body6.us.i97, %for.body.lr.ph.i90, %if.else31
-  %cmp8.i = phi i1 [ true, %if.else31 ], [ true, %for.body.lr.ph.i90 ], [ false, %for.body6.us.i97 ], [ true, %for.cond4.for.inc12_crit_edge.us.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i87)
+_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit: ; preds = %for.cond4.for.inc12_crit_edge.us.i, %for.body6.us.i87, %if.else31, %for.body.lr.ph.i82
+  %cmp8.i = phi i1 [ true, %if.else31 ], [ true, %for.body.lr.ph.i82 ], [ false, %for.body6.us.i87 ], [ true, %for.cond4.for.inc12_crit_edge.us.i ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i79)
   br label %return
 
 return:                                           ; preds = %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit, %entry, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit, %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit, %_ZN18OpenImageIO_v2_6_09PNMOutput18write_ascii_binaryEPKhl.exit
-  %retval.0 = phi i1 [ %cmp9.i, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit ], [ %cmp8.i, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit ], [ %cmp.not.i58.not, %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit ], [ %cmp7.i, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit ], [ %cmp7.i34, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit ], [ %cmp.lcssa.i, %_ZN18OpenImageIO_v2_6_09PNMOutput18write_ascii_binaryEPKhl.exit ], [ false, %entry ], [ false, %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit ]
+  %retval.0 = phi i1 [ %cmp9.i, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawItEEbPKT_lj.exit ], [ %cmp8.i, %_ZN18OpenImageIO_v2_6_09PNMOutput9write_rawIhEEbPKT_lj.exit ], [ %cmp.not.not.not.i.not.not.not.not.not, %_ZN18OpenImageIO_v2_6_09PNMOutput16write_raw_binaryEPKhl.exit ], [ %cmp7.i, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiItEEbPKT_lj.exit ], [ %cmp7.i28, %_ZN18OpenImageIO_v2_6_09PNMOutput11write_asciiIhEEbPKT_lj.exit ], [ %cmp.lcssa.i, %_ZN18OpenImageIO_v2_6_09PNMOutput18write_ascii_binaryEPKhl.exit ], [ false, %entry ], [ false, %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit ]
   ret i1 %retval.0
 }
 

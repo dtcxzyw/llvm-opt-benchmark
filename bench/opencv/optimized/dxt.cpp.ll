@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
 
 96:                                               ; preds = %87
   store i64 %93, ptr %94, align 8
-  %.pre71 = load ptr, ptr %89, align 8
+  %.pre = load ptr, ptr %89, align 8
   br label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
 
 97:                                               ; preds = %87
@@ -565,7 +565,7 @@ _ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i: ; preds = %103, %97
   br label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %96, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i, %106
-  %108 = phi ptr [ %.pre71, %96 ], [ %104, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i ], [ %107, %106 ]
+  %108 = phi ptr [ %.pre, %96 ], [ %104, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i ], [ %107, %106 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 1264
@@ -578,7 +578,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %96, %_ZN2cv10AutoBu
 
 115:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
   store i64 %112, ptr %113, align 8
-  %.pre72 = load ptr, ptr %110, align 8
+  %.pre70 = load ptr, ptr %110, align 8
   br label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
 
 116:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
@@ -614,7 +614,7 @@ _ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i: ; preds = %122, %116
   br label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
 
 _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %115, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i, %125
-  %130 = phi ptr [ %.pre72, %115 ], [ %123, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i ], [ %129, %125 ]
+  %130 = phi ptr [ %.pre70, %115 ], [ %123, %_ZN2cv10AutoBufferIiLm264EE10deallocateEv.exit.i ], [ %129, %125 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %130, ptr %131, align 8
   %132 = load i32, ptr %8, align 4
@@ -2421,14 +2421,14 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %82, %85
 105:                                              ; preds = %103
   %106 = load i32, ptr %7, align 8
   %107 = and i32 %106, 16384
-  %.not338 = icmp eq i32 %107, 0
-  br i1 %.not338, label %115, label %108
+  %.not332 = icmp eq i32 %107, 0
+  br i1 %.not332, label %115, label %108
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %8, align 8
   %110 = and i32 %109, 16384
-  %.not339 = icmp eq i32 %110, 0
-  br i1 %.not339, label %115, label %111
+  %.not333 = icmp eq i32 %110, 0
+  br i1 %.not333, label %115, label %111
 
 111:                                              ; preds = %108
   %112 = load i32, ptr %13, align 8
@@ -2611,7 +2611,6 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.
 .lr.ph.i.i.i:                                     ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %227 = add nsw i64 %.076, -1
   %228 = and i1 %119, %116
-  %or.cond.i.i.i = and i1 %228, %124
   %229 = icmp ugt i64 %126, %120
   br i1 %228, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
@@ -2676,10 +2675,10 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.u
   br i1 %.not.us.us.i.i.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i, !llvm.loop !25
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i
-  br i1 %or.cond.i.i.i, label %256, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  br i1 %124, label %256, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 .lr.ph.split.us.split.i.i.i:                      ; preds = %.lr.ph.split.us.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
   %267 = phi i64 [ %280, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %227, %.lr.ph.split.us.split.i.i.i ]
@@ -2724,11 +2723,11 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i
   br i1 %229, label %.critedge.us.i.i.i.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
 .critedge.us.i.i.i.preheader:                     ; preds = %.lr.ph.split.i.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph475 = phi i64 [ %227, %.lr.ph.split.i.i.i ], [ %217, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  %.ph469 = phi i64 [ %227, %.lr.ph.split.i.i.i ], [ %217, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
   br label %.critedge.us.i.i.i
 
 .critedge.us.i.i.i:                               ; preds = %.critedge.us.i.i.i.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %289 = phi i64 [ %314, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph475, %.critedge.us.i.i.i.preheader ]
+  %289 = phi i64 [ %314, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph469, %.critedge.us.i.i.i.preheader ]
   %.02333.us37.i.i.i = phi ptr [ %312, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i.preheader ]
   %.02431.us38.i.i.i = phi ptr [ %313, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i.preheader ]
   br label %.lr.ph.i.i27.us.i.i.i
@@ -2778,7 +2777,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store float %319, ptr %131, align 4
   %320 = add nsw i64 %.076, -2
   %.not46.i.i.i.i29.i = icmp eq i64 %320, 0
-  br i1 %.not46.i.i.i.i29.i, label %._crit_edge.thread.i.i.i.i60.i, label %.lr.ph.i.i.i.i30.i
+  br i1 %.not46.i.i.i.i29.i, label %._crit_edge.thread.i.i.i.i59.i, label %.lr.ph.i.i.i.i30.i
 
 .lr.ph.i.i.i.i30.i:                               ; preds = %316, %.lr.ph.i.i.i.i30.i
   %.047.i.i.i.i31.i = phi i64 [ %349, %.lr.ph.i.i.i.i30.i ], [ 1, %316 ]
@@ -2819,9 +2818,9 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
 ._crit_edge.i.i.i.i33.i:                          ; preds = %.lr.ph.i.i.i.i30.i
   %350 = and i64 %.076, 1
   %351 = icmp eq i64 %350, 0
-  br i1 %351, label %._crit_edge.thread.i.i.i.i60.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %351, label %._crit_edge.thread.i.i.i.i59.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i60.i:                   ; preds = %._crit_edge.i.i.i.i33.i, %316
+._crit_edge.thread.i.i.i.i59.i:                   ; preds = %._crit_edge.i.i.i.i33.i, %316
   %352 = add nsw i64 %.076, -1
   %353 = mul i64 %133, %352
   %354 = getelementptr inbounds i8, ptr %129, i64 %353
@@ -2835,7 +2834,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store float %359, ptr %361, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i60.i, %._crit_edge.i.i.i.i33.i
+_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i59.i, %._crit_edge.i.i.i.i33.i
   br i1 %124, label %362, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 362:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -2849,20 +2848,20 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %370 = load float, ptr %366, align 4
   %371 = fmul float %369, %370
   store float %371, ptr %368, align 4
-  br i1 %.not46.i.i.i.i29.i, label %._crit_edge.thread.i.i22.i.i59.i, label %.lr.ph.i.i18.i.i55.i
+  br i1 %.not46.i.i.i.i29.i, label %._crit_edge.thread.i.i22.i.i58.i, label %.lr.ph.i.i18.i.i54.i
 
-.lr.ph.i.i18.i.i55.i:                             ; preds = %362, %.lr.ph.i.i18.i.i55.i
-  %.047.i.i19.i.i56.i = phi i64 [ %400, %.lr.ph.i.i18.i.i55.i ], [ 1, %362 ]
-  %372 = mul i64 %.047.i.i19.i.i56.i, %133
+.lr.ph.i.i18.i.i54.i:                             ; preds = %362, %.lr.ph.i.i18.i.i54.i
+  %.047.i.i19.i.i55.i = phi i64 [ %400, %.lr.ph.i.i18.i.i54.i ], [ 1, %362 ]
+  %372 = mul i64 %.047.i.i19.i.i55.i, %133
   %373 = getelementptr inbounds i8, ptr %364, i64 %372
   %374 = load float, ptr %373, align 4
   %375 = fpext float %374 to double
-  %376 = add i64 %.047.i.i19.i.i56.i, 1
+  %376 = add i64 %.047.i.i19.i.i55.i, 1
   %377 = mul i64 %376, %133
   %378 = getelementptr inbounds i8, ptr %364, i64 %377
   %379 = load float, ptr %378, align 4
   %380 = fpext float %379 to double
-  %381 = mul i64 %.047.i.i19.i.i56.i, %135
+  %381 = mul i64 %.047.i.i19.i.i55.i, %135
   %382 = getelementptr inbounds i8, ptr %366, i64 %381
   %383 = load float, ptr %382, align 4
   %384 = fpext float %383 to double
@@ -2876,28 +2875,28 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %392 = fmul double %380, %384
   %393 = call double @llvm.fmuladd.f64(double %375, double %388, double %392)
   %394 = fptrunc double %391 to float
-  %395 = mul i64 %.047.i.i19.i.i56.i, %137
+  %395 = mul i64 %.047.i.i19.i.i55.i, %137
   %396 = getelementptr inbounds i8, ptr %368, i64 %395
   store float %394, ptr %396, align 4
   %397 = fptrunc double %393 to float
   %398 = mul i64 %376, %137
   %399 = getelementptr inbounds i8, ptr %368, i64 %398
   store float %397, ptr %399, align 4
-  %400 = add i64 %.047.i.i19.i.i56.i, 2
-  %.not.i.i20.i.i57.i = icmp ugt i64 %400, %320
-  br i1 %.not.i.i20.i.i57.i, label %._crit_edge.i.i21.i.i58.i, label %.lr.ph.i.i18.i.i55.i, !llvm.loop !26
+  %400 = add i64 %.047.i.i19.i.i55.i, 2
+  %.not.i.i20.i.i56.i = icmp ugt i64 %400, %320
+  br i1 %.not.i.i20.i.i56.i, label %._crit_edge.i.i21.i.i57.i, label %.lr.ph.i.i18.i.i54.i, !llvm.loop !26
 
-._crit_edge.i.i21.i.i58.i:                        ; preds = %.lr.ph.i.i18.i.i55.i
+._crit_edge.i.i21.i.i57.i:                        ; preds = %.lr.ph.i.i18.i.i54.i
   %401 = and i64 %.076, 1
   %402 = icmp eq i64 %401, 0
-  br i1 %402, label %._crit_edge.thread.i.i22.i.i59.i, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %402, label %._crit_edge.thread.i.i22.i.i58.i, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i58.i
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i57.i
   %403 = add nsw i64 %.076, -1
   %404 = icmp ugt i64 %126, %120
-  br i1 %404, label %.critedge.us.i.i39.i.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %404, label %.critedge.us.i.i38.i.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i59.i:                 ; preds = %._crit_edge.i.i21.i.i58.i, %362
+._crit_edge.thread.i.i22.i.i58.i:                 ; preds = %._crit_edge.i.i21.i.i57.i, %362
   %405 = add nsw i64 %.076, -1
   %406 = mul i64 %133, %405
   %407 = getelementptr inbounds i8, ptr %364, i64 %406
@@ -2911,44 +2910,43 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.th
   store float %412, ptr %414, align 4
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i59.i, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %315
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i58.i, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %315
   %.not30.i.i34.i = icmp eq i64 %.076, 0
   br i1 %.not30.i.i34.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i
 
 .lr.ph.i.i35.i:                                   ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %415 = add nsw i64 %.076, -1
   %416 = and i1 %119, %116
-  %or.cond.i.i36.i = and i1 %416, %124
   %417 = icmp ugt i64 %126, %120
-  br i1 %416, label %.lr.ph.split.us.i.i42.i, label %.lr.ph.split.i.i37.i
+  br i1 %416, label %.lr.ph.split.us.i.i41.i, label %.lr.ph.split.i.i36.i
 
-.lr.ph.split.us.i.i42.i:                          ; preds = %.lr.ph.i.i35.i
-  br i1 %417, label %.lr.ph.i.i.preheader.us.us.i.i48.i, label %.lr.ph.split.us.split.i.i43.i
+.lr.ph.split.us.i.i41.i:                          ; preds = %.lr.ph.i.i35.i
+  br i1 %417, label %.lr.ph.i.i.preheader.us.us.i.i47.i, label %.lr.ph.split.us.split.i.i42.i
 
-.lr.ph.i.i.preheader.us.us.i.i48.i:               ; preds = %.lr.ph.split.us.i.i42.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %418 = phi i64 [ %456, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %415, %.lr.ph.split.us.i.i42.i ]
-  %.035.us.us.i.i49.i = phi ptr [ %453, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i42.i ]
-  %.02333.us.us.i.i50.i = phi ptr [ %454, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i42.i ]
-  %.02431.us.us.i.i51.i = phi ptr [ %455, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i42.i ]
-  %419 = load float, ptr %.035.us.us.i.i49.i, align 4
-  %420 = load float, ptr %.02333.us.us.i.i50.i, align 4
+.lr.ph.i.i.preheader.us.us.i.i47.i:               ; preds = %.lr.ph.split.us.i.i41.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %418 = phi i64 [ %456, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %415, %.lr.ph.split.us.i.i41.i ]
+  %.035.us.us.i.i48.i = phi ptr [ %453, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i41.i ]
+  %.02333.us.us.i.i49.i = phi ptr [ %454, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i41.i ]
+  %.02431.us.us.i.i50.i = phi ptr [ %455, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i41.i ]
+  %419 = load float, ptr %.035.us.us.i.i48.i, align 4
+  %420 = load float, ptr %.02333.us.us.i.i49.i, align 4
   %421 = fmul float %419, %420
-  store float %421, ptr %.02431.us.us.i.i51.i, align 4
-  br label %.lr.ph.i.i.us.us.i.i52.i
+  store float %421, ptr %.02431.us.us.i.i50.i, align 4
+  br label %.lr.ph.i.i.us.us.i.i51.i
 
-.lr.ph.i.i.us.us.i.i52.i:                         ; preds = %.lr.ph.i.i.us.us.i.i52.i, %.lr.ph.i.i.preheader.us.us.i.i48.i
-  %.025.i.i.us.us.i.i53.i = phi i64 [ %444, %.lr.ph.i.i.us.us.i.i52.i ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i48.i ]
-  %422 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i, i64 %.025.i.i.us.us.i.i53.i
+.lr.ph.i.i.us.us.i.i51.i:                         ; preds = %.lr.ph.i.i.us.us.i.i51.i, %.lr.ph.i.i.preheader.us.us.i.i47.i
+  %.025.i.i.us.us.i.i52.i = phi i64 [ %444, %.lr.ph.i.i.us.us.i.i51.i ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i47.i ]
+  %422 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i, i64 %.025.i.i.us.us.i.i52.i
   %423 = load float, ptr %422, align 4
   %424 = fpext float %423 to double
-  %425 = add nuw i64 %.025.i.i.us.us.i.i53.i, 1
-  %426 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i, i64 %425
+  %425 = add nuw i64 %.025.i.i.us.us.i.i52.i, 1
+  %426 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i, i64 %425
   %427 = load float, ptr %426, align 4
   %428 = fpext float %427 to double
-  %429 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i, i64 %.025.i.i.us.us.i.i53.i
+  %429 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i, i64 %.025.i.i.us.us.i.i52.i
   %430 = load float, ptr %429, align 4
   %431 = fpext float %430 to double
-  %432 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i, i64 %425
+  %432 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i, i64 %425
   %433 = load float, ptr %432, align 4
   %434 = fpext float %433 to double
   %435 = fneg double %434
@@ -2957,44 +2955,44 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.
   %438 = fmul double %428, %431
   %439 = call double @llvm.fmuladd.f64(double %424, double %434, double %438)
   %440 = fptrunc double %437 to float
-  %441 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i, i64 %.025.i.i.us.us.i.i53.i
+  %441 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i, i64 %.025.i.i.us.us.i.i52.i
   store float %440, ptr %441, align 4
   %442 = fptrunc double %439 to float
-  %443 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i, i64 %425
+  %443 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i, i64 %425
   store float %442, ptr %443, align 4
-  %444 = add nuw i64 %.025.i.i.us.us.i.i53.i, 2
+  %444 = add nuw i64 %.025.i.i.us.us.i.i52.i, 2
   %445 = icmp ult i64 %444, %126
-  br i1 %445, label %.lr.ph.i.i.us.us.i.i52.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !27
+  br i1 %445, label %.lr.ph.i.i.us.us.i.i51.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !27
 
 446:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %447 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i, i64 %126
+  %447 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i, i64 %126
   %448 = load float, ptr %447, align 4
-  %449 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i, i64 %126
+  %449 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i, i64 %126
   %450 = load float, ptr %449, align 4
   %451 = fmul float %448, %450
-  %452 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i, i64 %126
+  %452 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i, i64 %126
   store float %451, ptr %452, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %446
-  %453 = getelementptr inbounds i8, ptr %.035.us.us.i.i49.i, i64 %133
-  %454 = getelementptr inbounds i8, ptr %.02333.us.us.i.i50.i, i64 %135
-  %455 = getelementptr inbounds i8, ptr %.02431.us.us.i.i51.i, i64 %137
+  %453 = getelementptr inbounds i8, ptr %.035.us.us.i.i48.i, i64 %133
+  %454 = getelementptr inbounds i8, ptr %.02333.us.us.i.i49.i, i64 %135
+  %455 = getelementptr inbounds i8, ptr %.02431.us.us.i.i50.i, i64 %137
   %456 = add i64 %418, -1
-  %.not.us.us.i.i54.i = icmp eq i64 %418, 0
-  br i1 %.not.us.us.i.i54.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i48.i, !llvm.loop !28
+  %.not.us.us.i.i53.i = icmp eq i64 %418, 0
+  br i1 %.not.us.us.i.i53.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i47.i, !llvm.loop !28
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i52.i
-  br i1 %or.cond.i.i36.i, label %446, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i51.i
+  br i1 %124, label %446, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i43.i:                    ; preds = %.lr.ph.split.us.i.i42.i
-  br i1 %or.cond.i.i36.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i42.i:                    ; preds = %.lr.ph.split.us.i.i41.i
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
-  %457 = phi i64 [ %470, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %415, %.lr.ph.split.us.split.i.i43.i ]
-  %.035.us.us43.i.i.i = phi ptr [ %467, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i ]
-  %.02333.us.us44.i.i.i = phi ptr [ %468, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i ]
-  %.02431.us.us45.i.i.i = phi ptr [ %469, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i ]
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
+  %457 = phi i64 [ %470, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %415, %.lr.ph.split.us.split.i.i42.i ]
+  %.035.us.us43.i.i.i = phi ptr [ %467, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i ]
+  %.02333.us.us44.i.i.i = phi ptr [ %468, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i ]
+  %.02431.us.us45.i.i.i = phi ptr [ %469, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i ]
   %458 = load float, ptr %.035.us.us43.i.i.i, align 4
   %459 = load float, ptr %.02333.us.us44.i.i.i, align 4
   %460 = fmul float %458, %459
@@ -3013,46 +3011,46 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us4
   %.not.us.us47.i.i.i = icmp eq i64 %457, 0
   br i1 %.not.us.us47.i.i.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !28
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %471 = phi i64 [ %478, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %415, %.lr.ph.split.us.split.i.i43.i ]
-  %.035.us.i.i44.i = phi ptr [ %475, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i ]
-  %.02333.us.i.i45.i = phi ptr [ %476, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i ]
-  %.02431.us.i.i46.i = phi ptr [ %477, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i ]
-  %472 = load float, ptr %.035.us.i.i44.i, align 4
-  %473 = load float, ptr %.02333.us.i.i45.i, align 4
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %471 = phi i64 [ %478, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %415, %.lr.ph.split.us.split.i.i42.i ]
+  %.035.us.i.i43.i = phi ptr [ %475, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i ]
+  %.02333.us.i.i44.i = phi ptr [ %476, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i ]
+  %.02431.us.i.i45.i = phi ptr [ %477, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i ]
+  %472 = load float, ptr %.035.us.i.i43.i, align 4
+  %473 = load float, ptr %.02333.us.i.i44.i, align 4
   %474 = fmul float %472, %473
-  store float %474, ptr %.02431.us.i.i46.i, align 4
-  %475 = getelementptr inbounds i8, ptr %.035.us.i.i44.i, i64 %133
-  %476 = getelementptr inbounds i8, ptr %.02333.us.i.i45.i, i64 %135
-  %477 = getelementptr inbounds i8, ptr %.02431.us.i.i46.i, i64 %137
+  store float %474, ptr %.02431.us.i.i45.i, align 4
+  %475 = getelementptr inbounds i8, ptr %.035.us.i.i43.i, i64 %133
+  %476 = getelementptr inbounds i8, ptr %.02333.us.i.i44.i, i64 %135
+  %477 = getelementptr inbounds i8, ptr %.02431.us.i.i45.i, i64 %137
   %478 = add i64 %471, -1
-  %.not.us.i.i47.i = icmp eq i64 %471, 0
-  br i1 %.not.us.i.i47.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !28
+  %.not.us.i.i46.i = icmp eq i64 %471, 0
+  br i1 %.not.us.i.i46.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !28
 
-.lr.ph.split.i.i37.i:                             ; preds = %.lr.ph.i.i35.i
-  br i1 %417, label %.critedge.us.i.i39.i.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i36.i:                             ; preds = %.lr.ph.i.i35.i
+  br i1 %417, label %.critedge.us.i.i38.i.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i39.i.preheader:                   ; preds = %.lr.ph.split.i.i37.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph480 = phi i64 [ %415, %.lr.ph.split.i.i37.i ], [ %403, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i39.i
+.critedge.us.i.i38.i.preheader:                   ; preds = %.lr.ph.split.i.i36.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph474 = phi i64 [ %415, %.lr.ph.split.i.i36.i ], [ %403, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i38.i
 
-.critedge.us.i.i39.i:                             ; preds = %.critedge.us.i.i39.i.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %479 = phi i64 [ %507, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph480, %.critedge.us.i.i39.i.preheader ]
-  %.035.us37.i.i.i = phi ptr [ %504, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i39.i.preheader ]
-  %.02333.us38.i.i.i = phi ptr [ %505, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i39.i.preheader ]
-  %.02431.us39.i.i.i = phi ptr [ %506, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i39.i.preheader ]
-  br label %.lr.ph.i.i27.us.i.i40.i
+.critedge.us.i.i38.i:                             ; preds = %.critedge.us.i.i38.i.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %479 = phi i64 [ %507, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph474, %.critedge.us.i.i38.i.preheader ]
+  %.035.us37.i.i.i = phi ptr [ %504, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i38.i.preheader ]
+  %.02333.us38.i.i.i = phi ptr [ %505, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i38.i.preheader ]
+  %.02431.us39.i.i.i = phi ptr [ %506, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i38.i.preheader ]
+  br label %.lr.ph.i.i27.us.i.i39.i
 
-.lr.ph.i.i27.us.i.i40.i:                          ; preds = %.lr.ph.i.i27.us.i.i40.i, %.critedge.us.i.i39.i
-  %.025.i.i28.us.i.i41.i = phi i64 [ %502, %.lr.ph.i.i27.us.i.i40.i ], [ %120, %.critedge.us.i.i39.i ]
-  %480 = getelementptr inbounds float, ptr %.035.us37.i.i.i, i64 %.025.i.i28.us.i.i41.i
+.lr.ph.i.i27.us.i.i39.i:                          ; preds = %.lr.ph.i.i27.us.i.i39.i, %.critedge.us.i.i38.i
+  %.025.i.i28.us.i.i40.i = phi i64 [ %502, %.lr.ph.i.i27.us.i.i39.i ], [ %120, %.critedge.us.i.i38.i ]
+  %480 = getelementptr inbounds float, ptr %.035.us37.i.i.i, i64 %.025.i.i28.us.i.i40.i
   %481 = load float, ptr %480, align 4
   %482 = fpext float %481 to double
-  %483 = add nuw i64 %.025.i.i28.us.i.i41.i, 1
+  %483 = add nuw i64 %.025.i.i28.us.i.i40.i, 1
   %484 = getelementptr inbounds float, ptr %.035.us37.i.i.i, i64 %483
   %485 = load float, ptr %484, align 4
   %486 = fpext float %485 to double
-  %487 = getelementptr inbounds float, ptr %.02333.us38.i.i.i, i64 %.025.i.i28.us.i.i41.i
+  %487 = getelementptr inbounds float, ptr %.02333.us38.i.i.i, i64 %.025.i.i28.us.i.i40.i
   %488 = load float, ptr %487, align 4
   %489 = fpext float %488 to double
   %490 = getelementptr inbounds float, ptr %.02333.us38.i.i.i, i64 %483
@@ -3064,22 +3062,22 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i
   %496 = fmul double %486, %489
   %497 = call double @llvm.fmuladd.f64(double %482, double %492, double %496)
   %498 = fptrunc double %495 to float
-  %499 = getelementptr inbounds float, ptr %.02431.us39.i.i.i, i64 %.025.i.i28.us.i.i41.i
+  %499 = getelementptr inbounds float, ptr %.02431.us39.i.i.i, i64 %.025.i.i28.us.i.i40.i
   store float %498, ptr %499, align 4
   %500 = fptrunc double %497 to float
   %501 = getelementptr inbounds float, ptr %.02431.us39.i.i.i, i64 %483
   store float %500, ptr %501, align 4
-  %502 = add nuw i64 %.025.i.i28.us.i.i41.i, 2
+  %502 = add nuw i64 %.025.i.i28.us.i.i40.i, 2
   %503 = icmp ult i64 %502, %126
-  br i1 %503, label %.lr.ph.i.i27.us.i.i40.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !27
+  br i1 %503, label %.lr.ph.i.i27.us.i.i39.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !27
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i40.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i39.i
   %504 = getelementptr inbounds i8, ptr %.035.us37.i.i.i, i64 %133
   %505 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i, i64 %135
   %506 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i, i64 %137
   %507 = add i64 %479, -1
   %.not.us41.i.i.i = icmp eq i64 %479, 0
-  br i1 %.not.us41.i.i.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i39.i, !llvm.loop !28
+  br i1 %.not.us41.i.i.i, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i38.i, !llvm.loop !28
 
 508:                                              ; preds = %139
   br i1 %138, label %509, label %683
@@ -3094,10 +3092,10 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   store float %513, ptr %131, align 4
   %514 = add nsw i64 %.076, -2
   %.not47.i.i.i.i.i = icmp eq i64 %514, 0
-  br i1 %.not47.i.i.i.i.i, label %._crit_edge.thread.i.i.i.i.i173, label %.lr.ph.i.i.i.i.i140
+  br i1 %.not47.i.i.i.i.i, label %._crit_edge.thread.i.i.i.i.i171, label %.lr.ph.i.i.i.i.i139
 
-.lr.ph.i.i.i.i.i140:                              ; preds = %510, %.lr.ph.i.i.i.i.i140
-  %.048.i.i.i.i.i = phi i64 [ %539, %.lr.ph.i.i.i.i.i140 ], [ 1, %510 ]
+.lr.ph.i.i.i.i.i139:                              ; preds = %510, %.lr.ph.i.i.i.i.i139
+  %.048.i.i.i.i.i = phi i64 [ %539, %.lr.ph.i.i.i.i.i139 ], [ 1, %510 ]
   %515 = mul i64 %.048.i.i.i.i.i, %137
   %516 = getelementptr inbounds i8, ptr %131, i64 %515
   %517 = load float, ptr %516, align 4
@@ -3125,15 +3123,15 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %538 = fptrunc double %536 to float
   store float %538, ptr %521, align 4
   %539 = add i64 %.048.i.i.i.i.i, 2
-  %.not.i.i.i.i.i141 = icmp ugt i64 %539, %514
-  br i1 %.not.i.i.i.i.i141, label %._crit_edge.i.i.i.i.i142, label %.lr.ph.i.i.i.i.i140, !llvm.loop !29
+  %.not.i.i.i.i.i140 = icmp ugt i64 %539, %514
+  br i1 %.not.i.i.i.i.i140, label %._crit_edge.i.i.i.i.i141, label %.lr.ph.i.i.i.i.i139, !llvm.loop !29
 
-._crit_edge.i.i.i.i.i142:                         ; preds = %.lr.ph.i.i.i.i.i140
+._crit_edge.i.i.i.i.i141:                         ; preds = %.lr.ph.i.i.i.i.i139
   %540 = and i64 %.076, 1
   %541 = icmp eq i64 %540, 0
-  br i1 %541, label %._crit_edge.thread.i.i.i.i.i173, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %541, label %._crit_edge.thread.i.i.i.i.i171, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i.i173:                  ; preds = %._crit_edge.i.i.i.i.i142, %510
+._crit_edge.thread.i.i.i.i.i171:                  ; preds = %._crit_edge.i.i.i.i.i141, %510
   %542 = add nsw i64 %.076, -1
   %543 = mul i64 %137, %542
   %544 = getelementptr inbounds i8, ptr %131, i64 %543
@@ -3145,7 +3143,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   store float %549, ptr %544, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i173, %._crit_edge.i.i.i.i.i142
+_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i171, %._crit_edge.i.i.i.i.i141
   br i1 %124, label %550, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 550:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -3157,10 +3155,10 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %556 = load float, ptr %552, align 4
   %557 = fmul float %555, %556
   store float %557, ptr %554, align 4
-  br i1 %.not47.i.i.i.i.i, label %._crit_edge.thread.i.i22.i.i.i172, label %.lr.ph.i.i18.i.i.i169
+  br i1 %.not47.i.i.i.i.i, label %._crit_edge.thread.i.i22.i.i.i170, label %.lr.ph.i.i18.i.i.i167
 
-.lr.ph.i.i18.i.i.i169:                            ; preds = %550, %.lr.ph.i.i18.i.i.i169
-  %.048.i.i19.i.i.i = phi i64 [ %582, %.lr.ph.i.i18.i.i.i169 ], [ 1, %550 ]
+.lr.ph.i.i18.i.i.i167:                            ; preds = %550, %.lr.ph.i.i18.i.i.i167
+  %.048.i.i19.i.i.i = phi i64 [ %582, %.lr.ph.i.i18.i.i.i167 ], [ 1, %550 ]
   %558 = mul i64 %.048.i.i19.i.i.i, %137
   %559 = getelementptr inbounds i8, ptr %554, i64 %558
   %560 = load float, ptr %559, align 4
@@ -3188,20 +3186,20 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %581 = fptrunc double %579 to float
   store float %581, ptr %564, align 4
   %582 = add i64 %.048.i.i19.i.i.i, 2
-  %.not.i.i20.i.i.i170 = icmp ugt i64 %582, %514
-  br i1 %.not.i.i20.i.i.i170, label %._crit_edge.i.i21.i.i.i171, label %.lr.ph.i.i18.i.i.i169, !llvm.loop !29
+  %.not.i.i20.i.i.i168 = icmp ugt i64 %582, %514
+  br i1 %.not.i.i20.i.i.i168, label %._crit_edge.i.i21.i.i.i169, label %.lr.ph.i.i18.i.i.i167, !llvm.loop !29
 
-._crit_edge.i.i21.i.i.i171:                       ; preds = %.lr.ph.i.i18.i.i.i169
+._crit_edge.i.i21.i.i.i169:                       ; preds = %.lr.ph.i.i18.i.i.i167
   %583 = and i64 %.076, 1
   %584 = icmp eq i64 %583, 0
-  br i1 %584, label %._crit_edge.thread.i.i22.i.i.i172, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %584, label %._crit_edge.thread.i.i22.i.i.i170, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i171
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i169
   %585 = add nsw i64 %.076, -1
   %586 = icmp ugt i64 %126, %120
-  br i1 %586, label %.critedge.us.i.i.i148.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %586, label %.critedge.us.i.i.i146.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i.i172:                ; preds = %._crit_edge.i.i21.i.i.i171, %550
+._crit_edge.thread.i.i22.i.i.i170:                ; preds = %._crit_edge.i.i21.i.i.i169, %550
   %587 = add nsw i64 %.076, -1
   %588 = mul i64 %137, %587
   %589 = getelementptr inbounds i8, ptr %554, i64 %588
@@ -3213,44 +3211,43 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.th
   store float %594, ptr %589, align 4
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i172, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %509
-  %.not30.i.i.i143 = icmp eq i64 %.076, 0
-  br i1 %.not30.i.i.i143, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i144
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i170, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %509
+  %.not30.i.i.i142 = icmp eq i64 %.076, 0
+  br i1 %.not30.i.i.i142, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i143
 
-.lr.ph.i.i.i144:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
+.lr.ph.i.i.i143:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %595 = add nsw i64 %.076, -1
   %596 = and i1 %119, %116
-  %or.cond.i.i.i145 = and i1 %596, %124
   %597 = icmp ugt i64 %126, %120
-  br i1 %596, label %.lr.ph.split.us.i.i.i153, label %.lr.ph.split.i.i.i146
+  br i1 %596, label %.lr.ph.split.us.i.i.i151, label %.lr.ph.split.i.i.i144
 
-.lr.ph.split.us.i.i.i153:                         ; preds = %.lr.ph.i.i.i144
-  br i1 %597, label %.lr.ph.i.i.preheader.us.us.i.i.i163, label %.lr.ph.split.us.split.i.i.i154
+.lr.ph.split.us.i.i.i151:                         ; preds = %.lr.ph.i.i.i143
+  br i1 %597, label %.lr.ph.i.i.preheader.us.us.i.i.i161, label %.lr.ph.split.us.split.i.i.i152
 
-.lr.ph.i.i.preheader.us.us.i.i.i163:              ; preds = %.lr.ph.split.us.i.i.i153, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %598 = phi i64 [ %634, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %595, %.lr.ph.split.us.i.i.i153 ]
-  %.035.us.us.i.i.i164 = phi ptr [ %631, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i153 ]
-  %.02333.us.us.i.i.i165 = phi ptr [ %632, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i153 ]
-  %.02431.us.us.i.i.i166 = phi ptr [ %633, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i153 ]
-  %599 = load float, ptr %.035.us.us.i.i.i164, align 4
-  %600 = load float, ptr %.02333.us.us.i.i.i165, align 4
+.lr.ph.i.i.preheader.us.us.i.i.i161:              ; preds = %.lr.ph.split.us.i.i.i151, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %598 = phi i64 [ %634, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %595, %.lr.ph.split.us.i.i.i151 ]
+  %.035.us.us.i.i.i162 = phi ptr [ %631, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i151 ]
+  %.02333.us.us.i.i.i163 = phi ptr [ %632, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i151 ]
+  %.02431.us.us.i.i.i164 = phi ptr [ %633, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i151 ]
+  %599 = load float, ptr %.035.us.us.i.i.i162, align 4
+  %600 = load float, ptr %.02333.us.us.i.i.i163, align 4
   %601 = fmul float %599, %600
-  store float %601, ptr %.02431.us.us.i.i.i166, align 4
-  br label %.lr.ph.i.i.us.us.i.i.i167
+  store float %601, ptr %.02431.us.us.i.i.i164, align 4
+  br label %.lr.ph.i.i.us.us.i.i.i165
 
-.lr.ph.i.i.us.us.i.i.i167:                        ; preds = %.lr.ph.i.i.us.us.i.i.i167, %.lr.ph.i.i.preheader.us.us.i.i.i163
-  %.026.i.i.us.us.i.i.i = phi i64 [ %622, %.lr.ph.i.i.us.us.i.i.i167 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i163 ]
-  %602 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i166, i64 %.026.i.i.us.us.i.i.i
+.lr.ph.i.i.us.us.i.i.i165:                        ; preds = %.lr.ph.i.i.us.us.i.i.i165, %.lr.ph.i.i.preheader.us.us.i.i.i161
+  %.026.i.i.us.us.i.i.i = phi i64 [ %622, %.lr.ph.i.i.us.us.i.i.i165 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i161 ]
+  %602 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i164, i64 %.026.i.i.us.us.i.i.i
   %603 = load float, ptr %602, align 4
   %604 = fpext float %603 to double
   %605 = add nuw i64 %.026.i.i.us.us.i.i.i, 1
-  %606 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i166, i64 %605
+  %606 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i164, i64 %605
   %607 = load float, ptr %606, align 4
   %608 = fpext float %607 to double
-  %609 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i165, i64 %.026.i.i.us.us.i.i.i
+  %609 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i163, i64 %.026.i.i.us.us.i.i.i
   %610 = load float, ptr %609, align 4
   %611 = fpext float %610 to double
-  %612 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i165, i64 %605
+  %612 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i163, i64 %605
   %613 = load float, ptr %612, align 4
   %614 = fpext float %613 to double
   %615 = fneg double %614
@@ -3264,97 +3261,97 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.
   store float %621, ptr %606, align 4
   %622 = add nuw i64 %.026.i.i.us.us.i.i.i, 2
   %623 = icmp ult i64 %622, %126
-  br i1 %623, label %.lr.ph.i.i.us.us.i.i.i167, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !30
+  br i1 %623, label %.lr.ph.i.i.us.us.i.i.i165, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !30
 
 624:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %625 = getelementptr inbounds float, ptr %.035.us.us.i.i.i164, i64 %126
+  %625 = getelementptr inbounds float, ptr %.035.us.us.i.i.i162, i64 %126
   %626 = load float, ptr %625, align 4
-  %627 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i165, i64 %126
+  %627 = getelementptr inbounds float, ptr %.02333.us.us.i.i.i163, i64 %126
   %628 = load float, ptr %627, align 4
   %629 = fmul float %626, %628
-  %630 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i166, i64 %126
+  %630 = getelementptr inbounds float, ptr %.02431.us.us.i.i.i164, i64 %126
   store float %629, ptr %630, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %624
-  %631 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i164, i64 %133
-  %632 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i165, i64 %135
-  %633 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i166, i64 %137
+  %631 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i162, i64 %133
+  %632 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i163, i64 %135
+  %633 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i164, i64 %137
   %634 = add i64 %598, -1
-  %.not.us.us.i.i.i168 = icmp eq i64 %598, 0
-  br i1 %.not.us.us.i.i.i168, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i163, !llvm.loop !31
+  %.not.us.us.i.i.i166 = icmp eq i64 %598, 0
+  br i1 %.not.us.us.i.i.i166, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i161, !llvm.loop !31
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i167
-  br i1 %or.cond.i.i.i145, label %624, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i165
+  br i1 %124, label %624, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i.i154:                   ; preds = %.lr.ph.split.us.i.i.i153
-  br i1 %or.cond.i.i.i145, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i.i152:                   ; preds = %.lr.ph.split.us.i.i.i151
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i154, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
-  %635 = phi i64 [ %648, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %595, %.lr.ph.split.us.split.i.i.i154 ]
-  %.035.us.us42.i.i.i159 = phi ptr [ %645, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i154 ]
-  %.02333.us.us43.i.i.i160 = phi ptr [ %646, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i154 ]
-  %.02431.us.us44.i.i.i161 = phi ptr [ %647, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i154 ]
-  %636 = load float, ptr %.035.us.us42.i.i.i159, align 4
-  %637 = load float, ptr %.02333.us.us43.i.i.i160, align 4
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i152, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
+  %635 = phi i64 [ %648, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %595, %.lr.ph.split.us.split.i.i.i152 ]
+  %.035.us.us42.i.i.i157 = phi ptr [ %645, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i152 ]
+  %.02333.us.us43.i.i.i158 = phi ptr [ %646, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i152 ]
+  %.02431.us.us44.i.i.i159 = phi ptr [ %647, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i152 ]
+  %636 = load float, ptr %.035.us.us42.i.i.i157, align 4
+  %637 = load float, ptr %.02333.us.us43.i.i.i158, align 4
   %638 = fmul float %636, %637
-  store float %638, ptr %.02431.us.us44.i.i.i161, align 4
-  %639 = getelementptr inbounds float, ptr %.035.us.us42.i.i.i159, i64 %126
+  store float %638, ptr %.02431.us.us44.i.i.i159, align 4
+  %639 = getelementptr inbounds float, ptr %.035.us.us42.i.i.i157, i64 %126
   %640 = load float, ptr %639, align 4
-  %641 = getelementptr inbounds float, ptr %.02333.us.us43.i.i.i160, i64 %126
+  %641 = getelementptr inbounds float, ptr %.02333.us.us43.i.i.i158, i64 %126
   %642 = load float, ptr %641, align 4
   %643 = fmul float %640, %642
-  %644 = getelementptr inbounds float, ptr %.02431.us.us44.i.i.i161, i64 %126
+  %644 = getelementptr inbounds float, ptr %.02431.us.us44.i.i.i159, i64 %126
   store float %643, ptr %644, align 4
-  %645 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i159, i64 %133
-  %646 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i160, i64 %135
-  %647 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i161, i64 %137
+  %645 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i157, i64 %133
+  %646 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i158, i64 %135
+  %647 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i159, i64 %137
   %648 = add i64 %635, -1
-  %.not.us.us46.i.i.i162 = icmp eq i64 %635, 0
-  br i1 %.not.us.us46.i.i.i162, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !31
+  %.not.us.us46.i.i.i160 = icmp eq i64 %635, 0
+  br i1 %.not.us.us46.i.i.i160, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !31
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i154, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %649 = phi i64 [ %656, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %595, %.lr.ph.split.us.split.i.i.i154 ]
-  %.035.us.i.i.i155 = phi ptr [ %653, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i154 ]
-  %.02333.us.i.i.i156 = phi ptr [ %654, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i154 ]
-  %.02431.us.i.i.i157 = phi ptr [ %655, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i154 ]
-  %650 = load float, ptr %.035.us.i.i.i155, align 4
-  %651 = load float, ptr %.02333.us.i.i.i156, align 4
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i152, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %649 = phi i64 [ %656, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %595, %.lr.ph.split.us.split.i.i.i152 ]
+  %.035.us.i.i.i153 = phi ptr [ %653, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i152 ]
+  %.02333.us.i.i.i154 = phi ptr [ %654, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i152 ]
+  %.02431.us.i.i.i155 = phi ptr [ %655, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i152 ]
+  %650 = load float, ptr %.035.us.i.i.i153, align 4
+  %651 = load float, ptr %.02333.us.i.i.i154, align 4
   %652 = fmul float %650, %651
-  store float %652, ptr %.02431.us.i.i.i157, align 4
-  %653 = getelementptr inbounds i8, ptr %.035.us.i.i.i155, i64 %133
-  %654 = getelementptr inbounds i8, ptr %.02333.us.i.i.i156, i64 %135
-  %655 = getelementptr inbounds i8, ptr %.02431.us.i.i.i157, i64 %137
+  store float %652, ptr %.02431.us.i.i.i155, align 4
+  %653 = getelementptr inbounds i8, ptr %.035.us.i.i.i153, i64 %133
+  %654 = getelementptr inbounds i8, ptr %.02333.us.i.i.i154, i64 %135
+  %655 = getelementptr inbounds i8, ptr %.02431.us.i.i.i155, i64 %137
   %656 = add i64 %649, -1
-  %.not.us.i.i.i158 = icmp eq i64 %649, 0
-  br i1 %.not.us.i.i.i158, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !31
+  %.not.us.i.i.i156 = icmp eq i64 %649, 0
+  br i1 %.not.us.i.i.i156, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !31
 
-.lr.ph.split.i.i.i146:                            ; preds = %.lr.ph.i.i.i144
-  br i1 %597, label %.critedge.us.i.i.i148.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i.i144:                            ; preds = %.lr.ph.i.i.i143
+  br i1 %597, label %.critedge.us.i.i.i146.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i.i148.preheader:                  ; preds = %.lr.ph.split.i.i.i146, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph = phi i64 [ %595, %.lr.ph.split.i.i.i146 ], [ %585, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i.i148
+.critedge.us.i.i.i146.preheader:                  ; preds = %.lr.ph.split.i.i.i144, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph = phi i64 [ %595, %.lr.ph.split.i.i.i144 ], [ %585, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i.i146
 
-.critedge.us.i.i.i148:                            ; preds = %.critedge.us.i.i.i148.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %657 = phi i64 [ %682, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph, %.critedge.us.i.i.i148.preheader ]
-  %.02333.us37.i.i.i149 = phi ptr [ %680, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i148.preheader ]
-  %.02431.us38.i.i.i150 = phi ptr [ %681, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i148.preheader ]
-  br label %.lr.ph.i.i27.us.i.i.i151
+.critedge.us.i.i.i146:                            ; preds = %.critedge.us.i.i.i146.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %657 = phi i64 [ %682, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph, %.critedge.us.i.i.i146.preheader ]
+  %.02333.us37.i.i.i147 = phi ptr [ %680, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i146.preheader ]
+  %.02431.us38.i.i.i148 = phi ptr [ %681, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i146.preheader ]
+  br label %.lr.ph.i.i27.us.i.i.i149
 
-.lr.ph.i.i27.us.i.i.i151:                         ; preds = %.lr.ph.i.i27.us.i.i.i151, %.critedge.us.i.i.i148
-  %.026.i.i28.us.i.i.i = phi i64 [ %678, %.lr.ph.i.i27.us.i.i.i151 ], [ %120, %.critedge.us.i.i.i148 ]
-  %658 = getelementptr inbounds float, ptr %.02431.us38.i.i.i150, i64 %.026.i.i28.us.i.i.i
+.lr.ph.i.i27.us.i.i.i149:                         ; preds = %.lr.ph.i.i27.us.i.i.i149, %.critedge.us.i.i.i146
+  %.026.i.i28.us.i.i.i = phi i64 [ %678, %.lr.ph.i.i27.us.i.i.i149 ], [ %120, %.critedge.us.i.i.i146 ]
+  %658 = getelementptr inbounds float, ptr %.02431.us38.i.i.i148, i64 %.026.i.i28.us.i.i.i
   %659 = load float, ptr %658, align 4
   %660 = fpext float %659 to double
   %661 = add nuw i64 %.026.i.i28.us.i.i.i, 1
-  %662 = getelementptr inbounds float, ptr %.02431.us38.i.i.i150, i64 %661
+  %662 = getelementptr inbounds float, ptr %.02431.us38.i.i.i148, i64 %661
   %663 = load float, ptr %662, align 4
   %664 = fpext float %663 to double
-  %665 = getelementptr inbounds float, ptr %.02333.us37.i.i.i149, i64 %.026.i.i28.us.i.i.i
+  %665 = getelementptr inbounds float, ptr %.02333.us37.i.i.i147, i64 %.026.i.i28.us.i.i.i
   %666 = load float, ptr %665, align 4
   %667 = fpext float %666 to double
-  %668 = getelementptr inbounds float, ptr %.02333.us37.i.i.i149, i64 %661
+  %668 = getelementptr inbounds float, ptr %.02333.us37.i.i.i147, i64 %661
   %669 = load float, ptr %668, align 4
   %670 = fpext float %669 to double
   %671 = fneg double %670
@@ -3368,14 +3365,14 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i
   store float %677, ptr %662, align 4
   %678 = add nuw i64 %.026.i.i28.us.i.i.i, 2
   %679 = icmp ult i64 %678, %126
-  br i1 %679, label %.lr.ph.i.i27.us.i.i.i151, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !30
+  br i1 %679, label %.lr.ph.i.i27.us.i.i.i149, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !30
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i151
-  %680 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i149, i64 %135
-  %681 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i150, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i149
+  %680 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i147, i64 %135
+  %681 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i148, i64 %137
   %682 = add i64 %657, -1
-  %.not.us40.i.i.i152 = icmp eq i64 %657, 0
-  br i1 %.not.us40.i.i.i152, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i148, !llvm.loop !31
+  %.not.us40.i.i.i150 = icmp eq i64 %657, 0
+  br i1 %.not.us40.i.i.i150, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i146, !llvm.loop !31
 
 683:                                              ; preds = %508
   br i1 %brmerge.i.i104, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, label %684
@@ -3387,7 +3384,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store float %687, ptr %131, align 4
   %688 = add nsw i64 %.076, -2
   %.not47.i.i.i.i29.i = icmp eq i64 %688, 0
-  br i1 %.not47.i.i.i.i29.i, label %._crit_edge.thread.i.i.i.i60.i139, label %.lr.ph.i.i.i.i30.i105
+  br i1 %.not47.i.i.i.i29.i, label %._crit_edge.thread.i.i.i.i59.i138, label %.lr.ph.i.i.i.i30.i105
 
 .lr.ph.i.i.i.i30.i105:                            ; preds = %684, %.lr.ph.i.i.i.i30.i105
   %.048.i.i.i.i31.i = phi i64 [ %717, %.lr.ph.i.i.i.i30.i105 ], [ 1, %684 ]
@@ -3428,9 +3425,9 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
 ._crit_edge.i.i.i.i33.i107:                       ; preds = %.lr.ph.i.i.i.i30.i105
   %718 = and i64 %.076, 1
   %719 = icmp eq i64 %718, 0
-  br i1 %719, label %._crit_edge.thread.i.i.i.i60.i139, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %719, label %._crit_edge.thread.i.i.i.i59.i138, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i60.i139:                ; preds = %._crit_edge.i.i.i.i33.i107, %684
+._crit_edge.thread.i.i.i.i59.i138:                ; preds = %._crit_edge.i.i.i.i33.i107, %684
   %720 = add nsw i64 %.076, -1
   %721 = mul i64 %133, %720
   %722 = getelementptr inbounds i8, ptr %129, i64 %721
@@ -3444,7 +3441,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store float %727, ptr %729, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i60.i139, %._crit_edge.i.i.i.i33.i107
+_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i59.i138, %._crit_edge.i.i.i.i33.i107
   br i1 %124, label %730, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 730:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -3458,20 +3455,20 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %738 = load float, ptr %734, align 4
   %739 = fmul float %737, %738
   store float %739, ptr %736, align 4
-  br i1 %.not47.i.i.i.i29.i, label %._crit_edge.thread.i.i22.i.i59.i138, label %.lr.ph.i.i18.i.i55.i135
+  br i1 %.not47.i.i.i.i29.i, label %._crit_edge.thread.i.i22.i.i58.i137, label %.lr.ph.i.i18.i.i54.i134
 
-.lr.ph.i.i18.i.i55.i135:                          ; preds = %730, %.lr.ph.i.i18.i.i55.i135
-  %.048.i.i19.i.i56.i = phi i64 [ %768, %.lr.ph.i.i18.i.i55.i135 ], [ 1, %730 ]
-  %740 = mul i64 %.048.i.i19.i.i56.i, %133
+.lr.ph.i.i18.i.i54.i134:                          ; preds = %730, %.lr.ph.i.i18.i.i54.i134
+  %.048.i.i19.i.i55.i = phi i64 [ %768, %.lr.ph.i.i18.i.i54.i134 ], [ 1, %730 ]
+  %740 = mul i64 %.048.i.i19.i.i55.i, %133
   %741 = getelementptr inbounds i8, ptr %732, i64 %740
   %742 = load float, ptr %741, align 4
   %743 = fpext float %742 to double
-  %744 = add i64 %.048.i.i19.i.i56.i, 1
+  %744 = add i64 %.048.i.i19.i.i55.i, 1
   %745 = mul i64 %744, %133
   %746 = getelementptr inbounds i8, ptr %732, i64 %745
   %747 = load float, ptr %746, align 4
   %748 = fpext float %747 to double
-  %749 = mul i64 %.048.i.i19.i.i56.i, %135
+  %749 = mul i64 %.048.i.i19.i.i55.i, %135
   %750 = getelementptr inbounds i8, ptr %734, i64 %749
   %751 = load float, ptr %750, align 4
   %752 = fpext float %751 to double
@@ -3485,28 +3482,28 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %760 = fmul double %748, %752
   %761 = call double @llvm.fmuladd.f64(double %743, double %757, double %760)
   %762 = fptrunc double %759 to float
-  %763 = mul i64 %.048.i.i19.i.i56.i, %137
+  %763 = mul i64 %.048.i.i19.i.i55.i, %137
   %764 = getelementptr inbounds i8, ptr %736, i64 %763
   store float %762, ptr %764, align 4
   %765 = fptrunc double %761 to float
   %766 = mul i64 %744, %137
   %767 = getelementptr inbounds i8, ptr %736, i64 %766
   store float %765, ptr %767, align 4
-  %768 = add i64 %.048.i.i19.i.i56.i, 2
-  %.not.i.i20.i.i57.i136 = icmp ugt i64 %768, %688
-  br i1 %.not.i.i20.i.i57.i136, label %._crit_edge.i.i21.i.i58.i137, label %.lr.ph.i.i18.i.i55.i135, !llvm.loop !32
+  %768 = add i64 %.048.i.i19.i.i55.i, 2
+  %.not.i.i20.i.i56.i135 = icmp ugt i64 %768, %688
+  br i1 %.not.i.i20.i.i56.i135, label %._crit_edge.i.i21.i.i57.i136, label %.lr.ph.i.i18.i.i54.i134, !llvm.loop !32
 
-._crit_edge.i.i21.i.i58.i137:                     ; preds = %.lr.ph.i.i18.i.i55.i135
+._crit_edge.i.i21.i.i57.i136:                     ; preds = %.lr.ph.i.i18.i.i54.i134
   %769 = and i64 %.076, 1
   %770 = icmp eq i64 %769, 0
-  br i1 %770, label %._crit_edge.thread.i.i22.i.i59.i138, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %770, label %._crit_edge.thread.i.i22.i.i58.i137, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i58.i137
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i57.i136
   %771 = add nsw i64 %.076, -1
   %772 = icmp ugt i64 %126, %120
-  br i1 %772, label %.critedge.us.i.i39.i113.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %772, label %.critedge.us.i.i38.i112.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i59.i138:              ; preds = %._crit_edge.i.i21.i.i58.i137, %730
+._crit_edge.thread.i.i22.i.i58.i137:              ; preds = %._crit_edge.i.i21.i.i57.i136, %730
   %773 = add nsw i64 %.076, -1
   %774 = mul i64 %133, %773
   %775 = getelementptr inbounds i8, ptr %732, i64 %774
@@ -3520,44 +3517,43 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.th
   store float %780, ptr %782, align 4
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i59.i138, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %683
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i58.i137, %_ZN12_GLOBAL__N_123mulSpectrums_processColIfLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %683
   %.not30.i.i34.i108 = icmp eq i64 %.076, 0
   br i1 %.not30.i.i34.i108, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i109
 
 .lr.ph.i.i35.i109:                                ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %783 = add nsw i64 %.076, -1
   %784 = and i1 %119, %116
-  %or.cond.i.i36.i110 = and i1 %784, %124
   %785 = icmp ugt i64 %126, %120
-  br i1 %784, label %.lr.ph.split.us.i.i42.i119, label %.lr.ph.split.i.i37.i111
+  br i1 %784, label %.lr.ph.split.us.i.i41.i118, label %.lr.ph.split.i.i36.i110
 
-.lr.ph.split.us.i.i42.i119:                       ; preds = %.lr.ph.i.i35.i109
-  br i1 %785, label %.lr.ph.i.i.preheader.us.us.i.i48.i129, label %.lr.ph.split.us.split.i.i43.i120
+.lr.ph.split.us.i.i41.i118:                       ; preds = %.lr.ph.i.i35.i109
+  br i1 %785, label %.lr.ph.i.i.preheader.us.us.i.i47.i128, label %.lr.ph.split.us.split.i.i42.i119
 
-.lr.ph.i.i.preheader.us.us.i.i48.i129:            ; preds = %.lr.ph.split.us.i.i42.i119, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %786 = phi i64 [ %824, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %783, %.lr.ph.split.us.i.i42.i119 ]
-  %.035.us.us.i.i49.i130 = phi ptr [ %821, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i42.i119 ]
-  %.02333.us.us.i.i50.i131 = phi ptr [ %822, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i42.i119 ]
-  %.02431.us.us.i.i51.i132 = phi ptr [ %823, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i42.i119 ]
-  %787 = load float, ptr %.035.us.us.i.i49.i130, align 4
-  %788 = load float, ptr %.02333.us.us.i.i50.i131, align 4
+.lr.ph.i.i.preheader.us.us.i.i47.i128:            ; preds = %.lr.ph.split.us.i.i41.i118, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %786 = phi i64 [ %824, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %783, %.lr.ph.split.us.i.i41.i118 ]
+  %.035.us.us.i.i48.i129 = phi ptr [ %821, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i41.i118 ]
+  %.02333.us.us.i.i49.i130 = phi ptr [ %822, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i41.i118 ]
+  %.02431.us.us.i.i50.i131 = phi ptr [ %823, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i41.i118 ]
+  %787 = load float, ptr %.035.us.us.i.i48.i129, align 4
+  %788 = load float, ptr %.02333.us.us.i.i49.i130, align 4
   %789 = fmul float %787, %788
-  store float %789, ptr %.02431.us.us.i.i51.i132, align 4
-  br label %.lr.ph.i.i.us.us.i.i52.i133
+  store float %789, ptr %.02431.us.us.i.i50.i131, align 4
+  br label %.lr.ph.i.i.us.us.i.i51.i132
 
-.lr.ph.i.i.us.us.i.i52.i133:                      ; preds = %.lr.ph.i.i.us.us.i.i52.i133, %.lr.ph.i.i.preheader.us.us.i.i48.i129
-  %.026.i.i.us.us.i.i53.i = phi i64 [ %812, %.lr.ph.i.i.us.us.i.i52.i133 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i48.i129 ]
-  %790 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i130, i64 %.026.i.i.us.us.i.i53.i
+.lr.ph.i.i.us.us.i.i51.i132:                      ; preds = %.lr.ph.i.i.us.us.i.i51.i132, %.lr.ph.i.i.preheader.us.us.i.i47.i128
+  %.026.i.i.us.us.i.i52.i = phi i64 [ %812, %.lr.ph.i.i.us.us.i.i51.i132 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i47.i128 ]
+  %790 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i129, i64 %.026.i.i.us.us.i.i52.i
   %791 = load float, ptr %790, align 4
   %792 = fpext float %791 to double
-  %793 = add nuw i64 %.026.i.i.us.us.i.i53.i, 1
-  %794 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i130, i64 %793
+  %793 = add nuw i64 %.026.i.i.us.us.i.i52.i, 1
+  %794 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i129, i64 %793
   %795 = load float, ptr %794, align 4
   %796 = fpext float %795 to double
-  %797 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i131, i64 %.026.i.i.us.us.i.i53.i
+  %797 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i130, i64 %.026.i.i.us.us.i.i52.i
   %798 = load float, ptr %797, align 4
   %799 = fpext float %798 to double
-  %800 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i131, i64 %793
+  %800 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i130, i64 %793
   %801 = load float, ptr %800, align 4
   %802 = fpext float %801 to double
   %803 = fneg double %802
@@ -3566,105 +3562,105 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.
   %806 = fmul double %796, %799
   %807 = call double @llvm.fmuladd.f64(double %792, double %803, double %806)
   %808 = fptrunc double %805 to float
-  %809 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i132, i64 %.026.i.i.us.us.i.i53.i
+  %809 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i131, i64 %.026.i.i.us.us.i.i52.i
   store float %808, ptr %809, align 4
   %810 = fptrunc double %807 to float
-  %811 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i132, i64 %793
+  %811 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i131, i64 %793
   store float %810, ptr %811, align 4
-  %812 = add nuw i64 %.026.i.i.us.us.i.i53.i, 2
+  %812 = add nuw i64 %.026.i.i.us.us.i.i52.i, 2
   %813 = icmp ult i64 %812, %126
-  br i1 %813, label %.lr.ph.i.i.us.us.i.i52.i133, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !33
+  br i1 %813, label %.lr.ph.i.i.us.us.i.i51.i132, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !33
 
 814:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %815 = getelementptr inbounds float, ptr %.035.us.us.i.i49.i130, i64 %126
+  %815 = getelementptr inbounds float, ptr %.035.us.us.i.i48.i129, i64 %126
   %816 = load float, ptr %815, align 4
-  %817 = getelementptr inbounds float, ptr %.02333.us.us.i.i50.i131, i64 %126
+  %817 = getelementptr inbounds float, ptr %.02333.us.us.i.i49.i130, i64 %126
   %818 = load float, ptr %817, align 4
   %819 = fmul float %816, %818
-  %820 = getelementptr inbounds float, ptr %.02431.us.us.i.i51.i132, i64 %126
+  %820 = getelementptr inbounds float, ptr %.02431.us.us.i.i50.i131, i64 %126
   store float %819, ptr %820, align 4
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %814
-  %821 = getelementptr inbounds i8, ptr %.035.us.us.i.i49.i130, i64 %133
-  %822 = getelementptr inbounds i8, ptr %.02333.us.us.i.i50.i131, i64 %135
-  %823 = getelementptr inbounds i8, ptr %.02431.us.us.i.i51.i132, i64 %137
+  %821 = getelementptr inbounds i8, ptr %.035.us.us.i.i48.i129, i64 %133
+  %822 = getelementptr inbounds i8, ptr %.02333.us.us.i.i49.i130, i64 %135
+  %823 = getelementptr inbounds i8, ptr %.02431.us.us.i.i50.i131, i64 %137
   %824 = add i64 %786, -1
-  %.not.us.us.i.i54.i134 = icmp eq i64 %786, 0
-  br i1 %.not.us.us.i.i54.i134, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i48.i129, !llvm.loop !34
+  %.not.us.us.i.i53.i133 = icmp eq i64 %786, 0
+  br i1 %.not.us.us.i.i53.i133, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i47.i128, !llvm.loop !34
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i52.i133
-  br i1 %or.cond.i.i36.i110, label %814, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i51.i132
+  br i1 %124, label %814, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i43.i120:                 ; preds = %.lr.ph.split.us.i.i42.i119
-  br i1 %or.cond.i.i36.i110, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i42.i119:                 ; preds = %.lr.ph.split.us.i.i41.i118
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i120, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
-  %825 = phi i64 [ %838, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %783, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.035.us.us43.i.i.i125 = phi ptr [ %835, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.02333.us.us44.i.i.i126 = phi ptr [ %836, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.02431.us.us45.i.i.i127 = phi ptr [ %837, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i120 ]
-  %826 = load float, ptr %.035.us.us43.i.i.i125, align 4
-  %827 = load float, ptr %.02333.us.us44.i.i.i126, align 4
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i119, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
+  %825 = phi i64 [ %838, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %783, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.035.us.us43.i.i.i124 = phi ptr [ %835, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.02333.us.us44.i.i.i125 = phi ptr [ %836, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.02431.us.us45.i.i.i126 = phi ptr [ %837, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i119 ]
+  %826 = load float, ptr %.035.us.us43.i.i.i124, align 4
+  %827 = load float, ptr %.02333.us.us44.i.i.i125, align 4
   %828 = fmul float %826, %827
-  store float %828, ptr %.02431.us.us45.i.i.i127, align 4
-  %829 = getelementptr inbounds float, ptr %.035.us.us43.i.i.i125, i64 %126
+  store float %828, ptr %.02431.us.us45.i.i.i126, align 4
+  %829 = getelementptr inbounds float, ptr %.035.us.us43.i.i.i124, i64 %126
   %830 = load float, ptr %829, align 4
-  %831 = getelementptr inbounds float, ptr %.02333.us.us44.i.i.i126, i64 %126
+  %831 = getelementptr inbounds float, ptr %.02333.us.us44.i.i.i125, i64 %126
   %832 = load float, ptr %831, align 4
   %833 = fmul float %830, %832
-  %834 = getelementptr inbounds float, ptr %.02431.us.us45.i.i.i127, i64 %126
+  %834 = getelementptr inbounds float, ptr %.02431.us.us45.i.i.i126, i64 %126
   store float %833, ptr %834, align 4
-  %835 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i125, i64 %133
-  %836 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i126, i64 %135
-  %837 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i127, i64 %137
+  %835 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i124, i64 %133
+  %836 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i125, i64 %135
+  %837 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i126, i64 %137
   %838 = add i64 %825, -1
-  %.not.us.us47.i.i.i128 = icmp eq i64 %825, 0
-  br i1 %.not.us.us47.i.i.i128, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !34
+  %.not.us.us47.i.i.i127 = icmp eq i64 %825, 0
+  br i1 %.not.us.us47.i.i.i127, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !34
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i120, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %839 = phi i64 [ %846, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %783, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.035.us.i.i44.i121 = phi ptr [ %843, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.02333.us.i.i45.i122 = phi ptr [ %844, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i120 ]
-  %.02431.us.i.i46.i123 = phi ptr [ %845, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i120 ]
-  %840 = load float, ptr %.035.us.i.i44.i121, align 4
-  %841 = load float, ptr %.02333.us.i.i45.i122, align 4
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i119, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %839 = phi i64 [ %846, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %783, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.035.us.i.i43.i120 = phi ptr [ %843, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.02333.us.i.i44.i121 = phi ptr [ %844, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i119 ]
+  %.02431.us.i.i45.i122 = phi ptr [ %845, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i119 ]
+  %840 = load float, ptr %.035.us.i.i43.i120, align 4
+  %841 = load float, ptr %.02333.us.i.i44.i121, align 4
   %842 = fmul float %840, %841
-  store float %842, ptr %.02431.us.i.i46.i123, align 4
-  %843 = getelementptr inbounds i8, ptr %.035.us.i.i44.i121, i64 %133
-  %844 = getelementptr inbounds i8, ptr %.02333.us.i.i45.i122, i64 %135
-  %845 = getelementptr inbounds i8, ptr %.02431.us.i.i46.i123, i64 %137
+  store float %842, ptr %.02431.us.i.i45.i122, align 4
+  %843 = getelementptr inbounds i8, ptr %.035.us.i.i43.i120, i64 %133
+  %844 = getelementptr inbounds i8, ptr %.02333.us.i.i44.i121, i64 %135
+  %845 = getelementptr inbounds i8, ptr %.02431.us.i.i45.i122, i64 %137
   %846 = add i64 %839, -1
-  %.not.us.i.i47.i124 = icmp eq i64 %839, 0
-  br i1 %.not.us.i.i47.i124, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !34
+  %.not.us.i.i46.i123 = icmp eq i64 %839, 0
+  br i1 %.not.us.i.i46.i123, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !34
 
-.lr.ph.split.i.i37.i111:                          ; preds = %.lr.ph.i.i35.i109
-  br i1 %785, label %.critedge.us.i.i39.i113.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i36.i110:                          ; preds = %.lr.ph.i.i35.i109
+  br i1 %785, label %.critedge.us.i.i38.i112.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i39.i113.preheader:                ; preds = %.lr.ph.split.i.i37.i111, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph470 = phi i64 [ %783, %.lr.ph.split.i.i37.i111 ], [ %771, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i39.i113
+.critedge.us.i.i38.i112.preheader:                ; preds = %.lr.ph.split.i.i36.i110, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph464 = phi i64 [ %783, %.lr.ph.split.i.i36.i110 ], [ %771, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i38.i112
 
-.critedge.us.i.i39.i113:                          ; preds = %.critedge.us.i.i39.i113.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %847 = phi i64 [ %875, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph470, %.critedge.us.i.i39.i113.preheader ]
-  %.035.us37.i.i.i114 = phi ptr [ %872, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i39.i113.preheader ]
-  %.02333.us38.i.i.i115 = phi ptr [ %873, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i39.i113.preheader ]
-  %.02431.us39.i.i.i116 = phi ptr [ %874, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i39.i113.preheader ]
-  br label %.lr.ph.i.i27.us.i.i40.i117
+.critedge.us.i.i38.i112:                          ; preds = %.critedge.us.i.i38.i112.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %847 = phi i64 [ %875, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph464, %.critedge.us.i.i38.i112.preheader ]
+  %.035.us37.i.i.i113 = phi ptr [ %872, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i38.i112.preheader ]
+  %.02333.us38.i.i.i114 = phi ptr [ %873, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i38.i112.preheader ]
+  %.02431.us39.i.i.i115 = phi ptr [ %874, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i38.i112.preheader ]
+  br label %.lr.ph.i.i27.us.i.i39.i116
 
-.lr.ph.i.i27.us.i.i40.i117:                       ; preds = %.lr.ph.i.i27.us.i.i40.i117, %.critedge.us.i.i39.i113
-  %.026.i.i28.us.i.i41.i = phi i64 [ %870, %.lr.ph.i.i27.us.i.i40.i117 ], [ %120, %.critedge.us.i.i39.i113 ]
-  %848 = getelementptr inbounds float, ptr %.035.us37.i.i.i114, i64 %.026.i.i28.us.i.i41.i
+.lr.ph.i.i27.us.i.i39.i116:                       ; preds = %.lr.ph.i.i27.us.i.i39.i116, %.critedge.us.i.i38.i112
+  %.026.i.i28.us.i.i40.i = phi i64 [ %870, %.lr.ph.i.i27.us.i.i39.i116 ], [ %120, %.critedge.us.i.i38.i112 ]
+  %848 = getelementptr inbounds float, ptr %.035.us37.i.i.i113, i64 %.026.i.i28.us.i.i40.i
   %849 = load float, ptr %848, align 4
   %850 = fpext float %849 to double
-  %851 = add nuw i64 %.026.i.i28.us.i.i41.i, 1
-  %852 = getelementptr inbounds float, ptr %.035.us37.i.i.i114, i64 %851
+  %851 = add nuw i64 %.026.i.i28.us.i.i40.i, 1
+  %852 = getelementptr inbounds float, ptr %.035.us37.i.i.i113, i64 %851
   %853 = load float, ptr %852, align 4
   %854 = fpext float %853 to double
-  %855 = getelementptr inbounds float, ptr %.02333.us38.i.i.i115, i64 %.026.i.i28.us.i.i41.i
+  %855 = getelementptr inbounds float, ptr %.02333.us38.i.i.i114, i64 %.026.i.i28.us.i.i40.i
   %856 = load float, ptr %855, align 4
   %857 = fpext float %856 to double
-  %858 = getelementptr inbounds float, ptr %.02333.us38.i.i.i115, i64 %851
+  %858 = getelementptr inbounds float, ptr %.02333.us38.i.i.i114, i64 %851
   %859 = load float, ptr %858, align 4
   %860 = fpext float %859 to double
   %861 = fneg double %860
@@ -3673,22 +3669,22 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i
   %864 = fmul double %854, %857
   %865 = call double @llvm.fmuladd.f64(double %850, double %861, double %864)
   %866 = fptrunc double %863 to float
-  %867 = getelementptr inbounds float, ptr %.02431.us39.i.i.i116, i64 %.026.i.i28.us.i.i41.i
+  %867 = getelementptr inbounds float, ptr %.02431.us39.i.i.i115, i64 %.026.i.i28.us.i.i40.i
   store float %866, ptr %867, align 4
   %868 = fptrunc double %865 to float
-  %869 = getelementptr inbounds float, ptr %.02431.us39.i.i.i116, i64 %851
+  %869 = getelementptr inbounds float, ptr %.02431.us39.i.i.i115, i64 %851
   store float %868, ptr %869, align 4
-  %870 = add nuw i64 %.026.i.i28.us.i.i41.i, 2
+  %870 = add nuw i64 %.026.i.i28.us.i.i40.i, 2
   %871 = icmp ult i64 %870, %126
-  br i1 %871, label %.lr.ph.i.i27.us.i.i40.i117, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !33
+  br i1 %871, label %.lr.ph.i.i27.us.i.i39.i116, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !33
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i40.i117
-  %872 = getelementptr inbounds i8, ptr %.035.us37.i.i.i114, i64 %133
-  %873 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i115, i64 %135
-  %874 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i116, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i39.i116
+  %872 = getelementptr inbounds i8, ptr %.035.us37.i.i.i113, i64 %133
+  %873 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i114, i64 %135
+  %874 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i115, i64 %137
   %875 = add i64 %847, -1
-  %.not.us41.i.i.i118 = icmp eq i64 %847, 0
-  br i1 %.not.us41.i.i.i118, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i39.i113, !llvm.loop !34
+  %.not.us41.i.i.i117 = icmp eq i64 %847, 0
+  br i1 %.not.us41.i.i.i117, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i38.i112, !llvm.loop !34
 
 876:                                              ; preds = %115
   br i1 %4, label %1197, label %877
@@ -3705,19 +3701,19 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %882 = fmul double %880, %881
   store double %882, ptr %131, align 8
   %883 = add nsw i64 %.076, -2
-  %.not46.i.i.i.i.i216 = icmp eq i64 %883, 0
-  br i1 %.not46.i.i.i.i.i216, label %._crit_edge.thread.i.i.i.i.i254, label %.lr.ph.i.i.i.i.i217
+  %.not46.i.i.i.i.i213 = icmp eq i64 %883, 0
+  br i1 %.not46.i.i.i.i.i213, label %._crit_edge.thread.i.i.i.i.i250, label %.lr.ph.i.i.i.i.i214
 
-.lr.ph.i.i.i.i.i217:                              ; preds = %879, %.lr.ph.i.i.i.i.i217
-  %.047.i.i.i.i.i218 = phi i64 [ %902, %.lr.ph.i.i.i.i.i217 ], [ 1, %879 ]
-  %884 = mul i64 %.047.i.i.i.i.i218, %137
+.lr.ph.i.i.i.i.i214:                              ; preds = %879, %.lr.ph.i.i.i.i.i214
+  %.047.i.i.i.i.i215 = phi i64 [ %902, %.lr.ph.i.i.i.i.i214 ], [ 1, %879 ]
+  %884 = mul i64 %.047.i.i.i.i.i215, %137
   %885 = getelementptr inbounds i8, ptr %131, i64 %884
   %886 = load double, ptr %885, align 8
-  %887 = add i64 %.047.i.i.i.i.i218, 1
+  %887 = add i64 %.047.i.i.i.i.i215, 1
   %888 = mul i64 %887, %137
   %889 = getelementptr inbounds i8, ptr %131, i64 %888
   %890 = load double, ptr %889, align 8
-  %891 = mul i64 %.047.i.i.i.i.i218, %135
+  %891 = mul i64 %.047.i.i.i.i.i215, %135
   %892 = getelementptr inbounds i8, ptr %130, i64 %891
   %893 = load double, ptr %892, align 8
   %894 = mul i64 %887, %135
@@ -3730,16 +3726,16 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %901 = call double @llvm.fmuladd.f64(double %886, double %896, double %900)
   store double %899, ptr %885, align 8
   store double %901, ptr %889, align 8
-  %902 = add i64 %.047.i.i.i.i.i218, 2
-  %.not.i.i.i.i.i219 = icmp ugt i64 %902, %883
-  br i1 %.not.i.i.i.i.i219, label %._crit_edge.i.i.i.i.i220, label %.lr.ph.i.i.i.i.i217, !llvm.loop !35
+  %902 = add i64 %.047.i.i.i.i.i215, 2
+  %.not.i.i.i.i.i216 = icmp ugt i64 %902, %883
+  br i1 %.not.i.i.i.i.i216, label %._crit_edge.i.i.i.i.i217, label %.lr.ph.i.i.i.i.i214, !llvm.loop !35
 
-._crit_edge.i.i.i.i.i220:                         ; preds = %.lr.ph.i.i.i.i.i217
+._crit_edge.i.i.i.i.i217:                         ; preds = %.lr.ph.i.i.i.i.i214
   %903 = and i64 %.076, 1
   %904 = icmp eq i64 %903, 0
-  br i1 %904, label %._crit_edge.thread.i.i.i.i.i254, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %904, label %._crit_edge.thread.i.i.i.i.i250, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i.i254:                  ; preds = %._crit_edge.i.i.i.i.i220, %879
+._crit_edge.thread.i.i.i.i.i250:                  ; preds = %._crit_edge.i.i.i.i.i217, %879
   %905 = add nsw i64 %.076, -1
   %906 = mul i64 %137, %905
   %907 = getelementptr inbounds i8, ptr %131, i64 %906
@@ -3751,7 +3747,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   store double %912, ptr %907, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i254, %._crit_edge.i.i.i.i.i220
+_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i250, %._crit_edge.i.i.i.i.i217
   br i1 %124, label %913, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 913:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -3763,18 +3759,18 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %919 = load double, ptr %915, align 8
   %920 = fmul double %918, %919
   store double %920, ptr %917, align 8
-  br i1 %.not46.i.i.i.i.i216, label %._crit_edge.thread.i.i22.i.i.i253, label %.lr.ph.i.i18.i.i.i249
+  br i1 %.not46.i.i.i.i.i213, label %._crit_edge.thread.i.i22.i.i.i249, label %.lr.ph.i.i18.i.i.i245
 
-.lr.ph.i.i18.i.i.i249:                            ; preds = %913, %.lr.ph.i.i18.i.i.i249
-  %.047.i.i19.i.i.i250 = phi i64 [ %939, %.lr.ph.i.i18.i.i.i249 ], [ 1, %913 ]
-  %921 = mul i64 %.047.i.i19.i.i.i250, %137
+.lr.ph.i.i18.i.i.i245:                            ; preds = %913, %.lr.ph.i.i18.i.i.i245
+  %.047.i.i19.i.i.i246 = phi i64 [ %939, %.lr.ph.i.i18.i.i.i245 ], [ 1, %913 ]
+  %921 = mul i64 %.047.i.i19.i.i.i246, %137
   %922 = getelementptr inbounds i8, ptr %917, i64 %921
   %923 = load double, ptr %922, align 8
-  %924 = add i64 %.047.i.i19.i.i.i250, 1
+  %924 = add i64 %.047.i.i19.i.i.i246, 1
   %925 = mul i64 %924, %137
   %926 = getelementptr inbounds i8, ptr %917, i64 %925
   %927 = load double, ptr %926, align 8
-  %928 = mul i64 %.047.i.i19.i.i.i250, %135
+  %928 = mul i64 %.047.i.i19.i.i.i246, %135
   %929 = getelementptr inbounds i8, ptr %915, i64 %928
   %930 = load double, ptr %929, align 8
   %931 = mul i64 %924, %135
@@ -3787,21 +3783,21 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %938 = call double @llvm.fmuladd.f64(double %923, double %933, double %937)
   store double %936, ptr %922, align 8
   store double %938, ptr %926, align 8
-  %939 = add i64 %.047.i.i19.i.i.i250, 2
-  %.not.i.i20.i.i.i251 = icmp ugt i64 %939, %883
-  br i1 %.not.i.i20.i.i.i251, label %._crit_edge.i.i21.i.i.i252, label %.lr.ph.i.i18.i.i.i249, !llvm.loop !35
+  %939 = add i64 %.047.i.i19.i.i.i246, 2
+  %.not.i.i20.i.i.i247 = icmp ugt i64 %939, %883
+  br i1 %.not.i.i20.i.i.i247, label %._crit_edge.i.i21.i.i.i248, label %.lr.ph.i.i18.i.i.i245, !llvm.loop !35
 
-._crit_edge.i.i21.i.i.i252:                       ; preds = %.lr.ph.i.i18.i.i.i249
+._crit_edge.i.i21.i.i.i248:                       ; preds = %.lr.ph.i.i18.i.i.i245
   %940 = and i64 %.076, 1
   %941 = icmp eq i64 %940, 0
-  br i1 %941, label %._crit_edge.thread.i.i22.i.i.i253, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %941, label %._crit_edge.thread.i.i22.i.i.i249, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i252
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i248
   %942 = add nsw i64 %.076, -1
   %943 = icmp ugt i64 %126, %120
-  br i1 %943, label %.critedge.us.i.i.i226.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %943, label %.critedge.us.i.i.i222.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i.i253:                ; preds = %._crit_edge.i.i21.i.i.i252, %913
+._crit_edge.thread.i.i22.i.i.i249:                ; preds = %._crit_edge.i.i21.i.i.i248, %913
   %944 = add nsw i64 %.076, -1
   %945 = mul i64 %137, %944
   %946 = getelementptr inbounds i8, ptr %917, i64 %945
@@ -3813,41 +3809,40 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.th
   store double %951, ptr %946, align 8
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i253, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %878
-  %.not30.i.i.i221 = icmp eq i64 %.076, 0
-  br i1 %.not30.i.i.i221, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i222
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i249, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %878
+  %.not30.i.i.i218 = icmp eq i64 %.076, 0
+  br i1 %.not30.i.i.i218, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i219
 
-.lr.ph.i.i.i222:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
+.lr.ph.i.i.i219:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %952 = add nsw i64 %.076, -1
   %953 = and i1 %119, %116
-  %or.cond.i.i.i223 = and i1 %953, %124
   %954 = icmp ugt i64 %126, %120
-  br i1 %953, label %.lr.ph.split.us.i.i.i232, label %.lr.ph.split.i.i.i224
+  br i1 %953, label %.lr.ph.split.us.i.i.i228, label %.lr.ph.split.i.i.i220
 
-.lr.ph.split.us.i.i.i232:                         ; preds = %.lr.ph.i.i.i222
-  br i1 %954, label %.lr.ph.i.i.preheader.us.us.i.i.i242, label %.lr.ph.split.us.split.i.i.i233
+.lr.ph.split.us.i.i.i228:                         ; preds = %.lr.ph.i.i.i219
+  br i1 %954, label %.lr.ph.i.i.preheader.us.us.i.i.i238, label %.lr.ph.split.us.split.i.i.i229
 
-.lr.ph.i.i.preheader.us.us.i.i.i242:              ; preds = %.lr.ph.split.us.i.i.i232, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %955 = phi i64 [ %985, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %952, %.lr.ph.split.us.i.i.i232 ]
-  %.035.us.us.i.i.i243 = phi ptr [ %982, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i232 ]
-  %.02333.us.us.i.i.i244 = phi ptr [ %983, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i232 ]
-  %.02431.us.us.i.i.i245 = phi ptr [ %984, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i232 ]
-  %956 = load double, ptr %.035.us.us.i.i.i243, align 8
-  %957 = load double, ptr %.02333.us.us.i.i.i244, align 8
+.lr.ph.i.i.preheader.us.us.i.i.i238:              ; preds = %.lr.ph.split.us.i.i.i228, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %955 = phi i64 [ %985, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %952, %.lr.ph.split.us.i.i.i228 ]
+  %.035.us.us.i.i.i239 = phi ptr [ %982, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i228 ]
+  %.02333.us.us.i.i.i240 = phi ptr [ %983, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i228 ]
+  %.02431.us.us.i.i.i241 = phi ptr [ %984, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i228 ]
+  %956 = load double, ptr %.035.us.us.i.i.i239, align 8
+  %957 = load double, ptr %.02333.us.us.i.i.i240, align 8
   %958 = fmul double %956, %957
-  store double %958, ptr %.02431.us.us.i.i.i245, align 8
-  br label %.lr.ph.i.i.us.us.i.i.i246
+  store double %958, ptr %.02431.us.us.i.i.i241, align 8
+  br label %.lr.ph.i.i.us.us.i.i.i242
 
-.lr.ph.i.i.us.us.i.i.i246:                        ; preds = %.lr.ph.i.i.us.us.i.i.i246, %.lr.ph.i.i.preheader.us.us.i.i.i242
-  %.025.i.i.us.us.i.i.i247 = phi i64 [ %973, %.lr.ph.i.i.us.us.i.i.i246 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i242 ]
-  %959 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i245, i64 %.025.i.i.us.us.i.i.i247
+.lr.ph.i.i.us.us.i.i.i242:                        ; preds = %.lr.ph.i.i.us.us.i.i.i242, %.lr.ph.i.i.preheader.us.us.i.i.i238
+  %.025.i.i.us.us.i.i.i243 = phi i64 [ %973, %.lr.ph.i.i.us.us.i.i.i242 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i238 ]
+  %959 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i241, i64 %.025.i.i.us.us.i.i.i243
   %960 = load double, ptr %959, align 8
-  %961 = add nuw i64 %.025.i.i.us.us.i.i.i247, 1
-  %962 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i245, i64 %961
+  %961 = add nuw i64 %.025.i.i.us.us.i.i.i243, 1
+  %962 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i241, i64 %961
   %963 = load double, ptr %962, align 8
-  %964 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i244, i64 %.025.i.i.us.us.i.i.i247
+  %964 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i240, i64 %.025.i.i.us.us.i.i.i243
   %965 = load double, ptr %964, align 8
-  %966 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i244, i64 %961
+  %966 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i240, i64 %961
   %967 = load double, ptr %966, align 8
   %968 = fneg double %967
   %969 = fmul double %963, %968
@@ -3856,96 +3851,96 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.
   %972 = call double @llvm.fmuladd.f64(double %960, double %967, double %971)
   store double %970, ptr %959, align 8
   store double %972, ptr %962, align 8
-  %973 = add nuw i64 %.025.i.i.us.us.i.i.i247, 2
+  %973 = add nuw i64 %.025.i.i.us.us.i.i.i243, 2
   %974 = icmp ult i64 %973, %126
-  br i1 %974, label %.lr.ph.i.i.us.us.i.i.i246, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !36
+  br i1 %974, label %.lr.ph.i.i.us.us.i.i.i242, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !36
 
 975:                                              ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %976 = getelementptr inbounds double, ptr %.035.us.us.i.i.i243, i64 %126
+  %976 = getelementptr inbounds double, ptr %.035.us.us.i.i.i239, i64 %126
   %977 = load double, ptr %976, align 8
-  %978 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i244, i64 %126
+  %978 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i240, i64 %126
   %979 = load double, ptr %978, align 8
   %980 = fmul double %977, %979
-  %981 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i245, i64 %126
+  %981 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i241, i64 %126
   store double %980, ptr %981, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %975
-  %982 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i243, i64 %133
-  %983 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i244, i64 %135
-  %984 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i245, i64 %137
+  %982 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i239, i64 %133
+  %983 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i240, i64 %135
+  %984 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i241, i64 %137
   %985 = add i64 %955, -1
-  %.not.us.us.i.i.i248 = icmp eq i64 %955, 0
-  br i1 %.not.us.us.i.i.i248, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i242, !llvm.loop !37
+  %.not.us.us.i.i.i244 = icmp eq i64 %955, 0
+  br i1 %.not.us.us.i.i.i244, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i238, !llvm.loop !37
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i246
-  br i1 %or.cond.i.i.i223, label %975, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i242
+  br i1 %124, label %975, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i.i233:                   ; preds = %.lr.ph.split.us.i.i.i232
-  br i1 %or.cond.i.i.i223, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i.i229:                   ; preds = %.lr.ph.split.us.i.i.i228
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i233, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
-  %986 = phi i64 [ %999, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %952, %.lr.ph.split.us.split.i.i.i233 ]
-  %.035.us.us42.i.i.i238 = phi ptr [ %996, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i233 ]
-  %.02333.us.us43.i.i.i239 = phi ptr [ %997, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i233 ]
-  %.02431.us.us44.i.i.i240 = phi ptr [ %998, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i233 ]
-  %987 = load double, ptr %.035.us.us42.i.i.i238, align 8
-  %988 = load double, ptr %.02333.us.us43.i.i.i239, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i229, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
+  %986 = phi i64 [ %999, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %952, %.lr.ph.split.us.split.i.i.i229 ]
+  %.035.us.us42.i.i.i234 = phi ptr [ %996, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i229 ]
+  %.02333.us.us43.i.i.i235 = phi ptr [ %997, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i229 ]
+  %.02431.us.us44.i.i.i236 = phi ptr [ %998, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i229 ]
+  %987 = load double, ptr %.035.us.us42.i.i.i234, align 8
+  %988 = load double, ptr %.02333.us.us43.i.i.i235, align 8
   %989 = fmul double %987, %988
-  store double %989, ptr %.02431.us.us44.i.i.i240, align 8
-  %990 = getelementptr inbounds double, ptr %.035.us.us42.i.i.i238, i64 %126
+  store double %989, ptr %.02431.us.us44.i.i.i236, align 8
+  %990 = getelementptr inbounds double, ptr %.035.us.us42.i.i.i234, i64 %126
   %991 = load double, ptr %990, align 8
-  %992 = getelementptr inbounds double, ptr %.02333.us.us43.i.i.i239, i64 %126
+  %992 = getelementptr inbounds double, ptr %.02333.us.us43.i.i.i235, i64 %126
   %993 = load double, ptr %992, align 8
   %994 = fmul double %991, %993
-  %995 = getelementptr inbounds double, ptr %.02431.us.us44.i.i.i240, i64 %126
+  %995 = getelementptr inbounds double, ptr %.02431.us.us44.i.i.i236, i64 %126
   store double %994, ptr %995, align 8
-  %996 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i238, i64 %133
-  %997 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i239, i64 %135
-  %998 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i240, i64 %137
+  %996 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i234, i64 %133
+  %997 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i235, i64 %135
+  %998 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i236, i64 %137
   %999 = add i64 %986, -1
-  %.not.us.us46.i.i.i241 = icmp eq i64 %986, 0
-  br i1 %.not.us.us46.i.i.i241, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !37
+  %.not.us.us46.i.i.i237 = icmp eq i64 %986, 0
+  br i1 %.not.us.us46.i.i.i237, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !37
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i233, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %1000 = phi i64 [ %1007, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %952, %.lr.ph.split.us.split.i.i.i233 ]
-  %.035.us.i.i.i234 = phi ptr [ %1004, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i233 ]
-  %.02333.us.i.i.i235 = phi ptr [ %1005, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i233 ]
-  %.02431.us.i.i.i236 = phi ptr [ %1006, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i233 ]
-  %1001 = load double, ptr %.035.us.i.i.i234, align 8
-  %1002 = load double, ptr %.02333.us.i.i.i235, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i229, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %1000 = phi i64 [ %1007, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %952, %.lr.ph.split.us.split.i.i.i229 ]
+  %.035.us.i.i.i230 = phi ptr [ %1004, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i229 ]
+  %.02333.us.i.i.i231 = phi ptr [ %1005, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i229 ]
+  %.02431.us.i.i.i232 = phi ptr [ %1006, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i229 ]
+  %1001 = load double, ptr %.035.us.i.i.i230, align 8
+  %1002 = load double, ptr %.02333.us.i.i.i231, align 8
   %1003 = fmul double %1001, %1002
-  store double %1003, ptr %.02431.us.i.i.i236, align 8
-  %1004 = getelementptr inbounds i8, ptr %.035.us.i.i.i234, i64 %133
-  %1005 = getelementptr inbounds i8, ptr %.02333.us.i.i.i235, i64 %135
-  %1006 = getelementptr inbounds i8, ptr %.02431.us.i.i.i236, i64 %137
+  store double %1003, ptr %.02431.us.i.i.i232, align 8
+  %1004 = getelementptr inbounds i8, ptr %.035.us.i.i.i230, i64 %133
+  %1005 = getelementptr inbounds i8, ptr %.02333.us.i.i.i231, i64 %135
+  %1006 = getelementptr inbounds i8, ptr %.02431.us.i.i.i232, i64 %137
   %1007 = add i64 %1000, -1
-  %.not.us.i.i.i237 = icmp eq i64 %1000, 0
-  br i1 %.not.us.i.i.i237, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !37
+  %.not.us.i.i.i233 = icmp eq i64 %1000, 0
+  br i1 %.not.us.i.i.i233, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !37
 
-.lr.ph.split.i.i.i224:                            ; preds = %.lr.ph.i.i.i222
-  br i1 %954, label %.critedge.us.i.i.i226.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i.i220:                            ; preds = %.lr.ph.i.i.i219
+  br i1 %954, label %.critedge.us.i.i.i222.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i.i226.preheader:                  ; preds = %.lr.ph.split.i.i.i224, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph495 = phi i64 [ %952, %.lr.ph.split.i.i.i224 ], [ %942, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i.i226
+.critedge.us.i.i.i222.preheader:                  ; preds = %.lr.ph.split.i.i.i220, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph489 = phi i64 [ %952, %.lr.ph.split.i.i.i220 ], [ %942, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i.i222
 
-.critedge.us.i.i.i226:                            ; preds = %.critedge.us.i.i.i226.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %1008 = phi i64 [ %1027, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph495, %.critedge.us.i.i.i226.preheader ]
-  %.02333.us37.i.i.i227 = phi ptr [ %1025, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i226.preheader ]
-  %.02431.us38.i.i.i228 = phi ptr [ %1026, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i226.preheader ]
-  br label %.lr.ph.i.i27.us.i.i.i229
+.critedge.us.i.i.i222:                            ; preds = %.critedge.us.i.i.i222.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %1008 = phi i64 [ %1027, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph489, %.critedge.us.i.i.i222.preheader ]
+  %.02333.us37.i.i.i223 = phi ptr [ %1025, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i222.preheader ]
+  %.02431.us38.i.i.i224 = phi ptr [ %1026, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i222.preheader ]
+  br label %.lr.ph.i.i27.us.i.i.i225
 
-.lr.ph.i.i27.us.i.i.i229:                         ; preds = %.lr.ph.i.i27.us.i.i.i229, %.critedge.us.i.i.i226
-  %.025.i.i28.us.i.i.i230 = phi i64 [ %1023, %.lr.ph.i.i27.us.i.i.i229 ], [ %120, %.critedge.us.i.i.i226 ]
-  %1009 = getelementptr inbounds double, ptr %.02431.us38.i.i.i228, i64 %.025.i.i28.us.i.i.i230
+.lr.ph.i.i27.us.i.i.i225:                         ; preds = %.lr.ph.i.i27.us.i.i.i225, %.critedge.us.i.i.i222
+  %.025.i.i28.us.i.i.i226 = phi i64 [ %1023, %.lr.ph.i.i27.us.i.i.i225 ], [ %120, %.critedge.us.i.i.i222 ]
+  %1009 = getelementptr inbounds double, ptr %.02431.us38.i.i.i224, i64 %.025.i.i28.us.i.i.i226
   %1010 = load double, ptr %1009, align 8
-  %1011 = add nuw i64 %.025.i.i28.us.i.i.i230, 1
-  %1012 = getelementptr inbounds double, ptr %.02431.us38.i.i.i228, i64 %1011
+  %1011 = add nuw i64 %.025.i.i28.us.i.i.i226, 1
+  %1012 = getelementptr inbounds double, ptr %.02431.us38.i.i.i224, i64 %1011
   %1013 = load double, ptr %1012, align 8
-  %1014 = getelementptr inbounds double, ptr %.02333.us37.i.i.i227, i64 %.025.i.i28.us.i.i.i230
+  %1014 = getelementptr inbounds double, ptr %.02333.us37.i.i.i223, i64 %.025.i.i28.us.i.i.i226
   %1015 = load double, ptr %1014, align 8
-  %1016 = getelementptr inbounds double, ptr %.02333.us37.i.i.i227, i64 %1011
+  %1016 = getelementptr inbounds double, ptr %.02333.us37.i.i.i223, i64 %1011
   %1017 = load double, ptr %1016, align 8
   %1018 = fneg double %1017
   %1019 = fmul double %1013, %1018
@@ -3954,16 +3949,16 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i
   %1022 = call double @llvm.fmuladd.f64(double %1010, double %1017, double %1021)
   store double %1020, ptr %1009, align 8
   store double %1022, ptr %1012, align 8
-  %1023 = add nuw i64 %.025.i.i28.us.i.i.i230, 2
+  %1023 = add nuw i64 %.025.i.i28.us.i.i.i226, 2
   %1024 = icmp ult i64 %1023, %126
-  br i1 %1024, label %.lr.ph.i.i27.us.i.i.i229, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !36
+  br i1 %1024, label %.lr.ph.i.i27.us.i.i.i225, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !36
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i229
-  %1025 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i227, i64 %135
-  %1026 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i228, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i225
+  %1025 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i223, i64 %135
+  %1026 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i224, i64 %137
   %1027 = add i64 %1008, -1
-  %.not.us40.i.i.i231 = icmp eq i64 %1008, 0
-  br i1 %.not.us40.i.i.i231, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i226, !llvm.loop !37
+  %.not.us40.i.i.i227 = icmp eq i64 %1008, 0
+  br i1 %.not.us40.i.i.i227, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i222, !llvm.loop !37
 
 1028:                                             ; preds = %877
   br i1 %brmerge.i.i104, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, label %1029
@@ -3974,19 +3969,19 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1032 = fmul double %1030, %1031
   store double %1032, ptr %131, align 8
   %1033 = add nsw i64 %.076, -2
-  %.not46.i.i.i.i29.i176 = icmp eq i64 %1033, 0
-  br i1 %.not46.i.i.i.i29.i176, label %._crit_edge.thread.i.i.i.i60.i215, label %.lr.ph.i.i.i.i30.i177
+  %.not46.i.i.i.i29.i174 = icmp eq i64 %1033, 0
+  br i1 %.not46.i.i.i.i29.i174, label %._crit_edge.thread.i.i.i.i59.i212, label %.lr.ph.i.i.i.i30.i175
 
-.lr.ph.i.i.i.i30.i177:                            ; preds = %1029, %.lr.ph.i.i.i.i30.i177
-  %.047.i.i.i.i31.i178 = phi i64 [ %1056, %.lr.ph.i.i.i.i30.i177 ], [ 1, %1029 ]
-  %1034 = mul i64 %.047.i.i.i.i31.i178, %133
+.lr.ph.i.i.i.i30.i175:                            ; preds = %1029, %.lr.ph.i.i.i.i30.i175
+  %.047.i.i.i.i31.i176 = phi i64 [ %1056, %.lr.ph.i.i.i.i30.i175 ], [ 1, %1029 ]
+  %1034 = mul i64 %.047.i.i.i.i31.i176, %133
   %1035 = getelementptr inbounds i8, ptr %129, i64 %1034
   %1036 = load double, ptr %1035, align 8
-  %1037 = add i64 %.047.i.i.i.i31.i178, 1
+  %1037 = add i64 %.047.i.i.i.i31.i176, 1
   %1038 = mul i64 %1037, %133
   %1039 = getelementptr inbounds i8, ptr %129, i64 %1038
   %1040 = load double, ptr %1039, align 8
-  %1041 = mul i64 %.047.i.i.i.i31.i178, %135
+  %1041 = mul i64 %.047.i.i.i.i31.i176, %135
   %1042 = getelementptr inbounds i8, ptr %130, i64 %1041
   %1043 = load double, ptr %1042, align 8
   %1044 = mul i64 %1037, %135
@@ -3997,22 +3992,22 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1049 = call double @llvm.fmuladd.f64(double %1036, double %1043, double %1048)
   %1050 = fmul double %1040, %1043
   %1051 = call double @llvm.fmuladd.f64(double %1036, double %1046, double %1050)
-  %1052 = mul i64 %.047.i.i.i.i31.i178, %137
+  %1052 = mul i64 %.047.i.i.i.i31.i176, %137
   %1053 = getelementptr inbounds i8, ptr %131, i64 %1052
   store double %1049, ptr %1053, align 8
   %1054 = mul i64 %1037, %137
   %1055 = getelementptr inbounds i8, ptr %131, i64 %1054
   store double %1051, ptr %1055, align 8
-  %1056 = add i64 %.047.i.i.i.i31.i178, 2
-  %.not.i.i.i.i32.i179 = icmp ugt i64 %1056, %1033
-  br i1 %.not.i.i.i.i32.i179, label %._crit_edge.i.i.i.i33.i180, label %.lr.ph.i.i.i.i30.i177, !llvm.loop !38
+  %1056 = add i64 %.047.i.i.i.i31.i176, 2
+  %.not.i.i.i.i32.i177 = icmp ugt i64 %1056, %1033
+  br i1 %.not.i.i.i.i32.i177, label %._crit_edge.i.i.i.i33.i178, label %.lr.ph.i.i.i.i30.i175, !llvm.loop !38
 
-._crit_edge.i.i.i.i33.i180:                       ; preds = %.lr.ph.i.i.i.i30.i177
+._crit_edge.i.i.i.i33.i178:                       ; preds = %.lr.ph.i.i.i.i30.i175
   %1057 = and i64 %.076, 1
   %1058 = icmp eq i64 %1057, 0
-  br i1 %1058, label %._crit_edge.thread.i.i.i.i60.i215, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %1058, label %._crit_edge.thread.i.i.i.i59.i212, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i60.i215:                ; preds = %._crit_edge.i.i.i.i33.i180, %1029
+._crit_edge.thread.i.i.i.i59.i212:                ; preds = %._crit_edge.i.i.i.i33.i178, %1029
   %1059 = add nsw i64 %.076, -1
   %1060 = mul i64 %133, %1059
   %1061 = getelementptr inbounds i8, ptr %129, i64 %1060
@@ -4026,7 +4021,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store double %1066, ptr %1068, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i60.i215, %._crit_edge.i.i.i.i33.i180
+_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i59.i212, %._crit_edge.i.i.i.i33.i178
   br i1 %124, label %1069, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 1069:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -4040,18 +4035,18 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1077 = load double, ptr %1073, align 8
   %1078 = fmul double %1076, %1077
   store double %1078, ptr %1075, align 8
-  br i1 %.not46.i.i.i.i29.i176, label %._crit_edge.thread.i.i22.i.i59.i214, label %.lr.ph.i.i18.i.i55.i210
+  br i1 %.not46.i.i.i.i29.i174, label %._crit_edge.thread.i.i22.i.i58.i211, label %.lr.ph.i.i18.i.i54.i207
 
-.lr.ph.i.i18.i.i55.i210:                          ; preds = %1069, %.lr.ph.i.i18.i.i55.i210
-  %.047.i.i19.i.i56.i211 = phi i64 [ %1101, %.lr.ph.i.i18.i.i55.i210 ], [ 1, %1069 ]
-  %1079 = mul i64 %.047.i.i19.i.i56.i211, %133
+.lr.ph.i.i18.i.i54.i207:                          ; preds = %1069, %.lr.ph.i.i18.i.i54.i207
+  %.047.i.i19.i.i55.i208 = phi i64 [ %1101, %.lr.ph.i.i18.i.i54.i207 ], [ 1, %1069 ]
+  %1079 = mul i64 %.047.i.i19.i.i55.i208, %133
   %1080 = getelementptr inbounds i8, ptr %1071, i64 %1079
   %1081 = load double, ptr %1080, align 8
-  %1082 = add i64 %.047.i.i19.i.i56.i211, 1
+  %1082 = add i64 %.047.i.i19.i.i55.i208, 1
   %1083 = mul i64 %1082, %133
   %1084 = getelementptr inbounds i8, ptr %1071, i64 %1083
   %1085 = load double, ptr %1084, align 8
-  %1086 = mul i64 %.047.i.i19.i.i56.i211, %135
+  %1086 = mul i64 %.047.i.i19.i.i55.i208, %135
   %1087 = getelementptr inbounds i8, ptr %1073, i64 %1086
   %1088 = load double, ptr %1087, align 8
   %1089 = mul i64 %1082, %135
@@ -4062,27 +4057,27 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1094 = call double @llvm.fmuladd.f64(double %1081, double %1088, double %1093)
   %1095 = fmul double %1085, %1088
   %1096 = call double @llvm.fmuladd.f64(double %1081, double %1091, double %1095)
-  %1097 = mul i64 %.047.i.i19.i.i56.i211, %137
+  %1097 = mul i64 %.047.i.i19.i.i55.i208, %137
   %1098 = getelementptr inbounds i8, ptr %1075, i64 %1097
   store double %1094, ptr %1098, align 8
   %1099 = mul i64 %1082, %137
   %1100 = getelementptr inbounds i8, ptr %1075, i64 %1099
   store double %1096, ptr %1100, align 8
-  %1101 = add i64 %.047.i.i19.i.i56.i211, 2
-  %.not.i.i20.i.i57.i212 = icmp ugt i64 %1101, %1033
-  br i1 %.not.i.i20.i.i57.i212, label %._crit_edge.i.i21.i.i58.i213, label %.lr.ph.i.i18.i.i55.i210, !llvm.loop !38
+  %1101 = add i64 %.047.i.i19.i.i55.i208, 2
+  %.not.i.i20.i.i56.i209 = icmp ugt i64 %1101, %1033
+  br i1 %.not.i.i20.i.i56.i209, label %._crit_edge.i.i21.i.i57.i210, label %.lr.ph.i.i18.i.i54.i207, !llvm.loop !38
 
-._crit_edge.i.i21.i.i58.i213:                     ; preds = %.lr.ph.i.i18.i.i55.i210
+._crit_edge.i.i21.i.i57.i210:                     ; preds = %.lr.ph.i.i18.i.i54.i207
   %1102 = and i64 %.076, 1
   %1103 = icmp eq i64 %1102, 0
-  br i1 %1103, label %._crit_edge.thread.i.i22.i.i59.i214, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %1103, label %._crit_edge.thread.i.i22.i.i58.i211, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i58.i213
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i57.i210
   %1104 = add nsw i64 %.076, -1
   %1105 = icmp ugt i64 %126, %120
-  br i1 %1105, label %.critedge.us.i.i39.i186.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %1105, label %.critedge.us.i.i38.i183.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i59.i214:              ; preds = %._crit_edge.i.i21.i.i58.i213, %1069
+._crit_edge.thread.i.i22.i.i58.i211:              ; preds = %._crit_edge.i.i21.i.i57.i210, %1069
   %1106 = add nsw i64 %.076, -1
   %1107 = mul i64 %133, %1106
   %1108 = getelementptr inbounds i8, ptr %1071, i64 %1107
@@ -4096,163 +4091,162 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.th
   store double %1113, ptr %1115, align 8
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i59.i214, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1028
-  %.not30.i.i34.i181 = icmp eq i64 %.076, 0
-  br i1 %.not30.i.i34.i181, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i182
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i58.i211, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb0ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1028
+  %.not30.i.i34.i179 = icmp eq i64 %.076, 0
+  br i1 %.not30.i.i34.i179, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i180
 
-.lr.ph.i.i35.i182:                                ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
+.lr.ph.i.i35.i180:                                ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %1116 = add nsw i64 %.076, -1
   %1117 = and i1 %119, %116
-  %or.cond.i.i36.i183 = and i1 %1117, %124
   %1118 = icmp ugt i64 %126, %120
-  br i1 %1117, label %.lr.ph.split.us.i.i42.i193, label %.lr.ph.split.i.i37.i184
+  br i1 %1117, label %.lr.ph.split.us.i.i41.i190, label %.lr.ph.split.i.i36.i181
 
-.lr.ph.split.us.i.i42.i193:                       ; preds = %.lr.ph.i.i35.i182
-  br i1 %1118, label %.lr.ph.i.i.preheader.us.us.i.i48.i203, label %.lr.ph.split.us.split.i.i43.i194
+.lr.ph.split.us.i.i41.i190:                       ; preds = %.lr.ph.i.i35.i180
+  br i1 %1118, label %.lr.ph.i.i.preheader.us.us.i.i47.i200, label %.lr.ph.split.us.split.i.i42.i191
 
-.lr.ph.i.i.preheader.us.us.i.i48.i203:            ; preds = %.lr.ph.split.us.i.i42.i193, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %1119 = phi i64 [ %1151, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1116, %.lr.ph.split.us.i.i42.i193 ]
-  %.035.us.us.i.i49.i204 = phi ptr [ %1148, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i42.i193 ]
-  %.02333.us.us.i.i50.i205 = phi ptr [ %1149, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i42.i193 ]
-  %.02431.us.us.i.i51.i206 = phi ptr [ %1150, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i42.i193 ]
-  %1120 = load double, ptr %.035.us.us.i.i49.i204, align 8
-  %1121 = load double, ptr %.02333.us.us.i.i50.i205, align 8
+.lr.ph.i.i.preheader.us.us.i.i47.i200:            ; preds = %.lr.ph.split.us.i.i41.i190, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %1119 = phi i64 [ %1151, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1116, %.lr.ph.split.us.i.i41.i190 ]
+  %.035.us.us.i.i48.i201 = phi ptr [ %1148, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i41.i190 ]
+  %.02333.us.us.i.i49.i202 = phi ptr [ %1149, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i41.i190 ]
+  %.02431.us.us.i.i50.i203 = phi ptr [ %1150, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i41.i190 ]
+  %1120 = load double, ptr %.035.us.us.i.i48.i201, align 8
+  %1121 = load double, ptr %.02333.us.us.i.i49.i202, align 8
   %1122 = fmul double %1120, %1121
-  store double %1122, ptr %.02431.us.us.i.i51.i206, align 8
-  br label %.lr.ph.i.i.us.us.i.i52.i207
+  store double %1122, ptr %.02431.us.us.i.i50.i203, align 8
+  br label %.lr.ph.i.i.us.us.i.i51.i204
 
-.lr.ph.i.i.us.us.i.i52.i207:                      ; preds = %.lr.ph.i.i.us.us.i.i52.i207, %.lr.ph.i.i.preheader.us.us.i.i48.i203
-  %.025.i.i.us.us.i.i53.i208 = phi i64 [ %1139, %.lr.ph.i.i.us.us.i.i52.i207 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i48.i203 ]
-  %1123 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i204, i64 %.025.i.i.us.us.i.i53.i208
+.lr.ph.i.i.us.us.i.i51.i204:                      ; preds = %.lr.ph.i.i.us.us.i.i51.i204, %.lr.ph.i.i.preheader.us.us.i.i47.i200
+  %.025.i.i.us.us.i.i52.i205 = phi i64 [ %1139, %.lr.ph.i.i.us.us.i.i51.i204 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i47.i200 ]
+  %1123 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i201, i64 %.025.i.i.us.us.i.i52.i205
   %1124 = load double, ptr %1123, align 8
-  %1125 = add nuw i64 %.025.i.i.us.us.i.i53.i208, 1
-  %1126 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i204, i64 %1125
+  %1125 = add nuw i64 %.025.i.i.us.us.i.i52.i205, 1
+  %1126 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i201, i64 %1125
   %1127 = load double, ptr %1126, align 8
-  %1128 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i205, i64 %.025.i.i.us.us.i.i53.i208
+  %1128 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i202, i64 %.025.i.i.us.us.i.i52.i205
   %1129 = load double, ptr %1128, align 8
-  %1130 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i205, i64 %1125
+  %1130 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i202, i64 %1125
   %1131 = load double, ptr %1130, align 8
   %1132 = fneg double %1131
   %1133 = fmul double %1127, %1132
   %1134 = call double @llvm.fmuladd.f64(double %1124, double %1129, double %1133)
   %1135 = fmul double %1127, %1129
   %1136 = call double @llvm.fmuladd.f64(double %1124, double %1131, double %1135)
-  %1137 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i206, i64 %.025.i.i.us.us.i.i53.i208
+  %1137 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i203, i64 %.025.i.i.us.us.i.i52.i205
   store double %1134, ptr %1137, align 8
-  %1138 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i206, i64 %1125
+  %1138 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i203, i64 %1125
   store double %1136, ptr %1138, align 8
-  %1139 = add nuw i64 %.025.i.i.us.us.i.i53.i208, 2
+  %1139 = add nuw i64 %.025.i.i.us.us.i.i52.i205, 2
   %1140 = icmp ult i64 %1139, %126
-  br i1 %1140, label %.lr.ph.i.i.us.us.i.i52.i207, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !39
+  br i1 %1140, label %.lr.ph.i.i.us.us.i.i51.i204, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !39
 
 1141:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %1142 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i204, i64 %126
+  %1142 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i201, i64 %126
   %1143 = load double, ptr %1142, align 8
-  %1144 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i205, i64 %126
+  %1144 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i202, i64 %126
   %1145 = load double, ptr %1144, align 8
   %1146 = fmul double %1143, %1145
-  %1147 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i206, i64 %126
+  %1147 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i203, i64 %126
   store double %1146, ptr %1147, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %1141
-  %1148 = getelementptr inbounds i8, ptr %.035.us.us.i.i49.i204, i64 %133
-  %1149 = getelementptr inbounds i8, ptr %.02333.us.us.i.i50.i205, i64 %135
-  %1150 = getelementptr inbounds i8, ptr %.02431.us.us.i.i51.i206, i64 %137
+  %1148 = getelementptr inbounds i8, ptr %.035.us.us.i.i48.i201, i64 %133
+  %1149 = getelementptr inbounds i8, ptr %.02333.us.us.i.i49.i202, i64 %135
+  %1150 = getelementptr inbounds i8, ptr %.02431.us.us.i.i50.i203, i64 %137
   %1151 = add i64 %1119, -1
-  %.not.us.us.i.i54.i209 = icmp eq i64 %1119, 0
-  br i1 %.not.us.us.i.i54.i209, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i48.i203, !llvm.loop !40
+  %.not.us.us.i.i53.i206 = icmp eq i64 %1119, 0
+  br i1 %.not.us.us.i.i53.i206, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i47.i200, !llvm.loop !40
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i52.i207
-  br i1 %or.cond.i.i36.i183, label %1141, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i51.i204
+  br i1 %124, label %1141, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i43.i194:                 ; preds = %.lr.ph.split.us.i.i42.i193
-  br i1 %or.cond.i.i36.i183, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i42.i191:                 ; preds = %.lr.ph.split.us.i.i41.i190
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i194, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
-  %1152 = phi i64 [ %1165, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %1116, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.035.us.us43.i.i.i199 = phi ptr [ %1162, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.02333.us.us44.i.i.i200 = phi ptr [ %1163, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.02431.us.us45.i.i.i201 = phi ptr [ %1164, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i194 ]
-  %1153 = load double, ptr %.035.us.us43.i.i.i199, align 8
-  %1154 = load double, ptr %.02333.us.us44.i.i.i200, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i191, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
+  %1152 = phi i64 [ %1165, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %1116, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.035.us.us43.i.i.i196 = phi ptr [ %1162, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.02333.us.us44.i.i.i197 = phi ptr [ %1163, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.02431.us.us45.i.i.i198 = phi ptr [ %1164, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i191 ]
+  %1153 = load double, ptr %.035.us.us43.i.i.i196, align 8
+  %1154 = load double, ptr %.02333.us.us44.i.i.i197, align 8
   %1155 = fmul double %1153, %1154
-  store double %1155, ptr %.02431.us.us45.i.i.i201, align 8
-  %1156 = getelementptr inbounds double, ptr %.035.us.us43.i.i.i199, i64 %126
+  store double %1155, ptr %.02431.us.us45.i.i.i198, align 8
+  %1156 = getelementptr inbounds double, ptr %.035.us.us43.i.i.i196, i64 %126
   %1157 = load double, ptr %1156, align 8
-  %1158 = getelementptr inbounds double, ptr %.02333.us.us44.i.i.i200, i64 %126
+  %1158 = getelementptr inbounds double, ptr %.02333.us.us44.i.i.i197, i64 %126
   %1159 = load double, ptr %1158, align 8
   %1160 = fmul double %1157, %1159
-  %1161 = getelementptr inbounds double, ptr %.02431.us.us45.i.i.i201, i64 %126
+  %1161 = getelementptr inbounds double, ptr %.02431.us.us45.i.i.i198, i64 %126
   store double %1160, ptr %1161, align 8
-  %1162 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i199, i64 %133
-  %1163 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i200, i64 %135
-  %1164 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i201, i64 %137
+  %1162 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i196, i64 %133
+  %1163 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i197, i64 %135
+  %1164 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i198, i64 %137
   %1165 = add i64 %1152, -1
-  %.not.us.us47.i.i.i202 = icmp eq i64 %1152, 0
-  br i1 %.not.us.us47.i.i.i202, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !40
+  %.not.us.us47.i.i.i199 = icmp eq i64 %1152, 0
+  br i1 %.not.us.us47.i.i.i199, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !40
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i194, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %1166 = phi i64 [ %1173, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1116, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.035.us.i.i44.i195 = phi ptr [ %1170, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.02333.us.i.i45.i196 = phi ptr [ %1171, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i194 ]
-  %.02431.us.i.i46.i197 = phi ptr [ %1172, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i194 ]
-  %1167 = load double, ptr %.035.us.i.i44.i195, align 8
-  %1168 = load double, ptr %.02333.us.i.i45.i196, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i191, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %1166 = phi i64 [ %1173, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1116, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.035.us.i.i43.i192 = phi ptr [ %1170, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.02333.us.i.i44.i193 = phi ptr [ %1171, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i191 ]
+  %.02431.us.i.i45.i194 = phi ptr [ %1172, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i191 ]
+  %1167 = load double, ptr %.035.us.i.i43.i192, align 8
+  %1168 = load double, ptr %.02333.us.i.i44.i193, align 8
   %1169 = fmul double %1167, %1168
-  store double %1169, ptr %.02431.us.i.i46.i197, align 8
-  %1170 = getelementptr inbounds i8, ptr %.035.us.i.i44.i195, i64 %133
-  %1171 = getelementptr inbounds i8, ptr %.02333.us.i.i45.i196, i64 %135
-  %1172 = getelementptr inbounds i8, ptr %.02431.us.i.i46.i197, i64 %137
+  store double %1169, ptr %.02431.us.i.i45.i194, align 8
+  %1170 = getelementptr inbounds i8, ptr %.035.us.i.i43.i192, i64 %133
+  %1171 = getelementptr inbounds i8, ptr %.02333.us.i.i44.i193, i64 %135
+  %1172 = getelementptr inbounds i8, ptr %.02431.us.i.i45.i194, i64 %137
   %1173 = add i64 %1166, -1
-  %.not.us.i.i47.i198 = icmp eq i64 %1166, 0
-  br i1 %.not.us.i.i47.i198, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !40
+  %.not.us.i.i46.i195 = icmp eq i64 %1166, 0
+  br i1 %.not.us.i.i46.i195, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !40
 
-.lr.ph.split.i.i37.i184:                          ; preds = %.lr.ph.i.i35.i182
-  br i1 %1118, label %.critedge.us.i.i39.i186.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i36.i181:                          ; preds = %.lr.ph.i.i35.i180
+  br i1 %1118, label %.critedge.us.i.i38.i183.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i39.i186.preheader:                ; preds = %.lr.ph.split.i.i37.i184, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph500 = phi i64 [ %1116, %.lr.ph.split.i.i37.i184 ], [ %1104, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i39.i186
+.critedge.us.i.i38.i183.preheader:                ; preds = %.lr.ph.split.i.i36.i181, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph494 = phi i64 [ %1116, %.lr.ph.split.i.i36.i181 ], [ %1104, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i38.i183
 
-.critedge.us.i.i39.i186:                          ; preds = %.critedge.us.i.i39.i186.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %1174 = phi i64 [ %1196, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph500, %.critedge.us.i.i39.i186.preheader ]
-  %.035.us37.i.i.i187 = phi ptr [ %1193, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i39.i186.preheader ]
-  %.02333.us38.i.i.i188 = phi ptr [ %1194, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i39.i186.preheader ]
-  %.02431.us39.i.i.i189 = phi ptr [ %1195, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i39.i186.preheader ]
-  br label %.lr.ph.i.i27.us.i.i40.i190
+.critedge.us.i.i38.i183:                          ; preds = %.critedge.us.i.i38.i183.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %1174 = phi i64 [ %1196, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph494, %.critedge.us.i.i38.i183.preheader ]
+  %.035.us37.i.i.i184 = phi ptr [ %1193, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i38.i183.preheader ]
+  %.02333.us38.i.i.i185 = phi ptr [ %1194, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i38.i183.preheader ]
+  %.02431.us39.i.i.i186 = phi ptr [ %1195, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i38.i183.preheader ]
+  br label %.lr.ph.i.i27.us.i.i39.i187
 
-.lr.ph.i.i27.us.i.i40.i190:                       ; preds = %.lr.ph.i.i27.us.i.i40.i190, %.critedge.us.i.i39.i186
-  %.025.i.i28.us.i.i41.i191 = phi i64 [ %1191, %.lr.ph.i.i27.us.i.i40.i190 ], [ %120, %.critedge.us.i.i39.i186 ]
-  %1175 = getelementptr inbounds double, ptr %.035.us37.i.i.i187, i64 %.025.i.i28.us.i.i41.i191
+.lr.ph.i.i27.us.i.i39.i187:                       ; preds = %.lr.ph.i.i27.us.i.i39.i187, %.critedge.us.i.i38.i183
+  %.025.i.i28.us.i.i40.i188 = phi i64 [ %1191, %.lr.ph.i.i27.us.i.i39.i187 ], [ %120, %.critedge.us.i.i38.i183 ]
+  %1175 = getelementptr inbounds double, ptr %.035.us37.i.i.i184, i64 %.025.i.i28.us.i.i40.i188
   %1176 = load double, ptr %1175, align 8
-  %1177 = add nuw i64 %.025.i.i28.us.i.i41.i191, 1
-  %1178 = getelementptr inbounds double, ptr %.035.us37.i.i.i187, i64 %1177
+  %1177 = add nuw i64 %.025.i.i28.us.i.i40.i188, 1
+  %1178 = getelementptr inbounds double, ptr %.035.us37.i.i.i184, i64 %1177
   %1179 = load double, ptr %1178, align 8
-  %1180 = getelementptr inbounds double, ptr %.02333.us38.i.i.i188, i64 %.025.i.i28.us.i.i41.i191
+  %1180 = getelementptr inbounds double, ptr %.02333.us38.i.i.i185, i64 %.025.i.i28.us.i.i40.i188
   %1181 = load double, ptr %1180, align 8
-  %1182 = getelementptr inbounds double, ptr %.02333.us38.i.i.i188, i64 %1177
+  %1182 = getelementptr inbounds double, ptr %.02333.us38.i.i.i185, i64 %1177
   %1183 = load double, ptr %1182, align 8
   %1184 = fneg double %1183
   %1185 = fmul double %1179, %1184
   %1186 = call double @llvm.fmuladd.f64(double %1176, double %1181, double %1185)
   %1187 = fmul double %1179, %1181
   %1188 = call double @llvm.fmuladd.f64(double %1176, double %1183, double %1187)
-  %1189 = getelementptr inbounds double, ptr %.02431.us39.i.i.i189, i64 %.025.i.i28.us.i.i41.i191
+  %1189 = getelementptr inbounds double, ptr %.02431.us39.i.i.i186, i64 %.025.i.i28.us.i.i40.i188
   store double %1186, ptr %1189, align 8
-  %1190 = getelementptr inbounds double, ptr %.02431.us39.i.i.i189, i64 %1177
+  %1190 = getelementptr inbounds double, ptr %.02431.us39.i.i.i186, i64 %1177
   store double %1188, ptr %1190, align 8
-  %1191 = add nuw i64 %.025.i.i28.us.i.i41.i191, 2
+  %1191 = add nuw i64 %.025.i.i28.us.i.i40.i188, 2
   %1192 = icmp ult i64 %1191, %126
-  br i1 %1192, label %.lr.ph.i.i27.us.i.i40.i190, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !39
+  br i1 %1192, label %.lr.ph.i.i27.us.i.i39.i187, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !39
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i40.i190
-  %1193 = getelementptr inbounds i8, ptr %.035.us37.i.i.i187, i64 %133
-  %1194 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i188, i64 %135
-  %1195 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i189, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i39.i187
+  %1193 = getelementptr inbounds i8, ptr %.035.us37.i.i.i184, i64 %133
+  %1194 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i185, i64 %135
+  %1195 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i186, i64 %137
   %1196 = add i64 %1174, -1
-  %.not.us41.i.i.i192 = icmp eq i64 %1174, 0
-  br i1 %.not.us41.i.i.i192, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i39.i186, !llvm.loop !40
+  %.not.us41.i.i.i189 = icmp eq i64 %1174, 0
+  br i1 %.not.us41.i.i.i189, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i38.i183, !llvm.loop !40
 
 1197:                                             ; preds = %876
   br i1 %138, label %1198, label %1348
@@ -4266,19 +4260,19 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %1202 = fmul double %1200, %1201
   store double %1202, ptr %131, align 8
   %1203 = add nsw i64 %.076, -2
-  %.not47.i.i.i.i.i297 = icmp eq i64 %1203, 0
-  br i1 %.not47.i.i.i.i.i297, label %._crit_edge.thread.i.i.i.i.i335, label %.lr.ph.i.i.i.i.i298
+  %.not47.i.i.i.i.i292 = icmp eq i64 %1203, 0
+  br i1 %.not47.i.i.i.i.i292, label %._crit_edge.thread.i.i.i.i.i329, label %.lr.ph.i.i.i.i.i293
 
-.lr.ph.i.i.i.i.i298:                              ; preds = %1199, %.lr.ph.i.i.i.i.i298
-  %.048.i.i.i.i.i299 = phi i64 [ %1222, %.lr.ph.i.i.i.i.i298 ], [ 1, %1199 ]
-  %1204 = mul i64 %.048.i.i.i.i.i299, %137
+.lr.ph.i.i.i.i.i293:                              ; preds = %1199, %.lr.ph.i.i.i.i.i293
+  %.048.i.i.i.i.i294 = phi i64 [ %1222, %.lr.ph.i.i.i.i.i293 ], [ 1, %1199 ]
+  %1204 = mul i64 %.048.i.i.i.i.i294, %137
   %1205 = getelementptr inbounds i8, ptr %131, i64 %1204
   %1206 = load double, ptr %1205, align 8
-  %1207 = add i64 %.048.i.i.i.i.i299, 1
+  %1207 = add i64 %.048.i.i.i.i.i294, 1
   %1208 = mul i64 %1207, %137
   %1209 = getelementptr inbounds i8, ptr %131, i64 %1208
   %1210 = load double, ptr %1209, align 8
-  %1211 = mul i64 %.048.i.i.i.i.i299, %135
+  %1211 = mul i64 %.048.i.i.i.i.i294, %135
   %1212 = getelementptr inbounds i8, ptr %130, i64 %1211
   %1213 = load double, ptr %1212, align 8
   %1214 = mul i64 %1207, %135
@@ -4291,16 +4285,16 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   %1221 = call double @llvm.fmuladd.f64(double %1206, double %1217, double %1220)
   store double %1219, ptr %1205, align 8
   store double %1221, ptr %1209, align 8
-  %1222 = add i64 %.048.i.i.i.i.i299, 2
-  %.not.i.i.i.i.i300 = icmp ugt i64 %1222, %1203
-  br i1 %.not.i.i.i.i.i300, label %._crit_edge.i.i.i.i.i301, label %.lr.ph.i.i.i.i.i298, !llvm.loop !41
+  %1222 = add i64 %.048.i.i.i.i.i294, 2
+  %.not.i.i.i.i.i295 = icmp ugt i64 %1222, %1203
+  br i1 %.not.i.i.i.i.i295, label %._crit_edge.i.i.i.i.i296, label %.lr.ph.i.i.i.i.i293, !llvm.loop !41
 
-._crit_edge.i.i.i.i.i301:                         ; preds = %.lr.ph.i.i.i.i.i298
+._crit_edge.i.i.i.i.i296:                         ; preds = %.lr.ph.i.i.i.i.i293
   %1223 = and i64 %.076, 1
   %1224 = icmp eq i64 %1223, 0
-  br i1 %1224, label %._crit_edge.thread.i.i.i.i.i335, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %1224, label %._crit_edge.thread.i.i.i.i.i329, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i.i335:                  ; preds = %._crit_edge.i.i.i.i.i301, %1199
+._crit_edge.thread.i.i.i.i.i329:                  ; preds = %._crit_edge.i.i.i.i.i296, %1199
   %1225 = add nsw i64 %.076, -1
   %1226 = mul i64 %137, %1225
   %1227 = getelementptr inbounds i8, ptr %131, i64 %1226
@@ -4312,7 +4306,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loop
   store double %1232, ptr %1227, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i335, %._crit_edge.i.i.i.i.i301
+_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i.i329, %._crit_edge.i.i.i.i.i296
   br i1 %124, label %1233, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 1233:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -4324,18 +4318,18 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1239 = load double, ptr %1235, align 8
   %1240 = fmul double %1238, %1239
   store double %1240, ptr %1237, align 8
-  br i1 %.not47.i.i.i.i.i297, label %._crit_edge.thread.i.i22.i.i.i334, label %.lr.ph.i.i18.i.i.i330
+  br i1 %.not47.i.i.i.i.i292, label %._crit_edge.thread.i.i22.i.i.i328, label %.lr.ph.i.i18.i.i.i324
 
-.lr.ph.i.i18.i.i.i330:                            ; preds = %1233, %.lr.ph.i.i18.i.i.i330
-  %.048.i.i19.i.i.i331 = phi i64 [ %1259, %.lr.ph.i.i18.i.i.i330 ], [ 1, %1233 ]
-  %1241 = mul i64 %.048.i.i19.i.i.i331, %137
+.lr.ph.i.i18.i.i.i324:                            ; preds = %1233, %.lr.ph.i.i18.i.i.i324
+  %.048.i.i19.i.i.i325 = phi i64 [ %1259, %.lr.ph.i.i18.i.i.i324 ], [ 1, %1233 ]
+  %1241 = mul i64 %.048.i.i19.i.i.i325, %137
   %1242 = getelementptr inbounds i8, ptr %1237, i64 %1241
   %1243 = load double, ptr %1242, align 8
-  %1244 = add i64 %.048.i.i19.i.i.i331, 1
+  %1244 = add i64 %.048.i.i19.i.i.i325, 1
   %1245 = mul i64 %1244, %137
   %1246 = getelementptr inbounds i8, ptr %1237, i64 %1245
   %1247 = load double, ptr %1246, align 8
-  %1248 = mul i64 %.048.i.i19.i.i.i331, %135
+  %1248 = mul i64 %.048.i.i19.i.i.i325, %135
   %1249 = getelementptr inbounds i8, ptr %1235, i64 %1248
   %1250 = load double, ptr %1249, align 8
   %1251 = mul i64 %1244, %135
@@ -4348,21 +4342,21 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1258 = call double @llvm.fmuladd.f64(double %1243, double %1254, double %1257)
   store double %1256, ptr %1242, align 8
   store double %1258, ptr %1246, align 8
-  %1259 = add i64 %.048.i.i19.i.i.i331, 2
-  %.not.i.i20.i.i.i332 = icmp ugt i64 %1259, %1203
-  br i1 %.not.i.i20.i.i.i332, label %._crit_edge.i.i21.i.i.i333, label %.lr.ph.i.i18.i.i.i330, !llvm.loop !41
+  %1259 = add i64 %.048.i.i19.i.i.i325, 2
+  %.not.i.i20.i.i.i326 = icmp ugt i64 %1259, %1203
+  br i1 %.not.i.i20.i.i.i326, label %._crit_edge.i.i21.i.i.i327, label %.lr.ph.i.i18.i.i.i324, !llvm.loop !41
 
-._crit_edge.i.i21.i.i.i333:                       ; preds = %.lr.ph.i.i18.i.i.i330
+._crit_edge.i.i21.i.i.i327:                       ; preds = %.lr.ph.i.i18.i.i.i324
   %1260 = and i64 %.076, 1
   %1261 = icmp eq i64 %1260, 0
-  br i1 %1261, label %._crit_edge.thread.i.i22.i.i.i334, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %1261, label %._crit_edge.thread.i.i22.i.i.i328, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i333
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i.i327
   %1262 = add nsw i64 %.076, -1
   %1263 = icmp ugt i64 %126, %120
-  br i1 %1263, label %.critedge.us.i.i.i307.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %1263, label %.critedge.us.i.i.i301.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i.i334:                ; preds = %._crit_edge.i.i21.i.i.i333, %1233
+._crit_edge.thread.i.i22.i.i.i328:                ; preds = %._crit_edge.i.i21.i.i.i327, %1233
   %1264 = add nsw i64 %.076, -1
   %1265 = mul i64 %137, %1264
   %1266 = getelementptr inbounds i8, ptr %1237, i64 %1265
@@ -4374,41 +4368,40 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.th
   store double %1271, ptr %1266, align 8
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i334, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1198
-  %.not30.i.i.i302 = icmp eq i64 %.076, 0
-  br i1 %.not30.i.i.i302, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i303
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i.i328, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb1EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1198
+  %.not30.i.i.i297 = icmp eq i64 %.076, 0
+  br i1 %.not30.i.i.i297, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.i298
 
-.lr.ph.i.i.i303:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
+.lr.ph.i.i.i298:                                  ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %1272 = add nsw i64 %.076, -1
   %1273 = and i1 %119, %116
-  %or.cond.i.i.i304 = and i1 %1273, %124
   %1274 = icmp ugt i64 %126, %120
-  br i1 %1273, label %.lr.ph.split.us.i.i.i313, label %.lr.ph.split.i.i.i305
+  br i1 %1273, label %.lr.ph.split.us.i.i.i307, label %.lr.ph.split.i.i.i299
 
-.lr.ph.split.us.i.i.i313:                         ; preds = %.lr.ph.i.i.i303
-  br i1 %1274, label %.lr.ph.i.i.preheader.us.us.i.i.i323, label %.lr.ph.split.us.split.i.i.i314
+.lr.ph.split.us.i.i.i307:                         ; preds = %.lr.ph.i.i.i298
+  br i1 %1274, label %.lr.ph.i.i.preheader.us.us.i.i.i317, label %.lr.ph.split.us.split.i.i.i308
 
-.lr.ph.i.i.preheader.us.us.i.i.i323:              ; preds = %.lr.ph.split.us.i.i.i313, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %1275 = phi i64 [ %1305, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1272, %.lr.ph.split.us.i.i.i313 ]
-  %.035.us.us.i.i.i324 = phi ptr [ %1302, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i313 ]
-  %.02333.us.us.i.i.i325 = phi ptr [ %1303, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i313 ]
-  %.02431.us.us.i.i.i326 = phi ptr [ %1304, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i313 ]
-  %1276 = load double, ptr %.035.us.us.i.i.i324, align 8
-  %1277 = load double, ptr %.02333.us.us.i.i.i325, align 8
+.lr.ph.i.i.preheader.us.us.i.i.i317:              ; preds = %.lr.ph.split.us.i.i.i307, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %1275 = phi i64 [ %1305, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1272, %.lr.ph.split.us.i.i.i307 ]
+  %.035.us.us.i.i.i318 = phi ptr [ %1302, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i.i307 ]
+  %.02333.us.us.i.i.i319 = phi ptr [ %1303, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i.i307 ]
+  %.02431.us.us.i.i.i320 = phi ptr [ %1304, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i.i307 ]
+  %1276 = load double, ptr %.035.us.us.i.i.i318, align 8
+  %1277 = load double, ptr %.02333.us.us.i.i.i319, align 8
   %1278 = fmul double %1276, %1277
-  store double %1278, ptr %.02431.us.us.i.i.i326, align 8
-  br label %.lr.ph.i.i.us.us.i.i.i327
+  store double %1278, ptr %.02431.us.us.i.i.i320, align 8
+  br label %.lr.ph.i.i.us.us.i.i.i321
 
-.lr.ph.i.i.us.us.i.i.i327:                        ; preds = %.lr.ph.i.i.us.us.i.i.i327, %.lr.ph.i.i.preheader.us.us.i.i.i323
-  %.026.i.i.us.us.i.i.i328 = phi i64 [ %1293, %.lr.ph.i.i.us.us.i.i.i327 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i323 ]
-  %1279 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i326, i64 %.026.i.i.us.us.i.i.i328
+.lr.ph.i.i.us.us.i.i.i321:                        ; preds = %.lr.ph.i.i.us.us.i.i.i321, %.lr.ph.i.i.preheader.us.us.i.i.i317
+  %.026.i.i.us.us.i.i.i322 = phi i64 [ %1293, %.lr.ph.i.i.us.us.i.i.i321 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i.i317 ]
+  %1279 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i320, i64 %.026.i.i.us.us.i.i.i322
   %1280 = load double, ptr %1279, align 8
-  %1281 = add nuw i64 %.026.i.i.us.us.i.i.i328, 1
-  %1282 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i326, i64 %1281
+  %1281 = add nuw i64 %.026.i.i.us.us.i.i.i322, 1
+  %1282 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i320, i64 %1281
   %1283 = load double, ptr %1282, align 8
-  %1284 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i325, i64 %.026.i.i.us.us.i.i.i328
+  %1284 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i319, i64 %.026.i.i.us.us.i.i.i322
   %1285 = load double, ptr %1284, align 8
-  %1286 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i325, i64 %1281
+  %1286 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i319, i64 %1281
   %1287 = load double, ptr %1286, align 8
   %1288 = fneg double %1287
   %1289 = fmul double %1283, %1287
@@ -4417,96 +4410,96 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.
   %1292 = call double @llvm.fmuladd.f64(double %1280, double %1288, double %1291)
   store double %1290, ptr %1279, align 8
   store double %1292, ptr %1282, align 8
-  %1293 = add nuw i64 %.026.i.i.us.us.i.i.i328, 2
+  %1293 = add nuw i64 %.026.i.i.us.us.i.i.i322, 2
   %1294 = icmp ult i64 %1293, %126
-  br i1 %1294, label %.lr.ph.i.i.us.us.i.i.i327, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !42
+  br i1 %1294, label %.lr.ph.i.i.us.us.i.i.i321, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !42
 
 1295:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %1296 = getelementptr inbounds double, ptr %.035.us.us.i.i.i324, i64 %126
+  %1296 = getelementptr inbounds double, ptr %.035.us.us.i.i.i318, i64 %126
   %1297 = load double, ptr %1296, align 8
-  %1298 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i325, i64 %126
+  %1298 = getelementptr inbounds double, ptr %.02333.us.us.i.i.i319, i64 %126
   %1299 = load double, ptr %1298, align 8
   %1300 = fmul double %1297, %1299
-  %1301 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i326, i64 %126
+  %1301 = getelementptr inbounds double, ptr %.02431.us.us.i.i.i320, i64 %126
   store double %1300, ptr %1301, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %1295
-  %1302 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i324, i64 %133
-  %1303 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i325, i64 %135
-  %1304 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i326, i64 %137
+  %1302 = getelementptr inbounds i8, ptr %.035.us.us.i.i.i318, i64 %133
+  %1303 = getelementptr inbounds i8, ptr %.02333.us.us.i.i.i319, i64 %135
+  %1304 = getelementptr inbounds i8, ptr %.02431.us.us.i.i.i320, i64 %137
   %1305 = add i64 %1275, -1
-  %.not.us.us.i.i.i329 = icmp eq i64 %1275, 0
-  br i1 %.not.us.us.i.i.i329, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i323, !llvm.loop !43
+  %.not.us.us.i.i.i323 = icmp eq i64 %1275, 0
+  br i1 %.not.us.us.i.i.i323, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i.i317, !llvm.loop !43
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i327
-  br i1 %or.cond.i.i.i304, label %1295, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i.i321
+  br i1 %124, label %1295, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i.i314:                   ; preds = %.lr.ph.split.us.i.i.i313
-  br i1 %or.cond.i.i.i304, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i.i308:                   ; preds = %.lr.ph.split.us.i.i.i307
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i314, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
-  %1306 = phi i64 [ %1319, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %1272, %.lr.ph.split.us.split.i.i.i314 ]
-  %.035.us.us42.i.i.i319 = phi ptr [ %1316, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i314 ]
-  %.02333.us.us43.i.i.i320 = phi ptr [ %1317, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i314 ]
-  %.02431.us.us44.i.i.i321 = phi ptr [ %1318, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i314 ]
-  %1307 = load double, ptr %.035.us.us42.i.i.i319, align 8
-  %1308 = load double, ptr %.02333.us.us43.i.i.i320, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i308, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i
+  %1306 = phi i64 [ %1319, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %1272, %.lr.ph.split.us.split.i.i.i308 ]
+  %.035.us.us42.i.i.i313 = phi ptr [ %1316, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i308 ]
+  %.02333.us.us43.i.i.i314 = phi ptr [ %1317, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i308 ]
+  %.02431.us.us44.i.i.i315 = phi ptr [ %1318, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i308 ]
+  %1307 = load double, ptr %.035.us.us42.i.i.i313, align 8
+  %1308 = load double, ptr %.02333.us.us43.i.i.i314, align 8
   %1309 = fmul double %1307, %1308
-  store double %1309, ptr %.02431.us.us44.i.i.i321, align 8
-  %1310 = getelementptr inbounds double, ptr %.035.us.us42.i.i.i319, i64 %126
+  store double %1309, ptr %.02431.us.us44.i.i.i315, align 8
+  %1310 = getelementptr inbounds double, ptr %.035.us.us42.i.i.i313, i64 %126
   %1311 = load double, ptr %1310, align 8
-  %1312 = getelementptr inbounds double, ptr %.02333.us.us43.i.i.i320, i64 %126
+  %1312 = getelementptr inbounds double, ptr %.02333.us.us43.i.i.i314, i64 %126
   %1313 = load double, ptr %1312, align 8
   %1314 = fmul double %1311, %1313
-  %1315 = getelementptr inbounds double, ptr %.02431.us.us44.i.i.i321, i64 %126
+  %1315 = getelementptr inbounds double, ptr %.02431.us.us44.i.i.i315, i64 %126
   store double %1314, ptr %1315, align 8
-  %1316 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i319, i64 %133
-  %1317 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i320, i64 %135
-  %1318 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i321, i64 %137
+  %1316 = getelementptr inbounds i8, ptr %.035.us.us42.i.i.i313, i64 %133
+  %1317 = getelementptr inbounds i8, ptr %.02333.us.us43.i.i.i314, i64 %135
+  %1318 = getelementptr inbounds i8, ptr %.02431.us.us44.i.i.i315, i64 %137
   %1319 = add i64 %1306, -1
-  %.not.us.us46.i.i.i322 = icmp eq i64 %1306, 0
-  br i1 %.not.us.us46.i.i.i322, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !43
+  %.not.us.us46.i.i.i316 = icmp eq i64 %1306, 0
+  br i1 %.not.us.us46.i.i.i316, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, !llvm.loop !43
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i314, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %1320 = phi i64 [ %1327, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1272, %.lr.ph.split.us.split.i.i.i314 ]
-  %.035.us.i.i.i315 = phi ptr [ %1324, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i314 ]
-  %.02333.us.i.i.i316 = phi ptr [ %1325, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i314 ]
-  %.02431.us.i.i.i317 = phi ptr [ %1326, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i314 ]
-  %1321 = load double, ptr %.035.us.i.i.i315, align 8
-  %1322 = load double, ptr %.02333.us.i.i.i316, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i.i308, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %1320 = phi i64 [ %1327, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1272, %.lr.ph.split.us.split.i.i.i308 ]
+  %.035.us.i.i.i309 = phi ptr [ %1324, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i.i308 ]
+  %.02333.us.i.i.i310 = phi ptr [ %1325, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i.i308 ]
+  %.02431.us.i.i.i311 = phi ptr [ %1326, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i.i308 ]
+  %1321 = load double, ptr %.035.us.i.i.i309, align 8
+  %1322 = load double, ptr %.02333.us.i.i.i310, align 8
   %1323 = fmul double %1321, %1322
-  store double %1323, ptr %.02431.us.i.i.i317, align 8
-  %1324 = getelementptr inbounds i8, ptr %.035.us.i.i.i315, i64 %133
-  %1325 = getelementptr inbounds i8, ptr %.02333.us.i.i.i316, i64 %135
-  %1326 = getelementptr inbounds i8, ptr %.02431.us.i.i.i317, i64 %137
+  store double %1323, ptr %.02431.us.i.i.i311, align 8
+  %1324 = getelementptr inbounds i8, ptr %.035.us.i.i.i309, i64 %133
+  %1325 = getelementptr inbounds i8, ptr %.02333.us.i.i.i310, i64 %135
+  %1326 = getelementptr inbounds i8, ptr %.02431.us.i.i.i311, i64 %137
   %1327 = add i64 %1320, -1
-  %.not.us.i.i.i318 = icmp eq i64 %1320, 0
-  br i1 %.not.us.i.i.i318, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !43
+  %.not.us.i.i.i312 = icmp eq i64 %1320, 0
+  br i1 %.not.us.i.i.i312, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !43
 
-.lr.ph.split.i.i.i305:                            ; preds = %.lr.ph.i.i.i303
-  br i1 %1274, label %.critedge.us.i.i.i307.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i.i299:                            ; preds = %.lr.ph.i.i.i298
+  br i1 %1274, label %.critedge.us.i.i.i301.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i.i307.preheader:                  ; preds = %.lr.ph.split.i.i.i305, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph485 = phi i64 [ %1272, %.lr.ph.split.i.i.i305 ], [ %1262, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i.i307
+.critedge.us.i.i.i301.preheader:                  ; preds = %.lr.ph.split.i.i.i299, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph479 = phi i64 [ %1272, %.lr.ph.split.i.i.i299 ], [ %1262, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i.i301
 
-.critedge.us.i.i.i307:                            ; preds = %.critedge.us.i.i.i307.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %1328 = phi i64 [ %1347, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph485, %.critedge.us.i.i.i307.preheader ]
-  %.02333.us37.i.i.i308 = phi ptr [ %1345, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i307.preheader ]
-  %.02431.us38.i.i.i309 = phi ptr [ %1346, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i307.preheader ]
-  br label %.lr.ph.i.i27.us.i.i.i310
+.critedge.us.i.i.i301:                            ; preds = %.critedge.us.i.i.i301.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %1328 = phi i64 [ %1347, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph479, %.critedge.us.i.i.i301.preheader ]
+  %.02333.us37.i.i.i302 = phi ptr [ %1345, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i.i301.preheader ]
+  %.02431.us38.i.i.i303 = phi ptr [ %1346, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i.i301.preheader ]
+  br label %.lr.ph.i.i27.us.i.i.i304
 
-.lr.ph.i.i27.us.i.i.i310:                         ; preds = %.lr.ph.i.i27.us.i.i.i310, %.critedge.us.i.i.i307
-  %.026.i.i28.us.i.i.i311 = phi i64 [ %1343, %.lr.ph.i.i27.us.i.i.i310 ], [ %120, %.critedge.us.i.i.i307 ]
-  %1329 = getelementptr inbounds double, ptr %.02431.us38.i.i.i309, i64 %.026.i.i28.us.i.i.i311
+.lr.ph.i.i27.us.i.i.i304:                         ; preds = %.lr.ph.i.i27.us.i.i.i304, %.critedge.us.i.i.i301
+  %.026.i.i28.us.i.i.i305 = phi i64 [ %1343, %.lr.ph.i.i27.us.i.i.i304 ], [ %120, %.critedge.us.i.i.i301 ]
+  %1329 = getelementptr inbounds double, ptr %.02431.us38.i.i.i303, i64 %.026.i.i28.us.i.i.i305
   %1330 = load double, ptr %1329, align 8
-  %1331 = add nuw i64 %.026.i.i28.us.i.i.i311, 1
-  %1332 = getelementptr inbounds double, ptr %.02431.us38.i.i.i309, i64 %1331
+  %1331 = add nuw i64 %.026.i.i28.us.i.i.i305, 1
+  %1332 = getelementptr inbounds double, ptr %.02431.us38.i.i.i303, i64 %1331
   %1333 = load double, ptr %1332, align 8
-  %1334 = getelementptr inbounds double, ptr %.02333.us37.i.i.i308, i64 %.026.i.i28.us.i.i.i311
+  %1334 = getelementptr inbounds double, ptr %.02333.us37.i.i.i302, i64 %.026.i.i28.us.i.i.i305
   %1335 = load double, ptr %1334, align 8
-  %1336 = getelementptr inbounds double, ptr %.02333.us37.i.i.i308, i64 %1331
+  %1336 = getelementptr inbounds double, ptr %.02333.us37.i.i.i302, i64 %1331
   %1337 = load double, ptr %1336, align 8
   %1338 = fneg double %1337
   %1339 = fmul double %1333, %1337
@@ -4515,16 +4508,16 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i
   %1342 = call double @llvm.fmuladd.f64(double %1330, double %1338, double %1341)
   store double %1340, ptr %1329, align 8
   store double %1342, ptr %1332, align 8
-  %1343 = add nuw i64 %.026.i.i28.us.i.i.i311, 2
+  %1343 = add nuw i64 %.026.i.i28.us.i.i.i305, 2
   %1344 = icmp ult i64 %1343, %126
-  br i1 %1344, label %.lr.ph.i.i27.us.i.i.i310, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !42
+  br i1 %1344, label %.lr.ph.i.i27.us.i.i.i304, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !42
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i310
-  %1345 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i308, i64 %135
-  %1346 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i309, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i.i304
+  %1345 = getelementptr inbounds i8, ptr %.02333.us37.i.i.i302, i64 %135
+  %1346 = getelementptr inbounds i8, ptr %.02431.us38.i.i.i303, i64 %137
   %1347 = add i64 %1328, -1
-  %.not.us40.i.i.i312 = icmp eq i64 %1328, 0
-  br i1 %.not.us40.i.i.i312, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i307, !llvm.loop !43
+  %.not.us40.i.i.i306 = icmp eq i64 %1328, 0
+  br i1 %.not.us40.i.i.i306, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i.i301, !llvm.loop !43
 
 1348:                                             ; preds = %1197
   br i1 %brmerge.i.i104, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, label %1349
@@ -4535,19 +4528,19 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1352 = fmul double %1350, %1351
   store double %1352, ptr %131, align 8
   %1353 = add nsw i64 %.076, -2
-  %.not47.i.i.i.i29.i257 = icmp eq i64 %1353, 0
-  br i1 %.not47.i.i.i.i29.i257, label %._crit_edge.thread.i.i.i.i60.i296, label %.lr.ph.i.i.i.i30.i258
+  %.not47.i.i.i.i29.i253 = icmp eq i64 %1353, 0
+  br i1 %.not47.i.i.i.i29.i253, label %._crit_edge.thread.i.i.i.i59.i291, label %.lr.ph.i.i.i.i30.i254
 
-.lr.ph.i.i.i.i30.i258:                            ; preds = %1349, %.lr.ph.i.i.i.i30.i258
-  %.048.i.i.i.i31.i259 = phi i64 [ %1376, %.lr.ph.i.i.i.i30.i258 ], [ 1, %1349 ]
-  %1354 = mul i64 %.048.i.i.i.i31.i259, %133
+.lr.ph.i.i.i.i30.i254:                            ; preds = %1349, %.lr.ph.i.i.i.i30.i254
+  %.048.i.i.i.i31.i255 = phi i64 [ %1376, %.lr.ph.i.i.i.i30.i254 ], [ 1, %1349 ]
+  %1354 = mul i64 %.048.i.i.i.i31.i255, %133
   %1355 = getelementptr inbounds i8, ptr %129, i64 %1354
   %1356 = load double, ptr %1355, align 8
-  %1357 = add i64 %.048.i.i.i.i31.i259, 1
+  %1357 = add i64 %.048.i.i.i.i31.i255, 1
   %1358 = mul i64 %1357, %133
   %1359 = getelementptr inbounds i8, ptr %129, i64 %1358
   %1360 = load double, ptr %1359, align 8
-  %1361 = mul i64 %.048.i.i.i.i31.i259, %135
+  %1361 = mul i64 %.048.i.i.i.i31.i255, %135
   %1362 = getelementptr inbounds i8, ptr %130, i64 %1361
   %1363 = load double, ptr %1362, align 8
   %1364 = mul i64 %1357, %135
@@ -4558,22 +4551,22 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   %1369 = call double @llvm.fmuladd.f64(double %1356, double %1363, double %1368)
   %1370 = fmul double %1360, %1363
   %1371 = call double @llvm.fmuladd.f64(double %1356, double %1367, double %1370)
-  %1372 = mul i64 %.048.i.i.i.i31.i259, %137
+  %1372 = mul i64 %.048.i.i.i.i31.i255, %137
   %1373 = getelementptr inbounds i8, ptr %131, i64 %1372
   store double %1369, ptr %1373, align 8
   %1374 = mul i64 %1357, %137
   %1375 = getelementptr inbounds i8, ptr %131, i64 %1374
   store double %1371, ptr %1375, align 8
-  %1376 = add i64 %.048.i.i.i.i31.i259, 2
-  %.not.i.i.i.i32.i260 = icmp ugt i64 %1376, %1353
-  br i1 %.not.i.i.i.i32.i260, label %._crit_edge.i.i.i.i33.i261, label %.lr.ph.i.i.i.i30.i258, !llvm.loop !44
+  %1376 = add i64 %.048.i.i.i.i31.i255, 2
+  %.not.i.i.i.i32.i256 = icmp ugt i64 %1376, %1353
+  br i1 %.not.i.i.i.i32.i256, label %._crit_edge.i.i.i.i33.i257, label %.lr.ph.i.i.i.i30.i254, !llvm.loop !44
 
-._crit_edge.i.i.i.i33.i261:                       ; preds = %.lr.ph.i.i.i.i30.i258
+._crit_edge.i.i.i.i33.i257:                       ; preds = %.lr.ph.i.i.i.i30.i254
   %1377 = and i64 %.076, 1
   %1378 = icmp eq i64 %1377, 0
-  br i1 %1378, label %._crit_edge.thread.i.i.i.i60.i296, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
+  br i1 %1378, label %._crit_edge.thread.i.i.i.i59.i291, label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-._crit_edge.thread.i.i.i.i60.i296:                ; preds = %._crit_edge.i.i.i.i33.i261, %1349
+._crit_edge.thread.i.i.i.i59.i291:                ; preds = %._crit_edge.i.i.i.i33.i257, %1349
   %1379 = add nsw i64 %.076, -1
   %1380 = mul i64 %133, %1379
   %1381 = getelementptr inbounds i8, ptr %129, i64 %1380
@@ -4587,7 +4580,7 @@ _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loop
   store double %1386, ptr %1388, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i60.i296, %._crit_edge.i.i.i.i33.i261
+_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i: ; preds = %._crit_edge.thread.i.i.i.i59.i291, %._crit_edge.i.i.i.i33.i257
   br i1 %124, label %1389, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
 1389:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i
@@ -4601,18 +4594,18 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1397 = load double, ptr %1393, align 8
   %1398 = fmul double %1396, %1397
   store double %1398, ptr %1395, align 8
-  br i1 %.not47.i.i.i.i29.i257, label %._crit_edge.thread.i.i22.i.i59.i295, label %.lr.ph.i.i18.i.i55.i291
+  br i1 %.not47.i.i.i.i29.i253, label %._crit_edge.thread.i.i22.i.i58.i290, label %.lr.ph.i.i18.i.i54.i286
 
-.lr.ph.i.i18.i.i55.i291:                          ; preds = %1389, %.lr.ph.i.i18.i.i55.i291
-  %.048.i.i19.i.i56.i292 = phi i64 [ %1421, %.lr.ph.i.i18.i.i55.i291 ], [ 1, %1389 ]
-  %1399 = mul i64 %.048.i.i19.i.i56.i292, %133
+.lr.ph.i.i18.i.i54.i286:                          ; preds = %1389, %.lr.ph.i.i18.i.i54.i286
+  %.048.i.i19.i.i55.i287 = phi i64 [ %1421, %.lr.ph.i.i18.i.i54.i286 ], [ 1, %1389 ]
+  %1399 = mul i64 %.048.i.i19.i.i55.i287, %133
   %1400 = getelementptr inbounds i8, ptr %1391, i64 %1399
   %1401 = load double, ptr %1400, align 8
-  %1402 = add i64 %.048.i.i19.i.i56.i292, 1
+  %1402 = add i64 %.048.i.i19.i.i55.i287, 1
   %1403 = mul i64 %1402, %133
   %1404 = getelementptr inbounds i8, ptr %1391, i64 %1403
   %1405 = load double, ptr %1404, align 8
-  %1406 = mul i64 %.048.i.i19.i.i56.i292, %135
+  %1406 = mul i64 %.048.i.i19.i.i55.i287, %135
   %1407 = getelementptr inbounds i8, ptr %1393, i64 %1406
   %1408 = load double, ptr %1407, align 8
   %1409 = mul i64 %1402, %135
@@ -4623,27 +4616,27 @@ _ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.
   %1414 = call double @llvm.fmuladd.f64(double %1401, double %1408, double %1413)
   %1415 = fmul double %1405, %1408
   %1416 = call double @llvm.fmuladd.f64(double %1401, double %1412, double %1415)
-  %1417 = mul i64 %.048.i.i19.i.i56.i292, %137
+  %1417 = mul i64 %.048.i.i19.i.i55.i287, %137
   %1418 = getelementptr inbounds i8, ptr %1395, i64 %1417
   store double %1414, ptr %1418, align 8
   %1419 = mul i64 %1402, %137
   %1420 = getelementptr inbounds i8, ptr %1395, i64 %1419
   store double %1416, ptr %1420, align 8
-  %1421 = add i64 %.048.i.i19.i.i56.i292, 2
-  %.not.i.i20.i.i57.i293 = icmp ugt i64 %1421, %1353
-  br i1 %.not.i.i20.i.i57.i293, label %._crit_edge.i.i21.i.i58.i294, label %.lr.ph.i.i18.i.i55.i291, !llvm.loop !44
+  %1421 = add i64 %.048.i.i19.i.i55.i287, 2
+  %.not.i.i20.i.i56.i288 = icmp ugt i64 %1421, %1353
+  br i1 %.not.i.i20.i.i56.i288, label %._crit_edge.i.i21.i.i57.i289, label %.lr.ph.i.i18.i.i54.i286, !llvm.loop !44
 
-._crit_edge.i.i21.i.i58.i294:                     ; preds = %.lr.ph.i.i18.i.i55.i291
+._crit_edge.i.i21.i.i57.i289:                     ; preds = %.lr.ph.i.i18.i.i54.i286
   %1422 = and i64 %.076, 1
   %1423 = icmp eq i64 %1422, 0
-  br i1 %1423, label %._crit_edge.thread.i.i22.i.i59.i295, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  br i1 %1423, label %._crit_edge.thread.i.i22.i.i58.i290, label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i58.i294
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i: ; preds = %._crit_edge.i.i21.i.i57.i289
   %1424 = add nsw i64 %.076, -1
   %1425 = icmp ugt i64 %126, %120
-  br i1 %1425, label %.critedge.us.i.i39.i267.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+  br i1 %1425, label %.critedge.us.i.i38.i262.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-._crit_edge.thread.i.i22.i.i59.i295:              ; preds = %._crit_edge.i.i21.i.i58.i294, %1389
+._crit_edge.thread.i.i22.i.i58.i290:              ; preds = %._crit_edge.i.i21.i.i57.i289, %1389
   %1426 = add nsw i64 %.076, -1
   %1427 = mul i64 %133, %1426
   %1428 = getelementptr inbounds i8, ptr %1391, i64 %1427
@@ -4657,165 +4650,164 @@ _ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.th
   store double %1433, ptr %1435, align 8
   br label %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
 
-_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i59.i295, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1348
-  %.not30.i.i34.i262 = icmp eq i64 %.076, 0
-  br i1 %.not30.i.i34.i262, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i263
+_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i: ; preds = %._crit_edge.thread.i.i22.i.i58.i290, %_ZN12_GLOBAL__N_123mulSpectrums_processColIdLb1ELb0EEEvPKT_S3_PS1_mmmm.exit.i.i.i, %1348
+  %.not30.i.i34.i258 = icmp eq i64 %.076, 0
+  br i1 %.not30.i.i34.i258, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i35.i259
 
-.lr.ph.i.i35.i263:                                ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
+.lr.ph.i.i35.i259:                                ; preds = %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i
   %1436 = add nsw i64 %.076, -1
   %1437 = and i1 %119, %116
-  %or.cond.i.i36.i264 = and i1 %1437, %124
   %1438 = icmp ugt i64 %126, %120
-  br i1 %1437, label %.lr.ph.split.us.i.i42.i274, label %.lr.ph.split.i.i37.i265
+  br i1 %1437, label %.lr.ph.split.us.i.i41.i269, label %.lr.ph.split.i.i36.i260
 
-.lr.ph.split.us.i.i42.i274:                       ; preds = %.lr.ph.i.i35.i263
-  br i1 %1438, label %.lr.ph.i.i.preheader.us.us.i.i48.i284, label %.lr.ph.split.us.split.i.i43.i275
+.lr.ph.split.us.i.i41.i269:                       ; preds = %.lr.ph.i.i35.i259
+  br i1 %1438, label %.lr.ph.i.i.preheader.us.us.i.i47.i279, label %.lr.ph.split.us.split.i.i42.i270
 
-.lr.ph.i.i.preheader.us.us.i.i48.i284:            ; preds = %.lr.ph.split.us.i.i42.i274, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
-  %1439 = phi i64 [ %1471, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1436, %.lr.ph.split.us.i.i42.i274 ]
-  %.035.us.us.i.i49.i285 = phi ptr [ %1468, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i42.i274 ]
-  %.02333.us.us.i.i50.i286 = phi ptr [ %1469, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i42.i274 ]
-  %.02431.us.us.i.i51.i287 = phi ptr [ %1470, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i42.i274 ]
-  %1440 = load double, ptr %.035.us.us.i.i49.i285, align 8
-  %1441 = load double, ptr %.02333.us.us.i.i50.i286, align 8
+.lr.ph.i.i.preheader.us.us.i.i47.i279:            ; preds = %.lr.ph.split.us.i.i41.i269, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+  %1439 = phi i64 [ %1471, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %1436, %.lr.ph.split.us.i.i41.i269 ]
+  %.035.us.us.i.i48.i280 = phi ptr [ %1468, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %129, %.lr.ph.split.us.i.i41.i269 ]
+  %.02333.us.us.i.i49.i281 = phi ptr [ %1469, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %130, %.lr.ph.split.us.i.i41.i269 ]
+  %.02431.us.us.i.i50.i282 = phi ptr [ %1470, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i ], [ %131, %.lr.ph.split.us.i.i41.i269 ]
+  %1440 = load double, ptr %.035.us.us.i.i48.i280, align 8
+  %1441 = load double, ptr %.02333.us.us.i.i49.i281, align 8
   %1442 = fmul double %1440, %1441
-  store double %1442, ptr %.02431.us.us.i.i51.i287, align 8
-  br label %.lr.ph.i.i.us.us.i.i52.i288
+  store double %1442, ptr %.02431.us.us.i.i50.i282, align 8
+  br label %.lr.ph.i.i.us.us.i.i51.i283
 
-.lr.ph.i.i.us.us.i.i52.i288:                      ; preds = %.lr.ph.i.i.us.us.i.i52.i288, %.lr.ph.i.i.preheader.us.us.i.i48.i284
-  %.026.i.i.us.us.i.i53.i289 = phi i64 [ %1459, %.lr.ph.i.i.us.us.i.i52.i288 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i48.i284 ]
-  %1443 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i285, i64 %.026.i.i.us.us.i.i53.i289
+.lr.ph.i.i.us.us.i.i51.i283:                      ; preds = %.lr.ph.i.i.us.us.i.i51.i283, %.lr.ph.i.i.preheader.us.us.i.i47.i279
+  %.026.i.i.us.us.i.i52.i284 = phi i64 [ %1459, %.lr.ph.i.i.us.us.i.i51.i283 ], [ %120, %.lr.ph.i.i.preheader.us.us.i.i47.i279 ]
+  %1443 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i280, i64 %.026.i.i.us.us.i.i52.i284
   %1444 = load double, ptr %1443, align 8
-  %1445 = add nuw i64 %.026.i.i.us.us.i.i53.i289, 1
-  %1446 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i285, i64 %1445
+  %1445 = add nuw i64 %.026.i.i.us.us.i.i52.i284, 1
+  %1446 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i280, i64 %1445
   %1447 = load double, ptr %1446, align 8
-  %1448 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i286, i64 %.026.i.i.us.us.i.i53.i289
+  %1448 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i281, i64 %.026.i.i.us.us.i.i52.i284
   %1449 = load double, ptr %1448, align 8
-  %1450 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i286, i64 %1445
+  %1450 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i281, i64 %1445
   %1451 = load double, ptr %1450, align 8
   %1452 = fneg double %1451
   %1453 = fmul double %1447, %1451
   %1454 = call double @llvm.fmuladd.f64(double %1444, double %1449, double %1453)
   %1455 = fmul double %1447, %1449
   %1456 = call double @llvm.fmuladd.f64(double %1444, double %1452, double %1455)
-  %1457 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i287, i64 %.026.i.i.us.us.i.i53.i289
+  %1457 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i282, i64 %.026.i.i.us.us.i.i52.i284
   store double %1454, ptr %1457, align 8
-  %1458 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i287, i64 %1445
+  %1458 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i282, i64 %1445
   store double %1456, ptr %1458, align 8
-  %1459 = add nuw i64 %.026.i.i.us.us.i.i53.i289, 2
+  %1459 = add nuw i64 %.026.i.i.us.us.i.i52.i284, 2
   %1460 = icmp ult i64 %1459, %126
-  br i1 %1460, label %.lr.ph.i.i.us.us.i.i52.i288, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !45
+  br i1 %1460, label %.lr.ph.i.i.us.us.i.i51.i283, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, !llvm.loop !45
 
 1461:                                             ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i
-  %1462 = getelementptr inbounds double, ptr %.035.us.us.i.i49.i285, i64 %126
+  %1462 = getelementptr inbounds double, ptr %.035.us.us.i.i48.i280, i64 %126
   %1463 = load double, ptr %1462, align 8
-  %1464 = getelementptr inbounds double, ptr %.02333.us.us.i.i50.i286, i64 %126
+  %1464 = getelementptr inbounds double, ptr %.02333.us.us.i.i49.i281, i64 %126
   %1465 = load double, ptr %1464, align 8
   %1466 = fmul double %1463, %1465
-  %1467 = getelementptr inbounds double, ptr %.02431.us.us.i.i51.i287, i64 %126
+  %1467 = getelementptr inbounds double, ptr %.02431.us.us.i.i50.i282, i64 %126
   store double %1466, ptr %1467, align 8
   br label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
 _ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i, %1461
-  %1468 = getelementptr inbounds i8, ptr %.035.us.us.i.i49.i285, i64 %133
-  %1469 = getelementptr inbounds i8, ptr %.02333.us.us.i.i50.i286, i64 %135
-  %1470 = getelementptr inbounds i8, ptr %.02431.us.us.i.i51.i287, i64 %137
+  %1468 = getelementptr inbounds i8, ptr %.035.us.us.i.i48.i280, i64 %133
+  %1469 = getelementptr inbounds i8, ptr %.02333.us.us.i.i49.i281, i64 %135
+  %1470 = getelementptr inbounds i8, ptr %.02431.us.us.i.i50.i282, i64 %137
   %1471 = add i64 %1439, -1
-  %.not.us.us.i.i54.i290 = icmp eq i64 %1439, 0
-  br i1 %.not.us.us.i.i54.i290, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i48.i284, !llvm.loop !46
+  %.not.us.us.i.i53.i285 = icmp eq i64 %1439, 0
+  br i1 %.not.us.us.i.i53.i285, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.lr.ph.i.i.preheader.us.us.i.i47.i279, !llvm.loop !46
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i52.i288
-  br i1 %or.cond.i.i36.i264, label %1461, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.loopexit.us.us.i.i.i: ; preds = %.lr.ph.i.i.us.us.i.i51.i283
+  br i1 %124, label %1461, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i
 
-.lr.ph.split.us.split.i.i43.i275:                 ; preds = %.lr.ph.split.us.i.i42.i274
-  br i1 %or.cond.i.i36.i264, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+.lr.ph.split.us.split.i.i42.i270:                 ; preds = %.lr.ph.split.us.i.i41.i269
+  br i1 %124, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i275, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
-  %1472 = phi i64 [ %1485, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %1436, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.035.us.us43.i.i.i280 = phi ptr [ %1482, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.02333.us.us44.i.i.i281 = phi ptr [ %1483, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.02431.us.us45.i.i.i282 = phi ptr [ %1484, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i275 ]
-  %1473 = load double, ptr %.035.us.us43.i.i.i280, align 8
-  %1474 = load double, ptr %.02333.us.us44.i.i.i281, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i270, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i
+  %1472 = phi i64 [ %1485, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %1436, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.035.us.us43.i.i.i275 = phi ptr [ %1482, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.02333.us.us44.i.i.i276 = phi ptr [ %1483, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.02431.us.us45.i.i.i277 = phi ptr [ %1484, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i270 ]
+  %1473 = load double, ptr %.035.us.us43.i.i.i275, align 8
+  %1474 = load double, ptr %.02333.us.us44.i.i.i276, align 8
   %1475 = fmul double %1473, %1474
-  store double %1475, ptr %.02431.us.us45.i.i.i282, align 8
-  %1476 = getelementptr inbounds double, ptr %.035.us.us43.i.i.i280, i64 %126
+  store double %1475, ptr %.02431.us.us45.i.i.i277, align 8
+  %1476 = getelementptr inbounds double, ptr %.035.us.us43.i.i.i275, i64 %126
   %1477 = load double, ptr %1476, align 8
-  %1478 = getelementptr inbounds double, ptr %.02333.us.us44.i.i.i281, i64 %126
+  %1478 = getelementptr inbounds double, ptr %.02333.us.us44.i.i.i276, i64 %126
   %1479 = load double, ptr %1478, align 8
   %1480 = fmul double %1477, %1479
-  %1481 = getelementptr inbounds double, ptr %.02431.us.us45.i.i.i282, i64 %126
+  %1481 = getelementptr inbounds double, ptr %.02431.us.us45.i.i.i277, i64 %126
   store double %1480, ptr %1481, align 8
-  %1482 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i280, i64 %133
-  %1483 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i281, i64 %135
-  %1484 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i282, i64 %137
+  %1482 = getelementptr inbounds i8, ptr %.035.us.us43.i.i.i275, i64 %133
+  %1483 = getelementptr inbounds i8, ptr %.02333.us.us44.i.i.i276, i64 %135
+  %1484 = getelementptr inbounds i8, ptr %.02431.us.us45.i.i.i277, i64 %137
   %1485 = add i64 %1472, -1
-  %.not.us.us47.i.i.i283 = icmp eq i64 %1472, 0
-  br i1 %.not.us.us47.i.i.i283, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !46
+  %.not.us.us47.i.i.i278 = icmp eq i64 %1472, 0
+  br i1 %.not.us.us47.i.i.i278, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, !llvm.loop !46
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i43.i275, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
-  %1486 = phi i64 [ %1493, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1436, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.035.us.i.i44.i276 = phi ptr [ %1490, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.02333.us.i.i45.i277 = phi ptr [ %1491, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i43.i275 ]
-  %.02431.us.i.i46.i278 = phi ptr [ %1492, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i43.i275 ]
-  %1487 = load double, ptr %.035.us.i.i44.i276, align 8
-  %1488 = load double, ptr %.02333.us.i.i45.i277, align 8
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i: ; preds = %.lr.ph.split.us.split.i.i42.i270, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i
+  %1486 = phi i64 [ %1493, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %1436, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.035.us.i.i43.i271 = phi ptr [ %1490, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %129, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.02333.us.i.i44.i272 = phi ptr [ %1491, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %130, %.lr.ph.split.us.split.i.i42.i270 ]
+  %.02431.us.i.i45.i273 = phi ptr [ %1492, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i ], [ %131, %.lr.ph.split.us.split.i.i42.i270 ]
+  %1487 = load double, ptr %.035.us.i.i43.i271, align 8
+  %1488 = load double, ptr %.02333.us.i.i44.i272, align 8
   %1489 = fmul double %1487, %1488
-  store double %1489, ptr %.02431.us.i.i46.i278, align 8
-  %1490 = getelementptr inbounds i8, ptr %.035.us.i.i44.i276, i64 %133
-  %1491 = getelementptr inbounds i8, ptr %.02333.us.i.i45.i277, i64 %135
-  %1492 = getelementptr inbounds i8, ptr %.02431.us.i.i46.i278, i64 %137
+  store double %1489, ptr %.02431.us.i.i45.i273, align 8
+  %1490 = getelementptr inbounds i8, ptr %.035.us.i.i43.i271, i64 %133
+  %1491 = getelementptr inbounds i8, ptr %.02333.us.i.i44.i272, i64 %135
+  %1492 = getelementptr inbounds i8, ptr %.02431.us.i.i45.i273, i64 %137
   %1493 = add i64 %1486, -1
-  %.not.us.i.i47.i279 = icmp eq i64 %1486, 0
-  br i1 %.not.us.i.i47.i279, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !46
+  %.not.us.i.i46.i274 = icmp eq i64 %1486, 0
+  br i1 %.not.us.i.i46.i274, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, !llvm.loop !46
 
-.lr.ph.split.i.i37.i265:                          ; preds = %.lr.ph.i.i35.i263
-  br i1 %1438, label %.critedge.us.i.i39.i267.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
+.lr.ph.split.i.i36.i260:                          ; preds = %.lr.ph.i.i35.i259
+  br i1 %1438, label %.critedge.us.i.i38.i262.preheader, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit
 
-.critedge.us.i.i39.i267.preheader:                ; preds = %.lr.ph.split.i.i37.i265, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
-  %.ph490 = phi i64 [ %1436, %.lr.ph.split.i.i37.i265 ], [ %1424, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
-  br label %.critedge.us.i.i39.i267
+.critedge.us.i.i38.i262.preheader:                ; preds = %.lr.ph.split.i.i36.i260, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+  %.ph484 = phi i64 [ %1436, %.lr.ph.split.i.i36.i260 ], [ %1424, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i ]
+  br label %.critedge.us.i.i38.i262
 
-.critedge.us.i.i39.i267:                          ; preds = %.critedge.us.i.i39.i267.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
-  %1494 = phi i64 [ %1516, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph490, %.critedge.us.i.i39.i267.preheader ]
-  %.035.us37.i.i.i268 = phi ptr [ %1513, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i39.i267.preheader ]
-  %.02333.us38.i.i.i269 = phi ptr [ %1514, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i39.i267.preheader ]
-  %.02431.us39.i.i.i270 = phi ptr [ %1515, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i39.i267.preheader ]
-  br label %.lr.ph.i.i27.us.i.i40.i271
+.critedge.us.i.i38.i262:                          ; preds = %.critedge.us.i.i38.i262.preheader, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i
+  %1494 = phi i64 [ %1516, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %.ph484, %.critedge.us.i.i38.i262.preheader ]
+  %.035.us37.i.i.i263 = phi ptr [ %1513, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %129, %.critedge.us.i.i38.i262.preheader ]
+  %.02333.us38.i.i.i264 = phi ptr [ %1514, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %130, %.critedge.us.i.i38.i262.preheader ]
+  %.02431.us39.i.i.i265 = phi ptr [ %1515, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i ], [ %131, %.critedge.us.i.i38.i262.preheader ]
+  br label %.lr.ph.i.i27.us.i.i39.i266
 
-.lr.ph.i.i27.us.i.i40.i271:                       ; preds = %.lr.ph.i.i27.us.i.i40.i271, %.critedge.us.i.i39.i267
-  %.026.i.i28.us.i.i41.i272 = phi i64 [ %1511, %.lr.ph.i.i27.us.i.i40.i271 ], [ %120, %.critedge.us.i.i39.i267 ]
-  %1495 = getelementptr inbounds double, ptr %.035.us37.i.i.i268, i64 %.026.i.i28.us.i.i41.i272
+.lr.ph.i.i27.us.i.i39.i266:                       ; preds = %.lr.ph.i.i27.us.i.i39.i266, %.critedge.us.i.i38.i262
+  %.026.i.i28.us.i.i40.i267 = phi i64 [ %1511, %.lr.ph.i.i27.us.i.i39.i266 ], [ %120, %.critedge.us.i.i38.i262 ]
+  %1495 = getelementptr inbounds double, ptr %.035.us37.i.i.i263, i64 %.026.i.i28.us.i.i40.i267
   %1496 = load double, ptr %1495, align 8
-  %1497 = add nuw i64 %.026.i.i28.us.i.i41.i272, 1
-  %1498 = getelementptr inbounds double, ptr %.035.us37.i.i.i268, i64 %1497
+  %1497 = add nuw i64 %.026.i.i28.us.i.i40.i267, 1
+  %1498 = getelementptr inbounds double, ptr %.035.us37.i.i.i263, i64 %1497
   %1499 = load double, ptr %1498, align 8
-  %1500 = getelementptr inbounds double, ptr %.02333.us38.i.i.i269, i64 %.026.i.i28.us.i.i41.i272
+  %1500 = getelementptr inbounds double, ptr %.02333.us38.i.i.i264, i64 %.026.i.i28.us.i.i40.i267
   %1501 = load double, ptr %1500, align 8
-  %1502 = getelementptr inbounds double, ptr %.02333.us38.i.i.i269, i64 %1497
+  %1502 = getelementptr inbounds double, ptr %.02333.us38.i.i.i264, i64 %1497
   %1503 = load double, ptr %1502, align 8
   %1504 = fneg double %1503
   %1505 = fmul double %1499, %1503
   %1506 = call double @llvm.fmuladd.f64(double %1496, double %1501, double %1505)
   %1507 = fmul double %1499, %1501
   %1508 = call double @llvm.fmuladd.f64(double %1496, double %1504, double %1507)
-  %1509 = getelementptr inbounds double, ptr %.02431.us39.i.i.i270, i64 %.026.i.i28.us.i.i41.i272
+  %1509 = getelementptr inbounds double, ptr %.02431.us39.i.i.i265, i64 %.026.i.i28.us.i.i40.i267
   store double %1506, ptr %1509, align 8
-  %1510 = getelementptr inbounds double, ptr %.02431.us39.i.i.i270, i64 %1497
+  %1510 = getelementptr inbounds double, ptr %.02431.us39.i.i.i265, i64 %1497
   store double %1508, ptr %1510, align 8
-  %1511 = add nuw i64 %.026.i.i28.us.i.i41.i272, 2
+  %1511 = add nuw i64 %.026.i.i28.us.i.i40.i267, 2
   %1512 = icmp ult i64 %1511, %126
-  br i1 %1512, label %.lr.ph.i.i27.us.i.i40.i271, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !45
+  br i1 %1512, label %.lr.ph.i.i27.us.i.i39.i266, label %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, !llvm.loop !45
 
-_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i40.i271
-  %1513 = getelementptr inbounds i8, ptr %.035.us37.i.i.i268, i64 %133
-  %1514 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i269, i64 %135
-  %1515 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i270, i64 %137
+_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i: ; preds = %.lr.ph.i.i27.us.i.i39.i266
+  %1513 = getelementptr inbounds i8, ptr %.035.us37.i.i.i263, i64 %133
+  %1514 = getelementptr inbounds i8, ptr %.02333.us38.i.i.i264, i64 %135
+  %1515 = getelementptr inbounds i8, ptr %.02431.us39.i.i.i265, i64 %137
   %1516 = add i64 %1494, -1
-  %.not.us41.i.i.i273 = icmp eq i64 %1494, 0
-  br i1 %.not.us41.i.i.i273, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i39.i267, !llvm.loop !46
+  %.not.us41.i.i.i268 = icmp eq i64 %1494, 0
+  br i1 %.not.us41.i.i.i268, label %_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit, label %.critedge.us.i.i38.i262, !llvm.loop !46
 
-_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %.lr.ph.split.i.i37.i265, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i305, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i37.i184, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i224, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i37.i111, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i146, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i37.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
+_ZN12_GLOBAL__N_117mulSpectrums_ImplIfLb0EEEvPKT_S3_PS1_mmmmmmmbb.exit: ; preds = %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIdLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb0ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit.us.us42.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb0EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.loopexit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit.us.us41.i.i.i, %_ZN12_GLOBAL__N_123mulSpectrums_processRowIfLb1ELb1EEEvPKT_S3_PS1_mm.exit29.us.us.i.i.i, %.lr.ph.split.i.i36.i260, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i299, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i36.i181, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i220, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIdLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i36.i110, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i144, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb1ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i36.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb0EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i, %.lr.ph.split.i.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.i.i, %_ZN12_GLOBAL__N_124mulSpectrums_processColsIfLb0ELb1EEEvPKT_S3_PS1_mmmmm.exit.thread.i.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #20
@@ -6537,7 +6529,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   %exitcond362.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count361
   br i1 %exitcond362.not, label %.thread261, label %266, !llvm.loop !65
 
-.thread261:                                       ; preds = %266, %237, %.preheader, %._crit_edge308, %262, %233, %29, %28
+.thread261:                                       ; preds = %266, %237, %.preheader, %262, %233, %._crit_edge308, %29, %28
   ret void
 
 279:                                              ; preds = %250, %252, %35, %37

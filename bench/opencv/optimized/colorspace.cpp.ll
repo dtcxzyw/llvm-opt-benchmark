@@ -6470,12 +6470,12 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
   %50 = getelementptr inbounds i8, ptr %5, i64 128
   %51 = load ptr, ptr %50, align 8
   %.not.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i, label %.critedge, label %52
+  br i1 %.not.i.i.i, label %_ZN2cv3ccm9OperationD2Ev.exit, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %5, i64 112
   %54 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
-          to label %.critedge unwind label %55
+          to label %_ZN2cv3ccm9OperationD2Ev.exit unwind label %55
 
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
@@ -6484,7 +6484,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
   call void @__clang_call_terminate(ptr %57) #32
   unreachable
 
-.critedge:                                        ; preds = %52, %48
+_ZN2cv3ccm9OperationD2Ev.exit:                    ; preds = %48, %52
   %58 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #28
@@ -6503,7 +6503,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   br label %.critedge45
 
-.critedge45:                                      ; preds = %.thread, %.critedge
+.critedge45:                                      ; preds = %.thread, %_ZN2cv3ccm9OperationD2Ev.exit
   ret void
 
 62:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit

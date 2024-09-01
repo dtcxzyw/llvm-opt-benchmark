@@ -7696,11 +7696,11 @@ entry:
   %m_lower_inf.i.i11 = getelementptr inbounds i8, ptr %b, i64 64
   %bf.load.i.i12 = load i8, ptr %m_lower_inf.i.i11, align 8
   %2 = and i8 %bf.load.i.i12, 4
-  %tobool.i.not.i13 = icmp eq i8 %2, 0
+  %tobool.i.not.i13.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  br i1 %tobool.i.not.i13, label %land.rhs.i, label %land.end
+  br i1 %tobool.i.not.i13.not, label %land.rhs.i, label %land.end
 
 land.rhs.i:                                       ; preds = %if.then.i
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
@@ -7750,7 +7750,7 @@ if.then.i.i16.i.i:                                ; preds = %land.lhs.true.i.i11
   br i1 %cmp.i.i17.i.i, label %land.lhs.true, label %land.end
 
 if.else.i:                                        ; preds = %entry
-  br i1 %tobool.i.not.i13, label %land.end, label %land.lhs.true
+  br i1 %tobool.i.not.i13.not, label %land.end, label %land.lhs.true
 
 _Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit: ; preds = %land.rhs.i.i, %land.lhs.true.i.i11.i.i
   %call4.i.i8.i.i = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den3.i.i)

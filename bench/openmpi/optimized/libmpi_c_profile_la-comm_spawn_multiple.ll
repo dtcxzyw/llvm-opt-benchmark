@@ -196,12 +196,9 @@ ompi_comm_invalid.exit.thread:                    ; preds = %22, %ompi_comm_inva
 93:                                               ; preds = %111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader190, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph199.preheader, label %.lr.ph, !llvm.loop !4
 
-.preheader190:                                    ; preds = %93
-  br i1 %.not, label %.loopexit191, label %.lr.ph199.preheader
-
-.lr.ph199.preheader:                              ; preds = %.preheader190
+.lr.ph199.preheader:                              ; preds = %93
   %smax = call i32 @llvm.smax.i32(i32 %0, i32 1)
   %wide.trip.count213 = zext nneg i32 %smax to i64
   br label %.lr.ph199
@@ -293,7 +290,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %22, %ompi_comm_inva
   %136 = call i32 @ompi_errhandler_invoke(ptr noundef %133, ptr noundef %6, i32 noundef %135, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #7
   br label %271
 
-.loopexit191:                                     ; preds = %117, %.preheader192, %.preheader190, %56
+.loopexit191:                                     ; preds = %117, %.preheader192, %56
   %137 = call zeroext i1 @ompi_mpi_dynamics_is_enabled(ptr noundef nonnull @FUNC_NAME) #7
   br i1 %137, label %171, label %138
 

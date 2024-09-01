@@ -134877,8 +134877,8 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i, %entry
   %curr.0.i = phi ptr [ %add.ptr.i, %entry ], [ %add.ptr.i.i, %for.body.i ]
   %4 = load i64, ptr %curr.0.i, align 8, !tbaa !208
-  %cmp.not.not.i.not.not = icmp ne i64 %4, -1
-  br i1 %cmp.not.not.i.not.not, label %for.body.i, label %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE5eraseERS6_.exit
+  %cmp.not.not.i.not.not.not.not.not.not = icmp ne i64 %4, -1
+  br i1 %cmp.not.not.i.not.not.not.not.not.not, label %for.body.i, label %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE5eraseERS6_.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.ptr.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.439", ptr %3, i64 %4
@@ -134937,7 +134937,7 @@ _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE12move_and_popEm.e
   br label %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE5eraseERS6_.exit
 
 _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE5eraseERS6_.exit: ; preds = %for.cond.i, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE12move_and_popEm.exit.i
-  %spec.select.i = zext i1 %cmp.not.not.i.not.not to i64
+  %spec.select.i = zext i1 %cmp.not.not.i.not.not.not.not.not.not to i64
   ret i64 %spec.select.i
 }
 
@@ -137003,8 +137003,8 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i, %entry
   %curr.0.i = phi ptr [ %add.ptr.i, %entry ], [ %add.ptr.i.i, %for.body.i ]
   %4 = load i64, ptr %curr.0.i, align 8, !tbaa !208
-  %cmp.not.not.i.not.not = icmp ne i64 %4, -1
-  br i1 %cmp.not.not.i.not.not, label %for.body.i, label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit
+  %cmp.not.not.i.not.not.not.not.not.not = icmp ne i64 %4, -1
+  br i1 %cmp.not.not.i.not.not.not.not.not.not, label %for.body.i, label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.473", ptr %3, i64 %4
@@ -137059,7 +137059,7 @@ _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE12move_and_popEm.exit.i: ; pre
   br label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE5eraseERKi.exit: ; preds = %for.cond.i, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE12move_and_popEm.exit.i
-  %spec.select.i = zext i1 %cmp.not.not.i.not.not to i64
+  %spec.select.i = zext i1 %cmp.not.not.i.not.not.not.not.not.not to i64
   ret i64 %spec.select.i
 }
 

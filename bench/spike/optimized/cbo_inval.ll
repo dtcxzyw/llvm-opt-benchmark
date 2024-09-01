@@ -262,8 +262,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cbo_invalP
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond56 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond56, label %._crit_edge, label %44
+  %or.cond57 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond57, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -306,11 +306,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cbo_invalP
   %or.cond751 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond57 = or i1 %or.cond751, %or.cond9
+  %or.cond55 = or i1 %or.cond751, %or.cond9
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink59 = phi i1 [ true, %50 ], [ %or.cond57, %.thread ]
+  %.sink59 = phi i1 [ true, %50 ], [ %or.cond55, %.thread ]
   %62 = getelementptr inbounds i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 120
@@ -904,8 +904,8 @@ define noundef i64 @_Z20fast_rv64i_cbo_invalP11processor_t6insn_tm(ptr nocapture
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond56 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond56, label %._crit_edge, label %44
+  %or.cond57 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond57, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -948,11 +948,11 @@ define noundef i64 @_Z20fast_rv64i_cbo_invalP11processor_t6insn_tm(ptr nocapture
   %or.cond751 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond57 = or i1 %or.cond751, %or.cond9
+  %or.cond55 = or i1 %or.cond751, %or.cond9
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink59 = phi i1 [ true, %50 ], [ %or.cond57, %.thread ]
+  %.sink59 = phi i1 [ true, %50 ], [ %or.cond55, %.thread ]
   %62 = getelementptr inbounds i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1023,8 +1023,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cbo_inva
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond56 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond56, label %._crit_edge, label %44
+  %or.cond57 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond57, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1067,11 +1067,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cbo_inva
   %or.cond751 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond57 = or i1 %or.cond751, %or.cond9
+  %or.cond55 = or i1 %or.cond751, %or.cond9
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink59 = phi i1 [ true, %50 ], [ %or.cond57, %.thread ]
+  %.sink59 = phi i1 [ true, %50 ], [ %or.cond55, %.thread ]
   %62 = getelementptr inbounds i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1144,8 +1144,8 @@ define noundef i64 @_Z22logged_rv64i_cbo_invalP11processor_t6insn_tm(ptr nocaptu
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond56 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond56, label %._crit_edge, label %44
+  %or.cond57 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond57, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1188,11 +1188,11 @@ define noundef i64 @_Z22logged_rv64i_cbo_invalP11processor_t6insn_tm(ptr nocaptu
   %or.cond751 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond57 = or i1 %or.cond751, %or.cond9
+  %or.cond55 = or i1 %or.cond751, %or.cond9
   br label %61
 
 61:                                               ; preds = %.thread, %50
-  %.sink59 = phi i1 [ true, %50 ], [ %or.cond57, %.thread ]
+  %.sink59 = phi i1 [ true, %50 ], [ %or.cond55, %.thread ]
   %62 = getelementptr inbounds i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1263,8 +1263,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond64 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond64, label %._crit_edge, label %44
+  %or.cond65 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond65, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1307,8 +1307,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
   %or.cond759 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond65 = or i1 %or.cond759, %or.cond9
-  br i1 %or.cond65, label %61, label %70
+  %or.cond63 = or i1 %or.cond759, %or.cond9
+  br i1 %or.cond63, label %61, label %70
 
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
@@ -1419,8 +1419,8 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocapture
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond64 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond64, label %._crit_edge, label %44
+  %or.cond65 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond65, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1463,8 +1463,8 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocapture
   %or.cond759 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond65 = or i1 %or.cond759, %or.cond9
-  br i1 %or.cond65, label %61, label %70
+  %or.cond63 = or i1 %or.cond759, %or.cond9
+  br i1 %or.cond63, label %61, label %70
 
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
@@ -1573,8 +1573,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond64 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond64, label %._crit_edge, label %44
+  %or.cond65 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond65, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1617,8 +1617,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
   %or.cond759 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond65 = or i1 %or.cond759, %or.cond9
-  br i1 %or.cond65, label %61, label %70
+  %or.cond63 = or i1 %or.cond759, %or.cond9
+  br i1 %or.cond63, label %61, label %70
 
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15
@@ -1729,8 +1729,8 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocaptu
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i64 %27, 0
   %or.cond3.not = or i1 %43, %42
-  %or.cond64 = select i1 %.not, i1 true, i1 %or.cond3.not
-  br i1 %or.cond64, label %._crit_edge, label %44
+  %or.cond65 = select i1 %.not, i1 true, i1 %or.cond3.not
+  br i1 %or.cond65, label %._crit_edge, label %44
 
 44:                                               ; preds = %38, %11
   %45 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -1773,8 +1773,8 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr nocaptu
   %or.cond759 = and i1 %59, %36
   %60 = icmp ne i64 %27, 0
   %or.cond9 = and i1 %60, %39
-  %or.cond65 = or i1 %or.cond759, %or.cond9
-  br i1 %or.cond65, label %61, label %70
+  %or.cond63 = or i1 %or.cond759, %or.cond9
+  br i1 %or.cond63, label %61, label %70
 
 61:                                               ; preds = %50, %.thread
   %62 = lshr i64 %1, 15

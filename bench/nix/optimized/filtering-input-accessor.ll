@@ -773,12 +773,12 @@ define void @_ZN3nix22FilteringInputAccessor11checkAccessERKNS_9CanonPathE(ptr n
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8, !noalias !4
   invoke void %17(ptr dead_on_unwind writable sret(%"class.nix::RestrictedPathError") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %_ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit unwind label %.thread48
+          to label %_ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit unwind label %.thread46
 
 18:                                               ; preds = %10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %19 unwind label %.thread56
+          to label %19 unwind label %.thread54
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8
@@ -804,12 +804,12 @@ _ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit: ; pr
   invoke void @__cxa_throw(ptr %11, ptr nonnull @_ZTIN3nix19RestrictedPathErrorE, ptr nonnull @_ZN3nix19RestrictedPathErrorD2Ev) #25
           to label %36 unwind label %29
 
-.thread48:                                        ; preds = %14
+.thread46:                                        ; preds = %14
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %34
 
-.thread56:                                        ; preds = %18
+.thread54:                                        ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
@@ -823,32 +823,32 @@ _ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit: ; pr
 29:                                               ; preds = %_ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.not, label %31, label %.thread53
+  br i1 %.not.i.i.not, label %31, label %.thread51
 
 31:                                               ; preds = %.thread, %29
   %32 = phi { ptr, i32 } [ %24, %.thread ], [ %30, %29 ]
-  %.033 = phi i1 [ true, %.thread ], [ false, %29 ]
+  %.032 = phi i1 [ true, %.thread ], [ false, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   br label %33
 
 33:                                               ; preds = %27, %31
   %.pn.ph = phi { ptr, i32 } [ %28, %27 ], [ %32, %31 ]
-  %.3.ph = phi i1 [ true, %27 ], [ %.033, %31 ]
+  %.3.ph = phi i1 [ true, %27 ], [ %.032, %31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  br i1 %.3.ph, label %34, label %.thread53
+  br i1 %.3.ph, label %34, label %.thread51
 
-34:                                               ; preds = %.thread56, %.thread48, %33
-  %.pn.pn.pn52 = phi { ptr, i32 } [ %25, %.thread48 ], [ %.pn.ph, %33 ], [ %26, %.thread56 ]
+34:                                               ; preds = %.thread54, %.thread46, %33
+  %.pn.pn.pn50 = phi { ptr, i32 } [ %25, %.thread46 ], [ %.pn.ph, %33 ], [ %26, %.thread54 ]
   call void @__cxa_free_exception(ptr %11) #23
-  br label %.thread53
+  br label %.thread51
 
 35:                                               ; preds = %2
   ret void
 
-.thread53:                                        ; preds = %29, %33, %34
-  %.pn.pn.pn51 = phi { ptr, i32 } [ %.pn.ph, %33 ], [ %.pn.pn.pn52, %34 ], [ %30, %29 ]
-  resume { ptr, i32 } %.pn.pn.pn51
+.thread51:                                        ; preds = %29, %33, %34
+  %.pn.pn.pn49 = phi { ptr, i32 } [ %.pn.ph, %33 ], [ %.pn.pn.pn50, %34 ], [ %30, %29 ]
+  resume { ptr, i32 } %.pn.pn.pn49
 
 36:                                               ; preds = %_ZNKSt8functionIFN3nix19RestrictedPathErrorERKNS0_9CanonPathEEEclES4_.exit
   unreachable
@@ -8055,17 +8055,17 @@ _ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcE
   %85 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i.i.i73, i64 136
   %86 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i72, i64 136
   %87 = icmp eq ptr %85, %35
-  br i1 %87, label %.lr.ph.i.i.i77, label %.lr.ph.i.i.i.i.i71, !llvm.loop !45
+  br i1 %87, label %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75, label %.lr.ph.i.i.i.i.i71, !llvm.loop !45
 
-.lr.ph.i.i.i77:                                   ; preds = %.lr.ph.i.i.i.i.i71
+_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i71
   %88 = load ptr, ptr %9, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 %38
   store ptr %89, ptr %9, align 8
   %90 = getelementptr inbounds i8, ptr %5, i64 120
   br label %91
 
-91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %.lr.ph.i.i.i77
-  %.06.i.i.i78 = phi ptr [ %1, %.lr.ph.i.i.i77 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
+91:                                               ; preds = %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75
+  %.06.i.i.i78 = phi ptr [ %1, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit75 ], [ %109, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i79 ]
   %92 = load i32, ptr %16, align 8
   store i32 %92, ptr %.06.i.i.i78, align 8
   %93 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 8

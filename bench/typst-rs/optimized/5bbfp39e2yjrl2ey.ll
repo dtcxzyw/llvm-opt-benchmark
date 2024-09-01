@@ -139,8 +139,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN80_$LT$roxmltree..Attributes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6b614939bba8a0cE.exit.us.us": ; preds = %.split.us.split.us.preheader, %.backedge.us.us
   %19 = phi ptr [ %20, %.backedge.us.us ], [ %.promoted, %.split.us.split.us.preheader ]
   %20 = getelementptr inbounds i8, ptr %19, i64 56
-  %.not57.not = icmp eq ptr %19, null
-  br i1 %.not57.not, label %.split11.us.loopexit, label %21
+  %.not41.not = icmp eq ptr %19, null
+  br i1 %.not41.not, label %.split11.us.loopexit, label %21
 
 21:                                               ; preds = %"_ZN80_$LT$roxmltree..Attributes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6b614939bba8a0cE.exit.us.us"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -183,8 +183,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %35 = phi ptr [ %36, %.backedge ], [ %.promoted, %.split.split.preheader ]
   %36 = getelementptr inbounds i8, ptr %35, i64 56
   store ptr %36, ptr %4, align 8, !alias.scope !64
-  %.not.not = icmp eq ptr %35, null
-  br i1 %.not.not, label %.split11.us, label %37
+  %.not42.not = icmp eq ptr %35, null
+  br i1 %.not42.not, label %.split11.us, label %37
 
 37:                                               ; preds = %"_ZN80_$LT$roxmltree..Attributes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd6b614939bba8a0cE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -1273,8 +1273,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h4ebc0
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.llvm.10436931830152247270.exit": ; preds = %18, %11
   %.0 = phi i16 [ %14, %11 ], [ %22, %18 ]
-  %.not.i.not = icmp ne i16 %.0, 0
-  br i1 %.not.i.not, label %18, label %15
+  %.not.i.not.not.not.not.not = icmp ne i16 %.0, 0
+  br i1 %.not.i.not.not.not.not.not, label %18, label %15
 
 15:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.llvm.10436931830152247270.exit"
   %16 = icmp eq <16 x i8> %.0.copyload.i29, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
@@ -1300,7 +1300,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h4ebc0
 
 .loopexit:                                        ; preds = %15, %18
   %.sroa.3.0 = phi i64 [ %24, %18 ], [ undef, %15 ]
-  %.sroa.0.0.i = zext i1 %.not.i.not to i64
+  %.sroa.0.0.i = zext i1 %.not.i.not.not.not.not.not to i64
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %31 = insertvalue { i64, i64 } %30, i64 %.sroa.3.0, 1
   ret { i64, i64 } %31

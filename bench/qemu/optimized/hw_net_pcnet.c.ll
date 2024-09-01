@@ -1082,10 +1082,10 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pcnet_rdte_poll(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
-  %rda.i160 = alloca %struct.anon, align 4
-  %rda.i139 = alloca %struct.anon, align 4
-  %rda.i118 = alloca %struct.anon, align 4
-  %rda.i97 = alloca %struct.anon, align 4
+  %rda.i159 = alloca %struct.anon, align 4
+  %rda.i138 = alloca %struct.anon, align 4
+  %rda.i117 = alloca %struct.anon, align 4
+  %rda.i96 = alloca %struct.anon, align 4
   %rda.i = alloca %struct.anon, align 4
   %rmd = alloca %struct.pcnet_RMD, align 4
   %rmd23 = alloca %struct.pcnet_RMD, align 4
@@ -1120,25 +1120,25 @@ if.then:                                          ; preds = %entry
   %add6.i = add i32 %mul.i, %0
   %conv7.i = zext i32 %add6.i to i64
   %add = add nsw i32 %conv, -1
-  %cmp6.i62 = icmp ult i16 %1, 2
-  br i1 %cmp6.i62, label %while.body.i73, label %pcnet_rdra_addr.exit77
+  %cmp6.i61 = icmp ult i16 %1, 2
+  br i1 %cmp6.i61, label %while.body.i72, label %pcnet_rdra_addr.exit76
 
-while.body.i73:                                   ; preds = %if.then, %while.body.i73
-  %idx.addr.07.i74 = phi i32 [ %add.i75, %while.body.i73 ], [ %add, %if.then ]
-  %add.i75 = add nsw i32 %idx.addr.07.i74, %conv.i
-  %cmp.i76 = icmp slt i32 %add.i75, 1
-  br i1 %cmp.i76, label %while.body.i73, label %pcnet_rdra_addr.exit77, !llvm.loop !10
+while.body.i72:                                   ; preds = %if.then, %while.body.i72
+  %idx.addr.07.i73 = phi i32 [ %add.i74, %while.body.i72 ], [ %add, %if.then ]
+  %add.i74 = add nsw i32 %idx.addr.07.i73, %conv.i
+  %cmp.i75 = icmp slt i32 %add.i74, 1
+  br i1 %cmp.i75, label %while.body.i72, label %pcnet_rdra_addr.exit76, !llvm.loop !10
 
-pcnet_rdra_addr.exit77:                           ; preds = %while.body.i73, %if.then
-  %idx.addr.0.lcssa.i65 = phi i32 [ %add, %if.then ], [ %add.i75, %while.body.i73 ]
-  %sub.i67 = sub nsw i32 %conv.i, %idx.addr.0.lcssa.i65
-  %mul.i70 = shl i32 %sub.i67, %6
-  %add6.i71 = add i32 %mul.i70, %0
-  %conv7.i72 = zext i32 %add6.i71 to i64
-  %cmp6.i78 = icmp ult i16 %1, 3
-  br i1 %cmp6.i78, label %while.body.i89.preheader, label %pcnet_rdra_addr.exit93
+pcnet_rdra_addr.exit76:                           ; preds = %while.body.i72, %if.then
+  %idx.addr.0.lcssa.i64 = phi i32 [ %add, %if.then ], [ %add.i74, %while.body.i72 ]
+  %sub.i66 = sub nsw i32 %conv.i, %idx.addr.0.lcssa.i64
+  %mul.i69 = shl i32 %sub.i66, %6
+  %add6.i70 = add i32 %mul.i69, %0
+  %conv7.i71 = zext i32 %add6.i70 to i64
+  %cmp6.i77 = icmp ult i16 %1, 3
+  br i1 %cmp6.i77, label %while.body.i88.preheader, label %pcnet_rdra_addr.exit92
 
-while.body.i89.preheader:                         ; preds = %pcnet_rdra_addr.exit77
+while.body.i88.preheader:                         ; preds = %pcnet_rdra_addr.exit76
   %7 = add nuw nsw i32 %conv, %conv.i
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 3)
   %9 = icmp ult i32 %7, 3
@@ -1152,25 +1152,25 @@ while.body.i89.preheader:                         ; preds = %pcnet_rdra_addr.exi
   %15 = add i32 %14, 1
   %16 = mul i32 %15, %conv.i
   %17 = add i32 %16, %conv
-  br label %pcnet_rdra_addr.exit93
+  br label %pcnet_rdra_addr.exit92
 
-pcnet_rdra_addr.exit93:                           ; preds = %while.body.i89.preheader, %pcnet_rdra_addr.exit77
-  %idx.addr.0.lcssa.i81.in = phi i32 [ %conv, %pcnet_rdra_addr.exit77 ], [ %17, %while.body.i89.preheader ]
-  %idx.addr.0.lcssa.i81 = add i32 %idx.addr.0.lcssa.i81.in, -2
-  %sub.i83 = sub nsw i32 %conv.i, %idx.addr.0.lcssa.i81
-  %mul.i86 = shl i32 %sub.i83, %6
-  %add6.i87 = add i32 %mul.i86, %0
-  %conv7.i88 = zext i32 %add6.i87 to i64
+pcnet_rdra_addr.exit92:                           ; preds = %while.body.i88.preheader, %pcnet_rdra_addr.exit76
+  %idx.addr.0.lcssa.i80.in = phi i32 [ %conv, %pcnet_rdra_addr.exit76 ], [ %17, %while.body.i88.preheader ]
+  %idx.addr.0.lcssa.i80 = add i32 %idx.addr.0.lcssa.i80.in, -2
+  %sub.i82 = sub nsw i32 %conv.i, %idx.addr.0.lcssa.i80
+  %mul.i85 = shl i32 %sub.i82, %6
+  %add6.i86 = add i32 %mul.i85, %0
+  %conv7.i87 = zext i32 %add6.i86 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i)
   %18 = and i16 %4, 256
-  %tobool.not.i95 = icmp eq i16 %18, 0
+  %tobool.not.i94 = icmp eq i16 %18, 0
   %phys_mem_read.i = getelementptr inbounds i8, ptr %s, i64 12984
   %19 = load ptr, ptr %phys_mem_read.i, align 8
   %dma_opaque.i = getelementptr inbounds i8, ptr %s, i64 13000
   %20 = load ptr, ptr %dma_opaque.i, align 8
-  br i1 %tobool.not.i95, label %if.then.i, label %if.else.i
+  br i1 %tobool.not.i94, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %pcnet_rdra_addr.exit93
+if.then.i:                                        ; preds = %pcnet_rdra_addr.exit92
   call void %19(ptr noundef %20, i64 noundef %conv7.i, ptr noundef nonnull %rda.i, i32 noundef 8, i32 noundef 0) #11
   %21 = load i32, ptr %rda.i, align 4
   %and1.i = and i32 %21, 16777215
@@ -1193,13 +1193,13 @@ if.then.i:                                        ; preds = %pcnet_rdra_addr.exi
   store i32 0, ptr %res.i, align 4
   br label %pcnet_rmd_load.exit
 
-if.else.i:                                        ; preds = %pcnet_rdra_addr.exit93
+if.else.i:                                        ; preds = %pcnet_rdra_addr.exit92
   call void %19(ptr noundef %20, i64 noundef %conv7.i, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
   %25 = load i16, ptr %arrayidx4.i, align 4
   %26 = and i16 %25, 255
-  %cmp.i96 = icmp eq i16 %26, 3
+  %cmp.i95 = icmp eq i16 %26, 3
   %msg_length17.i = getelementptr inbounds i8, ptr %rmd, i64 8
-  br i1 %cmp.i96, label %if.then24.i, label %if.else.i.pcnet_rmd_load.exit_crit_edge
+  br i1 %cmp.i95, label %if.then24.i, label %if.else.i.pcnet_rmd_load.exit_crit_edge
 
 if.else.i.pcnet_rmd_load.exit_crit_edge:          ; preds = %if.else.i
   %.pre = load i32, ptr %msg_length17.i, align 4
@@ -1224,137 +1224,137 @@ pcnet_rmd_load.exit:                              ; preds = %if.else.i.pcnet_rmd
   br i1 %32, label %pcnet_rmd_load.exit.if.end93_crit_edge, label %do.body22
 
 pcnet_rmd_load.exit.if.end93_crit_edge:           ; preds = %pcnet_rmd_load.exit
-  %.pre194 = load i16, ptr %arrayidx2, align 4
-  %.pre195 = load i16, ptr %arrayidx, align 2
+  %.pre193 = load i16, ptr %arrayidx2, align 4
+  %.pre194 = load i16, ptr %arrayidx, align 2
   br label %if.end93
 
 do.body22:                                        ; preds = %pcnet_rmd_load.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i97)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i96)
   %33 = load i16, ptr %arrayidx4.i, align 4
   %34 = and i16 %33, 256
-  %tobool.not.i99 = icmp eq i16 %34, 0
+  %tobool.not.i98 = icmp eq i16 %34, 0
   %35 = load ptr, ptr %phys_mem_read.i, align 8
   %36 = load ptr, ptr %dma_opaque.i, align 8
-  br i1 %tobool.not.i99, label %if.then.i106, label %if.else.i102
+  br i1 %tobool.not.i98, label %if.then.i105, label %if.else.i101
 
-if.then.i106:                                     ; preds = %do.body22
-  call void %35(ptr noundef %36, i64 noundef %conv7.i72, ptr noundef nonnull %rda.i97, i32 noundef 8, i32 noundef 0) #11
-  %37 = load i32, ptr %rda.i97, align 4
-  %and1.i107 = and i32 %37, 16777215
-  store i32 %and1.i107, ptr %rmd23, align 4
-  %buf_length.i108 = getelementptr inbounds i8, ptr %rda.i97, i64 4
-  %38 = load i16, ptr %buf_length.i108, align 4
-  %buf_length4.i109 = getelementptr inbounds i8, ptr %rmd23, i64 4
-  store i16 %38, ptr %buf_length4.i109, align 4
-  %shr.i110 = lshr i32 %37, 16
-  %39 = trunc nuw i32 %shr.i110 to i16
-  %conv8.i111 = and i16 %39, -256
-  %status.i112 = getelementptr inbounds i8, ptr %rmd23, i64 6
-  store i16 %conv8.i111, ptr %status.i112, align 2
-  %msg_length.i113 = getelementptr inbounds i8, ptr %rda.i97, i64 6
-  %40 = load i16, ptr %msg_length.i113, align 2
-  %conv10.i114 = zext i16 %40 to i32
-  %msg_length11.i115 = getelementptr inbounds i8, ptr %rmd23, i64 8
-  store i32 %conv10.i114, ptr %msg_length11.i115, align 4
-  %res.i116 = getelementptr inbounds i8, ptr %rmd23, i64 12
-  store i32 0, ptr %res.i116, align 4
-  %.pre192 = load i16, ptr %arrayidx4.i, align 4
-  br label %pcnet_rmd_load.exit117
+if.then.i105:                                     ; preds = %do.body22
+  call void %35(ptr noundef %36, i64 noundef %conv7.i71, ptr noundef nonnull %rda.i96, i32 noundef 8, i32 noundef 0) #11
+  %37 = load i32, ptr %rda.i96, align 4
+  %and1.i106 = and i32 %37, 16777215
+  store i32 %and1.i106, ptr %rmd23, align 4
+  %buf_length.i107 = getelementptr inbounds i8, ptr %rda.i96, i64 4
+  %38 = load i16, ptr %buf_length.i107, align 4
+  %buf_length4.i108 = getelementptr inbounds i8, ptr %rmd23, i64 4
+  store i16 %38, ptr %buf_length4.i108, align 4
+  %shr.i109 = lshr i32 %37, 16
+  %39 = trunc nuw i32 %shr.i109 to i16
+  %conv8.i110 = and i16 %39, -256
+  %status.i111 = getelementptr inbounds i8, ptr %rmd23, i64 6
+  store i16 %conv8.i110, ptr %status.i111, align 2
+  %msg_length.i112 = getelementptr inbounds i8, ptr %rda.i96, i64 6
+  %40 = load i16, ptr %msg_length.i112, align 2
+  %conv10.i113 = zext i16 %40 to i32
+  %msg_length11.i114 = getelementptr inbounds i8, ptr %rmd23, i64 8
+  store i32 %conv10.i113, ptr %msg_length11.i114, align 4
+  %res.i115 = getelementptr inbounds i8, ptr %rmd23, i64 12
+  store i32 0, ptr %res.i115, align 4
+  %.pre191 = load i16, ptr %arrayidx4.i, align 4
+  br label %pcnet_rmd_load.exit116
 
-if.else.i102:                                     ; preds = %do.body22
-  call void %35(ptr noundef %36, i64 noundef %conv7.i72, ptr noundef nonnull %rmd23, i32 noundef 16, i32 noundef 0) #11
+if.else.i101:                                     ; preds = %do.body22
+  call void %35(ptr noundef %36, i64 noundef %conv7.i71, ptr noundef nonnull %rmd23, i32 noundef 16, i32 noundef 0) #11
   %41 = load i16, ptr %arrayidx4.i, align 4
   %42 = and i16 %41, 255
-  %cmp.i103 = icmp eq i16 %42, 3
-  %msg_length17.i105 = getelementptr inbounds i8, ptr %rmd23, i64 8
-  br i1 %cmp.i103, label %if.then24.i104, label %if.else.i102.pcnet_rmd_load.exit117_crit_edge
+  %cmp.i102 = icmp eq i16 %42, 3
+  %msg_length17.i104 = getelementptr inbounds i8, ptr %rmd23, i64 8
+  br i1 %cmp.i102, label %if.then24.i103, label %if.else.i101.pcnet_rmd_load.exit116_crit_edge
 
-if.else.i102.pcnet_rmd_load.exit117_crit_edge:    ; preds = %if.else.i102
-  %.pre191 = load i32, ptr %msg_length17.i105, align 4
-  br label %pcnet_rmd_load.exit117
+if.else.i101.pcnet_rmd_load.exit116_crit_edge:    ; preds = %if.else.i101
+  %.pre190 = load i32, ptr %msg_length17.i104, align 4
+  br label %pcnet_rmd_load.exit116
 
-if.then24.i104:                                   ; preds = %if.else.i102
+if.then24.i103:                                   ; preds = %if.else.i101
   %43 = load i32, ptr %rmd23, align 4
-  %44 = load i32, ptr %msg_length17.i105, align 4
+  %44 = load i32, ptr %msg_length17.i104, align 4
   store i32 %44, ptr %rmd23, align 4
-  store i32 %43, ptr %msg_length17.i105, align 4
-  br label %pcnet_rmd_load.exit117
+  store i32 %43, ptr %msg_length17.i104, align 4
+  br label %pcnet_rmd_load.exit116
 
-pcnet_rmd_load.exit117:                           ; preds = %if.else.i102.pcnet_rmd_load.exit117_crit_edge, %if.then.i106, %if.then24.i104
-  %45 = phi i16 [ %41, %if.else.i102.pcnet_rmd_load.exit117_crit_edge ], [ %.pre192, %if.then.i106 ], [ %41, %if.then24.i104 ]
-  %46 = phi i32 [ %.pre191, %if.else.i102.pcnet_rmd_load.exit117_crit_edge ], [ %conv10.i114, %if.then.i106 ], [ %43, %if.then24.i104 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i97)
+pcnet_rmd_load.exit116:                           ; preds = %if.else.i101.pcnet_rmd_load.exit116_crit_edge, %if.then.i105, %if.then24.i103
+  %45 = phi i16 [ %41, %if.else.i101.pcnet_rmd_load.exit116_crit_edge ], [ %.pre191, %if.then.i105 ], [ %41, %if.then24.i103 ]
+  %46 = phi i32 [ %.pre190, %if.else.i101.pcnet_rmd_load.exit116_crit_edge ], [ %conv10.i113, %if.then.i105 ], [ %43, %if.then24.i103 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i96)
   %buf_length24 = getelementptr inbounds i8, ptr %rmd23, i64 4
   %47 = load i16, ptr %buf_length24, align 4
   %cmp28 = icmp ult i16 %47, -4096
   %48 = and i32 %46, 61440
   %cmp34 = icmp ne i32 %48, 0
   %49 = select i1 %cmp28, i1 true, i1 %cmp34
-  %cmp41 = icmp eq i32 %mul.i70, %mul.i
+  %cmp41 = icmp eq i32 %mul.i69, %mul.i
   %or.cond = select i1 %49, i1 true, i1 %cmp41
-  %nrda.0 = select i1 %or.cond, i64 0, i64 %conv7.i72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i118)
+  %nrda.0 = select i1 %or.cond, i64 0, i64 %conv7.i71
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i117)
   %50 = and i16 %45, 256
-  %tobool.not.i120 = icmp eq i16 %50, 0
+  %tobool.not.i119 = icmp eq i16 %50, 0
   %51 = load ptr, ptr %phys_mem_read.i, align 8
   %52 = load ptr, ptr %dma_opaque.i, align 8
-  br i1 %tobool.not.i120, label %if.then.i127, label %if.else.i123
+  br i1 %tobool.not.i119, label %if.then.i126, label %if.else.i122
 
-if.then.i127:                                     ; preds = %pcnet_rmd_load.exit117
-  call void %51(ptr noundef %52, i64 noundef %conv7.i88, ptr noundef nonnull %rda.i118, i32 noundef 8, i32 noundef 0) #11
-  %53 = load i32, ptr %rda.i118, align 4
-  %and1.i128 = and i32 %53, 16777215
-  store i32 %and1.i128, ptr %rmd45, align 4
-  %buf_length.i129 = getelementptr inbounds i8, ptr %rda.i118, i64 4
-  %54 = load i16, ptr %buf_length.i129, align 4
-  %buf_length4.i130 = getelementptr inbounds i8, ptr %rmd45, i64 4
-  store i16 %54, ptr %buf_length4.i130, align 4
-  %shr.i131 = lshr i32 %53, 16
-  %55 = trunc nuw i32 %shr.i131 to i16
-  %conv8.i132 = and i16 %55, -256
-  %status.i133 = getelementptr inbounds i8, ptr %rmd45, i64 6
-  store i16 %conv8.i132, ptr %status.i133, align 2
-  %msg_length.i134 = getelementptr inbounds i8, ptr %rda.i118, i64 6
-  %56 = load i16, ptr %msg_length.i134, align 2
-  %conv10.i135 = zext i16 %56 to i32
-  %msg_length11.i136 = getelementptr inbounds i8, ptr %rmd45, i64 8
-  store i32 %conv10.i135, ptr %msg_length11.i136, align 4
-  %res.i137 = getelementptr inbounds i8, ptr %rmd45, i64 12
-  store i32 0, ptr %res.i137, align 4
-  br label %pcnet_rmd_load.exit138
+if.then.i126:                                     ; preds = %pcnet_rmd_load.exit116
+  call void %51(ptr noundef %52, i64 noundef %conv7.i87, ptr noundef nonnull %rda.i117, i32 noundef 8, i32 noundef 0) #11
+  %53 = load i32, ptr %rda.i117, align 4
+  %and1.i127 = and i32 %53, 16777215
+  store i32 %and1.i127, ptr %rmd45, align 4
+  %buf_length.i128 = getelementptr inbounds i8, ptr %rda.i117, i64 4
+  %54 = load i16, ptr %buf_length.i128, align 4
+  %buf_length4.i129 = getelementptr inbounds i8, ptr %rmd45, i64 4
+  store i16 %54, ptr %buf_length4.i129, align 4
+  %shr.i130 = lshr i32 %53, 16
+  %55 = trunc nuw i32 %shr.i130 to i16
+  %conv8.i131 = and i16 %55, -256
+  %status.i132 = getelementptr inbounds i8, ptr %rmd45, i64 6
+  store i16 %conv8.i131, ptr %status.i132, align 2
+  %msg_length.i133 = getelementptr inbounds i8, ptr %rda.i117, i64 6
+  %56 = load i16, ptr %msg_length.i133, align 2
+  %conv10.i134 = zext i16 %56 to i32
+  %msg_length11.i135 = getelementptr inbounds i8, ptr %rmd45, i64 8
+  store i32 %conv10.i134, ptr %msg_length11.i135, align 4
+  %res.i136 = getelementptr inbounds i8, ptr %rmd45, i64 12
+  store i32 0, ptr %res.i136, align 4
+  br label %pcnet_rmd_load.exit137
 
-if.else.i123:                                     ; preds = %pcnet_rmd_load.exit117
-  call void %51(ptr noundef %52, i64 noundef %conv7.i88, ptr noundef nonnull %rmd45, i32 noundef 16, i32 noundef 0) #11
+if.else.i122:                                     ; preds = %pcnet_rmd_load.exit116
+  call void %51(ptr noundef %52, i64 noundef %conv7.i87, ptr noundef nonnull %rmd45, i32 noundef 16, i32 noundef 0) #11
   %57 = load i16, ptr %arrayidx4.i, align 4
   %58 = and i16 %57, 255
-  %cmp.i124 = icmp eq i16 %58, 3
-  %msg_length17.i126 = getelementptr inbounds i8, ptr %rmd45, i64 8
-  br i1 %cmp.i124, label %if.then24.i125, label %if.else.i123.pcnet_rmd_load.exit138_crit_edge
+  %cmp.i123 = icmp eq i16 %58, 3
+  %msg_length17.i125 = getelementptr inbounds i8, ptr %rmd45, i64 8
+  br i1 %cmp.i123, label %if.then24.i124, label %if.else.i122.pcnet_rmd_load.exit137_crit_edge
 
-if.else.i123.pcnet_rmd_load.exit138_crit_edge:    ; preds = %if.else.i123
-  %.pre193 = load i32, ptr %msg_length17.i126, align 4
-  br label %pcnet_rmd_load.exit138
+if.else.i122.pcnet_rmd_load.exit137_crit_edge:    ; preds = %if.else.i122
+  %.pre192 = load i32, ptr %msg_length17.i125, align 4
+  br label %pcnet_rmd_load.exit137
 
-if.then24.i125:                                   ; preds = %if.else.i123
+if.then24.i124:                                   ; preds = %if.else.i122
   %59 = load i32, ptr %rmd45, align 4
-  %60 = load i32, ptr %msg_length17.i126, align 4
+  %60 = load i32, ptr %msg_length17.i125, align 4
   store i32 %60, ptr %rmd45, align 4
-  store i32 %59, ptr %msg_length17.i126, align 4
-  br label %pcnet_rmd_load.exit138
+  store i32 %59, ptr %msg_length17.i125, align 4
+  br label %pcnet_rmd_load.exit137
 
-pcnet_rmd_load.exit138:                           ; preds = %if.else.i123.pcnet_rmd_load.exit138_crit_edge, %if.then.i127, %if.then24.i125
-  %61 = phi i32 [ %.pre193, %if.else.i123.pcnet_rmd_load.exit138_crit_edge ], [ %conv10.i135, %if.then.i127 ], [ %59, %if.then24.i125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i118)
+pcnet_rmd_load.exit137:                           ; preds = %if.else.i122.pcnet_rmd_load.exit137_crit_edge, %if.then.i126, %if.then24.i124
+  %61 = phi i32 [ %.pre192, %if.else.i122.pcnet_rmd_load.exit137_crit_edge ], [ %conv10.i134, %if.then.i126 ], [ %59, %if.then24.i124 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i117)
   %buf_length46 = getelementptr inbounds i8, ptr %rmd45, i64 4
   %62 = load i16, ptr %buf_length46, align 4
   %cmp50 = icmp ult i16 %62, -4096
   %63 = and i32 %61, 61440
   %cmp56 = icmp ne i32 %63, 0
   %64 = select i1 %cmp50, i1 true, i1 %cmp56
-  %or6060 = or i1 %49, %64
-  %cmp64 = icmp eq i32 %mul.i86, %mul.i
-  %or.cond61 = select i1 %or6060, i1 true, i1 %cmp64
-  %nnrd.0 = select i1 %or.cond61, i64 0, i64 %conv7.i88
+  %or6059 = or i1 %49, %64
+  %cmp64 = icmp eq i32 %mul.i85, %mul.i
+  %or.cond60 = select i1 %or6059, i1 true, i1 %cmp64
+  %nnrd.0 = select i1 %or.cond60, i64 0, i64 %conv7.i87
   %conv69 = trunc i32 %add6.i to i16
   store i16 %conv69, ptr %arrayidx2, align 4
   %shr72 = lshr i32 %add6.i, 16
@@ -1376,9 +1376,9 @@ pcnet_rmd_load.exit138:                           ; preds = %if.else.i123.pcnet_
   store i16 %conv89, ptr %arrayidx91, align 2
   br label %if.end93
 
-if.end93:                                         ; preds = %pcnet_rmd_load.exit.if.end93_crit_edge, %pcnet_rmd_load.exit138, %entry
-  %65 = phi i16 [ %.pre195, %pcnet_rmd_load.exit.if.end93_crit_edge ], [ %conv73, %pcnet_rmd_load.exit138 ], [ 0, %entry ]
-  %66 = phi i16 [ %.pre194, %pcnet_rmd_load.exit.if.end93_crit_edge ], [ %conv69, %pcnet_rmd_load.exit138 ], [ 0, %entry ]
+if.end93:                                         ; preds = %pcnet_rmd_load.exit.if.end93_crit_edge, %pcnet_rmd_load.exit137, %entry
+  %65 = phi i16 [ %.pre194, %pcnet_rmd_load.exit.if.end93_crit_edge ], [ %conv73, %pcnet_rmd_load.exit137 ], [ 0, %entry ]
+  %66 = phi i16 [ %.pre193, %pcnet_rmd_load.exit.if.end93_crit_edge ], [ %conv69, %pcnet_rmd_load.exit137 ], [ 0, %entry ]
   %conv96 = zext i16 %66 to i32
   %conv99 = zext i16 %65 to i32
   %shl = shl nuw i32 %conv99, 16
@@ -1391,9 +1391,9 @@ if.then102:                                       ; preds = %if.end93
   %67 = load i16, ptr %arrayidx104, align 4
   %68 = and i16 %67, 256
   %tobool107.not = icmp eq i16 %68, 0
-  br i1 %tobool107.not, label %if.then.i148, label %if.else.i144
+  br i1 %tobool107.not, label %if.then.i147, label %if.else.i143
 
-if.then.i148:                                     ; preds = %if.then102
+if.then.i147:                                     ; preds = %if.then102
   %arrayidx125 = getelementptr i8, ptr %s, i64 8272
   %69 = load i16, ptr %arrayidx125, align 4
   %70 = and i16 %69, -256
@@ -1401,57 +1401,57 @@ if.then.i148:                                     ; preds = %if.then102
   %72 = zext i16 %71 to i32
   %73 = shl nuw i32 %72, 16
   %or129 = or disjoint i32 %73, %conv96
-  %conv130182 = zext i32 %or129 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i139)
-  %phys_mem_read.i142183 = getelementptr inbounds i8, ptr %s, i64 12984
-  %74 = load ptr, ptr %phys_mem_read.i142183, align 8
-  %dma_opaque.i143184 = getelementptr inbounds i8, ptr %s, i64 13000
-  %75 = load ptr, ptr %dma_opaque.i143184, align 8
-  call void %74(ptr noundef %75, i64 noundef %conv130182, ptr noundef nonnull %rda.i139, i32 noundef 8, i32 noundef 0) #11
-  %76 = load i32, ptr %rda.i139, align 4
-  %and1.i149 = and i32 %76, 16777215
-  store i32 %and1.i149, ptr %rmd103, align 4
-  %buf_length.i150 = getelementptr inbounds i8, ptr %rda.i139, i64 4
-  %77 = load i16, ptr %buf_length.i150, align 4
-  %buf_length4.i151 = getelementptr inbounds i8, ptr %rmd103, i64 4
-  store i16 %77, ptr %buf_length4.i151, align 4
-  %shr.i152 = lshr i32 %76, 16
-  %78 = trunc nuw i32 %shr.i152 to i16
-  %conv8.i153 = and i16 %78, -256
-  %status.i154 = getelementptr inbounds i8, ptr %rmd103, i64 6
-  store i16 %conv8.i153, ptr %status.i154, align 2
-  %msg_length.i155 = getelementptr inbounds i8, ptr %rda.i139, i64 6
-  %79 = load i16, ptr %msg_length.i155, align 2
-  %conv10.i156 = zext i16 %79 to i32
-  %msg_length11.i157 = getelementptr inbounds i8, ptr %rmd103, i64 8
-  store i32 %conv10.i156, ptr %msg_length11.i157, align 4
-  %res.i158 = getelementptr inbounds i8, ptr %rmd103, i64 12
-  store i32 0, ptr %res.i158, align 4
-  br label %pcnet_rmd_load.exit159
+  %conv130181 = zext i32 %or129 to i64
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i138)
+  %phys_mem_read.i141182 = getelementptr inbounds i8, ptr %s, i64 12984
+  %74 = load ptr, ptr %phys_mem_read.i141182, align 8
+  %dma_opaque.i142183 = getelementptr inbounds i8, ptr %s, i64 13000
+  %75 = load ptr, ptr %dma_opaque.i142183, align 8
+  call void %74(ptr noundef %75, i64 noundef %conv130181, ptr noundef nonnull %rda.i138, i32 noundef 8, i32 noundef 0) #11
+  %76 = load i32, ptr %rda.i138, align 4
+  %and1.i148 = and i32 %76, 16777215
+  store i32 %and1.i148, ptr %rmd103, align 4
+  %buf_length.i149 = getelementptr inbounds i8, ptr %rda.i138, i64 4
+  %77 = load i16, ptr %buf_length.i149, align 4
+  %buf_length4.i150 = getelementptr inbounds i8, ptr %rmd103, i64 4
+  store i16 %77, ptr %buf_length4.i150, align 4
+  %shr.i151 = lshr i32 %76, 16
+  %78 = trunc nuw i32 %shr.i151 to i16
+  %conv8.i152 = and i16 %78, -256
+  %status.i153 = getelementptr inbounds i8, ptr %rmd103, i64 6
+  store i16 %conv8.i152, ptr %status.i153, align 2
+  %msg_length.i154 = getelementptr inbounds i8, ptr %rda.i138, i64 6
+  %79 = load i16, ptr %msg_length.i154, align 2
+  %conv10.i155 = zext i16 %79 to i32
+  %msg_length11.i156 = getelementptr inbounds i8, ptr %rmd103, i64 8
+  store i32 %conv10.i155, ptr %msg_length11.i156, align 4
+  %res.i157 = getelementptr inbounds i8, ptr %rmd103, i64 12
+  store i32 0, ptr %res.i157, align 4
+  br label %pcnet_rmd_load.exit158
 
-if.else.i144:                                     ; preds = %if.then102
+if.else.i143:                                     ; preds = %if.then102
   %conv130 = zext i32 %or100 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i139)
-  %phys_mem_read.i142 = getelementptr inbounds i8, ptr %s, i64 12984
-  %80 = load ptr, ptr %phys_mem_read.i142, align 8
-  %dma_opaque.i143 = getelementptr inbounds i8, ptr %s, i64 13000
-  %81 = load ptr, ptr %dma_opaque.i143, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i138)
+  %phys_mem_read.i141 = getelementptr inbounds i8, ptr %s, i64 12984
+  %80 = load ptr, ptr %phys_mem_read.i141, align 8
+  %dma_opaque.i142 = getelementptr inbounds i8, ptr %s, i64 13000
+  %81 = load ptr, ptr %dma_opaque.i142, align 8
   call void %80(ptr noundef %81, i64 noundef %conv130, ptr noundef nonnull %rmd103, i32 noundef 16, i32 noundef 0) #11
   %82 = load i16, ptr %arrayidx104, align 4
   %83 = and i16 %82, 255
-  %cmp.i145 = icmp eq i16 %83, 3
-  br i1 %cmp.i145, label %if.then24.i146, label %pcnet_rmd_load.exit159
+  %cmp.i144 = icmp eq i16 %83, 3
+  br i1 %cmp.i144, label %if.then24.i145, label %pcnet_rmd_load.exit158
 
-if.then24.i146:                                   ; preds = %if.else.i144
-  %msg_length17.i147 = getelementptr inbounds i8, ptr %rmd103, i64 8
+if.then24.i145:                                   ; preds = %if.else.i143
+  %msg_length17.i146 = getelementptr inbounds i8, ptr %rmd103, i64 8
   %84 = load i32, ptr %rmd103, align 4
-  %85 = load i32, ptr %msg_length17.i147, align 4
+  %85 = load i32, ptr %msg_length17.i146, align 4
   store i32 %85, ptr %rmd103, align 4
-  store i32 %84, ptr %msg_length17.i147, align 4
-  br label %pcnet_rmd_load.exit159
+  store i32 %84, ptr %msg_length17.i146, align 4
+  br label %pcnet_rmd_load.exit158
 
-pcnet_rmd_load.exit159:                           ; preds = %if.then.i148, %if.else.i144, %if.then24.i146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i139)
+pcnet_rmd_load.exit158:                           ; preds = %if.then.i147, %if.else.i143, %if.then24.i145
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i138)
   %buf_length131 = getelementptr inbounds i8, ptr %rmd103, i64 4
   %86 = load i16, ptr %buf_length131, align 4
   %87 = and i16 %86, 4095
@@ -1470,7 +1470,7 @@ if.else:                                          ; preds = %if.end93
   store i16 0, ptr %arrayidx143, align 4
   br label %if.end144
 
-if.end144:                                        ; preds = %if.else, %pcnet_rmd_load.exit159
+if.end144:                                        ; preds = %if.else, %pcnet_rmd_load.exit158
   %arrayidx146 = getelementptr i8, ptr %s, i64 8320
   %89 = load i16, ptr %arrayidx146, align 4
   %conv147 = zext i16 %89 to i32
@@ -1487,9 +1487,9 @@ if.then154:                                       ; preds = %if.end144
   %91 = load i16, ptr %arrayidx157, align 4
   %92 = and i16 %91, 256
   %tobool160.not = icmp eq i16 %92, 0
-  br i1 %tobool160.not, label %if.then.i169, label %if.else.i165
+  br i1 %tobool160.not, label %if.then.i168, label %if.else.i164
 
-if.then.i169:                                     ; preds = %if.then154
+if.then.i168:                                     ; preds = %if.then154
   %arrayidx180 = getelementptr i8, ptr %s, i64 8272
   %93 = load i16, ptr %arrayidx180, align 4
   %94 = and i16 %93, -256
@@ -1497,37 +1497,37 @@ if.then.i169:                                     ; preds = %if.then154
   %96 = zext i16 %95 to i32
   %97 = shl nuw i32 %96, 16
   %or184 = or disjoint i32 %97, %conv147
-  %conv187187 = zext i32 %or184 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i160)
-  %phys_mem_read.i163188 = getelementptr inbounds i8, ptr %s, i64 12984
-  %98 = load ptr, ptr %phys_mem_read.i163188, align 8
-  %dma_opaque.i164189 = getelementptr inbounds i8, ptr %s, i64 13000
-  %99 = load ptr, ptr %dma_opaque.i164189, align 8
-  call void %98(ptr noundef %99, i64 noundef %conv187187, ptr noundef nonnull %rda.i160, i32 noundef 8, i32 noundef 0) #11
-  %100 = load i32, ptr %rda.i160, align 4
-  %buf_length.i171 = getelementptr inbounds i8, ptr %rda.i160, i64 4
-  %101 = load i16, ptr %buf_length.i171, align 4
-  %buf_length4.i172 = getelementptr inbounds i8, ptr %rmd155, i64 4
-  store i16 %101, ptr %buf_length4.i172, align 4
-  %shr.i173 = lshr i32 %100, 16
-  %102 = trunc nuw i32 %shr.i173 to i16
-  %conv8.i174 = and i16 %102, -256
-  %status.i175 = getelementptr inbounds i8, ptr %rmd155, i64 6
-  store i16 %conv8.i174, ptr %status.i175, align 2
-  br label %pcnet_rmd_load.exit180
+  %conv187186 = zext i32 %or184 to i64
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i159)
+  %phys_mem_read.i162187 = getelementptr inbounds i8, ptr %s, i64 12984
+  %98 = load ptr, ptr %phys_mem_read.i162187, align 8
+  %dma_opaque.i163188 = getelementptr inbounds i8, ptr %s, i64 13000
+  %99 = load ptr, ptr %dma_opaque.i163188, align 8
+  call void %98(ptr noundef %99, i64 noundef %conv187186, ptr noundef nonnull %rda.i159, i32 noundef 8, i32 noundef 0) #11
+  %100 = load i32, ptr %rda.i159, align 4
+  %buf_length.i170 = getelementptr inbounds i8, ptr %rda.i159, i64 4
+  %101 = load i16, ptr %buf_length.i170, align 4
+  %buf_length4.i171 = getelementptr inbounds i8, ptr %rmd155, i64 4
+  store i16 %101, ptr %buf_length4.i171, align 4
+  %shr.i172 = lshr i32 %100, 16
+  %102 = trunc nuw i32 %shr.i172 to i16
+  %conv8.i173 = and i16 %102, -256
+  %status.i174 = getelementptr inbounds i8, ptr %rmd155, i64 6
+  store i16 %conv8.i173, ptr %status.i174, align 2
+  br label %pcnet_rmd_load.exit179
 
-if.else.i165:                                     ; preds = %if.then154
+if.else.i164:                                     ; preds = %if.then154
   %conv187 = zext i32 %or152 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i160)
-  %phys_mem_read.i163 = getelementptr inbounds i8, ptr %s, i64 12984
-  %103 = load ptr, ptr %phys_mem_read.i163, align 8
-  %dma_opaque.i164 = getelementptr inbounds i8, ptr %s, i64 13000
-  %104 = load ptr, ptr %dma_opaque.i164, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i159)
+  %phys_mem_read.i162 = getelementptr inbounds i8, ptr %s, i64 12984
+  %103 = load ptr, ptr %phys_mem_read.i162, align 8
+  %dma_opaque.i163 = getelementptr inbounds i8, ptr %s, i64 13000
+  %104 = load ptr, ptr %dma_opaque.i163, align 8
   call void %103(ptr noundef %104, i64 noundef %conv187, ptr noundef nonnull %rmd155, i32 noundef 16, i32 noundef 0) #11
-  br label %pcnet_rmd_load.exit180
+  br label %pcnet_rmd_load.exit179
 
-pcnet_rmd_load.exit180:                           ; preds = %if.else.i165, %if.then.i169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i160)
+pcnet_rmd_load.exit179:                           ; preds = %if.else.i164, %if.then.i168
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i159)
   %buf_length188 = getelementptr inbounds i8, ptr %rmd155, i64 4
   %105 = load i16, ptr %buf_length188, align 4
   %106 = and i16 %105, 4095
@@ -1546,7 +1546,7 @@ if.else198:                                       ; preds = %if.end144
   store i16 0, ptr %arrayidx202, align 4
   br label %if.end203
 
-if.end203:                                        ; preds = %if.else198, %pcnet_rmd_load.exit180
+if.end203:                                        ; preds = %if.else198, %pcnet_rmd_load.exit179
   ret void
 }
 

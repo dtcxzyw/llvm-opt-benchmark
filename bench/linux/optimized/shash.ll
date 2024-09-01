@@ -634,11 +634,11 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %8, i64 40
   %15 = load ptr, ptr %14, align 8
-  %.not12 = icmp eq ptr %15, null
+  %.not = icmp eq ptr %15, null
   %16 = getelementptr inbounds i8, ptr %8, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %.not12, label %20, label %19
+  br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %13
   br i1 %18, label %.thread9, label %.thread
@@ -685,7 +685,7 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
   br label %42
 
 42:                                               ; preds = %41, %37
-  br i1 %.not12, label %43, label %45
+  br i1 %.not, label %43, label %45
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %8, i64 100
@@ -730,8 +730,8 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
   %62 = getelementptr %struct.shash_alg, ptr %0, i64 %indvars.iv16, i32 12, i32 0, i32 2
   tail call void @crypto_unregister_alg(ptr noundef %62) #8
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
-  %.not = icmp eq i64 %indvars.iv16, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  %.not10 = icmp eq i64 %indvars.iv16, 0
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %59, %.preheader, %.thread9, %2
   %63 = phi i32 [ %54, %.thread9 ], [ 0, %2 ], [ %54, %.preheader ], [ 0, %59 ]

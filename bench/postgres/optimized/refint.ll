@@ -247,114 +247,111 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
 ._crit_edge:                                      ; preds = %91
   %92 = load i32, ptr %62, align 8
   %93 = icmp slt i32 %92, 1
-  br i1 %93, label %97, label %131
+  br i1 %93, label %.lr.ph88, label %130
 
 ._crit_edge.thread:                               ; preds = %68
   %94 = load i32, ptr %62, align 8
   %95 = icmp slt i32 %94, 1
-  br i1 %95, label %.thread, label %131
+  br i1 %95, label %.thread, label %130
 
 .thread:                                          ; preds = %._crit_edge.thread
   %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef %43) #9
   br label %._crit_edge89
 
-97:                                               ; preds = %._crit_edge
-  %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef %43) #9
-  br i1 %.not90, label %._crit_edge89, label %.lr.ph88
-
-.lr.ph88:                                         ; preds = %97
-  %99 = add nuw nsw i32 %40, 1
-  %100 = add nsw i32 %40, -1
-  %101 = sext i32 %100 to i64
+.lr.ph88:                                         ; preds = %._crit_edge
+  %97 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef %43) #9
+  %98 = add nuw nsw i32 %40, 1
+  %99 = add nsw i32 %40, -1
+  %100 = sext i32 %99 to i64
   %umax98 = call i32 @llvm.umax.i32(i32 %40, i32 1)
   %wide.trip.count99 = zext nneg i32 %umax98 to i64
-  br label %102
+  br label %101
 
-102:                                              ; preds = %.lr.ph88, %102
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next96, %102 ]
-  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
-  %104 = getelementptr i8, ptr %4, i64 %103
-  %105 = sub i64 8192, %103
-  %106 = trunc i64 %indvars.iv95 to i32
-  %107 = add i32 %99, %106
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr ptr, ptr %34, i64 %108
-  %110 = load ptr, ptr %109, align 8
+101:                                              ; preds = %.lr.ph88, %101
+  %indvars.iv95 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next96, %101 ]
+  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %103 = getelementptr i8, ptr %4, i64 %102
+  %104 = sub i64 8192, %102
+  %105 = trunc i64 %indvars.iv95 to i32
+  %106 = add i32 %98, %105
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr ptr, ptr %34, i64 %107
+  %109 = load ptr, ptr %108, align 8
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %111 = icmp slt i64 %indvars.iv95, %101
-  %112 = select i1 %111, ptr @.str.10, ptr @.str.11
-  %113 = trunc nuw nsw i64 %indvars.iv.next96 to i32
-  %114 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %104, i64 noundef %105, ptr noundef nonnull @.str.9, ptr noundef %110, i32 noundef %113, ptr noundef nonnull %112) #9
+  %110 = icmp slt i64 %indvars.iv95, %100
+  %111 = select i1 %110, ptr @.str.10, ptr @.str.11
+  %112 = trunc nuw nsw i64 %indvars.iv.next96 to i32
+  %113 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %103, i64 noundef %104, ptr noundef nonnull @.str.9, ptr noundef %109, i32 noundef %112, ptr noundef nonnull %111) #9
   %exitcond100.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge89, label %102, !llvm.loop !6
+  br i1 %exitcond100.not, label %._crit_edge89, label %101, !llvm.loop !6
 
-._crit_edge89:                                    ; preds = %102, %.thread, %97
-  %115 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %40, ptr noundef %.072) #9
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %122
+._crit_edge89:                                    ; preds = %101, %.thread
+  %114 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %40, ptr noundef %.072) #9
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %116, label %121
 
-117:                                              ; preds = %._crit_edge89
-  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %118)
-  %119 = load i32, ptr @SPI_result, align 4
-  %120 = call ptr @SPI_result_code_string(i32 noundef %119) #9
-  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %120) #9
+116:                                              ; preds = %._crit_edge89
+  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %117)
+  %118 = load i32, ptr @SPI_result, align 4
+  %119 = call ptr @SPI_result_code_string(i32 noundef %118) #9
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %119) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-122:                                              ; preds = %._crit_edge89
-  %123 = call i32 @SPI_keepplan(ptr noundef nonnull %115) #9
-  %.not82 = icmp eq i32 %123, 0
-  br i1 %.not82, label %127, label %124
+121:                                              ; preds = %._crit_edge89
+  %122 = call i32 @SPI_keepplan(ptr noundef nonnull %114) #9
+  %.not82 = icmp eq i32 %122, 0
+  br i1 %.not82, label %126, label %123
 
-124:                                              ; preds = %122
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %125)
-  %126 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
+123:                                              ; preds = %121
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %124)
+  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr @TopMemoryContext, align 8
-  %129 = call ptr @MemoryContextAlloc(ptr noundef %128, i64 noundef 8) #9
-  %130 = getelementptr inbounds i8, ptr %61, i64 16
-  store ptr %129, ptr %130, align 8
-  store ptr %115, ptr %129, align 8
+126:                                              ; preds = %121
+  %127 = load ptr, ptr @TopMemoryContext, align 8
+  %128 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef 8) #9
+  %129 = getelementptr inbounds i8, ptr %61, i64 16
+  store ptr %128, ptr %129, align 8
+  store ptr %114, ptr %128, align 8
   store i32 1, ptr %62, align 8
-  br label %131
+  br label %130
 
-131:                                              ; preds = %._crit_edge.thread, %127, %._crit_edge
-  %132 = getelementptr inbounds i8, ptr %61, i64 16
+130:                                              ; preds = %._crit_edge.thread, %126, %._crit_edge
+  %131 = getelementptr inbounds i8, ptr %61, i64 16
+  %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %132, align 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = call i32 @SPI_execp(ptr noundef %134, ptr noundef %55, ptr noundef null, i64 noundef 1) #9
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %140
+  %134 = call i32 @SPI_execp(ptr noundef %133, ptr noundef %55, ptr noundef null, i64 noundef 1) #9
+  %135 = icmp slt i32 %134, 0
+  br i1 %135, label %136, label %139
 
-137:                                              ; preds = %131
-  %138 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %138)
-  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %135) #9
+136:                                              ; preds = %130
+  %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %137)
+  %138 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %134) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-140:                                              ; preds = %131
-  %141 = load i64, ptr @SPI_processed, align 8
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %143, label %.loopexit
+139:                                              ; preds = %130
+  %140 = load i64, ptr @SPI_processed, align 8
+  %141 = icmp eq i64 %140, 0
+  br i1 %141, label %142, label %.loopexit
 
-143:                                              ; preds = %140
-  %144 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %144)
-  %145 = call i32 @errcode(i32 noundef 576) #9
-  %146 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
-  %147 = load ptr, ptr %56, align 8
-  %148 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef %147, ptr noundef %43) #9
+142:                                              ; preds = %139
+  %143 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %143)
+  %144 = call i32 @errcode(i32 noundef 576) #9
+  %145 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  %146 = load ptr, ptr %56, align 8
+  %147 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef %146, ptr noundef %43) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-.loopexit:                                        ; preds = %80, %140
-  %149 = call i32 @SPI_finish() #9
+.loopexit:                                        ; preds = %80, %139
+  %148 = call i32 @SPI_finish() #9
   %.0 = ptrtoint ptr %.070 to i64
   ret i64 %.0
 }

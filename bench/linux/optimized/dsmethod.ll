@@ -223,7 +223,7 @@ define dso_local i32 @acpi_ds_begin_method_execution(ptr noundef %0, ptr noundef
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 4
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %104, label %15
+  br i1 %14, label %103, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 16
@@ -296,7 +296,7 @@ define dso_local i32 @acpi_ds_begin_method_execution(ptr noundef %0, ptr noundef
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %54
-  br i1 %61, label %99, label %62
+  br i1 %61, label %98, label %62
 
 62:                                               ; preds = %56, %52
   %63 = getelementptr inbounds i8, ptr %32, i64 16
@@ -313,90 +313,87 @@ define dso_local i32 @acpi_ds_begin_method_execution(ptr noundef %0, ptr noundef
   br i1 %70, label %.thread10, label %.thread
 
 71:                                               ; preds = %62
-  br i1 %33, label %.thread10, label %72
+  %72 = getelementptr inbounds i8, ptr %2, i64 1104
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 14
+  %75 = load i8, ptr %74, align 2
+  %76 = load ptr, ptr %16, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 64
+  store i8 %75, ptr %77, align 8
+  %78 = load ptr, ptr %72, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 32
+  %80 = load i64, ptr %79, align 8
+  %81 = load ptr, ptr %16, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  store i64 %80, ptr %82, align 8
+  %83 = load i8, ptr %11, align 1
+  %84 = and i8 %83, 16
+  %85 = icmp eq i8 %84, 0
+  br i1 %85, label %86, label %98
 
-72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %2, i64 1104
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 14
-  %76 = load i8, ptr %75, align 2
-  %77 = load ptr, ptr %16, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 64
-  store i8 %76, ptr %78, align 8
-  %79 = load ptr, ptr %73, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
-  %81 = load i64, ptr %80, align 8
-  %82 = load ptr, ptr %16, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
-  store i64 %81, ptr %83, align 8
-  %84 = load i8, ptr %11, align 1
-  %85 = and i8 %84, 16
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %99
+86:                                               ; preds = %71
+  %87 = getelementptr inbounds i8, ptr %1, i64 15
+  %88 = load i8, ptr %87, align 1
+  %89 = load ptr, ptr %72, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 14
+  store i8 %88, ptr %90, align 2
+  br label %98
 
-87:                                               ; preds = %72
-  %88 = getelementptr inbounds i8, ptr %1, i64 15
-  %89 = load i8, ptr %88, align 1
-  %90 = load ptr, ptr %73, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 14
-  store i8 %89, ptr %91, align 2
-  br label %99
+.thread10:                                        ; preds = %.thread9
+  %91 = load ptr, ptr %16, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 13
+  %93 = load i8, ptr %92, align 1
+  %94 = getelementptr inbounds i8, ptr %91, i64 64
+  store i8 %93, ptr %94, align 8
+  %95 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !5
+  %96 = load ptr, ptr %16, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  store i64 %95, ptr %97, align 8
+  br label %98
 
-.thread10:                                        ; preds = %.thread9, %71
-  %92 = load ptr, ptr %16, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 13
-  %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds i8, ptr %92, i64 64
-  store i8 %94, ptr %95, align 8
-  %96 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !5
-  %97 = load ptr, ptr %16, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
-  store i64 %96, ptr %98, align 8
-  br label %99
+98:                                               ; preds = %.thread10, %86, %71, %56
+  %99 = load ptr, ptr %16, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 14
+  %101 = load i16, ptr %100, align 2
+  %102 = add i16 %101, 1
+  store i16 %102, ptr %100, align 2
+  br label %103
 
-99:                                               ; preds = %.thread10, %87, %72, %56
-  %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 14
-  %102 = load i16, ptr %101, align 2
-  %103 = add i16 %102, 1
-  store i16 %103, ptr %101, align 2
-  br label %104
+103:                                              ; preds = %98, %10
+  %104 = getelementptr inbounds i8, ptr %1, i64 52
+  %105 = load i16, ptr %104, align 4
+  %106 = icmp eq i16 %105, 0
+  br i1 %106, label %107, label %110
 
-104:                                              ; preds = %99, %10
-  %105 = getelementptr inbounds i8, ptr %1, i64 52
-  %106 = load i16, ptr %105, align 4
-  %107 = icmp eq i16 %106, 0
-  br i1 %107, label %108, label %111
+107:                                              ; preds = %103
+  %108 = tail call i32 @acpi_ut_allocate_owner_id(ptr noundef %104) #5
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %115
 
-108:                                              ; preds = %104
-  %109 = tail call i32 @acpi_ut_allocate_owner_id(ptr noundef %105) #5
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %116
-
-111:                                              ; preds = %108, %104
-  %112 = load i8, ptr %6, align 2
-  %113 = add i8 %112, 1
-  store i8 %113, ptr %6, align 2
-  %114 = load i32, ptr @acpi_method_count, align 4
-  %115 = add i32 %114, 1
-  store i32 %115, ptr @acpi_method_count, align 4
+110:                                              ; preds = %107, %103
+  %111 = load i8, ptr %6, align 2
+  %112 = add i8 %111, 1
+  store i8 %112, ptr %6, align 2
+  %113 = load i32, ptr @acpi_method_count, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr @acpi_method_count, align 4
   br label %.thread
 
-116:                                              ; preds = %108
-  %117 = getelementptr inbounds i8, ptr %1, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %.thread, label %120
+115:                                              ; preds = %107
+  %116 = getelementptr inbounds i8, ptr %1, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.thread, label %119
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %118, i64 16
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call i32 @acpi_os_signal_semaphore(ptr noundef %122, i32 noundef 1) #5
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds i8, ptr %117, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call i32 @acpi_os_signal_semaphore(ptr noundef %121, i32 noundef 1) #5
   br label %.thread
 
-.thread:                                          ; preds = %.thread9, %19, %26, %120, %116, %111, %62, %46, %9, %3
-  %124 = phi i32 [ 12307, %9 ], [ 0, %111 ], [ 12309, %46 ], [ 10, %3 ], [ %65, %62 ], [ %109, %120 ], [ %109, %116 ], [ 4, %19 ], [ %24, %26 ], [ %69, %.thread9 ]
-  ret i32 %124
+.thread:                                          ; preds = %.thread9, %19, %26, %119, %115, %110, %62, %46, %9, %3
+  %123 = phi i32 [ 12307, %9 ], [ 0, %110 ], [ 12309, %46 ], [ 10, %3 ], [ %65, %62 ], [ %108, %119 ], [ %108, %115 ], [ 4, %19 ], [ %24, %26 ], [ %69, %.thread9 ]
+  ret i32 %123
 }
 
 ; Function Attrs: null_pointer_is_valid

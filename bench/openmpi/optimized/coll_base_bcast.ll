@@ -1375,7 +1375,7 @@ define i32 @ompi_coll_base_bcast_intra_basic_linear(ptr noundef %0, i32 noundef 
 40:                                               ; preds = %.lr.ph63
   %41 = getelementptr inbounds i8, ptr %38, i64 72
   %42 = load i32, ptr %41, align 8
-  switch i32 %42, label %._crit_edge64 [
+  switch i32 %42, label %.lr.ph.preheader.i [
     i32 19, label %43
     i32 0, label %43
   ]
@@ -1383,13 +1383,10 @@ define i32 @ompi_coll_base_bcast_intra_basic_linear(ptr noundef %0, i32 noundef 
 43:                                               ; preds = %40, %40, %.lr.ph63
   %44 = getelementptr inbounds i8, ptr %.262, i64 8
   %45 = icmp ult ptr %44, %36
-  br i1 %45, label %.lr.ph63, label %._crit_edge64, !llvm.loop !22
+  br i1 %45, label %.lr.ph63, label %.lr.ph.preheader.i, !llvm.loop !22
 
-._crit_edge64:                                    ; preds = %43, %40
+.lr.ph.preheader.i:                               ; preds = %40, %43
   %.244 = phi i32 [ %.04273, %43 ], [ %42, %40 ]
-  br i1 %37, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
-
-.lr.ph.preheader.i:                               ; preds = %._crit_edge64
   %wide.trip.count.i = zext nneg i32 %.14672 to i64
   br label %.lr.ph.i
 
@@ -1433,8 +1430,8 @@ ompi_request_cancel.exit.i:                       ; preds = %54, %51
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !12
 
-ompi_coll_base_free_reqs.exit:                    ; preds = %62, %.preheader, %._crit_edge64, %.loopexit, %16, %6, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %6 ], [ -2, %16 ], [ 0, %.loopexit ], [ %.244, %._crit_edge64 ], [ %.04273, %.preheader ], [ %.244, %62 ]
+ompi_coll_base_free_reqs.exit:                    ; preds = %62, %.preheader, %.loopexit, %16, %6, %12
+  %.0 = phi i32 [ %15, %12 ], [ 0, %6 ], [ -2, %16 ], [ 0, %.loopexit ], [ %.04273, %.preheader ], [ %.244, %62 ]
   ret i32 %.0
 }
 

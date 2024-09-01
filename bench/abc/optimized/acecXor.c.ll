@@ -1781,10 +1781,7 @@ Vec_WecStart.exit248:                             ; preds = %Vec_WecStart.exit, 
   %66 = zext nneg i32 %.val232 to i64
   br label %68
 
-.critedge.preheader:                              ; preds = %.critedge2
-  br i1 %63, label %.lr.ph296, label %.critedge4
-
-.lr.ph296:                                        ; preds = %.critedge.preheader
+.lr.ph296:                                        ; preds = %.critedge2
   %67 = getelementptr i8, ptr %2, i64 8
   br label %.critedge
 
@@ -1869,7 +1866,7 @@ Vec_WecStart.exit248:                             ; preds = %Vec_WecStart.exit, 
 .critedge2:                                       ; preds = %73, %68
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %127 = icmp ult i64 %indvars.iv.next322, %66
-  br i1 %127, label %68, label %.critedge.preheader, !llvm.loop !28
+  br i1 %127, label %68, label %.lr.ph296, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph296, %.critedge
   %indvars.iv324 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next325, %.critedge ]
@@ -1887,7 +1884,7 @@ Vec_WecStart.exit248:                             ; preds = %Vec_WecStart.exit, 
   %135 = icmp slt i64 %indvars.iv.next325, %134
   br i1 %135, label %.critedge, label %.critedge4, !llvm.loop !29
 
-.critedge4:                                       ; preds = %.critedge, %Vec_WecStart.exit248, %.critedge.preheader
+.critedge4:                                       ; preds = %.critedge, %Vec_WecStart.exit248
   %136 = tail call ptr @Acec_TreeCarryMap(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) #20
   %.val229 = load i32, ptr %6, align 4
   %137 = icmp sgt i32 %.val229, 0

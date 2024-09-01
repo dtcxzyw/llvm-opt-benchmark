@@ -5730,8 +5730,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit709
 
 473:                                              ; preds = %472
   %474 = load i8, ptr %131, align 8, !range !18, !noundef !5
-  %.not1631 = icmp ne i8 %474, 9
-  br i1 %.not1631, label %477, label %475
+  %.not1602.not.not.not.not = icmp ne i8 %474, 9
+  br i1 %.not1602.not.not.not.not, label %477, label %475
 
 475:                                              ; preds = %473
   %476 = invoke noundef nonnull align 8 ptr @"_ZN74_$LT$h2..proto..streams..store..Ptr$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb255d66e0926e59eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %156)
@@ -5744,7 +5744,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit709
   ]
 
 "_ZN4core3ptr42drop_in_place$LT$h2..frame..data..Data$GT$17ha98eae53f4794d63E.exit": ; preds = %.loopexit1568, %.loopexit.split-lp1569, %.loopexit1560, %.loopexit.split-lp1561, %.thread1384, %1014
-  %.1488 = phi i1 [ false, %1014 ], [ false, %.thread1384 ], [ false, %.loopexit1560 ], [ %.not1631, %.loopexit.split-lp1561 ], [ false, %.loopexit.split-lp1569 ], [ false, %.loopexit1568 ]
+  %.1488 = phi i1 [ false, %1014 ], [ false, %.thread1384 ], [ false, %.loopexit1560 ], [ %.not1602.not.not.not.not, %.loopexit.split-lp1561 ], [ false, %.loopexit.split-lp1569 ], [ false, %.loopexit1568 ]
   %.pn542 = phi { ptr, i32 } [ %1015, %1014 ], [ %.pn1387, %.thread1384 ], [ %lpad.loopexit1562, %.loopexit1560 ], [ %lpad.loopexit.split-lp1563, %.loopexit.split-lp1561 ], [ %lpad.loopexit.split-lp1571, %.loopexit.split-lp1569 ], [ %lpad.loopexit1570, %.loopexit1568 ]
   %478 = load i8, ptr %131, align 8, !range !18, !noundef !5
   %.not544 = icmp eq i8 %478, 9

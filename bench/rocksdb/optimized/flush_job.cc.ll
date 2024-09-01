@@ -4145,8 +4145,8 @@ lpad83:                                           ; preds = %if.then86, %41
 
 if.end92:                                         ; preds = %invoke.cont84
   %46 = load i8, ptr %type.i, align 8
-  %cmp95 = icmp eq i8 %46, 1
-  br i1 %cmp95, label %invoke.cont99, label %land.end
+  %cmp95.not = icmp eq i8 %46, 1
+  br i1 %cmp95.not, label %invoke.cont99, label %land.end
 
 invoke.cont99:                                    ; preds = %if.end92
   %47 = load i8, ptr %mget_s, align 8

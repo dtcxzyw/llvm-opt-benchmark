@@ -3510,13 +3510,10 @@ _ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit: ; pre
 
 .loopexit112:                                     ; preds = %66, %77, %.preheader113, %.preheader
   %90 = icmp sgt i64 %.097123.in, 1
-  br i1 %90, label %.lr.ph124, label %._crit_edge, !llvm.loop !22
+  br i1 %90, label %.lr.ph124, label %.lr.ph.i109, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.loopexit112
-  br i1 %15, label %.lr.ph.i109, label %.loopexit
-
-.lr.ph.i109:                                      ; preds = %._crit_edge, %93
-  %.010.i = phi i64 [ %94, %93 ], [ 0, %._crit_edge ]
+.lr.ph.i109:                                      ; preds = %.loopexit112, %93
+  %.010.i = phi i64 [ %94, %93 ], [ 0, %.loopexit112 ]
   %91 = getelementptr inbounds i64, ptr %14, i64 %.010.i
   %92 = load i64, ptr %91, align 8
   %.not.i110 = icmp eq i64 %92, 0
@@ -3533,8 +3530,7 @@ _ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit: ; pre
   br label %22
 
 _ZN6casadi11casadi_flipEPxx.exit:                 ; preds = %93
-  %brmerge.demorgan = and i1 %15, %20
-  br i1 %brmerge.demorgan, label %.lr.ph127.us, label %.loopexit
+  br i1 %20, label %.lr.ph127.us, label %.loopexit
 
 .lr.ph127.us:                                     ; preds = %_ZN6casadi11casadi_flipEPxx.exit, %._crit_edge128.us
   %.0130.us = phi ptr [ %110, %._crit_edge128.us ], [ %0, %_ZN6casadi11casadi_flipEPxx.exit ]
@@ -3567,7 +3563,7 @@ _ZN6casadi11casadi_flipEPxx.exit:                 ; preds = %93
   %exitcond140.not = icmp eq i64 %111, %1
   br i1 %exitcond140.not, label %.loopexit, label %.lr.ph127.us, !llvm.loop !24
 
-.loopexit:                                        ; preds = %_ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit, %._crit_edge, %._crit_edge128.us, %_ZN6casadi11casadi_flipEPxx.exit, %10
+.loopexit:                                        ; preds = %_ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit, %._crit_edge128.us, %_ZN6casadi11casadi_flipEPxx.exit, %10
   ret void
 }
 

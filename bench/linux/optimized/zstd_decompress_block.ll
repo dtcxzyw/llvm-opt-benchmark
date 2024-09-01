@@ -600,7 +600,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %21 = lshr i32 %15, 3
   %22 = add nuw nsw i32 %21, 3
   %23 = add nuw nsw i32 %22, %20
-  br label %.loopexit15
+  br label %.loopexit16
 
 24:                                               ; preds = %12
   %25 = add i32 %5, -1
@@ -654,29 +654,29 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %57 = add nuw nsw i32 %55, 3
   br label %64
 
-.loopexit15.loopexit:                             ; preds = %.loopexit14
+.loopexit16.loopexit:                             ; preds = %.loopexit15
   %58 = lshr i32 %15, 1
   %59 = add nuw nsw i32 %57, %58
-  br label %.loopexit15
+  br label %.loopexit16
 
-.loopexit15:                                      ; preds = %.loopexit15.loopexit, %.thread12
-  %.in = phi i32 [ %23, %.thread12 ], [ %59, %.loopexit15.loopexit ]
+.loopexit16:                                      ; preds = %.loopexit16.loopexit, %.thread12
+  %.shrunk = phi i32 [ %23, %.thread12 ], [ %59, %.loopexit16.loopexit ]
   %60 = zext nneg i32 %17 to i64
-  %61 = zext nneg i32 %.in to i64
+  %61 = zext nneg i32 %.shrunk to i64
   %62 = zext i32 %15 to i64
   %63 = shl nuw nsw i64 %61, 1
   br label %.critedge
 
-64:                                               ; preds = %.loopexit14, %56
-  %65 = phi i64 [ 0, %56 ], [ %81, %.loopexit14 ]
-  %66 = phi i64 [ 0, %56 ], [ %82, %.loopexit14 ]
-  %67 = phi i64 [ 0, %56 ], [ %80, %.loopexit14 ]
+64:                                               ; preds = %.loopexit15, %56
+  %65 = phi i64 [ 0, %56 ], [ %81, %.loopexit15 ]
+  %66 = phi i64 [ 0, %56 ], [ %82, %.loopexit15 ]
+  %67 = phi i64 [ 0, %56 ], [ %80, %.loopexit15 ]
   %68 = getelementptr i16, ptr %1, i64 %65
   %69 = load i16, ptr %68, align 2
   %70 = getelementptr i8, ptr %16, i64 %67
   store i64 %66, ptr %70, align 1
   %71 = icmp sgt i16 %69, 8
-  br i1 %71, label %72, label %.loopexit14
+  br i1 %71, label %72, label %.loopexit15
 
 72:                                               ; preds = %64
   %73 = zext nneg i16 %69 to i64
@@ -688,19 +688,19 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   store i64 %66, ptr %76, align 1
   %77 = add nuw nsw i64 %75, 8
   %78 = icmp ult i64 %77, %73
-  br i1 %78, label %74, label %.loopexit14, !llvm.loop !9
+  br i1 %78, label %74, label %.loopexit15, !llvm.loop !9
 
-.loopexit14:                                      ; preds = %74, %64
+.loopexit15:                                      ; preds = %74, %64
   %79 = sext i16 %69 to i64
   %80 = add i64 %67, %79
   %81 = add nuw nsw i64 %65, 1
   %82 = add i64 %66, 72340172838076673
   %83 = icmp eq i64 %81, %28
-  br i1 %83, label %.loopexit15.loopexit, label %64, !llvm.loop !10
+  br i1 %83, label %.loopexit16.loopexit, label %64, !llvm.loop !10
 
-.critedge:                                        ; preds = %.critedge, %.loopexit15
-  %84 = phi i64 [ 0, %.loopexit15 ], [ %100, %.critedge ]
-  %85 = phi i64 [ 0, %.loopexit15 ], [ %99, %.critedge ]
+.critedge:                                        ; preds = %.critedge, %.loopexit16
+  %84 = phi i64 [ 0, %.loopexit16 ], [ %100, %.critedge ]
+  %85 = phi i64 [ 0, %.loopexit16 ], [ %99, %.critedge ]
   %86 = and i64 %85, %60
   %87 = getelementptr i8, ptr %16, i64 %84
   %88 = load i8, ptr %87, align 1
@@ -719,7 +719,7 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %99 = and i64 %98, %60
   %100 = add nuw nsw i64 %84, 2
   %101 = icmp ult i64 %100, %62
-  br i1 %101, label %.critedge, label %.loopexit13, !llvm.loop !11
+  br i1 %101, label %.critedge, label %.loopexit14, !llvm.loop !11
 
 102:                                              ; preds = %52
   %103 = lshr i32 %15, 1
@@ -727,14 +727,14 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
   %105 = add nuw nsw i32 %104, %103
   br label %106
 
-106:                                              ; preds = %.loopexit16, %102
-  %107 = phi i64 [ 0, %102 ], [ %129, %.loopexit16 ]
-  %108 = phi i32 [ 0, %102 ], [ %128, %.loopexit16 ]
+106:                                              ; preds = %.loopexit17, %102
+  %107 = phi i64 [ 0, %102 ], [ %129, %.loopexit17 ]
+  %108 = phi i32 [ 0, %102 ], [ %128, %.loopexit17 ]
   %109 = getelementptr i16, ptr %1, i64 %107
   %110 = load i16, ptr %109, align 2
   %111 = sext i16 %110 to i32
   %112 = icmp sgt i16 %110, 0
-  br i1 %112, label %113, label %.loopexit16
+  br i1 %112, label %113, label %.loopexit17
 
 113:                                              ; preds = %106
   %114 = trunc i64 %107 to i32
@@ -758,24 +758,24 @@ define dso_local void @ZSTD_buildFSETable(ptr nocapture noundef %0, ptr nocaptur
 125:                                              ; preds = %120
   %126 = add nuw nsw i32 %116, 1
   %127 = icmp eq i32 %126, %111
-  br i1 %127, label %.loopexit16, label %115, !llvm.loop !13
+  br i1 %127, label %.loopexit17, label %115, !llvm.loop !13
 
-.loopexit16:                                      ; preds = %125, %106
+.loopexit17:                                      ; preds = %125, %106
   %128 = phi i32 [ %108, %106 ], [ %123, %125 ]
   %129 = add nuw nsw i64 %107, 1
   %130 = icmp eq i64 %129, %28
-  br i1 %130, label %.loopexit13.loopexit20, label %106, !llvm.loop !14
+  br i1 %130, label %.loopexit14.loopexit21, label %106, !llvm.loop !14
 
-.loopexit13.loopexit20:                           ; preds = %.loopexit16
+.loopexit14.loopexit21:                           ; preds = %.loopexit17
   %.pre = zext i32 %15 to i64
-  br label %.loopexit13
+  br label %.loopexit14
 
-.loopexit13:                                      ; preds = %.critedge, %.loopexit13.loopexit20
-  %.pre-phi = phi i64 [ %.pre, %.loopexit13.loopexit20 ], [ %62, %.critedge ]
+.loopexit14:                                      ; preds = %.critedge, %.loopexit14.loopexit21
+  %.pre-phi = phi i64 [ %.pre, %.loopexit14.loopexit21 ], [ %62, %.critedge ]
   br label %131
 
-131:                                              ; preds = %131, %.loopexit13
-  %132 = phi i64 [ 0, %.loopexit13 ], [ %155, %131 ]
+131:                                              ; preds = %131, %.loopexit14
+  %132 = phi i64 [ 0, %.loopexit14 ], [ %155, %131 ]
   %133 = getelementptr %struct.ZSTD_seqSymbol, ptr %13, i64 %132
   %134 = getelementptr inbounds i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
@@ -829,7 +829,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %16 = lshr i32 %10, 3
   %17 = add nuw nsw i32 %16, 3
   %18 = add nuw nsw i32 %17, %15
-  br label %.loopexit14
+  br label %.loopexit15
 
 19:                                               ; preds = %7
   %20 = add i32 %5, -1
@@ -883,29 +883,29 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %52 = add nuw nsw i32 %50, 3
   br label %59
 
-.loopexit14.loopexit:                             ; preds = %.loopexit13
+.loopexit15.loopexit:                             ; preds = %.loopexit14
   %53 = lshr i32 %10, 1
   %54 = add nuw nsw i32 %52, %53
-  br label %.loopexit14
+  br label %.loopexit15
 
-.loopexit14:                                      ; preds = %.loopexit14.loopexit, %.thread12
-  %.in = phi i32 [ %18, %.thread12 ], [ %54, %.loopexit14.loopexit ]
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %.thread12
+  %.shrunk = phi i32 [ %18, %.thread12 ], [ %54, %.loopexit15.loopexit ]
   %55 = zext nneg i32 %12 to i64
-  %56 = zext nneg i32 %.in to i64
+  %56 = zext nneg i32 %.shrunk to i64
   %57 = zext i32 %10 to i64
   %58 = shl nuw nsw i64 %56, 1
   br label %.critedge
 
-59:                                               ; preds = %.loopexit13, %51
-  %60 = phi i64 [ 0, %51 ], [ %76, %.loopexit13 ]
-  %61 = phi i64 [ 0, %51 ], [ %77, %.loopexit13 ]
-  %62 = phi i64 [ 0, %51 ], [ %75, %.loopexit13 ]
+59:                                               ; preds = %.loopexit14, %51
+  %60 = phi i64 [ 0, %51 ], [ %76, %.loopexit14 ]
+  %61 = phi i64 [ 0, %51 ], [ %77, %.loopexit14 ]
+  %62 = phi i64 [ 0, %51 ], [ %75, %.loopexit14 ]
   %63 = getelementptr i16, ptr %1, i64 %60
   %64 = load i16, ptr %63, align 2
   %65 = getelementptr i8, ptr %11, i64 %62
   store i64 %61, ptr %65, align 1
   %66 = icmp sgt i16 %64, 8
-  br i1 %66, label %67, label %.loopexit13
+  br i1 %66, label %67, label %.loopexit14
 
 67:                                               ; preds = %59
   %68 = zext nneg i16 %64 to i64
@@ -917,19 +917,19 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   store i64 %61, ptr %71, align 1
   %72 = add nuw nsw i64 %70, 8
   %73 = icmp ult i64 %72, %68
-  br i1 %73, label %69, label %.loopexit13, !llvm.loop !9
+  br i1 %73, label %69, label %.loopexit14, !llvm.loop !9
 
-.loopexit13:                                      ; preds = %69, %59
+.loopexit14:                                      ; preds = %69, %59
   %74 = sext i16 %64 to i64
   %75 = add i64 %62, %74
   %76 = add nuw nsw i64 %60, 1
   %77 = add i64 %61, 72340172838076673
   %78 = icmp eq i64 %76, %23
-  br i1 %78, label %.loopexit14.loopexit, label %59, !llvm.loop !10
+  br i1 %78, label %.loopexit15.loopexit, label %59, !llvm.loop !10
 
-.critedge:                                        ; preds = %.critedge, %.loopexit14
-  %79 = phi i64 [ 0, %.loopexit14 ], [ %95, %.critedge ]
-  %80 = phi i64 [ 0, %.loopexit14 ], [ %94, %.critedge ]
+.critedge:                                        ; preds = %.critedge, %.loopexit15
+  %79 = phi i64 [ 0, %.loopexit15 ], [ %95, %.critedge ]
+  %80 = phi i64 [ 0, %.loopexit15 ], [ %94, %.critedge ]
   %81 = and i64 %80, %55
   %82 = getelementptr i8, ptr %11, i64 %79
   %83 = load i8, ptr %82, align 1
@@ -956,14 +956,14 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
   %100 = add nuw nsw i32 %99, %98
   br label %101
 
-101:                                              ; preds = %.loopexit15, %97
-  %102 = phi i64 [ 0, %97 ], [ %124, %.loopexit15 ]
-  %103 = phi i32 [ 0, %97 ], [ %123, %.loopexit15 ]
+101:                                              ; preds = %.loopexit16, %97
+  %102 = phi i64 [ 0, %97 ], [ %124, %.loopexit16 ]
+  %103 = phi i32 [ 0, %97 ], [ %123, %.loopexit16 ]
   %104 = getelementptr i16, ptr %1, i64 %102
   %105 = load i16, ptr %104, align 2
   %106 = sext i16 %105 to i32
   %107 = icmp sgt i16 %105, 0
-  br i1 %107, label %108, label %.loopexit15
+  br i1 %107, label %108, label %.loopexit16
 
 108:                                              ; preds = %101
   %109 = trunc i64 %102 to i32
@@ -987,20 +987,20 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr nocapture noundef 
 120:                                              ; preds = %115
   %121 = add nuw nsw i32 %111, 1
   %122 = icmp eq i32 %121, %106
-  br i1 %122, label %.loopexit15, label %110, !llvm.loop !13
+  br i1 %122, label %.loopexit16, label %110, !llvm.loop !13
 
-.loopexit15:                                      ; preds = %120, %101
+.loopexit16:                                      ; preds = %120, %101
   %123 = phi i32 [ %103, %101 ], [ %118, %120 ]
   %124 = add nuw nsw i64 %102, 1
   %125 = icmp eq i64 %124, %23
-  br i1 %125, label %.loopexit.loopexit19, label %101, !llvm.loop !14
+  br i1 %125, label %.loopexit.loopexit20, label %101, !llvm.loop !14
 
-.loopexit.loopexit19:                             ; preds = %.loopexit15
+.loopexit.loopexit20:                             ; preds = %.loopexit16
   %.pre = zext i32 %10 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge, %.loopexit.loopexit19
-  %.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit19 ], [ %57, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %.loopexit.loopexit20
+  %.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit20 ], [ %57, %.critedge ]
   br label %126
 
 126:                                              ; preds = %126, %.loopexit

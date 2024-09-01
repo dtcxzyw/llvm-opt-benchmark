@@ -1190,13 +1190,9 @@ if.then8:                                         ; preds = %land.lhs.true6, %la
   unreachable
 
 if.end9:                                          ; preds = %land.lhs.true6, %lor.lhs.false
-  %and10 = and i32 %or2, 4
-  %tobool11.not = icmp eq i32 %and10, 0
-  %and13 = and i32 %or2, 8
-  %tobool14.not = icmp eq i32 %and13, 0
   %55 = and i32 %or2, 12
   %or.cond.not = icmp eq i32 %55, 12
-  br i1 %or.cond.not, label %if.then15, label %if.end17
+  br i1 %or.cond.not, label %if.then15, label %if.then20
 
 if.end9.thread:                                   ; preds = %if.end
   %and10238 = and i32 %or2, 4
@@ -1217,17 +1213,16 @@ if.then15:                                        ; preds = %if.end9.thread, %if
   call void (ptr, ...) @die(ptr noundef %call16, ptr noundef nonnull %elt) #17
   unreachable
 
-if.end17:                                         ; preds = %if.end9
-  br i1 %cmp, label %if.then20, label %if.else22
-
-if.then20:                                        ; preds = %if.end17
+if.then20:                                        ; preds = %if.end9
+  %and13 = and i32 %or2, 8
+  %tobool14.not = icmp eq i32 %and13, 0
+  %and10 = and i32 %or2, 4
+  %tobool11.not = icmp eq i32 %and10, 0
   %call21 = call ptr @xstrdup(ptr noundef nonnull %retval.0.i226232) #16
   store i32 %pathspec_prefix.3225234, ptr %prefixlen.addr, align 4
   br label %if.end45
 
-if.else22:                                        ; preds = %if.end9.thread, %if.end17
-  %tobool11.not243248 = phi i1 [ %tobool11.not, %if.end17 ], [ %tobool11.not239, %if.end9.thread ]
-  %tobool14.not244247 = phi i1 [ %tobool14.not, %if.end17 ], [ %tobool14.not241, %if.end9.thread ]
+if.else22:                                        ; preds = %if.end9.thread
   %and23 = and i32 %or2, 1
   %tobool24.not = icmp eq i32 %and23, 0
   br i1 %tobool24.not, label %if.else22.if.else27_crit_edge, label %if.then25
@@ -1243,8 +1238,8 @@ if.then25:                                        ; preds = %if.else22
 
 if.else27:                                        ; preds = %if.else22.if.else27_crit_edge, %if.else22.thread
   %57 = phi i32 [ %prefixlen, %if.else22.thread ], [ %.pre218, %if.else22.if.else27_crit_edge ]
-  %tobool14.not104113130 = phi i1 [ true, %if.else22.thread ], [ %tobool14.not244247, %if.else22.if.else27_crit_edge ]
-  %tobool11.not103115129 = phi i1 [ false, %if.else22.thread ], [ %tobool11.not243248, %if.else22.if.else27_crit_edge ]
+  %tobool14.not104113130 = phi i1 [ true, %if.else22.thread ], [ %tobool14.not241, %if.else22.if.else27_crit_edge ]
+  %tobool11.not103115129 = phi i1 [ false, %if.else22.thread ], [ %tobool11.not239, %if.else22.if.else27_crit_edge ]
   %element_magic.083102117128 = phi i32 [ 0, %if.else22.thread ], [ %element_magic.4224236, %if.else22.if.else27_crit_edge ]
   %copyfrom.08699119127 = phi ptr [ %elt, %if.else22.thread ], [ %retval.0.i226232, %if.else22.if.else27_crit_edge ]
   %call28 = call ptr @prefix_path_gently(ptr noundef %prefix, i32 noundef %57, ptr noundef nonnull %prefixlen.addr, ptr noundef %copyfrom.08699119127) #16
@@ -1284,8 +1279,8 @@ if.end40:                                         ; preds = %if.then38, %if.end3
 if.end45:                                         ; preds = %if.else27.if.end45_crit_edge, %if.then25, %if.then20
   %58 = phi i32 [ %pathspec_prefix.3225234, %if.then20 ], [ 0, %if.then25 ], [ %.pre219, %if.else27.if.end45_crit_edge ]
   %element_magic.083102116 = phi i32 [ %element_magic.4224236, %if.then20 ], [ %element_magic.4224236, %if.then25 ], [ %element_magic.083102117128, %if.else27.if.end45_crit_edge ]
-  %tobool11.not103114 = phi i1 [ %tobool11.not, %if.then20 ], [ %tobool11.not243248, %if.then25 ], [ %tobool11.not103115129, %if.else27.if.end45_crit_edge ]
-  %tobool14.not104112 = phi i1 [ %tobool14.not, %if.then20 ], [ %tobool14.not244247, %if.then25 ], [ %tobool14.not104113130, %if.else27.if.end45_crit_edge ]
+  %tobool11.not103114 = phi i1 [ %tobool11.not, %if.then20 ], [ %tobool11.not239, %if.then25 ], [ %tobool11.not103115129, %if.else27.if.end45_crit_edge ]
+  %tobool14.not104112 = phi i1 [ %tobool14.not, %if.then20 ], [ %tobool14.not241, %if.then25 ], [ %tobool14.not104113130, %if.else27.if.end45_crit_edge ]
   %match.0 = phi ptr [ %call21, %if.then20 ], [ %call26, %if.then25 ], [ %call28, %if.else27.if.end45_crit_edge ]
   store ptr %match.0, ptr %item, align 8
   %call48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %match.0) #18

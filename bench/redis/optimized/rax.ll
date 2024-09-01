@@ -3969,6 +3969,7 @@ if.end42.sink.split:                              ; preds = %if.else, %tailrecur
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else, %if.end42.sink.split
+  %cmp253 = phi i1 [ %cmp, %if.end42.sink.split ], [ false, %if.else ]
   %tobool100 = phi i1 [ %tobool100.ph, %if.end42.sink.split ], [ false, %if.else ]
   %tobool76.not = phi i1 [ %cmp15, %if.end42.sink.split ], [ false, %if.else ]
   %2 = load ptr, ptr %rt144, align 8
@@ -4113,7 +4114,7 @@ raxGetData.exit105:                               ; preds = %if.end95, %if.end.i
   br label %return
 
 if.else99:                                        ; preds = %land.lhs.true79, %if.end75
-  %or.cond1 = or i1 %cmp, %tobool100
+  %or.cond1 = or i1 %cmp253, %tobool100
   br i1 %or.cond1, label %if.then103, label %if.else250
 
 if.then103:                                       ; preds = %if.else99
@@ -4148,7 +4149,7 @@ land.lhs.true122:                                 ; preds = %if.end118
   br i1 %tobool124.not, label %return, label %if.end126
 
 if.end126:                                        ; preds = %land.lhs.true122, %if.end118
-  br i1 %cmp, label %land.lhs.true128, label %if.end132
+  br i1 %cmp253, label %land.lhs.true128, label %if.end132
 
 land.lhs.true128:                                 ; preds = %if.end126
   %call129 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 1)
@@ -4170,7 +4171,7 @@ if.then144:                                       ; preds = %land.lhs.true108
   %39 = load i32, ptr %it, align 8
   %and152 = and i32 %39, -2
   store i32 %and152, ptr %it, align 8
-  br i1 %cmp, label %if.then154, label %if.end178
+  br i1 %cmp253, label %if.then154, label %if.end178
 
 if.then154:                                       ; preds = %if.then144
   %cmp155 = icmp ugt i8 %37, %38
@@ -4307,7 +4308,7 @@ raxGetData.exit139:                               ; preds = %if.then228, %if.end
   br label %if.end245
 
 if.else232:                                       ; preds = %land.lhs.true219, %if.else211
-  br i1 %cmp, label %land.lhs.true234, label %if.end238
+  br i1 %cmp253, label %land.lhs.true234, label %if.end238
 
 land.lhs.true234:                                 ; preds = %if.else232
   %call235 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %it, i32 noundef 0)

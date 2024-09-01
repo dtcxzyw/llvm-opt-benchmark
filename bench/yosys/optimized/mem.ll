@@ -34023,10 +34023,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit105:              ; preds = %_ZSt8_DestroyIPN5Yo
   %442 = getelementptr inbounds i8, ptr %216, i64 176
   br label %444
 
-.preheader366:                                    ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit
-  br i1 %.not359501, label %._crit_edge508, label %.lr.ph507
-
-.lr.ph507:                                        ; preds = %.preheader366
+.lr.ph507:                                        ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit
   %443 = getelementptr inbounds i8, ptr %216, i64 216
   br label %475
 
@@ -34093,7 +34090,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit.sink.split: ; preds = %466, %469
 _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit.sink.split, %473
   %474 = getelementptr inbounds i8, ptr %.sroa.0310.0502, i64 8
   %.not359 = icmp eq ptr %474, %.sroa.9.0.lcssa
-  br i1 %.not359, label %.preheader366, label %444
+  br i1 %.not359, label %.lr.ph507, label %444
 
 475:                                              ; preds = %.lr.ph507, %_ZNSt6vectorIbSaIbEE9push_backEb.exit124
   %.sroa.0304.0506 = phi ptr [ %.sroa.0330.2.lcssa, %.lr.ph507 ], [ %505, %_ZNSt6vectorIbSaIbEE9push_backEb.exit124 ]
@@ -34160,7 +34157,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit124:         ; preds = %_ZNSt6vectorIbSaIbE
   %.not360 = icmp eq ptr %505, %.sroa.9.0.lcssa
   br i1 %.not360, label %._crit_edge508, label %475
 
-._crit_edge508:                                   ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit124, %439, %.preheader366
+._crit_edge508:                                   ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit124, %439
   %506 = load ptr, ptr %125, align 8
   %507 = load ptr, ptr %126, align 8
   %.not.i125 = icmp eq ptr %506, %507

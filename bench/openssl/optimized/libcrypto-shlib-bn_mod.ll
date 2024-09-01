@@ -361,7 +361,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   %10 = load ptr, ptr %m, align 8
-  br i1 %cmp1570.not, label %for.end93, label %for.body50
+  br label %for.body50
 
 for.body50:                                       ; preds = %for.end, %for.body50
   %i.179 = phi i64 [ %inc67, %for.body50 ], [ 0, %for.end ]
@@ -385,7 +385,7 @@ for.body50:                                       ; preds = %for.end, %for.body5
 
 for.end68:                                        ; preds = %for.body50
   %sub69.neg = sub nsw i64 %add66, %borrow.1
-  br i1 %cmp1570.not, label %for.end93, label %for.body74
+  br label %for.body74
 
 for.body74:                                       ; preds = %for.end68, %for.body74
   %i.283 = phi i64 [ %inc92, %for.body74 ], [ 0, %for.end68 ]
@@ -407,7 +407,7 @@ for.body74:                                       ; preds = %for.end68, %for.bod
   %exitcond86.not = icmp eq i64 %inc92, %conv
   br i1 %exitcond86.not, label %for.end93, label %for.body74, !llvm.loop !10
 
-for.end93:                                        ; preds = %for.body74, %if.end, %for.end, %for.end68
+for.end93:                                        ; preds = %for.body74, %if.end
   %top95 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %0, ptr %top95, align 8
   %neg = getelementptr inbounds i8, ptr %r, i64 16

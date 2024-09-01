@@ -7048,34 +7048,33 @@ land.rhs.i.preheader:                             ; preds = %if.else58
   %add.ptr.i = getelementptr inbounds i8, ptr %output59.val30, i64 %9
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
-  %cur.02.i = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %output59.val30, %land.rhs.i.preheader ]
+while.cond.i:                                     ; preds = %land.rhs.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.02.i, i64 1
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  br i1 %cmp.not.i, label %if.end73, label %land.rhs.i, !llvm.loop !41
+
+land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %while.cond.i
+  %cur.02.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %output59.val30, %land.rhs.i.preheader ]
   %13 = load i8, ptr %cur.02.i, align 1
   %idxprom.i = zext i8 %13 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %15 = and i8 %14, 1
-  %cmp3.not.not.i = icmp eq i8 %15, 0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.02.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  %or.cond.i = select i1 %cmp3.not.not.i, i1 true, i1 %cmp.not.i
-  br i1 %or.cond.i, label %is_empty.exit, label %land.rhs.i, !llvm.loop !41
+  %cmp3.not.i = icmp eq i8 %15, 0
+  br i1 %cmp3.not.i, label %if.end73.sink.split, label %while.cond.i
 
-is_empty.exit:                                    ; preds = %land.rhs.i
-  br i1 %cmp3.not.not.i, label %if.end73.sink.split, label %if.end73
-
-if.end73.sink.split:                              ; preds = %is_empty.exit, %if.then41, %lor.lhs.false, %land.lhs.true
+if.end73.sink.split:                              ; preds = %land.rhs.i, %if.then41, %lor.lhs.false, %land.lhs.true
   %bf.set56 = or i8 %bf.load, 5
   store i8 %bf.set56, ptr %then_atom_seen, align 8
   br label %if.end73
 
-if.end73:                                         ; preds = %if.end73.sink.split, %lor.lhs.false, %is_empty.exit, %if.else58, %if.then26, %land.lhs.true
+if.end73:                                         ; preds = %while.cond.i, %if.end73.sink.split, %lor.lhs.false, %if.else58, %if.then26, %land.lhs.true
   %len2.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %len2.i, align 8
   %buf.i = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i = icmp eq ptr %16, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %return, label %if.then4.i
+  %cmp3.not.i41 = icmp eq ptr %16, @strbuf_slopbuf
+  br i1 %cmp3.not.i41, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end73
   store i8 0, ptr %16, align 1

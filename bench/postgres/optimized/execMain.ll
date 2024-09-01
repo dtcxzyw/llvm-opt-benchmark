@@ -248,28 +248,29 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %74 = getelementptr inbounds i8, ptr %73, i64 88
   %75 = load ptr, ptr %74, align 8
   %.not38 = icmp eq ptr %75, null
-  br i1 %.not38, label %76, label %80
+  br i1 %.not38, label %76, label %81
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %73, i64 17
   %78 = load i8, ptr %77, align 1
   %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %83
+  br i1 %79, label %81, label %.thread
 
-80:                                               ; preds = %76, %72
-  %81 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #10
-  %82 = getelementptr inbounds i8, ptr %46, i64 88
-  store i32 %81, ptr %82, align 8
+.thread:                                          ; preds = %76
+  %80 = or i32 %1, 32
+  br label %92
+
+81:                                               ; preds = %72, %76
+  %82 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #10
+  %83 = getelementptr inbounds i8, ptr %46, i64 88
+  store i32 %82, ptr %83, align 8
   %.pre = load ptr, ptr %54, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 17
   %.pre77 = load i8, ptr %.phi.trans.insert, align 1
-  %.pre79 = trunc i8 %.pre77 to i1
-  br label %83
-
-83:                                               ; preds = %80, %76
-  %.pre-phi = phi i1 [ %.pre79, %80 ], [ false, %76 ]
+  %.pre77.fr = freeze i8 %.pre77
+  %.pre79 = trunc i8 %.pre77.fr to i1
   %84 = or i32 %1, 32
-  %spec.select = select i1 %.pre-phi, i32 %1, i32 %84
+  %spec.select = select i1 %.pre79, i32 %1, i32 %84
   br label %92
 
 85:                                               ; preds = %64, %64, %64, %64
@@ -286,8 +287,8 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.standard_ExecutorStart) #10
   unreachable
 
-92:                                               ; preds = %83, %85
-  %.0 = phi i32 [ %1, %85 ], [ %spec.select, %83 ]
+92:                                               ; preds = %81, %.thread, %85
+  %.0 = phi i32 [ %1, %85 ], [ %80, %.thread ], [ %spec.select, %81 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = tail call ptr @RegisterSnapshot(ptr noundef %94) #10

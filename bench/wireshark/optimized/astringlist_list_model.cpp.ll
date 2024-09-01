@@ -1704,11 +1704,11 @@ _ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i33.i: ; preds = %115,
   %124 = sub i64 %120, %65
   %125 = shl i64 %124, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %123, ptr align 1 %119, i64 %125, i1 false)
-  %.pre90 = load i64, ptr %28, align 8
+  %.pre82 = load i64, ptr %28, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
 
 _ZN9QtPrivate12QPodArrayOpsIiE10createHoleEN10QArrayData14GrowthPositionExx.exit.i: ; preds = %122, %117
-  %126 = phi i64 [ %.pre90, %122 ], [ %120, %117 ]
+  %126 = phi i64 [ %.pre82, %122 ], [ %120, %117 ]
   %127 = add i64 %126, 1
   store i64 %127, ptr %28, align 8
   store i32 %64, ptr %119, align 4

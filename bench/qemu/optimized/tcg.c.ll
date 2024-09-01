@@ -9125,7 +9125,7 @@ for.body.lr.ph.i330:                              ; preds = %sw.bb108
   %259 = zext nneg i32 %bf.lshr.i322 to i64
   br label %for.body.i331
 
-for.body27.lr.ph.i:                               ; preds = %for.inc.i336
+for.cond23.preheader.i:                           ; preds = %for.inc.i336
   %260 = zext nneg i32 %add.i.i326 to i64
   br label %for.body27.i
 
@@ -9505,15 +9505,15 @@ do.body.i395:                                     ; preds = %for.body.i331
 for.inc.i336:                                     ; preds = %if.then87.i.i, %if.else84.i.i, %if.then82.i.i631, %if.then87.i36.i, %if.else84.i35.i, %if.then82.i39.i, %tcg_out_sib_offset.exit686, %sw.bb19.i, %if.else.i.i388, %load_arg_reg.exit.i.i
   %allocated_regs.i.1 = phi i32 [ %allocated_regs.i.0, %sw.bb19.i ], [ %or.i.i, %load_arg_reg.exit.i.i ], [ %allocated_regs.i.0, %if.else.i.i388 ], [ %or.i649, %tcg_out_sib_offset.exit686 ], [ %allocated_regs.i.0, %if.then82.i39.i ], [ %allocated_regs.i.0, %if.then87.i36.i ], [ %allocated_regs.i.0, %if.else84.i35.i ], [ %allocated_regs.i.0, %if.then82.i.i631 ], [ %allocated_regs.i.0, %if.then87.i.i ], [ %allocated_regs.i.0, %if.else84.i.i ]
   %cmp.i337 = icmp ugt i64 %indvars.iv.i332, 1
-  br i1 %cmp.i337, label %for.body.i331, label %for.body27.lr.ph.i, !llvm.loop !45
+  br i1 %cmp.i337, label %for.body.i331, label %for.cond23.preheader.i, !llvm.loop !45
 
 for.cond34.preheader.i:                           ; preds = %for.inc32.i, %sw.bb108
   %allocated_regs.i.2 = phi i32 [ %257, %sw.bb108 ], [ %allocated_regs.i.1, %for.inc32.i ]
   %.b.pre188.i = load i1, ptr @tcg_target_call_clobber_regs, align 4
   br label %for.body37.i
 
-for.body27.i:                                     ; preds = %for.inc32.i, %for.body27.lr.ph.i
-  %indvars.iv169.i = phi i64 [ %259, %for.body27.lr.ph.i ], [ %indvars.iv.next170.i, %for.inc32.i ]
+for.body27.i:                                     ; preds = %for.inc32.i, %for.cond23.preheader.i
+  %indvars.iv169.i = phi i64 [ %259, %for.cond23.preheader.i ], [ %indvars.iv.next170.i, %for.inc32.i ]
   %334 = trunc nuw nsw i64 %indvars.iv169.i to i32
   %shl.i338 = shl i32 16, %334
   %and.i339 = and i32 %shl.i338, %254
@@ -10174,7 +10174,7 @@ for.body.lr.ph.i440:                              ; preds = %do.body120
   %output_pref.i307.i = getelementptr inbounds i8, ptr %op.0747, i64 24
   br label %for.body.i442
 
-for.body420.lr.ph.i:                              ; preds = %for.inc.i450
+for.cond416.preheader.i:                          ; preds = %for.inc.i450
   %add417.i = add nuw nsw i64 %conv3.i, %conv.i434
   br label %for.body420.i
 
@@ -10675,10 +10675,10 @@ for.inc.i450:                                     ; preds = %if.end408.i, %if.th
   %i_allocated_regs.1.i = phi i32 [ %i_allocated_regs.0669.i, %if.then.i540 ], [ %or415.i, %if.end408.i ]
   %indvars.iv.next.i451 = add nuw nsw i64 %indvars.iv.i443, 1
   %exitcond.not.i452 = icmp eq i64 %indvars.iv.next.i451, %conv3.i
-  br i1 %exitcond.not.i452, label %for.body420.lr.ph.i, label %for.body.i442, !llvm.loop !52
+  br i1 %exitcond.not.i452, label %for.cond416.preheader.i, label %for.body.i442, !llvm.loop !52
 
-for.body420.i:                                    ; preds = %for.inc430.i, %for.body420.lr.ph.i
-  %indvars.iv683.i = phi i64 [ %conv.i434, %for.body420.lr.ph.i ], [ %indvars.iv.next684.i, %for.inc430.i ]
+for.body420.i:                                    ; preds = %for.inc430.i, %for.cond416.preheader.i
+  %indvars.iv683.i = phi i64 [ %conv.i434, %for.cond416.preheader.i ], [ %indvars.iv.next684.i, %for.inc430.i ]
   %510 = trunc nuw nsw i64 %indvars.iv683.i to i32
   %shl421.i = shl i32 16, %510
   %and422.i = and i32 %shl421.i, %424
@@ -15519,10 +15519,7 @@ for.body87.lr.ph:                                 ; preds = %la_cross_call.exit
   %58 = zext nneg i32 %bf.lshr.i to i64
   br label %for.body87
 
-for.cond120.preheader:                            ; preds = %for.inc118
-  br i1 %cmp67389.not, label %sw.epilog441, label %for.body123.lr.ph
-
-for.body123.lr.ph:                                ; preds = %for.cond120.preheader
+for.body123.lr.ph:                                ; preds = %for.inc118
   %in125 = getelementptr inbounds i8, ptr %25, i64 32
   %59 = zext nneg i32 %bf.lshr.i to i64
   %wide.trip.count442 = zext nneg i32 %bf.clear.i to i64
@@ -15576,7 +15573,7 @@ sw.epilog:                                        ; preds = %sw.bb101, %sw.defau
 
 for.inc118:                                       ; preds = %for.body87, %sw.epilog
   %cmp85 = icmp ugt i64 %indvars.iv434, 1
-  br i1 %cmp85, label %for.body87, label %for.cond120.preheader, !llvm.loop !81
+  br i1 %cmp85, label %for.body87, label %for.body123.lr.ph, !llvm.loop !81
 
 for.body123:                                      ; preds = %for.body123.lr.ph, %for.inc152
   %indvars.iv438 = phi i64 [ 0, %for.body123.lr.ph ], [ %indvars.iv.next439, %for.inc152 ]
@@ -16075,10 +16072,7 @@ for.body352.lr.ph:                                ; preds = %if.end347
   %140 = zext nneg i32 %add349 to i64
   br label %for.body352
 
-for.cond367.preheader:                            ; preds = %for.body352
-  br i1 %cmp350403.not, label %for.end392, label %for.body371.lr.ph
-
-for.body371.lr.ph:                                ; preds = %for.cond367.preheader
+for.body371.lr.ph:                                ; preds = %for.body352
   %args372 = getelementptr inbounds i8, ptr %op.0413, i64 32
   %141 = zext i8 %nb_oargs.0.shrunk472 to i64
   %142 = zext nneg i32 %add349 to i64
@@ -16100,7 +16094,7 @@ for.body352:                                      ; preds = %for.body352.lr.ph, 
   %arg_life.10 = or i32 %or362, %arg_life.9404
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %cmp350 = icmp ult i64 %indvars.iv.next455, %140
-  br i1 %cmp350, label %for.body352, label %for.cond367.preheader, !llvm.loop !87
+  br i1 %cmp350, label %for.body352, label %for.body371.lr.ph, !llvm.loop !87
 
 for.body371:                                      ; preds = %for.body371.lr.ph, %for.inc390
   %indvars.iv457 = phi i64 [ %141, %for.body371.lr.ph ], [ %indvars.iv.next458, %for.inc390 ]
@@ -16132,8 +16126,8 @@ for.inc390:                                       ; preds = %for.body371, %if.th
   %cmp369 = icmp ult i64 %indvars.iv.next458, %142
   br i1 %cmp369, label %for.body371, label %for.end392, !llvm.loop !88
 
-for.end392:                                       ; preds = %for.inc390, %if.end347, %for.cond367.preheader
-  %arg_life.9.lcssa480 = phi i32 [ %arg_life.10, %for.cond367.preheader ], [ %arg_life.6.lcssa, %if.end347 ], [ %arg_life.10, %for.inc390 ]
+for.end392:                                       ; preds = %for.inc390, %if.end347
+  %arg_life.9.lcssa480 = phi i32 [ %arg_life.6.lcssa, %if.end347 ], [ %arg_life.10, %for.inc390 ]
   switch i32 %opc.0470, label %for.cond407.preheader [
     i32 5, label %sw.bb393
     i32 63, label %sw.bb393
@@ -16215,8 +16209,8 @@ if.end431:                                        ; preds = %output_pref.exit, %
   %cmp409 = icmp ult i64 %indvars.iv.next461, %155
   br i1 %cmp409, label %for.body411, label %sw.epilog441, !llvm.loop !89
 
-sw.epilog441:                                     ; preds = %for.inc152, %if.end431, %la_cross_call.exit, %for.cond120.preheader, %for.cond407.preheader, %if.then396, %sw.bb393, %land.rhs, %do_remove, %la_reset_pref.exit252
-  %arg_life.5 = phi i32 [ %arg_life.9.lcssa480, %if.then396 ], [ %arg_life.9.lcssa480, %sw.bb393 ], [ 0, %do_remove ], [ 0, %la_reset_pref.exit252 ], [ 0, %land.rhs ], [ %arg_life.9.lcssa480, %for.cond407.preheader ], [ %arg_life.3.lcssa, %for.cond120.preheader ], [ %arg_life.3.lcssa, %la_cross_call.exit ], [ %arg_life.9.lcssa480, %if.end431 ], [ %arg_life.3.lcssa, %for.inc152 ]
+sw.epilog441:                                     ; preds = %for.inc152, %if.end431, %la_cross_call.exit, %for.cond407.preheader, %if.then396, %sw.bb393, %land.rhs, %do_remove, %la_reset_pref.exit252
+  %arg_life.5 = phi i32 [ %arg_life.9.lcssa480, %if.then396 ], [ %arg_life.9.lcssa480, %sw.bb393 ], [ 0, %do_remove ], [ 0, %la_reset_pref.exit252 ], [ 0, %land.rhs ], [ %arg_life.9.lcssa480, %for.cond407.preheader ], [ %arg_life.3.lcssa, %la_cross_call.exit ], [ %arg_life.9.lcssa480, %if.end431 ], [ %arg_life.3.lcssa, %for.inc152 ]
   %life = getelementptr inbounds i8, ptr %op.0413, i64 4
   store i32 %arg_life.5, ptr %life, align 4
   %tobool.not = icmp eq ptr %23, null

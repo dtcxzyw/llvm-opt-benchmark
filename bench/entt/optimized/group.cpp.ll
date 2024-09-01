@@ -38025,16 +38025,13 @@ for.inc:                                          ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #25
   %dec.i = add nsw i64 %__begin1.sroa.6.0597, -1
   %cmp.i.i.not = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i.i.not, label %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i, label %for.body
+  br i1 %cmp.i.i.not, label %for.body.lr.ph.i, label %for.body
 
 cleanup54:                                        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %_ZN7testing7MessageD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #25
   br label %cleanup168
 
-_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i: ; preds = %for.inc
-  br i1 %cmp.i.i.not596, label %for.end134.thread619, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i
+for.body.lr.ph.i:                                 ; preds = %for.inc
   %sub.ptr.rhs.cast.i.i.i.i457 = ptrtoint ptr %76 to i64
   %sub.ptr.lhs.cast.i.i.i.i458 = ptrtoint ptr %75 to i64
   %sub.ptr.sub.i.i.i.i459 = sub i64 %sub.ptr.lhs.cast.i.i.i.i458, %sub.ptr.rhs.cast.i.i.i.i457
@@ -38215,8 +38212,8 @@ _ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13bas
   %cmp.i.i.i469.not598 = icmp eq ptr %.pre600, %.pre601
   br i1 %cmp.i.i.i469.not598, label %for.end134.thread619, label %for.body70.lr.ph
 
-for.end134.thread619:                             ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE4eachEv.exit
-  %119 = phi ptr [ %75, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i ], [ %.pre600, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE4eachEv.exit ], [ %75, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit ]
+for.end134.thread619:                             ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE4eachEv.exit
+  %119 = phi ptr [ %.pre600, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE4eachEv.exit ], [ %75, %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IN4test5emptyES6_SaISE_EvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp135) #25
   %.pre = ptrtoint ptr %119 to i64

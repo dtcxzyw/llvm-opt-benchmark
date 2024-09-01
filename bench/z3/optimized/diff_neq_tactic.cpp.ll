@@ -2813,8 +2813,8 @@ if.end.i:                                         ; preds = %while.cond
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit:                  ; preds = %while.cond, %if.end.i
   %retval.0.i = phi i32 [ %13, %if.end.i ], [ 0, %while.cond ]
-  %cmp.not = icmp uge i32 %retval.0.i, %retval.0.i.i
-  br i1 %cmp.not, label %return, label %while.body
+  %cmp.not.not.not.not.not = icmp uge i32 %retval.0.i, %retval.0.i.i
+  br i1 %cmp.not.not.not.not.not, label %return, label %while.body
 
 while.body:                                       ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit
   %14 = load ptr, ptr %this, align 8
@@ -2885,7 +2885,7 @@ if.end18:                                         ; preds = %_ZNK6vectorIiLb0EjE
   br i1 %call19, label %while.cond.backedge, label %return
 
 return:                                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit, %if.end18
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 
 eh.resume:                                        ; preds = %ehcleanup13, %cleanup.action
   %.pn.pn11 = phi { ptr, i32 } [ %18, %ehcleanup13 ], [ %.pn.pn12, %cleanup.action ]
@@ -6213,8 +6213,8 @@ while.cond:                                       ; preds = %_ZN15diff_neq_tacti
 _ZNK6vectorIiLb0EjE5emptyEv.exit:                 ; preds = %while.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
-  %cmp3.i.not = icmp eq i32 %2, 0
-  br i1 %cmp3.i.not, label %return, label %_ZN6vectorIiLb0EjE4backEv.exit
+  %cmp3.i = icmp eq i32 %2, 0
+  br i1 %cmp3.i, label %return, label %_ZN6vectorIiLb0EjE4backEv.exit
 
 _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE5emptyEv.exit
   %3 = add i32 %2, -1

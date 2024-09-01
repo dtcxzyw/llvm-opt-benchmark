@@ -394,12 +394,9 @@ define noalias noundef ptr @Pla_GenFromMinterms(ptr noundef %0, ptr nocapture no
 ..critedge2_crit_edge.us:                         ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond44.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !14
+  br i1 %exitcond44.not, label %.lr.ph, label %.lr.ph.us, !llvm.loop !14
 
-.critedge.preheader:                              ; preds = %..critedge2_crit_edge.us
-  br i1 %7, label %.lr.ph, label %.critedge4
-
-.lr.ph:                                           ; preds = %.lr.ph40, %.critedge.preheader
+.lr.ph:                                           ; preds = %..critedge2_crit_edge.us, %.lr.ph40
   %32 = getelementptr i8, ptr %5, i64 32
   %.val36 = load i32, ptr %32, align 8
   %33 = getelementptr i8, ptr %5, i64 96
@@ -419,7 +416,7 @@ define noalias noundef ptr @Pla_GenFromMinterms(ptr noundef %0, ptr nocapture no
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %.critedge4, label %.critedge, !llvm.loop !15
 
-.critedge4:                                       ; preds = %.critedge, %3, %.critedge.preheader
+.critedge4:                                       ; preds = %.critedge, %3
   ret ptr %5
 }
 
@@ -718,112 +715,70 @@ Vec_BitStart.exit:                                ; preds = %3, %11
 .lr.ph.lr.ph:                                     ; preds = %Vec_BitStart.exit
   %19 = add nsw i32 %4, -1
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.lr.ph, label %.lr.ph.us
+  br i1 %.not, label %.backedge.us.us.preheader, label %.lr.ph.split.split.us.us.preheader
 
-.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.split.us39
-  %20 = phi i1 [ %35, %.split.us39 ], [ true, %.lr.ph.lr.ph ]
-  %.0.ph33.us = phi i32 [ %34, %.split.us39 ], [ 0, %.lr.ph.lr.ph ]
-  br i1 %20, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us38, !llvm.loop !17
-
-21:                                               ; preds = %.lr.ph.split.split.us38
-  %.val.us34 = load ptr, ptr %17, align 8
-  %22 = lshr i32 %30, 5
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %.val.us34, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %30, 31
-  %27 = shl nuw i32 1, %26
-  %28 = and i32 %25, %27
-  %.not.us35 = icmp eq i32 %28, 0
-  br i1 %.not.us35, label %.split.us39, label %.outer._crit_edge
-
-.lr.ph.split.split.us38:                          ; preds = %.lr.ph.us
-  %29 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
-  %30 = and i32 %29, %19
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.outer._crit_edge, label %21
-
-.split.us39:                                      ; preds = %39, %21
-  %.pre-phi47 = phi i32 [ %27, %21 ], [ %45, %39 ]
-  %.us-phi25.us = phi i64 [ %23, %21 ], [ %41, %39 ]
-  %.us-phi26.us = phi ptr [ %.val.us34, %21 ], [ %.val.us18.us, %39 ]
-  %.us-phi27.us = phi i32 [ %25, %21 ], [ %43, %39 ]
-  %32 = getelementptr inbounds i32, ptr %.us-phi26.us, i64 %.us-phi25.us
-  %33 = or i32 %.us-phi27.us, %.pre-phi47
-  store i32 %33, ptr %32, align 4
-  %34 = add nuw nsw i32 %.0.ph33.us, 1
-  %35 = icmp slt i32 %34, %1
-  %exitcond.not = icmp eq i32 %34, %1
-  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !17
-
-.lr.ph.split.split.us.us:                         ; preds = %.lr.ph.us, %.lr.ph.split.split.us.us.backedge
-  %36 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
-  %37 = and i32 %36, %19
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.lr.ph.split.split.us.us.backedge, label %39
-
-39:                                               ; preds = %.lr.ph.split.split.us.us
-  %.val.us18.us = load ptr, ptr %17, align 8
-  %40 = lshr i32 %37, 5
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %.val.us18.us, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %37, 31
-  %45 = shl nuw i32 1, %44
-  %46 = and i32 %43, %45
-  %.not.us19.us = icmp eq i32 %46, 0
-  br i1 %.not.us19.us, label %.split.us39, label %.lr.ph.split.split.us.us.backedge
-
-.lr.ph.split.split.us.us.backedge:                ; preds = %39, %.lr.ph.split.split.us.us
+.lr.ph.split.split.us.us.preheader:               ; preds = %.lr.ph.lr.ph, %.split.us39
+  %.0.ph33.us = phi i32 [ %23, %.split.us39 ], [ 0, %.lr.ph.lr.ph ]
   br label %.lr.ph.split.split.us.us
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split.us
-  %47 = phi i1 [ %69, %.split.us ], [ true, %.lr.ph.lr.ph ]
-  %.0.ph33 = phi i32 [ %68, %.split.us ], [ 0, %.lr.ph.lr.ph ]
-  br i1 %47, label %.backedge.us.us, label %.lr.ph.split.us.split, !llvm.loop !17
+.split.us39:                                      ; preds = %27
+  %20 = getelementptr inbounds i32, ptr %.val.us18.us, i64 %29
+  %21 = shl nuw i32 1, %32
+  %22 = or i32 %31, %21
+  store i32 %22, ptr %20, align 4
+  %23 = add nuw nsw i32 %.0.ph33.us, 1
+  %exitcond.not = icmp eq i32 %23, %1
+  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.split.split.us.us.preheader, !llvm.loop !17
 
-.backedge.us.us:                                  ; preds = %.lr.ph, %.backedge.us.us
-  %48 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
-  %49 = and i32 %48, %19
+.lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.split.us.us.backedge, %.lr.ph.split.split.us.us.preheader
+  %24 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
+  %25 = and i32 %24, %19
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.lr.ph.split.split.us.us.backedge, label %27
+
+27:                                               ; preds = %.lr.ph.split.split.us.us
+  %.val.us18.us = load ptr, ptr %17, align 8
+  %28 = lshr i32 %25, 5
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %.val.us18.us, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %25, 31
+  %33 = shl nuw i32 1, %32
+  %34 = and i32 %31, %33
+  %.not.us19.us = icmp eq i32 %34, 0
+  br i1 %.not.us19.us, label %.split.us39, label %.lr.ph.split.split.us.us.backedge
+
+.lr.ph.split.split.us.us.backedge:                ; preds = %27, %.lr.ph.split.split.us.us
+  br label %.lr.ph.split.split.us.us
+
+.backedge.us.us.preheader:                        ; preds = %.lr.ph.lr.ph, %.split.us
+  %.0.ph33 = phi i32 [ %47, %.split.us ], [ 0, %.lr.ph.lr.ph ]
+  br label %.backedge.us.us
+
+.backedge.us.us:                                  ; preds = %.backedge.us.us.preheader, %.backedge.us.us
+  %35 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
+  %36 = and i32 %35, %19
   %.val.us.us = load ptr, ptr %17, align 8
-  %50 = lshr i32 %49, 5
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %.val.us.us, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %49, 31
-  %55 = shl nuw i32 1, %54
-  %56 = and i32 %53, %55
-  %.not.us.us = icmp eq i32 %56, 0
+  %37 = lshr i32 %36, 5
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %.val.us.us, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %36, 31
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %40, %42
+  %.not.us.us = icmp eq i32 %43, 0
   br i1 %.not.us.us, label %.split.us, label %.backedge.us.us
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph
-  %57 = tail call i32 @Gia_ManRandom(i32 noundef 0) #17
-  %58 = and i32 %57, %19
-  %.val.us = load ptr, ptr %17, align 8
-  %59 = lshr i32 %58, 5
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %.val.us, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = and i32 %58, 31
-  %64 = shl nuw i32 1, %63
-  %65 = and i32 %62, %64
-  %.not.us = icmp eq i32 %65, 0
-  br i1 %.not.us, label %.split.us, label %.outer._crit_edge
+.split.us:                                        ; preds = %.backedge.us.us
+  %44 = getelementptr inbounds i32, ptr %.val.us.us, i64 %38
+  %45 = shl nuw i32 1, %41
+  %46 = or i32 %40, %45
+  store i32 %46, ptr %44, align 4
+  %47 = add nuw nsw i32 %.0.ph33, 1
+  %exitcond46.not = icmp eq i32 %47, %1
+  br i1 %exitcond46.not, label %.outer._crit_edge, label %.backedge.us.us.preheader, !llvm.loop !17
 
-.split.us:                                        ; preds = %.backedge.us.us, %.lr.ph.split.us.split
-  %.pre-phi = phi i32 [ %64, %.lr.ph.split.us.split ], [ %55, %.backedge.us.us ]
-  %.us-phi29 = phi i64 [ %60, %.lr.ph.split.us.split ], [ %51, %.backedge.us.us ]
-  %.us-phi30 = phi ptr [ %.val.us, %.lr.ph.split.us.split ], [ %.val.us.us, %.backedge.us.us ]
-  %.us-phi31 = phi i32 [ %62, %.lr.ph.split.us.split ], [ %53, %.backedge.us.us ]
-  %66 = getelementptr inbounds i32, ptr %.us-phi30, i64 %.us-phi29
-  %67 = or i32 %.us-phi31, %.pre-phi
-  store i32 %67, ptr %66, align 4
-  %68 = add nuw nsw i32 %.0.ph33, 1
-  %69 = icmp slt i32 %68, %1
-  %exitcond46.not = icmp eq i32 %68, %1
-  br i1 %exitcond46.not, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
-
-.outer._crit_edge:                                ; preds = %.lr.ph.split.split.us38, %21, %.split.us39, %.lr.ph.split.us.split, %.split.us, %Vec_BitStart.exit
+.outer._crit_edge:                                ; preds = %.split.us39, %.split.us, %Vec_BitStart.exit
   ret ptr %9
 }
 
@@ -834,188 +789,286 @@ define noalias noundef ptr @Pla_ManGenerate(i32 noundef %0, i32 noundef %1, i32 
   %5 = alloca [1000 x i8], align 16
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull @.str.15, i32 noundef %0, i32 noundef %1, i32 noundef %2) #17
   %7 = call fastcc ptr @Pla_ManAlloc(ptr noundef nonnull %5, i32 noundef %0, i32 noundef %1, i32 noundef %2)
-  %8 = call ptr @Pla_GenRandom(i32 noundef %0, i32 noundef %2, i32 noundef 0)
-  %9 = getelementptr i8, ptr %8, i64 4
-  %.val64 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val64, 0
-  %11 = getelementptr i8, ptr %8, i64 8
-  %.val56 = load ptr, ptr %11, align 8
-  br i1 %10, label %.lr.ph73, label %._crit_edge
+  %8 = shl nuw i32 1, %0
+  %9 = ashr i32 %8, 5
+  %10 = icmp ult i32 %0, 5
+  %11 = zext i1 %10 to i32
+  %12 = add nsw i32 %9, %11
+  %13 = shl i32 %12, 5
+  %.not.i.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i.i, label %Vec_BitStart.exit.i, label %14
 
-.lr.ph73:                                         ; preds = %4
-  %12 = getelementptr i8, ptr %7, i64 28
-  %13 = getelementptr i8, ptr %7, i64 80
-  %14 = icmp sgt i32 %0, 0
-  br i1 %14, label %.lr.ph73.split.us, label %._crit_edge
+14:                                               ; preds = %4
+  %15 = sext i32 %12 to i64
+  %16 = shl nsw i64 %15, 2
+  %17 = call noalias ptr @malloc(i64 noundef %16) #18
+  br label %Vec_BitStart.exit.i
 
-.lr.ph73.split.us:                                ; preds = %.lr.ph73, %..loopexit68_crit_edge.us
-  %.072.us = phi i32 [ %.1.us, %..loopexit68_crit_edge.us ], [ 0, %.lr.ph73 ]
-  %.04970.us = phi i32 [ %40, %..loopexit68_crit_edge.us ], [ 0, %.lr.ph73 ]
-  %15 = lshr i32 %.04970.us, 5
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %.val56, i64 %16
-  %18 = load i32, ptr %17, align 4
-  %19 = and i32 %.04970.us, 31
-  %20 = shl nuw i32 1, %19
-  %21 = and i32 %18, %20
-  %.not54.us = icmp eq i32 %21, 0
-  br i1 %.not54.us, label %..loopexit68_crit_edge.us, label %.lr.ph.us
+Vec_BitStart.exit.i:                              ; preds = %14, %4
+  %.pre-phi8.i.i = phi i64 [ %16, %14 ], [ 0, %4 ]
+  %18 = phi ptr [ %17, %14 ], [ null, %4 ]
+  call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %.pre-phi8.i.i, i1 false)
+  %19 = icmp sgt i32 %2, 0
+  br i1 %19, label %.lr.ph.lr.ph.i, label %Pla_GenRandom.exit
 
-.lr.ph.us:                                        ; preds = %.lr.ph73.split.us
-  %.val58.us = load i32, ptr %12, align 4
-  %.val59.us = load ptr, ptr %13, align 8
-  %22 = mul nsw i32 %.val58.us, %.072.us
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i64, ptr %.val59.us, i64 %23
-  br label %25
+.lr.ph.lr.ph.i:                                   ; preds = %Vec_BitStart.exit.i
+  %20 = add nsw i32 %8, -1
+  br label %.backedge.us.us.preheader.i
 
-25:                                               ; preds = %.lr.ph.us, %25
-  %.04769.us = phi i32 [ 0, %.lr.ph.us ], [ %38, %25 ]
-  %26 = shl nuw i32 1, %.04769.us
-  %27 = and i32 %26, %.04970.us
-  %.not55.us = icmp eq i32 %27, 0
-  %28 = select i1 %.not55.us, i64 1, i64 2
-  %29 = shl nuw i32 %.04769.us, 1
-  %30 = and i32 %29, 62
-  %31 = zext nneg i32 %30 to i64
-  %32 = shl nuw i64 %28, %31
-  %33 = lshr i32 %.04769.us, 5
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds i64, ptr %24, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = or i64 %36, %32
-  store i64 %37, ptr %35, align 8
-  %38 = add nuw nsw i32 %.04769.us, 1
-  %exitcond.not = icmp eq i32 %38, %0
-  br i1 %exitcond.not, label %..loopexit68_crit_edge.us.loopexit, label %25, !llvm.loop !18
+.backedge.us.us.preheader.i:                      ; preds = %.split.us.i, %.lr.ph.lr.ph.i
+  %.0.ph33.i = phi i32 [ %32, %.split.us.i ], [ 0, %.lr.ph.lr.ph.i ]
+  br label %.backedge.us.us.i
 
-..loopexit68_crit_edge.us.loopexit:               ; preds = %25
-  %39 = add nsw i32 %.072.us, 1
-  br label %..loopexit68_crit_edge.us
+.backedge.us.us.i:                                ; preds = %.backedge.us.us.i, %.backedge.us.us.preheader.i
+  %21 = call i32 @Gia_ManRandom(i32 noundef 0) #17
+  %22 = and i32 %21, %20
+  %23 = lshr i32 %22, 5
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds i32, ptr %18, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %22, 31
+  %28 = shl nuw i32 1, %27
+  %29 = and i32 %28, %26
+  %.not.us.us.i = icmp eq i32 %29, 0
+  br i1 %.not.us.us.i, label %.split.us.i, label %.backedge.us.us.i
 
-..loopexit68_crit_edge.us:                        ; preds = %..loopexit68_crit_edge.us.loopexit, %.lr.ph73.split.us
-  %.1.us = phi i32 [ %.072.us, %.lr.ph73.split.us ], [ %39, %..loopexit68_crit_edge.us.loopexit ]
-  %40 = add nuw nsw i32 %.04970.us, 1
-  %exitcond87.not = icmp eq i32 %40, %.val64
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph73.split.us, !llvm.loop !19
+.split.us.i:                                      ; preds = %.backedge.us.us.i
+  %30 = getelementptr inbounds i32, ptr %18, i64 %24
+  %31 = or i32 %28, %26
+  store i32 %31, ptr %30, align 4
+  %32 = add nuw nsw i32 %.0.ph33.i, 1
+  %exitcond46.not.i = icmp eq i32 %32, %2
+  br i1 %exitcond46.not.i, label %Pla_GenRandom.exit, label %.backedge.us.us.preheader.i, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %..loopexit68_crit_edge.us, %4, %.lr.ph73
-  %.not.i = icmp eq ptr %.val56, null
-  br i1 %.not.i, label %Vec_BitFree.exit, label %41
+Pla_GenRandom.exit:                               ; preds = %.split.us.i, %Vec_BitStart.exit.i
+  %33 = icmp sgt i32 %12, 0
+  br i1 %33, label %.lr.ph84, label %._crit_edge
 
-41:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %.val56) #17
+.lr.ph84:                                         ; preds = %Pla_GenRandom.exit
+  %34 = getelementptr i8, ptr %7, i64 28
+  %35 = getelementptr i8, ptr %7, i64 80
+  %36 = icmp sgt i32 %0, 0
+  br i1 %36, label %.lr.ph84.split.us.preheader, label %._crit_edge
+
+.lr.ph84.split.us.preheader:                      ; preds = %.lr.ph84
+  %smax = call i32 @llvm.smax.i32(i32 %13, i32 1)
+  br label %.lr.ph84.split.us
+
+.lr.ph84.split.us:                                ; preds = %.lr.ph84.split.us.preheader, %..loopexit73_crit_edge.us
+  %.083.us = phi i32 [ %.1.us, %..loopexit73_crit_edge.us ], [ 0, %.lr.ph84.split.us.preheader ]
+  %.04981.us = phi i32 [ %62, %..loopexit73_crit_edge.us ], [ 0, %.lr.ph84.split.us.preheader ]
+  %37 = lshr i32 %.04981.us, 5
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %18, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %.04981.us, 31
+  %42 = shl nuw i32 1, %41
+  %43 = and i32 %40, %42
+  %.not54.us = icmp eq i32 %43, 0
+  br i1 %.not54.us, label %..loopexit73_crit_edge.us, label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph84.split.us
+  %.val58.us = load i32, ptr %34, align 4
+  %.val59.us = load ptr, ptr %35, align 8
+  %44 = mul nsw i32 %.val58.us, %.083.us
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i64, ptr %.val59.us, i64 %45
+  br label %47
+
+47:                                               ; preds = %.lr.ph.us, %47
+  %.04780.us = phi i32 [ 0, %.lr.ph.us ], [ %60, %47 ]
+  %48 = shl nuw i32 1, %.04780.us
+  %49 = and i32 %48, %.04981.us
+  %.not55.us = icmp eq i32 %49, 0
+  %50 = select i1 %.not55.us, i64 1, i64 2
+  %51 = shl nuw i32 %.04780.us, 1
+  %52 = and i32 %51, 62
+  %53 = zext nneg i32 %52 to i64
+  %54 = shl nuw i64 %50, %53
+  %55 = lshr i32 %.04780.us, 5
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds i64, ptr %46, i64 %56
+  %58 = load i64, ptr %57, align 8
+  %59 = or i64 %58, %54
+  store i64 %59, ptr %57, align 8
+  %60 = add nuw nsw i32 %.04780.us, 1
+  %exitcond.not = icmp eq i32 %60, %0
+  br i1 %exitcond.not, label %..loopexit73_crit_edge.us.loopexit, label %47, !llvm.loop !18
+
+..loopexit73_crit_edge.us.loopexit:               ; preds = %47
+  %61 = add nsw i32 %.083.us, 1
+  br label %..loopexit73_crit_edge.us
+
+..loopexit73_crit_edge.us:                        ; preds = %..loopexit73_crit_edge.us.loopexit, %.lr.ph84.split.us
+  %.1.us = phi i32 [ %.083.us, %.lr.ph84.split.us ], [ %61, %..loopexit73_crit_edge.us.loopexit ]
+  %62 = add nuw nsw i32 %.04981.us, 1
+  %exitcond101.not = icmp eq i32 %62, %smax
+  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph84.split.us, !llvm.loop !19
+
+._crit_edge:                                      ; preds = %..loopexit73_crit_edge.us, %.lr.ph84, %Pla_GenRandom.exit
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %Vec_BitFree.exit, label %63
+
+63:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef nonnull %18) #17
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %._crit_edge, %41
-  call void @free(ptr noundef nonnull %8) #17
-  %42 = icmp sgt i32 %1, 1
-  br i1 %42, label %48, label %.preheader
+Vec_BitFree.exit:                                 ; preds = %._crit_edge, %63
+  %64 = icmp sgt i32 %1, 1
+  br i1 %64, label %70, label %.preheader
 
 .preheader:                                       ; preds = %Vec_BitFree.exit
-  %43 = getelementptr i8, ptr %7, i64 44
-  %.val57 = load i32, ptr %43, align 4
-  %44 = icmp sgt i32 %.val57, 0
-  br i1 %44, label %.lr.ph, label %.critedge
+  %65 = getelementptr i8, ptr %7, i64 44
+  %.val57 = load i32, ptr %65, align 4
+  %66 = icmp sgt i32 %.val57, 0
+  br i1 %66, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %45 = getelementptr i8, ptr %7, i64 32
-  %.val60 = load i32, ptr %45, align 8
-  %46 = getelementptr i8, ptr %7, i64 96
-  %.val61 = load ptr, ptr %46, align 8
-  %47 = sext i32 %.val60 to i64
+  %67 = getelementptr i8, ptr %7, i64 32
+  %.val60 = load i32, ptr %67, align 8
+  %68 = getelementptr i8, ptr %7, i64 96
+  %.val61 = load ptr, ptr %68, align 8
+  %69 = sext i32 %.val60 to i64
   %wide.trip.count = zext nneg i32 %.val57 to i64
-  br label %82
+  br label %127
 
-48:                                               ; preds = %Vec_BitFree.exit
-  %49 = call ptr @Pla_GenRandom(i32 noundef %1, i32 noundef %2, i32 noundef 1)
-  %50 = getelementptr i8, ptr %49, i64 4
-  %.val65 = load i32, ptr %50, align 4
-  %51 = icmp sgt i32 %.val65, 0
-  %52 = getelementptr i8, ptr %49, i64 8
-  %.val = load ptr, ptr %52, align 8
-  br i1 %51, label %.lr.ph82.split.us.preheader, label %._crit_edge83
+70:                                               ; preds = %Vec_BitFree.exit
+  %71 = shl nuw i32 1, %1
+  %72 = ashr i32 %71, 5
+  %73 = icmp ult i32 %1, 5
+  %74 = zext i1 %73 to i32
+  %75 = add nsw i32 %72, %74
+  %76 = shl i32 %75, 5
+  %.not.i.i.i66 = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i66, label %Vec_BitStart.exit.i67, label %77
 
-.lr.ph82.split.us.preheader:                      ; preds = %48
-  %53 = getelementptr i8, ptr %7, i64 32
-  %54 = getelementptr i8, ptr %7, i64 96
-  br label %.lr.ph82.split.us
+77:                                               ; preds = %70
+  %78 = sext i32 %75 to i64
+  %79 = shl nsw i64 %78, 2
+  %80 = call noalias ptr @malloc(i64 noundef %79) #18
+  br label %Vec_BitStart.exit.i67
 
-.lr.ph82.split.us:                                ; preds = %.lr.ph82.split.us.preheader, %..loopexit_crit_edge.us
-  %.280.us = phi i32 [ %.3.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph82.split.us.preheader ]
-  %.15078.us = phi i32 [ %80, %..loopexit_crit_edge.us ], [ 0, %.lr.ph82.split.us.preheader ]
-  %55 = lshr i32 %.15078.us, 5
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %.val, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %.15078.us, 31
-  %60 = shl nuw i32 1, %59
-  %61 = and i32 %58, %60
-  %.not.us = icmp eq i32 %61, 0
-  br i1 %.not.us, label %..loopexit_crit_edge.us, label %.lr.ph77.us
+Vec_BitStart.exit.i67:                            ; preds = %77, %70
+  %.pre-phi8.i.i68 = phi i64 [ %79, %77 ], [ 0, %70 ]
+  %81 = phi ptr [ %80, %77 ], [ null, %70 ]
+  call void @llvm.memset.p0.i64(ptr align 4 %81, i8 0, i64 %.pre-phi8.i.i68, i1 false)
+  br i1 %19, label %.lr.ph.lr.ph.i69, label %Pla_GenRandom.exit70
 
-.lr.ph77.us:                                      ; preds = %.lr.ph82.split.us
-  %.val62.us = load i32, ptr %53, align 8
-  %.val63.us = load ptr, ptr %54, align 8
-  %62 = mul nsw i32 %.val62.us, %.280.us
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i64, ptr %.val63.us, i64 %63
-  br label %65
+.lr.ph.lr.ph.i69:                                 ; preds = %Vec_BitStart.exit.i67
+  %82 = add nsw i32 %71, -1
+  br label %.lr.ph.split.split.us.us.preheader.i
 
-65:                                               ; preds = %.lr.ph77.us, %65
-  %.14875.us = phi i32 [ 0, %.lr.ph77.us ], [ %78, %65 ]
-  %66 = shl nuw i32 1, %.14875.us
-  %67 = and i32 %66, %.15078.us
-  %.not53.us = icmp eq i32 %67, 0
-  %68 = select i1 %.not53.us, i64 1, i64 2
-  %69 = shl nuw i32 %.14875.us, 1
-  %70 = and i32 %69, 62
-  %71 = zext nneg i32 %70 to i64
-  %72 = shl nuw i64 %68, %71
-  %73 = lshr i32 %.14875.us, 5
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %64, i64 %74
-  %76 = load i64, ptr %75, align 8
-  %77 = or i64 %76, %72
-  store i64 %77, ptr %75, align 8
-  %78 = add nuw nsw i32 %.14875.us, 1
-  %exitcond90.not = icmp eq i32 %78, %1
-  br i1 %exitcond90.not, label %..loopexit_crit_edge.us.loopexit, label %65, !llvm.loop !20
+.lr.ph.split.split.us.us.preheader.i:             ; preds = %.split.us39.i, %.lr.ph.lr.ph.i69
+  %.0.ph33.us.i = phi i32 [ %85, %.split.us39.i ], [ 0, %.lr.ph.lr.ph.i69 ]
+  br label %.lr.ph.split.split.us.us.i
 
-..loopexit_crit_edge.us.loopexit:                 ; preds = %65
-  %79 = add nsw i32 %.280.us, 1
-  br label %..loopexit_crit_edge.us
+.split.us39.i:                                    ; preds = %89
+  %83 = getelementptr inbounds i32, ptr %81, i64 %91
+  %84 = or i32 %93, %95
+  store i32 %84, ptr %83, align 4
+  %85 = add nuw nsw i32 %.0.ph33.us.i, 1
+  %exitcond.not.i = icmp eq i32 %85, %2
+  br i1 %exitcond.not.i, label %Pla_GenRandom.exit70, label %.lr.ph.split.split.us.us.preheader.i, !llvm.loop !17
 
-..loopexit_crit_edge.us:                          ; preds = %..loopexit_crit_edge.us.loopexit, %.lr.ph82.split.us
-  %.3.us = phi i32 [ %.280.us, %.lr.ph82.split.us ], [ %79, %..loopexit_crit_edge.us.loopexit ]
-  %80 = add nuw nsw i32 %.15078.us, 1
-  %exitcond91.not = icmp eq i32 %80, %.val65
-  br i1 %exitcond91.not, label %._crit_edge83, label %.lr.ph82.split.us, !llvm.loop !21
+.lr.ph.split.split.us.us.i:                       ; preds = %.lr.ph.split.split.us.us.i.backedge, %.lr.ph.split.split.us.us.preheader.i
+  %86 = call i32 @Gia_ManRandom(i32 noundef 0) #17
+  %87 = and i32 %86, %82
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.lr.ph.split.split.us.us.i.backedge, label %89
 
-._crit_edge83:                                    ; preds = %..loopexit_crit_edge.us, %48
-  %.not.i66 = icmp eq ptr %.val, null
-  br i1 %.not.i66, label %Vec_BitFree.exit67, label %81
+89:                                               ; preds = %.lr.ph.split.split.us.us.i
+  %90 = lshr i32 %87, 5
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds i32, ptr %81, i64 %91
+  %93 = load i32, ptr %92, align 4
+  %94 = and i32 %87, 31
+  %95 = shl nuw i32 1, %94
+  %96 = and i32 %93, %95
+  %.not.us19.us.i = icmp eq i32 %96, 0
+  br i1 %.not.us19.us.i, label %.split.us39.i, label %.lr.ph.split.split.us.us.i.backedge
 
-81:                                               ; preds = %._crit_edge83
-  call void @free(ptr noundef nonnull %.val) #17
-  br label %Vec_BitFree.exit67
+.lr.ph.split.split.us.us.i.backedge:              ; preds = %89, %.lr.ph.split.split.us.us.i
+  br label %.lr.ph.split.split.us.us.i
 
-Vec_BitFree.exit67:                               ; preds = %._crit_edge83, %81
-  call void @free(ptr noundef nonnull %49) #17
+Pla_GenRandom.exit70:                             ; preds = %.split.us39.i, %Vec_BitStart.exit.i67
+  %97 = icmp sgt i32 %75, 0
+  br i1 %97, label %.lr.ph93, label %._crit_edge94
+
+.lr.ph93:                                         ; preds = %Pla_GenRandom.exit70
+  %98 = getelementptr i8, ptr %7, i64 32
+  %99 = getelementptr i8, ptr %7, i64 96
+  %smax104 = call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %smax106 = call i32 @llvm.smax.i32(i32 %76, i32 1)
+  br label %100
+
+100:                                              ; preds = %.lr.ph93, %.loopexit
+  %.292 = phi i32 [ 0, %.lr.ph93 ], [ %.3, %.loopexit ]
+  %.15090 = phi i32 [ 0, %.lr.ph93 ], [ %125, %.loopexit ]
+  %101 = lshr i32 %.15090, 5
+  %102 = zext nneg i32 %101 to i64
+  %103 = getelementptr inbounds i32, ptr %81, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %.15090, 31
+  %106 = shl nuw i32 1, %105
+  %107 = and i32 %104, %106
+  %.not = icmp eq i32 %107, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph89.preheader
+
+.lr.ph89.preheader:                               ; preds = %100
+  %108 = add nsw i32 %.292, 1
+  %.val62 = load i32, ptr %98, align 8
+  %.val63 = load ptr, ptr %99, align 8
+  %109 = mul nsw i32 %.val62, %.292
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i64, ptr %.val63, i64 %110
+  br label %.lr.ph89
+
+.lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
+  %.14887 = phi i32 [ %124, %.lr.ph89 ], [ 0, %.lr.ph89.preheader ]
+  %112 = shl nuw i32 1, %.14887
+  %113 = and i32 %112, %.15090
+  %.not53 = icmp eq i32 %113, 0
+  %114 = select i1 %.not53, i64 1, i64 2
+  %115 = shl nuw i32 %.14887, 1
+  %116 = and i32 %115, 62
+  %117 = zext nneg i32 %116 to i64
+  %118 = shl nuw i64 %114, %117
+  %119 = lshr i32 %.14887, 5
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds i64, ptr %111, i64 %120
+  %122 = load i64, ptr %121, align 8
+  %123 = or i64 %122, %118
+  store i64 %123, ptr %121, align 8
+  %124 = add nuw nsw i32 %.14887, 1
+  %exitcond105.not = icmp eq i32 %124, %smax104
+  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph89, !llvm.loop !20
+
+.loopexit:                                        ; preds = %.lr.ph89, %100
+  %.3 = phi i32 [ %.292, %100 ], [ %108, %.lr.ph89 ]
+  %125 = add nuw nsw i32 %.15090, 1
+  %exitcond107.not = icmp eq i32 %125, %smax106
+  br i1 %exitcond107.not, label %._crit_edge94, label %100, !llvm.loop !21
+
+._crit_edge94:                                    ; preds = %.loopexit, %Pla_GenRandom.exit70
+  %.not.i71 = icmp eq ptr %81, null
+  br i1 %.not.i71, label %.critedge, label %126
+
+126:                                              ; preds = %._crit_edge94
+  call void @free(ptr noundef nonnull %81) #17
   br label %.critedge
 
-82:                                               ; preds = %.lr.ph, %82
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %83 = mul nsw i64 %indvars.iv, %47
-  %84 = getelementptr inbounds i64, ptr %.val61, i64 %83
-  %85 = load i64, ptr %84, align 8
-  %86 = or i64 %85, 2
-  store i64 %86, ptr %84, align 8
+127:                                              ; preds = %.lr.ph, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
+  %128 = mul nsw i64 %indvars.iv, %69
+  %129 = getelementptr inbounds i64, ptr %.val61, i64 %128
+  %130 = load i64, ptr %129, align 8
+  %131 = or i64 %130, 2
+  store i64 %131, ptr %129, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond89.not, label %.critedge, label %82, !llvm.loop !22
+  %exitcond103.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond103.not, label %.critedge, label %127, !llvm.loop !22
 
-.critedge:                                        ; preds = %82, %.preheader, %Vec_BitFree.exit67
+.critedge:                                        ; preds = %127, %126, %._crit_edge94, %.preheader
   ret ptr %7
 }
 

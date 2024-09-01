@@ -2176,7 +2176,7 @@ _ZNSt3mapIiN26cmCTestMultiProcessHandler8TestInfoESt4lessIiESaISt4pairIKiS1_EEE1
   br i1 %.not5482, label %..loopexit_crit_edge, label %.lr.ph
 
 ..loopexit_crit_edge:                             ; preds = %110
-  %.pre111 = load ptr, ptr %35, align 8
+  %.pre93 = load ptr, ptr %35, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %110, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34
@@ -2470,7 +2470,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34:   ; preds = %.noexc33, %150
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34, %..loopexit_crit_edge, %84
-  %239 = phi ptr [ %.pre111, %..loopexit_crit_edge ], [ %storemerge.i.i, %84 ], [ %storemerge, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ]
+  %239 = phi ptr [ %.pre93, %..loopexit_crit_edge ], [ %storemerge.i.i, %84 ], [ %storemerge, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ]
   %240 = load ptr, ptr %37, align 8
   %241 = icmp eq ptr %239, %240
   br i1 %241, label %.loopexit56, label %.lr.ph84, !llvm.loop !17
@@ -9480,16 +9480,13 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComp
   store ptr %49, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 0, ptr %53, align 8
-  br i1 %33, label %._crit_edge142, label %.lr.ph141
-
-.lr.ph141:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit
   %54 = getelementptr inbounds i8, ptr %3, i64 8
   %55 = getelementptr inbounds i8, ptr %0, i64 280
   %56 = getelementptr inbounds i8, ptr %0, i64 296
   br label %57
 
-57:                                               ; preds = %.lr.ph141, %_ZN26cmCTestMultiProcessHandler8TestListD2Ev.exit67
-  %.sroa.082.0140 = phi ptr [ %.sroa.090.1, %.lr.ph141 ], [ %137, %_ZN26cmCTestMultiProcessHandler8TestListD2Ev.exit67 ]
+57:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit, %_ZN26cmCTestMultiProcessHandler8TestListD2Ev.exit67
+  %.sroa.082.0140 = phi ptr [ %.sroa.090.1, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit ], [ %137, %_ZN26cmCTestMultiProcessHandler8TestListD2Ev.exit67 ]
   %58 = load i32, ptr %.sroa.082.0140, align 4
   %59 = load ptr, ptr %50, align 8
   %.not10.i.i.i.i19 = icmp eq ptr %59, null
@@ -9749,9 +9746,9 @@ _ZN26cmCTestMultiProcessHandler8TestListD2Ev.exit67: ; preds = %136, %131, %64
   %.pre = load ptr, ptr %50, align 8
   br label %._crit_edge142
 
-._crit_edge142:                                   ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread, %._crit_edge142.loopexit, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit
-  %.sroa.090.0.lcssa156160 = phi ptr [ %.sroa.090.1, %._crit_edge142.loopexit ], [ %.sroa.090.1, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit ], [ %.sroa.090.0.lcssa156.ph, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread ]
-  %138 = phi ptr [ %.pre, %._crit_edge142.loopexit ], [ null, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit ], [ null, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread ]
+._crit_edge142:                                   ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread, %._crit_edge142.loopexit
+  %.sroa.090.0.lcssa156160 = phi ptr [ %.sroa.090.1, %._crit_edge142.loopexit ], [ %.sroa.090.0.lcssa156.ph, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread ]
+  %138 = phi ptr [ %.pre, %._crit_edge142.loopexit ], [ null, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEE14TestComparatorEvT_S8_T0_.exit.thread ]
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %138)
           to label %_ZN26cmCTestMultiProcessHandler7TestSetD2Ev.exit unwind label %139
 

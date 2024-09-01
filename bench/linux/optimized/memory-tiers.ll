@@ -785,8 +785,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %109 = getelementptr inbounds i8, ptr %26, i64 13992
   store volatile ptr %107, ptr %109, align 8
   %110 = icmp eq i32 %23, 63
-  %or.cond = or i1 %110, %108
-  br i1 %or.cond, label %.thread, label %111, !prof !27
+  br i1 %110, label %.thread, label %111, !prof !27
 
 111:                                              ; preds = %set_node_memory_tier.exit
   %112 = add nuw nsw i32 %23, 1

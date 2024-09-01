@@ -11878,8 +11878,8 @@ if.end.i:                                         ; preds = %for.cond
 _ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
   %2 = zext i32 %retval.0.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %2
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %2
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit
   %arrayidx.i.i = getelementptr inbounds %"struct.simplex::simplex<simplex::mpz_ext>::var_info", ptr %0, i64 %indvars.iv
@@ -11918,7 +11918,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %_ZN
   br label %for.cond, !llvm.loop !76
 
 return:                                           ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit, %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23711,8 +23711,8 @@ if.end.i:                                         ; preds = %for.cond
 _ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
   %2 = zext i32 %retval.0.i to i64
-  %cmp.not = icmp uge i64 %indvars.iv, %2
-  br i1 %cmp.not, label %return, label %for.body
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %2
+  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit
   %arrayidx.i.i = getelementptr inbounds %"struct.simplex::simplex<simplex::mpq_ext>::var_info", ptr %0, i64 %indvars.iv
@@ -23751,7 +23751,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %_ZN
   br label %for.cond, !llvm.loop !146
 
 return:                                           ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26050,10 +26050,7 @@ invoke.cont13.lr.ph:                              ; preds = %invoke.cont7
   %wide.trip.count = zext i32 %retval.0.i.i to i64
   br label %invoke.cont13
 
-for.cond105.preheader:                            ; preds = %cleanup
-  br i1 %cmp517.not, label %for.end166, label %for.body107.lr.ph
-
-for.body107.lr.ph:                                ; preds = %for.cond105.preheader
+for.body107.lr.ph:                                ; preds = %cleanup
   %m_num.i.i = getelementptr inbounds i8, ptr %M, i64 64
   %m_kind.i.i.i274 = getelementptr inbounds i8, ptr %ref.tmp130, i64 4
   %m_ptr.i.i.i277 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
@@ -26513,7 +26510,7 @@ cleanup:                                          ; preds = %_ZN7simplex13sparse
   store i32 %dec.i240, ptr %m_refs.i.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond545.not, label %for.cond105.preheader, label %invoke.cont13, !llvm.loop !170
+  br i1 %exitcond545.not, label %for.body107.lr.ph, label %invoke.cont13, !llvm.loop !170
 
 ehcleanup98:                                      ; preds = %lpad57, %lpad19
   %.pn43 = phi { ptr, i32 } [ %35, %lpad19 ], [ %68, %lpad57 ]
@@ -27070,7 +27067,7 @@ for.inc164:                                       ; preds = %for.inc161, %for.bo
   %exitcond555.not = icmp eq i64 %indvars.iv.next552, %wide.trip.count554
   br i1 %exitcond555.not, label %for.end166, label %for.body107, !llvm.loop !172
 
-for.end166:                                       ; preds = %for.inc164, %invoke.cont7, %for.cond105.preheader
+for.end166:                                       ; preds = %for.inc164, %invoke.cont7
   %174 = load ptr, ptr %D, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %174, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i87)
           to label %.noexc.i434 unwind label %terminate.lpad.i433
@@ -27896,10 +27893,7 @@ invoke.cont16.lr.ph:                              ; preds = %_ZN11mpq_managerILb
   %wide.trip.count = zext i32 %retval.0.i.i to i64
   br label %invoke.cont16
 
-for.cond125.preheader:                            ; preds = %cleanup
-  br i1 %cmp715.not, label %for.end186, label %for.body127.lr.ph
-
-for.body127.lr.ph:                                ; preds = %for.cond125.preheader
+for.body127.lr.ph:                                ; preds = %cleanup
   %m_num.i.i372 = getelementptr inbounds i8, ptr %M, i64 64
   %m_kind.i.i.i388 = getelementptr inbounds i8, ptr %ref.tmp147, i64 4
   %m_ptr.i.i.i391 = getelementptr inbounds i8, ptr %ref.tmp147, i64 8
@@ -28678,7 +28672,7 @@ cleanup:                                          ; preds = %_ZN7simplex13sparse
   store i32 %dec.i319, ptr %m_refs.i.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond763.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond763.not, label %for.cond125.preheader, label %invoke.cont16, !llvm.loop !189
+  br i1 %exitcond763.not, label %for.body127.lr.ph, label %invoke.cont16, !llvm.loop !189
 
 for.body127:                                      ; preds = %for.body127.lr.ph, %for.inc184
   %indvars.iv769 = phi i64 [ 0, %for.body127.lr.ph ], [ %indvars.iv.next770, %for.inc184 ]
@@ -29254,7 +29248,7 @@ for.inc184:                                       ; preds = %for.inc181, %for.bo
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count772
   br i1 %exitcond773.not, label %for.end186, label %for.body127, !llvm.loop !191
 
-for.end186:                                       ; preds = %for.inc184, %_ZN11mpq_managerILb0EE3setER3mpqi.exit, %for.cond125.preheader
+for.end186:                                       ; preds = %for.inc184, %_ZN11mpq_managerILb0EE3setER3mpqi.exit
   %204 = load ptr, ptr %last_pv, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %204, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i100)
           to label %.noexc.i569 unwind label %terminate.lpad.i568

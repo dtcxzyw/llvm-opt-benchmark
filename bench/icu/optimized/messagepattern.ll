@@ -1924,8 +1924,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %lor.lhs.false
 
 for.cond.preheader:                               ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %cmp31.i184 = icmp sgt i32 %cond.i, %conv.i46
-  %or.cond33.i186 = and i1 %cmp31.i184, %cmp.i.i48
-  br i1 %or.cond33.i186, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph.i.lr.ph, label %if.then11
+  br i1 %cmp31.i184, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph.i.lr.ph, label %if.then11
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph.i.lr.ph: ; preds = %for.cond.preheader
   %fBuffer.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 26

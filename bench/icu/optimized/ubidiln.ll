@@ -2649,23 +2649,22 @@ for.body40:                                       ; preds = %for.body40.preheade
 for.end54:                                        ; preds = %for.body40
   %invariant.gep = getelementptr i8, ptr %12, i64 -20
   %cmp59132 = icmp sgt i32 %markFound.2, 0
-  %14 = select i1 %cmp39121, i1 %cmp59132, i1 false
-  br i1 %14, label %for.body60.preheader, label %if.end197
+  br i1 %cmp59132, label %for.body60.preheader, label %if.end197
 
 for.body60.preheader:                             ; preds = %for.end54
-  %15 = load i32, ptr %resultLength, align 8
-  %16 = zext nneg i32 %11 to i64
+  %14 = load i32, ptr %resultLength, align 8
+  %15 = zext nneg i32 %11 to i64
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.preheader, %for.inc103
-  %indvars.iv180 = phi i64 [ %16, %for.body60.preheader ], [ %indvars.iv.next181, %for.inc103 ]
+  %indvars.iv180 = phi i64 [ %15, %for.body60.preheader ], [ %indvars.iv.next181, %for.inc103 ]
   %markFound.3135 = phi i32 [ %markFound.2, %for.body60.preheader ], [ %markFound.5, %for.inc103 ]
-  %k.0134 = phi i32 [ %15, %for.body60.preheader ], [ %k.3, %for.inc103 ]
+  %k.0134 = phi i32 [ %14, %for.body60.preheader ], [ %k.3, %for.inc103 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, -1
   %arrayidx62 = getelementptr inbounds %struct.Run, ptr %12, i64 %indvars.iv.next181
   %insertRemove63 = getelementptr inbounds i8, ptr %arrayidx62, i64 8
-  %17 = load i32, ptr %insertRemove63, align 4
-  %and64 = and i32 %17, 10
+  %16 = load i32, ptr %insertRemove63, align 4
+  %and64 = and i32 %16, 10
   %tobool65.not = icmp eq i32 %and64, 0
   br i1 %tobool65.not, label %if.end71, label %if.then66
 
@@ -2686,43 +2685,43 @@ if.end71:                                         ; preds = %if.then66, %for.bod
 
 cond.true:                                        ; preds = %if.end71
   %gep = getelementptr %struct.Run, ptr %invariant.gep, i64 %indvars.iv180
-  %18 = load i32, ptr %gep, align 4
+  %17 = load i32, ptr %gep, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end71, %cond.true
-  %cond = phi i32 [ %18, %cond.true ], [ 0, %if.end71 ]
+  %cond = phi i32 [ %17, %cond.true ], [ 0, %if.end71 ]
   %visualLimit79 = getelementptr inbounds i8, ptr %arrayidx62, i64 4
-  %19 = load i32, ptr %visualLimit79, align 4
+  %18 = load i32, ptr %visualLimit79, align 4
   %cmp84 = icmp ne i32 %markFound.4.fr, 0
-  %cmp82125 = icmp sgt i32 %19, %cond
-  %20 = and i1 %cmp82125, %cmp84
-  br i1 %20, label %for.body86.preheader, label %for.end94
+  %cmp82125 = icmp sgt i32 %18, %cond
+  %19 = and i1 %cmp82125, %cmp84
+  br i1 %19, label %for.body86.preheader, label %for.end94
 
 for.body86.preheader:                             ; preds = %cond.end
-  %21 = sext i32 %k.1 to i64
-  %22 = sext i32 %19 to i64
-  %23 = sext i32 %cond to i64
+  %20 = sext i32 %k.1 to i64
+  %21 = sext i32 %18 to i64
+  %22 = sext i32 %cond to i64
   br label %for.body86
 
 for.body86:                                       ; preds = %for.body86.preheader, %for.body86
-  %indvars.iv175 = phi i64 [ %22, %for.body86.preheader ], [ %indvars.iv.next176, %for.body86 ]
-  %indvars.iv173 = phi i64 [ %21, %for.body86.preheader ], [ %indvars.iv.next174, %for.body86 ]
+  %indvars.iv175 = phi i64 [ %21, %for.body86.preheader ], [ %indvars.iv.next176, %for.body86 ]
+  %indvars.iv173 = phi i64 [ %20, %for.body86.preheader ], [ %indvars.iv.next174, %for.body86 ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, -1
   %arrayidx88 = getelementptr inbounds i32, ptr %indexMap, i64 %indvars.iv.next176
-  %24 = load i32, ptr %arrayidx88, align 4
+  %23 = load i32, ptr %arrayidx88, align 4
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, -1
   %arrayidx91 = getelementptr inbounds i32, ptr %indexMap, i64 %indvars.iv.next174
-  store i32 %24, ptr %arrayidx91, align 4
-  %cmp82 = icmp sgt i64 %indvars.iv.next176, %23
+  store i32 %23, ptr %arrayidx91, align 4
+  %cmp82 = icmp sgt i64 %indvars.iv.next176, %22
   br i1 %cmp82, label %for.body86, label %for.end94.loopexit, !llvm.loop !55
 
 for.end94.loopexit:                               ; preds = %for.body86
-  %25 = trunc nsw i64 %indvars.iv.next174 to i32
+  %24 = trunc nsw i64 %indvars.iv.next174 to i32
   br label %for.end94
 
 for.end94:                                        ; preds = %for.end94.loopexit, %cond.end
-  %k.2.lcssa = phi i32 [ %k.1, %cond.end ], [ %25, %for.end94.loopexit ]
-  %and95 = and i32 %17, 5
+  %k.2.lcssa = phi i32 [ %k.1, %cond.end ], [ %24, %for.end94.loopexit ]
+  %and95 = and i32 %16, 5
   %tobool96.not = icmp eq i32 %and95, 0
   br i1 %tobool96.not, label %for.inc103, label %if.then97
 
@@ -2739,37 +2738,37 @@ for.inc103:                                       ; preds = %for.end94, %if.then
   %markFound.5 = phi i32 [ %dec101, %if.then97 ], [ %markFound.4.fr, %for.end94 ]
   %cmp58 = icmp sgt i64 %indvars.iv180, 1
   %cmp59 = icmp sgt i32 %markFound.5, 0
-  %26 = select i1 %cmp58, i1 %cmp59, i1 false
-  br i1 %26, label %for.body60, label %if.end197, !llvm.loop !56
+  %25 = select i1 %cmp58, i1 %cmp59, i1 false
+  br i1 %25, label %for.body60, label %if.end197, !llvm.loop !56
 
 if.else106:                                       ; preds = %for.end
   %controlCount = getelementptr inbounds i8, ptr %pBiDi, i64 440
-  %27 = load i32, ptr %controlCount, align 8
-  %cmp107 = icmp sgt i32 %27, 0
+  %26 = load i32, ptr %controlCount, align 8
+  %cmp107 = icmp sgt i32 %26, 0
   br i1 %cmp107, label %if.then108, label %if.end197
 
 if.then108:                                       ; preds = %if.else106
-  %28 = load i32, ptr %runCount, align 8
-  %29 = load ptr, ptr %runs8, align 8
-  %cmp117117 = icmp sgt i32 %28, 0
+  %27 = load i32, ptr %runCount, align 8
+  %28 = load ptr, ptr %runs8, align 8
+  %cmp117117 = icmp sgt i32 %27, 0
   br i1 %cmp117117, label %for.body118.lr.ph, label %if.end197
 
 for.body118.lr.ph:                                ; preds = %if.then108
   %text = getelementptr inbounds i8, ptr %pBiDi, i64 8
-  %wide.trip.count164 = zext nneg i32 %28 to i64
+  %wide.trip.count164 = zext nneg i32 %27 to i64
   br label %for.body118
 
 for.body118:                                      ; preds = %for.body118.lr.ph, %for.inc191
   %indvars.iv161 = phi i64 [ 0, %for.body118.lr.ph ], [ %indvars.iv.next162, %for.inc191 ]
-  %visualStart.4120 = phi i32 [ 0, %for.body118.lr.ph ], [ %30, %for.inc191 ]
+  %visualStart.4120 = phi i32 [ 0, %for.body118.lr.ph ], [ %29, %for.inc191 ]
   %k114.0119 = phi i32 [ 0, %for.body118.lr.ph ], [ %k114.1, %for.inc191 ]
-  %arrayidx120 = getelementptr inbounds %struct.Run, ptr %29, i64 %indvars.iv161
+  %arrayidx120 = getelementptr inbounds %struct.Run, ptr %28, i64 %indvars.iv161
   %visualLimit121 = getelementptr inbounds i8, ptr %arrayidx120, i64 4
-  %30 = load i32, ptr %visualLimit121, align 4
-  %sub122 = sub i32 %30, %visualStart.4120
+  %29 = load i32, ptr %visualLimit121, align 4
+  %sub122 = sub i32 %29, %visualStart.4120
   %insertRemove125 = getelementptr inbounds i8, ptr %arrayidx120, i64 8
-  %31 = load i32, ptr %insertRemove125, align 4
-  %cmp126 = icmp eq i32 %31, 0
+  %30 = load i32, ptr %insertRemove125, align 4
+  %cmp126 = icmp eq i32 %30, 0
   %cmp127 = icmp eq i32 %k114.0119, %visualStart.4120
   %or.cond = select i1 %cmp126, i1 %cmp127, i1 false
   br i1 %or.cond, label %for.inc191, label %if.end130
@@ -2778,30 +2777,30 @@ if.end130:                                        ; preds = %for.body118
   br i1 %cmp126, label %for.cond136.preheader, label %if.end147
 
 for.cond136.preheader:                            ; preds = %if.end130
-  %cmp137113 = icmp slt i32 %visualStart.4120, %30
+  %cmp137113 = icmp slt i32 %visualStart.4120, %29
   br i1 %cmp137113, label %for.body138.preheader, label %for.inc191
 
 for.body138.preheader:                            ; preds = %for.cond136.preheader
-  %32 = sext i32 %k114.0119 to i64
-  %33 = sext i32 %visualStart.4120 to i64
-  %wide.trip.count159 = sext i32 %30 to i64
+  %31 = sext i32 %k114.0119 to i64
+  %32 = sext i32 %visualStart.4120 to i64
+  %wide.trip.count159 = sext i32 %29 to i64
   br label %for.body138
 
 for.body138:                                      ; preds = %for.body138.preheader, %for.body138
-  %indvars.iv154 = phi i64 [ %33, %for.body138.preheader ], [ %indvars.iv.next155, %for.body138 ]
-  %indvars.iv152 = phi i64 [ %32, %for.body138.preheader ], [ %indvars.iv.next153, %for.body138 ]
+  %indvars.iv154 = phi i64 [ %32, %for.body138.preheader ], [ %indvars.iv.next155, %for.body138 ]
+  %indvars.iv152 = phi i64 [ %31, %for.body138.preheader ], [ %indvars.iv.next153, %for.body138 ]
   %arrayidx140 = getelementptr inbounds i32, ptr %indexMap, i64 %indvars.iv154
-  %34 = load i32, ptr %arrayidx140, align 4
+  %33 = load i32, ptr %arrayidx140, align 4
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, 1
   %arrayidx143 = getelementptr inbounds i32, ptr %indexMap, i64 %indvars.iv152
-  store i32 %34, ptr %arrayidx143, align 4
+  store i32 %33, ptr %arrayidx143, align 4
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count159
   br i1 %exitcond160.not, label %for.inc191.loopexit, label %for.body138, !llvm.loop !57
 
 if.end147:                                        ; preds = %if.end130
-  %35 = load i32, ptr %arrayidx120, align 4
-  %.fr = freeze i32 %35
+  %34 = load i32, ptr %arrayidx120, align 4
+  %.fr = freeze i32 %34
   %and156 = and i32 %.fr, 2147483647
   %add158 = add nsw i32 %and156, %sub122
   %cmp161110 = icmp sgt i32 %sub122, 0
@@ -2813,22 +2812,22 @@ for.body162.lr.ph:                                ; preds = %if.end147
   br i1 %cmp153102, label %for.body162.us.preheader, label %for.body162.preheader
 
 for.body162.preheader:                            ; preds = %for.body162.lr.ph
-  %36 = zext nneg i32 %and156 to i64
+  %35 = zext nneg i32 %and156 to i64
   br label %for.body162
 
 for.body162.us.preheader:                         ; preds = %for.body162.lr.ph
-  %37 = zext nneg i32 %add158 to i64
+  %36 = zext nneg i32 %add158 to i64
   br label %for.body162.us
 
 for.body162.us:                                   ; preds = %for.body162.us.preheader, %for.inc188.us
   %indvars.iv145 = phi i64 [ 0, %for.body162.us.preheader ], [ %indvars.iv.next146, %for.inc188.us ]
   %k114.3112.us = phi i32 [ %k114.0119, %for.body162.us.preheader ], [ %k114.4.us, %for.inc188.us ]
-  %38 = xor i64 %indvars.iv145, -1
-  %39 = add nsw i64 %37, %38
-  %40 = load ptr, ptr %text, align 8
-  %arrayidx171.us = getelementptr inbounds i16, ptr %40, i64 %39
-  %41 = load i16, ptr %arrayidx171.us, align 2
-  %conv172.us = zext i16 %41 to i32
+  %37 = xor i64 %indvars.iv145, -1
+  %38 = add nsw i64 %36, %37
+  %39 = load ptr, ptr %text, align 8
+  %arrayidx171.us = getelementptr inbounds i16, ptr %39, i64 %38
+  %40 = load i16, ptr %arrayidx171.us, align 2
+  %conv172.us = zext i16 %40 to i32
   %and173.us = and i32 %conv172.us, 65532
   %cmp174.us = icmp eq i32 %and173.us, 8204
   %sub177.us = add nsw i32 %conv172.us, -8234
@@ -2843,8 +2842,8 @@ if.then183.us:                                    ; preds = %for.body162.us
   %inc184.us = add nsw i32 %k114.3112.us, 1
   %idxprom185.us = sext i32 %k114.3112.us to i64
   %arrayidx186.us = getelementptr inbounds i32, ptr %indexMap, i64 %idxprom185.us
-  %42 = trunc nsw i64 %39 to i32
-  store i32 %42, ptr %arrayidx186.us, align 4
+  %41 = trunc nsw i64 %38 to i32
+  store i32 %41, ptr %arrayidx186.us, align 4
   br label %for.inc188.us
 
 for.inc188.us:                                    ; preds = %for.body162.us, %if.then183.us
@@ -2856,11 +2855,11 @@ for.inc188.us:                                    ; preds = %for.body162.us, %if
 for.body162:                                      ; preds = %for.body162.preheader, %for.inc188
   %indvars.iv = phi i64 [ 0, %for.body162.preheader ], [ %indvars.iv.next, %for.inc188 ]
   %k114.3112 = phi i32 [ %k114.0119, %for.body162.preheader ], [ %k114.4, %for.inc188 ]
-  %43 = add nuw nsw i64 %indvars.iv, %36
-  %44 = load ptr, ptr %text, align 8
-  %arrayidx171 = getelementptr inbounds i16, ptr %44, i64 %43
-  %45 = load i16, ptr %arrayidx171, align 2
-  %conv172 = zext i16 %45 to i32
+  %42 = add nuw nsw i64 %indvars.iv, %35
+  %43 = load ptr, ptr %text, align 8
+  %arrayidx171 = getelementptr inbounds i16, ptr %43, i64 %42
+  %44 = load i16, ptr %arrayidx171, align 2
+  %conv172 = zext i16 %44 to i32
   %and173 = and i32 %conv172, 65532
   %cmp174 = icmp eq i32 %and173, 8204
   %sub177 = add nsw i32 %conv172, -8234
@@ -2875,8 +2874,8 @@ if.then183:                                       ; preds = %for.body162
   %inc184 = add nsw i32 %k114.3112, 1
   %idxprom185 = sext i32 %k114.3112 to i64
   %arrayidx186 = getelementptr inbounds i32, ptr %indexMap, i64 %idxprom185
-  %46 = trunc nuw nsw i64 %43 to i32
-  store i32 %46, ptr %arrayidx186, align 4
+  %45 = trunc nuw nsw i64 %42 to i32
+  store i32 %45, ptr %arrayidx186, align 4
   br label %for.inc188
 
 for.inc188:                                       ; preds = %for.body162, %if.then183
@@ -2886,11 +2885,11 @@ for.inc188:                                       ; preds = %for.body162, %if.th
   br i1 %exitcond144.not, label %for.inc191, label %for.body162, !llvm.loop !58
 
 for.inc191.loopexit:                              ; preds = %for.body138
-  %47 = trunc nsw i64 %indvars.iv.next153 to i32
+  %46 = trunc nsw i64 %indvars.iv.next153 to i32
   br label %for.inc191
 
 for.inc191:                                       ; preds = %for.inc188, %for.inc188.us, %for.body118, %for.inc191.loopexit, %if.end147, %for.cond136.preheader
-  %k114.1 = phi i32 [ %k114.0119, %for.cond136.preheader ], [ %k114.0119, %if.end147 ], [ %47, %for.inc191.loopexit ], [ %30, %for.body118 ], [ %k114.4.us, %for.inc188.us ], [ %k114.4, %for.inc188 ]
+  %k114.1 = phi i32 [ %k114.0119, %for.cond136.preheader ], [ %k114.0119, %if.end147 ], [ %46, %for.inc191.loopexit ], [ %29, %for.body118 ], [ %k114.4.us, %for.inc188.us ], [ %k114.4, %for.inc188 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
   br i1 %exitcond165.not, label %if.end197, label %for.body118, !llvm.loop !59

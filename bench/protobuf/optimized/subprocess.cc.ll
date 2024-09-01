@@ -394,41 +394,21 @@ if.end:                                           ; preds = %invoke.cont10
   %child_stdout_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %child_stdout_, align 4
   %cmp.not48 = icmp eq i32 %5, -1
-  %.pre53 = load i32, ptr %child_stdin_, align 4
+  %.pre52 = load i32, ptr %child_stdin_, align 4
   br i1 %cmp.not48, label %while.end152, label %for.cond.preheader.lr.ph
 
 for.cond.preheader.lr.ph:                         ; preds = %if.end
-  %6 = call i32 @llvm.smax.i32(i32 %.pre53, i32 %5)
+  %6 = call i32 @llvm.smax.i32(i32 %.pre52, i32 %5)
   %add = add nsw i32 %6, 1
-  br label %if.end45
+  br label %for.cond.preheader
 
 while.cond18thread-pre-split:                     ; preds = %land.lhs.true121, %if.then140, %if.then63
   %input_pos.0.ph.ph = phi i32 [ %input_pos.1, %land.lhs.true121 ], [ %input_pos.1, %if.then140 ], [ %input_pos.049, %if.then63 ]
   %.pr.pr = load i32, ptr %child_stdout_, align 4
   %cmp.not = icmp eq i32 %.pr.pr, -1
-  br i1 %cmp.not, label %while.end152.loopexit, label %if.end45
+  br i1 %cmp.not, label %while.end152.loopexit, label %for.cond.preheader
 
-lpad15.loopexit:                                  ; preds = %while.cond161
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad15.loopexit.split-lp.loopexit.loopexit:       ; preds = %if.end59, %if.then94, %if.then112, %if.then133, %if.then140
-  %lpad.loopexit57 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad15.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.else145
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad15.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then208, %if.then191, %invoke.cont227, %if.end219, %if.else216, %if.then168, %if.then155, %if.else
-  %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-if.end45:                                         ; preds = %for.cond.preheader.lr.ph, %while.cond18thread-pre-split
+for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %while.cond18thread-pre-split
   %input_pos.049 = phi i32 [ 0, %for.cond.preheader.lr.ph ], [ %input_pos.0.ph.ph, %while.cond18thread-pre-split ]
   %7 = phi i32 [ %5, %for.cond.preheader.lr.ph ], [ %.pr.pr, %while.cond18thread-pre-split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %read_fds, i8 0, i64 128, i1 false)
@@ -446,7 +426,27 @@ if.end45:                                         ; preds = %for.cond.preheader.
   %cmp47.not = icmp eq i32 %9, -1
   br i1 %cmp47.not, label %if.end59, label %if.then48
 
-if.then48:                                        ; preds = %if.end45
+lpad15.loopexit:                                  ; preds = %while.cond161
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+lpad15.loopexit.split-lp.loopexit.loopexit:       ; preds = %if.end59, %if.then94, %if.then112, %if.then133, %if.then140
+  %lpad.loopexit56 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+lpad15.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.else145
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+lpad15.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then208, %if.then191, %invoke.cont227, %if.end219, %if.else216, %if.then168, %if.then155, %if.else
+  %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+if.then48:                                        ; preds = %for.cond.preheader
   %rem50 = srem i32 %9, 64
   %sh_prom51 = zext nneg i32 %rem50 to i64
   %shl52 = shl nuw i64 1, %sh_prom51
@@ -458,7 +458,7 @@ if.then48:                                        ; preds = %if.end45
   store i64 %or58, ptr %arrayidx57, align 8
   br label %if.end59
 
-if.end59:                                         ; preds = %if.then48, %if.end45
+if.end59:                                         ; preds = %if.then48, %for.cond.preheader
   %call61 = invoke i32 @select(i32 noundef %add, ptr noundef nonnull %read_fds, ptr noundef nonnull %write_fds, ptr noundef null, ptr noundef null)
           to label %invoke.cont60 unwind label %lpad15.loopexit.split-lp.loopexit.loopexit
 
@@ -599,7 +599,7 @@ while.end152.loopexit:                            ; preds = %if.end118, %while.c
   br label %while.end152
 
 while.end152:                                     ; preds = %while.end152.loopexit, %if.end
-  %20 = phi i32 [ %.pre, %while.end152.loopexit ], [ %.pre53, %if.end ]
+  %20 = phi i32 [ %.pre, %while.end152.loopexit ], [ %.pre52, %if.end ]
   %cmp154.not = icmp eq i32 %20, -1
   br i1 %cmp154.not, label %while.cond161.preheader, label %if.then155
 
@@ -795,7 +795,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br label %cleanup238
 
 ehcleanup:                                        ; preds = %lpad15.loopexit.split-lp.loopexit.loopexit, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad15.loopexit, %lpad15.loopexit.split-lp.loopexit.split-lp, %lpad.i, %lpad.i37, %lpad233
-  %.pn = phi { ptr, i32 } [ %38, %lpad233 ], [ %27, %lpad.i ], [ %29, %lpad.i37 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp44, %lpad15.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit57, %lpad15.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %38, %lpad233 ], [ %27, %lpad.i ], [ %29, %lpad.i37 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp44, %lpad15.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit56, %lpad15.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #23
   br label %ehcleanup239
 

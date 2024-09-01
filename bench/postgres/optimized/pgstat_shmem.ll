@@ -1098,8 +1098,8 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %62 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 12
   %64 = load i8, ptr %63, align 4
-  %.not62.i = icmp eq i8 %64, 0
-  br i1 %.not62.i, label %.loopexit19, label %.lr.ph.i
+  %.not53.i = icmp eq i8 %64, 0
+  br i1 %.not53.i, label %.loopexit19, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %115
   %65 = phi i8 [ %121, %115 ], [ %64, %.critedge ]
@@ -1182,8 +1182,8 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
   %119 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %60, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 12
   %121 = load i8, ptr %120, align 4
-  %.not63.i = icmp eq i8 %121, 0
-  br i1 %.not63.i, label %.loopexit19, label %.lr.ph.i
+  %.not54.i = icmp eq i8 %121, 0
+  br i1 %.not54.i, label %.loopexit19, label %.lr.ph.i
 
 .loopexit19:                                      ; preds = %115, %.critedge
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)

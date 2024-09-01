@@ -2276,8 +2276,8 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h10ea0619f82a0b86E.
 
 .preheader.split.i3.i:                            ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5895e866b0926bfcE.exit.i", %22
   %.sroa.01.0.i4.i = phi i64 [ %23, %22 ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5895e866b0926bfcE.exit.i" ]
-  %exitcond.not.i5.i.not = icmp ne i64 %.sroa.01.0.i4.i, %17
-  br i1 %exitcond.not.i5.i.not, label %22, label %"_ZN50_$LT$mbe..Rule$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha2f4ce860a9612c2E.llvm.4743249442795103037.exit"
+  %exitcond.not.i5.i.not.not = icmp ne i64 %.sroa.01.0.i4.i, %17
+  br i1 %exitcond.not.i5.i.not.not, label %22, label %"_ZN50_$LT$mbe..Rule$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha2f4ce860a9612c2E.llvm.4743249442795103037.exit"
 
 22:                                               ; preds = %.preheader.split.i3.i
   %23 = add i64 %.sroa.01.0.i4.i, 1
@@ -2287,7 +2287,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h10ea0619f82a0b86E.
   br i1 %26, label %.preheader.split.i3.i, label %"_ZN50_$LT$mbe..Rule$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha2f4ce860a9612c2E.llvm.4743249442795103037.exit"
 
 "_ZN50_$LT$mbe..Rule$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha2f4ce860a9612c2E.llvm.4743249442795103037.exit": ; preds = %9, %.preheader.split.i3.i, %22, %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5895e866b0926bfcE.exit.i"
-  %27 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5895e866b0926bfcE.exit.i" ], [ true, %2 ], [ %exitcond.not.i5.i.not, %22 ], [ %exitcond.not.i5.i.not, %.preheader.split.i3.i ], [ true, %9 ]
+  %27 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5895e866b0926bfcE.exit.i" ], [ true, %2 ], [ %exitcond.not.i5.i.not.not, %22 ], [ %exitcond.not.i5.i.not.not, %.preheader.split.i3.i ], [ true, %9 ]
   ret i1 %27
 }
 
@@ -3955,8 +3955,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 9:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3185787ca458ae41E.exit", %1
   %10 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b3f78e81a62d003E.llvm.6887668541773461223(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-  %.not.not = icmp ne ptr %10, null
-  br i1 %.not.not, label %11, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Attr$GT$$GT$17h4d0425a29ee09c36E.exit"
+  %.not.not.not.not.not.not = icmp ne ptr %10, null
+  br i1 %.not.not.not.not.not.not, label %11, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Attr$GT$$GT$17h4d0425a29ee09c36E.exit"
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5.i.i)
@@ -4178,7 +4178,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.0.shrunk8.i.i, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Attr$GT$$GT$17h4d0425a29ee09c36E.exit", label %9
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Attr$GT$$GT$17h4d0425a29ee09c36E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h3185787ca458ae41E.exit", %9
-  ret i1 %.not.not
+  ret i1 %.not.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

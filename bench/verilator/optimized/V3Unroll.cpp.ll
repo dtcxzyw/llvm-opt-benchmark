@@ -11330,8 +11330,8 @@ _ZN20AstUserAllocatorBaseI7AstNodeN15SimulateVisitor11AuxVariableELi1EEclIJEEERS
 360:                                              ; preds = %_ZN20AstUserAllocatorBaseI7AstNodeN15SimulateVisitor11AuxVariableELi1EEclIJEEERS2_PS0_DpOT_.exit131, %357
   %361 = getelementptr inbounds i8, ptr %353, i64 40
   %362 = load ptr, ptr %361, align 8
-  %.not161 = icmp eq ptr %362, null
-  br i1 %.not161, label %.thread149, label %363
+  %.not159 = icmp eq ptr %362, null
+  br i1 %.not159, label %.thread149, label %363
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %362, i64 112
@@ -11394,8 +11394,8 @@ _ZNSt5dequeIN15SimulateVisitor11AuxVariableESaIS1_EE4backEv.exit.i.i: ; preds = 
   %.0.i.i = phi ptr [ %370, %363 ], [ %392, %_ZNSt5dequeIN15SimulateVisitor11AuxVariableESaIS1_EE4backEv.exit.i.i ]
   %396 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %397 = load ptr, ptr %396, align 8
-  %.not162 = icmp eq ptr %397, null
-  br i1 %.not162, label %.thread149, label %398
+  %.not160 = icmp eq ptr %397, null
+  br i1 %.not160, label %.thread149, label %398
 
 398:                                              ; preds = %395
   %399 = getelementptr inbounds i8, ptr %0, i64 96

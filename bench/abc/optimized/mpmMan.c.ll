@@ -2071,9 +2071,9 @@ Mmr_StepMemory.exit67.loopexit:                   ; preds = %25
   %34 = fmul double %33, 0x3EE0000000000000
   br label %Mmr_StepMemory.exit67
 
-Mmr_StepMemory.exit67:                            ; preds = %Mmr_StepMemory.exit67.loopexit, %1
-  %35 = phi double [ 0.000000e+00, %1 ], [ %32, %Mmr_StepMemory.exit67.loopexit ]
-  %.0.lcssa.i66 = phi double [ 0.000000e+00, %1 ], [ %34, %Mmr_StepMemory.exit67.loopexit ]
+Mmr_StepMemory.exit67:                            ; preds = %1, %Mmr_StepMemory.exit67.loopexit
+  %35 = phi double [ %32, %Mmr_StepMemory.exit67.loopexit ], [ 0.000000e+00, %1 ]
+  %.0.lcssa.i66 = phi double [ %34, %Mmr_StepMemory.exit67.loopexit ], [ 0.000000e+00, %1 ]
   %36 = fadd double %8, %10
   %37 = fadd double %36, %.0.lcssa.i66
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %8, double noundef %10, double noundef %35, double noundef %37)

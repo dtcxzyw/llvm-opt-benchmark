@@ -272,8 +272,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin2.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %input.coerce1, %entry ]
   %0 = load i8, ptr %__begin2.014, align 1
-  %cmp2.not = icmp ne i8 %0, 95
-  br i1 %cmp2.not, label %if.end, label %return
+  %cmp2.not.not = icmp ne i8 %0, 95
+  br i1 %cmp2.not.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
   %1 = add i8 %0, -65
@@ -293,7 +293,7 @@ for.inc:                                          ; preds = %if.end, %if.then7
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.body, %for.inc, %entry
-  %cmp.not.lcssa = phi i1 [ true, %entry ], [ %cmp2.not, %for.inc ], [ %cmp2.not, %for.body ]
+  %cmp.not.lcssa = phi i1 [ true, %entry ], [ %cmp2.not.not, %for.inc ], [ %cmp2.not.not, %for.body ]
   ret i1 %cmp.not.lcssa
 }
 
@@ -3005,7 +3005,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp.i2.i.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %2 = load ptr, ptr %1, align 8
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i.i.i.i.us = and i64 %3, 1
@@ -3013,7 +3013,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %sub.i.i.i.i.i.i.us = add i64 %3, -1
   %4 = inttoptr i64 %sub.i.i.i.i.i.i.us to ptr
   %elements.i.i.i.i.i.us = getelementptr inbounds i8, ptr %4, i64 8
-  %arrayidx.i.i.i.i.i.us = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i.us, i64 0, i64 %indvars.iv37
+  %arrayidx.i.i.i.i.i.us = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i.us, i64 0, i64 %indvars.iv38
   %retval.0.i.i.i.i.i.us = select i1 %cmp.i.i.i.i.i.i.us, ptr %1, ptr %arrayidx.i.i.i.i.i.us
   %5 = load ptr, ptr %retval.0.i.i.i.i.i.us, align 8
   %call2.us = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
@@ -3022,10 +3022,10 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %7 = load i32, ptr %current_size_.i.i.i.i, align 8
   %8 = sext i32 %7 to i64
-  %cmp.us = icmp slt i64 %indvars.iv.next38, %8
+  %cmp.us = icmp slt i64 %indvars.iv.next39, %8
   br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !86
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

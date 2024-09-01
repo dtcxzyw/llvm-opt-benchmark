@@ -400,7 +400,7 @@ if.end75:                                         ; preds = %if.then49, %lor.lhs
   br i1 %or.cond105, label %for.cond.backedge, label %if.end78
 
 for.cond.backedge:                                ; preds = %if.end75.thread, %if.end75, %eat_ws.exit, %add_string.exit
-  %tobool76.not317 = phi i1 [ true, %if.end75 ], [ %or.cond105, %eat_ws.exit ], [ %or.cond105, %add_string.exit ], [ true, %if.end75.thread ]
+  %tobool76.not317 = phi i1 [ true, %if.end75 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %if.end75.thread ]
   %bufnum.0.be = phi i32 [ %add46, %if.end75 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %dec73, %if.end75.thread ]
   %conv = sext i32 %bufnum.0.be to i64
   %add = add nsw i64 %conv, 512
@@ -1139,8 +1139,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 8192
-  %tobool5.not = icmp ne i16 %6, 0
-  br i1 %tobool5.not, label %while.body, label %if.end6.loopexit
+  %tobool5.not.not = icmp ne i16 %6, 0
+  br i1 %tobool5.not.not, label %while.body, label %if.end6.loopexit
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %lstart.222, i64 1
@@ -1149,7 +1149,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !14
 
 if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
-  %tobool11.not = phi i1 [ true, %for.cond ], [ %tobool5.not, %while.body ], [ %tobool5.not, %land.rhs ]
+  %tobool11.not = phi i1 [ true, %for.cond ], [ %tobool5.not.not, %while.body ], [ %tobool5.not.not, %land.rhs ]
   %lstart.2.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
   %call8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa, i32 noundef %conv7) #13
   %cmp9 = icmp eq ptr %call8, %lstart.2.lcssa
@@ -1329,7 +1329,7 @@ value_free.exit:                                  ; preds = %if.then3.i.i, %if.t
   call void @free(ptr noundef nonnull %1) #12
   br label %if.end23
 
-if.end19:                                         ; preds = %if.end8, %if.end
+if.end19:                                         ; preds = %if.end, %if.end8
   call void @sk_free(ptr noundef nonnull %call) #12
   br label %if.then21
 

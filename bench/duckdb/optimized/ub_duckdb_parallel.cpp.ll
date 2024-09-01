@@ -18722,8 +18722,8 @@ for.body:                                         ; preds = %if.end10, %for.cond
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 112
   %8 = load ptr, ptr %vfn18, align 8
   %call19 = tail call noundef zeroext i8 %8(ptr noundef nonnull align 8 dereferenceable(128) %7)
-  %cmp20.not.not.not = icmp ne i8 %call19, 0
-  br i1 %cmp20.not.not.not, label %cleanup29, label %cleanup50
+  %cmp20.not.not.not.not = icmp ne i8 %call19, 0
+  br i1 %cmp20.not.not.not.not, label %cleanup29, label %cleanup50
 
 cleanup29:                                        ; preds = %for.body
   %vtable23 = load ptr, ptr %7, align 8, !tbaa !48
@@ -18758,7 +18758,7 @@ if.end49:                                         ; preds = %land.lhs.true, %if.
   br label %cleanup50
 
 cleanup50:                                        ; preds = %cleanup29, %for.body, %if.end49, %land.lhs.true, %for.end, %if.then8, %if.then
-  %retval.5 = phi i1 [ false, %if.end49 ], [ false, %for.end ], [ true, %land.lhs.true ], [ true, %if.then ], [ false, %if.then8 ], [ %cmp20.not.not.not, %for.body ], [ %cmp20.not.not.not, %cleanup29 ]
+  %retval.5 = phi i1 [ false, %if.end49 ], [ false, %for.end ], [ true, %land.lhs.true ], [ true, %if.then ], [ false, %if.then8 ], [ %cmp20.not.not.not.not, %for.body ], [ %cmp20.not.not.not.not, %cleanup29 ]
   ret i1 %retval.5
 }
 

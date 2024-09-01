@@ -197,7 +197,7 @@ heapify.exit.i.i:                                 ; preds = %72
 initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br i1 %26, label %.lr.ph123.i, label %.preheader.i
 
-.lr.ph125.split.preheader.i:                      ; preds = %.lr.ph123.i
+.preheader117.i:                                  ; preds = %.lr.ph123.i
   %.pre138.i = load i64, ptr %12, align 8
   br label %.lr.ph125.split.i
 
@@ -211,7 +211,7 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   store i64 %80, ptr %82, align 8
   %83 = add nuw i64 %.081122.i, 1
   %exitcond134.not.i = icmp eq i64 %83, %9
-  br i1 %exitcond134.not.i, label %.lr.ph125.split.preheader.i, label %.lr.ph123.i
+  br i1 %exitcond134.not.i, label %.preheader117.i, label %.lr.ph123.i
 
 .preheader.i:                                     ; preds = %.lr.ph125.split.i, %initHeap.exit.i, %._crit_edge.i.i
   %invariant.gep.i = getelementptr i8, ptr %12, i64 -8
@@ -225,9 +225,9 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %92
 
-.lr.ph125.split.i:                                ; preds = %.lr.ph125.split.i, %.lr.ph125.split.preheader.i
-  %87 = phi i64 [ %90, %.lr.ph125.split.i ], [ %.pre138.i, %.lr.ph125.split.preheader.i ]
-  %.082124.i = phi i64 [ %88, %.lr.ph125.split.i ], [ 0, %.lr.ph125.split.preheader.i ]
+.lr.ph125.split.i:                                ; preds = %.lr.ph125.split.i, %.preheader117.i
+  %87 = phi i64 [ %90, %.lr.ph125.split.i ], [ %.pre138.i, %.preheader117.i ]
+  %.082124.i = phi i64 [ %88, %.lr.ph125.split.i ], [ 0, %.preheader117.i ]
   %88 = add nuw i64 %.082124.i, 1
   %89 = getelementptr inbounds i64, ptr %12, i64 %88
   %90 = load i64, ptr %89, align 8

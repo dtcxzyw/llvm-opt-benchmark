@@ -1429,7 +1429,7 @@ for.body20.lr.ph.i:                               ; preds = %for.end.i
   %cmp45.not.i = icmp eq i32 %mode, 0
   br label %for.body20.us.i
 
-for.body20.us.i:                                  ; preds = %for.body20.lr.ph.i, %for.inc80.us.i
+for.body20.us.i:                                  ; preds = %for.inc80.us.i, %for.body20.lr.ph.i
   %i16.056.us.i = phi i64 [ %inc81.us.i, %for.inc80.us.i ], [ 0, %for.body20.lr.ph.i ]
   %count.055.us.i = phi i64 [ %count.1.us.i, %for.inc80.us.i ], [ 0, %for.body20.lr.ph.i ]
   %arrayidx21.us.i = getelementptr i8, ptr %arrayidx2.i, i64 %i16.056.us.i

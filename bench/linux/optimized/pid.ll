@@ -1520,7 +1520,7 @@ pidfd_get_pid.exit:                               ; preds = %24, %27
 
 .thread7:                                         ; preds = %30, %35, %41, %45
   %47 = phi ptr [ %34, %45 ], [ %34, %41 ], [ %34, %35 ], [ null, %30 ]
-  %48 = phi i1 [ %36, %45 ], [ %36, %41 ], [ %36, %35 ], [ true, %30 ]
+  %48 = phi i1 [ false, %45 ], [ false, %41 ], [ true, %35 ], [ true, %30 ]
   tail call void @__rcu_read_unlock() #14
   %49 = getelementptr inbounds i8, ptr %8, i64 96
   %50 = getelementptr inbounds i8, ptr %8, i64 4

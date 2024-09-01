@@ -6887,8 +6887,7 @@ if.end198:                                        ; preds = %if.then179
   %69 = load i32, ptr %m_solverMode, align 4
   %and200 = and i32 %69, 16
   %tobool201.not = icmp eq i32 %and200, 0
-  %brmerge = or i1 %cmp178, %tobool201.not
-  br i1 %brmerge, label %for.inc239, label %if.then213
+  br i1 %tobool201.not, label %for.inc239, label %if.then213
 
 if.then213:                                       ; preds = %if.end198
   %70 = load ptr, ptr %m_data.i236, align 8

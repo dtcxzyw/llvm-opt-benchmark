@@ -623,8 +623,8 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit: ; pr
   %arrayidx.i.phi.trans.insert = getelementptr inbounds i32, ptr %this.val7, i64 %.pre
   %.pre50 = load i32, ptr %arrayidx.i.phi.trans.insert, align 4
   %arrayidx.i = getelementptr inbounds i32, ptr %this.val7, i64 %.pre
-  %cmp = icmp ne i32 %.pre50, %v
-  br i1 %cmp, label %if.end, label %return
+  %cmp.not = icmp eq i32 %.pre50, %v
+  br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
   %cmp5 = icmp eq i32 %.pre50, -1
@@ -872,7 +872,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit: ; preds = %_ZN
   br label %return
 
 return:                                           ; preds = %if.end12.i, %entry, %if.end7, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
-  %cmp60 = phi i1 [ true, %if.end7 ], [ %cmp, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit ], [ false, %entry ], [ false, %if.end12.i ]
+  %cmp60 = phi i1 [ true, %if.end7 ], [ true, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit ], [ false, %entry ], [ false, %if.end12.i ]
   ret i1 %cmp60
 }
 

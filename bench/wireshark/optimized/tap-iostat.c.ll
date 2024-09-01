@@ -2306,16 +2306,13 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
 
 ._crit_edge688:                                   ; preds = %210
   %211 = tail call i32 @llvm.umax.i32(i32 %89, i32 %.2555)
-  br i1 %.not747, label %._crit_edge694, label %.lr.ph693
-
-.lr.ph693:                                        ; preds = %._crit_edge688
   %212 = getelementptr inbounds i8, ptr %7, i64 32
   %213 = load ptr, ptr %212, align 8
   br label %214
 
-214:                                              ; preds = %.lr.ph693, %221
-  %indvars.iv771 = phi i64 [ 0, %.lr.ph693 ], [ %indvars.iv.next772, %221 ]
-  %.0542690 = phi i32 [ 0, %.lr.ph693 ], [ %222, %221 ]
+214:                                              ; preds = %._crit_edge688, %221
+  %indvars.iv771 = phi i64 [ 0, %._crit_edge688 ], [ %indvars.iv.next772, %221 ]
+  %.0542690 = phi i32 [ 0, %._crit_edge688 ], [ %222, %221 ]
   %215 = getelementptr ptr, ptr %213, i64 %indvars.iv771
   %216 = load ptr, ptr %215, align 8
   %.not597 = icmp eq ptr %216, null
@@ -2334,10 +2331,10 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
   %exitcond775.not = icmp eq i64 %indvars.iv.next772, %10
   br i1 %exitcond775.not, label %._crit_edge694, label %214, !llvm.loop !22
 
-._crit_edge694:                                   ; preds = %221, %88, %._crit_edge688
-  %223 = phi i32 [ %211, %._crit_edge688 ], [ %89, %88 ], [ %211, %221 ]
-  %.0553.lcssa821 = phi i32 [ %.2555, %._crit_edge688 ], [ %.1549, %88 ], [ %.2555, %221 ]
-  %.0542.lcssa = phi i32 [ 0, %._crit_edge688 ], [ 0, %88 ], [ %222, %221 ]
+._crit_edge694:                                   ; preds = %221, %88
+  %223 = phi i32 [ %89, %88 ], [ %211, %221 ]
+  %.0553.lcssa821 = phi i32 [ %.1549, %88 ], [ %.2555, %221 ]
+  %.0542.lcssa = phi i32 [ 0, %88 ], [ %222, %221 ]
   %224 = icmp ugt i32 %.0542.lcssa, %223
   %225 = icmp ult i32 %223, 102
   %or.cond3 = and i1 %225, %224

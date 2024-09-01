@@ -363,22 +363,22 @@ define hidden range(i32 -1, 1) i32 @UnsetEnv(ptr noundef readonly %0) local_unna
 6:                                                ; preds = %3
   %7 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 61) #17
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %.preheader22.i, label %borrowed_unsetenv.exit
+  br i1 %.not.i, label %.preheader21.i, label %borrowed_unsetenv.exit
 
-.preheader22.i:                                   ; preds = %6
+.preheader21.i:                                   ; preds = %6
   %8 = load ptr, ptr @environ, align 8
   %9 = load ptr, ptr %8, align 8
-  %.not1431.i = icmp eq ptr %9, null
-  br i1 %.not1431.i, label %borrowed_unsetenv.exit, label %.preheader21.i
+  %.not1430.i = icmp eq ptr %9, null
+  br i1 %.not1430.i, label %borrowed_unsetenv.exit, label %.preheader.i
 
-.preheader21.i:                                   ; preds = %.preheader22.i, %21
-  %10 = phi ptr [ %24, %21 ], [ %9, %.preheader22.i ]
-  %.032.i = phi i64 [ %22, %21 ], [ 0, %.preheader22.i ]
+.preheader.i:                                     ; preds = %.preheader21.i, %21
+  %10 = phi ptr [ %24, %21 ], [ %9, %.preheader21.i ]
+  %.031.i = phi i64 [ %22, %21 ], [ 0, %.preheader21.i ]
   br label %11
 
-11:                                               ; preds = %15, %.preheader21.i
-  %.05.i.i = phi ptr [ %17, %15 ], [ %10, %.preheader21.i ]
-  %.0.i.i = phi ptr [ %16, %15 ], [ %0, %.preheader21.i ]
+11:                                               ; preds = %15, %.preheader.i
+  %.05.i.i = phi ptr [ %17, %15 ], [ %10, %.preheader.i ]
+  %.0.i.i = phi ptr [ %16, %15 ], [ %0, %.preheader.i ]
   %12 = load i8, ptr %.05.i.i, align 1
   %13 = load i8, ptr %.0.i.i, align 1
   %14 = icmp eq i8 %12, %13
@@ -388,27 +388,27 @@ define hidden range(i32 -1, 1) i32 @UnsetEnv(ptr noundef readonly %0) local_unna
   %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
   %17 = getelementptr inbounds i8, ptr %.05.i.i, i64 1
   %18 = icmp eq i8 %12, 61
-  br i1 %18, label %.preheader.i.preheader, label %11, !llvm.loop !10
+  br i1 %18, label %match_noeq.exit.thread.i.preheader, label %11, !llvm.loop !10
 
-.preheader.i.preheader:                           ; preds = %match_noeq.exit.i, %15
-  br label %.preheader.i
+match_noeq.exit.thread.i.preheader:               ; preds = %match_noeq.exit.i, %15
+  br label %match_noeq.exit.thread.i
 
 match_noeq.exit.i:                                ; preds = %11
   %19 = icmp ne i8 %12, 61
   %20 = icmp ne i8 %13, 0
   %or.cond.i.not.i = or i1 %19, %20
-  br i1 %or.cond.i.not.i, label %21, label %.preheader.i.preheader
+  br i1 %or.cond.i.not.i, label %21, label %match_noeq.exit.thread.i.preheader
 
 21:                                               ; preds = %match_noeq.exit.i
-  %22 = add nuw nsw i64 %.032.i, 1
+  %22 = add nuw nsw i64 %.031.i, 1
   %23 = getelementptr inbounds ptr, ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not14.i = icmp eq ptr %24, null
-  br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader21.i, !llvm.loop !11
+  br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !11
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %25 = phi ptr [ %30, %.preheader.i ], [ %8, %.preheader.i.preheader ]
-  %.1.i = phi i64 [ %26, %.preheader.i ], [ %.032.i, %.preheader.i.preheader ]
+match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thread.i.preheader, %match_noeq.exit.thread.i
+  %25 = phi ptr [ %30, %match_noeq.exit.thread.i ], [ %8, %match_noeq.exit.thread.i.preheader ]
+  %.1.i = phi i64 [ %26, %match_noeq.exit.thread.i ], [ %.031.i, %match_noeq.exit.thread.i.preheader ]
   %26 = add nuw nsw i64 %.1.i, 1
   %27 = getelementptr inbounds ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -418,10 +418,10 @@ match_noeq.exit.i:                                ; preds = %11
   %31 = getelementptr inbounds ptr, ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
   %.not16.i = icmp eq ptr %32, null
-  br i1 %.not16.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12
 
-borrowed_unsetenv.exit:                           ; preds = %21, %.preheader.i, %1, %3, %6, %.preheader22.i
-  %.011.i = phi i32 [ -1, %6 ], [ -1, %3 ], [ -1, %1 ], [ 0, %.preheader22.i ], [ 0, %.preheader.i ], [ 0, %21 ]
+borrowed_unsetenv.exit:                           ; preds = %21, %match_noeq.exit.thread.i, %1, %3, %6, %.preheader21.i
+  %.011.i = phi i32 [ -1, %6 ], [ -1, %3 ], [ -1, %1 ], [ 0, %.preheader21.i ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
   ret i32 %.011.i
 }
 

@@ -315,12 +315,9 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph50, label %.lr.ph, !llvm.loop !8
 
-.preheader:                                       ; preds = %10
-  br i1 %9, label %.lr.ph50, label %.sink.split
-
-.lr.ph50:                                         ; preds = %.preheader
+.lr.ph50:                                         ; preds = %10
   %11 = icmp eq ptr %4, null
   %.not44 = icmp eq i32 %6, 0
   %12 = select i1 %.not44, ptr @.str.12, ptr @.str.11
@@ -391,8 +388,8 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %.sink.split, label %34
 
-.sink.split:                                      ; preds = %.lr.ph, %.lr.ph50.split, %43, %34, %.lr.ph50.split.us, %21, %20, %.preheader, %.preheader46
-  %.038.ph = phi i32 [ 1, %.preheader46 ], [ 1, %.preheader ], [ 1, %20 ], [ 0, %21 ], [ 0, %.lr.ph50.split.us ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph50.split ], [ 0, %.lr.ph ]
+.sink.split:                                      ; preds = %.lr.ph, %.lr.ph50.split, %43, %34, %.lr.ph50.split.us, %21, %20, %.preheader46
+  %.038.ph = phi i32 [ 1, %.preheader46 ], [ 1, %20 ], [ 0, %21 ], [ 0, %.lr.ph50.split.us ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph50.split ], [ 0, %.lr.ph ]
   tail call void @st__free_table(ptr noundef nonnull %8) #9
   br label %49
 
@@ -530,13 +527,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %11 = shl nsw i64 %10, 2
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread271, label %.preheader289
+  br i1 %13, label %.thread271, label %.preheader288
 
-.preheader289:                                    ; preds = %6
+.preheader288:                                    ; preds = %6
   %14 = icmp sgt i32 %9, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader289
+.lr.ph.preheader:                                 ; preds = %.preheader288
   %15 = zext nneg i32 %9 to i64
   %16 = shl nuw nsw i64 %15, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %16, i1 false)
@@ -547,7 +544,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   store i32 1, ptr %17, align 8
   br label %275
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader289
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader288
   %18 = tail call ptr @Cudd_VectorSupport(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread.thread, label %20
@@ -562,43 +559,43 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   store i32 %26, ptr %24, align 4
   store ptr %18, ptr %7, align 8
   %27 = load i32, ptr %18, align 8
-  %.not291 = icmp eq i32 %27, 2147483647
-  br i1 %.not291, label %._crit_edge295, label %.lr.ph294
+  %.not290 = icmp eq i32 %27, 2147483647
+  br i1 %.not290, label %._crit_edge294, label %.lr.ph293
 
-.lr.ph294:                                        ; preds = %20, %.lr.ph294
-  %28 = phi i32 [ %33, %.lr.ph294 ], [ %27, %20 ]
-  %storemerge292 = phi ptr [ %32, %.lr.ph294 ], [ %18, %20 ]
+.lr.ph293:                                        ; preds = %20, %.lr.ph293
+  %28 = phi i32 [ %33, %.lr.ph293 ], [ %27, %20 ]
+  %storemerge291 = phi ptr [ %32, %.lr.ph293 ], [ %18, %20 ]
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %12, i64 %29
   store i32 1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %storemerge292, i64 16
+  %31 = getelementptr inbounds i8, ptr %storemerge291, i64 16
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %7, align 8
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %33, 2147483647
-  br i1 %.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !10
+  br i1 %.not, label %._crit_edge294, label %.lr.ph293, !llvm.loop !10
 
-._crit_edge295:                                   ; preds = %.lr.ph294, %20
+._crit_edge294:                                   ; preds = %.lr.ph293, %20
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %18) #9
   %34 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread.thread, label %.preheader287
+  br i1 %35, label %.thread.thread, label %.preheader286
 
-.preheader287:                                    ; preds = %._crit_edge295
+.preheader286:                                    ; preds = %._crit_edge294
   %36 = icmp sgt i32 %1, 0
-  br i1 %36, label %.lr.ph297.preheader, label %._crit_edge298
+  br i1 %36, label %.lr.ph296.preheader, label %._crit_edge297
 
-.lr.ph297.preheader:                              ; preds = %.preheader287
+.lr.ph296.preheader:                              ; preds = %.preheader286
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph297
+  br label %.lr.ph296
 
-37:                                               ; preds = %.lr.ph297
+37:                                               ; preds = %.lr.ph296
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge298, label %.lr.ph297, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !11
 
-.lr.ph297:                                        ; preds = %.lr.ph297.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph297.preheader ], [ %indvars.iv.next, %37 ]
+.lr.ph296:                                        ; preds = %.lr.ph296.preheader, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph296.preheader ], [ %indvars.iv.next, %37 ]
   %38 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
@@ -608,42 +605,42 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %37
 
-._crit_edge298:                                   ; preds = %37, %.preheader287
+._crit_edge297:                                   ; preds = %37, %.preheader286
   %45 = load ptr, ptr %2, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, -2
   %48 = tail call ptr @st__init_gen(ptr noundef nonnull %34) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.preheader286
+  br i1 %49, label %.thread, label %.preheader285
 
-.preheader286:                                    ; preds = %._crit_edge298
+.preheader285:                                    ; preds = %._crit_edge297
   %50 = call i32 @st__gen(ptr noundef nonnull %48, ptr noundef nonnull %7, ptr noundef null) #9
-  %.not245299 = icmp eq i32 %50, 0
-  br i1 %.not245299, label %._crit_edge302, label %.lr.ph301
+  %.not245298 = icmp eq i32 %50, 0
+  br i1 %.not245298, label %._crit_edge301, label %.lr.ph300
 
-.lr.ph301:                                        ; preds = %.preheader286, %.lr.ph301
-  %.0208300 = phi i64 [ %54, %.lr.ph301 ], [ 0, %.preheader286 ]
+.lr.ph300:                                        ; preds = %.preheader285, %.lr.ph300
+  %.0208299 = phi i64 [ %54, %.lr.ph300 ], [ 0, %.preheader285 ]
   %51 = load ptr, ptr %7, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = xor i64 %47, %52
-  %54 = or i64 %53, %.0208300
+  %54 = or i64 %53, %.0208299
   %55 = call i32 @st__gen(ptr noundef nonnull %48, ptr noundef nonnull %7, ptr noundef null) #9
   %.not245 = icmp eq i32 %55, 0
-  br i1 %.not245, label %._crit_edge302, label %.lr.ph301, !llvm.loop !12
+  br i1 %.not245, label %._crit_edge301, label %.lr.ph300, !llvm.loop !12
 
-._crit_edge302:                                   ; preds = %.lr.ph301, %.preheader286
-  %.0208.lcssa = phi i64 [ 0, %.preheader286 ], [ %54, %.lr.ph301 ]
+._crit_edge301:                                   ; preds = %.lr.ph300, %.preheader285
+  %.0208.lcssa = phi i64 [ 0, %.preheader285 ], [ %54, %.lr.ph300 ]
   call void @st__free_gen(ptr noundef nonnull %48) #9
   br label %56
 
-56:                                               ; preds = %56, %._crit_edge302
-  %.2214303 = phi i32 [ 0, %._crit_edge302 ], [ %59, %56 ]
-  %notmask = shl nsw i32 -1, %.2214303
+56:                                               ; preds = %56, %._crit_edge301
+  %.2214302 = phi i32 [ 0, %._crit_edge301 ], [ %59, %56 ]
+  %notmask = shl nsw i32 -1, %.2214302
   %57 = xor i32 %notmask, -1
   %58 = zext nneg i32 %57 to i64
   %.not246 = icmp sgt i64 %.0208.lcssa, %58
-  %59 = add nuw nsw i32 %.2214303, 4
-  %60 = icmp ult i32 %.2214303, 60
+  %59 = add nuw nsw i32 %.2214302, 4
+  %60 = icmp ult i32 %.2214302, 60
   %or.cond = and i1 %.not246, %60
   br i1 %or.cond, label %56, label %61, !llvm.loop !13
 
@@ -670,21 +667,21 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 73:                                               ; preds = %70
   %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.18) #9
   %75 = icmp eq i32 %74, -1
-  br i1 %75, label %.thread, label %.preheader284
+  br i1 %75, label %.thread, label %.preheader283
 
-.preheader284:                                    ; preds = %73
-  br i1 %14, label %.lr.ph305, label %._crit_edge306
+.preheader283:                                    ; preds = %73
+  br i1 %14, label %.lr.ph304, label %._crit_edge305
 
-.lr.ph305:                                        ; preds = %.preheader284
+.lr.ph304:                                        ; preds = %.preheader283
   %76 = getelementptr inbounds i8, ptr %0, i64 328
   %77 = icmp eq ptr %3, null
-  %wide.trip.count370 = zext nneg i32 %9 to i64
+  %wide.trip.count369 = zext nneg i32 %9 to i64
   br label %78
 
-78:                                               ; preds = %.lr.ph305, %96
-  %indvars.iv367 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next368, %96 ]
+78:                                               ; preds = %.lr.ph304, %96
+  %indvars.iv366 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next367, %96 ]
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv367
+  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv366
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %12, i64 %82
@@ -715,56 +712,56 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %78, %94
-  %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
-  %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge306, label %78, !llvm.loop !14
+  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
+  br i1 %exitcond370.not, label %._crit_edge305, label %78, !llvm.loop !14
 
-._crit_edge306:                                   ; preds = %96, %.preheader284
+._crit_edge305:                                   ; preds = %96, %.preheader283
   %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #9
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %.thread, label %99
 
-99:                                               ; preds = %._crit_edge306
+99:                                               ; preds = %._crit_edge305
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #9
   %101 = icmp eq i32 %100, -1
-  br i1 %101, label %.thread, label %.preheader282
+  br i1 %101, label %.thread, label %.preheader281
 
-.preheader282:                                    ; preds = %99
-  br i1 %36, label %.lr.ph308, label %.preheader280
+.preheader281:                                    ; preds = %99
+  br i1 %36, label %.lr.ph307, label %.preheader279
 
-.lr.ph308:                                        ; preds = %.preheader282
+.lr.ph307:                                        ; preds = %.preheader281
   %102 = icmp eq ptr %4, null
   %103 = add nsw i32 %1, -1
   %104 = zext nneg i32 %103 to i64
-  %wide.trip.count375 = zext nneg i32 %1 to i64
+  %wide.trip.count374 = zext nneg i32 %1 to i64
   br label %109
 
 105:                                              ; preds = %119
-  %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
-  br i1 %exitcond376.not, label %.preheader280, label %109, !llvm.loop !15
+  %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
+  %exitcond375.not = icmp eq i64 %indvars.iv.next372, %wide.trip.count374
+  br i1 %exitcond375.not, label %.preheader279, label %109, !llvm.loop !15
 
-.preheader280:                                    ; preds = %105, %.preheader282
-  br i1 %14, label %.lr.ph320, label %._crit_edge321
+.preheader279:                                    ; preds = %105, %.preheader281
+  br i1 %14, label %.lr.ph319, label %._crit_edge320
 
-.lr.ph320:                                        ; preds = %.preheader280
+.lr.ph319:                                        ; preds = %.preheader279
   %106 = getelementptr inbounds i8, ptr %0, i64 328
   %107 = icmp eq ptr %3, null
   %108 = getelementptr inbounds i8, ptr %0, i64 152
-  %wide.trip.count385 = zext nneg i32 %9 to i64
+  %wide.trip.count384 = zext nneg i32 %9 to i64
   br label %123
 
-109:                                              ; preds = %.lr.ph308, %105
-  %indvars.iv372 = phi i64 [ 0, %.lr.ph308 ], [ %indvars.iv.next373, %105 ]
+109:                                              ; preds = %.lr.ph307, %105
+  %indvars.iv371 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next372, %105 ]
   br i1 %102, label %110, label %113
 
 110:                                              ; preds = %109
-  %111 = trunc nuw nsw i64 %indvars.iv372 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv371 to i32
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, i32 noundef %111) #9
   br label %117
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv372
+  %114 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv371
   %115 = load ptr, ptr %114, align 8
   %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %115) #9
   br label %117
@@ -775,16 +772,16 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %118, label %.thread, label %119
 
 119:                                              ; preds = %117
-  %120 = icmp eq i64 %indvars.iv372, %104
+  %120 = icmp eq i64 %indvars.iv371, %104
   %.str.25..str.26 = select i1 %120, ptr @.str.25, ptr @.str.26
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.25..str.26) #9
   %122 = icmp eq i32 %121, -1
   br i1 %122, label %.thread, label %105
 
-123:                                              ; preds = %.lr.ph320, %165
-  %indvars.iv382 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next383, %165 ]
+123:                                              ; preds = %.lr.ph319, %165
+  %indvars.iv381 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next382, %165 ]
   %124 = load ptr, ptr %106, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv382
+  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv381
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %12, i64 %127
@@ -799,58 +796,58 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 
 133:                                              ; preds = %130
   %.pre = load ptr, ptr %106, align 8
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv382
-  %.pre413 = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %107, label %._crit_edge412, label %134
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv381
+  %.pre412 = load i32, ptr %.phi.trans.insert, align 4
+  br i1 %107, label %._crit_edge411, label %134
 
 134:                                              ; preds = %133
-  %135 = sext i32 %.pre413 to i64
+  %135 = sext i32 %.pre412 to i64
   %136 = getelementptr inbounds ptr, ptr %3, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %._crit_edge412, label %140
+  br i1 %138, label %._crit_edge411, label %140
 
-._crit_edge412:                                   ; preds = %133, %134
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.pre413) #9
+._crit_edge411:                                   ; preds = %133, %134
+  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.pre412) #9
   br label %142
 
 140:                                              ; preds = %134
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %137) #9
   br label %142
 
-142:                                              ; preds = %140, %._crit_edge412
-  %.3219 = phi i32 [ %139, %._crit_edge412 ], [ %141, %140 ]
+142:                                              ; preds = %140, %._crit_edge411
+  %.3219 = phi i32 [ %139, %._crit_edge411 ], [ %141, %140 ]
   %143 = icmp eq i32 %.3219, -1
   br i1 %143, label %.thread, label %144
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %108, align 8
-  %146 = getelementptr inbounds %struct.DdSubtable, ptr %145, i64 %indvars.iv382
+  %146 = getelementptr inbounds %struct.DdSubtable, ptr %145, i64 %indvars.iv381
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %146, i64 12
   %149 = load i32, ptr %148, align 4
   %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.lr.ph317.preheader, label %._crit_edge318
+  br i1 %150, label %.lr.ph316.preheader, label %._crit_edge317
 
-.lr.ph317.preheader:                              ; preds = %144
-  %wide.trip.count380 = zext nneg i32 %149 to i64
-  br label %.lr.ph317
+.lr.ph316.preheader:                              ; preds = %144
+  %wide.trip.count379 = zext nneg i32 %149 to i64
+  br label %.lr.ph316
 
-.lr.ph317:                                        ; preds = %.lr.ph317.preheader, %._crit_edge314
-  %indvars.iv377 = phi i64 [ 0, %.lr.ph317.preheader ], [ %indvars.iv.next378, %._crit_edge314 ]
-  %151 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv377
-  %storemerge260309 = load ptr, ptr %151, align 8
-  store ptr %storemerge260309, ptr %7, align 8
-  %.not261310 = icmp eq ptr %storemerge260309, null
-  br i1 %.not261310, label %._crit_edge314, label %.lr.ph313
+.lr.ph316:                                        ; preds = %.lr.ph316.preheader, %._crit_edge313
+  %indvars.iv376 = phi i64 [ 0, %.lr.ph316.preheader ], [ %indvars.iv.next377, %._crit_edge313 ]
+  %151 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv376
+  %storemerge260308 = load ptr, ptr %151, align 8
+  store ptr %storemerge260308, ptr %7, align 8
+  %.not261309 = icmp eq ptr %storemerge260308, null
+  br i1 %.not261309, label %._crit_edge313, label %.lr.ph312
 
-.lr.ph313:                                        ; preds = %.lr.ph317, %160
-  %storemerge260311 = phi ptr [ %storemerge260, %160 ], [ %storemerge260309, %.lr.ph317 ]
-  %152 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge260311, ptr noundef null) #9
+.lr.ph312:                                        ; preds = %.lr.ph316, %160
+  %storemerge260310 = phi ptr [ %storemerge260, %160 ], [ %storemerge260308, %.lr.ph316 ]
+  %152 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge260310, ptr noundef null) #9
   %.not262 = icmp eq i32 %152, 0
   br i1 %.not262, label %160, label %153
 
-153:                                              ; preds = %.lr.ph313
+153:                                              ; preds = %.lr.ph312
   %154 = load ptr, ptr %7, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = and i64 %155, %58
@@ -859,61 +856,61 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %159 = icmp eq i32 %158, -1
   br i1 %159, label %.thread, label %160
 
-160:                                              ; preds = %153, %.lr.ph313
+160:                                              ; preds = %153, %.lr.ph312
   %161 = load ptr, ptr %7, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   %storemerge260 = load ptr, ptr %162, align 8
   store ptr %storemerge260, ptr %7, align 8
   %.not261 = icmp eq ptr %storemerge260, null
-  br i1 %.not261, label %._crit_edge314, label %.lr.ph313, !llvm.loop !16
+  br i1 %.not261, label %._crit_edge313, label %.lr.ph312, !llvm.loop !16
 
-._crit_edge314:                                   ; preds = %160, %.lr.ph317
-  %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
-  %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %._crit_edge318, label %.lr.ph317, !llvm.loop !17
+._crit_edge313:                                   ; preds = %160, %.lr.ph316
+  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
+  %exitcond380.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count379
+  br i1 %exitcond380.not, label %._crit_edge317, label %.lr.ph316, !llvm.loop !17
 
-._crit_edge318:                                   ; preds = %._crit_edge314, %144
+._crit_edge317:                                   ; preds = %._crit_edge313, %144
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31) #9
   %164 = icmp eq i32 %163, -1
   br i1 %164, label %.thread, label %165
 
-165:                                              ; preds = %123, %._crit_edge318
-  %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
-  %exitcond386.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count385
-  br i1 %exitcond386.not, label %._crit_edge321, label %123, !llvm.loop !18
+165:                                              ; preds = %123, %._crit_edge317
+  %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
+  %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
+  br i1 %exitcond385.not, label %._crit_edge320, label %123, !llvm.loop !18
 
-._crit_edge321:                                   ; preds = %165, %.preheader280
+._crit_edge320:                                   ; preds = %165, %.preheader279
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.32) #9
   %167 = icmp eq i32 %166, -1
   br i1 %167, label %.thread, label %168
 
-168:                                              ; preds = %._crit_edge321
+168:                                              ; preds = %._crit_edge320
   %169 = getelementptr inbounds i8, ptr %0, i64 168
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %0, i64 180
   %172 = load i32, ptr %171, align 4
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %.lr.ph330.preheader, label %._crit_edge331
+  br i1 %173, label %.lr.ph329.preheader, label %._crit_edge330
 
-.lr.ph330.preheader:                              ; preds = %168
-  %wide.trip.count390 = zext nneg i32 %172 to i64
-  br label %.lr.ph330
+.lr.ph329.preheader:                              ; preds = %168
+  %wide.trip.count389 = zext nneg i32 %172 to i64
+  br label %.lr.ph329
 
-.lr.ph330:                                        ; preds = %.lr.ph330.preheader, %._crit_edge327
-  %indvars.iv387 = phi i64 [ 0, %.lr.ph330.preheader ], [ %indvars.iv.next388, %._crit_edge327 ]
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv387
-  %storemerge256322 = load ptr, ptr %174, align 8
-  store ptr %storemerge256322, ptr %7, align 8
-  %.not257323 = icmp eq ptr %storemerge256322, null
-  br i1 %.not257323, label %._crit_edge327, label %.lr.ph326
+.lr.ph329:                                        ; preds = %.lr.ph329.preheader, %._crit_edge326
+  %indvars.iv386 = phi i64 [ 0, %.lr.ph329.preheader ], [ %indvars.iv.next387, %._crit_edge326 ]
+  %174 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv386
+  %storemerge256321 = load ptr, ptr %174, align 8
+  store ptr %storemerge256321, ptr %7, align 8
+  %.not257322 = icmp eq ptr %storemerge256321, null
+  br i1 %.not257322, label %._crit_edge326, label %.lr.ph325
 
-.lr.ph326:                                        ; preds = %.lr.ph330, %183
-  %storemerge256324 = phi ptr [ %storemerge256, %183 ], [ %storemerge256322, %.lr.ph330 ]
-  %175 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge256324, ptr noundef null) #9
+.lr.ph325:                                        ; preds = %.lr.ph329, %183
+  %storemerge256323 = phi ptr [ %storemerge256, %183 ], [ %storemerge256321, %.lr.ph329 ]
+  %175 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge256323, ptr noundef null) #9
   %.not258 = icmp eq i32 %175, 0
   br i1 %.not258, label %183, label %176
 
-176:                                              ; preds = %.lr.ph326
+176:                                              ; preds = %.lr.ph325
   %177 = load ptr, ptr %7, align 8
   %178 = ptrtoint ptr %177 to i64
   %179 = and i64 %178, %58
@@ -922,57 +919,57 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %182 = icmp eq i32 %181, -1
   br i1 %182, label %.thread, label %183
 
-183:                                              ; preds = %176, %.lr.ph326
+183:                                              ; preds = %176, %.lr.ph325
   %184 = load ptr, ptr %7, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 8
   %storemerge256 = load ptr, ptr %185, align 8
   store ptr %storemerge256, ptr %7, align 8
   %.not257 = icmp eq ptr %storemerge256, null
-  br i1 %.not257, label %._crit_edge327, label %.lr.ph326, !llvm.loop !19
+  br i1 %.not257, label %._crit_edge326, label %.lr.ph325, !llvm.loop !19
 
-._crit_edge327:                                   ; preds = %183, %.lr.ph330
-  %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
-  %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %._crit_edge331, label %.lr.ph330, !llvm.loop !20
+._crit_edge326:                                   ; preds = %183, %.lr.ph329
+  %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
+  %exitcond390.not = icmp eq i64 %indvars.iv.next387, %wide.trip.count389
+  br i1 %exitcond390.not, label %._crit_edge330, label %.lr.ph329, !llvm.loop !20
 
-._crit_edge331:                                   ; preds = %._crit_edge327, %168
+._crit_edge330:                                   ; preds = %._crit_edge326, %168
   %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.33) #9
   %187 = icmp eq i32 %186, -1
-  br i1 %187, label %.thread, label %.preheader276
+  br i1 %187, label %.thread, label %.preheader275
 
-.preheader276:                                    ; preds = %._crit_edge331
-  br i1 %36, label %.lr.ph333, label %.preheader
+.preheader275:                                    ; preds = %._crit_edge330
+  br i1 %36, label %.lr.ph332, label %.preheader
 
-.lr.ph333:                                        ; preds = %.preheader276
+.lr.ph332:                                        ; preds = %.preheader275
   %188 = icmp eq ptr %4, null
-  %wide.trip.count395 = zext nneg i32 %1 to i64
+  %wide.trip.count394 = zext nneg i32 %1 to i64
   br label %192
 
 189:                                              ; preds = %202
-  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
-  %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %.preheader, label %192, !llvm.loop !21
+  %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
+  %exitcond395.not = icmp eq i64 %indvars.iv.next392, %wide.trip.count394
+  br i1 %exitcond395.not, label %.preheader, label %192, !llvm.loop !21
 
-.preheader:                                       ; preds = %189, %.preheader276
-  br i1 %14, label %.lr.ph344, label %._crit_edge345
+.preheader:                                       ; preds = %189, %.preheader275
+  br i1 %14, label %.lr.ph343, label %._crit_edge344
 
-.lr.ph344:                                        ; preds = %.preheader
+.lr.ph343:                                        ; preds = %.preheader
   %190 = getelementptr inbounds i8, ptr %0, i64 328
   %191 = getelementptr inbounds i8, ptr %0, i64 152
-  %wide.trip.count405 = zext nneg i32 %9 to i64
+  %wide.trip.count404 = zext nneg i32 %9 to i64
   br label %211
 
-192:                                              ; preds = %.lr.ph333, %189
-  %indvars.iv392 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next393, %189 ]
+192:                                              ; preds = %.lr.ph332, %189
+  %indvars.iv391 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next392, %189 ]
   br i1 %188, label %193, label %196
 
 193:                                              ; preds = %192
-  %194 = trunc nuw nsw i64 %indvars.iv392 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv391 to i32
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, i32 noundef %194) #9
   br label %200
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv392
+  %197 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv391
   %198 = load ptr, ptr %197, align 8
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %198) #9
   br label %200
@@ -983,7 +980,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %201, label %.thread, label %202
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv392
+  %203 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv391
   %204 = load ptr, ptr %203, align 8
   %205 = ptrtoint ptr %204 to i64
   %206 = and i64 %205, 1
@@ -995,45 +992,45 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %210 = icmp eq i32 %209, -1
   br i1 %210, label %.thread, label %189
 
-211:                                              ; preds = %.lr.ph344, %.loopexit275
-  %indvars.iv402 = phi i64 [ 0, %.lr.ph344 ], [ %indvars.iv.next403, %.loopexit275 ]
+211:                                              ; preds = %.lr.ph343, %.loopexit
+  %indvars.iv401 = phi i64 [ 0, %.lr.ph343 ], [ %indvars.iv.next402, %.loopexit ]
   %212 = load ptr, ptr %190, align 8
-  %213 = getelementptr inbounds i32, ptr %212, i64 %indvars.iv402
+  %213 = getelementptr inbounds i32, ptr %212, i64 %indvars.iv401
   %214 = load i32, ptr %213, align 4
   %215 = sext i32 %214 to i64
   %216 = getelementptr inbounds i32, ptr %12, i64 %215
   %217 = load i32, ptr %216, align 4
   %.not250 = icmp eq i32 %217, 0
-  br i1 %.not250, label %.loopexit275, label %218
+  br i1 %.not250, label %.loopexit, label %218
 
 218:                                              ; preds = %211
   %219 = load ptr, ptr %191, align 8
-  %220 = getelementptr inbounds %struct.DdSubtable, ptr %219, i64 %indvars.iv402
+  %220 = getelementptr inbounds %struct.DdSubtable, ptr %219, i64 %indvars.iv401
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %220, i64 12
   %223 = load i32, ptr %222, align 4
   %224 = icmp sgt i32 %223, 0
-  br i1 %224, label %.lr.ph342.preheader, label %.loopexit275
+  br i1 %224, label %.lr.ph341.preheader, label %.loopexit
 
-.lr.ph342.preheader:                              ; preds = %218
-  %wide.trip.count400 = zext nneg i32 %223 to i64
-  br label %.lr.ph342
+.lr.ph341.preheader:                              ; preds = %218
+  %wide.trip.count399 = zext nneg i32 %223 to i64
+  br label %.lr.ph341
 
-.lr.ph342:                                        ; preds = %.lr.ph342.preheader, %._crit_edge339
-  %indvars.iv397 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next398, %._crit_edge339 ]
-  %225 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv397
-  %storemerge251334 = load ptr, ptr %225, align 8
-  store ptr %storemerge251334, ptr %7, align 8
-  %.not252335 = icmp eq ptr %storemerge251334, null
-  br i1 %.not252335, label %._crit_edge339, label %.lr.ph338
+.lr.ph341:                                        ; preds = %.lr.ph341.preheader, %._crit_edge338
+  %indvars.iv396 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next397, %._crit_edge338 ]
+  %225 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv396
+  %storemerge251333 = load ptr, ptr %225, align 8
+  store ptr %storemerge251333, ptr %7, align 8
+  %.not252334 = icmp eq ptr %storemerge251333, null
+  br i1 %.not252334, label %._crit_edge338, label %.lr.ph337
 
-.lr.ph338:                                        ; preds = %.lr.ph342, %252
-  %storemerge251336 = phi ptr [ %storemerge251, %252 ], [ %storemerge251334, %.lr.ph342 ]
-  %226 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge251336, ptr noundef null) #9
+.lr.ph337:                                        ; preds = %.lr.ph341, %252
+  %storemerge251335 = phi ptr [ %storemerge251, %252 ], [ %storemerge251333, %.lr.ph341 ]
+  %226 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge251335, ptr noundef null) #9
   %.not253 = icmp eq i32 %226, 0
   br i1 %.not253, label %252, label %227
 
-227:                                              ; preds = %.lr.ph338
+227:                                              ; preds = %.lr.ph337
   %228 = load ptr, ptr %7, align 8
   %229 = ptrtoint ptr %228 to i64
   %230 = and i64 %229, %58
@@ -1064,49 +1061,49 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %251 = icmp eq i32 %250, -1
   br i1 %251, label %.thread, label %252
 
-252:                                              ; preds = %239, %.lr.ph338
+252:                                              ; preds = %239, %.lr.ph337
   %253 = load ptr, ptr %7, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 8
   %storemerge251 = load ptr, ptr %254, align 8
   store ptr %storemerge251, ptr %7, align 8
   %.not252 = icmp eq ptr %storemerge251, null
-  br i1 %.not252, label %._crit_edge339, label %.lr.ph338, !llvm.loop !22
+  br i1 %.not252, label %._crit_edge338, label %.lr.ph337, !llvm.loop !22
 
-._crit_edge339:                                   ; preds = %252, %.lr.ph342
-  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
-  %exitcond401.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count400
-  br i1 %exitcond401.not, label %.loopexit275, label %.lr.ph342, !llvm.loop !23
+._crit_edge338:                                   ; preds = %252, %.lr.ph341
+  %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
+  %exitcond400.not = icmp eq i64 %indvars.iv.next397, %wide.trip.count399
+  br i1 %exitcond400.not, label %.loopexit, label %.lr.ph341, !llvm.loop !23
 
-.loopexit275:                                     ; preds = %._crit_edge339, %218, %211
-  %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
-  %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
-  br i1 %exitcond406.not, label %._crit_edge345, label %211, !llvm.loop !24
+.loopexit:                                        ; preds = %._crit_edge338, %218, %211
+  %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
+  %exitcond405.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count404
+  br i1 %exitcond405.not, label %._crit_edge344, label %211, !llvm.loop !24
 
-._crit_edge345:                                   ; preds = %.loopexit275, %.preheader
+._crit_edge344:                                   ; preds = %.loopexit, %.preheader
   %255 = load ptr, ptr %169, align 8
   %256 = load i32, ptr %171, align 4
   %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %.lr.ph354.preheader, label %._crit_edge355
+  br i1 %257, label %.lr.ph353.preheader, label %._crit_edge354
 
-.lr.ph354.preheader:                              ; preds = %._crit_edge345
-  %wide.trip.count410 = zext nneg i32 %256 to i64
-  br label %.lr.ph354
+.lr.ph353.preheader:                              ; preds = %._crit_edge344
+  %wide.trip.count409 = zext nneg i32 %256 to i64
+  br label %.lr.ph353
 
-.lr.ph354:                                        ; preds = %.lr.ph354.preheader, %._crit_edge351
-  %indvars.iv407 = phi i64 [ 0, %.lr.ph354.preheader ], [ %indvars.iv.next408, %._crit_edge351 ]
-  %258 = getelementptr inbounds ptr, ptr %255, i64 %indvars.iv407
-  %storemerge247346 = load ptr, ptr %258, align 8
-  store ptr %storemerge247346, ptr %7, align 8
-  %.not248347 = icmp eq ptr %storemerge247346, null
-  br i1 %.not248347, label %._crit_edge351, label %.lr.ph350
+.lr.ph353:                                        ; preds = %.lr.ph353.preheader, %._crit_edge350
+  %indvars.iv406 = phi i64 [ 0, %.lr.ph353.preheader ], [ %indvars.iv.next407, %._crit_edge350 ]
+  %258 = getelementptr inbounds ptr, ptr %255, i64 %indvars.iv406
+  %storemerge247345 = load ptr, ptr %258, align 8
+  store ptr %storemerge247345, ptr %7, align 8
+  %.not248346 = icmp eq ptr %storemerge247345, null
+  br i1 %.not248346, label %._crit_edge350, label %.lr.ph349
 
-.lr.ph350:                                        ; preds = %.lr.ph354, %269
-  %storemerge247348 = phi ptr [ %storemerge247, %269 ], [ %storemerge247346, %.lr.ph354 ]
-  %259 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge247348, ptr noundef null) #9
+.lr.ph349:                                        ; preds = %.lr.ph353, %269
+  %storemerge247347 = phi ptr [ %storemerge247, %269 ], [ %storemerge247345, %.lr.ph353 ]
+  %259 = call i32 @st__lookup(ptr noundef nonnull %34, ptr noundef nonnull %storemerge247347, ptr noundef null) #9
   %.not249 = icmp eq i32 %259, 0
   br i1 %.not249, label %269, label %260
 
-260:                                              ; preds = %.lr.ph350
+260:                                              ; preds = %.lr.ph349
   %261 = load ptr, ptr %7, align 8
   %262 = ptrtoint ptr %261 to i64
   %263 = and i64 %262, %58
@@ -1117,34 +1114,34 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %268 = icmp eq i32 %267, -1
   br i1 %268, label %.thread, label %269
 
-269:                                              ; preds = %260, %.lr.ph350
+269:                                              ; preds = %260, %.lr.ph349
   %270 = load ptr, ptr %7, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 8
   %storemerge247 = load ptr, ptr %271, align 8
   store ptr %storemerge247, ptr %7, align 8
   %.not248 = icmp eq ptr %storemerge247, null
-  br i1 %.not248, label %._crit_edge351, label %.lr.ph350, !llvm.loop !25
+  br i1 %.not248, label %._crit_edge350, label %.lr.ph349, !llvm.loop !25
 
-._crit_edge351:                                   ; preds = %269, %.lr.ph354
-  %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
-  %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
-  br i1 %exitcond411.not, label %._crit_edge355, label %.lr.ph354, !llvm.loop !26
+._crit_edge350:                                   ; preds = %269, %.lr.ph353
+  %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
+  %exitcond410.not = icmp eq i64 %indvars.iv.next407, %wide.trip.count409
+  br i1 %exitcond410.not, label %._crit_edge354, label %.lr.ph353, !llvm.loop !26
 
-._crit_edge355:                                   ; preds = %._crit_edge351, %._crit_edge345
+._crit_edge354:                                   ; preds = %._crit_edge350, %._crit_edge344
   %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31) #9
   %273 = icmp eq i32 %272, -1
   br i1 %273, label %.thread, label %274
 
-274:                                              ; preds = %._crit_edge355
+274:                                              ; preds = %._crit_edge354
   call void @st__free_table(ptr noundef nonnull %34) #9
   call void @free(ptr noundef %12) #9
   br label %275
 
-.thread.thread:                                   ; preds = %._crit_edge295, %._crit_edge
+.thread.thread:                                   ; preds = %._crit_edge294, %._crit_edge
   tail call void @free(ptr noundef nonnull %12) #9
   br label %275
 
-.thread:                                          ; preds = %.lr.ph297, %94, %117, %119, %130, %142, %._crit_edge318, %153, %176, %200, %202, %227, %239, %260, %._crit_edge298, %67, %70, %73, %._crit_edge306, %99, %._crit_edge321, %._crit_edge331, %._crit_edge355
+.thread:                                          ; preds = %.lr.ph296, %94, %117, %119, %._crit_edge317, %130, %142, %153, %176, %200, %202, %227, %239, %260, %._crit_edge297, %67, %70, %73, %._crit_edge305, %99, %._crit_edge320, %._crit_edge330, %._crit_edge354
   call void @free(ptr noundef nonnull %12) #9
   call void @st__free_table(ptr noundef nonnull %34) #9
   br label %275
@@ -1665,17 +1662,14 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
 ._crit_edge192:                                   ; preds = %93
   %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40) #9
   %123 = icmp eq i32 %122, -1
-  br i1 %123, label %.loopexit, label %.preheader
+  br i1 %123, label %.loopexit, label %.lr.ph194
 
 ._crit_edge192.thread:                            ; preds = %.preheader166
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40) #9
   %125 = icmp eq i32 %124, -1
   br i1 %125, label %.loopexit, label %._crit_edge195
 
-.preheader:                                       ; preds = %._crit_edge192
-  br i1 %12, label %.lr.ph194, label %._crit_edge195
-
-.lr.ph194:                                        ; preds = %.preheader
+.lr.ph194:                                        ; preds = %._crit_edge192
   %126 = icmp eq ptr %4, null
   %127 = add nsw i32 %1, -1
   br i1 %126, label %.lr.ph194.split.us, label %.lr.ph194.split.preheader
@@ -1715,7 +1709,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %142 = icmp eq i32 %141, -1
   br i1 %142, label %.loopexit, label %136
 
-._crit_edge195:                                   ; preds = %136, %134, %._crit_edge192.thread, %.preheader
+._crit_edge195:                                   ; preds = %136, %134, %._crit_edge192.thread
   %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.48) #9
   %144 = icmp eq i32 %143, -1
   br i1 %144, label %.loopexit, label %145

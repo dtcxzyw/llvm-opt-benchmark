@@ -10441,7 +10441,7 @@ _ZN6casadi2MXaSERKS0_.exit125:                    ; preds = %_ZN6casadi7reshapeE
   %256 = getelementptr inbounds i8, ptr %0, i64 184
   %257 = load i64, ptr %256, align 8
   %258 = icmp ugt i64 %257, 1
-  br i1 %258, label %.preheader165, label %.loopexit
+  br i1 %258, label %.lr.ph210.preheader, label %.loopexit
 
 ._crit_edge208.thread:                            ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit117
   %259 = getelementptr inbounds i8, ptr %0, i64 184
@@ -10449,10 +10449,7 @@ _ZN6casadi2MXaSERKS0_.exit125:                    ; preds = %_ZN6casadi7reshapeE
   %261 = icmp ugt i64 %260, 1
   br i1 %261, label %._crit_edge211, label %.loopexit
 
-.preheader165:                                    ; preds = %._crit_edge208
-  br i1 %112, label %.lr.ph210.preheader, label %._crit_edge211
-
-.lr.ph210.preheader:                              ; preds = %.preheader165
+.lr.ph210.preheader:                              ; preds = %._crit_edge208
   %smax241 = call i64 @llvm.smax.i64(i64 %34, i64 1)
   br label %.lr.ph210
 
@@ -10476,7 +10473,7 @@ _ZN6casadi2MXaSERKS0_.exit127:                    ; preds = %.lr.ph210
   %exitcond242.not = icmp eq i64 %273, %smax241
   br i1 %exitcond242.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !95
 
-._crit_edge211:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit127, %._crit_edge208.thread, %.preheader165
+._crit_edge211:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit127, %._crit_edge208.thread
   %274 = invoke noundef ptr @_ZNK6casadi8FunctionptEv(ptr noundef nonnull align 8 dereferenceable(8) %150)
           to label %275 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

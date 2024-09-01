@@ -49,16 +49,13 @@ define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef reado
 
 ._crit_edge194:                                   ; preds = %15
   %21 = tail call ptr @Cut_CutAlloc(ptr noundef nonnull %0) #2
-  br i1 %.not201, label %._crit_edge198, label %.lr.ph197
-
-.lr.ph197:                                        ; preds = %._crit_edge194
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %21, i64 24
   %wide.trip.count247 = zext i32 %5 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph197, %24
-  %indvars.iv244 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next245, %24 ]
+24:                                               ; preds = %._crit_edge194, %24
+  %indvars.iv244 = phi i64 [ 0, %._crit_edge194 ], [ %indvars.iv.next245, %24 ]
   %25 = getelementptr inbounds [0 x i32], ptr %22, i64 0, i64 %indvars.iv244
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 %indvars.iv244
@@ -67,8 +64,8 @@ define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef reado
   %exitcond248.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count247
   br i1 %exitcond248.not, label %._crit_edge198, label %24, !llvm.loop !6
 
-._crit_edge198:                                   ; preds = %24, %._crit_edge194.thread, %._crit_edge194
-  %28 = phi ptr [ %12, %._crit_edge194.thread ], [ %21, %._crit_edge194 ], [ %21, %24 ]
+._crit_edge198:                                   ; preds = %24, %._crit_edge194.thread
+  %28 = phi ptr [ %12, %._crit_edge194.thread ], [ %21, %24 ]
   %29 = and i32 %6, -268435456
   br label %.loopexit.sink.split
 
@@ -420,16 +417,13 @@ define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr nocapture noundef readonly %1, p
 
 ._crit_edge146:                                   ; preds = %15
   %21 = tail call ptr @Cut_CutAlloc(ptr noundef nonnull %0) #2
-  br i1 %.not153, label %._crit_edge150, label %.lr.ph149
-
-.lr.ph149:                                        ; preds = %._crit_edge146
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %21, i64 24
   %wide.trip.count179 = zext nneg i32 %5 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph149, %24
-  %indvars.iv176 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next177, %24 ]
+24:                                               ; preds = %._crit_edge146, %24
+  %indvars.iv176 = phi i64 [ 0, %._crit_edge146 ], [ %indvars.iv.next177, %24 ]
   %25 = getelementptr inbounds [0 x i32], ptr %22, i64 0, i64 %indvars.iv176
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 %indvars.iv176
@@ -438,8 +432,8 @@ define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %._crit_edge150, label %24, !llvm.loop !16
 
-._crit_edge150:                                   ; preds = %24, %._crit_edge146.thread, %._crit_edge146
-  %28 = phi ptr [ %12, %._crit_edge146.thread ], [ %21, %._crit_edge146 ], [ %21, %24 ]
+._crit_edge150:                                   ; preds = %24, %._crit_edge146.thread
+  %28 = phi ptr [ %12, %._crit_edge146.thread ], [ %21, %24 ]
   %29 = load i32, ptr %1, align 8
   %30 = and i32 %29, -268435456
   %31 = load i32, ptr %28, align 8

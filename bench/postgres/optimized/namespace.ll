@@ -1482,16 +1482,16 @@ define dso_local i32 @TypenameGetTypid(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %.lr.ph42.i, label %TypenameGetTypidExtended.exit
 
 8:                                                ; preds = %.lr.ph42.i
-  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %9 = load i32, ptr %3, align 4
   %10 = sext i32 %9 to i64
-  %11 = icmp slt i64 %indvars.iv.next50.i, %10
+  %11 = icmp slt i64 %indvars.iv.next49.i, %10
   br i1 %11, label %.lr.ph42.i, label %TypenameGetTypidExtended.exit
 
 .lr.ph42.i:                                       ; preds = %.lr.ph.i, %8
-  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %8 ], [ 0, %.lr.ph.i ]
+  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %8 ], [ 0, %.lr.ph.i ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv49.i
+  %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv48.i
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 79, i16 noundef signext 1, i64 noundef %4, i64 noundef %15, i64 noundef 0, i64 noundef 0) #18
@@ -1522,16 +1522,16 @@ define dso_local i32 @TypenameGetTypidExtended(ptr noundef %0, i1 noundef zeroex
   br i1 %8, label %.lr.ph42, label %.thread
 
 9:                                                ; preds = %.lr.ph42
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
-  %12 = icmp slt i64 %indvars.iv.next50, %11
+  %12 = icmp slt i64 %indvars.iv.next49, %11
   br i1 %12, label %.lr.ph42, label %.thread
 
 .lr.ph42:                                         ; preds = %.lr.ph.split.us.split, %9
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %9 ], [ 0, %.lr.ph.split.us.split ]
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %9 ], [ 0, %.lr.ph.split.us.split ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv49
+  %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv48
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = tail call i32 @GetSysCacheOid(i32 noundef 79, i16 noundef signext 1, i64 noundef %5, i64 noundef %16, i64 noundef 0, i64 noundef 0) #18
@@ -1542,12 +1542,12 @@ define dso_local i32 @TypenameGetTypidExtended(ptr noundef %0, i1 noundef zeroex
   br i1 %8, label %.lr.ph37.preheader, label %.thread
 
 .lr.ph37.preheader:                               ; preds = %.lr.ph.split.split
-  %.pre52 = load i32, ptr @myTempNamespace, align 4
+  %.pre51 = load i32, ptr @myTempNamespace, align 4
   br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %26
   %18 = phi i32 [ %7, %.lr.ph37.preheader ], [ %27, %26 ]
-  %19 = phi i32 [ %.pre52, %.lr.ph37.preheader ], [ %28, %26 ]
+  %19 = phi i32 [ %.pre51, %.lr.ph37.preheader ], [ %28, %26 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next, %26 ]
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv
@@ -1563,11 +1563,11 @@ define dso_local i32 @TypenameGetTypidExtended(ptr noundef %0, i1 noundef zeroex
 
 ._crit_edge:                                      ; preds = %23
   %.pre = load i32, ptr @myTempNamespace, align 4
-  %.pre53 = load i32, ptr %4, align 4
+  %.pre52 = load i32, ptr %4, align 4
   br label %26
 
 26:                                               ; preds = %._crit_edge, %.lr.ph37
-  %27 = phi i32 [ %18, %.lr.ph37 ], [ %.pre53, %._crit_edge ]
+  %27 = phi i32 [ %18, %.lr.ph37 ], [ %.pre52, %._crit_edge ]
   %28 = phi i32 [ %19, %.lr.ph37 ], [ %.pre, %._crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %27 to i64

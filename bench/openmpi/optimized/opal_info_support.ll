@@ -1821,12 +1821,9 @@ define void @opal_info_do_params(i1 noundef zeroext %0, i1 noundef zeroext %1, p
 34:                                               ; preds = %.lr.ph
   %35 = add nuw nsw i32 %.06485, 1
   %exitcond.not = icmp eq i32 %35, %32
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph91, label %.lr.ph, !llvm.loop !15
 
-.preheader:                                       ; preds = %34
-  br i1 %33, label %.lr.ph91, label %.loopexit
-
-.lr.ph91:                                         ; preds = %.preheader
+.lr.ph91:                                         ; preds = %34
   %36 = getelementptr inbounds i8, ptr %2, i64 88
   %37 = getelementptr inbounds i8, ptr %2, i64 32
   %38 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2012,7 +2009,7 @@ opal_info_show_mca_params.exit79:                 ; preds = %117, %120, %.sink.s
   %126 = icmp slt i32 %125, %32
   br i1 %126, label %82, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %opal_info_show_mca_params.exit79, %78, %31, %.preheader, %.loopexit83
+.loopexit:                                        ; preds = %opal_info_show_mca_params.exit79, %78, %31, %.loopexit83
   ret void
 }
 

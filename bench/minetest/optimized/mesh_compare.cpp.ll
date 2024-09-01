@@ -853,7 +853,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK3irr4core8vecto
   %cmp.i.i288 = fcmp nsz olt float %24, %23
   %cmp7.i.i294 = fcmp nsz olt float %26, %25
   %or.cond = or i1 %cmp.i.i288, %cmp7.i.i294
-  br i1 %or.cond, label %if.end.i.i.i, label %land.lhs.true11.i.i295
+  br i1 %or.cond, label %if.end.i.i.i, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i371
 
 if.end.i.i.i.i.i.i.i.i.i.i.thread40:              ; preds = %land.lhs.true11.i.i383
   %cmp.i.i28841 = fcmp nsz olt float %24, %23
@@ -865,10 +865,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.thread:                ; preds = %lor.lhs.false.i.i37
   %cmp.i.i288515 = fcmp nsz olt float %24, %23
   br i1 %cmp.i.i288515, label %if.end.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i
 
-land.lhs.true11.i.i295:                           ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp14.i.i384, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i371, label %for.inc.i.i.i.i.i.i.i.i.i.i
-
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i371:      ; preds = %land.lhs.true11.i.i295
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i371:      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %43 = load float, ptr %Z15.i.i461, align 4, !tbaa !54
   %Z15.i.i373 = getelementptr inbounds i8, ptr %__x.addr.04.i.i.i, i64 40
   %44 = load float, ptr %Z15.i.i373, align 4, !tbaa !54
@@ -944,7 +941,7 @@ call.i25.i.i.i.i.i.i.i.i.i.i.noexc:               ; preds = %lor.rhs.i.i333
   %cmp7.i107.i338 = fcmp nsz olt float %57, %58
   br i1 %cmp7.i107.i338, label %if.end.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.thread40, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i347, %land.lhs.true11.i53.i365, %call.i25.i.i.i.i.i.i.i.i.i.i.noexc, %lor.rhs.i.i333, %land.lhs.true26.i325, %lor.lhs.false.i47.i359, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i301, %land.lhs.true11.i.i295, %if.end.i.i.i.i.i.i.i.i.i.i.thread
+for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.thread40, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i347, %land.lhs.true11.i53.i365, %call.i25.i.i.i.i.i.i.i.i.i.i.noexc, %lor.rhs.i.i333, %land.lhs.true26.i325, %lor.lhs.false.i47.i359, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i301, %if.end.i.i.i.i.i.i.i.i.i.i.thread
   %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.04.i.i.i, i64 68
   %59 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i.i.i, align 4, !tbaa !51
   %60 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i.i.i.i, align 4, !tbaa !51
@@ -1774,16 +1771,13 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit:            ; preds = %lor.rhs.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %land.lhs.true11.i53.i, %lor.lhs.false.i47.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %land.lhs.true11.i.i, %lor.rhs.i.i, %land.lhs.true26.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
   %cmp.i.i2 = fcmp nsz olt float %agg.tmp3659.sroa.0.0.copyload, %1
-  br i1 %cmp.i.i2, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %lor.lhs.false.i.i3
+  br i1 %cmp.i.i2, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %land.lhs.true.i.i5
 
 if.end.i.i.i.i.i.i.i.i.thread:                    ; preds = %lor.lhs.false.i.i
   %cmp.i.i2431 = fcmp nsz olt float %agg.tmp3659.sroa.0.0.copyload, %1
   br i1 %cmp.i.i2431, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.i.i.i
 
-lor.lhs.false.i.i3:                               ; preds = %if.end.i.i.i.i.i.i.i.i
-  br i1 %cmp5.i.i, label %land.lhs.true.i.i5, label %for.inc.i.i.i.i.i.i.i.i
-
-land.lhs.true.i.i5:                               ; preds = %lor.lhs.false.i.i3
+land.lhs.true.i.i5:                               ; preds = %if.end.i.i.i.i.i.i.i.i
   %Y6.i.i7 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %11 = load float, ptr %Y6.i.i7, align 4, !tbaa !53
   %cmp7.i.i8 = fcmp nsz olt float %agg.tmp3659.sroa.6.0.copyload, %11
@@ -1861,7 +1855,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit67:          ; preds = %lor.rhs.i.i49
   %cmp7.i107.i54 = fcmp nsz olt float %agg.tmp3659.sroa.30.0.copyload, %19
   br i1 %cmp7.i107.i54, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i55, %land.lhs.true11.i53.i27, %lor.lhs.false.i47.i21, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i15, %land.lhs.true11.i.i9, %lor.lhs.false.i.i3, %lor.rhs.i.i49, %land.lhs.true26.i41, %_ZNK3irr5video9S3DVertexltERKS1_.exit67
+for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i55, %land.lhs.true11.i53.i27, %lor.lhs.false.i47.i21, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i15, %land.lhs.true11.i.i9, %lor.rhs.i.i49, %land.lhs.true26.i41, %_ZNK3irr5video9S3DVertexltERKS1_.exit67
   %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 36
   %20 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.1.i.i.i, align 4, !tbaa !51
   %cmp.i.i68 = fcmp nsz olt float %20, %agg.tmp3659.sroa.32.0.copyload
@@ -1951,16 +1945,13 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit133:         ; preds = %lor.rhs.i.i115
 
 if.end.i.i.i.i.i.1.i.i.i:                         ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i121, %land.lhs.true11.i53.i93, %lor.lhs.false.i47.i87, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i81, %land.lhs.true11.i.i75, %lor.rhs.i.i115, %land.lhs.true26.i107, %_ZNK3irr5video9S3DVertexltERKS1_.exit133
   %cmp.i.i134 = fcmp nsz olt float %agg.tmp3659.sroa.32.0.copyload, %20
-  br i1 %cmp.i.i134, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %lor.lhs.false.i.i135
+  br i1 %cmp.i.i134, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %land.lhs.true.i.i137
 
 if.end.i.i.i.i.i.1.i.i.i.thread:                  ; preds = %lor.lhs.false.i.i69
   %cmp.i.i134432 = fcmp nsz olt float %agg.tmp3659.sroa.32.0.copyload, %20
   br i1 %cmp.i.i134432, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.1.i.i.i
 
-lor.lhs.false.i.i135:                             ; preds = %if.end.i.i.i.i.i.1.i.i.i
-  br i1 %cmp5.i.i70, label %land.lhs.true.i.i137, label %for.inc.i.i.i.i.i.1.i.i.i
-
-land.lhs.true.i.i137:                             ; preds = %lor.lhs.false.i.i135
+land.lhs.true.i.i137:                             ; preds = %if.end.i.i.i.i.i.1.i.i.i
   %Y6.i.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   %30 = load float, ptr %Y6.i.i139, align 4, !tbaa !53
   %cmp7.i.i140 = fcmp nsz olt float %agg.tmp3659.sroa.34.0.copyload, %30
@@ -2038,7 +2029,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit199:         ; preds = %lor.rhs.i.i181
   %cmp7.i107.i186 = fcmp nsz olt float %agg.tmp3659.sroa.58.0.copyload, %38
   br i1 %cmp7.i107.i186, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_less_valEEvT_T0_SF_T1_RT2_.exit, label %for.inc.i.i.i.i.i.1.i.i.i
 
-for.inc.i.i.i.i.i.1.i.i.i:                        ; preds = %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i187, %land.lhs.true11.i53.i159, %lor.lhs.false.i47.i153, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i147, %land.lhs.true11.i.i141, %lor.lhs.false.i.i135, %lor.rhs.i.i181, %land.lhs.true26.i173, %_ZNK3irr5video9S3DVertexltERKS1_.exit199
+for.inc.i.i.i.i.i.1.i.i.i:                        ; preds = %if.end.i.i.i.i.i.1.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i187, %land.lhs.true11.i53.i159, %lor.lhs.false.i47.i153, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i147, %land.lhs.true11.i.i141, %lor.rhs.i.i181, %land.lhs.true26.i173, %_ZNK3irr5video9S3DVertexltERKS1_.exit199
   %__first1.addr.028.i.i.i.i.i.ptr.2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   %39 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.2.i.i.i, align 4, !tbaa !51
   %cmp.i.i200 = fcmp nsz olt float %39, %agg.tmp3659.sroa.60.0.copyload
@@ -2755,7 +2746,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNK3irr4core8vecto
   %cmp.i.i222 = fcmp nsz olt float %0, %1
   %cmp7.i.i228 = fcmp nsz olt float %3, %2
   %or.cond = or i1 %cmp.i.i222, %cmp7.i.i228
-  br i1 %or.cond, label %while.end, label %land.lhs.true11.i.i229
+  br i1 %or.cond, label %while.end, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305
 
 if.end.i.i.i.i.i.i.i.thread129:                   ; preds = %land.lhs.true11.i.i317
   %cmp.i.i222130 = fcmp nsz olt float %0, %1
@@ -2767,10 +2758,7 @@ if.end.i.i.i.i.i.i.i.thread:                      ; preds = %lor.lhs.false.i.i31
   %cmp.i.i222878 = fcmp nsz olt float %0, %1
   br i1 %cmp.i.i222878, label %while.end, label %for.inc.i.i.i.i.i.i.i
 
-land.lhs.true11.i.i229:                           ; preds = %if.end.i.i.i.i.i.i.i
-  br i1 %cmp14.i.i318, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305, label %for.inc.i.i.i.i.i.i.i
-
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305:      ; preds = %land.lhs.true11.i.i229
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305:      ; preds = %if.end.i.i.i.i.i.i.i
   %20 = load float, ptr %Z15.i.i395, align 4, !tbaa !54
   %Z15.i.i307 = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 8
   %21 = load float, ptr %Z15.i.i307, align 4, !tbaa !54
@@ -2846,7 +2834,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit309:         ; preds = %lor.rhs.i.i267
   %cmp7.i107.i272 = fcmp nsz olt float %34, %35
   br i1 %cmp7.i107.i272, label %while.end, label %for.inc.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread129, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i281, %land.lhs.true11.i53.i299, %_ZNK3irr5video9S3DVertexltERKS1_.exit309, %lor.rhs.i.i267, %land.lhs.true26.i259, %lor.lhs.false.i47.i293, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i235, %land.lhs.true11.i.i229, %if.end.i.i.i.i.i.i.i.thread
+for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread129, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i281, %land.lhs.true11.i53.i299, %_ZNK3irr5video9S3DVertexltERKS1_.exit309, %lor.rhs.i.i267, %land.lhs.true26.i259, %lor.lhs.false.i47.i293, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i235, %if.end.i.i.i.i.i.i.i.thread
   %__first1.addr.028.i.i.i.i.i.ptr.1.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 36
   %36 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.1.i.i, align 4, !tbaa !51
   %37 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i, align 4, !tbaa !51
@@ -2948,7 +2936,7 @@ if.end.i.i.i.i.i.1.i.i:                           ; preds = %_ZNK3irr4core8vecto
   %cmp.i.i46 = fcmp nsz olt float %37, %36
   %cmp7.i.i52 = fcmp nsz olt float %39, %38
   %or.cond112 = or i1 %cmp.i.i46, %cmp7.i.i52
-  br i1 %or.cond112, label %while.end, label %land.lhs.true11.i.i53
+  br i1 %or.cond112, label %while.end, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129
 
 if.end.i.i.i.i.i.1.i.i.thread133:                 ; preds = %land.lhs.true11.i.i141
   %cmp.i.i46134 = fcmp nsz olt float %37, %36
@@ -2960,10 +2948,7 @@ if.end.i.i.i.i.i.1.i.i.thread:                    ; preds = %lor.lhs.false.i.i13
   %cmp.i.i46879 = fcmp nsz olt float %37, %36
   br i1 %cmp.i.i46879, label %while.end, label %for.inc.i.i.i.i.i.1.i.i
 
-land.lhs.true11.i.i53:                            ; preds = %if.end.i.i.i.i.i.1.i.i
-  br i1 %cmp14.i.i142, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129, label %for.inc.i.i.i.i.i.1.i.i
-
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129:      ; preds = %land.lhs.true11.i.i53
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129:      ; preds = %if.end.i.i.i.i.i.1.i.i
   %56 = load float, ptr %Z15.i.i219, align 4, !tbaa !54
   %Z15.i.i131 = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 44
   %57 = load float, ptr %Z15.i.i131, align 4, !tbaa !54
@@ -3039,7 +3024,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit133:         ; preds = %lor.rhs.i.i91
   %cmp7.i107.i96 = fcmp nsz olt float %70, %71
   br i1 %cmp7.i107.i96, label %while.end, label %for.inc.i.i.i.i.i.1.i.i
 
-for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread133, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i105, %land.lhs.true11.i53.i123, %_ZNK3irr5video9S3DVertexltERKS1_.exit133, %lor.rhs.i.i91, %land.lhs.true26.i83, %lor.lhs.false.i47.i117, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i59, %land.lhs.true11.i.i53, %if.end.i.i.i.i.i.1.i.i.thread
+for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread133, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i105, %land.lhs.true11.i53.i123, %_ZNK3irr5video9S3DVertexltERKS1_.exit133, %lor.rhs.i.i91, %land.lhs.true26.i83, %lor.lhs.false.i47.i117, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i59, %if.end.i.i.i.i.i.1.i.i.thread
   %__first1.addr.028.i.i.i.i.i.ptr.2.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 72
   %72 = load float, ptr %__first1.addr.028.i.i.i.i.i.ptr.2.i.i, align 4, !tbaa !51
   %73 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.2.i.i, align 4, !tbaa !51
@@ -3253,7 +3238,7 @@ if.end.i.i.i.i.i.i.i28:                           ; preds = %_ZNK3irr4core8vecto
   %cmp.i.i662 = fcmp nsz olt float %93, %92
   %cmp7.i.i668 = fcmp nsz olt float %95, %94
   %or.cond113 = or i1 %cmp.i.i662, %cmp7.i.i668
-  br i1 %or.cond113, label %while.end18, label %land.lhs.true11.i.i669
+  br i1 %or.cond113, label %while.end18, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i745
 
 if.end.i.i.i.i.i.i.i28.thread137:                 ; preds = %land.lhs.true11.i.i757
   %cmp.i.i662138 = fcmp nsz olt float %93, %92
@@ -3265,10 +3250,7 @@ if.end.i.i.i.i.i.i.i28.thread:                    ; preds = %lor.lhs.false.i.i75
   %cmp.i.i662880 = fcmp nsz olt float %93, %92
   br i1 %cmp.i.i662880, label %while.end18, label %for.inc.i.i.i.i.i.i.i30
 
-land.lhs.true11.i.i669:                           ; preds = %if.end.i.i.i.i.i.i.i28
-  br i1 %cmp14.i.i758, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i745, label %for.inc.i.i.i.i.i.i.i30
-
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i745:      ; preds = %land.lhs.true11.i.i669
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i745:      ; preds = %if.end.i.i.i.i.i.i.i28
   %Z.i.i746 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -100
   %112 = load float, ptr %Z.i.i746, align 4, !tbaa !54
   %113 = load float, ptr %Z15.i.i395, align 4, !tbaa !54
@@ -3344,7 +3326,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit749:         ; preds = %lor.rhs.i.i707
   %cmp7.i107.i712 = fcmp nsz olt float %126, %127
   br i1 %cmp7.i107.i712, label %while.end18, label %for.inc.i.i.i.i.i.i.i30
 
-for.inc.i.i.i.i.i.i.i30:                          ; preds = %if.end.i.i.i.i.i.i.i28.thread137, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i721, %land.lhs.true11.i53.i739, %_ZNK3irr5video9S3DVertexltERKS1_.exit749, %lor.rhs.i.i707, %land.lhs.true26.i699, %lor.lhs.false.i47.i733, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i675, %land.lhs.true11.i.i669, %if.end.i.i.i.i.i.i.i28.thread
+for.inc.i.i.i.i.i.i.i30:                          ; preds = %if.end.i.i.i.i.i.i.i28.thread137, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i721, %land.lhs.true11.i53.i739, %_ZNK3irr5video9S3DVertexltERKS1_.exit749, %lor.rhs.i.i707, %land.lhs.true26.i699, %lor.lhs.false.i47.i733, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i675, %if.end.i.i.i.i.i.i.i28.thread
   %__first2.addr.029.i.i.i.i.i.ptr.1.i.i31 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -72
   %128 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i, align 4, !tbaa !51
   %129 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i31, align 4, !tbaa !51
@@ -3446,7 +3428,7 @@ if.end.i.i.i.i.i.1.i.i34:                         ; preds = %_ZNK3irr4core8vecto
   %cmp.i.i486 = fcmp nsz olt float %129, %128
   %cmp7.i.i492 = fcmp nsz olt float %131, %130
   %or.cond114 = or i1 %cmp.i.i486, %cmp7.i.i492
-  br i1 %or.cond114, label %while.end18, label %land.lhs.true11.i.i493
+  br i1 %or.cond114, label %while.end18, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i569
 
 if.end.i.i.i.i.i.1.i.i34.thread141:               ; preds = %land.lhs.true11.i.i581
   %cmp.i.i486142 = fcmp nsz olt float %129, %128
@@ -3458,10 +3440,7 @@ if.end.i.i.i.i.i.1.i.i34.thread:                  ; preds = %lor.lhs.false.i.i57
   %cmp.i.i486881 = fcmp nsz olt float %129, %128
   br i1 %cmp.i.i486881, label %while.end18, label %for.inc.i.i.i.i.i.1.i.i36
 
-land.lhs.true11.i.i493:                           ; preds = %if.end.i.i.i.i.i.1.i.i34
-  br i1 %cmp14.i.i582, label %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i569, label %for.inc.i.i.i.i.i.1.i.i36
-
-_ZNK3irr4core8vector3dIfEltERKS2_.exit.i569:      ; preds = %land.lhs.true11.i.i493
+_ZNK3irr4core8vector3dIfEltERKS2_.exit.i569:      ; preds = %if.end.i.i.i.i.i.1.i.i34
   %Z.i.i570 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -64
   %148 = load float, ptr %Z.i.i570, align 4, !tbaa !54
   %149 = load float, ptr %Z15.i.i219, align 4, !tbaa !54
@@ -3537,7 +3516,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit573:         ; preds = %lor.rhs.i.i531
   %cmp7.i107.i536 = fcmp nsz olt float %162, %163
   br i1 %cmp7.i107.i536, label %while.end18, label %for.inc.i.i.i.i.i.1.i.i36
 
-for.inc.i.i.i.i.i.1.i.i36:                        ; preds = %if.end.i.i.i.i.i.1.i.i34.thread141, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i545, %land.lhs.true11.i53.i563, %_ZNK3irr5video9S3DVertexltERKS1_.exit573, %lor.rhs.i.i531, %land.lhs.true26.i523, %lor.lhs.false.i47.i557, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i499, %land.lhs.true11.i.i493, %if.end.i.i.i.i.i.1.i.i34.thread
+for.inc.i.i.i.i.i.1.i.i36:                        ; preds = %if.end.i.i.i.i.i.1.i.i34.thread141, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i545, %land.lhs.true11.i53.i563, %_ZNK3irr5video9S3DVertexltERKS1_.exit573, %lor.rhs.i.i531, %land.lhs.true26.i523, %lor.lhs.false.i47.i557, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i499, %if.end.i.i.i.i.i.1.i.i34.thread
   %__first2.addr.029.i.i.i.i.i.ptr.2.i.i37 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -36
   %164 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.2.i.i, align 4, !tbaa !51
   %165 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.2.i.i37, align 4, !tbaa !51
@@ -3898,16 +3877,13 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit:            ; preds = %lor.rhs.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %land.lhs.true11.i53.i, %lor.lhs.false.i47.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %land.lhs.true11.i.i, %lor.rhs.i.i, %land.lhs.true26.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit
   %cmp.i.i1 = fcmp nsz olt float %0, %__val.sroa.0.0.copyload
-  br i1 %cmp.i.i1, label %while.end, label %lor.lhs.false.i.i2
+  br i1 %cmp.i.i1, label %while.end, label %land.lhs.true.i.i4
 
 if.end.i.i.i.i.i.i.i.thread:                      ; preds = %lor.lhs.false.i.i
   %cmp.i.i1430 = fcmp nsz olt float %0, %__val.sroa.0.0.copyload
   br i1 %cmp.i.i1430, label %while.end, label %for.inc.i.i.i.i.i.i.i
 
-lor.lhs.false.i.i2:                               ; preds = %if.end.i.i.i.i.i.i.i
-  br i1 %cmp5.i.i, label %land.lhs.true.i.i4, label %for.inc.i.i.i.i.i.i.i
-
-land.lhs.true.i.i4:                               ; preds = %lor.lhs.false.i.i2
+land.lhs.true.i.i4:                               ; preds = %if.end.i.i.i.i.i.i.i
   %Y.i.i5 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -104
   %10 = load float, ptr %Y.i.i5, align 4, !tbaa !53
   %cmp7.i.i7 = fcmp nsz olt float %10, %__val.sroa.6.0.copyload
@@ -3985,7 +3961,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit66:          ; preds = %lor.rhs.i.i48
   %cmp7.i107.i53 = fcmp nsz olt float %18, %__val.sroa.30.0.copyload
   br i1 %cmp7.i107.i53, label %while.end, label %for.inc.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i54, %land.lhs.true11.i53.i26, %lor.lhs.false.i47.i20, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i14, %land.lhs.true11.i.i8, %lor.lhs.false.i.i2, %lor.rhs.i.i48, %land.lhs.true26.i40, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
+for.inc.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i54, %land.lhs.true11.i53.i26, %lor.lhs.false.i47.i20, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i14, %land.lhs.true11.i.i8, %lor.rhs.i.i48, %land.lhs.true26.i40, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
   %__first2.addr.029.i.i.i.i.i.ptr.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -72
   %19 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.1.i.i, align 4, !tbaa !51
   %cmp.i.i67 = fcmp nsz olt float %__val.sroa.32.0.copyload, %19
@@ -4075,16 +4051,13 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit132:         ; preds = %lor.rhs.i.i114
 
 if.end.i.i.i.i.i.1.i.i:                           ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i120, %land.lhs.true11.i53.i92, %lor.lhs.false.i47.i86, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i80, %land.lhs.true11.i.i74, %lor.rhs.i.i114, %land.lhs.true26.i106, %_ZNK3irr5video9S3DVertexltERKS1_.exit132
   %cmp.i.i133 = fcmp nsz olt float %19, %__val.sroa.32.0.copyload
-  br i1 %cmp.i.i133, label %while.end, label %lor.lhs.false.i.i134
+  br i1 %cmp.i.i133, label %while.end, label %land.lhs.true.i.i136
 
 if.end.i.i.i.i.i.1.i.i.thread:                    ; preds = %lor.lhs.false.i.i68
   %cmp.i.i133431 = fcmp nsz olt float %19, %__val.sroa.32.0.copyload
   br i1 %cmp.i.i133431, label %while.end, label %for.inc.i.i.i.i.i.1.i.i
 
-lor.lhs.false.i.i134:                             ; preds = %if.end.i.i.i.i.i.1.i.i
-  br i1 %cmp5.i.i69, label %land.lhs.true.i.i136, label %for.inc.i.i.i.i.i.1.i.i
-
-land.lhs.true.i.i136:                             ; preds = %lor.lhs.false.i.i134
+land.lhs.true.i.i136:                             ; preds = %if.end.i.i.i.i.i.1.i.i
   %Y.i.i137 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -68
   %29 = load float, ptr %Y.i.i137, align 4, !tbaa !53
   %cmp7.i.i139 = fcmp nsz olt float %29, %__val.sroa.34.0.copyload
@@ -4162,7 +4135,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit198:         ; preds = %lor.rhs.i.i180
   %cmp7.i107.i185 = fcmp nsz olt float %37, %__val.sroa.58.0.copyload
   br i1 %cmp7.i107.i185, label %while.end, label %for.inc.i.i.i.i.i.1.i.i
 
-for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i186, %land.lhs.true11.i53.i158, %lor.lhs.false.i47.i152, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i146, %land.lhs.true11.i.i140, %lor.lhs.false.i.i134, %lor.rhs.i.i180, %land.lhs.true26.i172, %_ZNK3irr5video9S3DVertexltERKS1_.exit198
+for.inc.i.i.i.i.i.1.i.i:                          ; preds = %if.end.i.i.i.i.i.1.i.i.thread, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i186, %land.lhs.true11.i53.i158, %lor.lhs.false.i47.i152, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i146, %land.lhs.true11.i.i140, %lor.rhs.i.i180, %land.lhs.true26.i172, %_ZNK3irr5video9S3DVertexltERKS1_.exit198
   %__first2.addr.029.i.i.i.i.i.ptr.2.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -36
   %38 = load float, ptr %__first2.addr.029.i.i.i.i.i.ptr.2.i.i, align 4, !tbaa !51
   %cmp.i.i199 = fcmp nsz olt float %__val.sroa.60.0.copyload, %38

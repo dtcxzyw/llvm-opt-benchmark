@@ -386,7 +386,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
   store ptr %prefetch_ptr.i.0.lcssa.i.i, ptr %prefetch_ptr_.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, %for.end.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, %if.end.i.i, %if.end.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8
+return:                                           ; preds = %for.end.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, %if.end.i.i, %if.end.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8
   %retval.0.in = phi i64 [ %0, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit ], [ %0, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8 ], [ %0, %if.end.i ], [ %0, %if.end.i.i ], [ %19, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i ], [ %19, %for.end.i.i.i ]
   %retval.0 = inttoptr i64 %retval.0.in to ptr
   ret ptr %retval.0

@@ -4237,8 +4237,8 @@ entry:
 while.cond:                                       ; preds = %while.body, %entry
   %bf.load = load i32, ptr %m_i, align 8
   %bf.clear = and i32 %bf.load, 268435455
-  %cmp.not = icmp uge i32 %bf.clear, %0
-  br i1 %cmp.not, label %while.end, label %while.body
+  %cmp.not.not.not.not.not = icmp uge i32 %bf.clear, %0
+  br i1 %cmp.not.not.not.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %idxprom.i = zext nneg i32 %bf.clear to i64
@@ -4539,7 +4539,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %return
 
 return:                                           ; preds = %while.body, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5797,8 +5797,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit:
   %8 = load ptr, ptr %this, align 8
   %m_proof_mode.i.i = getelementptr inbounds i8, ptr %8, i64 712
   %9 = load i32, ptr %m_proof_mode.i.i, align 8
-  %cmp.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.i.i, label %cond.end.thread, label %cond.true
+  %cmp.i.i.not = icmp eq i32 %9, 0
+  br i1 %cmp.i.i.not, label %cond.end.thread, label %cond.true
 
 cond.true:                                        ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit
   %m_nodes.i14 = getelementptr inbounds i8, ptr %this, i64 456

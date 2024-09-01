@@ -290,7 +290,7 @@ _ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.ex
   %37 = load ptr, ptr %16, align 8
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZN9Relocator19handle_code_changesEv.exit.thread, label %.lr.ph12.i
+  br i1 %39, label %.loopexit, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.exit, %._crit_edge.i
   %40 = phi ptr [ %61, %._crit_edge.i ], [ %37, %_ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.exit ]
@@ -300,7 +300,7 @@ _ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.ex
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull %1) #10
-  br i1 %46, label %.preheader.i, label %_ZN9Relocator19handle_code_changesEv.exit.thread7
+  br i1 %46, label %.preheader.i, label %_ZN9Relocator19handle_code_changesEv.exit
 
 .preheader.i:                                     ; preds = %.lr.ph12.i
   %47 = load ptr, ptr %16, align 8
@@ -332,13 +332,13 @@ _ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.ex
   %61 = load ptr, ptr %16, align 8
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %_ZN9Relocator19handle_code_changesEv.exit.thread, label %.lr.ph12.i, !llvm.loop !8
+  br i1 %63, label %.loopexit, label %.lr.ph12.i, !llvm.loop !8
 
-_ZN9Relocator19handle_code_changesEv.exit.thread7: ; preds = %.lr.ph12.i
+_ZN9Relocator19handle_code_changesEv.exit:        ; preds = %.lr.ph12.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %88
 
-_ZN9Relocator19handle_code_changesEv.exit.thread: ; preds = %._crit_edge.i, %_ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.exit
+.loopexit:                                        ; preds = %._crit_edge.i, %_ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.exit
   %64 = getelementptr inbounds i8, ptr %1, i64 32
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %64) #10
   %65 = load ptr, ptr %1, align 8
@@ -355,11 +355,11 @@ _ZN9Relocator19handle_code_changesEv.exit.thread: ; preds = %._crit_edge.i, %_ZN
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %75, label %74
 
-74:                                               ; preds = %_ZN9Relocator19handle_code_changesEv.exit.thread
+74:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %87
 
-75:                                               ; preds = %_ZN9Relocator19handle_code_changesEv.exit.thread
+75:                                               ; preds = %.loopexit
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %64) #10
   %76 = load ptr, ptr %9, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 8
@@ -383,7 +383,7 @@ _ZN9Relocator19handle_code_changesEv.exit.thread: ; preds = %._crit_edge.i, %_ZN
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
   br label %88
 
-88:                                               ; preds = %87, %_ZN9Relocator19handle_code_changesEv.exit.thread7
+88:                                               ; preds = %87, %_ZN9Relocator19handle_code_changesEv.exit
   ret void
 }
 
@@ -438,7 +438,7 @@ define hidden noundef zeroext i1 @_ZN9Relocator19handle_code_changesEv(ptr nound
   br i1 %29, label %._crit_edge13, label %.lr.ph12, !llvm.loop !8
 
 ._crit_edge13:                                    ; preds = %.lr.ph12, %._crit_edge, %1
-  %.lcssa8 = phi i1 [ true, %1 ], [ false, %.lr.ph12 ], [ %12, %._crit_edge ]
+  %.lcssa8 = phi i1 [ true, %1 ], [ %12, %._crit_edge ], [ %12, %.lr.ph12 ]
   ret i1 %.lcssa8
 }
 
@@ -2209,14 +2209,14 @@ _ZNK10full_frame13end_of_localsEv.exit.i:         ; preds = %.lr.ph.i.i
 
 .preheader.i.i102:                                ; preds = %.preheader.i.i102.loopexit, %_ZNK10full_frame13end_of_localsEv.exit.thread.i
   %278 = phi ptr [ %268, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %277, %.preheader.i.i102.loopexit ]
-  %.in.i = phi i16 [ %267, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %276, %.preheader.i.i102.loopexit ]
+  %.shrunk.i = phi i16 [ %267, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %276, %.preheader.i.i102.loopexit ]
   %.0.i.i.i.i314.i = phi i16 [ %.0.i.i.i.i313.i, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %.0.i.i.i.i3.i, %.preheader.i.i102.loopexit ]
   %.016.lcssa.i.i = phi i64 [ 7, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %282, %.preheader.i.i102.loopexit ]
-  %279 = zext i16 %.in.i to i32
+  %279 = zext i16 %.shrunk.i to i32
   %.not6.i = icmp eq i16 %.0.i.i.i.i314.i, 0
   br i1 %.not6.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i
 
-.lr.ph.i4.i:                                      ; preds = %_ZNK10full_frame13end_of_localsEv.exit.i, %.lr.ph.i4.i
+.lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %_ZNK10full_frame13end_of_localsEv.exit.i
   %.01424.i.i = phi i32 [ %284, %.lr.ph.i4.i ], [ 0, %_ZNK10full_frame13end_of_localsEv.exit.i ]
   %.01523.i.i = phi ptr [ %283, %.lr.ph.i4.i ], [ %265, %_ZNK10full_frame13end_of_localsEv.exit.i ]
   %.01622.i.i = phi i64 [ %282, %.lr.ph.i4.i ], [ 7, %_ZNK10full_frame13end_of_localsEv.exit.i ]

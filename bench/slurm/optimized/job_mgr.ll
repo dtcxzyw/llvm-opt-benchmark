@@ -21777,8 +21777,8 @@ find_job_record.exit.i:                           ; preds = %.lr.ph.i.i
 
 134:                                              ; preds = %136, %132
   %135 = call ptr @list_next(ptr noundef %133) #28
-  %.not20.not.i.not = icmp eq ptr %135, null
-  br i1 %.not20.not.i.not, label %.thread129, label %136
+  %.not20.not.not.not.i.not = icmp eq ptr %135, null
+  br i1 %.not20.not.not.not.i.not, label %.thread129, label %136
 
 .thread129:                                       ; preds = %134
   call void @list_iterator_destroy(ptr noundef %133) #28

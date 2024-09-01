@@ -887,8 +887,8 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hb2999d9084253cd
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65), !noalias !106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !106
   store ptr %310, ptr %75, align 8, !noalias !37
-  %.not36.not.i.i = icmp eq ptr %310, null
-  br i1 %.not36.not.i.i, label %322, label %320
+  %.not36.i.i = icmp eq ptr %310, null
+  br i1 %.not36.i.i, label %322, label %320
 
 320:                                              ; preds = %319
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74), !noalias !37
@@ -1003,8 +1003,8 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hb2999d9084253cd
 355:                                              ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i75.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64), !noalias !120
   store ptr %334, ptr %73, align 8, !noalias !37
-  %.not37.not.i.i = icmp eq ptr %334, null
-  br i1 %.not37.not.i.i, label %411, label %356
+  %.not37.i.i = icmp eq ptr %334, null
+  br i1 %.not37.i.i, label %411, label %356
 
 356:                                              ; preds = %355
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72), !noalias !37
@@ -2253,8 +2253,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 788:                                              ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !388
   store ptr %779, ptr %45, align 8, !noalias !378
-  %.not32.not.i = icmp eq ptr %779, null
-  br i1 %.not32.not.i, label %791, label %789
+  %.not32.i = icmp eq ptr %779, null
+  br i1 %.not32.i, label %791, label %789
 
 789:                                              ; preds = %788
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44), !noalias !378
@@ -3305,8 +3305,8 @@ default.unreachable11.i210:                       ; preds = %.noexc215
 
 1159:                                             ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i.i156"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !614
-  %.not85.not.i.i = icmp eq ptr %1148, null
-  br i1 %.not85.not.i.i, label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit125.i.i", label %1160
+  %.not85.i.i = icmp eq ptr %1148, null
+  br i1 %.not85.i.i, label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit125.i.i", label %1160
 
 1160:                                             ; preds = %1159
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32), !noalias !563
@@ -3533,8 +3533,8 @@ default.unreachable11.i210:                       ; preds = %.noexc215
 1221:                                             ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !673
   store ptr %1220, ptr %12, align 8, !noalias !653
-  %.not16.not.i.i.i = icmp eq ptr %1220, null
-  br i1 %.not16.not.i.i.i, label %1222, label %1230
+  %.not16.i.i.i = icmp eq ptr %1220, null
+  br i1 %.not16.i.i.i, label %1222, label %1230
 
 1222:                                             ; preds = %1221
   invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2f7d50db02179398E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %.01152.i391.i.i)
@@ -9299,8 +9299,8 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hbca038b90f67c25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2175
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !2175
   store ptr %91, ptr %13, align 8
-  %.not26.not = icmp eq ptr %91, null
-  br i1 %.not26.not, label %103, label %101
+  %.not26 = icmp eq ptr %91, null
+  br i1 %.not26, label %103, label %101
 
 101:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -9782,8 +9782,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inne
   %29 = call noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$22get_key_value_and_then17ha4312bbf7029aefeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2380
   store ptr %29, ptr %10, align 8
-  %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %59, label %30
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %59, label %30
 
 30:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17h49ffd0ffd61be9f5E.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -10430,8 +10430,8 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2535
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2535
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %.not.not = icmp eq ptr %33, null
-  br i1 %.not.not, label %40, label %34
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %40, label %34
 
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit22": ; preds = %43, %47
   resume { ptr, i32 } %44
@@ -10553,8 +10553,8 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2553
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2553
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %.not.not = icmp eq ptr %31, null
-  br i1 %.not.not, label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit23", label %32
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit23", label %32
 
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit25": ; preds = %45, %50
   resume { ptr, i32 } %46

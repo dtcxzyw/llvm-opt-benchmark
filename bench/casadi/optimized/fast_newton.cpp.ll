@@ -8942,12 +8942,9 @@ define linkonce_odr hidden void @_ZN6casadi9casadi_qrIdEEvPKxPKT_PS3_S2_S6_S2_S6
   %65 = tail call double @llvm.fmuladd.f64(double %60, double %64, double %.0103113)
   %66 = add nsw i64 %.0101114, 1
   %exitcond.not = icmp eq i64 %66, %57
-  br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !86
+  br i1 %exitcond.not, label %.lr.ph120, label %.lr.ph116, !llvm.loop !86
 
-._crit_edge117:                                   ; preds = %.lr.ph116
-  br i1 %58, label %.lr.ph120, label %._crit_edge121
-
-.lr.ph120:                                        ; preds = %._crit_edge117
+.lr.ph120:                                        ; preds = %.lr.ph116
   %67 = getelementptr inbounds double, ptr %7, i64 %51
   %68 = load double, ptr %67, align 8
   %69 = fneg double %68
@@ -8969,7 +8966,7 @@ define linkonce_odr hidden void @_ZN6casadi9casadi_qrIdEEvPKxPKT_PS3_S2_S6_S2_S6
   %81 = icmp slt i64 %79, %80
   br i1 %81, label %71, label %._crit_edge121, !llvm.loop !87
 
-._crit_edge121:                                   ; preds = %71, %53, %._crit_edge117
+._crit_edge121:                                   ; preds = %71, %53
   %82 = getelementptr inbounds double, ptr %2, i64 %51
   %83 = load double, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %.1123, i64 8

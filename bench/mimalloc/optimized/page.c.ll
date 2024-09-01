@@ -247,8 +247,8 @@ do.body.i:                                        ; preds = %lor.rhs.i, %do.body
   %or.i.i.i = or i64 %and.i.i.i, %conv.i.i.i
   %1 = trunc i64 %0 to i32
   %conv.i.i = and i32 %1, 3
-  %cmp.not.i.not = icmp eq i32 %conv.i.i, 1
-  br i1 %cmp.not.i.not, label %if.then.i, label %if.else.i
+  %cmp.not.not.not.i.not = icmp eq i32 %conv.i.i, 1
+  br i1 %cmp.not.not.not.i.not, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %exitcond.i = icmp eq i64 %yield_count.0.ph.i, 4
@@ -421,8 +421,8 @@ do.body:                                          ; preds = %do.body.outer, %lor
   %or.i.i = or i64 %and.i.i, %conv.i.i
   %1 = trunc i64 %0 to i32
   %conv.i = and i32 %1, 3
-  %cmp.not = icmp ne i32 %conv.i, 1
-  br i1 %cmp.not, label %if.else, label %if.then
+  %cmp.not.not.not.not.not = icmp ne i32 %conv.i, 1
+  br i1 %cmp.not.not.not.not.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %do.body
   %exitcond = icmp eq i64 %yield_count.0.ph, 4
@@ -446,7 +446,7 @@ lor.rhs:                                          ; preds = %if.else
   br i1 %3, label %return, label %do.body, !llvm.loop !6
 
 return:                                           ; preds = %if.then, %lor.rhs, %if.else
-  ret i1 %cmp.not
+  ret i1 %cmp.not.not.not.not.not
 }
 
 ; Function Attrs: nounwind uwtable

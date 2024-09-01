@@ -5165,8 +5165,8 @@ if.then.i.i:                                      ; preds = %if.then
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
   %retval.sroa.0.0.in.i.i = phi ptr [ %_M_before_begin.i.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !79
-  %cmp.i.not.i.i.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i, null
-  br i1 %cmp.i.not.i.i.not.not.not, label %for.body.i.i, label %return
+  %cmp.i.not.i.i.not.not.not.not = icmp ne ptr %retval.sroa.0.0.i.i, null
+  br i1 %cmp.i.not.i.i.not.not.not.not, label %for.body.i.i, label %return
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
@@ -5222,7 +5222,7 @@ if.then.i.i.i:                                    ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.body.i.i, %for.cond.i.i, %if.then.i.i.i, %if.end15.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %10, %if.then.i.i.i ], [ false, %if.end15.i.i ], [ %cmp.i.not.i.i.not.not.not, %for.cond.i.i ], [ %cmp.i.not.i.i.not.not.not, %for.body.i.i ], [ false, %if.end3.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ %10, %if.then.i.i.i ], [ false, %if.end15.i.i ], [ %cmp.i.not.i.i.not.not.not.not, %for.cond.i.i ], [ %cmp.i.not.i.i.not.not.not.not, %for.body.i.i ], [ false, %if.end3.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i ]
   ret i1 %retval.0
 }
 

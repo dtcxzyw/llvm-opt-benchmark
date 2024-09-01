@@ -10916,7 +10916,7 @@ if.end35:                                         ; preds = %_Z10is_sort_ofPK4so
   %m_char.i.i26 = getelementptr inbounds i8, ptr %35, i64 64
   %36 = load ptr, ptr %m_char.i.i26, align 8
   %cmp.i.i27 = icmp eq ptr %s, %36
-  br i1 %cmp.i.i27, label %if.then38, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i30
+  br i1 %cmp.i.i27, label %if.then38, label %_ZNK8seq_util6is_seqEP4sort.exit.i33
 
 if.end35.thread85:                                ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i
   %seq.i2586 = getelementptr inbounds i8, ptr %this, i64 40
@@ -10938,10 +10938,7 @@ if.then38:                                        ; preds = %if.end35.thread85, 
   %call40 = tail call noundef ptr @_ZNK8seq_util7mk_charEj(ptr noundef nonnull align 8 dereferenceable(136) %u, i32 noundef 97)
   br label %return
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i30: ; preds = %if.end35
-  br i1 %cmp6.i.i.i.i, label %_ZNK8seq_util6is_seqEP4sort.exit.i33, label %if.end68
-
-_ZNK8seq_util6is_seqEP4sort.exit.i33:             ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i30
+_ZNK8seq_util6is_seqEP4sort.exit.i33:             ; preds = %if.end35
   %m_kind.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = load i32, ptr %m_kind.i.i.i.i.i.i34, align 4
   %42 = icmp eq i32 %41, 0
@@ -11128,7 +11125,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %return
 
-if.end68:                                         ; preds = %if.end35.thread85, %if.end35.thread, %_ZNK8seq_util6is_seqEP4sort.exit.i33, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i30
+if.end68:                                         ; preds = %if.end35.thread85, %if.end35.thread, %_ZNK8seq_util6is_seqEP4sort.exit.i33
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.10, i32 noundef 131, ptr noundef nonnull @.str.9)
   tail call void @exit(i32 noundef 114) #25
   unreachable

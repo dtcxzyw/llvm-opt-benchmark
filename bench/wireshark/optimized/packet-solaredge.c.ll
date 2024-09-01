@@ -790,7 +790,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %wide.trip.count.i = zext nneg i32 %66 to i64
   br label %.lr.ph.i
 
-.lr.ph43.preheader.i:                             ; preds = %92
+.preheader.i:                                     ; preds = %92
   %invariant.gep.i = getelementptr i8, ptr %71, i64 6
   %invariant.gep40.i = getelementptr i8, ptr %71, i64 2
   br label %.lr.ph43.i
@@ -831,10 +831,10 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %.1.i = phi i32 [ 0, %90 ], [ %77, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph43.preheader.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !6
 
-.lr.ph43.i:                                       ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i
-  %indvars.iv45.i = phi i64 [ 0, %.lr.ph43.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph43.i ]
+.lr.ph43.i:                                       ; preds = %.lr.ph43.i, %.preheader.i
+  %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph43.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv45.i
   %93 = load i8, ptr %gep.i, align 1
   %94 = and i64 %indvars.iv45.i, 3

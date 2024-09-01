@@ -606,18 +606,15 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
   tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #14
   tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #14
-  br i1 %.not308, label %._crit_edge332, label %.lr.ph317.preheader
-
-.lr.ph317.preheader:                              ; preds = %._crit_edge313
   %93 = load double, ptr %16, align 8
   %94 = load double, ptr %15, align 8
   br label %.lr.ph317
 
-.lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.critedge2
-  %.0223327 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 0, %.lr.ph317.preheader ]
-  %.0224326 = phi i64 [ %indvars.iv, %.critedge2 ], [ 0, %.lr.ph317.preheader ]
-  %.0228325 = phi double [ %115, %.critedge2 ], [ %94, %.lr.ph317.preheader ]
-  %.0232324 = phi double [ %.1233314.fr, %.critedge2 ], [ %93, %.lr.ph317.preheader ]
+.lr.ph317:                                        ; preds = %._crit_edge313, %.critedge2
+  %.0223327 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 0, %._crit_edge313 ]
+  %.0224326 = phi i64 [ %indvars.iv, %.critedge2 ], [ 0, %._crit_edge313 ]
+  %.0228325 = phi double [ %115, %.critedge2 ], [ %94, %._crit_edge313 ]
+  %.0232324 = phi double [ %.1233314.fr, %.critedge2 ], [ %93, %._crit_edge313 ]
   %95 = fcmp uno double %.0228325, 0.000000e+00
   %sext = shl i64 %.0224326, 32
   %96 = ashr exact i64 %sext, 32
@@ -653,7 +650,7 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
   %.2234 = phi double [ %104, %109 ], [ %.1233314.fr, %float8_lt.exit ], [ %.1233314.fr, %102 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %110 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %110, label %97, label %.critedge, !llvm.loop !9
+  br i1 %110, label %97, label %.lr.ph331.preheader, !llvm.loop !9
 
 111:                                              ; preds = %97
   %112 = trunc nsw i64 %indvars.iv to i32
@@ -692,12 +689,9 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
   %.1.lcssa = phi i32 [ %.0223327, %111 ], [ %11, %.lr.ph321 ], [ %123, %.critedge2.loopexit.split.loop.exit383 ], [ %11, %122 ]
   call fastcc void @g_box_consider_split(ptr noundef nonnull %2, i32 noundef %.0240343, double noundef %115, i32 noundef %112, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
   %124 = icmp sgt i32 %11, %112
-  br i1 %124, label %.lr.ph317, label %.critedge
+  br i1 %124, label %.lr.ph317, label %.lr.ph331.preheader
 
-.critedge:                                        ; preds = %.critedge2, %float8_lt.exit.thread
-  br i1 %.not308, label %._crit_edge332, label %.lr.ph331.preheader
-
-.lr.ph331.preheader:                              ; preds = %.critedge
+.lr.ph331.preheader:                              ; preds = %.critedge2, %float8_lt.exit.thread
   %125 = load double, ptr %65, align 8
   %126 = load double, ptr %64, align 8
   br label %.lr.ph331
@@ -787,7 +781,7 @@ float8_gt.exit.thread:                            ; preds = %135, %141, %float8_
   tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #14
   br label %._crit_edge332
 
-._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge, %._crit_edge313, %.critedge
+._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge
   br i1 %69, label %.preheader, label %161, !llvm.loop !13
 
 161:                                              ; preds = %._crit_edge332

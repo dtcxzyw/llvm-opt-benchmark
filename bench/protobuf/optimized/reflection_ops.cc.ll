@@ -2076,8 +2076,8 @@ for.cond78.preheader:                             ; preds = %if.then75
 
 for.cond78:                                       ; preds = %invoke.cont85
   %inc90 = add nuw nsw i32 %j.0146, 1
-  %exitcond160.not = icmp eq i32 %inc90, %call77
-  br i1 %exitcond160.not, label %for.inc103, label %for.body80, !llvm.loop !10
+  %exitcond153.not = icmp eq i32 %inc90, %call77
+  br i1 %exitcond153.not, label %for.inc103, label %for.body80, !llvm.loop !10
 
 for.body80:                                       ; preds = %for.cond78.preheader, %for.cond78
   %j.0146 = phi i32 [ %inc90, %for.cond78 ], [ 0, %for.cond78.preheader ]

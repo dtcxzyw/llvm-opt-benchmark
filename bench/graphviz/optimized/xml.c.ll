@@ -21,8 +21,8 @@ define i32 @xml_escape(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture 
   %5 = alloca [13 x i8], align 1
   %6 = alloca [2 x i8], align 1
   %7 = load i8, ptr %0, align 1
-  %.not19 = icmp eq i8 %7, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i8 %7, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = and i32 %1, 2
@@ -43,11 +43,11 @@ define i32 @xml_escape(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture 
 
 15:                                               ; preds = %.lr.ph, %13
   %16 = phi i8 [ %7, %.lr.ph ], [ %14, %13 ]
-  %.0821 = phi i8 [ 0, %.lr.ph ], [ %16, %13 ]
-  %.01220 = phi ptr [ %0, %.lr.ph ], [ %.1, %13 ]
+  %.0820 = phi i8 [ 0, %.lr.ph ], [ %16, %13 ]
+  %.01219 = phi ptr [ %0, %.lr.ph ], [ %.1, %13 ]
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %17 = getelementptr inbounds i8, ptr %.01220, i64 1
+  %17 = getelementptr inbounds i8, ptr %.01219, i64 1
   switch i8 %16, label %47 [
     i8 38, label %18
     i8 60, label %xml_core.exit
@@ -66,7 +66,7 @@ define i32 @xml_escape(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture 
   ]
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.01220, i64 2
+  %22 = getelementptr inbounds i8, ptr %.01219, i64 2
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %.preheader20.i.i [
     i8 120, label %24
@@ -74,7 +74,7 @@ define i32 @xml_escape(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture 
   ]
 
 24:                                               ; preds = %21, %21
-  %25 = getelementptr inbounds i8, ptr %.01220, i64 3
+  %25 = getelementptr inbounds i8, ptr %.01219, i64 3
   br label %26
 
 26:                                               ; preds = %gv_isxdigit.exit.thread.i.i, %24
@@ -138,7 +138,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
 
 47:                                               ; preds = %xml_isentity.exit.i, %15
   %48 = icmp ne i8 %16, 32
-  %49 = icmp ne i8 %.0821, 32
+  %49 = icmp ne i8 %.0820, 32
   %or.cond.not103.i = or i1 %49, %48
   %or.cond94.i = select i1 %or.cond.not103.i, i1 true, i1 %.not86.i
   br i1 %or.cond94.i, label %50, label %xml_core.exit
@@ -178,8 +178,8 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
 
 61:                                               ; preds = %59
   %.mask91.i = and i32 %55, 248
-  %.not14 = icmp eq i32 %.mask91.i, 240
-  br i1 %.not14, label %.lr.ph.preheader.i, label %._crit_edge.i.thread
+  %.not126.i = icmp eq i32 %.mask91.i, 240
+  br i1 %.not126.i, label %.lr.ph.preheader.i, label %._crit_edge.i.thread
 
 .lr.ph.preheader.i:                               ; preds = %61, %59, %57
   %62 = phi i64 [ 4, %61 ], [ 2, %57 ], [ 3, %59 ]
@@ -187,7 +187,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.081107.i = phi i64 [ %66, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %63 = getelementptr inbounds i8, ptr %.01220, i64 %.081107.i
+  %63 = getelementptr inbounds i8, ptr %.01219, i64 %.081107.i
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   %66 = add nuw nsw i64 %.081107.i, 1
@@ -222,7 +222,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
   br label %113
 
 79:                                               ; preds = %70
-  %80 = getelementptr inbounds i8, ptr %.01220, i64 2
+  %80 = getelementptr inbounds i8, ptr %.01219, i64 2
   %81 = load i8, ptr %80, align 1
   %82 = and i8 %81, 63
   %83 = zext nneg i8 %82 to i32
@@ -238,11 +238,11 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
   br label %113
 
 93:                                               ; preds = %70
-  %94 = getelementptr inbounds i8, ptr %.01220, i64 3
+  %94 = getelementptr inbounds i8, ptr %.01219, i64 3
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 63
   %97 = zext nneg i8 %96 to i32
-  %98 = getelementptr inbounds i8, ptr %.01220, i64 2
+  %98 = getelementptr inbounds i8, ptr %.01219, i64 2
   %99 = load i8, ptr %98, align 1
   %100 = and i8 %99, 63
   %101 = zext nneg i8 %100 to i32

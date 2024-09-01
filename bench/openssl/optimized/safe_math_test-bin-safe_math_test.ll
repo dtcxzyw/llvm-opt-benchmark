@@ -517,9 +517,8 @@ land.lhs.true54:                                  ; preds = %safe_mod_uint.exit.
   br i1 %tobool56.not, label %err114, label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true54
-  %cmp2.i = icmp ne i32 %0, 0
-  %or.cond.i = and i1 %cmp2.i, %cmp.not.i.not.not
-  br i1 %or.cond.i, label %if.then.i70, label %if.end16.i
+  %cmp2.i.not = icmp eq i32 %0, 0
+  br i1 %cmp2.i.not, label %safe_div_round_up_uint.exit, label %if.then.i70
 
 if.then.i70:                                      ; preds = %if.end58
   %sub.i71 = xor i32 %1, -1
@@ -544,40 +543,18 @@ if.then12.i:                                      ; preds = %safe_mod_uint.exit
   %cond15.i = sext i1 %cmp2.i133 to i32
   br label %safe_div_round_up_uint.exit
 
-if.end16.i:                                       ; preds = %if.end58
-  %cmp17.i = icmp eq i32 %0, 0
-  br i1 %cmp17.i, label %safe_div_round_up_uint.exit, label %safe_div_uint.exit.i
-
-safe_div_uint.exit.i:                             ; preds = %if.end16.i
-  %rem.i.i = urem i32 %0, %1
-  %div.i.i = udiv i32 %0, %1
-  %cmp22.i = icmp ne i32 %rem.i.i, 0
-  %conv23.i = zext i1 %cmp22.i to i32
-  %13 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %div.i.i, i32 %conv23.i)
-  %14 = extractvalue { i32, i1 } %13, 1
-  br i1 %14, label %if.end.i28.i, label %if.then.i26.i
-
-if.then.i26.i:                                    ; preds = %safe_div_uint.exit.i
-  %15 = extractvalue { i32, i1 } %13, 0
-  br label %safe_div_round_up_uint.exit
-
-if.end.i28.i:                                     ; preds = %safe_div_uint.exit.i
-  %add.i.i = add i32 %div.i.i, %conv23.i
-  br label %safe_div_round_up_uint.exit
-
-safe_div_round_up_uint.exit:                      ; preds = %if.then4.i, %if.end.i72, %if.then12.i, %if.end16.i, %if.then.i26.i, %if.end.i28.i
-  %cmp2.i136 = phi i1 [ %cmp2.i, %if.then4.i ], [ %cmp2.i, %if.end.i72 ], [ %cmp2.i133, %if.then12.i ], [ %cmp2.i, %if.end16.i ], [ %cmp2.i, %if.end.i28.i ], [ %cmp2.i, %if.then.i26.i ]
-  %tobool65.not = phi i1 [ true, %if.then4.i ], [ true, %if.end.i72 ], [ false, %if.then12.i ], [ true, %if.end16.i ], [ false, %if.end.i28.i ], [ true, %if.then.i26.i ]
-  %err.6 = phi i32 [ 0, %if.then4.i ], [ 0, %if.end.i72 ], [ 1, %if.then12.i ], [ 0, %if.end16.i ], [ 1, %if.end.i28.i ], [ 0, %if.then.i26.i ]
-  %retval.0.i68 = phi i32 [ %div.i75, %if.then4.i ], [ %add8.i, %if.end.i72 ], [ %cond15.i, %if.then12.i ], [ 0, %if.end16.i ], [ %add.i.i, %if.end.i28.i ], [ %15, %if.then.i26.i ]
+safe_div_round_up_uint.exit:                      ; preds = %if.end58, %if.then4.i, %if.end.i72, %if.then12.i
+  %cmp2.i136 = phi i1 [ true, %if.then4.i ], [ true, %if.end.i72 ], [ %cmp2.i133, %if.then12.i ], [ false, %if.end58 ]
+  %err.6 = phi i32 [ 0, %if.then4.i ], [ 0, %if.end.i72 ], [ 1, %if.then12.i ], [ 0, %if.end58 ]
+  %retval.0.i68 = phi i32 [ %div.i75, %if.then4.i ], [ %add8.i, %if.end.i72 ], [ %cond15.i, %if.then12.i ], [ 0, %if.end58 ]
   %div_round_up_err = getelementptr inbounds i8, ptr %arrayidx, i64 28
-  %16 = load i32, ptr %div_round_up_err, align 4
-  %call62 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 181, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.34, i32 noundef %err.6, i32 noundef %16) #4
+  %13 = load i32, ptr %div_round_up_err, align 4
+  %call62 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 181, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.34, i32 noundef %err.6, i32 noundef %13) #4
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err114, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %safe_div_round_up_uint.exit
-  br i1 %tobool65.not, label %land.lhs.true66, label %if.end73
+  br i1 %cmp.not.i.not.not, label %land.lhs.true66, label %if.end73
 
 land.lhs.true66:                                  ; preds = %lor.lhs.false64
   %div67 = udiv i32 %0, %1
@@ -760,9 +737,8 @@ land.lhs.true54:                                  ; preds = %safe_mod_size_t.exi
   br i1 %tobool56.not, label %err115, label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true54
-  %cmp2.i = icmp ne i64 %0, 0
-  %or.cond.i = and i1 %cmp2.i, %cmp.not.i.not.not
-  br i1 %or.cond.i, label %if.then.i70, label %if.end17.i
+  %cmp2.i.not = icmp eq i64 %0, 0
+  br i1 %cmp2.i.not, label %safe_div_round_up_size_t.exit, label %if.then.i70
 
 if.then.i70:                                      ; preds = %if.end58
   %sub.i71 = xor i64 %1, -1
@@ -787,40 +763,18 @@ if.then13.i:                                      ; preds = %safe_mod_size_t.exi
   %cond16.i = sext i1 %cmp2.i133 to i64
   br label %safe_div_round_up_size_t.exit
 
-if.end17.i:                                       ; preds = %if.end58
-  %cmp18.i = icmp eq i64 %0, 0
-  br i1 %cmp18.i, label %safe_div_round_up_size_t.exit, label %safe_div_size_t.exit.i
-
-safe_div_size_t.exit.i:                           ; preds = %if.end17.i
-  %rem.i.i = urem i64 %0, %1
-  %div.i.i = udiv i64 %0, %1
-  %cmp23.i = icmp ne i64 %rem.i.i, 0
-  %conv25.i = zext i1 %cmp23.i to i64
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %div.i.i, i64 %conv25.i)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %if.end.i28.i, label %if.then.i26.i
-
-if.then.i26.i:                                    ; preds = %safe_div_size_t.exit.i
-  %15 = extractvalue { i64, i1 } %13, 0
-  br label %safe_div_round_up_size_t.exit
-
-if.end.i28.i:                                     ; preds = %safe_div_size_t.exit.i
-  %add.i.i = add i64 %div.i.i, %conv25.i
-  br label %safe_div_round_up_size_t.exit
-
-safe_div_round_up_size_t.exit:                    ; preds = %if.then4.i, %if.end.i72, %if.then13.i, %if.end17.i, %if.then.i26.i, %if.end.i28.i
-  %cmp2.i136 = phi i1 [ %cmp2.i, %if.then4.i ], [ %cmp2.i, %if.end.i72 ], [ %cmp2.i133, %if.then13.i ], [ %cmp2.i, %if.end17.i ], [ %cmp2.i, %if.end.i28.i ], [ %cmp2.i, %if.then.i26.i ]
-  %tobool65.not = phi i1 [ true, %if.then4.i ], [ true, %if.end.i72 ], [ false, %if.then13.i ], [ true, %if.end17.i ], [ false, %if.end.i28.i ], [ true, %if.then.i26.i ]
-  %err.6 = phi i32 [ 0, %if.then4.i ], [ 0, %if.end.i72 ], [ 1, %if.then13.i ], [ 0, %if.end17.i ], [ 1, %if.end.i28.i ], [ 0, %if.then.i26.i ]
-  %retval.0.i68 = phi i64 [ %div.i75, %if.then4.i ], [ %add9.i, %if.end.i72 ], [ %cond16.i, %if.then13.i ], [ 0, %if.end17.i ], [ %add.i.i, %if.end.i28.i ], [ %15, %if.then.i26.i ]
+safe_div_round_up_size_t.exit:                    ; preds = %if.end58, %if.then4.i, %if.end.i72, %if.then13.i
+  %cmp2.i136 = phi i1 [ true, %if.then4.i ], [ true, %if.end.i72 ], [ %cmp2.i133, %if.then13.i ], [ false, %if.end58 ]
+  %err.6 = phi i32 [ 0, %if.then4.i ], [ 0, %if.end.i72 ], [ 1, %if.then13.i ], [ 0, %if.end58 ]
+  %retval.0.i68 = phi i64 [ %div.i75, %if.then4.i ], [ %add9.i, %if.end.i72 ], [ %cond16.i, %if.then13.i ], [ 0, %if.end58 ]
   %div_round_up_err = getelementptr inbounds i8, ptr %arrayidx, i64 36
-  %16 = load i32, ptr %div_round_up_err, align 4
-  %call62 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 264, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.47, i32 noundef %err.6, i32 noundef %16) #4
+  %13 = load i32, ptr %div_round_up_err, align 4
+  %call62 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 264, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.47, i32 noundef %err.6, i32 noundef %13) #4
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err115, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %safe_div_round_up_size_t.exit
-  br i1 %tobool65.not, label %land.lhs.true66, label %if.end74
+  br i1 %cmp.not.i.not.not, label %land.lhs.true66, label %if.end74
 
 land.lhs.true66:                                  ; preds = %lor.lhs.false64
   %div67 = udiv i64 %0, %1

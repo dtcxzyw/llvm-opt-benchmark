@@ -827,7 +827,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i2
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %45, i1 false)
   br label %for.body.i.preheader
 
-for.body14.lr.ph.i:                               ; preds = %invoke.cont8.i
+for.cond12.preheader.i:                           ; preds = %invoke.cont8.i
   %add.ptr.i.i.i150 = getelementptr inbounds i8, ptr %add.ptr.i145, i64 8
   %smax56.i = call i32 @llvm.smax.i32(i32 %b.i.i.sroa.0.0.copyload, i32 1)
   %wide.trip.count57.i = zext nneg i32 %smax56.i to i64
@@ -882,16 +882,16 @@ invoke.cont8.i:                                   ; preds = %if.end.i.i
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
-  br i1 %exitcond.not.i, label %for.body14.lr.ph.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.cond12.preheader.i, label %for.body.i, !llvm.loop !14
 
 lpad7.i:                                          ; preds = %invoke.cont.i.invoke.i
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i30.i
 
-for.body14.i:                                     ; preds = %invoke.cont33.i, %for.body14.lr.ph.i
-  %52 = phi ptr [ %incdec.ptr.i.i, %for.body14.lr.ph.i ], [ %add.ptr38.i, %invoke.cont33.i ]
-  %indvars.iv53.i = phi i64 [ 0, %for.body14.lr.ph.i ], [ %indvars.iv.next54.i, %invoke.cont33.i ]
+for.body14.i:                                     ; preds = %invoke.cont33.i, %for.cond12.preheader.i
+  %52 = phi ptr [ %incdec.ptr.i.i, %for.cond12.preheader.i ], [ %add.ptr38.i, %invoke.cont33.i ]
+  %indvars.iv53.i = phi i64 [ 0, %for.cond12.preheader.i ], [ %indvars.iv.next54.i, %invoke.cont33.i ]
   %add.ptr.i22.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i20.i153, i64 %indvars.iv53.i
   %53 = load i64, ptr %add.ptr.i22.i, align 8
   %add.ptr17.i = getelementptr inbounds i8, ptr %52, i64 %53
@@ -1804,10 +1804,7 @@ for.body.preheader:                               ; preds = %if.end.i.i.i.i.i.i.
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body
 
-for.cond12.preheader:                             ; preds = %invoke.cont8
-  br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i, label %for.body14.lr.ph
-
-for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
+for.body14.lr.ph:                                 ; preds = %invoke.cont8
   %_M_finish.i = getelementptr inbounds i8, ptr %outputVector, i64 8
   %smax56 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %wide.trip.count57 = zext nneg i32 %smax56 to i64
@@ -1861,7 +1858,7 @@ invoke.cont8:                                     ; preds = %if.end.i
   store i64 %or.i, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond12.preheader, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.body14.lr.ph, label %for.body, !llvm.loop !26
 
 lpad7:                                            ; preds = %invoke.cont.i.invoke
   %10 = landingpad { ptr, i32 }
@@ -1925,7 +1922,7 @@ ehcleanup:                                        ; preds = %lpad33, %lpad30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #30
   br label %if.then.i.i.i30
 
-if.then.i.i.i:                                    ; preds = %invoke.cont34, %for.cond12.preheader
+if.then.i.i.i:                                    ; preds = %invoke.cont34
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i20) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 

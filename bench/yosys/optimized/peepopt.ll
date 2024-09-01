@@ -10788,8 +10788,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit85.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i410
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i.i: ; preds = %4375, %4379
   %4382 = phi i32 [ %4381, %4379 ], [ 0, %4375 ]
   %4383 = icmp slt i32 %.sink16.i, 0
-  %or.cond.i390 = or i1 %4383, %4374
-  br i1 %or.cond.i390, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i, label %4384
+  br i1 %4383, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i, label %4384
 
 4384:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i.i
   %4385 = ptrtoint ptr %4373 to i64
@@ -11278,8 +11277,7 @@ _ZN12_GLOBAL__N_110peepopt_pm8block_12Ei.exit.i.i.i: ; preds = %4534, %_ZNSt6vec
 _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i: ; preds = %4539, %4543
   %4546 = phi i32 [ %4545, %4543 ], [ 0, %4539 ]
   %4547 = icmp slt i32 %.sink16.i629, 0
-  %or.cond.i = or i1 %4547, %4538
-  br i1 %or.cond.i, label %.noexc9.i, label %4548
+  br i1 %4547, label %.noexc9.i, label %4548
 
 4548:                                             ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i
   %4549 = ptrtoint ptr %4537 to i64
@@ -20346,8 +20344,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit139.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i74
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i.i153: ; preds = %8130, %8134
   %8137 = phi i32 [ %8136, %8134 ], [ 0, %8130 ]
   %8138 = icmp slt i32 %.sink16.i781, 0
-  %or.cond.i708 = or i1 %8138, %8129
-  br i1 %or.cond.i708, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i149, label %8139
+  br i1 %8138, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i.i149, label %8139
 
 8139:                                             ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i.i153
   %8140 = ptrtoint ptr %8128 to i64
@@ -20890,8 +20887,7 @@ _ZN12_GLOBAL__N_110peepopt_pm7block_1Ei.exit.i.i.i: ; preds = %8295, %_ZNSt6vect
 _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i88: ; preds = %8300, %8304
   %8307 = phi i32 [ %8306, %8304 ], [ 0, %8300 ]
   %8308 = icmp slt i32 %.sink16.i937, 0
-  %or.cond.i677 = or i1 %8308, %8299
-  br i1 %or.cond.i677, label %.noexc11.i, label %8309
+  br i1 %8308, label %.noexc11.i, label %8309
 
 8309:                                             ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i88
   %8310 = ptrtoint ptr %8298 to i64
@@ -26036,8 +26032,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit
 _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i: ; preds = %10499, %10503
   %10506 = phi i32 [ %10505, %10503 ], [ 0, %10499 ]
   %10507 = icmp slt i32 %.sink16.i1061, 0
-  %or.cond.i1040 = or i1 %10507, %10498
-  br i1 %or.cond.i1040, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i, label %10508
+  br i1 %10507, label %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i.i, label %10508
 
 10508:                                            ; preds = %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.i.i.i.i.i
   %10509 = ptrtoint ptr %10497 to i64
@@ -26317,8 +26312,7 @@ _ZN12_GLOBAL__N_110peepopt_pm7block_6Ei.exit.i.i.i: ; preds = %10605, %_ZSt8_Des
 _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i262: ; preds = %10620, %10624
   %10627 = phi i32 [ %10626, %10624 ], [ 0, %10620 ]
   %10628 = icmp slt i32 %.sink16.i1122, 0
-  %or.cond.i1009 = or i1 %10628, %10619
-  br i1 %or.cond.i1009, label %.noexc5.i254, label %10629
+  br i1 %10628, label %.noexc5.i254, label %10629
 
 10629:                                            ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i262
   %10630 = ptrtoint ptr %10618 to i64
@@ -30749,8 +30743,7 @@ _ZN12_GLOBAL__N_110peepopt_pm8block_17Ei.exit.i.i.i: ; preds = %12437, %_ZNSt6ve
 _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i355: ; preds = %12457, %12461
   %12464 = phi i32 [ %12463, %12461 ], [ 0, %12457 ]
   %12465 = icmp slt i32 %.sink16.i1246, 0
-  %or.cond.i1194 = or i1 %12465, %12456
-  br i1 %or.cond.i1194, label %.noexc6.i348, label %12466
+  br i1 %12465, label %.noexc6.i348, label %12466
 
 12466:                                            ; preds = %_ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iteratorE.exit.i.i.i355
   %12467 = ptrtoint ptr %12455 to i64

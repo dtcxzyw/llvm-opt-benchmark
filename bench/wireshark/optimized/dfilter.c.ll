@@ -919,7 +919,7 @@ define hidden zeroext i1 @dfilter_has_interesting_fields(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @dfilter_interested_in_field(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @dfilter_interested_in_field(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -928,30 +928,21 @@ define hidden zeroext i1 @dfilter_interested_in_field(ptr nocapture noundef read
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %9 = load i32, ptr %7, align 4
-  %10 = icmp eq i32 %9, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph11
+  br label %8
 
-.lr.ph11:                                         ; preds = %.lr.ph, %11
-  %indvars.iv10 = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+8:                                                ; preds = %8, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, %1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !8
+  %or.cond = select i1 %11, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !8
 
-11:                                               ; preds = %.lr.ph11
-  %12 = getelementptr i32, ptr %7, i64 %indvars.iv.next
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %1
-  br i1 %14, label %._crit_edge.loopexit, label %.lr.ph11, !llvm.loop !8
-
-._crit_edge.loopexit:                             ; preds = %11, %.lr.ph11
-  %15 = icmp ult i64 %indvars.iv.next, %8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %15, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %8, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %11, %8 ]
   ret i1 %.lcssa
 }
 

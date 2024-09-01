@@ -497,8 +497,8 @@ for.inc:                                          ; preds = %for.cond
 
 for.end:                                          ; preds = %for.cond, %for.cond
   %65 = load ptr, ptr %longopts, align 8
-  %tobool143.not232.not = icmp eq ptr %65, null
-  br i1 %tobool143.not232.not, label %if.end266, label %for.body144.lr.ph
+  %tobool143.not.not232 = icmp eq ptr %65, null
+  br i1 %tobool143.not.not232, label %if.end266, label %for.body144.lr.ph
 
 for.body144.lr.ph:                                ; preds = %for.end
   %sub.ptr.lhs.cast = ptrtoint ptr %nameend.0 to i64
@@ -887,8 +887,8 @@ for.inc397:                                       ; preds = %for.cond387
 
 for.end399:                                       ; preds = %for.cond387, %for.cond387
   %136 = load ptr, ptr %longopts, align 8
-  %tobool402.not241.not = icmp eq ptr %136, null
-  br i1 %tobool402.not241.not, label %if.end511, label %for.body403.lr.ph
+  %tobool402.not.not241 = icmp eq ptr %136, null
+  br i1 %tobool402.not.not241, label %if.end511, label %for.body403.lr.ph
 
 for.body403.lr.ph:                                ; preds = %for.end399
   %sub.ptr.lhs.cast405 = ptrtoint ptr %nameend349.0 to i64

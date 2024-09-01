@@ -998,15 +998,12 @@ _ZNSt6vectorIN2cv8haar_cvt18HaarClassifierNodeESaIS2_EE9push_backERKS2_.exit: ; 
   %391 = sub i64 %389, %390
   %392 = lshr i64 %391, 6
   %393 = trunc i64 %392 to i32
-  br i1 %151, label %.lr.ph627.preheader, label %._crit_edge628
-
-.lr.ph627.preheader:                              ; preds = %._crit_edge621
   %wide.trip.count706 = and i64 %146, 2147483647
   br label %.lr.ph627
 
-.lr.ph627:                                        ; preds = %.lr.ph627.preheader, %.lr.ph627
-  %indvars.iv703 = phi i64 [ 0, %.lr.ph627.preheader ], [ %indvars.iv.next704, %.lr.ph627 ]
-  %.0445624 = phi i32 [ 0, %.lr.ph627.preheader ], [ %.sroa.speculated, %.lr.ph627 ]
+.lr.ph627:                                        ; preds = %._crit_edge621, %.lr.ph627
+  %indvars.iv703 = phi i64 [ 0, %._crit_edge621 ], [ %indvars.iv.next704, %.lr.ph627 ]
+  %.0445624 = phi i32 [ 0, %._crit_edge621 ], [ %.sroa.speculated, %.lr.ph627 ]
   %394 = getelementptr inbounds %"struct.cv::haar_cvt::HaarStageClassifier", ptr %.sroa.0425.0, i64 %indvars.iv703, i32 1
   %395 = getelementptr inbounds i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8
@@ -1021,11 +1018,11 @@ _ZNSt6vectorIN2cv8haar_cvt18HaarClassifierNodeESaIS2_EE9push_backERKS2_.exit: ; 
   %exitcond707.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count706
   br i1 %exitcond707.not, label %._crit_edge628, label %.lr.ph627, !llvm.loop !21
 
-._crit_edge628:                                   ; preds = %.lr.ph627, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit, %._crit_edge621
-  %403 = phi i32 [ %393, %._crit_edge621 ], [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %393, %.lr.ph627 ]
-  %404 = phi i64 [ %392, %._crit_edge621 ], [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %392, %.lr.ph627 ]
-  %.sroa.0435.0.lcssa739 = phi ptr [ %.sroa.0435.2.lcssa, %._crit_edge621 ], [ null, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0435.2.lcssa, %.lr.ph627 ]
-  %.0445.lcssa = phi i32 [ 0, %._crit_edge621 ], [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.speculated, %.lr.ph627 ]
+._crit_edge628:                                   ; preds = %.lr.ph627, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit
+  %403 = phi i32 [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %393, %.lr.ph627 ]
+  %404 = phi i64 [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %392, %.lr.ph627 ]
+  %.sroa.0435.0.lcssa739 = phi ptr [ null, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0435.2.lcssa, %.lr.ph627 ]
+  %.0445.lcssa = phi i32 [ 0, %_ZNSt6vectorIN2cv8haar_cvt19HaarStageClassifierESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.speculated, %.lr.ph627 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %110)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #16

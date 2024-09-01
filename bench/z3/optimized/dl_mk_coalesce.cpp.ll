@@ -3272,9 +3272,9 @@ if.end8.i:                                        ; preds = %for.body.i40
 
 invoke.cont44:                                    ; preds = %for.cond.i, %for.cond.preheader.i
   invoke void @_ZN7datalog11mk_coalesce11merge_rulesER7obj_refINS_4ruleENS_12rule_managerEERKS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(16) %r1, ptr noundef nonnull align 8 dereferenceable(80) %24)
-          to label %invoke.cont46 unwind label %lpad33.loopexit
+          to label %if.end.i.i.i unwind label %lpad33.loopexit
 
-invoke.cont46:                                    ; preds = %invoke.cont44
+if.end.i.i.i:                                     ; preds = %invoke.cont44
   %36 = load i32, ptr %arrayidx.i.i, align 4
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
@@ -3283,7 +3283,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
   invoke void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %39)
           to label %.noexc58 unwind label %lpad33.loopexit
 
-.noexc58:                                         ; preds = %invoke.cont46
+.noexc58:                                         ; preds = %if.end.i.i.i
   %40 = load ptr, ptr %arrayidx.i.i36, align 8
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %40)
           to label %_ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit.i unwind label %lpad33.loopexit
@@ -3314,7 +3314,7 @@ lpad11.loopexit:                                  ; preds = %if.then.i.i
           cleanup
   br label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80
 
-lpad33.loopexit:                                  ; preds = %invoke.cont44, %invoke.cont46, %.noexc58, %_ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit.i
+lpad33.loopexit:                                  ; preds = %invoke.cont44, %if.end.i.i.i, %.noexc58, %_ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   %.pre195 = load ptr, ptr %r1, align 8

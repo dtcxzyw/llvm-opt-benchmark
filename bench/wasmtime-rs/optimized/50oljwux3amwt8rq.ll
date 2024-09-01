@@ -1014,8 +1014,8 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_i
   %13 = load i32, ptr %12, align 8, !noundef !3
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$17path_to_interface17hcdfaa3bccd922492E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr align 8 %0, i64 %11, i32 %13)
   %14 = load i64, ptr %6, align 8, !range !7, !noundef !3
-  %.not.not = icmp eq i64 %14, -9223372036854775808
-  br i1 %.not.not, label %15, label %16
+  %.not = icmp eq i64 %14, -9223372036854775808
+  br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %9, %.thread, %4
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %2, i64 %3)

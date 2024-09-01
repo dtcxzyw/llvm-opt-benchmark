@@ -10406,11 +10406,11 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
   br label %return
 
 while.body:                                       ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit, %if.end9
-  %lo.0101 = phi i32 [ %lo.2, %if.end9 ], [ 0, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
-  %hi.0100 = phi i32 [ %hi.1, %if.end9 ], [ %1, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
-  %sub = sub nuw i32 %hi.0100, %lo.0101
+  %lo.0100 = phi i32 [ %lo.2, %if.end9 ], [ 0, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
+  %hi.099 = phi i32 [ %hi.1, %if.end9 ], [ %1, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
+  %sub = sub nuw i32 %hi.099, %lo.0100
   %div13 = lshr i32 %sub, 1
-  %add = add i32 %div13, %lo.0101
+  %add = add i32 %div13, %lo.0100
   %idxprom.i = zext i32 %add to i64
   %arrayidx.i16 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %0, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx.i16, align 8
@@ -10420,8 +10420,8 @@ while.body:                                       ; preds = %_ZNK6vectorIN3opt15
 if.end9:                                          ; preds = %while.body
   %cmp10 = icmp ult i32 %5, %var_id
   %add12 = add i32 %add, 1
-  %hi.1 = select i1 %cmp10, i32 %hi.0100, i32 %add
-  %lo.2 = select i1 %cmp10, i32 %add12, i32 %lo.0101
+  %hi.1 = select i1 %cmp10, i32 %hi.099, i32 %add
+  %lo.2 = select i1 %cmp10, i32 %add12, i32 %lo.0100
   %cmp = icmp ult i32 %lo.2, %hi.1
   br i1 %cmp, label %while.body, label %if.end.i18, !llvm.loop !41
 
@@ -15805,8 +15805,8 @@ if.end.i12:                                       ; preds = %for.cond
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit15: ; preds = %for.cond, %if.end.i12
   %retval.0.i14 = phi i32 [ %5, %if.end.i12 ], [ 0, %for.cond ]
   %6 = zext i32 %retval.0.i14 to i64
-  %cmp7.not = icmp uge i64 %indvars.iv, %6
-  br i1 %cmp7.not, label %return, label %for.body
+  %cmp7.not.not = icmp uge i64 %indvars.iv, %6
+  br i1 %cmp7.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit15
   %arrayidx.i16 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %4, i64 %indvars.iv
@@ -15877,7 +15877,7 @@ for.cond.backedge:                                ; preds = %_ZNK3opt15model_bas
   br label %for.cond, !llvm.loop !78
 
 return:                                           ; preds = %if.then.i.i.i.i.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i, %for.body, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit15, %_ZNK3opt15model_based_opt3varneERKS1_.exit, %if.then.i.i16.i.i.i.i, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit10, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit10 ], [ %cmp7.not, %if.then.i.i16.i.i.i.i ], [ %cmp7.not, %_ZNK3opt15model_based_opt3varneERKS1_.exit ], [ %cmp7.not, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit15 ], [ %cmp7.not, %for.body ], [ %cmp7.not, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i ], [ %cmp7.not, %if.then.i.i.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit10 ], [ %cmp7.not.not, %if.then.i.i16.i.i.i.i ], [ %cmp7.not.not, %_ZNK3opt15model_based_opt3varneERKS1_.exit ], [ %cmp7.not.not, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit15 ], [ %cmp7.not.not, %for.body ], [ %cmp7.not.not, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i ], [ %cmp7.not.not, %if.then.i.i.i.i.i.i ]
   ret i1 %retval.0
 }
 

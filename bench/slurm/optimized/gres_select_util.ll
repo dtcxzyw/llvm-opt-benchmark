@@ -778,8 +778,8 @@ define noundef zeroext i1 @gres_select_util_job_tres_per_task(ptr noundef %0) lo
 
 4:                                                ; preds = %6, %2
   %5 = tail call ptr @slurm_list_next(ptr noundef %3) #3
-  %.not10.not = icmp ne ptr %5, null
-  br i1 %.not10.not, label %6, label %11
+  %.not10.not.not.not.not.not = icmp ne ptr %5, null
+  br i1 %.not10.not.not.not.not.not, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 8
@@ -794,7 +794,7 @@ define noundef zeroext i1 @gres_select_util_job_tres_per_task(ptr noundef %0) lo
   br label %12
 
 12:                                               ; preds = %1, %11
-  %.07 = phi i1 [ %.not10.not, %11 ], [ false, %1 ]
+  %.07 = phi i1 [ %.not10.not.not.not.not.not, %11 ], [ false, %1 ]
   ret i1 %.07
 }
 

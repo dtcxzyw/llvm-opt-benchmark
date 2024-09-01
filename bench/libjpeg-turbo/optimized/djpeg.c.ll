@@ -1153,22 +1153,18 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
 
 .thread:                                          ; preds = %jpeg_getc.exit29
   %60 = icmp ugt i64 %46, 2
-  br i1 %60, label %.lr.ph.thread, label %._crit_edge.thread
-
-.lr.ph.thread:                                    ; preds = %.thread
-  %61 = add nsw i64 %46, -3
-  br label %.lr.ph.split.preheader
+  br i1 %60, label %.lr.ph.split.preheader, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %58
-  %62 = add nsw i64 %46, -3
-  br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+  %61 = add nsw i64 %46, -3
+  br label %.lr.ph.split.us
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph.thread, %.lr.ph
-  %.ph = phi i64 [ %62, %.lr.ph ], [ %61, %.lr.ph.thread ]
+.lr.ph.split.preheader:                           ; preds = %.thread
+  %62 = add nsw i64 %46, -3
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %103
-  %63 = phi i64 [ %104, %103 ], [ %62, %.lr.ph ]
+  %63 = phi i64 [ %104, %103 ], [ %61, %.lr.ph ]
   %.032.us = phi i32 [ %82, %103 ], [ 0, %.lr.ph ]
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
@@ -1251,7 +1247,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   br i1 %105, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %jpeg_getc.exit31
-  %106 = phi i64 [ %124, %jpeg_getc.exit31 ], [ %.ph, %.lr.ph.split.preheader ]
+  %106 = phi i64 [ %124, %jpeg_getc.exit31 ], [ %62, %.lr.ph.split.preheader ]
   %107 = load ptr, ptr %6, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8

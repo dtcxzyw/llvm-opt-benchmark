@@ -6280,17 +6280,14 @@ ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tab
 do.body19:                                        ; preds = %land.lhs.true, %lor.lhs.false14, %land.lhs.true16
   %call20 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef %params, i64 noundef %pledgedSrcSize, i64 noundef %cond, i32 noundef 0, i32 noundef %zbuff)
   %cmp.i = icmp ult i64 %call20, -119
-  br i1 %cmp.i, label %do.end33, label %return
+  br i1 %cmp.i, label %cond.true35, label %return
 
 do.body19.thread:                                 ; preds = %cond.end4
   %call2043 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef %params, i64 noundef %pledgedSrcSize, i64 noundef %cond, i32 noundef 0, i32 noundef %zbuff)
   %cmp.i44 = icmp ult i64 %call2043, -119
   br i1 %cmp.i44, label %cond.false40, label %return
 
-do.end33:                                         ; preds = %do.body19
-  br i1 %tobool.not, label %cond.false40, label %cond.true35
-
-cond.true35:                                      ; preds = %do.end33
+cond.true35:                                      ; preds = %do.body19
   %blockState = getelementptr inbounds i8, ptr %cctx, i64 3200
   %71 = load ptr, ptr %blockState, align 8
   %matchState = getelementptr inbounds i8, ptr %cctx, i64 3216
@@ -6307,7 +6304,7 @@ cond.true35:                                      ; preds = %do.end33
   %call39 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %71, ptr noundef nonnull %matchState, ptr noundef nonnull %ldmState, ptr noundef nonnull %workspace, ptr noundef nonnull %appliedParams, ptr noundef %72, i64 noundef %73, i32 noundef %74, i32 noundef %dtlm, i32 noundef 0, ptr noundef %75)
   br label %cond.end50
 
-cond.false40:                                     ; preds = %do.body19.thread, %do.end33
+cond.false40:                                     ; preds = %do.body19.thread
   %blockState41 = getelementptr inbounds i8, ptr %cctx, i64 3200
   %76 = load ptr, ptr %blockState41, align 8
   %matchState44 = getelementptr inbounds i8, ptr %cctx, i64 3216

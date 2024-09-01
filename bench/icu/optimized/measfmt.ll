@@ -783,7 +783,7 @@ lpad:                                             ; preds = %new.notnull
 lpad6.loopexit:                                   ; preds = %for.body
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i45
 
 lpad6.loopexit.split-lp:                          ; preds = %for.end, %if.end45, %if.then48, %_ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -975,7 +975,7 @@ lpad24:                                           ; preds = %invoke.cont23
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #17
-  br label %ehcleanup
+  br label %delete.notnull.i45
 
 if.end30:                                         ; preds = %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge, %if.then29
   %18 = phi i32 [ %.pre, %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge ], [ %16, %if.then29 ]
@@ -1065,20 +1065,16 @@ terminate.lpad.i:                                 ; preds = %if.then.i42
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit, %if.then.i42
   ret ptr %retval.065
 
-ehcleanup:                                        ; preds = %lpad6.loopexit, %lpad24
-  %.pn = phi { ptr, i32 } [ %17, %lpad24 ], [ %lpad.loopexit, %lpad6.loopexit ]
-  br i1 %new.isnull, label %ehcleanup62, label %delete.notnull.i45
-
-delete.notnull.i45:                               ; preds = %lpad38, %cleanup.action31.i, %lpad6.loopexit.split-lp, %ehcleanup
-  %.pn78 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ], [ %.pn.pn.pn.i, %cleanup.action31.i ], [ %20, %lpad38 ]
+delete.notnull.i45:                               ; preds = %lpad24, %lpad6.loopexit, %lpad38, %cleanup.action31.i, %lpad6.loopexit.split-lp
+  %.pn78 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ], [ %.pn.pn.pn.i, %cleanup.action31.i ], [ %20, %lpad38 ], [ %17, %lpad24 ], [ %lpad.loopexit, %lpad6.loopexit ]
   %vtable.i46 = load ptr, ptr %call3, align 8
   %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 8
   %29 = load ptr, ptr %vfn.i47, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(80) %call3) #17
   br label %ehcleanup62
 
-ehcleanup62:                                      ; preds = %delete.notnull.i45, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn, %ehcleanup ], [ %.pn78, %delete.notnull.i45 ]
+ehcleanup62:                                      ; preds = %delete.notnull.i45, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn78, %delete.notnull.i45 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unitsBundle) #17
   resume { ptr, i32 } %.pn.pn
 }

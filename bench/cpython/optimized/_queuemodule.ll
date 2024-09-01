@@ -562,8 +562,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 3
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add22 = phi i64 [ %add18, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -578,12 +578,12 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1028, align 8
-  %tobool15.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %cond1028, align 8
+  %tobool15.not = icmp eq ptr %2, null
   br i1 %tobool15.not, label %if.end25, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call18 = call i32 @PyObject_IsTrue(ptr noundef nonnull %3) #2
+  %call18 = call i32 @PyObject_IsTrue(ptr noundef nonnull %2) #2
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %exit, label %if.end21
 
@@ -594,12 +594,12 @@ if.end21:                                         ; preds = %if.then16
 if.end25:                                         ; preds = %if.end21, %if.end14
   %block.1 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
   %arrayidx26 = getelementptr i8, ptr %cond1028, i64 8
-  %4 = load ptr, ptr %arrayidx26, align 8
+  %3 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end21, %if.end, %if.end25
   %block.0 = phi i32 [ %block.1, %if.end25 ], [ %call18, %if.end21 ], [ 1, %if.end ]
-  %timeout_obj.0 = phi ptr [ %4, %if.end25 ], [ @_Py_NoneStruct, %if.end21 ], [ @_Py_NoneStruct, %if.end ]
+  %timeout_obj.0 = phi ptr [ %3, %if.end25 ], [ @_Py_NoneStruct, %if.end21 ], [ @_Py_NoneStruct, %if.end ]
   %call27 = call fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %self, ptr noundef %cls, i32 noundef %block.0, ptr noundef %timeout_obj.0)
   br label %exit
 
@@ -645,8 +645,8 @@ cond.end:                                         ; preds = %entry
   %1 = add i64 %nargs, -1
   %2 = icmp ult i64 %1, 3
   %cmp5 = icmp ne ptr %args, null
-  %3 = and i1 %cmp5, %2
-  br i1 %3, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %2
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %add23 = phi i64 [ %add19, %cond.end.thread ], [ %nargs, %cond.end ]
@@ -657,39 +657,39 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1029 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %add2428 = phi i64 [ %add23, %cond.end9 ], [ %nargs, %cond.end ]
-  %4 = load ptr, ptr %cond1029, align 8
+  %3 = load ptr, ptr %cond1029, align 8
   %tobool12.not = icmp eq i64 %add2428, 1
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
   %arrayidx15 = getelementptr i8, ptr %cond1029, i64 8
-  %5 = load ptr, ptr %arrayidx15, align 8
-  %tobool16.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %arrayidx15, align 8
+  %tobool16.not = icmp eq ptr %4, null
   br i1 %tobool16.not, label %skip_optional_pos, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %call19 = call i32 @PyObject_IsTrue(ptr noundef nonnull %5) #2
+  %call19 = call i32 @PyObject_IsTrue(ptr noundef nonnull %4) #2
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then17, %if.end14, %if.end
   %lst.i = getelementptr inbounds i8, ptr %self, i64 32
-  %6 = load ptr, ptr %lst.i, align 8
-  %call.i = call i32 @PyList_Append(ptr noundef %6, ptr noundef %4) #2
+  %5 = load ptr, ptr %lst.i, align 8
+  %call.i = call i32 @PyList_Append(ptr noundef %5, ptr noundef %3) #2
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_pos
   %locked.i = getelementptr inbounds i8, ptr %self, i64 24
-  %7 = load i32, ptr %locked.i, align 8
-  %tobool.not.i = icmp eq i32 %7, 0
+  %6 = load i32, ptr %locked.i, align 8
+  %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
   store i32 0, ptr %locked.i, align 8
   %lock.i = getelementptr inbounds i8, ptr %self, i64 16
-  %8 = load ptr, ptr %lock.i, align 8
-  call void @PyThread_release_lock(ptr noundef %8) #2
+  %7 = load ptr, ptr %lock.i, align 8
+  call void @PyThread_release_lock(ptr noundef %7) #2
   br label %exit
 
 exit:                                             ; preds = %if.then1.i, %if.end.i, %skip_optional_pos, %if.then17, %cond.end9

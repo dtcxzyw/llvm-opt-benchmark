@@ -5285,7 +5285,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end17:                                         ; preds = %for.body
   %6 = load i16, ptr %clientKSE.050, align 8
-  br i1 %tobool.not4.i, label %if.then.i, label %land.rhs.i.i
+  br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end17, %while.body.i.i
   %extension.05.i.i = phi ptr [ %8, %while.body.i.i ], [ %extensions, %if.end17 ]
@@ -5299,7 +5299,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.then.i, label %land.rhs.i.i, !llvm.loop !16
 
-if.then.i:                                        ; preds = %while.body.i.i, %if.end17
+if.then.i:                                        ; preds = %while.body.i.i
   %9 = load ptr, ptr %ssl, align 16
   %extensions1.i = getelementptr inbounds i8, ptr %9, i64 288
   %10 = load ptr, ptr %extensions1.i, align 8
@@ -6005,27 +6005,26 @@ for.body107:                                      ; preds = %for.cond103.prehead
   %indvars.iv = phi i64 [ 0, %for.cond103.preheader ], [ %indvars.iv.next, %for.cond103 ]
   %arrayidx = getelementptr inbounds [5 x i16], ptr @preferredGroup, i64 0, i64 %indvars.iv
   %44 = load i16, ptr %arrayidx, align 2
-  %cmp114 = icmp ne i16 %44, %43
-  br i1 %cmp114, label %for.cond103, label %if.end133
+  %cmp114.not = icmp eq i16 %44, %43
+  br i1 %cmp114.not, label %if.end133, label %for.cond103
 
 for.inc121:                                       ; preds = %for.cond103
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %cmp100 = icmp ult i64 %indvars.iv.next165, %42
-  %45 = and i1 %cmp100, %cmp114
-  br i1 %45, label %for.cond103.preheader, label %if.end145, !llvm.loop !45
+  br i1 %cmp100, label %for.cond103.preheader, label %if.end145, !llvm.loop !45
 
 if.else128:                                       ; preds = %land.rhs.i111
   %data = getelementptr inbounds i8, ptr %extension.05.i112, i64 8
-  %46 = load ptr, ptr %data, align 8
-  %tobool129.not = icmp eq ptr %46, null
+  %45 = load ptr, ptr %data, align 8
+  %tobool129.not = icmp eq ptr %45, null
   br i1 %tobool129.not, label %if.end145, label %if.then130
 
 if.then130:                                       ; preds = %if.else128
-  %47 = load i16, ptr %46, align 8
+  %46 = load i16, ptr %45, align 8
   br label %if.end133
 
 if.end133:                                        ; preds = %for.body107, %if.then130
-  %namedGroup.2 = phi i16 [ %47, %if.then130 ], [ %43, %for.body107 ]
+  %namedGroup.2 = phi i16 [ %46, %if.then130 ], [ %43, %for.body107 ]
   %cmp135.not = icmp eq i16 %namedGroup.2, 0
   br i1 %cmp135.not, label %if.end145, label %if.then137
 

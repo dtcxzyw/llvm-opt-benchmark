@@ -47578,10 +47578,7 @@ for.body65.i.lr.ph:                               ; preds = %for.end47.i
   %invariant.gep301 = getelementptr inbounds i32, ptr %35, i64 %36
   br label %for.body65.i
 
-for.cond75.i.preheader:                           ; preds = %for.body65.i
-  br i1 %cmp63.i265.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i.lr.ph
-
-for.body78.i.lr.ph:                               ; preds = %for.cond75.i.preheader
+for.body78.i.lr.ph:                               ; preds = %for.body65.i
   %add.ptr91.i24 = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.neg = add i32 %conv.i, 3
   %sub100.i = add i32 %add99.i.neg, %sub.i12.neg273
@@ -47598,7 +47595,7 @@ for.body65.i:                                     ; preds = %for.body65.i.lr.ph,
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i, i32 0, i32 3, i32 1)
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count290
-  br i1 %exitcond291.not, label %for.cond75.i.preheader, label %for.body65.i, !llvm.loop !40
+  br i1 %exitcond291.not, label %for.body78.i.lr.ph, label %for.body65.i, !llvm.loop !40
 
 for.body78.i:                                     ; preds = %for.body78.i.lr.ph, %if.end108.i
   %indvars.iv292 = phi i64 [ %38, %for.body78.i.lr.ph ], [ %indvars.iv.next293, %if.end108.i ]
@@ -47636,8 +47633,8 @@ if.end108.i:                                      ; preds = %for.body78.i, %if.t
   %exitcond294.not = icmp eq i32 %inc110.i, %cond61.i
   br i1 %exitcond294.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i, !llvm.loop !41
 
-ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i, %for.cond75.i.preheader
-  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.cond75.i.preheader ], [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0262, %for.body16.i ]
+ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i
+  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0262, %for.body16.i ]
   ret i64 %retval.i.0
 }
 
@@ -48017,10 +48014,7 @@ for.body65.i.lr.ph:                               ; preds = %for.end47.i
   %invariant.gep300 = getelementptr inbounds i32, ptr %35, i64 %36
   br label %for.body65.i
 
-for.cond75.i.preheader:                           ; preds = %for.body65.i
-  br i1 %cmp63.i264.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i.lr.ph
-
-for.body78.i.lr.ph:                               ; preds = %for.cond75.i.preheader
+for.body78.i.lr.ph:                               ; preds = %for.body65.i
   %add.ptr91.i24 = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.neg = add i32 %conv.i, 3
   %sub100.i = add i32 %add99.i.neg, %sub.i12.neg272
@@ -48037,7 +48031,7 @@ for.body65.i:                                     ; preds = %for.body65.i.lr.ph,
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i, i32 0, i32 3, i32 1)
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count289
-  br i1 %exitcond290.not, label %for.cond75.i.preheader, label %for.body65.i, !llvm.loop !40
+  br i1 %exitcond290.not, label %for.body78.i.lr.ph, label %for.body65.i, !llvm.loop !40
 
 for.body78.i:                                     ; preds = %for.body78.i.lr.ph, %if.end108.i
   %indvars.iv291 = phi i64 [ %38, %for.body78.i.lr.ph ], [ %indvars.iv.next292, %if.end108.i ]
@@ -48075,8 +48069,8 @@ if.end108.i:                                      ; preds = %for.body78.i, %if.t
   %exitcond293.not = icmp eq i32 %inc110.i, %cond61.i
   br i1 %exitcond293.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i, !llvm.loop !41
 
-ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i, %for.cond75.i.preheader
-  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.cond75.i.preheader ], [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0261, %for.body16.i ]
+ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i
+  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0261, %for.body16.i ]
   ret i64 %retval.i.0
 }
 
@@ -48456,10 +48450,7 @@ for.body65.i.lr.ph:                               ; preds = %for.end47.i
   %invariant.gep300 = getelementptr inbounds i32, ptr %35, i64 %36
   br label %for.body65.i
 
-for.cond75.i.preheader:                           ; preds = %for.body65.i
-  br i1 %cmp63.i264.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i.lr.ph
-
-for.body78.i.lr.ph:                               ; preds = %for.cond75.i.preheader
+for.body78.i.lr.ph:                               ; preds = %for.body65.i
   %add.ptr91.i24 = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.neg = add i32 %conv.i, 3
   %sub100.i = add i32 %add99.i.neg, %sub.i12.neg272
@@ -48476,7 +48467,7 @@ for.body65.i:                                     ; preds = %for.body65.i.lr.ph,
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i, i32 0, i32 3, i32 1)
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count289
-  br i1 %exitcond290.not, label %for.cond75.i.preheader, label %for.body65.i, !llvm.loop !40
+  br i1 %exitcond290.not, label %for.body78.i.lr.ph, label %for.body65.i, !llvm.loop !40
 
 for.body78.i:                                     ; preds = %for.body78.i.lr.ph, %if.end108.i
   %indvars.iv291 = phi i64 [ %38, %for.body78.i.lr.ph ], [ %indvars.iv.next292, %if.end108.i ]
@@ -48514,8 +48505,8 @@ if.end108.i:                                      ; preds = %for.body78.i, %if.t
   %exitcond293.not = icmp eq i32 %inc110.i, %cond61.i
   br i1 %exitcond293.not, label %ZSTD_HcFindBestMatch.exit, label %for.body78.i, !llvm.loop !41
 
-ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i, %for.cond75.i.preheader
-  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.cond75.i.preheader ], [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0261, %for.body16.i ]
+ZSTD_HcFindBestMatch.exit:                        ; preds = %for.body16.i, %if.then34.i, %if.end108.i, %if.then98.i, %for.end47.i
+  %retval.i.0 = phi i64 [ %ml.addr.i.0.lcssa, %for.end47.i ], [ %ml.addr.i.4, %if.end108.i ], [ %add94.i, %if.then98.i ], [ %add30.i, %if.then34.i ], [ %ml.addr.i.0261, %for.body16.i ]
   ret i64 %retval.i.0
 }
 
@@ -49129,10 +49120,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep639 = getelementptr inbounds i32, ptr %80, i64 %81
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i591.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg599
@@ -49149,7 +49137,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count626
-  br i1 %exitcond627.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond627.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv628 = phi i64 [ %83, %for.body78.i.i.lr.ph ], [ %indvars.iv.next629, %if.end108.i.i ]
@@ -49187,8 +49175,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond630.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond630.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -49816,10 +49804,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep645 = getelementptr inbounds i32, ptr %82, i64 %83
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i593.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg601
@@ -49836,7 +49821,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond633.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count632
-  br i1 %exitcond633.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond633.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv634 = phi i64 [ %85, %for.body78.i.i.lr.ph ], [ %indvars.iv.next635, %if.end108.i.i ]
@@ -49874,8 +49859,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond636.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond636.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0590, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0590, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -50536,10 +50521,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep645 = getelementptr inbounds i32, ptr %84, i64 %85
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i592.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg600
@@ -50556,7 +50538,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond633.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count632
-  br i1 %exitcond633.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond633.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv634 = phi i64 [ %87, %for.body78.i.i.lr.ph ], [ %indvars.iv.next635, %if.end108.i.i ]
@@ -50594,8 +50576,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond636.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond636.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -51210,10 +51192,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep638 = getelementptr inbounds i32, ptr %76, i64 %77
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i590.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg598
@@ -51230,7 +51209,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond626.not = icmp eq i64 %indvars.iv.next622, %wide.trip.count625
-  br i1 %exitcond626.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond626.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv627 = phi i64 [ %79, %for.body78.i.i.lr.ph ], [ %indvars.iv.next628, %if.end108.i.i ]
@@ -51268,8 +51247,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond629.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond629.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0587, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0587, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -51898,10 +51877,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep644 = getelementptr inbounds i32, ptr %78, i64 %79
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i592.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg600
@@ -51918,7 +51894,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count631
-  br i1 %exitcond632.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond632.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv633 = phi i64 [ %81, %for.body78.i.i.lr.ph ], [ %indvars.iv.next634, %if.end108.i.i ]
@@ -51956,8 +51932,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond635.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond635.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -52619,10 +52595,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep644 = getelementptr inbounds i32, ptr %80, i64 %81
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i591.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg599
@@ -52639,7 +52612,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count631
-  br i1 %exitcond632.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond632.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv633 = phi i64 [ %83, %for.body78.i.i.lr.ph ], [ %indvars.iv.next634, %if.end108.i.i ]
@@ -52677,8 +52650,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond635.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond635.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -53293,10 +53266,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep638 = getelementptr inbounds i32, ptr %76, i64 %77
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i590.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg598
@@ -53313,7 +53283,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond626.not = icmp eq i64 %indvars.iv.next622, %wide.trip.count625
-  br i1 %exitcond626.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond626.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv627 = phi i64 [ %79, %for.body78.i.i.lr.ph ], [ %indvars.iv.next628, %if.end108.i.i ]
@@ -53351,8 +53321,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond629.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond629.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0587, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0587, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -53981,10 +53951,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep644 = getelementptr inbounds i32, ptr %78, i64 %79
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i592.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg600
@@ -54001,7 +53968,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count631
-  br i1 %exitcond632.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond632.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv633 = phi i64 [ %81, %for.body78.i.i.lr.ph ], [ %indvars.iv.next634, %if.end108.i.i ]
@@ -54039,8 +54006,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond635.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond635.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0589, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 
@@ -54702,10 +54669,7 @@ for.body65.i.i.lr.ph:                             ; preds = %for.end47.i.i
   %invariant.gep644 = getelementptr inbounds i32, ptr %80, i64 %81
   br label %for.body65.i.i
 
-for.cond75.i.i.preheader:                         ; preds = %for.body65.i.i
-  br i1 %cmp63.i.i591.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i.lr.ph
-
-for.body78.i.i.lr.ph:                             ; preds = %for.cond75.i.i.preheader
+for.body78.i.i.lr.ph:                             ; preds = %for.body65.i.i
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %ip, i64 4
   %add99.i.i.neg = add i32 %conv.i, 3
   %sub100.i.i = add i32 %add99.i.i.neg, %sub.i722.i.neg599
@@ -54722,7 +54686,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i.lr.p
   tail call void @llvm.prefetch.p0(ptr %add.ptr71.i.i, i32 0, i32 3, i32 1)
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count631
-  br i1 %exitcond632.not, label %for.cond75.i.i.preheader, label %for.body65.i.i, !llvm.loop !40
+  br i1 %exitcond632.not, label %for.body78.i.i.lr.ph, label %for.body65.i.i, !llvm.loop !40
 
 for.body78.i.i:                                   ; preds = %for.body78.i.i.lr.ph, %if.end108.i.i
   %indvars.iv633 = phi i64 [ %83, %for.body78.i.i.lr.ph ], [ %indvars.iv.next634, %if.end108.i.i ]
@@ -54760,8 +54724,8 @@ if.end108.i.i:                                    ; preds = %for.body78.i.i, %if
   %exitcond635.not = icmp eq i32 %inc110.i.i, %cond61.i.i
   br i1 %exitcond635.not, label %ZSTD_RowFindBestMatch.exit, label %for.body78.i.i, !llvm.loop !41
 
-ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i, %for.cond75.i.i.preheader
-  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.cond75.i.i.preheader ], [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
+ZSTD_RowFindBestMatch.exit:                       ; preds = %for.body16.i.i, %if.then34.i.i, %if.end108.i.i, %if.then98.i.i, %for.end47.i.i
+  %retval.i714.i.0 = phi i64 [ %ml.addr.i.i.0.lcssa, %for.end47.i.i ], [ %ml.addr.i.i.4, %if.end108.i.i ], [ %add94.i.i, %if.then98.i.i ], [ %add30.i.i, %if.then34.i.i ], [ %ml.addr.i.i.0588, %for.body16.i.i ]
   ret i64 %retval.i714.i.0
 }
 

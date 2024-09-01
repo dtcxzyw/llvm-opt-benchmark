@@ -858,7 +858,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 
 .loopexit120.i:                                   ; preds = %356
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, -1
-  br label %320, !llvm.loop !19
+  br label %320
 
 320:                                              ; preds = %.loopexit120.i, %.preheader.i26
   %indvars.iv = phi i64 [ %351, %.loopexit120.i ], [ %295, %.preheader.i26 ]
@@ -901,7 +901,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %.reass.i = add i32 %invariant.op.i, %.290136.i
   %344 = urem i32 %.reass.i, %3
   %.not108.i = icmp eq i32 %344, %322
-  br i1 %.not108.i, label %._crit_edge.i, label %329, !llvm.loop !20
+  br i1 %.not108.i, label %._crit_edge.i, label %329, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %329
   %345 = icmp sgt i32 %342, 0
@@ -952,7 +952,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %spec.select111.i = select i1 %369, ptr %357, ptr %.4141.i
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next169.i, %indvars.iv175.i
-  br i1 %exitcond174.not.i, label %.loopexit120.i, label %356, !llvm.loop !21
+  br i1 %exitcond174.not.i, label %.loopexit120.i, label %356, !llvm.loop !20
 
 .lr.ph152.preheader.i:                            ; preds = %._crit_edge.thread.i, %CoOccurrenceFindMax.exit.i
   %.097.i = phi i32 [ 0, %CoOccurrenceFindMax.exit.i ], [ %.299.i, %._crit_edge.thread.i ]
@@ -974,7 +974,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   store i32 %378, ptr %379, align 4
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next179.i, %121
-  br i1 %exitcond183.not.i, label %PaletteSortModifiedZeng.exit, label %.lr.ph152.i, !llvm.loop !22
+  br i1 %exitcond183.not.i, label %PaletteSortModifiedZeng.exit, label %.lr.ph152.i, !llvm.loop !21
 
 PaletteSortModifiedZeng.exit:                     ; preds = %.lr.ph152.i, %103, %105, %263
   %.0.i = phi i32 [ 0, %263 ], [ 1, %103 ], [ 0, %105 ], [ 1, %.lr.ph152.i ]
@@ -1041,4 +1041,3 @@ attributes #10 = { nounwind }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

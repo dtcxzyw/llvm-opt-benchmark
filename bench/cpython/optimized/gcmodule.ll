@@ -3495,8 +3495,8 @@ cond.end.thread:                                  ; preds = %entry
 cond.end:                                         ; preds = %entry
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond19 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -3512,13 +3512,13 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos.thread28, label %if.end14
 
 skip_optional_pos.thread28:                       ; preds = %if.end
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %4 = load ptr, ptr %3, align 8
+  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %3 = load ptr, ptr %2, align 8
   br label %gc_collect_impl.exit
 
 if.end14:                                         ; preds = %if.end
-  %5 = load ptr, ptr %cond1025, align 8
-  %call15 = call i32 @PyLong_AsInt(ptr noundef %5) #15
+  %4 = load ptr, ptr %cond1025, align 8
+  %call15 = call i32 @PyLong_AsInt(ptr noundef %4) #15
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %land.lhs.true17, label %skip_optional_pos
 
@@ -3528,26 +3528,26 @@ land.lhs.true17:                                  ; preds = %if.end14
   br i1 %tobool19.not, label %skip_optional_pos.thread, label %exit
 
 skip_optional_pos.thread:                         ; preds = %land.lhs.true17
-  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %7 = load ptr, ptr %6, align 8
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %6 = load ptr, ptr %5, align 8
   br label %gc_collect_impl.exit.thread
 
 skip_optional_pos:                                ; preds = %if.end14
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %9 = load ptr, ptr %8, align 8
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %8 = load ptr, ptr %7, align 8
   %or.cond.i = icmp ugt i32 %call15, 2
   br i1 %or.cond.i, label %gc_collect_impl.exit.thread, label %gc_collect_impl.exit
 
 gc_collect_impl.exit.thread:                      ; preds = %skip_optional_pos, %skip_optional_pos.thread
-  %10 = phi ptr [ %7, %skip_optional_pos.thread ], [ %9, %skip_optional_pos ]
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @_PyErr_SetString(ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.28) #15
+  %9 = phi ptr [ %6, %skip_optional_pos.thread ], [ %8, %skip_optional_pos ]
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @_PyErr_SetString(ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.28) #15
   br label %land.lhs.true24
 
 gc_collect_impl.exit:                             ; preds = %skip_optional_pos, %skip_optional_pos.thread28
-  %12 = phi ptr [ %4, %skip_optional_pos.thread28 ], [ %9, %skip_optional_pos ]
+  %11 = phi ptr [ %3, %skip_optional_pos.thread28 ], [ %8, %skip_optional_pos ]
   %generation.031 = phi i32 [ 2, %skip_optional_pos.thread28 ], [ %call15, %skip_optional_pos ]
-  %call2.i = call fastcc i64 @gc_collect_main(ptr noundef %12, i32 noundef %generation.031, i32 noundef 2)
+  %call2.i = call fastcc i64 @gc_collect_main(ptr noundef %11, i32 noundef %generation.031, i32 noundef 2)
   %cmp23 = icmp eq i64 %call2.i, -1
   br i1 %cmp23, label %land.lhs.true24, label %if.end28
 
@@ -3584,8 +3584,8 @@ cond.end:                                         ; preds = %entry
   store i64 -1, ptr %generation, align 8
   %1 = icmp ult i64 %nargs, 2
   %cmp5 = icmp ne ptr %args, null
-  %2 = and i1 %cmp5, %1
-  br i1 %2, label %if.end, label %cond.end9
+  %or.cond2 = and i1 %cmp5, %1
+  br i1 %or.cond2, label %if.end, label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.end.thread
   %cond17 = phi i64 [ %kwnames.val, %cond.end.thread ], [ 0, %cond.end ]
@@ -3601,8 +3601,8 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cond1023, align 8
-  %call15 = call i32 @_Py_convert_optional_to_ssize_t(ptr noundef %3, ptr noundef nonnull %generation) #15
+  %2 = load ptr, ptr %cond1023, align 8
+  %call15 = call i32 @_Py_convert_optional_to_ssize_t(ptr noundef %2, ptr noundef nonnull %generation) #15
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %exit, label %if.end14.skip_optional_pos_crit_edge
 
@@ -3611,12 +3611,12 @@ if.end14.skip_optional_pos_crit_edge:             ; preds = %if.end14
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end14.skip_optional_pos_crit_edge, %if.end
-  %4 = phi i64 [ %.pre, %if.end14.skip_optional_pos_crit_edge ], [ -1, %if.end ]
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %6 = load ptr, ptr %5, align 8
-  %interp.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %interp.i, align 8
-  %call1.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i64 noundef %4) #15
+  %3 = phi i64 [ %.pre, %if.end14.skip_optional_pos_crit_edge ], [ -1, %if.end ]
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %5 = load ptr, ptr %4, align 8
+  %interp.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %interp.i, align 8
+  %call1.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i64 noundef %3) #15
   %cmp.i = icmp slt i32 %call1.i, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -3626,34 +3626,34 @@ if.end.i:                                         ; preds = %skip_optional_pos
   br i1 %cmp3.i, label %exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.not.i = icmp eq i64 %4, -1
+  %cmp6.not.i = icmp eq i64 %3, -1
   br i1 %cmp6.not.i, label %for.cond.preheader.i, label %if.then7.i
 
 for.cond.preheader.i:                             ; preds = %if.end5.i
-  %generations20.i = getelementptr inbounds i8, ptr %7, i64 1024
+  %generations20.i = getelementptr inbounds i8, ptr %6, i64 1024
   br label %for.body.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %cmp8.i = icmp sgt i64 %4, 2
+  %cmp8.i = icmp sgt i64 %3, 2
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  %call10.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull @.str.31, i32 noundef 3) #15
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  %call10.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %5, ptr noundef %7, ptr noundef nonnull @.str.31, i32 noundef 3) #15
   br label %error.i
 
 if.end11.i:                                       ; preds = %if.then7.i
-  %cmp12.i = icmp slt i64 %4, 0
+  %cmp12.i = icmp slt i64 %3, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %if.end11.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @_PyErr_SetString(ptr noundef nonnull %6, ptr noundef %9, ptr noundef nonnull @.str.32) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @_PyErr_SetString(ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull @.str.32) #15
   br label %error.i
 
 if.end14.i:                                       ; preds = %if.end11.i
-  %generations.i = getelementptr inbounds i8, ptr %7, i64 1024
-  %arrayidx.i = getelementptr [3 x %struct.gc_generation], ptr %generations.i, i64 0, i64 %4
+  %generations.i = getelementptr inbounds i8, ptr %6, i64 1024
+  %arrayidx.i = getelementptr [3 x %struct.gc_generation], ptr %generations.i, i64 0, i64 %3
   %gc.0.in6.i.i = load i64, ptr %arrayidx.i, align 8
   %gc.07.i.i = inttoptr i64 %gc.0.in6.i.i to ptr
   %cmp.not8.i.i = icmp eq ptr %arrayidx.i, %gc.07.i.i
@@ -3707,13 +3707,13 @@ for.inc.i:                                        ; preds = %for.inc.i28.i, %for
   br i1 %exitcond.not.i, label %exit, label %for.body.i, !llvm.loop !29
 
 error.i:                                          ; preds = %if.then.i.i, %if.then.i24.i, %if.then13.i, %if.then9.i
-  %10 = load i64, ptr %call2.i, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i28.not.i = icmp eq i64 %11, 0
+  %9 = load i64, ptr %call2.i, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i28.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i28.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %error.i
-  %dec.i.i = add i64 %10, -1
+  %dec.i.i = add i64 %9, -1
   store i64 %dec.i.i, ptr %call2.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit

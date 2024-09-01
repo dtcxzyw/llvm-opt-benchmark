@@ -2179,14 +2179,11 @@ for.inc73:                                        ; preds = %stbiw__zlib_countm.
   %bestloc.1 = phi ptr [ %bestloc.01149, %for.body53 ], [ %spec.select1138, %stbiw__zlib_countm.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end75, label %for.body53, !llvm.loop !26
+  br i1 %exitcond.not, label %land.lhs.true, label %for.body53, !llvm.loop !26
 
-for.end75:                                        ; preds = %for.inc73
-  br i1 %tobool.not, label %cond.end.i249, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %cond.end49, %for.end75
-  %bestloc.0.lcssa1239 = phi ptr [ %bestloc.1, %for.end75 ], [ null, %cond.end49 ]
-  %best.0.lcssa1238 = phi i32 [ %best.1, %for.end75 ], [ 3, %cond.end49 ]
+land.lhs.true:                                    ; preds = %for.inc73, %cond.end49
+  %bestloc.0.lcssa1239 = phi ptr [ null, %cond.end49 ], [ %bestloc.1, %for.inc73 ]
+  %best.0.lcssa1238 = phi i32 [ 3, %cond.end49 ], [ %best.1, %for.inc73 ]
   %arrayidx82 = getelementptr inbounds i8, ptr %5, i64 -4
   %13 = load i32, ptr %arrayidx82, align 4
   %cmp83 = icmp eq i32 %13, %mul
@@ -2211,10 +2208,10 @@ cond.true.i245:                                   ; preds = %lor.lhs.false103
   %add.i248 = or disjoint i32 %mul.i247, 1
   br label %cond.end.i249
 
-cond.end.i249:                                    ; preds = %while.body, %for.end75, %cond.true.i245
-  %bestloc.0.lcssa1234 = phi ptr [ %bestloc.0.lcssa1239, %cond.true.i245 ], [ %bestloc.1, %for.end75 ], [ null, %while.body ]
-  %best.0.lcssa1232 = phi i32 [ %best.0.lcssa1238, %cond.true.i245 ], [ %best.1, %for.end75 ], [ 3, %while.body ]
-  %cond.i250 = phi i32 [ %add.i248, %cond.true.i245 ], [ 2, %for.end75 ], [ 2, %while.body ]
+cond.end.i249:                                    ; preds = %while.body, %cond.true.i245
+  %bestloc.0.lcssa1234 = phi ptr [ %bestloc.0.lcssa1239, %cond.true.i245 ], [ null, %while.body ]
+  %best.0.lcssa1232 = phi i32 [ %best.0.lcssa1238, %cond.true.i245 ], [ 3, %while.body ]
+  %cond.i250 = phi i32 [ %add.i248, %cond.true.i245 ], [ 2, %while.body ]
   %add.ptr4.i251 = getelementptr inbounds i8, ptr %5, i64 -8
   %spec.select.i252 = select i1 %tobool.not, ptr null, ptr %add.ptr4.i251
   %mul8.i = shl nsw i32 %cond.i250, 3

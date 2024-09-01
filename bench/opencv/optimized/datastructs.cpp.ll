@@ -14740,27 +14740,27 @@ define noundef ptr @cvTreeToNodeSeq(ptr noundef %0, i32 noundef %1, ptr noundef 
   %16 = sext i32 %1 to i64
   %17 = tail call ptr @cvCreateSeq(i32 noundef 0, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %2)
   %.not12 = icmp eq ptr %0, null
-  br i1 %.not12, label %31, label %cvInitTreeNodeIterator.exit.preheader.split
+  br i1 %.not12, label %31, label %cvInitTreeNodeIterator.exit.preheader
 
 cvNextTreeNode.exit.thread:                       ; preds = %25
-  store ptr %.sroa.0.025, ptr %6, align 8
+  store ptr %.sroa.0.024, ptr %6, align 8
   %18 = call ptr @cvSeqPush(ptr noundef %17, ptr noundef nonnull %6)
   br label %31
 
-cvInitTreeNodeIterator.exit.preheader.split:      ; preds = %15, %cvInitTreeNodeIterator.exit
-  %.sroa.0.025 = phi ptr [ %.023.i20, %cvInitTreeNodeIterator.exit ], [ %0, %15 ]
-  %.sroa.3.024 = phi i32 [ %.022.i21, %cvInitTreeNodeIterator.exit ], [ 0, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.025, i64 32
+cvInitTreeNodeIterator.exit.preheader:            ; preds = %15, %cvInitTreeNodeIterator.exit
+  %.sroa.0.024 = phi ptr [ %.023.i20, %cvInitTreeNodeIterator.exit ], [ %0, %15 ]
+  %.sroa.3.023 = phi i32 [ %.022.i21, %cvInitTreeNodeIterator.exit ], [ 0, %15 ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not35.i = icmp eq ptr %20, null
-  %21 = add nsw i32 %.sroa.3.024, 1
+  %21 = add nsw i32 %.sroa.3.023, 1
   %.not22 = icmp eq i32 %21, 2147483647
   %or.cond = select i1 %.not35.i, i1 true, i1 %.not22
   br i1 %or.cond, label %.preheader, label %cvInitTreeNodeIterator.exit
 
-.preheader:                                       ; preds = %cvInitTreeNodeIterator.exit.preheader.split, %25
-  %.124.i = phi ptr [ %27, %25 ], [ %.sroa.0.025, %cvInitTreeNodeIterator.exit.preheader.split ]
-  %.1.i = phi i32 [ %28, %25 ], [ %.sroa.3.024, %cvInitTreeNodeIterator.exit.preheader.split ]
+.preheader:                                       ; preds = %cvInitTreeNodeIterator.exit.preheader, %25
+  %.124.i = phi ptr [ %27, %25 ], [ %.sroa.0.024, %cvInitTreeNodeIterator.exit.preheader ]
+  %.1.i = phi i32 [ %28, %25 ], [ %.sroa.3.023, %cvInitTreeNodeIterator.exit.preheader ]
   %22 = getelementptr inbounds i8, ptr %.124.i, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -14773,12 +14773,12 @@ cvInitTreeNodeIterator.exit.preheader.split:      ; preds = %15, %cvInitTreeNode
   %29 = icmp slt i32 %.1.i, 1
   br i1 %29, label %cvNextTreeNode.exit.thread, label %.preheader, !llvm.loop !81
 
-cvInitTreeNodeIterator.exit:                      ; preds = %.preheader, %cvInitTreeNodeIterator.exit.preheader.split
-  %.022.i21 = phi i32 [ %21, %cvInitTreeNodeIterator.exit.preheader.split ], [ %.1.i, %.preheader ]
-  %.023.i20 = phi ptr [ %20, %cvInitTreeNodeIterator.exit.preheader.split ], [ %23, %.preheader ]
-  store ptr %.sroa.0.025, ptr %6, align 8
+cvInitTreeNodeIterator.exit:                      ; preds = %.preheader, %cvInitTreeNodeIterator.exit.preheader
+  %.022.i21 = phi i32 [ %21, %cvInitTreeNodeIterator.exit.preheader ], [ %.1.i, %.preheader ]
+  %.023.i20 = phi ptr [ %20, %cvInitTreeNodeIterator.exit.preheader ], [ %23, %.preheader ]
+  store ptr %.sroa.0.024, ptr %6, align 8
   %30 = call ptr @cvSeqPush(ptr noundef %17, ptr noundef nonnull %6)
-  br label %cvInitTreeNodeIterator.exit.preheader.split, !llvm.loop !82
+  br label %cvInitTreeNodeIterator.exit.preheader, !llvm.loop !82
 
 31:                                               ; preds = %cvNextTreeNode.exit.thread, %15
   ret ptr %17

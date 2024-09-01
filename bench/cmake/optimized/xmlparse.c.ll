@@ -15729,8 +15729,8 @@ define internal fastcc nonnull ptr @sip24_update(ptr noundef returned %0, ptr no
 .lr.ph:                                           ; preds = %15, %18
   %.134 = phi ptr [ %19, %18 ], [ %.0, %15 ]
   %17 = load ptr, ptr %5, align 8
-  %.not = icmp uge ptr %17, %5
-  br i1 %.not, label %.critedge, label %18
+  %.not.not = icmp uge ptr %17, %5
+  br i1 %.not.not, label %.critedge, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %.134, i64 1
@@ -15743,7 +15743,7 @@ define internal fastcc nonnull ptr @sip24_update(ptr noundef returned %0, ptr no
 
 .critedge:                                        ; preds = %.lr.ph, %18, %15
   %.1.lcssa = phi ptr [ %.0, %15 ], [ %19, %18 ], [ %.134, %.lr.ph ]
-  %.lcssa = phi i1 [ false, %15 ], [ %.not, %18 ], [ %.not, %.lr.ph ]
+  %.lcssa = phi i1 [ false, %15 ], [ %.not.not, %18 ], [ %.not.not, %.lr.ph ]
   %23 = load ptr, ptr %5, align 8
   %24 = icmp ult ptr %23, %5
   br i1 %24, label %69, label %25

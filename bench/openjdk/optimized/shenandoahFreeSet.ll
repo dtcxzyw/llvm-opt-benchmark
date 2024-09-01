@@ -4475,18 +4475,15 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   br i1 %.not, label %._crit_edge, label %_ZNK14ShenandoahHeap10get_regionEm.exit, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit
-  br i1 %.not26, label %._crit_edge.thread, label %47
-
-47:                                               ; preds = %._crit_edge
-  %48 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
-  %49 = uitofp i64 %48 to double
-  %50 = fmul double %30, %49
-  %51 = fdiv double %28, %50
-  %52 = fsub double 1.000000e+00, %51
+  %47 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
+  %48 = uitofp i64 %47 to double
+  %49 = fmul double %30, %48
+  %50 = fdiv double %28, %49
+  %51 = fsub double 1.000000e+00, %50
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge, %47
-  %.0 = phi double [ %52, %47 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %1 ]
+._crit_edge.thread:                               ; preds = %1, %._crit_edge
+  %.0 = phi double [ %51, %._crit_edge ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 

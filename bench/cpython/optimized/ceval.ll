@@ -30053,7 +30053,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 for.cond.i:                                       ; preds = %land.lhs.true.i
   %inc.i = add nuw nsw i64 %i.023.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %right.val.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %if.then3, label %for.body.i, !llvm.loop !30
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.023.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -30086,10 +30086,7 @@ land.lhs.true10.i:                                ; preds = %if.else.i
   %tobool12.not.i = icmp eq i64 %10, 0
   br i1 %tobool12.not.i, label %return.sink.split, label %if.else
 
-if.end:                                           ; preds = %for.cond.i
-  br i1 %tobool.not.i, label %if.else, label %if.then3
-
-if.then3:                                         ; preds = %if.then.i, %if.end
+if.then3:                                         ; preds = %for.cond.i, %if.then.i
   %11 = getelementptr i8, ptr %right, i64 16
   %right.val = load i64, ptr %11, align 8
   %cmp519 = icmp sgt i64 %right.val, 0
@@ -30117,7 +30114,7 @@ if.end9:                                          ; preds = %for.body
   %tobool10.not = icmp eq i32 %call6, 0
   br i1 %tobool10.not, label %for.cond, label %return.sink.split
 
-if.else:                                          ; preds = %land.lhs.true10.i, %if.end
+if.else:                                          ; preds = %land.lhs.true10.i
   %14 = load ptr, ptr @PyExc_BaseExceptionGroup, align 8
   %call13 = tail call i32 @PyObject_IsSubclass(ptr noundef nonnull %right, ptr noundef %14) #15
   %cmp14 = icmp slt i32 %call13, 0

@@ -893,8 +893,8 @@ cond.end:                                         ; preds = %_ZNSt6vectorIN4cvc5
 cond.true.i:                                      ; preds = %cond.end
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %d_termIndex.i.i, align 8
-  %tobool.not39.i.i = icmp eq ptr %2, %3
-  br i1 %tobool.not39.i.i, label %land.lhs.true, label %while.body.lr.ph.i.i
+  %tobool.not42.not.i.i = icmp eq ptr %2, %3
+  br i1 %tobool.not42.not.i.i, label %land.lhs.true, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %cond.true.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
@@ -904,41 +904,41 @@ while.body.lr.ph.i.i:                             ; preds = %cond.true.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %dec41.in.i.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i.i ], [ %dec41.i.i, %if.end.i.i ]
-  %suffixSum.040.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %add12.i.i, %if.end.i.i ]
-  %dec41.i.i = add i64 %dec41.in.i.i, -1
+  %dec44.in.i.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i.i ], [ %dec44.i.i, %if.end.i.i ]
+  %suffixSum.043.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %add12.i.i, %if.end.i.i ]
+  %dec44.i.i = add i64 %dec44.in.i.i, -1
   %4 = load ptr, ptr %d_termIndex.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %4, i64 %dec41.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %4, i64 %dec44.i.i
   %5 = load i64, ptr %add.ptr.i.i.i, align 8
-  %cmp.not.i.i = icmp eq i64 %suffixSum.040.i.i, 0
+  %cmp.not.i.i = icmp eq i64 %suffixSum.043.i.i, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i.i
   %add.i.i = add i64 %5, 1
   %6 = load ptr, ptr %d_termsSizes.i.i, align 8
-  %add.ptr.i13.i.i = getelementptr inbounds i64, ptr %6, i64 %dec41.i.i
+  %add.ptr.i13.i.i = getelementptr inbounds i64, ptr %6, i64 %dec44.i.i
   %7 = load i64, ptr %add.ptr.i13.i.i, align 8
   %cmp5.i.i = icmp ult i64 %add.i.i, %7
   %8 = load i64, ptr %d_changePrefix.i.i, align 8
-  %cmp6.i.i = icmp ult i64 %dec41.i.i, %8
-  %or.cond47.i.i = select i1 %cmp5.i.i, i1 %cmp6.i.i, i1 false
-  br i1 %or.cond47.i.i, label %if.end17.i.i, label %if.end.i.i
+  %cmp6.i.i = icmp ult i64 %dec44.i.i, %8
+  %or.cond.i.i = select i1 %cmp5.i.i, i1 %cmp6.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.end17.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %while.body.i.i
-  %add12.i.i = add i64 %5, %suffixSum.040.i.i
+  %add12.i.i = add i64 %5, %suffixSum.043.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8
-  %tobool.not.i.i = icmp eq i64 %dec41.i.i, 0
-  br i1 %tobool.not.i.i, label %land.lhs.true, label %while.body.i.i, !llvm.loop !13
+  %tobool.not.not.i.i = icmp eq i64 %dec44.i.i, 0
+  br i1 %tobool.not.not.i.i, label %land.lhs.true, label %while.body.i.i, !llvm.loop !13
 
 if.end17.i.i:                                     ; preds = %land.lhs.true.i.i
   store i64 %add.i.i, ptr %add.ptr.i.i.i, align 8
-  %dec18.i.i = add i64 %suffixSum.040.i.i, -1
+  %dec18.i.i = add i64 %suffixSum.043.i.i, -1
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %d_termIndex.i.i, align 8
-  %cmp21.not42.i.i = icmp eq i64 %dec18.i.i, 0
-  %tobool24.not43.i.i = icmp eq ptr %9, %10
-  %or.cond44.i.i = select i1 %cmp21.not42.i.i, i1 true, i1 %tobool24.not43.i.i
-  br i1 %or.cond44.i.i, label %if.end, label %for.body.lr.ph.i.i
+  %cmp21.not46.i.i = icmp eq i64 %dec18.i.i, 0
+  %tobool24.not47.i.i = icmp eq ptr %9, %10
+  %or.cond3648.i.i = select i1 %cmp21.not46.i.i, i1 true, i1 %tobool24.not47.i.i
+  br i1 %or.cond3648.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end17.i.i
   %sub.ptr.rhs.cast.i19.i.i = ptrtoint ptr %10 to i64
@@ -949,24 +949,24 @@ for.body.lr.ph.i.i:                               ; preds = %if.end17.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %11 = phi ptr [ %10, %for.body.lr.ph.i.i ], [ %14, %for.body.i.i ]
-  %digit.046.i.i = phi i64 [ %sub.ptr.div.i21.i.i, %for.body.lr.ph.i.i ], [ %dec23.i.i, %for.body.i.i ]
-  %suffixSum.145.i.i = phi i64 [ %dec18.i.i, %for.body.lr.ph.i.i ], [ %sub36.i.i, %for.body.i.i ]
-  %dec23.i.i = add i64 %digit.046.i.i, -1
+  %digit.050.i.i = phi i64 [ %sub.ptr.div.i21.i.i, %for.body.lr.ph.i.i ], [ %dec23.i.i, %for.body.i.i ]
+  %suffixSum.149.i.i = phi i64 [ %dec18.i.i, %for.body.lr.ph.i.i ], [ %sub36.i.i, %for.body.i.i ]
+  %dec23.i.i = add i64 %digit.050.i.i, -1
   %12 = load ptr, ptr %d_termsSizes.i.i, align 8
   %add.ptr.i22.i.i = getelementptr inbounds i64, ptr %12, i64 %dec23.i.i
   %13 = load i64, ptr %add.ptr.i22.i.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %suffixSum.145.i.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %suffixSum.149.i.i)
   %add.ptr.i24.i.i = getelementptr inbounds i64, ptr %11, i64 %dec23.i.i
   store i64 %.sroa.speculated.i.i, ptr %add.ptr.i24.i.i, align 8
   %14 = load ptr, ptr %d_termIndex.i.i, align 8
   %add.ptr.i25.i.i = getelementptr inbounds i64, ptr %14, i64 %dec23.i.i
   %15 = load i64, ptr %add.ptr.i25.i.i, align 8
-  %sub36.i.i = sub i64 %suffixSum.145.i.i, %15
+  %sub36.i.i = sub i64 %suffixSum.149.i.i, %15
   %cmp21.not.i.i = icmp eq i64 %sub36.i.i, 0
   %tobool24.not.i.i = icmp eq i64 %dec23.i.i, 0
-  %or.cond.i.i = or i1 %tobool24.not.i.i, %cmp21.not.i.i
-  br i1 %or.cond.i.i, label %if.end, label %for.body.i.i, !llvm.loop !14
+  %or.cond36.i.i = or i1 %tobool24.not.i.i, %cmp21.not.i.i
+  br i1 %or.cond36.i.i, label %if.end, label %for.body.i.i, !llvm.loop !14
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit: ; preds = %cond.end
   %call2.i = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull readonly align 8 dereferenceable(168) %this)
@@ -1308,8 +1308,8 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN4cvc
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit: ; preds = %if.then.i22, %if.else.i, %if.then5.i20, %invoke.cont.i.i
   %7 = load i64, ptr %d_variableCount, align 8
-  %cmp204.not = icmp eq i64 %7, 0
-  br i1 %cmp204.not, label %cond.end67, label %for.body.lr.ph
+  %cmp203.not = icmp eq i64 %7, 0
+  br i1 %cmp203.not, label %cond.end67, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit
   %d_termsSizes = getelementptr inbounds i8, ptr %this, i64 56
@@ -1319,9 +1319,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN4cvc5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178
-  %variableIx.0205 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ]
+  %variableIx.0204 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178 ]
   %8 = load ptr, ptr %d_termsSizes, align 8
-  %add.ptr.i23 = getelementptr inbounds i64, ptr %8, i64 %variableIx.0205
+  %add.ptr.i23 = getelementptr inbounds i64, ptr %8, i64 %variableIx.0204
   %9 = load i64, ptr %add.ptr.i23, align 8
   %cmp8 = icmp eq i64 %9, 0
   br i1 %cmp8, label %cond.true9, label %cond.false18
@@ -1384,7 +1384,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %if.then.i.i.i, %if.
 call2.i.i.i36.noexc:                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %cmp.i.i37 = icmp eq i32 %call2.i.i.i3656, 2
   %inc.i.i38 = zext i1 %cmp.i.i37 to i64
-  %spec.select.i.i39 = add nuw i64 %variableIx.0205, %inc.i.i38
+  %spec.select.i.i39 = add nuw i64 %variableIx.0204, %inc.i.i38
   %d_children.i.i40 = getelementptr inbounds i8, ptr %13, i64 16
   %sext = shl i64 %spec.select.i.i39, 32
   %idxprom.i.i41 = ashr exact i64 %sext, 32
@@ -1426,12 +1426,12 @@ invoke.cont14:                                    ; preds = %invoke.cont
 
 cond.false18:                                     ; preds = %for.body
   %17 = load ptr, ptr %d_termIndex19, align 8
-  %add.ptr.i58 = getelementptr inbounds i64, ptr %17, i64 %variableIx.0205
+  %add.ptr.i58 = getelementptr inbounds i64, ptr %17, i64 %variableIx.0204
   %18 = load i64, ptr %add.ptr.i58, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %19 = load ptr, ptr %vfn, align 8
-  call void %19(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %t, ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %variableIx.0205, i64 noundef %18)
+  call void %19(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %t, ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %variableIx.0204, i64 noundef %18)
   br label %cleanup.done34
 
 cleanup.action:                                   ; preds = %invoke.cont14
@@ -1516,7 +1516,7 @@ terminate.lpad.i80:                               ; preds = %if.then13.i.i79
 
 cleanup.done34:                                   ; preds = %cond.false18, %if.then13.i.i79, %if.then.i.i73, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %31 = load ptr, ptr %terms, align 8
-  %add.ptr.i82 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %31, i64 %variableIx.0205
+  %add.ptr.i82 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %31, i64 %variableIx.0204
   %32 = load ptr, ptr %add.ptr.i82, align 8
   %33 = load ptr, ptr %t, align 8
   %cmp.not.i83 = icmp eq ptr %32, %33
@@ -1597,7 +1597,7 @@ terminate.lpad.i177:                              ; preds = %if.then13.i.i176
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit178: ; preds = %cond.true46, %if.then.i.i170, %if.then13.i.i176
-  %inc = add nuw i64 %variableIx.0205, 1
+  %inc = add nuw i64 %variableIx.0204, 1
   %41 = load i64, ptr %d_variableCount, align 8
   %cmp = icmp ult i64 %inc, %41
   br i1 %cmp, label %for.body, label %cond.end67, !llvm.loop !23
@@ -1902,8 +1902,8 @@ cond.true:                                        ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %d_termIndex.i, align 8
-  %tobool.not39.i = icmp eq ptr %2, %3
-  br i1 %tobool.not39.i, label %cond.end, label %while.body.lr.ph.i
+  %tobool.not42.not.i = icmp eq ptr %2, %3
+  br i1 %tobool.not42.not.i, label %cond.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %cond.true
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -1915,41 +1915,41 @@ while.body.lr.ph.i:                               ; preds = %cond.true
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
-  %dec41.in.i = phi i64 [ %sub.ptr.div.i.i, %while.body.lr.ph.i ], [ %dec41.i, %if.end.i ]
-  %suffixSum.040.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add12.i, %if.end.i ]
-  %dec41.i = add i64 %dec41.in.i, -1
+  %dec44.in.i = phi i64 [ %sub.ptr.div.i.i, %while.body.lr.ph.i ], [ %dec44.i, %if.end.i ]
+  %suffixSum.043.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add12.i, %if.end.i ]
+  %dec44.i = add i64 %dec44.in.i, -1
   %4 = load ptr, ptr %d_termIndex.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %4, i64 %dec41.i
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %4, i64 %dec44.i
   %5 = load i64, ptr %add.ptr.i.i, align 8
-  %cmp.not.i = icmp eq i64 %suffixSum.040.i, 0
+  %cmp.not.i = icmp eq i64 %suffixSum.043.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %add.i = add i64 %5, 1
   %6 = load ptr, ptr %d_termsSizes.i, align 8
-  %add.ptr.i13.i = getelementptr inbounds i64, ptr %6, i64 %dec41.i
+  %add.ptr.i13.i = getelementptr inbounds i64, ptr %6, i64 %dec44.i
   %7 = load i64, ptr %add.ptr.i13.i, align 8
   %cmp5.i = icmp ult i64 %add.i, %7
   %8 = load i64, ptr %d_changePrefix.i, align 8
-  %cmp6.i = icmp ult i64 %dec41.i, %8
-  %or.cond47.i = select i1 %cmp5.i, i1 %cmp6.i, i1 false
-  br i1 %or.cond47.i, label %if.end17.i, label %if.end.i
+  %cmp6.i = icmp ult i64 %dec44.i, %8
+  %or.cond.i = select i1 %cmp5.i, i1 %cmp6.i, i1 false
+  br i1 %or.cond.i, label %if.end17.i, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %add12.i = add i64 %5, %suffixSum.040.i
+  %add12.i = add i64 %5, %suffixSum.043.i
   store i64 0, ptr %add.ptr.i.i, align 8
-  %tobool.not.i = icmp eq i64 %dec41.i, 0
-  br i1 %tobool.not.i, label %cond.end, label %while.body.i, !llvm.loop !13
+  %tobool.not.not.i = icmp eq i64 %dec44.i, 0
+  br i1 %tobool.not.not.i, label %cond.end, label %while.body.i, !llvm.loop !13
 
 if.end17.i:                                       ; preds = %land.lhs.true.i
   store i64 %add.i, ptr %add.ptr.i.i, align 8
-  %dec18.i = add i64 %suffixSum.040.i, -1
+  %dec18.i = add i64 %suffixSum.043.i, -1
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %10 = load ptr, ptr %d_termIndex.i, align 8
-  %cmp21.not42.i = icmp eq i64 %dec18.i, 0
-  %tobool24.not43.i = icmp eq ptr %9, %10
-  %or.cond44.i = select i1 %cmp21.not42.i, i1 true, i1 %tobool24.not43.i
-  br i1 %or.cond44.i, label %cond.end, label %for.body.lr.ph.i
+  %cmp21.not46.i = icmp eq i64 %dec18.i, 0
+  %tobool24.not47.i = icmp eq ptr %9, %10
+  %or.cond3648.i = select i1 %cmp21.not46.i, i1 true, i1 %tobool24.not47.i
+  br i1 %or.cond3648.i, label %cond.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end17.i
   %sub.ptr.rhs.cast.i19.i = ptrtoint ptr %10 to i64
@@ -1960,24 +1960,24 @@ for.body.lr.ph.i:                                 ; preds = %if.end17.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %11 = phi ptr [ %10, %for.body.lr.ph.i ], [ %14, %for.body.i ]
-  %digit.046.i = phi i64 [ %sub.ptr.div.i21.i, %for.body.lr.ph.i ], [ %dec23.i, %for.body.i ]
-  %suffixSum.145.i = phi i64 [ %dec18.i, %for.body.lr.ph.i ], [ %sub36.i, %for.body.i ]
-  %dec23.i = add i64 %digit.046.i, -1
+  %digit.050.i = phi i64 [ %sub.ptr.div.i21.i, %for.body.lr.ph.i ], [ %dec23.i, %for.body.i ]
+  %suffixSum.149.i = phi i64 [ %dec18.i, %for.body.lr.ph.i ], [ %sub36.i, %for.body.i ]
+  %dec23.i = add i64 %digit.050.i, -1
   %12 = load ptr, ptr %d_termsSizes.i, align 8
   %add.ptr.i22.i = getelementptr inbounds i64, ptr %12, i64 %dec23.i
   %13 = load i64, ptr %add.ptr.i22.i, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %suffixSum.145.i)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %suffixSum.149.i)
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %11, i64 %dec23.i
   store i64 %.sroa.speculated.i, ptr %add.ptr.i24.i, align 8
   %14 = load ptr, ptr %d_termIndex.i, align 8
   %add.ptr.i25.i = getelementptr inbounds i64, ptr %14, i64 %dec23.i
   %15 = load i64, ptr %add.ptr.i25.i, align 8
-  %sub36.i = sub i64 %suffixSum.145.i, %15
+  %sub36.i = sub i64 %suffixSum.149.i, %15
   %cmp21.not.i = icmp eq i64 %sub36.i, 0
   %tobool24.not.i = icmp eq i64 %dec23.i, 0
-  %or.cond.i = or i1 %tobool24.not.i, %cmp21.not.i
-  br i1 %or.cond.i, label %cond.end, label %for.body.i, !llvm.loop !14
+  %or.cond36.i = or i1 %tobool24.not.i, %cmp21.not.i
+  br i1 %or.cond36.i, label %cond.end, label %for.body.i, !llvm.loop !14
 
 cond.false:                                       ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase18nextCombinationMaxEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
@@ -1995,8 +1995,8 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %d_termIndex, align 8
-  %tobool.not39 = icmp eq ptr %0, %1
-  br i1 %tobool.not39, label %return, label %while.body.lr.ph
+  %tobool.not42.not = icmp eq ptr %0, %1
+  br i1 %tobool.not42.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -2008,41 +2008,41 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %dec41.in = phi i64 [ %sub.ptr.div.i, %while.body.lr.ph ], [ %dec41, %if.end ]
-  %suffixSum.040 = phi i64 [ 0, %while.body.lr.ph ], [ %add12, %if.end ]
-  %dec41 = add i64 %dec41.in, -1
+  %dec44.in = phi i64 [ %sub.ptr.div.i, %while.body.lr.ph ], [ %dec44, %if.end ]
+  %suffixSum.043 = phi i64 [ 0, %while.body.lr.ph ], [ %add12, %if.end ]
+  %dec44 = add i64 %dec44.in, -1
   %2 = load ptr, ptr %d_termIndex, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %dec41
+  %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %dec44
   %3 = load i64, ptr %add.ptr.i, align 8
-  %cmp.not = icmp eq i64 %suffixSum.040, 0
+  %cmp.not = icmp eq i64 %suffixSum.043, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
   %add = add i64 %3, 1
   %4 = load ptr, ptr %d_termsSizes, align 8
-  %add.ptr.i13 = getelementptr inbounds i64, ptr %4, i64 %dec41
+  %add.ptr.i13 = getelementptr inbounds i64, ptr %4, i64 %dec44
   %5 = load i64, ptr %add.ptr.i13, align 8
   %cmp5 = icmp ult i64 %add, %5
   %6 = load i64, ptr %d_changePrefix, align 8
-  %cmp6 = icmp ult i64 %dec41, %6
-  %or.cond47 = select i1 %cmp5, i1 %cmp6, i1 false
-  br i1 %or.cond47, label %if.end17, label %if.end
+  %cmp6 = icmp ult i64 %dec44, %6
+  %or.cond = select i1 %cmp5, i1 %cmp6, i1 false
+  br i1 %or.cond, label %if.end17, label %if.end
 
 if.end:                                           ; preds = %while.body, %land.lhs.true
-  %add12 = add i64 %3, %suffixSum.040
+  %add12 = add i64 %3, %suffixSum.043
   store i64 0, ptr %add.ptr.i, align 8
-  %tobool.not = icmp eq i64 %dec41, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !13
+  %tobool.not.not = icmp eq i64 %dec44, 0
+  br i1 %tobool.not.not, label %return, label %while.body, !llvm.loop !13
 
 if.end17:                                         ; preds = %land.lhs.true
   store i64 %add, ptr %add.ptr.i, align 8
-  %dec18 = add i64 %suffixSum.040, -1
+  %dec18 = add i64 %suffixSum.043, -1
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %d_termIndex, align 8
-  %cmp21.not42 = icmp eq i64 %dec18, 0
-  %tobool24.not43 = icmp eq ptr %7, %8
-  %or.cond44 = select i1 %cmp21.not42, i1 true, i1 %tobool24.not43
-  br i1 %or.cond44, label %return, label %for.body.lr.ph
+  %cmp21.not46 = icmp eq i64 %dec18, 0
+  %tobool24.not47 = icmp eq ptr %7, %8
+  %or.cond3648 = select i1 %cmp21.not46, i1 true, i1 %tobool24.not47
+  br i1 %or.cond3648, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end17
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %8 to i64
@@ -2053,28 +2053,28 @@ for.body.lr.ph:                                   ; preds = %if.end17
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %9 = phi ptr [ %8, %for.body.lr.ph ], [ %12, %for.body ]
-  %digit.046 = phi i64 [ %sub.ptr.div.i21, %for.body.lr.ph ], [ %dec23, %for.body ]
-  %suffixSum.145 = phi i64 [ %dec18, %for.body.lr.ph ], [ %sub36, %for.body ]
-  %dec23 = add i64 %digit.046, -1
+  %digit.050 = phi i64 [ %sub.ptr.div.i21, %for.body.lr.ph ], [ %dec23, %for.body ]
+  %suffixSum.149 = phi i64 [ %dec18, %for.body.lr.ph ], [ %sub36, %for.body ]
+  %dec23 = add i64 %digit.050, -1
   %10 = load ptr, ptr %d_termsSizes, align 8
   %add.ptr.i22 = getelementptr inbounds i64, ptr %10, i64 %dec23
   %11 = load i64, ptr %add.ptr.i22, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %suffixSum.145)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %suffixSum.149)
   %add.ptr.i24 = getelementptr inbounds i64, ptr %9, i64 %dec23
   store i64 %.sroa.speculated, ptr %add.ptr.i24, align 8
   %12 = load ptr, ptr %d_termIndex, align 8
   %add.ptr.i25 = getelementptr inbounds i64, ptr %12, i64 %dec23
   %13 = load i64, ptr %add.ptr.i25, align 8
-  %sub36 = sub i64 %suffixSum.145, %13
+  %sub36 = sub i64 %suffixSum.149, %13
   %cmp21.not = icmp eq i64 %sub36, 0
   %tobool24.not = icmp eq i64 %dec23, 0
-  %or.cond = or i1 %cmp21.not, %tobool24.not
-  br i1 %or.cond, label %return, label %for.body, !llvm.loop !14
+  %or.cond36 = or i1 %cmp21.not, %tobool24.not
+  br i1 %or.cond36, label %return, label %for.body, !llvm.loop !14
 
 return:                                           ; preds = %if.end, %for.body, %entry, %if.end17
-  %found.134 = phi i1 [ true, %if.end17 ], [ false, %entry ], [ true, %for.body ], [ false, %if.end ]
-  ret i1 %found.134
+  %tobool.not39 = phi i1 [ true, %if.end17 ], [ false, %entry ], [ true, %for.body ], [ false, %if.end ]
+  ret i1 %tobool.not39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

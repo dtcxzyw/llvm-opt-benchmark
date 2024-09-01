@@ -2447,8 +2447,8 @@ lor.lhs.false32:                                  ; preds = %if.end26
   br i1 %cmp37, label %.thread58.thread, label %if.end102
 
 if.then35:                                        ; preds = %if.end26
-  %.str.10..str.11 = select i1 %tobool.not.i, ptr @.str.10, ptr @.str.11
   %.str.11..str.10 = select i1 %tobool.not.i, ptr @.str.11, ptr @.str.10
+  %.str.10..str.11 = select i1 %tobool.not.i, ptr @.str.10, ptr @.str.11
   %spec.select = select i1 %cmp37, ptr @.str.9, ptr %.str.11..str.10
   %spec.select73 = select i1 %cmp37, ptr @.str.8, ptr %.str.10..str.11
   br label %.thread58.thread

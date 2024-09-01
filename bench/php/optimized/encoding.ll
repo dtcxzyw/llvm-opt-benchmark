@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture n
 
 22:                                               ; preds = %7
   tail call void @file_oomem(ptr noundef nonnull %0, i64 noundef %19) #8
-  br label %245
+  br label %250
 
 23:                                               ; preds = %7
   store i64 0, ptr %spec.select, align 8
@@ -135,12 +135,12 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture n
 looks_utf7.exit:                                  ; preds = %52, %51
   store ptr @.str.3, ptr %4, align 8
   store ptr @.str.4, ptr %5, align 8
-  br label %245
+  br label %250
 
 .thread:                                          ; preds = %23, %48, %44, %40, %37, %34
   store ptr @.str.5, ptr %4, align 8
   store ptr @.str.6, ptr %5, align 8
-  br label %245
+  br label %250
 
 looks_ascii.exit:                                 ; preds = %.lr.ph.i
   %53 = load ptr, ptr %spec.store.select, align 8
@@ -178,7 +178,7 @@ looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge: ; preds = %l
 70:                                               ; preds = %looks_utf8_with_BOM.exit
   store ptr @.str.7, ptr %4, align 8
   store ptr @.str.8, ptr %5, align 8
-  br label %245
+  br label %250
 
 looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge, %looks_ascii.exit, %55, %58, %62
   %71 = phi ptr [ %.pre, %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge ], [ %53, %looks_ascii.exit ], [ %53, %55 ], [ %53, %58 ], [ %53, %62 ]
@@ -189,16 +189,16 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
 74:                                               ; preds = %looks_utf8_with_BOM.exit.thread
   store ptr @.str.9, ptr %4, align 8
   store ptr @.str.8, ptr %5, align 8
-  br label %245
+  br label %250
 
 75:                                               ; preds = %looks_utf8_with_BOM.exit.thread
   %76 = load ptr, ptr %spec.store.select, align 8
   %77 = icmp ult i64 %.0127, 4
-  br i1 %77, label %.loopexit191, label %78
+  br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %75
   %79 = load i8, ptr %11, align 1
-  switch i8 %79, label %.loopexit191 [
+  switch i8 %79, label %.loopexit [
     i8 -1, label %80
     i8 0, label %92
   ]
@@ -207,37 +207,37 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %81 = getelementptr inbounds i8, ptr %11, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, -2
-  br i1 %83, label %84, label %.loopexit191
+  br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %11, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 0
-  br i1 %87, label %88, label %.loopexit191
+  br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %11, i64 3
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 0
-  br i1 %91, label %104, label %.loopexit191
+  br i1 %91, label %104, label %.loopexit
 
 92:                                               ; preds = %78
   %93 = getelementptr inbounds i8, ptr %11, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %96, label %.loopexit191
+  br i1 %95, label %96, label %.loopexit
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds i8, ptr %11, i64 2
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, -2
-  br i1 %99, label %100, label %.loopexit191
+  br i1 %99, label %100, label %.loopexit
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds i8, ptr %11, i64 3
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, -1
-  br i1 %103, label %.thread56.i, label %.loopexit191
+  br i1 %103, label %.thread56.i, label %.loopexit
 
 104:                                              ; preds = %88
   store i64 0, ptr %spec.select, align 8
@@ -249,7 +249,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   store i64 0, ptr %spec.select, align 8
   %invariant.gep59.i = getelementptr i8, ptr %76, i64 -8
   %106 = icmp ugt i64 %.0127, 7
-  br i1 %106, label %.lr.ph.split.i, label %.loopexit193
+  br i1 %106, label %.lr.ph.split.i, label %.loopexit189
 
 .lr.ph.split.us.i:                                ; preds = %104, %139
   %107 = phi i64 [ %131, %139 ], [ 0, %104 ]
@@ -283,7 +283,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %gep.us.i = getelementptr i64, ptr %invariant.gep.i, i64 %131
   %132 = load i64, ptr %gep.us.i, align 8
   %133 = icmp eq i64 %132, 65534
-  br i1 %133, label %.loopexit191, label %134
+  br i1 %133, label %.loopexit, label %134
 
 134:                                              ; preds = %.lr.ph.split.us.i
   %135 = icmp ult i64 %132, 128
@@ -293,7 +293,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %137 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %132
   %138 = load i8, ptr %137, align 1
   %.not46.us.i = icmp eq i8 %138, 1
-  br i1 %.not46.us.i, label %139, label %.loopexit191
+  br i1 %.not46.us.i, label %139, label %.loopexit
 
 139:                                              ; preds = %136, %134
   %140 = add i64 %.047.us.i, 4
@@ -333,7 +333,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %gep.i = getelementptr i64, ptr %invariant.gep59.i, i64 %167
   %168 = load i64, ptr %gep.i, align 8
   %169 = icmp eq i64 %168, 65534
-  br i1 %169, label %.loopexit191, label %170
+  br i1 %169, label %.loopexit, label %170
 
 170:                                              ; preds = %.lr.ph.split.i
   %171 = icmp ult i64 %168, 128
@@ -343,211 +343,211 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %173 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %168
   %174 = load i8, ptr %173, align 1
   %.not46.i = icmp eq i8 %174, 1
-  br i1 %.not46.i, label %175, label %.loopexit191
+  br i1 %.not46.i, label %175, label %.loopexit
 
 175:                                              ; preds = %172, %170
   %176 = add i64 %.047.i, 4
   %177 = or disjoint i64 %176, 3
   %178 = icmp ult i64 %177, %.0127
-  br i1 %178, label %.lr.ph.split.i, label %.loopexit193
+  br i1 %178, label %.lr.ph.split.i, label %.loopexit189
 
 looks_ucs32.exit:                                 ; preds = %139, %104
   store ptr @.str.10, ptr %4, align 8
   store ptr @.str.11, ptr %5, align 8
-  br label %245
+  br label %250
 
-.loopexit193:                                     ; preds = %175, %.thread56.i
+.loopexit189:                                     ; preds = %175, %.thread56.i
   store ptr @.str.12, ptr %4, align 8
   store ptr @.str.13, ptr %5, align 8
-  br label %245
+  br label %250
 
-.loopexit191:                                     ; preds = %.lr.ph.split.i, %172, %.lr.ph.split.us.i, %136, %75, %100, %96, %92, %88, %84, %80, %78
+.loopexit:                                        ; preds = %.lr.ph.split.i, %172, %.lr.ph.split.us.i, %136, %75, %100, %96, %92, %88, %84, %80, %78
   %179 = load ptr, ptr %spec.store.select, align 8
   %180 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %.0127, ptr noundef %179, ptr noundef nonnull %spec.select)
   switch i32 %180, label %182 [
-    i32 0, label %.lr.ph.i148.preheader
+    i32 0, label %183
     i32 1, label %181
   ]
 
-181:                                              ; preds = %.loopexit191
+181:                                              ; preds = %.loopexit
   store ptr @.str.14, ptr %4, align 8
   store ptr @.str.15, ptr %5, align 8
-  br label %245
+  br label %250
 
-182:                                              ; preds = %.loopexit191
+182:                                              ; preds = %.loopexit
   store ptr @.str.16, ptr %4, align 8
   store ptr @.str.17, ptr %5, align 8
-  br label %245
+  br label %250
 
-.lr.ph.i148.preheader:                            ; preds = %.loopexit191
-  %183 = load ptr, ptr %spec.store.select, align 8
+183:                                              ; preds = %.loopexit
+  %184 = load ptr, ptr %spec.store.select, align 8
   store i64 0, ptr %spec.select, align 8
   br label %.lr.ph.i148
 
-.lr.ph.i148:                                      ; preds = %.lr.ph.i148.preheader, %191
-  %.01314.i = phi i64 [ %195, %191 ], [ 0, %.lr.ph.i148.preheader ]
-  %184 = getelementptr inbounds i8, ptr %11, i64 %.01314.i
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i64
-  %187 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %186
-  %188 = load i8, ptr %187, align 1
-  %189 = icmp ne i8 %188, 1
-  %190 = icmp ult i8 %185, -96
-  %or.cond.i = and i1 %190, %189
-  br i1 %or.cond.i, label %looks_latin1.exit, label %191
+.lr.ph.i148:                                      ; preds = %183, %192
+  %.01314.i = phi i64 [ %196, %192 ], [ 0, %183 ]
+  %185 = getelementptr inbounds i8, ptr %11, i64 %.01314.i
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i64
+  %188 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %187
+  %189 = load i8, ptr %188, align 1
+  %190 = icmp ne i8 %189, 1
+  %191 = icmp ult i8 %186, -96
+  %or.cond.i = and i1 %191, %190
+  br i1 %or.cond.i, label %looks_latin1.exit, label %192
 
-191:                                              ; preds = %.lr.ph.i148
-  %192 = load i64, ptr %spec.select, align 8
-  %193 = add i64 %192, 1
-  store i64 %193, ptr %spec.select, align 8
-  %194 = getelementptr inbounds i64, ptr %183, i64 %192
-  store i64 %186, ptr %194, align 8
-  %195 = add nuw i64 %.01314.i, 1
-  %exitcond.not.i149 = icmp eq i64 %195, %.0127
-  br i1 %exitcond.not.i149, label %.loopexit190, label %.lr.ph.i148
+192:                                              ; preds = %.lr.ph.i148
+  %193 = load i64, ptr %spec.select, align 8
+  %194 = add i64 %193, 1
+  store i64 %194, ptr %spec.select, align 8
+  %195 = getelementptr inbounds i64, ptr %184, i64 %193
+  store i64 %187, ptr %195, align 8
+  %196 = add nuw i64 %.01314.i, 1
+  %exitcond.not.i149 = icmp eq i64 %196, %.0127
+  br i1 %exitcond.not.i149, label %197, label %.lr.ph.i148
 
-.loopexit190:                                     ; preds = %191
+197:                                              ; preds = %192
   store ptr @.str.18, ptr %4, align 8
   store ptr @.str.19, ptr %5, align 8
-  br label %245
+  br label %250
 
 looks_latin1.exit:                                ; preds = %.lr.ph.i148
-  %196 = load ptr, ptr %spec.store.select, align 8
+  %198 = load ptr, ptr %spec.store.select, align 8
   store i64 0, ptr %spec.select, align 8
   br label %.lr.ph.i152
 
-.lr.ph.i152:                                      ; preds = %looks_latin1.exit, %205
-  %.01617.i = phi i64 [ %209, %205 ], [ 0, %looks_latin1.exit ]
-  %197 = getelementptr inbounds i8, ptr %11, i64 %.01617.i
-  %198 = load i8, ptr %197, align 1
-  %199 = zext i8 %198 to i64
-  %200 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %199
-  %201 = load i8, ptr %200, align 1
-  %202 = icmp ult i8 %198, -96
-  %203 = and i8 %201, -3
-  %204 = icmp ne i8 %203, 1
-  %or.cond3.i = and i1 %202, %204
-  br i1 %or.cond3.i, label %looks_extended.exit, label %205
+.lr.ph.i152:                                      ; preds = %looks_latin1.exit, %207
+  %.01617.i = phi i64 [ %211, %207 ], [ 0, %looks_latin1.exit ]
+  %199 = getelementptr inbounds i8, ptr %11, i64 %.01617.i
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i64
+  %202 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %201
+  %203 = load i8, ptr %202, align 1
+  %204 = icmp ult i8 %200, -96
+  %205 = and i8 %203, -3
+  %206 = icmp ne i8 %205, 1
+  %or.cond3.i = and i1 %204, %206
+  br i1 %or.cond3.i, label %looks_extended.exit, label %207
 
-205:                                              ; preds = %.lr.ph.i152
-  %206 = load i64, ptr %spec.select, align 8
-  %207 = add i64 %206, 1
-  store i64 %207, ptr %spec.select, align 8
-  %208 = getelementptr inbounds i64, ptr %196, i64 %206
-  store i64 %199, ptr %208, align 8
-  %209 = add nuw i64 %.01617.i, 1
-  %exitcond.not.i153 = icmp eq i64 %209, %.0127
-  br i1 %exitcond.not.i153, label %.loopexit189, label %.lr.ph.i152
+207:                                              ; preds = %.lr.ph.i152
+  %208 = load i64, ptr %spec.select, align 8
+  %209 = add i64 %208, 1
+  store i64 %209, ptr %spec.select, align 8
+  %210 = getelementptr inbounds i64, ptr %198, i64 %208
+  store i64 %201, ptr %210, align 8
+  %211 = add nuw i64 %.01617.i, 1
+  %exitcond.not.i153 = icmp eq i64 %211, %.0127
+  br i1 %exitcond.not.i153, label %212, label %.lr.ph.i152
 
-.loopexit189:                                     ; preds = %205
+212:                                              ; preds = %207
   store ptr @.str.20, ptr %4, align 8
   store ptr @.str.21, ptr %5, align 8
-  br label %245
+  br label %250
 
 looks_extended.exit:                              ; preds = %.lr.ph.i152
-  %210 = tail call noalias ptr @_emalloc(i64 noundef %18) #9
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %.lr.ph.i156
+  %213 = tail call noalias ptr @_emalloc(i64 noundef %18) #9
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %.lr.ph.i156
 
-212:                                              ; preds = %looks_extended.exit
+215:                                              ; preds = %looks_extended.exit
   tail call void @file_oomem(ptr noundef %0, i64 noundef %18) #8
-  br label %245
+  br label %250
 
 .lr.ph.i156:                                      ; preds = %looks_extended.exit, %.lr.ph.i156
-  %.06.i = phi i64 [ %219, %.lr.ph.i156 ], [ 0, %looks_extended.exit ]
-  %213 = getelementptr inbounds i8, ptr %11, i64 %.06.i
-  %214 = load i8, ptr %213, align 1
-  %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds [256 x i8], ptr @ebcdic_to_ascii, i64 0, i64 %215
+  %.06.i = phi i64 [ %222, %.lr.ph.i156 ], [ 0, %looks_extended.exit ]
+  %216 = getelementptr inbounds i8, ptr %11, i64 %.06.i
   %217 = load i8, ptr %216, align 1
-  %218 = getelementptr inbounds i8, ptr %210, i64 %.06.i
-  store i8 %217, ptr %218, align 1
-  %219 = add nuw i64 %.06.i, 1
-  %exitcond.not.i157 = icmp eq i64 %219, %.0127
+  %218 = zext i8 %217 to i64
+  %219 = getelementptr inbounds [256 x i8], ptr @ebcdic_to_ascii, i64 0, i64 %218
+  %220 = load i8, ptr %219, align 1
+  %221 = getelementptr inbounds i8, ptr %213, i64 %.06.i
+  store i8 %220, ptr %221, align 1
+  %222 = add nuw i64 %.06.i, 1
+  %exitcond.not.i157 = icmp eq i64 %222, %.0127
   br i1 %exitcond.not.i157, label %from_ebcdic.exit, label %.lr.ph.i156
 
 from_ebcdic.exit:                                 ; preds = %.lr.ph.i156
-  %220 = load ptr, ptr %spec.store.select, align 8
+  %223 = load ptr, ptr %spec.store.select, align 8
   store i64 0, ptr %spec.select, align 8
   br label %.lr.ph.i159
 
-.lr.ph.i159:                                      ; preds = %from_ebcdic.exit, %226
-  %.01112.i160 = phi i64 [ %230, %226 ], [ 0, %from_ebcdic.exit ]
-  %221 = getelementptr inbounds i8, ptr %210, i64 %.01112.i160
-  %222 = load i8, ptr %221, align 1
-  %223 = zext i8 %222 to i64
-  %224 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %223
+.lr.ph.i159:                                      ; preds = %from_ebcdic.exit, %229
+  %.01112.i160 = phi i64 [ %233, %229 ], [ 0, %from_ebcdic.exit ]
+  %224 = getelementptr inbounds i8, ptr %213, i64 %.01112.i160
   %225 = load i8, ptr %224, align 1
-  %.not.i161 = icmp eq i8 %225, 1
-  br i1 %.not.i161, label %226, label %looks_ascii.exit164
+  %226 = zext i8 %225 to i64
+  %227 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %226
+  %228 = load i8, ptr %227, align 1
+  %.not.i161 = icmp eq i8 %228, 1
+  br i1 %.not.i161, label %229, label %looks_ascii.exit164
 
-226:                                              ; preds = %.lr.ph.i159
-  %227 = load i64, ptr %spec.select, align 8
-  %228 = add i64 %227, 1
-  store i64 %228, ptr %spec.select, align 8
-  %229 = getelementptr inbounds i64, ptr %220, i64 %227
-  store i64 %223, ptr %229, align 8
-  %230 = add nuw i64 %.01112.i160, 1
-  %exitcond.not.i163 = icmp eq i64 %230, %.0127
-  br i1 %exitcond.not.i163, label %.loopexit188, label %.lr.ph.i159
+229:                                              ; preds = %.lr.ph.i159
+  %230 = load i64, ptr %spec.select, align 8
+  %231 = add i64 %230, 1
+  store i64 %231, ptr %spec.select, align 8
+  %232 = getelementptr inbounds i64, ptr %223, i64 %230
+  store i64 %226, ptr %232, align 8
+  %233 = add nuw i64 %.01112.i160, 1
+  %exitcond.not.i163 = icmp eq i64 %233, %.0127
+  br i1 %exitcond.not.i163, label %234, label %.lr.ph.i159
 
-.loopexit188:                                     ; preds = %226
+234:                                              ; preds = %229
   store ptr @.str.22, ptr %4, align 8
   store ptr @.str.23, ptr %5, align 8
-  br label %244
+  br label %249
 
 looks_ascii.exit164:                              ; preds = %.lr.ph.i159
-  %231 = load ptr, ptr %spec.store.select, align 8
+  %235 = load ptr, ptr %spec.store.select, align 8
   store i64 0, ptr %spec.select, align 8
   br label %.lr.ph.i166
 
-.lr.ph.i166:                                      ; preds = %looks_ascii.exit164, %239
-  %.01314.i167 = phi i64 [ %243, %239 ], [ 0, %looks_ascii.exit164 ]
-  %232 = getelementptr inbounds i8, ptr %210, i64 %.01314.i167
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i64
-  %235 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %234
-  %236 = load i8, ptr %235, align 1
-  %237 = icmp ne i8 %236, 1
-  %238 = icmp ult i8 %233, -96
-  %or.cond.i168 = and i1 %238, %237
-  br i1 %or.cond.i168, label %looks_latin1.exit171, label %239
+.lr.ph.i166:                                      ; preds = %looks_ascii.exit164, %243
+  %.01314.i167 = phi i64 [ %247, %243 ], [ 0, %looks_ascii.exit164 ]
+  %236 = getelementptr inbounds i8, ptr %213, i64 %.01314.i167
+  %237 = load i8, ptr %236, align 1
+  %238 = zext i8 %237 to i64
+  %239 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %238
+  %240 = load i8, ptr %239, align 1
+  %241 = icmp ne i8 %240, 1
+  %242 = icmp ult i8 %237, -96
+  %or.cond.i168 = and i1 %242, %241
+  br i1 %or.cond.i168, label %looks_latin1.exit171, label %243
 
-239:                                              ; preds = %.lr.ph.i166
-  %240 = load i64, ptr %spec.select, align 8
-  %241 = add i64 %240, 1
-  store i64 %241, ptr %spec.select, align 8
-  %242 = getelementptr inbounds i64, ptr %231, i64 %240
-  store i64 %234, ptr %242, align 8
-  %243 = add nuw i64 %.01314.i167, 1
-  %exitcond.not.i169 = icmp eq i64 %243, %.0127
-  br i1 %exitcond.not.i169, label %.loopexit, label %.lr.ph.i166
+243:                                              ; preds = %.lr.ph.i166
+  %244 = load i64, ptr %spec.select, align 8
+  %245 = add i64 %244, 1
+  store i64 %245, ptr %spec.select, align 8
+  %246 = getelementptr inbounds i64, ptr %235, i64 %244
+  store i64 %238, ptr %246, align 8
+  %247 = add nuw i64 %.01314.i167, 1
+  %exitcond.not.i169 = icmp eq i64 %247, %.0127
+  br i1 %exitcond.not.i169, label %248, label %.lr.ph.i166
 
-.loopexit:                                        ; preds = %239
+248:                                              ; preds = %243
   store ptr @.str.24, ptr %4, align 8
   store ptr @.str.23, ptr %5, align 8
-  br label %244
+  br label %249
 
 looks_latin1.exit171:                             ; preds = %.lr.ph.i166
   store ptr @.str.2, ptr %6, align 8
-  br label %244
-
-244:                                              ; preds = %.loopexit, %looks_latin1.exit171, %.loopexit188
-  %.1 = phi i32 [ 1, %.loopexit188 ], [ 1, %.loopexit ], [ 0, %looks_latin1.exit171 ]
-  tail call void @_efree(ptr noundef nonnull %210) #8
-  br label %245
-
-245:                                              ; preds = %.thread, %looks_utf7.exit, %74, %182, %181, %.loopexit189, %244, %.loopexit190, %looks_ucs32.exit, %.loopexit193, %70, %212, %22
-  %.0 = phi i32 [ 1, %22 ], [ 1, %looks_utf7.exit ], [ 1, %.thread ], [ 1, %70 ], [ 1, %74 ], [ 1, %looks_ucs32.exit ], [ 1, %.loopexit193 ], [ 1, %181 ], [ 1, %182 ], [ 1, %.loopexit190 ], [ 1, %.loopexit189 ], [ 1, %212 ], [ %.1, %244 ]
-  %246 = icmp eq ptr %spec.store.select, %8
-  br i1 %246, label %247, label %249
-
-247:                                              ; preds = %245
-  %248 = load ptr, ptr %8, align 8
-  call void @_efree(ptr noundef %248) #8
   br label %249
 
-249:                                              ; preds = %247, %245
+249:                                              ; preds = %248, %looks_latin1.exit171, %234
+  %.1 = phi i32 [ 1, %234 ], [ 1, %248 ], [ 0, %looks_latin1.exit171 ]
+  tail call void @_efree(ptr noundef nonnull %213) #8
+  br label %250
+
+250:                                              ; preds = %.thread, %looks_utf7.exit, %74, %182, %181, %212, %249, %197, %looks_ucs32.exit, %.loopexit189, %70, %215, %22
+  %.0 = phi i32 [ 1, %22 ], [ 1, %looks_utf7.exit ], [ 1, %.thread ], [ 1, %70 ], [ 1, %74 ], [ 1, %looks_ucs32.exit ], [ 1, %.loopexit189 ], [ 1, %181 ], [ 1, %182 ], [ 1, %197 ], [ 1, %212 ], [ 1, %215 ], [ %.1, %249 ]
+  %251 = icmp eq ptr %spec.store.select, %8
+  br i1 %251, label %252, label %254
+
+252:                                              ; preds = %250
+  %253 = load ptr, ptr %8, align 8
+  call void @_efree(ptr noundef %253) #8
+  br label %254
+
+254:                                              ; preds = %252, %250
   ret i32 %.0
 }
 

@@ -734,8 +734,8 @@ define hidden noundef zeroext i1 @_ZN15ShenandoahPacer15claim_for_allocEmb(ptr n
 
 .split:                                           ; preds = %3, %16
   %15 = load volatile i64, ptr %11, align 8
-  %.not14.not = icmp sge i64 %15, %10
-  br i1 %.not14.not, label %16, label %.split12.us
+  %.not13.not.not = icmp sge i64 %15, %10
+  br i1 %.not13.not.not, label %16, label %.split12.us
 
 16:                                               ; preds = %.split
   %17 = sub nsw i64 %15, %10
@@ -744,7 +744,7 @@ define hidden noundef zeroext i1 @_ZN15ShenandoahPacer15claim_for_allocEmb(ptr n
   br i1 %.not, label %.split12.us, label %.split, !llvm.loop !11
 
 .split12.us:                                      ; preds = %.split, %16, %.split.us
-  %.us-phi = phi i1 [ true, %.split.us ], [ %.not14.not, %16 ], [ %.not14.not, %.split ]
+  %.us-phi = phi i1 [ true, %.split.us ], [ %.not13.not.not, %16 ], [ %.not13.not.not, %.split ]
   ret i1 %.us-phi
 }
 
@@ -807,8 +807,8 @@ define hidden void @_ZN15ShenandoahPacer14pace_for_allocEm(ptr noundef nonnull a
 
 .split.i:                                         ; preds = %12, %2
   %11 = load volatile i64, ptr %10, align 8
-  %.not14.not.i = icmp slt i64 %11, %9
-  br i1 %.not14.not.i, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit, label %12
+  %.not13.not.i = icmp slt i64 %11, %9
+  br i1 %.not13.not.i, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit, label %12
 
 12:                                               ; preds = %.split.i
   %13 = sub nsw i64 %11, %9

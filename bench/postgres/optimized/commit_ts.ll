@@ -43,7 +43,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %89
+  br i1 %9, label %10, label %86
 
 10:                                               ; preds = %5
   %11 = icmp sgt i32 %1, 0
@@ -61,144 +61,131 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %18 = sext i32 %1 to i64
   br label %19
 
-19:                                               ; preds = %67, %17
-  %.032 = phi i32 [ %0, %17 ], [ %70, %67 ]
-  %.030 = phi i32 [ 0, %17 ], [ %71, %67 ]
+19:                                               ; preds = %64, %17
+  %.032 = phi i32 [ %0, %17 ], [ %67, %64 ]
+  %.030 = phi i32 [ 0, %17 ], [ %68, %64 ]
   %20 = udiv i32 %.032, 819
   %21 = urem i32 %.032, 819
   %22 = zext nneg i32 %20 to i64
   %23 = icmp slt i32 %.030, %1
   %24 = sext i32 %.030 to i64
-  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %23, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %19
-  %25 = getelementptr i32, ptr %2, i64 %24
+.lr.ph:                                           ; preds = %19, %28
+  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %24, %19 ]
+  %25 = getelementptr i32, ptr %2, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = udiv i32 %26, 819
-  %.not47 = icmp eq i32 %27, %20
-  br i1 %.not47, label %.lr.ph49, label %._crit_edge.loopexit.split.loop.exit
+  %.not.not = icmp eq i32 %27, %20
+  br i1 %.not.not, label %28, label %._crit_edge.loopexit.split.loop.exit
 
-.lr.ph:                                           ; preds = %.lr.ph49
-  %28 = getelementptr i32, ptr %2, i64 %indvars.iv.next
-  %29 = load i32, ptr %28, align 4
-  %30 = udiv i32 %29, 819
-  %.not = icmp eq i32 %30, %20
-  br i1 %.not, label %.lr.ph49, label %._crit_edge.loopexit.split.loop.exit.loopexit, !llvm.loop !5
-
-.lr.ph49:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv48 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %indvars.iv.next = add nsw i64 %indvars.iv48, 1
+28:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge.loopexit.split.loop.exit.loopexit:    ; preds = %.lr.ph
-  %31 = icmp slt i64 %indvars.iv.next, %18
-  br label %._crit_edge.loopexit.split.loop.exit
-
-._crit_edge.loopexit.split.loop.exit:             ; preds = %._crit_edge.loopexit.split.loop.exit.loopexit, %.lr.ph.preheader
-  %indvars.iv.lcssa = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge.loopexit.split.loop.exit.loopexit ]
-  %.lcssa43 = phi i1 [ true, %.lr.ph.preheader ], [ %31, %._crit_edge.loopexit.split.loop.exit.loopexit ]
-  %32 = trunc nsw i64 %indvars.iv.lcssa to i32
+._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
+  %29 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph49, %._crit_edge.loopexit.split.loop.exit, %19
-  %.0.lcssa = phi i32 [ %.030, %19 ], [ %32, %._crit_edge.loopexit.split.loop.exit ], [ %1, %.lr.ph49 ]
-  %.lcssa = phi i1 [ false, %19 ], [ %.lcssa43, %._crit_edge.loopexit.split.loop.exit ], [ false, %.lr.ph49 ]
-  %33 = sub i32 %.0.lcssa, %.030
-  %34 = getelementptr i32, ptr %2, i64 %24
-  %35 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
-  %36 = zext i16 %35 to i64
-  %37 = and i64 %36, %22
-  %38 = load ptr, ptr @CommitTsCtlData, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr %union.LWLockPadded, ptr %40, i64 %37
-  %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #9
-  %43 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %22, i1 noundef zeroext true, i32 noundef %.032) #9
-  %44 = load ptr, ptr @CommitTsCtlData, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+._crit_edge:                                      ; preds = %28, %._crit_edge.loopexit.split.loop.exit, %19
+  %.0.lcssa = phi i32 [ %.030, %19 ], [ %29, %._crit_edge.loopexit.split.loop.exit ], [ %1, %28 ]
+  %.lcssa = phi i1 [ false, %19 ], [ true, %._crit_edge.loopexit.split.loop.exit ], [ false, %28 ]
+  %30 = sub i32 %.0.lcssa, %.030
+  %31 = getelementptr i32, ptr %2, i64 %24
+  %32 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %33 = zext i16 %32 to i64
+  %34 = and i64 %33, %22
+  %35 = load ptr, ptr @CommitTsCtlData, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr %union.LWLockPadded, ptr %37, i64 %34
+  %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef %38, i32 noundef 0) #9
+  %40 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %22, i1 noundef zeroext true, i32 noundef %.032) #9
+  %41 = load ptr, ptr @CommitTsCtlData, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = sext i32 %40 to i64
+  %45 = getelementptr ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = sext i32 %43 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
   %narrow.i.i = mul nuw nsw i32 %21, 10
-  %50 = zext nneg i32 %narrow.i.i to i64
-  %51 = getelementptr i8, ptr %49, i64 %50
-  store i64 %3, ptr %51, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %51, i64 8
+  %47 = zext nneg i32 %narrow.i.i to i64
+  %48 = getelementptr i8, ptr %46, i64 %47
+  store i64 %3, ptr %48, align 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 8
   store i16 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %52 = icmp sgt i32 %33, 0
-  br i1 %52, label %.lr.ph.preheader.i, label %SetXidCommitTsInPage.exit
+  %49 = icmp sgt i32 %30, 0
+  br i1 %49, label %.lr.ph.preheader.i, label %SetXidCommitTsInPage.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %wide.trip.count.i = zext nneg i32 %33 to i64
+  %wide.trip.count.i = zext nneg i32 %30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %53 = getelementptr i32, ptr %34, i64 %indvars.iv.i
-  %54 = load i32, ptr %53, align 4
-  %55 = urem i32 %54, 819
-  %56 = load ptr, ptr @CommitTsCtlData, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %47
-  %60 = load ptr, ptr %59, align 8
-  %narrow.i17.i = mul nuw nsw i32 %55, 10
-  %61 = zext nneg i32 %narrow.i17.i to i64
-  %62 = getelementptr i8, ptr %60, i64 %61
-  store i64 %3, ptr %62, align 1
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %62, i64 8
+  %50 = getelementptr i32, ptr %31, i64 %indvars.iv.i
+  %51 = load i32, ptr %50, align 4
+  %52 = urem i32 %51, 819
+  %53 = load ptr, ptr @CommitTsCtlData, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr ptr, ptr %55, i64 %44
+  %57 = load ptr, ptr %56, align 8
+  %narrow.i17.i = mul nuw nsw i32 %52, 10
+  %58 = zext nneg i32 %narrow.i17.i to i64
+  %59 = getelementptr i8, ptr %57, i64 %58
+  store i64 %3, ptr %59, align 1
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %59, i64 8
   store i16 %4, ptr %.sroa.2.0..sroa_idx.i18.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %SetXidCommitTsInPage.exit, label %.lr.ph.i, !llvm.loop !7
 
 SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_edge
-  %63 = load ptr, ptr @CommitTsCtlData, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr i8, ptr %65, i64 %47
-  store i8 1, ptr %66, align 1
-  tail call void @LWLockRelease(ptr noundef %41) #9
-  br i1 %.lcssa, label %67, label %72
+  %60 = load ptr, ptr @CommitTsCtlData, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr i8, ptr %62, i64 %44
+  store i8 1, ptr %63, align 1
+  tail call void @LWLockRelease(ptr noundef %38) #9
+  br i1 %.lcssa, label %64, label %69
 
-67:                                               ; preds = %SetXidCommitTsInPage.exit
-  %68 = sext i32 %.0.lcssa to i64
-  %69 = getelementptr i32, ptr %2, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %71 = add nsw i32 %.0.lcssa, 1
+64:                                               ; preds = %SetXidCommitTsInPage.exit
+  %65 = sext i32 %.0.lcssa to i64
+  %66 = getelementptr i32, ptr %2, i64 %65
+  %67 = load i32, ptr %66, align 4
+  %68 = add nsw i32 %.0.lcssa, 1
   br label %19
 
-72:                                               ; preds = %SetXidCommitTsInPage.exit
-  %73 = load ptr, ptr @MainLWLockArray, align 8
-  %74 = getelementptr i8, ptr %73, i64 4992
-  %75 = tail call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0) #9
-  %76 = load ptr, ptr @commitTsShared, align 8
-  store i32 %0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  store i64 %3, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 16
-  store i16 %4, ptr %78, align 8
-  %79 = load ptr, ptr @TransamVariables, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 44
-  %81 = load i32, ptr %80, align 4
-  %82 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %81, i32 noundef %.031) #9
-  br i1 %82, label %83, label %86
+69:                                               ; preds = %SetXidCommitTsInPage.exit
+  %70 = load ptr, ptr @MainLWLockArray, align 8
+  %71 = getelementptr i8, ptr %70, i64 4992
+  %72 = tail call zeroext i1 @LWLockAcquire(ptr noundef %71, i32 noundef 0) #9
+  %73 = load ptr, ptr @commitTsShared, align 8
+  store i32 %0, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  store i64 %3, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %73, i64 16
+  store i16 %4, ptr %75, align 8
+  %76 = load ptr, ptr @TransamVariables, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 44
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %78, i32 noundef %.031) #9
+  br i1 %79, label %80, label %83
 
-83:                                               ; preds = %72
-  %84 = load ptr, ptr @TransamVariables, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 44
-  store i32 %.031, ptr %85, align 4
+80:                                               ; preds = %69
+  %81 = load ptr, ptr @TransamVariables, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 44
+  store i32 %.031, ptr %82, align 4
+  br label %83
+
+83:                                               ; preds = %80, %69
+  %84 = load ptr, ptr @MainLWLockArray, align 8
+  %85 = getelementptr i8, ptr %84, i64 4992
+  tail call void @LWLockRelease(ptr noundef %85) #9
   br label %86
 
-86:                                               ; preds = %83, %72
-  %87 = load ptr, ptr @MainLWLockArray, align 8
-  %88 = getelementptr i8, ptr %87, i64 4992
-  tail call void @LWLockRelease(ptr noundef %88) #9
-  br label %89
-
-89:                                               ; preds = %5, %86
+86:                                               ; preds = %5, %83
   ret void
 }
 

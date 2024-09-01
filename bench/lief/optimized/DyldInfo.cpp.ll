@@ -14348,13 +14348,13 @@ define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8D
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorIPN4LIEF5MachO15DyldBindingInfoEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %46 = icmp ugt i64 %.06.i.i.i.i, 1152921504606846974
-  br i1 %46, label %.noexc.i, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
+  br i1 %46, label %.noexc.i, label %_ZNSt12_Vector_baseIPN4LIEF5MachO15DyldBindingInfoESaIS3_EE11_M_allocateEm.exit.i.i
 
 .noexc.i:                                         ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIPN4LIEF5MachO15DyldBindingInfoEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.205) #30
   unreachable
 
-.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i:             ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIPN4LIEF5MachO15DyldBindingInfoEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
+_ZNSt12_Vector_baseIPN4LIEF5MachO15DyldBindingInfoESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIPN4LIEF5MachO15DyldBindingInfoEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit.i.i
   %47 = shl nuw nsw i64 %45, 3
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #28
   store ptr %48, ptr %14, align 8
@@ -14363,9 +14363,9 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIPN4LIEF5MachO15DyldBindingInfoEEENSt15
   store ptr %49, ptr %50, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
-  %.08.i.i.i.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %.sroa.03.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %42, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN4LIEF5MachO15DyldBindingInfoESaIS3_EE11_M_allocateEm.exit.i.i
+  %.08.i.i.i.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %48, %_ZNSt12_Vector_baseIPN4LIEF5MachO15DyldBindingInfoESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.03.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %42, %_ZNSt12_Vector_baseIPN4LIEF5MachO15DyldBindingInfoESaIS3_EE11_M_allocateEm.exit.i.i ]
   %51 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i.i.i, i64 32
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %.08.i.i.i.i.i.i.i.i.i.i, align 8
@@ -15156,7 +15156,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_.exit.i.i.i": ; preds = %.noexc205
   %331 = getelementptr inbounds i8, ptr %.sroa.0555.3.lcssa, i64 128
   %.not9.i.i.i.i = icmp eq ptr %331, %.sroa.11.1.lcssa
-  br i1 %.not9.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit", label %.lr.ph.i12.i.i.i
+  br i1 %.not9.i.i.i.i, label %.lr.ph668, label %.lr.ph.i12.i.i.i
 
 .lr.ph.i12.i.i.i:                                 ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_.exit.i.i.i", %.noexc206
   %.sroa.0.010.i.i.i.i = phi ptr [ %332, %.noexc206 ], [ %331, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_.exit.i.i.i" ]
@@ -15166,15 +15166,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
 .noexc206:                                        ; preds = %.lr.ph.i12.i.i.i
   %332 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i.i.i, i64 8
   %.not.i13.i.i.i = icmp eq ptr %332, %.sroa.11.1.lcssa
-  br i1 %.not.i13.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit", label %.lr.ph.i12.i.i.i, !llvm.loop !83
+  br i1 %.not.i13.i.i.i, label %.lr.ph668, label %.lr.ph.i12.i.i.i, !llvm.loop !83
 
 333:                                              ; preds = %.noexc200
   %.not23.i16.i.i.i = icmp eq ptr %scevgep.i.i.i, %.sroa.11.1.lcssa
-  br i1 %.not23.i16.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread724", label %.lr.ph.i17.i.i.i
-
-"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread724": ; preds = %333
-  store i64 0, ptr %16, align 8
-  br label %.lr.ph668
+  br i1 %.not23.i16.i.i.i, label %.lr.ph668, label %.lr.ph.i17.i.i.i
 
 .lr.ph.i17.i.i.i:                                 ; preds = %333, %.noexc211
   %.sroa.0.025.i18.i.i.i = phi ptr [ %.sroa.0.0.i22.i.i.i, %.noexc211 ], [ %scevgep.i.i.i, %333 ]
@@ -15261,13 +15257,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
 .noexc211:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS3_15DyldBindingInfoESt8functionIFbS7_S7_EESaIS7_EESt6vectorIPNS3_14RelocationDyldESaISH_EERNS2_15vector_iostreamEE3$_0EclINS_17__normal_iteratorIPmSF_ImSaImEEEEST_EEbT_T0_.exit.thread.i21.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i24.i.i.i
   %.sroa.0.0.i22.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.025.i18.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %.sroa.0.0.i22.i.i.i, %.sroa.11.1.lcssa
-  br i1 %.not.i23.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit", label %.lr.ph.i17.i.i.i, !llvm.loop !82
+  br i1 %.not.i23.i.i.i, label %.lr.ph668, label %.lr.ph.i17.i.i.i, !llvm.loop !82
 
-"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit": ; preds = %.noexc211, %.noexc206, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_.exit.i.i.i"
+.lr.ph668:                                        ; preds = %.noexc211, %.noexc206, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_.exit.i.i.i", %333
   store i64 0, ptr %16, align 8
-  br i1 %.not.i.i197, label %._crit_edge669, label %.lr.ph668
-
-.lr.ph668:                                        ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread724", %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit"
   %385 = load ptr, ptr %14, align 8
   %invariant.gep = getelementptr i8, ptr %385, i64 -8
   %386 = getelementptr inbounds i8, ptr %15, i64 8
@@ -15446,7 +15439,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJi
   %.not592 = icmp eq ptr %453, %.sroa.11.1.lcssa
   br i1 %.not592, label %._crit_edge669, label %388
 
-._crit_edge669:                                   ; preds = %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJiiEEERS3_DpOT_.exit, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread", %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit"
+._crit_edge669:                                   ; preds = %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJiiEEERS3_DpOT_.exit, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread"
   store i8 0, ptr %35, align 1
   store i32 0, ptr %36, align 4
   %454 = getelementptr inbounds i8, ptr %15, i64 8
